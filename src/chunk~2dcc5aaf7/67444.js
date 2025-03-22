@@ -1,0 +1,15 @@
+module.exports = {
+	narrowWidth: "500px",
+	SettingsDialogButton: "_3epr8QYWw_FqFgMx38YEEm",
+	SettingsDialogSubHeader: "_2rK4YqGvSzXLj1bPZL8xMJ",
+	SettingsDialogBodyText: "_1RCWDLVLFja1TdD1P53BMq",
+	SettingsLink: "RmxP90Yut4EIwychIEg51",
+	SettingsDialogDescriptionText: "_3w92Ej5Kq7nbt5WACQ6jwI",
+	SettingsDialogLinkContainer: "_2YrnIu4lM2H-Z7mzvtdxca",
+	SettingsDialogLink: "_2nfitwrjDUBo3Ia5BTtw50",
+	SettingsModal: "_3few7361SOf4k_YuKCmM62",
+	DesktopPopup: "MzjwfxXSiSauz8kyEuhYO",
+	SettingsDialogBodyFade: "aFxOaYcllWYkCfVYQJFs0",
+	ScrollingBodyOverride: "_1vcjarzcrA5za-1hznjful",
+	SettingsTitleBar: "_5FicoanuNlrOvwQ3dkOVm",
+};

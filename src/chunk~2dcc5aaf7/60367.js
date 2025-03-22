@@ -1,0 +1,15 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	AppVideoCtn: "_5T6C7ESpj4ynwbH8LS101",
+	WishlistBadge: "_1H947zVMI4eix33y6Vyrm0",
+	Active: "QO_OlPouxqbJBf7_YhDcB",
+	DeckVerifiedLogo: "_32nCthjo6y3PW8ly04ygbU",
+	VideoArea: "_1dktHf2Jq2wDCCvlx1tpMJ",
+	IgnoredCtn: "_1fmpWkA3raMRNRb2988jsO",
+	IgnoredInfo: "_12r_HcaLl4JO7AfMLMEZqE",
+	IgnoredTitle: "_2NLzxMudKrBejIZmxYz-Wu",
+	IgnoredDescription: "_3ViR4YrtH0a-mK6EiPgOSB",
+	UndoIgnoreButton: "_177VX9-0Tj1sNozNrm8bN1",
+	UndoButton: "_3HOpXzFuRFY1WwrPL-fxOi",
+	Disabled: "_3xyNp4rGNpDJtxvww4ZCOR",
+};

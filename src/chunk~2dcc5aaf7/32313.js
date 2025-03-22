@@ -1,0 +1,15 @@
+module.exports = {
+	BroadcastStatusWidth: "200px",
+	BroadcastStatusHeight: "48px",
+	BroadcastStatusBody: "_3t4AGpHmFth4qnMdNTgSXR",
+	Desktop: "_41JATpJNPbLUmaYbAVj6H",
+	BroadcastStatusDetails: "RSl-wOQAcT8jjn8P5o5lH",
+	BroadcastStatusLine: "_163_BlfrG4zbBzpw58U0SD",
+	LiveText: "_1BxgJEATUKQziSpY1r0vno",
+	Icon: "_3sx3euT2qEn2-54e4so8qN",
+	Microphone: "-eaXEmkoE9W8kLzQZ_FiP",
+	Active: "_1mbdOXgFr1S67UqESSbt2b",
+	Live: "_12DTgphtXeHNI9rLMgZwwR",
+	Stats: "_231Y0nCwKmk3bg7IOL-4jx",
+	Requests: "_2mpTKiR_pWe5Z9LknI--al",
+};

@@ -1,0 +1,16 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	Container: "_6-WKlwpwjgMWFow-NM_W4",
+	HeroImageContainer: "_1NwZvAibxPFLbkzXzl8LlW",
+	InCollection: "_1HS4twEHtDJ_8MWgJT4VBd",
+	InHidden: "_3-M9bcTzYOSRoajtIRDbka",
+	HeaderFeatures: "_2b6WkTnmJxMuX1biL7aS3C",
+	HeaderFriendsInGameBadge: "_1wNTI2wpkBeKC_Uz9WoEqp",
+	ExitEditModeButton: "i7jBC4aexUlu_modj8Jwm",
+	DemoBannerWrapper: "zInfpBRpyEJg6xU_CJQ17",
+	DemoBanner: "_3EXklzsbt_QeypOM4_vp1K",
+	Text: "_5PJElx6vly7dqkwVaao_b",
+	StreamingCalloutMessage: "_2beig47ZXKaTbduEUlEm_n",
+	Column: "_329r5jA4K6HvWj5H4GWqDS",
+	Row: "XL--niazcJ0Ec0oEwuDWd",
+};

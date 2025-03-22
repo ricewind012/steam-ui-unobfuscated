@@ -1,0 +1,14 @@
+export var h;
+(function (e) {
+	e.General = "general";
+	e.Compatibility = "compatibility";
+	e.Updates = "updates";
+	e.LocalFiles = "localfiles";
+	e.Language = "language";
+	e.Betas = "betas";
+	e.Controller = "controller";
+	e.Shortcut = "shortcut";
+	e.Dlc = "dlc";
+	e.Workshop = "workshop";
+	e.Feedback = "feedback";
+})((h ||= {}));

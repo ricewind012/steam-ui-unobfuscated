@@ -1,0 +1,18 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	OOBEButton: "_2Pycdz8wxbwtPBlhPAOHEU",
+	Disabled: "_13eTnp_W1jG4e5Te7CRJI2",
+	Icons: "_2W7Eot130VnX7MjudpI8Pp",
+	Label: "_13a-LDi-jOxJNU6JarMc8a",
+	BackgroundAnimation: "_2hKQ2BRlcmD9ac_Add9XcP",
+	"ItemFocusAnim-darkerGrey-nocolor": "Y7A5Bp4k_UybgouGGu3NL",
+	"ItemFocusAnim-darkerGrey": "_2Nl4JJhr2_o1XqmaPVMTtG",
+	"ItemFocusAnim-darkGrey": "_2Z8fa2aA-EH4lIOKlpjHmm",
+	"ItemFocusAnim-grey": "_3foN4J1qrIIC_BKCyL6h6F",
+	"ItemFocusAnim-translucent-white-10": "kj0wLLf5ee0ukWuV71MHX",
+	"ItemFocusAnim-translucent-white-20": "_2aEXS2J_Ir38v7eNZU7pWK",
+	"ItemFocusAnimBorder-darkGrey": "_1xICzAmhbW-7ar01a3vMfF",
+	"ItemFocusAnim-green": "_1R-uBQwpBzBvB51dteGnXH",
+	focusAnimation: "_2QYyW_erzRu76082UXo5na",
+	hoverAnimation: "_2RqxPI4BZMJVIH1v51DET",
+};

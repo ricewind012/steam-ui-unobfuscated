@@ -1,0 +1,15 @@
+module.exports = {
+	SuspendDialog: "_3579bzh8xDL8Du3019J05O",
+	Spacer: "zLPEsoGuyAwn1FGYcGfu1",
+	LoadingThrobber: "_2X0aEXpvRiFLHJwErptjCh",
+	SuspendVideo: "s11wNASQj9b6mnpalvXoR",
+	ResumeDialog: "_1L-VDdK-L39u1v2bK3OvH8",
+	LoadingStatus: "ltbzAdVNg_rk47up9_03G",
+	FadeToBlackDialog: "_28-4eRIeDghU7CLTlinbl1",
+	fadeIn: "_2A6gpTMcFsuZJljKSo4S77",
+	DelayedActionDialog: "_1JxosgXfXuJgIhpXtc0nTt",
+	DelayedActionContents: "_2iiLrloEOJrfgN0GX4V6m1",
+	Icon: "soKGQACRVSmwOhzppTeMT",
+	ResumeDialogInner: "_1p9CMRm4GZeE1VuWJzq-RS",
+	ResumeDialogInnerText: "gsl0PJw_KAEsJZ9zqUcyV",
+};

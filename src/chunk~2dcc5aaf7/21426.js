@@ -1,0 +1,18 @@
+module.exports = {
+	BreakNarrow: "1158px",
+	BreakWide: "1774px",
+	BreakUltraWide: "2100px",
+	BreakShort: "600px",
+	BreakTall: "1200px",
+	RightBreakUltraNarrow: "600px",
+	RightBreakNarrow: "884px",
+	RightBreakWide: "1500px",
+	RightBreakUltraWide: "1826px",
+	GamepadUIBreakNarrow: "853px",
+	GamepadUIBreakWide: "1280px",
+	GamepadUIBreakShort: "500px",
+	Body: "_2Tzz81osPnp8yMIK31C63w",
+	ErrorText: "_4EU3sQ376ki6jeT1Qw3p7",
+	TextInput: "sLyAbUma18eNqN7YC1iNz",
+	RemotePlayStoreBlockedDialog: "_3VYWGSYqpM6sG6FUxT8pXx",
+};

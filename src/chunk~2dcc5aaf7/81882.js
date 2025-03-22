@@ -1,0 +1,15 @@
+module.exports = {
+	Spinner: "_3m_2lh1eA4HcHpt48En7kr",
+	SpinnerSpokeFade: "_2Wg5df41BfHnoLgawx_2pb",
+	WirelessConnectingActive: "cop8-_JMlxROh84HxKn1k",
+	WifiBar1: "_1o6HA3kQiHOuG850embnDc",
+	WifiBar1Anim: "_1PDAZ8_p3QD4UEodB33ZWN",
+	WifiBar2: "_1q8-nNsxUgdR1e5-qquKhq",
+	WifiBar2Anim: "QyijTe76r73C2YEReyqyL",
+	WifiBar3: "_23ih_RI5RGrVxYWrefeNC",
+	WifiBar3Anim: "_2wGDzjkXcSY4cHOHwsX4lg",
+	WifiBar4: "_2DSRH-7cAVL5MFH4nlJ69A",
+	WifiBar4Anim: "_3jrA8AMmWDnOD3_xIL5b3",
+	GenericGamepadHighlight: "_3-ZZDE9nzm0Tq9xSGLby1a",
+	GenericGamepadEmpty: "_1toTlId7W50QaHwhm2SfyW",
+};

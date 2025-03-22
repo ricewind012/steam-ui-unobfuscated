@@ -1,0 +1,7 @@
+{
+	"name": "steam-ui-unobfuscated",
+	"version": "1.0.0",
+	"dependencies": {
+		"@biomejs/biome": "^1.9.4"
+	}
+}

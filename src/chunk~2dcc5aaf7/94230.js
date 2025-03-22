@@ -1,0 +1,15 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	chatEntryControls: "_3Ule3rolhZJiBN4yNNtk1s",
+	chatTextarea: "_113iuw_HlE_qSgt9cGWCSv",
+	chatEntryActionsGroup: "_2WfNoLBdfKwyutA6ho4aSH",
+	chatEntryActionsContainer: "W0OhkJtz8zMUW8Mhu0BMO",
+	minHeightZero: "_2zeehYTQ2oNY7TvjqGC_gL",
+	chatSubmitButton: "RVIs84dAE6wHcjH9tkinc",
+	EmbedButton: "_3zOBeq5W4cNK3lRz_7aroW",
+	EmoticonPickerButton: "Aupswi7-c-w3XwNO5cp2i",
+	disabled: "jaQN2IyN4P8LZXJ6P11qy",
+	Inactive: "_3G-I9qj7vqOe6SOFG27ohD",
+	AudioLines: "IWabakUFeIH_d5rhBZ6dG",
+	Active: "_37tPtXtV-sv9XgDHjS2cnj",
+};

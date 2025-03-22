@@ -1,0 +1,15 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	ToastContainerEmbedded: "_39n3uHCyyTbUj5s9L1wa61",
+	BackgroundAnimation: "gH2xVbgpqSt7mrQGOA8mg",
+	"ItemFocusAnim-darkerGrey-nocolor": "eoB_-7Pl3JsW22jhDrrWA",
+	"ItemFocusAnim-darkerGrey": "uBErDomT46GChLoKP_DBC",
+	"ItemFocusAnim-darkGrey": "_1dEaO3VB_syGgP8GTNlTDY",
+	"ItemFocusAnim-grey": "_3zlmyBF2ZevQVyu8SvmITG",
+	"ItemFocusAnim-translucent-white-10": "froyz_zIXf5enJ0zm3Fqb",
+	"ItemFocusAnim-translucent-white-20": "_1LBa906hMSuKwLOwSwXfty",
+	"ItemFocusAnimBorder-darkGrey": "_2a_0FDtc8wyp6tPAG9mIoL",
+	"ItemFocusAnim-green": "YTsjDmEeeBAm-xBVTqFUp",
+	focusAnimation: "_5b5pB4mEpsAtbFKeURqAa",
+	hoverAnimation: "_1SQkR3SM23bnoO_ap3T8WI",
+};

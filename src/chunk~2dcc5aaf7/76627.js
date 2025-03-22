@@ -1,0 +1,18 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	narrowWidth: "500px",
+	Container: "_30v-6zb_axOypIUr5VRHE1",
+	ToolbarRowOverflowContainer: "nXEH21nf47u2OH7BjQKei",
+	ToolbarRow: "LCeIT0gmFTY8fdfaVgk4j",
+	Gap: "_19z0fjj7o0n9vAjVjvYZNU",
+	Spacer: "_2m1BBIp5Ewr1TI-BkqFGLM",
+	CommandButton: "_1dEi5qzSDdPOzoOQXYbNLN",
+	Toggled: "_1Iw5xoXQXfmRjgjWTKbm_G",
+	FileUploadPlaceholder: "_2P-FBc3tZWGeeBFplDSb9g",
+	Throbber: "_12t6JmDCFT6MqtNVrSi5NJ",
+	PendingImage: "_2HezQYTfmFfdRmuB8l9QPI",
+	FileUploadDragDrop: "_1WRaNQqBKcUp67ntgoyEeQ",
+	FileUploadDropFilesMessage: "I2CE9X_I0GBNYbJf7VYBg",
+	TooltipWithShortcut: "zT2msZmm-jBeLe4Dt7smo",
+	KeyCap: "_3mZEV9CXrIn4FITvJk3Xy-",
+};

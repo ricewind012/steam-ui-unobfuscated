@@ -1,0 +1,18 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	nRowHeight: "17px",
+	Console: "_1fuML-ekRbTEzgzC597yGP",
+	ConsoleInner: "GTdO0X-5EOwChz3fc2iLU",
+	KeyboardVisible: "_2bR1U12B51FnreOHiO4lfL",
+	LineWrapper: "_1fl59ZPppQJ-RufpnbFYpn",
+	Timestamp: "XaJOkIpwk-she1NM8AzPk",
+	SpewLine: "_3jy873nqjNYyriykDzLA_",
+	Error: "_1su6b5TTKWmVCiIO05QxQY",
+	Warning: "_1_sfF8PJnA70SCQg-HQZQM",
+	Assert: "_3O8kZQ0Xqm4ErZTM9rQPXQ",
+	Input: "_31oMFXwhAQkbEmbu8gWse9",
+	ConsoleInput: "_2SdqX9SccD_TtDat-bNo5-",
+	InputBox: "_85zZFeTLvuYj4UEcaKwPL",
+	Suggestions: "_3S6c8sJBYgCcCWf9JGDkOu",
+	Suggestion: "_3C1UCvuAZ2oINYSTpUPD04",
+};

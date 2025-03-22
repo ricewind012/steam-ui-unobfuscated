@@ -1,0 +1,16 @@
+module.exports = {
+	Container: "_3rFFUJJVlS0W9hEA3hVEUa",
+	NumericButtonInput: "_2wl_hk5SjW9COBW6DRQrTf",
+	NumericButtonOption: "_2c4Hz8Y8kYqeq1W1Jeq52q",
+	DigitIndicator: "_3eHNjs62dIltuSUaqjGRh9",
+	Filled: "i68YlG2VRi5b7hPMCZiyI",
+	Details: "aLaNwAEcdBFnXVdc4Nzix",
+	DetailsGroup: "_1Ewy74JD3THErSWk9wSliJ",
+	Prompt: "_3aUT84qO5C3sjfj8G8hIKA",
+	Directions: "vNjDQRABe6lwA6tOpBefX",
+	Indicators: "_3fJq6rBJ7S5sNtyQfIfgoF",
+	IncorrectPIN: "OmybPci28zjdK4Lh6uPDx",
+	ResetDescription: "mRPNNmT-dIaBARu0lIxjh",
+	ResetWarning: "_1ur8gz7auRZSLqkJM3L_tZ",
+	PINClearedQuestion: "_260Qqjqt6_ZzkaR3UgvmCV",
+};

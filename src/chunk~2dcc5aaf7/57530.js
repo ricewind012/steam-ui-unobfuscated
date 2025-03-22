@@ -1,0 +1,16 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	KeyCaptureModal: "_3ZMKuTjfKpR-tJKchGu6HT",
+	KeyCapture: "_2LRif1NKUxREP-usXA9urF",
+	Disabled: "fdA_4y8Ah3H4CQXsObbfi",
+	KeyCaptureHeader: "_1C1zfOLIEBWwwbw9OITMfn",
+	Header: "_3znVOuk4uHjd1U3MCmOE8M",
+	Subhead: "_3YOY3VL1bTF5JyfNJU_cOs",
+	KeyCaptureCenter: "ABoPqFJGtc5JYodSs09nZ",
+	Explainer: "_1Vl7A_2cKAwxEADWNRFD-B",
+	KeyCaptureContainer: "_10CJ8LGhmuTOZ-kU_QwOfw",
+	UnbindButton: "_2WkJpi6EQMR6CUXzMDJ9rq",
+	KeyCaptureBottomRow: "_2nsfzGVKQTaryZqhcYg9Gp",
+	Capturing: "_1HPWwrauzbr2d3YL2thk98",
+	WalkDashedOutline: "_3GrPC-oFEuMrlJ5WOSnX5e",
+};

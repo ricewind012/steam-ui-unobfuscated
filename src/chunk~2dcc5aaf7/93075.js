@@ -1,0 +1,18 @@
+module.exports = {
+	ErrorConditionBackground: "_3bFjiNM-fj5WMVMUa8LZKT",
+	ErrorConditionContainer: "_1C84luK9dQovzGP1ZlNuLL",
+	Header: "_2zUgH7uEVO5bCoUFhmcAqs",
+	SubHeader: "jcmDt-9w3J01Dl5xoVlGE",
+	Reason: "_1Mtp-v-6nnsQnnFxu9yRAo",
+	BackgroundAnimation: "ma25ugzJxeIS0riM3DdvM",
+	"ItemFocusAnim-darkerGrey-nocolor": "_13ptQUps1N_WQYP3VS3Lnd",
+	"ItemFocusAnim-darkerGrey": "_3MsGx8SI-s68Ch0bNPD0SY",
+	"ItemFocusAnim-darkGrey": "_1j9nnz770yRLCeKJDWuzq2",
+	"ItemFocusAnim-grey": "_16VK04eXstgRnNxTj2iynM",
+	"ItemFocusAnim-translucent-white-10": "KJ2vTwp0zVr6zJx9tx971",
+	"ItemFocusAnim-translucent-white-20": "_1x9Fm2OEVwsCl4N6Gqt_eX",
+	"ItemFocusAnimBorder-darkGrey": "M79F3pmCeAbBy-NRpYyUF",
+	"ItemFocusAnim-green": "WMsRMhAP3PSkG52zWnkF1",
+	focusAnimation: "_3TdJmxpncR9Vfv-k2ycNsP",
+	hoverAnimation: "Q8X4uy1YcKwoHhQrlXSED",
+};

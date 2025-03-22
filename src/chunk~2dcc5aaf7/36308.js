@@ -1,0 +1,16 @@
+module.exports = {
+	General: "_38sRYifM5bHCBBAIeuABUx",
+	Avatar: "_2TJPfQdxYFN81vJw-YW9ok",
+	AvatarAndUser: "_3-e9k12ttwoC0nGNdXyJeV",
+	NoIconLabel: "_2c3OKW255HvX-X5cpenCgx",
+	ChannelsButtons: "Rv511F1U683LQWJLvan2r",
+	Notification: "_1cjXkI2JrN71BK7A2YXaYa",
+	LeaveButton: "_1NqKTWvxtFgflRlqLTtv7e",
+	PermissionsEdit: "_1PFRw63SmEC5gmtojKrml1",
+	Back: "_2jkBm4Wv_CFFjeaDrhEKax",
+	PermissionsGroup: "_2xRhyKnM3bD57wEJR8YrPS",
+	PermissionToggle: "_1gPDLO3hXAj6KoEe8uTClT",
+	PermissionsDescription: "smf_g4nX5ambmZVuWX6AG",
+	RoleNameHeader: "_29XR1SNMJVrwOTq4Ssc0HJ",
+	FixedRoleName: "_1aH13bilXD26v3MbunavIS",
+};

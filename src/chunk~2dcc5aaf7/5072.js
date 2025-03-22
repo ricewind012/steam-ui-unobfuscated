@@ -1,0 +1,16 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	EntryLabel: "_30qj_go1hm7_x09KzHFVna",
+	EntryValue: "_1PBuyc38k9xkUt4KB_lXh-",
+	Status: "_33C6cdP-j-G568fKF9rz0p",
+	SteamGuardIcon: "eYz3vzuTb_a2I4dRJ-vf9",
+	Enabled: "_2oPrfqovwxSwJvGiR0XZtb",
+	EnabledTwoFactor: "oyCF6bR2o2qn-4PQdxBRv",
+	Subheader: "_2dugqZ0TI7OxPPLsqpzvaQ",
+	SavedCredentialsPinSettings: "FkTVNmhzYah7YtJe2XNpg",
+	UseSavedCredentialsPin: "_1ItPthjwaOa1mvCHSB8Gv2",
+	SetSavedCredentialsPinCtn: "_1nTWuivMuNocnlztENFJH7",
+	SetSavedCredentialsPin: "P016bwfxAnTbfOO9YmmUL",
+	SetSavedCredentialPinFooter: "_3P3x8YFCNTJ3NhC8MrvtCR",
+	SetPinOKCancelButtons: "K1xIq0u4JCm7HNI3y0R-5",
+};

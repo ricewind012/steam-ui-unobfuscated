@@ -1,0 +1,16 @@
+module.exports = {
+	narrowWidth: "500px",
+	RoleIcon: "_1uvKF_UbD6VhnVdaRkXhbu",
+	ProfileLink: "_2oSTSohQ1CZIgVn7E6_0Ft",
+	MeBadge: "_2W_HQa5Rhf-hHITgV5H0bu",
+	PlayerName: "AdQYbMq7HHJ3Jgljib9UX",
+	RoleAndIcon: "_3VzCnvA_1SxskuCqmZkkHA",
+	RoleName: "_3C9nRrwzQk9qHlJx6NaXDI",
+	FamilyErrorDisplay: "egC2pffk2Ff-wvlnEHOqf",
+	FamilyMemberRow: "_2LyGIHuQ8SFKb5T262YUvg",
+	FamilyMemberRowTop: "mz0H0iSlLfX7SQ7hv3kVY",
+	Left: "_3wWOEuQJ9QVG2xqb3s4xTw",
+	InvitePending: "_1IeeH6Qo58UdaFJ3hkLMzs",
+	ExpandRowButton: "_3Qa1urRRWR4tjkBSNaO8Wi",
+	Selected: "r0ToHd0tmv46GM00Lr0a_",
+};

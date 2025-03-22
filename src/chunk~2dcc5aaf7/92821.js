@@ -1,0 +1,18 @@
+module.exports = {
+	GyroRotationAxisIcon: "g7noT7YxwM5n3eVy0RMtw",
+	RotateChilden: "_2UVaMCd5o_4_dTUaB9ch2T",
+	Rotatable: "_1vcj49lJ9gpCeSZHC7wKD_",
+	AxisIcon: "_1hz8eyjdWybmQlZG-MBQXo",
+	GyroBarField: "_2OnwIagz5iEd5wOk6Z9FVJ",
+	StandardMargin: "g7cxSGKihcLcB-x7LWIMc",
+	Icon: "DABlxjzW1NyzaZhrmVBx0",
+	ProgressBar: "_2VCd-2F_zasXcshwdbxHXo",
+	ZeroLine: "_2pprIEvYg9yxfCkSYy3Jb8",
+	Percent: "_2kHcaeclSjfG-eU0IhzYQ0",
+	LabelText: "M9tOtW2IE3UkuBQyIEXUl",
+	GyroNoiseMonitor: "_1tdwK9sqeSFbcFsAgsLfRr",
+	NoiseMeterBase: "_4EsG0NitcQDODEeBXMNS4",
+	Row: "_3EvK-5qJkdnPTL_z1RyA7L",
+	NoiseMeter: "_2HnZmed-mYPVaa9i4A47lH",
+	NoisePip: "_1horSsSDOLDUtXLkFoSENc",
+};

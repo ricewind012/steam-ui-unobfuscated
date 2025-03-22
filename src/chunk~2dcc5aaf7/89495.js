@@ -1,0 +1,15 @@
+module.exports = {
+	MessageReactions: "_1Ab0f8lGXvkC0tPjkFoYj8",
+	OpenPickerButton: "_2FJUPOjT7afeB0125mqdQt",
+	AddReactionIcon: "_3XfQ_NReAGO_XZ7IQEUNTZ",
+	Plus: "_2YHrf2fI4VgpaENp_7HDsk",
+	MessageReaction: "UA15KlVbtDSJkqSpIAMIN",
+	EmoticonReaction: "m89hcklEIZomEEXW7E4Ky",
+	Large: "_2lMYTZ_JeNiu0RllNmRnjz",
+	StickerReaction: "Ki1SGbezePO_5kPHBY1g9",
+	ReactionCount: "a2_2ffGgB_f8RBwW8D8Rj",
+	ReactionHover: "RQYkyiM4TDn3t-i5FmXKL",
+	HoverDescription: "_1wba__jbML-7qtlaoD9cDo",
+	ReactorName: "J37y-ZUFS3Op2rKg5OMwV",
+	ReactionName: "_3FPVoWgPkoRMVqKjE9pMNq",
+};

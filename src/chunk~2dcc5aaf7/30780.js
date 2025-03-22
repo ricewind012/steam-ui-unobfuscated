@@ -1,0 +1,15 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	"gamepad-page-content-max-width-default": "1100px",
+	"gamepad-page-content-min-gutter-width": "150px",
+	GamepadPage: "_2FqpD91Xarb7f0uIOuXFOR",
+	OverflowHidden: "_2aDc-8kXeKmdb8nqdYitwZ",
+	DialogBackground: "_2msTK3-o4cp9CtotjGbijT",
+	PadForHeader: "_3HmKopozOpD872AXmHpr1u",
+	PadForFooter: "_1anH6MdqtFW4a9cvoZsjzI",
+	Flexed: "_15Ymb1OOfFUP4fAvwoG7Mc",
+	GamepadPageDialogContent: "_5ZP0mr4KbDTOe7j-tDi8m",
+	FullWidth: "_3jAqoPwcgtazQ53rcwSAHU",
+	NoVerticalPadding: "_2BTGTxmVNuhpW3BlawpNID",
+	NoHorizontalPadding: "sCVDXCQUF3sbkNK2y-rq1",
+};

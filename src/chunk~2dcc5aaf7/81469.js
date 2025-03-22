@@ -1,0 +1,18 @@
+module.exports = {
+	GameRecordingPlayer: "_1AGqAVUQuj81DaUOKJ9Eon",
+	Overlay: "_1PKb5jI6E9EN9uLLK030zW",
+	NoVideo: "DaqWGn7r6dsiUT-0iSrbT",
+	PositionAbsolute: "_1OoTISs44U6oUjpL0fTCLm",
+	VideoFadeIn: "_3oLlzv-aDkyT4cHgaeENJI",
+	PlayingClippedRegion: "_1j1-Ir0r57qAcNurF2Vw5Q",
+	ClippingMode: "_8y8y6OQZb4pxeWWBVk3lJ",
+	PlayerError: "_3ixlq8K1YVBNIk7rw190aK",
+	Title: "_3jzI6mjmcbRqEVzPuCJYv5",
+	Description: "_1jQ8TJZ3F4Ma6ZUMrMp0aa",
+	Buttons: "_2eqwm-fL9OYKl0X03c1q_a",
+	Button: "_2Jhopz5mqnwHwBUX9sMIGY",
+	DisableButton: "rq1uEI9jHMgnF1LIsVsJg",
+	PerfCtnVideo: "adSGJAq-6dCBUokBxFrBa",
+	PerfCtnThumbnails: "_1Yw-S-TvqNOTTuBoAAYqse",
+	LoadingSpinner: "_3O0u0sQlmSmP2MRXulRGEc",
+};

@@ -1,0 +1,17 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	Container: "_1R9r2OBCxAmtuUVrgBEUBw",
+	PortraitImage: "_3Ehhd5MxErV_bXQE4qVhzB",
+	LandscapeImage: "ZsU8nIIpj8MJn0vzMzSp1",
+	GreyBackground: "_2E7G8grj_-tgxXbTXs1t2E",
+	Image: "_24_AuLm54JVe1Zc0AApCDR",
+	Visibility: "_3d_bT685lnWotXxgzKW6am",
+	Visible: "yDr03475kalWBTwAE-Rnw",
+	Hidden: "_1qs7padwOF1HmpOVo_fWDu",
+	NoTransitions: "_2A3-t5PA7lv9_XsLyn10Zp",
+	DemoBanner: "_2Rdc6pUgmVdZQzQidmrXuh",
+	Title: "_13fGPw2BaM5wWIahr2xNKt",
+	ShowDemoBanner: "_2Sp4M-a2AepmhsSr80AUq7",
+	LongTitles: "_35G8cQ1kQIoGyUIch8Afz1",
+	Short: "_1wwg7iBm8dO3KYNKQGh7BQ",
+};

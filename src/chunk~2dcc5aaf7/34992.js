@@ -1,0 +1,17 @@
+module.exports = {
+	"duration-app-launch": "800ms",
+	Picker: "tid_OE5NJWCCVJQP1PfRc",
+	Tabs: "_1yVkTX9Mo_7qb2sxWhM0Cr",
+	Tab: "_2CJ0LpiSgVs2JuTlwbzBM",
+	Focus: "_1xH5si_KorJpS4ST2Geksh",
+	TabContent: "_1mROo5bpUJSg8D8ILx7qpw",
+	Active: "_1ddEQAfz6GuVRSEqk-d0r",
+	Content: "dUQIH8Qg80N6kjB8UQO0P",
+	ItemList: "_2OWGRbhpXNcuR3oih9IGrX",
+	Item: "_1SFqyFzFrpPOEAKCrq2kKZ",
+	SectionedPageTitle: "ZmsElITvVzU-7a2HXKBZI",
+	SectionTitle: "_3WuFl419BivPeLqeVIC939",
+	FilterInputContainer: "EuFePPYFGrcf99uLXmBYN",
+	FilterInput: "_2l4z-U60lABvd9XWArGjAf",
+	AddonPickerMessage: "_2wUk7QR9TZiiKB4bX_9EgD",
+};
