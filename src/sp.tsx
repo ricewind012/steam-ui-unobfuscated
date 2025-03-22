@@ -29,12 +29,12 @@ function W(props: WProps) {
 			language: Config.LANGUAGE,
 			realm: Config.EREALM,
 		}),
-		[]
+		[],
 	);
 
 	useEffect(
 		() => CStoreItemCache.Initialize(pAnonymousServiceTransport),
-		[pAnonymousServiceTransport]
+		[pAnonymousServiceTransport],
 	);
 
 	return (

@@ -24,7 +24,7 @@ export class AwardIcon extends PureComponent<AwardIconProps> {
 		const strToolTipText = LocalizePlural(
 			"#RewardsReaction_Tooltip",
 			this.props.reaction.count || 0,
-			GetLocTokenForReactionType(this.props.reaction.reaction_type)
+			GetLocTokenForReactionType(this.props.reaction.reaction_type),
 		);
 
 		return (
@@ -55,7 +55,7 @@ export class AwardIconList extends PureComponent<AwardIconListProps> {
 		const vecList = [];
 		for (const reaction of this.props.reactions) {
 			vecList.push(
-				<AwardIcon key={reaction.reaction_type} reaction={reaction} />
+				<AwardIcon key={reaction.reaction_type} reaction={reaction} />,
 			);
 		}
 		return <div className={styles.IconList}>{vecList}</div>;

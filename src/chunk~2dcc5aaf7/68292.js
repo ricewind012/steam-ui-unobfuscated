@@ -46,7 +46,7 @@ class C {
 					this.m_eWebLogonState = 15;
 					this.m_bWaitingToReconnect = true;
 				}
-			}
+			},
 		);
 	}
 	get web_logon_state() {
@@ -71,7 +71,7 @@ class C {
 		if (this.m_dtNextLogonAttempt) {
 			return Math.max(
 				0,
-				this.m_dtNextLogonAttempt.getTime() - new Date().getTime()
+				this.m_dtNextLogonAttempt.getTime() - new Date().getTime(),
 			);
 		} else {
 			return 0;
@@ -122,7 +122,7 @@ class C {
 		if (e.token_use_id) {
 			if (window.sessionStorage.getItem("token_use_id") == e.token_use_id) {
 				console.log(
-					"In-page token has already been consumed, requesting a new token."
+					"In-page token has already been consumed, requesting a new token.",
 				);
 				e = null;
 			} else {
@@ -163,11 +163,11 @@ class C {
 		})(t, this.m_eSteamRealm);
 		if (this.m_CMInterface.session.m_nSessionIDLast) {
 			t.Body().set_last_session_id(
-				this.m_CMInterface.session.m_nSessionIDLast >>> 0
+				this.m_CMInterface.session.m_nSessionIDLast >>> 0,
 			);
 		}
 		t.Body().set_client_instance_id(
-			this.m_CMInterface.session.m_nClientInstanceID
+			this.m_CMInterface.session.m_nClientInstanceID,
 		);
 		this.m_CMInterface.Connect().then(() => {
 			s.iA.logged_in = true;
@@ -187,7 +187,7 @@ class C {
 		}
 		(0, h.w)(
 			this.m_eWebLogonState != 11,
-			"RetryLogin called while request in flight"
+			"RetryLogin called while request in flight",
 		);
 		if (this.m_eWebLogonState != 11) {
 			this.m_eWebLogonState = 11;
@@ -318,7 +318,7 @@ export const x9 = (e) => {
 		(0, b.wE)(
 			r.FriendStore,
 			r.ChatStore,
-			document.getElementById("friendslist-container")
+			document.getElementById("friendslist-container"),
 		);
 	}
 	return c;
