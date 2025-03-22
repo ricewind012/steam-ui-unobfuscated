@@ -6,6 +6,8 @@ Differences:
 
 - Linted with [Biome](https://biomejs.dev/)
 - TypeScript types are added where needed
+- No SCSS - possible, but the focus is on the TypeScript part right now
+- According to webcrack, the entire codebase uses CommonJS, this will use ESM
 - Namespace/dynamic imports are replaced by named imports & sorted (I don't know whether or not it's done by webpack, but yeah)
 - The obfuscated variables are replaced with Hungarian notation names, the readable parts (React props, class methods, etc.) stay as is
 

@@ -137,7 +137,7 @@ var w = require(/*webcrack:missing*/ "./46108.js");
 var B = require(/*webcrack:missing*/ "./52451.js");
 var v = require("./67060.js");
 var I = require("./95745.js");
-var E = require("./28017.js");
+var E = require("../awards/utils.js");
 var M = require("./99624.js");
 const T = (e) => {
 	const { className: t, ...r } = e;
@@ -192,7 +192,7 @@ class F extends o.PureComponent {
 		});
 	}
 	render() {
-		const e = (0, E.e)(
+		const e = E.GetReactionImageURL(
 			this.props.reactionType,
 			!this.props.bDisableAnimation &&
 				(this.state.bHovered || this.props.bForceAnimated),
@@ -598,7 +598,7 @@ let P = class extends o.Component {
 											{
 												className: I.AwardName,
 											},
-											(0, E.h)(a),
+											E.GetLocTokenForReactionType(a),
 										),
 									),
 								),
@@ -1009,7 +1009,7 @@ class U extends o.PureComponent {
 					{
 						className: I.Label,
 					},
-					(0, E.h)(e),
+					E.GetLocTokenForReactionType(e),
 				),
 				o.createElement(
 					V,

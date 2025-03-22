@@ -24,7 +24,7 @@ var v = require(/*webcrack:missing*/ "./26667.js");
 var I = require("./13869.js");
 var E = require("./35488.js");
 var M = require(/*webcrack:missing*/ "./47742.js");
-var T = require("./28017.js");
+var T = require("../awards/utils.js");
 var R = require(/*webcrack:missing*/ "./31084.js");
 var k = require(/*webcrack:missing*/ "./88750.js");
 export function iN(e) {
@@ -459,7 +459,7 @@ function x(e) {
 			className: b.UGCReaction,
 		},
 		n.createElement("img", {
-			src: (0, T.e)(r, false),
+			src: T.GetReactionImageURL(r, false),
 			className: b.ReactionImage,
 		}),
 		t > 1 && n.createElement("span", null, t),
