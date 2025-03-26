@@ -15,7 +15,15 @@ var h = require("./48130.js");
 var C = require(/*webcrack:missing*/ "./50376.js");
 var _ = require(/*webcrack:missing*/ "./31084.js");
 var f = require(/*webcrack:missing*/ "./88750.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizePlural,
+	LocalizeReact,
+	LocalizationManager,
+	LocalizeDateHumanReadable,
+	LocalizeCalendarTime,
+} from "../../actual_src/utils/localization.js";
 var y = require("./5640.js");
 var S = require("./19696.js");
 var w = require(/*webcrack:missing*/ "./11131.js");
@@ -24,7 +32,7 @@ var v = require("./50341.js");
 var I = require("./89411.js");
 var E = require("./63367.js");
 var M = require(/*webcrack:missing*/ "./88696.js");
-var T = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
 var R = require("./34428.js");
 var k = require(/*webcrack:missing*/ "./52451.js");
 var D = require("./52698.js");
@@ -40,7 +48,7 @@ const P = {
 			{
 				actions: [
 					{
-						label: (0, b.we)("#Generic_Close"),
+						label: Localize("#Generic_Close"),
 						onClick: t,
 					},
 				],
@@ -51,7 +59,7 @@ const P = {
 					className: O.CheckingForUpdates,
 				},
 				d.createElement(te, null),
-				d.createElement(Z, null, (0, b.we)("#ClientUpdate_Checking")),
+				d.createElement(Z, null, Localize("#ClientUpdate_Checking")),
 			),
 		);
 	},
@@ -59,11 +67,11 @@ const P = {
 		const { updater: t, onRequestClose: r } = e;
 		const n = [
 			{
-				label: (0, b.we)("#ClientUpdate_ApplyAndRestart"),
+				label: Localize("#ClientUpdate_ApplyAndRestart"),
 				disabled: true,
 			},
 			{
-				label: (0, b.we)("#ClientUpdate_Defer"),
+				label: Localize("#ClientUpdate_Defer"),
 				disabled: true,
 				onClick: r,
 			},
@@ -96,7 +104,7 @@ const P = {
 		const { updater: t, onError: r, onRequestClose: n } = e;
 		const i = [
 			{
-				label: (0, b.we)("#ClientUpdate_Download"),
+				label: Localize("#ClientUpdate_Download"),
 				onClick: () =>
 					t.ApplyUpdate(t.GetAvailableTypes(), ({ eResult: e }) =>
 						Promise.resolve(
@@ -108,7 +116,7 @@ const P = {
 					),
 			},
 			{
-				label: (0, b.we)("#ClientUpdate_Defer"),
+				label: Localize("#ClientUpdate_Defer"),
 				onClick: n,
 			},
 		];
@@ -123,12 +131,12 @@ const P = {
 				d.createElement(
 					Z,
 					null,
-					(0, b.oW)(
+					LocalizeInlineReactWithFallback(
 						"#ClientUpdate_AvailableAndPatchNotes",
 						d.createElement(U, null),
 					),
 				),
-				d.createElement(Y, null, (0, b.we)("#ClientUpdate_Available_Prompt")),
+				d.createElement(Y, null, Localize("#ClientUpdate_Available_Prompt")),
 			),
 		);
 	},
@@ -144,7 +152,7 @@ const P = {
 			{
 				actions: [
 					{
-						label: (0, b.we)("#Generic_Close"),
+						label: Localize("#Generic_Close"),
 						onClick: t,
 					},
 				],
@@ -152,7 +160,7 @@ const P = {
 			d.createElement(
 				Z,
 				null,
-				(0, b.oW)(
+				LocalizeInlineReactWithFallback(
 					n,
 					d.createElement(U, {
 						onClick: () => {
@@ -172,7 +180,7 @@ const L = {
 			{
 				...e,
 			},
-			(0, b.we)("#ClientUpdate_NotEnoughSpace"),
+			Localize("#ClientUpdate_NotEnoughSpace"),
 		);
 	},
 	40: function (e) {
@@ -345,14 +353,14 @@ function W(e) {
 	const { onRequestClose: t } = e;
 	const r = [
 		{
-			label: (0, b.we)("#ClientUpdate_ApplyAndRestart"),
+			label: Localize("#ClientUpdate_ApplyAndRestart"),
 			onClick: () => {
 				new M.A().StoreString(J, "1");
 				SteamClient.User.StartRestart(false);
 			},
 		},
 		{
-			label: (0, b.we)("#ClientUpdate_Defer"),
+			label: Localize("#ClientUpdate_Defer"),
 			onClick: t,
 		},
 	];
@@ -367,16 +375,12 @@ function W(e) {
 			d.createElement(
 				Z,
 				null,
-				(0, b.oW)(
+				LocalizeInlineReactWithFallback(
 					"#ClientUpdate_AvailableAndPatchNotes",
 					d.createElement(U, null),
 				),
 			),
-			d.createElement(
-				Y,
-				null,
-				(0, b.we)("#ClientUpdate_RestartPending_Prompt"),
-			),
+			d.createElement(Y, null, Localize("#ClientUpdate_RestartPending_Prompt")),
 		),
 	);
 }
@@ -387,7 +391,7 @@ function V(e) {
 		{
 			...e,
 		},
-		(0, b.we)(
+		Localize(
 			t
 				? "#ClientUpdate_Checking_GenericError"
 				: "#ClientUpdate_Applying_GenericError",
@@ -398,11 +402,11 @@ function H(e) {
 	const { onRequestClose: t, clearError: r, children: n } = e;
 	const i = [
 		{
-			label: (0, b.we)("#ClientUpdate_ErrorTryAgain"),
+			label: Localize("#ClientUpdate_ErrorTryAgain"),
 			onClick: r,
 		},
 		{
-			label: (0, b.we)("#Generic_Close"),
+			label: Localize("#Generic_Close"),
 			onClick: t,
 		},
 	];
@@ -597,7 +601,7 @@ function $(e) {
 					{
 						className: O.DownloadingLabel,
 					},
-					(0, b.we)("#ClientUpdate_Downloading"),
+					Localize("#ClientUpdate_Downloading"),
 				),
 				d.createElement(
 					"div",
@@ -613,7 +617,7 @@ function $(e) {
 				{
 					className: O.TimeRemaining,
 				},
-				(0, T.R2)(t),
+				LocalizeTimeRemaining(t),
 			),
 		),
 		d.createElement(ee, {
@@ -666,14 +670,14 @@ function ne(e) {
 	const a = (0, n.bG)("SteamClientBetaPatchNotes");
 	const s = [
 		{
-			label: (0, b.we)("#BetaOptIn_SeeChanged"),
+			label: Localize("#BetaOptIn_SeeChanged"),
 			onClick: () => {
 				r();
 				a();
 			},
 		},
 		{
-			label: (0, b.we)("#BetaOptIn_Dismiss"),
+			label: Localize("#BetaOptIn_Dismiss"),
 			onClick: r,
 		},
 	];
@@ -693,11 +697,11 @@ function ne(e) {
 				{
 					className: O.BetaOptInMessages,
 				},
-				d.createElement(Z, null, (0, b.we)("#BetaOptIn_Updated")),
+				d.createElement(Z, null, Localize("#BetaOptIn_Updated")),
 				d.createElement(
 					Y,
 					null,
-					(0, b.oW)(
+					LocalizeInlineReactWithFallback(
 						"#BetaOptIn_ThankYou",
 						d.createElement("a", {
 							href: "#",
@@ -762,14 +766,14 @@ function ae(e) {
 	const a = (0, n.bG)("SteamClientPatchNotes");
 	const s = [
 		{
-			label: (0, b.we)("#BetaOptIn_SeeChanged"),
+			label: Localize("#BetaOptIn_SeeChanged"),
 			onClick: () => {
 				r();
 				a();
 			},
 		},
 		{
-			label: (0, b.we)("#BetaOptIn_Dismiss"),
+			label: Localize("#BetaOptIn_Dismiss"),
 			onClick: r,
 		},
 	];
@@ -789,11 +793,11 @@ function ae(e) {
 				{
 					className: O.BetaOptInMessages,
 				},
-				d.createElement(Z, null, (0, b.we)("#BetaOptIn_Updated")),
+				d.createElement(Z, null, Localize("#BetaOptIn_Updated")),
 				d.createElement(
 					Y,
 					null,
-					(0, b.oW)(
+					LocalizeInlineReactWithFallback(
 						"#BetaOptIn_WeShipped",
 						d.createElement("a", {
 							href: "#",
@@ -839,14 +843,14 @@ const ge = (e) => {
 			{
 				onSelected: i,
 			},
-			(0, b.we)("#BottomBar_AddNonSteam"),
+			Localize("#BottomBar_AddNonSteam"),
 		),
 		d.createElement(
 			f.kt,
 			{
 				onSelected: a,
 			},
-			(0, b.we)("#BottomBar_ActivateProduct"),
+			Localize("#BottomBar_ActivateProduct"),
 		),
 		d.createElement(
 			f.kt,
@@ -854,7 +858,7 @@ const ge = (e) => {
 				className: (0, p.A)(c && me.ContextMenuItemDisabled),
 				onSelected: c ? () => t(l, 1, o) : o,
 			},
-			(0, b.we)("#BottomBar_BrowseStore"),
+			Localize("#BottomBar_BrowseStore"),
 		),
 	);
 };
@@ -891,7 +895,7 @@ const he = () => {
 				{
 					className: me.Text,
 				},
-				(0, b.we)("#BottomBar_AddGame"),
+				Localize("#BottomBar_AddGame"),
 			),
 		);
 	}
@@ -912,7 +916,7 @@ const Ce = () => {
 			{
 				className: me.Text,
 			},
-			(0, b.we)("#BottomBar_FriendsAndChat"),
+			Localize("#BottomBar_FriendsAndChat"),
 		),
 		d.createElement(
 			"div",
@@ -953,10 +957,10 @@ const _e = () => {
 	}
 	S =
 		!l && _ > 0
-			? (0, b.Yp)("#BottomBar_DownloadQueue", _, h)
+			? LocalizePlural("#BottomBar_DownloadQueue", _, h)
 			: l && p > 0
-				? (0, b.Yp)("#BottomBar_PausedQueue", p)
-				: (0, b.we)("#BottomBar_Manage");
+				? LocalizePlural("#BottomBar_PausedQueue", p)
+				: Localize("#BottomBar_Manage");
 	const B = !r && a && y;
 	const v = !B && !r && a;
 	return d.createElement(
@@ -996,7 +1000,7 @@ const _e = () => {
 					{
 						className: me.Status,
 					},
-					(0, b.we)(w),
+					Localize(w),
 				),
 			B &&
 				d.createElement(fe, {
@@ -1226,7 +1230,7 @@ const ze = (e) => {
 const xe = (e) => {
 	const { bOSX: t, ...r } = e;
 	const n = t
-		? (0, b.we)("#Menu_Account")
+		? Localize("#Menu_Account")
 		: d.createElement(
 				"div",
 				{
@@ -1235,7 +1239,7 @@ const xe = (e) => {
 				d.createElement(De.SteamLogo, {
 					className: Fe.Logo,
 				}),
-				(0, b.we)("#Menu_Steam"),
+				Localize("#Menu_Steam"),
 			);
 	return d.createElement(
 		d.Fragment,
@@ -1369,7 +1373,7 @@ const We = (e) => {
 			}),
 			...r,
 		},
-		(0, b.we)("#Menu_View"),
+		Localize("#Menu_View"),
 	);
 };
 const Ve = (e) => {
@@ -1391,7 +1395,7 @@ const He = (e) =>
 		d.createElement(Ve, {
 			personaState: e.personaState,
 		}),
-		d.createElement("div", null, (0, b.we)(e.name)),
+		d.createElement("div", null, Localize(e.name)),
 	);
 function je() {
 	const e = (0, Me.bI)();
@@ -1408,13 +1412,13 @@ function je() {
 	return d.createElement(
 		d.Fragment,
 		null,
-		(0, b.we)("#Menu_ViewFriendsList", t),
+		Localize("#Menu_ViewFriendsList", t),
 	);
 }
 const qe = (e) => {
 	const t = [
 		{
-			name: (0, b.we)("#Menu_ViewFriendsList"),
+			name: Localize("#Menu_ViewFriendsList"),
 			steamURL: "steam://open/friends",
 			children: d.createElement(je, null),
 		},
@@ -1479,7 +1483,7 @@ const Qe = (e) => {
 			menuContent: d.createElement(qe, null),
 			...r,
 		},
-		(0, b.we)("#Menu_Friends"),
+		Localize("#Menu_Friends"),
 	);
 };
 const Ze = (e) => {
@@ -1523,7 +1527,7 @@ const Ze = (e) => {
 				menuItems: n,
 				...r,
 			},
-			(0, b.we)("#Menu_Games"),
+			Localize("#Menu_Games"),
 		);
 	}
 };
@@ -1542,7 +1546,7 @@ const Ye = (e) => {
 				],
 				...r,
 			},
-			(0, b.we)("#Menu_Window"),
+			Localize("#Menu_Window"),
 		);
 	} else {
 		return null;
@@ -1604,7 +1608,7 @@ const Ke = (e) => {
 			menuItems: i,
 			...r,
 		},
-		(0, b.we)("#Menu_Help"),
+		Localize("#Menu_Help"),
 	);
 };
 const Xe = d.memo(function (e) {
@@ -1697,7 +1701,7 @@ const rt = (e) => {
 			menuItems: s,
 			parentalFeature: n,
 		},
-		typeof r == "string" ? (0, b.we)(r) : r,
+		typeof r == "string" ? Localize(r) : r,
 	);
 };
 const nt = (e) => {
@@ -2088,8 +2092,8 @@ function Dt() {
 		onOK: () => {
 			SteamClient.Parental.LockParentalLock();
 		},
-		strTitle: (0, b.we)("#FamilyView_Dialog_Title"),
-		strDescription: (0, b.we)("#FamilyView_LockDialog_Description"),
+		strTitle: Localize("#FamilyView_Dialog_Title"),
+		strDescription: Localize("#FamilyView_LockDialog_Description"),
 	});
 }
 function Nt() {
@@ -2098,8 +2102,8 @@ function Nt() {
 		onOK: () => {
 			Ge.Ih.KioskModeLock();
 		},
-		strTitle: (0, b.we)("#KioskMode_Dialog_Title"),
-		strDescription: (0, b.we)("#KioskMode_LockDialog_Description"),
+		strTitle: Localize("#KioskMode_Dialog_Title"),
+		strDescription: Localize("#KioskMode_LockDialog_Description"),
 	});
 }
 var Ft = require("./60917.js");
@@ -2133,7 +2137,7 @@ function Qt(e) {
 				{
 					className: Lt.LogoutButton,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#Menu_ViewMyAccount",
 					d.createElement(
 						"div",
@@ -2159,7 +2163,7 @@ function Qt(e) {
 				{
 					className: Lt.LogoutButton,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#Menu_ViewMyWallet",
 					d.createElement(Zt, {
 						bShowEmptyBalance: true,
@@ -2179,7 +2183,7 @@ function Qt(e) {
 				{
 					className: Lt.LogoutButton,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#Menu_ChangeAccount",
 					d.createElement(
 						"div",
@@ -2210,7 +2214,7 @@ const Zt = (0, ht.PA)((e) => {
 			{
 				className: Lt.WalletBalance,
 			},
-			(0, b.we)("#WalletPendingBalance", r, n),
+			Localize("#WalletPendingBalance", r, n),
 		);
 	} else if (r?.length > 0) {
 		return d.createElement(
@@ -2434,7 +2438,7 @@ function er(e) {
 			{
 				className: Lt.AllNotificationsTitle,
 			},
-			(0, b.we)("#NotificationsMenu_Title"),
+			Localize("#NotificationsMenu_Title"),
 		),
 		d.createElement(
 			"button",
@@ -2442,7 +2446,7 @@ function er(e) {
 				className: Lt.AllNotificationsButton,
 				onClick: r,
 			},
-			(0, b.we)("#NotificationsMenu_ViewAll"),
+			Localize("#NotificationsMenu_ViewAll"),
 		),
 	);
 }
@@ -2468,14 +2472,14 @@ function rr() {
 			{
 				className: Lt.EmptyNotificationsTitle,
 			},
-			(0, b.we)("#NotificationsList_EmptyTitle_New"),
+			Localize("#NotificationsList_EmptyTitle_New"),
 		),
 		d.createElement(
 			"div",
 			{
 				className: Lt.EmptyNotificationsBody,
 			},
-			(0, b.we)("#NotificationsList_EmptyBody"),
+			Localize("#NotificationsList_EmptyBody"),
 		),
 	);
 }
@@ -2738,7 +2742,10 @@ function lr(e) {
 		return null;
 	}
 	const n = t == 0 ? 0 : t - Math.floor(Date.now() / 1000);
-	const i = (0, b.we)("#FamilyView_TemporaryFeaturesDuration", (0, T.R2)(n));
+	const i = Localize(
+		"#FamilyView_TemporaryFeaturesDuration",
+		LocalizeTimeRemaining(n),
+	);
 	return d.createElement("div", null, i);
 }
 function cr(e) {
@@ -2746,8 +2753,8 @@ function cr(e) {
 	const r = (0, y.dF)();
 	const n = (0, y.oA)();
 	const i = t
-		? (0, b.we)(n ? "#FamilyView_Unlock" : "#FamilyView_Lock")
-		: (0, b.we)("#FamilyView_Enabled");
+		? Localize(n ? "#FamilyView_Unlock" : "#FamilyView_Lock")
+		: Localize("#FamilyView_Enabled");
 	return d.createElement(
 		pe.t1,
 		{
@@ -2845,8 +2852,8 @@ function dr(e) {
 		[r, n, a],
 	);
 	const o = r
-		? (0, b.we)("#KioskMode_Unlock_Tooltip")
-		: (0, b.we)("#KioskMode_Lock_Tooltip");
+		? Localize("#KioskMode_Unlock_Tooltip")
+		: Localize("#KioskMode_Lock_Tooltip");
 	if (t) {
 		return d.createElement(
 			"div",
@@ -2921,7 +2928,7 @@ function pr(e) {
 				),
 				onClick: n,
 			},
-			(0, b.we)("#UserManagement_ActiveSupportAlert"),
+			Localize("#UserManagement_ActiveSupportAlert"),
 		);
 	} else {
 		return null;
@@ -2941,9 +2948,13 @@ function gr(e) {
 	if (i || !t || !t.bOSWillBeUnsupported) {
 		return null;
 	}
-	let s = (0, b.Yp)("#Steam_EOLAlert", t.daysUntilOSEndOfLife, t.strOSName);
+	let s = LocalizePlural(
+		"#Steam_EOLAlert",
+		t.daysUntilOSEndOfLife,
+		t.strOSName,
+	);
 	if (a) {
-		s = (0, b.we)("#Steam_OSVersionUnsupported", t.strOSName);
+		s = Localize("#Steam_OSVersionUnsupported", t.strOSName);
 	}
 	return d.createElement(
 		"div",
@@ -2959,10 +2970,10 @@ function hr(e) {
 	(0, Vt.q)();
 	Jt(60);
 	d.useCallback(() => {
-		const e = (0, b.we)("#WebUITransport_ErrorButton_ModalMessage_Public");
+		const e = Localize("#WebUITransport_ErrorButton_ModalMessage_Public");
 		(0, Ht.pg)(
 			d.createElement(jt.Ee, {
-				strTitle: (0, b.we)("#WebUITransport_ErrorButton_ModalTitle"),
+				strTitle: Localize("#WebUITransport_ErrorButton_ModalTitle"),
 				strDescription: e,
 			}),
 			t.ownerWindow ?? window,
@@ -3023,7 +3034,10 @@ var xr = require("./42805.js");
 var Ur = require("./79421.js");
 var Wr = require("./64608.js");
 var Vr = require(/*webcrack:missing*/ "./90242.js");
-var Hr = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	GetOwningWindowForElement,
+} from "../../actual_src/utils/domutils.js";
 var jr = require("./32598.js");
 var qr = require("./6356.js");
 var Qr = require("./15983.js");
@@ -3060,7 +3074,7 @@ function en(e) {
 		d.createElement(
 			"div",
 			null,
-			(0, b.we)("#GameList_SectionHeader_AppCountToolTip", t - r),
+			Localize("#GameList_SectionHeader_AppCountToolTip", t - r),
 		),
 		i.length > 0 &&
 			d.createElement(
@@ -3119,7 +3133,7 @@ const tn = (0, ht.PA)(function (e) {
 		y = d.createElement(
 			pe.zQ,
 			null,
-			(0, b.we)("#GameList_SectionHeader_AppCountToolTipAllHidden"),
+			Localize("#GameList_SectionHeader_AppCountToolTipAllHidden"),
 		);
 	}
 	return d.createElement(
@@ -3185,7 +3199,7 @@ const tn = (0, ht.PA)(function (e) {
 					d.createElement(
 						pe.he,
 						{
-							toolTipContent: (0, b.we)("#Collection_DynamicCollection"),
+							toolTipContent: Localize("#Collection_DynamicCollection"),
 							nDelayShowMS: 30,
 						},
 						d.createElement(C.U_V, null),
@@ -3240,7 +3254,7 @@ function dn(e) {
 	let c =
 		o?.display_name ||
 		l?.name ||
-		(0, b.we)("#CollectionViewHeader_UnknownApp", n);
+		Localize("#CollectionViewHeader_UnknownApp", n);
 	let m =
 		(o || l) &&
 		d.createElement(oe.z, {
@@ -3339,7 +3353,7 @@ let An = class extends d.Component {
 					d.createElement(
 						pe.he,
 						{
-							toolTipContent: (0, b.we)(
+							toolTipContent: Localize(
 								"#CollectionViewHeader_Tooltip_ManuallyRemovedApps_WithCount",
 								r,
 							),
@@ -3350,7 +3364,7 @@ let An = class extends d.Component {
 						d.createElement("div", {
 							className: sn.FiltertagSpacer,
 						}),
-						(0, b.we)("#CollectionViewHeader_ManuallyRemovedApps_WithCount", r),
+						Localize("#CollectionViewHeader_ManuallyRemovedApps_WithCount", r),
 						d.createElement("div", {
 							className: sn.FiltertagSpacer,
 						}),
@@ -3361,13 +3375,13 @@ let An = class extends d.Component {
 		return t;
 	}
 	FreezeCollection(e, t) {
-		const r = (0, b.we)("#Collection_FreezeDynamicCollection_DialogTitle");
+		const r = Localize("#Collection_FreezeDynamicCollection_DialogTitle");
 		(0, Ht.pg)(
 			d.createElement(pn, {
 				rctTitle: r,
 				editableCollection: e,
 			}),
-			(0, Hr.uX)(t),
+			GetOwningWindowForEvent(t),
 			{
 				strTitle: r,
 			},
@@ -3388,7 +3402,7 @@ let An = class extends d.Component {
 						className: nn.MissingCollectionMessage,
 					},
 					" ",
-					(0, b.we)("#CollectionView_MissingCollection"),
+					Localize("#CollectionView_MissingCollection"),
 					" ",
 				),
 			);
@@ -3498,7 +3512,7 @@ let An = class extends d.Component {
 									className: nn.DynamicCollectionLabel,
 								},
 								d.createElement(on.Qi, null),
-								(0, b.we)("#Collection_DynamicCollection"),
+								Localize("#Collection_DynamicCollection"),
 							),
 							d.createElement(
 								"div",
@@ -3549,7 +3563,7 @@ let An = class extends d.Component {
 											className: nn.FreezeButton,
 											onClick: (e) => this.FreezeCollection(r, e),
 										},
-										(0, b.we)("#Collection_FreezeDynamicCollection_Button"),
+										Localize("#Collection_FreezeDynamicCollection_Button"),
 									),
 								),
 						),
@@ -3583,7 +3597,7 @@ class pn extends d.Component {
 			strTitle: this.props.rctTitle,
 			bDestructiveWarning: true,
 			closeModal: this.props.closeModal,
-			strDescription: (0, b.we)(
+			strDescription: Localize(
 				"#Collection_FreezeDynamicCollection_Confirmation",
 			),
 			onOK: this.FreezeCollection,
@@ -3642,7 +3656,7 @@ let hn = class extends d.Component {
 		this.m_strCollectionName = e.currentTarget.value;
 	}
 	OnBlur(e) {
-		this.SaveRenamedCollection((0, Hr.uX)(e));
+		this.SaveRenamedCollection(GetOwningWindowForEvent(e));
 	}
 	ResetName(e) {
 		this.props.collection.displayName = e;
@@ -3651,7 +3665,7 @@ let hn = class extends d.Component {
 	}
 	OnKeyPressed(e) {
 		if (e.keyCode == 13) {
-			this.SaveRenamedCollection((0, Hr.uX)(e));
+			this.SaveRenamedCollection(GetOwningWindowForEvent(e));
 		}
 		if (e.keyCode == 27) {
 			this.props.fnClose();
@@ -3702,14 +3716,14 @@ class fn extends d.Component {
 				{
 					className: _n.Title,
 				},
-				(0, b.we)("#WhatsNew_PlayNext_Title"),
+				Localize("#WhatsNew_PlayNext_Title"),
 			),
 			d.createElement(
 				"div",
 				{
 					className: _n.Description,
 				},
-				(0, b.we)("#WhatsNew_PlayNext_Description"),
+				Localize("#WhatsNew_PlayNext_Description"),
 			),
 			d.createElement(
 				"div",
@@ -3721,7 +3735,7 @@ class fn extends d.Component {
 					{
 						href: "steam://url/EventAnnouncementPage/593110/2173495126269399731",
 					},
-					(0, b.we)("#WhatsNew_ReadMore"),
+					Localize("#WhatsNew_ReadMore"),
 				),
 			),
 			d.createElement("img", {
@@ -3748,7 +3762,7 @@ class yn extends d.Component {
 				closeModal: this.props.closeModal,
 				onOK: this.props.closeModal,
 				onCancel: this.props.closeModal,
-				strTitle: (0, b.we)("#WhatsNew_Title"),
+				strTitle: Localize("#WhatsNew_Title"),
 			},
 			this.props.rgElements,
 		);
@@ -5360,16 +5374,17 @@ let ti = class extends d.Component {
 						{
 							className: ei.NoResultsTitle,
 						},
-						(0, b.we)("#GameList_Search_NoResults_Title"),
+						Localize("#GameList_Search_NoResults_Title"),
 					),
 					d.createElement(
 						"div",
 						{
 							className: ei.NoResultsLink,
 							onClick: (t) =>
-								((0, Hr.uX)(t).location.href = "steam://openurl/" + e),
+								(GetOwningWindowForEvent(t).location.href =
+									"steam://openurl/" + e),
 						},
-						(0, b.we)("#GameList_Search_NoResults_Link"),
+						Localize("#GameList_Search_NoResults_Link"),
 					),
 				);
 			}
@@ -5385,7 +5400,7 @@ let ti = class extends d.Component {
 						{
 							className: ei.NoResultsTitle,
 						},
-						(0, b.we)("#GameList_View_NothingSelected_HelpText"),
+						Localize("#GameList_View_NothingSelected_HelpText"),
 					),
 					!e &&
 						d.createElement(
@@ -5395,7 +5410,7 @@ let ti = class extends d.Component {
 								onClick: () =>
 									s.n6.collectionsAppFilter.SelectOption(0, 1, true),
 							},
-							(0, b.we)("#GameList_Search_GamesCheckbox_Link"),
+							Localize("#GameList_Search_GamesCheckbox_Link"),
 						),
 				);
 			}
@@ -5465,10 +5480,10 @@ function ci(e) {
 		oi.Ee,
 		{
 			closeModal: t,
-			strTitle: (0, b.we)("#GameList_ToolsEnabled_Title"),
+			strTitle: Localize("#GameList_ToolsEnabled_Title"),
 		},
-		d.createElement("p", null, (0, b.we)("#GameList_ToolsEnabled_1")),
-		d.createElement("p", null, (0, b.we)("#GameList_ToolsEnabled_2")),
+		d.createElement("p", null, Localize("#GameList_ToolsEnabled_1")),
+		d.createElement("p", null, Localize("#GameList_ToolsEnabled_2")),
 	);
 }
 function mi() {
@@ -5486,7 +5501,10 @@ const ui = (0, ht.PA)(function (e) {
 					return window.localStorage.getItem(e) == "true";
 				})()
 			) {
-				(0, Ht.pg)(d.createElement(ci, null), (0, Hr.qf)(n.current));
+				(0, Ht.pg)(
+					d.createElement(ci, null),
+					GetOwningWindowForElement(n.current),
+				);
 				(function () {
 					const e = mi();
 					window.localStorage.setItem(e, "true");
@@ -5551,7 +5569,7 @@ const ui = (0, ht.PA)(function (e) {
 					},
 					(function () {
 						if (s.n6.selectedGameListView == 11) {
-							return (0, b.we)("#GameList_View_SearchResults");
+							return Localize("#GameList_View_SearchResults");
 						}
 						const e = [];
 						let t = true;
@@ -5574,15 +5592,18 @@ const ui = (0, ht.PA)(function (e) {
 							}
 						}
 						if (t || e.length == 0) {
-							return (0, b.we)("#GameList_View_All");
+							return Localize("#GameList_View_All");
 						}
 						const r = e.map(
 							(e) => vr.md.GetCollectionForAppType(e).displayName,
 						);
-						return new Intl.ListFormat(b.pf.GetPreferredLocales(), {
-							type: "conjunction",
-							style: "long",
-						}).format(r);
+						return new Intl.ListFormat(
+							LocalizationManager.GetPreferredLocales(),
+							{
+								type: "conjunction",
+								style: "long",
+							},
+						).format(r);
 					})(),
 				),
 				d.createElement(
@@ -5689,7 +5710,7 @@ function di(e) {
 		d.createElement(
 			pe.MA,
 			null,
-			(0, b.we)("#GameList_View_ShowOnlyReadyToPlay"),
+			Localize("#GameList_View_ShowOnlyReadyToPlay"),
 		),
 		d.createElement(
 			pe.I2,
@@ -5697,19 +5718,19 @@ function di(e) {
 			d.createElement(
 				"div",
 				null,
-				(0, b.we)("#GameList_View_ReadyToPlay_ToolTip_Installed"),
+				Localize("#GameList_View_ReadyToPlay_ToolTip_Installed"),
 			),
 			t &&
 				d.createElement(
 					"div",
 					null,
-					(0, b.we)("#GameList_View_ReadyToPlay_ToolTip_Streaming"),
+					Localize("#GameList_View_ReadyToPlay_ToolTip_Streaming"),
 				),
 		),
 		d.createElement(
 			pe.I2,
 			null,
-			(0, b.we)("#GameList_View_ReadyToPlay_ToolTip_Setting"),
+			Localize("#GameList_View_ReadyToPlay_ToolTip_Setting"),
 		),
 	);
 }
@@ -5780,7 +5801,7 @@ let gi = class extends d.Component {
 							key: "checkbox-grouping-collections",
 							className: (0, p.A)(si.Row, si.Checkbox, t && si.Disabled),
 							disabled: t,
-							label: (0, b.we)("#GameList_View_GroupByCollections"),
+							label: Localize("#GameList_View_GroupByCollections"),
 							checked: s.n6.bIsGameListGroupedByCollection,
 							onChange: (e) => {
 								s.n6.SetGameListGroupedByCollection(e);
@@ -5796,7 +5817,7 @@ let gi = class extends d.Component {
 								key: "checkbox-grouping-shared-libraries",
 								className: (0, p.A)(si.Row, si.Checkbox, t && si.Disabled),
 								disabled: t,
-								label: (0, b.we)("#GameList_View_GroupSharedLibraries"),
+								label: Localize("#GameList_View_GroupSharedLibraries"),
 								checked: s.n6.bIsGameListGroupedBySharedLibraries,
 								onChange: (e) => {
 									s.n6.SetGameListGroupedBySharedLibrary(e);
@@ -5816,7 +5837,7 @@ let gi = class extends d.Component {
 							this.props.fnHide();
 						},
 					},
-					(0, b.we)("#GameList_View_ExitSearch"),
+					Localize("#GameList_View_ExitSearch"),
 				);
 		}
 	}
@@ -5844,7 +5865,7 @@ function _i() {
 			{
 				className: Ci.Label,
 			},
-			(0, b.we)("#GameList_Home"),
+			Localize("#GameList_Home"),
 		),
 	);
 }
@@ -5974,7 +5995,7 @@ const Si = (e) => {
 							{
 								direction: "right",
 								nDelayShowMS: 240,
-								toolTipContent: (0, b.we)("#GameList_View_Collections"),
+								toolTipContent: Localize("#GameList_View_Collections"),
 							},
 							d.createElement(fi, null),
 						),
@@ -6007,7 +6028,7 @@ const Si = (e) => {
 						className: yi.OneCollectionWarning,
 						onClick: () => s.n6.SelectGameListView(1),
 					},
-					(0, b.we)("#GameList_View_ShowAllCollections"),
+					Localize("#GameList_View_ShowAllCollections"),
 				),
 		),
 		d.createElement(
@@ -6195,14 +6216,14 @@ const Ui = (0, ht.PA)(function (e) {
 					{
 						onSelected: () => s(true),
 					},
-					(0, b.we)("#MajorUpdate_Context_WhyAmISeeingThis"),
+					Localize("#MajorUpdate_Context_WhyAmISeeingThis"),
 				),
 				d.createElement(
 					f.kt,
 					{
 						onSelected: l,
 					},
-					(0, b.we)("#MajorUpdate_Context_RemoveThisUpdate"),
+					Localize("#MajorUpdate_Context_RemoveThisUpdate"),
 				),
 			),
 			e,
@@ -6251,7 +6272,7 @@ const Ui = (0, ht.PA)(function (e) {
 					}
 				},
 			},
-			(0, b.we)("#MajorUpdate_NextUpdate"),
+			Localize("#MajorUpdate_NextUpdate"),
 		),
 	);
 	return d.createElement(
@@ -6344,14 +6365,14 @@ const Ui = (0, ht.PA)(function (e) {
 							{
 								className: Oi.ExplanationTitle,
 							},
-							(0, b.we)("#MajorUpdate_Context_WhyAmISeeingThis"),
+							Localize("#MajorUpdate_Context_WhyAmISeeingThis"),
 						),
 						d.createElement(
 							"div",
 							{
 								className: Oi.ExplanationBody,
 							},
-							(0, b.we)("#MajorUpdate_Context_WhyAmISeeingThis_Text"),
+							Localize("#MajorUpdate_Context_WhyAmISeeingThis_Text"),
 						),
 						d.createElement(
 							Wr.jn,
@@ -6359,7 +6380,7 @@ const Ui = (0, ht.PA)(function (e) {
 								className: Oi.UpdateButton,
 								onClick: () => s(false),
 							},
-							(0, b.we)("#Generic_GotIt"),
+							Localize("#Generic_GotIt"),
 						),
 					),
 				),
@@ -6390,14 +6411,14 @@ const qi = (0, ht.PA)(function (e) {
 						{
 							onSelected: () => a.App(t.appid),
 						},
-						(0, b.we)("#Generic_ViewGameDetails"),
+						Localize("#Generic_ViewGameDetails"),
 					),
 				d.createElement(
 					f.kt,
 					{
 						onSelected: s,
 					},
-					(0, b.we)("#MajorUpdate_Context_RemoveThisUpdate"),
+					Localize("#MajorUpdate_Context_RemoveThisUpdate"),
 				),
 				i > -2 &&
 					n &&
@@ -6406,7 +6427,7 @@ const qi = (0, ht.PA)(function (e) {
 						{
 							onSelected: o,
 						},
-						(0, b.we)("#MajorUpdate_Context_ShowMeFewerForApp", n.display_name),
+						Localize("#MajorUpdate_Context_ShowMeFewerForApp", n.display_name),
 					),
 				i < 2 &&
 					n &&
@@ -6415,7 +6436,7 @@ const qi = (0, ht.PA)(function (e) {
 						{
 							onSelected: l,
 						},
-						(0, b.we)("#MajorUpdate_Context_ShowMeMoreForApp", n.display_name),
+						Localize("#MajorUpdate_Context_ShowMeMoreForApp", n.display_name),
 					),
 			),
 			e,
@@ -6429,7 +6450,7 @@ const qi = (0, ht.PA)(function (e) {
 					client: "mostavailable",
 					launchSource: 103,
 					bInGamepadUI: r,
-					ownerWindow: (0, Hr.uX)(e),
+					ownerWindow: GetOwningWindowForEvent(e),
 				}),
 				e,
 				(0, Di.zq)(),
@@ -6468,8 +6489,8 @@ const qi = (0, ht.PA)(function (e) {
 	let v = (0, ki.JS)(t.type);
 	let I = ji.tz.guess();
 	let E = ji.unix(t.GetStartTimeAndDateUnixSeconds()).tz(I);
-	let M = (0, b.TW)(t.GetStartTimeAndDateUnixSeconds());
-	let T = (0, b.TW)(t.GetEndTimeAndDateUnixSeconds());
+	let M = LocalizeDateHumanReadable(t.GetStartTimeAndDateUnixSeconds());
+	let T = LocalizeDateHumanReadable(t.GetEndTimeAndDateUnixSeconds());
 	let R = vr.md.BIsVisible(n);
 	let k = false;
 	if (
@@ -6505,7 +6526,7 @@ const qi = (0, ht.PA)(function (e) {
 			{
 				className: Vi.EventTime,
 			},
-			(0, b.lQ)(t.GetStartTimeAndDateUnixSeconds()),
+			LocalizeCalendarTime(t.GetStartTimeAndDateUnixSeconds()),
 		),
 		d.createElement(
 			"div",
@@ -6649,7 +6670,7 @@ const qi = (0, ht.PA)(function (e) {
 });
 let Qi = class extends d.Component {
 	constructor(e) {
-		super(e, (0, b.we)("#Settings"));
+		super(e, Localize("#Settings"));
 		Ei.dm.FetchUpdatedEventAppPrioritiesForUser();
 	}
 	onContextMenu(e) {
@@ -6692,7 +6713,7 @@ let Qi = class extends d.Component {
 				{
 					className: Vi.WhatsNewSettingsContent,
 				},
-				d.createElement(Wr.Y9, null, (0, b.we)("#WhatsNew")),
+				d.createElement(Wr.Y9, null, Localize("#WhatsNew")),
 				d.createElement(
 					Wr.lV,
 					{
@@ -6705,29 +6726,25 @@ let Qi = class extends d.Component {
 						{
 							className: (0, p.A)(Vi.WhatsNewHeaderText, Vi.DialogLabelSoft),
 						},
-						(0, b.we)("#WhatsNewFeatureExplainer"),
+						Localize("#WhatsNewFeatureExplainer"),
 					),
 					d.createElement(
 						Wr.JU,
 						{
 							className: (0, p.A)(Vi.WhatsNewHeaderText, Vi.DialogLabelSoft),
 						},
-						(0, b.we)("#WhatsNewFeatureExplainer2"),
+						Localize("#WhatsNewFeatureExplainer2"),
 					),
-					d.createElement(
-						Wr.JU,
-						null,
-						(0, b.we)("#WhatsNewVisibilitySettings"),
-					),
+					d.createElement(Wr.JU, null, Localize("#WhatsNewVisibilitySettings")),
 					d.createElement(Wr.RF, {
 						useToggleRail: true,
 						onChange: (e) => {
 							this.OnShowOnlyProductUpdatesToggle(e);
 						},
-						label: (0, b.we)("#WhatsNewSettings_ShowOnlyGameUpdates"),
+						label: Localize("#WhatsNewSettings_ShowOnlyGameUpdates"),
 						checked:
 							l.rV.clientSettings.library_whats_new_show_only_product_updates,
-						description: (0, b.we)(
+						description: Localize(
 							"#WhatsNewSettings_ShowOnlyGameUpdates_Explainer",
 						),
 					}),
@@ -6746,11 +6763,11 @@ let Qi = class extends d.Component {
 								{
 									className: "DialogToggle_Label",
 								},
-								(0, b.Yp)("#WhatsNewYouHaveNItemsHidden", e),
+								LocalizePlural("#WhatsNewYouHaveNItemsHidden", e),
 							),
 						),
 					),
-					d.createElement(Wr.JU, null, (0, b.we)("#WhatsNewPrioritySettings")),
+					d.createElement(Wr.JU, null, Localize("#WhatsNewPrioritySettings")),
 					d.createElement(
 						"div",
 						{
@@ -6770,7 +6787,7 @@ let Qi = class extends d.Component {
 									{
 										className: Vi.DialogLabelSoft,
 									},
-									(0, b.we)("#WhatsNewYouHaveAskedToShowLessFor"),
+									Localize("#WhatsNewYouHaveAskedToShowLessFor"),
 								),
 								d.createElement(
 									"div",
@@ -6819,7 +6836,7 @@ let Qi = class extends d.Component {
 									{
 										className: Vi.DialogLabelSoft,
 									},
-									(0, b.we)("#WhatsNewYouHaveNothingShowingLess"),
+									Localize("#WhatsNewYouHaveNothingShowingLess"),
 								),
 							),
 					),
@@ -6842,7 +6859,7 @@ let Qi = class extends d.Component {
 									{
 										className: Vi.DialogLabelSoft,
 									},
-									(0, b.we)("#WhatsNewYouHaveAskedToShowMoreFor"),
+									Localize("#WhatsNewYouHaveAskedToShowMoreFor"),
 								),
 								d.createElement(
 									"div",
@@ -6891,7 +6908,7 @@ let Qi = class extends d.Component {
 									{
 										className: Vi.DialogLabelSoft,
 									},
-									(0, b.we)("#WhatsNewYouHaveNothingShowingMore"),
+									Localize("#WhatsNewYouHaveNothingShowingMore"),
 								),
 							),
 					),
@@ -6947,8 +6964,8 @@ let Zi = class extends d.Component {
 	}
 	OpenWhatsNewSettings(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
-		(0, Ht.HT)(d.createElement(Qi, null), t, (0, b.we)("#WhatsNewSettings"), {
-			strTitle: (0, b.we)("#WhatsNewSettings"),
+		(0, Ht.HT)(d.createElement(Qi, null), t, Localize("#WhatsNewSettings"), {
+			strTitle: Localize("#WhatsNewSettings"),
 			popupWidth: 842,
 			popupHeight: 720,
 		});
@@ -7017,8 +7034,8 @@ let Zi = class extends d.Component {
 		if (c) {
 			let e = "";
 			e = u
-				? (0, b.we)("#LibraryHome_NewUpdates_LoweredPriority", c.display_name)
-				: (0, b.we)("#LibraryHome_NewUpdates_RaisedPriority", c.display_name);
+				? Localize("#LibraryHome_NewUpdates_LoweredPriority", c.display_name)
+				: Localize("#LibraryHome_NewUpdates_RaisedPriority", c.display_name);
 			A = d.createElement(
 				"div",
 				{
@@ -7051,7 +7068,7 @@ let Zi = class extends d.Component {
 								}
 							},
 						},
-						(0, b.we)("#LibraryHome_NewUpdates_Undo"),
+						Localize("#LibraryHome_NewUpdates_Undo"),
 					),
 				),
 			);
@@ -7070,7 +7087,7 @@ let Zi = class extends d.Component {
 					{
 						className: Vi.WhatsNewContainer,
 						bNoHeader: t,
-						name: (0, b.we)("#LibraryHome_NewUpdates"),
+						name: Localize("#LibraryHome_NewUpdates"),
 						aftername: A,
 						bHeaderClickScrollToFirst: true,
 					},
@@ -7118,7 +7135,7 @@ const Xi = (0, ht.PA)(function () {
 			className: Ki.StoreLink,
 			onClick: e,
 		},
-		(0, b.we)("#Library_Recent_NoRecentGames_SteamStore"),
+		Localize("#Library_Recent_NoRecentGames_SteamStore"),
 	);
 	const s = (0, vt.ID)(de.TS.LAUNCHER_TYPE);
 	return d.createElement(
@@ -7146,14 +7163,14 @@ const Xi = (0, ht.PA)(function () {
 						{
 							className: Ki.NoGames,
 						},
-						(0, b.we)("#Library_Recent_NoRecentGames_NoGames"),
+						Localize("#Library_Recent_NoRecentGames_NoGames"),
 					),
 					d.createElement(
 						"div",
 						{
 							className: Ki.VisitStore,
 						},
-						(0, b.PP)("#Library_Recent_NoRecentGames_StoreLink", a),
+						LocalizeReact("#Library_Recent_NoRecentGames_StoreLink", a),
 					),
 				),
 				d.createElement(
@@ -7167,7 +7184,7 @@ const Xi = (0, ht.PA)(function () {
 							className: Ki.TopButton,
 							onClick: t,
 						},
-						(0, b.we)("#Library_Recent_NoRecentGames_FreeToPlay"),
+						Localize("#Library_Recent_NoRecentGames_FreeToPlay"),
 					),
 					d.createElement(
 						Wr.jn,
@@ -7175,7 +7192,7 @@ const Xi = (0, ht.PA)(function () {
 							className: Ki.TopButton,
 							onClick: r,
 						},
-						(0, b.we)("#Library_Recent_NoRecentGames_GamesOnSale"),
+						Localize("#Library_Recent_NoRecentGames_GamesOnSale"),
 					),
 					d.createElement(
 						Wr.jn,
@@ -7183,7 +7200,7 @@ const Xi = (0, ht.PA)(function () {
 							className: Ki.TopButton,
 							onClick: i,
 						},
-						(0, b.we)("#Library_Recent_NoRecentGames_NewReleases"),
+						Localize("#Library_Recent_NoRecentGames_NewReleases"),
 					),
 				),
 			),
@@ -7205,7 +7222,7 @@ function Ji() {
 				className: Ki.BottomButton,
 				onClick: e,
 			},
-			(0, b.we)("#Library_Recent_NoRecentGames_ActivateProduct"),
+			Localize("#Library_Recent_NoRecentGames_ActivateProduct"),
 		),
 		d.createElement(
 			Wr.$n,
@@ -7213,7 +7230,7 @@ function Ji() {
 				className: Ki.BottomButton,
 				onClick: t,
 			},
-			(0, b.we)("#Library_Recent_NoRecentGames_RedeemCode"),
+			Localize("#Library_Recent_NoRecentGames_RedeemCode"),
 		),
 	);
 }
@@ -7229,7 +7246,7 @@ const aa = (e) => {
 		return null;
 	}
 	const r = d.createElement(oa, null);
-	const n = (0, b.we)("#EAAccessCollection_LinkToLandingPage");
+	const n = Localize("#EAAccessCollection_LinkToLandingPage");
 	const i =
 		(!Ir._.GetDragData("apps") || !(Ir._.GetDragData("apps").length > 0)) && !t;
 	const a = (0, p.A)(
@@ -7379,7 +7396,7 @@ const da = (0, ht.PA)(
 				Hi.C,
 				{
 					ref: i,
-					name: (0, b.we)("#LibraryHome_RecentGames"),
+					name: Localize("#LibraryHome_RecentGames"),
 					bHeaderClickScrollToFirst: true,
 					bNoHeader: true,
 					fnUpdateArrows: e.fnUpdateArrows,
@@ -7407,7 +7424,7 @@ const da = (0, ht.PA)(
 								let s = null;
 								let o = e.app;
 								if (o.rt_recent_activity_time) {
-									s = (0, b.lQ)(o.rt_recent_activity_time);
+									s = LocalizeCalendarTime(o.rt_recent_activity_time);
 									i = ma.AddedDate;
 								}
 								a =
@@ -7472,7 +7489,7 @@ const ha = (0, ht.PA)(function (e) {
 	const m = o
 		? {
 				onSecondaryButton: () => Aa.x3.AddIgnoredApp(l.appid),
-				onSecondaryActionDescription: (0, b.we)("#ActionButtonLabelDismiss"),
+				onSecondaryActionDescription: Localize("#ActionButtonLabelDismiss"),
 			}
 		: {};
 	return d.createElement(
@@ -7496,8 +7513,8 @@ const ha = (0, ht.PA)(function (e) {
 				strCollectionId: "play-next",
 				bShortLayout: n,
 				bHideFooter: false,
-				strMessage: r ? (0, b.we)("#AppBox_PlayNextMostPopular") : null,
-				strSubMessage: r ? (0, b.we)("#AppBox_PlayNextMostPopularSub") : null,
+				strMessage: r ? Localize("#AppBox_PlayNextMostPopular") : null,
+				strSubMessage: r ? Localize("#AppBox_PlayNextMostPopularSub") : null,
 			}),
 		),
 	);
@@ -7571,7 +7588,7 @@ const Ca = (0, ht.PA)(
 					{
 						className: ga.Message,
 					},
-					(0, b.we)("#LibraryHome_PlayNextNoResults"),
+					Localize("#LibraryHome_PlayNextNoResults"),
 				),
 			);
 		}
@@ -7586,13 +7603,13 @@ const Ca = (0, ht.PA)(
 				{
 					className: ga.PlayNextSubHead,
 				},
-				(0, b.we)("#LibraryHome_PlayNextSubHead"),
+				Localize("#LibraryHome_PlayNextSubHead"),
 			),
 			d.createElement(
 				Hi.C,
 				{
 					ref: i,
-					name: (0, b.we)("#LibraryHome_PlayNext"),
+					name: Localize("#LibraryHome_PlayNext"),
 					bHeaderClickScrollToFirst: true,
 					bNoHeader: true,
 					fnUpdateArrows: e.fnUpdateArrows,
@@ -7670,28 +7687,28 @@ const Sa = (0, ht.PA)(function (e) {
 	});
 	const a = vr.md.GetCollectionForAppType(1);
 	t.push({
-		label: (0, b.we)("#Showcase_AllYourGames"),
+		label: Localize("#Showcase_AllYourGames"),
 		data: a.id,
 	});
 	t.push({
-		label: (0, b.we)("#Showcase_RecentGames"),
+		label: Localize("#Showcase_RecentGames"),
 		data: "recent-games",
 	});
 	t.push({
-		label: (0, b.we)("#Showcase_AllCollections"),
+		label: Localize("#Showcase_AllCollections"),
 		data: "all-collections",
 	});
 	t.push({
-		label: (0, b.we)("#Showcase_PlayNext"),
+		label: Localize("#Showcase_PlayNext"),
 		data: "play-next",
 	});
 	const s = vr.md.GetCollectionForAppType(8192);
 	t.push({
-		label: (0, b.we)("#Showcase_AllYourSoundtracks"),
+		label: Localize("#Showcase_AllYourSoundtracks"),
 		data: s.id,
 	});
 	t.push({
-		label: (0, b.we)("#Showcase_DeleteShowcase"),
+		label: Localize("#Showcase_DeleteShowcase"),
 		data: undefined,
 		strOptionClass: r,
 	});
@@ -7725,7 +7742,7 @@ const Sa = (0, ht.PA)(function (e) {
 			onChange: (t) => e.onChange && e.onChange(t.data),
 			selectedOption: e.initialValue,
 			disabled: e.disabled,
-			strDefaultLabel: (0, b.we)("#Showcase_SelectCategory"),
+			strDefaultLabel: Localize("#Showcase_SelectCategory"),
 			strClassName: ya.MenuHeader,
 			strDropDownClassName: ya.CollectionDropDownContainer,
 			strDropDownItemClassName: ya.DropDownItems,
@@ -7757,7 +7774,7 @@ class wa extends d.Component {
 		if (e.button != 0 || !this.props.refDraggableDiv) {
 			return;
 		}
-		const t = (0, Hr.qf)(this.props.refDraggableDiv);
+		const t = GetOwningWindowForElement(this.props.refDraggableDiv);
 		if (!t) {
 			return;
 		}
@@ -7845,19 +7862,19 @@ const Ba = (0, ht.PA)(function (e) {
 			I = d.createElement(
 				pe.zQ,
 				null,
-				(0, b.we)("#Shelf_SectionHeader_ExpandTooltip"),
+				Localize("#Shelf_SectionHeader_ExpandTooltip"),
 			);
 		} else if (o && !E) {
 			I = d.createElement(
 				pe.zQ,
 				null,
-				(0, b.we)("#Shelf_SectionHeader_ExpandTooltipFilter", a - r),
+				Localize("#Shelf_SectionHeader_ExpandTooltipFilter", a - r),
 			);
 		} else if (r == 0) {
 			I = d.createElement(
 				pe.zQ,
 				null,
-				(0, b.we)("#GameList_SectionHeader_AppCountToolTipAllHidden"),
+				Localize("#GameList_SectionHeader_AppCountToolTipAllHidden"),
 			);
 		}
 	} else {
@@ -7900,7 +7917,7 @@ const Ba = (0, ht.PA)(function (e) {
 												{
 													onSelected: () => w.AllCollections(),
 												},
-												(0, b.we)("#Showcase_GoToAllCollections"),
+												Localize("#Showcase_GoToAllCollections"),
 											),
 										),
 										e,
@@ -7916,7 +7933,7 @@ const Ba = (0, ht.PA)(function (e) {
 												{
 													onSelected: () => w.Collection(t.strCollectionId),
 												},
-												(0, b.we)("#Showcase_GoToCollection"),
+												Localize("#Showcase_GoToCollection"),
 											),
 											r.length > 0 &&
 												d.createElement(
@@ -7924,7 +7941,7 @@ const Ba = (0, ht.PA)(function (e) {
 													{
 														onSelected: () => Aa.x3.ClearIgnoredApps(),
 													},
-													(0, b.we)("#PlayNext_ClearIgnoredApps"),
+													Localize("#PlayNext_ClearIgnoredApps"),
 												),
 											r.map((e) =>
 												d.createElement(
@@ -7933,7 +7950,7 @@ const Ba = (0, ht.PA)(function (e) {
 														key: e,
 														onSelected: () => Aa.x3.RemoveIgnoredApp(e),
 													},
-													(0, b.we)(
+													Localize(
 														"#PlayNext_UnhideSuggestion",
 														se.tw.GetAppOverviewByAppID(e).display_name,
 													),
@@ -7952,7 +7969,7 @@ const Ba = (0, ht.PA)(function (e) {
 												{
 													onSelected: () => w.Collection(t.strCollectionId),
 												},
-												(0, b.we)("#Showcase_GoToCollection"),
+												Localize("#Showcase_GoToCollection"),
 											),
 										),
 										e,
@@ -8338,7 +8355,7 @@ let Ia = class extends d.Component {
 									{
 										className: ya.Message,
 									},
-									(0, b.we)("#Showcase_EmptyShowcaseHint"),
+									Localize("#Showcase_EmptyShowcaseHint"),
 								),
 							),
 						o &&
@@ -8533,7 +8550,7 @@ class Ea extends d.Component {
 		this.m_refFirstShowcase = e;
 	}
 	StartGlobalMouseTracking() {
-		const e = (0, Hr.qf)(this.m_refOuter.current);
+		const e = GetOwningWindowForElement(this.m_refOuter.current);
 		e.addEventListener("mouseup", this.OnGlobalMouseUp);
 		e.addEventListener("mousemove", this.OnGlobalMouseMove);
 		this.props.scrollElement.addEventListener(
@@ -8550,7 +8567,7 @@ class Ea extends d.Component {
 		}
 	}
 	StopGlobalMouseTracking() {
-		const e = (0, Hr.qf)(this.m_refOuter.current);
+		const e = GetOwningWindowForElement(this.m_refOuter.current);
 		e.removeEventListener("mouseup", this.OnGlobalMouseUp);
 		e.removeEventListener("mousemove", this.OnGlobalMouseMove);
 		this.props.scrollElement.removeEventListener(
@@ -8735,7 +8752,7 @@ class Ea extends d.Component {
 							onClick: t ? undefined : this.AddShowcase,
 						},
 						d.createElement(C.f5w, null),
-						(0, b.we)("#Showcase_AddNewShowcase"),
+						Localize("#Showcase_AddNewShowcase"),
 					),
 					d.createElement("div", {
 						className: (0, p.A)(ya.Rule, ya.RuleRight),
@@ -8752,7 +8769,7 @@ class Ea extends d.Component {
 						className: (0, p.A)(ya.DoneReordering),
 						onClick: this.OnDoneReordering,
 					},
-					(0, b.we)("#Showcase_DoneReordering"),
+					Localize("#Showcase_DoneReordering"),
 				),
 			),
 			d.createElement(
@@ -8997,7 +9014,7 @@ function Ga(e) {
 							className: Ra.PrePurchaseActions,
 							onClick: r,
 						},
-						(0, b.we)("#Button_Dismiss"),
+						Localize("#Button_Dismiss"),
 					),
 				),
 			),
@@ -9019,19 +9036,19 @@ function Oa(e) {
 		);
 		switch (i.display_status) {
 			case 10:
-				n = (0, b.PP)("#PrePurchase_Preload_Title", e);
+				n = LocalizeReact("#PrePurchase_Preload_Title", e);
 				break;
 			case 16:
-				n = (0, b.PP)("#PrePurchase_PreloadComplete_Title", e);
+				n = LocalizeReact("#PrePurchase_PreloadComplete_Title", e);
 				break;
 			case 22:
 			case 7:
 			case 23:
 			case 9:
-				n = (0, b.PP)("#PrePurchase_Install_Title", e);
+				n = LocalizeReact("#PrePurchase_Install_Title", e);
 				break;
 			case 11:
-				n = (0, b.PP)("#PrePurchase_PlayNow_Title", e);
+				n = LocalizeReact("#PrePurchase_PlayNow_Title", e);
 		}
 	}
 	return d.createElement(
@@ -9049,19 +9066,19 @@ function Pa(e) {
 	if (n && r.BIsPerClientDataLocal(n)) {
 		switch (n.display_status) {
 			case 10:
-				t = (0, b.we)("#PrePurchase_Preload_Desc");
+				t = Localize("#PrePurchase_Preload_Desc");
 				break;
 			case 16:
-				t = (0, b.we)("#PrePurchase_PreloadComplete_Desc");
+				t = Localize("#PrePurchase_PreloadComplete_Desc");
 				break;
 			case 22:
 			case 7:
 			case 23:
 			case 9:
-				t = (0, b.we)("#PrePurchase_Install_Desc");
+				t = Localize("#PrePurchase_Install_Desc");
 				break;
 			case 11:
-				t = (0, b.we)("#PrePurchase_PlayNow_Desc");
+				t = Localize("#PrePurchase_PlayNow_Desc");
 		}
 	}
 	return d.createElement(
@@ -9153,7 +9170,7 @@ let Wa = class extends d.Component {
 				if (r.size == 1) {
 					const [t, n] = r.entries().next().value;
 					const i = n[0];
-					e = (0, b.PP)(
+					e = LocalizeReact(
 						"#GameAction_RemoveAppFromCollection",
 						d.createElement(
 							"div",
@@ -9177,7 +9194,7 @@ let Wa = class extends d.Component {
 					);
 				} else {
 					const t = r.values().next().value[0];
-					e = (0, b.PP)(
+					e = LocalizeReact(
 						"#GameAction_RemoveAppFromMultipleCollections",
 						d.createElement(
 							"div",
@@ -9196,7 +9213,7 @@ let Wa = class extends d.Component {
 			} else {
 				e =
 					r.size == 1
-						? (0, b.PP)(
+						? LocalizeReact(
 								"#GameAction_RemoveMultipleAppsFromCollection",
 								d.createElement(
 									"span",
@@ -9206,7 +9223,7 @@ let Wa = class extends d.Component {
 									r.keys().next().value.displayName,
 								),
 							)
-						: (0, b.PP)(
+						: LocalizeReact(
 								"#GameAction_RemoveMultipleAppsFromMultipleCollections",
 							);
 			}
@@ -9355,7 +9372,7 @@ let qa = class extends d.Component {
 					}),
 					window,
 					{
-						strTitle: (0, b.we)("#WhatsNew_Title"),
+						strTitle: Localize("#WhatsNew_Title"),
 					},
 				);
 				r = i.reduce((e, t) => Math.max(e, t.incrementalID), r);
@@ -9805,13 +9822,13 @@ function Cs(e) {
 	let A = s
 		? d.createElement(De.Spinner, null)
 		: d.createElement(De.Globe, null);
-	let g = (0, b.we)("#Browser_Loading");
+	let g = Localize("#Browser_Loading");
 	if (!s && a && a.startsWith("https://") && r?.bIsSecure) {
 		if (r?.bHasCertError) {
 			A = d.createElement(De.Caution, {
 				className: gs.CertError,
 			});
-			g = (0, b.we)("#Browser_NotSecure");
+			g = Localize("#Browser_NotSecure");
 		} else {
 			A = d.createElement(De.Lock, {
 				locked: true,
@@ -9889,7 +9906,7 @@ export function hL(e) {
 			position: t,
 			onAnimationEnd: r,
 		},
-		(0, b.we)("#Browser_URLCopied"),
+		Localize("#Browser_URLCopied"),
 	);
 }
 function bs(e) {
@@ -10064,7 +10081,7 @@ function ys(e) {
 	} else {
 		return d.createElement(ls.$, {
 			strName: "TabbedPopupBrowser",
-			strTitle: (0, b.we)("#WindowName_SteamBrowser"),
+			strTitle: Localize("#WindowName_SteamBrowser"),
 			appid: vt.w1,
 			strHomeURL: r,
 			onClose: i,

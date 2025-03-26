@@ -4,9 +4,9 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require("./64608.js");
 var o = require("./10606.js");
 var l = require("./13869.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require(/*webcrack:missing*/ "./54644.js");
+import { CopyTextToClipboard } from "../../actual_src/utils/domutils.js";
 var d = require(/*webcrack:missing*/ "./90765.js");
 var A = require("./29597.js");
 var p = A;
@@ -29,7 +29,7 @@ const h = (0, i.PA)((e) => {
 	const b = a.useCallback(
 		(e) => {
 			if (g) {
-				u.OG(e);
+				CopyTextToClipboard(e);
 				f(e);
 				setTimeout(() => f(""), 2000);
 			}
@@ -54,7 +54,7 @@ const h = (0, i.PA)((e) => {
 				className: p.CDKeysDialog,
 				onCancel: y,
 			},
-			a.createElement(s.Y9, null, (0, c.we)("#GameAction_ShowCDKeys")),
+			a.createElement(s.Y9, null, (0, Localize)("#GameAction_ShowCDKeys")),
 			a.createElement(
 				s.nB,
 				null,
@@ -66,7 +66,7 @@ const h = (0, i.PA)((e) => {
 						{
 							className: p.Description,
 						},
-						(0, c.we)(
+						(0, Localize)(
 							g
 								? "#GameAction_ShowCDKeys_Desc"
 								: "#GameAction_ShowCDKeys_Desc_NoCopy",
@@ -103,7 +103,7 @@ const h = (0, i.PA)((e) => {
 									{
 										className: (0, d.A)(p.KeyValue, r && p.CopyAnimation),
 									},
-									r ? (0, c.we)("#GameAction_ShowCDKeys_Copied") : e.strKey,
+									r ? (0, Localize)("#GameAction_ShowCDKeys_Copied") : e.strKey,
 								),
 							);
 						}),
@@ -113,7 +113,7 @@ const h = (0, i.PA)((e) => {
 							controlled: true,
 							checked: h,
 							onChange: C,
-							label: (0, c.we)("#GameAction_ShowCDKeys_DontShowAgain"),
+							label: (0, Localize)("#GameAction_ShowCDKeys_DontShowAgain"),
 						}),
 				),
 				a.createElement(
@@ -121,7 +121,7 @@ const h = (0, i.PA)((e) => {
 					{
 						onClick: y,
 					},
-					(0, c.we)("#Generic_Close"),
+					(0, Localize)("#Generic_Close"),
 				),
 			),
 		);

@@ -6,7 +6,7 @@ var o = require("./3867.js");
 var l = o;
 var c = require("./10606.js");
 var m = require("./13869.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./52451.js");
 require(/*webcrack:missing*/ "./26853.js");
 var A = require("./96593.js");
@@ -29,7 +29,7 @@ let h = (n = class extends a.Component {
 		super(e);
 	}
 	static Title() {
-		return (0, u.we)("#UninstallDialog_Title");
+		return (0, Localize)("#UninstallDialog_Title");
 	}
 	async OnUninstallConfirmed() {
 		SteamClient.Installs.OpenUninstallWizard(this.props.rgApps, true);
@@ -75,11 +75,14 @@ function C(e) {
 		if (n) {
 			t =
 				n.app_type == 8
-					? (0, u.we)("#UninstallDialog_Confirmation_Demo", n.display_name)
-					: (0, u.we)("#UninstallDialog_Confirmation_Single", n.display_name);
+					? (0, Localize)("#UninstallDialog_Confirmation_Demo", n.display_name)
+					: (0, Localize)(
+							"#UninstallDialog_Confirmation_Single",
+							n.display_name,
+						);
 		}
 	}
-	t ||= (0, u.we)("#UninstallDialog_Confirmation_Multiple");
+	t ||= (0, Localize)("#UninstallDialog_Confirmation_Multiple");
 	return a.createElement(
 		a.Fragment,
 		null,
@@ -91,14 +94,14 @@ function C(e) {
 				focusButton: "primary",
 				onOK: e.onOk,
 				onCancel: e.onCancel,
-				strOKText: (0, u.we)("#UninstallDialog_Uninstall"),
+				strOKText: (0, Localize)("#UninstallDialog_Uninstall"),
 			}),
 		),
 	);
 }
 export function XK(e, t) {
 	let r = A.tw.GetAppOverviewByAppID(e);
-	let n = (0, u.we)(`#Steam_AppUpdateError_${t}`);
+	let n = (0, Localize)(`#Steam_AppUpdateError_${t}`);
 	(0, m.pg)(
 		a.createElement(
 			c.eV,
@@ -115,7 +118,7 @@ export function XK(e, t) {
 					{
 						className: l.ModalHeader,
 					},
-					(0, u.we)("#UninstallDialog_Title"),
+					(0, Localize)("#UninstallDialog_Title"),
 				),
 				a.createElement(
 					s.nB,
@@ -126,7 +129,7 @@ export function XK(e, t) {
 						a.createElement(
 							"div",
 							null,
-							(0, u.we)("#UninstallDialog_ErrorMessage", r.display_name),
+							(0, Localize)("#UninstallDialog_ErrorMessage", r.display_name),
 						),
 						a.createElement(
 							"div",
@@ -139,14 +142,14 @@ export function XK(e, t) {
 					a.createElement(
 						s.wi,
 						null,
-						a.createElement(s.jn, null, (0, u.we)("#Button_Close")),
+						a.createElement(s.jn, null, (0, Localize)("#Button_Close")),
 					),
 				),
 			),
 		),
 		window,
 		{
-			strTitle: (0, u.we)("#UninstallDialog_Title"),
+			strTitle: (0, Localize)("#UninstallDialog_Title"),
 		},
 	);
 }

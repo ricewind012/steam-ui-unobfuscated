@@ -3,7 +3,7 @@ var i = require("./10606.js");
 var a = require("./1615.js");
 var s = require("./64608.js");
 var o = require("./30449.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./13869.js");
 var m = require(/*webcrack:missing*/ "./11131.js");
 var u = require("./34461.js");
@@ -103,7 +103,7 @@ function g(e) {
 }
 function h(e) {
 	const { title: t, result: r, error: i, onClose: o } = e;
-	const c = i ?? `${(0, l.we)("#ExportClip_Error")} (${r})`;
+	const c = i ?? `${Localize("#ExportClip_Error")} (${r})`;
 	return n.createElement(
 		"div",
 		{
@@ -128,7 +128,7 @@ function h(e) {
 			{
 				onClick: o,
 			},
-			(0, l.we)("#Button_Close"),
+			Localize("#Button_Close"),
 		),
 	);
 }
@@ -169,7 +169,7 @@ function C(e) {
 				{
 					onClick: t,
 				},
-				(0, l.we)("#Button_Close"),
+				Localize("#Button_Close"),
 			),
 		),
 	);

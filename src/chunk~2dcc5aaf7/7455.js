@@ -171,7 +171,7 @@ var m;
 		}
 	};
 })((m ||= {}));
-var u = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 var d = require("./23472.js");
 var A = require(/*webcrack:missing*/ "./83599.js");
 const p = new A.wd("GameNotesCloudStore").Debug;
@@ -283,7 +283,7 @@ class h {
 	}
 	async DeleteGameNote(e, t) {
 		const r = await this.InternalLoadNotes(e);
-		if (u.Wp(r.notes, (e) => e.id === t)) {
+		if (FindAndRemoveWhere(r.notes, (e) => e.id === t)) {
 			r.dirty = true;
 		}
 		await this.InternalSaveNotes(e);

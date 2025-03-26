@@ -11,14 +11,14 @@ var d = require("./74827.js");
 var A = require("./12750.js");
 var p = require("./31993.js");
 var g = require("./63032.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require("./52470.js");
 var f = require("./91486.js");
 var b = require("./97561.js");
 var y = require("./13869.js");
-var S = require(/*webcrack:missing*/ "./41180.js");
-var w = require(/*webcrack:missing*/ "./54644.js");
+import { Seconds } from "../../actual_src/utils/time.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var B = require(/*webcrack:missing*/ "./72476.js");
 var v = require("./82594.js");
 var I = require("./5859.js");
@@ -59,12 +59,12 @@ export function Pp(e) {
 				i.createElement(
 					"div",
 					null,
-					(0, h.we)("#AppDetails_DLCSpotlight_Summary", t.strDisplayName),
+					Localize("#AppDetails_DLCSpotlight_Summary", t.strDisplayName),
 				),
 				i.createElement(
 					T.he,
 					{
-						toolTipContent: (0, h.we)("#AppDetails_WorkshopFeaturedHideItem"),
+						toolTipContent: Localize("#AppDetails_WorkshopFeaturedHideItem"),
 						className: m.HideButton,
 						onClick: s,
 					},
@@ -150,10 +150,10 @@ export let Cz = class extends i.Component {
 				this.props.parent.nPlaytimeForever -
 				this.m_ReviewDetails.playtime_at_review;
 		}
-		const n = (0, h.we)("#WriteReview_Dialog_Title");
+		const n = Localize("#WriteReview_Dialog_Title");
 		(0, y.mK)(
 			i.createElement(b.jB, {
-				ownerWindow: (0, w.uX)(e),
+				ownerWindow: GetOwningWindowForEvent(e),
 				steamID: this.props.parent.strOwnerSteamID,
 				appid: this.props.overview.appid,
 				nPlaytime: r,
@@ -162,7 +162,7 @@ export let Cz = class extends i.Component {
 				closeModal: this.OnCancelPostReview,
 				prevReview: this.m_ReviewDetails,
 			}),
-			(0, w.uX)(e),
+			GetOwningWindowForEvent(e),
 			{
 				strTitle: n,
 			},
@@ -226,7 +226,7 @@ export let Cz = class extends i.Component {
 	BPlayedGameRecently() {
 		return (
 			new Date().getTime() / 1000 - this.props.overview.rt_last_time_played <
-			S.Kp.PerWeek
+			Seconds.PerWeek
 		);
 	}
 	get hoursPlayed() {
@@ -374,7 +374,7 @@ export const Be = (0, s.PA)((e) => {
 					{
 						className: m.Intro,
 					},
-					(0, h.we)("#Demo_SpotlightIntro"),
+					Localize("#Demo_SpotlightIntro"),
 				),
 				i.createElement(
 					"div",
@@ -391,7 +391,7 @@ export const Be = (0, s.PA)((e) => {
 					i.createElement(_.Kd, {
 						innerClassName: m.SpotlightButton,
 						position: undefined,
-						label: (0, h.we)("#Demo_VisitStorePage"),
+						label: Localize("#Demo_VisitStorePage"),
 						link: "StoreAppPage",
 						appid: t,
 					}),

@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./89193.js");
 var a = require(/*webcrack:missing*/ "./88696.js");
 var s = require(/*webcrack:missing*/ "./12176.js");
 var o = require("./54946.js");
-var l = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, Sleep } from "../../actual_src/utils/time.js";
 var c = require("./91745.js");
 var m = require(/*webcrack:missing*/ "./72476.js");
 var u = require("./96000.js");
@@ -102,8 +102,8 @@ class _ {
 		if ((0, g.qw)().BIsOfflineMode()) {
 			return;
 		}
-		const e = l.Kp.PerDay;
-		const t = l.Kp.PerHour * 1000;
+		const e = Seconds.PerDay;
+		const t = Seconds.PerHour * 1000;
 		if (this.m_bPlayNextRequestInFlight) {
 			return;
 		}
@@ -139,7 +139,7 @@ class _ {
 			p,
 		);
 		if (c.hG.GetToggle(14)) {
-			await (0, l.IP)(10000);
+			await Sleep(10000);
 		}
 		if (h.GetEResult() == 1) {
 			this.m_cachedPlayNext = h.Body().toObject();
@@ -160,7 +160,7 @@ class _ {
 		const t = this.GetPlayNext();
 		let r = t.appids;
 		if (!e) {
-			const e = Date.now() / 1000 - l.Kp.PerWeek * 2;
+			const e = Date.now() / 1000 - Seconds.PerWeek * 2;
 			r = r.filter((t) => {
 				const r = d.tw.GetAppOverviewByAppID(t);
 				return r && u.md.BIsVisible(r) && r.GetLastTimePlayed() < e;

@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./13128.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./83247.js");
 var o = require(/*webcrack:missing*/ "./50376.js");
 var l = require(/*webcrack:missing*/ "./24295.js");
@@ -97,14 +97,14 @@ export function m(e) {
 			{
 				className: i.SinglePageHeading,
 			},
-			(0, a.we)("#RecordingIntro_Short_FeatureName"),
+			Localize("#RecordingIntro_Short_FeatureName"),
 		),
 		n.createElement(
 			"div",
 			{
 				className: i.Tagline,
 			},
-			(0, a.we)("#RecordingIntro_Short_Tagline"),
+			Localize("#RecordingIntro_Short_Tagline"),
 		),
 		n.createElement(
 			"div",
@@ -162,7 +162,7 @@ export function m(e) {
 						autoFocus: true,
 						onClick: t,
 					},
-					(0, a.we)("#Generic_GotItCalm"),
+					Localize("#Generic_GotItCalm"),
 				),
 			),
 			n.createElement(
@@ -176,7 +176,7 @@ export function m(e) {
 						onClick: () =>
 							r(`${p.TS.STORE_BASE_URL}fwlink?id=gamerecordingintro`),
 					},
-					(0, a.we)("#RecordingIntro_Action_LearnMore"),
+					Localize("#RecordingIntro_Action_LearnMore"),
 				),
 			),
 		),
@@ -213,14 +213,14 @@ function y(e) {
 				{
 					className: i.Title,
 				},
-				(0, a.we)(r),
+				Localize(r),
 			),
 			n.createElement(
 				"div",
 				{
 					className: i.Slug,
 				},
-				(0, a.we)(s),
+				Localize(s),
 			),
 		),
 	);

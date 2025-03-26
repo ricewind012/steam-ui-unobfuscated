@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./57931.js");
 var s = require("./83591.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./47628.js");
 var m = c;
 export const E = (0, n.PA)((e) => {
@@ -27,6 +27,6 @@ export const E = (0, n.PA)((e) => {
 			},
 			className: c,
 		},
-		(0, l.we)(n ? "#Sale_PlayNow" : "#Sale_AddToLibrary"),
+		Localize(n ? "#Sale_PlayNow" : "#Sale_AddToLibrary"),
 	);
 });

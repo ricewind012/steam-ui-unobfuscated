@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./44351.js");
 var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./52451.js");
 var c = require("./97063.js");
 var m = c;
@@ -41,14 +41,15 @@ export class S extends i.Component {
 	ButtonText() {
 		if (this.state.bExpanded) {
 			return (
-				this.props.collapseString || (0, o.we)("#OverflowBox_Action_Collapse")
+				this.props.collapseString ||
+				(0, Localize)("#OverflowBox_Action_Collapse")
 			);
 		}
 		{
 			let e =
-				this.props.expandString || (0, o.we)("#OverflowBox_Action_Expand");
+				this.props.expandString || (0, Localize)("#OverflowBox_Action_Expand");
 			if (this.props.nMaxRows) {
-				e += " " + (0, o.we)("#OverflowBox_More", this.state.nItemsHidden);
+				e += " " + (0, Localize)("#OverflowBox_More", this.state.nItemsHidden);
 			}
 			return e;
 		}

@@ -184,6 +184,7 @@ export class Al {
 				}
 			});
 			n.length > 0;
+
 		) {
 			const e = n.pop();
 			c(e, e.node);
@@ -198,7 +199,7 @@ export function CS(e, t) {
 	}
 	for (const e in t) {
 		if (e !== "") {
-			r += ` ${(((n = e)), n.replace(/(\\| |\])/g, "\\$1"))}=${s("" + t[e])}`;
+			r += ` ${((n = e), n.replace(/(\\| |\])/g, "\\$1"))}=${s("" + t[e])}`;
 		}
 	}
 	var n;

@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./90095.js");
 var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require("./54355.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./92374.js");
 var m = require(/*webcrack:missing*/ "./98995.js");
 var u = require("./91720.js");
@@ -31,7 +31,7 @@ function g(e) {
 		m.he,
 		{
 			className: s.GoLiveButtonCtn,
-			toolTipContent: (0, l.we)(
+			toolTipContent: Localize(
 				r ? "#Playback_AtLatest" : "#Playback_JumpToLatest",
 			),
 			direction: "bottom",

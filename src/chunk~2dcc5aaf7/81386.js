@@ -3,7 +3,11 @@ var i = require(/*webcrack:missing*/ "./12176.js");
 var a = require("./26052.js");
 var s = require("./95773.js");
 var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./53833.js");
+import {
+	MoveElement,
+	FindAndRemoveWhere,
+	CountMatches,
+} from "../../actual_src/utils/arrayutils.js";
 var c = require(/*webcrack:missing*/ "./49455.js");
 export function f(e, t) {
 	return (
@@ -58,7 +62,7 @@ export class x {
 		let r = this.m_rgFavorites.findIndex((t) => f(t, e));
 		if (r === -1 || (t !== undefined && r !== t)) {
 			if (r !== -1) {
-				l.yY(this.m_rgFavorites, r, t > r ? t - 1 : t);
+				MoveElement(this.m_rgFavorites, r, t > r ? t - 1 : t);
 			} else if (t !== undefined) {
 				this.m_rgFavorites.splice(t, 0, e);
 			} else {
@@ -70,7 +74,7 @@ export class x {
 		}
 	}
 	RemoveFromFavorites(e) {
-		if (l.Wp(this.m_rgFavorites, (t) => f(t, e))) {
+		if (FindAndRemoveWhere(this.m_rgFavorites, (t) => f(t, e))) {
 			return this.SaveFavorites();
 		} else {
 			return Promise.resolve(true);
@@ -137,10 +141,10 @@ export class x {
 	}
 	FillInChatUsabilityMetrics(e) {
 		e.metrics().set_friends_favorite_count(
-			l.$D(this.m_rgFavorites, (e) => !!e.friend),
+			CountMatches(this.m_rgFavorites, (e) => !!e.friend),
 		);
 		e.metrics().set_group_chat_favorite_count(
-			l.$D(this.m_rgFavorites, (e) => !!e.chat || !!e.clan),
+			CountMatches(this.m_rgFavorites, (e) => !!e.chat || !!e.clan),
 		);
 	}
 }

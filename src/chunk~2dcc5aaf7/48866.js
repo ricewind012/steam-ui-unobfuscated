@@ -17,8 +17,12 @@ var _ = require("./35488.js");
 var f = require(/*webcrack:missing*/ "./98995.js");
 var b = require("./43520.js");
 var y = require(/*webcrack:missing*/ "./90765.js");
-var S = require(/*webcrack:missing*/ "./54644.js");
-var w = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizationManager,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var B = require(/*webcrack:missing*/ "./52451.js");
 var v = require(/*webcrack:missing*/ "./72476.js");
 var I = require("./14629.js");
@@ -120,7 +124,7 @@ const G = (e) => {
 		f.he,
 		{
 			className: M.CompatDropDownOption,
-			toolTipContent: (0, w.we)(r),
+			toolTipContent: (0, Localize)(r),
 		},
 		F(t),
 		u.createElement(
@@ -128,7 +132,7 @@ const G = (e) => {
 			{
 				className: M.CompatLabel,
 			},
-			(0, w.we)(n),
+			(0, Localize)(n),
 		),
 	);
 };
@@ -188,7 +192,7 @@ const O = (e) => {
 					{
 						className: M.Default,
 					},
-					(0, w.we)("#AdvancedSearch_SteamDeckOptions"),
+					(0, Localize)("#AdvancedSearch_SteamDeckOptions"),
 				)
 			: F(i);
 	return u.createElement(
@@ -274,7 +278,7 @@ const P = (e) => {
 					{
 						className: M.Default,
 					},
-					(0, w.we)("#AdvancedSearch_ControllerSpecificFilterOptions"),
+					(0, Localize)("#AdvancedSearch_ControllerSpecificFilterOptions"),
 				)
 			: s?.label;
 	return u.createElement(
@@ -329,12 +333,15 @@ export let k = class extends u.Component {
 			}
 		}
 		(0, T.x2)(
-			(0, S.uX)(e),
+			GetOwningWindowForEvent(e),
 			(function (e) {
-				const t = new Intl.ListFormat(w.pf.GetPreferredLocales(), {
-					type: "conjunction",
-					style: "long",
-				});
+				const t = new Intl.ListFormat(
+					LocalizationManager.GetPreferredLocales(),
+					{
+						type: "conjunction",
+						style: "long",
+					},
+				);
 				const r = e.GetAllSelectedOptions().map((e) => e.name);
 				return t.format(r);
 			})(t),
@@ -349,7 +356,7 @@ export let k = class extends u.Component {
 		const e = u.createElement(
 			"span",
 			null,
-			(0, w.PP)(
+			LocalizeReact(
 				"#FilterEdit_SaveDynamicCollectionWithIcon",
 				u.createElement(C.U_V, {
 					height: 20,
@@ -375,7 +382,7 @@ export let k = class extends u.Component {
 				u.createElement(W, {
 					appFilter: this.props.appFilter,
 					fnOnChange: this.props.fnOnChange,
-					label: (0, w.we)("#AdvancedSearch_PlayerSection"),
+					label: (0, Localize)("#AdvancedSearch_PlayerSection"),
 					eGroup: 2,
 					className: M.Player,
 					options: this.GetFilterOptions(2, [7, 8, 9]),
@@ -383,7 +390,7 @@ export let k = class extends u.Component {
 				u.createElement(W, {
 					appFilter: this.props.appFilter,
 					fnOnChange: this.props.fnOnChange,
-					label: (0, w.we)("#AdvancedSearch_StateSection"),
+					label: (0, Localize)("#AdvancedSearch_StateSection"),
 					eGroup: 1,
 					className: M.PlayState,
 					options: this.GetFilterOptions(1, [2, 1, 3, 4]),
@@ -394,7 +401,7 @@ export let k = class extends u.Component {
 					{
 						appFilter: this.props.appFilter,
 						fnOnChange: this.props.fnOnChange,
-						label: (0, w.we)("#AdvancedSearch_HardwareSection"),
+						label: (0, Localize)("#AdvancedSearch_HardwareSection"),
 						eGroup: 2,
 						className: M.Hardware,
 						options: this.GetFilterOptions(2, [21, 1, 3]),
@@ -413,7 +420,7 @@ export let k = class extends u.Component {
 				u.createElement(W, {
 					appFilter: this.props.appFilter,
 					fnOnChange: this.props.fnOnChange,
-					label: (0, w.we)("#AdvancedSearch_FeatureSection"),
+					label: (0, Localize)("#AdvancedSearch_FeatureSection"),
 					eGroup: 2,
 					className: M.Feature,
 					options: this.GetFilterOptions(2, [4, 5, 6, 11, 23]),
@@ -422,7 +429,7 @@ export let k = class extends u.Component {
 				u.createElement(W, {
 					appFilter: this.props.appFilter,
 					fnOnChange: this.props.fnOnChange,
-					label: (0, w.we)("#AdvancedSearch_GenreSection"),
+					label: (0, Localize)("#AdvancedSearch_GenreSection"),
 					eGroup: 4,
 					className: (0, y.A)(M.Genre, M.ExtraTall),
 					options: this.GetGenreOptions(),
@@ -449,7 +456,7 @@ export let k = class extends u.Component {
 							className: M.ClearButton,
 							onClick: this.Reset,
 						},
-						(0, w.we)("#AdvancedSearch_Reset"),
+						(0, Localize)("#AdvancedSearch_Reset"),
 					),
 				!this.props.bHideSaveButton &&
 					u.createElement(
@@ -489,7 +496,7 @@ function z(e) {
 	}, [t, r, n, i, o]);
 	const m =
 		(0, c.q3)(() => r && n === 6 && s.O$.IsLibraryAccessDenied(i)) &&
-		(0, w.we)("#FilterElement_Tooltip_FriendLibrary_AccessDenied");
+		(0, Localize)("#FilterElement_Tooltip_FriendLibrary_AccessDenied");
 	const A = n === 6;
 	const p = (0, c.q3)(() => A && s.O$.GetFriendState(i)?.persona.avatar_url);
 	const g = (0, c.q3)(() =>
@@ -573,16 +580,16 @@ function U(e) {
 		n == 6
 			? ((m = t.name),
 				(0, i.Id)()
-					? (0, w.we)("#FilterElement_Tooltip_FriendLibrary", m)
-					: (0, w.we)("#FilterElement_Tooltip_FriendLibrary_Offline", m))
+					? (0, Localize)("#FilterElement_Tooltip_FriendLibrary", m)
+					: (0, Localize)("#FilterElement_Tooltip_FriendLibrary_Offline", m))
 			: t.bNameIsPrelocalized
-				? (0, w.we)("#FilterElement_Tooltip_StoreTag", t.name)
-				: (0, w.we)("#FilterElement_Tooltip_" + t.name);
+				? (0, Localize)("#FilterElement_Tooltip_StoreTag", t.name)
+				: (0, Localize)("#FilterElement_Tooltip_" + t.name);
 	var m;
 	const A = (0, I.Qv)(n, t.option);
 	const g = t.bNameIsPrelocalized
 		? t.name
-		: (0, w.we)("#FilterElement_" + t.name);
+		: (0, Localize)("#FilterElement_" + t.name);
 	const C = s?.find((e) => t.option == e.option);
 	const _ = !!C;
 	const b = (0, c.q3)(() => (_ ? C.state : r.BIsSelected(n, t.option)));
@@ -769,13 +776,13 @@ function j(e) {
 					{
 						className: (M.FilterBucketLabel, M.SearchBucketLabel),
 					},
-					(0, w.we)(n),
+					(0, Localize)(n),
 				),
 				u.createElement(h.pd, {
 					disabled: i,
 					className: M.TagInputDialog,
 					fnScrollIntoViewHandler: f,
-					placeholder: (0, w.we)(a),
+					placeholder: (0, Localize)(a),
 					value: m,
 					onChange: (e) => p(e.currentTarget.value),
 					bShowClearAction: true,
@@ -811,7 +818,7 @@ function j(e) {
 				{
 					appFilter: t,
 					fnOnChange: o,
-					label: (0, w.we)(n),
+					label: (0, Localize)(n),
 					eGroup: r,
 					className: (0, y.A)(
 						M.StoreTag,
@@ -822,7 +829,7 @@ function j(e) {
 				},
 				u.createElement(h.pd, {
 					disabled: i,
-					placeholder: (0, w.we)(a),
+					placeholder: (0, Localize)(a),
 					value: m,
 					onChange: (e) => p(e.currentTarget.value),
 					bShowClearAction: true,

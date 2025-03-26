@@ -133,9 +133,16 @@ class y {
 		return true;
 	}
 }
-var S = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	BIsParentOrSelf,
+	GetOwningWindowForElement,
+} from "../../actual_src/utils/domutils.js";
 var w = require(/*webcrack:missing*/ "./88750.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeRtime32ToShorterDate,
+} from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./31084.js");
 var I = require("./661.js");
 var E = require("./62178.js");
@@ -159,15 +166,15 @@ function F(e) {
 	if (u.bLoading) {
 		return n.createElement(k.Hh, {
 			state: u,
-			strDialogTitle: (0, B.we)("#Marker_Dialog"),
+			strDialogTitle: (0, Localize)("#Marker_Dialog"),
 			closeModal: t,
 		});
 	} else {
 		return n.createElement(
 			D.o0,
 			{
-				strTitle: (0, B.we)("#Marker_Dialog"),
-				strMiddleButtonText: (0, B.we)("#Marker_Action_Delete"),
+				strTitle: (0, Localize)("#Marker_Dialog"),
+				strMiddleButtonText: (0, Localize)("#Marker_Action_Delete"),
 				onCancel: t,
 				onOK: async () => {
 					u.fnSetLoading(true);
@@ -175,7 +182,7 @@ function F(e) {
 						t();
 					} else {
 						u.fnSetError(true);
-						u.fnSetStrError((0, B.we)("#Marker_UpdateFailed"));
+						u.fnSetStrError((0, Localize)("#Marker_UpdateFailed"));
 					}
 				},
 			},
@@ -183,13 +190,13 @@ function F(e) {
 				type: "text",
 				value: o,
 				onChange: (e) => l(e.currentTarget.value),
-				label: (0, B.we)("#Marker_Title"),
+				label: (0, Localize)("#Marker_Title"),
 			}),
 			n.createElement(N.pd, {
 				type: "text",
 				value: c,
 				onChange: (e) => m(e.currentTarget.value),
-				label: (0, B.we)("#Marker_Description"),
+				label: (0, Localize)("#Marker_Description"),
 			}),
 		);
 	}
@@ -252,7 +259,7 @@ function P(e) {
 			fnClearSelection: l,
 			strTimelineID: a.strTimelineID,
 		});
-		(0, G.pg)(r, (0, S.uX)(e));
+		(0, G.pg)(r, GetOwningWindowForEvent(e));
 		e.stopPropagation();
 		e.preventDefault();
 	};
@@ -286,7 +293,7 @@ function P(e) {
 						className: (0, s.A)(E.MenuItem, E.EditMarker),
 					},
 					n.createElement(M.ff, null),
-					(0, B.we)("#Marker_Action_Edit"),
+					(0, Localize)("#Marker_Action_Edit"),
 				),
 			),
 		);
@@ -306,7 +313,7 @@ function P(e) {
 						className: (0, s.A)(E.MenuItem, E.CreateClip),
 					},
 					n.createElement(M.Wd, null),
-					(0, B.we)("#TimelineDialog_ClipVideo"),
+					(0, Localize)("#TimelineDialog_ClipVideo"),
 				),
 			),
 		);
@@ -326,7 +333,7 @@ function P(e) {
 						className: (0, s.A)(E.MenuItem, E.DeleteMarker),
 					},
 					n.createElement(T.Trash, null),
-					(0, B.we)("#Marker_Action_Delete"),
+					(0, Localize)("#Marker_Action_Delete"),
 				),
 			),
 		);
@@ -346,7 +353,7 @@ function P(e) {
 						className: (0, s.A)(E.MenuItem, E.ViewScreenshot),
 					},
 					n.createElement(M.pw, null),
-					(0, B.we)("#TimelineDialog_ViewScreenshot"),
+					(0, Localize)("#TimelineDialog_ViewScreenshot"),
 				),
 			),
 		);
@@ -366,7 +373,7 @@ function P(e) {
 						className: (0, s.A)(E.MenuItem, E.ViewClip),
 					},
 					n.createElement(M.ai, null),
-					(0, B.we)("#TimelineDialog_ViewClip"),
+					(0, Localize)("#TimelineDialog_ViewClip"),
 				),
 			),
 		);
@@ -468,7 +475,7 @@ function x(e) {
 				e.SetThumbnailComponent(o.Jv.Highlight);
 				e.SetThumbnailEntry(t);
 				if (!i.current) {
-					const e = (0, S.uX)(r);
+					const e = GetOwningWindowForEvent(r);
 					e.addEventListener("mousemove", a);
 					i.current = () => e.removeEventListener("mousemove", a);
 				}
@@ -489,7 +496,7 @@ function x(e) {
 					i.current = null;
 					return;
 				}
-				if (!(0, S.id)(r.current, t.relatedTarget)) {
+				if (!BIsParentOrSelf(r.current, t.relatedTarget)) {
 					if (
 						t.clientY - n.top > 1 &&
 						n.bottom - t.clientY > 1 &&
@@ -1093,7 +1100,7 @@ const le = n.memo(function (e) {
 			if (e.button != 0) {
 				return;
 			}
-			const n = (0, S.uX)(e);
+			const n = GetOwningWindowForEvent(e);
 			let i;
 			let a;
 			const s = () => {
@@ -1184,7 +1191,7 @@ function me(e) {
 var ue = require("./35225.js");
 var de = require("./6967.js");
 var Ae = require(/*webcrack:missing*/ "./98995.js");
-var pe = require(/*webcrack:missing*/ "./11010.js");
+import { qZ } from "../../actual_src/utils/localization/datetime.js";
 var ge = require("./67429.js");
 const he = parseInt(ue.thumbnailWidth);
 const Ce = n.forwardRef(function (e, t) {
@@ -1249,7 +1256,7 @@ const Ce = n.forwardRef(function (e, t) {
 								{
 									className: ue.NoRecordedContent,
 								},
-								(0, B.we)("#GameRecording_PlayerNoContent"),
+								(0, Localize)("#GameRecording_PlayerNoContent"),
 							),
 					n.createElement(_e, null),
 				),
@@ -1285,9 +1292,11 @@ function _e() {
 	let s = "";
 	let l = "";
 	if ((0, _h.In)(a.entry)) {
-		l = (0, B.we)(a.entry.description) || "#GameRecording_UnknownError";
+		l = (0, Localize)(a.entry.description) || "#GameRecording_UnknownError";
 	} else if ((0, _h.N$)(a.entry)) {
-		s = a.entry.title ? a.entry.title : (0, B.we)("#Marker_UserMarker_Title");
+		s = a.entry.title
+			? a.entry.title
+			: (0, Localize)("#Marker_UserMarker_Title");
 		l = a.entry.description || "";
 	} else if ((0, _h.eJ)(a.entry)) {
 		s = a.entry.title || "";
@@ -1472,7 +1481,7 @@ function Be(e) {
 					{
 						className: ue.Duration,
 					},
-					(0, pe.qZ)(parseInt(e.duration) / 1000, false),
+					(0, qZ)(parseInt(e.duration) / 1000, false),
 				),
 			),
 		),
@@ -1494,17 +1503,17 @@ function ve() {
 	if ((0, _h.zG)(a.entry)) {
 		const e = u + parseInt(a.entry.duration);
 		if (u < 0) {
-			const t = (0, pe.qZ)(Math.abs(u / 1000), false, false);
-			const r = (0, pe.qZ)(Math.abs(e / 1000), false, false);
-			d = (0, B.we)("#Duration_WrittenNegation", t + " - " + r);
+			const t = (0, qZ)(Math.abs(u / 1000), false, false);
+			const r = (0, qZ)(Math.abs(e / 1000), false, false);
+			d = (0, Localize)("#Duration_WrittenNegation", t + " - " + r);
 		} else {
 			d =
-				(0, pe.qZ)(u / 1000, false, false) +
+				(0, qZ)(u / 1000, false, false) +
 				" - " +
-				(0, pe.qZ)(e / 1000, false, false);
+				(0, qZ)(e / 1000, false, false);
 		}
 	} else {
-		d = (0, pe.qZ)(u / 1000, false, true);
+		d = (0, qZ)(u / 1000, false, true);
 	}
 	return n.createElement(
 		"div",
@@ -1526,7 +1535,7 @@ function Ie(e) {
 			{
 				className: ue.TimeDisplayContainer,
 			},
-			(0, pe.qZ)(a / 1000, false, true),
+			(0, qZ)(a / 1000, false, true),
 		);
 	} else {
 		return null;
@@ -1619,7 +1628,7 @@ function Me(e) {
 		return n.createElement(
 			Ae.he,
 			{
-				toolTipContent: (0, B.we)(
+				toolTipContent: (0, Localize)(
 					c ? "#RecordingState_Clip_LowDiskSpace" : "#TimelineDialog_ClipVideo",
 				),
 				direction: "top",
@@ -1667,7 +1676,7 @@ function Te(e) {
 		return n.createElement(
 			Ae.he,
 			{
-				toolTipContent: (0, B.we)("#TimelineDialog_ViewClip"),
+				toolTipContent: (0, Localize)("#TimelineDialog_ViewClip"),
 				direction: "top",
 				bTopmost: true,
 			},
@@ -1698,7 +1707,7 @@ function Re(e) {
 	return n.createElement(
 		Ae.he,
 		{
-			toolTipContent: (0, B.we)("#Marker_Action_Delete"),
+			toolTipContent: (0, Localize)("#Marker_Action_Delete"),
 			direction: "top",
 			bTopmost: true,
 		},
@@ -1727,7 +1736,7 @@ function ke(e) {
 	return n.createElement(
 		Ae.he,
 		{
-			toolTipContent: (0, B.we)("#Marker_Action_Edit"),
+			toolTipContent: (0, Localize)("#Marker_Action_Edit"),
 			direction: "top",
 			bTopmost: true,
 		},
@@ -1746,7 +1755,7 @@ function ke(e) {
 						fnClearSelection: i,
 						strTimelineID: t.strTimelineID,
 					});
-					(0, G.pg)(a, (0, S.uX)(e));
+					(0, G.pg)(a, GetOwningWindowForEvent(e));
 					e.stopPropagation();
 					e.preventDefault();
 				},
@@ -1762,7 +1771,7 @@ function De(e) {
 	return n.createElement(
 		Ae.he,
 		{
-			toolTipContent: (0, B.we)("#TimelineDialog_ViewScreenshot"),
+			toolTipContent: (0, Localize)("#TimelineDialog_ViewScreenshot"),
 			direction: "top",
 			bTopmost: true,
 		},
@@ -1793,7 +1802,7 @@ function Ne(e) {
 	return n.createElement(
 		Ae.he,
 		{
-			toolTipContent: (0, B.we)("#TimelineDialog_AddMarker"),
+			toolTipContent: (0, Localize)("#TimelineDialog_AddMarker"),
 			direction: "top",
 		},
 		n.createElement(
@@ -1822,7 +1831,7 @@ function Fe(e) {
 		return n.createElement(
 			Ae.he,
 			{
-				toolTipContent: (0, B.we)("#TimelineDialog_ViewClip"),
+				toolTipContent: (0, Localize)("#TimelineDialog_ViewClip"),
 				direction: "top",
 			},
 			n.createElement(
@@ -2010,7 +2019,7 @@ function Pe(e) {
 	const E = (0, n.useCallback)(() => {
 		b(true);
 		y(p.current);
-		const e = (0, S.qf)(p.current);
+		const e = GetOwningWindowForElement(p.current);
 		if (e && !h.current) {
 			e.addEventListener("mousemove", v);
 			e.addEventListener("mouseup", I);
@@ -2029,7 +2038,7 @@ function Pe(e) {
 				t !== o.Jv.RangeLeft &&
 				t !== o.Jv.RangeRight
 			) {
-				if (A.current && !(0, S.id)(A.current, e.relatedTarget)) {
+				if (A.current && !BIsParentOrSelf(A.current, e.relatedTarget)) {
 					w();
 				}
 			}
@@ -2426,7 +2435,7 @@ function Qe(e) {
 	}, [c, s]);
 	const m = (0, n.useCallback)(
 		(e) => {
-			const t = (0, S.uX)(e);
+			const t = GetOwningWindowForEvent(e);
 			let n;
 			let i;
 			const s = () => {
@@ -2560,7 +2569,7 @@ const Je = n.memo(function (e) {
 	let l = "";
 	for (let e of r) {
 		let r = t.GetTimeRecorded(e.timelineID);
-		let n = (0, B._l)(r);
+		let n = LocalizeRtime32ToShorterDate(r);
 		if (n != l) {
 			s.push({
 				timeline: e,
@@ -3088,7 +3097,7 @@ function _t(e) {
 				c(m);
 				o(true);
 				const r = t.nativeEvent.offsetX;
-				const n = a.GetTimelineParentCtnRef() ?? (0, S.uX)(t);
+				const n = a.GetTimelineParentCtnRef() ?? GetOwningWindowForEvent(t);
 				let i;
 				let s;
 				let l;

@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./90242.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require(/*webcrack:missing*/ "./31084.js");
 var m = require("./44164.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./90765.js");
 var _A = require("./94230.js");
 var p = _A;
@@ -100,7 +100,7 @@ let _ = class extends i.Component {
 				l.Z,
 				{
 					onClick: this.OnEmoticonClick,
-					onOKActionDescription: (0, u.we)("#ChatEntryButton_Emoticon"),
+					onOKActionDescription: (0, Localize)("#ChatEntryButton_Emoticon"),
 					focusable: true,
 				},
 				i.createElement(
@@ -111,7 +111,8 @@ let _ = class extends i.Component {
 					i.createElement("img", {
 						src: this.props.useImg,
 						className: (0, d.A)(...a),
-						title: this.props.title || (0, u.we)("#ChatEntryButton_Emoticon"),
+						title:
+							this.props.title || (0, Localize)("#ChatEntryButton_Emoticon"),
 					}),
 				),
 			);
@@ -121,10 +122,10 @@ let _ = class extends i.Component {
 				o.fu,
 				{
 					className: (0, d.A)(...a),
-					onOKActionDescription: (0, u.we)("#ChatEntryButton_Emoticon"),
+					onOKActionDescription: (0, Localize)("#ChatEntryButton_Emoticon"),
 					type: "button",
 					onClick: this.OnEmoticonClick,
-					title: this.props.title || (0, u.we)("#ChatEntryButton_Emoticon"),
+					title: this.props.title || (0, Localize)("#ChatEntryButton_Emoticon"),
 					disabled: e,
 				},
 				i.createElement(

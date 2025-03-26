@@ -9,7 +9,10 @@ var m = require(/*webcrack:missing*/ "./69164.js");
 var u = require("./43014.js");
 var d = require("./35488.js");
 var A = require(/*webcrack:missing*/ "./50376.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var g = require("./46422.js");
 var h = require("./10606.js");
 var C = require("./22004.js");
@@ -175,7 +178,7 @@ function T() {
 			{
 				className: l.WelcomeTitle,
 			},
-			(0, p.we)(
+			(0, Localize)(
 				e ? "#GuidedTour_Welcome_Title" : "#GuidedTour_BPM_Welcome_Title",
 			),
 		),
@@ -184,7 +187,7 @@ function T() {
 			{
 				className: l.WelcomeDescription,
 			},
-			(0, p.we)(
+			(0, Localize)(
 				e
 					? "#GuidedTour_Welcome_Description"
 					: "#GuidedTour_BPM_Welcome_Description",
@@ -203,7 +206,7 @@ function R() {
 			{
 				className: l.WelcomeTitle,
 			},
-			(0, p.we)(
+			(0, Localize)(
 				e ? "#GuidedTour_SendOff_Title" : "#GuidedTour_BPM_SendOff_Title",
 			),
 		),
@@ -212,7 +215,7 @@ function R() {
 			{
 				className: l.WelcomeDescription,
 			},
-			(0, p.we)(
+			(0, Localize)(
 				e
 					? "#GuidedTour_SendOff_Description"
 					: "#GuidedTour_BPM_SendOff_Description",
@@ -247,17 +250,17 @@ function N() {
 		{
 			className: l.ContinueMessage,
 		},
-		(0, p.PP)(
+		LocalizeReact(
 			"#GuidedTour_ContinueMessage_Template",
 			n.createElement(
 				F,
 				null,
-				(0, p.we)("#GuidedTour_ContinueMessage_ActionPress"),
+				(0, Localize)("#GuidedTour_ContinueMessage_ActionPress"),
 			),
 			n.createElement(
 				F,
 				null,
-				(0, p.we)("#GuidedTour_ContinueMessage_ActionTap"),
+				(0, Localize)("#GuidedTour_ContinueMessage_ActionTap"),
 			),
 		),
 	);
@@ -284,10 +287,10 @@ function G() {
 			left: -w / 2,
 		},
 		targetDirection: "left",
-		title: (0, p.we)(
+		title: (0, Localize)(
 			e ? "#GuidedTour_SteamButton_Title" : "#GuidedTour_BPM_SteamButton_Title",
 		),
-		description: (0, p.PP)(
+		description: LocalizeReact(
 			e
 				? "#GuidedTour_SteamButton_Description"
 				: "#GuidedTour_BPM_SteamButton_Description",
@@ -322,12 +325,12 @@ function O() {
 			right: -w / 2,
 		},
 		targetDirection: "right",
-		title: (0, p.we)(
+		title: (0, Localize)(
 			e
 				? "#GuidedTour_QuickAccessButton_Title"
 				: "#GuidedTour_BPM_QuickAccessButton_Title",
 		),
-		description: (0, p.PP)(
+		description: LocalizeReact(
 			e
 				? "#GuidedTour_QuickAccessButton_Description"
 				: "#GuidedTour_BPM_QuickAccessButton_Description",
@@ -344,8 +347,8 @@ function P() {
 		},
 		targetDirection: "top",
 		align: "right",
-		title: (0, p.we)("#GuidedTour_PowerButton_Title"),
-		description: (0, p.we)("#GuidedTour_PowerButton_Description"),
+		title: (0, Localize)("#GuidedTour_PowerButton_Title"),
+		description: (0, Localize)("#GuidedTour_PowerButton_Description"),
 		icon: n.createElement(d.Power, {
 			className: l.Icon,
 		}),
@@ -359,8 +362,8 @@ function L() {
 		},
 		targetDirection: "top",
 		align: "left",
-		title: (0, p.we)("#GuidedTour_VolumeButtons_Title"),
-		description: (0, p.we)("#GuidedTour_VolumeButtons_Description"),
+		title: (0, Localize)("#GuidedTour_VolumeButtons_Title"),
+		description: (0, Localize)("#GuidedTour_VolumeButtons_Description"),
 		icon: n.createElement(A.fSs, {
 			className: l.Icon,
 		}),
@@ -374,8 +377,8 @@ function z() {
 		},
 		targetDirection: "bottom",
 		align: "right",
-		title: (0, p.we)("#GuidedTour_SDCard_Title"),
-		description: (0, p.we)("#GuidedTour_SDCard_Description"),
+		title: (0, Localize)("#GuidedTour_SDCard_Title"),
+		description: (0, Localize)("#GuidedTour_SDCard_Description"),
 		icon: n.createElement(d.SdCard, {
 			className: l.Icon,
 		}),

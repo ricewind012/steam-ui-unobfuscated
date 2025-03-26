@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./26853.js");
 var s = require("./39039.js");
 var o = require("./16154.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./34428.js");
 var u = require(/*webcrack:missing*/ "./72476.js");
 var d = require("./4042.js");
@@ -23,7 +23,7 @@ export function A(e) {
 	const [b, y] = (0, n.useState)(false);
 	const S = (0, s.m)("YouTubeInlineSnippet");
 	const [w, B] = (0, n.useState)({
-		title: (0, c.we)("#Loading"),
+		title: Localize("#Loading"),
 		description: "",
 		videoid: t,
 		views: "0",
@@ -72,14 +72,14 @@ export function A(e) {
 					{
 						className: p.DynamicLink_Name,
 					},
-					(0, c.we)("#EventEditor_YouTubeVideoTitle", e),
+					Localize("#EventEditor_YouTubeVideoTitle", e),
 				),
 				n.createElement(
 					"div",
 					{
 						className: p.DynamicLink_YoutubeViews,
 					},
-					(0, c.we)("#EventEditor_YouTubeVideoViews", (0, m.Dq)(Number(r))),
+					Localize("#EventEditor_YouTubeVideoViews", (0, m.Dq)(Number(r))),
 				),
 				n.createElement(
 					"div",

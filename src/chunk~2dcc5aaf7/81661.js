@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./41230.js");
 var a = require("./55116.js");
 var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require("./89748.js");
@@ -29,14 +29,14 @@ const w = (e) =>
 			{
 				className: d.Title,
 			},
-			(0, o.we)("#FriendsList_SignedOut"),
+			(0, Localize)("#FriendsList_SignedOut"),
 		),
 		n.createElement(
 			"div",
 			{
 				className: d.Details,
 			},
-			(0, o.we)("#FriendsList_SignedOut_Detail"),
+			(0, Localize)("#FriendsList_SignedOut_Detail"),
 		),
 	);
 const B = (e) =>
@@ -50,14 +50,14 @@ const B = (e) =>
 			{
 				className: d.Title,
 			},
-			(0, o.we)("#FriendsList_OfflineMode"),
+			(0, Localize)("#FriendsList_OfflineMode"),
 		),
 		n.createElement(
 			"div",
 			{
 				className: d.Details,
 			},
-			(0, o.we)("#FriendsList_OfflineMode_Detail"),
+			(0, Localize)("#FriendsList_OfflineMode_Detail"),
 		),
 	);
 const v = (0, i.PA)(function (e) {
@@ -247,7 +247,7 @@ function F(e) {
 				n.createElement(
 					f.kg,
 					null,
-					(0, o.we)("#FriendsList_StatusChange_Hint"),
+					(0, Localize)("#FriendsList_StatusChange_Hint"),
 				),
 			),
 		);

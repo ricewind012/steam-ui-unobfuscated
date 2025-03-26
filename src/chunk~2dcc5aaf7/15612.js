@@ -199,7 +199,7 @@ var b = require("./58839.js");
 var y = require("./82594.js");
 var S = require("./43397.js");
 var w = require(/*webcrack:missing*/ "./90765.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./72476.js");
 var I = require(/*webcrack:missing*/ "./26853.js");
 var E = require("./4014.js");
@@ -242,7 +242,7 @@ export function h(e) {
 						"span",
 						null,
 						" ",
-						(0, B.we)("#Sale_ReserveExhausted"),
+						(0, Localize)("#Sale_ReserveExhausted"),
 					),
 				);
 			}
@@ -273,7 +273,7 @@ export function h(e) {
 					n.createElement(
 						"span",
 						null,
-						(0, B.we)("#EventDisplay_CallToAction_VisitStore"),
+						(0, Localize)("#EventDisplay_CallToAction_VisitStore"),
 					),
 				);
 			}
@@ -304,17 +304,17 @@ export function h(e) {
 							className: (0, w.A)(M.Action, r),
 							type: "submit",
 						},
-						(0, B.we)("#EventDisplay_CallToAction_AddToAccount"),
+						(0, Localize)("#EventDisplay_CallToAction_AddToAccount"),
 					),
 				);
 			}
 		}
 		if ((e || u) && !o.BIsComingSoon()) {
-			let t = (0, B.we)("#EventDisplay_CallToAction_PlayNowForFree");
+			let t = (0, Localize)("#EventDisplay_CallToAction_PlayNowForFree");
 			if (e) {
-				t = (0, B.we)("#EventDisplay_CallToAction_PlayNow");
+				t = (0, Localize)("#EventDisplay_CallToAction_PlayNow");
 			} else if (o.BIsFreeTemporary()) {
-				t = (0, B.we)("#EventDisplay_CallToAction_AddToAccount");
+				t = (0, Localize)("#EventDisplay_CallToAction_AddToAccount");
 			}
 			return n.createElement(
 				"div",
@@ -333,7 +333,7 @@ export function h(e) {
 					href: e,
 					className: (0, w.A)(M.Action, r),
 				},
-				(0, B.we)("#EventDisplay_CallToAction_VisitStore"),
+				(0, Localize)("#EventDisplay_CallToAction_VisitStore"),
 			);
 		}
 	}
@@ -383,6 +383,6 @@ function k(e) {
 			className: (0, w.A)(M.Action, t),
 			onClick: m,
 		},
-		n.createElement("span", null, (0, B.we)("#Store_AddToCart")),
+		n.createElement("span", null, (0, Localize)("#Store_AddToCart")),
 	);
 }

@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./50376.js");
 var l = require("./43397.js");
 var c = require(/*webcrack:missing*/ "./93960.js");
 var m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./27793.js");
 var A = require("./7514.js");
 var p = require("./26970.js");
@@ -230,7 +230,7 @@ export function CB(e) {
 				disabled: e.bOKDisabled,
 				autoFocus: e.focusButton == "primary",
 			},
-			e.strOKText || (0, u.we)("#Button_Confirm"),
+			e.strOKText || (0, Localize)("#Button_Confirm"),
 			" ",
 		),
 		i.createElement(
@@ -240,7 +240,7 @@ export function CB(e) {
 				disabled: e.bCancelDisabled,
 				autoFocus: e.focusButton == "secondary",
 			},
-			e.strCancelText || (0, u.we)("#Button_Cancel"),
+			e.strCancelText || (0, Localize)("#Button_Cancel"),
 		),
 	);
 }
@@ -256,7 +256,7 @@ export function VQ(e) {
 				onClick: e.onOK,
 				disabled: e.bOKDisabled,
 			},
-			e.strOKText || (0, u.we)("#Button_Confirm"),
+			e.strOKText || (0, Localize)("#Button_Confirm"),
 			" ",
 		),
 		i.createElement(
@@ -265,7 +265,7 @@ export function VQ(e) {
 				onClick: e.onUpdate,
 				disabled: e.bUpdateDisabled,
 			},
-			e.strUpdateText || (0, u.we)("#Button_Update"),
+			e.strUpdateText || (0, Localize)("#Button_Update"),
 			" ",
 		),
 		i.createElement(
@@ -274,7 +274,7 @@ export function VQ(e) {
 				onClick: e.onCancel,
 				disabled: e.bCancelDisabled,
 			},
-			e.strCancelText || (0, u.we)("#Button_Cancel"),
+			e.strCancelText || (0, Localize)("#Button_Cancel"),
 		),
 	);
 }
@@ -312,7 +312,7 @@ export function xv(e) {
 				{
 					onClick: n,
 				},
-				l || (0, u.we)("#Button_Cancel"),
+				l || (0, Localize)("#Button_Cancel"),
 			),
 			i.createElement(
 				$n,
@@ -642,7 +642,7 @@ class Y extends pF {
 										"DialogToggleField_Option Off" +
 										(this.checked ? "" : " Active"),
 								},
-								(0, u.we)("#Dialog_Off"),
+								(0, Localize)("#Dialog_Off"),
 							),
 							i.createElement(
 								"div",
@@ -651,7 +651,7 @@ class Y extends pF {
 										"DialogToggleField_Option On" +
 										(this.checked ? " Active" : ""),
 								},
-								(0, u.we)("#Dialog_On"),
+								(0, Localize)("#Dialog_On"),
 							),
 						),
 					),

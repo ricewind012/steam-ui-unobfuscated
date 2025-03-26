@@ -32,7 +32,13 @@ var N = require("./64608.js");
 var F = require(/*webcrack:missing*/ "./50376.js");
 var G = require("./39039.js");
 var O = require(/*webcrack:missing*/ "./90765.js");
-var P = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	CLocalizationManager,
+	LocalizeRtime32ToShortDate,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var L = require(/*webcrack:missing*/ "./53807.js");
 var _z = require(/*webcrack:missing*/ "./72476.js");
 var x = require("./43397.js");
@@ -120,22 +126,22 @@ function K(e) {
 		const e = [];
 		if (_z.TS.IN_CLIENT && d) {
 			e.push({
-				label: (0, P.we)("#EventDisplay_ViewInLibrary_ExtraShort"),
+				label: (0, Localize)("#EventDisplay_ViewInLibrary_ExtraShort"),
 				data: "steam://nav/games/details/" + t,
 			});
 		}
 		e.push({
-			label: (0, P.we)("#EventDisplay_ViewStorePage_ExtraShort"),
+			label: (0, Localize)("#EventDisplay_ViewStorePage_ExtraShort"),
 			data: (0, L.k2)(a),
 		});
 		if (!l) {
 			e.push({
-				label: (0, P.we)("#EventDisplay_ViewCommunityPage_ExtraShort"),
+				label: (0, Localize)("#EventDisplay_ViewCommunityPage_ExtraShort"),
 				data: (0, L.k2)(s),
 			});
 			if (o) {
 				e.push({
-					label: (0, P.we)("#EventDisplay_ViewForum_ExtraShort"),
+					label: (0, Localize)("#EventDisplay_ViewForum_ExtraShort"),
 					data: (0, L.k2)(o),
 				});
 			}
@@ -147,7 +153,7 @@ function K(e) {
 							className: W.RssRow,
 						},
 						i.createElement(F.ZPc, null),
-						(0, P.we)("#EventDisplay_RSSFeed_ExtraShort"),
+						(0, Localize)("#EventDisplay_RSSFeed_ExtraShort"),
 					),
 					data: c,
 				});
@@ -155,14 +161,14 @@ function K(e) {
 		}
 		if (u) {
 			e.push({
-				label: (0, P.we)("#EventDisplay_Admin_ExtraShort"),
+				label: (0, Localize)("#EventDisplay_Admin_ExtraShort"),
 				data: (0, V.Hx)(t, T.b.InitFromClanID(r), "admin"),
 			});
 		}
 		return e;
 	}, [d, a, l, u, s, o, n, c, t, r]);
 	return i.createElement(N.m, {
-		strDefaultLabel: (0, P.we)("#EventDisplay_LinksDropDown_ExtraShort"),
+		strDefaultLabel: (0, Localize)("#EventDisplay_LinksDropDown_ExtraShort"),
 		strClassName: W.AppBannerLinkDD,
 		strDropDownButtonClassName: W.AppBannerLinkDDButton,
 		strDropDownMenuCtnClass: W.AppBannerLinkDDContainer,
@@ -252,7 +258,7 @@ const X = (0, g.PA)((e) => {
 					{
 						className: W.NewsHubSubTitle,
 					},
-					(0, P.we)("#EventDisplay_NewsHubSubtitle"),
+					(0, Localize)("#EventDisplay_NewsHubSubtitle"),
 				),
 			),
 			m &&
@@ -425,12 +431,12 @@ var me = require(/*webcrack:missing*/ "./98995.js");
 var ue = require("./49946.js");
 var de = ue;
 var Ae = require(/*webcrack:missing*/ "./28987.js");
-var pe = require(/*webcrack:missing*/ "./53833.js");
+import { PadArray } from "../../actual_src/utils/arrayutils.js";
 var ge = require(/*webcrack:missing*/ "./93960.js");
 var he = require(/*webcrack:missing*/ "./90039.js");
 class Ce {
 	m_eCurLang = (0, w.sf)(_z.TS.LANGUAGE);
-	m_rgHasData = (0, pe.$Y)([], 31, false);
+	m_rgHasData = PadArray([], 31, false);
 	m_bHasLocalizationContext = false;
 	m_callback = new he.l();
 	GetCallback() {
@@ -484,7 +490,7 @@ class Ce {
 (0, n.Cg)([ge.o], Ce.prototype, "SetCurEditLanguage", null);
 (0, n.Cg)([y.XI.bound], Ce.prototype, "SetHasLanguage", null);
 (0, n.Cg)([ge.o], Ce.prototype, "BHasLanguageData", null);
-var _e = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
 let fe = class extends i.Component {
 	GenerateLanguageOptions() {
 		let e = [];
@@ -502,18 +508,18 @@ let fe = class extends i.Component {
 						key: "langpicker_unset",
 						value: -1,
 					},
-					(0, P.we)("#language_selection_none"),
+					(0, Localize)("#language_selection_none"),
 				),
 			);
 		}
 		let s = new Array();
 		const o = this.props.realms || [Ae.TU.k_ESteamRealmGlobal];
-		for (const e of P.A0.GetLanguageListForRealms(o)) {
+		for (const e of CLocalizationManager.GetLanguageListForRealms(o)) {
 			if (t && !t(e)) {
 				continue;
 			}
 			const r = (0, w.Lg)(e);
-			const n = (0, P.we)("#Language_" + r);
+			const n = (0, Localize)("#Language_" + r);
 			const i = Boolean(a) && a(e);
 			s.push({
 				eLang: e,
@@ -539,7 +545,7 @@ let fe = class extends i.Component {
 							className: re.SupportedGroupLabel,
 							disabled: true,
 						},
-						(0, P.we)(
+						(0, Localize)(
 							t.bSupported
 								? "#LanguageGroup_Supported"
 								: "#LanguageGroup_Unsupported",
@@ -553,11 +559,11 @@ let fe = class extends i.Component {
 			let o = t.sLocName;
 			if (s && s !== 0) {
 				o += " ";
-				o += (0, P.we)(
+				o += (0, Localize)(
 					"#Language_Last_Update",
-					(0, P.$z)(s) +
+					LocalizeRtime32ToShortDate(s) +
 						" @ " +
-						(0, _e.KC)(s, {
+						LocalizeRTimeToHourAndMinutes(s, {
 							bForce24HourClock: false,
 						}),
 				);
@@ -670,7 +676,7 @@ class Fe extends Te.A {
 				key: "nomatches",
 				className: (0, O.A)(Ne.mentionSearchOption, Ne.noMatches),
 			},
-			(0, P.we)("#Bbcode_No_Match"),
+			(0, Localize)("#Bbcode_No_Match"),
 		);
 	}
 	renderTooManyMatchesMessage(e) {
@@ -892,7 +898,11 @@ var Oe = require("./15688.js");
 var Pe = require("./13869.js");
 var Le = require("./3083.js");
 var ze = Le;
-var xe = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	IsHTMLElement,
+	BIsParentOrSelf,
+} from "../../actual_src/utils/domutils.js";
 var Ue = require("./15918.js");
 var We = require("./17613.js");
 var Ve = require("./13352.js");
@@ -1004,7 +1014,7 @@ class Xe extends i.Component {
 				i.createElement(
 					N.iK,
 					null,
-					(0, P.we)(
+					(0, Localize)(
 						"#ImageUpload_CropModalTitleDims",
 						this.GetDestWidth(),
 						this.GetDestHeight(),
@@ -1015,7 +1025,7 @@ class Xe extends i.Component {
 					{
 						className: (0, O.A)("DialogBodyText"),
 					},
-					(0, P.we)("#ImageUpload_CropModalDescription"),
+					(0, Localize)("#ImageUpload_CropModalDescription"),
 				),
 				i.createElement(
 					"div",
@@ -1057,7 +1067,7 @@ class Xe extends i.Component {
 						{
 							className: Ke.CropPreviewLabel,
 						},
-						(0, P.we)("#ImageUpload_CropPreview"),
+						(0, Localize)("#ImageUpload_CropPreview"),
 					),
 					i.createElement("div", {
 						style: this.GetPreviewWindowStyle(),
@@ -1068,7 +1078,7 @@ class Xe extends i.Component {
 					{
 						onClick: this.OnCrop,
 					},
-					(0, P.we)("#ImageUpload_CropAndContinue"),
+					(0, Localize)("#ImageUpload_CropAndContinue"),
 				),
 			),
 		);
@@ -1099,16 +1109,16 @@ const et = (e) => {
 			i.createElement(
 				N.UC,
 				null,
-				i.createElement(N.Y9, null, (0, P.we)("#ClanImageChooser_Title")),
+				i.createElement(N.Y9, null, (0, Localize)("#ClanImageChooser_Title")),
 				i.createElement(
 					N.nB,
 					null,
 					i.createElement(
 						N.a3,
 						null,
-						i.createElement("p", null, (0, P.we)("#ClanImageChooser_Desc")),
+						i.createElement("p", null, (0, Localize)("#ClanImageChooser_Desc")),
 						i.createElement(N.pd, {
-							placeholder: (0, P.we)("#ClanImageChooser_Search"),
+							placeholder: (0, Localize)("#ClanImageChooser_Search"),
 							value: n,
 							onChange: (e) => a(e.currentTarget.value),
 						}),
@@ -1120,7 +1130,7 @@ const et = (e) => {
 							s
 								? i.createElement(He.t, {
 										size: "medium",
-										string: (0, P.we)("#Loading"),
+										string: (0, Localize)("#Loading"),
 									})
 								: Boolean(l.length > 0)
 									? l.map((e) =>
@@ -1135,12 +1145,12 @@ const et = (e) => {
 										? i.createElement(
 												"div",
 												null,
-												(0, P.we)("#ClanImageChooser_None"),
+												(0, Localize)("#ClanImageChooser_None"),
 											)
 										: i.createElement(
 												"div",
 												null,
-												(0, P.we)("#EventCalendar_GameSearch_NoneFound"),
+												(0, Localize)("#EventCalendar_GameSearch_NoneFound"),
 											),
 						),
 					),
@@ -1153,7 +1163,7 @@ const et = (e) => {
 						{
 							onClick: o,
 						},
-						(0, P.we)("#Button_Cancel"),
+						(0, Localize)("#Button_Cancel"),
 					),
 				),
 			),
@@ -1298,7 +1308,7 @@ const it = (0, g.PA)((e) => {
 		u
 			? i.createElement(He.t, {
 					size: "medium",
-					string: (0, P.we)("#Loading"),
+					string: (0, Localize)("#Loading"),
 				})
 			: Boolean(c) &&
 					i.createElement("div", {
@@ -1315,7 +1325,7 @@ const it = (0, g.PA)((e) => {
 				N.$n,
 				{
 					onClick: (e) => {
-						const t = (0, xe.uX)(e);
+						const t = GetOwningWindowForEvent(e);
 						let r = C.GetUploadImages()[0];
 						(0, Pe.pg)(
 							i.createElement(Xe, {
@@ -1331,7 +1341,7 @@ const it = (0, g.PA)((e) => {
 						);
 					},
 				},
-				(0, P.we)("#BBCode_ResizeImage"),
+				(0, Localize)("#BBCode_ResizeImage"),
 			),
 		Boolean(f && f.bCropped) &&
 			i.createElement(
@@ -1340,11 +1350,11 @@ const it = (0, g.PA)((e) => {
 				i.createElement(
 					"div",
 					null,
-					(0, P.we)("#ClanImagePickAndResize_UploadStatus", f.status),
+					(0, Localize)("#ClanImagePickAndResize_UploadStatus", f.status),
 				),
 				A
 					? i.createElement(He.t, {
-							string: (0, P.we)("#Uploading"),
+							string: (0, Localize)("#Uploading"),
 							size: "small",
 						})
 					: i.createElement(
@@ -1396,7 +1406,7 @@ const it = (0, g.PA)((e) => {
 									}
 								},
 							},
-							(0, P.we)("#ClanImagePickAndResize_UploadImage"),
+							(0, Localize)("#ClanImagePickAndResize_UploadImage"),
 						),
 			),
 		i.createElement(
@@ -1409,11 +1419,11 @@ const it = (0, g.PA)((e) => {
 							clanSteamID: t,
 							fnImageSelectCallBack: (e) => _(e),
 						}),
-						(0, xe.uX)(e),
+						GetOwningWindowForEvent(e),
 					);
 				},
 			},
-			(0, P.we)("#BBCode_ChooseImage", n, a),
+			(0, Localize)("#BBCode_ChooseImage", n, a),
 		),
 	);
 });
@@ -1484,7 +1494,7 @@ let st = class extends i.Component {
 			return i.createElement(
 				ce.o0,
 				{
-					strTitle: (0, P.we)("#EventEditor_FormattingHelp_GetHelpLink"),
+					strTitle: (0, Localize)("#EventEditor_FormattingHelp_GetHelpLink"),
 					strDescription: "",
 					closeModal: this.props.closeModal,
 					onOK: this.props.closeModal,
@@ -1735,7 +1745,7 @@ let At = class extends i.Component {
 			i.createElement(ht, {
 				textareaRef: this.props.fnTextareaRef(),
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	ShowHelpDialog(e) {
@@ -1744,12 +1754,12 @@ let At = class extends i.Component {
 				i.createElement(st, {
 					formatType: this.props.showFormatHelp,
 				}),
-				(0, xe.uX)(e),
+				GetOwningWindowForEvent(e),
 			);
 		}
 	}
 	OnConvertHTMLToBBCodeDialog(e) {
-		const t = (0, xe.uX)(e);
+		const t = GetOwningWindowForEvent(e);
 		(0, Pe.HT)(
 			i.createElement(yt, {
 				ownerWindow: t,
@@ -1765,7 +1775,7 @@ let At = class extends i.Component {
 				textareaRef: this.props.fnTextareaRef(),
 				pathToImages: t,
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	OnOpenImageDialog(e) {
@@ -1773,7 +1783,7 @@ let At = class extends i.Component {
 			i.createElement(Ct, {
 				textareaRef: this.props.fnTextareaRef(),
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	OnOpenSpeakerDialog(e) {
@@ -1782,7 +1792,7 @@ let At = class extends i.Component {
 				clanSteamID: this.props.clanSteamID,
 				textareaRef: this.props.fnTextareaRef(),
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	OnEmoticonSelected(e, t = false) {
@@ -1811,7 +1821,7 @@ let At = class extends i.Component {
 						i.createElement(
 							me.he,
 							{
-								toolTipContent: (0, P.we)(
+								toolTipContent: (0, Localize)(
 									"#EventEditor_FormattingHelp_GetHelpLink",
 								),
 							},
@@ -1825,7 +1835,7 @@ let At = class extends i.Component {
 									src: n + "/action_help.png",
 								}),
 								" ",
-								(0, P.we)("#EventEditor_FormattingHelp_GetHelpLink"),
+								(0, Localize)("#EventEditor_FormattingHelp_GetHelpLink"),
 							),
 						),
 					)
@@ -1838,7 +1848,7 @@ let At = class extends i.Component {
 						i.createElement(
 							me.he,
 							{
-								toolTipContent: (0, P.we)(
+								toolTipContent: (0, Localize)(
 									"#EventEditor_FormattingHelp_GetHelpLink",
 								),
 							},
@@ -1846,7 +1856,7 @@ let At = class extends i.Component {
 								src: n + "/action_help.png",
 							}),
 							" ",
-							(0, P.we)("#EventEditor_FormattingHelp_GetHelpLink"),
+							(0, Localize)("#EventEditor_FormattingHelp_GetHelpLink"),
 						),
 					);
 		}
@@ -1858,67 +1868,67 @@ let At = class extends i.Component {
 			this.BSupports("b") &&
 				i.createElement(pt, {
 					onClick: this.onBold,
-					tooltip: (0, P.we)("#Editor_Bold"),
+					tooltip: (0, Localize)("#Editor_Bold"),
 					imgURL: this.props.pathToImages + "/format_bold.png",
 				}),
 			this.BSupports("u") &&
 				i.createElement(pt, {
 					onClick: this.onUnderline,
-					tooltip: (0, P.we)("#Editor_Underline"),
+					tooltip: (0, Localize)("#Editor_Underline"),
 					imgURL: this.props.pathToImages + "/format_underline.png",
 				}),
 			this.BSupports("i") &&
 				i.createElement(pt, {
 					onClick: this.onItalics,
-					tooltip: (0, P.we)("#Editor_Italics"),
+					tooltip: (0, Localize)("#Editor_Italics"),
 					imgURL: this.props.pathToImages + "/format_italic.png",
 				}),
 			this.BSupports("strike") &&
 				i.createElement(pt, {
 					onClick: this.onStrikeThrough,
-					tooltip: (0, P.we)("#Editor_StrikeThrough"),
+					tooltip: (0, Localize)("#Editor_StrikeThrough"),
 					imgURL: this.props.pathToImages + "/format_strike.png",
 				}),
 			Boolean(this.BSupports("url") && !t) &&
 				i.createElement(pt, {
 					onClick: this.OnAddLink,
-					tooltip: (0, P.we)("#Editor_Link"),
+					tooltip: (0, Localize)("#Editor_Link"),
 					imgURL: this.props.pathToImages + "/format_link.png",
 				}),
 			this.BSupports("list") &&
 				i.createElement(pt, {
 					onClick: this.onUnorderedList,
-					tooltip: (0, P.we)("#Editor_Unordered"),
+					tooltip: (0, Localize)("#Editor_Unordered"),
 					imgURL: this.props.pathToImages + "/format_bullet.png",
 				}),
 			this.BSupports("olist") &&
 				i.createElement(pt, {
 					onClick: this.onOrderedList,
-					tooltip: (0, P.we)("#Editor_Ordered"),
+					tooltip: (0, Localize)("#Editor_Ordered"),
 					imgURL: this.props.pathToImages + "/format_numbered.png",
 				}),
 			this.BSupports("h1") &&
 				i.createElement(pt, {
 					onClick: this.onHeader,
-					tooltip: (0, P.we)("#Editor_Header"),
+					tooltip: (0, Localize)("#Editor_Header"),
 					imgURL: this.props.pathToImages + "/format_header1.png",
 				}),
 			this.BSupports("h2") &&
 				i.createElement(pt, {
 					onClick: this.onHeader2,
-					tooltip: (0, P.we)("#Editor_Header2"),
+					tooltip: (0, Localize)("#Editor_Header2"),
 					imgURL: this.props.pathToImages + "/format_header2.png",
 				}),
 			this.BSupports("h3") &&
 				i.createElement(pt, {
 					onClick: this.onHeader3,
-					tooltip: (0, P.we)("#Editor_Header3"),
+					tooltip: (0, Localize)("#Editor_Header3"),
 					imgURL: this.props.pathToImages + "/format_header3.png",
 				}),
 			this.BSupports("previewyoutube") &&
 				i.createElement(pt, {
 					onClick: this.OnOpenYoutubeDialog,
-					tooltip: (0, P.we)("#EventEditor_InsertYouTube"),
+					tooltip: (0, Localize)("#EventEditor_InsertYouTube"),
 					imgURL:
 						"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkYyNjlFOEM1MjJEMzExRTJCNTVBQkZGOUQyOTI0ODU5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkYyNjlFOEM2MjJEMzExRTJCNTVBQkZGOUQyOTI0ODU5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjI2OUU4QzMyMkQzMTFFMkI1NUFCRkY5RDI5MjQ4NTkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjI2OUU4QzQyMkQzMTFFMkI1NUFCRkY5RDI5MjQ4NTkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4IrEPeAAABJ0lEQVR42mL8//8/AzmABUScEOZJI1HfLBaoppmk2sh4Ql/r/69HD0jSxCanwMD07eVzhl9ADgz/ZmJikMjOY2CUlEIRR8YgPYzbBLhQQoeJl4/B7uY9hv9//jC8XLWc4UFfD8OPZ08xbGX6CSSQ8XdgKH/79o3h+69fDHwBwQy6ew8ySOYXMfxiZERRx/ILPTqA/K9fv8K5f4EG3Pn5i+EfSB2SWpaf6G6A2vgP6NSrWzYz3J8zk0Hk9SsGVka0ePzLxs7w9ydC+3+gpn29PQzv9uxiEHz7mkEY6ESQPb+QHMbMwcHAwiotw/Dj3h2E6L+/DIyrljKIgCMLGMoMmCmLQ0qagdnh66fn/xgYfP+B9BCJv79/lw5KcrPISKqzGMlN5AABBgBSmY83jVsiQAAAAABJRU5ErkJggg==",
 				}),
@@ -1931,7 +1941,7 @@ let At = class extends i.Component {
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#Editor_Emoticon"),
+							toolTipContent: (0, Localize)("#Editor_Emoticon"),
 						},
 						i.createElement(Oe.A, {
 							title: " ",
@@ -1952,7 +1962,7 @@ let At = class extends i.Component {
 			Boolean(this.BSupports("img") && !t) &&
 				i.createElement(pt, {
 					onClick: this.OnOpenImageDialog,
-					tooltip: (0, P.we)("#EventEditor_InsertImage"),
+					tooltip: (0, Localize)("#EventEditor_InsertImage"),
 					imgURL: this.props.pathToImages + "/insert_img.png",
 				}),
 			Boolean(
@@ -1960,7 +1970,7 @@ let At = class extends i.Component {
 			) &&
 				i.createElement(pt, {
 					onClick: this.OnOpenSpeakerDialog,
-					tooltip: (0, P.we)("#EventEditor_AddSpeaker"),
+					tooltip: (0, Localize)("#EventEditor_AddSpeaker"),
 					imgURL: this.props.pathToImages + "/insert_img.png",
 				}),
 			Boolean(r && !t) &&
@@ -1969,9 +1979,9 @@ let At = class extends i.Component {
 					{
 						onClick: this.OnConvertHTMLToBBCodeDialog,
 						className: qe.ActionImportHTML,
-						tooltip: (0, P.we)("#EventEditor_ImportFromHTML_ttip"),
+						tooltip: (0, Localize)("#EventEditor_ImportFromHTML_ttip"),
 					},
-					(0, P.we)("#EventEditor_ImportHTML"),
+					(0, Localize)("#EventEditor_ImportHTML"),
 				),
 			a,
 		);
@@ -2039,7 +2049,7 @@ let gt = class extends i.Component {
 				alignment: ct.V2.left,
 			});
 		} else {
-			alert((0, P.we)("#EventEditor_InsertYouTube_NoURL"));
+			alert((0, Localize)("#EventEditor_InsertYouTube_NoURL"));
 		}
 	}
 	OnUrlChange(e) {
@@ -2074,12 +2084,12 @@ let gt = class extends i.Component {
 		return i.createElement(
 			ce.o0,
 			{
-				strTitle: (0, P.we)("#EventEditor_InsertYouTube"),
+				strTitle: (0, Localize)("#EventEditor_InsertYouTube"),
 				strDescription: "",
 				closeModal: this.props.closeModal,
 				onCancel: this.props.closeModal,
 				onOK: this.OnYoutubeInsertLink,
-				strOKButtonText: (0, P.we)("#EventEditor_InsertYouTube"),
+				strOKButtonText: (0, Localize)("#EventEditor_InsertYouTube"),
 				className: qe.BBCodeEditorInputStyles,
 			},
 			i.createElement(
@@ -2100,7 +2110,7 @@ let gt = class extends i.Component {
 							{
 								className: "DialogLabel",
 							},
-							(0, P.we)("#EventEditor_InsertYouTube_URL"),
+							(0, Localize)("#EventEditor_InsertYouTube_URL"),
 						),
 						i.createElement(
 							"div",
@@ -2113,7 +2123,9 @@ let gt = class extends i.Component {
 								type: "text",
 								value: this.state.youtubeInput,
 								onChange: this.OnUrlChange,
-								placeholder: (0, P.we)("#EventEditor_InsertYouTube_Placholder"),
+								placeholder: (0, Localize)(
+									"#EventEditor_InsertYouTube_Placholder",
+								),
 							}),
 						),
 					),
@@ -2128,7 +2140,7 @@ let gt = class extends i.Component {
 						{
 							className: "DialogLabel",
 						},
-						(0, P.we)("#EventEditor_InsertYouTube_Position"),
+						(0, Localize)("#EventEditor_InsertYouTube_Position"),
 					),
 					i.createElement(
 						"div",
@@ -2152,7 +2164,7 @@ let gt = class extends i.Component {
 							i.createElement(
 								"span",
 								null,
-								(0, P.we)("#EventEditor_InsertYouTube_Left"),
+								(0, Localize)("#EventEditor_InsertYouTube_Left"),
 							),
 						),
 					),
@@ -2178,7 +2190,7 @@ let gt = class extends i.Component {
 							i.createElement(
 								"span",
 								null,
-								(0, P.we)("#EventEditor_InsertYouTube_Right"),
+								(0, Localize)("#EventEditor_InsertYouTube_Right"),
 							),
 						),
 					),
@@ -2204,7 +2216,7 @@ let gt = class extends i.Component {
 							i.createElement(
 								"span",
 								null,
-								(0, P.we)("#EventEditor_InsertYouTube_Full"),
+								(0, Localize)("#EventEditor_InsertYouTube_Full"),
 							),
 						),
 					),
@@ -2230,7 +2242,7 @@ let gt = class extends i.Component {
 							i.createElement(
 								"span",
 								null,
-								(0, P.we)("#EventEditor_InsertYouTube_Summary"),
+								(0, Localize)("#EventEditor_InsertYouTube_Summary"),
 							),
 						),
 					),
@@ -2295,12 +2307,12 @@ let ht = class extends i.Component {
 		return i.createElement(
 			ce.o0,
 			{
-				strTitle: (0, P.we)("#Editor_Link"),
+				strTitle: (0, Localize)("#Editor_Link"),
 				strDescription: "",
 				closeModal: this.props.closeModal,
 				onOK: this.onInsertLink,
 				onCancel: this.props.closeModal,
-				strOKButtonText: (0, P.we)("#EventEditor_InsertLinkURL"),
+				strOKButtonText: (0, Localize)("#EventEditor_InsertLinkURL"),
 				className: qe.BBCodeEditorInputStyles,
 			},
 			i.createElement(
@@ -2321,7 +2333,7 @@ let ht = class extends i.Component {
 							{
 								className: "DialogLabel",
 							},
-							(0, P.we)("#EventEditor_LinkDescription"),
+							(0, Localize)("#EventEditor_LinkDescription"),
 						),
 						i.createElement(
 							"div",
@@ -2350,7 +2362,7 @@ let ht = class extends i.Component {
 							{
 								className: "DialogLabel",
 							},
-							(0, P.we)("#EventEditor_LinkURL"),
+							(0, Localize)("#EventEditor_LinkURL"),
 						),
 						i.createElement(
 							"div",
@@ -2416,12 +2428,12 @@ let Ct = class extends i.Component {
 		return i.createElement(
 			ce.o0,
 			{
-				strTitle: (0, P.we)("#EventEditor_InsertImage_Title"),
+				strTitle: (0, Localize)("#EventEditor_InsertImage_Title"),
 				strDescription: "",
 				closeModal: this.props.closeModal,
 				onCancel: this.props.closeModal,
 				onOK: this.OnImageInsert,
-				strOKButtonText: (0, P.we)("#EventEditor_InsertImage_Title"),
+				strOKButtonText: (0, Localize)("#EventEditor_InsertImage_Title"),
 				className: qe.BBCodeEditorInputStyles,
 			},
 			i.createElement(
@@ -2429,7 +2441,11 @@ let Ct = class extends i.Component {
 				{
 					className: qe.EventEditorLinkInput,
 				},
-				i.createElement("p", null, (0, P.we)("#EventEditor_InsertImage_Desc")),
+				i.createElement(
+					"p",
+					null,
+					(0, Localize)("#EventEditor_InsertImage_Desc"),
+				),
 				i.createElement(
 					"div",
 					{
@@ -2443,7 +2459,7 @@ let Ct = class extends i.Component {
 							{
 								className: "DialogLabel",
 							},
-							(0, P.we)("#EventEditor_InsertImage_URL"),
+							(0, Localize)("#EventEditor_InsertImage_URL"),
 						),
 						i.createElement(
 							"div",
@@ -2455,7 +2471,9 @@ let Ct = class extends i.Component {
 								type: "text",
 								value: e,
 								onChange: this.OnImageURLChange,
-								placeholder: (0, P.we)("#EventEditor_InsertImage_Placeholder"),
+								placeholder: (0, Localize)(
+									"#EventEditor_InsertImage_Placeholder",
+								),
 								ref: this.refFirstInput,
 							}),
 						),
@@ -2474,7 +2492,7 @@ let Ct = class extends i.Component {
 							{
 								className: "DialogLabel",
 							},
-							(0, P.we)("#EventEditor_InsertImage_Anchor"),
+							(0, Localize)("#EventEditor_InsertImage_Anchor"),
 						),
 						i.createElement(
 							"div",
@@ -2486,7 +2504,9 @@ let Ct = class extends i.Component {
 								type: "text",
 								value: t,
 								onChange: this.OnAnchorURLChange,
-								placeholder: (0, P.we)("#EventEditor_InsertImage_Placeholder"),
+								placeholder: (0, Localize)(
+									"#EventEditor_InsertImage_Placeholder",
+								),
 							}),
 						),
 					),
@@ -2512,8 +2532,8 @@ const _t = (e) => {
 	return i.createElement(
 		ce.o0,
 		{
-			strTitle: (0, P.we)("#EventEditor_AddSpeaker"),
-			strDescription: (0, P.we)("#EventEditor_AddSpeaker_Desc"),
+			strTitle: (0, Localize)("#EventEditor_AddSpeaker"),
+			strDescription: (0, Localize)("#EventEditor_AddSpeaker_Desc"),
 			closeModal: e.closeModal,
 			onCancel: e.closeModal,
 			bOKDisabled: !C,
@@ -2545,7 +2565,7 @@ const _t = (e) => {
 			},
 			i.createElement(N.pd, {
 				type: "text",
-				label: (0, P.we)("#EventEditor_AddSpeaker_Name"),
+				label: (0, Localize)("#EventEditor_AddSpeaker_Name"),
 				value: t,
 				onChange: (e) => r(e.target.value),
 				focusOnMount: true,
@@ -2557,13 +2577,13 @@ const _t = (e) => {
 				},
 				i.createElement(N.pd, {
 					type: "text",
-					label: (0, P.we)("#EventEditor_AddSpeaker_Title"),
+					label: (0, Localize)("#EventEditor_AddSpeaker_Title"),
 					value: n,
 					onChange: (e) => a(e.target.value),
 				}),
 				i.createElement(N.pd, {
 					type: "text",
-					label: (0, P.we)("#EventEditor_AddSpeaker_Company"),
+					label: (0, Localize)("#EventEditor_AddSpeaker_Company"),
 					value: s,
 					onChange: (e) => o(e.target.value),
 				}),
@@ -2571,14 +2591,16 @@ const _t = (e) => {
 			i.createElement(
 				me.he,
 				{
-					toolTipContent: (0, P.we)("#EventEditor_AssociateSteamAccount_ttip"),
+					toolTipContent: (0, Localize)(
+						"#EventEditor_AssociateSteamAccount_ttip",
+					),
 				},
 				i.createElement(
 					"div",
 					{
 						className: "DialogLabel",
 					},
-					(0, P.we)("#EventEditor_AssociateSteamAccount"),
+					(0, Localize)("#EventEditor_AssociateSteamAccount"),
 					" (?)",
 				),
 			),
@@ -2587,7 +2609,7 @@ const _t = (e) => {
 				null,
 				g &&
 					i.createElement(He.t, {
-						string: (0, P.we)("#Loading"),
+						string: (0, Localize)("#Loading"),
 						size: "small",
 					}),
 				Boolean(h) &&
@@ -2620,7 +2642,7 @@ const _t = (e) => {
 						{
 							onClick: () => A(new T.b(_z.iA.steamid)),
 						},
-						(0, P.we)("#EventEditor_SteamAccount_addme"),
+						(0, Localize)("#EventEditor_SteamAccount_addme"),
 					),
 					i.createElement(
 						N.$n,
@@ -2634,14 +2656,14 @@ const _t = (e) => {
 									e,
 								),
 						},
-						(0, P.we)("#EventEditor_SteamAccount_addfriend"),
+						(0, Localize)("#EventEditor_SteamAccount_addfriend"),
 					),
 					i.createElement(
 						N.$n,
 						{
 							onClick: () => A(undefined),
 						},
-						(0, P.we)("#EventEditor_SteamAccount_clear"),
+						(0, Localize)("#EventEditor_SteamAccount_clear"),
 					),
 				),
 			),
@@ -2655,7 +2677,7 @@ const _t = (e) => {
 					{
 						className: "DialogLabel",
 					},
-					(0, P.we)("#EventEditor_ChoosePhoto"),
+					(0, Localize)("#EventEditor_ChoosePhoto"),
 				),
 				i.createElement(it, {
 					clanSteamID: e.clanSteamID,
@@ -2675,7 +2697,7 @@ const _t = (e) => {
 					{
 						className: "DialogLabel",
 					},
-					(0, P.we)("#EventEditor_AddSpeaker_About"),
+					(0, Localize)("#EventEditor_AddSpeaker_About"),
 				),
 				i.createElement(N.Cl, {
 					value: l,
@@ -2683,7 +2705,9 @@ const _t = (e) => {
 					rows: 8,
 					cols: 80,
 					nMinHeight: 40,
-					placeholder: (0, P.we)("#EventEditor_AddSpeaker_About_Placeholder"),
+					placeholder: (0, Localize)(
+						"#EventEditor_AddSpeaker_About_Placeholder",
+					),
 				}),
 			),
 			i.createElement(
@@ -2696,7 +2720,7 @@ const _t = (e) => {
 					{
 						className: "DialogLabel",
 					},
-					(0, P.we)("#Button_Preview"),
+					(0, Localize)("#Button_Preview"),
 				),
 				i.createElement(Ve.$k, {
 					company: s,
@@ -2809,8 +2833,8 @@ let yt = class extends i.Component {
 			.catch((e) => {
 				(0, Pe.pg)(
 					i.createElement(ce.KG, {
-						strTitle: (0, P.we)("#EventEditor_ConvertHTML_Error"),
-						strDescription: (0, P.we)(
+						strTitle: (0, Localize)("#EventEditor_ConvertHTML_Error"),
+						strDescription: (0, Localize)(
 							"#EventEditor_ConvertHTML_Error_Desc",
 							e.response && e.response.data ? e.response.data.msg : e,
 						),
@@ -2819,7 +2843,7 @@ let yt = class extends i.Component {
 					}),
 					this.props.ownerWindow,
 					{
-						strTitle: (0, P.we)("#EventEditor_ConvertHTML_Error"),
+						strTitle: (0, Localize)("#EventEditor_ConvertHTML_Error"),
 					},
 				);
 			});
@@ -2843,8 +2867,8 @@ let yt = class extends i.Component {
 			return i.createElement(
 				ce.o0,
 				{
-					strTitle: (0, P.we)("#EventEditor_ImportFromHTML"),
-					strDescription: (0, P.we)(
+					strTitle: (0, Localize)("#EventEditor_ImportFromHTML"),
+					strDescription: (0, Localize)(
 						"#EventEditor_ImportFromHTML_ConversionInProgress",
 					),
 					closeModal: e,
@@ -2856,8 +2880,8 @@ let yt = class extends i.Component {
 			);
 		} else if (this.state.bFinishedConverting) {
 			return i.createElement(ce.o0, {
-				strTitle: (0, P.we)("#EventEditor_ImportFromHTML"),
-				strDescription: (0, P.we)(
+				strTitle: (0, Localize)("#EventEditor_ImportFromHTML"),
+				strDescription: (0, Localize)(
 					"#EventEditor_ImportFromHTML_ConvertFinished",
 				),
 				closeModal: e,
@@ -2877,7 +2901,7 @@ let yt = class extends i.Component {
 					N.Y9,
 					null,
 					" ",
-					(0, P.we)("#EventEditor_ImportFromHTML"),
+					(0, Localize)("#EventEditor_ImportFromHTML"),
 					" ",
 				),
 				i.createElement(
@@ -2896,7 +2920,7 @@ let yt = class extends i.Component {
 								{
 									className: re.FlexColumnContainer,
 								},
-								(0, P.PP)(
+								LocalizeReact(
 									"#EventEditor_ImportFromHTML_ConvertDescription",
 									i.createElement(
 										"a",
@@ -2904,13 +2928,13 @@ let yt = class extends i.Component {
 											target: _z.TS.IN_CLIENT ? undefined : "_blank",
 											href: "https://partner.steamgames.com/doc/marketing/event_tools/import",
 										},
-										(0, P.we)("#EventEditor_ImportFromHTML_ConvertLearn"),
+										(0, Localize)("#EventEditor_ImportFromHTML_ConvertLearn"),
 									),
 								),
 							),
 							i.createElement("textarea", {
 								value: this.state.strHTMLData,
-								placeholder: (0, P.we)(
+								placeholder: (0, Localize)(
 									"#EventEditor_ImportFromHTML_Instruction",
 								),
 								className: qe.ImportHTMLTextArea,
@@ -2933,9 +2957,9 @@ let yt = class extends i.Component {
 									{
 										htmlFor: "ImportFromHTMLNewLines",
 									},
-									(0, P.we)("#EventEditor_ImportFromHTML_PreserveNewlines"),
+									(0, Localize)("#EventEditor_ImportFromHTML_PreserveNewlines"),
 									i.createElement(mt.o, {
-										tooltip: (0, P.we)(
+										tooltip: (0, Localize)(
 											"#EventEditor_ImportFromHTML_PreserveNewlines_Hint",
 										),
 									}),
@@ -2944,7 +2968,7 @@ let yt = class extends i.Component {
 							i.createElement(
 								"div",
 								null,
-								(0, P.we)("#EventEditor_ImportFromHTML_ConvertToBBCode"),
+								(0, Localize)("#EventEditor_ImportFromHTML_ConvertToBBCode"),
 							),
 						),
 					),
@@ -2953,9 +2977,9 @@ let yt = class extends i.Component {
 						null,
 						i.createElement(N.VQ, {
 							onCancel: e,
-							strOKText: (0, P.we)("#Button_Overwrite"),
+							strOKText: (0, Localize)("#Button_Overwrite"),
 							onUpdate: this.OnConvertAndAppendHTML,
-							strUpdateText: (0, P.we)("#Button_Append"),
+							strUpdateText: (0, Localize)("#Button_Append"),
 						}),
 					),
 				),
@@ -3014,7 +3038,9 @@ const vt = (0, g.PA)((e) => {
 				);
 				if (n.GetEResult() != 1) {
 					const t =
-						(0, P.we)("#EventDisplay_Share_Failure") + "\n\n" + n.GetEResult();
+						(0, Localize)("#EventDisplay_Share_Failure") +
+						"\n\n" +
+						n.GetEResult();
 					console.error(t, !e.token.reason);
 					if (!e.token.reason) {
 						d(t);
@@ -3031,7 +3057,7 @@ const vt = (0, g.PA)((e) => {
 				});
 				if (n.status != 200 || n?.data?.success != 1) {
 					const t =
-						(0, P.we)("#EventDisplay_Share_Failure") +
+						(0, Localize)("#EventDisplay_Share_Failure") +
 						"\n\n" +
 						n?.data?.message;
 					console.error(t);
@@ -3043,12 +3069,12 @@ const vt = (0, g.PA)((e) => {
 			}
 			if (!e.token.reason) {
 				p(true);
-				d((0, P.we)("#EventDisplay_Share_Success"));
+				d((0, Localize)("#EventDisplay_Share_Success"));
 			}
 		} catch (t) {
 			const r = (0, $.H)(t);
 			const n =
-				(0, P.we)("#EventDisplay_Share_Failure") + "\n\n" + r.strErrorMsg;
+				(0, Localize)("#EventDisplay_Share_Failure") + "\n\n" + r.strErrorMsg;
 			if (!e.token.reason) {
 				d(n);
 			}
@@ -3060,7 +3086,7 @@ const vt = (0, g.PA)((e) => {
 			ce.o0,
 			{
 				strDescription: "",
-				strTitle: (0, P.we)("#Button_Share"),
+				strTitle: (0, Localize)("#Button_Share"),
 				onCancel: e.closeModal,
 				onOK: e.closeModal,
 				bAlertDialog: true,
@@ -3073,7 +3099,7 @@ const vt = (0, g.PA)((e) => {
 				i.createElement(
 					"div",
 					null,
-					(0, P.we)("#EventDisplay_Share_OnMyStatus_Details"),
+					(0, Localize)("#EventDisplay_Share_OnMyStatus_Details"),
 				),
 				i.createElement(
 					"div",
@@ -3096,7 +3122,7 @@ const vt = (0, g.PA)((e) => {
 									"/home",
 								target: _z.TS.IN_CLIENT ? undefined : "_blank",
 							},
-							(0, P.we)("#EventDisplay_Share_OpenActivityFeed"),
+							(0, Localize)("#EventDisplay_Share_OpenActivityFeed"),
 						),
 				),
 			),
@@ -3106,10 +3132,10 @@ const vt = (0, g.PA)((e) => {
 			ce.o0,
 			{
 				strDescription: "",
-				strTitle: (0, P.we)("#Button_Share"),
+				strTitle: (0, Localize)("#Button_Share"),
 				onCancel: e.closeModal,
 				onOK: C,
-				strOKButtonText: (0, P.we)("#Button_Post"),
+				strOKButtonText: (0, Localize)("#Button_Post"),
 			},
 			i.createElement(
 				"div",
@@ -3119,7 +3145,7 @@ const vt = (0, g.PA)((e) => {
 				i.createElement(
 					"div",
 					null,
-					(0, P.we)("#EventDisplay_Share_OnMyStatus_Details"),
+					(0, Localize)("#EventDisplay_Share_OnMyStatus_Details"),
 				),
 				i.createElement(
 					"div",
@@ -3140,7 +3166,7 @@ const vt = (0, g.PA)((e) => {
 								className: (0, O.A)(re.FlexColumnContainer),
 							},
 							i.createElement(ut, {
-								strPlaceholder: (0, P.we)(
+								strPlaceholder: (0, Localize)(
 									"#EventDisplay_Share_OnMyStatus_Placeholder",
 								),
 								fnGetCurText: () => o,
@@ -3202,11 +3228,11 @@ class It extends i.Component {
 		} = this.props;
 		if (this.state.bRequireLoginToShare) {
 			return i.createElement(ce.o0, {
-				strTitle: (0, P.we)("#EventDisplay_Share_NotLoggedIn"),
-				strDescription: (0, P.we)(
+				strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
+				strDescription: (0, Localize)(
 					"#EventDisplay_Share_NotLoggedIn_Description",
 				),
-				strOKButtonText: (0, P.we)("#MobileLogin_SignIn"),
+				strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
 				onCancel: this.props.closeModal,
 				onOK: () => (0, ne.vg)(),
 			});
@@ -3223,7 +3249,7 @@ class It extends i.Component {
 				ce.o0,
 				{
 					strDescription: "",
-					strTitle: (0, P.we)("#Button_Share"),
+					strTitle: (0, Localize)("#Button_Share"),
 					onCancel: this.props.closeModal,
 					onOK: this.props.closeModal,
 					bAlertDialog: true,
@@ -3271,7 +3297,7 @@ const Et = (e) => {
 						{
 							className: de.LanguageLabel,
 						},
-						(0, P.we)("#EventDisplay_Share_LanguageLabel"),
+						(0, Localize)("#EventDisplay_Share_LanguageLabel"),
 					),
 					i.createElement(
 						"div",
@@ -3293,7 +3319,7 @@ const Et = (e) => {
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#EventDisplay_Share_OnSteam"),
+							toolTipContent: (0, Localize)("#EventDisplay_Share_OnSteam"),
 						},
 						i.createElement(
 							"div",
@@ -3312,14 +3338,14 @@ const Et = (e) => {
 										whiteSpace: "nowrap",
 									},
 								},
-								(0, P.we)("#EventDisplay_Share_OnMyStatus"),
+								(0, Localize)("#EventDisplay_Share_OnMyStatus"),
 							),
 						),
 					),
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#EventDisplay_Share_OnFaceBook"),
+							toolTipContent: (0, Localize)("#EventDisplay_Share_OnFaceBook"),
 						},
 						i.createElement(
 							x.uU,
@@ -3336,7 +3362,7 @@ const Et = (e) => {
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#EventDisplay_Share_OnTwitter"),
+							toolTipContent: (0, Localize)("#EventDisplay_Share_OnTwitter"),
 						},
 						i.createElement(
 							x.uU,
@@ -3353,7 +3379,7 @@ const Et = (e) => {
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#EventDisplay_Share_OnReddit"),
+							toolTipContent: (0, Localize)("#EventDisplay_Share_OnReddit"),
 						},
 						i.createElement(
 							x.uU,
@@ -3393,10 +3419,10 @@ const Mt = (e) => {
 						t.current.ownerDocument.defaultView.navigator.clipboard
 							.writeText(t.current.value)
 							.then((e) => {
-								n((0, P.we)("#EventDisplay_Share_CopiedToClipboard"));
+								n((0, Localize)("#EventDisplay_Share_CopiedToClipboard"));
 							})
 							.catch((e) => {
-								n((0, P.we)("#EventDisplay_Share_FailedToCopyToClipboard"));
+								n((0, Localize)("#EventDisplay_Share_FailedToCopyToClipboard"));
 								console.error("Failed to copy link to clipboard:", e);
 							});
 					}
@@ -3407,7 +3433,7 @@ const Mt = (e) => {
 				{
 					className: de.LinkInputLabel,
 				},
-				(0, P.we)(
+				(0, Localize)(
 					e.labelOverride ? e.labelOverride : "#EventDisplay_Share_Link",
 				),
 			),
@@ -3422,12 +3448,12 @@ const Mt = (e) => {
 					"div",
 					{
 						className: (0, O.A)(re.Button, re.Icon, de.LinkButton),
-						title: (0, P.we)("#ToolTip_CopyLinkToClipboard"),
+						title: (0, Localize)("#ToolTip_CopyLinkToClipboard"),
 					},
 					i.createElement(
 						me.he,
 						{
-							toolTipContent: (0, P.we)("#ToolTip_CopyLinkToClipboard"),
+							toolTipContent: (0, Localize)("#ToolTip_CopyLinkToClipboard"),
 						},
 						i.createElement("img", {
 							className: de.ClipboardIcon,
@@ -3495,7 +3521,7 @@ const Dt = (0, g.PA)((e) => {
 					i.createElement(N.Yh, {
 						key: "checkbox" + e,
 						label: t
-							? (0, P.we)("#EventRepost_Dialog_Existing", r.group_name)
+							? (0, Localize)("#EventRepost_Dialog_Existing", r.group_name)
 							: r.group_name,
 						checked: n,
 						disabled: d !== null,
@@ -3531,14 +3557,18 @@ const Dt = (0, g.PA)((e) => {
 			i.createElement(
 				N.UC,
 				null,
-				i.createElement(N.Y9, null, (0, P.we)("#EventRepost_Dialog_Title")),
+				i.createElement(N.Y9, null, (0, Localize)("#EventRepost_Dialog_Title")),
 				i.createElement(
 					N.nB,
 					null,
-					i.createElement(N.a3, null, (0, P.we)("#EventRepost_Dialog_Desc")),
+					i.createElement(
+						N.a3,
+						null,
+						(0, Localize)("#EventRepost_Dialog_Desc"),
+					),
 					r
 						? i.createElement(He.t, {
-								string: (0, P.we)("#Loading"),
+								string: (0, Localize)("#Loading"),
 							})
 						: i.createElement("div", null, C),
 					Boolean(l.size || m.size) &&
@@ -3548,7 +3578,7 @@ const Dt = (0, g.PA)((e) => {
 							i.createElement(
 								"span",
 								null,
-								(0, P.we)("#EventRepost_Dialog_Action_Desc"),
+								(0, Localize)("#EventRepost_Dialog_Action_Desc"),
 							),
 							i.createElement(
 								"ul",
@@ -3557,13 +3587,13 @@ const Dt = (0, g.PA)((e) => {
 									i.createElement(
 										"li",
 										null,
-										(0, P.we)("#EventRepost_Dialog_Action_Add", l.size),
+										(0, Localize)("#EventRepost_Dialog_Action_Add", l.size),
 									),
 								Boolean(m.size) &&
 									i.createElement(
 										"li",
 										null,
-										(0, P.we)("#EventRepost_Dialog_Action_Remove", m.size),
+										(0, Localize)("#EventRepost_Dialog_Action_Remove", m.size),
 									),
 							),
 						),
@@ -3575,7 +3605,7 @@ const Dt = (0, g.PA)((e) => {
 					null,
 					i.createElement(N.CB, {
 						onCancel: () => e.closeModal && e.closeModal(),
-						strOKText: (0, P.we)("#EventRepost_Dialog_OK"),
+						strOKText: (0, Localize)("#EventRepost_Dialog_OK"),
 						bOKDisabled:
 							(l.size == 0 && m.size == 0) || d !== null || p !== null,
 						onOK: async () => {
@@ -3586,7 +3616,7 @@ const Dt = (0, g.PA)((e) => {
 							h.current = e.cancel;
 							const r = l.size + m.size;
 							let n = 1;
-							A((0, P.we)("#EventRepost_Dialog_Progress", n, r));
+							A((0, Localize)("#EventRepost_Dialog_Progress", n, r));
 							for (const i of Array.from(l)) {
 								const a = T.b.InitFromClanID(i);
 								if (
@@ -3594,10 +3624,10 @@ const Dt = (0, g.PA)((e) => {
 										.Get()
 										.RepostEvent(t.clanSteamID, t.GID, a, true, e))
 								) {
-									g((0, P.we)("#EventRepost_Dialog_ResultFail"));
+									g((0, Localize)("#EventRepost_Dialog_ResultFail"));
 									return;
 								}
-								A((0, P.we)("#EventRepost_Dialog_Progress", ++n, r));
+								A((0, Localize)("#EventRepost_Dialog_Progress", ++n, r));
 							}
 							for (const i of Array.from(m)) {
 								const a = T.b.InitFromClanID(i);
@@ -3606,12 +3636,12 @@ const Dt = (0, g.PA)((e) => {
 										.Get()
 										.RepostEvent(t.clanSteamID, t.GID, a, false, e))
 								) {
-									g((0, P.we)("#EventRepost_Dialog_ResultFail"));
+									g((0, Localize)("#EventRepost_Dialog_ResultFail"));
 									return;
 								}
-								A((0, P.we)("#EventRepost_Dialog_Progress", ++n, r));
+								A((0, Localize)("#EventRepost_Dialog_Progress", ++n, r));
 							}
-							g((0, P.we)("#EventRepost_Dialog_ResultSuccess"));
+							g((0, Localize)("#EventRepost_Dialog_ResultSuccess"));
 						},
 					}),
 				),
@@ -3707,11 +3737,11 @@ let Gt = class extends i.Component {
 					} else {
 						(0, Pe.pg)(
 							i.createElement(ce.o0, {
-								strTitle: (0, P.we)("#EventDisplay_Share_NotLoggedIn"),
-								strDescription: (0, P.we)(
+								strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
+								strDescription: (0, Localize)(
 									"#EventDisplay_Share_NotLoggedIn_Description",
 								),
-								strOKButtonText: (0, P.we)("#MobileLogin_SignIn"),
+								strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
 								onOK: () => (0, ne.vg)(),
 							}),
 							window,
@@ -3762,20 +3792,20 @@ let Gt = class extends i.Component {
 				emoticonStore: this.props.emoticonStore,
 				partnerEventStore: this.props.partnerEventStore,
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 			{
-				strTitle: (0, P.we)("#Button_Share"),
+				strTitle: (0, Localize)("#Button_Share"),
 			},
 		);
 	}
 	GotoDiscussion(e) {
 		(0, Pe.pg)(
 			i.createElement(ce.KG, {
-				strDescription: (0, P.we)(
+				strDescription: (0, Localize)(
 					"#EventDisplay_Share_CommentMigrationInProcess",
 				),
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	OpenRepostDialogs(e) {
@@ -3783,7 +3813,7 @@ let Gt = class extends i.Component {
 			i.createElement(Dt, {
 				eventModel: this.props.eventModel,
 			}),
-			(0, xe.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	render() {
@@ -3844,7 +3874,7 @@ let Gt = class extends i.Component {
 							{
 								className: de.DiscussionButtonText,
 							},
-							(0, P.we)("#Button_RateUp"),
+							(0, Localize)("#Button_RateUp"),
 						),
 					),
 					i.createElement(
@@ -3891,7 +3921,7 @@ let Gt = class extends i.Component {
 								),
 								onActivate: this.OpenRepostDialogs,
 							},
-							(0, P.we)("#EventRepost_Dialog_Title"),
+							(0, Localize)("#EventRepost_Dialog_Title"),
 						),
 					),
 			),
@@ -3916,7 +3946,7 @@ let Gt = class extends i.Component {
 							{
 								className: de.DiscussionButtonText,
 							},
-							(0, P.we)("#Button_Share"),
+							(0, Localize)("#Button_Share"),
 						),
 					),
 			),
@@ -3955,7 +3985,7 @@ function Ot(e) {
 						{
 							className: de.DiscussionButtonText,
 						},
-						(0, P.we)("#Button_Discuss"),
+						(0, Localize)("#Button_Discuss"),
 					),
 				),
 			),
@@ -3973,7 +4003,7 @@ function Ot(e) {
 					{
 						className: de.DiscussionButtonText,
 					},
-					(0, P.we)("#Button_Discuss"),
+					(0, Localize)("#Button_Discuss"),
 				),
 			),
 	);
@@ -5815,11 +5845,11 @@ function vr(e) {
 	} else {
 		(0, Pe.pg)(
 			i.createElement(ce.o0, {
-				strTitle: (0, P.we)("#EventDisplay_Share_NotLoggedIn"),
-				strDescription: (0, P.we)(
+				strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
+				strDescription: (0, Localize)(
 					"#EventDisplay_Share_NotLoggedIn_Description",
 				),
-				strOKButtonText: (0, P.we)("#MobileLogin_SignIn"),
+				strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
 				onOK: ne.vg,
 			}),
 			window,
@@ -5887,7 +5917,7 @@ function Mr(e) {
 			className: Br.SteamAwardContainer,
 			size: "medium",
 			position: "center",
-			string: (0, P.we)("#Loading"),
+			string: (0, Localize)("#Loading"),
 		});
 	}
 	const u = I.HD.GetTimeNowWithOverride();
@@ -5932,7 +5962,7 @@ function Mr(e) {
 					{
 						className: Br.SteamAwardMainTitle,
 					},
-					(0, P.we)("#SteamAwards_EventMainTitle"),
+					(0, Localize)("#SteamAwards_EventMainTitle"),
 				),
 				i.createElement(
 					"div",
@@ -5940,8 +5970,8 @@ function Mr(e) {
 						className: Br.SteamAwardSubTitle,
 					},
 					g
-						? (0, P.we)("#SteamAwards_EventCallToAction")
-						: (0, P.we)("#SteamAwards_EventVotingDateTeaser", h),
+						? (0, Localize)("#SteamAwards_EventCallToAction")
+						: (0, Localize)("#SteamAwards_EventVotingDateTeaser", h),
 					g &&
 						i.createElement(
 							"a",
@@ -5952,7 +5982,7 @@ function Mr(e) {
 								className: Br.SteamAwardLearnMore,
 							},
 							"(",
-							(0, P.we)("#EventDisplay_CallToAction_LearnMore"),
+							(0, Localize)("#EventDisplay_CallToAction_LearnMore"),
 							")",
 						),
 				),
@@ -5963,7 +5993,7 @@ function Mr(e) {
 					},
 					g
 						? A
-							? (0, P.we)(
+							? (0, Localize)(
 									"#SteamAwards_EventNominateGamePrompt_Long",
 									t.GetGameTitle(r),
 								)
@@ -5975,12 +6005,12 @@ function Mr(e) {
 											_z.TS.STORE_BASE_URL + "steamawards/nominations/",
 										),
 									},
-									(0, P.we)(
+									(0, Localize)(
 										"#SteamAwards_EventNominateGamePrompt_NoCategory",
 										t.GetGameTitle(r),
 									),
 								)
-						: (0, P.we)("#SteamAwards_Event_NominationsClosed"),
+						: (0, Localize)("#SteamAwards_Event_NominationsClosed"),
 				),
 			),
 		),
@@ -6069,11 +6099,11 @@ function Tr(e) {
 									className: Br.SteamAwardCategoryTitle,
 								},
 								c
-									? (0, P.PP)(
+									? LocalizeReact(
 											"#SteamAwards_NominateWidget_CTA_PastTense",
 											r.rgAwardCategoryDetails[0].strSuggestedCategoryTitle,
 										)
-									: (0, P.PP)(
+									: LocalizeReact(
 											"#SteamAwards_NominateWidget_CTA",
 											r.rgAwardCategoryDetails[0].strSuggestedCategoryTitle,
 										),
@@ -6102,7 +6132,7 @@ function Tr(e) {
 								_z.TS.STORE_BASE_URL + "steamawards/nominations/",
 							),
 						},
-						(0, P.we)("#SteamAwards_EventNominationAlternativeLinkText"),
+						(0, Localize)("#SteamAwards_EventNominationAlternativeLinkText"),
 					),
 				),
 		);
@@ -6125,7 +6155,7 @@ function Rr(e) {
 		ce.o0,
 		{
 			modalClassName: Br.SteamAwardConflictModal,
-			strTitle: (0, P.we)(`#SteamAward_${n}ConflictWarning_Title`),
+			strTitle: (0, Localize)(`#SteamAward_${n}ConflictWarning_Title`),
 			closeModal: o,
 			onOK: a,
 			onCancel: s,
@@ -6135,7 +6165,7 @@ function Rr(e) {
 			{
 				className: Br.ConflictBody,
 			},
-			(0, P.PP)(
+			LocalizeReact(
 				`#SteamAward_${e.strLocTokenInfix}ConflictWarning_Explanation`,
 				i.createElement(
 					"span",
@@ -6156,7 +6186,7 @@ function Rr(e) {
 				? i.createElement(He.t, {
 						size: "small",
 						position: "center",
-						string: (0, P.we)("#Loading"),
+						string: (0, Localize)("#Loading"),
 					})
 				: i.createElement(
 						"div",
@@ -6340,7 +6370,7 @@ let kr = class extends i.Component {
 									{
 										className: Br.SteamAwardVoteButtonText,
 									},
-									(0, P.we)("#SteamAward_VoteButton_VotedText"),
+									(0, Localize)("#SteamAward_VoteButton_VotedText"),
 								),
 							)
 						: i.createElement(
@@ -6354,7 +6384,7 @@ let kr = class extends i.Component {
 									{
 										className: Br.SteamAwardVoteButtonText,
 									},
-									(0, P.we)("#SteamAward_VoteButton_PromptText"),
+									(0, Localize)("#SteamAward_VoteButton_PromptText"),
 								),
 							),
 				),
@@ -6457,7 +6487,7 @@ let Dr = class extends i.Component {
 							className: Br.SteamAwardMainTitle,
 						},
 						" ",
-						(0, P.we)("#SteamAwards_EventMainTitleCombined"),
+						(0, Localize)("#SteamAwards_EventMainTitleCombined"),
 						" ",
 					),
 					i.createElement(
@@ -6469,7 +6499,7 @@ let Dr = class extends i.Component {
 							? i.createElement(
 									i.Fragment,
 									null,
-									(0, P.we)(
+									(0, Localize)(
 										"#SteamAwards_EventVoteForGamePrompt",
 										k.A.Get().GetApp(this.props.appID)?.GetName(),
 									),
@@ -6480,7 +6510,7 @@ let Dr = class extends i.Component {
 										href: (0, L.NT)(_z.TS.STORE_BASE_URL + "steamawards/"),
 										className: Br.LinkText,
 									},
-									(0, P.we)("#SteamAwards_Event_VotesClosed"),
+									(0, Localize)("#SteamAwards_Event_VotesClosed"),
 								),
 					),
 					i.createElement(
@@ -6502,7 +6532,7 @@ let Dr = class extends i.Component {
 					{
 						href: (0, L.NT)(_z.TS.STORE_BASE_URL + "steamawards/"),
 					},
-					(0, P.we)("#EventDisplay_CallToAction_LearnMore"),
+					(0, Localize)("#EventDisplay_CallToAction_LearnMore"),
 				),
 			),
 		);
@@ -6535,8 +6565,8 @@ function Wr(e) {
 		.map((e) => k.A.Get().GetApp(e))
 		.filter(Boolean)
 		.map((e) => `[url="${e.GetStorePageURL()}"]${e.GetName()}[/url]`)
-		.join((0, P.we)("#EventDisplay_ReferencedApps_Joiner"));
-	const o = (0, P.Yp)("#EventDisplay_ReferencedApps", r.length, s);
+		.join((0, Localize)("#EventDisplay_ReferencedApps_Joiner"));
+	const o = LocalizePlural("#EventDisplay_ReferencedApps", r.length, s);
 	return i.createElement(
 		"div",
 		{
@@ -6781,7 +6811,9 @@ let Qr = class extends i.Component {
 		this.SuppressUnwantedScrollEventsBecauseSafariIsDumb(e, e.deltaY);
 	}
 	SuppressUnwantedScrollEventsBecauseSafariIsDumb(e, t) {
-		const r = xe.kD(e.target) && xe.id(this.m_refScroll.current, e.target);
+		const r =
+			IsHTMLElement(e.target) &&
+			BIsParentOrSelf(this.m_refScroll.current, e.target);
 		const n = t < 0 && this.m_refScroll.current.scrollTop < 1;
 		const i =
 			this.m_refScroll.current.scrollHeight -
@@ -6806,7 +6838,7 @@ let Qr = class extends i.Component {
 	}
 	componentDidMount() {
 		const e = this.m_refScroll.current;
-		if (e && !xe.id(e, e.ownerDocument.activeElement)) {
+		if (e && !BIsParentOrSelf(e, e.ownerDocument.activeElement)) {
 			e.focus();
 		}
 		const t = this.m_refPage.current;
@@ -6827,7 +6859,7 @@ let Qr = class extends i.Component {
 	componentDidUpdate(e, t, r) {
 		if (r !== null) {
 			let e = this.m_refScroll.current;
-			if (e && !xe.id(e, e.ownerDocument.activeElement)) {
+			if (e && !BIsParentOrSelf(e, e.ownerDocument.activeElement)) {
 				e.focus();
 			}
 			let t = this.m_refScrollAnchor.current
@@ -6911,7 +6943,7 @@ let Qr = class extends i.Component {
 							{
 								className: W.NoEvents,
 							},
-							(0, P.we)("#EventDisplay_NoEventsToSee"),
+							(0, Localize)("#EventDisplay_NoEventsToSee"),
 						)
 					: i.createElement(
 							i.Fragment,
@@ -7003,7 +7035,7 @@ let Qr = class extends i.Component {
 										eventModel: e,
 										route: V.PH.k_eStoreNewsHub,
 									},
-									(0, P.we)("#EventBrowse_MoreEventsBtn"),
+									(0, Localize)("#EventBrowse_MoreEventsBtn"),
 								),
 						),
 			),
@@ -7034,7 +7066,7 @@ const Zr = (0, g.PA)((e) => {
 			},
 			i.createElement(He.t, {
 				position: "center",
-				string: (0, P.we)("#Loading"),
+				string: (0, Localize)("#Loading"),
 			}),
 		);
 	} else {
@@ -7170,7 +7202,7 @@ let Kr = class extends i.Component {
 										className: W.PostedBy,
 									},
 									" ",
-									(0, P.we)("#EventDisplay_PostedBy"),
+									(0, Localize)("#EventDisplay_PostedBy"),
 									f,
 									" ",
 								),
@@ -7298,7 +7330,7 @@ let Kr = class extends i.Component {
 									className: (0, O.A)(re.Button),
 									href: e.jsondata.read_more_link,
 								},
-								(0, P.we)("#EventEmail_Button_ClickForMoreDetails"),
+								(0, Localize)("#EventEmail_Button_ClickForMoreDetails"),
 							),
 						),
 					Boolean(e.jsondata.bSaleEnabled && e.jsondata.sale_vanity_id) &&
@@ -7316,7 +7348,7 @@ let Kr = class extends i.Component {
 									className: (0, O.A)(re.Button, "LinkButton"),
 									href: (0, L.k2)(e.GetSaleURL()),
 								},
-								(0, P.we)("#Event_Button_VisitSalePage"),
+								(0, Localize)("#Event_Button_VisitSalePage"),
 							),
 						),
 					i.createElement(Gr.lS, {
@@ -7542,21 +7574,21 @@ const ln = (e) => {
 			{
 				className: sn.ChannelIndicator,
 			},
-			(0, P.we)(m.label + "_Channel"),
+			(0, Localize)(m.label + "_Channel"),
 		);
 	let R = I ? () => w.App(r.appid) : B;
 	let k = "";
 	if (M) {
 		R = B;
-		k = (0, P.we)("#Generic_ViewInStore");
+		k = (0, Localize)("#Generic_ViewInStore");
 	} else {
 		k = E
 			? I
-				? (0, P.we)("#Generic_ViewInLibrary")
-				: (0, P.we)("#Generic_ViewInStore")
+				? (0, Localize)("#Generic_ViewInLibrary")
+				: (0, Localize)("#Generic_ViewInStore")
 			: I
-				? (0, P.we)("#Generic_ViewGameDetails")
-				: (0, P.we)("#Generic_ViewGameInStore");
+				? (0, Localize)("#Generic_ViewGameDetails")
+				: (0, Localize)("#Generic_ViewGameInStore");
 	}
 	return i.createElement(
 		h.Z,

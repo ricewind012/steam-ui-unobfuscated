@@ -8,7 +8,10 @@ var c = require("./97893.js");
 var m = require("./34792.js");
 var u = require("./5640.js");
 var d = require("./34428.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var p = require(/*webcrack:missing*/ "./90765.js");
 var g = require("./35488.js");
 var h = require("./91486.js");
@@ -57,7 +60,7 @@ const v = (e) => {
 		i.createElement(
 			"div",
 			null,
-			l.toLocaleTimeString(A.pf.GetPreferredLocales(), {
+			l.toLocaleTimeString(LocalizationManager.GetPreferredLocales(), {
 				hour: "numeric",
 				minute: "numeric",
 				second: "numeric",
@@ -66,9 +69,13 @@ const v = (e) => {
 		i.createElement(
 			"div",
 			null,
-			(0, A.we)("#Downloads_Network_Tooltip", ZC(n)),
+			(0, Localize)("#Downloads_Network_Tooltip", ZC(n)),
 		),
-		i.createElement("div", null, (0, A.we)("#Downloads_Disk_Tooltip", ZC(a))),
+		i.createElement(
+			"div",
+			null,
+			(0, Localize)("#Downloads_Disk_Tooltip", ZC(a)),
+		),
 	);
 };
 let I = class extends i.Component {
@@ -219,7 +226,7 @@ export function mr(e) {
 					M,
 					{
 						className: w.Network,
-						text: (0, A.we)("#Downloads_Legend_Network"),
+						text: (0, Localize)("#Downloads_Legend_Network"),
 					},
 					i.createElement(g.BarGraph, null),
 				),
@@ -246,7 +253,7 @@ export function mr(e) {
 					M,
 					{
 						className: w.Network,
-						text: (0, A.we)("#Downloads_Stats_PeakRate"),
+						text: (0, Localize)("#Downloads_Stats_PeakRate"),
 					},
 					i.createElement(g.BarGraph, null),
 				),
@@ -271,7 +278,7 @@ export function mr(e) {
 				},
 				i.createElement(M, {
 					className: w.Disk,
-					text: (0, A.we)("#Downloads_Legend_Disk"),
+					text: (0, Localize)("#Downloads_Legend_Disk"),
 				}),
 				i.createElement(
 					"div",
@@ -445,7 +452,7 @@ export function q(e) {
 			C.he,
 			{
 				className: (0, p.A)(w.SettingsButton, t),
-				toolTipContent: !n && (0, A.we)("#Downloads_OpenSettings_Tooltip"),
+				toolTipContent: !n && (0, Localize)("#Downloads_OpenSettings_Tooltip"),
 			},
 			i.createElement(
 				a.$n,

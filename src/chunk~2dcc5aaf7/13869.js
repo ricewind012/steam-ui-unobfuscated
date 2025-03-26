@@ -3,7 +3,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./3673.js");
 var a = require("./46701.js");
 var s = require(/*webcrack:missing*/ "./49455.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./72476.js");
 export async function mK(e, t, r) {
 	const a = (0, i.tx)(t);
@@ -32,7 +32,7 @@ export async function mK(e, t, r) {
 	}
 	{
 		const n = {
-			strTitle: r?.strTitle || (0, o.we)("#Dialog_DefaultWindowTitle"),
+			strTitle: r?.strTitle || (0, Localize)("#Dialog_DefaultWindowTitle"),
 			fnOnClose: r?.fnOnClose,
 			popupWidth: r?.popupWidth || m?.width,
 			popupHeight: r?.popupHeight || m?.height,

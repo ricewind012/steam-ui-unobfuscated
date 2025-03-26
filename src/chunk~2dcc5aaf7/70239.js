@@ -9,7 +9,7 @@ var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require("./34792.js");
 var d = require("./39002.js");
 var A = require(/*webcrack:missing*/ "./61416.js");
-var p = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var g = require(/*webcrack:missing*/ "./43691.js");
 var h = require(/*webcrack:missing*/ "./75144.js");
 var C = require(/*webcrack:missing*/ "./46382.js");
@@ -34,7 +34,7 @@ export function Kp(e, t) {
 				}
 				throw `Failed FetchPublishedFileDetails { publishedfileid: ${t} }`;
 			})(e, t),
-		staleTime: p.Kp.PerHour * 1000,
+		staleTime: Seconds.PerHour * 1000,
 	});
 }
 function y(e) {
@@ -63,7 +63,7 @@ export function EH(e) {
 				}
 				throw `Failed FetchUserCollections { appid: ${e} }`;
 			})(e),
-		staleTime: p.Kp.PerHour * 1000,
+		staleTime: Seconds.PerHour * 1000,
 	});
 }
 const w = "workshop_hidden_items";

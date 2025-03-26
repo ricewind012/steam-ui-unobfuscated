@@ -391,7 +391,7 @@ class b extends d {
 		);
 	}
 }
-var y = require(/*webcrack:missing*/ "./53833.js");
+import { ShuffleArray } from "../../actual_src/utils/arrayutils.js";
 function S(e) {
 	const t = e.data;
 	const r = u(e.sale, e.effect.name, `${t.strImage}.png`);
@@ -448,7 +448,7 @@ class w extends d {
 				"balloon_yellow",
 			];
 		}
-		y.fW(this.m_rgImages);
+		ShuffleArray(this.m_rgImages);
 		this.GenerateBalloons();
 	}
 	GetNextImage() {
@@ -471,7 +471,7 @@ class w extends d {
 			this.m_rgBalloons.push(this.GenerateSingleBalloon(t, e));
 		}
 		let r = [70, 20];
-		y.fW(r);
+		ShuffleArray(r);
 		let n = r[1] == 20;
 		for (let e of t) {
 			let t = m.Tg(-10, 10) + r.pop();

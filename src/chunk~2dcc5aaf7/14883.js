@@ -9,7 +9,7 @@ var m = require("./18057.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
 var d = require("./87935.js");
 var A = require(/*webcrack:missing*/ "./88696.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var g = require(/*webcrack:missing*/ "./61416.js");
 var h = require(/*webcrack:missing*/ "./3715.js");
 var C = require(/*webcrack:missing*/ "./75144.js");
@@ -107,7 +107,7 @@ export function Uc(e) {
 			focusable: C,
 			onActivate: r,
 			onSecondaryButton: y,
-			onSecondaryActionDescription: (0, p.we)("#Button_Dismiss"),
+			onSecondaryActionDescription: (0, Localize)("#Button_Dismiss"),
 		},
 		a.createElement("img", {
 			className: i.Banner,

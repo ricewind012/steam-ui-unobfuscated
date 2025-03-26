@@ -2,13 +2,13 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./51297.js");
 var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime, Sleep } from "../../actual_src/utils/time.js";
 var l = require(/*webcrack:missing*/ "./89193.js");
 var c = require("./95979.js");
 var m = require("./13869.js");
 var u = require("./95311.js");
 var d = require(/*webcrack:missing*/ "./90095.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export function Yk() {
 	return true;
 }
@@ -250,7 +250,7 @@ class g {
 					type: 5,
 					eresult: 1,
 					available: true,
-					rtime_checked: (0, o._2)(),
+					rtime_checked: GetUnixTime(),
 				},
 			],
 		};
@@ -260,7 +260,7 @@ class g {
 		this.m_updateState = {
 			state: 5,
 			progress: {
-				rtime_estimated_completion: (0, o._2)() + 100,
+				rtime_estimated_completion: GetUnixTime() + 100,
 				stage_progress: 0.6,
 				stage_size_bytes: "1000000000",
 			},
@@ -347,19 +347,19 @@ class h {
 export function hi(e) {
 	switch (e.eBranch) {
 		case 1:
-			return (0, A.we)("#Settings_OSBranch_Release");
+			return (0, Localize)("#Settings_OSBranch_Release");
 		case 2:
-			return (0, A.we)("#Settings_OSBranch_ReleaseCandidate");
+			return (0, Localize)("#Settings_OSBranch_ReleaseCandidate");
 		case 3:
-			return (0, A.we)("#Settings_OSBranch_Beta");
+			return (0, Localize)("#Settings_OSBranch_Beta");
 		case 4:
-			return (0, A.we)("#Settings_OSBranch_BetaCandidate");
+			return (0, Localize)("#Settings_OSBranch_BetaCandidate");
 		case 5:
-			return (0, A.we)("#Settings_OSBranch_Preview");
+			return (0, Localize)("#Settings_OSBranch_Preview");
 		case 6:
-			return (0, A.we)("#Settings_OSBranch_PreviewCandidate");
+			return (0, Localize)("#Settings_OSBranch_PreviewCandidate");
 		case 7:
-			return (0, A.we)("#Settings_OSBranch_Main");
+			return (0, Localize)("#Settings_OSBranch_Main");
 		case 0:
 			return e.sRawName;
 		default:
@@ -389,15 +389,15 @@ export function mt(e) {
 export function RP(e) {
 	switch (e) {
 		case 3:
-			return (0, A.we)("#Settings_Updates_BIOSUpdaterName");
+			return (0, Localize)("#Settings_Updates_BIOSUpdaterName");
 		case 1:
-			return (0, A.we)("#Settings_Updates_ClientUpdaterName");
+			return (0, Localize)("#Settings_Updates_ClientUpdaterName");
 		case 2:
-			return (0, A.we)("#Settings_Updates_OSUpdaterName");
+			return (0, Localize)("#Settings_Updates_OSUpdaterName");
 		case 5:
-			return (0, A.we)("#Settings_Updates_TestUpdaterName");
+			return (0, Localize)("#Settings_Updates_TestUpdaterName");
 		default:
-			return (0, A.we)("#Settings_Updates_UnknownUpdaterName");
+			return (0, Localize)("#Settings_Updates_UnknownUpdaterName");
 	}
 }
 export function Tt() {
@@ -414,7 +414,7 @@ export function wN() {
 	const [r, n] = i.useState(0);
 	(0, s.$$)(() => {
 		const t = e.progress?.rtime_estimated_completion;
-		const r = (0, o._2)();
+		const r = GetUnixTime();
 		n(t - r);
 	}, 500);
 	if (t == null || r > 172800 || isNaN(r)) {
@@ -427,10 +427,10 @@ export function wN() {
 export function _S() {
 	const e = Tt();
 	const t = e.GetLastCheckTime();
-	const [r, n] = i.useState(t ? (0, o._2)() - t : null);
+	const [r, n] = i.useState(t ? GetUnixTime() - t : null);
 	(0, s.$$)(() => {
 		const t = e.GetLastCheckTime();
-		n(t ? (0, o._2)() - t : null);
+		n(t ? GetUnixTime() - t : null);
 	}, 100);
 	return r;
 }
@@ -478,12 +478,12 @@ class R {
 		);
 	}
 	async PerformFakeUpdateApply(e) {
-		const t = (0, o._2)() + 5;
+		const t = GetUnixTime() + 5;
 		this.m_updater.SetUpdateState(this.CreateFakeUpdateMessage(5, 0, t));
 		const r = async (e) => {
 			this.m_updater.SetUpdateState(this.CreateFakeUpdateMessage(5, 0, t));
 			for (let e = 0; e < 100; e++) {
-				await (0, o.IP)(50);
+				await Sleep(50);
 				const r = (e + 1) / 100;
 				this.m_updater.SetUpdateState(this.CreateFakeUpdateMessage(5, r, t));
 			}
@@ -502,13 +502,13 @@ class R {
 			progress: {
 				stage_progress: t,
 				stage_size_bytes: "500 MB",
-				rtime_estimated_completion: r ?? (0, o._2)() + 2,
+				rtime_estimated_completion: r ?? GetUnixTime() + 2,
 			},
 			update_check_results: [
 				{
 					type: 7,
 					eresult: 1,
-					rtime_checked: (0, o._2)() - 0.5,
+					rtime_checked: GetUnixTime() - 0.5,
 					available: true,
 					version: "0.0",
 				},

@@ -1,7 +1,7 @@
 var n;
 var i = require(/*webcrack:missing*/ "./34629.js");
 var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var _o = require(/*webcrack:missing*/ "./20590.js");
 var l = require(/*webcrack:missing*/ "./52451.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
@@ -53,7 +53,7 @@ export class N extends a.Component {
 		var e;
 		this.DestroyPlayer();
 		e = this.OnYoutubeScriptsReady;
-		s.x9(d, e);
+		FindAndRemove(d, e);
 	}
 	shouldComponentUpdate(e, t) {
 		if (!this.m_player) {

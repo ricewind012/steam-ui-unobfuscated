@@ -3503,8 +3503,15 @@ var Te = require("./5482.js");
 var Re = require(/*webcrack:missing*/ "./50376.js");
 var ke = require(/*webcrack:missing*/ "./49455.js");
 var De = require(/*webcrack:missing*/ "./90765.js");
-var Ne = require(/*webcrack:missing*/ "./46108.js");
-var Fe = require(/*webcrack:missing*/ "./11010.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	Nm,
+} from "../../actual_src/utils/localization.js";
+import {
+	qZ,
+	LocalizeTimeRemaining,
+} from "../../actual_src/utils/localization/datetime.js";
 var Ge = require(/*webcrack:missing*/ "./72476.js");
 var Oe = require("./39730.js");
 var Pe = require("./11484.js");
@@ -3562,7 +3569,7 @@ function qe(e) {
 			{
 				closeModal: a,
 			},
-			(0, Ne.we)("#ClipExport_PreviewError", o.result),
+			Localize("#ClipExport_PreviewError", o.result),
 		);
 	}
 	const { clipSummary: l, nativePreview: c } = o;
@@ -3572,7 +3579,7 @@ function qe(e) {
 			closeModal: a,
 			className: Le.Dialog,
 		},
-		n.createElement(ve.Y9, null, " ", (0, Ne.we)("#ClipExport_Title"), " "),
+		n.createElement(ve.Y9, null, " ", Localize("#ClipExport_Title"), " "),
 		n.createElement(Ze, {
 			clipCreationRequest: r,
 			clipSummary: l,
@@ -3696,7 +3703,7 @@ function Ze(e) {
 				if (t) {
 					return `${t}.mp4`;
 				} else {
-					return `${(0, Ne.we)("#DefaultClipSaveName")}_${Date.now().toLocaleString()}.mp4`;
+					return `${Localize("#DefaultClipSaveName")}_${Date.now().toLocaleString()}.mp4`;
 				}
 			})(r.strSuggestedClipName),
 		);
@@ -3735,7 +3742,7 @@ function Ze(e) {
 				i = "#ClipExport_NoAdvanced";
 			}
 			const a = n.data?.result ?? 1;
-			const s = a == 1 ? undefined : (0, Ne.we)(i, a);
+			const s = a == 1 ? undefined : Localize(i, a);
 			const o = n.data?.nativePreview;
 			return {
 				eExportPreviewResult: a,
@@ -3746,13 +3753,13 @@ function Ze(e) {
 		const F = async () => {
 			const e = await (async function (e, t) {
 				const r = {
-					strTitle: (0, Ne.we)("#ExportClip_Title"),
+					strTitle: Localize("#ExportClip_Title"),
 					bSaveMode: true,
 					strInitialFile: t,
 					rgFilters: [
 						{
 							rFilePatterns: ["*.mp4"],
-							strFileTypeName: (0, Ne.we)("#ExportClip_MP4_Desc"),
+							strFileTypeName: Localize("#ExportClip_MP4_Desc"),
 							bUseAsDefault: true,
 						},
 					],
@@ -3857,11 +3864,11 @@ function Ze(e) {
 					(function (e) {
 						switch (e) {
 							case 0:
-								return (0, Ne.we)("#ClipExport_LimitType_Native");
+								return Localize("#ClipExport_LimitType_Native");
 							case 1:
-								return (0, Ne.we)("#ClipExport_LimitType_FileSize");
+								return Localize("#ClipExport_LimitType_FileSize");
 							case 2:
-								return (0, Ne.we)("#ClipExport_LimitType_Advanced");
+								return Localize("#ClipExport_LimitType_Advanced");
 							default:
 								return "";
 						}
@@ -3991,7 +3998,7 @@ function Xe(e) {
 		ve.wi,
 		null,
 		n.createElement(ve.CB, {
-			strOKText: (0, Ne.we)("#ClipExport_OKButton"),
+			strOKText: Localize("#ClipExport_OKButton"),
 			onOK: i,
 			onCancel: r,
 			focusButton: undefined,
@@ -4066,7 +4073,7 @@ function et(e) {
 					{
 						className: Le.Description,
 					},
-					(0, Ne.we)("#ClipExport_ExportProgressDescription"),
+					Localize("#ClipExport_ExportProgressDescription"),
 				),
 				n.createElement(he.z2, {
 					nProgress: r.m_nProgress,
@@ -4081,13 +4088,13 @@ function nt(e, t) {
 	switch (e) {
 		default:
 		case 2:
-			return `${(0, Ne.we)("#ExportClip_Error")} (${e})`;
+			return `${Localize("#ExportClip_Error")} (${e})`;
 		case 9:
-			return (0, Ne.we)("#ExportClip_Error_FileNotFound");
+			return Localize("#ExportClip_Error_FileNotFound");
 		case 15:
-			return (0, Ne.we)("#ExportClip_Error_AccessDenied");
+			return Localize("#ExportClip_Error_AccessDenied");
 		case 54:
-			return (0, Ne.we)("#ExportClip_Error_DiskFull", t);
+			return Localize("#ExportClip_Error_DiskFull", t);
 	}
 }
 const it = false;
@@ -4150,7 +4157,7 @@ function lt(e) {
 			{
 				className: Le.SliderHeader,
 			},
-			(0, Ne.we)("#ClipExport_SetLimitHeader"),
+			Localize("#ClipExport_SetLimitHeader"),
 		),
 		n.createElement(ve.A0, {
 			className: Le.Slider,
@@ -4161,8 +4168,8 @@ function lt(e) {
 					label:
 						((r = e),
 						r < 1024
-							? (0, Ne.we)("#ClipExport_FileSizeLimit_MB", r)
-							: (0, Ne.we)(
+							? Localize("#ClipExport_FileSizeLimit_MB", r)
+							: Localize(
 									"#ClipExport_FileSizeLimit_GB",
 									(r / 1024).toFixed(0),
 								)),
@@ -4217,7 +4224,7 @@ function dt(e, t, r) {
 		}
 		n.push({
 			...t,
-			strLabel: (0, Ne.we)(t.strLabel),
+			strLabel: Localize(t.strLabel),
 		});
 	}
 	if (n.length == 0 || n[n.length - 1].nWidth != e) {
@@ -4309,9 +4316,9 @@ let Ct = [
 ];
 function _t(e) {
 	if (e < 20000) {
-		return (0, Ne.we)("#ClipExport_Bitrate_Mbps", (e / 1000).toFixed(1));
+		return Localize("#ClipExport_Bitrate_Mbps", (e / 1000).toFixed(1));
 	} else {
-		return (0, Ne.we)("#ClipExport_Bitrate_Mbps", (e / 1000).toFixed(0));
+		return Localize("#ClipExport_Bitrate_Mbps", (e / 1000).toFixed(0));
 	}
 }
 const ft = 1.25;
@@ -4388,17 +4395,17 @@ function wt() {
 	let e = [
 		{
 			data: 0,
-			label: (0, Ne.we)("#ClipExport_DefaultCodec"),
+			label: Localize("#ClipExport_DefaultCodec"),
 		},
 		{
 			data: 1,
-			label: (0, Ne.we)("#ClipExport_H264"),
+			label: Localize("#ClipExport_H264"),
 		},
 	];
 	if (!(0, Ge.Pr)() && !(0, Ge.TL)()) {
 		e.push({
 			data: 2,
-			label: (0, Ne.we)("#ClipExport_H265"),
+			label: Localize("#ClipExport_H265"),
 		});
 	}
 	return e;
@@ -4440,7 +4447,7 @@ function Bt(e) {
 			{
 				className: Le.SliderHeader,
 			},
-			(0, Ne.we)("#ClipExport_SetResolutionHeader"),
+			Localize("#ClipExport_SetResolutionHeader"),
 		),
 		u.length > 1 &&
 			n.createElement(ve.A0, {
@@ -4455,11 +4462,7 @@ function Bt(e) {
 				extraNotchPadding: "30px",
 			}),
 		u.length == 1 &&
-			n.createElement(
-				"div",
-				null,
-				(0, Ne.we)("#ClipExport_NoResolutionOptions"),
-			),
+			n.createElement("div", null, Localize("#ClipExport_NoResolutionOptions")),
 		n.createElement("hr", null),
 		n.createElement(
 			"div",
@@ -4471,7 +4474,7 @@ function Bt(e) {
 				{
 					className: Le.Label,
 				},
-				(0, Ne.we)("#ClipExport_FrameRateLabel"),
+				Localize("#ClipExport_FrameRateLabel"),
 			),
 			n.createElement(ve.ZU, {
 				arrowClassName: Le.DropArrow,
@@ -4501,7 +4504,7 @@ function Bt(e) {
 				{
 					className: Le.Label,
 				},
-				(0, Ne.we)("#ClipExport_Bitrate_Label"),
+				Localize("#ClipExport_Bitrate_Label"),
 			),
 			n.createElement(ve.ZU, {
 				arrowClassName: Le.DropArrow,
@@ -4509,10 +4512,10 @@ function Bt(e) {
 					const r = (function (e) {
 						let t;
 						t = e.strLabel
-							? `${(0, Ne.we)(e.strLabel)} (${_t(e.bitrate_kbps)})`
+							? `${Localize(e.strLabel)} (${_t(e.bitrate_kbps)})`
 							: `${_t(e.bitrate_kbps)}`;
 						if (e.native) {
-							t += " " + (0, Ne.we)("#ClipExport_Bitrate_Native");
+							t += " " + Localize("#ClipExport_Bitrate_Native");
 						}
 						return t;
 					})(e);
@@ -4541,7 +4544,7 @@ function Bt(e) {
 				{
 					className: Le.Label,
 				},
-				(0, Ne.we)("#ClipExport_CodecLabel"),
+				Localize("#ClipExport_CodecLabel"),
 			),
 			n.createElement(ve.ZU, {
 				arrowClassName: Le.DropArrow,
@@ -4601,10 +4604,10 @@ function It(e) {
 	let l = "";
 	switch (o.codec) {
 		case 1:
-			l = (0, Ne.we)("#ClipExport_H264");
+			l = Localize("#ClipExport_H264");
 			break;
 		case 2:
-			l = (0, Ne.we)("#ClipExport_H265");
+			l = Localize("#ClipExport_H265");
 	}
 	const c = (parseInt(s.estimated_size) ?? 0) / 1048576;
 	return n.createElement(
@@ -4636,14 +4639,14 @@ function It(e) {
 						{
 							className: Le.Header,
 						},
-						(0, Ne.we)("#ClipExport_Preview_Length"),
+						Localize("#ClipExport_Preview_Length"),
 					),
 					n.createElement(
 						"div",
 						{
 							className: Le.Primary,
 						},
-						(0, Fe.qZ)(t.nClipLengthSeconds, false, false),
+						(0, qZ)(t.nClipLengthSeconds, false, false),
 					),
 					n.createElement("div", null, o.width, "x", o.height),
 					o.frames_per_second &&
@@ -4660,14 +4663,14 @@ function It(e) {
 						{
 							className: Le.Header,
 						},
-						(0, Ne.we)("#ClipExport_Preview_Size"),
+						Localize("#ClipExport_Preview_Size"),
 					),
 					n.createElement(
 						"div",
 						{
 							className: Le.Primary,
 						},
-						(0, Ne.we)("#ClipExport_FileSizeLimit_MB", c.toFixed(2)),
+						Localize("#ClipExport_FileSizeLimit_MB", c.toFixed(2)),
 					),
 					n.createElement("div", null, l),
 					n.createElement("div", null, _t(o?.bitrate_kbps)),
@@ -4677,7 +4680,7 @@ function It(e) {
 	);
 }
 var Et = require("./78057.js");
-var Mt = require(/*webcrack:missing*/ "./54644.js");
+import { BElementFullscreen } from "../../actual_src/utils/domutils.js";
 var Tt = require("./89748.js");
 export function IP(e) {
 	const { children: t, ...r } = e;
@@ -4688,7 +4691,7 @@ export function IP(e) {
 				const a = {
 					bOverlapHorizontal: true,
 				};
-				if ((0, Mt.ww)(i)) {
+				if (BElementFullscreen(i)) {
 					a.bDisableMouseOverlay = true;
 					a.bAlwaysOnTop = true;
 					a.bPreferPopTop = true;
@@ -4816,13 +4819,11 @@ function kt(e) {
 							SteamClient.System.CopyFilesToClipboard([n.strExportPath]);
 							return {
 								eResult: 1,
-								strTitle: (0, Ne.we)(
-									"#ExportClip_CopyClipboard_Complete_Title",
-								),
+								strTitle: Localize("#ExportClip_CopyClipboard_Complete_Title"),
 							};
 						}
 					},
-					(0, Ne.we)("#ExportClip_CopyClipboard_Title"),
+					Localize("#ExportClip_CopyClipboard_Title"),
 					h,
 				);
 			};
@@ -4939,8 +4940,8 @@ function kt(e) {
 				(0, Me.pg)(
 					n.createElement(Ee.o0, {
 						className: Pe.ReplaceConfirmationDialog,
-						strTitle: (0, Ne.we)("#Clip_ReplaceWarning_Title"),
-						strDescription: (0, Ne.we)("#Clip_ReplaceWarning_Description"),
+						strTitle: Localize("#Clip_ReplaceWarning_Title"),
+						strDescription: Localize("#Clip_ReplaceWarning_Description"),
 						onOK: o,
 					}),
 					r.ownerWindow,
@@ -4961,8 +4962,8 @@ function kt(e) {
 		const { strSave: b, strSaveNew: y } = (function (e, t) {
 			if (e?.strSrcClipID) {
 				return {
-					strSaveNew: (0, Ne.we)("#ShareClip_SaveNewClip"),
-					strSave: (0, Ne.we)("#ShareClip_SaveClip"),
+					strSaveNew: Localize("#ShareClip_SaveNewClip"),
+					strSave: Localize("#ShareClip_SaveClip"),
 				};
 			} else {
 				return {
@@ -4972,26 +4973,26 @@ function kt(e) {
 								{
 									className: "SaveClipSpan",
 								},
-								(0, Ne.we)("#ShareClip_SaveToRecordings"),
+								Localize("#ShareClip_SaveToRecordings"),
 							)
-						: (0, Ne.we)("#ShareClip_SaveToRecordings_BPM"),
+						: Localize("#ShareClip_SaveToRecordings_BPM"),
 				};
 			}
 		})(e, C);
 		const S =
 			e?.nClipLengthSeconds > Ot
-				? (0, Ne.we)(
+				? Localize(
 						"#SendToChat_ClipTooLong",
-						(0, Fe.R2)(Math.round(e.nClipLengthSeconds)),
+						LocalizeTimeRemaining(Math.round(e.nClipLengthSeconds)),
 						Ot,
 					)
 				: undefined;
 		const w = (0, Et.T)(e.gameID.GetAppID());
 		const B =
 			w && w.bDisableUserMediaUpload
-				? (0, Ne.we)("#ShareSheet_ClipUploadNotAllowed")
+				? Localize("#ShareSheet_ClipUploadNotAllowed")
 				: undefined;
-		const v = f ? (0, Ne.we)("#ShareSheet_LimitedClipNotAllowed") : undefined;
+		const v = f ? Localize("#ShareSheet_LimitedClipNotAllowed") : undefined;
 		const I = [
 			!e.bExistingClip &&
 				b && {
@@ -5011,14 +5012,14 @@ function kt(e) {
 					key: "savetofile",
 					onSelected: o,
 					icon: n.createElement(Ie.Video, null),
-					label: (0, Ne.we)("#ExportClip_Export"),
+					label: Localize("#ExportClip_Export"),
 				},
 			C &&
 				A && {
 					key: "openfile",
 					onSelected: c,
 					icon: n.createElement(Re.vdG, null),
-					label: (0, Ne.we)("#ExportClip_OpenFolder"),
+					label: Localize("#ExportClip_OpenFolder"),
 				},
 		].filter(Boolean);
 		const E = [
@@ -5026,27 +5027,27 @@ function kt(e) {
 				key: "clipboard",
 				onSelected: a,
 				icon: n.createElement(Ie.Copy, null),
-				label: (0, Ne.we)("#ExportClip_CopyClipboard"),
+				label: Localize("#ExportClip_CopyClipboard"),
 			},
 			!_ && {
 				key: "send",
 				onSelected: g,
 				icon: n.createElement(Ie.Envelope, null),
-				label: (0, Ne.we)("#ExportClip_SendClip"),
+				label: Localize("#ExportClip_SendClip"),
 				disabled: B || v,
 			},
 			!_ && {
 				key: "sendmobile",
 				onSelected: d,
 				icon: n.createElement(Ie.Mobile, null),
-				label: (0, Ne.we)("#ExportClip_SendToPhone"),
+				label: Localize("#ExportClip_SendToPhone"),
 				disabled: !!S || B || v,
 			},
 			!_ && {
 				key: "link",
 				onSelected: u,
 				icon: n.createElement(Ie.Hyperlink, null),
-				label: (0, Ne.we)(
+				label: Localize(
 					C ? "#CreateLink_Button" : "#CreateLink_Button_Gamepad",
 				),
 				disabled: !!S || B || v,
@@ -5079,7 +5080,7 @@ function kt(e) {
 					{
 						className: (0, De.A)(Pe.SectionTitle, Pe.FirstSectionTitle),
 					},
-					(0, Ne.we)("#ShareClip_Save"),
+					Localize("#ShareClip_Save"),
 				),
 			n.createElement(Oe.t$, {
 				options: m,
@@ -5091,7 +5092,7 @@ function kt(e) {
 					{
 						className: Pe.SectionTitle,
 					},
-					(0, Ne.we)("#ShareClip"),
+					Localize("#ShareClip"),
 				),
 			n.createElement(Oe.t$, {
 				options: u,
@@ -5221,7 +5222,7 @@ function Pt({
 					return Gt;
 			}
 		},
-		GetFileNameOverride: () => (0, Ne.we)("#ClipUpload_Filename"),
+		GetFileNameOverride: () => Localize("#ClipUpload_Filename"),
 	});
 	return {
 		fileUpload: l,
@@ -5266,7 +5267,7 @@ function Lt(e) {
 			closeModal: t,
 			className: Pe.CreateLinkDialog,
 		},
-		n.createElement(ve.Y9, null, " ", (0, Ne.we)("#CreateLink_Title"), " "),
+		n.createElement(ve.Y9, null, " ", Localize("#CreateLink_Title"), " "),
 		n.createElement(
 			"div",
 			{
@@ -5277,7 +5278,7 @@ function Lt(e) {
 				{
 					className: Pe.Description,
 				},
-				(0, Ne.we)("#CreateLink_Description"),
+				Localize("#CreateLink_Description"),
 			),
 			c &&
 				n.createElement(
@@ -5285,7 +5286,7 @@ function Lt(e) {
 					{
 						className: Pe.Error,
 					},
-					(0, Ne.we)("#CreateLink_Error", c),
+					Localize("#CreateLink_Error", c),
 				),
 			p == 4
 				? n.createElement(
@@ -5293,7 +5294,7 @@ function Lt(e) {
 						{
 							className: Pe.FileTooLargeHelp,
 						},
-						(0, Ne.we)("#CreateLink_FileTooLarge", b),
+						Localize("#CreateLink_FileTooLarge", b),
 					)
 				: n.createElement(
 						n.Fragment,
@@ -5312,10 +5313,10 @@ function Lt(e) {
 										disabled: !s,
 										onClick: (e) => {
 											u?.ownerWindow?.navigator.clipboard.writeText(s);
-											i(e, (0, Ne.we)("#Browser_URLCopied"));
+											i(e, Localize("#Browser_URLCopied"));
 										},
 									},
-									(0, Ne.we)("#CreateLink_CopyToClipboard"),
+									Localize("#CreateLink_CopyToClipboard"),
 								),
 								n.createElement("input", {
 									type: "text",
@@ -5338,14 +5339,14 @@ function Lt(e) {
 									{
 										onClick: () => _(true),
 									},
-									(0, Ne.we)("#CreateLink_ShowQRCode"),
+									Localize("#CreateLink_ShowQRCode"),
 								),
 								n.createElement(
 									"div",
 									{
 										className: Pe.Description,
 									},
-									(0, Ne.we)("#CreateLink_QRCodePrompt"),
+									Localize("#CreateLink_QRCodePrompt"),
 								),
 							),
 						s &&
@@ -5375,7 +5376,7 @@ function Lt(e) {
 									{
 										className: (0, De.A)(Pe.Description, Pe.TopPadding),
 									},
-									(0, Ne.we)("#CreateLink_QRCodeDescription"),
+									Localize("#CreateLink_QRCodeDescription"),
 								),
 							),
 					),
@@ -5389,7 +5390,7 @@ function Lt(e) {
 					onClick: t,
 					autoFocus: true,
 				},
-				(0, Ne.we)("#Button_Done"),
+				Localize("#Button_Done"),
 			),
 		),
 	);
@@ -5697,8 +5698,8 @@ function Wt(e) {
 				className: Pe.Time,
 			},
 			t.is_online
-				? (0, Ne.we)("#SendClip_Online")
-				: (0, Ne.Nm)(parseInt(t.last_seen)),
+				? Localize("#SendClip_Online")
+				: (0, Nm)(parseInt(t.last_seen)),
 		),
 	);
 }
@@ -5773,25 +5774,25 @@ function Vt(e) {
 	let T = false;
 	let R = true;
 	if (p?.length == 0) {
-		I = (0, Ne.we)("#SendClip_NoClients2");
+		I = Localize("#SendClip_NoClients2");
 		E = (0, De.A)(Pe.DescriptionWarning, Pe.TopPadding);
 		M = true;
 		R = false;
 	} else if (f && S > Gt) {
 		E = Pe.Error;
-		I = (0, Ne.we)("#SendClip_FileTooLarge", S.toFixed(0), Gt);
+		I = Localize("#SendClip_FileTooLarge", S.toFixed(0), Gt);
 		M = true;
 	} else if (l) {
-		w = (0, Ne.we)("#Button_Close");
+		w = Localize("#Button_Close");
 		I = l;
 		E = Pe.Error;
 	} else if (C || d) {
 		if (C) {
-			w = (0, Ne.we)("#Button_Cancel");
-			I = (0, Ne.we)("#SendClip_Uploading");
+			w = Localize("#Button_Cancel");
+			I = Localize("#SendClip_Uploading");
 			T = true;
 		} else {
-			w = (0, Ne.we)("#Button_Close");
+			w = Localize("#Button_Close");
 			I = n.createElement(
 				"div",
 				{
@@ -5805,13 +5806,13 @@ function Vt(e) {
 				n.createElement(Ie.Checkmark, {
 					className: Pe.Checkmark,
 				}),
-				(0, Ne.we)("#SendClip_Finished"),
+				Localize("#SendClip_Finished"),
 			);
 			B = t;
 			T = true;
 		}
 	} else {
-		w = (0, Ne.we)("#SendClip_Upload");
+		w = Localize("#SendClip_Upload");
 		if (p?.length) {
 			B = b;
 		} else {
@@ -5824,7 +5825,7 @@ function Vt(e) {
 			closeModal: y,
 			className: Pe.SendClipDialog,
 		},
-		n.createElement(ve.Y9, null, " ", (0, Ne.we)("#SendClip_Title"), " "),
+		n.createElement(ve.Y9, null, " ", Localize("#SendClip_Title"), " "),
 		n.createElement("div", {
 			ref: m,
 		}),
@@ -5838,7 +5839,7 @@ function Vt(e) {
 				{
 					className: Pe.Description,
 				},
-				(0, Ne.we)("#SendClip_Description3"),
+				Localize("#SendClip_Description3"),
 			),
 			R &&
 				n.createElement(
@@ -5850,7 +5851,7 @@ function Vt(e) {
 							rgOptions: p,
 							onChange: (e) => h(e?.data),
 							selectedOption: g || p[0].data,
-							strDefaultLabel: (0, Ne.we)("#SendClip_SelectTarget"),
+							strDefaultLabel: Localize("#SendClip_SelectTarget"),
 						}),
 				),
 			n.createElement(
@@ -5872,7 +5873,7 @@ function Vt(e) {
 				n.createElement(ve.CB, {
 					onCancel: y,
 					bCancelDisabled: !v,
-					strCancelText: (0, Ne.we)("#Button_Cancel"),
+					strCancelText: Localize("#Button_Cancel"),
 					onOK: B,
 					bOKDisabled: M,
 					strOKText: w,
@@ -5989,33 +5990,33 @@ export function Or(e) {
 	let T = false;
 	let R = false;
 	if (C.isError) {
-		v = (0, Ne.we)("#SendToPhone_CantRequestDevice", C.error.toString());
+		v = Localize("#SendToPhone_CantRequestDevice", C.error.toString());
 		I = Pe.Error;
 		E = true;
 	} else if (C.isLoading) {
-		v = (0, Ne.we)("#SendToPhone_LoadingPhone");
+		v = Localize("#SendToPhone_LoadingPhone");
 		I = Pe.Description;
 		E = true;
 	} else if (C.data.bFoundDevice && !C.data.bUpToDate) {
-		v = (0, Ne.we)("#SendToPhone_Update", s);
+		v = Localize("#SendToPhone_Update", s);
 		I = Pe.DescriptionWarning;
 		E = true;
 	} else if (C.data.bFoundDevice) {
 		if (l) {
-			S = (0, Ne.we)("#Button_Close");
+			S = Localize("#Button_Close");
 			v = l;
 			I = Pe.Error;
 		} else if (p || d || o) {
 			if (!p && o) {
-				S = (0, Ne.we)("#Button_Cancel");
-				v = (0, Ne.we)("#SendToPhone_Exporting");
+				S = Localize("#Button_Cancel");
+				v = Localize("#SendToPhone_Exporting");
 				R = true;
 			} else if (p) {
-				S = (0, Ne.we)("#Button_Cancel");
-				v = (0, Ne.we)("#SendToPhone_Uploading");
+				S = Localize("#Button_Cancel");
+				v = Localize("#SendToPhone_Uploading");
 				R = true;
 			} else {
-				S = (0, Ne.we)("#Button_Close");
+				S = Localize("#Button_Close");
 				v = n.createElement(
 					"div",
 					{
@@ -6029,17 +6030,17 @@ export function Or(e) {
 					n.createElement(Ie.Checkmark, {
 						className: Pe.Checkmark,
 					}),
-					(0, Ne.we)("#SendToPhone_Finished"),
+					Localize("#SendToPhone_Finished"),
 				);
 				w = t;
 				R = true;
 			}
 		} else {
-			S = (0, Ne.we)("#SendToPhone_Upload");
+			S = Localize("#SendToPhone_Upload");
 			w = f;
 		}
 	} else {
-		v = (0, Ne.we)("#SendToPhone_NoPhone");
+		v = Localize("#SendToPhone_NoPhone");
 		I = Pe.DescriptionWarning;
 		E = true;
 		T = true;
@@ -6050,7 +6051,7 @@ export function Or(e) {
 			closeModal: y,
 			className: Pe.SendClipDialog,
 		},
-		n.createElement(ve.Y9, null, " ", (0, Ne.we)("#SendToPhone_Title"), " "),
+		n.createElement(ve.Y9, null, " ", Localize("#SendToPhone_Title"), " "),
 		n.createElement("div", {
 			ref: u,
 		}),
@@ -6064,7 +6065,7 @@ export function Or(e) {
 				{
 					className: (0, De.A)(Pe.Description, Pe.TopPadding),
 				},
-				(0, Ne.we)("#SendToPhone_Description"),
+				Localize("#SendToPhone_Description"),
 			),
 			a &&
 				n.createElement(
@@ -6072,7 +6073,7 @@ export function Or(e) {
 					{
 						className: Pe.DescriptionSmall,
 					},
-					(0, Ne.oW)(
+					LocalizeInlineReactWithFallback(
 						"#SendToPhone_DescriptionMobileQR",
 						n.createElement(Qt, {
 							onClick: (e) => {
@@ -6096,7 +6097,7 @@ export function Or(e) {
 						className: (0, De.A)(Pe.DescriptionSmall, Pe.TopPadding),
 					},
 					" ",
-					(0, Ne.oW)(
+					LocalizeInlineReactWithFallback(
 						"#SendToPhone_DescriptionMobile",
 						n.createElement(Qt, {
 							onClick: () => _(),
@@ -6116,7 +6117,7 @@ export function Or(e) {
 				n.createElement(ve.CB, {
 					onCancel: y,
 					bCancelDisabled: !B,
-					strCancelText: (0, Ne.we)("#Button_Cancel"),
+					strCancelText: Localize("#Button_Cancel"),
 					onOK: w,
 					bOKDisabled: E,
 					strOKText: S,

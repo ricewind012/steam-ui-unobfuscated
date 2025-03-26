@@ -106,7 +106,7 @@ var N = require("./10606.js");
 var F = require(/*webcrack:missing*/ "./50376.js");
 var G = require(/*webcrack:missing*/ "./98995.js");
 var O = require(/*webcrack:missing*/ "./90765.js");
-var P = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var L = require("./39002.js");
 var z = require("./1756.js");
 var x = require("./57337.js");
@@ -219,13 +219,13 @@ const q = (0, k.Nr)((e) => {
 	(0, c.hL)(a.StartLoadingCallbacks, N);
 	(0, c.hL)(a.FinishedRequestCallbacks, F);
 	let L = m ? n.createElement(D.Spinner, null) : n.createElement(D.Globe, null);
-	let z = (0, P.we)("#Browser_Loading");
+	let z = (0, Localize)("#Browser_Loading");
 	if (!m && A && A.startsWith("https://") && u?.bIsSecure) {
 		if (u?.bHasCertError) {
 			L = n.createElement(D.Caution, {
 				className: y.CertError,
 			});
-			z = (0, P.we)("#Browser_NotSecure");
+			z = (0, Localize)("#Browser_NotSecure");
 		} else {
 			L = n.createElement(D.Lock, {
 				locked: true,
@@ -241,7 +241,7 @@ const q = (0, k.Nr)((e) => {
 		n.createElement(
 			j,
 			{
-				tooltip: (0, P.we)("#BrowserContextMenu_GoBack"),
+				tooltip: (0, Localize)("#BrowserContextMenu_GoBack"),
 				onClick: _,
 				bDisabled: !p,
 			},
@@ -252,7 +252,7 @@ const q = (0, k.Nr)((e) => {
 		n.createElement(
 			j,
 			{
-				tooltip: (0, P.we)("#BrowserContextMenu_GoForward"),
+				tooltip: (0, Localize)("#BrowserContextMenu_GoForward"),
 				onClick: f,
 				bDisabled: !g,
 			},
@@ -263,7 +263,7 @@ const q = (0, k.Nr)((e) => {
 		n.createElement(
 			j,
 			{
-				tooltip: (0, P.we)("#BrowserContextMenu_Reload"),
+				tooltip: (0, Localize)("#BrowserContextMenu_Reload"),
 				onClick: C,
 				bDisabled: !h,
 			},
@@ -273,7 +273,7 @@ const q = (0, k.Nr)((e) => {
 			n.createElement(
 				j,
 				{
-					tooltip: (0, P.we)(
+					tooltip: (0, Localize)(
 						w ? "#Browser_RemoveBookmark" : "#Browser_AddBookmark",
 					),
 					onClick: () => T(d, A),
@@ -285,7 +285,7 @@ const q = (0, k.Nr)((e) => {
 			n.createElement(
 				j,
 				{
-					tooltip: (0, P.we)("#Browser_Home"),
+					tooltip: (0, Localize)("#Browser_Home"),
 					onClick: E,
 				},
 				n.createElement(D.Home, null),
@@ -406,7 +406,7 @@ function Z(e) {
 	const N = (0, i.q3)(() => I?.DisplayURL);
 	const F = (0, U.sO)(N);
 	n.useEffect(() => {
-		_(F ? (0, P.we)("#DisplayStatus_Compact_ParentalBlocked") : D);
+		_(F ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : D);
 	}, [D, _, F]);
 	const [G, L, z] = (0, c.uD)(false);
 	return n.createElement(
@@ -508,7 +508,7 @@ function Y(e) {
 								className: y.ManageBookmarkButton,
 								onClick: a,
 							},
-							(0, P.we)("#Browser_OrganizeBookmarks_Edit"),
+							(0, Localize)("#Browser_OrganizeBookmarks_Edit"),
 						),
 						n.createElement(
 							R.$n,
@@ -516,7 +516,7 @@ function Y(e) {
 								className: y.ManageBookmarkButton,
 								onClick: s,
 							},
-							(0, P.we)("#Browser_OrganizeBookmarks_Remove"),
+							(0, Localize)("#Browser_OrganizeBookmarks_Remove"),
 						),
 					),
 				),
@@ -537,7 +537,7 @@ function K(e) {
 		n.createElement(
 			N.o0,
 			{
-				strTitle: (0, P.we)("#Browser_OrganizeBookmarks_EditBookmark"),
+				strTitle: (0, Localize)("#Browser_OrganizeBookmarks_EditBookmark"),
 				onOK: () => i(s, l),
 				closeModal: a,
 				bOKDisabled: s.length == 0 || l.length == 0,
@@ -551,13 +551,13 @@ function K(e) {
 					ref: m,
 					value: s,
 					onChange: (e) => o(e.currentTarget.value),
-					label: (0, P.we)("#Browser_OrganizeBookmarks_EditName"),
+					label: (0, Localize)("#Browser_OrganizeBookmarks_EditName"),
 				}),
 				n.createElement(R.pd, {
 					ref: u,
 					value: l,
 					onChange: (e) => c(e.currentTarget.value),
-					label: (0, P.we)("#Browser_OrganizeBookmarks_EditLink"),
+					label: (0, Localize)("#Browser_OrganizeBookmarks_EditLink"),
 				}),
 			),
 		),
@@ -567,7 +567,7 @@ const X = (0, B.PA)((e) => {
 	const { bookmarks: t, closeModal: r } = e;
 	const i = t.bookmarks;
 	const a = (0, _f.T)(t.appid);
-	const s = t.appid == I.w1 ? (0, P.we)("#Menu_Steam") : a.strDisplayName;
+	const s = t.appid == I.w1 ? (0, Localize)("#Menu_Steam") : a.strDisplayName;
 	const [o, l, m] = (0, c.uD)(false);
 	const [u, d] = n.useState(0);
 	const A = i[u];
@@ -598,7 +598,7 @@ const X = (0, B.PA)((e) => {
 			N.o0,
 			{
 				bAlertDialog: true,
-				strTitle: (0, P.we)("#Browser_OrganizeBookmarks_Title", s),
+				strTitle: (0, Localize)("#Browser_OrganizeBookmarks_Title", s),
 				closeModal: r,
 				onCancel: r,
 			},
@@ -663,7 +663,7 @@ function J(e) {
 							{
 								onSelected: (e) => r(),
 							},
-							(0, P.we)("#Browser_NewTab"),
+							(0, Localize)("#Browser_NewTab"),
 						),
 						n.createElement(T.K5, null),
 						n.createElement(
@@ -671,7 +671,7 @@ function J(e) {
 							{
 								onSelected: i,
 							},
-							(0, P.we)("#Browser_OrganizeBookmarks"),
+							(0, Localize)("#Browser_OrganizeBookmarks"),
 						),
 						n.createElement(T.K5, null),
 						t.bookmarks.map((e, t) =>
@@ -841,7 +841,7 @@ const ee = (0, k.Nr)((e) => {
 			{
 				className: y.TabTitle,
 			},
-			m ? (0, P.we)("#DisplayStatus_Compact_ParentalBlocked") : c,
+			m ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : c,
 		),
 		n.createElement(D.Close, {
 			className: y.CloseTabButton,

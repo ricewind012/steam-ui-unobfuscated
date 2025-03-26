@@ -6,7 +6,7 @@ import {
 	GetReactionImageURL,
 } from "./utils.js";
 import { he as ToolTip } from "../library/98995.js";
-import { Yp as LocalizePlural } from "../library/46108.js";
+import { LocalizePlural } from "../../actual_src/utils/localization.js";
 import { A as ClassMap } from "../library/90765.js";
 declare const styles: any;
 

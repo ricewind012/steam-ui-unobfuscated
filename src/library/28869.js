@@ -4,7 +4,7 @@ var s = require(/*webcrack:missing*/ "./4452.js");
 var o = s;
 var a = require(/*webcrack:missing*/ "./63696.js");
 var c = require("./10975.js");
-var l = require("./54644.js");
+import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
 var u = require("./3524.js");
 var m = require("./87481.js");
 var d = require("./20893.js");
@@ -215,7 +215,7 @@ function M(e) {
 export const D0 = M("div");
 function y(e) {
 	c.eZ.PlayNavSound(c.PN.DefaultOk);
-	if ((0, l.kD)(e.currentTarget)) {
+	if (IsHTMLElement(e.currentTarget)) {
 		e.currentTarget.click();
 	}
 	return true;

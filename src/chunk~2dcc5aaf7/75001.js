@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./90765.js");
 var s = require("./18057.js");
 var o = require(/*webcrack:missing*/ "./88750.js");
 var l = require("./18869.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./51319.js");
 var u = m;
 var d = require("./40451.js");
@@ -13,7 +13,7 @@ var p = require("./5640.js");
 var g = require(/*webcrack:missing*/ "./83599.js");
 var h = require(/*webcrack:missing*/ "./15123.js");
 var C = require("./28934.js");
-var _ = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var f = require("./34792.js");
 var b = require("./10501.js");
 var y = require(/*webcrack:missing*/ "./88808.js");
@@ -51,7 +51,7 @@ const B = (e) => {
 	}
 	const D = n.useCallback(
 		(e) => {
-			const t = (0, _.uX)(e);
+			const t = GetOwningWindowForEvent(e);
 			if (E && k) {
 				T(I, b ?? A.uX, () => k(t));
 			} else {
@@ -69,7 +69,7 @@ const B = (e) => {
 		n.Fragment,
 		null,
 		y && n.createElement(M, null),
-		S || (t[0] == "#" ? (0, c.we)(t) : t),
+		S || (t[0] == "#" ? Localize(t) : t),
 	);
 	return n.createElement(
 		o.kt,
@@ -128,7 +128,7 @@ function M() {
 		{
 			className: u.NewItemBug,
 		},
-		(0, c.we)("#NewItemBug"),
+		Localize("#NewItemBug"),
 	);
 }
 export const _G = (e) => {

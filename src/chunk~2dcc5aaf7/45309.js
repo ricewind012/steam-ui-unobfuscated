@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./88750.js");
 var s = require("./10606.js");
 var o = require("./13869.js");
 var l = require(/*webcrack:missing*/ "./11131.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export function Ql(e) {
 	const t = (0, l.R7)();
 	return n.createElement(
@@ -89,7 +89,7 @@ export function X_(e) {
 							onClick: g,
 						},
 						" ",
-						(0, c.we)("#Button_Cancel"),
+						Localize("#Button_Cancel"),
 						" ",
 					)
 				: n.createElement(i.CB, {

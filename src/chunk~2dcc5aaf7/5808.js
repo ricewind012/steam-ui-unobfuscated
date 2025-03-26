@@ -86,8 +86,11 @@ var P = require("./13869.js");
 var L = require(/*webcrack:missing*/ "./50376.js");
 var z = require(/*webcrack:missing*/ "./49455.js");
 var x = require(/*webcrack:missing*/ "./90765.js");
-var U = require(/*webcrack:missing*/ "./54644.js");
-var W = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var V = require(/*webcrack:missing*/ "./52451.js");
 var H = require(/*webcrack:missing*/ "./72476.js");
 var j = require("./96680.js");
@@ -405,7 +408,7 @@ export function _D(e, t, r, n) {
 		}),
 		i,
 		{
-			strTitle: (0, W.we)("#GameAction_ConfirmExitGameTitle"),
+			strTitle: Localize("#GameAction_ConfirmExitGameTitle"),
 		},
 	);
 }
@@ -414,8 +417,8 @@ function Ce(e) {
 	(0, B.TP)(true);
 	return d.createElement(O.o0, {
 		className: J.ExitGameDialog,
-		strTitle: (0, W.we)("#GameAction_ConfirmExitGameTitle"),
-		strDescription: (0, W.we)("#AppOverlay_UnsavedDataWarning"),
+		strTitle: Localize("#GameAction_ConfirmExitGameTitle"),
+		strDescription: Localize("#AppOverlay_UnsavedDataWarning"),
 		onOK: () => {
 			if (r) {
 				r();
@@ -438,7 +441,7 @@ export function a_(e, t, r) {
 		}),
 		n,
 		{
-			strTitle: (0, W.we)("#GameAction_ConfirmStopStreamingTitle"),
+			strTitle: Localize("#GameAction_ConfirmStopStreamingTitle"),
 		},
 	);
 }
@@ -446,7 +449,7 @@ function fe(e) {
 	const { gameid: t, fnAccepted: r, closeModal: n } = e;
 	(0, B.TP)(true);
 	return d.createElement(O.o0, {
-		strTitle: (0, W.we)("#GameAction_ConfirmStopStreamingTitle"),
+		strTitle: Localize("#GameAction_ConfirmStopStreamingTitle"),
 		onOK: () => {
 			if (r) {
 				r();
@@ -715,13 +718,13 @@ let Ie = class extends d.Component {
 		_.md.SetAppsAsHidden(e, false);
 	}
 	AddToNewCollection(e, t) {
-		(0, Y.oy)((0, U.uX)(e), t, "context-menu");
+		(0, Y.oy)(GetOwningWindowForEvent(e), t, "context-menu");
 	}
 	ShowCDKeys(e) {
 		if (this.props.bInGamepadUI) {
-			(0, o.F)((0, U.uX)(e), this.props.overview);
+			(0, o.F)(GetOwningWindowForEvent(e), this.props.overview);
 		} else {
-			(0, U.uX)(e).location.href =
+			GetOwningWindowForEvent(e).location.href =
 				"steam://cdkeys/" + this.props.overview.appid;
 		}
 	}
@@ -786,7 +789,7 @@ let Ie = class extends d.Component {
 					onSelected: (t) => this.AddToNewCollection(t, e),
 				},
 				d.createElement(L.f5w, null),
-				(0, W.we)("#GameAction_AddToCollectionOption_NewCollection"),
+				Localize("#GameAction_AddToCollectionOption_NewCollection"),
 			),
 		);
 		return {
@@ -799,7 +802,13 @@ let Ie = class extends d.Component {
 			const r = AH(this.props.instance, e[0], t);
 			let n = r;
 			const i = (n) => {
-				const i = jy(r, e[0], t, this.props.launchSource, (0, U.uX)(n));
+				const i = jy(
+					r,
+					e[0],
+					t,
+					this.props.launchSource,
+					GetOwningWindowForEvent(n),
+				);
 				if (i) {
 					i();
 				}
@@ -858,7 +867,7 @@ let Ie = class extends d.Component {
 	GetOnSelectFunctionForAppActions(e, t, r) {
 		if (t.length == 1) {
 			return (n) => {
-				jy(e, t[0], r, this.props.launchSource, (0, U.uX)(n))();
+				jy(e, t[0], r, this.props.launchSource, GetOwningWindowForEvent(n))();
 			};
 		} else {
 			return (r) => {
@@ -888,7 +897,7 @@ let Ie = class extends d.Component {
 							console.error("Unsupported bulk operation", e);
 							return () => {};
 					}
-				})(e, t, "local", (0, U.uX)(r));
+				})(e, t, "local", GetOwningWindowForEvent(r));
 				n();
 			};
 		}
@@ -932,7 +941,7 @@ let Ie = class extends d.Component {
 		return d.createElement(
 			k.Vs,
 			{
-				label: (0, W.we)("#GameAction_Manage"),
+				label: Localize("#GameAction_Manage"),
 			},
 			o.length > 0 &&
 				d.createElement(
@@ -987,7 +996,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: this.ShowCDKeys,
 					},
-					(0, W.we)("#GameAction_ViewCDKeys"),
+					Localize("#GameAction_ViewCDKeys"),
 				),
 			n &&
 				n.bShowControllerConfig &&
@@ -997,7 +1006,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: this.ShowControllerConfig,
 					},
-					(0, W.we)("#GameAction_ControllerConfiguration"),
+					Localize("#GameAction_ControllerConfiguration"),
 				),
 			n &&
 				C &&
@@ -1006,7 +1015,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: this.DismissFromPlayNext,
 					},
-					(0, W.we)("#GameAction_DismissPlayNext"),
+					Localize("#GameAction_DismissPlayNext"),
 				),
 			!this.props.bInGamepadUI &&
 				this.props.onChangeArtwork &&
@@ -1031,10 +1040,10 @@ let Ie = class extends d.Component {
 								e[0],
 								t,
 								this.props.launchSource,
-								(0, U.uX)(r),
+								GetOwningWindowForEvent(r),
 							)(),
 					},
-					(0, W.we)("#GameAction_BrowseLocalFiles"),
+					Localize("#GameAction_BrowseLocalFiles"),
 				),
 			l.length > 0 &&
 				d.createElement(
@@ -1157,7 +1166,7 @@ let Ie = class extends d.Component {
 						{
 							onSelected: () => this.props.navigator.AppProperties(e[0].appid),
 						},
-						(0, W.we)("#GameAction_GameProperties"),
+						Localize("#GameAction_GameProperties"),
 					),
 				),
 		);
@@ -1223,7 +1232,7 @@ function Me(e) {
 					d.createElement(
 						"span",
 						null,
-						(0, W.PP)(
+						LocalizeReact(
 							"#GameAction_AllowForChild",
 							d.createElement(se.A, {
 								className: J.FamilyPersona,
@@ -1245,7 +1254,7 @@ function Me(e) {
 					d.createElement(
 						"span",
 						null,
-						(0, W.PP)(
+						LocalizeReact(
 							"#GameAction_DenyForChild",
 							d.createElement(se.A, {
 								className: J.FamilyPersona,
@@ -1285,7 +1294,7 @@ function Te(e) {
 		return d.createElement(
 			k.Vs,
 			{
-				label: (0, W.we)("#GameAction_FamilyMenu"),
+				label: Localize("#GameAction_FamilyMenu"),
 			},
 			a.map((e) =>
 				d.createElement(Me, {
@@ -1371,7 +1380,7 @@ function De(e) {
 				disabled: u,
 			},
 			(0, a.Np)(o ? "UnmarkAsPrivate" : "MarkAsPrivate", t.length),
-			u && " " + (0, W.we)("#GameAction_MarkAsPrivate_NoShortcuts"),
+			u && " " + Localize("#GameAction_MarkAsPrivate_NoShortcuts"),
 		);
 	} else {
 		return null;
@@ -1397,7 +1406,7 @@ function Ne(e) {
 			{
 				onSelected: n,
 			},
-			(0, W.we)("#GameAction_RemoveGameLicense"),
+			Localize("#GameAction_RemoveGameLicense"),
 		);
 	} else {
 		return null;
@@ -1436,7 +1445,7 @@ function Ge(e) {
 		return d.createElement(
 			k.Vs,
 			{
-				label: (0, W.we)("#GameAction_DevMenu"),
+				label: Localize("#GameAction_DevMenu"),
 			},
 			o &&
 				d.createElement(
@@ -1445,7 +1454,7 @@ function Ge(e) {
 						key: "ClearProton",
 						onSelected: s,
 					},
-					(0, W.we)("#GameAction_DeleteProtonFiles"),
+					Localize("#GameAction_DeleteProtonFiles"),
 				),
 			l &&
 				d.createElement(
@@ -1464,7 +1473,7 @@ function Ge(e) {
 								})(e),
 							),
 					},
-					(0, W.we)("#GameAction_ClearSelectedControllerConfig"),
+					Localize("#GameAction_ClearSelectedControllerConfig"),
 				),
 		);
 	} else {

@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./88750.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./92374.js");
 var o = require(/*webcrack:missing*/ "./31084.js");
 var l = require("./29516.js");
@@ -13,7 +13,7 @@ var p = require(/*webcrack:missing*/ "./90765.js");
 var g = require("./661.js");
 var h = require("./91720.js");
 var C = require("./94361.js");
-var _ = require(/*webcrack:missing*/ "./53833.js");
+import { SortedFindLessOrEqual } from "../../actual_src/utils/arrayutils.js";
 var f = require("./2773.js");
 var b = require("./11072.js");
 export function ww() {
@@ -72,7 +72,10 @@ function S(e) {
 		if (!n) {
 			return null;
 		}
-		const i = _.rJ(n.m_rgPhases, (e) => r.valMS - parseInt(e.time));
+		const i = SortedFindLessOrEqual(
+			n.m_rgPhases,
+			(e) => r.valMS - parseInt(e.time),
+		);
 		if (i < 0) {
 			return null;
 		}
@@ -120,7 +123,7 @@ function S(e) {
 					className: (0, p.A)(A.MenuItem, A.AddUserMarker),
 				},
 				n.createElement(u.pH, null),
-				(0, a.we)(
+				Localize(
 					l
 						? "#Playback_UserSelectionControls_AddUserMarker"
 						: "#TimelineDialog_AddMarker",
@@ -143,7 +146,7 @@ function S(e) {
 					className: (0, p.A)(A.MenuItem, A.TakeScreenshot),
 				},
 				n.createElement(u.i7, null),
-				(0, a.we)(
+				Localize(
 					l
 						? "#Playback_UserSelectionControls_TakeScreenshot"
 						: "#TimelineDialog_TakeScreenshot",
@@ -168,7 +171,7 @@ function S(e) {
 				n.createElement(u.Nm, {
 					direction: "left",
 				}),
-				(0, a.we)(
+				Localize(
 					l
 						? "#Playback_UserSelectionControls_SetClipStart"
 						: "#TimelineContext_SetClipStart",
@@ -193,7 +196,7 @@ function S(e) {
 				n.createElement(u.Nm, {
 					direction: "right",
 				}),
-				(0, a.we)(
+				Localize(
 					l
 						? "#Playback_UserSelectionControls_SetClipEnd"
 						: "#TimelineContext_SetClipEnd",
@@ -221,7 +224,7 @@ function S(e) {
 						className: (0, p.A)(A.MenuItem, A.ClipPhase),
 					},
 					n.createElement(u.O5, null),
-					(0, a.we)("#TimelineDialog_ClipPhase"),
+					Localize("#TimelineDialog_ClipPhase"),
 				),
 			),
 		y.length > 0 &&
@@ -246,7 +249,7 @@ function S(e) {
 						className: (0, p.A)(A.MenuItem, A.ViewClip),
 					},
 					n.createElement(d.Video, null),
-					(0, a.we)("#TimelineDialog_ViewClip"),
+					Localize("#TimelineDialog_ViewClip"),
 				),
 			),
 	);
@@ -306,7 +309,7 @@ function B(e) {
 					className: (0, p.A)(A.MenuItem, A.AddUserMarker),
 				},
 				n.createElement(u.Od, null),
-				(0, a.we)("#Playback_UserSelectionControls_AddUserMarker"),
+				Localize("#Playback_UserSelectionControls_AddUserMarker"),
 			),
 		),
 		n.createElement(
@@ -326,7 +329,7 @@ function B(e) {
 					className: (0, p.A)(A.MenuItem, A.TakeScreenshot),
 				},
 				n.createElement(u.i7, null),
-				(0, a.we)("#Playback_UserSelectionControls_TakeScreenshot"),
+				Localize("#Playback_UserSelectionControls_TakeScreenshot"),
 			),
 		),
 		n.createElement(
@@ -348,7 +351,7 @@ function B(e) {
 				n.createElement(u.Nm, {
 					direction: "left",
 				}),
-				(0, a.we)("#Playback_UserSelectionControls_SetClipStart"),
+				Localize("#Playback_UserSelectionControls_SetClipStart"),
 			),
 		),
 		n.createElement(
@@ -370,7 +373,7 @@ function B(e) {
 				n.createElement(u.Nm, {
 					direction: "right",
 				}),
-				(0, a.we)("#Playback_UserSelectionControls_SetClipEnd"),
+				Localize("#Playback_UserSelectionControls_SetClipEnd"),
 			),
 		),
 	);

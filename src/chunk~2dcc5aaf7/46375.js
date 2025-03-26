@@ -3,7 +3,7 @@ var i = require("./64608.js");
 var a = require("./35488.js");
 var s = require(/*webcrack:missing*/ "./85243.js");
 var o = require("./19999.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./27710.js");
 var m = require("./30449.js");
 var u = require("./10606.js");
@@ -11,7 +11,10 @@ var d = require("./13869.js");
 var A = require("./46422.js");
 var p = require("./31319.js");
 var g = require("./71033.js");
-var h = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeTimeSince,
+	ETimeSinceSuffix,
+} from "../../actual_src/utils/localization/datetime.js";
 var C = require(/*webcrack:missing*/ "./61657.js");
 var _ = require(/*webcrack:missing*/ "./69164.js");
 var f = require("./56970.js");
@@ -24,7 +27,7 @@ function y(e) {
 			label: t,
 			onClick: r,
 		},
-		(0, l.we)("#Settings_Updates_Invalid"),
+		Localize("#Settings_Updates_Invalid"),
 	);
 }
 function S(e) {
@@ -32,8 +35,8 @@ function S(e) {
 	const a = (0, c.Qi)();
 	const s = a != null && a < 4;
 	const o = s
-		? (0, l.we)("#Settings_Updates_NoUpdatesAvailable")
-		: (0, l.we)("#Settings_Updates_CheckForUpdates");
+		? Localize("#Settings_Updates_NoUpdatesAvailable")
+		: Localize("#Settings_Updates_CheckForUpdates");
 	return n.createElement(
 		i.xh,
 		{
@@ -50,7 +53,7 @@ function w(e) {
 	return n.createElement(m.hA, {
 		indeterminate: true,
 		label: t,
-		sOperationText: (0, l.we)("#Settings_Updates_Checking"),
+		sOperationText: Localize("#Settings_Updates_Checking"),
 		margin: "none",
 		nProgress: null,
 		nTransitionSec: 0.3,
@@ -66,7 +69,7 @@ function B(e) {
 			icon: n.createElement(a.FieldYellowExclamation, null),
 			childrenContainerWidth: "fixed",
 		},
-		(0, l.we)("#Settings_Updates_UpdateApply"),
+		Localize("#Settings_Updates_UpdateApply"),
 	);
 }
 function v(e) {
@@ -78,7 +81,7 @@ function v(e) {
 		n.createElement(m.hA, {
 			indeterminate: true,
 			label: t,
-			sOperationText: (0, l.we)("#Settings_Updates_UpdateApplying"),
+			sOperationText: Localize("#Settings_Updates_UpdateApplying"),
 			margin: "none",
 			nProgress: r?.stage_progress * 100,
 			rtEstimatedCompletionTime: r.rtime_estimated_completion,
@@ -130,7 +133,7 @@ export function g5(e) {
 				return null;
 		}
 	}
-	const u = (0, l.we)("#Settings_DockUpdate_Label");
+	const u = Localize("#Settings_DockUpdate_Label");
 	const A = s[r];
 	return n.createElement(A, {
 		sLabel: u,
@@ -141,11 +144,11 @@ export function g5(e) {
 function E(e) {
 	let t = null;
 	e.eResult;
-	t = (0, l.we)("#Settings_DockUpdate_Error_Generic");
+	t = Localize("#Settings_DockUpdate_Error_Generic");
 	return n.createElement(u.KG, {
-		strTitle: (0, l.we)("#Settings_DockUpdate_Error_Title").toUpperCase(),
+		strTitle: Localize("#Settings_DockUpdate_Error_Title").toUpperCase(),
 		strDescription: t,
-		strOKButtonText: (0, l.we)("#Settings_Updates_UpdateErrorOK"),
+		strOKButtonText: Localize("#Settings_Updates_UpdateErrorOK"),
 		closeModal: e.closeModal,
 	});
 }
@@ -154,8 +157,8 @@ function M(e) {
 	const r = (0, c.Mi)();
 	const i =
 		r > 0
-			? (0, h.Hq)(r, {
-					eSuffix: h.a8.Remaining,
+			? LocalizeTimeSince(r, {
+					eSuffix: ETimeSinceSuffix.Remaining,
 					bHighGranularity: true,
 				})
 			: null;
@@ -205,7 +208,7 @@ function M(e) {
 						className: o.UnplugWarning,
 					},
 					" ",
-					(0, l.we)("#Settings_DockUpdate_UnplugWarning"),
+					Localize("#Settings_DockUpdate_UnplugWarning"),
 					" ",
 				),
 				n.createElement(
@@ -249,19 +252,17 @@ export function TE(e) {
 	}
 }
 function k(e) {
-	let t = (0, l.we)(
-		"#SteamDock_UnsupportedFirmwareAreYouSureModal_Description",
-	);
+	let t = Localize("#SteamDock_UnsupportedFirmwareAreYouSureModal_Description");
 	return n.createElement(u.o0, {
-		strTitle: (0, l.we)(
+		strTitle: Localize(
 			"#SteamDock_UnsupportedFirmwareAreYouSureModal_Title",
 		).toUpperCase(),
 		strDescription: t,
-		strOKButtonText: (0, l.we)(
+		strOKButtonText: Localize(
 			"#SteamDock_UnsupportedFirmwareAreYouSureModal_OK",
 		),
 		onOK: () => T(),
-		strCancelButtonText: (0, l.we)(
+		strCancelButtonText: Localize(
 			"#SteamDock_UnsupportedFirmwareAreYouSureModal_Cancel",
 		),
 		onCancel: () => c.Rk.Get().DisarmSafetyNet(),
@@ -269,17 +270,15 @@ function k(e) {
 	});
 }
 function D(e) {
-	let t = (0, l.we)("#SteamDock_UnsupportedFirmwareModal_Description");
+	let t = Localize("#SteamDock_UnsupportedFirmwareModal_Description");
 	return n.createElement(u.o0, {
-		strTitle: (0, l.we)(
+		strTitle: Localize(
 			"#SteamDock_UnsupportedFirmwareModal_Title",
 		).toUpperCase(),
 		strDescription: t,
-		strOKButtonText: (0, l.we)("#SteamDock_UnsupportedFirmwareModal_OK"),
+		strOKButtonText: Localize("#SteamDock_UnsupportedFirmwareModal_OK"),
 		onOK: () => T(),
-		strCancelButtonText: (0, l.we)(
-			"#SteamDock_UnsupportedFirmwareModal_Cancel",
-		),
+		strCancelButtonText: Localize("#SteamDock_UnsupportedFirmwareModal_Cancel"),
 		onCancel: () => (0, d.pg)(n.createElement(k, null), window),
 		closeModal: e.closeModal,
 	});
@@ -296,7 +295,7 @@ export function Xo() {
 	const t = e?.version_current;
 	if (t) {
 		return n.createElement(i.T8, {
-			name: (0, l.we)("#Settings_System_DockFWVersion"),
+			name: Localize("#Settings_System_DockFWVersion"),
 			value: t,
 		});
 	} else {

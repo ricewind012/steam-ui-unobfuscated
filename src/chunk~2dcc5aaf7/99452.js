@@ -9,7 +9,7 @@ var m = require("./64608.js");
 var u = require("./35488.js");
 var d = require("./10606.js");
 var A = require("./13869.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var g = require("./45309.js");
 var h = require("./46422.js");
 var C = require("./83314.js");
@@ -25,7 +25,7 @@ var I = require(/*webcrack:missing*/ "./4690.js");
 var E = require("./22091.js");
 var M = require("./46396.js");
 var T = require("./75140.js");
-var R = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var k = require(/*webcrack:missing*/ "./11131.js");
 function D(e) {
 	const {
@@ -86,14 +86,14 @@ function D(e) {
 		y.v3.EnsureEditingConfiguration();
 	};
 	const N = (e) => {
-		let t = (0, R.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		(0, A.pg)(
 			i.createElement(d.o0, {
-				strTitle: (0, p.we)(
+				strTitle: (0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_Confirm_Delete",
 					I,
 				),
-				strDescription: (0, p.we)(
+				strDescription: (0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_Confirm_Delete_Desc",
 				),
 				bDestructiveWarning: true,
@@ -102,7 +102,9 @@ function D(e) {
 			}),
 			t,
 			{
-				strTitle: (0, p.we)("#AppControllerConfiguration_ConfirmRevertConfig"),
+				strTitle: (0, Localize)(
+					"#AppControllerConfiguration_ConfirmRevertConfig",
+				),
 			},
 		);
 	};
@@ -123,26 +125,26 @@ function D(e) {
 		const t = i.createElement(
 			c.tz,
 			{
-				label: (0, p.we)(
+				label: (0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_ContextMenu_Title",
 				),
 			},
 			i.createElement(
 				g.G,
 				{
-					title: (0, p.we)(
+					title: (0, Localize)(
 						"#ControllerConfigurator_VirtualMenu_ContextMenu_Rename",
 					),
 					onResult: F,
 				},
 				i.createElement(g.Qj, {
-					title: (0, p.we)(
+					title: (0, Localize)(
 						"#ControllerConfigurator_ActionSets_RenameVirtualMenuDialog_Title_1",
 						I,
 					),
 					description: "",
 					inputOptions: {
-						placeholder: (0, p.we)(
+						placeholder: (0, Localize)(
 							"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
 							S.friendlyname,
 						),
@@ -152,19 +154,19 @@ function D(e) {
 			i.createElement(
 				g.G,
 				{
-					title: (0, p.we)(
+					title: (0, Localize)(
 						"#ControllerConfigurator_VirtualMenu_ContextMenu_Duplicate",
 					),
 					onResult: k,
 				},
 				i.createElement(g.Qj, {
-					title: (0, p.we)(
+					title: (0, Localize)(
 						"#ControllerConfigurator_ActionSets_DuplicateVirtualMenuDialog_Title_1",
 						I,
 					),
 					description: "",
 					inputOptions: {
-						placeholder: (0, p.we)(
+						placeholder: (0, Localize)(
 							"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
 							S.friendlyname,
 						),
@@ -176,7 +178,7 @@ function D(e) {
 				{
 					onSelected: N,
 				},
-				(0, p.we)("#ControllerConfigurator_VirtualMenu_ContextMenu_Delete"),
+				(0, Localize)("#ControllerConfigurator_VirtualMenu_ContextMenu_Delete"),
 			),
 		);
 		(0, o.lX)(t, e);
@@ -264,7 +266,7 @@ export const TX = (0, n.PA)(function (e) {
 			const t = i.createElement(
 				c.tz,
 				{
-					label: (0, p.we)("#ControllerConfigurator_VirtualMenu_CreateNew"),
+					label: (0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew"),
 				},
 				i.createElement(
 					c.kt,
@@ -294,12 +296,12 @@ export const TX = (0, n.PA)(function (e) {
 	);
 	const v = i.useCallback(
 		(e) => {
-			let t = (0, R.uX)(e);
+			let t = GetOwningWindowForEvent(e);
 			const r = i.createElement(g.Qj, {
-				title: (0, p.we)(
+				title: (0, Localize)(
 					"#ControllerConfigurator_CreateVirtualMenuDialog_Title_1",
 				),
-				description: (0, p.we)(
+				description: (0, Localize)(
 					"#ControllerConfigurator_CreateVirtualMenuDialog_Description_1",
 				),
 				isValid: (e) => e.length != 0,
@@ -316,7 +318,7 @@ export const TX = (0, n.PA)(function (e) {
 	if (I && y.v3.EditingConfiguration?.error_msg?.length > 0) {
 		(0, A.pg)(
 			i.createElement(d.o0, {
-				strTitle: (0, p.we)("#ControllerConfigurator_ErrorMsg_Title"),
+				strTitle: (0, Localize)("#ControllerConfigurator_ErrorMsg_Title"),
 				strDescription: y.v3.EditingConfiguration?.error_msg,
 				bAlertDialog: true,
 			}),
@@ -372,7 +374,7 @@ export const TX = (0, n.PA)(function (e) {
 					bottomSeparator: "none",
 					highlightOnFocus: false,
 				},
-				(0, p.we)("#ControllerConfigurator_VirtualMenu_CreateNew"),
+				(0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew"),
 			),
 		);
 	}
@@ -415,7 +417,7 @@ export const WJ = (0, n.PA)(function (e) {
 	if (o && y.v3.EditingConfiguration?.error_msg?.length > 0) {
 		(0, A.pg)(
 			i.createElement(d.o0, {
-				strTitle: (0, p.we)("#ControllerConfigurator_ErrorMsg_Title"),
+				strTitle: (0, Localize)("#ControllerConfigurator_ErrorMsg_Title"),
 				strDescription: y.v3.EditingConfiguration?.error_msg,
 				bAlertDialog: true,
 			}),

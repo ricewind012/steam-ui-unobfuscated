@@ -2,7 +2,10 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./84009.js");
 var a = i;
 var s = require("./61662.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require("./60142.js");
 var m = require(/*webcrack:missing*/ "./72476.js");
@@ -46,7 +49,7 @@ export function R(e) {
 					})),
 			onContextMenu: f,
 			showFocusRing: true,
-			onMenuActionDescription: (0, o.we)("#Generic_Share"),
+			onMenuActionDescription: (0, Localize)("#Generic_Share"),
 		},
 		n.createElement("img", {
 			className: y,
@@ -91,7 +94,7 @@ function g(e) {
 			{
 				className: a.Date,
 			},
-			(0, o.$z)(i),
+			LocalizeRtime32ToShortDate(i),
 		),
 	);
 }

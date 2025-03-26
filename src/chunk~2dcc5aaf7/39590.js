@@ -11,11 +11,16 @@ var d = require("./50551.js");
 var A = require("./92564.js");
 var p = require(/*webcrack:missing*/ "./50376.js");
 var g = require(/*webcrack:missing*/ "./44846.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+	LocalizationManager,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var C = require("./80663.js");
 var _ = require("./3756.js");
 var f = require("./89459.js");
-var b = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var y = require("./51095.js");
 var S = require(/*webcrack:missing*/ "./69164.js");
 var w = require("./59704.js");
@@ -176,16 +181,20 @@ const Z = (0, o.PA)((e) => {
 		const n = u.xm.FriendStore.self;
 		if (t.length === 0) {
 			if (r === 1) {
-				return (0, h.PP)("#MessageReaction_DescriptionCountOnly", e);
+				return LocalizeReact("#MessageReaction_DescriptionCountOnly", e);
 			} else {
-				return (0, h.PP)("#MessageReaction_DescriptionCountOnly_Plural", r, e);
+				return LocalizeReact(
+					"#MessageReaction_DescriptionCountOnly_Plural",
+					r,
+					e,
+				);
 			}
 		}
 		const a = t.filter((e) => e !== n.accountid);
 		const s = a.length != t.length;
 		if (t.length < r) {
 			if (t.length >= 2) {
-				return (0, h.PP)(
+				return LocalizeReact(
 					"#MessageReaction_DescriptionMany" + (s ? "You" : ""),
 					a.slice(0, s ? 1 : 2).map((e) =>
 						i.createElement(J, {
@@ -197,19 +206,23 @@ const Z = (0, o.PA)((e) => {
 					e,
 				);
 			} else if (s) {
-				return (0, h.PP)(
+				return LocalizeReact(
 					"#MessageReaction_DescriptionYouAndCount" +
 						(r - 1 == 1 ? "" : "_Plural"),
 					r - 1,
 					e,
 				);
 			} else if (r === 1) {
-				return (0, h.PP)("#MessageReaction_DescriptionCountOnly", e);
+				return LocalizeReact("#MessageReaction_DescriptionCountOnly", e);
 			} else {
-				return (0, h.PP)("#MessageReaction_DescriptionCountOnly_Plural", r, e);
+				return LocalizeReact(
+					"#MessageReaction_DescriptionCountOnly_Plural",
+					r,
+					e,
+				);
 			}
 		} else {
-			return (0, h.PP)(
+			return LocalizeReact(
 				`#MessageReaction_Description${r}${s ? "You" : ""}`,
 				...a.map((e) =>
 					i.createElement(J, {
@@ -339,8 +352,8 @@ function ae(e) {
 	let r;
 	r =
 		t == 2
-			? (0, h.we)("#Friend_Chat_CommunityBanned")
-			: (0, h.we)("#Friend_Chat_Blocked");
+			? Localize("#Friend_Chat_CommunityBanned")
+			: Localize("#Friend_Chat_Blocked");
 	return i.createElement(
 		"div",
 		{
@@ -407,9 +420,9 @@ let oe = class extends i.Component {
 		let l = "";
 		if (r.length > 1) {
 			let e = i.createElement(i.Fragment, null, ...r);
-			l = (0, h.PP)("#ChatRoom_ServerMessage_Invited_Multiple", e, o);
+			l = LocalizeReact("#ChatRoom_ServerMessage_Invited_Multiple", e, o);
 		} else {
-			l = (0, h.PP)("#ChatRoom_ServerMessage_Invited", r[0], o);
+			l = LocalizeReact("#ChatRoom_ServerMessage_Invited", r[0], o);
 		}
 		return i.createElement(
 			M.xh,
@@ -448,7 +461,7 @@ let le = class extends i.Component {
 				continue;
 			}
 			if (r.length > 0) {
-				r.push((0, h.we)("#ChatRoom_ServerMessageMultiple_Separator"));
+				r.push(Localize("#ChatRoom_ServerMessageMultiple_Separator"));
 			}
 			let e = u.xm.FriendStore.GetPlayer(s.unServerMsgParamAccountID);
 			r.push(
@@ -470,9 +483,9 @@ let le = class extends i.Component {
 				r.pop();
 			}
 			let t = i.createElement(i.Fragment, null, ...r);
-			s = (0, h.PP)(this.props.tokenPrefix + "_Multiple", t, e);
+			s = LocalizeReact(this.props.tokenPrefix + "_Multiple", t, e);
 		} else {
-			s = (0, h.PP)(this.props.tokenPrefix, r[0]);
+			s = LocalizeReact(this.props.tokenPrefix, r[0]);
 		}
 		return i.createElement(ce, null, a ? s : "\xA0");
 	}
@@ -505,16 +518,16 @@ async function me(e, t, r) {
 	const n = r.length > 1;
 	let i = r[0].unAccountID;
 	let a = u.xm.FriendStore.GetPlayer(i).primary_display_name;
-	let s = (0, h.we)(
+	let s = Localize(
 		n ? "#Chat_Actions_DeleteChatMessages" : "#Chat_Actions_DeleteChatMessage",
 	);
-	let o = (0, h.we)(
+	let o = Localize(
 		n
 			? "#Chat_Actions_DeleteChatMessages_Confirm"
 			: "#Chat_Actions_DeleteChatMessage_Confirm",
 		a,
 	);
-	let l = (0, h.we)("#Chat_Actions_Delete");
+	let l = Localize("#Chat_Actions_Delete");
 	if (!(await (0, $.WQ)(e, s, o, l))) {
 		return;
 	}
@@ -526,7 +539,7 @@ async function me(e, t, r) {
 		c == 15
 			? "#Chat_Actions_DeleteChatMessage_FailAccess"
 			: "#Chat_Actions_DeleteChatMessage_Fail";
-	o = (0, h.we)(m, a);
+	o = Localize(m, a);
 	(0, $.Ic)(e, s, o);
 }
 function ue(e) {
@@ -554,7 +567,7 @@ function ue(e) {
 				key: "copy",
 				onSelected: d,
 			},
-			(0, h.we)("#ContextMenu_Copy"),
+			Localize("#ContextMenu_Copy"),
 		),
 	);
 	l.push(
@@ -564,7 +577,7 @@ function ue(e) {
 				key: "select",
 				onSelected: () => c.getSelection().selectAllChildren(t),
 			},
-			(0, h.we)("#Chat_Actions_Select_Message"),
+			Localize("#Chat_Actions_Select_Message"),
 		),
 	);
 	l.push(
@@ -572,7 +585,7 @@ function ue(e) {
 			ee.Vs,
 			{
 				key: "react",
-				label: (0, h.we)("#Chat_Actions_React"),
+				label: Localize("#Chat_Actions_React"),
 			},
 			i.createElement(K, {
 				chat: n.chat,
@@ -589,7 +602,7 @@ function ue(e) {
 					key: "delete",
 					onSelected: () => me(c, o, [r]),
 				},
-				(0, h.we)("#Chat_Actions_Delete"),
+				Localize("#Chat_Actions_Delete"),
 			),
 		);
 	}
@@ -651,7 +664,7 @@ const Ae = (0, o.PA)((e) => {
 					{
 						className: "ChatMessageErrorSendingAlert",
 					},
-					(0, h.we)("#Chat_ErrorSending_NotFriends"),
+					Localize("#Chat_ErrorSending_NotFriends"),
 				);
 				break;
 			case f.Bm.RateLimitExceeded:
@@ -661,7 +674,7 @@ const Ae = (0, o.PA)((e) => {
 					{
 						className: "ChatMessageErrorSendingAlert",
 					},
-					(0, h.we)("#Chat_ErrorSending_RateLimitExceeded"),
+					Localize("#Chat_ErrorSending_RateLimitExceeded"),
 				);
 				break;
 			case f.Bm.NoChatPermissionInGroup:
@@ -672,7 +685,7 @@ const Ae = (0, o.PA)((e) => {
 						className: "ChatMessageErrorPermissionDeniedAlert",
 					},
 					i.createElement(p.c_I, null),
-					(0, h.we)("#Chat_ErrorPermissionDenied"),
+					Localize("#Chat_ErrorPermissionDenied"),
 				);
 				break;
 			case f.Bm.Generic:
@@ -683,7 +696,7 @@ const Ae = (0, o.PA)((e) => {
 					{
 						className: "ChatMessageErrorSendingAlert",
 					},
-					(0, h.we)("#Chat_ErrorSending"),
+					Localize("#Chat_ErrorSending"),
 				);
 		}
 	}
@@ -738,13 +751,13 @@ const Ae = (0, o.PA)((e) => {
 		onMenuButton: (e) => {
 			T(e);
 		},
-		onMenuActionDescription: (0, h.we)("#Chat_MessageContextMenu"),
+		onMenuActionDescription: Localize("#Chat_MessageContextMenu"),
 	};
 	if (!l) {
 		Q = {
 			...Q,
 			onOKButton: (e) => I(e),
-			onOKActionDescription: (0, h.we)("#Chat_Actions_React"),
+			onOKActionDescription: Localize("#Chat_Actions_React"),
 		};
 	}
 	if (e.chatView.chat instanceof _.d) {
@@ -752,9 +765,9 @@ const Ae = (0, o.PA)((e) => {
 	}
 	if (q && q.BCanDeleteMemberMessages(e.msg.unAccountID)) {
 		Q.onSecondaryButton = (t) => {
-			me((0, b.uX)(t), q, [e.msg]);
+			me(GetOwningWindowForEvent(t), q, [e.msg]);
 		};
-		Q.onSecondaryActionDescription = (0, h.we)("#Chat_Actions_Delete");
+		Q.onSecondaryActionDescription = Localize("#Chat_Actions_Delete");
 	}
 	return i.createElement(
 		S.Z,
@@ -765,7 +778,7 @@ const Ae = (0, o.PA)((e) => {
 			onContextMenu: E,
 			onSecondaryButton: W ? () => A(!d) : undefined,
 			onSecondaryActionDescription: W
-				? (0, h.we)(d ? "#Hide_Spoiler" : "#Reveal_Spoiler")
+				? Localize(d ? "#Hide_Spoiler" : "#Reveal_Spoiler")
 				: undefined,
 			...Q,
 		},
@@ -832,7 +845,7 @@ const pe = (0, o.PA)((e) => {
 	let m = null;
 	if (l && l.BCanDeleteMemberMessages(t.unAccountID)) {
 		m = (t) => {
-			me((0, b.uX)(t), l, [e.msg]);
+			me(GetOwningWindowForEvent(t), l, [e.msg]);
 		};
 	}
 	return i.createElement(
@@ -1076,7 +1089,7 @@ let fe = class extends i.Component {
 										"span",
 										{
 											className: "playerNicknameBracket",
-											title: (0, h.we)("#isNickname"),
+											title: Localize("#isNickname"),
 										},
 										"*",
 									),
@@ -1138,7 +1151,7 @@ const be = (0, o.PA)(function (e) {
 				{
 					className: "ChatMessageErrorSendingAlert",
 				},
-				(0, h.we)("#Chat_ErrorSending"),
+				Localize("#Chat_ErrorSending"),
 			),
 		i.createElement(
 			"div",
@@ -1264,7 +1277,7 @@ let ye = class extends i.Component {
 					{
 						className: "filteredURL bb_removedlink",
 					},
-					(0, h.we)("#Chat_MessageDeleted"),
+					Localize("#Chat_MessageDeleted"),
 				),
 			),
 		);
@@ -1372,9 +1385,9 @@ let Se = class extends i.Component {
 								n.push(t);
 							}
 						}
-						return (0, h.PP)(t, ...n);
+						return LocalizeReact(t, ...n);
 					})(t, r.strToken, ...r.parts)
-				: (0, h.we)(r.strToken);
+				: Localize(r.strToken);
 			return i.createElement(ce, null, n);
 		}
 	}
@@ -1600,7 +1613,7 @@ let Re = class extends i.Component {
 			t = this.props.chatView.chat;
 		}
 		const n = [];
-		const a = (0, b.uX)(e);
+		const a = GetOwningWindowForEvent(e);
 		const s = a.getSelection();
 		const o = s && s.rangeCount > 0 && s.toString().length > 0;
 		let l;
@@ -1617,7 +1630,7 @@ let Re = class extends i.Component {
 					key: "copy",
 					onSelected: l,
 				},
-				(0, h.we)("#ContextMenu_Copy"),
+				Localize("#ContextMenu_Copy"),
 			),
 		);
 		n.push(
@@ -1629,7 +1642,7 @@ let Re = class extends i.Component {
 						this.SelectMessage(a);
 					},
 				},
-				(0, h.we)("#Chat_Actions_Select_Message"),
+				Localize("#Chat_Actions_Select_Message"),
 			),
 		);
 		if (t && t.BCanDeleteMemberMessages(r)) {
@@ -1642,7 +1655,7 @@ let Re = class extends i.Component {
 							me(a, t, this.props.messages);
 						},
 					},
-					(0, h.we)("#Chat_Actions_Delete"),
+					Localize("#Chat_Actions_Delete"),
 				),
 			);
 		}
@@ -1814,7 +1827,7 @@ class ke extends i.Component {
 		this.props.onHover(false);
 	}
 	OnDeleteMessages(e) {
-		me((0, b.uX)(e), this.props.chatRoom, this.props.messages);
+		me(GetOwningWindowForEvent(e), this.props.chatRoom, this.props.messages);
 	}
 	render() {
 		return i.createElement(
@@ -1824,7 +1837,7 @@ class ke extends i.Component {
 				onMouseEnter: this.OnMouseEnter,
 				onMouseLeave: this.OnMouseLeave,
 				onClick: this.OnDeleteMessages,
-				title: (0, h.we)("#Chat_Actions_Delete"),
+				title: Localize("#Chat_Actions_Delete"),
 			},
 			i.createElement(p.lMJ, null),
 		);
@@ -1854,9 +1867,9 @@ class De extends i.Component {
 				hour: "numeric",
 				minute: "numeric",
 			};
-			e = (0, h.we)(
+			e = Localize(
 				"#ChatRoom_New_Messages",
-				t.toLocaleDateString(h.pf.GetPreferredLocales(), n),
+				t.toLocaleDateString(LocalizationManager.GetPreferredLocales(), n),
 			);
 			r.push("new_messages");
 		} else if (this.props.bTimePassesLine) {
@@ -1869,7 +1882,7 @@ class De extends i.Component {
 				month: "long",
 				day: "numeric",
 			};
-			e = t.toLocaleDateString(h.pf.GetPreferredLocales(), r);
+			e = t.toLocaleDateString(LocalizationManager.GetPreferredLocales(), r);
 		}
 		return i.createElement(
 			M.xh,
@@ -1971,14 +1984,14 @@ const Oe = (e) => {
 	s =
 		n.length === 0
 			? a.length > 2
-				? (0, h.PP)(
+				? LocalizeReact(
 						"#ChatRoom_ServerMessage_Joined_Number",
 						i.createElement(Le, {
 							accountids: a,
 						}),
 					)
 				: a.length === 2
-					? (0, h.PP)(
+					? LocalizeReact(
 							"#ChatRoom_ServerMessage_Joined_Multiple",
 							i.createElement(Pe, {
 								context: r,
@@ -1989,7 +2002,7 @@ const Oe = (e) => {
 								accountid: a[1],
 							}),
 						)
-					: (0, h.PP)(
+					: LocalizeReact(
 							"#ChatRoom_ServerMessage_Joined",
 							i.createElement(Pe, {
 								context: r,
@@ -1998,14 +2011,14 @@ const Oe = (e) => {
 						)
 			: a.length === 0
 				? n.length > 2
-					? (0, h.PP)(
+					? LocalizeReact(
 							"#ChatRoom_ServerMessage_Parted_Number",
 							i.createElement(Le, {
 								accountids: n,
 							}),
 						)
 					: n.length === 2
-						? (0, h.PP)(
+						? LocalizeReact(
 								"#ChatRoom_ServerMessage_Parted_Multiple",
 								i.createElement(Pe, {
 									context: r,
@@ -2016,7 +2029,7 @@ const Oe = (e) => {
 									accountid: n[1],
 								}),
 							)
-						: (0, h.PP)(
+						: LocalizeReact(
 								"#ChatRoom_ServerMessage_Parted",
 								i.createElement(Pe, {
 									context: r,
@@ -2024,7 +2037,7 @@ const Oe = (e) => {
 								}),
 							)
 				: n.length === 1 && a.length === 1
-					? (0, h.PP)(
+					? LocalizeReact(
 							"#ChatRoom_ServerMessage_SingleJoined_SingleParted",
 							i.createElement(Pe, {
 								context: r,
@@ -2036,7 +2049,7 @@ const Oe = (e) => {
 							}),
 						)
 					: n.length === 1
-						? (0, h.PP)(
+						? LocalizeReact(
 								"#ChatRoom_ServerMessage_MultipleJoined_SingleParted",
 								i.createElement(Le, {
 									accountids: a,
@@ -2047,7 +2060,7 @@ const Oe = (e) => {
 								}),
 							)
 						: a.length === 1
-							? (0, h.PP)(
+							? LocalizeReact(
 									"#ChatRoom_ServerMessage_SingleJoined_MultipleParted",
 									i.createElement(Pe, {
 										context: r,
@@ -2057,7 +2070,7 @@ const Oe = (e) => {
 										accountids: n,
 									}),
 								)
-							: (0, h.PP)(
+							: LocalizeReact(
 									"#ChatRoom_ServerMessage_MultipleJoined_MultipleParted",
 									i.createElement(Le, {
 										accountids: a,
@@ -2518,7 +2531,7 @@ export let D = class extends i.Component {
 				onGamepadDirection: (0, Ue.s1)({
 					bPreventMovementUp: true,
 				}),
-				onOKActionDescription: (0, h.we)("#Chat_SelectChatWindow"),
+				onOKActionDescription: Localize("#Chat_SelectChatWindow"),
 			},
 			r &&
 				i.createElement("div", {
@@ -2594,7 +2607,7 @@ let Ve = class extends i.Component {
 			{
 				className: e,
 			},
-			i.createElement("span", null, (0, h.we)("#Chat_Loading")),
+			i.createElement("span", null, Localize("#Chat_Loading")),
 		);
 	}
 };
@@ -2606,9 +2619,9 @@ let He = class extends i.Component {
 		if (e.is_scrolled_to_bottom) {
 			r += " Hidden";
 		}
-		let n = (0, h.we)("#Chat_ScrollToBottom");
+		let n = Localize("#Chat_ScrollToBottom");
 		if (e.chat.unread_message_count > 0) {
-			n = (0, h.Yp)("#Chat_UnreadMessages", e.chat.unread_message_count);
+			n = LocalizePlural("#Chat_UnreadMessages", e.chat.unread_message_count);
 			r += " UnreadMessages";
 		}
 		return i.createElement(

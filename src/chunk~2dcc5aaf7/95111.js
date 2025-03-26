@@ -2,9 +2,9 @@ var _n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./83957.js");
 var a = i;
 var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var l = require(/*webcrack:missing*/ "./72476.js");
-const c = o.Kp.PerMinute;
+const c = Seconds.PerMinute;
 export class n {
 	m_accountid;
 	m_bLoadingData = false;

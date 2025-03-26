@@ -76,8 +76,11 @@ var M = require("./13869.js");
 var T = require(/*webcrack:missing*/ "./50376.js");
 var R = require(/*webcrack:missing*/ "./49455.js");
 var k = require(/*webcrack:missing*/ "./90765.js");
-var D = require(/*webcrack:missing*/ "./54644.js");
-var N = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var F = require(/*webcrack:missing*/ "./52451.js");
 var G = require(/*webcrack:missing*/ "./69164.js");
 var O = require("./10042.js");
@@ -406,7 +409,7 @@ let X = class extends d.Component {
 				{
 					className: "Close",
 					onClick: this.HideChat,
-					title: (0, N.we)("#Broadcast_View_HideChat"),
+					title: (0, Localize)("#Broadcast_View_HideChat"),
 				},
 				d.createElement(T.K7s, {
 					showChat: false,
@@ -471,7 +474,7 @@ let X = class extends d.Component {
 						d.createElement("div", {
 							key: "ChatPosToggle",
 							onClick: this.ToggleVerticalBroadcastChat,
-							title: `${g ? ((0, N.we))("#Broadcast_View_Stack_H") : ((0, N.we))("#Broadcast_View_Stack_V")}`,
+							title: `${g ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
 							className:
 								"BroadcastChatPositionToggle " + (g ? "right" : "bottom"),
 						}),
@@ -602,7 +605,9 @@ let X = class extends d.Component {
 		let w = {};
 		if (r) {
 			w.onSecondaryButton = () => e.ToggleVoiceChat();
-			w.onSecondaryActionDescription = (0, N.we)("#Friend_Menu_StopVoiceChat");
+			w.onSecondaryActionDescription = (0, Localize)(
+				"#Friend_Menu_StopVoiceChat",
+			);
 		}
 		return d.createElement(
 			u.D,
@@ -695,20 +700,20 @@ function J(e) {
 	let { friend: t } = e;
 	const r = d.useCallback(
 		(e) => {
-			let r = (0, D.uX)(e);
+			let r = GetOwningWindowForEvent(e);
 			c.xm.FriendStore.SendFriendInvite(t).then((e) => {
 				let { eResult: n, eFriendRelationship: i } = e;
 				if (i == 4) {
 					(0, b.Ic)(
 						r,
-						(0, N.we)("#Friend_Menu_AddToFriendsList"),
-						(0, N.we)("#Friend_InviteSent"),
+						(0, Localize)("#Friend_Menu_AddToFriendsList"),
+						(0, Localize)("#Friend_InviteSent"),
 					);
 				} else if (i == 3) {
 					(0, b.Ic)(
 						r,
-						(0, N.we)("#Friend_Menu_AddToFriendsList"),
-						(0, N.we)("#Friend_MutualInviteSent", t.display_name),
+						(0, Localize)("#Friend_Menu_AddToFriendsList"),
+						(0, Localize)("#Friend_MutualInviteSent", t.display_name),
 					);
 				} else {
 					(0, z.Jw)(r, n, i, t.display_name);
@@ -723,7 +728,7 @@ function J(e) {
 			focusable: true,
 			className: "AddFriendButton",
 			onActivate: r,
-			onOKActionDescription: (0, N.we)("#Friend_Menu_AddToFriendsList"),
+			onOKActionDescription: (0, Localize)("#Friend_Menu_AddToFriendsList"),
 		},
 		d.createElement(T.sdo, null),
 	);
@@ -865,7 +870,7 @@ let te = class extends d.Component {
 					{
 						className: "FriendChatBroadcastDetails_PlayingText",
 					},
-					(0, N.we)("#broadcastDetails_Playing"),
+					(0, Localize)("#broadcastDetails_Playing"),
 				),
 				r &&
 					d.createElement("img", {
@@ -1122,7 +1127,7 @@ export let yA = class extends d.Component {
 						{
 							className: "emptyChatDialogs",
 						},
-						(0, N.we)("#Chat_EmptyDialogsWindowMsg"),
+						(0, Localize)("#Chat_EmptyDialogsWindowMsg"),
 					),
 				n,
 			),
@@ -1215,7 +1220,7 @@ export let ft = class extends d.Component {
 						{
 							className: "emptyChatDialogs",
 						},
-						(0, N.we)("#Chat_EmptyDialogsWindowGamePadUIMsg"),
+						(0, Localize)("#Chat_EmptyDialogsWindowGamePadUIMsg"),
 					),
 				n,
 			),
@@ -1419,9 +1424,9 @@ export let QH = class extends d.Component {
 						{
 							className: "inviteButton inviteButtonJoinVoice",
 							onClick: this.EndVoiceChat,
-							onOKActionDescription: (0, N.we)("#Voice_StopTalking"),
+							onOKActionDescription: (0, Localize)("#Voice_StopTalking"),
 						},
-						(0, N.we)("#Voice_StopTalking"),
+						(0, Localize)("#Voice_StopTalking"),
 					)
 				: a && !l
 					? d.createElement(
@@ -1429,30 +1434,30 @@ export let QH = class extends d.Component {
 							{
 								className: "inviteButton inviteButtonJoinVoice",
 								onClick: this.EndVoiceChat,
-								onOKActionDescription: (0, N.we)("#Voice_EndVoice"),
+								onOKActionDescription: (0, Localize)("#Voice_EndVoice"),
 							},
-							(0, N.we)("#Voice_EndVoice"),
+							(0, Localize)("#Voice_EndVoice"),
 						)
 					: d.createElement(
 							w.fu,
 							{
 								className: "inviteButton inviteButtonJoinVoice",
 								onClick: this.InitiateVoiceChat,
-								onOKActionDescription: (0, N.we)("#Voice_StartTalking"),
+								onOKActionDescription: (0, Localize)("#Voice_StartTalking"),
 							},
-							(0, N.we)("#Voice_StartTalking"),
+							(0, Localize)("#Voice_StartTalking"),
 						);
 		let _ = "";
 		let f = "OneOnOneVoiceRoomControls";
 		let b = false;
 		if (a && !l) {
-			_ = (0, N.we)("#Voice_WaitingForFriendToJoin", o.display_name);
+			_ = (0, Localize)("#Voice_WaitingForFriendToJoin", o.display_name);
 			f += " WaitingForPartner";
 		} else if (l && !a) {
 			if (s) {
-				_ = (0, N.we)("#Voice_ChannelRejoinAvailable", o.display_name);
+				_ = (0, Localize)("#Voice_ChannelRejoinAvailable", o.display_name);
 			} else {
-				_ = (0, N.we)("#Voice_ChannelAvailable", o.display_name);
+				_ = (0, Localize)("#Voice_ChannelAvailable", o.display_name);
 				f += " WaitingForYouFirstTime";
 			}
 			f += " WaitingForYou";
@@ -1462,26 +1467,26 @@ export let QH = class extends d.Component {
 					? d.createElement(
 							"a",
 							{
-								title: (0, N.we)("#VoiceChatConnectingHelp"),
+								title: (0, Localize)("#VoiceChatConnectingHelp"),
 								className: "connectionStatus",
 								target: "_blank",
 								href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
 							},
-							(0, N.we)("#VoiceChatConnecting"),
+							(0, Localize)("#VoiceChatConnecting"),
 						)
 					: ""
 				: !p && g
 					? d.createElement(
 							"a",
 							{
-								title: (0, N.we)("#VoiceChatConnectingHelp"),
+								title: (0, Localize)("#VoiceChatConnectingHelp"),
 								className: "connectionStatus",
 								target: "_blank",
 								href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
 							},
-							(0, N.we)("#VoiceChatParterConnecting", o.display_name),
+							(0, Localize)("#VoiceChatParterConnecting", o.display_name),
 						)
-					: (0, N.we)("#Voice_ChannelActive", o.display_name);
+					: (0, Localize)("#Voice_ChannelActive", o.display_name);
 			f += " OneOnOneVoiceActive";
 			b = true;
 		}
@@ -1492,7 +1497,9 @@ export let QH = class extends d.Component {
 			},
 			_,
 		);
-		let S = a ? (0, N.we)("#Voice_EndVoice") : (0, N.we)("#Voice_Decline");
+		let S = a
+			? (0, Localize)("#Voice_EndVoice")
+			: (0, Localize)("#Voice_Decline");
 		return d.createElement(
 			G.Z,
 			{
@@ -1505,7 +1512,7 @@ export let QH = class extends d.Component {
 				{
 					className: "VoiceToggleIconCtn friendSettingsButton no-drag",
 					onClick: this.OnSettingsClick,
-					title: (0, N.we)("#Tooltip_VoiceSettings"),
+					title: (0, Localize)("#Tooltip_VoiceSettings"),
 				},
 				d.createElement(T.wB_, null),
 			),
@@ -1567,17 +1574,17 @@ export let QH = class extends d.Component {
 		if (t && n) {
 			s = d.createElement(T.ETd, null);
 			o.onActivate = this.EndVoiceChat;
-			o.onOKActionDescription = (0, N.we)("#Voice_StopTalking");
+			o.onOKActionDescription = (0, Localize)("#Voice_StopTalking");
 		} else if (t && !n) {
 			s = d.createElement(T.ETd, null);
 			o.onActivate = this.EndVoiceChat;
-			o.onOKActionDescription = (0, N.we)("#Voice_EndVoice");
+			o.onOKActionDescription = (0, Localize)("#Voice_EndVoice");
 		} else if (n && !t && r) {
 			s = d.createElement(T.fpT, null);
 			o.onActivate = this.InitiateVoiceChat;
-			o.onOKActionDescription = (0, N.we)("#Voice_StartTalking");
+			o.onOKActionDescription = (0, Localize)("#Voice_StartTalking");
 			o.onSecondaryButton = this.RejectVoiceChatRequest;
-			o.onSecondaryActionDescription = (0, N.we)("#Voice_DeclineVoiceChat");
+			o.onSecondaryActionDescription = (0, Localize)("#Voice_DeclineVoiceChat");
 		} else if (n) {
 			s = d.createElement(
 				"div",
@@ -1596,9 +1603,9 @@ export let QH = class extends d.Component {
 				),
 			);
 			o.onActivate = this.InitiateVoiceChat;
-			o.onOKActionDescription = (0, N.we)("#Voice_StartTalking");
+			o.onOKActionDescription = (0, Localize)("#Voice_StartTalking");
 			o.onSecondaryButton = this.RejectVoiceChatRequest;
-			o.onSecondaryActionDescription = (0, N.we)("#Voice_DeclineVoiceChat");
+			o.onSecondaryActionDescription = (0, Localize)("#Voice_DeclineVoiceChat");
 		} else {
 			if (!i) {
 				return null;
@@ -1606,7 +1613,7 @@ export let QH = class extends d.Component {
 			a += " NotInVoiceChat";
 			s = d.createElement(T.mrd, null);
 			o.onActivate = this.InitiateVoiceChat;
-			o.onOKActionDescription = (0, N.we)("#Voice_StartChat");
+			o.onOKActionDescription = (0, Localize)("#Voice_StartChat");
 		}
 		return d.createElement(
 			G.Z,
@@ -1648,8 +1655,8 @@ export function nn(e, t, r) {
 			"InviteDialog",
 			{
 				strTitle: i
-					? (0, N.we)("#Chat_Actions_InviteFriend_VoiceChat")
-					: (0, N.we)("#Chat_Actions_DropGroupInvite_Title"),
+					? (0, Localize)("#Chat_Actions_InviteFriend_VoiceChat")
+					: (0, Localize)("#Chat_Actions_DropGroupInvite_Title"),
 				popupWidth: 650,
 				popupHeight: n,
 			},
@@ -1658,8 +1665,8 @@ export function nn(e, t, r) {
 	} else {
 		(0, b.Ic)(
 			r,
-			(0, N.we)("#Chat_Actions_DropGroupInvite_Denied"),
-			(0, N.we)("#Chat_Actions_DropGroupInvite_Denied_Description"),
+			(0, Localize)("#Chat_Actions_DropGroupInvite_Denied"),
+			(0, Localize)("#Chat_Actions_DropGroupInvite_Denied_Description"),
 		);
 	}
 }
@@ -1806,8 +1813,8 @@ let ce = class extends d.Component {
 					I.Y9,
 					null,
 					r
-						? (0, N.we)("#Chat_Actions_InviteFriend_VoiceChat")
-						: (0, N.we)("#Chat_Actions_DropGroupInvite_Title"),
+						? (0, Localize)("#Chat_Actions_InviteFriend_VoiceChat")
+						: (0, Localize)("#Chat_Actions_DropGroupInvite_Title"),
 				),
 				d.createElement(
 					I.nB,
@@ -1824,7 +1831,7 @@ let ce = class extends d.Component {
 							{
 								className: "dropGroupInviteDialog_Desc",
 							},
-							(0, N.PP)(
+							LocalizeReact(
 								A,
 								d.createElement(
 									"span",
@@ -1846,7 +1853,7 @@ let ce = class extends d.Component {
 										{
 											className: "highlight",
 										},
-										(0, N.we)("#Chat_You"),
+										(0, Localize)("#Chat_You"),
 									),
 							),
 						),
@@ -1884,7 +1891,7 @@ let ce = class extends d.Component {
 								d.createElement(
 									"div",
 									null,
-									(0, N.we)("#Chat_Actions_AddMoreFriends"),
+									(0, Localize)("#Chat_Actions_AddMoreFriends"),
 								),
 								d.createElement("div", {
 									className: "ExpandArrow",
@@ -1905,7 +1912,9 @@ let ce = class extends d.Component {
 								autoFocus: true,
 								onClick: this.OnInviteClicked,
 							},
-							p ? (0, N.we)("#Chat_SendLink") : (0, N.we)("#Chat_Invite"),
+							p
+								? (0, Localize)("#Chat_SendLink")
+								: (0, Localize)("#Chat_Invite"),
 							" ",
 						),
 						d.createElement(
@@ -1913,7 +1922,7 @@ let ce = class extends d.Component {
 							{
 								onClick: this.Cancel,
 							},
-							(0, N.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					),
 				),
@@ -1927,7 +1936,7 @@ let ce = class extends d.Component {
 ce = (0, n.Cg)([S.PA], ce);
 export let nK = class extends d.Component {
 	AddFriendClick(e) {
-		this.ContinueCreateChat((0, m.CO)(e), (0, D.uX)(e));
+		this.ContinueCreateChat((0, m.CO)(e), GetOwningWindowForEvent(e));
 	}
 	ContinueCreateChat(e, t) {
 		(0, f.UA)(e, t, this.props.chatView, true);
@@ -1941,10 +1950,10 @@ export let nK = class extends d.Component {
 		return d.createElement(
 			G.Z,
 			{
-				title: (0, N.we)("#Chat_AddFriend_Hint"),
+				title: (0, Localize)("#Chat_AddFriend_Hint"),
 				className: e,
 				onActivate: this.AddFriendClick,
-				onOKActionDescription: (0, N.we)(
+				onOKActionDescription: (0, Localize)(
 					"#Chat_CreateChatRoom_InviteFriendsToChat",
 				),
 			},
@@ -1960,7 +1969,7 @@ export const Ko = ({ onClick: e, edge: t }) =>
 		{
 			className: (0, k.A)("BroadcastChatExpander", t),
 			onClick: e,
-			title: (0, N.we)("#Broadcast_View_ShowChat"),
+			title: (0, Localize)("#Broadcast_View_ShowChat"),
 		},
 		d.createElement(T.K7s, {
 			showChat: true,
@@ -2012,7 +2021,7 @@ export let n$ = class extends d.Component {
 										{
 											className: "VoiceChatTextChannelName",
 										},
-										(0, N.we)("#Chat_Scratch_Pad"),
+										(0, Localize)("#Chat_Scratch_Pad"),
 									),
 								),
 								d.createElement(
@@ -2029,7 +2038,7 @@ export let n$ = class extends d.Component {
 								{
 									className: "VoiceChatTextChannelDesc",
 								},
-								(0, N.we)("#Chat_Scratch_Pad_Desc"),
+								(0, Localize)("#Chat_Scratch_Pad_Desc"),
 							),
 							d.createElement(H.D, {
 								chatView: e,
@@ -2086,14 +2095,14 @@ export let SU = class extends d.Component {
 						{
 							className: "ExplanationHeader",
 						},
-						(0, N.we)("#DirectMessageFromNonFriend"),
+						(0, Localize)("#DirectMessageFromNonFriend"),
 					),
 					d.createElement(
 						"div",
 						{
 							className: "ExplanationBody",
 						},
-						(0, N.we)("#DirectMessageFromNonFriendNote"),
+						(0, Localize)("#DirectMessageFromNonFriendNote"),
 					),
 					d.createElement(
 						y.uU,
@@ -2101,7 +2110,7 @@ export let SU = class extends d.Component {
 							href: "https://support.steampowered.com/kb_article.php?ref=1266-OAFV-8478",
 							className: "ExplanationMoreInfo",
 						},
-						(0, N.we)("#Generic_More_Info"),
+						(0, Localize)("#Generic_More_Info"),
 					),
 				),
 				d.createElement(
@@ -2115,7 +2124,7 @@ export let SU = class extends d.Component {
 							className: "NotAFriendActionButton",
 							onClick: this.OnBlock,
 						},
-						(0, N.we)("#NonFriendAction_Block"),
+						(0, Localize)("#NonFriendAction_Block"),
 					),
 					d.createElement(
 						"button",
@@ -2123,7 +2132,7 @@ export let SU = class extends d.Component {
 							className: "NotAFriendActionButton",
 							onClick: this.OnAllow,
 						},
-						(0, N.we)("#NonFriendAction_Allow"),
+						(0, Localize)("#NonFriendAction_Allow"),
 					),
 				),
 			),
@@ -2139,8 +2148,8 @@ export let J3 = class extends d.Component {
 		const n = e.chat instanceof a.d;
 		return d.createElement(h, {
 			message: n
-				? (0, N.we)("#Chat_DropToInviteGroup")
-				: (0, N.we)("#Chat_DropToInvite"),
+				? (0, Localize)("#Chat_DropToInviteGroup")
+				: (0, Localize)("#Chat_DropToInvite"),
 			name: t.display_name,
 			renderImage: () =>
 				d.createElement(B.i8, {
@@ -2164,7 +2173,7 @@ export let C1 = class extends d.Component {
 		}
 		const i = (t || r).name;
 		return d.createElement(h, {
-			message: (0, N.we)("#Chat_DropGroupToInviteFriend"),
+			message: (0, Localize)("#Chat_DropGroupToInviteFriend"),
 			name: i,
 			renderImage: () =>
 				r
@@ -2197,7 +2206,7 @@ export let ln = class extends d.Component {
 				className:
 					"FriendChatTypingNotification" + (e ? " FriendIsTyping" : ""),
 			},
-			(0, N.we)("#Friend_Chat_Typing", t.chat_partner.display_name),
+			(0, Localize)("#Friend_Chat_Typing", t.chat_partner.display_name),
 		);
 	}
 };

@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./47296.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./10606.js");
 var o = require("./13869.js");
 var l = require("./45309.js");
@@ -36,11 +36,11 @@ export const rx = (0, u.Nr)(function () {
 	let m = "";
 	let u = "";
 	if (l === i.l.k_ERemoteClientLaunchDownloadStarted) {
-		m = (0, a.we)("#StreamLaunch_Updating_Title");
-		u = (0, a.we)("#StreamLaunch_StillDownloading");
+		m = Localize("#StreamLaunch_Updating_Title");
+		u = Localize("#StreamLaunch_StillDownloading");
 	} else {
-		m = (0, a.we)("#StreamLaunch_Failed_Title");
-		u = (0, a.we)(c.replace("#SteamUI_", "#"));
+		m = Localize("#StreamLaunch_Failed_Title");
+		u = Localize(c.replace("#SteamUI_", "#"));
 	}
 	const d = () => {
 		t();
@@ -79,7 +79,7 @@ const b = (0, u.Nr)(function (e) {
 		{
 			strName: "RemoteDeviceClientPairingDialog",
 			onDismiss: o,
-			strTitle: (0, a.we)("#RemoteDevicePairingPIN_Title"),
+			strTitle: Localize("#RemoteDevicePairingPIN_Title"),
 			popupWidth: 500,
 			popupHeight: 360,
 			resizable: true,
@@ -89,8 +89,8 @@ const b = (0, u.Nr)(function (e) {
 		n.createElement(
 			l.X_,
 			{
-				title: (0, a.we)("#RemoteDevicePairingPIN_Title"),
-				description: (0, a.we)("#RemoteDevicePairingPIN_Text", i),
+				title: Localize("#RemoteDevicePairingPIN_Title"),
+				description: Localize("#RemoteDevicePairingPIN_Text", i),
 				onCancel: o,
 				closeModal: e.fnClose,
 				bAlertDialog: true,
@@ -134,14 +134,14 @@ export const Nw = (0, u.Nr)(function () {
 	let l;
 	l =
 		s === ""
-			? (0, a.we)("#RemoteDeviceAuthorization_TextRemotePlayAnywhere")
-			: (0, a.we)("#RemoteDeviceAuthorization_Text", s);
+			? Localize("#RemoteDeviceAuthorization_TextRemotePlayAnywhere")
+			: Localize("#RemoteDeviceAuthorization_Text", s);
 	return n.createElement(
 		A.w,
 		{
 			strName: "RemoteDeviceHostPairingDialog",
 			onDismiss: o,
-			strTitle: (0, a.we)("#RemoteDeviceAuthorization_Title"),
+			strTitle: Localize("#RemoteDeviceAuthorization_Title"),
 			popupWidth: 500,
 			popupHeight: 360,
 			resizable: true,
@@ -149,7 +149,7 @@ export const Nw = (0, u.Nr)(function () {
 			modal: false,
 		},
 		n.createElement(m.R, {
-			title: (0, a.we)("#RemoteDeviceAuthorization_Title"),
+			title: Localize("#RemoteDeviceAuthorization_Title"),
 			description: l,
 			validateDigits: (e) => e.length == 4 && !isNaN(Number(e)),
 			onResult: (e) => {
@@ -165,14 +165,14 @@ export const Nw = (0, u.Nr)(function () {
 });
 export function rg(e) {
 	const t = n.createElement(l.Qj, {
-		title: (0, a.we)("#RemoteDevicePIN_Title"),
+		title: Localize("#RemoteDevicePIN_Title"),
 		description: undefined,
 		isValid: (e) => e.length <= 10 && (e.length == 0 || !isNaN(Number(e))),
 		onResult: (e) => SteamClient.RemotePlay.SetRemoteDevicePIN(e),
 		inputOptions: {
 			mustBeNumeric: true,
 			maxLength: 10,
-			label: (0, a.we)("#RemoteDevicePIN_Text"),
+			label: Localize("#RemoteDevicePIN_Text"),
 			focusOnMount: true,
 		},
 		className: g.DialogBodyText,
@@ -184,8 +184,8 @@ export function rg(e) {
 }
 export function VB(e) {
 	const t = n.createElement(s.o0, {
-		strTitle: (0, a.we)("#RemoteDeviceUnpair_Title"),
-		strDescription: (0, a.we)("#RemoteDeviceUnpair_Text"),
+		strTitle: Localize("#RemoteDeviceUnpair_Title"),
+		strDescription: Localize("#RemoteDeviceUnpair_Text"),
 		onOK: () => SteamClient.RemotePlay.UnpairRemoteDevices(),
 	});
 	return (0, o.pg)(t, e ?? window, {});
@@ -201,7 +201,7 @@ export const RD = (0, u.Nr)(function () {
 		{
 			strName: "RemotePlayAudioDriverDialog",
 			onDismiss: t,
-			strTitle: (0, a.we)("#RemotePlay_InstallAudioCaptureDriver_Title"),
+			strTitle: Localize("#RemotePlay_InstallAudioCaptureDriver_Title"),
 			popupWidth: 370,
 			popupHeight: 240,
 			resizable: true,
@@ -209,9 +209,9 @@ export const RD = (0, u.Nr)(function () {
 			modal: false,
 		},
 		n.createElement(s.o0, {
-			strTitle: (0, a.we)("#RemotePlay_InstallAudioCaptureDriver_Title"),
-			strDescription: (0, a.we)("#RemotePlay_InstallAudioCaptureDriver_Text"),
-			strOKButtonText: (0, a.we)("#GameAction_Update"),
+			strTitle: Localize("#RemotePlay_InstallAudioCaptureDriver_Title"),
+			strDescription: Localize("#RemotePlay_InstallAudioCaptureDriver_Text"),
+			strOKButtonText: Localize("#GameAction_Update"),
 			onOK: () => {
 				SteamClient.RemotePlay.InstallAudioDriver();
 				t();
@@ -231,7 +231,7 @@ export const VQ = (0, u.Nr)(function () {
 		{
 			strName: "RemotePlayInputDriverDialog",
 			onDismiss: t,
-			strTitle: (0, a.we)("#RemotePlay_InstallGamepadInputDriver_Title"),
+			strTitle: Localize("#RemotePlay_InstallGamepadInputDriver_Title"),
 			popupWidth: 370,
 			popupHeight: 240,
 			resizable: true,
@@ -239,9 +239,9 @@ export const VQ = (0, u.Nr)(function () {
 			modal: false,
 		},
 		n.createElement(s.o0, {
-			strTitle: (0, a.we)("#RemotePlay_InstallGamepadInputDriver_Title"),
-			strDescription: (0, a.we)("#RemotePlay_InstallGamepadInputDriver_Text"),
-			strOKButtonText: (0, a.we)("#GameAction_Update"),
+			strTitle: Localize("#RemotePlay_InstallGamepadInputDriver_Title"),
+			strDescription: Localize("#RemotePlay_InstallGamepadInputDriver_Text"),
+			strOKButtonText: Localize("#GameAction_Update"),
 			onOK: () => {
 				SteamClient.RemotePlay.InstallInputDriver();
 				t();
@@ -259,7 +259,7 @@ export const Kw = (0, u.Nr)(function () {
 			{
 				strName: "RemotePlayInputDriverRestartNotice",
 				onDismiss: t,
-				strTitle: (0, a.we)("#RemotePlay_InstallGamepadInputDriver_Title"),
+				strTitle: Localize("#RemotePlay_InstallGamepadInputDriver_Title"),
 				popupWidth: 370,
 				popupHeight: 240,
 				resizable: true,
@@ -267,8 +267,8 @@ export const Kw = (0, u.Nr)(function () {
 				modal: false,
 			},
 			n.createElement(s.o0, {
-				strTitle: (0, a.we)("#RemotePlay_InstallGamepadInputDriver_Title"),
-				strDescription: (0, a.we)(
+				strTitle: Localize("#RemotePlay_InstallGamepadInputDriver_Title"),
+				strDescription: Localize(
 					"#RemotePlay_InstallGamepadInputDriver_RestartNotice",
 				),
 				bAlertDialog: true,

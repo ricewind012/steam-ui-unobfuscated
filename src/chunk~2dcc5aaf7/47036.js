@@ -13,7 +13,7 @@ var p = require(/*webcrack:missing*/ "./41230.js");
 var g = require(/*webcrack:missing*/ "./52451.js");
 var h = require(/*webcrack:missing*/ "./50376.js");
 var C = require("./64608.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var f = require(/*webcrack:missing*/ "./69164.js");
 let b = class extends A.Component {
 	render() {
@@ -103,11 +103,11 @@ function y(e) {
 					t.Reset();
 				},
 			},
-			(0, _.we)("#Chat_Upload"),
+			(0, Localize)("#Chat_Upload"),
 		),
 		A.createElement(C.Yh, {
 			className: "spoilerCheckBox",
-			label: (0, _.we)("#ChatEntry_TagAsSpoiler"),
+			label: (0, Localize)("#ChatEntry_TagAsSpoiler"),
 			checked: r,
 			onChange: () => n((e) => !e),
 		}),
@@ -121,9 +121,9 @@ let S = class extends A.Component {
 		let r;
 		r =
 			e.eUploadState == 7
-				? (0, _.we)("#Chat_Exporting", t)
+				? (0, Localize)("#Chat_Exporting", t)
 				: e.file
-					? (0, _.we)("#Chat_Uploading", t)
+					? (0, Localize)("#Chat_Uploading", t)
 					: "";
 		let n = {
 			width: e.uploadProgress + "%",
@@ -167,16 +167,17 @@ let w = class extends A.Component {
 		let e;
 		let t = this.props.fileUploadManager.file_upload_props;
 		let r = t.displayFileName
-			? (0, _.we)("#Chat_Uploading", t.displayFileName)
+			? (0, Localize)("#Chat_Uploading", t.displayFileName)
 			: "";
-		let n = t.strErrorDescription || (0, _.we)("#Chat_Settings_Error_Unknown");
+		let n =
+			t.strErrorDescription || (0, Localize)("#Chat_Settings_Error_Unknown");
 		if (t.eUploadState == 3) {
 			e = A.createElement(
 				C.jn,
 				{
 					onClick: this.OnRetryClick,
 				},
-				(0, _.we)("#Chat_Upload_ErrorAction_Retry"),
+				(0, Localize)("#Chat_Upload_ErrorAction_Retry"),
 			);
 		}
 		const i = () => true;
@@ -224,7 +225,7 @@ let w = class extends A.Component {
 							autoFocus: true,
 							onClick: this.ClearErrorState,
 						},
-						(0, _.we)("#Chat_Upload_ErrorAction_Close"),
+						(0, Localize)("#Chat_Upload_ErrorAction_Close"),
 					),
 				),
 			),
@@ -245,7 +246,11 @@ var k = require(/*webcrack:missing*/ "./88750.js");
 var D = require("./15688.js");
 var N = require("./7372.js");
 var F = require("./98592.js");
-var G = require(/*webcrack:missing*/ "./54644.js");
+import {
+	BIsParentOrSelf,
+	GetFileFromPasteEvent,
+	BlobToFile,
+} from "../../actual_src/utils/domutils.js";
 var O = require("./51095.js");
 var P = require("./92009.js");
 var L = require("./98829.js");
@@ -367,7 +372,7 @@ export let o = class extends A.Component {
 	OnBlur(e) {
 		if (
 			!e.relatedTarget ||
-			!G.id(this.m_refContainer.current, e.relatedTarget)
+			!BIsParentOrSelf(this.m_refContainer.current, e.relatedTarget)
 		) {
 			if ((0, k.Y8)()) {
 				return;
@@ -403,7 +408,7 @@ export let o = class extends A.Component {
 		}
 	}
 	OnPaste(e) {
-		let t = G.gr(e);
+		let t = GetFileFromPasteEvent(e);
 		if (t) {
 			this.props.chatView.SetFileToUpload(t);
 			e.preventDefault();
@@ -734,7 +739,7 @@ export let o = class extends A.Component {
 		let c = {};
 		if (this.state.submitEnabled) {
 			c.onSecondaryButton = () => this.SetMessageInput("");
-			c.onSecondaryActionDescription = (0, _.we)("#ChatEntryButton_Clear");
+			c.onSecondaryActionDescription = (0, Localize)("#ChatEntryButton_Clear");
 		}
 		if (i.BIsVoiceAllowed()) {
 			if (i instanceof m.s) {
@@ -742,7 +747,7 @@ export let o = class extends A.Component {
 					c.onOptionsButton = () => i.ToggleVoiceChat();
 					let e = i.accountid_partner;
 					let t = u.xm.VoiceStore.BPartnerHasRequestedAndIsInOneOnOneChat(e);
-					c.onOptionsActionDescription = (0, _.we)(
+					c.onOptionsActionDescription = (0, Localize)(
 						t ? "#Voice_StartTalking" : "#Friend_Menu_StartVoiceChat",
 					);
 				}
@@ -759,7 +764,7 @@ export let o = class extends A.Component {
 						);
 					};
 					c.onOptionsButton = e;
-					c.onOptionsActionDescription = (0, _.we)(
+					c.onOptionsActionDescription = (0, Localize)(
 						"#Chat_ChatRoomGroup_ViewVoiceChats",
 					);
 				} else if (
@@ -773,7 +778,7 @@ export let o = class extends A.Component {
 						c.onOptionsButton = () => {
 							n.CreateAndJoinTempVoiceRoom();
 						};
-						c.onOptionsActionDescription = (0, _.we)(
+						c.onOptionsActionDescription = (0, Localize)(
 							"#Chat_ChatRoomGroup_StartVoiceChat",
 						);
 					}
@@ -782,7 +787,7 @@ export let o = class extends A.Component {
 						n.voiceRoomList[0]?.StartVoiceChat();
 					};
 					c.onOptionsButton = e;
-					c.onOptionsActionDescription = (0, _.we)(
+					c.onOptionsActionDescription = (0, Localize)(
 						"#Chat_ChatRoomGroup_JoinVoiceChat",
 					);
 				}
@@ -843,8 +848,8 @@ export let o = class extends A.Component {
 							(this.state.submitEnabled ? "" : ` ${R.disabled}`),
 						type: "submit",
 						disabled: !this.state.submitEnabled,
-						title: (0, _.we)("#ChatEntryButton_Submit"),
-						onOKActionDescription: (0, _.we)("#ChatEntryButton_Submit"),
+						title: (0, Localize)("#ChatEntryButton_Submit"),
+						onOKActionDescription: (0, Localize)("#ChatEntryButton_Submit"),
 					},
 					A.createElement(h.XTb, null),
 				),
@@ -889,9 +894,11 @@ export let o = class extends A.Component {
 								className: `${R.chatSubmitButton} ${R.EmbedButton}${t ? ` ${R.disabled}` : ""}`,
 								type: "button",
 								onClick: this.OnEmbedClick,
-								title: (0, _.we)("#ChatEntryButton_SendEmbed"),
+								title: (0, Localize)("#ChatEntryButton_SendEmbed"),
 								disabled: t,
-								onOKActionDescription: (0, _.we)("#ChatEntryButton_SendEmbed"),
+								onOKActionDescription: (0, Localize)(
+									"#ChatEntryButton_SendEmbed",
+								),
 							},
 							A.createElement(h.pDR, null),
 						),
@@ -1051,8 +1058,8 @@ let Q = class extends A.Component {
 						disabled: i,
 						className: t.join(" "),
 						onClick: this.HandleStartVoice,
-						onOKActionDescription: (0, _.we)(r),
-						title: (0, _.we)(r),
+						onOKActionDescription: (0, Localize)(r),
+						title: (0, Localize)(r),
 					},
 					A.createElement(
 						"div",
@@ -1090,7 +1097,7 @@ let Q = class extends A.Component {
 					"div",
 					{
 						className: "activeVoicePushToTalk" + d,
-						title: (0, _.we)(
+						title: (0, Localize)(
 							s ? "#ActiveVoicePushToMute" : "#ActiveVoicePushToTalk",
 							c,
 						),
@@ -1223,7 +1230,7 @@ class Z extends F.A {
 				key: "nomatches",
 				className: "suggestOption mentionSearchOption noMatches",
 			},
-			(0, _.we)("#ChatMentionSuggest_NoMatches"),
+			(0, Localize)("#ChatMentionSuggest_NoMatches"),
 		);
 	}
 	renderTooManyMatchesMessage(e) {
@@ -1237,7 +1244,7 @@ class Z extends F.A {
 				key: "manymatches",
 				className: "suggestOption mentionSearchOption manyMatches",
 			},
-			(0, _.we)(t, e),
+			(0, Localize)(t, e),
 		);
 	}
 	renderHeader() {
@@ -1246,7 +1253,10 @@ class Z extends F.A {
 			{
 				className: "mentionSearchText",
 			},
-			(0, _.we)("#ChatMentionSuggest_MembersMatching", this.props.strSearch),
+			(0, Localize)(
+				"#ChatMentionSuggest_MembersMatching",
+				this.props.strSearch,
+			),
 		);
 	}
 	getMaxMatches() {
@@ -1273,7 +1283,7 @@ class Y extends F.A {
 		if (!t) {
 			return null;
 		}
-		const r = (0, _.we)(t.strDescriptionToken);
+		const r = (0, Localize)(t.strDescriptionToken);
 		return A.createElement(
 			"span",
 			{
@@ -1409,7 +1419,7 @@ function X(e) {
 						e.refFileInput.click();
 					},
 				},
-				(0, _.we)("#ChatEntry_UploadImage"),
+				(0, Localize)("#ChatEntry_UploadImage"),
 			),
 		);
 	}
@@ -1426,7 +1436,7 @@ function X(e) {
 						responseType: "blob",
 					});
 					let i = O.tC(r, "/");
-					let s = G.pE(n.data, i);
+					let s = BlobToFile(n.data, i);
 					e.SetFileToUpload(s);
 				})(e.chatView, n.strUrl);
 		}
@@ -1438,7 +1448,7 @@ function X(e) {
 					disabled: r,
 					onSelected: i,
 				},
-				(0, _.we)("#ChatEntry_UploadLastScreenshot"),
+				(0, Localize)("#ChatEntry_UploadLastScreenshot"),
 			),
 		);
 	}
@@ -1453,7 +1463,7 @@ function X(e) {
 					});
 				},
 			},
-			(0, _.we)("#ChatEntry_SendTradeURL"),
+			(0, Localize)("#ChatEntry_SendTradeURL"),
 		),
 	);
 	return A.createElement(k.tz, null, t);

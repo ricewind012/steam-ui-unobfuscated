@@ -116,7 +116,7 @@ function C(e) {
 }
 var _ = require(/*webcrack:missing*/ "./90095.js");
 var f = require("./73375.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var y = require("./10606.js");
 var S = require(/*webcrack:missing*/ "./90765.js");
 var w = require("./81994.js");
@@ -298,7 +298,7 @@ export function hf(e) {
 			{
 				className: g.URL,
 				onOptionsButton: h,
-				onOptionsActionDescription: (0, b.we)("#Clear"),
+				onOptionsActionDescription: Localize("#Clear"),
 			},
 			!n && i,
 			n &&
@@ -345,7 +345,7 @@ function P(e) {
 			{
 				className: g.RequireTouchscreenLabel,
 			},
-			(0, b.we)(
+			Localize(
 				A.TS.ON_DECK
 					? "#Browser_InputSupportLevel_None"
 					: "#Browser_InputSupportLevel_None_Desktop",

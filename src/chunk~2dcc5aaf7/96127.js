@@ -648,7 +648,7 @@ var N = require("./81386.js");
 var F = require(/*webcrack:missing*/ "./44846.js");
 var G = require(/*webcrack:missing*/ "./79769.js");
 var O = require(/*webcrack:missing*/ "./81255.js");
-var P = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var L = require(/*webcrack:missing*/ "./52451.js");
 var z = require(/*webcrack:missing*/ "./83957.js");
 var x = z;
@@ -1033,8 +1033,8 @@ export class $c {
 		if (this.is_blocked) {
 			if (i.TS.IN_MOBILE) {
 				E.xm.ShowAlert(
-					(0, P.we)("#Friend_Chat_OpenError_Blocked"),
-					(0, P.we)("#Friend_Chat_OpenError_BlockedBody"),
+					Localize("#Friend_Chat_OpenError_Blocked"),
+					Localize("#Friend_Chat_OpenError_BlockedBody"),
 				);
 			} else {
 				E.xm.OpenURLInBrowser(this.GetCommunityProfileURL(), e);
@@ -1103,13 +1103,13 @@ export class $c {
 				? E.xm.AppInfoStore.GetAppInfo(this.persona.m_broadcastAppId)
 				: null;
 			if (t && t.is_valid) {
-				return (0, P.we)(
+				return Localize(
 					"#PersonaStateWatchingBroadcast_PlayerGame",
 					e.display_name,
 					t.name,
 				);
 			} else {
-				return (0, P.we)(
+				return Localize(
 					"#PersonaStateWatchingBroadcast_Player",
 					e.display_name,
 				);
@@ -2253,7 +2253,7 @@ export class VT {
 			if (t) {
 				E.xm.NotificationManager.DisplayNotificationFromFriend(e, {
 					title: e.display_name,
-					body: (0, P.we)("#Friend_StateChange_InGame", t),
+					body: Localize("#Friend_StateChange_InGame", t),
 					rawbody: t,
 					tag: "state_" + e.accountid,
 					state: "ingame",
@@ -2265,7 +2265,7 @@ export class VT {
 		if (t == 0 && r != 0 && e.BShowOnlineNotification()) {
 			E.xm.NotificationManager.DisplayNotificationFromFriend(e, {
 				title: e.display_name,
-				body: (0, P.we)("#Friend_StateChange_Online"),
+				body: Localize("#Friend_StateChange_Online"),
 				tag: "state_" + e.accountid,
 				state: "online",
 				steamid: e.persona.m_steamid.ConvertTo64BitString(),

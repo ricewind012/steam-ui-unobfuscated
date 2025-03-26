@@ -7,7 +7,11 @@ var l = require("./64608.js");
 var c = require(/*webcrack:missing*/ "./69164.js");
 var m = require(/*webcrack:missing*/ "./61657.js");
 var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var A = require("./50727.js");
 var p = require("./78567.js");
 var g = require("./35488.js");
@@ -21,7 +25,11 @@ var S = require("./83314.js");
 var w = require("./61277.js");
 var B = require(/*webcrack:missing*/ "./4690.js");
 var v = require("./13869.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	CopyTextToClipboard,
+	_f,
+} from "../../actual_src/utils/domutils.js";
 const E = (0, s.PA)(function (e) {
 	const { appid: t } = e;
 	const r =
@@ -38,7 +46,7 @@ const E = (0, s.PA)(function (e) {
 		n.createElement(
 			l.Y9,
 			null,
-			(0, d.we)("#ControllerConfigurator_Section_ActionSets"),
+			Localize("#ControllerConfigurator_Section_ActionSets"),
 			n.createElement(
 				"div",
 				{
@@ -68,7 +76,7 @@ const E = (0, s.PA)(function (e) {
 						{
 							className: A.GlobalSetButton,
 							onClick: (e) => {
-								let r = (0, I.uX)(e);
+								let r = GetOwningWindowForEvent(e);
 								const i = [];
 								const a = h.v3.EditingConfiguration?.sets;
 								i.push(
@@ -79,14 +87,14 @@ const E = (0, s.PA)(function (e) {
 								i.push(...(a?.filter((e) => e.key) ?? []));
 								(0, v.pg)(
 									n.createElement(F, {
-										title: (0, d.we)(
+										title: Localize(
 											"#ControllerConfigurator_ActionSets_AddBaseSetDialog_Title",
 										),
-										description: (0, d.we)(
+										description: Localize(
 											"#ControllerConfigurator_ActionSets_AddBaseSetDialog_Description",
 										),
 										inputOptions: {
-											placeholder: (0, d.we)(
+											placeholder: Localize(
 												"#ControllerConfigurator_ActionSets_AddBaseSetDialog_InitialText",
 											),
 										},
@@ -99,7 +107,7 @@ const E = (0, s.PA)(function (e) {
 								);
 							},
 						},
-						(0, d.we)(
+						Localize(
 							"#ControllerConfigurator_ActionSets_AddBaseSetButton_Title",
 						),
 					),
@@ -108,7 +116,7 @@ const E = (0, s.PA)(function (e) {
 						{
 							className: A.GlobalSetButton,
 							onClick: (e) => {
-								let r = (0, I.uX)(e);
+								let r = GetOwningWindowForEvent(e);
 								const i = [];
 								const a = h.v3.EditingConfiguration?.sets;
 								i.push(
@@ -119,10 +127,10 @@ const E = (0, s.PA)(function (e) {
 								i.push(...(a?.filter((e) => e.key) ?? []));
 								(0, v.pg)(
 									n.createElement(N, {
-										title: (0, d.we)(
+										title: Localize(
 											"#ControllerConfigurator_ActionSets_SetOptions_Title",
 										),
-										description: (0, d.we)(
+										description: Localize(
 											"#ControllerConfigurator_ActionSets_SetOptions_Desc",
 										),
 										actionSetOptions: i,
@@ -140,7 +148,7 @@ const E = (0, s.PA)(function (e) {
 								);
 							},
 						},
-						(0, d.we)("#ControllerConfigurator_ActionSets_SetOptions_Title"),
+						Localize("#ControllerConfigurator_ActionSets_SetOptions_Title"),
 					),
 				),
 			n.createElement("div", {
@@ -162,7 +170,7 @@ function M(e) {
 					bForce: true,
 				});
 			},
-			onOKActionDescription: (0, d.we)("#Help"),
+			onOKActionDescription: Localize("#Help"),
 		},
 		n.createElement(g.Question, null),
 	);
@@ -196,9 +204,9 @@ const R = (0, s.PA)(function (e) {
 	const a = i?.[t];
 	const s =
 		a.display_name ??
-		(0, d.we)("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
+		Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
 	const o = D(
-		(0, d.we)(
+		Localize(
 			"#ControllerConfigurator_ActionSets_BaseSetContextMenu_Title_1",
 			s,
 		),
@@ -250,7 +258,7 @@ const k = (0, s.PA)(function (e) {
 	const s = a?.[r];
 	const o =
 		s.display_name ??
-		(0, d.we)("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
+		Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
 	const c = D("Layer", i, s);
 	return n.createElement(
 		l.D0,
@@ -288,7 +296,7 @@ function D(e, t, r) {
 		}
 		const o =
 			s.display_name ??
-			(0, d.we)("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
+			Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title");
 		const l =
 			r != null
 				? undefined
@@ -321,22 +329,22 @@ function D(e, t, r) {
 				n.createElement(
 					C.G,
 					{
-						title: (0, d.we)(
+						title: Localize(
 							"#ControllerConfigurator_ActionSets_BaseSetContextMenu_AddLayerSetMenuItem_Title",
 						),
 						onResult: l,
 					},
 					n.createElement(C.Qj, {
-						title: (0, d.we)(
+						title: Localize(
 							"#ControllerConfigurator_ActionSets_AddLayerSetDialog_Title_1",
 							o,
 						),
-						description: (0, d.we)(
+						description: Localize(
 							"#ControllerConfigurator_ActionSets_AddLayerSetDialog_Description_1",
 							o,
 						),
 						inputOptions: {
-							placeholder: (0, d.we)(
+							placeholder: Localize(
 								"#ControllerConfigurator_ActionSets_AddLayerSetDialog_InitialText_1",
 								o,
 							),
@@ -357,7 +365,7 @@ function D(e, t, r) {
 						});
 					},
 				},
-				(0, d.we)(
+				Localize(
 					"#ControllerConfigurator_ActionSets_BaseSetContextMenu_AddAlwaysOnCommandMenuItem_Title",
 				),
 			),
@@ -369,7 +377,7 @@ function D(e, t, r) {
 					n.createElement(
 						C.G,
 						{
-							title: (0, d.we)(
+							title: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_BaseSetContextMenu_RenameMenuItem_Title"
 									: "#ControllerConfigurator_ActionSets_LayerSetContextMenu_RenameMenuItem_Title",
@@ -389,20 +397,20 @@ function D(e, t, r) {
 							},
 						},
 						n.createElement(C.Qj, {
-							title: (0, d.we)(
+							title: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_RenameBaseSetDialog_Title_1"
 									: "#ControllerConfigurator_ActionSets_RenameLayerSetDialog_Title_1",
 								o,
 							),
-							description: (0, d.we)(
+							description: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_RenameBaseSetDialog_Description_1"
 									: "#ControllerConfigurator_ActionSets_RenameLayerSetDialog_Description_1",
 								o,
 							),
 							inputOptions: {
-								placeholder: (0, d.we)(
+								placeholder: Localize(
 									r == null
 										? "#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1"
 										: "#ControllerConfigurator_ActionSets_RenameLayerSetDialog_InitialText_1",
@@ -414,7 +422,7 @@ function D(e, t, r) {
 					n.createElement(
 						C.G,
 						{
-							title: (0, d.we)(
+							title: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_BaseSetContextMenu_RemoveMenuItem_Title"
 									: "#ControllerConfigurator_ActionSets_LayerSetContextMenu_RemoveMenuItem_Title",
@@ -422,13 +430,13 @@ function D(e, t, r) {
 							onResult: c,
 						},
 						n.createElement(C.X_, {
-							title: (0, d.we)(
+							title: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_RemoveSetDialog_Title_1"
 									: "#ControllerConfigurator_ActionSets_RemoveLayerDialog_Title_1",
 								o,
 							),
-							description: (0, d.we)(
+							description: Localize(
 								r == null
 									? "#ControllerConfigurator_ActionSets_RemoveSetDialog_Description_1"
 									: "#ControllerConfigurator_ActionSets_RemoveLayerDialog_Description_1",
@@ -463,7 +471,7 @@ function N(e) {
 	const A = t.map((e) =>
 		typeof e == "number"
 			? {
-					label: (0, d.we)(
+					label: Localize(
 						"#ControllerConfigurator_EControllerPresetType_" + y.TW[e]?.id,
 					),
 					data: e,
@@ -495,16 +503,14 @@ function N(e) {
 		},
 		n.createElement(l.Vb, {
 			autoFocus: true,
-			label: (0, d.we)("#ControllerConfigurator_ActionSets_Global_CursorShown"),
+			label: Localize("#ControllerConfigurator_ActionSets_Global_CursorShown"),
 			rgOptions: A,
 			selectedOption: o,
 			onChange: (e) => c(e.data),
 		}),
 		n.createElement(l.Vb, {
 			autoFocus: true,
-			label: (0, d.we)(
-				"#ControllerConfigurator_ActionSets_Global_CursorHidden",
-			),
+			label: Localize("#ControllerConfigurator_ActionSets_Global_CursorHidden"),
 			rgOptions: A,
 			selectedOption: m,
 			onChange: (e) => u(e.data),
@@ -526,7 +532,7 @@ function F(e) {
 	const p = a.map((e) =>
 		typeof e == "number"
 			? {
-					label: (0, d.we)(
+					label: Localize(
 						"#ControllerConfigurator_EControllerPresetType_" + y.TW[e]?.id,
 					),
 					data: e,
@@ -565,7 +571,7 @@ function F(e) {
 		}),
 		n.createElement(l.Vb, {
 			autoFocus: true,
-			label: (0, d.we)(
+			label: Localize(
 				"#ControllerConfigurator_ActionSets_AddBaseSetButton_CopyFrom",
 			),
 			rgOptions: p,
@@ -651,18 +657,18 @@ function $(e) {
 					l.Y9,
 					null,
 					" ",
-					(0, d.we)("#ControllerBinding_MousePositionModal_Title"),
+					Localize("#ControllerBinding_MousePositionModal_Title"),
 					" ",
 				),
 				n.createElement(
 					l.nB,
 					null,
 					" ",
-					(0, d.we)("#ControllerBinding_MousePositionModal_Desc"),
+					Localize("#ControllerBinding_MousePositionModal_Desc"),
 					n.createElement(
 						l.D0,
 						{
-							label: (0, d.we)(
+							label: Localize(
 								"#ControllerBinding_MousePositionModal_XPosition",
 							),
 							className: (0, u.A)(x.Row),
@@ -674,7 +680,7 @@ function $(e) {
 								onResult: f,
 							},
 							n.createElement(C.Qj, {
-								title: (0, d.we)(
+								title: Localize(
 									"#ControllerBinding_MousePositionModal_XPosition",
 								),
 								description: "",
@@ -688,7 +694,7 @@ function $(e) {
 					n.createElement(
 						l.D0,
 						{
-							label: (0, d.we)(
+							label: Localize(
 								"#ControllerBinding_MousePositionModal_YPosition",
 							),
 							className: (0, u.A)(x.Row),
@@ -700,7 +706,7 @@ function $(e) {
 								onResult: b,
 							},
 							n.createElement(C.Qj, {
-								title: (0, d.we)(
+								title: Localize(
 									"#ControllerBinding_MousePositionModal_YPosition",
 								),
 								description: "",
@@ -712,7 +718,7 @@ function $(e) {
 						),
 					),
 					n.createElement(l.y4, {
-						label: (0, d.we)(
+						label: Localize(
 							"#ControllerBinding_MousePositionModal_TeleportSetting",
 						),
 						checked: p,
@@ -722,7 +728,7 @@ function $(e) {
 					n.createElement(
 						l.D0,
 						{
-							label: (0, d.we)(
+							label: Localize(
 								"#ControllerBinding_MousePositionModal_SelectMousePosition",
 							),
 							className: (0, u.A)(x.Row),
@@ -750,7 +756,7 @@ function $(e) {
 								},
 							},
 							" ",
-							(0, d.we)(
+							Localize(
 								"#ControllerBinding_MousePositionModal_SelectMousePosition_StartButton",
 							),
 							" ",
@@ -907,7 +913,7 @@ function ee(e) {
 				className: (0, u.A)(x.HintLabel),
 			},
 			" ",
-			(0, d.PP)(
+			LocalizeReact(
 				"#ControllerBinding_MousePositionModal_SelectMousePosition_Hint",
 				n.createElement(q.W, {
 					button: Q.g4.A,
@@ -986,7 +992,7 @@ function he() {
 				className: te.SteamInputAPILogoText,
 			},
 			" ",
-			(0, d.we)("#SteamInputAPI_LogoText"),
+			Localize("#SteamInputAPI_LogoText"),
 		),
 	);
 }
@@ -1010,13 +1016,13 @@ const Ce = (0, s.PA)(function (e) {
 	const f = oe.tw.GetAppOverviewByAppID(m);
 	let b = null;
 	let y = null;
-	const S = (0, d.we)("#" + le.Fd.GetControllerTypeString(i.nControllerType));
+	const S = Localize("#" + le.Fd.GetControllerTypeString(i.nControllerType));
 	let w =
-		i?.Title.charAt(0) == "#" ? (0, d.we)(i?.Title, f?.display_name) : i?.Title;
+		i?.Title.charAt(0) == "#" ? Localize(i?.Title, f?.display_name) : i?.Title;
 	w = h.v3.FilterText(w);
 	let B =
 		i?.Description.charAt(0) == "#"
-			? (0, d.we)(i?.Description, y, S)
+			? Localize(i?.Description, y, S)
 			: i?.Description;
 	B = h.v3.FilterText(B);
 	let E = i?.bOfficial || i?.bRecommended;
@@ -1026,10 +1032,10 @@ const Ce = (0, s.PA)(function (e) {
 	switch (s) {
 		case h7.Autosave:
 			b = w;
-			y = (0, d.we)("#AppControllerConfiguration_SelectedConfigCustomized");
+			y = Localize("#AppControllerConfiguration_SelectedConfigCustomized");
 			break;
 		case h7.Official:
-			b = (0, d.we)(
+			b = Localize(
 				"#AppControllerConfiguration_OfficialConfig",
 				f?.display_name,
 				w,
@@ -1049,28 +1055,28 @@ const Ce = (0, s.PA)(function (e) {
 		case h7.Template:
 			b = w;
 			y = E
-				? (0, d.we)("#AppControllerConfiguration_RecommendedTemplateConfig")
-				: (0, d.we)("#AppControllerConfiguration_TemplateConfig");
+				? Localize("#AppControllerConfiguration_RecommendedTemplateConfig")
+				: Localize("#AppControllerConfiguration_TemplateConfig");
 			break;
 		case h7.Search:
-			b = (0, d.we)(
+			b = Localize(
 				"#AppControllerConfiguration_SearchResult",
 				C?.strDisplayName,
 				w,
 			);
 			y = E
-				? (0, d.we)("#AppControllerConfiguration_RecommendedTemplateConfig")
-				: (0, d.we)("#AppControllerConfiguration_TemplateConfig");
+				? Localize("#AppControllerConfiguration_RecommendedTemplateConfig")
+				: Localize("#AppControllerConfiguration_TemplateConfig");
 	}
 	if (b == "$$$autosave") {
-		b = (0, d.we)("#SettingsController_AutosaveName");
+		b = Localize("#SettingsController_AutosaveName");
 	}
 	if (o === true) {
 		const e =
 			m == 0
-				? (0, d.we)("#AppControllerConfiguration_TemplateConfig")
+				? Localize("#AppControllerConfiguration_TemplateConfig")
 				: m?.toString();
-		b = (0, d.we)(
+		b = Localize(
 			"#AppControllerConfiguration_SearchResult",
 			f?.display_name ?? e,
 			b,
@@ -1091,17 +1097,17 @@ const Ce = (0, s.PA)(function (e) {
 		(s == h7.Template && i.publishedFileID != "0")
 			? {
 					onMenuButton: (e) => {
-						let t = (0, I.uX)(e);
+						let t = GetOwningWindowForEvent(e);
 						(0, v.pg)(
 							n.createElement(Ae.o0, {
-								strTitle: (0, d.we)(
+								strTitle: Localize(
 									"#AppControllerConfiguration_DeleteConfig_Title",
 								),
-								strDescription: (0, d.we)(
+								strDescription: Localize(
 									"#AppControllerConfiguration_DeleteConfig_Desc",
 									w,
 								),
-								strOKButtonText: (0, d.we)(
+								strOKButtonText: Localize(
 									"#AppControllerConfiguration_DeleteConfig_Confirm",
 								),
 								bDestructiveWarning: true,
@@ -1109,13 +1115,13 @@ const Ce = (0, s.PA)(function (e) {
 							}),
 							t,
 							{
-								strTitle: (0, d.we)(
+								strTitle: Localize(
 									"#AppControllerConfiguration_OverwriteConfig_Title",
 								),
 							},
 						);
 					},
-					onMenuActionDescription: (0, d.we)(
+					onMenuActionDescription: Localize(
 						"#ControllerConfigurator_ChooseConfiguration_Delete",
 					),
 				}
@@ -1127,7 +1133,7 @@ const Ce = (0, s.PA)(function (e) {
 								M ? ue.bJ.Down : ue.bJ.Up,
 							);
 						},
-						onOptionsActionDescription: (0, d.we)(D),
+						onOptionsActionDescription: Localize(D),
 					}
 				: {};
 	const F = T ? R?.file?.vote_data?.votes_up : null;
@@ -1153,7 +1159,7 @@ const Ce = (0, s.PA)(function (e) {
 			: H && !V
 				? null
 				: p;
-	let q = H && W ? null : (0, d.we)("#AppControllerConfiguration_Select");
+	let q = H && W ? null : Localize("#AppControllerConfiguration_Select");
 	const [Q, Y] = n.useState(false);
 	const K = me.B6.BConnectedToSteam();
 	const X = H && !W && K;
@@ -1181,7 +1187,7 @@ const Ce = (0, s.PA)(function (e) {
 				onOKButton: j,
 				onOKActionDescription: q,
 				onSecondaryActionDescription: X
-					? (0, d.we)("#AppControllerConfiguration_Download")
+					? Localize("#AppControllerConfiguration_Download")
 					: null,
 				onSecondaryButton: X
 					? () => me.B6.Download(de.rm, i?.publishedFileID)
@@ -1229,7 +1235,7 @@ const Ce = (0, s.PA)(function (e) {
 								n.createElement(
 									"span",
 									null,
-									(0, d.we)("#AppControllerConfiguration_Downloading"),
+									Localize("#AppControllerConfiguration_Downloading"),
 								),
 							),
 						V &&
@@ -1242,7 +1248,7 @@ const Ce = (0, s.PA)(function (e) {
 								n.createElement(
 									"span",
 									null,
-									(0, d.we)("#AppControllerConfiguration_Downloaded"),
+									Localize("#AppControllerConfiguration_Downloaded"),
 								),
 							),
 						H &&
@@ -1256,7 +1262,7 @@ const Ce = (0, s.PA)(function (e) {
 								n.createElement(
 									"span",
 									null,
-									(0, d.we)("#AppControllerConfiguration_NotDownloaded"),
+									Localize("#AppControllerConfiguration_NotDownloaded"),
 								),
 							),
 						F != null &&
@@ -1280,7 +1286,7 @@ const Ce = (0, s.PA)(function (e) {
 								n.createElement(
 									"span",
 									null,
-									(0, d.we)(
+									Localize(
 										"#AppControllerConfiguration_ConfigPlaytime",
 										i.playtime,
 									),
@@ -1296,7 +1302,7 @@ const Ce = (0, s.PA)(function (e) {
 								n.createElement(
 									"span",
 									null,
-									(0, d.we)(
+									Localize(
 										"#AppControllerConfiguration_ConfigUpdated",
 										L?.toDateString() ?? "",
 									),
@@ -1395,7 +1401,7 @@ function fe(e) {
 				" ",
 				l.length
 					? r
-					: (0, d.we)(
+					: Localize(
 							"#ControllerConfigurator_ChooseConfiguration_EmptyDescription",
 						),
 			),
@@ -1444,7 +1450,7 @@ const ye = (0, s.PA)(function (e) {
 		strDefaultTab: a,
 	} = e;
 	(0, ie.Wh)(
-		(0, d.we)("#ControllerConfigurator_ChooseConfiguration_Title"),
+		Localize("#ControllerConfigurator_ChooseConfiguration_Title"),
 		"ControllerConfiguratorChooseConfiguration",
 	);
 	const s = h.v3.BFilterOtherControllerTypes;
@@ -1494,10 +1500,10 @@ const ye = (0, s.PA)(function (e) {
 					null,
 					f > 0 &&
 						n.createElement(fe, {
-							title: (0, d.we)(
+							title: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_Official",
 							),
-							description: (0, d.we)(
+							description: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_Official_Description",
 							),
 							type: h7.Official,
@@ -1509,10 +1515,10 @@ const ye = (0, s.PA)(function (e) {
 					f == 0 &&
 						b > 0 &&
 						n.createElement(fe, {
-							title: (0, d.we)(
+							title: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_Recommended",
 							),
-							description: (0, d.we)(
+							description: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_Recommended_Description",
 							),
 							type: h7.Template,
@@ -1530,7 +1536,7 @@ const ye = (0, s.PA)(function (e) {
 				title: "#ControllerConfigurator_ChooseConfiguration_User",
 				icon: n.createElement(g.User, null),
 				content: n.createElement(fe, {
-					title: (0, d.we)("#ControllerConfigurator_ChooseConfiguration_User"),
+					title: Localize("#ControllerConfigurator_ChooseConfiguration_User"),
 					type: h7.Personal,
 					configs: A,
 					appid: t,
@@ -1550,10 +1556,10 @@ const ye = (0, s.PA)(function (e) {
 					n.Fragment,
 					null,
 					n.createElement(fe, {
-						title: (0, d.we)(
+						title: Localize(
 							"#ControllerConfigurator_ChooseConfiguration_Template",
 						),
-						description: (0, d.we)(
+						description: Localize(
 							"#ControllerConfigurator_ChooseConfiguration_Template_Description",
 						),
 						type: h7.Template,
@@ -1564,10 +1570,10 @@ const ye = (0, s.PA)(function (e) {
 					}),
 					u.length > 0 &&
 						n.createElement(fe, {
-							title: (0, d.we)(
+							title: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_UserTemplate",
 							),
-							description: (0, d.we)(
+							description: Localize(
 								"#ControllerConfigurator_ChooseConfiguration_UserTemplate_Description",
 							),
 							type: h7.Template,
@@ -1583,7 +1589,7 @@ const ye = (0, s.PA)(function (e) {
 				title: "#ControllerConfigurator_ChooseConfiguration_Community",
 				icon: n.createElement(g.SteamLogo, null),
 				content: n.createElement(fe, {
-					title: (0, d.we)(
+					title: Localize(
 						"#ControllerConfigurator_ChooseConfiguration_Community",
 					),
 					type: h7.Workshop,
@@ -1598,7 +1604,7 @@ const ye = (0, s.PA)(function (e) {
 				title: "#ControllerConfigurator_ChooseConfiguration_Search",
 				icon: n.createElement(g.Search, null),
 				content: n.createElement(_e, {
-					title: (0, d.we)(
+					title: Localize(
 						"#ControllerConfigurator_ChooseConfiguration_SearchResults",
 					),
 					type: h7.Workshop,
@@ -1622,13 +1628,13 @@ const ye = (0, s.PA)(function (e) {
 	const v = s
 		? {
 				onSecondaryButton: S,
-				onSecondaryActionDescription: (0, d.we)(
+				onSecondaryActionDescription: Localize(
 					"#ControllerConfigurator_ChooseConfiguration_ShowAllConfigs",
 				),
 			}
 		: {
 				onSecondaryButton: S,
-				onSecondaryActionDescription: (0, d.we)(
+				onSecondaryActionDescription: Localize(
 					"#ControllerConfigurator_ChooseConfiguration_ShowCompatibleConfigs",
 				),
 			};
@@ -1659,7 +1665,7 @@ function Se(e) {
 		{
 			className: te.SearchBoxContainer,
 			onOptionsButton: r ? () => h.v3.SetSearchText("") : undefined,
-			onOptionsActionDescription: r ? (0, d.we)("#Clear") : undefined,
+			onOptionsActionDescription: r ? Localize("#Clear") : undefined,
 		},
 		n.createElement(l.pd, {
 			type: "search",
@@ -1670,9 +1676,9 @@ function Se(e) {
 			onChange: (e) => h.v3.SetSearchText(e.target.value),
 			onEnterKeyPress: i,
 			onKeyboardNavOut: i,
-			strEnterKeyLabel: (0, d.we)("#SearchEnterKeyLabel"),
+			strEnterKeyLabel: Localize("#SearchEnterKeyLabel"),
 			spellCheck: false,
-			placeholder: (0, d.we)(
+			placeholder: Localize(
 				"#ControllerConfigurator_ChooseConfiguration_Search",
 			),
 		}),
@@ -1823,7 +1829,7 @@ const Ie = (0, s.PA)(function (e) {
 			? "#ControllerConfigurationQuickSettings_EnableGrips"
 			: "#ControllerConfigurationQuickSettings_EnableBackButtons";
 	const y = n.createElement(l.RF, {
-		label: (0, d.we)(b),
+		label: Localize(b),
 		checked: _,
 		onChange: f,
 	});
@@ -1901,7 +1907,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 10,
 				group: T,
 				mapKey: P,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_GyroSensitivity",
 				),
 			}),
@@ -1916,7 +1922,7 @@ const Ie = (0, s.PA)(function (e) {
 					eControllerSource: 10,
 					group: T,
 					mapKey: 140,
-					localizationOverride: (0, d.we)(
+					localizationOverride: Localize(
 						"#ControllerConfigurationQuickSettings_GyroNaturalSensitivity",
 					),
 				}),
@@ -1964,7 +1970,7 @@ const Ie = (0, s.PA)(function (e) {
 					eControllerSource: t,
 					group: e,
 					mapKey: 137,
-					localizationOverride: (0, d.we)(
+					localizationOverride: Localize(
 						"#ControllerConfigurationQuickSettings_PixelsPerRevolution",
 					),
 				}),
@@ -1981,7 +1987,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 10,
 				group: T,
 				mapKey: 42,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_GyroInvert",
 				),
 			}),
@@ -2009,7 +2015,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 2,
 				group: k,
 				mapKey: 30,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_RPadSensitivity",
 				),
 			}),
@@ -2025,7 +2031,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 2,
 				group: k,
 				mapKey: 42,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_RPadInvert",
 				),
 			}),
@@ -2041,7 +2047,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 12,
 				group: O,
 				mapKey: 30,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_RStickSensitivity",
 				),
 			}),
@@ -2057,7 +2063,7 @@ const Ie = (0, s.PA)(function (e) {
 				eControllerSource: 12,
 				group: O,
 				mapKey: 42,
-				localizationOverride: (0, d.we)(
+				localizationOverride: Localize(
 					"#ControllerConfigurationQuickSettings_RStickInvert",
 				),
 			}),
@@ -2097,10 +2103,10 @@ const Ie = (0, s.PA)(function (e) {
 				className: A.QuickSettingsHeader,
 			},
 			W
-				? (0, d.we)(
+				? Localize(
 						"#ControllerConfigurationQuickSettings_SectionTitle_MultipleActionSets",
 					)
-				: (0, d.we)("#ControllerConfigurationQuickSettings_SectionTitle"),
+				: Localize("#ControllerConfigurationQuickSettings_SectionTitle"),
 		),
 		n.createElement(we.dY, {
 			showGlyphs: z,
@@ -2268,7 +2274,7 @@ function je(e) {
 			appid: e.appid,
 		}),
 		n.createElement(S.oW, {
-			label: (0, d.we)("#Settings_ControllerCalibration_CalibrateIMU"),
+			label: Localize("#Settings_ControllerCalibration_CalibrateIMU"),
 		}),
 		n.createElement(ve.mZ, {
 			controllerSettings: a,
@@ -2420,7 +2426,7 @@ export function W4(e) {
 					!r && A.CommunityConfigCalloutContainer,
 				),
 				onClick: t,
-				onOKActionDescription: (0, d.we)(
+				onOKActionDescription: Localize(
 					"#ControllerConfigurator_ChooseConfiguration_Title",
 				),
 				focusable: !a && i != h7.OptedOut,
@@ -2433,7 +2439,7 @@ export function W4(e) {
 				upperDescription: o,
 				upperDescriptionVisibility: "always",
 				title: m,
-				description: p ? null : (0, d.we)(c),
+				description: p ? null : Localize(c),
 				descriptionVisibility: "when-expanded",
 				strTitleClassNames: (0, u.A)(
 					!r && A.CommunityConfigCalloutPresent,
@@ -2473,7 +2479,7 @@ const $e = (0, s.PA)((e) => {
 	const m = se.H.GetAppDetails(s);
 	let u = (0, Be.yZ)(t);
 	if (u == "$$$autosave") {
-		u = (0, d.we)("#SettingsController_AutosaveName");
+		u = Localize("#SettingsController_AutosaveName");
 	}
 	const p =
 		t?.bOfficial ||
@@ -2487,7 +2493,7 @@ const $e = (0, s.PA)((e) => {
 			break;
 		case h7.Autosave:
 			o = u;
-			l = (0, d.we)("#AppControllerConfiguration_SelectedConfigCustomized");
+			l = Localize("#AppControllerConfiguration_SelectedConfigCustomized");
 			break;
 		case h7.Official:
 			o = u;
@@ -2504,14 +2510,12 @@ const $e = (0, s.PA)((e) => {
 		case h7.Template:
 			o = u;
 			l = p
-				? (0, d.we)(
-						"#AppControllerConfiguration_RecommendedTemplateConfigUsing",
-					)
-				: (0, d.we)("#AppControllerConfiguration_TemplateConfigUsing");
+				? Localize("#AppControllerConfiguration_RecommendedTemplateConfigUsing")
+				: Localize("#AppControllerConfiguration_TemplateConfigUsing");
 			break;
 		case h7.OptedOut:
-			o = (0, d.we)("#AppControllerConfiguration_SelectedConfigBuiltInGamepad");
-			l = (0, d.we)("#AppControllerConfiguration_SelectedConfigBuiltIn");
+			o = Localize("#AppControllerConfiguration_SelectedConfigBuiltInGamepad");
+			l = Localize("#AppControllerConfiguration_SelectedConfigBuiltIn");
 			const e =
 				h.v3.EditingConfigurationControllerIndex ??
 				_.oy.MostRecentlyActiveControllerIndex;
@@ -2520,7 +2524,7 @@ const $e = (0, s.PA)((e) => {
 			g = r[n]?.eControllerType;
 	}
 	if (p) {
-		o = (0, d.we)(
+		o = Localize(
 			"#AppControllerConfiguration_OfficialConfig",
 			m?.strDisplayName,
 			o,
@@ -2565,7 +2569,7 @@ const $e = (0, s.PA)((e) => {
 							{
 								className: A.SubTitle,
 							},
-							(0, d.oW)(
+							LocalizeInlineReactWithFallback(
 								"#AppControllerConfiguration_FindCommunityConfig_Desc",
 								n.createElement("span", {
 									className: A.ConfigurationHeaderBold,
@@ -2660,8 +2664,8 @@ export function bV(e) {
 		}
 		const a = e.strName.startsWith("#")
 			? i
-				? (0, d.we)("#SteamDeckName")
-				: (0, d.we)(e.strName)
+				? Localize("#SteamDeckName")
+				: Localize(e.strName)
 			: e.strName;
 		return {
 			id: "" + e.nControllerIndex,
@@ -2706,7 +2710,7 @@ export function bV(e) {
 		{
 			onButtonDown: b,
 			actionDescriptionMap: o && {
-				[m.pR.SELECT]: (0, d.we)(
+				[m.pR.SELECT]: Localize(
 					"#ControllerConfigurator_ActionButtonLabel_ChangeOrder",
 				),
 			},
@@ -2771,15 +2775,15 @@ const st = (0, s.PA)((e) => {
 	let D = [
 		{
 			data: 1,
-			label: (0, d.we)("#AppControllerConfiguration_Export_Type_PersonalLocal"),
+			label: Localize("#AppControllerConfiguration_Export_Type_PersonalLocal"),
 		},
 		{
 			data: 2,
-			label: (0, d.we)("#AppControllerConfiguration_Export_Type_PersonalCloud"),
+			label: Localize("#AppControllerConfiguration_Export_Type_PersonalCloud"),
 		},
 		{
 			data: 4,
-			label: (0, d.we)("#AppControllerConfiguration_Export_Type_Template"),
+			label: Localize("#AppControllerConfiguration_Export_Type_Template"),
 		},
 	];
 	if (!R || !!k) {
@@ -2800,13 +2804,13 @@ const st = (0, s.PA)((e) => {
 			onCancel: () => {
 				e.closeModal();
 			},
-			title: (0, d.we)("#AppControllerConfiguration_OverwriteConfig_New"),
+			title: Localize("#AppControllerConfiguration_OverwriteConfig_New"),
 			disableCommit: !S,
 		},
 		n.createElement(l.pd, {
-			placeholder: (0, d.we)("#AppControllerConfiguration_Export_Title"),
+			placeholder: Localize("#AppControllerConfiguration_Export_Title"),
 			className: A.AccountNameCtn,
-			label: (0, d.we)("#AppControllerConfiguration_Export_Title"),
+			label: Localize("#AppControllerConfiguration_Export_Title"),
 			value: u,
 			maxLength: 64,
 			autoFocus: true,
@@ -2817,9 +2821,9 @@ const st = (0, s.PA)((e) => {
 			navRef: w,
 		}),
 		n.createElement(l.pd, {
-			placeholder: (0, d.we)("#AppControllerConfiguration_Export_Description"),
+			placeholder: Localize("#AppControllerConfiguration_Export_Description"),
 			className: A.AccountNameCtn,
-			label: (0, d.we)("#AppControllerConfiguration_Export_Description"),
+			label: Localize("#AppControllerConfiguration_Export_Description"),
 			value: g,
 			maxLength: 512,
 			autoFocus: false,
@@ -2829,11 +2833,11 @@ const st = (0, s.PA)((e) => {
 		}),
 		!a &&
 			n.createElement(l.Vb, {
-				label: (0, d.we)("#AppControllerConfiguration_Export_Type"),
+				label: Localize("#AppControllerConfiguration_Export_Type"),
 				rgOptions: D,
 				onChange: (e) => b(e.data),
 				selectedOption: f,
-				strDefaultLabel: (0, d.we)("#AppControllerConfiguration_Export_Type"),
+				strDefaultLabel: Localize("#AppControllerConfiguration_Export_Type"),
 			}),
 	);
 });
@@ -2845,14 +2849,14 @@ const ot = (0, s.PA)((e) => {
 	let [c, m] = n.useState(false);
 	const u = oe.tw.GetAppOverviewByAppID(t)?.display_name;
 	const A = i?.vecOfficialTitles?.map((e, t) => ({
-		label: (0, d.we)(e.strLocalized, u),
+		label: Localize(e.strLocalized, u),
 		data: t,
 	}));
 	const p = se.H.GetAppDetails(t);
 	const g = p?.strDeveloperName;
-	const _ = (0, d.we)("#" + le.Fd.GetControllerTypeString(i.nControllerType));
+	const _ = Localize("#" + le.Fd.GetControllerTypeString(i.nControllerType));
 	const f = i.vecOfficialDescriptions.map((e, t) => ({
-		label: (0, d.we)(e.strLocalized, g, _),
+		label: Localize(e.strLocalized, g, _),
 		data: t,
 	}));
 	return n.createElement(
@@ -2870,10 +2874,10 @@ const ot = (0, s.PA)((e) => {
 			onCancel: () => {
 				e.closeModal();
 			},
-			title: (0, d.we)("#AppControllerConfiguration_OfficialExport"),
+			title: Localize("#AppControllerConfiguration_OfficialExport"),
 		},
 		n.createElement(l.Vb, {
-			label: (0, d.we)("#AppControllerConfiguration_Export_Title"),
+			label: Localize("#AppControllerConfiguration_Export_Title"),
 			rgOptions: A,
 			onChange: (e) => {
 				t = e.data;
@@ -2882,10 +2886,10 @@ const ot = (0, s.PA)((e) => {
 				var t;
 			},
 			selectedOption: 0,
-			strDefaultLabel: (0, d.we)("#AppControllerConfiguration_Export_Title"),
+			strDefaultLabel: Localize("#AppControllerConfiguration_Export_Title"),
 		}),
 		n.createElement(l.Vb, {
-			label: (0, d.we)("#AppControllerConfiguration_Export_Description"),
+			label: Localize("#AppControllerConfiguration_Export_Description"),
 			rgOptions: f,
 			onChange: (e) => {
 				t = e.data;
@@ -2894,7 +2898,7 @@ const ot = (0, s.PA)((e) => {
 				var t;
 			},
 			selectedOption: 0,
-			strDefaultLabel: (0, d.we)(
+			strDefaultLabel: Localize(
 				"#AppControllerConfiguration_Export_Description",
 			),
 		}),
@@ -2912,7 +2916,7 @@ const lt = (0, s.PA)(function (e) {
 			n.createElement(
 				l.Y9,
 				null,
-				(0, d.we)("#AppControllerConfiguration_Configuration_Details"),
+				Localize("#AppControllerConfiguration_Configuration_Details"),
 			),
 			n.createElement(l.iK, null, "Not found"),
 		);
@@ -2941,7 +2945,7 @@ const lt = (0, s.PA)(function (e) {
 	);
 	const b = h.v3.EditingConfiguration?.action_block_path?.length > 0;
 	if (C) {
-		(0, I.OG)(c);
+		CopyTextToClipboard(c);
 	}
 	return n.createElement(
 		Ae.eV,
@@ -2951,7 +2955,7 @@ const lt = (0, s.PA)(function (e) {
 		n.createElement(
 			l.Y9,
 			null,
-			(0, d.we)("#AppControllerConfiguration_Configuration_Details"),
+			Localize("#AppControllerConfiguration_Configuration_Details"),
 		),
 		n.createElement(
 			l.a3,
@@ -2959,7 +2963,7 @@ const lt = (0, s.PA)(function (e) {
 			n.createElement(
 				l.Nv,
 				{
-					label: (0, d.we)(
+					label: Localize(
 						"#AppControllerConfiguration_Configuration_Details_Title",
 					),
 				},
@@ -2968,7 +2972,7 @@ const lt = (0, s.PA)(function (e) {
 			n.createElement(
 				l.Nv,
 				{
-					label: (0, d.we)(
+					label: Localize(
 						"#AppControllerConfiguration_Configuration_Details_Description",
 					),
 				},
@@ -2977,11 +2981,11 @@ const lt = (0, s.PA)(function (e) {
 			n.createElement(
 				l.Nv,
 				{
-					label: (0, d.we)(
+					label: Localize(
 						"#AppControllerConfiguration_Configuration_Details_Author",
 					),
 				},
-				p ? (0, d.we)("#AppControllerConfiguration_TemplateConfig") : s,
+				p ? Localize("#AppControllerConfiguration_TemplateConfig") : s,
 			),
 			n.createElement(
 				l.Nv,
@@ -2994,7 +2998,7 @@ const lt = (0, s.PA)(function (e) {
 				n.createElement(
 					l.Nv,
 					{
-						label: (0, d.we)(
+						label: Localize(
 							"#AppControllerConfiguration_Configuration_Details_ID",
 						),
 					},
@@ -3004,7 +3008,7 @@ const lt = (0, s.PA)(function (e) {
 				n.createElement(
 					l.Nv,
 					{
-						label: (0, d.we)(
+						label: Localize(
 							"#AppControllerConfiguration_Configuration_Details_Link",
 						),
 					},
@@ -3015,7 +3019,7 @@ const lt = (0, s.PA)(function (e) {
 				{
 					className: A.ClipboardLabel,
 				},
-				(0, d.we)(
+				Localize(
 					C
 						? "#AppControllerConfiguration_Configuration_LinkInfo"
 						: "#AppControllerConfiguration_Configuration_NoLinkInfo",
@@ -3028,25 +3032,25 @@ const lt = (0, s.PA)(function (e) {
 					n.createElement(
 						l.lr,
 						null,
-						(0, d.we)("#ControllerConfigurator_ConfigInfo_Title"),
+						Localize("#ControllerConfigurator_ConfigInfo_Title"),
 					),
 					n.createElement(
 						l.Nv,
 						{
-							label: (0, d.we)(
+							label: Localize(
 								"#ControllerConfigurator_ConfigInfo_ActionBlockSource",
 							),
 						},
 						b
 							? h.v3.EditingConfiguration?.action_block_path
-							: (0, d.we)(
+							: Localize(
 									"#ControllerConfigurator_ConfigInfo_ActionBlockSource_None",
 								),
 					),
 					n.createElement(
 						l.iK,
 						null,
-						(0, d.we)("#ControllerConfigurator_ConfigInfo_ErrorMsgs"),
+						Localize("#ControllerConfigurator_ConfigInfo_ErrorMsgs"),
 					),
 					n.createElement(
 						l.a3,
@@ -3054,7 +3058,7 @@ const lt = (0, s.PA)(function (e) {
 						" ",
 						h.v3.EditingConfiguration?.error_msg?.length > 0
 							? f
-							: (0, d.we)(
+							: Localize(
 									"#ControllerConfigurator_ConfigInfo_ActionBlockSource_None",
 								),
 						" ",
@@ -3118,7 +3122,7 @@ function ct(e) {
 		);
 	};
 	const O = (e) => {
-		let a = (0, I.uX)(e);
+		let a = GetOwningWindowForEvent(e);
 		(0, v.pg)(
 			n.createElement(st, {
 				appid: t,
@@ -3152,7 +3156,7 @@ function ct(e) {
 		}
 	};
 	const L = (e) => {
-		let a = (0, I.uX)(e);
+		let a = GetOwningWindowForEvent(e);
 		if (i?.vecOfficialTitles?.length > 0) {
 			(0, v.pg)(
 				n.createElement(ot, {
@@ -3175,7 +3179,7 @@ function ct(e) {
 		}
 	};
 	const z = (e) => {
-		let i = (0, I.uX)(e);
+		let i = GetOwningWindowForEvent(e);
 		h.v3.SaveEditingConfiguration(t);
 		(0, v.pg)(
 			n.createElement(lt, {
@@ -3184,14 +3188,12 @@ function ct(e) {
 			}),
 			i,
 			{
-				strTitle: (0, d.we)(
-					"#AppControllerConfiguration_Configuration_Details",
-				),
+				strTitle: Localize("#AppControllerConfiguration_Configuration_Details"),
 			},
 		);
 	};
 	const x = (e) => {
-		let t = (0, I.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		if (
 			!(function (e) {
 				return (
@@ -3208,17 +3210,17 @@ function ct(e) {
 		} else {
 			(0, v.pg)(
 				n.createElement(Ae.o0, {
-					strTitle: (0, d.we)(
+					strTitle: Localize(
 						"#AppControllerConfiguration_OverwriteConfig_Title",
 					),
-					strDescription: (0, d.we)(
+					strDescription: Localize(
 						"#AppControllerConfiguration_OverwriteConfig_Desc",
 						i?.Title,
 					),
-					strOKButtonText: (0, d.we)(
+					strOKButtonText: Localize(
 						"#AppControllerConfiguration_OverwriteConfig_Overwrite",
 					),
-					strCancelButtonText: (0, d.we)(
+					strCancelButtonText: Localize(
 						"#AppControllerConfiguration_OverwriteConfig_New",
 					),
 					bDestructiveWarning: true,
@@ -3227,7 +3229,7 @@ function ct(e) {
 				}),
 				t,
 				{
-					strTitle: (0, d.we)(
+					strTitle: Localize(
 						"#AppControllerConfiguration_OverwriteConfig_Title",
 					),
 				},
@@ -3249,11 +3251,11 @@ function ct(e) {
 		h.v3.EnsureEditingConfiguration(t, r);
 	};
 	const V = (e) => {
-		let t = (0, I.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		(0, v.pg)(
 			n.createElement(Ae.o0, {
-				strTitle: (0, d.we)("#AppControllerConfiguration_SteamInputToggle"),
-				strDescription: (0, d.we)(
+				strTitle: Localize("#AppControllerConfiguration_SteamInputToggle"),
+				strDescription: Localize(
 					"#AppControllerConfiguration_SteamInputToggle_Desc",
 				),
 				bDestructiveWarning: true,
@@ -3262,19 +3264,17 @@ function ct(e) {
 			}),
 			t,
 			{
-				strTitle: (0, d.we)("#AppControllerConfiguration_SteamInputToggle"),
+				strTitle: Localize("#AppControllerConfiguration_SteamInputToggle"),
 			},
 		);
 	};
 	const j = (e) => {
-		let t = (0, I.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		if (i?.ProgenitorURL != "") {
 			(0, v.pg)(
 				n.createElement(Ae.o0, {
-					strTitle: (0, d.we)(
-						"#AppControllerConfiguration_ConfirmRevertConfig",
-					),
-					strDescription: (0, d.we)(
+					strTitle: Localize("#AppControllerConfiguration_ConfirmRevertConfig"),
+					strDescription: Localize(
 						"#AppControllerConfiguration_ConfirmRevertConfig_Desc",
 					),
 					bDestructiveWarning: true,
@@ -3283,9 +3283,7 @@ function ct(e) {
 				}),
 				t,
 				{
-					strTitle: (0, d.we)(
-						"#AppControllerConfiguration_ConfirmRevertConfig",
-					),
+					strTitle: Localize("#AppControllerConfiguration_ConfirmRevertConfig"),
 				},
 			);
 		}
@@ -3303,7 +3301,7 @@ function ct(e) {
 					{
 						className: A.NoControllerMessage,
 					},
-					(0, d.we)("#AppControllerConfiguration_NoController"),
+					Localize("#AppControllerConfiguration_NoController"),
 				)
 			: M == h7.OptedOut
 				? null
@@ -3325,7 +3323,7 @@ function ct(e) {
 										autoFocus: s,
 										onClick: R,
 									},
-									(0, d.we)("#AppControllerConfiguration_ViewLayout"),
+									Localize("#AppControllerConfiguration_ViewLayout"),
 								),
 							),
 							n.createElement(
@@ -3336,7 +3334,7 @@ function ct(e) {
 									{
 										onClick: D,
 									},
-									(0, d.we)("#AppControllerConfiguration_Edit"),
+									Localize("#AppControllerConfiguration_Edit"),
 								),
 							),
 							n.createElement(
@@ -3348,7 +3346,7 @@ function ct(e) {
 											const t = n.createElement(
 												b.tz,
 												{
-													label: (0, d.we)(
+													label: Localize(
 														"#ControllerConfigurator_Main_ContextMenu_Title",
 													),
 												},
@@ -3357,7 +3355,7 @@ function ct(e) {
 													{
 														onSelected: x,
 													},
-													(0, d.we)("#AppControllerConfiguration_Export"),
+													Localize("#AppControllerConfiguration_Export"),
 												),
 												u &&
 													!p &&
@@ -3366,7 +3364,7 @@ function ct(e) {
 														{
 															onSelected: O,
 														},
-														(0, d.we)("#AppControllerConfiguration_Share"),
+														Localize("#AppControllerConfiguration_Share"),
 													),
 												_ &&
 													u &&
@@ -3376,7 +3374,7 @@ function ct(e) {
 														{
 															onSelected: L,
 														},
-														(0, d.we)(
+														Localize(
 															"#AppControllerConfiguration_OfficialExport",
 														),
 													),
@@ -3385,7 +3383,7 @@ function ct(e) {
 													{
 														onSelected: z,
 													},
-													(0, d.we)(
+													Localize(
 														"#AppControllerConfiguration_Configuration_Details",
 													),
 												),
@@ -3395,9 +3393,7 @@ function ct(e) {
 														onSelected: j,
 														disabled: i?.ProgenitorURL == "",
 													},
-													(0, d.we)(
-														"#AppControllerConfiguration_RevertChanges",
-													),
+													Localize("#AppControllerConfiguration_RevertChanges"),
 												),
 												E &&
 													n.createElement(
@@ -3405,7 +3401,7 @@ function ct(e) {
 														{
 															onSelected: V,
 														},
-														(0, d.we)(
+														Localize(
 															"#AppControllerConfiguration_SteamInputToggle",
 														),
 													),
@@ -3425,7 +3421,7 @@ function ct(e) {
 									onActivate: z,
 								},
 								" ",
-								(0, d.we)("#AppControllerConfiguration_SeeErrorMsgs"),
+								Localize("#AppControllerConfiguration_SeeErrorMsgs"),
 							),
 					);
 	return n.createElement(
@@ -3463,7 +3459,7 @@ function mt(e) {
 					});
 				}
 			},
-			onOKActionDescription: (0, d.we)("#Help"),
+			onOKActionDescription: Localize("#Help"),
 		},
 		n.createElement(g.Question, null),
 	);
@@ -3478,7 +3474,7 @@ function ut(e) {
 				r(e);
 			}
 			if (o.current != null && e) {
-				const e = (0, I._f)(o.current);
+				const e = (0, _f)(o.current);
 				window.clearTimeout(s.current);
 				s.current = window.setTimeout(
 					() =>
@@ -3521,7 +3517,7 @@ function dt(e) {
 	const t = n.useRef(undefined);
 	const r = n.useRef(undefined);
 	const i = n.useCallback(() => {
-		const e = (0, I._f)(r.current);
+		const e = (0, _f)(r.current);
 		const n = e.getBoundingClientRect().top;
 		const i = r.current.getBoundingClientRect().top;
 		const a = Math.round(e.scrollTop);
@@ -3571,7 +3567,7 @@ export function E6(e) {
 				{
 					className: A.NoControllerLabel,
 				},
-				(0, d.we)("#AppControllerConfiguration_NoController"),
+				Localize("#AppControllerConfiguration_NoController"),
 			),
 		);
 	}
@@ -3649,8 +3645,8 @@ export function dh(e) {
 				n.createElement(
 					l.xh,
 					{
-						label: (0, d.we)(b[0]),
-						description: n.createElement(n.Fragment, null, (0, d.we)(b[1])),
+						label: Localize(b[0]),
+						description: n.createElement(n.Fragment, null, Localize(b[1])),
 						onClick: a?.bConfigurationEnabled
 							? () => {
 									SteamClient.Apps.SetThirdPartyControllerConfiguration(t, 0);
@@ -3668,8 +3664,8 @@ export function dh(e) {
 						bottomSeparator: "standard",
 					},
 					a?.bConfigurationEnabled
-						? (0, d.we)("#AppProperties_SteamInputOff")
-						: (0, d.we)("#AppProperties_SteamInputOn"),
+						? Localize("#AppProperties_SteamInputOff")
+						: Localize("#AppProperties_SteamInputOn"),
 				),
 			!i.TS.ON_DECK &&
 				s &&
@@ -3683,16 +3679,14 @@ export function dh(e) {
 						{
 							className: A.SupportTitle,
 						},
-						(0, d.we)(
-							"#AppControllerConfiguration_ControllerSupportInfo_Title",
-						),
+						Localize("#AppControllerConfiguration_ControllerSupportInfo_Title"),
 					),
 					n.createElement(
 						"div",
 						{
 							className: A.SupportLabel,
 						},
-						(0, d.we)(y),
+						Localize(y),
 					),
 					s?.xbox_controller_support >= 1 &&
 						n.createElement(
@@ -3761,7 +3755,7 @@ function gt(e) {
 				{
 					className: A.YourControllerLabel,
 				},
-				(0, d.we)(
+				Localize(
 					"#AppControllerConfiguration_ControllerSupportInfo_YourController",
 				),
 			),
@@ -3859,7 +3853,7 @@ const ht = (0, s.PA)((e) => {
 									{
 										className: A.TopSectionHeader,
 									},
-									(0, d.we)("#AppControllerConfiguration_CurrentConfiguration"),
+									Localize("#AppControllerConfiguration_CurrentConfiguration"),
 									n.createElement(
 										c.Z,
 										{
@@ -3871,11 +3865,11 @@ const ht = (0, s.PA)((e) => {
 												{
 													className: A.SmallTopButtons,
 													onClick: () => (0, Ge.b)(m),
-													onOKActionDescription: (0, d.we)(
+													onOKActionDescription: Localize(
 														"#ControllerConfigurator_ActionButtonLabel_ChangeOrder",
 													),
 												},
-												(0, d.we)(
+												Localize(
 													"#ControllerConfigurator_ActionButtonLabel_ChangeOrder",
 												),
 											),
@@ -3921,7 +3915,7 @@ const ht = (0, s.PA)((e) => {
 						className: A.NeedsInstallWarning,
 					},
 					" ",
-					(0, d.we)("#AppControllerConfiguration_ConfigNeedsGameInstall"),
+					Localize("#AppControllerConfiguration_ConfigNeedsGameInstall"),
 				),
 		),
 		n.createElement(ke.LP, {
@@ -3991,8 +3985,8 @@ export const yE = (0, s.PA)(function () {
 	const l = (0, h.st)(r, o);
 	const c = oe.tw.GetAppOverviewByAppID(r)?.display_name;
 	const m = c
-		? (0, d.we)("#ControllerConfigurator_Header_TitleWithApp", c)
-		: (0, d.we)("#ControllerConfigurator_Header_Title");
+		? Localize("#ControllerConfigurator_Header_TitleWithApp", c)
+		: Localize("#ControllerConfigurator_Header_Title");
 	(0, ie.Wh)(m, "ControllerConfigurator");
 	(0, ie.ez)(true, "ControllerConfigurator");
 	const u = (0, W.R7)();
@@ -4172,7 +4166,7 @@ const ft = (0, s.PA)(function (e) {
 	const f = n.useMemo(
 		() => [
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_Buttons"),
+				title: Localize("#ControllerConfigurator_Section_Buttons"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4185,7 +4179,7 @@ const ft = (0, s.PA)(function (e) {
 				}),
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_DPad"),
+				title: Localize("#ControllerConfigurator_Section_DPad"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4199,7 +4193,7 @@ const ft = (0, s.PA)(function (e) {
 				visible: (0, Be.sn)(p, 13),
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_Triggers"),
+				title: Localize("#ControllerConfigurator_Section_Triggers"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4213,7 +4207,7 @@ const ft = (0, s.PA)(function (e) {
 				visible: (0, Be.sn)(p, 7),
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_Sticks"),
+				title: Localize("#ControllerConfigurator_Section_Sticks"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4226,7 +4220,7 @@ const ft = (0, s.PA)(function (e) {
 				}),
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_Touchpads"),
+				title: Localize("#ControllerConfigurator_Section_Touchpads"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4240,7 +4234,7 @@ const ft = (0, s.PA)(function (e) {
 				visible: (0, Be.sn)(p, 2),
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_Gyros"),
+				title: Localize("#ControllerConfigurator_Section_Gyros"),
 				icon: n.createElement(Be.UT, {
 					className: A.SectionGlyph,
 					controllerType: 4,
@@ -4256,7 +4250,7 @@ const ft = (0, s.PA)(function (e) {
 			l.Vj,
 			l.I0,
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_VirtualMenus"),
+				title: Localize("#ControllerConfigurator_Section_VirtualMenus"),
 				icon: n.createElement(g.TouchMenu, null),
 				route: Me.BV.GamepadUI.ControllerConfigurator.VirtualMenus(t),
 				content: n.createElement(O.TX, {
@@ -4265,7 +4259,7 @@ const ft = (0, s.PA)(function (e) {
 				visible: true,
 			},
 			{
-				title: (0, d.we)("#ControllerConfigurator_Section_ActionSets"),
+				title: Localize("#ControllerConfigurator_Section_ActionSets"),
 				hideTitle: true,
 				icon: n.createElement(g.Copy, null),
 				route: Me.BV.GamepadUI.ControllerConfigurator.ActionSets(t),
@@ -4281,7 +4275,7 @@ const ft = (0, s.PA)(function (e) {
 		{
 			onButtonDown: u,
 			actionDescriptionMap: {
-				[m.pR.SELECT]: (0, d.we)(
+				[m.pR.SELECT]: Localize(
 					"#ControllerConfigurator_ActionButtonLabel_Preview",
 				),
 			},

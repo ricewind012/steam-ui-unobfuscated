@@ -6,7 +6,7 @@ var _o = require(/*webcrack:missing*/ "./89193.js");
 var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require(/*webcrack:missing*/ "./49455.js");
 var m = require(/*webcrack:missing*/ "./83599.js");
-var u = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 class d {
 	static k_QueueForEffect = {
 		snowball: "snowball",
@@ -113,8 +113,8 @@ class A {
 }
 (0, n.Cg)([_o.sH], A.prototype, "m_rgRunningEffects", undefined);
 var p = require("./95773.js");
-const g = u.Kp.PerMinute;
-const h = u.Kp.PerHour * 6;
+const g = Seconds.PerMinute;
+const h = Seconds.PerHour * 6;
 export class o {
 	BASELOG = new m.wd("Chat", () => this.unique_id).Debug;
 	m_FriendStore;

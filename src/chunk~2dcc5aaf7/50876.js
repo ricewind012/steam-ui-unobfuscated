@@ -8,9 +8,18 @@ var c = require("./67863.js");
 var m = require("./64608.js");
 var u = require("./35488.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+	BLocStringExists,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var p = require("./83184.js");
-var g = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	GetOwningWindowForElement,
+} from "../../actual_src/utils/domutils.js";
 var h = require("./3475.js");
 var C = require(/*webcrack:missing*/ "./72476.js");
 var _ = require("./57472.js");
@@ -47,7 +56,7 @@ function M() {
 	const c = (0, i.Qt)("steam://open/addnonsteamgame");
 	const f = (0, i.bG)("StoreFrontPage");
 	const S = (e) => {
-		(0, p.U)((0, g.uX)(e));
+		(0, p.U)(GetOwningWindowForEvent(e));
 	};
 	return n.createElement(
 		E.sh,
@@ -63,7 +72,7 @@ function M() {
 					{
 						className: b.DescriptionText,
 					},
-					(0, A.we)("#Settings_Library_DisplaySize"),
+					(0, Localize)("#Settings_Library_DisplaySize"),
 				),
 				n.createElement(
 					v,
@@ -77,28 +86,28 @@ function M() {
 						{
 							value: 0,
 						},
-						(0, A.we)("#Settings_Library_DisplaySize_Automatic"),
+						(0, Localize)("#Settings_Library_DisplaySize_Automatic"),
 					),
 					n.createElement(
 						m.a,
 						{
 							value: 1,
 						},
-						(0, A.we)("#Settings_Library_DisplaySize_Small"),
+						(0, Localize)("#Settings_Library_DisplaySize_Small"),
 					),
 					n.createElement(
 						m.a,
 						{
 							value: 2,
 						},
-						(0, A.we)("#Settings_Library_DisplaySize_Medium"),
+						(0, Localize)("#Settings_Library_DisplaySize_Medium"),
 					),
 					n.createElement(
 						m.a,
 						{
 							value: 3,
 						},
-						(0, A.we)("#Settings_Library_DisplaySize_Large"),
+						(0, Localize)("#Settings_Library_DisplaySize_Large"),
 					),
 				),
 				n.createElement(m.Nu, {
@@ -111,22 +120,24 @@ function M() {
 				null,
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_Library_LowBandwidthMode"),
-					description: (0, A.we)(
+					label: (0, Localize)("#Settings_Library_LowBandwidthMode"),
+					description: (0, Localize)(
 						"#Settings_Library_LowBandwidthMode_Description",
 					),
 					setting: "library_low_bandwidth_mode",
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_Library_LowPerfMode"),
-					description: (0, A.we)("#Settings_Library_LowPerfMode_Description"),
+					label: (0, Localize)("#Settings_Library_LowPerfMode"),
+					description: (0, Localize)(
+						"#Settings_Library_LowPerfMode_Description",
+					),
 					setting: "library_low_perf_mode",
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_Library_DisableCommunityContent"),
-					description: (0, A.we)(
+					label: (0, Localize)("#Settings_Library_DisableCommunityContent"),
+					description: (0, Localize)(
 						"#Settings_Library_DisableCommunityContent_Description",
 					),
 					setting: "library_disable_community_content",
@@ -134,13 +145,15 @@ function M() {
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_Library_ShowGameIcons"),
+					label: (0, Localize)("#Settings_Library_ShowGameIcons"),
 					setting: "library_display_icon_in_game_list",
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_Library_ReadyToPlayIncludesStreaming"),
-					description: (0, A.we)(
+					label: (0, Localize)(
+						"#Settings_Library_ReadyToPlayIncludesStreaming",
+					),
+					description: (0, Localize)(
 						"#Settings_Library_ReadyToPlayIncludesStreaming_Description",
 					),
 					setting: "ready_to_play_includes_streaming",
@@ -149,13 +162,13 @@ function M() {
 		!t &&
 			n.createElement(_.G, {
 				feature: h.uX,
-				label: (0, A.we)("#Settings_Library_Show_SteamDeck_Info"),
+				label: (0, Localize)("#Settings_Library_Show_SteamDeck_Info"),
 				setting: "show_steam_deck_info",
 			}),
 		a &&
 			n.createElement(_.G, {
 				feature: h.uX,
-				label: (0, A.we)("#Settings_Library_Show_Copy_Count"),
+				label: (0, Localize)("#Settings_Library_Show_Copy_Count"),
 				setting: "show_copy_count_in_library",
 			}),
 		!e &&
@@ -165,17 +178,17 @@ function M() {
 				n.createElement(
 					m.lr,
 					null,
-					(0, A.we)("#Settings_Library_ProdKey_Activate"),
+					(0, Localize)("#Settings_Library_ProdKey_Activate"),
 				),
 				n.createElement(
 					E.WG,
 					{
 						icon: n.createElement(u.CD, null),
-						label: (0, A.we)("#Settings_Library_Add_To_Library"),
-						description: (0, A.we)("#Settings_Library_ProdKey_UseCode"),
+						label: (0, Localize)("#Settings_Library_Add_To_Library"),
+						description: (0, Localize)("#Settings_Library_ProdKey_UseCode"),
 						onClick: S,
 					},
-					(0, A.we)("#Settings_Library_ProdKey_AddGame"),
+					(0, Localize)("#Settings_Library_ProdKey_AddGame"),
 				),
 			),
 		e &&
@@ -190,14 +203,14 @@ function M() {
 					{
 						onClick: c,
 					},
-					(0, A.we)("#Settings_Library_AddNonSteam"),
+					(0, Localize)("#Settings_Library_AddNonSteam"),
 				),
 				n.createElement(
 					E.CS,
 					{
 						onClick: S,
 					},
-					(0, A.we)("#Settings_Library_Activate"),
+					(0, Localize)("#Settings_Library_Activate"),
 				),
 				n.createElement(
 					y.t,
@@ -206,7 +219,7 @@ function M() {
 						feature: 1,
 						onClick: f,
 					},
-					(0, A.we)("#Settings_Library_BrowseStore"),
+					(0, Localize)("#Settings_Library_BrowseStore"),
 				),
 			),
 	);
@@ -226,19 +239,19 @@ function P(e) {
 		return n.createElement(m.D0, {
 			disabled: true,
 			icon: n.createElement(u.VolumeMuted, null),
-			label: (0, A.we)("#Audio_No_Output_Devices_Detected"),
+			label: (0, Localize)("#Audio_No_Output_Devices_Detected"),
 		});
 	} else {
 		return n.createElement(
 			n.Fragment,
 			null,
-			n.createElement(m.iK, null, (0, A.we)("#Audio_Header_Output")),
+			n.createElement(m.iK, null, (0, Localize)("#Audio_Header_Output")),
 			n.createElement(a.RC, {
 				direction: t,
 			}),
 			n.createElement(a.E1, {
 				direction: t,
-				label: (0, A.we)("#Audio_OutputDevice"),
+				label: (0, Localize)("#Audio_OutputDevice"),
 			}),
 		);
 	}
@@ -249,19 +262,19 @@ function L(e) {
 		return n.createElement(m.D0, {
 			disabled: true,
 			icon: n.createElement(u.VolumeMuted, null),
-			label: (0, A.we)("#Audio_No_Input_Devices_Detected"),
+			label: (0, Localize)("#Audio_No_Input_Devices_Detected"),
 		});
 	} else {
 		return n.createElement(
 			n.Fragment,
 			null,
-			n.createElement(m.iK, null, (0, A.we)("#Audio_Header_Voice")),
+			n.createElement(m.iK, null, (0, Localize)("#Audio_Header_Voice")),
 			n.createElement(a.RC, {
 				direction: t,
 			}),
 			n.createElement(a.E1, {
 				direction: t,
-				label: (0, A.we)("#Audio_InputDevice"),
+				label: (0, Localize)("#Audio_InputDevice"),
 			}),
 		);
 	}
@@ -270,11 +283,11 @@ function z(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(m.iK, null, (0, A.we)("#Audio_Header_General")),
+		n.createElement(m.iK, null, (0, Localize)("#Audio_Header_General")),
 		n.createElement(_.G, {
 			feature: h.uX,
 			setting: "enable_ui_sounds",
-			label: (0, A.we)("#Audio_Setting_Enable_UI_Sounds"),
+			label: (0, Localize)("#Audio_Setting_Enable_UI_Sounds"),
 		}),
 	);
 }
@@ -315,11 +328,11 @@ function q(e) {
 	const { rPairedDevices: a, rAvailableDevices: s } = (0, W.KO)(i);
 	const o = (function (e, t) {
 		if (e.length > 0) {
-			return (0, A.we)("#QuickAccess_Tab_Bluetooth_Available_To_Pair");
+			return (0, Localize)("#QuickAccess_Tab_Bluetooth_Available_To_Pair");
 		} else if (t) {
-			return (0, A.we)("#QuickAccess_Tab_Bluetooth_Searching");
+			return (0, Localize)("#QuickAccess_Tab_Bluetooth_Searching");
 		} else {
-			return (0, A.we)("#QuickAccess_Tab_Bluetooth_No_Devices_Found");
+			return (0, Localize)("#QuickAccess_Tab_Bluetooth_No_Devices_Found");
 		}
 	})(s, r);
 	return n.createElement(
@@ -329,7 +342,7 @@ function q(e) {
 			m.G5,
 			null,
 			n.createElement(j.tN, {
-				label: (0, A.we)("#QuickAccess_Tab_Bluetooth_ToggleLabel"),
+				label: (0, Localize)("#QuickAccess_Tab_Bluetooth_ToggleLabel"),
 			}),
 			n.createElement(j.cQ, null),
 		),
@@ -340,7 +353,7 @@ function q(e) {
 				n.createElement(
 					m.lr,
 					null,
-					(0, A.we)("#QuickAccess_Tab_Bluetooth_Paired"),
+					(0, Localize)("#QuickAccess_Tab_Bluetooth_Paired"),
 				),
 				a.map((e, t) =>
 					n.createElement(j.LV, {
@@ -448,10 +461,10 @@ function ie() {
 		y.E,
 		{
 			feature: 7,
-			label: (0, A.we)("#Settings_Developer_SpeakerTest"),
+			label: (0, Localize)("#Settings_Developer_SpeakerTest"),
 			onClick: ne.Get().RunSpeakerTest,
 		},
-		(0, A.we)("#Settings_Developer_SpeakerTest_Start"),
+		(0, Localize)("#Settings_Developer_SpeakerTest_Start"),
 	);
 }
 (0, Z.Cg)([te.sH], ne.prototype, "m_msgState", undefined);
@@ -473,9 +486,11 @@ function de() {
 			(t) => {
 				SteamClient.Settings.SpecifyGlobalCompatTool(t);
 				(0, le.$)({
-					strDescription: (0, A.we)("#Settings_SteamPlay_NeedsRestart"),
-					strOKButtonText: (0, A.we)("#Settings_SteamPlay_Restart"),
-					strCancelButtonText: (0, A.we)("#Settings_SteamPlay_RestartLater"),
+					strDescription: (0, Localize)("#Settings_SteamPlay_NeedsRestart"),
+					strOKButtonText: (0, Localize)("#Settings_SteamPlay_Restart"),
+					strCancelButtonText: (0, Localize)(
+						"#Settings_SteamPlay_RestartLater",
+					),
 					fnOnOK: () => {},
 					ownerWindow: e.ownerWindow,
 				});
@@ -507,8 +522,8 @@ function Ae(e) {
 	);
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_SteamPlay_EnableForOtherTitles"),
-		description: (0, A.we)("#Settings_SteamPlay_EnableForOtherTitles_Desc"),
+		label: (0, Localize)("#Settings_SteamPlay_EnableForOtherTitles"),
+		description: (0, Localize)("#Settings_SteamPlay_EnableForOtherTitles_Desc"),
 		controlled: true,
 		disabled: !r,
 		checked: a,
@@ -532,7 +547,7 @@ function pe(e) {
 	if (t) {
 		return n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_SteamPlay_RunOtherTitlesWith"),
+			label: (0, Localize)("#Settings_SteamPlay_RunOtherTitlesWith"),
 			rgOptions: a,
 			disabled: a.length == 0,
 			selectedOption: t,
@@ -546,7 +561,11 @@ function ge(e) {
 	return n.createElement(
 		E.sh,
 		null,
-		n.createElement("div", null, (0, A.we)("#Settings_SteamPlay_IsEnabled")),
+		n.createElement(
+			"div",
+			null,
+			(0, Localize)("#Settings_SteamPlay_IsEnabled"),
+		),
 		n.createElement(Ae, null),
 		n.createElement(pe, null),
 	);
@@ -557,8 +576,8 @@ function _e() {
 	const [e, t] = (0, J.CN)();
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_Tracing"),
-		description: (0, A.we)("#Settings_Tracing_Description"),
+		label: (0, Localize)("#Settings_Tracing"),
+		description: (0, Localize)("#Settings_Tracing_Description"),
 		checked: t,
 		onChange: (e) => {
 			J.Hn.Get().SetSystemTracingEnabled(e);
@@ -570,8 +589,8 @@ function fe() {
 	const [e, t] = (0, J.gU)();
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_Profiling"),
-		description: (0, A.we)("#Settings_Profiling_Description"),
+		label: (0, Localize)("#Settings_Profiling"),
+		description: (0, Localize)("#Settings_Profiling_Description"),
 		checked: t,
 		onChange: (e) => {
 			J.Hn.Get().SetGraphicsProfilingEnabled(e);
@@ -584,7 +603,7 @@ function be(e) {
 		return n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.tX, null, (0, A.we)("#Settings_Profiling_Title")),
+			n.createElement(m.tX, null, (0, Localize)("#Settings_Profiling_Title")),
 			n.createElement(_e, null),
 			n.createElement(fe, null),
 		);
@@ -597,7 +616,7 @@ function ye(e) {
 	const i = n.useCallback((e) => {
 		(0, K.pg)(
 			n.createElement(X.o0, {
-				strTitle: (0, A.we)("#Settings_System_Devkit_Pairing_Confirmation"),
+				strTitle: (0, Localize)("#Settings_System_Devkit_Pairing_Confirmation"),
 				strDescription: e,
 				onOK: () => Y.Get().RespondToPairingPrompt(1, "access granted"),
 				onCancel: () => Y.Get().RespondToPairingPrompt(15, "access denied"),
@@ -617,7 +636,7 @@ function ye(e) {
 		E.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#Settings_System_Devkit_PairingLabel"),
+			label: (0, Localize)("#Settings_System_Devkit_PairingLabel"),
 			onClick: () => {
 				let e = !t;
 				Y.Get().SetPairing(e);
@@ -625,8 +644,8 @@ function ye(e) {
 			},
 		},
 		t
-			? (0, A.we)("#Settings_System_Devkit_Pairing")
-			: (0, A.we)("#Settings_System_Devkit_DoPairing"),
+			? (0, Localize)("#Settings_System_Devkit_Pairing")
+			: (0, Localize)("#Settings_System_Devkit_DoPairing"),
 	);
 }
 function Se(e) {
@@ -634,7 +653,7 @@ function Se(e) {
 		return n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.lr, null, (0, A.we)("#Settings_System_Devkit")),
+			n.createElement(m.lr, null, (0, Localize)("#Settings_System_Devkit")),
 			n.createElement(ye, null),
 		);
 	} else {
@@ -645,8 +664,8 @@ function we() {
 	const [e, t] = (0, l.VI)("steam_input_configurator_error_msg_enable");
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_Developer_SteamInputDev"),
-		description: (0, A.we)("#Settings_Developer_SteamInputDev_Desc"),
+		label: (0, Localize)("#Settings_Developer_SteamInputDev"),
+		description: (0, Localize)("#Settings_Developer_SteamInputDev_Desc"),
 		checked: e,
 		onChange: (e) => {
 			t(e);
@@ -657,7 +676,7 @@ function Be(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(m.tX, null, (0, A.we)("#Settings_System_SteamInput")),
+		n.createElement(m.tX, null, (0, Localize)("#Settings_System_SteamInput")),
 		n.createElement(we, null),
 	);
 }
@@ -665,15 +684,15 @@ function ve() {
 	return n.createElement(_.G, {
 		feature: 7,
 		setting: "force_oobe",
-		label: (0, A.we)("#Settings_ForceOOBE"),
-		description: (0, A.we)("#Settings_ForceOOBE_Description"),
+		label: (0, Localize)("#Settings_ForceOOBE"),
+		description: (0, Localize)("#Settings_ForceOOBE_Description"),
 	});
 }
 function Ie() {
 	const [e, t] = (0, s.FA)();
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_Developer_ShowAdvancedOSBranches"),
+		label: (0, Localize)("#Settings_Developer_ShowAdvancedOSBranches"),
 		checked: e,
 		onChange: t,
 	});
@@ -683,15 +702,17 @@ function Ee() {
 	if ((0, C.CI)()) {
 		return n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Developer_ForceSystemComposer"),
+			label: (0, Localize)("#Settings_Developer_ForceSystemComposer"),
 			checked: e == 1,
 			onChange: (e) => {
 				t(e ? 1 : 0);
 				(0, K.pg)(
 					n.createElement(X.o0, {
-						strTitle: (0, A.we)("#Modal_ConfirmSteamRestart_Title"),
-						strOKButtonText: (0, A.we)("#Modal_ConfirmSteamRestart_RestartNow"),
-						strCancelButtonText: (0, A.we)(
+						strTitle: (0, Localize)("#Modal_ConfirmSteamRestart_Title"),
+						strOKButtonText: (0, Localize)(
+							"#Modal_ConfirmSteamRestart_RestartNow",
+						),
+						strCancelButtonText: (0, Localize)(
 							"#Modal_ConfirmSteamRestart_RestartLater",
 						),
 						onOK: () => {
@@ -710,8 +731,8 @@ function Me() {
 	return n.createElement(_.G, {
 		feature: 7,
 		setting: "cef_remote_debugging_enabled",
-		label: (0, A.we)("#Settings_Developer_CefRemoteDebugging"),
-		description: (0, A.we)("#Settings_Developer_CefRemoteDebugging_Desc"),
+		label: (0, Localize)("#Settings_Developer_CefRemoteDebugging"),
+		description: (0, Localize)("#Settings_Developer_CefRemoteDebugging_Desc"),
 	});
 }
 function Te(e) {
@@ -719,10 +740,12 @@ function Te(e) {
 		E.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#Settings_Developer_ClearGameLaunchInterstitialsSeen"),
+			label: (0, Localize)(
+				"#Settings_Developer_ClearGameLaunchInterstitialsSeen",
+			),
 			onClick: ee.z.ClearAllInterstitialsSeen,
 		},
-		(0, A.we)("#Settings_Developer_ClearGameLaunchInterstitialsSeenButton"),
+		(0, Localize)("#Settings_Developer_ClearGameLaunchInterstitialsSeenButton"),
 	);
 }
 function Re(e) {
@@ -731,10 +754,10 @@ function Re(e) {
 		E.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#Settings_Developer_OpenSteamConsoleTab"),
+			label: (0, Localize)("#Settings_Developer_OpenSteamConsoleTab"),
 			onClick: t,
 		},
-		(0, A.we)("#Settings_Developer_OpenSteamConsoleTab_Button"),
+		(0, Localize)("#Settings_Developer_OpenSteamConsoleTab_Button"),
 	);
 }
 function ke(e) {
@@ -745,7 +768,11 @@ function De(e) {
 		return n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.lr, null, (0, A.we)("#Settings_Developer_WiFi_Title")),
+			n.createElement(
+				m.lr,
+				null,
+				(0, Localize)("#Settings_Developer_WiFi_Title"),
+			),
 			n.createElement($.MF, null),
 			n.createElement(he.I8, null),
 			n.createElement(he.bu, null),
@@ -760,7 +787,7 @@ function Ne(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(m.tX, null, (0, A.we)("#Settings_Miscellaneous_Title")),
+		n.createElement(m.tX, null, (0, Localize)("#Settings_Miscellaneous_Title")),
 		t &&
 			n.createElement(
 				n.Fragment,
@@ -780,7 +807,7 @@ function Ne(e) {
 				n.createElement(ae.Jd, null),
 				n.createElement($.n8, {
 					bForceFormat: true,
-					strLabel: (0, A.we)("#Settings_System_ForceFormatSD_Label"),
+					strLabel: (0, Localize)("#Settings_System_ForceFormatSD_Label"),
 				}),
 			),
 		r &&
@@ -795,7 +822,7 @@ function Ne(e) {
 		n.createElement(_.G, {
 			feature: 7,
 			setting: "show_timestamps_in_console",
-			label: (0, A.we)("#Settings_Developer_ShowTimestampsInConsole"),
+			label: (0, Localize)("#Settings_Developer_ShowTimestampsInConsole"),
 		}),
 		n.createElement(Ee, null),
 		n.createElement(Me, null),
@@ -803,8 +830,8 @@ function Ne(e) {
 		n.createElement(_.G, {
 			feature: 7,
 			setting: "hdr_compat_testing",
-			label: (0, A.we)("#Settings_Developer_HDRCompatTesting"),
-			description: (0, A.we)("#Settings_Developer_HDRCompatTesting_Desc"),
+			label: (0, Localize)("#Settings_Developer_HDRCompatTesting"),
+			description: (0, Localize)("#Settings_Developer_HDRCompatTesting_Desc"),
 		}),
 	);
 }
@@ -813,8 +840,16 @@ function Fe(e) {
 		return n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.tX, null, (0, A.we)("#Settings_SteamPlay_SteamPlay")),
-			n.createElement("div", null, (0, A.we)("#Settings_SteamPlay_IsEnabled")),
+			n.createElement(
+				m.tX,
+				null,
+				(0, Localize)("#Settings_SteamPlay_SteamPlay"),
+			),
+			n.createElement(
+				"div",
+				null,
+				(0, Localize)("#Settings_SteamPlay_IsEnabled"),
+			),
 			n.createElement(Ae, null),
 			n.createElement(pe, null),
 		);
@@ -849,8 +884,8 @@ function He() {
 		feature: 7,
 		checked: e,
 		onChange: (e) => Pe.mG.Get().SetNightModeEnabled(e),
-		label: (0, A.we)("#Settings_Display_NightMode"),
-		description: (0, A.we)("#Settings_Display_NightMode_Desc"),
+		label: (0, Localize)("#Settings_Display_NightMode"),
+		description: (0, Localize)("#Settings_Display_NightMode_Desc"),
 	});
 }
 function je(e) {
@@ -860,11 +895,11 @@ function je(e) {
 		() => [
 			{
 				notchIndex: 0,
-				label: (0, A.we)("#Settings_Display_NightModeColor_Cool"),
+				label: (0, Localize)("#Settings_Display_NightModeColor_Cool"),
 			},
 			{
 				notchIndex: 1,
-				label: (0, A.we)("#Settings_Display_NightModeColor_Warm"),
+				label: (0, Localize)("#Settings_Display_NightModeColor_Warm"),
 			},
 		],
 		[],
@@ -873,7 +908,7 @@ function je(e) {
 		feature: 7,
 		layout: "inline",
 		bottomSeparator: e.bottomSeparator,
-		label: (0, A.we)("#Settings_Display_NightModeColor"),
+		label: (0, Localize)("#Settings_Display_NightModeColor"),
 		value: i,
 		onChange: a,
 		min: 0.1,
@@ -889,7 +924,7 @@ function qe() {
 	return n.createElement(O.V, {
 		feature: 7,
 		layout: "inline",
-		label: (0, A.we)("#Settings_Display_NightModeDominantHue"),
+		label: (0, Localize)("#Settings_Display_NightModeDominantHue"),
 		value: e,
 		onChange: (e) => Pe.mG.Get().SetNightModeMaxHue(e),
 		min: 0,
@@ -902,7 +937,7 @@ function Qe() {
 	return n.createElement(O.V, {
 		feature: 7,
 		layout: "inline",
-		label: (0, A.we)("#Settings_Display_NightModePeakSaturation"),
+		label: (0, Localize)("#Settings_Display_NightModePeakSaturation"),
 		value: e,
 		onChange: (e) => Pe.mG.Get().SetNightModeMaxSat(e),
 		min: 0.5,
@@ -917,7 +952,7 @@ function Ze() {
 		n.createElement(O.V, {
 			feature: 7,
 			layout: "inline",
-			label: (0, A.we)("#Settings_Display_NightModeShadowSaturation"),
+			label: (0, Localize)("#Settings_Display_NightModeShadowSaturation"),
 			value: t,
 			onChange: (e) => Pe.mG.Get().SetNightModeBlend(e),
 			min: -1,
@@ -939,12 +974,12 @@ function Ye() {
 			feature: 7,
 			checked: e,
 			onChange: (e) => Pe.mG.Get().SetNightModeScheduleEnabled(e),
-			label: (0, A.we)("#Settings_Display_ScheduleNightMode"),
+			label: (0, Localize)("#Settings_Display_ScheduleNightMode"),
 		}),
 		n.createElement(
 			m.D0,
 			{
-				label: (0, A.we)("#Settings_Display_AutoEnableBetween"),
+				label: (0, Localize)("#Settings_Display_AutoEnableBetween"),
 				childrenLayout: "inline",
 				childrenContainerWidth: "fixed",
 			},
@@ -967,7 +1002,7 @@ function Ye() {
 					{
 						className: xe.And,
 					},
-					(0, A.we)("#Settings_Display_AutoEnableBetween_And"),
+					(0, Localize)("#Settings_Display_AutoEnableBetween_And"),
 				),
 				n.createElement(ue.I, {
 					feature: 7,
@@ -994,7 +1029,7 @@ function Ke() {
 				m.lr,
 				null,
 				" ",
-				(0, A.we)("#Settings_Display_NightModeSection"),
+				(0, Localize)("#Settings_Display_NightModeSection"),
 				" ",
 			),
 			n.createElement(Ye, null),
@@ -1038,7 +1073,7 @@ function Ke() {
 							feature: 7,
 							onClick: Pe.mG.Get().ResetNightMode,
 						},
-						(0, A.we)("#Settings_Display_NightModeReset"),
+						(0, Localize)("#Settings_Display_NightModeReset"),
 					),
 				n.createElement(
 					m.$n,
@@ -1046,8 +1081,8 @@ function Ke() {
 						onClick: () => Pe.mG.Get().SetNightModeAdvancedView(!e),
 					},
 					e
-						? (0, A.we)("#Common_Basic_View")
-						: (0, A.we)("#Common_Advanced_View"),
+						? (0, Localize)("#Common_Basic_View")
+						: (0, Localize)("#Common_Advanced_View"),
 				),
 			),
 		),
@@ -1058,7 +1093,7 @@ function Xe() {
 	if (e) {
 		return n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Display_NativeColorTemp"),
+			label: (0, Localize)("#Settings_Display_NativeColorTemp"),
 			checked: !t,
 			onChange: (e) => r(!e),
 		});
@@ -1073,7 +1108,7 @@ function Je(e) {
 	if (t && o) {
 		return n.createElement(O.V, {
 			feature: 7,
-			label: (0, A.we)("#Settings_HDR_SDRContentBrightness"),
+			label: (0, Localize)("#Settings_HDR_SDRContentBrightness"),
 			value: a,
 			onChange: s,
 			min: 0,
@@ -1092,7 +1127,11 @@ function $e(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(m.lr, null, (0, A.we)("#Settings_Display_Advanced_Header")),
+		n.createElement(
+			m.lr,
+			null,
+			(0, Localize)("#Settings_Display_Advanced_Header"),
+		),
 		n.createElement(ae.s0, null),
 		n.createElement(ot, null),
 		n.createElement(se.lt, null),
@@ -1151,7 +1190,7 @@ const tt = (0, Oe.PA)(() => {
 	let r = [
 		{
 			data: 0,
-			label: (0, A.we)("#Settings_Display_PreferredMonitor_None"),
+			label: (0, Localize)("#Settings_Display_PreferredMonitor_None"),
 		},
 	];
 	t?.monitors?.forEach((e, t) => {
@@ -1175,10 +1214,10 @@ const tt = (0, Oe.PA)(() => {
 					m.iK,
 					null,
 					" ",
-					(0, A.we)("#Settings_Display_PreferredMonitor"),
+					(0, Localize)("#Settings_Display_PreferredMonitor"),
 				),
 				n.createElement(m.D0, {
-					description: (0, A.we)("#Settings_Display_PreferredMonitor_Desc"),
+					description: (0, Localize)("#Settings_Display_PreferredMonitor_Desc"),
 					bottomSeparator: "none",
 				}),
 				n.createElement(ue.I, {
@@ -1202,7 +1241,7 @@ function rt() {
 				m.lr,
 				null,
 				" ",
-				(0, A.we)("#Settings_System_Idle_Sleep"),
+				(0, Localize)("#Settings_System_Idle_Sleep"),
 			),
 			n.createElement($.Xk, {
 				bOnAC: true,
@@ -1223,13 +1262,13 @@ function nt() {
 		return n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.iK, null, " ", (0, A.we)("#Settings_Display_BPM")),
+			n.createElement(m.iK, null, " ", (0, Localize)("#Settings_Display_BPM")),
 			n.createElement(me.C, {
 				feature: 7,
 				checked: e,
 				onChange: (e) => l.rV.SetWindowedMode(e),
-				label: (0, A.we)("#Settings_Display_BPM_Windowed"),
-				description: (0, A.we)("#Settings_Display_BPM_Windowed_Desc"),
+				label: (0, Localize)("#Settings_Display_BPM_Windowed"),
+				description: (0, Localize)("#Settings_Display_BPM_Windowed_Desc"),
 			}),
 		);
 	}
@@ -1250,7 +1289,7 @@ function it() {
 					bottomSeparator: "none",
 					onClick: e,
 				},
-				(0, A.we)("#Settings_Display_AdjustDisplayColors"),
+				(0, Localize)("#Settings_Display_AdjustDisplayColors"),
 			),
 		)
 	);
@@ -1259,7 +1298,12 @@ function at(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(m.lr, null, " ", (0, A.we)("#Settings_System_Idle_Dim")),
+		n.createElement(
+			m.lr,
+			null,
+			" ",
+			(0, Localize)("#Settings_System_Idle_Dim"),
+		),
 		n.createElement($.QY, {
 			bOnAC: true,
 		}),
@@ -1298,7 +1342,7 @@ function ot(e) {
 	if (C.TS.ON_STEAMOS) {
 		return n.createElement(We.Pl, {
 			setting: "steamos_magnifier_scale",
-			label: (0, A.we)("#Settings_Display_Mangifier_Scale"),
+			label: (0, Localize)("#Settings_Display_Mangifier_Scale"),
 			min: 120,
 			max: 300,
 			step: 10,
@@ -1403,7 +1447,7 @@ function yt(e) {
 			className: mt.FilterText,
 			value: r,
 			onChange: (e) => i(e.currentTarget.value),
-			placeholder: (0, A.we)("#AppUpdateOverrideManagement_SearchHint"),
+			placeholder: (0, Localize)("#AppUpdateOverrideManagement_SearchHint"),
 			bShowClearAction: true,
 		}),
 		n.createElement(
@@ -1464,7 +1508,7 @@ function St(e) {
 				),
 				n.createElement(m.ZU, {
 					strDropDownButtonClassName: mt.AppDropDown,
-					menuLabel: (0, A.we)("#AppProperties_AutoUpdateSection"),
+					menuLabel: (0, Localize)("#AppProperties_AutoUpdateSection"),
 					rgOptions: o,
 					selectedOption: a.eAutoUpdateValue,
 					disabled: a.bIsThirdPartyUpdater || !a.bHasAnyLocalContent,
@@ -1501,13 +1545,13 @@ function wt(e) {
 		n.createElement(
 			m.Y9,
 			null,
-			(0, A.we)("#AppUpdateOverrideManagement_Title"),
+			(0, Localize)("#AppUpdateOverrideManagement_Title"),
 			" ",
 		),
 		n.createElement(
 			E.Tv,
 			null,
-			(0, A.PP)(
+			LocalizeReact(
 				"#AppUpdateOverrideManagement_Setting",
 				n.createElement(
 					"span",
@@ -1518,7 +1562,7 @@ function wt(e) {
 				),
 			),
 			n.createElement("br", null),
-			(0, A.we)("#AppUpdateOverrideManagement_Description"),
+			(0, Localize)("#AppUpdateOverrideManagement_Description"),
 		),
 		n.createElement(yt, {
 			rgAppIDs: t,
@@ -1529,7 +1573,7 @@ function wt(e) {
 				className: mt.DoneButton,
 				onClick: r,
 			},
-			(0, A.we)("#AppUpdateOverrideManagement_Done"),
+			(0, Localize)("#AppUpdateOverrideManagement_Done"),
 		),
 	);
 }
@@ -1568,12 +1612,12 @@ const It = () => {
 		label: e.strRegionName,
 	}));
 	return n.createElement(pt.X, {
-		label: (0, A.we)("#DownloadSettings_SelectRegion"),
+		label: (0, Localize)("#DownloadSettings_SelectRegion"),
 		onChange: (e, t) => {
-			const r = (0, g.qf)(t.element);
+			const r = GetOwningWindowForElement(t.element);
 			(0, le.$)({
 				ownerWindow: r,
-				strCancelButtonText: (0, A.we)("#Settings_RestartLater_ButtonText"),
+				strCancelButtonText: (0, Localize)("#Settings_RestartLater_ButtonText"),
 			});
 		},
 		rgOptions: e,
@@ -1602,7 +1646,7 @@ const Et = () => {
 		null,
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#DownloadSettings_BandwidthLimit"),
+			label: (0, Localize)("#DownloadSettings_BandwidthLimit"),
 			checked: s,
 			onChange: (e) => {
 				t(e ? Math.floor(p * c) : 0);
@@ -1616,7 +1660,7 @@ const Et = () => {
 				null,
 				n.createElement(gt, {
 					feature: 7,
-					label: (0, A.we)(
+					label: (0, Localize)(
 						r
 							? "#DownloadSettings_BandwidthLimit_Desc_Kilobits"
 							: "#DownloadSettings_BandwidthLimit_Desc_Kilobytes",
@@ -1625,7 +1669,7 @@ const Et = () => {
 					inputClassName: mt.BandwidthInput,
 					mustBeNumeric: true,
 					value: p > 0 ? i : "",
-					placeholder: (0, A.we)(
+					placeholder: (0, Localize)(
 						"#DownloadSettings_BandwidthLimit_Placeholder",
 					),
 					onChange: g,
@@ -1641,7 +1685,10 @@ const Et = () => {
 						{
 							className: mt.BandwidthLimit,
 						},
-						(0, A.we)(r ? "#Kilobits_PerSecond" : "#Kilobytes_PerSecond", ""),
+						(0, Localize)(
+							r ? "#Kilobits_PerSecond" : "#Kilobytes_PerSecond",
+							"",
+						),
 					),
 				}),
 				n.createElement(m.Nu, {
@@ -1665,7 +1712,7 @@ const Mt = () => {
 		n.createElement(_.G, {
 			feature: 7,
 			bottomSeparator: "standard",
-			label: (0, A.we)("#DownloadSettings_ScheduleAutoUpdates"),
+			label: (0, Localize)("#DownloadSettings_ScheduleAutoUpdates"),
 			setting: "restrict_auto_updates",
 		}),
 		t &&
@@ -1678,7 +1725,7 @@ const Mt = () => {
 						feature: 7,
 						indentLevel: 1,
 						bottomSeparator: "none",
-						label: (0, A.we)("#DownloadSettings_RestrictUpdatesFrom"),
+						label: (0, Localize)("#DownloadSettings_RestrictUpdatesFrom"),
 						childrenLayout: "inline",
 						childrenContainerWidth: "fixed",
 					},
@@ -1700,7 +1747,7 @@ const Mt = () => {
 							{
 								className: mt.And,
 							},
-							(0, A.we)("#DownloadSettings_RestrictUpdatesTo"),
+							(0, Localize)("#DownloadSettings_RestrictUpdatesTo"),
 						),
 						n.createElement(ue.I, {
 							feature: 7,
@@ -1721,8 +1768,8 @@ const Mt = () => {
 const Tt = () =>
 	n.createElement(_.G, {
 		feature: 7,
-		label: (0, A.we)("#DownloadSettings_AllowDownloadDuringGameplay"),
-		description: (0, A.we)(
+		label: (0, Localize)("#DownloadSettings_AllowDownloadDuringGameplay"),
+		description: (0, Localize)(
 			"#DownloadSettings_AllowDownloadDuringGameplay_Description",
 		),
 		setting: "download_while_app_running",
@@ -1730,8 +1777,8 @@ const Tt = () =>
 const Rt = () =>
 	n.createElement(_.G, {
 		feature: 7,
-		label: (0, A.we)("#DownloadSettings_ThrottleDuringStreaming"),
-		description: (0, A.we)(
+		label: (0, Localize)("#DownloadSettings_ThrottleDuringStreaming"),
+		description: (0, Localize)(
 			"#DownloadSettings_ThrottleDuringStreaming_Description",
 		),
 		setting: "download_throttle_while_streaming",
@@ -1740,7 +1787,7 @@ const kt = (e) =>
 	n.createElement(_.G, {
 		feature: h.uX,
 		bottomSeparator: "standard",
-		label: (0, A.we)("#DownloadSettings_DisplayInBitsPerSecond"),
+		label: (0, Localize)("#DownloadSettings_DisplayInBitsPerSecond"),
 		setting: "download_rate_bits_per_s",
 	});
 const Dt = () => {
@@ -1757,13 +1804,13 @@ const Dt = () => {
 	const [o, c, u] = (0, N.uD)(false);
 	const p = [
 		{
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#DownloadSettings_DefaultAppUpdateBehavior_KeepUpToDate",
 			),
 			data: 3,
 		},
 		{
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#DownloadSettings_DefaultAppUpdateBehavior_UpdateOnLaunch",
 			),
 			data: 1,
@@ -1783,18 +1830,18 @@ const Dt = () => {
 			n.createElement(
 				E.Pq,
 				null,
-				(0, A.we)("#DownloadSettings_DefaultAppUpdateBehavior"),
+				(0, Localize)("#DownloadSettings_DefaultAppUpdateBehavior"),
 			),
 			n.createElement(
 				E.Tv,
 				null,
-				(0, A.we)("#DownloadSettings_DefaultAppUpdateBehavior_Description"),
+				(0, Localize)("#DownloadSettings_DefaultAppUpdateBehavior_Description"),
 			),
 			!a &&
 				n.createElement(
 					E.Tv,
 					null,
-					(0, A.we)(
+					(0, Localize)(
 						"#DownloadSettings_DefaultAppUpdateBehavior_Exceptions_NoGame",
 					),
 				),
@@ -1802,7 +1849,7 @@ const Dt = () => {
 				n.createElement(
 					E.Tv,
 					null,
-					(0, A.PP)(
+					LocalizeReact(
 						"#DownloadSettings_DefaultAppUpdateBehavior_Exceptions",
 						n.createElement(
 							"a",
@@ -1840,7 +1887,10 @@ const Dt = () => {
 							onClick: c,
 							bottomSeparator: "none",
 						},
-						(0, A.Yp)("#DownloadSettings_ManageAppUpdateOverrides", r?.length),
+						LocalizePlural(
+							"#DownloadSettings_ManageAppUpdateOverrides",
+							r?.length,
+						),
 					),
 			),
 			n.createElement(m.Nu, {
@@ -1855,15 +1905,15 @@ const Nt = () => {
 	const r = e != 0;
 	const i = [
 		{
-			label: (0, A.we)("#DownloadSettings_PeerContentSameUser"),
+			label: (0, Localize)("#DownloadSettings_PeerContentSameUser"),
 			data: 1,
 		},
 		{
-			label: (0, A.we)("#DownloadSettings_PeerContentFriends"),
+			label: (0, Localize)("#DownloadSettings_PeerContentFriends"),
 			data: 2,
 		},
 		{
-			label: (0, A.we)("#DownloadSettings_PeerContentAnyUser"),
+			label: (0, Localize)("#DownloadSettings_PeerContentAnyUser"),
 			data: 3,
 		},
 	];
@@ -1872,8 +1922,8 @@ const Nt = () => {
 		null,
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#DownloadSettings_PeerContent"),
-			description: (0, A.we)("#DownloadSettings_PeerContentDescription"),
+			label: (0, Localize)("#DownloadSettings_PeerContent"),
+			description: (0, Localize)("#DownloadSettings_PeerContentDescription"),
 			checked: r,
 			onChange: (e) => {
 				t(e ? 1 : 0);
@@ -1888,7 +1938,7 @@ const Nt = () => {
 				},
 				n.createElement(ue.B, {
 					feature: 7,
-					label: (0, A.we)("#DownloadSettings_PeerContentServerMode"),
+					label: (0, Localize)("#DownloadSettings_PeerContentServerMode"),
 					rgOptions: i,
 					selectedOption: e,
 					onChange: (e) => {
@@ -1912,19 +1962,21 @@ const Ft = () => {
 			}
 			SteamClient.Settings.ClearDownloadCache();
 		},
-		strTitle: (0, A.we)("#DownloadSettings_ClearDownloadCache"),
-		strDescription: (0, A.we)("#DownloadSettings_ClearDownloadCacheWarning"),
+		strTitle: (0, Localize)("#DownloadSettings_ClearDownloadCache"),
+		strDescription: (0, Localize)(
+			"#DownloadSettings_ClearDownloadCacheWarning",
+		),
 	});
 	return n.createElement(
 		E.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#DownloadSettings_ClearDownloadCache"),
-			description: (0, A.we)("#DownloadSettings_ClearDownloadCacheDesc"),
+			label: (0, Localize)("#DownloadSettings_ClearDownloadCache"),
+			description: (0, Localize)("#DownloadSettings_ClearDownloadCacheDesc"),
 			onClick: r,
 		},
 		t,
-		(0, A.we)("#DownloadSettings_ClearDownloadCacheButton"),
+		(0, Localize)("#DownloadSettings_ClearDownloadCacheButton"),
 	);
 };
 const Gt = () => {
@@ -1933,21 +1985,25 @@ const Gt = () => {
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(m.tX, null, (0, A.we)("#DownloadSettings_PreShaderHeader")),
+		n.createElement(
+			m.tX,
+			null,
+			(0, Localize)("#DownloadSettings_PreShaderHeader"),
+		),
 		n.createElement(m.D0, {
-			description: (0, A.we)("#DownloadSettings_PreShaderDesc"),
+			description: (0, Localize)("#DownloadSettings_PreShaderDesc"),
 			bottomSeparator: "none",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#DownloadSettings_PreShaderEnable", t || 0),
+			label: (0, Localize)("#DownloadSettings_PreShaderEnable", t || 0),
 			setting: "enable_shader_precache",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
 			disabled: !e,
 			setting: "enable_shader_background_processing",
-			label: (0, A.we)("#DownloadSettings_PreShaderBackgroundProcessing"),
+			label: (0, Localize)("#DownloadSettings_PreShaderBackgroundProcessing"),
 		}),
 	);
 };
@@ -1972,16 +2028,18 @@ function Ot(e) {
 const Pt = () =>
 	n.createElement(_.G, {
 		feature: h.uX,
-		label: (0, A.we)("#CloudSettings_CloudEnabled"),
-		description: (0, A.we)("#CloudSettings_CloudEnabled_Description"),
+		label: (0, Localize)("#CloudSettings_CloudEnabled"),
+		description: (0, Localize)("#CloudSettings_CloudEnabled_Description"),
 		setting: "cloud_enabled",
 	});
 const Lt = () => {
 	const e = (0, C.Y2)();
 	return n.createElement(_.G, {
 		feature: h.uX,
-		label: (0, A.we)("#CloudSettings_ShowScreenshotManager"),
-		description: (0, A.we)("#CloudSettings_ShowScreenshotManager_Description"),
+		label: (0, Localize)("#CloudSettings_ShowScreenshotManager"),
+		description: (0, Localize)(
+			"#CloudSettings_ShowScreenshotManager_Description",
+		),
 		setting: "show_screenshot_manager",
 		visible: !e,
 	});
@@ -2007,7 +2065,7 @@ function Ht(e) {
 			return {
 				label:
 					((t = e.strShortName),
-					t === "none" ? "None" : (0, A.we)(`#language_selection_${t}`)),
+					t === "none" ? "None" : (0, Localize)(`#language_selection_${t}`)),
 				data: e.strShortName,
 			};
 			var t;
@@ -2029,9 +2087,11 @@ function Ht(e) {
 		(e) => {
 			if (e != r) {
 				(0, le.$)({
-					strDescription: (0, A.we)("#Settings_Language_NeedsRestart"),
+					strDescription: (0, Localize)("#Settings_Language_NeedsRestart"),
 					fnOnOK: () => c(e),
-					strCancelButtonText: (0, A.we)("#Settings_RestartLater_ButtonText"),
+					strCancelButtonText: (0, Localize)(
+						"#Settings_RestartLater_ButtonText",
+					),
 					fnOnCancel: () => m(e),
 					ownerWindow: t.ownerWindow,
 				});
@@ -2064,8 +2124,8 @@ function jt(e) {
 		!t.IN_VR &&
 		n.createElement(me.C, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Battery_Percentage"),
-			description: (0, A.we)("#Settings_Battery_Percentage_Desc"),
+			label: (0, Localize)("#Settings_Battery_Percentage"),
+			description: (0, Localize)("#Settings_Battery_Percentage_Desc"),
 			checked: r?.bShowBatteryPercentage,
 			onChange: (e) => {
 				let t = {
@@ -2083,7 +2143,7 @@ function qt(e) {
 		null,
 		n.createElement(Ht, {
 			bottomSeparator: "standard",
-			strLabel: (0, A.we)("#Settings_Language_Select"),
+			strLabel: (0, Localize)("#Settings_Language_Select"),
 		}),
 		n.createElement(jt, null),
 		n.createElement(Vt.tm, null),
@@ -2156,7 +2216,7 @@ const er = (e) => {
 		n.createElement(
 			"div",
 			null,
-			(0, A.PP)(
+			LocalizeReact(
 				r,
 				n.createElement(
 					"span",
@@ -2172,7 +2232,7 @@ const er = (e) => {
 			{
 				className: Xt.Description,
 			},
-			(0, A.we)("#HomeSettings_HiddenGameCount_Description"),
+			(0, Localize)("#HomeSettings_HiddenGameCount_Description"),
 		),
 	);
 };
@@ -2195,7 +2255,7 @@ const tr = () => {
 				}),
 				onClick: r,
 			},
-			(0, A.we)("#HomeSettings_ManageHiddenGames"),
+			(0, Localize)("#HomeSettings_ManageHiddenGames"),
 		);
 	}
 };
@@ -2246,14 +2306,14 @@ const nr = () => {
 		n.createElement(_.G, {
 			feature: h.uX,
 			setting: "show_store_content_on_home",
-			label: (0, A.we)("#HomeSettings_ShowStoreContent"),
+			label: (0, Localize)("#HomeSettings_ShowStoreContent"),
 		}),
-		n.createElement(m.iK, null, (0, A.we)("#WhatsNewSettings")),
+		n.createElement(m.iK, null, (0, Localize)("#WhatsNewSettings")),
 		n.createElement(_.G, {
 			feature: h.uX,
 			setting: "library_whats_new_show_only_product_updates",
 			bottomSeparator: "standard",
-			label: (0, A.we)("#HomeSettings_WhatsNewUpdatesOnly"),
+			label: (0, Localize)("#HomeSettings_WhatsNewUpdatesOnly"),
 		}),
 		n.createElement(tr, null),
 		n.createElement(
@@ -2261,15 +2321,15 @@ const nr = () => {
 			{
 				className: Xt.Instructions,
 			},
-			(0, A.we)("#HomeSettings_WhatsNew_Instructions"),
+			(0, Localize)("#HomeSettings_WhatsNew_Instructions"),
 		),
 		n.createElement(rr, {
 			rgApps: e,
-			strHeader: (0, A.we)("#HomeSettings_ShowingLess"),
+			strHeader: (0, Localize)("#HomeSettings_ShowingLess"),
 		}),
 		n.createElement(rr, {
 			rgApps: t,
-			strHeader: (0, A.we)("#HomeSettings_ShowingMore"),
+			strHeader: (0, Localize)("#HomeSettings_ShowingMore"),
 		}),
 	);
 };
@@ -2295,7 +2355,7 @@ function pr(e) {
 		{
 			className: dr.ShowKeyboardButton,
 			onClick: () => i.ShowVirtualKeyboard(),
-			onOKActionDescription: (0, A.we)("#Settings_Keyboard_Preview"),
+			onOKActionDescription: (0, Localize)("#Settings_Keyboard_Preview"),
 		},
 		n.createElement(u.ShowKeyboard, null),
 	);
@@ -2306,12 +2366,12 @@ function gr(e) {
 		E.oN,
 		{
 			feature: 1,
-			label: (0, A.we)("#Settings_Keyboard_PointsShop"),
-			description: (0, A.we)("#Settings_Keyboard_PointsShop_Desc"),
+			label: (0, Localize)("#Settings_Keyboard_PointsShop"),
+			description: (0, Localize)("#Settings_Keyboard_PointsShop_Desc"),
 			onClick: t,
 			bottomSeparator: "standard",
 		},
-		(0, A.we)("#Settings_Keyboard_PointsShop_Visit"),
+		(0, Localize)("#Settings_Keyboard_PointsShop_Visit"),
 	);
 }
 function hr(e) {
@@ -2321,19 +2381,19 @@ function hr(e) {
 	const a = [
 		{
 			data: Ut.X.Off,
-			label: (0, A.we)("#Settings_Keyboard_Haptics_Off"),
+			label: (0, Localize)("#Settings_Keyboard_Haptics_Off"),
 		},
 		{
 			data: Ut.X.Low,
-			label: (0, A.we)("#Settings_Keyboard_Haptics_Low"),
+			label: (0, Localize)("#Settings_Keyboard_Haptics_Low"),
 		},
 		{
 			data: Ut.X.Medium,
-			label: (0, A.we)("#Settings_Keyboard_Haptics_Medium"),
+			label: (0, Localize)("#Settings_Keyboard_Haptics_Medium"),
 		},
 		{
 			data: Ut.X.High,
-			label: (0, A.we)("#Settings_Keyboard_Haptics_High"),
+			label: (0, Localize)("#Settings_Keyboard_Haptics_High"),
 		},
 	];
 	if (i) {
@@ -2347,7 +2407,7 @@ function hr(e) {
 		null,
 		n.createElement(ue.B, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Keyboard_Haptics"),
+			label: (0, Localize)("#Settings_Keyboard_Haptics"),
 			rgOptions: a,
 			selectedOption: t,
 			onChange: (e) => Ut.O.SetHapticSettings(e.data),
@@ -2424,27 +2484,27 @@ function Cr(e) {
 	const a = [
 		{
 			data: "center-bottom",
-			label: (0, A.we)("#Settings_Keyboard_Location_Center_Bottom"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Center_Bottom"),
 		},
 		!t && {
 			data: "lower-left",
-			label: (0, A.we)("#Settings_Keyboard_Location_Lower_Left"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Lower_Left"),
 		},
 		!t && {
 			data: "upper-left",
-			label: (0, A.we)("#Settings_Keyboard_Location_Upper_Left"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Upper_Left"),
 		},
 		{
 			data: "center-top",
-			label: (0, A.we)("#Settings_Keyboard_Location_Center_Top"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Center_Top"),
 		},
 		!t && {
 			data: "upper-right",
-			label: (0, A.we)("#Settings_Keyboard_Location_Upper_Right"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Upper_Right"),
 		},
 		!t && {
 			data: "lower-right",
-			label: (0, A.we)("#Settings_Keyboard_Location_Lower_Right"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Lower_Right"),
 		},
 	];
 	return n.createElement(
@@ -2452,14 +2512,14 @@ function Cr(e) {
 		null,
 		n.createElement(ue.B, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Keyboard_Location_Desktop"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Desktop"),
 			rgOptions: a,
 			selectedOption: r,
 			onChange: (e) => (Ut.O.InitialLocationDesktop = e.data),
 		}),
 		n.createElement(ue.B, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Keyboard_Location_Overlay"),
+			label: (0, Localize)("#Settings_Keyboard_Location_Overlay"),
 			rgOptions: a,
 			selectedOption: i,
 			onChange: (e) => (Ut.O.InitialLocationOverlay = e.data),
@@ -2481,7 +2541,7 @@ function _r(e) {
 	const l = (0, mr.sf)();
 	let c = [
 		{
-			label: (0, A.we)("#Settings_Keyboard_DefaultTheme"),
+			label: (0, Localize)("#Settings_Keyboard_DefaultTheme"),
 			data: "0",
 		},
 	];
@@ -2497,17 +2557,19 @@ function _r(e) {
 	let d = null;
 	if (!u) {
 		d = a
-			? (0, A.we)("#Settings_Keyboard_CannotSetTheme_Offline")
+			? (0, Localize)("#Settings_Keyboard_CannotSetTheme_Offline")
 			: s
 				? i
-					? (0, A.we)("#Settings_Keyboard_CannotSetTheme_NoThemes")
-					: (0, A.we)("#Settings_Keyboard_CannotSetTheme_ClaimThemes")
-				: (0, A.we)("#Settings_Keyboard_CannotSetTheme_NoNetworkConnection");
+					? (0, Localize)("#Settings_Keyboard_CannotSetTheme_NoThemes")
+					: (0, Localize)("#Settings_Keyboard_CannotSetTheme_ClaimThemes")
+				: (0, Localize)(
+						"#Settings_Keyboard_CannotSetTheme_NoNetworkConnection",
+					);
 	}
 	return n.createElement(
 		m.D0,
 		{
-			label: (0, A.we)("#Settings_Keyboard_Theme"),
+			label: (0, Localize)("#Settings_Keyboard_Theme"),
 			description: d,
 			childrenContainerWidth: "min",
 			ref: t,
@@ -2523,13 +2585,13 @@ function _r(e) {
 				selectedOption: o?.steam_deck_keyboard_skin?.communityitemid ?? "0",
 				rgOptions: c,
 				onChange: (e) => {
-					r = (0, g.qf)(t.current);
+					r = GetOwningWindowForElement(t.current);
 					i = e.data;
 					mr.iG.EquipKeyboardSkin(i).then((e) => {
 						if (e != 1) {
 							(0, K.pg)(
 								n.createElement(X.KG, {
-									strDescription: (0, A.we)(
+									strDescription: (0, Localize)(
 										"#Settings_Keyboard_SetThemeError_Body",
 										e,
 									),
@@ -2562,23 +2624,25 @@ function fr(e) {
 				m.lr,
 				null,
 				" ",
-				(0, A.we)("#Settings_Keyboard_TrackpadingTyping_Section"),
+				(0, Localize)("#Settings_Keyboard_TrackpadingTyping_Section"),
 				" ",
 			),
 			n.createElement(me.C, {
 				feature: h.uX,
 				checked: r,
 				onChange: (e) => (Ut.O.TrackpadTypingTriggerAsClick = e),
-				label: (0, A.we)("#Settings_Keyboard_TrackpadingTyping_TriggerAsClick"),
-				description: (0, A.we)(
+				label: (0, Localize)(
+					"#Settings_Keyboard_TrackpadingTyping_TriggerAsClick",
+				),
+				description: (0, Localize)(
 					"#Settings_Keyboard_TrackpadingTyping_TriggerAsClick_Desc",
 				),
 			}),
 			n.createElement(O.V, {
 				feature: h.uX,
 				layout: "inline",
-				label: (0, A.we)("#Settings_Keyboard_TrackpadingTyping_InputScale"),
-				description: (0, A.we)(
+				label: (0, Localize)("#Settings_Keyboard_TrackpadingTyping_InputScale"),
+				description: (0, Localize)(
 					"#Settings_Keyboard_TrackpadingTyping_InputScale_Desc",
 				),
 				value: i,
@@ -2606,10 +2670,10 @@ function br(e) {
 			E.oN,
 			{
 				feature: 7,
-				label: (0, A.we)("#Settings_Keyboard_ActiveKeyboards"),
+				label: (0, Localize)("#Settings_Keyboard_ActiveKeyboards"),
 				description:
 					r.length > 1 &&
-					(0, A.PP)(
+					LocalizeReact(
 						"#Settings_Keyboard_SwitchHint",
 						n.createElement(u.Network, {
 							height: "16px",
@@ -2618,10 +2682,10 @@ function br(e) {
 							},
 						}),
 					),
-				onClick: (e) => (0, Ar.zK)((0, g.uX)(e)),
+				onClick: (e) => (0, Ar.zK)(GetOwningWindowForEvent(e)),
 				bottomSeparator: "none",
 			},
-			(0, A.we)("#Settings_Keyboard_ActiveKeyboards_Edit"),
+			(0, Localize)("#Settings_Keyboard_ActiveKeyboards_Edit"),
 		),
 		r.map((e, r) =>
 			n.createElement(
@@ -2629,12 +2693,12 @@ function br(e) {
 				{
 					focusable: true,
 					key: r,
-					label: (0, A.we)(e.locToken),
+					label: (0, Localize)(e.locToken),
 					bottomSeparator: "none",
 					padding: "none",
 					onClick: () => i(e.layout),
 				},
-				t == e.layout ? (0, A.we)("#Settings_Keyboard_CurrentLayout") : "",
+				t == e.layout ? (0, Localize)("#Settings_Keyboard_CurrentLayout") : "",
 			),
 		),
 	);
@@ -2676,11 +2740,11 @@ function Fr(e) {
 		E.oN,
 		{
 			feature: 1,
-			label: (0, A.we)("#Settings_Customization_StartupVideo_PointsShop"),
+			label: (0, Localize)("#Settings_Customization_StartupVideo_PointsShop"),
 			onClick: t,
 			bottomSeparator: "standard",
 		},
-		(0, A.we)("#Settings_Customization_StartupVideo_PointsShop_Visit"),
+		(0, Localize)("#Settings_Customization_StartupVideo_PointsShop_Visit"),
 	);
 }
 function Gr(e) {
@@ -2753,7 +2817,7 @@ function Or(e) {
 					o(Rr.StartupAnimation);
 					setTimeout(l, 10000);
 				},
-				onOptionsActionDescription: (0, A.we)(
+				onOptionsActionDescription: (0, Localize)(
 					"#Settings_Customization_StartupVideo_Preview",
 				),
 			},
@@ -2819,12 +2883,12 @@ function Lr(e) {
 			u.onActivate = undefined;
 			u.onOKActionDescription = undefined;
 		} else if (t.movie_webm_local_path.length == 0) {
-			u.onOKActionDescription = (0, A.we)(
+			u.onOKActionDescription = (0, Localize)(
 				"#Settings_Customization_StartupVideo_Download",
 			);
 		} else if (!r) {
 			u.onSecondaryButton = m;
-			u.onSecondaryActionDescription = (0, A.we)(
+			u.onSecondaryActionDescription = (0, Localize)(
 				"#Settings_Customization_StartupVideo_RemoveFromDisk",
 			);
 		}
@@ -2871,8 +2935,8 @@ function xr(e) {
 	const h = n.useCallback(
 		(e) =>
 			e.communityitemid.length != 0
-				? (0, A.we)("#Settings_Customization_StartupVideo_Type_PointsShop")
-				: (0, A.we)("#Settings_Customization_StartupVideo_Type_Local"),
+				? (0, Localize)("#Settings_Customization_StartupVideo_Type_PointsShop")
+				: (0, Localize)("#Settings_Customization_StartupVideo_Type_Local"),
 		[],
 	);
 	const _ = n.useCallback(
@@ -2904,12 +2968,12 @@ function xr(e) {
 			{
 				className: vr.StartupMoviesSelectionDesc,
 			},
-			(0, A.we)("#Settings_Customization_StartupVideo_Desc"),
+			(0, Localize)("#Settings_Customization_StartupVideo_Desc"),
 		),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Customization_StartupVideo_Shuffle"),
-			description: (0, A.we)(
+			label: (0, Localize)("#Settings_Customization_StartupVideo_Shuffle"),
+			description: (0, Localize)(
 				"#Settings_Customization_StartupVideo_Shuffle_Desc",
 			),
 			checked: i,
@@ -2917,8 +2981,8 @@ function xr(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Customization_StartupVideo_Resume"),
-			description: (0, A.we)(
+			label: (0, Localize)("#Settings_Customization_StartupVideo_Resume"),
+			description: (0, Localize)(
 				"#Settings_Customization_StartupVideo_Resume_Desc",
 			),
 			checked: s,
@@ -2928,8 +2992,8 @@ function xr(e) {
 			m.Nv,
 			{
 				label: n.createElement(zr, {
-					name: (0, A.we)("#Settings_Customization_StartupVideo_Default"),
-					description: (0, A.we)(
+					name: (0, Localize)("#Settings_Customization_StartupVideo_Default"),
+					description: (0, Localize)(
 						C.TS.ON_DECK
 							? "#Settings_Customization_StartupVideo_Default_Deck_Desc"
 							: "#Settings_Customization_StartupVideo_Default_Desc",
@@ -2966,7 +3030,7 @@ function xr(e) {
 			n.createElement(
 				m.lr,
 				null,
-				(0, A.we)("#Settings_Customization_StartupVideo_NotDownloaded"),
+				(0, Localize)("#Settings_Customization_StartupVideo_NotDownloaded"),
 			),
 		S.map((e) =>
 			n.createElement(
@@ -2996,7 +3060,7 @@ function Ur(e) {
 		n.createElement(
 			m.lr,
 			null,
-			(0, A.we)("#Settings_Customization_StartupVideo"),
+			(0, Localize)("#Settings_Customization_StartupVideo"),
 			" ",
 		),
 		n.createElement(xr, null),
@@ -3034,7 +3098,7 @@ function Jr(e) {
 	const i = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((e) => ({
 		label:
 			e == 0
-				? (0, A.we)("#Settings_RemotePlay_SoftwareEncodingThreads_Auto")
+				? (0, Localize)("#Settings_RemotePlay_SoftwareEncodingThreads_Auto")
 				: e.toString(),
 		data: e,
 	}));
@@ -3045,7 +3109,7 @@ function Jr(e) {
 		},
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_HostPlayAudioAlways"),
+			label: (0, Localize)("#Settings_RemotePlay_HostPlayAudioAlways"),
 			checked: t.host_play_audio() == 1,
 			onChange: (e) => {
 				t.set_host_play_audio(e ? 1 : 0);
@@ -3054,7 +3118,7 @@ function Jr(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_ChangeDesktopResolution"),
+			label: (0, Localize)("#Settings_RemotePlay_ChangeDesktopResolution"),
 			checked: t.change_desktop_resolution(),
 			onChange: (e) => {
 				t.set_change_desktop_resolution(e);
@@ -3063,7 +3127,7 @@ function Jr(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_EnableCaptureNVFBC"),
+			label: (0, Localize)("#Settings_RemotePlay_EnableCaptureNVFBC"),
 			checked: t.enable_capture_nvfbc(),
 			onChange: (e) => {
 				t.set_enable_capture_nvfbc(e);
@@ -3072,7 +3136,7 @@ function Jr(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_EnableHardwareEncoding"),
+			label: (0, Localize)("#Settings_RemotePlay_EnableHardwareEncoding"),
 			checked: t.enable_hardware_encoding(),
 			onChange: (e) => {
 				t.set_enable_hardware_encoding(e);
@@ -3081,7 +3145,7 @@ function Jr(e) {
 		}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#Settings_RemotePlay_SoftwareEncodingThreads_Description",
 			),
 			rgOptions: i,
@@ -3093,8 +3157,8 @@ function Jr(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_EnableTrafficPriority"),
-			description: (0, A.we)(
+			label: (0, Localize)("#Settings_RemotePlay_EnableTrafficPriority"),
+			description: (0, Localize)(
 				"#Settings_RemotePlay_EnableTrafficPriority_Description",
 			),
 			checked: t.enable_traffic_priority(),
@@ -3128,15 +3192,15 @@ function en(e) {
 	const [r, i] = (0, Qr.d0)();
 	const a = [
 		{
-			label: (0, A.we)("#Settings_RemotePlay_VideoQualityFast"),
+			label: (0, Localize)("#Settings_RemotePlay_VideoQualityFast"),
 			data: 1,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_VideoQualityBalanced"),
+			label: (0, Localize)("#Settings_RemotePlay_VideoQualityBalanced"),
 			data: 2,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_VideoQualityBeautiful"),
+			label: (0, Localize)("#Settings_RemotePlay_VideoQualityBeautiful"),
 			data: 3,
 		},
 	];
@@ -3146,7 +3210,7 @@ function en(e) {
 		(t.unStreamingSessionID == 0 && t.nDefaultAudioChannels > 0)
 	) {
 		s.push({
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#Settings_RemotePlay_AudioChannels_AutoDetect" +
 					t.nDefaultAudioChannels,
 			),
@@ -3155,73 +3219,73 @@ function en(e) {
 	}
 	[2, 4, 6].forEach((e) => {
 		s.push({
-			label: (0, A.we)("#Settings_RemotePlay_AudioChannels_" + e),
+			label: (0, Localize)("#Settings_RemotePlay_AudioChannels_" + e),
 			data: e,
 		});
 	});
 	const o = [
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyAuto"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyAuto"),
 			data: "auto",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyStart"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyStart"),
 			data: "start",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyBack"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyBack"),
 			data: "back",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyGuide"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyGuide"),
 			data: "guide",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyY"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyY"),
 			data: "y",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyNone"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyNone"),
 			data: "none",
 		},
 	];
 	const l = [
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyAuto"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyAuto"),
 			data: "auto",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyMenu"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyMenu"),
 			data: "start",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyView"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyView"),
 			data: "back",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeySteam"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeySteam"),
 			data: "guide",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyY"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyY"),
 			data: "y",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkeyNone"),
+			label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkeyNone"),
 			data: "none",
 		},
 	];
 	const c = [
 		{
-			label: (0, A.we)("#Settings_RemotePlay_PerformanceOverlay_Disabled"),
+			label: (0, Localize)("#Settings_RemotePlay_PerformanceOverlay_Disabled"),
 			data: 0,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_PerformanceOverlay_Icons"),
+			label: (0, Localize)("#Settings_RemotePlay_PerformanceOverlay_Icons"),
 			data: 1,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_PerformanceOverlay_Details"),
+			label: (0, Localize)("#Settings_RemotePlay_PerformanceOverlay_Details"),
 			data: 2,
 		},
 	];
@@ -3231,9 +3295,9 @@ function en(e) {
 		let t = "";
 		t =
 			e == -1
-				? (0, A.we)("#Settings_RemotePlay_Bandwidth_Auto")
+				? (0, Localize)("#Settings_RemotePlay_Bandwidth_Auto")
 				: e == 0
-					? (0, A.we)("#Settings_RemotePlay_Bandwidth_Unlimited")
+					? (0, Localize)("#Settings_RemotePlay_Bandwidth_Unlimited")
 					: (0, qr.dm)(e * 1000, {
 							bUseBinary1K: false,
 							bValueIsRate: true,
@@ -3246,13 +3310,13 @@ function en(e) {
 	});
 	const d = [0, 3000, 4975, 5000, 5975, 6000, 9000, 12000, 14400, 24000].map(
 		(e) => ({
-			label: (0, A.we)("#Settings_RemotePlay_Framerate_" + e),
+			label: (0, Localize)("#Settings_RemotePlay_Framerate_" + e),
 			data: e,
 		}),
 	);
 	const p = [
 		{
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#Settings_RemotePlay_ResolutionAutomatic",
 				t.nAutomaticResolutionX,
 				t.nAutomaticResolutionY,
@@ -3260,31 +3324,31 @@ function en(e) {
 			data: "0x0",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution480p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution480p"),
 			data: "852x480",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution720p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution720p"),
 			data: "1280x720",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution900p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution900p"),
 			data: "1600x900",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution1080p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution1080p"),
 			data: "1920x1080",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution1440p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution1440p"),
 			data: "2560x1440",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution2160p"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution2160p"),
 			data: "3840x2160",
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_Resolution8K"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution8K"),
 			data: "7680x4320",
 		},
 	];
@@ -3314,7 +3378,7 @@ function en(e) {
 						i(e);
 					},
 				},
-				(0, A.we)("#Settings_RemotePlay_UsePresetDefault"),
+				(0, Localize)("#Settings_RemotePlay_UsePresetDefault"),
 			),
 			n.createElement(
 				y.t,
@@ -3337,7 +3401,7 @@ function en(e) {
 						i(n);
 					},
 				},
-				(0, A.we)("#Settings_RemotePlay_UsePresetEnhanced1080p"),
+				(0, Localize)("#Settings_RemotePlay_UsePresetEnhanced1080p"),
 			),
 			n.createElement(
 				y.t,
@@ -3360,12 +3424,12 @@ function en(e) {
 						i(n);
 					},
 				},
-				(0, A.we)("#Settings_RemotePlay_UsePresetEnhanced4K"),
+				(0, Localize)("#Settings_RemotePlay_UsePresetEnhanced4K"),
 			),
 		),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_Video"),
+			label: (0, Localize)("#Settings_RemotePlay_Video"),
 			rgOptions: a,
 			selectedOption: r.enable_video_streaming() ? r.quality() : -1,
 			onChange: (e) => {
@@ -3380,7 +3444,7 @@ function en(e) {
 		}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_Audio"),
+			label: (0, Localize)("#Settings_RemotePlay_Audio"),
 			rgOptions: s,
 			selectedOption: r.enable_audio_streaming() ? r.audio_channels() : -1,
 			onChange: (e) => {
@@ -3396,8 +3460,8 @@ function en(e) {
 		!C.TS.ON_DECK &&
 			n.createElement(ue.B, {
 				feature: 7,
-				label: (0, A.we)("#Settings_RemotePlay_ControllerOverlayHotkey"),
-				description: (0, A.we)(
+				label: (0, Localize)("#Settings_RemotePlay_ControllerOverlayHotkey"),
+				description: (0, Localize)(
 					"#Settings_RemotePlay_ControllerOverlayHotkeyDescription",
 				),
 				rgOptions: C.TS.ON_DECK ? l : o,
@@ -3409,7 +3473,7 @@ function en(e) {
 			}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_PerformanceOverlay"),
+			label: (0, Localize)("#Settings_RemotePlay_PerformanceOverlay"),
 			rgOptions: c,
 			selectedOption: Xr(r),
 			onChange: (e) => {
@@ -3433,7 +3497,7 @@ function en(e) {
 		}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_Bandwidth"),
+			label: (0, Localize)("#Settings_RemotePlay_Bandwidth"),
 			rgOptions: u,
 			selectedOption: r.desired_bitrate_kbps() ?? -1,
 			onChange: (e) => {
@@ -3446,7 +3510,7 @@ function en(e) {
 		}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_Framerate"),
+			label: (0, Localize)("#Settings_RemotePlay_Framerate"),
 			rgOptions: d,
 			selectedOption: r.desired_framerate_numerator() ?? 0,
 			onChange: (e) => {
@@ -3462,7 +3526,7 @@ function en(e) {
 		}),
 		n.createElement(ue.B, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_Resolution"),
+			label: (0, Localize)("#Settings_RemotePlay_Resolution"),
 			rgOptions: p,
 			selectedOption: g,
 			onChange: (e) => {
@@ -3474,7 +3538,7 @@ function en(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_HardwareDecoding"),
+			label: (0, Localize)("#Settings_RemotePlay_HardwareDecoding"),
 			checked: r.enable_hardware_decoding(),
 			onChange: (e) => {
 				r.set_enable_hardware_decoding(e);
@@ -3483,7 +3547,7 @@ function en(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_HEVC"),
+			label: (0, Localize)("#Settings_RemotePlay_HEVC"),
 			disabled: !t.bHEVCDecodeAvailable,
 			checked: t.bHEVCDecodeAvailable && r.enable_video_hevc(),
 			onChange: (e) => {
@@ -3493,7 +3557,7 @@ function en(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_AV1"),
+			label: (0, Localize)("#Settings_RemotePlay_AV1"),
 			disabled: !t.bAV1DecodeAvailable,
 			checked: t.bAV1DecodeAvailable && r.enable_video_av1(),
 			onChange: (e) => {
@@ -3503,7 +3567,7 @@ function en(e) {
 		}),
 		n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_RemotePlay_LowLatencyNetworking"),
+			label: (0, Localize)("#Settings_RemotePlay_LowLatencyNetworking"),
 			checked: r.enable_unreliable_fec(),
 			onChange: (e) => {
 				r.set_enable_unreliable_fec(e);
@@ -3527,19 +3591,19 @@ function rn(e) {
 	const a = n.useRef(undefined);
 	const s = [
 		{
-			label: (0, A.we)("#Settings_RemotePlay_P2PScopeAutomatic"),
+			label: (0, Localize)("#Settings_RemotePlay_P2PScopeAutomatic"),
 			data: 0,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_P2PScopeDisabled"),
+			label: (0, Localize)("#Settings_RemotePlay_P2PScopeDisabled"),
 			data: 1,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_P2PScopeOnlyMe"),
+			label: (0, Localize)("#Settings_RemotePlay_P2PScopeOnlyMe"),
 			data: 2,
 		},
 		{
-			label: (0, A.we)("#Settings_RemotePlay_P2PScopeEveryone"),
+			label: (0, Localize)("#Settings_RemotePlay_P2PScopeEveryone"),
 			data: 4,
 		},
 	];
@@ -3560,10 +3624,10 @@ function rn(e) {
 	const c = t.bRemotePlayDisabledBySystemPolicy;
 	let d;
 	d = t.bRemotePlayDisabledBySystemPolicy
-		? (0, A.we)("#Settings_RemotePlay_Description_DisabledBySystemPolicy")
+		? (0, Localize)("#Settings_RemotePlay_Description_DisabledBySystemPolicy")
 		: C.TS.ON_DECK
-			? (0, A.we)("#Settings_RemotePlay_Description_SteamDeck")
-			: (0, A.we)("#Settings_RemotePlay_Description");
+			? (0, Localize)("#Settings_RemotePlay_Description_SteamDeck")
+			: (0, Localize)("#Settings_RemotePlay_Description");
 	return n.createElement(
 		E.sh,
 		null,
@@ -3573,7 +3637,7 @@ function rn(e) {
 			null,
 			n.createElement(me.C, {
 				feature: 7,
-				label: (0, A.we)("#Settings_RemotePlay_Enabled"),
+				label: (0, Localize)("#Settings_RemotePlay_Enabled"),
 				description: d,
 				checked: t.bRemotePlayEnabled,
 				disabled: c,
@@ -3595,12 +3659,12 @@ function rn(e) {
 						n.createElement(
 							"div",
 							null,
-							(0, A.we)("#Settings_RemotePlay_DeviceName"),
+							(0, Localize)("#Settings_RemotePlay_DeviceName"),
 						),
 						n.createElement(
 							"div",
 							null,
-							(0, A.we)("#Settings_RemotePlay_Status"),
+							(0, Localize)("#Settings_RemotePlay_Status"),
 						),
 					),
 					r.length == 0 &&
@@ -3608,7 +3672,7 @@ function rn(e) {
 							className: jr.DeviceList,
 							disabled: true,
 							icon: n.createElement(u.DevicesNone, null),
-							label: (0, A.we)("#Settings_RemotePlay_DevicesEmpty"),
+							label: (0, Localize)("#Settings_RemotePlay_DevicesEmpty"),
 							bottomSeparator: "none",
 						}),
 					r.length > 0 &&
@@ -3625,7 +3689,7 @@ function rn(e) {
 									{
 										className: tn(e),
 									},
-									(0, A.we)("#Settings_RemotePlay_Status_" + e.status),
+									(0, Localize)("#Settings_RemotePlay_Status_" + e.status),
 								),
 							),
 						),
@@ -3644,7 +3708,7 @@ function rn(e) {
 									Qr.ut.ShowRemoteDeviceHostPairingDialog("");
 								},
 							},
-							(0, A.we)("#Settings_RemotePlay_Pair"),
+							(0, Localize)("#Settings_RemotePlay_Pair"),
 						),
 						n.createElement(
 							y.t,
@@ -3652,11 +3716,11 @@ function rn(e) {
 								feature: 7,
 								as: E.CS,
 								onClick: (e) => {
-									const t = (0, g.uX)(e);
+									const t = GetOwningWindowForEvent(e);
 									(0, Yr.VB)(t);
 								},
 							},
-							(0, A.we)("#Settings_RemotePlay_Unpair"),
+							(0, Localize)("#Settings_RemotePlay_Unpair"),
 						),
 						n.createElement(
 							y.t,
@@ -3664,11 +3728,11 @@ function rn(e) {
 								feature: 7,
 								as: E.CS,
 								onClick: (e) => {
-									const t = (0, g.uX)(e);
+									const t = GetOwningWindowForEvent(e);
 									(0, Yr.rg)(t);
 								},
 							},
-							(0, A.we)("#Settings_RemotePlay_SetPIN"),
+							(0, Localize)("#Settings_RemotePlay_SetPIN"),
 						),
 					),
 				),
@@ -3677,7 +3741,7 @@ function rn(e) {
 					null,
 					n.createElement(ue.B, {
 						feature: 7,
-						label: (0, A.we)("#Settings_RemotePlay_P2PScope_Description"),
+						label: (0, Localize)("#Settings_RemotePlay_P2PScope_Description"),
 						rgOptions: s,
 						selectedOption: t.eRemotePlayP2PScope,
 						onChange: (e) =>
@@ -3690,7 +3754,7 @@ function rn(e) {
 					n.createElement(
 						E.tX,
 						null,
-						(0, A.we)("#Settings_RemotePlay_AdvancedConfig"),
+						(0, Localize)("#Settings_RemotePlay_AdvancedConfig"),
 					),
 					t.bRemotePlayServerConfigAvailable &&
 						n.createElement(
@@ -3698,10 +3762,12 @@ function rn(e) {
 							null,
 							n.createElement(me.C, {
 								feature: 7,
-								label: (0, A.we)("#Settings_RemotePlay_EnableServerConfig"),
+								label: (0, Localize)("#Settings_RemotePlay_EnableServerConfig"),
 								description: t.bRemotePlaySupported
-									? (0, A.we)("#Settings_RemotePlay_ServerConfigDescription")
-									: (0, A.we)("#Settings_RemotePlay_UnsupportedPlatform"),
+									? (0, Localize)(
+											"#Settings_RemotePlay_ServerConfigDescription",
+										)
+									: (0, Localize)("#Settings_RemotePlay_UnsupportedPlatform"),
 								checked: t.bRemotePlayServerConfigEnabled,
 								disabled: !t.bRemotePlaySupported,
 								onChange: (e) =>
@@ -3719,8 +3785,10 @@ function rn(e) {
 									n.Fragment,
 									null,
 									n.createElement(m.Nv, {
-										label: (0, A.we)("#Settings_RemotePlay_RemoteClientConfig"),
-										description: (0, A.we)(
+										label: (0, Localize)(
+											"#Settings_RemotePlay_RemoteClientConfig",
+										),
+										description: (0, Localize)(
 											"#Settings_RemotePlay_RemoteClientConfigDescription",
 											t.strStreamingClientName,
 										),
@@ -3737,10 +3805,10 @@ function rn(e) {
 										},
 										n.createElement(me.C, {
 											feature: 7,
-											label: (0, A.we)(
+											label: (0, Localize)(
 												"#Settings_RemotePlay_EnableClientConfig",
 											),
-											description: (0, A.we)(
+											description: (0, Localize)(
 												"#Settings_RemotePlay_ClientConfigDescription",
 											),
 											checked: t.bRemotePlayClientConfigEnabled,
@@ -3760,10 +3828,10 @@ function rn(e) {
 			n.createElement(
 				E.WG,
 				{
-					label: (0, A.we)("#Settings_RemotePlay_FAQLearnMore"),
+					label: (0, Localize)("#Settings_RemotePlay_FAQLearnMore"),
 					onClick: l,
 				},
-				(0, A.we)("#Settings_RemotePlay_FAQViewFAQ"),
+				(0, Localize)("#Settings_RemotePlay_FAQViewFAQ"),
 			),
 		),
 	);
@@ -3790,12 +3858,12 @@ function on(e, t) {
 						});
 					} else {
 						let e = n.createElement(X.o0, {
-							strTitle: (0, A.we)("#LockScreen_PINSetMismatch_Title"),
-							strDescription: (0, A.we)("#LockScreen_PINSetMismatch_Body"),
+							strTitle: (0, Localize)("#LockScreen_PINSetMismatch_Title"),
+							strDescription: (0, Localize)("#LockScreen_PINSetMismatch_Body"),
 							bAlertDialog: true,
 						});
 						(0, K.pg)(e, window, {
-							strTitle: (0, A.we)("#LockScreen_PINSetMismatch_Title"),
+							strTitle: (0, Localize)("#LockScreen_PINSetMismatch_Title"),
 						});
 					}
 				},
@@ -3844,19 +3912,19 @@ function ln(e) {
 			n.createElement(
 				m.iK,
 				null,
-				(0, A.we)("#Settings_Security_LockScreenSection"),
+				(0, Localize)("#Settings_Security_LockScreenSection"),
 			),
 			t &&
 				n.createElement(
 					n.Fragment,
 					null,
 					n.createElement(m.D0, {
-						description: (0, A.we)("#Settings_Security_LockScreen_Desc"),
+						description: (0, Localize)("#Settings_Security_LockScreen_Desc"),
 						bottomSeparator: "none",
 					}),
 					n.createElement(me.C, {
 						feature: 7,
-						label: (0, A.we)("#Settings_Security_LockOnWake"),
+						label: (0, Localize)("#Settings_Security_LockOnWake"),
 						controlled: true,
 						checked: t.bLockOnWake,
 						onChange: (e) =>
@@ -3867,7 +3935,7 @@ function ln(e) {
 					}),
 					n.createElement(me.C, {
 						feature: 7,
-						label: (0, A.we)("#Settings_Security_LockOnLogin"),
+						label: (0, Localize)("#Settings_Security_LockOnLogin"),
 						controlled: true,
 						checked: t.bLockOnLogin,
 						onChange: (e) =>
@@ -3878,7 +3946,7 @@ function ln(e) {
 					}),
 					n.createElement(me.C, {
 						feature: 7,
-						label: (0, A.we)("#Settings_Security_LockOnDesktopMode"),
+						label: (0, Localize)("#Settings_Security_LockOnDesktopMode"),
 						controlled: true,
 						checked: t.bLockDesktopMode,
 						onChange: (e) =>
@@ -3902,7 +3970,7 @@ function ln(e) {
 									})(t, r),
 								bottomSeparator: "none",
 							},
-							(0, A.we)("#Settings_Security_ResetPIN"),
+							(0, Localize)("#Settings_Security_ResetPIN"),
 						),
 					false,
 				),
@@ -3919,7 +3987,7 @@ var gn = pn;
 const hn = (e) => {
 	const { bParenthesizeNicknames: t } = e;
 	const r = new dn.Z(new An.b());
-	r.m_strPlayerName = (0, A.we)("#FriendSettings_ExampleFriend");
+	r.m_strPlayerName = (0, Localize)("#FriendSettings_ExampleFriend");
 	r.m_ePersonaState = 1;
 	r.m_strAvatarHash = cn.d;
 	return n.createElement(
@@ -3935,7 +4003,7 @@ const hn = (e) => {
 			persona: r,
 			eFriendRelationship: 3,
 			bIsSelf: false,
-			strNickname: (0, A.we)("#FriendSettings_ExampleNickname"),
+			strNickname: (0, Localize)("#FriendSettings_ExampleNickname"),
 			bParenthesizeNicknames: t,
 			bCompactView: false,
 		}),
@@ -3949,7 +4017,7 @@ const Cn = () => {
 		n.createElement(
 			"div",
 			null,
-			(0, A.we)("#FriendSettings_ParenthesizeNicknames"),
+			(0, Localize)("#FriendSettings_ParenthesizeNicknames"),
 		),
 		n.createElement(hn, {
 			bParenthesizeNicknames: e.bParenthesizeNicknames,
@@ -3983,8 +4051,8 @@ const _n = (e) => {
 	);
 	return n.createElement(me.C, {
 		feature: 4,
-		label: (0, A.we)(r),
-		description: (0, A.we)(i),
+		label: (0, Localize)(r),
+		description: (0, Localize)(i),
 		checked: s,
 		onChange: c,
 	});
@@ -3996,13 +4064,13 @@ function fn(e) {
 	let s = "";
 	switch (a) {
 		case 1:
-			s = (0, A.we)("#ChatFilterType_Enabled");
+			s = (0, Localize)("#ChatFilterType_Enabled");
 			break;
 		case 2:
-			s = (0, A.we)("#ChatFilterType_AllowProfanity");
+			s = (0, Localize)("#ChatFilterType_AllowProfanity");
 			break;
 		case 3:
-			s = (0, A.we)("#ChatFilterType_Disabled");
+			s = (0, Localize)("#ChatFilterType_Disabled");
 	}
 	if (t) {
 		return null;
@@ -4011,11 +4079,11 @@ function fn(e) {
 			E.oN,
 			{
 				feature: 4,
-				label: (0, A.we)("#Settings_InGame_ChatFiltering"),
+				label: (0, Localize)("#Settings_InGame_ChatFiltering"),
 				description: s,
 				onClick: r,
 			},
-			(0, A.we)("#Button_Manage"),
+			(0, Localize)("#Button_Manage"),
 		);
 	}
 }
@@ -4025,7 +4093,7 @@ function yn(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(m.tX, null, (0, A.we)("#FriendSettings_ChatFontSize")),
+		n.createElement(m.tX, null, (0, Localize)("#FriendSettings_ChatFontSize")),
 		n.createElement(
 			v,
 			{
@@ -4038,21 +4106,21 @@ function yn(e) {
 				{
 					value: bn.k_EChatFontSizeSmall,
 				},
-				(0, A.we)("#FriendSetting_ChatFontSmall"),
+				(0, Localize)("#FriendSetting_ChatFontSmall"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: bn.k_EChatFontSizeDefault,
 				},
-				(0, A.we)("#FriendSetting_ChatFontDefault"),
+				(0, Localize)("#FriendSetting_ChatFontDefault"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: bn.k_EChatFontSizeLarge,
 				},
-				(0, A.we)("#FriendSetting_ChatFontLarge"),
+				(0, Localize)("#FriendSetting_ChatFontLarge"),
 			),
 		),
 	);
@@ -4061,7 +4129,7 @@ function Sn(e) {
 	const [t] = (0, l.e_)("bSingleWindowMode");
 	return n.createElement(me.C, {
 		feature: 4,
-		label: (0, A.we)("#FriendSettings_DockChats"),
+		label: (0, Localize)("#FriendSettings_DockChats"),
 		checked: t,
 		onChange: (e) => {
 			SteamClient.Messaging.PostMessage(
@@ -4126,7 +4194,11 @@ const wn = (e) => {
 		n.createElement(
 			m.G5,
 			null,
-			n.createElement(m.tX, null, (0, A.we)("#FriendSettings_Heading_Chat")),
+			n.createElement(
+				m.tX,
+				null,
+				(0, Localize)("#FriendSettings_Heading_Chat"),
+			),
 			n.createElement(Sn, null),
 			n.createElement(_n, {
 				settingName: "bAlwaysNewChatWindow",
@@ -4189,7 +4261,7 @@ const Rn = (e) => {
 		m.D0,
 		{
 			highlightOnFocus: true,
-			label: (0, A.we)(i),
+			label: (0, Localize)(i),
 		},
 		n.createElement(
 			B.Z,
@@ -4218,7 +4290,7 @@ function kn(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(E.Pq, null, (0, A.we)("#FriendSettings_Flash_Header")),
+		n.createElement(E.Pq, null, (0, Localize)("#FriendSettings_Flash_Header")),
 		n.createElement(
 			v,
 			{
@@ -4231,21 +4303,21 @@ function kn(e) {
 				{
 					value: 0,
 				},
-				(0, A.we)("#FriendSettings_Flash_Always"),
+				(0, Localize)("#FriendSettings_Flash_Always"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: 1,
 				},
-				(0, A.we)("#FriendSettings_Flash_Minimized"),
+				(0, Localize)("#FriendSettings_Flash_Minimized"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: 2,
 				},
-				(0, A.we)("#FriendSettings_Flash_Never"),
+				(0, Localize)("#FriendSettings_Flash_Never"),
 			),
 		),
 	);
@@ -4260,8 +4332,8 @@ const Dn = (0, Oe.PA)((e) => {
 	const p = (0, l.sE)(t.notification_type, 8);
 	const g = (0, l.sE)(t.notification_type, 2);
 	_ = t.notification_type;
-	const C = (0, A.c9)("#SteamNotificationTypeDesc_" + _)
-		? (0, A.we)("#SteamNotificationTypeDesc_" + _)
+	const C = BLocStringExists("#SteamNotificationTypeDesc_" + _)
+		? (0, Localize)("#SteamNotificationTypeDesc_" + _)
 		: null;
 	var _;
 	if (C) {
@@ -4318,14 +4390,14 @@ const Dn = (0, Oe.PA)((e) => {
 					},
 					n.createElement(Tn, {
 						feature: h.uX,
-						label: (0, A.we)("#NotificationSettings_SendToast"),
+						label: (0, Localize)("#NotificationSettings_SendToast"),
 						disabled: !a,
 						checked: o,
 						onChange: p,
 					}),
 					n.createElement(Tn, {
 						feature: h.uX,
-						label: (0, A.we)("#NotificationSettings_PushNotification"),
+						label: (0, Localize)("#NotificationSettings_PushNotification"),
 						disabled: !a,
 						checked: s,
 						onChange: g,
@@ -4343,20 +4415,20 @@ function Nn(e) {
 	const o = JSON.stringify([t, i]);
 	const c = (e) =>
 		e == "[false,false]"
-			? (0, A.we)("#NotificationsSettings_Description_Always")
-			: (0, A.we)("#NotificationsSettings_Description");
+			? (0, Localize)("#NotificationsSettings_Description_Always")
+			: (0, Localize)("#NotificationsSettings_Description");
 	const [u, d] = n.useState(c(o));
 	const p = [
 		{
-			label: (0, A.we)("#NotificationsSettings_ShowAlways"),
+			label: (0, Localize)("#NotificationsSettings_ShowAlways"),
 			data: "[false,false]",
 		},
 		{
-			label: (0, A.we)("#NotificationsSettings_ShowWhenNotInGame"),
+			label: (0, Localize)("#NotificationsSettings_ShowWhenNotInGame"),
 			data: "[false,true]",
 		},
 		{
-			label: (0, A.we)("#NotificationsSettings_ShowNever"),
+			label: (0, Localize)("#NotificationsSettings_ShowNever"),
 			data: "[true,true]",
 		},
 	];
@@ -4374,7 +4446,7 @@ function Nn(e) {
 		null,
 		n.createElement(ue.B, {
 			feature: h.uX,
-			label: (0, A.we)("#NotificationsSettings_ShowNotifications"),
+			label: (0, Localize)("#NotificationsSettings_ShowNotifications"),
 			description: u,
 			selectedOption: o,
 			rgOptions: p,
@@ -4386,7 +4458,7 @@ function Nn(e) {
 		n.createElement(_.G, {
 			feature: h.uX,
 			setting: "play_sound_on_toast",
-			label: (0, A.we)("#NotificationsSettings_PlaySoundOnToast"),
+			label: (0, Localize)("#NotificationsSettings_PlaySoundOnToast"),
 		}),
 	);
 }
@@ -4503,11 +4575,11 @@ function On(e) {
 }
 function Pn(e) {
 	const { section: t, children: r } = e;
-	if (!(0, A.c9)("#SteamNotificationSection_" + t)) {
+	if (!BLocStringExists("#SteamNotificationSection_" + t)) {
 		console.error("No localization for notification list section " + t);
 		return null;
 	}
-	const i = (0, A.we)("#SteamNotificationSection_" + t);
+	const i = (0, Localize)("#SteamNotificationSection_" + t);
 	return n.createElement(
 		"div",
 		{
@@ -4570,14 +4642,14 @@ const zn = () => {
 			n.createElement(
 				m.tX,
 				null,
-				(0, A.we)("#NotificationsSettings_Heading_Friends"),
+				(0, Localize)("#NotificationsSettings_Heading_Friends"),
 			),
 			n.createElement(
 				m.a3,
 				{
 					className: In.FriendsDescription,
 				},
-				(0, A.we)("#NotificationsSettings_Heading_FriendsDescription"),
+				(0, Localize)("#NotificationsSettings_Heading_FriendsDescription"),
 			),
 			!e &&
 				t &&
@@ -4586,7 +4658,9 @@ const zn = () => {
 					{
 						className: In.FriendsDescription,
 					},
-					(0, A.we)("#NotificationsSettings_Heading_FriendsDescription_InGame"),
+					(0, Localize)(
+						"#NotificationsSettings_Heading_FriendsDescription_InGame",
+					),
 				),
 			n.createElement(
 				m.D0,
@@ -4604,14 +4678,14 @@ const zn = () => {
 						{
 							className: In.Toast,
 						},
-						(0, A.we)("#NotificationsSettings_Column_Notification"),
+						(0, Localize)("#NotificationsSettings_Column_Notification"),
 					),
 					n.createElement(
 						"div",
 						{
 							className: In.Sound,
 						},
-						(0, A.we)("#NotificationsSettings_Column_Sound"),
+						(0, Localize)("#NotificationsSettings_Column_Sound"),
 					),
 				),
 			),
@@ -4643,14 +4717,14 @@ const zn = () => {
 			n.createElement(
 				m.tX,
 				null,
-				(0, A.we)("#NotificationsSettings_Heading_PlatformNotif"),
+				(0, Localize)("#NotificationsSettings_Heading_PlatformNotif"),
 			),
 			n.createElement(
 				m.a3,
 				{
 					className: In.FriendsDescription,
 				},
-				(0, A.we)("#NotificationsSettings_Heading_PlatformNotifDesc"),
+				(0, Localize)("#NotificationsSettings_Heading_PlatformNotifDesc"),
 			),
 			n.createElement(Ln, null),
 		),
@@ -4709,7 +4783,7 @@ function Vn(e) {
 			autoFocus: true,
 			onClick: o,
 		},
-		(0, A.we)("#Settings_Account_ViewProfile"),
+		(0, Localize)("#Settings_Account_ViewProfile"),
 	);
 }
 function Hn() {
@@ -4724,7 +4798,7 @@ function Hn() {
 			{
 				className: Un.EntryLabel,
 			},
-			(0, A.we)("#Settings_Account_FriendCode"),
+			(0, Localize)("#Settings_Account_FriendCode"),
 		),
 		n.createElement(
 			"span",
@@ -4742,7 +4816,7 @@ function Hn() {
 			bottomSeparator: "standard",
 			onClick: r,
 		},
-		(0, A.we)("#UserManagement_AddFriends"),
+		(0, Localize)("#UserManagement_AddFriends"),
 	);
 }
 function jn(e) {
@@ -4759,7 +4833,7 @@ function jn(e) {
 			{
 				className: Un.EntryLabel,
 			},
-			(0, A.we)("#Settings_Account_EmailAddress"),
+			(0, Localize)("#Settings_Account_EmailAddress"),
 		),
 		n.createElement(
 			"span",
@@ -4777,13 +4851,13 @@ function jn(e) {
 			bottomSeparator: "standard",
 			onClick: a,
 		},
-		(0, A.we)("#Settings_Account_ChangeEmailAddress"),
+		(0, Localize)("#Settings_Account_ChangeEmailAddress"),
 	);
 }
 function qn(e) {
 	const { accountSettings: t } = e;
 	const r = (0, i.Qt)(cr.B7.ResolveURL("HelpVacBans"));
-	const a = (0, A.we)(
+	const a = (0, Localize)(
 		t.bHasAnyVACBans
 			? "#Settings_Account_VAC_HasBans"
 			: "#Settings_Account_VAC_NoBans",
@@ -4796,7 +4870,7 @@ function qn(e) {
 			{
 				className: Un.EntryLabel,
 			},
-			(0, A.we)("#Settings_Account_VAC_Status"),
+			(0, Localize)("#Settings_Account_VAC_Status"),
 		),
 		n.createElement(
 			"span",
@@ -4817,7 +4891,7 @@ function qn(e) {
 			{
 				onClick: r,
 			},
-			(0, A.we)("#Settings_Account_VAC_LearnMore"),
+			(0, Localize)("#Settings_Account_VAC_LearnMore"),
 		),
 	);
 }
@@ -4867,23 +4941,23 @@ function ni() {
 	return n.useMemo(
 		() => [
 			{
-				label: (0, A.we)("#Corner_Off"),
+				label: (0, Localize)("#Corner_Off"),
 				data: 0,
 			},
 			{
-				label: (0, A.we)("#Corner_TopLeft"),
+				label: (0, Localize)("#Corner_TopLeft"),
 				data: 1,
 			},
 			{
-				label: (0, A.we)("#Corner_TopRight"),
+				label: (0, Localize)("#Corner_TopRight"),
 				data: 2,
 			},
 			{
-				label: (0, A.we)("#Corner_BottomRight"),
+				label: (0, Localize)("#Corner_BottomRight"),
 				data: 3,
 			},
 			{
-				label: (0, A.we)("#Corner_BottomLeft"),
+				label: (0, Localize)("#Corner_BottomLeft"),
 				data: 4,
 			},
 		],
@@ -4909,51 +4983,51 @@ function ii(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(E.tX, null, (0, A.we)("#Settings_InGame_Overlay")),
+		n.createElement(E.tX, null, (0, Localize)("#Settings_InGame_Overlay")),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_EnableOverlay"),
+			label: (0, Localize)("#Settings_InGame_EnableOverlay"),
 			setting: "enable_overlay",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_Overlay_ToolBar_ListView"),
+			label: (0, Localize)("#Settings_InGame_Overlay_ToolBar_ListView"),
 			setting: "overlay_toolbar_list_view",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_Overlay_Restore_Browser_Tabs"),
+			label: (0, Localize)("#Settings_InGame_Overlay_Restore_Browser_Tabs"),
 			setting: "overlay_restore_browser_tabs",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_UseGamepadOverlay"),
+			label: (0, Localize)("#Settings_InGame_UseGamepadOverlay"),
 			setting: "always_use_gamepadui_overlay",
 		}),
 		!i &&
 			n.createElement(_.G, {
 				feature: 7,
-				label: (0, A.we)("#Settings_InGame_ScaleInterface"),
+				label: (0, Localize)("#Settings_InGame_ScaleInterface"),
 				setting: "overlay_scale_interface",
 			}),
 		n.createElement(ti.j, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_OverlayShortcut"),
+			label: (0, Localize)("#Settings_InGame_OverlayShortcut"),
 			currentKey: t,
 			onSetKey: (e) => {
 				r(e);
 			},
-			strTitle: (0, A.we)("#Settings_Hotkey_ToggleOverlay"),
+			strTitle: (0, Localize)("#Settings_Hotkey_ToggleOverlay"),
 		}),
 		n.createElement(pt.X, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_FPSCounter"),
+			label: (0, Localize)("#Settings_InGame_FPSCounter"),
 			rgOptions: a,
 			setting: "overlay_fps_counter_corner",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_InGame_HighContrastFPS"),
+			label: (0, Localize)("#Settings_InGame_HighContrastFPS"),
 			controlled: true,
 			setting: "overlay_fps_counter_high_contrast",
 		}),
@@ -4963,10 +5037,10 @@ function ii(e) {
 				E.WG,
 				{
 					bottomSeparator: "none",
-					label: (0, A.we)("#Settings_InGame_ToolbarPreferences"),
+					label: (0, Localize)("#Settings_InGame_ToolbarPreferences"),
 					onClick: c,
 				},
-				(0, A.we)("#Settings_InGame_ToolbarPreferences"),
+				(0, Localize)("#Settings_InGame_ToolbarPreferences"),
 			),
 		s &&
 			n.createElement(
@@ -4977,7 +5051,7 @@ function ii(e) {
 				n.createElement(
 					E.tX,
 					null,
-					(0, A.we)("#Settings_InGame_ToolbarPreferences"),
+					(0, Localize)("#Settings_InGame_ToolbarPreferences"),
 				),
 				n.createElement(li, null),
 			),
@@ -4991,8 +5065,10 @@ function ai(e) {
 				SteamClient.Browser.ClearAllBrowsingData();
 			}
 		},
-		strTitle: (0, A.we)("#Settings_InGame_WebBrowserDeleteData"),
-		strDescription: (0, A.we)("#Settings_InGame_WebBrowserDeleteBrowserCache"),
+		strTitle: (0, Localize)("#Settings_InGame_WebBrowserDeleteData"),
+		strDescription: (0, Localize)(
+			"#Settings_InGame_WebBrowserDeleteBrowserCache",
+		),
 	});
 	return n.createElement(
 		n.Fragment,
@@ -5001,7 +5077,7 @@ function ai(e) {
 		n.createElement(
 			m.D0,
 			{
-				label: (0, A.we)("#Settings_InGame_WebBrowserHome"),
+				label: (0, Localize)("#Settings_InGame_WebBrowserHome"),
 				focusable: true,
 			},
 			n.createElement(Yn.C, {
@@ -5011,11 +5087,13 @@ function ai(e) {
 		n.createElement(
 			E.WG,
 			{
-				label: (0, A.we)("#Settings_InGame_WebBrowserDeleteData"),
-				description: (0, A.we)("#Settings_InGame_WebBrowserDeleteBrowserCache"),
+				label: (0, Localize)("#Settings_InGame_WebBrowserDeleteData"),
+				description: (0, Localize)(
+					"#Settings_InGame_WebBrowserDeleteBrowserCache",
+				),
 				onClick: r,
 			},
-			(0, A.we)("#Settings_InGame_WebBrowserDelete"),
+			(0, Localize)("#Settings_InGame_WebBrowserDelete"),
 		),
 	);
 }
@@ -5032,12 +5110,14 @@ function si(e) {
 	);
 	const m = n.useCallback(
 		(e) => {
-			let t = (0, g.uX)(e) ?? window;
+			let t = GetOwningWindowForEvent(e) ?? window;
 			if (!(0, Kn.Fj)(t, "System.OpenFileDialog")) {
 				t = window;
 			}
 			t.SteamClient.System.OpenFileDialog({
-				strTitle: (0, A.we)("#Settings_InGame_ScreenshotFolderPicker_Title"),
+				strTitle: (0, Localize)(
+					"#Settings_InGame_ScreenshotFolderPicker_Title",
+				),
 				strInitialFile: r,
 				bChooseDirectory: true,
 			}).then((e) => {
@@ -5049,31 +5129,31 @@ function si(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(E.tX, null, (0, A.we)("#Settings_InGame_Screenshots")),
+		n.createElement(E.tX, null, (0, Localize)("#Settings_InGame_Screenshots")),
 		!t &&
 			n.createElement(
 				n.Fragment,
 				null,
 				n.createElement(ti.j, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_InGame_ScreenshotShortcut"),
+					label: (0, Localize)("#Settings_InGame_ScreenshotShortcut"),
 					currentKey: a,
 					onSetKey: c,
-					strTitle: (0, A.we)("#Settings_Hotkey_TakeScreenshot"),
+					strTitle: (0, Localize)("#Settings_Hotkey_TakeScreenshot"),
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_InGame_ScreenshotNotify"),
+					label: (0, Localize)("#Settings_InGame_ScreenshotNotify"),
 					setting: "enable_screenshot_notification",
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_InGame_ScreenshotSound"),
+					label: (0, Localize)("#Settings_InGame_ScreenshotSound"),
 					setting: "enable_screenshot_sound",
 				}),
 				n.createElement(_.G, {
 					feature: h.uX,
-					label: (0, A.we)("#Settings_InGame_ScreenshotUncompressed"),
+					label: (0, Localize)("#Settings_InGame_ScreenshotUncompressed"),
 					setting: "save_uncompressed_screenshots",
 				}),
 				o &&
@@ -5083,7 +5163,9 @@ function si(e) {
 						n.createElement(_.G, {
 							feature: h.uX,
 							className: ri.NestedChild,
-							label: (0, A.we)("#Settings_InGame_ScreenshotUncompressedAVIF"),
+							label: (0, Localize)(
+								"#Settings_InGame_ScreenshotUncompressedAVIF",
+							),
 							setting: "enable_avif_screenshots",
 						}),
 						n.createElement(
@@ -5091,11 +5173,11 @@ function si(e) {
 							{
 								feature: h.uX,
 								fieldClassName: ri.NestedChild,
-								label: (0, A.we)("#Settings_InGame_ScreenshotFolder"),
+								label: (0, Localize)("#Settings_InGame_ScreenshotFolder"),
 								description: r,
 								onClick: m,
 							},
-							(0, A.we)("#Settings_InGame_ChangeFolder"),
+							(0, Localize)("#Settings_InGame_ChangeFolder"),
 						),
 					),
 			),
@@ -5106,7 +5188,7 @@ function si(e) {
 				n.createElement(_.G, {
 					feature: h.uX,
 					invert: true,
-					label: (0, A.we)("#Settings_InGame_ScreenshotIncludeSteamUI"),
+					label: (0, Localize)("#Settings_InGame_ScreenshotIncludeSteamUI"),
 					setting: "gamescope_include_steamui_in_screenshots",
 					bottomSeparator: "none",
 				}),
@@ -5118,68 +5200,68 @@ function oi(e) {
 	const [r] = (0, l.hX)("default_ping_rate");
 	const i = [
 		{
-			label: (0, A.we)("#ServerPing_Auto", r),
+			label: (0, Localize)("#ServerPing_Auto", r),
 			data: 0,
 		},
 		{
-			label: (0, A.we)("#ServerPing_5000"),
+			label: (0, Localize)("#ServerPing_5000"),
 			data: 5000,
 		},
 		{
-			label: (0, A.we)("#ServerPing_3000"),
+			label: (0, Localize)("#ServerPing_3000"),
 			data: 3000,
 		},
 		{
-			label: (0, A.we)("#ServerPing_1500"),
+			label: (0, Localize)("#ServerPing_1500"),
 			data: 1500,
 		},
 		{
-			label: (0, A.we)("#ServerPing_1000"),
+			label: (0, Localize)("#ServerPing_1000"),
 			data: 1000,
 		},
 		{
-			label: (0, A.we)("#ServerPing_500"),
+			label: (0, Localize)("#ServerPing_500"),
 			data: 500,
 		},
 		{
-			label: (0, A.we)("#ServerPing_250"),
+			label: (0, Localize)("#ServerPing_250"),
 			data: 250,
 		},
 	];
 	const a = [
 		{
-			label: (0, A.we)("#SteamNetworkingOption_Default"),
+			label: (0, Localize)("#SteamNetworkingOption_Default"),
 			data: Zn.k_EAllowShareIP_Default,
 		},
 		{
-			label: (0, A.we)("#SteamNetworkingOption_Never"),
+			label: (0, Localize)("#SteamNetworkingOption_Never"),
 			data: Zn.k_EAllowShareIP_Never,
 		},
 		{
-			label: (0, A.we)("#SteamNetworkingOption_Friends"),
+			label: (0, Localize)("#SteamNetworkingOption_Friends"),
 			data: Zn.k_EAllowShareIP_FriendsOnly,
 		},
 		{
-			label: (0, A.we)("#SteamNetworkingOption_Always"),
+			label: (0, Localize)("#SteamNetworkingOption_Always"),
 			data: Zn.k_EAllowShareIP_Anyone,
 		},
 	];
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(E.tX, null, (0, A.we)("#Settings_InGame_Misc")),
+		n.createElement(E.tX, null, (0, Localize)("#Settings_InGame_Misc")),
 		!t &&
 			n.createElement(pt.X, {
-				label: (0, A.we)("#Settings_InGame_ServerBrowserPings"),
-				description: (0, A.we)(
+				label: (0, Localize)("#Settings_InGame_ServerBrowserPings"),
+				description: (0, Localize)(
 					"#Settings_InGame_ServerBrowserPings_Description",
 				),
 				rgOptions: i,
 				setting: "server_ping_rate",
 			}),
 		n.createElement(pt.X, {
-			label: (0, A.we)("#Settings_InGame_SteamNetworking"),
-			description: (0, A.oW)(
+			label: (0, Localize)("#Settings_InGame_SteamNetworking"),
+			description: LocalizeInlineReactWithFallback(
 				"#Settings_InGame_SteamNetworking_Description",
 				n.createElement("a", {
 					href: "steam://openurl_external/https://help.steampowered.com/en/faqs/view/1433-AD20-F11D-B71E",
@@ -5249,7 +5331,7 @@ function ci(e) {
 				n.createElement(me.C, {
 					feature: h.uX,
 					className: ri.OverlayTabSetting,
-					label: (0, A.we)((0, Jn.f)(e.window)?.tooltipToken),
+					label: (0, Localize)((0, Jn.f)(e.window)?.tooltipToken),
 					controlled: true,
 					icon: n.createElement(u.Rows, null),
 					checked: e.visible,
@@ -5286,7 +5368,7 @@ function Ai(e) {
 	} else {
 		return n.createElement(me.C, {
 			feature: h.uX,
-			label: (0, A.we)("#TaskbarOption_" + t),
+			label: (0, Localize)("#TaskbarOption_" + t),
 			controlled: true,
 			checked: s,
 			onChange: (e) => {
@@ -5330,7 +5412,7 @@ function gi(e) {
 		n.createElement(
 			n.Fragment,
 			null,
-			n.createElement(m.lr, null, (0, A.we)("#TaskbarOptions_Online")),
+			n.createElement(m.lr, null, (0, Localize)("#TaskbarOptions_Online")),
 			n.createElement(pi, {
 				rgOptions: ["Online", "Away", "Invisible", "Offline"],
 				flags: t,
@@ -5340,7 +5422,11 @@ function gi(e) {
 		n.createElement(
 			n.Fragment,
 			null,
-			n.createElement(m.lr, null, (0, A.we)("#TaskbarOptions_Destinations")),
+			n.createElement(
+				m.lr,
+				null,
+				(0, Localize)("#TaskbarOptions_Destinations"),
+			),
 			n.createElement(pi, {
 				rgOptions: [
 					"Store",
@@ -5373,7 +5459,7 @@ function hi(e) {
 		n.createElement(
 			"div",
 			null,
-			(0, A.we)("#Settings_Account_ClientBeta_Desc"),
+			(0, Localize)("#Settings_Account_ClientBeta_Desc"),
 		),
 		n.createElement(
 			E.Oy,
@@ -5381,11 +5467,11 @@ function hi(e) {
 				href: "#",
 				onClick: t,
 			},
-			(0, A.we)("#Settings_Account_ClientBeta_ReportBug"),
+			(0, Localize)("#Settings_Account_ClientBeta_ReportBug"),
 		),
 	);
 	return n.createElement(nn.lm, {
-		label: (0, A.we)("#Settings_Account_ClientBeta"),
+		label: (0, Localize)("#Settings_Account_ClientBeta"),
 		description: a,
 		contextMenuPositionOptions: {
 			bMatchWidth: !r,
@@ -5397,7 +5483,7 @@ function Ci(e) {
 	if ((0, C.CI)() && t) {
 		return n.createElement(me.C, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_EnableContextMenuBlurDelay"),
+			label: (0, Localize)("#Settings_Interface_EnableContextMenuBlurDelay"),
 			checked: r,
 			onChange: i,
 		});
@@ -5424,30 +5510,30 @@ function _i(e) {
 	const u = [
 		{
 			data: "store",
-			label: (0, A.we)("#StartPage_Store"),
+			label: (0, Localize)("#StartPage_Store"),
 		},
 		{
 			data: "library",
-			label: (0, A.we)("#StartPage_Library"),
+			label: (0, Localize)("#StartPage_Library"),
 		},
 		{
 			data: "news",
-			label: (0, A.we)("#StartPage_News"),
+			label: (0, Localize)("#StartPage_News"),
 		},
 		{
 			data: "friendactivity",
-			label: (0, A.we)("#StartPage_FriendActivity"),
+			label: (0, Localize)("#StartPage_FriendActivity"),
 		},
 	];
 	if (!a) {
 		u.push({
 			data: "community",
-			label: (0, A.we)("#StartPage_Community"),
+			label: (0, Localize)("#StartPage_Community"),
 		});
 	}
 	const d = !o;
 	const p = d
-		? (0, A.we)("#Settings_Interface_EnableHardwareDecoding_Disabled")
+		? (0, Localize)("#Settings_Interface_EnableHardwareDecoding_Disabled")
 		: "";
 	return n.createElement(
 		E.sh,
@@ -5456,8 +5542,8 @@ function _i(e) {
 			s &&
 			n.createElement(Ht, {
 				bottomSeparator: "standard",
-				strLabel: (0, A.we)("#Settings_Language_Select_Desktop"),
-				description: (0, A.we)("#Settings_Language_Select_Description"),
+				strLabel: (0, Localize)("#Settings_Language_Select_Desktop"),
+				description: (0, Localize)("#Settings_Language_Select_Description"),
 				contextMenuPositionOptions: {
 					bMatchWidth: !s,
 				},
@@ -5467,48 +5553,48 @@ function _i(e) {
 		s &&
 			n.createElement(pt.X, {
 				feature: h.uX,
-				label: (0, A.we)("#Settings_Interface_StartPage"),
-				description: (0, A.we)("#Settings_Interface_StartPage_Description"),
+				label: (0, Localize)("#Settings_Interface_StartPage"),
+				description: (0, Localize)("#Settings_Interface_StartPage_Description"),
 				rgOptions: u,
 				setting: "start_page",
 			}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_ScaleText"),
+			label: (0, Localize)("#Settings_Interface_ScaleText"),
 			bRequiresRestart: true,
 			setting: "enable_dpi_scaling",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_RunAtStartup"),
+			label: (0, Localize)("#Settings_Interface_RunAtStartup"),
 			setting: "run_at_startup",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#ChangeUser_ShouldShowUserChooser"),
+			label: (0, Localize)("#ChangeUser_ShouldShowUserChooser"),
 			setting: "always_show_user_chooser",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_StartInBigPicture"),
+			label: (0, Localize)("#Settings_Interface_StartInBigPicture"),
 			setting: "start_in_big_picture_mode",
 			visible: !a,
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_EnableSmoothScrolling"),
+			label: (0, Localize)("#Settings_Interface_EnableSmoothScrolling"),
 			bRequiresRestart: true,
 			setting: "smooth_scroll_webviews",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_EnableGPURendering"),
+			label: (0, Localize)("#Settings_Interface_EnableGPURendering"),
 			bRequiresRestart: true,
 			setting: "enable_gpu_accelerated_webviews",
 		}),
 		n.createElement(_.G, {
 			feature: 7,
-			label: (0, A.we)("#Settings_Interface_EnableHardwareDecoding"),
+			label: (0, Localize)("#Settings_Interface_EnableHardwareDecoding"),
 			bRequiresRestart: true,
 			setting: "enable_hardware_video_decoding",
 			displayOffIfDisabled: true,
@@ -5517,7 +5603,7 @@ function _i(e) {
 		}),
 		n.createElement(_.G, {
 			feature: 1,
-			label: (0, A.we)("#Settings_Interface_ShowMarketingMessages"),
+			label: (0, Localize)("#Settings_Interface_ShowMarketingMessages"),
 			setting: "enable_marketing_messages",
 		}),
 		n.createElement(Ci, null),
@@ -5527,10 +5613,10 @@ function _i(e) {
 				E.WG,
 				{
 					bottomSeparator: "none",
-					label: (0, A.we)("#Settings_Interface_TaskbarPreferences"),
+					label: (0, Localize)("#Settings_Interface_TaskbarPreferences"),
 					onClick: c,
 				},
-				(0, A.we)("#Settings_Interface_SetTaskbarPreferences"),
+				(0, Localize)("#Settings_Interface_SetTaskbarPreferences"),
 			),
 		i &&
 			t &&
@@ -5542,7 +5628,7 @@ function _i(e) {
 				n.createElement(
 					E.tX,
 					null,
-					(0, A.we)("#Settings_Interface_TaskbarPreferences"),
+					(0, Localize)("#Settings_Interface_TaskbarPreferences"),
 				),
 				n.createElement(gi, null),
 			),
@@ -5560,7 +5646,7 @@ function bi() {
 		step: 10,
 		value: i,
 		onChange: a,
-		label: (0, A.we)("#Settings_Music_Volume"),
+		label: (0, Localize)("#Settings_Music_Volume"),
 		icon: n.createElement(u.AudioVolumeIcon, {
 			flVolume: e,
 		}),
@@ -5574,22 +5660,22 @@ function yi() {
 		null,
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Music_PauseMusic_StartApp"),
+			label: (0, Localize)("#Settings_Music_PauseMusic_StartApp"),
 			setting: "music_pause_on_app_start",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Music_PauseMusic_VoiceChat"),
+			label: (0, Localize)("#Settings_Music_PauseMusic_VoiceChat"),
 			setting: "music_pause_on_voice_chat",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Music_DownloadHighQuality"),
+			label: (0, Localize)("#Settings_Music_DownloadHighQuality"),
 			setting: "music_download_high_quality",
 		}),
 		n.createElement(_.G, {
 			feature: h.uX,
-			label: (0, A.we)("#Settings_Music_DisplayNotification"),
+			label: (0, Localize)("#Settings_Music_DisplayNotification"),
 			setting: "music_playlist_notification",
 		}),
 	);
@@ -5617,9 +5703,9 @@ function Ii(e) {
 	return n.createElement(
 		E.WG,
 		{
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#Settings_Broadcast_Status",
-				(0, A.we)(
+				(0, Localize)(
 					t?.bIsBroadcasting
 						? "#BroadcastStatus_Broadcasting"
 						: "#BroadcastStatus_NotBroadcasting",
@@ -5628,9 +5714,12 @@ function Ii(e) {
 			onClick: () => {
 				a(`steam://url/SteamIDBroadcastPage/${r.strSteamID}`);
 			},
-			description: (0, A.Yp)("#Settings_Broadcast_StatusViewers", t.nViewers),
+			description: LocalizePlural(
+				"#Settings_Broadcast_StatusViewers",
+				t.nViewers,
+			),
 		},
-		(0, A.we)("#Settings_Broadcast_Manage"),
+		(0, Localize)("#Settings_Broadcast_Manage"),
 	);
 }
 function Ei(e) {
@@ -5655,7 +5744,7 @@ function Ei(e) {
 			{
 				className: Bi.ErrorText,
 			},
-			(0, A.oW)(
+			LocalizeInlineReactWithFallback(
 				r,
 				n.createElement("p", null),
 				n.createElement("p", null),
@@ -5680,51 +5769,51 @@ function Mi(e) {
 	}, [m]);
 	const u = [
 		{
-			label: (0, A.we)("#BroadcastPrivacy_Disabled"),
+			label: (0, Localize)("#BroadcastPrivacy_Disabled"),
 			data: 0,
 		},
 		{
-			label: (0, A.we)("#BroadcastPrivacy_FriendsApprove"),
+			label: (0, Localize)("#BroadcastPrivacy_FriendsApprove"),
 			data: 1,
 		},
 		{
-			label: (0, A.we)("#BroadcastPrivacy_FriendsAllowed"),
+			label: (0, Localize)("#BroadcastPrivacy_FriendsAllowed"),
 			data: 2,
 		},
 		{
-			label: (0, A.we)("#BroadcastPrivacy_Public"),
+			label: (0, Localize)("#BroadcastPrivacy_Public"),
 			data: 3,
 		},
 	];
 	const d = [
 		{
-			label: (0, A.we)("#BroadcastResolutionOption_1080p"),
+			label: (0, Localize)("#BroadcastResolutionOption_1080p"),
 			data: 1080,
 		},
 		{
-			label: (0, A.we)("#BroadcastResolutionOption_720p"),
+			label: (0, Localize)("#BroadcastResolutionOption_720p"),
 			data: 720,
 		},
 		{
-			label: (0, A.we)("#BroadcastResolutionOption_480p"),
+			label: (0, Localize)("#BroadcastResolutionOption_480p"),
 			data: 480,
 		},
 		{
-			label: (0, A.we)("#BroadcastResolutionOption_360p"),
+			label: (0, Localize)("#BroadcastResolutionOption_360p"),
 			data: 360,
 		},
 	];
 	const p = [3500, 3000, 2500, 2000, 1500, 1000, 750].map((e) => ({
-		label: (0, A.we)("#Kilobits_PerSecond", e),
+		label: (0, Localize)("#Kilobits_PerSecond", e),
 		data: e,
 	}));
 	const g = [
 		{
-			label: (0, A.we)("#EncodingOption_Quality"),
+			label: (0, Localize)("#EncodingOption_Quality"),
 			data: 0,
 		},
 		{
-			label: (0, A.we)("#EncodingOption_Performance"),
+			label: (0, Localize)("#EncodingOption_Performance"),
 			data: 1,
 		},
 	];
@@ -5742,7 +5831,7 @@ function Mi(e) {
 						broadcastStatus: o,
 					}),
 					n.createElement(pt.X, {
-						label: (0, A.we)("#Settings_Broadcast_Privacy"),
+						label: (0, Localize)("#Settings_Broadcast_Privacy"),
 						rgOptions: u,
 						setting: "broadcast_permissions",
 					}),
@@ -5752,7 +5841,7 @@ function Mi(e) {
 							null,
 							n.createElement(pt.X, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_VideoDimensions"),
+								label: (0, Localize)("#Settings_Broadcast_VideoDimensions"),
 								rgOptions: d,
 								setting: "broadcast_output_height",
 								onChange: (e) => {
@@ -5762,35 +5851,35 @@ function Mi(e) {
 							}),
 							n.createElement(pt.X, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_MaxBitRate"),
+								label: (0, Localize)("#Settings_Broadcast_MaxBitRate"),
 								rgOptions: p,
 								setting: "broadcast_bitrate",
 							}),
 							n.createElement(pt.X, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_OptimizeEncoding"),
+								label: (0, Localize)("#Settings_Broadcast_OptimizeEncoding"),
 								rgOptions: g,
 								setting: "broadcast_encoding_option",
 							}),
 							n.createElement(pt.X, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_ShowChat"),
+								label: (0, Localize)("#Settings_Broadcast_ShowChat"),
 								rgOptions: t,
 								setting: "broadcast_chat_corner",
 							}),
 							n.createElement(_.G, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_RecordAllVideo"),
+								label: (0, Localize)("#Settings_Broadcast_RecordAllVideo"),
 								setting: "broadcast_record_all_video",
 							}),
 							n.createElement(_.G, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_RecordAllAudio"),
+								label: (0, Localize)("#Settings_Broadcast_RecordAllAudio"),
 								setting: "broadcast_record_all_audio",
 							}),
 							n.createElement(_.G, {
 								feature: 7,
-								label: (0, A.oW)(
+								label: LocalizeInlineReactWithFallback(
 									"#Settings_Broadcast_RecordMicrophone",
 									n.createElement("a", {
 										className: Bi.ConfigureMic,
@@ -5801,23 +5890,25 @@ function Mi(e) {
 							}),
 							n.createElement(_.G, {
 								feature: 7,
-								label: (0, A.we)("#Settings_Broadcast_ShowUploadStats"),
+								label: (0, Localize)("#Settings_Broadcast_ShowUploadStats"),
 								setting: "broadcast_show_upload_stats",
 							}),
 							r == 3 &&
 								n.createElement(_.G, {
 									feature: 7,
-									label: (0, A.we)("#Settings_Broadcast_AlwaysShowLive"),
+									label: (0, Localize)("#Settings_Broadcast_AlwaysShowLive"),
 									setting: "broadcast_show_live_reminder",
 								}),
 						),
 					n.createElement(
 						E.WG,
 						{
-							label: (0, A.oW)("#Settings_Broadcast_HelpLink"),
+							label: LocalizeInlineReactWithFallback(
+								"#Settings_Broadcast_HelpLink",
+							),
 							onClick: f,
 						},
-						(0, A.we)("#Settings_RemotePlay_FAQViewFAQ"),
+						(0, Localize)("#Settings_RemotePlay_FAQViewFAQ"),
 					),
 				),
 			o.eBroadcastReady != 1 &&
@@ -5868,7 +5959,7 @@ function Oi(e) {
 					className: Gi.MicrophoneTestButton,
 					onClick: r ? t.EndLocalMicTest : t.InitiateLocalMicTest,
 				},
-				(0, A.we)(r ? "#VoiceStopLocalMicTest" : "#VoiceStartLocalMicTest"),
+				(0, Localize)(r ? "#VoiceStopLocalMicTest" : "#VoiceStartLocalMicTest"),
 			),
 		),
 	);
@@ -5879,7 +5970,7 @@ function Pi(e) {
 		() =>
 			[
 				{
-					label: (0, A.we)("#Voice_DefaultDevice"),
+					label: (0, Localize)("#Voice_DefaultDevice"),
 					data: "default",
 				},
 			].concat(
@@ -5887,7 +5978,7 @@ function Pi(e) {
 					data: e.deviceId,
 					label:
 						e.deviceId == "communications"
-							? (0, A.we)("#Voice_DefaultCommunicationsDefault")
+							? (0, Localize)("#Voice_DefaultCommunicationsDefault")
 							: e.label,
 				})),
 			),
@@ -5900,7 +5991,7 @@ function Pi(e) {
 			bMatchWidth: false,
 			bPreferPopLeft: true,
 		},
-		strDefaultLabel: (0, A.we)("#Voice_DefaultDevice"),
+		strDefaultLabel: (0, Localize)("#Voice_DefaultDevice"),
 		selectedOption: r,
 		onChange: (e) => i(e.data),
 		rgOptions: s,
@@ -5911,7 +6002,7 @@ function Li(e) {
 	const i = (0, T.q3)(() => t.GetSelectedMic());
 	const a = r.filter((e) => e.kind == "audioinput" && e.deviceId != "default");
 	return n.createElement(Pi, {
-		label: (0, A.we)("#VoiceDevice"),
+		label: (0, Localize)("#VoiceDevice"),
 		rgDevices: a,
 		selectedDeviceId: i,
 		onSelect: t.SetSelectedMic,
@@ -5923,7 +6014,7 @@ function zi(e) {
 	const i = (0, T.q3)(() => t.GetSelectedOutputDevice());
 	const a = r.filter((e) => e.kind == "audiooutput" && e.deviceId != "default");
 	return n.createElement(Pi, {
-		label: (0, A.we)("#VoiceOutputDevice"),
+		label: (0, Localize)("#VoiceOutputDevice"),
 		rgDevices: a,
 		selectedDeviceId: i,
 		onSelect: t.SetSelectedOutput,
@@ -5987,8 +6078,8 @@ function Wi(e) {
 	const i = t.SetVoiceInputGain;
 	return n.createElement(Ui, {
 		voiceStore: t,
-		label: (0, A.we)("#VoiceInputGain"),
-		description: (0, A.we)("#VoiceInputGainExplainer"),
+		label: (0, Localize)("#VoiceInputGain"),
+		description: (0, Localize)("#VoiceInputGainExplainer"),
 		gain: r,
 		setGain: i,
 	});
@@ -5999,8 +6090,8 @@ function Vi(e) {
 	const i = t.SetVoiceOutputGain;
 	return n.createElement(Ui, {
 		voiceStore: t,
-		label: (0, A.we)("#VoiceOutputGain"),
-		description: (0, A.we)("#VoiceOutputGainExplainer"),
+		label: (0, Localize)("#VoiceOutputGain"),
+		description: (0, Localize)("#VoiceOutputGainExplainer"),
 		gain: r,
 		setGain: i,
 	});
@@ -6010,7 +6101,7 @@ function Hi(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(E.Pq, null, (0, A.we)("#VoiceTransmissionType_Label")),
+		n.createElement(E.Pq, null, (0, Localize)("#VoiceTransmissionType_Label")),
 		n.createElement(
 			v,
 			{
@@ -6031,21 +6122,21 @@ function Hi(e) {
 				{
 					value: Ti.k_EOpenMic,
 				},
-				(0, A.we)("#VoiceTransmissionType_OpenMic"),
+				(0, Localize)("#VoiceTransmissionType_OpenMic"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: Ti.k_EPushToTalk,
 				},
-				(0, A.we)("#VoiceTransmissionType_PushToTalk"),
+				(0, Localize)("#VoiceTransmissionType_PushToTalk"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: Ti.k_EPushToMute,
 				},
-				(0, A.we)("#VoiceTransmissionType_PushToMute"),
+				(0, Localize)("#VoiceTransmissionType_PushToMute"),
 			),
 		),
 		n.createElement(m.Nu, {
@@ -6067,7 +6158,7 @@ function ji(e) {
 		ti.n,
 		{
 			feature: 7,
-			label: (0, A.we)(s),
+			label: (0, Localize)(s),
 			className: Gi.HotKeyField,
 			current: i,
 			onKeyChange: (e) => {
@@ -6100,7 +6191,7 @@ function qi(e) {
 	const r = (0, T.q3)(() => t.GetPushToTalkOrMuteSoundsEnabled());
 	return n.createElement(me.C, {
 		feature: 7,
-		label: (0, A.we)("#VoicePushToSomethingSoundOption"),
+		label: (0, Localize)("#VoicePushToSomethingSoundOption"),
 		checked: r,
 		onChange: t.SetPushToTalkOrMuteSoundsEnabled,
 	});
@@ -6133,11 +6224,11 @@ function Zi(e) {
 	return n.createElement(
 		m.G5,
 		null,
-		n.createElement(E.Pq, null, (0, A.we)("#VoiceTransmisionThreshold")),
+		n.createElement(E.Pq, null, (0, Localize)("#VoiceTransmisionThreshold")),
 		n.createElement(
 			E.Tv,
 			null,
-			(0, A.we)("#VoiceTransmissionThresholdExplainer"),
+			(0, Localize)("#VoiceTransmissionThresholdExplainer"),
 		),
 		n.createElement(
 			v,
@@ -6151,20 +6242,20 @@ function Zi(e) {
 				{
 					value: Di.H.k_ENoiseGateLevel_Off,
 				},
-				(0, A.we)("#VoiceTransmissionThresholdOff"),
+				(0, Localize)("#VoiceTransmissionThresholdOff"),
 			),
 			n.createElement(
 				m.a,
 				{
 					value: Di.H.k_ENoiseGateLevel_Medium,
 				},
-				(0, A.we)("#VoiceTransmissionThresholdMedium"),
+				(0, Localize)("#VoiceTransmissionThresholdMedium"),
 				n.createElement(
 					"span",
 					{
 						className: Gi.RecommendedNote,
 					},
-					(0, A.we)("#VoiceTransmissionThresholdRecommended"),
+					(0, Localize)("#VoiceTransmissionThresholdRecommended"),
 				),
 			),
 			n.createElement(
@@ -6172,7 +6263,7 @@ function Zi(e) {
 				{
 					value: Di.H.k_ENoiseGateLevel_High,
 				},
-				(0, A.we)("#VoiceTransmissionThresholdHigh"),
+				(0, Localize)("#VoiceTransmissionThresholdHigh"),
 			),
 		),
 		n.createElement(m.Nu, {
@@ -6198,29 +6289,29 @@ function Yi(e) {
 			{
 				className: Gi.Advanced,
 			},
-			n.createElement(m.tX, null, (0, A.we)("#VoiceAdvancedSettings")),
+			n.createElement(m.tX, null, (0, Localize)("#VoiceAdvancedSettings")),
 			n.createElement(
 				m.a3,
 				{
 					className: Gi.AdvancedDescription,
 				},
-				(0, A.we)("#VoiceAdvancedSettingsExplainer"),
+				(0, Localize)("#VoiceAdvancedSettingsExplainer"),
 			),
 			n.createElement(me.C, {
 				feature: 7,
-				label: (0, A.we)("#VoiceEchoCancellation"),
+				label: (0, Localize)("#VoiceEchoCancellation"),
 				checked: i,
 				onChange: t.SetUseEchoCancellation,
 			}),
 			n.createElement(me.C, {
 				feature: 7,
-				label: (0, A.we)("#VoiceNoiseCancellation"),
+				label: (0, Localize)("#VoiceNoiseCancellation"),
 				checked: a,
 				onChange: t.SetUseNoiseCancellation,
 			}),
 			n.createElement(me.C, {
 				feature: 7,
-				label: (0, A.we)("#VoiceAutoGainControl"),
+				label: (0, Localize)("#VoiceAutoGainControl"),
 				checked: s,
 				onChange: t.SetUseAutoGainControl,
 			}),
@@ -6229,7 +6320,7 @@ function Yi(e) {
 				E.oN,
 				{
 					feature: 7,
-					label: (0, A.we)("#CopyVoiceChatLogs"),
+					label: (0, Localize)("#CopyVoiceChatLogs"),
 					onClick: () => {
 						const e = t.GetVoiceLogs();
 						r.current?.ownerDocument.defaultView.navigator.clipboard.writeText(
@@ -6237,7 +6328,7 @@ function Yi(e) {
 						);
 					},
 				},
-				(0, A.we)("#Button_Copy"),
+				(0, Localize)("#Button_Copy"),
 			),
 		),
 	);
@@ -6268,10 +6359,10 @@ function Ki(e) {
 				E.WG,
 				{
 					bottomSeparator: "none",
-					label: (0, A.we)("#Voice_ShowAdvanced"),
+					label: (0, Localize)("#Voice_ShowAdvanced"),
 					onClick: () => i(true),
 				},
-				(0, A.we)("#Voice_Button_Show"),
+				(0, Localize)("#Voice_Button_Show"),
 			),
 		r &&
 			n.createElement(
@@ -6296,8 +6387,8 @@ function Xi(e) {
 	const [i, a] = (0, N.uN)(t * 100, (e) => r(e / 100));
 	return n.createElement(O.V, {
 		feature: 7,
-		label: (0, A.we)("#VoiceInputGain"),
-		description: (0, A.we)("#VoiceInputGainExplainer"),
+		label: (0, Localize)("#VoiceInputGain"),
+		description: (0, Localize)("#VoiceInputGainExplainer"),
 		min: 0,
 		max: 100,
 		step: 1,
@@ -6313,8 +6404,8 @@ function Ji(e) {
 	});
 	return n.createElement(O.V, {
 		feature: 7,
-		label: (0, A.we)("#VoiceOutputGain"),
-		description: (0, A.we)("#VoiceOutputGainExplainer"),
+		label: (0, Localize)("#VoiceOutputGain"),
+		description: (0, Localize)("#VoiceOutputGainExplainer"),
 		min: 0,
 		max: 100,
 		step: 1,
@@ -6340,18 +6431,18 @@ function $i(e) {
 	const g = d ? Ti.k_EPushToTalk : p ? Ti.k_EPushToMute : Ti.k_EOpenMic;
 	const [h, _] = n.useState(false);
 	const f = h
-		? (0, A.we)("#Settings_InGame_Voice_Done")
-		: (0, A.we)("#Settings_InGame_Voice_Manage");
+		? (0, Localize)("#Settings_InGame_Voice_Done")
+		: (0, Localize)("#Settings_InGame_Voice_Manage");
 	return n.createElement(
 		E.sh,
 		{
 			className: e.className,
 		},
-		n.createElement(m.tX, null, (0, A.we)("#Settings_InGame_Voice")),
+		n.createElement(m.tX, null, (0, Localize)("#Settings_InGame_Voice")),
 		n.createElement(
 			m.D0,
 			{
-				label: (0, A.we)("#Settings_InGame_Voice_MicDeviceName"),
+				label: (0, Localize)("#Settings_InGame_Voice_MicDeviceName"),
 				className: Gi.HotKeyField,
 			},
 			s,
@@ -6394,7 +6485,9 @@ function $i(e) {
 						className: Gi.MicrophoneTestButton,
 						onClick: () => c(!i),
 					},
-					(0, A.we)(i ? "#VoiceStopLocalMicTest" : "#VoiceStartLocalMicTest"),
+					(0, Localize)(
+						i ? "#VoiceStopLocalMicTest" : "#VoiceStartLocalMicTest",
+					),
 				),
 			),
 		),
@@ -6420,7 +6513,7 @@ function $i(e) {
 	e[(e.k_EPushToTalk = 1)] = "k_EPushToTalk";
 	e[(e.k_EPushToMute = 2)] = "k_EPushToMute";
 })((Ti ||= {}));
-var ea = require(/*webcrack:missing*/ "./11010.js");
+import { CC } from "../../actual_src/utils/localization/datetime.js";
 var ta = require("./5072.js");
 require("./41480.js");
 var ra = require(/*webcrack:missing*/ "./61416.js");
@@ -6439,7 +6532,7 @@ function aa(e) {
 			{
 				className: ta.EntryLabel,
 			},
-			(0, A.we)("#Settings_Account_AccountName"),
+			(0, Localize)("#Settings_Account_AccountName"),
 		),
 		n.createElement(
 			"span",
@@ -6458,7 +6551,7 @@ function aa(e) {
 			autoFocus: true,
 			onClick: r,
 		},
-		(0, A.we)("#Settings_Account_ChangePassword"),
+		(0, Localize)("#Settings_Account_ChangePassword"),
 	);
 }
 function sa(e) {
@@ -6468,37 +6561,37 @@ function sa(e) {
 	let a = n.createElement(
 		"a",
 		null,
-		(0, A.we)("#Settings_Account_SteamGuard_LearnMore"),
+		(0, Localize)("#Settings_Account_SteamGuard_LearnMore"),
 	);
 	switch (t.eSteamGuardState) {
 		case 1:
-			r = (0, A.we)("#Settings_Account_Security_Status_State_0");
+			r = (0, Localize)("#Settings_Account_Security_Status_State_0");
 			break;
 		case 2:
-			r = (0, A.we)("#Settings_Account_Security_Status_State_2");
+			r = (0, Localize)("#Settings_Account_Security_Status_State_2");
 			break;
 		case 3:
 			i = ta.Enabled;
 			r = t.rtSteamGuardEnableTime
-				? (0, A.we)(
+				? (0, Localize)(
 						"#Settings_Account_Security_Status_State_1_WithTime",
-						(0, ea.CC)(t.rtSteamGuardEnableTime),
+						(0, CC)(t.rtSteamGuardEnableTime),
 					)
-				: (0, A.we)("#Settings_Account_Security_Status_State_1");
+				: (0, Localize)("#Settings_Account_Security_Status_State_1");
 			break;
 		case 4:
-			r = (0, A.we)("#Settings_Account_Security_Status_State_4");
+			r = (0, Localize)("#Settings_Account_Security_Status_State_4");
 			break;
 		default:
-			r = (0, A.we)("#Settings_Account_Security_Status_State_3");
+			r = (0, Localize)("#Settings_Account_Security_Status_State_3");
 	}
 	if (t.bHasTwoFactor) {
 		i = ta.EnabledTwoFactor;
-		r = (0, A.we)(
+		r = (0, Localize)(
 			t.rtSteamGuardEnableTime
 				? "#Settings_Account_Security_Status_TwoFactor_WithTime"
 				: "#Settings_Account_Security_Status_TwoFactor",
-			(0, ea.CC)(t.rtSteamGuardEnableTime),
+			(0, CC)(t.rtSteamGuardEnableTime),
 		);
 		a = undefined;
 	}
@@ -6527,13 +6620,13 @@ function oa(e) {
 		E.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#Settings_Account_SteamGuard"),
+			label: (0, Localize)("#Settings_Account_SteamGuard"),
 			description: n.createElement(sa, {
 				accountSettings: t,
 			}),
 			onClick: r,
 		},
-		(0, A.we)("#Settings_Account_ManageSteamGuard"),
+		(0, Localize)("#Settings_Account_ManageSteamGuard"),
 	);
 }
 function la(e) {
@@ -6550,21 +6643,21 @@ function la(e) {
 					E.oN,
 					{
 						feature: 7,
-						label: (0, A.we)("#Settings_Account_BackupCodes"),
-						description: (0, A.we)("#Settings_Account_BackupCodes_Desc"),
+						label: (0, Localize)("#Settings_Account_BackupCodes"),
+						description: (0, Localize)("#Settings_Account_BackupCodes_Desc"),
 						onClick: r,
 					},
-					(0, A.we)("#Settings_Account_BackupCodes_Button"),
+					(0, Localize)("#Settings_Account_BackupCodes_Button"),
 				),
 			n.createElement(
 				E.oN,
 				{
 					feature: 7,
-					label: (0, A.we)("#Settings_Account_Deauthorize"),
-					description: (0, A.we)("#Settings_Account_Deauthorize_Desc"),
+					label: (0, Localize)("#Settings_Account_Deauthorize"),
+					description: (0, Localize)("#Settings_Account_Deauthorize_Desc"),
 					onClick: r,
 				},
-				(0, A.we)("#Settings_Account_Deauthorize_Button"),
+				(0, Localize)("#Settings_Account_Deauthorize_Button"),
 			),
 		);
 	}
@@ -6581,8 +6674,10 @@ function ca(e) {
 			n.createElement(aa, null),
 			n.createElement(me.C, {
 				feature: 7,
-				label: (0, A.we)("#Settings_Account_DontSaveCredentials"),
-				description: (0, A.we)("#Settings_Account_DontSaveCredentials_Desc"),
+				label: (0, Localize)("#Settings_Account_DontSaveCredentials"),
+				description: (0, Localize)(
+					"#Settings_Account_DontSaveCredentials_Desc",
+				),
 				checked: !t.bSaveAccountCredentials,
 				onChange: (e) => {
 					SteamClient.Settings.SetSaveAccountCredentials(!e);
@@ -6597,7 +6692,11 @@ function ca(e) {
 			n.createElement(
 				m.G5,
 				null,
-				n.createElement(m.tX, null, (0, A.we)("#Settings_Account_SteamGuard")),
+				n.createElement(
+					m.tX,
+					null,
+					(0, Localize)("#Settings_Account_SteamGuard"),
+				),
 				n.createElement(oa, {
 					accountSettings: t,
 				}),
@@ -6827,14 +6926,14 @@ export function r4() {
 		() => ({
 			General: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_General"),
+				title: (0, Localize)("#Settings_Page_General"),
 				icon: n.createElement(u.Settings, null),
 				route: i.BV.Settings.General(),
 				content: n.createElement(qt, null),
 			},
 			System: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_System"),
+				title: (0, Localize)("#Settings_Page_System"),
 				icon: p
 					? n.createElement(u.SteamDeckNeedsUpdate, null)
 					: n.createElement(u.SteamDeck, null),
@@ -6843,7 +6942,7 @@ export function r4() {
 			},
 			Security: {
 				visible: t && g,
-				title: (0, A.we)("#Settings_Page_Security"),
+				title: (0, Localize)("#Settings_Page_Security"),
 				icon: n.createElement(u.Lock, {
 					locked: true,
 				}),
@@ -6852,98 +6951,98 @@ export function r4() {
 			},
 			Internet: {
 				visible: true,
-				title: (0, A.we)("#Settings_Page_Internet"),
+				title: (0, Localize)("#Settings_Page_Internet"),
 				icon: n.createElement(u.WirelessNetwork, null),
 				route: i.BV.Settings.Internet(),
 				content: n.createElement(Vr.KM, null),
 			},
 			Notifications: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Notifications"),
+				title: (0, Localize)("#Settings_Page_Notifications"),
 				icon: n.createElement(u.ExclamationPoint, null),
 				route: i.BV.Settings.Notifications(),
 				content: n.createElement(zn, null),
 			},
 			Display: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Display"),
+				title: (0, Localize)("#Settings_Page_Display"),
 				icon: n.createElement(u.Display, null),
 				route: i.BV.Settings.Display(),
 				content: n.createElement(st, null),
 			},
 			Audio: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Audio"),
+				title: (0, Localize)("#Settings_Page_Audio"),
 				icon: n.createElement(a.XZ, null),
 				route: i.BV.Settings.Audio(),
 				content: n.createElement(U, null),
 			},
 			Bluetooth: {
 				visible: r,
-				title: (0, A.we)("#Settings_Page_Bluetooth"),
+				title: (0, Localize)("#Settings_Page_Bluetooth"),
 				icon: n.createElement(u.Bluetooth, null),
 				route: i.BV.Settings.Bluetooth(),
 				content: n.createElement(q, null),
 			},
 			Controller: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Controller"),
+				title: (0, Localize)("#Settings_Page_Controller"),
 				icon: n.createElement(u.ControllerStatus, null),
 				route: i.BV.Settings.Controller(),
 				content: n.createElement(Q.yk, null),
 			},
 			Keyboard: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Keyboard"),
+				title: (0, Localize)("#Settings_Page_Keyboard"),
 				icon: n.createElement(u.Keyboard, null),
 				route: i.BV.Settings.Keyboard(),
 				content: n.createElement(yr, null),
 			},
 			Customization: {
 				visible: t && !S,
-				title: (0, A.we)("#Settings_Page_Customization"),
+				title: (0, Localize)("#Settings_Page_Customization"),
 				icon: n.createElement(u.CustomizeSteamDeck, null),
 				route: i.BV.Settings.Customization(),
 				content: n.createElement(Wr, null),
 			},
 			Friends: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Friends"),
+				title: (0, Localize)("#Settings_Page_Friends"),
 				icon: n.createElement(u.Friends, null),
 				route: i.BV.Settings.Friends(),
 				content: n.createElement(wn, null),
 			},
 			Downloads: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Downloads"),
+				title: (0, Localize)("#Settings_Page_Downloads"),
 				icon: n.createElement(u.Download, null),
 				route: i.BV.Settings.Downloads(),
 				content: n.createElement(Ot, null),
 			},
 			Cloud: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Cloud"),
+				title: (0, Localize)("#Settings_Page_Cloud"),
 				icon: n.createElement(u.CloudSync, null),
 				route: i.BV.Settings.Cloud(),
 				content: n.createElement(zt, null),
 			},
 			Family: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Family"),
+				title: (0, Localize)("#Settings_Page_Family"),
 				icon: n.createElement(u.FamilySharing, null),
 				route: i.BV.Settings.Family(),
 				content: n.createElement(xt.Ci, null),
 			},
 			RemotePlay: {
 				visible: t && !_,
-				title: (0, A.we)("#Settings_Page_RemotePlay"),
+				title: (0, Localize)("#Settings_Page_RemotePlay"),
 				icon: n.createElement(u.RemotePlay, null),
 				route: i.BV.Settings.RemotePlay(),
 				content: n.createElement(rn, null),
 			},
 			Storage: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Storage"),
+				title: (0, Localize)("#Settings_Page_Storage"),
 				icon: n.createElement(u.HardDrive, null),
 				route: i.BV.Settings.Storage(),
 				content: n.createElement(c.rN, {
@@ -6952,98 +7051,98 @@ export function r4() {
 			},
 			Home: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Home"),
+				title: (0, Localize)("#Settings_Page_Home"),
 				icon: n.createElement(u.Home, null),
 				route: i.BV.Settings.Home(),
 				content: n.createElement(nr, null),
 			},
 			Library: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Library"),
+				title: (0, Localize)("#Settings_Page_Library"),
 				icon: n.createElement(u.Library, null),
 				route: i.BV.Settings.Library(),
 				content: n.createElement(M, null),
 			},
 			Developer: {
 				visible: l && t,
-				title: (0, A.we)("#Settings_Page_Developer"),
+				title: (0, Localize)("#Settings_Page_Developer"),
 				icon: n.createElement(u.Shader, null),
 				route: i.BV.Settings.Developer(),
 				content: n.createElement(Ge, null),
 			},
 			Internal: {
 				visible: d && t,
-				title: (0, A.we)("#Settings_Page_Internal"),
+				title: (0, Localize)("#Settings_Page_Internal"),
 				icon: n.createElement(u.SteamLogo, null),
 				route: i.BV.Settings.Internal(),
 				content: d ? n.createElement(ir.BY, null) : null,
 			},
 			Account: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Account"),
+				title: (0, Localize)("#Settings_Page_Account"),
 				icon: n.createElement(u.ContactInfo, null),
 				route: i.BV.Settings.Account(),
 				content: n.createElement(Qn, null),
 			},
 			InGame: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_InGame"),
+				title: (0, Localize)("#Settings_Page_InGame"),
 				icon: n.createElement(u.InGame, null),
 				route: i.BV.Settings.InGame(),
 				content: n.createElement(mi, null),
 			},
 			Compatibility: {
 				visible: t && (0, C.CI)(),
-				title: (0, A.we)("#Settings_Page_Compatibility"),
+				title: (0, Localize)("#Settings_Page_Compatibility"),
 				icon: n.createElement(u.SteamLogo, null),
 				route: i.BV.Settings.Compatibility(),
 				content: n.createElement(ge, null),
 			},
 			Interface: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Interface"),
+				title: (0, Localize)("#Settings_Page_Interface"),
 				icon: n.createElement(u.Display, null),
 				route: i.BV.Settings.Interface(),
 				content: n.createElement(_i, null),
 			},
 			Music: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Music"),
+				title: (0, Localize)("#Settings_Page_Music"),
 				icon: n.createElement(u.Music, null),
 				route: i.BV.Settings.Music(),
 				content: n.createElement(Si, null),
 			},
 			Broadcast: {
 				visible: t && !_,
-				title: (0, A.we)("#Settings_Page_Broadcast"),
+				title: (0, Localize)("#Settings_Page_Broadcast"),
 				icon: n.createElement(u.Broadcast, null),
 				route: i.BV.Settings.Broadcast(),
 				content: n.createElement(Mi, null),
 			},
 			Voice: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Voice"),
+				title: (0, Localize)("#Settings_Page_Voice"),
 				icon: n.createElement(u.Microphone, null),
 				route: i.BV.Settings.Voice(),
 				content: n.createElement(Ki, null),
 			},
 			InGameVoice: {
 				visible: t && (h || b),
-				title: (0, A.we)("#Settings_Page_InGameVoice"),
+				title: (0, Localize)("#Settings_Page_InGameVoice"),
 				icon: n.createElement(u.Microphone, null),
 				route: i.BV.Settings.InGameVoice(),
 				content: n.createElement($i, null),
 			},
 			DesktopSecurity: {
 				visible: t,
-				title: (0, A.we)("#Settings_Page_Security"),
+				title: (0, Localize)("#Settings_Page_Security"),
 				icon: n.createElement(u.Security, null),
 				route: i.BV.Settings.Security(),
 				content: n.createElement(ca, null),
 			},
 			GameRecording: {
 				visible: t && !_ && (0, ma.BGameRecordingFeatureEnabled)(),
-				title: (0, A.we)("#Settings_Page_GameRecording"),
+				title: (0, Localize)("#Settings_Page_GameRecording"),
 				icon: n.createElement(R.vN, null),
 				route: i.BV.Settings.GameRecording(),
 				content: n.createElement(ba, null),

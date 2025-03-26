@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./10975.js");
 var o = require("./22047.js");
 var l = require("./13869.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./31319.js");
 var u = require("./89748.js");
 var d = require("./12491.js");
@@ -36,7 +36,7 @@ export function wB() {
 		i.dj,
 		null,
 		a.createElement(o.q, {
-			title: (0, c.we)("#Settings_Title"),
+			title: Localize("#Settings_Title"),
 			pages: e,
 		}),
 	);
@@ -69,7 +69,7 @@ export function bB(e) {
 					closeModal: r,
 				},
 				a.createElement(o.q, {
-					title: (0, c.we)("#Settings_Title"),
+					title: Localize("#Settings_Title"),
 					pages: u,
 					className: (0, A.A)(f.SettingsModal, t),
 					fnSetNavigateToPage: m,
@@ -91,7 +91,7 @@ export const er = (0, p.Nr)(function () {
 		return a.createElement(
 			g.w,
 			{
-				strTitle: (0, c.we)("#Settings_Title"),
+				strTitle: Localize("#Settings_Title"),
 				onDismiss: i,
 				refPopup: n,
 				popupWidth: 850,

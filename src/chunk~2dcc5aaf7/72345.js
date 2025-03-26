@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./31958.js");
 var o = require("./64608.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
 var u = require("./14145.js");
 var d = u;
 var A = require(/*webcrack:missing*/ "./55007.js");
@@ -35,7 +35,7 @@ function f(e) {
 				{
 					className: d.Timestamp,
 				},
-				Intl.DateTimeFormat((0, m.l4)(), {
+				Intl.DateTimeFormat(GetConfiguredLocale(), {
 					hour: "2-digit",
 					minute: "2-digit",
 					second: "2-digit",

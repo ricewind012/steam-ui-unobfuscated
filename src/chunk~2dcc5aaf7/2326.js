@@ -26,7 +26,11 @@ var E = require("./35488.js");
 var M = require("./17815.js");
 var T = require("./43520.js");
 var R = require(/*webcrack:missing*/ "./90765.js");
-var k = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	LocalizePlural,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var D = require("./80254.js");
 var N = require("./51095.js");
 var F = require("./56726.js");
@@ -77,9 +81,14 @@ const x = (e) => {
 				className: O.PlaytimeContent,
 			},
 			n.minutes_played &&
-				C.createElement("div", null, (0, k.PP)("#Playtime_Recently", o), " "),
+				C.createElement(
+					"div",
+					null,
+					LocalizeReact("#Playtime_Recently", o),
+					" ",
+				),
 			n.minutes_played != n.minutes_played_forever &&
-				C.createElement("div", null, (0, k.PP)("#Playtime_Total", l)),
+				C.createElement("div", null, LocalizeReact("#Playtime_Total", l)),
 		),
 	);
 };
@@ -165,7 +174,7 @@ function V(e) {
 				{
 					className: O.SubsectionHeader,
 				},
-				(0, k.Yp)(i, n, r.strDisplayName),
+				LocalizePlural(i, n, r.strDisplayName),
 			),
 			C.createElement(
 				"div",
@@ -265,8 +274,8 @@ function K(e) {
 			nMaxRows: t,
 			classNameWhenHidden: (0, R.A)(O.FriendsActivityOverFlow),
 			classNameWhenExpanded: (0, R.A)(O.FriendsActivityOverFlow, O.Expanded),
-			collapseString: (0, k.we)("#AppDetails_FriendsLess"),
-			expandString: (0, k.we)(r),
+			collapseString: (0, Localize)("#AppDetails_FriendsLess"),
+			expandString: (0, Localize)(r),
 			suppressMask: true,
 			buttonClass: O.ShowMore,
 		},
@@ -343,15 +352,15 @@ const ee = (0, g.PA)(function (e) {
 		return null;
 	}
 	const c = X(r)
-		? (0, k.we)("#AppDetails_SectionTitle_Friends_Software")
-		: (0, k.we)("#AppDetails_SectionTitle_Friends");
+		? (0, Localize)("#AppDetails_SectionTitle_Friends_Software")
+		: (0, Localize)("#AppDetails_SectionTitle_Friends");
 	return C.createElement(
 		P.n,
 		{
 			feature: 4,
 			primaryAction: {
 				action: n,
-				label: (0, k.we)("#AppDetails_Friends_ViewAll"),
+				label: (0, Localize)("#AppDetails_Friends_ViewAll"),
 			},
 			className: O.FriendsSection,
 			label: c,
@@ -450,8 +459,8 @@ const ee = (0, g.PA)(function (e) {
 });
 function te(e) {
 	const t = X(e.appid)
-		? (0, k.we)("#AppDetails_SectionTitle_Friends_Software")
-		: (0, k.we)("#AppDetails_SectionTitle_Friends");
+		? (0, Localize)("#AppDetails_SectionTitle_Friends_Software")
+		: (0, Localize)("#AppDetails_SectionTitle_Friends");
 	return C.createElement(
 		P.n,
 		{
@@ -473,7 +482,7 @@ function te(e) {
 							"{}",
 						),
 				},
-				(0, k.PP)(
+				LocalizeReact(
 					"#AppDetails_SectionTitle_SignIn",
 					C.createElement(
 						"span",
@@ -482,7 +491,7 @@ function te(e) {
 								color: "white",
 							},
 						},
-						(0, k.we)("#AppDetails_SectionTitle_SignIn_Pre"),
+						(0, Localize)("#AppDetails_SectionTitle_SignIn_Pre"),
 					),
 				),
 			),
@@ -501,7 +510,7 @@ export function gr(e) {
 			P.n,
 			{
 				feature: 4,
-				label: (0, k.Yp)("#AppDetails_FriendsInGameNow_Short", i.length),
+				label: LocalizePlural("#AppDetails_FriendsInGameNow_Short", i.length),
 				className: O.FriendsSectionPlayingNow,
 				rightColumnSection: true,
 			},
@@ -522,7 +531,9 @@ export function gr(e) {
 							friendAndPlaytime: e,
 							onActivate: () =>
 								l.LN.ShowFriendChatDialog(n, e.friend.persona.m_steamid),
-							actionDescription: (0, k.we)("#AppDetails_Friends_SendMessage"),
+							actionDescription: (0, Localize)(
+								"#AppDetails_Friends_SendMessage",
+							),
 						}),
 				),
 			),
@@ -587,7 +598,7 @@ export function w4(e) {
 		},
 		a &&
 			C.createElement(L.w, {
-				label: (0, k.we)("#AppDetails_FriendsSection_Title"),
+				label: (0, Localize)("#AppDetails_FriendsSection_Title"),
 			}),
 		C.createElement(se, {
 			...e,
@@ -629,7 +640,7 @@ function ae(e) {
 		appid: t,
 		friendAndPlaytime: r,
 		onActivate: i,
-		actionDescription: (0, k.we)("#AppDetails_Friends_ViewProfile"),
+		actionDescription: (0, Localize)("#AppDetails_Friends_ViewProfile"),
 		showStatus: true,
 		bHideRichPresence: true,
 		mini: n,
@@ -649,7 +660,7 @@ function se(e) {
 				label: C.createElement(
 					ce,
 					null,
-					(0, k.Yp)("#AppDetails_FriendsPlayedRecently", r.length),
+					LocalizePlural("#AppDetails_FriendsPlayedRecently", r.length),
 				),
 				rightColumnSection: true,
 			},
@@ -685,7 +696,7 @@ function oe(e) {
 				label: C.createElement(
 					ce,
 					null,
-					(0, k.we)("#AppDetails_FriendsPlayed_Short"),
+					(0, Localize)("#AppDetails_FriendsPlayed_Short"),
 				),
 				className: O.FriendsPlayingHalfSection,
 				rightColumnSection: true,
@@ -726,7 +737,7 @@ function le(e) {
 				label: C.createElement(
 					ce,
 					null,
-					(0, k.we)("#AppDetails_FriendsWishlisted_Short"),
+					(0, Localize)("#AppDetails_FriendsWishlisted_Short"),
 				),
 				className: O.FriendsPlayingHalfSection,
 				rightColumnSection: true,
@@ -771,7 +782,7 @@ function me(e) {
 		appid: r.unAppID,
 		friendAndPlaytime: t,
 		onActivate: n,
-		actionDescription: (0, k.we)("#AppDetails_Friends_ViewWishlist"),
+		actionDescription: (0, Localize)("#AppDetails_Friends_ViewWishlist"),
 		mini: true,
 	});
 }

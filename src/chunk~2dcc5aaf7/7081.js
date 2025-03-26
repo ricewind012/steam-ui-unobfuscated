@@ -4,7 +4,7 @@ var a = require("./58839.js");
 var s = require("./82594.js");
 var o = require(/*webcrack:missing*/ "./98995.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./15612.js");
 var u = require("./59265.js");
 var d = u;
@@ -18,10 +18,10 @@ export function j(e) {
 	const g = p?.BHasDemo();
 	const h = g || p?.GetAppType() === 1;
 	const C = h
-		? (0, c.we)("#Sale_InstallDemo_ttip", p?.GetName())
+		? Localize("#Sale_InstallDemo_ttip", p?.GetName())
 		: g
-			? (0, c.we)("#Sale_CannotInstallDemo_ttip", p?.GetName())
-			: (0, c.we)("#Loading");
+			? Localize("#Sale_CannotInstallDemo_ttip", p?.GetName())
+			: Localize("#Loading");
 	if (!(0, A.$W)()) {
 		if (!h && g && p?.BIsFree()) {
 			return n.createElement(m.h, {
@@ -44,7 +44,7 @@ export function j(e) {
 					},
 					className: (0, l.A)(r, d.DemoButton, !h && d.DisabledButton),
 				},
-				h ? (0, c.we)("#Sale_InstallDemo") : (0, c.we)("#Sale_DemoNotFound"),
+				h ? Localize("#Sale_InstallDemo") : Localize("#Sale_DemoNotFound"),
 			);
 		}
 	}

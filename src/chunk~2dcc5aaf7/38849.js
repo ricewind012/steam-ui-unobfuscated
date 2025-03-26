@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./50979.js");
 var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var o = require(/*webcrack:missing*/ "./79769.js");
 var l = require(/*webcrack:missing*/ "./72476.js");
 var c = require("./3756.js");
@@ -162,13 +162,13 @@ export class JB extends A.Q {
 		this.m_rgOnChatFrameChangedCallbacks.push(e);
 	}
 	RemoveOnChatFrameChangedCallback(e) {
-		s.x9(this.m_rgOnChatFrameChangedCallbacks, e);
+		FindAndRemove(this.m_rgOnChatFrameChangedCallbacks, e);
 	}
 	AddOnChatRequestScrollBottomCallback(e) {
 		this.m_rgOnChatRequestScrollBottomCallbacks.push(e);
 	}
 	RemoveOnChatRequestScrollBottomCallback(e) {
-		s.x9(this.m_rgOnChatRequestScrollBottomCallbacks, e);
+		FindAndRemove(this.m_rgOnChatRequestScrollBottomCallbacks, e);
 	}
 	OnChatFrameChanged() {
 		for (let e of this.m_rgOnChatFrameChangedCallbacks) {

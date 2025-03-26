@@ -4,7 +4,11 @@ var a = require(/*webcrack:missing*/ "./41230.js");
 var s = require("./64608.js");
 var o = require("./10606.js");
 var l = require("./48289.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var m = require("./34792.js");
 var u = require("./18057.js");
 var d = require("./13869.js");
@@ -116,7 +120,7 @@ function W(e) {
 				{
 					className: I.RoleName,
 				},
-				(0, c.we)(`#FamilyManagement_Role_${r}`),
+				(0, Localize)(`#FamilyManagement_Role_${r}`),
 			),
 		),
 	);
@@ -160,7 +164,7 @@ function V(e) {
 						{
 							className: I.InvitePending,
 						},
-						(0, c.we)("#FamilyManagement_InvitePending"),
+						(0, Localize)("#FamilyManagement_InvitePending"),
 					),
 				m &&
 					n.createElement(
@@ -168,7 +172,7 @@ function V(e) {
 						{
 							className: I.MeBadge,
 						},
-						(0, c.we)("#FamilyManagement_Me"),
+						(0, Localize)("#FamilyManagement_Me"),
 					),
 			),
 			a &&
@@ -210,11 +214,11 @@ const ee = () => {
 		n.createElement(
 			$.WG,
 			{
-				label: (0, c.we)("#FamilySettings_FamilyView_Header"),
-				description: (0, c.we)("#FamilySettings_FamilyView_Desc"),
+				label: (0, Localize)("#FamilySettings_FamilyView_Header"),
+				description: (0, Localize)("#FamilySettings_FamilyView_Desc"),
 				onClick: e,
 			},
-			(0, c.we)("#FamilySettings_Manage_ButtonText"),
+			(0, Localize)("#FamilySettings_Manage_ButtonText"),
 		),
 	);
 };
@@ -258,7 +262,7 @@ const te = (e) => {
 				n.createElement(f.t, null),
 			),
 		t === null &&
-			n.createElement(s.nB, null, (0, c.we)("#FamilySettings_Offline")),
+			n.createElement(s.nB, null, (0, Localize)("#FamilySettings_Offline")),
 	);
 };
 const re = () => {
@@ -266,11 +270,11 @@ const re = () => {
 	return n.createElement(
 		$.WG,
 		{
-			label: (0, c.we)("#FamilySettings_Header"),
-			description: (0, c.we)("#FamilySettings_Description"),
+			label: (0, Localize)("#FamilySettings_Header"),
+			description: (0, Localize)("#FamilySettings_Description"),
 			onClick: e,
 		},
-		(0, c.we)("#FamilySettings_Manage_ButtonText"),
+		(0, Localize)("#FamilySettings_Manage_ButtonText"),
 	);
 };
 const ne = (e) => {
@@ -286,8 +290,8 @@ const ne = (e) => {
 			ref: i,
 			className: g.AuthorizeUserField,
 			checked: t,
-			label: (0, c.we)("#FamilySettings_AuthorizeLocalDevice"),
-			description: (0, c.we)("#FamilySettings_UserListDescription", r),
+			label: (0, Localize)("#FamilySettings_AuthorizeLocalDevice"),
+			description: (0, Localize)("#FamilySettings_UserListDescription", r),
 			onChange: (e) => {
 				if (e) {
 					SteamClient.FamilySharing.AuthorizeLocalDevice().then((t) => {
@@ -295,22 +299,22 @@ const ne = (e) => {
 							let r;
 							switch (t) {
 								case 18:
-									r = (0, c.we)("#FamilySettings_SteamGuardRequired", t);
+									r = (0, Localize)("#FamilySettings_SteamGuardRequired", t);
 									break;
 								case 25:
-									r = (0, c.we)("#FamilySettings_LimitExceeded", t);
+									r = (0, Localize)("#FamilySettings_LimitExceeded", t);
 									break;
 								default:
-									r = (0, c.we)("#FamilySettings_FailedToAuthorize", t);
+									r = (0, Localize)("#FamilySettings_FailedToAuthorize", t);
 							}
 							(0, d.pg)(
 								n.createElement(o.KG, {
-									strTitle: (0, c.we)("#Error_Generic"),
+									strTitle: (0, Localize)("#Error_Generic"),
 									strDescription: r,
 								}),
 								a.ownerWindow ?? window,
 								{
-									strTitle: (0, c.we)("#Error_Generic"),
+									strTitle: (0, Localize)("#Error_Generic"),
 									bForcePopOut: true,
 								},
 							);
@@ -322,15 +326,15 @@ const ne = (e) => {
 						if (t != 1) {
 							(0, d.pg)(
 								n.createElement(o.KG, {
-									strTitle: (0, c.we)("#Error_Generic"),
-									strDescription: (0, c.we)(
+									strTitle: (0, Localize)("#Error_Generic"),
+									strDescription: (0, Localize)(
 										"#FamilySettings_FailedToDeauthorize",
 										t,
 									),
 								}),
 								a.ownerWindow ?? window,
 								{
-									strTitle: (0, c.we)("#Error_Generic"),
+									strTitle: (0, Localize)("#Error_Generic"),
 									bForcePopOut: true,
 								},
 							);
@@ -362,12 +366,15 @@ const ie = (0, a.PA)((e) => {
 				if (t == 25) {
 					(0, d.pg)(
 						n.createElement(o.KG, {
-							strTitle: (0, c.we)("#Error_Generic"),
-							strDescription: (0, c.we)("#FamilySettings_TooManyBorrowers", a),
+							strTitle: (0, Localize)("#Error_Generic"),
+							strDescription: (0, Localize)(
+								"#FamilySettings_TooManyBorrowers",
+								a,
+							),
 						}),
 						u.ownerWindow ?? window,
 						{
-							strTitle: (0, c.we)("#Error_Generic"),
+							strTitle: (0, Localize)("#Error_Generic"),
 							bForcePopOut: true,
 						},
 					);
@@ -375,15 +382,15 @@ const ie = (0, a.PA)((e) => {
 				} else if (t != 1) {
 					(0, d.pg)(
 						n.createElement(o.KG, {
-							strTitle: (0, c.we)("#Error_Generic"),
-							strDescription: (0, c.we)(
+							strTitle: (0, Localize)("#Error_Generic"),
+							strDescription: (0, Localize)(
 								"#FamilySettings_FailedToUpdateBorrower",
 								t,
 							),
 						}),
 						u.ownerWindow ?? window,
 						{
-							strTitle: (0, c.we)("#Error_Generic"),
+							strTitle: (0, Localize)("#Error_Generic"),
 							bForcePopOut: true,
 						},
 					);
@@ -431,7 +438,7 @@ const ae = (e) => {
 			className: g.User,
 			disabled: true,
 			icon: n.createElement(b.BlockUser, null),
-			label: (0, c.we)("#FamilySettings_UserList_NoAccounts"),
+			label: (0, Localize)("#FamilySettings_UserList_NoAccounts"),
 			bottomSeparator: "none",
 		});
 	} else {
@@ -460,12 +467,12 @@ const ae = (e) => {
 			n.createElement(
 				"div",
 				null,
-				(0, c.we)("#FamilySettings_UserList_LeftColumn"),
+				(0, Localize)("#FamilySettings_UserList_LeftColumn"),
 			),
 			n.createElement(
 				"div",
 				null,
-				(0, c.we)("#FamilySettings_UserList_RightColumn"),
+				(0, Localize)("#FamilySettings_UserList_RightColumn"),
 			),
 		),
 		u,
@@ -480,7 +487,7 @@ const se = (e) => {
 			n.createElement(S.G, {
 				feature: Q.uX,
 				setting: "show_family_sharing_notifications",
-				label: (0, c.we)("#FamilySettings_ShowNotifications"),
+				label: (0, Localize)("#FamilySettings_ShowNotifications"),
 			}),
 		);
 	} else {
@@ -509,7 +516,7 @@ const oe = () => {
 			"div",
 			null,
 			" ",
-			(0, c.PP)("#FamilyGroup_QueryFailed", e),
+			LocalizeReact("#FamilyGroup_QueryFailed", e),
 			" ",
 		);
 	}
@@ -536,7 +543,7 @@ const oe = () => {
 				{
 					className: g.YourFamily,
 				},
-				(0, c.we)("#FamilyManagement_YourFamily"),
+				(0, Localize)("#FamilyManagement_YourFamily"),
 			),
 			n.createElement(
 				"div",
@@ -564,7 +571,7 @@ const oe = () => {
 				className: g.ManageFamilyButton,
 				onClick: i,
 			},
-			(0, c.we)("#FamilyGroup_ManageFamily"),
+			(0, Localize)("#FamilyGroup_ManageFamily"),
 		),
 	);
 };
@@ -577,7 +584,12 @@ function le() {
 		n.Fragment,
 		null,
 		!t &&
-			n.createElement(s.a3, null, (0, c.PP)("#FamilyGroup_Offline", i), " "),
+			n.createElement(
+				s.a3,
+				null,
+				LocalizeReact("#FamilyGroup_Offline", i),
+				" ",
+			),
 		e &&
 			n.createElement(
 				"div",
@@ -589,7 +601,7 @@ function le() {
 					{
 						onClick: (e) => (0, K.$I)(e, r),
 					},
-					(0, c.we)("#GoOnline"),
+					(0, Localize)("#GoOnline"),
 				),
 			),
 	);
@@ -630,7 +642,7 @@ export function Ci() {
 				"div",
 				null,
 				" ",
-				(0, c.oW)(
+				LocalizeInlineReactWithFallback(
 					"#FamilyGroup_TrySteamFamilies",
 					n.createElement(J.Ii, {
 						onClick: l,
@@ -648,7 +660,7 @@ export function Ci() {
 						className: g.TrySteamFamiliesButton,
 						onClick: l,
 					},
-					(0, c.we)("#FamilyGroup_TrySteamFamilies_Button"),
+					(0, Localize)("#FamilyGroup_TrySteamFamilies_Button"),
 				),
 				n.createElement(
 					"div",
@@ -726,10 +738,10 @@ function de(e) {
 	if (t.length == 0) {
 		s =
 			a == 0
-				? (0, c.we)("#FamilyGroup_ChoosePreferredLender_NoDLC")
-				: (0, c.we)("#FamilyGroup_ChoosePreferredLender_CommonOnly", a);
+				? (0, Localize)("#FamilyGroup_ChoosePreferredLender_NoDLC")
+				: (0, Localize)("#FamilyGroup_ChoosePreferredLender_CommonOnly", a);
 	} else if (i > 0) {
-		s = (0, c.we)("#FamilyGroup_ChoosePreferredLender_DLCAdditional", i);
+		s = (0, Localize)("#FamilyGroup_ChoosePreferredLender_DLCAdditional", i);
 	}
 	return n.createElement(
 		"div",
@@ -793,7 +805,7 @@ function Ae(e) {
 				{
 					className: g.PreferredCopy,
 				},
-				r && (0, c.we)("#FamilyGroup_PreferredCopy"),
+				r && (0, Localize)("#FamilyGroup_PreferredCopy"),
 				n.createElement(
 					"div",
 					{
@@ -876,7 +888,7 @@ function ge(e) {
 			{
 				className: g.InCommon,
 			},
-			(0, c.we)("#FamilyGroup_ChoosePreferredLender_DLCInCommon", a),
+			(0, Localize)("#FamilyGroup_ChoosePreferredLender_DLCInCommon", a),
 		),
 	);
 }
@@ -908,7 +920,7 @@ function he(e) {
 				t();
 			}
 		} else {
-			u((0, c.we)("#FamilyGroup_ChoosePreferredLender_Error"));
+			u((0, Localize)("#FamilyGroup_ChoosePreferredLender_Error"));
 		}
 	};
 	return n.createElement(
@@ -919,7 +931,7 @@ function he(e) {
 		n.createElement(
 			s.Y9,
 			null,
-			(0, c.we)("#FamilyGroup_ChoosePreferredLender_Title"),
+			(0, Localize)("#FamilyGroup_ChoosePreferredLender_Title"),
 		),
 		n.createElement(
 			s.f3,
@@ -945,7 +957,7 @@ function he(e) {
 						{
 							className: g.PreferredCopyDisc,
 						},
-						(0, c.we)("#FamilyGroup_ChoosePreferredLender_Text"),
+						(0, Localize)("#FamilyGroup_ChoosePreferredLender_Text"),
 					),
 					n.createElement(ge, {
 						rgLenders: a,
@@ -970,7 +982,7 @@ function he(e) {
 					n.createElement(
 						s.a3,
 						null,
-						(0, c.PP)(
+						LocalizeReact(
 							"#FamilyGroup_Offline",
 							n.createElement("b", null, (0, B.qw)().GetFamilyGroupName()),
 						),
@@ -981,7 +993,7 @@ function he(e) {
 						null,
 						n.createElement(s.CB, {
 							onOK: (e) => (0, K.$I)(e, h),
-							strOKText: (0, c.we)("#GoOnline"),
+							strOKText: (0, Localize)("#GoOnline"),
 							onCancel: t,
 						}),
 					),
@@ -996,7 +1008,7 @@ function he(e) {
 							s.a3,
 							null,
 							" ",
-							(0, c.we)("#FamilyGroup_ChoosePreferredLender_AppRunning"),
+							(0, Localize)("#FamilyGroup_ChoosePreferredLender_AppRunning"),
 							" ",
 						),
 					n.createElement(
@@ -1009,7 +1021,7 @@ function he(e) {
 							{
 								onClick: f,
 							},
-							(0, c.we)("#Button_OK"),
+							(0, Localize)("#Button_OK"),
 						),
 					),
 				),

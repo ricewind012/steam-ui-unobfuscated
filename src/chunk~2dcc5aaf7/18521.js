@@ -12,7 +12,7 @@ var A = require("./64608.js");
 var p = require("./10606.js");
 var g = require("./13869.js");
 var h = require(/*webcrack:missing*/ "./90765.js");
-var C = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var _ = require(/*webcrack:missing*/ "./52451.js");
 var f = require(/*webcrack:missing*/ "./72476.js");
 var b = require("./39859.js");
@@ -63,7 +63,7 @@ let I = class extends d.Component {
 							{
 								className: y.Description,
 							},
-							(0, C.we)("#WhatsNew_EAAccessCollection_Description_2"),
+							(0, Localize)("#WhatsNew_EAAccessCollection_Description_2"),
 						),
 						d.createElement(
 							"div",
@@ -76,7 +76,7 @@ let I = class extends d.Component {
 									className: (0, h.A)(y.Button, y.PrimaryButton),
 									onClick: v,
 								},
-								(0, C.we)("#WhatsNew_EAAccessCollection_AddShelf_Button"),
+								(0, Localize)("#WhatsNew_EAAccessCollection_AddShelf_Button"),
 							),
 							d.createElement(
 								"div",
@@ -84,7 +84,7 @@ let I = class extends d.Component {
 									className: y.Button,
 									onClick: this.DeclinePolitely,
 								},
-								(0, C.we)("#WhatsNew_EAAccessCollection_Cancel_Button"),
+								(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button"),
 							),
 						),
 					);
@@ -98,7 +98,7 @@ let I = class extends d.Component {
 						{
 							className: y.Description,
 						},
-						(0, C.we)("#WhatsNew_EAAccessCollection_Description_1"),
+						(0, Localize)("#WhatsNew_EAAccessCollection_Description_1"),
 					),
 					d.createElement(
 						"div",
@@ -111,7 +111,9 @@ let I = class extends d.Component {
 								className: (0, h.A)(y.Button, y.PrimaryButton),
 								onClick: kx,
 							},
-							(0, C.we)("#WhatsNew_EAAccessCollection_AddCollection_Button"),
+							(0, Localize)(
+								"#WhatsNew_EAAccessCollection_AddCollection_Button",
+							),
 						),
 						d.createElement(
 							"div",
@@ -119,7 +121,7 @@ let I = class extends d.Component {
 								className: y.Button,
 								onClick: this.DeclinePolitely,
 							},
-							(0, C.we)("#WhatsNew_EAAccessCollection_Cancel_Button"),
+							(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button"),
 						),
 					),
 				);
@@ -140,7 +142,7 @@ let I = class extends d.Component {
 						{
 							className: y.Description,
 						},
-						(0, C.we)("#FilterEdit_CollectionsHiddenPrompt"),
+						(0, Localize)("#FilterEdit_CollectionsHiddenPrompt"),
 					),
 					d.createElement(
 						"div",
@@ -153,7 +155,7 @@ let I = class extends d.Component {
 								className: (0, h.A)(y.Button, y.PrimaryButton),
 								onClick: e,
 							},
-							(0, C.we)("#FilterEdit_AcceptGameListViewChange"),
+							(0, Localize)("#FilterEdit_AcceptGameListViewChange"),
 						),
 						d.createElement(
 							"div",
@@ -161,12 +163,12 @@ let I = class extends d.Component {
 								className: y.Button,
 								onClick: this.Close,
 							},
-							(0, C.we)("#FilterEdit_RejectGameListViewChange"),
+							(0, Localize)("#FilterEdit_RejectGameListViewChange"),
 						),
 					),
 				);
 			} else {
-				const t = (0, C.we)(
+				const t = (0, Localize)(
 					e
 						? "#WhatsNew_EAAccessCollection_Description_Declined"
 						: "#WhatsNew_EAAccessCollection_Description_3",
@@ -187,7 +189,7 @@ let I = class extends d.Component {
 							className: y.Button,
 							onClick: this.Close,
 						},
-						(0, C.we)("#Button_Close"),
+						(0, Localize)("#Button_Close"),
 					),
 				);
 			}
@@ -206,7 +208,7 @@ let I = class extends d.Component {
 					A.Y9,
 					null,
 					" ",
-					(0, C.we)("#WhatsNew_EAAccessCollection_Title"),
+					(0, Localize)("#WhatsNew_EAAccessCollection_Title"),
 					" ",
 				),
 				d.createElement(
@@ -246,7 +248,7 @@ export const Cf = new (class {
 	}
 	ShowPrompt(e) {
 		(0, g.mK)(d.createElement(I, null), window, {
-			strTitle: (0, C.we)("#WhatsNew_EAAccessCollection_Title"),
+			strTitle: (0, Localize)("#WhatsNew_EAAccessCollection_Title"),
 		});
 		e.StoreString(S, "true");
 	}

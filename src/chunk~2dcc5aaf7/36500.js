@@ -242,6 +242,7 @@ g.prototype.reduce = function (e) {
 		for (
 			e[(r = t + this.m.t)] += this.m.am(0, n, e, t, 0, this.m.t);
 			e[r] >= e.DV;
+
 		) {
 			e[r] -= e.DV;
 			e[++r]++;
@@ -613,6 +614,7 @@ i.prototype.toString = function (e) {
 		for (
 			o < this.DB && (r = this[s] >> o) > 0 && ((i = true), (a = m(r)));
 			s >= 0;
+
 		) {
 			if (o < t) {
 				r = (this[s] & ((1 << o) - 1)) << (t - o);
@@ -1040,6 +1042,7 @@ i.prototype.toByteArray = function () {
 			(r = this[e] >> n) != (this.s & this.DM) >> n &&
 			(t[i++] = r | (this.s << (this.DB - n)));
 			e >= 0;
+
 		) {
 			if (n < 8) {
 				r = (this[e] & ((1 << n) - 1)) << (8 - n);
@@ -1153,7 +1156,7 @@ i.prototype.testBit = function (e) {
 	if (t >= this.t) {
 		return this.s != 0;
 	} else {
-		return (this[t] & (1 << (e % this.DB))) != 0;
+		return (this[t] & (1 << e % this.DB)) != 0;
 	}
 };
 i.prototype.setBit = function (e) {
@@ -1281,6 +1284,7 @@ i.prototype.modInverse = function (e) {
 	for (
 		var r = e.clone(), n = this.clone(), a = d(1), s = d(0), o = d(0), l = d(1);
 		r.signum() != 0;
+
 	) {
 		while (r.isEven()) {
 			r.rShiftTo(1, r);

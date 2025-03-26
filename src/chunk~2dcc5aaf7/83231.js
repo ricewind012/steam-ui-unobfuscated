@@ -4,8 +4,15 @@ var a = require(/*webcrack:missing*/ "./41230.js");
 var s = require(/*webcrack:missing*/ "./63696.js");
 var o = require(/*webcrack:missing*/ "./7470.js");
 var l = require(/*webcrack:missing*/ "./11131.js");
-var c = require(/*webcrack:missing*/ "./54644.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	ClientRectToScreenCoords,
+	No,
+	SY,
+} from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./52451.js");
 var d = require("./95773.js");
 var A = require("./23024.js");
@@ -83,7 +90,7 @@ class b extends s.Component {
 					className: "mutualFriendTitle",
 				},
 				" ",
-				(0, m.we)("#FriendGroup_MutualFriends_Title"),
+				Localize("#FriendGroup_MutualFriends_Title"),
 				" ",
 			);
 			let n = [];
@@ -123,7 +130,7 @@ class b extends s.Component {
 							{
 								className: "mutualFriendLabel plusOthersLabel",
 							},
-							(0, m.Yp)("#FriendGroup_MutualFriends_Others", i.length - t),
+							LocalizePlural("#FriendGroup_MutualFriends_Others", i.length - t),
 						),
 					),
 				);
@@ -208,7 +215,7 @@ class S extends l.Ad {
 		this.m_hoverProps = e;
 	}
 	UpdateParamsBeforeShow(e) {
-		let t = c.pd(
+		let t = ClientRectToScreenCoords(
 			this.m_hoverProps.target.ownerDocument.defaultView,
 			this.m_hoverProps.target.getBoundingClientRect(),
 		);
@@ -329,8 +336,8 @@ let B = class extends s.Component {
 		if (!r || r.closed) {
 			return;
 		}
-		let i = c.pd(n, t.getBoundingClientRect());
-		let a = c.pd(r, e.getBoundingClientRect());
+		let i = ClientRectToScreenCoords(n, t.getBoundingClientRect());
+		let a = ClientRectToScreenCoords(r, e.getBoundingClientRect());
 		let s = i.left;
 		let o = i.top;
 		let l = r.screen;
@@ -338,25 +345,25 @@ let B = class extends s.Component {
 		if (l.availLeft) {
 			m = l.availLeft;
 		}
-		let u = i.right + c.No(a) + 2;
+		let u = i.right + No(a) + 2;
 		let d = r.screen.availWidth + m - u;
-		let A = i.left - c.No(a) - m;
-		s = d < 2 && A > d ? i.left - c.No(a) - 3 + 3 : i.left + c.No(i) - -3;
+		let A = i.left - No(a) - m;
+		s = d < 2 && A > d ? i.left - No(a) - 3 + 3 : i.left + No(i) - -3;
 		let p = 0;
-		if (c.SY(i) < 48) {
-			p = Math.floor(c.SY(i) / 2) - 24;
+		if (SY(i) < 48) {
+			p = Math.floor(SY(i) / 2) - 24;
 		}
 		o = i.top - 15 + p;
-		if (i.top + c.SY(a) + 0 > r.screen.availHeight) {
-			let t = c.SY(a) + 0 - (r.screen.availHeight - i.top);
+		if (i.top + SY(a) + 0 > r.screen.availHeight) {
+			let t = SY(a) + 0 - (r.screen.availHeight - i.top);
 			let n = e.querySelector(".miniprofile_ingame") != null ? 78 : 24;
-			t = Math.min(c.SY(a) - n, t);
+			t = Math.min(SY(a) - n, t);
 			o = i.top - t;
 		}
 		s = Math.floor(s);
 		o = Math.floor(o);
-		let g = Math.ceil(c.No(a));
-		let h = Math.ceil(c.SY(a));
+		let g = Math.ceil(No(a));
+		let h = Math.ceil(SY(a));
 		if (s != this.state.x) {
 			this.setState({
 				x: s,

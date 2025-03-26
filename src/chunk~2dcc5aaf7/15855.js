@@ -1,7 +1,7 @@
 var n = require("./52912.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./69164.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
+import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
 export const T = i.forwardRef(function (e, t) {
 	const {
 		rgAcceptedTypes: r,
@@ -111,7 +111,7 @@ function c(e) {
 		onDragLeave: i.useCallback(
 			(e) => {
 				if (u.current) {
-					if (!(0, s.NO)(e)) {
+					if (!BIsDragLeaveOutOfElement(e)) {
 						return;
 					}
 					u.current = false;

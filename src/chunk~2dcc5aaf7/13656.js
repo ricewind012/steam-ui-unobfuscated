@@ -9,7 +9,12 @@ var c = require(/*webcrack:missing*/ "./90765.js");
 var m = require("./34792.js");
 var u = require("./70239.js");
 var d = require("./78057.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var p = require(/*webcrack:missing*/ "./44846.js");
 var g = require(/*webcrack:missing*/ "./72476.js");
 var h = require("./3651.js");
@@ -21,7 +26,7 @@ var y = require(/*webcrack:missing*/ "./26853.js");
 var S = require(/*webcrack:missing*/ "./98995.js");
 var w = require(/*webcrack:missing*/ "./90242.js");
 var B = require("./87935.js");
-var v = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var I = require("./49206.js");
 var E = require("./63259.js");
 var M = require("./18057.js");
@@ -31,7 +36,7 @@ var k = require("./88769.js");
 var D = require("./44191.js");
 var N = require("./22047.js");
 var F = require(/*webcrack:missing*/ "./69164.js");
-var G = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
 var O = require("./12750.js");
 var P = require("./7552.js");
 var L = require("./81884.js");
@@ -79,10 +84,10 @@ function $(e) {
 			n.Fragment,
 			null,
 			n.createElement(l.y4, {
-				label: (0, A.we)("#AppProperties_Privacy_MarkAppPrivate"),
+				label: (0, Localize)("#AppProperties_Privacy_MarkAppPrivate"),
 				checked: s ? o.bPrivate : r,
 				bottomSeparator: c ? "none" : "standard",
-				description: (0, A.we)(
+				description: (0, Localize)(
 					"#AppProperties_Privacy_MarkAppPrivate_Description",
 				),
 				onChange: (e) =>
@@ -106,9 +111,11 @@ function ee(e) {
 	const a = (0, i.q3)(() => Y.md.BIsHidden(r));
 	const s = n.useCallback((e) => Y.md.SetAppsAsHidden([r], e), [r]);
 	return n.createElement(l.y4, {
-		label: (0, A.we)("#AppProperties_Privacy_MarkAppHidden"),
+		label: (0, Localize)("#AppProperties_Privacy_MarkAppHidden"),
 		checked: a,
-		description: (0, A.we)("#AppProperties_Privacy_MarkAppHidden_Description"),
+		description: (0, Localize)(
+			"#AppProperties_Privacy_MarkAppHidden_Description",
+		),
 		onChange: s,
 	});
 }
@@ -121,8 +128,8 @@ function te(e) {
 	const [a, s, o] = (0, Q.M)({
 		bCloseOnOK: true,
 		onOK: i,
-		strTitle: (0, A.we)("#AppProperties_OverlayData"),
-		strDescription: (0, A.we)(
+		strTitle: (0, Localize)("#AppProperties_OverlayData"),
+		strDescription: (0, Localize)(
 			"#AppProperties_OverlayData_DeleteConfirm",
 			t.strDisplayName,
 		),
@@ -138,11 +145,11 @@ function te(e) {
 				l.xh,
 				{
 					className: V.SettingsDialogButton,
-					label: (0, A.we)("#AppProperties_OverlayData"),
-					description: (0, A.we)("#AppProperties_OverlayData_Desc"),
+					label: (0, Localize)("#AppProperties_OverlayData"),
+					description: (0, Localize)("#AppProperties_OverlayData_Desc"),
 					onClick: s,
 				},
-				(0, A.we)("#AppProperties_OverlayData_Delete"),
+				(0, Localize)("#AppProperties_OverlayData_Delete"),
 			),
 		);
 	}
@@ -265,11 +272,11 @@ function ae(e) {
 	const r = (0, Z.h0)(t, true);
 	const n = (0, Z.h0)(t, false);
 	if (r) {
-		return (0, A.we)("#AppProperties_Privacy_DLC_MarkedPrivate");
+		return (0, Localize)("#AppProperties_Privacy_DLC_MarkedPrivate");
 	} else if (n) {
-		return (0, A.we)("#AppProperties_Privacy_DLC_NotMarkedPrivate");
+		return (0, Localize)("#AppProperties_Privacy_DLC_NotMarkedPrivate");
 	} else {
-		return (0, A.we)("#AppProperties_Privacy_DLC_Customized");
+		return (0, Localize)("#AppProperties_Privacy_DLC_Customized");
 	}
 }
 var se = require(/*webcrack:missing*/ "./11131.js");
@@ -336,9 +343,9 @@ function De(e) {
 			"#AppProperties_GameRecording_GlobalStatus_ManualHotkeyFallback",
 	});
 	const a = {
-		1: (0, A.we)("#AppProperties_GameRecording_GlobalStatus_Background"),
-		2: (0, A.PP)("#AppProperties_GameRecording_GlobalStatus_Manual", i),
-		0: (0, A.we)("#AppProperties_GameRecording_GlobalStatus_Never"),
+		1: (0, Localize)("#AppProperties_GameRecording_GlobalStatus_Background"),
+		2: LocalizeReact("#AppProperties_GameRecording_GlobalStatus_Manual", i),
+		0: (0, Localize)("#AppProperties_GameRecording_GlobalStatus_Never"),
 	};
 	const s = n.createElement(
 		"div",
@@ -353,11 +360,11 @@ function De(e) {
 		ke.oN,
 		{
 			feature: 7,
-			label: (0, A.we)("#AppProperties_GameRecording_GlobalStatus"),
+			label: (0, Localize)("#AppProperties_GameRecording_GlobalStatus"),
 			description: s,
 			onClick: () => t.Settings("GameRecording"),
 		},
-		(0, A.we)("#AppProperties_GameRecording_GlobalStatus_Button"),
+		(0, Localize)("#AppProperties_GameRecording_GlobalStatus_Button"),
 	);
 }
 function Ne(e) {
@@ -368,11 +375,11 @@ function Ne(e) {
 	const m = s && !r;
 	const u = [
 		{
-			label: (0, A.we)("#AppProperties_GameRecording_Enabled"),
+			label: (0, Localize)("#AppProperties_GameRecording_Enabled"),
 			data: true,
 		},
 		{
-			label: (0, A.we)("#AppProperties_GameRecording_Disabled"),
+			label: (0, Localize)("#AppProperties_GameRecording_Disabled"),
 			data: false,
 		},
 	];
@@ -396,10 +403,10 @@ function Ne(e) {
 		return null;
 	}
 	const p = m
-		? (0, A.we)("#AppProperties_GameRecording_Enabled_Description")
-		: (0, A.we)("#AppProperties_GameRecording_Disabled_Description");
+		? (0, Localize)("#AppProperties_GameRecording_Enabled_Description")
+		: (0, Localize)("#AppProperties_GameRecording_Disabled_Description");
 	return n.createElement(l.Vb, {
-		label: (0, A.we)("#AppProperties_GameRecording_Enabled_Label"),
+		label: (0, Localize)("#AppProperties_GameRecording_Enabled_Label"),
 		description: p,
 		rgOptions: u,
 		selectedOption: m,
@@ -514,7 +521,7 @@ function Ue(e) {
 	const l = [];
 	if (i.app_type === 1073741824) {
 		l.push({
-			title: (0, A.we)("#AppProperties_ShortcutPage"),
+			title: (0, Localize)("#AppProperties_ShortcutPage"),
 			route: M.BV.AppProperties.Shortcut(),
 			link: M.BV.AppProperties.Shortcut(t),
 			content: n.createElement(Nt, {
@@ -523,7 +530,7 @@ function Ue(e) {
 		});
 		if ((0, g.CI)()) {
 			l.push({
-				title: (0, A.we)("#AppProperties_CompatibilityPage"),
+				title: (0, Localize)("#AppProperties_CompatibilityPage"),
 				route: M.BV.AppProperties.Compatibility(),
 				link: M.BV.AppProperties.Compatibility(t),
 				content: n.createElement($e, {
@@ -532,7 +539,7 @@ function Ue(e) {
 			});
 		}
 		l.push({
-			title: (0, A.we)("#AppProperties_ControllerPage"),
+			title: (0, Localize)("#AppProperties_ControllerPage"),
 			route: M.BV.AppProperties.Controller(),
 			link: M.BV.AppProperties.Controller(t),
 			content: n.createElement(gt, {
@@ -541,7 +548,7 @@ function Ue(e) {
 		});
 		if ((0, Ae.BGameRecordingFeatureEnabled)()) {
 			l.push({
-				title: (0, A.we)("#AppProperties_GameRecording"),
+				title: (0, Localize)("#AppProperties_GameRecording"),
 				route: M.BV.AppProperties.GameRecording(),
 				link: M.BV.AppProperties.GameRecording(t),
 				content: n.createElement(Le, {
@@ -552,7 +559,7 @@ function Ue(e) {
 		}
 	} else {
 		l.push({
-			title: (0, A.we)("#AppProperties_GeneralPage"),
+			title: (0, Localize)("#AppProperties_GeneralPage"),
 			route: M.BV.AppProperties.General(),
 			link: M.BV.AppProperties.General(t),
 			content: n.createElement(He, {
@@ -561,7 +568,7 @@ function Ue(e) {
 		});
 		if ((0, g.CI)()) {
 			l.push({
-				title: (0, A.we)("#AppProperties_CompatibilityPage"),
+				title: (0, Localize)("#AppProperties_CompatibilityPage"),
 				route: M.BV.AppProperties.Compatibility(),
 				link: M.BV.AppProperties.Compatibility(t),
 				content: n.createElement($e, {
@@ -570,7 +577,7 @@ function Ue(e) {
 			});
 		}
 		l.push({
-			title: (0, A.we)("#AppProperties_UpdatesPage"),
+			title: (0, Localize)("#AppProperties_UpdatesPage"),
 			route: M.BV.AppProperties.Updates(),
 			link: M.BV.AppProperties.Updates(t),
 			content: n.createElement(tt, {
@@ -579,7 +586,7 @@ function Ue(e) {
 		});
 		if (r.bHasAnyLocalContent && !i.BIsModOrShortcut()) {
 			l.push({
-				title: (0, A.we)("#AppProperties_LocalFilesPage"),
+				title: (0, Localize)("#AppProperties_LocalFilesPage"),
 				route: M.BV.AppProperties.LocalFiles(),
 				link: M.BV.AppProperties.LocalFiles(t),
 				content: n.createElement(lt, {
@@ -589,7 +596,7 @@ function Ue(e) {
 		}
 		if (r.vecBetas.length > 0 || r.bHasLockedPrivateBetas) {
 			l.push({
-				title: (0, A.we)("#AppProperties_BetasPage"),
+				title: (0, Localize)("#AppProperties_BetasPage"),
 				route: M.BV.AppProperties.Betas(),
 				link: M.BV.AppProperties.Betas(t),
 				content: n.createElement(ut, {
@@ -598,7 +605,7 @@ function Ue(e) {
 			});
 		}
 		l.push({
-			title: (0, A.we)("#AppProperties_ControllerPage"),
+			title: (0, Localize)("#AppProperties_ControllerPage"),
 			route: M.BV.AppProperties.Controller(),
 			link: M.BV.AppProperties.Controller(t),
 			content: n.createElement(gt, {
@@ -607,7 +614,7 @@ function Ue(e) {
 		});
 		if (r.vecDLC.length > 0) {
 			l.push({
-				title: (0, A.we)("#AppProperties_DLCPage"),
+				title: (0, Localize)("#AppProperties_DLCPage"),
 				route: M.BV.AppProperties.DLC(),
 				link: M.BV.AppProperties.DLC(t),
 				content: n.createElement(ft, {
@@ -617,7 +624,7 @@ function Ue(e) {
 		}
 		if (r.bWorkshopVisible) {
 			l.push({
-				title: (0, A.we)("#AppProperties_WorkshopPage"),
+				title: (0, Localize)("#AppProperties_WorkshopPage"),
 				route: M.BV.AppProperties.Workshop(),
 				link: M.BV.AppProperties.Workshop(t),
 				content: n.createElement(Rt, {
@@ -627,7 +634,7 @@ function Ue(e) {
 		}
 		if ((0, Ae.BGameRecordingFeatureEnabled)()) {
 			l.push({
-				title: (0, A.we)("#AppProperties_GameRecording"),
+				title: (0, Localize)("#AppProperties_GameRecording"),
 				route: M.BV.AppProperties.GameRecording(),
 				link: M.BV.AppProperties.GameRecording(t),
 				content: n.createElement(Le, {
@@ -637,7 +644,7 @@ function Ue(e) {
 			});
 		}
 		l.push({
-			title: (0, A.we)("#AppProperties_PrivacyPage"),
+			title: (0, Localize)("#AppProperties_PrivacyPage"),
 			route: M.BV.AppProperties.Privacy(),
 			link: M.BV.AppProperties.Privacy(t),
 			content: n.createElement(J, {
@@ -647,7 +654,7 @@ function Ue(e) {
 		});
 		if (a) {
 			l.push({
-				title: (0, A.we)("#AppProperties_FeedbackPage"),
+				title: (0, Localize)("#AppProperties_FeedbackPage"),
 				route: M.BV.AppProperties.Feedback(),
 				link: M.BV.AppProperties.Feedback(t),
 				content: n.createElement(Ft, {
@@ -728,7 +735,7 @@ function He(e) {
 			l.G5,
 			null,
 			n.createElement(l.y4, {
-				label: (0, A.we)("#AppProperties_EnableOverlay"),
+				label: (0, Localize)("#AppProperties_EnableOverlay"),
 				checked: t.bOverlayEnabled && r,
 				onChange: () =>
 					SteamClient.Apps.ToggleEnableSteamOverlayForApp(t.unAppID),
@@ -757,7 +764,7 @@ function He(e) {
 				{
 					className: V.Title,
 				},
-				(0, A.we)("#AppProperties_LaunchOptionsSection"),
+				(0, Localize)("#AppProperties_LaunchOptionsSection"),
 			),
 			n.createElement(Qe, {
 				details: t,
@@ -767,7 +774,7 @@ function He(e) {
 				{
 					className: (0, c.A)(V.Detail),
 				},
-				(0, A.we)("#AppProperties_LaunchOptionsDescription"),
+				(0, Localize)("#AppProperties_LaunchOptionsDescription"),
 			),
 			n.createElement(Gt, {
 				spellCheck: false,
@@ -819,16 +826,16 @@ function qe(e) {
 			appID: t.unAppID,
 			details: t,
 		}),
-		o && (0, A.we)("#AppProperties_SharingNotSupported"),
-		l && (0, A.we)("#AppProperties_BorrowedFromFamily"),
+		o && (0, Localize)("#AppProperties_SharingNotSupported"),
+		l && (0, Localize)("#AppProperties_BorrowedFromFamily"),
 		c &&
-			(0, A.oW)(
+			LocalizeInlineReactWithFallback(
 				"#AppProperties_BorrowedFromMember",
 				n.createElement(je, {
 					steamid: d,
 				}),
 			),
-		m && (0, A.we)("#AppProperties_OwnedButOtherAvailable"),
+		m && (0, Localize)("#AppProperties_OwnedButOtherAvailable"),
 		u &&
 			n.createElement(
 				w.Ii,
@@ -838,7 +845,7 @@ function qe(e) {
 					},
 				},
 				" ",
-				(0, A.we)("#AppProperties_ChoosePreferredLender"),
+				(0, Localize)("#AppProperties_ChoosePreferredLender"),
 				" ",
 			),
 	);
@@ -859,12 +866,12 @@ function Qe(e) {
 	let o = [
 		{
 			data: -1,
-			label: (0, A.we)("#LaunchOptionsDialog_Ask"),
+			label: (0, Localize)("#LaunchOptionsDialog_Ask"),
 		},
 	];
 	o = o.concat(
 		r.map((e) => {
-			const t = (0, A.we)(e.strDescription, e.strGameName);
+			const t = (0, Localize)(e.strDescription, e.strGameName);
 			return {
 				data: e.nIndex,
 				label: t,
@@ -875,7 +882,7 @@ function Qe(e) {
 		l.G5,
 		null,
 		n.createElement(l.Vb, {
-			label: (0, A.we)("#LaunchOptionsDialog_PropertiesLabel"),
+			label: (0, Localize)("#LaunchOptionsDialog_PropertiesLabel"),
 			strClassName: V.TopGapSmall,
 			contextMenuPositionOptions: {
 				bMatchWidth: !s,
@@ -893,7 +900,7 @@ function Ze(e) {
 	if (g.TS.ON_DECK && i) {
 		return n.createElement(Ot, {
 			className: V.TopGapSmall,
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#AppProperties_EnableSteamCloudSyncOnSuspend",
 				t.strDisplayName,
 			),
@@ -916,7 +923,7 @@ function Ye(e) {
 		l.G5,
 		null,
 		n.createElement(l.Vb, {
-			label: (0, A.we)("#AppProperties_ResolutionOverride"),
+			label: (0, Localize)("#AppProperties_ResolutionOverride"),
 			strClassName: V.TopGapSmall,
 			rgOptions: i,
 			selectedOption: t.strResolutionOverride ?? "Default",
@@ -928,7 +935,7 @@ function Ye(e) {
 		}),
 		a &&
 			n.createElement(l.y4, {
-				label: (0, A.we)("#AppProperties_ResolutionOverride_Internal"),
+				label: (0, Localize)("#AppProperties_ResolutionOverride_Internal"),
 				checked: t.bOverrideInternalResolution,
 				onChange: () =>
 					SteamClient.Apps.ToggleOverrideResolutionForInternalDisplay(
@@ -952,14 +959,14 @@ function Ke(e) {
 				{
 					className: V.Title,
 				},
-				(0, A.we)("#AppProperties_SteamCloudSection"),
+				(0, Localize)("#AppProperties_SteamCloudSection"),
 			),
 			n.createElement(
 				"div",
 				{
 					className: (0, c.A)(V.Detail),
 				},
-				(0, A.we)("#AppProperties_SteamCloudDescription"),
+				(0, Localize)("#AppProperties_SteamCloudDescription"),
 			),
 			!r &&
 				n.createElement(
@@ -967,10 +974,10 @@ function Ke(e) {
 					{
 						bottomSeparator: "none",
 						className: V.DisabledGlobalCloud,
-						label: (0, A.we)("#AppProperties_SteamCloudGlobalDisabled"),
+						label: (0, Localize)("#AppProperties_SteamCloudGlobalDisabled"),
 						onClick: () => i.Settings("Cloud"),
 					},
-					(0, A.we)("#AppProperties_SteamCloudGlobalSettingsLink"),
+					(0, Localize)("#AppProperties_SteamCloudGlobalSettingsLink"),
 				),
 			r &&
 				n.createElement(
@@ -978,7 +985,7 @@ function Ke(e) {
 					null,
 					n.createElement(l.y4, {
 						className: V.TopGapSmall,
-						label: (0, A.we)(
+						label: (0, Localize)(
 							"#AppProperties_EnableSteamCloud",
 							t.strDisplayName,
 						),
@@ -999,7 +1006,10 @@ function Ke(e) {
 						n.createElement(
 							"span",
 							null,
-							(0, A.we)("#AppProperties_SteamCloudStored", t.strCloudBytesUsed),
+							(0, Localize)(
+								"#AppProperties_SteamCloudStored",
+								t.strCloudBytesUsed,
+							),
 						),
 						" / ",
 						n.createElement(
@@ -1007,7 +1017,7 @@ function Ke(e) {
 							{
 								className: V.BlueHighlight,
 							},
-							(0, A.we)(
+							(0, Localize)(
 								"#AppProperties_SteamCloudAvailable",
 								t.strCloudBytesAvailable,
 							),
@@ -1047,7 +1057,7 @@ const Xe = (0, a.PA)((e) => {
 		null,
 		a.length != 0 &&
 			n.createElement(Ot, {
-				label: (0, A.we)("#AppProperties_CompatilibityForceTool"),
+				label: (0, Localize)("#AppProperties_CompatilibityForceTool"),
 				checked: p,
 				onChange: g,
 				disabled: !r || a.length === 0,
@@ -1078,7 +1088,7 @@ const $e = (0, a.PA)((e) => {
 			{
 				className: V.HiddenIfNotLast,
 			},
-			(0, A.we)("#AppProperties_CompatibilityNoOptions"),
+			(0, Localize)("#AppProperties_CompatibilityNoOptions"),
 		),
 		n.createElement(Xe, {
 			...e,
@@ -1115,22 +1125,22 @@ function tt(e) {
 			n.createElement(
 				"div",
 				null,
-				(0, A.we)("#AppProperties_AppID", t.unAppID),
+				(0, Localize)("#AppProperties_AppID", t.unAppID),
 			),
 			n.createElement(
 				"div",
 				null,
-				(0, A.we)("#AppProperties_AutoUpdateBuild", t.nBuildID),
+				(0, Localize)("#AppProperties_AutoUpdateBuild", t.nBuildID),
 			),
 			!t.bIsThirdPartyUpdater &&
 				t.rtLastUpdated > 0 &&
 				n.createElement(
 					"div",
 					null,
-					(0, A.we)(
+					(0, Localize)(
 						"#AppProperties_AutoUpdateDate",
-						(0, A.$z)(t.rtLastUpdated),
-						(0, G.KC)(t.rtLastUpdated, {
+						LocalizeRtime32ToShortDate(t.rtLastUpdated),
+						LocalizeRTimeToHourAndMinutes(t.rtLastUpdated, {
 							bForce24HourClock: r,
 						}),
 					),
@@ -1140,7 +1150,7 @@ function tt(e) {
 				n.createElement(
 					"div",
 					null,
-					(0, A.we)("#AppProperties_IsThirdPartyUpdater", t.strDisplayName),
+					(0, Localize)("#AppProperties_IsThirdPartyUpdater", t.strDisplayName),
 				),
 		),
 	);
@@ -1157,16 +1167,16 @@ export function FO(e, t) {
 				{
 					className: V.DefaultOptionText,
 				},
-				(0, A.we)("#AppProperties_AutoUpdateUseDefault"),
+				(0, Localize)("#AppProperties_AutoUpdateUseDefault"),
 			);
 			const r = FO(t, null);
-			return (0, A.PP)("#AppProperties_AutoUpdateUseDefault_Combine", e, r);
+			return LocalizeReact("#AppProperties_AutoUpdateUseDefault_Combine", e, r);
 		case 1:
-			return (0, A.we)("#AppProperties_AutoUpdateOnLaunch");
+			return (0, Localize)("#AppProperties_AutoUpdateOnLaunch");
 		case 3:
-			return (0, A.we)("#AppProperties_AutoUpdateAlways");
+			return (0, Localize)("#AppProperties_AutoUpdateAlways");
 		case 2:
-			return (0, A.we)("#AppProperties_AutoUpdateHighPriority");
+			return (0, Localize)("#AppProperties_AutoUpdateHighPriority");
 	}
 }
 export function Qx() {
@@ -1175,22 +1185,24 @@ export function Qx() {
 		{
 			value: 0,
 			title: FO(0, e),
-			description: (0, A.we)("#AppProperties_AutoUpdateUseDefault_Description"),
+			description: (0, Localize)(
+				"#AppProperties_AutoUpdateUseDefault_Description",
+			),
 		},
 		"separator",
 		{
 			value: 1,
-			title: (0, A.we)("#AppProperties_AutoUpdateOnLaunch"),
+			title: (0, Localize)("#AppProperties_AutoUpdateOnLaunch"),
 		},
 		{
 			value: 3,
-			title: (0, A.we)("#AppProperties_AutoUpdateAlways"),
-			description: (0, A.we)("#AppProperties_AutoUpdateAlways_Description"),
+			title: (0, Localize)("#AppProperties_AutoUpdateAlways"),
+			description: (0, Localize)("#AppProperties_AutoUpdateAlways_Description"),
 		},
 		{
 			value: 2,
-			title: (0, A.we)("#AppProperties_AutoUpdateHighPriority"),
-			description: (0, A.we)(
+			title: (0, Localize)("#AppProperties_AutoUpdateHighPriority"),
+			description: (0, Localize)(
 				"#AppProperties_AutoUpdateHighPriority_Description",
 			),
 		},
@@ -1221,7 +1233,7 @@ function st(e) {
 	const r = BN();
 	if (t.bHasAnyLocalContent) {
 		return n.createElement(l.Vb, {
-			label: (0, A.we)("#AppProperties_AutoUpdateSection"),
+			label: (0, Localize)("#AppProperties_AutoUpdateSection"),
 			strClassName: (0, c.A)(V.BottomGap, V.FullWidth),
 			layout: "below",
 			disabled: t.bIsThirdPartyUpdater,
@@ -1235,7 +1247,7 @@ function st(e) {
 function ot(e) {
 	const { details: t } = e;
 	const [r] = (0, m.VI)("download_while_app_running");
-	const i = (0, A.we)(
+	const i = (0, Localize)(
 		r
 			? "#AppProperties_BackgroundDownloadGlobal_Allow"
 			: "#AppProperties_BackgroundDownloadGlobal_Pause",
@@ -1246,7 +1258,7 @@ function ot(e) {
 			label: n.createElement(l.aZ, {
 				strTitleClassNames: V.DropDownLabel,
 				title: i,
-				description: (0, A.we)(
+				description: (0, Localize)(
 					"#AppProperties_BackgroundDownloadGlobal_Description",
 				),
 			}),
@@ -1255,14 +1267,14 @@ function ot(e) {
 			data: 1,
 			label: n.createElement(l.aZ, {
 				strTitleClassNames: V.DropDownLabel,
-				title: (0, A.we)("#AppProperties_BackgroundDownloadAlways"),
+				title: (0, Localize)("#AppProperties_BackgroundDownloadAlways"),
 			}),
 		},
 		{
 			data: 2,
 			label: n.createElement(l.aZ, {
 				strTitleClassNames: V.DropDownLabel,
-				title: (0, A.we)("#AppProperties_BackgroundDownloadNever"),
+				title: (0, Localize)("#AppProperties_BackgroundDownloadNever"),
 			}),
 		},
 	];
@@ -1271,8 +1283,8 @@ function ot(e) {
 		null,
 		n.createElement(l.D0, {
 			className: V.NoBottomGap,
-			label: (0, A.we)("#AppProperties_BackgroundDownloadsSection"),
-			description: (0, A.we)(
+			label: (0, Localize)("#AppProperties_BackgroundDownloadsSection"),
+			description: (0, Localize)(
 				"#AppProperties_BackgroundDownloadsDescription",
 				t.strDisplayName,
 			),
@@ -1355,14 +1367,14 @@ function lt(e) {
 				{
 					className: V.BrowseDiskSizeLabel,
 				},
-				(0, A.we)("#AppProperties_LocalFilesSize"),
+				(0, Localize)("#AppProperties_LocalFilesSize"),
 			),
 			n.createElement(
 				"div",
 				{
 					className: (0, c.A)(V.BlueHighlight, V.BrowseDiskSize),
 				},
-				(0, A.we)(
+				(0, Localize)(
 					"#AppProperties_LocalFilesSizeOnDrive",
 					(0, f.dm)(t.lDiskUsageBytes, 2),
 					_,
@@ -1378,7 +1390,7 @@ function lt(e) {
 								t.strInstallFolder,
 							),
 					},
-					(0, A.we)("#AppProperties_LocalFilesBrowse"),
+					(0, Localize)("#AppProperties_LocalFilesBrowse"),
 				),
 		),
 		n.createElement(
@@ -1399,7 +1411,7 @@ function lt(e) {
 							n.createElement(
 								"div",
 								null,
-								(0, A.we)("#AppProperties_LocalFilesBackupLabel_" + y),
+								(0, Localize)("#AppProperties_LocalFilesBackupLabel_" + y),
 							),
 							!r &&
 								n.createElement(
@@ -1407,7 +1419,7 @@ function lt(e) {
 									{
 										className: V.LocalFilesLink,
 									},
-									(0, A.oW)(
+									LocalizeInlineReactWithFallback(
 										"#AppProperties_LocalFilesBackupFAQ",
 										n.createElement("a", {
 											href: "steam://openurl_external/https://help.steampowered.com/faqs/view/4593-5CB7-DC3C-64F0",
@@ -1417,21 +1429,21 @@ function lt(e) {
 						),
 						bottomSeparator: "standard",
 						disabled: t.bIsThirdPartyUpdater,
-						onClick: (e) => (0, E.vq)([t.unAppID], (0, v.uX)(e)),
+						onClick: (e) => (0, E.vq)([t.unAppID], GetOwningWindowForEvent(e)),
 					},
-					(0, A.we)("#AppProperties_LocalFilesBackup_" + y),
+					(0, Localize)("#AppProperties_LocalFilesBackup_" + y),
 				),
 			t.bCanMoveInstallFolder &&
 				n.createElement(
 					l.xh,
 					{
 						className: V.SettingsDialogButton,
-						label: (0, A.we)("#AppProperties_LocalFilesMoveLabel_" + y),
+						label: (0, Localize)("#AppProperties_LocalFilesMoveLabel_" + y),
 						bottomSeparator: "standard",
 						disabled: t.bIsThirdPartyUpdater,
-						onClick: (e) => (0, I.P)([t.unAppID], (0, v.uX)(e)),
+						onClick: (e) => (0, I.P)([t.unAppID], GetOwningWindowForEvent(e)),
 					},
-					(0, A.we)("#AppProperties_LocalFilesMove"),
+					(0, Localize)("#AppProperties_LocalFilesMove"),
 				),
 			!a &&
 				n.createElement(
@@ -1446,7 +1458,7 @@ function lt(e) {
 							n.createElement(
 								"div",
 								null,
-								(0, A.we)("#AppProperties_LocalFilesVerifyLabel_" + y),
+								(0, Localize)("#AppProperties_LocalFilesVerifyLabel_" + y),
 							),
 							!r &&
 								n.createElement(
@@ -1454,7 +1466,7 @@ function lt(e) {
 									{
 										className: V.LocalFilesLink,
 									},
-									(0, A.oW)(
+									LocalizeInlineReactWithFallback(
 										"#AppProperties_LocalFilesVerifyFAQ",
 										n.createElement("a", {
 											href: "steam://openurl_external/https://help.steampowered.com/faqs/view/0C48-FCBD-DA71-93EB",
@@ -1468,7 +1480,7 @@ function lt(e) {
 							s(T.I.VerifyAppFiles(t.unAppID));
 						},
 					},
-					(0, A.we)("#AppProperties_LocalFilesVerify_" + y),
+					(0, Localize)("#AppProperties_LocalFilesVerify_" + y),
 				),
 		),
 		t.bIsThirdPartyUpdater &&
@@ -1477,7 +1489,7 @@ function lt(e) {
 				{
 					className: V.SectionTopLine,
 				},
-				(0, A.we)("#AppProperties_IsThirdPartyUpdater", b.display_name),
+				(0, Localize)("#AppProperties_IsThirdPartyUpdater", b.display_name),
 			),
 		a &&
 			n.createElement(
@@ -1490,7 +1502,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_" + y),
+						(0, Localize)("#AppProperties_LocalFilesVerify_" + y),
 						" ",
 					),
 				m == "UpdatingAppInfo" &&
@@ -1498,7 +1510,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_UpdatingAppInfo"),
+						(0, Localize)("#AppProperties_LocalFilesVerify_UpdatingAppInfo"),
 						" ",
 					),
 				m == "RunningInstallScript" &&
@@ -1506,7 +1518,9 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_RunningInstallScript"),
+						(0, Localize)(
+							"#AppProperties_LocalFilesVerify_RunningInstallScript",
+						),
 						" ",
 					),
 				m == "VerifyingFiles" &&
@@ -1514,7 +1528,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_VerifyingFiles"),
+						(0, Localize)("#AppProperties_LocalFilesVerify_VerifyingFiles"),
 						" ",
 						u,
 						"% ",
@@ -1526,7 +1540,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_Complete", d),
+						(0, Localize)("#AppProperties_LocalFilesVerify_Complete", d),
 						" ",
 					),
 				m == "Failed" &&
@@ -1534,7 +1548,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, A.we)("#AppProperties_LocalFilesVerify_Failed", d),
+						(0, Localize)("#AppProperties_LocalFilesVerify_Failed", d),
 						" ",
 					),
 			),
@@ -1549,7 +1563,7 @@ function ct(e) {
 			data: e.strShortName,
 		}));
 		return n.createElement(l.Vb, {
-			label: (0, A.we)("#AppProperties_SelectLanguage"),
+			label: (0, Localize)("#AppProperties_SelectLanguage"),
 			strClassName: V.TopGapSmall,
 			contextMenuPositionOptions: {
 				bMatchWidth: !r,
@@ -1566,7 +1580,7 @@ function mt(e) {
 	if (e === "none") {
 		return "None";
 	} else {
-		return (0, A.we)(`#language_selection_${e}`);
+		return (0, Localize)(`#language_selection_${e}`);
 	}
 }
 function ut(e) {
@@ -1578,7 +1592,7 @@ function ut(e) {
 	const d = (0, i.q3)(() => t.strSelectedBeta);
 	const p = [
 		{
-			label: (0, A.we)("#AppProperties_Beta_SelectNoBeta"),
+			label: (0, Localize)("#AppProperties_Beta_SelectNoBeta"),
 			data: "",
 		},
 		...t.vecBetas.map((e) => ({
@@ -1592,8 +1606,8 @@ function ut(e) {
 		l.nB,
 		null,
 		n.createElement(l.Vb, {
-			label: (0, A.we)("#AppProperties_Beta_Selection"),
-			description: (0, A.we)("#AppProperties_Beta_SelectionDescription"),
+			label: (0, Localize)("#AppProperties_Beta_Selection"),
+			description: (0, Localize)("#AppProperties_Beta_SelectionDescription"),
 			strClassName: V.NoTopPadding,
 			strDropDownClassName: V.BetasDropDown,
 			contextMenuPositionOptions: {
@@ -1614,9 +1628,13 @@ function ut(e) {
 			{
 				className: (0, c.A)(V.TopGapLarge, V.BetaLabel),
 			},
-			(0, A.we)("#AppProperties_Beta_Private"),
+			(0, Localize)("#AppProperties_Beta_Private"),
 		),
-		n.createElement("div", null, (0, A.we)("#AppProperties_Beta_AccessCode")),
+		n.createElement(
+			"div",
+			null,
+			(0, Localize)("#AppProperties_Beta_AccessCode"),
+		),
 		n.createElement(
 			F.Z,
 			{
@@ -1644,7 +1662,7 @@ function ut(e) {
 					className: (0, c.A)(V.SettingsDialogButton, V.CheckButton),
 					onClick: () => pt(t.unAppID, a, m),
 				},
-				(0, A.we)("#AppProperties_Beta_CheckCode"),
+				(0, Localize)("#AppProperties_Beta_CheckCode"),
 			),
 		),
 		o === false &&
@@ -1653,7 +1671,7 @@ function ut(e) {
 				{
 					className: V.Error,
 				},
-				(0, A.we)("#AppProperties_Beta_AccessCodeInvalid"),
+				(0, Localize)("#AppProperties_Beta_AccessCodeInvalid"),
 			),
 		u &&
 			n.createElement(
@@ -1664,7 +1682,7 @@ function ut(e) {
 					{
 						className: V.Detail,
 					},
-					(0, A.we)("#AppProperties_Beta_AccessCodeSuccess"),
+					(0, Localize)("#AppProperties_Beta_AccessCodeSuccess"),
 				),
 				d !== u.strName &&
 					n.createElement(
@@ -1681,7 +1699,7 @@ function ut(e) {
 								m(null);
 							},
 						},
-						(0, A.PP)(
+						LocalizeReact(
 							"#AppProperties_Beta_OptInto",
 							n.createElement(At, {
 								beta: u,
@@ -1745,27 +1763,27 @@ function gt(e) {
 	const y = [
 		{
 			data: 0,
-			label: (0, A.we)("#AppProperties_SteamInputOff"),
+			label: (0, Localize)("#AppProperties_SteamInputOff"),
 		},
 		{
 			data: 1,
-			label: (0, A.we)("#AppProperties_SteamInputDefaultSettings"),
+			label: (0, Localize)("#AppProperties_SteamInputDefaultSettings"),
 		},
 		{
 			data: 2,
-			label: (0, A.we)("#AppProperties_SteamInputOn"),
+			label: (0, Localize)("#AppProperties_SteamInputOn"),
 		},
 	];
 	return n.createElement(
 		l.nB,
 		null,
-		n.createElement("div", null, (0, A.we)("#AppProperties_SteamInput")),
+		n.createElement("div", null, (0, Localize)("#AppProperties_SteamInput")),
 		n.createElement(
 			"div",
 			{
 				className: V.TopGap,
 			},
-			(0, A.PP)(
+			LocalizeReact(
 				"#AppProperties_SteamInputGeneralSetting",
 				n.createElement(
 					"span",
@@ -1781,13 +1799,16 @@ function gt(e) {
 							}
 						},
 					},
-					(0, A.we)("#AppProperties_SteamInputGeneralSetting_Link"),
+					(0, Localize)("#AppProperties_SteamInputGeneralSetting_Link"),
 				),
 			),
 		),
 		n.createElement(l.Vb, {
-			label: (0, A.we)("#AppProperties_SteamInputOverride", t.strDisplayName),
-			description: (0, A.we)("#AppProperties_SteamInputRequiresRestart"),
+			label: (0, Localize)(
+				"#AppProperties_SteamInputOverride",
+				t.strDisplayName,
+			),
+			description: (0, Localize)("#AppProperties_SteamInputRequiresRestart"),
 			strClassName: V.TopGapSmall,
 			contextMenuPositionOptions: {
 				bMatchWidth: !C,
@@ -1807,7 +1828,7 @@ function gt(e) {
 			{
 				className: (0, c.A)(V.TopGap, V.SteamInputStatus),
 			},
-			(0, A.we)("#AppProperties_SteamInputStatus"),
+			(0, Localize)("#AppProperties_SteamInputStatus"),
 		),
 		n.createElement(
 			"div",
@@ -1836,7 +1857,9 @@ function gt(e) {
 		t?.strShortcutExe &&
 			n.createElement(l.y4, {
 				className: V.TopGapLarge,
-				label: (0, A.we)("#AppProperties_SteamInputDesktopConfigInLauncher"),
+				label: (0, Localize)(
+					"#AppProperties_SteamInputDesktopConfigInLauncher",
+				),
 				checked: t?.bEnableAllowDesktopConfiguration,
 				onChange: () =>
 					SteamClient.Apps.ToggleAllowDesktopConfiguration(t.unAppID),
@@ -1887,7 +1910,7 @@ function Ct(e) {
 		"div",
 		{
 			className: V.Controller,
-			title: i ? (0, A.we)("#AppProperties_SteamInput_Connected") : null,
+			title: i ? (0, Localize)("#AppProperties_SteamInput_Connected") : null,
 		},
 		n.createElement("div", {
 			className: (0, c.A)({
@@ -1895,7 +1918,7 @@ function Ct(e) {
 				[V.ControllerConnected]: i,
 			}),
 		}),
-		(0, A.we)(`#AppProperties_Controller_${t}`),
+		(0, Localize)(`#AppProperties_Controller_${t}`),
 	);
 }
 function _t(e) {
@@ -1904,22 +1927,22 @@ function _t(e) {
 	let o = "";
 	if (t === "Steam" || t === "Remote") {
 		s = true;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonRequired");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonRequired");
 	} else if (a === 2) {
 		s = true;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonGameOverride");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonGameOverride");
 	} else if (a === 0) {
 		s = false;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonGameOverride");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonGameOverride");
 	} else if (H.Fd.Get().BControllerInMask(t, r)) {
 		s = true;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonGeneralSetting");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonGeneralSetting");
 	} else if (H.Fd.Get().BControllerInMask(t, i)) {
 		s = true;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonDeveloperSetting");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonDeveloperSetting");
 	} else if (g.TS.ON_DECK && t != "Generic") {
 		s = true;
-		o = (0, A.we)("#AppProperties_SteamInput_ReasonDeckDefault");
+		o = (0, Localize)("#AppProperties_SteamInput_ReasonDeckDefault");
 	}
 	if (o) {
 		return n.createElement(
@@ -1930,7 +1953,7 @@ function _t(e) {
 				{
 					className: V.SteamInputStatus,
 				},
-				(0, A.we)(
+				(0, Localize)(
 					s
 						? "#AppProperties_SteamInput_Enabled"
 						: "#AppProperties_SteamInput_Disabled",
@@ -2050,7 +2073,7 @@ function ft(e) {
 				{
 					className: V.Added,
 				},
-				e.rtPurchaseDate ? (0, A.$z)(e.rtPurchaseDate) : "",
+				e.rtPurchaseDate ? LocalizeRtime32ToShortDate(e.rtPurchaseDate) : "",
 			),
 			n.createElement(
 				"div",
@@ -2060,7 +2083,9 @@ function ft(e) {
 				n.createElement(
 					S.he,
 					{
-						toolTipContent: (0, A.we)("#AppProperties_Dlc_State_" + e.strState),
+						toolTipContent: (0, Localize)(
+							"#AppProperties_Dlc_State_" + e.strState,
+						),
 					},
 					e.lDiskUsageBytes ? (0, f.dm)(e.lDiskUsageBytes, 2) : "",
 				),
@@ -2084,14 +2109,14 @@ function ft(e) {
 					className: (0, c.A)(V.SettingsDialogButton, V.ViewMore),
 					onClick: _,
 				},
-				(0, A.we)("#AppProperties_Dlc_ViewInStore"),
+				(0, Localize)("#AppProperties_Dlc_ViewInStore"),
 			),
 			n.createElement(l.pd, {
 				className: V.Search,
 				value: r,
 				onChange: (e) => i(e.currentTarget.value),
 				bShowClearAction: true,
-				placeholder: (0, A.we)("#AppProperties_Dlc_Search"),
+				placeholder: (0, Localize)("#AppProperties_Dlc_Search"),
 			}),
 		),
 		n.createElement(
@@ -2105,7 +2130,7 @@ function ft(e) {
 					className: V.DlcHeader,
 					onClick: () => u("install"),
 				},
-				(0, A.we)("#AppProperties_Dlc_Installed"),
+				(0, Localize)("#AppProperties_Dlc_Installed"),
 				n.createElement(kt, {
 					hide: o !== "install",
 					ascending: a,
@@ -2117,7 +2142,7 @@ function ft(e) {
 					className: V.DlcHeader,
 					onClick: () => u("name"),
 				},
-				(0, A.we)("#AppProperties_Dlc_Name"),
+				(0, Localize)("#AppProperties_Dlc_Name"),
 				n.createElement(kt, {
 					hide: o !== "name",
 					ascending: a,
@@ -2129,7 +2154,7 @@ function ft(e) {
 					className: V.DlcHeader,
 					onClick: () => u("added"),
 				},
-				(0, A.we)("#AppProperties_Dlc_DateAdded"),
+				(0, Localize)("#AppProperties_Dlc_DateAdded"),
 				n.createElement(kt, {
 					hide: o !== "added",
 					ascending: a,
@@ -2141,7 +2166,7 @@ function ft(e) {
 					className: V.DlcHeader,
 					onClick: () => u("size"),
 				},
-				(0, A.we)("#AppProperties_Dlc_SizeDisk"),
+				(0, Localize)("#AppProperties_Dlc_SizeDisk"),
 				n.createElement(kt, {
 					hide: o !== "size",
 					ascending: a,
@@ -2166,13 +2191,15 @@ function bt(e) {
 			let t = r.findIndex((e) => e.publishedfileid == n);
 			if (t != -1) {
 				e.push(
-					(0, A.we)(
+					(0, Localize)(
 						"#AppProperties_Workshop_DependsOn",
 						r[t].details?.title ?? n,
 					),
 				);
 			} else {
-				e.push((0, A.we)("#AppProperties_Workshop_DependsOntNotSubscribed", n));
+				e.push(
+					(0, Localize)("#AppProperties_Workshop_DependsOntNotSubscribed", n),
+				);
 			}
 		}
 		return e.join(", ");
@@ -2180,7 +2207,7 @@ function bt(e) {
 	if (i.length == 0) {
 		return null;
 	}
-	let a = (0, A.we)("#AppProperties_Workshop_Dependencies", i);
+	let a = (0, Localize)("#AppProperties_Workshop_Dependencies", i);
 	return n.createElement(
 		S.he,
 		{
@@ -2207,7 +2234,7 @@ function yt(e) {
 	if (r.length == 0) {
 		return null;
 	}
-	const i = (0, A.we)("#AppProperties_Workshop_Tags", r);
+	const i = (0, Localize)("#AppProperties_Workshop_Tags", r);
 	return n.createElement(
 		S.he,
 		{
@@ -2262,7 +2289,9 @@ function St(e) {
 		);
 	})(a);
 	const l =
-		r == "public" ? (0, A.we)("#AppProperties_Workshop_Snapshot_Latest") : r;
+		r == "public"
+			? (0, Localize)("#AppProperties_Workshop_Snapshot_Latest")
+			: r;
 	if (a) {
 		return n.createElement(
 			"div",
@@ -2356,9 +2385,9 @@ function vt(e) {
 				{
 					className: V.SortedColumn,
 				},
-				(0, A.$z)(t.time_subscribed) +
+				LocalizeRtime32ToShortDate(t.time_subscribed) +
 					" @ " +
-					(0, G.KC)(t.time_subscribed, {
+					LocalizeRTimeToHourAndMinutes(t.time_subscribed, {
 						bForce24HourClock: false,
 					}),
 			);
@@ -2368,9 +2397,9 @@ function vt(e) {
 				{
 					className: V.SortedColumn,
 				},
-				(0, A.$z)(t.time_updated) +
+				LocalizeRtime32ToShortDate(t.time_updated) +
 					" @ " +
-					(0, G.KC)(t.time_updated, {
+					LocalizeRTimeToHourAndMinutes(t.time_updated, {
 						bForce24HourClock: false,
 					}),
 			);
@@ -2428,14 +2457,14 @@ function It(e) {
 						{
 							onSelected: g,
 						},
-						(0, A.we)("#AppProperties_Workshop_LoadOrder_MoveToTop"),
+						(0, Localize)("#AppProperties_Workshop_LoadOrder_MoveToTop"),
 					),
 					n.createElement(
 						ge.kt,
 						{
 							onSelected: h,
 						},
-						(0, A.we)("#AppProperties_Workshop_LoadOrder_MoveToBottom"),
+						(0, Localize)("#AppProperties_Workshop_LoadOrder_MoveToBottom"),
 					),
 				);
 				(0, he.lX)(t, e);
@@ -2447,12 +2476,12 @@ function It(e) {
 				className: V.Install,
 			},
 			n.createElement(l.Yh, {
-				onOKActionDescription: (0, A.we)(
+				onOKActionDescription: (0, Localize)(
 					r.disabled_locally
 						? "#AppProperties_Workshop_EnableLocally"
 						: "#AppProperties_Workshop_DisableLocally",
 				),
-				tooltip: (0, A.we)(
+				tooltip: (0, Localize)(
 					r.disabled_locally
 						? "#AppProperties_Workshop_EnableLocally"
 						: "#AppProperties_Workshop_DisableLocally",
@@ -2542,8 +2571,10 @@ function It(e) {
 			},
 			n.createElement(l.$n, {
 				svgicon: () => n.createElement(K.Trash, null),
-				title: (0, A.we)("#AppProperties_Workshop_Unsubscribe"),
-				onOKActionDescription: (0, A.we)("#AppProperties_Workshop_Unsubscribe"),
+				title: (0, Localize)("#AppProperties_Workshop_Unsubscribe"),
+				onOKActionDescription: (0, Localize)(
+					"#AppProperties_Workshop_Unsubscribe",
+				),
 				className: V.UnsubscribeButton,
 				onClick: () => {
 					e = r.publishedfileid;
@@ -2563,19 +2594,23 @@ function Mt(e) {
 	const m = [
 		{
 			data: 2,
-			label: n.createElement("div", null, (0, A.we)("#Privacy_Private")),
+			label: n.createElement("div", null, (0, Localize)("#Privacy_Private")),
 		},
 		{
 			data: 3,
-			label: n.createElement("div", null, (0, A.we)("#Privacy_Unlisted")),
+			label: n.createElement("div", null, (0, Localize)("#Privacy_Unlisted")),
 		},
 		{
 			data: 1,
-			label: n.createElement("div", null, (0, A.we)("#Privacy_FriendsOnly")),
+			label: n.createElement(
+				"div",
+				null,
+				(0, Localize)("#Privacy_FriendsOnly"),
+			),
 		},
 		{
 			data: 0,
-			label: n.createElement("div", null, (0, A.we)("#Privacy_Public")),
+			label: n.createElement("div", null, (0, Localize)("#Privacy_Public")),
 		},
 	];
 	const d = (0, u.EH)(t);
@@ -2597,16 +2632,16 @@ function Mt(e) {
 	switch (a) {
 		case Et.kInitial:
 			p = n.createElement(_e.o0, {
-				strTitle: (0, A.we)("#Workshop_Subscriptions_SaveToCollection"),
-				strDescription: (0, A.we)(
+				strTitle: (0, Localize)("#Workshop_Subscriptions_SaveToCollection"),
+				strDescription: (0, Localize)(
 					"#Workshop_Subscriptions_SaveToCollection_Prompt",
 				),
 				onOK: () => s(Et.kNewCollection),
-				strOKButtonText: (0, A.we)(
+				strOKButtonText: (0, Localize)(
 					"#Workshop_Subscriptions_SaveToCollection_New",
 				),
 				onMiddleButton: () => s(Et.kExistingCollection),
-				strMiddleButtonText: (0, A.we)(
+				strMiddleButtonText: (0, Localize)(
 					"#Workshop_Subscriptions_SaveToCollection_Existing",
 				),
 				onCancel: i,
@@ -2616,13 +2651,13 @@ function Mt(e) {
 			p = n.createElement(
 				fe.Qj,
 				{
-					title: (0, A.we)("#Workshop_Subscriptions_SaveToCollection"),
+					title: (0, Localize)("#Workshop_Subscriptions_SaveToCollection"),
 					description: undefined,
 					isValid: g,
 					onResult: h,
 					inputOptions: {
 						maxLength: 255,
-						label: (0, A.we)(
+						label: (0, Localize)(
 							"#Workshop_Subscriptions_SaveToCollection_NewCollectionName",
 						),
 						focusOnMount: true,
@@ -2647,14 +2682,14 @@ function Mt(e) {
 				n.createElement(
 					l.Y9,
 					null,
-					(0, A.we)(
+					(0, Localize)(
 						"#Workshop_Subscriptions_SaveToCollection_OverwriteCollection",
 					),
 				),
 				n.createElement(
 					"div",
 					null,
-					(0, A.we)(
+					(0, Localize)(
 						"#Workshop_Subscriptions_SaveToCollection_OverwriteCollection_Desc",
 					),
 				),
@@ -2712,8 +2747,8 @@ function Mt(e) {
 			break;
 		case Et.kError:
 			p = n.createElement(_e.KG, {
-				strTitle: (0, A.we)("#Workshop_Subscriptions_SaveToCollection"),
-				strDescription: (0, A.we)(
+				strTitle: (0, Localize)("#Workshop_Subscriptions_SaveToCollection"),
+				strDescription: (0, Localize)(
 					"#Workshop_Subscriptions_SaveToCollection_Error",
 				),
 				onCancel: i,
@@ -2752,12 +2787,12 @@ function Tt(e) {
 			n.createElement(
 				l.Y9,
 				null,
-				(0, A.we)("#Workshop_Subscriptions_ApplyCollection"),
+				(0, Localize)("#Workshop_Subscriptions_ApplyCollection"),
 			),
 			n.createElement(
 				"div",
 				null,
-				(0, A.we)("#Workshop_Subscriptions_ApplyCollection_Desc"),
+				(0, Localize)("#Workshop_Subscriptions_ApplyCollection_Desc"),
 			),
 			n.createElement(
 				F.Z,
@@ -2794,14 +2829,14 @@ function Tt(e) {
 							n.createElement(
 								S.he,
 								{
-									toolTipContent: (0, A.we)(
+									toolTipContent: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_AddBtn",
 									),
 								},
 								n.createElement(l.$n, {
 									svgicon: () => n.createElement(K.AddContained, null),
 									className: V.CollectionButton,
-									onOKActionDescription: (0, A.we)(
+									onOKActionDescription: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_AddBtn",
 									),
 									onClick: () => o(e.publishedfileid, true),
@@ -2810,14 +2845,14 @@ function Tt(e) {
 							n.createElement(
 								S.he,
 								{
-									toolTipContent: (0, A.we)(
+									toolTipContent: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_OverwriteBtn",
 									),
 								},
 								n.createElement(l.$n, {
 									svgicon: () => n.createElement(K.Restore, null),
 									className: V.CollectionButton,
-									onOKActionDescription: (0, A.we)(
+									onOKActionDescription: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_OverwriteBtn",
 									),
 									onClick: () => o(e.publishedfileid, false),
@@ -2826,14 +2861,14 @@ function Tt(e) {
 							n.createElement(
 								S.he,
 								{
-									toolTipContent: (0, A.we)(
+									toolTipContent: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_ViewBtn",
 									),
 								},
 								n.createElement(l.$n, {
 									svgicon: () => n.createElement(K.Globe, null),
 									className: V.CollectionButton,
-									onOKActionDescription: (0, A.we)(
+									onOKActionDescription: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_ViewBtn",
 									),
 									onClick: () =>
@@ -2847,14 +2882,14 @@ function Tt(e) {
 							n.createElement(
 								S.he,
 								{
-									toolTipContent: (0, A.we)(
+									toolTipContent: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_CopyLink",
 									),
 								},
 								n.createElement(l.$n, {
 									svgicon: () => n.createElement(K.Hyperlink, null),
 									className: V.CollectionButton,
-									onOKActionDescription: (0, A.we)(
+									onOKActionDescription: (0, Localize)(
 										"#Workshop_Subscriptions_ApplyCollection_CopyLink",
 									),
 									onClick: () =>
@@ -2901,7 +2936,7 @@ const Rt = (0, a.PA)((e) => {
 					}
 				}
 				if (e.details.author_snapshots?.length != 0) {
-					const r = (0, A.we)(
+					const r = (0, Localize)(
 						"#AppProperties_Workshop_Snapshot_Latest",
 					).toLocaleLowerCase();
 					for (let n of e.details.author_snapshots) {
@@ -3005,35 +3040,41 @@ const Rt = (0, a.PA)((e) => {
 	const D = [
 		{
 			data: "loadorder",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_LoadOrder"),
+			label: (0, Localize)(
+				"#AppProperties_Workshop_Subscription_Sort_LoadOrder",
+			),
 		},
 		{
 			data: "name",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Name"),
+			label: (0, Localize)("#AppProperties_Workshop_Subscription_Sort_Name"),
 		},
 		{
 			data: "subscribed",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Subscribed"),
+			label: (0, Localize)(
+				"#AppProperties_Workshop_Subscription_Sort_Subscribed",
+			),
 		},
 		{
 			data: "updated",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Updated"),
+			label: (0, Localize)("#AppProperties_Workshop_Subscription_Sort_Updated"),
 		},
 		{
 			data: "size",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Size"),
+			label: (0, Localize)("#AppProperties_Workshop_Subscription_Sort_Size"),
 		},
 		{
 			data: "enabled",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Enabled"),
+			label: (0, Localize)("#AppProperties_Workshop_Subscription_Sort_Enabled"),
 		},
 		{
 			data: "disabled",
-			label: (0, A.we)("#AppProperties_Workshop_Subscription_Sort_Disabled"),
+			label: (0, Localize)(
+				"#AppProperties_Workshop_Subscription_Sort_Disabled",
+			),
 		},
 		{
 			data: "missing_dependencies",
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#AppProperties_Workshop_Subscription_Sort_MissingDependencies",
 			),
 		},
@@ -3102,7 +3143,7 @@ const Rt = (0, a.PA)((e) => {
 					className: (0, c.A)(V.SettingsDialogButton, V.ViewMore),
 					onClick: y,
 				},
-				(0, A.PP)("#AppProperties_Workshop_Visit", t.strDisplayName),
+				LocalizeReact("#AppProperties_Workshop_Visit", t.strDisplayName),
 			),
 			n.createElement(
 				l.$n,
@@ -3110,7 +3151,7 @@ const Rt = (0, a.PA)((e) => {
 					className: V.SettingsDialogButton,
 					onClick: () => h(!p),
 				},
-				(0, A.we)(
+				(0, Localize)(
 					p
 						? "#AppProperties_Workshop_Advanced_Hide"
 						: "#AppProperties_Workshop_Advanced_Show",
@@ -3132,8 +3173,10 @@ const Rt = (0, a.PA)((e) => {
 					l.D0,
 					{
 						bottomSeparator: "none",
-						label: (0, A.we)("#AppProperties_Workshop_LoadOrder_Title"),
-						description: (0, A.we)("#AppProperties_Workshop_LoadOrder_Desc"),
+						label: (0, Localize)("#AppProperties_Workshop_LoadOrder_Title"),
+						description: (0, Localize)(
+							"#AppProperties_Workshop_LoadOrder_Desc",
+						),
 					},
 					n.createElement(
 						l.$n,
@@ -3141,14 +3184,14 @@ const Rt = (0, a.PA)((e) => {
 							className: V.SettingsDialogButton,
 							onClick: w,
 						},
-						(0, A.we)("#AppProperties_Workshop_ResetLoadOrder"),
+						(0, Localize)("#AppProperties_Workshop_ResetLoadOrder"),
 					),
 				),
 				n.createElement(
 					l.D0,
 					{
-						label: (0, A.we)("#AppProperties_Workshop_ToggleEnabled"),
-						description: (0, A.we)(
+						label: (0, Localize)("#AppProperties_Workshop_ToggleEnabled"),
+						description: (0, Localize)(
 							"#AppProperties_Workshop_ToggleEnabled_Desc",
 						),
 					},
@@ -3158,7 +3201,7 @@ const Rt = (0, a.PA)((e) => {
 							className: (0, c.A)(V.SettingsDialogButton, V.EnableAllBtn),
 							onClick: () => B(true),
 						},
-						(0, A.we)("#AppProperties_Workshop_EnableAll"),
+						(0, Localize)("#AppProperties_Workshop_EnableAll"),
 					),
 					n.createElement(
 						l.$n,
@@ -3166,14 +3209,14 @@ const Rt = (0, a.PA)((e) => {
 							className: (0, c.A)(V.SettingsDialogButton, V.DisableAllBtn),
 							onClick: () => B(false),
 						},
-						(0, A.we)("#AppProperties_Workshop_DisableAll"),
+						(0, Localize)("#AppProperties_Workshop_DisableAll"),
 					),
 				),
 				n.createElement(
 					l.D0,
 					{
-						label: (0, A.we)("#AppProperties_Workshop_Collection_Presets"),
-						description: (0, A.we)(
+						label: (0, Localize)("#AppProperties_Workshop_Collection_Presets"),
+						description: (0, Localize)(
 							"#AppProperties_Workshop_Collection_Presets_Desc",
 						),
 					},
@@ -3183,7 +3226,7 @@ const Rt = (0, a.PA)((e) => {
 							className: (0, c.A)(V.SettingsDialogButton, V.SaveCollectionBtn),
 							onClick: I,
 						},
-						(0, A.we)("#AppProperties_Workshop_SaveFilteredToCollection"),
+						(0, Localize)("#AppProperties_Workshop_SaveFilteredToCollection"),
 					),
 					n.createElement(
 						l.$n,
@@ -3191,7 +3234,7 @@ const Rt = (0, a.PA)((e) => {
 							className: (0, c.A)(V.SettingsDialogButton, V.ShowCollectionsBtn),
 							onClick: R,
 						},
-						(0, A.we)("#AppProperties_Workshop_ShowCollectionPresets"),
+						(0, Localize)("#AppProperties_Workshop_ShowCollectionPresets"),
 					),
 				),
 			),
@@ -3209,14 +3252,14 @@ const Rt = (0, a.PA)((e) => {
 				n.createElement(
 					l.JU,
 					null,
-					(0, A.we)("#AppProperties_Workshop_Filter_Label"),
+					(0, Localize)("#AppProperties_Workshop_Filter_Label"),
 				),
 				n.createElement(l.pd, {
 					className: V.Search,
 					value: s,
 					onChange: (e) => o(e.currentTarget.value),
 					bShowClearAction: true,
-					placeholder: (0, A.we)("#AppProperties_Workshop_Filter"),
+					placeholder: (0, Localize)("#AppProperties_Workshop_Filter"),
 				}),
 			),
 			n.createElement(
@@ -3227,14 +3270,14 @@ const Rt = (0, a.PA)((e) => {
 				n.createElement(
 					l.JU,
 					null,
-					(0, A.we)("#AppProperties_Workshop_SortBy_Label"),
+					(0, Localize)("#AppProperties_Workshop_SortBy_Label"),
 				),
 				n.createElement(l.ZU, {
 					strDropDownButtonClassName: V.SortBy,
 					rgOptions: D,
 					onChange: (e) => d(e?.data),
 					selectedOption: m,
-					strDefaultLabel: (0, A.we)(
+					strDefaultLabel: (0, Localize)(
 						"#AppProperties_Workshop_Subscription_Sort_LoadOrder",
 					),
 				}),
@@ -3354,7 +3397,7 @@ const Nt = (0, a.PA)((e) => {
 							});
 						}
 						SteamClient.System.OpenFileDialog({
-							strTitle: (0, A.we)(
+							strTitle: (0, Localize)(
 								"#AppProperties_Shortcut_ChooseIconDialogTitle",
 							),
 							rgFilters: e,
@@ -3385,7 +3428,7 @@ const Nt = (0, a.PA)((e) => {
 				spellCheck: false,
 				value: a.strShortcutExe,
 				setValue: (e) => SteamClient.Apps.SetShortcutExe(t, e),
-				title: (0, A.we)("#AppProperties_Shortcut_TargetExecutable"),
+				title: (0, Localize)("#AppProperties_Shortcut_TargetExecutable"),
 			},
 			n.createElement(
 				l.$n,
@@ -3399,7 +3442,7 @@ const Nt = (0, a.PA)((e) => {
 						});
 					},
 				},
-				(0, A.we)("#AppProperties_Shortcut_BrowseFiles"),
+				(0, Localize)("#AppProperties_Shortcut_BrowseFiles"),
 			),
 		),
 		n.createElement(
@@ -3409,7 +3452,7 @@ const Nt = (0, a.PA)((e) => {
 				spellCheck: false,
 				value: a.strShortcutStartDir,
 				setValue: (e) => SteamClient.Apps.SetShortcutStartDir(t, e),
-				title: (0, A.we)("#AppProperties_Shortcut_StartInFolder"),
+				title: (0, Localize)("#AppProperties_Shortcut_StartInFolder"),
 			},
 			n.createElement(
 				l.$n,
@@ -3417,7 +3460,7 @@ const Nt = (0, a.PA)((e) => {
 					className: (0, c.A)(V.SettingsDialogButton, V.ShortcutChange),
 					onClick: () => {
 						SteamClient.System.OpenFileDialog({
-							strTitle: (0, A.we)(
+							strTitle: (0, Localize)(
 								"#AppProperties_Shortcut_ChooseStartDirectoryDialogTitle",
 							),
 							strInitialFile: u,
@@ -3429,7 +3472,7 @@ const Nt = (0, a.PA)((e) => {
 						});
 					},
 				},
-				(0, A.we)("#AppProperties_Shortcut_BrowseFiles"),
+				(0, Localize)("#AppProperties_Shortcut_BrowseFiles"),
 			),
 		),
 		n.createElement(Gt, {
@@ -3437,7 +3480,7 @@ const Nt = (0, a.PA)((e) => {
 			spellCheck: false,
 			value: a.strLaunchOptions,
 			setValue: (e) => SteamClient.Apps.SetShortcutLaunchOptions(t, e),
-			title: (0, A.we)("#AppProperties_LaunchOptionsSection"),
+			title: (0, Localize)("#AppProperties_LaunchOptionsSection"),
 		}),
 		r &&
 			n.createElement(Ye, {
@@ -3447,7 +3490,7 @@ const Nt = (0, a.PA)((e) => {
 			l.G5,
 			null,
 			n.createElement(l.y4, {
-				label: (0, A.we)("#AppProperties_EnableOverlay"),
+				label: (0, Localize)("#AppProperties_EnableOverlay"),
 				checked: a.bOverlayEnabled && s,
 				onChange: () =>
 					SteamClient.Apps.ToggleEnableSteamOverlayForApp(a.unAppID),
@@ -3456,7 +3499,7 @@ const Nt = (0, a.PA)((e) => {
 		),
 		n.createElement(l.y4, {
 			className: V.TopGapLarge,
-			label: (0, A.we)("#AppProperties_Shortcut_InVR"),
+			label: (0, Localize)("#AppProperties_Shortcut_InVR"),
 			checked: a.bShortcutIsVR,
 			onChange: () => SteamClient.Apps.SetShortcutIsVR(t, !a.bShortcutIsVR),
 		}),
@@ -3472,11 +3515,11 @@ const Ft = (0, a.PA)((e) => {
 	const a = [
 		{
 			data: 1,
-			label: (0, A.we)("#AppProperties_FeedbackPage_Agree"),
+			label: (0, Localize)("#AppProperties_FeedbackPage_Agree"),
 		},
 		{
 			data: 2,
-			label: (0, A.we)("#AppProperties_FeedbackPage_Disagree"),
+			label: (0, Localize)("#AppProperties_FeedbackPage_Disagree"),
 		},
 	];
 	return n.createElement(

@@ -6,11 +6,15 @@ var s = require(/*webcrack:missing*/ "./69164.js");
 var o = require("./17231.js");
 var l = require("./35488.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizationManager,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var u = require("./57665.js");
 var d = require("./66732.js");
 var A = require(/*webcrack:missing*/ "./55007.js");
-var p = require(/*webcrack:missing*/ "./54644.js");
+import { _f } from "../../actual_src/utils/domutils.js";
 var g = require("./60155.js");
 var h = require("./18980.js");
 var C = require(/*webcrack:missing*/ "./72476.js");
@@ -147,13 +151,13 @@ export function fm(e) {
 				B,
 				null,
 				c
-					? (0, m.we)("#Achievements_HiddenAchievementItem_Individual_Title")
+					? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
 					: t,
 			),
 			n.createElement(
 				v,
 				null,
-				c ? (0, m.we)("#Achievements_HiddenAchievementItem_Description") : r,
+				c ? Localize("#Achievements_HiddenAchievementItem_Description") : r,
 			),
 			typeof s == "number" &&
 				p &&
@@ -192,7 +196,7 @@ export function T0(e) {
 	if (!t) {
 		return null;
 	}
-	const i = (0, m.we)("#AppDetails_PctUnlocked", t.toFixed(1));
+	const i = Localize("#AppDetails_PctUnlocked", t.toFixed(1));
 	return n.createElement(
 		"div",
 		{
@@ -204,7 +208,7 @@ export function T0(e) {
 function M(e) {
 	const { rtime: t, className: r } = e;
 	const a = new Date(t * 1000).toLocaleDateString(
-		m.pf.GetPreferredLocales(),
+		LocalizationManager.GetPreferredLocales(),
 		(0, i.Ms)(),
 	);
 	return n.createElement(
@@ -212,7 +216,7 @@ function M(e) {
 		{
 			className: (0, c.A)(h.UnlockDate, r),
 		},
-		(0, m.we)("#Achievements_ListItem_UnlockDateTime", a),
+		Localize("#Achievements_ListItem_UnlockDateTime", a),
 	);
 }
 function T(e) {
@@ -265,12 +269,12 @@ export function Eu(e) {
 			n.createElement(
 				B,
 				null,
-				(0, m.Yp)("#Achievements_HiddenAchievementItem_Title", t),
+				LocalizePlural("#Achievements_HiddenAchievementItem_Title", t),
 			),
 			n.createElement(
 				v,
 				null,
-				(0, m.Yp)("#Achievements_HiddenAchievementItem_Description", t),
+				LocalizePlural("#Achievements_HiddenAchievementItem_Description", t),
 			),
 		),
 	);
@@ -320,13 +324,13 @@ export function ui(e) {
 				B,
 				null,
 				a
-					? (0, m.we)("#Achievements_HiddenAchievementItem_Individual_Title")
+					? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
 					: t,
 			),
 			n.createElement(
 				v,
 				null,
-				a ? (0, m.we)("#Achievements_HiddenAchievementItem_Description") : r,
+				a ? Localize("#Achievements_HiddenAchievementItem_Description") : r,
 			),
 		),
 	);
@@ -392,7 +396,7 @@ export function Wh(e) {
 	}, []);
 	const u = n.useRef(undefined);
 	const d = n.useCallback((e) => {
-		u.current = e ? (0, p._f)(e) : null;
+		u.current = e ? (0, _f)(e) : null;
 	}, []);
 	const C = (0, A.Te)({
 		count: s.length,
@@ -422,7 +426,7 @@ export function Wh(e) {
 		{
 			className: h.HeaderText,
 		},
-		(0, m.we)("#Achievements_GlobalAchievement_PercentUnlockedLabel"),
+		Localize("#Achievements_GlobalAchievement_PercentUnlockedLabel"),
 	);
 	return n.createElement(
 		Om,
@@ -475,14 +479,14 @@ function F(e) {
 	const [g, _] = n.useState(false);
 	const f = (0, C.Qn)();
 	const b = !A || g;
-	const y = (0, m.we)(
+	const y = Localize(
 		f
 			? "#Achievements_HiddenAchievementItem_Individual_Reveal_Gamepad"
 			: "#Achievements_HiddenAchievementItem_Individual_Reveal_Desktop",
 	);
 	const S = b
 		? null
-		: (0, m.we)("#Achievements_HiddenAchievementItem_Individual_Reveal");
+		: Localize("#Achievements_HiddenAchievementItem_Individual_Reveal");
 	return n.createElement(
 		s.Z,
 		{
@@ -533,7 +537,7 @@ function F(e) {
 						},
 						b
 							? t
-							: (0, m.we)(
+							: Localize(
 									"#Achievements_HiddenAchievementItem_Individual_Title",
 								),
 					),
@@ -542,9 +546,7 @@ function F(e) {
 						{
 							className: h.Description,
 						},
-						b
-							? r
-							: (0, m.we)("#Achievements_HiddenAchievementItem_Description"),
+						b ? r : Localize("#Achievements_HiddenAchievementItem_Description"),
 					),
 				),
 				n.createElement(

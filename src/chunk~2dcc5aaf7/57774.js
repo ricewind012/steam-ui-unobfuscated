@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./23690.js");
 var s = require(/*webcrack:missing*/ "./50376.js");
 var o = require("./64608.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./11131.js");
 var m = require(/*webcrack:missing*/ "./78325.js");
 var u = require(/*webcrack:missing*/ "./46382.js");
@@ -176,7 +176,7 @@ function S(e) {
 						{
 							className: a.TipCount,
 						},
-						(0, l.we)("#Tour_TipCount", d + 1, n.length),
+						Localize("#Tour_TipCount", d + 1, n.length),
 					),
 				d < n.length - 1
 					? i.createElement(
@@ -187,14 +187,14 @@ function S(e) {
 									c();
 								},
 							},
-							(0, l.we)("#Button_Next"),
+							Localize("#Button_Next"),
 						)
 					: i.createElement(
 							o.jn,
 							{
 								onClick: m,
 							},
-							(0, l.we)("#Button_Done"),
+							Localize("#Button_Done"),
 						),
 			),
 		),

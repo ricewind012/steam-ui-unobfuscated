@@ -11,8 +11,12 @@ var d = require("./32263.js");
 var h = require("./50376.js");
 var p = require("./90765.js");
 var g = require("./81255.js");
-var f = require("./54644.js");
-var _ = require("./46108.js");
+import {
+	BIsParentOrSelf,
+	ClientRectToScreenCoords,
+	GetOwningWindowForEvent,
+} from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var w = require("./52451.js");
 var b = require("./72476.js");
 var C = require("./24892.js");
@@ -119,7 +123,7 @@ export let tz = class extends l.Component {
 								className: h.Cancel,
 								onSelected: n,
 							},
-							(0, _.we)(g),
+							Localize(g),
 						),
 						m,
 					),
@@ -468,7 +472,8 @@ export let ai = class extends l.Component {
 	}
 	OnBlur(e) {
 		if (
-			(!e.relatedTarget || !f.id(e.currentTarget, e.relatedTarget)) &&
+			(!e.relatedTarget ||
+				!BIsParentOrSelf(e.currentTarget, e.relatedTarget)) &&
 			(!e.relatedTarget ||
 				!this.props.instance.BIsElementInMenuHierarchy(e.relatedTarget)) &&
 			!this.props.instance.BIsSubMenuVisible() &&
@@ -499,7 +504,10 @@ export let ai = class extends l.Component {
 			this.state.ready &&
 			this.props.instance.visible &&
 			(this.props.popup ||
-				!f.id(this.m_elMenu, this.m_elMenu.ownerDocument.activeElement))
+				!BIsParentOrSelf(
+					this.m_elMenu,
+					this.m_elMenu.ownerDocument.activeElement,
+				))
 		) {
 			let e = this.m_elMenu.querySelector(".ContextMenuAutoFocus");
 			if (e && e.focus) {
@@ -534,7 +542,7 @@ export let ai = class extends l.Component {
 				o += s.screenLeft;
 				a += s.screenTop;
 			}
-			h &&= f.pd(s, h);
+			h &&= ClientRectToScreenCoords(s, h);
 			if (t.targetMonitor) {
 				d = t.targetMonitor.flMonitorScale;
 				c = t.targetMonitor.nScreenLeft;
@@ -795,7 +803,7 @@ export function il(e) {
 }
 export function aE(e) {
 	let t = [];
-	let n = f.uX(e);
+	let n = GetOwningWindowForEvent(e);
 	let r = n.getSelection();
 	let i = r && r.rangeCount > 0 && r.toString().length > 0;
 	let s = e.target;
@@ -844,7 +852,7 @@ export function aE(e) {
 						key: `addtodictionary_${e}`,
 						onSelected: () => n.SteamClient.Browser.AddWordToDictionary(e),
 					},
-					(0, _.we)(
+					Localize(
 						"#ContextMenu_AddToDictionary",
 						e.length < r ? e : e.substring(0, r) + "...",
 					),
@@ -862,7 +870,7 @@ export function aE(e) {
 						n.document.execCommand("cut");
 					},
 				},
-				(0, _.we)("#ContextMenu_Cut"),
+				Localize("#ContextMenu_Cut"),
 			),
 		);
 	}
@@ -877,7 +885,7 @@ export function aE(e) {
 					},
 					className: v.NoSeparation,
 				},
-				(0, _.we)("#ContextMenu_Copy"),
+				Localize("#ContextMenu_Copy"),
 			),
 		);
 	}
@@ -893,7 +901,7 @@ export function aE(e) {
 					},
 					className: v.NoSeparation,
 				},
-				(0, _.we)("#ContextMenu_Paste"),
+				Localize("#ContextMenu_Paste"),
 			),
 		);
 	}

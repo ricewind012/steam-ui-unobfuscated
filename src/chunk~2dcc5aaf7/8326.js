@@ -1,12 +1,12 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require(/*webcrack:missing*/ "./43691.js");
 var s = require("./96555.js");
 var o = require("./13869.js");
 var l = require("./10606.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require(/*webcrack:missing*/ "./31958.js");
-var u = require(/*webcrack:missing*/ "./54644.js");
+import { _f } from "../../actual_src/utils/domutils.js";
 var d = require("./13897.js");
 var A = require("./2306.js");
 var p = require("./75961.js");
@@ -34,16 +34,16 @@ function g(e) {
 		d();
 	}, [d]);
 	return n.createElement(l.o0, {
-		strTitle: (0, i.we)("#Settings_Display_Resolution_ConfirmChange_Title"),
-		strDescription: (0, i.we)(
+		strTitle: Localize("#Settings_Display_Resolution_ConfirmChange_Title"),
+		strDescription: Localize(
 			"#Settings_Display_Resolution_ConfirmChange_Body",
 			(0, m.OQ)(A, 0, 15),
 		),
-		strOKButtonText: (0, i.we)(
+		strOKButtonText: Localize(
 			"#Settings_Display_Resolution_ConfirmChange_Revert",
 		),
 		onOK: g,
-		strCancelButtonText: (0, i.we)(
+		strCancelButtonText: Localize(
 			"#Settings_Display_Resolution_ConfirmChange_Accept",
 		),
 		onCancel: h,
@@ -56,7 +56,7 @@ export function cP(e) {
 	const a = n.useMemo(() => r.data?.modes ?? [], [r]);
 	const o = r.data?.has_mode_override === undefined;
 	const l = r.data?.has_mode_override === false;
-	const m = (0, i.we)("#Settings_Display_Resolution_Auto_Resolution");
+	const m = Localize("#Settings_Display_Resolution_Auto_Resolution");
 	let d = e.bottomSeparator;
 	if (d == "auto") {
 		d = l ? "standard" : "none";
@@ -66,7 +66,7 @@ export function cP(e) {
 			return;
 		}
 		const t = (0, c.Fd)(e.ownerDocument.body, () => {
-			const t = (0, u._f)(e);
+			const t = (0, _f)(e);
 			if (t) {
 				t.scrollTop = 0;
 			}
@@ -139,7 +139,7 @@ export function KX() {
 		} else if (t.data.has_mode_override) {
 			return n.createElement(d.B, {
 				feature: 7,
-				label: (0, i.we)("#Settings_Display_Resolution"),
+				label: Localize("#Settings_Display_Resolution"),
 				rgOptions: l,
 				selectedOption: a,
 				onChange: c,
@@ -178,8 +178,8 @@ export function XT(e) {
 	if ((0, s.hb)() && t.isSuccess && t.data.bAvailble) {
 		return n.createElement(A.C, {
 			feature: 7,
-			label: (0, i.we)("#Settings_Display_CompatibilityMode_Label"),
-			description: (0, i.we)("#Settings_Display_CompatibilityMode_Description"),
+			label: Localize("#Settings_Display_CompatibilityMode_Label"),
+			description: Localize("#Settings_Display_CompatibilityMode_Description"),
 			checked: t.data.eCompatibilityMode == 2,
 			onChange: (e) => t.data.fnSet(e ? 2 : 1),
 		});
@@ -191,8 +191,8 @@ export function lt(e) {
 	const t = (0, s.EH)();
 	if (a.TS.ON_DECK && a.TS.IN_GAMESCOPE) {
 		return n.createElement(p.X, {
-			label: (0, i.we)("#Settings_Display_GameResolution"),
-			explainer: (0, i.we)("#Settings_Display_GameResolution_Explainer"),
+			label: Localize("#Settings_Display_GameResolution"),
+			explainer: Localize("#Settings_Display_GameResolution_Explainer"),
 			rgOptions: t,
 			setting: "gamescope_game_resolution_global",
 		});

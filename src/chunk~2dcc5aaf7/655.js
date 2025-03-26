@@ -7,7 +7,7 @@ var l = require(/*webcrack:missing*/ "./89193.js");
 var c = require(/*webcrack:missing*/ "./8573.js");
 var m = require("./5859.js");
 var u = require("./3475.js");
-var d = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var A = require(/*webcrack:missing*/ "./83599.js");
 var p = require(/*webcrack:missing*/ "./43691.js");
 var g = require(/*webcrack:missing*/ "./72476.js");
@@ -225,7 +225,7 @@ export class cE {
 		return (
 			!e.read &&
 			!(function (e) {
-				return e.viewed && e.viewed + $Q < (0, d._2)();
+				return e.viewed && e.viewed + $Q < GetUnixTime();
 			})(e) &&
 			!this.m_rgUnreadNotificationIDs.includes(e.notification_id)
 		);
@@ -1016,5 +1016,5 @@ export function kE(e, t, r) {
 	});
 }
 export function Rl(e) {
-	return !e.viewed || e.viewed + e$ > (0, d._2)();
+	return !e.viewed || e.viewed + e$ > GetUnixTime();
 }

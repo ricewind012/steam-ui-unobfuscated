@@ -7,7 +7,7 @@ var l = o;
 var c = require(/*webcrack:missing*/ "./90765.js");
 var m = require("./41480.js");
 var u = require(/*webcrack:missing*/ "./98995.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./69164.js");
 var p = require(/*webcrack:missing*/ "./50376.js");
 var g = require("./37086.js");
@@ -30,14 +30,14 @@ function h(e) {
 				{
 					className: l.Header,
 				},
-				(0, d.we)("#Hotkey_Modal_Header"),
+				Localize("#Hotkey_Modal_Header"),
 			),
 			_n.createElement(
 				"div",
 				{
 					className: l.Subhead,
 				},
-				(0, d.we)("#Hotkey_Modal_Subhead"),
+				Localize("#Hotkey_Modal_Subhead"),
 			),
 		),
 		_n.createElement(
@@ -109,7 +109,7 @@ function h(e) {
 					_n.createElement(
 						u.he,
 						{
-							toolTipContent: (0, d.we)("#Hotkey_Modal_Unbind"),
+							toolTipContent: Localize("#Hotkey_Modal_Unbind"),
 						},
 						_n.createElement(p.sED, {
 							color: "#8b929a",
@@ -131,14 +131,14 @@ function h(e) {
 						t();
 					},
 				},
-				(0, d.we)("#Button_Confirm"),
+				Localize("#Button_Confirm"),
 			),
 			_n.createElement(
 				i.$n,
 				{
 					onClick: t,
 				},
-				(0, d.we)("#Button_Cancel"),
+				Localize("#Button_Cancel"),
 			),
 		),
 	);
@@ -147,7 +147,7 @@ function C(e) {
 	const [t, r] = (0, _n.useState)(false);
 	const i = e.currentKey.key_code
 		? e.currentKey.display_name
-		: (0, d.we)("#Settings_Hotkey_Button_NotBound");
+		: Localize("#Settings_Hotkey_Button_NotBound");
 	return _n.createElement(
 		_n.Fragment,
 		null,

@@ -3,7 +3,7 @@ var i = require("./34792.js");
 var a = require("./27756.js");
 var s = require(/*webcrack:missing*/ "./11131.js");
 var o = require("./96670.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./2306.js");
 function m(e) {
 	const {
@@ -31,7 +31,7 @@ function m(e) {
 		(e) => {
 			(0, a.$)({
 				fnOnOK: () => _(e),
-				strCancelButtonText: (0, l.we)("#Settings_RestartLater_ButtonText"),
+				strCancelButtonText: Localize("#Settings_RestartLater_ButtonText"),
 				fnOnCancel: () => {
 					_(e);
 					if (m) {

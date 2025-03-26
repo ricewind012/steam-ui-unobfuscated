@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require(/*webcrack:missing*/ "./88750.js");
 var s = require("./68292.js");
 var o = require("./48289.js");
@@ -84,7 +84,7 @@ export function zu(e) {
 				{
 					className: m.ChatLabel,
 				},
-				(0, i.we)("#ExportClip_ShareToChat"),
+				Localize("#ExportClip_ShareToChat"),
 			),
 			n.createElement(
 				p.Z,
@@ -198,7 +198,7 @@ function S(e) {
 			{
 				className: m.Name,
 			},
-			(0, i.we)("#ExportClip_AllChats"),
+			Localize("#ExportClip_AllChats"),
 		),
 	);
 	if (o) {
@@ -228,7 +228,7 @@ function w(e) {
 		n.createElement(h.BA, {
 			type: "text",
 			onChange: (e) => r(e.currentTarget.value),
-			placeholder: (0, i.we)("#ExportClip_AllChats_SearchPlaceholder"),
+			placeholder: Localize("#ExportClip_AllChats_SearchPlaceholder"),
 		}),
 		!o.length &&
 			n.createElement(
@@ -236,7 +236,7 @@ function w(e) {
 				{
 					className: m.NoResults,
 				},
-				(0, i.we)("#ExportClip_AllChats_NoResults"),
+				Localize("#ExportClip_AllChats_NoResults"),
 			),
 		o.map((t) =>
 			n.createElement(b, {
@@ -289,7 +289,7 @@ export function H5(e, t, r, n) {
 }
 export function GJ(e, t, r, n, a, s) {
 	const o = T(t, r);
-	const l = s ?? (0, i.we)("#ClipUpload_Filename");
+	const l = s ?? Localize("#ClipUpload_Filename");
 	o.StartFileExportToUpload(e, {
 		displayFilename: l,
 		unAssociatedAppID: a?.GetAppID(),

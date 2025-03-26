@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./44846.js");
 var s = require("./64608.js");
 var o = require("./13869.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require("./35488.js");
 var d = require("./77347.js");
@@ -12,7 +12,10 @@ var A = require("./28916.js");
 var p = require("./63988.js");
 var g = p;
 var h = require("./67338.js");
-var C = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForElement,
+	GetOwningWindowForEvent,
+} from "../../actual_src/utils/domutils.js";
 var _ = require("./33572.js");
 var f = require("./96680.js");
 export function V(e = {}, t) {
@@ -58,7 +61,7 @@ function S(e) {
 	const [g, C] = n.useState(null);
 	const _ = (0, m.vJ)(() => g, [g]);
 	const f = r
-		? (l.customAP?.ssid ?? (0, c.we)("#Internet_Network_Type_Other"))
+		? (l.customAP?.ssid ?? (0, Localize)("#Internet_Network_Type_Other"))
 		: t.displayName;
 	const b = r ? i.WO.Wireless : t.type;
 	const y = (l.credentials?.password ?? "") != "";
@@ -141,7 +144,7 @@ function S(e) {
 				n.createElement(
 					s.Y9,
 					null,
-					(0, c.we)("#Settings_Internet_Network_Not_Found", f),
+					(0, Localize)("#Settings_Internet_Network_Not_Found", f),
 				),
 				n.createElement(
 					s.nB,
@@ -155,7 +158,7 @@ function S(e) {
 								autoFocus: true,
 								onClick: D,
 							},
-							(0, c.we)("#Button_Close"),
+							(0, Localize)("#Button_Close"),
 						),
 					),
 				),
@@ -192,7 +195,7 @@ function B(e) {
 	}));
 	return n.createElement(s.Vb, {
 		selectedOption: e.value,
-		label: (0, c.we)("#Settings_Internet_Security_Type"),
+		label: (0, Localize)("#Settings_Internet_Security_Type"),
 		layout: "inline",
 		onChange: (t) => e.onChange(t.data),
 		rgOptions: t,
@@ -249,14 +252,14 @@ function v(e) {
 	let E;
 	E = e.lastAttemptFailed
 		? p
-			? (0, c.we)("#Settings_Internet_Reenter_Network_Credentials")
-			: (0, c.we)(
+			? (0, Localize)("#Settings_Internet_Reenter_Network_Credentials")
+			: (0, Localize)(
 					"#Settings_Internet_Reenter_The_Password_For_Network",
 					e.accessPoint?.displayName,
 				)
 		: p
-			? (0, c.we)("#Settings_Internet_Enter_Network_Credentials")
-			: (0, c.we)(
+			? (0, Localize)("#Settings_Internet_Enter_Network_Credentials")
+			: (0, Localize)(
 					"#Settings_Internet_Enter_The_Password_For_Network",
 					e.accessPoint?.displayName,
 				);
@@ -279,7 +282,7 @@ function v(e) {
 						{
 							className: g.DialogError,
 						},
-						(0, c.we)("#Settings_Internet_Failed_To_Connect"),
+						(0, Localize)("#Settings_Internet_Failed_To_Connect"),
 					),
 				y &&
 					n.createElement(
@@ -287,14 +290,14 @@ function v(e) {
 						{
 							className: g.DialogError,
 						},
-						(0, c.we)("#Settings_Internet_AP_Security_Unsupported"),
+						(0, Localize)("#Settings_Internet_AP_Security_Unsupported"),
 					),
 				E,
 			),
 			p &&
 				n.createElement(s.qq, {
 					className: g.PasswordPromptNetworkName,
-					label: (0, c.we)("#Settings_Internet_Enter_NetworkName"),
+					label: (0, Localize)("#Settings_Internet_Enter_NetworkName"),
 					value: t.customAP?.ssid ?? "",
 					onChange: (e) => {
 						r({
@@ -325,7 +328,7 @@ function v(e) {
 					s.D0,
 					{
 						className: g.PasswordPromptUserName,
-						label: (0, c.we)("#Settings_Internet_Enter_UserName"),
+						label: (0, Localize)("#Settings_Internet_Enter_UserName"),
 						childrenContainerWidth: "fixed",
 					},
 					n.createElement(s.pd, {
@@ -347,7 +350,7 @@ function v(e) {
 					s.D0,
 					{
 						className: g.PasswordPromptPassword,
-						label: (0, c.we)("#Settings_Internet_Enter_Password"),
+						label: (0, Localize)("#Settings_Internet_Enter_Password"),
 						childrenContainerWidth: "fixed",
 					},
 					n.createElement(s.yA, {
@@ -371,7 +374,7 @@ function v(e) {
 						onClick: () => o(true),
 						bottomSeparator: "none",
 					},
-					(0, c.we)("#Settings_Internet_Connect_Advanced_Enable"),
+					(0, Localize)("#Settings_Internet_Connect_Advanced_Enable"),
 				),
 			a &&
 				n.createElement(I, {
@@ -388,7 +391,7 @@ function v(e) {
 				n.createElement(
 					s.Nv,
 					{
-						label: (0, c.we)("#Settings_Internet_MAC_Address"),
+						label: (0, Localize)("#Settings_Internet_MAC_Address"),
 					},
 					M,
 				),
@@ -397,7 +400,7 @@ function v(e) {
 			s.wi,
 			null,
 			n.createElement(s.CB, {
-				strOKText: (0, c.we)("#Settings_Internet_Connect"),
+				strOKText: (0, Localize)("#Settings_Internet_Connect"),
 				onOK: v,
 				onCancel: e.onCancel,
 				bOKDisabled: !S,
@@ -416,27 +419,27 @@ function I(e) {
 		n.Fragment,
 		null,
 		n.createElement(s.MQ, {
-			label: (0, c.we)("#Settings_Internet_IP"),
+			label: (0, Localize)("#Settings_Internet_IP"),
 			value: e.customIP4?.ip,
 			onChange: (e) => t("ip", e),
 		}),
 		n.createElement(s.MQ, {
-			label: (0, c.we)("#Settings_Internet_Netmask"),
+			label: (0, Localize)("#Settings_Internet_Netmask"),
 			value: e.customIP4?.netmask,
 			onChange: (e) => t("netmask", e),
 		}),
 		n.createElement(s.MQ, {
-			label: (0, c.we)("#Settings_Internet_Gateway"),
+			label: (0, Localize)("#Settings_Internet_Gateway"),
 			value: e.customIP4?.gateway_ip,
 			onChange: (e) => t("gateway_ip", e),
 		}),
 		n.createElement(s.MQ, {
-			label: (0, c.we)("#Settings_Internet_Primary_DNS"),
+			label: (0, Localize)("#Settings_Internet_Primary_DNS"),
 			value: e.customIP4?.primary_dns_ip,
 			onChange: (e) => t("primary_dns_ip", e),
 		}),
 		n.createElement(s.MQ, {
-			label: (0, c.we)("#Settings_Internet_Secondary_DNS"),
+			label: (0, Localize)("#Settings_Internet_Secondary_DNS"),
 			value: e.customIP4?.secondary_dns_ip,
 			onChange: (e) => t("secondary_dns_ip", e),
 		}),
@@ -485,29 +488,29 @@ function M(e) {
 	let v;
 	if (_) {
 		B.onOKButton = e.onCloseAction;
-		B.onOKActionDescription = (0, c.we)("#Button_Done");
+		B.onOKActionDescription = (0, Localize)("#Button_Done");
 		B.onCancelButton = e.onCloseAction;
 		B.onCancelActionDescription = null;
 	} else if (y) {
 		B.onCancelButton = e.onBackAction;
-		B.onCancelActionDescription = (0, c.we)("#Button_Cancel");
+		B.onCancelActionDescription = (0, Localize)("#Button_Cancel");
 	} else {
 		B.onOKButton = () => true;
 		B.onOKActionDescription = null;
 		B.onCancelButton = e.onBackAction;
-		B.onCancelActionDescription = (0, c.we)("#Button_Cancel");
+		B.onCancelActionDescription = (0, Localize)("#Button_Cancel");
 	}
 	v = _
-		? (0, c.we)("#Settings_Internet_Connection_Successful")
+		? (0, Localize)("#Settings_Internet_Connection_Successful")
 		: f
-			? (0, c.we)("#Settings_Internet_Captive_Portal_Detected")
+			? (0, Localize)("#Settings_Internet_Captive_Portal_Detected")
 			: y
-				? (0, c.we)("#Settings_Internet_Failed_To_Connect_To_Internet")
+				? (0, Localize)("#Settings_Internet_Failed_To_Connect_To_Internet")
 				: S
-					? (0, c.we)("#Settings_Internet_Connecting_To_Internet")
+					? (0, Localize)("#Settings_Internet_Connecting_To_Internet")
 					: o
-						? (0, c.we)("#Settings_Internet_Failed_To_Connect_To_Network")
-						: (0, c.we)(
+						? (0, Localize)("#Settings_Internet_Failed_To_Connect_To_Network")
+						: (0, Localize)(
 								"#Settings_Internet_Connecting_To_Network",
 								e.networkDisplayName,
 							);
@@ -521,7 +524,7 @@ function M(e) {
 	let k = n.useRef(undefined);
 	n.useEffect(() => {
 		if (f) {
-			M((0, C.qf)(k.current));
+			M(GetOwningWindowForElement(k.current));
 		}
 	}, [f, M]);
 	return n.createElement(
@@ -595,9 +598,9 @@ function M(e) {
 						n.createElement(
 							s.$n,
 							{
-								onClick: (e) => M((0, C.uX)(e)),
+								onClick: (e) => M(GetOwningWindowForEvent(e)),
 							},
-							(0, c.we)("#Settings_Internet_Captive_Portal_Login_Button"),
+							(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button"),
 						),
 					y &&
 						n.createElement(
@@ -605,7 +608,7 @@ function M(e) {
 							{
 								onClick: e.onCloseAction,
 							},
-							(0, c.we)("#Settings_Internet_Use_Network_Anyway"),
+							(0, Localize)("#Settings_Internet_Use_Network_Anyway"),
 						),
 					y &&
 						n.createElement(
@@ -613,7 +616,7 @@ function M(e) {
 							{
 								onClick: e.onCancelAction,
 							},
-							(0, c.we)("#Settings_Internet_Try_Another_Network"),
+							(0, Localize)("#Settings_Internet_Try_Another_Network"),
 						),
 					!_ &&
 						!y &&
@@ -622,7 +625,7 @@ function M(e) {
 							{
 								onClick: e.onBackAction,
 							},
-							(0, c.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					_ &&
 						n.createElement(
@@ -630,7 +633,7 @@ function M(e) {
 							{
 								onClick: e.onCloseAction,
 							},
-							(0, c.we)("#Login_Continue"),
+							(0, Localize)("#Login_Continue"),
 						),
 				),
 			),

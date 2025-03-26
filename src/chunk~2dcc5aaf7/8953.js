@@ -116,7 +116,11 @@ var B = require("./43088.js");
 var v = B;
 var I = require("./43397.js");
 var E = require(/*webcrack:missing*/ "./90765.js");
-var M = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeDateHumanReadable,
+} from "../../actual_src/utils/localization.js";
 var T = require(/*webcrack:missing*/ "./72476.js");
 function R(e) {
 	let t = (0, o.j$)(e.args) || (0, o.j$)(e.args, "href");
@@ -185,7 +189,7 @@ const O = (e) => {
 	const [n, i] = (0, s.useState)(null);
 	(0, s.useEffect)(() => {
 		if (e.appid == 0 || e.trailerBaseID == 0) {
-			i((0, M.we)("#TrailerPlayer_ID_NotProvided"));
+			i(Localize("#TrailerPlayer_ID_NotProvided"));
 			return;
 		}
 		(async () => {
@@ -205,11 +209,11 @@ const O = (e) => {
 							" doesn't existed within appid " +
 							e.appid,
 					);
-					i((0, M.we)("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
+					i(Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
 				}
 				r(false);
 			} else {
-				i((0, M.we)("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
+				i(Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
 			}
 		})();
 	}, [e.appid, e.trailerBaseID]);
@@ -228,7 +232,7 @@ const O = (e) => {
 	}
 	if (t) {
 		return s.createElement(G.t, {
-			string: (0, M.we)("#Loading"),
+			string: Localize("#Loading"),
 			size: "small",
 		});
 	}
@@ -297,7 +301,7 @@ const V = (e) => {
 		return s.createElement(
 			"div",
 			null,
-			(0, M.we)(i ? "#VODPlayer_Loading" : "#VODPlayer_ErrorLoading", e.appid),
+			Localize(i ? "#VODPlayer_Loading" : "#VODPlayer_ErrorLoading", e.appid),
 		);
 	} else {
 		return s.createElement(
@@ -325,7 +329,7 @@ const V = (e) => {
 };
 var H = require("./23337.js");
 var j = require("./12767.js");
-var q = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var Q = require(/*webcrack:missing*/ "./90242.js");
 var Z = require(/*webcrack:missing*/ "./50376.js");
 var Y = require("./29428.js");
@@ -356,8 +360,8 @@ function K(e) {
 			Q.fu,
 			{
 				type: "button",
-				title: (0, M.we)("#Button_Upload"),
-				onOKActionDescription: (0, M.we)("#Button_Upload"),
+				title: Localize("#Button_Upload"),
+				onOKActionDescription: Localize("#Button_Upload"),
 				onClick: () => r.current.click(),
 			},
 			s.createElement(Z.xv8, null),
@@ -425,7 +429,7 @@ function ee(e) {
 					t.Reset();
 				},
 			},
-			(0, M.we)("#Button_Upload"),
+			Localize("#Button_Upload"),
 		),
 	);
 }
@@ -436,7 +440,7 @@ function te(e) {
 		t.file_upload_props.displayFileName,
 		t.file_upload_props.uploadProgress,
 	]);
-	const a = r ? (0, M.we)("#Uploading_Item", n) : "";
+	const a = r ? Localize("#Uploading_Item", n) : "";
 	const o = {
 		width: i + "%",
 	};
@@ -474,8 +478,8 @@ function re(e) {
 		t.file_upload_props.displayFileName,
 		t.file_upload_props.eUploadState,
 	]);
-	const a = n ? (0, M.we)("#Uploading_Item", n) : "";
-	const o = r || (0, M.we)("#Chat_Upload_ErrorCloud");
+	const a = n ? Localize("#Uploading_Item", n) : "";
+	const o = r || Localize("#Chat_Upload_ErrorCloud");
 	return s.createElement(
 		"div",
 		{
@@ -514,14 +518,14 @@ function re(e) {
 								t.Reset();
 							},
 						},
-						(0, M.we)("#Chat_Upload_ErrorAction_Retry"),
+						Localize("#Chat_Upload_ErrorAction_Retry"),
 					),
 				s.createElement(
 					S.$n,
 					{
 						onClick: () => t.ClearFileUploadError(),
 					},
-					(0, M.we)("#Chat_Upload_ErrorAction_Close"),
+					Localize("#Chat_Upload_ErrorAction_Close"),
 				),
 			),
 		),
@@ -1217,7 +1221,7 @@ function Ue(e) {
 					{
 						className: ze.WarningStylesBackground,
 					},
-					(0, M.we)("#Sale_Section_RewardShelf_ItemInActiveWarning"),
+					Localize("#Sale_Section_RewardShelf_ItemInActiveWarning"),
 				)
 			: undefined;
 	if (i) {
@@ -1232,7 +1236,7 @@ function Ue(e) {
 	} else {
 		return s.createElement(G.t, {
 			size: "small",
-			string: (0, M.we)("#Loading"),
+			string: Localize("#Loading"),
 		});
 	}
 }
@@ -1250,7 +1254,7 @@ function We(e) {
 						s.createElement(He, {
 							rewardType: a,
 						}),
-						(0, q.uX)(e),
+						GetOwningWindowForEvent(e),
 					);
 				} else if (
 					T.TS.WEB_UNIVERSE == "dev" ||
@@ -1261,7 +1265,7 @@ function We(e) {
 						s.createElement(He, {
 							rewardType: a,
 						}),
-						(0, q.uX)(e),
+						GetOwningWindowForEvent(e),
 					);
 					console.log(
 						"Show dialog for debugging, since already claimed: ",
@@ -1273,7 +1277,7 @@ function We(e) {
 		},
 		Boolean(r)
 			? s.createElement(G.t, {
-					string: (0, M.we)("#Loading"),
+					string: Localize("#Loading"),
 					size: "small",
 				})
 			: s.createElement(Ve, {
@@ -1294,20 +1298,20 @@ function Ve(e) {
 				"span",
 				null,
 				" ",
-				r?.length > 0 ? r : (0, M.we)("#Sale_ClaimableReward_AlreadyClaimed"),
+				r?.length > 0 ? r : Localize("#Sale_ClaimableReward_AlreadyClaimed"),
 			),
 		);
 	}
-	let i = (0, M.we)("#Sale_ClaimableReward_generic");
+	let i = Localize("#Sale_ClaimableReward_generic");
 	switch (t?.community_item_class || n) {
 		case 11:
-			i = (0, M.we)("#Sale_ClaimableReward_sticker");
+			i = Localize("#Sale_ClaimableReward_sticker");
 			break;
 		case 8:
-			i = (0, M.we)("#Sale_ClaimableReward_profilemodifier");
+			i = Localize("#Sale_ClaimableReward_profilemodifier");
 			break;
 		case 15:
-			i = (0, M.we)("#Sale_ClaimableReward_animatedavatar");
+			i = Localize("#Sale_ClaimableReward_animatedavatar");
 	}
 	return s.createElement(
 		"span",
@@ -1330,19 +1334,17 @@ function He(e) {
 					o(e);
 					console.log("claim response", (0, Be.HO)(e));
 					if (e.appid) {
-						let t = (0, M.we)("#Sale_ClaimableReward_completed_generic");
+						let t = Localize("#Sale_ClaimableReward_completed_generic");
 						const n = a?.community_item_class || r;
 						switch (n) {
 							case 11:
-								t = (0, M.we)("#Sale_ClaimableReward_completed_sticker");
+								t = Localize("#Sale_ClaimableReward_completed_sticker");
 								break;
 							case 8:
-								t = (0, M.we)(
-									"#Sale_ClaimableReward_completed_profilemodifier",
-								);
+								t = Localize("#Sale_ClaimableReward_completed_profilemodifier");
 								break;
 							case 15:
-								t = (0, M.we)("#Sale_ClaimableReward_completed_animatedavatar");
+								t = Localize("#Sale_ClaimableReward_completed_animatedavatar");
 						}
 						i.fnSetStrSuccess("   ");
 						i.fnSetElSuccess(
@@ -1360,22 +1362,22 @@ function He(e) {
 							),
 						);
 					} else {
-						i.fnSetStrError((0, M.we)("#Sale_ClaimableReward_Busy"));
+						i.fnSetStrError(Localize("#Sale_ClaimableReward_Busy"));
 					}
 				})
-				.catch((e) => i.fnSetStrError((0, M.we)("#Sale_ClaimableReward_Busy")));
+				.catch((e) => i.fnSetStrError(Localize("#Sale_ClaimableReward_Busy")));
 		}
 	}, [a?.community_item_class, i, n, r]);
-	let l = (0, M.we)("#Sale_ClaimableReward_generic");
+	let l = Localize("#Sale_ClaimableReward_generic");
 	switch (a?.community_item_class || r) {
 		case 11:
-			l = (0, M.we)("#Sale_ClaimableReward_sticker");
+			l = Localize("#Sale_ClaimableReward_sticker");
 			break;
 		case 8:
-			l = (0, M.we)("#Sale_ClaimableReward_profilemodifier");
+			l = Localize("#Sale_ClaimableReward_profilemodifier");
 			break;
 		case 15:
-			l = (0, M.we)("#Sale_ClaimableReward_animatedavatar");
+			l = Localize("#Sale_ClaimableReward_animatedavatar");
 	}
 	return s.createElement(Ge.Hh, {
 		state: i,
@@ -1421,7 +1423,7 @@ function qe(e) {
 				? s.createElement(
 						"div",
 						null,
-						(0, M.we)("#Sale_ClaimableReward_profilemodifier_apply_success"),
+						Localize("#Sale_ClaimableReward_profilemodifier_apply_success"),
 					)
 				: s.createElement(
 						S.$n,
@@ -1434,14 +1436,14 @@ function qe(e) {
 								});
 							},
 						},
-						(0, M.we)("#Sale_ClaimableReward_profilemodifier_apply"),
+						Localize("#Sale_ClaimableReward_profilemodifier_apply"),
 					),
 			s.createElement(
 				Q.Ii,
 				{
 					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`,
 				},
-				(0, M.we)("#Sale_ClaimableReward_profilemodifier_view"),
+				Localize("#Sale_ClaimableReward_profilemodifier_view"),
 			),
 		);
 	} else {
@@ -1453,14 +1455,14 @@ function qe(e) {
 				{
 					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}/edit/goldenprofile`,
 				},
-				(0, M.we)("#Sale_ClaimableReward_profilemodifier_choose"),
+				Localize("#Sale_ClaimableReward_profilemodifier_choose"),
 			),
 			s.createElement(
 				Q.Ii,
 				{
 					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`,
 				},
-				(0, M.we)("#Sale_ClaimableReward_profilemodifier_view"),
+				Localize("#Sale_ClaimableReward_profilemodifier_view"),
 			),
 		);
 	}
@@ -1776,7 +1778,7 @@ function rt(e) {
 				onClick: we.vg,
 				className: "CSSClaimItemLoginButton",
 			},
-			(0, M.we)("#Sale_ClaimableReward_Login"),
+			Localize("#Sale_ClaimableReward_Login"),
 		);
 	}
 	const r = (0, o.j$)(e.args, "type");
@@ -1885,13 +1887,13 @@ function at(e) {
 							},
 							e.children,
 						),
-						(0, q.uX)(a),
+						GetOwningWindowForEvent(a),
 					);
 				},
 			},
-			Boolean(a.bInitialState) && (0, M.we)(r),
-			Boolean(a.bSuccessState) && (0, M.we)(n),
-			Boolean(a.bFailedState) && (0, M.we)(i),
+			Boolean(a.bInitialState) && Localize(r),
+			Boolean(a.bSuccessState) && Localize(n),
+			Boolean(a.bFailedState) && Localize(i),
 		);
 	} else {
 		return s.createElement(
@@ -1900,7 +1902,7 @@ function at(e) {
 				className: "CSSActionDialogButton",
 				onClick: we.vg,
 			},
-			(0, M.we)("#Login_SignIn"),
+			Localize("#Login_SignIn"),
 		);
 	}
 }
@@ -1932,9 +1934,9 @@ function st(e) {
 		s.createElement(
 			S.Y9,
 			null,
-			Boolean(l.bInitialState) && (0, M.we)(i),
-			Boolean(l.bSuccessState) && (0, M.we)(a),
-			Boolean(l.bFailedState) && (0, M.we)(o),
+			Boolean(l.bInitialState) && Localize(i),
+			Boolean(l.bSuccessState) && Localize(a),
+			Boolean(l.bFailedState) && Localize(o),
 		),
 		s.createElement(
 			S.nB,
@@ -1946,7 +1948,7 @@ function st(e) {
 					? s.createElement(G.t, {
 							size: "medium",
 							position: "center",
-							string: (0, M.we)("#Loading"),
+							string: Localize("#Loading"),
 						})
 					: r,
 			),
@@ -1996,7 +1998,7 @@ function ot(e) {
 			}),
 		);
 	} else if (t) {
-		return s.createElement("div", null, (0, M.we)("#CloudUpload_NotSupport"));
+		return s.createElement("div", null, Localize("#CloudUpload_NotSupport"));
 	} else {
 		return null;
 	}
@@ -2015,7 +2017,7 @@ function ht(e) {
 	const [n, i] = (0, s.useState)(false);
 	const [a, o] = (0, s.useState)(() => ({
 		sharedfileid: t,
-		title: (0, M.we)("#Loading"),
+		title: Localize("#Loading"),
 		description: "",
 		type: "",
 		previewurl: "",
@@ -2085,7 +2087,7 @@ function ht(e) {
 					{
 						className: dt.DynamicLink_Author,
 					},
-					(0, M.PP)(
+					LocalizeReact(
 						"#EventEditor_Author",
 						s.createElement(
 							"span",
@@ -2218,7 +2220,7 @@ let wt = class extends s.Component {
 		let m = o.GetNameWithFallback(l);
 		let d = o.GetSubTitleWithSummaryFallback(l);
 		let A = _f.A.Get().GetApp(e)?.GetName();
-		let p = (0, M.TW)(o.GetStartTimeAndDateUnixSeconds());
+		let p = LocalizeDateHumanReadable(o.GetStartTimeAndDateUnixSeconds());
 		return s.createElement(
 			St.tj,
 			{
@@ -2243,7 +2245,7 @@ let wt = class extends s.Component {
 					{
 						className: dt.DynamicLink_Author,
 					},
-					(0, M.we)(
+					Localize(
 						o.type == 28
 							? "#EventDisplay_Share_Announcement"
 							: "#EventDisplay_Share_Event",
@@ -2328,7 +2330,7 @@ let It = class extends s.Component {
 				s.createElement(
 					"span",
 					null,
-					(0, M.we)("#EventDisplay_SketchFab_Error_Network"),
+					Localize("#EventDisplay_SketchFab_Error_Network"),
 				),
 			);
 		} else if (this.state.bSummaryMode) {
@@ -2364,7 +2366,7 @@ let It = class extends s.Component {
 										{
 											className: vt.dynamiclink_type,
 										},
-										(0, M.we)("#EventDisplay_Sketchfab"),
+										Localize("#EventDisplay_Sketchfab"),
 									),
 									s.createElement("div", null, this.state.data.title, "\xA0"),
 								),

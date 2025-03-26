@@ -9,23 +9,30 @@ var m = require("./16154.js");
 var u = require(/*webcrack:missing*/ "./72476.js");
 var d = require("./85606.js");
 var _A = require("./58839.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
-var g = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeRtime32ToShortDate,
+	Localize,
+} from "../../actual_src/utils/localization.js";
+import {
+	LocalizeCalendarMonthAndYear,
+	LocalizeQuarterOfYear,
+	LocalizeCalendarYear,
+} from "../../actual_src/utils/localization/datetime.js";
 function h(e) {
 	return (function (e, t, r, n) {
 		switch (e) {
 			case "date_full":
-				return (0, p.$z)(t);
+				return LocalizeRtime32ToShortDate(t);
 			case "date_month":
-				return (0, g.sq)(new Date(t * 1000));
+				return LocalizeCalendarMonthAndYear(new Date(t * 1000));
 			case "date_quarter":
-				return (0, g.u6)(new Date(t * 1000), n);
+				return LocalizeQuarterOfYear(new Date(t * 1000), n);
 			case "date_year":
-				return (0, g.vl)(new Date(t * 1000));
+				return LocalizeCalendarYear(new Date(t * 1000));
 			case "text_comingsoon":
-				return r || (0, p.we)("#Store_ComingSoon_ComingSoon");
+				return r || (0, Localize)("#Store_ComingSoon_ComingSoon");
 			case "text_tba":
-				return r || (0, p.we)("#Store_ComingSoon_TBA");
+				return r || (0, Localize)("#Store_ComingSoon_TBA");
 			default:
 				return "";
 		}
@@ -527,9 +534,9 @@ class C {
 			const e = this.m_ReleaseInfo?.steam_release_date;
 			if (e) {
 				if (this.m_ReleaseInfo?.is_abridged_release_date) {
-					return (0, g.sq)(new Date(e * 1000));
+					return LocalizeCalendarMonthAndYear(new Date(e * 1000));
 				} else {
-					return (0, p.$z)(e);
+					return LocalizeRtime32ToShortDate(e);
 				}
 			} else {
 				return "";
@@ -537,7 +544,7 @@ class C {
 		}
 		const e = this.GetReleaseDateRTime();
 		if (e) {
-			return (0, p.$z)(e);
+			return LocalizeRtime32ToShortDate(e);
 		} else {
 			return "";
 		}

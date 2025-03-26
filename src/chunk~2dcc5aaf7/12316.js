@@ -9,7 +9,7 @@ var m = c;
 var u = require(/*webcrack:missing*/ "./72476.js");
 var d = require(/*webcrack:missing*/ "./11131.js");
 var A = require("./12774.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var g = require("./27793.js");
 export const D0 = n.forwardRef(function (e, t) {
 	const {
@@ -59,7 +59,7 @@ export const D0 = n.forwardRef(function (e, t) {
 		if (t == null) {
 			return {};
 		}
-		const a = (0, p.we)("#Field_MoreInfo_Action");
+		const a = Localize("#Field_MoreInfo_Action");
 		return {
 			onOptionsButton: i,
 			onOptionsActionDescription: a,

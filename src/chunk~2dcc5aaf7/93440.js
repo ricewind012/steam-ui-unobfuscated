@@ -32,8 +32,8 @@ var D = require("./64608.js");
 var N = require("./35488.js");
 var F = require("./10606.js");
 var G = require("./13869.js");
-var O = require(/*webcrack:missing*/ "./54644.js");
-var P = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var L = require(/*webcrack:missing*/ "./52451.js");
 var z = require(/*webcrack:missing*/ "./72476.js");
 var x = require("./39940.js");
@@ -90,7 +90,7 @@ const Y = (0, y.PA)((e) => {
 	const D = (e) => {
 		(0, G.pg)(
 			M.createElement(X, {
-				label: (0, P.we)("#SwitchingToDesktop"),
+				label: (0, Localize)("#SwitchingToDesktop"),
 				delayMs: 2000,
 				onProceed: () => !(0, u.px)() && SteamClient.System.SwitchToDesktop(),
 				onCancel: () => C.oy.OpenPowerMenu(null),
@@ -101,7 +101,7 @@ const Y = (0, y.PA)((e) => {
 	return M.createElement(
 		k.tz,
 		{
-			label: (0, P.we)("#Power"),
+			label: (0, Localize)("#Power"),
 			onCancel: e.onCancel,
 		},
 		g.map((e) =>
@@ -120,7 +120,7 @@ const Y = (0, y.PA)((e) => {
 								);
 							})(e),
 					},
-					(0, P.we)("#StopStreamingTo", e.clientName),
+					(0, Localize)("#StopStreamingTo", e.clientName),
 				),
 				e.bCanSuspend &&
 					M.createElement(
@@ -133,7 +133,7 @@ const Y = (0, y.PA)((e) => {
 									);
 								})(e),
 						},
-						(0, P.we)("#StopStreamingAndSuspendDevice", e.clientName),
+						(0, Localize)("#StopStreamingAndSuspendDevice", e.clientName),
 					),
 			),
 		),
@@ -194,10 +194,10 @@ const Y = (0, y.PA)((e) => {
 							confirmDialogContent: M.createElement(
 								M.Fragment,
 								null,
-								(0, P.we)("#ChangeUser_Desc1"),
+								(0, Localize)("#ChangeUser_Desc1"),
 								M.createElement("br", null),
 								M.createElement("br", null),
-								(0, P.we)("#ChangeUser_Desc2"),
+								(0, Localize)("#ChangeUser_Desc2"),
 							),
 						}),
 						M.createElement(F._Z, {
@@ -209,10 +209,10 @@ const Y = (0, y.PA)((e) => {
 							confirmDialogContent: M.createElement(
 								M.Fragment,
 								null,
-								(0, P.we)("#SignOut_Description"),
+								(0, Localize)("#SignOut_Description"),
 								M.createElement("br", null),
 								M.createElement("br", null),
-								(0, P.we)("#ChangeUser_Desc2"),
+								(0, Localize)("#ChangeUser_Desc2"),
 							),
 						}),
 					),
@@ -241,7 +241,7 @@ const Y = (0, y.PA)((e) => {
 										C.oy.WindowStore.GamepadUIMainWindowInstance.BrowserWindow.SteamClient.Window.Minimize();
 									},
 								},
-								(0, P.we)("#MinimizeSteam"),
+								(0, Localize)("#MinimizeSteam"),
 							),
 						S &&
 							M.createElement(
@@ -254,7 +254,7 @@ const Y = (0, y.PA)((e) => {
 										SteamClient.UI.ExitBigPictureMode();
 									},
 								},
-								(0, P.we)("#ExitGamepadUI"),
+								(0, Localize)("#ExitGamepadUI"),
 							),
 						M.createElement(F._Z, {
 							tone: "destructive",
@@ -279,7 +279,7 @@ const Y = (0, y.PA)((e) => {
 							{
 								tone: "destructive",
 								onSelected: (e) => {
-									const t = (0, O.uX)(e);
+									const t = GetOwningWindowForEvent(e);
 									if (p.yE.GetSettings().bLockDesktopMode) {
 										(0, l.Di)({
 											onSuccess: () => D(t),
@@ -289,7 +289,7 @@ const Y = (0, y.PA)((e) => {
 									}
 								},
 							},
-							(0, P.we)("#SwitchToDesktop"),
+							(0, Localize)("#SwitchToDesktop"),
 						),
 					),
 			),
@@ -343,7 +343,7 @@ function X(e) {
 				onClick: l,
 				onBlur: l,
 				onCancel: l,
-				onCancelActionDescription: a ? null : (0, P.we)("#Button_Cancel"),
+				onCancelActionDescription: a ? null : (0, Localize)("#Button_Cancel"),
 				onOKActionDescription: null,
 			},
 			M.createElement(
@@ -362,11 +362,11 @@ function X(e) {
 function J(e) {
 	switch (e) {
 		case i.jH.k_ESuspendResumeProgressState_WaitingForApp:
-			return (0, P.we)("#SuspendResumeWaitingForApp");
+			return (0, Localize)("#SuspendResumeWaitingForApp");
 		case i.jH.k_ESuspendResumeProgressState_CloudSync:
-			return (0, P.we)("#SuspendResumeSyncingCloud");
+			return (0, Localize)("#SuspendResumeSyncingCloud");
 		case i.jH.k_ESuspendResumeProgressState_LoggingIn:
-			return (0, P.we)("#SuspendResumeLoggingIn");
+			return (0, Localize)("#SuspendResumeLoggingIn");
 		case i.jH.k_ESuspendResumeProgressState_Invalid:
 		case i.jH.k_ESuspendResumeProgressState_Working:
 		case i.jH.k_ESuspendResumeProgressState_Complete:
@@ -565,7 +565,7 @@ function ie(e) {
 							{
 								className: H.ResumeDialogInnerText,
 							},
-							M.createElement(D.Y9, null, (0, P.we)("#Resuming")),
+							M.createElement(D.Y9, null, (0, Localize)("#Resuming")),
 							M.createElement(D.a3, null, J(t)),
 						),
 					),

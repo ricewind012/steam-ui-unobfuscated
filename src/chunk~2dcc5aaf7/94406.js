@@ -9,7 +9,11 @@ var m = require(/*webcrack:missing*/ "./8573.js");
 var u = require("./20414.js");
 var d = require("./48289.js");
 var A = require("./10606.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var g = require("./36464.js");
 var h = require("./68608.js");
 var C = require("./12975.js");
@@ -23,9 +27,9 @@ var B = w;
 var v = require(/*webcrack:missing*/ "./44846.js");
 var I = require(/*webcrack:missing*/ "./72476.js");
 var E = require("./46217.js");
-var M = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
 var T = require(/*webcrack:missing*/ "./69164.js");
-var R = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var k = require(/*webcrack:missing*/ "./11131.js");
 export let Xn = class extends i.Component {
 	static contextType = k.gs;
@@ -80,22 +84,22 @@ export let Xn = class extends i.Component {
 			);
 		if (e == 1) {
 			if (t) {
-				A = (0, p.we)("#AppActivity_RatingDetails_User");
+				A = (0, Localize)("#AppActivity_RatingDetails_User");
 			} else if (f.length > 0) {
-				A = (0, p.PP)("#AppActivity_RatingDetails_1Other", f[0]);
+				A = LocalizeReact("#AppActivity_RatingDetails_1Other", f[0]);
 			}
 		} else if (e > 1) {
 			if (f.length != 0) {
 				A = t
 					? e == 2
-						? (0, p.PP)("#AppActivity_RatingDetails_User_1Other", e, f[0])
-						: (0, p.PP)(
+						? LocalizeReact("#AppActivity_RatingDetails_User_1Other", e, f[0])
+						: LocalizeReact(
 								"#AppActivity_RatingDetails_User_2Others",
 								e,
 								f[0],
 								f[1],
 							)
-					: (0, p.PP)("#AppActivity_RatingDetails_2Others", e, f[0], f[1]);
+					: LocalizeReact("#AppActivity_RatingDetails_2Others", e, f[0], f[1]);
 			}
 		}
 		return i.createElement(
@@ -229,16 +233,16 @@ let F = class extends i.Component {
 	OnMaybeDeleteComment(e) {
 		(0, b.pg)(
 			i.createElement(A.o0, {
-				strTitle: (0, p.we)("#AppActivity_ConfirmDeleteCommentTitle"),
-				strDescription: (0, p.we)(
+				strTitle: (0, Localize)("#AppActivity_ConfirmDeleteCommentTitle"),
+				strDescription: (0, Localize)(
 					"#AppActivity_ConfirmDeleteCommentTitle_Desc",
 				),
 				onOK: this.OnDeleteComment,
 				onCancel: () => null,
 			}),
-			(0, R.uX)(e),
+			GetOwningWindowForEvent(e),
 			{
-				strTitle: (0, p.we)("#AppActivity_ConfirmDeleteCommentTitle"),
+				strTitle: (0, Localize)("#AppActivity_ConfirmDeleteCommentTitle"),
 			},
 		);
 	}
@@ -246,9 +250,9 @@ let F = class extends i.Component {
 		const { comment: e, commentThread: t } = this.props;
 		let r = d.O$.GetFriendState(new m.b(e.steamid));
 		let n =
-			(0, p.$z)(e.timestamp) +
+			LocalizeRtime32ToShortDate(e.timestamp) +
 			" @ " +
-			(0, M.KC)(e.timestamp, {
+			LocalizeRTimeToHourAndMinutes(e.timestamp, {
 				bForce24HourClock: _.rV.friendSettings.b24HourClock,
 			});
 		let s = e.steamid == c.Nb.CMInterface.steamid.ConvertTo64BitString();
@@ -555,7 +559,7 @@ const O = (0, s.PA)(function (e) {
 					className: B.MakeCommentsVisible,
 					onClick: c,
 				},
-				(0, p.we)("#AppActivity_MakeCommentsVisible", o),
+				(0, Localize)("#AppActivity_MakeCommentsVisible", o),
 			),
 		a &&
 			i.createElement(
@@ -575,7 +579,7 @@ const O = (0, s.PA)(function (e) {
 			i.createElement(C.K, {
 				className: B.AddReply,
 				OnPostClicked: m,
-				placeholder: (0, p.we)("#AppActivity_Comment_Reply"),
+				placeholder: (0, Localize)("#AppActivity_Comment_Reply"),
 			}),
 	);
 });

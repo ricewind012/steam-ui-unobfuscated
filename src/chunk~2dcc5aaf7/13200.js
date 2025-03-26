@@ -7,7 +7,10 @@ var l = require("./10606.js");
 var c = require(/*webcrack:missing*/ "./69164.js");
 var m = require("./13869.js");
 var u = require(/*webcrack:missing*/ "./26853.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeCalendarTime,
+} from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./52451.js");
 var p = require("./35488.js");
 var g = require(/*webcrack:missing*/ "./90765.js");
@@ -79,24 +82,24 @@ function E(e) {
 	const r = o.tw.GetAppOverviewByAppID(e.appid);
 	const a = e.appid == s.rm;
 	const c = a
-		? (0, d.we)("#CloudConflict_ControllerConfigs_Header")
+		? Localize("#CloudConflict_ControllerConfigs_Header")
 		: e.bOnAppLaunch
-			? (0, d.we)("#CloudConflict_AppLaunch_Header")
-			: (0, d.we)("#CloudConflict_Header");
+			? Localize("#CloudConflict_AppLaunch_Header")
+			: Localize("#CloudConflict_Header");
 	const m = a
-		? (0, d.we)("#CloudConflict_ControllerConfigs_Description")
+		? Localize("#CloudConflict_ControllerConfigs_Description")
 		: e.bOnAppLaunch
-			? (0, d.we)("#CloudConflict_AppLaunch_Description", r?.display_name ?? "")
-			: (0, d.we)("#CloudConflict_Description", r?.display_name ?? "");
+			? Localize("#CloudConflict_AppLaunch_Description", r?.display_name ?? "")
+			: Localize("#CloudConflict_Description", r?.display_name ?? "");
 	const h = a
-		? (0, d.we)("#CloudConflict_ControllerConfigs_KeepRemote")
-		: (0, d.we)("#CloudConflict_KeepRemote");
+		? Localize("#CloudConflict_ControllerConfigs_KeepRemote")
+		: Localize("#CloudConflict_KeepRemote");
 	const _ = a
-		? (0, d.we)("#CloudConflict_ControllerConfigs_KeepLocal")
-		: (0, d.we)("#CloudConflict_KeepLocal");
+		? Localize("#CloudConflict_ControllerConfigs_KeepLocal")
+		: Localize("#CloudConflict_KeepLocal");
 	const f = e.bOnAppLaunch
-		? (0, d.we)("#CloudConflict_AppLaunch_Footer_Note")
-		: (0, d.we)("#CloudConflict_Footer_Note");
+		? Localize("#CloudConflict_AppLaunch_Footer_Note")
+		: Localize("#CloudConflict_Footer_Note");
 	const y = (0, A.vJ)(
 		() => SteamClient.Apps.GetConflictingFileTimestamps(e.appid),
 		[e.appid],
@@ -125,7 +128,7 @@ function E(e) {
 							{
 								className: C.ChoiceNote,
 							},
-							(0, d.we)("#CloudConflict_KeepLocal_Description"),
+							Localize("#CloudConflict_KeepLocal_Description"),
 						),
 					);
 					break;
@@ -137,7 +140,7 @@ function E(e) {
 							{
 								className: C.ChoiceNote,
 							},
-							(0, d.we)("#CloudConflict_KeepRemote_Description"),
+							Localize("#CloudConflict_KeepRemote_Description"),
 						),
 					);
 			}
@@ -158,22 +161,22 @@ function E(e) {
 	} else {
 		const r =
 			y.rtRemoteTime > 0
-				? (0, d.lQ)(y.rtRemoteTime, {
+				? LocalizeCalendarTime(y.rtRemoteTime, {
 						bGranularToday: true,
 						bGranularYesterday: true,
 						bGranularPast: true,
 						bForce24HourClock: t,
 					})
-				: (0, d.we)("#CloudConflict_Unknown");
+				: Localize("#CloudConflict_Unknown");
 		const a =
 			y.rtLocalTime > 0
-				? (0, d.lQ)(y.rtLocalTime, {
+				? LocalizeCalendarTime(y.rtLocalTime, {
 						bGranularToday: true,
 						bGranularYesterday: true,
 						bGranularPast: true,
 						bForce24HourClock: t,
 					})
-				: (0, d.we)("#CloudConflict_Unknown");
+				: Localize("#CloudConflict_Unknown");
 		T = n.createElement(
 			i.a3,
 			null,
@@ -210,7 +213,7 @@ function E(e) {
 						{
 							className: C.LastModified,
 						},
-						(0, d.we)("#CloudConflict_LastModified", r),
+						Localize("#CloudConflict_LastModified", r),
 					),
 				),
 			),
@@ -246,7 +249,7 @@ function E(e) {
 						{
 							className: C.LastModified,
 						},
-						(0, d.we)("#CloudConflict_LastModified", a),
+						Localize("#CloudConflict_LastModified", a),
 					),
 				),
 			),
@@ -280,7 +283,7 @@ function E(e) {
 							})(w);
 						},
 					},
-					(0, d.we)("#Button_Continue"),
+					Localize("#Button_Continue"),
 				),
 				n.createElement(
 					i.$n,
@@ -288,7 +291,7 @@ function E(e) {
 						className: C.CancelButton,
 						onClick: S(e.onCancel),
 					},
-					(0, d.we)("#Button_Cancel"),
+					Localize("#Button_Cancel"),
 				),
 			),
 		);
@@ -308,7 +311,7 @@ function E(e) {
 				bControllerConfigs: a,
 			}),
 			" ",
-			e.customHeaderText ? (0, d.we)(e.customHeaderText) : c,
+			e.customHeaderText ? Localize(e.customHeaderText) : c,
 			" ",
 		),
 		n.createElement(
@@ -319,7 +322,7 @@ function E(e) {
 				{
 					className: C.CloudConflictText,
 				},
-				e.customDescriptionText ? (0, d.we)(e.customDescriptionText) : m,
+				e.customDescriptionText ? Localize(e.customDescriptionText) : m,
 			),
 			n.createElement(
 				"div",
@@ -373,24 +376,24 @@ function k(e) {
 	};
 	const r = o.tw.GetAppOverviewByAppID(e.appid);
 	const a = e.bOnAppLaunch
-		? (0, d.we)("#CloudSyncFailed_AppLaunch_Continue")
-		: (0, d.we)("#CloudSyncFailed_Continue");
+		? Localize("#CloudSyncFailed_AppLaunch_Continue")
+		: Localize("#CloudSyncFailed_Continue");
 	const s = e.bOnAppLaunch
-		? (0, d.we)("#CloudSyncFailed_AppLaunch_Header")
-		: (0, d.we)("#CloudSyncFailed_Header");
+		? Localize("#CloudSyncFailed_AppLaunch_Header")
+		: Localize("#CloudSyncFailed_Header");
 	const c = e.bOnAppLaunch
-		? (0, d.we)("#CloudSyncFailed_AppLaunch_Warning", r?.display_name ?? "")
-		: (0, d.we)("#CloudSyncFailed_Warning", r?.display_name ?? "");
+		? Localize("#CloudSyncFailed_AppLaunch_Warning", r?.display_name ?? "")
+		: Localize("#CloudSyncFailed_Warning", r?.display_name ?? "");
 	const m = e.bOnAppLaunch
-		? (0, d.we)("#CloudSyncFailed_AppLaunch_Description")
-		: (0, d.we)("#CloudSyncFailed_Description");
+		? Localize("#CloudSyncFailed_AppLaunch_Description")
+		: Localize("#CloudSyncFailed_Description");
 	let u;
 	u = n.createElement(
 		i.wi,
 		null,
 		n.createElement(i.CB, {
 			strOKText: a,
-			strCancelText: (0, d.we)("#CloudSyncFailed_Cancel"),
+			strCancelText: Localize("#CloudSyncFailed_Cancel"),
 			onOK: t(e.onOK),
 			onCancel: t(e.onCancel),
 		}),
@@ -415,7 +418,7 @@ function k(e) {
 					className: C.TitleWarningIcon,
 				}),
 				" ",
-				e.customHeaderText ? (0, d.we)(e.customHeaderText) : s,
+				e.customHeaderText ? Localize(e.customHeaderText) : s,
 				" ",
 			),
 		),
@@ -427,12 +430,12 @@ function k(e) {
 				{
 					className: C.CloudConflictWarning,
 				},
-				e.customWarningText ? (0, d.we)(e.customWarningText) : c,
+				e.customWarningText ? Localize(e.customWarningText) : c,
 			),
 			n.createElement(
 				i.a3,
 				null,
-				e.customDescriptionText ? (0, d.we)(e.customDescriptionText) : m,
+				e.customDescriptionText ? Localize(e.customDescriptionText) : m,
 			),
 			u,
 		),
@@ -502,7 +505,7 @@ function G(e) {
 			l = e.operation();
 			A = e.device_type();
 		}
-		const b = (0, d.lQ)(g, {
+		const b = LocalizeCalendarTime(g, {
 			bGranularToday: true,
 			bGranularYesterday: true,
 			bGranularPast: true,
@@ -510,19 +513,19 @@ function G(e) {
 		});
 		switch (l) {
 			case 0:
-				h = (0, d.we)("#CloudPendingOps_Operation_None");
+				h = Localize("#CloudPendingOps_Operation_None");
 				break;
 			case 1:
-				h = (0, d.we)("#CloudPendingOps_Operation_AppRunning");
+				h = Localize("#CloudPendingOps_Operation_AppRunning");
 				break;
 			case 2:
-				h = (0, d.we)("#CloudPendingOps_Operation_Uploading");
+				h = Localize("#CloudPendingOps_Operation_Uploading");
 				break;
 			case 3:
-				h = (0, d.we)("#CloudPendingOps_Operation_UploadNotStarted");
+				h = Localize("#CloudPendingOps_Operation_UploadNotStarted");
 				break;
 			case 4:
-				h = (0, d.we)("#CloudPendingOps_Operation_AppSuspended");
+				h = Localize("#CloudPendingOps_Operation_AppSuspended");
 		}
 		let y = "#CloudPendingOps_Warning";
 		switch (A) {
@@ -540,8 +543,8 @@ function G(e) {
 				y = "#CloudPendingOps_Warning_Tesla";
 		}
 		m = e.customDescriptionText
-			? (0, d.we)(e.customDescriptionText)
-			: (0, d.we)(y, _?.display_name ?? "", p, b, h);
+			? Localize(e.customDescriptionText)
+			: Localize(y, _?.display_name ?? "", p, b, h);
 		u = n.createElement(
 			c.Z,
 			{
@@ -551,8 +554,8 @@ function G(e) {
 				i.wi,
 				null,
 				n.createElement(i.CB, {
-					strOKText: (0, d.we)("#CloudPendingOps_Continue"),
-					strCancelText: (0, d.we)("#CloudPendingOps_Cancel"),
+					strOKText: Localize("#CloudPendingOps_Continue"),
+					strCancelText: Localize("#CloudPendingOps_Cancel"),
 					onOK: a(e.onOK),
 					onCancel: a(e.onCancel),
 				}),
@@ -575,8 +578,8 @@ function G(e) {
 			}),
 			" ",
 			e.customHeaderText
-				? (0, d.we)(e.customHeaderText)
-				: (0, d.we)("#CloudPendingOps_Header"),
+				? Localize(e.customHeaderText)
+				: Localize("#CloudPendingOps_Header"),
 			" ",
 		),
 		n.createElement(
@@ -593,8 +596,8 @@ function G(e) {
 				i.a3,
 				null,
 				e.customDescriptionText
-					? (0, d.we)(e.customDescriptionText)
-					: (0, d.we)("#CloudPendingOps_Description"),
+					? Localize(e.customDescriptionText)
+					: Localize("#CloudPendingOps_Description"),
 			),
 		),
 		u,

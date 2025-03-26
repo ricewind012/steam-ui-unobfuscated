@@ -1,4 +1,4 @@
-import { we as Localize } from "../library/46108.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import { TS as Config } from "../library/72476.js";
 
 /**

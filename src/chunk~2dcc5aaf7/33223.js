@@ -6,8 +6,8 @@ var o = require(/*webcrack:missing*/ "./89193.js");
 var l = require("./16154.js");
 var c = require(/*webcrack:missing*/ "./93960.js");
 var m = require(/*webcrack:missing*/ "./79769.js");
-var u = require(/*webcrack:missing*/ "./54644.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { BlobToFile } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./72476.js");
 var p = require("./88341.js");
 var g = require("./39082.js");
@@ -82,7 +82,7 @@ export class V {
 			method: "GET",
 			responseType: "blob",
 		});
-		let l = (0, u.pE)(o.data, e.file_name);
+		let l = BlobToFile(o.data, e.file_name);
 		return await this.AddImage(l, t, r, n);
 	}
 	DeleteUploadImageByIndex(e) {
@@ -192,7 +192,7 @@ export class V {
 	}
 	CancelAllUploads() {
 		for (let e of this.m_allCancelTokens) {
-			e.cancel((0, d.we)("#ImageUpload_CancelRequest"));
+			e.cancel(Localize("#ImageUpload_CancelRequest"));
 		}
 		this.m_allCancelTokens = new Array();
 	}

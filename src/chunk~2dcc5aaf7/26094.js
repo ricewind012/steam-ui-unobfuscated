@@ -3,13 +3,16 @@ var i = require("./34461.js");
 var a = require(/*webcrack:missing*/ "./31084.js");
 var s = require("./39730.js");
 var o = require("./35488.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import {
+	BLocStringExists,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./11131.js");
 var m = require("./67429.js");
 var u = require("./68438.js");
 var d = require("./43271.js");
 var A = require("./1385.js");
-var p = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var g = require(/*webcrack:missing*/ "./736.js");
 var h = require(/*webcrack:missing*/ "./72476.js");
 var C = require("./51095.js");
@@ -61,7 +64,7 @@ function w(e) {
 			const a = (0, c.k5)();
 			const o = async (t) => {
 				if (await H9(e)) {
-					r(t, (0, l.we)("#Browser_URLCopied"));
+					r(t, Localize("#Browser_URLCopied"));
 				}
 			};
 			const u = async (t) => {
@@ -73,7 +76,7 @@ function w(e) {
 				return (0, s.H5)(r, t, a, n);
 			};
 			const d = async (t) => {
-				const r = (0, p.uX)(t) ?? window;
+				const r = GetOwningWindowForEvent(t) ?? window;
 				if (e.local) {
 					const t = await SteamClient.Screenshots.GetLocalScreenshotPath(
 						e.local.strGameID,
@@ -94,7 +97,7 @@ function w(e) {
 			const g =
 				!e.local || e.local.bUploaded
 					? undefined
-					: async (t) => (0, A.MS)(e, (0, p.uX)(t));
+					: async (t) => (0, A.MS)(e, GetOwningWindowForEvent(t));
 			const h = (function (e, t) {
 				const r = (0, c.R7)();
 				return () => {
@@ -122,10 +125,10 @@ function w(e) {
 		const E = (0, y.Pp)();
 		const R =
 			w && w.bDisableUserMediaUpload
-				? (0, l.we)("#ShareSheet_ScreenUploadNotAllowed")
+				? Localize("#ShareSheet_ScreenUploadNotAllowed")
 				: undefined;
 		const k = E
-			? (0, l.we)("#ShareSheet_LimitedScreenshotNotAllowed")
+			? Localize("#ShareSheet_LimitedScreenshotNotAllowed")
 			: undefined;
 		return {
 			sendToChat: u,
@@ -135,26 +138,26 @@ function w(e) {
 						key: "upload",
 						onSelected: d,
 						icon: n.createElement(o.Globe, null),
-						label: (0, l.we)("#ShareSheet_ShareOnSteam"),
+						label: Localize("#ShareSheet_ShareOnSteam"),
 						disabled: R,
 					},
 				{
 					key: "clipboard",
 					onSelected: i,
 					icon: n.createElement(o.Copy, null),
-					label: (0, l.we)("#ExportClip_CopyClipboard"),
+					label: Localize("#ExportClip_CopyClipboard"),
 				},
 				{
 					key: "export",
 					onSelected: a,
 					icon: n.createElement(o.Download, null),
-					label: (0, l.we)("#ScreenshotUploader_SaveImage"),
+					label: Localize("#ScreenshotUploader_SaveImage"),
 				},
 				!C && {
 					key: "sendmobile",
 					onSelected: g,
 					icon: n.createElement(o.Mobile, null),
-					label: (0, l.we)("#ExportClip_SendToPhone"),
+					label: Localize("#ExportClip_SendToPhone"),
 					disabled: R || k,
 				},
 			].filter(Boolean),
@@ -192,11 +195,11 @@ async function v(e, t, r) {
 	const n = `*.${t}`;
 	let i = n;
 	const a = `#ExportImage_${t.toUpperCase()}_Desc`;
-	if ((0, l.c9)(a)) {
-		i = (0, l.we)(a);
+	if (BLocStringExists(a)) {
+		i = Localize(a);
 	}
 	return await r.SteamClient.System.OpenFileDialog({
-		strTitle: (0, l.we)("#ExportImage_Title"),
+		strTitle: Localize("#ExportImage_Title"),
 		bSaveMode: true,
 		strInitialFile: `${e}.${t}`,
 		rgFilters: [

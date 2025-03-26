@@ -1,9 +1,9 @@
 var n = require("./13869.js");
 var i = require("./52912.js");
 var a = require("./95773.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require("./10606.js");
-export function Ci(e, t, r, a, l = (0, s.we)("#Button_Cancel"), c, m, u) {
+export function Ci(e, t, r, a, l = (0, Localize)("#Button_Cancel"), c, m, u) {
 	return (0, o.ZH)(
 		(r) => {
 			let a = dt(e, t, u);
@@ -17,16 +17,16 @@ export function Ci(e, t, r, a, l = (0, s.we)("#Button_Cancel"), c, m, u) {
 		m,
 	);
 }
-export function hr(e, t, r, n = (0, s.we)("#Button_Cancel"), i, o) {
+export function hr(e, t, r, n = (0, Localize)("#Button_Cancel"), i, o) {
 	const c = a.xm.GetDefaultBrowserContext();
 	return Ci(window, e, t, r, n, i, o, c);
 }
-export function WQ(e, t, r, n, i = (0, s.we)("#Button_Cancel"), a, o) {
+export function WQ(e, t, r, n, i = (0, Localize)("#Button_Cancel"), a, o) {
 	return Ci(e, t, r, n, i, a, o)
 		.then(() => Promise.resolve(true))
 		.catch(() => Promise.resolve(false));
 }
-export function Ic(e, t, r, a = (0, s.we)("#Button_OK"), l, c, m) {
+export function Ic(e, t, r, a = (0, Localize)("#Button_OK"), l, c, m) {
 	return (0, o.nd)(
 		(r) => {
 			let a = dt(e, t, c, m);
@@ -38,7 +38,7 @@ export function Ic(e, t, r, a = (0, s.we)("#Button_OK"), l, c, m) {
 		l,
 	);
 }
-export function Nw(e, t, r = (0, s.we)("#Button_OK"), n) {
+export function Nw(e, t, r = (0, Localize)("#Button_OK"), n) {
 	const i = a.xm.GetDefaultBrowserContext();
 	const o = a.xm.UIStore.GetPerContextChatData(i);
 	const l = o?.friends_list_window?.GetWindow() ?? window;

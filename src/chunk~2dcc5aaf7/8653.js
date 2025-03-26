@@ -1330,13 +1330,13 @@ var M;
 var T = require("./96127.js");
 var R = require("./95773.js");
 var k = require(/*webcrack:missing*/ "./89193.js");
-var D = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var N = require("./16761.js");
 require("./80663.js");
 var F = require("./89459.js");
 var G = require(/*webcrack:missing*/ "./52451.js");
 var O = require(/*webcrack:missing*/ "./81255.js");
-var P = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var L = require(/*webcrack:missing*/ "./83599.js");
 var z = require("./60857.js");
 const x = new L.wd("Chat");
@@ -1405,7 +1405,7 @@ export class b {
 									o.AddLocalMsg(
 										s.GetAccountID(),
 										e.Body().rtime32_server_timestamp(),
-										(0, D.we)(
+										(0, Localize)(
 											"#Chat_TextFilter_Active",
 											this.m_ChatStore.GetTextFilterSettingsURL(),
 										),
@@ -1871,7 +1871,7 @@ export class s extends N.o {
 	GetVoiceNotAllowedReason() {
 		if (this.chat_partner.is_friend) {
 			if (this.chat_partner.persona.m_ePersonaState == 0) {
-				return (0, D.we)(
+				return (0, Localize)(
 					"#VoiceChat_Unavailable_NotOnline",
 					this.chat_partner.display_name,
 				);
@@ -1879,7 +1879,7 @@ export class s extends N.o {
 				return null;
 			}
 		} else {
-			return (0, D.we)(
+			return (0, Localize)(
 				"#VoiceChat_Unavailable_NotFriend",
 				this.chat_partner.display_name,
 			);
@@ -2120,7 +2120,7 @@ export class s extends N.o {
 				this.chat_partner,
 				{
 					title: "",
-					body: (0, D.we)("#Chat_BroadcastViewRequest_Notification"),
+					body: (0, Localize)("#Chat_BroadcastViewRequest_Notification"),
 					tag: "message_" + this.chat_partner.accountid,
 					steamid: this.chat_partner.persona.m_steamid.ConvertTo64BitString(),
 				},
@@ -2195,7 +2195,7 @@ class H {
 	TrimCache() {
 		const e = Date.now() / 1000;
 		this.m_cache.forEach(({ rtTime: t }, r) => {
-			if (t < e - P.Kp.PerYear / 2) {
+			if (t < e - Seconds.PerYear / 2) {
 				this.m_cache.delete(r);
 			}
 		});

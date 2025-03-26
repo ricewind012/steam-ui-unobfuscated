@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var i = require(/*webcrack:missing*/ "./79099.js");
 var a = require("./329.js");
 var s = a;
@@ -33,7 +33,7 @@ export function nB(e) {
 }
 export var Uv;
 export function _Y(e, t, r, i, a) {
-	(0, n.w)(
+	AssertMsg(
 		i.target_browser && i.target_browser.m_eUIMode != -1,
 		"useSteamUIPopup - target browser should be specified, along with UI mode!",
 		i,

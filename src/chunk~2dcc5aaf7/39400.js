@@ -13,7 +13,10 @@ var p = require("./10606.js");
 var g = require(/*webcrack:missing*/ "./50376.js");
 var h = require("./43520.js");
 var C = require(/*webcrack:missing*/ "./90765.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var f = require(/*webcrack:missing*/ "./72476.js");
 var b = require("./14629.js");
 var y = require("./32330.js");
@@ -94,7 +97,7 @@ function I(e) {
 				n.unshift({
 					eGroup: 2,
 					option: e.option,
-					name: (0, _.we)("#FilterElement_" + (0, b.$P)(2, e.option)),
+					name: (0, Localize)("#FilterElement_" + (0, b.$P)(2, e.option)),
 				});
 			}
 		});
@@ -104,7 +107,7 @@ function I(e) {
 				n.unshift({
 					eGroup: 1,
 					option: e.option,
-					name: (0, _.we)("#FilterElement_" + (0, b.$P)(1, e.option)),
+					name: (0, Localize)("#FilterElement_" + (0, b.$P)(1, e.option)),
 				});
 			}
 		});
@@ -174,14 +177,14 @@ function E(e) {
 				{
 					className: S.CompatFilterLabel,
 				},
-				(0, _.we)((0, m.eS)(n)),
+				(0, Localize)((0, m.eS)(n)),
 			),
 			o.createElement(
 				"div",
 				{
 					className: S.CompatFilterDescription,
 				},
-				(0, _.we)((0, m.C6)(n)),
+				(0, Localize)((0, m.C6)(n)),
 			),
 		),
 		o.createElement(
@@ -307,7 +310,7 @@ function T(e) {
 						{
 							className: S.CompatFilterLabel,
 						},
-						(0, _.we)("#Library_FilterCollection_Advanced"),
+						(0, Localize)("#Library_FilterCollection_Advanced"),
 					),
 				),
 			),
@@ -350,7 +353,7 @@ function T(e) {
 								{
 									className: S.CompatFilterDialogTitle,
 								},
-								(0, _.we)("#Library_FilterCollectionTitle"),
+								(0, Localize)("#Library_FilterCollectionTitle"),
 							),
 						),
 						o.createElement(
@@ -363,7 +366,7 @@ function T(e) {
 								{
 									className: S.CompatFilterDialogDescription,
 								},
-								(0, _.PP)(
+								LocalizeReact(
 									"#Library_FilterCollectionDescription",
 									o.createElement(A.$m, {
 										button: u.g4.X,
@@ -377,7 +380,7 @@ function T(e) {
 								o.createElement(
 									"div",
 									null,
-									(0, _.we)(
+									(0, Localize)(
 										"#Library_FilterCollectionDescription_CompatNotOnDeck",
 									),
 								),

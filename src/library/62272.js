@@ -1,5 +1,5 @@
 var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./54644.js");
+import { BElementFullscreen, $e } from "../../actual_src/utils/domutils.js";
 var s = require("./28864.js");
 var o = require("./99251.js");
 export function rf(e) {
@@ -9,9 +9,9 @@ export function rf(e) {
 		if (!s) {
 			return;
 		}
-		n((0, i.ww)(s));
+		n(BElementFullscreen(s));
 		let e = () => {
-			n((0, i.ww)(s));
+			n(BElementFullscreen(s));
 		};
 		s.addEventListener("fullscreenchange", e);
 		return () => {
@@ -26,7 +26,7 @@ export function Pt(e) {
 			if (!t || !e) {
 				return;
 			}
-			const n = (0, i.$e)(t);
+			const n = (0, $e)(t);
 			n.forEach((t) => t.addEventListener("scroll", e));
 			return () => n.forEach((t) => t.removeEventListener("scroll", e));
 		},

@@ -1,8 +1,12 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./31958.js");
-var s = require(/*webcrack:missing*/ "./53833.js");
-var o = require(/*webcrack:missing*/ "./41180.js");
+import {
+	FindAndRemoveWhere,
+	FilterInPlace,
+	MoveElement,
+} from "../../actual_src/utils/arrayutils.js";
+import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
 var l = require("./3475.js");
 var c = require(/*webcrack:missing*/ "./44846.js");
 var m = require("./43024.js");
@@ -462,7 +466,7 @@ const x = {
 	50: {
 		proto: m.h3,
 		fnTray: function (e, t) {
-			s.Wp(t, (e) => e.eType == 50);
+			FindAndRemoveWhere(t, (e) => e.eType == 50);
 			ne(e, t);
 		},
 		showToast: true,
@@ -475,7 +479,7 @@ const x = {
 	57: {
 		proto: m.K_,
 		fnTray: function (e, t) {
-			s.Wp(t, (e) => e.eType == 57);
+			FindAndRemoveWhere(t, (e) => e.eType == 57);
 			ne(e, t);
 		},
 		showToast: true,
@@ -784,7 +788,7 @@ class K {
 				t.data = e.data;
 				let n = t.data;
 				if (!t.rtMarkedRead && n.rgunread.length == 0) {
-					t.rtMarkedRead = (0, o._2)();
+					t.rtMarkedRead = GetUnixTime();
 				}
 				if (t.bNewIndicator && n.item.viewed) {
 					if (!(0, E.Rl)(n.item)) {
@@ -800,7 +804,7 @@ class K {
 		}
 	}
 	Viewed() {
-		const e = (0, o._2)();
+		const e = GetUnixTime();
 		let t = false;
 		this.m_rgNotificationTray.forEach((r) => {
 			const n = r.notifications[0];
@@ -964,7 +968,10 @@ class K {
 						this.m_hPendingToastTimer = undefined;
 					}
 					let e = t.data;
-					s.Wp(this.m_rgPendingToasts, (t) => W.get(e.type) == t.eType);
+					FindAndRemoveWhere(
+						this.m_rgPendingToasts,
+						(t) => W.get(e.type) == t.eType,
+					);
 					this.m_rgPendingToasts.push(t);
 					this.m_hPendingToastTimer = window.setTimeout(() => {
 						this.SendPendingServerToasts();
@@ -1010,7 +1017,7 @@ class K {
 		}
 		let i = {
 			notificationID: e,
-			rtCreated: (0, o._2)(),
+			rtCreated: GetUnixTime(),
 			eType: t,
 			nToastDurationMS: 0,
 			eSource: a9.k_Client,
@@ -1042,7 +1049,7 @@ class K {
 		}
 		let l = {
 			notificationID: t,
-			rtCreated: (0, o._2)(),
+			rtCreated: GetUnixTime(),
 			eType: r,
 			nToastDurationMS: s.toastDurationMS || 5000,
 			fnNotificationResolved: i,
@@ -1069,7 +1076,7 @@ class K {
 		}
 	}
 	ScheduleRemoveFromTray(e) {
-		let t = o._2();
+		let t = GetUnixTime();
 		if (this.m_rtNextTrayRemove > t + e) {
 			this.ClearRemoveFromTrayTimer();
 		}
@@ -1090,10 +1097,10 @@ class K {
 	}
 	RemoveExpiredTray() {
 		this.ClearRemoveFromTrayTimer();
-		let e = o._2();
+		let e = GetUnixTime();
 		let t = Number.MAX_VALUE;
 		let r = false;
-		s.hT(this.m_rgNotificationTray, (n) => {
+		FilterInPlace(this.m_rgNotificationTray, (n) => {
 			let i = x[n.eType];
 			if (!i.nRemoveFromTraySec) {
 				return true;
@@ -1219,7 +1226,7 @@ class K {
 		if (this.m_rgNotificationToasts.length > 0) {
 			t = this.m_rgNotificationToasts[0].notificationID == e.notificationID;
 		}
-		s.Wp(
+		FindAndRemoveWhere(
 			this.m_rgNotificationToasts,
 			(t) => t.notificationID == e.notificationID,
 		);
@@ -1388,8 +1395,8 @@ class K {
 			}
 			if (t == e) {
 				if (
-					(0, o._2)() - this.m_LastSystemUpdateNotification.rtDisplayed <
-					o.Kp.PerWeek
+					GetUnixTime() - this.m_LastSystemUpdateNotification.rtDisplayed <
+					Seconds.PerWeek
 				) {
 					return true;
 				}
@@ -1397,7 +1404,7 @@ class K {
 		}
 		this.m_LastSystemUpdateNotification = {
 			eType: t,
-			rtDisplayed: (0, o._2)(),
+			rtDisplayed: GetUnixTime(),
 		};
 		return false;
 	}
@@ -1491,14 +1498,14 @@ class K {
 	}
 	RemoveFromTrayWhere(e) {
 		let t = this.m_rgNotificationTray.length;
-		s.hT(this.m_rgNotificationTray, e);
+		FilterInPlace(this.m_rgNotificationTray, e);
 		if (t != this.m_rgNotificationTray.length) {
 			this.m_cbkNotificationTray.Dispatch(this.m_rgNotificationTray);
 		}
 	}
 	RemoveFromToastsWhere(e) {
 		if (this.m_rgNotificationToasts.length != 0) {
-			s.hT(this.m_rgNotificationToasts, e);
+			FilterInPlace(this.m_rgNotificationToasts, e);
 			this.m_valueCurrentToast.Set(
 				this.m_rgNotificationToasts.length
 					? this.m_rgNotificationToasts[0]
@@ -2322,8 +2329,11 @@ function ee(e, t, r) {
 	let n = t.findIndex(r);
 	let i = n >= 0 ? t[n] : null;
 	if (n != 0) {
-		if (i && i.notifications[0].rtCreated > (0, o._2)() - o.Kp.PerMinute * 15) {
-			s.yY(t, n, 0);
+		if (
+			i &&
+			i.notifications[0].rtCreated > GetUnixTime() - Seconds.PerMinute * 15
+		) {
+			MoveElement(t, n, 0);
 			i.notifications.push(e);
 			return;
 		} else {
@@ -2334,7 +2344,7 @@ function ee(e, t, r) {
 	i.notifications.push(e);
 }
 function te(e, t) {
-	s.Wp(
+	FindAndRemoveWhere(
 		t,
 		(t) =>
 			(t.eType == 4 || t.eType == 3) &&
@@ -2343,7 +2353,10 @@ function te(e, t) {
 	ne(e, t);
 }
 function re(e, t) {
-	s.Wp(t, (t) => e.notificationID == t.notifications[0].notificationID);
+	FindAndRemoveWhere(
+		t,
+		(t) => e.notificationID == t.notifications[0].notificationID,
+	);
 	let r = {
 		eType: e.eType,
 		notifications: [e],

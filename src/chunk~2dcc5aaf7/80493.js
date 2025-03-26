@@ -95,8 +95,13 @@ class D {
 }
 var N = require("./97510.js");
 var F = require(/*webcrack:missing*/ "./49455.js");
-var G = require(/*webcrack:missing*/ "./54644.js");
-var O = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizePlural,
+	CLocLanguageArray,
+} from "../../actual_src/utils/localization.js";
 var P = require(/*webcrack:missing*/ "./53807.js");
 function L(e, t, r, n, i, a) {
 	if (!r) {
@@ -121,14 +126,14 @@ function L(e, t, r, n, i, a) {
 	const o = (0, m.wJ)(`${e.GetStorePageURL(n)}${i ? `?${i}` : ""}`, t);
 	return {
 		onClick: (e) => {
-			let t = (0, G.uX)(e) || window;
+			let t = GetOwningWindowForEvent(e) || window;
 			if (a) {
 				a(undefined);
 			} else if (!o.startsWith("steam://")) {
 				t.location.href = (0, P.NT)(o);
 			}
 		},
-		onOKActionDescription: (0, O.we)("#Sale_Gamepad_Action_Select"),
+		onOKActionDescription: (0, Localize)("#Sale_Gamepad_Action_Select"),
 	};
 }
 var z = require("./30697.js");
@@ -270,7 +275,7 @@ var $ = require("./74905.js");
 var ee = require("./6561.js");
 require("./15612.js");
 require("./11735.js");
-var te = require(/*webcrack:missing*/ "./85688.js");
+import { FailAssertion } from "../../actual_src/utils/assert.js";
 var re = require(/*webcrack:missing*/ "./67784.js");
 export const pb = (0, n.PA)((e) => {
 	const {
@@ -397,8 +402,8 @@ export const pb = (0, n.PA)((e) => {
 	let se = n.GetShortDescription();
 	if (n.GetStoreItemType() == 2 || n.GetStoreItemType() == 1) {
 		se = ne
-			? (0, O.we)("#Sale_BundleSave_WithDiscount", ne, ie)
-			: (0, O.we)("#Sale_BundleSave", ie);
+			? (0, Localize)("#Sale_BundleSave_WithDiscount", ne, ie)
+			: (0, Localize)("#Sale_BundleSave", ie);
 	}
 	const le = (0, m.L3)(Q);
 	const ce = (0, a.tB)(n.GetStorePageURL(I));
@@ -583,7 +588,7 @@ export const pb = (0, n.PA)((e) => {
 										{
 											className: H.LocalizationSpan,
 										},
-										(0, O.oW)(
+										LocalizeInlineReactWithFallback(
 											se,
 											i.createElement("i", null),
 											i.createElement("i", null),
@@ -682,7 +687,7 @@ function ae(e) {
 				{
 					className: H.ContentsCount,
 				},
-				(0, O.Yp)("#Sale_ContentPreview", n.length),
+				LocalizePlural("#Sale_ContentPreview", n.length),
 			),
 			i.createElement(
 				"div",
@@ -744,7 +749,7 @@ function oe(e) {
 				case "library":
 					return !!r.GetHeroCapsuleURL() || !!r.GetLibraryCapsuleURL();
 				default:
-					(0, te.z)(t, `Unhandled imageType: ${t}`);
+					FailAssertion(t, `Unhandled imageType: ${t}`);
 					return false;
 			}
 		})(n, r) &&
@@ -760,7 +765,7 @@ function oe(e) {
 		return i.createElement(X.t, {
 			size: "small",
 			position: "center",
-			string: (0, O.we)("#Loading"),
+			string: (0, Localize)("#Loading"),
 		});
 	}
 	if (r === "library") {
@@ -797,7 +802,10 @@ function oe(e) {
 	);
 }
 (0, n.PA)((e) => {
-	const t = O.NT.GetWithFallback(e.link.localized_link_capsule, e.language);
+	const t = CLocLanguageArray.GetWithFallback(
+		e.link.localized_link_capsule,
+		e.language,
+	);
 	return i.createElement(
 		x.q,
 		{

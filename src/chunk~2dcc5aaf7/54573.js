@@ -89,9 +89,13 @@ var E = require(/*webcrack:missing*/ "./26853.js");
 var M = require(/*webcrack:missing*/ "./98995.js");
 var T = require("./16154.js");
 var R = require(/*webcrack:missing*/ "./90765.js");
-var k = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeDateHumanReadable,
+} from "../../actual_src/utils/localization.js";
 var D = require(/*webcrack:missing*/ "./52451.js");
-var N = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, IsDateSameYear } from "../../actual_src/utils/time.js";
 var F = require(/*webcrack:missing*/ "./53807.js");
 var G = require("./43088.js");
 var O = G;
@@ -150,11 +154,11 @@ export let j = class extends s.Component {
 		} else {
 			(0, v.pg)(
 				s.createElement(B.o0, {
-					strTitle: (0, k.we)("#EventDisplay_Share_NotLoggedIn"),
-					strDescription: (0, k.we)(
+					strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
+					strDescription: (0, Localize)(
 						"#EventDisplay_Share_NotLoggedIn_Description",
 					),
-					strOKButtonText: (0, k.we)("#MobileLogin_SignIn"),
+					strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
 					onOK: () => (0, x.vg)(),
 				}),
 				window,
@@ -258,7 +262,7 @@ export let j = class extends s.Component {
 					{
 						className: L.ReminderDefault,
 					},
-					(0, k.we)("#EventDisplay_Reminder_SetReminder"),
+					(0, Localize)("#EventDisplay_Reminder_SetReminder"),
 				),
 				s.createElement("div", {
 					className: L.ReminderOptions,
@@ -277,7 +281,7 @@ export function y(e) {
 				{
 					className: U.ErrorDiv,
 				},
-				(0, k.we)("#EventDidplay_Reminder_EventNotVisible", r),
+				(0, Localize)("#EventDidplay_Reminder_EventNotVisible", r),
 			);
 		} else {
 			return null;
@@ -322,12 +326,12 @@ let _j = class extends s.Component {
 					s.createElement(
 						B.KG,
 						{
-							strTitle: (0, k.we)(
+							strTitle: (0, Localize)(
 								t
 									? "#EventDisplay_Reminder_IgnoreEvent_Error"
 									: "#EventDisplay_Reminder_FollowEvent_Error",
 							),
-							strDescription: (0, k.we)(
+							strDescription: (0, Localize)(
 								t
 									? "#EventDisplay_Reminder_IgnoreEvent_ErrorDesc"
 									: "#EventDisplay_Reminder_FollowEvent_ErrorDesc",
@@ -377,7 +381,7 @@ let _j = class extends s.Component {
 		const r = encodeURIComponent(this.GetExternalCalendarEventBody());
 		const n = e.GetStartTimeAndDateUnixSeconds();
 		const i = H(n);
-		const a = H(e.GetEndTimeAndDateUnixSeconds() || n + N.Kp.PerHour);
+		const a = H(e.GetEndTimeAndDateUnixSeconds() || n + Seconds.PerHour);
 		const s = `${h.TS.IN_CLIENT ? "steam://openurl_external/" : ""}https://calendar.google.com/calendar/r/eventedit?text=${t}&details=${r}&dates=${i}/${a}`;
 		return (0, F.k2)(s);
 	}
@@ -435,7 +439,7 @@ let _j = class extends s.Component {
 					{
 						className: L.ReminderDefault,
 					},
-					(0, k.we)("#EventDisplay_Reminder_SetReminder"),
+					(0, Localize)("#EventDisplay_Reminder_SetReminder"),
 				),
 				s.createElement("div", {
 					className: L.ReminderOpennedOptions,
@@ -462,11 +466,11 @@ let _j = class extends s.Component {
 						{
 							className: L.FullStartTime,
 						},
-						(0, k.PP)(
+						LocalizeReact(
 							"#EventDisplay_EventUpcoming_WithDateAndTime",
-							(0, k.TW)(
+							LocalizeDateHumanReadable(
 								c,
-								(0, N.Ct)(
+								IsDateSameYear(
 									new Date(c * 1000),
 									A.HD.GetTimeNowWithOverrideAsDate(),
 								),
@@ -479,7 +483,7 @@ let _j = class extends s.Component {
 					{
 						className: L.ReminderOptionsHeader,
 					},
-					(0, k.we)("#EventDisplay_Reminder_GetNotification_Via"),
+					(0, Localize)("#EventDisplay_Reminder_GetNotification_Via"),
 				),
 				s.createElement(
 					"div",
@@ -491,14 +495,14 @@ let _j = class extends s.Component {
 						{
 							className: L.CheckboxWrapper,
 							bTopmost: true,
-							toolTipContent: (0, k.we)(
+							toolTipContent: (0, Localize)(
 								o
 									? "#EventReminder_NotifyByEmail_ttip"
 									: "#EventReminder_NotifyByEmail_Missing",
 							),
 						},
 						s.createElement(S.Yh, {
-							label: (0, k.we)("#EventDisplay_Reminder_ViaEmail"),
+							label: (0, Localize)("#EventDisplay_Reminder_ViaEmail"),
 							disabled: !o,
 							checked: p.KN.Get().BFollowsEventAndNotifiedBy(
 								e.clanSteamID,
@@ -522,7 +526,7 @@ let _j = class extends s.Component {
 									onClick: () =>
 										this.TrackEventAction(d.E.k_eReminder_EmailUnverified),
 								},
-								(0, k.we)("#EventReminder_NotifyByEmail_Missing_Add"),
+								(0, Localize)("#EventReminder_NotifyByEmail_Missing_Add"),
 							),
 						),
 				),
@@ -536,14 +540,14 @@ let _j = class extends s.Component {
 						{
 							className: L.CheckboxWrapper,
 							bTopmost: true,
-							toolTipContent: (0, k.we)(
+							toolTipContent: (0, Localize)(
 								l
 									? "#EventReminder_NotifyByMobile_ttip"
 									: "#EventReminder_NotifyByMobile_Missing",
 							),
 						},
 						s.createElement(S.Yh, {
-							label: (0, k.we)("#EventDisplay_Reminder_ViaMobileApp"),
+							label: (0, Localize)("#EventDisplay_Reminder_ViaMobileApp"),
 							disabled: !l,
 							checked: p.KN.Get().BFollowsEventAndNotifiedBy(
 								e.clanSteamID,
@@ -567,7 +571,7 @@ let _j = class extends s.Component {
 									onClick: () =>
 										this.TrackEventAction(d.E.k_eReminder_MobilePushMissing),
 								},
-								(0, k.we)("#EventReminder_NotifyByMobile_Install"),
+								(0, Localize)("#EventReminder_NotifyByMobile_Install"),
 							),
 						),
 				),
@@ -579,7 +583,7 @@ let _j = class extends s.Component {
 						{
 							className: L.ReminderOptionsHeader,
 						},
-						(0, k.we)("#EventDisplay_Reminder_AddToCalendar"),
+						(0, Localize)("#EventDisplay_Reminder_AddToCalendar"),
 					),
 					s.createElement(
 						"div",
@@ -594,7 +598,7 @@ let _j = class extends s.Component {
 								onClick: () =>
 									this.TrackEventAction(d.E.k_eReminder_CalendarApple),
 							},
-							(0, k.we)("#EventDisplay_Reminder_AppleCalendar_Short"),
+							(0, Localize)("#EventDisplay_Reminder_AppleCalendar_Short"),
 						),
 						s.createElement(
 							"a",
@@ -605,7 +609,7 @@ let _j = class extends s.Component {
 								onClick: () =>
 									this.TrackEventAction(d.E.k_eReminder_CalendarGoogle),
 							},
-							(0, k.we)("#EventDisplay_Reminder_GoogleCalendar_Short"),
+							(0, Localize)("#EventDisplay_Reminder_GoogleCalendar_Short"),
 						),
 						s.createElement(
 							"a",
@@ -615,7 +619,7 @@ let _j = class extends s.Component {
 								onClick: () =>
 									this.TrackEventAction(d.E.k_eReminder_CalendarOutlook),
 							},
-							(0, k.we)("#EventDisplay_Reminder_OutlookCalendar_Short"),
+							(0, Localize)("#EventDisplay_Reminder_OutlookCalendar_Short"),
 						),
 					),
 				),

@@ -11,8 +11,11 @@ var d = require("./10606.js");
 var _A = require("./13869.js");
 var p = require(/*webcrack:missing*/ "./50376.js");
 var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./54644.js");
-var C = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var _ = require("./83628.js");
 var f = _;
 var b = require("./18057.js");
@@ -23,16 +26,16 @@ export const A = (0, a.PA)(function (e) {
 	const u = !!(0, i.W5)(b.BV.Library.Collection());
 	const d = (0, y.br)().Collection;
 	const p = l.n6.IsCollapsed(t)
-		? (0, C.we)("#CollectionAction_Expand")
-		: (0, C.we)("#CollectionAction_Collapse");
+		? (0, Localize)("#CollectionAction_Expand")
+		: (0, Localize)("#CollectionAction_Collapse");
 	const _ = o.md.GetCollection(t);
-	let f = (0, C.we)("#CollectionAction_ViewOnlyThis");
+	let f = (0, Localize)("#CollectionAction_ViewOnlyThis");
 	if (l.n6.selectedGameListView == 10) {
-		f = (0, C.we)("#GameList_View_ShowAllCollections");
+		f = (0, Localize)("#GameList_View_ShowAllCollections");
 	} else if (_.id == o.A8.Favorites) {
-		f = (0, C.we)("#CollectionAction_ViewOnlyThisFavorites");
+		f = (0, Localize)("#CollectionAction_ViewOnlyThisFavorites");
 	} else if (_.id == o.A8.Uncategorized) {
-		f = (0, C.we)("#CollectionAction_ViewOnlyThisUncategorized");
+		f = (0, Localize)("#CollectionAction_ViewOnlyThisUncategorized");
 	}
 	const S = l.n6.BIsSearchActive();
 	const B = l.n6.GetVisibleCollections().length > 1;
@@ -66,7 +69,7 @@ export const A = (0, a.PA)(function (e) {
 						l.n6.SetCollectionEditorOpen(true);
 					},
 				},
-				(0, C.we)("#CollectionAction_Edit"),
+				(0, Localize)("#CollectionAction_Edit"),
 			),
 		_.bIsEditable &&
 			v &&
@@ -78,7 +81,7 @@ export const A = (0, a.PA)(function (e) {
 						l.n6.SetCollectionRenameOpen(true);
 					},
 				},
-				(0, C.we)("#CollectionAction_Rename"),
+				(0, Localize)("#CollectionAction_Rename"),
 			),
 		!a &&
 			n.createElement(
@@ -106,14 +109,14 @@ export const A = (0, a.PA)(function (e) {
 								strCollectionId: t,
 								bViewingCollection: u,
 							}),
-							(0, h.uX)(e),
+							GetOwningWindowForEvent(e),
 							{
-								strTitle: (0, C.we)("#CollectionAction_DeleteDialog"),
+								strTitle: (0, Localize)("#CollectionAction_DeleteDialog"),
 							},
 						);
 					},
 				},
-				(0, C.we)("#CollectionAction_Delete"),
+				(0, Localize)("#CollectionAction_Delete"),
 			),
 		!a &&
 			B &&
@@ -122,7 +125,7 @@ export const A = (0, a.PA)(function (e) {
 				{
 					onSelected: l.n6.ExpandAll,
 				},
-				(0, C.we)(
+				(0, Localize)(
 					l.n6.selectedGameListView == 11
 						? "#CollectionAction_ExpandAll"
 						: "#CollectionAction_ExpandAllCollections",
@@ -135,7 +138,7 @@ export const A = (0, a.PA)(function (e) {
 				{
 					onSelected: l.n6.CollapseAll,
 				},
-				(0, C.we)(
+				(0, Localize)(
 					l.n6.selectedGameListView == 11
 						? "#CollectionAction_CollapseAll"
 						: "#CollectionAction_CollapseAllCollections",
@@ -191,7 +194,7 @@ const w = (0, a.PA)((e) => {
 					);
 					await e.AsDeletableCollection().Delete();
 				} catch (e) {
-					m((0, C.we)("#CollectionAction_DeleteFailed", i));
+					m((0, Localize)("#CollectionAction_DeleteFailed", i));
 				}
 			},
 			onCancel: t,
@@ -229,7 +232,7 @@ const w = (0, a.PA)((e) => {
 				u.Y9,
 				null,
 				" ",
-				(0, C.we)("#CollectionAction_DeleteDialog"),
+				(0, Localize)("#CollectionAction_DeleteDialog"),
 				" ",
 			),
 			n.createElement(
@@ -238,13 +241,13 @@ const w = (0, a.PA)((e) => {
 				n.createElement(
 					u.a3,
 					null,
-					(0, C.PP)("#CollectionAction_ConfirmDelete", h),
+					LocalizeReact("#CollectionAction_ConfirmDelete", h),
 				),
 				n.createElement(
 					u.wi,
 					null,
 					n.createElement(u.CB, {
-						strOKText: (0, C.we)("#Button_Remove"),
+						strOKText: (0, Localize)("#Button_Remove"),
 						onCancel: t,
 					}),
 				),

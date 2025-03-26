@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./10606.js");
 var a = require("./3475.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require("./24274.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require("./21426.js");
@@ -46,12 +46,12 @@ function b(e) {
 						break;
 					case 25:
 						u("");
-						o((0, s.we)("#FamilyView_UnlockDialog_LimitExceeded"));
+						o((0, Localize)("#FamilyView_UnlockDialog_LimitExceeded"));
 						d.current.focus();
 						break;
 					default:
 						u("");
-						o((0, s.we)("#FamilyView_UnlockDialog_WrongPIN"));
+						o((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
 						d.current.focus();
 				}
 			});
@@ -61,8 +61,8 @@ function b(e) {
 	if (h) {
 		return n.createElement(p.K, {
 			className: m.ParentalPINDialog,
-			title: (0, s.we)("#FamilyView_Dialog_Title"),
-			description: (0, s.we)("#FamilyView_UnlockDialog_Description"),
+			title: (0, Localize)("#FamilyView_Dialog_Title"),
+			description: (0, Localize)("#FamilyView_UnlockDialog_Description"),
 			errorText: a,
 			digits: 4,
 			validateDigit: f,
@@ -78,8 +78,8 @@ function b(e) {
 				onOK: () => _(c),
 				bOKDisabled: c.length < 4,
 				bAlertDialog: !r,
-				strOKButtonText: (0, s.we)("#Button_OK"),
-				strTitle: (0, s.we)("#FamilyView_Dialog_Title"),
+				strOKButtonText: (0, Localize)("#Button_OK"),
+				strTitle: (0, Localize)("#FamilyView_Dialog_Title"),
 			},
 			n.createElement(
 				"div",
@@ -98,7 +98,7 @@ function b(e) {
 					{
 						className: m.Description,
 					},
-					(0, s.we)("#FamilyView_UnlockDialog_Description"),
+					(0, Localize)("#FamilyView_UnlockDialog_Description"),
 				),
 				n.createElement("input", {
 					className: (0, l.A)(m.TextInput),
@@ -122,7 +122,12 @@ function y(e) {
 	const _ = n.useCallback(
 		(e) => {
 			if (e.result !== 84) {
-				c((0, s.we)("#FamilyView_RequestFeatureAccess_GenericError", e.result));
+				c(
+					(0, Localize)(
+						"#FamilyView_RequestFeatureAccess_GenericError",
+						e.result,
+					),
+				);
 			} else {
 				r();
 			}
@@ -136,18 +141,18 @@ function y(e) {
 	}, [f]);
 	const y = (0, d.Qt)("steam://open/goonline");
 	let S = b;
-	let w = (0, s.we)("#FamilyView_RequestFeatureAccess");
-	let B = (0, s.we)("#FamilyView_RequestFeatureAccess_Request");
+	let w = (0, Localize)("#FamilyView_RequestFeatureAccess");
+	let B = (0, Localize)("#FamilyView_RequestFeatureAccess_Request");
 	if (C) {
 		S = r;
-		w = (0, s.we)("#FamilyView_RequestFeatureAccess_AlwaysBlocked");
+		w = (0, Localize)("#FamilyView_RequestFeatureAccess_AlwaysBlocked");
 	} else if (g) {
 		S = y;
-		B = (0, s.we)("#AppDetails_GoOnline");
+		B = (0, Localize)("#AppDetails_GoOnline");
 	} else if (!p) {
 		S = r;
 		B = undefined;
-		w = (0, s.we)("#FamilyView_RequestFeatureAccess_Offline");
+		w = (0, Localize)("#FamilyView_RequestFeatureAccess_Offline");
 	}
 	return n.createElement(
 		i.o0,
@@ -158,7 +163,7 @@ function y(e) {
 			onOK: S,
 			bAlertDialog: !p && !g,
 			strOKButtonText: B,
-			strTitle: (0, s.we)("#FamilyView_Dialog_Title"),
+			strTitle: (0, Localize)("#FamilyView_Dialog_Title"),
 		},
 		n.createElement(
 			"div",
@@ -209,15 +214,15 @@ function S(e) {
 				return;
 			}
 			u("");
-			o((0, s.we)("#FamilyView_UnlockDialog_WrongPIN"));
+			o((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
 		},
 		[r, t],
 	);
 	if (C) {
 		return n.createElement(p.K, {
 			className: m.ParentalPINDialog,
-			title: (0, s.we)("#KioskMode_Dialog_Title"),
-			description: (0, s.we)("#KioskMode_UnlockDialog_Description"),
+			title: (0, Localize)("#KioskMode_Dialog_Title"),
+			description: (0, Localize)("#KioskMode_UnlockDialog_Description"),
 			errorText: a,
 			digits: 4,
 			validateDigit: f,
@@ -233,8 +238,8 @@ function S(e) {
 				onOK: () => b(c),
 				bOKDisabled: c.length < 4,
 				bAlertDialog: !r,
-				strOKButtonText: (0, s.we)("#Button_OK"),
-				strTitle: (0, s.we)("#KioskMode_Dialog_Title"),
+				strOKButtonText: (0, Localize)("#Button_OK"),
+				strTitle: (0, Localize)("#KioskMode_Dialog_Title"),
 			},
 			n.createElement(
 				"div",
@@ -253,7 +258,7 @@ function S(e) {
 					{
 						className: m.Description,
 					},
-					(0, s.we)("#KioskMode_UnlockDialog_Description"),
+					(0, Localize)("#KioskMode_UnlockDialog_Description"),
 				),
 				n.createElement("input", {
 					className: (0, l.A)(m.TextInput),
@@ -276,8 +281,8 @@ function w(e) {
 			onCancel: t || (() => {}),
 			onOK: t,
 			bAlertDialog: true,
-			strOKButtonText: (0, s.we)("#Button_OK"),
-			strTitle: (0, s.we)("#RemotePlay_StoreFunctionalityBlocked_Title"),
+			strOKButtonText: (0, Localize)("#Button_OK"),
+			strTitle: (0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Title"),
 		},
 		n.createElement(
 			"div",
@@ -289,7 +294,7 @@ function w(e) {
 				{
 					className: m.Description,
 				},
-				(0, s.we)("#RemotePlay_StoreFunctionalityBlocked_Description"),
+				(0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Description"),
 			),
 		),
 	);

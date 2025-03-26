@@ -1164,7 +1164,7 @@ class b extends C {
 }
 var y;
 export var WD;
-var w = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 function B(e) {
 	switch (e.connection_state()) {
 		case y.Connecting:
@@ -1344,7 +1344,7 @@ export class yC {
 		a.quality = d == null ? undefined : 100 - d;
 		let A = "";
 		if (e.status_loc_token()) {
-			A = (0, w.we)(e.status_loc_token());
+			A = (0, Localize)(e.status_loc_token());
 		}
 		if (n) {
 			a.short_status = A || "Active";

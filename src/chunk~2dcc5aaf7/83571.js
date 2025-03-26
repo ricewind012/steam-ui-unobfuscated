@@ -2,7 +2,10 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./25931.js");
 var s = require("./35488.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var l = require("./66186.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require("./13869.js");
@@ -68,7 +71,7 @@ function G(e) {
 export function TM() {
 	const [e, t] = (0, l.uq)();
 	return n.createElement(i.y4, {
-		label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Contrast"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Contrast"),
 		checked: e,
 		onChange: t,
 		disabled: k.Ih.BKioskModeLocked(),
@@ -79,30 +82,30 @@ export function g9() {
 	const r = n.useMemo(
 		() => [
 			{
-				label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner_None"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner_None"),
 				data: 0,
 			},
 			{
-				label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner_TopLeft"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner_TopLeft"),
 				data: 1,
 			},
 			{
-				label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner_TopRight"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner_TopRight"),
 				data: 2,
 			},
 			{
-				label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner_BottomRight"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner_BottomRight"),
 				data: 3,
 			},
 			{
-				label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner_BottomLeft"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner_BottomLeft"),
 				data: 4,
 			},
 		],
 		[],
 	);
 	return n.createElement(i.Vb, {
-		label: (0, o.we)("#QuickAccess_Tab_Perf_FPS_Corner"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_FPS_Corner"),
 		rgOptions: r,
 		selectedOption: e,
 		onChange: (e) => t(e.data),
@@ -115,7 +118,7 @@ export function OV() {
 		return null;
 	} else {
 		return n.createElement(i.y4, {
-			label: (0, o.we)("#QuickAccess_Tab_Perf_Overlay"),
+			label: (0, Localize)("#QuickAccess_Tab_Perf_Overlay"),
 			disabled: !t || k.Ih.BKioskModeLocked(),
 			checked: r,
 			onChange: (e) => l.Hn.Get().SetPerfOverlayEnabled(e),
@@ -123,7 +126,7 @@ export function OV() {
 	}
 }
 export function gv() {
-	const e = (0, o.we)("#QuickAccess_Tab_Perf_Overlay_Level_OFF");
+	const e = (0, Localize)("#QuickAccess_Tab_Perf_Overlay_Level_OFF");
 	const t = n.useMemo(
 		() => [
 			{
@@ -165,8 +168,8 @@ export function gv() {
 	);
 	return n.createElement(F, {
 		available: true,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_Overlay_Level"),
-		explainer: (0, o.we)("#QuickAccess_Tab_Perf_Overlay_Explainer"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_Overlay_Level"),
+		explainer: (0, Localize)("#QuickAccess_Tab_Perf_Overlay_Explainer"),
 		value: a,
 		layout: "below",
 		onChange: s,
@@ -197,14 +200,16 @@ function W(e) {
 			null,
 			n.createElement(i.D0, {
 				className: a.FramerateLimitSliderWarning,
-				label: (0, o.we)("#QuickAccess_Tab_Perf_LimitFrameRate_Warning_WIP"),
+				label: (0, Localize)(
+					"#QuickAccess_Tab_Perf_LimitFrameRate_Warning_WIP",
+				),
 			}),
 		);
 	}
 }
 export function Mq(e) {
 	const [t, r, s, m] = (0, l.Cv)();
-	const u = (0, o.we)("#QuickAccess_Tab_Perf_LimitFrameRate_Off");
+	const u = (0, Localize)("#QuickAccess_Tab_Perf_LimitFrameRate_Off");
 	const A = n.useMemo(
 		() => [
 			...s.map((e, t) => ({
@@ -243,8 +248,10 @@ export function Mq(e) {
 		null,
 		n.createElement(i.d3, {
 			className: B,
-			label: (0, o.we)("#QuickAccess_Tab_Perf_LimitFrameRate"),
-			explainer: (0, o.we)("#QuickAccess_Tab_Perf_LimitFrameRate_Explainer"),
+			label: (0, Localize)("#QuickAccess_Tab_Perf_LimitFrameRate"),
+			explainer: (0, Localize)(
+				"#QuickAccess_Tab_Perf_LimitFrameRate_Explainer",
+			),
 			value: f,
 			layout: "below",
 			onChange: y,
@@ -268,22 +275,26 @@ export function ZH(e) {
 	return n.createElement(N, {
 		available: t,
 		icon: n.createElement(s.HalfRateShading, null),
-		label: (0, o.we)("#QuickAccess_Tab_Perf_VariableResolution"),
-		explainer: (0, o.we)("#QuickAccess_Tab_Perf_VariableResolution_Explainer"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_VariableResolution"),
+		explainer: (0, Localize)(
+			"#QuickAccess_Tab_Perf_VariableResolution_Explainer",
+		),
 		checked: r,
 		onChange: (e) => l.Hn.Get().SetVariableResolutionEnabled(e),
 	});
 }
 function j(e) {
-	let t = (0, o.we)("#Modal_ExternalDisplayControlConfirm_Description");
+	let t = (0, Localize)("#Modal_ExternalDisplayControlConfirm_Description");
 	return n.createElement(u.o0, {
-		strTitle: (0, o.we)(
+		strTitle: (0, Localize)(
 			"#Modal_ExternalDisplayControlConfirm_Title",
 		).toUpperCase(),
 		strDescription: t,
-		strOKButtonText: (0, o.we)("#Modal_ExternalDisplayControlConfirm_Cancel"),
+		strOKButtonText: (0, Localize)(
+			"#Modal_ExternalDisplayControlConfirm_Cancel",
+		),
 		onOK: () => e.setAllow(false),
-		strCancelButtonText: (0, o.we)(
+		strCancelButtonText: (0, Localize)(
 			"#Modal_ExternalDisplayControlConfirm_Proceed",
 		),
 		onCancel: () => e.setAllow(true),
@@ -309,7 +320,7 @@ export function TZ(e) {
 	);
 	return n.createElement(i.y4, {
 		controlled: true,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_AllowExternalDisplayRefresh"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_AllowExternalDisplayRefresh"),
 		checked: t,
 		onChange: a,
 		disabled: k.Ih.BKioskModeLocked(),
@@ -343,7 +354,7 @@ export function by(e) {
 		available: t.bAvailable,
 		showValue: true,
 		showBookendLabels: true,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_RefreshRate"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_RefreshRate"),
 		rValues: m,
 		value: a,
 		onChange: s,
@@ -361,27 +372,27 @@ export function aL(e) {
 			[
 				{
 					notchIndex: 0,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Linear"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Linear"),
 					value: 4,
 				},
 				{
 					notchIndex: 1,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest"),
 					value: 2,
 				},
 				{
 					notchIndex: 2,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Integer"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Integer"),
 					value: 3,
 				},
 				{
 					notchIndex: 3,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_FSR"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_FSR"),
 					value: 1,
 				},
 				r && {
 					notchIndex: 4,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_NIS"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_NIS"),
 					value: 5,
 				},
 			].filter(Boolean),
@@ -409,7 +420,7 @@ export function aL(e) {
 	} else {
 		return n.createElement(F, {
 			available: a,
-			label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter"),
+			label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter"),
 			value: A,
 			layout: "below",
 			onChange: g,
@@ -432,7 +443,7 @@ function X(e) {
 		n.createElement(
 			"p",
 			null,
-			(0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Explainer_Intro"),
+			(0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Explainer_Intro"),
 		),
 		n.createElement(
 			"ul",
@@ -440,22 +451,22 @@ function X(e) {
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Linear_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Linear_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_FSR_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_FSR_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_NIS_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_NIS_Explainer"),
 			),
 		),
 	);
@@ -466,22 +477,22 @@ export function ph(e) {
 			[
 				{
 					notchIndex: 0,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Linear"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Linear"),
 					value: 1,
 				},
 				{
 					notchIndex: 1,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_Nearest"),
 					value: 2,
 				},
 				{
 					notchIndex: 2,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_FSR"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_FSR"),
 					value: 3,
 				},
 				{
 					notchIndex: 3,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter_NIS"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter_NIS"),
 					value: 4,
 				},
 			].filter(Boolean),
@@ -506,7 +517,7 @@ export function ph(e) {
 	);
 	return n.createElement(F, {
 		available: r,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingFilter"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingFilter"),
 		explainer: n.createElement(X, null),
 		value: u,
 		layout: "below",
@@ -530,7 +541,7 @@ function ee(e) {
 		n.createElement(
 			"p",
 			null,
-			(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Explainer_Intro"),
+			(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Explainer_Intro"),
 		),
 		n.createElement(
 			"ul",
@@ -538,27 +549,27 @@ function ee(e) {
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Auto_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Auto_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Integer_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Integer_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Fill_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Fill_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Stretch_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Stretch_Explainer"),
 			),
 			n.createElement(
 				"li",
 				null,
-				(0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Fit_Explainer"),
+				(0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Fit_Explainer"),
 			),
 		),
 	);
@@ -569,27 +580,27 @@ export function nf(e) {
 			[
 				{
 					notchIndex: 0,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Auto"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Auto"),
 					value: 1,
 				},
 				{
 					notchIndex: 1,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Integer"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Integer"),
 					value: 2,
 				},
 				{
 					notchIndex: 2,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Fit"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Fit"),
 					value: 3,
 				},
 				{
 					notchIndex: 3,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Stretch"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Stretch"),
 					value: 5,
 				},
 				{
 					notchIndex: 4,
-					label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler_Fill"),
+					label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler_Fill"),
 					value: 4,
 				},
 			].filter(Boolean),
@@ -614,7 +625,7 @@ export function nf(e) {
 	);
 	return n.createElement(F, {
 		available: r,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_ScalingScaler"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_ScalingScaler"),
 		explainer: n.createElement(ee, null),
 		value: u,
 		layout: "below",
@@ -635,8 +646,8 @@ export function CZ(e) {
 	return n.createElement(F, {
 		available: t,
 		showValue: true,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_FSRSharpness"),
-		explainer: (0, o.we)(
+		label: (0, Localize)("#QuickAccess_Tab_Perf_FSRSharpness"),
+		explainer: (0, Localize)(
 			"#QuickAccess_Tab_Perf_ScalingFilter_FSRSharpness_Explainer",
 		),
 		min: i,
@@ -653,8 +664,8 @@ export function du(e) {
 	return n.createElement(F, {
 		available: t,
 		showValue: true,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_NISSharpness"),
-		explainer: (0, o.we)(
+		label: (0, Localize)("#QuickAccess_Tab_Perf_NISSharpness"),
+		explainer: (0, Localize)(
 			"#QuickAccess_Tab_Perf_ScalingFilter_NISSharpness_Explainer",
 		),
 		min: i,
@@ -670,8 +681,8 @@ export function PK(e) {
 		available: true,
 		icon: n.createElement(s.ManualGPUClock, null),
 		disabled: r,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_GPUClockControl"),
-		explainer: (0, o.we)("#QuickAccess_Tab_Perf_GPUClockManual_Explainer"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_GPUClockControl"),
+		explainer: (0, Localize)("#QuickAccess_Tab_Perf_GPUClockManual_Explainer"),
 		checked: t,
 		onChange: i,
 		bottomSeparator: t ? "none" : null,
@@ -690,14 +701,14 @@ export function mL(e) {
 		value: u,
 		onChange: d,
 		bottomSeparator: t ? "none" : null,
-		valueSuffix: (0, o.we)("#QuickAccess_Tab_Perf_GPUClockUnits"),
+		valueSuffix: (0, Localize)("#QuickAccess_Tab_Perf_GPUClockUnits"),
 		showBookendLabels: true,
 	});
 }
 export function V(e) {
 	const [t, r] = (0, l.At)();
 	return n.createElement(i.y4, {
-		label: (0, o.we)("#QuickAccess_Tab_Perf_PerfOverlayOverSteam"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_PerfOverlayOverSteam"),
 		checked: t,
 		onChange: r,
 		disabled: k.Ih.BKioskModeLocked(),
@@ -707,7 +718,7 @@ export function mR(e) {
 	const t = (0, l.gc)();
 	const r = (0, l.mM)(t);
 	const [i, a] = (0, l.M9)();
-	const s = (0, o.we)("#QuickAccess_Tab_Perf_ToggleGameSettings");
+	const s = (0, Localize)("#QuickAccess_Tab_Perf_ToggleGameSettings");
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -716,7 +727,7 @@ export function mR(e) {
 			label: s,
 			checked: i,
 			onChange: a,
-			explainer: (0, o.we)(
+			explainer: (0, Localize)(
 				"#QuickAccess_Tab_Perf_GameProfileExplainer_Description",
 			),
 		}),
@@ -736,7 +747,7 @@ export function jw(e) {
 			{
 				className: a.Text,
 			},
-			(0, o.we)("#QuickAccess_Tab_Perf_PerformanceSettings"),
+			(0, Localize)("#QuickAccess_Tab_Perf_PerformanceSettings"),
 		),
 		n.createElement(s.Information, {
 			className: a.Icon,
@@ -754,13 +765,13 @@ export function jw(e) {
 				onActivate: () =>
 					(0, m.pg)(
 						(function (e) {
-							const t = (0, o.we)(
+							const t = (0, Localize)(
 								"#QuickAccess_Tab_Perf_GameProfileExplainer_Title",
 							);
-							const r = (0, o.we)(
+							const r = (0, Localize)(
 								"#QuickAccess_Tab_Perf_GameProfileExplainer_Description",
 							);
-							const i = (0, o.we)(
+							const i = (0, Localize)(
 								"#QuickAccess_Tab_Perf_GameProfileExplainer_Dismiss",
 							);
 							return n.createElement(u.o0, {
@@ -794,9 +805,9 @@ export function jw(e) {
 					{
 						className: a.Text,
 					},
-					r && (0, o.we)("#QuickAccess_Tab_Perf_DefaultSettings"),
+					r && (0, Localize)("#QuickAccess_Tab_Perf_DefaultSettings"),
 					!r &&
-						(0, o.PP)(
+						LocalizeReact(
 							"#QuickAccess_Tab_Perf_GameSpecificSettings",
 							n.createElement(
 								"span",
@@ -818,7 +829,7 @@ export function qC(e) {
 	if (r) {
 		return null;
 	}
-	const s = (0, o.PP)(
+	const s = LocalizeReact(
 		"#QuickAccess_Tab_Perf_GameProfileInfoBasic",
 		n.createElement(
 			"span",
@@ -839,8 +850,8 @@ export function qC(e) {
 export function PZ(e) {
 	const [t, r] = (0, l.xu)();
 	const a = t
-		? (0, o.we)("#Common_Basic_View")
-		: (0, o.we)("#Common_Advanced_View");
+		? (0, Localize)("#Common_Basic_View")
+		: (0, Localize)("#Common_Advanced_View");
 	return n.createElement(
 		i.xh,
 		{
@@ -852,7 +863,7 @@ export function PZ(e) {
 	);
 }
 export function DJ(e) {
-	const t = (0, o.we)("#QuickAccess_Tab_Perf_ResetToDefault");
+	const t = (0, Localize)("#QuickAccess_Tab_Perf_ResetToDefault");
 	return n.createElement(
 		i.xh,
 		{
@@ -867,7 +878,7 @@ export function e5(e) {
 	const [t, r, i] = (0, l.vy)();
 	return n.createElement(N, {
 		available: t,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_DynamicRefreshInSteam"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_DynamicRefreshInSteam"),
 		checked: r,
 		onChange: i,
 	});
@@ -875,7 +886,7 @@ export function e5(e) {
 export function zK(e) {
 	return n.createElement(b.G, {
 		setting: "gamescope_force_composite",
-		label: (0, o.we)("#QuickAccess_Tab_Perf_ForceComposite"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_ForceComposite"),
 		feature: 7,
 	});
 }
@@ -884,8 +895,8 @@ export function HK(e) {
 		feature: 7,
 		setting: "gamescope_allow_tearing",
 		icon: n.createElement(s.AllowTearing, null),
-		label: (0, o.we)("#QuickAccess_Tab_Perf_EnableTearing"),
-		explainer: (0, o.we)("#QuickAccess_Tab_Perf_EnableTearing_Explainer"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_EnableTearing"),
+		explainer: (0, Localize)("#QuickAccess_Tab_Perf_EnableTearing_Explainer"),
 	});
 }
 export function bh(e) {
@@ -902,12 +913,12 @@ export function bh(e) {
 	let m = null;
 	m = s
 		? c
-			? (0, o.we)("#QuickAccess_Tab_Perf_VRR_Enabled")
-			: (0, o.we)("#QuickAccess_Tab_Perf_VRR_Disabled")
-		: (0, o.we)("#QuickAccess_Tab_Perf_VRR_NotCapable");
+			? (0, Localize)("#QuickAccess_Tab_Perf_VRR_Enabled")
+			: (0, Localize)("#QuickAccess_Tab_Perf_VRR_Disabled")
+		: (0, Localize)("#QuickAccess_Tab_Perf_VRR_NotCapable");
 	return n.createElement(N, {
 		available: r,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_EnableVRR"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_EnableVRR"),
 		description: m,
 		disabled: !s,
 		checked: i,
@@ -917,7 +928,7 @@ export function bh(e) {
 export function BF(e) {
 	return n.createElement(b.G, {
 		setting: "gamescope_composite_debug",
-		label: (0, o.we)("#QuickAccess_Tab_Perf_EnableCompositeDebug"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_EnableCompositeDebug"),
 		feature: 7,
 	});
 }
@@ -925,7 +936,7 @@ export function nK(e) {
 	const [t, r, i] = (0, l.Sj)();
 	return n.createElement(N, {
 		available: t,
-		label: (0, o.we)("#QuickAccess_Tab_Perf_DisableColorManagement"),
+		label: (0, Localize)("#QuickAccess_Tab_Perf_DisableColorManagement"),
 		checked: !r,
 		onChange: (e) => i(!e),
 	});
@@ -944,10 +955,10 @@ export function fn(e) {
 	const s = !i && t;
 	return n.createElement(b.G, {
 		feature: 7,
-		label: (0, o.we)("#Settings_HDR_Enable"),
+		label: (0, Localize)("#Settings_HDR_Enable"),
 		setting: "gamescope_hdr_enabled",
 		disabled: !i,
-		description: s ? (0, o.we)("#Settings_HDR_NotCapable") : undefined,
+		description: s ? (0, Localize)("#Settings_HDR_NotCapable") : undefined,
 	});
 }
 function fe(e) {
@@ -955,7 +966,7 @@ function fe(e) {
 	const [r, a, s] = (0, l.WI)();
 	if (r) {
 		return n.createElement(i.y4, {
-			label: t || (0, o.we)("#Settings_HDR_Debug_HeatmapEnable"),
+			label: t || (0, Localize)("#Settings_HDR_Debug_HeatmapEnable"),
 			checked: a,
 			onChange: s,
 			disabled: k.Ih.BKioskModeLocked(),
@@ -969,7 +980,7 @@ export function zt(e) {
 	const i = (0, p.Ck)();
 	if (i?.data?.is_hdr_output_active && t) {
 		return n.createElement(fe, {
-			strLabel: (0, o.we)("#Settings_HDR_Debug_Heatmap"),
+			strLabel: (0, Localize)("#Settings_HDR_Debug_Heatmap"),
 		});
 	} else {
 		return null;
@@ -1012,7 +1023,7 @@ export function PS(e) {
 			{
 				className: e,
 			},
-			(0, o.we)("#Settings_HDR_Enabled_Badge"),
+			(0, Localize)("#Settings_HDR_Enabled_Badge"),
 		);
 	}
 	if (i) {
@@ -1022,7 +1033,7 @@ export function PS(e) {
 			{
 				className: e,
 			},
-			(0, o.we)("#Settings_HDR_Enabled_Badge"),
+			(0, Localize)("#Settings_HDR_Enabled_Badge"),
 		);
 	}
 	return null;
@@ -1035,23 +1046,23 @@ export function Ac(e) {
 			[
 				{
 					data: 0,
-					label: (0, o.we)("#Settings_HDRVisualization_None"),
+					label: (0, Localize)("#Settings_HDRVisualization_None"),
 				},
 				r && {
 					data: 2,
-					label: (0, o.we)("#Settings_HDRVisualization_Analysis"),
+					label: (0, Localize)("#Settings_HDRVisualization_Analysis"),
 				},
 				{
 					data: 1,
-					label: (0, o.we)("#Settings_HDRVisualization_Heatmap"),
+					label: (0, Localize)("#Settings_HDRVisualization_Heatmap"),
 				},
 				{
 					data: 3,
-					label: (0, o.we)("#Settings_HDRVisualization_HeatmapExtended"),
+					label: (0, Localize)("#Settings_HDRVisualization_HeatmapExtended"),
 				},
 				{
 					data: 4,
-					label: (0, o.we)("#Settings_HDRVisualization_HeatmapClassic"),
+					label: (0, Localize)("#Settings_HDRVisualization_HeatmapClassic"),
 				},
 			].filter(Boolean),
 		[r],
@@ -1059,7 +1070,7 @@ export function Ac(e) {
 	if (t) {
 		return n.createElement(S.X, {
 			feature: 7,
-			label: (0, o.we)("#Settings_HDRVisualization_Label"),
+			label: (0, Localize)("#Settings_HDRVisualization_Label"),
 			rgOptions: i,
 			setting: "gamescope_hdr_visualization",
 		});
@@ -1082,7 +1093,7 @@ export function A2(e) {
 		a(true);
 		(0, B.$)({
 			bSystemRestart: true,
-			strCancelButtonText: (0, o.we)("#Settings_RestartLater_ButtonText"),
+			strCancelButtonText: (0, Localize)("#Settings_RestartLater_ButtonText"),
 			ownerWindow: t.ownerWindow ?? window,
 		});
 	}, [t]);
@@ -1121,7 +1132,7 @@ export function kf(e) {
 	} else {
 		return n.createElement(b.G, {
 			feature: 7,
-			label: (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRateEnable"),
+			label: (0, Localize)("#QuickAccess_Tab_Perf_AppRefreshRateEnable"),
 			setting: "gamescope_enable_app_target_framerate",
 		});
 	}
@@ -1130,7 +1141,8 @@ function Ie(e) {
 	const t = (0, f.HR)();
 	const r = (0, f.OV)();
 	const i = n.useCallback(
-		(e) => (0, o.we)("#QuickAccess_Tab_Perf_GamescopeRefreshRate_Hz", `${e}`),
+		(e) =>
+			(0, Localize)("#QuickAccess_Tab_Perf_GamescopeRefreshRate_Hz", `${e}`),
 		[],
 	);
 	if (r == null) {
@@ -1138,8 +1150,8 @@ function Ie(e) {
 	} else {
 		return n.createElement(E.Ax, {
 			feature: 7,
-			label: (0, o.we)("#QuickAccess_Tab_Perf_GamescopeRefreshRate"),
-			explainer: (0, o.we)(
+			label: (0, Localize)("#QuickAccess_Tab_Perf_GamescopeRefreshRate"),
+			explainer: (0, Localize)(
 				"#QuickAccess_Tab_Perf_GamescopeRefreshRate_Explainer",
 			),
 			setting: "gamescope_display_refresh_rate",
@@ -1176,11 +1188,14 @@ export function k4(e) {
 					}
 				}
 			})(e, c);
-			const r = (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate_FPS", `${e}`);
+			const r = (0, Localize)(
+				"#QuickAccess_Tab_Perf_AppRefreshRate_FPS",
+				`${e}`,
+			);
 			if (t === undefined) {
 				return r;
 			}
-			return `${r} (${(0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate_Hz", `${t}`)})`;
+			return `${r} (${(0, Localize)("#QuickAccess_Tab_Perf_AppRefreshRate_Hz", `${t}`)})`;
 		},
 		[c],
 	);
@@ -1190,12 +1205,16 @@ export function k4(e) {
 		} else {
 			return n.createElement(E.Ax, {
 				feature: 7,
-				label: (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate"),
+				label: (0, Localize)("#QuickAccess_Tab_Perf_AppRefreshRate"),
 				explainer: i
-					? (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate_Restricted_Body")
-					: (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate_Explainer"),
+					? (0, Localize)(
+							"#QuickAccess_Tab_Perf_AppRefreshRate_Restricted_Body",
+						)
+					: (0, Localize)("#QuickAccess_Tab_Perf_AppRefreshRate_Explainer"),
 				explainerTitle: i
-					? (0, o.we)("#QuickAccess_Tab_Perf_AppRefreshRate_Restricted_Title")
+					? (0, Localize)(
+							"#QuickAccess_Tab_Perf_AppRefreshRate_Restricted_Title",
+						)
 					: n.createElement(n.Fragment, null),
 				setting: "gamescope_app_target_framerate",
 				showValue: true,
@@ -1218,9 +1237,11 @@ export function zl(e) {
 		return n.createElement(b.G, {
 			feature: 7,
 			icon: n.createElement(s.DisableFrameLimit, null),
-			label: (0, o.we)("#QuickAccess_Tab_Perf_DisableFrameLimit"),
+			label: (0, Localize)("#QuickAccess_Tab_Perf_DisableFrameLimit"),
 			setting: "gamescope_disable_framelimit",
-			explainer: (0, o.we)("#QuickAccess_Tab_Perf_DisableFrameLimit_Explainer"),
+			explainer: (0, Localize)(
+				"#QuickAccess_Tab_Perf_DisableFrameLimit_Explainer",
+			),
 		});
 	} else {
 		return null;
@@ -1231,7 +1252,7 @@ export function s0(e) {
 	return n.createElement(E.Pl, {
 		feature: 7,
 		visible: t,
-		label: (0, o.we)("#Settings_Display_StatusLEDBrightness"),
+		label: (0, Localize)("#Settings_Display_StatusLEDBrightness"),
 		setting: "steamos_status_led_brightness",
 		min: 0,
 		max: 100,
@@ -1243,7 +1264,7 @@ export function ON(e) {
 	if ((0, f.js)()) {
 		return n.createElement(b.G, {
 			feature: 7,
-			label: (0, o.we)("#Settings_Display_MuraCorrectionDisabled_Label"),
+			label: (0, Localize)("#Settings_Display_MuraCorrectionDisabled_Label"),
 			setting: "gamescope_disable_mura_correction",
 		});
 	} else {
@@ -1256,20 +1277,23 @@ export function Jd() {
 		if ((await T.MX.ReArmMuraCalibration({})).BSuccess()) {
 			(0, B.$)({
 				bSystemRestart: true,
-				strCancelButtonText: (0, o.we)("#Settings_RestartLater_ButtonText"),
+				strCancelButtonText: (0, Localize)("#Settings_RestartLater_ButtonText"),
 				ownerWindow: e ?? window,
 			});
 		} else {
-			(0, u.pY)((0, o.we)("#Settings_Developer_MuraReArm_Error"), e ?? window);
+			(0, u.pY)(
+				(0, Localize)("#Settings_Developer_MuraReArm_Error"),
+				e ?? window,
+			);
 		}
 	}, [e]);
 	return n.createElement(
 		R.E,
 		{
 			feature: 7,
-			label: (0, o.we)("#Settings_Developer_MuraReArm"),
+			label: (0, Localize)("#Settings_Developer_MuraReArm"),
 			onClick: t,
 		},
-		(0, o.we)("#Settings_Developer_SpeakerTest_Start"),
+		(0, Localize)("#Settings_Developer_SpeakerTest_Start"),
 	);
 }

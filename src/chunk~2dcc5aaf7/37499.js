@@ -9,7 +9,7 @@ var m = require(/*webcrack:missing*/ "./63696.js");
 var u = require(/*webcrack:missing*/ "./44846.js");
 var d = require("./92031.js");
 var A = require(/*webcrack:missing*/ "./8573.js");
-var p = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 var g = require(/*webcrack:missing*/ "./79769.js");
 var h = require(/*webcrack:missing*/ "./52451.js");
 var C = require(/*webcrack:missing*/ "./72476.js");
@@ -334,7 +334,7 @@ class S {
 			});
 		} else {
 			let t = (t) => e.unAppID == t.m_unAppID && e.strScheme == t.m_strScheme;
-			p.Wp(this.m_vecOverlayBrowserProtocolRegistrations, t);
+			FindAndRemoveWhere(this.m_vecOverlayBrowserProtocolRegistrations, t);
 		}
 		this.m_cbkOverlayBrowserProtocol.Dispatch(e.unAppID);
 	}

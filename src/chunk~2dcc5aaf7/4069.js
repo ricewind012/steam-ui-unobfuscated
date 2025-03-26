@@ -6,7 +6,11 @@ var o = s;
 import * as l from "./64608.js";
 import * as c from /*webcrack:missing*/ "./50376.js";
 import * as m from "./35488.js";
-import * as u from /*webcrack:missing*/ "./46108.js";
+import {
+	LocalizeInlineReactWithFallback,
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as d from "./57472.js";
 import * as A from "./34792.js";
 import * as p from /*webcrack:missing*/ "./72476.js";
@@ -231,7 +235,7 @@ const ae = [
 function se(e) {
 	let t = ae.find((t) => t[0] == e);
 	t ||= ae.find((e) => e[0] == "preset_default");
-	return (0, u.oW)(
+	return LocalizeInlineReactWithFallback(
 		`#Settings_GameRecording_BitRate_${t[1]}_Short`,
 		n.createElement("span", {
 			className: ie.Muted,
@@ -266,7 +270,7 @@ function le(e) {
 			z.oN,
 			{
 				feature: 0,
-				label: (0, u.we)("#Settings_GameRecording_RecordingQuality"),
+				label: (0, Localize)("#Settings_GameRecording_RecordingQuality"),
 				onClick: i,
 				noFocusRing: true,
 			},
@@ -303,7 +307,7 @@ function ce(e) {
 			{
 				className: a.Header,
 			},
-			(0, u.we)("#Settings_GameRecording_Quality"),
+			(0, Localize)("#Settings_GameRecording_Quality"),
 		),
 		n.createElement(
 			l.Ws,
@@ -337,7 +341,7 @@ function me(e) {
 		{
 			className: ie.BitrateOption,
 		},
-		(0, u.oW)(
+		LocalizeInlineReactWithFallback(
 			`#Settings_GameRecording_BitRate_${t}`,
 			n.createElement("span", {
 				className: ie.Emphasis,
@@ -361,7 +365,11 @@ function ue(e) {
 		{
 			className: (0, w.A)(a.GameRecordingModal),
 		},
-		n.createElement("h1", null, (0, u.we)("#Settings_GameRecording_Quality")),
+		n.createElement(
+			"h1",
+			null,
+			(0, Localize)("#Settings_GameRecording_Quality"),
+		),
 		n.createElement(
 			"div",
 			{
@@ -378,7 +386,7 @@ function ue(e) {
 			{
 				className: ie.AutoExplainer,
 			},
-			(0, u.we)("#Settings_GameRecording_BitRate_Modal_Auto_Explainer"),
+			(0, Localize)("#Settings_GameRecording_BitRate_Modal_Auto_Explainer"),
 		),
 		n.createElement(
 			"table",
@@ -394,12 +402,12 @@ function ue(e) {
 					n.createElement(
 						"th",
 						null,
-						(0, u.we)("#Settings_GameRecording_BitRateTable_Resolution"),
+						(0, Localize)("#Settings_GameRecording_BitRateTable_Resolution"),
 					),
 					n.createElement(
 						"th",
 						null,
-						(0, u.we)("#Settings_GameRecording_BitRateTable_BitRate"),
+						(0, Localize)("#Settings_GameRecording_BitRateTable_BitRate"),
 					),
 				),
 			),
@@ -438,14 +446,14 @@ function ue(e) {
 						i();
 					},
 				},
-				(0, u.we)("#Button_Confirm"),
+				(0, Localize)("#Button_Confirm"),
 			),
 			n.createElement(
 				l.$n,
 				{
 					onClick: i,
 				},
-				(0, u.we)("#Button_Cancel"),
+				(0, Localize)("#Button_Cancel"),
 			),
 		),
 	);
@@ -565,14 +573,14 @@ export function GameRecordingSettingsHeader(e) {
 			{
 				className: a.NewItemBug,
 			},
-			(0, u.we)("#NewItemBug"),
+			(0, Localize)("#NewItemBug"),
 		),
 		n.createElement(
 			l.Y9,
 			{
 				className: a.Header,
 			},
-			(0, u.we)("#Settings_Page_GameRecording"),
+			(0, Localize)("#Settings_Page_GameRecording"),
 		),
 		n.createElement(
 			"span",
@@ -586,7 +594,7 @@ export function GameRecordingSettingsHeader(e) {
 					onClick: r,
 					className: a.Link,
 				},
-				(0, u.we)("#GameRecording_Settings_LearnMore"),
+				(0, Localize)("#GameRecording_Settings_LearnMore"),
 			),
 		),
 	);
@@ -595,8 +603,8 @@ function be() {
 	if ((0, F.r6)()) {
 		return n.createElement(ne.y, {
 			type: "error",
-			heading: (0, u.we)("#Settings_GameRecording_LowDiskSpace_Header"),
-			body: (0, u.we)("#Settings_GameRecording_LowDiskSpace_Description"),
+			heading: (0, Localize)("#Settings_GameRecording_LowDiskSpace_Header"),
+			body: (0, Localize)("#Settings_GameRecording_LowDiskSpace_Description"),
 		});
 	} else {
 		return null;
@@ -631,7 +639,7 @@ export function ForegroundRecordingShortcut(e) {
 			i?.display_name,
 		);
 	} else {
-		return (0, u.we)(t);
+		return (0, Localize)(t);
 	}
 }
 function we(e) {
@@ -645,10 +653,10 @@ function we(e) {
 	const l = n.createElement(
 		"p",
 		null,
-		(0, u.PP)("#Settings_GameRecording_ModeDescription_Manual", o),
+		LocalizeReact("#Settings_GameRecording_ModeDescription_Manual", o),
 	);
-	const c = (0, u.oW)(
-		(0, u.we)("#Settings_GameRecording_ModeDescription_Always", s),
+	const c = LocalizeInlineReactWithFallback(
+		(0, Localize)("#Settings_GameRecording_ModeDescription_Always", s),
 		n.createElement("p", null),
 		n.createElement("p", null),
 		n.createElement("p", null),
@@ -662,7 +670,7 @@ function we(e) {
 		n.createElement(
 			z.Pq,
 			null,
-			(0, u.we)("#Settings_GameRecording_RecordingMode_Header2"),
+			(0, Localize)("#Settings_GameRecording_RecordingMode_Header2"),
 		),
 		n.createElement(
 			ye.Provider,
@@ -678,19 +686,19 @@ function we(e) {
 					className: a.RecordingMode,
 				},
 				n.createElement(Be, {
-					header: (0, u.we)("#Settings_GameRecording_RecordingMode_Never"),
-					description: (0, u.we)(
+					header: (0, Localize)("#Settings_GameRecording_RecordingMode_Never"),
+					description: (0, Localize)(
 						"#Settings_GameRecording_ModeDescription_Never",
 					),
 					value: 0,
 				}),
 				n.createElement(Be, {
-					header: (0, u.we)("#Settings_GameRecording_RecordingMode_Always"),
+					header: (0, Localize)("#Settings_GameRecording_RecordingMode_Always"),
 					description: c,
 					value: 1,
 				}),
 				n.createElement(Be, {
-					header: (0, u.we)("#Settings_GameRecording_RecordingMode_Manual"),
+					header: (0, Localize)("#Settings_GameRecording_RecordingMode_Manual"),
 					description: l,
 					value: 2,
 				}),
@@ -789,7 +797,7 @@ function Me(e) {
 		te.he,
 		{
 			direction: "left",
-			toolTipContent: (0, u.we)("#Button_Remove"),
+			toolTipContent: (0, Localize)("#Button_Remove"),
 		},
 		n.createElement(
 			_.Z,
@@ -825,7 +833,7 @@ function Re(e) {
 		...t.map((e) => {
 			return {
 				data: (t = e),
-				label: (0, u.we)(
+				label: (0, Localize)(
 					"#Settings_GameRecording_InstantClipDropdown_Option",
 					Te(t),
 				),
@@ -838,7 +846,7 @@ function ke(e) {
 	const [t] = (0, A.VI)("gamerecording_ic_seconds");
 	const r = n.useMemo(() => Re(t), [t]);
 	return n.createElement(I.X, {
-		label: (0, u.we)("#Settings_GameRecording_InstantClipDropdown_Label"),
+		label: (0, Localize)("#Settings_GameRecording_InstantClipDropdown_Label"),
 		setting: "gamerecording_ic_seconds",
 		rgOptions: r,
 	});
@@ -890,7 +898,7 @@ function De(e) {
 		{
 			className: a.InstantClipDurationRow,
 		},
-		(0, u.oW)("#Settings_GameRecording_InstantClip", m),
+		LocalizeInlineReactWithFallback("#Settings_GameRecording_InstantClip", m),
 	);
 }
 function Ne(e) {
@@ -902,7 +910,7 @@ function Ne(e) {
 		label: n.createElement(De, null),
 		currentKey: r,
 		onSetKey: i,
-		strTitle: (0, u.we)("#Settings_Hotkey_TakeInstantClip", Te(t)),
+		strTitle: (0, Localize)("#Settings_Hotkey_TakeInstantClip", Te(t)),
 		"flow-children": "row",
 	});
 }
@@ -923,7 +931,7 @@ function Fe(e) {
 			n.createElement(
 				l.tX,
 				null,
-				(0, u.we)("#Settings_GameRecording_Shortcut_Title"),
+				(0, Localize)("#Settings_GameRecording_Shortcut_Title"),
 			),
 			o &&
 				n.createElement(Ge, {
@@ -936,18 +944,18 @@ function Fe(e) {
 					n.createElement(U.j, {
 						className: a.ShortcutHotkey,
 						feature: V.uX,
-						label: (0, u.we)("#Settings_GameRecording_AddMarkerKey"),
+						label: (0, Localize)("#Settings_GameRecording_AddMarkerKey"),
 						currentKey: r,
 						onSetKey: i,
-						strTitle: (0, u.we)("#Settings_GameRecording_Hotkey_AddMarker"),
+						strTitle: (0, Localize)("#Settings_GameRecording_Hotkey_AddMarker"),
 					}),
 					n.createElement(U.j, {
 						className: a.ShortcutHotkey,
 						feature: V.uX,
-						label: (0, u.we)("#Settings_InGame_ScreenshotShortcut"),
+						label: (0, Localize)("#Settings_InGame_ScreenshotShortcut"),
 						currentKey: d,
 						onSetKey: g,
-						strTitle: (0, u.we)("#Settings_Hotkey_TakeScreenshot"),
+						strTitle: (0, Localize)("#Settings_Hotkey_TakeScreenshot"),
 					}),
 					c && n.createElement(Ne, null),
 				),
@@ -967,10 +975,10 @@ function Ge(e) {
 	return n.createElement(U.j, {
 		className: a.ShortcutHotkey,
 		feature: V.uX,
-		label: (0, u.we)(i),
+		label: (0, Localize)(i),
 		currentKey: t,
 		onSetKey: r,
-		strTitle: (0, u.we)("#Settings_GameRecording_Hotkey_ToggleRecording"),
+		strTitle: (0, Localize)("#Settings_GameRecording_Hotkey_ToggleRecording"),
 	});
 }
 export function useToggleForegroundRecordingShortcut() {
@@ -1076,7 +1084,7 @@ function Le(e) {
 			n.createElement(
 				l.tX,
 				null,
-				(0, u.we)("#Settings_GameRecording_PerGameSettings_Title"),
+				(0, Localize)("#Settings_GameRecording_PerGameSettings_Title"),
 			),
 			n.createElement(ze, {
 				rgGames: a,
@@ -1150,8 +1158,8 @@ export function PerGameRecordingSettings(e) {
 }
 function Ue(e) {
 	const t = e.cGamesWithCustomSettings
-		? (0, u.we)("#Settings_GameRecording_PerGameSettings_OtherGames")
-		: (0, u.we)("#Settings_GameRecording_PerGameSettings_AllGames");
+		? (0, Localize)("#Settings_GameRecording_PerGameSettings_OtherGames")
+		: (0, Localize)("#Settings_GameRecording_PerGameSettings_AllGames");
 	return n.createElement(
 		"div",
 		{
@@ -1204,7 +1212,7 @@ function Ve(e) {
 	const { ref: m, show: d } = (0, v.K3)({
 		value: {
 			gameID: new f.VS("0"),
-			strName: (0, u.we)(
+			strName: (0, Localize)(
 				"#Settings_GameRecording_PerGameSettings_AddGame_Button",
 			),
 		},
@@ -1243,7 +1251,9 @@ function Ve(e) {
 				n.createElement(
 					"span",
 					null,
-					(0, u.we)("#Settings_GameRecording_PerGameSettings_AddGame_Title"),
+					(0, Localize)(
+						"#Settings_GameRecording_PerGameSettings_AddGame_Title",
+					),
 				),
 				n.createElement(
 					"div",
@@ -1259,7 +1269,9 @@ function Ve(e) {
 							arrowClassName: a.AddGameButtonArrow,
 							noFocusRing: true,
 						},
-						(0, u.we)("#Settings_GameRecording_PerGameSettings_AddGame_Button"),
+						(0, Localize)(
+							"#Settings_GameRecording_PerGameSettings_AddGame_Button",
+						),
 					),
 				),
 			),
@@ -1396,7 +1408,10 @@ function Qe(e) {
 							n.createElement(
 								"span",
 								null,
-								(0, u.we)("#Settings_GameRecording_Length_Modal_SetMinutes", h),
+								(0, Localize)(
+									"#Settings_GameRecording_Length_Modal_SetMinutes",
+									h,
+								),
 							),
 						),
 					}),
@@ -1412,7 +1427,7 @@ function Qe(e) {
 								y("timed");
 							},
 						},
-						(0, u.we)(
+						(0, Localize)(
 							"#Settings_GameRecording_Length_Modal_MinutesExplainer",
 							h,
 						),
@@ -1434,7 +1449,7 @@ function Qe(e) {
 					n.createElement(
 						"span",
 						null,
-						(0, u.we)(
+						(0, Localize)(
 							"#Settings_GameRecording_Length_Modal_Minutes_EditPrompt",
 						),
 					),
@@ -1474,7 +1489,7 @@ function Qe(e) {
 						n.createElement(
 							"span",
 							null,
-							(0, u.we)("#Settings_GameRecording_Length_Modal_Minutes"),
+							(0, Localize)("#Settings_GameRecording_Length_Modal_Minutes"),
 						),
 					),
 				}),
@@ -1490,7 +1505,10 @@ function Qe(e) {
 							y("timed");
 						},
 					},
-					(0, u.we)("#Settings_GameRecording_Length_Modal_MinutesExplainer", h),
+					(0, Localize)(
+						"#Settings_GameRecording_Length_Modal_MinutesExplainer",
+						h,
+					),
 				),
 			);
 	return n.createElement(
@@ -1501,7 +1519,7 @@ function Qe(e) {
 		n.createElement(
 			"h1",
 			null,
-			(0, u.we)("#Settings_GameRecording_Length_Modal_Title"),
+			(0, Localize)("#Settings_GameRecording_Length_Modal_Title"),
 		),
 		n.createElement(
 			"div",
@@ -1545,7 +1563,9 @@ function Qe(e) {
 								n.createElement(
 									"span",
 									null,
-									(0, u.we)("#Settings_GameRecording_Length_Modal_Infinite"),
+									(0, Localize)(
+										"#Settings_GameRecording_Length_Modal_Infinite",
+									),
 								),
 							),
 						}),
@@ -1561,7 +1581,7 @@ function Qe(e) {
 									y("infinite");
 								},
 							},
-							(0, u.we)(
+							(0, Localize)(
 								"#Settings_GameRecording_Length_Modal_InfiniteExplainer",
 							),
 						),
@@ -1594,7 +1614,9 @@ function Qe(e) {
 								n.createElement(
 									"span",
 									null,
-									(0, u.we)("#Settings_GameRecording_Length_Modal_Disabled"),
+									(0, Localize)(
+										"#Settings_GameRecording_Length_Modal_Disabled",
+									),
 								),
 							),
 						}),
@@ -1610,7 +1632,7 @@ function Qe(e) {
 									y("disabled");
 								},
 							},
-							(0, u.we)(
+							(0, Localize)(
 								"#Settings_GameRecording_Length_Modal_NeverExplainer",
 								h,
 							),
@@ -1641,14 +1663,14 @@ function Qe(e) {
 						s();
 					},
 				},
-				(0, u.we)("#Button_Confirm"),
+				(0, Localize)("#Button_Confirm"),
 			),
 			n.createElement(
 				l.$n,
 				{
 					onClick: s,
 				},
-				(0, u.we)("#Button_Cancel"),
+				(0, Localize)("#Button_Cancel"),
 			),
 		),
 	);
@@ -1664,7 +1686,7 @@ function Ze(e) {
 					{
 						className: a.DurationUnits,
 					},
-					(0, u.we)(
+					(0, Localize)(
 						"#Settings_GameRecording_Length_Choice_Minutes",
 						r.toString(),
 					),
@@ -1681,7 +1703,7 @@ function Ze(e) {
 						n.createElement(
 							"span",
 							null,
-							(0, u.we)("#Settings_GameRecording_Length_Choice_Infinite"),
+							(0, Localize)("#Settings_GameRecording_Length_Choice_Infinite"),
 						),
 					)
 				: n.createElement(
@@ -1695,7 +1717,7 @@ function Ze(e) {
 						n.createElement(
 							"span",
 							null,
-							(0, u.we)("#Settings_GameRecording_Length_Choice_Disabled"),
+							(0, Localize)("#Settings_GameRecording_Length_Choice_Disabled"),
 						),
 					);
 	return n.createElement(
@@ -1714,7 +1736,7 @@ function Ze(e) {
 			{
 				className: a.Header,
 			},
-			(0, u.we)("#Settings_GameRecording_Length"),
+			(0, Localize)("#Settings_GameRecording_Length"),
 		),
 		n.createElement(
 			"div",
@@ -1777,12 +1799,12 @@ function Xe(e, t) {
 }
 function Je(e) {
 	let { strAmount1080: t, strAmount4k: r } = e;
-	let i = (0, u.oW)(
-		(0, u.we)("#Settings_GameRecording_DiskSpace1080", t),
+	let i = LocalizeInlineReactWithFallback(
+		(0, Localize)("#Settings_GameRecording_DiskSpace1080", t),
 		n.createElement("b", null),
 	);
-	let s = (0, u.oW)(
-		(0, u.we)("#Settings_GameRecording_DiskSpace4k", r),
+	let s = LocalizeInlineReactWithFallback(
+		(0, Localize)("#Settings_GameRecording_DiskSpace4k", r),
 		n.createElement("b", null),
 	);
 	let o = n.createElement(
@@ -1795,7 +1817,7 @@ function Je(e) {
 			{
 				className: a.DiskSpaceToolTipText,
 			},
-			(0, u.PP)("#Settings_GameRecording_DiskSpaceTooltip", i, s),
+			LocalizeReact("#Settings_GameRecording_DiskSpaceTooltip", i, s),
 		),
 	);
 	return n.createElement(
@@ -1844,7 +1866,7 @@ function $e(e) {
 			{
 				className: a.Header,
 			},
-			(0, u.we)("#Settings_GameRecording_MaxDisk"),
+			(0, Localize)("#Settings_GameRecording_MaxDisk"),
 		),
 		n.createElement(
 			"div",
@@ -1869,12 +1891,12 @@ function et(e) {
 			n.createElement(
 				z.tX,
 				null,
-				(0, u.we)("#Settings_GameRecording_AudioRecording"),
+				(0, Localize)("#Settings_GameRecording_AudioRecording"),
 			),
 			n.createElement(d.G, {
 				feature: 0,
-				label: (0, u.we)("#Settings_GameRecording_AudioRecording_Mic"),
-				description: (0, u.we)(
+				label: (0, Localize)("#Settings_GameRecording_AudioRecording_Mic"),
+				description: (0, Localize)(
 					"#Settings_GameRecording_AudioRecording_Mic_Description",
 				),
 				setting: "g_background_a_m",
@@ -1882,8 +1904,10 @@ function et(e) {
 			r &&
 				n.createElement(d.G, {
 					feature: 0,
-					label: (0, u.we)("#Settings_GameRecording_AudioRecording_MicMono"),
-					description: (0, u.we)(
+					label: (0, Localize)(
+						"#Settings_GameRecording_AudioRecording_MicMono",
+					),
+					description: (0, Localize)(
 						"#Settings_GameRecording_AudioRecording_MicMono_Description",
 					),
 					setting: "gamerecording_force_mic_mono",
@@ -1891,8 +1915,8 @@ function et(e) {
 			r &&
 				n.createElement(d.G, {
 					feature: 0,
-					label: (0, u.we)("#Settings_GameRecording_AudioRecording_AGC"),
-					description: (0, u.we)(
+					label: (0, Localize)("#Settings_GameRecording_AudioRecording_AGC"),
+					description: (0, Localize)(
 						"#Settings_GameRecording_AudioRecording_AGC_Description",
 					),
 					setting: "gamerecording_automatic_gain_control",
@@ -1918,15 +1942,15 @@ function tt() {
 	})();
 	let s = [
 		{
-			label: (0, u.we)("#Settings_GameRecording_AudioSelection_GameOnly"),
+			label: (0, Localize)("#Settings_GameRecording_AudioSelection_GameOnly"),
 			data: 0,
 		},
 		{
-			label: (0, u.we)("#Settings_GameRecording_AudioSelection_AllSystem"),
+			label: (0, Localize)("#Settings_GameRecording_AudioSelection_AllSystem"),
 			data: 1,
 		},
 		{
-			label: (0, u.we)(
+			label: (0, Localize)(
 				"#Settings_GameRecording_AudioSelection_SelectProcesses",
 			),
 			data: 2,
@@ -1937,10 +1961,10 @@ function tt() {
 		r = (e) => r(1);
 		s = s.filter((e) => e.data == 1);
 		e = (0, p.td)()
-			? (0, u.we)(
+			? (0, Localize)(
 					"#Settings_GameRecording_AudioSelection_Explainer_SystemOnly_Windows",
 				)
-			: (0, u.we)(
+			: (0, Localize)(
 					"#Settings_GameRecording_AudioSelection_Explainer_SystemOnly",
 				);
 	}
@@ -1948,7 +1972,7 @@ function tt() {
 		n.Fragment,
 		null,
 		n.createElement(x.B, {
-			label: (0, u.we)("#Settings_GameRecording_AudioSelection_Title"),
+			label: (0, Localize)("#Settings_GameRecording_AudioSelection_Title"),
 			rgOptions: s,
 			selectedOption: t,
 			onChange: (e) => r(e.data),
@@ -1992,7 +2016,8 @@ function rt(e) {
 		n.createElement(
 			"div",
 			null,
-			i ?? (0, u.we)("#Settings_GameRecording_AudioRecording_UnknownProcess"),
+			i ??
+				(0, Localize)("#Settings_GameRecording_AudioRecording_UnknownProcess"),
 		),
 	);
 }
@@ -2039,7 +2064,9 @@ function it(e) {
 			{
 				className: o.FieldLabel,
 			},
-			(0, u.we)("#Settings_GameRecording_AudioRecording_AdditionalProcesses"),
+			(0, Localize)(
+				"#Settings_GameRecording_AudioRecording_AdditionalProcesses",
+			),
 		),
 		n.createElement(
 			"div",
@@ -2114,7 +2141,7 @@ function ot(e) {
 			{
 				className: a.Label,
 			},
-			(0, u.we)("#Settings_GameRecording_Cleanup_Usage"),
+			(0, Localize)("#Settings_GameRecording_Cleanup_Usage"),
 		),
 		n.createElement(
 			"div",
@@ -2134,7 +2161,7 @@ function ot(e) {
 					className: a.BrightButton,
 					onClick: () => m(true),
 				},
-				(0, u.we)("#Settings_GameRecording_Cleanup_Button"),
+				(0, Localize)("#Settings_GameRecording_Cleanup_Button"),
 			),
 		),
 		n.createElement(
@@ -2143,9 +2170,11 @@ function ot(e) {
 				active: c,
 			},
 			n.createElement(Ae.o0, {
-				strTitle: (0, u.we)("#Settings_GameRecording_Cleanup_Button"),
-				strDescription: (0, u.we)("#Settings_GameRecording_Cleanup_Confirm"),
-				strOKButtonText: (0, u.we)("#Button_Delete"),
+				strTitle: (0, Localize)("#Settings_GameRecording_Cleanup_Button"),
+				strDescription: (0, Localize)(
+					"#Settings_GameRecording_Cleanup_Confirm",
+				),
+				strOKButtonText: (0, Localize)("#Button_Delete"),
 				onOK: l,
 				onCancel: () => m(false),
 				bDestructiveWarning: true,
@@ -2154,8 +2183,8 @@ function ot(e) {
 	);
 	return n.createElement(ne.y, {
 		type: "info",
-		heading: (0, u.we)("#Settings_GameRecording_Cleanup_Heading"),
-		body: (0, u.we)("#Settings_GameRecording_Cleanup_Desc"),
+		heading: (0, Localize)("#Settings_GameRecording_Cleanup_Heading"),
+		body: (0, Localize)("#Settings_GameRecording_Cleanup_Desc"),
 		rightColumn: d,
 	});
 }
@@ -2179,7 +2208,7 @@ function lt(e) {
 				l.D0,
 				{
 					focusable: false,
-					label: (0, u.we)(
+					label: (0, Localize)(
 						"#Settings_GameRecording_Gamepad_ToggleRecordingHotkey",
 					),
 				},
@@ -2197,7 +2226,7 @@ function lt(e) {
 				l.D0,
 				{
 					focusable: false,
-					label: (0, u.we)("#Settings_GameRecording_Gamepad_MarkHotkey"),
+					label: (0, Localize)("#Settings_GameRecording_Gamepad_MarkHotkey"),
 				},
 				n.createElement(j.Gn, {
 					binding: {
@@ -2214,7 +2243,7 @@ function lt(e) {
 					l.D0,
 					{
 						focusable: false,
-						label: (0, u.we)("#Settings_GameRecording_Gamepad_Clip"),
+						label: (0, Localize)("#Settings_GameRecording_Gamepad_Clip"),
 					},
 					n.createElement(j.Gn, {
 						binding: {
@@ -2241,11 +2270,11 @@ function ct(e) {
 				if (t) {
 					if (t != n) {
 						(0, g.$)({
-							strDescription: (0, u.we)(
+							strDescription: (0, Localize)(
 								"#Settings_GameRecording_Path_NeedRestart",
 							),
 							fnOnOK: () => r(n),
-							strCancelButtonText: (0, u.we)(
+							strCancelButtonText: (0, Localize)(
 								"#Settings_RestartLater_ButtonText",
 							),
 							fnOnCancel: () => {
@@ -2262,7 +2291,7 @@ function ct(e) {
 		);
 		const o = n.useCallback(() => {
 			const r = {
-				strTitle: (0, u.we)("#Settings_GameRecording_Path_Title"),
+				strTitle: (0, Localize)("#Settings_GameRecording_Path_Title"),
 				strInitialFile: t,
 				bChooseDirectory: true,
 			};
@@ -2290,7 +2319,7 @@ function ct(e) {
 		te.Gq,
 		{
 			direction: "top",
-			toolTipContent: (0, u.we)("#Settings_GameRecording_Path_Reset"),
+			toolTipContent: (0, Localize)("#Settings_GameRecording_Path_Reset"),
 		},
 		n.createElement(
 			z.CS,
@@ -2306,7 +2335,7 @@ function ct(e) {
 		{
 			className: a.RecordingLocationSection,
 		},
-		n.createElement(z.tX, null, (0, u.we)("#Settings_GameRecording_Path")),
+		n.createElement(z.tX, null, (0, Localize)("#Settings_GameRecording_Path")),
 		n.createElement(
 			z.oN,
 			{
@@ -2318,7 +2347,7 @@ function ct(e) {
 				fieldClassName: a.BackgroundPathField,
 				fieldChildren: m,
 			},
-			(0, u.we)("#Settings_InGame_ChangeFolder"),
+			(0, Localize)("#Settings_InGame_ChangeFolder"),
 		),
 	);
 }
@@ -2347,8 +2376,8 @@ function mt(e) {
 		return t.map((e) => ({
 			label:
 				e == 0
-					? (0, u.we)("#Settings_GameRecording_VideoMaxHeight_Auto")
-					: (0, u.we)("#Settings_GameRecording_VideoMaxHeight_Pixels", e),
+					? (0, Localize)("#Settings_GameRecording_VideoMaxHeight_Auto")
+					: (0, Localize)("#Settings_GameRecording_VideoMaxHeight_Pixels", e),
 			data: e,
 		}));
 	})();
@@ -2374,11 +2403,11 @@ function mt(e) {
 	let S = s && o && h;
 	let w = n.createElement(ee.S, {
 		deferred: false,
-		label: (0, u.we)("#Settings_GameRecording_VideoEnableH265"),
+		label: (0, Localize)("#Settings_GameRecording_VideoEnableH265"),
 	});
 	let B =
 		s && !h
-			? (0, u.we)("#Settings_GameRecording_RequiresGPUAcceleration")
+			? (0, Localize)("#Settings_GameRecording_RequiresGPUAcceleration")
 			: undefined;
 	return n.createElement(
 		l.G5,
@@ -2387,14 +2416,14 @@ function mt(e) {
 		n.createElement(
 			z.tX,
 			null,
-			(0, u.we)("#Settings_GameRecording_VideoRecording"),
+			(0, Localize)("#Settings_GameRecording_VideoRecording"),
 		),
 		n.createElement(le, {
 			visible: r === 2,
 		}),
 		C &&
 			n.createElement(d.G, {
-				label: (0, u.we)("#Settings_GameRecording_VideoHardwareEncoding"),
+				label: (0, Localize)("#Settings_GameRecording_VideoHardwareEncoding"),
 				feature: 0,
 				setting: "gamestream_hardware_video_encode",
 			}),
@@ -2409,13 +2438,13 @@ function mt(e) {
 				controlled: true,
 			}),
 		n.createElement(I.X, {
-			label: (0, u.we)("#Settings_GameRecording_MaxFrameRate"),
+			label: (0, Localize)("#Settings_GameRecording_MaxFrameRate"),
 			rgOptions: i,
 			setting: "g_max_fps",
 		}),
 		n.createElement(I.X, {
-			label: (0, u.we)("#Settings_GameRecording_VideoMaxHeight"),
-			description: (0, u.we)(
+			label: (0, Localize)("#Settings_GameRecording_VideoMaxHeight"),
+			description: (0, Localize)(
 				"#Settings_GameRecording_VideoMaxHeight_Description",
 			),
 			rgOptions: a,

@@ -1,6 +1,6 @@
 export let lu = o.l;
 var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var s = require("./93960.js");
 var o = require("./90039.js");
 class a {
@@ -129,7 +129,7 @@ export class e0 {
 		this.m_vecCallbacks.push(e);
 	}
 	PushArrayRemove(e, t) {
-		this.m_vecCallbacks.push(() => i.x9(e, t));
+		this.m_vecCallbacks.push(() => FindAndRemove(e, t));
 	}
 	Unregister() {
 		for (const e of this.m_vecCallbacks) {

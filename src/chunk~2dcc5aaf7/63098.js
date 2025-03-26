@@ -1,5 +1,5 @@
 var n = require("./23472.js");
-var i = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var a = require(/*webcrack:missing*/ "./79769.js");
 export const U = new (class {
 	m_rgActivePopups = [];
@@ -27,7 +27,7 @@ export const U = new (class {
 			noteid: r,
 		};
 		s.close = () => {
-			i.x9(this.m_rgActivePopups, s);
+			FindAndRemove(this.m_rgActivePopups, s);
 			this.m_callbackPopupsChanged.Dispatch();
 		};
 		this.m_rgActivePopups.push(s);

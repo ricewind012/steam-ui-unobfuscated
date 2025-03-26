@@ -4,7 +4,7 @@ var a = require("./83013.js");
 var s = require("./64608.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
 var l = require(/*webcrack:missing*/ "./41230.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./85360.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
 var d = require("./22091.js");
@@ -207,7 +207,7 @@ const I = function (e) {
 			{
 				className: a.KeyLabel,
 			},
-			(0, c.we)("#ControllerVisualization_Joystick_Deadzone_Value_" + t.id),
+			Localize("#ControllerVisualization_Joystick_Deadzone_Value_" + t.id),
 		),
 	);
 };
@@ -512,7 +512,7 @@ export const NQ = (0, l.PA)(function (e) {
 	});
 	let te = {};
 	if (z) {
-		te[p.pR.CANCEL] = (0, c.we)(
+		te[p.pR.CANCEL] = Localize(
 			"#ControllerVisualization_Joystick_Deadzone_LiveUpdate_Stop",
 		);
 	}
@@ -549,7 +549,7 @@ export const NQ = (0, l.PA)(function (e) {
 							className: a.TestButton,
 							onClick: U,
 						},
-						(0, c.we)(
+						Localize(
 							"#ControllerVisualization_Joystick_Deadzone_LiveUpdate_Start",
 						),
 					),
@@ -567,7 +567,7 @@ export const NQ = (0, l.PA)(function (e) {
 								{
 									className: a.DataTitle,
 								},
-								(0, c.we)("#ControllerVisualization_Joystick_Deadzone_Value"),
+								Localize("#ControllerVisualization_Joystick_Deadzone_Value"),
 							),
 							Math.round(q * 100) + "%",
 						),
@@ -581,7 +581,7 @@ export const NQ = (0, l.PA)(function (e) {
 								{
 									className: a.DataTitle,
 								},
-								(0, c.we)("#ControllerVisualization_Joystick_Deadzone_Output"),
+								Localize("#ControllerVisualization_Joystick_Deadzone_Output"),
 							),
 							Math.round(Q * 100) + "%",
 						),

@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./15897.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./64608.js");
 var o = require("./23394.js");
 function l(e) {
@@ -52,10 +52,10 @@ function c(e) {
 		r(n);
 	};
 	const h = n.useMemo(() => (0, i.vo)(A), [A]);
-	const C = (0, a.we)(c ?? "#ColorPicker_Hue");
-	const _ = (0, a.we)(m ?? "#ColorPicker_Saturation");
-	const f = (0, a.we)(u ?? "#ColorPicker_Brightness");
-	const b = (0, a.we)(d ?? "#ColorPicker_Alpha");
+	const C = Localize(c ?? "#ColorPicker_Hue");
+	const _ = Localize(m ?? "#ColorPicker_Saturation");
+	const f = Localize(u ?? "#ColorPicker_Brightness");
+	const b = Localize(d ?? "#ColorPicker_Alpha");
 	const y = {
 		background: `linear-gradient(to right, ${(0, i.vo)({
 			h: A.h,
@@ -112,7 +112,7 @@ function c(e) {
 					"--left-track-color": "transparent",
 				},
 				editableValue: true,
-				valueSuffix: (0, a.we)("#Unit_Degree_Symbol"),
+				valueSuffix: Localize("#Unit_Degree_Symbol"),
 			}),
 			n.createElement(s.d3, {
 				bottomSeparator: "none",
@@ -124,7 +124,7 @@ function c(e) {
 				label: _,
 				trackStyleOverride: y,
 				editableValue: true,
-				valueSuffix: (0, a.we)("#Unit_Percent"),
+				valueSuffix: Localize("#Unit_Percent"),
 			}),
 			n.createElement(s.d3, {
 				bottomSeparator: o ? "none" : "standard",
@@ -136,7 +136,7 @@ function c(e) {
 				label: f,
 				trackStyleOverride: S,
 				editableValue: true,
-				valueSuffix: (0, a.we)("#Unit_Percent"),
+				valueSuffix: Localize("#Unit_Percent"),
 			}),
 			o &&
 				n.createElement(s.d3, {
@@ -148,7 +148,7 @@ function c(e) {
 					step: 1,
 					label: b,
 					editableValue: true,
-					valueSuffix: (0, a.we)("#Unit_Percent"),
+					valueSuffix: Localize("#Unit_Percent"),
 				}),
 		),
 	);
@@ -248,9 +248,9 @@ export function D(e) {
 					max: 100,
 					step: 1,
 					trackStyleOverride: A,
-					label: (0, a.we)("#Settings_Controller_Calibration_LEDBrightness"),
+					label: Localize("#Settings_Controller_Calibration_LEDBrightness"),
 					editableValue: true,
-					valueSuffix: (0, a.we)("#Unit_Percent"),
+					valueSuffix: Localize("#Unit_Percent"),
 				}),
 			),
 		!e.bUseOnlyBrightness &&

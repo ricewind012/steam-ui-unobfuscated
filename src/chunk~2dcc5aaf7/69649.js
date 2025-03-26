@@ -5,12 +5,12 @@ var s = require("./13869.js");
 var o = require(/*webcrack:missing*/ "./63696.js");
 var l = require("./96127.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./64608.js");
 var d = require(/*webcrack:missing*/ "./69164.js");
 var A = require("./68665.js");
 var p = require("./52912.js");
-var g = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var h = require("./98829.js");
 var C = require(/*webcrack:missing*/ "./50376.js");
 var _ = require("./78060.js");
@@ -25,7 +25,7 @@ export function UA(e, t, r, n = false, i) {
 		t,
 		"CreateChatDialog",
 		{
-			strTitle: (0, m.we)("#Chat_CreateChatRoom"),
+			strTitle: Localize("#Chat_CreateChatRoom"),
 			popupWidth: 664,
 			popupHeight: 580,
 		},
@@ -49,8 +49,8 @@ export function eJ(e, t, r, n) {
 			.catch(() => {
 				(0, _.Ic)(
 					e,
-					(0, m.we)("#Generic_Error"),
-					(0, m.we)("#Chat_CreateChatRoom_GenericError"),
+					Localize("#Generic_Error"),
+					Localize("#Chat_CreateChatRoom_GenericError"),
 				);
 			});
 	}
@@ -80,7 +80,7 @@ export let zw = class extends o.Component {
 		if (this.state.bCreateInFlight) {
 			return;
 		}
-		let t = (0, g.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		this.setState((e) => {
 			if (!e.bCreateInFlight) {
 				this.InternalDoSubmit(t);
@@ -114,7 +114,7 @@ export let zw = class extends o.Component {
 			})
 			.catch(() => {
 				this.setState({
-					strError: (0, m.we)("#Chat_CreateChatRoom_GenericError"),
+					strError: Localize("#Chat_CreateChatRoom_GenericError"),
 					bCreateInFlight: false,
 				});
 			});
@@ -126,7 +126,7 @@ export let zw = class extends o.Component {
 		let e = this.props.chatViewToReplace
 			? this.props.chatViewToReplace.chat.chat_partner
 			: null;
-		let t = (0, m.we)("#Chat_CreateChatRoom_Button");
+		let t = Localize("#Chat_CreateChatRoom_Button");
 		const r = this.state.rgSelectedFriends.length > 0;
 		let n = new Set();
 		if (this.props.chatViewToReplace) {
@@ -135,24 +135,24 @@ export let zw = class extends o.Component {
 		let i = false;
 		if (this.state.bCreateInFlight) {
 			i = false;
-			t = (0, m.we)("#GroupSettings_Permissions_Saving");
+			t = Localize("#GroupSettings_Permissions_Saving");
 		} else if (e) {
 			i = this.state.rgSelectedFriends.length > 0;
 		} else {
 			i = this.IsChatRoomNameValid() || r;
 			if (this.IsChatRoomNameValid() && !r) {
-				t = (0, m.we)("#Chat_CreateChatRoom_Button");
+				t = Localize("#Chat_CreateChatRoom_Button");
 			} else if (r && !this.IsChatRoomNameValid()) {
-				t = (0, m.we)("#Chat_CreateChatRoom_InviteFriends");
+				t = Localize("#Chat_CreateChatRoom_InviteFriends");
 			} else if (r && this.IsChatRoomNameValid()) {
-				t = (0, m.we)("#Chat_CreateChatRoom_Button_wFriends");
+				t = Localize("#Chat_CreateChatRoom_Button_wFriends");
 			}
 		}
 		const a =
 			this.props.strTitle ||
 			(e
-				? (0, m.we)("#Chat_CreateChatRoom_InviteFriends")
-				: (0, m.we)("#Chat_CreateChatRoom"));
+				? Localize("#Chat_CreateChatRoom_InviteFriends")
+				: Localize("#Chat_CreateChatRoom"));
 		return o.createElement(
 			s.x_,
 			{
@@ -175,15 +175,15 @@ export let zw = class extends o.Component {
 							o.createElement(
 								"span",
 								null,
-								(0, m.we)("#Chat_CreateChatRoom_With"),
+								Localize("#Chat_CreateChatRoom_With"),
 								o.createElement(
 									"span",
 									{
 										className: "DialogHighlight",
 									},
-									(0, m.we)("#Chat_CreateChatRoom_You"),
+									Localize("#Chat_CreateChatRoom_You"),
 								),
-								(0, m.we)("#Chat_CreateChatRoom_And"),
+								Localize("#Chat_CreateChatRoom_And"),
 								o.createElement(
 									"span",
 									{
@@ -204,14 +204,14 @@ export let zw = class extends o.Component {
 					!this.props.bHideChatNameEntry &&
 						o.createElement(u.pd, {
 							type: "text",
-							label: (0, m.we)("#Chat_Settings_Room_Name"),
+							label: Localize("#Chat_Settings_Room_Name"),
 							className: "nicknameInput",
 							value: this.state.strCurrentNameEntry,
 							onChange: this.HandleTextEntry,
 							autoFocus: true,
 						}),
 					o.createElement(A.r, {
-						label: (0, m.we)("#Chat_DropToInviteGroup"),
+						label: Localize("#Chat_DropToInviteGroup"),
 						eSort: 1,
 						autoFocus: this.props.bHideChatNameEntry,
 						renderChosenFriend: S,

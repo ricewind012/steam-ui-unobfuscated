@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./90765.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require("./85360.js");
 var m = require("./76587.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./45309.js");
 var A = require("./62486.js");
 var p = require("./13869.js");
@@ -14,7 +14,7 @@ var g = require("./13110.js");
 var h = require(/*webcrack:missing*/ "./4690.js");
 var C = require("./87935.js");
 var _ = require("./35488.js");
-var f = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var b = require("./93966.js");
 var y = require("./18869.js");
 var S = require("./18057.js");
@@ -70,7 +70,7 @@ function v(e) {
 		n.createElement(
 			s.D0,
 			{
-				label: (0, u.we)("#ControllerBinding_MousePositionModal_XPosition"),
+				label: (0, Localize)("#ControllerBinding_MousePositionModal_XPosition"),
 			},
 			n.createElement(
 				d.Ql,
@@ -79,7 +79,9 @@ function v(e) {
 					onResult: m,
 				},
 				n.createElement(d.Qj, {
-					title: (0, u.we)("#ControllerBinding_MousePositionModal_XPosition"),
+					title: (0, Localize)(
+						"#ControllerBinding_MousePositionModal_XPosition",
+					),
 					description: "",
 					inputOptions: {
 						placeholder: String(a),
@@ -91,7 +93,7 @@ function v(e) {
 		n.createElement(
 			s.D0,
 			{
-				label: (0, u.we)("#ControllerBinding_MousePositionModal_YPosition"),
+				label: (0, Localize)("#ControllerBinding_MousePositionModal_YPosition"),
 			},
 			n.createElement(
 				d.Ql,
@@ -100,7 +102,9 @@ function v(e) {
 					onResult: A,
 				},
 				n.createElement(d.Qj, {
-					title: (0, u.we)("#ControllerBinding_MousePositionModal_YPosition"),
+					title: (0, Localize)(
+						"#ControllerBinding_MousePositionModal_YPosition",
+					),
 					description: "",
 					inputOptions: {
 						placeholder: String(l),
@@ -206,7 +210,7 @@ function R(e) {
 		: c.v3?.CurrentEditedBinding?.mouse_wheel?.button == r.key;
 	const d = (0, b.yq)();
 	const p = r.labelLoc ? r.labelLoc : i.id;
-	const g = (0, u.we)(p);
+	const g = (0, Localize)(p);
 	const h = (0, w.w)(g, r?.glyphFilename ? r.width * 0.6 : r.width * 0.8, {
 		maxLines: 2,
 		fontFamily: "Motiva Sans",
@@ -287,7 +291,7 @@ const D = (0, i.PA)(function (e) {
 				{
 					className: (0, o.A)(m.KeyboardKeyLabel),
 				},
-				(0, u.we)("#ControllerBinding_MousePosition"),
+				(0, Localize)("#ControllerBinding_MousePosition"),
 			),
 		),
 	);
@@ -301,8 +305,10 @@ const D = (0, i.PA)(function (e) {
 					(function (e, t, r) {
 						(0, p.pg)(
 							n.createElement(v, {
-								title: (0, u.we)("#ControllerBinding_MouseDeltaModal_Title"),
-								description: (0, u.we)(
+								title: (0, Localize)(
+									"#ControllerBinding_MouseDeltaModal_Title",
+								),
+								description: (0, Localize)(
 									"#ControllerBinding_MouseDeltaModal_Desc",
 								),
 								onResult: (t) => {
@@ -327,7 +333,7 @@ const D = (0, i.PA)(function (e) {
 							}),
 							t,
 						);
-					})(t, (0, f.uX)(e), i);
+					})(t, GetOwningWindowForEvent(e), i);
 				},
 				className: (0, o.A)(m.MouseKey, A && m.SelectedBinding),
 			},
@@ -336,7 +342,7 @@ const D = (0, i.PA)(function (e) {
 				{
 					className: (0, o.A)(m.KeyboardKeyLabel),
 				},
-				(0, u.we)("#ControllerBinding_MouseDelta"),
+				(0, Localize)("#ControllerBinding_MouseDelta"),
 			),
 		),
 	);
@@ -344,7 +350,9 @@ const D = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		n.createElement(g.d, {
-			label: (0, u.we)("#ControllerConfigurator_ChooseBinding_Prompt_Mouse"),
+			label: (0, Localize)(
+				"#ControllerConfigurator_ChooseBinding_Prompt_Mouse",
+			),
 		}),
 		n.createElement(
 			l.Z,

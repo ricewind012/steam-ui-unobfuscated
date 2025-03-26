@@ -11,7 +11,10 @@ var d = require("./48289.js");
 var A = require("./61175.js");
 var p = require("./74995.js");
 var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeCalendarTimeLessGranular,
+} from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require("./51095.js");
 var f = require("./64004.js");
@@ -684,7 +687,7 @@ class F {
 		let e = this.GetCollectionForAppType(1).allApps.filter(
 			(e) => e.BIsOwned() && !e.BIsBorrowed(),
 		);
-		return w(A8.MyGames, (0, h.we)("#GameList_View_MyOwnGames"), e);
+		return w(A8.MyGames, Localize("#GameList_View_MyOwnGames"), e);
 	}
 	get allGamesCollection() {
 		S.Debug("Computing allGamesCollection");
@@ -692,7 +695,7 @@ class F {
 		if (A.n6.IsGamepadUIWindowActive()) {
 			e = e.filter((e) => !e.BIsShortcut());
 		}
-		return w(A8.MyGames, (0, h.we)("#GameList_View_All"), e);
+		return w(A8.MyGames, Localize("#GameList_View_All"), e);
 	}
 	BIncludeInFamilyGroupCollection(e) {
 		return (0, s.qw)().BIsFamilyGroupMember(e.owner_account_id);
@@ -709,7 +712,7 @@ class F {
 			e.push(
 				w(
 					A8.FamilyGroup,
-					(0, h.we)(
+					Localize(
 						"#GameList_View_FamilyGroup",
 						(0, s.qw)().GetCurrentUser().strFamilyGroupName,
 					),
@@ -741,7 +744,7 @@ class F {
 			e.push(
 				w(
 					`${A8.Shared}${r}`,
-					(0, h.we)(
+					Localize(
 						"#GameList_View_GamesSharedByOther",
 						d.O$.GetFriendState(r).display_name,
 					),
@@ -763,7 +766,7 @@ class F {
 		const { strSiteName: e, rgApps: t } = o.tw.siteLicenseApps;
 		return w(
 			A8.SiteLicense,
-			(0, h.we)("#GameList_View_GamesProvidedByNamedCafe", e),
+			Localize("#GameList_View_GamesProvidedByNamedCafe", e),
 			t,
 		);
 	}
@@ -773,7 +776,7 @@ class F {
 			let e = this.GetCollectionForAppType(1).allApps.filter((e) =>
 				e.BIsSteamDeckVerified(),
 			);
-			return w(A8.DeckGames, (0, h.we)("#GameList_View_DeviceGames"), e);
+			return w(A8.DeckGames, Localize("#GameList_View_DeviceGames"), e);
 		}
 		return null;
 	}
@@ -787,7 +790,7 @@ class F {
 			let e = this.GetCollectionForAppType(1).allApps.filter(
 				(e) => e.BHasStoreCategory(28) || e.BHasStoreCategory(18),
 			);
-			return w(A8.Xbox, (0, h.we)("#GameList_View_DeviceGames"), e);
+			return w(A8.Xbox, Localize("#GameList_View_DeviceGames"), e);
 		}
 		return null;
 	}
@@ -797,7 +800,7 @@ class F {
 			let e = this.GetCollectionForAppType(1).allApps.filter((e) =>
 				e.BHasStoreCategory(55),
 			);
-			return w(A8.PS4, (0, h.we)("#GameList_View_DeviceGames"), e);
+			return w(A8.PS4, Localize("#GameList_View_DeviceGames"), e);
 		}
 		return null;
 	}
@@ -807,7 +810,7 @@ class F {
 			let e = this.GetCollectionForAppType(1).allApps.filter((e) =>
 				e.BHasStoreCategory(57),
 			);
-			return w(A8.PS5, (0, h.we)("#GameList_View_DeviceGames"), e);
+			return w(A8.PS5, Localize("#GameList_View_DeviceGames"), e);
 		}
 		return null;
 	}
@@ -817,18 +820,14 @@ class F {
 			let e = this.GetCollectionForAppType(1).allApps.filter((e) =>
 				e.BIsShortcut(),
 			);
-			return w(
-				A8.DeckDesktopApps,
-				(0, h.we)("#GameList_View_NonSteamGames"),
-				e,
-			);
+			return w(A8.DeckDesktopApps, Localize("#GameList_View_NonSteamGames"), e);
 		}
 		return null;
 	}
 	get vrAppsCollection() {
 		S.Debug("Computing vrAppsCollection");
 		let e = this.allRecentAppsCollection.allApps.filter((e) => e.BSupportsVR());
-		return w(A8.VR, (0, h.we)("#GameList_View_ShowOnlyVR"), e);
+		return w(A8.VR, Localize("#GameList_View_ShowOnlyVR"), e);
 	}
 	get localGamesCollection() {
 		S.Debug("Computing localGamesCollection");
@@ -838,7 +837,7 @@ class F {
 		if (A.n6.IsGamepadUIWindowActive()) {
 			e = e.filter((e) => !e.BIsShortcut());
 		}
-		return w(A8.LocalGames, (0, h.we)("#GameList_View_LocalGames"), e);
+		return w(A8.LocalGames, Localize("#GameList_View_LocalGames"), e);
 	}
 	get userCollections() {
 		S.Debug("Computing userCollections");
@@ -875,8 +874,8 @@ class F {
 			const s = t[i];
 			const o =
 				s.rt_recent_activity_time < a
-					? (0, h.we)("#GameList_SectionHeader_NoRecentActivity")
-					: (0, h.gR)(s.rt_recent_activity_time);
+					? Localize("#GameList_SectionHeader_NoRecentActivity")
+					: LocalizeCalendarTimeLessGranular(s.rt_recent_activity_time);
 			if (o != r) {
 				if (r) {
 					e.push(w(`${A8.Recent}-${r}`, r, t.slice(n, i)));
@@ -906,11 +905,11 @@ class F {
 			r.push(t);
 		}
 		return [
-			w(A8.AppType_Games, (0, h.we)("#AppType_1"), e.get(1) || []),
-			w(A8.AppType_Software, (0, h.we)("#AppType_2"), e.get(2) || []),
-			w(A8.AppType_Soundtracks, (0, h.we)("#AppType_2000"), e.get(8192) || []),
-			w(A8.AppType_Videos, (0, h.we)("#AppType_800"), e.get(2048) || []),
-			w(A8.AppType_Tools, (0, h.we)("#AppType_4"), e.get(4) || []),
+			w(A8.AppType_Games, Localize("#AppType_1"), e.get(1) || []),
+			w(A8.AppType_Software, Localize("#AppType_2"), e.get(2) || []),
+			w(A8.AppType_Soundtracks, Localize("#AppType_2000"), e.get(8192) || []),
+			w(A8.AppType_Videos, Localize("#AppType_800"), e.get(2048) || []),
+			w(A8.AppType_Tools, Localize("#AppType_4"), e.get(4) || []),
 		];
 	}
 	get appTypeCollectionMap() {
@@ -1164,42 +1163,42 @@ class F {
 		this.m_mapSystemCollectionIdToName = new Map();
 		this.m_mapSystemCollectionIdToName.set(
 			A8.Favorites,
-			(0, h.we)("#GameList_Category_Favorites"),
+			Localize("#GameList_Category_Favorites"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.Uncategorized,
-			(0, h.we)("#GameList_Category_Uncategorized"),
+			Localize("#GameList_Category_Uncategorized"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.Hidden,
-			(0, h.we)("#GameList_Category_Hidden"),
+			Localize("#GameList_Category_Hidden"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.AllAppsAlpha,
-			(0, h.we)("#GameList_View_All"),
+			Localize("#GameList_View_All"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.AllAppsRecent,
-			(0, h.we)("#GameList_View_Recent"),
+			Localize("#GameList_View_Recent"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.Recent,
-			(0, h.we)("#GameList_View_Recent"),
+			Localize("#GameList_View_Recent"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.RemotePlay,
-			(0, h.we)("#GameList_Category_RemotePlay"),
+			Localize("#GameList_Category_RemotePlay"),
 		);
 		this.m_mapSystemCollectionIdToName.set(
 			A8.RemotePlayActive,
-			(0, h.we)("#GameList_Category_RemotePlay"),
+			Localize("#GameList_Category_RemotePlay"),
 		);
 	}
 	InitPartnerCollectionNameMap() {
 		this.m_mapPartnerCollectionIdToName = new Map();
 		this.m_mapPartnerCollectionIdToName.set(
 			"partner-ea-access",
-			(0, h.we)("#GameList_Category_EAAccess_Trademark"),
+			Localize("#GameList_Category_EAAccess_Trademark"),
 		);
 	}
 	BIsSystemCollectionId(e) {
@@ -1220,7 +1219,7 @@ class F {
 			A.n6.bIsGameListGroupedBySharedLibraries &&
 			this.sharedLibrariesCollections.length > 0
 		) {
-			return (0, h.we)("#GameList_View_MyOwnGames");
+			return Localize("#GameList_View_MyOwnGames");
 		} else {
 			return this.m_mapSystemCollectionIdToName.get(e);
 		}

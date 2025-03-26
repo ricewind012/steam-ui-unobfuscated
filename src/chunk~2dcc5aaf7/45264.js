@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./3715.js");
 var s = require(/*webcrack:missing*/ "./26667.js");
 var o = require("./23472.js");
 var l = require("./38602.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 const m = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"GameNotesCloudStore",
 ).Debug;
@@ -85,7 +85,7 @@ export function qF(e) {
 	const t = (0, a.jE)();
 	const r = (0, l.Sy)();
 	return n.useCallback(() => {
-		const n = (0, c.we)("#UserGameNotes_UntitledNote_Title");
+		const n = Localize("#UserGameNotes_UntitledNote_Title");
 		const i = r.NewNote(e, n);
 		f(t, e, (e) => [...e, i]);
 		return i.id;

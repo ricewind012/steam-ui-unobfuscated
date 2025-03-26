@@ -7,7 +7,7 @@ var l = require("./99731.js");
 var c = require("./46285.js");
 var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require("./44798.js");
 var p = A;
 var g = require("./11958.js");
@@ -48,7 +48,7 @@ export function z(e) {
 	if (!o || !t || !c) {
 		return null;
 	}
-	const u = (0, d.we)("#SteamUI_Dialog_SupportMessage_Title");
+	const u = Localize("#SteamUI_Dialog_SupportMessage_Title");
 	return n.createElement(g.W, {
 		strName: u,
 		strURL: c,
@@ -82,8 +82,8 @@ function f() {
 				className: p.BrowserWrapper,
 				onCancelButton: r,
 				onCancelActionDescription: t
-					? (0, d.we)("#Button_Close")
-					: (0, d.we)("#Button_Dismiss"),
+					? Localize("#Button_Close")
+					: Localize("#Button_Dismiss"),
 			},
 			n.createElement(l.Pw, {
 				name: "SupportMessages",

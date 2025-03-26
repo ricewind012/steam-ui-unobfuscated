@@ -5,7 +5,7 @@ var s = require("./96127.js");
 var o = require("./95773.js");
 var l = require("./98829.js");
 var c = require("./64608.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./50376.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
 var A = require("./21105.js");
@@ -206,7 +206,7 @@ export const r = (e) => {
 				onBlur: () => L(false),
 				label: t,
 				value: I,
-				placeholder: O ? "" : (0, m.we)("#FriendPicker_StartTyping"),
+				placeholder: O ? "" : Localize("#FriendPicker_StartTyping"),
 				autoFocus: S,
 				focusOnMount: !v && S,
 				ref: W,
@@ -219,7 +219,7 @@ export const r = (e) => {
 				{
 					className: "DialogLabel",
 				},
-				(0, m.we)("#Chat_InviteFriends_DropInvite"),
+				Localize("#Chat_InviteFriends_DropInvite"),
 			),
 		n.createElement(
 			a.YZ,

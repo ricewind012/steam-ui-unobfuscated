@@ -9,7 +9,10 @@ var m = require("./64608.js");
 var u = require("./10606.js");
 var d = require("./13869.js");
 var A = require(/*webcrack:missing*/ "./69164.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var g = require(/*webcrack:missing*/ "./52451.js");
 var h = require("./1634.js");
 var C = h;
@@ -24,12 +27,12 @@ export function x2(e, t, r) {
 		{
 			className: C.DynamicHeader,
 		},
-		(0, p.PP)(
+		LocalizeReact(
 			"#FilterEdit_SaveDynamicCollectionWithIcon",
 			i.createElement(b.Qi, null),
 		),
 	);
-	const a = (0, p.we)("#FilterEdit_SaveDynamicCollectionNoIcon");
+	const a = (0, Localize)("#FilterEdit_SaveDynamicCollectionNoIcon");
 	return (0, d.pg)(
 		i.createElement(v, {
 			ownerWindow: e,
@@ -45,7 +48,7 @@ export function x2(e, t, r) {
 	);
 }
 export function oy(e, t, r) {
-	const n = (0, p.we)("#GameAction_NewCollectionDialogTitle");
+	const n = (0, Localize)("#GameAction_NewCollectionDialogTitle");
 	(0, d.pg)(
 		i.createElement(v, {
 			ownerWindow: e,
@@ -109,18 +112,22 @@ const v = (0, a.PA)(function (e) {
 				};
 				(0, d.pg)(
 					i.createElement(u.o0, {
-						strTitle: (0, p.we)("#FilterEdit_CollectionsHiddenPromptTitle"),
-						strDescription: (0, p.we)("#FilterEdit_CollectionsHiddenPrompt"),
-						strOKButtonText: (0, p.we)("#FilterEdit_AcceptGameListViewChange"),
+						strTitle: (0, Localize)("#FilterEdit_CollectionsHiddenPromptTitle"),
+						strDescription: (0, Localize)(
+							"#FilterEdit_CollectionsHiddenPrompt",
+						),
+						strOKButtonText: (0, Localize)(
+							"#FilterEdit_AcceptGameListViewChange",
+						),
 						onOK: e,
-						strCancelButtonText: (0, p.we)(
+						strCancelButtonText: (0, Localize)(
 							"#FilterEdit_RejectGameListViewChange",
 						),
 						onCancel: () => null,
 					}),
 					t,
 					{
-						strTitle: (0, p.we)("#FilterEdit_CollectionsHiddenPromptTitle"),
+						strTitle: (0, Localize)("#FilterEdit_CollectionsHiddenPromptTitle"),
 					},
 				);
 			}
@@ -151,7 +158,7 @@ const v = (0, a.PA)(function (e) {
 	const P = O
 		? i.createElement(m.CB, {
 				bOKDisabled: G,
-				strOKText: (0, p.we)("#Button_Save"),
+				strOKText: (0, Localize)("#Button_Save"),
 				onCancel: _,
 			})
 		: i.createElement(
@@ -164,7 +171,7 @@ const v = (0, a.PA)(function (e) {
 							marginTop: 16,
 						},
 					},
-					(0, p.we)("#FilterEdit_SelectCollectionType"),
+					(0, Localize)("#FilterEdit_SelectCollectionType"),
 				),
 				i.createElement(
 					A.Z,
@@ -206,7 +213,7 @@ const v = (0, a.PA)(function (e) {
 						{
 							className: C.SelectedFilters,
 						},
-						(0, p.we)("#FilterEdit_SelectedFilters"),
+						(0, Localize)("#FilterEdit_SelectedFilters"),
 					),
 				O &&
 					i.createElement(
@@ -224,14 +231,14 @@ const v = (0, a.PA)(function (e) {
 					i.createElement(
 						m.JU,
 						null,
-						(0, p.we)("#FilterEdit_SaveCollectionNameInputPrompt"),
+						(0, Localize)("#FilterEdit_SaveCollectionNameInputPrompt"),
 					),
 					i.createElement(
 						m.JU,
 						{
 							className: (0, o.A)(C.Required, G && C.Visible, b && C.Pulse),
 						},
-						(0, p.we)("#FilterEdit_RequiredField"),
+						(0, Localize)("#FilterEdit_RequiredField"),
 					),
 				),
 				i.createElement(m.pd, {
@@ -248,7 +255,7 @@ const v = (0, a.PA)(function (e) {
 							className: C.SaveSearchDescription,
 						},
 						" ",
-						(0, p.we)("#FilterEdit_SaveCollectionVerbose"),
+						(0, Localize)("#FilterEdit_SaveCollectionVerbose"),
 						" ",
 					),
 				O &&
@@ -258,7 +265,7 @@ const v = (0, a.PA)(function (e) {
 							className: C.SaveSearchDescription,
 						},
 						" ",
-						(0, p.we)("#FilterEdit_SaveDynamicCollectionButtonDesc"),
+						(0, Localize)("#FilterEdit_SaveDynamicCollectionButtonDesc"),
 						" ",
 					),
 			),
@@ -269,16 +276,16 @@ const v = (0, a.PA)(function (e) {
 class I extends i.Component {
 	render() {
 		let e = this.props.isdynamic
-			? (0, p.we)("#FilterEdit_SaveDynamicCollectionButtonDesc")
-			: (0, p.we)("#FilterEdit_SaveStandardCollectionButtonDesc");
+			? (0, Localize)("#FilterEdit_SaveDynamicCollectionButtonDesc")
+			: (0, Localize)("#FilterEdit_SaveStandardCollectionButtonDesc");
 		let t = this.props.isdynamic
 			? i.createElement(
 					"span",
 					null,
 					i.createElement(b.Qi, null),
-					(0, p.we)("#FilterEdit_SelectCollectionTypeButtonCreateDynamic"),
+					(0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreateDynamic"),
 				)
-			: (0, p.we)("#FilterEdit_SelectCollectionTypeButtonCreate");
+			: (0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreate");
 		return i.createElement(
 			"div",
 			{
@@ -304,7 +311,7 @@ class I extends i.Component {
 	}
 }
 export async function sp(e, t, r, n, a) {
-	const s = (0, p.we)(
+	const s = (0, Localize)(
 		t.bIsDynamic
 			? "#FilterEdit_SaveDynamicCollectionNoIcon"
 			: "#FilterEdit_SaveCollection",
@@ -315,7 +322,7 @@ export async function sp(e, t, r, n, a) {
 	) {
 		(0, d.pg)(
 			i.createElement(u.KG, {
-				strDescription: (0, p.we)(
+				strDescription: (0, Localize)(
 					"#CollectionAction_CannotOverwrite",
 					t.displayName,
 				),
@@ -342,7 +349,7 @@ export async function sp(e, t, r, n, a) {
 		} catch (r) {
 			(0, d.pg)(
 				i.createElement(u.KG, {
-					strDescription: (0, p.we)(
+					strDescription: (0, Localize)(
 						"#CollectionAction_SaveFailed",
 						t.displayName,
 					),
@@ -398,7 +405,7 @@ let M = class extends i.Component {
 		);
 	}
 	render() {
-		const e = (0, p.we)(
+		const e = (0, Localize)(
 			this.props.collection.bIsDynamic
 				? "#FilterEdit_SaveDynamicCollectionNoIcon"
 				: "#FilterEdit_SaveCollection",
@@ -406,7 +413,7 @@ let M = class extends i.Component {
 		return i.createElement(u.o0, {
 			strTitle: e,
 			bDestructiveWarning: true,
-			strDescription: (0, p.we)(
+			strDescription: (0, Localize)(
 				"#FilterEdit_SaveOverwrite",
 				this.props.collection.displayName,
 			),

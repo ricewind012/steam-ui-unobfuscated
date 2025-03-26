@@ -9,7 +9,7 @@ import * as m from "./84629.js";
 import * as u from "./67429.js";
 import * as d from /*webcrack:missing*/ "./49455.js";
 import * as A from /*webcrack:missing*/ "./43691.js";
-import * as p from /*webcrack:missing*/ "./46108.js";
+import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization.js";
 export const k_strGRFAQ = "23B7-49AD-4A28-9590";
 export class CGameRecordingStore {
 	constructor() {
@@ -625,7 +625,7 @@ export class CGameRecordingStore {
 	GetBestClipTitle(e) {
 		const t = this.GetClipSummary(e);
 		if (t) {
-			return t.name || (0, p.$z)(t.date_recorded);
+			return t.name || LocalizeRtime32ToShortDate(t.date_recorded);
 		} else {
 			return "";
 		}

@@ -11,11 +11,14 @@ var u = require("./47628.js");
 var d = u;
 var A = require("./11735.js");
 var p = require(/*webcrack:missing*/ "./90765.js");
-var g = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var h = require(/*webcrack:missing*/ "./50376.js");
 var C = require("./12956.js");
-var _ = require(/*webcrack:missing*/ "./41180.js");
-var f = require(/*webcrack:missing*/ "./11010.js");
+import { Seconds } from "../../actual_src/utils/time.js";
+import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
 var b = require("./27793.js");
 var y = require("./83591.js");
 export const wD = (0, i.PA)((e) => {
@@ -47,11 +50,11 @@ export const wD = (0, i.PA)((e) => {
 		I?.GetBestPurchaseOption().free_to_keep_ends
 	) {
 		const e = I.GetBestPurchaseOption().free_to_keep_ends;
-		const t = (0, g.we)(
+		const t = Localize(
 			"#Sale_default_label_Free_Promo_Description_Short",
-			(0, g.$z)(e) +
+			LocalizeRtime32ToShortDate(e) +
 				" @ " +
-				(0, f.KC)(e, {
+				LocalizeRTimeToHourAndMinutes(e, {
 					bForce24HourClock: false,
 				}),
 		);
@@ -62,7 +65,7 @@ export const wD = (0, i.PA)((e) => {
 			},
 			t,
 			n.createElement(b.o, {
-				tooltip: (0, g.we)("#Sale_default_Tooltip_Free_Promo_Limitation"),
+				tooltip: Localize("#Sale_default_Tooltip_Free_Promo_Limitation"),
 			}),
 		);
 	}
@@ -120,7 +123,7 @@ function w(e) {
 		n.createElement(
 			"span",
 			null,
-			(0, g.we)("#EventDisplay_CallToAction_ShowPurchaseOptions_Button"),
+			Localize("#EventDisplay_CallToAction_ShowPurchaseOptions_Button"),
 		),
 	);
 }
@@ -141,7 +144,8 @@ export function kb(e) {
 	if (!r) {
 		return null;
 	}
-	const s = !r.BIsComingSoon() && r.GetReleaseDateRTime() + v * _.Kp.PerDay > a;
+	const s =
+		!r.BIsComingSoon() && r.GetReleaseDateRTime() + v * Seconds.PerDay > a;
 	const o = (0, p.A)(
 		d.StoreSalePriceWidgetContainer,
 		t && d.SingleLineMode,
@@ -159,7 +163,7 @@ export function kb(e) {
 				{
 					className: d.StoreSalePriceBox,
 				},
-				(0, g.we)("#EventDisplay_CallToAction_InLibrary"),
+				Localize("#EventDisplay_CallToAction_InLibrary"),
 			),
 		);
 	}
@@ -174,7 +178,7 @@ export function kb(e) {
 				{
 					className: d.StoreSalePriceBox,
 				},
-				(0, g.we)("#EventDisplay_CallToAction_ComingSoon"),
+				Localize("#EventDisplay_CallToAction_ComingSoon"),
 			),
 		);
 	}
@@ -192,14 +196,14 @@ export function kb(e) {
 							{
 								className: d.StoreSaleNewItem,
 							},
-							(0, g.we)("#Flag_New"),
+							Localize("#Flag_New"),
 						),
 					n.createElement(
 						"div",
 						{
 							className: d.StoreSalePriceBox,
 						},
-						(0, g.we)("#EventDisplay_CallToAction_FreeDemo"),
+						Localize("#EventDisplay_CallToAction_FreeDemo"),
 					),
 				);
 			} else {
@@ -214,14 +218,14 @@ export function kb(e) {
 							{
 								className: d.StoreSaleNewItem,
 							},
-							(0, g.we)("#Flag_New"),
+							Localize("#Flag_New"),
 						),
 					n.createElement(
 						"div",
 						{
 							className: d.StoreSalePriceBox,
 						},
-						(0, g.we)("#EventDisplay_CallToAction_FreeToPlay"),
+						Localize("#EventDisplay_CallToAction_FreeToPlay"),
 					),
 				);
 			}
@@ -240,7 +244,7 @@ export function kb(e) {
 					{
 						className: d.StoreSalePriceBox,
 					},
-					(0, g.we)("#EventDisplay_CallToAction_Free"),
+					Localize("#EventDisplay_CallToAction_Free"),
 				),
 			);
 		}
@@ -297,7 +301,7 @@ function E(e) {
 				n.createElement(
 					"span",
 					null,
-					(0, g.we)("#EventDisplay_CallToAction_Prepurchase_Short"),
+					Localize("#EventDisplay_CallToAction_Prepurchase_Short"),
 				),
 			),
 		Boolean(!i && c) &&
@@ -306,7 +310,7 @@ function E(e) {
 				{
 					className: d.StoreSaleNewItem,
 				},
-				(0, g.we)("#Flag_New"),
+				Localize("#Flag_New"),
 			),
 		Boolean(a && r && !m) &&
 			n.createElement(

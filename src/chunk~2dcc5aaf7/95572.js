@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./69976.js");
 var s = a;
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./42318.js");
 var c = require("./78110.js");
 var m = require(/*webcrack:missing*/ "./26853.js");
@@ -48,12 +48,12 @@ function f(e) {
 		}
 	}, [t, r]);
 	return n.createElement(A.o0, {
-		strTitle: (0, o.we)("#Settings_SystemReport_SubmitRequest_Title"),
-		strDescription: (0, o.we)("#Settings_SystemReport_SubmitRequest_Desc"),
-		strCancelButtonText: (0, o.we)(
+		strTitle: Localize("#Settings_SystemReport_SubmitRequest_Title"),
+		strDescription: Localize("#Settings_SystemReport_SubmitRequest_Desc"),
+		strCancelButtonText: Localize(
 			"#Settings_SystemReport_SubmitRequest_Cancel",
 		),
-		strOKButtonText: (0, o.we)("#Settings_SystemReport_SubmitRequest_OK"),
+		strOKButtonText: Localize("#Settings_SystemReport_SubmitRequest_OK"),
 		onOK: i,
 		onCancel: r,
 	});
@@ -69,8 +69,8 @@ function b(e) {
 		if ((await u.Ty.Submit(a.sReportId)) != 1) {
 			await (0, p.pg)(
 				n.createElement(A.KG, {
-					strTitle: (0, o.we)("#Settings_SystemReport_SubmitFail_Title"),
-					strDescription: (0, o.we)("#Settings_SystemReport_SubmitFail_Desc"),
+					strTitle: Localize("#Settings_SystemReport_SubmitFail_Title"),
+					strDescription: Localize("#Settings_SystemReport_SubmitFail_Desc"),
 					onCancel: () => u.Ty.Hide(),
 				}),
 				i,
@@ -78,12 +78,12 @@ function b(e) {
 		} else {
 			await (0, p.pg)(
 				n.createElement(A.o0, {
-					strTitle: (0, o.we)("#Settings_SystemReport_SubmitOK_Title"),
-					strDescription: (0, o.we)("#Settings_SystemReport_SubmitOK_Desc"),
-					strCancelButtonText: (0, o.we)(
+					strTitle: Localize("#Settings_SystemReport_SubmitOK_Title"),
+					strDescription: Localize("#Settings_SystemReport_SubmitOK_Desc"),
+					strCancelButtonText: Localize(
 						"#Settings_SystemReport_SubmitOK_Cancel",
 					),
-					strOKButtonText: (0, o.we)("#Settings_SystemReport_SubmitOK_OK"),
+					strOKButtonText: Localize("#Settings_SystemReport_SubmitOK_OK"),
 					onOK: () => u.Ty.Hide(),
 				}),
 				i,
@@ -105,8 +105,8 @@ function b(e) {
 		if ((await u.Ty.SaveToDesktop(a.sReportId)) != 1) {
 			await (0, p.pg)(
 				n.createElement(A.KG, {
-					strTitle: (0, o.we)("#Settings_SystemReport_SaveFail_Title"),
-					strDescription: (0, o.we)("#Settings_SystemReport_SaveFail_Desc"),
+					strTitle: Localize("#Settings_SystemReport_SaveFail_Title"),
+					strDescription: Localize("#Settings_SystemReport_SaveFail_Desc"),
 					onCancel: () => u.Ty.Hide(),
 				}),
 				i,
@@ -114,12 +114,10 @@ function b(e) {
 		} else {
 			await (0, p.pg)(
 				n.createElement(A.o0, {
-					strTitle: (0, o.we)("#Settings_SystemReport_SaveOK_Title"),
-					strDescription: (0, o.we)("#Settings_SystemReport_SaveOK_Desc"),
-					strCancelButtonText: (0, o.we)(
-						"#Settings_SystemReport_SaveOK_Cancel",
-					),
-					strOKButtonText: (0, o.we)("#Settings_SystemReport_SaveOK_OK"),
+					strTitle: Localize("#Settings_SystemReport_SaveOK_Title"),
+					strDescription: Localize("#Settings_SystemReport_SaveOK_Desc"),
+					strCancelButtonText: Localize("#Settings_SystemReport_SaveOK_Cancel"),
+					strOKButtonText: Localize("#Settings_SystemReport_SaveOK_OK"),
 					onOK: () => u.Ty.Hide(),
 				}),
 				i,
@@ -127,14 +125,14 @@ function b(e) {
 		}
 	}, [i, a]);
 	const S = m
-		? (0, o.we)("#Settings_SystemReport_Save")
-		: (0, o.we)("#Settings_SystemReport_Copy");
+		? Localize("#Settings_SystemReport_Save")
+		: Localize("#Settings_SystemReport_Copy");
 	const w = m ? y : b;
-	let B = (0, o.we)("#Settings_SystemReport_Desc");
+	let B = Localize("#Settings_SystemReport_Desc");
 	if (l) {
-		B = (0, o.we)("#Settings_SystemReport_Uploading");
+		B = Localize("#Settings_SystemReport_Uploading");
 	} else if (!c) {
-		B = (0, o.we)("#Settings_SystemReport_PleaseWait");
+		B = Localize("#Settings_SystemReport_PleaseWait");
 	}
 	const v = !c || l;
 	return n.createElement(
@@ -145,9 +143,9 @@ function b(e) {
 			strDescription: B,
 			onOK: h,
 			bOKDisabled: v,
-			strOKButtonText: (0, o.we)("#Settings_SystemReport_Submit"),
+			strOKButtonText: Localize("#Settings_SystemReport_Submit"),
 			onCancel: r,
-			strCancelButtonText: (0, o.we)("#Settings_SystemReport_Close"),
+			strCancelButtonText: Localize("#Settings_SystemReport_Close"),
 			bMiddleDisabled: v,
 			onMiddleButton: w,
 			strMiddleButtonText: S,
@@ -167,7 +165,7 @@ function b(e) {
 export const wR = (0, l.Nr)(function () {
 	const [e, t] = (0, u.$8)();
 	const [r, i] = n.useState();
-	const a = (0, o.we)("#Settings_SystemReport_Title");
+	const a = Localize("#Settings_SystemReport_Title");
 	if (e) {
 		return n.createElement(
 			c.w,
@@ -196,10 +194,10 @@ export function eH() {
 		return n.createElement(
 			i.xh,
 			{
-				label: (0, o.we)("#Settings_SystemReport_Title"),
+				label: Localize("#Settings_SystemReport_Title"),
 				onClick: () => u.Ty.Show(),
 			},
-			(0, o.we)("#Settings_SystemReport_Start"),
+			Localize("#Settings_SystemReport_Start"),
 		);
 	} else {
 		return null;

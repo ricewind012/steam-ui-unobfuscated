@@ -7,7 +7,7 @@ var l = require("./96680.js");
 var c = require(/*webcrack:missing*/ "./63439.js");
 var m = require(/*webcrack:missing*/ "./11131.js");
 var u = require("./34792.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require("./18057.js");
 var p = require(/*webcrack:missing*/ "./52451.js");
 var g = require("./32313.js");
@@ -55,7 +55,7 @@ function C(e) {
 					{
 						className: h.LiveText,
 					},
-					(0, d.we)("#BroadcastStatus_Live"),
+					Localize("#BroadcastStatus_Live"),
 				),
 				t.nRequests > 0 &&
 					n.createElement(
@@ -86,14 +86,14 @@ function C(e) {
 						{
 							className: h.Stat,
 						},
-						(0, d.we)("#BroadcastStatus_UploadRate", t.nUploadKbps),
+						Localize("#BroadcastStatus_UploadRate", t.nUploadKbps),
 					),
 					n.createElement(
 						"div",
 						{
 							className: h.Stat,
 						},
-						(0, d.we)("#BroadcastStatus_FrameRate", t.nCurrentFPS),
+						Localize("#BroadcastStatus_FrameRate", t.nCurrentFPS),
 					),
 				),
 		);

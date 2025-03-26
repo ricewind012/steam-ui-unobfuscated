@@ -6,7 +6,10 @@ var o = require("./53622.js");
 var l = require("./10606.js");
 var c = require("./13869.js");
 var m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var d = require("./56970.js");
 var A = require(/*webcrack:missing*/ "./49455.js");
 var p = require(/*webcrack:missing*/ "./85243.js");
@@ -17,7 +20,7 @@ var _ = require("./46422.js");
 var f = require(/*webcrack:missing*/ "./61657.js");
 var b = require("./55489.js");
 var y = require("./31800.js");
-var S = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var w = require(/*webcrack:missing*/ "./90095.js");
 var B = require("./13688.js");
 var v = require("./5822.js");
@@ -163,34 +166,34 @@ export function kG(e) {
 						{
 							className: C.ResetDescription,
 						},
-						(0, u.PP)("#LockScreen_ResetDescription", r),
+						LocalizeReact("#LockScreen_ResetDescription", r),
 					),
 					n.createElement(
 						"div",
 						{
 							className: C.ResetWarning,
 						},
-						(0, u.we)("#LockScreen_ResetWarning"),
+						(0, Localize)("#LockScreen_ResetWarning"),
 					),
 				);
 				let a = () => d.yE.BeginPINReset();
 				let s = n.createElement(l.o0, {
-					strTitle: (0, u.we)("#LockScreen_ForgotPIN"),
+					strTitle: (0, Localize)("#LockScreen_ForgotPIN"),
 					onOK: a,
 					strDescription: i,
-					strOKButtonText: (0, u.we)("#LockScreen_Reset"),
+					strOKButtonText: (0, Localize)("#LockScreen_Reset"),
 				});
 				(0, c.pg)(s, e, {
-					strTitle: (0, u.we)("#LockScreen_ForgotPIN"),
+					strTitle: (0, Localize)("#LockScreen_ForgotPIN"),
 				});
-			})((0, S.uX)(e));
-		N.onMenuActionDescription = (0, u.we)("#LockScreen_ForgotPIN");
+			})(GetOwningWindowForEvent(e));
+		N.onMenuActionDescription = (0, Localize)("#LockScreen_ForgotPIN");
 	}
 	N.onCancelActionDescription = E
-		? (0, u.we)("#Generic_Delete")
+		? (0, Localize)("#Generic_Delete")
 		: r
 			? ""
-			: (0, u.we)("#ActionButtonLabelCancel");
+			: (0, Localize)("#ActionButtonLabelCancel");
 	if (s) {
 		N.onButtonDown = D;
 		N.actionDescriptionMap = {
@@ -234,7 +237,7 @@ export function kG(e) {
 						{
 							className: C.Prompt,
 						},
-						(0, u.we)(
+						(0, Localize)(
 							e.strPromptOverride
 								? e.strPromptOverride
 								: "#LockScreen_NewPINPrompt",
@@ -246,14 +249,14 @@ export function kG(e) {
 						{
 							className: C.Prompt,
 						},
-						(0, u.we)("#LockScreen_PINPrompt"),
+						(0, Localize)("#LockScreen_PINPrompt"),
 					),
 				n.createElement(
 					"div",
 					{
 						className: C.Directions,
 					},
-					(0, u.we)("#LockScreen_Directions"),
+					(0, Localize)("#LockScreen_Directions"),
 				),
 			),
 			n.createElement(
@@ -268,7 +271,7 @@ export function kG(e) {
 				{
 					className: C.IncorrectPIN,
 				},
-				h && (0, u.we)("#LockScreen_IncorrectPIN"),
+				h && (0, Localize)("#LockScreen_IncorrectPIN"),
 				"\xA0",
 			),
 		),
@@ -347,19 +350,19 @@ export function SA() {
 		d.yE.SetHasShownResetPINModal();
 	}, []);
 	const r = (0, w.q3)(() => d.yE.BShowResetPINModal());
-	const i = (0, u.we)("#LockScreenReset_Title");
-	const a = (0, u.we)("#LockScreenReset_Settings");
-	const s = (0, u.we)("#Generic_Close");
+	const i = (0, Localize)("#LockScreenReset_Title");
+	const a = (0, Localize)("#LockScreenReset_Settings");
+	const s = (0, Localize)("#Generic_Close");
 	let o = n.createElement(
 		n.Fragment,
 		null,
-		n.createElement("div", null, (0, u.we)("#LockScreenReset_Body")),
+		n.createElement("div", null, (0, Localize)("#LockScreenReset_Body")),
 		n.createElement(
 			"div",
 			{
 				className: C.PINClearedQuestion,
 			},
-			(0, u.we)("#LockScreenReset_Question"),
+			(0, Localize)("#LockScreenReset_Question"),
 		),
 	);
 	return n.createElement(

@@ -1,9 +1,12 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./42318.js");
-var a = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeTimeSince,
+	ETimeSinceSuffix,
+} from "../../actual_src/utils/localization/datetime.js";
 var s = require("./64608.js");
 var o = require("./10606.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./90765.js");
 var m = require(/*webcrack:missing*/ "./50169.js");
 var u = require("./56332.js");
@@ -137,7 +140,7 @@ function N(e) {
 				disabled: !o,
 				onClick: r,
 			},
-			(0, l.we)(a),
+			Localize(a),
 		);
 	} else {
 		return n.createElement(
@@ -145,7 +148,7 @@ function N(e) {
 			{
 				className: (0, c.A)(E.StatusText, i),
 			},
-			(0, l.we)(a),
+			Localize(a),
 		);
 	}
 }
@@ -154,7 +157,7 @@ function _F(e) {
 	const r = n.useMemo(
 		() => [
 			{
-				Header: (0, l.we)("#PlayersDialog_Profile"),
+				Header: Localize("#PlayersDialog_Profile"),
 				accessor: "displayName",
 				id: "name",
 				align: "right",
@@ -169,7 +172,7 @@ function _F(e) {
 					(0, _.lY)(e.original.displayName, t.original.displayName),
 			},
 			{
-				Header: (0, l.we)("#PlayersDialog_Game"),
+				Header: Localize("#PlayersDialog_Game"),
 				accessor: (e) => h.tw.GetAppOverviewByAppID(e.appid)?.display_name,
 				id: "game",
 				width: 200,
@@ -184,15 +187,18 @@ function _F(e) {
 						(n ? -1 : 1),
 			},
 			{
-				Header: (0, l.we)("#PlayersDialog_LastPlayed"),
+				Header: Localize("#PlayersDialog_LastPlayed"),
 				accessor: "rtTimePlayed",
 				Cell: (e) =>
 					e.row.original.rtTimePlayed === undefined
-						? (0, l.we)("#PlayersDialog_Now")
-						: (0, a.Hq)(Date.now() / 1000 - e.row.original.rtTimePlayed, {
-								eSuffix: a.a8.Ago,
-								bForceSingleUnits: true,
-							}),
+						? Localize("#PlayersDialog_Now")
+						: LocalizeTimeSince(
+								Date.now() / 1000 - e.row.original.rtTimePlayed,
+								{
+									eSuffix: ETimeSinceSuffix.Ago,
+									bForceSingleUnits: true,
+								},
+							),
 				id: "lasttime",
 				width: 150,
 				minWidth: 100,
@@ -294,7 +300,7 @@ function _F(e) {
 						{
 							className: E.Empty,
 						},
-						(0, l.we)("#PlayersDialog_Empty"),
+						Localize("#PlayersDialog_Empty"),
 					),
 				n.createElement(
 					"div",
@@ -396,7 +402,7 @@ function O(e) {
 			{
 				className: E.DescriptionText,
 			},
-			(0, l.we)("#PlayersDialog_Description"),
+			Localize("#PlayersDialog_Description"),
 		),
 		n.createElement(
 			s.nB,
@@ -413,7 +419,7 @@ function O(e) {
 				{
 					onClick: i,
 				},
-				(0, l.we)("#Button_Close"),
+				Localize("#Button_Close"),
 			),
 		),
 	);
@@ -436,7 +442,7 @@ export function T(e) {
 	const t = (0, B.$2)().DesktopOverlay;
 	const r = v.w9.Players;
 	const i = (0, p.q3)(() => t.BWindowVisible(r));
-	const a = (0, l.we)("#PlayersDialog_Title");
+	const a = Localize("#PlayersDialog_Title");
 	const s = (0, w.aS)(700, 480, 450, 400);
 	const [o, c] = n.useState();
 	n.useEffect(() => {
@@ -487,7 +493,7 @@ export const F = (0, i.Nr)(function () {
 			e.recentUsers?.map((e) => A.O$.GetFriendState(e.accountid));
 		});
 	}, []);
-	const m = (0, l.we)("#PlayersDialog_Title");
+	const m = Localize("#PlayersDialog_Title");
 	if (i && e) {
 		return n.createElement(
 			o.hM,

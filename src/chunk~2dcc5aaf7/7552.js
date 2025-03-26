@@ -107,7 +107,10 @@ class p {
 var g = require("./64608.js");
 var h = require("./10606.js");
 var C = require(/*webcrack:missing*/ "./50376.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var f = require("./81489.js");
 var b = f;
 var y = require("./21105.js");
@@ -141,7 +144,7 @@ export function g1(e) {
 	let g = i ?? {};
 	let h = null;
 	if (t.steam_deck_blog_url) {
-		g.onOptionsActionDescription = (0, _.we)(
+		g.onOptionsActionDescription = (0, Localize)(
 			"#SteamDeckVerified_ViewDeveloperPost",
 		);
 		g.onOptionsButton = p;
@@ -172,7 +175,9 @@ export function g1(e) {
 						{
 							className: b.DialogTitle,
 						},
-						(0, _.we)("#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI"),
+						(0, Localize)(
+							"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
+						),
 					),
 					n.createElement(
 						"div",
@@ -220,7 +225,7 @@ export function g1(e) {
 								n.createElement(I, {
 									displaytype: e.display_type,
 								}),
-								n.createElement("span", null, (0, _.we)(e.loc_token)),
+								n.createElement("span", null, (0, Localize)(e.loc_token)),
 							),
 						),
 					C &&
@@ -238,7 +243,7 @@ export function g1(e) {
 											key: e.loc_token + e.display_type,
 											className: b.CompatibilityDetailsNoteRow,
 										},
-										n.createElement("span", null, (0, _.we)(e.loc_token)),
+										n.createElement("span", null, (0, Localize)(e.loc_token)),
 									),
 								),
 						),
@@ -268,7 +273,9 @@ export function g1(e) {
 						{
 							className: b.DialogTitle,
 						},
-						(0, _.we)("#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI"),
+						(0, Localize)(
+							"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
+						),
 					),
 					n.createElement(
 						"div",
@@ -299,7 +306,7 @@ function v(e) {
 				{
 					className: b.CompatibilityDetailRatingSummary,
 				},
-				(0, _.we)("#SteamDeckVerified_DescriptionHeader_DeveloperBlog"),
+				(0, Localize)("#SteamDeckVerified_DescriptionHeader_DeveloperBlog"),
 				n.createElement(
 					"div",
 					{
@@ -317,14 +324,16 @@ function v(e) {
 				{
 					className: b.CompatibilityDetailRatingSummary,
 				},
-				(0, _.we)("#SteamDeckVerified_DescriptionHeader_DeveloperBlog_Desktop"),
+				(0, Localize)(
+					"#SteamDeckVerified_DescriptionHeader_DeveloperBlog_Desktop",
+				),
 				n.createElement(
 					"a",
 					{
 						href: t,
 						className: b.DeveloperBlockLinkDesktop,
 					},
-					(0, _.we)("#SteamDeckVerified_ViewDeveloperPost"),
+					(0, Localize)("#SteamDeckVerified_ViewDeveloperPost"),
 				),
 			);
 		}
@@ -362,7 +371,7 @@ function I(e) {
 }
 var E = require(/*webcrack:missing*/ "./26853.js");
 var M = require(/*webcrack:missing*/ "./90765.js");
-var T = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var R = require("./51095.js");
 var k = require("./13869.js");
 export function Q8(e) {
@@ -387,7 +396,7 @@ export function Q8(e) {
 					var i;
 					e.preventDefault();
 					e.stopPropagation();
-					r = (0, T.uX)(e);
+					r = GetOwningWindowForEvent(e);
 					i = t.GetAppID();
 					(0, k.pg)(
 						n.createElement(F, {
@@ -402,7 +411,7 @@ export function Q8(e) {
 				{
 					className: b.LearnMorePC,
 				},
-				(0, _.we)("#SteamDeckVerified_Store_CompatSectionHeader_Desktop"),
+				(0, Localize)("#SteamDeckVerified_Store_CompatSectionHeader_Desktop"),
 			),
 		),
 	);
@@ -432,7 +441,7 @@ export function Tz(e) {
 					? b.DeveloperComments_LinkIcon
 					: b.DeveloperComments_LinkNoIcon,
 			},
-			(0, _.we)("#SteamDeckVerified_Store_CompatSection_DeveloperComments"),
+			(0, Localize)("#SteamDeckVerified_Store_CompatSection_DeveloperComments"),
 		),
 	);
 }
@@ -473,7 +482,7 @@ function F(e) {
 					: n.createElement(E.t, {
 							size: "medium",
 							position: "center",
-							string: (0, _.we)("#Loading"),
+							string: (0, Localize)("#Loading"),
 						}),
 			),
 		),
@@ -509,11 +518,11 @@ export function UN(e) {
 				className: b.CompatibilityDetailRatingSummary,
 			},
 			r
-				? (0, _.PP)(
+				? LocalizeReact(
 						"#SteamDeckVerified_DescriptionHeader_Unknown_WithAppName",
 						n.createElement("b", null, (0, R.EK)(r)),
 					)
-				: (0, _.we)("#SteamDeckVerified_DescriptionHeader_Unknown"),
+				: (0, Localize)("#SteamDeckVerified_DescriptionHeader_Unknown"),
 		);
 	}
 	let a = "";
@@ -536,23 +545,23 @@ export function UN(e) {
 		{
 			className: s,
 		},
-		(0, _.we)(P(t)),
+		(0, Localize)(P(t)),
 	);
 	const l = n.createElement(
 		"span",
 		{
 			className: b.CompatibilityDetailRatingSummary,
 		},
-		(0, _.we)(i || a),
+		(0, Localize)(i || a),
 	);
 	const c = r
-		? (0, _.PP)(
+		? LocalizeReact(
 				"#SteamDeckVerified_DescriptionHeader_WithAppName",
 				n.createElement("b", null, (0, R.EK)(r)),
 				o,
 				l,
 			)
-		: (0, _.PP)("#SteamDeckVerified_DescriptionHeader", o, l);
+		: LocalizeReact("#SteamDeckVerified_DescriptionHeader", o, l);
 	return n.createElement(
 		"div",
 		{

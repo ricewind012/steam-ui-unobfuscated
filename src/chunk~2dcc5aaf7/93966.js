@@ -1,7 +1,7 @@
 var n = require("./91703.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./49519.js");
-var s = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var o = require(/*webcrack:missing*/ "./49455.js");
 var l = require(/*webcrack:missing*/ "./83599.js");
 var c = require(/*webcrack:missing*/ "./42898.js");
@@ -87,7 +87,7 @@ export function VM(e) {
 		if (e) {
 			t.push(e);
 			return () => {
-				s.x9(t, e);
+				FindAndRemove(t, e);
 			};
 		}
 	}, [t, e]);

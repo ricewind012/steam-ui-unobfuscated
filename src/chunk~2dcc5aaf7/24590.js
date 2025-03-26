@@ -24,8 +24,8 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s;
 var o = require(/*webcrack:missing*/ "./31084.js");
 var l = require(/*webcrack:missing*/ "./11131.js");
-var c = require(/*webcrack:missing*/ "./54644.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { CopyTextToClipboard } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./43691.js");
 var d = require(/*webcrack:missing*/ "./88750.js");
 var A = require(/*webcrack:missing*/ "./24892.js");
@@ -60,9 +60,9 @@ export function D(e) {
 							d.kt,
 							{
 								key: "selection_text",
-								onSelected: () => (0, c.OG)(r.selection_text),
+								onSelected: () => CopyTextToClipboard(r.selection_text),
 							},
-							(0, m.we)("#BrowserContextMenu_Copy"),
+							Localize("#BrowserContextMenu_Copy"),
 						),
 					);
 				} else if (r.unfiltered_link_url) {
@@ -74,7 +74,7 @@ export function D(e) {
 								onSelected: () =>
 									e?.HandleContextMenuCommand(s.OpenLinkInNewTab, r),
 							},
-							(0, m.we)("#BrowserContextMenu_OpenLinkInNewTab"),
+							Localize("#BrowserContextMenu_OpenLinkInNewTab"),
 						),
 					);
 					h.push(
@@ -82,9 +82,9 @@ export function D(e) {
 							d.kt,
 							{
 								key: "unfiltered_link_url",
-								onSelected: () => (0, c.OG)(r.unfiltered_link_url),
+								onSelected: () => CopyTextToClipboard(r.unfiltered_link_url),
 							},
-							(0, m.we)("#BrowserContextMenu_CopyLink"),
+							Localize("#BrowserContextMenu_CopyLink"),
 						),
 					);
 				} else if (r.edit_state_flags) {
@@ -97,7 +97,7 @@ export function D(e) {
 								disabled: !t,
 								onSelected: () => e?.Paste(),
 							},
-							(0, m.we)("#BrowserContextMenu_Paste"),
+							Localize("#BrowserContextMenu_Paste"),
 						),
 					);
 				} else {
@@ -109,7 +109,7 @@ export function D(e) {
 								disabled: !e?.CanGoBackward(),
 								onSelected: () => e?.GoBack(),
 							},
-							(0, m.we)("#BrowserContextMenu_GoBack"),
+							Localize("#BrowserContextMenu_GoBack"),
 						),
 					);
 					h.push(
@@ -120,7 +120,7 @@ export function D(e) {
 								disabled: !e?.CanGoForward(),
 								onSelected: () => e?.GoForward(),
 							},
-							(0, m.we)("#BrowserContextMenu_GoForward"),
+							Localize("#BrowserContextMenu_GoForward"),
 						),
 					);
 					h.push(
@@ -130,7 +130,7 @@ export function D(e) {
 								key: "reload",
 								onSelected: () => e?.Reload(),
 							},
-							(0, m.we)("#BrowserContextMenu_Reload"),
+							Localize("#BrowserContextMenu_Reload"),
 						),
 					);
 					h.push(
@@ -138,9 +138,9 @@ export function D(e) {
 							d.kt,
 							{
 								key: "copypageurl",
-								onSelected: () => (0, c.OG)(r.page_url),
+								onSelected: () => CopyTextToClipboard(r.page_url),
 							},
-							(0, m.we)("#BrowserContextMenu_CopyPageURL"),
+							Localize("#BrowserContextMenu_CopyPageURL"),
 						),
 					);
 				}

@@ -3,7 +3,7 @@ var i = require("./35488.js");
 var a = require("./64608.js");
 var s = require("./83529.js");
 var o = s;
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./25467.js");
 var m = require("./13688.js");
 var u = require("./42085.js");
@@ -11,7 +11,7 @@ var d = require(/*webcrack:missing*/ "./90765.js");
 var A = require("./60517.js");
 var p = require("./57472.js");
 var g = require("./13869.js");
-var h = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var C = require("./10606.js");
 var _ = require(/*webcrack:missing*/ "./42318.js");
 export function u3(e) {
@@ -55,7 +55,7 @@ export function tN(e) {
 export function cQ(e) {
 	const [t, r] = (0, c.cg)();
 	return n.createElement(a.y4, {
-		label: (0, l.we)("#QuickAccess_Tab_Bluetooth_ShowAllDevices"),
+		label: Localize("#QuickAccess_Tab_Bluetooth_ShowAllDevices"),
 		checked: t,
 		onChange: r,
 		bottomSeparator: "none",
@@ -68,7 +68,7 @@ export function LV(e) {
 	const [o, m] = (function (e) {
 		if (e?.is_pairing) {
 			return [
-				(0, l.we)("#QuickAccess_Tab_Bluetooth_CancelPair"),
+				Localize("#QuickAccess_Tab_Bluetooth_CancelPair"),
 				() =>
 					A.RF.CancelPair({
 						device: e?.id,
@@ -76,18 +76,18 @@ export function LV(e) {
 			];
 		} else if (e?.is_paired) {
 			return [
-				(0, l.we)("#QuickAccess_Tab_Bluetooth_Info"),
+				Localize("#QuickAccess_Tab_Bluetooth_Info"),
 				(t) =>
 					(0, g.pg)(
 						n.createElement(M, {
 							nDeviceId: e?.id,
 						}),
-						(0, h.uX)(t),
+						GetOwningWindowForEvent(t),
 					),
 			];
 		} else {
 			return [
-				(0, l.we)("#QuickAccess_Tab_Bluetooth_Pair"),
+				Localize("#QuickAccess_Tab_Bluetooth_Pair"),
 				() =>
 					A.RF.Pair({
 						device: e?.id,
@@ -135,7 +135,7 @@ function w(e) {
 				{
 					className: o.NotConnectedLabel,
 				},
-				(0, l.we)("#QuickAccess_Tab_Bluetooth_Not_Connected"),
+				Localize("#QuickAccess_Tab_Bluetooth_Not_Connected"),
 			);
 		}
 	} else if (s) {
@@ -152,7 +152,7 @@ function B(e) {
 	if (t.wake_allowed_supported) {
 		return n.createElement(a.y4, {
 			...r,
-			label: (0, l.we)("#Settings_Bluetooth_AllowWake"),
+			label: Localize("#Settings_Bluetooth_AllowWake"),
 			checked: t.wake_allowed ?? false,
 			onChange: (e) =>
 				A.RF.SetWakeAllowed({
@@ -168,7 +168,7 @@ function v(e) {
 	const { device: t, ...r } = e;
 	return n.createElement(a.y4, {
 		...r,
-		label: (0, l.we)("#Settings_Bluetooth_Trusted"),
+		label: Localize("#Settings_Bluetooth_Trusted"),
 		checked: t.is_trusted ?? false,
 		onChange: (e) =>
 			A.RF.SetTrusted({
@@ -184,7 +184,7 @@ function I(e) {
 		if (e) {
 			if (e.is_connected) {
 				return [
-					(0, l.we)("#QuickAccess_Tab_Bluetooth_Disconnect"),
+					Localize("#QuickAccess_Tab_Bluetooth_Disconnect"),
 					() =>
 						A.RF.Disconnect({
 							device: e.id,
@@ -192,7 +192,7 @@ function I(e) {
 				];
 			} else {
 				return [
-					(0, l.we)("#QuickAccess_Tab_Bluetooth_Connect"),
+					Localize("#QuickAccess_Tab_Bluetooth_Connect"),
 					() =>
 						A.RF.Connect({
 							device: e.id,
@@ -252,10 +252,10 @@ export function ty() {
 			null,
 			n.createElement(tN, {
 				padding: "compact",
-				label: (0, l.we)("#QuickAccess_Tab_Bluetooth_ToggleLabel"),
+				label: Localize("#QuickAccess_Tab_Bluetooth_ToggleLabel"),
 				bottomSeparator: "none",
 				onOptionsButton: e,
-				onOptionsActionDescription: (0, l.we)(
+				onOptionsActionDescription: Localize(
 					"#Settings_Bluetooth_SettingsAction",
 				),
 			}),
@@ -271,7 +271,7 @@ export function ty() {
 						device: t,
 						bottomSeparator: "none",
 						onOptionsButton: e,
-						onOptionsActionDescription: (0, l.we)(
+						onOptionsActionDescription: Localize(
 							"#Settings_Bluetooth_SettingsAction",
 						),
 					}),
@@ -283,7 +283,7 @@ export function ty() {
 				null,
 				n.createElement(a.D0, {
 					className: o.ForceIndentField,
-					label: (0, l.we)("#QuickAccess_Tab_Bluetooth_AddDevice"),
+					label: Localize("#QuickAccess_Tab_Bluetooth_AddDevice"),
 					icon: n.createElement(i.Add, null),
 					onActivate: e,
 					padding: "compact",
@@ -342,7 +342,7 @@ const M = (e) => {
 						a.Nv,
 						{
 							focusable: true,
-							label: (0, l.we)("#Settings_Internet_MAC_Address"),
+							label: Localize("#Settings_Internet_MAC_Address"),
 						},
 						i?.mac,
 					),
@@ -355,32 +355,32 @@ const M = (e) => {
 					n.createElement(
 						a.xh,
 						{
-							label: (0, l.we)("#QuickAccess_Tab_Bluetooth_Unpair"),
+							label: Localize("#QuickAccess_Tab_Bluetooth_Unpair"),
 							onClick: g,
 						},
-						(0, l.we)("#QuickAccess_Tab_Bluetooth_Forget"),
+						Localize("#QuickAccess_Tab_Bluetooth_Forget"),
 					),
 					m &&
 						n.createElement(
 							a.xh,
 							{
-								label: (0, l.we)("#QuickAccess_Tab_Bluetooth_ConnectLabel"),
+								label: Localize("#QuickAccess_Tab_Bluetooth_ConnectLabel"),
 								onClick: d,
 								bottomSeparator: "none",
 								autoFocus: true,
 							},
-							(0, l.we)("#QuickAccess_Tab_Bluetooth_Connect"),
+							Localize("#QuickAccess_Tab_Bluetooth_Connect"),
 						),
 					u &&
 						n.createElement(
 							a.xh,
 							{
-								label: (0, l.we)("#QuickAccess_Tab_Bluetooth_DisconnectLabel"),
+								label: Localize("#QuickAccess_Tab_Bluetooth_DisconnectLabel"),
 								onClick: p,
 								bottomSeparator: "none",
 								autoFocus: true,
 							},
-							(0, l.we)("#QuickAccess_Tab_Bluetooth_Disconnect"),
+							Localize("#QuickAccess_Tab_Bluetooth_Disconnect"),
 						),
 				),
 		),

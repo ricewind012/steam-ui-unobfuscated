@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./37195.js");
 var s = require(/*webcrack:missing*/ "./67599.js");
 var o = require("./43780.js");
 var l = require(/*webcrack:missing*/ "./81429.js");
-var c = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 class m {
 	m_nodes = [];
 	m_schema;
@@ -73,7 +73,7 @@ class d extends o.Al {
 					n = n.slice(0, -1);
 				}
 				const i = this.m_mapPMBBNodes.get(e.acceptNode.name);
-				(0, c.w)(
+				AssertMsg(
 					i,
 					`Indicated acceptNode type ${e.acceptNode.name} for ${e.node.name} missing`,
 				);
@@ -162,7 +162,7 @@ class d extends o.Al {
 				if (n) {
 					i.accumulate(n, e);
 				} else {
-					(0, c.w)(
+					AssertMsg(
 						false,
 						`Couldn't accept ${e.type.name} at root of document, converting to paragraph`,
 					);
@@ -221,7 +221,7 @@ function p(e, t, r, n) {
 				if (t.indexOf(a) === -1) {
 					i ||= t.slice();
 					const r = e.mapMarks.get(a.type);
-					(0, c.w)(r, "mark missing bbtag");
+					AssertMsg(r, "mark missing bbtag");
 					if (r) {
 						i.push(a);
 						const { args: e, tag: t } = h(r, a);
@@ -256,7 +256,10 @@ function g(e, t, r, n) {
 		return [n, t];
 	}
 	const a = t.slice();
-	while (i.length && ((0, c.w)(a.length, "no marks left to close"), a.length)) {
+	while (
+		i.length &&
+		(AssertMsg(a.length, "no marks left to close"), a.length)
+	) {
 		const t = a.pop();
 		const r = e.mapMarks.get(t.type);
 		const { tag: s } = h(r, t);
@@ -1294,7 +1297,7 @@ class K {
 	}
 }
 var X = require(/*webcrack:missing*/ "./17372.js");
-var J = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var $ = require("./64608.js");
 var ee = require("./10606.js");
 var te = require("./13869.js");
@@ -1473,11 +1476,11 @@ const ie = f.memo(function (e) {
 		}
 	}, []);
 	const y = i
-		? (0, J.we)("#FormattingToolbar_EditLink")
-		: (0, J.we)("#FormattingToolbar_InsertLink");
+		? (0, Localize)("#FormattingToolbar_EditLink")
+		: (0, Localize)("#FormattingToolbar_InsertLink");
 	const S = i
-		? (0, J.we)("#Button_Save")
-		: (0, J.we)("#FormattingToolbar_InsertLink");
+		? (0, Localize)("#Button_Save")
+		: (0, Localize)("#FormattingToolbar_InsertLink");
 	return f.createElement(
 		re,
 		{
@@ -1504,13 +1507,13 @@ const ie = f.memo(function (e) {
 			ref: h,
 			value: d,
 			onChange: (e) => A(e.currentTarget.value),
-			label: (0, J.we)("#FormattingToolbar_LinkText"),
+			label: (0, Localize)("#FormattingToolbar_LinkText"),
 		}),
 		f.createElement($.pd, {
 			ref: C,
 			value: p,
 			onChange: (e) => g(e.currentTarget.value),
-			label: (0, J.we)("#FormattingToolbar_LinkAddress"),
+			label: (0, Localize)("#FormattingToolbar_LinkAddress"),
 		}),
 		a &&
 			f.createElement(ae, {
@@ -1679,7 +1682,7 @@ function ce(e) {
 			{
 				className: oe.LinkHelp,
 			},
-			(0, J.we)("#UserGameNotes_ClickToOpenLink"),
+			(0, Localize)("#UserGameNotes_ClickToOpenLink"),
 		),
 	);
 }
@@ -1693,7 +1696,7 @@ var pe = require("./12774.js");
 var ge = require("./94790.js");
 var he = require(/*webcrack:missing*/ "./26853.js");
 var Ce = require(/*webcrack:missing*/ "./79769.js");
-var _e = require(/*webcrack:missing*/ "./54644.js");
+import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
 function fe(e) {
 	e.preventDefault();
 }
@@ -1984,13 +1987,13 @@ class ve {
 		this.m_fnProcessFileUpload = e;
 		this.m_fnFetchImageURL = t;
 		this.m_bAllowImageHotLinking = r;
-		(0, c.w)(
+		AssertMsg(
 			!this.m_fnFetchImageURL || !this.m_bAllowImageHotLinking,
 			"Not expected to have a URL fetch function and allow hotlinking.  URL fetch function will not be called.",
 		);
 	}
 	RegisterEditor(e, t, r) {
-		(0, c.w)(!this.m_view, "Duplicate registration");
+		AssertMsg(!this.m_view, "Duplicate registration");
 		this.m_view = e;
 		this.m_fnCreatePlaceholder = t;
 		this.m_fnReplacePlaceholder = r;
@@ -2108,7 +2111,7 @@ const Me = f.memo(function (e) {
 			},
 			f.createElement(pe.o0, {
 				bAlertDialog: true,
-				strTitle: (0, J.we)("#Error_Generic"),
+				strTitle: (0, Localize)("#Error_Generic"),
 				strDescription: r.map((e, t) =>
 					f.createElement(
 						"div",
@@ -2118,7 +2121,7 @@ const Me = f.memo(function (e) {
 						e,
 					),
 				),
-				strOKButtonText: (0, J.we)("#Button_OK"),
+				strOKButtonText: (0, Localize)("#Button_OK"),
 				onOK: () => t.ClearErrors(),
 				onCancel: () => t.ClearErrors(),
 			}),
@@ -2150,7 +2153,7 @@ function Te(e) {
 					}
 				}, []),
 				onDragLeave: f.useCallback((e) => {
-					if (_e.NO(e)) {
+					if (BIsDragLeaveOutOfElement(e)) {
 						r(false);
 					}
 				}, []),
@@ -2335,7 +2338,7 @@ const We = (0, Ne.Nr)(function (e) {
 			spellCheck: a,
 			focusable: true,
 			onActivate: A,
-			onOKActionDescription: (0, J.we)("#UserGameNotes_Edit"),
+			onOKActionDescription: (0, Localize)("#UserGameNotes_Edit"),
 			onGamepadDirection: p,
 			...s,
 		}),
@@ -2554,7 +2557,7 @@ function st(e) {
 		{
 			className: be.TooltipWithShortcut,
 		},
-		f.createElement("div", null, (0, J.we)(t)),
+		f.createElement("div", null, (0, Localize)(t)),
 		f.createElement(
 			"div",
 			null,
@@ -2983,7 +2986,7 @@ function bt(e) {
 						tt,
 						{
 							nodeType: t.nodes.code_block,
-							tooltip: (0, J.we)("#FormattingToolbar_CodeBlock"),
+							tooltip: (0, Localize)("#FormattingToolbar_CodeBlock"),
 						},
 						f.createElement(qe.TextCodeBlock, null),
 					),
@@ -3018,7 +3021,7 @@ function Bt(e) {
 	const c = (0, He.Qn)();
 	const m = {
 		onSecondaryButton: () => t(),
-		onSecondaryActionDescription: (0, J.we)("#UserGameNotes_DeleteNote"),
+		onSecondaryActionDescription: (0, Localize)("#UserGameNotes_DeleteNote"),
 		onDragOver: (e) => e.stopPropagation(),
 	};
 	f.useEffect(() => {
@@ -3256,8 +3259,8 @@ function kt(e) {
 			},
 			f.createElement(ee.o0, {
 				bAlertDialog: true,
-				strTitle: (0, J.we)("#Error_Generic"),
-				strDescription: (0, J.we)("#UserGameNotes_ErrorSavingNotes", t),
+				strTitle: (0, Localize)("#Error_Generic"),
+				strDescription: (0, Localize)("#UserGameNotes_ErrorSavingNotes", t),
 				closeModal: r,
 			}),
 		);
@@ -3320,7 +3323,7 @@ function Nt(e) {
 				onClick: () => r(),
 				className: yt.CloseWindowButton,
 			},
-			(0, J.we)("#Button_SaveAndClose"),
+			(0, Localize)("#Button_SaveAndClose"),
 		);
 	} else {
 		return f.createElement(
@@ -3329,7 +3332,7 @@ function Nt(e) {
 				onClick: () => r(),
 				className: yt.CloseWindowButton,
 			},
-			(0, J.we)("#Button_Close"),
+			(0, Localize)("#Button_Close"),
 		);
 	}
 }
@@ -3341,11 +3344,11 @@ function Ft(e) {
 			active: true,
 		},
 		f.createElement(ee.o0, {
-			strTitle: (0, J.we)("#UserGameNotes_DeleteNote"),
-			strDescription: (0, J.we)("#UserGameNotes_PromptDelete"),
+			strTitle: (0, Localize)("#UserGameNotes_DeleteNote"),
+			strDescription: (0, Localize)("#UserGameNotes_PromptDelete"),
 			onOK: () => n(),
 			bOKDisabled: i,
-			strOKButtonText: (0, J.we)("#Button_Delete"),
+			strOKButtonText: (0, Localize)("#Button_Delete"),
 			closeModal: r,
 		}),
 	);

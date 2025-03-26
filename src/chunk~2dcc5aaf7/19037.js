@@ -4,7 +4,10 @@ var a = require("./69018.js");
 var s = require(/*webcrack:missing*/ "./90765.js");
 var o = require(/*webcrack:missing*/ "./52451.js");
 var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var m = require("./10606.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
 require("./49220.js");
@@ -66,7 +69,7 @@ function J() {
 		null,
 		x.Fd.Get().GetControllerTypeStringByIndex(
 			U.v3.EditingConfigurationControllerIndex,
-		) ?? (0, c.we)("#controller_unspecified"),
+		) ?? Localize("#controller_unspecified"),
 	);
 }
 function $(e) {
@@ -94,14 +97,14 @@ function $(e) {
 										className: a.DescLabelWithSpace,
 									},
 									z.TS.ON_DECK
-										? (0, c.oW)(
+										? LocalizeInlineReactWithFallback(
 												"#ControllerConfigurator_Interstitial_Intro_DescA1",
 												n.createElement(J, null),
 												n.createElement("span", {
 													className: a.Highlight,
 												}),
 											)
-										: (0, c.oW)(
+										: LocalizeInlineReactWithFallback(
 												"#ControllerConfigurator_Interstitial_Intro_DescA1_NonDeck",
 												n.createElement(J, null),
 												n.createElement("span", {
@@ -114,7 +117,7 @@ function $(e) {
 									{
 										className: (0, s.A)(a.DescLabel, a.DescLabel2),
 									},
-									(0, c.oW)(
+									LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_Intro_DescA2",
 										n.createElement("span", {
 											className: a.Highlight,
@@ -142,9 +145,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
-										"#ControllerConfigurator_Interstitial_Intro_DescB1",
-									),
+									Localize("#ControllerConfigurator_Interstitial_Intro_DescB1"),
 								),
 								n.createElement(
 									"div",
@@ -182,7 +183,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_PhysicalInputs",
 											),
 										),
@@ -215,36 +216,28 @@ function $(e) {
 											{
 												className: a.ControlLabel,
 											},
-											(0, c.we)(
-												"#ControllerConfigurator_Interstitial_Command1",
-											),
+											Localize("#ControllerConfigurator_Interstitial_Command1"),
 										),
 										n.createElement(
 											"span",
 											{
 												className: a.ControlLabel,
 											},
-											(0, c.we)(
-												"#ControllerConfigurator_Interstitial_Command2",
-											),
+											Localize("#ControllerConfigurator_Interstitial_Command2"),
 										),
 										n.createElement(
 											"span",
 											{
 												className: a.ControlLabel,
 											},
-											(0, c.we)(
-												"#ControllerConfigurator_Interstitial_Command3",
-											),
+											Localize("#ControllerConfigurator_Interstitial_Command3"),
 										),
 										n.createElement(
 											"span",
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
-												"#ControllerConfigurator_Interstitial_Commands",
-											),
+											Localize("#ControllerConfigurator_Interstitial_Commands"),
 										),
 									),
 								),
@@ -253,9 +246,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
-										"#ControllerConfigurator_Interstitial_Intro_DescB2",
-									),
+									Localize("#ControllerConfigurator_Interstitial_Intro_DescB2"),
 								),
 							),
 						);
@@ -269,7 +260,7 @@ function $(e) {
 										{
 											className: a.DescLabelWithSpace,
 										},
-										(0, c.we)(
+										Localize(
 											"#ControllerConfigurator_Interstitial_Intro_DescC1",
 										),
 									),
@@ -278,7 +269,7 @@ function $(e) {
 										{
 											className: a.DescLabel,
 										},
-										(0, c.oW)(
+										LocalizeInlineReactWithFallback(
 											"#ControllerConfigurator_Interstitial_Intro_DescC2",
 											n.createElement("span", {
 												className: a.Highlight,
@@ -300,7 +291,7 @@ function $(e) {
 												{
 													className: a.Highlight,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_BackGripControls",
 												),
 											),
@@ -319,7 +310,7 @@ function $(e) {
 												{
 													className: a.Highlight,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_GyroControls",
 												),
 											),
@@ -333,7 +324,7 @@ function $(e) {
 							);
 						}
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_Intro_Title",
 							),
 							rgPages: t,
@@ -355,7 +346,7 @@ function $(e) {
 									{
 										className: a.DescLabelWithSpace,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescA1",
 										i,
 									),
@@ -365,7 +356,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescA2",
 									),
 								),
@@ -377,15 +368,15 @@ function $(e) {
 									n.createElement(X.W4, {
 										bDisabled: true,
 										configType: X.h7.Official,
-										description: (0, c.we)(
+										description: Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Description",
 										),
 										bInfoOnly: false,
 										bGamepadSupport: true,
-										creator: (0, c.we)(
+										creator: Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Creator",
 										),
-										label: (0, c.we)(
+										label: Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Title",
 										),
 										iconType: 4,
@@ -402,7 +393,7 @@ function $(e) {
 									{
 										className: a.DescLabelWithSpace,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescB1",
 									),
 								),
@@ -411,7 +402,7 @@ function $(e) {
 									{
 										className: (0, s.A)(a.DescLabel, a.DescLabel2),
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescB2",
 									),
 								),
@@ -438,7 +429,7 @@ function $(e) {
 												{
 													className: a.Highlight,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB1",
 												),
 											),
@@ -451,7 +442,7 @@ function $(e) {
 												{
 													className: a.Highlight,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB2",
 												),
 											),
@@ -475,7 +466,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_Command1",
 												),
 											),
@@ -503,7 +494,7 @@ function $(e) {
 												{
 													className: a.Highlight,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB3",
 												),
 											),
@@ -527,7 +518,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_Command2",
 												),
 											),
@@ -545,7 +536,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescC1",
 									),
 								),
@@ -558,14 +549,14 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescC3",
 									),
 								),
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_NonVerified_Title",
 							),
 							rgPages: r,
@@ -586,7 +577,7 @@ function $(e) {
 								.GetControllers()
 								?.some((e) => e.eControllerType == 4)
 						) {
-							t = (0, c.oW)(
+							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2",
 								n.createElement("span", {
 									className: a.Highlight,
@@ -604,7 +595,7 @@ function $(e) {
 								.GetControllers()
 								?.some((e) => e.eControllerType == 2)
 						) {
-							t = (0, c.oW)(
+							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2_SteamController",
 								n.createElement("span", {
 									className: a.Highlight,
@@ -618,7 +609,7 @@ function $(e) {
 								),
 							});
 						} else {
-							t = (0, c.we)(
+							t = Localize(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2_NonDeck",
 							);
 							r = n.createElement(W.GenericGamepad, {
@@ -639,7 +630,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_Gyro_DescA1"
 											: "#ControllerConfigurator_Interstitial_Gyro_DescA1_NonDeck",
@@ -664,7 +655,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)("#ControllerConfigurator_Section_Gyros"),
+							strTitle: Localize("#ControllerConfigurator_Section_Gyros"),
 							rgPages: i,
 							bUseButtonTimer: true,
 						};
@@ -686,7 +677,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_AppRequiresOSK_DescA1",
 									),
 								),
@@ -709,7 +700,7 @@ function $(e) {
 											{
 												className: a.ChordLabel,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_AppRequiresOSK_DescA2",
 											),
 										),
@@ -733,7 +724,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_AppRequiresOSK_Title",
 							),
 							rgPages: t,
@@ -755,7 +746,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_RemotePlayConfirm_DescA1",
 										t,
 									),
@@ -768,14 +759,14 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_RemotePlayConfirm_DescA2",
 									),
 								),
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_RemotePlayConfirm_Title",
 							),
 							rgPages: r,
@@ -807,7 +798,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA1"
 											: "#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA1_NonDeck",
@@ -844,7 +835,7 @@ function $(e) {
 													{
 														className: a.DescLabel,
 													},
-													(0, c.we)(
+													Localize(
 														"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA4",
 													),
 												),
@@ -881,7 +872,7 @@ function $(e) {
 													{
 														className: a.DescLabel,
 													},
-													(0, c.we)(
+													Localize(
 														"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA5",
 													),
 												),
@@ -924,7 +915,7 @@ function $(e) {
 												{
 													className: a.DescLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA2",
 												),
 											),
@@ -960,7 +951,7 @@ function $(e) {
 												{
 													className: a.DescLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA3",
 												),
 											),
@@ -991,7 +982,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_Title",
 							),
 							rgPages: o,
@@ -1019,7 +1010,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_AppHasSmallText_DescA1"
 											: "#ControllerConfigurator_Interstitial_AppHasSmallText_DescA1NonDeck",
@@ -1055,7 +1046,7 @@ function $(e) {
 												{
 													className: a.DescLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_AppHasSmallText_DescA2",
 												),
 											),
@@ -1091,7 +1082,7 @@ function $(e) {
 												{
 													className: a.DescLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_AppHasSmallText_DescA3",
 												),
 											),
@@ -1112,7 +1103,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_AppHasSmallText_Title",
 							),
 							rgPages: o,
@@ -1135,7 +1126,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_ExternalControllersAndSIAPI_DescA1",
 										r,
 									),
@@ -1157,7 +1148,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_ExternalControllersAndSIAPI_DescA2",
 										r,
 									),
@@ -1165,7 +1156,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_ExternalControllersAndSIAPI",
 							),
 							rgPages: i,
@@ -1188,7 +1179,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescB1",
 									),
 								),
@@ -1207,7 +1198,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Label",
 											),
 										),
@@ -1228,7 +1219,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Action",
 												),
 											),
@@ -1247,7 +1238,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Label",
 											),
 										),
@@ -1268,7 +1259,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Action",
 												),
 											),
@@ -1287,7 +1278,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Label",
 											),
 										),
@@ -1308,7 +1299,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Action",
 												),
 											),
@@ -1320,7 +1311,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.oW)(
+									LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescB2",
 										n.createElement("span", {
 											className: a.Highlight,
@@ -1338,7 +1329,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.oW)(
+									LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescC1",
 										n.createElement("span", {
 											className: a.Highlight,
@@ -1372,7 +1363,7 @@ function $(e) {
 												{
 													className: a.SetLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Label1",
 												),
 											),
@@ -1394,7 +1385,7 @@ function $(e) {
 												{
 													className: a.SetLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Label2",
 												),
 											),
@@ -1406,7 +1397,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescC2",
 									),
 								),
@@ -1421,7 +1412,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescD1",
 									),
 								),
@@ -1452,7 +1443,7 @@ function $(e) {
 												{
 													className: a.ActivatorLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Activator1",
 												),
 											),
@@ -1461,7 +1452,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Command1",
 												),
 											),
@@ -1483,7 +1474,7 @@ function $(e) {
 												{
 													className: a.ActivatorLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Activator2",
 												),
 											),
@@ -1492,7 +1483,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Command2",
 												),
 											),
@@ -1504,14 +1495,14 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescD2",
 									),
 								),
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_IntroToActionSets",
 							),
 							rgPages: t,
@@ -1532,7 +1523,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.oW)(
+									LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescA1",
 										n.createElement("span", {
 											className: a.Highlight,
@@ -1557,7 +1548,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Label1",
 											),
 										),
@@ -1582,7 +1573,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Command1",
 												),
 											),
@@ -1598,7 +1589,7 @@ function $(e) {
 											{
 												className: a.SIHighlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Label2",
 											),
 										),
@@ -1623,7 +1614,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Command2",
 												),
 											),
@@ -1641,7 +1632,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.oW)(
+									LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescB1",
 										n.createElement("span", {
 											className: a.Highlight,
@@ -1663,7 +1654,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Label",
 											),
 										),
@@ -1684,7 +1675,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Action",
 												),
 											),
@@ -1703,7 +1694,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Label",
 											),
 										),
@@ -1724,7 +1715,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Action",
 												),
 											),
@@ -1743,7 +1734,7 @@ function $(e) {
 											{
 												className: a.Highlight,
 											},
-											(0, c.we)(
+											Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Label",
 											),
 										),
@@ -1764,7 +1755,7 @@ function $(e) {
 												{
 													className: a.ControlLabel,
 												},
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Action",
 												),
 											),
@@ -1776,14 +1767,14 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescB2",
 									),
 								),
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_IntroToSteamInputGames",
 							),
 							rgPages: t,
@@ -1812,7 +1803,7 @@ function $(e) {
 										{
 											className: a.Highlight,
 										},
-										(0, c.we)(
+										Localize(
 											"#ControllerConfigurator_Interstitial_IntroToVRTheater_Directions",
 										),
 									),
@@ -1827,21 +1818,21 @@ function $(e) {
 											n.createElement(
 												"li",
 												null,
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem1",
 												),
 											),
 											n.createElement(
 												"li",
 												null,
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem2",
 												),
 											),
 											n.createElement(
 												"li",
 												null,
-												(0, c.we)(
+												Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem3",
 												),
 											),
@@ -1851,7 +1842,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_IntroToVRTheater",
 							),
 							bHasCancel: true,
@@ -1866,7 +1857,7 @@ function $(e) {
 						let t = [];
 						t.push(n.createElement(ne, null));
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_ControllerRequired_Title",
 							),
 							rgPages: t,
@@ -1888,7 +1879,7 @@ function $(e) {
 									{
 										className: a.DescLabel,
 									},
-									(0, c.we)(
+									Localize(
 										"#ControllerConfigurator_Interstitial_ControllerRecommended_Desc",
 									),
 								),
@@ -1916,7 +1907,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_ControllerRecommended_Title",
 							),
 							rgPages: t,
@@ -1934,7 +1925,7 @@ function $(e) {
 							.GetControllers()
 							?.some((e) => e.eControllerType == 34);
 						if (o) {
-							t = (0, c.oW)(
+							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_PlugInPS4",
 								n.createElement("span", {
 									className: a.Highlight,
@@ -1947,7 +1938,7 @@ function $(e) {
 								className: (0, s.A)(a.DescImage, a.PlugIn),
 							});
 						} else {
-							t = (0, c.oW)(
+							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_PlugInPS5",
 								n.createElement("span", {
 									className: a.Highlight,
@@ -1980,7 +1971,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_PlugInController",
 							),
 							rgPages: i,
@@ -2012,7 +2003,7 @@ function $(e) {
 									? "#ControllerConfigurator_Interstitial_SteamInputOptInPS4_GameSupported"
 									: "#ControllerConfigurator_Interstitial_SteamInputOptInPS4_GameSupportedUSB";
 							}
-							r = (0, c.oW)(
+							r = LocalizeInlineReactWithFallback(
 								t,
 								n.createElement("span", {
 									className: a.Highlight,
@@ -2041,7 +2032,7 @@ function $(e) {
 									? "#ControllerConfigurator_Interstitial_SteamInputOptInPS5_GameSupported"
 									: "#ControllerConfigurator_Interstitial_SteamInputOptInPS5_GameSupportedUSB";
 							}
-							r = (0, c.oW)(
+							r = LocalizeInlineReactWithFallback(
 								t,
 								n.createElement("span", {
 									className: a.Highlight,
@@ -2079,7 +2070,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_SteamInputOptIn",
 							),
 							rgPages: o,
@@ -2093,7 +2084,7 @@ function $(e) {
 				o(
 					(function (e) {
 						let t = [];
-						let r = (0, c.we)("#ControllerConfigurator_Interstitial_VROnly");
+						let r = Localize("#ControllerConfigurator_Interstitial_VROnly");
 						let i = n.createElement(W.VR, {
 							className: (0, s.A)(a.DescImage, a.OptIn),
 						});
@@ -2120,7 +2111,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)("#ControllerConfigurator_Section_VROnly"),
+							strTitle: Localize("#ControllerConfigurator_Section_VROnly"),
 							rgPages: t,
 							bUseButtonTimer: true,
 						};
@@ -2149,7 +2140,7 @@ function $(e) {
 										{
 											className: (0, s.A)(a.DescLabelWithSpace, a.Large),
 										},
-										(0, c.we)(
+										Localize(
 											"#ControllerConfigurator_Interstitial_HDRRequiresUserAction_Directions1",
 											i,
 										),
@@ -2159,7 +2150,7 @@ function $(e) {
 										{
 											className: (0, s.A)(a.DescLabel, a.Large, a.Emphasize),
 										},
-										(0, c.we)(
+										Localize(
 											"#ControllerConfigurator_Interstitial_HDRRequriesUserAction_Directions2",
 										),
 									),
@@ -2167,7 +2158,7 @@ function $(e) {
 							),
 						);
 						return {
-							strTitle: (0, c.we)(
+							strTitle: Localize(
 								"#ControllerConfigurator_Section_HDRRequiresUserAction",
 							),
 							rgPages: r,
@@ -2287,16 +2278,14 @@ const te = (e) => {
 	const j = {};
 	j[d.pR.OK] =
 		G == v - 1
-			? (0, c.we)("#Generic_Close")
-			: (0, c.we)("#ControllerConfigurator_Interstitial_NextPage");
+			? Localize("#Generic_Close")
+			: Localize("#ControllerConfigurator_Interstitial_NextPage");
 	if (E) {
-		j[d.pR.SECONDARY] = (0, c.we)(
-			"#ControllerConfigurator_Interstitial_Toggle",
-		);
+		j[d.pR.SECONDARY] = Localize("#ControllerConfigurator_Interstitial_Toggle");
 	}
 	const q =
 		G > 0
-			? (0, c.we)("#ControllerConfigurator_Interstitial_PrevPage")
+			? Localize("#ControllerConfigurator_Interstitial_PrevPage")
 			: undefined;
 	const Z =
 		M &&
@@ -2314,7 +2303,7 @@ const te = (e) => {
 					{
 						onClick: V,
 					},
-					(0, c.we)("#Button_Prev"),
+					Localize("#Button_Prev"),
 				),
 			G == 0 &&
 				(v > 1 || _) &&
@@ -2323,7 +2312,7 @@ const te = (e) => {
 					{
 						onClick: H,
 					},
-					(0, c.we)("#Button_Cancel"),
+					Localize("#Button_Cancel"),
 				),
 			G < v - 1 &&
 				n.createElement(
@@ -2335,7 +2324,7 @@ const te = (e) => {
 						onClick: W,
 						className: a.OKButton,
 					},
-					(0, c.we)("#Button_Next"),
+					Localize("#Button_Next"),
 				),
 			G == v - 1 &&
 				n.createElement(
@@ -2347,7 +2336,7 @@ const te = (e) => {
 						onClick: W,
 						className: a.OKButton,
 					},
-					(0, c.we)("#Button_OK"),
+					Localize("#Button_OK"),
 				),
 		);
 	const Y = y.IN_GAMEPADUI && !z.TS.ON_DECK;
@@ -2441,7 +2430,7 @@ const te = (e) => {
 			n.createElement(i.y4, {
 				highlightOnFocus: false,
 				className: a.DontShowAgain,
-				label: (0, c.we)("#ControllerConfigurator_Interstitial_DontShowAgain"),
+				label: Localize("#ControllerConfigurator_Interstitial_DontShowAgain"),
 				checked: N,
 				onChange: F,
 				bottomSeparator: "none",
@@ -2462,7 +2451,7 @@ function re(e) {
 		{
 			className: a.ControllerTypeString,
 		},
-		(0, c.we)("#" + x.Fd.GetControllerTypeString(e.controllerType)),
+		Localize("#" + x.Fd.GetControllerTypeString(e.controllerType)),
 	);
 }
 function ne() {
@@ -2505,7 +2494,7 @@ function ne() {
 					{
 						className: a.WarningTextRow,
 					},
-					(0, c.we)(
+					Localize(
 						"#ControllerConfigurator_Interstitial_ControllerRequired_DescA1",
 					),
 				),
@@ -2514,7 +2503,7 @@ function ne() {
 					{
 						className: a.WarningTextRow,
 					},
-					(0, c.oW)(
+					LocalizeInlineReactWithFallback(
 						o,
 						n.createElement(re, {
 							controllerType: i,

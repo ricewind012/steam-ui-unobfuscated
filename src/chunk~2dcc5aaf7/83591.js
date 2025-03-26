@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./89193.js");
 var l = require("./16154.js");
 var c = require(/*webcrack:missing*/ "./72476.js");
 var m = require(/*webcrack:missing*/ "./63696.js");
-var u = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var d = require(/*webcrack:missing*/ "./49810.js");
 (function (e) {
 	e[(e.AnyController = 0)] = "AnyController";
@@ -463,7 +463,7 @@ export class Fm {
 		}
 		l.append("sessionid", c.TS.SESSIONID);
 		l.append("quantity", "1");
-		const m = (0, u.uX)(e);
+		const m = GetOwningWindowForEvent(e);
 		e.preventDefault();
 		try {
 			await s.post(r, l, {

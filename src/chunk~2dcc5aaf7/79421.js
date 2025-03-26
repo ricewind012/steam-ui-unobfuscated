@@ -1,10 +1,10 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 var o = require("./7558.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./10731.js");
 var u = m;
 var d = require(/*webcrack:missing*/ "./89193.js");
@@ -78,7 +78,7 @@ class f extends i.Component {
 	RestoreScrollPosition() {
 		const e = g.get(this.props.strRememberScrollKey);
 		if (this.m_elTarget && e) {
-			const t = (0, s.qf)(this.m_elTarget);
+			const t = GetOwningWindowForElement(this.m_elTarget);
 			if (t) {
 				t.requestAnimationFrame(() => {
 					this.m_elTarget.scrollLeft = e[0];
@@ -280,7 +280,7 @@ class S extends i.Component {
 				className: (0, l.A)(u.ScrollToTopButton, t && u.Visible),
 				onClick: e,
 			},
-			i.createElement("div", null, (0, c.we)("#Generic_ScrollToTop")),
+			i.createElement("div", null, Localize("#Generic_ScrollToTop")),
 		);
 	}
 }

@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./69164.js");
 var o = require(/*webcrack:missing*/ "./4690.js");
 var l = require("./64608.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./52451.js");
 var d = require("./47268.js");
 var A = d;
@@ -1708,7 +1708,7 @@ export function lP(e) {
 	const [F, G] = a.useState(t);
 	const O = h != F;
 	const P = O
-		? (0, m.we)("#Settings_ControllerCalibration_DiscardChanges")
+		? Localize("#Settings_ControllerCalibration_DiscardChanges")
 		: undefined;
 	const L = a.useCallback(() => {
 		if (O) {
@@ -1726,7 +1726,7 @@ export function lP(e) {
 						disabled: !O,
 						onSelected: L,
 					},
-					(0, m.we)("#Settings_ControllerCalibration_DiscardChanges"),
+					Localize("#Settings_ControllerCalibration_DiscardChanges"),
 				),
 			);
 			(0, _.lX)(t, e);

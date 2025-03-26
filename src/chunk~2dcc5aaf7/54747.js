@@ -6,7 +6,7 @@ var o = require("./64608.js");
 var l = require("./35488.js");
 var c = require("./13869.js");
 var m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./42085.js");
 var A = require("./27991.js");
 var p = require("./95377.js");
@@ -24,7 +24,7 @@ var v = require("./53225.js");
 var I = require(/*webcrack:missing*/ "./736.js");
 var E = require("./68665.js");
 var M = require(/*webcrack:missing*/ "./69164.js");
-var T = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 export function br() {
 	return n.createElement(N, null);
 }
@@ -41,7 +41,7 @@ function k(e) {
 				n.createElement(
 					d.aU,
 					{
-						title: (0, u.we)("#RemotePlay_Players"),
+						title: (0, Localize)("#RemotePlay_Players"),
 					},
 					[t, ...i]
 						.filter((e) => e.bSession)
@@ -70,9 +70,9 @@ function k(e) {
 										o.$n,
 										{
 											className: A.InlineInviteButton,
-											onClick: (e) => Je(c, (0, T.uX)(e)),
+											onClick: (e) => Je(c, GetOwningWindowForEvent(e)),
 										},
-										(0, u.we)("#RemotePlay_InviteFriend"),
+										(0, Localize)("#RemotePlay_InviteFriend"),
 									),
 									n.createElement(
 										o.$n,
@@ -80,7 +80,7 @@ function k(e) {
 											className: A.InlineInviteButton,
 											onClick: () => ce(e.browserContext),
 										},
-										(0, u.we)("#RemotePlay_InviteGuest"),
+										(0, Localize)("#RemotePlay_InviteGuest"),
 									),
 								),
 							),
@@ -96,7 +96,7 @@ function k(e) {
 		);
 	} else {
 		return n.createElement(d.aU, {
-			title: (0, u.we)("#RemotePlay_NoGameRunning"),
+			title: (0, Localize)("#RemotePlay_NoGameRunning"),
 		});
 	}
 }
@@ -111,7 +111,7 @@ export function rN(e) {
 			{
 				className: A.QuickAccessTitle,
 			},
-			(0, u.we)("#RemotePlayTogether_QuickAccessTitle"),
+			(0, Localize)("#RemotePlayTogether_QuickAccessTitle"),
 		),
 		n.createElement(
 			y.MS,
@@ -143,7 +143,7 @@ const F = (0, i.PA)(function () {
 		{
 			className: A.DialogHeader,
 		},
-		(0, u.we)("#Friend_Menu_RemotePlay"),
+		(0, Localize)("#Friend_Menu_RemotePlay"),
 		n.createElement(
 			"div",
 			{
@@ -154,7 +154,7 @@ const F = (0, i.PA)(function () {
 							visibility: "hidden",
 						},
 			},
-			(0, u.we)("#RemotePlay_StreamPaused"),
+			(0, Localize)("#RemotePlay_StreamPaused"),
 		),
 		n.createElement(
 			"div",
@@ -186,7 +186,7 @@ const O = () => {
 	return n.createElement(
 		ve,
 		{
-			title: (0, u.we)("#RemotePlay_Host"),
+			title: (0, Localize)("#RemotePlay_Host"),
 		},
 		n.createElement(L, {
 			player: e,
@@ -199,7 +199,7 @@ const P = (0, i.PA)(function () {
 	return n.createElement(
 		ve,
 		{
-			title: (0, u.we)("#RemotePlay_Players"),
+			title: (0, Localize)("#RemotePlay_Players"),
 		},
 		t.map((e, t) =>
 			e.bSession
@@ -236,7 +236,7 @@ function z(e) {
 	if (e.friend?.accountid) {
 		return e.friend.display_name;
 	} else {
-		return (0, u.we)("#RemotePlay_NumberedGuest", e.playerID.guestid);
+		return (0, Localize)("#RemotePlay_NumberedGuest", e.playerID.guestid);
 	}
 }
 function x(e) {
@@ -255,12 +255,12 @@ function U(e, t) {
 	const r = x(e);
 	if (e.bJoined) {
 		if (t && r) {
-			return (0, u.we)("#RemotePlay_PlayerNoInputWarning_Concise");
+			return (0, Localize)("#RemotePlay_PlayerNoInputWarning_Concise");
 		} else {
 			return undefined;
 		}
 	} else {
-		return (0, u.we)("#RemotePlay_Player_Invited");
+		return (0, Localize)("#RemotePlay_Player_Invited");
 	}
 }
 const W = (0, i.PA)(function (e) {
@@ -280,9 +280,9 @@ const W = (0, i.PA)(function (e) {
 			: s.xm.RemotePlayStore.CancelInviteAndSession(i.accountid);
 	const g = (e) => (0, b.EP)(e, i.GetCommunityProfileURL());
 	const h = r
-		? (0, u.we)("#RemotePlay_CancelInvite")
-		: (0, u.we)("#Button_Cancel");
-	const C = t.bJoined ? (0, u.we)("#RemotePlay_Kick") : h;
+		? (0, Localize)("#RemotePlay_CancelInvite")
+		: (0, Localize)("#Button_Cancel");
+	const C = t.bJoined ? (0, Localize)("#RemotePlay_Kick") : h;
 	const _ = z(t);
 	const f = U(t, r);
 	const y = J(t);
@@ -298,7 +298,7 @@ const W = (0, i.PA)(function (e) {
 			n.createElement(
 				"div",
 				{
-					title: (0, u.we)("#Tooltip_RemotePlay_ConnectionQuality"),
+					title: (0, Localize)("#Tooltip_RemotePlay_ConnectionQuality"),
 					style: {
 						display: "flex",
 					},
@@ -354,7 +354,7 @@ const W = (0, i.PA)(function (e) {
 				{
 					onSelected: g,
 				},
-				(0, u.we)("#RemotePlay_ShowProfile"),
+				(0, Localize)("#RemotePlay_ShowProfile"),
 			),
 			c &&
 				n.createElement(
@@ -403,7 +403,7 @@ const V = (0, i.PA)(function (e) {
 				{
 					title: r
 						? undefined
-						: (0, u.we)("#Tooltip_RemotePlay_ConnectionQuality"),
+						: (0, Localize)("#Tooltip_RemotePlay_ConnectionQuality"),
 					style: {
 						display: "flex",
 					},
@@ -422,10 +422,10 @@ const V = (0, i.PA)(function (e) {
 				{
 					onClick: c,
 				},
-				(0, u.we)("#RemotePlay_Kick"),
+				(0, Localize)("#RemotePlay_Kick"),
 			),
 		onSecondaryButton: o ? c : undefined,
-		onSecondaryActionDescription: (0, u.we)("#RemotePlay_Kick"),
+		onSecondaryActionDescription: (0, Localize)("#RemotePlay_Kick"),
 		playerControls:
 			(!r || t.bJoined) &&
 			n.createElement($, {
@@ -445,7 +445,7 @@ const V = (0, i.PA)(function (e) {
 						{
 							onSelected: c,
 						},
-						(0, u.we)("#RemotePlay_Kick"),
+						(0, Localize)("#RemotePlay_Kick"),
 					),
 				g.length > 0 && n.createElement(w.K5, null),
 				g,
@@ -470,7 +470,7 @@ const H = (0, i.PA)(function (e) {
 		quickaccess: r,
 		icon: r ? n.createElement(l.User, null) : n.createElement(j, null),
 		title: m,
-		clipboardStatus: (0, u.we)(
+		clipboardStatus: (0, Localize)(
 			i ? "#RemotePlay_Guest_CopyHint_Copied" : "#RemotePlay_Guest_CopyHint",
 		),
 		desktopButtons: n.createElement(
@@ -481,11 +481,11 @@ const H = (0, i.PA)(function (e) {
 					c();
 				},
 			},
-			(0, u.we)("#Button_Cancel"),
+			(0, Localize)("#Button_Cancel"),
 		),
 		className: A.InvitedGuestBox,
 		onClick: o,
-		onClickDescription: (0, u.we)("#RemotePlay_LinkCopy_Button"),
+		onClickDescription: (0, Localize)("#RemotePlay_LinkCopy_Button"),
 		contextMenu: n.createElement(
 			w.tz,
 			{
@@ -496,14 +496,14 @@ const H = (0, i.PA)(function (e) {
 				{
 					onSelected: o,
 				},
-				(0, u.we)("#RemotePlay_LinkCopy_Button"),
+				(0, Localize)("#RemotePlay_LinkCopy_Button"),
 			),
 			n.createElement(
 				w.kt,
 				{
 					onSelected: c,
 				},
-				(0, u.we)("#RemotePlay_CancelInvite"),
+				(0, Localize)("#RemotePlay_CancelInvite"),
 			),
 		),
 		connectURL: t.strConnectUrl,
@@ -513,7 +513,7 @@ function j() {
 	return n.createElement(
 		pe,
 		{
-			label: (0, u.we)("#RemotePlay_CopyLink_ButtonText"),
+			label: (0, Localize)("#RemotePlay_CopyLink_ButtonText"),
 		},
 		n.createElement(Le, {
 			color: "white",
@@ -532,25 +532,25 @@ const q = (e) => {
 				onClick: () => s.xm.RemotePlayStore.StopRemotePlay(),
 				className: A.HeaderButton,
 			},
-			(0, u.we)("#RemotePlay_LeaveStream"),
+			(0, Localize)("#RemotePlay_LeaveStream"),
 		);
 	}
 };
 function Q(e) {
 	switch (e) {
 		case 3:
-			return (0, u.we)("#RemotePlay_ClientQualityName_Beautiful");
+			return (0, Localize)("#RemotePlay_ClientQualityName_Beautiful");
 		case 2:
-			return (0, u.we)("#RemotePlay_ClientQualityName_Balanced");
+			return (0, Localize)("#RemotePlay_ClientQualityName_Balanced");
 		case 1:
-			return (0, u.we)("#RemotePlay_ClientQualityName_Fast");
+			return (0, Localize)("#RemotePlay_ClientQualityName_Fast");
 		default:
-			return (0, u.we)("#RemotePlay_ClientQualityName_Automatic");
+			return (0, Localize)("#RemotePlay_ClientQualityName_Automatic");
 	}
 }
 const Z = (0, i.PA)(function () {
 	const e = s.xm.RemotePlayStore.client_streaming_quality;
-	const t = (0, u.we)("#RemotePlay_ClientQuality_WithValue", Q(e));
+	const t = (0, Localize)("#RemotePlay_ClientQuality_WithValue", Q(e));
 	const r = s.xm.RemotePlayStore.GetSessionForPlayer({
 		steamid: s.xm.FriendStore.self.steamid64,
 		guestid: 0,
@@ -632,7 +632,7 @@ const Y = (0, i.PA)(function (e) {
 		n.createElement(
 			o.D0,
 			{
-				label: (0, u.we)("#RemotePlay_ClientQuality"),
+				label: (0, Localize)("#RemotePlay_ClientQuality"),
 				icon:
 					l &&
 					n.createElement(We, {
@@ -642,7 +642,7 @@ const Y = (0, i.PA)(function (e) {
 				childrenLayout: "inline",
 				bottomSeparator: e.bottomSeparator,
 				description: m
-					? (0, u.we)("#RemotePlay_ClientQuality_HostOverride")
+					? (0, Localize)("#RemotePlay_ClientQuality_HostOverride")
 					: undefined,
 			},
 			n.createElement(o.ZU, {
@@ -731,8 +731,8 @@ function J(e) {
 					onSelected: t,
 				},
 				e.bKeyboardEnabled
-					? (0, u.we)("#Tooltip_RemotePlay_DisableKeyboard")
-					: (0, u.we)("#Tooltip_RemotePlay_EnableKeyboard"),
+					? (0, Localize)("#Tooltip_RemotePlay_DisableKeyboard")
+					: (0, Localize)("#Tooltip_RemotePlay_EnableKeyboard"),
 			),
 		);
 	}
@@ -745,8 +745,8 @@ function J(e) {
 					onSelected: r,
 				},
 				e.bMouseEnabled
-					? (0, u.we)("#Tooltip_RemotePlay_DisableMouse")
-					: (0, u.we)("#Tooltip_RemotePlay_EnableMouse"),
+					? (0, Localize)("#Tooltip_RemotePlay_DisableMouse")
+					: (0, Localize)("#Tooltip_RemotePlay_EnableMouse"),
 			),
 		);
 	}
@@ -759,8 +759,8 @@ function J(e) {
 					onSelected: i,
 				},
 				e.bControllerEnabled
-					? (0, u.we)("#Tooltip_RemotePlay_DisableControllers_Standalone")
-					: (0, u.we)("#Tooltip_RemotePlay_EnableControllers_Standalone"),
+					? (0, Localize)("#Tooltip_RemotePlay_DisableControllers_Standalone")
+					: (0, Localize)("#Tooltip_RemotePlay_EnableControllers_Standalone"),
 			),
 		);
 	}
@@ -826,7 +826,7 @@ const $ = (0, i.PA)(function (e) {
 					"div",
 					{
 						className: A.NoInputWarning,
-						title: (0, u.we)("#RemotePlay_PlayerNoInputWarning"),
+						title: (0, Localize)("#RemotePlay_PlayerNoInputWarning"),
 					},
 					n.createElement(xe, {
 						className: A.WarningIcon,
@@ -838,40 +838,40 @@ const $ = (0, i.PA)(function (e) {
 function ee(e, t) {
 	if (t) {
 		if (e) {
-			return (0, u.we)("#Tooltip_RemotePlay_DisableMouse");
+			return (0, Localize)("#Tooltip_RemotePlay_DisableMouse");
 		} else {
-			return (0, u.we)("#Tooltip_RemotePlay_EnableMouse");
+			return (0, Localize)("#Tooltip_RemotePlay_EnableMouse");
 		}
 	} else if (e) {
-		return (0, u.we)("#Tooltip_RemotePlay_MouseEnabled");
+		return (0, Localize)("#Tooltip_RemotePlay_MouseEnabled");
 	} else {
-		return (0, u.we)("#Tooltip_RemotePlay_MouseDisabled");
+		return (0, Localize)("#Tooltip_RemotePlay_MouseDisabled");
 	}
 }
 function te(e, t) {
 	if (t) {
 		if (e) {
-			return (0, u.we)("#Tooltip_RemotePlay_DisableKeyboard");
+			return (0, Localize)("#Tooltip_RemotePlay_DisableKeyboard");
 		} else {
-			return (0, u.we)("#Tooltip_RemotePlay_EnableKeyboard");
+			return (0, Localize)("#Tooltip_RemotePlay_EnableKeyboard");
 		}
 	} else if (e) {
-		return (0, u.we)("#Tooltip_RemotePlay_KeyboardEnabled");
+		return (0, Localize)("#Tooltip_RemotePlay_KeyboardEnabled");
 	} else {
-		return (0, u.we)("#Tooltip_RemotePlay_KeyboardDisabled");
+		return (0, Localize)("#Tooltip_RemotePlay_KeyboardDisabled");
 	}
 }
 function re(e, t) {
 	if (t) {
 		if (e) {
-			return (0, u.we)("#Tooltip_RemotePlay_DisableControllers");
+			return (0, Localize)("#Tooltip_RemotePlay_DisableControllers");
 		} else {
-			return (0, u.we)("#Tooltip_RemotePlay_EnableControllers");
+			return (0, Localize)("#Tooltip_RemotePlay_EnableControllers");
 		}
 	} else if (e) {
-		return (0, u.we)("#Tooltip_RemotePlay_ControllersEnabled");
+		return (0, Localize)("#Tooltip_RemotePlay_ControllersEnabled");
 	} else {
-		return (0, u.we)("#Tooltip_RemotePlay_ControllersDisabled");
+		return (0, Localize)("#Tooltip_RemotePlay_ControllersDisabled");
 	}
 }
 function ne(e) {
@@ -1071,18 +1071,18 @@ function me(e) {
 	return n.createElement(Te, {
 		quickaccess: false,
 		icon: n.createElement(de, null),
-		title: (0, u.we)("#RemotePlay_InviteFriend_Verbose"),
-		description: (0, u.we)("#RemotePlay_InviteFriend_ShortDescription"),
+		title: (0, Localize)("#RemotePlay_InviteFriend_Verbose"),
+		description: (0, Localize)("#RemotePlay_InviteFriend_ShortDescription"),
 		className: A.AddGuestBox,
-		onClick: (e) => Je(t, (0, T.uX)(e)),
+		onClick: (e) => Je(t, GetOwningWindowForEvent(e)),
 	});
 }
 function ue(e) {
 	return n.createElement(Te, {
 		quickaccess: false,
 		icon: n.createElement(Ae, null),
-		title: (0, u.we)("#RemotePlay_InviteGuest_Verbose"),
-		description: (0, u.we)("#RemotePlay_LinkCopy_ShortDescription"),
+		title: (0, Localize)("#RemotePlay_InviteGuest_Verbose"),
+		description: (0, Localize)("#RemotePlay_LinkCopy_ShortDescription"),
 		className: A.AddGuestBox,
 		onClick: (e) => ce((0, h.CO)(e)),
 	});
@@ -1091,7 +1091,7 @@ function de() {
 	return n.createElement(
 		pe,
 		{
-			label: (0, u.we)("#RemotePlay_AddGuest_ButtonText"),
+			label: (0, Localize)("#RemotePlay_AddGuest_ButtonText"),
 		},
 		n.createElement(
 			"svg",
@@ -1111,7 +1111,7 @@ function Ae() {
 	return n.createElement(
 		pe,
 		{
-			label: (0, u.we)("#RemotePlay_AddGuest_ButtonText"),
+			label: (0, Localize)("#RemotePlay_AddGuest_ButtonText"),
 		},
 		n.createElement(Le, {
 			color: "white",
@@ -1164,7 +1164,7 @@ const he = (0, i.PA)(function (e) {
 		n.createElement(
 			ve,
 			{
-				title: (0, u.we)("#RemotePlay_GameSettings"),
+				title: (0, Localize)("#RemotePlay_GameSettings"),
 				className: A.NoMarginTop,
 			},
 			n.createElement(
@@ -1211,7 +1211,7 @@ const Ce = (0, i.PA)(function () {
 					"div",
 					{
 						className: A.HowToHint,
-						title: (0, u.we)("#Tooltip_RemotePlayControllerAssignments"),
+						title: (0, Localize)("#Tooltip_RemotePlayControllerAssignments"),
 					},
 					"?",
 				),
@@ -1243,7 +1243,7 @@ const _e = (0, i.PA)(function () {
 		n.createElement(
 			o.D0,
 			{
-				label: (0, u.we)("#RemotePlay_Controllers"),
+				label: (0, Localize)("#RemotePlay_Controllers"),
 				childrenLayout: "below",
 				focusable: e,
 				onClick: e
@@ -1260,10 +1260,10 @@ const _e = (0, i.PA)(function () {
 										}),
 								);
 								(0, c.pg)(r, t);
-							})(i, (0, T.uX)(e))
+							})(i, GetOwningWindowForEvent(e))
 					: undefined,
 				onOKActionDescription: e
-					? (0, u.we)("#RemotePlay_ChangeControllerOrder")
+					? (0, Localize)("#RemotePlay_ChangeControllerOrder")
 					: null,
 			},
 			n.createElement(
@@ -1294,8 +1294,8 @@ const fe = (0, i.PA)(function ({ index: e, player: t }) {
 	if (r) {
 		const e = t.friend.accountid
 			? t.friend.display_name
-			: (0, u.we)("#RemotePlay_NumberedGuest", t.playerID.guestid);
-		i = (0, u.we)("#Tooltip_RemotePlayOtherController", e);
+			: (0, Localize)("#RemotePlay_NumberedGuest", t.playerID.guestid);
+		i = (0, Localize)("#Tooltip_RemotePlayOtherController", e);
 	}
 	const { bDragHovered: a, dropTargetProps: o } = (function (e, t) {
 		const [r, i] = (0, n.useState)(false);
@@ -1485,7 +1485,7 @@ const Be = (0, i.PA)(function () {
 		onChange: (e) => s.xm.RemotePlayStore.SetGameVolume(e),
 		value: s.xm.RemotePlayStore.game_volume,
 		icon: Pe,
-		title: (0, u.we)("#RemotePlay_GameMasterVolume"),
+		title: (0, Localize)("#RemotePlay_GameMasterVolume"),
 	});
 });
 (0, i.PA)(function () {
@@ -1501,7 +1501,7 @@ const Be = (0, i.PA)(function () {
 			icon: n.createElement(l.AudioVolumeIcon, {
 				flVolume: e / 100,
 			}),
-			label: (0, u.we)("#RemotePlay_GameMasterVolume"),
+			label: (0, Localize)("#RemotePlay_GameMasterVolume"),
 			layout: "inline",
 		}),
 	);
@@ -1589,7 +1589,7 @@ const Ee = (e) => {
 				),
 				focusable: true,
 				onClick: b,
-				onOKActionDescription: l ? (0, u.we)("#RemotePlay_Options") : null,
+				onOKActionDescription: l ? (0, Localize)("#RemotePlay_Options") : null,
 				onContextMenu: b,
 				onMenuButton: b,
 				childrenLayout: "inline",
@@ -2205,7 +2205,7 @@ const Ye = (0, i.PA)(function (e) {
 				a = e;
 			}
 			o.push({
-				label: (0, u.we)("#RemotePlay_ControllerSlot_Empty"),
+				label: (0, Localize)("#RemotePlay_ControllerSlot_Empty"),
 				icon: n.createElement(l.ControllerStatus, {
 					none: true,
 				}),
@@ -2229,10 +2229,10 @@ const Ye = (0, i.PA)(function (e) {
 		let p;
 		if (c) {
 			d = () => s.xm.RemotePlayStore.RemoveControllerFromPrioritySlot(e.nSlot);
-			p = (0, u.we)("#RemotePlay_DeactivateController");
+			p = (0, Localize)("#RemotePlay_DeactivateController");
 		} else if (m) {
 			d = () => s.xm.RemotePlayStore.SwapControllerSlots(e.nSlot, a, false);
-			p = (0, u.we)("#RemotePlay_ReactivateController");
+			p = (0, Localize)("#RemotePlay_ReactivateController");
 		}
 		o.push({
 			label: n.createElement(
@@ -2264,7 +2264,7 @@ const Ye = (0, i.PA)(function (e) {
 				? () => s.xm.RemotePlayStore.TriggerControllerRumble(e.nSlot)
 				: undefined,
 			onOptionsActionDescription: l
-				? (0, u.we)("#RemotePlay_IdentifyController")
+				? (0, Localize)("#RemotePlay_IdentifyController")
 				: undefined,
 			onSecondaryButton: d,
 			onSecondaryActionDescription: p,
@@ -2272,12 +2272,12 @@ const Ye = (0, i.PA)(function (e) {
 	}
 	o.sort((e, t) => e.index - t.index);
 	return n.createElement(v.o, {
-		title: (0, u.we)("#RemotePlay_ControllerOrder"),
+		title: (0, Localize)("#RemotePlay_ControllerOrder"),
 		items: o,
 		sections: [
 			{
 				name: "inactive",
-				label: (0, u.we)("#RemotePlay_InactiveControllers"),
+				label: (0, Localize)("#RemotePlay_InactiveControllers"),
 			},
 		],
 		onMoveRelative: (e, t) => {
@@ -2350,13 +2350,13 @@ function Xe(e) {
 			n.createElement(
 				o.Y9,
 				null,
-				(0, u.we)("#RemotePlay_InviteFriend_Verbose"),
+				(0, Localize)("#RemotePlay_InviteFriend_Verbose"),
 			),
 			n.createElement(
 				o.nB,
 				null,
 				n.createElement(E.r, {
-					label: (0, u.we)("#RemotePlay_FriendsToInvite"),
+					label: (0, Localize)("#RemotePlay_FriendsToInvite"),
 					eSort: 2,
 					rgPickedFriends: t,
 					onChange: r,
@@ -2398,7 +2398,7 @@ async function Je(e, t) {
 			fnOnClose: o,
 			popupWidth: l,
 			popupHeight: m,
-			strTitle: (0, u.we)("#RemotePlay_InviteFriend_Verbose"),
+			strTitle: (0, Localize)("#RemotePlay_InviteFriend_Verbose"),
 			bHideMainWindowForPopouts: false,
 			browserContext: r,
 		});

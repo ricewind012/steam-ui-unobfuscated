@@ -49,7 +49,7 @@ var C = require("./10606.js");
 var _ = require("./13869.js");
 var f = require(/*webcrack:missing*/ "./26853.js");
 var b = require(/*webcrack:missing*/ "./90765.js");
-var y = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var S = require(/*webcrack:missing*/ "./52451.js");
 var w = require(/*webcrack:missing*/ "./72476.js");
 var B = require("./70446.js");
@@ -82,7 +82,7 @@ export function u_(e) {
 			{
 				classNameContent: (0, b.A)("GenericConfirmDialog", v.EulaModalDialog),
 			},
-			s.createElement(h.Y9, null, (0, y.we)("#EulaDialog_Header")),
+			s.createElement(h.Y9, null, (0, Localize)("#EulaDialog_Header")),
 			s.createElement(
 				h.nB,
 				null,
@@ -107,7 +107,7 @@ function M(e) {
 		},
 		[],
 	);
-	let c = (0, y.we)(
+	let c = (0, Localize)(
 		"#Installer_Eula",
 		a.tw.GetAppOverviewByAppID(t)?.display_name,
 	);
@@ -165,7 +165,7 @@ function M(e) {
 					focusButton: "secondary",
 					onCancel: m,
 					onOK: o.continueFn,
-					strOKText: (0, y.we)("#Installer_EulaAccept"),
+					strOKText: (0, Localize)("#Installer_EulaAccept"),
 				}),
 			),
 		),
@@ -211,7 +211,7 @@ function R(e) {
 		{
 			className: v.EULAError,
 		},
-		s.createElement(p.Z, null, (0, y.we)("#Installer_EulaError")),
+		s.createElement(p.Z, null, (0, Localize)("#Installer_EulaError")),
 		s.createElement(
 			p.Z,
 			null,
@@ -221,7 +221,7 @@ function R(e) {
 					onClick: r,
 					autoFocus: true,
 				},
-				(0, y.we)("#Button_Retry"),
+				(0, Localize)("#Button_Retry"),
 			),
 		),
 	);
@@ -266,7 +266,7 @@ function D(e) {
 		() =>
 			t?.map((e) => ({
 				data: e,
-				label: (0, y.we)(`#language_selection_${e}`),
+				label: (0, Localize)(`#language_selection_${e}`),
 			})),
 		[t],
 	);
@@ -282,7 +282,7 @@ function D(e) {
 			s.createElement(h.Vb, {
 				layout: "inline",
 				bottomSeparator: "none",
-				label: (0, y.we)("#EulaDialog_Language"),
+				label: (0, Localize)("#EulaDialog_Language"),
 				rgOptions: a,
 				selectedOption: r,
 				onChange: o,

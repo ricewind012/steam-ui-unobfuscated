@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./35488.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require(/*webcrack:missing*/ "./72476.js");
 var o = require("./24496.js");
 export function Cj(e) {
@@ -18,17 +18,17 @@ export function Cj(e) {
 		const n = t?.path;
 		r =
 			s.TS.ON_DECK && e.nFolderIndex == 0
-				? (0, a.we)("#ContentManagement_InternalStorage")
+				? Localize("#ContentManagement_InternalStorage")
 				: (s.TS.ON_DECK && n != null && n.includes("mmcblk")) ||
-						e.strDriveName.startsWith("/run/media/mmcblk")
-					? (0, a.we)("#ContentManagement_ExternalMicroSD")
+					  e.strDriveName.startsWith("/run/media/mmcblk")
+					? Localize("#ContentManagement_ExternalMicroSD")
 					: e.strDriveName.length < 4
 						? e.bIsFixed
-							? (0, a.we)("#ContentManagement_FixedDrive") +
+							? Localize("#ContentManagement_FixedDrive") +
 								" (" +
 								e.strDriveName +
 								")"
-							: (0, a.we)("#ContentManagement_RemovableDrive") +
+							: Localize("#ContentManagement_RemovableDrive") +
 								" (" +
 								e.strDriveName +
 								")"

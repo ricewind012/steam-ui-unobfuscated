@@ -11,7 +11,10 @@ var d = require(/*webcrack:missing*/ "./90095.js");
 var A = require("./35062.js");
 var _p = A;
 var g = require(/*webcrack:missing*/ "./90765.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var C = require("./87935.js");
 var _ = require("./5808.js");
 var f = require("./22639.js");
@@ -28,7 +31,7 @@ var T = require(/*webcrack:missing*/ "./31084.js");
 var R = require("./35488.js");
 var k = require("./18057.js");
 var D = require("./93681.js");
-var N = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 class F extends i.Component {
 	TwoDigitDurationString(e) {
 		return ("0" + e).slice(-2);
@@ -67,7 +70,7 @@ let G = class extends i.Component {
 			return i.createElement(
 				i.Fragment,
 				null,
-				(0, h.we)("#AppDetails_Soundtrack_TrackCount", e),
+				Localize("#AppDetails_Soundtrack_TrackCount", e),
 			);
 		} else {
 			return null;
@@ -217,7 +220,7 @@ let U = class extends i.Component {
 						{
 							className: _p.Disc,
 						},
-						(0, h.we)("#AppDetails_Soundtrack_DiscNumber", n),
+						Localize("#AppDetails_Soundtrack_DiscNumber", n),
 					),
 					a,
 				),
@@ -308,7 +311,7 @@ export const gR = (0, u.PA)(function (e) {
 								{
 									className: _p.ParentGameLink,
 								},
-								(0, h.PP)("#AppDetails_Soundtrack_ParentAppLink"),
+								LocalizeReact("#AppDetails_Soundtrack_ParentAppLink"),
 							),
 							c,
 						),
@@ -317,7 +320,7 @@ export const gR = (0, u.PA)(function (e) {
 							{
 								className: _p.AlbumStatsContainer,
 							},
-							(0, h.PP)("#AppDetails_Soundtrack_TotalLength"),
+							LocalizeReact("#AppDetails_Soundtrack_TotalLength"),
 							i.createElement(
 								"div",
 								{
@@ -468,7 +471,7 @@ function H(e) {
 						className: _p.PlayButton,
 						onClick: () => (0, _.aF)(r.appid, s),
 					},
-					(0, h.we)("#AppDetails_Soundtrack_PlayAlbum"),
+					Localize("#AppDetails_Soundtrack_PlayAlbum"),
 				),
 			);
 		}
@@ -481,14 +484,14 @@ function H(e) {
 						className: _p.PlayButton,
 						onClick: () => A("BrowseLocalFiles"),
 					},
-					(0, h.we)("#AppDetails_Soundtrack_ViewOnDisk"),
+					Localize("#AppDetails_Soundtrack_ViewOnDisk"),
 				),
 			);
 		}
 	} else if (t) {
 		const e =
 			t == "Install"
-				? (0, h.we)("#AppDetails_Soundtrack_DownloadAlbum")
+				? Localize("#AppDetails_Soundtrack_DownloadAlbum")
 				: (0, b.Np)(t);
 		g.push(
 			i.createElement(
@@ -539,7 +542,7 @@ function H(e) {
 					console.log(e);
 					console.error("ERROR DISPLAYING ARTWORK");
 				}
-			})(r, 0.8, null, n, (0, N.uX)(e));
+			})(r, 0.8, null, n, GetOwningWindowForEvent(e));
 		g.push(
 			i.createElement(
 				m.$n,
@@ -548,7 +551,7 @@ function H(e) {
 					className: _p.PlayButton,
 					onClick: e,
 				},
-				(0, h.we)("#AppDetails_Soundtrack_ViewAdditionalArtwork"),
+				Localize("#AppDetails_Soundtrack_ViewAdditionalArtwork"),
 			),
 		);
 	}
@@ -568,7 +571,7 @@ function H(e) {
 								onSelected: () => A("BrowseLocalFiles"),
 							},
 							" ",
-							(0, h.we)("#AppDetails_Soundtrack_ViewOnDisk"),
+							Localize("#AppDetails_Soundtrack_ViewOnDisk"),
 							" ",
 						),
 					i.createElement(
@@ -578,7 +581,7 @@ function H(e) {
 							onSelected: w,
 						},
 						" ",
-						(0, h.we)("#AppDetails_Soundtrack_ViewStorePage"),
+						Localize("#AppDetails_Soundtrack_ViewStorePage"),
 						" ",
 					),
 					i.createElement(
@@ -588,7 +591,7 @@ function H(e) {
 							onSelected: E,
 						},
 						" ",
-						(0, h.we)("#AppDetails_Soundtrack_Support"),
+						Localize("#AppDetails_Soundtrack_Support"),
 						" ",
 					),
 				),
@@ -618,7 +621,7 @@ function H(e) {
 					onClick: R,
 				},
 				" ",
-				(0, h.we)("#AppDetails_Soundtrack_SeeMore"),
+				Localize("#AppDetails_Soundtrack_SeeMore"),
 			),
 		!a &&
 			o &&
@@ -637,7 +640,7 @@ function H(e) {
 							key: "showInStoreAction",
 							className: _p.PlayButton,
 						},
-						(0, h.we)("#AppDetails_Soundtrack_ViewStorePage"),
+						Localize("#AppDetails_Soundtrack_ViewStorePage"),
 					),
 				),
 				i.createElement(
@@ -652,7 +655,7 @@ function H(e) {
 							key: "showSupportAction",
 							className: _p.PlayButton,
 						},
-						(0, h.we)("#AppDetails_Soundtrack_Support"),
+						Localize("#AppDetails_Soundtrack_Support"),
 					),
 				),
 			),
@@ -748,7 +751,7 @@ class j extends i.Component {
 									className: _p.ModalArtCloseButton,
 									onClick: this.OnOK,
 								},
-								(0, h.we)("#Generic_Close"),
+								Localize("#Generic_Close"),
 							),
 						),
 						i.createElement(

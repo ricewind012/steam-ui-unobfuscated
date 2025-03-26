@@ -17,9 +17,12 @@ var _ = require(/*webcrack:missing*/ "./63696.js");
 var f = require("./64608.js");
 var b = require(/*webcrack:missing*/ "./50376.js");
 var y = require(/*webcrack:missing*/ "./26853.js");
-var S = require(/*webcrack:missing*/ "./54644.js");
-var w = require(/*webcrack:missing*/ "./53833.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./52451.js");
 var I = require("./24761.js");
 var E = require("./59704.js");
@@ -121,7 +124,7 @@ export function hI(e, t) {
 		e,
 		"ChatRoomGroupSettings",
 		{
-			strTitle: (0, B.we)("#GroupSettings"),
+			strTitle: (0, Localize)("#GroupSettings"),
 			popupWidth: 842,
 			popupHeight: 600,
 		},
@@ -156,7 +159,7 @@ let V = class extends _.Component {
 		this.props.closeModal();
 	}
 	OnLeave(e) {
-		let t = (0, S.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		let r = (0, l.CO)(e);
 		let n = this.props.groupView.GetGroup();
 		let i = n.BIsClanChatRoom()
@@ -166,9 +169,9 @@ let V = class extends _.Component {
 				: "#Chat_Actions_LeaveChatRoomGroup_Confirm";
 		(0, d.Ci)(
 			t,
-			(0, B.we)("#GroupSettings_Leave_Section"),
-			(0, B.we)(i, n.name),
-			(0, B.we)("#GroupSettings_Leave_Button"),
+			(0, Localize)("#GroupSettings_Leave_Section"),
+			(0, Localize)(i, n.name),
+			(0, Localize)("#GroupSettings_Leave_Button"),
 		)
 			.then(() => {
 				n.LeaveChatRoomGroup(r);
@@ -183,14 +186,14 @@ let V = class extends _.Component {
 		if (this.context?.IN_GAMEPADUI) {
 			return [
 				{
-					title: (0, B.we)("#GroupSettings_General_Section"),
+					title: (0, Localize)("#GroupSettings_General_Section"),
 					render: () =>
 						_.createElement(q, {
 							group: e,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_InvitedUsers_Section"),
+					title: (0, Localize)("#GroupSettings_InvitedUsers_Section"),
 					render: () =>
 						_.createElement(te, {
 							group: e,
@@ -198,7 +201,7 @@ let V = class extends _.Component {
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Bans_Section"),
+					title: (0, Localize)("#GroupSettings_Bans_Section"),
 					render: () =>
 						_.createElement(re, {
 							group: e,
@@ -209,28 +212,28 @@ let V = class extends _.Component {
 		} else {
 			return [
 				{
-					title: (0, B.we)("#GroupSettings_General_Section"),
+					title: (0, Localize)("#GroupSettings_General_Section"),
 					render: () =>
 						_.createElement(q, {
 							group: e,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Channels_Section"),
+					title: (0, Localize)("#GroupSettings_Channels_Section"),
 					render: () =>
 						_.createElement(Y, {
 							groupView: this.props.groupView,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Permissions_Section"),
+					title: (0, Localize)("#GroupSettings_Permissions_Section"),
 					render: () =>
 						_.createElement(X, {
 							group: e,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Invite_Section"),
+					title: (0, Localize)("#GroupSettings_Invite_Section"),
 					render: () =>
 						_.createElement(ee, {
 							group: e,
@@ -238,7 +241,7 @@ let V = class extends _.Component {
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_InvitedUsers_Section"),
+					title: (0, Localize)("#GroupSettings_InvitedUsers_Section"),
 					render: () =>
 						_.createElement(te, {
 							group: e,
@@ -246,7 +249,7 @@ let V = class extends _.Component {
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Bans_Section"),
+					title: (0, Localize)("#GroupSettings_Bans_Section"),
 					render: () =>
 						_.createElement(re, {
 							group: e,
@@ -261,14 +264,14 @@ let V = class extends _.Component {
 		if (this.context?.IN_GAMEPADUI) {
 			return [
 				{
-					title: (0, B.we)("#GroupSettings_Save_Section"),
+					title: (0, Localize)("#GroupSettings_Save_Section"),
 					render: () =>
 						_.createElement(j, {
 							group: e,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Leave_Section"),
+					title: (0, Localize)("#GroupSettings_Leave_Section"),
 					render: () =>
 						_.createElement(Q, {
 							group: e,
@@ -278,14 +281,14 @@ let V = class extends _.Component {
 		} else {
 			return [
 				{
-					title: (0, B.we)("#GroupSettings_Save_Section"),
+					title: (0, Localize)("#GroupSettings_Save_Section"),
 					render: () =>
 						_.createElement(j, {
 							group: e,
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Invite_Section"),
+					title: (0, Localize)("#GroupSettings_Invite_Section"),
 					render: () =>
 						_.createElement(ee, {
 							group: e,
@@ -293,7 +296,7 @@ let V = class extends _.Component {
 						}),
 				},
 				{
-					title: (0, B.we)("#GroupSettings_Leave_Section"),
+					title: (0, Localize)("#GroupSettings_Leave_Section"),
 					render: () =>
 						_.createElement(Q, {
 							group: e,
@@ -322,7 +325,7 @@ let V = class extends _.Component {
 			_.createElement(
 				N,
 				{
-					title: (0, B.we)("#GroupSettings"),
+					title: (0, Localize)("#GroupSettings"),
 					pages: e.map(({ title: e }) => e),
 					renderNavFooter: () =>
 						_.createElement(H, {
@@ -362,7 +365,7 @@ const H = (e) =>
 			...e,
 		},
 		_.createElement(b.Gq2, null),
-		(0, B.we)("#GroupSettings_Leave_Section"),
+		(0, Localize)("#GroupSettings_Leave_Section"),
 	);
 let j = class extends _.Component {
 	constructor(e) {
@@ -389,8 +392,8 @@ let j = class extends _.Component {
 			this.m_bSaving = false;
 			this.m_strError =
 				e == 12
-					? (0, B.we)("#GroupSettings_Save_NameError")
-					: (0, B.we)("#GroupSettings_Save_GenericError");
+					? (0, Localize)("#GroupSettings_Save_NameError")
+					: (0, Localize)("#GroupSettings_Save_GenericError");
 		});
 	}
 	render() {
@@ -405,7 +408,7 @@ let j = class extends _.Component {
 			_.createElement(
 				f.a3,
 				null,
-				(0, B.we)("#GroupSettings_Save_Desc"),
+				(0, Localize)("#GroupSettings_Save_Desc"),
 				_.createElement(
 					"div",
 					null,
@@ -415,22 +418,22 @@ let j = class extends _.Component {
 						_.createElement(
 							"li",
 							null,
-							(0, B.we)("#GroupSettings_Save_Feature_1"),
+							(0, Localize)("#GroupSettings_Save_Feature_1"),
 						),
 						_.createElement(
 							"li",
 							null,
-							(0, B.we)("#GroupSettings_Save_Feature_2"),
+							(0, Localize)("#GroupSettings_Save_Feature_2"),
 						),
 						_.createElement(
 							"li",
 							null,
-							(0, B.we)("#GroupSettings_Save_Feature_3"),
+							(0, Localize)("#GroupSettings_Save_Feature_3"),
 						),
 						_.createElement(
 							"li",
 							null,
-							(0, B.we)("#GroupSettings_Save_Feature_4"),
+							(0, Localize)("#GroupSettings_Save_Feature_4"),
 						),
 					),
 				),
@@ -438,7 +441,7 @@ let j = class extends _.Component {
 			_.createElement(f.pd, {
 				ref: this.BindInputRef,
 				autoFocus: true,
-				label: (0, B.we)("#GroupSettings_Save_NameGroup"),
+				label: (0, Localize)("#GroupSettings_Save_NameGroup"),
 				disabled: e,
 			}),
 			!e &&
@@ -458,7 +461,7 @@ let j = class extends _.Component {
 						{
 							className: "_FixedHeight",
 						},
-						(0, B.we)("#GroupSettings_Save_Section"),
+						(0, Localize)("#GroupSettings_Save_Section"),
 					),
 				),
 			e && _.createElement(y.t, null),
@@ -513,7 +516,7 @@ let q = class extends _.Component {
 			case 37:
 				t = "#Chat_Settings_Error_ServerError";
 		}
-		return (0, B.we)(t);
+		return (0, Localize)(t);
 	}
 	SetChatRoomGroupAvatarEResultToString(e) {
 		let t = "#Chat_Settings_Error_Unknown";
@@ -526,7 +529,7 @@ let q = class extends _.Component {
 			case 15:
 				t = "#Chat_Settings_Error_NotAdmin";
 		}
-		return (0, B.we)(t);
+		return (0, Localize)(t);
 	}
 	OnFileChange(e) {
 		let t = e.target.files[0];
@@ -544,13 +547,13 @@ let q = class extends _.Component {
 				if (e.data.success == 1) {
 					r.SetChatRoomGroupAvatar(e.data.sha).catch((e) => {
 						let t = this.SetChatRoomGroupAvatarEResultToString(e);
-						(0, d.Nw)((0, B.we)("#Generic_Error"), t);
+						(0, d.Nw)((0, Localize)("#Generic_Error"), t);
 					});
 				}
 			})
 			.catch((e) => {
 				let t = this.AvatarUploadEResultToString(e.response.data.success);
-				(0, d.Nw)((0, B.we)("#Generic_Error"), t);
+				(0, d.Nw)((0, Localize)("#Generic_Error"), t);
 				console.log(e.response);
 			});
 	}
@@ -618,7 +621,7 @@ let q = class extends _.Component {
 				"div",
 				null,
 				" ",
-				(0, B.we)("#Chat_Settings_No_Owner"),
+				(0, Localize)("#Chat_Settings_No_Owner"),
 				" ",
 			);
 		} else {
@@ -633,7 +636,7 @@ let q = class extends _.Component {
 					f.JU,
 					null,
 					" ",
-					(0, B.we)("#Chat_Settings_General_Owner"),
+					(0, Localize)("#Chat_Settings_General_Owner"),
 				),
 				_.createElement(A.bP, {
 					className: "groupOwnerFriend",
@@ -645,7 +648,7 @@ let q = class extends _.Component {
 		return _.createElement(
 			_.Fragment,
 			null,
-			_.createElement(P, null, (0, B.we)("#GroupSettings_General_Section")),
+			_.createElement(P, null, (0, Localize)("#GroupSettings_General_Section")),
 			!t && _.createElement(ne, null),
 			_.createElement(
 				f.lV,
@@ -664,7 +667,7 @@ let q = class extends _.Component {
 						_.createElement(
 							f.JU,
 							null,
-							(0, B.we)("#Chat_Settings_General_Icon"),
+							(0, Localize)("#Chat_Settings_General_Icon"),
 						),
 						_.createElement("img", {
 							className: (0, D.A)(x.Avatar, "no-drag"),
@@ -678,7 +681,7 @@ let q = class extends _.Component {
 								{
 									className: x.NoIconLabel,
 								},
-								(0, B.we)("#Chat_Settings_General_NoIcon"),
+								(0, Localize)("#Chat_Settings_General_NoIcon"),
 							),
 						_.createElement("input", {
 							type: "file",
@@ -697,7 +700,7 @@ let q = class extends _.Component {
 									onClick: this.OnAvatarChange,
 									disabled: !t,
 								},
-								(0, B.we)(
+								(0, Localize)(
 									e.hasIcon
 										? "#Chat_Settings_General_ChangeIcon"
 										: "#Chat_Settings_General_AddIcon",
@@ -713,7 +716,7 @@ let q = class extends _.Component {
 							autoComplete: "off",
 							id: "b1",
 							className: "groupChatName",
-							label: (0, B.we)("#Chat_Settings_General_Chat_Name"),
+							label: (0, Localize)("#Chat_Settings_General_Chat_Name"),
 							type: "text",
 							value: this.m_strRoomName,
 							onChange: this.OnNameChange,
@@ -731,7 +734,7 @@ let q = class extends _.Component {
 							autoComplete: "off",
 							id: "b2",
 							className: "groupChatTag",
-							label: (0, B.we)("#Chat_Settings_General_Tagline"),
+							label: (0, Localize)("#Chat_Settings_General_Tagline"),
 							type: "text",
 							value: this.m_strTagLine,
 							onChange: this.OnTagLineChange,
@@ -764,14 +767,14 @@ let Q = class extends _.Component {
 			? "#Chat_Actions_LeaveChatRoomGroup_ClanConfirm"
 			: this.props.group.BIsAccountIDOwner(
 						c.xm.CMInterface.steamid.GetAccountID(),
-					)
+				  )
 				? "#Chat_Actions_OwnerLeaveChatRoomGroup_Confirm"
 				: "#Chat_Actions_LeaveChatRoomGroup_Confirm";
 		(0, d.Ci)(
 			t,
-			(0, B.we)("#GroupSettings_Leave_Section"),
-			(0, B.we)(n, this.props.group.name),
-			(0, B.we)("#GroupSettings_Leave_Button"),
+			(0, Localize)("#GroupSettings_Leave_Section"),
+			(0, Localize)(n, this.props.group.name),
+			(0, Localize)("#GroupSettings_Leave_Button"),
 		)
 			.then(() => {
 				this.props.group.LeaveChatRoomGroup(r);
@@ -782,13 +785,13 @@ let Q = class extends _.Component {
 		return _.createElement(
 			"div",
 			null,
-			(0, B.we)("#GroupSettings_Leave_Confirm"),
+			(0, Localize)("#GroupSettings_Leave_Confirm"),
 			_.createElement(
 				f.$n,
 				{
 					onClick: this.OnLeave,
 				},
-				(0, B.we)("#GroupSettings_Leave_Button"),
+				(0, Localize)("#GroupSettings_Leave_Button"),
 			),
 		);
 	}
@@ -897,10 +900,10 @@ let Y = class extends _.Component {
 		let r = e.currentTarget.ownerDocument.defaultView;
 		(0, d.Ci)(
 			r,
-			(0, B.we)("#GroupSettings_Channels_DeleteChannel"),
-			(0, B.we)("#GroupSettings_Channels_DeleteConfirm"),
-			(0, B.we)("#GroupSettings_Channels_DeleteButtonLabel"),
-			(0, B.we)("#Button_Cancel"),
+			(0, Localize)("#GroupSettings_Channels_DeleteChannel"),
+			(0, Localize)("#GroupSettings_Channels_DeleteConfirm"),
+			(0, Localize)("#GroupSettings_Channels_DeleteButtonLabel"),
+			(0, Localize)("#Button_Cancel"),
 			true,
 		)
 			.then(() => {
@@ -942,7 +945,7 @@ let Y = class extends _.Component {
 								},
 							},
 							e.BIsDefaultRoom()
-								? (0, B.we)("#Chat_DefaultChannelName")
+								? (0, Localize)("#Chat_DefaultChannelName")
 								: e.name,
 						),
 					),
@@ -952,7 +955,7 @@ let Y = class extends _.Component {
 							{
 								className: "_DialogRowSecondaryLabel",
 							},
-							(0, B.we)("#GroupSettings_Channels_HomeChannelDeleteLabel"),
+							(0, Localize)("#GroupSettings_Channels_HomeChannelDeleteLabel"),
 						),
 					!e.IsDefaultRoomForGroup() &&
 						t &&
@@ -962,7 +965,7 @@ let Y = class extends _.Component {
 								className: "ChannelDeleteButton",
 								onClick: (t) => this.OnDeleteChannel(t, e),
 							},
-							(0, B.we)("#GroupSettings_Channels_Delete"),
+							(0, Localize)("#GroupSettings_Channels_Delete"),
 						),
 				),
 				_.createElement(Z, {
@@ -976,7 +979,11 @@ let Y = class extends _.Component {
 		return _.createElement(
 			_.Fragment,
 			null,
-			_.createElement(P, null, (0, B.we)("#GroupSettings_Channels_Section")),
+			_.createElement(
+				P,
+				null,
+				(0, Localize)("#GroupSettings_Channels_Section"),
+			),
 			!t && _.createElement(ne, null),
 			_.createElement(
 				f.lV,
@@ -997,7 +1004,7 @@ let Y = class extends _.Component {
 							disabled: !t,
 						},
 						" ",
-						(0, B.we)("#GroupSettings_Channels_CreateText"),
+						(0, Localize)("#GroupSettings_Channels_CreateText"),
 						" ",
 					),
 					_.createElement(
@@ -1009,7 +1016,7 @@ let Y = class extends _.Component {
 							disabled: !t,
 						},
 						" ",
-						(0, B.we)("#GroupSettings_Channels_CreateVoice"),
+						(0, Localize)("#GroupSettings_Channels_CreateVoice"),
 						" ",
 					),
 				),
@@ -1028,7 +1035,7 @@ let Y = class extends _.Component {
 							_.createElement(
 								f.JU,
 								null,
-								(0, B.we)("#GroupSettings_Channels_TextChannels"),
+								(0, Localize)("#GroupSettings_Channels_TextChannels"),
 							),
 							_.createElement(f._E, null),
 							a,
@@ -1042,7 +1049,7 @@ let Y = class extends _.Component {
 							_.createElement(
 								f.JU,
 								null,
-								(0, B.we)("#GroupSettings_Channels_VoiceChannels"),
+								(0, Localize)("#GroupSettings_Channels_VoiceChannels"),
 							),
 							_.createElement(f._E, null),
 							s,
@@ -1068,8 +1075,8 @@ class K extends _.Component {
 			this.props.group.CreateRole(e).catch(() => {
 				(0, d.Ic)(
 					this.props.ownerWin,
-					(0, B.we)("#Generic_Error"),
-					(0, B.we)("#GroupSettings_CreateRole_GenericError"),
+					(0, Localize)("#Generic_Error"),
+					(0, Localize)("#GroupSettings_CreateRole_GenericError"),
 				);
 				this.props.closeModal();
 			});
@@ -1096,7 +1103,7 @@ class K extends _.Component {
 				_.createElement(
 					f.Y9,
 					null,
-					(0, B.we)("#GroupSettings_CreateRole_Title"),
+					(0, Localize)("#GroupSettings_CreateRole_Title"),
 				),
 				_.createElement(
 					f.nB,
@@ -1106,7 +1113,7 @@ class K extends _.Component {
 							this.m_refInput = e;
 						},
 						autoFocus: true,
-						label: (0, B.we)("#GroupSettings_CreateRole_Description"),
+						label: (0, Localize)("#GroupSettings_CreateRole_Description"),
 						value: this.state.strRoleName,
 						onChange: this.HandleTextEntry,
 					}),
@@ -1256,13 +1263,13 @@ let X = class extends _.Component {
 						},
 					},
 					_.createElement(b.X4B, null),
-					(0, B.we)(t.name),
+					(0, Localize)(t.name),
 					_.createElement(
 						"span",
 						{
 							className: "roleSubtitle",
 						},
-						o ? (0, B.we)("#Generic_Edit") : (0, B.we)("#Generic_View"),
+						o ? (0, Localize)("#Generic_Edit") : (0, Localize)("#Generic_View"),
 					),
 				),
 				!n &&
@@ -1304,24 +1311,24 @@ let X = class extends _.Component {
 					),
 			);
 		});
-		let p = (0, B.we)("#ChatRoomRole_Description_NoEdit");
+		let p = (0, Localize)("#ChatRoomRole_Description_NoEdit");
 		if (n) {
 			let t = M.b.InitFromClanID(e.GetClanID());
 			let r = `${s.TS.COMMUNITY_BASE_URL}gid/${t.ConvertTo64BitString()}/membersManage`;
-			p = (0, B.PP)(
+			p = LocalizeReact(
 				"#ChatRoomRole_Description_Clan",
 				_.createElement(
 					E.uU,
 					{
 						href: r,
 					},
-					(0, B.we)("#ChatRoomRole_Description_ClanLink"),
+					(0, Localize)("#ChatRoomRole_Description_ClanLink"),
 				),
 			);
 		} else if (u && !m) {
-			p = (0, B.we)("#ChatRoomRole_Description");
+			p = (0, Localize)("#ChatRoomRole_Description");
 		} else if (d || m) {
-			p = (0, B.we)("#ChatRoomRole_Description_NoEditCanAssign");
+			p = (0, Localize)("#ChatRoomRole_Description_NoEditCanAssign");
 		}
 		return _.createElement(
 			_.Fragment,
@@ -1329,13 +1336,17 @@ let X = class extends _.Component {
 			_.createElement("div", {
 				ref: this.m_topRef,
 			}),
-			_.createElement(P, null, (0, B.we)("#GroupSettings_Permissions_Section")),
+			_.createElement(
+				P,
+				null,
+				(0, Localize)("#GroupSettings_Permissions_Section"),
+			),
 			!r &&
 				!u &&
 				_.createElement(
 					ne,
 					null,
-					(0, B.we)("#Chat_Settings_Permission_Denied_Permissions"),
+					(0, Localize)("#Chat_Settings_Permission_Denied_Permissions"),
 				),
 			_.createElement(
 				"div",
@@ -1357,7 +1368,7 @@ let X = class extends _.Component {
 					_.createElement(
 						f.JU,
 						null,
-						(0, B.we)("#GroupSettings_Permissions_RolesTitle"),
+						(0, Localize)("#GroupSettings_Permissions_RolesTitle"),
 						" ",
 					),
 					!m &&
@@ -1367,7 +1378,7 @@ let X = class extends _.Component {
 								className: "meKey",
 							},
 							_.createElement(b.X4B, null),
-							(0, B.we)("#GroupSettings_meKey_Desc"),
+							(0, Localize)("#GroupSettings_meKey_Desc"),
 						),
 					m &&
 						_.createElement(
@@ -1376,7 +1387,7 @@ let X = class extends _.Component {
 								className: "meKey",
 							},
 							_.createElement(b.OeC, null),
-							(0, B.we)("#GroupSettings_meKey_Desc_Owner"),
+							(0, Localize)("#GroupSettings_meKey_Desc_Owner"),
 						),
 				),
 				_.createElement(
@@ -1392,13 +1403,13 @@ let X = class extends _.Component {
 							svgicon: b.OeC,
 							onClick: () => {},
 						},
-						(0, B.we)("#ChatRoomRole_Owner"),
+						(0, Localize)("#ChatRoomRole_Owner"),
 						_.createElement(
 							"span",
 							{
 								className: "roleSubtitle",
 							},
-							(0, B.we)("#ChatRoomRole_OwnerSubtitle"),
+							(0, Localize)("#ChatRoomRole_OwnerSubtitle"),
 						),
 					),
 					A,
@@ -1416,7 +1427,7 @@ let X = class extends _.Component {
 							onClick: this.OnCreateRole,
 							disabled: !e.BCanICreateRoles(),
 						},
-						(0, B.we)("#GroupSettings_Permissions_CreateNew"),
+						(0, Localize)("#GroupSettings_Permissions_CreateNew"),
 					),
 			),
 		);
@@ -1490,10 +1501,10 @@ let $ = class extends _.Component {
 		);
 		(0, d.Ci)(
 			r,
-			(0, B.we)("#GroupSettings_Permissions_ConfirmDeleteTitle"),
-			(0, B.we)("#GroupSettings_Permissions_ConfirmDelete"),
-			(0, B.we)("#GroupSettings_Permissions_ConfirmDeleteButton"),
-			(0, B.we)("#Button_Cancel"),
+			(0, Localize)("#GroupSettings_Permissions_ConfirmDeleteTitle"),
+			(0, Localize)("#GroupSettings_Permissions_ConfirmDelete"),
+			(0, Localize)("#GroupSettings_Permissions_ConfirmDeleteButton"),
+			(0, Localize)("#Button_Cancel"),
 			true,
 			i,
 		)
@@ -1503,8 +1514,8 @@ let $ = class extends _.Component {
 				if (e != null) {
 					(0, d.Ic)(
 						r,
-						(0, B.we)("#Generic_Error"),
-						(0, B.we)("#GroupSettings_DeleteRole_GenericError"),
+						(0, Localize)("#Generic_Error"),
+						(0, Localize)("#GroupSettings_DeleteRole_GenericError"),
 					);
 				}
 			});
@@ -1517,7 +1528,7 @@ let $ = class extends _.Component {
 		let n = e.BIsClanChatRoom();
 		let i = t == e.DefaultRoleID();
 		let a =
-			i && !n ? (0, B.we)("#ChatRoomRole_Member") : this.state.editRoleName;
+			i && !n ? (0, Localize)("#ChatRoomRole_Member") : this.state.editRoleName;
 		let s = e.BCanIModifyRole(t);
 		const o = {
 			disabled: !s,
@@ -1531,7 +1542,7 @@ let $ = class extends _.Component {
 						{
 							className: (0, D.A)(x.RoleNameHeader, x.FixedRoleName),
 						},
-						(0, B.we)(a),
+						(0, Localize)(a),
 					)
 				: _.createElement(
 						"div",
@@ -1542,7 +1553,7 @@ let $ = class extends _.Component {
 							autoComplete: "off",
 							id: "b1",
 							className: "editRoleName",
-							label: (0, B.we)("#GroupSettings_Permissions_RoleName"),
+							label: (0, Localize)("#GroupSettings_Permissions_RoleName"),
 							type: "text",
 							value: a,
 							disabled: i || !s,
@@ -1563,13 +1574,13 @@ let $ = class extends _.Component {
 					onClick: () => r(),
 				},
 				_.createElement(b.aeP, null),
-				(0, B.we)("#GroupSettings_Permissions_BackButton"),
+				(0, Localize)("#GroupSettings_Permissions_BackButton"),
 			),
 			!s &&
 				_.createElement(
 					ne,
 					null,
-					(0, B.we)("#Chat_Settings_Permission_Denied"),
+					(0, Localize)("#Chat_Settings_Permission_Denied"),
 				),
 			l,
 			_.createElement(
@@ -1585,22 +1596,22 @@ let $ = class extends _.Component {
 						{
 							className: "PermissionsSectionHeader",
 						},
-						(0, B.we)("#GroupSettings_Permissions_Heading_General"),
+						(0, Localize)("#GroupSettings_Permissions_Heading_General"),
 					),
 					_.createElement(J, {
 						...o,
 						eAction: 6,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_Chat"),
+						strLabel: (0, Localize)("#GroupSettings_Permissions_Chat"),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 10,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_MentionAll"),
+						strLabel: (0, Localize)("#GroupSettings_Permissions_MentionAll"),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 11,
-						strLabel: (0, B.we)(
+						strLabel: (0, Localize)(
 							"#GroupSettings_Permissions_SetWatchingBroadcast",
 						),
 					}),
@@ -1615,34 +1626,38 @@ let $ = class extends _.Component {
 						{
 							className: "PermissionsSectionHeader",
 						},
-						(0, B.we)("#GroupSettings_Permissions_Heading_MembersAndRoles"),
+						(0, Localize)("#GroupSettings_Permissions_Heading_MembersAndRoles"),
 					),
 					_.createElement(J, {
 						...o,
 						eAction: 2,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_Kick"),
+						strLabel: (0, Localize)("#GroupSettings_Permissions_Kick"),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 3,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_Ban"),
+						strLabel: (0, Localize)("#GroupSettings_Permissions_Ban"),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 4,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_Invite"),
+						strLabel: (0, Localize)("#GroupSettings_Permissions_Invite"),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 8,
-						strLabel: (0, B.we)("#GroupSettings_Permissions_ChangeGroupRoles"),
+						strLabel: (0, Localize)(
+							"#GroupSettings_Permissions_ChangeGroupRoles",
+						),
 						disabled: o.disabled || i,
 					}),
 					!n &&
 						_.createElement(J, {
 							...o,
 							eAction: 9,
-							strLabel: (0, B.we)("#GroupSettings_Permissions_ChangeUserRoles"),
+							strLabel: (0, Localize)(
+								"#GroupSettings_Permissions_ChangeUserRoles",
+							),
 							disabled: o.disabled || i,
 						}),
 				),
@@ -1656,19 +1671,19 @@ let $ = class extends _.Component {
 						{
 							className: "PermissionsSectionHeader",
 						},
-						(0, B.we)("#GroupSettings_Permissions_Heading_RoomManagement"),
+						(0, Localize)("#GroupSettings_Permissions_Heading_RoomManagement"),
 					),
 					_.createElement(J, {
 						...o,
 						eAction: 5,
-						strLabel: (0, B.we)(
+						strLabel: (0, Localize)(
 							"#GroupSettings_Permissions_ChangeTaglineAvatarName",
 						),
 					}),
 					_.createElement(J, {
 						...o,
 						eAction: 1,
-						strLabel: (0, B.we)(
+						strLabel: (0, Localize)(
 							"#GroupSettings_Permissions_CreateRenameDeleteChannel",
 						),
 					}),
@@ -1688,7 +1703,7 @@ let $ = class extends _.Component {
 								this.DeleteRole(e, t);
 							},
 						},
-						(0, B.we)("#GroupSettings_Permissions_DeleteRoleButton"),
+						(0, Localize)("#GroupSettings_Permissions_DeleteRoleButton"),
 					),
 			),
 		);
@@ -1733,10 +1748,10 @@ let ee = class extends _.Component {
 			(0, I.u)(e.invite_code()),
 		);
 		(0, d.hr)(
-			(0, B.we)("#GroupSettings_Invite_ConfirmDeleteTitle"),
-			(0, B.we)("#GroupSettings_Invite_ConfirmDelete"),
-			(0, B.we)("#GroupSettings_Invite_ConfirmDeleteButton"),
-			(0, B.we)("#Button_Cancel"),
+			(0, Localize)("#GroupSettings_Invite_ConfirmDeleteTitle"),
+			(0, Localize)("#GroupSettings_Invite_ConfirmDelete"),
+			(0, Localize)("#GroupSettings_Invite_ConfirmDeleteButton"),
+			(0, Localize)("#Button_Cancel"),
 			true,
 			r,
 		)
@@ -1760,7 +1775,7 @@ let ee = class extends _.Component {
 	}
 	FormatExpires(e) {
 		if (e > 2145916800) {
-			return (0, B.we)("#GroupSettings_Invite_NeverExpires");
+			return (0, Localize)("#GroupSettings_Invite_NeverExpires");
 		}
 		return c.xm.RTime32ToDate(e).toLocaleString([], {
 			year: "numeric",
@@ -1783,13 +1798,13 @@ let ee = class extends _.Component {
 			r = _.createElement(
 				"div",
 				null,
-				(0, B.we)("#GroupSettings_Invite_Denied"),
+				(0, Localize)("#GroupSettings_Invite_Denied"),
 			);
 		} else if (e.loadingState == "failed") {
 			r = _.createElement(
 				"div",
 				null,
-				(0, B.we)("#GroupSettings_Invite_Failed"),
+				(0, Localize)("#GroupSettings_Invite_Failed"),
 			);
 		} else if (e.loadingState == "loaded") {
 			let t = [];
@@ -1832,7 +1847,7 @@ let ee = class extends _.Component {
 								onClick: (t) => this.OnDeleteLink(e),
 								disabled: !n,
 							},
-							(0, B.we)("#GroupSettings_Invite_Delete"),
+							(0, Localize)("#GroupSettings_Invite_Delete"),
 						),
 					),
 				),
@@ -1842,7 +1857,7 @@ let ee = class extends _.Component {
 					? _.createElement(
 							"div",
 							null,
-							(0, B.we)("#GroupSettings_Invite_NoInvites"),
+							(0, Localize)("#GroupSettings_Invite_NoInvites"),
 						)
 					: _.createElement(
 							"table",
@@ -1861,7 +1876,7 @@ let ee = class extends _.Component {
 											className: "inviteCodeColumn",
 										},
 										" ",
-										(0, B.we)("#GroupSettings_Invite_Code"),
+										(0, Localize)("#GroupSettings_Invite_Code"),
 										" ",
 									),
 									_.createElement(
@@ -1870,7 +1885,7 @@ let ee = class extends _.Component {
 											className: "dateColumn",
 										},
 										" ",
-										(0, B.we)("#GroupSettings_Invite_Expiration"),
+										(0, Localize)("#GroupSettings_Invite_Expiration"),
 										" ",
 									),
 									_.createElement(
@@ -1888,7 +1903,7 @@ let ee = class extends _.Component {
 		return _.createElement(
 			_.Fragment,
 			null,
-			_.createElement(P, null, (0, B.we)("#GroupSettings_Invite_Section")),
+			_.createElement(P, null, (0, Localize)("#GroupSettings_Invite_Section")),
 			!n && _.createElement(ne, null),
 			_.createElement(
 				f.lV,
@@ -1954,10 +1969,10 @@ let te = class extends _.Component {
 		});
 		(0, d.Ci)(
 			n,
-			(0, B.we)("#GroupSettings_InvitedUsers_RevokeTitle"),
-			(0, B.we)("#GroupSettings_InvitedUsers_RevokeBody"),
-			(0, B.we)("#GroupSettings_InvitedUsers_RevokeConfirm"),
-			(0, B.we)("#Button_Cancel"),
+			(0, Localize)("#GroupSettings_InvitedUsers_RevokeTitle"),
+			(0, Localize)("#GroupSettings_InvitedUsers_RevokeBody"),
+			(0, Localize)("#GroupSettings_InvitedUsers_RevokeConfirm"),
+			(0, Localize)("#Button_Cancel"),
 			true,
 			i,
 		)
@@ -1965,7 +1980,7 @@ let te = class extends _.Component {
 				this.props.group
 					.RevokeInvite(t)
 					.then(() => {
-						w.Wp(
+						FindAndRemoveWhere(
 							this.props.invitedUsers.rgInvitedUsers,
 							(e) => e.accountid() === t,
 						);
@@ -1973,8 +1988,8 @@ let te = class extends _.Component {
 					.catch((e) => {
 						(0, d.Ic)(
 							n,
-							(0, B.we)("#Generic_Error"),
-							(0, B.we)("#GroupSettings_InvitedUsers_RevokeGenericError"),
+							(0, Localize)("#Generic_Error"),
+							(0, Localize)("#GroupSettings_InvitedUsers_RevokeGenericError"),
 						);
 					});
 			})
@@ -1997,7 +2012,7 @@ let te = class extends _.Component {
 				return _.createElement(
 					f.lV,
 					null,
-					(0, B.we)("#GroupSettings_InvitedUsers_Noone"),
+					(0, Localize)("#GroupSettings_InvitedUsers_Noone"),
 				);
 			}
 			let t = e.rgInvitedUsers.map((e) => {
@@ -2045,7 +2060,7 @@ let te = class extends _.Component {
 								onClick: (t) => this.RevokeInvite(t, e.accountid()),
 								disabled: !r,
 							},
-							(0, B.we)("#GroupSettings_InvitedUsers_RevokeInvite"),
+							(0, Localize)("#GroupSettings_InvitedUsers_RevokeInvite"),
 						),
 					),
 				);
@@ -2078,7 +2093,7 @@ let te = class extends _.Component {
 									{
 										className: "friendColumn",
 									},
-									(0, B.we)("#GroupSettings_InvitedUsers_InvitedHeader"),
+									(0, Localize)("#GroupSettings_InvitedUsers_InvitedHeader"),
 									" ",
 								),
 								_.createElement(
@@ -2087,7 +2102,7 @@ let te = class extends _.Component {
 										className: "dateColumn",
 									},
 									" ",
-									(0, B.we)("#GroupSettings_InvitedUsers_InvitedDate"),
+									(0, Localize)("#GroupSettings_InvitedUsers_InvitedDate"),
 									" ",
 								),
 								_.createElement(
@@ -2111,7 +2126,7 @@ let te = class extends _.Component {
 				? _.createElement(y.t, {
 						size: "medium",
 					})
-				: (0, B.we)("#GroupSettings_InvitedUsers_Failed"),
+				: (0, Localize)("#GroupSettings_InvitedUsers_Failed"),
 		);
 	}
 	render() {
@@ -2123,7 +2138,7 @@ let te = class extends _.Component {
 			_.createElement(
 				P,
 				null,
-				(0, B.we)("#GroupSettings_InvitedUsers_Section"),
+				(0, Localize)("#GroupSettings_InvitedUsers_Section"),
 			),
 			!t && _.createElement(ne, null),
 			this.RenderContent(),
@@ -2157,10 +2172,10 @@ let re = class extends _.Component {
 		});
 		(0, d.Ci)(
 			n,
-			(0, B.we)("#GroupSettings_Bans_UnbanTitle"),
-			(0, B.we)("#GroupSettings_Bans_UnbanBody", r.display_name),
-			(0, B.we)("#GroupSettings_Bans_UnbanConfirm"),
-			(0, B.we)("#Button_Cancel"),
+			(0, Localize)("#GroupSettings_Bans_UnbanTitle"),
+			(0, Localize)("#GroupSettings_Bans_UnbanBody", r.display_name),
+			(0, Localize)("#GroupSettings_Bans_UnbanConfirm"),
+			(0, Localize)("#Button_Cancel"),
 			true,
 			i,
 		)
@@ -2168,13 +2183,16 @@ let re = class extends _.Component {
 				this.props.group
 					.SetUserBanState(t, false)
 					.then(() => {
-						w.Wp(this.props.bans.rgBans, (e) => e.accountid() === t);
+						FindAndRemoveWhere(
+							this.props.bans.rgBans,
+							(e) => e.accountid() === t,
+						);
 					})
 					.catch((e) => {
 						(0, d.Ic)(
 							n,
-							(0, B.we)("#Generic_Error"),
-							(0, B.we)("#GroupSettings_Bans_UnbanGenericError"),
+							(0, Localize)("#Generic_Error"),
+							(0, Localize)("#GroupSettings_Bans_UnbanGenericError"),
 						);
 					});
 			})
@@ -2197,7 +2215,7 @@ let re = class extends _.Component {
 				return _.createElement(
 					f.lV,
 					null,
-					(0, B.we)("#GroupSettings_Bans_NoOneBanned"),
+					(0, Localize)("#GroupSettings_Bans_NoOneBanned"),
 				);
 			} else {
 				t = e.rgBans.map((e) => {
@@ -2243,7 +2261,7 @@ let re = class extends _.Component {
 								{
 									onClick: (t) => this.OnClickUnban(t, e.accountid()),
 								},
-								(0, B.we)("#GroupSettings_Bans_RevokeBan"),
+								(0, Localize)("#GroupSettings_Bans_RevokeBan"),
 							),
 						),
 					);
@@ -2271,7 +2289,7 @@ let re = class extends _.Component {
 									{
 										className: "friendColumn",
 									},
-									(0, B.we)("#GroupSettings_Bans_InvitedHeader"),
+									(0, Localize)("#GroupSettings_Bans_InvitedHeader"),
 									" ",
 								),
 								_.createElement(
@@ -2280,7 +2298,7 @@ let re = class extends _.Component {
 										className: "dateColumn",
 									},
 									" ",
-									(0, B.we)("#GroupSettings_Bans_BannedDate"),
+									(0, Localize)("#GroupSettings_Bans_BannedDate"),
 									" ",
 								),
 								_.createElement(
@@ -2305,8 +2323,8 @@ let re = class extends _.Component {
 							size: "medium",
 						})
 					: e.loadingState == "denied"
-						? (0, B.we)("#GroupSettings_Bans_AccessDenied")
-						: (0, B.we)("#GroupSettings_Bans_Failed");
+						? (0, Localize)("#GroupSettings_Bans_AccessDenied")
+						: (0, Localize)("#GroupSettings_Bans_Failed");
 			return _.createElement(
 				f.lV,
 				{
@@ -2322,7 +2340,7 @@ let re = class extends _.Component {
 		return _.createElement(
 			_.Fragment,
 			null,
-			_.createElement(P, null, (0, B.we)("#GroupSettings_Bans_Section")),
+			_.createElement(P, null, (0, Localize)("#GroupSettings_Bans_Section")),
 			!t && _.createElement(ne, null),
 			this.RenderContent(),
 		);
@@ -2337,5 +2355,5 @@ const ne = (e) =>
 			className: x.Notification,
 		},
 		_.createElement(b.c_I, null),
-		e.children || (0, B.we)("#Chat_Settings_Permission_Denied"),
+		e.children || (0, Localize)("#Chat_Settings_Permission_Denied"),
 	);

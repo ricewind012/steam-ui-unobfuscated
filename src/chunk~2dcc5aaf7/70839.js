@@ -3,8 +3,11 @@ var i = require("./44234.js");
 var a = require("./95773.js");
 var s = require(/*webcrack:missing*/ "./89193.js");
 var o = require(/*webcrack:missing*/ "./736.js");
-var l = require(/*webcrack:missing*/ "./53833.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	MoveElement,
+	CountMatches,
+} from "../../actual_src/utils/arrayutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 let m = 0;
 class u {
 	m_id = undefined;
@@ -25,12 +28,12 @@ class u {
 	GetTitle() {
 		if (this.m_activeTab) {
 			if (this.tabCount == 2) {
-				return (0, c.we)(
+				return (0, Localize)(
 					"#WindowTitle_ChatTabTitle",
 					this.m_activeTab.GetTabName(),
 				);
 			} else if (this.tabCount > 2) {
-				return (0, c.we)(
+				return (0, Localize)(
 					"#WindowTitle_ChatTabTitlePlural",
 					this.m_activeTab.GetTabName(),
 					this.tabCount - 1,
@@ -166,7 +169,7 @@ class u {
 	MoveTabToIndex(e, t) {
 		let r = this.m_vecTabs.indexOf(e);
 		if (r != -1) {
-			l.yY(this.m_vecTabs, r, Math.min(t, this.m_vecTabs.length - 1));
+			MoveElement(this.m_vecTabs, r, Math.min(t, this.m_vecTabs.length - 1));
 		}
 	}
 	Focus() {
@@ -775,7 +778,7 @@ export class Vi {
 				this.SerializePopupState(),
 				t.friends_list_window &&
 					(t.friends_list_window.BringToFront(),
-					(t.friends_list_window.title = (0, c.we)(
+					(t.friends_list_window.title = (0, Localize)(
 						"#WindowTitle_FriendsList",
 					))),
 				r)
@@ -1042,12 +1045,12 @@ export class Vi {
 		e.ui_state().set_friends_list_collapsed(t.IsFriendsListCollapsed());
 		let r = 0;
 		let n = 0;
-		r += l.$D(t.default_tabset.tabs, (e) => e.IsChatRoom());
-		n += l.$D(t.default_tabset.tabs, (e) => e.IsFriendChat());
+		r += CountMatches(t.default_tabset.tabs, (e) => e.IsChatRoom());
+		n += CountMatches(t.default_tabset.tabs, (e) => e.IsFriendChat());
 		for (let e of Array.from(t.popup_list)) {
 			if (e.tab_set != t.default_tabset) {
-				r += l.$D(e.tab_set.tabs, (e) => e.IsChatRoom());
-				n += l.$D(e.tab_set.tabs, (e) => e.IsFriendChat());
+				r += CountMatches(e.tab_set.tabs, (e) => e.IsChatRoom());
+				n += CountMatches(e.tab_set.tabs, (e) => e.IsFriendChat());
 			}
 		}
 		e.ui_state().set_group_chat_tabs_opened(r);

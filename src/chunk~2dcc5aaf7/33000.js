@@ -47,8 +47,12 @@ var w = require("./64608.js");
 var B = require("./7514.js");
 var v = require(/*webcrack:missing*/ "./42318.js");
 var I = require(/*webcrack:missing*/ "./49455.js");
-var E = require(/*webcrack:missing*/ "./54644.js");
-var M = require(/*webcrack:missing*/ "./46108.js");
+import { _f } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var T = require(/*webcrack:missing*/ "./52451.js");
 var R = require(/*webcrack:missing*/ "./72476.js");
 var k = require("./10927.js");
@@ -85,7 +89,7 @@ export let OJ = class extends i.Component {
 			rgOptions: a,
 			...o
 		} = this.props;
-		const l = (0, M.we)("#Library_SortCollectionBy");
+		const l = Localize("#Library_SortCollectionBy");
 		const c = a || q();
 		const u = this.context?.IN_GAMEPADUI;
 		const d = this.props.presentation ?? "auto";
@@ -132,7 +136,7 @@ export function dq(e) {
 			{
 				className: (0, s.A)(N.CompatFooterIcons, N.Advanced),
 			},
-			(0, M.we)("#Library_FilteredBy_Advanced"),
+			Localize("#Library_FilteredBy_Advanced"),
 		);
 	} else if (R.TS.ON_DECK || o < 15) {
 		l = i.createElement(
@@ -152,7 +156,7 @@ export function dq(e) {
 			{
 				className: N.CompatFooterDescription,
 			},
-			(0, M.PP)("#Library_FilteredBy", l),
+			LocalizeReact("#Library_FilteredBy", l),
 		);
 	} else {
 		return i.createElement(
@@ -160,34 +164,34 @@ export function dq(e) {
 			{
 				className: N.CompatFooterDescription,
 			},
-			(0, M.we)("#Library_FilteredBy_None"),
+			Localize("#Library_FilteredBy_None"),
 		);
 	}
 }
 function j(e) {
 	switch (e) {
 		case 1:
-			return (0, M.we)("#Library_SortByAlphabetical");
+			return Localize("#Library_SortByAlphabetical");
 		case 10:
-			return (0, M.we)("#Library_SortByFriendsPlaying");
+			return Localize("#Library_SortByFriendsPlaying");
 		case 2:
-			return (0, M.we)("#Library_SortByPctAchievementsComplete");
+			return Localize("#Library_SortByPctAchievementsComplete");
 		case 3:
-			return (0, M.we)("#Library_SortByLastUpdated");
+			return Localize("#Library_SortByLastUpdated");
 		case 4:
-			return (0, M.we)("#Library_SortByHoursPlayed");
+			return Localize("#Library_SortByHoursPlayed");
 		case 5:
-			return (0, M.we)("#Library_SortByLastPlayed");
+			return Localize("#Library_SortByLastPlayed");
 		case 6:
-			return (0, M.we)("#Library_SortByReleaseDate");
+			return Localize("#Library_SortByReleaseDate");
 		case 7:
-			return (0, M.we)("#Library_SortByAddedToLibrary");
+			return Localize("#Library_SortByAddedToLibrary");
 		case 8:
-			return (0, M.we)("#Library_SortBySizeOnDisk");
+			return Localize("#Library_SortBySizeOnDisk");
 		case 9:
-			return (0, M.we)("#Library_SortByMetacriticScore");
+			return Localize("#Library_SortByMetacriticScore");
 		case 11:
-			return (0, M.we)("#Library_SortBySteamReview");
+			return Localize("#Library_SortBySteamReview");
 	}
 }
 function q() {
@@ -198,7 +202,7 @@ function q() {
 }
 export function K9(e) {
 	return i.useMemo(
-		() => (e ? j(e) : (0, M.we)("#Library_SortCollectionBy")),
+		() => (e ? j(e) : Localize("#Library_SortCollectionBy")),
 		[e],
 	);
 }
@@ -215,7 +219,7 @@ class Z extends i.Component {
 		this.stopScrollListening();
 		this.m_elemHeader = e;
 		if (this.m_elemHeader) {
-			this.m_elemScrollableAncestor = (0, E._f)(e, "y");
+			this.m_elemScrollableAncestor = (0, _f)(e, "y");
 			if (this.m_elemScrollableAncestor) {
 				this.m_elemScrollableAncestor.addEventListener(
 					"scroll",
@@ -388,27 +392,27 @@ function K(e, t) {
 			return "";
 		case 4:
 			if (e.minutes_playtime_forever >= 6000) {
-				return (0, M.we)("#GridSection_Over100Hours");
+				return Localize("#GridSection_Over100Hours");
 			} else if (e.minutes_playtime_forever >= 3600) {
-				return (0, M.we)("#GridSection_Over60Hours");
+				return Localize("#GridSection_Over60Hours");
 			} else if (e.minutes_playtime_forever >= 2400) {
-				return (0, M.we)("#GridSection_Over40Hours");
+				return Localize("#GridSection_Over40Hours");
 			} else if (e.minutes_playtime_forever >= 1200) {
-				return (0, M.we)("#GridSection_Over20Hours");
+				return Localize("#GridSection_Over20Hours");
 			} else if (e.minutes_playtime_forever >= 600) {
-				return (0, M.we)("#GridSection_Over10Hours");
+				return Localize("#GridSection_Over10Hours");
 			} else if (e.minutes_playtime_forever >= 60) {
-				return (0, M.we)("#GridSection_Over1Hour");
+				return Localize("#GridSection_Over1Hour");
 			} else if (e.minutes_playtime_forever > 0) {
-				return (0, M.we)("#GridSection_LessThan1Hour");
+				return Localize("#GridSection_LessThan1Hour");
 			} else {
-				return (0, M.we)("#GridSection_NoPlaytime");
+				return Localize("#GridSection_NoPlaytime");
 			}
 		case 5:
 			return e.GetLastPlayedSectionName();
 		case 6:
 			if (e.GetCanonicalReleaseDate() == 0 && e.BIsUnreleased()) {
-				return (0, M.we)("#AppBox_ComingSoon");
+				return Localize("#AppBox_ComingSoon");
 			} else {
 				return e.GetCanonicalReleaseYear();
 			}
@@ -416,32 +420,32 @@ function K(e, t) {
 			const t = 1073741824;
 			let r = parseFloat(e.size_on_disk);
 			if (r > t * 100) {
-				return (0, M.we)("#GridSection_GreaterThan100GB");
+				return Localize("#GridSection_GreaterThan100GB");
 			} else if (r > t * 50) {
-				return (0, M.we)("#GridSection_GreaterThan50GB");
+				return Localize("#GridSection_GreaterThan50GB");
 			} else if (r > t * 20) {
-				return (0, M.we)("#GridSection_GreaterThan20GB");
+				return Localize("#GridSection_GreaterThan20GB");
 			} else if (r > 0) {
-				return (0, M.we)("#GridSection_LessThan20GB");
+				return Localize("#GridSection_LessThan20GB");
 			} else if (e.installed) {
-				return (0, M.we)("#GridSection_NoSizeOnDisk");
+				return Localize("#GridSection_NoSizeOnDisk");
 			} else {
-				return (0, M.we)("#GridSection_NotInstalled");
+				return Localize("#GridSection_NotInstalled");
 			}
 		case 9:
 			if (e.metacritic_score >= 90) {
-				return (0, M.we)("#GridSection_Over90Metacritic");
+				return Localize("#GridSection_Over90Metacritic");
 			} else if (e.metacritic_score >= 80) {
-				return (0, M.we)("#GridSection_Over80Metacritic");
+				return Localize("#GridSection_Over80Metacritic");
 			} else if (e.metacritic_score >= 70) {
-				return (0, M.we)("#GridSection_Over70Metacritic");
+				return Localize("#GridSection_Over70Metacritic");
 			} else if (e.metacritic_score >= 50) {
-				return (0, M.we)("#GridSection_Over50Metacritic");
+				return Localize("#GridSection_Over50Metacritic");
 			} else {
-				return (0, M.we)("#GridSection_EverythingElseMetacritic");
+				return Localize("#GridSection_EverythingElseMetacritic");
 			}
 		case 11:
-			return (0, M.we)("#SteamReviewScore_" + e.review_score);
+			return Localize("#SteamReviewScore_" + e.review_score);
 		default:
 			(0, I.w)(false, "Unknown sort type in ComputeChildSectionName");
 	}
@@ -492,7 +496,7 @@ export function xZ() {
 					}),
 				);
 				let l = (0, b.lX)(o, e, n);
-				l.SetLabel((0, M.we)("#Library_SortCollectionBy"));
+				l.SetLabel(Localize("#Library_SortCollectionBy"));
 			})(e, n, (e, t) => r(t.data));
 		},
 		[r, n],
@@ -602,7 +606,7 @@ export const lx = (e) => {
 	const m = {
 		onOptionsButton: (t) => e.showSortingContextMenu(t),
 	};
-	m.onOptionsActionDescription = (0, M.we)("#Library_SortCollectionBy");
+	m.onOptionsActionDescription = Localize("#Library_SortCollectionBy");
 	if (!e.hideFilterFooterButton) {
 		m.onSecondaryButton = o;
 		m.onSecondaryActionDescription = i.createElement(dq, null);
@@ -780,7 +784,7 @@ const ne = (e) => {
 		} else {
 			o =
 				s > 0
-					? [(0, M.Yp)("#CollectionView_EmptyCollection_BecauseFilter", s)]
+					? [LocalizePlural("#CollectionView_EmptyCollection_BecauseFilter", s)]
 					: ["#CollectionView_EmptyCollection"];
 		}
 	} else {
@@ -811,7 +815,7 @@ const ne = (e) => {
 					key: t,
 					className: N.EmptyGridMessageLine,
 				},
-				(0, M.we)(e),
+				Localize(e),
 			),
 		),
 	);
@@ -839,7 +843,7 @@ function ie(e) {
 						{
 							className: N.ShowingReadyToPlay,
 						},
-						(0, M.we)("#GameList_View_ShowingOnlyReadyToPlay"),
+						Localize("#GameList_View_ShowingOnlyReadyToPlay"),
 					),
 			),
 	);

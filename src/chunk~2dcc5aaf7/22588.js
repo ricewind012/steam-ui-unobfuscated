@@ -2,10 +2,14 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./83957.js");
 var a = i;
 var s = require("./44926.js");
-var o = require(/*webcrack:missing*/ "./53833.js");
+import {
+	FindAndRemove,
+	SortedFindLessOrEqual,
+	SortedInsert,
+} from "../../actual_src/utils/arrayutils.js";
 var l = require("./84629.js");
 var c = require("./76835.js");
-var m = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var u = require(/*webcrack:missing*/ "./79769.js");
 var d = require(/*webcrack:missing*/ "./93960.js");
 var A = require("./72061.js");
@@ -14,7 +18,7 @@ var g = require("./91720.js");
 var h = require(/*webcrack:missing*/ "./89193.js");
 var C = require("./67429.js");
 var _ = require("./36934.js");
-var f = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 export const kh = 3000;
 const y = kh + 1000;
 export class SX {
@@ -56,7 +60,7 @@ export class SX {
 	}
 	AddEventListener(e) {
 		this.m_rgListeners.push(e);
-		return () => o.x9(this.m_rgListeners, e);
+		return () => FindAndRemove(this.m_rgListeners, e);
 	}
 	async LoadTimelinesForBackgroundVideo(e) {
 		this.m_gameID = e;
@@ -542,7 +546,7 @@ export class SX {
 				const t = parseInt(e.time);
 				return t < n + parseInt(r.metadata.duration_ms) && t > n;
 			});
-			const s = o.rJ(e, (e) => t.valMS - 1 - parseInt(e.time));
+			const s = SortedFindLessOrEqual(e, (e) => t.valMS - 1 - parseInt(e.time));
 			if (s !== -1) {
 				a = e[s];
 			}
@@ -562,7 +566,7 @@ export class SX {
 				const t = parseInt(e.time);
 				return t < n + parseInt(r.metadata.duration_ms) && t > n;
 			});
-			const s = o.rJ(e, (e) => t.valMS - parseInt(e.time));
+			const s = SortedFindLessOrEqual(e, (e) => t.valMS - parseInt(e.time));
 			if (s < e.length - 1) {
 				a = e[s + 1];
 			}
@@ -585,7 +589,7 @@ export class SX {
 		}
 		const n = this.GetTimelineStartBeforeGlobalZeroMS(t.strTimelineID);
 		const i = t.nTimelineOffsetMS.valMS + n;
-		const a = o.rJ(r.m_rgEntries, (e) => i - parseInt(e.time));
+		const a = SortedFindLessOrEqual(r.m_rgEntries, (e) => i - parseInt(e.time));
 		if (a !== -1) {
 			const e = r.m_rgEntries[a];
 			const i =
@@ -673,7 +677,8 @@ export class SX {
 		}
 		const n = this.GetTimelineStartBeforeGlobalZeroMS(t.strTimelineID);
 		const i = t.nTimelineOffsetMS.valMS + n;
-		const a = o.rJ(r.m_rgEntries, (e) => i - parseInt(e.time)) + 1;
+		const a =
+			SortedFindLessOrEqual(r.m_rgEntries, (e) => i - parseInt(e.time)) + 1;
 		if (a <= r.m_rgEntries.length - 1) {
 			const e = r.m_rgEntries[a];
 			const i =
@@ -777,7 +782,7 @@ export class SX {
 		if (!r || r.m_strState !== "loaded") {
 			return null;
 		}
-		const n = o.rJ(
+		const n = SortedFindLessOrEqual(
 			r.m_rgStateDescriptions,
 			(e) => t.nTimelineOffsetMS.valMS - parseInt(e.time),
 		);
@@ -802,6 +807,7 @@ export class SX {
 		for (
 			e.m_iEntries == -1 && e.m_iEntries++;
 			e.m_iEntries < e.m_data.m_rgEntries.length;
+
 		) {
 			let t = e.m_data.m_rgEntries[e.m_iEntries];
 			if (parseInt(t.time) >= e.m_nTimelineOffsetMS) {
@@ -826,8 +832,8 @@ export class SX {
 		let a = -1;
 		if (n?.m_strState == "loaded") {
 			let e = (e) => r.ulGlobalToTimelineOffset - parseInt(e.time);
-			i = o.rJ(n.m_rgGameModeChanges, e);
-			a = o.rJ(n.m_rgEntries, e);
+			i = SortedFindLessOrEqual(n.m_rgGameModeChanges, e);
+			a = SortedFindLessOrEqual(n.m_rgEntries, e);
 		}
 		let s = {
 			m_timeline: r.timeline.metadata,
@@ -970,7 +976,11 @@ export class SX {
 		}
 	}
 	InsertEntryIntoTimelineSorted(e, t) {
-		o.Xr(e.m_rgEntries, t, (e, t) => parseInt(e.time) - parseInt(t.time));
+		SortedInsert(
+			e.m_rgEntries,
+			t,
+			(e, t) => parseInt(e.time) - parseInt(t.time),
+		);
 	}
 	AddEventToTimeline(e, t, r, n, i, a, s, o) {
 		if (!this.m_bInitialized) {
@@ -1106,7 +1116,7 @@ export class SX {
 		const a = i
 			? i.nGlobalOffsetMS.valMS + parseInt(i.metadata.duration_ms)
 			: 0;
-		o.Xr(
+		SortedInsert(
 			this.m_rgTimelineMetadata,
 			{
 				nGlobalOffsetMS: (0, A.Sb)(a),
@@ -1125,7 +1135,7 @@ export class SX {
 			m_metadata: n,
 			m_globalStartMS: a,
 			m_perfCounterStart: performance.now(),
-			m_nPerfCounterOffsetMS: Math.max(0, (0, m._2)() - r) * 1000,
+			m_nPerfCounterOffsetMS: Math.max(0, GetUnixTime() - r) * 1000,
 			m_runningRecording: null,
 		};
 		this.m_mapRunningTimelines.set(e, s);
@@ -1168,19 +1178,23 @@ export class SX {
 			return;
 		}
 		if ((0, c.hT)(n)) {
-			o.Xr(
+			SortedInsert(
 				r.m_rgGameModeChanges,
 				n,
 				(e, t) => parseInt(e.time) - parseInt(t.time),
 			);
 		} else if ((0, c.Te)(n)) {
-			o.Xr(
+			SortedInsert(
 				r.m_rgStateDescriptions,
 				n,
 				(e, t) => parseInt(e.time) - parseInt(t.time),
 			);
 		} else {
-			o.Xr(r.m_rgEntries, n, (e, t) => parseInt(e.time) - parseInt(t.time));
+			SortedInsert(
+				r.m_rgEntries,
+				n,
+				(e, t) => parseInt(e.time) - parseInt(t.time),
+			);
 		}
 		let i = parseInt(t.m_metadata.duration_ms) || 0;
 		let a = parseInt(e.time);
@@ -1204,7 +1218,7 @@ export class SX {
 			const r = this.m_mapRunningTimelines.get(e.timeline_id);
 			if (!r) {
 				this.FireEvent("OnInvalidateRecording", e.timeline_id, t);
-				(0, f.w)(
+				AssertMsg(
 					false,
 					"Received recording started message before timeline info",
 				);

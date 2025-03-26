@@ -1,7 +1,7 @@
 export var bK;
 var i = require("./5859.js");
 var a = require("./78771.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 (function (e) {
 	e[(e.k_eLibrary = 1)] = "k_eLibrary";
 	e[(e.k_eWishlist = 2)] = "k_eWishlist";
@@ -39,7 +39,7 @@ export class NK {
 				return e.group_name;
 			}
 		}
-		return (0, s.we)("#EventCalendar_MuteApp_Unknown");
+		return (0, Localize)("#EventCalendar_MuteApp_Unknown");
 	}
 	static BHasEntityNameForID(e, t) {
 		if (e) {
@@ -64,7 +64,7 @@ export class NK {
 				return e.avatar_full_url;
 			}
 		}
-		return (0, s.we)("#EventCalendar_MuteApp_Unknown");
+		return (0, Localize)("#EventCalendar_MuteApp_Unknown");
 	}
 	GetGameIcon() {
 		if (this.appInfo) {
@@ -79,7 +79,7 @@ export class NK {
 				return e.avatar_full_url;
 			}
 		}
-		return (0, s.we)("#EventCalendar_MuteApp_Unknown");
+		return (0, Localize)("#EventCalendar_MuteApp_Unknown");
 	}
 }
 export class dF {

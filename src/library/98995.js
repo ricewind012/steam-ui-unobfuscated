@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./78325.js");
 var s = require("./90242.js");
 var o = require("./92251.js");
 var a = require("./90765.js");
-var c = require("./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./57447.js");
 var u = l;
 const m = r.createContext({});
@@ -166,7 +166,7 @@ function b(e) {
 }
 function C(e) {
 	if (typeof e == "string") {
-		return (0, c.we)(e);
+		return Localize(e);
 	} else {
 		return e;
 	}

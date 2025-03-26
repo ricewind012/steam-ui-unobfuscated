@@ -9,7 +9,11 @@ var m = require("./87935.js");
 var u = require(/*webcrack:missing*/ "./50376.js");
 var d = require("./91486.js");
 var A = require(/*webcrack:missing*/ "./90765.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeRtime32ToShortDate,
+	Localize,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var g = require(/*webcrack:missing*/ "./52451.js");
 var h = require(/*webcrack:missing*/ "./31084.js");
 var C = require(/*webcrack:missing*/ "./88750.js");
@@ -95,7 +99,9 @@ let I = class extends i.Component {
 		}
 		let e = "";
 		if (this.props.overview.GetCanonicalReleaseDate()) {
-			e = (0, p.$z)(this.props.overview.GetCanonicalReleaseDate());
+			e = LocalizeRtime32ToShortDate(
+				this.props.overview.GetCanonicalReleaseDate(),
+			);
 		}
 		let t;
 		let r = this.props.overview.BIsModOrShortcut();
@@ -198,7 +204,7 @@ let I = class extends i.Component {
 								label: "#AppDetails_Franchise",
 							}),
 							i.createElement(R, {
-								label: (0, p.we)("#AppDetails_ReleaseDate"),
+								label: (0, Localize)("#AppDetails_ReleaseDate"),
 								strDate: e,
 							}),
 						),
@@ -311,7 +317,7 @@ let I = class extends i.Component {
 					{
 						className: f.Shortcut,
 					},
-					(0, p.we)(
+					(0, Localize)(
 						"#AppDetails_Shortcut_Explanation",
 						this.props.overview.display_name,
 					),
@@ -362,12 +368,12 @@ function M(e) {
 		onOKButton: null,
 		onOKActionDescription: null,
 		onCancelButton: c,
-		onCancelActionDescription: (0, p.we)("#Button_Close"),
+		onCancelActionDescription: (0, Localize)("#Button_Close"),
 	};
 	if (e.overview.BIsModOrShortcut()) {
 		return null;
 	}
-	let A = (0, p.we)("#DeckVerified_CompatibilitySection_Title");
+	let A = (0, Localize)("#DeckVerified_CompatibilitySection_Title");
 	return i.createElement(
 		"div",
 		null,
@@ -398,7 +404,7 @@ function M(e) {
 					onActivate: () => l(true),
 					className: f.Details,
 				},
-				(0, p.we)("#DeckVerified_CompatibilitySection_Details"),
+				(0, Localize)("#DeckVerified_CompatibilitySection_Details"),
 			),
 			n &&
 				i.createElement(B.Tz, {
@@ -458,12 +464,12 @@ function T(e) {
 		{
 			className: f.CompatToolContainer,
 		},
-		(0, p.oW)(
+		LocalizeInlineReactWithFallback(
 			"#Steam_Settings_Compat_Launch_SteamPlay",
 			i.createElement("b", null),
 		),
 		" ",
-		(0, p.we)(n, r),
+		(0, Localize)(n, r),
 	);
 }
 function R(e) {
@@ -562,7 +568,7 @@ let k = class extends i.Component {
 				{
 					className: f.Label,
 				},
-				(0, p.we)(this.props.label),
+				(0, Localize)(this.props.label),
 			),
 			i.createElement(
 				"div",

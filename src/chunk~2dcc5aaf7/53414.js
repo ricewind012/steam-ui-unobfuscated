@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./58360.js");
 var a = i;
 var s = require("./52912.js");
-var o = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var l = require("./95773.js");
 var c = require("./27847.js");
 var m = require("./43229.js");
@@ -11,7 +11,10 @@ var d = require("./78060.js");
 var A = require(/*webcrack:missing*/ "./41230.js");
 var p = require(/*webcrack:missing*/ "./63696.js");
 var g = require(/*webcrack:missing*/ "./50376.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require("./51095.js");
 var f = require("./88620.js");
@@ -29,13 +32,17 @@ var R = require("./82594.js");
 const k = ["148618792083695825", "76561197960266962"];
 export let z7 = class extends p.Component {
 	InviteFriend(e) {
-		(0, f.E5)((0, s.CO)(e), (0, o.uX)(e), this.props.groupView.GetGroup());
+		(0, f.E5)(
+			(0, s.CO)(e),
+			GetOwningWindowForEvent(e),
+			this.props.groupView.GetGroup(),
+		);
 	}
 	OpenSettings(e) {
-		(0, m.hI)((0, o.uX)(e), this.props.groupView);
+		(0, m.hI)(GetOwningWindowForEvent(e), this.props.groupView);
 	}
 	OpenNotificationPreferences(e) {
-		(0, u.lV)((0, o.uX)(e), this.props.groupView);
+		(0, u.lV)(GetOwningWindowForEvent(e), this.props.groupView);
 	}
 	OnContextMenu(e) {
 		(0, c.Tz)(e, this.props.groupView.GetGroup(), {
@@ -110,7 +117,7 @@ export let z7 = class extends p.Component {
 									{
 										className: "chatRoomButton ManageNotifications",
 										onActivate: this.OpenNotificationPreferences,
-										title: (0, h.we)("#Tooltip_NotificationSettings"),
+										title: Localize("#Tooltip_NotificationSettings"),
 									},
 									p.createElement(g.IrQ, null),
 								),
@@ -120,7 +127,7 @@ export let z7 = class extends p.Component {
 										{
 											className: "chatRoomButton InviteToGroupChat",
 											onActivate: this.InviteFriend,
-											title: (0, h.we)("#Tooltip_InviteToGroup"),
+											title: Localize("#Tooltip_InviteToGroup"),
 										},
 										p.createElement(g.MxO, null),
 									),
@@ -130,7 +137,7 @@ export let z7 = class extends p.Component {
 										{
 											className: "chatRoomButton InviteToGroupChat Disabled",
 											onClick: (e) => {},
-											title: (0, h.we)("#Tooltip_InviteToGroup_Denied"),
+											title: Localize("#Tooltip_InviteToGroup_Denied"),
 										},
 										p.createElement(g.MxO, null),
 									),
@@ -139,7 +146,7 @@ export let z7 = class extends p.Component {
 									{
 										className: "chatRoomButton GroupChatSettings",
 										onActivate: this.OpenSettings,
-										title: (0, h.we)("#Tooltip_GroupChatSettings"),
+										title: Localize("#Tooltip_GroupChatSettings"),
 									},
 									p.createElement(g.m59, null),
 								),
@@ -202,7 +209,7 @@ export let wu = class extends p.Component {
 			p.createElement(M.LC, {
 				groupView: this.props.groupView,
 			}),
-			(0, o.uX)(e),
+			GetOwningWindowForEvent(e),
 		);
 	}
 	render() {
@@ -218,7 +225,7 @@ export let wu = class extends p.Component {
 		const s = e.GetActiveChatView()?.chat.GetVoiceAllowed();
 		let o = e.GetActiveChatView()?.GetTabName();
 		if (s) {
-			o = (0, h.we)("#GroupSettings_Channels_VoiceQuickChatRoom", o);
+			o = Localize("#GroupSettings_Channels_VoiceQuickChatRoom", o);
 		}
 		return p.createElement(
 			"div",
@@ -258,7 +265,7 @@ export let wu = class extends p.Component {
 							focusable: true,
 							fnCanTakeFocus: () => true,
 							onActivate: this.fnShowTextChannelsDialog,
-							onOKActionDescription: (0, h.we)(
+							onOKActionDescription: Localize(
 								"#GroupSettings_Channels_TextChannels",
 							),
 						},
@@ -325,12 +332,12 @@ let G = class extends p.Component {
 		if (!t.BCanIAssociateBroadcast()) {
 			return;
 		}
-		const r = (0, o.uX)(e);
+		const r = GetOwningWindowForEvent(e);
 		(0, d.Ci)(
 			r,
-			(0, h.we)("#Broadcast_EndWatchParty"),
-			(0, h.we)("#Broadcast_EndWatchPartyPrompt"),
-			(0, h.we)("#Broadcast_EndWatchParty"),
+			Localize("#Broadcast_EndWatchParty"),
+			Localize("#Broadcast_EndWatchPartyPrompt"),
+			Localize("#Broadcast_EndWatchParty"),
 		).then(() => t.SetChatRoomGroupWatchingBroadcast(undefined));
 	}
 	OnToggleBroadcast(e) {
@@ -363,7 +370,7 @@ let G = class extends p.Component {
 		let o = new w.b(a);
 		let c = r;
 		if (!r) {
-			c = (0, h.we)(
+			c = Localize(
 				"#PersonaStateWatchingBroadcast_Player",
 				l.xm.FriendStore.GetPlayer(o.GetAccountID()).display_name,
 			);
@@ -384,7 +391,7 @@ let G = class extends p.Component {
 					{
 						className: "nowWatching",
 					},
-					(0, h.we)("#Broadcast_NowWatching"),
+					Localize("#Broadcast_NowWatching"),
 				),
 				p.createElement(
 					"div",
@@ -465,7 +472,7 @@ class P extends p.Component {
 					key: "removebroadcast",
 					onSelected: this.props.onRemoveBroadcast,
 				},
-				(0, h.we)("#Chat_Actions_RemoveRoom_Action"),
+				Localize("#Chat_Actions_RemoveRoom_Action"),
 			),
 		);
 	}
@@ -480,7 +487,7 @@ let L = (0, A.PA)((e) => {
 		p.createElement("div", {
 			className: "statCircle",
 		}),
-		(0, h.Yp)("#Chat_Members", t.GetMemberCountTotal()),
+		LocalizePlural("#Chat_Members", t.GetMemberCountTotal()),
 	);
 });
 let z = (0, A.PA)((e) => {
@@ -493,7 +500,7 @@ let z = (0, A.PA)((e) => {
 			"div",
 			{
 				className: "statMemberStat statMembersInGame",
-				title: (0, h.Yp)("#Chat_Members_InGame_Tooltip", r),
+				title: LocalizePlural("#Chat_Members_InGame_Tooltip", r),
 			},
 			p.createElement("div", {
 				className: "statCircle",
@@ -512,7 +519,7 @@ let x = (0, A.PA)((e) => {
 			"div",
 			{
 				className: "statMemberStat statMembersOnline",
-				title: (0, h.Yp)("#Chat_Members_Online_Tooltip", r),
+				title: LocalizePlural("#Chat_Members_Online_Tooltip", r),
 			},
 			p.createElement("div", {
 				className: "statCircle",
@@ -695,9 +702,9 @@ export async function qj(e, t) {
 	if (
 		await (0, d.WQ)(
 			e,
-			(0, h.we)("#Chat_Actions_LeaveChatRoomGroup"),
-			(0, h.we)(n, t.name),
-			(0, h.we)("#Chat_Actions_LeaveChatRoomGroup"),
+			Localize("#Chat_Actions_LeaveChatRoomGroup"),
+			Localize(n, t.name),
+			Localize("#Chat_Actions_LeaveChatRoomGroup"),
 		)
 	) {
 		t.LeaveChatRoomGroup(r);

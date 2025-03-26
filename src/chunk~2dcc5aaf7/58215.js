@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./8573.js");
 var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require("./95773.js");
 var m = require("./24761.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 class d extends m.w {
 	constructor(e) {
 		super(e);
@@ -175,12 +175,12 @@ export function F2(e) {
 			hour: "numeric",
 			minute: "numeric",
 		});
-		return (0, u.we)("#ChatRoom_InviteMessage_Failed_Kicked", t);
+		return (0, Localize)("#ChatRoom_InviteMessage_Failed_Kicked", t);
 	}
 	if (e.result == 17) {
-		return (0, u.we)("#ChatRoom_InviteMessage_Failed_Banned");
+		return (0, Localize)("#ChatRoom_InviteMessage_Failed_Banned");
 	} else if (e.result == 42) {
-		return (0, u.we)("#ChatRoom_InviteMessage_Not_Found");
+		return (0, Localize)("#ChatRoom_InviteMessage_Not_Found");
 	} else {
 		return null;
 	}

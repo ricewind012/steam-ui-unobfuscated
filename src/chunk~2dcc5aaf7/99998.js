@@ -7,11 +7,21 @@ var l = require("./83247.js");
 var c = require("./64608.js");
 var m = require(/*webcrack:missing*/ "./90095.js");
 var u = require(/*webcrack:missing*/ "./98995.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var A = require("./44392.js");
 var p = A;
 var g = require("./92374.js");
-var h = require(/*webcrack:missing*/ "./54644.js");
+import {
+	BElementFullscreen,
+	CancelFullscreen,
+	IsHTMLElement,
+	BIsParentOrSelf,
+	ToggleFullscreen,
+} from "../../actual_src/utils/domutils.js";
 var C = require(/*webcrack:missing*/ "./43691.js");
 var _ = require(/*webcrack:missing*/ "./69164.js");
 var f = require("./29516.js");
@@ -39,7 +49,7 @@ function I(e) {
 			{
 				className: S.Label,
 			},
-			(0, d.we)("#Button_Cancel"),
+			Localize("#Button_Cancel"),
 		),
 	);
 }
@@ -58,7 +68,7 @@ const E = n.forwardRef(function (e, t) {
 			u.he,
 			{
 				toolTipContent: I
-					? (0, d.we)("#RecordingState_Clip_LowDiskSpace")
+					? Localize("#RecordingState_Clip_LowDiskSpace")
 					: null,
 				direction: "top",
 			},
@@ -110,7 +120,7 @@ const E = n.forwardRef(function (e, t) {
 						{
 							className: S.Label,
 						},
-						(0, d.we)("#TimelineDialog_ShareSave"),
+						Localize("#TimelineDialog_ShareSave"),
 					),
 			),
 		);
@@ -118,7 +128,7 @@ const E = n.forwardRef(function (e, t) {
 		return null;
 	}
 });
-var M = require(/*webcrack:missing*/ "./11010.js");
+import { qZ } from "../../actual_src/utils/localization/datetime.js";
 var T = require(/*webcrack:missing*/ "./89193.js");
 var R = require("./661.js");
 var k = require("./34891.js");
@@ -153,7 +163,7 @@ function F() {
 			n.createElement(
 				u.he,
 				{
-					toolTipContent: (0, d.we)("#HighlightSkipper_JumpToPrevious"),
+					toolTipContent: Localize("#HighlightSkipper_JumpToPrevious"),
 					direction: "top",
 				},
 				n.createElement(
@@ -176,7 +186,7 @@ function F() {
 			n.createElement(
 				u.he,
 				{
-					toolTipContent: (0, d.we)("#HighlightSkipper_JumpToNext"),
+					toolTipContent: Localize("#HighlightSkipper_JumpToNext"),
 					direction: "top",
 				},
 				n.createElement(
@@ -230,7 +240,7 @@ function V(e) {
 	const T = (0, f.qm)();
 	const R = o
 		? {
-				[G.pR.CANCEL]: (0, d.we)("#MediaManager_FloatingControls_Cancel"),
+				[G.pR.CANCEL]: Localize("#MediaManager_FloatingControls_Cancel"),
 				[G.pR.OPTIONS]: null,
 			}
 		: undefined;
@@ -250,9 +260,9 @@ function V(e) {
 			stops: [
 				{
 					id: "tools",
-					title: (0, d.we)("#ClippingTour_Tools_Title"),
+					title: Localize("#ClippingTour_Tools_Title"),
 					content: [
-						(0, d.we)("#ClippingTour_Tools_Content_1"),
+						Localize("#ClippingTour_Tools_Content_1"),
 						n.createElement("img", {
 							key: "img",
 							style: {
@@ -262,7 +272,7 @@ function V(e) {
 							},
 							src: U,
 						}),
-						(0, d.PP)(
+						LocalizeReact(
 							"#ClippingTour_Tools_Content_2",
 							n.createElement(l.iU, {
 								style: {
@@ -275,10 +285,10 @@ function V(e) {
 				},
 				{
 					id: "share",
-					title: (0, d.we)("#ClippingTour_Share_Title"),
+					title: Localize("#ClippingTour_Share_Title"),
 					content: [
-						(0, d.we)("#ClippingTour_Share_Content_1"),
-						(0, d.we)("#ClippingTour_Share_Content_2"),
+						Localize("#ClippingTour_Share_Content_1"),
+						Localize("#ClippingTour_Share_Content_2"),
 					],
 				},
 			],
@@ -296,10 +306,10 @@ function V(e) {
 						if (o) {
 							T();
 						} else {
-							if (!t?.current || !(0, h.ww)(t.current)) {
+							if (!t?.current || !BElementFullscreen(t.current)) {
 								return;
 							}
-							(0, h.MS)(t.current);
+							CancelFullscreen(t.current);
 						}
 						e.preventDefault();
 						e.stopPropagation();
@@ -474,7 +484,11 @@ function q() {
 	n.useEffect(() => () => clearTimeout(r.current), []);
 	let c = n.useCallback(
 		(e) => {
-			if (i.current && (0, h.kD)(e.target) && (0, h.id)(i.current, e.target)) {
+			if (
+				i.current &&
+				IsHTMLElement(e.target) &&
+				BIsParentOrSelf(i.current, e.target)
+			) {
 				l("overControls");
 			} else {
 				l("overContainer");
@@ -586,10 +600,10 @@ function Y(e) {
 		s.TogglePlayPause();
 	}, [s]);
 	let c = r == "paused" || r == "uninitialized";
-	let m = (0, d.we)(c ? "#Playback_Play_Tooltip" : "#Playback_Pause_Tooltip");
+	let m = Localize(c ? "#Playback_Play_Tooltip" : "#Playback_Pause_Tooltip");
 	let u = c ? n.createElement(l.ud, null) : n.createElement(l.E$, null);
 	const A = {
-		[G.pR.OK]: (0, d.we)(
+		[G.pR.OK]: Localize(
 			c
 				? "#MediaManager_FloatingControls_Play"
 				: "#MediaManager_FloatingControls_Pause",
@@ -632,7 +646,7 @@ function K(e) {
 		{
 			className: p.FrameStepButton,
 			...C,
-			tooltip: (0, d.we)(g),
+			tooltip: Localize(g),
 			size: "small",
 			enabled: c,
 		},
@@ -674,7 +688,7 @@ function X(e) {
 		{
 			...C,
 			className: p.JumpSecondsButton,
-			tooltip: (0, d.we)(g),
+			tooltip: Localize(g),
 			enabled: c,
 		},
 		h,
@@ -718,7 +732,7 @@ function J(e) {
 				style: "lessbright",
 				size: "small",
 				onActivate: () => t.SetMute(!s, true),
-				tooltip: (0, d.we)("#Playback_ToggleMute_Tooltip"),
+				tooltip: Localize("#Playback_ToggleMute_Tooltip"),
 			},
 			h,
 		),
@@ -752,7 +766,7 @@ function $(e) {
 				style: "lessbright",
 				size: "small",
 				className: p.ViewRecordings,
-				tooltip: (0, d.we)("#Playback_ViewRecordings_Tooltip"),
+				tooltip: Localize("#Playback_ViewRecordings_Tooltip"),
 			},
 			n.createElement(l.ai, null),
 		);
@@ -765,7 +779,7 @@ function ee(e) {
 	let i = (0, z.rf)(t);
 	let a = n.useCallback(() => {
 		if (t.current) {
-			(0, h.Vr)(t.current);
+			ToggleFullscreen(t.current);
 		}
 	}, [t]);
 	if (!r) {
@@ -779,7 +793,7 @@ function ee(e) {
 			size: "small",
 			className: p.FullscreenButton,
 			onActivate: a,
-			tooltip: (0, d.we)("#Playback_FullScreen_Tooltip"),
+			tooltip: Localize("#Playback_FullScreen_Tooltip"),
 		},
 		s,
 	);
@@ -825,7 +839,7 @@ function te(e) {
 		return n.createElement(
 			u.he,
 			{
-				toolTipContent: (0, d.we)("#Playback_Speed_Tooltip"),
+				toolTipContent: Localize("#Playback_Speed_Tooltip"),
 				direction: "top",
 			},
 			n.createElement(c.pU, {
@@ -833,7 +847,7 @@ function te(e) {
 				rgOptions: s,
 				selectedOption: i,
 				onChange: (e) => t.SetPlaybackSpeed(e.data),
-				tooltip: a ? (0, d.we)("#Playback_Speed_Tooltip") : null,
+				tooltip: a ? Localize("#Playback_Speed_Tooltip") : null,
 				contextMenuPositionOptions: {
 					bMatchWidth: false,
 				},
@@ -856,10 +870,10 @@ function re(e) {
 	}
 	let C;
 	C = A
-		? (0, d.we)("#RecordingState_Clip_LowDiskSpace")
+		? Localize("#RecordingState_Clip_LowDiskSpace")
 		: s && o
-			? (0, d.we)("#Playback_UserSelectionControls_ClipLatest")
-			: (0, d.we)("#Playback_UserSelectionControls_SetClipStart");
+			? Localize("#Playback_UserSelectionControls_ClipLatest")
+			: Localize("#Playback_UserSelectionControls_SetClipStart");
 	return n.createElement(
 		u.he,
 		{
@@ -908,7 +922,7 @@ function re(e) {
 						{
 							className: p.Label,
 						},
-						(0, d.we)("#TimelineDialog_Clip"),
+						Localize("#TimelineDialog_Clip"),
 					),
 			),
 		),
@@ -935,7 +949,7 @@ function ne(e) {
 					r(i, 3, e, undefined);
 				}
 			},
-			tooltip: (0, d.we)("#Playback_UserSelectionControls_SetClipStart"),
+			tooltip: Localize("#Playback_UserSelectionControls_SetClipStart"),
 		},
 		n.createElement(l.Nm, {
 			direction: "left",
@@ -954,7 +968,7 @@ function ie(e) {
 				const e = r.GetGlobalMSPlaytime();
 				i(r, 3, undefined, e);
 			},
-			tooltip: (0, d.we)("#Playback_UserSelectionControls_SetClipEnd"),
+			tooltip: Localize("#Playback_UserSelectionControls_SetClipEnd"),
 			enabled: t,
 		},
 		n.createElement(l.Nm, {
@@ -976,7 +990,7 @@ function ae(e) {
 				r.SetPlaybackStop(i.nGlobalEndMS);
 				r.GetGameRecordingVideo().Play();
 			},
-			tooltip: (0, d.we)("#TimelineContext_JumpToStart"),
+			tooltip: Localize("#TimelineContext_JumpToStart"),
 			enabled: t,
 		},
 		n.createElement(l.Uq, null),
@@ -994,8 +1008,8 @@ function se(e) {
 	}, [i, t]);
 	let s =
 		a == 0
-			? (0, d.we)("#TimelineContext_Zoom")
-			: (0, d.we)("#TimelineContext_ZoomOut");
+			? Localize("#TimelineContext_Zoom")
+			: Localize("#TimelineContext_ZoomOut");
 	return n.createElement(
 		Z,
 		{
@@ -1040,28 +1054,28 @@ function le(e) {
 					style: e,
 					className: p.RecordingIcon,
 				});
-				s = (0, d.we)("#RecordingState_ManualRecOff");
+				s = Localize("#RecordingState_ManualRecOff");
 				break;
 			case k.KB.ManualRecording:
 				a = n.createElement(l.tw, {
 					style: e,
 					className: p.RecordingIcon,
 				});
-				s = (0, d.we)("#RecordingState_ManualRecOn");
+				s = Localize("#RecordingState_ManualRecOn");
 				break;
 			case k.KB.BackgroundRecording:
 				a = n.createElement(l.tw, {
 					style: e,
 					className: p.RecordingIcon,
 				});
-				s = (0, d.we)("#RecordingState_BackgroundRec_Tooltip");
+				s = Localize("#RecordingState_BackgroundRec_Tooltip");
 				break;
 			case k.KB.ForeverRecording:
 				a = n.createElement(l.tw, {
 					style: e,
 					className: p.RecordingIcon,
 				});
-				s = (0, d.we)("#RecordingState_ForeverRec_Tooltip");
+				s = Localize("#RecordingState_ForeverRec_Tooltip");
 		}
 		return {
 			elIcon: a,
@@ -1081,13 +1095,13 @@ function le(e) {
 	let w = "";
 	if (b) {
 		let e = r.GetLoader().GetRunningTimelineDurationMS(C.strTimelineID);
-		w = (0, M.qZ)(Math.floor(e / 1000), false);
+		w = (0, qZ)(Math.floor(e / 1000), false);
 	} else {
-		w = isNaN(f) ? W : (0, M.qZ)(Math.floor(f / 1000), false);
+		w = isNaN(f) ? W : (0, qZ)(Math.floor(f / 1000), false);
 	}
 	let B = W;
 	if (s != "uninitialized" && C && !isNaN(C.nTimelineOffsetMS.valMS)) {
-		B = (0, M.qZ)(y / 1000, false);
+		B = (0, qZ)(y / 1000, false);
 	}
 	return n.createElement(
 		"div",
@@ -1188,7 +1202,7 @@ function ce(e) {
 					"span",
 					null,
 					" ",
-					(0, d.we)(
+					Localize(
 						f
 							? "#Playback_UserSelectionControls_AddUserMarkerLiveEdge"
 							: "#Playback_UserSelectionControls_AddUserMarker",
@@ -1231,10 +1245,8 @@ function me() {
 	const s = (t.valMS - i.valMS) / 1000;
 	const o = (r.valMS - i.valMS) / 1000;
 	const l =
-		Math.round(s) > Math.round(o) || t.valMS < i.valMS
-			? W
-			: (0, M.qZ)(s, false);
-	const c = (0, M.qZ)(o, false);
+		Math.round(s) > Math.round(o) || t.valMS < i.valMS ? W : (0, qZ)(s, false);
+	const c = (0, qZ)(o, false);
 	return n.createElement(
 		"div",
 		{
@@ -1335,8 +1347,8 @@ function Ae(e) {
 				t.goBack();
 				(0, B.f5)([e]);
 			},
-			strTitle: (0, d.we)("#DeleteRecording_Title"),
-			strDescription: (0, d.we)("#DeleteRecording_Description"),
+			strTitle: Localize("#DeleteRecording_Title"),
+			strDescription: Localize("#DeleteRecording_Description"),
 		});
 		return {
 			elRecordingDialog: r,
@@ -1352,8 +1364,8 @@ function Ae(e) {
 				r.goBack();
 				await t(e);
 			},
-			strTitle: (0, d.we)("#DeleteClip_Title"),
-			strDescription: (0, d.we)("#DeleteClip_Description", e),
+			strTitle: Localize("#DeleteClip_Title"),
+			strDescription: Localize("#DeleteClip_Description", e),
 		});
 		return {
 			elClipDialog: n,
@@ -1374,7 +1386,7 @@ function Ae(e) {
 				n.createElement(
 					u.he,
 					{
-						toolTipContent: (0, d.we)("#Clip_Delete_Tooltip"),
+						toolTipContent: Localize("#Clip_Delete_Tooltip"),
 						direction: "top",
 					},
 					n.createElement(
@@ -1435,7 +1447,7 @@ const pe = n.forwardRef(function (e, t) {
 						{
 							className: p.Label,
 						},
-						(0, d.we)("#ExportClip_Share"),
+						Localize("#ExportClip_Share"),
 					),
 			),
 		);
@@ -1450,7 +1462,7 @@ function ge(e) {
 		return n.createElement(
 			u.he,
 			{
-				toolTipContent: (0, d.we)("#RecordingState_LowDiskSpace_CTA"),
+				toolTipContent: Localize("#RecordingState_LowDiskSpace_CTA"),
 				direction: "top",
 			},
 			n.createElement(
@@ -1470,7 +1482,7 @@ function ge(e) {
 					n.createElement(
 						"div",
 						null,
-						(0, d.we)("#RecordingState_LowDiskSpace_CTA"),
+						Localize("#RecordingState_LowDiskSpace_CTA"),
 					),
 			),
 		);
@@ -1529,9 +1541,9 @@ export function d8(e) {
 				stops: [
 					{
 						id: "timeline",
-						title: (0, d.we)("#RecordingTour_Timeline_Title"),
+						title: Localize("#RecordingTour_Timeline_Title"),
 						content: [
-							(0, d.we)("#RecordingTour_Timeline_Content_1"),
+							Localize("#RecordingTour_Timeline_Content_1"),
 							n.createElement("img", {
 								key: "img",
 								style: {
@@ -1541,7 +1553,7 @@ export function d8(e) {
 								},
 								src: Ce,
 							}),
-							(0, d.PP)(
+							LocalizeReact(
 								"#RecordingTour_Timeline_Content_2",
 								n.createElement(l.pH, {
 									style: {
@@ -1554,9 +1566,9 @@ export function d8(e) {
 					},
 					{
 						id: "clipping",
-						title: (0, d.we)("#RecordingTour_Clipping_Title"),
+						title: Localize("#RecordingTour_Clipping_Title"),
 						content: [
-							(0, d.PP)(
+							LocalizeReact(
 								"#RecordingTour_Clipping_Content_1",
 								n.createElement(l.Wd, {
 									style: {
@@ -1565,7 +1577,7 @@ export function d8(e) {
 									},
 								}),
 							),
-							(0, d.oW)(
+							LocalizeInlineReactWithFallback(
 								"#RecordingTour_Clipping_Content_2",
 								n.createElement("span", {
 									className: i.TourYellowUnderline,
@@ -1602,7 +1614,7 @@ export function Sd(e) {
 		let i = (0, n.useCallback)(
 			(e) => {
 				if (r.current) {
-					t((0, h.ww)(r.current));
+					t(BElementFullscreen(r.current));
 				}
 			},
 			[r, t],

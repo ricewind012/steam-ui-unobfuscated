@@ -4,9 +4,9 @@ var a = require(/*webcrack:missing*/ "./52451.js");
 var s = require(/*webcrack:missing*/ "./90765.js");
 var o = require("./3963.js");
 var l = require("./64608.js");
-var c = require(/*webcrack:missing*/ "./54644.js");
+import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
 var m = require("./15688.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./89193.js");
 var A = require("./55523.js");
 var p = A;
@@ -71,7 +71,7 @@ export class K extends i.Component {
 	OnBlur(e) {
 		if (
 			!e.relatedTarget ||
-			!c.id(this.m_elPostControlsRef.current, e.relatedTarget)
+			!BIsParentOrSelf(this.m_elPostControlsRef.current, e.relatedTarget)
 		) {
 			this.setState({
 				bHaveFocus: false,
@@ -136,7 +136,7 @@ export class K extends i.Component {
 						{
 							className: p.Label,
 						},
-						(0, u.we)("#AppActivity_PostStatusUpdate"),
+						Localize("#AppActivity_PostStatusUpdate"),
 					),
 				),
 			),

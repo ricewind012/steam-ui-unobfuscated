@@ -7,7 +7,10 @@ var l = require("./64608.js");
 var c = require("./31993.js");
 var m = require(/*webcrack:missing*/ "./12176.js");
 var u = require("./10606.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./52451.js");
 var p = require(/*webcrack:missing*/ "./72476.js");
 var g = require("./36934.js");
@@ -24,7 +27,7 @@ var v = require("./79918.js");
 var I = v;
 var E = require("./46217.js");
 var M = require(/*webcrack:missing*/ "./69164.js");
-var T = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 (function (e) {
 	e[(e.Neutral = 0)] = "Neutral";
 	e[(e.Up = 1)] = "Up";
@@ -42,11 +45,11 @@ export class jB extends i.Component {
 	m_rgVisibilityOptions = [
 		{
 			data: true,
-			label: (0, d.we)("#WriteReview_Dialog_Public"),
+			label: Localize("#WriteReview_Dialog_Public"),
 		},
 		{
 			data: false,
-			label: (0, d.we)("#WriteReview_Dialog_Friends"),
+			label: Localize("#WriteReview_Dialog_Friends"),
 		},
 	];
 	constructor(e) {
@@ -129,7 +132,7 @@ export class jB extends i.Component {
 						} else {
 							let t = e.data.strError
 								? e.data.strError
-								: (0, d.we)("#WriteReview_Dialog_GenericError");
+								: Localize("#WriteReview_Dialog_GenericError");
 							this.setState({
 								strError: t,
 								bRequestInProgress: false,
@@ -139,14 +142,14 @@ export class jB extends i.Component {
 					.catch((e) => {
 						console.log(e);
 						this.setState({
-							strError: (0, d.we)("#WriteReview_Dialog_GenericError"),
+							strError: Localize("#WriteReview_Dialog_GenericError"),
 							bRequestInProgress: false,
 						});
 					});
 			}
 		} else {
 			this.setState({
-				strError: (0, d.we)("#WriteReview_Dialog_NoTextError"),
+				strError: Localize("#WriteReview_Dialog_NoTextError"),
 				bRequestInProgress: false,
 			});
 		}
@@ -182,7 +185,7 @@ export class jB extends i.Component {
 	}
 	OnSupportClick(e) {
 		this.CloseDialog();
-		(0, T.uX)(e).location.href = S.B7.BuildSteamURL(
+		GetOwningWindowForEvent(e).location.href = S.B7.BuildSteamURL(
 			"HelpAppPage",
 			this.props.appid,
 		);
@@ -226,7 +229,7 @@ export class jB extends i.Component {
 							className: I.ButtonText,
 						},
 						" ",
-						(0, d.we)("#WriteReview_Dialog_GetSupport_Btn"),
+						Localize("#WriteReview_Dialog_GetSupport_Btn"),
 						" ",
 					),
 				),
@@ -235,7 +238,7 @@ export class jB extends i.Component {
 					{
 						className: I.OptionDesc,
 					},
-					(0, d.we)("#WriteReview_Dialog_GetSupport_Desc"),
+					Localize("#WriteReview_Dialog_GetSupport_Desc"),
 				),
 			),
 			i.createElement(
@@ -258,7 +261,7 @@ export class jB extends i.Component {
 							className: I.ButtonText,
 						},
 						" ",
-						(0, d.we)("#WriteReview_Dialog_AddReview_Btn"),
+						Localize("#WriteReview_Dialog_AddReview_Btn"),
 						" ",
 					),
 				),
@@ -267,7 +270,7 @@ export class jB extends i.Component {
 					{
 						className: I.OptionDesc,
 					},
-					(0, d.we)("#WriteReview_Dialog_AddReview_Desc"),
+					Localize("#WriteReview_Dialog_AddReview_Desc"),
 				),
 			),
 		);
@@ -302,14 +305,14 @@ export class jB extends i.Component {
 				{
 					className: I.DescribeGame,
 				},
-				(0, d.PP)(
+				LocalizeReact(
 					"#WriteReview_Dialog_ReviewInstructions",
 					i.createElement(
 						"a",
 						{
 							href: "https://support.steampowered.com/kb_article.php?ref=4045-USHJ-3810",
 						},
-						(0, d.we)("#WriteReview_Dialog_ReviewInstructions_Link"),
+						Localize("#WriteReview_Dialog_ReviewInstructions_Link"),
 					),
 				),
 				(0, p.Y2)() &&
@@ -318,7 +321,7 @@ export class jB extends i.Component {
 						{
 							className: I.SteamChinaDisclaimer,
 						},
-						(0, d.we)("#WriteReview_Dialog_SteamChinaDisclaimer"),
+						Localize("#WriteReview_Dialog_SteamChinaDisclaimer"),
 					),
 			),
 			i.createElement("textarea", {
@@ -332,7 +335,7 @@ export class jB extends i.Component {
 					className: I.WebLink,
 					href: e,
 				},
-				(0, d.we)("#WriteReview_Dialog_FormattingHelp"),
+				Localize("#WriteReview_Dialog_FormattingHelp"),
 			),
 			i.createElement(
 				"div",
@@ -347,7 +350,7 @@ export class jB extends i.Component {
 					i.createElement(
 						"span",
 						null,
-						(0, d.we)("#WriteReview_Dialog_Visibility"),
+						Localize("#WriteReview_Dialog_Visibility"),
 					),
 					i.createElement(l.m, {
 						strClassName: I.VisibilityMenu,
@@ -369,12 +372,12 @@ export class jB extends i.Component {
 										bAllowComments: e,
 									}),
 								className: I.CommentCheckbox,
-								label: (0, d.we)("#WriteReview_Dialog_AllowComments"),
+								label: Localize("#WriteReview_Dialog_AllowComments"),
 							}),
 						i.createElement(
 							B.he,
 							{
-								toolTipContent: (0, d.we)(
+								toolTipContent: Localize(
 									"#WriteReview_Dialog_FreeDisclaimer_Tooltip",
 								),
 								bTopmost: true,
@@ -387,10 +390,8 @@ export class jB extends i.Component {
 										bReceivedCompensation: e,
 									}),
 								className: I.FreeCheckbox,
-								label: (0, d.we)("#WriteReview_Dialog_FreeDisclaimer"),
-								tooltip: (0, d.we)(
-									"#WriteReview_Dialog_FreeDisclaimer_Tooltip",
-								),
+								label: Localize("#WriteReview_Dialog_FreeDisclaimer"),
+								tooltip: Localize("#WriteReview_Dialog_FreeDisclaimer_Tooltip"),
 							}),
 						),
 					),
@@ -431,11 +432,11 @@ export class jB extends i.Component {
 		return i.createElement(
 			u.o0,
 			{
-				strTitle: (0, d.we)("#WriteReview_Dialog_Title"),
+				strTitle: Localize("#WriteReview_Dialog_Title"),
 				strOKButtonText: this.props.prevReview
-					? (0, d.we)("#WriteReview_Dialog_ReviseReview")
-					: (0, d.we)("#WriteReview_Dialog_PostReview"),
-				strCancelButtonText: (0, d.we)("#Button_Close"),
+					? Localize("#WriteReview_Dialog_ReviseReview")
+					: Localize("#WriteReview_Dialog_PostReview"),
+				strCancelButtonText: Localize("#Button_Close"),
 				onOK: this.PostReview,
 				bAllowFullSize: true,
 				bDisableBackgroundDismiss: true,
@@ -483,21 +484,21 @@ export function pH(e, t, r, n, a, s, o, l, c) {
 	let u = (function (e) {
 		if (e >= 120) {
 			const t = Math.floor(e / 60);
-			return (0, d.we)("#Played_Hours", t);
+			return Localize("#Played_Hours", t);
 		}
-		return (0, d.we)("#Played_Minutes", e);
+		return Localize("#Played_Minutes", e);
 	})(r);
 	let A = m
-		? (0, d.we)("#WriteReview_Dialog_Playtime_Software", u)
-		: (0, d.we)("#WriteReview_Dialog_Playtime", u);
+		? Localize("#WriteReview_Dialog_Playtime_Software", u)
+		: Localize("#WriteReview_Dialog_Playtime", u);
 	let p = m
-		? (0, d.we)("#WriteReview_Dialog_RecommendGame_Software")
-		: (0, d.we)("#WriteReview_Dialog_RecommendGame");
+		? Localize("#WriteReview_Dialog_RecommendGame_Software")
+		: Localize("#WriteReview_Dialog_RecommendGame");
 	if (c == qR.ReviseQuery) {
-		A = (0, d.we)("#WriteReview_Dialog_Playtime_Revise", u);
-		p = (0, d.we)("#WriteReview_Dialog_RecommendGame_Revise");
+		A = Localize("#WriteReview_Dialog_Playtime_Revise", u);
+		p = Localize("#WriteReview_Dialog_RecommendGame_Revise");
 	} else if (c == qR.ReviseEdit) {
-		A = (0, d.we)("#WriteReview_Dialog_Playtime_Revise", u);
+		A = Localize("#WriteReview_Dialog_Playtime_Revise", u);
 	}
 	let g = c != qR.ReviseQuery ? I.ReviewThumbButton : I.CompactThumbButton;
 	return i.createElement(
@@ -534,37 +535,37 @@ export function pH(e, t, r, n, a, s, o, l, c) {
 				k,
 				{
 					className: (0, f.A)(g, n && I.Selected),
-					title: (0, d.we)("#ChatEntryButton_Submit"),
+					title: Localize("#ChatEntryButton_Submit"),
 					onClick: a,
 				},
 				c != qR.ReviseQuery &&
 					i.createElement(E.tw, {
 						className: (0, f.A)(I.ThumbIcon, n && I.Selected, I.Up),
 					}),
-				i.createElement("span", null, (0, d.we)("#WriteReview_Dialog_Yes")),
+				i.createElement("span", null, Localize("#WriteReview_Dialog_Yes")),
 			),
 			i.createElement(
 				k,
 				{
 					className: (0, f.A)(g, s && I.Selected),
-					title: (0, d.we)("#WriteReview_Dialog_No"),
+					title: Localize("#WriteReview_Dialog_No"),
 					onClick: o,
 				},
 				c != qR.ReviseQuery &&
 					i.createElement(E.Su, {
 						className: (0, f.A)(I.ThumbIcon, s && I.Selected, I.Down),
 					}),
-				i.createElement("span", null, (0, d.we)("#WriteReview_Dialog_No")),
+				i.createElement("span", null, Localize("#WriteReview_Dialog_No")),
 			),
 			l &&
 				i.createElement(
 					k,
 					{
 						className: (0, f.A)(g, I.NoIcon),
-						title: (0, d.we)("#WriteReview_Dialog_Delay"),
+						title: Localize("#WriteReview_Dialog_Delay"),
 						onClick: l,
 					},
-					i.createElement("span", null, (0, d.we)("#WriteReview_Dialog_Delay")),
+					i.createElement("span", null, Localize("#WriteReview_Dialog_Delay")),
 				),
 		),
 	);

@@ -15,7 +15,10 @@ import * as h from /*webcrack:missing*/ "./88750.js";
 import * as C from "./64608.js";
 import * as _ from /*webcrack:missing*/ "./27773.js";
 import * as f from /*webcrack:missing*/ "./90765.js";
-import * as b from /*webcrack:missing*/ "./46108.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as y from /*webcrack:missing*/ "./72476.js";
 import * as S from "./11958.js";
 import * as w from "./53576.js";
@@ -265,7 +268,7 @@ function T(e) {
 			{
 				onSelected: e.onRemove,
 			},
-			(0, b.we)("#Login_RemoveUser_Menu"),
+			Localize("#Login_RemoveUser_Menu"),
 		),
 	);
 }
@@ -295,7 +298,7 @@ function R(e) {
 					{
 						className: B.WhosPlaying,
 					},
-					(0, b.we)("#Login_PickUser"),
+					Localize("#Login_PickUser"),
 				),
 				e.children,
 			),
@@ -348,14 +351,14 @@ function D(e) {
 					{
 						className: B.Title,
 					},
-					(0, b.we)("#Login_Remove_Title"),
+					Localize("#Login_Remove_Title"),
 				),
 				l.createElement(
 					"div",
 					{
 						className: B.Paragraph,
 					},
-					(0, b.PP)(
+					LocalizeReact(
 						"#Login_Remove_Desc1",
 						l.createElement(
 							"span",
@@ -371,7 +374,7 @@ function D(e) {
 					{
 						className: B.Paragraph,
 					},
-					(0, b.we)("#Login_Remove_Desc2"),
+					Localize("#Login_Remove_Desc2"),
 				),
 			),
 			l.createElement(
@@ -387,14 +390,14 @@ function D(e) {
 							e.onFinished?.();
 						},
 					},
-					(0, b.we)("#Login_Remove_Remove"),
+					Localize("#Login_Remove_Remove"),
 				),
 				l.createElement(
 					C.$n,
 					{
 						onClick: e.onFinished,
 					},
-					(0, b.we)("#Button_Cancel"),
+					Localize("#Button_Cancel"),
 				),
 			),
 		),
@@ -533,7 +536,7 @@ function W(e) {
 		}),
 		i &&
 			l.createElement(S.W, {
-				strName: (0, b.we)("#AccountCreation_Title"),
+				strName: Localize("#AccountCreation_Title"),
 				strURL: `${y.TS.STORE_BASE_URL}join/`,
 				popupWidth: N,
 				popupHeight: F,
@@ -545,7 +548,7 @@ function W(e) {
 			}),
 		s &&
 			l.createElement(S.W, {
-				strName: (0, b.we)("#SignInHelp_Title"),
+				strName: Localize("#SignInHelp_Title"),
 				strURL: `${y.TS.HELP_BASE_URL}wizard/HelpWithLogin`,
 				popupWidth: G,
 				popupHeight: O,
@@ -557,7 +560,7 @@ function W(e) {
 			}),
 		g &&
 			l.createElement(S.W, {
-				strName: (0, b.we)("#CodeHelp_Title"),
+				strName: Localize("#CodeHelp_Title"),
 				strURL: g,
 				popupWidth: L,
 				popupHeight: z,
@@ -569,7 +572,7 @@ function W(e) {
 			}),
 		C &&
 			l.createElement(S.W, {
-				strName: (0, b.we)("#Agreement_Title"),
+				strName: Localize("#Agreement_Title"),
 				strURL: C,
 				popupWidth: x,
 				popupHeight: U,

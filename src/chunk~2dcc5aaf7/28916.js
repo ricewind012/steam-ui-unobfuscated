@@ -7,7 +7,7 @@ var l = require("./34766.js");
 var c = l;
 var m = require("./18052.js");
 var u = require(/*webcrack:missing*/ "./44846.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require("./31800.js");
 var p = require("./43802.js");
 var g = require("./43152.js");
@@ -48,7 +48,7 @@ function y(e) {
 	const l = n.useRef(undefined);
 	const [m, y] = n.useState(false);
 	(0, A.Wh)(
-		(0, d.we)("#Settings_Internet_Captive_Portal_Header_Title"),
+		Localize("#Settings_Internet_Captive_Portal_Header_Title"),
 		"CaptivePortalDialog",
 	);
 	const S = (0, o.Av)();
@@ -88,7 +88,7 @@ function y(e) {
 	const T = {};
 	if (w) {
 		T.onOKButton = e.closeModal;
-		T.onOKActionDescription = (0, d.we)("#Button_Done");
+		T.onOKActionDescription = Localize("#Button_Done");
 		T.onCancelButton = e.closeModal;
 		T.onCancelActionDescription = null;
 	}
@@ -147,7 +147,7 @@ function y(e) {
 									onClick: t,
 									autoFocus: true,
 								},
-								w ? (0, d.we)("#Button_Done") : (0, d.we)("#Generic_Close"),
+								w ? Localize("#Button_Done") : Localize("#Generic_Close"),
 							),
 						),
 					),

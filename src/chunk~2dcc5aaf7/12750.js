@@ -15,7 +15,7 @@ var h = require("./34043.js");
 var C = require("./46948.js");
 var _ = require("./16053.js");
 var f = require(/*webcrack:missing*/ "./49455.js");
-var b = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var y = require(/*webcrack:missing*/ "./72476.js");
 var S = require("./96538.js");
 var w = require("./96593.js");
@@ -25,7 +25,7 @@ var I = require("./5859.js");
 var E = require("./63088.js");
 var M = require("./48289.js");
 const T = "achievementmap";
-const R = b.Kp.PerMonth * 2;
+const R = Seconds.PerMonth * 2;
 const k = "usernews";
 const D = "gameactivity";
 class N {

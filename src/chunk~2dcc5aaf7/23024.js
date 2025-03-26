@@ -519,9 +519,12 @@ class f {
 (0, n.Cg)([s.XI.bound], f.prototype, "CaptureStatsForDisplay", null);
 (0, n.Cg)([h.o], f.prototype, "OnVideoPause", null);
 (0, n.Cg)([h.o], f.prototype, "OnVideoResize", null);
-var b = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 var y = require(/*webcrack:missing*/ "./49455.js");
-var S = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocaleToELanguage,
+} from "../../actual_src/utils/localization.js";
 var w = require("./16154.js");
 var B = require("./44058.js");
 var v = require("./20711.js");
@@ -551,7 +554,7 @@ class R {
 			this.m_rtUnlockTime = Date.now();
 			this.m_schUnlockTimeout.Schedule(100, () => this.CheckUnlockState());
 		} else {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_MinBrowser"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_MinBrowser"));
 		}
 	}
 	BCanUnlockH264() {
@@ -596,7 +599,7 @@ class R {
 			);
 			this.m_broadcast.SetState(
 				fK.Error,
-				(0, S.we)("#BroadcastWatch_MinBrowser"),
+				(0, Localize)("#BroadcastWatch_MinBrowser"),
 			);
 		} else {
 			this.m_schUnlockTimeout.Schedule(100, () => this.CheckUnlockState());
@@ -867,7 +870,7 @@ class O {
 					} catch {}
 				})(t, r.m_ulBroadcastID, this.m_broadcastSettings.ulViewerToken);
 			}
-			b.Wp(r.m_rgVideos, (t) => t == e);
+			FindAndRemoveWhere(r.m_rgVideos, (t) => t == e);
 			this.RemoveBroadcastIfUnused(r);
 		}
 	}
@@ -1021,7 +1024,7 @@ class O {
 			console.error("Failed to get broadcast manifest!" + t.strErrorMsg, t);
 		}
 		if (!i || i.status != 200) {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_RequestFailed"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 			return;
 		}
 		let s = i.data;
@@ -1044,10 +1047,13 @@ class O {
 				);
 			}, Math.random() * 30000);
 		} else if (o == "waiting") {
-			e.SetState(fK.Loading, (0, S.we)("#BroadcastWatch_WaitingForResponse"));
+			e.SetState(
+				fK.Loading,
+				(0, Localize)("#BroadcastWatch_WaitingForResponse"),
+			);
 			let n = Date.now() - r;
 			if (n > 60000) {
-				e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_NotAvailable"));
+				e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
 				return;
 			}
 			let i = n > 30000 ? s.retry : 5000;
@@ -1055,31 +1061,34 @@ class O {
 				this.GetBroadcastManifest(e, t, r),
 			);
 		} else if (o == "waiting_for_start") {
-			e.SetState(fK.Loading, (0, S.we)("#BroadcastWatch_WaitingForStart"));
+			e.SetState(fK.Loading, (0, Localize)("#BroadcastWatch_WaitingForStart"));
 			e.m_schManifestTimeout.Schedule(s.retry, () =>
 				this.GetBroadcastManifest(e, t, r),
 			);
 		} else if (o == "waiting_for_reconnect") {
-			e.SetState(fK.Loading, (0, S.we)("#BroadcastWatch_WaitingForReconnect"));
+			e.SetState(
+				fK.Loading,
+				(0, Localize)("#BroadcastWatch_WaitingForReconnect"),
+			);
 			e.m_schManifestTimeout.Schedule(s.retry, () =>
 				this.GetBroadcastManifest(e, t, r),
 			);
 		} else if (o == "end") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_NotAvailable"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
 		} else if (o == "too_many_broadcasts") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_TooManyBroadcasts"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_TooManyBroadcasts"));
 		} else if (o == "system_not_supported") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_SystemNotSupported"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_SystemNotSupported"));
 		} else if (o == "user_restricted") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_UserRestricted"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_UserRestricted"));
 		} else if (o == "poor_upload_quality") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_PoorUploadQuality"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_PoorUploadQuality"));
 		} else if (o == "request_failed") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_RequestFailed"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 		} else if (o == "too_many_viewers") {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_TooManyViewers"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_TooManyViewers"));
 		} else {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_NotAvailable"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
 		}
 	}
 	async GetClipManifest(e, t) {
@@ -1100,7 +1109,7 @@ class O {
 			console.log("Failed to get clip manifest!");
 		}
 		if (!n || n.status != 200) {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_RequestFailed"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 			return;
 		}
 		let i = n.data;
@@ -1109,7 +1118,7 @@ class O {
 			e.m_data = i;
 			this.LoadClip(e);
 		} else {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_RequestFailed"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 		}
 	}
 	async GetVODManifest(e, t) {
@@ -1120,7 +1129,7 @@ class O {
 			e.m_manifestURL = r.video_url;
 			this.LoadVOD(e);
 		} else {
-			e.SetState(fK.Error, (0, S.we)("#BroadcastWatch_RequestFailed"));
+			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 		}
 	}
 	async HeartbeatBroadcast(e) {
@@ -1367,7 +1376,7 @@ class P {
 		return null;
 	}
 	SetSubtitles(e) {
-		let t = e ? S.bi[e] : -1;
+		let t = e ? LocaleToELanguage[e] : -1;
 		this.m_player.SetSubtitles(t);
 	}
 	SetStartWithSubtitles(e) {

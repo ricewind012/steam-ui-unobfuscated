@@ -7,7 +7,11 @@ var l = require(/*webcrack:missing*/ "./88750.js");
 var c = require(/*webcrack:missing*/ "./90242.js");
 var m = require(/*webcrack:missing*/ "./26853.js");
 var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./52451.js");
 var p = require(/*webcrack:missing*/ "./72476.js");
 var g = require("./44658.js");
@@ -111,7 +115,7 @@ var T = require("./14982.js");
 var R = require(/*webcrack:missing*/ "./88696.js");
 var k = require("./76356.js");
 var D = require("./35488.js");
-var N = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var F = require("./18869.js");
 var G = require("./96680.js");
 var O = require("./10294.js");
@@ -125,11 +129,11 @@ var V = require("./18057.js");
 function H(e) {
 	switch (e) {
 		case "phone":
-			return (0, d.we)("#RemotePlay_Explainer_Description_Phone");
+			return Localize("#RemotePlay_Explainer_Description_Phone");
 		case "tablet":
-			return (0, d.we)("#RemotePlay_Explainer_Description_Tablet");
+			return Localize("#RemotePlay_Explainer_Description_Tablet");
 		case "tv":
-			return (0, d.we)("#RemotePlay_Explainer_Description_TV");
+			return Localize("#RemotePlay_Explainer_Description_TV");
 		default:
 			console.warn(`Unknown remote play anywhere support cateogry "${e}"`);
 			return "";
@@ -155,7 +159,7 @@ function j(e) {
 			break;
 		case 2:
 			const [e, r] = o;
-			l = (0, d.we)("#RemotePlay_Explainer_Description_Two", H(e), H(r));
+			l = Localize("#RemotePlay_Explainer_Description_Two", H(e), H(r));
 			break;
 		default:
 			if (o.length > 3) {
@@ -164,14 +168,9 @@ function j(e) {
 				);
 			}
 			const [n, i, a] = o;
-			l = (0, d.we)(
-				"#RemotePlay_Explainer_Description_Three",
-				H(n),
-				H(i),
-				H(a),
-			);
+			l = Localize("#RemotePlay_Explainer_Description_Three", H(n), H(i), H(a));
 	}
-	const c = (0, d.we)("#RemotePlay_Explainer_Description", t.display_name, l);
+	const c = Localize("#RemotePlay_Explainer_Description", t.display_name, l);
 	const m = () => a(`${s}#steam_link_section`);
 	return i.createElement(
 		z.mt,
@@ -182,7 +181,7 @@ function j(e) {
 		i.createElement(
 			P.sh,
 			null,
-			i.createElement(L.Y9, null, (0, d.we)("#RemotePlay_Explainer_Title")),
+			i.createElement(L.Y9, null, Localize("#RemotePlay_Explainer_Title")),
 			i.createElement("div", null, c),
 			i.createElement(
 				"div",
@@ -195,13 +194,13 @@ function j(e) {
 					i.createElement(
 						"b",
 						null,
-						(0, d.we)("#RemotePlay_Explainer_HowWorks_Title"),
+						Localize("#RemotePlay_Explainer_HowWorks_Title"),
 					),
 				),
 				i.createElement(
 					"div",
 					null,
-					(0, d.oW)(
+					LocalizeInlineReactWithFallback(
 						"#RemotePlay_Explainer_HowWorks_1",
 						i.createElement("b", null),
 						i.createElement(P.Oy, {
@@ -212,7 +211,7 @@ function j(e) {
 				i.createElement(
 					"div",
 					null,
-					(0, d.oW)(
+					LocalizeInlineReactWithFallback(
 						"#RemotePlay_Explainer_HowWorks_2",
 						i.createElement("b", null),
 						i.createElement(P.Oy, {
@@ -223,7 +222,7 @@ function j(e) {
 				i.createElement(
 					"div",
 					null,
-					(0, d.oW)(
+					LocalizeInlineReactWithFallback(
 						"#RemotePlay_Explainer_HowWorks_3",
 						i.createElement("b", null),
 					),
@@ -248,12 +247,12 @@ function j(e) {
 						i.createElement(
 							"b",
 							null,
-							(0, d.we)("#RemotePlay_Explainer_GetApp"),
+							Localize("#RemotePlay_Explainer_GetApp"),
 						),
 						i.createElement(
 							"div",
 							null,
-							(0, d.PP)(
+							LocalizeReact(
 								"#RemotePlay_Explainer_GetApp_Desc",
 								i.createElement(P.Oy, null, s),
 							),
@@ -274,12 +273,12 @@ function j(e) {
 				null,
 				i.createElement(L.CB, {
 					onCancel: r,
-					strCancelText: (0, d.we)("#Button_Close"),
+					strCancelText: Localize("#Button_Close"),
 					onOK: () => {
 						a(`${W.TS.STORE_BASE_URL}remoteplay#anywhere`);
 						r();
 					},
-					strOKText: (0, d.we)("#RemotePlay_LearnMore_Button"),
+					strOKText: Localize("#RemotePlay_LearnMore_Button"),
 				}),
 			),
 		),
@@ -334,22 +333,22 @@ export function Iy(e) {
 	const u = (0, O.VA)();
 	const A =
 		m > 1
-			? (0, d.we)("#GameAction_Launch_Multiple_Description_Multiple")
-			: (0, d.we)("#GameAction_Launch_Multiple_Description", l);
+			? Localize("#GameAction_Launch_Multiple_Description_Multiple")
+			: Localize("#GameAction_Launch_Multiple_Description", l);
 	const p =
 		m > 1
-			? (0, d.we)("#GameAction_Launch_Multiple_CloseAndLaunch_Multiple", c)
-			: (0, d.we)("#GameAction_Launch_Multiple_CloseAndLaunch", l, c);
+			? Localize("#GameAction_Launch_Multiple_CloseAndLaunch_Multiple", c)
+			: Localize("#GameAction_Launch_Multiple_CloseAndLaunch", l, c);
 	const g = i.createElement(
 		"div",
 		{
 			className: h.SaveWarning,
 		},
-		(0, d.we)("#GameAction_Launch_Multiple_Warning"),
+		Localize("#GameAction_Launch_Multiple_Warning"),
 	);
 	return i.createElement(I, {
 		className: h.LaunchMultipleAppsDialog,
-		strTitle: (0, d.we)("#GameAction_Launch_Multiple_Title", c),
+		strTitle: Localize("#GameAction_Launch_Multiple_Title", c),
 		strDescription: i.createElement(
 			i.Fragment,
 			null,
@@ -360,16 +359,16 @@ export function Iy(e) {
 		strPrimaryButtonText: p,
 		onPrimary: a,
 		bPrimaryRequiresConfirm: true,
-		strPrimaryConfirmText: (0, d.we)(
+		strPrimaryConfirmText: Localize(
 			"#GameAction_Launch_Multiple_CloseAndLaunch_Confirm",
 		),
-		strSecondaryButtonText: (0, d.we)(
+		strSecondaryButtonText: Localize(
 			"#GameAction_Launch_Multiple_LaunchSimultaneous",
 			c,
 		),
 		onSecondary: n,
 		bDisableSecondary: u,
-		strCancelButtonText: (0, d.we)("#GameAction_Launch_Multiple_Cancel"),
+		strCancelButtonText: Localize("#GameAction_Launch_Multiple_Cancel"),
 		onCancel: s,
 		closeModal: o,
 	});
@@ -517,7 +516,7 @@ let $ = class extends i.Component {
 				this.props.overview,
 				"selected",
 				100,
-				(0, N.uX)(e),
+				GetOwningWindowForEvent(e),
 			);
 			if (t) {
 				t();
@@ -530,7 +529,7 @@ let $ = class extends i.Component {
 			R &&
 			k.I.GetActiveLaunches().get(e.appid.toString());
 		const G = S == "Play" || S == "Launch" || S == "Stream" || S == "Connect";
-		const O = (e) => this.OnClick((0, N.uX)(e), e);
+		const O = (e) => this.OnClick(GetOwningWindowForEvent(e), e);
 		const P = i.createElement(
 			b.Z,
 			{
@@ -604,7 +603,7 @@ let $ = class extends i.Component {
 		if (S === "Stream") {
 			const e = this.props.overview.selected_per_client_data.client_name;
 			if (e) {
-				const t = (0, d.we)("#StreamingClient_StreamFrom", e);
+				const t = Localize("#StreamingClient_StreamFrom", e);
 				return i.createElement(
 					Y.Gq,
 					{
@@ -694,7 +693,7 @@ function ee(e) {
 					{
 						className: h.StreamingCalloutMessage,
 					},
-					(0, d.we)("#RemotePlay_Tip_Callout"),
+					Localize("#RemotePlay_Tip_Callout"),
 				),
 			),
 	);
@@ -769,8 +768,8 @@ function ne(e) {
 		a = "mobile";
 	}
 	const [s, o] = re[a];
-	const l = (0, d.we)(s);
-	const c = (0, d.we)(o);
+	const l = Localize(s);
+	const c = Localize(o);
 	return i.createElement(
 		oe,
 		{
@@ -808,11 +807,11 @@ export function zZ(e) {
 }
 function se(e) {
 	const { client: t, isLocalClient: r, onSelected: n, selected: a } = e;
-	let s = (0, d.we)("#StreamingClient_StreamFrom", t.client_name);
+	let s = Localize("#StreamingClient_StreamFrom", t.client_name);
 	if (r) {
 		s = p.TS.ON_DECK
-			? (0, d.we)("#StreamingClient_ThisDeck")
-			: (0, d.we)("#StreamingClient_ThisComputer");
+			? Localize("#StreamingClient_ThisDeck")
+			: Localize("#StreamingClient_ThisComputer");
 	}
 	return i.createElement(
 		oe,

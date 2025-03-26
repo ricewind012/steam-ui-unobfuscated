@@ -10,8 +10,8 @@ var u = require("./35488.js");
 var d = require(/*webcrack:missing*/ "./50376.js");
 var A = require(/*webcrack:missing*/ "./98995.js");
 var p = require(/*webcrack:missing*/ "./90765.js");
-var g = require(/*webcrack:missing*/ "./54644.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import { BIsParent } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require("./14629.js");
 var f = require("./48866.js");
@@ -27,12 +27,12 @@ let S = class extends l.Component {
 			case 1:
 				return "#FilterElement_Tooltip_" + (0, _.$P)(e.eGroup, e.option);
 			case 4:
-				return (0, h.we)("#FilterElement_Tooltip_StoreTag", e.name);
+				return Localize("#FilterElement_Tooltip_StoreTag", e.name);
 			case 6:
 				let t;
 				t = i.OQ.Get().hasSteamConnection
-					? (0, h.we)("#FilterElement_Tooltip_FriendLibrary", e.name)
-					: (0, h.we)("#FilterElement_Tooltip_FriendLibrary_Offline", e.name);
+					? Localize("#FilterElement_Tooltip_FriendLibrary", e.name)
+					: Localize("#FilterElement_Tooltip_FriendLibrary_Offline", e.name);
 				if ((0, _.Qv)(e.eGroup, e.option)) {
 					return l.createElement(
 						l.Fragment,
@@ -68,7 +68,7 @@ let S = class extends l.Component {
 		if (e.eGroup === 6) {
 			t =
 				a.O$.IsLibraryAccessDenied(e.option) &&
-				(0, h.we)("#FilterElement_Tooltip_FriendLibrary_AccessDenied");
+				Localize("#FilterElement_Tooltip_FriendLibrary_AccessDenied");
 			o = e.option;
 			r = a.O$.GetFriendState(o).persona.avatar_url;
 			n = true;
@@ -168,7 +168,7 @@ export let ye = class extends l.Component {
 	BIsFocused() {
 		return (
 			this.m_containerDivRef.current &&
-			(0, g.TN)(
+			BIsParent(
 				this.m_containerDivRef.current,
 				this.m_containerDivRef.current.ownerDocument.activeElement,
 			)
@@ -235,7 +235,7 @@ export let ye = class extends l.Component {
 				t &&
 					l.createElement(m.pd, {
 						ref: this.m_searchInputRef,
-						placeholder: (0, h.we)("#FilterEdit_SearchPrompt"),
+						placeholder: Localize("#FilterEdit_SearchPrompt"),
 						value: e,
 						onChange: this.OnTextChanged,
 						onFocus: this.OnTextSearchFocused,
@@ -257,7 +257,7 @@ export let ye = class extends l.Component {
 									key: "prompt",
 									className: y.SearchByTypePrompt,
 								},
-								(0, h.we)("#AdvancedSearch_PaneTitle"),
+								Localize("#AdvancedSearch_PaneTitle"),
 							),
 						l.createElement(
 							"div",
@@ -282,7 +282,7 @@ export let ye = class extends l.Component {
 					l.createElement(
 						A.he,
 						{
-							toolTipContent: (0, h.we)("#FilterEdit_AdvancedTooltip"),
+							toolTipContent: Localize("#FilterEdit_AdvancedTooltip"),
 						},
 						l.createElement(
 							"div",

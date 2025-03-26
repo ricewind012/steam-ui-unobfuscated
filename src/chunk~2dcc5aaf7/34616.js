@@ -1,71 +1,98 @@
 var n = require("./95773.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 let a = {
-	TimeOfDay: new Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		hour: "numeric",
-		minute: "numeric",
-	}),
-	TimeOfDayWithSecs: new Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		hour: "numeric",
-		minute: "numeric",
-		second: "numeric",
-	}),
-	TimeInWeek: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
+	TimeOfDay: new Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			hour: "numeric",
+			minute: "numeric",
+		},
+	),
+	TimeOfDayWithSecs: new Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			hour: "numeric",
+			minute: "numeric",
+			second: "numeric",
+		},
+	),
+	TimeInWeek: Intl.DateTimeFormat(LocalizationManager.GetPreferredLocales(), {
 		weekday: "long",
 		hour: "numeric",
 		minute: "numeric",
 	}),
-	FullTimestamp: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		weekday: "long",
-		year: "numeric",
-		month: "numeric",
-		day: "numeric",
-		hour: "numeric",
-		minute: "numeric",
-	}),
-	FullTimestampNoWeekday: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		year: "numeric",
-		month: "numeric",
-		day: "numeric",
-		hour: "numeric",
-		minute: "numeric",
-	}),
+	FullTimestamp: Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			weekday: "long",
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+		},
+	),
+	FullTimestampNoWeekday: Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+		},
+	),
 };
 let s = {
-	TimeOfDay: new Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		hour: "numeric",
-		minute: "numeric",
-		hourCycle: "h23",
-	}),
-	TimeOfDayWithSecs: new Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		hour: "numeric",
-		minute: "numeric",
-		second: "numeric",
-		hourCycle: "h23",
-	}),
-	TimeInWeek: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
+	TimeOfDay: new Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			hour: "numeric",
+			minute: "numeric",
+			hourCycle: "h23",
+		},
+	),
+	TimeOfDayWithSecs: new Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			hour: "numeric",
+			minute: "numeric",
+			second: "numeric",
+			hourCycle: "h23",
+		},
+	),
+	TimeInWeek: Intl.DateTimeFormat(LocalizationManager.GetPreferredLocales(), {
 		weekday: "long",
 		hour: "numeric",
 		minute: "numeric",
 		hourCycle: "h23",
 	}),
-	FullTimestamp: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		weekday: "long",
-		year: "numeric",
-		month: "numeric",
-		day: "numeric",
-		hour: "numeric",
-		minute: "numeric",
-		hourCycle: "h23",
-	}),
-	FullTimestampNoWeekday: Intl.DateTimeFormat(i.pf.GetPreferredLocales(), {
-		year: "numeric",
-		month: "numeric",
-		day: "numeric",
-		hour: "numeric",
-		minute: "numeric",
-		hourCycle: "h23",
-	}),
+	FullTimestamp: Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			weekday: "long",
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+			hourCycle: "h23",
+		},
+	),
+	FullTimestampNoWeekday: Intl.DateTimeFormat(
+		LocalizationManager.GetPreferredLocales(),
+		{
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+			hourCycle: "h23",
+		},
+	),
 };
 export function j(e, t) {
 	if (t.bIncludeWeekday == null) {
@@ -95,10 +122,10 @@ export function j(e, t) {
 	try {
 		r = u.format(o);
 	} catch (e) {
-		r = (0, i.we)("#ChatRoom_Timestamp_InvalidDate");
+		r = Localize("#ChatRoom_Timestamp_InvalidDate");
 	}
 	if (!t.bTimeOnly && t.bRelativeDate && e >= l - c && e < l) {
-		r = (0, i.we)("#ChatRoom_Timestamp_Yesterday", r);
+		r = Localize("#ChatRoom_Timestamp_Yesterday", r);
 	}
 	return r;
 }

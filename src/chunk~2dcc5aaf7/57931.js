@@ -5,7 +5,10 @@ var s = require("./10606.js");
 var _o = require("./13869.js");
 var l = require(/*webcrack:missing*/ "./50376.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./72476.js");
 var d = require("./16157.js");
 var A = d;
@@ -43,14 +46,14 @@ const g = (e) => {
 		n.createElement(
 			a.UC,
 			null,
-			n.createElement(a.Y9, null, " ", (0, m.we)("#GotSteam_Title"), " "),
+			n.createElement(a.Y9, null, " ", Localize("#GotSteam_Title"), " "),
 			n.createElement(
 				a.nB,
 				null,
 				n.createElement(
 					a.a3,
 					null,
-					(0, m.PP)(
+					LocalizeReact(
 						"#GotSteam_PromptWithDownloadLink",
 						n.createElement(
 							"a",
@@ -58,7 +61,7 @@ const g = (e) => {
 								href: e.strDownloadSteamUrl,
 								className: A.DownloadSteamUrl,
 							},
-							(0, m.we)("#GotSteam_DownloadLinkText"),
+							Localize("#GotSteam_DownloadLinkText"),
 						),
 						n.createElement(
 							"span",
@@ -87,7 +90,7 @@ const g = (e) => {
 								className: A.AnswerText,
 							},
 							" ",
-							(0, m.we)("#GotSteam_Yes"),
+							Localize("#GotSteam_Yes"),
 							" ",
 						),
 						n.createElement(
@@ -96,7 +99,7 @@ const g = (e) => {
 								className: A.ActionText,
 							},
 							" ",
-							(0, m.we)("#GotSteam_Yes_Play"),
+							Localize("#GotSteam_Yes_Play"),
 							" ",
 						),
 					),
@@ -113,7 +116,7 @@ const g = (e) => {
 								className: A.AnswerText,
 							},
 							" ",
-							(0, m.we)("#GotSteam_No"),
+							Localize("#GotSteam_No"),
 							" ",
 						),
 						n.createElement(
@@ -122,7 +125,7 @@ const g = (e) => {
 								className: A.ActionText,
 							},
 							" ",
-							(0, m.we)("#GotSteam_No_Download"),
+							Localize("#GotSteam_No_Download"),
 							" ",
 						),
 					),
@@ -135,7 +138,7 @@ const g = (e) => {
 					n.createElement(l.Qte, {
 						className: A.Logo,
 					}),
-					(0, m.we)("#GotSteam_Blurb"),
+					Localize("#GotSteam_Blurb"),
 				),
 			),
 		),

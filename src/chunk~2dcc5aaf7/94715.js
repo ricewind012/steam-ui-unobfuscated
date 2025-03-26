@@ -9,17 +9,23 @@ var m = require(/*webcrack:missing*/ "./88750.js");
 var u = require(/*webcrack:missing*/ "./8573.js");
 var d = require("./48289.js");
 var A = require("./36464.js");
-var p = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var g = require("./10606.js");
 var h = require("./68608.js");
 var C = require("./34792.js");
 var _ = require("./13869.js");
 var f = require("./60142.js");
-var b = require(/*webcrack:missing*/ "./54644.js");
+import {
+	IsHTMLElement,
+	GetOwningWindowForEvent,
+} from "../../actual_src/utils/domutils.js";
 var y = require(/*webcrack:missing*/ "./72476.js");
 var S = require(/*webcrack:missing*/ "./69164.js");
 var w = require(/*webcrack:missing*/ "./61657.js");
-var B = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
 var v = require(/*webcrack:missing*/ "./11131.js");
 function I(e) {
 	const {
@@ -53,13 +59,13 @@ function I(e) {
 				maxHeight: h.screen.height * (C || 0.8),
 			};
 	let F = u
-		? (0, p.we)("#ArtworkModal_ScrollForMore")
-		: (0, p.we)("#ArtworkModal_ScrollForDetails");
+		? (0, Localize)("#ArtworkModal_ScrollForMore")
+		: (0, Localize)("#ArtworkModal_ScrollForDetails");
 	let G = !!t;
 	let O = {
 		onMenuButton: () => (0, f.bK)(_, h),
 	};
-	O.onMenuActionDescription = (0, p.we)("#Generic_Share");
+	O.onMenuActionDescription = (0, Localize)("#Generic_Share");
 	return n.createElement(
 		g.x_,
 		{
@@ -112,7 +118,7 @@ function I(e) {
 						onLoad: v,
 						onError: B,
 						onContextMenu: (e) => {
-							const t = (0, b.kD)(e.target)
+							const t = IsHTMLElement(e.target)
 								? e.target.ownerDocument.defaultView
 								: h;
 							(0, c.lX)(
@@ -131,7 +137,7 @@ function I(e) {
 														);
 													})(_),
 											},
-											(0, p.we)("#ContextMenu_BrowseScreenshot"),
+											(0, Localize)("#ContextMenu_BrowseScreenshot"),
 										),
 									!_ &&
 										n.createElement(
@@ -139,7 +145,7 @@ function I(e) {
 											{
 												onSelected: () => R(A, t),
 											},
-											(0, p.we)("#ContextMenu_SaveScreenshot"),
+											(0, Localize)("#ContextMenu_SaveScreenshot"),
 										),
 								),
 								e,
@@ -170,7 +176,7 @@ function I(e) {
 							!i.ID(y.TS.LAUNCHER_TYPE) &&
 							n.createElement(f.wD, {
 								className: o.ShareButton,
-								onClick: (e) => _ && (0, f.bK)(_, (0, b.uX)(e)),
+								onClick: (e) => _ && (0, f.bK)(_, GetOwningWindowForEvent(e)),
 							}),
 						n.createElement(
 							a.jn,
@@ -178,7 +184,7 @@ function I(e) {
 								className: o.ModalArtCloseButton,
 								onClick: k,
 							},
-							(0, p.we)("#Generic_Close"),
+							(0, Localize)("#Generic_Close"),
 						),
 						G &&
 							n.createElement(
@@ -220,7 +226,7 @@ function E(e) {
 			{
 				className: o.Label,
 			},
-			(0, p.we)("#ArtworkModal_CreatedBy"),
+			(0, Localize)("#ArtworkModal_CreatedBy"),
 		),
 		n.createElement(A.fH, {
 			className: o.Avatar,
@@ -260,9 +266,9 @@ function M(e) {
 	})(t);
 	const g = d.O$.GetFriendState(new u.b(a));
 	const h =
-		(0, p.$z)(s) +
+		LocalizeRtime32ToShortDate(s) +
 		" @ " +
-		(0, B.KC)(s, {
+		LocalizeRTimeToHourAndMinutes(s, {
 			bForce24HourClock: m,
 		});
 	const _ = c.length > 0;

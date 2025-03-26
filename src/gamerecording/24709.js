@@ -3,7 +3,7 @@ import * as n from /*webcrack:missing*/ "./44926.js";
 import * as a from /*webcrack:missing*/ "./91720.js";
 import * as s from /*webcrack:missing*/ "./93092.js";
 import * as l from /*webcrack:missing*/ "./64608.js";
-import * as o from /*webcrack:missing*/ "./46108.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import * as m from "./11995.js";
 export default function c(e) {
 	const { clipToUpload: r, finishUpload: t } = e;
@@ -57,7 +57,7 @@ function d(e) {
 			}).unregister,
 		[],
 	);
-	let m = (0, o.we)("#Chat_Uploading", r.clip_id);
+	let m = Localize("#Chat_Uploading", r.clip_id);
 	let c = {
 		width: t + "%",
 	};

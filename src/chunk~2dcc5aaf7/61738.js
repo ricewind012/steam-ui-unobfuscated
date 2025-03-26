@@ -6,10 +6,13 @@ var o = require(/*webcrack:missing*/ "./44846.js");
 require(/*webcrack:missing*/ "./53833.js");
 var l = require(/*webcrack:missing*/ "./49455.js");
 var c = require(/*webcrack:missing*/ "./79769.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocaleToELanguage,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./31958.js");
 var d = require(/*webcrack:missing*/ "./93960.js");
-var A = require(/*webcrack:missing*/ "./41180.js");
+import { Sleep } from "../../actual_src/utils/time.js";
 var p = require(/*webcrack:missing*/ "./72476.js");
 var g = require("./59715.js");
 var h = require("./99167.js");
@@ -1408,15 +1411,17 @@ export class Zn {
 			if (
 				t.rgRepresentations.length > 0 &&
 				t.rgRepresentations[0].strClosedCaptionFile &&
-				t.strLanguage in m.bi
+				t.strLanguage in LocaleToELanguage
 			) {
 				const n = document.createElement("track");
 				n.kind = "subtitles";
-				n.label = (0, m.we)("#Language_" + (0, o.Lg)(m.bi[t.strLanguage]));
+				n.label = Localize(
+					"#Language_" + (0, o.Lg)(LocaleToELanguage[t.strLanguage]),
+				);
 				n.srclang = t.strLanguage;
 				n.src = t.rgRepresentations[0].strClosedCaptionFile;
 				this.m_nTimedText += 1;
-				if ((!!e || r != 0) && m.bi[t.strLanguage] == r) {
+				if ((!!e || r != 0) && LocaleToELanguage[t.strLanguage] == r) {
 					n.default = true;
 					this.m_timedTextRepSelected = t.rgRepresentations[0];
 				}
@@ -1428,7 +1433,7 @@ export class Zn {
 		let t = null;
 		for (let r = 0; r < this.m_elVideo.textTracks.length; r++) {
 			const n = this.m_elVideo.textTracks[r];
-			if (m.bi[n.language] == e) {
+			if (LocaleToELanguage[n.language] == e) {
 				let e = this.GetTimeTextAdaptions(0).filter(
 					(e) => e.strLanguage == n.language,
 				);
@@ -1547,7 +1552,7 @@ export class Zn {
 				return null;
 			}
 			(0, g.q_)("Failed to download, will retry: " + this.m_strMPD);
-			await (0, A.IP)(200);
+			await Sleep(200);
 		}
 		(0, g.q_)("Failed to download: " + this.m_strMPD);
 		return null;

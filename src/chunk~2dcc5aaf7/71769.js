@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./10191.js");
 var o = s;
 var l = require("./35488.js");
@@ -45,7 +45,7 @@ function b(e) {
 			{
 				className: (0, i.A)(o.PurchaseNoticeLabel),
 			},
-			(0, a.we)("#AppDetails_Controller_ControllerRequired"),
+			Localize("#AppDetails_Controller_ControllerRequired"),
 		),
 	);
 }
@@ -69,7 +69,7 @@ function y(e) {
 			{
 				className: (0, i.A)(o.PurchaseNoticeLabel),
 			},
-			(0, a.we)("#AppDetails_Controller_VRRequired"),
+			Localize("#AppDetails_Controller_VRRequired"),
 		),
 	);
 }
@@ -201,9 +201,9 @@ export const Ve = (0, c.PA)(function (e) {
 						h.v3.ClearEditingConfiguration();
 					}
 				},
-				label: (0, a.we)("#AppControllerConfiguration_Link"),
+				label: Localize("#AppControllerConfiguration_Link"),
 			},
-			label: (0, a.we)(
+			label: Localize(
 				(0, d.zX)(r, 3)
 					? "#AppDetails_SectionTitle_Hardware"
 					: "#AppDetails_SectionTitle_Controller",
@@ -244,14 +244,14 @@ export const Ve = (0, c.PA)(function (e) {
 							{
 								className: o.ControllerSupportSectionHeader,
 							},
-							(0, a.we)(k[0]),
+							Localize(k[0]),
 						),
 						n.createElement(
 							"div",
 							{
 								className: o.ControllerSupportSectionDesc,
 							},
-							(0, a.we)(k[1]),
+							Localize(k[1]),
 						),
 					),
 				),
@@ -282,7 +282,7 @@ export const Ve = (0, c.PA)(function (e) {
 								{
 									className: o.ControllerSupportSectionHeader,
 								},
-								(0, a.we)(
+								Localize(
 									r.vr_only
 										? "#AppDetailsControllerSection_Title_VR_Only"
 										: "#AppDetailsControllerSection_Title_VR_Supported",
@@ -293,7 +293,7 @@ export const Ve = (0, c.PA)(function (e) {
 								{
 									className: o.ControllerSupportSectionDesc,
 								},
-								(0, a.we)(
+								Localize(
 									r.vr_only
 										? "#AppDetailsControllerSection_VR_Only"
 										: "#AppDetailsControllerSection_VR_Supported",

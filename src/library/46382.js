@@ -1,5 +1,5 @@
 var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./85688.js");
+import { FailAssertion } from "../../actual_src/utils/assert.js";
 const s = r.createContext(undefined);
 const o = s.Provider;
 const a = () => {
@@ -19,7 +19,7 @@ export function VQ(e) {
 		a = s = e.useActiveCMInterface;
 	} else {
 		if (!("useActiveSteamInterface" in e)) {
-			(0, i.z)(
+			FailAssertion(
 				e,
 				"neither useActiveCMInterface nor useActiveSteamInterface were provided",
 			);

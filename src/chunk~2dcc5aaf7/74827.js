@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./41180.js");
-var a = require(/*webcrack:missing*/ "./53833.js");
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 var s = require(/*webcrack:missing*/ "./89193.js");
 var o = require("./78057.js");
 var l = require(/*webcrack:missing*/ "./88696.js");
@@ -8,7 +8,7 @@ var c = require("./91745.js");
 var m = require(/*webcrack:missing*/ "./90095.js");
 var u = require("./44926.js");
 var d = require("./67429.js");
-const A = i.Kp.PerHour * 12;
+const A = Seconds.PerHour * 12;
 const p = 646570;
 class g {
 	constructor() {
@@ -115,8 +115,8 @@ class _ {
 	}
 	GetStartOfSessionTimestamp(e) {
 		let t = this.GetGamePlaySpotlightTime(e);
-		let r = Math.min(i.Kp.PerDay * 3, i._2() - t);
-		return i._2() - r;
+		let r = Math.min(Seconds.PerDay * 3, GetUnixTime() - t);
+		return GetUnixTime() - r;
 	}
 	async LoadPreviousSessionData(e) {
 		e.m_bLoadedPreviousSessionData = true;
@@ -192,7 +192,7 @@ class _ {
 		}
 		t.m_session.ClearSessionEvents();
 		this.UpdatePostGameSummaryForApp_Internal(t);
-		let r = i._2();
+		let r = GetUnixTime();
 		if (!this.m_gamePlayLocalStore) {
 			return;
 		}
@@ -222,7 +222,7 @@ class _ {
 			return;
 		}
 		t.m_rgNewDLC = [];
-		let r = i._2();
+		let r = GetUnixTime();
 		let n = this.GetNewDLCTimeRanges(t.m_unAppID);
 		n.rtShowStart = r;
 		n.rtFirstShow = r;
@@ -234,8 +234,8 @@ class _ {
 			return;
 		}
 		let r = this.GetNewDLCTimeRanges(e.m_unAppID);
-		let n = i._2();
-		let a = n - i.Kp.PerDay * 14;
+		let n = GetUnixTime();
+		let a = n - Seconds.PerDay * 14;
 		e.m_rgNewDLC = [];
 		let s = 0;
 		let o = 0;
@@ -393,7 +393,7 @@ class _ {
 				achievement: {
 					...n,
 					bAchieved: true,
-					rtUnlocked: i._2(),
+					rtUnlocked: GetUnixTime(),
 				},
 			};
 			this.OnAchievementNotification(r);
@@ -408,8 +408,8 @@ class _ {
 			return;
 		}
 		let e = await SteamClient.Apps.GetScreenshotsInTimeRange(p, 0, 0);
-		let t = i._2();
-		let r = t - i.Kp.PerDay;
+		let t = GetUnixTime();
+		let r = t - Seconds.PerDay;
 		let n = {
 			strID: "TIME_EATER",
 			strName: "The Time Eater",
@@ -536,7 +536,7 @@ class _ {
 		let t = this.GetOrCreateAppData(e);
 		for (let e of t.m_session.GetSessionEvents()) {
 			if (e.m_achievement) {
-				e.m_achievement.achievement.rtUnlocked -= i.Kp.PerDay;
+				e.m_achievement.achievement.rtUnlocked -= Seconds.PerDay;
 			} else if (e.m_screenshot) {
 				console.log(
 					"simulating screenshots moving to an older day not supported",
@@ -596,7 +596,7 @@ class b {
 				return true;
 			}
 		} else if (e.strOperation == "deleted") {
-			a.Wp(this.m_rgSessionEvents, t);
+			FindAndRemoveWhere(this.m_rgSessionEvents, t);
 			return true;
 		}
 		return false;
@@ -632,7 +632,10 @@ class b {
 				m_recordingHighlights: e,
 			});
 		} else {
-			a.Wp(this.m_rgSessionEvents, (e) => !!e.m_recordingHighlights);
+			FindAndRemoveWhere(
+				this.m_rgSessionEvents,
+				(e) => !!e.m_recordingHighlights,
+			);
 		}
 	}
 	GetSessionEvents() {

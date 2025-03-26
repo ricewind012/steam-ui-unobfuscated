@@ -5045,7 +5045,7 @@ class Ue {
 var We;
 var Ve;
 var He = require(/*webcrack:missing*/ "./81255.js");
-var je = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var qe = require(/*webcrack:missing*/ "./6660.js");
 var Qe = require(/*webcrack:missing*/ "./49455.js");
 var Ze = require(/*webcrack:missing*/ "./79769.js");
@@ -5478,7 +5478,7 @@ export class F$ {
 				}
 				c.xm.NotificationManager.DisplayNotificationFromFriend(n, {
 					title: n.display_name,
-					body: (0, je.we)("#Friend_RequestingOneOnOneChat", n.display_name),
+					body: Localize("#Friend_RequestingOneOnOneChat", n.display_name),
 					tag: "state_" + n.accountid,
 					steamid: n.persona.m_steamid.ConvertTo64BitString(),
 				});
@@ -5487,7 +5487,7 @@ export class F$ {
 					s.AddVoiceChannelInviteMsg(
 						t.GetAccountID(),
 						c.xm.GetServerRTime32(),
-						(0, je.we)(
+						Localize(
 							"#FriendMsg_VoiceChannelInvite",
 							n.display_name,
 							s.self.display_name,
@@ -5530,7 +5530,7 @@ export class F$ {
 								r.AddVoiceChannelInviteMsg(
 									n.accountid,
 									c.xm.GetServerRTime32(),
-									(0, je.we)(
+									Localize(
 										"#FriendMsg_VoiceChannelEndedExplicit",
 										n.display_name,
 									),
@@ -5539,7 +5539,7 @@ export class F$ {
 								r.AddVoiceChannelInviteMsg(
 									this.m_CMInterface.steamid.GetAccountID(),
 									c.xm.GetServerRTime32(),
-									(0, je.we)("#FriendMsg_VoiceChannelEnded"),
+									Localize("#FriendMsg_VoiceChannelEnded"),
 								);
 							}
 							if (this.m_VoiceCallState.m_targetAccountID == Number(e)) {
@@ -5559,7 +5559,7 @@ export class F$ {
 							e.AddVoiceChannelInviteMsg(
 								this.m_CMInterface.steamid.GetAccountID(),
 								c.xm.GetServerRTime32(),
-								(0, je.we)("#FriendMsg_VoiceChannelEnded"),
+								Localize("#FriendMsg_VoiceChannelEnded"),
 							);
 						}
 					}
@@ -5751,7 +5751,7 @@ export class F$ {
 							e.AddVoiceChannelInviteMsg(
 								t.GetAccountID(),
 								c.xm.GetServerRTime32(),
-								(0, je.we)(
+								Localize(
 									"#FriendMsg_VoiceChannelEndedExplicit",
 									r.display_name,
 								),
@@ -5891,7 +5891,7 @@ export class F$ {
 				n.AddVoiceChannelInviteMsg(
 					i.accountid,
 					c.xm.GetServerRTime32(),
-					(0, je.we)("#FriendMsg_VoiceChannelEndedExplicit", i.display_name),
+					Localize("#FriendMsg_VoiceChannelEndedExplicit", i.display_name),
 				);
 			}
 			if (this.m_VoiceCallState.m_targetAccountID == e) {
@@ -5932,7 +5932,7 @@ export class F$ {
 					e.AddVoiceChannelInviteMsg(
 						c.xm.CMInterface.steamid.GetAccountID(),
 						c.xm.GetServerRTime32(),
-						(0, je.we)("#FriendMsg_VoiceChannelEndedExplicit", t.display_name),
+						Localize("#FriendMsg_VoiceChannelEndedExplicit", t.display_name),
 					);
 				}
 			}
@@ -7753,7 +7753,7 @@ export class F$ {
 							r.AddVoiceChannelInviteMsg(
 								this.m_CMInterface.steamid.GetAccountID(),
 								c.xm.GetServerRTime32(),
-								(0, je.we)(
+								Localize(
 									"#FriendMsg_VoiceChannelInvite",
 									t.display_name,
 									r.chat_partner.display_name,
@@ -8140,9 +8140,9 @@ export class F$ {
 				this.OnUserEndVoiceChat();
 				c.xm
 					.ShowAlert(
-						(0, je.we)("#Voice_LeftIdleVoiceChat_Title"),
-						(0, je.we)("#Voice_LeftIdleVoiceChat_Body"),
-						(0, je.we)("#Voice_LeftIdleVoiceChat_OK"),
+						Localize("#Voice_LeftIdleVoiceChat_Title"),
+						Localize("#Voice_LeftIdleVoiceChat_Body"),
+						Localize("#Voice_LeftIdleVoiceChat_OK"),
 					)
 					.then(() => {})
 					.catch(() => true);
@@ -8569,16 +8569,16 @@ export class F$ {
 			this.LogMsg(
 				"(VoiceChat) Voice chat not supported in browser: " + r.browser.name,
 			);
-			const e = (0, je.we)(
+			const e = Localize(
 				i.TS.IN_MOBILE
 					? "#VoiceChat_Unavailable_NotSupported"
 					: "#Voice_VoiceUnavailableInBrowser_Title",
 			);
 			const t = i.TS.IN_MOBILE
-				? (0, je.we)("#VoiceChat_Unavailable_MobileChat")
-				: (0, je.we)("#Voice_VoiceUnavailableInBrowser_Body", r.browser.name);
+				? Localize("#VoiceChat_Unavailable_MobileChat")
+				: Localize("#Voice_VoiceUnavailableInBrowser_Body", r.browser.name);
 			c.xm
-				.ShowAlert(e, t, (0, je.we)("#Voice_VoiceUnavailableInBrowser_OK"))
+				.ShowAlert(e, t, Localize("#Voice_VoiceUnavailableInBrowser_OK"))
 				.then(() => {})
 				.catch(() => true);
 			return;
@@ -8853,7 +8853,7 @@ export class F$ {
 									r.AddVoiceChannelInviteMsg(
 										c.xm.CMInterface.steamid.GetAccountID(),
 										c.xm.GetServerRTime32(),
-										(0, je.we)(
+										Localize(
 											"#FriendMsg_VoiceChannelEndedExplicit",
 											t.display_name,
 										),

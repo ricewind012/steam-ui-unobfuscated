@@ -6,11 +6,11 @@ var o = require(/*webcrack:missing*/ "./59351.js");
 var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require("./69740.js");
 var m = require(/*webcrack:missing*/ "./8573.js");
-var u = require(/*webcrack:missing*/ "./53833.js");
+import { PadArray } from "../../actual_src/utils/arrayutils.js";
 var d = require(/*webcrack:missing*/ "./49455.js");
 var A = require("./16154.js");
 var p = require(/*webcrack:missing*/ "./79769.js");
-var g = require(/*webcrack:missing*/ "./46108.js");
+import { CLocalizationManager } from "../../actual_src/utils/localization.js";
 var h = require("./51095.js");
 var C = require(/*webcrack:missing*/ "./72476.js");
 require(/*webcrack:missing*/ "./63696.js");
@@ -35,7 +35,7 @@ class f {
 }
 function b(e) {
 	let t = "" + e;
-	const r = g.A0.GetELanguageFallback(e);
+	const r = CLocalizationManager.GetELanguageFallback(e);
 	if (e != r) {
 		t += "_" + r;
 	}
@@ -308,69 +308,69 @@ export class ZQ {
 			);
 			throw e;
 		}
-		r.jsondata.localized_capsule_image = (0, u.$Y)(
+		r.jsondata.localized_capsule_image = PadArray(
 			r.jsondata.localized_capsule_image || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_title_image = (0, u.$Y)(
+		r.jsondata.localized_title_image = PadArray(
 			r.jsondata.localized_title_image || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_subtitle = (0, u.$Y)(
+		r.jsondata.localized_subtitle = PadArray(
 			r.jsondata.localized_subtitle || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_summary = (0, u.$Y)(
+		r.jsondata.localized_summary = PadArray(
 			r.jsondata.localized_summary || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_broadcast_title = (0, u.$Y)(
+		r.jsondata.localized_broadcast_title = PadArray(
 			r.jsondata.localized_broadcast_title || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_broadcast_left_image = (0, u.$Y)(
+		r.jsondata.localized_broadcast_left_image = PadArray(
 			r.jsondata.localized_broadcast_left_image || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_broadcast_right_image = (0, u.$Y)(
+		r.jsondata.localized_broadcast_right_image = PadArray(
 			r.jsondata.localized_broadcast_right_image || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_sale_header = (0, u.$Y)(
+		r.jsondata.localized_sale_header = PadArray(
 			r.jsondata.localized_sale_header || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_sale_overlay = (0, u.$Y)(
+		r.jsondata.localized_sale_overlay = PadArray(
 			r.jsondata.localized_sale_overlay || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_sale_product_banner = (0, u.$Y)(
+		r.jsondata.localized_sale_product_banner = PadArray(
 			r.jsondata.localized_sale_product_banner || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_sale_product_mobile_banner = (0, u.$Y)(
+		r.jsondata.localized_sale_product_mobile_banner = PadArray(
 			r.jsondata.localized_sale_product_mobile_banner || [],
 			31,
 			null,
 		);
-		r.jsondata.localized_sale_logo = (0, u.$Y)(
+		r.jsondata.localized_sale_logo = PadArray(
 			r.jsondata.localized_sale_logo || [],
 			31,
 			null,
 		);
 		if (r.jsondata.sale_num_headers !== undefined) {
 			for (let e = 0; e < r.jsondata.sale_num_headers; ++e) {
-				r.jsondata.localized_per_day_sales_header[e] = (0, u.$Y)(
+				r.jsondata.localized_per_day_sales_header[e] = PadArray(
 					r.jsondata.localized_per_day_sales_header[e],
 					31,
 					null,
@@ -379,7 +379,7 @@ export class ZQ {
 		}
 		if (r.jsondata.sale_sections) {
 			r.jsondata.sale_sections.forEach((e, t) => {
-				e.localized_label &&= (0, u.$Y)(e.localized_label, 31, null);
+				e.localized_label &&= PadArray(e.localized_label, 31, null);
 				if (e.section_type === "trailercarousel") {
 					e.show_as_carousel = false;
 				}
@@ -395,13 +395,13 @@ export class ZQ {
 					e.localized_headline !== undefined &&
 					e.localized_headline !== null
 				) {
-					e.localized_headline = (0, u.$Y)(e.localized_headline, 31, null);
+					e.localized_headline = PadArray(e.localized_headline, 31, null);
 				}
 				if (e.localized_body !== undefined && e.localized_body !== null) {
-					e.localized_body = (0, u.$Y)(e.localized_body, 31, null);
+					e.localized_body = PadArray(e.localized_body, 31, null);
 				}
 				if (e.localized_image !== undefined && e.localized_image !== null) {
-					e.localized_image = (0, u.$Y)(e.localized_image, 31, null);
+					e.localized_image = PadArray(e.localized_image, 31, null);
 				}
 			});
 		}
@@ -435,7 +435,7 @@ export class ZQ {
 		if (e.jsondata.sale_num_headers > 1) {
 			e.jsondata.localized_per_day_sales_header = [];
 			for (let t = 0; t < e.jsondata.sale_num_headers; ++t) {
-				e.jsondata.localized_per_day_sales_header.push((0, u.$Y)([], 31, null));
+				e.jsondata.localized_per_day_sales_header.push(PadArray([], 31, null));
 			}
 			e.m_overrideCurrentDay = 0;
 		} else {

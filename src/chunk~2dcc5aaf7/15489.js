@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./78325.js");
 var o = require(/*webcrack:missing*/ "./92251.js");
 var l = require(/*webcrack:missing*/ "./42318.js");
-var c = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 var m = require(/*webcrack:missing*/ "./72476.js");
 const u = 300;
 const d = 80;
@@ -58,7 +58,7 @@ export function z(e) {
 			const t = e;
 			C(e);
 			return Date.now() - t.lastScrollTime;
-		})(c.qf(G));
+		})(GetOwningWindowForElement(G));
 		const t = Math.max(0, r, A - e);
 		const n = window.setTimeout(() => F(p.kVisible), t);
 		return () => window.clearInterval(n);

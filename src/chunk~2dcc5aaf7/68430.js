@@ -241,7 +241,10 @@ function b(e) {
 var y = require("./5047.js");
 var S = require("./43397.js");
 var w = require(/*webcrack:missing*/ "./90765.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./53807.js");
 var I = require("./1929.js");
 var E = I;
@@ -281,7 +284,7 @@ function T(e) {
 	const h =
 		t.winners_info?.length > 0 && Boolean(t.winners_info[0].persona)
 			? t.winners_info[0].persona
-			: (0, B.we)("#GA2022_UnknownPersonaName");
+			: (0, Localize)("#GA2022_UnknownPersonaName");
 	return i.createElement(
 		S.uU,
 		{
@@ -317,7 +320,7 @@ function T(e) {
 						{
 							className: (0, w.A)(E.GiveawayWinnerText),
 						},
-						(0, B.PP)(
+						LocalizeReact(
 							"#GA2022_Congrats_Deck_Unknown",
 							i.createElement("br", null),
 						),
@@ -331,7 +334,7 @@ function T(e) {
 								E.GiveawayWinnerAnnounced,
 							),
 						},
-						(0, B.PP)(
+						LocalizeReact(
 							p ? "#GA2022_Congrats_Deck_Me" : "#GA2022_Congrats_Deck_OTher",
 							h,
 							i.createElement("br", null),
@@ -343,7 +346,7 @@ function T(e) {
 						{
 							className: E.GiveawayWinnerCountdown,
 						},
-						(0, B.PP)("#GA2022_Congrats_NextDraw", A),
+						LocalizeReact("#GA2022_Congrats_NextDraw", A),
 					),
 			),
 			i.createElement("img", {
@@ -356,7 +359,7 @@ function T(e) {
 					{
 						className: a,
 					},
-					p ? (0, B.we)("#GA2022_YouWonNextSteps") : n,
+					p ? (0, Localize)("#GA2022_YouWonNextSteps") : n,
 				),
 		),
 	);
@@ -397,13 +400,13 @@ export function V(e) {
 	let m = E.GiveawayRegisterButton;
 	if (g.iA.logged_in) {
 		if (l?.registered) {
-			c = (0, B.we)("#GA2022_AlreadyRegistered");
+			c = (0, Localize)("#GA2022_AlreadyRegistered");
 			m = E.GiveawayAlreadyRegistered;
 		} else {
-			c = (0, B.we)("#GA2022_RegisterToWin");
+			c = (0, Localize)("#GA2022_RegisterToWin");
 		}
 	} else {
-		c = (0, B.we)("#GA2022_RegisterLoginToWin");
+		c = (0, Localize)("#GA2022_RegisterLoginToWin");
 	}
 	if (o) {
 		return i.createElement(T, {

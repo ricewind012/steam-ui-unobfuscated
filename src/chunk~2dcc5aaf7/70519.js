@@ -9,7 +9,7 @@ var m = require("./51943.js");
 var u = require(/*webcrack:missing*/ "./90765.js");
 var d = require("./43933.js");
 var A = d;
-var p = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var g = require("./46422.js");
 var h = require(/*webcrack:missing*/ "./10975.js");
 require(/*webcrack:missing*/ "./43691.js");
@@ -149,9 +149,9 @@ export function E1(e) {
 	let s = "";
 	if (r == -1) {
 		const r = t?.GetName(e.direction) ?? "";
-		s = (0, p.we)("#Audio_DeviceDefaultWithDevice", r);
+		s = (0, Localize)("#Audio_DeviceDefaultWithDevice", r);
 	} else {
-		s = (0, p.we)("#Audio_DeviceDefault");
+		s = (0, Localize)("#Audio_DeviceDefault");
 	}
 	a.unshift({
 		data: null,

@@ -4,7 +4,10 @@ var a = require("./81469.js");
 var s = a;
 var o = require("./84921.js");
 var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var m = require("./92374.js");
 var u = require(/*webcrack:missing*/ "./83599.js");
 var d = require("./6967.js");
@@ -73,7 +76,7 @@ function I(e) {
 			key: t.id,
 			entry: t,
 			strMarkerIcon: t.icon,
-			title: t.title ? t.title : (0, c.we)("#Marker_UserMarker_Title"),
+			title: t.title ? t.title : Localize("#Marker_UserMarker_Title"),
 			description: t.description || "",
 		});
 	} else if ((0, _.sX)(t)) {
@@ -81,7 +84,7 @@ function I(e) {
 			key: t.id,
 			entry: t,
 			strMarkerIcon: t.icon,
-			title: (0, c.we)("#MediaManager_ItemType_Screenshot"),
+			title: Localize("#MediaManager_ItemType_Screenshot"),
 			description: "",
 		});
 	} else if ((0, _.eJ)(t)) {
@@ -172,7 +175,7 @@ var D = require(/*webcrack:missing*/ "./90242.js");
 var N = require("./94361.js");
 var F = require("./26516.js");
 var G = F;
-var O = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeDurationAbbreviation } from "../../actual_src/utils/localization/datetime.js";
 const P = parseInt(G.animationDuration);
 function L() {
 	const e = (0, m.aO)();
@@ -201,7 +204,7 @@ function L() {
 				t.strTimelineID,
 				t.nTimelineOffsetMS.valMS,
 			);
-			return (0, O.dt)(r / 1000, false, true);
+			return LocalizeDurationAbbreviation(r / 1000, false, true);
 		}
 		return null;
 	}, [d, u, e]);
@@ -233,7 +236,7 @@ function L() {
 		);
 	}
 }
-var z = require(/*webcrack:missing*/ "./54644.js");
+import { ToggleFullscreen } from "../../actual_src/utils/domutils.js";
 export function J(e) {
 	const {
 		disableSound: t,
@@ -302,7 +305,7 @@ export function J(e) {
 			style: c,
 			onDoubleClick: function () {
 				if (f && u.current) {
-					(0, z.Vr)(u.current);
+					ToggleFullscreen(u.current);
 				}
 			},
 		},
@@ -474,7 +477,7 @@ function H(e) {
 				{
 					className: s.Text,
 				},
-				(0, c.we)(i),
+				Localize(i),
 			),
 		);
 	} else {
@@ -530,14 +533,14 @@ function j() {
 			{
 				className: s.Title,
 			},
-			(0, c.we)("#GameRecording_PlayerNoContent"),
+			Localize("#GameRecording_PlayerNoContent"),
 		),
 		n.createElement(
 			"div",
 			{
 				className: s.Description,
 			},
-			(0, c.oW)(
+			LocalizeInlineReactWithFallback(
 				"#GameRecording_PlayerNoContentDescription",
 				n.createElement(D.Ii, {
 					href: "#",
@@ -555,7 +558,7 @@ function j() {
 					R.he,
 					{
 						direction: "bottom",
-						toolTipContent: (0, c.we)(
+						toolTipContent: Localize(
 							u
 								? "#GameRecording_PlayerNoContentJumpPrevious_tooltip"
 								: "#GameRecording_PlayerNoContentJumpNoContent_tooltip",
@@ -572,7 +575,7 @@ function j() {
 							onClick: p,
 							onActivate: p,
 						},
-						(0, c.we)("#GameRecording_PlayerNoContentJumpPrevious"),
+						Localize("#GameRecording_PlayerNoContentJumpPrevious"),
 					),
 				),
 				A.length > 0 &&
@@ -580,7 +583,7 @@ function j() {
 						R.he,
 						{
 							direction: "bottom",
-							toolTipContent: (0, c.we)(
+							toolTipContent: Localize(
 								"#GameRecording_PlayerNoContentSeeClip_tooltip",
 							),
 						},
@@ -591,14 +594,14 @@ function j() {
 								onActivate: h,
 								className: (0, i.A)(s.Button, s.GoToClip),
 							},
-							(0, c.we)("#GameRecording_PlayerNoContentSeeClip"),
+							Localize("#GameRecording_PlayerNoContentSeeClip"),
 						),
 					),
 				n.createElement(
 					R.he,
 					{
 						direction: "bottom",
-						toolTipContent: (0, c.we)(
+						toolTipContent: Localize(
 							d
 								? "#GameRecording_PlayerNoContentJumpNext_tooltip"
 								: "#GameRecording_PlayerNoContentJumpNoContent_tooltip",
@@ -611,7 +614,7 @@ function j() {
 							onClick: g,
 							onActivate: g,
 						},
-						(0, c.we)("#GameRecording_PlayerNoContentJumpNext"),
+						Localize("#GameRecording_PlayerNoContentJumpNext"),
 					),
 				),
 			),

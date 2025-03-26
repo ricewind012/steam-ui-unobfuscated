@@ -1,7 +1,10 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./37790.js");
 var a = require(/*webcrack:missing*/ "./34629.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
+import {
+	AddMissingStylesheetsToWindow,
+	GetStyleSheetLinks,
+} from "../../actual_src/utils/domutils.js";
 var o = require(/*webcrack:missing*/ "./93960.js");
 var l = require(/*webcrack:missing*/ "./62130.js");
 class c {
@@ -58,7 +61,7 @@ class c {
 		this.m_rootElement = g;
 		this.m_browserView = A;
 		this.m_browserViewName = m;
-		s.Oe(this.m_viewWindow, s.yU());
+		AddMissingStylesheetsToWindow(this.m_viewWindow, GetStyleSheetLinks());
 		this.m_renderWhenReady = new l.Q(p.document, g);
 		this.m_renderWhenReady.SetTarget(e);
 	}

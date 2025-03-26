@@ -1,9 +1,13 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./53833.js");
+import {
+	SortedInsert,
+	FindAndRemoveWhere,
+	FindAndRemove,
+} from "../../actual_src/utils/arrayutils.js";
 var a = require(/*webcrack:missing*/ "./52451.js");
 var s = require("./96127.js");
 var o = require("./95773.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./83599.js");
 var m = require("./46970.js");
 var u = require(/*webcrack:missing*/ "./89193.js");
@@ -28,14 +32,14 @@ export class rV {
 	get name() {
 		if (this.m_id == p) {
 			if (this.m_rgMembers.length == 1) {
-				return (0, l.we)("#FriendGroup_InGame");
+				return Localize("#FriendGroup_InGame");
 			} else {
-				return (0, l.we)("#FriendGroup_InGame_Others");
+				return Localize("#FriendGroup_InGame_Others");
 			}
 		} else if (this.m_id == 0) {
-			return (0, l.we)("#Chat_MemberGroup_Online");
+			return Localize("#Chat_MemberGroup_Online");
 		} else if (this.m_id == fW) {
-			return (0, l.we)("#Chat_MemberGroup_PartyBeacon");
+			return Localize("#Chat_MemberGroup_PartyBeacon");
 		} else if (this.m_strName) {
 			return this.m_strName;
 		} else if (o.xm.AppInfoStore.GetAppInfo(this.m_id).is_initialized) {
@@ -75,10 +79,10 @@ export class rV {
 			"Double insert into bucket for accountid",
 			e.accountid,
 		);
-		i.Xr(this.m_rgMembers, e, this.m_fnSort);
+		SortedInsert(this.m_rgMembers, e, this.m_fnSort);
 	}
 	Remove(e) {
-		return i.Wp(this.m_rgMembers, (t) => t.accountid === e);
+		return FindAndRemoveWhere(this.m_rgMembers, (t) => t.accountid === e);
 	}
 	Sort() {
 		this.m_rgMembers.sort(this.m_fnSort);
@@ -162,7 +166,7 @@ export class me {
 	UnregisterForGroupMemberList(e, t) {
 		let r = this.m_mapGroupBuckets.get(t);
 		if (r) {
-			i.x9(r.rgRegistered, e);
+			FindAndRemove(r.rgRegistered, e);
 			if (r.rgRegistered.length == 0) {
 				this.m_mapGroupBuckets.delete(t);
 			}

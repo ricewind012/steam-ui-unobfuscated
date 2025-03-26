@@ -10,7 +10,7 @@ var u = require("./9808.js");
 var d = require(/*webcrack:missing*/ "./69164.js");
 var A = require("./96593.js");
 var p = require("./91486.js");
-var g = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var h = require("./32179.js");
 var C = require("./48289.js");
 var _ = require(/*webcrack:missing*/ "./90095.js");
@@ -36,7 +36,7 @@ var P = require(/*webcrack:missing*/ "./31084.js");
 var L = require("./39002.js");
 var z = require("./93966.js");
 var x = require(/*webcrack:missing*/ "./55007.js");
-var U = require(/*webcrack:missing*/ "./54644.js");
+import { _f } from "../../actual_src/utils/domutils.js";
 var W = require("./19579.js");
 var V = require("./31800.js");
 var H = require("./15918.js");
@@ -175,7 +175,7 @@ export function Rp(e) {
 	let F = [
 		{
 			id: "inprogress",
-			title: (0, g.we)("#Achievements_Tab_InProgress"),
+			title: Localize("#Achievements_Tab_InProgress"),
 			content: i.createElement(Y, {
 				appid: t,
 				bPinnedView: n,
@@ -183,7 +183,7 @@ export function Rp(e) {
 		},
 		{
 			id: "achievements",
-			title: (0, g.we)("#Achievements_Tab_MyAchievements"),
+			title: Localize("#Achievements_Tab_MyAchievements"),
 			content: i.createElement(J, {
 				appid: t,
 				accountIDToCompare: B,
@@ -193,7 +193,7 @@ export function Rp(e) {
 		},
 		{
 			id: "global",
-			title: (0, g.we)("#Achievements_Tab_GlobalAchievements"),
+			title: Localize("#Achievements_Tab_GlobalAchievements"),
 			content: i.createElement(ne, {
 				appid: t,
 			}),
@@ -240,7 +240,7 @@ export function Rp(e) {
 				className: (0, D.A)(W.AchievementTabs, n && W.PinnedView),
 				onSecondaryButton: B ? I : undefined,
 				onSecondaryActionDescription: B
-					? (0, g.we)("#Achievements_ComparisonLabel_Clear")
+					? Localize("#Achievements_ComparisonLabel_Clear")
 					: undefined,
 			},
 			i.createElement(f.xC, {
@@ -377,14 +377,14 @@ function Y(e) {
 									{
 										onSelected: l,
 									},
-									(0, g.we)("#Achievements_Sort_MoveToTop"),
+									Localize("#Achievements_Sort_MoveToTop"),
 								),
 								i.createElement(
 									O.kt,
 									{
 										onSelected: m,
 									},
-									(0, g.we)("#Achievements_Sort_MoveToBottom"),
+									Localize("#Achievements_Sort_MoveToBottom"),
 								),
 							);
 							(0, P.lX)(t, e);
@@ -412,7 +412,7 @@ function Y(e) {
 		{
 			className: W.Label,
 		},
-		(0, g.we)("#Achievements_Tab_InProgress"),
+		Localize("#Achievements_Tab_InProgress"),
 	);
 	const M = i.createElement(m.zp, {
 		className: W.MyAchievementsHeader,
@@ -422,7 +422,7 @@ function Y(e) {
 	});
 	const F = i.useRef(undefined);
 	const G = i.useCallback((e) => {
-		F.current = e ? (0, U._f)(e) : null;
+		F.current = e ? (0, _f)(e) : null;
 	}, []);
 	const z = (0, x.Te)({
 		count: y.length,
@@ -561,7 +561,7 @@ function X(e) {
 				data: i.createElement(
 					c.YG,
 					null,
-					(0, g.we)("#Achievements_LockedList_Title"),
+					Localize("#Achievements_LockedList_Title"),
 				),
 			});
 		}
@@ -592,7 +592,7 @@ function X(e) {
 	);
 	const o = i.useRef(undefined);
 	const l = i.useCallback((e) => {
-		o.current = e ? (0, U._f)(e) : null;
+		o.current = e ? (0, _f)(e) : null;
 	}, []);
 	const m = (0, x.Te)({
 		count: a.length,
@@ -659,7 +659,7 @@ function J(e) {
 			if (t) {
 				e.unshift({
 					data: 0,
-					label: (0, g.we)("#Achievements_ComparisonLabel_Clear"),
+					label: Localize("#Achievements_ComparisonLabel_Clear"),
 				});
 			}
 			return e;
@@ -689,19 +689,17 @@ function J(e) {
 				className: W.CompareButtonContainer,
 			},
 			i.createElement(y.ZU, {
-				strDefaultLabel: (0, g.we)(
-					"#Achievements_ComparisonLabel_NotComparing",
-				),
+				strDefaultLabel: Localize("#Achievements_ComparisonLabel_NotComparing"),
 				selectedOption: r,
 				rgOptions: p,
 				onChange: (e) => n(e.data),
 				renderButtonValue: () =>
 					r
-						? (0, g.we)(
+						? Localize(
 								"#Achievements_ComparisonLabel_Comparing",
 								C.O$.GetFriendState(r).display_name,
 							)
-						: (0, g.we)("#Achievements_ComparisonLabel_NotComparing"),
+						: Localize("#Achievements_ComparisonLabel_NotComparing"),
 			}),
 		);
 	const E = i.createElement(m.zp, {
@@ -839,7 +837,7 @@ function ee(e) {
 				tabs: [
 					{
 						id: "achievements",
-						title: (0, g.we)("#Achievements_Tab_FriendAchievements"),
+						title: Localize("#Achievements_Tab_FriendAchievements"),
 						renderTabAddon: () =>
 							i.createElement(b.Ul, {
 								statusPosition: "none",
@@ -856,7 +854,7 @@ function ee(e) {
 					},
 					{
 						id: "global",
-						title: (0, g.we)("#Achievements_Tab_GlobalAchievements"),
+						title: Localize("#Achievements_Tab_GlobalAchievements"),
 						content: i.createElement(ie, {
 							appid: t,
 							accountid: n,
@@ -920,7 +918,7 @@ function re(e) {
 				{
 					className: W.Label,
 				},
-				(0, g.we)("#Achievements_ComparisonToggle_Label"),
+				Localize("#Achievements_ComparisonToggle_Label"),
 			),
 			i.createElement(y.Hk, {
 				value: n,
@@ -1147,7 +1145,7 @@ function se(e) {
 						paddingTop: 0,
 					},
 				},
-				(0, g.we)("#Achievements_HiddenList_Title"),
+				Localize("#Achievements_HiddenList_Title"),
 			),
 			i.createElement(c.Eu, {
 				count: t,
@@ -1194,7 +1192,7 @@ function ce(e) {
 			{
 				className: W.Text,
 			},
-			(0, g.we)("#Achievements_FriendsAchievements", t),
+			Localize("#Achievements_FriendsAchievements", t),
 		),
 	);
 }
@@ -1223,7 +1221,7 @@ function ue(e) {
 			{
 				className: W.ErrorTitle,
 			},
-			(0, g.we)("#Achievements_FailedToLoad_Title"),
+			Localize("#Achievements_FailedToLoad_Title"),
 		),
 		i.createElement(
 			d.Z,
@@ -1236,14 +1234,14 @@ function ue(e) {
 				{
 					onClick: t,
 				},
-				(0, g.we)("#Button_Retry"),
+				Localize("#Button_Retry"),
 			),
 			i.createElement(
 				y.$n,
 				{
 					onClick: r,
 				},
-				(0, g.we)("#ActionButtonLabelBack"),
+				Localize("#ActionButtonLabelBack"),
 			),
 		),
 	);

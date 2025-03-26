@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 export function m(e, t, r) {
 	const [i, s] = (0, n.useState)(null);
 	const o = (0, n.useRef)(0);
@@ -83,7 +83,7 @@ export function m(e, t, r) {
 	return {
 		columnWidths: i,
 		OnMouseDown: (e, t) => {
-			c.current = (0, a.uX)(e);
+			c.current = GetOwningWindowForEvent(e);
 			m.current = (e) => {
 				A(e, t);
 			};

@@ -15,7 +15,10 @@ var h = require("./62486.js");
 var C = require("./52192.js");
 var _ = require("./83314.js");
 var f = require("./85399.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var y = require("./93681.js");
 var S = require("./46422.js");
 var w = require("./37449.js");
@@ -68,11 +71,11 @@ function V(e, t, r) {
 		s = (0, C.JD)(t.controller_action, c ? o : undefined, i?.layers);
 	}
 	if (s && r > 0) {
-		return (0, b.PP)("#ControllerBinding_Binding_FriendlyNameMultiple", s);
+		return LocalizeReact("#ControllerBinding_Binding_FriendlyNameMultiple", s);
 	}
 	if (s) {
 		if (t.key_binding_data?.friendly_name_utf8) {
-			return (0, b.PP)(
+			return LocalizeReact(
 				"#ControllerBinding_Binding_FriendlyName",
 				t.key_binding_data.friendly_name_utf8,
 				s,
@@ -85,15 +88,15 @@ function V(e, t, r) {
 	if (m) {
 		if (t.key_binding_data?.friendly_name_utf8 && typeof m.label == "string") {
 			if (r > 0) {
-				return (0, b.we)(
+				return Localize(
 					"#ControllerBinding_Binding_FriendlyNameMultiple",
-					(0, b.we)(m.label),
+					Localize(m.label),
 				);
 			} else {
-				return (0, b.we)(
+				return Localize(
 					"#ControllerBinding_Binding_FriendlyName",
 					t.key_binding_data.friendly_name_utf8,
-					(0, b.we)(m.label),
+					Localize(m.label),
 				);
 			}
 		}
@@ -106,13 +109,13 @@ function V(e, t, r) {
 		}
 		let e = typeof m.label == "string" ? m.label : undefined;
 		if (e?.charAt(0) == "#") {
-			return (0, b.we)(m.label);
+			return Localize(m.label);
 		} else {
 			return m.label;
 		}
 	}
 	if (t?.type == l.N.k_EControllerBindingType_Modeshift) {
-		return (0, b.we)(
+		return Localize(
 			"#ControllerBinding_ModeShift_FriendlyName",
 			(0, h.ND)(h.Dd[t?.mode_shift.source].id),
 		);
@@ -474,7 +477,7 @@ function Z(e) {
 							n.bindings?.some(
 								(n) =>
 									n.mode_shift?.source == r &&
-									((e = (0, b.we)(
+									((e = Localize(
 										h.vU.find((e) => e.input == t.key)?.label ??
 											"#Library_Details_ModeShift_Title_" + h.SW[t.key].id,
 									)),
@@ -484,7 +487,7 @@ function Z(e) {
 					),
 				),
 			);
-			return e ?? (0, b.we)("#None_Title");
+			return e ?? Localize("#None_Title");
 		} else {
 			return e;
 		}
@@ -521,7 +524,7 @@ function Z(e) {
 			{
 				className: u,
 			},
-			(0, b.we)("#ControllerSource_ModeShift_Header", m),
+			Localize("#ControllerSource_ModeShift_Header", m),
 		),
 		s &&
 			i.createElement(
@@ -529,7 +532,7 @@ function Z(e) {
 				{
 					className: (0, _c.A)(A.ControllerInputDisplay),
 				},
-				(0, b.we)("#ControllerSource_ModeShift_Subheader", s),
+				Localize("#ControllerSource_ModeShift_Subheader", s),
 			),
 	);
 }
@@ -1038,8 +1041,8 @@ const te = (0, s.PA)(function (e) {
 				if (e.key == 58 && e.int_value) {
 					l =
 						e.int_value == 1
-							? (0, b.we)("#ControllerBinding_LeftAnalogTrigger")
-							: (0, b.we)("#ControllerBinding_RightAnalogTrigger");
+							? Localize("#ControllerBinding_LeftAnalogTrigger")
+							: Localize("#ControllerBinding_RightAnalogTrigger");
 					w = t == 6 ? e.int_value == 1 : e.int_value == 2;
 				}
 			});
@@ -1139,7 +1142,7 @@ function re(e) {
 				preferredFocus: true,
 				noFocusRing: true,
 			},
-			(0, b.we)("#AppOverlay_ControllerSettings"),
+			Localize("#AppOverlay_ControllerSettings"),
 		);
 	} else {
 		return null;
@@ -2526,10 +2529,10 @@ export const c = (0, s.PA)(function (e) {
 		G?.bProgenitorRecommended;
 	let H = (0, C.yZ)(G);
 	if (H == "$$$autosave") {
-		H = (0, b.we)("#SettingsController_AutosaveName");
+		H = Localize("#SettingsController_AutosaveName");
 	}
 	if (V) {
-		H = (0, b.we)(
+		H = Localize(
 			"#AppControllerConfiguration_OfficialConfig",
 			U?.strDisplayName,
 			H,
@@ -2543,7 +2546,7 @@ export const c = (0, s.PA)(function (e) {
 	}
 	const j = {};
 	if (a) {
-		j[B.pR.SECONDARY] = (0, b.we)(
+		j[B.pR.SECONDARY] = Localize(
 			"#ControllerConfigurator_ActionButtonLabel_ApplyLayout",
 		);
 		j[B.pR.OK] = null;

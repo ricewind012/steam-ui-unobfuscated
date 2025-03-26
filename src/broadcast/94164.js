@@ -175,7 +175,7 @@ const W = (e) => {
 		onPositionChange: r,
 	});
 };
-import * as R from /*webcrack:missing*/ "./46108.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import * as L from /*webcrack:missing*/ "./34428.js";
 import * as j from /*webcrack:missing*/ "./52451.js";
 import * as V from /*webcrack:missing*/ "./8573.js";
@@ -221,7 +221,7 @@ const H = (0, o.PA)((e) => {
 		l.createElement(
 			"div",
 			null,
-			(0, R.we)(
+			Localize(
 				o.GetName().length > 0
 					? t.jsondata.broadcast_item_drops_min_watch_time_minutes % 60 == 0
 						? "#SalePage_WatchForDrop_Hours_CreatorNamed"
@@ -241,7 +241,7 @@ const H = (0, o.PA)((e) => {
 						href: c,
 						target: g.TS.IN_CLIENT ? "" : "_blank",
 					},
-					(0, R.we)("#SalePage_WatchForDrop_LearnMore"),
+					Localize("#SalePage_WatchForDrop_LearnMore"),
 				),
 		),
 	);
@@ -263,7 +263,7 @@ function ae(e) {
 		Z.o0,
 		{
 			strDescription: "",
-			strTitle: (0, R.we)("#Button_Share"),
+			strTitle: Localize("#Button_Share"),
 			onCancel: a,
 			onOK: a,
 			bAlertDialog: true,
@@ -287,7 +287,7 @@ function re(e) {
 		l.createElement(
 			O.he,
 			{
-				toolTipContent: (0, R.we)("#EventDisplay_Share_OnFaceBook"),
+				toolTipContent: Localize("#EventDisplay_Share_OnFaceBook"),
 			},
 			l.createElement(
 				Q.uU,
@@ -304,7 +304,7 @@ function re(e) {
 		l.createElement(
 			O.he,
 			{
-				toolTipContent: (0, R.we)("#EventDisplay_Share_OnTwitter"),
+				toolTipContent: Localize("#EventDisplay_Share_OnTwitter"),
 			},
 			l.createElement(
 				Q.uU,
@@ -321,7 +321,7 @@ function re(e) {
 		l.createElement(
 			O.he,
 			{
-				toolTipContent: (0, R.we)("#EventDisplay_Share_OnReddit"),
+				toolTipContent: Localize("#EventDisplay_Share_OnReddit"),
 			},
 			l.createElement(
 				Q.uU,
@@ -348,10 +348,10 @@ function ne(e) {
 				a.current.ownerDocument.defaultView.navigator.clipboard
 					.writeText(a.current.value)
 					.then((e) => {
-						n((0, R.we)("#EventDisplay_Share_CopiedToClipboard"));
+						n(Localize("#EventDisplay_Share_CopiedToClipboard"));
 					})
 					.catch((e) => {
-						n((0, R.we)("#EventDisplay_Share_FailedToCopyToClipboard"));
+						n(Localize("#EventDisplay_Share_FailedToCopyToClipboard"));
 						console.error("Failed to copy link to clipboard:", e);
 					});
 			}
@@ -373,7 +373,7 @@ function ne(e) {
 				{
 					className: te.LinkInputLabel,
 				},
-				(0, R.we)("#EventDisplay_Share_Link"),
+				Localize("#EventDisplay_Share_Link"),
 			),
 			l.createElement("textarea", {
 				className: te.LinkInput,
@@ -385,7 +385,7 @@ function ne(e) {
 				l.createElement(
 					O.he,
 					{
-						toolTipContent: (0, R.we)("#ToolTip_CopyLinkToClipboard"),
+						toolTipContent: Localize("#ToolTip_CopyLinkToClipboard"),
 					},
 					l.createElement(
 						"div",
@@ -728,7 +728,7 @@ let me = class extends l.Component {
 									l.createElement(
 										O.he,
 										{
-											toolTipContent: (0, R.we)(
+											toolTipContent: Localize(
 												"#StoreBroadcast_Change_store_Broadcast_settings",
 											),
 										},
@@ -743,7 +743,7 @@ let me = class extends l.Component {
 								l.createElement(
 									O.he,
 									{
-										toolTipContent: (0, R.we)("#StoreBroadcast_Hide_Tooltip"),
+										toolTipContent: Localize("#StoreBroadcast_Hide_Tooltip"),
 									},
 									l.createElement("div", {
 										className: this.state.bExpanded
@@ -931,7 +931,7 @@ function _e(e) {
 			{
 				href: e,
 			},
-			(0, R.we)("#Broadcast_Embed_Watch_With_Frieds_SteamTV"),
+			Localize("#Broadcast_Embed_Watch_With_Frieds_SteamTV"),
 		);
 	}
 	{
@@ -939,7 +939,7 @@ function _e(e) {
 		return l.createElement(
 			O.he,
 			{
-				toolTipContent: (0, R.we)("#BroadcastWatch_View_Broadcast_Page"),
+				toolTipContent: Localize("#BroadcastWatch_View_Broadcast_Page"),
 			},
 			l.createElement(
 				"a",
@@ -1016,7 +1016,7 @@ let he = class extends l.Component {
 								className: M.ChatToggle,
 								onClick: this.OnToggleChat,
 							},
-							(0, R.we)("#sale_three_section_show_streams"),
+							Localize("#sale_three_section_show_streams"),
 						),
 					),
 				e &&
@@ -1033,7 +1033,7 @@ let he = class extends l.Component {
 								className: M.ChatToggle,
 								onClick: this.OnToggleChat,
 							},
-							(0, R.we)(
+							Localize(
 								t
 									? "#sale_three_section_show_chat"
 									: "#sale_three_section_hide_chat",
@@ -1060,13 +1060,13 @@ let he = class extends l.Component {
 										(0, oe.uX)(e),
 									),
 							},
-							(0, R.we)("#Broadcast_ShareBroadcast"),
+							Localize("#Broadcast_ShareBroadcast"),
 						),
 					),
 				l.createElement(
 					O.he,
 					{
-						toolTipContent: (0, R.we)(
+						toolTipContent: Localize(
 							"#StoreBroadcast_Change_store_Broadcast_settings",
 						),
 					},
@@ -1134,19 +1134,19 @@ export const BroadcastEmbeddablePopoutHeader = (0, o.PA)((e) => {
 						id: a,
 						className: M.PopOutVideoTitleText,
 					},
-					(0, R.we)("#StoreBroadcast_Detault_popout_Title"),
+					Localize("#StoreBroadcast_Detault_popout_Title"),
 				)
 			: l.createElement(
 					"div",
 					{
 						className: M.PopOutVideoTitleText,
 					},
-					(0, R.we)("#StoreBroadcast_Detault_popout_Title"),
+					Localize("#StoreBroadcast_Detault_popout_Title"),
 				),
 		l.createElement(
 			O.he,
 			{
-				toolTipContent: (0, R.we)("#StoreBroadcast_close_broadcast_popup"),
+				toolTipContent: Localize("#StoreBroadcast_close_broadcast_popup"),
 			},
 			l.createElement(
 				"button",

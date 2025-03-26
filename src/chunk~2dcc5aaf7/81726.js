@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require("./4864.js");
 export function K() {
 	return n.createElement(
@@ -7,6 +7,6 @@ export function K() {
 		{
 			className: a.bordered_live_stream_icon,
 		},
-		(0, i.we)("#home_page_live_broadcast"),
+		Localize("#home_page_live_broadcast"),
 	);
 }

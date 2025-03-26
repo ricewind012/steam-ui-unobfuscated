@@ -10,7 +10,7 @@ const m =
 var u = require("./6496.js");
 var d = require("./21045.js");
 var A = d;
-var p = require(/*webcrack:missing*/ "./85688.js");
+import { FailAssertion } from "../../actual_src/utils/assert.js";
 export const Ul = i.memo(function (e) {
 	const {
 		strAvatarURL: t,
@@ -40,7 +40,7 @@ export const Ul = i.memo(function (e) {
 					case "FillArea":
 						return u.A;
 					default:
-						(0, p.z)(e, `Unhandled size ${e}`);
+						FailAssertion(e, `Unhandled size ${e}`);
 						return m;
 				}
 			})(r),

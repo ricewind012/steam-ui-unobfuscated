@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./49519.js");
 var a = require("./51517.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export function y(e) {
 	const t = (0, i.W6)();
 	return n.useCallback(() => {
@@ -29,8 +29,8 @@ export function x() {
 	const c = t != null && t.length > 0;
 	return n.createElement(a.Q, {
 		active: c,
-		strTitle: (0, s.we)("#RemoveProtonFilesModal_Title"),
-		strDescription: (0, s.we)("#RemoveProtonFilesModal_Description"),
+		strTitle: (0, Localize)("#RemoveProtonFilesModal_Title"),
+		strDescription: (0, Localize)("#RemoveProtonFilesModal_Description"),
 		onOK: l,
 		closeModal: o,
 		bCloseOnOK: true,

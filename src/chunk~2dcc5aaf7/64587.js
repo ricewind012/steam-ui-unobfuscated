@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./41230.js");
 var o = require(/*webcrack:missing*/ "./63696.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./98829.js");
 var d = require("./89397.js");
 var _A = d;
@@ -17,7 +17,7 @@ var _ = require("./64608.js");
 var f = require(/*webcrack:missing*/ "./52451.js");
 var b = require("./95377.js");
 var y = require("./78060.js");
-var S = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var w = require("./13869.js");
 require(/*webcrack:missing*/ "./72476.js");
 var B = require("./40357.js");
@@ -37,7 +37,7 @@ const v = (e) => {
 					e.closeModal();
 				},
 			},
-			o.createElement(_.Y9, null, (0, m.we)(e.title)),
+			o.createElement(_.Y9, null, Localize(e.title)),
 			o.createElement(
 				_.nB,
 				null,
@@ -73,7 +73,7 @@ export const A = (0, s.PA)((e) => {
 			),
 			onOKButton: e.fnOKButton,
 			onOKActionDescription:
-				e.strOKActionDescription ?? (0, m.we)("#VoiceChat_ManageRoom"),
+				e.strOKActionDescription ?? Localize("#VoiceChat_ManageRoom"),
 			onSecondaryButton: e.fnSecondaryButton,
 			onSecondaryActionDescription: e.strSecondaryActionDescription,
 			onOptionsButton: e.fnOptionsButton,
@@ -98,39 +98,39 @@ export const A = (0, s.PA)((e) => {
 								e.fnCloseModal();
 							}
 						},
-				onOKActionDescription: (0, m.we)("#VoiceChat_ViewQuickChat"),
+				onOKActionDescription: Localize("#VoiceChat_ViewQuickChat"),
 				onSecondaryButton: r
 					? (t) => {
 							(0, y.Ci)(
-								(0, S.uX)(t),
-								(0, m.we)("#Chat_Actions_RemoveRoom"),
-								(0, m.we)("#Chat_Actions_RemoveRoom_Confirm"),
-								(0, m.we)("#Chat_Actions_RemoveRoom_Action"),
+								GetOwningWindowForEvent(t),
+								Localize("#Chat_Actions_RemoveRoom"),
+								Localize("#Chat_Actions_RemoveRoom_Confirm"),
+								Localize("#Chat_Actions_RemoveRoom_Action"),
 							).then(() => {
 								e.chatRoom.GetGroup().DeleteChatRoom(e.chatRoom.GetRoomID());
 							});
 						}
 					: undefined,
 				onSecondaryActionDescription: r
-					? (0, m.we)("#Chat_Actions_RemoveRoom")
+					? Localize("#Chat_Actions_RemoveRoom")
 					: undefined,
 				onOptionsButton: r
 					? (t) => {
 							(0, w.HT)(
 								o.createElement(v, {
-									title: (0, m.we)("#Chat_Actions_ChangeRoomName"),
+									title: Localize("#Chat_Actions_ChangeRoomName"),
 									description: undefined,
 									onResult: (t) =>
 										e.chatRoom.GetGroup().RenameRoom(e.chatRoom.GetRoomID(), t),
 								}),
-								(0, S.uX)(t),
+								GetOwningWindowForEvent(t),
 							);
 						}
 					: undefined,
 				onOptionsActionDescription: r
 					? n
-						? (0, m.we)("#Chat_Actions_SaveChannel")
-						: (0, m.we)("#Chat_Actions_ChangeRoomName")
+						? Localize("#Chat_Actions_SaveChannel")
+						: Localize("#Chat_Actions_ChangeRoomName")
 					: undefined,
 			},
 			o.createElement(p.mrd, null),
@@ -190,8 +190,8 @@ export const A = (0, s.PA)((e) => {
 			}
 			const g = n
 				? a
-					? (0, m.we)("#VoiceChat_Unmute")
-					: (0, m.we)("#VoiceChat_Mute")
+					? Localize("#VoiceChat_Unmute")
+					: Localize("#VoiceChat_Mute")
 				: null;
 			return o.createElement(u.bP, {
 				key: r.accountid,
@@ -217,7 +217,7 @@ export const A = (0, s.PA)((e) => {
 								}
 							},
 							onOKActionDescription: i
-								? (0, m.we)("#Friend_Menu_SendMessage")
+								? Localize("#Friend_Menu_SendMessage")
 								: null,
 							onSecondaryButton: () => {
 								if (n) {
@@ -261,7 +261,7 @@ function E(e) {
 					h.xm.VoiceStore.InitiateFriendChat(t.accountid_partner);
 				},
 			},
-			r ? (0, m.we)("#Voice_Resume") : (0, m.we)("#Voice_Accept"),
+			r ? Localize("#Voice_Resume") : Localize("#Voice_Accept"),
 		),
 		o.createElement(
 			_.$n,
@@ -272,7 +272,7 @@ function E(e) {
 					);
 				},
 			},
-			r ? (0, m.we)("#Voice_End") : (0, m.we)("#Voice_Decline"),
+			r ? Localize("#Voice_End") : Localize("#Voice_Decline"),
 		),
 	);
 }
@@ -296,8 +296,8 @@ function M(e) {
 				className: (0, c.A)(_A.Title, _A.PendingVoiceChats),
 			},
 			r
-				? (0, m.we)("#VoiceChat_CallOnHold")
-				: (0, m.we)("#VoiceChat_PendingRequests"),
+				? Localize("#VoiceChat_CallOnHold")
+				: Localize("#VoiceChat_PendingRequests"),
 		),
 		o.createElement(
 			l.Z,
@@ -369,7 +369,7 @@ export let $ = class extends o.Component {
 					{
 						className: _A.Title,
 					},
-					(0, m.we)("#VoiceChat_NoneActive"),
+					Localize("#VoiceChat_NoneActive"),
 				);
 			}
 		}
@@ -414,7 +414,7 @@ export let $ = class extends o.Component {
 			}
 			const t = Math.round(Math.log10(e) * 20);
 			const r = t < 0 ? t.toString() : "+" + t.toString();
-			return (0, m.we)("#VoiceChat_AudioLevelDb", r);
+			return Localize("#VoiceChat_AudioLevelDb", r);
 		};
 		return o.createElement(
 			o.Fragment,
@@ -428,7 +428,7 @@ export let $ = class extends o.Component {
 					ref: this.ref,
 					className: _A.Title,
 				},
-				(0, m.we)("#VoiceChat_InVoiceChat"),
+				Localize("#VoiceChat_InVoiceChat"),
 			),
 			o.createElement(
 				"div",
@@ -442,17 +442,17 @@ export let $ = class extends o.Component {
 							_A.FriendVoiceChatSliderContainer,
 							y == 0 && "MicMuted",
 						),
-						onOKActionDescription: (0, m.we)("#VoiceChat_AdjustMicVolume"),
+						onOKActionDescription: Localize("#VoiceChat_AdjustMicVolume"),
 						onSecondaryButton: S
 							? () => this.props.chats.VoiceChat.ToggleMicMuting()
 							: undefined,
 						onSecondaryActionDescription: S
 							? this.props.chats.VoiceChat.IsMicMuted()
-								? (0, m.we)("#VoiceChat_UnmuteMic_Deck")
-								: (0, m.we)("#VoiceChat_MuteMic_Deck")
+								? Localize("#VoiceChat_UnmuteMic_Deck")
+								: Localize("#VoiceChat_MuteMic_Deck")
 							: undefined,
 						onMenuButton: C,
-						onMenuActionDescription: (0, m.we)("#VoiceChat_GoToAudioSettings"),
+						onMenuActionDescription: Localize("#VoiceChat_GoToAudioSettings"),
 					},
 					o.createElement(_.d3, {
 						layout: "inline",
@@ -485,17 +485,17 @@ export let $ = class extends o.Component {
 					l.Z,
 					{
 						className: _A.FriendVoiceChatSliderContainer,
-						onOKActionDescription: (0, m.we)("#VoiceChat_AdjustVoiceVolume"),
+						onOKActionDescription: Localize("#VoiceChat_AdjustVoiceVolume"),
 						onSecondaryButton: w
 							? () => this.props.chats.VoiceChat.ToggleOutputMuting()
 							: undefined,
 						onSecondaryActionDescription: w
 							? this.props.chats.VoiceChat.IsOutputMuted()
-								? (0, m.we)("#VoiceChat_UnmuteVoice_Deck")
-								: (0, m.we)("#VoiceChat_MuteVoice_Deck")
+								? Localize("#VoiceChat_UnmuteVoice_Deck")
+								: Localize("#VoiceChat_MuteVoice_Deck")
 							: undefined,
 						onMenuButton: C,
-						onMenuActionDescription: (0, m.we)("#VoiceChat_GoToAudioSettings"),
+						onMenuActionDescription: Localize("#VoiceChat_GoToAudioSettings"),
 					},
 					o.createElement(_.d3, {
 						layout: "inline",
@@ -556,7 +556,7 @@ export let $ = class extends o.Component {
 									this.props.chats.VoiceChat.OnUserEndVoiceChat(),
 							},
 							o.createElement(p.ETd, null),
-							(0, m.we)("#VoiceChat_Leave"),
+							Localize("#VoiceChat_Leave"),
 						),
 					),
 				r &&
@@ -577,7 +577,7 @@ export let $ = class extends o.Component {
 										true,
 									);
 								},
-								onOKActionDescription: (0, m.we)(
+								onOKActionDescription: Localize(
 									"#ChatRoom_Invite_Accept_Inviter",
 								),
 							},
@@ -606,7 +606,7 @@ export let $ = class extends o.Component {
 									this.props.chats.VoiceChat.OnUserEndVoiceChat(),
 							},
 							o.createElement(p.ETd, null),
-							(0, m.we)("#VoiceChat_Leave"),
+							Localize("#VoiceChat_Leave"),
 						),
 					),
 			),

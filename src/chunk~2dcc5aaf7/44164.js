@@ -8,7 +8,10 @@ var c = require("./82594.js");
 var m = require("./66408.js");
 var u = require(/*webcrack:missing*/ "./88750.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var p = require(/*webcrack:missing*/ "./52451.js");
 var g = require("./92757.js");
 var h = require(/*webcrack:missing*/ "./72476.js");
@@ -385,7 +388,7 @@ export const Q4 = (0, a.PA)((e) => {
 				s.createElement(
 					"span",
 					{
-						title: (0, A.we)("#AddonPicker_RecentlyUsed"),
+						title: (0, Localize)("#AddonPicker_RecentlyUsed"),
 						className: (0, d.A)(D.PickerTab, D.Clock, e && D.ActiveTab),
 					},
 					s.createElement(ce, null),
@@ -411,7 +414,7 @@ export const Q4 = (0, a.PA)((e) => {
 						s.createElement(
 							"span",
 							{
-								title: (0, A.we)("#AddonPicker_Emoticons"),
+								title: (0, Localize)("#AddonPicker_Emoticons"),
 								className: (0, d.A)(D.PickerTab, e && D.ActiveTab),
 							},
 							s.createElement(se, null),
@@ -429,7 +432,7 @@ export const Q4 = (0, a.PA)((e) => {
 						s.createElement(
 							"span",
 							{
-								title: (0, A.we)("#AddonPicker_Stickers"),
+								title: (0, Localize)("#AddonPicker_Stickers"),
 								className: (0, d.A)(D.PickerTab, e && D.ActiveTab),
 							},
 							s.createElement(ie, null),
@@ -445,7 +448,7 @@ export const Q4 = (0, a.PA)((e) => {
 						s.createElement(
 							"span",
 							{
-								title: (0, A.we)("#AddonPicker_RoomEffects"),
+								title: (0, Localize)("#AddonPicker_RoomEffects"),
 								className: (0, d.A)(D.PickerTab, e && D.ActiveTab),
 							},
 							s.createElement(le, null),
@@ -497,7 +500,7 @@ export let X6 = class extends s.Component {
 					s.createElement(
 						"span",
 						{
-							title: (0, A.we)("#AddonPicker_RecentlyUsed"),
+							title: (0, Localize)("#AddonPicker_RecentlyUsed"),
 							className: (0, d.A)(D.PickerTab, D.Clock, e && D.ActiveTab),
 						},
 						s.createElement(ce, null),
@@ -523,7 +526,7 @@ export let X6 = class extends s.Component {
 							s.createElement(
 								"span",
 								{
-									title: (0, A.we)("#AddonPicker_Emoticons"),
+									title: (0, Localize)("#AddonPicker_Emoticons"),
 									className: (0, d.A)(D.PickerTab, e && D.ActiveTab),
 								},
 								s.createElement(se, null),
@@ -541,7 +544,7 @@ export let X6 = class extends s.Component {
 							s.createElement(
 								"span",
 								{
-									title: (0, A.we)("#AddonPicker_Stickers"),
+									title: (0, Localize)("#AddonPicker_Stickers"),
 									className: (0, d.A)(D.PickerTab, e && D.ActiveTab),
 								},
 								s.createElement(ie, null),
@@ -590,7 +593,7 @@ export class iY extends s.Component {
 							s.createElement(
 								"span",
 								{
-									title: (0, A.we)("#AddonPicker_Emoticons"),
+									title: (0, Localize)("#AddonPicker_Emoticons"),
 									className: D.PickerTab,
 								},
 								s.createElement(se, null),
@@ -640,7 +643,7 @@ export class CE extends s.Component {
 							s.createElement(
 								"span",
 								{
-									title: (0, A.we)("#AddonPicker_Emoticons"),
+									title: (0, Localize)("#AddonPicker_Emoticons"),
 									className: D.PickerTab,
 								},
 								s.createElement(se, null),
@@ -673,7 +676,7 @@ class H extends s.Component {
 		const a = [];
 		if (P(e)) {
 			a.push({
-				title: (0, A.we)("#AddonPicker_RecentEmoticons"),
+				title: (0, Localize)("#AddonPicker_RecentEmoticons"),
 				items: l.p.FilterEmoticons(P(e), i),
 				onItemSelect: r,
 				renderItem: (e) =>
@@ -687,17 +690,17 @@ class H extends s.Component {
 						R,
 						null,
 						i
-							? (0, A.we)("#AddonPicker_NoResults")
-							: (0, A.we)(
+							? (0, Localize)("#AddonPicker_NoResults")
+							: (0, Localize)(
 									"#AddonPicker_NoRecent",
-									(0, A.we)("#AddonPicker_Emoticons"),
+									(0, Localize)("#AddonPicker_Emoticons"),
 								),
 					),
 			});
 		}
 		if (L(e).length) {
 			a.push({
-				title: (0, A.we)("#AddonPicker_RecentStickers"),
+				title: (0, Localize)("#AddonPicker_RecentStickers"),
 				items: l.p.FilterStickers(L(e), i),
 				onItemSelect: n,
 				renderItem: (e) =>
@@ -710,10 +713,10 @@ class H extends s.Component {
 						R,
 						null,
 						i
-							? (0, A.we)("#AddonPicker_NoResults")
-							: (0, A.we)(
+							? (0, Localize)("#AddonPicker_NoResults")
+							: (0, Localize)(
 									"#AddonPicker_NoRecent",
-									(0, A.we)("#AddonPicker_Stickers"),
+									(0, Localize)("#AddonPicker_Stickers"),
 								),
 					),
 			});
@@ -743,7 +746,7 @@ class j extends s.Component {
 		const a = !i && n ? e.GetFlairListByGroupID(n) : e.emoticon_list;
 		const o = l.p.FilterEmoticons(a, i).slice(0, 1000);
 		return s.createElement(I, {
-			title: (0, A.we)("#AddonPicker_Emoticons"),
+			title: (0, Localize)("#AddonPicker_Emoticons"),
 			items: o,
 			onItemSelect: r,
 			renderItem: (e) =>
@@ -760,7 +763,7 @@ class j extends s.Component {
 			onSubmit: () => r(o[0]),
 			renderEmpty: () =>
 				i
-					? s.createElement(R, null, (0, A.we)("#AddonPicker_NoResults"))
+					? s.createElement(R, null, (0, Localize)("#AddonPicker_NoResults"))
 					: s.createElement(q, null),
 		});
 	}
@@ -772,26 +775,29 @@ function q() {
 		s.createElement(
 			R,
 			null,
-			(0, A.we)("#AddonPicker_NoneOwned", (0, A.we)("#AddonPicker_Emoticons")),
+			(0, Localize)(
+				"#AddonPicker_NoneOwned",
+				(0, Localize)("#AddonPicker_Emoticons"),
+			),
 		),
 		s.createElement(
 			R,
 			null,
-			(0, A.PP)(
+			LocalizeReact(
 				"#AddonPicker_AcquireAtPointsShopOrMarket",
 				s.createElement(
 					N.uU,
 					{
 						href: `${h.TS.STORE_BASE_URL}points/shop/c/emoticons`,
 					},
-					(0, A.we)("#AddonPicker_AcquireAtPointsShop_Link"),
+					(0, Localize)("#AddonPicker_AcquireAtPointsShop_Link"),
 				),
 				s.createElement(
 					N.uU,
 					{
 						href: `${h.TS.COMMUNITY_BASE_URL}market`,
 					},
-					(0, A.we)("#AddonPicker_AcquireAtPointsShopOrMarket_Link"),
+					(0, Localize)("#AddonPicker_AcquireAtPointsShopOrMarket_Link"),
 				),
 			),
 		),
@@ -806,7 +812,7 @@ class Q extends s.Component {
 		const { filter: r } = this.state;
 		const n = l.p.FilterStickers(e.GetStickerList(), r);
 		return s.createElement(I, {
-			title: (0, A.we)("#EmoticonPicker_StickerHeading"),
+			title: (0, Localize)("#EmoticonPicker_StickerHeading"),
 			items: n,
 			onItemSelect: t,
 			renderItem: (e) =>
@@ -822,29 +828,29 @@ class Q extends s.Component {
 			onSubmit: () => t(n[0]),
 			renderEmpty: () =>
 				r
-					? s.createElement(R, null, (0, A.we)("#AddonPicker_NoResults"))
+					? s.createElement(R, null, (0, Localize)("#AddonPicker_NoResults"))
 					: s.createElement(
 							s.Fragment,
 							null,
 							s.createElement(
 								R,
 								null,
-								(0, A.we)(
+								(0, Localize)(
 									"#AddonPicker_NoneOwned",
-									(0, A.we)("#AddonPicker_Stickers"),
+									(0, Localize)("#AddonPicker_Stickers"),
 								),
 							),
 							s.createElement(
 								R,
 								null,
-								(0, A.PP)(
+								LocalizeReact(
 									"#AddonPicker_AcquireAtPointsShop",
 									s.createElement(
 										N.uU,
 										{
 											href: `${h.TS.STORE_BASE_URL}points/shop/c/stickers`,
 										},
-										(0, A.we)("#AddonPicker_AcquireAtPointsShop_Link"),
+										(0, Localize)("#AddonPicker_AcquireAtPointsShop_Link"),
 									),
 								),
 							),
@@ -861,7 +867,7 @@ class Z extends s.Component {
 		const { filter: n } = this.state;
 		const i = e.GetEffectList().filter(({ name: e }) => e.indexOf(n) > -1);
 		return s.createElement(I, {
-			title: (0, A.we)("#EmoticonPicker_EffectHeading"),
+			title: (0, Localize)("#EmoticonPicker_EffectHeading"),
 			items: i,
 			onItemSelect: r,
 			renderItem: (e) =>
@@ -878,29 +884,29 @@ class Z extends s.Component {
 			onSubmit: () => r(i[0]),
 			renderEmpty: () =>
 				n
-					? s.createElement(R, null, (0, A.we)("#AddonPicker_NoResults"))
+					? s.createElement(R, null, (0, Localize)("#AddonPicker_NoResults"))
 					: s.createElement(
 							s.Fragment,
 							null,
 							s.createElement(
 								R,
 								null,
-								(0, A.we)(
+								(0, Localize)(
 									"#AddonPicker_NoneOwned",
-									(0, A.we)("#AddonPicker_RoomEffects"),
+									(0, Localize)("#AddonPicker_RoomEffects"),
 								),
 							),
 							s.createElement(
 								R,
 								null,
-								(0, A.PP)(
+								LocalizeReact(
 									"#AddonPicker_AcquireAtPointsShop",
 									s.createElement(
 										N.uU,
 										{
 											href: `${h.TS.STORE_BASE_URL}points/shop/c/chateffects`,
 										},
-										(0, A.we)("#AddonPicker_AcquireAtPointsShop_Link"),
+										(0, Localize)("#AddonPicker_AcquireAtPointsShop_Link"),
 									),
 								),
 							),
@@ -923,7 +929,7 @@ let Y = class extends s.Component {
 		const a = [];
 		if (P(e).length) {
 			a.push({
-				title: (0, A.we)("#AddonPicker_RecentEmoticons"),
+				title: (0, Localize)("#AddonPicker_RecentEmoticons"),
 				items: l.p.FilterEmoticons(P(e), i),
 				onItemSelect: r,
 				renderItem: (e) =>
@@ -937,10 +943,10 @@ let Y = class extends s.Component {
 						R,
 						null,
 						i
-							? (0, A.we)("#AddonPicker_NoResults")
-							: (0, A.we)(
+							? (0, Localize)("#AddonPicker_NoResults")
+							: (0, Localize)(
 									"#AddonPicker_NoRecent",
-									(0, A.we)("#AddonPicker_Emoticons"),
+									(0, Localize)("#AddonPicker_Emoticons"),
 								),
 					),
 			});
@@ -954,7 +960,7 @@ let Y = class extends s.Component {
 			sections: [
 				...a,
 				{
-					title: (0, A.we)("#AddonPicker_AllEmoticons"),
+					title: (0, Localize)("#AddonPicker_AllEmoticons"),
 					items: l.p.FilterStickers(e.emoticon_list, i).slice(0, 1000),
 					onItemSelect: r,
 					renderItem: (e) =>
@@ -965,7 +971,11 @@ let Y = class extends s.Component {
 					keyExtractor: (e) => e.name,
 					renderEmpty: () =>
 						i
-							? s.createElement(R, null, (0, A.we)("#AddonPicker_NoResults"))
+							? s.createElement(
+									R,
+									null,
+									(0, Localize)("#AddonPicker_NoResults"),
+								)
 							: s.createElement(q, null),
 				},
 			],
@@ -993,7 +1003,7 @@ let K = class extends s.Component {
 			filter: i,
 			sections: [
 				{
-					title: (0, A.we)("#ChatEntryButton_Flair"),
+					title: (0, Localize)("#ChatEntryButton_Flair"),
 					items: l.p.FilterStickers(e.GetFlairListByGroupID(n), i),
 					onItemSelect: r,
 					renderItem: (e) =>
@@ -1004,7 +1014,11 @@ let K = class extends s.Component {
 					keyExtractor: (e) => e.name,
 					renderEmpty: () =>
 						i
-							? s.createElement(R, null, (0, A.we)("#AddonPicker_NoResults"))
+							? s.createElement(
+									R,
+									null,
+									(0, Localize)("#AddonPicker_NoResults"),
+								)
 							: s.createElement(q, null),
 				},
 			],

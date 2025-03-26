@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./12176.js");
 var s = require("./36383.js");
 var o = require("./50979.js");
 var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./83599.js");
 var u = require("./16761.js");
 require("./80663.js");
@@ -30,7 +30,7 @@ export class d extends u.o {
 	m_lastChatLink = null;
 	m_rtLastMention = undefined;
 	m_groupVoiceActiveMembers = new _d.uZ(
-		(0, c.we)("#Chat_MemberGroup_VoiceChatting"),
+		Localize("#Chat_MemberGroup_VoiceChatting"),
 	);
 	m_eDesktopNotificationLevel = 0;
 	m_eMobileNotificationLevel = 0;
@@ -355,7 +355,7 @@ export class d extends u.o {
 		if (this.IsDefaultRoomForGroup()) {
 			return "Home";
 		} else if (this.IsUnsavedVoiceChannel()) {
-			return (0, c.we)("#Chat_CreateChatChannel_DefaultName");
+			return Localize("#Chat_CreateChatChannel_DefaultName");
 		} else {
 			return this.m_strName;
 		}

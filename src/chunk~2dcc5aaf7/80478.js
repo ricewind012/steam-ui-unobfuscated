@@ -36,9 +36,18 @@ var P = require("./10606.js");
 var L = require("./13869.js");
 var z = require(/*webcrack:missing*/ "./50376.js");
 var x = require(/*webcrack:missing*/ "./90765.js");
-var U = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	Localize,
+	LocalizeRtime32ToShortDate,
+	LocalizeRtime32ToShorterDate,
+	LocalizeReact,
+	LocalizePlural,
+	LocalizeReactPlural,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 function _W(e, t) {
-	const r = new Intl.ListFormat(U.pf.GetPreferredLocales(), {
+	const r = new Intl.ListFormat(LocalizationManager.GetPreferredLocales(), {
 		style: "long",
 		type: "conjunction",
 	})
@@ -185,10 +194,13 @@ function X(e) {
 }
 var J = require("./47801.js");
 var $ = require(/*webcrack:missing*/ "./44846.js");
-var ee = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	IsHTMLElement,
+} from "../../actual_src/utils/domutils.js";
 let te = class extends i.Component {
 	NavigateToBadgePage(e) {
-		(0, ee.uX)(e).location.href = y.B7.BuildSteamURL(
+		GetOwningWindowForEvent(e).location.href = y.B7.BuildSteamURL(
 			"SteamIDAppTradingCardsPage",
 			this.props.event.appid,
 		);
@@ -253,7 +265,7 @@ let te = class extends i.Component {
 					{
 						className: j.BadgeLevel,
 					},
-					(0, U.we)("#AppDetails_BadgeLevelNoXP", n),
+					(0, Localize)("#AppDetails_BadgeLevelNoXP", n),
 				),
 			),
 		);
@@ -292,7 +304,10 @@ var ce = require("./12767.js");
 var me = require(/*webcrack:missing*/ "./26853.js");
 var ue = require("./86454.js");
 var de = require("./46422.js");
-var Ae = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeRtime32ToShorterDate,
+	LocalizeRTimeToHourAndMinutes,
+} from "../../actual_src/utils/localization/datetime.js";
 function pe(e, t, r) {
 	let n = r ? 1 : 5;
 	ae.dm.TrackEventClickedByUser(t, n);
@@ -331,16 +346,16 @@ function he(e, t, r) {
 		return [
 			{
 				data: 1,
-				label: (0, U.we)("#AppActivity_ViewComments"),
+				label: (0, Localize)("#AppActivity_ViewComments"),
 			},
 			e
 				? {
 						data: 3,
-						label: (0, U.we)("#AppActivity_RateDown"),
+						label: (0, Localize)("#AppActivity_RateDown"),
 					}
 				: {
 						data: 2,
-						label: (0, U.we)("#AppActivity_RateUp"),
+						label: (0, Localize)("#AppActivity_RateUp"),
 					},
 		];
 	})(t);
@@ -350,7 +365,7 @@ function he(e, t, r) {
 		strDropDownItemClassName: j.SortingDropDownItems,
 	});
 	let o = (0, I.lX)(s, e, n);
-	o.SetLabel((0, U.we)("#ActionButtonLabelContextMenu"));
+	o.SetLabel((0, Localize)("#ActionButtonLabelContextMenu"));
 	return o;
 }
 (0, n.Cg)([s.oI], ge.prototype, "OnVisible", null);
@@ -386,7 +401,7 @@ let Ce = class extends i.Component {
 	}
 	OnViewThread(e) {
 		if (this.props.event.forumTopicGID) {
-			let t = (0, ee.uX)(e);
+			let t = GetOwningWindowForEvent(e);
 			const r =
 				"app/" +
 				this.props.event.appid +
@@ -447,7 +462,7 @@ let Ce = class extends i.Component {
 		let o = {
 			onMenuButton: this.ShowOptionsContextMenu,
 		};
-		o.onMenuActionDescription = (0, U.we)("#ActionButtonLabelContextMenu");
+		o.onMenuActionDescription = (0, Localize)("#ActionButtonLabelContextMenu");
 		return i.createElement(
 			_M.Z,
 			{
@@ -502,7 +517,7 @@ let _e = class extends i.Component {
 			return i.createElement(
 				fe,
 				null,
-				(0, U.we)("#AppDetails_PartnerEventFailedLoad"),
+				(0, Localize)("#AppDetails_PartnerEventFailedLoad"),
 			);
 		}
 		let r = this.m_ldrEvent.value;
@@ -527,7 +542,7 @@ let _e = class extends i.Component {
 			return i.createElement(
 				fe,
 				null,
-				(0, U.we)("#AppDetails_PartnerEventFailedLoad"),
+				(0, Localize)("#AppDetails_PartnerEventFailedLoad"),
 			);
 		}
 	}
@@ -546,7 +561,7 @@ function be(e) {
 	if (!t) {
 		return null;
 	}
-	let n = (0, Ae._l)(r.postTime, true);
+	let n = LocalizeRtime32ToShorterDate(r.postTime, true);
 	return i.createElement(
 		"div",
 		{
@@ -558,7 +573,7 @@ function be(e) {
 }
 function ye(e) {
 	const { event: t, featuredSpot: r } = e;
-	const n = (0, U.we)("#PartnerEvent_" + t.type);
+	const n = (0, Localize)("#PartnerEvent_" + t.type);
 	const a = (0, $.sf)(V.TS.LANGUAGE);
 	const s = ae.dm.FilterImageURLsForKnownFailures(
 		t.GetImageForSizeAsArrayWithFallback("capsule", a, oe.wI.capsule_main),
@@ -662,7 +677,7 @@ function ye(e) {
 }
 function Se(e) {
 	const { event: t, featuredSpot: r } = e;
-	const n = (0, U.we)("#PartnerEvent_" + t.type);
+	const n = (0, Localize)("#PartnerEvent_" + t.type);
 	const a = (0, $.sf)(V.TS.LANGUAGE);
 	const s = ae.dm.FilterImageURLsForKnownFailures(
 		t.GetImageForSizeAsArrayWithFallback("capsule", a, oe.wI.capsule_main),
@@ -834,7 +849,7 @@ function Be(e) {
 				{
 					className: j.PartnerEventFeaturedHeader,
 				},
-				(0, U.we)("#AppActivity_FeaturedEvent"),
+				(0, Localize)("#AppActivity_FeaturedEvent"),
 			),
 		n,
 	);
@@ -921,7 +936,7 @@ function Re(e) {
 		{
 			className: j.SpoilerOverlay,
 		},
-		(0, U.we)("#AppDetails_Screenshot_SpoilerAlert"),
+		(0, Localize)("#AppDetails_Screenshot_SpoilerAlert"),
 	);
 }
 (0, n.Cg)([s.oI], Te.prototype, "OnScreenshotChanged", null);
@@ -961,7 +976,7 @@ let ke = class extends i.Component {
 			strURL: r.file_url,
 			strTitle: r.file_description
 				? r.file_description
-				: (0, U.we)("#AppDetails_Screenshot"),
+				: (0, Localize)("#AppDetails_Screenshot"),
 			windowOverride: e,
 			nMaxScreenPercentage: 0,
 			children: i.createElement(l._h, {
@@ -986,7 +1001,7 @@ let ke = class extends i.Component {
 		(e || window).SteamClient.Browser.StartDownload(t);
 	}
 	ShowContextMenu(e) {
-		const t = (0, ee.kD)(e.target)
+		const t = IsHTMLElement(e.target)
 			? e.target.ownerDocument.defaultView
 			: window;
 		(0, I.lX)(
@@ -998,7 +1013,7 @@ let ke = class extends i.Component {
 					{
 						onSelected: () => this.SaveActiveScreenshot(t),
 					},
-					(0, U.we)("#ContextMenu_SaveScreenshot"),
+					(0, Localize)("#ContextMenu_SaveScreenshot"),
 				),
 			),
 			e,
@@ -1010,10 +1025,10 @@ let ke = class extends i.Component {
 			return null;
 		}
 		let t = e[this.state.iActiveScreenshot].file;
-		let r = (0, U.we)(
+		let r = (0, Localize)(
 			"#AppDetails_Screenshot_Uploaded",
-			(0, U.$z)(t.time_created),
-			(0, Ae.KC)(t.time_created, {
+			LocalizeRtime32ToShortDate(t.time_created),
+			LocalizeRTimeToHourAndMinutes(t.time_created, {
 				bForce24HourClock: b.rV.friendSettings.b24HourClock,
 			}),
 		);
@@ -1062,7 +1077,7 @@ let ke = class extends i.Component {
 							width: 640,
 							onClick: (e) =>
 								this.FullScreenImage(
-									(0, ee.uX)(e),
+									GetOwningWindowForEvent(e),
 									this.state.iActiveScreenshot,
 								),
 							onContextMenu: this.ShowContextMenu,
@@ -1093,7 +1108,7 @@ let ke = class extends i.Component {
 				screenshots: e,
 				iActiveScreenshot: this.state.iActiveScreenshot,
 				fnSelectScreenshot: this.context?.IN_GAMEPADUI
-					? (e, t) => this.FullScreenImage((0, ee.uX)(e), t)
+					? (e, t) => this.FullScreenImage(GetOwningWindowForEvent(e), t)
 					: this.ChangeScreenshot,
 			}),
 		);
@@ -1117,7 +1132,7 @@ function De(e) {
 						focusable: true,
 						key: e.file.publishedfileid,
 						onActivate: (e) => n(e, t),
-						onOKActionDescription: (0, U.we)(
+						onOKActionDescription: (0, Localize)(
 							"#AppDetailsActions_ViewScreenshot",
 						),
 						className: (0, x.A)(j.CarouselThumb, t == r && j.Active),
@@ -1156,7 +1171,7 @@ function Fe(e) {
 			{
 				className: j.VisibilityLabel,
 			},
-			(0, U.we)(t),
+			(0, Localize)(t),
 		);
 	} else {
 		return null;
@@ -1254,7 +1269,7 @@ class Le extends i.Component {
 					{
 						className: (0, x.A)(j.VideoTitleLabel, t.title && j.HasTitle),
 					},
-					(0, U.we)("#AppActivity_PostedVideoTitleLabel"),
+					(0, Localize)("#AppActivity_PostedVideoTitleLabel"),
 				),
 				'"',
 				t.title,
@@ -1300,7 +1315,7 @@ var Ue = require("./17815.js");
 var We = require("./82325.js");
 let Ve = class extends i.Component {
 	NavigateToReviewPage(e) {
-		(0, ee.uX)(e).location.href = y.B7.BuildSteamURL(
+		GetOwningWindowForEvent(e).location.href = y.B7.BuildSteamURL(
 			"RecommendGame",
 			this.props.event.appid,
 		);
@@ -1356,15 +1371,15 @@ let Ve = class extends i.Component {
 							className: j.ReviewDescriptionRecommended,
 						},
 						t.voted_up
-							? (0, U.we)("#AppDetails_Review_Recommended")
-							: (0, U.we)("#AppDetails_Review_NotRecommended"),
+							? (0, Localize)("#AppDetails_Review_Recommended")
+							: (0, Localize)("#AppDetails_Review_NotRecommended"),
 					),
 					i.createElement(
 						"div",
 						{
 							className: j.PlayedForTime,
 						},
-						(0, U.we)(
+						(0, Localize)(
 							"#AppDetails_Review_PlaytimeAtReview",
 							(0, xe.l)(t.playtime_at_review),
 						),
@@ -1390,7 +1405,7 @@ let Ve = class extends i.Component {
 								{
 									className: j.CommentsLabel,
 								},
-								(0, U.we)("#AppDetails_Review_UpVotes"),
+								(0, Localize)("#AppDetails_Review_UpVotes"),
 							),
 							i.createElement(
 								"div",
@@ -1413,7 +1428,7 @@ let Ve = class extends i.Component {
 								{
 									className: j.CommentsLabel,
 								},
-								(0, U.we)("#AppDetails_Review_Comments"),
+								(0, Localize)("#AppDetails_Review_Comments"),
 							),
 							i.createElement(
 								"div",
@@ -1601,14 +1616,14 @@ function Ke(e) {
 	]);
 	if (n) {
 		if (r) {
-			return (0, U.we)("#Generic_ViewInLibrary");
+			return (0, Localize)("#Generic_ViewInLibrary");
 		} else {
-			return (0, U.we)("#Generic_ViewInStore");
+			return (0, Localize)("#Generic_ViewInStore");
 		}
 	} else if (r) {
-		return (0, U.we)("#Generic_ViewGameDetails");
+		return (0, Localize)("#Generic_ViewGameDetails");
 	} else {
-		return (0, U.we)("#Generic_ViewGameInStore");
+		return (0, Localize)("#Generic_ViewGameInStore");
 	}
 }
 Ze = (0, n.Cg)([a.PA], Ze);
@@ -1659,7 +1674,7 @@ let Xe = class extends i.Component {
 		if (t) {
 			n = n.slice(0, t);
 		}
-		const a = (0, U._l)(e.GetLatestEventTime(), true);
+		const a = LocalizeRtime32ToShorterDate(e.GetLatestEventTime(), true);
 		return i.createElement(
 			"div",
 			{
@@ -1776,7 +1791,7 @@ const tt = (0, a.PA)(function (e) {
 	let B = f.O$.GetFriendState(t.steamIDActor);
 	let E = null;
 	let T = true;
-	let k = (0, U.we)("#AppActivity_ViewProfile");
+	let k = (0, Localize)("#AppActivity_ViewProfile");
 	const D = B.persona.m_steamid.ConvertTo64BitString();
 	if (t.bIsGameActivity) {
 		T = false;
@@ -1788,17 +1803,17 @@ const tt = (0, a.PA)(function (e) {
 					_ = i.createElement(te, {
 						event: t,
 					});
-					b = (0, U.we)(t.GetHeadline());
+					b = (0, Localize)(t.GetHeadline());
 				} else if (t.eEventSubType == C.qz.k_ETradingCardActivity_BoosterDrop) {
 					_ = i.createElement(re, {
 						event: t,
 					});
-					b = (0, U.we)(t.GetHeadline());
+					b = (0, Localize)(t.GetHeadline());
 				} else {
 					_ = i.createElement(je, {
 						event: t,
 					});
-					b = (0, U.we)(t.GetHeadline());
+					b = (0, Localize)(t.GetHeadline());
 				}
 				break;
 			default:
@@ -1811,13 +1826,13 @@ const tt = (0, a.PA)(function (e) {
 				let e = t;
 				b =
 					r || e.achievements.length == 0
-						? (0, U.PP)(
+						? LocalizeReact(
 								"#AppActivity_AchievedRollupAlt",
 								i.createElement(Je, {
 									appid: n,
 								}),
 							)
-						: (0, U.we)("#AppActivity_Achieved");
+						: (0, Localize)("#AppActivity_Achieved");
 				_ = i.createElement(
 					i.Fragment,
 					null,
@@ -1826,7 +1841,7 @@ const tt = (0, a.PA)(function (e) {
 						maxshown: 7,
 					}),
 				);
-				k = (0, U.we)("#AppActivity_Achieved_PlusMore_Label");
+				k = (0, Localize)("#AppActivity_Achieved_PlusMore_Label");
 				break;
 			case c._Q.FilePublished_Screenshot:
 				{
@@ -1839,9 +1854,9 @@ const tt = (0, a.PA)(function (e) {
 						event: e,
 						screenshots: a,
 					});
-					b = (0, U.Yp)("#AppActivity_PostedScreenshot", a.length);
+					b = LocalizePlural("#AppActivity_PostedScreenshot", a.length);
 					if (r) {
-						b = (0, U.TG)(
+						b = LocalizeReactPlural(
 							"#AppActivity_PostedScreenshot_Rollup",
 							a.length,
 							i.createElement(Je, {
@@ -1861,9 +1876,9 @@ const tt = (0, a.PA)(function (e) {
 					_ = i.createElement(Pe, {
 						event: e,
 					});
-					b = (0, U.Yp)("#AppActivity_PostedVideo", a);
+					b = LocalizePlural("#AppActivity_PostedVideo", a);
 					if (r) {
-						b = (0, U.TG)(
+						b = LocalizeReactPlural(
 							"#AppActivity_PostedVideo_Rollup",
 							a,
 							i.createElement(Je, {
@@ -1893,10 +1908,10 @@ const tt = (0, a.PA)(function (e) {
 					});
 				}
 				if (_) {
-					b = (0, U.Yp)("#AppActivity_ReceivedNewGame", A.length);
+					b = LocalizePlural("#AppActivity_ReceivedNewGame", A.length);
 				} else {
 					T = true;
-					b = (0, U.PP)(
+					b = LocalizeReact(
 						"#AppActivity_ReceivedNewGameList",
 						_W(A, (e) =>
 							i.createElement(Je, {
@@ -1908,7 +1923,7 @@ const tt = (0, a.PA)(function (e) {
 				}
 				break;
 			case c._Q.PlayedGameFirstTime:
-				b = (0, U.PP)(
+				b = LocalizeReact(
 					u.BIsApplicationOrTool()
 						? "#AppActivity_LaunchedSoftwareFirstTime"
 						: "#AppActivity_PlayedGameFirstTime",
@@ -1953,9 +1968,9 @@ const tt = (0, a.PA)(function (e) {
 						event: t,
 					});
 					let e = new Date(t.rtEventTime * 1000).toLocaleTimeString(
-						U.pf.GetPreferredLocales(),
+						LocalizationManager.GetPreferredLocales(),
 					);
-					b = (0, U.we)("#AppActivity_UserStatus_Time", e);
+					b = (0, Localize)("#AppActivity_UserStatus_Time", e);
 					w = j.UserStatus;
 				}
 				break;
@@ -1963,7 +1978,7 @@ const tt = (0, a.PA)(function (e) {
 				_ = i.createElement(Ve, {
 					event: t,
 				});
-				b = (0, U.we)("#AppActivity_RecommendedGame");
+				b = (0, Localize)("#AppActivity_RecommendedGame");
 				y = t.GetRecommendationDetails();
 				if (!m) {
 					k = l;
@@ -1998,10 +2013,10 @@ const tt = (0, a.PA)(function (e) {
 				}),
 				e,
 				n,
-			).SetLabel((0, U.we)("#ActionButtonLabelContextMenu"));
+			).SetLabel((0, Localize)("#ActionButtonLabelContextMenu"));
 		})(e);
 	};
-	O.onMenuActionDescription = (0, U.we)("#ActionButtonLabelContextMenu");
+	O.onMenuActionDescription = (0, Localize)("#ActionButtonLabelContextMenu");
 	const P = t.BSupportsCommentThreads();
 	return i.createElement(
 		_M.Z,
@@ -2089,14 +2104,14 @@ const rt = (0, a.PA)(function (e) {
 			}),
 			o.ownerWindow ?? window,
 			{
-				strTitle: (0, U.we)("#AppActivity_ConfirmDeleteTitle"),
+				strTitle: (0, Localize)("#AppActivity_ConfirmDeleteTitle"),
 			},
 		);
 	};
 	const u = (0, d.bG)("SteamIDPage", t.steamIDActor.ConvertTo64BitString());
 	s.push({
 		data: u,
-		label: (0, U.we)("#AppActivity_ViewProfile"),
+		label: (0, Localize)("#AppActivity_ViewProfile"),
 	});
 	if (!r && t.appid) {
 		s.push({
@@ -2118,8 +2133,8 @@ const rt = (0, a.PA)(function (e) {
 						S.B6.VoteOnPublishedFile(e, t);
 					})(h, e ? p.bJ.Down : p.bJ.Up),
 				label: e
-					? (0, U.we)("#AppActivity_RateDown")
-					: (0, U.we)("#AppActivity_RateUp"),
+					? (0, Localize)("#AppActivity_RateDown")
+					: (0, Localize)("#AppActivity_RateUp"),
 			});
 		}
 	} else if (A) {
@@ -2127,8 +2142,8 @@ const rt = (0, a.PA)(function (e) {
 		s.push({
 			data: () => A.RateCommentOrThread(!e),
 			label: e
-				? (0, U.we)("#AppActivity_RateDown")
-				: (0, U.we)("#AppActivity_RateUp"),
+				? (0, Localize)("#AppActivity_RateDown")
+				: (0, Localize)("#AppActivity_RateUp"),
 		});
 	}
 	if (A) {
@@ -2136,7 +2151,7 @@ const rt = (0, a.PA)(function (e) {
 			A.PostCommentToThread(e);
 		};
 		let t = i.createElement(g.Qj, {
-			title: (0, U.we)("#AppActivity_AddComments"),
+			title: (0, Localize)("#AppActivity_AddComments"),
 			description: "",
 			onResult: e,
 		});
@@ -2144,13 +2159,13 @@ const rt = (0, a.PA)(function (e) {
 			data: () => {
 				(0, L.pg)(t, o.ownerWindow ?? window);
 			},
-			label: (0, U.we)("#AppActivity_AddComments"),
+			label: (0, Localize)("#AppActivity_AddComments"),
 		});
 	}
 	if (t.BUserCanDelete()) {
 		s.push({
 			data: m,
-			label: (0, U.we)("#AppActivity_ConfirmDeleteTitle"),
+			label: (0, Localize)("#AppActivity_ConfirmDeleteTitle"),
 		});
 	}
 	return i.createElement(D.n4, {
@@ -2279,8 +2294,8 @@ function ot(e) {
 		},
 	});
 	return i.createElement(P.o0, {
-		strTitle: (0, U.we)("#AppActivity_ConfirmDeleteTitle"),
-		strDescription: (0, U.we)("#AppActivity_ConfirmDeleteTitle_Desc"),
+		strTitle: (0, Localize)("#AppActivity_ConfirmDeleteTitle"),
+		strDescription: (0, Localize)("#AppActivity_ConfirmDeleteTitle_Desc"),
 		onOK: a,
 		onCancel: r,
 	});
@@ -2325,7 +2340,7 @@ function ut(e, t, r) {
 		}),
 		null,
 		n,
-	).SetLabel((0, U.we)("#ActionButtonLabelContextMenu"));
+	).SetLabel((0, Localize)("#ActionButtonLabelContextMenu"));
 }
 function dt(e) {
 	const { steamid: t, appid: r, name: n } = e;
@@ -2336,23 +2351,23 @@ function dt(e) {
 	const c = (0, v.W5)(d.BV.Library.App.Root(r));
 	a.push({
 		data: (0, d.bG)("SteamIDPage", t),
-		label: (0, U.we)("#AppActivity_ViewProfile"),
+		label: (0, Localize)("#AppActivity_ViewProfile"),
 	});
 	a.push({
 		data: (0, d.Qt)(s),
-		label: (0, U.we)("#AppActivity_ViewWishlist"),
+		label: (0, Localize)("#AppActivity_ViewWishlist"),
 	});
 	const m = (0, A.br)();
 	const u = () => m.App(r);
 	if (l && !c) {
 		a.push({
 			data: u,
-			label: (0, U.we)("#Generic_ViewInLibrary"),
+			label: (0, Localize)("#Generic_ViewInLibrary"),
 		});
 	}
 	a.push({
 		data: (0, d.t6)(r, "appactivityfeed"),
-		label: (0, U.we)("#Generic_ViewInStore"),
+		label: (0, Localize)("#Generic_ViewInStore"),
 	});
 	return i.createElement(D.n4, {
 		rgOptions: a,
@@ -2374,7 +2389,7 @@ function At(e, t) {
 		}),
 		null,
 		r,
-	).SetLabel((0, U.we)("#ActionButtonLabelContextMenu"));
+	).SetLabel((0, Localize)("#ActionButtonLabelContextMenu"));
 }
 function pt(e) {
 	const { steamid: t, appid: r } = e;
@@ -2384,19 +2399,19 @@ function pt(e) {
 	const o = (0, v.W5)(d.BV.Library.App.Root(r));
 	n.push({
 		data: (0, d.bG)("SteamIDPage", t),
-		label: (0, U.we)("#AppActivity_ViewProfile"),
+		label: (0, Localize)("#AppActivity_ViewProfile"),
 	});
 	const l = (0, A.br)();
 	const c = () => l.App(r);
 	if (s && !o) {
 		n.push({
 			data: c,
-			label: (0, U.we)("#Generic_ViewInLibrary"),
+			label: (0, Localize)("#Generic_ViewInLibrary"),
 		});
 	}
 	n.push({
 		data: (0, d.t6)(r, "appactivityfeed"),
-		label: (0, U.we)("#Generic_ViewInStore"),
+		label: (0, Localize)("#Generic_ViewInStore"),
 	});
 	return i.createElement(D.n4, {
 		rgOptions: n,
@@ -2410,7 +2425,7 @@ const gt = (e) => {
 	let s = {
 		onMenuButton: n,
 	};
-	s.onMenuActionDescription = (0, U.we)("#ActionButtonLabelContextMenu");
+	s.onMenuActionDescription = (0, Localize)("#ActionButtonLabelContextMenu");
 	const o = a?.GetShortDescription();
 	return i.createElement(
 		_M.Z,
@@ -2506,7 +2521,7 @@ const ft = (e) => {
 	let l = {
 		onMenuButton: s,
 	};
-	l.onMenuActionDescription = (0, U.we)("#ActionButtonLabelContextMenu");
+	l.onMenuActionDescription = (0, Localize)("#ActionButtonLabelContextMenu");
 	const c = {
 		width: r,
 		height: n,
@@ -2592,10 +2607,10 @@ function Bt(e) {
 			className: j.WishlistLink,
 			onClick: a,
 		},
-		(0, U.we)("#AppActivity_Wishlist"),
+		(0, Localize)("#AppActivity_Wishlist"),
 	);
 	if (n) {
-		return (0, U.PP)(
+		return LocalizeReact(
 			"#AppActivity_AddedGameToWishlist",
 			_W(r, (e) =>
 				i.createElement(Je, {
@@ -2606,7 +2621,11 @@ function Bt(e) {
 			s,
 		);
 	} else {
-		return (0, U.TG)("#AppActivity_AddedGameToWishlistCount", r.length, s);
+		return LocalizeReactPlural(
+			"#AppActivity_AddedGameToWishlistCount",
+			r.length,
+			s,
+		);
 	}
 }
 var vt = require("./1965.js");
@@ -2658,7 +2677,7 @@ function zt(e) {
 		gcTime: Infinity,
 	});
 }
-var xt = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 var Ut = require("./74351.js");
 var Wt = Ut;
 var Vt = require("./10593.js");
@@ -2669,7 +2688,7 @@ var Qt = require("./81482.js");
 var Zt = require(/*webcrack:missing*/ "./98995.js");
 var Yt = require("./93050.js");
 var Kt = require("./89748.js");
-const Xt = xt.Kp.PerDay * 2;
+const Xt = Seconds.PerDay * 2;
 function Jt(e) {
 	let t = (0, jt.T)(e);
 	let r = t && t.bAvailableContentOnStore;
@@ -2683,7 +2702,7 @@ function Jt(e) {
 				r.rtNew = r.rtNew + 1;
 				r.rtOld = r.rtNew;
 			} else {
-				let e = xt._2();
+				let e = GetUnixTime();
 				r = {
 					rtNew: e,
 					rtOld: e,
@@ -2701,7 +2720,7 @@ function Jt(e) {
 		let r = _.tw.GetAppOverviewByAppID(e);
 		let i = r ? r.rt_purchased_time : undefined;
 		return (function (e, t, r, n, i) {
-			let a = xt._2();
+			let a = GetUnixTime();
 			n = n || a;
 			let s = ir(e);
 			let o = {
@@ -2867,7 +2886,7 @@ function er(e) {
 						onClick: c,
 						focusable: true,
 					},
-					(0, U.we)("#AppActivity_FeaturedDLC_ViewAll"),
+					(0, Localize)("#AppActivity_FeaturedDLC_ViewAll"),
 				),
 			),
 		),
@@ -2879,13 +2898,13 @@ function tr(e) {
 	}
 	let { gameName: t, firstDisplay: r } = e;
 	let n = r
-		? (0, U.we)("#AppActivity_FeaturedDLC_Available")
-		: (0, U.we)("#AppActivity_FeaturedDLC");
+		? (0, Localize)("#AppActivity_FeaturedDLC_Available")
+		: (0, Localize)("#AppActivity_FeaturedDLC");
 	let a = i.createElement(
 		"span",
 		null,
-		(0, U.oW)(
-			(0, U.we)("#AppActivity_FeaturedDLC_Tooltip", t),
+		LocalizeInlineReactWithFallback(
+			(0, Localize)("#AppActivity_FeaturedDLC_Tooltip", t),
 			i.createElement("p", {
 				className: Wt.Tooltip,
 			}),
@@ -3042,14 +3061,14 @@ let lr = class extends i.Component {
 		const r = _.tw.GetAppOverviewByAppID(this.props.appid);
 		const n =
 			r && r.BIsApplicationOrTool()
-				? (0, U.we)("#AppActivity_StatusUpdate_Software_Post")
-				: (0, U.we)("#AppActivity_StatusUpdate_Post");
+				? (0, Localize)("#AppActivity_StatusUpdate_Software_Post")
+				: (0, Localize)("#AppActivity_StatusUpdate_Post");
 		const a = (0, $.ID)(V.TS.LAUNCHER_TYPE);
 		return i.createElement(
 			vt.n,
 			{
 				className: Dt.ActivityFeedContainer,
-				label: (0, U.we)("#AppDetails_SectionTitle_Activity"),
+				label: (0, Localize)("#AppDetails_SectionTitle_Activity"),
 				showRule: true,
 			},
 			i.createElement(
@@ -3098,7 +3117,7 @@ const cr = (0, a.PA)(function (e) {
 					focusable: true,
 					onOKActionDescription: null,
 				},
-				i.createElement("div", null, (0, U.we)("#AppActivity_NoActivity")),
+				i.createElement("div", null, (0, Localize)("#AppActivity_NoActivity")),
 			);
 		} else {
 			return i.createElement(
@@ -3158,7 +3177,7 @@ function mr(e) {
 				onClick: l,
 				disabled: s,
 			},
-			(0, U.we)("#AppActivity_FetchMore"),
+			(0, Localize)("#AppActivity_FetchMore"),
 		);
 	} else if (n) {
 		return null;
@@ -3176,7 +3195,7 @@ function mr(e) {
 				{
 					className: Dt.EndText,
 				},
-				(0, U.we)("#AppActivity_EndofFeed"),
+				(0, Localize)("#AppActivity_EndofFeed"),
 			),
 			i.createElement("div", {
 				className: Dt.EndRule,
@@ -3266,6 +3285,6 @@ const Ar = (0, a.PA)(function (e) {
 			className: Dt.ViewLastNews,
 			onClick: a,
 		},
-		i.createElement("span", null, (0, U.we)("#AppActivity_ViewLatestNews")),
+		i.createElement("span", null, (0, Localize)("#AppActivity_ViewLatestNews")),
 	);
 });

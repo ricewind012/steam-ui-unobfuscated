@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./89193.js");
 var s = require(/*webcrack:missing*/ "./90095.js");
 var o = require(/*webcrack:missing*/ "./52451.js");
 var l = require("./51297.js");
-var c = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var m = require("./89411.js");
 export class Rk {
 	static s_Singleton = null;
@@ -56,7 +56,7 @@ export class Rk {
 		this.m_msgState = {
 			update_state: {
 				state: 4,
-				rtime_last_checked: (0, c._2)() - 10,
+				rtime_last_checked: GetUnixTime() - 10,
 				version_current: "0.3.6",
 				version_available: "0.3.7",
 			},
@@ -68,11 +68,11 @@ export class Rk {
 		this.m_msgState = {
 			update_state: {
 				state: 5,
-				rtime_last_checked: (0, c._2)() - 10,
+				rtime_last_checked: GetUnixTime() - 10,
 				version_current: "0.3.6",
 				version_available: "0.3.7",
 				stage_progress: 0.3,
-				rtime_estimated_completion: (0, c._2)() + 100,
+				rtime_estimated_completion: GetUnixTime() + 100,
 			},
 		};
 	}
@@ -92,7 +92,7 @@ export function Mi() {
 	const t = e?.rtime_estimated_completion;
 	const [r, n] = i.useState(null);
 	(0, o.$$)(() => {
-		const t = (0, c._2)();
+		const t = GetUnixTime();
 		const r = e?.rtime_estimated_completion;
 		n(r - t);
 	}, 500);
@@ -105,10 +105,10 @@ export function Mi() {
 export function Qi() {
 	const e = Kh();
 	const t = e?.rtime_last_checked ?? 0;
-	const [r, n] = i.useState(t ? (0, c._2)() - t : null);
+	const [r, n] = i.useState(t ? GetUnixTime() - t : null);
 	(0, o.$$)(() => {
 		const t = e?.rtime_last_checked;
-		n(t ? (0, c._2)() - t : null);
+		n(t ? GetUnixTime() - t : null);
 	}, 250);
 	return r;
 }

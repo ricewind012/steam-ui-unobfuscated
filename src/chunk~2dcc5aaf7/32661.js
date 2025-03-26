@@ -5,7 +5,7 @@ var s = require("./55700.js");
 var o = require("./64608.js");
 var l = require(/*webcrack:missing*/ "./42318.js");
 var c = require("./10606.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./17373.js");
 var d = require("./24590.js");
 const A = (0, l.Nr)(function () {
@@ -29,7 +29,7 @@ const A = (0, l.Nr)(function () {
 		return n.createElement(
 			c.hM,
 			{
-				strTitle: (0, m.we)("#LibraryHome_MarketingMessages"),
+				strTitle: Localize("#LibraryHome_MarketingMessages"),
 				onDismiss: s,
 				popupWidth: 706,
 				popupHeight: 830,
@@ -109,7 +109,7 @@ function g(e) {
 				{
 					onClick: t,
 				},
-				(0, m.we)("#Button_Close"),
+				Localize("#Button_Close"),
 			),
 		),
 	);
@@ -118,7 +118,7 @@ var h = require("./95979.js");
 var C = require("./34792.js");
 var _ = require(/*webcrack:missing*/ "./52451.js");
 var f = require("./81969.js");
-var b = require(/*webcrack:missing*/ "./11010.js");
+import { P0 } from "../../actual_src/utils/localization/datetime.js";
 var y = require("./63367.js");
 var S = require(/*webcrack:missing*/ "./72476.js");
 var w = require("./59840.js");
@@ -141,7 +141,7 @@ const E = (0, l.Nr)(function () {
 	if (!e) {
 		return null;
 	}
-	const s = (0, m.we)("#Menu_About");
+	const s = Localize("#Menu_About");
 	return n.createElement(
 		c.hM,
 		{
@@ -177,7 +177,7 @@ const E = (0, l.Nr)(function () {
 				{
 					onClick: a,
 				},
-				(0, m.we)("#Button_Close"),
+				Localize("#Button_Close"),
 			),
 		),
 	);
@@ -192,7 +192,7 @@ function M() {
 	const o = s.vecAvailableClientBetas.find(
 		(e) => e.nBetaID == s.nSelectedBetaID,
 	);
-	const l = o ? o?.strName : (0, m.we)("#Settings_System_SteamBeta_None");
+	const l = o ? o?.strName : Localize("#Settings_System_SteamBeta_None");
 	const c = (0, h.Ll)();
 	if (!c) {
 		return null;
@@ -200,13 +200,13 @@ function M() {
 	const u =
 		c.nSteamVersion > 0
 			? c.nSteamVersion.toString()
-			: (0, m.we)("#Settings_System_SteamLocalBuild");
+			: Localize("#Settings_System_SteamLocalBuild");
 	const d = parseInt(1741736707);
-	const A = d && (0, b.P0)(d, e, a);
+	const A = d && (0, P0)(d, e, a);
 	const p = c.sSteamBuildDate;
 	const g = (0, S.CI)() ? " GMT+0000" : " GMT-0800";
 	const y = Date.parse(p + g) / 1000;
-	const w = y ? (0, b.P0)(y, e, a) : p;
+	const w = y ? (0, P0)(y, e, a) : p;
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -215,7 +215,7 @@ function M() {
 			{
 				className: B.DialogBodyLabel,
 			},
-			(0, m.we)("#Settings_System_SteamBeta"),
+			Localize("#Settings_System_SteamBeta"),
 			":",
 		),
 		" \xA0",
@@ -226,7 +226,7 @@ function M() {
 			{
 				className: B.DialogBodyLabel,
 			},
-			(0, m.we)("#Settings_System_SteamVersion"),
+			Localize("#Settings_System_SteamVersion"),
 			":",
 		),
 		" \xA0",
@@ -237,7 +237,7 @@ function M() {
 			{
 				className: B.DialogBodyLabel,
 			},
-			(0, m.we)("#Settings_System_SteamBuildDate"),
+			Localize("#Settings_System_SteamBuildDate"),
 			":",
 		),
 		" \xA0",
@@ -248,7 +248,7 @@ function M() {
 			{
 				className: B.DialogBodyLabel,
 			},
-			(0, m.we)("#Settings_System_SteamWebBuildDate"),
+			Localize("#Settings_System_SteamWebBuildDate"),
 			":",
 		),
 		" \xA0",
@@ -259,7 +259,7 @@ function M() {
 			{
 				className: B.DialogBodyLabel,
 			},
-			(0, m.we)("#Settings_System_SteamAPIVersion"),
+			Localize("#Settings_System_SteamAPIVersion"),
 			":",
 		),
 		" \xA0",
@@ -293,7 +293,7 @@ const L = (0, l.Nr)(function () {
 	if (!e) {
 		return null;
 	}
-	const s = (0, m.we)("#Settings_Updates_Header");
+	const s = Localize("#Settings_Updates_Header");
 	return n.createElement(
 		c.hM,
 		{
@@ -425,12 +425,12 @@ const U = (e) =>
 	n.createElement(
 		"div",
 		null,
-		(0, m.we)("#Settings_Updates_NoUpdatesAvailable"),
+		Localize("#Settings_Updates_NoUpdatesAvailable"),
 	);
 const W = (e) =>
-	n.createElement("div", null, (0, m.we)("#Settings_Updates_Checking"));
+	n.createElement("div", null, Localize("#Settings_Updates_Checking"));
 const V = (e) =>
-	n.createElement("div", null, (0, m.we)("#Settings_Updates_UpdatePending"));
+	n.createElement("div", null, Localize("#Settings_Updates_UpdatePending"));
 const H = (e) => {
 	const t = (0, N.Tt)();
 	return n.createElement(
@@ -451,16 +451,16 @@ const H = (e) => {
 	);
 };
 const _j = (e) =>
-	n.createElement("div", null, (0, m.we)("#Settings_Updates_RestartClient"));
+	n.createElement("div", null, Localize("#Settings_Updates_RestartClient"));
 const q = (e) =>
-	n.createElement("div", null, (0, m.we)("#Settings_Updates_Restarting"));
+	n.createElement("div", null, Localize("#Settings_Updates_Restarting"));
 const Q = (e) =>
 	n.createElement(
 		"div",
 		{
 			className: k.Error,
 		},
-		(0, m.we)("#Settings_Updates_UpdateError_Generic"),
+		Localize("#Settings_Updates_UpdateError_Generic"),
 	);
 const Z = (e) => {
 	const t = (0, D.cM)();
@@ -489,13 +489,13 @@ const Z = (e) => {
 	}
 };
 const Y = (e) => {
-	const t = (0, m.we)("#Button_Close");
+	const t = Localize("#Button_Close");
 	if (e.onApplyUpdate || e.onRestart) {
 		return n.createElement(o.CB, {
 			onOK: e.onApplyUpdate ?? e.onRestart,
 			strOKText: e.onApplyUpdate
-				? (0, m.we)("#Settings_Updates_UpdateApply")
-				: (0, m.we)("#Settings_Updates_RestartClientNow"),
+				? Localize("#Settings_Updates_UpdateApply")
+				: Localize("#Settings_Updates_RestartClientNow"),
 			onCancel: e.onClose,
 			strCancelText: t,
 		});
@@ -539,7 +539,7 @@ const X = (e) => {
 		{
 			className: k.UpdateBytesRemaining,
 		},
-		(0, m.we)("#Settings_Updates_UpdateDownloading_Progress", l, o),
+		Localize("#Settings_Updates_UpdateDownloading_Progress", l, o),
 	);
 };
 const J = (e) => (t) => {
@@ -552,7 +552,7 @@ const $ = (e) => {
 		{
 			className: k.Error,
 		},
-		(0, m.we)("#Settings_Updates_UpdateError_Generic"),
+		Localize("#Settings_Updates_UpdateError_Generic"),
 	);
 	return n.createElement(
 		n.Fragment,
@@ -592,7 +592,7 @@ const re = (0, l.Nr)(function () {
 		return null;
 	}
 	const o = F.B7.ResolveURL("HelpChangePassword", r);
-	const l = (0, m.we)("#SteamUI_Dialog_HelpChangePassword_Title");
+	const l = Localize("#SteamUI_Dialog_HelpChangePassword_Title");
 	return n.createElement(te.W, {
 		strName: l,
 		strURL: o,
@@ -619,7 +619,7 @@ const ne = (0, l.Nr)(function () {
 		return null;
 	}
 	const s = F.B7.ResolveURL("HelpChangeEmail", t.strClientInstanceID);
-	const o = (0, m.we)("#SteamUI_Dialog_HelpChangeEmail_Title");
+	const o = Localize("#SteamUI_Dialog_HelpChangeEmail_Title");
 	return n.createElement(te.W, {
 		strName: o,
 		strURL: s,
@@ -660,7 +660,7 @@ const Ae = (0, l.Nr)(function () {
 	if (!e) {
 		return null;
 	}
-	const d = (0, m.we)("#Menu_SystemInfo");
+	const d = Localize("#Menu_SystemInfo");
 	return n.createElement(
 		c.hM,
 		{
@@ -688,7 +688,7 @@ const Ae = (0, l.Nr)(function () {
 				{
 					className: le.DialogBodyText,
 				},
-				(0, m.we)("#SteamUI_Dialog_SystemInfo_Desc"),
+				Localize("#SteamUI_Dialog_SystemInfo_Desc"),
 			),
 			n.createElement(pe, null),
 			n.createElement(
@@ -698,9 +698,9 @@ const Ae = (0, l.Nr)(function () {
 				},
 				n.createElement(o.CB, {
 					onOK: u,
-					strOKText: (0, m.we)("#SteamUI_Dialog_SystemInfo_ViewSurvey"),
+					strOKText: Localize("#SteamUI_Dialog_SystemInfo_ViewSurvey"),
 					onCancel: l,
-					strCancelText: (0, m.we)("#SteamUI_Dialog_SystemInfo_Close"),
+					strCancelText: Localize("#SteamUI_Dialog_SystemInfo_Close"),
 				}),
 			),
 		),
@@ -758,7 +758,7 @@ function be(e) {
 	}));
 	const s = (0, he.Co)(r);
 	let l = a && s;
-	let u = (0, m.we)("#Steam_Shutdown_Generic");
+	let u = Localize("#Steam_Shutdown_Generic");
 	switch (t) {
 		case 0:
 		case 8:
@@ -767,25 +767,25 @@ function be(e) {
 		case 2:
 		case 6:
 			if (s) {
-				u = (0, m.we)("#Steam_Shutdown_Waiting_For_Game", s.display_name);
+				u = Localize("#Steam_Shutdown_Waiting_For_Game", s.display_name);
 			}
 			break;
 		case 3:
-			u = (0, m.we)("#Steam_Shutdown_Waiting_For_Cloud");
+			u = Localize("#Steam_Shutdown_Waiting_For_Cloud");
 			break;
 		case 4:
-			u = (0, m.we)("#Steam_Shutdown_Finishing_Download");
+			u = Localize("#Steam_Shutdown_Finishing_Download");
 			break;
 		case 5:
 			if (s) {
-				u = (0, m.we)("#Steam_Shutdown_Waiting_For_Download", s.display_name);
+				u = Localize("#Steam_Shutdown_Waiting_For_Download", s.display_name);
 			}
 			break;
 		case 7:
-			u = (0, m.we)("#Steam_Shutdown_Waiting_For_Logoff");
+			u = Localize("#Steam_Shutdown_Waiting_For_Logoff");
 	}
 	if (l) {
-		u = (0, m.we)("#Steam_AppMustBeClosedToQuit_Info", s.display_name);
+		u = Localize("#Steam_AppMustBeClosedToQuit_Info", s.display_name);
 	}
 	return n.createElement(
 		c.EN,
@@ -795,7 +795,7 @@ function be(e) {
 		n.createElement(
 			c.hM,
 			{
-				strTitle: (0, m.we)("#Steam_Shutdown_Dialog_Title"),
+				strTitle: Localize("#Steam_Shutdown_Dialog_Title"),
 				popupWidth: 600,
 				popupHeight: 240,
 				modalClassName: fe.ShutdownDialog,
@@ -822,7 +822,7 @@ function be(e) {
 								disabled: !i,
 								onClick: () => SteamClient.User.ForceShutdown(),
 							},
-							(0, m.we)("#Steam_Shutdown_ForceQuit"),
+							Localize("#Steam_Shutdown_ForceQuit"),
 						),
 						n.createElement(
 							o.$n,
@@ -830,7 +830,7 @@ function be(e) {
 								className: fe.Button,
 								onClick: () => SteamClient.User.CancelShutdown(),
 							},
-							(0, m.we)("#Button_Cancel"),
+							Localize("#Button_Cancel"),
 						),
 					),
 				l &&
@@ -840,7 +840,7 @@ function be(e) {
 							className: fe.Button,
 							onClick: ge.oy.ClearShutdownFailure,
 						},
-						(0, m.we)("#Button_OK"),
+						Localize("#Button_OK"),
 					),
 			),
 		),
@@ -851,7 +851,7 @@ var Se = require(/*webcrack:missing*/ "./31084.js");
 var we = require(/*webcrack:missing*/ "./88750.js");
 var Be = require("./13869.js");
 var ve = require(/*webcrack:missing*/ "./11131.js");
-var Ie = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var Ee = require("./43599.js");
 var Me = require(/*webcrack:missing*/ "./61416.js");
 var Te = require("./66248.js");
@@ -1187,7 +1187,7 @@ class He {
 					if (e.id == "internet" || e.id == "lan" || e.id == "history") {
 						return;
 					}
-					t.gameDesc = (0, m.we)("#ServerBrowser_NotResponding");
+					t.gameDesc = Localize("#ServerBrowser_NotResponding");
 					t.players = undefined;
 					t.maxPlayers = undefined;
 					t.map = undefined;
@@ -1233,7 +1233,7 @@ class He {
 										: "#ServerBrowser_NoFriendsServers"
 									: "BUGBUG";
 			if (t) {
-				this.sEmptyListExplanation = (0, m.we)(t);
+				this.sEmptyListExplanation = Localize(t);
 			}
 		}
 	}
@@ -1466,14 +1466,14 @@ function Ye(e) {
 						Ee.Xw.ShowServerGameInfoDialog(e);
 					})(r),
 			},
-			(0, m.we)("#ServerBrowser_ViewServerInfo"),
+			Localize("#ServerBrowser_ViewServerInfo"),
 		),
 		n.createElement(
 			we.kt,
 			{
 				onSelected: () => Qe(r),
 			},
-			(0, m.we)("#ServerBrowser_ConnectToServer"),
+			Localize("#ServerBrowser_ConnectToServer"),
 		),
 		s &&
 			n.createElement(
@@ -1481,7 +1481,7 @@ function Ye(e) {
 				{
 					onSelected: () => a(s),
 				},
-				(0, m.we)("#ServerBrowser_CopyIPAddressToClipboard", s),
+				Localize("#ServerBrowser_CopyIPAddressToClipboard", s),
 			),
 		o &&
 			n.createElement(
@@ -1489,7 +1489,7 @@ function Ye(e) {
 				{
 					onSelected: () => a(o),
 				},
-				(0, m.we)("#ServerBrowser_CopySteamJoinLinkToClipboard"),
+				Localize("#ServerBrowser_CopySteamJoinLinkToClipboard"),
 			),
 		t.id != "favorites" &&
 			n.createElement(
@@ -1500,7 +1500,7 @@ function Ye(e) {
 							await SteamClient.ServerBrowser.AddFavoriteServer(Ze(e));
 						})(r),
 				},
-				(0, m.we)("#ServerBrowser_AddServerToFavorites"),
+				Localize("#ServerBrowser_AddServerToFavorites"),
 			),
 		t.id == "favorites" &&
 			n.createElement(
@@ -1509,7 +1509,7 @@ function Ye(e) {
 					onSelected: () =>
 						SteamClient.ServerBrowser.RemoveFavoriteServer(Ze(r)),
 				},
-				(0, m.we)("#ServerBrowser_RemoveServerFromFavorites"),
+				Localize("#ServerBrowser_RemoveServerFromFavorites"),
 			),
 		t.id == "history" &&
 			n.createElement(
@@ -1518,7 +1518,7 @@ function Ye(e) {
 					onSelected: () =>
 						SteamClient.ServerBrowser.RemoveHistoryServer(Ze(r)),
 				},
-				(0, m.we)("#ServerBrowser_RemoveServerFromHistory"),
+				Localize("#ServerBrowser_RemoveServerFromHistory"),
 			),
 	);
 }
@@ -1531,7 +1531,7 @@ function Ke(e) {
 		if (e) {
 			(0, Be.pg)(
 				n.createElement(c.KG, {
-					strDescription: (0, m.we)(e),
+					strDescription: Localize(e),
 				}),
 				r,
 			);
@@ -1544,7 +1544,7 @@ function Ke(e) {
 			closeModal: t,
 			onCancel: t,
 		},
-		n.createElement(o.Y9, null, (0, m.we)("#ServerBrowser_AddServerByIP")),
+		n.createElement(o.Y9, null, Localize("#ServerBrowser_AddServerByIP")),
 		n.createElement(
 			o.f3,
 			null,
@@ -1555,7 +1555,7 @@ function Ke(e) {
 					maxLength: 64,
 					size: 32,
 					value: i,
-					placeholder: (0, m.we)("#ServerBrowser_IPAddressPlaceholder"),
+					placeholder: Localize("#ServerBrowser_IPAddressPlaceholder"),
 					onChange: (e) => a(e.currentTarget.value),
 				}),
 			),
@@ -1564,9 +1564,9 @@ function Ke(e) {
 				null,
 				n.createElement(o.CB, {
 					onOK: s,
-					strOKText: (0, m.we)("#Button_OK"),
+					strOKText: Localize("#Button_OK"),
 					onCancel: t,
-					strCancelText: (0, m.we)("#Button_Cancel"),
+					strCancelText: Localize("#Button_Cancel"),
 				}),
 			),
 		),
@@ -1602,8 +1602,8 @@ const Xe = (0, l.Nr)(function (e) {
 				data: null,
 				label: n.createElement(o.aZ, {
 					title: a
-						? (0, m.we)("#ServerBrowser_AnyGame")
-						: (0, m.we)("#ServerBrowser_SelectGame"),
+						? Localize("#ServerBrowser_AnyGame")
+						: Localize("#ServerBrowser_SelectGame"),
 				}),
 			},
 			...e.map((e) => ({
@@ -1619,31 +1619,31 @@ const Xe = (0, l.Nr)(function (e) {
 			{
 				data: 0,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_All"),
+					title: Localize("#ServerBrowser_All"),
 				}),
 			},
 			{
 				data: 50,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_LessThan50"),
+					title: Localize("#ServerBrowser_LessThan50"),
 				}),
 			},
 			{
 				data: 100,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_LessThan100"),
+					title: Localize("#ServerBrowser_LessThan100"),
 				}),
 			},
 			{
 				data: 150,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_LessThan150"),
+					title: Localize("#ServerBrowser_LessThan150"),
 				}),
 			},
 			{
 				data: 250,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_LessThan250"),
+					title: Localize("#ServerBrowser_LessThan250"),
 				}),
 			},
 		],
@@ -1654,19 +1654,19 @@ const Xe = (0, l.Nr)(function (e) {
 			{
 				data: 0,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_All"),
+					title: Localize("#ServerBrowser_All"),
 				}),
 			},
 			{
 				data: 1,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_SecureOnly"),
+					title: Localize("#ServerBrowser_SecureOnly"),
 				}),
 			},
 			{
 				data: 2,
 				label: n.createElement(o.aZ, {
-					title: (0, m.we)("#ServerBrowser_InsecureOnly"),
+					title: Localize("#ServerBrowser_InsecureOnly"),
 				}),
 			},
 		],
@@ -1679,7 +1679,7 @@ const Xe = (0, l.Nr)(function (e) {
 				n.createElement(I.Lock, {
 					locked: true,
 				}),
-			HeaderText: (0, m.we)("#ServerBrowser_Password"),
+			HeaderText: Localize("#ServerBrowser_Password"),
 			Cell: ({ value: e }) =>
 				e
 					? n.createElement(I.Lock, {
@@ -1697,7 +1697,7 @@ const Xe = (0, l.Nr)(function (e) {
 		},
 		{
 			Header: () => n.createElement(Re.wB_, null),
-			HeaderText: (0, m.we)("#ServerBrowser_Bots"),
+			HeaderText: Localize("#ServerBrowser_Bots"),
 			Cell: ({ value: e }) => (e ? n.createElement(Re.wB_, null) : ""),
 			accessor: "botPlayers",
 			id: "botPlayers",
@@ -1710,7 +1710,7 @@ const Xe = (0, l.Nr)(function (e) {
 		},
 		{
 			Header: () => n.createElement(Re.gzV, null),
-			HeaderText: (0, m.we)("#ServerBrowser_Secure"),
+			HeaderText: Localize("#ServerBrowser_Secure"),
 			Cell: ({ value: e }) => (e ? n.createElement(Re.gzV, null) : ""),
 			accessor: "bSecure",
 			id: "bSecure",
@@ -1722,7 +1722,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.SecureColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_Servers"),
+			Header: Localize("#ServerBrowser_Servers"),
 			id: "name",
 			accessor: "name",
 			align: "left",
@@ -1732,7 +1732,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.ServerNameColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_IPAddress"),
+			Header: Localize("#ServerBrowser_IPAddress"),
 			id: "ip",
 			accessor: Le,
 			align: "left",
@@ -1742,7 +1742,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.IPAddressColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_Game"),
+			Header: Localize("#ServerBrowser_Game"),
 			id: "gameDesc",
 			accessor: "gameDesc",
 			align: "left",
@@ -1752,7 +1752,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.GameColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_Map"),
+			Header: Localize("#ServerBrowser_Map"),
 			id: "map",
 			accessor: "map",
 			width: 100,
@@ -1762,7 +1762,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.MapColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_Players"),
+			Header: Localize("#ServerBrowser_Players"),
 			id: "players",
 			accessor: "players",
 			Cell: (e) => {
@@ -1780,7 +1780,7 @@ const Xe = (0, l.Nr)(function (e) {
 			className: Te.PlayersColumn,
 		},
 		{
-			Header: (0, m.we)("#ServerBrowser_Latency"),
+			Header: Localize("#ServerBrowser_Latency"),
 			accessor: "ping",
 			minWidth: 20,
 			width: 60,
@@ -1927,22 +1927,22 @@ const Xe = (0, l.Nr)(function (e) {
 		H += e;
 	};
 	if (c.Secure == 1) {
-		j((0, m.we)("#ServerBrowser_FilterDescSecureOnly"));
+		j(Localize("#ServerBrowser_FilterDescSecureOnly"));
 	}
 	if (c.Secure == 2) {
-		j((0, m.we)("#ServerBrowser_FilterDescInsecureOnly"));
+		j(Localize("#ServerBrowser_FilterDescInsecureOnly"));
 	}
 	if (c.ping > 0) {
-		j((0, m.we)("#ServerBrowser_FilterDescLatency") + " < " + c.ping);
+		j(Localize("#ServerBrowser_FilterDescLatency") + " < " + c.ping);
 	}
 	if (c.NoFull) {
-		j((0, m.we)("#ServerBrowser_FilterDescNotFull"));
+		j(Localize("#ServerBrowser_FilterDescNotFull"));
 	}
 	if (c.NoEmpty) {
-		j((0, m.we)("#ServerBrowser_FilterDescNotEmpty"));
+		j(Localize("#ServerBrowser_FilterDescNotEmpty"));
 	}
 	if (c.NoPassword) {
-		j((0, m.we)("#ServerBrowser_FilterDescNoPassword"));
+		j(Localize("#ServerBrowser_FilterDescNoPassword"));
 	}
 	const q = s.sEmptyListExplanation == "" || N > 0;
 	let Q;
@@ -1966,7 +1966,7 @@ const Xe = (0, l.Nr)(function (e) {
 		let i;
 		if (!t && r.id == "internet") {
 			if (!e && s.strLastSearchSettingsAsString) {
-				i = (0, m.we)("#ServerBrowser_ServerSideFiltersChanged");
+				i = Localize("#ServerBrowser_ServerSideFiltersChanged");
 			}
 		}
 		Q = n.createElement(
@@ -2001,7 +2001,7 @@ const Xe = (0, l.Nr)(function (e) {
 					},
 					e.svg_fn(),
 					" ",
-					(0, m.we)(e.locToken),
+					Localize(e.locToken),
 				),
 			),
 			n.createElement("span", {
@@ -2160,7 +2160,7 @@ const Xe = (0, l.Nr)(function (e) {
 							{
 								className: Te.DropdownLabel,
 							},
-							(0, m.we)("#ServerBrowser_ServerName"),
+							Localize("#ServerBrowser_ServerName"),
 						),
 						n.createElement(o.pd, {
 							maxLength: 64,
@@ -2177,7 +2177,7 @@ const Xe = (0, l.Nr)(function (e) {
 							{
 								className: Te.DropdownLabel,
 							},
-							(0, m.we)("#ServerBrowser_Map"),
+							Localize("#ServerBrowser_Map"),
 						),
 						n.createElement(o.pd, {
 							maxLength: 64,
@@ -2200,7 +2200,7 @@ const Xe = (0, l.Nr)(function (e) {
 							{
 								className: Te.DropdownLabel,
 							},
-							(0, m.we)("#ServerBrowser_Latency"),
+							Localize("#ServerBrowser_Latency"),
 						),
 						n.createElement(o.ZU, {
 							rgOptions: _,
@@ -2216,7 +2216,7 @@ const Xe = (0, l.Nr)(function (e) {
 							{
 								className: Te.DropdownLabel,
 							},
-							(0, m.we)("#ServerBrowser_AntiCheat"),
+							Localize("#ServerBrowser_AntiCheat"),
 						),
 						n.createElement(o.ZU, {
 							rgOptions: f,
@@ -2231,17 +2231,17 @@ const Xe = (0, l.Nr)(function (e) {
 						className: Te.FilterOptionsCheckboxesCtr,
 					},
 					n.createElement(o.Yh, {
-						label: (0, m.we)("#ServerBrowser_ServerNotFull"),
+						label: Localize("#ServerBrowser_ServerNotFull"),
 						checked: c.NoFull,
 						onChange: (e) => s.SetFilterNoFull(e),
 					}),
 					n.createElement(o.Yh, {
-						label: (0, m.we)("#ServerBrowser_HasUsersPlaying"),
+						label: Localize("#ServerBrowser_HasUsersPlaying"),
 						checked: c.NoEmpty,
 						onChange: (e) => s.SetFilterNoEmpty(e),
 					}),
 					n.createElement(o.Yh, {
-						label: (0, m.we)("#ServerBrowser_NoPassword"),
+						label: Localize("#ServerBrowser_NoPassword"),
 						checked: c.NoPassword,
 						onChange: (e) => s.SetFilterNoPassword(e),
 					}),
@@ -2264,7 +2264,7 @@ const Xe = (0, l.Nr)(function (e) {
 					n.createElement(I.DoubleCarat, {
 						direction: "up",
 					}),
-					(0, m.we)("#ServerBrowser_ChangeFilters"),
+					Localize("#ServerBrowser_ChangeFilters"),
 				),
 				n.createElement(
 					"span",
@@ -2282,7 +2282,7 @@ const Xe = (0, l.Nr)(function (e) {
 							{
 								className: Te.AddFavoriteButton,
 								onClick: (e) => {
-									t = (0, Ie.uX)(e);
+									t = GetOwningWindowForEvent(e);
 									(0, Be.pg)(
 										n.createElement(Ke, {
 											owningWindow: t,
@@ -2292,16 +2292,16 @@ const Xe = (0, l.Nr)(function (e) {
 									return;
 									var t;
 								},
-								title: (0, m.we)("#ServerBrowser_AddFavoriteServerByIP"),
+								title: Localize("#ServerBrowser_AddFavoriteServerByIP"),
 							},
 							n.createElement(I.Add, null),
 						),
 					n.createElement(o.CB, {
 						onOK: U,
 						bOKDisabled: !W,
-						strOKText: (0, m.we)("#ServerBrowser_Connect"),
+						strOKText: Localize("#ServerBrowser_Connect"),
 						onCancel: e.onClose,
-						strCancelText: (0, m.we)("#Generic_Close"),
+						strCancelText: Localize("#Generic_Close"),
 					}),
 				),
 			),
@@ -2396,7 +2396,7 @@ const tt = (0, l.Nr)(function () {
 	if (!t) {
 		return null;
 	}
-	const s = (0, m.we)("#Menu_Servers");
+	const s = Localize("#Menu_Servers");
 	return n.createElement(
 		c.hM,
 		{
@@ -2472,7 +2472,7 @@ function st() {
 			s = "#VR_Error_CrashProtection";
 			break;
 		case nt.V.k_EVRError_HmdError:
-			s = (0, m.we)("#VR_Error_UnknownError", t.strInit, t.eInit);
+			s = Localize("#VR_Error_UnknownError", t.strInit, t.eInit);
 	}
 	if (s) {
 		return n.createElement(
@@ -2481,15 +2481,15 @@ function st() {
 				active: true,
 			},
 			n.createElement(c.o0, {
-				strTitle: (0, m.we)("#VR_Error_Title"),
+				strTitle: Localize("#VR_Error_Title"),
 				onCancel: e,
 				bAlertDialog: !i,
 				onOK: () => {
 					i?.();
 					e();
 				},
-				strOKButtonText: a ? (0, m.we)(a) : undefined,
-				strDescription: (0, m.we)(s),
+				strOKButtonText: a ? Localize(a) : undefined,
+				strDescription: Localize(s),
 			}),
 		);
 	} else {
@@ -2517,12 +2517,12 @@ function ot() {
 				active: true,
 			},
 			n.createElement(c.o0, {
-				strTitle: (0, m.we)(e),
+				strTitle: Localize(e),
 				onOK: () => {
 					t(undefined);
 					i(undefined);
 				},
-				strDescription: (0, m.we)(r),
+				strDescription: Localize(r),
 				bAlertDialog: true,
 			}),
 		);
@@ -2575,7 +2575,7 @@ const ft = (0, l.Nr)(function () {
 	if (a != 7) {
 		return null;
 	}
-	const s = (0, m.we)("#SSA_Title");
+	const s = Localize("#SSA_Title");
 	const l = () => {
 		SteamClient.User.StartShutdown(true);
 	};
@@ -2604,7 +2604,7 @@ const ft = (0, l.Nr)(function () {
 			{
 				className: gt.Explanation,
 			},
-			(0, m.we)("#SSA_Explanation"),
+			Localize("#SSA_Explanation"),
 		),
 		n.createElement(
 			"div",
@@ -2620,7 +2620,7 @@ const ft = (0, l.Nr)(function () {
 						SteamClient.UI.NotifyAppInitialized();
 					},
 				},
-				(0, m.we)("#SSA_Accept"),
+				Localize("#SSA_Accept"),
 			),
 			n.createElement(
 				o.$n,
@@ -2629,14 +2629,14 @@ const ft = (0, l.Nr)(function () {
 						SteamClient.System.OpenInSystemBrowser(e);
 					},
 				},
-				(0, m.we)("#SSA_OpenInBrowser"),
+				Localize("#SSA_OpenInBrowser"),
 			),
 			n.createElement(
 				o.$n,
 				{
 					onClick: l,
 				},
-				(0, m.we)("#SSA_ExitSteam"),
+				Localize("#SSA_ExitSteam"),
 			),
 		),
 	);
@@ -2745,7 +2745,7 @@ const Et = (0, l.Nr)(function (e) {
 		return n.createElement(
 			c.hM,
 			{
-				strTitle: (0, m.we)("#GameAction_LaunchingDialog_Title"),
+				strTitle: Localize("#GameAction_LaunchingDialog_Title"),
 				onDismiss: a,
 				popupWidth: 600,
 				popupHeight: 286,
@@ -2782,7 +2782,7 @@ const Et = (0, l.Nr)(function (e) {
 						{
 							className: St.Launching,
 						},
-						(0, m.we)("#GameAction_LaunchingDialog_Starting"),
+						Localize("#GameAction_LaunchingDialog_Starting"),
 					),
 					n.createElement(
 						"div",
@@ -2809,7 +2809,7 @@ const Et = (0, l.Nr)(function (e) {
 							className: St.OpenSteamButton,
 							onClick: u,
 						},
-						(0, m.we)("#GameAction_LaunchingDialog_OpenSteam"),
+						Localize("#GameAction_LaunchingDialog_OpenSteam"),
 					),
 				),
 			),
@@ -2852,16 +2852,16 @@ function Dt(e) {
 const Nt = () => {
 	const [e, t] = (0, C.VI)("always_show_user_chooser");
 	const r = n.createElement(o.Yh, {
-		label: (0, m.we)("#ChangeUser_ShouldShowUserChooser"),
+		label: Localize("#ChangeUser_ShouldShowUserChooser"),
 		checked: e,
 		disabled: false,
 		onChange: t,
 	});
 	return Dt({
 		onOK: () => SteamClient.User.ChangeUser(),
-		strTitle: (0, m.we)("#ChangeUser_Title"),
-		strOKButtonText: (0, m.we)("#ChangeUser_OKButton"),
-		strDescription: (0, m.we)(
+		strTitle: Localize("#ChangeUser_Title"),
+		strOKButtonText: Localize("#ChangeUser_OKButton"),
+		strDescription: Localize(
 			Mt.b.currentUserIsRemembered
 				? "#ChangeUser_Description"
 				: "#ChangeUser_Description_NoCachedCredentials",
@@ -2887,7 +2887,7 @@ function Gt(e) {
 			{
 				className: (0, v.A)(kt.Prompt, kt.Warning),
 			},
-			(0, m.we)("#Steam_AppMustBeClosedToQuit_Info", e.mainApp.display_name),
+			Localize("#Steam_AppMustBeClosedToQuit_Info", e.mainApp.display_name),
 		);
 	} else {
 		return n.createElement(
@@ -2895,15 +2895,15 @@ function Gt(e) {
 			{
 				className: kt.Prompt,
 			},
-			(0, m.we)("#ChangeUser_Prompt"),
+			Localize("#ChangeUser_Prompt"),
 		);
 	}
 }
 const Ot = () =>
 	Dt({
 		onOK: () => SteamClient.User.SignOutAndRestart(),
-		strTitle: (0, m.we)("#SignOut_Title"),
-		strDescription: (0, m.we)("#SignOut_Description"),
+		strTitle: Localize("#SignOut_Title"),
+		strDescription: Localize("#SignOut_Description"),
 	});
 function Pt(e) {
 	const [t, r] = Ot();
@@ -3041,27 +3041,27 @@ function Wt(e) {
 				n.createElement(
 					"div",
 					null,
-					(0, m.we)("#SteamChina_DurationControl_Init_1"),
+					Localize("#SteamChina_DurationControl_Init_1"),
 				),
 				n.createElement(
 					"div",
 					null,
-					(0, m.we)("#SteamChina_DurationControl_Init_2"),
+					Localize("#SteamChina_DurationControl_Init_2"),
 				),
 				n.createElement(
 					"div",
 					null,
-					(0, m.we)("#SteamChina_DurationControl_Init_3"),
+					Localize("#SteamChina_DurationControl_Init_3"),
 				),
 				n.createElement(
 					"div",
 					null,
-					(0, m.we)("#SteamChina_DurationControl_Init_4"),
+					Localize("#SteamChina_DurationControl_Init_4"),
 				),
 				n.createElement(
 					"div",
 					null,
-					(0, m.we)("#SteamChina_DurationControl_Init_5"),
+					Localize("#SteamChina_DurationControl_Init_5"),
 				),
 			),
 		),
@@ -3088,8 +3088,8 @@ const Vt = (0, l.Nr)(function () {
 	if (!e || !d) {
 		return null;
 	}
-	const g = (0, m.we)("#Notification_FamilySharing_Title");
-	const h = (0, m.we)(
+	const g = Localize("#Notification_FamilySharing_Title");
+	const h = Localize(
 		"#Notification_FamilySharing_StoppedSharedGame",
 		d.display_name,
 		r,
@@ -3114,7 +3114,7 @@ const Vt = (0, l.Nr)(function () {
 				{
 					onClick: p,
 				},
-				(0, m.we)("#Button_Close"),
+				Localize("#Button_Close"),
 			),
 		),
 	);
@@ -3302,7 +3302,7 @@ function er(e) {
 		c.hM,
 		{
 			className: (0, v.A)(qt.MM),
-			strTitle: (0, m.we)("#MediaManager_Dialog_Header"),
+			strTitle: Localize("#MediaManager_Dialog_Header"),
 			onDismiss: y,
 			resizable: true,
 			popupWidth: M.nWidth,

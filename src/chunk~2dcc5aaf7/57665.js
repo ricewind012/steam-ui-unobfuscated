@@ -5,7 +5,10 @@ var s = require(/*webcrack:missing*/ "./49519.js");
 var o = require(/*webcrack:missing*/ "./50376.js");
 var l = require(/*webcrack:missing*/ "./52451.js");
 var c = require("./61662.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var u = require("./36563.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
 var A = require("./36934.js");
@@ -21,7 +24,7 @@ var S = require("./18057.js");
 var w = require(/*webcrack:missing*/ "./8573.js");
 var B = require("./32179.js");
 var v = require("./89748.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var E = require("./66732.js");
 var M = require("./46422.js");
 var T = require("./23600.js");
@@ -44,7 +47,7 @@ class O extends i.Component {
 		if (t.bAchieved && t.rtUnlocked) {
 			const r = (0, y.Ms)();
 			e = A.Vw.CMInterface.RTime32ToDate(t.rtUnlocked).toLocaleDateString(
-				m.pf.GetPreferredLocales(),
+				LocalizationManager.GetPreferredLocales(),
 				r,
 			);
 		} else {
@@ -88,7 +91,7 @@ class O extends i.Component {
 			const e = (0, y.Ms)();
 			a = A.Vw.CMInterface.RTime32ToDate(
 				this.props.yourUnlockDate,
-			).toLocaleDateString(m.pf.GetPreferredLocales(), e);
+			).toLocaleDateString(LocalizationManager.GetPreferredLocales(), e);
 		}
 		return i.createElement(
 			c.M,
@@ -140,7 +143,7 @@ class O extends i.Component {
 						i.createElement(
 							"div",
 							null,
-							(0, m.we)("#AppDetails_Achievements_Unlocked", e),
+							Localize("#AppDetails_Achievements_Unlocked", e),
 						),
 					s &&
 						i.createElement(
@@ -148,7 +151,7 @@ class O extends i.Component {
 							{
 								className: (0, d.A)(r && k.RareLabel),
 							},
-							(0, m.we)("#AppDetails_PctUnlocked", s),
+							Localize("#AppDetails_PctUnlocked", s),
 						),
 					a &&
 						i.createElement(
@@ -156,7 +159,7 @@ class O extends i.Component {
 							{
 								className: k.YouUnlocked,
 							},
-							(0, m.we)("#AppDetails_Achievements_YouUnlocked", a),
+							Localize("#AppDetails_Achievements_YouUnlocked", a),
 						),
 				),
 		);
@@ -244,9 +247,9 @@ export const hs = (0, a.PA)(function (e) {
 	})(n, f, D, F);
 	const z = G(n);
 	const x = E || M;
-	const U = D ? (0, m.we)("#AppDetailsAchievement_Hidden") : n.strName;
+	const U = D ? Localize("#AppDetailsAchievement_Hidden") : n.strName;
 	const W = D
-		? (0, m.we)(
+		? Localize(
 				_?.minutes_playtime_forever > 0
 					? "#AppDetailsAchievement_HiddenDesc"
 					: "#AppDetailsAchievement_HiddenDesc_Unplayed",
@@ -257,7 +260,7 @@ export const hs = (0, a.PA)(function (e) {
 		{
 			focusable: true,
 			onActivate: R,
-			onOKActionDescription: (0, m.we)(
+			onOKActionDescription: Localize(
 				"#AppActivity_Achieved_View_Achievements",
 			),
 			className: (0, d.A)(
@@ -307,7 +310,7 @@ export const hs = (0, a.PA)(function (e) {
 						{
 							className: k.Stats,
 						},
-						(0, m.we)("#AppDetails_PctUnlocked", z),
+						Localize("#AppDetails_PctUnlocked", z),
 					),
 			),
 	);
@@ -370,7 +373,7 @@ export function pr(e) {
 					{
 						className: k.Name,
 					},
-					(0, m.we)("#AppActivity_Achieved_PlusMore", r),
+					Localize("#AppActivity_Achieved_PlusMore", r),
 				),
 				s &&
 					i.createElement(
@@ -378,13 +381,13 @@ export function pr(e) {
 						{
 							className: k.Desc,
 						},
-						(0, m.we)("#AppActivity_Achieved_PlusMore_Label", s),
+						Localize("#AppActivity_Achieved_PlusMore_Label", s),
 					),
 			),
 	);
 }
 function U(e, t) {
-	let r = (0, I.uX)(e);
+	let r = GetOwningWindowForEvent(e);
 	M.oy.WindowStore.GetWindowInstanceFromWindow(r).Navigator.MyAchievements(t);
 }
 export let tm = class extends i.Component {
@@ -429,10 +432,10 @@ export let tm = class extends i.Component {
 			{
 				feature: 3,
 				primaryAction: {
-					label: (0, m.we)("#AppDetails_ViewAllAchievements"),
+					label: Localize("#AppDetails_ViewAllAchievements"),
 					action: this.ViewAllAchievements,
 				},
-				label: (0, m.we)("#AppDetails_SectionTitle_Achievements"),
+				label: Localize("#AppDetails_SectionTitle_Achievements"),
 				highlight: i.createElement(V, {
 					achievements: e,
 					appid: this.unAppID,
@@ -482,7 +485,7 @@ export let tm = class extends i.Component {
 							{
 								className: k.Label,
 							},
-							(0, m.we)("#AppDetails_Achievements_Locked"),
+							Localize("#AppDetails_Achievements_Locked"),
 						),
 						i.createElement(u.S, {
 							className: (0, d.A)(k.Additional, k.UnachievedList),
@@ -516,7 +519,7 @@ function V(e) {
 				"span",
 				null,
 				" ",
-				(0, m.we)(
+				Localize(
 					a
 						? "#AppDetails_PlayerUnlockedPercentAll"
 						: "#AppDetails_PlayerUnlockedPercent",
@@ -582,7 +585,7 @@ export const Jq = (0, a.PA)(function (e) {
 		g.n,
 		{
 			feature: 3,
-			label: (0, m.we)("#AppDetails_SectionTitle_Achievements"),
+			label: Localize("#AppDetails_SectionTitle_Achievements"),
 			highlight: i.createElement(V, {
 				achievements: r,
 				appid: t,
@@ -611,7 +614,7 @@ export const Jq = (0, a.PA)(function (e) {
 					{
 						className: k.LockedAchievementsLabel,
 					},
-					(0, m.we)("#AppDetails_Achievements_Locked"),
+					Localize("#AppDetails_Achievements_Locked"),
 				),
 			i.createElement(j, {
 				appid: t,
@@ -625,7 +628,7 @@ export const Jq = (0, a.PA)(function (e) {
 					{
 						onClick: (e) => U(e, t),
 					},
-					(0, m.we)("#AppDetails_ViewAllAchievements"),
+					Localize("#AppDetails_ViewAllAchievements"),
 				),
 		),
 	);
@@ -702,7 +705,7 @@ function q(e) {
 		? () => l.push(S.BV.Library.App.Achievements.My.Individual(t))
 		: (e) =>
 				(function (e, t) {
-					let r = (0, I.uX)(e);
+					let r = GetOwningWindowForEvent(e);
 					M.oy.WindowStore.GetWindowInstanceFromWindow(
 						r,
 					).Navigator.GlobalAchievements(t);
@@ -714,7 +717,7 @@ function q(e) {
 			className: (0, d.A)(k.AchievementCarouselItem, a && k.Detailed),
 			onFocus: o,
 			onActivate: c,
-			onOKActionDescription: (0, m.we)("#AppDetails_ViewAllAchievements"),
+			onOKActionDescription: Localize("#AppDetails_ViewAllAchievements"),
 		},
 		i.createElement(hs, {
 			achievement: r,
@@ -757,7 +760,7 @@ function Q(e) {
 				{
 					className: k.Achieved,
 				},
-				(0, m.we)("#AppDetails_PctUnlocked", n),
+				Localize("#AppDetails_PctUnlocked", n),
 			),
 	);
 }

@@ -1,6 +1,9 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeTimeSince,
+	qZ,
+} from "../../actual_src/utils/localization/datetime.js";
 var s = require("./96593.js");
 var o = require(/*webcrack:missing*/ "./98995.js");
 var l = require("./2773.js");
@@ -13,7 +16,7 @@ var p = require("./3499.js");
 var g = require("./91486.js");
 var h = require("./40848.js");
 var C = require(/*webcrack:missing*/ "./99251.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var f = require("./86454.js");
 var b = require("./35488.js");
 var y = require(/*webcrack:missing*/ "./31084.js");
@@ -92,7 +95,7 @@ function k(e) {
 		{
 			className: h.NoContent,
 		},
-		(0, _.we)(r),
+		(0, Localize)(r),
 	);
 }
 function D(e) {
@@ -140,7 +143,7 @@ function D(e) {
 							}),
 							t,
 						),
-					title: (0, _.we)("#PhaseList_FilterOverflowTooltip"),
+					title: (0, Localize)("#PhaseList_FilterOverflowTooltip"),
 				},
 				n.createElement(b.Dots, {
 					className: h.OverflowDots,
@@ -219,7 +222,7 @@ function O(e) {
 				for (const e of s.phases) {
 					if (r || !ne(e)) {
 						if (e.game_id !== n) {
-							const r = (0, a.Hq)(Date.now() / 1000 - e.date_recorded);
+							const r = LocalizeTimeSince(Date.now() / 1000 - e.date_recorded);
 							if (r !== i) {
 								t.push({
 									type: "date",
@@ -382,7 +385,7 @@ function W(e) {
 			{
 				className: h.ActiveLabel,
 			},
-			(0, _.we)("#PhaseList_NowPlaying"),
+			(0, Localize)("#PhaseList_NowPlaying"),
 		),
 	);
 }
@@ -434,7 +437,7 @@ function j(e) {
 					color: r,
 				},
 			},
-			(0, a.qZ)(t, false),
+			(0, qZ)(t, false),
 		),
 	);
 }
@@ -559,7 +562,7 @@ function Y(e) {
 			{
 				className: h.OverflowItem,
 			},
-			(0, _.we)("#PhaseList_ShowAllN", t),
+			(0, Localize)("#PhaseList_ShowAllN", t),
 		),
 	);
 }
@@ -633,7 +636,7 @@ function X(e) {
 						onView: C,
 						additionalOptions: [
 							{
-								label: (0, _.we)("#PhaseList_Recording_SaveAsClip"),
+								label: (0, Localize)("#PhaseList_Recording_SaveAsClip"),
 								onSelected: b,
 							},
 						],
@@ -770,7 +773,7 @@ function ae(e) {
 					...t,
 					strSearch: e.target.value,
 				}),
-			placeholder: (0, _.we)("#PhaseList_SearchPlaceholder"),
+			placeholder: (0, Localize)("#PhaseList_SearchPlaceholder"),
 		}),
 	);
 }

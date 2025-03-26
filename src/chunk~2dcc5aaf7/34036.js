@@ -25,7 +25,7 @@ var I = require(/*webcrack:missing*/ "./98995.js");
 var E = require(/*webcrack:missing*/ "./49455.js");
 var M = require(/*webcrack:missing*/ "./79769.js");
 var T = require(/*webcrack:missing*/ "./90765.js");
-var R = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var k = require(/*webcrack:missing*/ "./52451.js");
 var D = require(/*webcrack:missing*/ "./72476.js");
 var N = require("./7081.js");
@@ -319,7 +319,7 @@ export function Jz(e) {
 			},
 			r
 				? "(" + s.review_count.toLocaleString() + ")"
-				: (0, R.we)(
+				: (0, Localize)(
 						"#GameHover_UserReviewCount",
 						s.review_count.toLocaleString(),
 					),
@@ -331,7 +331,7 @@ export function Jz(e) {
 					className: G.ReviewScoreHeader,
 				},
 				" ",
-				(0, R.we)("#GameHover_UserReviewsHeader"),
+				(0, Localize)("#GameHover_UserReviewsHeader"),
 			),
 	);
 	let m = "#ReviewScore_PercentPositive";
@@ -363,7 +363,11 @@ export function Jz(e) {
 					I.he,
 					{
 						bTopmost: true,
-						toolTipContent: (0, R.we)(m, s.percent_positive, s.review_count),
+						toolTipContent: (0, Localize)(
+							m,
+							s.percent_positive,
+							s.review_count,
+						),
 					},
 					c,
 				)
@@ -414,7 +418,7 @@ export const EP = (0, i.PA)((e) => {
 			{
 				className: (0, T.A)(G.WishlistButtonText, m && G.WishlistLoadingText),
 			},
-			(0, R.we)(l ? "#Sale_RemoveFromWishlist" : "#Sale_AddToWishlist"),
+			(0, Localize)(l ? "#Sale_RemoveFromWishlist" : "#Sale_AddToWishlist"),
 		),
 	);
 });

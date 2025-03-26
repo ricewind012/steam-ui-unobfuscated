@@ -16,7 +16,11 @@ var C = require(/*webcrack:missing*/ "./3524.js");
 var _ = require(/*webcrack:missing*/ "./84252.js");
 var f = require(/*webcrack:missing*/ "./88750.js");
 var b = require(/*webcrack:missing*/ "./90765.js");
-var y = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var S = require(/*webcrack:missing*/ "./52451.js");
 var w = require("./81994.js");
 var B = require("./77347.js");
@@ -202,7 +206,7 @@ function O(e) {
 					{
 						className: F.WelcomeText,
 					},
-					(0, y.we)("#Settings_TimeAndDate_ChooseTimezone_OOBE"),
+					(0, Localize)("#Settings_TimeAndDate_ChooseTimezone_OOBE"),
 				),
 			),
 		),
@@ -414,7 +418,7 @@ function te(e) {
 				{
 					className: z.WelcomeText,
 				},
-				(0, y.we)("#Login_Welcome_ChooseYourNetwork"),
+				(0, Localize)("#Login_Welcome_ChooseYourNetwork"),
 			),
 			i.createElement(re, null),
 		),
@@ -459,7 +463,7 @@ function te(e) {
 							{
 								rightIcons: t && i.createElement(o.Spinner, null),
 							},
-							(0, y.we)("#Login_NoNetworksFound"),
+							(0, Localize)("#Login_NoNetworksFound"),
 						),
 					t &&
 						r &&
@@ -468,7 +472,7 @@ function te(e) {
 							{
 								onActivate: () => (0, Z.V)(),
 							},
-							(0, y.we)("#Settings_Internet_Custom_Network_Button"),
+							(0, Localize)("#Settings_Internet_Custom_Network_Button"),
 						),
 					l &&
 						i.createElement(
@@ -476,7 +480,7 @@ function te(e) {
 							{
 								onActivate: e.onContinueOffline,
 							},
-							(0, y.we)("#Login_LoginOffline"),
+							(0, Localize)("#Login_LoginOffline"),
 						),
 				),
 				i.createElement(
@@ -492,7 +496,7 @@ function te(e) {
 								direction: "right",
 							}),
 						},
-						(0, y.we)("#Settings_Internet_Proxy_Settings"),
+						(0, Localize)("#Settings_Internet_Proxy_Settings"),
 					),
 				),
 			),
@@ -515,8 +519,8 @@ function re(e) {
 				},
 				i.createElement(o.Caution, null),
 				r
-					? (0, y.we)("#Settings_Internet_Captive_Portal_Detected")
-					: (0, y.we)(
+					? (0, Localize)("#Settings_Internet_Captive_Portal_Detected")
+					: (0, Localize)(
 							"#Settings_Internet_Connected_To_Network_But_Not_Internet",
 						),
 			),
@@ -531,7 +535,7 @@ function re(e) {
 						{
 							onClick: (e) => (0, X.Y)((0, $.uX)(e)),
 						},
-						(0, y.we)("#Settings_Internet_Captive_Portal_Login_Button"),
+						(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button"),
 					),
 				),
 		);
@@ -544,7 +548,7 @@ function ne(e) {
 	return i.createElement(Q, {
 		value: t,
 		onChange: (e) => B.OQ.Get().SetWifiEnabled(e),
-		label: (0, y.we)("#Settings_Internet_Wifi_Enabled"),
+		label: (0, Localize)("#Settings_Internet_Wifi_Enabled"),
 	});
 }
 function ie(e) {
@@ -587,15 +591,15 @@ function ie(e) {
 	const f = {};
 	if (t.isConnectable) {
 		f.onOKButton = _;
-		f.onOKActionDescription = (0, y.we)("#Settings_Internet_Connect");
+		f.onOKActionDescription = (0, Localize)("#Settings_Internet_Connect");
 	} else if (t.isConnected && r) {
 		f.onOKButton = n;
-		f.onOKActionDescription = (0, y.we)("#Login_Continue");
+		f.onOKActionDescription = (0, Localize)("#Login_Continue");
 	} else {
 		f.onOKButton = () => {};
 		f.onOKActionDescription = null;
 	}
-	f.onMenuActionDescription = (0, y.we)("#Settings_Internet_Info");
+	f.onMenuActionDescription = (0, Localize)("#Settings_Internet_Info");
 	f.onMenuButton = g;
 	const b = s && r ? n : t.isConnectable ? _ : g;
 	return i.createElement(
@@ -829,7 +833,11 @@ function Te(e) {
 	})();
 	const w =
 		r === 2 && !f
-			? i.createElement(De, null, (0, y.we)("#Login_CheckCredentials_Short"))
+			? i.createElement(
+					De,
+					null,
+					(0, Localize)("#Login_CheckCredentials_Short"),
+				)
 			: i.createElement(De, null, "\xA0");
 	const B = n && !a;
 	const v = n && !!a;
@@ -858,7 +866,7 @@ function Te(e) {
 				},
 			},
 			i.createElement(s.pd, {
-				label: (0, y.we)("#Login_SignIn_WithAccountName"),
+				label: (0, Localize)("#Login_SignIn_WithAccountName"),
 				value: o,
 				onChange: (e) => {
 					b(true);
@@ -872,7 +880,7 @@ function Te(e) {
 			}),
 			i.createElement(s.yA, {
 				navRef: h,
-				label: (0, y.we)("#Login_Password"),
+				label: (0, Localize)("#Login_Password"),
 				value: c,
 				onChange: (e) => {
 					b(true);
@@ -886,7 +894,7 @@ function Te(e) {
 				},
 			}),
 			i.createElement(s.RF, {
-				label: (0, y.we)("#Login_RememberMe_Short"),
+				label: (0, Localize)("#Login_RememberMe_Short"),
 				className: ge.RememberPasswordToggle,
 				checked: u,
 				onChange: d,
@@ -903,7 +911,7 @@ function Te(e) {
 						navRef: C,
 						disabled: !_,
 					},
-					(0, y.we)("#Login_SignIn"),
+					(0, Localize)("#Login_SignIn"),
 				),
 				i.createElement(
 					s.$n,
@@ -911,7 +919,7 @@ function Te(e) {
 						className: ge.LoginFormButton,
 						onClick: g,
 					},
-					(0, y.we)("#Button_Cancel"),
+					(0, Localize)("#Button_Cancel"),
 				),
 			),
 		),
@@ -920,7 +928,7 @@ function Te(e) {
 			{
 				urlName: "HelpWithLogin",
 			},
-			(0, y.we)("#Login_Help_SignIn"),
+			(0, Localize)("#Login_Help_SignIn"),
 		),
 	);
 }
@@ -965,7 +973,7 @@ function ke(e) {
 				{
 					className: ge.LeftColHeader,
 				},
-				i.createElement("div", null, (0, y.we)("#Login_EnterCredentials")),
+				i.createElement("div", null, (0, Localize)("#Login_EnterCredentials")),
 			),
 			i.createElement(
 				"div",
@@ -981,7 +989,7 @@ function ke(e) {
 				{
 					className: ge.UseMobileAppForQR,
 				},
-				(0, y.oW)(
+				LocalizeInlineReactWithFallback(
 					"#Login_UseMobileAppForQR_Inline",
 					i.createElement(Qe, {
 						urlName: "Mobile",
@@ -998,7 +1006,7 @@ function ke(e) {
 					{
 						onClick: l,
 					},
-					(0, y.we)("#Login_Join"),
+					(0, Localize)("#Login_Join"),
 				),
 			),
 		),
@@ -1037,7 +1045,7 @@ function Ne() {
 				{
 					className: (0, b.A)(ge.Description),
 				},
-				(0, y.we)(
+				(0, Localize)(
 					c.TS.IN_CLIENT
 						? "#Login_ConnectingToSteam"
 						: "#Login_LoadingAccountInfo",
@@ -1058,7 +1066,7 @@ function Fe(e) {
 				className: ge.OfferOfflineButton,
 				onClick: e.onRequestOffline,
 			},
-			(0, y.we)("#Login_GoOffline_Button"),
+			(0, Localize)("#Login_GoOffline_Button"),
 		),
 	);
 }
@@ -1092,7 +1100,7 @@ function Ge(e) {
 						{
 							className: ge.MutedErrorReference,
 						},
-						(0, y.we)("#Login_Error_Reference", a),
+						(0, Localize)("#Login_Error_Reference", a),
 					),
 			),
 		},
@@ -1108,7 +1116,7 @@ function Ge(e) {
 					{
 						className: ge.FailureDescription,
 					},
-					(0, y.we)("#Login_GoOffline_Description"),
+					(0, Localize)("#Login_GoOffline_Description"),
 				),
 			i.createElement(
 				ye.Ye,
@@ -1121,7 +1129,7 @@ function Ge(e) {
 						className: ge.TryAgainButton,
 						onClick: t,
 					},
-					(0, y.we)("#Button_Retry"),
+					(0, Localize)("#Button_Retry"),
 				),
 				m &&
 					i.createElement(Fe, {
@@ -1221,7 +1229,7 @@ function Pe(e) {
 							i.createElement(
 								De,
 								null,
-								(0, y.we)("#Login_IncorrectSteamGuard"),
+								(0, Localize)("#Login_IncorrectSteamGuard"),
 							),
 						i.createElement(xe, {
 							value: l,
@@ -1248,7 +1256,7 @@ function Pe(e) {
 								onClick: () => h(!g),
 								align: "center",
 							},
-							(0, y.we)(B),
+							(0, Localize)(B),
 						),
 					i.createElement(Ve, {
 						type: t,
@@ -1262,8 +1270,8 @@ function Le(e) {
 	const { accountName: t, type: r } = e;
 	const n =
 		r === "mobile"
-			? (0, y.we)("#Login_MobileProtectingAccount")
-			: (0, y.we)("#Login_EmailProtectingAccount");
+			? (0, Localize)("#Login_MobileProtectingAccount")
+			: (0, Localize)("#Login_EmailProtectingAccount");
 	return i.createElement(
 		"div",
 		{
@@ -1274,7 +1282,7 @@ function Le(e) {
 			{
 				className: ge.Label,
 			},
-			(0, y.PP)(
+			LocalizeReact(
 				"#Login_ActiveAccountName",
 				i.createElement(
 					"span",
@@ -1312,7 +1320,7 @@ function ze(e) {
 				align: "center",
 				onClick: n,
 			},
-			(0, y.we)("#Login_EnterCodeInstead"),
+			(0, Localize)("#Login_EnterCodeInstead"),
 		),
 	);
 	return i.createElement(
@@ -1403,10 +1411,10 @@ function Ve(e) {
 	let r;
 	if (e.type === "mobile") {
 		t = "HelpWithLoginInfo";
-		r = (0, y.we)("#Login_Help_AccessMobileApp");
+		r = (0, Localize)("#Login_Help_AccessMobileApp");
 	} else {
 		t = "HelpWithSteamGuardCode";
-		r = (0, y.we)("#Login_Help_AccessEmail");
+		r = (0, Localize)("#Login_Help_AccessEmail");
 	}
 	return i.createElement(
 		Qe,
@@ -1433,14 +1441,14 @@ function He() {
 				{
 					className: ge.EnterCodeFromMobile,
 				},
-				(0, y.we)("#Login_EnterBackupCode"),
+				(0, Localize)("#Login_EnterBackupCode"),
 			),
 			i.createElement(
 				"div",
 				{
 					className: ge.Label,
 				},
-				(0, y.we)("#Login_EnterBackupCodeDescription"),
+				(0, Localize)("#Login_EnterBackupCodeDescription"),
 			),
 		),
 	);
@@ -1458,7 +1466,7 @@ function je() {
 			{
 				className: ge.EnterCodeFromMobile,
 			},
-			(0, y.we)("#Login_EnterMobileCode"),
+			(0, Localize)("#Login_EnterMobileCode"),
 		),
 		i.createElement(ye.gn, {
 			className: ge.AwaitingMobileConfIcon,
@@ -1478,7 +1486,7 @@ function qe(e) {
 			{
 				className: ge.EnterCodeFromEmail,
 			},
-			(0, y.PP)(
+			LocalizeReact(
 				"#Login_EnterEmailCode",
 				i.createElement(
 					"span",
@@ -1588,7 +1596,7 @@ function at(e) {
 					m.b.RemoveUser(e.accountName).then(() => e.onRemove && e.onRemove());
 				},
 			},
-			(0, y.we)("#Login_RemoveUser_MenuOption"),
+			(0, Localize)("#Login_RemoveUser_MenuOption"),
 		),
 	);
 }
@@ -1870,32 +1878,32 @@ let mt = class extends i.PureComponent {
 								{
 									className: l.LoginError,
 								},
-								(0, y.we)(
+								(0, Localize)(
 									"#Login_LastError",
 									(function (e) {
 										switch (e) {
 											case 3:
-												return (0, y.we)("#Login_NoConnection");
+												return (0, Localize)("#Login_NoConnection");
 											case 5:
-												return (0, y.we)("#Login_PasswordMismatch");
+												return (0, Localize)("#Login_PasswordMismatch");
 											case 88:
-												return (0, y.we)("#Login_TwoFactorMismatch");
+												return (0, Localize)("#Login_TwoFactorMismatch");
 											case 71:
-												return (0, y.we)("#Login_SteamGuardExpired");
+												return (0, Localize)("#Login_SteamGuardExpired");
 											case 65:
-												return (0, y.we)("#Login_SteamGuardMismatch");
+												return (0, Localize)("#Login_SteamGuardMismatch");
 											case 84:
-												return (0, y.we)("#Login_RateLimitExceeded");
+												return (0, Localize)("#Login_RateLimitExceeded");
 											case 20:
-												return (0, y.we)("#Login_ServiceUnavailable");
+												return (0, Localize)("#Login_ServiceUnavailable");
 											case 72:
-												return (0, y.we)("#Login_LoginRestrictionFailed");
+												return (0, Localize)("#Login_LoginRestrictionFailed");
 											case 6:
-												return (0, y.we)("#Login_LoggedInElsewhere");
+												return (0, Localize)("#Login_LoggedInElsewhere");
 											case 126:
-												return (0, y.we)("#Login_CachedCredentialInvalid");
+												return (0, Localize)("#Login_CachedCredentialInvalid");
 											case 130:
-												return (0, y.we)("#Login_OfflineAppCacheInvalid");
+												return (0, Localize)("#Login_OfflineAppCacheInvalid");
 										}
 										return String(e);
 									})(m.b.loginResult),
@@ -1990,7 +1998,7 @@ export function gN(e) {
 								e.onSuccessfulSignIn,
 							);
 						} else {
-							a((0, y.we)("#Login_PinPrompt_IncorrectPin"));
+							a((0, Localize)("#Login_PinPrompt_IncorrectPin"));
 							d(true);
 							g(A + 1);
 							r("");
@@ -2035,7 +2043,7 @@ export function gN(e) {
 					onClick: e.onBack,
 				},
 				"〈\xA0",
-				(0, y.we)("#Login_PinPrompt_Back"),
+				(0, Localize)("#Login_PinPrompt_Back"),
 			),
 		),
 		i.createElement(
@@ -2071,7 +2079,7 @@ export function gN(e) {
 						{
 							className: l.PinPromptDescription,
 						},
-						(0, y.we)("#Login_PinPrompt_Description"),
+						(0, Localize)("#Login_PinPrompt_Description"),
 					),
 				n.length > 0 &&
 					!u &&
@@ -2102,7 +2110,7 @@ export function gN(e) {
 						className: l.PinPromptUsePassword,
 						onClick: () => e.onShowSignInForAccount(e.strAccountName),
 					},
-					(0, y.we)("#Login_PinPrompt_LoginWithPassword"),
+					(0, Localize)("#Login_PinPrompt_LoginWithPassword"),
 				),
 			),
 		),
@@ -2218,7 +2226,7 @@ function pt(e) {
 			{
 				onClick: e.onClick,
 			},
-			(0, y.we)("#Login_ZoomForVR"),
+			(0, Localize)("#Login_ZoomForVR"),
 		),
 	);
 }
@@ -2270,7 +2278,7 @@ export function vX(e) {
 			if (e.onRemoveUser) {
 				m = {
 					onSecondaryButton: c,
-					onSecondaryActionDescription: (0, y.we)("#Login_RemoveUser"),
+					onSecondaryActionDescription: (0, Localize)("#Login_RemoveUser"),
 				};
 			}
 			let u =
@@ -2316,7 +2324,7 @@ export function vX(e) {
 						{
 							className: l.CachedAccountName,
 						},
-						(0, y.we)("#Login_UserChooser_AccountName", t.accountName),
+						(0, Localize)("#Login_UserChooser_AccountName", t.accountName),
 					),
 				i.createElement(
 					"div",
@@ -2353,7 +2361,7 @@ export function vX(e) {
 					{
 						className: l.CachedName,
 					},
-					(0, y.we)("#Login_AddAccount"),
+					(0, Localize)("#Login_AddAccount"),
 				),
 			),
 		);
@@ -2370,14 +2378,14 @@ export function vX(e) {
 					{
 						className: l.Header,
 					},
-					(0, y.we)("#Login_PickUser"),
+					(0, Localize)("#Login_PickUser"),
 				),
 				i.createElement(
 					"div",
 					{
 						className: l.SubHeader,
 					},
-					(0, y.we)("#Login_CachedUsers"),
+					(0, Localize)("#Login_CachedUsers"),
 				),
 			),
 		i.createElement(
@@ -2543,17 +2551,17 @@ export function Qk(e) {
 	let A = false;
 	switch (t) {
 		case 4:
-			u = (0, y.we)("#Login_WaitingForNetwork");
+			u = (0, Localize)("#Login_WaitingForNetwork");
 			break;
 		case 5:
-			u = (0, y.we)("#Login_WaitingForServer");
+			u = (0, Localize)("#Login_WaitingForServer");
 			break;
 		case 6:
-			u = (0, y.we)("#Login_LoadingLibrary");
+			u = (0, Localize)("#Login_LoadingLibrary");
 			A = n.current > 5;
 			break;
 		case 8:
-			u = (0, y.we)("#Login_ShuttingDown");
+			u = (0, Localize)("#Login_ShuttingDown");
 	}
 	return i.createElement(
 		p.Z,
@@ -2642,7 +2650,7 @@ export function g(e) {
 						{
 							className: l.LeftColHeader,
 						},
-						i.createElement("div", null, (0, y.we)("#Login_Join")),
+						i.createElement("div", null, (0, Localize)("#Login_Join")),
 					),
 					i.createElement(
 						s.$n,
@@ -2650,7 +2658,7 @@ export function g(e) {
 							className: l.LoginError,
 							onClick: () => r.Login(),
 						},
-						(0, y.we)("#Login_EnterCredentials"),
+						(0, Localize)("#Login_EnterCredentials"),
 					),
 				),
 				i.createElement(
@@ -2661,14 +2669,14 @@ export function g(e) {
 						{
 							className: l.JoinHead,
 						},
-						(0, y.we)("#Join_New"),
+						(0, Localize)("#Join_New"),
 					),
 					i.createElement(
 						"div",
 						{
 							className: l.JoinSubhead,
 						},
-						(0, y.we)("#Join_ScanCode"),
+						(0, Localize)("#Join_ScanCode"),
 					),
 					i.createElement(
 						ae.rg,
@@ -2682,7 +2690,7 @@ export function g(e) {
 						{
 							className: l.JoinVisit,
 						},
-						(0, y.PP)("#Join_SiteLink", t),
+						LocalizeReact("#Join_SiteLink", t),
 					),
 				),
 			),

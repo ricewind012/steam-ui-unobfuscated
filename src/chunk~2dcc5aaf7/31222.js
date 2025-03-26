@@ -40,7 +40,7 @@ function p(e) {
 		return 0;
 	}
 }
-var g = require(/*webcrack:missing*/ "./9626.js");
+import { VY } from "../../actual_src/utils/cookies.js";
 export class D {
 	m_ServiceTransport;
 	m_AnonymousServiceTransport;
@@ -76,7 +76,7 @@ export class D {
 			}),
 			MakeReady: this.MakeReady.bind(this),
 		};
-		const i = (0, g.VY)("steamLoginSpoofSteamID");
+		const i = (0, VY)("steamLoginSpoofSteamID");
 		if (i && /[0-9]+/g.test(i)) {
 			this.m_strSpoofedSteamID = i;
 		}

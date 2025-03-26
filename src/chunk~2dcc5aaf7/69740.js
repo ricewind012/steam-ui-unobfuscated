@@ -19,7 +19,12 @@ var d = require("./823.js");
 var A = require("./12956.js");
 var p = require("./5859.js");
 var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	CLocalizationManager,
+	CLocLanguageArray,
+	GetConfiguredLocale,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./31958.js");
 var _ = require("./98670.js");
 require(/*webcrack:missing*/ "./83957.js");
@@ -365,7 +370,7 @@ export class lh {
 		return Math.min(e, r);
 	}
 	GetNameWithFallback(e) {
-		const t = h.A0.GetELanguageFallback(e);
+		const t = CLocalizationManager.GetELanguageFallback(e);
 		return this.name.get(e) || this.name.get(t);
 	}
 	GetGameTitle(e) {
@@ -380,9 +385,15 @@ export class lh {
 	BIsLanguageValidForRealms(e) {
 		return (
 			(!!this.BInRealmGlobal() &&
-				!!h.A0.IsELanguageValidInRealm(e, a.TU.k_ESteamRealmGlobal)) ||
+				!!CLocalizationManager.IsELanguageValidInRealm(
+					e,
+					a.TU.k_ESteamRealmGlobal,
+				)) ||
 			(!!this.BInRealmChina() &&
-				!!h.A0.IsELanguageValidInRealm(e, a.TU.k_ESteamRealmChina))
+				!!CLocalizationManager.IsELanguageValidInRealm(
+					e,
+					a.TU.k_ESteamRealmChina,
+				))
 		);
 	}
 	GetImgArray(e) {
@@ -563,7 +574,7 @@ export class lh {
 		if (n && n.trim().length > 0) {
 			return n;
 		}
-		const i = h.A0.GetELanguageFallback(t);
+		const i = CLocalizationManager.GetELanguageFallback(t);
 		if (t != i) {
 			const t = this.GetImageURL(e, i, r);
 			if (t && t.trim().length > 0) {
@@ -636,7 +647,7 @@ export class lh {
 	BImageNeedScreenshotFallback(e, t) {
 		let r = this.GetImageURL(e, t);
 		if (!r || r.length == 0) {
-			const n = h.A0.GetELanguageFallback(t);
+			const n = CLocalizationManager.GetELanguageFallback(t);
 			if (t != n) {
 				r = this.GetImageURL(e, n);
 			}
@@ -658,12 +669,12 @@ export class lh {
 		return i;
 	}
 	GetDescriptionWithFallback(e) {
-		const t = h.A0.GetELanguageFallback(e);
+		const t = CLocalizationManager.GetELanguageFallback(e);
 		return this.description.get(e) || this.description.get(t);
 	}
 	BIsImageSafeForAllAges(e, t) {
 		const r = u.ac.GetClanInfoByClanAccountID(this.clanSteamID.GetAccountID());
-		const n = h.A0.GetELanguageFallback(t);
+		const n = CLocalizationManager.GetELanguageFallback(t);
 		return (
 			this.GetImageURL(e, t) != null ||
 			(t != n && this.GetImageURL(e, n) != null) ||
@@ -730,25 +741,28 @@ export class lh {
 	}
 	GetSubTitleWithLanguageFallback(e) {
 		if (this.jsondata) {
-			return h.NT.GetWithFallback(this.jsondata.localized_subtitle, e);
+			return CLocLanguageArray.GetWithFallback(
+				this.jsondata.localized_subtitle,
+				e,
+			);
 		} else {
 			return "";
 		}
 	}
 	GetSubTitleWithSummaryFallback(e) {
 		return (
-			h.NT.GetWithFallback(this.jsondata?.localized_subtitle, e) ||
+			CLocLanguageArray.GetWithFallback(this.jsondata?.localized_subtitle, e) ||
 			lh.GenerateSummaryFromText(this.GetDescriptionWithFallback(e))
 		);
 	}
 	GetSummaryWithFallback(e, t) {
 		return (
-			h.NT.GetWithFallback(this.jsondata?.localized_summary, e) ||
+			CLocLanguageArray.GetWithFallback(this.jsondata?.localized_summary, e) ||
 			lh.GenerateSummaryFromText(this.GetDescriptionWithFallback(e), t)
 		);
 	}
 	GetSummary(e) {
-		return h.NT.Get(this.jsondata?.localized_summary, e);
+		return CLocLanguageArray.Get(this.jsondata?.localized_summary, e);
 	}
 	BHasSummary(e) {
 		return Boolean(this.GetSummary(e));
@@ -827,8 +841,11 @@ export class lh {
 	}
 	GetBroadcastTitle(e) {
 		return (
-			h.NT.GetWithFallback(this.jsondata.localized_broadcast_title, e) ||
-			(0, h.we)(
+			CLocLanguageArray.GetWithFallback(
+				this.jsondata.localized_broadcast_title,
+				e,
+			) ||
+			Localize(
 				this.jsondata.default_broadcast_title ?? "#Broadcast_default_title_dev",
 			)
 		);
@@ -879,7 +896,7 @@ export class lh {
 					return (
 						f.TS.STORE_BASE_URL +
 						"tags/" +
-						((0, h.l4)() || "en") +
+						(GetConfiguredLocale() || "en") +
 						"/" +
 						e.tagid
 					);
@@ -1087,18 +1104,18 @@ export class lh {
 	}
 	GetCategoryAsString() {
 		if (this.BHasTag("steam_award_nomination_request")) {
-			return (0, h.we)("#PartnerEvent_SteamAwardNominations");
+			return Localize("#PartnerEvent_SteamAwardNominations");
 		} else if (this.BHasTag("steam_award_vote_request")) {
-			return (0, h.we)("#PartnerEvent_SteamAwardVoteRequest");
+			return Localize("#PartnerEvent_SteamAwardVoteRequest");
 		} else if (this.BHasTag("steam_game_festival_artist_statement")) {
-			return (0, h.we)("#PartnerEvent_SteamGameFestival_ArtistState");
+			return Localize("#PartnerEvent_SteamGameFestival_ArtistState");
 		} else if (this.BHasTag("steam_game_festival_office_hour")) {
-			return (0, h.we)("#PartnerEvent_SteamGameFestival_OfficeHour");
+			return Localize("#PartnerEvent_SteamGameFestival_OfficeHour");
 		} else if (
 			this.BHasTag("steam_game_festival_broadcast") ||
 			(this.BHasTagStartingWith("sale_nextfest_") && this.type == 11)
 		) {
-			return (0, h.we)("#PartnerEvent_SteamGameFestival_Broadcast");
+			return Localize("#PartnerEvent_SteamGameFestival_Broadcast");
 		} else {
 			return this.GetEventTypeAsString();
 		}

@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./90095.js");
 var l = require(/*webcrack:missing*/ "./52451.js");
 var c = require("./51297.js");
 var m = require("./60917.js");
-require(/*webcrack:missing*/ "./46108.js");
+import("../../actual_src/utils/localization.js");
 var u = require("./96555.js");
 var d = require("./34792.js");
 var A = require(/*webcrack:missing*/ "./43691.js");

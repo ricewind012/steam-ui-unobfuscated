@@ -1,14 +1,18 @@
 var r = require("./31958.js");
-var i = require("./9626.js");
+import {
+	BCanAccessDocument,
+	GetCookie,
+	SetCookie,
+} from "../../actual_src/utils/cookies.js";
 var s = require("./43691.js");
 const o = "webui_config";
 let a;
 export function KC() {
-	if (!(0, i.kI)()) {
+	if (!BCanAccessDocument()) {
 		a ||= bf();
 		return a;
 	}
-	let e = (0, i.VY)("sessionid");
+	let e = GetCookie("sessionid");
 	e ||= bf();
 	return e;
 }
@@ -20,7 +24,7 @@ export function bf() {
 		}
 		return e;
 	})();
-	(0, i.lc)("sessionid", e, 0);
+	SetCookie("sessionid", e, 0);
 	return e;
 }
 export function Tc(e, t = o) {
@@ -66,8 +70,8 @@ function d(e, t = o, n) {
 const h = "presentation_mode";
 export function Bu() {
 	let e = null;
-	if ((0, i.kI)()) {
-		e = (0, i.VY)(h);
+	if (BCanAccessDocument()) {
+		e = GetCookie(h);
 	}
 	return Boolean(e && Number.parseInt(e) === 1);
 }

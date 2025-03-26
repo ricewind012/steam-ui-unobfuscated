@@ -13,7 +13,10 @@ var p = require("./10606.js");
 var g = require("./13869.js");
 var h = require(/*webcrack:missing*/ "./26853.js");
 var C = require(/*webcrack:missing*/ "./90765.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var f = require(/*webcrack:missing*/ "./72476.js");
 var b = require("./28694.js");
 var y = b;
@@ -191,14 +194,14 @@ export const L = (e) => {
 				s.createElement(
 					d.Y9,
 					null,
-					(0, _.we)("#Settings_Library_ProdKey_Activate"),
+					(0, Localize)("#Settings_Library_ProdKey_Activate"),
 				),
 				s.createElement(
 					d.a3,
 					{
 						className: y.AgreementPrompt,
 					},
-					(0, _.we)("#Settings_Library_SSA_Agree"),
+					(0, Localize)("#Settings_Library_SSA_Agree"),
 				),
 				s.createElement(
 					l.Z,
@@ -219,7 +222,7 @@ export const L = (e) => {
 						bOKDisabled: false,
 						onOK: () => m.Yq.AcceptSSA(0),
 						onCancel: S,
-						strOKText: (0, _.we)("#Settings_Library_SSA_Agree_Confirm"),
+						strOKText: (0, Localize)("#Settings_Library_SSA_Agree_Confirm"),
 						focusButton: "primary",
 					}),
 				),
@@ -242,7 +245,7 @@ export const L = (e) => {
 						s.createElement(A.Information, {
 							className: y.InfoIcon,
 						}),
-						(0, _.we)("#Settings_Library_ProdKey_Info_Title"),
+						(0, Localize)("#Settings_Library_ProdKey_Info_Title"),
 					),
 					s.createElement(
 						l.Z,
@@ -266,35 +269,35 @@ export const L = (e) => {
 					{
 						className: y.InfoBody,
 					},
-					(0, _.we)("#Settings_Library_ProdKey_Info_Details"),
+					(0, Localize)("#Settings_Library_ProdKey_Info_Details"),
 				),
 				s.createElement(
 					"div",
 					{
 						className: y.InfoExampleHeader,
 					},
-					(0, _.we)("#Settings_Library_ProdKey_Info_Examples"),
+					(0, Localize)("#Settings_Library_ProdKey_Info_Examples"),
 				),
 				s.createElement(
 					"div",
 					{
 						className: y.InfoExample,
 					},
-					(0, _.we)("#Settings_Library_ProdKey_Info_Example_1"),
+					(0, Localize)("#Settings_Library_ProdKey_Info_Example_1"),
 				),
 				s.createElement(
 					"div",
 					{
 						className: y.InfoExample,
 					},
-					(0, _.we)("#Settings_Library_ProdKey_Info_Example_2"),
+					(0, Localize)("#Settings_Library_ProdKey_Info_Example_2"),
 				),
 				s.createElement(
 					"div",
 					{
 						className: y.InfoExample,
 					},
-					(0, _.we)("#Settings_Library_ProdKey_Info_Example_3"),
+					(0, Localize)("#Settings_Library_ProdKey_Info_Example_3"),
 				),
 				s.createElement(
 					d.jn,
@@ -308,7 +311,7 @@ export const L = (e) => {
 								strProductName: "",
 							}),
 					},
-					(0, _.we)("#Generic_GotItCalm"),
+					(0, Localize)("#Generic_GotItCalm"),
 				),
 			),
 		t.eState == n.EnterCode &&
@@ -327,7 +330,7 @@ export const L = (e) => {
 						{
 							className: y.CodeInputHeader,
 						},
-						(0, _.we)("#Settings_Library_ProdKey_EnterProductCode"),
+						(0, Localize)("#Settings_Library_ProdKey_EnterProductCode"),
 						!M &&
 							s.createElement(
 								l.Z,
@@ -358,35 +361,35 @@ export const L = (e) => {
 							{
 								className: y.InfoBody,
 							},
-							(0, _.we)("#Settings_Library_ProdKey_Info_Details"),
+							(0, Localize)("#Settings_Library_ProdKey_Info_Details"),
 						),
 						s.createElement(
 							"div",
 							{
 								className: y.InfoExampleHeader,
 							},
-							(0, _.we)("#Settings_Library_ProdKey_Info_Examples"),
+							(0, Localize)("#Settings_Library_ProdKey_Info_Examples"),
 						),
 						s.createElement(
 							"div",
 							{
 								className: y.InfoExample,
 							},
-							(0, _.we)("#Settings_Library_ProdKey_Info_Example_1"),
+							(0, Localize)("#Settings_Library_ProdKey_Info_Example_1"),
 						),
 						s.createElement(
 							"div",
 							{
 								className: y.InfoExample,
 							},
-							(0, _.we)("#Settings_Library_ProdKey_Info_Example_2"),
+							(0, Localize)("#Settings_Library_ProdKey_Info_Example_2"),
 						),
 						s.createElement(
 							"div",
 							{
 								className: y.InfoExample,
 							},
-							(0, _.we)("#Settings_Library_ProdKey_Info_Example_3"),
+							(0, Localize)("#Settings_Library_ProdKey_Info_Example_3"),
 						),
 					),
 				s.createElement(d.pd, {
@@ -409,7 +412,7 @@ export const L = (e) => {
 			s.createElement(
 				s.Fragment,
 				null,
-				s.createElement(d.Y9, null, (0, _.we)(T, t.strProductName)),
+				s.createElement(d.Y9, null, (0, Localize)(T, t.strProductName)),
 				s.createElement(
 					d.a3,
 					{
@@ -418,7 +421,7 @@ export const L = (e) => {
 							whiteSpace: "pre-line",
 						},
 					},
-					(0, _.we)(R, t.strProductName),
+					(0, Localize)(R, t.strProductName),
 				),
 				s.createElement(
 					d.jn,
@@ -432,7 +435,7 @@ export const L = (e) => {
 								strProductName: "",
 							}),
 					},
-					(0, _.we)("#Button_TryAgain"),
+					(0, Localize)("#Button_TryAgain"),
 				),
 			),
 		t.eState == n.Success &&
@@ -443,7 +446,7 @@ export const L = (e) => {
 					d.Y9,
 					null,
 					t.strProductName
-						? (0, _.PP)(
+						? LocalizeReact(
 								"#Activate_SubscriptionSuccess_Headline_WithProduct",
 								s.createElement(
 									"span",
@@ -453,7 +456,7 @@ export const L = (e) => {
 									t.strProductName,
 								),
 							)
-						: (0, _.we)("#Activate_SubscriptionSuccess_Headline"),
+						: (0, Localize)("#Activate_SubscriptionSuccess_Headline"),
 				),
 				s.createElement(
 					d.a3,
@@ -463,7 +466,7 @@ export const L = (e) => {
 							whiteSpace: "pre-line",
 						},
 					},
-					(0, _.we)("#Activate_SubscriptionSuccess"),
+					(0, Localize)("#Activate_SubscriptionSuccess"),
 				),
 				s.createElement(
 					d.jn,
@@ -479,7 +482,7 @@ export const L = (e) => {
 							}
 						},
 					},
-					(0, _.we)("#Button_OK"),
+					(0, Localize)("#Button_OK"),
 				),
 			),
 		t.eState == n.Busy && s.createElement(h.t, null),

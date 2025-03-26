@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var i = require(/*webcrack:missing*/ "./28864.js");
 var a = require(/*webcrack:missing*/ "./4452.js");
 var s = a;
@@ -141,7 +141,7 @@ function f(e) {
 	o.useLayoutEffect(() => {
 		const e = function () {
 			if (h.current) {
-				(0, n.w)(
+				AssertMsg(
 					h.current.scrollHeight >= m,
 					`Element is ${h.current.scrollHeight} high but trying to restore scrollTop of ${m}, element may need more time to lay out.`,
 					h.current,

@@ -1,11 +1,11 @@
-var r = require("./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 export class l {
 	m_vecCallbacks = [];
 	Register(e) {
 		this.m_vecCallbacks.push(e);
 		return {
 			Unregister: () => {
-				r.x9(this.m_vecCallbacks, e);
+				FindAndRemove(this.m_vecCallbacks, e);
 			},
 		};
 	}

@@ -8,7 +8,10 @@ var c = require(/*webcrack:missing*/ "./89193.js");
 var m = require(/*webcrack:missing*/ "./62757.js");
 var u = m;
 var d = require("./84056.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	BLocStringExists,
+} from "../../actual_src/utils/localization.js";
 var p = require("./85360.js");
 var g = require("./52192.js");
 export function mJ(e) {
@@ -1703,7 +1706,7 @@ export function Bv(e, t, r, n, i) {
 									a.push({
 										gameAction: n,
 										eMode: s,
-										strDisplay: (0, A.we)(
+										strDisplay: (0, Localize)(
 											"#ControllerConfigurator_SourceMode_FlickStick_Action_Title_1",
 											i.display_name,
 										),
@@ -1722,7 +1725,7 @@ export function Bv(e, t, r, n, i) {
 								a.push({
 									gameAction: n,
 									eMode: s,
-									strDisplay: (0, A.we)(
+									strDisplay: (0, Localize)(
 										"#ControllerConfigurator_SourceMode_GyroToMouse_Action_Title_1",
 										i.display_name,
 									),
@@ -1735,7 +1738,7 @@ export function Bv(e, t, r, n, i) {
 								a.push({
 									gameAction: n,
 									eMode: s,
-									strDisplay: (0, A.we)(
+									strDisplay: (0, Localize)(
 										"#ControllerConfigurator_SourceMode_FlickStick_Action_Title_1",
 										i.display_name,
 									),
@@ -1748,7 +1751,7 @@ export function Bv(e, t, r, n, i) {
 								a.push({
 									gameAction: n,
 									eMode: s,
-									strDisplay: (0, A.we)(
+									strDisplay: (0, Localize)(
 										"#ControllerConfigurator_SourceMode_MouseJoystick_Action_Title_1",
 										i.display_name,
 									),
@@ -1793,7 +1796,7 @@ export function zB(e, t, r, n) {
 	if (r != null) {
 		i.push({
 			eMode: 0,
-			strDisplay: (0, A.we)(
+			strDisplay: (0, Localize)(
 				"#ControllerConfigurator_SourceMode_LayerInherit_Title",
 				n,
 			),
@@ -1836,7 +1839,7 @@ export function KB(e) {
 				let n =
 					e.friendlyname && e.friendlyname.length
 						? e.friendlyname
-						: (0, A.we)(
+						: (0, Localize)(
 								"#ControllerConfigurator_SourceMode_UnnamedVirtualMenu_Title",
 								GW(t),
 							);
@@ -8603,55 +8606,59 @@ export const HL = [
 	},
 ];
 export function ND(e) {
-	return (0, A.we)(e + "_Title");
+	return (0, Localize)(e + "_Title");
 }
 export function GW(e, t) {
-	return (0, A.we)(e + "_Title");
+	return (0, Localize)(e + "_Title");
 }
 export function wm(e, t, r, n) {
 	if (n) {
-		return (0, A.we)("#ControllerBinding_ModeShift_SubHeader", ND(t));
+		return (0, Localize)("#ControllerBinding_ModeShift_SubHeader", ND(t));
 	}
 	{
 		const n = e ? ND(t) : r;
 		if (e) {
 			return (
-				r ?? (0, A.we)("#ControllerConfigurator_SourceMode_Group_Behavior", n)
+				r ??
+				(0, Localize)("#ControllerConfigurator_SourceMode_Group_Behavior", n)
 			);
 		} else {
-			return (0, A.we)("#ControllerConfigurator_SourceMode_Group_Behavior", n);
+			return (0, Localize)(
+				"#ControllerConfigurator_SourceMode_Group_Behavior",
+				n,
+			);
 		}
 	}
 }
 export function fU(e, t) {
 	const r = e + "Explanation_on_" + t;
-	if ((0, A.c9)(r)) {
-		return (0, A.we)(r);
+	if (BLocStringExists(r)) {
+		return (0, Localize)(r);
 	}
 }
 export function JS(e) {
 	const t = e + "_Explanation";
-	if ((0, A.c9)(t)) {
-		return (0, A.we)(t);
+	if (BLocStringExists(t)) {
+		return (0, Localize)(t);
 	}
 }
 export function bj(e) {
-	return (0, A.we)("#ControllerBinding_ActivatorDropDown_" + e);
+	return (0, Localize)("#ControllerBinding_ActivatorDropDown_" + e);
 }
 export function ix(e, ...t) {
-	return (0, A.we)("#ControllerBinding_" + e, ...t);
+	return (0, Localize)("#ControllerBinding_" + e, ...t);
 }
 export function Fq(e) {
-	return (0, A.we)("#ControllerSettingValue_" + e);
+	return (0, Localize)("#ControllerSettingValue_" + e);
 }
 export function Aj(e, t) {
 	const r = "#ControllerBinding_" + e + "_" + t + "_Description";
-	if ((0, A.c9)(r)) {
-		return (0, A.we)(r);
+	if (BLocStringExists(r)) {
+		return (0, Localize)(r);
 	}
 }
 export function RW(e) {
-	return (0, A.we)("#" + SW[e]?.subheader);
+	return (0, Localize)("#" + SW[e]?.subheader);
 }
 export const $o = [
 	{

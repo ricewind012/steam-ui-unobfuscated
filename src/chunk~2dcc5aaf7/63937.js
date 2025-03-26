@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./24295.js");
 var o = require(/*webcrack:missing*/ "./46382.js");
 var l = require("./59401.js");
 require("./54946.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./58663.js");
 var u = require(/*webcrack:missing*/ "./48307.js");
 const d = m.Message;
@@ -1882,7 +1882,7 @@ export function p8(e, t) {
 	const { setErrorMessage: r } = Z();
 	(0, n.useEffect)(() => {
 		if (e.isError) {
-			r((0, c.we)(t));
+			r((0, Localize)(t));
 		}
 	}, [r, e.isError, t]);
 }

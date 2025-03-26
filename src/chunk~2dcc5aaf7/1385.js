@@ -3,7 +3,14 @@ var i = require("./18057.js");
 var a = require("./64608.js");
 var s = require("./10606.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+	LocalizeInlineReactPlural,
+	LocalizeInlineReactWithFallback,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var c = require("./34428.js");
 var m = require(/*webcrack:missing*/ "./98995.js");
 var u = require(/*webcrack:missing*/ "./72476.js");
@@ -52,7 +59,7 @@ export function iN(e) {
 					className: b.Message,
 					onCancel: d,
 				},
-				(0, l.we)("#ScreenshotUploader_FailedToLoadScreenshot"),
+				Localize("#ScreenshotUploader_FailedToLoadScreenshot"),
 			),
 		);
 	}
@@ -116,7 +123,7 @@ function N(e) {
 				onSelected: () => (0, w.H9)(t),
 				tone: "destructive",
 			},
-			(0, l.we)("#ExportClip_CopyClipboard"),
+			Localize("#ExportClip_CopyClipboard"),
 		),
 		r &&
 			n.createElement(
@@ -125,7 +132,7 @@ function N(e) {
 					onSelected: () =>
 						SteamClient.Screenshots.ShowScreenshotsOnDisk(t.strGameID),
 				},
-				(0, l.we)("#ScreenshotUploader_ShowOnDisk"),
+				Localize("#ScreenshotUploader_ShowOnDisk"),
 			),
 	);
 }
@@ -159,7 +166,7 @@ export function Pj(e) {
 				{
 					className: b.Message,
 				},
-				(0, l.we)("#ScreenshotUploader_FailedToLoadScreenshot"),
+				Localize("#ScreenshotUploader_FailedToLoadScreenshot"),
 			),
 		);
 	}
@@ -258,7 +265,7 @@ function P(e) {
 		visibility: B,
 		spoiler_tag: v,
 	} = a;
-	const I = (0, l.PP)(
+	const I = LocalizeReact(
 		"#UGC_Visibility_Field",
 		n.createElement(
 			"span",
@@ -269,7 +276,7 @@ function P(e) {
 			(0, g.AI)(B),
 		),
 	);
-	const E = (0, l.PP)(
+	const E = LocalizeReact(
 		"#UGC_Spoilers_Field",
 		n.createElement(
 			"span",
@@ -277,7 +284,7 @@ function P(e) {
 				className: b.Link,
 				onClick: c,
 			},
-			(0, l.we)(v ? "#UGC_Spoilers_Field_Yes" : "#UGC_Spoilers_Field_None"),
+			Localize(v ? "#UGC_Spoilers_Field_Yes" : "#UGC_Spoilers_Field_None"),
 		),
 	);
 	const M = (0, u.Qn)();
@@ -374,7 +381,7 @@ function P(e) {
 					{
 						onClick: c,
 					},
-					(0, l.we)("#ScreenshotUploader_Action_ViewOnProfile"),
+					Localize("#ScreenshotUploader_Action_ViewOnProfile"),
 				),
 				n.createElement(
 					g.$n,
@@ -382,7 +389,7 @@ function P(e) {
 						autoFocus: M,
 						onClick: (e) => m(t, e.currentTarget),
 					},
-					(0, l.we)("#Generic_Share"),
+					Localize("#Generic_Share"),
 				),
 			),
 		),
@@ -509,7 +516,7 @@ function U(e) {
 						autoFocus: c,
 						onClick: (e) => o(t, e.currentTarget),
 					},
-					(0, l.we)("#Generic_Share"),
+					Localize("#Generic_Share"),
 				),
 			),
 		),
@@ -559,7 +566,7 @@ function V(e) {
 			disabled: r,
 			icon: "trashcan",
 			onClick: () => s(true),
-			title: (0, l.we)("#Generic_Delete"),
+			title: Localize("#Generic_Delete"),
 		}),
 		n.createElement(H, {
 			active: a,
@@ -617,8 +624,8 @@ function j(e) {
 	return n.createElement(
 		s.o0,
 		{
-			strTitle: (0, l.Yp)("#ScreenshotUploader_ConfirmDelete_Title", i),
-			strOKButtonText: (0, l.we)("#Generic_Delete"),
+			strTitle: LocalizePlural("#ScreenshotUploader_ConfirmDelete_Title", i),
+			strOKButtonText: Localize("#Generic_Delete"),
 			onOK: () => {
 				t();
 				r();
@@ -630,7 +637,7 @@ function j(e) {
 			{
 				color: "secondary",
 			},
-			(0, l.we)("#ScreenshotUploader_DeleteAllData"),
+			Localize("#ScreenshotUploader_DeleteAllData"),
 		),
 	);
 }
@@ -643,8 +650,8 @@ function q(e) {
 	return n.createElement(
 		s.o0,
 		{
-			strTitle: (0, l.Yp)("#ScreenshotUploader_ConfirmDelete_Title", i),
-			strOKButtonText: (0, l.we)("#Generic_Delete"),
+			strTitle: LocalizePlural("#ScreenshotUploader_ConfirmDelete_Title", i),
+			strOKButtonText: Localize("#Generic_Delete"),
 			onOK: () => {
 				t();
 				r();
@@ -656,7 +663,7 @@ function q(e) {
 			{
 				color: "secondary",
 			},
-			(0, l.Yp)("#ScreenshotUploader_DeleteLocalOnlyData", a),
+			LocalizePlural("#ScreenshotUploader_DeleteLocalOnlyData", a),
 		),
 	);
 }
@@ -669,7 +676,7 @@ function Q(e) {
 	return n.createElement(
 		s.o0,
 		{
-			strTitle: (0, l.Yp)("#ScreenshotUploader_ConfirmDelete_Title", r),
+			strTitle: LocalizePlural("#ScreenshotUploader_ConfirmDelete_Title", r),
 			onOK: t,
 			onCancel: t,
 			bAlertDialog: true,
@@ -679,7 +686,7 @@ function Q(e) {
 			{
 				color: "warning",
 			},
-			(0, l.Yp)("#ScreenshotUploader_RemoteOnly_Message", a),
+			LocalizePlural("#ScreenshotUploader_RemoteOnly_Message", a),
 		),
 		n.createElement("br", null),
 		n.createElement("br", null),
@@ -688,7 +695,7 @@ function Q(e) {
 			{
 				color: "warning",
 			},
-			(0, l.um)(
+			LocalizeInlineReactPlural(
 				"#ScreenshotUploader_RemoteOnly_Description",
 				a,
 				n.createElement(g.EY, {
@@ -710,8 +717,8 @@ function Z(e) {
 	return n.createElement(
 		s.o0,
 		{
-			strTitle: (0, l.Yp)("#ScreenshotUploader_ConfirmDelete_Title", a),
-			strOKButtonText: (0, l.we)("#Generic_Delete"),
+			strTitle: LocalizePlural("#ScreenshotUploader_ConfirmDelete_Title", a),
+			strOKButtonText: Localize("#Generic_Delete"),
 			onOK: () => {
 				t();
 				r();
@@ -721,7 +728,7 @@ function Z(e) {
 		n.createElement(
 			g.EY,
 			null,
-			(0, l.Yp)("#ScreenshotUploader_DeleteLocalData", o, a),
+			LocalizePlural("#ScreenshotUploader_DeleteLocalData", o, a),
 		),
 		n.createElement("br", null),
 		n.createElement("br", null),
@@ -730,7 +737,7 @@ function Z(e) {
 			{
 				color: "secondary",
 			},
-			(0, l.oW)(
+			LocalizeInlineReactWithFallback(
 				"#ScreenshotUploader_DeleteRemoteDataNote",
 				n.createElement(g.EY, {
 					link: true,
@@ -791,7 +798,7 @@ function X(e) {
 function J(e) {
 	const { details: t } = e;
 	const r = t
-		? (0, l.we)(
+		? Localize(
 				"#ScreenshotUploader_CloudStorageImpact",
 				t.strSizeOnDisk,
 				t.strCloudAvailable,
@@ -809,7 +816,7 @@ function J(e) {
 function $(e) {
 	const { timeCreated: t, size: r } = e;
 	const { strDay: i, strTime: a } = nN(t);
-	const s = (0, l.we)("#ScreenshotUploader_DateTaken", i, a);
+	const s = Localize("#ScreenshotUploader_DateTaken", i, a);
 	const o = !!r;
 	const m =
 		typeof r != "string" || /[0-9]+$/g.test(r)
@@ -831,12 +838,12 @@ function ee(e) {
 }
 export function nN(e) {
 	const t = new Date(e * 1000);
-	const r = t?.toLocaleString(l.pf.GetPreferredLocales(), {
+	const r = t?.toLocaleString(LocalizationManager.GetPreferredLocales(), {
 		year: "numeric",
 		month: "short",
 		day: "numeric",
 	});
-	const n = t?.toLocaleString(l.pf.GetPreferredLocales(), {
+	const n = t?.toLocaleString(LocalizationManager.GetPreferredLocales(), {
 		hour: "numeric",
 		minute: "numeric",
 	});
@@ -849,7 +856,7 @@ function re(e) {
 	const { value: t, onChange: r, onBlur: i, disabled: a } = e;
 	return n.createElement(h.dO, {
 		className: b.CaptionField,
-		placeholder: (0, l.we)("#ScreenshotUploader_CaptionField_Placeholder"),
+		placeholder: Localize("#ScreenshotUploader_CaptionField_Placeholder"),
 		value: t || "",
 		onChange: r ? (e) => r(e.target.value) : undefined,
 		onBlur: i,
@@ -872,7 +879,7 @@ function ne(e) {
 			{
 				className: b.Label,
 			},
-			(0, l.we)("#ScreenshotUploader_VisibilityFieldLabel"),
+			Localize("#ScreenshotUploader_VisibilityFieldLabel"),
 		),
 		n.createElement(g.G3, {
 			options: [0, 1, 2, 3],
@@ -891,7 +898,7 @@ function ie(e) {
 		2: "#ScreenshotUploader_Visibility_Private_Explanation",
 		3: "#ScreenshotUploader_Visibility_Unlisted_Explanation",
 	}[e];
-	return (0, l.we)(t);
+	return Localize(t);
 }
 function ae(e) {
 	const { value: t, onChange: r, disabled: i } = e;
@@ -905,12 +912,12 @@ function ae(e) {
 			{
 				className: (0, o.A)(b.Label, b.Wide),
 			},
-			(0, l.we)("#ScreenshotUploader_SpoilerFieldLabel"),
+			Localize("#ScreenshotUploader_SpoilerFieldLabel"),
 		),
 		n.createElement(
 			m.he,
 			{
-				toolTipContent: (0, l.we)("#ScreenshotUploader_SpoilerFieldLabel"),
+				toolTipContent: Localize("#ScreenshotUploader_SpoilerFieldLabel"),
 				className: (0, o.A)(b.Label, b.Narrow),
 			},
 			t
@@ -1045,7 +1052,7 @@ export function tL(e) {
 				{
 					className: b.Message,
 				},
-				(0, l.we)("#ScreenshotUploader_FailedToLoadScreenshot"),
+				Localize("#ScreenshotUploader_FailedToLoadScreenshot"),
 			),
 		);
 	}
@@ -1167,7 +1174,7 @@ function pe(e) {
 				{
 					className: b.Error,
 				},
-				(0, l.we)("#MediaManager_UploadScreenshot_Failure"),
+				Localize("#MediaManager_UploadScreenshot_Failure"),
 			),
 		n.createElement(
 			A.Z,
@@ -1182,7 +1189,7 @@ function pe(e) {
 					disabled: C,
 					onClick: t,
 				},
-				(0, l.we)("#Button_Cancel"),
+				Localize("#Button_Cancel"),
 			),
 			n.createElement(
 				a.jn,
@@ -1200,7 +1207,7 @@ function pe(e) {
 							},
 						),
 				},
-				(0, l.we)("#Button_Upload"),
+				Localize("#Button_Upload"),
 			),
 		),
 	);
@@ -1231,7 +1238,7 @@ function he(e) {
 			n.createElement(
 				fe,
 				null,
-				(0, l.we)("#ShareSheet_ShareOnSteam_AllUploaded"),
+				Localize("#ShareSheet_ShareOnSteam_AllUploaded"),
 			),
 			n.createElement(
 				A.Z,
@@ -1245,7 +1252,7 @@ function he(e) {
 						className: b.Button,
 						onClick: t,
 					},
-					(0, l.we)("#Button_Close"),
+					Localize("#Button_Close"),
 				),
 			),
 		);
@@ -1268,7 +1275,7 @@ function he(e) {
 			n.createElement(
 				fe,
 				null,
-				(0, l.Yp)("#ShareSheet_ShareOnSteam_PartialUploaded", C),
+				LocalizePlural("#ShareSheet_ShareOnSteam_PartialUploaded", C),
 			),
 		u &&
 			n.createElement(_e, {
@@ -1287,7 +1294,7 @@ function he(e) {
 					disabled: g && !h,
 					onClick: t,
 				},
-				(0, l.we)(h ? "#Button_Close" : "#Button_Cancel"),
+				Localize(h ? "#Button_Close" : "#Button_Cancel"),
 			),
 			n.createElement(
 				a.jn,
@@ -1328,7 +1335,7 @@ function he(e) {
 						}
 					},
 				},
-				(0, l.we)("#Button_Upload"),
+				Localize("#Button_Upload"),
 			),
 		),
 	);
@@ -1345,7 +1352,7 @@ function Ce(e) {
 			{
 				className: b.ScreenshotShareDialog,
 			},
-			n.createElement(a.Y9, null, (0, l.we)("#MediaManager_ShareOnSteam")),
+			n.createElement(a.Y9, null, Localize("#MediaManager_ShareOnSteam")),
 			r,
 		),
 	);
@@ -1360,7 +1367,7 @@ function _e(e) {
 			n.createElement(se, {
 				count: t,
 				progress: r,
-				label: (0, l.we)("#ShareSheet_ShareOnSteam_UploadProgress", r + 1, t),
+				label: Localize("#ShareSheet_ShareOnSteam_UploadProgress", r + 1, t),
 			}),
 		i > 0 &&
 			n.createElement(
@@ -1368,7 +1375,7 @@ function _e(e) {
 				{
 					error: true,
 				},
-				(0, l.Yp)("#ShareSheet_ShareOnSteam_UploadProgress_Failures", i),
+				LocalizePlural("#ShareSheet_ShareOnSteam_UploadProgress_Failures", i),
 			),
 	);
 }

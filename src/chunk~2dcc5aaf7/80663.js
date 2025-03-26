@@ -133,9 +133,9 @@ class w extends S.s {
 		}
 	}
 }
-var B = require(/*webcrack:missing*/ "./53833.js");
+import { CountMatches } from "../../actual_src/utils/arrayutils.js";
 var v = require(/*webcrack:missing*/ "./49455.js");
-var I = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 function E(e, t) {
 	if (!e || !t) {
 		return [];
@@ -156,7 +156,7 @@ async function M(e, t) {
 	await new Promise((e) => setTimeout(e, r));
 	return e();
 }
-var T = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 class R {
 	static strSettingsStorageKey = "RecentChats.HiddenItems";
 	m_storage;
@@ -303,7 +303,7 @@ export class fl {
 		let n = 0;
 		this.m_CMInterface.AddOnLogonCallback(() => {
 			if (r) {
-				const e = n < Date.now() / 1000 - T.Kp.PerMinute / 2;
+				const e = n < Date.now() / 1000 - Seconds.PerMinute / 2;
 				if (e) {
 					M(() => this.RestoreStatePostDisconnect(e), 4);
 				} else {
@@ -376,7 +376,7 @@ export class fl {
 							r.AddLocalMsg(
 								n.GetAccountID(),
 								t.timestamp(),
-								(0, I.we)(
+								(0, Localize)(
 									"#Chat_TextFilter_Active",
 									this.GetTextFilterSettingsURL(),
 								),
@@ -489,13 +489,13 @@ export class fl {
 						if (t) {
 							if (n == 3) {
 								s.xm.ShowAlert(
-									(0, I.we)("#Alert_YouWereKickedTitle"),
-									(0, I.we)("#Alert_YouWereKickedDescription", t),
+									(0, Localize)("#Alert_YouWereKickedTitle"),
+									(0, Localize)("#Alert_YouWereKickedDescription", t),
 								);
 							} else if (n == 10) {
 								s.xm.ShowAlert(
-									(0, I.we)("#Alert_YouWereBannedTitle"),
-									(0, I.we)("#Alert_YouWereBannedDescription", t),
+									(0, Localize)("#Alert_YouWereBannedTitle"),
+									(0, Localize)("#Alert_YouWereBannedDescription", t),
 								);
 							}
 						}
@@ -823,23 +823,23 @@ export class fl {
 		let e = this.m_TextFilterStore.TextFilterPreferences;
 		switch (e.eTextFilterSetting) {
 			case 0:
-				return (0, I.we)("#TextFilterStatus_SteamLabOptedOut");
+				return (0, Localize)("#TextFilterStatus_SteamLabOptedOut");
 			case 1:
 				if (e.bIgnoreFriends) {
-					return (0, I.we)("#TextFilterStatus_Enabled_IgnoreFriends");
+					return (0, Localize)("#TextFilterStatus_Enabled_IgnoreFriends");
 				} else {
-					return (0, I.we)("#TextFilterStatus_Enabled");
+					return (0, Localize)("#TextFilterStatus_Enabled");
 				}
 			case 2:
 				if (e.bIgnoreFriends) {
-					return (0, I.we)(
+					return (0, Localize)(
 						"#TextFilterStatus_EnabledAllowProfanity_IgnoreFriends",
 					);
 				} else {
-					return (0, I.we)("#TextFilterStatus_EnabledAllowProfanity");
+					return (0, Localize)("#TextFilterStatus_EnabledAllowProfanity");
 				}
 			case 3:
-				return (0, I.we)("#TextFilterStatus_Disabled");
+				return (0, Localize)("#TextFilterStatus_Disabled");
 			default:
 				return "";
 		}
@@ -1174,7 +1174,7 @@ export class fl {
 	}
 	FillInChatUsabilityMetrics(e) {
 		e.metrics().set_group_chat_count(
-			B.$D(Array.from(this.m_mapChatGroups.values()), (e) =>
+			CountMatches(Array.from(this.m_mapChatGroups.values()), (e) =>
 				e.BIsCurrentUserAMember(),
 			),
 		);

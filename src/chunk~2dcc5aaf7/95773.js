@@ -442,7 +442,7 @@ var w = require("./97023.js");
 var B = require("./47296.js");
 var v = require(/*webcrack:missing*/ "./736.js");
 var I = require(/*webcrack:missing*/ "./52451.js");
-var E = require(/*webcrack:missing*/ "./54644.js");
+import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
 var M = require(/*webcrack:missing*/ "./83599.js");
 var T = require(/*webcrack:missing*/ "./17385.js");
 const R = new M.wd("FriendsUI/RemotePlay");
@@ -1013,7 +1013,7 @@ class k {
 	CopyLink(e) {
 		const t = this.m_guestSessions.get(e);
 		if (t && t.bGuest) {
-			E.YQ(t.strConnectUrl);
+			CopyURLToClipboard(t.strConnectUrl);
 			this.m_unGuestLinkCopied = e;
 		} else {
 			R.Error("Cannot find guest session for copying link");

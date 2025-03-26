@@ -4,8 +4,8 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./88750.js");
 var o = require("./64608.js");
 var l = require("./13869.js");
-var c = require(/*webcrack:missing*/ "./54644.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./35376.js");
 export function ZH(e, t, r, n, i, s, o) {
 	return new Promise((l, c) => {
@@ -62,7 +62,7 @@ export let o0 = class extends a.Component {
 			children: d,
 			...A
 		} = this.props;
-		const p = r || (0, m.we)("#Button_Close");
+		const p = r || Localize("#Button_Close");
 		let g = a.createElement(o.CB, {
 			bOKDisabled: this.props.bOKDisabled,
 			bCancelDisabled: this.props.bCancelDisabled,
@@ -116,8 +116,8 @@ o0 = (0, n.Cg)([i.PA], o0);
 export let KG = class extends a.Component {
 	render() {
 		const e = {
-			strTitle: (0, m.we)("#Error_FailureNotice"),
-			strDescription: (0, m.we)("#Error_GenericFailureDescription"),
+			strTitle: Localize("#Error_FailureNotice"),
+			strDescription: Localize("#Error_GenericFailureDescription"),
 			bAlertDialog: true,
 			bDestructiveWarning: true,
 			onOK: () => {},
@@ -185,13 +185,13 @@ export const _Z = (e) => {
 			((e, t, r, n) => {
 				(0, l.pg)(
 					a.createElement(o0, {
-						strTitle: (0, m.we)(t),
-						strDescription: r ?? (0, m.we)("#Dialog_AreYouSure"),
+						strTitle: Localize(t),
+						strDescription: r ?? Localize("#Dialog_AreYouSure"),
 						onOK: n,
 					}),
 					e,
 				);
-			})(c.uX(e), t, r, () => i(e));
+			})(GetOwningWindowForEvent(e), t, r, () => i(e));
 		},
 		[t, r, i],
 	);
@@ -201,6 +201,6 @@ export const _Z = (e) => {
 			...o,
 			onSelected: n ? i : u,
 		},
-		(0, m.we)(e.strDisplayNameLocToken),
+		Localize(e.strDisplayNameLocToken),
 	);
 };

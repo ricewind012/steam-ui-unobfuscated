@@ -20,10 +20,10 @@ var b = require("./93681.js");
 var y = require("./13688.js");
 var S = require("./61175.js");
 var w = require(/*webcrack:missing*/ "./4690.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./52451.js");
 var I = require(/*webcrack:missing*/ "./72476.js");
-var E = require(/*webcrack:missing*/ "./41180.js");
+import { Timestamp } from "../../actual_src/utils/time.js";
 var M = require("./91486.js");
 export function TF(e) {
 	const t = (0, a.q3)(() => s.l.playbackState);
@@ -195,7 +195,7 @@ function k(e) {
 	let m = 100;
 	let u = "";
 	if (!r) {
-		u = (0, E.yS)(a);
+		u = Timestamp(a);
 		c = a;
 		m = t.nLengthInMsec;
 	}
@@ -346,7 +346,7 @@ export function SK() {
 					t.LibraryTab("Soundtracks");
 				},
 			},
-			(0, B.we)("#SoundtrackControls_Browse"),
+			(0, Localize)("#SoundtrackControls_Browse"),
 		),
 	);
 }

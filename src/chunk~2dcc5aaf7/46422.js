@@ -322,10 +322,17 @@ var ie = require("./38964.js");
 var ae = require("./2862.js");
 var se = require("./84838.js");
 var oe = require(/*webcrack:missing*/ "./90039.js");
-var le = require(/*webcrack:missing*/ "./53833.js");
+import {
+	FindAndRemove,
+	ArrayEquals,
+} from "../../actual_src/utils/arrayutils.js";
 var ce = require(/*webcrack:missing*/ "./93960.js");
 var me = require(/*webcrack:missing*/ "./736.js");
-var ue = require(/*webcrack:missing*/ "./54644.js");
+import {
+	IsHTMLElement,
+	IsHTMLInputElement,
+	IsHTMLElementTextInput,
+} from "../../actual_src/utils/domutils.js";
 var de = require(/*webcrack:missing*/ "./4690.js");
 const Ae = new q.wd("FocusNavigation").Debug;
 const pe = new q.wd("GamepadEvents").Debug;
@@ -579,7 +586,7 @@ class ge {
 		this.m_rgChildNavTrees.push(e);
 		this.OnChildTreesChangedCallbacks.Dispatch("add", e);
 		return () => {
-			le.x9(this.m_rgChildNavTrees, e);
+			FindAndRemove(this.m_rgChildNavTrees, e);
 			this.OnChildTreesChangedCallbacks.Dispatch("remove", e);
 		};
 	}
@@ -743,7 +750,7 @@ class Ce {
 		}
 	}
 }
-var _e = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 const fe = new q.wd("FocusNavigation").Debug;
 class be {
 	m_rootWindow;
@@ -882,12 +889,12 @@ class be {
 		}
 		const r = this.m_LastActiveNavTree;
 		if (r) {
-			le.x9(this.m_rgGamepadNavigationTrees, r);
+			FindAndRemove(this.m_rgGamepadNavigationTrees, r);
 		}
 		e ||= this.FindNavTreeToActivate();
 		const n = this.m_LastActiveFocusNavTree == e;
 		if (e) {
-			le.x9(this.m_rgGamepadNavigationTrees, e);
+			FindAndRemove(this.m_rgGamepadNavigationTrees, e);
 		}
 		this.m_LastActiveNavTree = e;
 		if (!e || !e.BUseVirtualFocus()) {
@@ -916,11 +923,11 @@ class be {
 		if (this.m_LastActiveNavTree == e) {
 			this.SetActiveNavTree(undefined, true);
 		}
-		le.x9(this.m_rgGamepadNavigationTrees, e);
+		FindAndRemove(this.m_rgGamepadNavigationTrees, e);
 		this.m_rgGamepadNavigationTrees.unshift(e);
 	}
 	UnregisterGamepadNavigationTree(e) {
-		le.x9(this.m_rgGamepadNavigationTrees, e);
+		FindAndRemove(this.m_rgGamepadNavigationTrees, e);
 		fe(
 			`(${this.m_rootWindow.name}) Unregister tree ${e?.id} ${this.m_LastActiveFocusNavTree == e ? "(was active)" : "(inactive)"}`,
 		);
@@ -959,7 +966,7 @@ class be {
 	}
 	OnFocusChangeComplete(e) {
 		this.m_iFocusChangeStack--;
-		(0, _e.w)(e == this.m_iFocusChangeStack, "out of order focus pop");
+		AssertMsg(e == this.m_iFocusChangeStack, "out of order focus pop");
 		if (this.m_iFocusChangeStack == 0) {
 			const { source: e, from: t, to: r } = this.m_ActiveFocusChange ?? {};
 			this.m_FocusChangedCallbacks.Dispatch(e, t, r);
@@ -1212,12 +1219,12 @@ class ve {
 		) {
 			const e = this.m_ActiveContext.m_LastActiveNavTree.GetLastFocusedNode();
 			const t = (function (e) {
-				if (!(0, ue.kD)(e)) {
+				if (!IsHTMLElement(e)) {
 					return false;
 				}
 				const t = e.tagName;
-				const r = (0, ue.IB)(e) ? e.type : undefined;
-				return (0, ue.TV)(t, r);
+				const r = IsHTMLInputElement(e) ? e.type : undefined;
+				return IsHTMLElementTextInput(t, r);
 			})(e?.Element)
 				? e
 				: null;
@@ -1312,7 +1319,7 @@ class ve {
 			if (this.m_LastActiveContext == e) {
 				this.m_LastActiveContext = undefined;
 			}
-			le.x9(this.m_rgAllContexts, e);
+			FindAndRemove(this.m_rgAllContexts, e);
 		}
 		if (this.m_ActiveContext == e) {
 			this.m_ActiveContext = undefined;
@@ -2038,7 +2045,7 @@ class Qe {
 			this.m_mapAppWindows.set(e, r);
 			return;
 		}
-		if (!le.R5(t, r.windowids)) {
+		if (!ArrayEquals(t, r.windowids)) {
 			r.windowids = t;
 			if (
 				r.focusedWindowID != 0 &&
@@ -2528,7 +2535,7 @@ class Ct {
 	}
 	SetRunningApp(e) {
 		if (this.m_runningAppIDs.length != 0 && e != this.m_runningAppIDs[0]) {
-			(0, le.x9)(this.m_runningAppIDs, e);
+			FindAndRemove(this.m_runningAppIDs, e);
 			this.m_runningAppIDs.unshift(e);
 			this.m_WindowStore.SetFocusedAppWindowID(e, 0);
 		} else {

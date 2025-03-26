@@ -18,7 +18,7 @@ var f = require("./13352.js");
 var b = require("./87949.js");
 var y = require(/*webcrack:missing*/ "./50376.js");
 var S = require(/*webcrack:missing*/ "./90765.js");
-var w = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var B = require(/*webcrack:missing*/ "./52451.js");
 var v = require(/*webcrack:missing*/ "./72476.js");
 var _I = require("./89454.js");
@@ -89,7 +89,7 @@ const F = (e) => {
 			return o.createElement(
 				R.Gq,
 				{
-					toolTipContent: (0, w.we)("#BroadcastChat_Role_Presenter_ttip"),
+					toolTipContent: (0, Localize)("#BroadcastChat_Role_Presenter_ttip"),
 				},
 				o.createElement(
 					"span",
@@ -103,7 +103,7 @@ const F = (e) => {
 			return o.createElement(
 				R.Gq,
 				{
-					toolTipContent: (0, w.we)("#BroadcastChat_Role_Moderatorr_ttip"),
+					toolTipContent: (0, Localize)("#BroadcastChat_Role_Moderatorr_ttip"),
 				},
 				o.createElement(
 					"span",
@@ -117,7 +117,7 @@ const F = (e) => {
 			return o.createElement(
 				R.Gq,
 				{
-					toolTipContent: (0, w.we)("#BroadcastChat_Role_Broadcaster_ttip"),
+					toolTipContent: (0, Localize)("#BroadcastChat_Role_Broadcaster_ttip"),
 				},
 				o.createElement(
 					"span",
@@ -237,7 +237,7 @@ export let I = class extends o.Component {
 						onSelected: () =>
 							this.m_chat.RemoveUserMessagesServer(t.steamid, t.persona_name),
 					},
-					(0, w.we)("#BroadcastChat_RemoveMessages"),
+					(0, Localize)("#BroadcastChat_RemoveMessages"),
 				),
 				o.createElement(
 					p.kt,
@@ -252,7 +252,7 @@ export let I = class extends o.Component {
 								t.persona_name,
 							),
 					},
-					(0, w.we)("#BroadcastChat_half_Mute"),
+					(0, Localize)("#BroadcastChat_half_Mute"),
 				),
 				o.createElement(
 					p.kt,
@@ -267,7 +267,7 @@ export let I = class extends o.Component {
 								t.persona_name,
 							),
 					},
-					(0, w.we)("#BroadcastChat_day_Mute"),
+					(0, Localize)("#BroadcastChat_day_Mute"),
 				),
 				o.createElement(
 					p.kt,
@@ -282,7 +282,7 @@ export let I = class extends o.Component {
 								t.persona_name,
 							),
 					},
-					(0, w.we)("#BroadcastChat_week_Mute"),
+					(0, Localize)("#BroadcastChat_week_Mute"),
 				),
 				o.createElement(
 					p.kt,
@@ -297,7 +297,7 @@ export let I = class extends o.Component {
 								t.persona_name,
 							),
 					},
-					(0, w.we)("#BroadcastChat_perm_Mute"),
+					(0, Localize)("#BroadcastChat_perm_Mute"),
 				),
 				o.createElement(
 					p.kt,
@@ -313,7 +313,7 @@ export let I = class extends o.Component {
 								true,
 							),
 					},
-					(0, w.we)("#BroadcastChat_Unmute"),
+					(0, Localize)("#BroadcastChat_Unmute"),
 				),
 			);
 		} else if (this.m_chat.IsUserMutedLocally(t.steamid)) {
@@ -325,7 +325,7 @@ export let I = class extends o.Component {
 						onSelected: () =>
 							this.m_chat.UnmuteUserForSession(t.steamid, t.persona_name),
 					},
-					(0, w.we)("#BroadcastChat_UnmuteLocal"),
+					(0, Localize)("#BroadcastChat_UnmuteLocal"),
 				),
 			);
 		} else {
@@ -337,7 +337,7 @@ export let I = class extends o.Component {
 						onSelected: () =>
 							this.m_chat.MuteUserForSession(t.steamid, t.persona_name),
 					},
-					(0, w.we)("#BroadcastChat_MuteLocal"),
+					(0, Localize)("#BroadcastChat_MuteLocal"),
 				),
 			);
 		}
@@ -359,7 +359,7 @@ export let I = class extends o.Component {
 									t.persona_name,
 								),
 						},
-						(0, w.we)("#BroadcastChat_Remove_Moderator"),
+						(0, Localize)("#BroadcastChat_Remove_Moderator"),
 					),
 				);
 			} else {
@@ -375,7 +375,7 @@ export let I = class extends o.Component {
 									t.persona_name,
 								),
 						},
-						(0, w.we)("#BroadcastChat_Add_Moderator"),
+						(0, Localize)("#BroadcastChat_Add_Moderator"),
 					),
 				);
 			}
@@ -390,7 +390,7 @@ export let I = class extends o.Component {
 						{
 							className: E.SelectedUserNameCtn,
 						},
-						(0, w.we)("#BroadcastChat_User"),
+						(0, Localize)("#BroadcastChat_User"),
 						o.createElement("br", null),
 						o.createElement(
 							"span",
@@ -472,7 +472,7 @@ export let I = class extends o.Component {
 					{
 						className: `${E.MessageNotification} ${E.MessageContents}`,
 					},
-					` (${(0, w.we)("#BroadcastChat_Broadcaster")})`,
+					` (${(0, Localize)("#BroadcastChat_Broadcaster")})`,
 				),
 			e.type === T.X8.Chat &&
 				this.m_chat.m_mapChannelModeratorUsers.get(e.steamid) &&
@@ -481,7 +481,7 @@ export let I = class extends o.Component {
 					{
 						className: `${E.MessageNotification} ${E.MessageContents}`,
 					},
-					` (${(0, w.we)("#BroadcastChat_Moderator")})`,
+					` (${(0, Localize)("#BroadcastChat_Moderator")})`,
 				),
 			o.createElement(
 				"span",
@@ -611,7 +611,7 @@ function P(e) {
 				},
 				o.createElement("textarea", {
 					className: A.chatTextarea,
-					placeholder: (0, w.we)("#BroadcastChat_EnterResponse"),
+					placeholder: (0, Localize)("#BroadcastChat_EnterResponse"),
 					onKeyPress: c,
 					onChange: (e) => i(e.target.value),
 					value: n,
@@ -626,7 +626,7 @@ function P(e) {
 					"button",
 					{
 						className: p,
-						title: (0, w.we)("#ChatEntryButton_Submit"),
+						title: (0, Localize)("#ChatEntryButton_Submit"),
 						disabled: d,
 						onClick: () => {
 							t.SendMessage(n);
@@ -684,7 +684,7 @@ function L(e) {
 			emoticonStore: r,
 			emoticonHoverStore: u.s,
 			strFlairGroupID: t.m_strFlairGroupID,
-			title: (0, w.we)("#ChatEntryButton_Flair"),
+			title: (0, Localize)("#ChatEntryButton_Flair"),
 			buttonIcon: o.createElement(y.P7r, null),
 		});
 	} else {
@@ -742,7 +742,7 @@ function x(e) {
 			{
 				className: E.LogInPrompt,
 			},
-			(0, w.we)("#Broadcast_PartnerChat_Login"),
+			(0, Localize)("#Broadcast_PartnerChat_Login"),
 		),
 		!v.iA.logged_in &&
 			o.createElement(
@@ -751,7 +751,7 @@ function x(e) {
 					onClick: _.vg,
 					className: (0, S.A)(E.SignInButton),
 				},
-				(0, w.we)("#Login_SignIn"),
+				(0, Localize)("#Login_SignIn"),
 			),
 	);
 }

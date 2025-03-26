@@ -8,7 +8,10 @@ var c = l;
 var m = require(/*webcrack:missing*/ "./73870.js");
 var u = require("./64608.js");
 var d = require("./10606.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var p = require(/*webcrack:missing*/ "./52451.js");
 var g = require(/*webcrack:missing*/ "./72476.js");
 var h = require("./96555.js");
@@ -21,7 +24,7 @@ export function DP() {
 }
 function b(e = false) {
 	const t = (0, h.l5)();
-	const r = e ? null : (0, A.we)("#Settings_Display_ExternalDisplay");
+	const r = e ? null : (0, Localize)("#Settings_Display_ExternalDisplay");
 	let n = (0, s.q3)(() => i.rV.settings?.strDisplayName);
 	if (n == null || n.length == 0) {
 		n = r;
@@ -35,17 +38,20 @@ function b(e = false) {
 		n = r;
 	}
 	if (t) {
-		return n ?? (0, A.we)("#Settings_Display_ExternalDisplay_DefaultName");
+		return n ?? (0, Localize)("#Settings_Display_ExternalDisplay_DefaultName");
 	} else {
-		return (0, A.we)("#SteamDeckName");
+		return (0, Localize)("#SteamDeckName");
 	}
 }
 export function vB() {
 	const e = b(true);
 	if (e == null) {
-		return (0, A.we)("#Settings_Display_DisplayScaling_Scaling");
+		return (0, Localize)("#Settings_Display_DisplayScaling_Scaling");
 	} else {
-		return (0, A.we)("#Settings_Display_DisplayScaling_ScalingForTVName", e);
+		return (0, Localize)(
+			"#Settings_Display_DisplayScaling_ScalingForTVName",
+			e,
+		);
 	}
 }
 export function XD(e) {
@@ -58,11 +64,11 @@ export function XD(e) {
 	const m = [
 		{
 			notchIndex: 0,
-			label: (0, A.we)("#Settings_Display_Underscan_Notch_Smaller"),
+			label: (0, Localize)("#Settings_Display_Underscan_Notch_Smaller"),
 		},
 		{
 			notchIndex: 1,
-			label: (0, A.we)("#Settings_Display_Underscan_Notch_Larger"),
+			label: (0, Localize)("#Settings_Display_Underscan_Notch_Larger"),
 		},
 	];
 	if (!r) {
@@ -104,7 +110,7 @@ export function VJ(e) {
 	}
 	return o.createElement(_.C, {
 		feature: 7,
-		label: (0, A.we)("#Settings_Display_Underscan_Auto"),
+		label: (0, Localize)("#Settings_Display_Underscan_Auto"),
 		checked: t,
 		onChange: (e) => {
 			SteamClient.System.Display.EnableUnderscan(!e);
@@ -124,11 +130,11 @@ export function dy(e) {
 	const d = [
 		{
 			notchIndex: 0,
-			label: (0, A.we)("#Settings_Display_DisplayScaling_MoreContent"),
+			label: (0, Localize)("#Settings_Display_DisplayScaling_MoreContent"),
 		},
 		{
 			notchIndex: 1,
-			label: (0, A.we)(
+			label: (0, Localize)(
 				g.TS.ON_DECK
 					? "#Settings_Display_DisplayScaling_LargerText_SteamDeck"
 					: "#Settings_Display_DisplayScaling_LargerText",
@@ -167,10 +173,10 @@ export function Eh(e) {
 	const t = (0, s.q3)(() => i.rV.settings?.bDisplayIsUsingAutoScale);
 	const r = t === undefined;
 	const n = e.concise
-		? (0, A.we)(
+		? (0, Localize)(
 				"#Settings_Display_DisplayScaling_Automatically_Scale_UI_Concise",
 			)
-		: (0, A.we)(
+		: (0, Localize)(
 				"#Settings_Display_DisplayScaling_Automatically_Scale_UI_Verbose",
 			);
 	let a = e.bottomSeparator;
@@ -192,8 +198,11 @@ export function Rw(e) {
 	const t = b(true);
 	const r =
 		t != null
-			? (0, A.we)("#Settings_Display_DisplayScaling_ChooseScalingForTVName", t)
-			: (0, A.we)("#Settings_Display_DisplayScaling_ChooseScaling");
+			? (0, Localize)(
+					"#Settings_Display_DisplayScaling_ChooseScalingForTVName",
+					t,
+				)
+			: (0, Localize)("#Settings_Display_DisplayScaling_ChooseScaling");
 	const n = (0, s.q3)(() => i.rV.settings?.bDisplayIsUsingAutoScale);
 	const a = (0, s.q3)(() => !i.rV.settings?.bUnderscanEnabled);
 	const l = !n || !a;
@@ -247,13 +256,13 @@ export function Rw(e) {
 				o.createElement(
 					"span",
 					null,
-					(0, A.PP)(
+					LocalizeReact(
 						"#Settings_Display_DisplayScaling_YouCanChangeThisIn_Section",
-						o.createElement("strong", null, (0, A.we)("#MainTabsSettings")),
+						o.createElement("strong", null, (0, Localize)("#MainTabsSettings")),
 						o.createElement(
 							"strong",
 							null,
-							(0, A.we)("#Settings_Page_Display"),
+							(0, Localize)("#Settings_Page_Display"),
 						),
 					),
 				),
@@ -310,7 +319,7 @@ export function lJ() {
 export function RP(e) {
 	const [t, r] = lJ();
 	return o.createElement(u.y4, {
-		label: (0, A.we)("#Settings_Display_AllowInternalScaling"),
+		label: (0, Localize)("#Settings_Display_AllowInternalScaling"),
 		checked: t,
 		onChange: r,
 	});

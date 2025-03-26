@@ -14,12 +14,12 @@ var g = require(/*webcrack:missing*/ "./89193.js");
 var h = require(/*webcrack:missing*/ "./41230.js");
 var C = require(/*webcrack:missing*/ "./31084.js");
 var _ = require(/*webcrack:missing*/ "./88750.js");
-var f = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var b = require(/*webcrack:missing*/ "./52451.js");
 var y = require("./98829.js");
 var S = require("./65726.js");
 var w = require("./92564.js");
-var B = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var v = require("./88620.js");
 var I = require(/*webcrack:missing*/ "./49455.js");
 var E = require(/*webcrack:missing*/ "./79769.js");
@@ -48,7 +48,7 @@ export let aq = class extends i.Component {
 								this.CreateTextChannel(t);
 							},
 						},
-						(0, f.we)("#GroupSettings_Channels_CreateText"),
+						Localize("#GroupSettings_Channels_CreateText"),
 					),
 					i.createElement(
 						_.kt,
@@ -57,7 +57,7 @@ export let aq = class extends i.Component {
 								this.CreateVoiceChannel(t);
 							},
 						},
-						(0, f.we)("#GroupSettings_Channels_CreateVoice"),
+						Localize("#GroupSettings_Channels_CreateVoice"),
 					),
 				),
 				e,
@@ -147,7 +147,7 @@ export let aq = class extends i.Component {
 							"div",
 							{
 								className: "chatRoomGroupNavCollapseExpand",
-								title: (0, f.we)(
+								title: Localize(
 									a ? "#Tooltip_PinChannelList" : "#Tooltip_UnpinChannelList",
 								),
 								onClick: this.ToggleCollapseExpand,
@@ -192,8 +192,8 @@ export class Ey extends i.Component {
 				.catch((e) => {
 					(0, d.Ic)(
 						this.props.ownerWin,
-						(0, f.we)("#Generic_Error"),
-						(0, f.we)("#Chat_CreateChatRoom_GenericError"),
+						Localize("#Generic_Error"),
+						Localize("#Chat_CreateChatRoom_GenericError"),
 					);
 					this.props.closeModal();
 				});
@@ -214,7 +214,7 @@ export class Ey extends i.Component {
 				i.createElement(
 					s.Y9,
 					null,
-					(0, f.we)(
+					Localize(
 						this.props.bVoiceChannel
 							? "#GroupSettings_Channels_CreateVoice"
 							: "#GroupSettings_Channels_CreateText",
@@ -228,7 +228,7 @@ export class Ey extends i.Component {
 							this.m_refInput = e;
 						},
 						autoFocus: true,
-						label: (0, f.we)("#Chat_SaveVoiceRoom_Name"),
+						label: Localize("#Chat_SaveVoiceRoom_Name"),
 					}),
 				),
 				i.createElement(
@@ -253,7 +253,7 @@ export function Nq(e, t, r) {
 		e,
 		"CreateChatChannelDialog",
 		{
-			strTitle: (0, f.we)("#GroupSettings_Channels_CreateText"),
+			strTitle: Localize("#GroupSettings_Channels_CreateText"),
 			popupWidth: 800,
 			popupHeight: 400,
 		},
@@ -263,7 +263,7 @@ export function Nq(e, t, r) {
 (0, n.Cg)([b.oI], Ey.prototype, "OnSubmit", null);
 let N = class extends i.Component {
 	OnCreateNewTextChannel(e) {
-		let t = (0, B.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		if (this.props.groupView.GetGroup().BCanAdminChannel()) {
 			Nq(t, this.props.groupView, false);
 		}
@@ -291,7 +291,7 @@ let N = class extends i.Component {
 				"div",
 				{
 					className: "ChannelTypeTitle",
-					title: (0, f.we)("#Tooltip_TextChannel"),
+					title: Localize("#Tooltip_TextChannel"),
 					onClick: this.OnCreateNewTextChannel,
 				},
 				i.createElement(
@@ -299,18 +299,18 @@ let N = class extends i.Component {
 					{
 						className: "ChannelTypeLabel" + (r ? "" : " NoPermission"),
 						title: r
-							? (0, f.we)("#Tooltip_TextChannelCreate")
-							: (0, f.we)("#Tooltip_NoPermissionChannelCreate"),
+							? Localize("#Tooltip_TextChannelCreate")
+							: Localize("#Tooltip_NoPermissionChannelCreate"),
 					},
 					r
-						? (0, f.we)("#Chat_AddTextChat")
-						: (0, f.we)("#Chat_CreateTextChannel_DefaultName"),
+						? Localize("#Chat_AddTextChat")
+						: Localize("#Chat_CreateTextChannel_DefaultName"),
 				),
 				i.createElement(
 					"div",
 					{
 						className: "ChatRoomAddRoomBtn",
-						title: (0, f.we)("#Tooltip_TextChannelCreate"),
+						title: Localize("#Tooltip_TextChannelCreate"),
 					},
 					i.createElement(o.f5w, null),
 				),
@@ -392,7 +392,7 @@ export let tc = class extends i.Component {
 				onGamepadFocus: this.props.onFocus,
 				onMenuButton: a ? this.OnContextMenu : undefined,
 				onMenuActionDescription: a
-					? (0, f.we)("#Chat_ChatRoomGroup_Options")
+					? Localize("#Chat_ChatRoomGroup_Options")
 					: undefined,
 				onContextMenu: this.OnContextMenu,
 				ref: this.containerRef,
@@ -413,7 +413,7 @@ export let tc = class extends i.Component {
 					{
 						className: r,
 					},
-					e.BIsDefaultRoom() ? (0, f.we)("#Chat_DefaultChannelName") : e.name,
+					e.BIsDefaultRoom() ? Localize("#Chat_DefaultChannelName") : e.name,
 				),
 			!this.props.bDefaultRoom &&
 				n &&
@@ -461,7 +461,7 @@ let G = class extends i.Component {
 				"div",
 				{
 					className: "ChannelTypeTitle",
-					title: (0, f.we)("#Tooltip_VoiceChannelCreate"),
+					title: Localize("#Tooltip_VoiceChannelCreate"),
 					onClick: this.CreateVoiceRoom,
 				},
 				i.createElement(
@@ -469,13 +469,13 @@ let G = class extends i.Component {
 					{
 						className: "ChannelTypeLabel",
 					},
-					(0, f.we)("#Chat_AddVoiceChat"),
+					Localize("#Chat_AddVoiceChat"),
 				),
 				i.createElement(
 					"div",
 					{
 						className: "ChatRoomAddRoomBtn",
-						title: (0, f.we)("#Tooltip_VoiceChannelCreate"),
+						title: Localize("#Tooltip_VoiceChannelCreate"),
 					},
 					i.createElement(o.f5w, null),
 				),
@@ -754,7 +754,7 @@ export let mr = class extends i.Component {
 								onContextMenu: this.OnContextMenu,
 								onClick: this.OnContextMenu,
 								className: "VoiceControlPanelButton chatPinRoom",
-								title: (0, f.we)("#Chat_ChannelOptions"),
+								title: Localize("#Chat_ChannelOptions"),
 							},
 							i.createElement(o.GB9, null),
 						),
@@ -781,7 +781,7 @@ export let mr = class extends i.Component {
 				{
 					className: u,
 				},
-				(0, f.we)("#Chat_VoiceEmptyChannel"),
+				Localize("#Chat_VoiceEmptyChannel"),
 			),
 			!this.context?.IN_GAMEPADUI &&
 				i.createElement(y.lg, {

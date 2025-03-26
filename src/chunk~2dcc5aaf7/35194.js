@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./53833.js");
+import { MoveElement } from "../../actual_src/utils/arrayutils.js";
 var i = require("./32700.js");
 var a = require(/*webcrack:missing*/ "./79769.js");
 var s = require("./33512.js");
@@ -29,7 +29,7 @@ export const o = new (class {
 		let t = await SteamClient.Settings.GetAvailableLanguages();
 		let r = t.findIndex((e) => e.language == 0);
 		if (r > 0) {
-			n.yY(t, r, 0);
+			MoveElement(t, r, 0);
 		}
 		let a = await Promise.all(t.map((e) => (0, i.VD)(e.strShortName)));
 		let s = await Promise.all(t.map((e) => (0, i.CI)(e.strShortName)));

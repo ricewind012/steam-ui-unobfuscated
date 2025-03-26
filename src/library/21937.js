@@ -1,7 +1,7 @@
 var r = require("./87531.js");
 var i = require("./49455.js");
 var s = require("./79769.js");
-var o = require("./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 export class z {
 	m_callbacksMenusChanged = new s.lu();
 	m_ActiveMenu;
@@ -74,7 +74,7 @@ export class z {
 	}
 	HideMenu(e) {
 		if (e.BIsSubMenu()) {
-			if (o.x9(this.m_rgActiveSubmenus, e)) {
+			if (FindAndRemove(this.m_rgActiveSubmenus, e)) {
 				this.m_callbacksMenusChanged.Dispatch();
 			}
 		} else {

@@ -17,7 +17,10 @@ import * as _ from "./43397.js";
 import * as f from /*webcrack:missing*/ "./79769.js";
 import * as b from /*webcrack:missing*/ "./90765.js";
 import * as y from /*webcrack:missing*/ "./54644.js";
-import * as S from /*webcrack:missing*/ "./46108.js";
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 import * as w from "./34428.js";
 import * as B from /*webcrack:missing*/ "./31958.js";
 import * as v from /*webcrack:missing*/ "./52451.js";
@@ -33,7 +36,7 @@ function D() {
 		{
 			className: "STV_ReplayBanner",
 		},
-		(0, S.we)("#DASHPlayerControls_IsReplay"),
+		(0, Localize)("#DASHPlayerControls_IsReplay"),
 	);
 }
 const N = (0, a.PA)((e) => {
@@ -97,7 +100,7 @@ class F extends s.Component {
 			s.createElement(
 				"span",
 				null,
-				(0, S.we)("#DASHPlayerControls_ClickToPlay"),
+				(0, Localize)("#DASHPlayerControls_ClickToPlay"),
 			),
 		);
 	}
@@ -130,7 +133,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_BufferingResolution"),
+				(0, Localize)("#DASHPlayerStats_BufferingResolution"),
 				" ",
 				s.createElement(
 					"span",
@@ -143,7 +146,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_PlaybackResolution"),
+				(0, Localize)("#DASHPlayerStats_PlaybackResolution"),
 				" ",
 				s.createElement(
 					"span",
@@ -156,7 +159,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_HtmlResolution"),
+				(0, Localize)("#DASHPlayerStats_HtmlResolution"),
 				" ",
 				s.createElement(
 					"span",
@@ -169,7 +172,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_ContentServer"),
+				(0, Localize)("#DASHPlayerStats_ContentServer"),
 				" ",
 				s.createElement(
 					"span",
@@ -182,7 +185,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_StallEvents"),
+				(0, Localize)("#DASHPlayerStats_StallEvents"),
 				" ",
 				s.createElement(
 					"span",
@@ -195,7 +198,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_FailedDownloads"),
+				(0, Localize)("#DASHPlayerStats_FailedDownloads"),
 				" ",
 				s.createElement(
 					"span",
@@ -208,7 +211,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_TimeToFirstFrame"),
+				(0, Localize)("#DASHPlayerStats_TimeToFirstFrame"),
 				" ",
 				s.createElement(
 					"span",
@@ -221,7 +224,7 @@ let G = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_PlaybackRate"),
+				(0, Localize)("#DASHPlayerStats_PlaybackRate"),
 				" ",
 				s.createElement(
 					"span",
@@ -250,7 +253,7 @@ let O = class extends s.Component {
 		let i = e ? t.GetNumBufferedVideoRanges() : t.GetNumBufferedAudioRanges();
 		if (i > 0) {
 			for (let a = 0; a < i; ++a) {
-				let i = (0, S.we)(
+				let i = (0, Localize)(
 					e
 						? "#DASHPlayerStats_VideoBufferRange"
 						: "#DASHPlayerStats_AudioBufferRange",
@@ -278,7 +281,7 @@ let O = class extends s.Component {
 				);
 			}
 		} else {
-			let t = (0, S.we)(
+			let t = (0, Localize)(
 				e
 					? "#DASHPlayerStats_VideoNoRangeInformation"
 					: "#DASHPlayerStats_AudioNoRangeInformation",
@@ -305,7 +308,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_BytesReceived"),
+				(0, Localize)("#DASHPlayerStats_BytesReceived"),
 				" ",
 				s.createElement(
 					"span",
@@ -319,7 +322,7 @@ let O = class extends s.Component {
 				s.createElement(
 					"div",
 					null,
-					(0, S.we)("#DASHPlayerStats_DroppedFrames"),
+					(0, Localize)("#DASHPlayerStats_DroppedFrames"),
 					" ",
 					s.createElement(
 						"span",
@@ -332,7 +335,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_VideoBuffered"),
+				(0, Localize)("#DASHPlayerStats_VideoBuffered"),
 				" ",
 				s.createElement(
 					"span",
@@ -346,7 +349,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_AudioBuffered"),
+				(0, Localize)("#DASHPlayerStats_AudioBuffered"),
 				" ",
 				s.createElement(
 					"span",
@@ -362,7 +365,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_BandwidthRequired"),
+				(0, Localize)("#DASHPlayerStats_BandwidthRequired"),
 				" ",
 				s.createElement(
 					"span",
@@ -375,7 +378,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_BandwidthVideo"),
+				(0, Localize)("#DASHPlayerStats_BandwidthVideo"),
 				" ",
 				s.createElement(
 					"span",
@@ -388,7 +391,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_BandwidthNums"),
+				(0, Localize)("#DASHPlayerStats_BandwidthNums"),
 				" ",
 				s.createElement(
 					"span",
@@ -401,7 +404,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_DownloadNums"),
+				(0, Localize)("#DASHPlayerStats_DownloadNums"),
 				" ",
 				s.createElement(
 					"span",
@@ -414,7 +417,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_ActiveDownloads"),
+				(0, Localize)("#DASHPlayerStats_ActiveDownloads"),
 				" ",
 				s.createElement(
 					"span",
@@ -427,7 +430,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_VideoDownloadProgress"),
+				(0, Localize)("#DASHPlayerStats_VideoDownloadProgress"),
 				" ",
 				s.createElement(
 					"span",
@@ -440,7 +443,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_DroppingFrames"),
+				(0, Localize)("#DASHPlayerStats_DroppingFrames"),
 				" ",
 				s.createElement(
 					"span",
@@ -453,7 +456,7 @@ let O = class extends s.Component {
 			s.createElement(
 				"div",
 				null,
-				(0, S.we)("#DASHPlayerStats_CurrentFPS"),
+				(0, Localize)("#DASHPlayerStats_CurrentFPS"),
 				" ",
 				s.createElement(
 					"span",
@@ -568,7 +571,7 @@ class L extends s.Component {
 						key: "statsToggle",
 						onClick: this.OnShowStats,
 					},
-					(0, S.we)("#Broadcast_VideoContext_ToggleStats"),
+					(0, Localize)("#Broadcast_VideoContext_ToggleStats"),
 					"\t",
 				),
 			);
@@ -591,7 +594,7 @@ class L extends s.Component {
 						className: "NoSubtitles",
 						bChecked: false,
 					},
-					(0, S.we)("#Broadcast_None"),
+					(0, Localize)("#Broadcast_None"),
 				),
 			);
 			for (let e = 0; e < this.props.video.ListSubtitles().length; e++) {
@@ -1158,7 +1161,7 @@ let V = class extends s.Component {
 						this.ToggleStatsView(e);
 					},
 				},
-				(0, S.we)("#Broadcast_VideoContext_ToggleStats"),
+				(0, Localize)("#Broadcast_VideoContext_ToggleStats"),
 			),
 		);
 		if (r && r.m_strAppId != "0" && Number.parseInt(r.m_strAppId) != c.fO) {
@@ -1171,7 +1174,7 @@ let V = class extends s.Component {
 							this.ShowStorePage(e);
 						},
 					},
-					(0, S.we)("#Broadcast_VideoContext_OpenStore"),
+					(0, Localize)("#Broadcast_VideoContext_OpenStore"),
 				),
 			);
 		}
@@ -1243,7 +1246,7 @@ let V = class extends s.Component {
 				s.createElement("div", {
 					key: "ChatPosToggle ChatTheaterToggle",
 					onClick: this.props.onTheaterMode,
-					title: (0, S.we)("#Broadcast_View_Theater"),
+					title: (0, Localize)("#Broadcast_View_Theater"),
 					className: "BroadcastTheaterToggle",
 				}),
 			);
@@ -1251,7 +1254,7 @@ let V = class extends s.Component {
 		m.push(
 			s.createElement("div", {
 				key: "FullscreenToggle",
-				title: (0, S.we)("#Broadcast_View_Fullscreen"),
+				title: (0, Localize)("#Broadcast_View_Fullscreen"),
 				onClick: this.OnToggleFullscreen,
 				className: "BroadcastFullscreenToggle",
 			}),
@@ -1533,7 +1536,7 @@ const Z = (0, a.PA)((e) => {
 				{
 					className: "jumpGoLive",
 				},
-				(0, S.we)(
+				(0, Localize)(
 					t ? "#DASHPlayerControls_IsLive" : "#DASHPlayerControls_GoLive",
 				),
 			),
@@ -1954,7 +1957,7 @@ let ee = class extends s.Component {
 					s.createElement(J, {
 						key: "start",
 						pos: y,
-						label: (0, S.we)("#DASHPlayerControls_Start"),
+						label: (0, Localize)("#DASHPlayerControls_Start"),
 						onMouseEnter: this.OnMarkerMouseEnter,
 						onMouseLeave: this.OnMarkerMouseLeave,
 						onMouseDown: (e) => this.OnMouseDown(e, "start"),
@@ -1962,7 +1965,7 @@ let ee = class extends s.Component {
 					s.createElement(J, {
 						key: "end",
 						pos: w,
-						label: (0, S.we)("#DASHPlayerControls_End"),
+						label: (0, Localize)("#DASHPlayerControls_End"),
 						onMouseEnter: this.OnMarkerMouseEnter,
 						onMouseLeave: this.OnMarkerMouseLeave,
 						onMouseDown: (e) => this.OnMouseDown(e, "end"),
@@ -2205,7 +2208,7 @@ export let BroadcastDetails = class extends s.Component {
 									className: "BroadcastDetailsHeader_ViewerCount",
 								},
 								s.createElement(C.y_e, null),
-								(0, S.Yp)("#Broadcast_ViewerCount", t),
+								LocalizePlural("#Broadcast_ViewerCount", t),
 							),
 					),
 				r &&
@@ -2252,7 +2255,7 @@ class re extends s.Component {
 					onSelected: () => n(e),
 					bChecked: e === r,
 				},
-				(0, S.we)(t[e]),
+				(0, Localize)(t[e]),
 			),
 		);
 		(0, o.lX)(s.createElement(d.tz, null, i), e);
@@ -2266,7 +2269,7 @@ class re extends s.Component {
 				className: "BroadcastLanguage",
 				onClick: this.showContextMenu,
 			},
-			s.createElement("span", null, "\xA0- ", (0, S.we)(r)),
+			s.createElement("span", null, "\xA0- ", (0, Localize)(r)),
 			s.createElement(
 				"div",
 				{
@@ -2429,7 +2432,7 @@ export let LinkOverlay = class extends s.Component {
 							className: "AddLinkRegion",
 							onClick: this.AddLinkRegion,
 						},
-						(0, S.we)("#SteamTV_AddLinkRegion"),
+						(0, Localize)("#SteamTV_AddLinkRegion"),
 					),
 			),
 			s.createElement(
@@ -2437,7 +2440,11 @@ export let LinkOverlay = class extends s.Component {
 				{
 					className: "LinkOverlayInvalidRegion",
 				},
-				s.createElement("div", null, (0, S.we)("#SteamTV_LinkRegionReserved")),
+				s.createElement(
+					"div",
+					null,
+					(0, Localize)("#SteamTV_LinkRegionReserved"),
+				),
 			),
 		);
 	}

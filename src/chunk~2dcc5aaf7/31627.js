@@ -4,7 +4,11 @@ var a = require(/*webcrack:missing*/ "./42318.js");
 var s = require("./10606.js");
 var o = require("./64608.js");
 var l = require("./4530.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var m = require("./81994.js");
 var u = require("./96680.js");
 var d = require("./45967.js");
@@ -68,13 +72,13 @@ const A = (0, a.Nr)(function () {
 		return i.createElement(
 			s.hM,
 			{
-				strTitle: (0, c.we)("#Steam_Reloading_Title"),
+				strTitle: (0, Localize)("#Steam_Reloading_Title"),
 				popupWidth: 400,
 				popupHeight: 0,
 				modal: true,
 				className: l.Popup,
 			},
-			i.createElement(o.Y9, null, (0, c.we)("#Steam_Reloading_Title")),
+			i.createElement(o.Y9, null, (0, Localize)("#Steam_Reloading_Title")),
 			i.createElement(
 				o.nB,
 				null,
@@ -147,14 +151,14 @@ const B = (0, a.Nr)(function () {
 						{
 							className: C.Header,
 						},
-						(0, c.we)("#SteamVRInstall_Header"),
+						(0, Localize)("#SteamVRInstall_Header"),
 					),
 					i.createElement(
 						"div",
 						{
 							className: C.Description,
 						},
-						(0, c.we)("#SteamVRInstall_Description"),
+						(0, Localize)("#SteamVRInstall_Description"),
 					),
 					r &&
 						i.createElement(
@@ -162,7 +166,7 @@ const B = (0, a.Nr)(function () {
 							{
 								className: C.OculusHelp,
 							},
-							(0, c.oW)(
+							LocalizeInlineReactWithFallback(
 								"#SteamVRInstall_OculusHelp",
 								i.createElement(_.uU, {
 									href: "https://support.steampowered.com/kb_article.php?ref=3180-UPHK-0900",
@@ -181,7 +185,7 @@ const B = (0, a.Nr)(function () {
 							className: C.CheckboxContainer,
 						},
 						i.createElement(o.Yh, {
-							label: (0, c.we)("#SteamVRInstall_DontShowAgain"),
+							label: (0, Localize)("#SteamVRInstall_DontShowAgain"),
 							checked: u,
 							onChange: d,
 						}),
@@ -195,7 +199,7 @@ const B = (0, a.Nr)(function () {
 								l(p.Hidden);
 							},
 						},
-						(0, c.we)("#SteamVRInstall_InstallSteamVR"),
+						(0, Localize)("#SteamVRInstall_InstallSteamVR"),
 					),
 					i.createElement(
 						o.$n,
@@ -204,7 +208,7 @@ const B = (0, a.Nr)(function () {
 								l(p.Hidden);
 							},
 						},
-						(0, c.we)("#Button_Close"),
+						(0, Localize)("#Button_Close"),
 					),
 					i.createElement(
 						o.$n,
@@ -214,7 +218,7 @@ const B = (0, a.Nr)(function () {
 								l(p.Hidden);
 							},
 						},
-						(0, c.we)("#SteamVRInstall_Help"),
+						(0, Localize)("#SteamVRInstall_Help"),
 					),
 				),
 			),
@@ -276,7 +280,7 @@ function x(e) {
 			s.Q9,
 			{
 				strName: "InstallModal",
-				strTitle: (0, c.we)("#GameAction_Install"),
+				strTitle: (0, Localize)("#GameAction_Install"),
 				popupWidth: 540,
 				popupHeight: 480,
 				onlyPopoutIfNeeded: true,
@@ -301,7 +305,7 @@ function U(e) {
 	}, [g, t]);
 	let C = {};
 	if (p) {
-		C.onOptionsActionDescription = (0, c.we)(
+		C.onOptionsActionDescription = (0, Localize)(
 			"#SteamDeckVerified_ViewDeveloperPost",
 		);
 		C.onOptionsButton = h;
@@ -335,7 +339,7 @@ function U(e) {
 					...C,
 				},
 				i.createElement(o.CB, {
-					strOKText: (0, c.we)("#GameAction_Install"),
+					strOKText: (0, Localize)("#GameAction_Install"),
 					onOK: () => {
 						if (a < n.length - 1) {
 							s(a + 1);
@@ -360,7 +364,7 @@ function W(e) {
 	return i.createElement(
 		i.Fragment,
 		null,
-		i.createElement(o.Y9, null, (0, c.we)("#GameAction_Install")),
+		i.createElement(o.Y9, null, (0, Localize)("#GameAction_Install")),
 		i.createElement(
 			o.nB,
 			null,
@@ -408,14 +412,14 @@ function V(e) {
 	const u = t.bCanChangeInstallFolder && s.length > 1;
 	if (l || (m && !u)) {
 		return i.createElement(o.CB, {
-			strOKText: (0, c.we)("#GameAction_Install"),
+			strOKText: (0, Localize)("#GameAction_Install"),
 			onOK: r,
 			bOKDisabled: !m,
 			onCancel: n,
 		});
 	} else {
 		return i.createElement(o.CB, {
-			strOKText: (0, c.we)("#Installer_ManageStorage"),
+			strOKText: (0, Localize)("#Installer_ManageStorage"),
 			onOK: a,
 			onCancel: n,
 		});
@@ -486,13 +490,13 @@ function q(e) {
 			className: z.CreateShortcuts,
 		},
 		i.createElement(o.Yh, {
-			label: (0, c.we)("#Installer_DesktopShortcut"),
+			label: (0, Localize)("#Installer_DesktopShortcut"),
 			checked: t.bDesktopShortcut,
 			onChange: (e) => I.I.SetCreateShortcuts(e, t.bSystemMenuShortcut),
 			hidden: (0, w.Hn)(),
 		}),
 		i.createElement(o.Yh, {
-			label: (0, c.we)(r),
+			label: (0, Localize)(r),
 			checked: t.bSystemMenuShortcut,
 			onChange: (e) => I.I.SetCreateShortcuts(t.bDesktopShortcut, e),
 			hidden: (0, w.Hn)(),
@@ -508,13 +512,13 @@ function Q(e) {
 	let o = false;
 	let l = i.createElement(F.ExclamationPoint, null);
 	if (a && t.nDiskSpaceRequired > t.nDiskSpaceAvailable) {
-		r = (0, c.we)("#Installer_NoticeNotEnoughSpace");
+		r = (0, Localize)("#Installer_NoticeNotEnoughSpace");
 		n = true;
 		o = true;
 	} else if (t.iUnmountedFolder != -1) {
-		r = (0, c.we)("#Installer_NoticeUnmountedFolder");
+		r = (0, Localize)("#Installer_NoticeUnmountedFolder");
 	} else if (t.strPeerContentServer.length && !t.bPeerContentServerOnline) {
-		r = (0, c.PP)(
+		r = LocalizeReact(
 			"#Installer_NoticePeerServerOffline",
 			i.createElement(
 				"span",
@@ -527,7 +531,7 @@ function Q(e) {
 			),
 		);
 	} else if (t.strPeerContentServer.length && !t.bPeerContentServerAvailable) {
-		r = (0, c.PP)(
+		r = LocalizeReact(
 			"#Installer_NoticePeerServerUnavailable",
 			i.createElement(
 				"span",
@@ -540,7 +544,7 @@ function Q(e) {
 			),
 		);
 	} else if (!t.bCanChangeInstallFolder && s.length > 1) {
-		r = (0, c.we)("#Installer_NoticeCantChooseFolder");
+		r = (0, Localize)("#Installer_NoticeCantChooseFolder");
 	}
 	return i.createElement(
 		"div",
@@ -576,7 +580,7 @@ function Z(e) {
 			{
 				className: z.Header,
 			},
-			(0, c.we)("#Installer_ChooseDestinationFolder"),
+			(0, Localize)("#Installer_ChooseDestinationFolder"),
 			a &&
 				i.createElement(
 					o.$n,
@@ -588,7 +592,7 @@ function Z(e) {
 						P.he,
 						{
 							bTopmost: true,
-							toolTipContent: (0, c.we)("#Installer_ManageStorage"),
+							toolTipContent: (0, Localize)("#Installer_ManageStorage"),
 							direction: "left",
 						},
 						i.createElement(F.Settings, null),
@@ -660,7 +664,7 @@ function Y(e) {
 				i.createElement(
 					"span",
 					null,
-					" " + (0, c.we)("#Installer_NoticeNotEnoughSpace"),
+					" " + (0, Localize)("#Installer_NoticeNotEnoughSpace"),
 				),
 		),
 		l &&
@@ -676,7 +680,7 @@ function Y(e) {
 			{
 				className: (0, D.A)(z.FreeSpace, z.DiskSpace),
 			},
-			(0, c.we)("#Installer_FolderSpaceFree", (0, N.dm)(t.nFreeSpace)),
+			(0, Localize)("#Installer_FolderSpaceFree", (0, N.dm)(t.nFreeSpace)),
 		),
 	);
 }
@@ -702,7 +706,7 @@ function ie() {
 				{
 					onlyPopoutIfNeeded: true,
 					strName: `EULA_${e.currentAppID}`,
-					strTitle: (0, c.we)("#EulaDialog_Header"),
+					strTitle: (0, Localize)("#EulaDialog_Header"),
 					popupHeight: 600,
 					popupWidth: 640,
 				},
@@ -718,7 +722,7 @@ function ie() {
 					{
 						onlyPopoutIfNeeded: true,
 						strName: `EULA_${e.currentAppID}`,
-						strTitle: (0, c.we)("#EulaDialog_Header"),
+						strTitle: (0, Localize)("#EulaDialog_Header"),
 						popupHeight: 600,
 						popupWidth: 640,
 					},
@@ -774,12 +778,12 @@ function ie() {
 			let a = null;
 			a =
 				e.eAppError != 0
-					? (0, c.we)(
+					? (0, Localize)(
 							"#Installer_Error_AppName_ErrorDescription",
 							n,
-							(0, c.we)("#Steam_AppUpdateError_" + e.eAppError),
+							(0, Localize)("#Steam_AppUpdateError_" + e.eAppError),
 						)
-					: (0, c.we)("#Installer_UnknownError_AppName", n);
+					: (0, Localize)("#Installer_UnknownError_AppName", n);
 			return i.createElement(
 				s.EN,
 				{
@@ -816,7 +820,7 @@ function ae(e) {
 				{
 					className: ne.ModalHeader,
 				},
-				(0, c.we)("#Installer_Install"),
+				(0, Localize)("#Installer_Install"),
 			),
 			i.createElement(o.nB, null, e.children),
 		),
@@ -824,9 +828,9 @@ function ae(e) {
 }
 function se(e) {
 	const { installManager: t, appOverview: r } = e;
-	let n = (0, c.we)("#Installer_Installing");
+	let n = (0, Localize)("#Installer_Installing");
 	if (r && r.display_name) {
-		n = (0, c.we)("#Installer_InstallingApp", r.display_name);
+		n = (0, Localize)("#Installer_InstallingApp", r.display_name);
 	}
 	return i.createElement(
 		ae,
@@ -852,8 +856,8 @@ function se(e) {
 			null,
 			i.createElement(o.CB, {
 				onCancel: () => SteamClient.Installs.CancelInstall(),
-				strOKText: (0, c.we)("#Button_OK"),
-				strCancelText: (0, c.we)("#Button_Cancel"),
+				strOKText: (0, Localize)("#Button_OK"),
+				strCancelText: (0, Localize)("#Button_Cancel"),
 			}),
 		),
 	);
@@ -871,16 +875,16 @@ function oe(e) {
 				{
 					className: ne.InstallingText,
 				},
-				(0, c.we)("#Installer_ChangeMedia", t.nCurrentDisk + 1),
+				(0, Localize)("#Installer_ChangeMedia", t.nCurrentDisk + 1),
 			),
 		),
 		i.createElement(
 			o.wi,
 			null,
 			i.createElement(o.CB, {
-				strOKText: (0, c.we)("#Button_Continue"),
+				strOKText: (0, Localize)("#Button_Continue"),
 				onOK: () => SteamClient.Installs.ContinueInstall(),
-				strCancelText: (0, c.we)("#Button_Cancel"),
+				strCancelText: (0, Localize)("#Button_Cancel"),
 				onCancel: () => SteamClient.Installs.CancelInstall(),
 			}),
 		),
@@ -889,9 +893,9 @@ function oe(e) {
 function le(e) {
 	const { installManager: t, appOverview: r } = e;
 	const n = (0, k.q3)(() => ee.hj.DownloadOverview);
-	let a = (0, c.we)("#Installer_ReadingFromMedia", t.nCurrentDisk);
+	let a = (0, Localize)("#Installer_ReadingFromMedia", t.nCurrentDisk);
 	if (t.bIsBackupInstall) {
-		a = (0, c.we)("#Installer_ReadingBackup");
+		a = (0, Localize)("#Installer_ReadingBackup");
 	}
 	let s = 0;
 	let l = 0;
@@ -902,7 +906,7 @@ function le(e) {
 			m = (0, ee.MD)(n);
 		}
 		if (n.update_state == "Preallocating") {
-			a = (0, c.we)("#Installer_PreallocatingDiskSpace");
+			a = (0, Localize)("#Installer_PreallocatingDiskSpace");
 		}
 	}
 	return i.createElement(
@@ -929,7 +933,7 @@ function le(e) {
 					className: ne.InstallingBytesProcessed,
 				},
 				s > 0 &&
-					(0, c.we)(
+					(0, Localize)(
 						"#Installer_BytesProcessed",
 						(0, N.dm)(l, 1),
 						(0, N.dm)(s, 1),
@@ -956,7 +960,7 @@ function le(e) {
 				{
 					onClick: () => SteamClient.Installs.CancelInstall(),
 				},
-				(0, c.we)("#Button_Cancel"),
+				(0, Localize)("#Button_Cancel"),
 			),
 		),
 	);
@@ -998,7 +1002,7 @@ function ge(e) {
 		X.w,
 		{
 			strName: `MarkAppPrivate_${t.join(",")}`,
-			strTitle: (0, c.we)("#GameAction_MarkAsPrivate"),
+			strTitle: (0, Localize)("#GameAction_MarkAsPrivate"),
 			onlyPopoutIfNeeded: true,
 			popupWidth: 680,
 			popupHeight: 320,
@@ -1007,7 +1011,7 @@ function ge(e) {
 			s.o0,
 			{
 				strTitle: i.createElement(he, null),
-				strOKButtonText: (0, c.we)("#AppProperties_Privacy_MarkAppPrivate"),
+				strOKButtonText: (0, Localize)("#AppProperties_Privacy_MarkAppPrivate"),
 				onOK: a,
 				onCancel: r,
 			},
@@ -1018,7 +1022,7 @@ function ge(e) {
 						whiteSpace: "pre-line",
 					},
 				},
-				(0, c.we)("#AppProperties_Privacy_DialogDescription"),
+				(0, Localize)("#AppProperties_Privacy_DialogDescription"),
 			),
 		),
 	);
@@ -1040,7 +1044,7 @@ function he() {
 			},
 			i.createElement(F.FeatureHidden, null),
 		),
-		(0, c.we)("#GameAction_MarkAsPrivate"),
+		(0, Localize)("#GameAction_MarkAsPrivate"),
 	);
 }
 var Ce = require("./6263.js");

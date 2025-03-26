@@ -19,8 +19,14 @@ var b = require("./23024.js");
 var y = require("./64608.js");
 var S = require(/*webcrack:missing*/ "./50376.js");
 var w = require(/*webcrack:missing*/ "./90765.js");
-var B = require(/*webcrack:missing*/ "./54644.js");
-var v = require(/*webcrack:missing*/ "./46108.js");
+import {
+	GetOwningWindowForEvent,
+	BIsDragLeaveOutOfElement,
+} from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var I = require(/*webcrack:missing*/ "./52451.js");
 var E = require(/*webcrack:missing*/ "./72476.js");
 var M = require("./69649.js");
@@ -78,19 +84,19 @@ export let IV = class extends g.Component {
 					{
 						className: "ChatRoomList_Empty",
 					},
-					(0, v.we)("#Chat_ChatRoomList_Empty"),
+					(0, Localize)("#Chat_ChatRoomList_Empty"),
 					g.createElement("br", null),
 					g.createElement("br", null),
 					!t &&
 						!this.context?.IN_GAMEPADUI &&
-						(0, v.PP)(
+						LocalizeReact(
 							"#Chat_ChatRoomList_Empty_How",
 							g.createElement(
 								d.uU,
 								{
 									href: a.TS.COMMUNITY_BASE_URL + "my/groups/",
 								},
-								(0, v.we)("#Chat_ChatRoomList_Empty_HowLink"),
+								(0, Localize)("#Chat_ChatRoomList_Empty_HowLink"),
 							),
 						),
 					!t &&
@@ -103,17 +109,17 @@ export let IV = class extends g.Component {
 								{
 									className: "ChatRoomList_Empty_Description",
 								},
-								(0, v.we)("#Chat_ChatRoomList_Empty_SteamDeck"),
+								(0, Localize)("#Chat_ChatRoomList_Empty_SteamDeck"),
 							),
 							g.createElement(
 								y.$n,
 								{
 									onClick: (e) => {
-										let t = (0, B.uX)(e);
+										let t = GetOwningWindowForEvent(e);
 										(0, M.UA)((0, o._k)(t), t);
 									},
 								},
-								(0, v.we)("#Chat_ChatRoomList_Empty_StartNew_SteamDeck"),
+								(0, Localize)("#Chat_ChatRoomList_Empty_StartNew_SteamDeck"),
 							),
 						),
 				),
@@ -219,7 +225,7 @@ export const AX = (0, p.PA)(function (e) {
 			}
 		}, []);
 		const u = g.useCallback((e) => {
-			if ((0, B.NO)(e)) {
+			if (BIsDragLeaveOutOfElement(e)) {
 				i.current = false;
 				n(undefined);
 			}
@@ -280,7 +286,7 @@ export const AX = (0, p.PA)(function (e) {
 				focusable: true,
 				onOKButton: y,
 				onMenuButton: M,
-				onMenuActionDescription: (0, v.we)("#Chat_ChatRoomGroup_Options"),
+				onMenuActionDescription: (0, Localize)("#Chat_ChatRoomGroup_Options"),
 			},
 			g.createElement(
 				"div",
@@ -406,7 +412,7 @@ const N = (0, p.PA)(function (e) {
 	let i = n?.m_bInitialized
 		? n.m_strTitle ||
 			n.m_strAppTitle ||
-			(0, v.we)(
+			(0, Localize)(
 				"#PersonaStateWatchingBroadcast_Player",
 				l.xm.FriendStore.GetPlayer(r.GetAccountID()).display_name,
 			)
@@ -476,8 +482,8 @@ export let RB = class extends g.Component {
 };
 function O(e) {
 	let t = e.expanded
-		? (0, v.we)("#Chat_ChatRoomListO_OpenGroupCollapse")
-		: (0, v.we)("#Chat_ChatRoomListO_OpenGroupExpand");
+		? (0, Localize)("#Chat_ChatRoomListO_OpenGroupCollapse")
+		: (0, Localize)("#Chat_ChatRoomListO_OpenGroupExpand");
 	return g.createElement(
 		"div",
 		{

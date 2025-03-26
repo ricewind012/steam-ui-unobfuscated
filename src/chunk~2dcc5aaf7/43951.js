@@ -6,7 +6,7 @@ var o = require("./44234.js");
 var l = require("./46162.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require("./97422.js");
-var u = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var d = require("./52912.js");
 var A = require("./95773.js");
 export class DH {
@@ -171,7 +171,7 @@ export class ol {
 					500,
 				);
 			}
-			u.x9(this.m_rgInstances, t);
+			FindAndRemove(this.m_rgInstances, t);
 		}
 	}
 	OnContextMenu(e, t) {

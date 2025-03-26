@@ -81,7 +81,7 @@ function C(e) {
 	}
 }
 var _ = require("./35488.js");
-var f = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var b = require(/*webcrack:missing*/ "./52451.js");
 var y = require(/*webcrack:missing*/ "./72476.js");
 var S = require("./37743.js");
@@ -369,7 +369,7 @@ function k(e) {
 			{
 				className: w.JumpListItemText,
 			},
-			(0, f.we)("#TaskbarOption_" + t),
+			Localize("#TaskbarOption_" + t),
 		),
 	);
 }

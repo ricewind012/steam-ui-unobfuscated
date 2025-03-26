@@ -1,6 +1,6 @@
 var n = require("./87432.js");
 var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var s = require(/*webcrack:missing*/ "./42898.js");
 var o = require(/*webcrack:missing*/ "./14628.js");
 var l = require(/*webcrack:missing*/ "./90095.js");
@@ -5464,7 +5464,7 @@ class Le {
 	}
 }
 var ze = require(/*webcrack:missing*/ "./61416.js");
-var xe = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 function Ue(e, t, r) {
 	return (0, ze.I)({
 		queryKey: We(t, r),
@@ -5482,7 +5482,7 @@ function Ue(e, t, r) {
 			}
 		},
 		enabled: H7() == t,
-		staleTime: xe.Kp.PerMinute * 10,
+		staleTime: Seconds.PerMinute * 10,
 	});
 }
 const We = (e, t) => ["useMeetSteamGetAvailability", e, t];
@@ -5524,11 +5524,14 @@ const He = (e, t) => ["useMeetSteamGetRegistrationDetails", e, t];
 var je = require("./10606.js");
 var qe = require(/*webcrack:missing*/ "./26853.js");
 var Qe = require(/*webcrack:missing*/ "./90765.js");
-var Ze = require(/*webcrack:missing*/ "./46108.js");
-var Ye = require(/*webcrack:missing*/ "./11010.js");
+import {
+	CLocLanguageArray,
+	Localize,
+} from "../../actual_src/utils/localization.js";
+import * as Ye from "../../actual_src/utils/localization/datetime.js";
 var Ke = require(/*webcrack:missing*/ "./43691.js");
 var Xe = require(/*webcrack:missing*/ "./9731.js");
-var Je = require(/*webcrack:missing*/ "./53833.js");
+import { PadArray } from "../../actual_src/utils/arrayutils.js";
 var $e = require(/*webcrack:missing*/ "./8573.js");
 var et = require("./64608.js");
 function tt(e) {
@@ -5572,7 +5575,7 @@ function tt(e) {
 		if (S == null) {
 			e.push({
 				data: undefined,
-				label: (0, Ze.we)("#MeetSteam_ChoosePartner"),
+				label: Localize("#MeetSteam_ChoosePartner"),
 			});
 		}
 		e.push(
@@ -5583,7 +5586,7 @@ function tt(e) {
 		);
 		e.push({
 			data: 0,
-			label: (0, Ze.we)("#MeetSteam_ChoosePartnerOther"),
+			label: Localize("#MeetSteam_ChoosePartnerOther"),
 		});
 		return e;
 	}, [f, S]);
@@ -5639,8 +5642,8 @@ function tt(e) {
 	}, [I, E, v, S, b, f, C, _, g]);
 	const M = h.isLoading || A;
 	const T = l
-		? (0, Ze.we)("#MeetSteam_Register_title", r.GetNameWithFallback(m))
-		: (0, Ze.we)("#MeetSteam_Unregister_title");
+		? Localize("#MeetSteam_Register_title", r.GetNameWithFallback(m))
+		: Localize("#MeetSteam_Unregister_title");
 	const R =
 		!l ||
 		(I &&
@@ -5664,7 +5667,7 @@ function tt(e) {
 				c.createElement(qe.t, {
 					size: "medium",
 					position: "center",
-					string: A ? (0, Ze.we)("#Saving") : (0, Ze.we)("#Loading"),
+					string: A ? Localize("#Saving") : Localize("#Loading"),
 				}),
 			),
 		!M &&
@@ -5686,7 +5689,7 @@ function tt(e) {
 					c.createElement(
 						c.Fragment,
 						null,
-						c.createElement("div", null, (0, Ze.we)("#MeetSteam_Reg_Intro")),
+						c.createElement("div", null, Localize("#MeetSteam_Reg_Intro")),
 						c.createElement("br", null),
 					),
 				l &&
@@ -5695,8 +5698,8 @@ function tt(e) {
 						null,
 						v &&
 							c.createElement(et.m, {
-								label: (0, Ze.we)("#MeetSteam_Reg_Preset"),
-								tooltip: (0, Ze.we)("#MeetSteam_Reg_Preset_ttip"),
+								label: Localize("#MeetSteam_Reg_Preset"),
+								tooltip: Localize("#MeetSteam_Reg_Preset_ttip"),
 								rgOptions: B,
 								selectedOption: S,
 								onChange: (e) => w(e.data),
@@ -5707,7 +5710,7 @@ function tt(e) {
 								null,
 								c.createElement(et.pd, {
 									type: "text",
-									label: (0, Ze.we)("#MeetSteam_Reg_Name"),
+									label: Localize("#MeetSteam_Reg_Name"),
 									value: u.name || "",
 									onChange: (e) =>
 										g({
@@ -5716,7 +5719,7 @@ function tt(e) {
 								}),
 								c.createElement(et.pd, {
 									type: "text",
-									label: (0, Ze.we)("#MeetSteam_Reg_Email"),
+									label: Localize("#MeetSteam_Reg_Email"),
 									value: u.email_override || "",
 									mustBeEmail: true,
 									onChange: (e) =>
@@ -5726,7 +5729,7 @@ function tt(e) {
 								}),
 								c.createElement(et.pd, {
 									type: "text",
-									label: (0, Ze.we)("#MeetSteam_Reg_Company"),
+									label: Localize("#MeetSteam_Reg_Company"),
 									value: u.company || "",
 									onChange: (e) =>
 										g({
@@ -5735,7 +5738,7 @@ function tt(e) {
 								}),
 								c.createElement(et.pd, {
 									type: "text",
-									label: (0, Ze.we)("#MeetSteam_Reg_Game"),
+									label: Localize("#MeetSteam_Reg_Game"),
 									value: u.game || "",
 									onChange: (e) =>
 										g({
@@ -5744,8 +5747,8 @@ function tt(e) {
 								}),
 								Boolean(s > 0) &&
 									c.createElement(et.m, {
-										label: (0, Ze.we)("#MeetSteam_Reg_GuestCount", s),
-										tooltip: (0, Ze.we)("#MeetSteam_Reg_GuestCount_ttip"),
+										label: Localize("#MeetSteam_Reg_GuestCount", s),
+										tooltip: Localize("#MeetSteam_Reg_GuestCount_ttip"),
 										rgOptions: Array.from({
 											length: s,
 										}).map((e, t) => ({
@@ -5759,7 +5762,7 @@ function tt(e) {
 												guest_names:
 													u.guest_names?.length > e.data
 														? u.guest_names.slice(0, e.data)
-														: Je.$Y(u.guest_names ?? [], e.data, ""),
+														: PadArray(u.guest_names ?? [], e.data, ""),
 											}),
 									}),
 								Boolean(u.guests_registered > 1) &&
@@ -5769,13 +5772,13 @@ function tt(e) {
 										c.createElement(
 											"div",
 											null,
-											(0, Ze.we)("#MeetSteam_Reg_Others"),
+											Localize("#MeetSteam_Reg_Others"),
 										),
 										u.guest_names.map((e, t) =>
 											c.createElement(et.pd, {
 												key: "guesname_" + t,
 												type: "text",
-												label: (0, Ze.we)("#MeetSteam_Reg_Others_name"),
+												label: Localize("#MeetSteam_Reg_Others_name"),
 												value: e,
 												onChange: (e) => {
 													const r = [...u.guest_names];
@@ -5986,7 +5989,7 @@ export function ac(e) {
 }
 function dt() {
 	const e = (0, Xe.Tc)("promotion_operation_token", "application_config");
-	(0, a.w)(Boolean(e), "require promotion_operation_token");
+	AssertMsg(Boolean(e), "require promotion_operation_token");
 	const [t] = c.useState(() =>
 		new u.D(Ke.TS.WEBAPI_BASE_URL, e).GetServiceTransport(),
 	);
@@ -6012,7 +6015,7 @@ function At(e) {
 		return c.createElement(qe.t, {
 			size: "medium",
 			position: "center",
-			string: (0, Ze.we)("#Loading"),
+			string: Localize("#Loading"),
 		});
 	}
 	return c.createElement(
@@ -6058,8 +6061,11 @@ function At(e) {
 function pt(e) {
 	const { groupData: t, children: r } = e;
 	const a = (0, i.sf)(Ke.TS.LANGUAGE);
-	const s = Ze.NT.GetWithFallback(t?.localized_session_title, a);
-	const o = Ze.NT.GetWithFallback(t?.localized_session_description, a);
+	const s = CLocLanguageArray.GetWithFallback(t?.localized_session_title, a);
+	const o = CLocLanguageArray.GetWithFallback(
+		t?.localized_session_description,
+		a,
+	);
 	if (t) {
 		return c.createElement(
 			"div",
@@ -6125,13 +6131,13 @@ function gt(e) {
 	let y = null;
 	let S = null;
 	if (a == 1) {
-		y = (0, Ze.we)("#MeetSteam_Registered");
+		y = Localize("#MeetSteam_Registered");
 		S = n.Registered;
 	} else if (a == 2) {
-		y = (0, Ze.we)("#MeetSteam_Registering");
+		y = Localize("#MeetSteam_Registering");
 		S = n.Registering;
 	} else if (a == 3) {
-		y = (0, Ze.we)("#MeetSteam_Unegistering");
+		y = Localize("#MeetSteam_Unegistering");
 		S = n.Unregistering;
 	}
 	return c.createElement(
@@ -6161,7 +6167,9 @@ function gt(e) {
 					{
 						className: n.Title,
 					},
-					(0, Ye.$w)(new Date((o + g * 60) * 1000)),
+					(0, Ye.LocalizeCalendarWeekdayAndDayMonth)(
+						new Date((o + g * 60) * 1000),
+					),
 				),
 				c.createElement(
 					"div",
@@ -6184,14 +6192,14 @@ function gt(e) {
 								{
 									className: n.SoldOut,
 								},
-								(0, Ze.we)("#MeetSteam_SoldOut"),
+								Localize("#MeetSteam_SoldOut"),
 							)
 						: c.createElement(
 								"div",
 								{
 									className: n.MaxSize,
 								},
-								(0, Ze.Yp)("#MeetSteam_Spot", f.toLocaleString()),
+								LocalizePlural("#MeetSteam_Spot", f.toLocaleString()),
 							),
 					" ",
 				),
@@ -6204,7 +6212,7 @@ function ht() {
 		{
 			className: n.InstanceDivider,
 		},
-		(0, Ze.we)("#MeetSteam_Or"),
+		Localize("#MeetSteam_Or"),
 	);
 }
 function Ct(e) {
@@ -6257,7 +6265,7 @@ function Ct(e) {
 	(function (e) {
 		c.useEffect(() => {
 			if (e) {
-				window.onbeforeunload = () => (0, Ze.we)("#EventEditor_UnsavedChanges");
+				window.onbeforeunload = () => Localize("#EventEditor_UnsavedChanges");
 				return () => {
 					window.onbeforeunload = () => {};
 				};
@@ -6274,8 +6282,8 @@ function Ct(e) {
 			"p",
 			null,
 			B
-				? (0, Ze.we)("#MeetSteam_UpdateRegistration_Desc")
-				: (0, Ze.we)("#MeetSteam_CompleteRegistration_Desc"),
+				? Localize("#MeetSteam_UpdateRegistration_Desc")
+				: Localize("#MeetSteam_CompleteRegistration_Desc"),
 		),
 		a &&
 			c.createElement(
@@ -6289,14 +6297,14 @@ function Ct(e) {
 							onClick: () => f(() => p(true)),
 						},
 						B
-							? (0, Ze.we)("#MeetSteam_UpdateRegistration")
-							: (0, Ze.we)("#MeetSteam_CompleteRegistration"),
+							? Localize("#MeetSteam_UpdateRegistration")
+							: Localize("#MeetSteam_CompleteRegistration"),
 					),
 				y &&
 					c.createElement(qe.t, {
 						size: "small",
 						position: "center",
-						string: (0, Ze.we)("#Saving"),
+						string: Localize("#Saving"),
 					}),
 				A &&
 					c.createElement(tt, {
@@ -6321,8 +6329,8 @@ function Ct(e) {
 							active: true,
 						},
 						c.createElement(je.Ee, {
-							strTitle: (0, Ze.we)("#Error_Generic"),
-							strDescription: (0, Ze.we)("#MeetSteam_RegistrationFailed"),
+							strTitle: Localize("#Error_Generic"),
+							strDescription: Localize("#MeetSteam_RegistrationFailed"),
 							closeModal: _,
 						}),
 					),
@@ -6340,11 +6348,11 @@ function ft() {
 		return () =>
 			(0, lt.pg)(
 				c.createElement(je.o0, {
-					strTitle: (0, Ze.we)("#EventDisplay_Share_NotLoggedIn"),
-					strDescription: (0, Ze.we)(
+					strTitle: Localize("#EventDisplay_Share_NotLoggedIn"),
+					strDescription: Localize(
 						"#EventDisplay_Share_NotLoggedIn_Description",
 					),
-					strOKButtonText: (0, Ze.we)("#MobileLogin_SignIn"),
+					strOKButtonText: Localize("#MobileLogin_SignIn"),
 					onOK: () => (0, ot.vg)(),
 				}),
 				window,

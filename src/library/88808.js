@@ -9,7 +9,7 @@ var u = l;
 var m = require("./15123.js");
 var d = require("./42318.js");
 var h = require("./91435.js");
-var p = require("./54644.js");
+import { ClientRectToScreenCoords } from "../../actual_src/utils/domutils.js";
 var g = require("./52451.js");
 export function k(e) {
 	const { managerOverride: t, bSuppressMouseOverlay: n } = e;
@@ -101,7 +101,7 @@ function b(e) {
 					height: 1,
 				};
 			} else {
-				let t = p.pd(d, i.getBoundingClientRect());
+				let t = ClientRectToScreenCoords(d, i.getBoundingClientRect());
 				e.dimensions = {
 					left: t.right,
 					top: t.top,

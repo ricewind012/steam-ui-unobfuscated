@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./90095.js");
 var s = require("./32493.js");
 var o = require("./96593.js");
 var l = require("./5640.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./51095.js");
 var u = require(/*webcrack:missing*/ "./44846.js");
 const d = {
@@ -56,7 +56,7 @@ const d = {
 		},
 	],
 };
-var A = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
 var p = require(/*webcrack:missing*/ "./12176.js");
 var g = require(/*webcrack:missing*/ "./79769.js");
 var h = require("./52698.js");
@@ -134,9 +134,9 @@ export function B7() {
 	const i = r.length;
 	const s = n + i;
 	if (e == "Downloading") {
-		return (0, c.we)("#BottomBar_Downloading_Progress", i + 1, s);
+		return Localize("#BottomBar_Downloading_Progress", i + 1, s);
 	} else {
-		return (0, c.we)("#Downloads_State_" + e);
+		return Localize("#Downloads_State_" + e);
 	}
 }
 export function JS() {
@@ -368,19 +368,19 @@ class L {
 		if (this.m_DownloadOverview.update_seconds_remaining == -1) {
 			return "";
 		} else if (this.m_DownloadOverview.update_seconds_remaining <= 60) {
-			return (0, c.we)(
+			return Localize(
 				"#Downloads_State_SecondsRemaining",
 				this.m_DownloadOverview.update_seconds_remaining,
 			);
 		} else {
-			return (0, c.we)(
+			return Localize(
 				"#Downloads_State_MinutesRemaining",
 				Math.floor(this.m_DownloadOverview.update_seconds_remaining / 60),
 			);
 		}
 	}
 	LocalizeTimeRemaining(e) {
-		return (0, A.R2)(e);
+		return LocalizeTimeRemaining(e);
 	}
 }
 export function dZ(e) {

@@ -7,7 +7,10 @@ var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require("./64608.js");
 var m = require("./35488.js");
 var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeInlineReactWithFallback,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./83599.js");
 var p = require("./10239.js");
 var g = p;
@@ -277,7 +280,7 @@ const Q = o.forwardRef(function (e, t) {
 		{
 			className: (0, u.A)(g.ConfigurationHeader),
 		},
-		(0, d.oW)(
+		LocalizeInlineReactWithFallback(
 			p,
 			o.createElement("span", {
 				className: g.ConfigurationHeaderBold,
@@ -486,7 +489,7 @@ function Y(e) {
 	if (!t) {
 		return o.createElement(Z, {
 			visible: e.visible,
-			status: (0, d.we)("#LaunchApp_Action_Starting"),
+			status: Localize("#LaunchApp_Action_Starting"),
 			appId: e.appId,
 			overview: e.overview,
 		});
@@ -506,7 +509,7 @@ function K(e) {
 	const i = (0, s.WJ)(n);
 	const a = X(i);
 	let l = false;
-	let m = (0, d.we)("#LaunchApp_Action_Starting");
+	let m = Localize("#LaunchApp_Action_Starting");
 	if (i.strActionName == "LaunchApp") {
 		m = J(i.strTaskName, i.strTaskDetails, a);
 		l = i.strTaskName === "ProcessingShaderCache";
@@ -532,7 +535,7 @@ function K(e) {
 					onClick: u,
 					autoFocus: true,
 				},
-				(0, d.we)(
+				Localize(
 					"#LaunchApp_Action_SkipProcessingShaderCache",
 				).toLocaleUpperCase(),
 			),
@@ -559,20 +562,20 @@ function J(e, t, r) {
 		case "CreatingProcess":
 		case "WaitingGameWindow":
 		case "ConnectingToSteam":
-			return (0, d.we)("#LaunchApp_Action_" + e);
+			return Localize("#LaunchApp_Action_" + e);
 		case "DownloadingDepots":
 		case "DownloadingWorkshop":
 		case "DelayLaunch":
 		case "ProcessingShaderCache":
-			return (0, d.we)("#LaunchApp_Action_" + e, r);
+			return Localize("#LaunchApp_Action_" + e, r);
 		case "RunningInstallScript":
 			if (n) {
-				return (0, d.we)("#LaunchApp_Action_" + e, t);
+				return Localize("#LaunchApp_Action_" + e, t);
 			} else {
-				return (0, d.we)("#LaunchApp_Action_" + e + "_NoParens");
+				return Localize("#LaunchApp_Action_" + e + "_NoParens");
 			}
 		default:
-			return (0, d.we)("#LaunchApp_Action_Starting");
+			return Localize("#LaunchApp_Action_Starting");
 	}
 }
 function $(e) {
@@ -605,7 +608,7 @@ function $(e) {
 			c.Y9,
 			null,
 			"  ",
-			(0, d.we)("#LaunchApp_Action_SkipStepHeader", l.display_name),
+			Localize("#LaunchApp_Action_SkipStepHeader", l.display_name),
 			" ",
 		),
 		o.createElement(
@@ -616,7 +619,7 @@ function $(e) {
 				c.wi,
 				null,
 				o.createElement(c.CB, {
-					strOKText: (0, d.we)("#Button_Skip"),
+					strOKText: Localize("#Button_Skip"),
 					onCancel: i(r),
 					onOK: i(n),
 					strCancelText: "Cancel",
@@ -644,8 +647,8 @@ export function vE(e, t) {
 		r = "#Error_ErrorCommunicatingWithNetwork";
 	}
 	let n = o.createElement(z.KG, {
-		strTitle: (0, d.we)("#DurationControl_PlaytimeExceeded_Title"),
-		strDescription: (0, d.we)(r),
+		strTitle: Localize("#DurationControl_PlaytimeExceeded_Title"),
+		strDescription: Localize(r),
 	});
 	(0, x.pg)(n, e, {});
 }

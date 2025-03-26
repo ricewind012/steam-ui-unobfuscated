@@ -253,7 +253,7 @@ class w {
 }
 (0, n.Cg)([h.o], w.prototype, "OnMessage", null);
 var B = require(/*webcrack:missing*/ "./736.js");
-var v = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 const I = "VirtualKeyboardMessage";
 function E(e) {
 	return e && e.type === I;
@@ -317,7 +317,7 @@ class M {
 		if ((0, B.Dp)("BrowserView.PostMessageToParent")) {
 			SteamClient.BrowserView.PostMessageToParent(t.type, JSON.stringify(t));
 		} else if (this.m_ownerWindow) {
-			(0, v.w)(
+			AssertMsg(
 				this.m_ownerWindow.parent &&
 					this.m_ownerWindow.parent != this.m_ownerWindow,
 				"CVirtualKeyboardClient: No parent client window available, cannot display virtual keyboard",
@@ -361,7 +361,7 @@ class _T {
 }
 (0, n.Cg)([h.o], _T.prototype, "OnMessage", null);
 var R = require("./43152.js");
-var k = require(/*webcrack:missing*/ "./54644.js");
+import { IsHTMLElementTextInput } from "../../actual_src/utils/domutils.js";
 class D {
 	Log = new f.wd("WebBrowser", () => this.m_strName).Debug;
 	m_strName;
@@ -609,12 +609,12 @@ class D {
 	OnNodeHasFocus(e, t, r, n, i) {
 		if (!i || !this.m_gamepadBridge.BClientManagesVirtualKeyboard()) {
 			if (this.m_bUseVRKeyboard) {
-				if ((0, k.TV)(t, r)) {
+				if (IsHTMLElementTextInput(t, r)) {
 					this.m_browserView.SetVRKeyboardVisibility(true);
 				} else {
 					this.m_browserView.SetVRKeyboardVisibility(false);
 				}
-			} else if ((0, k.TV)(t, r)) {
+			} else if (IsHTMLElementTextInput(t, r)) {
 				this.m_refKeyboard.ShowVirtualKeyboard();
 			} else {
 				this.m_refKeyboard.HideVirtualKeyboard();
@@ -680,7 +680,10 @@ class D {
 var N = require(/*webcrack:missing*/ "./85243.js");
 var F = require(/*webcrack:missing*/ "./44846.js");
 var G = require("./43014.js");
-var O = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var P = require("./69913.js");
 var L = require("./22969.js");
 var z = require("./35425.js");
@@ -863,9 +866,9 @@ export class T {
 		}
 		this.InitializeDefaultActions();
 		t.push(
-			O.pf
-				.GetTokensChangedCallbackList()
-				.Register(() => this.InitializeDefaultActions()).Unregister,
+			LocalizationManager.GetTokensChangedCallbackList().Register(() =>
+				this.InitializeDefaultActions(),
+			).Unregister,
 		);
 		t.push(() => {
 			if (this.m_StoreBrowser) {
@@ -1242,10 +1245,16 @@ export class T {
 		this.ActionDescriptionStore.SetDefaultAction(G.g4.QuickMenu, null);
 		this.ActionDescriptionStore.SetDefaultAction(
 			G.g4.HomeMenu,
-			(0, O.we)(e[G.g4.HomeMenu]),
+			(0, Localize)(e[G.g4.HomeMenu]),
 		);
-		this.ActionDescriptionStore.SetDefaultAction(G.g4.A, (0, O.we)(e[G.g4.A]));
-		this.ActionDescriptionStore.SetDefaultAction(G.g4.B, (0, O.we)(e[G.g4.B]));
+		this.ActionDescriptionStore.SetDefaultAction(
+			G.g4.A,
+			(0, Localize)(e[G.g4.A]),
+		);
+		this.ActionDescriptionStore.SetDefaultAction(
+			G.g4.B,
+			(0, Localize)(e[G.g4.B]),
+		);
 	}
 }
 (0, n.Cg)([a.sH], T.prototype, "m_params", undefined);

@@ -1,14 +1,14 @@
 var r = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./61657.js");
 var s = require("./34742.js");
-var o = require("./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var a = require("./93960.js");
 var c = require("./90039.js");
 var l = require("./83599.js");
 var u = require("./87197.js");
 var m = require("./20893.js");
 var d = require("./61050.js");
-var h = require("./54644.js");
+import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
 function p(e, t, n) {
 	const r = [];
 	const [i, s] = e.GetChildren();
@@ -134,7 +134,7 @@ function _(e, t, n) {
 			}
 		}
 		if (n) {
-			s = (0, h.bZ)(r, n);
+			s = DistanceBetweenRects(r, n);
 		}
 	} else if (i == "children") {
 		const n = e.Element;
@@ -368,7 +368,7 @@ export class Bp {
 			e.SetRetainFocusParent(this.m_RetainFocusParent);
 		}
 		if (this.m_bMounted && e.BFocusWithin()) {
-			(0, o.w)(
+			AssertMsg(
 				!this.m_ActiveChild && this.BFocusWithin(),
 				"Invalid focus state in AddChild",
 			);
@@ -380,7 +380,7 @@ export class Bp {
 		if (this.m_Parent) {
 			this.m_Parent.AddChild(this);
 		} else {
-			(0, o.w)(this == this.m_Tree.Root, "Only root should have no parent");
+			AssertMsg(this == this.m_Tree.Root, "Only root should have no parent");
 		}
 		this.m_bMounted = true;
 		this.RegisterDOMEvents();
@@ -412,7 +412,7 @@ export class Bp {
 			const e = this.m_rgChildren.findIndex((e) => e.BFocusWithin());
 			if (e != -1) {
 				this.SetActiveChild(e);
-				(0, o.w)(
+				AssertMsg(
 					this.m_bFocusWithin,
 					"Child has focus, we should be m_bFocusWithin",
 				);
@@ -443,7 +443,7 @@ export class Bp {
 		if (this.m_Parent) {
 			this.m_Parent.RemoveChild(this);
 		} else {
-			(0, o.w)(this == this.m_Tree.Root, "Only root should have no parent");
+			AssertMsg(this == this.m_Tree.Root, "Only root should have no parent");
 		}
 	}
 	RegisterDOMEvents() {
@@ -478,7 +478,7 @@ export class Bp {
 	}
 	RemoveChild(e) {
 		let t = this.m_rgChildren.indexOf(e);
-		(0, o.w)(t !== -1, "Child was not found to remove");
+		AssertMsg(t !== -1, "Child was not found to remove");
 		if (t !== -1) {
 			if (this.m_ActiveChild == e) {
 				this.m_ActiveChild = undefined;
@@ -936,7 +936,7 @@ export class Bp {
 		const r = n == i.pR.DIR_UP || n == i.pR.DIR_DOWN;
 		const s = this.GetLastFocusElement();
 		if (!s || s == this.m_element) {
-			(0, o.w)(
+			AssertMsg(
 				false,
 				"No active child for grid navigation",
 				this.m_iLastActiveChildIndex,
@@ -1077,7 +1077,7 @@ export class Bp {
 	SetDOMFocusAndScroll(e, t) {
 		this.UpdateParentActiveChild();
 		if (this.m_Tree.BIsActiveFocus()) {
-			(0, o.w)(
+			AssertMsg(
 				!this.m_Tree.BUseVirtualFocus(),
 				"Virtual focus tree should not have browser focus",
 			);

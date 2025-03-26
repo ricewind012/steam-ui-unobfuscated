@@ -30,7 +30,7 @@ var R = require("./96593.js");
 var k = require(/*webcrack:missing*/ "./10975.js");
 var D = require(/*webcrack:missing*/ "./90095.js");
 var N = require(/*webcrack:missing*/ "./41230.js");
-var F = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var G = require("./64608.js");
 var O = require("./38542.js");
 var P = require("./93681.js");
@@ -571,7 +571,7 @@ const ie = (0, N.PA)(function (e) {
 				},
 				_ &&
 					n.createElement(G.d3, {
-						label: (0, F.we)("#Audio_VRHeadset_Volume"),
+						label: (0, Localize)("#Audio_VRHeadset_Volume"),
 						value: A,
 						onChange: (e) =>
 							a({
@@ -601,7 +601,7 @@ const ie = (0, N.PA)(function (e) {
 					}),
 				b &&
 					n.createElement(G.d3, {
-						label: (0, F.we)("#Audio_VRAudioMirror_Volume"),
+						label: (0, Localize)("#Audio_VRAudioMirror_Volume"),
 						value: g,
 						onChange: (e) =>
 							l({
@@ -632,7 +632,7 @@ const ie = (0, N.PA)(function (e) {
 					}),
 				y &&
 					n.createElement(G.d3, {
-						label: (0, F.we)("#Audio_VRMicrophone_Volume"),
+						label: (0, Localize)("#Audio_VRMicrophone_Volume"),
 						value: h,
 						onChange: (e) =>
 							u({
@@ -662,7 +662,7 @@ const ie = (0, N.PA)(function (e) {
 						),
 					}),
 			),
-			tooltip: (0, F.we)("#Audio_Volume"),
+			tooltip: (0, Localize)("#Audio_Volume"),
 		},
 		n.createElement(d.AudioVolumeIcon, {
 			flVolume: A,
@@ -758,7 +758,7 @@ function ce(e) {
 	}, [r, t]);
 	return n.createElement(se, {
 		icon: n.createElement(d.Exit, null),
-		label: (0, F.we)("#ExitVR"),
+		label: (0, Localize)("#ExitVR"),
 		onActivate: i,
 		bottomSeparator: "none",
 	});
@@ -885,7 +885,7 @@ const Ae = (0, N.PA)(function (e) {
 						}),
 					),
 				),
-				tooltip: (0, F.we)("#VRDashboard_AddDesktopWindow"),
+				tooltip: (0, Localize)("#VRDashboard_AddDesktopWindow"),
 			},
 			n.createElement(d.Add, null),
 		);
@@ -940,7 +940,7 @@ function ge(e) {
 	r.push(
 		n.createElement(me, {
 			key: "mainmenu",
-			tooltip: (0, F.we)("#OptionsMenuVR"),
+			tooltip: (0, Localize)("#OptionsMenuVR"),
 			directVRStreamingOption: true,
 			powerOptions: true,
 			menuActionID: undefined,

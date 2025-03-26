@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./90095.js");
 var a = require(/*webcrack:missing*/ "./52451.js");
 var s = require(/*webcrack:missing*/ "./12176.js");
 var o = require("./46948.js");
-var l = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var c = require(/*webcrack:missing*/ "./8573.js");
 var m = require("./5859.js");
 var u = require("./5640.js");
@@ -12,8 +12,8 @@ var A = require(/*webcrack:missing*/ "./88696.js");
 export function T() {
 	return (0, i.q3)(() => J.TrendingApps);
 }
-const g = l.Kp.PerDay * 1000;
-const h = l.Kp.PerHour * 1000;
+const g = Seconds.PerDay * 1000;
+const h = Seconds.PerHour * 1000;
 class C extends d.x {
 	m_CMInterface;
 	constructor() {

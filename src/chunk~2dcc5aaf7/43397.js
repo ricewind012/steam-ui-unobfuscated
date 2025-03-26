@@ -5,8 +5,8 @@ var s = require(/*webcrack:missing*/ "./31084.js");
 var o = require("./92008.js");
 var l = require(/*webcrack:missing*/ "./736.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./54644.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./72476.js");
 var A = require(/*webcrack:missing*/ "./88750.js");
 export function Id(e, t) {
@@ -71,10 +71,10 @@ function h(e) {
 			A.kt,
 			{
 				onSelected: () => {
-					m.YQ(t);
+					CopyURLToClipboard(t);
 				},
 			},
-			(0, u.we)("#ContextMenu_CopyLinkURL"),
+			(0, Localize)("#ContextMenu_CopyLinkURL"),
 		),
 		a.createElement(
 			A.kt,
@@ -85,7 +85,7 @@ function h(e) {
 					});
 				},
 			},
-			(0, u.we)("#ContextMenu_OpenLinkInNewWindow"),
+			(0, Localize)("#ContextMenu_OpenLinkInNewWindow"),
 		),
 	);
 }
@@ -112,10 +112,10 @@ function _(e) {
 			A.kt,
 			{
 				onSelected: () => {
-					m.YQ(t);
+					CopyURLToClipboard(t);
 				},
 			},
-			(0, u.we)("#ContextMenu_CopyImageURL"),
+			(0, Localize)("#ContextMenu_CopyImageURL"),
 		),
 		a.createElement(
 			A.kt,
@@ -126,7 +126,7 @@ function _(e) {
 					});
 				},
 			},
-			(0, u.we)("#ContextMenu_OpenImageInNewWindow"),
+			(0, Localize)("#ContextMenu_OpenImageInNewWindow"),
 		),
 	);
 }

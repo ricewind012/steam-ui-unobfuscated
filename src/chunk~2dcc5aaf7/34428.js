@@ -1,4 +1,7 @@
-var n = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 export function dm(e, t, r, i) {
 	let a = t;
 	a =
@@ -44,9 +47,9 @@ export function dm(e, t, r, i) {
 		u +
 		(a.bValueIsInBytes ? "bytes" : "bits") +
 		(a.bValueIsRate ? "_PerSecond" : "");
-	return (0, n.we)(
+	return (0, Localize)(
 		d,
-		m.toLocaleString(n.pf.GetPreferredLocales(), {
+		m.toLocaleString(LocalizationManager.GetPreferredLocales(), {
 			minimumFractionDigits: a.nMinimumDigitsAfterDecimal,
 			maximumFractionDigits: a.nDigitsAfterDecimal,
 		}),
@@ -60,7 +63,7 @@ export function Dq(e, t = 0) {
 		};
 	}
 	if (e) {
-		return e.toLocaleString(n.pf.GetPreferredLocales(), r);
+		return e.toLocaleString(LocalizationManager.GetPreferredLocales(), r);
 	} else {
 		return "" + e;
 	}

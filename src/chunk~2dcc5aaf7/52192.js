@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./11625.js");
 var a = require("./43014.js");
 var s = require("./62486.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./85360.js");
 var c = require("./46422.js");
 var m = require("./35488.js");
@@ -126,7 +126,7 @@ export function VF(e) {
 					className: y,
 				},
 				s.z_[h]
-					? n.createElement(n.Fragment, null, (0, o.we)(s.z_[h]?.id))
+					? n.createElement(n.Fragment, null, (0, Localize)(s.z_[h]?.id))
 					: n.createElement(
 							"span",
 							{
@@ -144,11 +144,15 @@ export function RF(e) {
 	}
 	switch (e) {
 		case 32766:
-			return (0, o.we)("#ControllerConfigurator_EControllerPresetType_NextSet");
+			return (0, Localize)(
+				"#ControllerConfigurator_EControllerPresetType_NextSet",
+			);
 		case 32767:
-			return (0, o.we)("#ControllerConfigurator_EControllerPresetType_None");
+			return (0, Localize)(
+				"#ControllerConfigurator_EControllerPresetType_None",
+			);
 		case 32765:
-			return (0, o.we)(
+			return (0, Localize)(
 				"#ControllerConfigurator_EControllerPresetType_PreviousSet",
 			);
 	}
@@ -161,22 +165,24 @@ export function JD(e, t, r) {
 		let s = "";
 		switch (e.action_set.preset_type) {
 			case 32766:
-				s = (0, o.we)("#ControllerConfigurator_EControllerPresetType_NextSet");
+				s = (0, Localize)(
+					"#ControllerConfigurator_EControllerPresetType_NextSet",
+				);
 				break;
 			case 32767:
 				break;
 			case 32765:
-				s = (0, o.we)(
+				s = (0, Localize)(
 					"#ControllerConfigurator_EControllerPresetType_PreviousSet",
 				);
 		}
 		let l = i?.display_name ?? s;
-		return (0, o.we)(a.id) + " (" + l + ")";
+		return (0, Localize)(a.id) + " (" + l + ")";
 	}
 	if (a != null && a.playerNumber) {
 		if (e.change_player_number.player_number != null) {
 			return (
-				(0, o.we)(a.id) + " (" + e.change_player_number.player_number + ")"
+				(0, Localize)(a.id) + " (" + e.change_player_number.player_number + ")"
 			);
 		}
 	} else {
@@ -198,17 +204,17 @@ export function JD(e, t, r) {
 					{
 						className: i.BindingButton,
 					},
-					(0, o.we)(a.id),
+					(0, Localize)(a.id),
 					" ",
 				),
 			);
 		}
 		if (a != null && e?.action == 38) {
 			const t = e.dots_per_360_calibration_spin.spin_by_amount;
-			return (0, o.we)(a.id, t);
+			return (0, Localize)(a.id, t);
 		}
 		if (a != null) {
-			return (0, o.we)(a.id);
+			return (0, Localize)(a.id);
 		}
 	}
 }
@@ -373,15 +379,17 @@ export function yZ(e) {
 	const t = h.H.GetAppDetails(e?.appID);
 	const r =
 		e?.Title?.charAt(0) == "#"
-			? (0, o.we)(e?.Title, t?.strDisplayName)
+			? (0, Localize)(e?.Title, t?.strDisplayName)
 			: e?.Title;
 	return l.v3.FilterText(r) || "";
 }
 export function ut(e, t) {
-	const r = (0, o.we)("#" + C.Fd.GetControllerTypeString(e.nControllerType));
+	const r = (0, Localize)(
+		"#" + C.Fd.GetControllerTypeString(e.nControllerType),
+	);
 	const n =
 		e?.Description?.charAt(0) == "#"
-			? (0, o.we)(e?.Description, t, r)
+			? (0, Localize)(e?.Description, t, r)
 			: e?.Description;
 	return l.v3.FilterText(n) || "";
 }

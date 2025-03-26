@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./44846.js");
 var a = require("./34875.js");
 var s = require(/*webcrack:missing*/ "./36885.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { CLocLanguageArray } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./53807.js");
 var _m = require(/*webcrack:missing*/ "./72476.js");
 var u = require("./76802.js");
@@ -16,11 +16,11 @@ export function m(e) {
 			r?.jsondata?.localized_sale_product_mobile_banner?.length > 0
 		) {
 			const e = (0, i.sf)(_m.TS.LANGUAGE);
-			const t = l.NT.GetWithFallback(
+			const t = CLocLanguageArray.GetWithFallback(
 				r.jsondata.localized_sale_product_banner,
 				e,
 			);
-			const n = l.NT.GetWithFallback(
+			const n = CLocLanguageArray.GetWithFallback(
 				r.jsondata.localized_sale_product_mobile_banner,
 				e,
 			);

@@ -58,7 +58,10 @@ var o = require(/*webcrack:missing*/ "./69164.js");
 var l = require(/*webcrack:missing*/ "./50376.js");
 var c = require(/*webcrack:missing*/ "./49455.js");
 var _m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./52451.js");
 var A = require("./29889.js");
 var p = require("./27793.js");
@@ -279,7 +282,7 @@ export class pd extends _a.PureComponent {
 								className: "DialogInput_CopyAction Primary",
 								onClick: this.OnCopyClick,
 							},
-							(0, u.we)("#Button_Copy"),
+							(0, Localize)("#Button_Copy"),
 						),
 						_a.createElement(
 							"div",
@@ -287,7 +290,7 @@ export class pd extends _a.PureComponent {
 								style: E,
 								className: v,
 							},
-							(0, u.we)("#Button_Copied"),
+							(0, Localize)("#Button_Copied"),
 						),
 					),
 				(c || (s && w.value)) &&
@@ -346,7 +349,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.we)("#Input_Error_NumberTooSmall"),
+								(0, Localize)("#Input_Error_NumberTooSmall"),
 								" ",
 							)
 						: null,
@@ -355,7 +358,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.we)("#Input_Error_NumberTooLarge"),
+								(0, Localize)("#Input_Error_NumberTooLarge"),
 								" ",
 							)
 						: null,
@@ -364,7 +367,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.we)("#Input_Error_MustBeURL"),
+								(0, Localize)("#Input_Error_MustBeURL"),
 								" ",
 							)
 						: null,
@@ -382,7 +385,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.we)("#Input_Error_MustBeEmail"),
+								(0, Localize)("#Input_Error_MustBeEmail"),
 								" ",
 							)
 						: null,
@@ -391,7 +394,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.we)("#Input_Error_MustBeNumber"),
+								(0, Localize)("#Input_Error_MustBeNumber"),
 								" ",
 							)
 						: null,
@@ -400,7 +403,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								(0, u.PP)("#Input_Error_TooManyCharacters", S),
+								LocalizeReact("#Input_Error_TooManyCharacters", S),
 								" ",
 							)
 						: null,
@@ -795,7 +798,7 @@ export function a(e) {
 		r,
 	);
 }
-var M = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var T = require(/*webcrack:missing*/ "./31084.js");
 var R = require(/*webcrack:missing*/ "./98995.js");
 var k = require("./28999.js");
@@ -990,7 +993,7 @@ export class ZU extends _a.Component {
 		return false;
 	}
 	componentDidUpdate(e, t) {
-		(0, M.w)(
+		AssertMsg(
 			this.props.controlled === e.controlled,
 			'"controlled" prop should never change after mount',
 		);
@@ -1831,7 +1834,7 @@ export const yA = _a.forwardRef(function (e, t) {
 		{
 			className: r,
 			onOptionsButton: A,
-			onOptionsActionDescription: (0, u.we)(
+			onOptionsActionDescription: (0, Localize)(
 				c ? "#Login_HidePassword" : "#Login_ShowPassword",
 			),
 		},
@@ -1976,7 +1979,7 @@ var Pe = require("./72655.js");
 var Le = require(/*webcrack:missing*/ "./61657.js");
 var ze = require("./43397.js");
 var xe = require("./16251.js");
-var Ue = require(/*webcrack:missing*/ "./54644.js");
+import { GetTotalZoom } from "../../actual_src/utils/domutils.js";
 const We = 1;
 const Ve = (0, ze.i_)(Ne["error-shake-duration"]);
 function He(e, t) {
@@ -2371,7 +2374,7 @@ export class A0 extends _a.Component {
 		);
 	}
 	componentDidMount() {
-		this.m_fZoom = (0, Ue.a_)(this.m_refSlider.current);
+		this.m_fZoom = GetTotalZoom(this.m_refSlider.current);
 	}
 	componentWillUnmount() {
 		this.RemoveDocumentEventListeners();
@@ -2417,7 +2420,7 @@ export class A0 extends _a.Component {
 						disabled: !this.CanResetToDefault,
 						onSelected: this.ResetToDefault,
 					},
-					(0, u.we)("#ResetToDefault"),
+					(0, Localize)("#ResetToDefault"),
 				),
 			);
 			(0, T.lX)(t, e);
@@ -2447,7 +2450,7 @@ export class A0 extends _a.Component {
 		const h = !g;
 		const C = {};
 		if (this.CanResetToDefault) {
-			C[Le.pR.SECONDARY] = (0, u.we)("#ResetToDefault");
+			C[Le.pR.SECONDARY] = (0, Localize)("#ResetToDefault");
 		}
 		let _ = `${Ne.SliderHandle} SliderHandle`;
 		let f = `${Ne.SliderHandleContainer} SliderHandleContainer `;
@@ -2483,7 +2486,7 @@ export class A0 extends _a.Component {
 				onTouchStart: (e) => this.OnTouchStart(e.nativeEvent),
 				onOKActionDescription: this.props.disabled
 					? null
-					: (0, u.we)("#Slider_AdjustSlider"),
+					: (0, Localize)("#Slider_AdjustSlider"),
 				focusable: o,
 				childFocusDisabled: this.props.disabled || !o,
 				onContextMenu: this.OnContextMenu,
@@ -2494,7 +2497,7 @@ export class A0 extends _a.Component {
 					? this.ResetToDefault
 					: undefined,
 				onSecondaryActionDescription: this.CanResetToDefault
-					? (0, u.we)("#ResetToDefault")
+					? (0, Localize)("#ResetToDefault")
 					: undefined,
 				actionDescriptionMap: C,
 			},
@@ -2529,7 +2532,7 @@ export class A0 extends _a.Component {
 					onOKButton: this.BlurInnerSlider,
 					onOKActionDescription: null,
 					onCancelButton: this.BlurInnerSlider,
-					onCancelActionDescription: (0, u.we)("#ActionButtonLabelDone"),
+					onCancelActionDescription: (0, Localize)("#ActionButtonLabelDone"),
 				},
 				_a.createElement(
 					"div",
@@ -2822,7 +2825,7 @@ export function d3(e) {
 	);
 	const j = (0, d.Ue)(W, b);
 	const q = C ? z : undefined;
-	const Q = C ? (0, u.we)("#Slider_EditValue") : undefined;
+	const Q = C ? (0, Localize)("#Slider_EditValue") : undefined;
 	let Z = y || q;
 	let Y = y ? S : Q;
 	let K = y ? q : undefined;
@@ -2981,7 +2984,7 @@ function $e(e) {
 				width: L,
 			},
 			onEnterKeyPress: () => B(false),
-			strEnterKeyLabel: (0, u.we)("#ActionButtonLabelDone"),
+			strEnterKeyLabel: (0, Localize)("#ActionButtonLabelDone"),
 			onClick: i,
 			onFocus: () => (w.current = false),
 			onBlur: () => B(true),
@@ -2989,9 +2992,9 @@ function $e(e) {
 			placeholder: r,
 			onChange: (e) => y(e.target.value.trim()),
 			onCancelButton: () => B(true),
-			onCancelActionDescription: (0, u.we)("#ActionButtonLabelDone"),
+			onCancelActionDescription: (0, Localize)("#ActionButtonLabelDone"),
 			onOKButton: v,
-			onOKActionDescription: (0, u.we)("#Slider_EditValue"),
+			onOKActionDescription: (0, Localize)("#Slider_EditValue"),
 			onOptionsActionDescription: undefined,
 			onOptionsButton: v,
 		}),

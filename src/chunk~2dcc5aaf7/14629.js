@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./96593.js");
 var a = require("./61175.js");
 var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 const l = 44032;
 const c = 588;
 const m = 12592;
@@ -280,11 +280,11 @@ export function gS(e) {
 	if (k.indexOf(e) >= 0) {
 		t = 2;
 		r = k.indexOf(e);
-		n = (0, o.we)("#FilterElement_" + e);
+		n = (0, Localize)("#FilterElement_" + e);
 	} else if (D.indexOf(e) >= 0) {
 		t = 1;
 		r = D.indexOf(e);
-		n = (0, o.we)("#FilterElement_" + e);
+		n = (0, Localize)("#FilterElement_" + e);
 	} else {
 		r = parseInt(e);
 		if (!r) {
@@ -507,8 +507,8 @@ export function Nm(e, t) {
 							(s = n) == 0
 								? (3 + i.length / a.length) / 4
 								: a[s - 1].trim() == "" ||
-										a[s - 1].match(/\p{Punctuation}/u) ||
-										(a[s].toLocaleUpperCase() == a[s] &&
+									  a[s - 1].match(/\p{Punctuation}/u) ||
+									  (a[s].toLocaleUpperCase() == a[s] &&
 											a[s - 1].toLocaleLowerCase() == a[s - 1])
 									? (2 + i.length / a.length) / 4
 									: (1 + i.length / a.length) / 4;
@@ -620,7 +620,7 @@ export class E6 {
 	GetToolTipText() {
 		let e = [];
 		if (this.searchText) {
-			e.push((0, o.we)("#FilterToolTip_SearchText", this.searchText));
+			e.push((0, Localize)("#FilterToolTip_SearchText", this.searchText));
 		}
 		const t = [1, 8192, 2, 2048, 4];
 		let r = this.GetSelectedOptions(0);
@@ -628,17 +628,21 @@ export class E6 {
 			e.push(
 				t
 					.filter((e) => r.indexOf(e) !== -1)
-					.map((e) => (0, o.we)(E6.LocalizeAppType(e)))
+					.map((e) => (0, Localize)(E6.LocalizeAppType(e)))
 					.join(", "),
 			);
 		}
 		let n = this.GetSelectedOptions(1);
 		if (n.length > 0) {
-			e.push(n.map((e) => (0, o.we)("#FilterElement_" + $P(1, e))).join(", "));
+			e.push(
+				n.map((e) => (0, Localize)("#FilterElement_" + $P(1, e))).join(", "),
+			);
 		}
 		let a = this.GetSelectedOptions(2);
 		if (a.length > 0) {
-			e.push(a.map((e) => (0, o.we)("#FilterElement_" + $P(2, e))).join(", "));
+			e.push(
+				a.map((e) => (0, Localize)("#FilterElement_" + $P(2, e))).join(", "),
+			);
 		}
 		let s = this.GetSelectedOptions(3);
 		if (s.length > 0) {
@@ -682,7 +686,7 @@ export class E6 {
 			e.push({
 				eGroup: 2,
 				option: t,
-				name: (0, o.we)("#FilterElement_" + r),
+				name: (0, Localize)("#FilterElement_" + r),
 			});
 		});
 		this.GetSelectedOptions(1).forEach((t) => {
@@ -690,7 +694,7 @@ export class E6 {
 			e.push({
 				eGroup: 1,
 				option: t,
-				name: (0, o.we)("#FilterElement_" + r),
+				name: (0, Localize)("#FilterElement_" + r),
 			});
 		});
 		this.GetSelectedOptions(4).forEach((t) => {

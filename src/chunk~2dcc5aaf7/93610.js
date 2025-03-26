@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./88724.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
 var l = require(/*webcrack:missing*/ "./50376.js");
@@ -32,7 +32,7 @@ export const X = (0, i.PA)((e) => {
 						m.MobilePhoneIcon,
 						(0, s.rO)(t),
 					),
-					title: (0, a.we)("#Platform_Hint_Mobile"),
+					title: Localize("#Platform_Hint_Mobile"),
 					...i,
 				},
 				n.createElement(u.rf, null),
@@ -42,7 +42,7 @@ export const X = (0, i.PA)((e) => {
 				"div",
 				{
 					className: (0, o.A)(r, m.PersonaStatusIcon, m.VRIcon, (0, s.rO)(t)),
-					title: (0, a.we)("#Platform_Hint_VR"),
+					title: Localize("#Platform_Hint_VR"),
 					...i,
 				},
 				n.createElement(l.MUh, null),
@@ -57,7 +57,7 @@ export const X = (0, i.PA)((e) => {
 						m.BigPictureIcon,
 						(0, s.rO)(t),
 					),
-					title: (0, a.we)("#Platform_Hint_BigPicture"),
+					title: Localize("#Platform_Hint_BigPicture"),
 					...i,
 				},
 				n.createElement(l.bPr, null),
@@ -72,7 +72,7 @@ export const X = (0, i.PA)((e) => {
 						m.SteamDeckIcon,
 						(0, s.rO)(t),
 					),
-					title: (0, a.we)("#Platform_Hint_SteamDeck"),
+					title: Localize("#Platform_Hint_SteamDeck"),
 					...i,
 				},
 				n.createElement(l.DQe, null),

@@ -1,4 +1,4 @@
-var r = require("./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var i = require("./20893.js");
 class s {
 	m_root;
@@ -35,7 +35,7 @@ class s {
 	static RestoreSerializedNavNode(e, t) {
 		const { sNavKey: n, iActiveChild: i, rgChildren: o } = t;
 		if (n) {
-			(0, r.w)(n == e.NavKey, "navkey mismatch");
+			AssertMsg(n == e.NavKey, "navkey mismatch");
 		}
 		e.SetActiveChild(i);
 		if (o && o.length) {

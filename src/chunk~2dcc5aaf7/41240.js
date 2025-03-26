@@ -1,5 +1,5 @@
 var n = require("./80222.js");
-var i = require(/*webcrack:missing*/ "./85688.js");
+import { FailAssertion, AssertMsg } from "../../actual_src/utils/assert.js";
 export function ER(e) {
 	if ("appid" in e) {
 		return `app_${e.appid}`;
@@ -14,7 +14,7 @@ export function ER(e) {
 	} else if ("hubcategoryid" in e) {
 		return `hubcategory_${e.hubcategoryid}`;
 	} else {
-		(0, i.z)(e, "Unknown store item id type");
+		FailAssertion(e, "Unknown store item id type");
 		return "";
 	}
 }
@@ -36,7 +36,7 @@ export function HJ(e, t) {
 		case -1:
 			return "";
 		default:
-			(0, i.z)(e, `Unknown EStoreItemType ${e} ${(0, n.md)(e)} `);
+			FailAssertion(e, `Unknown EStoreItemType ${e} ${(0, n.md)(e)} `);
 			return "";
 	}
 }
@@ -71,7 +71,7 @@ export function zj(e) {
 				};
 		}
 	}
-	(0, i.w)(false, `Failed to parse StoreItemID ${e}`);
+	AssertMsg(false, `Failed to parse StoreItemID ${e}`);
 }
 export function RH(e) {
 	const t = e.match(o);
@@ -146,7 +146,7 @@ export function Jz(e) {
 		case -1:
 			return;
 		default:
-			(0, i.z)(t, `Unknown EStoreItemType ${t} ${(0, n.md)(t)} `);
+			FailAssertion(t, `Unknown EStoreItemType ${t} ${(0, n.md)(t)} `);
 			return;
 	}
 }

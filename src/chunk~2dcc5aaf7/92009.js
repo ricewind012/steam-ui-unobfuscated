@@ -7,7 +7,7 @@ var l = require(/*webcrack:missing*/ "./63696.js");
 var c = require(/*webcrack:missing*/ "./41230.js");
 var m = require("./50551.js");
 var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require("./64608.js");
 var p = require("./95377.js");
 var g = require("./98829.js");
@@ -51,7 +51,7 @@ let b = class extends l.Component {
 				if (r.deviceId != "default") {
 					let e = r.label;
 					if (r.deviceId == "communications") {
-						e = (0, d.we)("#Voice_DefaultCommunicationsDefault");
+						e = Localize("#Voice_DefaultCommunicationsDefault");
 					}
 					this.m_rgMicOptions.push({
 						label: e,
@@ -61,7 +61,7 @@ let b = class extends l.Component {
 			} else if (r.kind == "audiooutput" && r.deviceId != "default") {
 				let e = r.label;
 				if (r.deviceId == "communications") {
-					e = (0, d.we)("#Voice_DefaultCommunicationsDefault");
+					e = Localize("#Voice_DefaultCommunicationsDefault");
 				}
 				this.m_rgOutputOptions.push({
 					label: e,
@@ -261,9 +261,9 @@ let b = class extends l.Component {
 		let t = i.xm.VoiceStore.GetPushToMuteEnabled();
 		let r = false;
 		let n = i.xm.VoiceStore.GetPushToTalkHotKeyDisplayString();
-		let a = (0, d.we)("#VoicePushToTalkAssigned");
-		let s = (0, d.we)("#VoicePushToMuteAssigned");
-		let o = (0, d.we)("#VoiceMuteToggleAssigned");
+		let a = Localize("#VoicePushToTalkAssigned");
+		let s = Localize("#VoicePushToMuteAssigned");
+		let o = Localize("#VoiceMuteToggleAssigned");
 		let c = i.xm.VoiceStore.GetPushToTalkOrMuteSoundsEnabled();
 		i.xm.SettingsStore.BClientHasFeatureOrOnWeb("NewVoiceHotKeyState");
 		let m = i.xm.VoiceStore.IsLocalMicTestActive();
@@ -276,7 +276,7 @@ let b = class extends l.Component {
 			r = true;
 		}
 		if (this.state.hotkeyCapturing) {
-			a = (0, d.we)("#VoicePushToTalkPressHotKey");
+			a = Localize("#VoicePushToTalkPressHotKey");
 		}
 		const C = t ? "pushtomute" : e ? "pushtotalk" : "openmic";
 		return l.createElement(
@@ -304,7 +304,7 @@ let b = class extends l.Component {
 						{
 							className: "DialogLabel",
 						},
-						(0, d.we)("#VoiceSetupHeader"),
+						Localize("#VoiceSetupHeader"),
 					),
 					l.createElement(
 						"div",
@@ -315,7 +315,7 @@ let b = class extends l.Component {
 							"div",
 							{
 								className: "voiceSelfDirections",
-								title: (0, d.we)("#VoiceWhenMicIsWorking"),
+								title: Localize("#VoiceWhenMicIsWorking"),
 							},
 							l.createElement(g.bP, {
 								friend: u,
@@ -336,8 +336,8 @@ let b = class extends l.Component {
 										: this.OnStartLocalMicTest,
 								},
 								m
-									? (0, d.we)("#VoiceStopLocalMicTest")
-									: (0, d.we)("#VoiceStartLocalMicTest"),
+									? Localize("#VoiceStopLocalMicTest")
+									: Localize("#VoiceStartLocalMicTest"),
 							),
 						),
 					),
@@ -345,33 +345,33 @@ let b = class extends l.Component {
 				this.state.micOptionsReady &&
 					l.createElement(A.m, {
 						strClassName: "InputDevice",
-						label: (0, d.we)("#VoiceDevice"),
+						label: Localize("#VoiceDevice"),
 						rgOptions: this.m_rgMicOptions,
-						strDefaultLabel: (0, d.we)("#DefaultMic"),
+						strDefaultLabel: Localize("#DefaultMic"),
 						selectedOption: this.props.voiceStore.GetSelectedMic(),
 						onChange: this.OnMicDropdownChanged,
 					}),
 				!this.state.micOptionsReady &&
 					l.createElement(A.m, {
-						label: (0, d.we)("#VoiceDevice"),
+						label: Localize("#VoiceDevice"),
 						rgOptions: this.m_rgMicOptions,
-						strDefaultLabel: (0, d.we)("#MicLoading..."),
+						strDefaultLabel: Localize("#MicLoading..."),
 					}),
 				this.state.outputOptionsReady &&
 					l.createElement(A.m, {
-						label: (0, d.we)("#VoiceOutputDevice"),
+						label: Localize("#VoiceOutputDevice"),
 						rgOptions: this.m_rgOutputOptions,
-						strDefaultLabel: (0, d.we)("#DefaultOutputDevice"),
+						strDefaultLabel: Localize("#DefaultOutputDevice"),
 						selectedOption: this.props.voiceStore.GetSelectedOutputDevice(),
 						onChange: this.OnOutputDeviceDropdownChanged,
 					}),
 				!this.state.outputOptionsReady &&
 					l.createElement(A.m, {
-						label: (0, d.we)("#VoiceOutputDevice"),
+						label: Localize("#VoiceOutputDevice"),
 						rgOptions: this.m_rgOutputOptions,
-						strDefaultLabel: (0, d.we)("#OutputDeviceLoading..."),
+						strDefaultLabel: Localize("#OutputDeviceLoading..."),
 					}),
-				l.createElement(A.JU, null, (0, d.we)("#VoiceVolume")),
+				l.createElement(A.JU, null, Localize("#VoiceVolume")),
 				l.createElement(
 					A.dR,
 					{
@@ -380,8 +380,8 @@ let b = class extends l.Component {
 					l.createElement(A.Kc, {
 						min: 0,
 						max: 100,
-						label: (0, d.we)("#VoiceInputGain"),
-						description: (0, d.we)("#VoiceInputGainExplainer"),
+						label: Localize("#VoiceInputGain"),
+						description: Localize("#VoiceInputGainExplainer"),
 						value: this.props.voiceStore.ConvertGainValueToSliderValue(
 							this.props.voiceStore.GetVoiceInputGain(),
 							p.F$.k_MaxInputOutputGainValue,
@@ -391,8 +391,8 @@ let b = class extends l.Component {
 					l.createElement(A.Kc, {
 						min: 0,
 						max: 100,
-						label: (0, d.we)("#VoiceOutputGain"),
-						description: (0, d.we)("#VoiceOutputGainExplainer"),
+						label: Localize("#VoiceOutputGain"),
+						description: Localize("#VoiceOutputGainExplainer"),
 						value: this.props.voiceStore.ConvertGainValueToSliderValue(
 							this.props.voiceStore.GetVoiceOutputGain(),
 							p.F$.k_MaxInputOutputGainValue,
@@ -412,7 +412,7 @@ let b = class extends l.Component {
 							l.createElement(
 								A.JU,
 								null,
-								(0, d.we)("#VoiceTransmissionType_Label"),
+								Localize("#VoiceTransmissionType_Label"),
 								!r &&
 									l.createElement(
 										"span",
@@ -420,7 +420,7 @@ let b = class extends l.Component {
 											className: "disabledNotice",
 										},
 										" (",
-										(0, d.we)("#VoiceTransmissionType_Disabled"),
+										Localize("#VoiceTransmissionType_Disabled"),
 										") ",
 									),
 							),
@@ -440,21 +440,21 @@ let b = class extends l.Component {
 										{
 											value: "openmic",
 										},
-										(0, d.we)("#VoiceTransmissionType_OpenMic"),
+										Localize("#VoiceTransmissionType_OpenMic"),
 									),
 									l.createElement(
 										A.a,
 										{
 											value: "pushtotalk",
 										},
-										(0, d.we)("#VoiceTransmissionType_PushToTalk"),
+										Localize("#VoiceTransmissionType_PushToTalk"),
 									),
 									l.createElement(
 										A.a,
 										{
 											value: "pushtomute",
 										},
-										(0, d.we)("#VoiceTransmissionType_PushToMute"),
+										Localize("#VoiceTransmissionType_PushToMute"),
 									),
 								),
 								l.createElement(
@@ -488,7 +488,7 @@ let b = class extends l.Component {
 											{
 												className: _.HotkeyClearButton,
 												onClick: this.ClearHotKey,
-												title: (0, d.we)("#VoiceClearHotKeyTooltip"),
+												title: Localize("#VoiceClearHotKeyTooltip"),
 											},
 											l.createElement(h.sED, null),
 										),
@@ -503,7 +503,7 @@ let b = class extends l.Component {
 										{
 											className: _.HotkeySettingDescription,
 										},
-										(0, d.we)("#VoicePushToSomethingSoundOption"),
+										Localize("#VoicePushToSomethingSoundOption"),
 									),
 									l.createElement(A.Hk, {
 										value: c,
@@ -521,7 +521,7 @@ let b = class extends l.Component {
 							l.createElement(
 								A.JU,
 								null,
-								(0, d.we)("#VoiceTransmissionType"),
+								Localize("#VoiceTransmissionType"),
 								!r &&
 									l.createElement(
 										"span",
@@ -529,13 +529,13 @@ let b = class extends l.Component {
 											className: "disabledNotice",
 										},
 										" (",
-										(0, d.we)("#g_DisabledOnWeb"),
+										Localize("#g_DisabledOnWeb"),
 										") ",
 									),
 							),
 							l.createElement(A.P8, {
 								disabled: !r,
-								label: (0, d.we)("#VoiceTransmissionTypeExplainer"),
+								label: Localize("#VoiceTransmissionTypeExplainer"),
 								value: e,
 								onChange: this.OnTogglePushToTalk,
 							}),
@@ -576,8 +576,8 @@ let b = class extends l.Component {
 						onClick: this.OnShowAdvancedSettings,
 					},
 					this.state.showAdvanced
-						? (0, d.we)("#VoiceHideAdvancedSettings")
-						: (0, d.we)("#VoiceShowAdvancedSettings"),
+						? Localize("#VoiceHideAdvancedSettings")
+						: Localize("#VoiceShowAdvancedSettings"),
 					l.createElement(h.GB9, null),
 				),
 				l.createElement(S, {
@@ -623,13 +623,13 @@ const y = (0, c.PA)((e) => {
 		{
 			className: "_DialogSection",
 		},
-		l.createElement(A.JU, null, (0, d.we)("#VoiceTransmisionThreshold")),
+		l.createElement(A.JU, null, Localize("#VoiceTransmisionThreshold")),
 		l.createElement(
 			A.JU,
 			{
 				className: "DialogLabelStrong",
 			},
-			(0, d.we)("#VoiceTransmissionThresholdExplainer"),
+			Localize("#VoiceTransmissionThresholdExplainer"),
 		),
 		l.createElement(
 			A.zW,
@@ -642,20 +642,20 @@ const y = (0, c.PA)((e) => {
 				{
 					value: p.HT.k_ENoiseGateLevel_Off,
 				},
-				(0, d.we)("#VoiceTransmissionThresholdOff"),
+				Localize("#VoiceTransmissionThresholdOff"),
 			),
 			l.createElement(
 				A.a,
 				{
 					value: p.HT.k_ENoiseGateLevel_Medium,
 				},
-				(0, d.we)("#VoiceTransmissionThresholdMedium"),
+				Localize("#VoiceTransmissionThresholdMedium"),
 				l.createElement(
 					"span",
 					{
 						className: _.RecommendedNote,
 					},
-					(0, d.we)("#VoiceTransmissionThresholdRecommended"),
+					Localize("#VoiceTransmissionThresholdRecommended"),
 				),
 			),
 			l.createElement(
@@ -663,7 +663,7 @@ const y = (0, c.PA)((e) => {
 				{
 					value: p.HT.k_ENoiseGateLevel_High,
 				},
-				(0, d.we)("#VoiceTransmissionThresholdHigh"),
+				Localize("#VoiceTransmissionThresholdHigh"),
 			),
 		),
 	);
@@ -675,29 +675,29 @@ const S = (0, c.PA)((e) => {
 		{
 			className: "advancedSettings" + (r ? " showAdvanced" : ""),
 		},
-		l.createElement(A.JU, null, (0, d.we)("#VoiceAdvancedSettings")),
+		l.createElement(A.JU, null, Localize("#VoiceAdvancedSettings")),
 		l.createElement(
 			A.JU,
 			{
 				className: "DialogLabelExplainer Left",
 			},
-			(0, d.we)("#VoiceAdvancedSettingsExplainer"),
+			Localize("#VoiceAdvancedSettingsExplainer"),
 		),
 		l.createElement(A.P8, {
 			className: _.ToggleRow,
-			label: (0, d.we)("#VoiceEchoCancellation"),
+			label: Localize("#VoiceEchoCancellation"),
 			value: t.GetUseEchoCancellation(),
 			onChange: (e) => t.SetUseEchoCancellation(e),
 		}),
 		l.createElement(A.P8, {
 			className: _.ToggleRow,
-			label: (0, d.we)("#VoiceNoiseCancellation"),
+			label: Localize("#VoiceNoiseCancellation"),
 			value: t.GetUseNoiseCancellation(),
 			onChange: (e) => t.SetUseNoiseCancellation(e),
 		}),
 		l.createElement(A.P8, {
 			className: _.ToggleRow,
-			label: (0, d.we)("#VoiceAutoGainControl"),
+			label: Localize("#VoiceAutoGainControl"),
 			value: t.GetUseAutoGainControl(),
 			onChange: (e) => t.SetUseAutoGainControl(e),
 		}),
@@ -722,7 +722,7 @@ const S = (0, c.PA)((e) => {
 						}
 					})(t),
 			},
-			(0, d.we)("#CopyVoiceChatLogs"),
+			Localize("#CopyVoiceChatLogs"),
 		),
 	);
 });
@@ -734,9 +734,9 @@ export function T(e, t, r) {
 			startingPage: r,
 		}),
 		t,
-		(0, d.we)("#FriendSettings_Title"),
+		Localize("#FriendSettings_Title"),
 		{
-			strTitle: (0, d.we)("#FriendSettings_Title"),
+			strTitle: Localize("#FriendSettings_Title"),
 			popupWidth: 842,
 			popupHeight: 720,
 		},
@@ -745,7 +745,7 @@ export function T(e, t, r) {
 }
 let v = class extends l.Component {
 	constructor(e) {
-		super(e, (0, d.we)("#Settings"));
+		super(e, Localize("#Settings"));
 	}
 	SaveFriendSettings(e, t) {
 		i.xm.SettingsStore.BUpdateFriendsSettings(e);
@@ -767,39 +767,39 @@ let v = class extends l.Component {
 				i.xm.SettingsStore.BClientHasFeatureOrOnWeb("DoNotDisturb"),
 		};
 		let r = {
-			title: (0, d.we)("#FriendSettings_Title"),
+			title: Localize("#FriendSettings_Title"),
 			className: "FriendSettingsContainer",
 			pages: [
 				{
-					title: (0, d.we)("#FriendSettings_Friends"),
+					title: Localize("#FriendSettings_Friends"),
 					identifier: "friends",
 					content: l.createElement(m.dG, {
 						...t,
 					}),
 				},
 				{
-					title: (0, d.we)("#FriendSettings_Chat"),
+					title: Localize("#FriendSettings_Chat"),
 					identifier: "chat",
 					content: l.createElement(m.IW, {
 						...t,
 					}),
 				},
 				{
-					title: (0, d.we)("#FriendSettings_SizeAndScaling"),
+					title: Localize("#FriendSettings_SizeAndScaling"),
 					identifier: "sizeAndScaling",
 					content: l.createElement(m.vQ, {
 						...t,
 					}),
 				},
 				{
-					title: (0, d.we)("#FriendSettings_Notifications"),
+					title: Localize("#FriendSettings_Notifications"),
 					identifier: "notifications",
 					content: l.createElement(I, {
 						...t,
 					}),
 				},
 				{
-					title: (0, d.we)("#FriendSettings_Voice"),
+					title: Localize("#FriendSettings_Voice"),
 					identifier: "voice",
 					content: l.createElement(b, {
 						onCancel: this.props.closeModal,
@@ -889,40 +889,40 @@ let I = class extends m.jr {
 						{
 							className: "FriendsSettingsNotificationRow_Label",
 						},
-						(0, d.we)("#FriendSettings_Notification_Table_Label"),
+						Localize("#FriendSettings_Notification_Table_Label"),
 					),
 					l.createElement(
 						"div",
 						{
 							className: "FriendsSettingsNotificationRow_Checkbox",
 						},
-						(0, d.we)("#FriendSettings_Notification_Table_Show"),
+						Localize("#FriendSettings_Notification_Table_Show"),
 					),
 					l.createElement(
 						"div",
 						{
 							className: "FriendsSettingsNotificationRow_Checkbox",
 						},
-						(0, d.we)("#FriendSettings_Notification_Table_Play"),
+						Localize("#FriendSettings_Notification_Table_Play"),
 					),
 				),
 				l.createElement(t, {
-					strLabel: (0, d.we)("#FriendSettings_Notification_FriendJoins"),
+					strLabel: Localize("#FriendSettings_Notification_FriendJoins"),
 					strNameShow: "bNotifications_ShowIngame",
 					strNameSound: "bSounds_PlayIngame",
 				}),
 				l.createElement(t, {
-					strLabel: (0, d.we)("#FriendSettings_Notification_FriendOnline"),
+					strLabel: Localize("#FriendSettings_Notification_FriendOnline"),
 					strNameShow: "bNotifications_ShowOnline",
 					strNameSound: "bSounds_PlayOnline",
 				}),
 				l.createElement(t, {
-					strLabel: (0, d.we)("#FriendSettings_Notification_ChatMessage"),
+					strLabel: Localize("#FriendSettings_Notification_ChatMessage"),
 					strNameShow: "bNotifications_ShowMessage",
 					strNameSound: "bSounds_PlayMessage",
 				}),
 				l.createElement(t, {
-					strLabel: (0, d.we)(
+					strLabel: Localize(
 						"#FriendSettings_Notification_ChatRoomNotification",
 					),
 					strNameShow: "bNotifications_ShowChatRoomNotification",
@@ -930,7 +930,7 @@ let I = class extends m.jr {
 				}),
 				this.props.bShowGroupOpts &&
 					l.createElement(t, {
-						strLabel: (0, d.we)("#FriendSettings_Notification_GroupEvent"),
+						strLabel: Localize("#FriendSettings_Notification_GroupEvent"),
 						strNameShow: "bNotifications_EventsAndAnnouncements",
 						strNameSound: "bSounds_EventsAndAnnouncements",
 					}),
@@ -952,7 +952,7 @@ let I = class extends m.jr {
 							{
 								className: "FriendsSettingsFlashSection_Header",
 							},
-							(0, d.we)("#FriendSettings_Flash_Header"),
+							Localize("#FriendSettings_Flash_Header"),
 						),
 						l.createElement(
 							A.Xp,
@@ -966,7 +966,7 @@ let I = class extends m.jr {
 									value: 0,
 									onClick: this.HandleRadioChange,
 								},
-								(0, d.we)("#FriendSettings_Flash_Always"),
+								Localize("#FriendSettings_Flash_Always"),
 							),
 							l.createElement(
 								A.$n,
@@ -975,7 +975,7 @@ let I = class extends m.jr {
 									value: 1,
 									onClick: this.HandleRadioChange,
 								},
-								(0, d.we)("#FriendSettings_Flash_Minimized"),
+								Localize("#FriendSettings_Flash_Minimized"),
 							),
 							l.createElement(
 								A.$n,
@@ -984,7 +984,7 @@ let I = class extends m.jr {
 									value: 2,
 									onClick: this.HandleRadioChange,
 								},
-								(0, d.we)("#FriendSettings_Flash_Never"),
+								Localize("#FriendSettings_Flash_Never"),
 							),
 						),
 					),

@@ -4,7 +4,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./89193.js");
 var a = require(/*webcrack:missing*/ "./59351.js");
 var s = require("./36934.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize, Hq } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./72476.js");
 var c = require("./93023.js");
 export function rO(e) {
@@ -167,7 +167,7 @@ export class Z {
 				return e.Localize(t, this.m_mapRichPresence);
 			}
 		} else if (this.HasStateFlag(8)) {
-			return (0, o.we)("#PersonaStateRemotePlayTogether");
+			return (0, Localize)("#PersonaStateRemotePlayTogether");
 		}
 		return "";
 	}
@@ -190,7 +190,7 @@ export class Z {
 	}
 	GetOfflineStatusTime() {
 		if (this.last_seen_online == 0) {
-			return (0, o.we)("#PersonaStateOffline");
+			return (0, Localize)("#PersonaStateOffline");
 		}
 		let e = this.GetOfflineStatusUpdateRate();
 		if (!l.TS.IN_MOBILE || e <= 60) {
@@ -198,9 +198,9 @@ export class Z {
 		}
 		let t = s.Vw.CMInterface.GetServerRTime32() - this.last_seen_online;
 		if (t < 60) {
-			return (0, o.we)("#PersonaStateLastSeen_JustNow");
+			return (0, Localize)("#PersonaStateLastSeen_JustNow");
 		} else {
-			return (0, o.we)("#PersonaStateLastSeen", (0, o.Hq)(t));
+			return (0, Localize)("#PersonaStateLastSeen", (0, Hq)(t));
 		}
 	}
 	GetLocalizedOnlineStatus() {
@@ -209,17 +209,17 @@ export class Z {
 			case 7:
 				return this.GetOfflineStatusTime();
 			case 1:
-				return (0, o.we)("#PersonaStateOnline");
+				return (0, Localize)("#PersonaStateOnline");
 			case 2:
-				return (0, o.we)("#PersonaStateBusy");
+				return (0, Localize)("#PersonaStateBusy");
 			case 3:
-				return (0, o.we)("#PersonaStateAway");
+				return (0, Localize)("#PersonaStateAway");
 			case 4:
-				return (0, o.we)("#PersonaStateSnooze");
+				return (0, Localize)("#PersonaStateSnooze");
 			case 5:
-				return (0, o.we)("#PersonaStateLookingToTrade");
+				return (0, Localize)("#PersonaStateLookingToTrade");
 			case 6:
-				return (0, o.we)("#PersonaStateLookingToPlay");
+				return (0, Localize)("#PersonaStateLookingToPlay");
 			default:
 				return "";
 		}

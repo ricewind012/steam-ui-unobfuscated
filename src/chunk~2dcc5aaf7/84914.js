@@ -5,7 +5,7 @@ var s = require("./86078.js");
 var o = s;
 var l = require("./85360.js");
 var c = require("./43014.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./90765.js");
 var d = require("./53622.js");
 var A = require("./12307.js");
@@ -59,7 +59,7 @@ export const eu = (0, a.PA)(function (e) {
 						{
 							className: o.ActionSetHeader,
 						},
-						(0, m.we)("#ControllerConfigurator_ActionSet"),
+						Localize("#ControllerConfigurator_ActionSet"),
 					),
 					n.createElement(
 						"span",
@@ -67,7 +67,7 @@ export const eu = (0, a.PA)(function (e) {
 							className: (0, u.A)(o.ActionSetName, A && o.SetDisabled),
 						},
 						s?.display_name ??
-							(0, m.we)("#ControllerConfigurator_ActionSets_UnnamedSet_Title"),
+							Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title"),
 					),
 					A &&
 						n.createElement(
@@ -77,9 +77,7 @@ export const eu = (0, a.PA)(function (e) {
 							},
 							n.createElement(i.Inventory, null),
 							A?.display_name ??
-								(0, m.we)(
-									"#ControllerConfigurator_ActionSets_UnnamedSet_Title",
-								),
+								Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title"),
 						),
 				),
 				n.createElement(

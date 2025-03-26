@@ -26,8 +26,15 @@ var E = require(/*webcrack:missing*/ "./50376.js");
 var M = require(/*webcrack:missing*/ "./98995.js");
 var T = require(/*webcrack:missing*/ "./49455.js");
 var R = require(/*webcrack:missing*/ "./90765.js");
-var k = require(/*webcrack:missing*/ "./54644.js");
-var D = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	Hq,
+	LocalizeReact,
+	LocalizePlural,
+	LocalizeCalendarTime,
+	LocalizeRtime32ToShortDate,
+} from "../../actual_src/utils/localization.js";
 var N = require("./34428.js");
 var F = require("./80254.js");
 var G = require(/*webcrack:missing*/ "./52451.js");
@@ -183,7 +190,10 @@ const ce = (0, f.PA)(function (e) {
 	let i = t && Q.IB.GetAppImportantUpdate(r);
 	if (i) {
 		const e = Date.now() / 1000 - i.date;
-		const t = (0, D.we)("#AppPortraitHover_DaysSinceLastUpdate", (0, D.Hq)(e));
+		const t = (0, Localize)(
+			"#AppPortraitHover_DaysSinceLastUpdate",
+			(0, Hq)(e),
+		);
 		return y.createElement(
 			"div",
 			{
@@ -206,7 +216,7 @@ const ce = (0, f.PA)(function (e) {
 	{
 		let e = "";
 		if ((t && t.BIsAppBlocked()) || (!t && r && K.jR.BIsAppBlocked(r))) {
-			e = (0, D.we)("#DisplayStatus_ParentalBlocked");
+			e = (0, Localize)("#DisplayStatus_ParentalBlocked");
 		} else {
 			switch (n) {
 				case 1:
@@ -275,9 +285,9 @@ function ue(e) {
 	const m = o.bHasDifferentCopies && s.length > 1;
 	if (o.bHasDifferentCopies) {
 		if (c && m) {
-			l = (0, D.we)("#FamilyGames_FromTheLibraryOf_Header_Owned");
+			l = (0, Localize)("#FamilyGames_FromTheLibraryOf_Header_Owned");
 		} else if (c && !m) {
-			l = (0, D.PP)(
+			l = LocalizeReact(
 				"#FamilyGames_FromTheLibraryOf_Single_Owned",
 				y.createElement(me, {
 					steamid: s[0].steamid,
@@ -285,10 +295,10 @@ function ue(e) {
 			);
 		} else if (c || m) {
 			if (!c && m) {
-				l = (0, D.we)("#FamilyGames_FromTheLibraryOf_Header");
+				l = (0, Localize)("#FamilyGames_FromTheLibraryOf_Header");
 			}
 		} else {
-			l = (0, D.PP)(
+			l = LocalizeReact(
 				"#FamilyGames_FromTheLibraryOf_Single",
 				y.createElement(me, {
 					steamid: s[0].steamid,
@@ -296,7 +306,7 @@ function ue(e) {
 			);
 		}
 	} else if (!c || (r && t.number_of_copies > 1)) {
-		l = (0, D.Yp)("#FamilyGroup_GameAvailable", t.number_of_copies);
+		l = LocalizePlural("#FamilyGroup_GameAvailable", t.number_of_copies);
 	}
 	return y.createElement(
 		"div",
@@ -337,9 +347,9 @@ let de = class extends y.Component {
 	}
 	GetDownloadStatusTitle() {
 		if (this.props.displayStatus == 7) {
-			return (0, D.we)("#AppPortraitHover_DownloadStatusTitle");
+			return (0, Localize)("#AppPortraitHover_DownloadStatusTitle");
 		} else if (this.props.displayStatus == 6) {
-			return (0, D.we)("#AppPortraitHover_DownloadStatusTitle_Update");
+			return (0, Localize)("#AppPortraitHover_DownloadStatusTitle_Update");
 		} else {
 			return "";
 		}
@@ -357,14 +367,14 @@ let de = class extends y.Component {
 				case "Verifying":
 				case "Finalizing":
 				case "Stopping":
-					return (0, D.we)("#Downloads_State_" + e.update_state);
+					return (0, Localize)("#Downloads_State_" + e.update_state);
 				case "Downloading":
 				case "Updating":
 				case "Transferring":
 				case "Preloading": {
 					let t = q.hj.downloadTimeRemaining;
 					if (t == "") {
-						return (0, D.we)("#Downloads_State_Calculating");
+						return (0, Localize)("#Downloads_State_Calculating");
 					} else {
 						return (
 							"@ " + (0, $.ZC)(e.update_network_bytes_per_second) + " | " + t
@@ -372,7 +382,7 @@ let de = class extends y.Component {
 					}
 				}
 				case "None":
-					return (0, D.we)("#Downloads_State_Calculating");
+					return (0, Localize)("#Downloads_State_Calculating");
 			}
 		}
 		return "";
@@ -462,7 +472,7 @@ let de = class extends y.Component {
 								{
 									className: te.FriendsLabel,
 								},
-								(0, D.Yp)("#AppPortraitHover_FriendsPlaying", t),
+								LocalizePlural("#AppPortraitHover_FriendsPlaying", t),
 							),
 						),
 						y.createElement(
@@ -539,7 +549,7 @@ let de = class extends y.Component {
 								{
 									className: (0, R.A)(te.Header),
 								},
-								(0, D.we)("#AppBox_PlayTimeHeader"),
+								(0, Localize)("#AppBox_PlayTimeHeader"),
 							),
 							y.createElement(
 								"div",
@@ -762,7 +772,7 @@ function ye(e) {
 								e.bShortLayout && U.Short,
 							),
 						},
-						(0, D.we)("#AppBox_PlayTimeHeader"),
+						(0, Localize)("#AppBox_PlayTimeHeader"),
 					),
 					y.createElement(
 						"div",
@@ -1188,7 +1198,7 @@ export const TK = (0, f.PA)(function (e) {
 				focusable: false,
 				onOKButton: H,
 				className: ee,
-				onMenuActionDescription: (0, D.we)("#ActionButtonLabelContextMenu"),
+				onMenuActionDescription: (0, Localize)("#ActionButtonLabelContextMenu"),
 			},
 			ie,
 			I,
@@ -1335,7 +1345,7 @@ const Te = (0, f.PA)(function (e) {
 			if (!t.GetLastTimePlayed()) {
 				return null;
 			}
-			i = (0, D._l)(t.GetLastTimePlayed());
+			i = LocalizeCalendarTime(t.GetLastTimePlayed());
 			break;
 		case 9:
 			let e = t.metacritic_score;
@@ -1354,7 +1364,7 @@ const Te = (0, f.PA)(function (e) {
 			if (t.GetCanonicalReleaseDate() == 0) {
 				return null;
 			}
-			i = (0, D.$z)(t.GetCanonicalReleaseDate());
+			i = LocalizeRtime32ToShortDate(t.GetCanonicalReleaseDate());
 			break;
 		case 8:
 			if (t.size_on_disk == null) {
@@ -1371,19 +1381,19 @@ const Te = (0, f.PA)(function (e) {
 				if (e == 100) {
 					a = true;
 				}
-				i = (0, D.we)(
+				i = (0, Localize)(
 					"#Library_SortByPctAchievementsComplete_Tag",
 					Math.floor(e),
 				);
 			} else {
-				i = (0, D.we)("#Library_SortByPctAchievementsNoAchievements_Tag");
+				i = (0, Localize)("#Library_SortByPctAchievementsNoAchievements_Tag");
 			}
 			break;
 		case 7:
 			if (!(t.rt_purchased_time > 0)) {
 				return null;
 			}
-			i = (0, D.$z)(t.rt_purchased_time);
+			i = LocalizeRtime32ToShortDate(t.rt_purchased_time);
 			break;
 		default:
 			return null;
@@ -1490,7 +1500,7 @@ const ke = (0, f.PA)(function (e) {
 					}
 				: null,
 			onClick: (e) => {
-				const r = (0, k.uX)(e);
+				const r = GetOwningWindowForEvent(e);
 				(0, L.jy)(s, t, "mostavailable", 100, r)();
 				if (s != "Play" || i) {
 					e.stopPropagation();
@@ -1536,7 +1546,7 @@ let De = class extends y.Component {
 							n ? U.InCollection : "",
 						),
 					},
-					(0, D.we)(e),
+					(0, Localize)(e),
 				),
 			);
 		}
@@ -1559,8 +1569,8 @@ const Ne = (0, f.PA)(function (e) {
 			M.MA,
 			null,
 			i
-				? (0, D.we)("#GameAction_Install")
-				: (0, D.we)("#DisplayStatus_Compact_PresaleOnly"),
+				? (0, Localize)("#GameAction_Install")
+				: (0, Localize)("#DisplayStatus_Compact_PresaleOnly"),
 		),
 	);
 	const s = r;
@@ -1575,7 +1585,7 @@ const Ne = (0, f.PA)(function (e) {
 			className: (0, R.A)(U.UninstalledIcon, !i && U.ComingSoonIcon),
 			onClick: (e) => {
 				const r = (0, L.AH)(n, t, "mostavailable");
-				const i = (0, k.uX)(e);
+				const i = GetOwningWindowForEvent(e);
 				(0, L.jy)(r, t, "mostavailable", 100, i)();
 				if (r != "Play") {
 					e.stopPropagation();
@@ -1637,7 +1647,7 @@ const Ge = (0, f.PA)(function (e) {
 			className: (0, R.A)(U.UninstalledIcon),
 			onClick: (e) => {
 				const r = (0, L.AH)(n, t, "mostavailable");
-				const i = (0, k.uX)(e);
+				const i = GetOwningWindowForEvent(e);
 				const a = (0, L.jy)(r, t, "mostavailable", 100, i);
 				if (a) {
 					a();

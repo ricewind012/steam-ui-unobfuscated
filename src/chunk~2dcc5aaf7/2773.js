@@ -3,8 +3,8 @@ var i = require("./44926.js");
 var a = require(/*webcrack:missing*/ "./30329.js");
 var s = require(/*webcrack:missing*/ "./3715.js");
 var o = require(/*webcrack:missing*/ "./61416.js");
-var l = require(/*webcrack:missing*/ "./41180.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { IsDateSameDay } from "../../actual_src/utils/time.js";
+import { LocalizationManager } from "../../actual_src/utils/localization.js";
 var m = require("./25633.js");
 const u = 20;
 const d = "PhaseList";
@@ -141,15 +141,15 @@ export function Hy(e) {
 	const r = new Date(e * 1000);
 	const n = t.getFullYear() == r.getFullYear();
 	let i = "";
-	if (!(0, l.JD)(t, r)) {
+	if (!IsDateSameDay(t, r)) {
 		const e = {
 			day: "numeric",
 			month: "short",
 			year: n ? undefined : "numeric",
 		};
-		i = r.toLocaleDateString(c.pf.GetPreferredLocales(), e);
+		i = r.toLocaleDateString(LocalizationManager.GetPreferredLocales(), e);
 	}
-	const a = r.toLocaleTimeString(c.pf.GetPreferredLocales(), {
+	const a = r.toLocaleTimeString(LocalizationManager.GetPreferredLocales(), {
 		hour: "numeric",
 		minute: "numeric",
 	});

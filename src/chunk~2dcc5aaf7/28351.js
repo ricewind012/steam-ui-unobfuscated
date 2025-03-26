@@ -3,7 +3,7 @@ var i = require("./64608.js");
 var a = require("./35488.js");
 var s = require("./71225.js");
 var o = s;
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./57472.js");
 var m = require("./33706.js");
 var u = require(/*webcrack:missing*/ "./42318.js");
@@ -19,9 +19,9 @@ function b(e) {
 	const t = (0, m.AJ)();
 	return n.createElement(c.y, {
 		params: t,
-		label: (0, l.we)("#Developer_SLS_Enabled"),
-		description: (0, l.we)("#Developer_SLS_Enabled_Description"),
-		explainer: (0, l.we)("#Developer_SLS_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_Enabled"),
+		description: Localize("#Developer_SLS_Enabled_Description"),
+		explainer: Localize("#Developer_SLS_Enabled_Explainer"),
 	});
 }
 function y(e) {
@@ -39,36 +39,36 @@ function y(e) {
 function S(e) {
 	return n.createElement(y, {
 		eType: 1,
-		label: (0, l.we)("#Developer_SLS_Minidump_Enabled"),
-		explainer: (0, l.we)("#Developer_SLS_Minidump_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_Minidump_Enabled"),
+		explainer: Localize("#Developer_SLS_Minidump_Enabled_Explainer"),
 	});
 }
 function w(e) {
 	return n.createElement(y, {
 		eType: 2,
-		label: (0, l.we)("#Developer_SLS_Kdump_Enabled"),
-		explainer: (0, l.we)("#Developer_SLS_Kdump_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_Kdump_Enabled"),
+		explainer: Localize("#Developer_SLS_Kdump_Enabled_Explainer"),
 	});
 }
 function B(e) {
 	return n.createElement(y, {
 		eType: 3,
-		label: (0, l.we)("#Developer_SLS_Journal_Enabled"),
-		explainer: (0, l.we)("#Developer_SLS_Journal_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_Journal_Enabled"),
+		explainer: Localize("#Developer_SLS_Journal_Enabled_Explainer"),
 	});
 }
 function v(e) {
 	return n.createElement(y, {
 		eType: 4,
-		label: (0, l.we)("#Developer_SLS_GPU_Enabled"),
-		explainer: (0, l.we)("#Developer_SLS_GPU_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_GPU_Enabled"),
+		explainer: Localize("#Developer_SLS_GPU_Enabled_Explainer"),
 	});
 }
 function I(e) {
 	return n.createElement(y, {
 		eType: 5,
-		label: (0, l.we)("#Developer_SLS_SystemInfo_Enabled"),
-		explainer: (0, l.we)("#Developer_SLS_SystemInfo_Enabled_Explainer"),
+		label: Localize("#Developer_SLS_SystemInfo_Enabled"),
+		explainer: Localize("#Developer_SLS_SystemInfo_Enabled_Explainer"),
 	});
 }
 export function w2(e) {
@@ -76,7 +76,7 @@ export function w2(e) {
 		return n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, l.we)("#Developer_SLS_Section")),
+			n.createElement(i.lr, null, Localize("#Developer_SLS_Section")),
 			n.createElement(
 				u.tH,
 				null,
@@ -96,14 +96,14 @@ function M(e) {
 	const { bResetOS: t, eResult: r } = e;
 	let i = null;
 	if (r === 3) {
-		i = (0, l.we)("#FactoryReset_ErrorModal_NoInternet");
+		i = Localize("#FactoryReset_ErrorModal_NoInternet");
 	} else {
 		i = t
-			? (0, l.we)("#FactoryReset_ErrorModal_NoInternet")
-			: (0, l.we)("#FactoryReset_ErrorModal_GenericError");
+			? Localize("#FactoryReset_ErrorModal_NoInternet")
+			: Localize("#FactoryReset_ErrorModal_GenericError");
 	}
 	return n.createElement(p.KG, {
-		strTitle: (0, l.we)("#FactoryReset_ErrorModal_Title").toUpperCase(),
+		strTitle: Localize("#FactoryReset_ErrorModal_Title").toUpperCase(),
 		strDescription: n.createElement(
 			"span",
 			{
@@ -115,7 +115,7 @@ function M(e) {
 			i,
 			" ",
 		),
-		strOKButtonText: (0, l.we)("#FactoryReset_ErrorModal_Dismiss"),
+		strOKButtonText: Localize("#FactoryReset_ErrorModal_Dismiss"),
 		closeModal: e.closeModal,
 	});
 }
@@ -132,7 +132,7 @@ function T(e) {
 			if (e.BSuccess()) {
 				(0, A.$)({
 					bSystemRestart: true,
-					strCancelButtonText: (0, l.we)("#Settings_RestartLater_ButtonText"),
+					strCancelButtonText: Localize("#Settings_RestartLater_ButtonText"),
 					ownerWindow: r.ownerWindow ?? window,
 				});
 			} else {
@@ -152,7 +152,7 @@ function T(e) {
 		{
 			onCancel: t,
 		},
-		n.createElement(i.Y9, null, (0, l.we)("#FactoryReset_RequestModal_Title")),
+		n.createElement(i.Y9, null, Localize("#FactoryReset_RequestModal_Title")),
 		n.createElement(
 			i.nB,
 			null,
@@ -162,17 +162,17 @@ function T(e) {
 				n.createElement(
 					i.a3,
 					null,
-					(0, l.we)("#FactoryReset_RequestModal_Description"),
+					Localize("#FactoryReset_RequestModal_Description"),
 				),
 				n.createElement(i.y4, {
-					label: (0, l.we)("#FactoryReset_RequestModal_ResetUserData"),
+					label: Localize("#FactoryReset_RequestModal_ResetUserData"),
 					checked: a,
 					controlled: true,
 					onChange: (e) => c(true),
 					disabled: true,
 				}),
 				n.createElement(i.y4, {
-					label: (0, l.we)("#FactoryReset_RequestModal_ResetOS"),
+					label: Localize("#FactoryReset_RequestModal_ResetOS"),
 					checked: a,
 					onChange: (e) => s(e),
 					bottomSeparator: "none",
@@ -200,8 +200,8 @@ export function Ax(e) {
 		return null;
 	}
 	const c = {
-		label: (0, l.we)("#Settings_System_Factory_Reset_Label"),
-		explainer: (0, l.we)("#Settings_System_Factory_Reset_Explainer"),
+		label: Localize("#Settings_System_Factory_Reset_Label"),
+		explainer: Localize("#Settings_System_Factory_Reset_Explainer"),
 		bottomSeparator: e.bottomSeparator,
 	};
 	if (t.is_running) {
@@ -210,7 +210,7 @@ export function Ax(e) {
 			focusable: true,
 			nProgress: t.progress ?? 0,
 			rtEstimatedCompletionTime: t.rtime_estimated_completion,
-			sOperationText: `${(0, l.we)("#Settings_System_Factory_Reset_Preparing")} ${t.progress}%`,
+			sOperationText: `${Localize("#Settings_System_Factory_Reset_Preparing")} ${t.progress}%`,
 			margin: "none",
 		});
 	}
@@ -227,7 +227,7 @@ export function Ax(e) {
 				: null,
 			disabled: u,
 		},
-		(0, l.we)("#Settings_System_Factory_Reset"),
+		Localize("#Settings_System_Factory_Reset"),
 	);
 }
 export function n1(e) {
@@ -237,8 +237,8 @@ export function n1(e) {
 		feature: 7,
 		setting: "steamos_tdp_limit_enabled",
 		visible: t,
-		label: (0, l.we)("#QuickAccess_Tab_Perf_TDPLimitEnabled"),
-		explainer: (0, l.we)("#QuickAccess_Tab_Perf_TDPLimit_Explainer"),
+		label: Localize("#QuickAccess_Tab_Perf_TDPLimitEnabled"),
+		explainer: Localize("#QuickAccess_Tab_Perf_TDPLimit_Explainer"),
 		icon: n.createElement(a.TDPLimit, null),
 		bottomSeparator: r.visible ? "none" : null,
 	});
@@ -249,9 +249,9 @@ export function BF(e) {
 		setting: "steamos_tdp_limit",
 		info: t,
 		showValue: true,
-		explainer: (0, l.we)("#QuickAccess_Tab_Perf_TDPLimit_Explainer"),
-		explainerTitle: (0, l.we)("#QuickAccess_Tab_Perf_TDPLimitEnabled"),
-		valueSuffix: (0, l.we)("#QuickAccess_Tab_Perf_TDPLimitUnits"),
+		explainer: Localize("#QuickAccess_Tab_Perf_TDPLimit_Explainer"),
+		explainerTitle: Localize("#QuickAccess_Tab_Perf_TDPLimitEnabled"),
+		valueSuffix: Localize("#QuickAccess_Tab_Perf_TDPLimitUnits"),
 		step: 1,
 		showBookendLabels: true,
 	});
@@ -260,7 +260,7 @@ function N(e) {
 	return n.createElement(c.G, {
 		feature: 7,
 		setting: "steamos_cec_enabled",
-		label: (0, l.we)("#Settings_CEC_Enabled"),
+		label: Localize("#Settings_CEC_Enabled"),
 	});
 }
 function F(e) {
@@ -268,7 +268,7 @@ function F(e) {
 	return n.createElement(c.G, {
 		feature: 7,
 		setting: "steamos_cec_wake_on_resume",
-		label: (0, l.we)("#Settings_CEC_WakeOnResume"),
+		label: Localize("#Settings_CEC_WakeOnResume"),
 		disabled: !t,
 		bottomSeparator: "none",
 	});
@@ -278,7 +278,7 @@ export function dU(e) {
 		return n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, l.we)("#Settings_CEC_Header")),
+			n.createElement(i.lr, null, Localize("#Settings_CEC_Header")),
 			n.createElement(N, null),
 			n.createElement(F, null),
 		);
@@ -294,7 +294,7 @@ export function bu(e) {
 		visible: t,
 		disabled: r,
 		setting: "steamos_wifi_debug",
-		label: (0, l.we)("#Settings_SteamOS_WifiDebug"),
+		label: Localize("#Settings_SteamOS_WifiDebug"),
 	});
 }
 export function I8(e) {
@@ -303,7 +303,7 @@ export function I8(e) {
 		feature: 7,
 		visible: t,
 		setting: "steamos_wifi_force_wpa_supplicant",
-		label: (0, l.we)("#Settings_SteamOS_ForceWPASupplicant"),
-		description: (0, l.we)("#Settings_SteamOS_ForceWPASupplicant_Desc"),
+		label: Localize("#Settings_SteamOS_ForceWPASupplicant"),
+		description: Localize("#Settings_SteamOS_ForceWPASupplicant_Desc"),
 	});
 }

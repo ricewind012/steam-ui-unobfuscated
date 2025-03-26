@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./90765.js");
 var o = require(/*webcrack:missing*/ "./69164.js");
 var l = require("./85360.js");
 var c = require("./76587.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./4690.js");
 var d = require("./13110.js");
 var A = require(/*webcrack:missing*/ "./15181.js");
@@ -453,7 +453,7 @@ function f(e) {
 		n.Fragment,
 		null,
 		n.createElement(d.d, {
-			label: (0, m.we)("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
+			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
 		}),
 		n.createElement(
 			o.Z,
@@ -519,7 +519,7 @@ function S(e) {
 	);
 	const a = e.keyData.width == "*";
 	const u = (0, p.yq)();
-	const d = e.keyData.label ?? (0, m.we)(e.keyData.labelLoc);
+	const d = e.keyData.label ?? Localize(e.keyData.labelLoc);
 	const A = n.useRef(null);
 	const [_, f] = n.useState(e.keyData.width);
 	const b = n.useCallback(() => {
@@ -609,7 +609,7 @@ const B = (0, i.PA)(function (e) {
 			className: c.KeyboardPageContainer,
 		},
 		n.createElement(d.d, {
-			label: (0, m.we)("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
+			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
 		}),
 		n.createElement(
 			o.Z,
@@ -890,7 +890,7 @@ const k = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		n.createElement(d.d, {
-			label: (0, m.we)("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
+			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
 		}),
 		n.createElement(
 			o.Z,

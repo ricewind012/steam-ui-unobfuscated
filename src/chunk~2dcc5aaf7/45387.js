@@ -1,15 +1,15 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./53833.js");
+import { FilterInPlace } from "../../actual_src/utils/arrayutils.js";
 var s = require("./81482.js");
 var o = require(/*webcrack:missing*/ "./89193.js");
 var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require("./92031.js");
 var m = require(/*webcrack:missing*/ "./93960.js");
-var u = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 var d = require(/*webcrack:missing*/ "./79769.js");
 var A = require(/*webcrack:missing*/ "./90095.js");
-const p = u.Kp.PerHour * 3;
+const p = Seconds.PerHour * 3;
 const g = "GameReleased";
 const h = "GameReleased_Merge";
 function C(e, t) {
@@ -101,7 +101,7 @@ class _ {
 		if (
 			(function (e) {
 				let t = false;
-				let r = (0, u._2)() - p;
+				let r = GetUnixTime() - p;
 				for (let n of e.apps) {
 					if (n.rtShown && n.rtShown <= r && !n.bDismissed) {
 						n.bDismissed = true;
@@ -126,7 +126,7 @@ class _ {
 						r = true;
 					}
 				}
-				a.hT(e.apps, (e) => {
+				FilterInPlace(e.apps, (e) => {
 					let n = t.find((t) => t.nAppID == e.appid);
 					if (n) {
 						if (C(e.state, n.eState)) {
@@ -163,7 +163,7 @@ class _ {
 					var t;
 				});
 				if (r) {
-					r.rtShown = (0, u._2)();
+					r.rtShown = GetUnixTime();
 					t = true;
 				}
 			}
@@ -178,7 +178,7 @@ class _ {
 		}
 		if (n) {
 			this.m_nShownAppID = n.appid;
-			let e = (0, u._2)() - n.rtShown;
+			let e = GetUnixTime() - n.rtShown;
 			let t = p - e;
 			this.ScheduleUpdate(t * 1000);
 		} else {

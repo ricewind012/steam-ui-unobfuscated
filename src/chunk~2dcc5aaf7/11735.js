@@ -15,7 +15,7 @@ var h = require(/*webcrack:missing*/ "./92059.js");
 var C = require("./12911.js");
 var _2 = require("./16154.js");
 var f = require(/*webcrack:missing*/ "./90765.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var y = require(/*webcrack:missing*/ "./72476.js");
 var S = require(/*webcrack:missing*/ "./98995.js");
 function w(e) {
@@ -23,8 +23,8 @@ function w(e) {
 		i.createElement(
 			A.KG,
 			{
-				strTitle: (0, b.we)("#Wishlist_Error"),
-				strDescription: (0, b.we)("#Wishlist_Error_Desc"),
+				strTitle: Localize("#Wishlist_Error"),
+				strDescription: Localize("#Wishlist_Error_Desc"),
 			},
 			i.createElement("br", null),
 			i.createElement("br", null),
@@ -60,7 +60,7 @@ export function _(e) {
 		return i.createElement(
 			S.he,
 			{
-				toolTipContent: (0, b.we)("#AddToWishlist_ttip"),
+				toolTipContent: Localize("#AddToWishlist_ttip"),
 			},
 			i.createElement(
 				"div",

@@ -8,12 +8,12 @@ var c = require("./333.js");
 var m = require(/*webcrack:missing*/ "./8573.js");
 var u = require("./33223.js");
 var d = require("./39039.js");
-var A = require(/*webcrack:missing*/ "./53833.js");
+import { PadArray } from "../../actual_src/utils/arrayutils.js";
 var p = require(/*webcrack:missing*/ "./49455.js");
 var g = require("./16154.js");
 var h = require(/*webcrack:missing*/ "./79769.js");
 require(/*webcrack:missing*/ "./52451.js");
-var C = require(/*webcrack:missing*/ "./41180.js");
+import { Sleep } from "../../actual_src/utils/time.js";
 var _ = require(/*webcrack:missing*/ "./72476.js");
 var f = require(/*webcrack:missing*/ "./36885.js");
 var b = require("./21920.js");
@@ -583,7 +583,7 @@ export class i6 {
 		});
 		let a = 0;
 		while (n.success === undefined && a < 100) {
-			await (0, C.IP)(100);
+			await Sleep(100);
 			a += 1;
 		}
 		if (a >= 100) {
@@ -628,7 +628,7 @@ export class i6 {
 		l.src = r;
 		let c = 0;
 		while (o === undefined && c < 100) {
-			await (0, C.IP)(100);
+			await Sleep(100);
 			c += 1;
 		}
 		if (c >= 100 && o === undefined) {
@@ -680,7 +680,7 @@ export class i6 {
 				localized_images: [],
 			};
 			this.m_curLocImageGroupType = t;
-			this.m_curLocImageGroup.localized_images = (0, A.$Y)(
+			this.m_curLocImageGroup.localized_images = PadArray(
 				this.m_curLocImageGroup.localized_images,
 				31,
 				null,

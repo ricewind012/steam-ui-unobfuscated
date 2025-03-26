@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./89193.js");
 var s = require("./46162.js");
-var o = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require(/*webcrack:missing*/ "./31958.js");
@@ -89,8 +89,8 @@ export class np {
 		}
 	}
 	UnregisterDropRegion(e) {
-		o.x9(this.m_rgDropRegions, e);
-		o.x9(this.m_rgActiveDropRegions, e);
+		FindAndRemove(this.m_rgDropRegions, e);
+		FindAndRemove(this.m_rgActiveDropRegions, e);
 		if (this.m_activeDropRegion == e) {
 			this.m_activeDropRegion = undefined;
 			if (this.m_activeDraggable) {

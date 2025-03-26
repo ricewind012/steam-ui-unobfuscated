@@ -16,7 +16,7 @@ var C = require("./94361.js");
 var _ = require("./43014.js");
 var f = require("./22004.js");
 var b = require(/*webcrack:missing*/ "./90765.js");
-var y = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var S = require(/*webcrack:missing*/ "./52451.js");
 var w = require("./62645.js");
 var B = w;
@@ -635,7 +635,7 @@ const U = o.forwardRef(function (e, t) {
 			{
 				className: B.TabTitle,
 			},
-			(0, y.we)(n),
+			(0, Localize)(n),
 		),
 		l === "right" && A,
 	);

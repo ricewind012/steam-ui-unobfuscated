@@ -9,8 +9,8 @@ var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require(/*webcrack:missing*/ "./49455.js");
 var d = require("./10606.js");
 var _A = require("./13869.js");
-var p = require(/*webcrack:missing*/ "./54644.js");
-var g = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var h = require("./85965.js");
 var C = require("./23861.js");
 const _ = "/images/defaultappimage.png";
@@ -245,7 +245,7 @@ export let z = class extends i.Component {
 		e.stopPropagation();
 	}
 	OnFileInputChange(e) {
-		let t = (0, p.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		const r = this.m_refFileInput.current.files[0];
 		const n = r.type.match(/image\/(.+)/);
 		let a = n && n[1];
@@ -255,12 +255,12 @@ export let z = class extends i.Component {
 		if (a != "jpg" && a != "png") {
 			(0, _A.pg)(
 				i.createElement(d.KG, {
-					strTitle: (0, g.we)("#CustomArt_ErrorTitle"),
-					strDescription: (0, g.we)("#CustomArt_BadFileType"),
+					strTitle: Localize("#CustomArt_ErrorTitle"),
+					strDescription: Localize("#CustomArt_BadFileType"),
 				}),
 				t,
 				{
-					strTitle: (0, g.we)("#CustomArt_ErrorTitle"),
+					strTitle: Localize("#CustomArt_ErrorTitle"),
 				},
 			);
 			return;
@@ -285,12 +285,12 @@ export let z = class extends i.Component {
 					console.log("Set artwork failed", e);
 					(0, _A.pg)(
 						i.createElement(d.KG, {
-							strTitle: (0, g.we)("#CustomArt_ErrorTitle"),
-							strDescription: (0, g.we)("#CustomArt_UnknownError"),
+							strTitle: Localize("#CustomArt_ErrorTitle"),
+							strDescription: Localize("#CustomArt_UnknownError"),
 						}),
 						t,
 						{
-							strTitle: (0, g.we)("#CustomArt_ErrorTitle"),
+							strTitle: Localize("#CustomArt_ErrorTitle"),
 						},
 					);
 					this.m_refFileInput.current.value = null;
@@ -410,7 +410,7 @@ export function A(e, t) {
 	} else {
 		return {
 			appid: 1,
-			name: t || (0, g.we)("#LibraryAssetImage_UnknownName"),
+			name: t || Localize("#LibraryAssetImage_UnknownName"),
 			eAssetType: 0,
 			rgSources: [_],
 		};

@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./78325.js");
 var o = require(/*webcrack:missing*/ "./11131.js");
 var l = require(/*webcrack:missing*/ "./63439.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require("./13869.js");
 var d = require(/*webcrack:missing*/ "./53807.js");
@@ -84,7 +84,7 @@ function p(e) {
 				a.createElement(
 					i.UC,
 					null,
-					a.createElement(i.Y9, null, (0, c.we)("#BrowserJSDialog_Header", I)),
+					a.createElement(i.Y9, null, Localize("#BrowserJSDialog_Header", I)),
 					a.createElement(i.a3, null, n),
 					a.createElement(
 						i.wi,
@@ -95,14 +95,14 @@ function p(e) {
 								{
 									onClick: w,
 								},
-								(0, c.we)("#Button_OK"),
+								Localize("#Button_OK"),
 							),
 						!t &&
 							a.createElement(i.CB, {
 								onOK: B,
-								strOKText: (0, c.we)("#Button_OK"),
+								strOKText: Localize("#Button_OK"),
 								onCancel: w,
-								strCancelText: (0, c.we)("#Button_Cancel"),
+								strCancelText: Localize("#Button_Cancel"),
 							}),
 					),
 				),

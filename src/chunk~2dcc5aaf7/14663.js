@@ -21,8 +21,11 @@ var S = require(/*webcrack:missing*/ "./50376.js");
 var w = require("./79421.js");
 var B = require(/*webcrack:missing*/ "./98995.js");
 var v = require(/*webcrack:missing*/ "./90765.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
-var E = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var M = require(/*webcrack:missing*/ "./52451.js");
 var T = require(/*webcrack:missing*/ "./72476.js");
 var R = require("./27941.js");
@@ -54,7 +57,7 @@ export let R0 = class extends h.Component {
 			{
 				className: k.Highlight,
 			},
-			(0, E.we)("#AllCollectionsView_InfoIconCollections"),
+			(0, Localize)("#AllCollectionsView_InfoIconCollections"),
 		);
 		let t = h.createElement(
 			"span",
@@ -62,19 +65,19 @@ export let R0 = class extends h.Component {
 				className: k.Highlight,
 			},
 			h.createElement(y.Qi, null),
-			(0, E.we)("#AllCollectionsView_InfoIconDynamicCollections"),
+			(0, Localize)("#AllCollectionsView_InfoIconDynamicCollections"),
 		);
 		let r = h.createElement(
 			"div",
 			null,
-			(0, E.PP)(
+			LocalizeReact(
 				"#AllCollectionsView_InfoIconFav",
 				h.createElement(
 					"span",
 					{
 						className: k.Highlight,
 					},
-					(0, E.we)("#AllCollectionsView_InfoIconFavorites"),
+					(0, Localize)("#AllCollectionsView_InfoIconFavorites"),
 				),
 			),
 		);
@@ -84,7 +87,7 @@ export let R0 = class extends h.Component {
 			h.createElement(
 				B.MA,
 				null,
-				(0, E.PP)("#AllCollectionsView_InfoIcon", e, t),
+				LocalizeReact("#AllCollectionsView_InfoIcon", e, t),
 			),
 			h.createElement("br", null),
 			h.createElement(B.MA, null, r),
@@ -109,7 +112,7 @@ export let R0 = class extends h.Component {
 					{
 						className: k.Label,
 					},
-					(0, E.we)("#AllCollectionsView_Title"),
+					(0, Localize)("#AllCollectionsView_Title"),
 				),
 				h.createElement(z.m, {
 					direction: "right",
@@ -323,7 +326,7 @@ export function T4(e) {
 let ee = class extends h.Component {
 	m_childRef = h.createRef();
 	GetWindow() {
-		return (0, I.qf)(this.m_childRef.current);
+		return GetOwningWindowForElement(this.m_childRef.current);
 	}
 	render() {
 		const e = c.b.GetSelectedAppsInContext();
@@ -357,7 +360,7 @@ let ee = class extends h.Component {
 				{
 					className: k.CollectionLabel,
 				},
-				(0, E.we)(
+				(0, Localize)(
 					r
 						? "#AllCollectionsView_DragToAddCollection"
 						: "#AllCollectionsView_AddCollection",
@@ -387,7 +390,7 @@ const te = (e) =>
 			{
 				className: k.CollectionLabel,
 			},
-			(0, E.we)("#EAAccessCollection_NewCollection_Button"),
+			(0, Localize)("#EAAccessCollection_NewCollection_Button"),
 		),
 	);
 export const lp = (0, g.PA)((e) => {
@@ -435,7 +438,7 @@ export const lp = (0, g.PA)((e) => {
 				{
 					className: k.Message,
 				},
-				(0, E.we)("#GameAction_NavigateToAllCollectionsWithDrag"),
+				(0, Localize)("#GameAction_NavigateToAllCollectionsWithDrag"),
 			),
 			h.createElement(S.a3E, {
 				percentComplete: 0,
@@ -485,7 +488,7 @@ export const F9 = (0, g.PA)(function (e) {
 	};
 	_.onSecondaryActionDescription = h.createElement(d.dq, null);
 	_.onMenuButton = l;
-	_.onMenuActionDescription = (0, E.we)("#ActionButtonLabelContextMenu");
+	_.onMenuActionDescription = (0, Localize)("#ActionButtonLabelContextMenu");
 	return h.createElement(
 		O.wf,
 		{
@@ -530,7 +533,7 @@ export const F9 = (0, g.PA)(function (e) {
 				B.he,
 				{
 					className: k.DynamicCollection,
-					toolTipContent: (0, E.we)("#Collection_DynamicCollection"),
+					toolTipContent: (0, Localize)("#Collection_DynamicCollection"),
 					nDelayShowMS: 100,
 				},
 				h.createElement(y.Qi, null),

@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./90095.js");
 var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require("./17231.js");
 var l = require("./68608.js");
 var c = require(/*webcrack:missing*/ "./8573.js");
@@ -21,7 +21,7 @@ var S = require("./99731.js");
 var w = require("./46285.js");
 var B = require(/*webcrack:missing*/ "./61657.js");
 var v = require("./13869.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var E = require("./93966.js");
 var M = require("./17754.js");
 function T(e) {
@@ -76,15 +76,15 @@ function R(e) {
 				let a = () => r(false);
 				(function (e, t, r) {
 					let i = n.createElement(u.o0, {
-						strTitle: (0, s.we)("#Overlay_FriendInviteToGame_ReturnToGame"),
-						strDescription: (0, s.we)("#Overlay_Browser_ReturnToGame"),
+						strTitle: (0, Localize)("#Overlay_FriendInviteToGame_ReturnToGame"),
+						strDescription: (0, Localize)("#Overlay_Browser_ReturnToGame"),
 						onOK: t,
 						onCancel: r,
 					});
 					(0, v.pg)(i, e, {
-						strTitle: (0, s.we)("#Overlay_FriendInviteToGame_ReturnToGame"),
+						strTitle: (0, Localize)("#Overlay_FriendInviteToGame_ReturnToGame"),
 					});
-				})((0, I.uX)(t), i, a);
+				})(GetOwningWindowForEvent(t), i, a);
 				t.preventDefault();
 				t.stopPropagation();
 			},
@@ -176,8 +176,8 @@ function z(e) {
 	);
 }
 export function eu(e) {
-	let t = (0, s.we)("#Overlay_FriendAdd_Title");
-	let r = (0, s.we)("#Overlay_FriendAdd_Body");
+	let t = (0, Localize)("#Overlay_FriendAdd_Title");
+	let r = (0, Localize)("#Overlay_FriendAdd_Body");
 	return n.createElement(z, {
 		request: e.request,
 		strTitle: t,
@@ -186,8 +186,8 @@ export function eu(e) {
 	});
 }
 export function Dy(e) {
-	let t = (0, s.we)("#Overlay_FriendRemove_Title");
-	let r = (0, s.we)("#Overlay_FriendRemove_Body");
+	let t = (0, Localize)("#Overlay_FriendRemove_Title");
+	let r = (0, Localize)("#Overlay_FriendRemove_Body");
 	return n.createElement(z, {
 		request: e.request,
 		strTitle: t,
@@ -196,8 +196,8 @@ export function Dy(e) {
 	});
 }
 export function II(e) {
-	let t = (0, s.we)("#Overlay_FriendAcceptRequest_Title");
-	let r = (0, s.we)("#Overlay_FriendAcceptRequest_Body");
+	let t = (0, Localize)("#Overlay_FriendAcceptRequest_Title");
+	let r = (0, Localize)("#Overlay_FriendAcceptRequest_Body");
 	return n.createElement(z, {
 		request: e.request,
 		strTitle: t,
@@ -206,8 +206,8 @@ export function II(e) {
 	});
 }
 export function C(e) {
-	let t = (0, s.we)("#Overlay_FriendIgnoreRequest_Title");
-	let r = (0, s.we)("#Overlay_FriendIgnoreRequest_Body");
+	let t = (0, Localize)("#Overlay_FriendIgnoreRequest_Title");
+	let r = (0, Localize)("#Overlay_FriendIgnoreRequest_Body");
 	return n.createElement(z, {
 		request: e.request,
 		strTitle: t,
@@ -255,7 +255,7 @@ function H(e) {
 				{
 					className: f.InvitedText,
 				},
-				(0, s.we)("#Overlay_FriendInviteToGame_Invited"),
+				(0, Localize)("#Overlay_FriendInviteToGame_Invited"),
 			),
 	);
 }
@@ -356,7 +356,7 @@ function Q(e) {
 	};
 	const B = n.createElement(q, {
 		bShowTitle: !c,
-		strTitle: (0, s.we)("#Overlay_FriendInviteToGame_OnlineFriends"),
+		strTitle: (0, Localize)("#Overlay_FriendInviteToGame_OnlineFriends"),
 		rgFriends: i,
 		onCancel: S,
 		onSelectUser: w,
@@ -375,7 +375,7 @@ function Q(e) {
 		let e = [M.chat_partner];
 		R = n.createElement(q, {
 			bShowTitle: !c,
-			strTitle: (0, s.we)("#Overlay_FriendInviteToGame_VoiceChat"),
+			strTitle: (0, Localize)("#Overlay_FriendInviteToGame_VoiceChat"),
 			rgFriends: j(e),
 			onCancel: S,
 			onSelectUser: w,
@@ -390,7 +390,7 @@ function Q(e) {
 			.map((e) => g.O$.GetFriendState(e.steamid));
 		R = n.createElement(q, {
 			bShowTitle: !c,
-			strTitle: (0, s.we)("#Overlay_FriendInviteToGame_VoiceChat"),
+			strTitle: (0, Localize)("#Overlay_FriendInviteToGame_VoiceChat"),
 			rgFriends: j(e),
 			onCancel: S,
 			onSelectUser: w,
@@ -416,7 +416,7 @@ function Q(e) {
 		let e = L.filter((e) => e.persona.is_online);
 		let t = n.createElement(q, {
 			bShowTitle: true,
-			strTitle: (0, s.we)("#Overlay_FriendInviteToGame_Favorites"),
+			strTitle: (0, Localize)("#Overlay_FriendInviteToGame_Favorites"),
 			rgFriends: e,
 			onCancel: S,
 			onSelectUser: w,
@@ -478,7 +478,7 @@ function Q(e) {
 					if (o) {
 						clearTimeout(o);
 					}
-					let n = (0, I.uX)(e).setTimeout(() => {
+					let n = GetOwningWindowForEvent(e).setTimeout(() => {
 						let e = r.filter(
 							(e) => e.display_name.toLocaleLowerCase().indexOf(t) != -1,
 						);
@@ -487,7 +487,7 @@ function Q(e) {
 					h(t.length > 0);
 					l(n);
 				},
-				placeholder: (0, s.we)("#Overlay_FriendInviteToGame_Filter"),
+				placeholder: (0, Localize)("#Overlay_FriendInviteToGame_Filter"),
 			}),
 			n.createElement(
 				p.MS,
@@ -501,10 +501,10 @@ function Q(e) {
 					A.Z,
 					{
 						className: f.FriendsList,
-						onOKActionDescription: (0, s.we)(
+						onOKActionDescription: (0, Localize)(
 							"#Overlay_FriendInviteToGame_Invite",
 						),
-						onCancelActionDescription: (0, s.we)(
+						onCancelActionDescription: (0, Localize)(
 							"#Overlay_FriendInviteToGame_ReturnToGame",
 						),
 					},
@@ -515,8 +515,8 @@ function Q(e) {
 	);
 }
 export function fR(e) {
-	let t = (0, s.we)("#Overlay_FriendInviteToGame_Title");
-	let r = (0, s.we)("#Overlay_FriendInviteToGame_Body");
+	let t = (0, Localize)("#Overlay_FriendInviteToGame_Title");
+	let r = (0, Localize)("#Overlay_FriendInviteToGame_Body");
 	return n.createElement(Q, {
 		request: e.request,
 		strTitle: t,
@@ -527,8 +527,8 @@ export function fR(e) {
 	});
 }
 export function Id(e) {
-	let t = (0, s.we)("#Overlay_FriendInviteToCurrentGame_Title");
-	let r = (0, s.we)("#Overlay_FriendInviteToCurrentGame_Body");
+	let t = (0, Localize)("#Overlay_FriendInviteToCurrentGame_Title");
+	let r = (0, Localize)("#Overlay_FriendInviteToCurrentGame_Body");
 	return n.createElement(Q, {
 		request: e.request,
 		strTitle: t,
@@ -539,10 +539,10 @@ export function Id(e) {
 	});
 }
 export function om(e) {
-	let t = (0, s.we)(
+	let t = (0, Localize)(
 		"#Overlay_FriendInviteToRemotePlayTogetherCurrentGame_Title",
 	);
-	let r = (0, s.we)(
+	let r = (0, Localize)(
 		"#Overlay_FriendInviteToRemotePlayTogetherCurrentGame_Body",
 	);
 	return n.createElement(Q, {
@@ -565,18 +565,20 @@ export function fe(e) {
 				SteamClient.User.SetAsyncNotificationEnabled(e.request.appid, true);
 				_C.Q.RemoveDialogRequest(e.request);
 			},
-			strOKButtonText: (0, s.we)(
+			strOKButtonText: (0, Localize)(
 				"#Overlay_AsyncNotificationsRequestedDialog_Allow",
 			),
 			onCancel: () => {
 				SteamClient.User.SetAsyncNotificationEnabled(e.request.appid, false);
 				_C.Q.RemoveDialogRequest(e.request);
 			},
-			strCancelButtonText: (0, s.we)(
+			strCancelButtonText: (0, Localize)(
 				"#Overlay_AsyncNotificationsRequestedDialog_Disallow",
 			),
-			strTitle: (0, s.we)("#Overlay_AsyncNotificationsRequestedDialog_Title"),
-			strDescription: (0, s.we)(
+			strTitle: (0, Localize)(
+				"#Overlay_AsyncNotificationsRequestedDialog_Title",
+			),
+			strDescription: (0, Localize)(
 				"#Overlay_AsyncNotificationsRequestedDialog_Desc",
 			),
 		}),

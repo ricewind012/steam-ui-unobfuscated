@@ -8,7 +8,7 @@ var c = require("./2326.js");
 var m = require("./80478.js");
 var u = require("./91486.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var p = require("./1965.js");
 var g = require("./46424.js");
 var h = require("./18057.js");
@@ -22,7 +22,7 @@ const b = (0, a.PA)(function (e) {
 			p.n,
 			{
 				className: f.SoundtrackSection,
-				label: (0, A.we)("#AppDetails_SectionTitle_AdditionalContent"),
+				label: (0, Localize)("#AppDetails_SectionTitle_AdditionalContent"),
 				rightColumnSection: true,
 				availableOffline: true,
 			},
@@ -123,7 +123,7 @@ function S(e) {
 			{
 				className: f.Title,
 			},
-			(0, A.we)("#AppDetails_AdditionalContent_GameManual"),
+			(0, Localize)("#AppDetails_AdditionalContent_GameManual"),
 		),
 	);
 }
@@ -152,7 +152,7 @@ class G extends i.Component {
 				{
 					className: F.Body,
 				},
-				(0, A.we)(
+				(0, Localize)(
 					"#AppDetails_Shortcut_Explanation",
 					this.props.overview.display_name,
 				),
@@ -190,7 +190,7 @@ class x extends i.Component {
 						},
 						i.createElement(z.WOg, null),
 					),
-					(0, A.we)("#GameList_Entry_Invalid_OSType"),
+					(0, Localize)("#GameList_Entry_Invalid_OSType"),
 				),
 				i.createElement(
 					"div",
@@ -202,14 +202,14 @@ class x extends i.Component {
 						{
 							className: L.WarningText2,
 						},
-						(0, A.we)("#GameList_Entry_Invalid_OSType2"),
+						(0, Localize)("#GameList_Entry_Invalid_OSType2"),
 						i.createElement(
 							"a",
 							{
 								href: "https://support.steampowered.com/kb_article.php?ref=1055-ISJM-8568",
 								className: L.WarningText3,
 							},
-							(0, A.we)("#GameList_Entry_Invalid_OSType3"),
+							(0, Localize)("#GameList_Entry_Invalid_OSType3"),
 						),
 					),
 				),
@@ -238,7 +238,7 @@ const j = (e) => {
 		p.n,
 		{
 			style: l,
-			label: (0, A.we)("#AppDetails_SectionTitle_IncludedWith"),
+			label: (0, Localize)("#AppDetails_SectionTitle_IncludedWith"),
 			rightColumnSection: true,
 		},
 		i.createElement(

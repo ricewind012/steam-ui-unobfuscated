@@ -19,7 +19,7 @@ var b = require("./64608.js");
 var y = require("./35488.js");
 var S = require("./23337.js");
 var w = require(/*webcrack:missing*/ "./90765.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var v = require("./51076.js");
 var I = require("./96892.js");
 var E = require(/*webcrack:missing*/ "./43691.js");
@@ -83,7 +83,7 @@ function R(e) {
 		}),
 		u.createElement(D, {
 			type: "Favorites",
-			title: (0, B.we)("#AppOverlay_Guides_Favorites"),
+			title: (0, Localize)("#AppOverlay_Guides_Favorites"),
 			appid: t.appid,
 			onActivateGuide: r,
 			useGuidesQuery: o.zg,
@@ -91,7 +91,7 @@ function R(e) {
 		}),
 		u.createElement(D, {
 			type: "Popular",
-			title: (0, B.we)("#AppOverlay_Guides_Popular"),
+			title: (0, Localize)("#AppOverlay_Guides_Popular"),
 			appid: t.appid,
 			onActivateGuide: r,
 			useGuidesQuery: o.a,
@@ -117,7 +117,7 @@ const k = (e) =>
 			{
 				className: I.GuidesHomeHeaderDesc,
 			},
-			(0, B.we)("#AppOverlay_Guides_Desc", e.app.display_name),
+			(0, Localize)("#AppOverlay_Guides_Desc", e.app.display_name),
 		),
 	);
 function D(e) {
@@ -216,7 +216,7 @@ function D(e) {
 					className: I.LoadingGuidesError,
 					focusable: true,
 				},
-				(0, B.we)("#AppOverlay_Guides_Error"),
+				(0, Localize)("#AppOverlay_Guides_Error"),
 			),
 		A.isSuccess &&
 			!A.isLoading &&
@@ -227,7 +227,7 @@ function D(e) {
 					className: I.NoGuides,
 					focusable: true,
 				},
-				(0, B.we)("#AppOverlay_Guides_None"),
+				(0, Localize)("#AppOverlay_Guides_None"),
 			),
 		A.isSuccess &&
 			p.publishedfiledetails.map((e) =>
@@ -333,7 +333,7 @@ const O = (e) => {
 		{
 			className: I.GuideAuthor,
 		},
-		(0, B.we)("#AppOverlay_Guides_Author", t),
+		(0, Localize)("#AppOverlay_Guides_Author", t),
 	);
 };
 const P = (e) =>
@@ -599,7 +599,7 @@ function Z(e) {
 					{
 						showFooter: true,
 					},
-					(0, B.we)("#AppOverlay_Guides_Loading"),
+					(0, Localize)("#AppOverlay_Guides_Loading"),
 				),
 			),
 		a.isSuccess &&
@@ -703,7 +703,7 @@ function Y(e) {
 				onActivate: () => n("overview"),
 				focusable: true,
 			},
-			(0, B.we)("#AppOverlay_Guides_TOC_Overview"),
+			(0, Localize)("#AppOverlay_Guides_TOC_Overview"),
 		),
 		r.map((e) =>
 			e.title.length > 0
@@ -790,8 +790,8 @@ export function sn(e) {
 			{
 				className: I.UGCTotalRatings,
 			},
-			r && a && (0, B.we)("#AppOverlay_Guides_TotalRatings", n),
-			r && !a && (0, B.we)("#AppOverlay_Guides_TotalRatings_NotEnough"),
+			r && a && (0, Localize)("#AppOverlay_Guides_TotalRatings", n),
+			r && !a && (0, Localize)("#AppOverlay_Guides_TotalRatings_NotEnough"),
 		),
 	);
 }
@@ -865,7 +865,7 @@ function ee(e) {
 			className: I.UGCButton,
 			onClick: a,
 		},
-		(0, B.we)(
+		(0, Localize)(
 			i
 				? "#AppOverlay_Guides_Favorites_Remove"
 				: "#AppOverlay_Guides_Favorites_Add",

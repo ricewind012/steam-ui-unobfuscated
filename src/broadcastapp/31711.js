@@ -5,7 +5,10 @@ import * as r from /*webcrack:missing*/ "./95773.js";
 import * as i from /*webcrack:missing*/ "./50376.js";
 import * as l from /*webcrack:missing*/ "./13869.js";
 import * as c from /*webcrack:missing*/ "./64608.js";
-import * as m from /*webcrack:missing*/ "./46108.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as h from /*webcrack:missing*/ "./69649.js";
 import * as d from /*webcrack:missing*/ "./52451.js";
 import * as p from /*webcrack:missing*/ "./53414.js";
@@ -46,7 +49,7 @@ const u = ({ group: e, onClick: t }) => {
 						{
 							className: "chatRoomDetails",
 						},
-						(0, m.we)("#Broadcast_WatchParty_Viewers_NoneActive"),
+						Localize("#Broadcast_WatchParty_Viewers_NoneActive"),
 					),
 			),
 		),
@@ -72,12 +75,12 @@ class C extends n.Component {
 					creationOptions: {
 						unBroadcastAccountId: a,
 					},
-					strTitle: (0, m.we)("#Broadcast_CreateWatchParty"),
+					strTitle: Localize("#Broadcast_CreateWatchParty"),
 				}),
 				t,
 				"CreateChatDialog",
 				{
-					strTitle: (0, m.we)("#Broadcast_CreateWatchParty"),
+					strTitle: Localize("#Broadcast_CreateWatchParty"),
 					popupWidth: 450,
 					popupHeight: 600,
 				},
@@ -144,7 +147,7 @@ class C extends n.Component {
 							{
 								className: "watchPartyPrompt",
 							},
-							(0, m.we)("#Broadcast_WatchPrompt"),
+							Localize("#Broadcast_WatchPrompt"),
 						),
 						n.createElement(
 							c.xz,
@@ -157,7 +160,7 @@ class C extends n.Component {
 										className: "watchHowButton",
 										onClick: this.WatchAlone,
 									},
-									(0, m.we)("#Broadcast_WatchAlone"),
+									Localize("#Broadcast_WatchAlone"),
 								),
 							o &&
 								n.createElement(
@@ -171,7 +174,7 @@ class C extends n.Component {
 										context: null,
 										bLarge: false,
 									}),
-									(0, m.PP)(
+									LocalizeReact(
 										"#Broadcast_WatchWith",
 										n.createElement(
 											"span",
@@ -190,7 +193,7 @@ class C extends n.Component {
 									n.createElement(
 										c.JU,
 										null,
-										(0, m.we)("#Broadcast_WatchWithExistingWatchParty"),
+										Localize("#Broadcast_WatchWithExistingWatchParty"),
 									),
 									a.map((e) =>
 										n.createElement(u, {
@@ -207,7 +210,7 @@ class C extends n.Component {
 									svgicon: i.u9R,
 									onClick: () => this.CreateWatchParty(false),
 								},
-								(0, m.we)("#Broadcast_LinkBroadcastToGroup_New"),
+								Localize("#Broadcast_LinkBroadcastToGroup_New"),
 							),
 						),
 					),
@@ -487,7 +490,7 @@ function O(e) {
 			onClick: e.onClick,
 		},
 		n.createElement(i.y_e, null),
-		(0, m.we)("#Broadcast_WatchWithFriends"),
+		Localize("#Broadcast_WatchWithFriends"),
 	);
 }
 function U(e) {
@@ -495,7 +498,7 @@ function U(e) {
 		"div",
 		{
 			className: "ToggleBroadcastChat",
-			title: (0, m.we)("#Broadcast_ToggleChat"),
+			title: Localize("#Broadcast_ToggleChat"),
 			onClick: e.onClick,
 		},
 		n.createElement(i.K7s, {
@@ -733,7 +736,7 @@ let $ = class extends n.Component {
 					className: f.ChatLoginButton,
 					href: "#",
 				},
-				(0, m.we)("#BroadcastChat_Login"),
+				Localize("#BroadcastChat_Login"),
 			),
 			n.createElement(Q, {
 				app: l,

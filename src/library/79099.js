@@ -16,7 +16,10 @@ var l = c;
 var u = require("./26853.js");
 var m = require("./72476.js");
 var d = require(/*webcrack:missing*/ "./80986.js");
-var h = require("./46108.js");
+import {
+	GetConfiguredLocale,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var p = require("./44846.js");
 var g = require("./28987.js");
 var f = require("./37905.js");
@@ -227,11 +230,11 @@ SteamClient._internal.RegisterForStyleChanges(function (e) {
 					console.error("Got unknown config property", e);
 				}
 			}
-			const n = (0, h.l4)();
+			const n = GetConfiguredLocale();
 			console.log("setting locale:", n);
 			if (n) {
 				document.documentElement.setAttribute("lang", n);
-				h.pf.SetPreferredLocales([n]);
+				LocalizationManager.SetPreferredLocales([n]);
 			}
 		}
 		if (m.TS.EREALM == g.TU.k_ESteamRealmUnknown) {

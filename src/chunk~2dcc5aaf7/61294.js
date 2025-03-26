@@ -5,7 +5,7 @@ var s = require("./43014.js");
 var o = require(/*webcrack:missing*/ "./69164.js");
 var l = require("./64608.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./22091.js");
 var d = require("./83314.js");
 var A = require("./62486.js");
@@ -54,15 +54,15 @@ function I(e) {
 					e.key_binding_data?.friendly_name_utf8 &&
 					typeof a.label == "string"
 				) {
-					return (0, m.we)(
+					return Localize(
 						"#ControllerBinding_Binding_FriendlyName",
 						e.key_binding_data.friendly_name_utf8,
-						(0, m.we)(a.label),
+						Localize(a.label),
 					);
 				}
 				let t = typeof a.label == "string" ? a.label : undefined;
 				if (t?.charAt(0) == "#") {
-					return (0, m.we)(a.label);
+					return Localize(a.label);
 				} else {
 					return a.label;
 				}
@@ -71,9 +71,9 @@ function I(e) {
 		})(e);
 		if (p.v3.ChordConfiguration?.controller_type == 4) {
 			if (n == "Next") {
-				n = (0, m.we)("#ControllerActionKey_BrightnessUp");
+				n = Localize("#ControllerActionKey_BrightnessUp");
 			} else if (n == "Prev") {
-				n = (0, m.we)("#ControllerActionKey_BrightnessDown");
+				n = Localize("#ControllerActionKey_BrightnessDown");
 			}
 		}
 		if (n) {
@@ -618,7 +618,7 @@ function O() {
 					{
 						className: g.ChordControlsTitle,
 					},
-					(0, m.we)("#ControllerChord_GuideButtonShortcuts"),
+					Localize("#ControllerChord_GuideButtonShortcuts"),
 				),
 				n &&
 					a.createElement(
@@ -750,7 +750,7 @@ export function Gn(e) {
 							onClick: r,
 							className: g.SettingsDialogButton,
 						},
-						(0, m.we)("#ControllerChordSummary_Unbound"),
+						Localize("#ControllerChordSummary_Unbound"),
 						" ",
 					),
 				),
@@ -835,6 +835,6 @@ export function Lr(e) {
 			),
 		);
 	} else {
-		return a.createElement("span", null, (0, m.we)(r));
+		return a.createElement("span", null, Localize(r));
 	}
 }

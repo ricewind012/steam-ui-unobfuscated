@@ -14,10 +14,18 @@ var g = require("./5640.js");
 var h = require("./34792.js");
 var C = require("./87935.js");
 var _ = require("./30496.js");
-var f = require(/*webcrack:missing*/ "./11010.js");
+import {
+	LocalizeCalendarTime,
+	LocalizeRTimeToHourAndMinutes,
+	LocalizeRtime32ToShorterDate,
+} from "../../actual_src/utils/localization/datetime.js";
 var b = require(/*webcrack:missing*/ "./52451.js");
 var y = require("./34428.js");
-var S = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	BLocStringExists,
+} from "../../actual_src/utils/localization.js";
 var w = require(/*webcrack:missing*/ "./98995.js");
 var B = require(/*webcrack:missing*/ "./90765.js");
 var v = require("./35488.js");
@@ -40,10 +48,10 @@ var U = require("./18057.js");
 var W = require(/*webcrack:missing*/ "./4690.js");
 var V = require("./66830.js");
 var H = V;
-var j = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var q = require("./18869.js");
 var Q = require("./70239.js");
-var Z = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 function Y(e) {
 	SteamClient.Downloads.SuspendLanPeerContent(true);
 }
@@ -71,7 +79,7 @@ function K(e) {
 				{
 					className: (0, B.A)(H.LocalNetworkTransferText),
 				},
-				(0, S.we)(
+				(0, Localize)(
 					t.update_is_upload
 						? "#Downloads_LocalNetworkTransfer_Upload"
 						: "#Downloads_LocalNetworkTransfer_Download",
@@ -90,7 +98,7 @@ function K(e) {
 				w.he,
 				{
 					className: (0, B.A)(H.ContentTypes, "StopTransferButton"),
-					toolTipContent: (0, S.we)(
+					toolTipContent: (0, Localize)(
 						"#Downloads_LocalNetworkTransfer_Stop_ttip",
 					),
 					direction: "top",
@@ -108,7 +116,7 @@ function K(e) {
 						},
 						i.createElement(v.Close, null),
 					),
-					(0, S.we)("#Downloads_LocalNetworkTransfer_Stop"),
+					(0, Localize)("#Downloads_LocalNetworkTransfer_Stop"),
 				),
 			),
 		);
@@ -121,7 +129,7 @@ export function eo(e) {
 	if (g.jR.isParentalLocked) {
 		return;
 	}
-	(0, j.uX)(e).location.href = "steam://settings/downloads";
+	GetOwningWindowForEvent(e).location.href = "steam://settings/downloads";
 	e.stopPropagation();
 }
 const $ = () => {
@@ -147,7 +155,7 @@ const $ = () => {
 					),
 					onClick: eo,
 				},
-				(0, S.we)("#Downloads_AutoUpdates_Enabled"),
+				(0, Localize)("#Downloads_AutoUpdates_Enabled"),
 			),
 		);
 	} else {
@@ -165,14 +173,14 @@ const $ = () => {
 				i.createElement(
 					"span",
 					null,
-					(0, S.PP)(
+					LocalizeReact(
 						"#Downloads_ScheduleUpdatesFor",
 						i.createElement(
 							"span",
 							{
 								className: H.UpdateHours,
 							},
-							(0, S.we)(
+							(0, Localize)(
 								"#Downloads_ScheduledUpdateTimes",
 								r[n].strDisplay,
 								r[a].strDisplay,
@@ -350,15 +358,15 @@ const ae = (0, s.PA)(function (e) {
 	const m = re[l.update_state].disk;
 	let u =
 		re[l.update_state].network &&
-		(0, S.we)("#Downloads_DetailedState_" + re[l.update_state].network);
+		(0, Localize)("#Downloads_DetailedState_" + re[l.update_state].network);
 	let d =
 		re[l.update_state].disk &&
-		(0, S.we)("#Downloads_DetailedState_" + re[l.update_state].disk);
+		(0, Localize)("#Downloads_DetailedState_" + re[l.update_state].disk);
 	if (u && (0, p.bm)(l) == (0, p.v_)(l)) {
 		const e =
 			"#Downloads_DetailedState_" + re[l.update_state].network + "_Complete";
-		if ((0, S.c9)(e)) {
-			u = (0, S.we)(e);
+		if (BLocStringExists(e)) {
+			u = (0, Localize)(e);
 		}
 	}
 	const [A, g] = (0, p.vO)(l);
@@ -380,7 +388,7 @@ const ae = (0, s.PA)(function (e) {
 					{
 						className: H.State,
 					},
-					(0, S.we)("#Downloads_DetailedState_" + l.update_state),
+					(0, Localize)("#Downloads_DetailedState_" + l.update_state),
 				),
 			),
 		(c || m) &&
@@ -457,7 +465,7 @@ const se = (0, s.PA)(function (e) {
 						toolTipContent: t.update_error,
 						bDisabled: t.update_error.length == 0,
 					},
-					(0, S.we)("#Steam_AppUpdateError_" + t.update_result),
+					(0, Localize)("#Steam_AppUpdateError_" + t.update_result),
 				),
 			),
 		(l == ee.k_EScheduled || (l == ee.k_EError && t.deferred_time > 0)) &&
@@ -466,14 +474,14 @@ const se = (0, s.PA)(function (e) {
 				{
 					className: H.ScheduledTime,
 				},
-				(0, S.we)(
+				(0, Localize)(
 					"#Downloads_ScheduledFor",
-					(0, f.lQ)(t.deferred_time, {
+					LocalizeCalendarTime(t.deferred_time, {
 						bGranularFutureTime: true,
 						bForce24HourClock: h.rV.friendSettings.b24HourClock,
 					}) +
 						" " +
-						(0, f.KC)(t.deferred_time, {
+						LocalizeRTimeToHourAndMinutes(t.deferred_time, {
 							bForce24HourClock: h.rV.friendSettings.b24HourClock,
 						}),
 				),
@@ -500,7 +508,7 @@ const se = (0, s.PA)(function (e) {
 					{
 						className: (0, B.A)(H.Paused, c > 0 && H.InProgress),
 					},
-					(0, S.we)("#Downloads_State_Paused"),
+					(0, Localize)("#Downloads_State_Paused"),
 				),
 				i.createElement(ne, {
 					bytesCurrent: c,
@@ -513,11 +521,11 @@ const se = (0, s.PA)(function (e) {
 				{
 					className: H.CompletedTime,
 				},
-				(0, S.we)(
+				(0, Localize)(
 					"#Downloads_DownloadFinished",
-					(0, f._l)(t.completed_time) +
+					LocalizeRtime32ToShorterDate(t.completed_time) +
 						" " +
-						(0, f.KC)(t.completed_time, {
+						LocalizeRTimeToHourAndMinutes(t.completed_time, {
 							bForce24HourClock: h.rV.friendSettings.b24HourClock,
 						}),
 				),
@@ -545,7 +553,7 @@ const se = (0, s.PA)(function (e) {
 					{
 						className: (0, B.A)(H.Queued, c > 0 && H.InProgress),
 					},
-					(0, S.we)("#Downloads_State_UpNext"),
+					(0, Localize)("#Downloads_State_UpNext"),
 				),
 				i.createElement(ne, {
 					bytesCurrent: c,
@@ -568,7 +576,7 @@ const se = (0, s.PA)(function (e) {
 				{
 					className: H.State,
 				},
-				(0, S.we)("#Downloads_State_UpdatesDiabledByApp"),
+				(0, Localize)("#Downloads_State_UpdatesDiabledByApp"),
 			),
 	);
 });
@@ -611,7 +619,7 @@ class oe extends i.Component {
 						w.he,
 						{
 							className: (0, B.A)(H.ButtonWrapper, H.Left, o.wrapperClass),
-							toolTipContent: (0, S.we)(o.toolTip),
+							toolTipContent: (0, Localize)(o.toolTip),
 							direction: "top",
 						},
 						i.createElement(
@@ -646,7 +654,7 @@ class oe extends i.Component {
 								H.Right,
 								H.RemoveFromQueueWrapper,
 							),
-							toolTipContent: (0, S.we)(
+							toolTipContent: (0, Localize)(
 								e.completed
 									? "#Downloads_RemoveFromList_Tooltip"
 									: "#Downloads_RemoveFromQueue_Tooltip",
@@ -697,7 +705,7 @@ function le(e) {
 					a,
 				),
 			t != 0 &&
-				(0, S.PP)(
+				LocalizeReact(
 					"#Downloads_DownloadedBytesInProgress",
 					i.createElement(
 						"span",
@@ -721,7 +729,7 @@ function le(e) {
 					),
 				),
 			t == 0 &&
-				(0, S.PP)(
+				LocalizeReact(
 					"#Downloads_TotalBytes",
 					i.createElement(
 						"span",
@@ -772,7 +780,7 @@ const ce = (e) =>
 				{
 					className: H.Text,
 				},
-				(0, S.we)(e.strToken),
+				(0, Localize)(e.strToken),
 				e.extraNameContent,
 			),
 		!e.replaceIconWithStatus &&
@@ -797,7 +805,7 @@ const me = (e) =>
 			{
 				className: H.Title,
 			},
-			(0, S.we)("#Downloads_ContentType_Title"),
+			(0, Localize)("#Downloads_ContentType_Title"),
 		),
 		e.rgIcons.map((e) =>
 			i.createElement(ce, {
@@ -947,7 +955,7 @@ function ge(e) {
 				),
 				onClick: eo,
 			},
-			(0, S.we)("#Downloads_Throttle"),
+			(0, Localize)("#Downloads_Throttle"),
 			"\xA0",
 			i.createElement(
 				"span",
@@ -963,7 +971,7 @@ function ge(e) {
 						className: H.Suspended,
 					},
 					"\xA0(",
-					(0, S.we)("#Downloads_ThrottleSuspended"),
+					(0, Localize)("#Downloads_ThrottleSuspended"),
 					")",
 				),
 		);
@@ -988,7 +996,7 @@ const he = (0, s.PA)(function (e) {
 				{
 					className: H.Text,
 				},
-				(0, S.we)("#Downloads_PatchNotes"),
+				(0, Localize)("#Downloads_PatchNotes"),
 			),
 		);
 	}
@@ -1094,7 +1102,7 @@ const _e = (0, s.PA)(function (e) {
 	);
 	const R = i.useCallback(
 		(e) => {
-			const t = (0, j.uX)(e);
+			const t = GetOwningWindowForEvent(e);
 			(0, G.jy)("Play", c, "local", 1001, t)();
 			if (e) {
 				e.stopPropagation();
@@ -1146,7 +1154,7 @@ const _e = (0, s.PA)(function (e) {
 			} else if (u == Te.k_EDownloadSection_Completed) {
 				r = {
 					onClick: n ? R : M,
-					toolTip: (0, S.we)(
+					toolTip: (0, Localize)(
 						n ? "#GameAction_Play" : "#Downloads_GoToGame_Tooltip",
 					),
 				};
@@ -1177,7 +1185,7 @@ const _e = (0, s.PA)(function (e) {
 					navigator: a,
 					bShowRemoveButton: t,
 					history: n,
-					ownerWindow: (0, j.uX)(e),
+					ownerWindow: GetOwningWindowForEvent(e),
 				}),
 				e,
 				(0, G.zq)(),
@@ -1231,9 +1239,9 @@ const _e = (0, s.PA)(function (e) {
 					}
 				: undefined,
 			onOKActionDescription: O.buttonData
-				? (0, S.we)(O.buttonData.toolTip)
+				? (0, Localize)(O.buttonData.toolTip)
 				: undefined,
-			onMenuActionDescription: (0, S.we)("#ActionButtonLabelContextMenu"),
+			onMenuActionDescription: (0, Localize)("#ActionButtonLabelContextMenu"),
 			...t.draggableProps,
 			...(P ? {} : t.dragHandleProps),
 			style: z,
@@ -1340,11 +1348,11 @@ function ye(e) {
 							className: H.TimeRemaining,
 						},
 						n.update_seconds_remaining >= 0 &&
-							n.update_seconds_remaining < Z.Kp.PerMonth &&
+							n.update_seconds_remaining < Seconds.PerMonth &&
 							i.createElement(
 								"span",
 								null,
-								(0, S.PP)(
+								LocalizeReact(
 									"#Downloads_Time_Remaining",
 									i.createElement(
 										"span",
@@ -1537,7 +1545,7 @@ let ve = class extends i.Component {
 	}
 	getDefaultAppUpdateSettingLocString(e) {
 		if (e === 1) {
-			return (0, S.we)("#Downloads_AutoUpdate_DoNotUpdate");
+			return (0, Localize)("#Downloads_AutoUpdate_DoNotUpdate");
 		} else {
 			return "";
 		}
@@ -1547,9 +1555,9 @@ let ve = class extends i.Component {
 			case 0:
 				return this.getDefaultAppUpdateSettingLocString(t);
 			case 1:
-				return (0, S.we)("#Downloads_AutoUpdate_DoNotUpdate");
+				return (0, Localize)("#Downloads_AutoUpdate_DoNotUpdate");
 			case 2:
-				return (0, S.we)("#Downloads_AutoUpdate_HighPriority");
+				return (0, Localize)("#Downloads_AutoUpdate_HighPriority");
 			case 3:
 				return "";
 		}
@@ -1620,7 +1628,7 @@ function Ee(e) {
 						),
 					}),
 				),
-				(0, S.we)("#Downloads_LaunchWhenComplete"),
+				(0, Localize)("#Downloads_LaunchWhenComplete"),
 			),
 		);
 		if (m > 0) {
@@ -1642,7 +1650,7 @@ function Ee(e) {
 							),
 						}),
 					),
-					(0, S.we)("#Downloads_OverrideDownloadThrottle"),
+					(0, Localize)("#Downloads_OverrideDownloadThrottle"),
 				),
 			);
 		}
@@ -1656,7 +1664,7 @@ function Ee(e) {
 					className: H.ContextMenuItem,
 					onSelected: () => Ie(r),
 				},
-				(0, S.we)(
+				(0, Localize)(
 					r.completed
 						? "#Downloads_RemoveFromList_Tooltip"
 						: "#Downloads_RemoveFromQueue_Tooltip",
@@ -1678,7 +1686,7 @@ function Ee(e) {
 							r.appid,
 						),
 				},
-				(0, S.we)("#Downloads_ViewSubscriptions"),
+				(0, Localize)("#Downloads_ViewSubscriptions"),
 			),
 		);
 	}
@@ -1692,7 +1700,7 @@ function Ee(e) {
 					onSelected: () =>
 						s.push(U.BV.Downloads(), (0, U.KV)(r.appid, c[0].clan_event_gid)),
 				},
-				(0, S.we)("#Downloads_ViewPatchNotes"),
+				(0, Localize)("#Downloads_ViewPatchNotes"),
 			),
 		);
 	}
@@ -1704,7 +1712,7 @@ function Ee(e) {
 				className: H.ContextMenuItem,
 				onSelected: () => n.App(r.appid),
 			},
-			(0, S.we)("#Generic_ViewInLibrary"),
+			(0, Localize)("#Generic_ViewInLibrary"),
 		),
 	);
 	if (g.length > 0) {
@@ -1735,7 +1743,7 @@ function Me(e) {
 			{
 				className: H.Text,
 			},
-			(0, S.we)("#Downloads_NoTransfers"),
+			(0, Localize)("#Downloads_NoTransfers"),
 		),
 		t == Te.k_EDownloadSection_Active &&
 			i.createElement(
@@ -1911,7 +1919,7 @@ const Ne = (e) =>
 				{
 					className: H.Title,
 				},
-				(0, S.we)(e.sectionTitle),
+				(0, Localize)(e.sectionTitle),
 				"\xA0",
 			),
 			i.createElement(
@@ -1935,7 +1943,7 @@ const Ne = (e) =>
 					className: H.RemoveAllButton,
 					onClick: e.onRemove,
 				},
-				(0, S.we)("#Downloads_RemoveAll"),
+				(0, Localize)("#Downloads_RemoveAll"),
 			),
 	);
 function Fe(e) {
@@ -2311,7 +2319,7 @@ class Pe extends i.Component {
 								{
 									className: H.Title,
 								},
-								(0, S.we)(a),
+								(0, Localize)(a),
 								"\xA0",
 							),
 							i.createElement(
@@ -2329,7 +2337,7 @@ class Pe extends i.Component {
 							{
 								className: H.View,
 							},
-							(0, S.we)("#Downloads_View"),
+							(0, Localize)("#Downloads_View"),
 						),
 					),
 				);

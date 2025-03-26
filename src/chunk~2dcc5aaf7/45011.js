@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./22222.js");
 var a = require("./64608.js");
 var s = require("./13869.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./77347.js");
 var c = require("./27756.js");
 var m = require(/*webcrack:missing*/ "./69164.js");
@@ -41,7 +41,7 @@ function p(e) {
 				{
 					className: "DialogHeader",
 				},
-				(0, o.we)("#Settings_Internet_Proxy_Settings"),
+				(0, Localize)("#Settings_Internet_Proxy_Settings"),
 			),
 		),
 		n.createElement(
@@ -61,13 +61,13 @@ function p(e) {
 								? i.Xu.k_EHTTPProxyMode_Manual
 								: i.Xu.k_EHTTPProxyMode_None,
 						}),
-					label: (0, o.we)("#Settings_Internet_Enable_HTTPProxy"),
+					label: (0, Localize)("#Settings_Internet_Enable_HTTPProxy"),
 					navRef: b,
 				}),
 			),
 			p &&
 				n.createElement(a.qq, {
-					label: (0, o.we)("#Settings_Internet_ManualProxyAddress"),
+					label: (0, Localize)("#Settings_Internet_ManualProxyAddress"),
 					value: r.address,
 					maxLength: 200,
 					placeholder: "http://proxy",
@@ -79,7 +79,7 @@ function p(e) {
 				}),
 			p &&
 				n.createElement(a.qq, {
-					label: (0, o.we)("#Settings_Internet_Port"),
+					label: (0, Localize)("#Settings_Internet_Port"),
 					value: h,
 					maxLength: 5,
 					placeholder: "",
@@ -98,7 +98,7 @@ function p(e) {
 							...r,
 							exclude_local: e,
 						}),
-					label: (0, o.we)("#Settings_Internet_ManualProxyExcludeLoopback"),
+					label: (0, Localize)("#Settings_Internet_ManualProxyExcludeLoopback"),
 					bottomSeparator: "none",
 				}),
 		),
@@ -106,7 +106,7 @@ function p(e) {
 			a.wi,
 			null,
 			n.createElement(a.CB, {
-				strOKText: (0, o.we)("#Login_Continue"),
+				strOKText: (0, Localize)("#Login_Continue"),
 				onOK: async () => {
 					const { bSuccess: t, bRestartRequired: n } =
 						await l.OQ.Get().SetProxyInfo(r);
@@ -114,8 +114,10 @@ function p(e) {
 					if (n) {
 						i = A.ownerWindow;
 						(0, c.$)({
-							strDescription: (0, o.we)("#Settings_Internet_RestartBody"),
-							strCancelButtonText: (0, o.we)("#Settings_Internet_RestartLater"),
+							strDescription: (0, Localize)("#Settings_Internet_RestartBody"),
+							strCancelButtonText: (0, Localize)(
+								"#Settings_Internet_RestartLater",
+							),
 							ownerWindow: i,
 						});
 					}

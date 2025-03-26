@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./10606.js");
 var a = require("./6472.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require(/*webcrack:missing*/ "./26853.js");
 export function vs() {
 	const [e, t] = (0, n.useState)(false);
@@ -58,7 +58,7 @@ export function Hh(e) {
 					{
 						className: a.ErrorStylesWithIcon,
 					},
-					A || (0, s.we)("#Error_ErrorCommunicatingWithNetwork"),
+					A || (0, Localize)("#Error_ErrorCommunicatingWithNetwork"),
 				),
 			Boolean(h) && h,
 		);
@@ -67,7 +67,7 @@ export function Hh(e) {
 			i.o0,
 			{
 				strTitle: t,
-				strDescription: p || (0, s.we)("#EventDisplay_Share_Success"),
+				strDescription: p || (0, Localize)("#EventDisplay_Share_Success"),
 				bAlertDialog: true,
 				closeModal: l,
 				className: a.SucessErrorDialog,
@@ -83,7 +83,7 @@ export function Hh(e) {
 				closeModal: () => {},
 			},
 			n.createElement(o.t, {
-				string: c || C || (0, s.we)("#Loading"),
+				string: c || C || (0, Localize)("#Loading"),
 				size: "medium",
 				position: "center",
 			}),

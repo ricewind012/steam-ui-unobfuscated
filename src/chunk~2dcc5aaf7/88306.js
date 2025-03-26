@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./90765.js");
 var s = require("./76565.js");
 var o = s;
 var l = require("./82775.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./98670.js");
 var u = require(/*webcrack:missing*/ "./72476.js");
 var d = require("./24418.js");
@@ -44,7 +44,7 @@ function f(e) {
 				{
 					className: (0, a.A)(o.EventEditorTextTitle, "EventEditorTextTitle"),
 				},
-				(0, c.we)("#EventDisplay_SocialTitle"),
+				Localize("#EventDisplay_SocialTitle"),
 			),
 			i.createElement(
 				"div",

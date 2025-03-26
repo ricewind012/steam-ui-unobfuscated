@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 export class S2 {
 	m_options;
 	m_msStart;
@@ -95,7 +95,7 @@ export class JV extends S2 {
 	m_propTargets;
 	m_props = {};
 	constructor(e, t, r) {
-		super("ownerDocument" in e ? n.qf(e) : e, r);
+		super("ownerDocument" in e ? GetOwningWindowForElement(e) : e, r);
 		this.m_object = e;
 		this.m_propTargets = t;
 	}

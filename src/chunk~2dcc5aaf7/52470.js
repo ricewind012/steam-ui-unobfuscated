@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./41230.js");
 var o = require(/*webcrack:missing*/ "./90095.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require("./1965.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./52451.js");
 var d = require("./47801.js");
 var A = require("./87935.js");
@@ -49,44 +49,44 @@ export function Qd(e) {
 				const a = t.bAvailableContentOnStore;
 				const l = [
 					{
-						label: (0, m.we)("#AppDetails_Links_Store"),
+						label: Localize("#AppDetails_Links_Store"),
 						url: A.B7.BuildStoreAppURL(u, "primarylinks"),
 					},
 					a && {
-						label: (0, m.we)("#AppDetails_Links_DLC"),
+						label: Localize("#AppDetails_Links_DLC"),
 						url: A.B7.BuildStoreAppDlcURL(n, "primarylinks"),
 					},
 					!e && {
-						label: (0, m.we)("#AppDetails_Links_Community"),
+						label: Localize("#AppDetails_Links_Community"),
 						link: "GameHub",
 						appid: n,
 					},
 					r && {
-						label: (0, m.we)("#AppDetails_Links_PointsShop"),
+						label: Localize("#AppDetails_Links_PointsShop"),
 						url: A.B7.BuildAppPointsShopURL(n),
 					},
 					!e && {
-						label: (0, m.we)("#AppDetails_Link_Discussions"),
+						label: Localize("#AppDetails_Link_Discussions"),
 						link: "GameHubDiscussions",
 						appid: n,
 					},
 					!e && {
-						label: (0, m.we)("#AppDetails_Link_Guides"),
+						label: Localize("#AppDetails_Link_Guides"),
 						link: "GameHubGuides",
 						appid: n,
 					},
 					s && {
-						label: (0, m.we)("#AppDetails_Link_Workshop"),
+						label: Localize("#AppDetails_Link_Workshop"),
 						link: "SteamWorkshopPage",
 						appid: n,
 					},
 					o && {
-						label: (0, m.we)("#AppDetails_Link_Market"),
+						label: Localize("#AppDetails_Link_Market"),
 						link: "CommunityMarketApp",
 						appid: n,
 					},
 					!R.Ih.BKioskModeLocked() && {
-						label: (0, m.we)("#AppDetails_Link_Support"),
+						label: Localize("#AppDetails_Link_Support"),
 						link: "HelpAppPage",
 						appid: n,
 					},

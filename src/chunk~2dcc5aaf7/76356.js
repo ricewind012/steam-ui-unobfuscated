@@ -34,7 +34,7 @@ var f = require("./9600.js");
 var b = require("./81371.js");
 var y = require("./78057.js");
 var S = require("./51354.js");
-var w = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var B = require("./61277.js");
 var v = require("./22091.js");
 var _I = require("./64608.js");
@@ -89,7 +89,7 @@ function z(e) {
 			i.createElement(
 				"span",
 				null,
-				(0, w.we)("#AppLaunch_MustUpdateClient_Header"),
+				(0, Localize)("#AppLaunch_MustUpdateClient_Header"),
 			),
 		),
 		i.createElement(
@@ -98,13 +98,13 @@ function z(e) {
 			i.createElement(
 				_I.a3,
 				null,
-				(0, w.we)("#AppLaunch_MustUpdateClient_Description"),
+				(0, Localize)("#AppLaunch_MustUpdateClient_Description"),
 			),
 			i.createElement(
 				_I.wi,
 				null,
 				i.createElement(_I.CB, {
-					strOKText: (0, w.we)("#ClientUpdate_ApplyUpdate_Button"),
+					strOKText: (0, Localize)("#ClientUpdate_ApplyUpdate_Button"),
 					onOK: () => {
 						e.closeModal();
 						SteamClient.User.StartRestart(false);
@@ -462,10 +462,10 @@ class X extends K {
 	}
 	ShowAppLaunchErrorDialogInternal(e, t, r) {
 		const n = d.tw.GetAppOverviewByGameID(e);
-		let s = (0, w.we)("#Steam_AppUpdateError_" + t);
-		let o = (0, w.we)("#AppLaunchError_Text", s);
+		let s = (0, Localize)("#Steam_AppUpdateError_" + t);
+		let o = (0, Localize)("#AppLaunchError_Text", s);
 		if (r?.length > 0) {
-			o = (0, w.we)("#AppLaunchError_Text_Long", s, r);
+			o = (0, Localize)("#AppLaunchError_Text_Long", s, r);
 		}
 		switch (t) {
 			case 5:
@@ -516,40 +516,40 @@ class X extends K {
 				(0, _.vE)(a.oy.ActiveWindowInstance?.BrowserWindow, r);
 				return;
 			case 30:
-				o = (0, w.we)("#AppLaunchError_RequiresNTFS");
+				o = (0, Localize)("#AppLaunchError_RequiresNTFS");
 				break;
 			case 41:
-				o = (0, w.we)("#AppLaunchError_Requires64BitOS");
+				o = (0, Localize)("#AppLaunchError_Requires64BitOS");
 				break;
 			case 44:
-				o = (0, w.we)("#AppLaunchError_SiteLicenseLocked");
+				o = (0, Localize)("#AppLaunchError_SiteLicenseLocked");
 				break;
 			case 26:
-				o = (0, w.we)("#AppLaunchError_RegionRestricted");
+				o = (0, Localize)("#AppLaunchError_RegionRestricted");
 				break;
 			case 45:
 				o =
 					r == "Windows"
-						? (0, w.we)("#AppLaunchError_ParentalControlBlocked_Platform")
-						: (0, w.we)("#AppLaunchError_ParentalControlBlocked");
+						? (0, Localize)("#AppLaunchError_ParentalControlBlocked_Platform")
+						: (0, Localize)("#AppLaunchError_ParentalControlBlocked");
 				break;
 			case 12:
-				o = (0, w.we)("#AppLaunchError_NotEnoughDiskSpace", r);
+				o = (0, Localize)("#AppLaunchError_NotEnoughDiskSpace", r);
 				break;
 			case 43:
-				o = (0, w.we)("#AppLaunchError_NotEnoughDiskQuota", r);
+				o = (0, Localize)("#AppLaunchError_NotEnoughDiskQuota", r);
 				break;
 			case 17:
-				o = (0, w.we)("#AppLaunchError_GameDependency", r);
+				o = (0, Localize)("#AppLaunchError_GameDependency", r);
 				break;
 			case 35:
-				o = (0, w.we)("#AppLaunchError_KickSessions", r);
+				o = (0, Localize)("#AppLaunchError_KickSessions", r);
 				break;
 			case 46:
 				o =
 					r == "macOS"
-						? (0, w.we)("#AppLaunchError_CreateProcess_macOS")
-						: (0, w.we)("#AppLaunchError_CreateProcess", r);
+						? (0, Localize)("#AppLaunchError_CreateProcess_macOS")
+						: (0, Localize)("#AppLaunchError_CreateProcess", r);
 				break;
 			case 56:
 				(0, V._N)(a.oy.ActiveWindowInstance?.BrowserWindow, r);
@@ -614,9 +614,9 @@ class X extends K {
 						? "#Steam_OculusOnlyGameWarning_Desc"
 						: "#Steam_IncorrectVRSDKWarning_Desc";
 					(0, h.rg)({
-						strTitle: (0, w.we)("#Steam_OculusOnlyGameWarning_Title"),
-						strDescription: (0, w.we)(e, i.display_name),
-						strOKButtonText: (0, w.we)("#Button_OK"),
+						strTitle: (0, Localize)("#Steam_OculusOnlyGameWarning_Title"),
+						strDescription: (0, Localize)(e, i.display_name),
+						strOKButtonText: (0, Localize)("#Button_OK"),
 						onOK: () => m("1"),
 						onCancel: c,
 						ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
@@ -628,9 +628,9 @@ class X extends K {
 				return;
 			case "RunningInstallScript":
 				(0, h.rg)({
-					strTitle: (0, w.we)("#LaunchApp_InstallScript_Failed_Title"),
-					strDescription: (0, w.we)("#LaunchApp_InstallScript_Failed_Text"),
-					strOKButtonText: (0, w.we)(
+					strTitle: (0, Localize)("#LaunchApp_InstallScript_Failed_Title"),
+					strDescription: (0, Localize)("#LaunchApp_InstallScript_Failed_Text"),
+					strOKButtonText: (0, Localize)(
 						"#LaunchApp_InstallScript_Failed_Continue",
 					),
 					onOK: () => m("IgnoreInstallError"),
@@ -640,13 +640,13 @@ class X extends K {
 				return;
 			case "KickingOtherSession":
 				(0, h.rg)({
-					strTitle: (0, w.we)("#LaunchApp_OtherSessionPlaying_Title"),
-					strDescription: (0, w.we)(
+					strTitle: (0, Localize)("#LaunchApp_OtherSessionPlaying_Title"),
+					strDescription: (0, Localize)(
 						"#LaunchApp_OtherSessionPlaying_Text",
 						o?.strDisplayName,
 						n,
 					),
-					strOKButtonText: (0, w.we)("#LaunchApp_ContineLaunch"),
+					strOKButtonText: (0, Localize)("#LaunchApp_ContineLaunch"),
 					onOK: () => m("KickOtherSession"),
 					onCancel: c,
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
@@ -704,13 +704,13 @@ class X extends K {
 				return;
 			case "ShowGameArgs":
 				(0, h.rg)({
-					strTitle: (0, w.we)("#LaunchApp_ShowGameArgs_Title"),
-					strDescription: (0, w.we)(
+					strTitle: (0, Localize)("#LaunchApp_ShowGameArgs_Title"),
+					strDescription: (0, Localize)(
 						"#LaunchApp_ShowGameArgs_Text",
 						o?.strDisplayName,
 						n,
 					),
-					strOKButtonText: (0, w.we)("#LaunchApp_ContineLaunch"),
+					strOKButtonText: (0, Localize)("#LaunchApp_ContineLaunch"),
 					onOK: () => m(r),
 					onCancel: c,
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
@@ -778,7 +778,7 @@ class X extends K {
 (0, n.Cg)([m.oI], X.prototype, "OnTimerTick", null);
 var J = require("./73317.js");
 var $ = require("./19731.js");
-var ee = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var te = require(/*webcrack:missing*/ "./90095.js");
 var re = require(/*webcrack:missing*/ "./87197.js");
 const ne = new c.wd("GameActions");
@@ -1039,7 +1039,7 @@ class ae {
 		if (t && this.m_rgShowLaunchingDialog.findIndex((t) => t == e) < 0) {
 			this.m_rgShowLaunchingDialog.push(e);
 		} else if (!t) {
-			ee.x9(this.m_rgShowLaunchingDialog, e);
+			FindAndRemove(this.m_rgShowLaunchingDialog, e);
 		}
 	}
 	GetShowGameLaunchingDialogList() {

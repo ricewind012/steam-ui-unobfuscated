@@ -1871,7 +1871,7 @@ var V = require("./64608.js");
 var H = require("./10606.js");
 var j = require("./78110.js");
 var q = require(/*webcrack:missing*/ "./26853.js");
-var Q = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var Z = require(/*webcrack:missing*/ "./52451.js");
 var Y = require("./36320.js");
 var K = Y;
@@ -1925,7 +1925,7 @@ class $ extends x.Component {
 		eStep: O.Verification,
 	};
 	static Title() {
-		return (0, Q.we)("#RemoveFreeApp_Title");
+		return (0, Localize)("#RemoveFreeApp_Title");
 	}
 	async OnRemoveLicense() {
 		if (this.state.eStep != O.Verification) {
@@ -2009,12 +2009,12 @@ function ee(e) {
 	let r = t.strDisplayName;
 	let n = "";
 	n = t.unMasterSubAppID
-		? (0, Q.we)(
+		? (0, Localize)(
 				"#RemoveFreeApp_Description_MasterSub",
 				r,
 				t.strMasterSubAppName,
 			)
-		: (0, Q.we)("#RemoveFreeApp_Description", r);
+		: (0, Localize)("#RemoveFreeApp_Description", r);
 	return x.createElement(
 		x.Fragment,
 		null,
@@ -2027,7 +2027,7 @@ function ee(e) {
 				{
 					className: K.Question,
 				},
-				(0, Q.we)("#RemoveFreeApp_Question", r),
+				(0, Localize)("#RemoveFreeApp_Question", r),
 			),
 		),
 		x.createElement(
@@ -2035,7 +2035,7 @@ function ee(e) {
 			null,
 			x.createElement(V.CB, {
 				onOK: e.onOK,
-				strOKText: (0, Q.we)("#RemoveFreeApp_Remove"),
+				strOKText: (0, Localize)("#RemoveFreeApp_Remove"),
 				onCancel: e.onCancel,
 			}),
 		),
@@ -2053,7 +2053,7 @@ function te(e) {
 				{
 					className: K.RemovingText,
 				},
-				(0, Q.we)("#RemoveFreeApp_Removing", e.appName),
+				(0, Localize)("#RemoveFreeApp_Removing", e.appName),
 			),
 		),
 		x.createElement(
@@ -2076,7 +2076,7 @@ function re(e) {
 			x.createElement(
 				"div",
 				null,
-				(0, Q.we)("#RemoveFreeApp_Error", e.appName),
+				(0, Localize)("#RemoveFreeApp_Error", e.appName),
 			),
 		),
 		x.createElement(
@@ -2087,7 +2087,7 @@ function re(e) {
 				{
 					onClick: e.onCancel,
 				},
-				(0, Q.we)("#Button_Close"),
+				(0, Localize)("#Button_Close"),
 			),
 		),
 	);

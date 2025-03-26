@@ -2,7 +2,7 @@ export var dI;
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./43014.js");
 var s = require("./35488.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./34776.js");
 var c = require(/*webcrack:missing*/ "./90095.js");
 var m = require("./13869.js");
@@ -5405,7 +5405,7 @@ function E(e) {
 		i.createElement(
 			d.UC,
 			null,
-			i.createElement(d.Y9, null, (0, o.we)("#KeyboardLayout_Select")),
+			i.createElement(d.Y9, null, (0, Localize)("#KeyboardLayout_Select")),
 			i.createElement(
 				A.MS,
 				{
@@ -5416,7 +5416,7 @@ function E(e) {
 				B().map((e) =>
 					i.createElement(d.RF, {
 						key: e.layout,
-						label: (0, o.we)(e.locToken),
+						label: (0, Localize)(e.locToken),
 						checked: r.has(e.layout),
 						onChange: (t) => {
 							if (t) {

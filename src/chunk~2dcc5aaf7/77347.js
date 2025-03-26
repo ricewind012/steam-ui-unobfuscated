@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./89193.js");
 var a = require(/*webcrack:missing*/ "./90095.js");
 var s = require("./22222.js");
 var o = require(/*webcrack:missing*/ "./44846.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./93960.js");
 require("./67338.js");
 var m = require("./43397.js");
@@ -12,7 +12,7 @@ var d = require("./51297.js");
 var A = require(/*webcrack:missing*/ "./83599.js");
 var p = require(/*webcrack:missing*/ "./42898.js");
 var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var C = require("./89748.js");
 var _ = require("./46422.js");
 var f = require("./71033.js");
@@ -98,18 +98,18 @@ class B {
 			case s.WO.Wired:
 				return (
 					this.m_DeviceInfo.wired?.friendly_name ??
-					(0, l.we)("#Internet_Network_Type_Wired")
+					Localize("#Internet_Network_Type_Wired")
 				);
 			case s.WO.Wireless:
 				return (
 					this.wirelessAPInfo?.ssid ??
-					(0, l.we)("#Internet_Network_Type_Wireless")
+					Localize("#Internet_Network_Type_Wireless")
 				);
 			case s.WO.Virtual:
-				return (0, l.we)("#Internet_Network_Type_Virtual");
+				return Localize("#Internet_Network_Type_Virtual");
 			case s.WO.Unknown:
 			default:
-				return (0, l.we)("#Internet_Network_Type_Unknown");
+				return Localize("#Internet_Network_Type_Unknown");
 		}
 	}
 	get type() {
@@ -604,38 +604,38 @@ export function Op(e) {
 export function Jg(e) {
 	switch (e) {
 		case s.Df.None:
-			return (0, l.we)("#Wireless_Security_Type_None");
+			return Localize("#Wireless_Security_Type_None");
 		case s.Df.StaticWep:
-			return (0, l.we)("#Wireless_Security_Type_Static_WEP");
+			return Localize("#Wireless_Security_Type_Static_WEP");
 		case s.Df.DynamicWep:
-			return (0, l.we)("#Wireless_Security_Type_Dynamic_WEP");
+			return Localize("#Wireless_Security_Type_Dynamic_WEP");
 		case s.Df.Wpa:
-			return (0, l.we)("#Wireless_Security_Type_WPA");
+			return Localize("#Wireless_Security_Type_WPA");
 		case s.Df.WpaEnterprise:
-			return (0, l.we)("#Wireless_Security_Type_WPA_Enterprise");
+			return Localize("#Wireless_Security_Type_WPA_Enterprise");
 		case s.Df.Wpa2:
-			return (0, l.we)("#Wireless_Security_Type_WPA2");
+			return Localize("#Wireless_Security_Type_WPA2");
 		case s.Df.Wpa2Enterprise:
-			return (0, l.we)("#Wireless_Security_Type_WPA2_Enterprise");
+			return Localize("#Wireless_Security_Type_WPA2_Enterprise");
 		case s.Df.Wpa3:
-			return (0, l.we)("#Wireless_Security_Type_WPA3");
+			return Localize("#Wireless_Security_Type_WPA3");
 		case s.Df.Unsupported:
-			return (0, l.we)("#Wireless_Security_Type_Unsupported");
+			return Localize("#Wireless_Security_Type_Unsupported");
 		default:
-			return (0, l.we)("#Wireless_Security_Type_Unknown");
+			return Localize("#Wireless_Security_Type_Unknown");
 	}
 }
 export function dw(e) {
 	switch (e) {
 		case s.Xu.k_EHTTPProxyMode_Invalid:
 		default:
-			return (0, l.we)("#Settings_Internet_InvalidProxy");
+			return Localize("#Settings_Internet_InvalidProxy");
 		case s.Xu.k_EHTTPProxyMode_None:
-			return (0, l.we)("#Settings_Internet_NoProxy");
+			return Localize("#Settings_Internet_NoProxy");
 		case s.Xu.k_EHTTPProxyMode_Manual:
-			return (0, l.we)("#Settings_Internet_ManualProxy");
+			return Localize("#Settings_Internet_ManualProxy");
 		case s.Xu.k_EHTTPProxyMode_Automatic:
-			return (0, l.we)("#Settings_Internet_AutomaticProxy");
+			return Localize("#Settings_Internet_AutomaticProxy");
 	}
 }
 export function yL() {
@@ -756,7 +756,7 @@ export function gb() {
 	const [t, r] = u.useState(0);
 	(0, p.$$)(() => {
 		const t = e;
-		const n = (0, h._2)();
+		const n = GetUnixTime();
 		r(t - n);
 	}, 500);
 	if (e == null || isNaN(t)) {

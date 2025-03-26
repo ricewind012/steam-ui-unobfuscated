@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./93960.js");
-var a = require(/*webcrack:missing*/ "./54644.js");
+import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
 var s = require(/*webcrack:missing*/ "./61657.js");
 var o = require(/*webcrack:missing*/ "./43691.js");
 export class Q extends s.nh {
@@ -46,7 +46,7 @@ export class Q extends s.nh {
 	}
 	BShouldSwallowEventForTextInputWorkaround(e) {
 		if (
-			!a.kD(e.target) ||
+			!IsHTMLElement(e.target) ||
 			(e.target.nodeName !== "INPUT" &&
 				e.target.nodeName !== "TEXTAREA" &&
 				!e.target.hasAttribute("contenteditable"))

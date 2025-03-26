@@ -6,7 +6,7 @@ var o = require("./64608.js");
 var l = require("./13869.js");
 var c = require("./10606.js");
 var m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize, Hq } from "../../actual_src/utils/localization.js";
 var d = require("./35488.js");
 var A = require("./77347.js");
 var p = require("./89748.js");
@@ -17,8 +17,8 @@ var _ = require("./27238.js");
 var f = require("./28916.js");
 var b = require("./45011.js");
 var y = require("./46422.js");
-var S = require(/*webcrack:missing*/ "./54644.js");
-var w = require(/*webcrack:missing*/ "./11010.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
 var B = require(/*webcrack:missing*/ "./11131.js");
 function v(e) {
 	switch (e.state) {
@@ -65,11 +65,11 @@ function E(e) {
 		const i = {};
 		if (e.isConnectable) {
 			i.onOKButton = r;
-			i.onOKActionDescription = (0, u.we)("#Settings_Internet_Connect");
-			i.onMenuActionDescription = (0, u.we)("#Settings_Internet_Info");
+			i.onOKActionDescription = (0, Localize)("#Settings_Internet_Connect");
+			i.onMenuActionDescription = (0, Localize)("#Settings_Internet_Info");
 		} else {
 			i.onOKButton = t;
-			i.onOKActionDescription = (0, u.we)("#Settings_Internet_Info");
+			i.onOKActionDescription = (0, Localize)("#Settings_Internet_Info");
 		}
 		i.onMenuButton = t;
 		return i;
@@ -186,7 +186,7 @@ export function KM(e) {
 				n.createElement(
 					o.lr,
 					null,
-					(0, u.we)("#Settings_Internet_Active_Networks"),
+					(0, Localize)("#Settings_Internet_Active_Networks"),
 				),
 				l.map((e) =>
 					n.createElement(E, {
@@ -205,7 +205,7 @@ export function KM(e) {
 					n.createElement(o.y4, {
 						checked: i,
 						onChange: (e) => A.OQ.Get().SetWifiEnabled(e),
-						label: (0, u.we)("#Settings_Internet_Wifi_Enabled"),
+						label: (0, Localize)("#Settings_Internet_Wifi_Enabled"),
 					}),
 					l.map((e) =>
 						n.createElement(E, {
@@ -221,7 +221,7 @@ export function KM(e) {
 						n.createElement(
 							o.lr,
 							null,
-							(0, u.we)("#Settings_Internet_Known_Networks"),
+							(0, Localize)("#Settings_Internet_Known_Networks"),
 						),
 						c.map((e) =>
 							n.createElement(E, {
@@ -236,7 +236,7 @@ export function KM(e) {
 					n.createElement(
 						o.lr,
 						null,
-						(0, u.we)("#Settings_Internet_Networks_Found"),
+						(0, Localize)("#Settings_Internet_Networks_Found"),
 					),
 					m.map((e) =>
 						n.createElement(E, {
@@ -248,11 +248,13 @@ export function KM(e) {
 						n.createElement(o.D0, {
 							disabled: true,
 							bottomSeparator: d ? "standard" : "none",
-							label: (0, u.we)("#Settings_Internet_No_Other_Networks_Found"),
+							label: (0, Localize)(
+								"#Settings_Internet_No_Other_Networks_Found",
+							),
 						}),
 					d &&
 						n.createElement(o.D0, {
-							label: (0, u.we)("#Settings_Internet_Custom_Network_Button"),
+							label: (0, Localize)("#Settings_Internet_Custom_Network_Button"),
 							onActivate: () => (0, C.V)(),
 						}),
 				),
@@ -263,7 +265,7 @@ export function KM(e) {
 			n.createElement(
 				o.lr,
 				null,
-				(0, u.we)("#Settings_Internet_Advanced_Settings"),
+				(0, Localize)("#Settings_Internet_Advanced_Settings"),
 			),
 			n.createElement(F, null),
 			n.createElement(G, null),
@@ -271,9 +273,9 @@ export function KM(e) {
 	);
 }
 export function $I(e, t) {
-	let r = (0, u.we)("#GoOnline");
-	let i = (0, u.we)("#UserManagement_GoOnline_Desc");
-	let a = (0, S.uX)(e);
+	let r = (0, Localize)("#GoOnline");
+	let i = (0, Localize)("#UserManagement_GoOnline_Desc");
+	let a = GetOwningWindowForEvent(e);
 	if (t) {
 		return (0, l.mK)(
 			n.createElement(c.o0, {
@@ -291,7 +293,7 @@ export function $I(e, t) {
 		return (0, l.mK)(
 			n.createElement(c.KG, {
 				strTitle: r,
-				strDescription: (0, u.we)("#UserManagement_GoOnline_NoNetwork"),
+				strDescription: (0, Localize)("#UserManagement_GoOnline_NoNetwork"),
 			}),
 			a,
 			{
@@ -312,10 +314,10 @@ function k(e) {
 			} else if (r) {
 				(function (e) {
 					const t = y.oy.MainRunningApp != null;
-					let r = (0, S.uX)(e);
+					let r = GetOwningWindowForEvent(e);
 					if (t) {
-						let e = (0, u.we)("#GoOffline");
-						let t = (0, u.we)("#UserManagement_OfflineMode_MustCloseGames");
+						let e = (0, Localize)("#GoOffline");
+						let t = (0, Localize)("#UserManagement_OfflineMode_MustCloseGames");
 						return (0, l.mK)(
 							n.createElement(c.o0, {
 								strTitle: e,
@@ -331,8 +333,8 @@ function k(e) {
 						);
 					}
 					{
-						let e = (0, u.we)("#GoOffline");
-						let t = (0, u.we)("#UserManagement_OfflineMode_Desc");
+						let e = (0, Localize)("#GoOffline");
+						let t = (0, Localize)("#UserManagement_OfflineMode_Desc");
 						(0, l.mK)(
 							n.createElement(c.o0, {
 								strTitle: e,
@@ -354,7 +356,7 @@ function k(e) {
 	if (!t) {
 		return null;
 	}
-	const m = r ? null : (0, u.we)("#UserManagement_OfflineMode_NoNetwork");
+	const m = r ? null : (0, Localize)("#UserManagement_OfflineMode_NoNetwork");
 	return n.createElement(
 		o.G5,
 		null,
@@ -366,7 +368,7 @@ function k(e) {
 							className: h.OfflineMode,
 						})
 					: undefined,
-				label: (0, u.we)(
+				label: (0, Localize)(
 					i
 						? "#Settings_Internet_In_Offline_Mode"
 						: "#Settings_Internet_Go_Offline",
@@ -382,7 +384,7 @@ function k(e) {
 					focusable: r,
 					disabled: !r,
 				},
-				(0, u.we)(i ? "#GoOnline" : "#GoOffline"),
+				(0, Localize)(i ? "#GoOnline" : "#GoOffline"),
 			),
 		),
 	);
@@ -395,16 +397,16 @@ function D(e) {
 	}
 	let i = null;
 	if (r > 0) {
-		const e = (0, u.Hq)(r, {
-			eSuffix: w.a8.None,
+		const e = (0, Hq)(r, {
+			eSuffix: ETimeSinceSuffix.None,
 			bHighGranularity: true,
 		});
-		i = (0, u.we)(
+		i = (0, Localize)(
 			"#Settings_Internet_Connected_To_Internet_But_Not_Steam_Throttled",
 			e,
 		);
 	} else {
-		i = (0, u.we)("#Settings_Internet_Connected_To_Internet_But_Not_Steam");
+		i = (0, Localize)("#Settings_Internet_Connected_To_Internet_But_Not_Steam");
 	}
 	return n.createElement(
 		o.G5,
@@ -433,21 +435,23 @@ function N(e) {
 		case s.ck.k_EConnectivityTestResult_Connected:
 			break;
 		case s.ck.k_EConnectivityTestResult_CaptivePortal:
-			r = (0, u.we)("#Settings_Internet_Captive_Portal_Detected");
+			r = (0, Localize)("#Settings_Internet_Captive_Portal_Detected");
 			i = n.createElement(
 				o.$n,
 				{
-					onClick: (e) => (0, f.Y)((0, S.uX)(e)),
+					onClick: (e) => (0, f.Y)(GetOwningWindowForEvent(e)),
 				},
-				(0, u.we)("#Settings_Internet_Captive_Portal_Login_Button"),
+				(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button"),
 			);
 			break;
 		case s.ck.k_EConnectivityTestResult_TimedOut:
 		case s.ck.k_EConnectivityTestResult_Failed:
-			r = (0, u.we)("#Settings_Internet_Connected_To_Network_But_Not_Internet");
+			r = (0, Localize)(
+				"#Settings_Internet_Connected_To_Network_But_Not_Internet",
+			);
 			break;
 		case s.ck.k_EConnectivityTestResult_NoLAN:
-			r = (0, u.we)("#Settings_Internet_Not_Connected_To_Network");
+			r = (0, Localize)("#Settings_Internet_Not_Connected_To_Network");
 		case s.ck.k_EConnectivityTestResult_WifiDisabled:
 	}
 	if (r) {
@@ -477,12 +481,12 @@ function F(e) {
 	const r =
 		t.proxy_mode != i.Xu.k_EHTTPProxyMode_Invalid
 			? (0, A.dw)(t.proxy_mode)
-			: (0, u.we)("#Settings_Internet_ConfigureProxy");
+			: (0, Localize)("#Settings_Internet_ConfigureProxy");
 	const a = (0, B.R7)();
 	return n.createElement(
 		o.xh,
 		{
-			label: (0, u.we)("#Settings_Internet_HTTPProxy"),
+			label: (0, Localize)("#Settings_Internet_HTTPProxy"),
 			onClick: () => (0, b.B)(a.ownerWindow),
 		},
 		r,
@@ -492,19 +496,19 @@ function G(e) {
 	return n.createElement(
 		o.xh,
 		{
-			label: (0, u.we)("#Settings_Internet_WebBrowserDataDelete"),
+			label: (0, Localize)("#Settings_Internet_WebBrowserDataDelete"),
 			onClick: (e) =>
 				(function (e) {
-					let t = (0, u.we)("#Settings_Internet_WebBrowserDataDelete");
+					let t = (0, Localize)("#Settings_Internet_WebBrowserDataDelete");
 					return (0, l.mK)(
 						n.createElement(c.o0, {
 							strTitle: t,
-							strDescription: (0, u.we)(
+							strDescription: (0, Localize)(
 								"#Settings_Internet_WebBrowserDataDelete_Desc",
 							),
 							onOK: () => SteamClient.Browser.ClearAllBrowsingData(),
 						}),
-						(0, S.uX)(e),
+						GetOwningWindowForEvent(e),
 						{
 							strTitle: t,
 							bForcePopOut: true,
@@ -513,6 +517,6 @@ function G(e) {
 				})(e),
 			bottomSeparator: "none",
 		},
-		(0, u.we)("#Settings_Internet_WebBrowserDataDeleteButton"),
+		(0, Localize)("#Settings_Internet_WebBrowserDataDeleteButton"),
 	);
 }

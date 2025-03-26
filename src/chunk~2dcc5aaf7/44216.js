@@ -15,7 +15,10 @@ import * as h from "./52808.js";
 import * as C from "./22588.js";
 import * as _ from "./82153.js";
 import * as f from "./94361.js";
-import * as b from /*webcrack:missing*/ "./46108.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as y from /*webcrack:missing*/ "./90765.js";
 import * as S from "./34461.js";
 import * as w from "./4069.js";
@@ -200,14 +203,14 @@ function j(e) {
 					{
 						...f.confirmationProps,
 					},
-					(0, b.we)("#ClipCreated_Confirmation"),
+					Localize("#ClipCreated_Confirmation"),
 				),
 				n.createElement(
 					S._D,
 					{
 						...P.confirmationProps,
 					},
-					(0, b.we)("#Marker_UserMarkerAdded_Confirmation"),
+					Localize("#Marker_UserMarkerAdded_Confirmation"),
 				),
 				T &&
 					n.createElement(
@@ -444,7 +447,7 @@ function Z(e) {
 			{
 				className: i.RecordingState,
 			},
-			(0, b.we)("#RecordingState_ManualRec_LowDiskSpace"),
+			Localize("#RecordingState_ManualRec_LowDiskSpace"),
 		),
 	);
 }
@@ -454,7 +457,7 @@ function Y(e) {
 		N.he,
 		{
 			direction: "bottom",
-			toolTipContent: (0, b.we)("#RecordingState_ActiveRemotePlayTooltip"),
+			toolTipContent: Localize("#RecordingState_ActiveRemotePlayTooltip"),
 			strTooltipClassname: i.TooltipText,
 			className: (0, y.A)(
 				i.RecordingIconsAndState,
@@ -463,7 +466,7 @@ function Y(e) {
 				t && i.ShowTimeline,
 			),
 		},
-		(0, b.we)("#RecordingState_ActiveRemotePlay"),
+		Localize("#RecordingState_ActiveRemotePlay"),
 	);
 }
 function K(e) {
@@ -473,7 +476,7 @@ function K(e) {
 		N.he,
 		{
 			direction: "bottom",
-			toolTipContent: (0, b.we)("#RecordingState_ActiveBroadcastTooltip"),
+			toolTipContent: Localize("#RecordingState_ActiveBroadcastTooltip"),
 			className: (0, y.A)(
 				i.RecordingIconsAndState,
 				i.OtherRecordingButton,
@@ -481,7 +484,7 @@ function K(e) {
 			),
 			onClick: () => r.Settings("Broadcast"),
 		},
-		(0, b.we)("#RecordingState_ActiveBroadcast"),
+		Localize("#RecordingState_ActiveBroadcast"),
 	);
 }
 function X(e) {
@@ -511,7 +514,7 @@ function X(e) {
 			{
 				direction: "bottom",
 				bDisabled: l,
-				toolTipContent: (0, b.we)(
+				toolTipContent: Localize(
 					"#RecordingState_BackgroundRec_SwitchRecordedGame",
 				),
 				className: (0, y.A)(
@@ -528,7 +531,7 @@ function X(e) {
 				{
 					className: i.RecordingState,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#RecordingState_BackgroundRec_AnotherRecordingGoing",
 					n.createElement("div", {
 						className: i.RecordingCircle,
@@ -645,7 +648,7 @@ function $(e) {
 	let M;
 	M = S
 		? _?.display_name
-			? (0, b.PP)(
+			? LocalizeReact(
 					"#RecordingState_ManualRecStopShortName_CTA",
 					n.createElement(
 						"span",
@@ -655,9 +658,9 @@ function $(e) {
 						_.display_name,
 					),
 				)
-			: (0, b.we)("#RecordingState_ManualRecStop_CTA")
+			: Localize("#RecordingState_ManualRecStop_CTA")
 		: _?.display_name
-			? (0, b.PP)(
+			? LocalizeReact(
 					"#RecordingState_ManualRecStartShortName_CTA",
 					n.createElement(
 						"span",
@@ -667,7 +670,7 @@ function $(e) {
 						_.display_name,
 					),
 				)
-			: (0, b.we)("#RecordingState_ManualRecStart_CTA");
+			: Localize("#RecordingState_ManualRecStart_CTA");
 	return n.createElement(
 		"div",
 		{
@@ -736,7 +739,7 @@ function ee(e) {
 				{
 					className: i.RecordingState,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#RecordingState_BackgroundRec_OpenRecording",
 					n.createElement("div", {
 						className: i.RecordingCircle,
@@ -811,7 +814,7 @@ function re(e) {
 			className: i.ShowVideoButton,
 			onClick: s,
 		},
-		(0, b.we)(
+		Localize(
 			t ? "#GameRecording_OverlayShowVideo" : "#GameRecording_OverlayHideVideo",
 		),
 		n.createElement(a.Chevron, {
@@ -841,6 +844,6 @@ function ne(e) {
 				});
 			},
 		},
-		(0, b.we)("#GameRecording_OverlayViewClips"),
+		Localize("#GameRecording_OverlayViewClips"),
 	);
 }

@@ -1,9 +1,9 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize, Hq } from "../../actual_src/utils/localization.js";
 var s = require("./35488.js");
 var o = require("./34819.js");
-var l = require(/*webcrack:missing*/ "./11010.js");
+import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
 var c = require(/*webcrack:missing*/ "./52451.js");
 var m = require("./10606.js");
 var u = require("./35194.js");
@@ -29,7 +29,7 @@ export function jJ(e) {
 	if (r) {
 		return n.createElement(y.V, {
 			feature: 0,
-			label: e.iconOnly ? null : (0, a.we)("#Settings_Display_Brightness"),
+			label: e.iconOnly ? null : Localize("#Settings_Display_Brightness"),
 			icon: n.createElement(s.Brightness, null),
 			padding: e.padding,
 			disabled: t,
@@ -49,7 +49,7 @@ export function jJ(e) {
 	}
 }
 export function qg() {
-	const e = (0, a.we)("#Settings_Display_AdaptiveBrightness");
+	const e = Localize("#Settings_Display_AdaptiveBrightness");
 	const [t, r] = (0, o.MK)();
 	return n.createElement(S.C, {
 		feature: 7,
@@ -68,9 +68,9 @@ function M(e) {
 			data: e,
 			label:
 				e == 0
-					? (0, a.we)("#Settings_System_IdleDisabled")
-					: (0, a.Hq)(e, {
-							eSuffix: l.a8.None,
+					? Localize("#Settings_System_IdleDisabled")
+					: (0, Hq)(e, {
+							eSuffix: ETimeSinceSuffix.None,
 							bHighGranularity: true,
 						}),
 		});
@@ -83,8 +83,8 @@ export function QY(e) {
 	return n.createElement(b.B, {
 		feature: 7,
 		label: e.bOnAC
-			? (0, a.we)("#Settings_System_BacklightDimTimePlugged_Label")
-			: (0, a.we)("#Settings_System_BacklightDimTimeNotPlugged_Label"),
+			? Localize("#Settings_System_BacklightDimTimePlugged_Label")
+			: Localize("#Settings_System_BacklightDimTimeNotPlugged_Label"),
 		selectedOption: i,
 		onChange: (e) => r(e.data),
 		rgOptions: M([0, 60, 300, 600, 900, 1200, i]),
@@ -96,8 +96,8 @@ export function Xk(e) {
 	return n.createElement(b.B, {
 		feature: 7,
 		label: e.bOnAC
-			? (0, a.we)("#Settings_System_SuspendTimePlugged_Label")
-			: (0, a.we)("#Settings_System_SuspendTimeNotPlugged_Label"),
+			? Localize("#Settings_System_SuspendTimePlugged_Label")
+			: Localize("#Settings_System_SuspendTimeNotPlugged_Label"),
 		selectedOption: i,
 		onChange: (e) => r(e.data),
 		rgOptions: M([0, 300, 600, 900, 1200, i]),
@@ -177,8 +177,8 @@ export function MF() {
 	);
 	return n.createElement(S.C, {
 		feature: 7,
-		label: (0, a.we)("#Settings_Developer_WifiPowersave"),
-		description: (0, a.we)("#Settings_Developer_WifiPowersave_Desc"),
+		label: Localize("#Settings_Developer_WifiPowersave"),
+		description: Localize("#Settings_Developer_WifiPowersave_Desc"),
 		checked: e,
 		onChange: i,
 	});
@@ -186,7 +186,7 @@ export function MF() {
 export function n8(e) {
 	const t = (0, B.br)();
 	const r = e.bForceFormat ?? false;
-	const i = e.strLabel ?? (0, a.we)("#Settings_System_FormatSD_Label");
+	const i = e.strLabel ?? Localize("#Settings_System_FormatSD_Label");
 	const s = (0, p.hb)();
 	return n.createElement(
 		n.Fragment,
@@ -200,7 +200,7 @@ export function n8(e) {
 				disabled: !r && !s,
 				bottomSeparator: e.bottomSeparator,
 			},
-			(0, a.we)("#Settings_System_FormatSD_Btn_Format"),
+			Localize("#Settings_System_FormatSD_Btn_Format"),
 		),
 	);
 }
@@ -208,7 +208,7 @@ export function J1(e) {
 	const [t, r, s] = (0, o.rw)();
 	if (t) {
 		return n.createElement(i.RF, {
-			label: (0, a.we)("#Settings_System_FanControlToggle"),
+			label: Localize("#Settings_System_FanControlToggle"),
 			checked: r,
 			onChange: s,
 		});
@@ -223,7 +223,7 @@ export function Yo() {
 		return n.createElement(C.G, {
 			feature: 7,
 			setting: "steam_cef_gpu_blocklist_disabled",
-			label: (0, a.we)("#Settings_CEFDisableGPUBlocklist"),
+			label: Localize("#Settings_CEFDisableGPUBlocklist"),
 			bRequiresRestart: true,
 		});
 	}

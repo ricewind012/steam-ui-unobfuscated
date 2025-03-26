@@ -7,7 +7,11 @@ var l = require("./41596.js");
 var c = require(/*webcrack:missing*/ "./50376.js");
 var m = require(/*webcrack:missing*/ "./55007.js");
 var u = require("./64608.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var A = require("./51095.js");
 var p = require(/*webcrack:missing*/ "./69164.js");
 var g = require(/*webcrack:missing*/ "./4690.js");
@@ -27,7 +31,7 @@ var M = require("./26094.js");
 var T = require("./10905.js");
 var R = require("./25633.js");
 var k = require(/*webcrack:missing*/ "./736.js");
-var D = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var N = require("./83247.js");
 var F = require("./1385.js");
 var G = require(/*webcrack:missing*/ "./11131.js");
@@ -65,16 +69,16 @@ function x(e) {
 			const i = async (e) => {
 				const r = await n();
 				SteamClient.System.CopyFilesToClipboard(r.filter(Boolean));
-				t(e, (0, d.we)("#Browser_URLCopied"));
+				t(e, Localize("#Browser_URLCopied"));
 			};
 			const a = async (e) => {
-				const t = (0, D.uX)(e) ?? window;
+				const t = GetOwningWindowForEvent(e) ?? window;
 				const r = await (async function (e) {
 					if (!(0, k.Fj)(e, "System.OpenFileDialog")) {
 						e = window;
 					}
 					return e.SteamClient.System.OpenFileDialog({
-						strTitle: (0, d.we)("#MediaManager_SaveDialogTitle"),
+						strTitle: Localize("#MediaManager_SaveDialogTitle"),
 						bChooseDirectory: true,
 					});
 				})(t);
@@ -125,31 +129,31 @@ function x(e) {
 					key: "upload",
 					onSelected: a,
 					icon: n.createElement(I.Globe, null),
-					label: (0, d.we)("#ShareSheet_ShareOnSteam"),
+					label: Localize("#ShareSheet_ShareOnSteam"),
 				},
 			{
 				key: "clipboard",
 				onSelected: r,
 				icon: n.createElement(I.Copy, null),
-				label: (0, d.we)("#MediaManager_MultiSelect_CopyToClipboard"),
+				label: Localize("#MediaManager_MultiSelect_CopyToClipboard"),
 			},
 			o && {
 				key: "export",
 				onSelected: i,
 				icon: n.createElement(I.Video, null),
-				label: (0, d.we)("#MediaManager_MultiSelect_Save"),
+				label: Localize("#MediaManager_MultiSelect_Save"),
 			},
 			s && {
 				key: "export",
 				onSelected: i,
 				icon: n.createElement(N.pw, null),
-				label: (0, d.we)("#MediaManager_MultiSelect_Save_Screenshots"),
+				label: Localize("#MediaManager_MultiSelect_Save_Screenshots"),
 			},
 			l && {
 				key: "export",
 				onSelected: i,
 				icon: n.createElement(c.dI9, null),
-				label: (0, d.we)("#MediaManager_MultiSelect_Save_Mixture"),
+				label: Localize("#MediaManager_MultiSelect_Save_Mixture"),
 			},
 		].filter(Boolean);
 	})(t, i);
@@ -157,7 +161,7 @@ function x(e) {
 		v.zu,
 		{
 			chatSendForbiddenMessage: {
-				strMessage: (0, d.we)("#ShareMultipleToChatNotSupported"),
+				strMessage: Localize("#ShareMultipleToChatNotSupported"),
 				bHeader: true,
 			},
 			summoningElement: r,
@@ -170,7 +174,7 @@ function x(e) {
 async function U(e, t) {
 	let r;
 	if (t) {
-		r = `${t}/${e.summary.name ? ((0, v.kM))(e.summary.name) : e.id}.mp4`;
+		r = `${t}/${e.summary.name ? (0, v.kM)(e.summary.name) : e.id}.mp4`;
 	}
 	const n = (0, E.Q1)((0, R.e3)(e.summary.clip_id), {
 		strFilePath: r,
@@ -261,7 +265,7 @@ function H(e) {
 			icon: "upload",
 			disabled: t || s,
 			onClick: (e) => o(e, r),
-			title: (0, d.we)(
+			title: Localize(
 				s
 					? "#MediaManager_RecordingShareNotSupported"
 					: "#MediaManager_ShareTooltip",
@@ -300,7 +304,7 @@ function j(e) {
 	const C = n.createElement(
 		q,
 		null,
-		(0, d.Yp)("#MediaManager_DeleteDialog_Explainer", t.length),
+		LocalizePlural("#MediaManager_DeleteDialog_Explainer", t.length),
 	);
 	let B = n.createElement(
 		n.Fragment,
@@ -315,7 +319,7 @@ function j(e) {
 					tone: "muted",
 				},
 				" ",
-				(0, d.we)("#MediaManager_DeleteDialog_SizeInfo", (0, f.dm)(u)),
+				Localize("#MediaManager_DeleteDialog_SizeInfo", (0, f.dm)(u)),
 			),
 	);
 	if (h) {
@@ -327,12 +331,12 @@ function j(e) {
 				{
 					error: true,
 				},
-				(0, d.we)("#MediaManager_DeleteDialog_RecordingInProgress"),
+				Localize("#MediaManager_DeleteDialog_RecordingInProgress"),
 			),
 			n.createElement(
 				Q,
 				null,
-				(0, d.oW)(
+				LocalizeInlineReactWithFallback(
 					"#MediaManager_DeleteDialog_RecordingInProgress_Subtext",
 					n.createElement(w.Ii, {
 						onClick: m,
@@ -351,7 +355,7 @@ function j(e) {
 				{
 					tone: "warning",
 				},
-				(0, d.oW)(
+				LocalizeInlineReactWithFallback(
 					"#MediaManager_DeleteDialog_RecordingRecreation",
 					n.createElement(w.Ii, {
 						onClick: m,
@@ -388,7 +392,7 @@ function j(e) {
 					className: V.Title,
 				},
 				" ",
-				(0, d.Yp)("#MediaManager_DeleteDialog_Title", t.length),
+				LocalizePlural("#MediaManager_DeleteDialog_Title", t.length),
 			),
 			B,
 			n.createElement(
@@ -427,7 +431,7 @@ function j(e) {
 						},
 						disabled: h,
 					},
-					(0, d.we)("#MediaManager_DeleteDialog_Delete"),
+					Localize("#MediaManager_DeleteDialog_Delete"),
 				),
 				n.createElement(
 					$n,
@@ -435,7 +439,7 @@ function j(e) {
 						className: V.CancelButton,
 						onClick: r,
 					},
-					(0, d.we)("#MediaManager_DeleteDialog_Cancel"),
+					Localize("#MediaManager_DeleteDialog_Cancel"),
 				),
 			),
 		),
@@ -480,7 +484,7 @@ function Z(e) {
 			icon: "trashcan",
 			disabled: t,
 			onClick: () => i(!r),
-			title: (0, d.we)("#MediaManager_Delete"),
+			title: Localize("#MediaManager_Delete"),
 		}),
 	);
 }
@@ -701,7 +705,7 @@ export function Pc(e) {
 				{
 					className: o.TopListTitle,
 				},
-				(0, d.we)(W),
+				Localize(W),
 			),
 			n.createElement(ve, {
 				sortedItems: t,
@@ -739,7 +743,7 @@ export function Pc(e) {
 				);
 				return true;
 			},
-			onOptionsActionDescription: (0, d.we)("#MediaManager_FilterModal_Footer"),
+			onOptionsActionDescription: Localize("#MediaManager_FilterModal_Footer"),
 			onSecondaryButton: (e) => {
 				(0, i.lX)(
 					n.createElement(Fe, {
@@ -753,7 +757,7 @@ export function Pc(e) {
 					e,
 				);
 			},
-			onSecondaryActionDescription: (0, d.we)(H),
+			onSecondaryActionDescription: Localize(H),
 			retainFocus: !N,
 		},
 		n.createElement(
@@ -915,7 +919,7 @@ function Ie(e) {
 					{
 						onClick: o,
 					},
-					(0, d.we)("#ScreenshotUploader_SelectAll"),
+					Localize("#ScreenshotUploader_SelectAll"),
 				),
 			r &&
 				u >= 1 &&
@@ -924,14 +928,14 @@ function Ie(e) {
 					{
 						onClick: l,
 					},
-					(0, d.we)("#ScreenshotUploader_DeselectAll"),
+					Localize("#ScreenshotUploader_DeselectAll"),
 				),
 			n.createElement(
 				$n,
 				{
 					onClick: () => s(!r),
 				},
-				(0, d.we)(
+				Localize(
 					r
 						? "#MediaManager_UploadDialog_Cancel"
 						: "#MediaManager_EnterSelectMode",
@@ -992,14 +996,14 @@ export function fC(e) {
 				n.createElement(K0, {
 					icon: "grid",
 					onClick: () => u.replace(me.BV.Media.Grid()),
-					title: (0, d.we)("#MediaManager_GridView_Tooltip"),
+					title: Localize("#MediaManager_GridView_Tooltip"),
 					active: m,
 				}),
 			A &&
 				n.createElement(K0, {
 					icon: "list",
 					onClick: () => u.replace(me.BV.Media.List()),
-					title: (0, d.we)("#MediaManager_ListView_Tooltip"),
+					title: Localize("#MediaManager_ListView_Tooltip"),
 					active: !m,
 				}),
 			n.createElement(De, {
@@ -1021,7 +1025,7 @@ export function fC(e) {
 			n.createElement(K0, {
 				icon: "gear",
 				onClick: c,
-				title: (0, d.we)("#ScreenshotUploader_Settings"),
+				title: Localize("#ScreenshotUploader_Settings"),
 			}),
 		),
 	);
@@ -1031,7 +1035,7 @@ function Te(e) {
 	return n.createElement(
 		re.o0,
 		{
-			strTitle: (0, d.we)("#MediaManager_FilterModal_Title"),
+			strTitle: Localize("#MediaManager_FilterModal_Title"),
 			bAlertDialog: true,
 			onOK: () => {
 				if (r) {
@@ -1053,29 +1057,29 @@ function Re(e) {
 	const i = [
 		{
 			data: "all",
-			label: (0, d.we)("#MediaManager_MediaType_All"),
+			label: Localize("#MediaManager_MediaType_All"),
 		},
 		{
 			data: "clip",
-			label: (0, d.we)("#MediaManager_MediaType_Clip"),
+			label: Localize("#MediaManager_MediaType_Clip"),
 		},
 		{
 			data: "screenshot",
-			label: (0, d.we)("#MediaManager_MediaType_Screenshot"),
+			label: Localize("#MediaManager_MediaType_Screenshot"),
 		},
 		{
 			data: "recording",
-			label: (0, d.we)("#MediaManager_MediaType_Recording"),
+			label: Localize("#MediaManager_MediaType_Recording"),
 		},
 	];
 	const a = [
 		{
 			data: "all",
-			label: (0, d.we)("#MediaManager_MediaType_All"),
+			label: Localize("#MediaManager_MediaType_All"),
 		},
 		{
 			data: "screenshot",
-			label: (0, d.we)("#MediaManager_MediaType_Screenshot"),
+			label: Localize("#MediaManager_MediaType_Screenshot"),
 		},
 	];
 	const s = (0, O.Y2)() ? a : i;
@@ -1092,7 +1096,7 @@ function Re(e) {
 			n.createElement(
 				u.iK,
 				null,
-				(0, d.we)("#MediaManager_FilterModal_MediaType"),
+				Localize("#MediaManager_FilterModal_MediaType"),
 			),
 			n.createElement(
 				u.zW,
@@ -1139,7 +1143,7 @@ function ke(e) {
 		t?.forEach((e, t) => {
 			let a = e;
 			if (!!new K.VS(t).BIsShortcut() && (!e || e.length == 0)) {
-				a = (0, d.we)("#ScreenshotManager_UnknownApp", r++);
+				a = Localize("#ScreenshotManager_UnknownApp", r++);
 			}
 			let s =
 				(function (e, t) {
@@ -1164,14 +1168,14 @@ function ke(e) {
 				data: {
 					type: "recents",
 				},
-				label: (0, d.we)("#MediaManager_AllApps_Dropdown"),
+				label: Localize("#MediaManager_AllApps_Dropdown"),
 			},
 			...n,
 		];
 		const s = (0, b.NN)(e);
 		const o = s
 			? n.find((e) => e.data?.gameid == s)?.label
-			: (0, d.we)("#MediaManager_AllApps_Dropdown");
+			: Localize("#MediaManager_AllApps_Dropdown");
 		return {
 			rgOptions: a,
 			selectedOption: {
@@ -1240,7 +1244,7 @@ function Fe(e) {
 			{
 				className: (0, s.A)(o.NoMatches, p.length == 0 && o.Visible),
 			},
-			(0, d.we)("#ClipMananger_Search_NoMatches"),
+			Localize("#ClipMananger_Search_NoMatches"),
 		),
 		n.createElement(Ge, {
 			onChange: a,
@@ -1303,7 +1307,7 @@ function Ge(e) {
 				onEnterKeyPress: i,
 				value: t,
 				className: o.Input,
-				placeholder: (0, d.we)("#ClipMananger_Search_Placeholder"),
+				placeholder: Localize("#ClipMananger_Search_Placeholder"),
 				bShowClearAction: true,
 			}),
 		),
@@ -1631,7 +1635,7 @@ function Qe(e) {
 					{
 						className: o.NoMatches,
 					},
-					(0, d.we)("#ClipMananger_Search_NoMatches"),
+					Localize("#ClipMananger_Search_NoMatches"),
 				),
 			c &&
 				n.createElement(Ge, {
@@ -1682,7 +1686,7 @@ function Qe(e) {
 					{
 						className: o.NoMatches,
 					},
-					(0, d.we)("#ClipMananger_Search_NoMatches"),
+					Localize("#ClipMananger_Search_NoMatches"),
 				),
 		);
 	}
@@ -1953,7 +1957,7 @@ const rt = {
 	3: "#ScreenshotUploader_Visibility_Unlisted",
 };
 export function AI(e) {
-	return (0, d.we)(rt[e]);
+	return Localize(rt[e]);
 }
 function it(e) {
 	const { numFiltered: t, filter: r, haveContent: i } = e;
@@ -1980,7 +1984,7 @@ function it(e) {
 			{
 				className: o.FilterText,
 			},
-			(0, d.we)("#MediaManager_FilterText", t),
+			Localize("#MediaManager_FilterText", t),
 			c &&
 				n.createElement(ie.W, {
 					button: ne.g4.X,

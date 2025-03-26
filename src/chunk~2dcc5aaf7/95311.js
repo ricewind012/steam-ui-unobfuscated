@@ -6,7 +6,11 @@ var o = require("./97659.js");
 var l = require("./64608.js");
 var c = require("./35488.js");
 var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	Hq,
+	LocalizeCalendarTime,
+} from "../../actual_src/utils/localization.js";
 var d = require("./18869.js");
 var A = require("./18057.js");
 function p(e) {
@@ -58,9 +62,9 @@ function p(e) {
 }
 function g(e) {
 	let t = s.createElement(c.Caution, null);
-	let r = (0, u.we)("#Settings_Updates_Error_FailedToDownload");
-	let n = (0, u.we)("#TryAgain");
-	let i = (0, u.we)("#Help");
+	let r = (0, Localize)("#Settings_Updates_Error_FailedToDownload");
+	let n = (0, Localize)("#TryAgain");
+	let i = (0, Localize)("#Help");
 	let a = (0, d.tn)(A.BV.GamepadUI.Setup());
 	return s.createElement(p, {
 		icon: t,
@@ -73,9 +77,9 @@ function g(e) {
 }
 function h(e) {
 	let t = s.createElement(c.Caution, null);
-	let r = (0, u.we)("#Settings_Updates_Error_DiskFull");
-	let n = (0, u.we)("#TryAgain");
-	let i = (0, u.we)("#Help");
+	let r = (0, Localize)("#Settings_Updates_Error_DiskFull");
+	let n = (0, Localize)("#TryAgain");
+	let i = (0, Localize)("#Help");
 	let a = (0, d.tn)(A.BV.GamepadUI.Setup());
 	return s.createElement(p, {
 		icon: t,
@@ -101,7 +105,7 @@ var M = require(/*webcrack:missing*/ "./42318.js");
 var T = require("./8953.js");
 var R = require("./10606.js");
 var k = require(/*webcrack:missing*/ "./90765.js");
-var D = require(/*webcrack:missing*/ "./11010.js");
+import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
 var N = require("./34428.js");
 var F = require(/*webcrack:missing*/ "./43691.js");
 var G = require("./34819.js");
@@ -126,16 +130,18 @@ export function _o(e) {
 			: s.createElement(
 					"span",
 					null,
-					(0, u.we)("#Settings_Updates_ScaryBIOSWarningLine1"),
+					(0, Localize)("#Settings_Updates_ScaryBIOSWarningLine1"),
 					s.createElement("br", null),
 					s.createElement("br", null),
-					(0, u.we)("#Settings_Updates_ScaryBIOSWarningLine2"),
+					(0, Localize)("#Settings_Updates_ScaryBIOSWarningLine2"),
 				);
 	return s.createElement(R.o0, {
-		strTitle: (0, u.we)("#Settings_Updates_ScaryBIOSWarningTitle"),
+		strTitle: (0, Localize)("#Settings_Updates_ScaryBIOSWarningTitle"),
 		strDescription: i,
-		strOKButtonText: (0, u.we)("#Settings_Updates_ScaryBIOSWarningOK"),
-		strCancelButtonText: (0, u.we)("#Settings_Updates_ScaryBIOSWarningCancel"),
+		strOKButtonText: (0, Localize)("#Settings_Updates_ScaryBIOSWarningOK"),
+		strCancelButtonText: (0, Localize)(
+			"#Settings_Updates_ScaryBIOSWarningCancel",
+		),
 		onOK: t,
 		onCancel: r,
 	});
@@ -149,13 +155,13 @@ export function D8(e) {
 				whiteSpace: "pre-line",
 			},
 		},
-		(0, u.we)("#Settings_Updates_BlankScreenWarning_Text"),
+		(0, Localize)("#Settings_Updates_BlankScreenWarning_Text"),
 	);
 	return s.createElement(R.o0, {
-		strTitle: (0, u.we)("#Settings_Updates_BlankScreenWarning_Title"),
+		strTitle: (0, Localize)("#Settings_Updates_BlankScreenWarning_Title"),
 		strDescription: n,
-		strOKButtonText: (0, u.we)("#Settings_Updates_BlankScreenWarning_OK"),
-		strCancelButtonText: (0, u.we)(
+		strOKButtonText: (0, Localize)("#Settings_Updates_BlankScreenWarning_OK"),
+		strCancelButtonText: (0, Localize)(
 			"#Settings_Updates_BlankScreenWarning_Cancel",
 		),
 		onOK: t,
@@ -166,18 +172,18 @@ export function b4(e) {
 	let t = e.strMsg;
 	switch (e.eResult) {
 		case 124:
-			t = (0, u.we)("#Settings_Updates_UpdateError_InsufficientBattery");
+			t = (0, Localize)("#Settings_Updates_UpdateError_InsufficientBattery");
 			break;
 		case 125:
-			t = (0, u.we)("#Settings_Updates_UpdateError_ChargerRequired");
+			t = (0, Localize)("#Settings_Updates_UpdateError_ChargerRequired");
 			break;
 		default:
-			t = (0, u.we)("#Settings_Updates_UpdateError_Generic");
+			t = (0, Localize)("#Settings_Updates_UpdateError_Generic");
 	}
 	return s.createElement(R.KG, {
-		strTitle: (0, u.we)("#Settings_Updates_UpdateErrorTitle"),
+		strTitle: (0, Localize)("#Settings_Updates_UpdateErrorTitle"),
 		strDescription: t,
-		strOKButtonText: (0, u.we)("#Settings_Updates_UpdateErrorOK"),
+		strOKButtonText: (0, Localize)("#Settings_Updates_UpdateErrorOK"),
 	});
 }
 function V(e) {
@@ -188,8 +194,8 @@ function V(e) {
 		i =
 			(r ?? false)
 				? y.hj.LocalizeTimeRemaining(n)
-				: (0, u.Hq)(n, {
-						eSuffix: D.a8.Remaining,
+				: (0, Hq)(n, {
+						eSuffix: ETimeSinceSuffix.Remaining,
 						bHighGranularity: true,
 					});
 	}
@@ -255,7 +261,7 @@ function j(e) {
 		{
 			disabled: true,
 		},
-		(0, u.we)("#Settings_Updates_Invalid_Title"),
+		(0, Localize)("#Settings_Updates_Invalid_Title"),
 	);
 }
 function q(e) {
@@ -263,8 +269,8 @@ function q(e) {
 	const r = (0, b._S)();
 	const n = r != null && r < 4;
 	const i = n
-		? (0, u.we)("#Settings_Updates_NoUpdatesAvailable")
-		: (0, u.we)("#Settings_Updates_CheckForUpdates");
+		? (0, Localize)("#Settings_Updates_NoUpdatesAvailable")
+		: (0, Localize)("#Settings_Updates_CheckForUpdates");
 	return s.createElement(
 		l.$n,
 		{
@@ -280,12 +286,12 @@ function Q(e) {
 		{
 			disabled: true,
 		},
-		(0, u.we)("#Settings_Updates_Checking"),
+		(0, Localize)("#Settings_Updates_Checking"),
 	);
 }
 function Z(e) {
 	const t = (0, b.Tt)();
-	const r = (0, u.we)("#Settings_Updates_UpdateApply");
+	const r = (0, Localize)("#Settings_Updates_UpdateApply");
 	const n = t.GetAvailableTypes();
 	return s.createElement(
 		l.$n,
@@ -298,7 +304,7 @@ function Z(e) {
 function Y(e) {
 	const t = (0, b.Tt)();
 	const r = t.GetProgressPercent() ?? 0;
-	const n = `${(0, u.we)("#Settings_Updates_UpdateApplying")} ${r}%`;
+	const n = `${(0, Localize)("#Settings_Updates_UpdateApplying")} ${r}%`;
 	return s.createElement(
 		m.Z,
 		{
@@ -337,7 +343,7 @@ function K(e) {
 		{
 			onClick: () => SteamClient.User.StartRestart(false),
 		},
-		(0, u.we)("#Settings_Updates_RestartClientNow"),
+		(0, Localize)("#Settings_Updates_RestartClientNow"),
 	);
 }
 function X(e) {
@@ -346,7 +352,7 @@ function X(e) {
 		{
 			onClick: () => SteamClient.System.RestartPC(),
 		},
-		(0, u.we)("#Settings_Updates_RestartSystemNow"),
+		(0, Localize)("#Settings_Updates_RestartSystemNow"),
 	);
 }
 function J(e) {
@@ -355,7 +361,7 @@ function J(e) {
 		{
 			onClick: () => SteamClient.System.RebootToAlternateSystemPartition(),
 		},
-		(0, u.we)("#Settings_Updates_RestartSystemNow"),
+		(0, Localize)("#Settings_Updates_RestartSystemNow"),
 	);
 }
 const $ = (e) => {
@@ -376,7 +382,7 @@ const $ = (e) => {
 			{
 				className: L.PostedTime,
 			},
-			(0, u.lQ)(t.GetPostTimeAndDateUnixSeconds(), {
+			LocalizeCalendarTime(t.GetPostTimeAndDateUnixSeconds(), {
 				bGranularToday: true,
 				bGranularWeek: true,
 				bAbbreviateDayOfWeek: true,
@@ -437,7 +443,7 @@ function te() {
 	let a = [];
 	for (const e of n) {
 		if (e.available && ((i = true), t)) {
-			const t = (0, u.we)("#Settings_System_Update_Available");
+			const t = (0, Localize)("#Settings_System_Update_Available");
 			let r = (0, b.RP)(e.type);
 			if (e.version) {
 				r += ` ${e.version.trim()}`;
@@ -489,7 +495,7 @@ export function km(e) {
 	const r = ee();
 	const n = {};
 	n.onOptionsButton = re(r);
-	n.onOptionsActionDescription = (0, u.we)("#Settings_Updates_PatchNotes");
+	n.onOptionsActionDescription = (0, Localize)("#Settings_Updates_PatchNotes");
 	const i = e.strLabel;
 	const a = {
 		0: j,
@@ -507,11 +513,11 @@ export function km(e) {
 	let A = null;
 	const p = (0, b._S)();
 	if (p != null && !d) {
-		const e = (0, u.Hq)(p, {
-			eSuffix: D.a8.Ago,
+		const e = (0, Hq)(p, {
+			eSuffix: ETimeSinceSuffix.Ago,
 			bHighGranularity: false,
 		});
-		A = (0, u.we)("#Settings_Updates_UpToDate", e);
+		A = (0, Localize)("#Settings_Updates_UpToDate", e);
 	}
 	return s.createElement(
 		s.Fragment,
@@ -547,12 +553,12 @@ function ie(e) {
 			s.createElement(
 				"div",
 				null,
-				(0, u.we)("#Settings_Updates_LowBattery_Line1"),
+				(0, Localize)("#Settings_Updates_LowBattery_Line1"),
 			),
 			s.createElement(
 				"div",
 				null,
-				(0, u.we)("#Settings_Updates_LowBattery_Line2"),
+				(0, Localize)("#Settings_Updates_LowBattery_Line2"),
 			),
 		);
 	} else {
@@ -596,19 +602,19 @@ export function zQ(e) {
 	let c = null;
 	switch (n) {
 		case 3:
-			c = (0, u.we)("#Settings_Updates_Checking");
+			c = (0, Localize)("#Settings_Updates_Checking");
 			break;
 		case 4:
-			c = (0, u.we)("#Settings_Updates_UpdateStartingDownloadOOBE");
+			c = (0, Localize)("#Settings_Updates_UpdateStartingDownloadOOBE");
 			break;
 		case 5:
-			c = (0, u.we)("#Settings_Updates_UpdateApplyingOOBE");
+			c = (0, Localize)("#Settings_Updates_UpdateApplyingOOBE");
 			break;
 		case 2:
 			return null;
 		case 6:
 		case 7:
-			c = (0, u.we)("#Settings_Updates_Restarting");
+			c = (0, Localize)("#Settings_Updates_Restarting");
 	}
 	if ((o != null && o != 2) || n == 0) {
 		if (o == 54) {
@@ -633,7 +639,7 @@ export function zQ(e) {
 					onCancelButton: e.onCancel,
 					onOKActionDescription: null,
 					onOptionsButton: e.onShowHelp,
-					onOptionsActionDescription: (0, u.we)("#Help"),
+					onOptionsActionDescription: (0, Localize)("#Help"),
 					autoFocus: true,
 					noFocusRing: true,
 					focusable: true,
@@ -701,7 +707,7 @@ export function aY(e) {
 					{
 						className: L.Text,
 					},
-					(0, u.we)("#Devkit_Unsupported_Settings_Title"),
+					(0, Localize)("#Devkit_Unsupported_Settings_Title"),
 				),
 			),
 			s.createElement(
@@ -709,7 +715,7 @@ export function aY(e) {
 				{
 					className: L.Body,
 				},
-				(0, u.we)("#Devkit_Unsupported_Settings_Message"),
+				(0, Localize)("#Devkit_Unsupported_Settings_Message"),
 			),
 		);
 	} else {

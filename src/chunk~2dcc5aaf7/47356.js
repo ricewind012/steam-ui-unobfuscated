@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./10606.js");
 var s = require("./64608.js");
 var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./89748.js");
 var m = require("./13869.js");
 var u = require("./81994.js");
@@ -18,19 +18,19 @@ export function Qo(e) {
 	let t = i.createElement(
 		i.Fragment,
 		null,
-		(0, l.we)("#SteamUI_ValveSurvey_PromptLabel"),
+		Localize("#SteamUI_ValveSurvey_PromptLabel"),
 		i.createElement(
 			"div",
 			{
 				className: d.Prompt,
 			},
-			(0, l.we)("#SteamUI_ValveSurvey_PromptLabel2"),
+			Localize("#SteamUI_ValveSurvey_PromptLabel2"),
 		),
 	);
 	(0, m.pg)(
 		i.createElement(a.o0, {
 			className: d.HardwareSurveyDialog,
-			strTitle: (0, l.we)("#SteamUI_ValveSurvey_Title"),
+			strTitle: Localize("#SteamUI_ValveSurvey_Title"),
 			strDescription: t,
 			onOK: () => {
 				(0, m.pg)(
@@ -43,8 +43,8 @@ export function Qo(e) {
 			onCancel: () => {
 				(0, c.qw)().OptOutOfSurvey();
 			},
-			strOKButtonText: (0, l.we)("#SteamUI_ValveSurvey_Prompt_Yes"),
-			strCancelButtonText: (0, l.we)("#SteamUI_ValveSurvey_Prompt_No"),
+			strOKButtonText: Localize("#SteamUI_ValveSurvey_Prompt_Yes"),
+			strCancelButtonText: Localize("#SteamUI_ValveSurvey_Prompt_No"),
 		}),
 		e,
 	);
@@ -54,11 +54,11 @@ function b(e) {
 	return i.createElement(a.o0, {
 		closeModal: e.closeModal,
 		className: d.HardwareSurveyDialog,
-		strTitle: (0, l.we)("#SteamUI_ValveSurvey_Title"),
-		strDescription: (0, l.we)("#SteamUI_ValveSurvey_ResultsLabel"),
+		strTitle: Localize("#SteamUI_ValveSurvey_Title"),
+		strDescription: Localize("#SteamUI_ValveSurvey_ResultsLabel"),
 		onOK: t,
-		strOKButtonText: (0, l.we)("#SteamUI_ValveSurvey_ResultsButton"),
-		strCancelButtonText: (0, l.we)("#SteamUI_ValveSurvey_FinishButton"),
+		strOKButtonText: Localize("#SteamUI_ValveSurvey_ResultsButton"),
+		strCancelButtonText: Localize("#SteamUI_ValveSurvey_FinishButton"),
 	});
 }
 export function gh(e) {
@@ -67,11 +67,11 @@ export function gh(e) {
 function S(e) {
 	let { surveyEntry: t } = e;
 	if (typeof t == "string") {
-		return i.createElement("div", null, (0, l.we)("#" + t));
+		return i.createElement("div", null, Localize("#" + t));
 	}
 	{
-		const e = t.vecArgs.map((e) => (e[0] == "#" ? (0, l.we)(e) : e));
-		return i.createElement("div", null, (0, l.we)("#" + t.strName, ...e));
+		const e = t.vecArgs.map((e) => (e[0] == "#" ? Localize(e) : e));
+		return i.createElement("div", null, Localize("#" + t.strName, ...e));
 	}
 }
 export function qJ(e) {
@@ -82,7 +82,7 @@ export function qJ(e) {
 			className: d.HardwareSurveySection,
 			focusable: true,
 		},
-		i.createElement("h3", null, (0, l.we)("#" + t.strSectionName), " "),
+		i.createElement("h3", null, Localize("#" + t.strSectionName), " "),
 		t.vecEntries.map((e, t) =>
 			i.createElement(S, {
 				key: t,
@@ -108,14 +108,14 @@ function B(e) {
 		a.o0,
 		{
 			className: d.HardwareSurveyDialog,
-			strTitle: (0, l.we)("#SteamUI_ValveSurvey_Title"),
+			strTitle: Localize("#SteamUI_ValveSurvey_Title"),
 			strDescription:
 				t.length == 0
 					? undefined
-					: (0, l.we)("#SteamUI_ValveSurvey_SummaryLabel"),
+					: Localize("#SteamUI_ValveSurvey_SummaryLabel"),
 			onCancel: e.closeModal,
 			onOK: s,
-			strOKButtonText: (0, l.we)("#SteamUI_ValveSurvey_SendSurvey"),
+			strOKButtonText: Localize("#SteamUI_ValveSurvey_SendSurvey"),
 			bOKDisabled: t.length == 0,
 		},
 		t.length == 0 && i.createElement(u.j, null),
@@ -175,7 +175,7 @@ export const bT = (0, h.Nr)(function () {
 		return i.createElement(
 			a.hM,
 			{
-				strTitle: (0, l.we)("#SteamUI_ValveSurvey_Title"),
+				strTitle: Localize("#SteamUI_ValveSurvey_Title"),
 				onDismiss: m,
 				popupWidth: 600,
 				popupHeight: 500,
@@ -211,17 +211,17 @@ function I(e) {
 			{
 				className: (0, C.A)(d.HardwareSurveyDialog, d.Desktop),
 			},
-			i.createElement(s.Y9, null, (0, l.we)("#SteamUI_ValveSurvey_Title")),
+			i.createElement(s.Y9, null, Localize("#SteamUI_ValveSurvey_Title")),
 			i.createElement(
 				s.a3,
 				null,
-				(0, l.we)("#SteamUI_ValveSurvey_PromptLabel"),
+				Localize("#SteamUI_ValveSurvey_PromptLabel"),
 				i.createElement(
 					"div",
 					{
 						className: d.Prompt,
 					},
-					(0, l.we)("#SteamUI_ValveSurvey_PromptLabel2"),
+					Localize("#SteamUI_ValveSurvey_PromptLabel2"),
 				),
 			),
 			i.createElement(
@@ -231,12 +231,12 @@ function I(e) {
 					onOK: () => {
 						e.onContinue();
 					},
-					strOKText: (0, l.we)("#SteamUI_ValveSurvey_Prompt_Yes"),
+					strOKText: Localize("#SteamUI_ValveSurvey_Prompt_Yes"),
 					onCancel: () => {
 						e.onClose();
 						(0, c.qw)().OptOutOfSurvey();
 					},
-					strCancelText: (0, l.we)("#SteamUI_ValveSurvey_Prompt_No"),
+					strCancelText: Localize("#SteamUI_ValveSurvey_Prompt_No"),
 				}),
 			),
 		);
@@ -270,7 +270,7 @@ function E(e) {
 				{
 					className: d.DialogHeader,
 				},
-				(0, l.we)("#SteamUI_ValveSurvey_Title"),
+				Localize("#SteamUI_ValveSurvey_Title"),
 			),
 			i.createElement(
 				s.nB,
@@ -285,7 +285,7 @@ function E(e) {
 						i.createElement(
 							"div",
 							null,
-							(0, l.we)("#SteamUI_ValveSurvey_SummaryLabel"),
+							Localize("#SteamUI_ValveSurvey_SummaryLabel"),
 						),
 						i.createElement(
 							A.f7,
@@ -311,7 +311,7 @@ function E(e) {
 				null,
 				i.createElement(s.CB, {
 					onOK: h,
-					strOKText: (0, l.we)("#SteamUI_ValveSurvey_SendSurvey"),
+					strOKText: Localize("#SteamUI_ValveSurvey_SendSurvey"),
 					onCancel: r,
 				}),
 			),
@@ -338,23 +338,23 @@ function M(e) {
 				{
 					className: d.DialogHeader,
 				},
-				(0, l.we)("#SteamUI_ValveSurvey_Title"),
+				Localize("#SteamUI_ValveSurvey_Title"),
 			),
 			i.createElement(
 				s.a3,
 				{
 					className: d.DialogBodyText,
 				},
-				(0, l.we)("#SteamUI_ValveSurvey_ResultsLabel"),
+				Localize("#SteamUI_ValveSurvey_ResultsLabel"),
 			),
 			i.createElement(
 				s.wi,
 				null,
 				i.createElement(s.CB, {
 					onOK: c,
-					strOKText: (0, l.we)("#SteamUI_ValveSurvey_ResultsButton"),
+					strOKText: Localize("#SteamUI_ValveSurvey_ResultsButton"),
 					onCancel: r,
-					strCancelText: (0, l.we)("#SteamUI_ValveSurvey_FinishButton"),
+					strCancelText: Localize("#SteamUI_ValveSurvey_FinishButton"),
 				}),
 			),
 		);

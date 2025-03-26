@@ -18,7 +18,7 @@ var f = require(/*webcrack:missing*/ "./52445.js");
 var b = require(/*webcrack:missing*/ "./97329.js");
 var y = require("./20475.js");
 var S = require("./6670.js");
-var w = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var B = require(/*webcrack:missing*/ "./90765.js");
 var v = require(/*webcrack:missing*/ "./69164.js");
 var I = require(/*webcrack:missing*/ "./90242.js");
@@ -93,10 +93,10 @@ let T = class extends A.Component {
 		let t = e.isMemberListExpanded;
 		let r = e.GetMemberSearch();
 		let n = "MemberListColumn";
-		let i = (0, w.we)("#Tooltip_MemberCollapse");
+		let i = (0, Localize)("#Tooltip_MemberCollapse");
 		if (!t) {
 			n += " MemberListViewCompact";
-			i = (0, w.we)("#Tooltip_MemberExpand");
+			i = (0, Localize)("#Tooltip_MemberExpand");
 		}
 		let a = "MemberListOptionsContainer";
 		if (e.IsMemberSearchActive()) {
@@ -139,7 +139,7 @@ let T = class extends A.Component {
 							className: "friendSearchInput",
 							type: "text",
 							name: "memberlistSearch",
-							placeholder: (0, w.we)("#SearchByName"),
+							placeholder: (0, Localize)("#SearchByName"),
 							value: r,
 							onChange: this.OnSearchInput,
 							onKeyDown: this.OnSearchKeyDown,
@@ -152,7 +152,7 @@ let T = class extends A.Component {
 									"div",
 									{
 										className: "friendSearchError",
-										title: (0, w.we)("#SearchError"),
+										title: (0, Localize)("#SearchError"),
 									},
 									A.createElement(p.eTF, {
 										color: "red",
@@ -269,7 +269,7 @@ let R = class extends A.Component {
 				e.OpenChatDialog((0, u.CO)(t));
 				this.props.onAction();
 			},
-			onOKActionDescription: (0, w.we)("#Friend_Menu_SendMessage"),
+			onOKActionDescription: (0, Localize)("#Friend_Menu_SendMessage"),
 		});
 		return A.createElement(
 			v.Z,
@@ -302,7 +302,7 @@ let R = class extends A.Component {
 								className: "friendSearchInput",
 								type: "text",
 								name: "memberlistSearch",
-								placeholder: (0, w.we)("#SearchByName"),
+								placeholder: (0, Localize)("#SearchByName"),
 								value: t,
 								onChange: this.OnSearchInput,
 								onKeyDown: this.OnSearchKeyDown,
@@ -315,7 +315,7 @@ let R = class extends A.Component {
 										"div",
 										{
 											className: "friendSearchError",
-											title: (0, w.we)("#SearchError"),
+											title: (0, Localize)("#SearchError"),
 										},
 										A.createElement(p.eTF, {
 											color: "red",
@@ -1092,7 +1092,7 @@ var q = require("./65726.js");
 var Q = require(/*webcrack:missing*/ "./90095.js");
 var Z = require(/*webcrack:missing*/ "./23038.js");
 var Y = require("./56654.js");
-var K = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var X = require(/*webcrack:missing*/ "./49455.js");
 var J = require(/*webcrack:missing*/ "./31958.js");
 var $ = require("./1918.js");
@@ -1417,7 +1417,7 @@ export let vY = class extends A.Component {
 				{
 					className: "Close",
 					onClick: this.HideChat,
-					title: (0, w.we)("#Broadcast_View_HideChat"),
+					title: (0, Localize)("#Broadcast_View_HideChat"),
 				},
 				A.createElement(p.K7s, {
 					showChat: false,
@@ -1449,7 +1449,7 @@ export let vY = class extends A.Component {
 						{
 							className: "InnerChatTabLabel",
 						},
-						(0, w.we)("#Broadcast_Chat_GroupChatTab", t.name),
+						(0, Localize)("#Broadcast_Chat_GroupChatTab", t.name),
 					),
 				),
 				(!this.state.bShowBothChats ||
@@ -1470,7 +1470,7 @@ export let vY = class extends A.Component {
 							{
 								className: "InnerChatTabLabel",
 							},
-							(0, w.we)("#Broadcast_Chat_PublicChatTab"),
+							(0, Localize)("#Broadcast_Chat_PublicChatTab"),
 						),
 					),
 			),
@@ -1479,7 +1479,7 @@ export let vY = class extends A.Component {
 				{
 					className: "showBothTabs",
 					onClick: this.ToggleShowBothChats,
-					title: (0, w.we)(
+					title: (0, Localize)(
 						this.state.bShowBothChats
 							? "#Broadcast_View_ShowSingleChats"
 							: "#Broadcast_View_ShowBothChats",
@@ -1533,7 +1533,7 @@ export let vY = class extends A.Component {
 					A.createElement("div", {
 						key: "ChatPosToggle",
 						onClick: this.ToggleVerticalBroadcastChat,
-						title: `${C ? ((0, w.we))("#Broadcast_View_Stack_H") : ((0, w.we))("#Broadcast_View_Stack_V")}`,
+						title: `${C ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
 						className:
 							"BroadcastChatPositionToggle " + (C ? "right" : "bottom"),
 					}),
@@ -1775,7 +1775,7 @@ export let vY = class extends A.Component {
 														{
 															className: "InnerChatTabLabel",
 														},
-														(0, w.we)("#Broadcast_Chat_PublicChatTab"),
+														(0, Localize)("#Broadcast_Chat_PublicChatTab"),
 													),
 												),
 											k,
@@ -1829,7 +1829,7 @@ export let vY = class extends A.Component {
 					A.createElement("div", {
 						key: "ChatPosToggle",
 						onClick: this.ToggleVerticalBroadcastChat,
-						title: `${C ? ((0, w.we))("#Broadcast_View_Stack_H") : ((0, w.we))("#Broadcast_View_Stack_V")}`,
+						title: `${C ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
 						className:
 							"BroadcastChatPositionToggle " + (C ? "right" : "bottom"),
 					}),
@@ -1983,7 +1983,7 @@ export let vY = class extends A.Component {
 		let D = {};
 		if (m.xm.VoiceStore.IsVoiceActiveForGroup(e.GetGroupID())) {
 			D.onSecondaryButton = () => this.ToggleVoiceChat();
-			D.onSecondaryActionDescription = (0, w.we)(
+			D.onSecondaryActionDescription = (0, Localize)(
 				"#Chat_ChatRoomGroup_EndVoiceChat",
 			);
 		}
@@ -2079,7 +2079,7 @@ export let vY = class extends A.Component {
 															{
 																className: "InnerChatTabLabel",
 															},
-															(0, w.we)("#Broadcast_Chat_PublicChatTab"),
+															(0, Localize)("#Broadcast_Chat_PublicChatTab"),
 														),
 													),
 												T,
@@ -2128,7 +2128,7 @@ const Ce = (e) => {
 			className: le.GroupMemberListDialog,
 			...n,
 		},
-		A.createElement(i.Y9, null, (0, w.we)("#Chat_MemberGroup_Online")),
+		A.createElement(i.Y9, null, (0, Localize)("#Chat_MemberGroup_Online")),
 		a,
 		A.createElement(Se, {
 			closeModal: e.closeModal,
@@ -2152,7 +2152,7 @@ export const LC = (e) => {
 				{
 					className: le.VoiceChatQuickChatChannelOption,
 				},
-				(0, w.we)("#Chat_Scratch_Pad"),
+				(0, Localize)("#Chat_Scratch_Pad"),
 				":",
 				A.createElement(te.tc, {
 					key: p.unique_id,
@@ -2184,10 +2184,10 @@ export const LC = (e) => {
 	};
 	if (l) {
 		C.onOptionsButton = (t) => {
-			(0, te.Nq)((0, K.uX)(t), r, false);
+			(0, te.Nq)(GetOwningWindowForEvent(t), r, false);
 			e.closeModal();
 		};
-		C.onOptionsActionDescription = (0, w.we)("#Chat_AddTextChat");
+		C.onOptionsActionDescription = (0, Localize)("#Chat_AddTextChat");
 	}
 	return A.createElement(
 		s.eV,
@@ -2202,7 +2202,7 @@ export const LC = (e) => {
 			A.createElement(
 				i.Y9,
 				null,
-				(0, w.we)("#GroupSettings_Channels_TextChannels"),
+				(0, Localize)("#GroupSettings_Channels_TextChannels"),
 			),
 			A.createElement(
 				v.Z,
@@ -2246,9 +2246,9 @@ export const _1 = (e) => {
 		};
 		let s;
 		if (g && !i) {
-			s = (0, w.we)("#VoiceChat_Switch");
+			s = (0, Localize)("#VoiceChat_Switch");
 		} else if (!i) {
-			s = (0, w.we)("#VoiceChat_Join");
+			s = (0, Localize)("#VoiceChat_Join");
 		}
 		if (o) {
 			return A.createElement(ce.A, {
@@ -2264,10 +2264,10 @@ export const _1 = (e) => {
 				fnCloseModal: e.closeModal,
 				strOKActionDescription: s,
 				strSecondaryActionDescription: i
-					? (0, w.we)("#VoiceChat_Leave")
+					? (0, Localize)("#VoiceChat_Leave")
 					: undefined,
 				strOptionsActionDescription: i
-					? (0, w.we)("#VoiceChat_InviteOthers")
+					? (0, Localize)("#VoiceChat_InviteOthers")
 					: undefined,
 			});
 		} else {
@@ -2288,7 +2288,7 @@ export const _1 = (e) => {
 					chatRoom: e,
 					fnOKButton: C,
 					fnOnFocus: () => c(e),
-					strOKActionDescription: (0, w.we)("#VoiceChat_Join"),
+					strOKActionDescription: (0, Localize)("#VoiceChat_Join"),
 				})
 			: A.createElement(te.mr, {
 					key: e.unique_id,
@@ -2313,7 +2313,7 @@ export const _1 = (e) => {
 				A.createElement(
 					v.Z,
 					null,
-					(0, w.we)("#GroupSettings_Channels_NoVoiceChannels"),
+					(0, Localize)("#GroupSettings_Channels_NoVoiceChannels"),
 				),
 			A.createElement(
 				v.Z,
@@ -2322,7 +2322,7 @@ export const _1 = (e) => {
 					onActivate: t,
 				},
 				A.createElement(p.nGC, null),
-				(0, w.we)("#Chat_AddVoiceChat"),
+				(0, Localize)("#Chat_AddVoiceChat"),
 			),
 		);
 	}
@@ -2339,7 +2339,7 @@ export const _1 = (e) => {
 			A.createElement(
 				i.Y9,
 				null,
-				(0, w.we)("#GroupSettings_Channels_VoiceChannels"),
+				(0, Localize)("#GroupSettings_Channels_VoiceChannels"),
 			),
 			A.createElement(
 				v.Z,
@@ -2355,7 +2355,7 @@ export const _1 = (e) => {
 						{
 							className: le.ChannelStatusLabel,
 						},
-						(0, w.we)("#GroupSettings_Channels_ActiveVoiceChannels"),
+						(0, Localize)("#GroupSettings_Channels_ActiveVoiceChannels"),
 					),
 				_.length != 0 &&
 					A.createElement(
@@ -2371,7 +2371,7 @@ export const _1 = (e) => {
 						{
 							className: le.ChannelStatusLabel,
 						},
-						(0, w.we)("#GroupSettings_Channels_InactiveVoiceChannels"),
+						(0, Localize)("#GroupSettings_Channels_InactiveVoiceChannels"),
 					),
 				f.length != 0 &&
 					A.createElement(
@@ -2423,10 +2423,10 @@ const be = (0, g.PA)((e) => {
 						A.createElement(Ce, {
 							groupView: t,
 						}),
-						(0, K.uX)(e),
+						GetOwningWindowForEvent(e),
 					);
 				},
-				onOKActionDescription: (0, w.we)("#Chat_MemberGroup_Online"),
+				onOKActionDescription: (0, Localize)("#Chat_MemberGroup_Online"),
 			},
 			A.createElement(p.YJl, null),
 		),
@@ -2439,10 +2439,10 @@ const be = (0, g.PA)((e) => {
 						A.createElement(LC, {
 							groupView: t,
 						}),
-						(0, K.uX)(e),
+						GetOwningWindowForEvent(e),
 					);
 				},
-				onOKActionDescription: (0, w.we)(
+				onOKActionDescription: (0, Localize)(
 					"#GroupSettings_Channels_TextChannels",
 				),
 			},
@@ -2473,7 +2473,7 @@ const be = (0, g.PA)((e) => {
 						r.ownerWindow,
 					);
 				},
-				onOKActionDescription: (0, w.we)(
+				onOKActionDescription: (0, Localize)(
 					"#GroupSettings_Channels_VoiceChannels",
 				),
 			},
@@ -2499,11 +2499,11 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (t) => {
-					let r = (0, K.uX)(t);
+					let r = GetOwningWindowForEvent(t);
 					let n = (0, u._k)(r);
 					(0, ne.E5)(n, r, e.groupView.GetGroup());
 				},
-				onOKActionDescription: (0, w.we)(
+				onOKActionDescription: (0, Localize)(
 					"#Chat_Actions_InviteFriendtoGroupChat",
 				),
 			},
@@ -2514,9 +2514,9 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (t) => {
-					(0, ae.lV)((0, K.uX)(t), e.groupView);
+					(0, ae.lV)(GetOwningWindowForEvent(t), e.groupView);
 				},
-				onOKActionDescription: (0, w.we)("#NotificationSettings_Title"),
+				onOKActionDescription: (0, Localize)("#NotificationSettings_Title"),
 			},
 			A.createElement(p.IrQ, null),
 		),
@@ -2525,9 +2525,9 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (t) => {
-					(0, ie.hI)((0, K.uX)(t), e.groupView);
+					(0, ie.hI)(GetOwningWindowForEvent(t), e.groupView);
 				},
-				onOKActionDescription: (0, w.we)("#GroupSettings"),
+				onOKActionDescription: (0, Localize)("#GroupSettings"),
 			},
 			A.createElement(p.m59, null),
 		),
@@ -2536,7 +2536,7 @@ const be = (0, g.PA)((e) => {
 const ye = ({ className: e, readyToRender: t, children: r }) => {
 	const n = A.createElement(o.t, {
 		position: "center",
-		string: (0, w.we)("#Chat_ChatRoomGroup_Requesting"),
+		string: (0, Localize)("#Chat_ChatRoomGroup_Requesting"),
 	});
 	return A.createElement(
 		v.Z,
@@ -2567,7 +2567,7 @@ const Se = (e) =>
 				{
 					onClick: e.closeModal,
 				},
-				(0, w.we)("#Button_Close"),
+				(0, Localize)("#Button_Close"),
 			),
 		),
 	);

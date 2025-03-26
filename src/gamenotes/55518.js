@@ -6,7 +6,7 @@ import * as l from /*webcrack:missing*/ "./39941.js";
 import * as u from /*webcrack:missing*/ "./45264.js";
 import * as s from /*webcrack:missing*/ "./35395.js";
 import * as c from /*webcrack:missing*/ "./26853.js";
-import * as i from /*webcrack:missing*/ "./46108.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 function m() {
 	const { data: e, isLoading: t } = (0, u.Yh)();
 	const n = a.useMemo(
@@ -21,7 +21,7 @@ function m() {
 		return a.createElement(
 			"div",
 			null,
-			a.createElement("h1", null, (0, i.we)("#UserGameNotes_NotesList")),
+			a.createElement("h1", null, Localize("#UserGameNotes_NotesList")),
 			a.createElement(
 				"ul",
 				null,

@@ -5,7 +5,7 @@ var s = require("./64608.js");
 var o = require("./35488.js");
 var l = require(/*webcrack:missing*/ "./89193.js");
 var c = require("./10606.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./52451.js");
 var d = require("./96593.js");
 var A = require(/*webcrack:missing*/ "./41230.js");
@@ -27,7 +27,7 @@ export function vq(e, t) {
 		}),
 		t,
 		{
-			strTitle: (0, m.we)("#BackupApps_Title"),
+			strTitle: Localize("#BackupApps_Title"),
 			bNeverPopOut: true,
 		},
 	);
@@ -77,7 +77,7 @@ let b = class extends a.Component {
 	}
 	onChangeFolder() {
 		SteamClient.System.OpenFileDialog({
-			strTitle: (0, m.we)("#BackupApps_BackupDirectory"),
+			strTitle: Localize("#BackupApps_BackupDirectory"),
 			strInitialFile: this.state.strFolder,
 			bChooseDirectory: true,
 		}).then((e) => {
@@ -154,14 +154,14 @@ let b = class extends a.Component {
 					{
 						className: _.ModalHeader,
 					},
-					(0, m.we)("#BackupApps_Title"),
+					Localize("#BackupApps_Title"),
 				),
 				a.createElement(
 					s.a3,
 					{
 						className: _.DialogBodyText,
 					},
-					(0, m.we)("#BackupApps_Description"),
+					Localize("#BackupApps_Description"),
 				),
 				a.createElement(
 					s.nB,
@@ -174,7 +174,7 @@ let b = class extends a.Component {
 							{
 								className: _.DialogBodyText,
 							},
-							(0, m.we)("#BackupApps_ChooseBackupDirectory"),
+							Localize("#BackupApps_ChooseBackupDirectory"),
 							" ",
 						),
 						this.state.eStep == n.ChooseFolder &&
@@ -200,7 +200,7 @@ let b = class extends a.Component {
 										className: _.BackupAppsBrowse,
 										onClick: this.onChangeFolder,
 									},
-									(0, m.we)("#BackupApps_ChangeDirectory"),
+									Localize("#BackupApps_ChangeDirectory"),
 								),
 							),
 					),
@@ -224,7 +224,7 @@ let b = class extends a.Component {
 								{
 									className: _.DialogBodyText,
 								},
-								(0, m.we)("#BackupApps_BackingUpFiles", t),
+								Localize("#BackupApps_BackingUpFiles", t),
 								a.createElement(
 									"div",
 									{
@@ -266,7 +266,7 @@ let b = class extends a.Component {
 								a.createElement(o.Checkmark, {
 									className: _.Checkmark,
 								}),
-								(0, m.we)(
+								Localize(
 									"#BackupApps_Finished",
 									(0, p.dm)(Number(this.state.progress.strTotalBytesWritten)),
 								),
@@ -299,9 +299,9 @@ let b = class extends a.Component {
 								a.createElement(o.ExclamationPoint, {
 									className: _.Exclamation,
 								}),
-								(0, m.we)(
+								Localize(
 									"#BackupApps_Failed",
-									(0, m.we)(
+									Localize(
 										"#Steam_AppUpdateError_" + this.state.progress.eError,
 									),
 								),
@@ -315,28 +315,28 @@ let b = class extends a.Component {
 						a.createElement(s.CB, {
 							bOKDisabled: this.state.strFolder == "",
 							onOK: this.onOk,
-							strOKText: (0, m.we)("#BackupApps_Start"),
+							strOKText: Localize("#BackupApps_Start"),
 							onCancel: this.onCancel,
 						}),
 					this.state.eStep == n.Working &&
 						a.createElement(s.CB, {
 							bOKDisabled: true,
-							strOKText: (0, m.we)("#BackupApps_Start"),
+							strOKText: Localize("#BackupApps_Start"),
 							onCancel: this.onCancel,
 						}),
 					this.state.eStep == n.Finished &&
 						a.createElement(s.CB, {
 							onOK: this.onOpenFolder,
-							strOKText: (0, m.we)("#BackupApps_OpenFolder"),
+							strOKText: Localize("#BackupApps_OpenFolder"),
 							onCancel: this.onCancel,
-							strCancelText: (0, m.we)("#Generic_Close"),
+							strCancelText: Localize("#Generic_Close"),
 						}),
 					this.state.eStep == n.Failed &&
 						a.createElement(s.CB, {
 							bOKDisabled: true,
-							strOKText: (0, m.we)("#BackupApps_Start"),
+							strOKText: Localize("#BackupApps_Start"),
 							onCancel: this.onCancel,
-							strCancelText: (0, m.we)("#Generic_Close"),
+							strCancelText: Localize("#Generic_Close"),
 						}),
 				),
 			),
@@ -345,7 +345,7 @@ let b = class extends a.Component {
 };
 export function ht(e) {
 	(0, g.mK)(a.createElement(S, null), e, {
-		strTitle: (0, m.we)("#BackupApps_Title"),
+		strTitle: Localize("#BackupApps_Title"),
 		bNeverPopOut: true,
 	});
 }
@@ -366,7 +366,7 @@ let S = class extends a.Component {
 	}
 	onChangeFolder() {
 		SteamClient.System.OpenFileDialog({
-			strTitle: (0, m.we)("#BackupApps_BackupDirectory"),
+			strTitle: Localize("#BackupApps_BackupDirectory"),
 			strInitialFile: this.state.strFolder,
 			bChooseDirectory: true,
 		}).then((e) => {
@@ -405,14 +405,14 @@ let S = class extends a.Component {
 					{
 						className: _.ModalHeader,
 					},
-					(0, m.we)("#RestoreBackup_Title"),
+					Localize("#RestoreBackup_Title"),
 				),
 				a.createElement(
 					s.a3,
 					{
 						className: _.DialogBodyText,
 					},
-					(0, m.we)("#RestoreBackup_Info"),
+					Localize("#RestoreBackup_Info"),
 				),
 				a.createElement(
 					s.nB,
@@ -439,7 +439,7 @@ let S = class extends a.Component {
 								className: _.BackupAppsBrowse,
 								onClick: this.onChangeFolder,
 							},
-							(0, m.we)("#BackupApps_ChangeDirectory"),
+							Localize("#BackupApps_ChangeDirectory"),
 						),
 					),
 					this.state.strFolder != "" &&
@@ -451,7 +451,7 @@ let S = class extends a.Component {
 								{
 									className: (0, h.A)(_.DialogBodyText, _.ExtraPadding),
 								},
-								(0, m.we)("#RestoreBackup_GameFound"),
+								Localize("#RestoreBackup_GameFound"),
 								" ",
 								this.state.strName,
 							),
@@ -463,7 +463,7 @@ let S = class extends a.Component {
 					a.createElement(s.CB, {
 						bOKDisabled: this.state.strFolder == "",
 						onOK: this.onOk,
-						strOKText: (0, m.we)("#RestoreBackup_Start"),
+						strOKText: Localize("#RestoreBackup_Start"),
 						onCancel: this.onCancel,
 					}),
 				),

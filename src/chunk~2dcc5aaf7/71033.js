@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./83599.js");
 var o = require(/*webcrack:missing*/ "./89193.js");
 var l = require(/*webcrack:missing*/ "./90095.js");
 var c = require(/*webcrack:missing*/ "./63696.js");
-var m = require(/*webcrack:missing*/ "./41180.js");
+import { Sleep } from "../../actual_src/utils/time.js";
 var u = require("./56970.js");
 var d = require("./13925.js");
 var A = require("./46422.js");
@@ -89,7 +89,7 @@ class h {
 		}
 		p.Info("PrepareForSystemSuspend succeeded");
 		this.m_eSuspendResumeProgress = i.jH.k_ESuspendResumeProgressState_Complete;
-		await (0, m.IP)(this.m_nSuspendSleepMS);
+		await Sleep(this.m_nSuspendSleepMS);
 		if (!px()) {
 			SteamClient.System.SuspendPC();
 		}

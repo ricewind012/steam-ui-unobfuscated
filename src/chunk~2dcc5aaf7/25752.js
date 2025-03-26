@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./90242.js");
 var i = require(/*webcrack:missing*/ "./92059.js");
 var a = require(/*webcrack:missing*/ "./63696.js");
 require("./86455.js");
-require(/*webcrack:missing*/ "./46108.js");
+import("../../actual_src/utils/localization.js");
 var s = require(/*webcrack:missing*/ "./53807.js");
 var o = require(/*webcrack:missing*/ "./72476.js");
 export function q(e) {

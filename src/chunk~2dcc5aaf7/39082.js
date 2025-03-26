@@ -1,8 +1,8 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./89193.js");
 var a = require("./333.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { BlobToFile } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./88341.js");
 class c {
 	dataUrl = undefined;
@@ -61,26 +61,26 @@ class c {
 		let C = false;
 		if (c) {
 			if (A) {
-				h = (0, o.we)("#ImageUpload_InvalidFileType");
+				h = (0, Localize)("#ImageUpload_InvalidFileType");
 			} else if (d) {
-				h = (0, o.we)(
+				h = (0, Localize)(
 					"#ImageUpload_InvalidFormat",
 					l.i6.GetExtensionStringForFileType(r),
 				);
 			} else if (u || g) {
 				if (m) {
 					if (!u && g) {
-						h = (0, o.we)("#ImageUpload_InvalidDimensions", n, i);
+						h = (0, Localize)("#ImageUpload_InvalidDimensions", n, i);
 						C = true;
 					}
 				} else {
-					h = (0, o.we)("#ImageUpload_TooSmall", n, i);
+					h = (0, Localize)("#ImageUpload_TooSmall", n, i);
 				}
 			} else {
-				h = (0, o.we)("#ImageUpload_InvalidResolution", n, i);
+				h = (0, Localize)("#ImageUpload_InvalidResolution", n, i);
 			}
 		} else {
-			h = (0, o.we)("#ImageUpload_InvalidFormatSelected");
+			h = (0, Localize)("#ImageUpload_InvalidFormatSelected");
 		}
 		return {
 			error: h,
@@ -157,7 +157,7 @@ export class i9 extends c {
 				if (o !== 3 && t.startsWith("data:image/png")) {
 					c("Unable to encode into the requested file format");
 				} else {
-					this.file = (0, s.pE)(e, this.file.name);
+					this.file = BlobToFile(e, this.file.name);
 					this.width = i;
 					this.height = a;
 					this.dataUrl = t;

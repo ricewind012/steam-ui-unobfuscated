@@ -10,7 +10,7 @@ var u = require("./91720.js");
 var d = require("./22588.js");
 var A = require(/*webcrack:missing*/ "./31958.js");
 var p = require("./72061.js");
-var g = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var h = require("./84921.js");
 var C = require("./34891.js");
 var _ = require("./61738.js");
@@ -228,7 +228,7 @@ class B {
 	}
 	AddEventListener(e) {
 		this.m_rgListeners.push(e);
-		return () => g.x9(this.m_rgListeners, e);
+		return () => FindAndRemove(this.m_rgListeners, e);
 	}
 	FireEvent(e, ...t) {
 		for (let r of this.m_rgListeners) {

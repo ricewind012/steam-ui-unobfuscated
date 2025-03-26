@@ -3,7 +3,7 @@ var i = require("./13869.js");
 var a = require("./46422.js");
 var s = require("./96921.js");
 var o = s;
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./35488.js");
 var m = require("./85360.js");
 var u = require(/*webcrack:missing*/ "./52451.js");
@@ -61,14 +61,14 @@ function h(e) {
 					{
 						className: o.ControllerLabel,
 					},
-					(0, l.we)(e.strName),
+					Localize(e.strName),
 					!r &&
 						n.createElement(
 							"div",
 							{
 								className: o.OptedOut,
 							},
-							(0, l.we)("#QuickAccess_ReorderControllers_OptedOut"),
+							Localize("#QuickAccess_ReorderControllers_OptedOut"),
 						),
 				),
 				icon: n.createElement(c.ControllerType, {
@@ -79,13 +79,13 @@ function h(e) {
 				displayedIndex: i ? "!" : e.nXInputIndex + 1,
 				onOptionsButton: () =>
 					SteamClient.Input.IdentifyController(e.nControllerIndex),
-				onOptionsActionDescription: (0, l.we)(
+				onOptionsActionDescription: Localize(
 					"#QuickAccess_ReorderControllers_Identify",
 				),
 			};
 		});
 	return n.createElement(d.o, {
-		title: (0, l.we)("#QuickAccess_ReorderControllers_ControllerOrder"),
+		title: Localize("#QuickAccess_ReorderControllers_ControllerOrder"),
 		items: p,
 		onMoveRelative: (e, t) => {
 			const n = e + t;
@@ -114,10 +114,10 @@ function h(e) {
 				true)
 			);
 		},
-		onReorderActionDescription: (0, l.we)(
+		onReorderActionDescription: Localize(
 			"#QuickAccess_ReorderControllers_Reorder",
 		),
-		onStopReorderActionDescription: (0, l.we)(
+		onStopReorderActionDescription: Localize(
 			"#QuickAccess_ReorderControllers_StopReorder",
 		),
 		closeModal: e.closeModal,

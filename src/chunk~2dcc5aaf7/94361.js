@@ -2,10 +2,10 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./12176.js");
 var a = require("./99104.js");
 var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var l = require(/*webcrack:missing*/ "./93960.js");
 const c = new s.wd("ReactUsageReporting").Debug;
-const m = o.Kp.PerMinute * 1000;
+const m = Seconds.PerMinute * 1000;
 class u {
 	m_strProduct;
 	m_strVersion;

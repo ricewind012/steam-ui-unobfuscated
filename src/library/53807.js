@@ -1,5 +1,5 @@
 var r = require("./72476.js");
-require("./46108.js");
+import("../../actual_src/utils/localization.js");
 var i = require("./36885.js");
 export function wm(e) {
 	if (e === undefined) {

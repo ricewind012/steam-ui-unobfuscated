@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./52451.js");
 var s = require(/*webcrack:missing*/ "./89193.js");
 var o = require(/*webcrack:missing*/ "./79769.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./90095.js");
 var m = require("./13869.js");
 var u = require("./85182.js");
@@ -1672,12 +1672,12 @@ export class Fd {
 	GetControllerTypeStringByIndex(e) {
 		if (this.m_controllerList.length > 0) {
 			if (!e) {
-				return (0, l.we)("#" + D[this.m_controllerList[0].eControllerType]);
+				return Localize("#" + D[this.m_controllerList[0].eControllerType]);
 			}
 			let t;
 			this.m_controllerList.forEach((r) => {
 				if (r.nControllerIndex == e) {
-					t = (0, l.we)("#" + D[r.eControllerType]);
+					t = Localize("#" + D[r.eControllerType]);
 				}
 			});
 			return t;

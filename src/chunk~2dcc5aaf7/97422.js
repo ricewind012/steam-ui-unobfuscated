@@ -5,7 +5,10 @@ var s = require(/*webcrack:missing*/ "./41230.js");
 var o = require("./13869.js");
 var l = require(/*webcrack:missing*/ "./63696.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var u = require("./64608.js");
 function d(e, t, r) {
 	(0, o.HT)(
@@ -15,7 +18,7 @@ function d(e, t, r) {
 		r,
 		"NicknameDialog",
 		{
-			strTitle: (0, m.we)("#Friend_Menu_AddNickname"),
+			strTitle: Localize("#Friend_Menu_AddNickname"),
 			popupWidth: 640,
 			popupHeight: 400,
 		},
@@ -78,8 +81,8 @@ let A = class extends l.Component {
 					u.Y9,
 					null,
 					t
-						? (0, m.we)("#Friend_Menu_ChangeNickname")
-						: (0, m.we)("#Friend_Menu_AddNickname"),
+						? Localize("#Friend_Menu_ChangeNickname")
+						: Localize("#Friend_Menu_AddNickname"),
 				),
 				l.createElement(
 					u.nB,
@@ -88,8 +91,8 @@ let A = class extends l.Component {
 						u.a3,
 						null,
 						t
-							? (0, m.we)("#Nickname_EditNickname")
-							: (0, m.we)("#Nickname_AddANickname"),
+							? Localize("#Nickname_EditNickname")
+							: Localize("#Nickname_AddANickname"),
 					),
 					l.createElement(
 						u.a3,
@@ -120,7 +123,7 @@ let A = class extends l.Component {
 									{
 										className: "nickNamedAs",
 									},
-									(0, m.we)("#Nickname_NickNameAsDialog"),
+									Localize("#Nickname_NickNameAsDialog"),
 								),
 								l.createElement(
 									"div",
@@ -129,8 +132,8 @@ let A = class extends l.Component {
 									},
 									l.createElement(u.pd, {
 										placeholder: t
-											? (0, m.we)("#Nickname_PlaceHolderNickName")
-											: (0, m.we)("#Nickname_PlaceHolderNickNameFresh"),
+											? Localize("#Nickname_PlaceHolderNickName")
+											: Localize("#Nickname_PlaceHolderNickNameFresh"),
 										className: "nicknameInput",
 										value: this.state.strCurrentNameEntry,
 										onChange: this.HandleTextEntry,
@@ -158,7 +161,7 @@ let A = class extends l.Component {
 A = (0, n.Cg)([s.PA], A);
 var p = require("./68665.js");
 var g = require(/*webcrack:missing*/ "./8573.js");
-var h = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var C = require("./98829.js");
 var _ = require(/*webcrack:missing*/ "./89193.js");
 function f(e, t, r) {
@@ -171,7 +174,7 @@ function f(e, t, r) {
 		t,
 		"CreateFriendCategoryDialog",
 		{
-			strTitle: (0, m.we)("#FriendGroup_Menu_CreateGroup"),
+			strTitle: Localize("#FriendGroup_Menu_CreateGroup"),
 			popupWidth: 664,
 			popupHeight: 700,
 		},
@@ -224,14 +227,14 @@ class b extends l.Component {
 					}
 				} else {
 					this.setState({
-						strError: (0, m.we)("#FriendGroup_ManageGroup_ErrorFailed"),
+						strError: Localize("#FriendGroup_ManageGroup_ErrorFailed"),
 					});
 				}
 			});
 		} else {
 			if (!t) {
 				this.setState({
-					strError: (0, m.we)("#FriendGroup_CreateGroup_ErrorNeedName"),
+					strError: Localize("#FriendGroup_CreateGroup_ErrorNeedName"),
 				});
 				return;
 			}
@@ -243,7 +246,7 @@ class b extends l.Component {
 					}
 				} else {
 					this.setState({
-						strError: (0, m.we)("#FriendGroup_CreateGroup_ErrorFailed"),
+						strError: Localize("#FriendGroup_CreateGroup_ErrorFailed"),
 					});
 				}
 			});
@@ -265,8 +268,8 @@ class b extends l.Component {
 					u.Y9,
 					null,
 					this.props.group
-						? (0, m.we)("#FriendGroup_Menu_Manage")
-						: (0, m.we)("#FriendGroup_Menu_CreateGroup"),
+						? Localize("#FriendGroup_Menu_Manage")
+						: Localize("#FriendGroup_Menu_CreateGroup"),
 				),
 				l.createElement(
 					u.nB,
@@ -281,14 +284,14 @@ class b extends l.Component {
 						),
 					l.createElement(u.pd, {
 						type: "text",
-						label: (0, m.we)("#FriendGroup_CategoryName"),
+						label: Localize("#FriendGroup_CategoryName"),
 						className: "nicknameInput",
 						value: this.state.strNameEntry,
 						onChange: this.HandleTextEntry,
 						autoFocus: true,
 					}),
 					l.createElement(p.r, {
-						label: (0, m.we)("#FriendGroup_CategoryMembers"),
+						label: Localize("#FriendGroup_CategoryMembers"),
 						eSort: 1,
 						rgPickedFriends: this.state.rgPickedFriends,
 						onChange: (e) =>
@@ -351,7 +354,7 @@ class y extends l.Component {
 			}
 			if (t) {
 				this.setState({
-					strError: (0, m.we)("#FriendGroup_ManageGroup_ErrorFailed"),
+					strError: Localize("#FriendGroup_ManageGroup_ErrorFailed"),
 				});
 			} else {
 				this.props.closeModal();
@@ -359,7 +362,7 @@ class y extends l.Component {
 		});
 	}
 	CreateNew(e) {
-		f((0, a.CO)(e), (0, h.uX)(e), this.props.friend);
+		f((0, a.CO)(e), GetOwningWindowForEvent(e), this.props.friend);
 	}
 	render() {
 		return l.createElement(
@@ -373,7 +376,7 @@ class y extends l.Component {
 					classNameContent: "AssignCategoriesDialog",
 					onSubmit: this.HandleSubmit,
 				},
-				l.createElement(u.Y9, null, (0, m.we)("#FriendGroup_Categorize_Title")),
+				l.createElement(u.Y9, null, Localize("#FriendGroup_Categorize_Title")),
 				l.createElement(
 					u.nB,
 					null,
@@ -413,7 +416,7 @@ class y extends l.Component {
 							{
 								onClick: this.CreateNew,
 							},
-							(0, m.we)("#FriendGroup_Categorize_AddNew"),
+							Localize("#FriendGroup_Categorize_AddNew"),
 						),
 					),
 				),
@@ -446,7 +449,7 @@ let S = class extends l.Component {
 			l.createElement(
 				u.JU,
 				null,
-				(0, m.we)("#FriendGroup_Categorize_Categories"),
+				Localize("#FriendGroup_Categorize_Categories"),
 			),
 			l.createElement(
 				"div",
@@ -545,7 +548,7 @@ let L = class extends l.Component {
 							this.props.closeModal();
 						}
 					} else if (e.strMessageToken) {
-						this.DisplayError((0, m.we)(e.strMessageToken));
+						this.DisplayError(Localize(e.strMessageToken));
 					} else if (this.props.closeModal) {
 						this.props.closeModal();
 					}
@@ -571,7 +574,7 @@ let L = class extends l.Component {
 					}
 				})
 				.catch((e) => {
-					this.DisplayError((0, m.we)("#Friends_NameChangeFailed_Info"));
+					this.DisplayError(Localize("#Friends_NameChangeFailed_Info"));
 				});
 		}
 	}
@@ -599,11 +602,11 @@ let L = class extends l.Component {
 					classNameContent: "ChangePersonaNameDialog",
 					onSubmit: this.HandleSubmit,
 				},
-				l.createElement(u.Y9, null, (0, m.we)("#ChangePersona_Title")),
+				l.createElement(u.Y9, null, Localize("#ChangePersona_Title")),
 				l.createElement(
 					u.nB,
 					null,
-					l.createElement(u.a3, null, (0, m.we)("#ChangePersona_Description")),
+					l.createElement(u.a3, null, Localize("#ChangePersona_Description")),
 					l.createElement(
 						u.a3,
 						null,
@@ -635,7 +638,7 @@ let L = class extends l.Component {
 									l.createElement(
 										"div",
 										null,
-										(0, m.we)("#ChangePersona_Change"),
+										Localize("#ChangePersona_Change"),
 									),
 									l.createElement(
 										"div",
@@ -643,7 +646,7 @@ let L = class extends l.Component {
 											className: "mediumName",
 										},
 										l.createElement(u.pd, {
-											placeholder: (0, m.we)("#ChangePersona_PlaceHolder"),
+											placeholder: Localize("#ChangePersona_PlaceHolder"),
 											className: "changePersonaInput",
 											value: this.state.strCurrentNameEntry,
 											onChange: this.HandleTextEntry,
@@ -862,7 +865,7 @@ let V = class extends l.Component {
 				l.createElement(
 					u.Y9,
 					null,
-					(0, m.we)("#Friend_Menu_NotificationsTitle"),
+					Localize("#Friend_Menu_NotificationsTitle"),
 				),
 				l.createElement(
 					u.nB,
@@ -872,7 +875,7 @@ let V = class extends l.Component {
 					l.createElement(
 						u.a3,
 						null,
-						(0, m.we)(
+						Localize(
 							"#FriendNotifications_Instructions",
 							this.props.player.display_name,
 						),
@@ -911,7 +914,7 @@ let V = class extends l.Component {
 										"span",
 										{
 											className: "playerNicknameBracket",
-											title: (0, m.we)("#isNickname"),
+											title: Localize("#isNickname"),
 										},
 										"*",
 									),
@@ -920,7 +923,7 @@ let V = class extends l.Component {
 					),
 					l.createElement(u.Yh, {
 						className: "useDefaultsCheckBox",
-						label: (0, m.we)("#FriendNotifications_UseDefaults"),
+						label: Localize("#FriendNotifications_UseDefaults"),
 						onChange: (e) => {
 							this.OnDefaultToggled(e);
 						},
@@ -942,39 +945,39 @@ let V = class extends l.Component {
 								{
 									className: "FriendsSettingsNotificationRow_Label",
 								},
-								(0, m.we)("#FriendSettings_Notification_Table_Label"),
+								Localize("#FriendSettings_Notification_Table_Label"),
 							),
 							l.createElement(
 								"div",
 								{
 									className: "FriendsSettingsNotificationRow_Checkbox",
 								},
-								(0, m.we)("#FriendSettings_Notification_Table_Show"),
+								Localize("#FriendSettings_Notification_Table_Show"),
 							),
 							l.createElement(
 								"div",
 								{
 									className: "FriendsSettingsNotificationRow_Checkbox",
 								},
-								(0, m.we)("#FriendSettings_Notification_Table_Play"),
+								Localize("#FriendSettings_Notification_Table_Play"),
 							),
 						),
 						l.createElement(e, {
-							strLabel: (0, m.we)(
+							strLabel: Localize(
 								"#FriendSettings_FriendNotification_FriendJoins",
 							),
 							strNameShow: "bNotifications_ShowIngame",
 							strNameSound: "bSounds_PlayIngame",
 						}),
 						l.createElement(e, {
-							strLabel: (0, m.we)(
+							strLabel: Localize(
 								"#FriendSettings_FriendNotification_FriendOnline",
 							),
 							strNameShow: "bNotifications_ShowOnline",
 							strNameSound: "bSounds_PlayOnline",
 						}),
 						l.createElement(e, {
-							strLabel: (0, m.we)("#FriendSettings_Notification_ChatMessage"),
+							strLabel: Localize("#FriendSettings_Notification_ChatMessage"),
 							strNameShow: "bNotifications_ShowMessage",
 							strNameSound: "bSounds_PlayMessage",
 						}),
@@ -1011,7 +1014,7 @@ export function tj(e, t, r, n) {
 			browserContext: e,
 			context: t,
 			friend: r,
-			ownerWindow: (0, h.uX)(n),
+			ownerWindow: GetOwningWindowForEvent(n),
 		}),
 		n,
 		{
@@ -1047,7 +1050,7 @@ let $ = (0, s.PA)(function (e) {
 					className: "recentName",
 					key: "name_history_none",
 				},
-				(0, m.we)("#Friend_Menu_RecentAliases_None"),
+				Localize("#Friend_Menu_RecentAliases_None"),
 			),
 		);
 	} else {
@@ -1058,7 +1061,7 @@ let $ = (0, s.PA)(function (e) {
 					className: "recentName",
 					key: "name_history_loading",
 				},
-				(0, m.we)("#Friend_Menu_RecentAliases_Loading"),
+				Localize("#Friend_Menu_RecentAliases_Loading"),
 			),
 		);
 	}
@@ -1068,7 +1071,7 @@ let $ = (0, s.PA)(function (e) {
 		l.createElement(
 			v.Vs,
 			{
-				label: (0, m.we)("#Friend_Menu_RecentAliases"),
+				label: Localize("#Friend_Menu_RecentAliases"),
 			},
 			r,
 		),
@@ -1101,9 +1104,9 @@ let ee = class extends l.Component {
 				let a = r.name;
 				let s = this.props.group.BCanIAssignRole(r.role_id);
 				if (r.role_id == e) {
-					a = (0, m.we)("#ChatRoomRole_Member");
+					a = Localize("#ChatRoomRole_Member");
 				} else if (a.startsWith("#ChatRoomRole_")) {
-					a = (0, m.we)(a);
+					a = Localize(a);
 				}
 				return l.createElement(ae, {
 					key: r.role_id,
@@ -1117,8 +1120,8 @@ let ee = class extends l.Component {
 			});
 		let a =
 			n && !r
-				? (0, m.we)("#Friend_Menu_EditRoles")
-				: (0, m.we)("#Friend_Menu_ViewRoles");
+				? Localize("#Friend_Menu_EditRoles")
+				: Localize("#Friend_Menu_ViewRoles");
 		return l.createElement(
 			l.Fragment,
 			null,
@@ -1137,7 +1140,7 @@ let ee = class extends l.Component {
 								bInteractableItem: true,
 							},
 							l.createElement(N.OeC, null),
-							(0, m.we)("#ChatRoomRole_Owner"),
+							Localize("#ChatRoomRole_Owner"),
 						)
 					: i,
 			),
@@ -1156,23 +1159,23 @@ export function Jw(e, t, r, n) {
 					},
 					href: T.TS.HELP_BASE_URL + "wizard/HelpWithLimitedAccount",
 				},
-				(0, m.we)("#Friend_InviteError_VisitSteamSupport"),
+				Localize("#Friend_InviteError_VisitSteamSupport"),
 			);
 			(0, D.Ic)(
 				e,
-				(0, m.we)("#Friend_Menu_AddToFriendsList"),
-				(0, m.we)("#Friend_Menu_AddToFriendsList"),
-				(0, m.we)("#Button_OK"),
-				(0, m.PP)("#Friend_InviteError_LimitedUserLink", t),
+				Localize("#Friend_Menu_AddToFriendsList"),
+				Localize("#Friend_Menu_AddToFriendsList"),
+				Localize("#Button_OK"),
+				LocalizeReact("#Friend_InviteError_LimitedUserLink", t),
 			);
 		} else {
-			(0, D.Ic)(e, (0, m.we)("#Friend_Menu_AddToFriendsList"), (0, m.we)(i, n));
+			(0, D.Ic)(e, Localize("#Friend_Menu_AddToFriendsList"), Localize(i, n));
 		}
 	} else {
 		(0, D.Ic)(
 			e,
-			(0, m.we)("#Friend_Menu_AddToFriendsList"),
-			(0, m.we)("#Friend_InviteError", n),
+			Localize("#Friend_Menu_AddToFriendsList"),
+			Localize("#Friend_InviteError", n),
 		);
 	}
 }
@@ -1226,14 +1229,14 @@ let ne = class extends l.PureComponent {
 		if (t == 4) {
 			(0, D.Ic)(
 				this.props.ownerWindow,
-				(0, m.we)("#Friend_Menu_AddToFriendsList"),
-				(0, m.we)("#Friend_InviteSent"),
+				Localize("#Friend_Menu_AddToFriendsList"),
+				Localize("#Friend_InviteSent"),
 			);
 		} else if (t == 3) {
 			(0, D.Ic)(
 				this.props.ownerWindow,
-				(0, m.we)("#Friend_Menu_AddToFriendsList"),
-				(0, m.we)("#Friend_MutualInviteSent", this.props.friend.display_name),
+				Localize("#Friend_Menu_AddToFriendsList"),
+				Localize("#Friend_MutualInviteSent", this.props.friend.display_name),
 			);
 		} else {
 			Jw(this.props.ownerWindow, e, 0, this.props.friend.display_name);
@@ -1245,8 +1248,8 @@ let ne = class extends l.PureComponent {
 		if (t == 3) {
 			(0, D.Ic)(
 				this.props.ownerWindow,
-				(0, m.we)("#Friend_Menu_AddToFriendsList"),
-				(0, m.we)("#Friend_MutualInviteSent", this.props.friend.display_name),
+				Localize("#Friend_Menu_AddToFriendsList"),
+				Localize("#Friend_MutualInviteSent", this.props.friend.display_name),
 			);
 		} else {
 			Jw(this.props.ownerWindow, e, 0, this.props.friend.display_name);
@@ -1257,8 +1260,8 @@ let ne = class extends l.PureComponent {
 			if (e == 1) {
 				(0, D.Ic)(
 					this.props.ownerWindow,
-					(0, m.we)("#Friend_Menu_IgnoreIncomingInvite"),
-					(0, m.we)(
+					Localize("#Friend_Menu_IgnoreIncomingInvite"),
+					Localize(
 						"#Friend_IgnoreIncomingInvite_Success",
 						this.props.friend.display_name,
 					),
@@ -1266,8 +1269,8 @@ let ne = class extends l.PureComponent {
 			} else {
 				(0, D.Ic)(
 					this.props.ownerWindow,
-					(0, m.we)("#Friend_Menu_IgnoreIncomingInvite"),
-					(0, m.we)(
+					Localize("#Friend_Menu_IgnoreIncomingInvite"),
+					Localize(
 						"#Friend_IgnoreIncomingInvite_Error",
 						this.props.friend.display_name,
 					),
@@ -1277,33 +1280,26 @@ let ne = class extends l.PureComponent {
 	}
 	RemoveFriend() {
 		let e = this.props.friend.efriendrelationship == 4;
-		let t = (0, m.we)(
+		let t = Localize(
 			e
 				? "#Friend_Menu_CancelInvitation"
 				: "#Friend_Menu_RemoveFromFriendsList",
 		);
-		let r = (0, m.we)(
+		let r = Localize(
 			e
 				? "#Friend_CancelInvitation_Confirm"
 				: "#Friend_RemoveFromFriendsList_Confirm",
 			this.props.friend.display_name,
 		);
-		let n = (0, m.we)(
+		let n = Localize(
 			e ? "#Button_Confirm" : "#Friend_Menu_RemoveFromFriendsList",
 		);
-		let a = (0, m.we)(
+		let a = Localize(
 			e
 				? "#Friend_CancelInvitation_Error"
 				: "#Friend_RemoveFromFriendsList_Error",
 		);
-		(0, D.Ci)(
-			this.props.ownerWindow,
-			t,
-			r,
-			n,
-			(0, m.we)("#Button_Cancel"),
-			true,
-		)
+		(0, D.Ci)(this.props.ownerWindow, t, r, n, Localize("#Button_Cancel"), true)
 			.then(() => {
 				i.xm.FriendStore.RemoveFriend(this.props.friend).then((e) => {
 					if (e == 3 || e == 6) {
@@ -1316,9 +1312,9 @@ let ne = class extends l.PureComponent {
 	BlockFriend() {
 		(0, D.Ci)(
 			this.props.ownerWindow,
-			(0, m.we)("#Friend_Menu_BlockAllCommunication"),
-			(0, m.we)("#Friend_Block_Confirm", this.props.friend.display_name),
-			(0, m.we)("#Friend_Menu_BlockAllCommunication"),
+			Localize("#Friend_Menu_BlockAllCommunication"),
+			Localize("#Friend_Block_Confirm", this.props.friend.display_name),
+			Localize("#Friend_Menu_BlockAllCommunication"),
 		)
 			.then(() => {
 				i.xm.FriendStore.BlockPlayer(this.props.friend);
@@ -1328,9 +1324,9 @@ let ne = class extends l.PureComponent {
 	UnblockFriend() {
 		(0, D.Ci)(
 			this.props.ownerWindow,
-			(0, m.we)("#Friend_Menu_UnblockAllCommunication"),
-			(0, m.we)("#Friend_Unblock_Confirm", this.props.friend.display_name),
-			(0, m.we)("#Friend_Menu_UnblockAllCommunication"),
+			Localize("#Friend_Menu_UnblockAllCommunication"),
+			Localize("#Friend_Unblock_Confirm", this.props.friend.display_name),
+			Localize("#Friend_Menu_UnblockAllCommunication"),
 		)
 			.then(() => {
 				i.xm.FriendStore.BlockPlayer(this.props.friend, true);
@@ -1416,7 +1412,7 @@ let ne = class extends l.PureComponent {
 						className: "contextMenuLabel contextMenuNotAFriend",
 						key: "header",
 					},
-					(0, m.we)("#Friend_Menu_NotAFriendLabel"),
+					Localize("#Friend_Menu_NotAFriendLabel"),
 				),
 			);
 		}
@@ -1437,7 +1433,7 @@ let ne = class extends l.PureComponent {
 							i.xm.UIStore.CloseTab(r.browserContext, n.tab);
 						},
 					},
-					(0, m.we)(
+					Localize(
 						this.context?.IN_GAMEPADUI
 							? "#Chat_CloseTabAction_SteamDeck"
 							: "#Chat_CloseTabAction",
@@ -1456,7 +1452,7 @@ let ne = class extends l.PureComponent {
 							r.friend.OpenChatDialog(r.browserContext);
 						},
 					},
-					(0, m.we)("#Friend_Menu_SendMessage"),
+					Localize("#Friend_Menu_SendMessage"),
 				),
 			);
 		}
@@ -1472,7 +1468,7 @@ let ne = class extends l.PureComponent {
 							R.ToggleVoiceChat();
 						},
 					},
-					(0, m.we)("#Friend_Menu_StopVoiceChat"),
+					Localize("#Friend_Menu_StopVoiceChat"),
 				),
 			);
 		} else if (I) {
@@ -1489,7 +1485,7 @@ let ne = class extends l.PureComponent {
 								},
 							},
 							l.createElement(N.mrd, null),
-							(0, m.we)("#Chat_Actions_InviteFriend_VoiceChat"),
+							Localize("#Chat_Actions_InviteFriend_VoiceChat"),
 						),
 					);
 				}
@@ -1506,7 +1502,7 @@ let ne = class extends l.PureComponent {
 								);
 							},
 						},
-						(0, m.we)("#Friend_Menu_StartVoiceChat"),
+						Localize("#Friend_Menu_StartVoiceChat"),
 					),
 				);
 			}
@@ -1525,7 +1521,7 @@ let ne = class extends l.PureComponent {
 					key: "viewprofile",
 					onSelected: this.ShowFriendProfile,
 				},
-				(0, m.we)("#Friend_Menu_ViewProfile"),
+				Localize("#Friend_Menu_ViewProfile"),
 			),
 		);
 		if (
@@ -1540,7 +1536,7 @@ let ne = class extends l.PureComponent {
 						key: "findgamestoplay",
 						onSelected: this.ShowFriendFiltereredLibrary,
 					},
-					(0, m.we)("#Friend_Menu_GamesToPlayTogether"),
+					Localize("#Friend_Menu_GamesToPlayTogether"),
 				),
 			);
 		}
@@ -1568,7 +1564,7 @@ let ne = class extends l.PureComponent {
 								d(r.browserContext, r.friend, r.ownerWindow);
 							},
 						},
-						(0, m.we)(
+						Localize(
 							r.friend.has_nickname
 								? "#Friend_Menu_ChangeNickname"
 								: "#Friend_Menu_AddNickname",
@@ -1587,7 +1583,7 @@ let ne = class extends l.PureComponent {
 								key: "quickaccess",
 								onSelected: Ae.bind(null, u),
 							},
-							(0, m.we)("#Friend_Menu_RemoveFromQuickAccess"),
+							Localize("#Friend_Menu_RemoveFromQuickAccess"),
 						),
 					);
 				} else {
@@ -1598,7 +1594,7 @@ let ne = class extends l.PureComponent {
 								key: "quickaccess",
 								onSelected: de.bind(null, u),
 							},
-							(0, m.we)("#Friend_Menu_AddToQuickAccess"),
+							Localize("#Friend_Menu_AddToQuickAccess"),
 						),
 					);
 				}
@@ -1622,7 +1618,7 @@ let ne = class extends l.PureComponent {
 											t,
 											"AssignFriendCategoryDialog",
 											{
-												strTitle: (0, m.we)("#FriendGroup_Menu_CreateGroup"),
+												strTitle: Localize("#FriendGroup_Menu_CreateGroup"),
 												popupWidth: 664,
 												popupHeight: 580,
 											},
@@ -1632,7 +1628,7 @@ let ne = class extends l.PureComponent {
 								})(r.browserContext, r.ownerWindow, r.friend);
 							},
 						},
-						(0, m.we)("#FriendGroup_Menu_Categorize"),
+						Localize("#FriendGroup_Menu_Categorize"),
 					),
 				);
 				c.push(
@@ -1651,7 +1647,7 @@ let ne = class extends l.PureComponent {
 									t,
 									"FriendNotificationsDialog",
 									{
-										strTitle: (0, m.we)("#Friend_Menu_Notifications"),
+										strTitle: Localize("#Friend_Menu_Notifications"),
 										popupWidth: 640,
 										popupHeight: 520,
 									},
@@ -1662,7 +1658,7 @@ let ne = class extends l.PureComponent {
 								var t;
 							},
 						},
-						(0, m.we)("#Friend_Menu_Notifications"),
+						Localize("#Friend_Menu_Notifications"),
 					),
 				);
 				if (!g) {
@@ -1673,7 +1669,7 @@ let ne = class extends l.PureComponent {
 								key: "removefriend",
 								onSelected: this.RemoveFriend,
 							},
-							(0, m.we)("#Friend_Menu_RemoveFromFriendsList"),
+							Localize("#Friend_Menu_RemoveFromFriendsList"),
 						),
 					);
 				}
@@ -1697,7 +1693,7 @@ let ne = class extends l.PureComponent {
 									this.InviteToWatch();
 								},
 							},
-							(0, m.we)("#Friend_Menu_InviteToWatch"),
+							Localize("#Friend_Menu_InviteToWatch"),
 						),
 					);
 				}
@@ -1715,7 +1711,7 @@ let ne = class extends l.PureComponent {
 									);
 								},
 							},
-							(0, m.we)("#Friend_Menu_InviteToLobby"),
+							Localize("#Friend_Menu_InviteToLobby"),
 						),
 					);
 				} else if (this.state.strConnectPrivate?.length != 0) {
@@ -1730,7 +1726,7 @@ let ne = class extends l.PureComponent {
 									this.InviteToGame(B, e);
 								},
 							},
-							(0, m.we)("#Friend_Menu_InviteToGame"),
+							Localize("#Friend_Menu_InviteToGame"),
 						),
 					);
 				} else if (i.xm.FriendStore.self.persona.connect_string) {
@@ -1745,7 +1741,7 @@ let ne = class extends l.PureComponent {
 									this.InviteToGame(B, e);
 								},
 							},
-							(0, m.we)("#Friend_Menu_InviteToGame"),
+							Localize("#Friend_Menu_InviteToGame"),
 						),
 					);
 				}
@@ -1760,7 +1756,7 @@ let ne = class extends l.PureComponent {
 									this.CancelRemotePlay();
 								},
 							},
-							(0, m.we)("#Friend_Menu_CancelRemotePlay"),
+							Localize("#Friend_Menu_CancelRemotePlay"),
 						),
 					);
 				} else if (
@@ -1776,7 +1772,7 @@ let ne = class extends l.PureComponent {
 									this.CancelAllRemotePlay();
 								},
 							},
-							(0, m.we)("#Friend_Menu_CancelAllRemotePlay"),
+							Localize("#Friend_Menu_CancelAllRemotePlay"),
 						),
 					);
 				} else if (this.state.bCanCreateRemotePlayInvite) {
@@ -1790,7 +1786,7 @@ let ne = class extends l.PureComponent {
 									this.InviteToRemotePlay();
 								},
 							},
-							(0, m.we)("#Friend_Menu_InviteToRemotePlay"),
+							Localize("#Friend_Menu_InviteToRemotePlay"),
 						),
 					);
 				}
@@ -1810,7 +1806,7 @@ let ne = class extends l.PureComponent {
 							key: "acceptincominginvite",
 							onSelected: this.AcceptIncomingInvite,
 						},
-						(0, m.we)("#Friend_Menu_AcceptIncomingInvite"),
+						Localize("#Friend_Menu_AcceptIncomingInvite"),
 					),
 				);
 				s.push(
@@ -1820,7 +1816,7 @@ let ne = class extends l.PureComponent {
 							key: "ignoreincominginvite",
 							onSelected: this.IgnoreIncomingInvite,
 						},
-						(0, m.we)("#Friend_Menu_IgnoreIncomingInvite"),
+						Localize("#Friend_Menu_IgnoreIncomingInvite"),
 					),
 				);
 				s.push(
@@ -1837,7 +1833,7 @@ let ne = class extends l.PureComponent {
 							key: "remove",
 							onSelected: this.RemoveFriend,
 						},
-						(0, m.we)("#Friend_Menu_CancelInvitation"),
+						Localize("#Friend_Menu_CancelInvitation"),
 					),
 				);
 			} else {
@@ -1848,7 +1844,7 @@ let ne = class extends l.PureComponent {
 							key: "invite",
 							onSelected: this.InviteFriend,
 						},
-						(0, m.we)("#Friend_Menu_AddToFriendsList"),
+						Localize("#Friend_Menu_AddToFriendsList"),
 					),
 				);
 			}
@@ -1862,7 +1858,7 @@ let ne = class extends l.PureComponent {
 								d(r.browserContext, r.friend, r.ownerWindow);
 							},
 						},
-						(0, m.we)(
+						Localize(
 							r.friend.has_nickname
 								? "#Friend_Menu_ChangeNickname"
 								: "#Friend_Menu_AddNickname",
@@ -1878,7 +1874,7 @@ let ne = class extends l.PureComponent {
 							key: "block",
 							onSelected: u.is_blocked ? this.UnblockFriend : this.BlockFriend,
 						},
-						(0, m.we)(
+						Localize(
 							u.is_blocked
 								? "#Friend_Menu_UnblockAllCommunication"
 								: "#Friend_Menu_BlockAllCommunication",
@@ -1981,7 +1977,7 @@ let ne = class extends l.PureComponent {
 				l.createElement(
 					v.Vs,
 					{
-						label: (0, m.we)("#Friend_Menu_Manage"),
+						label: Localize("#Friend_Menu_Manage"),
 					},
 					c,
 				),
@@ -2145,7 +2141,7 @@ ae = (0, n.Cg)([s.PA], ae);
 class se extends l.Component {
 	SendTradeOffer(e) {
 		let t = "NewTradeOffer" + this.props.friend.accountid;
-		let r = (0, h.uX)(e).open(
+		let r = GetOwningWindowForEvent(e).open(
 			i.xm.EconomyStore.GetDefaultTradeOfferURLForFriend(
 				this.props.friend.accountid,
 			),
@@ -2161,7 +2157,7 @@ class se extends l.Component {
 		return l.createElement(
 			v.Vs,
 			{
-				label: (0, m.we)("#FriendMenu_Trading"),
+				label: Localize("#FriendMenu_Trading"),
 			},
 			l.createElement(oe, {
 				friend: e,
@@ -2171,7 +2167,7 @@ class se extends l.Component {
 				{
 					onSelected: this.SendTradeOffer,
 				},
-				(0, m.we)("#FriendMenu_SendTradeOffer"),
+				Localize("#FriendMenu_SendTradeOffer"),
 			),
 		);
 	}
@@ -2184,7 +2180,7 @@ function oe(e) {
 				(0, R.EP)(t, e.friend.GetCommunityProfileURL() + "inventory/");
 			},
 		},
-		(0, m.we)("#FriendMenu_ViewInventory"),
+		Localize("#FriendMenu_ViewInventory"),
 	);
 }
 (0, n.Cg)([c.oI], se.prototype, "SendTradeOffer", null);
@@ -2193,10 +2189,10 @@ class le extends l.Component {
 		if (
 			await (0, D.WQ)(
 				this.props.ownerWindow,
-				(0, m.we)("#Friend_Ban"),
-				(0, m.we)("#Friend_Ban_Confirm", this.props.friend.display_name),
-				(0, m.we)("#Friend_Ban_Button"),
-				(0, m.we)("#Button_Cancel"),
+				Localize("#Friend_Ban"),
+				Localize("#Friend_Ban_Confirm", this.props.friend.display_name),
+				Localize("#Friend_Ban_Button"),
+				Localize("#Button_Cancel"),
 				true,
 			)
 		) {
@@ -2210,7 +2206,7 @@ class le extends l.Component {
 		new Promise((e, n) => {
 			let i = (0, D.dt)(
 				r,
-				(0, m.we)("#Friend_Kick", this.props.friend.display_name),
+				Localize("#Friend_Kick", this.props.friend.display_name),
 			);
 			(0, o.HT)(
 				l.createElement(fe, {
@@ -2248,7 +2244,7 @@ class le extends l.Component {
 							key: "kick",
 							onSelected: this.OnKickFriend,
 						},
-						(0, m.we)("#Friend_Menu_KickFromChatRoom"),
+						Localize("#Friend_Menu_KickFromChatRoom"),
 					),
 				);
 			}
@@ -2261,7 +2257,7 @@ class le extends l.Component {
 							key: "ban",
 							onSelected: this.BanFriend,
 						},
-						(0, m.we)("#Friend_Menu_Ban"),
+						Localize("#Friend_Menu_Ban"),
 					),
 				);
 			}
@@ -2284,7 +2280,7 @@ class le extends l.Component {
 						key: "notmember",
 						onSelected: null,
 					},
-					(0, m.we)("#Friend_Menu_HasLeftChat"),
+					Localize("#Friend_Menu_HasLeftChat"),
 				),
 			);
 		}
@@ -2425,7 +2421,7 @@ export let Rm = class extends l.Component {
 					{
 						className: "contextMenuGameName",
 					},
-					(0, m.we)(
+					Localize(
 						"#Friend_Menu_ViewGameStorePageGameName",
 						this.props.strGameName || n.name,
 					),
@@ -2460,7 +2456,7 @@ export let Rm = class extends l.Component {
 						onSelected: this.ShowInSteam,
 					},
 					l.createElement(N.jGG, null),
-					(0, m.we)("#Friend_Menu_ShowInSteam"),
+					Localize("#Friend_Menu_ShowInSteam"),
 				),
 			);
 		} else if (this.state.bIsSubscribedToApp) {
@@ -2475,7 +2471,7 @@ export let Rm = class extends l.Component {
 							onSelected: this.JoinPartyBeacon,
 						},
 						l.createElement(N.jGG, null),
-						(0, m.we)("#Friend_Menu_JoinFriendPartyBeacon"),
+						Localize("#Friend_Menu_JoinFriendPartyBeacon"),
 					),
 				);
 			} else if (r && r.persona.is_in_joinable_game) {
@@ -2488,7 +2484,7 @@ export let Rm = class extends l.Component {
 							onSelected: this.JoinGame,
 						},
 						l.createElement(N.jGG, null),
-						(0, m.we)("#Friend_Menu_JoinFriendGame"),
+						Localize("#Friend_Menu_JoinFriendGame"),
 					),
 				);
 			}
@@ -2502,7 +2498,7 @@ export let Rm = class extends l.Component {
 							onSelected: this.LaunchGame,
 						},
 						l.createElement(N.jGG, null),
-						(0, m.we)("#Friend_Menu_LaunchFriendGame"),
+						Localize("#Friend_Menu_LaunchFriendGame"),
 					),
 				);
 			}
@@ -2516,7 +2512,7 @@ export let Rm = class extends l.Component {
 						key: "watchgame",
 						onSelected: this.WatchGame,
 					},
-					(0, m.we)("#Friend_Menu_WatchFriendGame"),
+					Localize("#Friend_Menu_WatchFriendGame"),
 				),
 			);
 		}
@@ -2531,7 +2527,7 @@ export let Rm = class extends l.Component {
 						key: "viewgameinfo",
 						onSelected: this.ViewGameInfo,
 					},
-					(0, m.we)("#Friend_Menu_ViewGameInfo"),
+					Localize("#Friend_Menu_ViewGameInfo"),
 				),
 			);
 		}
@@ -2544,7 +2540,7 @@ export let Rm = class extends l.Component {
 						key: "viewstorepage",
 						onSelected: this.ShowStorePage,
 					},
-					(0, m.we)("#Friend_Menu_ViewGameStorePage"),
+					Localize("#Friend_Menu_ViewGameStorePage"),
 				),
 			);
 		}
@@ -2557,7 +2553,7 @@ export let Rm = class extends l.Component {
 						key: "viewcommunityhub",
 						onSelected: this.ShowCommunityHub,
 					},
-					(0, m.we)("#Friend_Menu_ViewCommunityHub"),
+					Localize("#Friend_Menu_ViewCommunityHub"),
 				),
 			);
 		}
@@ -2623,7 +2619,7 @@ let ue = class extends l.Component {
 					{
 						className: "contextMenuBroadcastTitle",
 					},
-					(0, m.we)("#Broadcast_Watching"),
+					Localize("#Broadcast_Watching"),
 				),
 				l.createElement(
 					"div",
@@ -2644,7 +2640,7 @@ let ue = class extends l.Component {
 						className: "contextMenuGameOptions",
 						onSelected: this.WatchStream,
 					},
-					(0, m.we)("#Broadcast_WatchStream"),
+					Localize("#Broadcast_WatchStream"),
 				),
 			),
 		);
@@ -2665,7 +2661,7 @@ export function iS(e, t, r) {
 		l.createElement(ge, {
 			browserContext: e,
 			group: t,
-			ownerWindow: (0, h.uX)(r),
+			ownerWindow: GetOwningWindowForEvent(r),
 		}),
 		r,
 	);
@@ -2694,7 +2690,7 @@ function ge(e) {
 							n,
 							"CreateFriendCategoryDialog",
 							{
-								strTitle: (0, m.we)("#FriendGroup_Menu_Manage"),
+								strTitle: Localize("#FriendGroup_Menu_Manage"),
 								popupWidth: 664,
 								popupHeight: 700,
 							},
@@ -2702,7 +2698,7 @@ function ge(e) {
 						);
 					},
 				},
-				(0, m.we)("#FriendGroup_Menu_Manage"),
+				Localize("#FriendGroup_Menu_Manage"),
 			),
 		);
 		t.push(
@@ -2714,7 +2710,7 @@ function ge(e) {
 						i.xm.FriendStore.FriendGroupStore.RemoveGroup(e.group);
 					},
 				},
-				(0, m.we)("#FriendGroup_Menu_Remove"),
+				Localize("#FriendGroup_Menu_Remove"),
 			),
 		);
 	}
@@ -2733,7 +2729,7 @@ function ge(e) {
 					f(e.browserContext, e.ownerWindow);
 				},
 			},
-			(0, m.we)("#FriendGroup_Menu_CreateGroup"),
+			Localize("#FriendGroup_Menu_CreateGroup"),
 		),
 	);
 }
@@ -2794,7 +2790,7 @@ class Ce extends l.PureComponent {
 			t,
 			"ChangePersonaDialog",
 			{
-				strTitle: (0, m.we)("#Friend_Menu_AddNickname"),
+				strTitle: Localize("#Friend_Menu_AddNickname"),
 				popupWidth: 640,
 				popupHeight: 400,
 			},
@@ -2813,7 +2809,7 @@ class Ce extends l.PureComponent {
 					bChecked: r,
 					onSelected: this.SetUserOnline,
 				},
-				(0, m.we)("#PersonaStateOnline"),
+				Localize("#PersonaStateOnline"),
 			),
 		);
 		let n = i.xm.FriendStore.self.persona.m_ePersonaState == 3;
@@ -2825,7 +2821,7 @@ class Ce extends l.PureComponent {
 					bChecked: n,
 					onSelected: this.SetUserAway,
 				},
-				(0, m.we)("#PersonaStateAway"),
+				Localize("#PersonaStateAway"),
 			),
 		);
 		let a = i.xm.FriendStore.self.persona.m_ePersonaState == 7;
@@ -2838,13 +2834,13 @@ class Ce extends l.PureComponent {
 					bChecked: a,
 					onSelected: this.SetUserInvisible,
 				},
-				(0, m.we)("#PersonaStateInvisible"),
+				Localize("#PersonaStateInvisible"),
 				l.createElement(
 					"div",
 					{
 						className: "persona_menu_descriptor",
 					},
-					(0, m.we)("#PersonaStateInvisibleDescriptor"),
+					Localize("#PersonaStateInvisibleDescriptor"),
 				),
 			),
 		);
@@ -2862,13 +2858,13 @@ class Ce extends l.PureComponent {
 						bChecked: t,
 						onSelected: this.SetUserOffline,
 					},
-					(0, m.we)("#PersonaStateOffline"),
+					Localize("#PersonaStateOffline"),
 					l.createElement(
 						"div",
 						{
 							className: "persona_menu_descriptor",
 						},
-						(0, m.we)("#PersonaStateOfflineDescriptor"),
+						Localize("#PersonaStateOfflineDescriptor"),
 					),
 				),
 			);
@@ -2888,14 +2884,14 @@ class Ce extends l.PureComponent {
 						key: "dnd_checkbox",
 						className: "DNDCheckBox",
 						checked: e,
-						label: (0, m.we)("#User_ToggleDoNotDisturb"),
+						label: Localize("#User_ToggleDoNotDisturb"),
 					}),
 					l.createElement(
 						"div",
 						{
 							className: "persona_menu_dnd_descriptor",
 						},
-						(0, m.we)("#PersonaStateDoNotDisturbDescriptor"),
+						Localize("#PersonaStateDoNotDisturbDescriptor"),
 					),
 				),
 			);
@@ -2907,7 +2903,7 @@ class Ce extends l.PureComponent {
 					key: "editname",
 					onSelected: this.EditName,
 				},
-				(0, m.we)("#Friend_Menu_ChangeMyName"),
+				Localize("#Friend_Menu_ChangeMyName"),
 			),
 		);
 		if (t) {
@@ -2955,15 +2951,15 @@ class fe extends l.Component {
 	render() {
 		let e = [
 			{
-				label: (0, m.we)("#Friend_Kick_Hour"),
+				label: Localize("#Friend_Kick_Hour"),
 				data: _e,
 			},
 			{
-				label: (0, m.we)("#Friend_Kick_Day"),
+				label: Localize("#Friend_Kick_Day"),
 				data: 86400,
 			},
 			{
-				label: (0, m.we)("#Friend_Kick_Week"),
+				label: Localize("#Friend_Kick_Week"),
 				data: 604800,
 			},
 		];
@@ -2979,13 +2975,13 @@ class fe extends l.Component {
 					onSubmit: this.OnOK,
 					bCenterVertically: true,
 				},
-				l.createElement(u.Y9, null, " ", (0, m.we)("#Friend_Kick"), " "),
+				l.createElement(u.Y9, null, " ", Localize("#Friend_Kick"), " "),
 				l.createElement(
 					u.nB,
 					null,
-					l.createElement(u.a3, null, (0, m.we)("#Friend_Kick_How_Long")),
+					l.createElement(u.a3, null, Localize("#Friend_Kick_How_Long")),
 					l.createElement(u.m, {
-						strDefaultLabel: (0, m.we)("#Friend_Kick_Hour"),
+						strDefaultLabel: Localize("#Friend_Kick_Hour"),
 						rgOptions: e,
 						onChange: this.OnDropDownChange,
 						selectedOption: undefined,
@@ -2996,8 +2992,8 @@ class fe extends l.Component {
 					null,
 					l.createElement(u.CB, {
 						onCancel: this.OnCancel,
-						strOKText: (0, m.we)("#Friend_Kick_Button"),
-						strCancelText: (0, m.we)("#Button_Cancel"),
+						strOKText: Localize("#Friend_Kick_Button"),
+						strCancelText: Localize("#Button_Cancel"),
 					}),
 				),
 			),
@@ -3029,9 +3025,9 @@ const be = (0, s.PA)((e) => {
 		Z.o0,
 		{
 			bAlertDialog: true,
-			strTitle: (0, m.we)("#Friend_JoinGameWait_Title"),
-			strDescription: (0, m.we)("#Friend_JoinGameWait_Desc"),
-			strOKButtonText: (0, m.we)("#Friend_JoinGameWait_Cancel"),
+			strTitle: Localize("#Friend_JoinGameWait_Title"),
+			strDescription: Localize("#Friend_JoinGameWait_Desc"),
+			strOKButtonText: Localize("#Friend_JoinGameWait_Cancel"),
 			onOK: n,
 			onCancel: n,
 			closeModal: n,

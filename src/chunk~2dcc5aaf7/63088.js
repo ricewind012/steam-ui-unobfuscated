@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./12176.js");
 var a = require("./99104.js");
 var s = require(/*webcrack:missing*/ "./42318.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { CLocalizationManager } from "../../actual_src/utils/localization.js";
 var l = require("./31930.js");
 async function c(e, t = "SHA-256") {
 	let r;
@@ -446,7 +446,7 @@ const E = (e) => {
 	w = e;
 	s.tH.InstallErrorReportingStore(w);
 	i.lI.InstallErrorReportingStore(w);
-	o.A0.InstallErrorReportingStore(w);
+	CLocalizationManager.InstallErrorReportingStore(w);
 	l.U.InstallErrorReportingStore(w);
 };
 async function M(e) {

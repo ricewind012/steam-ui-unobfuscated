@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require(/*webcrack:missing*/ "./44846.js");
 var l = require("./88724.js");
 var c = require("./62556.js");
@@ -20,7 +20,7 @@ function h(e) {
 			{
 				className: p.partyBeaconJoin,
 			},
-			(0, s.we)("#User_WantsToPlay"),
+			(0, Localize)("#User_WantsToPlay"),
 		),
 		"\xA0–\xA0",
 		e.persona.GetCurrentGameName(),
@@ -65,22 +65,22 @@ export let D = class extends i.Component {
 				persona: r,
 			});
 		} else if ((0, o.aP)(n)) {
-			D = (0, s.we)("#PersonaStateBlocked");
+			D = (0, Localize)("#PersonaStateBlocked");
 			F.push(p.blocked);
 		} else if (r.is_ingame) {
 			D =
 				!r.is_in_nonsteam_game || a || (0, o.S$)(n)
 					? r.GetCurrentGameName()
-					: (0, s.we)("#PersonaStateInNonSteamGame");
+					: (0, Localize)("#PersonaStateInNonSteamGame");
 			if (a || v) {
 				if (a && r.is_awayOrSnooze) {
-					N = (0, s.we)("#PersonaStateAway");
+					N = (0, Localize)("#PersonaStateAway");
 				}
 			} else {
 				N = r.GetCurrentGameRichPresence();
 			}
 		} else if (r.m_broadcastAccountId) {
-			D = (0, s.we)("#PersonaStateWatchingBroadcast");
+			D = (0, Localize)("#PersonaStateWatchingBroadcast");
 		}
 		D ||= r.GetLocalizedOnlineStatus();
 		if (w) {
@@ -159,7 +159,7 @@ export let D = class extends i.Component {
 						"div",
 						{
 							className: p.DNDContainer,
-							title: (0, s.we)("#User_ToggleDoNotDisturb"),
+							title: (0, Localize)("#User_ToggleDoNotDisturb"),
 						},
 						i.createElement(u.Aj0, null),
 					),
@@ -168,7 +168,7 @@ export let D = class extends i.Component {
 						"span",
 						{
 							className: p.playerNicknameBracket,
-							title: (0, s.we)("#isNickname"),
+							title: (0, Localize)("#isNickname"),
 						},
 						" *",
 					),
@@ -182,7 +182,7 @@ export let D = class extends i.Component {
 						"div",
 						{
 							className: p.PendingPersona,
-							title: (0, s.we)("#SteamChina_PendingPersonaName"),
+							title: (0, Localize)("#SteamChina_PendingPersonaName"),
 						},
 						i.createElement(u.zD7, null),
 					),
@@ -210,7 +210,7 @@ export let D = class extends i.Component {
 									"div",
 									{
 										className: p.gameIsPrivateIcon,
-										title: (0, s.we)("#User_GameInfoHidden"),
+										title: (0, Localize)("#User_GameInfoHidden"),
 									},
 									i.createElement(u.jZl, null),
 								),

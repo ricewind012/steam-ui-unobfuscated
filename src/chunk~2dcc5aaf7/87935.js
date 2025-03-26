@@ -3,7 +3,7 @@ var i = require("./3475.js");
 var a = require(/*webcrack:missing*/ "./72476.js");
 var s = require(/*webcrack:missing*/ "./53807.js");
 var o = require(/*webcrack:missing*/ "./45328.js");
-var l = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var c = require(/*webcrack:missing*/ "./90095.js");
 var m = require(/*webcrack:missing*/ "./89193.js");
 const u = [
@@ -336,7 +336,7 @@ class d {
 		return this.ResolveURL("PointsShop") + "app/" + e;
 	}
 	NavigateToSteamURLInOwningWindow(e, t, ...r) {
-		(0, l.uX)(e).location.href = this.BuildSteamURL(t, ...r);
+		GetOwningWindowForEvent(e).location.href = this.BuildSteamURL(t, ...r);
 	}
 	BuildStoreAssetURL(e, t, r) {
 		return `${this.GetStoreAppImageURL()}/${e}/${t}`;

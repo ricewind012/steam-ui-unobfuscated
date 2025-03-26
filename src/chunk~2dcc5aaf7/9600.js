@@ -8,7 +8,7 @@ var c = require("./64608.js");
 var m = require("./10606.js");
 var u = require("./13869.js");
 var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var p = require(/*webcrack:missing*/ "./72476.js");
 var g = require("./39500.js");
 var h = g;
@@ -25,7 +25,7 @@ export function J(e, t) {
 				}),
 				t || window,
 				{
-					strTitle: (0, A.we)(C),
+					strTitle: Localize(C),
 				},
 			);
 		}
@@ -94,12 +94,12 @@ const f = (e) => {
 				{
 					className: h.ModalHeader,
 				},
-				(0, A.we)(C),
+				Localize(C),
 			),
 			l.createElement(
 				c.nB,
 				null,
-				l.createElement("div", null, (0, A.we)(v, B)),
+				l.createElement("div", null, Localize(v, B)),
 				l.createElement(
 					"div",
 					{
@@ -111,7 +111,7 @@ const f = (e) => {
 							className: h.RequestButton,
 							onClick: S,
 						},
-						(0, A.we)(I),
+						Localize(I),
 					),
 				),
 				l.createElement(
@@ -125,14 +125,14 @@ const f = (e) => {
 							{
 								onClick: w,
 							},
-							(0, A.we)("#BorrowGameDialog_Purchase"),
+							Localize("#BorrowGameDialog_Purchase"),
 						),
 						l.createElement(
 							c.$n,
 							{
 								onClick: g,
 							},
-							(0, A.we)("#Button_Cancel"),
+							Localize("#Button_Cancel"),
 						),
 					),
 				),

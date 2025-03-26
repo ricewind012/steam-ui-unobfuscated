@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./44846.js");
 var i = require(/*webcrack:missing*/ "./28987.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { CLocalizationManager } from "../../actual_src/utils/localization.js";
 export function P(e, t, r) {
 	if (e == null || e == null) {
 		e = t;
@@ -9,12 +9,12 @@ export function P(e, t, r) {
 		return e;
 	}
 	for (const t of r) {
-		if (a.A0.IsELanguageValidInRealm(e, t)) {
+		if (CLocalizationManager.IsELanguageValidInRealm(e, t)) {
 			return e;
 		}
 	}
 	for (const e of r) {
-		if (a.A0.IsELanguageValidInRealm(t, e)) {
+		if (CLocalizationManager.IsELanguageValidInRealm(t, e)) {
 			return t;
 		}
 	}

@@ -1,6 +1,6 @@
 export var PP;
 var i = require("./87935.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require(/*webcrack:missing*/ "./52451.js");
 export class eA {
 	static g_Singleton = null;
@@ -40,8 +40,8 @@ export class eA {
 				(e.startsWith("@")
 					? this.m_mapAppIcons.get(t)?.find((t) => t.strFilename == e)?.strURL
 					: e.startsWith("ghost") ||
-							e.startsWith("genesis") ||
-							e.startsWith("special_blank")
+						  e.startsWith("genesis") ||
+						  e.startsWith("special_blank")
 						? this.m_URIContext("./" + e).default
 						: "")
 			);
@@ -158,37 +158,37 @@ export const dS = Object.values(PP).filter((e) => typeof e == "number");
 export function ZC(e) {
 	switch (e) {
 		case PP.AppIcons:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_AppIcons");
+			return Localize("#ControllerConfigurator_IconCategory_AppIcons");
 		case PP.Weapons:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Weapons");
+			return Localize("#ControllerConfigurator_IconCategory_Weapons");
 		case PP.Ammo:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Ammo");
+			return Localize("#ControllerConfigurator_IconCategory_Ammo");
 		case PP.Inventory:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Inventory");
+			return Localize("#ControllerConfigurator_IconCategory_Inventory");
 		case PP.Magic:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Magic");
+			return Localize("#ControllerConfigurator_IconCategory_Magic");
 		case PP.Actions:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Actions");
+			return Localize("#ControllerConfigurator_IconCategory_Actions");
 		case PP.Movement:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Movement");
+			return Localize("#ControllerConfigurator_IconCategory_Movement");
 		case PP.Menu:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Menu");
+			return Localize("#ControllerConfigurator_IconCategory_Menu");
 		case PP.Vehicle:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Vehicle");
+			return Localize("#ControllerConfigurator_IconCategory_Vehicle");
 		case PP.Utility:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Utility");
+			return Localize("#ControllerConfigurator_IconCategory_Utility");
 		case PP.Input:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Input");
+			return Localize("#ControllerConfigurator_IconCategory_Input");
 		case PP.Media:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Media");
+			return Localize("#ControllerConfigurator_IconCategory_Media");
 		case PP.Targets:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Targets");
+			return Localize("#ControllerConfigurator_IconCategory_Targets");
 		case PP.Social:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Social");
+			return Localize("#ControllerConfigurator_IconCategory_Social");
 		case PP.Other:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_Other");
+			return Localize("#ControllerConfigurator_IconCategory_Other");
 		case PP.User:
-			return (0, a.we)("#ControllerConfigurator_IconCategory_User");
+			return Localize("#ControllerConfigurator_IconCategory_User");
 	}
 }
 export function j9(e, t) {

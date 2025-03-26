@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./53833.js");
+import { ShuffleArray } from "../../actual_src/utils/arrayutils.js";
 var s = require(/*webcrack:missing*/ "./89193.js");
 var o = require(/*webcrack:missing*/ "./41230.js");
 var l = require(/*webcrack:missing*/ "./52451.js");
@@ -66,7 +66,10 @@ class b extends i.PureComponent {
 		);
 	}
 }
-var y = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var S = require("./82325.js");
 var _w = require("./34792.js");
 var B = require("./94715.js");
@@ -84,7 +87,10 @@ var G = require("./13869.js");
 var O = require("./10606.js");
 var P = require("./48434.js");
 var L = P;
-var z = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	IsHTMLElement,
+} from "../../actual_src/utils/domutils.js";
 class x extends i.Component {
 	constructor(e) {
 		super(e);
@@ -94,7 +100,7 @@ class x extends i.Component {
 		};
 	}
 	static get Title() {
-		return (0, y.we)("#ReportItem_Title");
+		return (0, Localize)("#ReportItem_Title");
 	}
 	OnReportTextChange(e) {
 		this.setState({
@@ -102,7 +108,7 @@ class x extends i.Component {
 		});
 	}
 	NavigateToDMCAItem(e) {
-		(0, z.uX)(e).location.href =
+		GetOwningWindowForEvent(e).location.href =
 			`${T.B7.GetCommunityURL()}dmca/create/${this.props.published_file_id}`;
 		this.CloseModal();
 	}
@@ -115,7 +121,7 @@ class x extends i.Component {
 			.catch((e) => {
 				console.error("ReportItem failed", e);
 				this.setState({
-					strErrorText: (0, y.we)("#ReportItem_Error"),
+					strErrorText: (0, Localize)("#ReportItem_Error"),
 				});
 			});
 	}
@@ -132,7 +138,7 @@ class x extends i.Component {
 				onOK: this.ReportItem,
 				onCancel: this.CloseModal,
 				bOKDisabled: !this.state.strReportText,
-				strOKButtonText: (0, y.we)("#ReportItem_SubmitReport"),
+				strOKButtonText: (0, Localize)("#ReportItem_SubmitReport"),
 			},
 			i.createElement(
 				"div",
@@ -144,14 +150,14 @@ class x extends i.Component {
 					{
 						className: L.Description,
 					},
-					(0, y.we)("#ReportItem_Description"),
+					(0, Localize)("#ReportItem_Description"),
 				),
 				i.createElement(
 					"div",
 					{
 						className: L.Description2,
 					},
-					(0, y.we)("#ReportItem_Description_Line2"),
+					(0, Localize)("#ReportItem_Description_Line2"),
 				),
 				i.createElement("textarea", {
 					className: L.InputBox,
@@ -172,14 +178,14 @@ class x extends i.Component {
 					{
 						className: L.DMCA,
 					},
-					(0, y.PP)(
+					LocalizeReact(
 						"#ReportItem_DMCA",
 						i.createElement(
 							"a",
 							{
 								onClick: this.NavigateToDMCAItem,
 							},
-							(0, y.we)("#ReportItem_DMCA_LinkText"),
+							(0, Localize)("#ReportItem_DMCA_LinkText"),
 						),
 					),
 				),
@@ -587,14 +593,14 @@ export let w = class extends i.Component {
 			{
 				className: j.Highlight,
 			},
-			(0, y.we)("#AppDetails_Community_Tooltip1"),
+			(0, Localize)("#AppDetails_Community_Tooltip1"),
 		);
 		let t = i.createElement(
 			"span",
 			{
 				className: j.Highlight,
 			},
-			(0, y.we)("#AppDetails_Community_Tooltip2"),
+			(0, Localize)("#AppDetails_Community_Tooltip2"),
 		);
 		let r = i.createElement(
 			U.t1,
@@ -615,7 +621,7 @@ export let w = class extends i.Component {
 			{
 				feature: 2,
 				className: j.CommunityContentContainer,
-				label: (0, y.we)("#AppDetails_SectionTitle_Community"),
+				label: (0, Localize)("#AppDetails_SectionTitle_Community"),
 				tooltip: r,
 				headerClass: j.HeaderStyles,
 				showRule: true,
@@ -653,7 +659,7 @@ export let w = class extends i.Component {
 						{
 							className: j.NoContent,
 						},
-						(0, y.we)("#AppDetails_CommunityFeed_OutOfContent"),
+						(0, Localize)("#AppDetails_CommunityFeed_OutOfContent"),
 					),
 				a &&
 					i.createElement(
@@ -662,7 +668,7 @@ export let w = class extends i.Component {
 							className: j.LoadContentButton,
 							onClick: this.LoadAdditionalContent,
 						},
-						(0, y.we)("#AppDetails_CommunityFeed_LoadCommunity"),
+						(0, Localize)("#AppDetails_CommunityFeed_LoadCommunity"),
 					),
 			),
 		);
@@ -883,7 +889,7 @@ function oe(e, t) {
 		console.log("No matching template for:", e[0]);
 		return null;
 	}
-	a.fW(r);
+	ShuffleArray(r);
 	let n = null;
 	for (let t of r) {
 		let r = le(e, t);
@@ -1035,24 +1041,25 @@ class ce extends i.PureComponent {
 	ShowOptionsContextMenu(e, t) {
 		let r = [
 			{
-				data: (e) => he(this.props, this.OnReported, (0, z.uX)(e)),
-				label: (0, y.we)("#CommunityItem_Menu_Report"),
+				data: (e) =>
+					he(this.props, this.OnReported, GetOwningWindowForEvent(e)),
+				label: (0, Localize)("#CommunityItem_Menu_Report"),
 			},
 		];
 		if (e) {
 			r.push({
 				data: this.OnShowAwardModal,
-				label: (0, y.we)("#GrantAwardTitle"),
+				label: (0, Localize)("#GrantAwardTitle"),
 			});
 			r.push(
 				this.props.card.eVoteDirection != R.bJ.Down
 					? {
 							data: () => this.OnVoted(R.bJ.Up),
-							label: (0, y.we)("#CommunityItem_Menu_RateUp"),
+							label: (0, Localize)("#CommunityItem_Menu_RateUp"),
 						}
 					: {
 							data: () => this.OnVoted(R.bJ.Down),
-							label: (0, y.we)("#CommunityItem_Menu_RateDown"),
+							label: (0, Localize)("#CommunityItem_Menu_RateDown"),
 						},
 			);
 		}
@@ -1067,7 +1074,7 @@ class ce extends i.PureComponent {
 			bFitToWindow: true,
 			strClassName: (0, c.A)("DialogMenuPosition", j.SortingDropDownContainer),
 		};
-		(0, N.lX)(n, t, a).SetLabel((0, y.we)("#ActionButtonLabelContextMenu"));
+		(0, N.lX)(n, t, a).SetLabel((0, Localize)("#ActionButtonLabelContextMenu"));
 	}
 	render() {
 		const { index: e, card: t, className: r, ...n } = this.props;
@@ -1127,7 +1134,7 @@ class ce extends i.PureComponent {
 				"data-width": t.nWidth,
 				"data-id": m,
 				onMenuButton: (e) => this.ShowOptionsContextMenu(d, e),
-				onMenuActionDescription: (0, y.we)("#ActionButtonLabelContextMenu"),
+				onMenuActionDescription: (0, Localize)("#ActionButtonLabelContextMenu"),
 				scrollIntoViewWhenChildFocused: true,
 				...n,
 			},
@@ -1187,7 +1194,7 @@ const me = (e) => {
 				className: j.GuideTitle,
 			},
 			" ",
-			(0, y.we)("#AppDetails_Community_Guide"),
+			(0, Localize)("#AppDetails_Community_Guide"),
 			" ",
 		),
 		i.createElement(
@@ -1263,7 +1270,7 @@ const ue = (e) => {
 		i.createElement(
 			"div",
 			null,
-			(0, y.we)("#AppDetails_CommunityFeed_Inappropriate"),
+			(0, Localize)("#AppDetails_CommunityFeed_Inappropriate"),
 		),
 		i.createElement(
 			"div",
@@ -1276,7 +1283,7 @@ const ue = (e) => {
 					focusable: true,
 					onActivate: e.onDismissInappropriate,
 				},
-				(0, y.we)("#AppDetails_CommunityFeed_ViewContent"),
+				(0, Localize)("#AppDetails_CommunityFeed_ViewContent"),
 			),
 			i.createElement(
 				f.Z,
@@ -1284,7 +1291,7 @@ const ue = (e) => {
 					focusable: true,
 					onActivate: t,
 				},
-				(0, y.we)("#AppDetails_CommunityFeed_EditPreferences"),
+				(0, Localize)("#AppDetails_CommunityFeed_EditPreferences"),
 			),
 		),
 	);
@@ -1299,7 +1306,9 @@ class de extends i.PureComponent {
 		);
 	}
 	ShowContextMenu(e) {
-		const t = (0, z.kD)(e.target) ? e.target.ownerDocument.defaultView : window;
+		const t = IsHTMLElement(e.target)
+			? e.target.ownerDocument.defaultView
+			: window;
 		(0, N.lX)(
 			i.createElement(
 				F.tz,
@@ -1309,7 +1318,7 @@ class de extends i.PureComponent {
 					{
 						onSelected: () => this.SaveScreenshot(t),
 					},
-					(0, y.we)("#ContextMenu_SaveScreenshot"),
+					(0, Localize)("#ContextMenu_SaveScreenshot"),
 				),
 			),
 			e,
@@ -1373,24 +1382,24 @@ function Ae() {
 		{
 			className: j.SpoilerOverlay,
 		},
-		(0, y.we)(e),
+		(0, Localize)(e),
 	);
 }
 async function pe(e, t) {
-	let r = (0, z.uX)(e);
-	let n = (0, y.we)("#AppDetails_CommunityItem");
+	let r = GetOwningWindowForEvent(e);
+	let n = (0, Localize)("#AppDetails_CommunityItem");
 	switch (t.item.type) {
 		case 3:
-			n = (0, y.we)("#AppDetails_Artwork");
+			n = (0, Localize)("#AppDetails_Artwork");
 			break;
 		case 5:
-			n = (0, y.we)("#AppDetails_Screenshot");
+			n = (0, Localize)("#AppDetails_Screenshot");
 			break;
 		case 4:
-			n = (0, y.we)("#AppDetails_Video");
+			n = (0, Localize)("#AppDetails_Video");
 			break;
 		default:
-			n = (0, y.we)("#AppDetails_CommunityItem");
+			n = (0, Localize)("#AppDetails_CommunityItem");
 	}
 	let a = _.w.Init(M.TA);
 	a.Body().set_publishedfileids([t.item.published_file_id]);
@@ -1473,10 +1482,10 @@ class Ce extends i.Component {
 					F.kt,
 					{
 						onSelected: (e) =>
-							he(this.props, this.props.onReported, (0, z.uX)(e)),
+							he(this.props, this.props.onReported, GetOwningWindowForEvent(e)),
 					},
 					" ",
-					(0, y.we)("#CommunityItem_Menu_Report"),
+					(0, Localize)("#CommunityItem_Menu_Report"),
 				),
 			),
 			e,

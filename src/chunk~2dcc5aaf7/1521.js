@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var i = require(/*webcrack:missing*/ "./63696.js");
 export class R8 {
 	reactNodes = [];
@@ -31,7 +31,7 @@ export class R8 {
 export class K0 {
 	m_decoratedAccumulator;
 	constructor(e) {
-		(0, n.w)(e, "decorated accumulator cannot be null");
+		AssertMsg(e, "decorated accumulator cannot be null");
 		this.m_decoratedAccumulator = e;
 	}
 	AppendText(e, t = false) {

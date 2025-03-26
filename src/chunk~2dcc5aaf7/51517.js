@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./12774.js");
 var a = require(/*webcrack:missing*/ "./52451.js");
 var s = require("./78110.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export function Q(e) {
 	const {
 		active: t,
@@ -17,7 +17,7 @@ export function Q(e) {
 	}
 	const u =
 		(typeof m.strTitle == "string" && m.strTitle) ||
-		(0, o.we)("#Steam_Platform");
+		(0, Localize)("#Steam_Platform");
 	return n.createElement(
 		s.w,
 		{

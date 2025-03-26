@@ -2,12 +2,15 @@ var n = require("./68854.js");
 var i = n;
 var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./41180.js");
+import { IsDateSameDay, ToUnixTime } from "../../actual_src/utils/time.js";
 var l = require(/*webcrack:missing*/ "./90765.js");
 var c = require("./21597.js");
 var m = require("./57665.js");
 var u = require("./22165.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeRtime32ToShorterDate,
+} from "../../actual_src/utils/localization.js";
 var A = require("./26271.js");
 var p = require("./4584.js");
 var g = require("./74827.js");
@@ -115,7 +118,7 @@ function w(e) {
 					n = false;
 					_ = 1;
 				}
-				let f = c != null && o.JD(c, g);
+				let f = c != null && IsDateSameDay(c, g);
 				let y = c != null && !f;
 				if (A != t.length - 1 && !y) {
 					let e = I(u, _);
@@ -159,7 +162,7 @@ function w(e) {
 		{
 			className: i.GamePlaySummaryHeader,
 		},
-		(0, d.we)("#AppSpotlight_PostGameSummary"),
+		Localize("#AppSpotlight_PostGameSummary"),
 	);
 	let f = a.useCallback(() => {
 		g.Ri.StopShowingGamePlaySpotlight(t.unAppID);
@@ -186,7 +189,7 @@ function w(e) {
 			a.createElement(
 				p.C,
 				{
-					name: (0, d.we)("#LibraryHome_NewUpdates"),
+					name: Localize("#LibraryHome_NewUpdates"),
 					bNoHeader: n,
 					customheader: u,
 					bShowCloseButton: true,
@@ -222,7 +225,7 @@ function B(e, t, r) {
 			continue;
 		}
 		let i = new Date(t.m_achievement.achievement.rtUnlocked * 1000);
-		if (o.JD(r, i)) {
+		if (IsDateSameDay(r, i)) {
 			return t;
 		} else {
 			return null;
@@ -255,7 +258,7 @@ function E(e) {
 function M(e) {
 	let t = "";
 	if (e.rtime > 0) {
-		t = (0, d._l)(e.rtime);
+		t = LocalizeRtime32ToShorterDate(e.rtime);
 	}
 	return a.createElement(
 		"div",
@@ -278,7 +281,7 @@ function R(e) {
 	});
 }
 function k(e) {
-	let t = e.includeHeader ? o.fK(e.created) : 0;
+	let t = e.includeHeader ? ToUnixTime(e.created) : 0;
 	return a.createElement(
 		"div",
 		{

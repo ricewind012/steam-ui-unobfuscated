@@ -6,8 +6,18 @@ var o = require(/*webcrack:missing*/ "./44846.js");
 var l = require("./35488.js");
 var c = require("./18057.js");
 var m = require("./83247.js");
-var u = require(/*webcrack:missing*/ "./11010.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeRTimeToHourAndMinutes,
+	LocalizeTimeSince,
+	ETimeSinceSuffix,
+	qZ,
+} from "../../actual_src/utils/localization/datetime.js";
+import {
+	LocalizeRtime32ToShorterDate,
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var A = require("./96593.js");
 var p = require("./87935.js");
 var g = require("./60917.js");
@@ -18,7 +28,7 @@ var f = require("./57665.js");
 var b = require(/*webcrack:missing*/ "./90765.js");
 var y = require("./87913.js");
 var S = require("./88724.js");
-var w = require(/*webcrack:missing*/ "./41180.js");
+import { IsDateSameDay } from "../../actual_src/utils/time.js";
 var B = require("./34792.js");
 var v = require("./23861.js");
 var I = require("./22091.js");
@@ -29,7 +39,7 @@ var R = require("./89748.js");
 var k = require("./73317.js");
 var D = require("./67863.js");
 var N = require("./46375.js");
-var F = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var G = require("./5822.js");
 var O = require("./96680.js");
 var P = require("./13688.js");
@@ -234,11 +244,11 @@ function oe(e) {
 		onHide: o,
 	} = e;
 	const l = Y(r);
-	const c = (0, d.we)("#SteamNotifications_TradeOffer_Title");
+	const c = Localize("#SteamNotifications_TradeOffer_Title");
 	const m = l
-		? (0, d.we)("#SteamNotifications_TradeOffer_Body_Short", t ?? "")
-		: (0, d.we)("#SteamNotifications_TradeOffer_Body");
-	const u = (0, d.we)("#SteamNotifications_TradeOffer_Description", t ?? "");
+		? Localize("#SteamNotifications_TradeOffer_Body_Short", t ?? "")
+		: Localize("#SteamNotifications_TradeOffer_Body");
+	const u = Localize("#SteamNotifications_TradeOffer_Description", t ?? "");
 	const A = !t;
 	if (l) {
 		return n.createElement($, {
@@ -287,10 +297,10 @@ function le(e) {
 	} = e;
 	const l = Y(r);
 	const c = l
-		? (0, d.we)("#Notification_GiftReceived_Body_Short", t ?? "")
-		: (0, d.we)("#Notification_GiftReceived_Body");
-	const m = t ? (0, d.we)("#Notification_GiftReceived_Description", t) : null;
-	const u = (0, d.we)("#Notification_GiftReceived_Title");
+		? Localize("#Notification_GiftReceived_Body_Short", t ?? "")
+		: Localize("#Notification_GiftReceived_Body");
+	const m = t ? Localize("#Notification_GiftReceived_Description", t) : null;
+	const u = Localize("#Notification_GiftReceived_Title");
 	const A = !t;
 	if (l) {
 		return n.createElement($, {
@@ -349,13 +359,13 @@ function ce(e) {
 	const u = Y(s);
 	let A = "";
 	if (t && a.state == 2) {
-		A = (0, d.we)(
+		A = Localize(
 			"#SteamNotifications_FriendInvite_Description_AwaitingResponse",
 		);
 	} else if (t && a.state == 3) {
-		A = (0, d.we)("#SteamNotifications_FriendInvite_Description_Friends");
+		A = Localize("#SteamNotifications_FriendInvite_Description_Friends");
 	} else if (t) {
-		A = (0, d.we)("#SteamNotifications_FriendInvite_Description");
+		A = Localize("#SteamNotifications_FriendInvite_Description");
 	}
 	const [p, g] = n.useState(false);
 	const h = () => g(true);
@@ -381,14 +391,14 @@ function ce(e) {
 			}),
 		);
 	}
-	const f = t || (0, d.we)("#SteamNotifications_FriendInvite_Body_Generic");
+	const f = t || Localize("#SteamNotifications_FriendInvite_Body_Generic");
 	const b = !t;
 	if (u) {
 		return n.createElement($, {
 			...e,
 			logo: C,
 			icon: e.icon,
-			title: (0, d.we)("#Notification_FriendInvite_Title"),
+			title: Localize("#Notification_FriendInvite_Title"),
 			body: f,
 		});
 	} else {
@@ -404,7 +414,7 @@ function ce(e) {
 				},
 				n.createElement(ee.OJ, {
 					icon: o,
-					title: (0, d.we)("#Notification_FriendInvite_Title"),
+					title: Localize("#Notification_FriendInvite_Title"),
 					timestamp: l,
 					location: s,
 					fnRenderTimestamp: c,
@@ -471,31 +481,31 @@ function me(e) {
 	if (c !== undefined && c > 1) {
 		const e = c - 1;
 		f = C
-			? (0, d.we)("#Notification_Item_RollupMore_Steam", e)
+			? Localize("#Notification_Item_RollupMore_Steam", e)
 			: t?.app_name
-				? (0, d.we)("#Notification_Item_RollupMore_GameName", e, t.app_name)
-				: (0, d.we)("#Notification_Item_RollupMore", e);
+				? Localize("#Notification_Item_RollupMore_GameName", e, t.app_name)
+				: Localize("#Notification_Item_RollupMore", e);
 	} else if (t?.app_name) {
 		f = C
 			? t.app_name
-			: (0, d.we)("#Notification_Item_Single_GameName", t.app_name);
+			: Localize("#Notification_Item_Single_GameName", t.app_name);
 	}
 	const b = t?.item_data?.name
 		? t.item_data.name
-		: (0, d.we)("#Notification_Item_Body_Generic");
+		: Localize("#Notification_Item_Body_Generic");
 	const y = !t || !t.item_data;
 	if (g) {
 		let r = "";
 		r = t?.app_name
 			? c > 1
-				? (0, d.we)("#Notification_Item_Body_Short_Plural", t?.app_name)
-				: (0, d.we)("#Notification_Item_Body_Short", t?.app_name)
-			: (0, d.we)("#Notification_Item_Body_Generic");
+				? Localize("#Notification_Item_Body_Short_Plural", t?.app_name)
+				: Localize("#Notification_Item_Body_Short", t?.app_name)
+			: Localize("#Notification_Item_Body_Generic");
 		return n.createElement($, {
 			...e,
 			logo: h,
 			icon: e.icon,
-			title: (0, d.we)("#Notification_ItemAnnouncement_Body"),
+			title: Localize("#Notification_ItemAnnouncement_Body"),
 			body: r,
 		});
 	}
@@ -511,7 +521,7 @@ function me(e) {
 			},
 			n.createElement(ee.OJ, {
 				icon: s,
-				title: (0, d.we)("#Notification_ItemAnnouncement_TitleLong"),
+				title: Localize("#Notification_ItemAnnouncement_TitleLong"),
 				timestamp: o,
 				location: a,
 				fnRenderTimestamp: l,
@@ -550,20 +560,20 @@ function ue(e) {
 	if (i.state == 1) {
 		p =
 			m && r?.GetName()
-				? (0, d.we)("#SteamNotification_AsyncGame_Action_Short", r.GetName())
-				: (0, d.we)("#SteamNotification_AsyncGame_Action");
+				? Localize("#SteamNotification_AsyncGame_Action_Short", r.GetName())
+				: Localize("#SteamNotification_AsyncGame_Action");
 	} else if (i.state == 2) {
 		p =
 			m && r?.GetName()
-				? (0, d.we)("#SteamNotification_AsyncGame_Done_Short", r.GetName())
-				: (0, d.we)("#SteamNotification_AsyncGame_Done");
+				? Localize("#SteamNotification_AsyncGame_Done_Short", r.GetName())
+				: Localize("#SteamNotification_AsyncGame_Done");
 	}
 	if (m) {
 		return n.createElement($, {
 			...e,
 			logo: u,
 			icon: e.icon,
-			title: (0, d.we)("#SteamNotification_AsyncGame_Title"),
+			title: Localize("#SteamNotification_AsyncGame_Title"),
 			body: p,
 		});
 	} else {
@@ -579,7 +589,7 @@ function ue(e) {
 				},
 				n.createElement(ee.OJ, {
 					icon: s,
-					title: (0, d.we)("#SteamNotification_AsyncGame_Title"),
+					title: Localize("#SteamNotification_AsyncGame_Title"),
 					timestamp: o,
 					location: a,
 					fnRenderTimestamp: l,
@@ -702,28 +712,25 @@ function Ae(e) {
 		_ =
 			o.owner_steam_id?.ConvertTo64BitString() == t
 				? l == 4 && v
-					? (0, d.we)("#SteamNotifications_Comment_Your_Profile_By", v)
-					: (0, d.we)("#SteamNotifications_Comment_Your_Profile")
+					? Localize("#SteamNotifications_Comment_Your_Profile_By", v)
+					: Localize("#SteamNotifications_Comment_Your_Profile")
 				: I
 					? l == 4 && v
-						? (0, d.we)("#SteamNotifications_Comment_Player_Profile_By", v, I)
-						: (0, d.we)("#SteamNotifications_Comment_Player_Profile", I)
-					: (0, d.we)("#SteamNotifications_Comment_Profile");
+						? Localize("#SteamNotifications_Comment_Player_Profile_By", v, I)
+						: Localize("#SteamNotifications_Comment_Player_Profile", I)
+					: Localize("#SteamNotifications_Comment_Profile");
 	} else if (o.comment_type == 5 && o.json_data?.file_type == 5) {
 		_ =
 			o.owner_steam_id?.ConvertTo64BitString() == t
 				? p
-					? (0, d.we)(
+					? Localize(
 							"#SteamNotifications_Comment_Your_Screenshot_Game",
 							p.GetName(),
 						)
-					: (0, d.we)("#SteamNotifications_Comment_Your_Screenshot")
+					: Localize("#SteamNotifications_Comment_Your_Screenshot")
 				: p
-					? (0, d.we)(
-							"#SteamNotifications_Comment_Screenshot_Game",
-							p.GetName(),
-						)
-					: (0, d.we)("#SteamNotifications_Comment_Screenshot");
+					? Localize("#SteamNotifications_Comment_Screenshot_Game", p.GetName())
+					: Localize("#SteamNotifications_Comment_Screenshot");
 	} else if (!_ && o.json_data?.title) {
 		_ = o.json_data.title;
 	}
@@ -733,10 +740,10 @@ function Ae(e) {
 			? n.createElement(
 					ee.C0,
 					null,
-					(0, d.we)("#SteamNotifications_Comment_NewDiscussion", C),
+					Localize("#SteamNotifications_Comment_NewDiscussion", C),
 				)
 			: n.createElement(ee.C0, null, '"', C, '"');
-	let M = (0, d.we)("#SteamNotifications_Comment");
+	let M = Localize("#SteamNotifications_Comment");
 	let T = null;
 	if (A !== undefined && A > 1) {
 		const e = "+" + (A - 1);
@@ -839,7 +846,7 @@ function pe(e) {
 		p = t.GetName();
 		if (i.count == 1) {
 			if (m) {
-				p = (0, d.PP)(
+				p = LocalizeReact(
 					"#SteamNotifications_Wishlist_OnSale_Single_Short",
 					n.createElement("span", null, t.GetName()),
 					n.createElement(
@@ -853,7 +860,7 @@ function pe(e) {
 					),
 				);
 			} else {
-				g = (0, d.PP)(
+				g = LocalizeReact(
 					"#SteamNotifications_Wishlist_OnSale_Single",
 					n.createElement(
 						"span",
@@ -868,34 +875,31 @@ function pe(e) {
 			}
 		} else if (i.count == 2) {
 			if (m) {
-				p = (0, d.we)(
+				p = Localize(
 					"#SteamNotifications_Wishlist_OnSale_PlusOne_Short",
 					t.GetName(),
 				);
 			} else {
-				g = (0, d.we)("#SteamNotifications_Wishlist_OnSale_PlusOne");
+				g = Localize("#SteamNotifications_Wishlist_OnSale_PlusOne");
 			}
 		} else if (m) {
-			p = (0, d.we)(
+			p = Localize(
 				"#SteamNotifications_Wishlist_OnSale_PlusMany_Short",
 				t.GetName(),
 				i.count - 1,
 			);
 		} else {
-			g = (0, d.we)(
-				"#SteamNotifications_Wishlist_OnSale_PlusMany",
-				i.count - 1,
-			);
+			g = Localize("#SteamNotifications_Wishlist_OnSale_PlusMany", i.count - 1);
 		}
 	} else {
-		p = (0, d.we)("#SteamNotifications_Wishlist_Generic");
+		p = Localize("#SteamNotifications_Wishlist_Generic");
 	}
 	if (m) {
 		return n.createElement($, {
 			...e,
 			logo: u,
 			icon: e.icon,
-			title: (0, d.we)("#SteamNotifications_Wishlist"),
+			title: Localize("#SteamNotifications_Wishlist"),
 			body: p,
 		});
 	} else {
@@ -911,7 +915,7 @@ function pe(e) {
 				},
 				n.createElement(ee.OJ, {
 					icon: s,
-					title: (0, d.we)("#SteamNotifications_Wishlist"),
+					title: Localize("#SteamNotifications_Wishlist"),
 					timestamp: o,
 					location: a,
 					fnRenderTimestamp: l,
@@ -1233,7 +1237,7 @@ function ve(e) {
 		if (t[0] !== "#") {
 			return t;
 		} else {
-			return (0, d.we)(t, ...r);
+			return Localize(t, ...r);
 		}
 	} else {
 		return undefined;
@@ -1404,11 +1408,12 @@ function Le(e) {
 	let r = new Date();
 	let s = new Date(e.timestamp * 1000);
 	const o = (0, M.hf)() ? x.TimestampDesktop : x.Timestamp;
-	let l = (0, w.JD)(r, s)
-		? (0, u.KC)(e.timestamp, {
+	let l = IsDateSameDay(r, s)
+		? LocalizeRTimeToHourAndMinutes(e.timestamp, {
 				bForce24HourClock: t,
 			})
-		: (0, d._l)(e.timestamp, false, false, false);
+		: LocalizeRtime32ToShorterDate(e.timestamp, false, false, false);
+	// TODO: localization
 	return n.createElement(
 		"div",
 		{
@@ -1562,7 +1567,7 @@ function Qe(e) {
 		url: c.strUrl,
 	});
 	let g = n.createElement(l.Screenshot, null);
-	let h = (0, d.we)(a.data.description());
+	let h = Localize(a.data.description());
 	let C = u ? u.display_name : "";
 	if (Y(t)) {
 		return n.createElement($, {
@@ -1596,7 +1601,7 @@ function Ze(e) {
 	const r = A.tw.GetAppOverviewByAppID(t.data.appid());
 	const i = (0, ke.T)(t.data.appid());
 	let a = n.createElement(l.Download, null);
-	let s = (0, d.we)("#Notification_DownloadComplete_Title");
+	let s = Localize("#Notification_DownloadComplete_Title");
 	let o = qe(r, t.data.appid());
 	if (i && t.data.dlc_appid() != 0) {
 		const e = i.vecDLC.find((e) => e.unAppID == t.data.dlc_appid());
@@ -1633,7 +1638,7 @@ function Ze(e) {
 			n.createElement(
 				ee.C0,
 				null,
-				(0, d.we)("#Notification_DownloadComplete_Description"),
+				Localize("#Notification_DownloadComplete_Description"),
 			),
 		);
 	}
@@ -1644,7 +1649,7 @@ function Ye(e) {
 	let i = n.createElement(l.CloudSync, {
 		error: true,
 	});
-	let a = (0, d.we)("#Notification_CloudSyncFailure_Title");
+	let a = Localize("#Notification_CloudSyncFailure_Title");
 	let s = qe(r, t.data.appid());
 	const o = (0, L.br)();
 	let c = () => o.App(t.data.appid());
@@ -1681,7 +1686,7 @@ function Ke(e) {
 	let i = n.createElement(l.CloudSync, {
 		error: true,
 	});
-	let a = (0, d.we)("#Notification_CloudSyncConflict_Title");
+	let a = Localize("#Notification_CloudSyncConflict_Title");
 	let s = qe(r, t.data.appid());
 	const o = (0, L.br)();
 	let c = () => o.App(t.data.appid());
@@ -1748,7 +1753,7 @@ const $e = (0, s.PA)(function (e) {
 		a.data.game_name(),
 	);
 	let u = Ge(s);
-	let A = (0, d.PP)("#Notification_FriendInGame_Body_Short", m);
+	let A = LocalizeReact("#Notification_FriendInGame_Body_Short", m);
 	if (Y(e.location)) {
 		return n.createElement(Ue, {
 			steamID: s,
@@ -1773,7 +1778,7 @@ const $e = (0, s.PA)(function (e) {
 			logo: e,
 			title: r,
 			icon: c,
-			body: (0, d.we)("#Notification_FriendInGame_Body_ShortToast"),
+			body: Localize("#Notification_FriendInGame_Body_ShortToast"),
 			gameName: a.data.game_name(),
 			onActivate: u,
 			onDismiss: i,
@@ -1791,7 +1796,7 @@ const $e = (0, s.PA)(function (e) {
 		},
 		n.createElement(ee.OJ, {
 			icon: c,
-			title: (0, d.we)("#Notification_FriendStatus_Title"),
+			title: Localize("#Notification_FriendStatus_Title"),
 			location: t,
 			timestamp: a.rtCreated,
 		}),
@@ -1807,7 +1812,7 @@ const et = (0, s.PA)(function (e) {
 	let c = n.createElement(l.Friends, null);
 	let m = Ge(s);
 	if (t == 1) {
-		let e = (0, d.we)("#Notification_FriendOnline_Body_Short");
+		let e = Localize("#Notification_FriendOnline_Body_Short");
 		return n.createElement(Ue, {
 			steamID: s,
 			icon: c,
@@ -1828,13 +1833,13 @@ const et = (0, s.PA)(function (e) {
 			{
 				className: x.FriendOnlineColor,
 			},
-			(0, d.we)("#Notification_FriendOnline_Online_Body_DesktopToast"),
+			Localize("#Notification_FriendOnline_Online_Body_DesktopToast"),
 		);
 		let a = n.createElement(Je, {
 			friend: o,
 			state: "online",
 		});
-		const s = (0, d.PP)("#Notification_FriendOnline_Body_DesktopToast", r);
+		const s = LocalizeReact("#Notification_FriendOnline_Body_DesktopToast", r);
 		return n.createElement(be, {
 			logo: e,
 			title: a,
@@ -1856,7 +1861,7 @@ const et = (0, s.PA)(function (e) {
 		},
 		n.createElement(ee.OJ, {
 			icon: c,
-			title: (0, d.we)("#Notification_FriendStatus_Title"),
+			title: Localize("#Notification_FriendStatus_Title"),
 			location: t,
 			timestamp: a.rtCreated,
 		}),
@@ -1864,7 +1869,7 @@ const et = (0, s.PA)(function (e) {
 		n.createElement(
 			ee.C0,
 			null,
-			(0, d.we)("#Notification_FriendOnline_Body_Short"),
+			Localize("#Notification_FriendOnline_Body_Short"),
 		),
 	);
 });
@@ -1879,7 +1884,7 @@ function tt(e) {
 	const A = Ge(s);
 	const p = m ? u : A;
 	if (Y(e.location)) {
-		let e = (0, d.we)("#Notification_IncomingVoiceChat");
+		let e = Localize("#Notification_IncomingVoiceChat");
 		return n.createElement(Ue, {
 			steamID: s,
 			icon: c,
@@ -1901,7 +1906,7 @@ function tt(e) {
 		},
 		n.createElement(ee.OJ, {
 			icon: c,
-			title: (0, d.we)("#Notification_IncomingVoiceChat"),
+			title: Localize("#Notification_IncomingVoiceChat"),
 			location: t,
 			timestamp: a.rtCreated,
 		}),
@@ -2071,7 +2076,7 @@ function st(e) {
 				{
 					className: x.Text,
 				},
-				(0, d.we)("#Notification_BatteryLow", r),
+				Localize("#Notification_BatteryLow", r),
 			),
 		);
 	} else {
@@ -2089,7 +2094,7 @@ function st(e) {
 				{
 					className: x.Text,
 				},
-				(0, d.we)("#QuickAccess_Tab_Notifications_BatteryLow"),
+				Localize("#QuickAccess_Tab_Notifications_BatteryLow"),
 			),
 			n.createElement(
 				"div",
@@ -2119,7 +2124,7 @@ function ot(e) {
 				{
 					className: x.Text,
 				},
-				(0, d.we)("#QuickAccess_Tab_Notifications_LowDiskSpace"),
+				Localize("#QuickAccess_Tab_Notifications_LowDiskSpace"),
 			),
 		);
 	} else {
@@ -2131,8 +2136,8 @@ function lt(e) {
 	let a = Zt(r);
 	let s = a.data.type() == 2;
 	let o = s
-		? (0, d.we)("#Notification_SystemUpdateRestart_Title")
-		: (0, d.we)("#Notification_SystemUpdateAvailable_Title");
+		? Localize("#Notification_SystemUpdateRestart_Title")
+		: Localize("#Notification_SystemUpdateAvailable_Title");
 	let c = n.createElement(je, {
 		location: t,
 	});
@@ -2143,8 +2148,8 @@ function lt(e) {
 	let A = () => u.Settings("System");
 	if (Y(e.location)) {
 		let e = s
-			? (0, d.we)("#Notification_SystemUpdateRestart_Body_Short")
-			: (0, d.we)("#Notification_SystemUpdateAvailable_Body_Short");
+			? Localize("#Notification_SystemUpdateRestart_Body_Short")
+			: Localize("#Notification_SystemUpdateAvailable_Body_Short");
 		return n.createElement($, {
 			logo: c,
 			icon: m,
@@ -2155,8 +2160,8 @@ function lt(e) {
 		});
 	}
 	let p = s
-		? (0, d.we)("#Notification_SystemUpdateRestart_Body")
-		: (0, d.we)("#Notification_SystemUpdateAvailable_Body");
+		? Localize("#Notification_SystemUpdateRestart_Body")
+		: Localize("#Notification_SystemUpdateAvailable_Body");
 	const g = e.group.notifications[0].bNewIndicator;
 	return n.createElement(
 		P7,
@@ -2233,7 +2238,7 @@ function mt(e) {
 							onSelected: () =>
 								SteamClient.WebChat.OpenURLInClient(e, 0, false),
 						},
-						(0, d.we)("#Overlay_FriendInviteToGame_Accept"),
+						Localize("#Overlay_FriendInviteToGame_Accept"),
 					),
 					false,
 				);
@@ -2249,7 +2254,7 @@ function mt(e) {
 			: undefined;
 	const b =
 		m && m.length > 0
-			? (0, d.we)("#Overlay_FriendInviteToGame_Accept")
+			? Localize("#Overlay_FriendInviteToGame_Accept")
 			: undefined;
 	const y = m && _ ? g : p;
 	if (Y(e.location)) {
@@ -2361,7 +2366,7 @@ function ut(e) {
 		},
 		n.createElement(ee.OJ, {
 			icon: p,
-			title: (0, d.we)("#Notification_GroupMessage_Title"),
+			title: Localize("#Notification_GroupMessage_Title"),
 			location: t,
 			timestamp: s.rtCreated,
 		}),
@@ -2376,15 +2381,12 @@ function dt(e) {
 	let a = (0, O.$2)();
 	let s = Zt(r);
 	let o = s.data.new_invite_count();
-	let c = (0, d.we)(
-		"#Notification_FriendInviteRollup_Body",
-		o.toLocaleString(),
-	);
+	let c = Localize("#Notification_FriendInviteRollup_Body", o.toLocaleString());
 	let m = n.createElement(l.AddFriend, null);
 	let u = n.createElement(je, {
 		location: t,
 	});
-	let A = (0, d.we)("#Notification_FriendInviteRollup_Title");
+	let A = Localize("#Notification_FriendInviteRollup_Title");
 	const p = n.useCallback(() => y.LN.ShowInvitesDialog(a), [a]);
 	if (Y(e.location)) {
 		return n.createElement($, {
@@ -2429,8 +2431,8 @@ function At(e) {
 	const c = n.createElement(Xe, {
 		friend: s,
 	});
-	const m = (0, d.we)("#Notification_FamilySharing_Title");
-	const u = (0, d.PP)(
+	const m = Localize("#Notification_FamilySharing_Title");
+	const u = LocalizeReact(
 		a.data.authorized()
 			? "#Notification_FamilySharingAuthorization_Authorized"
 			: "#Notification_FamilySharingAuthorization_Deuthorized",
@@ -2480,19 +2482,19 @@ function pt(e) {
 		friend: s,
 	});
 	const m = Math.floor(a.data.seconds_remaining() / 60);
-	const u = (0, d.we)("#Notification_FamilySharing_Title");
+	const u = Localize("#Notification_FamilySharing_Title");
 	let p = A.tw.GetAppOverviewByAppID(a.data.appid());
 	const g = n.createElement(Ve, {
 		overview: p,
 		type: "standard",
 	});
-	let C = (0, d.PP)(
+	let C = LocalizeReact(
 		"#Notification_FamilySharingAuthorization_StopPlaying",
 		c,
 		m,
 	);
 	if ((0, R.qw)().BIsInFamilyGroup()) {
-		C = (0, d.PP)("#Notification_FamilySharing_StopPlaying", m);
+		C = LocalizeReact("#Notification_FamilySharing_StopPlaying", m);
 	}
 	if (Y(e.location)) {
 		return n.createElement($, {
@@ -2533,11 +2535,11 @@ function gt(e) {
 	const c = n.createElement(Xe, {
 		friend: s,
 	});
-	const m = (0, d.we)("#Notification_FamilySharing_Title");
+	const m = Localize("#Notification_FamilySharing_Title");
 	const u = n.createElement(je, {
 		location: t,
 	});
-	const A = (0, d.PP)(
+	const A = LocalizeReact(
 		"#Notification_FamilySharingAuthorization_LibraryAvailable",
 		c,
 	);
@@ -2586,8 +2588,8 @@ function ht(e) {
 	if (!i || s) {
 		return null;
 	}
-	const m = (0, d.we)("#Notification_SteamDeckRewards_Title");
-	const u = (0, d.we)("#Notification_SteamDeckRewards_Body");
+	const m = Localize("#Notification_SteamDeckRewards_Title");
+	const u = Localize("#Notification_SteamDeckRewards_Body");
 	const A = n.createElement(l.DeckLogo, null);
 	const p = n.createElement(l.Information, null);
 	if (Y(e.location)) {
@@ -2625,8 +2627,8 @@ function ht(e) {
 function Ct(e) {
 	const { location: t, group: r, onDismiss: i } = e;
 	let a = Zt(r);
-	let s = (0, d.we)("#Notification_HardwareSurveyPending_Title");
-	let o = (0, d.we)("#Notification_HardwareSurveyPending_Body");
+	let s = Localize("#Notification_HardwareSurveyPending_Title");
+	let o = Localize("#Notification_HardwareSurveyPending_Body");
 	let c = n.createElement(je, {
 		location: t,
 	});
@@ -2636,7 +2638,7 @@ function Ct(e) {
 	const p = K(
 		n.useCallback(
 			(e) => {
-				const t = u ? (0, F.uX)(e) : A.BrowserWindow;
+				const t = u ? GetOwningWindowForEvent(e) : A.BrowserWindow;
 				if ((0, R.qw)().BHardwareSurveyPending()) {
 					(0, T.Qo)(t);
 				} else {
@@ -2684,8 +2686,8 @@ function Ct(e) {
 function _t(e) {
 	const { location: t, group: r, onDismiss: i } = e;
 	const a = Zt(r);
-	const s = (0, d.we)("#Notification_DockUnsupportedFirmware_Title");
-	const o = (0, d.we)("#Notification_DockUnsupportedFirmware_Body");
+	const s = Localize("#Notification_DockUnsupportedFirmware_Title");
+	const o = Localize("#Notification_DockUnsupportedFirmware_Body");
 	const c = n.createElement(l.DeckDockFront, null);
 	const m = n.createElement(l.Information, null);
 	const u = K(
@@ -2733,8 +2735,8 @@ function ft(e) {
 	const i = (0, O.$2)();
 	const a = Zt(r);
 	(0, I.as)(a.data.controller_index());
-	const s = (0, d.we)("#Notification_CannotReadControllerGuideButton_Title");
-	const o = (0, d.we)("#Notification_CannotReadControllerGuideButton_Body");
+	const s = Localize("#Notification_CannotReadControllerGuideButton_Title");
+	const o = Localize("#Notification_CannotReadControllerGuideButton_Body");
 	if (Y(t)) {
 		x.ShortNotificationXboxLogo;
 	} else {
@@ -2835,14 +2837,14 @@ function bt(e) {
 				{
 					className: x.Title,
 				},
-				(0, d.we)(s),
+				Localize(s),
 			),
 			n.createElement(
 				"div",
 				{
 					className: x.Description,
 				},
-				(0, d.we)(o),
+				Localize(o),
 			),
 		),
 	);
@@ -2850,8 +2852,8 @@ function bt(e) {
 function yt(e) {
 	let { location: t, group: r, onDismiss: i } = e;
 	Zt(r);
-	(0, d.we)("#Notification_Overlay_ShiftTab");
-	let a = (0, d.we)("#Notification_OverlayGeneric");
+	Localize("#Notification_Overlay_ShiftTab");
+	let a = Localize("#Notification_OverlayGeneric");
 	let s = n.createElement(je, {
 		location: t,
 	});
@@ -2879,7 +2881,7 @@ function yt(e) {
 }
 function St(e) {
 	const [t, r] = (0, B.VI)("overlay_key");
-	let i = (0, d.we)("#Notification_Overlay_ShiftTab", t.display_name);
+	let i = Localize("#Notification_Overlay_ShiftTab", t.display_name);
 	return n.createElement(ee.PT, {
 		text: i,
 	});
@@ -2887,7 +2889,7 @@ function St(e) {
 function wt(e) {
 	let { location: t, group: r, onDismiss: i } = e;
 	let a = Zt(r);
-	let s = (0, d.we)("#Notification_BroadcastAvailableToWatch_Title");
+	let s = Localize("#Notification_BroadcastAvailableToWatch_Title");
 	let o = n.createElement(je, {
 		location: t,
 	});
@@ -2896,7 +2898,7 @@ function wt(e) {
 		a.data.broadcast_permission() == 2
 			? "#Notification_OverlaySplashScreen_Friends"
 			: "#Notification_OverlaySplashScreen_Public";
-	let u = (0, d.we)(m);
+	let u = Localize(m);
 	(0, we.w)(!Y(e.location), "Missing short template");
 	return n.createElement(
 		P7,
@@ -2945,21 +2947,21 @@ function Bt(e) {
 		let a = "";
 		let s = "";
 		if (i == 0) {
-			a = (0, d.we)("#Notification_TimedTrial_Over");
-			s = (0, d.we)("#Notification_TimedTrial_CloseNow");
+			a = Localize("#Notification_TimedTrial_Over");
+			s = Localize("#Notification_TimedTrial_CloseNow");
 		} else if (i <= 30) {
-			a = (0, d.we)("#Notification_TimedTrial_EndsSoon");
-			s = (0, d.Yp)("#Notification_TimedTrial_CloseSoon", i);
+			a = Localize("#Notification_TimedTrial_EndsSoon");
+			s = LocalizePlural("#Notification_TimedTrial_CloseSoon", i);
 		} else {
-			a = (0, d.we)("#Notification_TimedTrial_Enjoy");
-			s = (0, u.Hq)(n, {
-				eSuffix: u.a8.Remaining,
+			a = Localize("#Notification_TimedTrial_Enjoy");
+			s = LocalizeTimeSince(n, {
+				eSuffix: ETimeSinceSuffix.Remaining,
 				bForceSingleUnits: false,
 				bHighGranularity: false,
 			});
 		}
 		if (e.offline()) {
-			a = (0, d.we)("#Notification_TimedTrial_Offline");
+			a = Localize("#Notification_TimedTrial_Offline");
 		}
 		return {
 			title: a,
@@ -3008,7 +3010,7 @@ function vt(e) {
 			{
 				multiline: true,
 			},
-			(0, d.we)("#Steam_RefreshLogin_AccountAlreadyLoggedInNeedPasswordToast"),
+			Localize("#Steam_RefreshLogin_AccountAlreadyLoggedInNeedPasswordToast"),
 		),
 	);
 }
@@ -3031,7 +3033,7 @@ function It(e) {
 			{
 				multiline: true,
 			},
-			(0, d.we)("#AppOverlay_TimerExpiredNotificationText"),
+			Localize("#AppOverlay_TimerExpiredNotificationText"),
 		),
 	);
 }
@@ -3053,8 +3055,8 @@ function Et(e) {
 		return null;
 	}
 	const _ = !u.display_name;
-	const f = (0, d.we)(i, u.display_name);
-	const b = (0, d.we)(a, u.display_name);
+	const f = Localize(i, u.display_name);
+	const b = Localize(a, u.display_name);
 	return n.createElement(de, {
 		title: f,
 		body: b,
@@ -3080,8 +3082,8 @@ function Mt(e) {
 	const m = s.package_id > 0 ? 1 : 2;
 	const [u] = (0, j.mZ)(c, m, {});
 	const A = !o.display_name || !u;
-	const p = (0, d.we)("#SteamNotifications_RequestedGameAddedTitle");
-	const g = (0, d.we)(
+	const p = Localize("#SteamNotifications_RequestedGameAddedTitle");
+	const g = Localize(
 		"#SteamNotifications_RequestedGameAddedBody",
 		u?.GetName() ?? "",
 	);
@@ -3158,8 +3160,8 @@ function kt(e) {
 		location: t,
 	});
 	const u = Y(t);
-	const A = (0, d.we)("#Notification_FamilyGroup_PlaytimeWarning_Title");
-	const p = (0, d.Yp)("#Notification_FamilyGroup_PlaytimeWarning_Body", c);
+	const A = Localize("#Notification_FamilyGroup_PlaytimeWarning_Title");
+	const p = LocalizePlural("#Notification_FamilyGroup_PlaytimeWarning_Body", c);
 	const g = n.useCallback(() => {
 		a.RequestPlaytimeDialog("manual");
 	}, [a]);
@@ -3309,8 +3311,8 @@ function Ft(e) {
 	let { location: t } = e;
 	let r = Zt(e.group);
 	const i = (0, I.as)(r.data.controller_index());
-	const a = (0, d.we)("#SteamInput_ChangeActionSet_Toast");
-	const s = (0, d.we)(r.data.action_set_name());
+	const a = Localize("#SteamInput_ChangeActionSet_Toast");
+	const s = Localize(r.data.action_set_name());
 	const o = n.createElement(l.ControllerType, {
 		controllerType: i?.eControllerType,
 	});
@@ -3339,13 +3341,13 @@ function Ft(e) {
 function Gt(e) {
 	let { location: t } = e;
 	let r = Zt(e.group);
-	const i = (0, d.we)("#Notification_RemotePlay_Title");
+	const i = Localize("#Notification_RemotePlay_Title");
 	let a = "";
 	const s = n.createElement(l.RemotePlay, null);
 	const o = n.createElement(l.Information, null);
 	a = r.data.connected()
-		? (0, d.we)("#Notification_RemoteClientConnected", r.data.machine())
-		: (0, d.we)("#Notification_RemoteClientDisconnected", r.data.machine());
+		? Localize("#Notification_RemoteClientConnected", r.data.machine())
+		: Localize("#Notification_RemoteClientDisconnected", r.data.machine());
 	if (Y(e.location)) {
 		return n.createElement($, {
 			logo: s,
@@ -3379,8 +3381,8 @@ function Gt(e) {
 function Ot(e) {
 	let { location: t } = e;
 	let r = Zt(e.group);
-	const i = (0, d.we)("#Notification_RemotePlay_Title");
-	const a = (0, d.we)(
+	const i = Localize("#Notification_RemotePlay_Title");
+	const a = Localize(
 		"#Notification_RemoteClientStartStream",
 		r.data.machine(),
 		r.data.game_name(),
@@ -3420,17 +3422,17 @@ function Ot(e) {
 function Pt(e) {
 	let { location: t } = e;
 	let r = Zt(e.group);
-	const i = (0, d.we)("#Notification_RemotePlay_Title");
+	const i = Localize("#Notification_RemotePlay_Title");
 	let a = "";
 	const s = n.createElement(l.RemotePlay, null);
 	const o = n.createElement(l.Information, null);
 	a = r.data.connected()
-		? (0, d.we)(
+		? Localize(
 				"#Notification_StreamingClientConnected",
 				r.data.hostname(),
 				r.data.machine(),
 			)
-		: (0, d.we)("#Notification_StreamingClientDisconnected", r.data.machine());
+		: Localize("#Notification_StreamingClientDisconnected", r.data.machine());
 	if (Y(e.location)) {
 		return n.createElement($, {
 			logo: s,
@@ -3466,14 +3468,14 @@ function Lt(e) {
 	let a = Zt(r);
 	const s = a.data.error_type();
 	let o;
-	let c = (0, d.we)("#Notification_GRE_Title");
+	let c = Localize("#Notification_GRE_Title");
 	let m = n.createElement(je, {
 		location: t,
 	});
 	let u = n.createElement(l.Screenshot, null);
 	let A = () => {};
 	if (Y(e.location)) {
-		let e = (0, d.we)("#Notification_GRE_Body_Short");
+		let e = Localize("#Notification_GRE_Body_Short");
 		return n.createElement($, {
 			logo: m,
 			icon: u,
@@ -3484,9 +3486,9 @@ function Lt(e) {
 		});
 	}
 	if (s === 2) {
-		o = (0, d.we)("#Notification_GRE_Body_DiskSpace");
+		o = Localize("#Notification_GRE_Body_DiskSpace");
 	} else {
-		o = (0, d.we)("#Notification_GRE_Body");
+		o = Localize("#Notification_GRE_Body");
 	}
 	return n.createElement(
 		P7,
@@ -3514,8 +3516,8 @@ function Lt(e) {
 function zt(e) {
 	let { location: t, group: r, onDismiss: i } = e;
 	let a = Zt(r);
-	let s = (0, d.we)("#Notification_GRE_Title");
-	let o = (0, d.we)("#Notification_GRUM_Body");
+	let s = Localize("#Notification_GRE_Title");
+	let o = Localize("#Notification_GRUM_Body");
 	let c = n.createElement(je, {
 		location: t,
 	});
@@ -3550,7 +3552,7 @@ function zt(e) {
 				{
 					multiline: true,
 				},
-				(0, d.we)("#Notification_GRUM_Body"),
+				Localize("#Notification_GRUM_Body"),
 			),
 		);
 	}
@@ -3561,7 +3563,7 @@ function xt(e) {
 	const a = (0, U.u5)(i.item.body_data);
 	const s = e.group.notifications[0].bNewIndicator;
 	const o = (0, L.br)();
-	let c = (0, d.we)("#Notification_ClipDownloaded_Title");
+	let c = Localize("#Notification_ClipDownloaded_Title");
 	let m = n.createElement(je, {
 		location: t,
 	});
@@ -3575,7 +3577,7 @@ function xt(e) {
 	}, [a.clip_id, o.Media]);
 	const p = () => Pe(A, i.item);
 	if (Y(e.location)) {
-		let e = (0, d.we)("#Notification_ClipDownloaded_Body");
+		let e = Localize("#Notification_ClipDownloaded_Body");
 		return n.createElement($, {
 			logo: m,
 			icon: u,
@@ -3585,7 +3587,7 @@ function xt(e) {
 			onDismiss: r,
 		});
 	}
-	let g = (0, d.we)("#Notification_ClipDownloaded_Body");
+	let g = Localize("#Notification_ClipDownloaded_Body");
 	return n.createElement(
 		P7,
 		{
@@ -3611,7 +3613,7 @@ function xt(e) {
 	);
 }
 function Ut(e) {
-	const t = (0, u.qZ)(e.durationSecs, false);
+	const t = (0, qZ)(e.durationSecs, false);
 	return n.createElement(
 		"span",
 		{
@@ -3623,8 +3625,8 @@ function Ut(e) {
 function Wt(e) {
 	const { location: t, group: r, onDismiss: i } = e;
 	const a = Zt(r);
-	const s = (0, d.we)("#Notification_RecordingStarted_Title");
-	const o = (0, d.we)("#Notification_RecordingStarted_Body");
+	const s = Localize("#Notification_RecordingStarted_Title");
+	const o = Localize("#Notification_RecordingStarted_Body");
 	const c = n.createElement(
 		"div",
 		{
@@ -3674,8 +3676,8 @@ function Vt(e) {
 	const { location: t, group: r, onDismiss: i } = e;
 	const a = (0, L.br)();
 	const s = Zt(r);
-	const o = (0, d.we)("#Notification_RecordingStopped_Title");
-	const c = (0, d.we)("#Notification_RecordingStopped_Body");
+	const o = Localize("#Notification_RecordingStopped_Title");
+	const c = Localize("#Notification_RecordingStopped_Body");
 	const u = n.createElement(
 		"div",
 		{
@@ -3735,8 +3737,8 @@ function Ht(e) {
 	const { location: t, group: r, onDismiss: i } = e;
 	const a = (0, L.br)();
 	const s = Zt(r);
-	const o = (0, d.we)("#Notification_InstantClip_Title");
-	const c = (0, d.we)("#Notification_InstantClip_Body");
+	const o = Localize("#Notification_InstantClip_Title");
+	const c = Localize("#Notification_InstantClip_Body");
 	const u = n.createElement(
 		"div",
 		{

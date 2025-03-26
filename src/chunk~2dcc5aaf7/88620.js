@@ -11,7 +11,7 @@ var d = require(/*webcrack:missing*/ "./41230.js");
 var A = require(/*webcrack:missing*/ "./63696.js");
 var p = require("./64608.js");
 var g = require(/*webcrack:missing*/ "./50376.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require(/*webcrack:missing*/ "./49455.js");
 var f = require(/*webcrack:missing*/ "./69164.js");
@@ -31,7 +31,7 @@ export function jv(e, t, r, n, i, s) {
 		t,
 		"ChatRoomGroupInviteDialog",
 		{
-			strTitle: (0, h.we)("#Chat_CreateChatRoom"),
+			strTitle: Localize("#Chat_CreateChatRoom"),
 			popupWidth: 664,
 			popupHeight: 680,
 		},
@@ -56,7 +56,7 @@ export let Rf = class extends A.Component {
 	}
 	render() {
 		let e = this.props.chat.lastChatLinkInfo;
-		let t = (0, h.we)("#Chat_Invite_Loading");
+		let t = Localize("#Chat_Invite_Loading");
 		if (this.props.disabled) {
 			e = undefined;
 			t = "";
@@ -65,7 +65,7 @@ export let Rf = class extends A.Component {
 			A.Fragment,
 			null,
 			A.createElement(p.pd, {
-				label: (0, h.we)("#Chat_Invite_Linkheader"),
+				label: Localize("#Chat_Invite_Linkheader"),
 				className: "InviteFriendToChatDialog_LinkInput",
 				type: "text",
 				value: e ? e.strInviteURL : t,
@@ -95,27 +95,27 @@ let B = class extends A.Component {
 	}
 	CreateExpiresText(e) {
 		if (e == 0) {
-			return (0, h.we)("#InviteLink_ExpiresNever_Short");
+			return Localize("#InviteLink_ExpiresNever_Short");
 		}
 		if (e - s.xm.GetServerRTime32() > 3600) {
-			return (0, h.we)("#InviteLink_ExpiresDay_Short");
+			return Localize("#InviteLink_ExpiresDay_Short");
 		} else {
-			return (0, h.we)("#InviteLink_ExpiresHour_Short");
+			return Localize("#InviteLink_ExpiresHour_Short");
 		}
 	}
 	render() {
 		let e = this.props.chat.lastChatLinkInfo;
 		let t = [
 			{
-				label: (0, h.we)("#InviteLink_ExpiresHour_Short"),
+				label: Localize("#InviteLink_ExpiresHour_Short"),
 				data: 3600,
 			},
 			{
-				label: (0, h.we)("#InviteLink_ExpiresDay_Short"),
+				label: Localize("#InviteLink_ExpiresDay_Short"),
 				data: 86400,
 			},
 			{
-				label: (0, h.we)("#InviteLink_ExpiresNever_Short"),
+				label: Localize("#InviteLink_ExpiresNever_Short"),
 				data: 0,
 			},
 		];
@@ -124,7 +124,7 @@ let B = class extends A.Component {
 			{
 				className: "expireLinkInContainer",
 			},
-			A.createElement(p.JU, null, (0, h.we)("#InviteLink_ExpireDropDownLabel")),
+			A.createElement(p.JU, null, Localize("#InviteLink_ExpireDropDownLabel")),
 			A.createElement(p.m, {
 				strClassName: "inviteLinkDropDown",
 				rgOptions: t,
@@ -253,10 +253,10 @@ class v extends A.PureComponent {
 			(0, _.w)(false, "User should not be able to invite to the group");
 		}
 		t = this.props.bIsDropInvite
-			? (0, h.we)("#Chat_InviteFriends_DropInvite_Pre")
+			? Localize("#Chat_InviteFriends_DropInvite_Pre")
 			: a
-				? (0, h.we)("#Chat_InviteFriends")
-				: (0, h.we)("#Chat_InviteGroupMembers");
+				? Localize("#Chat_InviteFriends")
+				: Localize("#Chat_InviteGroupMembers");
 		let m =
 			"ChatRoomGroupInviteDialog" +
 			(this.props.bIsDropInvite ? " IsDropInvite" : "");
@@ -283,7 +283,7 @@ class v extends A.PureComponent {
 								{
 									className: "InviteToVoiceHeader",
 								},
-								(0, h.we)("#Chat_Actions_InviteFriend_VoiceChat"),
+								Localize("#Chat_Actions_InviteFriend_VoiceChat"),
 								A.createElement(
 									"div",
 									{
@@ -294,7 +294,7 @@ class v extends A.PureComponent {
 									'"',
 								),
 							)
-						: (0, h.we)("#Chat_Actions_InviteFriend"),
+						: Localize("#Chat_Actions_InviteFriend"),
 					A.createElement(
 						"div",
 						{
@@ -348,7 +348,7 @@ class v extends A.PureComponent {
 										{
 											className: "OrSeparatorLabel",
 										},
-										(0, h.we)("#Chat_InviteFriends_OR_Separator"),
+										Localize("#Chat_InviteFriends_OR_Separator"),
 									),
 									A.createElement("div", {
 										className: "HBar",
@@ -390,14 +390,14 @@ class v extends A.PureComponent {
 							{
 								disabled: this.state.rgPickedFriends.length === 0,
 							},
-							(0, h.we)("#Chat_Invite"),
+							Localize("#Chat_Invite"),
 						),
 						A.createElement(
 							p.$n,
 							{
 								onClick: this.DismissDialog,
 							},
-							(0, h.we)("#Button_Close"),
+							Localize("#Button_Close"),
 						),
 					),
 				),

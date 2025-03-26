@@ -9,7 +9,7 @@ import * as c from /*webcrack:missing*/ "./45264.js";
 import * as i from /*webcrack:missing*/ "./21618.js";
 import * as m from /*webcrack:missing*/ "./64608.js";
 import * as d from /*webcrack:missing*/ "./10606.js";
-import * as E from /*webcrack:missing*/ "./46108.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import * as f from "./39889.js";
 export default function h(e) {
 	const { popup: t } = e;
@@ -33,7 +33,7 @@ export default function h(e) {
 }
 function P(e) {
 	const { popup: t, refPopup: n } = e;
-	const a = (0, E.we)("#GameNotes_NoteForGame", t.display_name);
+	const a = Localize("#GameNotes_NoteForGame", t.display_name);
 	return p.createElement(
 		u.p,
 		{

@@ -7,12 +7,12 @@ var l = require("./93092.js");
 var c = require("./81393.js");
 var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require("./18869.js");
-var d = require(/*webcrack:missing*/ "./41180.js");
+import { Timestamp } from "../../actual_src/utils/time.js";
 var A = require("./83247.js");
 var p = require(/*webcrack:missing*/ "./90765.js");
 var g = require("./91720.js");
 var h = require("./56997.js");
-var C = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var _ = require(/*webcrack:missing*/ "./37322.js");
 var f = require(/*webcrack:missing*/ "./23038.js");
 var b = require(/*webcrack:missing*/ "./58254.js");
@@ -94,7 +94,7 @@ function R() {
 }
 function k(e) {
 	const { msDuration: t } = e;
-	const r = t && !isNaN(t) ? (0, d.yS)(t) : "--";
+	const r = t && !isNaN(t) ? Timestamp(t) : "--";
 	return a.createElement(
 		"div",
 		{
@@ -383,8 +383,8 @@ function P(e) {
 	const l = a.createElement(
 		a.Fragment,
 		null,
-		s > 0 ? (0, C.we)("#ClipManager_BackgroundRecordingTime_Min", s) : "",
-		(0, C.we)("#ClipManager_BackgroundRecordingTime_Sec", o),
+		s > 0 ? (0, Localize)("#ClipManager_BackgroundRecordingTime_Min", s) : "",
+		(0, Localize)("#ClipManager_BackgroundRecordingTime_Sec", o),
 	);
 	return a.createElement(
 		"div",

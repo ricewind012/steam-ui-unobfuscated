@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./64608.js");
 var s = require("./35488.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./31958.js");
 var m = require("./92821.js");
 var u = m;
@@ -107,7 +107,7 @@ function g(e) {
 				{
 					className: u.LabelText,
 				},
-				t.toFixed(1) + (0, l.we)("#Unit_DegreePerSecond_Symbol"),
+				t.toFixed(1) + Localize("#Unit_DegreePerSecond_Symbol"),
 			),
 		),
 	);
@@ -502,9 +502,9 @@ export function V4(e) {
 			childrenLayout: "inline",
 			childrenContainerWidth: "max",
 			bottomSeparator: "none",
-			label: (0, l.we)(t),
+			label: Localize(t),
 			description: r
-				? (0, l.we)(
+				? Localize(
 						"#Settings_ControllerCalibration_GyroAndAccelerometerNoise_Desc",
 					)
 				: undefined,

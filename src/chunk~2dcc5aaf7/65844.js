@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./89193.js");
 var a = require(/*webcrack:missing*/ "./31958.js");
-var s = require(/*webcrack:missing*/ "./53833.js");
+import { SortedFindLessOrEqual } from "../../actual_src/utils/arrayutils.js";
 var o = require("./84629.js");
 var l = require(/*webcrack:missing*/ "./63696.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
@@ -687,7 +687,10 @@ class g {
 	}
 	ConvertGlobalMSToGlobalPXOffset(e, t = -1) {
 		if (t < 0) {
-			t = s.rJ(this.m_rgTimelineOffsets, (t) => e - t.globalOffsetMS);
+			t = SortedFindLessOrEqual(
+				this.m_rgTimelineOffsets,
+				(t) => e - t.globalOffsetMS,
+			);
 		}
 		const r = t * 10;
 		return this.ConvertDurationMSToDeltaPX(e) + r;
@@ -727,7 +730,7 @@ class g {
 		return this.m_rgTimelineOffsets[t];
 	}
 	FindIndexOfClosestTimelineEndForOffsetPX(e) {
-		return s.rJ(this.m_rgTimelineOffsets, (t) => {
+		return SortedFindLessOrEqual(this.m_rgTimelineOffsets, (t) => {
 			const r =
 				this.ConvertGlobalMSToGlobalPXOffset(t.globalOffsetMS) +
 				this.ConvertDurationMSToDeltaPX(t.nDurationMS);
@@ -735,7 +738,7 @@ class g {
 		});
 	}
 	FindIndexOfClosestTimelineStartForOffsetPX(e) {
-		return s.rJ(this.m_rgTimelineOffsets, (t) => {
+		return SortedFindLessOrEqual(this.m_rgTimelineOffsets, (t) => {
 			const r = this.ConvertGlobalMSToGlobalPXOffset(t.globalOffsetMS);
 			return e - r;
 		});

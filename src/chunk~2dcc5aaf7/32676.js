@@ -1,6 +1,11 @@
 import * as n from /*webcrack:missing*/ "./63696.js";
 import * as i from /*webcrack:missing*/ "./90765.js";
-import * as a from /*webcrack:missing*/ "./46108.js";
+import {
+	Hq,
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as s from "./57622.js";
 import * as o from "./91720.js";
 import * as l from "./661.js";
@@ -207,7 +212,7 @@ function Me(e) {
 							direction: "left",
 						}),
 						" ",
-						(0, a.we)("#Button_Back"),
+						Localize("#Button_Back"),
 					),
 					n.createElement(Se.D, {
 						name: "MediaManagerOpenedItemHeaderControls",
@@ -235,7 +240,7 @@ function Me(e) {
 						P.he,
 						{
 							direction: "top",
-							toolTipContent: (0, a.we)("#MediaManager_Media_Previous"),
+							toolTipContent: Localize("#MediaManager_Media_Previous"),
 						},
 						n.createElement(
 							"div",
@@ -270,7 +275,7 @@ function Me(e) {
 						P.he,
 						{
 							direction: "top",
-							toolTipContent: (0, a.we)("#MediaManager_Media_Next"),
+							toolTipContent: Localize("#MediaManager_Media_Next"),
 						},
 						n.createElement(
 							"div",
@@ -1108,13 +1113,13 @@ function Ue(e) {
 		return true;
 	};
 	const G = {
-		[Z.pR.OPTIONS]: (0, a.we)(
+		[Z.pR.OPTIONS]: Localize(
 			c
 				? "#MediaManager_FloatingControls_Hide"
 				: "#MediaManager_FloatingControls_Show",
 		),
 		[Z.pR.SELECT]: o
-			? (0, a.we)("#MediaManager_FloatingControls_GoToClips")
+			? Localize("#MediaManager_FloatingControls_GoToClips")
 			: undefined,
 	};
 	if (E) {
@@ -1185,7 +1190,7 @@ function We(e) {
 			{
 				className: g.AppName,
 			},
-			r ?? (0, a.we)("#MediaManager_AppHeader_NonSteamGame"),
+			r ?? Localize("#MediaManager_AppHeader_NonSteamGame"),
 		),
 	);
 }
@@ -1269,7 +1274,7 @@ function je(e) {
 				{
 					className: (0, i.A)(g.ClipCornerRow, g.DownloadInfo),
 				},
-				(0, a.we)("#MediaManager_Clip_Downloaded_New"),
+				Localize("#MediaManager_Clip_Downloaded_New"),
 				t.original_gaming_device_type == G.zm.k_EGamingDeviceType_SteamDeck
 					? n.createElement(B.DeckLogo, {
 							height: "22px",
@@ -1307,8 +1312,8 @@ function Qe(e) {
 	const o = n.createElement(
 		n.Fragment,
 		null,
-		i > 0 ? (0, a.we)("#ClipManager_BackgroundRecordingTime_Min", i) : "",
-		(0, a.we)("#ClipManager_BackgroundRecordingTime_Sec", s),
+		i > 0 ? Localize("#ClipManager_BackgroundRecordingTime_Min", i) : "",
+		Localize("#ClipManager_BackgroundRecordingTime_Sec", s),
 	);
 	return n.createElement(Ze, null, n.createElement(oe.vN, null), o);
 }
@@ -1403,7 +1408,7 @@ function Ke(e) {
 							{
 								className: g.BackgroundRecordingLabel,
 							},
-							(0, a.we)("#ClipManager_BackgroundRecordingLabel"),
+							Localize("#ClipManager_BackgroundRecordingLabel"),
 						),
 					),
 				n.createElement(Ye, {
@@ -1436,13 +1441,13 @@ function Xe(e) {
 				{
 					weak: true,
 				},
-				(0, a.we)("#MediaManager_ItemType_BackgroundRecording"),
+				Localize("#MediaManager_ItemType_BackgroundRecording"),
 			),
 		),
 		n.createElement(
 			rt,
 			null,
-			n.createElement(tt, null, (0, a.Hq)(Date.now() / 1000 - i)),
+			n.createElement(tt, null, (0, Hq)(Date.now() / 1000 - i)),
 		),
 		n.createElement(rt, null, n.createElement(tt, null, (0, ae.dm)(s, 2))),
 	);
@@ -1465,13 +1470,13 @@ function Je(e) {
 				{
 					weak: true,
 				},
-				(0, a.we)("#MediaManager_ItemType_Clip"),
+				Localize("#MediaManager_ItemType_Clip"),
 			),
 		),
 		n.createElement(
 			rt,
 			null,
-			n.createElement(tt, null, (0, a.Hq)(Date.now() / 1000 - s)),
+			n.createElement(tt, null, (0, Hq)(Date.now() / 1000 - s)),
 		),
 		l &&
 			n.createElement(
@@ -1482,7 +1487,7 @@ function Je(e) {
 					{
 						weak: true,
 					},
-					(0, a.we)("#ExportClip_Progress"),
+					Localize("#ExportClip_Progress"),
 				),
 			),
 		n.createElement(
@@ -1497,7 +1502,7 @@ function Je(e) {
 				n.createElement(
 					tt,
 					null,
-					(0, a.we)("#MediaManager_Clip_Downloaded"),
+					Localize("#MediaManager_Clip_Downloaded"),
 					r.original_gaming_device_type == G.zm.k_EGamingDeviceType_SteamDeck
 						? n.createElement(B.DeckLogo, {
 								height: "16px",
@@ -1525,13 +1530,13 @@ function $e(e) {
 				{
 					weak: true,
 				},
-				(0, a.we)("#MediaManager_ItemType_Screenshot"),
+				Localize("#MediaManager_ItemType_Screenshot"),
 			),
 		),
 		n.createElement(
 			rt,
 			null,
-			n.createElement(tt, null, (0, a.Hq)(Date.now() / 1000 - t.rtCreated)),
+			n.createElement(tt, null, (0, Hq)(Date.now() / 1000 - t.rtCreated)),
 		),
 	);
 }
@@ -1763,7 +1768,7 @@ function it(e) {
 				},
 				onMenuButton: R,
 				onContextMenu: R,
-				onMenuActionDescription: (0, a.we)("#ActionButtonLabelContextMenu"),
+				onMenuActionDescription: Localize("#ActionButtonLabelContextMenu"),
 				ref: S,
 				...E,
 			},
@@ -1842,7 +1847,7 @@ function ot(e) {
 				{
 					onSelected: () =>
 						SteamClient.Screenshots.ShowScreenshotsOnDisk(t.strGameID),
-					label: (0, a.we)("#ScreenshotUploader_ShowOnDisk"),
+					label: Localize("#ScreenshotUploader_ShowOnDisk"),
 				},
 			]
 		: [];
@@ -1876,7 +1881,7 @@ export function BaseListItemContextMenu(e) {
 				{
 					onSelected: i,
 				},
-				(0, a.we)("#Button_View"),
+				Localize("#Button_View"),
 			),
 		r &&
 			n.createElement(
@@ -1884,7 +1889,7 @@ export function BaseListItemContextMenu(e) {
 				{
 					onSelected: r,
 				},
-				(0, a.we)("#MediaManager_FloatingControls_Share"),
+				Localize("#MediaManager_FloatingControls_Share"),
 			),
 		s.map((e) =>
 			n.createElement(
@@ -1904,10 +1909,10 @@ export function BaseListItemContextMenu(e) {
 						(0, Ae.pg)(
 							n.createElement(de.o0, {
 								onOK: t,
-								strOKButtonText: (0, a.we)("#MediaManager_Delete"),
+								strOKButtonText: Localize("#MediaManager_Delete"),
 								bDestructiveWarning: true,
-								strTitle: (0, a.we)("#MediaManager_Delete"),
-								strDescription: (0, a.we)(
+								strTitle: Localize("#MediaManager_Delete"),
+								strDescription: Localize(
 									"#MediaManager_DeleteDialog_Explainer",
 								),
 							}),
@@ -1916,14 +1921,14 @@ export function BaseListItemContextMenu(e) {
 					},
 					tone: "destructive",
 				},
-				(0, a.we)("#MediaManager_FloatingControls_Delete"),
+				Localize("#MediaManager_FloatingControls_Delete"),
 			),
 	);
 }
 function mt(e) {
 	const { timestamp: t } = e;
 	const { strDay: r, strTime: s } = (0, N.nN)(t);
-	const o = (0, a.we)("#ScreenshotUploader_DateUploaded", r, s);
+	const o = Localize("#ScreenshotUploader_DateUploaded", r, s);
 	return n.createElement(
 		P.he,
 		{
@@ -2063,8 +2068,8 @@ function Ct(e) {
 		const [i, s] = (0, v.M)({
 			bCloseOnOK: true,
 			onOK: n,
-			strTitle: (0, a.we)("#DeleteClip_Title"),
-			strDescription: (0, a.we)("#DeleteClip_Description", e),
+			strTitle: Localize("#DeleteClip_Title"),
+			strDescription: Localize("#DeleteClip_Description", e),
 		});
 		return {
 			elDialog: i,
@@ -2073,8 +2078,8 @@ function Ct(e) {
 	})(r);
 	const c = (0, d.z)();
 	const m = {
-		[Z.pR.SECONDARY]: (0, a.we)("#DeleteClip"),
-		[Z.pR.START]: (0, a.we)("#ShareClip"),
+		[Z.pR.SECONDARY]: Localize("#DeleteClip"),
+		[Z.pR.START]: Localize("#ShareClip"),
 	};
 	const u = n.useCallback(
 		(e) => {
@@ -2138,14 +2143,14 @@ export function NoContentAvailable(e) {
 			{
 				className: h.HeaderSmall,
 			},
-			(0, a.oW)(
+			LocalizeInlineReactWithFallback(
 				"#ClipManager_Explainer_RecordingHeader",
 				n.createElement("span", {
 					className: h.NewCallout,
 				}),
 			),
 		),
-		n.createElement("div", null, (0, a.we)("#ClipManager_Explainer_Recording")),
+		n.createElement("div", null, Localize("#ClipManager_Explainer_Recording")),
 		n.createElement(
 			"div",
 			{
@@ -2160,7 +2165,7 @@ export function NoContentAvailable(e) {
 						o.Settings("GameRecording");
 					},
 				},
-				(0, a.we)("#ClipManager_Explainer_RecordingGetStarted"),
+				Localize("#ClipManager_Explainer_RecordingGetStarted"),
 			),
 		),
 	);
@@ -2187,7 +2192,7 @@ export function NoContentAvailable(e) {
 				{
 					className: h.Header,
 				},
-				(0, a.we)(
+				Localize(
 					m
 						? "#ClipManager_Explainer_Header"
 						: "#ClipManager_Explainer_Header_NoGR",
@@ -2196,7 +2201,7 @@ export function NoContentAvailable(e) {
 			n.createElement(
 				"div",
 				null,
-				(0, a.PP)(
+				LocalizeReact(
 					"#ClipManager_Explainer_ScreenshotTip",
 					r
 						? n.createElement("span", null, s?.display_name)
@@ -2221,7 +2226,7 @@ function ft(e) {
 		n.createElement(
 			"div",
 			null,
-			(0, a.PP)("#ScreenshotUploader_Explainer_HowToTake", r),
+			LocalizeReact("#ScreenshotUploader_Explainer_HowToTake", r),
 		),
 	);
 }
@@ -2239,7 +2244,7 @@ export function AllContentFilteredOut(e) {
 		n.createElement(
 			"div",
 			null,
-			(0, a.we)("#ClipManager_Explainer_AllContentFilteredOut"),
+			Localize("#ClipManager_Explainer_AllContentFilteredOut"),
 		),
 	);
 }

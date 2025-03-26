@@ -9,7 +9,7 @@ var c = require("./74827.js");
 var m = require("./92749.js");
 var u = require("./44313.js");
 var d = require("./13200.js");
-var A = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var p = require("./60917.js");
 var g = require(/*webcrack:missing*/ "./69164.js");
 var h = require("./27954.js");
@@ -216,7 +216,7 @@ const y = (0, l.PA)(() => {
 									customHeaderText: "#ControllerCloudConflict_Header",
 									customDescriptionText: "#ControllerCloudConflict_Description",
 								},
-								(0, A.uX)(e),
+								GetOwningWindowForEvent(e),
 							),
 					},
 					"Show Cloud Conflict Dialog",

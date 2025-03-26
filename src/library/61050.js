@@ -1,5 +1,5 @@
 var r = require("./61657.js");
-var i = require("./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var s = require("./20893.js");
 var o = require("./54102.js");
 var a = require("./4690.js");
@@ -66,7 +66,7 @@ export function UR(e, t, n, r = 0.001) {
 	} else if (e == "y") {
 		return t.y + t.height > n.y + r && t.y + r < n.y + n.height;
 	} else {
-		(0, i.w)(false, `Invalid axis ${e}`);
+		AssertMsg(false, `Invalid axis ${e}`);
 		return false;
 	}
 }
@@ -77,7 +77,7 @@ export function ix(e, t, n) {
 	} else if (e == "y") {
 		r = Math.min(t.y + t.height, n.y + n.height) - Math.max(t.y, n.y);
 	} else {
-		(0, i.w)(false, `Invalid axis ${e}`);
+		AssertMsg(false, `Invalid axis ${e}`);
 		r = 0;
 	}
 	if (r < 0) {

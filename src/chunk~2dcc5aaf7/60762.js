@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./50376.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
 var l = require("./47628.js");
 var c = l;
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./72476.js");
 export function Q(e) {
 	const { item: t, strClassName: r, bMinimizePlatforms: l } = e;
@@ -22,7 +22,7 @@ export function Q(e) {
 			n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Windows"),
+					title: Localize("#Platform_Windows"),
 				},
 				n.createElement(s.Xz0, null),
 			);
@@ -30,7 +30,7 @@ export function Q(e) {
 			e = n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Mac"),
+					title: Localize("#Platform_Mac"),
 				},
 				n.createElement(s.kPc, null),
 			);
@@ -38,7 +38,7 @@ export function Q(e) {
 			e = n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Linux"),
+					title: Localize("#Platform_Linux"),
 				},
 				n.createElement(s.Qte, null),
 			);
@@ -64,7 +64,7 @@ export function Q(e) {
 			n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Windows"),
+					title: Localize("#Platform_Windows"),
 				},
 				n.createElement(s.Xz0, null),
 			),
@@ -72,7 +72,7 @@ export function Q(e) {
 			n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Mac"),
+					title: Localize("#Platform_Mac"),
 				},
 				n.createElement(s.kPc, null),
 			),
@@ -80,7 +80,7 @@ export function Q(e) {
 			n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_Linux"),
+					title: Localize("#Platform_Linux"),
 				},
 				n.createElement(s.Qte, null),
 			),
@@ -88,7 +88,7 @@ export function Q(e) {
 			n.createElement(
 				"span",
 				{
-					title: (0, m.we)("#Platform_VR"),
+					title: Localize("#Platform_VR"),
 				},
 				n.createElement(s.VR, null),
 			),

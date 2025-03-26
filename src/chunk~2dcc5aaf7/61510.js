@@ -5944,7 +5944,7 @@ var qe;
 })((qe ||= {}));
 var Qe = require(/*webcrack:missing*/ "./93960.js");
 var Ze = require(/*webcrack:missing*/ "./79769.js");
-var Ye = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var Ke = require(/*webcrack:missing*/ "./72476.js");
 var Xe = require("./48332.js");
 export class q {
@@ -6087,10 +6087,10 @@ class $e {
 					let e = "";
 					e =
 						n.result == 17
-							? (0, Ye.we)("#BroadcastChat_YouMuted")
+							? Localize("#BroadcastChat_YouMuted")
 							: n.result == 84
-								? (0, Ye.we)("#BroadcastChat_Cooldown", n.cooldown_time_seconds)
-								: (0, Ye.we)("#BroadcastChat_FailedToSendMsg", t);
+								? Localize("#BroadcastChat_Cooldown", n.cooldown_time_seconds)
+								: Localize("#BroadcastChat_FailedToSendMsg", t);
 					this.m_rgChatMessages.push({
 						type: o.X8.Error,
 						msg: e,
@@ -6113,7 +6113,7 @@ class $e {
 			} catch {
 				this.m_rgChatMessages.push({
 					type: o.X8.Error,
-					msg: (0, Ye.we)("#BroadcastChat_FailedToSendMsg", t),
+					msg: Localize("#BroadcastChat_FailedToSendMsg", t),
 					client_ts: Number(new Date()),
 					instance_id: this.m_unInstanceID,
 					in_game: false,
@@ -6158,7 +6158,7 @@ class $e {
 					if (!this.m_bHasAddedWelcomeChat) {
 						this.m_rgChatMessages.push({
 							type: o.X8.Notification,
-							msg: (0, Ye.we)("#BroadcastChat_DefaultMessage"),
+							msg: Localize("#BroadcastChat_DefaultMessage"),
 							client_ts: Number(new Date()),
 							instance_id: this.m_unInstanceID,
 							in_game: false,
@@ -6204,7 +6204,7 @@ class $e {
 			this.m_rgChatMessages = [];
 			this.m_rgChatMessages.push({
 				type: o.X8.Notification,
-				msg: (0, Ye.we)("#BroadcastChat_DefaultMessage"),
+				msg: Localize("#BroadcastChat_DefaultMessage"),
 				client_ts: Number(new Date()),
 				instance_id: this.m_unInstanceID,
 				in_game: false,
@@ -6286,8 +6286,8 @@ class $e {
 				for (const e of r.muted) {
 					const t =
 						e.muted == this.m_strUserSteamID
-							? (0, Ye.we)("#BroadcastChat_YouMuted", e.persona_name)
-							: (0, Ye.we)("#BroadcastChat_UserMuted", e.persona_name);
+							? Localize("#BroadcastChat_YouMuted", e.persona_name)
+							: Localize("#BroadcastChat_UserMuted", e.persona_name);
 					this.m_rgChatMessages.push({
 						type: o.X8.Notification,
 						msg: t,
@@ -6356,7 +6356,7 @@ class $e {
 				if (this.m_tsFirstRequest == null) {
 					this.m_rgChatMessages.push({
 						type: o.X8.Error,
-						msg: (0, Ye.we)("#BroadcastChat_UnableToJoinChat"),
+						msg: Localize("#BroadcastChat_UnableToJoinChat"),
 						client_ts: Number(new Date()),
 						instance_id: this.m_unInstanceID,
 						in_game: false,
@@ -6398,7 +6398,7 @@ class $e {
 			try {
 				await a.post(`${Ke.TS.CHAT_BASE_URL}broadcast/ajaxupdatechannelmod`, n);
 				this.m_mapBroadcastModeratorUsers.set(e, t);
-				const i = (0, Ye.we)(
+				const i = Localize(
 					t
 						? "#BroadcastChat_AddedModerator"
 						: "#BroadcastChat_RemovedModerator",
@@ -6409,7 +6409,7 @@ class $e {
 					msg: i,
 				});
 			} catch {
-				const e = (0, Ye.we)(
+				const e = Localize(
 					t
 						? "#BroadcastChat_AddModeratorFailed"
 						: "#BroadcastChat_RemoveModeratorFailed",
@@ -6492,7 +6492,7 @@ class $e {
 				if (r) {
 					this.m_rgChatMessages.push({
 						type: o.X8.Error,
-						msg: (0, Ye.we)("#BroadcastChat_UserMuteFailed", t),
+						msg: Localize("#BroadcastChat_UserMuteFailed", t),
 						client_ts: Number(new Date()),
 						instance_id: this.m_unInstanceID,
 						in_game: false,
@@ -6506,7 +6506,7 @@ class $e {
 		if (!r) {
 			this.m_rgChatMessages.push({
 				type: o.X8.Notification,
-				msg: (0, Ye.we)("#BroadcastChat_UserMutedLocal", t),
+				msg: Localize("#BroadcastChat_UserMutedLocal", t),
 				client_ts: Number(new Date()),
 				instance_id: this.m_unInstanceID,
 				in_game: false,
@@ -6547,7 +6547,7 @@ class $e {
 				}
 				this.m_rgChatMessages.push({
 					type: o.X8.Notification,
-					msg: (0, Ye.we)("#BroadcastChat_UserUnmutedLocal", t),
+					msg: Localize("#BroadcastChat_UserUnmutedLocal", t),
 					client_ts: Number(new Date()),
 					instance_id: this.m_unInstanceID,
 					in_game: false,
@@ -6557,7 +6557,7 @@ class $e {
 			} catch {
 				this.m_rgChatMessages.push({
 					type: o.X8.Error,
-					msg: (0, Ye.we)("#BroadcastChat_UserUnmuteFailed", t),
+					msg: Localize("#BroadcastChat_UserUnmuteFailed", t),
 					client_ts: Number(new Date()),
 					instance_id: this.m_unInstanceID,
 					in_game: false,
@@ -6568,7 +6568,7 @@ class $e {
 		} else {
 			this.m_rgChatMessages.push({
 				type: o.X8.Notification,
-				msg: (0, Ye.we)("#BroadcastChat_UserUnmutedLocal", t),
+				msg: Localize("#BroadcastChat_UserUnmutedLocal", t),
 				client_ts: Number(new Date()),
 				instance_id: this.m_unInstanceID,
 				in_game: false,
@@ -6607,7 +6607,7 @@ class $e {
 			} catch {
 				this.m_rgChatMessages.push({
 					type: o.X8.Error,
-					msg: (0, Ye.we)("#BroadcastChat_RemoveMessagesFailed", t),
+					msg: Localize("#BroadcastChat_RemoveMessagesFailed", t),
 					client_ts: Number(new Date()),
 					instance_id: this.m_unInstanceID,
 					in_game: false,

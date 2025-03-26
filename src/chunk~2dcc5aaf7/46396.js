@@ -7,7 +7,7 @@ var l = require("./62486.js");
 var c = require("./85360.js");
 var m = require("./52192.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require("./22091.js");
 var p = require("./18057.js");
 var g = require("./64608.js");
@@ -55,9 +55,7 @@ function D(e) {
 		}
 		b +=
 			" " +
-			(0, d.we)(
-				"#ControllerBinding_GyroConfigurationModeSetting_NoteCarefully",
-			);
+			Localize("#ControllerBinding_GyroConfigurationModeSetting_NoteCarefully");
 	} else {
 		b = (0, l.ix)(u.id + "_Description");
 	}
@@ -99,7 +97,7 @@ function D(e) {
 			g.xh,
 			{
 				key: m.id,
-				label: (0, d.we)(p),
+				label: Localize(p),
 				onClick: () => {
 					C();
 				},
@@ -218,7 +216,7 @@ function N(e) {
 			g.xh,
 			{
 				key: m.id,
-				label: (0, d.we)(u),
+				label: Localize(u),
 				onClick: () => {
 					h();
 				},
@@ -390,7 +388,7 @@ function P(e) {
 			g.xh,
 			{
 				key: "MultButtonContents",
-				label: (0, d.we)("#ControllerBinding_ModeShiftDropDown"),
+				label: Localize("#ControllerBinding_ModeShiftDropDown"),
 				onClick: () => {
 					u();
 				},
@@ -421,7 +419,7 @@ function P(e) {
 				n.createElement(
 					g.Y9,
 					null,
-					(0, d.we)("#ControllerBinding_ModeShiftDropDown") ||
+					Localize("#ControllerBinding_ModeShiftDropDown") ||
 						n.createElement(n.Fragment, null, "\xA0"),
 				),
 				n.createElement(
@@ -618,7 +616,7 @@ export const g8 = (0, a.PA)(function (e) {
 				o[e],
 			);
 			m.push({
-				title: (0, d.we)("#ControllerConfigurator_Setting_Section_" + e),
+				title: Localize("#ControllerConfigurator_Setting_Section_" + e),
 				route: p.BV.GamepadUI.ControllerConfigurator.ModeSettings(
 					t,
 					a,
@@ -711,7 +709,7 @@ const z = (0, a.PA)(function (e) {
 		c = (0, m.Xt)(a);
 	}
 	const u = (0, l.GW)(s);
-	const A = (0, d.we)("#ControllerConfigurator_SourceMode_Group_Settings", u);
+	const A = Localize("#ControllerConfigurator_SourceMode_Group_Settings", u);
 	const p = i?.friendlyname != null && i.friendlyname.length > 0;
 	return n.createElement(
 		"div",

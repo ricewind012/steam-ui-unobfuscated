@@ -1,9 +1,12 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./69164.js");
 var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
-var o = require(/*webcrack:missing*/ "./11010.js");
-var l = require(/*webcrack:missing*/ "./41180.js");
+import { LocalizePlural } from "../../actual_src/utils/localization.js";
+import {
+	LocalizeRTimeToHourAndMinutes,
+	LocalizeRtime32ToShorterDate,
+} from "../../actual_src/utils/localization/datetime.js";
+import { IsDateSameDay } from "../../actual_src/utils/time.js";
 var c = require("./75883.js");
 var m = c;
 var u = require(/*webcrack:missing*/ "./50376.js");
@@ -60,7 +63,7 @@ export function OK(e) {
 	if (!t && !o) {
 		return null;
 	}
-	const u = (0, s.Yp)(a, t);
+	const u = LocalizePlural(a, t);
 	return n.createElement(A, {
 		icon: r,
 		body: u,
@@ -274,9 +277,10 @@ function w(e) {
 	}
 	let t = new Date();
 	let r = new Date(e.timestamp * 1000);
-	let i = (0, o.KC)(e.timestamp);
-	if (!(0, l.JD)(t, r)) {
-		i = (0, o._l)(e.timestamp, false, false, false) + " " + i;
+	let i = LocalizeRTimeToHourAndMinutes(e.timestamp);
+	if (!IsDateSameDay(t, r)) {
+		i =
+			LocalizeRtime32ToShorterDate(e.timestamp, false, false, false) + " " + i;
 	}
 	return n.createElement(
 		"div",
@@ -292,9 +296,9 @@ function B(e) {
 	}
 	let t = new Date();
 	let r = new Date(e.timestamp * 1000);
-	let i = (0, l.JD)(t, r)
-		? (0, o.KC)(e.timestamp)
-		: (0, o._l)(e.timestamp, false, false, false);
+	let i = IsDateSameDay(t, r)
+		? LocalizeRTimeToHourAndMinutes(e.timestamp)
+		: LocalizeRtime32ToShorterDate(e.timestamp, false, false, false);
 	return n.createElement(
 		"div",
 		{

@@ -9,8 +9,12 @@ var u = require("./17385.js");
 var m = require("./736.js");
 var d = require("./49455.js");
 var h = require("./81255.js");
-var p = require("./54644.js");
-var g = require("./46108.js");
+import {
+	GetStyleSheetLinks,
+	AddStylesheetsToDocument,
+	AddMissingStylesheetsToWindow,
+} from "../../actual_src/utils/domutils.js";
+import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
 var f = require("./52451.js");
 var _ = require("./72476.js");
 var w = require("./93960.js");
@@ -251,7 +255,10 @@ export class Ad {
 				n.addEventListener("dragover", this.OnDragOver);
 				n.addEventListener("message", this.OnMessage);
 				if (_.TS.LANGUAGE) {
-					n.document.documentElement.setAttribute("lang", (0, g.l4)() ?? "");
+					n.document.documentElement.setAttribute(
+						"lang",
+						GetConfiguredLocale() ?? "",
+					);
 				}
 				this.m_popup = n;
 				this.m_element = i;
@@ -594,9 +601,9 @@ class k {
 			(0, d.w)(e, "Couldn't find head element");
 			if (e) {
 				this.m_DynamicCSSObserver = new MutationObserver(() => {
-					const e = p.yU();
+					const e = GetStyleSheetLinks();
 					this.m_mapPopups.forEach((t) => {
-						p.lc(t.window.document, e, false);
+						AddStylesheetsToDocument(t.window.document, e, false);
 					});
 				});
 				this.m_DynamicCSSObserver.observe(e, {
@@ -770,7 +777,7 @@ class k {
 		let h = `<!DOCTYPE html><html ${u}><head><title></title></head><body ${m}><div id="popup_target" ${d}></div></body></html>`;
 		l.document.write(h);
 		l.document.title = s;
-		p.Oe(l, p.yU());
+		AddMissingStylesheetsToWindow(l, GetStyleSheetLinks());
 		return {
 			popup: l,
 			element: l.document.getElementById("popup_target"),

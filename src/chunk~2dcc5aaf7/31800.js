@@ -24,12 +24,15 @@ var v = require("./88724.js");
 var I = require("./17231.js");
 var E = require("./35488.js");
 var M = require(/*webcrack:missing*/ "./90765.js");
-var T = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeDateHumanReadable,
+} from "../../actual_src/utils/localization.js";
 var R = require(/*webcrack:missing*/ "./31958.js");
 var k = require(/*webcrack:missing*/ "./52451.js");
 var D = require("./51076.js");
 var N = require("./6242.js");
-var F = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var G = require("./61651.js");
 var O = G;
 var P = require(/*webcrack:missing*/ "./90242.js");
@@ -162,9 +165,9 @@ function H(e) {
 			onEnterKeyPress: g,
 			onKeyboardNavOut: g,
 			onOptionsButton: A ? () => z.U.ClearSearchText() : undefined,
-			onOptionsActionDescription: A ? (0, T.we)("#Clear") : undefined,
-			strEnterKeyLabel: (0, T.we)("#SearchEnterKeyLabel"),
-			placeholder: (0, T.we)("#SearchPlaceholder"),
+			onOptionsActionDescription: A ? (0, Localize)("#Clear") : undefined,
+			strEnterKeyLabel: (0, Localize)("#SearchEnterKeyLabel"),
+			placeholder: (0, Localize)("#SearchPlaceholder"),
 		}),
 		n.createElement(E.Search, {
 			className: (0, M.A)(O.SearchIconRight, p && O.WhiteBackground),
@@ -248,7 +251,7 @@ function ce(e) {
 			{
 				className: ie.BackButton,
 			},
-			(0, T.we)("#NavigateBack"),
+			(0, Localize)("#NavigateBack"),
 		),
 	);
 }
@@ -269,7 +272,7 @@ Number.parseInt(ue["gamepad-header-height"]);
 export function j1() {
 	const [e, t] = n.useState(new Date());
 	n.useEffect(() => {
-		let e = 60 - ((0, F._2)() % 60);
+		let e = 60 - (GetUnixTime() % 60);
 		let r = window.setTimeout(() => t(new Date()), e * 1000);
 		return () => clearTimeout(r);
 	}, [e]);
@@ -376,7 +379,7 @@ function Re() {
 	const i = r ? 1 : 2;
 	const o = (0, _e.$2)();
 	const l = (0, a.bG)("FamilyManagement");
-	const c = (0, T.we)(t ? "#FamilyView_Unlock" : "#FamilyView_Lock");
+	const c = (0, Localize)(t ? "#FamilyView_Unlock" : "#FamilyView_Lock");
 	if (e) {
 		return n.createElement(
 			Ie,
@@ -406,8 +409,8 @@ function ke() {
 	const t = (0, fe.fK)();
 	const r = (0, _e.$2)();
 	const i = t
-		? (0, T.we)("#KioskMode_Unlock_Tooltip")
-		: (0, T.we)("#KioskMode_Lock_Tooltip");
+		? (0, Localize)("#KioskMode_Unlock_Tooltip")
+		: (0, Localize)("#KioskMode_Lock_Tooltip");
 	if (e) {
 		return n.createElement(
 			Ie,
@@ -498,7 +501,7 @@ function Fe() {
 			{
 				className: ue.WirelessIcon,
 				onActivate: e ? undefined : () => t.Settings("Internet"),
-				onOKActionDescription: (0, T.we)("#HeaderActions_Network"),
+				onOKActionDescription: (0, Localize)("#HeaderActions_Network"),
 				vrTooltip: a,
 			},
 			n.createElement(Te, {
@@ -538,7 +541,7 @@ function Oe(e) {
 			{
 				className: ue.SteamConnectionWarningIcon,
 				onActivate: i,
-				onOKActionDescription: (0, T.we)("#HeaderActions_Network"),
+				onOKActionDescription: (0, Localize)("#HeaderActions_Network"),
 			},
 			n.createElement(E.SteamNetworkIssue, null),
 		);
@@ -574,7 +577,7 @@ const Le = () => {
 		{
 			vrTooltip: l,
 			onActivate: o,
-			onOKActionDescription: (0, T.we)("#HeaderActions_Downloads"),
+			onOKActionDescription: (0, Localize)("#HeaderActions_Downloads"),
 		},
 		n.createElement(
 			"div",
@@ -621,7 +624,7 @@ function ze(e) {
 			{
 				className: ue.UpdatesIcon,
 				onActivate: e.onClick,
-				onOKActionDescription: (0, T.we)("#HeaderActions_Update"),
+				onOKActionDescription: (0, Localize)("#HeaderActions_Update"),
 			},
 			n.createElement(E.SteamdeckUpdate, null),
 		);
@@ -640,7 +643,7 @@ function xe(e) {
 		ve,
 		{
 			onActivate: e.onClick,
-			onOKActionDescription: (0, T.we)("#HeaderActions_VoiceChatActive"),
+			onOKActionDescription: (0, Localize)("#HeaderActions_VoiceChatActive"),
 		},
 		(e) =>
 			n.createElement(u.Cy, {
@@ -675,7 +678,7 @@ function We(e) {
 		ve,
 		{
 			onActivate: e.onClick,
-			onOKActionDescription: (0, T.we)("#HeaderActions_UnreadChatMessages"),
+			onOKActionDescription: (0, Localize)("#HeaderActions_UnreadChatMessages"),
 		},
 		(e) =>
 			n.createElement(u.Dx, {
@@ -881,7 +884,7 @@ function Ke() {
 	const e = hj();
 	const t = (function () {
 		const e = j1();
-		return (0, T.TW)(e.valueOf() / 1000, true, false);
+		return LocalizeDateHumanReadable(e.valueOf() / 1000, true, false);
 	})();
 	const r = n.useContext(rt);
 	return n.createElement(
@@ -946,7 +949,7 @@ const Je = (0, y.PA)(function (e) {
 		{
 			id: "header_profile",
 			onActivate: e.onActivate,
-			onOKActionDescription: (0, T.we)("#HeaderActions_AccountPage"),
+			onOKActionDescription: (0, Localize)("#HeaderActions_AccountPage"),
 		},
 		o &&
 			n.createElement(

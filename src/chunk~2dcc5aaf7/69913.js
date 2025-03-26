@@ -12,7 +12,7 @@ var A = require("./89748.js");
 var p = require(/*webcrack:missing*/ "./90095.js");
 var g = require("./78057.js");
 var h = require(/*webcrack:missing*/ "./63696.js");
-var C = require(/*webcrack:missing*/ "./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 var _ = require(/*webcrack:missing*/ "./72476.js");
 var f = require(/*webcrack:missing*/ "./49455.js");
 var b = require("./94361.js");
@@ -233,7 +233,7 @@ export class z1 {
 		this.m_playtime = {
 			nPlaytimeLastTwoWeeks: 0,
 			nPlaytimeForever: 0,
-			rtLastTimePlayed: (0, C._2)(),
+			rtLastTimePlayed: GetUnixTime(),
 		};
 		this.m_Instance = e;
 		this.m_tabbedBrowserStore = new l.H();

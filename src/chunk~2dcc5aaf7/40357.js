@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var i = require(/*webcrack:missing*/ "./49455.js");
 var a = require(/*webcrack:missing*/ "./17385.js");
 export function CO(e) {
-	let t = (0, n.uX)(e);
+	let t = GetOwningWindowForEvent(e);
 	(0, i.w)(t, "Couldn't find owning window to determine browser context");
 	return _k(t);
 }

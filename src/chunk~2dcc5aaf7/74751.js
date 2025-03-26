@@ -5,7 +5,7 @@ var s = require("./45264.js");
 var o = require("./21618.js");
 var l = require("./64608.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var _u = require("./51076.js");
 var d = require("./10325.js");
 var A = require("./38602.js");
@@ -93,7 +93,7 @@ function f(e) {
 	const f = (0, i.W5)();
 	const w = (0, l.vn)(f.params.noteid || C ? "ActivePage" : "PageList");
 	const B = r.map((e) => ({
-		title: e.title?.length > 0 ? e.title : (0, m.we)("#UserGameNotes_Untitled"),
+		title: e.title?.length > 0 ? e.title : Localize("#UserGameNotes_Untitled"),
 		identifier: e.id,
 		content: n.createElement(y, {
 			noteParent: t,
@@ -105,7 +105,7 @@ function f(e) {
 	const v = S();
 	const I = n.useCallback((e) => v(t, e), [v, t]);
 	const E = h.TS.IN_STEAMUI
-		? (0, m.we)("#UserGameNotes_NotesList")
+		? Localize("#UserGameNotes_NotesList")
 		: n.createElement(b, {
 				noteParent: t,
 			});
@@ -141,7 +141,7 @@ function b(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		(0, m.we)("#UserGameNotes_NotesForGame", i),
+		Localize("#UserGameNotes_NotesForGame", i),
 	);
 }
 function y(e) {

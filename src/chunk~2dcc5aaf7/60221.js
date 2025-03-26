@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./90765.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require("./85360.js");
 var m = require("./76587.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./13110.js");
 var A = require(/*webcrack:missing*/ "./4690.js");
 var p = require("./72655.js");
@@ -21,7 +21,7 @@ var S = require("./46422.js");
 var w = require("./64608.js");
 var B = require("./45309.js");
 var v = require("./13869.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var E = require(/*webcrack:missing*/ "./50376.js");
 var M = require("./15897.js");
 export function G4(e) {
@@ -69,7 +69,7 @@ function k(e) {
 	const h = (0, _.Ue)(g, s);
 	(0, _.l6)(window, "resize", p);
 	n.useEffect(p, [p]);
-	const b = e.locToken ? (0, u.we)(e.locToken) : null;
+	const b = e.locToken ? (0, Localize)(e.locToken) : null;
 	const y = (0, f.w)(b, d * 0.8, {
 		maxLines: 1,
 		fontFamily: "Motiva Sans",
@@ -179,7 +179,7 @@ function D(e) {
 						}),
 						t,
 					);
-				})(t, (0, I.uX)(e), A, s);
+				})(t, GetOwningWindowForEvent(e), A, s);
 			},
 			style: {
 				filter: `drop-shadow(0 0 8px ${h})`,
@@ -195,8 +195,8 @@ function D(e) {
 				className: (0, o.A)(m.KeyboardKeyLabel),
 			},
 			p
-				? (0, u.we)("#ControllerBinding_SetLED_Brightness")
-				: (0, u.we)("#ControllerBinding_SetLED_Color"),
+				? (0, Localize)("#ControllerBinding_SetLED_Brightness")
+				: (0, Localize)("#ControllerBinding_SetLED_Color"),
 		),
 	);
 }
@@ -239,16 +239,18 @@ function F(e) {
 	const c = y.Fd.Get().GetController(e.nControllerIndex);
 	const m = c.eControllerType == 2 || c.eControllerType == 3;
 	const d = m
-		? (0, u.we)("#ControllerBinding_LightSetting_CustomSetting_Brightness")
-		: (0, u.we)("#ControllerBinding_LightSetting_CustomSetting");
+		? (0, Localize)("#ControllerBinding_LightSetting_CustomSetting_Brightness")
+		: (0, Localize)("#ControllerBinding_LightSetting_CustomSetting");
 	const A = m
-		? (0, u.we)("#ControllerBinding_LightSetting_CustomSetting_Brightness_Desc")
-		: (0, u.we)("#ControllerBinding_LightSetting_CustomSetting_Desc");
+		? (0, Localize)(
+				"#ControllerBinding_LightSetting_CustomSetting_Brightness_Desc",
+			)
+		: (0, Localize)("#ControllerBinding_LightSetting_CustomSetting_Desc");
 	const p = [
 		{
 			data: 0,
-			label: (0, u.we)("#ControllerBinding_LightSetting_Default"),
-			desc: (0, u.we)("#ControllerBinding_LightSetting_Default_Desc"),
+			label: (0, Localize)("#ControllerBinding_LightSetting_Default"),
+			desc: (0, Localize)("#ControllerBinding_LightSetting_Default_Desc"),
 		},
 		{
 			data: 1,
@@ -257,14 +259,14 @@ function F(e) {
 		},
 		{
 			data: 2,
-			label: (0, u.we)("#ControllerBinding_LightSetting_XInput"),
-			desc: (0, u.we)("#ControllerBinding_LightSetting_XInput_Desc"),
+			label: (0, Localize)("#ControllerBinding_LightSetting_XInput"),
+			desc: (0, Localize)("#ControllerBinding_LightSetting_XInput_Desc"),
 		},
 	];
 	const g = s.setting === 1;
 	a.title = m
-		? (0, u.we)("#ControllerBinding_SetLED_Brightness")
-		: (0, u.we)("#ControllerBinding_SetLED_Color");
+		? (0, Localize)("#ControllerBinding_SetLED_Brightness")
+		: (0, Localize)("#ControllerBinding_SetLED_Color");
 	return n.createElement(
 		B.X_,
 		{
@@ -277,7 +279,7 @@ function F(e) {
 			},
 		},
 		n.createElement(w.Vb, {
-			label: (0, u.we)("#ControllerBinding_LightSetting"),
+			label: (0, Localize)("#ControllerBinding_LightSetting"),
 			description: p[s.setting].desc,
 			onChange: (e) => {
 				o({
@@ -287,7 +289,7 @@ function F(e) {
 			},
 			rgOptions: p,
 			selectedOption: s.setting,
-			strDefaultLabel: (0, u.we)("ControllerBinding_LightSetting_Desc"),
+			strDefaultLabel: (0, Localize)("ControllerBinding_LightSetting_Desc"),
 		}),
 		g &&
 			n.createElement(b.D, {
@@ -491,7 +493,7 @@ const O = (0, i.PA)(function (e) {
 						button: 1,
 						className: m.TriggerButton,
 					},
-					(0, u.we)("#GamepadKey_LeftTrigger"),
+					(0, Localize)("#GamepadKey_LeftTrigger"),
 				),
 				n.createElement(
 					k,
@@ -499,7 +501,7 @@ const O = (0, i.PA)(function (e) {
 						button: 7,
 						className: m.BumperButton,
 					},
-					(0, u.we)("#GamepadKey_LeftBumper"),
+					(0, Localize)("#GamepadKey_LeftBumper"),
 				),
 			),
 			n.createElement(G, {
@@ -566,7 +568,7 @@ const O = (0, i.PA)(function (e) {
 				navEntryPreferPosition: A.iU.MAINTAIN_Y,
 			},
 			n.createElement(d.d, {
-				label: (0, u.we)(
+				label: (0, Localize)(
 					"#ControllerConfigurator_ChooseBinding_Prompt_Gamepad",
 				),
 			}),
@@ -576,7 +578,7 @@ const O = (0, i.PA)(function (e) {
 					{
 						className: (0, o.A)(m.GamepadUnspported),
 					},
-					(0, u.we)(
+					(0, Localize)(
 						"#ControllerConfigurator_ChooseBinding_Gamepad_Unsupported",
 					),
 				),
@@ -623,7 +625,7 @@ const O = (0, i.PA)(function (e) {
 						button: 2,
 						className: m.TriggerButton,
 					},
-					(0, u.we)("#GamepadKey_RightTrigger"),
+					(0, Localize)("#GamepadKey_RightTrigger"),
 				),
 				n.createElement(
 					k,
@@ -631,7 +633,7 @@ const O = (0, i.PA)(function (e) {
 						button: 8,
 						className: m.BumperButton,
 					},
-					(0, u.we)("#GamepadKey_RightBumper"),
+					(0, Localize)("#GamepadKey_RightBumper"),
 				),
 			),
 			n.createElement(G, {

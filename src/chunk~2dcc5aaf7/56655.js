@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./90765.js");
 var a = require(/*webcrack:missing*/ "./50376.js");
 var s = require(/*webcrack:missing*/ "./64664.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./72476.js");
 export const nH = n.createContext({
 	bShowCompatInfo: false,
@@ -42,7 +42,7 @@ const g = {
 	0: "#DeckVerified_CategoryLabel_Unknown",
 };
 export function Kt(e) {
-	return (0, o.we)(g[e] || "#DeckVerified_CategoryLabel_Unknown");
+	return (0, Localize)(g[e] || "#DeckVerified_CategoryLabel_Unknown");
 }
 const C = {
 	3: "#DeckVerified_FilterLabel_Verified",
@@ -51,7 +51,7 @@ const C = {
 	1: "#DeckVerified_FilterLabel_AllGames",
 };
 export function eS(e) {
-	return (0, o.we)(C[e] || "#DeckVerified_FilterLabel_Unknown");
+	return (0, Localize)(C[e] || "#DeckVerified_FilterLabel_Unknown");
 }
 const f = {
 	3: "#DeckVerified_FilterDescription_Verified",
@@ -60,5 +60,5 @@ const f = {
 	1: "#DeckVerified_FilterDescription_AllGames",
 };
 export function C6(e) {
-	return (0, o.we)(f[e] || "#DeckVerified_FilterLabel_Unknown");
+	return (0, Localize)(f[e] || "#DeckVerified_FilterLabel_Unknown");
 }

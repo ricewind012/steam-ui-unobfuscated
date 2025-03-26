@@ -6,7 +6,7 @@ var o = require("./43397.js");
 var l = require("./74362.js");
 var c = require(/*webcrack:missing*/ "./79769.js");
 var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./36813.js");
 require(/*webcrack:missing*/ "./43691.js");
 const A = "Raven/Raven2/FireFlight/Renoir Audio Processor";
@@ -69,7 +69,7 @@ class g {
 				t = g.s_mapOutputNames.get(this.m_sName);
 		}
 		if (t) {
-			return (0, u.we)(t);
+			return (0, Localize)(t);
 		} else {
 			return this.m_sName;
 		}

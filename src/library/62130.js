@@ -1,6 +1,6 @@
 var r = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./93960.js");
-var s = require("./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 export class Q {
 	m_fnRender;
 	m_rgLoadingLinks = [];
@@ -44,7 +44,7 @@ export class Q {
 	}
 	OnLinkLoad(e) {
 		e.currentTarget.removeEventListener("load", this.OnLinkLoad);
-		s.x9(this.m_rgLoadingLinks, e.currentTarget);
+		FindAndRemove(this.m_rgLoadingLinks, e.currentTarget);
 		if (this.m_rgLoadingLinks.length == 0) {
 			this.m_fnRender?.();
 			this.m_fnRender = undefined;

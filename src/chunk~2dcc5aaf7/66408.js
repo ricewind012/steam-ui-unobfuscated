@@ -1,5 +1,8 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./54644.js");
+import {
+	BIsParent,
+	CopyTextToClipboard,
+} from "../../actual_src/utils/domutils.js";
 export function xh(e) {
 	const { text: t = "", style: r, children: i } = e;
 	if (t == null) {
@@ -37,7 +40,7 @@ export function JO(e) {
 	for (let e = 0; e < s.length; ++e) {
 		let t = s[e];
 		let l = o[e];
-		if (e + 1 < s.length && i.TN(t, s[e + 1])) {
+		if (e + 1 < s.length && BIsParent(t, s[e + 1])) {
 			continue;
 		}
 		let c = t.tagName.toLowerCase();
@@ -129,6 +132,6 @@ export function pM(e) {
 	t.selectNode(e);
 	(function (e) {
 		const t = JO(e);
-		i.OG(t);
+		CopyTextToClipboard(t);
 	})(t);
 }

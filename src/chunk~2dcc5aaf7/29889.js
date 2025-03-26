@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 var i = require("./7558.js");
 export class w extends i.S2 {
 	m_component;
@@ -6,7 +6,7 @@ export class w extends i.S2 {
 	m_props = {};
 	m_setStateOnComplete;
 	constructor(e, t, r) {
-		super(n.qf(e.ref.current), r);
+		super(GetOwningWindowForElement(e.ref.current), r);
 		this.m_component = e;
 		this.m_propTargets = t;
 		this.m_setStateOnComplete = r.setStateOnComplete;

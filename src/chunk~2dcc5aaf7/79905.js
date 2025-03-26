@@ -4,7 +4,10 @@ var a = require("./22091.js");
 var s = require("./18057.js");
 var o = require("./64608.js");
 var l = require("./48101.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./69164.js");
 var u = require("./15917.js");
 var d = require("./22047.js");
@@ -73,7 +76,7 @@ export const sA = (0, i.PA)(function (e) {
 		);
 	})((0, E.oH)());
 	(0, w.Wh)(
-		(0, c.we)("#Settings_Controller_Calibration"),
+		Localize("#Settings_Controller_Calibration"),
 		"ControllerCalibration",
 	);
 	if (!r) {
@@ -90,7 +93,7 @@ export const sA = (0, i.PA)(function (e) {
 	const f = [
 		{
 			visible: r.eControllerType == 2,
-			title: (0, c.we)("#Settings_ControllerCalibration_General"),
+			title: Localize("#Settings_ControllerCalibration_General"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.General(t),
 			content: n.createElement(L, {
 				controllerSettings: l,
@@ -100,7 +103,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: r.eControllerType != 2,
-			title: (0, c.we)("#Settings_ControllerCalibration_Joystick"),
+			title: Localize("#Settings_ControllerCalibration_Joystick"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.Inputs(t),
 			content: n.createElement(P, {
 				controllerSettings: l,
@@ -110,7 +113,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: k.rV.settings?.bIsValveEmail && g && h,
-			title: (0, c.we)("#Settings_ControllerCalibration_TrackpadsVsSticks"),
+			title: Localize("#Settings_ControllerCalibration_TrackpadsVsSticks"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.Trackpads(t),
 			content: n.createElement(O, {
 				controllerSettings: l,
@@ -119,7 +122,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: (r.unCapabilities & 2048) != 0,
-			title: (0, c.we)("#Settings_ControllerCalibration_Gyro"),
+			title: Localize("#Settings_ControllerCalibration_Gyro"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.Gyro(t),
 			content: n.createElement(U, {
 				controllerSettings: l,
@@ -139,7 +142,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: r.eControllerType == 2,
-			title: (0, c.we)("#Settings_ControllerCalibration_Sensors"),
+			title: Localize("#Settings_ControllerCalibration_Sensors"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.Sensors(t),
 			content: n.createElement(z, {
 				controllerSettings: l,
@@ -149,7 +152,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: _,
-			title: (0, c.we)(
+			title: Localize(
 				v.TS.ON_DECK
 					? "#Settings_ControllerCalibration_Outputs"
 					: "#Settings_ControllerCalibration_OutputsNonDeck",
@@ -162,7 +165,7 @@ export const sA = (0, i.PA)(function (e) {
 		},
 		{
 			visible: C,
-			title: (0, c.we)("#Settings_ControllerCalibration_LEDs"),
+			title: Localize("#Settings_ControllerCalibration_LEDs"),
 			route: s.BV.GamepadUI.ControllerDeviceCalibration.LEDs(t),
 			content: n.createElement(j, {
 				controllerSettings: l,
@@ -174,7 +177,7 @@ export const sA = (0, i.PA)(function (e) {
 		A.dj,
 		null,
 		n.createElement(d.q, {
-			title: (0, c.we)("#Settings_Title"),
+			title: Localize("#Settings_Title"),
 			pages: f,
 		}),
 	);
@@ -265,8 +268,8 @@ const G = (0, i.PA)(function (e) {
 						}
 					},
 					onOptionsActionDescription: f
-						? (0, c.we)("#Settings_ControllerCalibration_UnLockOutNavigation")
-						: (0, c.we)("#Settings_ControllerCalibration_LockOutNavigation"),
+						? Localize("#Settings_ControllerCalibration_UnLockOutNavigation")
+						: Localize("#Settings_ControllerCalibration_LockOutNavigation"),
 				},
 				n.createElement(
 					m.Z,
@@ -322,7 +325,7 @@ const G = (0, i.PA)(function (e) {
 						),
 					},
 					" ",
-					(0, c.PP)(
+					LocalizeReact(
 						"#Settings_ControllerCalibration_StartTestPrompt",
 						n.createElement(y.W, {
 							button: (0, S.sr)(p.pR.OPTIONS),
@@ -376,8 +379,8 @@ const G = (0, i.PA)(function (e) {
 						step: 1,
 						resetValue: M,
 						label: i
-							? (0, c.we)("#Settings_Controller_Calibration_LStickDeadzone")
-							: (0, c.we)("#Settings_Controller_Calibration_RStickDeadzone"),
+							? Localize("#Settings_Controller_Calibration_LStickDeadzone")
+							: Localize("#Settings_Controller_Calibration_RStickDeadzone"),
 					}),
 				),
 			),
@@ -419,7 +422,7 @@ const O = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		" ",
-		(0, c.PP)(
+		LocalizeReact(
 			"#Settings_Controller_Calibration_LeftStickTouchDisablesLeftTrackPad",
 			u,
 			d,
@@ -430,7 +433,7 @@ const O = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		" ",
-		(0, c.PP)(
+		LocalizeReact(
 			"#Settings_Controller_Calibration_RightStickTouchDisablesRightTrackPad",
 			A,
 			p,
@@ -457,7 +460,7 @@ const O = (0, i.PA)(function (e) {
 		n.createElement(o.RF, {
 			label: h,
 			bottomSeparator: "none",
-			description: (0, c.we)(
+			description: Localize(
 				"#Settings_ControllerCalibration_TrackpadsVsSticks_Description",
 			),
 			checked: t.bRightStickTouchDisablesRightTrackPad,
@@ -584,7 +587,7 @@ const O = (0, i.PA)(function (e) {
 					),
 				},
 				" ",
-				(0, c.we)("#Settings_Controller_Calibration_DefaultClick"),
+				Localize("#Settings_Controller_Calibration_DefaultClick"),
 				" ",
 			),
 		);
@@ -683,14 +686,14 @@ const O = (0, i.PA)(function (e) {
 				},
 				" ",
 				g
-					? (0, c.PP)(
+					? LocalizeReact(
 							"#Settings_ControllerCalibration_StopTestPromptTrackpad",
 							n.createElement(y.W, {
 								button: (0, S.sr)(p.pR.OPTIONS),
 								className: (0, b.A)(l.InlineGlyph),
 							}),
 						)
-					: (0, c.PP)(
+					: LocalizeReact(
 							"#Settings_ControllerCalibration_StartTestPromptTrackpad",
 							n.createElement(y.W, {
 								button: (0, S.sr)(p.pR.OPTIONS),
@@ -718,8 +721,8 @@ const O = (0, i.PA)(function (e) {
 						}
 					},
 					onOptionsActionDescription: g
-						? (0, c.we)("#Settings_ControllerCalibration_UnLockOutNavigation")
-						: (0, c.we)("#Settings_ControllerCalibration_LockOutNavigation"),
+						? Localize("#Settings_ControllerCalibration_UnLockOutNavigation")
+						: Localize("#Settings_ControllerCalibration_LockOutNavigation"),
 				},
 				n.createElement(
 					m.Z,
@@ -784,7 +787,7 @@ const O = (0, i.PA)(function (e) {
 								className: (0, b.A)(l.PressureGraphLabel),
 							},
 							" ",
-							(0, c.we)("#Settings_Controller_Calibration_PressureInput"),
+							Localize("#Settings_Controller_Calibration_PressureInput"),
 							" ",
 						),
 						n.createElement(
@@ -793,7 +796,7 @@ const O = (0, i.PA)(function (e) {
 								className: (0, b.A)(l.PressureGraphLabel, l.Vertical),
 							},
 							" ",
-							(0, c.we)("#Settings_Controller_Calibration_PressureOutput"),
+							Localize("#Settings_Controller_Calibration_PressureOutput"),
 							" ",
 						),
 					),
@@ -834,7 +837,7 @@ const O = (0, i.PA)(function (e) {
 							dpadStep: 0.0475,
 							step: 0.025,
 							resetValue: 1,
-							label: (0, c.we)("#Settings_Controller_Calibration_LPadPressure"),
+							label: Localize("#Settings_Controller_Calibration_LPadPressure"),
 						}),
 					),
 					n.createElement(
@@ -866,7 +869,7 @@ const O = (0, i.PA)(function (e) {
 							dpadStep: 0.0475,
 							step: 0.025,
 							resetValue: 1,
-							label: (0, c.we)("#Settings_Controller_Calibration_RPadPressure"),
+							label: Localize("#Settings_Controller_Calibration_RPadPressure"),
 						}),
 					),
 				),
@@ -929,13 +932,13 @@ const L = (0, i.PA)(function (e) {
 	}, [i, u]);
 	let d = [
 		{
-			label: (0, c.we)("#SettingController_HapticSound_Default"),
+			label: Localize("#SettingController_HapticSound_Default"),
 			data: -1,
 		},
 	];
 	for (let e = 0; e < 14; e++) {
 		d.push({
-			label: (0, c.we)("#SettingController_HapticSound_" + e),
+			label: Localize("#SettingController_HapticSound_" + e),
 			data: e,
 		});
 	}
@@ -945,7 +948,7 @@ const L = (0, i.PA)(function (e) {
 		false,
 		u &&
 			n.createElement(o.m, {
-				label: (0, c.we)("#Settings_ControllerCalibration_TurnOnSound"),
+				label: Localize("#Settings_ControllerCalibration_TurnOnSound"),
 				rgOptions: d,
 				selectedOption: l.nTurnOnSound,
 				onChange: (e) =>
@@ -965,7 +968,7 @@ const L = (0, i.PA)(function (e) {
 			}),
 		u &&
 			n.createElement(o.m, {
-				label: (0, c.we)("#Settings_ControllerCalibration_TurnOffSound"),
+				label: Localize("#Settings_ControllerCalibration_TurnOffSound"),
 				rgOptions: d,
 				selectedOption: l.nTurnOffSound,
 				onChange: (e) =>
@@ -1017,26 +1020,26 @@ const z = (0, i.PA)(function (e) {
 					n.createElement(
 						o.xh,
 						{
-							label: (0, c.we)(
+							label: Localize(
 								"#Settings_ControllerCalibration_CalibrateTrackpad",
 							),
 							onClick: () => {
 								SteamClient.Input.CalibrateControllerTrackpads(t);
 							},
 						},
-						(0, c.we)("#Settings_ControllerCalibration_Start"),
+						Localize("#Settings_ControllerCalibration_Start"),
 					),
 					n.createElement(
 						o.xh,
 						{
-							label: (0, c.we)(
+							label: Localize(
 								"#Settings_ControllerCalibration_CalibrateJoystick",
 							),
 							onClick: () => {
 								SteamClient.Input.CalibrateControllerJoystick(t);
 							},
 						},
-						(0, c.we)("#Settings_ControllerCalibration_Start"),
+						Localize("#Settings_ControllerCalibration_Start"),
 					),
 				),
 			),
@@ -1073,7 +1076,7 @@ const U = (0, i.PA)(function (e) {
 				o.iK,
 				null,
 				"  ",
-				(0, c.we)("#Settings_ControllerCalibration_GyroRotation_Subheading"),
+				Localize("#Settings_ControllerCalibration_GyroRotation_Subheading"),
 				" ",
 			),
 			n.createElement(
@@ -1084,7 +1087,7 @@ const U = (0, i.PA)(function (e) {
 				}),
 				n.createElement(o.D0, {
 					childrenContainerWidth: "fixed",
-					description: (0, c.we)(
+					description: Localize(
 						"#Settings_ControllerCalibration_GyroRotation_Desc",
 					),
 				}),
@@ -1102,7 +1105,7 @@ const U = (0, i.PA)(function (e) {
 					r(e);
 				},
 				checked: t.bSWAntiDrift,
-				label: (0, c.we)("#Settings_ControllerCalibration_SWGyroCal"),
+				label: Localize("#Settings_ControllerCalibration_SWGyroCal"),
 			}),
 		);
 	let A =
@@ -1136,7 +1139,7 @@ const U = (0, i.PA)(function (e) {
 					o.Y9,
 					null,
 					"  ",
-					(0, c.we)("#Settings_ControllerCalibration_Gyro"),
+					Localize("#Settings_ControllerCalibration_Gyro"),
 					" ",
 				),
 				u,
@@ -1204,17 +1207,17 @@ const V = (0, i.PA)(function (e) {
 	);
 	let g = [
 		{
-			label: (0, c.we)("#Settings_ControllerCalibration_PlayerLED_Off"),
+			label: Localize("#Settings_ControllerCalibration_PlayerLED_Off"),
 			data: 0,
 		},
 		{
-			label: (0, c.we)(
+			label: Localize(
 				"#Settings_ControllerCalibration_PlayerLED_MultipleController",
 			),
 			data: 1,
 		},
 		{
-			label: (0, c.we)("#Settings_ControllerCalibration_PlayerLED_On"),
+			label: Localize("#Settings_ControllerCalibration_PlayerLED_On"),
 			data: 2,
 		},
 	];
@@ -1247,7 +1250,7 @@ const V = (0, i.PA)(function (e) {
 				}),
 			d &&
 				n.createElement(o.m, {
-					label: (0, c.we)("#Settings_ControllerCalibration_PlayerLED"),
+					label: Localize("#Settings_ControllerCalibration_PlayerLED"),
 					rgOptions: g,
 					selectedOption: l.ePlayerSlotLEDSetting,
 					onChange: (e) =>
@@ -1327,7 +1330,7 @@ const H = (0, i.PA)(function (e) {
 							r(e);
 						},
 						checked: t.eRumblePreference == 1,
-						label: (0, c.we)("#Settings_ControllerCalibration_RumbleEnable"),
+						label: Localize("#Settings_ControllerCalibration_RumbleEnable"),
 					}),
 				C &&
 					n.createElement(o.y4, {
@@ -1337,7 +1340,7 @@ const H = (0, i.PA)(function (e) {
 							r(e);
 						},
 						checked: t.bHaptics,
-						label: (0, c.we)("#Settings_ControllerCalibration_HapticsEnable"),
+						label: Localize("#Settings_ControllerCalibration_HapticsEnable"),
 					}),
 				h &&
 					n.createElement(
@@ -1348,7 +1351,7 @@ const H = (0, i.PA)(function (e) {
 								return true;
 							},
 							actionDescriptionMap: {
-								[p.pR.OPTIONS]: (0, c.we)(
+								[p.pR.OPTIONS]: Localize(
 									"#Settings_Controller_Calibration_HapticTest",
 								),
 							},
@@ -1366,7 +1369,7 @@ const H = (0, i.PA)(function (e) {
 							min: 0,
 							max: 12,
 							step: 1,
-							label: (0, c.we)(
+							label: Localize(
 								"#Settings_Controller_Calibration_LHapticStrength",
 							),
 							trackStyleOverride: f,
@@ -1382,7 +1385,7 @@ const H = (0, i.PA)(function (e) {
 								return true;
 							},
 							actionDescriptionMap: {
-								[p.pR.OPTIONS]: (0, c.we)(
+								[p.pR.OPTIONS]: Localize(
 									"#Settings_Controller_Calibration_HapticTest",
 								),
 							},
@@ -1400,7 +1403,7 @@ const H = (0, i.PA)(function (e) {
 							min: 0,
 							max: 12,
 							step: 1,
-							label: (0, c.we)(
+							label: Localize(
 								"#Settings_Controller_Calibration_RHapticStrength",
 							),
 							trackStyleOverride: y,
@@ -1413,7 +1416,7 @@ const H = (0, i.PA)(function (e) {
 						{
 							className: (0, b.A)(l.HapticsDesc, S && l.HapticsWarning),
 						},
-						(0, c.we)("#Settings_Controller_Calibration_HapticsWarning"),
+						Localize("#Settings_Controller_Calibration_HapticsWarning"),
 					),
 			),
 		),

@@ -3,7 +3,7 @@ var i = require("./22222.js");
 var a = require("./64608.js");
 var s = require("./10606.js");
 var o = require("./13869.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./77347.js");
 var m = require("./61824.js");
 var u = m;
@@ -52,7 +52,7 @@ const C = (e) => {
 				{
 					onClick: C,
 				},
-				(0, l.we)("#Settings_Internet_Forget"),
+				Localize("#Settings_Internet_Forget"),
 			),
 		);
 	}
@@ -63,7 +63,7 @@ const C = (e) => {
 				{
 					onClick: m,
 				},
-				(0, l.we)("#Settings_Internet_Connect"),
+				Localize("#Settings_Internet_Connect"),
 			),
 		);
 	}
@@ -74,7 +74,7 @@ const C = (e) => {
 				{
 					onClick: h,
 				},
-				(0, l.we)("#Settings_Internet_Disconnect"),
+				Localize("#Settings_Internet_Disconnect"),
 			),
 		);
 	}
@@ -98,7 +98,7 @@ const C = (e) => {
 						{
 							className: (0, g.A)(u.Header, !v && u.CenteredHeader),
 						},
-						t?.displayName ?? (0, l.we)("#Internet_Network_Type_Unknown"),
+						t?.displayName ?? Localize("#Internet_Network_Type_Unknown"),
 					),
 					childrenLayout: v ? "inline" : "below",
 					childrenContainerWidth: "fixed",
@@ -114,7 +114,7 @@ const C = (e) => {
 					null,
 					n.createElement(a.D0, {
 						disabled: true,
-						label: (0, l.we)("#Internet_Settings_Network_Not_Found"),
+						label: Localize("#Internet_Settings_Network_Not_Found"),
 					}),
 				),
 			t != null &&
@@ -125,7 +125,7 @@ const C = (e) => {
 						r &&
 						n.createElement(a.y4, {
 							disabled: !t.isForgettable,
-							label: (0, l.we)("#Settings_Internet_Autoconnect_Toggle"),
+							label: Localize("#Settings_Internet_Autoconnect_Toggle"),
 							checked: t.isAutoconnectEnabled,
 							onChange: (e) => t.SetAutoconnectEnabled(e),
 						}),
@@ -133,24 +133,24 @@ const C = (e) => {
 						a.Nv,
 						{
 							focusable: true,
-							label: (0, l.we)("#Settings_Internet_Status"),
+							label: Localize("#Settings_Internet_Status"),
 						},
 						(function (e) {
 							switch (e) {
 								case i.$J.NotPresent:
-									return (0, l.we)("#Internet_Network_State_NotFound");
+									return Localize("#Internet_Network_State_NotFound");
 								case i.$J.Failed:
-									return (0, l.we)("#Internet_Network_State_Failed");
+									return Localize("#Internet_Network_State_Failed");
 								case i.$J.Disconnected:
-									return (0, l.we)("#Internet_Network_State_Disconnected");
+									return Localize("#Internet_Network_State_Disconnected");
 								case i.$J.Disconnecting:
-									return (0, l.we)("#Internet_Network_State_Disconnecting");
+									return Localize("#Internet_Network_State_Disconnecting");
 								case i.$J.Connecting:
-									return (0, l.we)("#Internet_Network_State_Connecting");
+									return Localize("#Internet_Network_State_Connecting");
 								case i.$J.Connected:
-									return (0, l.we)("#Internet_Network_State_Connected");
+									return Localize("#Internet_Network_State_Connected");
 								case i.$J.Retrying:
-									return (0, l.we)("#Internet_Network_State_Retrying");
+									return Localize("#Internet_Network_State_Retrying");
 							}
 						})(t.state),
 					),
@@ -158,7 +158,7 @@ const C = (e) => {
 						a.Nv,
 						{
 							focusable: true,
-							label: (0, l.we)("#Settings_Internet_MAC_Address"),
+							label: Localize("#Settings_Internet_MAC_Address"),
 						},
 						t.macAddress,
 					),
@@ -190,7 +190,7 @@ const C = (e) => {
 						autoFocus: !r,
 						onClick: e.closeModal,
 					},
-					(0, l.we)("#Button_OK"),
+					Localize("#Button_OK"),
 				),
 			),
 		),
@@ -209,7 +209,7 @@ function _(e) {
 				{
 					key: e.ip + "ip",
 					focusable: true,
-					label: (0, l.we)("#Settings_Internet_IP_Address"),
+					label: Localize("#Settings_Internet_IP_Address"),
 				},
 				(0, c.yp)(e.ip),
 			),
@@ -220,7 +220,7 @@ function _(e) {
 				{
 					key: e.netmask + "mask",
 					focusable: true,
-					label: (0, l.we)("#Settings_Internet_Subnet_Mask"),
+					label: Localize("#Settings_Internet_Subnet_Mask"),
 				},
 				(0, c.yp)(e.netmask),
 			),
@@ -229,17 +229,17 @@ function _(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(a.lr, null, (0, l.we)("#Settings_Internet_IPv4_Address")),
+		n.createElement(a.lr, null, Localize("#Settings_Internet_IPv4_Address")),
 		n.createElement(
 			a.Nv,
 			{
 				key: "dhcp",
 				focusable: true,
-				label: (0, l.we)("#Settings_Internet_IP_Address_Assignment"),
+				label: Localize("#Settings_Internet_IP_Address_Assignment"),
 			},
 			e.accessPoint?.IPv4DHCPEnabled
-				? (0, l.we)("#Settings_Internet_IP_Address_Assignment_Automatic")
-				: (0, l.we)("#Settings_Internet_IP_Address_Assignment_Manual"),
+				? Localize("#Settings_Internet_IP_Address_Assignment_Automatic")
+				: Localize("#Settings_Internet_IP_Address_Assignment_Manual"),
 		),
 		r,
 	);
@@ -252,14 +252,14 @@ function f(e) {
 		return n.createElement(
 			n.Fragment,
 			null,
-			n.createElement(a.lr, null, (0, l.we)("#Settings_Internet_IPv6_Address")),
+			n.createElement(a.lr, null, Localize("#Settings_Internet_IPv6_Address")),
 			t.map((e) =>
 				n.createElement(
 					a.Nv,
 					{
 						key: e.ip,
 						focusable: true,
-						label: (0, l.we)("#Settings_Internet_IP_Address"),
+						label: Localize("#Settings_Internet_IP_Address"),
 					},
 					e.ip,
 				),

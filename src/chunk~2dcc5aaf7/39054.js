@@ -5,7 +5,7 @@ var s = require("./34043.js");
 var o = require("./20414.js");
 var l = require("./3963.js");
 var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var u = require("./36141.js");
 const d = 5;
 const A = 10;
@@ -113,7 +113,7 @@ export function zg(e, t, r = d) {
 				}
 				throw `Failed FetchFavoriteGuides { appid: ${e}, page: ${t} }`;
 			})(e, t, r),
-		staleTime: m.Kp.PerMinute * 10 * 1000,
+		staleTime: Seconds.PerMinute * 10 * 1000,
 	});
 }
 export function a(e, t, r = A) {
@@ -142,7 +142,7 @@ export function a(e, t, r = A) {
 				o.Body().set_strip_description_bbcode(true);
 				o.Body().set_requiredtags([c.TS.LANGUAGE]);
 				o.Body().set_return_vote_data(true);
-				o.Body().set_cache_max_age_seconds(m.Kp.PerDay);
+				o.Body().set_cache_max_age_seconds(Seconds.PerDay);
 				o.Body().set_excluded_content_descriptors(n);
 				let u = await s.a5.QueryFiles(
 					l.Nb.CMInterface.GetServiceTransport(),
@@ -156,7 +156,7 @@ export function a(e, t, r = A) {
 				}
 				throw `Failed FetchPopularGuides { appid: ${e}, page: ${t} }`;
 			})(e, t, r, i),
-		staleTime: m.Kp.PerDay * 1000,
+		staleTime: Seconds.PerDay * 1000,
 	});
 	var o;
 }
@@ -182,7 +182,7 @@ export function CD(e, t) {
 				}
 				throw `Failed FetchGuideDetails { publishedfileid: ${t} }`;
 			})(e, t),
-		staleTime: m.Kp.PerHour * 1000,
+		staleTime: Seconds.PerHour * 1000,
 	});
 }
 export function Gr(e) {
@@ -205,7 +205,7 @@ export function Gr(e) {
 				}
 				throw `Failed FetchGuideSubSections { publishedfileid: ${e} }`;
 			})(e),
-		staleTime: m.Kp.PerHour * 1000,
+		staleTime: Seconds.PerHour * 1000,
 	});
 }
 export function cH(e) {
@@ -232,7 +232,7 @@ export function cH(e) {
 				}
 				throw `Failed FetchPublishedFileDetailsForBBCode { publishedfileid: ${e} }`;
 			})(e),
-		staleTime: m.Kp.PerHour * 1000,
+		staleTime: Seconds.PerHour * 1000,
 	});
 }
 export function wX(e, t) {
@@ -255,13 +255,13 @@ export function wX(e, t) {
 				}
 				throw `Failed FetchGuideIsFavorite { publishedfileid: ${t} }`;
 			})(e, t),
-		staleTime: m.Kp.PerMinute * 1000,
+		staleTime: Seconds.PerMinute * 1000,
 	});
 }
 export function I$(e) {
 	return (0, n.I)({
 		queryKey: [v(e)],
 		queryFn: async () => await (0, o.dK)([e]),
-		staleTime: m.Kp.PerMinute * 1000,
+		staleTime: Seconds.PerMinute * 1000,
 	});
 }

@@ -103,12 +103,12 @@ class _ {
 (0, n.Cg)([C.oI], _.prototype, "Get", null);
 (0, n.Cg)([C.oI], _.prototype, "OnUpdate", null);
 var f = require("./51095.js");
-var b = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var y = require(/*webcrack:missing*/ "./63696.js");
 var S = require("./96000.js");
-const w = b.Kp.PerDay * 1000;
-const B = b.Kp.PerMinute * 1000;
-const v = b.Kp.PerMinute * 1000;
+const w = Seconds.PerDay * 1000;
+const B = Seconds.PerMinute * 1000;
+const v = Seconds.PerMinute * 1000;
 export function Sw() {
 	return (0, d.q3)(() => O$.allFriends);
 }

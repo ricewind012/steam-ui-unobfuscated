@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./10975.js");
-var a = require(/*webcrack:missing*/ "./54644.js");
+import { BA, IsHTMLElement } from "../../actual_src/utils/domutils.js";
 var s = require(/*webcrack:missing*/ "./52451.js");
 var o = require(/*webcrack:missing*/ "./72476.js");
 const _l = new WeakMap();
@@ -91,9 +91,9 @@ export function j(e) {
 					n.clientX,
 					n.clientY,
 				);
-				const l = (0, a.BA)(
-					(0, a.kD)(s) ? s : undefined,
-					(0, a.kD)(o) ? o : undefined,
+				const l = (0, BA)(
+					IsHTMLElement(s) ? s : undefined,
+					IsHTMLElement(o) ? o : undefined,
 				);
 				if (m.current.contains(l)) {
 					l?.click?.();

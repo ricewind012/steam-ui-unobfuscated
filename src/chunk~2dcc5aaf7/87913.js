@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./68292.js");
-var a = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var s = require("./18057.js");
 var o = require("./13688.js");
 var l = require("./79112.js");
@@ -11,7 +11,11 @@ var d = require("./63367.js");
 var A = require(/*webcrack:missing*/ "./89193.js");
 var p = require(/*webcrack:missing*/ "./90095.js");
 var g = require(/*webcrack:missing*/ "./63696.js");
-var h = require(/*webcrack:missing*/ "./46108.js");
+import {
+	CLocalizationManager,
+	LoadLocalizationStrings,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var C = require(/*webcrack:missing*/ "./52451.js");
 var _ = require(/*webcrack:missing*/ "./43691.js");
 class f {
@@ -226,26 +230,26 @@ class f {
 		}
 		let e = u.oy.MainInstanceUIMode;
 		let t = e == 4 || e == 7;
-		(0, a.w)(t, "Initializing FriendsChatStore in unexpected mode", e);
+		AssertMsg(t, "Initializing FriendsChatStore in unexpected mode", e);
 		this.CreateChatApp();
 	}
 	async AwaitStartupFinished() {
 		await (0, A.z7)(() => this.m_bStartupFinished, {
 			timeout: 10000,
 		});
-		(0, a.w)(this.m_bStartupFinished, "FriendsUI startup not complete!");
+		AssertMsg(this.m_bStartupFinished, "FriendsUI startup not complete!");
 	}
 	OnVoiceChatStatusChanged(e) {
 		this.m_voiceChatStatus = e;
 	}
 	async LoadLocalizationStrings() {
-		const e = h.A0.GetLanguageFallback(_.TS.LANGUAGE);
+		const e = CLocalizationManager.GetLanguageFallback(_.TS.LANGUAGE);
 		const t = _.TS.LANGUAGE === e;
-		const [n, i] = await (0, h.pN)([
+		const [n, i] = await [
 			require("./91525.js")(`./friendsui_${_.TS.LANGUAGE}.json`),
 			t ? {} : require("./91525.js")(`./friendsui_${e}.json`),
-		]);
-		h.pf.AddTokens(n, i);
+		];
+		LocalizationManager.AddTokens(n, i);
 	}
 	async CreateChatApp() {
 		await this.m_promiseLoadLoc;

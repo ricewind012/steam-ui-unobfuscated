@@ -133,7 +133,10 @@ var f = require("./10606.js");
 var b = require(/*webcrack:missing*/ "./50376.js");
 var y = require(/*webcrack:missing*/ "./26853.js");
 var S = require(/*webcrack:missing*/ "./90765.js");
-var w = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var B = require(/*webcrack:missing*/ "./52451.js");
 var v = require("./67060.js");
 var I = require("./95745.js");
@@ -431,19 +434,19 @@ let P = class extends o.Component {
 		let B = "";
 		switch (t) {
 			case 1:
-				B = (0, w.we)("#GrantAwardDescription_Review");
+				B = (0, Localize)("#GrantAwardDescription_Review");
 				break;
 			case 2:
-				B = (0, w.we)("#GrantAwardDescription_UGC");
+				B = (0, Localize)("#GrantAwardDescription_UGC");
 				break;
 			case 3:
-				B = (0, w.we)("#GrantAwardDescription_Profile");
+				B = (0, Localize)("#GrantAwardDescription_Profile");
 				break;
 			case 4:
-				B = (0, w.we)("#GrantAwardDescription_ForumTopic");
+				B = (0, Localize)("#GrantAwardDescription_ForumTopic");
 				break;
 			case 5:
-				B = (0, w.we)("#GrantAwardDescription_Comment");
+				B = (0, Localize)("#GrantAwardDescription_Comment");
 		}
 		switch (s) {
 			case D.LOADING:
@@ -460,11 +463,11 @@ let P = class extends o.Component {
 								}),
 							disabled: e,
 							focusable: !e,
-							title: (0, w.we)(
+							title: (0, Localize)(
 								e ? "#GrantAward_PromptTooltip" : "#GrantAward_SubmitTooltip",
 							),
 						},
-						(0, w.we)(e ? "#GrantAward_SelectAward" : "#GrantAward_Next"),
+						(0, Localize)(e ? "#GrantAward_SelectAward" : "#GrantAward_Next"),
 					);
 					y = o.createElement(
 						o.Fragment,
@@ -527,7 +530,7 @@ let P = class extends o.Component {
 												key: "msg",
 												className: I.NotEnoughPoints,
 											},
-											(0, w.we)(
+											(0, Localize)(
 												"#GrantAward_CantAfford",
 												A.negate().add(C).toNumber().toLocaleString(),
 											),
@@ -543,7 +546,7 @@ let P = class extends o.Component {
 												{
 													key: "button",
 												},
-												(0, w.we)("#GrantAward_HowToGetPoints"),
+												(0, Localize)("#GrantAward_HowToGetPoints"),
 											),
 										),
 									],
@@ -590,7 +593,7 @@ let P = class extends o.Component {
 									{
 										className: I.ConfirmText,
 									},
-									(0, w.PP)(
+									LocalizeReact(
 										"#GrantAward_Confirm",
 										o.createElement(V, null, C.toLocaleString()),
 										o.createElement(
@@ -607,7 +610,7 @@ let P = class extends o.Component {
 									{
 										className: I.ConfirmText,
 									},
-									(0, w.PP)(
+									LocalizeReact(
 										"#GrantAward_Confirm_Details",
 										o.createElement(V, null, b.toLocaleString()),
 										o.createElement(
@@ -615,7 +618,7 @@ let P = class extends o.Component {
 											{
 												className: I.TimePeriod,
 											},
-											(0, w.we)("#GrantAward_Confirm_DetailsTimePeriod"),
+											(0, Localize)("#GrantAward_Confirm_DetailsTimePeriod"),
 										),
 									),
 								),
@@ -648,7 +651,7 @@ let P = class extends o.Component {
 								{
 									className: I.SuccessText,
 								},
-								(0, w.we)("#GrantAward_Success"),
+								(0, Localize)("#GrantAward_Success"),
 							),
 						),
 					),
@@ -667,16 +670,16 @@ let P = class extends o.Component {
 									}),
 								disabled: s !== D.CONFIRM,
 							},
-							(0, w.we)("#GrantAward_Back"),
+							(0, Localize)("#GrantAward_Back"),
 						),
 						o.createElement(
 							_.jn,
 							{
 								onClick: this.GrantAward,
-								title: (0, w.we)("#GrantAward_SubmitTooltip"),
+								title: (0, Localize)("#GrantAward_SubmitTooltip"),
 								disabled: s !== D.CONFIRM,
 							},
-							(0, w.we)("#GrantAwardNowButton"),
+							(0, Localize)("#GrantAwardNowButton"),
 						),
 					),
 				);
@@ -686,31 +689,31 @@ let P = class extends o.Component {
 					let e = "";
 					switch (this.state.eResult) {
 						case 10:
-							e = (0, w.we)("#GrantAwardError_Busy");
+							e = (0, Localize)("#GrantAwardError_Busy");
 							break;
 						case 32:
-							e = (0, w.we)("#GrantAwardError_PersistFailed");
+							e = (0, Localize)("#GrantAwardError_PersistFailed");
 							break;
 						case 8:
-							e = (0, w.we)("#GrantAwardError_InvalidParam");
+							e = (0, Localize)("#GrantAwardError_InvalidParam");
 							break;
 						case 42:
-							e = (0, w.we)("#GrantAwardError_NoMatch");
+							e = (0, Localize)("#GrantAwardError_NoMatch");
 							break;
 						case 107:
-							e = (0, w.we)("#GrantAwardError_InsufficientFunds");
+							e = (0, Localize)("#GrantAwardError_InsufficientFunds");
 							break;
 						case 15:
-							e = (0, w.we)("#GrantAwardError_AccessDenied");
+							e = (0, Localize)("#GrantAwardError_AccessDenied");
 							break;
 						case 21:
-							e = (0, w.we)("#GrantAwardError_NotLoggedOn");
+							e = (0, Localize)("#GrantAwardError_NotLoggedOn");
 							break;
 						case 29:
-							e = (0, w.we)("#GrantAwardError_DuplicateRequest");
+							e = (0, Localize)("#GrantAwardError_DuplicateRequest");
 							break;
 						default:
-							e = (0, w.we)("#GrantAwardError_Fail");
+							e = (0, Localize)("#GrantAwardError_Fail");
 					}
 					y = o.createElement(
 						o.Fragment,
@@ -754,7 +757,7 @@ let P = class extends o.Component {
 											ePhase: D.SELECTING,
 										}),
 								},
-								(0, w.we)("#GrantAward_Back"),
+								(0, Localize)("#GrantAward_Back"),
 							),
 						),
 					);
@@ -764,13 +767,13 @@ let P = class extends o.Component {
 				let e = "";
 				switch (this.state.eResult) {
 					case 10:
-						e = (0, w.we)("#GrantAwardError_Busy");
+						e = (0, Localize)("#GrantAwardError_Busy");
 						break;
 					case 21:
-						e = (0, w.we)("#GrantAwardError_NotLoggedOn");
+						e = (0, Localize)("#GrantAwardError_NotLoggedOn");
 						break;
 					default:
-						e = (0, w.we)("#GrantAwardError_LoadExistingReactions");
+						e = (0, Localize)("#GrantAwardError_LoadExistingReactions");
 				}
 				y = o.createElement(
 					o.Fragment,
@@ -869,7 +872,7 @@ const L = ({ description: e }) =>
 			{
 				className: I.Title,
 			},
-			(0, w.we)("#GrantAwardTitle"),
+			(0, Localize)("#GrantAwardTitle"),
 		),
 		o.createElement(
 			"div",
@@ -905,7 +908,7 @@ const z = (0, s.PA)(({ store: e, children: t }) => {
 					{
 						className: I.BalanceLabel,
 					},
-					(0, w.we)("#YourBalance"),
+					(0, Localize)("#YourBalance"),
 				),
 				o.createElement(
 					"div",
@@ -943,7 +946,7 @@ const z = (0, s.PA)(({ store: e, children: t }) => {
 					className: I.FooterLink,
 					href: `${g.TS.STORE_BASE_URL}points/howitworks`,
 				},
-				(0, w.we)("#GrantAward_PointsLink"),
+				(0, Localize)("#GrantAward_PointsLink"),
 			),
 		),
 	);

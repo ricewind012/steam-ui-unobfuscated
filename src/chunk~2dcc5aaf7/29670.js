@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./42318.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./63367.js");
 var o = require("./10606.js");
 var l = require("./64608.js");
@@ -15,7 +15,7 @@ var h = require(/*webcrack:missing*/ "./43691.js");
 export function V(e) {
 	const t = e && e[0] == '"' ? e.slice(1, -1) : e || "";
 	return SteamClient.System.OpenFileDialog({
-		strTitle: (0, a.we)("#AddNonSteam_PickAppTitle"),
+		strTitle: Localize("#AddNonSteam_PickAppTitle"),
 		rgFilters: _(),
 		strInitialFile: t,
 	});
@@ -25,43 +25,43 @@ function _() {
 		case "windows":
 			return [
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_Exe_Windows"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_Windows"),
 					rFilePatterns: ["*.exe"],
 					bUseAsDefault: true,
 				},
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_All"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_All"),
 					rFilePatterns: ["*.*"],
 				},
 			];
 		case "macos":
 			return [
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_Exe_MacOS"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_MacOS"),
 					rFilePatterns: ["*.app"],
 					bUseAsDefault: true,
 				},
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_All"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_All"),
 					rFilePatterns: ["*"],
 				},
 			];
 		case "linux":
 			return [
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_Exe_Linux"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_Linux"),
 					rFilePatterns: ["*.application", "*.exe", "*.sh", "*.AppImage"],
 					bUseAsDefault: true,
 				},
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_All"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_All"),
 					rFilePatterns: ["*"],
 				},
 			];
 		default:
 			return [
 				{
-					strFileTypeName: (0, a.we)("#AddNonSteam_Filter_All"),
+					strFileTypeName: Localize("#AddNonSteam_Filter_All"),
 					rFilePatterns: ["*"],
 				},
 			];
@@ -83,7 +83,7 @@ export const p = (0, i.Nr)(function () {
 	if (!e) {
 		return null;
 	}
-	const u = (0, a.we)("#AddNonSteam_Title");
+	const u = Localize("#AddNonSteam_Title");
 	return n.createElement(
 		o.hM,
 		{
@@ -214,11 +214,11 @@ function y(e) {
 				{
 					className: m.DialogBodyText,
 				},
-				(0, a.we)("#AddNonSteam_Desc"),
+				Localize("#AddNonSteam_Desc"),
 			),
 			n.createElement(l.pd, {
 				onChange: (e) => d(e.currentTarget.value),
-				placeholder: (0, a.we)("#AddNonSteam_Filter_Placeholder"),
+				placeholder: Localize("#AddNonSteam_Filter_Placeholder"),
 				bShowClearAction: true,
 				value: c,
 			}),
@@ -245,7 +245,7 @@ function y(e) {
 							}
 						},
 					},
-					(0, a.we)("#AddNonSteam_Program"),
+					Localize("#AddNonSteam_Program"),
 					n.createElement(w, {
 						dir: v,
 					}),
@@ -262,7 +262,7 @@ function y(e) {
 							}
 						},
 					},
-					(0, a.we)("#AddNonSteam_Location"),
+					Localize("#AddNonSteam_Location"),
 					n.createElement(w, {
 						dir: I,
 					}),
@@ -313,7 +313,7 @@ function y(e) {
 						disabled: t === undefined,
 						className: m.BrowseButton,
 					},
-					(0, a.we)("#AddNonSteam_Browse"),
+					Localize("#AddNonSteam_Browse"),
 				),
 				n.createElement("div", {
 					className: m.Spacer,
@@ -324,14 +324,14 @@ function y(e) {
 						disabled: h.size == 0,
 						onClick: y,
 					},
-					(0, a.we)("#AddNonSteam_AddSelected"),
+					Localize("#AddNonSteam_AddSelected"),
 				),
 				n.createElement(
 					l.$n,
 					{
 						onClick: i.ownerWindow.close,
 					},
-					(0, a.we)("#Button_Cancel"),
+					Localize("#Button_Cancel"),
 				),
 			),
 		),
@@ -349,7 +349,7 @@ function S(e) {
 			n.createElement(A.t, {
 				size: "medium",
 				position: "center",
-				string: (0, a.we)("#AddNonSteam_Loading"),
+				string: Localize("#AddNonSteam_Loading"),
 			}),
 		),
 	);

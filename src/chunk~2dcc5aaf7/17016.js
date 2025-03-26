@@ -39,8 +39,8 @@ var N = require("./16251.js");
 var F = require("./43397.js");
 var G = require(/*webcrack:missing*/ "./34742.js");
 var O = require(/*webcrack:missing*/ "./90765.js");
-var P = require(/*webcrack:missing*/ "./54644.js");
-var L = require(/*webcrack:missing*/ "./46108.js");
+import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var z = require(/*webcrack:missing*/ "./31958.js");
 var x = require(/*webcrack:missing*/ "./52451.js");
 var U = require("./27752.js");
@@ -257,7 +257,7 @@ function ee(e) {
 					{
 						className: W.KeyboardSteamItemsNotLoggedIn,
 					},
-					(0, L.we)("#Keyboard_SteamItems_None"),
+					(0, Localize)("#Keyboard_SteamItems_None"),
 				),
 			c &&
 				!l &&
@@ -266,7 +266,7 @@ function ee(e) {
 					{
 						className: W.KeyboardSteamItemsNotLoggedIn,
 					},
-					(0, L.we)("#Keyboard_SteamItems_Loading"),
+					(0, Localize)("#Keyboard_SteamItems_Loading"),
 				),
 			!c &&
 				C.createElement(
@@ -274,7 +274,7 @@ function ee(e) {
 					{
 						className: W.KeyboardSteamItemsNotLoggedIn,
 					},
-					(0, L.we)("#Keyboard_SteamItems_NotLoggedIn"),
+					(0, Localize)("#Keyboard_SteamItems_NotLoggedIn"),
 				),
 		),
 	);
@@ -410,7 +410,11 @@ const se = (e) => {
 				"flow-children": "row",
 				...E.C3,
 			},
-			C.createElement("span", null, (0, L.we)("#Keyboard_IME_Not_available")),
+			C.createElement(
+				"span",
+				null,
+				(0, Localize)("#Keyboard_IME_Not_available"),
+			),
 		);
 	}
 	if (!N && !k && !_) {
@@ -1559,7 +1563,7 @@ let ye = class extends C.Component {
 	}
 	KeyDown(e) {
 		const { target: t } = e;
-		if ((0, P.kD)(t)) {
+		if (IsHTMLElement(t)) {
 			T.eZ.PlayNavSound(T.PN.Typing, true);
 			const r = parseFloat(t.getAttribute("data-key-row"));
 			const n = parseFloat(t.getAttribute("data-key-col"));
@@ -1596,7 +1600,7 @@ let ye = class extends C.Component {
 	}
 	KeyUp(e) {
 		const { target: t } = e;
-		if ((0, P.kD)(t)) {
+		if (IsHTMLElement(t)) {
 			const r = {
 				key: null,
 				keyRow: -1,
@@ -2012,7 +2016,7 @@ let ye = class extends C.Component {
 		for (let s = 0; s < t.length; ++s) {
 			const o = t[s];
 			const l = o.target;
-			if ((0, P.kD)(l)) {
+			if (IsHTMLElement(l)) {
 				const t = parseFloat(l.getAttribute("data-key-row") || "");
 				const s = parseFloat(l.getAttribute("data-key-col") || "");
 				if (
@@ -2069,7 +2073,7 @@ let ye = class extends C.Component {
 		}));
 	}
 	HandleTouchStart(e) {
-		if (!(0, P.kD)(e.target)) {
+		if (!IsHTMLElement(e.target)) {
 			return;
 		}
 		const t = e.target.ownerDocument;
@@ -2086,7 +2090,7 @@ let ye = class extends C.Component {
 		}
 		for (let t = 0; t < e.changedTouches.length; ++t) {
 			const r = e.changedTouches[t].target;
-			if ((0, P.kD)(r)) {
+			if (IsHTMLElement(r)) {
 				this.m_mapTouched.add(r);
 			}
 		}
@@ -2097,7 +2101,7 @@ let ye = class extends C.Component {
 	}
 	HandleTouchMove(e) {
 		if (this.state.longPressRow !== null && this.state.longPressCol !== null) {
-			if (!(0, P.kD)(e.target)) {
+			if (!IsHTMLElement(e.target)) {
 				return;
 			}
 			const t = e.target.ownerDocument;
@@ -2124,7 +2128,7 @@ let ye = class extends C.Component {
 		);
 	}
 	HandleTouchEnd(e) {
-		if (!(0, P.kD)(e.target)) {
+		if (!IsHTMLElement(e.target)) {
 			return;
 		}
 		const t = e.target.ownerDocument;
@@ -2133,7 +2137,7 @@ let ye = class extends C.Component {
 				const n = e.changedTouches[r];
 				const i = n.target;
 				const a = this.ElementFromTouch(t, n);
-				if ((0, P.kD)(a) && (0, P.kD)(i)) {
+				if (IsHTMLElement(a) && IsHTMLElement(i)) {
 					const e = this.IsCharacterFromActiveExtendedMenu(a);
 					if (this.m_mapTouched.has(i) || e) {
 						const t = i.getAttribute("data-key");
@@ -2173,7 +2177,7 @@ let ye = class extends C.Component {
 	}
 	OnEmojiFocus(e) {
 		const { target: t } = e;
-		if ((0, P.kD)(t)) {
+		if (IsHTMLElement(t)) {
 			const e = parseInt(t.getAttribute("data-category-index"));
 			this.setState({
 				curEmojiCategoryIndex: e,
@@ -2376,7 +2380,7 @@ let ye = class extends C.Component {
 			typeof e == "function"
 				? e({})
 				: typeof e == "string" && e.startsWith("#")
-					? (0, L.we)(e)
+					? (0, Localize)(e)
 					: e;
 		const [f, y, S, w, B] = ((e) => {
 			if (A) {
@@ -2435,7 +2439,7 @@ let ye = class extends C.Component {
 						: p && !B && typeof e.label == "string" && e.label.length === 1
 							? _(pe(e.label))
 							: e.type == V.dI.Spacebar && this.state.bShowLayoutName
-								? (0, L.we)(this.state.standardLayout.locToken)
+								? (0, Localize)(this.state.standardLayout.locToken)
 								: _(e.label)
 					: e;
 		const [E, M, [T, R, k]] =

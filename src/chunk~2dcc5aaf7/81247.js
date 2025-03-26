@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./24496.js");
 var o = require("./34428.js");
 var l = require(/*webcrack:missing*/ "./42318.js");
@@ -11,14 +11,14 @@ export function r() {
 		return null;
 	}
 	const r = e.bRunning
-		? (0, a.we)("#Settings_System_TrimAll_Running")
-		: (0, a.we)("#Settings_System_TrimAll_Run");
+		? Localize("#Settings_System_TrimAll_Running")
+		: Localize("#Settings_System_TrimAll_Run");
 	return n.createElement(
 		i.xh,
 		{
 			disabled: e.bRunning,
-			label: (0, a.we)("#Settings_System_TrimAll_Label"),
-			description: (0, a.we)("#Settings_System_TrimAll_Description"),
+			label: Localize("#Settings_System_TrimAll_Label"),
+			description: Localize("#Settings_System_TrimAll_Description"),
 			onClick: () => t(),
 		},
 		r,

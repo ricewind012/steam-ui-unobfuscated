@@ -3,8 +3,8 @@ var i = require("./21955.js");
 var a = require("./64608.js");
 var s = require(/*webcrack:missing*/ "./90765.js");
 var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./11010.js");
-var c = require(/*webcrack:missing*/ "./41180.js");
+import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 export function z2(e) {
 	const {
 		nProgress: t,
@@ -45,11 +45,11 @@ export function z2(e) {
 	);
 }
 function u(e) {
-	const t = (function (e, t = c.Kp.PerDay * 2) {
+	const t = (function (e, t = Seconds.PerDay * 2) {
 		const [r, i] = n.useState(null);
 		(0, o.$$)(
 			() => {
-				const r = (0, c._2)();
+				const r = GetUnixTime();
 				const n = e - r;
 				if (e == null || n > t || isNaN(n)) {
 					i(null);
@@ -57,7 +57,7 @@ function u(e) {
 				}
 				let a = n < 1 ? 1 : n;
 				a = Math.floor(a);
-				const s = (0, l.R2)(a);
+				const s = LocalizeTimeRemaining(a);
 				i(s);
 			},
 			500,

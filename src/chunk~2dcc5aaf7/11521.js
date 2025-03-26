@@ -5,7 +5,7 @@ var s = require("./60917.js");
 var o = require("./87546.js");
 var l = require("./35488.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./22091.js");
 var d = require("./74416.js");
 var A = require("./20189.js");
@@ -43,7 +43,7 @@ function E(e) {
 			{
 				className: p.Text,
 			},
-			(0, m.we)("#QuickAccess_Tab_Notifications_BatteryLow"),
+			Localize("#QuickAccess_Tab_Notifications_BatteryLow"),
 		),
 		n.createElement(
 			"div",
@@ -62,8 +62,8 @@ function M(e) {
 	if (!t) {
 		return null;
 	}
-	const s = (0, m.we)("#ContentManagement_LowDiskSpaceNotification_Title");
-	const o = (0, m.we)("#ContentManagement_LowDiskSpaceNotification_Body");
+	const s = Localize("#ContentManagement_LowDiskSpaceNotification_Title");
+	const o = Localize("#ContentManagement_LowDiskSpaceNotification_Body");
 	const c = n.createElement(l.HardDrive, null);
 	const u = n.createElement(l.Information, null);
 	return n.createElement(
@@ -96,8 +96,8 @@ function T() {
 	if (!e || t) {
 		return null;
 	}
-	const s = (0, m.we)("#Notification_SteamDeckRewards_Title");
-	const o = (0, m.we)("#Notification_SteamDeckRewards_Body");
+	const s = Localize("#Notification_SteamDeckRewards_Title");
+	const o = Localize("#Notification_SteamDeckRewards_Body");
 	const c = n.createElement(l.DeckLogo, null);
 	const A = n.createElement(l.Information, null);
 	return n.createElement(
@@ -314,6 +314,6 @@ function G(e) {
 		{
 			className: p.EmptyNotifications,
 		},
-		(0, m.we)("#QuickAccess_Tab_Notifications_None"),
+		Localize("#QuickAccess_Tab_Notifications_None"),
 	);
 }

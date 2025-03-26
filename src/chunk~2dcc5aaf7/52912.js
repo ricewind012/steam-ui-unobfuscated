@@ -40,7 +40,7 @@ class l {
 	}
 }
 var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 class u extends l {
 	m_msUserLastAction;
 	m_rgWindows = [];
@@ -66,7 +66,7 @@ class u extends l {
 		if (this.m_bEventTrackingActive) {
 			this.UnbindEventsForWindow(e);
 		}
-		m.x9(this.m_rgWindows, e);
+		FindAndRemove(this.m_rgWindows, e);
 	}
 	OnUserAction() {
 		this.m_msUserLastAction = performance.now();
@@ -454,7 +454,11 @@ var k = require(/*webcrack:missing*/ "./83957.js");
 var D = k;
 var N = require(/*webcrack:missing*/ "./41230.js");
 var F = require(/*webcrack:missing*/ "./63696.js");
-var G = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var O = require("./59704.js");
 var P = require("./66408.js");
 var L = require(/*webcrack:missing*/ "./69164.js");
@@ -545,8 +549,8 @@ let x = class extends F.Component {
 					className: "broadcastInviteSelf",
 				},
 				this.props.appid
-					? (0, G.PP)("#ChatRoom_BroadcastInvite_YouInvited", e, t)
-					: (0, G.PP)("#ChatRoom_BroadcastInvite_YouInvited_NoAppID", e),
+					? LocalizeReact("#ChatRoom_BroadcastInvite_YouInvited", e, t)
+					: LocalizeReact("#ChatRoom_BroadcastInvite_YouInvited_NoAppID", e),
 			);
 		}
 		{
@@ -565,23 +569,25 @@ let x = class extends F.Component {
 						className: "broadcastInviteDismissed",
 					},
 					this.props.appid
-						? (0, G.PP)("#ChatRoom_BroadcastInvite_Expired", r, t)
-						: (0, G.PP)("#ChatRoom_BroadcastInvite_Expired_NoAppID", r),
+						? LocalizeReact("#ChatRoom_BroadcastInvite_Expired", r, t)
+						: LocalizeReact("#ChatRoom_BroadcastInvite_Expired_NoAppID", r),
 				);
 			}
 			let i =
 				s.TS.COMMUNITY_CDN_URL +
 				"public/images/broadcast/apphub_default_thumbnail.jpg";
-			let a = (0, G.PP)("#ChatRoom_BroadcastInvite_Invite", r);
+			let a = LocalizeReact("#ChatRoom_BroadcastInvite_Invite", r);
 			return F.createElement(
 				L.Z,
 				{
 					className: "msg ChatMessageInvite broadcastInviteMsg",
 					focusable: true,
 					onOKButton: this.OnWatch,
-					onOKActionDescription: (0, G.we)("#ChatRoom_BroadcastInvite_Watch"),
+					onOKActionDescription: (0, Localize)(
+						"#ChatRoom_BroadcastInvite_Watch",
+					),
 					onCancel: this.OnClose,
-					onCancelActionDescription: (0, G.we)(
+					onCancelActionDescription: (0, Localize)(
 						"#ChatRoom_BroadcastInvite_Dismiss",
 					),
 				},
@@ -642,7 +648,7 @@ let x = class extends F.Component {
 							className: "DialogButton Primary inviteButtonWatchBroadcast",
 							onClick: this.OnWatch,
 						},
-						(0, G.we)("#ChatRoom_BroadcastInvite_Watch"),
+						(0, Localize)("#ChatRoom_BroadcastInvite_Watch"),
 					),
 					F.createElement(
 						"div",
@@ -736,7 +742,7 @@ let W = class extends F.Component {
 				{
 					className: "broadcastViewRequestDismissed",
 				},
-				(0, G.PP)(e, r, t),
+				LocalizeReact(e, r, t),
 			);
 		}
 		let a =
@@ -744,7 +750,7 @@ let W = class extends F.Component {
 			"public/images/broadcast/apphub_default_thumbnail.jpg";
 		this.state.bThumbnailLoaded;
 		let o = this.state.nThumbnailUpdateCounter;
-		let l = (0, G.PP)("#ChatRoom_BroadcastViewRequest_Invite", r);
+		let l = LocalizeReact("#ChatRoom_BroadcastViewRequest_Invite", r);
 		return F.createElement(
 			"div",
 			{
@@ -809,7 +815,7 @@ let W = class extends F.Component {
 						className: "inviteButton inviteButtonWatchBroadcast",
 						onClick: this.OnAccept,
 					},
-					(0, G.we)("#ChatRoom_BroadcastViewRequest_Accept"),
+					(0, Localize)("#ChatRoom_BroadcastViewRequest_Accept"),
 				),
 				F.createElement("div", {
 					className: "closeButton",
@@ -863,7 +869,7 @@ class V extends F.Component {
 			"public/images/broadcast/apphub_default_thumbnail.jpg";
 		this.state.bThumbnailLoaded;
 		let n = this.state.nThumbnailUpdateCounter;
-		let i = (0, G.PP)("#ChatRoom_BroadcastInvite_WatchGame", t);
+		let i = LocalizeReact("#ChatRoom_BroadcastInvite_WatchGame", t);
 		return F.createElement(
 			"div",
 			{
@@ -933,7 +939,7 @@ class V extends F.Component {
 						className: "DialogButton Primary inviteButtonWatchBroadcast",
 						onClick: this.OnWatch,
 					},
-					(0, G.we)("#ChatRoom_BroadcastInvite_Watch"),
+					(0, Localize)("#ChatRoom_BroadcastInvite_Watch"),
 				),
 			),
 		);
@@ -1012,7 +1018,7 @@ let Z = class extends F.Component {
 		if (!e) {
 			e = new j.by(this.props.gameInvite.appID);
 			e.DeserializeFromCacheObject({
-				strName: (0, G.we)("#ChatRoom_GameInvite_UnreleasedGame"),
+				strName: (0, Localize)("#ChatRoom_GameInvite_UnreleasedGame"),
 				strIconURL: "",
 				strLogoURL: "",
 				eAppType: 1,
@@ -1033,7 +1039,7 @@ let Z = class extends F.Component {
 					{
 						onClick: this.OnShowGameContextMenu,
 					},
-					(0, G.PP)(
+					LocalizeReact(
 						r,
 						t,
 						F.createElement("img", {
@@ -1065,7 +1071,7 @@ let Z = class extends F.Component {
 					{
 						onClick: this.OnShowGameContextMenu,
 					},
-					(0, G.PP)(
+					LocalizeReact(
 						r,
 						t,
 						F.createElement("img", {
@@ -1091,7 +1097,7 @@ let Z = class extends F.Component {
 					{
 						onClick: this.OnShowGameContextMenu,
 					},
-					(0, G.PP)(
+					LocalizeReact(
 						t,
 						F.createElement("img", {
 							src: e.icon_url,
@@ -1118,7 +1124,7 @@ let Z = class extends F.Component {
 					{
 						onClick: this.OnShowGameContextMenu,
 					},
-					(0, G.PP)(
+					LocalizeReact(
 						r,
 						t,
 						F.createElement("img", {
@@ -1165,7 +1171,7 @@ let Z = class extends F.Component {
 		let a = this.props.gameInvite.remoteplayString
 			? "#ChatRoom_GameInviteRemotePlay_Invite"
 			: "#ChatRoom_GameInvite_Invite";
-		let s = (0, G.PP)(a, this.props.inviter.display_name);
+		let s = LocalizeReact(a, this.props.inviter.display_name);
 		let o =
 			this.props.gameInvite.remoteplayString &&
 			this.BCanAcceptVoiceChat() &&
@@ -1182,7 +1188,7 @@ let Z = class extends F.Component {
 				onOKButton: l ? null : this.AcceptGameInvite,
 				onOKActionDescription: l
 					? null
-					: (0, G.we)("#ChatRoom_GameInvite_Accept"),
+					: (0, Localize)("#ChatRoom_GameInvite_Accept"),
 			},
 			F.createElement(
 				"div",
@@ -1216,7 +1222,7 @@ let Z = class extends F.Component {
 						{
 							className: "invitedTimeLabel",
 						},
-						(0, G.we)("#ChatRoom_GameInvite_InviteTime"),
+						(0, Localize)("#ChatRoom_GameInvite_InviteTime"),
 						F.createElement(O.EO, {
 							rtime: this.props.gameInvite.rtTimestamp,
 							bTimeOnly: true,
@@ -1256,7 +1262,7 @@ let Z = class extends F.Component {
 								F.createElement(
 									"div",
 									null,
-									(0, G.we)("#ChatRoom_GameInvite_PlayingWith"),
+									(0, Localize)("#ChatRoom_GameInvite_PlayingWith"),
 								),
 								F.createElement(
 									"div",
@@ -1273,7 +1279,7 @@ let Z = class extends F.Component {
 											{
 												className: "playingWithExtraCount",
 											},
-											(0, G.we)("#ChatRoom_GameInvite_PartyMore", n),
+											(0, Localize)("#ChatRoom_GameInvite_PartyMore", n),
 											" ",
 										),
 								),
@@ -1289,7 +1295,7 @@ let Z = class extends F.Component {
 						? F.createElement(
 								"div",
 								null,
-								(0, G.we)("#ChatRoom_GameInvite_Family_View"),
+								(0, Localize)("#ChatRoom_GameInvite_Family_View"),
 							)
 						: F.createElement(
 								F.Fragment,
@@ -1300,7 +1306,7 @@ let Z = class extends F.Component {
 										className: "DialogButton GreenPlay",
 										onClick: this.AcceptGameInvite,
 									},
-									(0, G.we)("#ChatRoom_GameInvite_Accept"),
+									(0, Localize)("#ChatRoom_GameInvite_Accept"),
 								),
 								o &&
 									F.createElement(
@@ -1309,7 +1315,7 @@ let Z = class extends F.Component {
 											className: "DialogButton GreenPlay",
 											onClick: this.AcceptGameInviteAndVoiceChat,
 										},
-										(0, G.we)("#ChatRoom_GameInvite_Accept_And_Voice_Chat"),
+										(0, Localize)("#ChatRoom_GameInvite_Accept_And_Voice_Chat"),
 									),
 							),
 				),
@@ -1331,7 +1337,12 @@ let Z = class extends F.Component {
 (0, n.Cg)([c.oI], Z.prototype, "DismissInvite", null);
 (0, n.Cg)([c.oI], Z.prototype, "OnShowGameContextMenu", null);
 Z = (0, n.Cg)([N.PA], Z);
-var Y = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	CopyURLToClipboard,
+	_f,
+	BElementContainsSelection,
+} from "../../actual_src/utils/domutils.js";
 var K = require("./58215.js");
 var X = require("./53414.js");
 var J = require("./78060.js");
@@ -1357,7 +1368,7 @@ const re = (0, p.zy)(function (e, t, r) {
 let ne = class extends F.Component {
 	static contextType = te.QO;
 	AcceptInvite(e) {
-		let t = Y.uX(e);
+		let t = GetOwningWindowForEvent(e);
 		p.xm.ChatStore.InviteStore.AcceptInvite(
 			this.props.invite,
 			(0, hr.CO)(e),
@@ -1370,9 +1381,9 @@ let ne = class extends F.Component {
 		if (r) {
 			(0, J.Ic)(
 				e,
-				(0, G.we)("#ChatRoom_InviteMessage_Header"),
+				(0, Localize)("#ChatRoom_InviteMessage_Header"),
 				r,
-				(0, G.we)("#Button_OK"),
+				(0, Localize)("#Button_OK"),
 			);
 		}
 		if (this.props.onAccept) {
@@ -1395,7 +1406,7 @@ let ne = class extends F.Component {
 					{
 						className: "postedExpiredInvite",
 					},
-					(0, G.we)("#bbcode_invite_requesting_info"),
+					(0, Localize)("#bbcode_invite_requesting_info"),
 				),
 			);
 		}
@@ -1410,7 +1421,7 @@ let ne = class extends F.Component {
 					{
 						className: "postedExpiredInvite",
 					},
-					(0, G.we)("#bbcode_invite_no_longer_valid"),
+					(0, Localize)("#bbcode_invite_no_longer_valid"),
 				),
 			);
 		}
@@ -1458,7 +1469,7 @@ let ne = class extends F.Component {
 				{
 					className: "Invite_ExpireTime",
 				},
-				(0, G.we)("#bbcode_invite_never_expires"),
+				(0, Localize)("#bbcode_invite_never_expires"),
 			);
 		} else {
 			let t = p.xm.RTime32ToDate(e.time_expires);
@@ -1467,7 +1478,7 @@ let ne = class extends F.Component {
 				{
 					className: "Invite_ExpireTime",
 				},
-				(0, G.we)(
+				(0, Localize)(
 					"#bbcode_invite_expires",
 					t.toLocaleTimeString(),
 					t.toDateString(),
@@ -1476,13 +1487,13 @@ let ne = class extends F.Component {
 		}
 		m = t
 			? d
-				? (0, G.we)("#Voice_StartTalking")
-				: (0, G.we)("#ChatRoom_Invite_Accept_Inviter")
+				? (0, Localize)("#Voice_StartTalking")
+				: (0, Localize)("#ChatRoom_Invite_Accept_Inviter")
 			: d
-				? (0, G.we)("#Voice_StartTalking")
+				? (0, Localize)("#Voice_StartTalking")
 				: n
-					? (0, G.we)("#ChatRoom_Invite_Accept_Inviter")
-					: (0, G.we)("#ChatRoom_Invite_Accept");
+					? (0, Localize)("#ChatRoom_Invite_Accept_Inviter")
+					: (0, Localize)("#ChatRoom_Invite_Accept");
 		let A = null;
 		let g = false;
 		if (e.BIsUserBanned()) {
@@ -1490,7 +1501,7 @@ let ne = class extends F.Component {
 			A = F.createElement(
 				"div",
 				null,
-				(0, G.we)("#bbcode_invite_banned_forever"),
+				(0, Localize)("#bbcode_invite_banned_forever"),
 			);
 		} else if (
 			e.GetTimeKickExpires() &&
@@ -1508,7 +1519,7 @@ let ne = class extends F.Component {
 			A = F.createElement(
 				"div",
 				null,
-				(0, G.we)("#bbcode_invite_banned_until", t),
+				(0, Localize)("#bbcode_invite_banned_until", t),
 			);
 		}
 		let h = this.props.inviter && n;
@@ -1583,7 +1594,7 @@ let ne = class extends F.Component {
 									{
 										className: "groupAlreadyJoined",
 									},
-									(0, G.we)("#bbcode_invite_already_group_member"),
+									(0, Localize)("#bbcode_invite_already_group_member"),
 								),
 							),
 					),
@@ -1631,11 +1642,11 @@ let ie = (0, N.PA)((e) => {
 	let a = t.BIsInviteLink();
 	let s = e.inviter && p.xm.FriendStore.self.accountid == e.inviter.accountid;
 	let o = p.xm.ChatStore.GetChatRoomGroup(t.GetChatRoomGroupID()).name;
-	let l = (0, G.we)("#bbcode_invite_youre_invited");
+	let l = (0, Localize)("#bbcode_invite_youre_invited");
 	if (s) {
 		l = i
 			? a
-				? (0, G.PP)(
+				? LocalizeReact(
 						"#bbcode_invite_you_shared_voice_link",
 						F.createElement(
 							"span",
@@ -1646,7 +1657,7 @@ let ie = (0, N.PA)((e) => {
 							" ",
 						),
 					)
-				: (0, G.PP)(
+				: LocalizeReact(
 						"#bbcode_invite_you_invited_friend_voice",
 						F.createElement(
 							"span",
@@ -1666,8 +1677,8 @@ let ie = (0, N.PA)((e) => {
 						),
 					)
 			: a
-				? (0, G.PP)("#bbcode_invite_you_shared_invite_link")
-				: (0, G.PP)(
+				? LocalizeReact("#bbcode_invite_you_shared_invite_link")
+				: LocalizeReact(
 						"#bbcode_invite_you_invited_friend",
 						F.createElement(
 							"span",
@@ -1681,7 +1692,7 @@ let ie = (0, N.PA)((e) => {
 	} else if (r) {
 		l = i
 			? a
-				? (0, G.PP)(
+				? LocalizeReact(
 						"#bbcode_invite_voice_url_description",
 						F.createElement(
 							"span",
@@ -1700,7 +1711,7 @@ let ie = (0, N.PA)((e) => {
 							" ",
 						),
 					)
-				: (0, G.PP)(
+				: LocalizeReact(
 						"#bbcode_invite_voice_description",
 						F.createElement(
 							"span",
@@ -1720,7 +1731,7 @@ let ie = (0, N.PA)((e) => {
 						),
 					)
 			: a
-				? (0, G.PP)(
+				? LocalizeReact(
 						"#bbcode_invite_url_description",
 						F.createElement(
 							"span",
@@ -1731,7 +1742,7 @@ let ie = (0, N.PA)((e) => {
 							" ",
 						),
 					)
-				: (0, G.PP)(
+				: LocalizeReact(
 						"#bbcode_invite_description",
 						F.createElement(
 							"span",
@@ -1777,13 +1788,13 @@ class ae extends F.Component {
 }
 class se extends F.Component {
 	CopyToClipboard(e) {
-		Y.YQ(this.props.url);
+		CopyURLToClipboard(this.props.url);
 	}
 	HandleFocus(e) {
 		e.currentTarget.select();
 	}
 	render() {
-		let e = this.props.strLabel || (0, G.we)("#bbcode_invite_url_desc");
+		let e = this.props.strLabel || (0, Localize)("#bbcode_invite_url_desc");
 		return F.createElement(
 			"div",
 			{
@@ -1804,7 +1815,7 @@ class se extends F.Component {
 				F.createElement("input", {
 					className: "inviteURLLink",
 					value: this.props.bDisabled
-						? (0, G.we)("#bbcode_invite_link_text_expired")
+						? (0, Localize)("#bbcode_invite_link_text_expired")
 						: this.props.url,
 					onFocus: this.HandleFocus,
 					onClick: this.HandleFocus,
@@ -1816,7 +1827,7 @@ class se extends F.Component {
 						{
 							className: "copyInviteLink",
 							onClick: this.CopyToClipboard,
-							title: (0, G.we)("#Chat_Copy_Clipboard"),
+							title: (0, Localize)("#Chat_Copy_Clipboard"),
 						},
 						F.createElement(z.$rC, null),
 					),
@@ -1968,7 +1979,7 @@ function Ge(e) {
 					: "#Friend_Notification_GameInvite";
 		return {
 			title: "",
-			body: (0, G.we)(i, e.context.chat.chat_partner.display_name, r, ""),
+			body: (0, Localize)(i, e.context.chat.chat_partner.display_name, r, ""),
 			state: n,
 		};
 	}
@@ -1983,12 +1994,12 @@ function Oe(e) {
 			title: "",
 			body:
 				e.context.unAccountIDSender === e.context.chat.self.accountid
-					? (0, G.we)(
+					? (0, Localize)(
 							"#Friend_Notification_GameInviteYouInvited",
 							e.context.chat.chat_partner.display_name,
 							n,
 						)
-					: (0, G.we)(
+					: (0, Localize)(
 							"#Friend_Notification_GameInvite",
 							e.context.chat.chat_partner.display_name,
 							n,
@@ -2011,12 +2022,12 @@ function Pe(e) {
 				title: "",
 				body:
 					e.context.unAccountIDSender === e.context.chat.self.accountid
-						? (0, G.we)(
+						? (0, Localize)(
 								"#bbcode_invite_you_invited_friend_voice",
 								e.context.chat.chat_partner.display_name,
 								e.args.chatname,
 							)
-						: (0, G.we)(
+						: (0, Localize)(
 								"#Friend_Notification_InviteVoice",
 								e.context.chat.chat_partner.display_name,
 								e.args.chatname,
@@ -2027,11 +2038,11 @@ function Pe(e) {
 				title: "",
 				body:
 					e.context.unAccountIDSender === e.context.chat.self.accountid
-						? (0, G.we)(
+						? (0, Localize)(
 								"#bbcode_invite_you_invited_friend",
 								e.context.chat.chat_partner.display_name,
 							)
-						: (0, G.we)(
+						: (0, Localize)(
 								"#Friend_Notification_Invite",
 								e.context.chat.chat_partner.display_name,
 								e.args.chatgroupname,
@@ -2045,7 +2056,7 @@ function Le(e) {
 	const t = e.context.chat;
 	if (t instanceof Ne.s) {
 		return {
-			title: (0, G.we)(
+			title: (0, Localize)(
 				"#TradeOffer_FriendSentYou",
 				t.chat_partner.display_name,
 			),
@@ -2057,7 +2068,7 @@ function Le(e) {
 }
 function ze(e) {
 	return {
-		body: (0, G.we)("#Notification_Spoiler"),
+		body: (0, Localize)("#Notification_Spoiler"),
 	};
 }
 function xe(e) {
@@ -2069,7 +2080,7 @@ function xe(e) {
 	const n = e.context.chat.ChatStore.ChatRoomEffectSettings[r];
 	if (n && n.locToken) {
 		return {
-			body: (0, G.we)(n.locToken, t.display_name),
+			body: (0, Localize)(n.locToken, t.display_name),
 		};
 	} else {
 		return null;
@@ -2085,7 +2096,7 @@ function He(e) {
 	return (t) => {
 		const r = p.xm.FriendStore.GetPlayer(t.context.unAccountIDSender);
 		return {
-			body: (0, G.we)(e, r.display_name),
+			body: (0, Localize)(e, r.display_name),
 		};
 	};
 }
@@ -2543,7 +2554,7 @@ class at extends F.Component {
 								onClick: this.handleCollapse,
 								title: n,
 							},
-							(0, G.we)(`#bbcode_${this.props.strMediaType}_minimized`),
+							(0, Localize)(`#bbcode_${this.props.strMediaType}_minimized`),
 						),
 						!this.state.bMinimized &&
 							!this.state.bIsMinimizing &&
@@ -2553,7 +2564,7 @@ class at extends F.Component {
 							{
 								className: "BBCodeRestoreControl",
 								onClick: this.handleRestore,
-								title: (0, G.we)(
+								title: (0, Localize)(
 									`#bbcode_${this.props.strMediaType}_tooltip_restore`,
 								),
 							},
@@ -2566,7 +2577,7 @@ class at extends F.Component {
 							{
 								className: "BBCodeResizeControl",
 								onMouseDown: this.OnResize,
-								title: (0, G.we)(
+								title: (0, Localize)(
 									`#bbcode_${this.props.strMediaType}_tooltip_resize`,
 								),
 							},
@@ -2578,10 +2589,10 @@ class at extends F.Component {
 								className: "BBCodeCollapseControl",
 								onClick: this.handleCollapse,
 								title: this.state.bMinimized
-									? (0, G.we)(
+									? (0, Localize)(
 											`#bbcode_${this.props.strMediaType}_tooltip_uncollapse`,
 										)
-									: (0, G.we)(
+									: (0, Localize)(
 											`#bbcode_${this.props.strMediaType}_tooltip_collapse`,
 										),
 							},
@@ -2634,8 +2645,8 @@ class st extends F.Component {
 		}
 		let r = this.props.titleInfo ? this.props.titleInfo : "";
 		let n = e
-			? (0, G.we)(`#bbcode_${this.props.strMediaType}_tooltip_uncollapse`)
-			: (0, G.we)(`#bbcode_${this.props.strMediaType}_tooltip_collapse`);
+			? (0, Localize)(`#bbcode_${this.props.strMediaType}_tooltip_uncollapse`)
+			: (0, Localize)(`#bbcode_${this.props.strMediaType}_tooltip_collapse`);
 		return F.createElement(
 			P.xh,
 			{
@@ -2654,7 +2665,7 @@ class st extends F.Component {
 						onClick: this.OnToggleCollapse,
 						title: r,
 					},
-					(0, G.we)(`#bbcode_${this.props.strMediaType}_minimized`),
+					(0, Localize)(`#bbcode_${this.props.strMediaType}_minimized`),
 				),
 				!this.state.bCollapsed && this.props.children,
 				F.createElement(ot, {
@@ -2678,8 +2689,8 @@ function ot(e) {
 }
 function lt(e) {
 	let t = e.titleInfo ? e.titleInfo : "";
-	let r = (0, G.we)(`#bbcode_${e.mediaType}_minimized`);
-	(0, G.we)(`#bbcode_${e.mediaType}_tooltip_restore`);
+	let r = (0, Localize)(`#bbcode_${e.mediaType}_minimized`);
+	(0, Localize)(`#bbcode_${e.mediaType}_tooltip_restore`);
 	return F.createElement(
 		"div",
 		{
@@ -2869,7 +2880,7 @@ class mt extends F.Component {
 						{
 							className: "BBCodeDetails HideWhenMinimized",
 						},
-						(0, G.we)("#bbcode_youtube_author", e),
+						(0, Localize)("#bbcode_youtube_author", e),
 					),
 			),
 		);
@@ -2970,7 +2981,7 @@ let dt = class extends pe.mX {
 			a,
 			"ImageModal",
 			{
-				strTitle: (0, G.we)("#bbcode_image_popout"),
+				strTitle: (0, Localize)("#bbcode_image_popout"),
 				popupHeight: l,
 				popupWidth: o,
 			},
@@ -3022,7 +3033,7 @@ let dt = class extends pe.mX {
 							},
 						},
 						" ",
-						(0, G.PP)(
+						LocalizeReact(
 							"#bbcode_image_link_giphy",
 							F.createElement(
 								"span",
@@ -3037,7 +3048,7 @@ let dt = class extends pe.mX {
 			}
 			let t = n;
 			if (i) {
-				t = (0, G.we)(
+				t = (0, Localize)(
 					"#bbcode_disable_embed_inlining_parenthetical",
 					i,
 					Me.Qz(n),
@@ -3084,7 +3095,10 @@ let dt = class extends pe.mX {
 				}
 			: undefined;
 		let u = s
-			? (0, G.we)("#bbcode_image_link_giphy", this.GetArgument("giphy_search"))
+			? (0, Localize)(
+					"#bbcode_image_link_giphy",
+					this.GetArgument("giphy_search"),
+				)
 			: n;
 		return F.createElement(
 			F.Fragment,
@@ -3163,7 +3177,7 @@ function At(e) {
 	);
 }
 function pt(e) {
-	let t = (0, G.we)("#bbcode_image_tooltip_link_giphy", e.searchText);
+	let t = (0, Localize)("#bbcode_image_tooltip_link_giphy", e.searchText);
 	return F.createElement(
 		F.Fragment,
 		null,
@@ -3179,7 +3193,7 @@ function pt(e) {
 				{
 					className: "giphyTag",
 				},
-				(0, G.PP)(
+				LocalizeReact(
 					"#bbcode_image_link_giphy",
 					F.createElement(
 						"span",
@@ -3270,7 +3284,7 @@ let ht = class extends pe.mX {
 			"loadedmetadata",
 			this.OnLoadMetadata,
 		);
-		let t = Y._f(this.m_elVideo, "y");
+		let t = _f(this.m_elVideo, "y");
 		if (t) {
 			this.m_resizeObserver = (0, c.Fd)(t, this.OnResizeScrollAncestor);
 		}
@@ -3362,7 +3376,7 @@ let ht = class extends pe.mX {
 		const t = this.GetArgument("title");
 		let r = e;
 		if (t) {
-			r = (0, G.we)(
+			r = (0, Localize)(
 				"#bbcode_disable_embed_inlining_parenthetical",
 				t,
 				Me.Qz(e),
@@ -3395,7 +3409,7 @@ let ht = class extends pe.mX {
 				{
 					className: "failedVideoURL",
 					href: e,
-					title: (0, G.we)("#bbcode_video_tooltip_link"),
+					title: (0, Localize)("#bbcode_video_tooltip_link"),
 				},
 				F.createElement(
 					"span",
@@ -3410,7 +3424,7 @@ let ht = class extends pe.mX {
 				{
 					className: "ChatMessageErrorSendingAlert VideoFailed",
 				},
-				(0, G.PP)("#Chat_VideoLoadError", t),
+				LocalizeReact("#Chat_VideoLoadError", t),
 			);
 		}
 		let s = {};
@@ -3461,7 +3475,7 @@ let ht = class extends pe.mX {
 						L.Z,
 						{
 							onActivate: l,
-							onOKActionDescription: (0, G.we)(
+							onOKActionDescription: (0, Localize)(
 								this.state.bPaused
 									? "#bbcode_video_play"
 									: "#bbcode_video_pause",
@@ -3509,7 +3523,7 @@ let ht = class extends pe.mX {
 								{
 									className: "chatImageURL",
 									href: e,
-									title: (0, G.we)("#bbcode_video_tooltip_link"),
+									title: (0, Localize)("#bbcode_video_tooltip_link"),
 								},
 								F.createElement(z.YNO, null),
 							),
@@ -3528,7 +3542,7 @@ function Ct(e) {
 	return F.createElement(
 		Je.he,
 		{
-			toolTipContent: (0, G.we)("#AssociatedApp_ViewOnStore"),
+			toolTipContent: (0, Localize)("#AssociatedApp_ViewOnStore"),
 			className: De.AssociatedAppContainer,
 		},
 		F.createElement(
@@ -3536,10 +3550,10 @@ function Ct(e) {
 			{
 				className: De.AssociatedApp,
 				onActivate: (e) => {
-					let r = Y.uX(e);
+					let r = GetOwningWindowForEvent(e);
 					(0, O.EP)(r, `${s.TS.STORE_BASE_URL}app/${t}`);
 				},
-				onOKActionDescription: (0, G.we)("#AssociatedApp_ViewOnStore"),
+				onOKActionDescription: (0, Localize)("#AssociatedApp_ViewOnStore"),
 			},
 			F.createElement("img", {
 				src: r.icon_url,
@@ -3595,7 +3609,7 @@ let bt = class extends pe.mX {
 	CopyToClipboard() {
 		let e = this.GetArgument("url");
 		if (e && e.length != 0) {
-			Y.YQ(e);
+			CopyURLToClipboard(e);
 		}
 	}
 	HandleFocus(e) {
@@ -3617,7 +3631,7 @@ let bt = class extends pe.mX {
 		if (p.xm.SettingsStore.FriendsSettings.bDisableEmbedInlining) {
 			let e = n;
 			if (t) {
-				e = (0, G.we)("#bbcode_disable_embed_inlining_parenthetical", t, i);
+				e = (0, Localize)("#bbcode_disable_embed_inlining_parenthetical", t, i);
 			}
 			return F.createElement(
 				Qe,
@@ -3647,7 +3661,7 @@ let bt = class extends pe.mX {
 						let e = (0, Ke.p)(n) ? (0, Ke.E)(n) : n;
 						p.xm.OpenURLInBrowser(e, C.m);
 					},
-					onOKActionDescription: (0, G.we)("#Chat_Visit_Link"),
+					onOKActionDescription: (0, Localize)("#Chat_Visit_Link"),
 				},
 				F.createElement(
 					"div",
@@ -3755,7 +3769,7 @@ let bt = class extends pe.mX {
 						{
 							className: "OpenGraphURLButton CopyToClipboard",
 							onClick: this.CopyToClipboard,
-							title: (0, G.we)("#Chat_Copy_Link_Clipboard"),
+							title: (0, Localize)("#Chat_Copy_Link_Clipboard"),
 						},
 						F.createElement(z.$rC, null),
 					),
@@ -3798,7 +3812,7 @@ let yt = class extends pe.mX {
 			}
 			r = r.parentElement;
 		}
-		if (!t && !Y.WC(n)) {
+		if (!t && !BElementContainsSelection(n)) {
 			(0, O.EP)(e, this.GetArgument("url"));
 		}
 	}
@@ -3824,7 +3838,10 @@ let yt = class extends pe.mX {
 				month: "long",
 				day: "numeric",
 			};
-			let i = new Date(e).toLocaleDateString(G.pf.GetPreferredLocales(), n);
+			let i = new Date(e).toLocaleDateString(
+				LocalizationManager.GetPreferredLocales(),
+				n,
+			);
 			if (typeof this.props.children == "string") {
 				r = this.props.children;
 			} else if (this.props.children instanceof Array) {
@@ -3844,7 +3861,7 @@ let yt = class extends pe.mX {
 				F.createElement("div", {
 					className: "NonInlinedEmbedLogo NonInlinedEmbedLogo_Twitter",
 				}),
-				(0, G.we)("#bbcode_disable_embed_inlining_tweet", t, i),
+				(0, Localize)("#bbcode_disable_embed_inlining_tweet", t, i),
 				F.createElement("br", null),
 				F.createElement(
 					"div",
@@ -3981,7 +3998,7 @@ let St = class extends pe.mX {
 		if (p.xm.SettingsStore.FriendsSettings.bDisableEmbedInlining) {
 			let r = e;
 			if (t) {
-				r = (0, G.we)("#bbcode_disable_embed_inlining_parenthetical", t, e);
+				r = (0, Localize)("#bbcode_disable_embed_inlining_parenthetical", t, e);
 			}
 			return F.createElement(
 				Qe,
@@ -4026,7 +4043,7 @@ let St = class extends pe.mX {
 						{
 							className: "oembedHint",
 						},
-						(0, G.we)("#bbcode_oembed_preview_hint"),
+						(0, Localize)("#bbcode_oembed_preview_hint"),
 					),
 				),
 				F.createElement(
@@ -4091,7 +4108,7 @@ let St = class extends pe.mX {
 						{
 							className: "oembedAuthor",
 						},
-						(0, G.we)("#bbcode_oembed_author", r),
+						(0, Localize)("#bbcode_oembed_author", r),
 					),
 			);
 		}
@@ -4232,7 +4249,7 @@ class It extends pe.mX {
 					{
 						className: De.resultLabel,
 					},
-					(0, G.we)("#SlashCommandCoinFlip_Result_" + i),
+					(0, Localize)("#SlashCommandCoinFlip_Result_" + i),
 				),
 			),
 		);
@@ -4723,7 +4740,7 @@ let Pt = class extends pe.mX {
 		if (p.xm.SettingsStore.FriendsSettings.bDisableEmbedInlining) {
 			let e = r;
 			if (n) {
-				e = (0, G.we)("#bbcode_disable_embed_inlining_steam_workshop", n);
+				e = (0, Localize)("#bbcode_disable_embed_inlining_steam_workshop", n);
 			}
 			let t = F.createElement(z.Rkk, null);
 			switch (s) {
@@ -4849,7 +4866,7 @@ let Pt = class extends pe.mX {
 										this.VoteItem(true, t);
 									},
 								},
-								(0, G.we)("#bbcode_community_publishedfile_vote_up"),
+								(0, Localize)("#bbcode_community_publishedfile_vote_up"),
 							),
 							F.createElement("span", {
 								className: this.state.bLocalVoteDown
@@ -4869,7 +4886,7 @@ Pt = (0, n.Cg)([N.PA], Pt);
 class Lt extends pe.mX {
 	OnCreateOfferClick(e) {
 		let t = "NewTradeOffer" + parseInt(this.GetArgument("partner"));
-		Y.uX(e)
+		GetOwningWindowForEvent(e)
 			.open(
 				this.GetArgument("url"),
 				t,
@@ -4883,7 +4900,7 @@ class Lt extends pe.mX {
 		if (t && t == this.props.context.unAccountIDSender) {
 			let r = this.props.context.chat.GetMember(t);
 			if (r) {
-				let t = (0, G.we)("#TradeOfferLink_Label");
+				let t = (0, Localize)("#TradeOfferLink_Label");
 				return F.createElement(
 					P.xh,
 					{
@@ -4923,7 +4940,10 @@ class Lt extends pe.mX {
 									{
 										className: "inviteLabel TradeOfferInvite_Title",
 									},
-									(0, G.PP)("#TradeOfferLink_SharedTradeLink", r.display_name),
+									LocalizeReact(
+										"#TradeOfferLink_SharedTradeLink",
+										r.display_name,
+									),
 								),
 								F.createElement(se, {
 									url: e,
@@ -4937,7 +4957,7 @@ class Lt extends pe.mX {
 									type: "button",
 									onClick: this.OnCreateOfferClick,
 								},
-								(0, G.PP)("#TradeOfferLink_SendUserOffer"),
+								LocalizeReact("#TradeOfferLink_SendUserOffer"),
 							),
 						),
 						F.createElement("div", {
@@ -4964,7 +4984,7 @@ class zt extends pe.mX {
 		let t = this.GetArgument("id");
 		let r = s.TS.COMMUNITY_BASE_URL + "tradeoffer/" + t + "/";
 		let n = "ViewTradeOffer" + t;
-		let i = Y.uX(e).open(
+		let i = GetOwningWindowForEvent(e).open(
 			r,
 			n,
 			"height=1120,width=1028,resize=yes,scrollbars=yes",
@@ -5032,7 +5052,7 @@ class zt extends pe.mX {
 							{
 								className: "inviteLabel TradeOfferInvite_Title",
 							},
-							(0, G.PP)(
+							LocalizeReact(
 								n ? "#TradeOffer_YouSentFriend" : "#TradeOffer_FriendSentYou",
 								i,
 							),
@@ -5067,7 +5087,7 @@ class zt extends pe.mX {
 						type: "button",
 						onClick: n ? this.ViewMyOffersClick : this.ViewOfferClick,
 					},
-					(0, G.PP)("#TradeOffer_ViewTradeOffer"),
+					LocalizeReact("#TradeOffer_ViewTradeOffer"),
 				),
 			),
 			F.createElement("div", {
@@ -5105,7 +5125,7 @@ let Ut = class extends pe.mX {
 	CopyToClipboard() {
 		let e = this.GetArgument("url");
 		if (e && e.length != 0) {
-			Y.YQ(e);
+			CopyURLToClipboard(e);
 		}
 	}
 	constructor(e) {
@@ -5257,7 +5277,7 @@ let Ut = class extends pe.mX {
 									P.xh,
 									{
 										text: [
-											(0, G.we)(
+											(0, Localize)(
 												"#bbcode_econ_ItemTitle",
 												m,
 												this.state.description.name(),
@@ -5275,7 +5295,7 @@ let Ut = class extends pe.mX {
 												href: t,
 												style: A,
 											},
-											(0, G.we)(
+											(0, Localize)(
 												"#bbcode_econ_ItemTitle",
 												m,
 												this.state.description.name(),
@@ -5323,7 +5343,7 @@ let Ut = class extends pe.mX {
 														className: "general_btn inline",
 														href: h,
 													},
-													(0, G.we)("#bbcode_econ_TradeWithOwner", m),
+													(0, Localize)("#bbcode_econ_TradeWithOwner", m),
 												),
 											this.state.description.marketable() &&
 												F.createElement(
@@ -5332,7 +5352,7 @@ let Ut = class extends pe.mX {
 														className: "general_btn inline",
 														href: g,
 													},
-													(0, G.we)("#bbcode_econ_ViewInMarket"),
+													(0, Localize)("#bbcode_econ_ViewInMarket"),
 												),
 										),
 									),
@@ -5347,14 +5367,14 @@ let Ut = class extends pe.mX {
 											className: "ChatMessageOpenGraph_Title",
 											href: t,
 										},
-										(0, G.we)("#bbcode_econ_UnknownItem"),
+										(0, Localize)("#bbcode_econ_UnknownItem"),
 									),
 									F.createElement(
 										"div",
 										{
 											className: "ChatMessageOpenGraph_Description",
 										},
-										(0, G.we)("#bbcode_econ_LoadFail"),
+										(0, Localize)("#bbcode_econ_LoadFail"),
 									),
 								),
 						),
@@ -5421,13 +5441,13 @@ class Wt extends pe.mX {
 		return F.createElement(
 			P.xh,
 			{
-				text: (0, G.we)("#bbcode_linkremoved"),
+				text: (0, Localize)("#bbcode_linkremoved"),
 			},
 			F.createElement(
 				"span",
 				{
 					className: "filteredURL bb_removedlink",
-					title: (0, G.we)("#Community_RemoveLink_Tooltip"),
+					title: (0, Localize)("#Community_RemoveLink_Tooltip"),
 				},
 				F.createElement(z.eTF, null),
 				F.createElement(
@@ -5435,7 +5455,7 @@ class Wt extends pe.mX {
 					{
 						className: "threatURLDesc",
 					},
-					(0, G.we)("#bbcode_linkremoved_desc"),
+					(0, Localize)("#bbcode_linkremoved_desc"),
 				),
 				F.createElement(
 					"span",
@@ -5655,7 +5675,7 @@ let qt = class extends pe.mX {
 		}
 	}
 	OpenStoreLink(e) {
-		let t = Y.uX(e);
+		let t = GetOwningWindowForEvent(e);
 		(0, O.EP)(t, this.state.SteamStoreItem.url);
 		e.stopPropagation();
 	}
@@ -5677,7 +5697,7 @@ let qt = class extends pe.mX {
 	CopyToClipboard() {
 		let e = this.props.children;
 		if (e && e.length != 0) {
-			Y.YQ(e);
+			CopyURLToClipboard(e);
 		}
 	}
 	render() {
@@ -5718,21 +5738,21 @@ let qt = class extends pe.mX {
 					className: De.SteamURL,
 					href: "https://store.steampowered.com/",
 				},
-				(0, G.we)("#bbcode_steam_store_embed_Failed_Steam_Store"),
+				(0, Localize)("#bbcode_steam_store_embed_Failed_Steam_Store"),
 			);
 			return F.createElement(
 				L.Z,
 				{
 					className: De.ChatMessageSteamStore_Failed,
 					onActivate: e,
-					onOKActionDescription: (0, G.we)(
+					onOKActionDescription: (0, Localize)(
 						"#bbcode_steam_store_embed_ViewStorePage_Filtered",
 					),
 				},
 				F.createElement(
 					"span",
 					null,
-					(0, G.PP)("#bbcode_steam_store_embed_Failed", n, a, i),
+					LocalizeReact("#bbcode_steam_store_embed_Failed", n, a, i),
 				),
 			);
 		}
@@ -5835,7 +5855,7 @@ let qt = class extends pe.mX {
 			{
 				className: De.ChatMessageSteamStore_FilteredDescription,
 			},
-			(0, G.we)("#bbcode_steam_store_embed_Filtered"),
+			(0, Localize)("#bbcode_steam_store_embed_Filtered"),
 			" ",
 		);
 		switch (this.state.nContentSize) {
@@ -5861,7 +5881,7 @@ let qt = class extends pe.mX {
 					b,
 				),
 				onOKButton: this.OpenStoreLink,
-				onOKActionDescription: (0, G.we)(
+				onOKActionDescription: (0, Localize)(
 					h
 						? "#bbcode_steam_store_embed_ViewStorePage_Filtered"
 						: "#bbcode_steam_store_embed_ViewStorePage",
@@ -5887,7 +5907,7 @@ let qt = class extends pe.mX {
 								{
 									className: De.ChatMessageSteamStore_HeaderImageFiltered,
 								},
-								(0, G.we)("#bbcode_steam_store_embed_Image_Filtered"),
+								(0, Localize)("#bbcode_steam_store_embed_Image_Filtered"),
 							),
 						F.createElement("img", {
 							className: (0, oe.A)(
@@ -5919,7 +5939,7 @@ let qt = class extends pe.mX {
 					F.createElement(
 						"div",
 						null,
-						(0, G.we)("#bbcode_steam_store_embed_From"),
+						(0, Localize)("#bbcode_steam_store_embed_From"),
 						F.createElement(
 							"span",
 							{
@@ -5937,7 +5957,7 @@ let qt = class extends pe.mX {
 								fontSize: 12,
 							},
 						},
-						(0, G.we)("#bbcode_steam_store_embed_ReleaseDate"),
+						(0, Localize)("#bbcode_steam_store_embed_ReleaseDate"),
 						F.createElement(
 							"span",
 							{
@@ -6030,7 +6050,7 @@ let qt = class extends pe.mX {
 											{
 												className: De.ChatMessageSteamStore_Free,
 											},
-											(0, G.we)("#bbcode_steam_store_embed_FreeToPlay"),
+											(0, Localize)("#bbcode_steam_store_embed_FreeToPlay"),
 										),
 								),
 								F.createElement(
@@ -6039,7 +6059,7 @@ let qt = class extends pe.mX {
 										className: De.ChatMessageSteamStore_ViewStore,
 										onClick: this.OpenStoreLink,
 									},
-									(0, G.we)(
+									(0, Localize)(
 										h
 											? "#bbcode_steam_store_embed_ViewStorePage_Filtered"
 											: "#bbcode_steam_store_embed_ViewStorePage",
@@ -6051,7 +6071,7 @@ let qt = class extends pe.mX {
 								{
 									className: De.ChatMessageSteamStore_CopyURL,
 									onClick: this.CopyToClipboard,
-									title: (0, G.we)("#Chat_Copy_Link_Clipboard"),
+									title: (0, Localize)("#Chat_Copy_Link_Clipboard"),
 								},
 								F.createElement(z.$rC, null),
 							),
@@ -6205,7 +6225,7 @@ let Qt = class extends pe.mX {
 				},
 				r.renderEffectIcon(),
 			),
-			(0, G.PP)(n, e.display_name),
+			LocalizeReact(n, e.display_name),
 			F.createElement(
 				"div",
 				{
@@ -6223,7 +6243,7 @@ let Qt = class extends pe.mX {
 						},
 						onClick: this.state.bDisabled ? undefined : this.OnReplayAnimation,
 					},
-					(0, G.we)("#ChatRoom_ReplayRoomEffect"),
+					(0, Localize)("#ChatRoom_ReplayRoomEffect"),
 				),
 			),
 		);
@@ -7424,7 +7444,7 @@ export class Yw extends p.m {
 				default:
 					e = "#RemotePlay_ErrorInviteFailed_Failed";
 			}
-			this.ShowAlert((0, G.we)("#RemotePlay_Error"), (0, G.we)(e));
+			this.ShowAlert((0, Localize)("#RemotePlay_Error"), (0, Localize)(e));
 		}
 	}
 	RemoteClientLaunchFailed(e) {
@@ -7459,7 +7479,7 @@ export class Yw extends p.m {
 				default:
 					t = "#RemotePlay_ErrorInviteFailed_Failed";
 			}
-			this.ShowAlert((0, G.we)("#RemotePlay_Error"), (0, G.we)(t));
+			this.ShowAlert((0, Localize)("#RemotePlay_Error"), (0, Localize)(t));
 		}
 	}
 	ShowAlert(e, t, r) {

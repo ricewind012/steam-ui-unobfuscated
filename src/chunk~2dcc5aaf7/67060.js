@@ -14,7 +14,7 @@ function l(e) {
 }
 function c(e) {
 	if (e == O4.LNY2020) {
-		return `hue-rotate(${360 + ((0, a.Tg))(-30, 10)}deg)`;
+		return `hue-rotate(${360 + (0, a.Tg)(-30, 10)}deg)`;
 	} else {
 		return "";
 	}

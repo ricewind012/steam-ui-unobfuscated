@@ -7,7 +7,7 @@ var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require("./18914.js");
 var m = require("./33572.js");
 var _u = require(/*webcrack:missing*/ "./78325.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./72476.js");
 var p = require(/*webcrack:missing*/ "./43691.js");
 var g = require("./72636.js");
@@ -40,7 +40,7 @@ function _(e) {
 		r,
 		h.Uv.GamepadUI,
 		{
-			title: (0, d.we)("#SP_WindowTitle_Configurator", o),
+			title: Localize("#SP_WindowTitle_Configurator", o),
 			dimensions: f,
 			replace_existing_popup: false,
 			target_browser: r.params.browserInfo,
@@ -92,7 +92,7 @@ function _(e) {
 		return null;
 	}
 }
-var f = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var b = require("./85175.js");
 var y = require("./26326.js");
 var S = require(/*webcrack:missing*/ "./11131.js");
@@ -108,7 +108,7 @@ function I(e) {
 		left: h.Mb,
 		top: h.Mb,
 	};
-	let l = (0, d.we)("#SignIn_Title");
+	let l = Localize("#SignIn_Title");
 	let c = n.useRef(false);
 	const m = p.TS.SILENT_STARTUP;
 	const g = S.Wf.ApplyBrowserScaleToDimensions | (m ? S.Wf.Hidden : 0);
@@ -133,7 +133,7 @@ function I(e) {
 			},
 		},
 	);
-	(0, f.w)(
+	AssertMsg(
 		s.oy.MainInstanceUIMode != 4,
 		"DesktopUI windows should only ever be present when the main instance's UI mode is desktop",
 	);
@@ -413,7 +413,7 @@ function W(e) {
 		r,
 		h.Uv.GamepadUI,
 		{
-			title: (0, d.we)("#SP_WindowTitle_BigPicture"),
+			title: Localize("#SP_WindowTitle_BigPicture"),
 			dimensions: E,
 			replace_existing_popup: false,
 			target_browser: r.params.browserInfo,
@@ -544,7 +544,7 @@ function H(e) {
 	const { cm: t, instance: r } = e;
 	const { initialX: a, initialY: s } = r.params;
 	const { popup: o, element: l } = (0, h._Y)("SP Keyboard", r, h.Uv.GamepadUI, {
-		title: (0, d.we)("#SP_WindowTitle_Keyboard"),
+		title: Localize("#SP_WindowTitle_Keyboard"),
 		dimensions: {
 			width: 1280,
 			height: 360,
@@ -592,7 +592,7 @@ var te = require("./35488.js");
 var re = require("./3475.js");
 var ne = require("./88724.js");
 var ie = require("./5808.js");
-var ae = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var se = require("./64608.js");
 var oe = require("./32700.js");
 var le = require("./97893.js");
@@ -610,7 +610,7 @@ const me = (0, K.PA)(function (e) {
 		return n.createElement(
 			"div",
 			null,
-			(0, d.we)("#GameLauncher_UnknownAppID", t.toString()),
+			Localize("#GameLauncher_UnknownAppID", t.toString()),
 		);
 	}
 	const s = (0, ie.AH)(a, r, "mostavailable");
@@ -645,7 +645,7 @@ const me = (0, K.PA)(function (e) {
 				{
 					className: Y.Error,
 				},
-				(0, d.we)("#GameLauncher_AccountDoesNotOwnGame"),
+				Localize("#GameLauncher_AccountDoesNotOwnGame"),
 			),
 		n.createElement(
 			"div",
@@ -660,7 +660,7 @@ const me = (0, K.PA)(function (e) {
 				se.jn,
 				{
 					onClick: (e) => {
-						const t = (0, ae.uX)(e);
+						const t = GetOwningWindowForEvent(e);
 						(0, ie.jy)(s, r, "mostavailable", 100, t)();
 						if (s != "Play") {
 							e.stopPropagation();
@@ -695,7 +695,7 @@ const de = (0, K.PA)(function () {
 		n.createElement(
 			$.W1,
 			{
-				title: (0, d.we)("#ViewAccountDropdown"),
+				title: Localize("#ViewAccountDropdown"),
 				menuItems: [],
 				menuContent: n.createElement(ue, null),
 				parentalFeature: re.uX,
@@ -763,7 +763,7 @@ function pe(e) {
 		left: h.Mb,
 		top: h.Mb,
 	};
-	let s = (0, d.we)("#GameLauncher_Title");
+	let s = Localize("#GameLauncher_Title");
 	let l = S.Wf.ApplyBrowserScaleToDimensions;
 	const { popup: c, element: m } = (0, h._Y)(
 		"SteamChinaReviewLauncherWindow",
@@ -864,7 +864,7 @@ const Ce = {
 function _e(e) {
 	const { cm: t, instance: r, bSmallMode: a } = e;
 	let l = i.W.EBrowserType_DirectHWND_Borderless;
-	let c = (0, d.we)(
+	let c = Localize(
 		e.bSmallMode ? "#WindowName_SteamDesktopMini" : "#WindowName_SteamDesktop",
 	);
 	let m = a ? Ce : he;
@@ -939,7 +939,7 @@ function _e(e) {
 		return () => {};
 	}, [a, T, v, R, m, g, _]);
 	(0, h.yu)(r);
-	(0, f.w)(
+	AssertMsg(
 		s.oy.MainInstanceUIMode != 4,
 		"DesktopUI windows should only ever be present when the main instance's UI mode is desktop",
 	);

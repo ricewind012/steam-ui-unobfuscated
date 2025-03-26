@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./13869.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require(/*webcrack:missing*/ "./72476.js");
 var o = require("./89791.js");
 var l = require("./31222.js");
@@ -27,7 +27,7 @@ export function vg() {
 		}),
 		window,
 		{
-			strTitle: (0, a.we)("#Login_SignInTitle"),
+			strTitle: Localize("#Login_SignInTitle"),
 		},
 	);
 }

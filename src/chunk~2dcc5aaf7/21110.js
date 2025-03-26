@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./42318.js");
 var a = require("./10606.js");
 var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./96593.js");
 export const u = (0, i.Nr)(function () {
 	const [e, t] = n.useState(false);
@@ -27,8 +27,12 @@ export const u = (0, i.Nr)(function () {
 	if (!e || !u) {
 		return null;
 	}
-	const p = (0, o.we)("#Game_Start_Problem_Title");
-	const g = (0, o.we)("#Game_Start_Problem_Text", u.display_name, r.errorCode);
+	const p = (0, Localize)("#Game_Start_Problem_Title");
+	const g = (0, Localize)(
+		"#Game_Start_Problem_Text",
+		u.display_name,
+		r.errorCode,
+	);
 	return n.createElement(
 		a.hM,
 		{
@@ -49,7 +53,7 @@ export const u = (0, i.Nr)(function () {
 				{
 					onClick: A,
 				},
-				(0, o.we)("#Button_Close"),
+				(0, Localize)("#Button_Close"),
 			),
 		),
 	);
@@ -76,8 +80,12 @@ export function T(e) {
 	if (!t || !c) {
 		return null;
 	}
-	const d = (0, o.we)("#Game_Start_Problem_Title");
-	const A = (0, o.we)("#Game_Start_Problem_Text", c.display_name, i.errorCode);
+	const d = (0, Localize)("#Game_Start_Problem_Title");
+	const A = (0, Localize)(
+		"#Game_Start_Problem_Text",
+		c.display_name,
+		i.errorCode,
+	);
 	return n.createElement(
 		a.EN,
 		{

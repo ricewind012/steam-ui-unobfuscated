@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./52451.js");
 var o = require(/*webcrack:missing*/ "./41230.js");
 var l = require(/*webcrack:missing*/ "./79769.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require("./64608.js");
 var u = require(/*webcrack:missing*/ "./50376.js");
 var d = require("./21501.js");
@@ -456,7 +456,7 @@ export let I = class extends a.Component {
 						type: "text",
 						name: "link_url",
 						value: this.state.text_link_url,
-						label: (0, c.we)("#SteamTV_LinkURL"),
+						label: (0, Localize)("#SteamTV_LinkURL"),
 						placeholder: "https://www.example.com",
 						onChange: this.OnSetLinkURLChange,
 						mustBeURL: true,
@@ -466,8 +466,8 @@ export let I = class extends a.Component {
 						type: "text",
 						name: "link_description",
 						value: this.state.text_link_description,
-						label: (0, c.we)("#SteamTV_LinkDescription"),
-						placeholder: (0, c.we)("#SteamTV_LinkDescription_Placeholder"),
+						label: (0, Localize)("#SteamTV_LinkDescription"),
+						placeholder: (0, Localize)("#SteamTV_LinkDescription_Placeholder"),
 						onChange: this.OnSetLinkDescriptionChange,
 					}),
 					a.createElement(
@@ -482,7 +482,7 @@ export let I = class extends a.Component {
 								onClick: this.OnSaveLink,
 							},
 							" ",
-							(0, c.we)("#Button_OK"),
+							(0, Localize)("#Button_OK"),
 							" ",
 						),
 						a.createElement(
@@ -491,7 +491,7 @@ export let I = class extends a.Component {
 								onClick: this.OnEditLink,
 							},
 							" ",
-							(0, c.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					),
 				),

@@ -14,7 +14,7 @@ var g = require(/*webcrack:missing*/ "./83599.js");
 var h = require(/*webcrack:missing*/ "./72476.js");
 var C = require("./67429.js");
 var _ = require("./91720.js");
-var f = require(/*webcrack:missing*/ "./85688.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
 var b = require("./34428.js");
 var y = require("./60917.js");
 var S = require("./51095.js");
@@ -956,7 +956,7 @@ export function bj(e) {
 		queryKey: ["screenshots", "uploaddetails", e.map(({ id: e }) => e)],
 		queryFn: () =>
 			(async function (e) {
-				(0, f.w)(
+				AssertMsg(
 					e?.length,
 					"LoadMultipleScreenshotUploadDetails expected at least one screenshot to operate on",
 				);

@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require("./44234.js");
 var a = require("./52912.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var o = require("./95773.js");
 var l = require("./53414.js");
 var c = require("./78060.js");
@@ -13,7 +13,7 @@ var p = require(/*webcrack:missing*/ "./63696.js");
 var g = require(/*webcrack:missing*/ "./31084.js");
 var h = require(/*webcrack:missing*/ "./88750.js");
 var C = require("./64608.js");
-var _ = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var f = require(/*webcrack:missing*/ "./52451.js");
 var b = require(/*webcrack:missing*/ "./50376.js");
 var y = require("./88620.js");
@@ -33,7 +33,7 @@ export function Tz(e, t, r) {
 			group: t,
 			clan: n,
 			context: r,
-			ownerWindow: (0, s.uX)(e),
+			ownerWindow: GetOwningWindowForEvent(e),
 		}),
 		e,
 	);
@@ -50,7 +50,7 @@ export function fM(e, t, r) {
 			group: n,
 			clan: t,
 			context: r,
-			ownerWindow: (0, s.uX)(e),
+			ownerWindow: GetOwningWindowForEvent(e),
 		}),
 		e,
 	);
@@ -81,7 +81,7 @@ function T(e, t, r, n, a) {
 					{
 						className: w.DisabledDescriptor,
 					},
-					(0, _.we)(r, 2, 8),
+					(0, Localize)(r, 2, 8),
 				),
 		);
 	}
@@ -137,7 +137,7 @@ class R extends p.Component {
 							o.xm.UIStore.CloseTab(this.props.browserContext, n.tab);
 						},
 					},
-					(0, _.we)(
+					(0, Localize)(
 						this.context?.IN_GAMEPADUI
 							? "#Chat_CloseTabAction_SteamDeck"
 							: "#Chat_CloseTabAction",
@@ -152,7 +152,7 @@ class R extends p.Component {
 						key: "opentab",
 						onSelected: this.OpenChatWindow,
 					},
-					(0, _.we)("#Chat_Actions_OpenChat"),
+					(0, Localize)("#Chat_Actions_OpenChat"),
 				),
 			);
 		}
@@ -164,14 +164,14 @@ class R extends p.Component {
 						key: "viewprofile",
 						onSelected: this.ShowClanProfile,
 					},
-					(0, _.we)("#Friend_Menu_ViewProfile"),
+					(0, Localize)("#Friend_Menu_ViewProfile"),
 				),
 			);
 		}
 		if (this.props.group.readyToRender) {
 			const t = T(
 				a,
-				(0, _.we)("#Chat_Actions_FindGamesToPlay"),
+				(0, Localize)("#Chat_Actions_FindGamesToPlay"),
 				"#Chat_Tooltip_FindGamesToPlay_UserCountRestriction_ChatGroup",
 				"findgamestoplay",
 				this.FindGamesToPlay,
@@ -187,7 +187,7 @@ class R extends p.Component {
 					key: "leavechatroom",
 					onSelected: this.LeaveChatRoomGroup,
 				},
-				(0, _.we)(
+				(0, Localize)(
 					r
 						? "#Chat_Actions_LeaveChatRoom"
 						: "#Chat_Actions_LeaveChatRoomGroup",
@@ -212,7 +212,7 @@ class R extends p.Component {
 								i.RemoveFromFavorites(s);
 							},
 						},
-						(0, _.we)("#Friend_Menu_RemoveFromQuickAccess"),
+						(0, Localize)("#Friend_Menu_RemoveFromQuickAccess"),
 					),
 				);
 			}
@@ -226,7 +226,7 @@ class R extends p.Component {
 							i.AddToFavorites(s);
 						},
 					},
-					(0, _.we)("#Friend_Menu_AddToQuickAccess"),
+					(0, Localize)("#Friend_Menu_AddToQuickAccess"),
 				),
 			);
 		}
@@ -255,7 +255,7 @@ export function ae(e, t, r, n, i) {
 	if (D.BIsMenuEmpty(t, r, !!i)) {
 		return null;
 	}
-	let a = (0, s.uX)(n);
+	let a = GetOwningWindowForEvent(n);
 	return (0, g.lX)(
 		p.createElement(D, {
 			browserContext: e,
@@ -290,7 +290,7 @@ class D extends p.PureComponent {
 		);
 	}
 	SaveVoiceRoom(e) {
-		let t = (0, s.uX)(e);
+		let t = GetOwningWindowForEvent(e);
 		var r;
 		var n;
 		var i;
@@ -305,7 +305,7 @@ class D extends p.PureComponent {
 			r,
 			"SaveVoiceRoomDialog",
 			{
-				strTitle: (0, _.we)("#Chat_SaveVoiceRoom"),
+				strTitle: (0, Localize)("#Chat_SaveVoiceRoom"),
 				popupWidth: 664,
 				popupHeight: 380,
 			},
@@ -315,9 +315,9 @@ class D extends p.PureComponent {
 	RemoveRoom() {
 		(0, c.Ci)(
 			this.props.ownerWindow,
-			(0, _.we)("#Chat_Actions_RemoveRoom"),
-			(0, _.we)("#Chat_Actions_RemoveRoom_Confirm"),
-			(0, _.we)("#Chat_Actions_RemoveRoom_Action"),
+			(0, Localize)("#Chat_Actions_RemoveRoom"),
+			(0, Localize)("#Chat_Actions_RemoveRoom_Confirm"),
+			(0, Localize)("#Chat_Actions_RemoveRoom_Action"),
 		)
 			.then(() => {
 				let e = this.props.group;
@@ -357,12 +357,12 @@ class D extends p.PureComponent {
 					key: "invitefriend",
 					onSelected: this.ShowInviteDialog,
 				},
-				(0, _.we)("#Chat_Actions_InviteFriendtoVoice"),
+				(0, Localize)("#Chat_Actions_InviteFriendtoVoice"),
 			),
 		);
 		const l = T(
 			o,
-			(0, _.we)("#Chat_Actions_FindGamesToPlay"),
+			(0, Localize)("#Chat_Actions_FindGamesToPlay"),
 			"#Chat_Tooltip_FindGamesToPlay_UserCountRestriction_Channel",
 			"findgamestoplayinchannel",
 			this.FindGamesToPlayInChannel,
@@ -380,7 +380,7 @@ class D extends p.PureComponent {
 						onSelected: this.SaveVoiceRoom,
 					},
 					!s && p.createElement(b.c_I, null),
-					(0, _.we)("#Chat_Actions_SaveChannel"),
+					(0, Localize)("#Chat_Actions_SaveChannel"),
 				),
 			);
 		}
@@ -392,7 +392,7 @@ class D extends p.PureComponent {
 						key: "renameroom",
 						onSelected: this.ChangeRoomName,
 					},
-					(0, _.we)("#Chat_Actions_ChangeRoomName"),
+					(0, Localize)("#Chat_Actions_ChangeRoomName"),
 				),
 			);
 		}
@@ -404,7 +404,7 @@ class D extends p.PureComponent {
 						key: "removeroom",
 						onSelected: this.RemoveRoom,
 					},
-					(0, _.we)("#Chat_Actions_RemoveRoom"),
+					(0, Localize)("#Chat_Actions_RemoveRoom"),
 				),
 			);
 		}
@@ -453,7 +453,7 @@ let N = class extends p.Component {
 			this.props.closeModal();
 		} else {
 			this.setState({
-				strError: (0, _.we)("#Chat_SaveVoiceRoom_Error_EmptyName"),
+				strError: (0, Localize)("#Chat_SaveVoiceRoom_Error_EmptyName"),
 			});
 		}
 	}
@@ -469,7 +469,7 @@ let N = class extends p.Component {
 					classNameContent: "SaveVoiceRoomDialog",
 					onSubmit: this.HandleSubmit,
 				},
-				p.createElement(C.Y9, null, (0, _.we)("#Chat_SaveVoiceRoom")),
+				p.createElement(C.Y9, null, (0, Localize)("#Chat_SaveVoiceRoom")),
 				p.createElement(
 					C.nB,
 					null,
@@ -484,11 +484,11 @@ let N = class extends p.Component {
 					p.createElement(
 						C.a3,
 						null,
-						(0, _.we)("#Chat_SaveVoiceRoom_Description"),
+						(0, Localize)("#Chat_SaveVoiceRoom_Description"),
 					),
 					p.createElement(C.pd, {
 						type: "text",
-						label: (0, _.we)("#Chat_SaveVoiceRoom_Name"),
+						label: (0, Localize)("#Chat_SaveVoiceRoom_Name"),
 						className: "nicknameInput",
 						value: this.state.strName,
 						onChange: this.HandleTextEntry,

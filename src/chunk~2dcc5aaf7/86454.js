@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./54644.js");
+import { FindAncestrally } from "../../actual_src/utils/domutils.js";
 var s = require(/*webcrack:missing*/ "./52451.js");
 export class J extends i.Component {
 	static GetScrollableClassname() {
@@ -73,7 +73,7 @@ export class J extends i.Component {
 		}
 	}
 	FindScrollableAncestor(e) {
-		return a.Kf(e, (e) => {
+		return FindAncestrally(e, (e) => {
 			const t = this.props.bHorizontal
 				? window.getComputedStyle(e).overflowX
 				: window.getComputedStyle(e).overflowY;

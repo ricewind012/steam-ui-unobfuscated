@@ -32,8 +32,13 @@ var D = require("./35488.js");
 var N = require(/*webcrack:missing*/ "./50376.js");
 var F = require(/*webcrack:missing*/ "./98995.js");
 var G = require(/*webcrack:missing*/ "./90765.js");
-var O = require(/*webcrack:missing*/ "./54644.js");
-var P = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeRtime32ToShorterDate,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var L = require("./34428.js");
 var z = require("./80254.js");
 var x = require(/*webcrack:missing*/ "./52451.js");
@@ -119,11 +124,11 @@ export let XC = class extends S.Component {
 			...m
 		} = this.props;
 		t = this.props.overview;
-		let u = (0, P.we)("#GameAction_ViewDetails");
+		let u = (0, Localize)("#GameAction_ViewDetails");
 		if (this.props.bShowInfoExpanded && !this.props.stickyheader) {
-			u = (0, P.we)("#GameAction_ViewDetails_Collapse");
+			u = (0, Localize)("#GameAction_ViewDetails_Collapse");
 		} else if (this.props.stickyheader) {
-			u = (0, P.we)("#GameAction_ViewDetails_ScrollUp");
+			u = (0, Localize)("#GameAction_ViewDetails_ScrollUp");
 		}
 		return S.createElement(
 			"div",
@@ -345,7 +350,7 @@ export function h2(e) {
 						i,
 					);
 				},
-				toolTipContent: (0, P.we)("#GameAction_Manage"),
+				toolTipContent: (0, Localize)("#GameAction_Manage"),
 				bDisabled: ne.Ih.BKioskModeLocked(),
 			},
 			S.createElement(k.wB, null),
@@ -367,7 +372,7 @@ export function h2(e) {
 						{
 							className: Z.LaunchOptionCalloutMessage,
 						},
-						(0, P.we)("#GameAction_Manage_LaunchOptionCallout"),
+						(0, Localize)("#GameAction_Manage_LaunchOptionCallout"),
 					),
 				),
 		),
@@ -380,7 +385,7 @@ function Ae(e) {
 			F.he,
 			{
 				className: Z.PrivateAppActiveIndicator,
-				toolTipContent: (0, P.we)("#GameAction_ThisAppIsPrivate"),
+				toolTipContent: (0, Localize)("#GameAction_ThisAppIsPrivate"),
 			},
 			S.createElement(
 				"svg",
@@ -414,8 +419,8 @@ let pe = class extends S.Component {
 		let e;
 		let t = A.md.BIsFavorite(this.props.overview.appid);
 		e = t
-			? (0, P.we)("#GameAction_UnFavorite")
-			: (0, P.we)("#GameAction_Favorite");
+			? (0, Localize)("#GameAction_UnFavorite")
+			: (0, Localize)("#GameAction_Favorite");
 		return S.createElement(
 			F.he,
 			{
@@ -569,7 +574,7 @@ let Ce = class extends S.Component {
 					{
 						className: (0, G.A)(Z.PlayBarLabel, Z.AchievementLabel),
 					},
-					(0, P.we)("#AppDetails_SectionTitle_Achievements"),
+					(0, Localize)("#AppDetails_SectionTitle_Achievements"),
 				),
 				S.createElement(
 					"div",
@@ -600,50 +605,50 @@ function _e(e) {
 	switch (e) {
 		case 0:
 		case 2:
-			return (0, P.we)("#AppDetails_CloudStatus_Unknown");
+			return (0, Localize)("#AppDetails_CloudStatus_Unknown");
 		case 1:
-			return (0, P.we)("#AppDetails_CloudStatus_Disabled");
+			return (0, Localize)("#AppDetails_CloudStatus_Disabled");
 		case 3:
-			return (0, P.we)("#AppDetails_CloudStatus_Synchronized");
+			return (0, Localize)("#AppDetails_CloudStatus_Synchronized");
 		case 4:
-			return (0, P.we)("#AppDetails_CloudStatus_Checking");
+			return (0, Localize)("#AppDetails_CloudStatus_Checking");
 		case 5:
-			return (0, P.we)("#AppDetails_CloudStatus_OutOfSync");
+			return (0, Localize)("#AppDetails_CloudStatus_OutOfSync");
 		case 6:
-			return (0, P.we)("#AppDetails_CloudStatus_Uploading");
+			return (0, Localize)("#AppDetails_CloudStatus_Uploading");
 		case 7:
-			return (0, P.we)("#AppDetails_CloudStatus_Downloading");
+			return (0, Localize)("#AppDetails_CloudStatus_Downloading");
 		case 8:
-			return (0, P.we)("#AppDetails_CloudStatus_SyncFailed");
+			return (0, Localize)("#AppDetails_CloudStatus_SyncFailed");
 		case 9:
-			return (0, P.we)("#AppDetails_CloudStatus_Conflict");
+			return (0, Localize)("#AppDetails_CloudStatus_Conflict");
 		case 10:
-			return (0, P.we)("#AppDetails_CloudStatus_PendingElsewhere");
+			return (0, Localize)("#AppDetails_CloudStatus_PendingElsewhere");
 	}
 }
 export function C4(e) {
 	switch (e) {
 		case 0:
 		case 2:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Unknown");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Unknown");
 		case 1:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Disabled");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Disabled");
 		case 3:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Synchronized");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Synchronized");
 		case 4:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Checking");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Checking");
 		case 5:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_OutOfSync");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_OutOfSync");
 		case 10:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_PendingElsewhere");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_PendingElsewhere");
 		case 6:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Uploading");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Uploading");
 		case 7:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Downloading");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Downloading");
 		case 8:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_SyncFailed");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_SyncFailed");
 		case 9:
-			return (0, P.we)("#AppDetails_CloudStatus_Tooltip_Conflict");
+			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Conflict");
 	}
 }
 export function $u(e) {
@@ -806,7 +811,7 @@ export const sD = (0, b.PA)(function (e) {
 			{
 				className: Z.CloudStatusLabel,
 			},
-			(0, P.we)("#AppProperties_SteamCloudSection") + ": " + _e(i),
+			(0, Localize)("#AppProperties_SteamCloudSection") + ": " + _e(i),
 			" ",
 		),
 	);
@@ -818,7 +823,7 @@ function ve(e) {
 			classNames: (0, G.A)(Z.SuperimposedGridItems),
 			force_icon: true,
 			icon: S.createElement(D.CloudSync, null),
-			label: (0, P.we)("#AppDetails_SectionTitle_CloudStatus"),
+			label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
 		},
 		S.createElement(
 			j.eJ,
@@ -887,7 +892,7 @@ function Ee(e) {
 				icon: S.createElement(D.CloudSync, {
 					...a,
 				}),
-				label: (0, P.we)("#AppDetails_SectionTitle_CloudStatus"),
+				label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
 			},
 			S.createElement(
 				j.eJ,
@@ -907,7 +912,7 @@ function Ee(e) {
 				icon: S.createElement(D.CloudSync, {
 					...a,
 				}),
-				label: (0, P.we)("#AppDetails_SectionTitle_CloudStatus"),
+				label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
 			},
 			_e(i),
 		);
@@ -920,7 +925,7 @@ function Me(e) {
 		return S.createElement(
 			ye,
 			{
-				label: (0, P.we)("#AppDetails_SectionTitle_DiskSpaceRequired"),
+				label: (0, Localize)("#AppDetails_SectionTitle_DiskSpaceRequired"),
 			},
 			(0, L.dm)(e.details.lDiskSpaceRequiredBytes),
 		);
@@ -944,8 +949,8 @@ function Te(e) {
 	return S.createElement(
 		ye,
 		{
-			label: (0, P.we)("#AppDetails_SectionTitle_SelectedBeta"),
-			strTooltip: (0, P.we)(
+			label: (0, Localize)("#AppDetails_SectionTitle_SelectedBeta"),
+			strTooltip: (0, Localize)(
 				"#AppDetails_SectionTitle_SelectedBetaTooltip",
 				e.details.strSelectedBeta,
 				r,
@@ -971,7 +976,7 @@ let Re = class extends S.Component {
 		) {
 			return null;
 		} else {
-			return (0, P._l)(this.props.details.rtLastTimePlayed);
+			return LocalizeRtime32ToShorterDate(this.props.details.rtLastTimePlayed);
 		}
 	}
 	render() {
@@ -980,8 +985,8 @@ let Re = class extends S.Component {
 				ye,
 				{
 					label: this.props.bIsApplicationOrTool
-						? (0, P.we)("#AppDetails_SectionTitle_LastLaunched")
-						: (0, P.we)("#AppDetails_SectionTitle_LastPlayed"),
+						? (0, Localize)("#AppDetails_SectionTitle_LastLaunched")
+						: (0, Localize)("#AppDetails_SectionTitle_LastPlayed"),
 				},
 				this.getLastPlayed(),
 			);
@@ -993,10 +998,11 @@ let Re = class extends S.Component {
 Re = (0, n.Cg)([b.PA], Re);
 let ke = class extends S.Component {
 	NavToRedeem(e) {
-		(0, O.uX)(e).location.href = C.B7.BuildSteamURL("ClaimEntitlements");
+		GetOwningWindowForEvent(e).location.href =
+			C.B7.BuildSteamURL("ClaimEntitlements");
 	}
 	render() {
-		const e = (0, P.we)("#AppDetails_ClaimContent");
+		const e = (0, Localize)("#AppDetails_ClaimContent");
 		return S.createElement(
 			"div",
 			null,
@@ -1058,8 +1064,8 @@ let De = class extends S.Component {
 							className: (0, G.A)(Z.PlayBarLabel, Z.PlaytimeLabel),
 						},
 						this.props.bIsApplicationOrTool
-							? (0, P.we)("#AppDetails_SectionTitle_UsageTime")
-							: (0, P.we)("#AppDetails_SectionTitle_PlayTime"),
+							? (0, Localize)("#AppDetails_SectionTitle_UsageTime")
+							: (0, Localize)("#AppDetails_SectionTitle_PlayTime"),
 					),
 					S.createElement(
 						"div",
@@ -1100,7 +1106,7 @@ let Ne = class extends S.Component {
 					{
 						className: (0, G.A)(Z.PlayBarLabel, Z.PlaytimeLabel),
 					},
-					(0, P.we)("#AppDetails_SectionTitle_PlayTimeLeft"),
+					(0, Localize)("#AppDetails_SectionTitle_PlayTimeLeft"),
 				),
 				S.createElement(
 					"div",
@@ -1205,7 +1211,7 @@ export const BA = (0, b.PA)(function (e) {
 			{
 				className: (0, G.A)(Z.Row, Z.SharedLibrary),
 			},
-			(0, P.PP)(u, h),
+			LocalizeReact(u, h),
 			d &&
 				S.createElement(
 					I.Ii,
@@ -1215,7 +1221,7 @@ export const BA = (0, b.PA)(function (e) {
 							i(true);
 						},
 					},
-					(0, P.we)("#AppProperties_ChoosePreferredLender"),
+					(0, Localize)("#AppProperties_ChoosePreferredLender"),
 				),
 			d &&
 				S.createElement(ie.YZ, {
@@ -1237,7 +1243,7 @@ export const BA = (0, b.PA)(function (e) {
 					"div",
 					null,
 					" ",
-					(0, P.oW)(
+					LocalizeInlineReactWithFallback(
 						"#FamilyGroup_OldSharingWarning",
 						S.createElement(I.Ii, {
 							className: Z.ChooseButton,
@@ -1332,16 +1338,19 @@ export let qj = class extends S.Component {
 				case "VerifyingFiles":
 				case "CreatingProcess":
 				case "WaitingGameWindow":
-					t = (0, P.we)("#LaunchApp_Action_" + e.strTaskName);
+					t = (0, Localize)("#LaunchApp_Action_" + e.strTaskName);
 					break;
 				case "DownloadingDepots":
 				case "DownloadingWorkshop":
 				case "ProcessingShaderCache":
 				case "DelayLaunch":
-					t = (0, P.we)("#LaunchApp_Action_" + e.strTaskName, r);
+					t = (0, Localize)("#LaunchApp_Action_" + e.strTaskName, r);
 					break;
 				case "RunningInstallScript":
-					t = (0, P.we)("#LaunchApp_Action_" + e.strTaskName, e.strTaskDetails);
+					t = (0, Localize)(
+						"#LaunchApp_Action_" + e.strTaskName,
+						e.strTaskDetails,
+					);
 			}
 		}
 		this.setState({
@@ -1360,7 +1369,7 @@ export let qj = class extends S.Component {
 	}
 	GetStatus() {
 		if (this.props.overview.BIsAppBlocked()) {
-			return (0, P.we)("#DisplayStatus_ParentalBlocked");
+			return (0, Localize)("#DisplayStatus_ParentalBlocked");
 		}
 		switch (this.props.overview.selected_per_client_data.display_status) {
 			case 1:
@@ -1405,7 +1414,7 @@ export let qj = class extends S.Component {
 					S.createElement(
 						"span",
 						null,
-						(0, P.we)("#DisplayStatus_InvalidPlatform"),
+						(0, Localize)("#DisplayStatus_InvalidPlatform"),
 					),
 					S.createElement(
 						"div",
@@ -1429,7 +1438,7 @@ export let qj = class extends S.Component {
 							this.props.overview.selected_per_client_data.display_status,
 						);
 					} else {
-						return (0, P.we)(
+						return (0, Localize)(
 							"#Downloads_State_" + p.hj.DownloadOverview.update_state,
 						);
 					}
@@ -1443,7 +1452,9 @@ export let qj = class extends S.Component {
 					this.props.overview.selected_per_client_data
 						.update_available_but_disabled_by_app
 				) {
-					return (0, P.we)("#DisplayStatus_UpdateAvailableButDisabledByApp");
+					return (0, Localize)(
+						"#DisplayStatus_UpdateAvailableButDisabledByApp",
+					);
 				}
 		}
 		return "";
@@ -1507,13 +1518,13 @@ export let qj = class extends S.Component {
 				case "Unpacking":
 				case "Patching":
 					if ((0, p.Z5)(p.hj.DownloadOverview) > 0) {
-						return (0, P.we)(
+						return (0, Localize)(
 							"#Downloads_State_PercentComplete",
 							(0, p.MD)(p.hj.DownloadOverview),
 						);
 					}
 			}
-			return (0, P.we)(
+			return (0, Localize)(
 				"#Downloads_State_" + p.hj.DownloadOverview.update_state,
 			);
 		}
@@ -1531,14 +1542,14 @@ export let qj = class extends S.Component {
 				case 18:
 				case 24:
 				case 20:
-					return (0, P.we)(
+					return (0, Localize)(
 						"#Downloads_State_Bytes_Of_Bytes",
 						(0, L.dm)(Number(e.bytes_downloaded)),
 						(0, L.dm)(Number(e.bytes_total)),
 					);
 				case 38:
 				case 39:
-					return (0, P.we)(
+					return (0, Localize)(
 						"#Steam_AppUpdateError_" + this.props.details.eAppUpdateError,
 					);
 			}
@@ -1546,7 +1557,7 @@ export let qj = class extends S.Component {
 		return "";
 	}
 	GoToDownloads(e) {
-		(0, O.uX)(e).location.href = "steam://open/downloads";
+		GetOwningWindowForEvent(e).location.href = "steam://open/downloads";
 	}
 	render() {
 		const e = this.GetStatus();
@@ -1772,18 +1783,18 @@ export function RR(e) {
 	} else if (n && o != 1) {
 		if (a && a.BIsComingSoon()) {
 			if (a.BIsCustomComingSoonDisplay()) {
-				return (0, P.we)(
+				return (0, Localize)(
 					"#DisplayStatus_CustomReleaseDate",
 					a.GetFormattedSteamReleaseDate(),
 				);
 			} else {
-				return (0, P.we)(
+				return (0, Localize)(
 					"#DisplayStatus_ReleaseDate",
 					a.GetFormattedSteamReleaseDate(),
 				);
 			}
 		} else {
-			return (0, P.we)("#DisplayStatus_PresaleOnly");
+			return (0, Localize)("#DisplayStatus_PresaleOnly");
 		}
 	} else {
 		return (0, s.Bb)(t.display_status, r);
@@ -1815,7 +1826,7 @@ function xe(e) {
 			{
 				className: (0, G.A)(Z.PlayBarLabel, Z.AchievementLabel),
 			},
-			(0, P.we)(i),
+			(0, Localize)(i),
 		),
 		S.createElement(
 			"div",

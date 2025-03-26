@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./46382.js");
 var o = require(/*webcrack:missing*/ "./11131.js");
 var l = require("./10606.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./72476.js");
 var _u = require("./26326.js");
 var d = require("./85733.js");
@@ -18,7 +18,7 @@ function C(e) {
 	return a.createElement(
 		l.hM,
 		{
-			strTitle: (0, c.we)("#Login_RefreshSignIn"),
+			strTitle: Localize("#Login_RefreshSignIn"),
 			popupWidth: g,
 			popupHeight: h,
 			modalClassName: A.RefreshLoginDialogModal,
@@ -66,7 +66,7 @@ function f(e) {
 	return a.createElement(
 		p.rG,
 		{
-			strTitle: (0, c.we)("#Login_RefreshSignIn"),
+			strTitle: Localize("#Login_RefreshSignIn"),
 			updateParamsBeforeShow: o,
 			refPopup: r,
 		},

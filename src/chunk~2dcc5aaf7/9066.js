@@ -5,7 +5,7 @@ var s = require(/*webcrack:missing*/ "./63696.js");
 var o = require("./45264.js");
 var l = require("./23472.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./82332.js");
 var d = require(/*webcrack:missing*/ "./69164.js");
 var A = require(/*webcrack:missing*/ "./72476.js");
@@ -50,10 +50,10 @@ function y(e) {
 		{
 			feature: 3,
 			primaryAction: !d && {
-				label: (0, m.we)("#AppDetails_NewNote"),
+				label: Localize("#AppDetails_NewNote"),
 				action: B,
 			},
-			label: (0, m.we)("#AppDetails_SectionTitle_GameNotes"),
+			label: Localize("#AppDetails_SectionTitle_GameNotes"),
 			rightColumnSection: true,
 		},
 		s.createElement(
@@ -78,7 +78,7 @@ function y(e) {
 						noFocusRing: true,
 					},
 					s.createElement(p.TextNewNote, null),
-					(0, m.we)("#AppDetails_NewNote"),
+					Localize("#AppDetails_NewNote"),
 				),
 			b &&
 				s.createElement(w, {
@@ -104,7 +104,7 @@ function S(e) {
 			noFocusRing: true,
 			onActivate: p,
 		},
-		o ? (0, m.we)("#UserGameNotes_Untitled") : t.title,
+		o ? Localize("#UserGameNotes_Untitled") : t.title,
 	);
 }
 function w(e) {
@@ -115,6 +115,6 @@ function w(e) {
 			className: (0, c.A)(u.NoteLink, u.ViewAllLink),
 			onClick: () => n.U.ShowGameNotesPopup(t, r.display_name),
 		},
-		(0, m.we)("#AppDetails_ViewAllNotes"),
+		Localize("#AppDetails_ViewAllNotes"),
 	);
 }

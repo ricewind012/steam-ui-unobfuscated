@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./96593.js");
 var a = require(/*webcrack:missing*/ "./90765.js");
 var s = require("./30449.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./78057.js");
 var c = require("./80254.js");
 var m = require("./91486.js");
@@ -67,7 +67,7 @@ export function c$(e) {
 						eAssetType: 4,
 						className: _.GameIcon,
 					}),
-				r ? w.display_name : (0, o.we)("#Achievements_Achievements"),
+				r ? w.display_name : (0, Localize)("#Achievements_Achievements"),
 			),
 			l,
 			n.createElement(
@@ -91,14 +91,18 @@ export function c$(e) {
 						rgOptions: [
 							{
 								data: "global",
-								label: (0, o.we)("#Achievements_LeaderboardsDropdown_Global"),
+								label: (0, Localize)(
+									"#Achievements_LeaderboardsDropdown_Global",
+								),
 							},
 							{
 								data: "user",
-								label: (0, o.we)("#Achievements_LeaderboardsDropdown_Personal"),
+								label: (0, Localize)(
+									"#Achievements_LeaderboardsDropdown_Personal",
+								),
 							},
 						],
-						strDefaultLabel: (0, o.we)(
+						strDefaultLabel: (0, Localize)(
 							"#Achievements_LeaderboardsDropdown_Label",
 						),
 						onChange: ({ data: e }) => {
@@ -182,8 +186,8 @@ function v(e) {
 	} = e;
 	const i = t >= r;
 	const a = i
-		? (0, o.we)("#AppDetails_PlayerUnlockedPercentAll", t, r)
-		: (0, o.we)("#Achievements_HeaderStats_Earned_Label", t, r);
+		? (0, Localize)("#AppDetails_PlayerUnlockedPercentAll", t, r)
+		: (0, Localize)("#Achievements_HeaderStats_Earned_Label", t, r);
 	const l = Math.round((t / r) * 100);
 	let c = `(${l}%)`;
 	if (l === 0 && t > 0) {
@@ -223,7 +227,7 @@ function I(e) {
 	const { playtime: t } = e;
 	if (t) {
 		return n.createElement(S, {
-			label: (0, o.we)("#Achievements_HeaderStats_Playtime_Label"),
+			label: (0, Localize)("#Achievements_HeaderStats_Playtime_Label"),
 			value: (0, c.l)(t, "#Playtime_"),
 		});
 	} else {
@@ -234,7 +238,7 @@ function E(e) {
 	const { playtime: t } = e;
 	if (t) {
 		return n.createElement(S, {
-			label: (0, o.we)("#Achievements_HeaderStats_PlaytimeRecent_Label"),
+			label: (0, Localize)("#Achievements_HeaderStats_PlaytimeRecent_Label"),
 			value: (0, c.l)(t, "#Playtime_"),
 		});
 	} else {
@@ -272,7 +276,7 @@ export function zp(e) {
 			},
 			n.createElement(d.pd, {
 				onChange: r,
-				placeholder: (0, o.we)("#Achievements_Filter_Default"),
+				placeholder: (0, Localize)("#Achievements_Filter_Default"),
 				value: i,
 			}),
 		),

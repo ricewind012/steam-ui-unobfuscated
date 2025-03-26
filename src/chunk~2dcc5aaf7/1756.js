@@ -8,7 +8,7 @@ var c = require(/*webcrack:missing*/ "./63439.js");
 var m = require("./64608.js");
 var u = require(/*webcrack:missing*/ "./50376.js");
 var d = require("./35488.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var p = require("./20690.js");
 var g = require(/*webcrack:missing*/ "./3524.js");
 var h = require(/*webcrack:missing*/ "./52451.js");
@@ -232,7 +232,7 @@ function b(e) {
 					s.createElement(
 						C.he,
 						{
-							toolTipContent: (0, A.we)("#BrowserFindInPage_Previous"),
+							toolTipContent: (0, Localize)("#BrowserFindInPage_Previous"),
 						},
 						s.createElement(m.$n, {
 							className: p.ControlButton,
@@ -246,7 +246,7 @@ function b(e) {
 					s.createElement(
 						C.he,
 						{
-							toolTipContent: (0, A.we)("#BrowserFindInPage_Next"),
+							toolTipContent: (0, Localize)("#BrowserFindInPage_Next"),
 						},
 						s.createElement(m.$n, {
 							className: p.ControlButton,
@@ -260,7 +260,7 @@ function b(e) {
 					s.createElement(
 						C.he,
 						{
-							toolTipContent: (0, A.we)("#BrowserFindInPage_Close"),
+							toolTipContent: (0, Localize)("#BrowserFindInPage_Close"),
 						},
 						s.createElement(m.$n, {
 							className: p.ControlButton,

@@ -20,11 +20,14 @@ var y = require("./35488.js");
 var S = require("./10606.js");
 var w = require("./13869.js");
 var B = require(/*webcrack:missing*/ "./90765.js");
-var v = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var _I = require(/*webcrack:missing*/ "./72476.js");
 var E = require("./81994.js");
 var M = require("./87913.js");
-var T = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var R = require(/*webcrack:missing*/ "./11131.js");
 var k = require("./13688.js");
 var D = require("./1470.js");
@@ -109,7 +112,7 @@ function P(e) {
 				disabled: !r,
 				onClick: A,
 			},
-			(0, v.we)("#UserManagement_ViewProfile"),
+			Localize("#UserManagement_ViewProfile"),
 		),
 	);
 }
@@ -127,17 +130,17 @@ function L() {
 			break;
 		case g.ck.k_EConnectivityTestResult_Connected:
 			if (!r) {
-				i = (0, v.we)("#Settings_Internet_Connected_To_Internet_But_Not_Steam");
+				i = Localize("#Settings_Internet_Connected_To_Internet_But_Not_Steam");
 			}
 			break;
 		case g.ck.k_EConnectivityTestResult_CaptivePortal:
 		case g.ck.k_EConnectivityTestResult_TimedOut:
 		case g.ck.k_EConnectivityTestResult_Failed:
-			i = (0, v.we)("#Settings_Internet_Connected_To_Network_But_Not_Internet");
+			i = Localize("#Settings_Internet_Connected_To_Network_But_Not_Internet");
 			break;
 		case g.ck.k_EConnectivityTestResult_WifiDisabled:
 		case g.ck.k_EConnectivityTestResult_NoLAN:
-			i = (0, v.we)("#Settings_Internet_Not_Connected_To_Network");
+			i = Localize("#Settings_Internet_Not_Connected_To_Network");
 	}
 	if (i) {
 		return n.createElement(
@@ -168,7 +171,7 @@ function z() {
 		return n.createElement(
 			b.D0,
 			{
-				label: (0, v.we)(
+				label: Localize(
 					_I.TS.ON_DECK
 						? "#Settings_Internet_In_Offline_Mode_SteamDeck"
 						: "#Settings_Internet_In_Offline_Mode",
@@ -180,7 +183,7 @@ function z() {
 				{
 					onClick: (e) => (0, p.$I)(e, o),
 				},
-				(0, v.we)("#GoOnline"),
+				Localize("#GoOnline"),
 			),
 		);
 	}
@@ -191,35 +194,35 @@ function z() {
 		{
 			data: 1,
 			label: n.createElement(b.aZ, {
-				title: (0, v.we)("#PersonaStateOnline"),
+				title: Localize("#PersonaStateOnline"),
 			}),
 		},
 		{
 			data: 3,
 			label: n.createElement(b.aZ, {
-				title: (0, v.we)("#PersonaStateAway"),
+				title: Localize("#PersonaStateAway"),
 			}),
 		},
 		{
 			data: 7,
 			label: n.createElement(b.aZ, {
-				title: (0, v.we)("#PersonaStateInvisible"),
-				description: (0, v.we)("#PersonaStateInvisibleDescriptor"),
+				title: Localize("#PersonaStateInvisible"),
+				description: Localize("#PersonaStateInvisibleDescriptor"),
 			}),
 		},
 		{
 			data: 0,
 			label: n.createElement(b.aZ, {
-				title: (0, v.we)("#PersonaStateSignedOut"),
-				description: (0, v.we)("#PersonaStateSignedOutDescriptor"),
+				title: Localize("#PersonaStateSignedOut"),
+				description: Localize("#PersonaStateSignedOutDescriptor"),
 			}),
 		},
 	];
 	return n.createElement(
 		b.D0,
 		{
-			label: (0, v.we)("#UserManagement_FriendsStatus"),
-			description: (0, v.we)("#UserManagement_FriendsStatus_Description"),
+			label: Localize("#UserManagement_FriendsStatus"),
+			description: Localize("#UserManagement_FriendsStatus_Description"),
 			bottomSeparator: "standard",
 			childrenContainerWidth: "fixed",
 		},
@@ -233,7 +236,7 @@ function z() {
 				var t;
 			},
 			selectedOption: a,
-			menuLabel: (0, v.we)("#UserManagement_FriendsStatus_Change"),
+			menuLabel: Localize("#UserManagement_FriendsStatus_Change"),
 		}),
 	);
 }
@@ -248,8 +251,8 @@ function x() {
 	let s = a?.GetUserDoNotDisturb();
 	return n.createElement(N.C, {
 		feature: 4,
-		label: (0, v.we)("#User_ToggleDoNotDisturb"),
-		description: (0, v.we)("#PersonaStateDoNotDisturbDescriptor"),
+		label: Localize("#User_ToggleDoNotDisturb"),
+		description: Localize("#PersonaStateDoNotDisturbDescriptor"),
 		checked: s,
 		onChange: (e) => {
 			if (a) {
@@ -265,7 +268,7 @@ function U() {
 	return n.createElement(
 		b.D0,
 		{
-			label: (0, v.PP)(
+			label: LocalizeReact(
 				"#UserManagement_CurrentAccount",
 				n.createElement(
 					"div",
@@ -281,14 +284,14 @@ function U() {
 			b.$n,
 			{
 				onClick: () => {
-					let e = (0, v.we)("#ChangeUser");
+					let e = Localize("#ChangeUser");
 					let t = n.createElement(
 						n.Fragment,
 						null,
-						(0, v.we)("#ChangeUser_Desc1"),
+						Localize("#ChangeUser_Desc1"),
 						n.createElement("br", null),
 						n.createElement("br", null),
-						(0, v.we)("#ChangeUser_Desc2"),
+						Localize("#ChangeUser_Desc2"),
 					);
 					(0, w.mK)(
 						n.createElement(S.o0, {
@@ -307,7 +310,7 @@ function U() {
 			},
 			n.createElement(y.Exit, null),
 			" ",
-			(0, v.we)("#ChangeUser"),
+			Localize("#ChangeUser"),
 		),
 	);
 }
@@ -328,25 +331,25 @@ function W() {
 	const f = (0, n.useCallback)(() => _.Settings("General"), [_]);
 	const y = n.useCallback(
 		(e) => {
-			let t = (0, T.uX)(e);
+			let t = GetOwningWindowForEvent(e);
 			let r = n.createElement(S.o0, {
 				onOK: () => {
 					g(true);
 					A.iG.IgnoreSteamDeckRewardsPrompt();
 					g(false);
 				},
-				strDescription: (0, v.we)("#Settings_DeckRewards_IgnoreDesc"),
-				strOKButtonText: (0, v.we)("#Settings_DeckRewards_IgnoreButton"),
+				strDescription: Localize("#Settings_DeckRewards_IgnoreDesc"),
+				strOKButtonText: Localize("#Settings_DeckRewards_IgnoreButton"),
 			});
 			(0, w.pg)(r, t, {
-				strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
+				strTitle: Localize("#Settings_DeckRewards_Title"),
 			});
 		},
 		[g],
 	);
 	const B = n.useCallback(
 		(e) => {
-			let i = (0, T.uX)(e);
+			let i = GetOwningWindowForEvent(e);
 			g(true);
 			A.iG.ClaimSteamDeckRewards(t, r).then((e) => {
 				let { result: t, granted_profile_modifier: r } = e;
@@ -354,16 +357,16 @@ function W() {
 				switch (t) {
 					case 1:
 						let e = {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)("#Settings_DeckRewards_ClaimSuccess"),
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize("#Settings_DeckRewards_ClaimSuccess"),
 							onOK: f,
-							strOKButtonText: (0, v.we)(
+							strOKButtonText: Localize(
 								"#Settings_DeckRewards_GoToKeyboardSettings",
 							),
 						};
 						if (r) {
 							e.onMiddleButton = C;
-							e.strMiddleButtonText = (0, v.we)(
+							e.strMiddleButtonText = Localize(
 								"#Settings_DeckRewards_EquipProfile",
 							);
 						}
@@ -373,53 +376,53 @@ function W() {
 						break;
 					case 29:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)(
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize(
 								"#Settings_DeckRewards_ClaimError_Duplicate",
 							),
 						});
 						break;
 					case 8:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)(
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize(
 								"#Settings_DeckRewards_ClaimError_InvalidParam",
 							),
 						});
 						break;
 					case 15:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)(
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize(
 								"#Settings_DeckRewards_ClaimError_AccessDenied",
 							),
 						});
 						break;
 					case 24:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)(
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize(
 								"#Settings_DeckRewards_ClaimError_InsufficientPrivilege",
 							),
 						});
 						break;
 					case 28:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)(
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize(
 								"#Settings_DeckRewards_ClaimError_AlreadyRedeemed",
 							),
 						});
 						break;
 					default:
 						a = n.createElement(S.KG, {
-							strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
-							strDescription: (0, v.we)("#Settings_DeckRewards_ClaimError"),
+							strTitle: Localize("#Settings_DeckRewards_Title"),
+							strDescription: Localize("#Settings_DeckRewards_ClaimError"),
 						});
 				}
 				if (a) {
 					(0, w.pg)(a, i, {
-						strTitle: (0, v.we)("#Settings_DeckRewards_Title"),
+						strTitle: Localize("#Settings_DeckRewards_Title"),
 					});
 				}
 				g(false);
@@ -439,14 +442,14 @@ function W() {
 	let E = n.createElement(
 		n.Fragment,
 		null,
-		(0, v.we)("#Settings_DeckRewards_Desc"),
+		Localize("#Settings_DeckRewards_Desc"),
 		"\xA0",
 		n.createElement(
 			"span",
 			{
 				className: G.RewardsDisclaimer,
 			},
-			(0, v.we)("#Settings_DeckRewards_Disclaimer"),
+			Localize("#Settings_DeckRewards_Disclaimer"),
 		),
 	);
 	let M = "#Settings_DeckRewards_ClaimButton";
@@ -455,21 +458,21 @@ function W() {
 			E = n.createElement(
 				n.Fragment,
 				null,
-				(0, v.we)("#Settings_DeckRewards_ClaimedByOther_Desc"),
+				Localize("#Settings_DeckRewards_ClaimedByOther_Desc"),
 			);
 			M = "#Settings_DeckRewards_ClaimForMeButton";
 		} else {
 			E = n.createElement(
 				n.Fragment,
 				null,
-				(0, v.we)("#Settings_DeckRewards_Claimed_Desc"),
+				Localize("#Settings_DeckRewards_Claimed_Desc"),
 			);
 		}
 	}
 	return n.createElement(
 		b.D0,
 		{
-			label: (0, v.we)("#Settings_DeckRewards_Title"),
+			label: Localize("#Settings_DeckRewards_Title"),
 			description: E,
 		},
 		n.createElement(
@@ -484,7 +487,7 @@ function W() {
 					onClick: B,
 					disabled: p,
 				},
-				(0, v.we)(p ? "#Settings_DeckRewards_Claiming" : M),
+				Localize(p ? "#Settings_DeckRewards_Claiming" : M),
 			),
 			n.createElement(
 				D.t,
@@ -493,7 +496,7 @@ function W() {
 					onClick: y,
 					disabled: p,
 				},
-				(0, v.we)("#Settings_DeckRewards_IgnoreButton"),
+				Localize("#Settings_DeckRewards_IgnoreButton"),
 			),
 		),
 	);
@@ -505,7 +508,7 @@ function V() {
 	return n.createElement(
 		b.D0,
 		{
-			label: (0, v.PP)(
+			label: LocalizeReact(
 				"#UserManagement_FriendCode",
 				n.createElement(
 					"div",
@@ -523,7 +526,7 @@ function V() {
 				feature: 4,
 				onClick: () => r.Invites(),
 			},
-			(0, v.we)("#UserManagement_AddFriends"),
+			Localize("#UserManagement_AddFriends"),
 		),
 	);
 }
@@ -534,7 +537,7 @@ function H() {
 		return n.createElement(
 			b.D0,
 			{
-				label: (0, v.we)("#UserManagement_ActiveSupportAlert"),
+				label: Localize("#UserManagement_ActiveSupportAlert"),
 				childrenContainerWidth: "fixed",
 				className: G.HasActiveSupportAlert,
 			},
@@ -543,7 +546,7 @@ function H() {
 				{
 					onClick: t,
 				},
-				(0, v.we)("#UserManagement_ViewSupportAlert"),
+				Localize("#UserManagement_ViewSupportAlert"),
 				n.createElement(y.ExclamationPoint, null),
 			),
 		);
@@ -588,7 +591,7 @@ export function f(e) {
 	let l = n.createElement(n.Fragment, null, "\xA0");
 	if (t.strAccountBalance?.length) {
 		l = t.strAccountBalancePending?.length
-			? (0, v.PP)(
+			? LocalizeReact(
 					"#UserManagement_WalletBalanceWithPending",
 					n.createElement(
 						"span",
@@ -599,7 +602,7 @@ export function f(e) {
 					),
 					t.strAccountBalancePending,
 				)
-			: (0, v.PP)(
+			: LocalizeReact(
 					"#UserManagement_WalletBalance",
 					n.createElement(
 						"span",
@@ -621,7 +624,7 @@ export function f(e) {
 			feature: 1,
 			onClick: r,
 			icon: n.createElement(y.Wallet, null),
-			label: (0, v.we)("#UserManagement_AddFunds"),
+			label: Localize("#UserManagement_AddFunds"),
 			details: l,
 			className: e.buttonClass,
 		}),
@@ -629,16 +632,16 @@ export function f(e) {
 			feature: 7,
 			onClick: s,
 			icon: n.createElement(y.FeatureHidden, null),
-			label: (0, v.we)("#UserManagement_Privacy"),
-			details: (0, v.we)("#UserManagement_Privacy_Description"),
+			label: Localize("#UserManagement_Privacy"),
+			details: Localize("#UserManagement_Privacy_Description"),
 			className: e.buttonClass,
 		}),
 		n.createElement(j, {
 			feature: 7,
 			onClick: o,
 			icon: n.createElement(y.Edit, null),
-			label: (0, v.we)("#UserManagement_AccountDetails"),
-			details: (0, v.we)("#UserManagement_AccountDetails_Description"),
+			label: Localize("#UserManagement_AccountDetails"),
+			details: Localize("#UserManagement_AccountDetails_Description"),
 			className: e.buttonClass,
 		}),
 	);
@@ -650,7 +653,7 @@ export function I() {
 	const e = (0, A.Tr)();
 	const t = (0, i.q3)(() => M.LN.loaded);
 	if ((0, l.Id)() && !t) {
-		return n.createElement(E.j, null, (0, v.we)("#UserManagement_SigningIn"));
+		return n.createElement(E.j, null, Localize("#UserManagement_SigningIn"));
 	} else {
 		return n.createElement(
 			s.Sw,

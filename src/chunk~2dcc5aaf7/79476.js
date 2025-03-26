@@ -28,7 +28,7 @@ var T = require("./73375.js");
 var R = require("./35488.js");
 var k = require("./22004.js");
 var D = require(/*webcrack:missing*/ "./90765.js");
-var N = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var F = require("./51076.js");
 var G = require(/*webcrack:missing*/ "./72476.js");
 var O = require("./60115.js");
@@ -71,7 +71,7 @@ function V() {
 					bottomSeparator: "none",
 					onClick: s,
 				},
-				(0, N.we)("#QuickAccess_Tab_Help_HelpSite"),
+				(0, Localize)("#QuickAccess_Tab_Help_HelpSite"),
 			),
 		),
 		i &&
@@ -85,7 +85,7 @@ function V() {
 						bottomSeparator: "none",
 						onClick: l,
 					},
-					(0, N.we)("#QuickAccess_Tab_Help_ViewManual"),
+					(0, Localize)("#QuickAccess_Tab_Help_ViewManual"),
 				),
 			),
 		h.createElement(
@@ -98,7 +98,7 @@ function V() {
 					bottomSeparator: "none",
 					onClick: c,
 				},
-				(0, N.we)("#QuickAccess_Tab_Help_ReportABug"),
+				(0, Localize)("#QuickAccess_Tab_Help_ReportABug"),
 			),
 		),
 		a &&
@@ -113,7 +113,7 @@ function V() {
 						bottomSeparator: "none",
 						onClick: r,
 					},
-					(0, N.we)("#QuickAccess_Tab_Help_ReplayTour"),
+					(0, Localize)("#QuickAccess_Tab_Help_ReplayTour"),
 				),
 			),
 	);
@@ -133,7 +133,9 @@ function ee() {
 	return h.createElement(
 		U.aU,
 		{
-			title: (0, N.we)("#QuickAccess_Tab_Settings_Section_Controller_Title"),
+			title: (0, Localize)(
+				"#QuickAccess_Tab_Settings_Section_Controller_Title",
+			),
 		},
 		h.createElement(U.kn, null, h.createElement($.oH, null)),
 		h.createElement(U.kn, null, h.createElement($.IC, null)),
@@ -161,7 +163,7 @@ function ae() {
 			return h.createElement(
 				U.aU,
 				{
-					title: (0, N.we)("#QuickAccess_Tab_GameRecording"),
+					title: (0, Localize)("#QuickAccess_Tab_GameRecording"),
 				},
 				e == 2 && h.createElement(te.ManualRecordingToggle, null),
 				e == 1 && h.createElement(te.BackgroundRecordingQuickSetting, null),
@@ -205,7 +207,7 @@ function he() {
 			h.createElement(
 				U.aU,
 				{
-					title: (0, N.we)(
+					title: (0, Localize)(
 						"#QuickAccess_Tab_Settings_Section_Brightness_Title",
 					),
 				},
@@ -224,7 +226,7 @@ function he() {
 			h.createElement(
 				U.aU,
 				{
-					title: (0, N.we)("#QuickAccess_Tab_Settings_Section_Audio_Title"),
+					title: (0, Localize)("#QuickAccess_Tab_Settings_Section_Audio_Title"),
 				},
 				h.createElement(
 					U.kn,
@@ -247,7 +249,7 @@ function he() {
 			h.createElement(
 				U.aU,
 				{
-					title: (0, N.we)("#QuickAccess_Tab_Settings_Section_Other_Title"),
+					title: (0, Localize)("#QuickAccess_Tab_Settings_Section_Other_Title"),
 				},
 				r &&
 					h.createElement(
@@ -260,7 +262,7 @@ function he() {
 								layout: "below",
 								bottomSeparator: "none",
 							},
-							(0, N.we)("#QuickAccess_ReorderControllers_Button"),
+							(0, Localize)("#QuickAccess_ReorderControllers_Button"),
 						),
 					),
 				(m || u) &&
@@ -270,7 +272,7 @@ function he() {
 						h.createElement(W.y4, {
 							checked: i,
 							onChange: (e) => se.mG.Get().SetAirplaneMode(e),
-							label: (0, N.we)(
+							label: (0, Localize)(
 								"#QuickAccess_Tab_Settings_Section_Shortcuts_AirplaneMode",
 							),
 							icon: h.createElement(R.AirplaneMode, null),
@@ -284,7 +286,7 @@ function he() {
 						h.createElement(W.y4, {
 							checked: e,
 							onChange: (e) => X.OQ.Get().SetWifiEnabled(e),
-							label: (0, N.we)(
+							label: (0, Localize)(
 								"#QuickAccess_Tab_Settings_Section_Shortcuts_Wifi",
 							),
 							icon: h.createElement(R.WiFi, null),
@@ -300,7 +302,7 @@ function he() {
 							feature: 7,
 							checked: a,
 							onChange: (e) => se.mG.Get().SetNightModeEnabled(e),
-							label: (0, N.we)(
+							label: (0, Localize)(
 								"#QuickAccess_Tab_Settings_Section_Shortcuts_NightMode",
 							),
 							icon: h.createElement(R.NightMode, null),
@@ -454,7 +456,7 @@ function Be(e) {
 		{
 			className: j.Title,
 		},
-		(0, N.we)(e.locId),
+		(0, Localize)(e.locId),
 	);
 }
 export function l8() {
@@ -485,7 +487,7 @@ export function l8() {
 					key: c.qE.VoiceChat,
 					tab: h.createElement(R.VoiceRoom, null),
 					title: h.createElement(h.Fragment, null),
-					strTitle: (0, N.we)("#HeaderActions_VoiceChatActive"),
+					strTitle: (0, Localize)("#HeaderActions_VoiceChatActive"),
 					panel: h.createElement(z, null),
 					className: j.VoiceTab,
 					vrPopupSize: "fit-content",
@@ -494,7 +496,7 @@ export function l8() {
 					key: c.qE.RemotePlayTogetherControls,
 					tab: h.createElement(R.RemotePlayTogether, null),
 					title: h.createElement(h.Fragment, null),
-					strTitle: (0, N.we)("#RemotePlayTogether_QuickAccessTitle"),
+					strTitle: (0, Localize)("#RemotePlayTogether_QuickAccessTitle"),
 					panel: h.createElement(x, null),
 					vrPopupSize: "fit-content",
 				},
@@ -504,7 +506,7 @@ export function l8() {
 					title: h.createElement(Be, {
 						locId: "#QuickAccess_Tab_Notifications_Title",
 					}),
-					strTitle: (0, N.we)("#QuickAccess_Tab_Notifications_Title"),
+					strTitle: (0, Localize)("#QuickAccess_Tab_Notifications_Title"),
 					panel: h.createElement(q.C, null),
 					vrPopupSize: "fit-content",
 				},
@@ -522,7 +524,7 @@ export function l8() {
 					title: h.createElement(Be, {
 						locId: "#QuickAccess_Tab_Settings_Title",
 					}),
-					strTitle: (0, N.we)("#QuickAccess_Tab_Settings_Title"),
+					strTitle: (0, Localize)("#QuickAccess_Tab_Settings_Title"),
 					tab: h.createElement(R.Settings, null),
 					panel: h.createElement(he, null),
 					vrPopupSize: "fit-content",
@@ -532,7 +534,7 @@ export function l8() {
 					title: h.createElement(Be, {
 						locId: "#QuickAccess_Tab_Perf_Title",
 					}),
-					strTitle: (0, N.we)("#QuickAccess_Tab_Perf_Title"),
+					strTitle: (0, Localize)("#QuickAccess_Tab_Perf_Title"),
 					tab: h.createElement(R.QAMPerformance, null),
 					panel: h.createElement(Q.Bi, null),
 					vrPopupSize: "fit-content",
@@ -542,7 +544,7 @@ export function l8() {
 					title: h.createElement(Be, {
 						locId: "#QuickAccess_Tab_Soundtrack_Title",
 					}),
-					strTitle: (0, N.we)("#QuickAccess_Tab_Soundtrack_Title"),
+					strTitle: (0, Localize)("#QuickAccess_Tab_Soundtrack_Title"),
 					tab: h.createElement(R.Music, null),
 					panel: h.createElement(p.SK, null),
 					vrPopupSize: "fit-content",
@@ -552,7 +554,7 @@ export function l8() {
 					title: h.createElement(Be, {
 						locId: "#QuickAccess_Tab_Help_Title",
 					}),
-					strTitle: (0, N.we)("#QuickAccess_Tab_Help_Title"),
+					strTitle: (0, Localize)("#QuickAccess_Tab_Help_Title"),
 					tab: h.createElement(R.Help, null),
 					panel: h.createElement(V, null),
 					allowInKioskMode: false,

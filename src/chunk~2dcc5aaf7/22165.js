@@ -2,7 +2,10 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./31958.js");
 var a = require(/*webcrack:missing*/ "./44846.js");
 var s = require("./12767.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var l = require("./47801.js");
 var c = require("./88244.js");
 var m = require("./87935.js");
@@ -20,7 +23,7 @@ var b = f;
 var y = require(/*webcrack:missing*/ "./69164.js");
 var S = require("./26271.js");
 var w = require("./43520.js");
-var B = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var v = require("./38731.js");
 var I = v;
 var E = require(/*webcrack:missing*/ "./99251.js");
@@ -243,7 +246,7 @@ export function dI(e) {
 			(0, p.N)({
 				strURL: c.strArtworkURL,
 				strTitle: c.strTitle,
-				windowOverride: (0, B.uX)(e),
+				windowOverride: GetOwningWindowForEvent(e),
 			}),
 		[c.strArtworkURL, c.strTitle],
 	);
@@ -251,7 +254,7 @@ export function dI(e) {
 		(e) => {
 			if (c.strMarketHash) {
 				const t = (e) => {
-					(0, B.uX)(e).location.href = m.B7.BuildSteamURL(
+					GetOwningWindowForEvent(e).location.href = m.B7.BuildSteamURL(
 						"CommunityMarketSearch",
 						a.cw,
 						encodeURIComponent(c.strMarketHash),
@@ -266,7 +269,7 @@ export function dI(e) {
 							{
 								onSelected: t,
 							},
-							(0, o.we)("#AppDetails_SearchCard"),
+							(0, Localize)("#AppDetails_SearchCard"),
 						),
 					),
 					e,
@@ -335,7 +338,7 @@ export function dI(e) {
 	);
 }
 function R(e, t) {
-	(0, B.uX)(e).location.href = m.B7.BuildSteamURL(
+	GetOwningWindowForEvent(e).location.href = m.B7.BuildSteamURL(
 		"SteamIDAppTradingCardsPage",
 		t,
 	);
@@ -362,14 +365,14 @@ export function LB(e) {
 		{
 			className: I.Highlight,
 		},
-		(0, o.we)("#AppDetails_TradingCards_Tooltip1"),
+		(0, Localize)("#AppDetails_TradingCards_Tooltip1"),
 	);
 	let s = n.createElement(
 		"span",
 		{
 			className: I.Highlight,
 		},
-		(0, o.we)("#AppDetails_TradingCards_Tooltip2"),
+		(0, Localize)("#AppDetails_TradingCards_Tooltip2"),
 	);
 	let m = n.createElement(
 		h.t1,
@@ -391,11 +394,11 @@ export function LB(e) {
 		{
 			feature: 3,
 			primaryAction: {
-				label: (0, o.we)("#AppDetails_ViewTradingCards"),
+				label: (0, Localize)("#AppDetails_ViewTradingCards"),
 				action: (e) => R(e, t),
 			},
 			className: (0, C.A)(I.Container, A),
-			label: (0, o.we)("#AppDetails_SectionTitle_TradingCards"),
+			label: (0, Localize)("#AppDetails_SectionTitle_TradingCards"),
 			tooltip: m,
 			highlight: n.createElement(D, {
 				appid: t,
@@ -458,7 +461,7 @@ function D(e) {
 							{
 								className: I.BadgeLevel,
 							},
-							(0, o.we)("#AppDetails_UnearnedBadgeXP", l),
+							(0, Localize)("#AppDetails_UnearnedBadgeXP", l),
 						),
 					),
 				)
@@ -487,7 +490,7 @@ function D(e) {
 							{
 								className: I.BadgeLevel,
 							},
-							(0, o.we)("#AppDetails_BadgeLevel", r, c),
+							(0, Localize)("#AppDetails_BadgeLevel", r, c),
 						),
 					),
 				);
@@ -505,7 +508,7 @@ function D(e) {
 							{
 								onSelected: m,
 							},
-							(0, o.we)("#AppDetails_ViewBadgePage"),
+							(0, Localize)("#AppDetails_ViewBadgePage"),
 						),
 					),
 					e,
@@ -529,7 +532,7 @@ function N(e) {
 			{
 				className: I.CardsLeft,
 			},
-			(0, o.Yp)("#AppDetails_TradingCardsLeft", a),
+			LocalizePlural("#AppDetails_TradingCardsLeft", a),
 		);
 	} else if (a != 0 || i) {
 		return n.createElement(
@@ -537,7 +540,7 @@ function N(e) {
 			{
 				className: (0, C.A)(I.CardsLeft, I.BadgeMaxed),
 			},
-			(0, o.we)("#AppDetails_TradingCardsMaxed"),
+			(0, Localize)("#AppDetails_TradingCardsMaxed"),
 		);
 	} else {
 		return n.createElement(
@@ -546,7 +549,7 @@ function N(e) {
 				className: (0, C.A)(I.CardsLeft, I.CanLevelUp),
 				onClick: (e) => R(e, t),
 			},
-			(0, o.we)("#AppDetails_TradingCardsLevelUp"),
+			(0, Localize)("#AppDetails_TradingCardsLevelUp"),
 		);
 	}
 }
@@ -574,7 +577,7 @@ export function on(e) {
 		{
 			feature: 3,
 			className: (0, C.A)(I.Container),
-			label: (0, o.we)("#AppDetails_SectionTitle_TradingCards"),
+			label: (0, Localize)("#AppDetails_SectionTitle_TradingCards"),
 			highlight: n.createElement(D, {
 				appid: t,
 				badge: r,

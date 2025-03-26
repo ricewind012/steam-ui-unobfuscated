@@ -6,7 +6,7 @@ var o = require(/*webcrack:missing*/ "./8573.js");
 var l = require("./59715.js");
 var c = require(/*webcrack:missing*/ "./72476.js");
 var m = require(/*webcrack:missing*/ "./79769.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./34428.js");
 const A = 1000000;
 class p {
@@ -140,7 +140,7 @@ export class _L {
 				(0, l.ap)(this.m_videoBufferedRanges.end(e))
 			);
 		} else {
-			return (0, u.we)("#DASHPlayerStats_VideoNoRangeInformation");
+			return (0, Localize)("#DASHPlayerStats_VideoNoRangeInformation");
 		}
 	}
 	GetBufferedAudioSegmentForDisplay(e) {
@@ -151,7 +151,7 @@ export class _L {
 				(0, l.ap)(this.m_audioBufferedRanges.end(e))
 			);
 		} else {
-			return (0, u.we)("#DASHPlayerStats_AudioNoRangeInformation");
+			return (0, Localize)("#DASHPlayerStats_AudioNoRangeInformation");
 		}
 	}
 	GetBandwidthStatsToDisplay() {
@@ -256,7 +256,7 @@ export class _L {
 		if (this.m_fpsMonitor.BHasCurrentFPS()) {
 			return this.m_fpsMonitor.GetCurrentFPS().toFixed(1);
 		} else {
-			return (0, u.we)("#DASHPlayerStats_Tracking");
+			return (0, Localize)("#DASHPlayerStats_Tracking");
 		}
 	}
 	GetPlaybackRateForDisplay() {

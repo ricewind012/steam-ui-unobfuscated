@@ -5,7 +5,7 @@ var s = require("./64608.js");
 var o = require("./44234.js");
 var l = require(/*webcrack:missing*/ "./41230.js");
 var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var u = require("./88724.js");
 var d = require("./17231.js");
 var A = require("./68608.js");
@@ -198,8 +198,8 @@ export class jr extends a.Component {
 class f extends a.Component {
 	render() {
 		let e = this.props.bParenthesizeNicknames;
-		let t = (0, m.we)("#FriendSettings_ExampleFriend");
-		let r = (0, m.we)("#FriendSettings_ExampleNickname");
+		let t = Localize("#FriendSettings_ExampleFriend");
+		let r = Localize("#FriendSettings_ExampleNickname");
 		let n = new u.Z(new p.b());
 		n.m_strPlayerName = t;
 		n.m_ePersonaState = 1;
@@ -255,18 +255,18 @@ export let vQ = class extends jr {
 				},
 				a.createElement(e, {
 					strName: "bCompactFriendsList",
-					strLabel: (0, m.we)("#FriendSettings_CompactFriendsAndChat"),
+					strLabel: Localize("#FriendSettings_CompactFriendsAndChat"),
 				}),
 				a.createElement(e, {
 					strName: "bCompactQuickAccess",
-					strLabel: (0, m.we)("#FriendSettings_CompactQuickAccess"),
+					strLabel: Localize("#FriendSettings_CompactQuickAccess"),
 				}),
 				a.createElement(
 					s.JU,
 					{
 						className: "friendSettingsSubheader",
 					},
-					(0, m.we)("#FriendSettings_ChatFontSize"),
+					Localize("#FriendSettings_ChatFontSize"),
 				),
 				a.createElement(
 					s.Xp,
@@ -281,7 +281,7 @@ export let vQ = class extends jr {
 								(t == ki.k_EChatFontSizeSmall ? "Primary" : "Off"),
 							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeSmall),
 						},
-						(0, m.we)("#FriendSetting_ChatFontSmall"),
+						Localize("#FriendSetting_ChatFontSmall"),
 					),
 					a.createElement(
 						s.$n,
@@ -291,7 +291,7 @@ export let vQ = class extends jr {
 								(t == ki.k_EChatFontSizeDefault ? "Primary" : "Off"),
 							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeDefault),
 						},
-						(0, m.we)("#FriendSetting_ChatFontDefault"),
+						Localize("#FriendSetting_ChatFontDefault"),
 					),
 					a.createElement(
 						s.$n,
@@ -301,7 +301,7 @@ export let vQ = class extends jr {
 								(t == ki.k_EChatFontSizeLarge ? "Primary" : "Off"),
 							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeLarge),
 						},
-						(0, m.we)("#FriendSetting_ChatFontLarge"),
+						Localize("#FriendSetting_ChatFontLarge"),
 					),
 				),
 			),
@@ -338,38 +338,38 @@ export let IW = class extends jr {
 						null,
 						a.createElement(s.RF, {
 							onChange: (e) => g.ZM.ToggleSingleWindowMode(e),
-							label: (0, m.we)("#FriendSettings_DockChats"),
+							label: Localize("#FriendSettings_DockChats"),
 							checked: h.xm.SettingsStore.BSingleWindowModeEnabled(),
 						}),
 						a.createElement(e, {
 							strName: "bAlwaysNewChatWindow",
-							strLabel: (0, m.we)("#FriendSettings_AlwaysNewChatWindow"),
+							strLabel: Localize("#FriendSettings_AlwaysNewChatWindow"),
 						}),
 					),
 				a.createElement(e, {
 					strName: "bDisableEmbedInlining",
-					strLabel: (0, m.we)("#FriendSettings_DisableEmbedInlining"),
+					strLabel: Localize("#FriendSettings_DisableEmbedInlining"),
 				}),
 				a.createElement(e, {
 					strName: "bRememberOpenChats",
-					strLabel: (0, m.we)("#FriendSettings_RememberOpenChats"),
-					strDesc: (0, m.we)(t),
+					strLabel: Localize("#FriendSettings_RememberOpenChats"),
+					strDesc: Localize(t),
 				}),
 				a.createElement(e, {
 					strName: "b24HourClock",
-					strLabel: (0, m.we)("#FriendSettings_AlwaysUse24HourClock"),
+					strLabel: Localize("#FriendSettings_AlwaysUse24HourClock"),
 				}),
 				a.createElement(e, {
 					strName: "bDisableSpellcheck",
-					strLabel: (0, m.we)("#FriendSettings_DisableSpellcheck"),
+					strLabel: Localize("#FriendSettings_DisableSpellcheck"),
 				}),
 				h.xm.UIStore.show_winter_sale_ui &&
 					a.createElement(e, {
 						strName: "bDisableRoomEffects",
-						strLabel: (0, m.we)("#FriendSettings_DisableRoomEffects"),
+						strLabel: Localize("#FriendSettings_DisableRoomEffects"),
 					}),
 				a.createElement(r, {
-					strLabel: (0, m.we)("#TextFilterStatus_ChangeSettings"),
+					strLabel: Localize("#TextFilterStatus_ChangeSettings"),
 					strLink: h.xm.ChatStore.GetTextFilterSettingsURL(),
 					strDesc: h.xm.ChatStore.GetTextFilterStatus(),
 				}),
@@ -400,7 +400,7 @@ export let dG = class extends jr {
 					t,
 					{
 						strName: "bParenthesizeNicknames",
-						strLabel: (0, m.we)("#FriendSettings_ParenthesizeNicknames"),
+						strLabel: Localize("#FriendSettings_ParenthesizeNicknames"),
 					},
 					a.createElement(f, {
 						bParenthesizeNicknames:
@@ -409,28 +409,28 @@ export let dG = class extends jr {
 				),
 				a.createElement(e, {
 					strName: "bCategorizeInGameFriendsByGame",
-					strLabel: (0, m.we)("#FriendSettings_CategorizeInGameFriendsByGame"),
+					strLabel: Localize("#FriendSettings_CategorizeInGameFriendsByGame"),
 				}),
 				a.createElement(e, {
 					strName: "bHideOfflineFriendsInTagGroups",
-					strLabel: (0, m.we)("#FriendSettings_HideOfflineFriendsInCategories"),
+					strLabel: Localize("#FriendSettings_HideOfflineFriendsInCategories"),
 				}),
 				a.createElement(e, {
 					strName: "bHideCategorizedFriends",
-					strLabel: (0, m.we)("#FriendSettings_HideCategorizedFriends"),
+					strLabel: Localize("#FriendSettings_HideCategorizedFriends"),
 				}),
 				a.createElement(e, {
 					strName: "bForceAlphabeticFriendSorting",
-					strLabel: (0, m.we)("#FriendSettings_SortFriendsByStatus"),
+					strLabel: Localize("#FriendSettings_SortFriendsByStatus"),
 				}),
 				this.props.bDoNotDisturbSupported &&
 					a.createElement(e, {
 						strName: "bSignIntoFriends",
-						strLabel: (0, m.we)("#FriendSettings_SignInToFriends"),
+						strLabel: Localize("#FriendSettings_SignInToFriends"),
 					}),
 				a.createElement(e, {
 					strName: "bAnimatedAvatars",
-					strLabel: (0, m.we)("#FriendSettings_AnimatedAvatars"),
+					strLabel: Localize("#FriendSettings_AnimatedAvatars"),
 				}),
 			),
 		);

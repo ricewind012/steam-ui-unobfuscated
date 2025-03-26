@@ -360,7 +360,7 @@ class w {
 (0, r.Cg)([u.XI], w.prototype, "DispatchMessage", null);
 (0, r.Cg)([u.XI], w.prototype, "OnDisconnect", null);
 var b = require("./736.js");
-var C = require("./41180.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
 export class ij extends w {
 	m_hSharedConnection;
 	m_hEMsgRegistrationObserver;
@@ -582,7 +582,7 @@ export class ij extends w {
 		if (e.rtCooldownExpiration == 0) {
 			this.m_rtReconnectThrottleStart = 0;
 		} else if (this.m_rtReconnectThrottleStart == 0) {
-			this.m_rtReconnectThrottleStart = (0, C._2)();
+			this.m_rtReconnectThrottleStart = GetUnixTime();
 		}
 		this.m_rtReconnectThrottleExpiration = e.rtCooldownExpiration;
 	}

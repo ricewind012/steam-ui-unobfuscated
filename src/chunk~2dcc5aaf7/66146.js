@@ -1,12 +1,15 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./53833.js");
+import {
+	ArrayWithoutElement,
+	CountMatches,
+} from "../../actual_src/utils/arrayutils.js";
 var a = require(/*webcrack:missing*/ "./37976.js");
 var s = require(/*webcrack:missing*/ "./83599.js");
 var o = require("./80663.js");
 var l = require("./3756.js");
 var c = require(/*webcrack:missing*/ "./8573.js");
 var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./12176.js");
 var _A = require("./36383.js");
 var p = require("./96127.js");
@@ -530,39 +533,42 @@ export class a$ {
 			let t = e.members;
 			if (!t.length) {
 				if (e.remaining_count) {
-					return (0, u.we)("#ChatRoom_GenericWithOthers", e.remaining_count);
+					return (0, Localize)(
+						"#ChatRoom_GenericWithOthers",
+						e.remaining_count,
+					);
 				} else {
-					return (0, u.we)("#ChatRoom_GenericEmpty");
+					return (0, Localize)("#ChatRoom_GenericEmpty");
 				}
 			}
 			switch (t.length) {
 				case 1:
 					if (e.remaining_count > 0) {
-						return (0, u.we)(
+						return (0, Localize)(
 							"#ChatRoom_OneFriendPlusMore",
 							t[0].display_name,
 							e.remaining_count,
 						);
 					} else {
-						return (0, u.we)("#ChatRoom_OneFriend", t[0].display_name);
+						return (0, Localize)("#ChatRoom_OneFriend", t[0].display_name);
 					}
 				case 2:
 					if (e.remaining_count > 0) {
-						return (0, u.we)(
+						return (0, Localize)(
 							"#ChatRoom_TwoPlusMore",
 							t[0].display_name,
 							t[1].display_name,
 							e.remaining_count,
 						);
 					} else {
-						return (0, u.we)(
+						return (0, Localize)(
 							"#ChatRoom_TwoFriends",
 							t[0].display_name,
 							t[1].display_name,
 						);
 					}
 				case 3:
-					return (0, u.we)(
+					return (0, Localize)(
 						"#ChatRoom_ThreeFriends",
 						t[0].display_name,
 						t[1].display_name,
@@ -908,21 +914,21 @@ export class a$ {
 		}
 		switch (this.GetMemberRank(e)) {
 			case 50:
-				return (0, u.we)("#Chat_rank_owner");
+				return (0, Localize)("#Chat_rank_owner");
 			case 40:
-				return (0, u.we)("#Chat_rank_officer");
+				return (0, Localize)("#Chat_rank_officer");
 			case 30:
-				return (0, u.we)("#Chat_rank_moderator");
+				return (0, Localize)("#Chat_rank_moderator");
 			case 20:
-				return (0, u.we)("#Chat_rank_member");
+				return (0, Localize)("#Chat_rank_member");
 			case 15:
-				return (0, u.we)("#Chat_rank_guest");
+				return (0, Localize)("#Chat_rank_guest");
 			case 10:
-				return (0, u.we)("#Chat_rank_viewer");
+				return (0, Localize)("#Chat_rank_viewer");
 			case 0:
 				return "";
 			default:
-				return (0, u.we)("#Chat_rank_unknown");
+				return (0, Localize)("#Chat_rank_unknown");
 		}
 	}
 	GetMemberRankStringUnlocalized(e) {
@@ -945,7 +951,7 @@ export class a$ {
 			case 0:
 				return "DefaultRank";
 			default:
-				return (0, u.we)("UnknownRank");
+				return (0, Localize)("UnknownRank");
 		}
 	}
 	GetMember(e) {
@@ -1086,7 +1092,10 @@ export class a$ {
 			this.m_groupMembers.RemoveMember(r);
 			g.xm.GroupMemberStore.OnMemberRemoved(this.m_ulGroupID, r);
 			if (this.m_rgGroupMembersSummary.indexOf(r) !== -1) {
-				this.m_rgGroupMembersSummary = i.il(this.m_rgGroupMembersSummary, r);
+				this.m_rgGroupMembersSummary = ArrayWithoutElement(
+					this.m_rgGroupMembersSummary,
+					r,
+				);
 			}
 		} else if (t == 7) {
 			this.ChangeMemberRank(r, e.rank());
@@ -1963,7 +1972,7 @@ export class a$ {
 	AddMetaMentionsToResults(e, t) {
 		let r = this.BCanIMentionAll()
 			? ""
-			: (0, u.we)("#ChatMentionSuggest_NoPermission");
+			: (0, Localize)("#ChatMentionSuggest_NoPermission");
 		if ("online".startsWith(e)) {
 			t.unshift({
 				friend: null,
@@ -2652,10 +2661,10 @@ export class A {
 	FillInChatUsabilityMetrics(e) {
 		let t = Array.from(this.m_mapDisplayPrefs.values());
 		e.ui_state().set_group_chat_left_col_collapsed(
-			i.$D(t, (e) => e.bChannelListCollapsed),
+			CountMatches(t, (e) => e.bChannelListCollapsed),
 		);
 		e.ui_state().set_group_chat_right_col_collapsed(
-			i.$D(t, (e) => e.bMemberListCollapsed),
+			CountMatches(t, (e) => e.bMemberListCollapsed),
 		);
 	}
 }

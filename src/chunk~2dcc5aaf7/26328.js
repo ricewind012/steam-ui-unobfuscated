@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require(/*webcrack:missing*/ "./61416.js");
 var s = require("./42010.js");
 export function K(e) {
@@ -16,12 +16,12 @@ export function K(e) {
 	}
 	let o = "";
 	if (r.nvidia) {
-		o = (0, i.we)("#Settings_VideoRecording_NvidiaDriverUpdate", r.nvidia);
+		o = Localize("#Settings_VideoRecording_NvidiaDriverUpdate", r.nvidia);
 	}
 	if (o) {
 		return n.createElement(s.y, {
 			type: "warning",
-			heading: (0, i.we)("#Settings_VideoRecording_DriverCheck_Header"),
+			heading: Localize("#Settings_VideoRecording_DriverCheck_Header"),
 			body: o,
 		});
 	} else {

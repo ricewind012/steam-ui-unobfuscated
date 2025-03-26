@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./10606.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var o = require("./27987.js");
 var l = o;
 var c = require("./89748.js");
@@ -30,7 +30,7 @@ export function P3(e) {
 		return n.createElement(
 			a.hM,
 			{
-				strTitle: (0, s.we)("#FamilyView_RequestPlaytime_Title"),
+				strTitle: Localize("#FamilyView_RequestPlaytime_Title"),
 				onDismiss: m,
 				popupWidth: 500,
 				popupHeight: 350,
@@ -59,7 +59,7 @@ export function db(e) {
 			if (e.result === 84) {
 				t();
 			} else {
-				_((0, s.we)("#FamilyView_RequestPlaytime_GenericError", e.result));
+				_(Localize("#FamilyView_RequestPlaytime_GenericError", e.result));
 			}
 		},
 		[t],
@@ -79,27 +79,27 @@ export function db(e) {
 	let B;
 	switch (r) {
 		case "minutes":
-			B = (0, s.we)("#AppLaunchError_PlaytimeLimitExceeded_Minutes");
+			B = Localize("#AppLaunchError_PlaytimeLimitExceeded_Minutes");
 			break;
 		case "window":
-			B = (0, s.we)("#AppLaunchError_PlaytimeLimitExceeded_Window");
+			B = Localize("#AppLaunchError_PlaytimeLimitExceeded_Window");
 			break;
 		case "manual":
-			B = (0, s.we)("#FamilyView_RequestPlaytime_LimitUpcoming");
+			B = Localize("#FamilyView_RequestPlaytime_LimitUpcoming");
 	}
 	let v = w;
-	let I = (0, s.we)("#FamilyView_RequestPlaytime_Request");
+	let I = Localize("#FamilyView_RequestPlaytime_Request");
 	if (o) {
 		v = S;
-		I = (0, s.we)("#AppDetails_GoOnline");
+		I = Localize("#AppDetails_GoOnline");
 	} else if (!h) {
 		v = t;
-		I = (0, s.we)("#Button_Close");
+		I = Localize("#Button_Close");
 	}
 	return n.createElement(
 		n.Fragment,
 		null,
-		n.createElement(i.Y9, null, (0, s.we)("#FamilyView_RequestPlaytime_Title")),
+		n.createElement(i.Y9, null, Localize("#FamilyView_RequestPlaytime_Title")),
 		n.createElement(
 			i.f3,
 			{
@@ -119,7 +119,7 @@ export function db(e) {
 				n.createElement(
 					"div",
 					null,
-					(0, s.we)(
+					Localize(
 						h
 							? "#FamilyView_RequestPlaytime_Description"
 							: "#FamilyView_RequestPlaytime_Description_Offline",

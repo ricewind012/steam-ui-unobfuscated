@@ -56,7 +56,7 @@ var h = require("./91486.js");
 var C = require("./97893.js");
 var _ = require(/*webcrack:missing*/ "./31084.js");
 var f = require("./48289.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var y = require("./32700.js");
 var S = require(/*webcrack:missing*/ "./98995.js");
 var w = require("./36464.js");
@@ -65,7 +65,7 @@ var v = require("./34792.js");
 var I = require("./39147.js");
 var E = require("./92030.js");
 var M = E;
-var T = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var R = require("./96680.js");
 export const Ay = (0, s.PA)(function (e) {
 	const {
@@ -91,7 +91,13 @@ export const Ay = (0, s.PA)(function (e) {
 			case "PreLoad":
 			case "Install":
 			case "Stream":
-				const n = (0, l.jy)(r, t, "mostavailable", 601, (0, T.uX)(e));
+				const n = (0, l.jy)(
+					r,
+					t,
+					"mostavailable",
+					601,
+					GetOwningWindowForEvent(e),
+				);
 				if (n) {
 					n();
 				}
@@ -207,7 +213,7 @@ export const Ay = (0, s.PA)(function (e) {
 						bInGamepadUI: d,
 						includeMultiSelect: true,
 						strCollectionId: o,
-						ownerWindow: (0, T.uX)(e),
+						ownerWindow: GetOwningWindowForEvent(e),
 					}),
 					e,
 					(0, l.zq)(),
@@ -358,7 +364,7 @@ function F(e) {
 			if (t.update_available_but_disabled_by_app) {
 				i = n.createElement(G, {
 					appName: r,
-					status: (0, b.we)("#DisplayStatus_UpdateAvailableButDisabledByApp"),
+					status: Localize("#DisplayStatus_UpdateAvailableButDisabledByApp"),
 				});
 				break;
 			}

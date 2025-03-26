@@ -19,7 +19,12 @@ var b = require("./527.js");
 var y = require(/*webcrack:missing*/ "./49455.js");
 var S = require("./16154.js");
 var w = require(/*webcrack:missing*/ "./93960.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeCalendarWeekday,
+	LocalizeCalendarTime,
+	LocalizeCalendarWeekdayAndDayMonth,
+} from "../../actual_src/utils/localization.js";
 var v = require(/*webcrack:missing*/ "./72476.js");
 var I = require("./70232.js");
 var E = require("./42731.js");
@@ -332,15 +337,15 @@ class k {
 		const e = this.GetStoreInitializationTimestamp();
 		const t = [];
 		const r = e.getTime() / 1000;
-		t.push(R(r, (0, B.we)("#EventCalendar_FutureEventsHeader"), r));
+		t.push(R(r, (0, Localize)("#EventCalendar_FutureEventsHeader"), r));
 		const n = new Date(e);
 		n.setHours(0, 0, 0, 1);
 		let i = n.getTime() / 1000;
-		t.push(R(r, (0, B.we)("#Time_Today"), i, r));
+		t.push(R(r, (0, Localize)("#Time_Today"), i, r));
 		n.setDate(n.getDate() - 1);
 		let a = i;
 		i = n.getTime() / 1000;
-		t.push(R(r, (0, B.we)("#Time_Yesterday"), i, a));
+		t.push(R(r, (0, Localize)("#Time_Yesterday"), i, a));
 		const s =
 			this.m_rgSortedCalendarEvents[this.m_rgSortedCalendarEvents.length - 1];
 		const o = s ? s.start_time : r;
@@ -349,7 +354,7 @@ class k {
 			n.setDate(n.getDate() - 1);
 			a = i;
 			i = n.getTime() / 1000;
-			t.push(R(r, (0, B.cc)(n), i, a));
+			t.push(R(r, LocalizeCalendarWeekday(n), i, a));
 			l = o > i;
 		}
 		const c = new Date(n);
@@ -357,7 +362,7 @@ class k {
 		while (c.getMonth() == e.getMonth() && c.getDate() != 1 && !l) {
 			c.setDate(c.getDate() - 7);
 			const e = c.getTime() / 1000;
-			t.push(R(r, (0, B.lQ)(m - 1), e, m));
+			t.push(R(r, LocalizeCalendarTime(m - 1), e, m));
 			l = o > e;
 			m = e;
 		}
@@ -369,7 +374,7 @@ class k {
 			const i = new Date(u);
 			i.setMonth(e.getMonth() - n, 1);
 			const a = i.getTime() / 1000;
-			t.push(R(r, (0, B.lQ)(a), a, d));
+			t.push(R(r, LocalizeCalendarTime(a), a, d));
 			l = o > a;
 			d = a;
 		}
@@ -405,7 +410,9 @@ class k {
 		t.push(
 			R(
 				i,
-				(0, B.we)(this.m_key.bSectionByDay ? "#Time_UpNext" : "#Time_Today"),
+				(0, Localize)(
+					this.m_key.bSectionByDay ? "#Time_UpNext" : "#Time_Today",
+				),
 				i,
 				s,
 			),
@@ -415,13 +422,13 @@ class k {
 		a.setDate(a.getDate() + 1);
 		s = a.getTime() / 1000;
 		if (!o) {
-			t.push(R(i, (0, B.we)("#Time_Tomorrow"), l, s));
+			t.push(R(i, (0, Localize)("#Time_Tomorrow"), l, s));
 		}
 		o = r <= s;
 		const c = 6 - g(e).weekday();
 		for (let e = 2; e <= c && !o; e++) {
 			l = s;
-			const e = (0, B.cc)(a);
+			const e = LocalizeCalendarWeekday(a);
 			a.setDate(a.getDate() + 1);
 			s = a.getTime() / 1000;
 			t.push(R(i, e, l, s));
@@ -430,7 +437,7 @@ class k {
 		if (this.m_key.bSectionByDay) {
 			while (!o) {
 				l = s;
-				const e = (0, B.$w)(a);
+				const e = LocalizeCalendarWeekdayAndDayMonth(a);
 				a.setDate(a.getDate() + 1);
 				s = a.getTime() / 1000;
 				t.push(R(i, e, l, s));
@@ -443,7 +450,7 @@ class k {
 			if (n.getMonth() == e.getMonth() && n.getDate() != c && !o) {
 				n.setDate(n.getDate() + 7);
 				const e = n.getTime() / 1000;
-				t.push(R(i, (0, B.we)("#EventCalendar_NextWeek"), l, e));
+				t.push(R(i, (0, Localize)("#EventCalendar_NextWeek"), l, e));
 				o = r <= e;
 				l = e;
 			}
@@ -454,7 +461,7 @@ class k {
 			m.setHours(0, 0, 0, 0);
 			if (n < m && !o) {
 				const e = m.getTime() / 1000;
-				t.push(R(i, (0, B.we)("#EventCalendar_LaterThisMonth"), l, e));
+				t.push(R(i, (0, Localize)("#EventCalendar_LaterThisMonth"), l, e));
 				o = r <= e;
 				u = e;
 			} else {
@@ -464,7 +471,7 @@ class k {
 				const a = new Date(m);
 				a.setMonth(e.getMonth() + n);
 				const s = a.getTime() / 1000;
-				t.push(R(i, (0, B.lQ)(u), u, s));
+				t.push(R(i, LocalizeCalendarTime(u), u, s));
 				o = r <= s;
 				u = s;
 			}
@@ -994,14 +1001,16 @@ var q = require(/*webcrack:missing*/ "./98995.js");
 const Q = (0, i.PA)((e) => {
 	const { closeModal: t } = e;
 	return s.createElement(P.o0, {
-		strTitle: (0, B.we)("#EventCalendar_GameSource_UnhideCuratorsDialog_Title"),
-		strDescription: (0, B.we)(
+		strTitle: (0, Localize)(
+			"#EventCalendar_GameSource_UnhideCuratorsDialog_Title",
+		),
+		strDescription: (0, Localize)(
 			"#EventCalendar_GameSource_UnhideCuratorsDialog_Description",
 		),
-		strOKButtonText: (0, B.we)(
+		strOKButtonText: (0, Localize)(
 			"#EventCalendar_GameSource_UnhideCuratorsDialog_OKButton",
 		),
-		strCancelButtonText: (0, B.we)(
+		strCancelButtonText: (0, Localize)(
 			"#EventCalendar_GameSource_UnhideCuratorsDialog_CancelButton",
 		),
 		onOK: () => {
@@ -1031,11 +1040,11 @@ function Y() {
 		!!C.KN.Get().BIsUserLoggedIn() ||
 		((0, L.pg)(
 			s.createElement(P.o0, {
-				strTitle: (0, B.we)("#EventDisplay_Share_NotLoggedIn"),
-				strDescription: (0, B.we)(
+				strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
+				strDescription: (0, Localize)(
 					"#EventDisplay_Share_NotLoggedIn_Description",
 				),
-				strOKButtonText: (0, B.we)("#MobileLogin_SignIn"),
+				strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
 				onOK: () => (0, V.vg)(),
 			}),
 			window,
@@ -1065,7 +1074,7 @@ const X = (e) => {
 			q.he,
 			{
 				toolTipContent:
-					r || i ? undefined : (0, B.we)("#CreatorHome_Follow_tooltip"),
+					r || i ? undefined : (0, Localize)("#CreatorHome_Follow_tooltip"),
 			},
 			s.createElement(
 				H.ml,
@@ -1091,10 +1100,10 @@ const X = (e) => {
 					},
 					!n &&
 						(i
-							? (0, B.we)("#Button_Followed")
+							? (0, Localize)("#Button_Followed")
 							: r
-								? (0, B.we)("#Button_Ignored")
-								: (0, B.we)("#Button_Follow")),
+								? (0, Localize)("#Button_Ignored")
+								: (0, Localize)("#Button_Follow")),
 				),
 			),
 		);

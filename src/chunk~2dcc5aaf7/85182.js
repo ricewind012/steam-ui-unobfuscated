@@ -1,7 +1,10 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./3475.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var o = require("./22091.js");
 var l = require("./34792.js");
 var c = require("./35488.js");
@@ -21,7 +24,7 @@ var S = require(/*webcrack:missing*/ "./44846.js");
 var w = require(/*webcrack:missing*/ "./52451.js");
 var B = require("./10606.js");
 var v = require("./57472.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var E = require("./78110.js");
 var M = require(/*webcrack:missing*/ "./42318.js");
 var T = require(/*webcrack:missing*/ "./88750.js");
@@ -106,7 +109,7 @@ function N(e) {
 				icon: n.createElement(c.ControllerStatus, {
 					none: true,
 				}),
-				label: (0, s.we)("#Settings_Controller_NoControllers"),
+				label: (0, Localize)("#Settings_Controller_NoControllers"),
 			}),
 		);
 	}
@@ -121,7 +124,7 @@ function N(e) {
 		}
 	}
 	if (k.length == 0) {
-		k = (0, s.we)("#Settings_Controller_BindInput");
+		k = (0, Localize)("#Settings_Controller_BindInput");
 	}
 	const N = (e) => {
 		if (I) {
@@ -178,28 +181,28 @@ function N(e) {
 						onClick: () => N(C.BV.GamepadUI.ControllerDeviceBindInput(d)),
 						bottomSeparator: "standard",
 					},
-					(0, s.we)("#Settings_Controller_BindInput_Click"),
+					(0, Localize)("#Settings_Controller_BindInput_Click"),
 				),
 			T &&
 				n.createElement(
 					D.WG,
 					{
-						label: (0, s.we)("#Settings_Controller_TestInput"),
+						label: (0, Localize)("#Settings_Controller_TestInput"),
 						onClick: () => N(C.BV.GamepadUI.ControllerDeviceTestInput(d)),
 						bottomSeparator: "standard",
 					},
-					(0, s.we)("#Settings_Controller_TestInput_Click"),
+					(0, Localize)("#Settings_Controller_TestInput_Click"),
 				),
 			R &&
 				n.createElement(
 					D.WG,
 					{
-						label: (0, s.we)("#Settings_Controller_Calibration"),
+						label: (0, Localize)("#Settings_Controller_Calibration"),
 						onClick: () =>
 							N(C.BV.GamepadUI.ControllerDeviceCalibration.Root(d)),
 						bottomSeparator: "standard",
 					},
-					(0, s.we)("#Settings_Controller_Calibration_Click"),
+					(0, Localize)("#Settings_Controller_Calibration_Click"),
 				),
 		),
 	);
@@ -207,7 +210,7 @@ function N(e) {
 function F(e) {
 	return n.createElement(v.G, {
 		feature: a.uX,
-		label: (0, s.we)("#Settings_Controller_GuideButtonFocus"),
+		label: (0, Localize)("#Settings_Controller_GuideButtonFocus"),
 		setting: "controller_guide_button_focus_steam",
 	});
 }
@@ -251,12 +254,12 @@ function G(e) {
 			className: d.NintendoSwitchLayoutToggle,
 		},
 		n.createElement(i.y4, {
-			label: (0, s.we)("#Settings_Controller_SwitchLayout"),
+			label: (0, Localize)("#Settings_Controller_SwitchLayout"),
 			checked: m,
 			icon: u,
 			onChange: (e) =>
 				SteamClient.Settings.SetUseNintendoButtonLayout(t.nControllerIndex, e),
-			description: (0, s.we)("#Settings_Controller_SwitchLayoutDesc"),
+			description: (0, Localize)("#Settings_Controller_SwitchLayoutDesc"),
 		}),
 	);
 }
@@ -275,7 +278,7 @@ function O(e) {
 	}
 	const r = t.bUseUniversalFaceButtonGlyphs;
 	return n.createElement(i.y4, {
-		label: (0, s.we)("#Settings_Controller_UniversalGlyphs"),
+		label: (0, Localize)("#Settings_Controller_UniversalGlyphs"),
 		checked: r,
 		icon: n.createElement(c.UniversalGlyphs, null),
 		onChange: (e) =>
@@ -283,7 +286,7 @@ function O(e) {
 				t.nControllerIndex,
 				e,
 			),
-		description: (0, s.we)("#Settings_Controller_UniversalGlyphsDesc"),
+		description: (0, Localize)("#Settings_Controller_UniversalGlyphsDesc"),
 	});
 }
 function P(e) {
@@ -315,7 +318,7 @@ function L() {
 	} else {
 		return n.createElement(v.G, {
 			feature: a.uX,
-			label: (0, s.we)("#Settings_Controller_TurnOffOnExit"),
+			label: (0, Localize)("#Settings_Controller_TurnOffOnExit"),
 			setting: "turn_off_controller_on_exit",
 		});
 	}
@@ -323,7 +326,7 @@ function L() {
 function z() {
 	return n.createElement(v.G, {
 		feature: a.uX,
-		label: (0, s.we)("#Settings_Controller_ChordConfigEnable"),
+		label: (0, Localize)("#Settings_Controller_ChordConfigEnable"),
 		setting: "controller_enable_chord",
 	});
 }
@@ -349,7 +352,7 @@ const x = (0, g.PA)(function () {
 		return n.createElement(
 			D.WG,
 			{
-				label: (0, s.we)("#Settings_Controller_SCPairing"),
+				label: (0, Localize)("#Settings_Controller_SCPairing"),
 				onClick: () => {
 					SteamClient.Input.SetSteamControllerDonglePairingMode(!t, false);
 					r(!t);
@@ -361,7 +364,7 @@ const x = (0, g.PA)(function () {
 					}
 				},
 			},
-			(0, s.we)(
+			(0, Localize)(
 				t
 					? "#Settings_Controller_SCPairing_Accept"
 					: "#Settings_Controller_SCPairing_Enabled",
@@ -375,15 +378,15 @@ function U(e) {
 	const [t, r] = (0, l.VI)("controller_ps_support");
 	const a = [
 		{
-			label: (0, s.we)("#ControllerSettings_PSSupport_Disabled"),
+			label: (0, Localize)("#ControllerSettings_PSSupport_Disabled"),
 			data: 0,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_PSSupport_WhenNeeded"),
+			label: (0, Localize)("#ControllerSettings_PSSupport_WhenNeeded"),
 			data: 1,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_PSSupport_Enabled"),
+			label: (0, Localize)("#ControllerSettings_PSSupport_Enabled"),
 			data: 2,
 		},
 	];
@@ -391,7 +394,7 @@ function U(e) {
 		return null;
 	} else {
 		return n.createElement(i.Vb, {
-			label: (0, s.we)("#ControllerSettings_PSSupport"),
+			label: (0, Localize)("#ControllerSettings_PSSupport"),
 			rgOptions: a,
 			selectedOption: t,
 			contextMenuPositionOptions: {
@@ -415,20 +418,20 @@ function W(e) {
 			n.Fragment,
 			null,
 			n.createElement(P, {
-				label: (0, s.we)("#Settings_Controller_XboxSupport"),
+				label: (0, Localize)("#Settings_Controller_XboxSupport"),
 				controllerType: 2,
 			}),
 			n.createElement(U, null),
 			n.createElement(
 				P,
 				{
-					label: (0, s.we)("#Settings_Controller_SwitchSupport"),
+					label: (0, Localize)("#Settings_Controller_SwitchSupport"),
 					controllerType: 8,
 				},
 				n.createElement(AR, null),
 			),
 			n.createElement(P, {
-				label: (0, s.we)("#Settings_Controller_GenericGamepadSupport"),
+				label: (0, Localize)("#Settings_Controller_GenericGamepadSupport"),
 				controllerType: 4,
 			}),
 			n.createElement(L, null),
@@ -449,13 +452,13 @@ function H(e) {
 	function a(e) {
 		const t = e;
 		const r = t?.startsWith("#");
-		const n = (0, s.we)(t);
+		const n = (0, Localize)(t);
 		if (r && n !== t) {
 			return n;
 		}
 		{
 			const r = "#" + t;
-			const n = s.pf.LocalizeString(r, true);
+			const n = LocalizationManager.LocalizeString(r, true);
 			if (n !== undefined) {
 				return n;
 			} else {
@@ -501,13 +504,13 @@ function H(e) {
 			n.createElement(
 				i.D0,
 				{
-					label: (0, s.we)(
+					label: (0, Localize)(
 						"#QuickAccess_Tab_ControllerSettings_Section_Controller_Personalized_Name",
 					),
-					onOKActionDescription: (0, s.we)(
+					onOKActionDescription: (0, Localize)(
 						"#Settings_Controller_Config_Edit_Name",
 					),
-					onSecondaryActionDescription: (0, s.we)(
+					onSecondaryActionDescription: (0, Localize)(
 						"#ControllerConfigurator_ActionButtonLabel_ResetToDefault",
 					),
 					onSecondaryButton: () => {
@@ -546,7 +549,7 @@ export const oH = (0, g.PA)(function (e) {
 		return null;
 	} else {
 		return n.createElement(i.y4, {
-			label: (0, s.we)(
+			label: (0, Localize)(
 				"#QuickAccess_Tab_ControllerSettings_Section_Device_Rumble",
 			),
 			checked: t.eRumblePreference == 1,
@@ -570,7 +573,7 @@ export const IC = (0, g.PA)(function (e) {
 		return null;
 	} else {
 		return n.createElement(i.y4, {
-			label: (0, s.we)(
+			label: (0, Localize)(
 				"#QuickAccess_Tab_ControllerSettings_Section_Device_Haptics",
 			),
 			checked: t.bHaptics,
@@ -590,7 +593,7 @@ export const AR = (0, g.PA)(function (e) {
 					.find((t) => t.nControllerIndex == e.controllerIndex);
 	if (a != null && (0, f.zE)(a.eControllerType) && t != null) {
 		return n.createElement(i.y4, {
-			label: (0, s.we)(
+			label: (0, Localize)(
 				"#QuickAccess_Tab_ControllerSettings_Section_CombinedJoycon",
 			),
 			checked: t,
@@ -609,31 +612,31 @@ function Z(e) {
 	const [t, r] = (0, l.VI)("controller_power_off_timeout");
 	const a = [
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_Never"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_Never"),
 			data: 9999,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_5"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_5"),
 			data: 5,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_10"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_10"),
 			data: 10,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_15"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_15"),
 			data: 15,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_30"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_30"),
 			data: 30,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_60"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_60"),
 			data: 60,
 		},
 		{
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout_120"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_120"),
 			data: 120,
 		},
 	];
@@ -641,7 +644,7 @@ function Z(e) {
 		return null;
 	} else {
 		return n.createElement(i.Vb, {
-			label: (0, s.we)("#ControllerSettings_TurnOffTimeout"),
+			label: (0, Localize)("#ControllerSettings_TurnOffTimeout"),
 			rgOptions: a,
 			selectedOption: t,
 			onChange: (e) => r(e.data),
@@ -672,7 +675,7 @@ export function yk() {
 									);
 								})(e),
 						},
-						(0, s.we)("#GameAction_ResetSelectedControllerConfig"),
+						(0, Localize)("#GameAction_ResetSelectedControllerConfig"),
 					),
 			),
 			t,
@@ -689,7 +692,7 @@ export function yk() {
 			n.createElement(
 				D.tX,
 				null,
-				(0, s.we)("#Settings_ExternalController_Settings"),
+				(0, Localize)("#Settings_ExternalController_Settings"),
 			),
 			!m.TS.ON_DECK && n.createElement(F, null),
 			n.createElement(AR, null),
@@ -703,12 +706,12 @@ export function yk() {
 			n.createElement(
 				D.tX,
 				null,
-				(0, s.we)("#Settings_Controller_BaseConfigurations"),
+				(0, Localize)("#Settings_Controller_BaseConfigurations"),
 			),
 			n.createElement(
 				i.D0,
 				{
-					label: (0, s.we)("#Settings_Controller_DesktopConfig"),
+					label: (0, Localize)("#Settings_Controller_DesktopConfig"),
 					childrenContainerWidth: "min",
 					ref: a,
 				},
@@ -728,7 +731,7 @@ export function yk() {
 								}
 							},
 						},
-						(0, s.we)("#Settings_Controller_Config_Edit"),
+						(0, Localize)("#Settings_Controller_Config_Edit"),
 					),
 					n.createElement(
 						i.$n,
@@ -744,7 +747,7 @@ export function yk() {
 				n.createElement(
 					i.D0,
 					{
-						label: (0, s.we)("#Settings_Controller_ChordConfig"),
+						label: (0, Localize)("#Settings_Controller_ChordConfig"),
 						childrenContainerWidth: "min",
 						ref: a,
 					},
@@ -764,7 +767,7 @@ export function yk() {
 									}
 								},
 							},
-							(0, s.we)("#Settings_Controller_Config_Edit"),
+							(0, Localize)("#Settings_Controller_Config_Edit"),
 						),
 						n.createElement(
 							i.$n,
@@ -793,34 +796,34 @@ const K = (0, g.PA)(function () {
 	switch (i) {
 		case "Installed":
 			t = (e) => {
-				const t = (0, I.uX)(e);
+				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(false, t);
 			};
-			e = (0, s.we)("#SettingsController_XBoxDriverUninstall");
+			e = (0, Localize)("#SettingsController_XBoxDriverUninstall");
 			break;
 		case "OutOfDate":
 			t = (e) => {
-				const t = (0, I.uX)(e);
+				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(true, t);
 			};
-			e = (0, s.we)("#SettingsController_XBoxDriverUpdate");
+			e = (0, Localize)("#SettingsController_XBoxDriverUpdate");
 			break;
 		case "PendingReboot":
 			r = true;
-			e = (0, s.we)("#SettingsController_XBoxDriverRebootPending");
+			e = (0, Localize)("#SettingsController_XBoxDriverRebootPending");
 			break;
 		default:
 			t = (e) => {
-				const t = (0, I.uX)(e);
+				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(true, t);
 			};
-			e = (0, s.we)("#SettingsController_XBoxDriverInstall");
+			e = (0, Localize)("#SettingsController_XBoxDriverInstall");
 	}
 	return n.createElement(
 		D.oN,
 		{
 			feature: 7,
-			label: (0, s.we)("#SettingsController_XBoxDriver"),
+			label: (0, Localize)("#SettingsController_XBoxDriver"),
 			onClick: t,
 			disabled: r,
 		},
@@ -835,7 +838,7 @@ export function wY(e) {
 	let i = false;
 	switch (e.result.nResult) {
 		case 0:
-			t = (0, s.we)(
+			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_Success"
 					: "#SettingsController_XboxDriverUninstall_Success",
@@ -843,18 +846,20 @@ export function wY(e) {
 			i = true;
 			break;
 		case -1:
-			t = (0, s.we)(
+			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_ServiceFailure"
 					: "#SettingsController_XboxDriverUninstall_ServiceFailure",
 			);
 			break;
 		case 6:
-			t = (0, s.we)("#SettingsController_XboxDriverInstall_ErrorPendingReboot");
+			t = (0, Localize)(
+				"#SettingsController_XboxDriverInstall_ErrorPendingReboot",
+			);
 			i = true;
 			break;
 		default:
-			t = (0, s.we)(
+			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_Failure"
 					: "#SettingsController_XboxDriverUninstall_Failure",
@@ -863,19 +868,21 @@ export function wY(e) {
 	}
 	if (i) {
 		return n.createElement(B.o0, {
-			strTitle: (0, s.we)(r),
+			strTitle: (0, Localize)(r),
 			strDescription: t,
 			onOK: () => {
 				SteamClient.System.RestartPC();
 			},
-			strOKButtonText: (0, s.we)("#SettingsController_XboxDriverRestart_Now"),
-			strCancelButtonText: (0, s.we)(
+			strOKButtonText: (0, Localize)(
+				"#SettingsController_XboxDriverRestart_Now",
+			),
+			strCancelButtonText: (0, Localize)(
 				"#SettingsController_XboxDriverRestart_Later",
 			),
 		});
 	} else {
 		return n.createElement(B.o0, {
-			strTitle: (0, s.we)(r),
+			strTitle: (0, Localize)(r),
 			strDescription: t,
 			bAlertDialog: true,
 		});
@@ -892,7 +899,7 @@ export const wK = (0, M.Nr)(function () {
 		E.w,
 		{
 			strName: "DualSenseUpdateNotice",
-			strTitle: (0, s.we)("#Steam_DualSense_FirmwareUpdate_Title"),
+			strTitle: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Title"),
 			onDismiss: t,
 			popupWidth: 480,
 			popupHeight: 240,
@@ -901,22 +908,26 @@ export const wK = (0, M.Nr)(function () {
 			modal: false,
 		},
 		n.createElement(B.o0, {
-			strTitle: (0, s.we)("#Steam_DualSense_FirmwareUpdate_Title"),
-			strDescription: (0, s.we)(
+			strTitle: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Title"),
+			strDescription: (0, Localize)(
 				"#Steam_DualSense_FirmwareUpdate_Text",
 				o.Fd.Get().DualSenseUpdateProduct,
 			),
-			strOKButtonText: (0, s.we)("#Steam_DualSense_FirmwareUpdate_Update"),
+			strOKButtonText: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Update"),
 			onOK: () => {
 				a();
 				t();
 			},
-			strMiddleButtonText: (0, s.we)("#Steam_DualSense_FirmwareUpdate_Ignore"),
+			strMiddleButtonText: (0, Localize)(
+				"#Steam_DualSense_FirmwareUpdate_Ignore",
+			),
 			onMiddleButton: () => {
 				SteamClient.Input.SetDualSenseUpdateNotification(false);
 				t();
 			},
-			strCancelButtonText: (0, s.we)("#Steam_DualSense_FirmwareUpdate_Remind"),
+			strCancelButtonText: (0, Localize)(
+				"#Steam_DualSense_FirmwareUpdate_Remind",
+			),
 			onCancel: t,
 		}),
 	);

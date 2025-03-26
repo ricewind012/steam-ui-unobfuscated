@@ -3,7 +3,7 @@ var i = require("./92107.js");
 var a = i;
 var s = require("./14629.js");
 var o = require(/*webcrack:missing*/ "./98995.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./49455.js");
 var m = require(/*webcrack:missing*/ "./50376.js");
 var u = require("./35488.js");
@@ -167,7 +167,7 @@ export function tx(e) {
 	const t = b(e);
 	if (t) {
 		return {
-			sDisplayName: (0, l.we)(t.sLoc),
+			sDisplayName: Localize(t.sLoc),
 			sIconURL: t.sIcon,
 			svg: t.svg,
 		};

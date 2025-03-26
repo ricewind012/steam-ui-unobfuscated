@@ -21,8 +21,16 @@ var S = require(/*webcrack:missing*/ "./63696.js");
 var w = require(/*webcrack:missing*/ "./69164.js");
 var B = require("./62556.js");
 var v = require("./17231.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
-var E = require(/*webcrack:missing*/ "./46108.js");
+import {
+	GetDistanceFromRect,
+	GetOwningWindowForEvent,
+} from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	Hq,
+	LocalizePlural,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var M = require(/*webcrack:missing*/ "./52451.js");
 var T = require(/*webcrack:missing*/ "./11131.js");
 var R = require(/*webcrack:missing*/ "./17385.js");
@@ -186,7 +194,7 @@ let D = class extends S.Component {
 				{
 					className: "quickAccessFriendsMessage",
 				},
-				(0, E.we)("#FriendsList_Favorites_Hint"),
+				Localize("#FriendsList_Favorites_Hint"),
 			),
 			!this.state.bHintDismissed &&
 				S.createElement(
@@ -195,7 +203,7 @@ let D = class extends S.Component {
 						className: "quickAccessFriendsMessageDismiss",
 						onClick: this.DismissFavoritesHint,
 					},
-					(0, E.we)("#Generic_Got_It"),
+					Localize("#Generic_Got_It"),
 				),
 			S.createElement("div", {
 				className: "dropTargetBox",
@@ -246,7 +254,7 @@ let D = class extends S.Component {
 		) {
 			let t = e.currentTarget.getBoundingClientRect();
 			const n = 100;
-			if ((0, I.UQ)(t, e.clientX, e.clientY) > n) {
+			if (GetDistanceFromRect(t, e.clientX, e.clientY) > n) {
 				this.props.FavoritesStore.RemoveFromFavorites(r);
 				m.ZM.DragDropManager.EndDrag();
 			}
@@ -308,7 +316,7 @@ let D = class extends S.Component {
 			const i = this.m_rgFavoriteElementRefs[n];
 			let a = i && i.getBoundingClientRect();
 			if (a) {
-				let i = (0, I.UQ)(a, e.clientX, e.clientY);
+				let i = GetDistanceFromRect(a, e.clientX, e.clientY);
 				if (r === undefined || i < r) {
 					r = i;
 					t = n;
@@ -430,8 +438,8 @@ class N extends S.Component {
 				style: e,
 				className: "favoriteElement",
 				onActivate: this.onFavoriteElementClick,
-				onOKActionDescription: (0, E.we)("#Friend_Menu_SendMessage"),
-				onMenuActionDescription: (0, E.we)("#Friend_Menu_Open"),
+				onOKActionDescription: Localize("#Friend_Menu_SendMessage"),
+				onMenuActionDescription: Localize("#Friend_Menu_Open"),
 				onContextMenu: this.OnFavoriteElementContextMenu,
 				onMenuButton: this.OnFavoriteElementContextMenu,
 				ref: this.props.refPanel,
@@ -573,7 +581,7 @@ let F = (0, b.PA)(function (e) {
 								"span",
 								{
 									className: "playerNicknameBracket",
-									title: (0, E.we)("#isNickname"),
+									title: Localize("#isNickname"),
 								},
 								"*",
 							),
@@ -702,7 +710,7 @@ var q = require("./69649.js");
 var Q = require("./92009.js");
 require("./13869.js");
 var Z = require("./64608.js");
-var Y = require(/*webcrack:missing*/ "./53833.js");
+import { MoveElement } from "../../actual_src/utils/arrayutils.js";
 const K = "DEBUG_LogCMTraffic";
 var X = require(/*webcrack:missing*/ "./26853.js");
 var J = require("./83231.js");
@@ -951,7 +959,7 @@ class te extends S.Component {
 		console.log("Got ref", e);
 	}
 	OnListReordered(e, t) {
-		Y.yY(this.rgDragDropOptions, e, t);
+		MoveElement(this.rgDragDropOptions, e, t);
 		this.forceUpdate();
 	}
 	render() {
@@ -1195,7 +1203,7 @@ var fe = require("./43014.js");
 var be = require("./13743.js");
 var ye = require("./70839.js");
 var Se = require("./97764.js");
-var we = require(/*webcrack:missing*/ "./11010.js");
+import { LocalizeCalendarTime } from "../../actual_src/utils/localization/datetime.js";
 let Be = class extends S.Component {
 	render() {
 		const e = u.xm.ChatStore.GetRecentChats();
@@ -1233,7 +1241,7 @@ let Be = class extends S.Component {
 							key: "RecentTime",
 							className: Se.Time,
 						},
-						(0, we.lQ)(n.time_last_message, t),
+						LocalizeCalendarTime(n.time_last_message, t),
 					);
 					return S.createElement(bP, {
 						friend: i,
@@ -1278,7 +1286,7 @@ let Be = class extends S.Component {
 									key: "RecentTime",
 									className: Se.Time,
 								},
-								(0, we.lQ)(i.time_last_message, t),
+								LocalizeCalendarTime(i.time_last_message, t),
 							)
 						: undefined;
 					return S.createElement(C.AX, {
@@ -1324,12 +1332,12 @@ let Ne = class extends S.Component {
 					S.createElement(
 						"a",
 						{
-							title: (0, E.we)("#VoiceChatConnectingHelp"),
+							title: Localize("#VoiceChatConnectingHelp"),
 							className: "connectionStatus",
 							target: "_blank",
 							href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
 						},
-						(0, E.we)("#VoiceChatConnecting"),
+						Localize("#VoiceChatConnecting"),
 					),
 				),
 			t &&
@@ -1345,7 +1353,7 @@ let Ne = class extends S.Component {
 							target: "_blank",
 							href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
 						},
-						(0, E.we)("#VoiceChatReconnecting"),
+						Localize("#VoiceChatReconnecting"),
 					),
 				),
 		);
@@ -1389,7 +1397,7 @@ let Fe = class extends S.Component {
 								{
 									className: "activeVoiceHeader",
 								},
-								(0, E.we)("#ActiveVoiceChat"),
+								Localize("#ActiveVoiceChat"),
 							),
 							S.createElement("div", {
 								className: "activeVoiceName",
@@ -1472,7 +1480,7 @@ export let lg = class extends S.Component {
 							{
 								className: "activeVoiceHeader",
 							},
-							(0, E.we)("#ActiveVoiceChat"),
+							Localize("#ActiveVoiceChat"),
 						),
 						S.createElement(
 							"div",
@@ -1511,7 +1519,7 @@ export let lg = class extends S.Component {
 					{
 						className: "activeVoicePushToTalk" + i,
 					},
-					(0, E.we)(t ? "#ActiveVoicePushToMute" : "#ActiveVoicePushToTalk", n),
+					Localize(t ? "#ActiveVoicePushToMute" : "#ActiveVoicePushToTalk", n),
 				),
 		);
 	}
@@ -1532,12 +1540,12 @@ export let f7 = class extends S.Component {
 		let r = u.xm.VoiceStore.IsMicMuted();
 		let n = "VoiceControlPanelButton ToggleMicrophoneButton";
 		let i = "";
-		i = r ? (0, E.we)("#VoiceChat_UnmuteMic") : (0, E.we)("#VoiceChat_MuteMic");
+		i = r ? Localize("#VoiceChat_UnmuteMic") : Localize("#VoiceChat_MuteMic");
 		if (e) {
 			n += " NoMicrophone";
 			i = t
-				? (0, E.we)("#VoiceChat_ChromeSampleRateTooHighMicExplainer")
-				: (0, E.we)("#VoiceChat_DeniedMicrophoneAccess");
+				? Localize("#VoiceChat_ChromeSampleRateTooHighMicExplainer")
+				: Localize("#VoiceChat_DeniedMicrophoneAccess");
 		}
 		if (r) {
 			n += " disabled";
@@ -1582,8 +1590,8 @@ export let Ql = class extends S.Component {
 		}
 		let r = "";
 		r = e
-			? (0, E.we)("#VoiceChat_UnmuteSpeaker")
-			: (0, E.we)("#VoiceChat_MuteSpeaker");
+			? Localize("#VoiceChat_UnmuteSpeaker")
+			: Localize("#VoiceChat_MuteSpeaker");
 		return S.createElement(
 			he.fu,
 			{
@@ -1621,8 +1629,8 @@ let Le = class extends S.Component {
 			{
 				className: "VoiceControlPanelButton chatEndVoiceChat",
 				onClick: this.EndVoiceChat,
-				title: (0, E.we)("#VoiceChat_Leave"),
-				onOKActionDescription: (0, E.we)("#VoiceChat_Leave"),
+				title: Localize("#VoiceChat_Leave"),
+				onOKActionDescription: Localize("#VoiceChat_Leave"),
 			},
 			S.createElement(
 				"div",
@@ -1710,7 +1718,7 @@ const xe = (e) => {
 								w.Z,
 								{
 									onActivate: c,
-									onOKActionDescription: (0, E.we)("#Menu_FriendInvites"),
+									onOKActionDescription: Localize("#Menu_FriendInvites"),
 									focusable: true,
 									className: "FriendsInvitesButton",
 								},
@@ -1729,7 +1737,7 @@ const xe = (e) => {
 							w.Z,
 							{
 								onActivate: c,
-								onOKActionDescription: (0, E.we)("#FriendInviteLink_AddFriend"),
+								onOKActionDescription: Localize("#FriendInviteLink_AddFriend"),
 								focusable: true,
 								className: "friendListButton AddFriendButton",
 							},
@@ -1746,10 +1754,10 @@ const xe = (e) => {
 							w.Z,
 							{
 								onActivate: (e) => {
-									let t = I.uX(e);
+									let t = GetOwningWindowForEvent(e);
 									(0, q.UA)((0, m._k)(t), t);
 								},
-								onOKActionDescription: (0, E.we)("#Chat_CreateGroupChat"),
+								onOKActionDescription: Localize("#Chat_CreateGroupChat"),
 								focusable: true,
 								className: "NewChatGroupButton",
 							},
@@ -2040,7 +2048,7 @@ export let l$ = class extends ze {
 		const c = [
 			{
 				eTab: ye.Jw.Favorites,
-				strTabContentTitle: (0, E.we)("#FriendGroup_Favorites"),
+				strTabContentTitle: Localize("#FriendGroup_Favorites"),
 				tabElement: S.createElement(W.Em3, null),
 				tabContentElement: S.createElement(k, {
 					FavoritesStore: this.props.friends.FavoritesStore,
@@ -2048,7 +2056,7 @@ export let l$ = class extends ze {
 			},
 			{
 				eTab: ye.Jw.FriendsList,
-				strTabContentTitle: (0, E.we)("#Label_Friends"),
+				strTabContentTitle: Localize("#Label_Friends"),
 				tabElement: S.createElement(W.GSe, {
 					bShowArm: this.state.bViewingIncomingInvites,
 				}),
@@ -2066,7 +2074,7 @@ export let l$ = class extends ze {
 			},
 			{
 				eTab: ye.Jw.GroupChats,
-				strTabContentTitle: (0, E.we)("#Label_Groups"),
+				strTabContentTitle: Localize("#Label_Groups"),
 				tabElement: S.createElement(W.YJl, null),
 				tabContentElement: S.createElement(tt, {
 					friends: this.props.friends,
@@ -2075,7 +2083,7 @@ export let l$ = class extends ze {
 			},
 			{
 				eTab: ye.Jw.RecentMessages,
-				strTabContentTitle: (0, E.we)("#FriendGroup_Recent"),
+				strTabContentTitle: Localize("#FriendGroup_Recent"),
 				tabElement: S.createElement(je, null),
 				tabContentElement: S.createElement(Be, null),
 			},
@@ -2176,7 +2184,7 @@ export class hv extends S.Component {
 						"div",
 						null,
 						S.createElement(V.Spinner, null),
-						(0, E.we)("#Friends_Reconnecting_Msg"),
+						Localize("#Friends_Reconnecting_Msg"),
 					),
 				),
 		);
@@ -2270,12 +2278,12 @@ export let i$ = class extends ze {
 	OnDoFriendsListUpdate(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
 		let r = m.ZM.GetSecondsOutOfDate();
-		let n = (0, E.Hq)(r, true);
+		let n = (0, Hq)(r, true);
 		(0, A.Ci)(
 			t,
-			(0, E.we)("#Friends_ConfirmUpdate_Title"),
-			(0, E.we)("#Friends_ConfirmUpdate_Body", n),
-			(0, E.we)("#Friends_ConfirmUpdate_Ok"),
+			Localize("#Friends_ConfirmUpdate_Title"),
+			Localize("#Friends_ConfirmUpdate_Body", n),
+			Localize("#Friends_ConfirmUpdate_Ok"),
 		)
 			.then(() => {
 				m.ZM.PerformFriendsUIUpdate();
@@ -2510,8 +2518,8 @@ export let i$ = class extends ze {
 								className: d,
 								onClick: this.OnDoFriendsListUpdate,
 								title: c
-									? (0, E.we)("#Tooltip_FriendsListUpdate_VeryOld")
-									: (0, E.we)("#Tooltip_FriendsListUpdate"),
+									? Localize("#Tooltip_FriendsListUpdate_VeryOld")
+									: Localize("#Tooltip_FriendsListUpdate"),
 							},
 							S.createElement(W.MvQ, null),
 						),
@@ -2521,7 +2529,7 @@ export let i$ = class extends ze {
 							{
 								className: "friendListButton friendSettingsButton no-drag",
 								onClick: this.OnSettingsClick,
-								title: (0, E.we)("#Tooltip_Settings"),
+								title: Localize("#Tooltip_Settings"),
 							},
 							S.createElement(W.wB_, null),
 						),
@@ -2578,7 +2586,7 @@ export let i$ = class extends ze {
 											ref: this.BindTabLabel,
 											onClick: r ? undefined : this.OnTabSearchClick,
 										},
-										(0, E.we)("#tab_friends"),
+										Localize("#tab_friends"),
 									),
 									S.createElement(
 										"div",
@@ -2631,7 +2639,7 @@ export let i$ = class extends ze {
 																			autoFocus: true,
 																			type: "text",
 																			name: "friendSearch",
-																			placeholder: (0, E.we)("#SearchFriends"),
+																			placeholder: Localize("#SearchFriends"),
 																			value: this.state.searchString,
 																			onInput: this.OnSearchInput,
 																			onKeyDown: this.OnSearchKeyDown,
@@ -2656,7 +2664,7 @@ export let i$ = class extends ze {
 												{
 													className: "searchIconButton",
 													onClick: this.OnTabSearchClick,
-													title: (0, E.we)("#Tooltip_SearchFriends"),
+													title: Localize("#Tooltip_SearchFriends"),
 												},
 												S.createElement(W.eSy, null),
 											),
@@ -2676,7 +2684,7 @@ export let i$ = class extends ze {
 												"div",
 												{
 													className: "friendListButton addFriendButton no-drag",
-													title: (0, E.we)("#Tooltip_AddFriend"),
+													title: Localize("#Tooltip_AddFriend"),
 												},
 												S.createElement(W.sdo, null),
 											),
@@ -2706,14 +2714,14 @@ export let i$ = class extends ze {
 								{
 									className: Ae.summaryText,
 								},
-								(0, E.we)("#FriendsList_SignedOut"),
+								Localize("#FriendsList_SignedOut"),
 							),
 							S.createElement(
 								"div",
 								{
 									className: Ae.detailText,
 								},
-								(0, E.we)("#FriendsList_SignedOut_Detail"),
+								Localize("#FriendsList_SignedOut_Detail"),
 							),
 							S.createElement(
 								"div",
@@ -2724,7 +2732,7 @@ export let i$ = class extends ze {
 										className: Ae.retryButton,
 										onClick: this.SignIn,
 									},
-									(0, E.we)("#Friends_SignIn"),
+									Localize("#Friends_SignIn"),
 								),
 							),
 						),
@@ -2795,7 +2803,7 @@ const Ye = (0, b.PA)(function (e) {
 			{
 				className: m,
 				onClick: t,
-				title: (0, E.Yp)("#Tooltip_FriendRequest", l),
+				title: LocalizePlural("#Tooltip_FriendRequest", l),
 				onMouseEnter: () => i(true),
 				onMouseLeave: () => i(false),
 			},
@@ -2822,7 +2830,7 @@ class Ke extends S.Component {
 				{
 					className: "betaFeedbackLabel",
 				},
-				(0, E.PP)(
+				LocalizeReact(
 					"#GiveFeedbackToSteam_Desc",
 					S.createElement(
 						L.uU,
@@ -2831,7 +2839,7 @@ class Ke extends S.Component {
 							className: "betaFeedbackAnchor",
 						},
 						" ",
-						(0, E.we)("#GiveFeedbackToSteam_URL"),
+						Localize("#GiveFeedbackToSteam_URL"),
 						" ",
 					),
 				),
@@ -2888,7 +2896,7 @@ const Je = (0, b.PA)((e) => {
 	if (!r) {
 		return null;
 	}
-	const o = (0, E.we)("#RemotePlay_LinkCopyTitle");
+	const o = Localize("#RemotePlay_LinkCopyTitle");
 	return S.createElement(
 		"div",
 		{
@@ -2910,7 +2918,7 @@ const Je = (0, b.PA)((e) => {
 			S.createElement(
 				"div",
 				{
-					title: (0, E.we)("#Tooltip_RemotePlay_CreateInvite"),
+					title: Localize("#Tooltip_RemotePlay_CreateInvite"),
 					className: Ae.LinkRowIconContainer,
 				},
 				S.createElement(pe.Ov, {
@@ -2929,14 +2937,14 @@ const Je = (0, b.PA)((e) => {
 					{
 						className: Ae.ExplanationText,
 					},
-					(0, E.PP)(
+					LocalizeReact(
 						"#RemotePlay_LinkCopyExplanation",
 						S.createElement(
 							"span",
 							{
 								className: Ae.Strong,
 							},
-							(0, E.we)("#RemotePlay_LinkCopyExplanation_Anyone"),
+							Localize("#RemotePlay_LinkCopyExplanation_Anyone"),
 						),
 					),
 				),
@@ -2946,7 +2954,7 @@ const Je = (0, b.PA)((e) => {
 						className: Ae.GotItButton,
 						onClick: () => i(true),
 					},
-					(0, E.we)("#Generic_Got_It"),
+					Localize("#Generic_Got_It"),
 				),
 				S.createElement(
 					"svg",
@@ -3015,7 +3023,7 @@ const $e = (0, b.PA)(function (e) {
 	}
 	let l = null;
 	if (u.xm.FriendStore.BIsInvisibleMode()) {
-		l = () => (0, E.we)("#PersonaStateInvisible");
+		l = () => Localize("#PersonaStateInvisible");
 	}
 	let c = null;
 	if (t.persona.HasCurrentGameRichPresence()) {
@@ -3188,8 +3196,8 @@ let et = class extends S.Component {
 			if (!e) {
 				(0, A.Ic)(
 					r,
-					(0, E.we)("#Friend_AcceptClanInvite"),
-					(0, E.we)("#Friend_AcceptClanInvite_Error"),
+					Localize("#Friend_AcceptClanInvite"),
+					Localize("#Friend_AcceptClanInvite_Error"),
 				);
 			}
 		});
@@ -3200,8 +3208,8 @@ let et = class extends S.Component {
 			if (!e) {
 				(0, A.Ic)(
 					r,
-					(0, E.we)("#Friend_DeclineClanInvite"),
-					(0, E.we)("#Friend_DeclineClanInvite_Error"),
+					Localize("#Friend_DeclineClanInvite"),
+					Localize("#Friend_DeclineClanInvite_Error"),
 				);
 			}
 		});
@@ -3278,7 +3286,7 @@ let et = class extends S.Component {
 													"div",
 													{
 														className: "displayRow statMembersOnline",
-														title: (0, E.Yp)(
+														title: LocalizePlural(
 															"#Chat_Members_Online_Tooltip",
 															e.users_online,
 														),
@@ -3293,7 +3301,7 @@ let et = class extends S.Component {
 													"div",
 													{
 														className: "displayRow statMembersInGame",
-														title: (0, E.Yp)(
+														title: LocalizePlural(
 															"#Chat_Members_InGame_Tooltip",
 															e.users_ingame,
 														),
@@ -3315,7 +3323,7 @@ let et = class extends S.Component {
 										"div",
 										{
 											className: "displayColumn",
-											title: (0, E.we)("#FriendGroup_Tip_Accept_Invite"),
+											title: Localize("#FriendGroup_Tip_Accept_Invite"),
 										},
 										S.createElement(
 											Z.QW,
@@ -3324,14 +3332,14 @@ let et = class extends S.Component {
 													this.OnAcceptClanInvite(e, t);
 												},
 											},
-											(0, E.we)("#Button_Accept"),
+											Localize("#Button_Accept"),
 										),
 									),
 									S.createElement(
 										"div",
 										{
 											className: "displayColumn",
-											title: (0, E.we)("#FriendGroup_Tip_Decline_Invite"),
+											title: Localize("#FriendGroup_Tip_Decline_Invite"),
 										},
 										S.createElement(
 											Z.QW,
@@ -3340,7 +3348,7 @@ let et = class extends S.Component {
 													this.OnDeclineClanInvite(e, t);
 												},
 											},
-											(0, E.we)("#Button_Decline"),
+											Localize("#Button_Decline"),
 										),
 									),
 								),
@@ -3366,7 +3374,7 @@ let et = class extends S.Component {
 									{
 										className: "clanInviteTitle",
 									},
-									(0, E.we)("#Friend_PendingClanInvites"),
+									Localize("#Friend_PendingClanInvites"),
 								),
 								n,
 							),
@@ -3480,7 +3488,7 @@ let et = class extends S.Component {
 						onClick: this.props.onClose,
 						className: "BackToFriendsListButton",
 					},
-					(0, E.we)("#FriendGroup_CloseGamepadUI"),
+					Localize("#FriendGroup_CloseGamepadUI"),
 				),
 				S.createElement(
 					"div",
@@ -3809,8 +3817,8 @@ let rt = class extends S.Component {
 						className: "ToggleGroupChatList",
 						onClick: this.ToggleChatsList,
 						title: this.state.bChatRoomListCollapsed
-							? (0, E.we)("#Tooltip_ChatsExpand")
-							: (0, E.we)("#Tooltip_ChatsCollapse"),
+							? Localize("#Tooltip_ChatsExpand")
+							: Localize("#Tooltip_ChatsCollapse"),
 					},
 					S.createElement(W.F2T, {
 						angle: -90,
@@ -3828,7 +3836,7 @@ let rt = class extends S.Component {
 						{
 							className: "groupChatSectionTitle",
 						},
-						(0, E.we)("#tab_chats"),
+						Localize("#tab_chats"),
 					),
 				),
 				S.createElement(
@@ -3836,7 +3844,7 @@ let rt = class extends S.Component {
 					{
 						className: "createChatRoomButton",
 						onClick: this.OnCreateChatRoom,
-						title: (0, E.we)("#Tooltip_CreateGroupChat"),
+						title: Localize("#Tooltip_CreateGroupChat"),
 					},
 					S.createElement(W.u9R, null),
 				),
@@ -4116,8 +4124,8 @@ let at = class extends nt {
 			if (r != 1) {
 				(0, A.Ic)(
 					e,
-					(0, E.we)("#Friend_Menu_IgnoreIncomingInvite"),
-					(0, E.we)("#Friend_IgnoreIncomingInvite_Error", t.display_name),
+					Localize("#Friend_Menu_IgnoreIncomingInvite"),
+					Localize("#Friend_IgnoreIncomingInvite_Error", t.display_name),
 				);
 			}
 		});
@@ -4127,8 +4135,8 @@ let at = class extends nt {
 			if (r != 5) {
 				(0, A.Ic)(
 					e,
-					(0, E.we)("#Friend_Menu_BlockIncomingInvite"),
-					(0, E.we)("#Friend_BlockIncomingInvite_Error", t.display_name),
+					Localize("#Friend_Menu_BlockIncomingInvite"),
+					Localize("#Friend_BlockIncomingInvite_Error", t.display_name),
 				);
 			}
 		});
@@ -4153,9 +4161,9 @@ let at = class extends nt {
 		let t = e.currentTarget.ownerDocument.defaultView;
 		(0, A.Ci)(
 			t,
-			(0, E.we)("#FriendGroup_ConfirmAllIgnore_Title"),
-			(0, E.we)("#FriendGroup_ConfirmAllIgnore_Body"),
-			(0, E.we)("#FriendGroup_ConfirmAllIgnore_OK"),
+			Localize("#FriendGroup_ConfirmAllIgnore_Title"),
+			Localize("#FriendGroup_ConfirmAllIgnore_Body"),
+			Localize("#FriendGroup_ConfirmAllIgnore_OK"),
 		)
 			.then(() => {
 				let e = this.props.group.member_list;
@@ -4271,22 +4279,20 @@ let at = class extends nt {
 					}
 					if (this.context?.IN_GAMEPADUI) {
 						m.onOKButton = (t) => {
-							let r = I.uX(t);
+							let r = GetOwningWindowForEvent(t);
 							this.AcceptInvite(r, e);
 						};
-						m.onOKActionDescription = (0, E.we)("#FriendGroup_Tip_Accept");
+						m.onOKActionDescription = Localize("#FriendGroup_Tip_Accept");
 						m.onSecondaryButton = (t) => {
-							let r = I.uX(t);
+							let r = GetOwningWindowForEvent(t);
 							this.BlockInvite(r, e);
 						};
-						m.onSecondaryActionDescription = (0, E.we)("#Button_Block");
+						m.onSecondaryActionDescription = Localize("#Button_Block");
 						m.onOptionsButton = (t) => {
-							let r = I.uX(t);
+							let r = GetOwningWindowForEvent(t);
 							this.DeclineInvite(r, e);
 						};
-						m.onOptionsActionDescription = (0, E.we)(
-							"#FriendGroup_Tip_Decline",
-						);
+						m.onOptionsActionDescription = Localize("#FriendGroup_Tip_Decline");
 					}
 				}
 				n.push(
@@ -4333,7 +4339,7 @@ let at = class extends nt {
 											{
 												className: "friendInviteButton acceptFriendInvite " + t,
 												onClick: () => this.OnAcceptInvite(e),
-												title: (0, E.we)("#FriendGroup_Tip_Accept"),
+												title: Localize("#FriendGroup_Tip_Accept"),
 											},
 											S.createElement(W.Jlk, null),
 										),
@@ -4343,7 +4349,7 @@ let at = class extends nt {
 												className:
 													"friendInviteButton declineFriendInvite " + s,
 												onClick: () => this.OnDeclineInvite(e),
-												title: (0, E.we)("#FriendGroup_Tip_Decline"),
+												title: Localize("#FriendGroup_Tip_Decline"),
 											},
 											S.createElement(W.sED, null),
 										),
@@ -4368,14 +4374,14 @@ let at = class extends nt {
 												{
 													className: "blockCommunicationLabel",
 												},
-												(0, E.we)("#FriendGroup_IncomingInvites_Block"),
+												Localize("#FriendGroup_IncomingInvites_Block"),
 											),
 											S.createElement(
 												"div",
 												{
 													className: "blockCommunicationLabel subtitle",
 												},
-												(0, E.we)("#FriendGroup_IncomingInvites_Block_desc"),
+												Localize("#FriendGroup_IncomingInvites_Block_desc"),
 											),
 										),
 									),
@@ -4415,21 +4421,21 @@ let at = class extends nt {
 				S.createElement(
 					"div",
 					null,
-					(0, E.we)("#FriendGroup_Search_NoResults", this.props.searchString),
+					Localize("#FriendGroup_Search_NoResults", this.props.searchString),
 				),
 				S.createElement(
 					"div",
 					{
 						className: "searchSteamSuggestion",
 					},
-					(0, E.we)("#FriendGroup_Search_CantFind"),
+					Localize("#FriendGroup_Search_CantFind"),
 				),
 				S.createElement(
 					L.uU,
 					{
 						href: i.TS.COMMUNITY_BASE_URL + "search/users",
 					},
-					(0, E.we)("#FriendGroup_Search_Link"),
+					Localize("#FriendGroup_Search_Link"),
 				),
 			);
 		}
@@ -4447,14 +4453,12 @@ let at = class extends nt {
 		let _ = !this.IsInviteGroup() && !this.IsOutGoingInviteGroup();
 		let f = {
 			onActivate: this.ToggleCollapsed,
-			onOKActionDescription: (0, E.we)(
+			onOKActionDescription: Localize(
 				r ? "#FriendGroup_Expand" : "#FriendGroup_Collapse",
 			),
 			onContextMenu: this.OnContextMenu,
 			onMenuButton: _ && this.OnContextMenu,
-			onMenuActionDescription: _
-				? (0, E.we)("#FriendGroup_Options")
-				: undefined,
+			onMenuActionDescription: _ ? Localize("#FriendGroup_Options") : undefined,
 		};
 		return S.createElement(
 			d.T,
@@ -4515,9 +4519,9 @@ let at = class extends nt {
 							focusable: true,
 							onActivate: this.ToggleOfflineSortMethod,
 							title: l
-								? (0, E.we)("#FriendGroup_Tip_SortByRecent")
-								: (0, E.we)("#FriendGroup_Tip_SortByAlphabet"),
-							onOKActionDescription: (0, E.we)("#FriendGroup_ChangeSort"),
+								? Localize("#FriendGroup_Tip_SortByRecent")
+								: Localize("#FriendGroup_Tip_SortByAlphabet"),
+							onOKActionDescription: Localize("#FriendGroup_ChangeSort"),
 						},
 						S.createElement(W.gxp, null),
 					),
@@ -4558,14 +4562,14 @@ let at = class extends nt {
 													className: "confirmInviteButton confirmInvites",
 													onClick: this.OnConfirmChanges,
 												},
-												(0, E.we)("#FriendGroup_ConfirmInvites"),
+												Localize("#FriendGroup_ConfirmInvites"),
 											)
 										: S.createElement(
 												"div",
 												{
 													className: "confirmInviteButton confirmInvites dim",
 												},
-												(0, E.we)("#FriendGroup_ConfirmInvites"),
+												Localize("#FriendGroup_ConfirmInvites"),
 											),
 									S.createElement(
 										"div",
@@ -4573,7 +4577,7 @@ let at = class extends nt {
 											className: "confirmInviteButton ignoreAllRequests",
 											onClick: this.OnIgnoreAllInvites,
 										},
-										(0, E.we)("#FriendGroup_AllIgnore"),
+										Localize("#FriendGroup_AllIgnore"),
 									),
 								),
 								S.createElement(
@@ -4581,8 +4585,8 @@ let at = class extends nt {
 									{
 										className: "cancelAddFriends",
 										onActivate: this.OnCloseInvites,
-										onOKActionDescription: (0, E.we)("#FriendGroup_Close"),
-										title: (0, E.we)("#FriendGroup_Close"),
+										onOKActionDescription: Localize("#FriendGroup_Close"),
+										title: Localize("#FriendGroup_Close"),
 									},
 									S.createElement(W.i3G, {
 										angle: -90,
@@ -4813,7 +4817,7 @@ let lt = class extends nt {
 											{
 												className: "SteamPlayerGroupFooterLabel",
 											},
-											(0, E.we)(c, a),
+											Localize(c, a),
 										),
 									),
 							);
@@ -4861,12 +4865,12 @@ let lt = class extends nt {
 		if (this.props.bSingletonGroup) {
 			r += " OtherGamesGroup";
 			i = this.props.bOtherGroups
-				? (0, E.we)("#FriendGroup_InGame_Others")
-				: (0, E.we)("#FriendGroup_InGame");
+				? Localize("#FriendGroup_InGame_Others")
+				: Localize("#FriendGroup_InGame");
 		}
 		let a = {
 			onActivate: this.ToggleCollapsed,
-			onOKActionDescription: (0, E.we)(
+			onOKActionDescription: Localize(
 				e ? "#FriendGroup_Expand" : "#FriendGroup_Collapse",
 			),
 		};
@@ -4876,7 +4880,7 @@ let lt = class extends nt {
 					let e = "steam://open/library/details/" + this.props.group.id;
 					u.xm.OpenURLInBrowser(e, R.m);
 				};
-				a.onOptionsActionDescription = (0, E.we)(
+				a.onOptionsActionDescription = Localize(
 					"#Friend_Menu_ViewGameInLibrary",
 				);
 			} else {
@@ -4884,7 +4888,7 @@ let lt = class extends nt {
 					let e = (0, le.Dn)(this.props.group.id, "friendcontextmenu");
 					u.xm.OpenURLInBrowser(e, R.m);
 				};
-				a.onOptionsActionDescription = (0, E.we)(
+				a.onOptionsActionDescription = Localize(
 					"#Friend_Menu_ViewGameStorePage",
 				);
 			}
@@ -5212,12 +5216,12 @@ let dt = class extends S.Component {
 			let r = u.xm.VoiceStore.IsAttemptingReconnect();
 			let n =
 				"https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114";
-			let i = (0, E.we)("#VoiceChatConnectingHelp");
+			let i = Localize("#VoiceChatConnectingHelp");
 			let a = null;
 			if (t) {
-				a = (0, E.we)("#VoiceChatConnecting");
+				a = Localize("#VoiceChatConnecting");
 			} else if (r) {
-				a = (0, E.we)("#VoiceChatReconnecting");
+				a = Localize("#VoiceChatReconnecting");
 			}
 			if (a) {
 				P = O
@@ -5253,8 +5257,8 @@ let dt = class extends S.Component {
 		if (!s && !l && !!this.context?.IN_GAMEPADUI) {
 			x.onContextMenu = this.OnShowContextMenu;
 			x.onMenuButton = this.OnShowContextMenu;
-			x.onOKActionDescription = (0, E.we)("#Friend_Menu_SendMessage");
-			x.onMenuActionDescription = (0, E.we)("#Friend_Menu_Open");
+			x.onOKActionDescription = Localize("#Friend_Menu_SendMessage");
+			x.onMenuActionDescription = Localize("#Friend_Menu_Open");
 		}
 		if (!s && !o) {
 			x.onDragStart = this.OnDragStart;
@@ -5394,7 +5398,7 @@ let dt = class extends S.Component {
 						{
 							className: Ae.LastMessage,
 						},
-						`${(e && e.body) || ((0, Ie.Yj))(T.GetLastMessage())}`,
+						`${(e && e.body) || (0, Ie.Yj)(T.GetLastMessage())}`,
 					);
 			} else if (e.persona.HasCurrentGameRichPresence()) {
 				U = () => e.persona.GetCurrentGameRichPresence();
@@ -5502,9 +5506,9 @@ const At = (0, b.PA)(function (e) {
 		}
 	}, [i]);
 	if (i === undefined) {
-		n = (0, E.we)("#FriendGroup_NoMutualFriends");
+		n = Localize("#FriendGroup_NoMutualFriends");
 	} else {
-		n = (0, E.Yp)("#FriendGroup_YesMutualFriends", i.size);
+		n = LocalizePlural("#FriendGroup_YesMutualFriends", i.size);
 		r = i.size;
 	}
 	return S.createElement(
@@ -5577,16 +5581,16 @@ let gt = class extends S.Component {
 			r += " no_mic_for_session";
 		}
 		if (o) {
-			n = (0, E.we)("#Tooltip_MicStatus_NoMic");
+			n = Localize("#Tooltip_MicStatus_NoMic");
 		} else if (c) {
-			n = (0, E.we)("#Tooltip_RemoteMicStatus_Muted");
+			n = Localize("#Tooltip_RemoteMicStatus_Muted");
 		} else if (a) {
-			n = (0, E.we)("#Tooltip_YourMicStatus_Muted");
+			n = Localize("#Tooltip_YourMicStatus_Muted");
 		}
 		if (m) {
-			i = (0, E.we)("#Tooltip_RemoteOutputStatus_Muted");
+			i = Localize("#Tooltip_RemoteOutputStatus_Muted");
 		} else if (s) {
-			i = (0, E.we)("#Tooltip_YourOutputStatus_Muted");
+			i = Localize("#Tooltip_YourOutputStatus_Muted");
 		}
 		return S.createElement(
 			"div",
@@ -5677,8 +5681,8 @@ let Ct = class extends S.Component {
 							className: "unreadMessageViolator",
 							onClick: this.props.onClick,
 						},
-						t == 1 && (0, E.we)("#FriendGroup_UnreadMessagesViolator"),
-						t > 1 && (0, E.we)("#FriendGroup_UnreadMessagesViolatorPlural", t),
+						t == 1 && Localize("#FriendGroup_UnreadMessagesViolator"),
+						t > 1 && Localize("#FriendGroup_UnreadMessagesViolatorPlural", t),
 					),
 			);
 		}
@@ -5765,7 +5769,7 @@ let _t = class extends S.Component {
 					},
 					S.createElement(W.f5w, null),
 				),
-				(0, E.we)("#FriendGroup_UnreadMessages"),
+				Localize("#FriendGroup_UnreadMessages"),
 				S.createElement(
 					"span",
 					{

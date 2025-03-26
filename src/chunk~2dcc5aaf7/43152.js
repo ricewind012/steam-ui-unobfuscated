@@ -6,7 +6,7 @@ var s = require(/*webcrack:missing*/ "./63696.js");
 var o = require(/*webcrack:missing*/ "./10975.js");
 var l = require(/*webcrack:missing*/ "./49455.js");
 var c = require(/*webcrack:missing*/ "./79769.js");
-var m = require(/*webcrack:missing*/ "./54644.js");
+import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
 var u = require(/*webcrack:missing*/ "./83599.js");
 var d = require(/*webcrack:missing*/ "./52451.js");
 var A = require(/*webcrack:missing*/ "./72476.js");
@@ -379,7 +379,7 @@ export class PE {
 				bottom: s + e.offsetHeight,
 				right: a + e.offsetWidth,
 			};
-			return (0, m.bZ)(o, this.m_textFieldLocation);
+			return DistanceBetweenRects(o, this.m_textFieldLocation);
 		};
 		if (a(this.KeyboardLocation) > 0) {
 			this.m_textFieldLocation = null;

@@ -7,7 +7,12 @@ var l = require(/*webcrack:missing*/ "./44846.js");
 var c = require("./36934.js");
 var m = require("./74995.js");
 var u = require(/*webcrack:missing*/ "./49455.js");
-var d = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeCalendarYear,
+	Localize,
+	LocalizeCalendarTimeLessGranular,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
 var A = require(/*webcrack:missing*/ "./83599.js");
 var p = require(/*webcrack:missing*/ "./52451.js");
 var g = require("./5640.js");
@@ -233,8 +238,8 @@ class B {
 		{
 			let e = this.GetCanonicalReleaseDate();
 			this.__cachedReleaseYearString = e
-				? (0, d.vl)(new Date(e * 1000))
-				: (0, d.we)("#GridSection_UnknownReleaseDate");
+				? LocalizeCalendarYear(new Date(e * 1000))
+				: Localize("#GridSection_UnknownReleaseDate");
 			return this.__cachedReleaseYearString;
 		}
 	}
@@ -435,13 +440,13 @@ class B {
 	}
 	ComputeLastPlayedSectionName(e) {
 		if (!e) {
-			return (0, d.we)("#GridSection_Never");
+			return Localize("#GridSection_Never");
 		}
 		let t = "";
 		t =
 			new Date(e * 1000).getFullYear() >= new Date().getFullYear() - 10
-				? (0, d.gR)(e)
-				: (0, d.we)("#GridSection_MoreThan10YearsAgo");
+				? LocalizeCalendarTimeLessGranular(e)
+				: Localize("#GridSection_MoreThan10YearsAgo");
 		return t;
 	}
 	SetGameID(e) {
@@ -584,7 +589,9 @@ class I {
 	async Init(e) {
 		console.time("CAppStore Init");
 		this.m_cm = e;
-		this.m_collator = new Intl.Collator(d.pf.GetPreferredLocales());
+		this.m_collator = new Intl.Collator(
+			LocalizationManager.GetPreferredLocales(),
+		);
 		let t = (0, f.YI)(e, new b.A());
 		await new Promise((e, t) => {
 			let r = e;

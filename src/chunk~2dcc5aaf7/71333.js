@@ -18,8 +18,8 @@ var f = require(/*webcrack:missing*/ "./50376.js");
 var b = require(/*webcrack:missing*/ "./26853.js");
 var y = require(/*webcrack:missing*/ "./49455.js");
 var S = require(/*webcrack:missing*/ "./90765.js");
-var w = require(/*webcrack:missing*/ "./54644.js");
-var B = require(/*webcrack:missing*/ "./46108.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 var v = require("./80254.js");
 var I = require(/*webcrack:missing*/ "./52451.js");
 var E = require(/*webcrack:missing*/ "./72476.js");
@@ -81,13 +81,15 @@ export let h = class extends i.Component {
 		return "library.review." + this.props.overview.appid;
 	}
 	NavigateToReviewPage(e) {
-		(0, w.uX)(e).location.href = A.B7.BuildSteamURL(
+		GetOwningWindowForEvent(e).location.href = A.B7.BuildSteamURL(
 			"RecommendGame",
 			this.props.details.unAppID,
 		);
 	}
 	NavigateToCommunityRecommendations(e) {
-		(0, w.uX)(e).location.href = A.B7.BuildSteamURL("CommunityRecommendations");
+		GetOwningWindowForEvent(e).location.href = A.B7.BuildSteamURL(
+			"CommunityRecommendations",
+		);
 	}
 	async IgnoreStaleReview() {
 		this.storedSettings.rtDismissedReviseReviewReminder = Date.now() / 1000;
@@ -118,14 +120,14 @@ export let h = class extends i.Component {
 			{
 				onSelected: this.IgnoreStaleReview,
 			},
-			(0, B.we)("#AppDetails_Review_Ignore_Stale_Reviews"),
+			(0, Localize)("#AppDetails_Review_Ignore_Stale_Reviews"),
 		);
 		const t = i.createElement(
 			g.kt,
 			{
 				onSelected: this.UnignoreStaleReview,
 			},
-			(0, B.we)("#AppDetails_Review_Unignore_Stale_Reviews"),
+			(0, Localize)("#AppDetails_Review_Unignore_Stale_Reviews"),
 		);
 		return i.createElement(g.tz, null, null, e ? null : t);
 	}
@@ -172,10 +174,10 @@ export let h = class extends i.Component {
 					"NeutralClicked",
 				);
 		}
-		const r = (0, B.we)("#WriteReview_Dialog_Title");
+		const r = (0, Localize)("#WriteReview_Dialog_Title");
 		(0, _.mK)(
 			i.createElement(M.jB, {
-				ownerWindow: (0, w.uX)(e),
+				ownerWindow: GetOwningWindowForEvent(e),
 				steamID: this.props.details.strOwnerSteamID,
 				appid: this.props.overview.appid,
 				nPlaytime: this.props.overview.minutes_playtime_forever,
@@ -189,7 +191,7 @@ export let h = class extends i.Component {
 				},
 				closeModal: this.OnCancelPostReview,
 			}),
-			(0, w.uX)(e),
+			GetOwningWindowForEvent(e),
 			{
 				strTitle: r,
 			},
@@ -200,10 +202,10 @@ export let h = class extends i.Component {
 			"AppDetailsReviewSection",
 			"EditClicked",
 		);
-		const t = (0, B.we)("#WriteReview_Dialog_Title");
+		const t = (0, Localize)("#WriteReview_Dialog_Title");
 		(0, _.mK)(
 			i.createElement(M.jB, {
-				ownerWindow: (0, w.uX)(e),
+				ownerWindow: GetOwningWindowForEvent(e),
 				steamID: this.props.details.strOwnerSteamID,
 				appid: this.props.overview.appid,
 				nPlaytime: this.props.overview.minutes_playtime_forever,
@@ -218,7 +220,7 @@ export let h = class extends i.Component {
 				},
 				closeModal: this.OnCancelPostReview,
 			}),
-			(0, w.uX)(e),
+			GetOwningWindowForEvent(e),
 			{
 				strTitle: t,
 			},
@@ -249,7 +251,7 @@ export let h = class extends i.Component {
 					className: k.section,
 				},
 				i.createElement(l.w, {
-					label: (0, B.we)("#AppDetails_Review_YourReview"),
+					label: (0, Localize)("#AppDetails_Review_YourReview"),
 				}),
 				i.createElement(b.t, {
 					size: "xlarge",
@@ -263,8 +265,8 @@ export let h = class extends i.Component {
 		let n = this.props.overview.BIsApplicationOrTool();
 		let a = (0, v.l)(this.props.details.nPlaytimeForever);
 		let s = n
-			? (0, B.we)("#AppDetails_Review_PlayedForTime_Software", a)
-			: (0, B.we)("#AppDetails_Review_PlayedForTime", a);
+			? (0, Localize)("#AppDetails_Review_PlayedForTime_Software", a)
+			: (0, Localize)("#AppDetails_Review_PlayedForTime", a);
 		if (this.ReviewDetails) {
 			if (this.BRevisableReview) {
 				let e = (0, v.l)(
@@ -272,8 +274,8 @@ export let h = class extends i.Component {
 						this.ReviewDetails.playtime_at_review,
 				);
 				let t = n
-					? (0, B.we)("#AppDetails_Review_AdditionalPlaytime_Software", e)
-					: (0, B.we)("#AppDetails_Review_AdditionalPlaytime", e);
+					? (0, Localize)("#AppDetails_Review_AdditionalPlaytime_Software", e)
+					: (0, Localize)("#AppDetails_Review_AdditionalPlaytime", e);
 				r = i.createElement(
 					"div",
 					{
@@ -296,7 +298,7 @@ export let h = class extends i.Component {
 							{
 								className: N.ChangedYourMind,
 							},
-							(0, B.we)("#AppDetails_Review_ChangedYourMind"),
+							(0, Localize)("#AppDetails_Review_ChangedYourMind"),
 						),
 						i.createElement(
 							C.eJ,
@@ -304,7 +306,7 @@ export let h = class extends i.Component {
 								className: N.EditMyReview,
 								onClick: this.ShowEditRevewDialog,
 							},
-							(0, B.we)("#AppDetails_Review_ViewOrEdit"),
+							(0, Localize)("#AppDetails_Review_ViewOrEdit"),
 						),
 					),
 					i.createElement(f.X, {
@@ -317,8 +319,8 @@ export let h = class extends i.Component {
 			}
 			let a = (0, v.l)(this.ReviewDetails.playtime_at_review);
 			let s = n
-				? (0, B.we)("#AppDetails_Review_PlaytimeAtReview_Software", a)
-				: (0, B.we)("#AppDetails_Review_PlaytimeAtReview", a);
+				? (0, Localize)("#AppDetails_Review_PlaytimeAtReview_Software", a)
+				: (0, Localize)("#AppDetails_Review_PlaytimeAtReview", a);
 			t = i.createElement(
 				o.n.Highlight,
 				{
@@ -357,8 +359,8 @@ export let h = class extends i.Component {
 							className: N.ReviewDescriptionRecommended,
 						},
 						this.ReviewDetails.voted_up
-							? (0, B.we)("#AppDetails_Review_Recommended")
-							: (0, B.we)("#AppDetails_Review_NotRecommended"),
+							? (0, Localize)("#AppDetails_Review_Recommended")
+							: (0, Localize)("#AppDetails_Review_NotRecommended"),
 					),
 					i.createElement(
 						"div",
@@ -423,7 +425,7 @@ export let h = class extends i.Component {
 								{
 									className: N.CommentsLabel,
 								},
-								(0, B.we)("#AppDetails_Review_UpVotes"),
+								(0, Localize)("#AppDetails_Review_UpVotes"),
 							),
 							i.createElement(
 								"div",
@@ -447,7 +449,7 @@ export let h = class extends i.Component {
 									{
 										className: N.CommentsLabel,
 									},
-									(0, B.we)("#AppDetails_Review_Comments"),
+									(0, Localize)("#AppDetails_Review_Comments"),
 								),
 								i.createElement(
 									"div",
@@ -471,7 +473,7 @@ export let h = class extends i.Component {
 							{
 								onClick: this.ShowEditRevewDialog,
 							},
-							(0, B.we)("#AppDetails_Review_ViewOrEdit"),
+							(0, Localize)("#AppDetails_Review_ViewOrEdit"),
 						),
 					m &&
 						i.createElement(
@@ -479,7 +481,7 @@ export let h = class extends i.Component {
 							{
 								onClick: this.NavigateToCommunityRecommendations,
 							},
-							(0, B.we)("#AppDetails_Review_ViewAll"),
+							(0, Localize)("#AppDetails_Review_ViewAll"),
 						),
 				),
 			);
@@ -490,7 +492,7 @@ export let h = class extends i.Component {
 				{
 					onClick: this.NavigateToCommunityRecommendations,
 				},
-				(0, B.we)("#AppDetails_Review_ViewAll"),
+				(0, Localize)("#AppDetails_Review_ViewAll"),
 			);
 			e = i.createElement(
 				i.Fragment,
@@ -518,7 +520,7 @@ export let h = class extends i.Component {
 								{
 									onClick: (e) => this.ShowWriteRevewDialog(e, M._g.Neutral),
 								},
-								(0, B.we)(
+								(0, Localize)(
 									"#AppDetails_Review_WriteReview",
 									this.props.overview.display_name,
 								),
@@ -547,7 +549,7 @@ export let h = class extends i.Component {
 			{
 				feature: 3,
 				className: N.Container,
-				label: (0, B.we)("#AppDetails_Review_YourReview"),
+				label: (0, Localize)("#AppDetails_Review_YourReview"),
 				highlight: t,
 				rightColumnSection: true,
 			},

@@ -184,7 +184,16 @@ var pe = require("./81452.js");
 var ge = require("./38857.js");
 var he = require("./12307.js");
 var Ce = require("./96000.js");
-var _e = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+	LocalizeCalendarTime,
+	CLocLanguageArray,
+	LocalizeInlineReactPlural,
+	LocalizeReact,
+	LocalizeInlineReactWithFallback,
+	LocalizeRtime32ToShorterDate,
+} from "../../actual_src/utils/localization.js";
 var fe = require("./14663.js");
 var be = require("./59298.js");
 var ye = require("./51076.js");
@@ -334,7 +343,7 @@ function De() {
 			{
 				className: J.DeckVerifiedFeedbackQuestion,
 			},
-			(0, _e.we)("#SteamDeckFeedback_UserPrefence_Question"),
+			Localize("#SteamDeckFeedback_UserPrefence_Question"),
 		),
 		A.createElement(
 			C.Z,
@@ -344,7 +353,7 @@ function De() {
 				className: J.DeckVerifiedFeedbackButton,
 				focusClassName: J.Focused,
 			},
-			(0, _e.we)("#SteamDeckFeedback_UserPrefence_Yes"),
+			Localize("#SteamDeckFeedback_UserPrefence_Yes"),
 		),
 		A.createElement(
 			C.Z,
@@ -354,7 +363,7 @@ function De() {
 				className: J.DeckVerifiedFeedbackButton,
 				focusClassName: J.Focused,
 			},
-			(0, _e.we)("#SteamDeckFeedback_UserPrefence_No"),
+			Localize("#SteamDeckFeedback_UserPrefence_No"),
 		),
 		A.createElement(
 			j.Ii,
@@ -364,7 +373,7 @@ function De() {
 				focusClassName: J.Focused,
 				onClick: e,
 			},
-			(0, _e.we)("#SteamDeckFeedback_UserPrefence_LearnMore"),
+			Localize("#SteamDeckFeedback_UserPrefence_LearnMore"),
 		),
 	);
 }
@@ -373,11 +382,11 @@ function Ne(e) {
 	function n(t) {
 		r(
 			t == 3
-				? (0, _e.we)(
+				? Localize(
 						"#SteamDeckVerified_Feedback_Confirmation_Ignore",
 						e.overview.display_name,
 					)
-				: (0, _e.we)("#SteamDeckVerified_Feedback_Confirmation"),
+				: Localize("#SteamDeckVerified_Feedback_Confirmation"),
 		);
 		window.setTimeout(
 			() => Ie.yX.SetDeckCompatibilityFeedback(e.overview.appid, t),
@@ -423,7 +432,7 @@ function Ne(e) {
 					className: J.DeckVerifiedFeedbackButton,
 					focusClassName: J.Focused,
 				},
-				(0, _e.we)("#SteamDeckVerified_Feedback_Agree"),
+				Localize("#SteamDeckVerified_Feedback_Agree"),
 			),
 			A.createElement(
 				C.Z,
@@ -433,7 +442,7 @@ function Ne(e) {
 					className: J.DeckVerifiedFeedbackButton,
 					focusClassName: J.Focused,
 				},
-				(0, _e.we)("#SteamDeckVerified_Feedback_Disagree"),
+				Localize("#SteamDeckVerified_Feedback_Disagree"),
 			),
 			A.createElement(
 				C.Z,
@@ -443,7 +452,7 @@ function Ne(e) {
 					className: J.DeckVerifiedFeedbackButton,
 					focusClassName: J.Focused,
 				},
-				(0, _e.we)("#SteamDeckVerified_Feedback_Ignore"),
+				Localize("#SteamDeckVerified_Feedback_Ignore"),
 			),
 		);
 	}
@@ -748,7 +757,7 @@ function xe(e) {
 					{
 						className: J.CollectionsHeader,
 					},
-					(0, _e.we)("#AppDetails_GameInfo_CollectionsHeader"),
+					Localize("#AppDetails_GameInfo_CollectionsHeader"),
 				),
 				A.createElement(be.i, {
 					...fe.V$,
@@ -902,14 +911,14 @@ const Xe = (0, d.PA)(() => {
 							w &&
 								A.createElement(f.pd, {
 									refKeyboardHandle: u,
-									label: (0, _e.we)("#AppOverlayGameAPIOSK_Title"),
+									label: Localize("#AppOverlayGameAPIOSK_Title"),
 									type: B,
 									value: c,
 									maxLength: i.m_unCharMax,
 									autoFocus: true,
 									onEnterKeyPress: w ? b : undefined,
 									strEnterKeyLabel: w
-										? (0, _e.we)("#AppOverlayGameAPIOSK_Submit")
+										? Localize("#AppOverlayGameAPIOSK_Submit")
 										: undefined,
 									onChange: d,
 								}),
@@ -927,7 +936,7 @@ const Xe = (0, d.PA)(() => {
 											{
 												className: "DialogLabel",
 											},
-											(0, _e.we)("#AppOverlayGameAPIOSK_Title"),
+											Localize("#AppOverlayGameAPIOSK_Title"),
 										),
 									),
 									A.createElement(j.dO, {
@@ -946,7 +955,7 @@ const Xe = (0, d.PA)(() => {
 								A.createElement(f.CB, {
 									focusButton: "primary",
 									onOK: b,
-									strOKText: (0, _e.we)("#AppOverlayGameAPIOSK_Submit"),
+									strOKText: Localize("#AppOverlayGameAPIOSK_Submit"),
 									onCancel: y,
 								}),
 							),
@@ -3721,7 +3730,7 @@ function or(e) {
 					{
 						onClick: e.onClick,
 					},
-					(0, _e.we)("#Steam_ErrorCondition_OK").toLocaleUpperCase(),
+					Localize("#Steam_ErrorCondition_OK").toLocaleUpperCase(),
 				),
 			),
 		),
@@ -3739,33 +3748,29 @@ function lr() {
 		o.oy.ResetErrorCondition();
 		e.Reauthentication();
 	};
-	let i = (0, _e.we)("#Steam_RefreshLogin_InfoTicketExpired");
-	let a = (0, _e.we)("#Steam_ErrorCondition_RefreshLogin");
+	let i = Localize("#Steam_RefreshLogin_InfoTicketExpired");
+	let a = Localize("#Steam_ErrorCondition_RefreshLogin");
 	if (o.oy.ErrorConditionResult != 1) {
 		switch (o.oy.ErrorConditionResult) {
 			case 6:
-				i = (0, _e.we)("#Steam_RefreshLogin_AccountAlreadyLoggedInNoPassword");
-				a = (0, _e.we)("#Steam_RefreshLogin_AccountAlreadyLoggedInContinue");
+				i = Localize("#Steam_RefreshLogin_AccountAlreadyLoggedInNoPassword");
+				a = Localize("#Steam_RefreshLogin_AccountAlreadyLoggedInContinue");
 				n = r;
 				break;
 			case 49:
-				i = (0, _e.we)(
-					"#Steam_RefreshLogin_AccountAlreadyLoggedInNeedPassword",
-				);
+				i = Localize("#Steam_RefreshLogin_AccountAlreadyLoggedInNeedPassword");
 				break;
 			case 50:
-				i = (0, _e.we)(
-					"#Steam_RefreshLogin_AccountAlreadyLoggedInNeedShutdown",
-				);
+				i = Localize("#Steam_RefreshLogin_AccountAlreadyLoggedInNeedShutdown");
 				break;
 			case 85:
 				e.Login();
 				return A.createElement(A.Fragment, null);
 			case 88:
-				i = (0, _e.we)("#Steam_RefreshLogin_InvalidTwoFactorCode");
+				i = Localize("#Steam_RefreshLogin_InvalidTwoFactorCode");
 				break;
 			default:
-				i = (0, _e.we)("#Steam_RefreshLogin_InvalidPassword");
+				i = Localize("#Steam_RefreshLogin_InvalidPassword");
 		}
 	}
 	return A.createElement(
@@ -3790,7 +3795,7 @@ function lr() {
 					{
 						className: sr.Header,
 					},
-					(0, _e.we)("#Steam_ErrorCondition_Title"),
+					Localize("#Steam_ErrorCondition_Title"),
 				),
 				A.createElement(
 					"div",
@@ -3811,7 +3816,7 @@ function lr() {
 					{
 						onClick: n,
 					},
-					(0, _e.we)("#Steam_ErrorCondition_OK").toLocaleUpperCase(),
+					Localize("#Steam_ErrorCondition_OK").toLocaleUpperCase(),
 				),
 			),
 		),
@@ -3841,32 +3846,32 @@ function cr(e) {
 			return A.createElement(lr, null);
 		case 2:
 			return A.createElement(or, {
-				title: (0, _e.we)("#Steam_ErrorCondition_Title"),
-				desc: (0, _e.we)("#Steam_ErrorCondition_LoggedInElsewhere"),
+				title: Localize("#Steam_ErrorCondition_Title"),
+				desc: Localize("#Steam_ErrorCondition_LoggedInElsewhere"),
 				onClick: a,
 			});
 		case 3:
 			return A.createElement(or, {
-				title: (0, _e.we)("#Steam_ErrorCondition_Title"),
-				desc: (0, _e.we)("#Steam_ErrorCondition_SteamGuard"),
+				title: Localize("#Steam_ErrorCondition_Title"),
+				desc: Localize("#Steam_ErrorCondition_SteamGuard"),
 				onClick: a,
 			});
 		case 4:
 			return A.createElement(or, {
-				title: (0, _e.we)("#Steam_ErrorCondition_Title"),
-				desc: (0, _e.we)("#Steam_ErrorCondition_AccountDisabled"),
+				title: Localize("#Steam_ErrorCondition_Title"),
+				desc: Localize("#Steam_ErrorCondition_AccountDisabled"),
 				onClick: a,
 			});
 		case 5:
 			return A.createElement(or, {
-				title: (0, _e.we)("#Steam_ErrorCondition_Title"),
-				desc: (0, _e.we)("#Steam_ErrorCondition_Offline"),
+				title: Localize("#Steam_ErrorCondition_Title"),
+				desc: Localize("#Steam_ErrorCondition_Offline"),
 				onClick: s,
 			});
 		case 6:
 			return A.createElement(or, {
-				title: (0, _e.we)("#Steam_ErrorCondition_Title"),
-				desc: (0, _e.we)("#Steam_ErrorCondition_UnhandledMailTo"),
+				title: Localize("#Steam_ErrorCondition_Title"),
+				desc: Localize("#Steam_ErrorCondition_UnhandledMailTo"),
 				onClick: l,
 			});
 	}
@@ -3993,7 +3998,7 @@ const kr = (0, d.PA)(function (e) {
 				{
 					className: Ir.Message,
 				},
-				(0, _e.Yp)("#AppPortraitHover_FriendsPlaying", n),
+				LocalizePlural("#AppPortraitHover_FriendsPlaying", n),
 				" ",
 			),
 		);
@@ -4011,8 +4016,8 @@ const kr = (0, d.PA)(function (e) {
 						"#BasicGameCarousel_TotalPlayTime_",
 					)
 			: e.app.installed
-				? (0, _e.we)("#AppBox_NoPlayTimeYet")
-				: (0, _e.we)("#BasicGameCarousel_NotInstalled");
+				? Localize("#AppBox_NoPlayTimeYet")
+				: Localize("#BasicGameCarousel_NotInstalled");
 	const a = i;
 	return A.createElement(
 		"div",
@@ -4230,7 +4235,7 @@ const Fr = (e) => {
 				style: s,
 				onActivate: i,
 			},
-			(0, _e.we)(e.strLabel),
+			Localize(e.strLabel),
 		),
 	);
 };
@@ -4399,7 +4404,7 @@ function Wr(e) {
 const Vr = (e) => {
 	const { autoFocus: t, onItemFocus: r, games: n, showFeaturedItem: i } = e;
 	return A.createElement(Gr, {
-		name: (0, _e.we)("#LibraryHome_RecentGames"),
+		name: Localize("#LibraryHome_RecentGames"),
 		games: n,
 		autoFocus: t,
 		onItemFocus: r,
@@ -4517,16 +4522,16 @@ function Qr() {
 			{
 				className: Lr.TextBody,
 			},
-			(0, _e.we)("#Library_Recent_NoRecentGames_NoGames"),
+			Localize("#Library_Recent_NoRecentGames_NoGames"),
 		),
 		A.createElement(
 			"div",
 			{
 				className: (0, S.A)(Lr.TextBody, Lr.Smaller),
 			},
-			(0, _e.we)(
+			Localize(
 				"#Library_Recent_NoRecentGames_StoreLink",
-				(0, _e.we)("#Library_Recent_NoRecentGames_SteamStore"),
+				Localize("#Library_Recent_NoRecentGames_SteamStore"),
 			),
 		),
 		A.createElement(
@@ -4541,7 +4546,7 @@ function Qr() {
 					className: Lr.Option,
 					onActivate: (0, n.ut)(),
 				},
-				(0, _e.we)("#Library_Recent_NoRecentGames_FreeToPlay"),
+				Localize("#Library_Recent_NoRecentGames_FreeToPlay"),
 			),
 			A.createElement(
 				C.Z,
@@ -4550,7 +4555,7 @@ function Qr() {
 					className: Lr.Option,
 					onActivate: (0, n.ZQ)(),
 				},
-				(0, _e.we)("#Library_Recent_NoRecentGames_GamesOnSale"),
+				Localize("#Library_Recent_NoRecentGames_GamesOnSale"),
 			),
 			A.createElement(
 				C.Z,
@@ -4559,7 +4564,7 @@ function Qr() {
 					className: Lr.Option,
 					onActivate: (0, n.vT)(),
 				},
-				(0, _e.we)("#Library_Recent_NoRecentGames_NewReleases"),
+				Localize("#Library_Recent_NoRecentGames_NewReleases"),
 			),
 		),
 	);
@@ -4694,7 +4699,7 @@ const Zr = A.memo(function (e) {
 							d ? Lr.HeaderEnter : Lr.HeaderExit,
 						),
 					},
-					(0, _e.we)(y ? "#Showcase_CurrentGame" : "#Showcase_RecentGames"),
+					Localize(y ? "#Showcase_CurrentGame" : "#Showcase_RecentGames"),
 				),
 				A.createElement("div", {
 					className: Lr.Spacer,
@@ -4710,7 +4715,7 @@ const Zr = A.memo(function (e) {
 							{
 								className: Lr.VRFilterText,
 							},
-							(0, _e.we)("#LibraryHome_PrioritizeVR"),
+							Localize("#LibraryHome_PrioritizeVR"),
 						),
 						A.createElement(f.J0, {
 							onChange: () => {
@@ -4783,7 +4788,7 @@ const sn = (e) => {
 			{
 				className: nn.PostedTime,
 			},
-			(0, _e.lQ)(e.event.GetPostTimeAndDateUnixSeconds(), {
+			LocalizeCalendarTime(e.event.GetPostTimeAndDateUnixSeconds(), {
 				bGranularToday: true,
 				bGranularWeek: true,
 				bAbbreviateDayOfWeek: true,
@@ -4815,9 +4820,9 @@ const on = (e) => {
 			{
 				className: nn.Date,
 			},
-			(0, _e.we)(
+			Localize(
 				"#LibraryHome_RecentlyCompleted_DownloadDate",
-				(0, _e.lQ)(e.item.completed_time, {
+				LocalizeCalendarTime(e.item.completed_time, {
 					bGranularToday: true,
 					bGranularWeek: true,
 					bAbbreviateDayOfWeek: true,
@@ -4858,7 +4863,7 @@ const ln = (e) => {
 			style: u,
 			onActivate: () => m.App(t.appid),
 			onOptionsActionDescription: c
-				? (0, _e.we)("#Downloads_ViewPatchNotes")
+				? Localize("#Downloads_ViewPatchNotes")
 				: undefined,
 			onOptionsButton: c
 				? () =>
@@ -4920,7 +4925,7 @@ const cn = () => {
 					{
 						className: nn.Header,
 					},
-					(0, _e.we)("#LibraryHome_RecentlyCompleted"),
+					Localize("#LibraryHome_RecentlyCompleted"),
 				),
 			),
 			A.createElement(br.X, {
@@ -4983,8 +4988,8 @@ function _n(e) {
 				onSelected: () => An.Fm.Get().UpdateGameWishlist(t.GetAppID(), !i, n),
 			},
 			i
-				? (0, _e.we)("#LibraryHome_GameCarousel_ContextMenu_RemoveWishlist")
-				: (0, _e.we)("#LibraryHome_GameCarousel_ContextMenu_AddWishlist"),
+				? Localize("#LibraryHome_GameCarousel_ContextMenu_RemoveWishlist")
+				: Localize("#LibraryHome_GameCarousel_ContextMenu_AddWishlist"),
 		),
 		A.createElement(
 			N.kt,
@@ -4993,8 +4998,8 @@ function _n(e) {
 				onSelected: () => An.Fm.Get().UpdateAppIgnore(t.GetAppID(), !a, n),
 			},
 			a
-				? (0, _e.we)("#LibraryHome_GameCarousel_ContextMenu_UnIgnore")
-				: (0, _e.we)("#LibraryHome_GameCarousel_ContextMenu_Ignore"),
+				? Localize("#LibraryHome_GameCarousel_ContextMenu_UnIgnore")
+				: Localize("#LibraryHome_GameCarousel_ContextMenu_Ignore"),
 		),
 	];
 	return A.createElement(
@@ -5007,7 +5012,7 @@ function _n(e) {
 			{
 				onSelected: r,
 			},
-			(0, _e.we)("#LibraryHome_GameCarousel_ContextMenu_StorePage"),
+			Localize("#LibraryHome_GameCarousel_ContextMenu_StorePage"),
 		),
 		s &&
 			A.createElement(Jr.t, {
@@ -5078,7 +5083,7 @@ const Sn = () =>
 				size: "10px",
 			}),
 		),
-		(0, _e.we)("#GameCapsule_InLibrary"),
+		Localize("#GameCapsule_InLibrary"),
 	);
 const wn = (e) => {
 	const {
@@ -5134,7 +5139,7 @@ const wn = (e) => {
 			onMenuButton: d ? null : (e) => Cn(e, m, h, g),
 			onMenuActionDescription: d
 				? null
-				: (0, _e.we)("#LibraryHome_GameCarousel_ContextMenu"),
+				: Localize("#LibraryHome_GameCarousel_ContextMenu"),
 		},
 		y,
 		d && A.createElement(Sn, null),
@@ -6674,7 +6679,7 @@ var ri;
 })((ri ||= {}));
 var ni = require(/*webcrack:missing*/ "./46382.js");
 var ii = require("./85606.js");
-var ai = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 function si(e) {
 	const t = (0, ni.KV)();
 	return (0, En.I)({
@@ -6700,7 +6705,7 @@ function si(e) {
 				}
 				return n.Body().toObject().items || [];
 			})(t, e),
-		staleTime: ai.Kp.PerMinute * 1000 * 5,
+		staleTime: Seconds.PerMinute * 1000 * 5,
 	});
 }
 const oi = () => {
@@ -6710,7 +6715,7 @@ const oi = () => {
 	if (r && r.length) {
 		return A.createElement(ci, {
 			rgAppIDs: r,
-			strTitle: (0, _e.Yp)("#WishlistOnSale_Title", r.length),
+			strTitle: LocalizePlural("#WishlistOnSale_Title", r.length),
 			id: "gamepadwishlistonsale",
 		});
 	} else {
@@ -6728,7 +6733,7 @@ const li = () => {
 	);
 	return A.createElement(mi, {
 		rgCarouselItems: r,
-		strTitle: (0, _e.we)("#TrendingWithFriends_Title"),
+		strTitle: Localize("#TrendingWithFriends_Title"),
 		id: "TrendingWithFriends",
 	});
 };
@@ -6878,28 +6883,28 @@ function yi(e) {
 	const u = (function (e) {
 		switch (e) {
 			case 2:
-				return (0, _e.we)("#LibraryHome_Spotlight_Weekend");
+				return Localize("#LibraryHome_Spotlight_Weekend");
 			case 11:
-				return (0, _e.we)("#LibraryHome_Spotlight_Midweek");
+				return Localize("#LibraryHome_Spotlight_Midweek");
 			case 12:
-				return (0, _e.we)("#LibraryHome_Spotlight_Daily");
+				return Localize("#LibraryHome_Spotlight_Daily");
 			case 3:
-				return (0, _e.we)("#LibraryHome_Spotlight_PrePurchase");
+				return Localize("#LibraryHome_Spotlight_PrePurchase");
 			case 5:
-				return (0, _e.we)("#LibraryHome_Spotlight_PreloadNow");
+				return Localize("#LibraryHome_Spotlight_PreloadNow");
 			case 4:
 			case 1:
-				return (0, _e.we)("#LibraryHome_Spotlight_PlayNow");
+				return Localize("#LibraryHome_Spotlight_PlayNow");
 			case 6:
-				return (0, _e.we)("#LibraryHome_MarketingMessages");
+				return Localize("#LibraryHome_MarketingMessages");
 			case 13:
-				return (0, _e.we)("#LibraryHome_Spotlight_DLC_Available");
+				return Localize("#LibraryHome_Spotlight_DLC_Available");
 			case 14:
-				return (0, _e.we)("#LibraryHome_Spotlight_Free_Weekend");
+				return Localize("#LibraryHome_Spotlight_Free_Weekend");
 			case 15:
-				return (0, _e.we)("#LibraryHome_sale_now");
+				return Localize("#LibraryHome_sale_now");
 			case 16:
-				return (0, _e.we)("#LibraryHome_Play_Beta");
+				return Localize("#LibraryHome_Play_Beta");
 		}
 		return null;
 	})(t.GetType());
@@ -6933,7 +6938,7 @@ function yi(e) {
 				{
 					className: _i.CallToAction,
 				},
-				(0, _e.we)("#LibraryHome_MarketingMessages_DLCOverride"),
+				Localize("#LibraryHome_MarketingMessages_DLCOverride"),
 			),
 		o &&
 			A.createElement(gn.kb, {
@@ -7121,7 +7126,7 @@ const Ei = (e) => {
 								{
 									className: _i.Header,
 								},
-								(0, _e.we)("#LibraryHome_MarketingMessages"),
+								Localize("#LibraryHome_MarketingMessages"),
 							),
 						),
 						A.createElement(br.X, {
@@ -7183,9 +7188,9 @@ function Mi(e) {
 			focusable: true,
 			autoFocus: true,
 			onActivate: o,
-			onOKActionDescription: (0, _e.we)("#AppDetails_Links_Store"),
+			onOKActionDescription: Localize("#AppDetails_Links_Store"),
 			onCancelButton: r,
-			onCancelActionDescription: (0, _e.we)("#Button_Close"),
+			onCancelActionDescription: Localize("#Button_Close"),
 		},
 		A.createElement(hi.Pw, {
 			name: "MarketingMessageBrowser",
@@ -7198,7 +7203,7 @@ var Ti = require("./82023.js");
 var Ri = Ti;
 const ki = () => {
 	const e = 1902490;
-	const t = ai.Kp.PerWeek * 2;
+	const t = Seconds.PerWeek * 2;
 	const r = Be.B7.GetMediaCDNUrl() + "store/steamdeck/desk_job_banner.png";
 	const {
 		bVisible: i,
@@ -7212,7 +7217,7 @@ const ki = () => {
 		const [o, l] = A.useState();
 		const c = A.useCallback(
 			(e) => {
-				const r = Math.floor((0, ai._2)());
+				const r = Math.floor(GetUnixTime());
 				if (e === undefined) {
 					e = r;
 				}
@@ -7232,7 +7237,7 @@ const ki = () => {
 				l(e === null ? Number.MAX_SAFE_INTEGER : e);
 			});
 		}, [t, i]);
-		const d = (0, ai._2)();
+		const d = GetUnixTime();
 		return {
 			bVisible: o === undefined ? undefined : !s && o >= d - n && w.TS.ON_DECK,
 			onViewed: c,
@@ -7282,7 +7287,7 @@ const ki = () => {
 				),
 				onActivate: o,
 				onSecondaryButton: y,
-				onSecondaryActionDescription: (0, _e.we)("#Button_Dismiss"),
+				onSecondaryActionDescription: Localize("#Button_Dismiss"),
 			},
 			i !== undefined &&
 				A.createElement(
@@ -7304,14 +7309,14 @@ const ki = () => {
 							{
 								className: Ri.Title,
 							},
-							(0, _e.we)("#DeskJobPromo_Title"),
+							Localize("#DeskJobPromo_Title"),
 						),
 						A.createElement(
 							"div",
 							{
 								className: Ri.SubTitle,
 							},
-							(0, _e.we)("#DeskJobPromo_SubTitle"),
+							Localize("#DeskJobPromo_SubTitle"),
 							" ",
 						),
 					),
@@ -7344,7 +7349,7 @@ const Li = () =>
 		{
 			className: Gi.Empty,
 		},
-		(0, _e.we)("#LibraryHome_WhatsNew_Empty"),
+		Localize("#LibraryHome_WhatsNew_Empty"),
 	);
 const zi = (e) => {
 	const { event: t, focused: r } = e;
@@ -7428,14 +7433,14 @@ const Wi = (e) => {
 						{
 							onSelected: () => m.App(r.appid),
 						},
-						(0, _e.we)("#Generic_ViewGameDetails"),
+						Localize("#Generic_ViewGameDetails"),
 					),
 					A.createElement(
 						N.kt,
 						{
 							onSelected: () => Yr.dm.RemoveEvent(r.GID),
 						},
-						(0, _e.we)("#MajorUpdate_Context_RemoveThisUpdate"),
+						Localize("#MajorUpdate_Context_RemoveThisUpdate"),
 					),
 					t > -2 &&
 						i &&
@@ -7444,7 +7449,7 @@ const Wi = (e) => {
 							{
 								onSelected: () => Yr.dm.LowerAppPriorityForApp(r.appid),
 							},
-							(0, _e.we)(
+							Localize(
 								"#MajorUpdate_Context_ShowMeFewerForApp",
 								i.display_name,
 							),
@@ -7456,10 +7461,7 @@ const Wi = (e) => {
 							{
 								onSelected: () => Yr.dm.RaiseAppPriorityForApp(r.appid),
 							},
-							(0, _e.we)(
-								"#MajorUpdate_Context_ShowMeMoreForApp",
-								i.display_name,
-							),
+							Localize("#MajorUpdate_Context_ShowMeMoreForApp", i.display_name),
 						),
 					A.createElement(N.K5, null),
 					A.createElement(
@@ -7467,7 +7469,7 @@ const Wi = (e) => {
 						{
 							onSelected: () => o.push(n.BV.Settings.Home()),
 						},
-						(0, _e.we)("#MajorUpdate_GoToSettings"),
+						Localize("#MajorUpdate_GoToSettings"),
 					),
 				),
 				e,
@@ -7503,7 +7505,7 @@ const Wi = (e) => {
 					onActivate: u,
 					onContextMenu: g,
 					onMenuButton: g,
-					onMenuActionDescription: (0, _e.we)("#ActionButtonLabelContextMenu"),
+					onMenuActionDescription: Localize("#ActionButtonLabelContextMenu"),
 					onFocus: d,
 					onFocusWithin: c,
 				},
@@ -9984,8 +9986,14 @@ class Ia {
 					}
 				}
 				if (this.m_facetSortKey === ha.IS.k_ESortFacetsByName) {
-					const r = _e.NT.GetWithFallback(e.facetValue.name, this.m_language);
-					const n = _e.NT.GetWithFallback(t.facetValue.name, this.m_language);
+					const r = CLocLanguageArray.GetWithFallback(
+						e.facetValue.name,
+						this.m_language,
+					);
+					const n = CLocLanguageArray.GetWithFallback(
+						t.facetValue.name,
+						this.m_language,
+					);
 					return r.localeCompare(n);
 				}
 				return 0;
@@ -10102,7 +10110,7 @@ const Ea = (0, d.PA)((e) => {
 					className: a?.menuTitle || va.FacetMenuTitle,
 					style: p,
 				},
-				(0, _e.we)("#FacetedBrowse_Heading"),
+				Localize("#FacetedBrowse_Heading"),
 			),
 			A.createElement(Ma, {
 				facets: s?.GetSortedFacets(),
@@ -10116,7 +10124,7 @@ const Ea = (0, d.PA)((e) => {
 						className: a?.matchCount || va.FacetedBrowseMatchCount,
 					},
 					s.GetMatchCount() != null &&
-						(0, _e.Yp)("#FacetedBrowse_MatchCount", s.GetMatchCount()),
+						LocalizePlural("#FacetedBrowse_MatchCount", s.GetMatchCount()),
 				),
 			A.createElement(
 				"div",
@@ -10126,7 +10134,7 @@ const Ea = (0, d.PA)((e) => {
 				A.createElement(f.pd, {
 					type: "text",
 					value: c,
-					placeholder: (0, _e.we)("#FacetedBrowse_SearchFacetValues"),
+					placeholder: Localize("#FacetedBrowse_SearchFacetValues"),
 					onChange: (e) => {
 						m(e.target.value);
 						s.SetFacetValueSearchString(e.target.value, t, u);
@@ -10142,7 +10150,10 @@ const Ea = (0, d.PA)((e) => {
 				s?.GetSortedFacets()?.map((r, n) =>
 					A.createElement(Ra, {
 						key:
-							"facet_" + _e.NT.GetWithFallback(r.facet.facet.name, t) + "_" + n,
+							"facet_" +
+							CLocLanguageArray.GetWithFallback(r.facet.facet.name, t) +
+							"_" +
+							n,
 						facet: r,
 						facetFilterState: s,
 						nFacetIndex: n,
@@ -10171,7 +10182,7 @@ const Ea = (0, d.PA)((e) => {
 							window.scrollTo(0, t);
 						},
 					},
-					(0, _e.we)("#FacetedBrowse_ReturnToTop"),
+					Localize("#FacetedBrowse_ReturnToTop"),
 				),
 			),
 		);
@@ -10264,7 +10275,9 @@ const Ra = (0, d.PA)((e) => {
 			color: n || "white",
 		};
 	}
-	const p = (0, _e.we)(_e.NT.GetWithFallback(i.facet.facet.name, t).trim());
+	const p = Localize(
+		CLocLanguageArray.GetWithFallback(i.facet.facet.name, t).trim(),
+	);
 	let g = e.nMaxFacetValues;
 	const h = i.facetValues.reduce((e, t) => e + (t.bDeactivated ? 1 : 0), 0);
 	g = Math.min(g, i.facetValues.length - h);
@@ -10282,7 +10295,7 @@ const Ra = (0, d.PA)((e) => {
 	const y = b.every(
 		(e) =>
 			!Boolean(e.facetValue.subtitle) ||
-			_e.NT.GetWithFallback(e.facetValue.subtitle, t)?.length <= 0,
+			CLocLanguageArray.GetWithFallback(e.facetValue.subtitle, t)?.length <= 0,
 	);
 	return A.createElement(
 		"div",
@@ -10326,8 +10339,8 @@ const Ra = (0, d.PA)((e) => {
 					onClick: () => u(!m),
 				},
 				m
-					? (0, _e.we)("#Bbcode_Expand_ShowMore_Expanded")
-					: (0, _e.we)("#Bbcode_Expand_ShowMore_Collapsed"),
+					? Localize("#Bbcode_Expand_ShowMore_Expanded")
+					: Localize("#Bbcode_Expand_ShowMore_Collapsed"),
 			),
 	);
 });
@@ -10339,7 +10352,7 @@ function ka(e, t, r) {
 			return r?.get(e)?.name;
 		}
 	}
-	return (0, _e.we)(_e.NT.GetWithFallback(n, t).trim());
+	return Localize(CLocLanguageArray.GetWithFallback(n, t).trim());
 }
 function Da(e, t) {
 	const r = e.name;
@@ -10351,7 +10364,7 @@ function Da(e, t) {
 	if (n) {
 		return i;
 	} else {
-		return (0, _e.we)(_e.NT.GetWithFallback(r, t).trim());
+		return Localize(CLocLanguageArray.GetWithFallback(r, t).trim());
 	}
 }
 const Na = (0, d.PA)((e) => {
@@ -10410,7 +10423,7 @@ const Na = (0, d.PA)((e) => {
 	};
 	const b = c;
 	const y = Boolean(i.facetValue.subtitle)
-		? _e.NT.GetWithFallback(i.facetValue.subtitle, t)
+		? CLocLanguageArray.GetWithFallback(i.facetValue.subtitle, t)
 		: null;
 	if (i.facetValue.type === ha.GE.k_EPrice) {
 		const e =
@@ -10543,7 +10556,7 @@ const Fa = (0, d.PA)((e) => {
 						{
 							className: va.FacetedBrowsePopupLabel,
 						},
-						(0, _e.we)("#Button_Close"),
+						Localize("#Button_Close"),
 					),
 				)
 			: A.createElement(
@@ -10562,7 +10575,7 @@ const Fa = (0, d.PA)((e) => {
 						{
 							className: va.FacetedBrowsePopupLabel,
 						},
-						(0, _e.we)("#FacetedBrowse_Heading"),
+						Localize("#FacetedBrowse_Heading"),
 					),
 				),
 	);
@@ -10921,7 +10934,7 @@ function Cs(e) {
 					{
 						className: As.WhyRelevant,
 					},
-					(0, _e.we)("#DiscoveryQueue_WhyRelevant"),
+					Localize("#DiscoveryQueue_WhyRelevant"),
 				),
 				A.createElement(
 					"div",
@@ -10932,7 +10945,7 @@ function Cs(e) {
 						A.createElement(
 							vs,
 							{
-								header: (0, _e.we)("#DiscoveryQueue_SimilarGames"),
+								header: Localize("#DiscoveryQueue_SimilarGames"),
 							},
 							A.createElement(
 								"div",
@@ -10947,7 +10960,7 @@ function Cs(e) {
 						A.createElement(
 							vs,
 							{
-								header: (0, _e.we)("#ContentHub_Recommendation_Curators"),
+								header: Localize("#ContentHub_Recommendation_Curators"),
 							},
 							A.createElement(
 								"div",
@@ -10972,7 +10985,7 @@ function Cs(e) {
 						}),
 					_ >= 0 &&
 						A.createElement(vs, {
-							header: (0, _e.um)(
+							header: LocalizeInlineReactPlural(
 								"#DiscoveryQueue_TopSellers",
 								(_ + 1).toLocaleString(),
 								A.createElement("span", {
@@ -10983,7 +10996,7 @@ function Cs(e) {
 					f &&
 						!b &&
 						A.createElement(vs, {
-							header: (0, _e.we)("#DiscoveryQueue_RecommendedByIR"),
+							header: Localize("#DiscoveryQueue_RecommendedByIR"),
 						}),
 					A.createElement(ys, {
 						bShowAvatars: r,
@@ -11033,7 +11046,7 @@ function _s(e) {
 	}
 	if (r) {
 		return A.createElement(vs, {
-			header: (0, _e.PP)(
+			header: LocalizeReact(
 				r,
 				A.createElement(
 					"span",
@@ -11103,7 +11116,7 @@ function ys(e) {
 			return A.createElement(
 				vs,
 				{
-					header: (0, _e.um)(
+					header: LocalizeInlineReactPlural(
 						n,
 						r,
 						A.createElement("span", {
@@ -11129,7 +11142,7 @@ function ys(e) {
 			);
 		} else {
 			return A.createElement(vs, {
-				header: (0, _e.PP)(
+				header: LocalizeReact(
 					n + "_Single",
 					A.createElement(Ss, {
 						steamid: t[0],
@@ -11240,7 +11253,7 @@ var _Is = require("./60367.js");
 var Es = _Is;
 var Ms = require("./86062.js");
 var Ts = Ms;
-var Rs = require(/*webcrack:missing*/ "./9626.js");
+import { GetCookie, SetCookie } from "../../actual_src/utils/cookies.js";
 var ks = require("./19840.js");
 var Ds = require("./72993.js");
 var Ns = require("./83250.js");
@@ -11269,23 +11282,23 @@ function Gs(e) {
 	}
 	const o =
 		n == 1
-			? (0, _e.we)("#StoreTrailer_Title_TrailerPreview")
+			? Localize("#StoreTrailer_Title_TrailerPreview")
 			: (function (e) {
 					switch (e) {
 						case 1:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Gameplay");
+							return Localize("#StoreTrailer_Title_Category_Gameplay");
 						case 2:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Teaser");
+							return Localize("#StoreTrailer_Title_Category_Teaser");
 						case 3:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Cinematic");
+							return Localize("#StoreTrailer_Title_Category_Cinematic");
 						case 4:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Update");
+							return Localize("#StoreTrailer_Title_Category_Update");
 						case 5:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Accolades");
+							return Localize("#StoreTrailer_Title_Category_Accolades");
 						case 6:
-							return (0, _e.we)("#StoreTrailer_Title_Category_Interview");
+							return Localize("#StoreTrailer_Title_Category_Interview");
 					}
-					return (0, _e.we)("#StoreTrailer_Title_Category_Unknown");
+					return Localize("#StoreTrailer_Title_Category_Unknown");
 				})(r);
 	return A.createElement(
 		"div",
@@ -11295,7 +11308,7 @@ function Gs(e) {
 				[Fs.Visible]: a,
 			}),
 		},
-		(0, _e.PP)(
+		LocalizeReact(
 			"#StoreTrailer_Title_Combiner",
 			A.createElement(
 				"span",
@@ -11338,7 +11351,7 @@ function zs(e) {
 	}, [c, u, r, i]);
 	A.useEffect(() => {
 		if (r) {
-			const e = (0, Rs.VY)(n ?? Ps);
+			const e = GetCookie(n ?? Ps);
 			const t = !!e && e.toLowerCase() === "true";
 			m(!t);
 			d(true);
@@ -11403,7 +11416,7 @@ function zs(e) {
 				bAutoplayVideos: c,
 				autoplayCheckboxPosition: s,
 				fnSetAutoPlayVideos: (e) => {
-					(0, Rs.lc)(n ?? Ps, String(!e), 3650);
+					SetCookie(n ?? Ps, String(!e), 3650);
 					m(e);
 					g(e);
 				},
@@ -11740,7 +11753,7 @@ function Vs(e) {
 			key: t.GetAppID(),
 			className: Ts.AutoplayCheckbox,
 			style: a,
-			label: (0, _e.we)("#StoreTrailer_AutoPlayVideos"),
+			label: Localize("#StoreTrailer_AutoPlayVideos"),
 			onChange: n,
 		}),
 	);
@@ -11797,7 +11810,7 @@ function qs(e) {
 			{
 				className: (0, S.A)(Es.WishlistBadge, _ && Es.Active),
 			},
-			(0, _e.we)("#Sale_OnWishlist"),
+			Localize("#Sale_OnWishlist"),
 		),
 		f &&
 			A.createElement(Se.$o, {
@@ -11862,14 +11875,14 @@ function Zs(e) {
 				{
 					className: Es.IgnoredTitle,
 				},
-				(0, _e.we)("#SaleTrailerCarousel_Ignored"),
+				Localize("#SaleTrailerCarousel_Ignored"),
 			),
 			A.createElement(
 				"div",
 				{
 					className: Es.IgnoredDescription,
 				},
-				(0, _e.we)("#SaleTrailerCarousel_IgnoredConfirmation"),
+				Localize("#SaleTrailerCarousel_IgnoredConfirmation"),
 			),
 			A.createElement(
 				C.Z,
@@ -11883,7 +11896,7 @@ function Zs(e) {
 						type: at.wt.Light,
 						size: at.xY.Medium,
 					}),
-				(0, _e.we)("#SaleTrailerCarousel_Undo"),
+				Localize("#SaleTrailerCarousel_Undo"),
 			),
 		),
 	);
@@ -11943,16 +11956,16 @@ function Ks(e) {
 			style: v,
 			className: (0, S.A)(As.DiscoveryQueueApp, i && As.Selected),
 			onOptionsActionDescription: b
-				? (0, _e.we)("#DiscoveryQueue_RemoveFromWishlist")
-				: (0, _e.we)("#DiscoveryQueue_AddToWishlist"),
+				? Localize("#DiscoveryQueue_RemoveFromWishlist")
+				: Localize("#DiscoveryQueue_AddToWishlist"),
 			onOptionsButton: y,
-			onOKActionDescription: (0, _e.we)("#DiscoveryQueue_ViewStorePage"),
+			onOKActionDescription: Localize("#DiscoveryQueue_ViewStorePage"),
 			onOKButton: () => {
 				g.location.href = h;
 			},
 			onSecondaryActionDescription: _
-				? (0, _e.we)("#DiscoveryQueue_Undo")
-				: (0, _e.we)("#DiscoveryQueue_IgnoreLink"),
+				? Localize("#DiscoveryQueue_Undo")
+				: Localize("#DiscoveryQueue_IgnoreLink"),
 			onSecondaryButton: f,
 			fnScrollIntoViewHandler: () => {
 				a();
@@ -11974,14 +11987,14 @@ function Ks(e) {
 					{
 						className: As.IgnoredTitle,
 					},
-					(0, _e.we)("#DiscoveryQueue_Ignored"),
+					Localize("#DiscoveryQueue_Ignored"),
 				),
 				A.createElement(
 					"div",
 					{
 						className: As.IgnoredDescription,
 					},
-					(0, _e.we)("#DiscoveryQueue_IgnoredConfirmation"),
+					Localize("#DiscoveryQueue_IgnoredConfirmation"),
 				),
 				A.createElement(
 					C.Z,
@@ -11995,7 +12008,7 @@ function Ks(e) {
 							type: at.wt.Light,
 							size: at.xY.Medium,
 						}),
-					(0, _e.we)("#DiscoveryQueue_Undo"),
+					Localize("#DiscoveryQueue_Undo"),
 				),
 			),
 		),
@@ -12149,14 +12162,14 @@ function Js(e) {
 									additionalClassName: As.YGlyph,
 								}),
 							" ",
-							(0, _e.we)("#DiscoveryQueue_ViewStorePage"),
+							Localize("#DiscoveryQueue_ViewStorePage"),
 						),
 						A.createElement(
 							ns.he,
 							{
 								toolTipContent: c
-									? (0, _e.we)("#RemoveFromWishlist_ttip")
-									: (0, _e.we)("#AddToWishlist_ttip"),
+									? Localize("#RemoveFromWishlist_ttip")
+									: Localize("#AddToWishlist_ttip"),
 							},
 							A.createElement(
 								C.Z,
@@ -12180,7 +12193,7 @@ function Js(e) {
 						A.createElement(
 							ns.he,
 							{
-								toolTipContent: (0, _e.we)(
+								toolTipContent: Localize(
 									"#SaleTrailerCarousel_IgnoreLink_ttip",
 								),
 							},
@@ -12484,7 +12497,7 @@ function co(e) {
 					className: As.DiscoveryQueueCarouselCtn,
 					navEntryPreferPosition: Va.iU.LAST,
 					onCancelButton: () => n?.(),
-					onCancelActionDescription: (0, _e.we)("#Button_Close"),
+					onCancelActionDescription: Localize("#Button_Close"),
 				},
 				A.createElement(
 					"div",
@@ -12516,7 +12529,7 @@ function co(e) {
 							{
 								className: As.LearnMore,
 							},
-							(0, _e.oW)(
+							LocalizeInlineReactWithFallback(
 								"#DiscoveryQueue_LearnMore_Default",
 								A.createElement(j.Ii, {
 									className: As.LearnMoreLink,
@@ -12792,7 +12805,7 @@ function uo(e) {
 				{
 					className: As.SummaryTitle,
 				},
-				(0, _e.we)("#DiscoveryQueue_SummaryTitle"),
+				Localize("#DiscoveryQueue_SummaryTitle"),
 			),
 			!E &&
 				a &&
@@ -12806,7 +12819,7 @@ function uo(e) {
 				{
 					className: As.YourStats,
 				},
-				(0, _e.we)("#DiscoveryQueue_YourStats"),
+				Localize("#DiscoveryQueue_YourStats"),
 			),
 			A.createElement(
 				C.Z,
@@ -12824,7 +12837,7 @@ function uo(e) {
 						{
 							className: As.GridTitle,
 						},
-						(0, _e.we)("#DiscoveryQueue_ViewedCaps"),
+						Localize("#DiscoveryQueue_ViewedCaps"),
 					),
 					A.createElement(
 						"div",
@@ -12838,7 +12851,7 @@ function uo(e) {
 						{
 							className: As.GridSubTitle,
 						},
-						(0, _e.we)("#DiscoveryQueue_Titles"),
+						Localize("#DiscoveryQueue_Titles"),
 					),
 				),
 				A.createElement(
@@ -12851,7 +12864,7 @@ function uo(e) {
 						{
 							className: As.GridTitle,
 						},
-						(0, _e.we)("#DiscoveryQueue_WishlistedCaps"),
+						Localize("#DiscoveryQueue_WishlistedCaps"),
 					),
 					A.createElement(
 						"div",
@@ -12866,7 +12879,7 @@ function uo(e) {
 							className: (0, S.A)(As.GridSubTitle, As.TextLink),
 							href: w.TS.STORE_BASE_URL + "wishlist",
 						},
-						(0, _e.we)("#DiscoveryQueue_ViewWishlist"),
+						Localize("#DiscoveryQueue_ViewWishlist"),
 					),
 				),
 				A.createElement(
@@ -12879,7 +12892,7 @@ function uo(e) {
 						{
 							className: As.GridTitle,
 						},
-						(0, _e.we)("#DiscoveryQueue_IgnoredCaps"),
+						Localize("#DiscoveryQueue_IgnoredCaps"),
 					),
 					A.createElement(
 						"div",
@@ -12894,7 +12907,7 @@ function uo(e) {
 							className: (0, S.A)(As.GridSubTitle, As.TextLink),
 							href: w.TS.STORE_BASE_URL + "account/notinterested",
 						},
-						(0, _e.we)("#DiscoveryQueue_ViewIgnored"),
+						Localize("#DiscoveryQueue_ViewIgnored"),
 					),
 				),
 			),
@@ -12910,7 +12923,7 @@ function uo(e) {
 							className: (0, S.A)(As.QueueButton, As.Wide),
 							onClick: r,
 						},
-						(0, _e.we)("#ActionButtonLabelDone"),
+						Localize("#ActionButtonLabelDone"),
 					),
 					!E &&
 						A.createElement(
@@ -12924,7 +12937,7 @@ function uo(e) {
 								),
 								onClick: T,
 							},
-							v ? (0, _e.we)("#Loading") : (0, _e.we)("#Button_Continue"),
+							v ? Localize("#Loading") : Localize("#Button_Continue"),
 						),
 				),
 		),
@@ -12957,15 +12970,15 @@ function Ao(e) {
 				As.DiscoveryQueueApp,
 				r && As.Selected,
 			),
-			onOptionsActionDescription: (0, _e.we)("#DiscoveryQueue_ViewWishlist"),
+			onOptionsActionDescription: Localize("#DiscoveryQueue_ViewWishlist"),
 			onOptionsButton: () => {
 				window.location.href = s;
 			},
-			onOKActionDescription: (0, _e.we)("#Button_Continue"),
+			onOKActionDescription: Localize("#Button_Continue"),
 			onOKButton: () => {
 				n();
 			},
-			onCancelActionDescription: (0, _e.we)("#ActionButtonLabelDone"),
+			onCancelActionDescription: Localize("#ActionButtonLabelDone"),
 			onCancelButton: () => i && i(),
 			fnScrollIntoViewHandler: () => {
 				a();
@@ -13028,7 +13041,7 @@ function ho(e) {
 				{
 					className: As.SaleRewardAppTitle,
 				},
-				(0, _e.we)(
+				Localize(
 					"#DiscoveryQueue_SaleStatus_Title" + (s ? "" : "_Complete"),
 					i.toLocaleString(),
 					n.GetName(),
@@ -13040,7 +13053,7 @@ function ho(e) {
 					{
 						className: As.SaleRewardAppTitle,
 					},
-					(0, _e.we)(
+					Localize(
 						"#DiscoveryQueue_SaleStatus_Desc",
 						s.toLocaleString(),
 						n.GetName(),
@@ -13051,7 +13064,7 @@ function ho(e) {
 				{
 					href: w.TS.COMMUNITY_BASE_URL + "my/itemcollection",
 				},
-				(0, _e.we)("#DiscoveryQueue_SaleStatus_Link"),
+				Localize("#DiscoveryQueue_SaleStatus_Link"),
 			),
 		),
 	);
@@ -13059,7 +13072,10 @@ function ho(e) {
 var Co = require("./86454.js");
 var _o = require("./10167.js");
 var fo = _o;
-var bo = require(/*webcrack:missing*/ "./53833.js");
+import {
+	ShuffleArray,
+	FindAndRemove,
+} from "../../actual_src/utils/arrayutils.js";
 function yo(e) {
 	if (
 		(function () {
@@ -13232,7 +13248,7 @@ function wo(e) {
 			window.location.href = `${w.TS.STORE_BASE_URL}login?redir=${encodeURIComponent(document.location.href)}`;
 		}
 	};
-	const M = n ?? (0, _e.we)("#DiscoveryQueue_WidgetHeader");
+	const M = n ?? Localize("#DiscoveryQueue_WidgetHeader");
 	return A.createElement(
 		Co.J,
 		{
@@ -13249,7 +13265,7 @@ function wo(e) {
 				onGamepadBlur: () => p(false),
 				onMouseLeave: () => u && p(false),
 				onOKButton: E,
-				onOKActionDescription: (0, _e.we)("#DiscoveryQueue_OpenWizard"),
+				onOKActionDescription: Localize("#DiscoveryQueue_OpenWizard"),
 				onClick: E,
 				className: (0, S.A)(fo.DiscoveryQueueWidgetCtn, c && fo.Initialized),
 			},
@@ -13267,7 +13283,7 @@ function wo(e) {
 							{
 								className: fo.WidgetHeaderText,
 							},
-							(0, _e.we)("#DiscoveryQueue_WidgetHeader_Yours"),
+							Localize("#DiscoveryQueue_WidgetHeader_Yours"),
 						),
 						A.createElement(
 							"div",
@@ -13276,7 +13292,7 @@ function wo(e) {
 							},
 							w.iA.logged_in
 								? M
-								: (0, _e.we)("#DiscoveryQueue_WidgetHeader_LoggedOut"),
+								: Localize("#DiscoveryQueue_WidgetHeader_LoggedOut"),
 						),
 						!w.iA.logged_in &&
 							A.createElement(
@@ -13284,7 +13300,7 @@ function wo(e) {
 								{
 									className: fo.LoginButton,
 								},
-								(0, _e.we)("#DiscoveryQueue_Error_Login_Title"),
+								Localize("#DiscoveryQueue_Error_Login_Title"),
 							),
 					),
 					A.createElement(
@@ -13370,7 +13386,7 @@ function vo() {
 		return null;
 	}
 	const t = e?.data.reward_items;
-	(0, bo.fW)(t);
+	ShuffleArray(t);
 	const r = t.slice(0, 3);
 	let n = null;
 	if (w.iA.logged_in) {
@@ -13383,7 +13399,7 @@ function vo() {
 				{
 					href: w.TS.COMMUNITY_BASE_URL + "my/itemcollection",
 				},
-				(0, _e.we)("#DiscoveryQueue_SaleStatus_Link"),
+				Localize("#DiscoveryQueue_SaleStatus_Link"),
 			),
 		);
 	}
@@ -13405,14 +13421,14 @@ function vo() {
 				{
 					className: fo.BoldText,
 				},
-				(0, _e.we)("#DiscoveryQueue_Widget_SaleDesc"),
+				Localize("#DiscoveryQueue_Widget_SaleDesc"),
 			),
 			A.createElement(
 				"div",
 				null,
-				(0, _e.we)(
+				Localize(
 					"#DiscoveryQueue_Widget_SaleTitle",
-					(0, _e._l)(
+					LocalizeRtime32ToShorterDate(
 						e.data.definition.rtime_end_time,
 						false,
 						false,
@@ -13499,7 +13515,7 @@ const To = () => {
 		A.createElement(oi, null),
 		A.createElement(ci, {
 			rgAppIDs: e,
-			strTitle: (0, _e.oW)(
+			strTitle: LocalizeInlineReactWithFallback(
 				"#Recommended_NewReleases_Title",
 				A.createElement("span", {
 					className: In.SubHeader,
@@ -13509,12 +13525,12 @@ const To = () => {
 		}),
 		A.createElement(ci, {
 			rgAppIDs: t,
-			strTitle: (0, _e.we)("#Recommended_TopSellers_Title"),
+			strTitle: Localize("#Recommended_TopSellers_Title"),
 			id: "gamepadtopsellers",
 		}),
 		A.createElement(ci, {
 			rgAppIDs: n,
-			strTitle: (0, _e.we)("#Recommended_NewAndTrending_Title"),
+			strTitle: Localize("#Recommended_NewAndTrending_Title"),
 			id: "gamepadnewandtrending",
 		}),
 	);
@@ -13574,20 +13590,20 @@ const ko = () => {
 			{
 				className: Qi.PlayNextCarouselTitle,
 			},
-			(0, _e.we)("#GamepadHome_PlayNext"),
+			Localize("#GamepadHome_PlayNext"),
 		),
 		A.createElement(
 			"div",
 			{
 				className: Qi.PlayNextCarouselSubHeading,
 			},
-			(0, _e.we)("#LibraryHome_PlayNextSubHead"),
+			Localize("#LibraryHome_PlayNextSubHead"),
 		),
 		A.createElement(
 			he.Lv,
 			null,
 			A.createElement(Gr, {
-				name: (0, _e.we)("#LibraryHome_PlayNext"),
+				name: Localize("#LibraryHome_PlayNext"),
 				games: t,
 				showFeaturedItem: false,
 			}),
@@ -13655,7 +13671,7 @@ const Uo = (e) => {
 			focusable: true,
 			onActivate: () => i.Chat(),
 		},
-		(0, _e.we)("#Friends_GoToFriends"),
+		Localize("#Friends_GoToFriends"),
 	);
 };
 const Wo = () => {
@@ -13677,7 +13693,7 @@ const Wo = () => {
 				{
 					className: zo.FriendsHeader,
 				},
-				(0, _e.we)("#Friends_Favorites"),
+				Localize("#Friends_Favorites"),
 			),
 			A.createElement(
 				he.Lv,
@@ -13805,7 +13821,7 @@ const Ho = (e) => {
 				{
 					className: zo.FriendsPlaying,
 				},
-				(0, _e.Yp)("#AppPortraitHover_FriendsPlaying", r.length),
+				LocalizePlural("#AppPortraitHover_FriendsPlaying", r.length),
 			),
 			r.length > 1 &&
 				A.createElement(Vo, {
@@ -13824,7 +13840,7 @@ const Ho = (e) => {
 					{
 						className: zo.InLibrary,
 					},
-					(0, _e.we)("#GameCapsule_InLibrary"),
+					Localize("#GameCapsule_InLibrary"),
 				),
 		),
 	);
@@ -13866,7 +13882,7 @@ const jo = (0, d.PA)(() => {
 				{
 					className: zo.FriendsHeader,
 				},
-				(0, _e.Yp)("#Friends_PlayingNow", s.length),
+				LocalizePlural("#Friends_PlayingNow", s.length),
 			),
 			A.createElement(
 				he.Lv,
@@ -14183,7 +14199,7 @@ class ll {
 		this.m_rgInstalling.push(e);
 		if (!(0, w.CI)()) {
 			await new Promise((e) => setTimeout(e, 10000));
-			bo.x9(this.m_rgInstalling, e);
+			FindAndRemove(this.m_rgInstalling, e);
 			return {
 				appid: 0,
 				strInstallOutput: "",
@@ -14194,7 +14210,7 @@ class ll {
 			this.SetCustomArtworkForFlatpak(r.appid, e);
 			await ee.H.RequestAppDetails(r.appid);
 		}
-		bo.x9(this.m_rgInstalling, e);
+		FindAndRemove(this.m_rgInstalling, e);
 		return r;
 	}
 	async SetCustomArtwork(e, t, n) {
@@ -14350,7 +14366,7 @@ function gl(e) {
 				{
 					className: ol.HeaderBody,
 				},
-				(0, _e.we)("#Library_DesktopApps_LearnMoreBody"),
+				Localize("#Library_DesktopApps_LearnMoreBody"),
 			),
 			A.createElement(
 				C.Z,
@@ -14360,7 +14376,7 @@ function gl(e) {
 					onActivate: r,
 					noFocusRing: true,
 				},
-				(0, _e.we)("#Library_DesktopApps_LearnMore"),
+				Localize("#Library_DesktopApps_LearnMore"),
 			),
 		),
 	);
@@ -14378,7 +14394,7 @@ function hl(e) {
 			},
 			A.createElement(st.Spinner, null),
 			" ",
-			(0, _e.we)("#Library_DesktopApps_InstallingChrome"),
+			Localize("#Library_DesktopApps_InstallingChrome"),
 		),
 	);
 }
@@ -14412,7 +14428,7 @@ function Cl(e) {
 						{
 							className: ol.Header,
 						},
-						(0, _e.we)("#Library_DesktopApps_InstallingChrome"),
+						Localize("#Library_DesktopApps_InstallingChrome"),
 					),
 					A.createElement(Jr.t, {
 						className: ol.Throbber,
@@ -14423,7 +14439,7 @@ function Cl(e) {
 							className: ol.CloseButton,
 							onClick: e.onClose,
 						},
-						(0, _e.we)("#Generic_Close"),
+						Localize("#Generic_Close"),
 					),
 				),
 			!e.installingChrome &&
@@ -14435,21 +14451,21 @@ function Cl(e) {
 						{
 							className: ol.Header,
 						},
-						(0, _e.we)("#Library_DesktopApps_DialogHeader"),
+						Localize("#Library_DesktopApps_DialogHeader"),
 					),
 					A.createElement(
 						"div",
 						{
 							className: ol.Body,
 						},
-						(0, _e.we)("#Library_DesktopApps_DialogBody1"),
+						Localize("#Library_DesktopApps_DialogBody1"),
 					),
 					A.createElement(
 						"div",
 						{
 							className: ol.Body,
 						},
-						(0, _e.we)("#Library_DesktopApps_DialogBody2"),
+						Localize("#Library_DesktopApps_DialogBody2"),
 					),
 					A.createElement(
 						f.dR,
@@ -14461,7 +14477,7 @@ function Cl(e) {
 							{
 								onClick: e.onClose,
 							},
-							(0, _e.we)("#Library_DesktopApps_NotNow"),
+							Localize("#Library_DesktopApps_NotNow"),
 						),
 						A.createElement(
 							f.jn,
@@ -14469,7 +14485,7 @@ function Cl(e) {
 								preferredFocus: true,
 								onClick: r,
 							},
-							(0, _e.we)("#Library_DesktopApps_AddChrome"),
+							Localize("#Library_DesktopApps_AddChrome"),
 						),
 					),
 				),
@@ -14580,7 +14596,7 @@ const Sl = A.memo(function (e) {
 									onOptionsButton: (e) => {
 										i(e);
 									},
-									onOptionsActionDescription: (0, _e.we)(
+									onOptionsActionDescription: Localize(
 										"#Library_SortCollectionBy",
 									),
 									onSecondaryButton: (e) => {
@@ -14634,7 +14650,7 @@ const Sl = A.memo(function (e) {
 								onOptionsButton: (e) => {
 									i(e);
 								},
-								onOptionsActionDescription: (0, _e.we)(
+								onOptionsActionDescription: Localize(
 									"#Library_SortCollectionBy",
 								),
 								onSecondaryButton: (r) => {
@@ -14764,7 +14780,7 @@ function wl(e) {
 					{
 						className: rl.AppGridFilterText,
 					},
-					(0, _e.PP)(
+					LocalizeReact(
 						o > 1
 							? "#Library_FilteredByHeader"
 							: "#Library_FilteredByHeader_Singular",
@@ -14885,14 +14901,14 @@ function Dl() {
 					{
 						className: kl.Heading,
 					},
-					(0, _e.we)("#OOBESupport_Title"),
+					Localize("#OOBESupport_Title"),
 				),
 				A.createElement(
 					"div",
 					{
 						className: kl.SubHeading,
 					},
-					(0, _e.we)("#OOBESupport_Subtitle"),
+					Localize("#OOBESupport_Subtitle"),
 				),
 				A.createElement(
 					"a",
@@ -15053,7 +15069,7 @@ function xl(e) {
 			onOKActionDescription: null,
 			onSecondaryActionDescription: null,
 			onCancelActionDescription: e.enableAbort
-				? (0, _e.we)("#Button_AbortGame")
+				? Localize("#Button_AbortGame")
 				: null,
 		},
 		A.createElement(Ml.j, {
@@ -15277,7 +15293,7 @@ function Jl(e) {
 			A = true;
 			d.push({
 				type: "redirectLink",
-				strText: (0, _e.we)("#GamepadHome_GoToStore"),
+				strText: Localize("#GamepadHome_GoToStore"),
 				strURL:
 					Be.B7.ResolveURL("StoreGameSearchPage") +
 					"?term=" +
@@ -15305,7 +15321,7 @@ function Jl(e) {
 		if (A) {
 			C.push({
 				type: "redirectLink",
-				strText: (0, _e.we)("#GamepadHome_GoToStore"),
+				strText: Localize("#GamepadHome_GoToStore"),
 				strURL:
 					Be.B7.ResolveURL("StoreGameSearchPage") +
 					"?term=" +
@@ -15611,7 +15627,7 @@ const lc = A.memo(function (e) {
 		image: r,
 		icon: n,
 		onActivate: () => i.App(t.appid),
-		description: (0, _e.we)("#SearchResultType_OwnApp"),
+		description: Localize("#SearchResultType_OwnApp"),
 	});
 });
 function cc(e) {
@@ -15685,7 +15701,7 @@ const uc = A.memo(function (e) {
 		image: r,
 		icon: i,
 		onActivate: a,
-		description: (0, _e.we)("#SearchResultType_StoreApp"),
+		description: Localize("#SearchResultType_StoreApp"),
 	});
 });
 const dc = A.memo(function (e) {
@@ -15711,7 +15727,7 @@ const Ac = A.memo(function (e) {
 		}),
 		icon: undefined,
 		onActivate: t,
-		overlaidText: (0, _e.we)(e.title),
+		overlaidText: Localize(e.title),
 	});
 });
 function pc(e) {
@@ -15740,7 +15756,7 @@ const gc = A.memo(function (e) {
 		image: r,
 		icon: i,
 		onActivate: a,
-		description: (0, _e.we)("#SearchResultType_StoreApp"),
+		description: Localize("#SearchResultType_StoreApp"),
 	});
 });
 function hc(e) {
@@ -15807,7 +15823,7 @@ function _c(e) {
 		{
 			className: Zl.NoResultsFound,
 		},
-		A.createElement("span", null, (0, _e.we)("#Search_NoResults")),
+		A.createElement("span", null, Localize("#Search_NoResults")),
 	);
 }
 var fc = require("./10709.js");
@@ -15875,40 +15891,40 @@ function Gc(e) {
 	if (r == 1) {
 		o.push({
 			notchIndex: 0,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_sRGB"),
+			label: Localize("#Settings_Display_ColorVibrance_sRGB"),
 		});
 		o.push({
 			notchIndex: 1,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_Native"),
+			label: Localize("#Settings_Display_ColorVibrance_Native"),
 		});
 	} else if (r == 2) {
 		o.push({
 			notchIndex: 0,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_Native"),
+			label: Localize("#Settings_Display_ColorVibrance_Native"),
 		});
 		o.push({
 			notchIndex: 1,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_sRGB"),
+			label: Localize("#Settings_Display_ColorVibrance_sRGB"),
 		});
 		o.push({
 			notchIndex: 2,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_Boosted"),
+			label: Localize("#Settings_Display_ColorVibrance_Boosted"),
 		});
 	} else {
 		o.push({
 			notchIndex: 0,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_Min"),
+			label: Localize("#Settings_Display_ColorVibrance_Min"),
 		});
 		o.push({
 			notchIndex: 1,
-			label: (0, _e.we)("#Settings_Display_ColorVibrance_Max"),
+			label: Localize("#Settings_Display_ColorVibrance_Max"),
 		});
 	}
 	return (
 		t &&
 		A.createElement(f.d3, {
 			layout: "below",
-			label: (0, _e.we)("#Settings_Display_ColorVibrance"),
+			label: Localize("#Settings_Display_ColorVibrance"),
 			padding: "none",
 			disabled: false,
 			value: a,
@@ -15920,7 +15936,7 @@ function Gc(e) {
 			notchCount: o.length,
 			notchLabels: o,
 			notchTicksVisible: false,
-			description: (0, _e.we)("#Settings_Display_ColorVibrance_Desc"),
+			description: Localize("#Settings_Display_ColorVibrance_Desc"),
 			highlightOnFocus: false,
 			childrenContainerWidth: "min",
 			bottomSeparator: "none",
@@ -15937,7 +15953,7 @@ function Oc() {
 		A.createElement(f.d3, {
 			layout: "below",
 			padding: "none",
-			label: (0, _e.we)("#Settings_Display_ColorTemperature"),
+			label: Localize("#Settings_Display_ColorTemperature"),
 			disabled: false,
 			value: i,
 			onChange: a,
@@ -15949,7 +15965,7 @@ function Oc() {
 			childrenContainerWidth: "min",
 			highlightOnFocus: false,
 			renderValue: (e) =>
-				(0, _e.we)(
+				Localize(
 					"#Settings_Display_ColorTemperature_Kelvin",
 					Math.round(e).toString(),
 				),
@@ -16008,7 +16024,10 @@ function Pc() {
 var Lc = require("./32084.js");
 var zc = require("./82667.js");
 var xc = require("./76356.js");
-var Uc = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	GetTotalZoom,
+} from "../../actual_src/utils/domutils.js";
 var Wc = require("./31144.js");
 var Vc = require("./81546.js");
 var Hc = require("./18831.js");
@@ -16198,7 +16217,7 @@ function tm(e) {
 				o.fnSecondaryAction = () => {
 					SteamClient.System.UI.CloseGameWindow(t.appid, e);
 				};
-				o.strSecondaryActionLabel = (0, _e.we)("#AppOverlay_CloseWindow");
+				o.strSecondaryActionLabel = Localize("#AppOverlay_CloseWindow");
 			}
 			d.push(o);
 		}
@@ -16218,7 +16237,7 @@ function tm(e) {
 					className: (0, S.A)(jc.NavigationMenuItem, jc.SwitchAppsTitle),
 					focusable: false,
 				},
-				(0, _e.we)("#AppOverlay_SwitchWindows"),
+				Localize("#AppOverlay_SwitchWindows"),
 			),
 			d.map((e) =>
 				A.createElement(om, {
@@ -16262,52 +16281,52 @@ function rm(e) {
 			: "#AppOverlay_ExitGame";
 	const y = [
 		{
-			strLabel: (0, _e.we)("#AppOverlay_Resume"),
+			strLabel: Localize("#AppOverlay_Resume"),
 			bDisabled: h,
 			fnAction: s,
 		},
 	];
 	y.push({
-		strLabel: (0, _e.we)("#AppOverlay_ControllerSettings"),
+		strLabel: Localize("#AppOverlay_ControllerSettings"),
 		bDisabled: false,
 		bActive: l == Wc.k9.Controller,
 		fnAction: m,
 	});
 	y.push({
-		strLabel: (0, _e.we)("#AppOverlay_GameDetails"),
+		strLabel: Localize("#AppOverlay_GameDetails"),
 		bDisabled: false,
 		fnAction: () => a.App(t.appid),
 	});
 	if (f && f.achievements.nTotal > 0) {
 		y.push({
-			strLabel: (0, _e.we)("#AppOverlay_Achievements"),
+			strLabel: Localize("#AppOverlay_Achievements"),
 			bDisabled: false,
 			bActive: l == Wc.k9.Achievements,
 			fnAction: c,
 		});
 	}
 	y.push({
-		strLabel: (0, _e.we)("#AppOverlay_Guides"),
+		strLabel: Localize("#AppOverlay_Guides"),
 		bDisabled: false,
 		bActive: l == Wc.k9.Guides,
 		fnAction: d,
 	});
 	y.push({
-		strLabel: (0, _e.we)("#AppOverlay_Notes"),
+		strLabel: Localize("#AppOverlay_Notes"),
 		bDisabled: false,
 		bActive: l == Wc.k9.Notes,
 		fnAction: p,
 	});
 	if ((0, Kc.BGameRecordingFeatureEnabled)()) {
 		y.push({
-			strLabel: (0, _e.we)("#AppOverlay_GR"),
+			strLabel: Localize("#AppOverlay_GR"),
 			bDisabled: false,
 			bActive: l == Wc.k9.GR,
 			fnAction: g,
 		});
 	}
 	y.push({
-		strLabel: (0, _e.we)(b),
+		strLabel: Localize(b),
 		bDisabled: h,
 		fnAction: _,
 	});
@@ -16366,7 +16385,7 @@ function im(e) {
 	let i = e.appid;
 	let a = A.useCallback(
 		(a) => {
-			let s = (0, Uc.uX)(a);
+			let s = GetOwningWindowForEvent(a);
 			let l = () => {
 				if (e?.display_status == 1) {
 					xc.I.CancelAllGameActions();
@@ -16976,7 +16995,7 @@ function ym(e) {
 		{
 			background: "black",
 		},
-		(0, _e.we)("#LibraryHome_Loading"),
+		Localize("#LibraryHome_Loading"),
 	);
 }
 function Sm(e, t) {
@@ -17006,7 +17025,7 @@ const Bm = (0, d.PA)(function () {
 		},
 		A.createElement(x.KG, {
 			onOK: () => o.oy.ClearShutdownFailure(),
-			strDescription: (0, _e.we)("#Steam_AppMustBeClosedToQuit_Info", t),
+			strDescription: Localize("#Steam_AppMustBeClosedToQuit_Info", t),
 		}),
 	);
 });
@@ -17132,8 +17151,8 @@ function Pm(e) {
 			focusableIfNoChildren: true,
 		},
 		n
-			? (0, _e.we)("#MandatoryUpdate_ButtonInstalling")
-			: (0, _e.we)("#MandatoryUpdate_ButtonText"),
+			? Localize("#MandatoryUpdate_ButtonInstalling")
+			: Localize("#MandatoryUpdate_ButtonText"),
 	);
 }
 function Lm(e) {
@@ -17190,7 +17209,7 @@ function Lm(e) {
 						className: Nm.Title,
 					},
 					" ",
-					(0, _e.we)("#MandatoryUpdate_Title"),
+					Localize("#MandatoryUpdate_Title"),
 					" ",
 				),
 				A.createElement(
@@ -17199,7 +17218,7 @@ function Lm(e) {
 						className: Nm.Text,
 					},
 					" ",
-					(0, _e.we)("#MandatoryUpdate_Text"),
+					Localize("#MandatoryUpdate_Text"),
 					" ",
 				),
 				A.createElement(
@@ -17403,11 +17422,7 @@ const Xm = A.memo(function (e) {
 });
 function Jm(e) {
 	if ((0, Zm.x5)()) {
-		return A.createElement(
-			"div",
-			null,
-			(0, _e.we)("#Devkit_Unsupported_Footer"),
-		);
+		return A.createElement("div", null, Localize("#Devkit_Unsupported_Footer"));
 	} else {
 		return null;
 	}
@@ -18016,7 +18031,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.Library.Home(),
-					label: (0, _e.we)("#MainTabsHome"),
+					label: Localize("#MainTabsHome"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18027,7 +18042,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.GamepadUI.Login(),
-					label: (0, _e.we)(B ? "#MainTabsOOBE" : "#MainTabsLogin"),
+					label: Localize(B ? "#MainTabsOOBE" : "#MainTabsLogin"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18039,7 +18054,7 @@ function vu(e) {
 				{
 					route: n.BV.Library.Root(),
 					exactRouteMatch: true,
-					label: (0, _e.we)("#MainTabsLibrary"),
+					label: Localize("#MainTabsLibrary"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18053,7 +18068,7 @@ function vu(e) {
 					routeState: {
 						url: d,
 					},
-					label: (0, _e.we)("#MainTabsStore"),
+					label: Localize("#MainTabsStore"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18064,7 +18079,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.GamepadUI.Chat(),
-					label: (0, _e.we)("#MainTabsChat"),
+					label: Localize("#MainTabsChat"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18075,7 +18090,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.Media.Grid(),
-					label: (0, _e.we)("#MainTabsMedia"),
+					label: Localize("#MainTabsMedia"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18086,7 +18101,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.Downloads(),
-					label: (0, _e.we)("#MainTabsDownload"),
+					label: Localize("#MainTabsDownload"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18097,7 +18112,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.Console(),
-					label: (0, _e.we)("#Menu_Console"),
+					label: Localize("#Menu_Console"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18115,8 +18130,8 @@ function vu(e) {
 				{
 					route: n.BV.Settings.Root(),
 					label: m
-						? (0, _e.we)("#MainTabsSteamSettings")
-						: (0, _e.we)("#MainTabsSettings"),
+						? Localize("#MainTabsSteamSettings")
+						: Localize("#MainTabsSettings"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18130,7 +18145,7 @@ function vu(e) {
 				{
 					active: k,
 					action: O,
-					label: (0, _e.we)("#MainTabsVRSettings"),
+					label: Localize("#MainTabsVRSettings"),
 					onFocus: M,
 				},
 				A.createElement(st.VR, null),
@@ -18140,7 +18155,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.GamepadUI.Setup(),
-					label: (0, _e.we)("#Help"),
+					label: Localize("#Help"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18151,7 +18166,7 @@ function vu(e) {
 				_u,
 				{
 					route: n.BV.GamepadUI.About(),
-					label: (0, _e.we)("#MainTabsAbout"),
+					label: Localize("#MainTabsAbout"),
 					onFocus: M,
 					suppressActiveState: k,
 				},
@@ -18162,7 +18177,7 @@ function vu(e) {
 				Cu,
 				{
 					action: Mu,
-					label: (0, _e.we)("#Power"),
+					label: Localize("#Power"),
 					onFocus: M,
 				},
 				A.createElement(st.Power, null),
@@ -18185,7 +18200,7 @@ function Iu(e) {
 		_u,
 		{
 			route: n.BV.GamepadUI.Account(),
-			label: i ?? (0, _e.we)("#Menu_Account"),
+			label: i ?? Localize("#Menu_Account"),
 			onFocus: t,
 			suppressActiveState: r,
 		},
@@ -18618,7 +18633,7 @@ const Hu = (0, d.PA)((e) => {
 	A.useLayoutEffect(() => {
 		if (t.current) {
 			if (r) {
-				const e = (0, Uc.a_)(t.current);
+				const e = GetTotalZoom(t.current);
 				t.current.style.display = null;
 				t.current.style.top = n.current.y / e + "px";
 				t.current.style.left = n.current.x / e + "px";
@@ -18665,33 +18680,30 @@ function qu(e) {
 			A.createElement(
 				A.Fragment,
 				null,
-				(0, _e.we)("#Steam_Shutdown_Out_Of_Battery"),
+				Localize("#Steam_Shutdown_Out_Of_Battery"),
 				A.createElement("br", null),
 			),
 		(function (e) {
 			switch (e.eShutdownState) {
 				case 2: {
 					let t = $e.tw.GetAppOverviewByAppID(e.appid);
-					return (0, _e.we)(
-						"#Steam_Shutdown_Waiting_For_Game",
-						t?.display_name,
-					);
+					return Localize("#Steam_Shutdown_Waiting_For_Game", t?.display_name);
 				}
 				case 4:
-					return (0, _e.we)("#Steam_Shutdown_Finishing_Download");
+					return Localize("#Steam_Shutdown_Finishing_Download");
 				case 5: {
 					let t = $e.tw.GetAppOverviewByAppID(e.appid);
-					return (0, _e.we)(
+					return Localize(
 						"#Steam_Shutdown_Waiting_For_Download",
 						t?.display_name,
 					);
 				}
 				case 3:
-					return (0, _e.we)("#Steam_Shutdown_Waiting_For_Cloud");
+					return Localize("#Steam_Shutdown_Waiting_For_Cloud");
 				case 7:
-					return (0, _e.we)("#Steam_Shutdown_Waiting_For_Logoff");
+					return Localize("#Steam_Shutdown_Waiting_For_Logoff");
 			}
-			return (0, _e.we)("#Steam_Shutdown_Generic");
+			return Localize("#Steam_Shutdown_Generic");
 		})(e),
 	);
 }

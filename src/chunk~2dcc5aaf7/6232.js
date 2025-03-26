@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require("./13869.js");
 var s = require("./10606.js");
 var o = require("./28934.js");
@@ -18,12 +18,12 @@ const m = (e) => {
 	const { blockReason: t, closeModal: r } = e;
 	const a =
 		t == 4
-			? (0, i.we)("#KioskMode_Dialog_Title")
-			: (0, i.we)("#FamilyView_Dialog_Title");
+			? Localize("#KioskMode_Dialog_Title")
+			: Localize("#FamilyView_Dialog_Title");
 	const o =
 		t == 4
-			? (0, i.we)("#KioskMode_LockDialog_Description")
-			: (0, i.we)("#FamilyView_LockDialog_Description");
+			? Localize("#KioskMode_LockDialog_Description")
+			: Localize("#FamilyView_LockDialog_Description");
 	return n.createElement(s.o0, {
 		strTitle: a,
 		strDescription: o,

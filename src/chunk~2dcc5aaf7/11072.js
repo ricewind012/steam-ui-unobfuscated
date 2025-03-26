@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 var i = require("./74292.js");
 var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./31958.js");
@@ -55,7 +55,7 @@ export function RF(e) {
 	const k = (0, a.useCallback)((e) => A(true), []);
 	const D = (0, a.useCallback)((e) => A(false), []);
 	(0, a.useEffect)(() => {
-		const e = (0, n.qf)(_.current);
+		const e = GetOwningWindowForElement(_.current);
 		e.addEventListener("mousemove", R);
 		return () => e.removeEventListener("mousemove", R);
 	}, [R]);

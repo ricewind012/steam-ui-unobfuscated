@@ -3218,7 +3218,7 @@ var ie = require(/*webcrack:missing*/ "./67784.js");
 var ae = require(/*webcrack:missing*/ "./49455.js");
 var se = require(/*webcrack:missing*/ "./89193.js");
 var oe = require("./5859.js");
-var le = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export class Nt {
 	m_SteamInterface;
 	m_SteamInterfacePromotions;
@@ -3353,29 +3353,29 @@ export class rT {
 	static GetTypeAsLocalizedString(e) {
 		switch (e) {
 			case 2:
-				return (0, le.we)("#spotlight_weekend_deal");
+				return Localize("#spotlight_weekend_deal");
 			case 11:
-				return (0, le.we)("#spotlight_midweek_madness");
+				return Localize("#spotlight_midweek_madness");
 			case 12:
-				return (0, le.we)("#spotlight_daily_deal");
+				return Localize("#spotlight_daily_deal");
 			case 1:
-				return (0, le.we)("#msg_available_everywhere");
+				return Localize("#msg_available_everywhere");
 			case 3:
-				return (0, le.we)("#msg_prepurchase_now");
+				return Localize("#msg_prepurchase_now");
 			case 4:
-				return (0, le.we)("#msg_play_now");
+				return Localize("#msg_play_now");
 			case 5:
-				return (0, le.we)("#label_pre_load_now");
+				return Localize("#label_pre_load_now");
 			case 10:
-				return (0, le.we)("#label_just_updated");
+				return Localize("#label_just_updated");
 			case 13:
-				return (0, le.we)("#label_new_dlc_available");
+				return Localize("#label_new_dlc_available");
 			case 14:
-				return (0, le.we)("#label_free_weekend");
+				return Localize("#label_free_weekend");
 			case 15:
-				return (0, le.we)("#msg_on_sale_now");
+				return Localize("#msg_on_sale_now");
 			case 16:
-				return (0, le.we)("#msg_play_beta_now");
+				return Localize("#msg_play_beta_now");
 		}
 		return null;
 	}

@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./35906.js");
 var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require("./22091.js");
 var c = require("./35488.js");
 var m = require("./31800.js");
@@ -14,7 +14,11 @@ var g = require("./50350.js");
 var h = require("./62486.js");
 var C = require("./93966.js");
 var _ = require("./33572.js");
-var f = require(/*webcrack:missing*/ "./54644.js");
+import {
+	CopyTextToClipboard,
+	ew,
+	GetOwningWindowForElement,
+} from "../../actual_src/utils/domutils.js";
 const b = false;
 const y = 750;
 const S = {
@@ -124,7 +128,7 @@ function w(e) {
 						console.log("swallowed cancel button ");
 					}
 				},
-				onCancelActionDescription: (0, o.we)(
+				onCancelActionDescription: (0, Localize)(
 					"#Settings_ControllerDeviceSupport_HoldBToExit",
 				),
 				onMoveDown: s,
@@ -163,7 +167,9 @@ function B(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_LeftTrigger"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_LeftTrigger",
+						),
 					},
 					String(d),
 				),
@@ -173,7 +179,9 @@ function B(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_LeftTrackpad"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_LeftTrackpad",
+						),
 					},
 					String(t?.LeftTrackpadX) + ", " + String(t?.LeftTrackpadY),
 				),
@@ -183,7 +191,7 @@ function B(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)(
+						label: (0, Localize)(
 							"#Settings_ControllerDeviceSupport_LeftTrackpad_Pressure",
 						),
 					},
@@ -197,7 +205,9 @@ function B(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_LeftJoystick"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_LeftJoystick",
+						),
 					},
 					String(m) + ", " + String(u),
 				),
@@ -209,7 +219,7 @@ function B(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_L4"),
+						label: (0, Localize)("#Settings_ControllerDeviceSupport_L4"),
 					},
 					String(t.bL4),
 				),
@@ -221,7 +231,7 @@ function B(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)(
+						label: (0, Localize)(
 							A
 								? "#Settings_ControllerDeviceSupport_L4"
 								: "#Settings_ControllerDeviceSupport_L5",
@@ -260,7 +270,9 @@ function v(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_RightTrigger"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_RightTrigger",
+						),
 					},
 					String(d),
 				),
@@ -270,7 +282,9 @@ function v(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_RightTrackpad"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_RightTrackpad",
+						),
 					},
 					String(t?.RightTrackpadX) + ", " + String(t?.RightTrackpadY),
 				),
@@ -280,7 +294,7 @@ function v(e) {
 					{
 						padding: "compact",
 						focusable: false,
-						label: (0, o.we)(
+						label: (0, Localize)(
 							"#Settings_ControllerDeviceSupport_RightTrackpad_Pressure",
 						),
 					},
@@ -295,7 +309,9 @@ function v(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_RightJoystick"),
+						label: (0, Localize)(
+							"#Settings_ControllerDeviceSupport_RightJoystick",
+						),
 					},
 					String(m) + ", " + String(u),
 				),
@@ -307,7 +323,7 @@ function v(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)("#Settings_ControllerDeviceSupport_R4"),
+						label: (0, Localize)("#Settings_ControllerDeviceSupport_R4"),
 					},
 					String(t.bR4),
 				),
@@ -319,7 +335,7 @@ function v(e) {
 						padding: "compact",
 						focusable: false,
 						bottomSeparator: "none",
-						label: (0, o.we)(
+						label: (0, Localize)(
 							p
 								? "#Settings_ControllerDeviceSupport_R4"
 								: "#Settings_ControllerDeviceSupport_R5",
@@ -810,7 +826,7 @@ function T(e, t) {
 			e = h.strSerialNumber + " ";
 		}
 		e += "(" + E(h?.unVendorID ?? 0) + "," + E(h?.unProductID ?? 0) + ")";
-		_ = (0, o.we)("#Settings_ControllerDeviceSupport_Title", e);
+		_ = (0, Localize)("#Settings_ControllerDeviceSupport_Title", e);
 	}
 	(0, m.Wh)(_, "ControllerDeviceSupport");
 	const b = e == 2 && ((h?.unCapabilities ?? 0) & 16384) != 0;
@@ -881,7 +897,7 @@ function T(e, t) {
 	let z = "";
 	const x = h?.strName;
 	const U = x?.startsWith("#");
-	const W = (0, o.we)(x);
+	const W = (0, Localize)(x);
 	z = U && W !== x ? W : x;
 	const V = h?.eControllerType == 49;
 	return n.createElement(
@@ -908,7 +924,7 @@ function T(e, t) {
 				className: a.TestStepLabel,
 			},
 			" ",
-			(0, o.we)(L),
+			(0, Localize)(L),
 			" ",
 		),
 		n.createElement(
@@ -925,7 +941,7 @@ function T(e, t) {
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_TestRumble"),
+					(0, Localize)("#Settings_Controller_TestRumble"),
 				),
 			y &&
 				n.createElement(
@@ -933,23 +949,23 @@ function T(e, t) {
 					{
 						onClick: async () => {
 							let e = await l.Fd.Get().GetControllerMappingString(c);
-							(0, f.OG)(e);
+							CopyTextToClipboard(e);
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_CopyToClipboard"),
+					(0, Localize)("#Settings_Controller_CopyToClipboard"),
 				),
 			e == 1 &&
 				n.createElement(
 					i.xh,
 					{
 						onClick: async (e) => {
-							let t = await (0, f.ew)((0, f.qf)(e.currentTarget));
+							let t = await (0, ew)(GetOwningWindowForElement(e.currentTarget));
 							l.Fd.Get().SetControllerMappingString(t);
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_PasteFromClipboard"),
+					(0, Localize)("#Settings_Controller_PasteFromClipboard"),
 				),
 			y &&
 				n.createElement(
@@ -960,7 +976,7 @@ function T(e, t) {
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_ResetInput"),
+					(0, Localize)("#Settings_Controller_ResetInput"),
 				),
 			y &&
 				n.createElement(
@@ -971,7 +987,7 @@ function T(e, t) {
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_BindInput"),
+					(0, Localize)("#Settings_Controller_BindInput"),
 				),
 			e == 1 &&
 				n.createElement(
@@ -987,7 +1003,7 @@ function T(e, t) {
 						},
 						bottomSeparator: "none",
 					},
-					(0, o.we)("#Settings_Controller_CancelBindInput"),
+					(0, Localize)("#Settings_Controller_CancelBindInput"),
 				),
 		),
 		n.createElement(

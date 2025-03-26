@@ -5,7 +5,10 @@ var s = require("./64608.js");
 var o = require("./52912.js");
 var l = require("./13869.js");
 var c = require(/*webcrack:missing*/ "./69164.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var u = require(/*webcrack:missing*/ "./52451.js");
 var d = require("./95773.js");
 var A = require(/*webcrack:missing*/ "./41230.js");
@@ -29,7 +32,7 @@ export function lV(e, t) {
 		e,
 		"ChatRoomGroupNotificationSettings",
 		{
-			strTitle: (0, m.we)("#NotificationSettings_Title"),
+			strTitle: Localize("#NotificationSettings_Title"),
 			popupWidth: 600,
 			popupHeight: 348 + n,
 		},
@@ -46,7 +49,7 @@ export function yi(e = true) {
 					{
 						className: "ChannelSpecificNotificationSettings_Inherit",
 					},
-					(0, m.we)("#NotificationSetting_Inherit"),
+					Localize("#NotificationSetting_Inherit"),
 				),
 				data: 0,
 			},
@@ -54,25 +57,25 @@ export function yi(e = true) {
 	}
 	t = t.concat([
 		{
-			label: (0, m.we)("#NotificationSetting_AllMessages"),
+			label: Localize("#NotificationSetting_AllMessages"),
 			data: 4,
 		},
 		{
-			label: (0, m.we)(
+			label: Localize(
 				"#NotificationSetting_AnyMention",
 				d.xm.FriendStore.self.display_name,
 			),
 			data: 3,
 		},
 		{
-			label: (0, m.we)(
+			label: Localize(
 				"#NotificationSetting_DirectMention",
 				d.xm.FriendStore.self.display_name,
 			),
 			data: 2,
 		},
 		{
-			label: (0, m.we)("#NotificationSetting_None"),
+			label: Localize("#NotificationSetting_None"),
 			data: 1,
 		},
 	]);
@@ -161,11 +164,11 @@ let b = class extends i.Component {
 				{
 					classNameContent: "ChatRoomNotificationSettingsDialog",
 				},
-				i.createElement(s.Y9, null, (0, m.we)("#NotificationSettings_Title")),
+				i.createElement(s.Y9, null, Localize("#NotificationSettings_Title")),
 				i.createElement(
 					s.JU,
 					null,
-					(0, m.PP)(
+					LocalizeReact(
 						"#NotificationSettings_SubTitle",
 						i.createElement(
 							"span",
@@ -186,7 +189,7 @@ let b = class extends i.Component {
 								"NotificationSettingsSavingIndicator " +
 								(this.state.cSavesInFlight ? "Saving" : ""),
 						},
-						(0, m.we)("#GroupSettings_Permissions_Saving"),
+						Localize("#GroupSettings_Permissions_Saving"),
 						"...",
 					),
 					i.createElement(S, {
@@ -211,14 +214,14 @@ let b = class extends i.Component {
 									{
 										className: "NotificationChannelNameLabel",
 									},
-									(0, m.we)("#GroupSettings_Channels_TextChannels"),
+									Localize("#GroupSettings_Channels_TextChannels"),
 								),
 								i.createElement(
 									s.JU,
 									{
 										className: "OverrideChannelLabel",
 									},
-									(0, m.we)("#NotificationSetting_ShortLabel"),
+									Localize("#NotificationSetting_ShortLabel"),
 								),
 							),
 							i.createElement(
@@ -234,7 +237,7 @@ let b = class extends i.Component {
 					s.wi,
 					null,
 					!this.context?.IN_GAMEPADUI &&
-						(0, m.PP)(
+						LocalizeReact(
 							"#NotificationSetting_Footer_Desc2",
 							i.createElement(
 								"span",
@@ -242,7 +245,7 @@ let b = class extends i.Component {
 									className: "textLink",
 									onClick: this.OnFriendsSettingsClicked,
 								},
-								(0, m.we)("#Settings"),
+								Localize("#Settings"),
 							),
 						),
 					i.createElement(
@@ -256,7 +259,7 @@ let b = class extends i.Component {
 							{
 								onClick: this.props.closeModal,
 							},
-							(0, m.we)("#Button_Close"),
+							Localize("#Button_Close"),
 						),
 					),
 				),
@@ -352,8 +355,8 @@ let S = class extends i.Component {
 					s.JU,
 					null,
 					this.props.bIsDefault
-						? (0, m.we)("#NotificationSetting_DefaultLabel")
-						: (0, m.we)("#NotificationSetting_Label"),
+						? Localize("#NotificationSetting_DefaultLabel")
+						: Localize("#NotificationSetting_Label"),
 				),
 			),
 			i.createElement(
@@ -382,7 +385,7 @@ let S = class extends i.Component {
 						},
 						i.createElement(s.RF, {
 							className: "indicatorOption",
-							label: (0, m.we)("#NotificationSetting_Indicator"),
+							label: Localize("#NotificationSetting_Indicator"),
 							onChange: this.OnShowUnreadIndicatorChanged,
 							checked: !this.props.get_muted(),
 						}),

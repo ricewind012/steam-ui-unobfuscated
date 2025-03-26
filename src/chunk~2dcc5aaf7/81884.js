@@ -3,7 +3,7 @@ var i = require("./16251.js");
 var a = require(/*webcrack:missing*/ "./85243.js");
 var s = require("./34790.js");
 var o = s;
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./31084.js");
 var m = require(/*webcrack:missing*/ "./88750.js");
 var u = require("./97023.js");
@@ -111,7 +111,7 @@ function B(e) {
 			m.Vs,
 			{
 				key: "option-" + e.nIndex,
-				label: (0, l.we)(e.strDescription, e.strGameName),
+				label: Localize(e.strDescription, e.strGameName),
 			},
 			n.createElement(
 				m.kt,
@@ -120,7 +120,7 @@ function B(e) {
 					disabled: false,
 					onSelected: () => c(e.nIndex, true),
 				},
-				(0, l.we)("#LaunchOptionsDialog_Forever"),
+				Localize("#LaunchOptionsDialog_Forever"),
 			),
 			n.createElement(
 				m.kt,
@@ -129,7 +129,7 @@ function B(e) {
 					disabled: false,
 					onSelected: () => c(e.nIndex, false),
 				},
-				(0, l.we)("#LaunchOptionsDialog_JustOnce"),
+				Localize("#LaunchOptionsDialog_JustOnce"),
 			),
 		),
 	);
@@ -138,7 +138,7 @@ function B(e) {
 		m.tz,
 		{
 			refInstance: t,
-			label: (0, l.we)("#LaunchOptionsDialog_MakeSelection", h.display_name),
+			label: Localize("#LaunchOptionsDialog_MakeSelection", h.display_name),
 			onCancel: u,
 		},
 		g,
@@ -278,7 +278,7 @@ function M(e) {
 				{
 					htmlFor: a,
 				},
-				(0, l.we)(e.strDescription, e.strGameName),
+				Localize(e.strDescription, e.strGameName),
 			),
 		);
 	});
@@ -309,7 +309,7 @@ function M(e) {
 					{
 						className: o.ListHeader,
 					},
-					(0, l.we)("#LaunchOptionsDialog_SelectHeader", u.length),
+					Localize("#LaunchOptionsDialog_SelectHeader", u.length),
 				),
 				n.createElement(
 					"div",
@@ -324,7 +324,7 @@ function M(e) {
 						className: o.CheckboxRow,
 					},
 					n.createElement(C.Yh, {
-						label: (0, l.we)("#LaunchOptionsDialog_Remember"),
+						label: Localize("#LaunchOptionsDialog_Remember"),
 						checked: a,
 						onChange: s,
 					}),
@@ -334,7 +334,7 @@ function M(e) {
 					{
 						className: o.SeeProperties,
 					},
-					(0, l.we)("#LaunchOptionsDialog_SeeProperties"),
+					Localize("#LaunchOptionsDialog_SeeProperties"),
 				),
 			),
 			n.createElement(
@@ -348,7 +348,7 @@ function M(e) {
 						className: o.PlayButton,
 						onClick: () => c(),
 					},
-					(0, l.we)("#GameAction_Play"),
+					Localize("#GameAction_Play"),
 				),
 				n.createElement(
 					"div",
@@ -356,7 +356,7 @@ function M(e) {
 						className: o.CancelButton,
 						onClick: m,
 					},
-					(0, l.we)("#GameAction_Cancel"),
+					Localize("#GameAction_Cancel"),
 				),
 			),
 		),

@@ -6,7 +6,7 @@ var o = require("./50532.js");
 var l = o;
 var c = require("./10606.js");
 var m = require("./13869.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./52451.js");
 var A = require(/*webcrack:missing*/ "./41230.js");
 var p = require(/*webcrack:missing*/ "./90765.js");
@@ -62,7 +62,7 @@ class S extends a.Component {
 				e.hHandle,
 				t.ePrivacy,
 			);
-			let n = r ? "" : (0, u.we)("#ShareUploadScreenshot_UnexpectedError");
+			let n = r ? "" : (0, Localize)("#ShareUploadScreenshot_UnexpectedError");
 			if (r) {
 				f.yX.FetchLatestActivity(e.nAppID, true);
 			}
@@ -155,7 +155,7 @@ let w = class extends a.Component {
 		let i = "";
 		if (this.m_preUploadDetails) {
 			let e = this.m_preUploadDetails;
-			i = (0, u.we)(
+			i = (0, Localize)(
 				"#ShareUploadScreenshot_CloudUsage",
 				e.strSizeOnDisk,
 				e.strCloudAvailable,
@@ -171,14 +171,14 @@ let w = class extends a.Component {
 				a.createElement(
 					"div",
 					null,
-					(0, u.we)("#ShareUploadScreenshot_Description"),
+					(0, Localize)("#ShareUploadScreenshot_Description"),
 				),
 				a.createElement(
 					"div",
 					{
 						className: h.CaptionHeader,
 					},
-					(0, u.we)("#ShareUploadScreenshot_CaptionHeader"),
+					(0, Localize)("#ShareUploadScreenshot_CaptionHeader"),
 				),
 				a.createElement(
 					b.Z,
@@ -196,7 +196,7 @@ let w = class extends a.Component {
 						nMinHeight: 40,
 						value: t,
 						onChange: this.OnCaptionChange,
-						placeholder: (0, u.we)("#ShareUploadScreenshot_AddCaption"),
+						placeholder: (0, Localize)("#ShareUploadScreenshot_AddCaption"),
 						autoFocus: true,
 					}),
 				),
@@ -205,7 +205,7 @@ let w = class extends a.Component {
 					{
 						className: h.VisibilityHeader,
 					},
-					(0, u.we)("Visibility"),
+					(0, Localize)("Visibility"),
 				),
 				a.createElement(
 					s.Xp,
@@ -213,19 +213,19 @@ let w = class extends a.Component {
 						className: h.RadioButtonGroup,
 					},
 					a.createElement(B, {
-						text: (0, u.we)("#Privacy_Public"),
+						text: (0, Localize)("#Privacy_Public"),
 						value: 8,
 						current: r,
 						onClick: this.OnPrivacyChange,
 					}),
 					a.createElement(B, {
-						text: (0, u.we)("#Privacy_FriendsOnly"),
+						text: (0, Localize)("#Privacy_FriendsOnly"),
 						value: 4,
 						current: r,
 						onClick: this.OnPrivacyChange,
 					}),
 					a.createElement(B, {
-						text: (0, u.we)("#Privacy_Private"),
+						text: (0, Localize)("#Privacy_Private"),
 						value: 2,
 						current: r,
 						onClick: this.OnPrivacyChange,
@@ -233,7 +233,7 @@ let w = class extends a.Component {
 				),
 				a.createElement(s.RF, {
 					className: h.Spoiler,
-					label: (0, u.we)("#ShareUploadScreenshot_TagSpoiler"),
+					label: (0, Localize)("#ShareUploadScreenshot_TagSpoiler"),
 					onChange: this.OnSpoilerChange,
 					checked: n,
 				}),
@@ -251,7 +251,7 @@ let w = class extends a.Component {
 				null,
 				a.createElement(s.CB, {
 					onOK: this.props.onOK,
-					strOKText: (0, u.we)("#Generic_Upload"),
+					strOKText: (0, Localize)("#Generic_Upload"),
 					onCancel: this.props.onCancel,
 				}),
 			),
@@ -277,7 +277,7 @@ function B(e) {
 w = (0, i.Cg)([A.PA], w);
 let v = class extends a.Component {
 	render() {
-		let e = (0, u.we)("#ShareUploadScreenshot_Uploading");
+		let e = (0, Localize)("#ShareUploadScreenshot_Uploading");
 		return a.createElement(
 			a.Fragment,
 			null,
@@ -319,7 +319,7 @@ function I(e) {
 				{
 					onClick: e.onCancel,
 				},
-				(0, u.we)("#Button_Close"),
+				(0, Localize)("#Button_Close"),
 			),
 		),
 	);
@@ -345,7 +345,7 @@ export function wD(e) {
 			...r,
 		},
 		a.createElement(li, null),
-		a.createElement("span", null, (0, u.we)("#Generic_Share")),
+		a.createElement("span", null, (0, Localize)("#Generic_Share")),
 	);
 }
 export function bK(e, t) {
@@ -361,7 +361,7 @@ export function bK(e, t) {
 }
 let D = (E = class extends a.Component {
 	static Title() {
-		return (0, u.we)("#ShareDialog_Title");
+		return (0, Localize)("#ShareDialog_Title");
 	}
 	OnCancel() {
 		if (this.props.closeModal) {

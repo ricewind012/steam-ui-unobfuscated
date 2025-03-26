@@ -375,6 +375,7 @@ export class o0 extends c {
 				}
 			});
 			r && r.length;
+
 		) {
 			let e = r.pop();
 			let n = e.accumulator;

@@ -31,7 +31,11 @@ require(/*webcrack:missing*/ "./47742.js");
 var C = require(/*webcrack:missing*/ "./26853.js");
 var _ = require(/*webcrack:missing*/ "./98995.js");
 var f = require(/*webcrack:missing*/ "./90765.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var y = require(/*webcrack:missing*/ "./52451.js");
 var S = require(/*webcrack:missing*/ "./72476.js");
 var w = require("./90869.js");
@@ -149,7 +153,7 @@ function N(e) {
 			{
 				onClick: t,
 			},
-			(0, b.we)("#Login_Help_SignIn"),
+			Localize("#Login_Help_SignIn"),
 		);
 	} else {
 		return o.createElement(
@@ -157,7 +161,7 @@ function N(e) {
 			{
 				href: `${S.TS.HELP_BASE_URL}wizard/HelpWithLogin?redir=${encodeURIComponent(document.location.href)}`,
 			},
-			(0, b.we)("#Login_Help_SignIn"),
+			Localize("#Login_Help_SignIn"),
 		);
 	}
 }
@@ -170,7 +174,7 @@ function F(e) {
 				inline: true,
 				onClick: t,
 			},
-			(0, b.we)("#Login_CreateAccount"),
+			Localize("#Login_CreateAccount"),
 		);
 	}
 	{
@@ -184,7 +188,7 @@ function F(e) {
 						inline: true,
 						href: `${S.TS.STORE_BASE_URL}join/${e}`,
 					},
-					(0, b.we)("#Login_CreateAccount"),
+					Localize("#Login_CreateAccount"),
 				);
 			case "partner":
 				return o.createElement(
@@ -193,7 +197,7 @@ function F(e) {
 						inline: true,
 						href: `${S.TS.PARTNER_BASE_URL}${e}`,
 					},
-					(0, b.we)("#Login_CreateSteamworksAccount"),
+					Localize("#Login_CreateSteamworksAccount"),
 				);
 			case "none":
 				return null;
@@ -228,7 +232,7 @@ function G(e) {
 			{
 				className: I.AccountCreationPrompt,
 			},
-			(0, b.we)(a),
+			Localize(a),
 		),
 		o.createElement(F, {
 			variant: r,
@@ -459,8 +463,8 @@ function z(e) {
 					className: I.PrimaryHeader,
 				},
 				e.refreshInfo
-					? (0, b.we)("#Login_RefreshSignIn")
-					: (0, b.we)("#Login_SignInTitle"),
+					? Localize("#Login_RefreshSignIn")
+					: Localize("#Login_SignInTitle"),
 			),
 			o.createElement($$, {
 				refreshInfo: e.refreshInfo,
@@ -585,14 +589,14 @@ export function $$(e) {
 			{
 				className: I.RefreshTitle,
 			},
-			(0, b.we)("#Login_RefreshSignIn"),
+			Localize("#Login_RefreshSignIn"),
 		),
 		o.createElement(
 			"div",
 			{
 				className: I.RefreshReason,
 			},
-			(0, b.we)(t),
+			Localize(t),
 		),
 	);
 }
@@ -602,7 +606,7 @@ function U() {
 		{
 			className: I.ConfirmCredntialsNag,
 		},
-		(0, b.we)("#Login_ConfirmCredentials"),
+		Localize("#Login_ConfirmCredentials"),
 	);
 }
 function W(e) {
@@ -634,7 +638,7 @@ function W(e) {
 	const C = r === 1 || r === 13;
 	const f = r === 2 && !A;
 	const y = f
-		? o.createElement(oe, null, (0, b.we)("#Login_CheckCredentials"))
+		? o.createElement(oe, null, Localize("#Login_CheckCredentials"))
 		: o.createElement(oe, null, "\xA0");
 	const w = n && !a;
 	const B = n && !!a;
@@ -658,7 +662,7 @@ function W(e) {
 				{
 					highlight: true,
 				},
-				(0, b.we)("#Login_SignIn_WithAccountName"),
+				Localize("#Login_SignIn_WithAccountName"),
 			),
 			value: a,
 			onChange: (e) => {
@@ -670,7 +674,7 @@ function W(e) {
 		}),
 		o.createElement(K, {
 			tone: f ? "danger" : undefined,
-			label: o.createElement(X, null, (0, b.we)("#Login_Password")),
+			label: o.createElement(X, null, Localize("#Login_Password")),
 			value: l,
 			onChange: (e) => {
 				p(true);
@@ -687,7 +691,7 @@ function W(e) {
 						direction: "bottom",
 					},
 					o.createElement(ee, {
-						label: (0, b.we)("#Login_RememberMe_Short"),
+						label: Localize("#Login_RememberMe_Short"),
 						value: m,
 						onChange: u,
 					}),
@@ -697,7 +701,7 @@ function W(e) {
 					{
 						className: I.InsecureComputer,
 					},
-					(0, b.we)("#Login_InsecureComputer"),
+					Localize("#Login_InsecureComputer"),
 				),
 		o.createElement(re, {
 			loading: C,
@@ -711,7 +715,7 @@ function W(e) {
 					href: `${S.TS.HELP_BASE_URL}wizard/HelpWithLogin?redir=${encodeURIComponent(document.location.href)}`,
 					align: "center",
 				},
-				(0, b.we)("#Login_Help_SignIn"),
+				Localize("#Login_Help_SignIn"),
 			),
 	);
 }
@@ -764,7 +768,7 @@ export function Mk(e) {
 					{
 						className: I.GuestText,
 					},
-					(0, b.oW)(
+					LocalizeInlineReactWithFallback(
 						"#Login_Guest",
 						o.createElement("a", {
 							href: `${t}`,
@@ -785,7 +789,7 @@ export function Mk(e) {
 						{
 							className: I.GuestButton,
 						},
-						(0, b.we)("#Login_GuestContinue"),
+						Localize("#Login_GuestContinue"),
 					),
 				),
 			),
@@ -822,7 +826,7 @@ function Z(e) {
 			{
 				className: I.MessagingTag,
 			},
-			(0, b.we)("#Login_MobileFlow_New"),
+			Localize("#Login_MobileFlow_New"),
 		),
 		o.createElement(
 			"div",
@@ -834,7 +838,7 @@ function Z(e) {
 				{
 					className: I.MessagingSubtitle,
 				},
-				(0, b.we)("#Login_MobileFlow_SignIn_ScanQR"),
+				Localize("#Login_MobileFlow_SignIn_ScanQR"),
 			),
 		),
 		o.createElement(
@@ -843,7 +847,7 @@ function Z(e) {
 				className: I.MessagingButton,
 				onClick: () => e.setShowQR(true),
 			},
-			(0, b.we)("#Login_MobileFlow_ShowMeQR_Button"),
+			Localize("#Login_MobileFlow_ShowMeQR_Button"),
 		),
 		o.createElement(
 			"a",
@@ -851,7 +855,7 @@ function Z(e) {
 				href: `${S.TS.STORE_BASE_URL}mobile`,
 				className: I.MessagingLink,
 			},
-			(0, b.we)("#Login_JoinBeta_Button"),
+			Localize("#Login_JoinBeta_Button"),
 		),
 	);
 }
@@ -875,7 +879,7 @@ function Y(e) {
 			{
 				highlight: true,
 			},
-			(0, b.we)("#Login_SignIn_OrWithQRCode"),
+			Localize("#Login_SignIn_OrWithQRCode"),
 		),
 		o.createElement(
 			"div",
@@ -898,14 +902,14 @@ function Y(e) {
 					className: I.QRHideLink,
 					onClick: () => l(false),
 				},
-				(0, b.we)("#Button_Hide"),
+				Localize("#Button_Hide"),
 			),
 		o.createElement(
 			"div",
 			{
 				className: I.UseMobileAppForQR,
 			},
-			(0, b.oW)(
+			LocalizeInlineReactWithFallback(
 				"#Login_UseMobileAppForQR_Inline",
 				o.createElement(Be, {
 					href: `${S.TS.STORE_BASE_URL}mobile`,
@@ -1049,7 +1053,7 @@ function ne(e) {
 			{
 				...e,
 			},
-			(0, b.we)("#Login_SignIn"),
+			Localize("#Login_SignIn"),
 		),
 	);
 }
@@ -1065,7 +1069,7 @@ function ie() {
 				className: I.SubmitButton,
 				type: "submit",
 			},
-			(0, b.we)("#Login_SignIn"),
+			Localize("#Login_SignIn"),
 		),
 		o.createElement(
 			"button",
@@ -1073,7 +1077,7 @@ function ie() {
 				className: I.RefreshQuitButton,
 				onClick: () => SteamClient.User.StartShutdown(true),
 			},
-			(0, b.we)("#Login_ExitSteam"),
+			Localize("#Login_ExitSteam"),
 		),
 	);
 }
@@ -1139,7 +1143,7 @@ function le() {
 				{
 					className: (0, f.A)(I.Description),
 				},
-				(0, b.we)(
+				Localize(
 					S.TS.IN_STEAMUI
 						? "#Login_ConnectingToSteam"
 						: "#Login_LoadingAccountInfo",
@@ -1171,7 +1175,7 @@ function me(e) {
 				className: I.OfferOfflineButton,
 				onClick: e.onRequestOffline,
 			},
-			(0, b.we)("#Login_GoOffline_Button"),
+			Localize("#Login_GoOffline_Button"),
 		),
 	);
 }
@@ -1216,7 +1220,7 @@ function ue(e) {
 					{
 						className: I.FailureDescription,
 					},
-					(0, b.we)("#Login_GoOffline_Description"),
+					Localize("#Login_GoOffline_Description"),
 				),
 			o.createElement(
 				Ye,
@@ -1229,7 +1233,7 @@ function ue(e) {
 						className: I.TryAgainButton,
 						onClick: t,
 					},
-					(0, b.we)("#Button_Retry"),
+					Localize("#Button_Retry"),
 				),
 				c &&
 					o.createElement(me, {
@@ -1243,7 +1247,7 @@ function ue(e) {
 				{
 					className: I.MutedErrorReference,
 				},
-				(0, b.we)("#Login_Error_Reference", i),
+				Localize("#Login_Error_Reference", i),
 			),
 	);
 }
@@ -1260,39 +1264,39 @@ export function tP(e, t = "") {
 			};
 		case w.eF.Expired:
 			r = {
-				title: (0, b.we)("#Login_Error_Expired_Title"),
-				description: (0, b.we)("#Login_Error_Expired_Description"),
+				title: Localize("#Login_Error_Expired_Title"),
+				description: Localize("#Login_Error_Expired_Description"),
 			};
 			break;
 		case w.eF.Network:
 			r = {
-				title: (0, b.we)("#Login_Error_Network_Title"),
-				description: (0, b.we)("#Login_Error_Network_Description"),
+				title: Localize("#Login_Error_Network_Title"),
+				description: Localize("#Login_Error_Network_Description"),
 			};
 			break;
 		case w.eF.MoveAuthenticator:
 			r = {
-				title: (0, b.we)("#Error_Generic"),
-				description: (0, b.we)("#Login_Error_MoveAuthenticator_Description"),
+				title: Localize("#Error_Generic"),
+				description: Localize("#Login_Error_MoveAuthenticator_Description"),
 			};
 			break;
 		case w.eF.RateLimitExceeded:
 			r = {
-				title: (0, b.we)("#Login_Error_RateLimit_Title"),
-				description: (0, b.we)("#Login_Error_RateLimit_Description"),
+				title: Localize("#Login_Error_RateLimit_Title"),
+				description: Localize("#Login_Error_RateLimit_Description"),
 			};
 			break;
 		case w.eF.AnonymousLogin:
 			r = {
-				title: (0, b.we)("#Login_Error_Anonymous_Title"),
-				description: (0, b.we)("#Login_Error_Anonymous_Description"),
+				title: Localize("#Login_Error_Anonymous_Title"),
+				description: Localize("#Login_Error_Anonymous_Description"),
 			};
 			break;
 		case w.eF.Generic:
 		default:
 			r = {
-				title: (0, b.we)("#Error_Generic"),
-				description: (0, b.we)("#Login_Error_Default_Description"),
+				title: Localize("#Error_Generic"),
+				description: Localize("#Login_Error_Default_Description"),
 			};
 	}
 	if (t) {
@@ -1388,11 +1392,7 @@ function pe(e) {
 							gap: 2,
 						},
 						w &&
-							o.createElement(
-								oe,
-								null,
-								(0, b.we)("#Login_IncorrectSteamGuard"),
-							),
+							o.createElement(oe, null, Localize("#Login_IncorrectSteamGuard")),
 						o.createElement(Me, {
 							key: h,
 							value: l,
@@ -1425,7 +1425,7 @@ function pe(e) {
 							},
 							align: "center",
 						},
-						(0, b.we)(v),
+						Localize(v),
 					),
 				o.createElement(ge, {
 					type: t,
@@ -1443,10 +1443,10 @@ function ge(e) {
 	let r;
 	if (e.type === "mobile") {
 		t = `${S.TS.HELP_BASE_URL}wizard/HelpWithLoginInfo?lost=8&issueid=402`;
-		r = (0, b.we)("#Login_Help_AccessMobileApp");
+		r = Localize("#Login_Help_AccessMobileApp");
 	} else {
 		t = `${S.TS.HELP_BASE_URL}wizard/HelpWithSteamGuardCode`;
-		r = (0, b.we)("#Login_Help_AccessEmail");
+		r = Localize("#Login_Help_AccessEmail");
 	}
 	if (e.onCodeHelp) {
 		return o.createElement(
@@ -1484,14 +1484,14 @@ function he() {
 				{
 					className: I.EnterCodeFromMobile,
 				},
-				(0, b.we)("#Login_EnterBackupCode"),
+				Localize("#Login_EnterBackupCode"),
 			),
 			o.createElement(
 				"div",
 				{
 					className: I.Label,
 				},
-				(0, b.we)("#Login_EnterBackupCodeDescription"),
+				Localize("#Login_EnterBackupCodeDescription"),
 			),
 		),
 	);
@@ -1509,7 +1509,7 @@ function Ce() {
 			{
 				className: I.EnterCodeFromMobile,
 			},
-			(0, b.we)("#Login_EnterMobileCode"),
+			Localize("#Login_EnterMobileCode"),
 		),
 		o.createElement(gn, {
 			className: I.AwaitingMobileConfIcon,
@@ -1535,7 +1535,7 @@ function _e(e) {
 				{
 					className: I.EnterCodeFromEmail,
 				},
-				(0, b.PP)(
+				LocalizeReact(
 					"#Login_EnterEmailCode",
 					o.createElement(
 						"span",
@@ -1556,8 +1556,8 @@ function fe(e) {
 	const { accountName: t, type: r } = e;
 	const n =
 		r === "mobile"
-			? (0, b.we)("#Login_MobileProtectingAccount")
-			: (0, b.we)("#Login_EmailProtectingAccount");
+			? Localize("#Login_MobileProtectingAccount")
+			: Localize("#Login_EmailProtectingAccount");
 	const i = T();
 	return o.createElement(
 		"div",
@@ -1569,7 +1569,7 @@ function fe(e) {
 			{
 				className: I.Label,
 			},
-			(0, b.PP)(
+			LocalizeReact(
 				"#Login_ActiveAccountName",
 				o.createElement(
 					"span",
@@ -1609,7 +1609,7 @@ export function e5() {
 				{
 					className: I.AwaitingMobileConfText,
 				},
-				(0, b.oW)("#Login_AwaitingMobileConfirmation"),
+				LocalizeInlineReactWithFallback("#Login_AwaitingMobileConfirmation"),
 			),
 		),
 	);
@@ -1685,7 +1685,7 @@ function we(e) {
 						align: "center",
 						onClick: n,
 					},
-					(0, b.we)("#Login_EnterCodeInstead"),
+					Localize("#Login_EnterCodeInstead"),
 				),
 			)
 		: o.createElement(
@@ -1699,7 +1699,7 @@ function we(e) {
 						align: "center",
 						onClick: n,
 					},
-					(0, b.we)("#Login_EnterCodeInstead"),
+					Localize("#Login_EnterCodeInstead"),
 				),
 			);
 	return o.createElement(

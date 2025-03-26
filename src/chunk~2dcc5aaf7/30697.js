@@ -5,7 +5,7 @@ var s = require("./47628.js");
 var o = s;
 var l = require("./25752.js");
 var c = require(/*webcrack:missing*/ "./90765.js");
-require(/*webcrack:missing*/ "./46108.js");
+import("../../actual_src/utils/localization.js");
 var m = require(/*webcrack:missing*/ "./72476.js");
 export function p(e) {
 	const { tagid: t, className: r } = e;

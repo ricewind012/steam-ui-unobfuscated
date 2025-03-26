@@ -17,7 +17,10 @@ var _ = require(/*webcrack:missing*/ "./31084.js");
 var f = require(/*webcrack:missing*/ "./69164.js");
 var b = require("./6630.js");
 var y = require(/*webcrack:missing*/ "./88750.js");
-var S = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 var w = require("./13869.js");
 var B = require("./10606.js");
 var v = require("./22091.js");
@@ -151,8 +154,8 @@ const Q = (e) => {
 	};
 	const v =
 		t == q.Icon
-			? (0, S.we)("#ControllerConfigurator_IconPicker_Title")
-			: (0, S.we)("#ControllerConfigurator_IconPicker_PickColor_Title");
+			? (0, Localize)("#ControllerConfigurator_IconPicker_Title")
+			: (0, Localize)("#ControllerConfigurator_IconPicker_PickColor_Title");
 	return n.createElement(
 		B.eV,
 		{
@@ -218,8 +221,8 @@ const Q = (e) => {
 						},
 					},
 					g
-						? (0, S.we)("#Button_Done")
-						: (0, S.we)("#ControllerConfigurator_IconPicker_Next"),
+						? (0, Localize)("#Button_Done")
+						: (0, Localize)("#ControllerConfigurator_IconPicker_Next"),
 				),
 				n.createElement(
 					s.$n,
@@ -238,7 +241,7 @@ const Q = (e) => {
 						},
 						className: "Destructive",
 					},
-					(0, S.we)("#ControllerConfigurator_IconPicker_RemoveIcon"),
+					(0, Localize)("#ControllerConfigurator_IconPicker_RemoveIcon"),
 				),
 				n.createElement(
 					s.$n,
@@ -249,7 +252,9 @@ const Q = (e) => {
 						},
 						preferredFocus: !h,
 					},
-					p ? (0, S.we)("#Button_Cancel") : (0, S.we)("#ActionButtonLabelBack"),
+					p
+						? (0, Localize)("#Button_Cancel")
+						: (0, Localize)("#ActionButtonLabelBack"),
 				),
 			),
 		),
@@ -336,13 +341,17 @@ const Y = (e) => {
 				className: N.ColorPickers,
 			},
 			n.createElement(K, {
-				label: (0, S.we)("#ControllerConfigurator_IconPicker_ForegroundColor"),
+				label: (0, Localize)(
+					"#ControllerConfigurator_IconPicker_ForegroundColor",
+				),
 				colors: x,
 				selectedColor: e.foreground,
 				onColorChange: (t) => e.onColorChange && e.onColorChange(t, i),
 			}),
 			n.createElement(K, {
-				label: (0, S.we)("#ControllerConfigurator_IconPicker_BackgroundColor"),
+				label: (0, Localize)(
+					"#ControllerConfigurator_IconPicker_BackgroundColor",
+				),
 				colors: U,
 				selectedColor: e.background,
 				onColorChange: (t) => e.onColorChange && e.onColorChange(r, t),
@@ -362,7 +371,9 @@ const Y = (e) => {
 						highlightOnFocus: false,
 						bottomSeparator: "none",
 					},
-					(0, S.we)("#ControllerConfigurator_IconPicker_ResetToSystemTheme"),
+					(0, Localize)(
+						"#ControllerConfigurator_IconPicker_ResetToSystemTheme",
+					),
 				),
 		),
 	);
@@ -521,7 +532,7 @@ var re = require("./53225.js");
 var ne = require("./99452.js");
 var ie = require("./46396.js");
 var ae = require("./75140.js");
-var se = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var oe = require(/*webcrack:missing*/ "./11131.js");
 var le = require("./34792.js");
 var ce = require("./91703.js");
@@ -687,7 +698,7 @@ function _e(e) {
 				{
 					className: me.ContainerDiv,
 				},
-				(0, S.PP)(
+				LocalizeReact(
 					"#ControllerConfigurator_ChooseBinding_Listener",
 					n.createElement(he.W, {
 						button: ge.g4.B,
@@ -701,7 +712,7 @@ function _e(e) {
 var fe = require(/*webcrack:missing*/ "./49455.js");
 export const tG = new k.wd("ControllerConfigurator");
 function ye(e) {
-	return A.v3.FilterText((0, S.we)(e));
+	return A.v3.FilterText((0, Localize)(e));
 }
 export const ih = (0, l.PA)(function (e) {
 	const {
@@ -722,7 +733,7 @@ export const ih = (0, l.PA)(function (e) {
 	if (h && A.v3.EditingConfiguration?.error_msg?.length > 0) {
 		(0, w.pg)(
 			n.createElement(B.o0, {
-				strTitle: (0, S.we)("#ControllerConfigurator_ErrorMsg_Title"),
+				strTitle: (0, Localize)("#ControllerConfigurator_ErrorMsg_Title"),
 				strDescription: A.v3.EditingConfiguration?.error_msg,
 				bAlertDialog: true,
 			}),
@@ -839,7 +850,10 @@ export const Zm = (0, l.PA)(function (e) {
 	} = e;
 	const l = d.Dd[i].id;
 	const c = (0, d.ND)(l) ?? (0, g.Xt)(l);
-	const m = (0, S.we)("#ControllerConfigurator_SourceMode_Group_Behavior", c);
+	const m = (0, Localize)(
+		"#ControllerConfigurator_SourceMode_Group_Behavior",
+		c,
+	);
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -954,7 +968,7 @@ const Ie = (0, l.PA)(function (e) {
 	const Y = (0, s.Ld)(Z).find((e) => (0, d.QQ)(o, e.data))?.data;
 	if (!_ && Y) {
 		const e = {
-			label: (0, S.we)("#ControllerBinding_ModeShift_Create"),
+			label: (0, Localize)("#ControllerBinding_ModeShift_Create"),
 			data: {
 				eMode: Y.eMode,
 				bMutatedActionMode: true,
@@ -1027,10 +1041,10 @@ const Ie = (0, l.PA)(function (e) {
 		} else if ((0, g.kF)(e.data.eMode) && !e.data.modeid) {
 			((e) => {
 				const t = n.createElement(R.Qj, {
-					title: (0, S.we)(
+					title: (0, Localize)(
 						"#ControllerConfigurator_CreateVirtualMenuDialog_Title_1",
 					),
-					description: (0, S.we)(
+					description: (0, Localize)(
 						"#ControllerConfigurator_CreateVirtualMenuDialog_Description_1",
 					),
 					isValid: (e) => e.length != 0,
@@ -1052,7 +1066,7 @@ const Ie = (0, l.PA)(function (e) {
 				? e.friendlyname
 				: (0, d.GW)(d.k$[e?.mode]?.id);
 		const r = e
-			? (0, S.we)("#ControllerConfigurator_SourceMode_Layer_Title", t)
+			? (0, Localize)("#ControllerConfigurator_SourceMode_Layer_Title", t)
 			: undefined;
 		X(
 			(0, s.Ld)(Z).find((e) => (0, d.QQ)(k, e.data, (0, g.kF)(k.mode))),
@@ -1061,7 +1075,7 @@ const Ie = (0, l.PA)(function (e) {
 	};
 	const ee =
 		e.onSouthpawSwap != null
-			? (0, S.we)("#ControllerConfigurator_SourceMode_Swap_Left_With_Right")
+			? (0, Localize)("#ControllerConfigurator_SourceMode_Swap_Left_With_Right")
 			: undefined;
 	return n.createElement(
 		f.Z,
@@ -1082,10 +1096,10 @@ const Ie = (0, l.PA)(function (e) {
 				: null,
 			onSecondaryActionDescription: P
 				? j
-					? (0, S.we)(
+					? (0, Localize)(
 							"#ControllerConfigurator_SourceMode_Group_ConvertToEditable",
 						)
-					: (0, S.we)(
+					: (0, Localize)(
 							"#ControllerConfigurator_SourceMode_Group_RevertToInherited",
 						)
 				: null,
@@ -1175,7 +1189,7 @@ export const $W = (0, l.PA)(function (e) {
 	).sort((e, t) => ((0, g.S1)(e.key) > (0, g.S1)(t.key) ? 1 : -1));
 	const F = d.Dd[o]?.id;
 	const G = h
-		? (0, S.we)("#ControllerConfigurator_VirtualMenu_MenuType")
+		? (0, Localize)("#ControllerConfigurator_VirtualMenu_MenuType")
 		: ((0, d.ND)(F) ?? (0, g.Xt)(F));
 	const O = r
 		? t.source_bindings?.find((e) => e.key == o)?.active_group
@@ -1397,7 +1411,9 @@ export const $W = (0, l.PA)(function (e) {
 										u.StandardPlusIconButtonWidth,
 									),
 								},
-								(0, S.we)("#ControllerConfigurator_VirtualMenu_AddBindingSlot"),
+								(0, Localize)(
+									"#ControllerConfigurator_VirtualMenu_AddBindingSlot",
+								),
 							),
 						),
 						n.createElement(
@@ -1427,11 +1443,13 @@ export const $W = (0, l.PA)(function (e) {
 										u.StandardPlusIconButtonWidth,
 									),
 								},
-								(0, S.we)("#ControllerConfigurator_VirtualMenu_ReorderSlots"),
+								(0, Localize)(
+									"#ControllerConfigurator_VirtualMenu_ReorderSlots",
+								),
 							),
 						),
 						n.createElement(oW, {
-							label: (0, S.we)(
+							label: (0, Localize)(
 								"#ControllerConfigurator_Source_AdditionalCommands_Subheader_Title",
 							),
 						}),
@@ -1454,7 +1472,7 @@ export const Qr = (0, l.PA)(function (e) {
 	} = e;
 	const { int_value: g, int_min: h, int_max: C, toggle: f, choices: b } = t;
 	const w = a || (0, d.ix)(t.id);
-	const B = t.valueSuffixToken ? (0, S.we)(t.valueSuffixToken) : undefined;
+	const B = t.valueSuffixToken ? (0, Localize)(t.valueSuffixToken) : undefined;
 	const v =
 		t?.parentset_setting && t?.parentset_setting.int_value == t.int_value
 			? u.BindingFromParentSet
@@ -1491,7 +1509,7 @@ export const Qr = (0, l.PA)(function (e) {
 						disabled: !O,
 						onSelected: P,
 					},
-					(0, S.we)("#ResetToDefault"),
+					(0, Localize)("#ResetToDefault"),
 				),
 			);
 			(0, _.lX)(t, e);
@@ -1517,7 +1535,7 @@ export const Qr = (0, l.PA)(function (e) {
 			bottomSeparator: i,
 			onSecondaryButton: P,
 			onSecondaryActionDescription: O
-				? (0, S.we)("#ResetToDefault")
+				? (0, Localize)("#ResetToDefault")
 				: undefined,
 			onContextMenu: L,
 			disabled: p,
@@ -1548,7 +1566,7 @@ export const Qr = (0, l.PA)(function (e) {
 			bottomSeparator: i,
 			onSecondaryButton: P,
 			onSecondaryActionDescription: O
-				? (0, S.we)("#ResetToDefault")
+				? (0, Localize)("#ResetToDefault")
 				: undefined,
 			onContextMenu: L,
 			layout: A,
@@ -1595,8 +1613,8 @@ export const Qr = (0, l.PA)(function (e) {
 			layout: A,
 			disabled: p,
 			onOptionsActionDescription: N
-				? (0, S.we)("#ControllerSettingSlider_Coarse")
-				: (0, S.we)("#ControllerSettingSlider_Fine"),
+				? (0, Localize)("#ControllerSettingSlider_Coarse")
+				: (0, Localize)("#ControllerSettingSlider_Fine"),
 		});
 	}
 });
@@ -1794,7 +1812,7 @@ export const aK = (0, l.PA)(function (e) {
 								);
 							},
 						},
-						(0, S.we)(
+						(0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_AddActivator_Title",
 						),
 					),
@@ -1821,7 +1839,7 @@ export const aK = (0, l.PA)(function (e) {
 								})(r, d, l, p, h, k.length, C, b);
 							},
 						},
-						(0, S.we)(
+						(0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_RemoveAllActivators_Title",
 						),
 					),
@@ -1831,20 +1849,20 @@ export const aK = (0, l.PA)(function (e) {
 				n.createElement(
 					R.G,
 					{
-						title: (0, S.we)(
+						title: (0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_RenameGrouped_Activators_Title",
 						),
 						onResult: Y,
 					},
 					n.createElement(R.Qj, {
-						title: (0, S.we)(
+						title: (0, Localize)(
 							"#ControllerConfigurator_ActionSets_RenameVirtualMenuDialog_Title_1",
 							P?.key_binding_data?.friendly_name_utf8,
 						),
 						description: "",
 						isValid: () => true,
 						inputOptions: {
-							placeholder: (0, S.we)(
+							placeholder: (0, Localize)(
 								"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
 								P?.key_binding_data?.friendly_name_utf8,
 							),
@@ -1865,7 +1883,7 @@ export const aK = (0, l.PA)(function (e) {
 			{
 				className: (0, c.A)(u.ActivatorDesc, v && u.Minimal),
 			},
-			(0, S.we)("#ControllerConfigurator_Activators_Desc", k.length),
+			(0, Localize)("#ControllerConfigurator_Activators_Desc", k.length),
 		),
 	);
 	const J = (e, t) => {
@@ -1933,7 +1951,7 @@ export const aK = (0, l.PA)(function (e) {
 											}),
 											i,
 										);
-									})(0, r, q, (0, se.uX)(e)),
+									})(0, r, q, GetOwningWindowForEvent(e)),
 								className: (0, c.A)(u.BindingButton, u.BindingIconButton),
 								disabled: !H && !j,
 								noFocusRing: false,
@@ -2001,7 +2019,7 @@ function De(e) {
 			{
 				className: u.ActivatorDesc,
 			},
-			(0, S.we)("#ControllerConfigurator_Activator_SubCommand_Desc"),
+			(0, Localize)("#ControllerConfigurator_Activator_SubCommand_Desc"),
 		);
 	} else {
 		return n.createElement(
@@ -2009,7 +2027,7 @@ function De(e) {
 			{
 				className: u.ActivatorDesc,
 			},
-			(0, S.we)(
+			(0, Localize)(
 				r
 					? "#ControllerConfigurator_Activator_Command_Cycles_Desc"
 					: "#ControllerConfigurator_Activator_Command_Desc",
@@ -2226,7 +2244,7 @@ const Ne = (0, l.PA)(function (e) {
 					{
 						onSelected: ae,
 					},
-					(0, S.we)(
+					(0, Localize)(
 						"#ControllerConfigurator_Activator_ContextMenuItem_ActivatorSettings_Title",
 					),
 				),
@@ -2238,7 +2256,7 @@ const Ne = (0, l.PA)(function (e) {
 				n.createElement(
 					R.G,
 					{
-						title: (0, S.we)(
+						title: (0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_Rename_Title",
 						),
 						onResult: function (e) {
@@ -2263,14 +2281,14 @@ const Ne = (0, l.PA)(function (e) {
 						},
 					},
 					n.createElement(R.Qj, {
-						title: (0, S.we)(
+						title: (0, Localize)(
 							"#ControllerConfigurator_ActionSets_RenameVirtualMenuDialog_Title_1",
 							B?.bindings[i]?.key_binding_data?.friendly_name_utf8,
 						),
 						description: "",
 						isValid: () => true,
 						inputOptions: {
-							placeholder: (0, S.we)(
+							placeholder: (0, Localize)(
 								"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
 								B?.bindings[i]?.key_binding_data?.friendly_name_utf8,
 							),
@@ -2286,7 +2304,7 @@ const Ne = (0, l.PA)(function (e) {
 							ie(i);
 						},
 					},
-					(0, S.we)(
+					(0, Localize)(
 						"#ControllerConfigurator_Activator_ContextMenuItem_ResetToEmpty_Title",
 					),
 				),
@@ -2298,7 +2316,7 @@ const Ne = (0, l.PA)(function (e) {
 							X(i);
 						},
 					},
-					(0, S.we)(K(i)),
+					(0, Localize)(K(i)),
 				),
 			!q &&
 				!o &&
@@ -2345,7 +2363,7 @@ const Ne = (0, l.PA)(function (e) {
 								);
 							},
 						},
-						(0, S.we)(
+						(0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_AddActivator_Title",
 						),
 					),
@@ -2395,7 +2413,7 @@ const Ne = (0, l.PA)(function (e) {
 								);
 							},
 						},
-						(0, S.we)(
+						(0, Localize)(
 							"#ControllerConfigurator_Activator_ContextMenuItem_AddExtraBinding_Title",
 						),
 					),
@@ -2416,7 +2434,7 @@ const Ne = (0, l.PA)(function (e) {
 		});
 	};
 	const ae = (e) => {
-		let i = (0, se.uX)(e);
+		let i = GetOwningWindowForEvent(e);
 		A.v3.SetActiveInputActivator(B, $, l, L);
 		(0, w.pg)(
 			n.createElement(We, {
@@ -2512,7 +2530,7 @@ const Ne = (0, l.PA)(function (e) {
 							}
 							const r =
 								y?.controller_action?.action != e.key
-									? (0, S.we)(e.id)
+									? (0, Localize)(e.id)
 									: (0, g.JD)(y.controller_action, v, T);
 							return {
 								label: r ?? (0, g.Xt)(e.id),
@@ -2553,7 +2571,7 @@ const Ne = (0, l.PA)(function (e) {
 			return n.createElement(n.Fragment, null);
 		}
 		if (!L) {
-			Z = (0, S.we)(
+			Z = (0, Localize)(
 				"#ControllerConfigurator_Activator_ContextMenuItem_AddCommand_Title",
 			);
 		}
@@ -2688,7 +2706,7 @@ const Ne = (0, l.PA)(function (e) {
 										}),
 										i,
 									);
-								})(o, U, ce, (0, se.uX)(e)),
+								})(o, U, ce, GetOwningWindowForEvent(e)),
 							className: (0, c.A)(u.BindingButton, u.BindingIconButton, z),
 							disabled: !L && !q,
 							noFocusRing: false,
@@ -2725,7 +2743,7 @@ const Ne = (0, l.PA)(function (e) {
 						},
 						className: (0, c.A)(u.BindingButton, z, !L && u.AddBindingText),
 						onSecondaryButton: () => X(o),
-						onSecondaryActionDescription: V ? (0, S.we)(K(o)) : undefined,
+						onSecondaryActionDescription: V ? (0, Localize)(K(o)) : undefined,
 						onMenuButton: (e) =>
 							((e) => {
 								const a = {
@@ -2748,8 +2766,8 @@ const Ne = (0, l.PA)(function (e) {
 									e,
 									{},
 								);
-							})((0, se.uX)(e)),
-						onMenuActionDescription: (0, S.we)(
+							})(GetOwningWindowForEvent(e)),
+						onMenuActionDescription: (0, Localize)(
 							"#ControllerConfigurator_Listen",
 						),
 						preferredFocus: true,
@@ -2833,7 +2851,7 @@ function Oe(e) {
 		if (!r && i?.key_binding_data?.friendly_name_utf8) {
 			return n.createElement(Ge, {
 				friendlyName: i?.key_binding_data.friendly_name_utf8,
-				bindingLabel: (0, S.we)(o),
+				bindingLabel: (0, Localize)(o),
 			});
 		} else {
 			return n.createElement(n.Fragment, null, o);
@@ -2852,17 +2870,17 @@ function Oe(e) {
 					);
 				}
 			} else if (r) {
-				return n.createElement(n.Fragment, null, (0, S.we)(t.label));
+				return n.createElement(n.Fragment, null, (0, Localize)(t.label));
 			} else {
 				return n.createElement(Ge, {
 					friendlyName: i?.key_binding_data.friendly_name_utf8,
-					bindingLabel: (0, S.we)(t.label),
+					bindingLabel: (0, Localize)(t.label),
 				});
 			}
 		}
 		let e = typeof t.label == "string" ? t.label : undefined;
 		if (e?.charAt(0) == "#") {
-			return n.createElement(n.Fragment, null, (0, S.we)(t.label));
+			return n.createElement(n.Fragment, null, (0, Localize)(t.label));
 		} else {
 			return n.createElement(n.Fragment, null, t.label);
 		}
@@ -2992,7 +3010,7 @@ function We(e) {
 		n.createElement(
 			s.Y9,
 			null,
-			(0, S.we)(
+			(0, Localize)(
 				"#ControllerConfigurator_Input_Settings",
 				(0, d.bj)(d.VD[t?.activation]?.id),
 			),
@@ -3028,7 +3046,7 @@ function We(e) {
 						{
 							onClick: e.closeModal,
 						},
-						(0, S.we)("#Generic_Close"),
+						(0, Localize)("#Generic_Close"),
 					),
 				),
 			),
@@ -3101,7 +3119,7 @@ const Ve = (0, l.PA)(function (e) {
 			};
 		});
 	return n.createElement(re.o, {
-		title: (0, S.we)("#ControllerMode_ReorderInputs_Title"),
+		title: (0, Localize)("#ControllerMode_ReorderInputs_Title"),
 		items: p,
 		onMoveRelative: (e, t) => {
 			let r = m.findIndex((t) => t == e);
@@ -3116,10 +3134,10 @@ const Ve = (0, l.PA)(function (e) {
 			u(i);
 			return true;
 		},
-		onReorderActionDescription: (0, S.we)(
+		onReorderActionDescription: (0, Localize)(
 			"#ControllerMode_ReorderInputs_Reorder",
 		),
-		onStopReorderActionDescription: (0, S.we)(
+		onStopReorderActionDescription: (0, Localize)(
 			"#ControllerMode_ReorderInputs_StopReorder",
 		),
 		closeModal: () => {

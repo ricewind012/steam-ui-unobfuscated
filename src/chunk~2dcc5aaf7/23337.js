@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var _i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require("./70057.js");
 var s = require("./6561.js");
 export function o(e) {
@@ -60,15 +60,15 @@ export function i(e) {
 			{
 				className: a.ErrorDiv,
 			},
-			n.createElement("p", null, (0, _i.we)("#Image_ErrorTitle", l)),
+			n.createElement("p", null, Localize("#Image_ErrorTitle", l)),
 			n.createElement(
 				"ul",
 				null,
-				n.createElement("li", null, (0, _i.we)("#Image_Error_msg1")),
-				n.createElement("li", null, (0, _i.we)("#Image_Error_msg2")),
-				n.createElement("li", null, (0, _i.we)("#Image_Error_msg3")),
+				n.createElement("li", null, Localize("#Image_Error_msg1")),
+				n.createElement("li", null, Localize("#Image_Error_msg2")),
+				n.createElement("li", null, Localize("#Image_Error_msg3")),
 			),
-			n.createElement("p", null, (0, _i.we)("#Image_Error_suggestion")),
+			n.createElement("p", null, Localize("#Image_Error_suggestion")),
 		);
 	} else {
 		return n.createElement(s.o, {

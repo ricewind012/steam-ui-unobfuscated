@@ -21,7 +21,7 @@ var S = require("./13925.js");
 var w = require("./47356.js");
 var B = require("./46375.js");
 var v = require("./17386.js");
-var I = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var E = require(/*webcrack:missing*/ "./89193.js");
 var M = require("./52698.js");
 var T = require("./19840.js");
@@ -31,7 +31,7 @@ var D = require("./20326.js");
 var N = require("./81247.js");
 var F = require("./28351.js");
 var G = require("./57472.js");
-var O = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var P = require("./66943.js");
 var L = require("./25467.js");
 var z = require("./60517.js");
@@ -193,7 +193,7 @@ function Q() {
 				{
 					label: "Captive portal detected",
 					description: e.strCaptivePortalURL,
-					onClick: (e) => (0, C.Y)((0, I.uX)(e)),
+					onClick: (e) => (0, C.Y)(GetOwningWindowForEvent(e)),
 				},
 				"Open",
 			),
@@ -271,7 +271,7 @@ function Y() {
 			i.createElement(
 				s.$n,
 				{
-					onClick: (e) => (0, w.Qo)((0, I.uX)(e)),
+					onClick: (e) => (0, w.Qo)(GetOwningWindowForEvent(e)),
 				},
 				"Hardware Survey",
 			),
@@ -407,7 +407,7 @@ function ne(e) {
 		i.createElement(G.G, {
 			feature: 7,
 			setting: "gamescope_use_game_refresh_rate_in_steam",
-			label: (0, O.we)("#Settings_Developer_UseGameRefreshRateInSteam"),
+			label: (0, Localize)("#Settings_Developer_UseGameRefreshRateInSteam"),
 		}),
 		i.createElement(
 			s.BC,

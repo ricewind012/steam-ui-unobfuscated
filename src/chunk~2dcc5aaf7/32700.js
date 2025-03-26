@@ -1,4 +1,8 @@
-var n = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizationManager,
+	CLocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var i = require(/*webcrack:missing*/ "./44846.js");
 async function a(e) {
 	const t = [];
@@ -51,7 +55,7 @@ export async function Qu() {
 				...r,
 			};
 		}
-		n.pf.AddTokens(r);
+		LocalizationManager.AddTokens(r);
 	})(
 		(e) => VD(e),
 		(e) => CI(e),
@@ -59,7 +63,7 @@ export async function Qu() {
 }
 export async function uV(e) {
 	console.log("Init localization", e);
-	const t = n.A0.GetLanguageFallback(e);
+	const t = CLocalizationManager.GetLanguageFallback(e);
 	const r = e === t;
 	const [i, a, s, o, u] = await Promise.all([
 		VD(e),
@@ -68,8 +72,8 @@ export async function uV(e) {
 		r ? null : CI(t),
 		m(e),
 	]);
-	n.pf.InitFromObjects(i, a, s, o, true);
-	n.pf.AddTokens(u);
+	LocalizationManager.InitFromObjects(i, a, s, o, true);
+	LocalizationManager.AddTokens(u);
 }
 export function Bb(e, t) {
 	const r = t ? "#DisplayStatus_Compact_" : "#DisplayStatus_";
@@ -192,13 +196,13 @@ export function Bb(e, t) {
 		case 36:
 			i = "Terminating";
 	}
-	return (0, n.we)(r + i);
+	return (0, Localize)(r + i);
 }
 export function Np(e, t) {
 	const r = t > 1;
-	return (0, n.we)((r ? "#GameActionPlural_" : "#GameAction_") + e);
+	return (0, Localize)((r ? "#GameActionPlural_" : "#GameAction_") + e);
 }
 export function Qf() {
 	let e = (0, s.CH)();
-	(0, s.hL)(n.pf.GetTokensChangedCallbackList(), e);
+	(0, s.hL)(LocalizationManager.GetTokensChangedCallbackList(), e);
 }

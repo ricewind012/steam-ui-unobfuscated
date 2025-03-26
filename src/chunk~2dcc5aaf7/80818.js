@@ -1223,11 +1223,11 @@ var z;
 var x = require("./96000.js");
 var U = require("./34792.js");
 var W = require("./88244.js");
-var V = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var H = require(/*webcrack:missing*/ "./98995.js");
 var j = require("./10606.js");
 var q = require("./13869.js");
-var Q = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var Z = require(/*webcrack:missing*/ "./69164.js");
 var Y = require("./46621.js");
 var K = Y;
@@ -1247,14 +1247,14 @@ const re = (0, s.PA)(function (e) {
 			{
 				onSelected: () => n.Collection(t.id),
 			},
-			(0, V.we)("#GameDetails_CollectionContext_GoTo"),
+			(0, Localize)("#GameDetails_CollectionContext_GoTo"),
 		),
 		i.createElement(
 			d.kt,
 			{
 				onSelected: () => t.AsDragDropCollection().RemoveApps([r]),
 			},
-			(0, V.we)("#GameDetails_CollectionContext_Remove"),
+			(0, Localize)("#GameDetails_CollectionContext_Remove"),
 		),
 	);
 });
@@ -1268,7 +1268,7 @@ let ne = class extends i.Component {
 				{
 					onSelected: () => x.md.SetAppsAsHidden([this.props.app.appid], false),
 				},
-				(0, V.we)("#GameAction_RemoveFromHidden"),
+				(0, Localize)("#GameAction_RemoveFromHidden"),
 			),
 		);
 	}
@@ -1361,7 +1361,7 @@ export let xZ = class extends i.Component {
 					H.he,
 					{
 						nDelayShowMS: 10,
-						toolTipContent: (0, V.we)("#GameList_Category_Hidden_Tooltip"),
+						toolTipContent: (0, Localize)("#GameList_Category_Hidden_Tooltip"),
 						className: (0, c.A)(K.InCollection, K.InHidden),
 						key: e.appid,
 						onClick: (t) => this.ShowHiddenContextMenu(t, e),
@@ -1371,7 +1371,7 @@ export let xZ = class extends i.Component {
 							t.stopPropagation();
 						},
 					},
-					(0, V.we)("#GameList_Category_Hidden"),
+					(0, Localize)("#GameList_Category_Hidden"),
 				),
 			);
 			return t;
@@ -1418,7 +1418,7 @@ export let xZ = class extends i.Component {
 						{
 							onSelected: this.OnChangeHero,
 						},
-						(0, V.we)(
+						(0, Localize)(
 							this.is_hero_custom_image
 								? "#CustomArt_ClearCustomBackground"
 								: "#CustomArt_SetCustomBackground",
@@ -1429,7 +1429,7 @@ export let xZ = class extends i.Component {
 						{
 							onSelected: this.OnChangeLogo,
 						},
-						(0, V.we)(
+						(0, Localize)(
 							this.is_logo_custom_image
 								? "#CustomArt_ClearCustomLogo"
 								: "#CustomArt_SetCustomLogo",
@@ -1442,7 +1442,7 @@ export let xZ = class extends i.Component {
 							{
 								onSelected: this.OnToggleEditMode,
 							},
-							(0, V.we)("#CustomArt_EditLogoPosition"),
+							(0, Localize)("#CustomArt_EditLogoPosition"),
 						),
 					t &&
 						this.state.customLogoPosition &&
@@ -1452,7 +1452,7 @@ export let xZ = class extends i.Component {
 							{
 								onSelected: this.OnResetLogoPosition,
 							},
-							(0, V.we)("#CustomArt_ResetLogoPosition"),
+							(0, Localize)("#CustomArt_ResetLogoPosition"),
 						),
 				),
 				e,
@@ -1528,7 +1528,7 @@ export let xZ = class extends i.Component {
 		}
 	}
 	OnFileInputChange(e, t) {
-		const r = (0, Q.uX)(e);
+		const r = GetOwningWindowForEvent(e);
 		const n = e.target;
 		const a = n.files[0];
 		const s = a.type.match(/image\/(.+)/);
@@ -1539,12 +1539,12 @@ export let xZ = class extends i.Component {
 		if (o != "jpg" && o != "png") {
 			(0, q.pg)(
 				i.createElement(j.KG, {
-					strTitle: (0, V.we)("#CustomArt_ErrorTitle"),
-					strDescription: (0, V.we)("#CustomArt_BadFileType"),
+					strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
+					strDescription: (0, Localize)("#CustomArt_BadFileType"),
 				}),
 				r,
 				{
-					strTitle: (0, V.we)("#CustomArt_ErrorTitle"),
+					strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
 				},
 			);
 			return;
@@ -1566,12 +1566,12 @@ export let xZ = class extends i.Component {
 					console.log("Set artwork failed", e);
 					(0, q.pg)(
 						i.createElement(j.KG, {
-							strTitle: (0, V.we)("#CustomArt_ErrorTitle"),
-							strDescription: (0, V.we)("#CustomArt_UnknownError"),
+							strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
+							strDescription: (0, Localize)("#CustomArt_UnknownError"),
 						}),
 						r,
 						{
-							strTitle: (0, V.we)("#CustomArt_ErrorTitle"),
+							strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
 						},
 					);
 					n.value = null;
@@ -1725,7 +1725,7 @@ export function Gl(e) {
 						{
 							className: K.Text,
 						},
-						(0, V.we)("#Demo_Banner"),
+						(0, Localize)("#Demo_Banner"),
 					),
 				),
 			);
@@ -1761,7 +1761,7 @@ function le(e) {
 			bNavStop: true,
 			direction: "left",
 			nDelayShowMS: 10,
-			toolTipContent: (0, V.we)("#GameList_View_ThisCollection"),
+			toolTipContent: (0, Localize)("#GameList_View_ThisCollection"),
 			onClick: () => n.Collection(r.id),
 			onContextMenu: a,
 			className: K.InCollection,
@@ -1811,7 +1811,7 @@ class ce extends i.Component {
 							className: K.ExitEditModeButton,
 							onClick: this.props.onExitEditMode,
 						},
-						(0, V.we)("#CustomArt_DoneEditingLogo"),
+						(0, Localize)("#CustomArt_DoneEditingLogo"),
 					),
 				),
 		);

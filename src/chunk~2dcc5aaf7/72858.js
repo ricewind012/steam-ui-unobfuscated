@@ -3,7 +3,10 @@ import * as i from /*webcrack:missing*/ "./63696.js";
 import * as a from "./64608.js";
 import * as s from "./35488.js";
 import * as o from /*webcrack:missing*/ "./90765.js";
-import * as l from /*webcrack:missing*/ "./46108.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import * as c from "./74946.js";
 import * as m from "./34792.js";
 import * as u from "./83247.js";
@@ -64,7 +67,7 @@ function k() {
 			{
 				className: c.ExplainerContainer,
 			},
-			(0, l.we)(
+			Localize(
 				"#GamepadOverlay_GameRecording_RecordingDisabledRemotePlayExplainer",
 			),
 		),
@@ -89,7 +92,7 @@ function D() {
 			{
 				className: c.ExplainerContainer,
 			},
-			(0, l.we)(
+			Localize(
 				"#GamepadOverlay_GameRecording_RecordingDisabledBroadcastExplainer",
 			),
 		),
@@ -108,7 +111,7 @@ function N(e) {
 			{
 				className: c.ExplainerContainer,
 			},
-			(0, l.we)("#GamepadOverlay_GameRecording_NotRecordingExplainer"),
+			Localize("#GamepadOverlay_GameRecording_NotRecordingExplainer"),
 		),
 		i.createElement("div", {
 			className: c.Separator,
@@ -203,7 +206,7 @@ function O(e) {
 					{
 						className: c.ToggleButton,
 					},
-					(0, l.PP)(
+					LocalizeReact(
 						s
 							? "#GamepadOverlay_GameRecording_StopManualRecording"
 							: "#GamepadOverlay_GameRecording_StartManualRecording",
@@ -227,7 +230,7 @@ function O(e) {
 							},
 						}),
 				},
-				(0, l.we)("#GamepadOverlay_GameRecording_GoToSettings_GameRecording"),
+				Localize("#GamepadOverlay_GameRecording_GoToSettings_GameRecording"),
 			),
 		i.createElement(
 			a.$n,
@@ -244,7 +247,7 @@ function O(e) {
 						},
 					}),
 			},
-			(0, l.we)("#GamepadOverlay_GameRecording_GoToMedia"),
+			Localize("#GamepadOverlay_GameRecording_GoToMedia"),
 		),
 		i.createElement(P, {
 			strSettingPage: "GameRecording",
@@ -262,7 +265,7 @@ function P(e) {
 			className: c.RecordingButton,
 			onClick: () => n.Settings(r),
 		},
-		(0, l.we)(`#GamepadOverlay_GameRecording_GoToSettings_${r}`),
+		Localize(`#GamepadOverlay_GameRecording_GoToSettings_${r}`),
 	);
 }
 function L(e) {
@@ -278,7 +281,7 @@ function L(e) {
 			{
 				className: c.ExplainerText,
 			},
-			(0, l.we)("#GamepadOverlay_GameRecording_ToggleRecordingExplainer"),
+			Localize("#GamepadOverlay_GameRecording_ToggleRecordingExplainer"),
 		),
 		i.createElement(C.Gn, {
 			binding: {
@@ -310,7 +313,7 @@ function z(e) {
 			{
 				className: c.ExplainerText,
 			},
-			(0, l.we)("#GamepadOverlay_GameRecording_ClipExplainer"),
+			Localize("#GamepadOverlay_GameRecording_ClipExplainer"),
 		),
 		i.createElement(C.Gn, {
 			binding: {
@@ -342,7 +345,7 @@ function x(e) {
 			{
 				className: c.ExplainerText,
 			},
-			(0, l.PP)(
+			LocalizeReact(
 				"#GamepadOverlay_GameRecording_AddMarkerExplainer",
 				i.createElement(u.Od, {
 					className: c.AddMarker,
@@ -378,7 +381,7 @@ function U(e) {
 				className: c.RecordingStateCircle,
 			},
 			i.createElement(u.jl, null),
-			(0, l.we)("#GamepadOverlay_GameRecording_RecordingStateExplainer"),
+			Localize("#GamepadOverlay_GameRecording_RecordingStateExplainer"),
 		),
 	);
 }
@@ -455,9 +458,7 @@ export function ManualRecordingToggle(e) {
 				className: c.QuickSettingContainer,
 			},
 			i.createElement(a.y4, {
-				label: (0, l.we)(
-					"#QuickAccess_Tab_GameRecording_ManualRecordingToggle",
-				),
+				label: Localize("#QuickAccess_Tab_GameRecording_ManualRecordingToggle"),
 				checked: r === undefined,
 				onChange: () => s(),
 				icon: i.createElement(u.vN, {
@@ -467,7 +468,7 @@ export function ManualRecordingToggle(e) {
 					),
 				}),
 				className: c.ManualRecordingToggle,
-				explainer: (0, l.we)(
+				explainer: Localize(
 					"#QuickAccess_Tab_GameRecording_ManualRecordingToggle_Explainer",
 				),
 			}),
@@ -486,7 +487,7 @@ export function BackgroundRecordingQuickSetting(e) {
 		i.createElement(
 			a.xh,
 			{
-				label: (0, l.we)(
+				label: Localize(
 					"#QuickAccess_Tab_GameRecording_BackgroundRecordingSetting",
 				),
 				onClick: () => t.Settings("GameRecording"),

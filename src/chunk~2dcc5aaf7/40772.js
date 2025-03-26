@@ -2,7 +2,10 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./44846.js");
 var s = require(/*webcrack:missing*/ "./28987.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import {
+	CLocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./53807.js");
 var c = require(/*webcrack:missing*/ "./72476.js");
 var m = require(/*webcrack:missing*/ "./52451.js");
@@ -144,17 +147,25 @@ function h(e) {
 	const { track: t, rgVideoTracks: r } = e;
 	let n = t.eLanguage;
 	if ((0, c.Y2)()) {
-		if (o.A0.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmChina)) {
-			n = o.A0.GetELanguageFallback(n);
+		if (
+			CLocalizationManager.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmChina)
+		) {
+			n = CLocalizationManager.GetELanguageFallback(n);
 		} else {
 			if (n !== 6) {
 				return null;
 			}
-			if (r.find((e) => o.A0.GetELanguageFallback(e.eLanguage) === n)) {
+			if (
+				r.find(
+					(e) => CLocalizationManager.GetELanguageFallback(e.eLanguage) === n,
+				)
+			) {
 				return null;
 			}
 		}
-	} else if (!o.A0.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmGlobal)) {
+	} else if (
+		!CLocalizationManager.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmGlobal)
+	) {
 		return null;
 	}
 	return i.createElement("track", {
@@ -162,6 +173,6 @@ function h(e) {
 		kind: t.sKind,
 		default: t.bDefault,
 		srcLang: (0, a.ww)(n),
-		label: (0, o.we)("#language_selection_" + (0, a.Lg)(n)),
+		label: (0, Localize)("#language_selection_" + (0, a.Lg)(n)),
 	});
 }

@@ -21,7 +21,14 @@ var S = require("./83718.js");
 var w = require("./22176.js");
 var B = require(/*webcrack:missing*/ "./63696.js");
 var v = require("./64608.js");
-var I = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeRtime32ToShorterDate,
+	CLocalizationManager,
+	LocalizeDateHumanReadable,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var E = require("./17231.js");
 var M = require("./68608.js");
 var T = require(/*webcrack:missing*/ "./90095.js");
@@ -75,7 +82,7 @@ function D(e) {
 			{
 				className: R.Welcome,
 			},
-			(0, I.we)("#BroadcastFirstTime_Welcome"),
+			(0, Localize)("#BroadcastFirstTime_Welcome"),
 		),
 		B.createElement(
 			"div",
@@ -89,7 +96,7 @@ function D(e) {
 			B.createElement(
 				"div",
 				null,
-				(0, I.PP)(
+				LocalizeReact(
 					"#BroadcastFirstTime_Requestor",
 					B.createElement(M.A, {
 						persona: c,
@@ -110,7 +117,7 @@ function D(e) {
 				{
 					className: R.SettingsHeader,
 				},
-				(0, I.we)("#BroadcastFirstTime_Settings_Header"),
+				(0, Localize)("#BroadcastFirstTime_Settings_Header"),
 			),
 			B.createElement(
 				k,
@@ -119,7 +126,7 @@ function D(e) {
 					selected: o,
 					onSelected: l,
 				},
-				(0, I.we)("#BroadcastPrivacy_Disabled"),
+				(0, Localize)("#BroadcastPrivacy_Disabled"),
 			),
 			B.createElement(
 				k,
@@ -128,7 +135,7 @@ function D(e) {
 					selected: o,
 					onSelected: l,
 				},
-				(0, I.we)("#BroadcastPrivacy_FriendsApprove"),
+				(0, Localize)("#BroadcastPrivacy_FriendsApprove"),
 			),
 			B.createElement(
 				k,
@@ -137,7 +144,7 @@ function D(e) {
 					selected: o,
 					onSelected: l,
 				},
-				(0, I.we)("#BroadcastPrivacy_FriendsAllowed"),
+				(0, Localize)("#BroadcastPrivacy_FriendsAllowed"),
 			),
 			B.createElement(
 				k,
@@ -146,7 +153,7 @@ function D(e) {
 					selected: o,
 					onSelected: l,
 				},
-				(0, I.we)("#BroadcastPrivacy_Public"),
+				(0, Localize)("#BroadcastPrivacy_Public"),
 			),
 		),
 		B.createElement(
@@ -154,7 +161,7 @@ function D(e) {
 			{
 				className: R.Defaults,
 			},
-			(0, I.we)("#BroadcastFirstTime_Default"),
+			(0, Localize)("#BroadcastFirstTime_Default"),
 		),
 		B.createElement(
 			"div",
@@ -166,7 +173,7 @@ function D(e) {
 				{
 					href: "https://support.steampowered.com/kb_article.php?ref=6730-TOAK-6497",
 				},
-				(0, I.we)("#BroadcastFirstTime_FAQ"),
+				(0, Localize)("#BroadcastFirstTime_FAQ"),
 			),
 			B.createElement(
 				v.$n,
@@ -174,7 +181,7 @@ function D(e) {
 					className: R.OKButton,
 					onClick: u,
 				},
-				(0, I.we)("#Button_OK"),
+				(0, Localize)("#Button_OK"),
 			),
 		),
 	);
@@ -214,7 +221,7 @@ function Q(e) {
 			{
 				onClick: () => n(!r),
 			},
-			(0, I.we)("#SoundtrackControls_Browse"),
+			(0, Localize)("#SoundtrackControls_Browse"),
 		),
 		r &&
 			B.createElement(K, {
@@ -263,7 +270,7 @@ function X(e) {
 			B.createElement(W.Q38, {
 				className: H.Icon,
 			}),
-			(0, I.we)("#SoundtrackControls_OverlayLibrary_Back"),
+			(0, Localize)("#SoundtrackControls_OverlayLibrary_Back"),
 		),
 		B.createElement(j.gR, {
 			overview: t,
@@ -291,7 +298,7 @@ function J(e) {
 			},
 			B.createElement(v.Yh, {
 				className: H.Checkbox,
-				label: (0, I.we)("#SoundtrackControls_OverlayLibrary_Installed"),
+				label: (0, Localize)("#SoundtrackControls_OverlayLibrary_Installed"),
 				checked: n,
 				onChange: i,
 			}),
@@ -317,7 +324,7 @@ function re(e) {
 			if (e.result === 29) {
 				r();
 			} else {
-				i((0, I.we)("#AIContentReport_Error", e.result));
+				i((0, Localize)("#AIContentReport_Error", e.result));
 			}
 		},
 		[r],
@@ -331,7 +338,7 @@ function re(e) {
 		{
 			closeModal: r,
 		},
-		B.createElement(v.Y9, null, (0, I.we)("#AIContentReport_Title")),
+		B.createElement(v.Y9, null, (0, Localize)("#AIContentReport_Title")),
 		B.createElement(
 			v.f3,
 			{
@@ -347,7 +354,7 @@ function re(e) {
 					},
 					n,
 				),
-				B.createElement("div", null, (0, I.we)("#AIContentReport_Text")),
+				B.createElement("div", null, (0, Localize)("#AIContentReport_Text")),
 				B.createElement("textarea", {
 					className: $.ReportText,
 					value: a,
@@ -359,7 +366,7 @@ function re(e) {
 				null,
 				B.createElement(v.CB, {
 					onOK: c,
-					strOKText: (0, I.we)("#Button_Submit"),
+					strOKText: (0, Localize)("#Button_Submit"),
 					onCancel: r,
 				}),
 			),
@@ -390,11 +397,14 @@ var we = require("./13869.js");
 var Be = require(/*webcrack:missing*/ "./27773.js");
 var ve = require(/*webcrack:missing*/ "./98995.js");
 var Ie = require(/*webcrack:missing*/ "./90765.js");
-var Ee = require(/*webcrack:missing*/ "./54644.js");
-var Me = require(/*webcrack:missing*/ "./11010.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	LocalizeTimeSince,
+	ETimeSinceSuffix,
+} from "../../actual_src/utils/localization/datetime.js";
 var Te = require("./34428.js");
 var Re = require(/*webcrack:missing*/ "./52451.js");
-var ke = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 var De = require("./78055.js");
 var Ne = require("./32792.js");
 var Fe = require("./5808.js");
@@ -513,7 +523,7 @@ function at(e) {
 		null,
 		r &&
 			B.createElement(it, {
-				title: (0, I.we)("#AppOverlay_GameOverview_FriendsInGame"),
+				title: (0, Localize)("#AppOverlay_GameOverview_FriendsInGame"),
 				friends: r,
 			}),
 	);
@@ -526,7 +536,7 @@ function st(e) {
 		null,
 		r &&
 			B.createElement(it, {
-				title: (0, I.we)("#AppOverlay_GameOverview_FriendsRecentlyPlayed"),
+				title: (0, Localize)("#AppOverlay_GameOverview_FriendsRecentlyPlayed"),
 				friends: r,
 			}),
 	);
@@ -586,7 +596,7 @@ function lt(e) {
 		null,
 		B.createElement(ot, {
 			appid: t,
-			title: (0, I.we)("#AppOverlay_GameOverview_FavoriteGuides"),
+			title: (0, Localize)("#AppOverlay_GameOverview_FavoriteGuides"),
 			useGuidesQuery: ze.zg,
 		}),
 	);
@@ -598,7 +608,7 @@ function ct(e) {
 		null,
 		B.createElement(ot, {
 			appid: t,
-			title: (0, I.we)("#AppOverlay_GameOverview_TopGuides"),
+			title: (0, Localize)("#AppOverlay_GameOverview_TopGuides"),
 			useGuidesQuery: ze.a,
 		}),
 	);
@@ -649,7 +659,7 @@ function ut(e) {
 		return B.createElement(
 			nt,
 			{
-				title: (0, I.we)("#AppOverlay_GameOverview_YourScreenshots"),
+				title: (0, Localize)("#AppOverlay_GameOverview_YourScreenshots"),
 				icon: B.createElement(ye.Screenshot, null),
 				bContainChildren: true,
 				onClick: s,
@@ -687,7 +697,7 @@ function dt(e) {
 			{
 				className: w.UnlockTime,
 			},
-			(0, I._l)(t.rtUnlocked),
+			LocalizeRtime32ToShorterDate(t.rtUnlocked),
 		),
 		B.createElement(
 			"div",
@@ -749,7 +759,7 @@ function At(e) {
 	return B.createElement(
 		nt,
 		{
-			title: (0, I.we)("#AppOverlay_GameOverview_YourAchievements"),
+			title: (0, Localize)("#AppOverlay_GameOverview_YourAchievements"),
 			icon: B.createElement(ye.SteamAchievements, null),
 			bContainChildren: true,
 			onClick: a,
@@ -780,7 +790,7 @@ function pt(e) {
 	return B.createElement(
 		nt,
 		{
-			title: (0, I.we)("#AppOverlay_GameOverview_Playtime"),
+			title: (0, Localize)("#AppOverlay_GameOverview_Playtime"),
 			icon: B.createElement(ye.Clock, null),
 			bContainChildren: true,
 		},
@@ -821,7 +831,7 @@ function gt(e) {
 			{
 				className: w.PostedTime,
 			},
-			(0, I._l)(t.GetPostTimeAndDateUnixSeconds()),
+			LocalizeRtime32ToShorterDate(t.GetPostTimeAndDateUnixSeconds()),
 		),
 	);
 }
@@ -834,7 +844,7 @@ function ht(e) {
 				Xe.O3.Init();
 				return await Xe.O3.LoadAdjacentPartnerEvents(null, null, e, 0, 3);
 			},
-			staleTime: ke.Kp.PerDay * 1 * 1000,
+			staleTime: Seconds.PerDay * 1 * 1000,
 		});
 	})(t);
 	const n = rt() - 2592000;
@@ -854,7 +864,7 @@ function ht(e) {
 		return B.createElement(
 			nt,
 			{
-				title: (0, I.we)("#AppOverlay_GameOverview_RecentNews"),
+				title: (0, Localize)("#AppOverlay_GameOverview_RecentNews"),
 				icon: B.createElement(ye.StoreNews, null),
 				onClick: s,
 			},
@@ -893,7 +903,7 @@ function Ct(e) {
 	return B.createElement(
 		nt,
 		{
-			title: (0, I.we)("#AppOverlay_GameOverview_Players"),
+			title: (0, Localize)("#AppOverlay_GameOverview_Players"),
 			bContainChildren: true,
 			icon: B.createElement(W.Yb3, null),
 			onClick: s,
@@ -936,7 +946,7 @@ function Ct(e) {
 					className: w.ViewPlayersBtn,
 					onClick: s,
 				},
-				(0, I.we)("#AppOverlay_GameOverview_Players_View"),
+				(0, Localize)("#AppOverlay_GameOverview_Players_View"),
 			),
 		),
 	);
@@ -980,7 +990,7 @@ const _t = (0, be.Nr)((e) => {
 				{
 					className: w.OverviewTitle,
 				},
-				(0, I.we)("#AppOverlay_GameOverview_Title"),
+				(0, Localize)("#AppOverlay_GameOverview_Title"),
 			),
 			s?.document?.head &&
 				B.createElement(
@@ -1127,14 +1137,14 @@ function wt(e) {
 					{
 						value: 0,
 					},
-					(0, I.we)("#AppOverlay_Clock_ClockTab"),
+					(0, Localize)("#AppOverlay_Clock_ClockTab"),
 				),
 				B.createElement(
 					v.a,
 					{
 						value: 1,
 					},
-					(0, I.we)("#AppOverlay_Clock_TimerTab"),
+					(0, Localize)("#AppOverlay_Clock_TimerTab"),
 				),
 			),
 		),
@@ -1203,7 +1213,7 @@ function Bt(e) {
 				{
 					className: ft.ResizeTextLabel,
 				},
-				(0, I.we)("#AppOverlay_Clock_ResizeLabel"),
+				(0, Localize)("#AppOverlay_Clock_ResizeLabel"),
 			),
 			B.createElement(v.Kc, {
 				className: ft.ClockResizeSlider,
@@ -1277,7 +1287,7 @@ function vt(e) {
 					ve.he,
 					{
 						className: ft.Icon,
-						toolTipContent: (0, I.we)("#AppOverlay_Timer_Repeat"),
+						toolTipContent: (0, Localize)("#AppOverlay_Timer_Repeat"),
 					},
 					B.createElement(ye.Repeat, null),
 				),
@@ -1300,7 +1310,7 @@ function vt(e) {
 					ve.he,
 					{
 						className: ft.Icon,
-						toolTipContent: (0, I.we)("#AppOverlay_Timer_Reset"),
+						toolTipContent: (0, Localize)("#AppOverlay_Timer_Reset"),
 					},
 					B.createElement(ye.ResetTimer, null),
 				),
@@ -1316,7 +1326,7 @@ function vt(e) {
 						ve.he,
 						{
 							className: ft.Icon,
-							toolTipContent: (0, I.we)("#AppOverlay_Timer_Pause"),
+							toolTipContent: (0, Localize)("#AppOverlay_Timer_Pause"),
 						},
 						B.createElement(ye.Pause, null),
 					),
@@ -1341,7 +1351,7 @@ function vt(e) {
 						ve.he,
 						{
 							className: ft.Icon,
-							toolTipContent: (0, I.we)("#AppOverlay_Timer_Start"),
+							toolTipContent: (0, Localize)("#AppOverlay_Timer_Start"),
 						},
 						B.createElement(ye.Play, null),
 					),
@@ -1366,9 +1376,9 @@ function It(e) {
 	d[2] = B.useRef(undefined);
 	const A = B.useRef(undefined);
 	const p = [
-		(0, I.we)("#AppOverlay_Timer_Label_Hours"),
-		(0, I.we)("#AppOverlay_Timer_Label_Minutes"),
-		(0, I.we)("#AppOverlay_Timer_Label_Seconds"),
+		(0, Localize)("#AppOverlay_Timer_Label_Hours"),
+		(0, Localize)("#AppOverlay_Timer_Label_Minutes"),
+		(0, Localize)("#AppOverlay_Timer_Label_Seconds"),
 	];
 	B.useEffect(() => {
 		if (l && A.current !== undefined) {
@@ -1398,7 +1408,7 @@ function It(e) {
 				{
 					className: ft.Colon,
 				},
-				(0, I.we)("#AppOverlay_Timer_TimeSeparator"),
+				(0, Localize)("#AppOverlay_Timer_TimeSeparator"),
 			),
 			B.createElement(
 				"span",
@@ -1728,7 +1738,7 @@ function Ot(e) {
 				{
 					className: Rt.DurationControlStartupContents,
 				},
-				(0, I.we)("#SteamChina_Overlay_DurationControl_Init"),
+				(0, Localize)("#SteamChina_Overlay_DurationControl_Init"),
 			),
 		),
 		c,
@@ -1757,7 +1767,7 @@ function Wt() {
 				} catch {}
 				let n = null;
 				try {
-					const i = I.A0.GetLanguageFallback(e);
+					const i = CLocalizationManager.GetLanguageFallback(e);
 					if (i != e) {
 						n = await require("./41809.js")(`./steampops_${i}.json`);
 						for (const [e, r] of Object.entries(n)) {
@@ -1850,7 +1860,7 @@ function qt(e) {
 			if (typeof e != "string") {
 				e = e.popid;
 			}
-			return (0, I.we)("#SDRPOPID_GenericCode", e);
+			return (0, Localize)("#SDRPOPID_GenericCode", e);
 		} else {
 			return "";
 		}
@@ -1916,25 +1926,25 @@ function Yt(e) {
 	}, [s]);
 	let l = "#OverlayNetworkStatus_IPShared_LearnMoreTooltip";
 	if (t.ip_was_shared_with_nonfriend) {
-		o = (0, I.we)("#OverlayNetworkStatus_IPShared_Yes");
+		o = (0, Localize)("#OverlayNetworkStatus_IPShared_Yes");
 	} else if (t.ip_was_shared_with_friend) {
-		o = (0, I.we)("#OverlayNetworkStatus_IPShared_Friends");
+		o = (0, Localize)("#OverlayNetworkStatus_IPShared_Friends");
 	} else {
 		o = B.createElement(
 			B.Fragment,
 			null,
 			false,
-			(0, I.we)("#OverlayNetworkStatus_IPShared_No"),
+			(0, Localize)("#OverlayNetworkStatus_IPShared_No"),
 		);
 		l = "#OverlayNetworkStatus_IPShared_NoLearnMoreTooltip";
 	}
 	let c = null;
 	c =
 		t.active_connections == 0
-			? (0, I.we)("#OverlayNetworkStatus_NoActiveConnections")
+			? (0, Localize)("#OverlayNetworkStatus_NoActiveConnections")
 			: t.active_connections == 1 && a
 				? null
-				: (0, I.we)(
+				: (0, Localize)(
 						"#OverlayNetworkStatus_NumActiveConnections",
 						t.active_connections,
 					);
@@ -1974,10 +1984,10 @@ function Yt(e) {
 			"span",
 			{
 				className: w.PingReduced,
-				title: (0, I.we)("#OverlayNetworkStatus_PingImprovedTooltip"),
+				title: (0, Localize)("#OverlayNetworkStatus_PingImprovedTooltip"),
 			},
 			" ",
-			(0, I.we)("#OverlayNetworkStatus_PingImproved", r),
+			(0, Localize)("#OverlayNetworkStatus_PingImproved", r),
 		);
 	}
 	const A = y.B7.BuildSteamURL("HelpFAQ", "1433-AD20-F11D-B71E");
@@ -2015,25 +2025,25 @@ function Yt(e) {
 				B.createElement(
 					"span",
 					{
-						title: (0, I.we)("#OverlayNetworkStatus_ServerProtectedBySDR"),
+						title: (0, Localize)("#OverlayNetworkStatus_ServerProtectedBySDR"),
 					},
 					B.createElement(ye.SDR, null),
 				),
-				(0, I.PP)("#OverlayNetworkStatus_ConnectedToGameserverIn", m),
+				LocalizeReact("#OverlayNetworkStatus_ConnectedToGameserverIn", m),
 				":",
 				B.createElement(
 					"span",
 					{
 						className: (0, Ie.A)(w.PingMS, p),
-						title: (0, I.we)("#OverlayNetworkStatus_PingTooltip"),
+						title: (0, Localize)("#OverlayNetworkStatus_PingTooltip"),
 					},
-					(0, I.we)("#OverlayNetworkStatus_Ping", h),
+					(0, Localize)("#OverlayNetworkStatus_Ping", h),
 				),
 				B.createElement(
 					"span",
 					{
 						className: (0, Ie.A)(w.Loss, g),
-						title: (0, I.we)("#OverlayNetworkStatus_LossTooltip"),
+						title: (0, Localize)("#OverlayNetworkStatus_LossTooltip"),
 					},
 					C,
 					"%",
@@ -2050,7 +2060,7 @@ function Yt(e) {
 						"span",
 						null,
 						" ",
-						(0, I.PP)("#OverlayNetworkStatus_ViaRelay", u),
+						LocalizeReact("#OverlayNetworkStatus_ViaRelay", u),
 					),
 				d,
 			),
@@ -2072,9 +2082,9 @@ function Yt(e) {
 				"span",
 				{
 					className: w.IPShareLearnMore,
-					title: (0, I.we)(l),
+					title: (0, Localize)(l),
 					onClick: (e) => {
-						(0, Ee.uX)(e).location.href = A;
+						GetOwningWindowForEvent(e).location.href = A;
 					},
 				},
 				B.createElement(ye.Question, null),
@@ -2229,12 +2239,12 @@ function or(e) {
 				className: (0, Ie.A)(ar.ParentalPlaytime, r, i <= t && ar.Warning),
 				...n,
 			},
-			(0, I.we)("#Parental_PlaytimeRemaining", u),
+			(0, Localize)("#Parental_PlaytimeRemaining", u),
 			s &&
 				B.createElement(
 					te.hM,
 					{
-						strTitle: (0, I.we)("#FamilyView_RequestPlaytime_Title"),
+						strTitle: (0, Localize)("#FamilyView_RequestPlaytime_Title"),
 						popupWidth: 500,
 						popupHeight: 350,
 						onDismiss: p,
@@ -2570,7 +2580,7 @@ function Er(e) {
 				{
 					className: w.GameName,
 				},
-				(0, I.we)("#AppOverlay_BackToGame", n?.display_name),
+				(0, Localize)("#AppOverlay_BackToGame", n?.display_name),
 			),
 			B.createElement(
 				"div",
@@ -2592,7 +2602,7 @@ function Mr(e) {
 	const r = (0, l.hj)();
 	const n = (function () {
 		const e = (0, l.j1)();
-		return (0, I.TW)(e.getTime() / 1000);
+		return LocalizeDateHumanReadable(e.getTime() / 1000);
 	})();
 	const i = fr();
 	const a = (0, T.q3)(() => i.time_session_start);
@@ -2602,11 +2612,11 @@ function Mr(e) {
 		: "#AppOverlay_ExitGame";
 	B.useEffect(() => {
 		const e = () => {
-			const e = (0, ke._2)();
+			const e = GetUnixTime();
 			const t = Math.floor((e - a) / 60);
-			const r = (0, I.we)(
+			const r = (0, Localize)(
 				"#AppOverlay_Playtime_ThisSession",
-				(0, I.we)("#Played_Minutes", t),
+				(0, Localize)("#Played_Minutes", t),
 			);
 			o(r);
 		};
@@ -2665,13 +2675,19 @@ function Mr(e) {
 			{
 				className: w.ExitGameBtn,
 				onClick: (e) => {
-					const r = (0, Fe.jy)("Stop", t, "selected", 100, (0, Ee.uX)(e));
+					const r = (0, Fe.jy)(
+						"Stop",
+						t,
+						"selected",
+						100,
+						GetOwningWindowForEvent(e),
+					);
 					if (r) {
 						r();
 					}
 				},
 			},
-			(0, I.we)(c),
+			(0, Localize)(c),
 		),
 	);
 }
@@ -2682,10 +2698,10 @@ function Tr(e) {
 		return null;
 	}
 	let n = Math.max(0, r.unSecondsAllowed - r.unSecondsPlayed);
-	let i = (0, I.we)(
+	let i = (0, Localize)(
 		"#AppOverlay_TimedTrial_Remaining",
-		(0, Me.Hq)(n, {
-			eSuffix: Me.a8.Remaining,
+		LocalizeTimeSince(n, {
+			eSuffix: ETimeSinceSuffix.Remaining,
 			bForceSingleUnits: false,
 			bHighGranularity: false,
 		}),
@@ -2871,7 +2887,7 @@ function Nr(e) {
 		}
 	}, [t, r]);
 	const i = Hr();
-	const a = (0, I.we)(
+	const a = (0, Localize)(
 		r
 			? "#AppOverlay_Toolbar_RestoreMinimizeWindows"
 			: "#AppOverlay_Toolbar_MinimizeWindows",
@@ -2986,7 +3002,7 @@ const Fr = B.forwardRef(function (e, t) {
 					{
 						className: w.ToolbarToolTip,
 					},
-					(0, I.we)(u.tooltipToken),
+					(0, Localize)(u.tooltipToken),
 				),
 			),
 			h,
@@ -3000,7 +3016,7 @@ const Fr = B.forwardRef(function (e, t) {
 					{
 						className: w.ToolbarToolTip,
 					},
-					(0, I.we)(u.tooltipToken),
+					(0, Localize)(u.tooltipToken),
 				),
 				direction: "bottom",
 				nBodyAlignment: 0.5,
@@ -3141,10 +3157,14 @@ function zr(e) {
 			{
 				className: w.NewBadge,
 			},
-			(0, I.we)("#RecordingOverlayHint_New"),
+			(0, Localize)("#RecordingOverlayHint_New"),
 		),
-		B.createElement(Ur, null, (0, I.we)("#RecordingIntro_Short_FeatureName")),
-		B.createElement(Wr, null, (0, I.we)("#RecordingOverlayHint_Desc")),
+		B.createElement(
+			Ur,
+			null,
+			(0, Localize)("#RecordingIntro_Short_FeatureName"),
+		),
+		B.createElement(Wr, null, (0, Localize)("#RecordingOverlayHint_Desc")),
 		B.createElement(
 			v.jn,
 			{
@@ -3153,7 +3173,7 @@ function zr(e) {
 					t();
 				},
 			},
-			(0, I.we)("#RecordingOverlayHint_GetStarted"),
+			(0, Localize)("#RecordingOverlayHint_GetStarted"),
 		),
 	);
 }
@@ -3373,12 +3393,12 @@ export function Tk(e) {
 			onRequestClose: t,
 			hideArrow: true,
 		},
-		B.createElement(Ur, null, (0, I.we)("#Overlay_ClipHint_Title")),
-		B.createElement(Wr, null, (0, I.we)("#Overlay_ClipHint_1")),
+		B.createElement(Ur, null, (0, Localize)("#Overlay_ClipHint_Title")),
+		B.createElement(Wr, null, (0, Localize)("#Overlay_ClipHint_1")),
 		B.createElement(
 			Wr,
 			null,
-			(0, I.PP)(
+			LocalizeReact(
 				"#Overlay_ClipHint_2",
 				B.createElement(
 					"span",
@@ -3387,7 +3407,7 @@ export function Tk(e) {
 							fontWeight: 600,
 						},
 					},
-					(0, I.we)("#Overlay_ClipHint_2_Link"),
+					(0, Localize)("#Overlay_ClipHint_2_Link"),
 				),
 				B.createElement(
 					"span",
@@ -3410,14 +3430,14 @@ export function Tk(e) {
 				{
 					onClick: r,
 				},
-				(0, I.we)("#Overlay_ClipHint_View"),
+				(0, Localize)("#Overlay_ClipHint_View"),
 			),
 			B.createElement(
 				v.$n,
 				{
 					onClick: t,
 				},
-				(0, I.we)("#Button_Got_It"),
+				(0, Localize)("#Button_Got_It"),
 			),
 		),
 	);
@@ -3570,10 +3590,12 @@ const $r = (0, be.Nr)((e) => {
 			if (a.current) {
 				(0, we.pg)(
 					B.createElement(te.o0, {
-						strTitle: (0, I.we)("#Overlay_MicroTxnCancelDlgTitle"),
-						strDescription: (0, I.we)("#Overlay_MicroTxnCancelDlgText"),
-						strOKButtonText: (0, I.we)("#Overlay_MicroTxnCancelDlgOK"),
-						strCancelButtonText: (0, I.we)("#Overlay_MicroTxnCancelDlgCancel"),
+						strTitle: (0, Localize)("#Overlay_MicroTxnCancelDlgTitle"),
+						strDescription: (0, Localize)("#Overlay_MicroTxnCancelDlgText"),
+						strOKButtonText: (0, Localize)("#Overlay_MicroTxnCancelDlgOK"),
+						strCancelButtonText: (0, Localize)(
+							"#Overlay_MicroTxnCancelDlgCancel",
+						),
 						onOK: A,
 						onCancel: () => i.current.Browser.SetVisible(true),
 					}),
@@ -3737,14 +3759,14 @@ function rn(e) {
 					{
 						className: w.Title,
 					},
-					(0, I.we)("#BroadcastControl_Title"),
+					(0, Localize)("#BroadcastControl_Title"),
 				),
 				B.createElement(
 					"div",
 					{
 						className: w.ViewerCount,
 					},
-					(0, I.Yp)("#BroadcastControl_Viewers", l?.nViewers || 0),
+					LocalizePlural("#BroadcastControl_Viewers", l?.nViewers || 0),
 				),
 				B.createElement(
 					"div",
@@ -3756,28 +3778,28 @@ function rn(e) {
 						{
 							onClick: () => o(),
 						},
-						(0, I.we)("#BroadcastControl_Button_Watch"),
+						(0, Localize)("#BroadcastControl_Button_Watch"),
 					),
 					B.createElement(
 						v.$n,
 						{
 							onClick: u,
 						},
-						(0, I.we)("#BroadcastControl_Button_OpenChat"),
+						(0, Localize)("#BroadcastControl_Button_OpenChat"),
 					),
 					B.createElement(
 						v.$n,
 						{
 							onClick: () => r.ShowSettings("Broadcast"),
 						},
-						(0, I.we)("#BroadcastControl_Button_Settings"),
+						(0, Localize)("#BroadcastControl_Button_Settings"),
 					),
 					B.createElement(
 						v.$n,
 						{
 							onClick: () => SteamClient.Broadcast.StopBroadcasting(),
 						},
-						(0, I.we)("#BroadcastControl_Button_StopBroadcast"),
+						(0, Localize)("#BroadcastControl_Button_StopBroadcast"),
 					),
 				),
 			),
@@ -3810,7 +3832,7 @@ function nn(e) {
 			S.rG,
 			{
 				strName: "BroadcastChat",
-				title: (0, I.we)("#BroadcastChat_Title_Viewers", o?.nViewers),
+				title: (0, Localize)("#BroadcastChat_Title_Viewers", o?.nViewers),
 				updateParamsBeforeShow: a,
 				bUseSavedDimensions: true,
 				onClose: m,
@@ -3861,7 +3883,7 @@ function an(e) {
 			S.rG,
 			{
 				strName: "BroadcastFirstTime",
-				title: (0, I.we)("#BroadcastFirstTime_Title"),
+				title: (0, Localize)("#BroadcastFirstTime_Title"),
 				updateParamsBeforeShow: a,
 				bUseSavedDimensions: true,
 				onClose: m,
@@ -4224,10 +4246,10 @@ function pn(e) {
 				else {
 					(0, we.pg)(
 						B.createElement(te.KG, {
-							strTitle: (0, I.we)(
+							strTitle: (0, Localize)(
 								"#AppOverlay_GameNotes_CloudSync_Error_Title",
 							),
-							strDescription: (0, I.we)(
+							strDescription: (0, Localize)(
 								"#AppOverlay_GameNotes_CloudSync_Error_Desc",
 							),
 						}),
@@ -4262,13 +4284,13 @@ function pn(e) {
 							te.o0,
 							{
 								bAlertDialog: true,
-								strTitle: (0, I.we)("#AppOverlay_GameNotes_Quota_Title"),
+								strTitle: (0, Localize)("#AppOverlay_GameNotes_Quota_Title"),
 							},
 							B.createElement(
 								v.D0,
 								{
-									label: (0, I.we)("#AppOverlay_GameNotes_Quota_Storage"),
-									description: (0, I.we)(
+									label: (0, Localize)("#AppOverlay_GameNotes_Quota_Storage"),
+									description: (0, Localize)(
 										"#AppOverlay_GameNotes_Quota_Storage_Desc",
 									),
 								},
@@ -4277,8 +4299,8 @@ function pn(e) {
 							B.createElement(
 								v.D0,
 								{
-									label: (0, I.we)("#AppOverlay_GameNotes_Quota_NumFiles"),
-									description: (0, I.we)(
+									label: (0, Localize)("#AppOverlay_GameNotes_Quota_NumFiles"),
+									description: (0, Localize)(
 										"#AppOverlay_GameNotes_Quota_NumFiles_Desc",
 									),
 								},
@@ -4448,7 +4470,7 @@ function hn(e) {
 			s.current,
 			Cr.Uv.GamepadUI,
 			{
-				title: (0, I.we)("#SP_WindowTitle_Configurator", a),
+				title: (0, Localize)("#SP_WindowTitle_Configurator", a),
 				dimensions: {
 					width: 1280,
 					height: 800,

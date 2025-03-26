@@ -6,7 +6,10 @@ var o = require("./46422.js");
 var l = require(/*webcrack:missing*/ "./90095.js");
 var c = require("./34792.js");
 var m = require("./51517.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+} from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./61416.js");
 var A = require(/*webcrack:missing*/ "./72476.js");
 var p = require("./78057.js");
@@ -154,13 +157,13 @@ export function d5(e) {
 	return (0, m.M)({
 		bCloseOnOK: true,
 		onOK: s,
-		strTitle: (0, u.we)("#TurnOnGPUAccel_Title"),
-		strDescription: (0, u.oW)(
+		strTitle: (0, Localize)("#TurnOnGPUAccel_Title"),
+		strDescription: LocalizeInlineReactWithFallback(
 			"#TurnOnGPUAccel_Description",
 			n.createElement("p", null),
 			n.createElement("p", null),
 		),
-		strOKButtonText: (0, u.we)("#TurnOnGPUAccel_AcceptAndRestart"),
+		strOKButtonText: (0, Localize)("#TurnOnGPUAccel_AcceptAndRestart"),
 		className: e,
 	});
 }

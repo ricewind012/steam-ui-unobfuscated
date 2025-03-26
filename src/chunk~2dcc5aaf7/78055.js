@@ -2,8 +2,8 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./35488.js");
 var s = require(/*webcrack:missing*/ "./49455.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
-var l = require(/*webcrack:missing*/ "./11010.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
 var c = require("./10606.js");
 var m = require("./43599.js");
 var u = require("./48289.js");
@@ -36,7 +36,7 @@ function C(e) {
 			{
 				className: A.Details,
 			},
-			(0, l.R2)(Math.floor(t.timePlayed)),
+			LocalizeTimeRemaining(Math.floor(t.timePlayed)),
 		),
 	);
 }
@@ -56,21 +56,21 @@ function _(e) {
 				{
 					className: A.Header,
 				},
-				(0, o.we)("#GameInfoDialog_PlayerName"),
+				(0, Localize)("#GameInfoDialog_PlayerName"),
 			),
 			n.createElement(
 				"div",
 				{
 					className: A.Header,
 				},
-				(0, o.we)("#GameInfoDialog_PlayerScore"),
+				(0, Localize)("#GameInfoDialog_PlayerScore"),
 			),
 			n.createElement(
 				"div",
 				{
 					className: A.Header,
 				},
-				(0, o.we)("#GameInfoDialog_PlayerTime"),
+				(0, Localize)("#GameInfoDialog_PlayerTime"),
 			),
 			r.map((e, t) =>
 				n.createElement(C, {
@@ -102,7 +102,7 @@ function f(e) {
 	}
 	let u = null;
 	if (r.bSecure !== undefined && r.bHadSuccessfulResponse) {
-		u = (0, o.we)(
+		u = (0, Localize)(
 			r.bSecure
 				? "#GameInfoDialog_ValveAntiCheat_Secure"
 				: "#GameInfoDialog_ValveAntiCheat_NotSecure",
@@ -117,7 +117,7 @@ function f(e) {
 			{
 				className: A.PingFailed,
 			},
-			(0, o.we)("#GameInfoDialog_Latency_Failed"),
+			(0, Localize)("#GameInfoDialog_Latency_Failed"),
 			" ",
 		);
 	}
@@ -127,14 +127,14 @@ function f(e) {
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_ServerName"),
+				label: (0, Localize)("#GameInfoDialog_ServerName"),
 			},
 			r.name,
 		),
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_ServerIPText"),
+				label: (0, Localize)("#GameInfoDialog_ServerIPText"),
 				focusable: true,
 			},
 			n.createElement(i.pd, {
@@ -147,7 +147,7 @@ function f(e) {
 			n.createElement(
 				i.D0,
 				{
-					label: (0, o.we)("#GameInfoDialog_Password"),
+					label: (0, Localize)("#GameInfoDialog_Password"),
 					focusable: true,
 				},
 				n.createElement(i.pd, {
@@ -160,14 +160,14 @@ function f(e) {
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_Map"),
+				label: (0, Localize)("#GameInfoDialog_Map"),
 			},
 			c,
 		),
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_Players"),
+				label: (0, Localize)("#GameInfoDialog_Players"),
 			},
 			m,
 		),
@@ -175,21 +175,21 @@ function f(e) {
 			n.createElement(
 				i.D0,
 				{
-					label: (0, o.we)("#GameInfoDialog_BotPlayers"),
+					label: (0, Localize)("#GameInfoDialog_BotPlayers"),
 				},
 				r.botPlayers,
 			),
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_ValveAntiCheat"),
+				label: (0, Localize)("#GameInfoDialog_ValveAntiCheat"),
 			},
 			u,
 		),
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_Latency"),
+				label: (0, Localize)("#GameInfoDialog_Latency"),
 			},
 			p,
 		),
@@ -213,7 +213,7 @@ function b(e) {
 		n.createElement(
 			i.D0,
 			{
-				label: (0, o.we)("#GameInfoDialog_GameName"),
+				label: (0, Localize)("#GameInfoDialog_GameName"),
 			},
 			s,
 		),
@@ -221,7 +221,7 @@ function b(e) {
 			n.createElement(
 				i.D0,
 				{
-					label: (0, o.we)("#GameInfoDialog_Status"),
+					label: (0, Localize)("#GameInfoDialog_Status"),
 				},
 				a,
 			),
@@ -239,28 +239,28 @@ function y(e) {
 	const a = (0, p.hf)();
 	const s = [
 		{
-			label: (0, o.we)("#GameInfoDialog_AutoRetry_None"),
+			label: (0, Localize)("#GameInfoDialog_AutoRetry_None"),
 			data: "None",
 		},
 		{
-			label: (0, o.we)("#GameInfoDialog_AutoRetry_Alert"),
+			label: (0, Localize)("#GameInfoDialog_AutoRetry_Alert"),
 			data: "AutoRetryAlert",
 		},
 		{
-			label: (0, o.we)("#GameInfoDialog_AutoRetry_AutoJoin"),
+			label: (0, Localize)("#GameInfoDialog_AutoRetry_AutoJoin"),
 			data: "AutoRetryJoin",
 		},
 	];
 	let l = null;
 	switch (r) {
 		case "AutoRetryAlert":
-			l = (0, o.we)("#GameInfoDialog_AutoRetry_Alert_Desc");
+			l = (0, Localize)("#GameInfoDialog_AutoRetry_Alert_Desc");
 			break;
 		case "AutoRetryJoin":
-			l = (0, o.we)("#GameInfoDialog_AutoRetry_AutoJoin_Desc");
+			l = (0, Localize)("#GameInfoDialog_AutoRetry_AutoJoin_Desc");
 	}
 	return n.createElement(i.Vb, {
-		label: (0, o.we)("#GameInfoDialog_AutoRetry"),
+		label: (0, Localize)("#GameInfoDialog_AutoRetry"),
 		contextMenuPositionOptions: {
 			bMatchWidth: !a,
 		},
@@ -314,7 +314,7 @@ function S(e) {
 				t.ClearConnectAttemptStatus();
 				(0, g.pg)(
 					n.createElement(c.KG, {
-						strDescription: (0, o.we)(e),
+						strDescription: (0, Localize)(e),
 					}),
 					r,
 				);
@@ -347,9 +347,9 @@ function S(e) {
 	});
 	let R = "";
 	if (C) {
-		R = (0, o.we)("#GameInfoDialog_GameInfo", C);
+		R = (0, Localize)("#GameInfoDialog_GameInfo", C);
 	} else if (t.gameServerItem?.ip) {
-		R = (0, o.we)(
+		R = (0, Localize)(
 			"#GameInfoDialog_GameInfo",
 			t.gameServerItem.ip + ":" + t.gameServerItem.port,
 		);
@@ -360,7 +360,7 @@ function S(e) {
 		);
 	}
 	let k = false;
-	let D = (0, o.we)("#GameInfoDialog_Refresh");
+	let D = (0, Localize)("#GameInfoDialog_Refresh");
 	if (B) {
 		k = true;
 		D = n.createElement("span", null, n.createElement(a.Spinner, null), " ", D);
@@ -399,9 +399,9 @@ function S(e) {
 			f &&
 				n.createElement(i.VQ, {
 					onOK: E,
-					strOKText: (0, o.we)("#GameInfoDialog_JoinGame"),
+					strOKText: (0, Localize)("#GameInfoDialog_JoinGame"),
 					onCancel: M,
-					strCancelText: (0, o.we)("#GameInfoDialog_Close"),
+					strCancelText: (0, Localize)("#GameInfoDialog_Close"),
 					onUpdate: T,
 					strUpdateText: D,
 					bUpdateDisabled: k,
@@ -412,7 +412,7 @@ function S(e) {
 					strOKText: D,
 					bOKDisabled: k,
 					onCancel: M,
-					strCancelText: (0, o.we)("#GameInfoDialog_Close"),
+					strCancelText: (0, Localize)("#GameInfoDialog_Close"),
 				}),
 		),
 	);

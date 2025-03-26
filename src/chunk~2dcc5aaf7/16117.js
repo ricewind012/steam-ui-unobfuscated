@@ -15,7 +15,7 @@ var h = require("./40772.js");
 var C = require(/*webcrack:missing*/ "./50376.js");
 var _ = require(/*webcrack:missing*/ "./98995.js");
 var f = require(/*webcrack:missing*/ "./90765.js");
-var b = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var y = require(/*webcrack:missing*/ "./53807.js");
 var S = require(/*webcrack:missing*/ "./43691.js");
 var w = require(/*webcrack:missing*/ "./24546.js");
@@ -363,7 +363,7 @@ export const W4 = new Map([
 							className: i.ExpandSectionHeader,
 							onClick: () => n(!r),
 						},
-						(0, b.we)(r ? l.expanded : l.collapsed),
+						Localize(r ? l.expanded : l.collapsed),
 						c.createElement(
 							"div",
 							{
@@ -721,7 +721,7 @@ export function dC(e) {
 			className: (0, f.A)(i.Spoiler, t && i.Revealed),
 			focusable: true,
 			onActivate: n,
-			onOKActionDescription: (0, b.we)(
+			onOKActionDescription: Localize(
 				t ? "#Bbcode_Spoiler_Hide" : "#Bbcode_Spoiler_Show",
 			),
 		},
@@ -835,7 +835,7 @@ export function Pk(e) {
 				{
 					className: i.QuoteAuthor,
 				},
-				(0, b.we)("#Bbcode_Originally_Posted_By") + " ",
+				Localize("#Bbcode_Originally_Posted_By") + " ",
 				" ",
 				c.createElement("b", null, t + ":"),
 			),

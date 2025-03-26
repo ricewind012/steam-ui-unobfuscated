@@ -8,7 +8,7 @@ var c = require("./96538.js");
 var m = require("./46066.js");
 var u = require("./82301.js");
 var d = require(/*webcrack:missing*/ "./90095.js");
-var A = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 const p = "badge";
 const g = "community_items";
 class h {
@@ -55,7 +55,7 @@ class h {
 		if (t) {
 			this.m_mapBadgeData.set(e, {
 				...t,
-				dtNextRetry: Date.now() + A.Kp.PerHour * 1000,
+				dtNextRetry: Date.now() + Seconds.PerHour * 1000,
 			});
 		}
 		let r = o.B7.ResolveURL("SteamIDBadgeInfo", e);

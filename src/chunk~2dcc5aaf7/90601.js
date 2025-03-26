@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./83957.js");
 var a = i;
 var s = require(/*webcrack:missing*/ "./89193.js");
 var o = require(/*webcrack:missing*/ "./49455.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require(/*webcrack:missing*/ "./72476.js");
 class m {
 	constructor() {
@@ -79,7 +79,7 @@ export class i6 {
 		if (e.size > this.m_Callbacks.GetMaxFileSizeMB() * 1024 * 1024) {
 			this.SetUploadFileError(
 				4,
-				(0, l.we)(
+				Localize(
 					"#Chat_Settings_Error_ChatFileTooLarge_dynamic",
 					i,
 					this.m_Callbacks.GetMaxFileSizeMB(),
@@ -103,7 +103,7 @@ export class i6 {
 		) {
 			this.SetUploadFileError(
 				5,
-				(0, l.we)("#Chat_Settings_Error_ChatFileTypeNotSupported", i),
+				Localize("#Chat_Settings_Error_ChatFileTypeNotSupported", i),
 			);
 			return;
 		}
@@ -122,7 +122,7 @@ export class i6 {
 		if (e.size > this.m_Callbacks.GetMaxFileSizeMB() * 1024 * 1024) {
 			this.SetUploadFileError(
 				4,
-				(0, l.we)(
+				Localize(
 					"#Chat_Settings_Error_ChatFileTooLarge_dynamic",
 					r,
 					this.m_Callbacks.GetMaxFileSizeMB(),
@@ -136,7 +136,7 @@ export class i6 {
 		} else {
 			this.SetUploadFileError(
 				5,
-				(0, l.we)("#Chat_Settings_Error_ChatFileTypeNotSupported", r),
+				Localize("#Chat_Settings_Error_ChatFileTypeNotSupported", r),
 			);
 		}
 	}
@@ -195,7 +195,7 @@ export class i6 {
 			if (e != 1 || !t) {
 				this.SetUploadFileError(
 					3,
-					(0, l.we)("#Chat_Settings_Error_ExportFailed"),
+					Localize("#Chat_Settings_Error_ExportFailed"),
 				);
 				return new Response();
 			}
@@ -252,8 +252,8 @@ export class i6 {
 					this.LogFileUploadMessage(t);
 					r = e?.message
 						? e?.message
-						: (0, l.we)("#Chat_Settings_Error_ServerError");
-					this.m_fileUploadProps.strErrorDescription = (0, l.we)(
+						: Localize("#Chat_Settings_Error_ServerError");
+					this.m_fileUploadProps.strErrorDescription = Localize(
 						"#Chat_Upload_ErrorStart",
 						r,
 					);
@@ -267,10 +267,10 @@ export class i6 {
 			this.m_fileUploadProps.hmac = e.hmac;
 			return this.DoFileUpload(e.result);
 		} catch (e) {
-			let t = e || (0, l.we)("#ConnectionTrouble_FailedToConnect");
+			let t = e || Localize("#ConnectionTrouble_FailedToConnect");
 			(0, s.h5)(() => {
 				this.m_fileUploadProps.eUploadState = 3;
-				this.m_fileUploadProps.strErrorDescription = (0, l.we)(
+				this.m_fileUploadProps.strErrorDescription = Localize(
 					"#Chat_Upload_ErrorStart",
 					t,
 				);
@@ -308,7 +308,7 @@ export class i6 {
 		} catch (t) {
 			this.LogFileUploadMessage(t.response);
 			(0, s.h5)(() => {
-				this.m_fileUploadProps.strErrorDescription = (0, l.we)(
+				this.m_fileUploadProps.strErrorDescription = Localize(
 					"#Chat_Upload_ErrorCloud",
 				);
 				this.m_fileUploadProps.eUploadState = 3;
@@ -377,9 +377,9 @@ export class i6 {
 					}
 					n = e.message
 						? e.message
-						: (0, l.we)("#Chat_Settings_Error_ServerError");
+						: Localize("#Chat_Settings_Error_ServerError");
 				} else {
-					n = (0, l.we)("#ConnectionTrouble_FailedToConnect");
+					n = Localize("#ConnectionTrouble_FailedToConnect");
 				}
 				this.m_fileUploadProps.strErrorDescription = `Failed to commit upload: ${n}`;
 				if (this.m_onComplete) {

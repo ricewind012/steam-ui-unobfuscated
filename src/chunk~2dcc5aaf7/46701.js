@@ -1,7 +1,7 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require(/*webcrack:missing*/ "./42318.js");
 var a = require(/*webcrack:missing*/ "./50376.js");
-var s = require(/*webcrack:missing*/ "./54644.js");
+import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
 export const Nm = n.createContext({});
 const l = () => n.useContext(Nm);
 export function x_(e) {
@@ -27,7 +27,7 @@ function m(e) {
 		};
 		t = (e) => {
 			if (e) {
-				if (!s.id(e, e.ownerDocument.activeElement)) {
+				if (!BIsParentOrSelf(e, e.ownerDocument.activeElement)) {
 					e.focus();
 				}
 			}

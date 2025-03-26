@@ -8,7 +8,10 @@ var c = require("./92564.js");
 var m = require("./54747.js");
 var u = require(/*webcrack:missing*/ "./63696.js");
 var d = require(/*webcrack:missing*/ "./41230.js");
-var A = require(/*webcrack:missing*/ "./54644.js");
+import {
+	CopyTextToClipboard,
+	GetOwningWindowForEvent,
+} from "../../actual_src/utils/domutils.js";
 var _p = require(/*webcrack:missing*/ "./83957.js");
 var g = _p;
 var h = require(/*webcrack:missing*/ "./89193.js");
@@ -133,7 +136,10 @@ function B(e) {
 }
 var v = require(/*webcrack:missing*/ "./52451.js");
 var I = require("./64608.js");
-var E = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var M = require("./7822.js");
 var T = M;
 var R = require(/*webcrack:missing*/ "./50376.js");
@@ -201,7 +207,7 @@ class D extends u.Component {
 				1000,
 			);
 		}
-		(0, A.OG)(t);
+		CopyTextToClipboard(t);
 	}
 	async OnAddFriend(e) {
 		const t = new FormData();
@@ -246,7 +252,7 @@ class D extends u.Component {
 				{
 					className: T.HeaderBlock,
 				},
-				(0, E.we)("#ManageFriends_AddAFriend"),
+				(0, Localize)("#ManageFriends_AddAFriend"),
 			),
 			u.createElement(
 				"div",
@@ -258,7 +264,7 @@ class D extends u.Component {
 					{
 						className: T.Heading,
 					},
-					(0, E.we)("#ManageFriends_YourFriendCode"),
+					(0, Localize)("#ManageFriends_YourFriendCode"),
 				),
 				u.createElement(
 					"div",
@@ -280,8 +286,8 @@ class D extends u.Component {
 							onClick: () => this.OnCopy("friend_code", String(y.iA.accountid)),
 						},
 						this.state.friend_code_copied
-							? (0, E.we)("#ManageFriends_Copied")
-							: (0, E.we)("#ManageFriends_Copy"),
+							? (0, Localize)("#ManageFriends_Copied")
+							: (0, Localize)("#ManageFriends_Copy"),
 					),
 				),
 				u.createElement(
@@ -289,11 +295,11 @@ class D extends u.Component {
 					{
 						className: T.Body,
 					},
-					(0, E.we)("#ManageFriends_EnterFriendCode"),
+					(0, Localize)("#ManageFriends_EnterFriendCode"),
 				),
 				u.createElement(N, {
 					onButtonClick: this.OnAddFriend,
-					buttonText: (0, E.we)("#ManageFriends_SendInvite"),
+					buttonText: (0, Localize)("#ManageFriends_SendInvite"),
 					bDisableForSelf: true,
 					bDisableForFriends: true,
 					bShowStatus: true,
@@ -309,21 +315,21 @@ class D extends u.Component {
 					{
 						className: T.Heading,
 					},
-					(0, E.we)("#ManageFriends_OrSendQuickInvite"),
+					(0, Localize)("#ManageFriends_OrSendQuickInvite"),
 				),
 				u.createElement(
 					"p",
 					{
 						className: T.Body,
 					},
-					(0, E.we)("#ManageFriends_QuickInviteDescription"),
+					(0, Localize)("#ManageFriends_QuickInviteDescription"),
 				),
 				u.createElement(
 					"p",
 					{
 						className: T.Body,
 					},
-					(0, E.we)("#ManageFriends_QuickInviteNote"),
+					(0, Localize)("#ManageFriends_QuickInviteNote"),
 				),
 				u.createElement(
 					"div",
@@ -345,8 +351,8 @@ class D extends u.Component {
 							onClick: () => this.OnCopy("invite", e),
 						},
 						this.state.invite_copied
-							? (0, E.we)("#ManageFriends_Copied")
-							: (0, E.we)("#ManageFriends_Copy"),
+							? (0, Localize)("#ManageFriends_Copied")
+							: (0, Localize)("#ManageFriends_Copy"),
 					),
 				),
 				u.createElement(
@@ -355,7 +361,7 @@ class D extends u.Component {
 						className: T.GenerateLinkButton,
 						onClick: this.OnCreateInviteLink,
 					},
-					(0, E.we)("#ManageFriends_CreateInviteLink"),
+					(0, Localize)("#ManageFriends_CreateInviteLink"),
 				),
 			),
 			u.createElement(
@@ -368,7 +374,7 @@ class D extends u.Component {
 					{
 						className: T.Heading,
 					},
-					(0, E.we)("#ManageFriends_OrSearch"),
+					(0, Localize)("#ManageFriends_OrSearch"),
 				),
 				u.createElement("br", null),
 				u.createElement(
@@ -393,7 +399,7 @@ class D extends u.Component {
 							onKeyDown: this.OnSearchKeyDown,
 							value: this.state.input_search,
 							onChange: this.OnSearchChange,
-							placeholder: (0, E.we)("#ManageFriends_EnterProfileName"),
+							placeholder: (0, Localize)("#ManageFriends_EnterProfileName"),
 						}),
 					),
 					u.createElement(
@@ -498,7 +504,7 @@ class N extends u.Component {
 				className: T.Input,
 				value: this.state.input_friend_code,
 				onChange: this.OnFriendCodeChange,
-				placeholder: (0, E.we)("#ManageFriends_EnterFriendCodePlaceholder"),
+				placeholder: (0, Localize)("#ManageFriends_EnterFriendCodePlaceholder"),
 			}),
 			u.createElement(
 				F,
@@ -573,7 +579,7 @@ const F = (e) => {
 								target: a ? undefined : "_blank",
 								href: y.TS.COMMUNITY_BASE_URL + "profiles/" + t.steamid,
 							},
-							(0, E.we)("#ManageFriends_ProfileLink"),
+							(0, Localize)("#ManageFriends_ProfileLink"),
 						),
 						u.createElement("br", null),
 						u.createElement(
@@ -595,7 +601,11 @@ const F = (e) => {
 					className: T.ProfileLink,
 				},
 				t.is_friend &&
-					u.createElement("div", null, (0, E.we)("#ManageFriends_IsFriend")),
+					u.createElement(
+						"div",
+						null,
+						(0, Localize)("#ManageFriends_IsFriend"),
+					),
 				t.friends_in_common != 0 &&
 					u.createElement(
 						"div",
@@ -611,11 +621,11 @@ const F = (e) => {
 									"/friendscommon",
 							},
 							t.friends_in_common === 1
-								? (0, E.we)(
+								? (0, Localize)(
 										"#ManageFriends_FriendsInCommonSingular",
 										t.friends_in_common,
 									)
-								: (0, E.we)(
+								: (0, Localize)(
 										"#ManageFriends_FriendsInCommon",
 										t.friends_in_common,
 									),
@@ -628,7 +638,7 @@ const F = (e) => {
 						{
 							className: T.Failure,
 						},
-						(0, E.we)("#ManageFriends_InviteFailure"),
+						(0, Localize)("#ManageFriends_InviteFailure"),
 					),
 				n &&
 					r === "success" &&
@@ -637,7 +647,7 @@ const F = (e) => {
 						{
 							className: T.Success,
 						},
-						(0, E.we)("#ManageFriends_InviteSuccess", t.persona_name),
+						(0, Localize)("#ManageFriends_InviteSuccess", t.persona_name),
 					),
 			),
 		);
@@ -706,7 +716,7 @@ const Y = (e) => {
 	const a = u.useCallback(
 		(e, t) => {
 			let r = t.GetCommunityProfileURL();
-			(0, V.EP)(A.uX(e), r);
+			(0, V.EP)(GetOwningWindowForEvent(e), r);
 			n();
 		},
 		[n],
@@ -719,7 +729,7 @@ const Y = (e) => {
 				className: H.MutualFriendRow,
 				noFocusRing: true,
 				onActivate: (t) => a(t, e),
-				onOKActionDescription: (0, E.we)("#Friend_Menu_ViewProfile"),
+				onOKActionDescription: (0, Localize)("#Friend_Menu_ViewProfile"),
 			},
 			u.createElement(x.bP, {
 				className: H.InvitesFriend,
@@ -733,7 +743,7 @@ const Y = (e) => {
 		P.o0,
 		{
 			className: "friendsui-container",
-			strTitle: (0, E.we)("#Friend_Invites_MutualFriends"),
+			strTitle: (0, Localize)("#Friend_Invites_MutualFriends"),
 			onOK: n,
 			onCancel: n,
 			bAlertDialog: true,
@@ -767,10 +777,12 @@ const K = (0, d.PA)((e) => {
 			const a = n.map_steamid_to_mutual_friends.get(e.steamid64);
 			const s = a?.size
 				? {
-						onOptionsActionDescription: (0, E.we)("#Friend_Invites_ViewMutual"),
+						onOptionsActionDescription: (0, Localize)(
+							"#Friend_Invites_ViewMutual",
+						),
 						onOptionsButton: (e) => {
 							(async function (e, t, r) {
-								const n = A.uX(r);
+								const n = GetOwningWindowForEvent(r);
 								(0, W.pg)(
 									u.createElement(Y, {
 										friendStore: e,
@@ -789,7 +801,7 @@ const K = (0, d.PA)((e) => {
 					className: H.InvitesRow,
 					...s,
 					onMenuButton: (t) => j(r, n, e, t),
-					onMenuActionDescription: (0, E.we)("#Friend_Menu_Open"),
+					onMenuActionDescription: (0, Localize)("#Friend_Menu_Open"),
 				},
 				u.createElement(Q, {
 					friendGroup: n,
@@ -800,13 +812,13 @@ const K = (0, d.PA)((e) => {
 					{
 						onClick: (r) =>
 							(async function (e, t, r) {
-								const n = A.uX(r);
+								const n = GetOwningWindowForEvent(r);
 								if (
 									!(await (0, G.WQ)(
 										n,
-										(0, E.we)("#Friend_Menu_BlockAllCommunication"),
-										(0, E.we)("#Friend_Block_Confirm", t.display_name),
-										(0, E.we)("#Button_Confirm"),
+										(0, Localize)("#Friend_Menu_BlockAllCommunication"),
+										(0, Localize)("#Friend_Block_Confirm", t.display_name),
+										(0, Localize)("#Button_Confirm"),
 									))
 								) {
 									return;
@@ -814,8 +826,8 @@ const K = (0, d.PA)((e) => {
 								if ((await e.BlockPlayer(t)) != 5) {
 									(0, G.Ic)(
 										n,
-										(0, E.we)("#Friend_Menu_BlockIncomingInvite"),
-										(0, E.we)(
+										(0, Localize)("#Friend_Menu_BlockIncomingInvite"),
+										(0, Localize)(
 											"#Friend_BlockIncomingInvite_Error",
 											t.display_name,
 										),
@@ -823,7 +835,7 @@ const K = (0, d.PA)((e) => {
 								}
 							})(t, e, r),
 					},
-					(0, E.we)("#Button_Block"),
+					(0, Localize)("#Button_Block"),
 				),
 				u.createElement(
 					I.$n,
@@ -833,12 +845,12 @@ const K = (0, d.PA)((e) => {
 								let { eResult: n, eFriendRelationship: i } =
 									await e.SendFriendInvite(t);
 								if (i != 3) {
-									const e = A.uX(r);
+									const e = GetOwningWindowForEvent(r);
 									(0, O.Jw)(e, n, i, t.display_name);
 								}
 							})(t, e, r),
 					},
-					(0, E.we)("#Button_Accept"),
+					(0, Localize)("#Button_Accept"),
 				),
 				u.createElement(
 					I.$n,
@@ -846,11 +858,11 @@ const K = (0, d.PA)((e) => {
 						onClick: (r) =>
 							(async function (e, t, r) {
 								if (!(await q(e, t))) {
-									const e = A.uX(r);
+									const e = GetOwningWindowForEvent(r);
 									(0, G.Ic)(
 										e,
-										(0, E.we)("#Friend_Menu_IgnoreIncomingInvite"),
-										(0, E.we)(
+										(0, Localize)("#Friend_Menu_IgnoreIncomingInvite"),
+										(0, Localize)(
 											"#Friend_IgnoreIncomingInvite_Error",
 											t.display_name,
 										),
@@ -858,7 +870,7 @@ const K = (0, d.PA)((e) => {
 								}
 							})(t, e, r),
 					},
-					(0, E.we)("#Button_Ignore"),
+					(0, Localize)("#Button_Ignore"),
 				),
 			);
 		});
@@ -883,13 +895,16 @@ const K = (0, d.PA)((e) => {
 					{
 						onClick: (e) =>
 							(async function (e, t, r) {
-								const n = A.uX(r);
+								const n = GetOwningWindowForEvent(r);
 								if (
 									!(await (0, G.WQ)(
 										n,
-										(0, E.we)("#Friend_Invites_IgnoreAllTitle"),
-										(0, E.we)("#Friend_Invites_IgnoreAllDescription", t.length),
-										(0, E.we)("#Button_Confirm"),
+										(0, Localize)("#Friend_Invites_IgnoreAllTitle"),
+										(0, Localize)(
+											"#Friend_Invites_IgnoreAllDescription",
+											t.length,
+										),
+										(0, Localize)("#Button_Confirm"),
 									))
 								) {
 									return;
@@ -904,13 +919,13 @@ const K = (0, d.PA)((e) => {
 								if (a > 0) {
 									(0, G.Ic)(
 										n,
-										(0, E.we)("#Error_Generic"),
-										(0, E.Yp)("#Friend_Invites_FailedToDecline", a),
+										(0, Localize)("#Error_Generic"),
+										LocalizePlural("#Friend_Invites_FailedToDecline", a),
 									);
 								}
 							})(t, n.member_list, e),
 					},
-					(0, E.we)("#FriendGroup_AllIgnore"),
+					(0, Localize)("#FriendGroup_AllIgnore"),
 				),
 		),
 		a,
@@ -932,7 +947,7 @@ const X = (0, d.PA)((e) => {
 				key: e.accountid,
 				className: H.InvitesRow,
 				onMenuButton: (t) => j(r, n, e, t),
-				onMenuActionDescription: (0, E.we)("#Friend_Menu_Open"),
+				onMenuActionDescription: (0, Localize)("#Friend_Menu_Open"),
 			},
 			u.createElement(Q, {
 				friendGroup: n,
@@ -943,13 +958,16 @@ const X = (0, d.PA)((e) => {
 				{
 					onClick: (r) =>
 						(async function (e, t, r) {
-							const n = A.uX(r);
+							const n = GetOwningWindowForEvent(r);
 							if (
 								!(await (0, G.WQ)(
 									n,
-									(0, E.we)("#Friend_Invites_CancelInvite"),
-									(0, E.we)("#Friend_CancelInvitation_Confirm", t.display_name),
-									(0, E.we)("#Button_Confirm"),
+									(0, Localize)("#Friend_Invites_CancelInvite"),
+									(0, Localize)(
+										"#Friend_CancelInvitation_Confirm",
+										t.display_name,
+									),
+									(0, Localize)("#Button_Confirm"),
 								))
 							) {
 								return;
@@ -958,13 +976,16 @@ const X = (0, d.PA)((e) => {
 							if (i == 3 || i == 6) {
 								(0, G.Ic)(
 									n,
-									(0, E.we)("#Friend_Menu_CancelInvitation"),
-									(0, E.we)("#Friend_CancelInvitation_Error", t.display_name),
+									(0, Localize)("#Friend_Menu_CancelInvitation"),
+									(0, Localize)(
+										"#Friend_CancelInvitation_Error",
+										t.display_name,
+									),
 								);
 							}
 						})(t, e, r),
 				},
-				(0, E.we)("#Friend_Invites_CancelInvite"),
+				(0, Localize)("#Friend_Invites_CancelInvite"),
 			),
 		);
 	});
@@ -1009,7 +1030,7 @@ const J = (e) => {
 			{
 				className: H.Caption,
 			},
-			(0, E.we)("#FriendInvites_YourFriendCode"),
+			(0, Localize)("#FriendInvites_YourFriendCode"),
 		),
 	);
 };
@@ -1018,7 +1039,7 @@ const $ = (e) => {
 	const r = u.useRef();
 	const n = u.useCallback(
 		(e) => {
-			let n = A.uX(e);
+			let n = GetOwningWindowForEvent(e);
 			e.preventDefault();
 			const i = parseInt(r.current?.value);
 			if (i) {
@@ -1045,14 +1066,14 @@ const $ = (e) => {
 			{
 				className: H.Title,
 			},
-			(0, E.we)("#FriendInvites_AddFriend_Title"),
+			(0, Localize)("#FriendInvites_AddFriend_Title"),
 		),
 		u.createElement(
 			"div",
 			{
 				className: H.Description,
 			},
-			(0, E.we)("#FriendInvites_AddFriend_Description"),
+			(0, Localize)("#FriendInvites_AddFriend_Description"),
 		),
 		u.createElement(
 			"form",
@@ -1064,7 +1085,7 @@ const $ = (e) => {
 				autoFocus: true,
 				ref: r,
 				className: H.Input,
-				placeholder: (0, E.we)("#FriendInvites_AddFriend_Placeholder"),
+				placeholder: (0, Localize)("#FriendInvites_AddFriend_Placeholder"),
 			}),
 			u.createElement(
 				I.$n,
@@ -1072,7 +1093,7 @@ const $ = (e) => {
 					className: H.SubmitButton,
 					type: "submit",
 				},
-				(0, E.we)("#Button_OK"),
+				(0, Localize)("#Button_OK"),
 			),
 		),
 	);
@@ -1087,14 +1108,14 @@ const ee = (0, d.PA)((e) => {
 			if (a == 4) {
 				(0, G.Ic)(
 					n,
-					(0, E.we)("#Friend_Menu_AddToFriendsList"),
-					(0, E.we)("#Friend_InviteSent"),
+					(0, Localize)("#Friend_Menu_AddToFriendsList"),
+					(0, Localize)("#Friend_InviteSent"),
 				);
 			} else if (a == 3) {
 				(0, G.Ic)(
 					n,
-					(0, E.we)("#Friend_Menu_AddToFriendsList"),
-					(0, E.we)("#Friend_MutualInviteSent", s.persona_name),
+					(0, Localize)("#Friend_Menu_AddToFriendsList"),
+					(0, Localize)("#Friend_MutualInviteSent", s.persona_name),
 				);
 			}
 		} else {
@@ -1117,7 +1138,7 @@ const ee = (0, d.PA)((e) => {
 				{
 					className: H.SearchError,
 				},
-				(0, E.we)("#Friend_Invites_NotFound"),
+				(0, Localize)("#Friend_Invites_NotFound"),
 			);
 		}
 	}
@@ -1125,11 +1146,11 @@ const ee = (0, d.PA)((e) => {
 		P.o0,
 		{
 			className: "friendsui-container",
-			strTitle: (0, E.we)("#Friend_Invites_SearchTitle", r),
+			strTitle: (0, Localize)("#Friend_Invites_SearchTitle", r),
 			onOK: o,
 			onCancel: i,
-			strOKButtonText: (0, E.we)("#ManageFriends_SendInvite"),
-			strCancelButtonText: (0, E.we)("#Button_Close"),
+			strOKButtonText: (0, Localize)("#ManageFriends_SendInvite"),
+			strCancelButtonText: (0, Localize)("#Button_Close"),
 			bOKDisabled: !c,
 		},
 		u.createElement(I.nB, null, l),
@@ -1197,7 +1218,7 @@ const re = (0, d.PA)((e) => {
 var ne = require("./64587.js");
 var ie = require(/*webcrack:missing*/ "./90095.js");
 var ae = require(/*webcrack:missing*/ "./90765.js");
-var se = require(/*webcrack:missing*/ "./41180.js");
+import { Seconds } from "../../actual_src/utils/time.js";
 var oe = require("./66146.js");
 var le = require("./8653.js");
 var ce = require("./29502.js");
@@ -1205,7 +1226,7 @@ function me(e) {
 	let { chats: t, onActivate: r, ...n } = e;
 	let i = (0, ie.q3)(() => {
 		let e = 0;
-		let t = a.xm.GetServerRTime32() - se.Kp.PerWeek * 2;
+		let t = a.xm.GetServerRTime32() - Seconds.PerWeek * 2;
 		const r = a.xm.ChatStore.GetRecentChats();
 		for (const n of r) {
 			if (n instanceof le.s) {
@@ -1302,15 +1323,15 @@ function pe(e) {
 	let f = {};
 	if (g) {
 		f.onSecondaryButton = () => t.VoiceChat.OnUserEndVoiceChat();
-		f.onSecondaryActionDescription = (0, E.we)("#VoiceChat_Leave");
+		f.onSecondaryActionDescription = (0, Localize)("#VoiceChat_Leave");
 	} else if (h) {
 		f.onSecondaryButton = () => t.VoiceChat.OnUserEndVoiceChat();
-		f.onSecondaryActionDescription = (0, E.we)("#VoiceChat_LeaveVoiceRoom");
+		f.onSecondaryActionDescription = (0, Localize)("#VoiceChat_LeaveVoiceRoom");
 	} else if (C) {
 		let e = p[0];
 		f.onSecondaryButton = () =>
 			a.xm.VoiceStore.OnRejectOneOnOneVoiceChatForPartner(e.accountid_partner);
-		f.onSecondaryActionDescription = (0, E.we)("#Voice_DeclineVoiceChat");
+		f.onSecondaryActionDescription = (0, Localize)("#Voice_DeclineVoiceChat");
 	}
 	return u.createElement(
 		z.Z,
@@ -1427,10 +1448,10 @@ class ge extends u.Component {
 			case 1:
 				break;
 			case 25:
-				e = (0, E.we)("#FamilyView_TooManyAttempts");
+				e = (0, Localize)("#FamilyView_TooManyAttempts");
 				break;
 			default:
-				e = (0, E.we)("#FamilyView_BadPIN");
+				e = (0, Localize)("#FamilyView_BadPIN");
 		}
 		return u.createElement(
 			"div",
@@ -1440,14 +1461,14 @@ class ge extends u.Component {
 				{
 					className: "FamilyViewTitle",
 				},
-				(0, E.we)("#FamilyView_Title"),
+				(0, Localize)("#FamilyView_Title"),
 			),
 			u.createElement(
 				"div",
 				{
 					className: "FamilyViewInstructions",
 				},
-				(0, E.we)("#FamilyView_Unlock_Instructions"),
+				(0, Localize)("#FamilyView_Unlock_Instructions"),
 			),
 			u.createElement(
 				"form",
@@ -1467,7 +1488,7 @@ class ge extends u.Component {
 					{
 						type: "submit",
 					},
-					(0, E.we)("#Button_OK"),
+					(0, Localize)("#Button_OK"),
 				),
 			),
 			e &&
@@ -1882,7 +1903,7 @@ export class ve extends Je {
 				},
 				minWidth: Y$,
 				minHeight: rS,
-				title: (0, E.we)("#WindowTitle_FriendsList"),
+				title: (0, Localize)("#WindowTitle_FriendsList"),
 				html_class:
 					"friendsui-container client_chat_frame fullheight SavedDimensionsPopup",
 				body_class: "fullheight",
@@ -2021,7 +2042,7 @@ let nt = class extends u.Component {
 				let n = this.m_nWindowTitleUnreadCycleCount % r;
 				if (n > 0) {
 					let r = t[n - 1];
-					e.title = (0, E.we)("#WindowTitle_UnreadMessage", r.name);
+					e.title = (0, Localize)("#WindowTitle_UnreadMessage", r.name);
 					return;
 				}
 			}
@@ -2031,12 +2052,12 @@ let nt = class extends u.Component {
 			) {
 				if (i.TS.IN_CLIENT) {
 					e.title =
-						(0, E.we)("#WindowTitle_FriendsList") + " - " + t.GetTitle();
+						(0, Localize)("#WindowTitle_FriendsList") + " - " + t.GetTitle();
 				} else {
 					e.title = t.GetTitle();
 				}
 			} else {
-				e.title = (0, E.we)("#WindowTitle_FriendsList");
+				e.title = (0, Localize)("#WindowTitle_FriendsList");
 			}
 		});
 		this.m_popupFocusDisposer = e.OnFocus(() => {
@@ -2354,12 +2375,12 @@ let it = class extends u.Component {
 				}),
 			),
 			u.createElement(at, {
-				text: (0, E.we)("#StoreLink_Label"),
+				text: (0, Localize)("#StoreLink_Label"),
 				href: `${i.TS.STORE_BASE_URL}`,
 			}),
 			!t &&
 				u.createElement(at, {
-					text: (0, E.we)("#CommunityLink_Label"),
+					text: (0, Localize)("#CommunityLink_Label"),
 					href: `${i.TS.COMMUNITY_BASE_URL}`,
 				}),
 			u.createElement(at, {
@@ -2367,7 +2388,7 @@ let it = class extends u.Component {
 				href: e.GetCommunityProfileURL(),
 			}),
 			u.createElement(at, {
-				text: (0, E.we)("#SupportLink_Label"),
+				text: (0, Localize)("#SupportLink_Label"),
 				href: `${i.TS.HELP_BASE_URL}`,
 			}),
 		);
@@ -2560,7 +2581,7 @@ let lt = class extends u.Component {
 							{
 								className: "ConnectionTroubleMessage",
 							},
-							(0, E.we)("#ConnectionTrouble_CurrentlyDisconnected"),
+							(0, Localize)("#ConnectionTrouble_CurrentlyDisconnected"),
 						),
 					),
 				);
@@ -2664,40 +2685,40 @@ let ct = class extends u.Component {
 					switch (r) {
 						case 1:
 						case 3:
-							i = (0, E.we)("#ConnectionTrouble_Connecting");
+							i = (0, Localize)("#ConnectionTrouble_Connecting");
 							l = true;
 							break;
 						case 5:
 						case 7:
-							i = (0, E.we)("#ConnectionTrouble_LoggingIn");
+							i = (0, Localize)("#ConnectionTrouble_LoggingIn");
 							l = true;
 							break;
 						case 11:
-							i = (0, E.we)("#ConnectionTrouble_RetrievingLogin");
+							i = (0, Localize)("#ConnectionTrouble_RetrievingLogin");
 							l = true;
 							break;
 						case 2:
 						case 4:
 						case 12:
-							i = (0, E.we)("#ConnectionTrouble_FailedToConnect");
+							i = (0, Localize)("#ConnectionTrouble_FailedToConnect");
 							break;
 						case 8:
 						case 6:
-							i = (0, E.we)("#ConnectionTrouble_FailedToLogIn");
+							i = (0, Localize)("#ConnectionTrouble_FailedToLogIn");
 							break;
 						case 10:
-							i = (0, E.we)("#ConnectionTrouble_DisconnectedFinal");
+							i = (0, Localize)("#ConnectionTrouble_DisconnectedFinal");
 							break;
 						case 13:
-							i = (0, E.we)("#ConnectionTrouble_LoginLost");
+							i = (0, Localize)("#ConnectionTrouble_LoginLost");
 							o = true;
 							break;
 						case 14:
-							i = (0, E.we)("#ConnectionTrouble_LoginChanged");
+							i = (0, Localize)("#ConnectionTrouble_LoginChanged");
 							o = true;
 							break;
 						case 15:
-							i = (0, E.we)("#ConnectionTrouble_LoggedOnElsewhere");
+							i = (0, Localize)("#ConnectionTrouble_LoggedOnElsewhere");
 							break;
 						default:
 							(0, f.w)(false, `No message for trouble state ${r}`);
@@ -2716,7 +2737,7 @@ let ct = class extends u.Component {
 					this.m_bRequestingNotificationPermission = true;
 				}
 				s = "NotificationBrowserWarning";
-				i = (0, E.we)("#NotificationBrowserWarning");
+				i = (0, Localize)("#NotificationBrowserWarning");
 			}
 			let c = e.BIsWaitingToReconnect();
 			let m = e.BWillAutoReconnect();
@@ -2774,7 +2795,7 @@ let ct = class extends u.Component {
 											null,
 											a.xm.ready_to_render
 												? i
-												: (0, E.we)("#ConnectionTrouble_Connecting"),
+												: (0, Localize)("#ConnectionTrouble_Connecting"),
 										),
 									),
 									c &&
@@ -2784,7 +2805,7 @@ let ct = class extends u.Component {
 											{
 												className: "ReconnectWaitMessage",
 											},
-											(0, E.Yp)(
+											LocalizePlural(
 												"#ConnectionTrouble_ReconnectingInSeconds",
 												Math.ceil(e.GetMSUntilNextReconnectAttempt() / 1000),
 											),
@@ -2807,7 +2828,7 @@ let ct = class extends u.Component {
 														className: "DialogButton Primary",
 														onClick: this.OnReconnectNowClick,
 													},
-													(0, E.we)("#ConnectionTrouble_ReconnectNow"),
+													(0, Localize)("#ConnectionTrouble_ReconnectNow"),
 												),
 											),
 										),
@@ -2829,7 +2850,7 @@ let ct = class extends u.Component {
 														className: "DialogButton Primary",
 														onClick: this.OnLoginClick,
 													},
-													(0, E.we)(
+													(0, Localize)(
 														r != 14
 															? "#ConnectionTrouble_LoginAgain"
 															: "#ConnectionTrouble_LoginChanged_Reload",

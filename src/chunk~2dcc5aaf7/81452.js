@@ -6,7 +6,10 @@ var o = require(/*webcrack:missing*/ "./63696.js");
 var l = require(/*webcrack:missing*/ "./69164.js");
 var c = require(/*webcrack:missing*/ "./50376.js");
 var m = require(/*webcrack:missing*/ "./98995.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./72476.js");
 var A = require("./56726.js");
 var p = require("./1965.js");
@@ -33,7 +36,7 @@ export const y = (0, s.PA)(function (e) {
 		{
 			feature: 2,
 			className: h.WorkshopSection,
-			label: (0, u.we)("#AppDetails_SectionTitle_Workshop"),
+			label: (0, Localize)("#AppDetails_SectionTitle_Workshop"),
 			highlight: l,
 			rightColumnSection: true,
 		},
@@ -71,9 +74,9 @@ function _(e) {
 		l.Z,
 		{
 			onOKButton: f,
-			onOKActionDescription: (0, u.we)("#AppDetails_ViewItemInWorkshop"),
+			onOKActionDescription: (0, Localize)("#AppDetails_ViewItemInWorkshop"),
 			onSecondaryButton: _,
-			onSecondaryActionDescription: (0, u.we)(
+			onSecondaryActionDescription: (0, Localize)(
 				"#AppDetails_WorkshopFeaturedHideItem",
 			),
 		},
@@ -107,7 +110,7 @@ function _(e) {
 							{
 								className: h.FeaturedItemHeader,
 							},
-							(0, u.we)("#AppDetails_WorkshopFeaturedHeader", r),
+							(0, Localize)("#AppDetails_WorkshopFeaturedHeader", r),
 						),
 						o.createElement(
 							"div",
@@ -136,13 +139,13 @@ function _(e) {
 										className: h.FeaturedItemLink,
 										onClick: f,
 									},
-									(0, u.we)("#AppDetails_WorkshopFeaturedMoreInfo"),
+									(0, Localize)("#AppDetails_WorkshopFeaturedMoreInfo"),
 								),
 							),
 						o.createElement(
 							m.he,
 							{
-								toolTipContent: (0, u.we)(
+								toolTipContent: (0, Localize)(
 									"#AppDetails_WorkshopFeaturedHideItem",
 								),
 								className: h.FeaturedItemHideButton,
@@ -176,14 +179,14 @@ function f(e) {
 				{
 					onClick: i,
 				},
-				(0, u.we)("#AppDetails_ViewSubscribedItems"),
+				(0, Localize)("#AppDetails_ViewSubscribedItems"),
 			),
 			o.createElement(
 				A.TD,
 				{
 					onClick: r,
 				},
-				(0, u.we)("#AppDetails_WorkshopVisit"),
+				(0, Localize)("#AppDetails_WorkshopVisit"),
 			),
 		);
 	} else {
@@ -198,14 +201,14 @@ function f(e) {
 					className: h.SpacedButton,
 					onClick: i,
 				},
-				(0, u.we)("#AppDetails_ViewSubscribedItems"),
+				(0, Localize)("#AppDetails_ViewSubscribedItems"),
 			),
 			o.createElement(
 				A.TD,
 				{
 					onClick: r,
 				},
-				(0, u.we)("#AppDetails_WorkshopVisit"),
+				(0, Localize)("#AppDetails_WorkshopVisit"),
 			),
 		);
 	}
@@ -215,8 +218,8 @@ function b(e) {
 	const r = (0, a.ZG)(t);
 	const n =
 		r === 0
-			? (0, u.we)("#AppDetails_WorkshopSubCount_None")
-			: (0, u.Yp)("#AppDetails_WorkshopSubCount", r);
+			? (0, Localize)("#AppDetails_WorkshopSubCount_None")
+			: LocalizePlural("#AppDetails_WorkshopSubCount", r);
 	return o.createElement(
 		"div",
 		{

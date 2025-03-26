@@ -5,7 +5,10 @@ var s = require("./48289.js");
 var o = require(/*webcrack:missing*/ "./90242.js");
 var l = require("./7558.js");
 var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 const u = new c.wd("AppGridFastScroll").Debug;
 var d;
 function A(e) {
@@ -85,8 +88,8 @@ function g(e, t, r) {
 	}
 	i =
 		c == -1
-			? (0, m.we)("#Library_SortByPctAchievementsNoAchievements_Tag")
-			: (0, m.we)("#Library_SortByPctAchievementsComplete_Tag", c);
+			? Localize("#Library_SortByPctAchievementsNoAchievements_Tag")
+			: Localize("#Library_SortByPctAchievementsComplete_Tag", c);
 	return {
 		nextItem: n,
 		nextTargetName: i,
@@ -123,7 +126,7 @@ function h(e, t, r) {
 	i =
 		h == 0 && d != 0
 			? A(e.children[n].sort_as)
-			: (0, m.Yp)("#AppPortraitHover_FriendsPlaying", h);
+			: LocalizePlural("#AppPortraitHover_FriendsPlaying", h);
 	return {
 		nextItem: n,
 		nextTargetName: i,

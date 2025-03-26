@@ -1,6 +1,6 @@
 var r = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./54644.js");
+import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
 require("./88750.js");
 var o = require("./44846.js");
 class a {
@@ -200,16 +200,19 @@ class a {
 	}
 	BIsChildElement(e) {
 		if (this.m_element) {
-			return s.id(this.m_element, e);
+			return BIsParentOrSelf(this.m_element, e);
 		} else {
-			return s.id(this.m_popupContextMenu?.root_element, e);
+			return BIsParentOrSelf(this.m_popupContextMenu?.root_element, e);
 		}
 	}
 	BHasFocus() {
 		if (this.m_popupContextMenu) {
 			return this.m_popupContextMenu.focused;
 		} else {
-			return s.id(this.m_element, this.m_element?.ownerDocument.activeElement);
+			return BIsParentOrSelf(
+				this.m_element,
+				this.m_element?.ownerDocument.activeElement,
+			);
 		}
 	}
 	BIsFocusInChildHierarchy() {

@@ -2,7 +2,10 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./23379.js");
 var a = i;
 var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import {
+	LocalizeReact,
+	Localize,
+} from "../../actual_src/utils/localization.js";
 var l = require("./91486.js");
 var c = require("./52470.js");
 var m = require("./87935.js");
@@ -32,9 +35,13 @@ export const P = (0, s.PA)((e) => {
 			},
 			r.strMasterSubAppName,
 		);
-		s = (0, o.PP)("#TimedTrial_SpotlightExp_DescMasterSub", t.display_name, i);
+		s = LocalizeReact(
+			"#TimedTrial_SpotlightExp_DescMasterSub",
+			t.display_name,
+			i,
+		);
 	} else {
-		s = (0, o.PP)("#TimedTrial_SpotlightExp_Desc", t.display_name);
+		s = LocalizeReact("#TimedTrial_SpotlightExp_Desc", t.display_name);
 	}
 	const p = [i.GetAssets().GetHeaderURL(), A.A];
 	return n.createElement(
@@ -69,7 +76,7 @@ export const P = (0, s.PA)((e) => {
 					{
 						className: a.Header,
 					},
-					(0, o.we)("#TimedTrial_ContinuePlaying"),
+					(0, Localize)("#TimedTrial_ContinuePlaying"),
 				),
 				n.createElement(
 					"div",
@@ -80,7 +87,7 @@ export const P = (0, s.PA)((e) => {
 				),
 				n.createElement(c.aX, {
 					className: a.StoreButton,
-					label: (0, o.we)("#Demo_VisitStorePage"),
+					label: (0, Localize)("#Demo_VisitStorePage"),
 					link: "StoreAppPage",
 					appid: t.appid,
 				}),

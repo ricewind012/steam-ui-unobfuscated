@@ -6,7 +6,7 @@ var _o = require(/*webcrack:missing*/ "./69164.js");
 var l = require(/*webcrack:missing*/ "./61657.js");
 var c = require("./80517.js");
 var m = c;
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./35488.js");
 var A = require(/*webcrack:missing*/ "./4690.js");
 var p = require(/*webcrack:missing*/ "./10975.js");
@@ -122,9 +122,9 @@ function h(e) {
 }
 function C(e) {
 	const t =
-		e.onReorderActionDescription ?? (0, u.we)("#ActionButtonLabelReorder");
+		e.onReorderActionDescription ?? (0, Localize)("#ActionButtonLabelReorder");
 	const r =
-		e.onStopReorderActionDescription ?? (0, u.we)("#ActionButtonLabelDone");
+		e.onStopReorderActionDescription ?? (0, Localize)("#ActionButtonLabelDone");
 	const a = e.detail.disabled ?? false;
 	const o =
 		e.detail.displayedIndex === undefined

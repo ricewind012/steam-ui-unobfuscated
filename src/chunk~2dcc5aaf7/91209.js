@@ -2,8 +2,8 @@ var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./64608.js");
 var a = require("./95979.js");
 var s = require("./34428.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
-var l = require(/*webcrack:missing*/ "./11010.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import { P0 } from "../../actual_src/utils/localization/datetime.js";
 var c = require("./22091.js");
 var m = require("./95311.js");
 var u = require("./4406.js");
@@ -50,7 +50,7 @@ function V() {
 		r &&
 			n.createElement(W.C, {
 				feature: 7,
-				label: (0, o.we)("#Settings_System_EnableDeveloperMode"),
+				label: (0, Localize)("#Settings_System_EnableDeveloperMode"),
 				checked: e,
 				onChange: t,
 			}),
@@ -63,7 +63,7 @@ export function hd() {
 		return n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, o.we)("#Settings_RecoveryActions")),
+			n.createElement(i.lr, null, (0, Localize)("#Settings_RecoveryActions")),
 			t && n.createElement(X, null),
 			e && n.createElement(z.Ax, null),
 		);
@@ -78,14 +78,14 @@ function j(e) {
 			U.oN,
 			{
 				feature: 7,
-				label: (0, o.we)("#Settings_System_Hostname"),
+				label: (0, Localize)("#Settings_System_Hostname"),
 				onClick: t,
 			},
 			e.hostname,
 		);
 	}
 	return n.createElement(i.T8, {
-		name: (0, o.we)("#Settings_System_Hostname"),
+		name: (0, Localize)("#Settings_System_Hostname"),
 		value: e.hostname,
 	});
 }
@@ -109,7 +109,7 @@ function Q(e) {
 	const p = A ? (0, w.cZ)(A) : "";
 	const g = t.nSteamVersion > 0 ? t.nSteamVersion.toString() : "local";
 	const C = parseInt(1741736707);
-	const f = C && (0, l.P0)(C, a, p);
+	const f = C && (0, P0)(C, a, p);
 	const y = t.nCPUHz / 1000 / 1000 / 1000 + " GHz";
 	const S = (0, s.dm)(t.nSystemRAMSizeMB * 1024 * 1024);
 	const B = (0, s.dm)(t.nVideoRAMSizeMB * 1024 * 1024);
@@ -119,10 +119,10 @@ function Q(e) {
 	const I = t.sSteamBuildDate;
 	const k = (0, b.CI)() ? " GMT+0000" : " GMT-0800";
 	const D = Date.parse(I + k) / 1000;
-	const N = D ? (0, l.P0)(D, a, p) : I;
+	const N = D ? (0, P0)(D, a, p) : I;
 	const F = v?.strFirmwareBuildTime;
 	const G = Math.floor(Date.parse(F + " GMT+0000") / 1000);
-	const O = G ? (0, l.P0)(G, a, p) : F;
+	const O = G ? (0, P0)(G, a, p) : F;
 	const P = (0, T.Qt)(
 		`${M.B7.ResolveURL("StoreAccount")}steamdeckcomponents/?serialnumber=${v?.strSerialNumber}&componentcode=${v?.strChipID}`,
 	);
@@ -133,57 +133,57 @@ function Q(e) {
 		n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, o.we)("#Settings_System_About")),
+			n.createElement(i.lr, null, (0, Localize)("#Settings_System_About")),
 			n.createElement(j, {
 				hostname: t.sHostname,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_OSName"),
+				name: (0, Localize)("#Settings_System_OSName"),
 				value: t.sOSName,
 			}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_OSCodename"),
+					name: (0, Localize)("#Settings_System_OSCodename"),
 					value: t.sOSCodename,
 				}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_OSVariantId"),
+					name: (0, Localize)("#Settings_System_OSVariantId"),
 					value: t.sOSVariantId,
 				}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_OSVersionId"),
+					name: (0, Localize)("#Settings_System_OSVersionId"),
 					value: t.sOSVersionId,
 				}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_OSBuildId"),
+					name: (0, Localize)("#Settings_System_OSBuildId"),
 					value: t.sOSBuildId,
 				}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_KernalVersion"),
+					name: (0, Localize)("#Settings_System_KernalVersion"),
 					value: t.sKernelVersion,
 				}),
 			v &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_DeckControllerVersion"),
+					name: (0, Localize)("#Settings_System_DeckControllerVersion"),
 					value: O,
 				}),
 			v &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_DeckSerialNumber"),
+					name: (0, Localize)("#Settings_System_DeckSerialNumber"),
 					value: v.strSerialNumber,
 				}),
 			v &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_DeckChipID"),
+					name: (0, Localize)("#Settings_System_DeckChipID"),
 					value: v.strChipID,
 				}),
 			L &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_BIOSVersion"),
+					name: (0, Localize)("#Settings_System_BIOSVersion"),
 					value: t.sBIOSVersion,
 					bottomSeparator: "standard",
 				}),
@@ -192,22 +192,22 @@ function Q(e) {
 		n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, o.we)("#Settings_System_Steam")),
+			n.createElement(i.lr, null, (0, Localize)("#Settings_System_Steam")),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_SteamVersion"),
+				name: (0, Localize)("#Settings_System_SteamVersion"),
 				value: g,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_SteamBuildDate"),
+				name: (0, Localize)("#Settings_System_SteamBuildDate"),
 				value: N,
 			}),
 			f &&
 				n.createElement(i.T8, {
-					name: (0, o.we)("#Settings_System_SteamWebBuildDate"),
+					name: (0, Localize)("#Settings_System_SteamWebBuildDate"),
 					value: f,
 				}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_SteamAPIVersion"),
+				name: (0, Localize)("#Settings_System_SteamAPIVersion"),
 				value: t.sSteamAPI,
 			}),
 			n.createElement(
@@ -217,13 +217,13 @@ function Q(e) {
 						(0, h.pg)(n.createElement(oe, null), r.ownerWindow ?? window),
 					bottomSeparator: "standard",
 				},
-				(0, o.we)("#ThirdPartyLicenses_Link"),
+				(0, Localize)("#ThirdPartyLicenses_Link"),
 			),
 		),
 		n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, o.we)("#Settings_System_Hardware")),
+			n.createElement(i.lr, null, (0, Localize)("#Settings_System_Hardware")),
 			v &&
 				n.createElement(
 					i.xh,
@@ -231,42 +231,42 @@ function Q(e) {
 						onClick: P,
 						bottomSeparator: "standard",
 					},
-					(0, o.we)("#Settings_System_Components"),
+					(0, Localize)("#Settings_System_Components"),
 				),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_CPUVendor"),
+				name: (0, Localize)("#Settings_System_CPUVendor"),
 				value: t.sCPUVendor,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_CPUName"),
+				name: (0, Localize)("#Settings_System_CPUName"),
 				value: t.sCPUName,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_CPUFrequency"),
+				name: (0, Localize)("#Settings_System_CPUFrequency"),
 				value: y,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_CPUPhysicalCores"),
+				name: (0, Localize)("#Settings_System_CPUPhysicalCores"),
 				value: t.nCPUPhysicalCores.toString(),
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_CPULogicalCores"),
+				name: (0, Localize)("#Settings_System_CPULogicalCores"),
 				value: t.nCPULogicalCores.toString(),
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_RAMSize"),
+				name: (0, Localize)("#Settings_System_RAMSize"),
 				value: S,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_VideoCard"),
+				name: (0, Localize)("#Settings_System_VideoCard"),
 				value: t.sVideoCardName,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_VideoDriver"),
+				name: (0, Localize)("#Settings_System_VideoDriver"),
 				value: t.sVideoDriverVersion,
 			}),
 			n.createElement(i.T8, {
-				name: (0, o.we)("#Settings_System_VRAMSize"),
+				name: (0, Localize)("#Settings_System_VRAMSize"),
 				value: B,
 				bottomSeparator: "standard",
 			}),
@@ -323,7 +323,7 @@ function K(e) {
 	} else {
 		return n.createElement(x.B, {
 			feature: 7,
-			label: (0, o.we)("#Settings_Beta_OSUpdateChannel"),
+			label: (0, Localize)("#Settings_Beta_OSUpdateChannel"),
 			rgOptions: u,
 			selectedOption: m,
 			onChange: (e) => t.SelectOSBranch(e.data.eBranch, e.data.sRawName),
@@ -335,7 +335,7 @@ function X(e) {
 	const r = (0, R.R7)();
 	const a = n.useCallback(() => {
 		(0, C.$)({
-			strDescription: (0, o.we)("#Settings_BetaReset_Restart"),
+			strDescription: (0, Localize)("#Settings_BetaReset_Restart"),
 			fnOnOK: () =>
 				(async () => {
 					SteamClient.Settings.SelectClientBeta(A.E8);
@@ -348,18 +348,18 @@ function X(e) {
 	return n.createElement(
 		i.xh,
 		{
-			label: (0, o.we)("#Settings_BetaReset"),
-			description: (0, o.we)("#Settings_BetaReset_Description"),
+			label: (0, Localize)("#Settings_BetaReset"),
+			description: (0, Localize)("#Settings_BetaReset_Description"),
 			onClick: a,
 			bottomSeparator: e.bottomSeparator,
 		},
-		(0, o.we)("#Settings_BetaReset_Button"),
+		(0, Localize)("#Settings_BetaReset_Button"),
 	);
 }
 export function lm(e) {
 	const { label: t, description: r, contextMenuPositionOptions: i } = e;
 	const a = (0, b.uI)();
-	const s = (0, o.we)("#Settings_Beta_None");
+	const s = (0, Localize)("#Settings_Beta_None");
 	const l = d.rV.settings.nSelectedBetaID ?? A.E8;
 	const c = n.useRef(undefined);
 	const m = (0, R.R7)();
@@ -398,7 +398,7 @@ export function lm(e) {
 				window.setTimeout(() => g(), 0);
 			} else if (e != l) {
 				(0, C.$)({
-					strDescription: (0, o.we)("#Settings_Beta_NeedsRestart"),
+					strDescription: (0, Localize)("#Settings_Beta_NeedsRestart"),
 					fnOnOK: () => h(e),
 					fnOnCancel: g,
 					ownerWindow: m.ownerWindow,
@@ -420,8 +420,8 @@ export function lm(e) {
 }
 function $(e) {
 	return n.createElement(i.aZ, {
-		title: (0, o.we)(e.name),
-		description: (0, o.we)(e.description),
+		title: (0, Localize)(e.name),
+		description: (0, Localize)(e.description),
 		descriptionVisibility: "when-expanded",
 	});
 }
@@ -452,7 +452,7 @@ function ee(e) {
 		(e) => {
 			if (e != r?.eChannel) {
 				(0, C.$)({
-					strDescription: (0, o.we)("#Settings_UpdateChannel_Restart"),
+					strDescription: (0, Localize)("#Settings_UpdateChannel_Restart"),
 					fnOnOK: () => c(e),
 					fnOnCancel: l,
 					bSystemRestart: true,
@@ -465,7 +465,7 @@ function ee(e) {
 	if (r) {
 		return n.createElement(x.B, {
 			feature: 7,
-			label: (0, o.we)("#Settings_UpdateChannelSelection"),
+			label: (0, Localize)("#Settings_UpdateChannelSelection"),
 			dropDownControlRef: a,
 			rgOptions: s,
 			selectedOption: r.eChannel,
@@ -481,12 +481,12 @@ function te(e) {
 		{
 			className: I.SoftwareUpdateSection,
 		},
-		(0, o.we)("#Settings_Updates_Title"),
+		(0, Localize)("#Settings_Updates_Title"),
 	);
 	return n.createElement(
 		i.G5,
 		null,
-		n.createElement(i.lr, null, (0, o.we)("#Settings_Updates_Header")),
+		n.createElement(i.lr, null, (0, Localize)("#Settings_Updates_Header")),
 		n.createElement(E.g5, {
 			bHideWhenUnavailable: true,
 		}),
@@ -517,7 +517,11 @@ function re(e) {
 		return n.createElement(
 			i.G5,
 			null,
-			n.createElement(i.lr, null, (0, o.we)("#Settings_Beta_Participation")),
+			n.createElement(
+				i.lr,
+				null,
+				(0, Localize)("#Settings_Beta_Participation"),
+			),
 			m &&
 				n.createElement(ee, {
 					channels: l,
@@ -534,7 +538,7 @@ function re(e) {
 					!u &&
 						r &&
 						n.createElement(lm, {
-							label: (0, o.we)("#Settings_Beta_SteamUpdateChannel"),
+							label: (0, Localize)("#Settings_Beta_SteamUpdateChannel"),
 						}),
 					a && n.createElement(L.A2, null),
 				),
@@ -555,7 +559,7 @@ function ie(e) {
 			n.createElement(
 				i.lr,
 				null,
-				(0, o.we)("#Settings_System_Advanced_Header"),
+				(0, Localize)("#Settings_System_Advanced_Header"),
 			),
 			a && n.createElement(de, null),
 			n.createElement(P.eH, null),
@@ -574,7 +578,7 @@ function ae(e) {
 	return n.createElement(
 		i.G5,
 		null,
-		n.createElement(i.lr, null, (0, o.we)("#Settings_System_Header")),
+		n.createElement(i.lr, null, (0, Localize)("#Settings_System_Header")),
 		n.createElement(V, null),
 		b.TS.ON_DECK &&
 			n.createElement(u.n8, {
@@ -608,8 +612,8 @@ function se(e) {
 				),
 			onActivate: () => r(!t),
 			onOKActionDescription: t
-				? (0, o.we)("#ThirdPartyLicenses_Hide_License")
-				: (0, o.we)("#ThirdPartyLicenses_Show_License"),
+				? (0, Localize)("#ThirdPartyLicenses_Hide_License")
+				: (0, Localize)("#ThirdPartyLicenses_Show_License"),
 			onMoveRight: () => {
 				r(true);
 				return true;
@@ -641,16 +645,16 @@ function oe(e) {
 			{
 				className: I.InfoDialogBody,
 			},
-			n.createElement(i.Y9, null, (0, o.we)("#ThirdPartyLicenses_Link")),
+			n.createElement(i.Y9, null, (0, Localize)("#ThirdPartyLicenses_Link")),
 			n.createElement(
 				i.iK,
 				null,
-				(0, o.we)("#ThirdPartyLicenses_SourceCode_Header"),
+				(0, Localize)("#ThirdPartyLicenses_SourceCode_Header"),
 			),
 			n.createElement(
 				i.xh,
 				{
-					label: (0, o.we)("#ThirdPartyLicenses_SourceCode_SteamOS"),
+					label: (0, Localize)("#ThirdPartyLicenses_SourceCode_SteamOS"),
 					onClick: () => {
 						if (r) {
 							SteamClient.System.OpenInSystemBrowser(a);
@@ -660,9 +664,9 @@ function oe(e) {
 						e?.closeModal();
 					},
 				},
-				(0, o.we)("#ThirdPartyLicenses_SourceCode_OpenLink"),
+				(0, Localize)("#ThirdPartyLicenses_SourceCode_OpenLink"),
 			),
-			n.createElement(i.iK, null, (0, o.we)("#ThirdPartyLicenses_Header")),
+			n.createElement(i.iK, null, (0, Localize)("#ThirdPartyLicenses_Header")),
 			!l && n.createElement(f.Spinner, null),
 			l.map((e, t) =>
 				n.createElement(se, {
@@ -692,7 +696,7 @@ function le(e) {
 		n.createElement(
 			i.Y9,
 			null,
-			(0, o.we)("#Settings_System_Change_Hostname_Header"),
+			(0, Localize)("#Settings_System_Change_Hostname_Header"),
 		),
 		n.createElement(
 			i.nB,
@@ -700,7 +704,7 @@ function le(e) {
 			n.createElement(
 				i.a3,
 				null,
-				(0, o.we)("#Settings_System_Change_Hostname_Body"),
+				(0, Localize)("#Settings_System_Change_Hostname_Body"),
 			),
 			n.createElement(
 				"div",
@@ -732,7 +736,7 @@ function le(e) {
 						autoFocus: true,
 						onClick: e.closeModal,
 					},
-					(0, o.we)("#Button_Cancel"),
+					(0, Localize)("#Button_Cancel"),
 				),
 				n.createElement(
 					i.$n,
@@ -746,7 +750,7 @@ function le(e) {
 							}
 						},
 					},
-					(0, o.we)("#Settings_System_Change_Hostname_Set"),
+					(0, Localize)("#Settings_System_Change_Hostname_Set"),
 				),
 			),
 		),
@@ -785,8 +789,8 @@ function me(e) {
 		SteamClient.System.SteamRuntimeSystemInfo().then((e) => a(e));
 	}, [a]);
 	const c = i
-		? (0, o.we)("#Settings_SteamRuntimeSystemInformation_Desc")
-		: (0, o.we)("#Settings_SteamRuntimeSystemInformation_PleaseWait");
+		? (0, Localize)("#Settings_SteamRuntimeSystemInformation_Desc")
+		: (0, Localize)("#Settings_SteamRuntimeSystemInformation_PleaseWait");
 	return n.createElement(
 		g.o0,
 		{
@@ -796,10 +800,10 @@ function me(e) {
 			strTitle: t,
 			bOKDisabled: !i,
 			strDescription: c,
-			strOKButtonText: (0, o.we)(
+			strOKButtonText: (0, Localize)(
 				"#Settings_SteamRuntimeSystemInformation_Copy",
 			),
-			strCancelButtonText: (0, o.we)(
+			strCancelButtonText: (0, Localize)(
 				"#Settings_SteamRuntimeSystemInformation_Close",
 			),
 		},
@@ -833,7 +837,7 @@ export const kz = (0, G.Nr)(function (e) {
 	if (!r) {
 		return null;
 	}
-	const c = (0, o.we)("#Settings_SteamRuntimeSystemInformation");
+	const c = (0, Localize)("#Settings_SteamRuntimeSystemInformation");
 	return n.createElement(
 		O.w,
 		{
@@ -863,10 +867,10 @@ function de() {
 	return n.createElement(
 		i.xh,
 		{
-			label: (0, o.we)("#Settings_SteamRuntimeSystemInformation"),
+			label: (0, Localize)("#Settings_SteamRuntimeSystemInformation"),
 			onClick: e,
 		},
-		(0, o.we)("#Settings_SRSI_Run"),
+		(0, Localize)("#Settings_SRSI_Run"),
 	);
 }
 export function Xl(e) {

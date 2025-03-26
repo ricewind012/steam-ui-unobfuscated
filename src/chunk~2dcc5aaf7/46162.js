@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./7470.js");
-var i = require(/*webcrack:missing*/ "./54644.js");
+import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
 class a {
 	activeObject;
 	instance;
@@ -71,7 +71,7 @@ class s {
 		}
 	}
 	BIsChildElement(e) {
-		return this.m_container && i.id(this.m_container, e);
+		return this.m_container && BIsParentOrSelf(this.m_container, e);
 	}
 }
 export class MX {

@@ -1,12 +1,15 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./53833.js");
+import {
+	FindAndRemove,
+	CountMatches,
+} from "../../actual_src/utils/arrayutils.js";
 var a = require(/*webcrack:missing*/ "./12176.js");
 var s = require(/*webcrack:missing*/ "./8573.js");
 var o = require(/*webcrack:missing*/ "./82755.js");
 var l = require("./54946.js");
 var c = require("./95773.js");
 var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var d = require("./96127.js");
 var A = require("./26052.js");
 var p = require("./21866.js");
@@ -97,7 +100,7 @@ export class uZ {
 	RemoveMember(e) {
 		if (this.HasMember(e)) {
 			this.m_setMembers.delete(e);
-			i.x9(this.m_rgAccountIDMembers, e);
+			FindAndRemove(this.m_rgAccountIDMembers, e);
 		}
 	}
 	HasMember(e) {
@@ -383,11 +386,14 @@ export class Oz {
 	m_mapGameGroups = m.sH.map();
 	m_singletonGameGroup = new v(0);
 	m_nonSteamGameGroup = new v(o_);
-	m_groupAllFriends = new b((0, u.we)("#FriendGroup_Online"), -1);
-	m_groupOfflineFriends = new y((0, u.we)("#FriendGroup_Offline"), -3);
-	m_groupIngameFriends = new w((0, u.we)("#FriendGroup_InGame"), -4);
-	m_groupIncomingInvites = new B((0, u.we)("#FriendGroup_IncomingInvites"), -5);
-	m_groupOutgoingInvites = new S((0, u.we)("#FriendGroup_Outgoing"), -6);
+	m_groupAllFriends = new b((0, Localize)("#FriendGroup_Online"), -1);
+	m_groupOfflineFriends = new y((0, Localize)("#FriendGroup_Offline"), -3);
+	m_groupIngameFriends = new w((0, Localize)("#FriendGroup_InGame"), -4);
+	m_groupIncomingInvites = new B(
+		(0, Localize)("#FriendGroup_IncomingInvites"),
+		-5,
+	);
+	m_groupOutgoingInvites = new S((0, Localize)("#FriendGroup_Outgoing"), -6);
 	constructor(e) {
 		(0, m.Gn)(this);
 		this.m_FriendStore = e;
@@ -759,9 +765,11 @@ export class Oz {
 		r.set_in_game_collapsed(t(this.m_singletonGameGroup));
 		r.set_online_collapsed(t(this.m_groupAllFriends));
 		r.set_offline_collapsed(t(this.m_groupOfflineFriends));
-		r.set_categories_collapsed(i.$D(Array.from(this.m_mapGroups.values()), t));
+		r.set_categories_collapsed(
+			CountMatches(Array.from(this.m_mapGroups.values()), t),
+		);
 		r.set_game_groups_collapsed(
-			i.$D(Array.from(this.m_mapGameGroups.values()), t),
+			CountMatches(Array.from(this.m_mapGameGroups.values()), t),
 		);
 	}
 }

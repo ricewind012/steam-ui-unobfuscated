@@ -9,7 +9,7 @@ var m = require("./12031.js");
 var u = m;
 var d = require("./65265.js");
 var A = d;
-var p = require(/*webcrack:missing*/ "./41180.js");
+import { Sleep } from "../../actual_src/utils/time.js";
 var g = require("./35425.js");
 var h = require("./26893.js");
 var C = require(/*webcrack:missing*/ "./52451.js");
@@ -296,9 +296,9 @@ export class ou {
 		(async () => {
 			if (a != null) {
 				n.m_RootElement.style.visibility = "hidden";
-				await Promise.all([this.ClosePooledPopup(a), (0, p.IP)(32)]);
+				await Promise.all([this.ClosePooledPopup(a), Sleep(32)]);
 			} else if (i != null && i < 32) {
-				await (0, p.IP)(32 - i);
+				await Sleep(32 - i);
 			}
 			if (u.eState != 0) {
 				this.ClosePooledPopup(m);
@@ -352,7 +352,7 @@ export class ou {
 								"Error:",
 								e,
 							);
-							await (0, p.IP)(1000);
+							await Sleep(1000);
 							if (u.eState != 0) {
 								this.ClosePooledPopup(m);
 								return;

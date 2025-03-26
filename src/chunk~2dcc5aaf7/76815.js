@@ -194,9 +194,9 @@ class I extends h.Component {
 var E = require("./13869.js");
 var M = require(/*webcrack:missing*/ "./50376.js");
 var T = require(/*webcrack:missing*/ "./27773.js");
-var R = require(/*webcrack:missing*/ "./53833.js");
+import { MoveElement } from "../../actual_src/utils/arrayutils.js";
 var k = require(/*webcrack:missing*/ "./90765.js");
-var D = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var N = require("./51079.js");
 var F = N;
 var G = require("./98829.js");
@@ -486,7 +486,7 @@ export let dH = class extends h.Component {
 			if (e != -1) {
 				if (e != this.state.iDragIndex) {
 					t = r.slice();
-					(0, R.yY)(t, e, Math.min(this.state.iDragIndex, r.length - 1));
+					MoveElement(t, e, Math.min(this.state.iDragIndex, r.length - 1));
 				}
 			} else if (this.state.iDragIndex < r.length) {
 				t = r.slice();
@@ -573,7 +573,7 @@ export let dH = class extends h.Component {
 						onClick: this.ShowFriendsList,
 					},
 					h.createElement(M.YJl, null),
-					(0, D.we)("#FriendsList_ExpandButton"),
+					(0, Localize)("#FriendsList_ExpandButton"),
 				),
 			this.props.tabSet.tabCount > 0 &&
 				h.createElement(
@@ -877,7 +877,7 @@ export let sU = class extends h.Component {
 				focusable: this.props.selectTab != null,
 				draggable: true,
 				onSecondaryButton: this.OnCloseClick,
-				onSecondaryActionDescription: (0, D.we)(
+				onSecondaryActionDescription: (0, Localize)(
 					"#Chat_CloseTabAction_SteamDeck",
 				),
 				onOKButton: this.OnOKButton,
@@ -889,7 +889,7 @@ export let sU = class extends h.Component {
 				onDragEnd: this.OnDragEnd,
 				onContextMenu: this.OnContextMenu,
 				onOKActionDescription: null,
-				onMenuActionDescription: (0, D.we)("#Chat_Tab_ContextMenu"),
+				onMenuActionDescription: (0, Localize)("#Chat_Tab_ContextMenu"),
 			},
 			h.createElement(
 				V,
@@ -908,8 +908,8 @@ export let sU = class extends h.Component {
 							{
 								className: F.MicStatus,
 								title: a
-									? (0, D.we)("#Tooltip_MicStatus_Muted")
-									: (0, D.we)("#Tooltip_MicStatus_Active"),
+									? (0, Localize)("#Tooltip_MicStatus_Muted")
+									: (0, Localize)("#Tooltip_MicStatus_Active"),
 							},
 							this.context?.IN_GAMEPADUI
 								? i
@@ -966,24 +966,33 @@ export let sU = class extends h.Component {
 								}
 								i =
 									r && !n
-										? (0, D.we)("#Voice_WaitingForFriendToJoin", s.display_name)
+										? (0, Localize)(
+												"#Voice_WaitingForFriendToJoin",
+												s.display_name,
+											)
 										: n && !r
 											? a
-												? (0, D.we)(
+												? (0, Localize)(
 														"#Voice_ChannelRejoinAvailable",
 														s.display_name,
 													)
-												: (0, D.we)("#Voice_ChannelAvailable", s.display_name)
+												: (0, Localize)(
+														"#Voice_ChannelAvailable",
+														s.display_name,
+													)
 											: m
 												? c
-													? (0, D.we)("#VoiceChatConnecting")
+													? (0, Localize)("#VoiceChatConnecting")
 													: ""
 												: !m && u
-													? (0, D.we)(
+													? (0, Localize)(
 															"#VoiceChatParterConnecting",
 															s.display_name,
 														)
-													: (0, D.we)("#Voice_ChannelActive", s.display_name);
+													: (0, Localize)(
+															"#Voice_ChannelActive",
+															s.display_name,
+														);
 								return h.createElement(
 									"div",
 									{
@@ -1009,7 +1018,7 @@ function W(e) {
 	return h.createElement(
 		"div",
 		{
-			title: (0, D.we)("#Chat_CloseTooltip"),
+			title: (0, Localize)("#Chat_CloseTooltip"),
 			className: F.CloseButton,
 			onClick: e.onClick,
 			onMouseDown: e.onMouseDown,
@@ -1110,7 +1119,7 @@ let j = class extends h.Component {
 						{
 							className: F.IsNotFriendLabel,
 						},
-						(0, D.we)("#Friend_Menu_NotAFriendLabel"),
+						(0, Localize)("#Friend_Menu_NotAFriendLabel"),
 						" ",
 					),
 			);
@@ -1174,7 +1183,7 @@ export function XX(e) {
 				e,
 				"ActiveVoiceAlert",
 				{
-					strTitle: (0, D.we)("#Chat_StillInVoiceDialog_Title"),
+					strTitle: (0, Localize)("#Chat_StillInVoiceDialog_Title"),
 					popupWidth: 650,
 					popupHeight: 340,
 				},
@@ -1233,7 +1242,7 @@ let Q = class extends h.Component {
 					h.createElement(
 						"div",
 						null,
-						(0, D.we)("#Chat_StillInVoiceDialog_Title"),
+						(0, Localize)("#Chat_StillInVoiceDialog_Title"),
 					),
 				),
 				h.createElement(
@@ -1244,14 +1253,14 @@ let Q = class extends h.Component {
 						{
 							className: "activeVoiceDetails",
 						},
-						(0, D.we)("#Chat_StillInVoiceDialog_Desc1"),
+						(0, Localize)("#Chat_StillInVoiceDialog_Desc1"),
 					),
 					h.createElement(
 						"div",
 						{
 							className: "activeVoiceDetails",
 						},
-						(0, D.we)("#Chat_StillInVoiceDialog_Desc2"),
+						(0, Localize)("#Chat_StillInVoiceDialog_Desc2"),
 					),
 					h.createElement(
 						"div",
@@ -1282,7 +1291,7 @@ let Q = class extends h.Component {
 							{
 								onClick: this.OnSubmit,
 							},
-							(0, D.we)("#Chat_StillInVoiceDialog_KeepChatting"),
+							(0, Localize)("#Chat_StillInVoiceDialog_KeepChatting"),
 						),
 					),
 					h.createElement(
@@ -1295,7 +1304,7 @@ let Q = class extends h.Component {
 							checked: this.state.bDontShowChecked,
 							onChange: this.OnDialogChecked,
 						}),
-						(0, D.we)("#Dialog_DontShowMeAgain"),
+						(0, Localize)("#Dialog_DontShowMeAgain"),
 					),
 				),
 			),

@@ -1,5 +1,5 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var a = require("./10606.js");
 export function I() {
 	const [e, t] = n.useState(false);
@@ -32,8 +32,8 @@ export function p(e) {
 			active: t,
 		},
 		n.createElement(a.KG, {
-			strTitle: (0, i.we)("#BootReserve_Dialog_Title"),
-			strDescription: (0, i.we)("#BootReserve_Dialog_Contents"),
+			strTitle: Localize("#BootReserve_Dialog_Title"),
+			strDescription: Localize("#BootReserve_Dialog_Contents"),
 			closeModal: r,
 		}),
 	);

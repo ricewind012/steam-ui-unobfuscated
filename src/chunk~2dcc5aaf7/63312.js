@@ -1,6 +1,6 @@
 var n = require(/*webcrack:missing*/ "./63696.js");
 var i = require("./42085.js");
-var a = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var s = require("./66186.js");
 var o = require("./83571.js");
 var l = require("./20189.js");
@@ -136,21 +136,21 @@ function I(e) {
 	}
 	let o = "​";
 	if (r > d.Go.Low) {
-		o = (0, a.we)("#QuickAccess_Tab_Perf_BatteryTimeRemaining", i, s);
+		o = Localize("#QuickAccess_Tab_Perf_BatteryTimeRemaining", i, s);
 	}
 	let l = "";
 	switch (t.eBatteryState) {
 		case 1:
 			l =
 				r < d.Go.High
-					? (0, a.we)("#QuickAccess_Tab_Perf_CalculatingBatteryLife")
-					: (0, a.we)("#QuickAccess_Tab_Perf_ProjectedBatteryLife");
+					? Localize("#QuickAccess_Tab_Perf_CalculatingBatteryLife")
+					: Localize("#QuickAccess_Tab_Perf_ProjectedBatteryLife");
 			break;
 		case 2:
 			l =
 				r < d.Go.High
-					? (0, a.we)("#QuickAccess_Tab_Perf_CalculatingChargingTime")
-					: (0, a.we)("#QuickAccess_Tab_Perf_ProjectedChargingTime");
+					? Localize("#QuickAccess_Tab_Perf_CalculatingChargingTime")
+					: Localize("#QuickAccess_Tab_Perf_ProjectedChargingTime");
 			break;
 		default:
 			return null;
@@ -178,8 +178,8 @@ function I(e) {
 }
 export function z5(e) {
 	const { onOK: t } = e;
-	const r = (0, a.we)("#QuickAccess_Tab_Perf_ConnectedSlowDetailsTitle");
-	const i = (0, a.we)("#QuickAccess_Tab_Perf_ConnectedSlowDetails");
+	const r = Localize("#QuickAccess_Tab_Perf_ConnectedSlowDetailsTitle");
+	const i = Localize("#QuickAccess_Tab_Perf_ConnectedSlowDetails");
 	return n.createElement(A.o0, {
 		bAlertDialog: true,
 		strTitle: r,
@@ -189,8 +189,8 @@ export function z5(e) {
 }
 export function f0(e) {
 	const { onOK: t } = e;
-	const r = (0, a.we)("#QuickAccess_Tab_Perf_BatteryFullDetailsTitle");
-	const i = (0, a.we)("#QuickAccess_Tab_Perf_BatteryFullDetails");
+	const r = Localize("#QuickAccess_Tab_Perf_BatteryFullDetailsTitle");
+	const i = Localize("#QuickAccess_Tab_Perf_BatteryFullDetails");
 	return n.createElement(A.o0, {
 		bAlertDialog: true,
 		strTitle: r,
@@ -206,7 +206,7 @@ function T(e) {
 	}
 	let s = Math.min(Math.round(t.flLevel * 100), 99) + "%";
 	if (r) {
-		s = (0, a.we)("#QuickAccess_Tab_Perf_BatteryFull");
+		s = Localize("#QuickAccess_Tab_Perf_BatteryFull");
 	}
 	let o = null;
 	if (t.eACState == 3) {

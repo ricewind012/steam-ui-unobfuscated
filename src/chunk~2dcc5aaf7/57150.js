@@ -4,7 +4,11 @@ var a = require(/*webcrack:missing*/ "./90095.js");
 var s = require(/*webcrack:missing*/ "./49519.js");
 var o = require("./84056.js");
 var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var m = require("./1965.js");
 var u = require("./56726.js");
 var d = require("./34792.js");
@@ -15,14 +19,14 @@ var h = require(/*webcrack:missing*/ "./72476.js");
 var C = require(/*webcrack:missing*/ "./69164.js");
 var _ = require("./94729.js");
 var f = require("./18057.js");
-var b = require(/*webcrack:missing*/ "./54644.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var y = require("./3499.js");
 var S = require("./18869.js");
 var w = require("./4069.js");
 var B = require("./74827.js");
 var v = require("./61294.js");
 function I(e) {
-	(0, b.uX)(e).location.href = "steam://settings/ingame";
+	GetOwningWindowForEvent(e).location.href = "steam://settings/ingame";
 }
 export const E = (0, i.PA)(function (e) {
 	const t = (0, s.W6)();
@@ -77,7 +81,7 @@ export const E = (0, i.PA)(function (e) {
 			{
 				feature: 3,
 				className: g.ScreenshotsSection,
-				label: (0, c.we)(E),
+				label: Localize(E),
 				rightColumnSection: true,
 				availableOffline: true,
 			},
@@ -93,7 +97,7 @@ export const E = (0, i.PA)(function (e) {
 							{
 								className: g.NoRecent,
 							},
-							(0, c.PP)(
+							LocalizeReact(
 								"#AppDetails_HowToScreenshotGamepad",
 								n.createElement(v.Gn, {
 									binding: e,
@@ -107,7 +111,7 @@ export const E = (0, i.PA)(function (e) {
 							{
 								onClick: () => t.push(f.BV.Media.Grid()),
 							},
-							(0, c.we)("#AppDetails_GoToMedia"),
+							Localize("#AppDetails_GoToMedia"),
 						),
 					),
 				!r &&
@@ -119,7 +123,7 @@ export const E = (0, i.PA)(function (e) {
 							{
 								className: g.NoneTaken,
 							},
-							(0, c.we)("#AppDetails_NoScreenshots", i.display_name),
+							Localize("#AppDetails_NoScreenshots", i.display_name),
 							" ",
 						),
 						n.createElement(
@@ -127,7 +131,7 @@ export const E = (0, i.PA)(function (e) {
 							{
 								className: g.InstructionText,
 							},
-							(0, c.we)("#AppDetails_HowToScreenshot", i.display_name),
+							Localize("#AppDetails_HowToScreenshot", i.display_name),
 							" ",
 						),
 						n.createElement(
@@ -135,7 +139,7 @@ export const E = (0, i.PA)(function (e) {
 							{
 								onClick: I,
 							},
-							(0, c.we)("#AppDetails_ChangeMyScreenshotKey"),
+							Localize("#AppDetails_ChangeMyScreenshotKey"),
 						),
 					),
 			),
@@ -175,7 +179,7 @@ export const E = (0, i.PA)(function (e) {
 			{
 				feature: 3,
 				className: g.ScreenshotsSection,
-				label: (0, c.we)(E),
+				label: Localize(E),
 				rightColumnSection: true,
 				availableOffline: true,
 			},
@@ -196,7 +200,7 @@ export const E = (0, i.PA)(function (e) {
 						{
 							onClick: p,
 						},
-						(0, c.Yp)(t, b),
+						LocalizePlural(t, b),
 					),
 			),
 		);

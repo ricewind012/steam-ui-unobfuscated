@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 export function JS(e) {
 	switch (e) {
 		case 29:
@@ -32,10 +32,10 @@ export function JS(e) {
 }
 export function rG(e) {
 	let t = "#PartnerEvent_" + e;
-	let r = (0, n.we)(t);
+	let r = Localize(t);
 	if (r != t) {
 		return r;
 	} else {
-		return (0, n.we)("#PartnerEvent_Other");
+		return Localize("#PartnerEvent_Other");
 	}
 }

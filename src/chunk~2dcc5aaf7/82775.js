@@ -1,10 +1,20 @@
 var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require(/*webcrack:missing*/ "./98995.js");
-var s = require(/*webcrack:missing*/ "./46108.js");
+import {
+	GetConfiguredLocale,
+	LocalizeDateHumanReadable,
+	Localize,
+	LocalizeReact,
+	Hq,
+} from "../../actual_src/utils/localization.js";
 var o = require(/*webcrack:missing*/ "./41230.js");
 var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./41180.js");
+import {
+	IsDateSameDay,
+	IsDateSameYear,
+	Seconds,
+} from "../../actual_src/utils/time.js";
 var m = require("./24585.js");
 var u = m;
 var d = require("./12956.js");
@@ -12,7 +22,7 @@ const A = require(/*webcrack:missing*/ "./18339.js");
 export function yi(e, t) {
 	const r = A.tz.guess();
 	const n = A.unix(e).tz(r);
-	const o = (0, s.l4)();
+	const o = GetConfiguredLocale();
 	if (o) {
 		n.locale(o);
 	}
@@ -35,7 +45,7 @@ const g = (0, o.PA)((e) => {
 	const { dateAndTime: t, bSingleLine: r, bOnlyTime: n, bOnlyDate: a } = e;
 	const o = !n && Boolean(t);
 	const l = !a && Boolean(t);
-	const c = o && (0, s.TW)(t);
+	const c = o && LocalizeDateHumanReadable(t);
 	const m = e.stylesmodule
 		? {
 				...u,
@@ -135,9 +145,9 @@ let C = class extends i.Component {
 					{
 						className: r.RightSideTitles,
 					},
-					(0, s.we)("#EventDisplay_TimeRange"),
+					(0, Localize)("#EventDisplay_TimeRange"),
 				),
-				(0, s.we)("#EventDisplay_TimeDisplayNone"),
+				(0, Localize)("#EventDisplay_TimeDisplayNone"),
 			);
 		}
 		let a = d.HD.GetTimeNowWithOverride();
@@ -152,7 +162,7 @@ let C = class extends i.Component {
 					{
 						className: r.RightSideTitles,
 					},
-					(0, s.we)(
+					(0, Localize)(
 						e < a ? "#EventDisplay_TimeInPast" : "#EventDisplay_TimeUpcoming",
 					),
 					"\xA0",
@@ -164,7 +174,7 @@ let C = class extends i.Component {
 			);
 		}
 		let o = e <= a && a <= t;
-		const m = (0, c.JD)(new Date(e * 1000), new Date(t * 1000));
+		const m = IsDateSameDay(new Date(e * 1000), new Date(t * 1000));
 		return i.createElement(
 			"div",
 			{
@@ -180,7 +190,7 @@ let C = class extends i.Component {
 					{
 						className: r.RightSideTitles,
 					},
-					(0, s.we)(
+					(0, Localize)(
 						e >= a
 							? "#EventDisplay_TimeBeginsOn"
 							: t >= a
@@ -204,7 +214,7 @@ let C = class extends i.Component {
 					{
 						className: r.RightSideTitles,
 					},
-					(0, s.we)(
+					(0, Localize)(
 						t < a
 							? "#EventDisplay_TimeEndsOn_Past"
 							: "#EventDisplay_TimeEndsOn",
@@ -228,7 +238,7 @@ let C = class extends i.Component {
 						{
 							className: (0, l.A)(r.RightSideTitles, r.ActiveEventCallOut),
 						},
-						(0, s.we)("#Time_Now"),
+						(0, Localize)("#Time_Now"),
 					),
 				),
 		);
@@ -259,20 +269,20 @@ export let u1 = class extends i.Component {
 					{
 						className: n.RightSideTitles,
 					},
-					(0, s.we)("#EventDisplay_TimeRange"),
+					(0, Localize)("#EventDisplay_TimeRange"),
 				),
-				(0, s.we)("#EventDisplay_TimeDisplayNone"),
+				(0, Localize)("#EventDisplay_TimeDisplayNone"),
 			);
 		}
 		const a = d.HD.GetTimeNowWithOverrideAsDate();
 		const o = d.HD.GetTimeNowWithOverride();
-		const l = (0, c.Ct)(new Date(e * 1000), a);
+		const l = IsDateSameYear(new Date(e * 1000), a);
 		const m = i.createElement(
 			"div",
 			{
 				className: n.ShortDateAndTime,
 			},
-			(0, s.TW)(e, l),
+			LocalizeDateHumanReadable(e, l),
 		);
 		let A = i.createElement(
 			h,
@@ -285,13 +295,13 @@ export let u1 = class extends i.Component {
 				{
 					className: n.RightSideTitles,
 				},
-				(0, s.we)(
+				(0, Localize)(
 					e < o ? "#EventDisplay_TimeInPast" : "#EventDisplay_TimeUpcoming",
 				),
 			),
 			m,
 		);
-		if (o < e && e < o + c.Kp.PerWeek) {
+		if (o < e && e < o + Seconds.PerWeek) {
 			A = i.createElement(
 				h,
 				{
@@ -303,7 +313,7 @@ export let u1 = class extends i.Component {
 					{
 						className: n.RightSideTitles,
 					},
-					(0, s.PP)(
+					LocalizeReact(
 						"#EventDisplay_EventUpcoming_WithDateAndTime",
 						m,
 						i.createElement(
@@ -335,19 +345,19 @@ export let u1 = class extends i.Component {
 					{
 						className: n.ActiveEventCallOut,
 					},
-					(0, s.we)("#Time_Now"),
+					(0, Localize)("#Time_Now"),
 				),
 			);
 		}
 		let C = null;
 		const _ = g ? t - o : t - e;
-		if (_ <= c.Kp.PerDay) {
+		if (_ <= Seconds.PerDay) {
 			const e = i.createElement(
 				"div",
 				{
 					className: n.ShortDateAndTime,
 				},
-				(0, s.Hq)(_, true),
+				(0, Hq)(_, true),
 			);
 			C =
 				t < o
@@ -356,7 +366,7 @@ export let u1 = class extends i.Component {
 							{
 								className: n.RightSideTitles,
 							},
-							(0, s.we)("#EventDisplay_TimeEndsOn_Ran"),
+							(0, Localize)("#EventDisplay_TimeEndsOn_Ran"),
 							e,
 						)
 					: i.createElement(
@@ -364,7 +374,7 @@ export let u1 = class extends i.Component {
 							{
 								className: n.RightSideTitles,
 							},
-							(0, s.PP)(
+							LocalizeReact(
 								g ? "#EventDisplay_TimeLeft" : "#EventDisplay_RunsForDuration",
 								e,
 							),
@@ -379,7 +389,7 @@ export let u1 = class extends i.Component {
 					{
 						className: n.RightSideTitles,
 					},
-					(0, s.we)(
+					(0, Localize)(
 						t < o
 							? "#EventDisplay_TimeEndsOn_Past"
 							: "#EventDisplay_TimeEndsOn",
@@ -390,7 +400,7 @@ export let u1 = class extends i.Component {
 					{
 						className: n.ShortDateAndTime,
 					},
-					(0, s.TW)(t, e),
+					LocalizeDateHumanReadable(t, e),
 				),
 			);
 		}

@@ -2,7 +2,7 @@ var n = require(/*webcrack:missing*/ "./34629.js");
 var i = require(/*webcrack:missing*/ "./3524.js");
 var _a = require(/*webcrack:missing*/ "./63696.js");
 var s = require(/*webcrack:missing*/ "./11131.js");
-var o = require(/*webcrack:missing*/ "./53833.js");
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 var l = require(/*webcrack:missing*/ "./49455.js");
 var c = require(/*webcrack:missing*/ "./79769.js");
 var m = require(/*webcrack:missing*/ "./83599.js");
@@ -34,7 +34,7 @@ class p {
 			browserContext: r,
 		};
 		this.m_rgTrees.push(i);
-		n.Push(() => o.x9(this.m_rgTrees, i));
+		n.Push(() => FindAndRemove(this.m_rgTrees, i));
 		n.Push(t.OnActivateCallbacks.Register(this.OnTreeActivated).Unregister);
 		n.Push(t.OnDeactivateCallbacks.Register(this.OnTreeDeactivated).Unregister);
 		n.Push(

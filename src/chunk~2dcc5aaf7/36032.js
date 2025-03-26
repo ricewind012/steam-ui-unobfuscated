@@ -3,7 +3,7 @@ var i = require(/*webcrack:missing*/ "./41230.js");
 var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require("./93610.js");
 var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var c = require("./62556.js");
 var m = require("./24336.js");
 var u = m;
@@ -51,7 +51,7 @@ let g = class extends a.Component {
 						{
 							className: u.featuredSubTitle,
 						},
-						(0, l.we)("#Hover_BadgeXP", t.xp),
+						Localize("#Hover_BadgeXP", t.xp),
 					),
 				),
 			);
@@ -93,7 +93,7 @@ let h = class extends a.Component {
 						{
 							className: u.featuredTitle,
 						},
-						(0, l.we)("#Hover_SteamLevel") + " ",
+						Localize("#Hover_SteamLevel") + " ",
 					),
 				),
 			);
@@ -127,7 +127,7 @@ let C = class extends a.Component {
 					{
 						className: u.gameState,
 					},
-					(0, l.we)(
+					Localize(
 						e.is_in_nonsteam_game
 							? "#PersonaStateInNonSteamGame"
 							: "#PersonaStateInGame",
@@ -169,7 +169,7 @@ let f = class extends a.Component {
 		let t;
 		let r = this.props.broadcast_description;
 		if (r) {
-			e = (0, l.we)("#PersonaStateWatchingBroadcast");
+			e = Localize("#PersonaStateWatchingBroadcast");
 			t = r;
 		}
 		return a.createElement(
@@ -299,7 +299,7 @@ export let Vr = class extends a.Component {
 								"div",
 								{
 									className: u.playerNicknameBracket,
-									title: (0, l.we)("#isNickname"),
+									title: Localize("#isNickname"),
 								},
 								"*",
 							),
@@ -416,7 +416,7 @@ export let Vr = class extends a.Component {
 												{
 													className: u.awayStatusLabel,
 												},
-												(0, l.we)("#PersonaStateAway"),
+												Localize("#PersonaStateAway"),
 											),
 										!t.is_online &&
 											a.createElement(
@@ -433,7 +433,7 @@ export let Vr = class extends a.Component {
 												{
 													className: u.awayStatusLabel,
 												},
-												(0, l.we)("#PersonaStateOnline"),
+												Localize("#PersonaStateOnline"),
 											),
 										!k &&
 											a.createElement(
@@ -442,8 +442,8 @@ export let Vr = class extends a.Component {
 													className: u.miniProfileNotFriends,
 												},
 												D
-													? (0, l.we)("#Friend_Menu_NotAFriendRequesting")
-													: (0, l.we)("#Friend_Menu_NotAFriendLabel"),
+													? Localize("#Friend_Menu_NotAFriendRequesting")
+													: Localize("#Friend_Menu_NotAFriendLabel"),
 											),
 										N &&
 											a.createElement(
@@ -451,7 +451,7 @@ export let Vr = class extends a.Component {
 												{
 													className: u.miniProfileBlocked,
 												},
-												(0, l.we)("#PersonaStateBlocked"),
+												Localize("#PersonaStateBlocked"),
 											),
 									),
 								),

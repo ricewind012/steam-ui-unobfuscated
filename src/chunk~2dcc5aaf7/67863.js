@@ -6,7 +6,11 @@ var o = require(/*webcrack:missing*/ "./41230.js");
 var l = require(/*webcrack:missing*/ "./68120.js");
 var c = require("./64608.js");
 var m = require("./10606.js");
-var u = require(/*webcrack:missing*/ "./46108.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
 var d = require(/*webcrack:missing*/ "./72476.js");
 var A = require("./96593.js");
 var p = require("./73317.js");
@@ -15,8 +19,8 @@ var h = require("./4584.js");
 var C = require("./34428.js");
 var _ = require(/*webcrack:missing*/ "./90765.js");
 var f = require("./30496.js");
-var b = require(/*webcrack:missing*/ "./11010.js");
-var y = require(/*webcrack:missing*/ "./54644.js");
+import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization/datetime.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 var S = require("./13656.js");
 var w = require("./19731.js");
 var B = require("./49206.js");
@@ -64,13 +68,13 @@ export function f_(e) {
 	const t = (0, Q.k1)();
 	const r = (0, H.R7)();
 	let n = i.createElement(m.o0, {
-		strTitle: (0, u.we)("#ContentManagement_LowDiskSpaceDialog_Title"),
-		strDescription: (0, u.we)(
+		strTitle: (0, Localize)("#ContentManagement_LowDiskSpaceDialog_Title"),
+		strDescription: (0, Localize)(
 			"#ContentManagement_LowDiskSpaceDialog_Desc",
-			(0, u.we)("#MainTabsSettings"),
-			(0, u.we)("#Settings_Page_Storage"),
+			(0, Localize)("#MainTabsSettings"),
+			(0, Localize)("#Settings_Page_Storage"),
 		),
-		strOKButtonText: (0, u.we)("#Installer_ManageStorage"),
+		strOKButtonText: (0, Localize)("#Installer_ManageStorage"),
 		onOK: () => t.Settings("Storage"),
 	});
 	(0, k.pg)(n, r.ownerWindow ?? window);
@@ -88,7 +92,7 @@ export function Xb() {
 	if (!e) {
 		return null;
 	}
-	const n = (0, u.we)("#ContentManagement_Title");
+	const n = (0, Localize)("#ContentManagement_Title");
 	return i.createElement(
 		j.t,
 		{
@@ -107,7 +111,7 @@ function oe(e) {
 	const [a, s] = i.useState(null);
 	const o = [
 		...t.map((e) => ({
-			label: (0, u.PP)(
+			label: LocalizeReact(
 				"#ContentManagement_AddFolder_AvailableSpace",
 				i.createElement(W.Gc, {
 					folder: e,
@@ -118,7 +122,7 @@ function oe(e) {
 			data: e.strFolderPath,
 		})),
 		{
-			label: (0, u.we)("#ContentManagement_AddFolder_Browse"),
+			label: (0, Localize)("#ContentManagement_AddFolder_Browse"),
 			data: "",
 		},
 	];
@@ -129,7 +133,7 @@ function oe(e) {
 			if (
 				e === "" &&
 				((e = await SteamClient.System.OpenFileDialog({
-					strTitle: (0, u.we)("#ContentManagement_DirectoryPicker_Title"),
+					strTitle: (0, Localize)("#ContentManagement_DirectoryPicker_Title"),
 					bChooseDirectory: true,
 				})),
 				!e)
@@ -141,7 +145,7 @@ function oe(e) {
 			r();
 		} catch (e) {
 			if (e.result != 52) {
-				s((0, u.we)("#ContentManagement_Error_" + e.message));
+				s((0, Localize)("#ContentManagement_Error_" + e.message));
 			}
 		}
 	}, [s, n, r, l]);
@@ -151,7 +155,11 @@ function oe(e) {
 			className: L.SaveCollectionContainer,
 			onCancel: r,
 		},
-		i.createElement(c.Y9, null, (0, u.we)("#ContentManagement_AddFolder_Text")),
+		i.createElement(
+			c.Y9,
+			null,
+			(0, Localize)("#ContentManagement_AddFolder_Text"),
+		),
 		i.createElement(
 			c.nB,
 			null,
@@ -172,7 +180,7 @@ function oe(e) {
 				i.createElement(c.CB, {
 					onCancel: r,
 					onOK: A,
-					strOKText: (0, u.we)("#ContentManagement_AddFolder_OK"),
+					strOKText: (0, Localize)("#ContentManagement_AddFolder_OK"),
 				}),
 			),
 		),
@@ -203,7 +211,11 @@ let le = class extends i.Component {
 				onOK: this.onSaveLabel,
 				onCancel: this.props.closeModal,
 			},
-			i.createElement(c.Y9, null, (0, u.we)("#ContentManagement_RenameDrive")),
+			i.createElement(
+				c.Y9,
+				null,
+				(0, Localize)("#ContentManagement_RenameDrive"),
+			),
 			i.createElement(
 				c.nB,
 				null,
@@ -216,7 +228,7 @@ let le = class extends i.Component {
 							className: L.SelectedFilters,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_RenameDriveText"),
+						(0, Localize)("#ContentManagement_RenameDriveText"),
 						" ",
 					),
 					i.createElement(c.pd, {
@@ -271,14 +283,18 @@ let ce = class extends i.Component {
 				className: L.SaveCollectionContainer,
 				onCancel: this.props.closeModal,
 			},
-			i.createElement(c.Y9, null, (0, u.we)("#ContentManagement_RepairFolder")),
+			i.createElement(
+				c.Y9,
+				null,
+				(0, Localize)("#ContentManagement_RepairFolder"),
+			),
 			i.createElement(
 				c.nB,
 				null,
 				i.createElement(
 					c.a3,
 					null,
-					(0, u.we)(
+					(0, Localize)(
 						"#ContentManagement_RepairFolder_Text",
 						this.props.drive.strFolderPath,
 					),
@@ -288,9 +304,9 @@ let ce = class extends i.Component {
 							position: "center",
 						}),
 					this.m_State == "Done" &&
-						(0, u.we)("#ContentManagement_RepairFolder_Done"),
+						(0, Localize)("#ContentManagement_RepairFolder_Done"),
 					this.m_State == "Failed" &&
-						(0, u.we)("#ContentManagement_RepairFolder_Failed"),
+						(0, Localize)("#ContentManagement_RepairFolder_Failed"),
 				),
 				i.createElement(
 					c.wi,
@@ -301,7 +317,7 @@ let ce = class extends i.Component {
 							onClick: this.props.closeModal,
 							disabled: this.m_State == "Working",
 						},
-						(0, u.we)("#Button_Close"),
+						(0, Localize)("#Button_Close"),
 					),
 				),
 			),
@@ -335,12 +351,14 @@ function me(e, t, r) {
 function ue(e) {
 	let t = null;
 	if (e.eResult === 10) {
-		t = (0, u.we)("#ContentManagement_Unmount_Error_Busy");
+		t = (0, Localize)("#ContentManagement_Unmount_Error_Busy");
 	} else {
-		t = (0, u.we)("#ContentManagement_Unmount_Error_Generic");
+		t = (0, Localize)("#ContentManagement_Unmount_Error_Generic");
 	}
 	return i.createElement(m.KG, {
-		strTitle: (0, u.we)("#ContentManagement_Unmount_Error_Title").toUpperCase(),
+		strTitle: (0, Localize)(
+			"#ContentManagement_Unmount_Error_Title",
+		).toUpperCase(),
 		strDescription: i.createElement(
 			"span",
 			{
@@ -352,7 +370,7 @@ function ue(e) {
 			t,
 			" ",
 		),
-		strOKButtonText: (0, u.we)("#ContentManagement_Unmount_Error_Dismiss"),
+		strOKButtonText: (0, Localize)("#ContentManagement_Unmount_Error_Dismiss"),
 		closeModal: e.closeModal,
 	});
 }
@@ -377,7 +395,10 @@ function de(e) {
 			(0, k.pg)(
 				i.createElement(m.o0, {
 					bAlertDialog: true,
-					strDescription: (0, u.we)("#ContentManagement_RemoveDriveFailed", a),
+					strDescription: (0, Localize)(
+						"#ContentManagement_RemoveDriveFailed",
+						a,
+					),
 				}),
 				n,
 				{},
@@ -385,8 +406,11 @@ function de(e) {
 		}
 	}, [t, n, r]);
 	return i.createElement(m.o0, {
-		strTitle: (0, u.we)("#ContentManagement_RemoveDrive_ConfirmTitle"),
-		strDescription: (0, u.we)("#ContentManagement_RemoveDrive_ConfirmDesc", a),
+		strTitle: (0, Localize)("#ContentManagement_RemoveDrive_ConfirmTitle"),
+		strDescription: (0, Localize)(
+			"#ContentManagement_RemoveDrive_ConfirmDesc",
+			a,
+		),
 		onOK: () => s(),
 		onCancel: () => r(),
 	});
@@ -416,7 +440,7 @@ function Ae(e) {
 					onSelected: () =>
 						SteamClient.InstallFolder.SetDefaultInstallFolder(t.nFolderIndex),
 				},
-				(0, u.we)("#ContentManagement_MakeDefault"),
+				(0, Localize)("#ContentManagement_MakeDefault"),
 			),
 		!c &&
 			s &&
@@ -425,7 +449,7 @@ function Ae(e) {
 				{
 					onSelected: (e) => r(e),
 				},
-				(0, u.we)("#ContentManagement_Unmount"),
+				(0, Localize)("#ContentManagement_Unmount"),
 			),
 		!c &&
 			l &&
@@ -434,7 +458,7 @@ function Ae(e) {
 				{
 					onSelected: (e) => n(e),
 				},
-				(0, u.we)("#ContentManagement_FormatDrive"),
+				(0, Localize)("#ContentManagement_FormatDrive"),
 			),
 		A &&
 			m &&
@@ -444,7 +468,7 @@ function Ae(e) {
 					onSelected: () =>
 						SteamClient.InstallFolder.BrowseFilesInFolder(t.nFolderIndex),
 				},
-				(0, u.we)("#ContentManagement_BrowseFolder"),
+				(0, Localize)("#ContentManagement_BrowseFolder"),
 			),
 		!m &&
 			i.createElement(
@@ -452,7 +476,7 @@ function Ae(e) {
 				{
 					onSelected: () => SteamClient.InstallFolder.RefreshFolders(),
 				},
-				(0, u.we)("#ContentManagement_RefreshDrive"),
+				(0, Localize)("#ContentManagement_RefreshDrive"),
 			),
 		m &&
 			i.createElement(
@@ -460,7 +484,7 @@ function Ae(e) {
 				{
 					onSelected: (e) =>
 						(function (e, t) {
-							const r = (0, y.uX)(e);
+							const r = GetOwningWindowForEvent(e);
 							(0, k.pg)(
 								i.createElement(ce, {
 									drive: t,
@@ -472,7 +496,7 @@ function Ae(e) {
 							);
 						})(e, t),
 				},
-				(0, u.we)("#ContentManagement_RepairFolder"),
+				(0, Localize)("#ContentManagement_RepairFolder"),
 			),
 		m &&
 			i.createElement(
@@ -480,7 +504,7 @@ function Ae(e) {
 				{
 					onSelected: (e) =>
 						(function (e, t) {
-							const r = (0, y.uX)(e);
+							const r = GetOwningWindowForEvent(e);
 							(0, k.pg)(
 								i.createElement(le, {
 									drive: t,
@@ -490,7 +514,7 @@ function Ae(e) {
 							);
 						})(e, t),
 				},
-				(0, u.we)("#ContentManagement_RenameDrive"),
+				(0, Localize)("#ContentManagement_RenameDrive"),
 			),
 		m &&
 			!c &&
@@ -499,7 +523,7 @@ function Ae(e) {
 				{
 					onSelected: (e) =>
 						(function (e, t) {
-							const r = (0, y.uX)(e);
+							const r = GetOwningWindowForEvent(e);
 							(0, k.pg)(
 								i.createElement(de, {
 									folder: t,
@@ -509,7 +533,7 @@ function Ae(e) {
 							);
 						})(e, t),
 				},
-				(0, u.we)("#ContentManagement_RemoveDrive"),
+				(0, Localize)("#ContentManagement_RemoveDrive"),
 			),
 	);
 }
@@ -548,7 +572,7 @@ function ge(e) {
 					direction: "bottom",
 					className: L.DriveSettingsButton,
 					onClick: n,
-					toolTipContent: (0, u.we)("#ContentManagement_DriveSettings"),
+					toolTipContent: (0, Localize)("#ContentManagement_DriveSettings"),
 				},
 				i.createElement(E.Dots, null),
 			);
@@ -568,14 +592,14 @@ function he(e) {
 			{
 				className: L.OtherToolTipHeader,
 			},
-			(0, u.we)("#ContentManagement_OtherToolTip_Header"),
+			(0, Localize)("#ContentManagement_OtherToolTip_Header"),
 		),
 		i.createElement(
 			"div",
 			{
 				className: L.OtherToolTipText,
 			},
-			(0, u.we)("#ContentManagement_OtherToolTip_Description"),
+			(0, Localize)("#ContentManagement_OtherToolTip_Description"),
 		),
 	);
 }
@@ -590,8 +614,8 @@ function Ce(e) {
 	const m = Be(t);
 	const d = l?.drive_id;
 	const A = {
-		[I.pR.SECONDARY]: (0, u.we)("#ContentManagement_MakeDefault"),
-		[I.pR.OPTIONS]: (0, u.we)("#ContentManagement_Folder_AdvancedOptions"),
+		[I.pR.SECONDARY]: (0, Localize)("#ContentManagement_MakeDefault"),
+		[I.pR.OPTIONS]: (0, Localize)("#ContentManagement_Folder_AdvancedOptions"),
 	};
 	const p = i.useCallback(
 		async (e) => {
@@ -601,7 +625,7 @@ function Ce(e) {
 					i.createElement(ue, {
 						eResult: t,
 					}),
-					(0, y.uX)(e),
+					GetOwningWindowForEvent(e),
 				);
 			}
 		},
@@ -609,7 +633,7 @@ function Ce(e) {
 	);
 	const g = i.useCallback(
 		async (e) => {
-			Oe(m, d, (0, y.uX)(e));
+			Oe(m, d, GetOwningWindowForEvent(e));
 		},
 		[m, d],
 	);
@@ -663,7 +687,7 @@ function Ce(e) {
 				{
 					className: L.DriveSize,
 				},
-				(0, u.we)(
+				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
 					(0, C.dm)(a.nFreeSpace, 1),
 					(0, C.dm)(a.nCapacity, 1),
@@ -693,12 +717,12 @@ function fe(e) {
 		n(t.nId);
 	}, [t, n]);
 	const c = {
-		[I.pR.OPTIONS]: (0, u.we)("#ContentManagement_Format"),
+		[I.pR.OPTIONS]: (0, Localize)("#ContentManagement_Format"),
 	};
 	const m = i.useCallback(
 		async (e) => {
 			if (e.detail.button === I.pR.OPTIONS) {
-				Oe(a, s.id, (0, y.uX)(e));
+				Oe(a, s.id, GetOwningWindowForEvent(e));
 				e.stopPropagation();
 			}
 		},
@@ -735,7 +759,7 @@ function fe(e) {
 				{
 					className: L.DriveSize,
 				},
-				(0, u.we)(
+				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
 					(0, C.dm)(Number(s.size_bytes), 1),
 					(0, C.dm)(Number(s.size_bytes), 1),
@@ -746,7 +770,7 @@ function fe(e) {
 	);
 }
 async function be(e, t) {
-	const r = (0, y.uX)(e);
+	const r = GetOwningWindowForEvent(e);
 	const n = await SteamClient.InstallFolder.GetPotentialFolders();
 	if (n.length > 0) {
 		(0, k.pg)(
@@ -759,7 +783,7 @@ async function be(e, t) {
 		);
 	} else {
 		const e = await SteamClient.System.OpenFileDialog({
-			strTitle: (0, u.we)("#ContentManagement_DirectoryPicker_Title"),
+			strTitle: (0, Localize)("#ContentManagement_DirectoryPicker_Title"),
 			bChooseDirectory: true,
 		});
 		if (e) {
@@ -929,7 +953,7 @@ function Te(e) {
 					className: L.AddFolderDropdownOption,
 				},
 				i.createElement(E.AddContained, null),
-				(0, u.we)("#ContentManagement_AddDriveDropdownOption"),
+				(0, Localize)("#ContentManagement_AddDriveDropdownOption"),
 			),
 			data: "add",
 		},
@@ -990,7 +1014,7 @@ function Re(e) {
 					M.he,
 					{
 						direction: "bottom",
-						toolTipContent: (0, u.we)("#ContentManagement_DefaultDrive"),
+						toolTipContent: (0, Localize)("#ContentManagement_DefaultDrive"),
 					},
 					n.bIsDefaultFolder && i.createElement(E.Star, null),
 				),
@@ -1000,7 +1024,7 @@ function Re(e) {
 				{
 					className: L.DriveSize,
 				},
-				(0, u.we)(
+				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
 					(0, C.dm)(n.nFreeSpace, 1),
 					(0, C.dm)(n.nCapacity, 1),
@@ -1130,7 +1154,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByGames"),
+						(0, Localize)("#ContentManagement_UsedByGames"),
 						" ",
 					),
 					i.createElement(
@@ -1158,7 +1182,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByDLC"),
+						(0, Localize)("#ContentManagement_UsedByDLC"),
 						" ",
 					),
 					i.createElement(
@@ -1186,7 +1210,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByWorkshop"),
+						(0, Localize)("#ContentManagement_UsedByWorkshop"),
 						" ",
 					),
 					i.createElement(
@@ -1214,7 +1238,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByUpdates"),
+						(0, Localize)("#ContentManagement_UsedByUpdates"),
 						" ",
 					),
 					i.createElement(
@@ -1242,7 +1266,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByShaders"),
+						(0, Localize)("#ContentManagement_UsedByShaders"),
 						" ",
 					),
 					i.createElement(
@@ -1270,7 +1294,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_Media"),
+						(0, Localize)("#ContentManagement_Media"),
 						" ",
 					),
 					i.createElement(
@@ -1300,7 +1324,7 @@ function ke(e) {
 							className: L.DriveUsageText,
 						},
 						" ",
-						(0, u.we)("#ContentManagement_UsedByOther"),
+						(0, Localize)("#ContentManagement_UsedByOther"),
 						" ",
 					),
 					i.createElement(
@@ -1334,7 +1358,7 @@ function ke(e) {
 						className: L.DriveUsageText,
 					},
 					" ",
-					(0, u.we)("#ContentManagement_FreeSpace"),
+					(0, Localize)("#ContentManagement_FreeSpace"),
 					" ",
 				),
 				i.createElement(
@@ -1379,8 +1403,8 @@ function De(e) {
 					specialSection: 2,
 					iconURL: (0, J.zZ)(0),
 					nAppID: 0,
-					strAppName: (0, u.we)("#ContentManagement_BR"),
-					strSortAs: (0, u.we)("#ContentManagement_BR"),
+					strAppName: (0, Localize)("#ContentManagement_BR"),
+					strSortAs: (0, Localize)("#ContentManagement_BR"),
 					rtLastPlayed: 0,
 					nUsedSize: t,
 					nAppSize: 0,
@@ -1395,8 +1419,8 @@ function De(e) {
 					specialSection: 3,
 					iconURL: (0, J.zZ)(1),
 					nAppID: 0,
-					strAppName: (0, u.we)("#ContentManagement_Clips"),
-					strSortAs: (0, u.we)("#ContentManagement_Clips"),
+					strAppName: (0, Localize)("#ContentManagement_Clips"),
+					strSortAs: (0, Localize)("#ContentManagement_Clips"),
 					rtLastPlayed: 0,
 					nUsedSize: l,
 					nAppSize: c,
@@ -1411,8 +1435,8 @@ function De(e) {
 					specialSection: 4,
 					iconURL: (0, J.zZ)(2),
 					nAppID: 0,
-					strAppName: (0, u.we)("#ContentManagement_Screenshots"),
-					strSortAs: (0, u.we)("#ContentManagement_Screenshots"),
+					strAppName: (0, Localize)("#ContentManagement_Screenshots"),
+					strSortAs: (0, Localize)("#ContentManagement_Screenshots"),
 					rtLastPlayed: 0,
 					nUsedSize: n,
 					nAppSize: s,
@@ -1450,7 +1474,7 @@ function De(e) {
 					{
 						className: L.AppHeader,
 					},
-					(0, u.we)("#ContentManagement_Items"),
+					(0, Localize)("#ContentManagement_Items"),
 					i.createElement(
 						"div",
 						{
@@ -1469,15 +1493,15 @@ function De(e) {
 						rgOptions: [
 							{
 								data: 1,
-								label: (0, u.we)("#Library_SortByAlphabetical"),
+								label: (0, Localize)("#Library_SortByAlphabetical"),
 							},
 							{
 								data: 5,
-								label: (0, u.we)("#Library_SortByLastPlayed"),
+								label: (0, Localize)("#Library_SortByLastPlayed"),
 							},
 							{
 								data: 8,
-								label: (0, u.we)("#Library_SortBySizeOnDisk"),
+								label: (0, Localize)("#Library_SortBySizeOnDisk"),
 							},
 						],
 						onSortChangeCallback: o,
@@ -1555,12 +1579,14 @@ function Ne(e) {
 function Fe(e) {
 	let t = null;
 	if (e.eResult === 53) {
-		t = (0, u.we)("#ContentManagement_FormatError_Validate");
+		t = (0, Localize)("#ContentManagement_FormatError_Validate");
 	} else {
-		t = (0, u.we)("#ContentManagement_FormatError_Generic");
+		t = (0, Localize)("#ContentManagement_FormatError_Generic");
 	}
 	return i.createElement(m.KG, {
-		strTitle: (0, u.we)("#ContentManagement_FormatError_Title").toUpperCase(),
+		strTitle: (0, Localize)(
+			"#ContentManagement_FormatError_Title",
+		).toUpperCase(),
 		strDescription: i.createElement(
 			"span",
 			{
@@ -1572,7 +1598,7 @@ function Fe(e) {
 			t,
 			" ",
 		),
-		strOKButtonText: (0, u.we)("#ContentManagement_FormatError_Dismiss"),
+		strOKButtonText: (0, Localize)("#ContentManagement_FormatError_Dismiss"),
 		closeModal: e.closeModal,
 	});
 }
@@ -1600,8 +1626,8 @@ function Ge(e) {
 		n();
 		(0, k.pg)(
 			i.createElement(m.o0, {
-				strTitle: (0, u.we)("#ContentManagement_Format_Title"),
-				strDescription: (0, u.we)("#ContentManagement_Format_Confirm"),
+				strTitle: (0, Localize)("#ContentManagement_Format_Title"),
+				strDescription: (0, Localize)("#ContentManagement_Format_Confirm"),
 				onOK: h,
 			}),
 			d.ownerWindow ?? window,
@@ -1612,7 +1638,11 @@ function Ge(e) {
 		{
 			onCancel: n,
 		},
-		i.createElement(c.Y9, null, (0, u.we)("#ContentManagement_Format_Title")),
+		i.createElement(
+			c.Y9,
+			null,
+			(0, Localize)("#ContentManagement_Format_Title"),
+		),
 		i.createElement(
 			c.nB,
 			null,
@@ -1620,14 +1650,14 @@ function Ge(e) {
 				c.f3,
 				null,
 				i.createElement(c.qq, {
-					label: (0, u.we)("#ContentManagement_Format_SetLabel"),
+					label: (0, Localize)("#ContentManagement_Format_SetLabel"),
 					value: o,
 					maxLength: 128,
 					onChange: (e) => l(e.target.value),
 					bShowClearAction: true,
 				}),
 				i.createElement(c.RF, {
-					label: (0, u.we)("#ContentManagement_Format_Validate"),
+					label: (0, Localize)("#ContentManagement_Format_Validate"),
 					checked: p,
 					onChange: (e) => g(e),
 				}),
@@ -1675,7 +1705,7 @@ function Pe(e) {
 						{
 							className: L.Message,
 						},
-						(0, u.we)("#ContentManagement_FormatDrive_Message"),
+						(0, Localize)("#ContentManagement_FormatDrive_Message"),
 						" ",
 					),
 					i.createElement("br", null),
@@ -1684,7 +1714,7 @@ function Pe(e) {
 						{
 							className: L.HowTo,
 						},
-						(0, u.PP)(
+						LocalizeReact(
 							"#ContentManagement_FormatDrive_HowTo",
 							i.createElement(K.W, {
 								className: L.Glyph,
@@ -1711,7 +1741,7 @@ function Le(e) {
 	const o = (0, p.iS)();
 	const l = i.useCallback(
 		(e) => {
-			const r = (0, y.uX)(e);
+			const r = GetOwningWindowForEvent(e);
 			(0, w.Uo)(t, r, false);
 			n();
 		},
@@ -1719,7 +1749,7 @@ function Le(e) {
 	);
 	const m = i.useCallback(
 		(e) => {
-			const r = (0, y.uX)(e);
+			const r = GetOwningWindowForEvent(e);
 			(0, B.P)(t, r);
 			n();
 		},
@@ -1742,7 +1772,7 @@ function Le(e) {
 						{
 							className: L.AppActionSelected,
 						},
-						(0, u.Yp)("#ContentManagement_SelectedApps", a, (0, C.dm)(r)),
+						LocalizePlural("#ContentManagement_SelectedApps", a, (0, C.dm)(r)),
 					),
 			),
 			i.createElement(
@@ -1757,7 +1787,7 @@ function Le(e) {
 						disabled: !s,
 						onClick: l,
 					},
-					(0, u.we)("#ContentManagement_UninstallButton"),
+					(0, Localize)("#ContentManagement_UninstallButton"),
 				),
 				i.createElement(
 					c.$n,
@@ -1766,7 +1796,7 @@ function Le(e) {
 						disabled: !s || !o,
 						onClick: m,
 					},
-					(0, u.we)("#ContentManagement_MoveButton"),
+					(0, Localize)("#ContentManagement_MoveButton"),
 				),
 			),
 		);
@@ -1779,11 +1809,11 @@ function ze(e) {
 	const m = (0, q.br)();
 	const g = (0, p.iS)();
 	let h = {
-		[I.pR.SECONDARY]: (0, u.we)("#ContentManagement_UninstallButton"),
+		[I.pR.SECONDARY]: (0, Localize)("#ContentManagement_UninstallButton"),
 		[I.pR.OK]: null,
 	};
 	if (g) {
-		h[I.pR.OPTIONS] = (0, u.we)("#ContentManagement_MoveApps_Title");
+		h[I.pR.OPTIONS] = (0, Localize)("#ContentManagement_MoveApps_Title");
 	}
 	const M = (0, A.Co)(t?.nAppID);
 	const T = i.useCallback(
@@ -1791,7 +1821,7 @@ function ze(e) {
 			if (!l) {
 				return;
 			}
-			const r = (0, y.uX)(e);
+			const r = GetOwningWindowForEvent(e);
 			switch (e.detail.button) {
 				case I.pR.SECONDARY:
 					(0, w.Uo)([t?.nAppID], r, false);
@@ -1908,7 +1938,7 @@ function ze(e) {
 								{
 									className: L.AppUsageText,
 								},
-								(0, u.we)("#ContentManagement_UsedByDLC"),
+								(0, Localize)("#ContentManagement_UsedByDLC"),
 							),
 							i.createElement(
 								"span",
@@ -1933,7 +1963,7 @@ function ze(e) {
 								{
 									className: L.AppUsageText,
 								},
-								(0, u.we)("#ContentManagement_UsedByWorkshop"),
+								(0, Localize)("#ContentManagement_UsedByWorkshop"),
 							),
 							i.createElement(
 								"span",
@@ -1957,7 +1987,7 @@ function ze(e) {
 								{
 									className: L.AppUsageText,
 								},
-								(0, u.we)("#ContentManagement_UsedByShaders"),
+								(0, Localize)("#ContentManagement_UsedByShaders"),
 							),
 							i.createElement(
 								"span",
@@ -1981,7 +2011,7 @@ function ze(e) {
 								{
 									className: L.AppUsageText,
 								},
-								(0, u.we)("#ContentManagement_LastPlayed"),
+								(0, Localize)("#ContentManagement_LastPlayed"),
 							),
 							i.createElement(
 								"div",
@@ -1989,7 +2019,7 @@ function ze(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								(0, b.$z)(t?.rtLastPlayed),
+								LocalizeRtime32ToShortDate(t?.rtLastPlayed),
 								" ",
 							),
 						),
@@ -2028,7 +2058,7 @@ function ze(e) {
 						className: L.AppBodyRight,
 					},
 					" ",
-					(0, u.we)("#DisplayStatus_Uninstalling"),
+					(0, Localize)("#DisplayStatus_Uninstalling"),
 					" ",
 				),
 		),
@@ -2040,8 +2070,8 @@ function xe(e) {
 	const s = (0, q.br)();
 	let o = {
 		[I.pR.SECONDARY]:
-			t.specialSection == 2 ? (0, u.we)("#ContentManagement_Delete") : null,
-		[I.pR.OK]: (0, u.we)(
+			t.specialSection == 2 ? (0, Localize)("#ContentManagement_Delete") : null,
+		[I.pR.OK]: (0, Localize)(
 			t.specialSection == 2
 				? "#ContentManagement_GoToSettings"
 				: "#ContentManagement_Browse",
@@ -2160,7 +2190,7 @@ function xe(e) {
 								{
 									className: L.SpecialSectionText,
 								},
-								(0, u.we)("#ContentManagement_TotalPossibleRecording"),
+								(0, Localize)("#ContentManagement_TotalPossibleRecording"),
 							),
 							i.createElement(
 								"span",
@@ -2187,7 +2217,7 @@ function xe(e) {
 								{
 									className: L.SpecialSectionText,
 								},
-								(0, u.we)(
+								(0, Localize)(
 									t.specialSection == 4
 										? "#ContentManagement_ScreenshotCount"
 										: "#ContentManagement_ClipCount",
@@ -2340,7 +2370,7 @@ const je = i.memo(function (e) {
 						className: L.Title,
 					},
 					" ",
-					(0, u.we)("#ContentManagement_Title"),
+					(0, Localize)("#ContentManagement_Title"),
 					" ",
 				),
 			),

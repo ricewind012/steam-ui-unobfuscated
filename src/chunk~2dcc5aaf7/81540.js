@@ -2,7 +2,7 @@ var n;
 var i = require(/*webcrack:missing*/ "./63696.js");
 var a = require("./64608.js");
 var s = require("./7872.js");
-var o = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var l = require(/*webcrack:missing*/ "./52451.js");
 var c = require("./10606.js");
 var m = require(/*webcrack:missing*/ "./69164.js");
@@ -99,13 +99,13 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Title",
 							),
 						),
 						i.createElement(a.D0, {
 							icon: i.createElement(d.Information, null),
-							label: (0, o.we)(
+							label: (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Page1_Desc1",
 							),
 							childrenLayout: "inline",
@@ -114,7 +114,7 @@ function h(e) {
 						}),
 						i.createElement(a.D0, {
 							icon: i.createElement(d.Information, null),
-							label: (0, o.we)(
+							label: (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Page1_Desc2",
 							),
 							childrenLayout: "inline",
@@ -124,7 +124,7 @@ function h(e) {
 						}),
 						i.createElement(a.CB, {
 							focusButton: "primary",
-							strOKText: (0, o.we)("#Button_Continue"),
+							strOKText: (0, Localize)("#Button_Continue"),
 							onOK: b,
 							onCancel: y,
 						}),
@@ -142,14 +142,14 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Title",
 							),
 						),
 						i.createElement(
 							a.a3,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Page2_CountDown",
 								p.nCountdown,
 							),
@@ -160,7 +160,7 @@ function h(e) {
 								autoFocus: true,
 								onClick: y,
 							},
-							(0, o.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					);
 					break;
@@ -176,14 +176,14 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Title",
 							),
 						),
 						i.createElement(
 							a.a3,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Page2_CountDown_End",
 							),
 						),
@@ -206,7 +206,7 @@ function h(e) {
 								onClick: y,
 							},
 							" ",
-							(0, o.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 							" ",
 						),
 					);
@@ -223,14 +223,14 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Title",
 							),
 						),
 						i.createElement(
 							a.a3,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Page3_Desc",
 							),
 						),
@@ -251,7 +251,7 @@ function h(e) {
 								autoFocus: true,
 								onClick: y,
 							},
-							(0, o.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					);
 					break;
@@ -267,14 +267,14 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Complete_Title",
 							),
 						),
 						i.createElement(
 							a.a3,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Complete_Desc",
 							),
 						),
@@ -284,7 +284,7 @@ function h(e) {
 								autoFocus: true,
 								onClick: t,
 							},
-							(0, o.we)("#Button_OK"),
+							(0, Localize)("#Button_OK"),
 						),
 					);
 					break;
@@ -300,20 +300,20 @@ function h(e) {
 						i.createElement(
 							a.Y9,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Failed_Title",
 							),
 						),
 						i.createElement(
 							a.a3,
 							null,
-							(0, o.we)(
+							(0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyroWizard_Failed_Desc",
 							),
 						),
 						i.createElement(a.CB, {
 							focusButton: "primary",
-							strOKText: (0, o.we)("#Button_Rety"),
+							strOKText: (0, Localize)("#Button_Rety"),
 							onOK: b,
 							onCancel: t,
 						}),
@@ -333,7 +333,7 @@ function h(e) {
 							{
 								onClick: t,
 							},
-							(0, o.we)("#Button_Cancel"),
+							(0, Localize)("#Button_Cancel"),
 						),
 					);
 			}
@@ -413,15 +413,15 @@ function C(e) {
 				((e) => {
 					switch (e) {
 						case n.CountDown:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Header",
 							);
 						case n.Calibrating:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Header_Calibrating",
 							);
 						case n.Complete_Success:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Header_Done",
 							);
 					}
@@ -443,16 +443,16 @@ function C(e) {
 				((e) => {
 					switch (e) {
 						case n.CountDown:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Desc",
 								s.nCountdown,
 							);
 						case n.Calibrating:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Calibrating",
 							);
 						case n.Complete_Success:
-							return (0, o.we)(
+							return (0, Localize)(
 								"#Settings_ControllerCalibration_CalibrateGyro_Done",
 							);
 					}
@@ -462,7 +462,7 @@ function C(e) {
 		i.createElement(a.CB, {
 			focusButton: "secondary",
 			bOKDisabled: s.eCalibrationState != n.Complete_Success,
-			strOKText: (0, o.we)("#Button_OK"),
+			strOKText: (0, Localize)("#Button_OK"),
 			onOK: t,
 			onCancel: C,
 		}),
@@ -481,12 +481,12 @@ export function m5(e) {
 			i.createElement(
 				a.xh,
 				{
-					label: (0, o.we)("#Settings_ControllerCalibration_CalibrateIMU"),
+					label: (0, Localize)("#Settings_ControllerCalibration_CalibrateIMU"),
 					onClick: () => {
 						s();
 					},
 				},
-				(0, o.we)("#Settings_ControllerCalibration_Calibrate"),
+				(0, Localize)("#Settings_ControllerCalibration_Calibrate"),
 			),
 			i.createElement(
 				c.EN,

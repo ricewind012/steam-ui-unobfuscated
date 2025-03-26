@@ -4,7 +4,7 @@ var a = require(/*webcrack:missing*/ "./63696.js");
 var s = require("./64608.js");
 var o = require(/*webcrack:missing*/ "./89193.js");
 var l = require("./10606.js");
-var c = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var m = require(/*webcrack:missing*/ "./52451.js");
 var u = require("./73317.js");
 var d = require("./96593.js");
@@ -22,7 +22,7 @@ export function P(e, t) {
 		}),
 		t,
 		{
-			strTitle: (0, c.we)("#ContentManagement_MoveApps_Title"),
+			strTitle: Localize("#ContentManagement_MoveApps_Title"),
 			bNeverPopOut: true,
 		},
 	);
@@ -36,7 +36,7 @@ export function P(e, t) {
 function b(e) {
 	const { folder: t } = e;
 	const r = (0, g.Cj)(t);
-	const n = (0, c.we)(
+	const n = Localize(
 		"#ContentManagement_MoveApps_Drive",
 		r,
 		(0, p.dm)(t.nFreeSpace, 1),
@@ -167,13 +167,13 @@ let y = class extends a.Component {
 	LocalizeError(e) {
 		switch (e) {
 			case 22:
-				return (0, c.we)("#ContentManagement_MoveApps_CantMove");
+				return Localize("#ContentManagement_MoveApps_CantMove");
 			case 17:
-				return (0, c.we)("#ContentManagement_MoveApps_SharedContent");
+				return Localize("#ContentManagement_MoveApps_SharedContent");
 			case 15:
-				return (0, c.we)("#ContentManagement_MoveApps_InvalidPath");
+				return Localize("#ContentManagement_MoveApps_InvalidPath");
 			default:
-				return (0, c.we)("#Steam_AppUpdateError_" + e);
+				return Localize("#Steam_AppUpdateError_" + e);
 		}
 	}
 	render() {
@@ -203,7 +203,7 @@ let y = class extends a.Component {
 					{
 						className: _.ModalHeader,
 					},
-					(0, c.we)("#ContentManagement_MoveApps_Title"),
+					Localize("#ContentManagement_MoveApps_Title"),
 				),
 				a.createElement(
 					s.nB,
@@ -218,7 +218,7 @@ let y = class extends a.Component {
 									{
 										className: _.DialogBodyText,
 									},
-									(0, c.we)(
+									Localize(
 										"#ContentManagement_MoveApps_TextSingle",
 										t,
 										(0, p.dm)(this.m_BytesToMove),
@@ -230,7 +230,7 @@ let y = class extends a.Component {
 									{
 										className: _.DialogBodyText,
 									},
-									(0, c.we)(
+									Localize(
 										"#ContentManagement_MoveApps_TextMultiple",
 										this.props.apps.length,
 										(0, p.dm)(this.m_BytesToMove),
@@ -247,7 +247,7 @@ let y = class extends a.Component {
 						a.createElement(
 							"div",
 							null,
-							(0, c.we)("#ContentManagement_MoveApps_Working", t),
+							Localize("#ContentManagement_MoveApps_Working", t),
 							a.createElement(
 								"div",
 								{
@@ -265,13 +265,13 @@ let y = class extends a.Component {
 						a.createElement(
 							"div",
 							null,
-							(0, c.we)("#ContentManagement_MoveApps_Done"),
+							Localize("#ContentManagement_MoveApps_Done"),
 						),
 					this.state.eStep == n.MoveFailed &&
 						a.createElement(
 							"div",
 							null,
-							(0, c.we)("#ContentManagement_MoveApps_Failed"),
+							Localize("#ContentManagement_MoveApps_Failed"),
 							this.m_FailedApps.map((e, t) => {
 								let r = d.tw.GetAppOverviewByAppID(e.appid);
 								return a.createElement(
@@ -293,28 +293,28 @@ let y = class extends a.Component {
 					this.state.eStep == n.ChooseFolder &&
 						a.createElement(s.CB, {
 							onOK: this.onOk,
-							strOKText: (0, c.we)("#ContentManagement_MoveApps_Button"),
+							strOKText: Localize("#ContentManagement_MoveApps_Button"),
 							onCancel: this.onCancel,
 						}),
 					this.state.eStep == n.MovingApps &&
 						a.createElement(s.CB, {
 							bOKDisabled: true,
-							strOKText: (0, c.we)("#ContentManagement_MoveApps_Button"),
+							strOKText: Localize("#ContentManagement_MoveApps_Button"),
 							onCancel: this.onCancel,
 						}),
 					this.state.eStep == n.MoveFinished &&
 						a.createElement(s.CB, {
 							bOKDisabled: true,
-							strOKText: (0, c.we)("#ContentManagement_MoveApps_Button"),
+							strOKText: Localize("#ContentManagement_MoveApps_Button"),
 							onCancel: this.onCancel,
-							strCancelText: (0, c.we)("#Generic_Close"),
+							strCancelText: Localize("#Generic_Close"),
 						}),
 					this.state.eStep == n.MoveFailed &&
 						a.createElement(s.CB, {
 							bOKDisabled: true,
-							strOKText: (0, c.we)("#ContentManagement_MoveApps_Button"),
+							strOKText: Localize("#ContentManagement_MoveApps_Button"),
 							onCancel: this.onCancel,
-							strCancelText: (0, c.we)("#Generic_Close"),
+							strCancelText: Localize("#Generic_Close"),
 						}),
 				),
 			),

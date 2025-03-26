@@ -8,13 +8,16 @@ var c = require("./84056.js");
 var m = require("./64608.js");
 var u = require(/*webcrack:missing*/ "./69164.js");
 var _d = require("./85360.js");
-var A = require(/*webcrack:missing*/ "./46108.js");
+import { Localize } from "../../actual_src/utils/localization.js";
 var p = require("./45309.js");
 var g = require("./62486.js");
 var h = require("./13869.js");
 var C = require(/*webcrack:missing*/ "./4690.js");
 var _ = require("./35488.js");
-var f = require(/*webcrack:missing*/ "./54644.js");
+import {
+	GetOwningWindowForEvent,
+	GetTotalZoom,
+} from "../../actual_src/utils/domutils.js";
 var b = require("./93966.js");
 var y = require("./52192.js");
 function S(e) {
@@ -41,7 +44,7 @@ function w(e) {
 		e.existingBinding?.camera_horizon_reset_angle ?? 90,
 	);
 	const c = a > 2 ? (1000 / a).toFixed(0) : (500).toFixed(0);
-	const u = (0, A.we)(
+	const u = (0, Localize)(
 		"#ControllerBinding_CameraHorizonReset_Desc2",
 		180,
 		a,
@@ -67,7 +70,7 @@ function w(e) {
 			onCancel: e.closeModal,
 		},
 		n.createElement(m.d3, {
-			label: (0, A.we)("#ControllerBinding_CameraHorizonReset_DelayMS"),
+			label: (0, Localize)("#ControllerBinding_CameraHorizonReset_DelayMS"),
 			value: a,
 			onChange: s,
 			layout: "inline",
@@ -76,12 +79,12 @@ function w(e) {
 			showValue: true,
 			step: 1,
 			resetValue: 33,
-			renderValue: (e) => e + (0, A.we)("#Unit_Milliseconds"),
+			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
 			editableValue: true,
 			bottomSeparator: "none",
 		}),
 		n.createElement(m.d3, {
-			label: (0, A.we)("#ControllerBinding_CameraHorizonReset_ResetAngles"),
+			label: (0, Localize)("#ControllerBinding_CameraHorizonReset_ResetAngles"),
 			value: o,
 			onChange: l,
 			layout: "inline",
@@ -90,7 +93,7 @@ function w(e) {
 			showValue: true,
 			step: 1,
 			resetValue: 90,
-			renderValue: (e) => e + (0, A.we)("#Unit_Degree_Symbol"),
+			renderValue: (e) => e + (0, Localize)("#Unit_Degree_Symbol"),
 			editableValue: true,
 			bottomSeparator: "none",
 		}),
@@ -117,8 +120,11 @@ function B(e) {
 	return n.createElement(
 		p.X_,
 		{
-			title: (0, A.we)("#ControllerBinding_DotsPer360CalibrationSpin_Title", o),
-			description: (0, A.we)(
+			title: (0, Localize)(
+				"#ControllerBinding_DotsPer360CalibrationSpin_Title",
+				o,
+			),
+			description: (0, Localize)(
 				"#ControllerBinding_DotsPer360CalibrationSpin_Desc",
 				o,
 			),
@@ -127,7 +133,7 @@ function B(e) {
 			onCancel: e.closeModal,
 		},
 		n.createElement(m.d3, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_DotsPer360CalibrationSpin_SpinDuration",
 			),
 			value: a,
@@ -138,12 +144,12 @@ function B(e) {
 			showValue: true,
 			step: 1,
 			resetValue: 250,
-			renderValue: (e) => e + (0, A.we)("#Unit_Milliseconds"),
+			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
 			editableValue: true,
 			bottomSeparator: "none",
 		}),
 		n.createElement(m.d3, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_DotsPer360CalibrationSpin_SpinAngle",
 			),
 			value: o,
@@ -154,7 +160,7 @@ function B(e) {
 			showValue: true,
 			step: 1,
 			resetValue: 360,
-			renderValue: (e) => e + (0, A.we)("#Unit_Degree_Symbol"),
+			renderValue: (e) => e + (0, Localize)("#Unit_Degree_Symbol"),
 			editableValue: true,
 			bottomSeparator: "none",
 		}),
@@ -195,7 +201,7 @@ function _I(e) {
 		},
 		n.createElement(m.m, {
 			layout: "inline",
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_CameraTurnToFaceDirection_SourceOfDirection",
 			),
 			selectedOption: a,
@@ -205,14 +211,14 @@ function _I(e) {
 			rgOptions: C,
 		}),
 		n.createElement(m.y4, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_CameraTurnToFaceDirection_UseLastDirectionIfDeadzoned",
 			),
 			checked: c,
 			onChange: u,
 		}),
 		n.createElement(m.d3, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_CameraTurnToFaceDirection_TurnDuration",
 			),
 			value: o,
@@ -223,7 +229,7 @@ function _I(e) {
 			showValue: true,
 			step: 1,
 			resetValue: 75,
-			renderValue: (e) => e + (0, A.we)("#Unit_Milliseconds"),
+			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
 			editableValue: true,
 			bottomSeparator: "none",
 		}),
@@ -243,8 +249,10 @@ const E = (0, i.PA)(function (e) {
 					(function (e, t, r) {
 						(0, h.pg)(
 							n.createElement(w, {
-								title: (0, A.we)("#ControllerBinding_CameraHorizonReset_Title"),
-								description: (0, A.we)(
+								title: (0, Localize)(
+									"#ControllerBinding_CameraHorizonReset_Title",
+								),
+								description: (0, Localize)(
 									"#ControllerBinding_CameraHorizonReset_Desc",
 								),
 								onResult: (t) => {
@@ -270,7 +278,7 @@ const E = (0, i.PA)(function (e) {
 							}),
 							t,
 						);
-					})(t, (0, f.uX)(e), i);
+					})(t, GetOwningWindowForEvent(e), i);
 				},
 				className: (0, a.A)(s.CameraAngleKey, o && s.SelectedBinding),
 			},
@@ -286,7 +294,7 @@ const E = (0, i.PA)(function (e) {
 				{
 					className: (0, a.A)(s.KeyboardKeyLabel),
 				},
-				(0, A.we)("#ControllerBinding_CameraHorizonReset"),
+				(0, Localize)("#ControllerBinding_CameraHorizonReset"),
 			),
 		),
 	);
@@ -327,7 +335,7 @@ const E = (0, i.PA)(function (e) {
 							}),
 							t,
 						);
-					})(t, (0, f.uX)(e), i);
+					})(t, GetOwningWindowForEvent(e), i);
 				},
 				className: (0, a.A)(s.CameraAngleKey, l && s.SelectedBinding),
 			},
@@ -343,7 +351,7 @@ const E = (0, i.PA)(function (e) {
 				{
 					className: (0, a.A)(s.KeyboardKeyLabel),
 				},
-				(0, A.we)("#ControllerBinding_DotsPer360CalibrationSpin", m),
+				(0, Localize)("#ControllerBinding_DotsPer360CalibrationSpin", m),
 			),
 		),
 	);
@@ -362,10 +370,10 @@ const E = (0, i.PA)(function (e) {
 					(function (e, t, r) {
 						(0, h.pg)(
 							n.createElement(_I, {
-								title: (0, A.we)(
+								title: (0, Localize)(
 									"#ControllerBinding_CameraTurnToFaceDirection_Title",
 								),
-								description: (0, A.we)(
+								description: (0, Localize)(
 									"#ControllerBinding_CameraTurnToFaceDirection_Desc",
 								),
 								onResult: (t) => {
@@ -391,7 +399,7 @@ const E = (0, i.PA)(function (e) {
 							}),
 							t,
 						);
-					})(t, (0, f.uX)(e), i);
+					})(t, GetOwningWindowForEvent(e), i);
 				},
 				className: (0, a.A)(s.CameraAngleKey, p && s.SelectedBinding),
 			},
@@ -430,18 +438,18 @@ const E = (0, i.PA)(function (e) {
 				{
 					className: (0, a.A)(s.KeyboardKeyLabel),
 				},
-				(0, A.we)("#ControllerBinding_CameraTurnToFaceDirection"),
+				(0, Localize)("#ControllerBinding_CameraTurnToFaceDirection"),
 			),
 		),
 	);
-	const v = (0, A.we)(
+	const v = (0, Localize)(
 		"#ControllerBinding_DotsPer360CalibrationSpin_Desc2",
 	).split("\n");
 	return n.createElement(
 		n.Fragment,
 		null,
 		n.createElement(d, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerConfigurator_ChooseBinding_Prompt_CameraAngleAction",
 			),
 		}),
@@ -464,7 +472,7 @@ const E = (0, i.PA)(function (e) {
 				u.Z,
 				null,
 				" ",
-				(0, A.we)(
+				(0, Localize)(
 					"#ControllerConfigurator_ChooseBinding_CameraAngleAction_Desc",
 				),
 				" ",
@@ -605,7 +613,7 @@ const k = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		n.createElement(d, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerConfigurator_ChooseBinding_Prompt_GameAction",
 			),
 		}),
@@ -666,14 +674,14 @@ function F(e) {
 			onChange: (e) => o(e.data),
 		}),
 		n.createElement(m.y4, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_ControllerActionModal_ActionSetDialog_DisplayName",
 			),
 			checked: l,
 			onChange: c,
 		}),
 		n.createElement(m.y4, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_ControllerActionModal_ActionSetDialog_Beep",
 			),
 			checked: u,
@@ -723,7 +731,7 @@ function P(e) {
 			onCommitResult: o,
 		},
 		n.createElement(m.Vb, {
-			label: (0, A.we)(
+			label: (0, Localize)(
 				"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
 			),
 			rgOptions: [
@@ -746,7 +754,7 @@ function P(e) {
 			],
 			onChange: (e) => s(e.data),
 			selectedOption: a,
-			strDefaultLabel: (0, A.we)(
+			strDefaultLabel: (0, Localize)(
 				"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
 			),
 		}),
@@ -927,7 +935,7 @@ function W(e) {
 	const C = m || p;
 	const _ = (0, b.yq)();
 	const S = !(0, y.P4)(_d.v3.EditingConfiguration) && (i?.set || i?.baseSet);
-	const w = (0, A.we)(o);
+	const w = (0, Localize)(o);
 	const B = (0, M.w)(w, t.width * 0.8, {
 		maxLines: 2,
 		fontFamily: "Motiva Sans",
@@ -940,7 +948,7 @@ function W(e) {
 			onActivate: S
 				? null
 				: (e) => {
-						let i = (0, f.uX)(e);
+						let i = GetOwningWindowForEvent(e);
 						if (t?.actionKey >= 0) {
 							(function (e, t, r, i) {
 								let a = g.$$[t];
@@ -979,13 +987,13 @@ function W(e) {
 									};
 									(0, h.pg)(
 										n.createElement(F, {
-											title: (0, A.we)(a.id),
-											description: (0, A.we)(
+											title: (0, Localize)(a.id),
+											description: (0, Localize)(
 												u
 													? "#ControllerBinding_ControllerActionModal_ActionSetLayerDesc"
 													: "#ControllerBinding_ControllerActionModal_ActionSetDesc",
 											),
-											dropdownLabel: (0, A.we)(
+											dropdownLabel: (0, Localize)(
 												u
 													? "#ControllerBinding_ControllerActionModal_ActionSetDialog_Layer"
 													: "#ControllerBinding_ControllerActionModal_ActionSetDialog_Set",
@@ -1015,8 +1023,8 @@ function W(e) {
 									};
 									(0, h.pg)(
 										n.createElement(P, {
-											title: (0, A.we)(a.id),
-											description: (0, A.we)(
+											title: (0, Localize)(a.id),
+											description: (0, Localize)(
 												"#ControllerBinding_ControllerActionModal_ChangePlayerNumberDesc",
 											),
 											onResult: s,
@@ -1095,7 +1103,7 @@ const H = (0, i.PA)(function (e) {
 			n.Fragment,
 			null,
 			n.createElement(d, {
-				label: (0, A.we)(
+				label: (0, Localize)(
 					"#ControllerConfigurator_ChooseBinding_Prompt_ActionSet",
 				),
 			}),
@@ -1107,7 +1115,7 @@ const H = (0, i.PA)(function (e) {
 						t && s.HasActionSets,
 					),
 				},
-				(0, A.we)("#ControllerBinding_ControllerActions_SetBindings"),
+				(0, Localize)("#ControllerBinding_ControllerActions_SetBindings"),
 			),
 			n.createElement(
 				u.Z,
@@ -1139,7 +1147,9 @@ const H = (0, i.PA)(function (e) {
 		n.Fragment,
 		null,
 		n.createElement(d, {
-			label: (0, A.we)("#ControllerConfigurator_ChooseBinding_Prompt_System"),
+			label: (0, Localize)(
+				"#ControllerConfigurator_ChooseBinding_Prompt_System",
+			),
 		}),
 		n.createElement(
 			u.Z,
@@ -1162,7 +1172,7 @@ export function d(e) {
 	const r = (0, g.ND)(t) ?? (0, y.Xt)(t);
 	const i = _d.v3.ActiveInputBinding?.source_binding_key != 5;
 	const o =
-		e.label ?? (0, A.we)("#ControllerConfigurator_ChooseBinding_Prompt");
+		e.label ?? (0, Localize)("#ControllerConfigurator_ChooseBinding_Prompt");
 	return n.createElement(
 		"div",
 		{
@@ -1202,7 +1212,7 @@ export const I = (0, i.PA)(function (e) {
 	);
 	const p = n.useCallback(() => {
 		if (i.current) {
-			const e = (0, f.a_)(i.current);
+			const e = GetTotalZoom(i.current);
 			const t = Y.rV.settings?.flCurrentDisplayScaleFactor;
 			A(t * e * i.current.ownerDocument.defaultView.innerWidth);
 		}
