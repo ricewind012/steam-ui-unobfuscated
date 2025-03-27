@@ -23,7 +23,7 @@ import w from "./25752.js";
 import B from "./58084.js";
 import v from "./50376.js";
 import I from "./98995.js";
-import E, { w as w_2 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import M from "./79769.js";
 import { A as A_2 } from "./90765.js";
 import { CH, XB } from "./52451.js";
@@ -158,7 +158,7 @@ function Z(e) {
 		} else {
 			s.current = n;
 			if (n.GetStoreItemType() == 2 || n.GetStoreItemType() == 1) {
-				w_2(
+				AssertMsg(
 					n.GetIncludedAppIDs().length > 0,
 					`expected included apps ${n.GetID()} ${n.GetStoreItemType()}`,
 				);

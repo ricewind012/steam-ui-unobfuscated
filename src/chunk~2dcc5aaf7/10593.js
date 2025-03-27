@@ -4,7 +4,7 @@ import a from "./12176.js";
 import s from "./64880.js";
 import { rV, Bn } from "./85606.js";
 import l from "./5859.js";
-import c, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { KV } from "./46382.js";
 const UContext = n.createContext({});
 const d = () => n.useContext(UContext);
@@ -23,7 +23,7 @@ export function PG(e, t, r, l) {
 	let u = d();
 	const A = KV();
 	if (!u) {
-		w(false, "useStoreQuery called outside of a <StoreQueryRoot>");
+		AssertMsg(false, "useStoreQuery called outside of a <StoreQueryRoot>");
 	}
 	let u_defaultOptions = u.defaultOptions;
 	const C = n.useMemo(() => {
@@ -98,7 +98,7 @@ class h {
 	}
 	ReadResults(e, t) {
 		if (!this.m_Items) {
-			w(
+			AssertMsg(
 				e.Body().metadata().start() == 0,
 				"Empty item list - expected to start at 0",
 			);

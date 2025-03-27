@@ -7,7 +7,7 @@ import o, { tB } from "./59351.js";
 import l, { sf } from "./44846.js";
 import c from "./69740.js";
 import m from "./8573.js";
-import d, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import A, { H } from "./16154.js";
 import p from "./79769.js";
 import h, { kd } from "./51095.js";
@@ -22,7 +22,7 @@ class f {
 	playtime;
 	announcementid;
 	constructor(e) {
-		w(
+		AssertMsg(
 			typeof e.appid == "number",
 			"AJAX updated app returned a non-numeric AppID! Did the PHP change?",
 		);
@@ -222,7 +222,7 @@ export class ZQ {
 	InsertEventModelFromClanEventData(e, t) {
 		let r = new c.lh();
 		r.clanSteamID = e;
-		w(
+		AssertMsg(
 			r.clanSteamID && r.clanSteamID.BIsValid(),
 			`Invalid Clan SteamID: ${r.clanSteamID.ConvertTo64BitString()} ${
 				C.TS.EUNIVERSE
@@ -875,7 +875,7 @@ export class ZQ {
 			this.m_mapExistingEvents.get(g).rtime32_moderator_reviewed <
 				p.rtime_mod_reviewed
 		) {
-			w(p.clan_steamid, "ClanSteamID is missing from data we received");
+			AssertMsg(p.clan_steamid, "ClanSteamID is missing from data we received");
 			let e = new m.b(p.clan_steamid);
 			this.InsertEventModelFromClanEventData(e, p);
 		}

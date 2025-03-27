@@ -2,7 +2,7 @@ import n from "./63696.js";
 import i from "./90242.js";
 import a, { wJ } from "./45328.js";
 import s, { n9 } from "./92059.js";
-import o, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import l, { yK } from "./72476.js";
 export function J(e) {
 	const { type, id, hoverClassName, fnGetIDOverride, fnHoverState, children } =
@@ -48,7 +48,7 @@ export function J(e) {
 		[type, fnHoverState, fnGetIDOverride],
 	);
 	if (l.TS.WEB_UNIVERSE == "dev") {
-		w(
+		AssertMsg(
 			yK() == "store",
 			"StoreGameHoverAnchorSource only works on Store web properties",
 		);

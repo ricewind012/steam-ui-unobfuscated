@@ -25,7 +25,7 @@ import S, { Wm } from "./56655.js";
 import w from "./64608.js";
 import B from "./7514.js";
 import v from "./42318.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import T, { Fd, uD } from "./52451.js";
 import R, { Qn } from "./72476.js";
 import k from "./10927.js";
@@ -465,7 +465,7 @@ function K(e, t) {
 			return Localize(`#SteamReviewScore_${e.review_score}`);
 		}
 		default: {
-			w_1(false, "Unknown sort type in ComputeChildSectionName");
+			AssertMsg(false, "Unknown sort type in ComputeChildSectionName");
 		}
 	}
 	return "";

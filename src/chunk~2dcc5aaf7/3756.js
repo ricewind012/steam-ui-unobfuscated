@@ -14,7 +14,7 @@ import p from "./52451.js";
 import g, { $T } from "./89459.js";
 import { u as u_1 } from "./24761.js";
 import { s as s_1 } from "./81255.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import f from "./60857.js";
 import { Dp } from "./736.js";
 import y from "./79769.js";
@@ -93,7 +93,7 @@ export class d extends u.o {
 				break;
 			}
 			default: {
-				w(false, `unhandled EChatRoomNotificationLevel: ${e}`);
+				AssertMsg(false, `unhandled EChatRoomNotificationLevel: ${e}`);
 			}
 		}
 		return t;
@@ -276,7 +276,7 @@ export class d extends u.o {
 		}
 	}
 	UpdateChatState(e) {
-		w(this.m_ulChatID == e.chat_id(), "State for different chat room");
+		AssertMsg(this.m_ulChatID == e.chat_id(), "State for different chat room");
 		this.m_strName = e.chat_name();
 		this.m_bVoiceAllowed = e.voice_allowed();
 		let t = false;

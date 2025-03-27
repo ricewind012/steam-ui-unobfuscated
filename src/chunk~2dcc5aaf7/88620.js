@@ -13,7 +13,7 @@ import A from "./63696.js";
 import p from "./64608.js";
 import g from "./50376.js";
 import C from "./52451.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import f from "./69164.js";
 import b from "./55116.js";
 export function E5(e, t, r, n, i) {
@@ -166,7 +166,7 @@ class V extends A.PureComponent {
 		this.props.closeModal();
 	}
 	OnDragEnter(e, t) {
-		w(
+		AssertMsg(
 			(e && e.type == "friend") || t,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDragEnter",
 		);
@@ -195,7 +195,7 @@ class V extends A.PureComponent {
 		}
 	}
 	OnDrop(e, t) {
-		w(
+		AssertMsg(
 			e && e.type == "friend",
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);
@@ -250,7 +250,7 @@ class V extends A.PureComponent {
 				}
 			});
 		} else {
-			w(false, "User should not be able to invite to the group");
+			AssertMsg(false, "User should not be able to invite to the group");
 		}
 		t = this.props.bIsDropInvite
 			? Localize("#Chat_InviteFriends_DropInvite_Pre")

@@ -57,7 +57,7 @@ import { rO } from "./88724.js";
 import se from "./27773.js";
 import oe from "./8573.js";
 import { Dn } from "./45328.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import me from "./68608.js";
 import { A as A_1 } from "./90765.js";
 import de from "./87949.js";
@@ -3605,7 +3605,7 @@ let rt = class extends S.Component {
 		};
 	}
 	UpdateChatSectionSize() {
-		w_1(this.m_elChatSection, "m_elChatRoomListContainer not set");
+		AssertMsg(this.m_elChatSection, "m_elChatRoomListContainer not set");
 		if (this.m_bMouseOver) {
 			if (this.m_iTimeoutUpdateChatSectionSize) {
 				this.m_window.clearTimeout(this.m_iTimeoutUpdateChatSectionSize);
@@ -3960,7 +3960,7 @@ class nt extends S.Component {
 		}
 	}
 	OnDragEnter(e, t) {
-		w_1(
+		AssertMsg(
 			e && e.type == "friend",
 			"Invalid data type passed to FriendGroupDragDrop.OnDragEnter",
 		);
@@ -3997,7 +3997,7 @@ class nt extends S.Component {
 		}
 	}
 	OnDrop(e, t) {
-		w_1(
+		AssertMsg(
 			e && e.type == "friend",
 			"Invalid data type passed to FriendGroupDragDrop.OnDrop",
 		);
@@ -4120,7 +4120,7 @@ let at = class extends nt {
 		}
 	}
 	OnAcceptInvite(e) {
-		w_1(this.IsInviteGroup(), "accept invite on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "accept invite on non-invite group");
 		let t = this.m_actions.get(e.accountid);
 		if (t && t.action == "accept") {
 			this.m_actions.delete(e.accountid);
@@ -4132,7 +4132,7 @@ let at = class extends nt {
 		}
 	}
 	OnDeclineInvite(e) {
-		w_1(this.IsInviteGroup(), "decline invite on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "decline invite on non-invite group");
 		let t = this.m_actions.get(e.accountid);
 		if (!t || (t.action != "decline" && t.action != "block")) {
 			this.m_actions.set(e.accountid, {
@@ -4144,7 +4144,7 @@ let at = class extends nt {
 		}
 	}
 	OnBlockInvite(e, t) {
-		w_1(this.IsInviteGroup(), "block invite on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "block invite on non-invite group");
 		if (e) {
 			this.m_actions.set(t.accountid, {
 				friend: t,
@@ -4187,7 +4187,7 @@ let at = class extends nt {
 		});
 	}
 	OnConfirmChanges(e) {
-		w_1(this.IsInviteGroup(), "confirm changes on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "confirm changes on non-invite group");
 		let t = e.currentTarget.ownerDocument.defaultView;
 		this.m_actions.forEach((e) => {
 			if (e.action == "accept") {
@@ -4202,7 +4202,7 @@ let at = class extends nt {
 		});
 	}
 	OnIgnoreAllInvites(e) {
-		w_1(this.IsInviteGroup(), "ignore all invites on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "ignore all invites on non-invite group");
 		let t = e.currentTarget.ownerDocument.defaultView;
 		Ci(
 			t,
@@ -4219,7 +4219,7 @@ let at = class extends nt {
 			.catch(() => {});
 	}
 	OnCloseInvites() {
-		w_1(this.IsInviteGroup(), "close invites on non-invite group");
+		AssertMsg(this.IsInviteGroup(), "close invites on non-invite group");
 		this.props.onClose();
 	}
 	ToggleOfflineSortMethod() {

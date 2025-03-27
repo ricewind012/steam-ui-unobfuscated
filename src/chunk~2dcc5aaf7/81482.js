@@ -5,7 +5,7 @@ import s from "./12368.js";
 import o, { I8 } from "./12176.js";
 import l from "./58663.js";
 import c from "./48307.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import S from "./52451.js";
 import w from "./72476.js";
 import B from "./79769.js";
@@ -593,8 +593,8 @@ export class HB {
 	constructor(e, t, r, n, i, a, s) {
 		this.key = e;
 		this.timestamp = t;
-		w_1(r != !!n, "Should only set bIsDeleted true XOR strValue.");
-		w_1(
+		AssertMsg(r != !!n, "Should only set bIsDeleted true XOR strValue.");
+		AssertMsg(
 			(i == x2.CustomMethod) == !!a,
 			"Must include a resolution method ID if and only if selecting EConflictResolutionMethod.CustomMethod.",
 		);
@@ -721,7 +721,7 @@ class N {
 		return this.m_mapChangeCallbacks.get(e).Register(t);
 	}
 	RegisterCustomConflictResolutionMethod(e, t) {
-		w_1(
+		AssertMsg(
 			!this.m_mapCustomConflictResolutionMethods.has(e),
 			`Duplicate registration of conflict resolution method '${e}'.`,
 		);

@@ -16,7 +16,7 @@ import L from "./83599.js";
 import te from "./36383.js";
 import { s as s_1 } from "./81255.js";
 import qe from "./6660.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import Ze from "./79769.js";
 import Ye from "./49180.js";
 export let HT = Ye.H;
@@ -5752,7 +5752,7 @@ export class F$ {
 						SteamClient.WebChat != null &&
 						SteamClient.WebChat.SetPushToTalkHotKey != null
 					) {
-						w_1(
+						AssertMsg(
 							this.m_Settings.m_bSettingsLoaded,
 							"Settings not loaded but RefreshPushToTalkKeySettings hit",
 						);
@@ -8505,7 +8505,7 @@ export class F$ {
 					`Resetting voice chat state and initiating to room ${t.chatID}`,
 				);
 			} else {
-				w_1(
+				AssertMsg(
 					this.m_VoiceEchoLocalMic,
 					"Shouldn't hit local mic access only without echo local mic on",
 				);

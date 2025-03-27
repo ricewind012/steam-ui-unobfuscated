@@ -21,7 +21,7 @@ import C, { u as u_1 } from "./17385.js";
 import f from "./52003.js";
 import b from "./11131.js";
 import y from "./79769.js";
-import S, { w as w_1, z as z_1 } from "./49455.js";
+import { AssertMsg, FailAssertion } from "./../../actual_src/utils/assert.js";
 import B from "./36383.js";
 import v from "./12176.js";
 import I, { z7, Gn, h5 } from "./89193.js";
@@ -359,7 +359,7 @@ class w {
 		return !!this.m_data;
 	}
 	StartDrag(e) {
-		w_1(
+		AssertMsg(
 			!this.m_data,
 			"second drag started, existing data discarded",
 			this.m_data,
@@ -398,7 +398,7 @@ class w {
 		return this.m_bDropConsumed;
 	}
 	SetDropConsumed() {
-		w_1(this.BInDrag(), "Asked to set drop consumed but no active drag");
+		AssertMsg(this.BInDrag(), "Asked to set drop consumed but no active drag");
 		this.m_bDropConsumed = true;
 	}
 	RegisterForDropComplete(e) {
@@ -6732,7 +6732,7 @@ class yr {
 			);
 			window.addEventListener("message", this.HandleWebLoaderPostMessage);
 		} else {
-			w_1(
+			AssertMsg(
 				!s.TS.IN_CLIENT,
 				"Config.IN_CLIENT set but SteamClient globals not available",
 			);
@@ -7021,7 +7021,7 @@ class yr {
 				break;
 			}
 			default: {
-				z_1(r, `Unhandled command type: ${r}`);
+				FailAssertion(r, `Unhandled command type: ${r}`);
 			}
 		}
 	}
@@ -7357,7 +7357,7 @@ export class Yw extends p.m {
 		this.m_ChatRoomEffectSettings = Re.B;
 		ZM = this.m_DesktopApp;
 		this.m_AudioPlaybackManager.SetVoiceStore(this.m_VoiceChatStore);
-		w_1(!s.TS.IN_MOBILE, "DesktopApp initialized in mobile context");
+		AssertMsg(!s.TS.IN_MOBILE, "DesktopApp initialized in mobile context");
 	}
 	Init(e, t, r) {
 		let n = t ? new h(this.m_FriendStore) : new _(this.m_FriendStore);

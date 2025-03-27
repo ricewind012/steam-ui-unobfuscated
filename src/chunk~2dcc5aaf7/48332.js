@@ -8,7 +8,7 @@ import m from "./8573.js";
 import u from "./54946.js";
 import d, { xv } from "./72476.js";
 import { aj } from "./63088.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import g from "./36813.js";
 import h from "./31930.js";
 import C from "./93960.js";
@@ -298,7 +298,7 @@ export class s {
 			}
 		} catch (t) {
 			if (this.m_nLoadLanguagesRetryTimeout) {
-				w(
+				AssertMsg(
 					!this.m_nLoadLanguagesRetryTimeout,
 					"Got two concurrent calls to TextFilteringStore.LoadLanguages",
 				);

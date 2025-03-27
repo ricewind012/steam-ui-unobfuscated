@@ -11,7 +11,7 @@ import o from "./95773.js";
 import c from "./83599.js";
 import m from "./46970.js";
 import { z7 } from "./89193.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export const fW = -1;
 const p = -2;
 export class rV {
@@ -74,7 +74,7 @@ export class rV {
 		this.Sort();
 	}
 	SortedInsert(e) {
-		w(
+		AssertMsg(
 			!this.BHasMember(e.accountid),
 			"Double insert into bucket for accountid",
 			e.accountid,
@@ -196,7 +196,7 @@ export class me {
 	GetGroupMemberList(e) {
 		let t = this.m_mapGroupBuckets.get(e);
 		if (t.bFlatList) {
-			w(t.mapBuckets.size == 1, "Flat list has too many buckets");
+			AssertMsg(t.mapBuckets.size == 1, "Flat list has too many buckets");
 			return [t.mapBuckets.get(0)];
 		}
 		{
@@ -301,7 +301,7 @@ export class me {
 		let n = performance.now();
 		let i = false;
 		if (r.bFlatList) {
-			w(r.mapBuckets.size == 1, "Flat map is too large");
+			AssertMsg(r.mapBuckets.size == 1, "Flat map is too large");
 			r.mapBuckets.get(0).Remove(t.accountid);
 			r.mapBuckets.get(0).SortedInsert(t);
 			i = true;
@@ -375,7 +375,7 @@ export class me {
 		let t = this.m_mapGroupBuckets.get(e);
 		if (t) {
 			if (t.bFlatList) {
-				w(t.mapBuckets.size == 1, "Flat list has too many buckets");
+				AssertMsg(t.mapBuckets.size == 1, "Flat list has too many buckets");
 				let r = performance.now();
 				let n = t.mapBuckets.get(0);
 				n.Sort();
@@ -430,7 +430,7 @@ export class me {
 		let t = this.m_mapGroupBuckets.get(e);
 		t.mapBuckets.clear();
 		t.groupSingletons.ClearMemberList();
-		w(t, "PerformInitialPopulate didn't find group");
+		AssertMsg(t, "PerformInitialPopulate didn't find group");
 		let r = performance.now();
 		let n =
 			o.xm.ChatStore.GetChatRoomGroup(
@@ -485,14 +485,14 @@ export class me {
 		return this.FindCurrentBucketForMember(e, t) !== undefined;
 	}
 	AddMemberToBucketID(e, t, r) {
-		w(
+		AssertMsg(
 			!this.BIsMemberInAnyBucket(e, r.accountid),
 			"Trying to double add accountid",
 			r.accountid,
 			"which is already in bucket",
 			this.FindCurrentBucketForMember(e, r.accountid),
 		);
-		w(
+		AssertMsg(
 			!e.bFlatList || t == 0,
 			"Trying to add to non-default bucket in flat list",
 		);
@@ -523,11 +523,11 @@ export class me {
 		return e.id != fW && e.id != 0;
 	}
 	AddToSingletons(e, t) {
-		w(!e.bFlatList, "Adding to singletons in flat list");
+		AssertMsg(!e.bFlatList, "Adding to singletons in flat list");
 		e.groupSingletons.SortedInsert(t);
 	}
 	RemoveFromSingletons(e, t) {
-		w(!e.bFlatList, "Removing from singletons in flat list");
+		AssertMsg(!e.bFlatList, "Removing from singletons in flat list");
 		return e.groupSingletons.Remove(t);
 	}
 	GetBucketIdForPlayer(e, t, r) {

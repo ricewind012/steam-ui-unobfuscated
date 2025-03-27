@@ -13,12 +13,12 @@ import p, { zX } from "./28346.js";
 import g from "./96593.js";
 import h from "./78057.js";
 import C from "./22091.js";
-import _, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import f from "./84056.js";
 import b, { E } from "./30519.js";
 import y from "./50376.js";
 export function Xt(e) {
-	w_1(false, `Didn't localize controllerrules.ts string: "${e}"`);
+	AssertMsg(false, `Didn't localize controllerrules.ts string: "${e}"`);
 	return `${e?.replace(
 		/([A-Z])([A-Z])([^A-Z])|([^A-Z])([A-Z])|(.)_(.)/g,
 		"$1$4$6 $2$3$5$7",

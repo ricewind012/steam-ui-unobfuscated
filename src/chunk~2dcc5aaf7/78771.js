@@ -3,7 +3,7 @@ import i from "./83957.js";
 import s, { Gn, h5 } from "./89193.js";
 import { useState, useEffect } from "./63696.js";
 import l from "./8573.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import m, { Fd } from "./72476.js";
 import u from "./823.js";
 const a = i;
@@ -54,8 +54,8 @@ class d {
 		);
 	}
 	BHasClanInfoLoaded(e) {
-		w(e.BIsValid(), "Clan SteamID is not valid when ClanInfo");
-		w(
+		AssertMsg(e.BIsValid(), "Clan SteamID is not valid when ClanInfo");
+		AssertMsg(
 			e.BIsClanAccount(),
 			"Clan SteamID is not a clan account id when requesting clan info ",
 		);
@@ -106,7 +106,7 @@ class d {
 		if (typeof e == "string") {
 			e = parseInt(e);
 		}
-		w(e != 0, "LoadOGGClanInfoForAppID called with appid of zero");
+		AssertMsg(e != 0, "LoadOGGClanInfoForAppID called with appid of zero");
 		if (e == 0) {
 			return null;
 		}
@@ -248,7 +248,7 @@ class d {
 	}
 	GetClanInfoByClanAccountID(e) {
 		this.LazyInit();
-		w(
+		AssertMsg(
 			!!e,
 			"Unepxected clanid when requesting information. GetClanInfoByClanAccountID ",
 		);

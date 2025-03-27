@@ -8,7 +8,7 @@ import m from "./93960.js";
 import u, { xv, Bu, Fd, yK } from "./72476.js";
 import d, { H } from "./16154.js";
 import "./8573.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import "./63696.js";
 import { H7 } from "./1624.js";
 const a = i;
@@ -175,7 +175,10 @@ export class KN {
 	static s_EventUserStore;
 	m_bIsPresentationMode = Bu();
 	static Get() {
-		w(!!KN.s_EventUserStore, "Have not yet initialized global EventUserStore");
+		AssertMsg(
+			!!KN.s_EventUserStore,
+			"Have not yet initialized global EventUserStore",
+		);
 		return KN.s_EventUserStore;
 	}
 	static IsInitialized() {

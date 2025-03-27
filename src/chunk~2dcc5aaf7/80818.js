@@ -14,7 +14,7 @@ import d from "./88750.js";
 import A from "./78057.js";
 import p from "./58254.js";
 import g from "./12767.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import C from "./65016.js";
 import _ from "./79769.js";
 import f from "./4527.js";
@@ -193,7 +193,7 @@ let k = class extends i.Component {
 	m_refLogoImage = i.createRef();
 	constructor(e) {
 		super(e);
-		w_1(
+		AssertMsg(
 			!e.editMode || e.rgLogoImages.length <= 1,
 			"Can't use multiple logo images in edit mode",
 		);

@@ -95,7 +95,7 @@ import { js } from "./17613.js";
 import Ve from "./13352.js";
 import He from "./26853.js";
 import je from "./73902.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import Ze from "./333.js";
 import Ye from "./29381.js";
 import Ke from "./46300.js";
@@ -1450,7 +1450,7 @@ const it = PA((e) => {
 										if (
 											r &&
 											r.length > 0 &&
-											(w_1(
+											(AssertMsg(
 												r.length == 1,
 												"ClanImagePickForCertainSize expected size 1, got " +
 													r.length,
@@ -6926,7 +6926,7 @@ let Qr = class extends i.Component {
 	}
 	SetGlobalHeaderHidden(e) {
 		const t = document.getElementsByClassName("responsive_header");
-		w_1(t.length <= 1, "Must have at most one responsive_header");
+		AssertMsg(t.length <= 1, "Must have at most one responsive_header");
 		if (t.length >= 1) {
 			t[0].style.display = e ? "none" : null;
 		}

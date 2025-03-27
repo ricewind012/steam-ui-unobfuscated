@@ -57,7 +57,7 @@ import { HO } from "./89193.js";
 import ve from "./12176.js";
 import Ie from "./31222.js";
 import Ee from "./82301.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { H as H_1 } from "./16154.js";
 import Re from "./79769.js";
 import ke, { hL } from "./52451.js";
@@ -866,7 +866,7 @@ class De {
 	constructor() {}
 	Init() {
 		const e = Tc("read_inventory_token", "application_config");
-		w_1(
+		AssertMsg(
 			e,
 			"CQuestCommunityInventoryStore: missing read_inventory:steam oauth permission",
 		);
@@ -2049,7 +2049,7 @@ class Mt {
 				t,
 			);
 			if (n.GetEResult() == 1 && n.Body().definitions()?.length > 0) {
-				w_1(
+				AssertMsg(
 					n.Body().definitions()?.length == 1,
 					`Requested definition ID ${e} and receive # ${
 						n.Body().definitions()?.length

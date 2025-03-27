@@ -21,7 +21,7 @@ import _p from "./83957.js";
 import h, { Gn, fm } from "./89193.js";
 import C, { t } from "./93023.js";
 import _ from "./8573.js";
-import f, { w as w_2 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import b, { H as H_2 } from "./16154.js";
 import y, { Qn, Pr } from "./72476.js";
 import v, { bs, l6, o4 } from "./52451.js";
@@ -74,7 +74,10 @@ class S {
 	m_mapProfiles = new Map();
 	m_mapProfilesLoading = new Map();
 	async LoadProfiles(e, t) {
-		w_2(e.length <= 500, "Check LoadProfiles, requesting too many steam IDs");
+		AssertMsg(
+			e.length <= 500,
+			"Check LoadProfiles, requesting too many steam IDs",
+		);
 		let r = e.filter(
 			(e) => !this.m_mapProfiles.has(e) && !this.m_mapProfilesLoading.has(e),
 		);
@@ -792,7 +795,7 @@ const K = PA((e) => {
 		.slice()
 		.sort(i)
 		.map((e, i) => {
-			w_2(
+			AssertMsg(
 				e.efriendrelationship == 2,
 				"Incorrect friend type in IncomingInvites",
 			);
@@ -959,7 +962,10 @@ const X = PA((e) => {
 		return null;
 	}
 	const i = n.member_list.map((e, i) => {
-		w_2(e.efriendrelationship == 4, "Incorrect friend type in OutgoingInvites");
+		AssertMsg(
+			e.efriendrelationship == 4,
+			"Incorrect friend type in OutgoingInvites",
+		);
 		return u.createElement(
 			z.Z,
 			{
@@ -2655,7 +2661,7 @@ let ct = class extends u.Component {
 	}
 	render() {
 		let e = s.ZM.WebLogonManager;
-		w_2(e, "No WebLogonManager in WebConnectionTroubleOverlay");
+		AssertMsg(e, "No WebLogonManager in WebConnectionTroubleOverlay");
 		if (!e) {
 			return null;
 		}
@@ -2724,7 +2730,7 @@ let ct = class extends u.Component {
 							break;
 						}
 						default: {
-							w_2(false, `No message for trouble state ${r}`);
+							AssertMsg(false, `No message for trouble state ${r}`);
 						}
 					}
 				} else {

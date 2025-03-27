@@ -62,7 +62,7 @@ import Ye from "./83957.js";
 import Xe from "./37976.js";
 import "./63696.js";
 import Je from "./28987.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import et from "./93960.js";
 import { H as H_1 } from "./16154.js";
 import nt from "./31222.js";
@@ -3476,7 +3476,7 @@ class rt {
 		);
 	}
 	async SaveDrafts() {
-		w_1(
+		AssertMsg(
 			Boolean(this.m_summary?.faq_id),
 			"Attempting to save when we lack a FaqID in the summary object",
 		);
@@ -3609,7 +3609,7 @@ class rt {
 		if (e.length == 0) {
 			e.push(Je.TU.k_ESteamRealmGlobal);
 		}
-		w_1(
+		AssertMsg(
 			e.length > 0,
 			`FAQ ${this.m_summary.faq_id} is currently configured so that no realms are valid for display.`,
 		);
@@ -6746,7 +6746,7 @@ class vr {
 		return this.m_CurrentUser?.bIsOfflineMode;
 	}
 	ShowSupportAlertsModal() {
-		w_1(
+		AssertMsg(
 			this.m_CurrentUser.bSupportAlertActive,
 			"Can't show support alert modals; no active alerts.",
 		);
@@ -6786,7 +6786,7 @@ export function qw() {
 	return Ir;
 }
 export function KC() {
-	w_1(!Ir, "SteamUI already initialized");
+	AssertMsg(!Ir, "SteamUI already initialized");
 	Ir = new vr();
 	window.App = Ir;
 	return Ir;

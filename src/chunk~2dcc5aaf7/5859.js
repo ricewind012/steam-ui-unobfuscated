@@ -13,7 +13,7 @@ import a from "./12176.js";
 import s from "./31222.js";
 import o from "./65850.js";
 import l from "./80222.js";
-import c, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import m, { H } from "./16154.js";
 import u from "./72476.js";
 import d, { hS, rV, Bn } from "./85606.js";
@@ -203,7 +203,7 @@ class C {
 	}
 	BCheckDataRequestIncluded(e) {
 		if (u.TS.WEB_UNIVERSE == "dev" || u.TS.WEB_UNIVERSE == "beta") {
-			w_1(
+			AssertMsg(
 				this.BContainDataRequest(e),
 				`Requested data without for ${Rz(this.m_eItemType)} @ ${this.m_unID}`,
 				e,
@@ -1094,7 +1094,7 @@ export class A {
 	}
 	static Initialize(e, t) {
 		const r = A.Get();
-		w_1(
+		AssertMsg(
 			!r.m_bInitialized,
 			"CStoreItemCache was already initialized; initialize it only once.",
 		);
@@ -1305,7 +1305,10 @@ export class A {
 		}
 	}
 	async QueueStoreItemRequest(e, t, r) {
-		w_1(A.ValidateDataRequest(r), `Invalid Data Request: ${JSON.stringify(r)}`);
+		AssertMsg(
+			A.ValidateDataRequest(r),
+			`Invalid Data Request: ${JSON.stringify(r)}`,
+		);
 		if (typeof e == "string") {
 			e = parseInt(e);
 		}
@@ -1316,7 +1319,7 @@ export class A {
 			return this.k_AlreadyResolvedBusy;
 		}
 		if (!e) {
-			w_1(!e, `unexpected id ${e} of zero or undefined for type ${t}`);
+			AssertMsg(!e, `unexpected id ${e} of zero or undefined for type ${t}`);
 			return this.k_AlreadyResolvedInvalid;
 		}
 		const n = this.GetPreviousSupersetLoadPromise(e, t, r);
@@ -1359,7 +1362,7 @@ export class A {
 				break;
 			}
 			default: {
-				w_1(false, `Unexpected Type ${t}`);
+				AssertMsg(false, `Unexpected Type ${t}`);
 			}
 		}
 		const i = this.m_PendingInfoPromise;

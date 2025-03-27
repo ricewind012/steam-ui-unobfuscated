@@ -12,7 +12,7 @@ import l from "./10606.js";
 import c, { pg } from "./13869.js";
 import m, { A as A_1 } from "./90765.js";
 import d from "./56970.js";
-import A, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import p from "./85243.js";
 import g from "./33512.js";
 import h, { FN } from "./43152.js";
@@ -57,7 +57,7 @@ function M(e, t) {
 				(async (r) => {
 					setA(true);
 					let n = d.yE.GetSettings();
-					w_1(
+					AssertMsg(
 						e.allowAnyPIN || n.strPIN,
 						"Lock screen displayed with no PIN set",
 					);

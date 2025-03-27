@@ -15,7 +15,7 @@ import u from "./78771.js";
 import d from "./823.js";
 import A from "./12956.js";
 import p from "./5859.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { OQ } from "./31958.js";
 import { rG } from "./98670.js";
 import "./83957.js";
@@ -236,13 +236,13 @@ export class lh {
 		t.description = new Map(r.description);
 		t.vecTags = new Array(r.vecTags);
 		t.clanSteamID = new l.b(r.clanSteamID);
-		w(
+		AssertMsg(
 			t.clanSteamID && t.clanSteamID.BIsValid(),
 			`Invalid Clan SteamID: ${t.clanSteamID.ConvertTo64BitString()}`,
 		);
 		if (r.broadcaster) {
 			t.broadcaster = new l.b(r.broadcaster);
-			w(
+			AssertMsg(
 				t.broadcaster && t.broadcaster.BIsValid(),
 				`Invalid Broadcast SteamID: ${t.broadcaster.ConvertTo64BitString()}`,
 			);
@@ -989,7 +989,7 @@ export class lh {
 		}
 		const r = new Set(e);
 		const n = new Set();
-		w(
+		AssertMsg(
 			!this.jsondata.bOptimizedForSize,
 			"Cannot find all items in optimized json",
 		);
@@ -1238,7 +1238,7 @@ export class lh {
 		if (this.BInRealmChina()) {
 			e.push(a.TU.k_ESteamRealmChina);
 		}
-		w(
+		AssertMsg(
 			e.length > 0,
 			`Event ${this.GID} is currently configured so that no realms are valid for display. Either enable Steam China or Global to address this issue`,
 		);

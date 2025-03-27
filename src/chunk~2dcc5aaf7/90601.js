@@ -2,7 +2,7 @@ import { Localize } from "../../actual_src/utils/localization.js";
 import n, { Cg } from "./34629.js";
 import i from "./83957.js";
 import s, { Gn, h5 } from "./89193.js";
-import o, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c from "./72476.js";
 const a = i;
 class m {
@@ -205,7 +205,10 @@ export class i6 {
 		}
 		let t = this.m_fileUploadProps.file;
 		if (!t) {
-			w(false, "Must SetImageFileToUpload before calling BeginFileUpload");
+			AssertMsg(
+				false,
+				"Must SetImageFileToUpload before calling BeginFileUpload",
+			);
 			throw new Error("Invalid State");
 		}
 		this.m_fileUploadProps.eUploadState = 2;

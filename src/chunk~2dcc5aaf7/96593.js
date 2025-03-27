@@ -13,7 +13,7 @@ import o, { q3 } from "./90095.js";
 import l, { ak } from "./44846.js";
 import c from "./36934.js";
 import m from "./74995.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import A from "./83599.js";
 import p from "./52451.js";
 import g from "./5640.js";
@@ -773,7 +773,10 @@ class I {
 		for (const r of this.allApps) {
 			if (r.site_license_site_name) {
 				if (e != r.site_license_site_name) {
-					w(!e, `Found two site servers: ${e} != ${r.site_license_site_name}`);
+					AssertMsg(
+						!e,
+						`Found two site servers: ${e} != ${r.site_license_site_name}`,
+					);
 					if (e) {
 						continue;
 					}

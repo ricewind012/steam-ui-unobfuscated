@@ -19,7 +19,7 @@ import v from "./46066.js";
 import I from "./32493.js";
 import E from "./95773.js";
 import M, { Gn, fm, h5 } from "./89193.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import D from "./46970.js";
 import N from "./81386.js";
 import F, { S$, aP } from "./44846.js";
@@ -559,7 +559,7 @@ class k {
 	GetClan(e) {
 		let t;
 		if (e instanceof c.b) {
-			w_1(e.BIsClanAccount(), "expected clan steamid in GetClan()");
+			AssertMsg(e.BIsClanAccount(), "expected clan steamid in GetClan()");
 			t = e.GetAccountID();
 		} else {
 			t = e;
@@ -719,7 +719,7 @@ export class $c {
 		this.m_unAccountID = e;
 		this.m_persona = new u(c.b.InitFromAccountID(e));
 		if (e == 0) {
-			w_1(false, "unset accountid");
+			AssertMsg(false, "unset accountid");
 			this.m_persona.m_bInitialized = true;
 		}
 		if (t) {
@@ -998,7 +998,7 @@ export class $c {
 			e.Body().add_Ids().set_steamid(this.steamid64);
 			e.Body().set_id_count(1);
 			E.xm.CMInterface.SendMsgAndAwaitResponse(e, p.sZ).then((e) => {
-				w_1(
+				AssertMsg(
 					e.Body().responses().length == 1,
 					"Got an invalid number of responses to CMsgClientAMGetPersonaNameHistory",
 				);
@@ -1006,12 +1006,12 @@ export class $c {
 					return;
 				}
 				let t = e.Body().responses()[0];
-				w_1(
+				AssertMsg(
 					t.steamid() == this.steamid64,
 					"Got a response for the wrong user from CMsgClientAMGetPersonaNameHistory",
 				);
 				if (t.steamid() == this.steamid64) {
-					w_1(
+					AssertMsg(
 						this.m_rgPersonaNameHistory.length == 0,
 						"Got persona name history response for same user twice.",
 					);
@@ -1175,7 +1175,7 @@ export class $c {
 		return this.m_bLoadedEquippedProfileItems;
 	}
 	GetEquippedProfileItems() {
-		w_1(
+		AssertMsg(
 			this.BLoadedEquippedItems(),
 			"Called GetEquippedProfileItems without loading",
 		);
@@ -1655,7 +1655,7 @@ export class VT {
 				message: "ShowFriendsErrorRetryDialog",
 			};
 			window.parent.postMessage(e, "https://steamloopback.host");
-			w_1(false, "GetFriendsList returned", t.GetEResult());
+			AssertMsg(false, "GetFriendsList returned", t.GetEResult());
 		}
 	}
 	get not_ready_to_render_reason() {
@@ -1874,7 +1874,7 @@ export class VT {
 		if (!this.m_TokenBucketChangeStatus.BRemoveToken()) {
 			if (this.m_TokenFailureAssertCount > 0) {
 				--this.m_TokenFailureAssertCount;
-				w_1(
+				AssertMsg(
 					false,
 					`No ClientChangeStatus tokens, last 10 reasons: ${this.m_vecLastTenChangeStatusReasons.join(
 						",",
@@ -1928,7 +1928,7 @@ export class VT {
 				return null;
 			}
 		} else {
-			w_1(false, `Friend missing from cache: ${e}`);
+			AssertMsg(false, `Friend missing from cache: ${e}`);
 		}
 		return t;
 	}
@@ -2004,7 +2004,7 @@ export class VT {
 				for (let r of e) {
 					let e = this.GetPlayer(r);
 					if (e && !e.persona.m_bNameInitialized) {
-						w_1(
+						AssertMsg(
 							e.m_bPersonaStateLoadRequested,
 							"PersonaStateLoadRequested not set",
 						);

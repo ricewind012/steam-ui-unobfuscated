@@ -19,7 +19,7 @@ import v from "./42318.js";
 import M from "./46382.js";
 import { bs } from "./52451.js";
 import y from "./88696.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import B from "./91435.js";
 import x from "./24295.js";
 import L from "./72905.js";
@@ -81,7 +81,7 @@ function F(e) {
 			</r.Suspense>
 		);
 	} else {
-		w_1(
+		AssertMsg(
 			m.TS.IN_STEAMUI_SHARED_CONTEXT,
 			"nosteamuisharedjscontext is no longer supported!",
 		);

@@ -1,6 +1,6 @@
 import n, { Cg } from "./34629.js";
 import i from "./52451.js";
-import a, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 class s {
 	m_uiMode;
 	m_mapModeToCallbacks = new Map();
@@ -38,7 +38,7 @@ class s {
 	RegisterForUIMode(e, t, r) {
 		if (this.m_mapModeToCallbacks.has(e)) {
 			const n = this.RegisteredCallbackKey(t, e);
-			w(
+			AssertMsg(
 				!this.m_mapRegisteredCallbacks.has(n),
 				`Reregistering callback for ${t} in mode ${e}`,
 			);

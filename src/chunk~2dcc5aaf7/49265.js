@@ -10,7 +10,7 @@ import m from "./80222.js";
 import re from "./72476.js";
 import { rV, Bn } from "./85606.js";
 import { MP } from "./67784.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import se, { Gn } from "./89193.js";
 import oe from "./5859.js";
 const l_Message = l.Message;
@@ -3148,7 +3148,7 @@ export class Nt {
 		this.m_SteamInterfacePromotions = e;
 	}
 	static Get() {
-		w_1(Nt.sm_Instance, "MarketingMessages store not initialized");
+		AssertMsg(Nt.sm_Instance, "MarketingMessages store not initialized");
 		return Nt.sm_Instance;
 	}
 	async GetMessageList(e, t = false) {

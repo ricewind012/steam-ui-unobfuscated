@@ -14,7 +14,7 @@ import g from "./79769.js";
 import h, { hL } from "./52451.js";
 import C from "./72476.js";
 import _ from "./5822.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import b from "./45967.js";
 import { c as c_1 } from "./80553.js";
 class S {
@@ -72,7 +72,7 @@ class S {
 
 		const { unRequestingAppID, appid } = e;
 
-		w(
+		AssertMsg(
 			unRequestingAppID,
 			"OnGameOverlayActivateRequested - no valid requesting appid!",
 			e,

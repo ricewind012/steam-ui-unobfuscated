@@ -11,7 +11,7 @@ import o, { Dp } from "./736.js";
 import d from "./3756.js";
 import A, { u as u_1 } from "./17385.js";
 import { BK } from "./85243.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import h from "./79769.js";
 import C from "./52451.js";
 import { Pr } from "./72476.js";
@@ -313,7 +313,7 @@ export class Vi {
 		if (t instanceof d.d) {
 			let n = this.m_chatStore.GetChatRoomGroup(t.GetParentGroupID());
 			if (!n) {
-				w(false, "Can't find group for chat room ");
+				AssertMsg(false, "Can't find group for chat room ");
 				return null;
 			}
 			let i = this.ShowAndOrActivateChatRoomGroup(e, n, r);
@@ -393,7 +393,7 @@ export class Vi {
 			this.ShowAndOrActivateChatRoomGroup(e, r, true);
 			i = this.GetTabSetByUniqueID(n, r.unique_id);
 		}
-		w(i, "Failed to find group tab");
+		AssertMsg(i, "Failed to find group tab");
 		let a = this.GetTabSetByUniqueID(n, t.chat.unique_id);
 		if (!a) {
 			return;
@@ -581,7 +581,7 @@ export class Vi {
 		}
 	}
 	GetPerContextChatData(e) {
-		w(
+		AssertMsg(
 			a.xm.ready_to_render || this.m_bRestoringPopups,
 			"GetPerContextChatData called before ready",
 			e,
@@ -592,7 +592,7 @@ export class Vi {
 			let n = a.xm.BIsValidBrowserContext(e);
 			r = new v(e);
 			if (n) {
-				w(
+				AssertMsg(
 					e.m_unPID == 0 || e.m_eUIMode !== undefined,
 					"GetPerContextChatData - creating context for browser where uimode is undefined! This can cause problems in other places!",
 				);
@@ -665,7 +665,7 @@ export class Vi {
 		if (!t) {
 			return;
 		}
-		w(
+		AssertMsg(
 			e.m_nBrowserID == t.browser_context.m_nBrowserID,
 			"Mismatch found in OnOverlayBrowserClosed",
 		);
@@ -851,7 +851,7 @@ export class Vi {
 		}
 	}
 	MoveTabToNewPopup(e, t, r, n) {
-		w(e, "browserContext");
+		AssertMsg(e, "browserContext");
 		let i = this.GetPerContextChatData(e);
 		this.ForEachTabSet(i, (e) => e.RemoveTab(t));
 		let s = new u(e);
@@ -932,8 +932,8 @@ export class Vi {
 		if (a.xm.IsGamepadUIActive()) {
 			return;
 		}
-		w(!this.m_bRestoredPopupState, "Second restore popup state");
-		w(
+		AssertMsg(!this.m_bRestoredPopupState, "Second restore popup state");
+		AssertMsg(
 			!this.m_bRestoringPopups,
 			"RestorePopupState called while already restoring",
 		);
@@ -964,7 +964,7 @@ export class Vi {
 	}
 	RestoreFromStateObject(e, t) {
 		let r = this.GetPerContextChatData(A.m);
-		w(r.BIsEmpty(), "Restoring to non-empty context", r);
+		AssertMsg(r.BIsEmpty(), "Restoring to non-empty context", r);
 		if (r.BIsEmpty()) {
 			if (e.window_restore_details) {
 				r.SetCachedDefaultPopupDimensions(e.window_restore_details);
@@ -1212,7 +1212,7 @@ class v {
 		return this.m_browserContext;
 	}
 	get default_tabset() {
-		w(this.m_DefaultTabSet, "Context has no default chat target");
+		AssertMsg(this.m_DefaultTabSet, "Context has no default chat target");
 		return this.m_DefaultTabSet;
 	}
 	get friends_list_window() {
@@ -1260,7 +1260,7 @@ class v {
 		this.m_mapTabSetToPopup.delete(e);
 	}
 	AddPopup(e, t) {
-		w(!this.m_mapTabSetToPopup.has(e), "Added popup for tabset twice");
+		AssertMsg(!this.m_mapTabSetToPopup.has(e), "Added popup for tabset twice");
 		this.m_mapTabSetToPopup.set(e, t);
 	}
 	GetPopupForTabSet(e) {

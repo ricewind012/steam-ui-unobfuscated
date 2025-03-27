@@ -21,7 +21,7 @@ import y from "./98829.js";
 import S from "./65726.js";
 import w, { nn } from "./92564.js";
 import { E5 } from "./88620.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import E from "./79769.js";
 import M from "./72476.js";
 import T from "./83665.js";
@@ -475,7 +475,7 @@ export let Mr = class extends i.Component {
 		e.stopPropagation();
 	}
 	OnDragEnter(e, t) {
-		w_1(
+		AssertMsg(
 			e && e.type == "friend",
 			"Invalid type passed to VoiceRoom.OnDragEnter",
 		);
@@ -500,7 +500,7 @@ export let Mr = class extends i.Component {
 		e.dataTransfer.dropEffect = "move";
 	}
 	OnDrop(e, t) {
-		w_1(
+		AssertMsg(
 			e && e.type == "friend",
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);

@@ -55,7 +55,7 @@ import X from "./71594.js";
 import { R7 } from "./11131.js";
 import oe from "./79671.js";
 import { gQ } from "./39002.js";
-import { w as w_2 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import me from "./78110.js";
 import ue, { Gn } from "./89193.js";
 import Ae, { BGameRecordingFeatureEnabled } from "./4069.js";
@@ -1157,7 +1157,7 @@ function tt(e) {
 	);
 }
 export function FO(e, t) {
-	w_2(
+	AssertMsg(
 		e != 0 || t != null,
 		"Can't use default setting when global default is null",
 	);
@@ -3033,7 +3033,7 @@ const Rt = PA((e) => {
 							parseFloat(t.file_size ?? t.details?.file_size)),
 				);
 			} else {
-				w_2(false, "Unknown WorkshopSortBy: ", t);
+				AssertMsg(false, "Unknown WorkshopSortBy: ", t);
 			}
 		})(e, m);
 		return e;

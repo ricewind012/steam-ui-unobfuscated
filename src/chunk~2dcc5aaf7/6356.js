@@ -15,7 +15,7 @@ import u from "./64608.js";
 import d from "./10606.js";
 import { pg } from "./13869.js";
 import p from "./50376.js";
-import { W as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import _ from "./83628.js";
 import b from "./18057.js";
 import { br } from "./18869.js";
@@ -89,7 +89,7 @@ export const A = PA((e) => {
 				<m.kt
 					onSelected={(e) => {
 						const i = o.md.GetCollection(strCollectionId);
-						w_1(
+						AssertMsg(
 							i.bIsDeletable,
 							`Collection '${i.displayName}' should be deletable.`,
 						);
@@ -163,7 +163,7 @@ const W = PA((e) => {
 						}
 					}
 					const e = o.md.GetCollection(strCollectionId);
-					w_1(
+					AssertMsg(
 						e.bIsDeletable,
 						`Collection '${e.displayName}' should be deletable.`,
 					);

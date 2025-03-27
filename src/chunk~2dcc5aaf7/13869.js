@@ -2,13 +2,13 @@ import { Localize } from "../../actual_src/utils/localization.js";
 import n from "./63696.js";
 import i, { tx } from "./3673.js";
 import a from "./46701.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import l from "./72476.js";
 export let x_ = a.x_;
 export async function mK(e, t, r) {
 	const a = tx(t);
 	const l = r?.bForcePopOut || A(a);
-	w(
+	AssertMsg(
 		!l || !r?.bNeverPopOut,
 		"Conflicting popout options; will ignore bNeverPopOut",
 	);

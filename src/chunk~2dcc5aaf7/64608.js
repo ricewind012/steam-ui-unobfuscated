@@ -10,7 +10,7 @@ import _a from "./63696.js";
 import s, { b$ } from "./90242.js";
 import o from "./69164.js";
 import l from "./50376.js";
-import c, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { A as A_1 } from "./90765.js";
 import d, { Ue, XB, wY } from "./52451.js";
 import A from "./29889.js";
@@ -239,7 +239,7 @@ export class pd extends _a.PureComponent {
 		}
 	}
 	CheckProps(e) {
-		w_1(
+		AssertMsg(
 			(!e.bShowClearAction && !e.bAlwaysShowClearAction) || e.onChange,
 			"In order for bShowClearAction to work correctly, you should be handling onChange and passing value to the Dialog.Input.",
 		);

@@ -6,7 +6,7 @@ import o from "./12176.js";
 import l from "./92031.js";
 import c from "./72476.js";
 import p from "./10812.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import h from "./79769.js";
 class m {
 	m_nLastUpdated = 0;
@@ -133,7 +133,10 @@ class f {
 	}
 	RegisterCallbackOnLoad(e) {
 		if (!this.BHavePendingAppInfoRequests()) {
-			w(false, "Registering for callback on appinfo load, but nothing queued");
+			AssertMsg(
+				false,
+				"Registering for callback on appinfo load, but nothing queued",
+			);
 			e();
 			return;
 		}
@@ -143,7 +146,10 @@ class f {
 		return this.m_setPendingAppInfo.has(e);
 	}
 	GetAppInfo(e) {
-		w(this.m_CMInterface, "CAppInfoStore.GetAppInfo called before Init");
+		AssertMsg(
+			this.m_CMInterface,
+			"CAppInfoStore.GetAppInfo called before Init",
+		);
 		if (!this.m_mapAppInfo.has(e)) {
 			let t = new l.by(e);
 			this.m_mapAppInfo.set(e, t);
@@ -214,7 +220,7 @@ class f {
 		let t = [];
 		for (let r of e.Body().apps()) {
 			let e = this.m_mapAppInfo.get(r.appid());
-			w(e, `Got AppInfo response for unrequested AppID: ${r.appid()}`);
+			AssertMsg(e, `Got AppInfo response for unrequested AppID: ${r.appid()}`);
 			if (e) {
 				e = new l.by(r.appid());
 				e.DeserializeFromMessage(r);
@@ -274,7 +280,7 @@ class f {
 				return e;
 			}
 			let n = this.m_mapAppInfo.get(e);
-			w(
+			AssertMsg(
 				n,
 				"Didn't find AppInfo in our map when loading from cache but it should've been there?",
 			);

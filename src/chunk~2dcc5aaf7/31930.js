@@ -5,7 +5,7 @@ import s from "./16583.js";
 import o, { I8 } from "./12176.js";
 import l, { OI } from "./12251.js";
 import c from "./83599.js";
-import m, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import u from "./25265.js";
 import d from "./58663.js";
 import A from "./48307.js";
@@ -731,17 +731,17 @@ export class U {
 		const t = parseInt(e.Hdr().jobid_target());
 		const r = this.m_mapPendingMethodRequests.get(t);
 		if (r == null) {
-			w(false, "Transport Error: no pending callback for request");
+			AssertMsg(false, "Transport Error: no pending callback for request");
 			return;
 		}
-		w(t == r.m_iSeq, "Transport Error: mistmatched request sequence");
+		AssertMsg(t == r.m_iSeq, "Transport Error: mistmatched request sequence");
 		this.m_mapPendingMethodRequests.delete(t);
 		const n = o.w.InitFromMsg(r.m_responseClass, e);
 		r.m_fnCallback(n);
 	}
 	DispatchNotification(e) {
 		this.m_messageHandlers.DispatchMsgToHandlers(e, (e) => {
-			w(
+			AssertMsg(
 				false,
 				"Transport Error: A notification should not generate a response",
 			);

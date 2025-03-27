@@ -14,7 +14,7 @@ import u, { Pj } from "./14629.js";
 import d from "./48289.js";
 import A from "./61175.js";
 import p from "./74995.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import C from "./52451.js";
 import _ from "./51095.js";
 import f from "./64004.js";
@@ -1330,7 +1330,10 @@ class F {
 		);
 	}
 	async DeleteCollection(e) {
-		w_1(!this.BIsSystemCollectionId(e), `Cannot delete system collection ${e}`);
+		AssertMsg(
+			!this.BIsSystemCollectionId(e),
+			`Cannot delete system collection ${e}`,
+		);
 		if (this.GetCollection(e)) {
 			l.N.OnDeleteCollection(e);
 			delete this.m_shortcutCollectionInfo[e];

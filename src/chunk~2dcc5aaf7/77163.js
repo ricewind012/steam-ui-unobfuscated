@@ -40,7 +40,7 @@ import O from "./10606.js";
 import P from "./48434.js";
 import U from "./98995.js";
 import { OQ } from "./31958.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import H from "./66901.js";
 import q from "./90242.js";
 import { Qn } from "./72476.js";
@@ -435,7 +435,7 @@ class $ {
 						}
 					}
 					if (r.length) {
-						w_1(r.length == t.vecItems.length, "Row length mismatch");
+						AssertMsg(r.length == t.vecItems.length, "Row length mismatch");
 						for (let e = 0; e < t.vecItems.length; e++) {
 							t.vecItems[e].eVoteDirection = r[e].eVoteDirection;
 							t.vecItems[e].item = r[e].item;

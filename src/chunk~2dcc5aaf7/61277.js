@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i, { Gn } from "./89193.js";
 import a from "./88696.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export let H;
 let l;
 ((e) => {
@@ -277,18 +277,18 @@ class u {
 		this.m_eInterstitial = e;
 		const c_e = c[e];
 		if (c_e.mode == l.EveryTime) {
-			w(
+			AssertMsg(
 				!c_e.unVersion,
 				"EveryTime ConfiguratorInterstitials shouldn't specify unVersion",
 			);
 		} else {
-			w(
+			AssertMsg(
 				c_e.unVersion > 0,
 				"Once and OncePerGame ConfiguratorInterstitials must specify unVersion > 0",
 			);
 		}
 		const r = H[this.m_eInterstitial];
-		w(
+		AssertMsg(
 			r.startsWith("k_e"),
 			"ConfiguratorInterstitials doesn't match the expected naming pattern",
 		);

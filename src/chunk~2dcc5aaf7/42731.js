@@ -1,7 +1,7 @@
 import i, { Cg } from "./34629.js";
 import a, { Gn, h5, EW } from "./89193.js";
 import s from "./84731.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { Y2 } from "./72476.js";
 import c from "./70232.js";
 import m from "./12956.js";
@@ -183,7 +183,7 @@ export class vJ {
 			if (e == FD.k_ERecent) {
 				this.m_mapGameSources.delete(FD.k_ELibrary);
 			} else if (e == FD.k_ELibrary) {
-				w(
+				AssertMsg(
 					!this.m_mapGameSources.has(FD.k_ERecent),
 					"Setting Library although Recent already set - illusion was broken",
 				);

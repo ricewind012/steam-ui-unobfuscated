@@ -5,7 +5,7 @@ import a, { $T } from "./89459.js";
 import s, { Hd } from "./50979.js";
 import _o, { Gn, h5 } from "./89193.js";
 import l from "./44846.js";
-import c, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import m from "./83599.js";
 import p from "./95773.js";
 class d {
@@ -395,7 +395,7 @@ export class o {
 		}
 		let r = this.m_rgChatMessages.indexOf(t);
 		if (r < 0) {
-			w(false, "Failed to find message being removed");
+			AssertMsg(false, "Failed to find message being removed");
 		} else {
 			this.m_rgChatMessages.splice(0, r + 1);
 		}

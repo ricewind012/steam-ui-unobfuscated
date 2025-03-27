@@ -31,7 +31,7 @@ import q from "./65726.js";
 import { q3 } from "./90095.js";
 import Z from "./23038.js";
 import Y from "./56654.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { OQ } from "./31958.js";
 import $ from "./1918.js";
 import ee, { nn } from "./92564.js";
@@ -1137,7 +1137,7 @@ export let vY = class extends A.Component {
 		}
 	}
 	OnDragEnter(e, t) {
-		w(
+		AssertMsg(
 			(e && e.type == "friend") || t,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDragEnter",
 		);
@@ -1165,7 +1165,7 @@ export let vY = class extends A.Component {
 		e.dataTransfer.dropEffect = "move";
 	}
 	OnDrop(e, t) {
-		w(
+		AssertMsg(
 			(e && e.type == "friend") || t.dataTransfer.files.length != 0,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);

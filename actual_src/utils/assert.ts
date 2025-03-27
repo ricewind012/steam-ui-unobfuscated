@@ -1,4 +1,4 @@
-// Webpack module ID: 85688
+// Webpack module ID: 85688 & 49455
 
 export function AssertMsg(test: boolean, message: string, ...args: any[]) {
 	if (console.assert) {

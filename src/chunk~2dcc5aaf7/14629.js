@@ -5,7 +5,7 @@ import a from "./61175.js";
 import s, { Gn, HO } from "./89193.js";
 import C from "./52451.js";
 import { td } from "./72476.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import b from "./8573.js";
 import y from "./48289.js";
 import S from "./34792.js";
@@ -490,7 +490,7 @@ export function Xr(e) {
 				return e.steam_deck_compat_category != 1;
 			}
 			case 15: {
-				w_1(false, "Found SteamDeckUnsupported set in AppFilter");
+				AssertMsg(false, "Found SteamDeckUnsupported set in AppFilter");
 				return true;
 			}
 			case 16: {

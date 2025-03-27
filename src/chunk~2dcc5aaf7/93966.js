@@ -2,7 +2,7 @@ import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 import n from "./91703.js";
 import i, { useEffect } from "./63696.js";
 import a, { W6 } from "./49519.js";
-import o, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import l from "./83599.js";
 import { hL } from "./42898.js";
 const m = new l.wd("Backstack").Debug;
@@ -82,7 +82,7 @@ export function WE(e) {
 	const { refGlobalBackOverride } = i.useContext(n.GL);
 	useEffect(() => {
 		if (e) {
-			w(
+			AssertMsg(
 				!refGlobalBackOverride.current,
 				"Two callers registering useGlobalBackOverride",
 			);

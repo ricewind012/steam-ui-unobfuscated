@@ -50,7 +50,6 @@ import U from "./44539.js";
 import W from "./89948.js";
 import V from "./35973.js";
 import H, { ak } from "./44846.js";
-import { w as w_1 } from "./49455.js";
 import q from "./83599.js";
 import K from "./96593.js";
 import X from "./96000.js";
@@ -327,7 +326,7 @@ class Y {
 			this.m_pendingSoundHandle = null;
 			window.setTimeout(() => (this.m_bCanPlaySound = true), 50);
 		} else {
-			w_1(false, `No sound configured for type '${h.PN[e]}'`);
+			AssertMsg(false, `No sound configured for type '${h.PN[e]}'`);
 		}
 	}
 	OnGamepadFocusChanged(e, t, r) {

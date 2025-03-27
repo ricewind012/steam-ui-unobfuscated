@@ -48,7 +48,7 @@ import te, { u as u_1 } from "./17385.js";
 import { _k } from "./52912.js";
 import { R7 } from "./11131.js";
 import { qf } from "./13099.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import Ie from "./4690.js";
 import ze from "./87949.js";
 import xe from "./72655.js";
@@ -1175,7 +1175,7 @@ let Ee = class extends i.Component {
 			let n = o;
 			if (s > o.GetRTimeFirstMessage()) {
 				[r, n] = o.CreateVirtualSplitOnTimestamp(s);
-				w_1(r.messages.length, "No messages in prefix");
+				AssertMsg(r.messages.length, "No messages in prefix");
 			}
 			let l = s;
 			return (
@@ -1812,7 +1812,7 @@ export let D = class extends i.Component {
 		}
 		let o = scrollHeight - scrollTop <= clientHeight;
 		let l = lastScrollHeight - lastScrollTop <= lastClientHeight;
-		w_1(
+		AssertMsg(
 			l == e.is_scrolled_to_bottom,
 			`${e.GetUniqueID()}: computed and stored at bottom don't match`,
 		);
@@ -1841,7 +1841,7 @@ export let D = class extends i.Component {
 				);
 			}
 			c = scrollHeight - clientHeight;
-			w_1(
+			AssertMsg(
 				c >= 0,
 				`${e.GetUniqueID()}: Onscroll client height bigger than scroll height`,
 			);
@@ -1872,7 +1872,10 @@ export let D = class extends i.Component {
 			e.is_scrolled_to_bottom !=
 			e.lastScrollHeight - e.lastScrollTop <= e.lastClientHeight;
 		if (m) {
-			w_1(!m, `${e.GetUniqueID()}: setting mismatched computed and stored`);
+			AssertMsg(
+				!m,
+				`${e.GetUniqueID()}: setting mismatched computed and stored`,
+			);
 			this.LOG(
 				e.lastScrollTop,
 				e.lastScrollHeight,
@@ -1891,7 +1894,7 @@ export let D = class extends i.Component {
 		const { scrollHeight, clientHeight } = this.GetScrollInfo();
 		this.LogScrollInfo("ScrollToBottom");
 		const r = scrollHeight - clientHeight;
-		w_1(
+		AssertMsg(
 			r >= 0,
 			`${this.props.chatView.GetUniqueID()}: ScrollToBottom client height bigger than scroll height`,
 		);
@@ -1972,7 +1975,7 @@ export let D = class extends i.Component {
 			chatView.lastScrollHeight = scrollHeight;
 			chatView.lastClientHeight = clientHeight;
 			this.m_elHistoryScroll.scrollTop = chatView.lastScrollTop;
-			w_1(
+			AssertMsg(
 				chatView.is_scrolled_to_bottom ==
 					chatView.lastScrollHeight - chatView.lastScrollTop <=
 						chatView.lastClientHeight,

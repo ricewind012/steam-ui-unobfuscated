@@ -21,11 +21,10 @@ import G from "./84572.js";
 import P from "./85243.js";
 import { OJ } from "./63439.js";
 import z, { yq } from "./11131.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import U from "./35488.js";
 import { fg } from "./69913.js";
 import { IF } from "./45967.js";
-import { w as w_1 } from "./10501.js";
 import re from "./35425.js";
 import { Cg } from "./34629.js";
 import ie from "./16251.js";
@@ -304,7 +303,7 @@ function Z(e) {
 							break;
 						}
 						case Q.FadingOut: {
-							w_1(
+							AssertMsg(
 								i < t.m_flLastEventTime + H,
 								"Toast should have been deleted earlier in animation loop",
 							);
@@ -316,7 +315,7 @@ function Z(e) {
 							break;
 						}
 						default: {
-							w_1(false, "Unknown toast animation state");
+							AssertMsg(false, "Unknown toast animation state");
 						}
 					}
 					if (r) {
@@ -585,7 +584,7 @@ class oe {
 		Gn(this);
 	}
 	Init(e) {
-		w_1(
+		AssertMsg(
 			!this.m_bInitialized,
 			"ToastManagerVRNotifications already initialized",
 		);
@@ -596,7 +595,7 @@ class oe {
 			);
 	}
 	Shutdown() {
-		w_1(
+		AssertMsg(
 			this.m_bInitialized,
 			"ToastManagerVRNotifications Shutdown called when not intialized",
 		);
@@ -633,7 +632,7 @@ class oe {
 	}
 	ShowNotification(e, t, r) {
 		a5(`VRNotifications ShowNotification type ${e}`);
-		w_1(
+		AssertMsg(
 			!this.m_bNotificationShowing,
 			"Can't show a VR notification while one is still in progress",
 		);
@@ -679,7 +678,7 @@ export function Y(e) {
 	const a = Ce(t);
 	const s = uI();
 	const o = r.IN_VR && i;
-	const l = w_1();
+	const l = AssertMsg();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -864,7 +863,7 @@ export function k(e) {
 	const [c, m, u] = he(t, o, l, i);
 	const d = OU(t);
 	a5("rendering toasts", d, W_1(c), $v(u));
-	w_1(!r, "GamepadUI uses ToastManagerGamepadUI");
+	AssertMsg(!r, "GamepadUI uses ToastManagerGamepadUI");
 	return n.createElement(Z, {
 		appid: t,
 		notifications: c,
@@ -941,7 +940,7 @@ function he(e, t, r, i) {
 			o((t) => {
 				let r = ArrayWithoutElement(t, e);
 				a5("dismissing toast", e.notificationID, W_1(r));
-				w_1(
+				AssertMsg(
 					r.length < t.length,
 					`After dismssing toast ${e.notificationID}, active toasts did not get smaller: ${t.length} toasts`,
 				);

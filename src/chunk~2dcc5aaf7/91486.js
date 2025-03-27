@@ -8,7 +8,7 @@ import o from "./78057.js";
 import l from "./12767.js";
 import c, { A as A_1 } from "./90765.js";
 import m from "./52451.js";
-import u, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import d from "./10606.js";
 import { pg } from "./13869.js";
 import h from "./85965.js";
@@ -31,11 +31,11 @@ export let z = class extends i.Component {
 		this.state = {
 			bIsLoaded: false,
 		};
-		w_1(
+		AssertMsg(
 			e.rgSources || e.app || (e.eAssetType == 4 && e.appinfo),
 			"Either rgSources or app must be specified, or you must be asking for an icon and provide appinfo",
 		);
-		w_1(e.app || e.appid, "Either appid or app must be specified");
+		AssertMsg(e.app || e.appid, "Either appid or app must be specified");
 	}
 	RegisterForAppDetails() {
 		this.UnregisterForAppDetails();
@@ -59,13 +59,13 @@ export let z = class extends i.Component {
 		this.RegisterForAppDetails();
 	}
 	componentDidUpdate(e) {
-		w_1(
+		AssertMsg(
 			this.props.rgSources ||
 				this.props.app ||
 				(this.props.eAssetType == 4 && this.props.appinfo),
 			"Either rgSources or app must be specified, or you must be asking for an icon and provide appinfo",
 		);
-		w_1(
+		AssertMsg(
 			this.props.app || this.props.appid,
 			"Either appid or app must be specified",
 		);
@@ -133,7 +133,7 @@ export let z = class extends i.Component {
 		switch (this.props.eAssetType) {
 			case 7: {
 				if (this.props.app) {
-					w_1(
+					AssertMsg(
 						this.props.app.BIsMusicAlbum(),
 						`Cannot get soundtrack album cover for appid ${this.props.app.appid}: non-album app type ${this.props.app.app_type}`,
 					);
@@ -149,7 +149,7 @@ export let z = class extends i.Component {
 			}
 			case 0: {
 				if (this.props.app.app_type == 8192) {
-					w_1(
+					AssertMsg(
 						!this.props.app.BIsModOrShortcut(),
 						"It doesn't make sense to have a shortcut/mod for a soundtrack. Unsure where to look for album cover art in this case.",
 					);
@@ -228,7 +228,7 @@ export let z = class extends i.Component {
 				return rgLogoImages;
 			}
 			default: {
-				w_1(false, "Need to pass manual source list for asset type");
+				AssertMsg(false, "Need to pass manual source list for asset type");
 			}
 		}
 		return [];

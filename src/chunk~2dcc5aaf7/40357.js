@@ -1,20 +1,20 @@
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import a from "./17385.js";
 export function CO(e) {
 	let t = GetOwningWindowForEvent(e);
-	w(t, "Couldn't find owning window to determine browser context");
+	AssertMsg(t, "Couldn't find owning window to determine browser context");
 	return _k(t);
 }
 export function wj(e) {
 	let t = e?.ownerDocument?.defaultView;
-	w(t, "Couldn't find owning window to determine browser context");
+	AssertMsg(t, "Couldn't find owning window to determine browser context");
 	return _k(t);
 }
 export function _k(e) {
 	let a_m = a.m;
 	if (e) {
-		w(
+		AssertMsg(
 			e.__FriendsUIBrowserContext,
 			"FriendsUI Browser context missing from owner window",
 		);

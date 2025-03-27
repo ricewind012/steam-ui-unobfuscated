@@ -11,7 +11,7 @@ import d from "./52451.js";
 import A, { Gn } from "./89193.js";
 import p from "./28987.js";
 import g from "./8573.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import _ from "./95773.js";
 import f, { DW } from "./52912.js";
 import b, {
@@ -189,7 +189,7 @@ class C {
 					break;
 				}
 				default: {
-					w_1(false, `Unknown realm: ${t}`);
+					AssertMsg(false, `Unknown realm: ${t}`);
 				}
 			}
 		})(t, this.m_eSteamRealm);
@@ -217,7 +217,7 @@ class C {
 			this.m_CMInterface.ForceDisconnect();
 			return;
 		}
-		w_1(
+		AssertMsg(
 			this.m_eWebLogonState != 11,
 			"RetryLogin called while request in flight",
 		);

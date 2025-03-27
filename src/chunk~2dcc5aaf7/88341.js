@@ -9,7 +9,7 @@ import c, { s4, yu } from "./333.js";
 import m from "./8573.js";
 import u from "./33223.js";
 import d, { m as m_1 } from "./39039.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { H } from "./16154.js";
 import h, { RR } from "./79769.js";
 import "./52451.js";
@@ -399,7 +399,7 @@ export class i6 {
 	}
 	async InternalLoadClanImages(e, t, r) {
 		let n = e.GetAccountID();
-		w_1(e && n != 0, `ClanSteamID missing:${e}`);
+		AssertMsg(e && n != 0, `ClanSteamID missing:${e}`);
 		if (e && (!this.m_mapClanToImages.has(n) || t)) {
 			let t = {};
 			let i = null;
@@ -569,7 +569,7 @@ export class i6 {
 		i.onload = () => {
 			n.width = i.width;
 			n.height = i.height;
-			w_1(
+			AssertMsg(
 				n.width > 0 && n.height > 0,
 				`unexpected image resolution discovered for strURL: ${e}`,
 			);

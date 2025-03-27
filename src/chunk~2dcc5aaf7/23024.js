@@ -15,7 +15,7 @@ import g from "./72476.js";
 import h from "./93960.js";
 import C from "./99167.js";
 import _ from "./79769.js";
-import y, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import w, { H } from "./16154.js";
 import B from "./44058.js";
 import v from "./20711.js";
@@ -1402,7 +1402,7 @@ class P {
 		this.m_fnOnVideoEnd = e;
 	}
 	InitPlayer() {
-		w_1(!this.m_player, "Initialized twice?");
+		AssertMsg(!this.m_player, "Initialized twice?");
 		this.m_listeners.AddEventListener(
 			this.m_elVideo,
 			"playing",

@@ -3,7 +3,7 @@ import _i from "./63696.js";
 import a, { A } from "./90765.js";
 import s, { wY, Ue, md, xP } from "./52451.js";
 import o from "./25348.js";
-import c, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import m from "./69164.js";
 import u from "./4690.js";
 import d, { OQ } from "./31958.js";
@@ -275,7 +275,7 @@ class p extends _i.Component {
 			height: Math.max(0, h - p - 1) * r,
 		};
 		const f = this.GetChildren(o, d, n);
-		w(f.length <= (p - A + 1) * n, "Too many children for row count");
+		AssertMsg(f.length <= (p - A + 1) * n, "Too many children for row count");
 		let b = this.props.paddingBottom ?? 0;
 		if (h == 0) {
 			b = 0;

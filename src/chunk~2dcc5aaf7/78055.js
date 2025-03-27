@@ -3,7 +3,7 @@ import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datet
 import n from "./63696.js";
 import i from "./64608.js";
 import a from "./35488.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c from "./10606.js";
 import m from "./43599.js";
 import u, { gt } from "./48289.js";
@@ -362,7 +362,10 @@ function S(e) {
 			`${t.gameServerItem.ip}:${t.gameServerItem.port}`,
 		);
 	} else {
-		w(false, "Weird gameserver dialog with no friendState and no server IP?");
+		AssertMsg(
+			false,
+			"Weird gameserver dialog with no friendState and no server IP?",
+		);
 	}
 	let k = false;
 	let D = (0, Localize)("#GameInfoDialog_Refresh");

@@ -12,7 +12,7 @@ import A from "./83599.js";
 import p from "./43691.js";
 import { Y2 } from "./72476.js";
 import { w1 } from "./63937.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { EC } from "./24274.js";
 const f = {
 	11: {
@@ -1034,7 +1034,7 @@ const $ = {
 };
 function ee(e) {
 	const t = $[e];
-	w(!!t, `Missing notification type data for ${e}`);
+	AssertMsg(!!t, `Missing notification type data for ${e}`);
 	return t;
 }
 export function kE(e, t, r) {

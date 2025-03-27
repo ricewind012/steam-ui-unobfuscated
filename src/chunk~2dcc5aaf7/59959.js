@@ -20,7 +20,7 @@ import C from "./13665.js";
 import _ from "./13484.js";
 import f from "./5859.js";
 import b, { Li } from "./527.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { H as H_1 } from "./16154.js";
 import w from "./93960.js";
 import v, { Tc } from "./72476.js";
@@ -131,7 +131,10 @@ class T {
 			i.append("appId", t.toString());
 		} else {
 			if (!r) {
-				w_1(false, "BlockEventsFromCalenderEvent: Invalid AppID and ClanID");
+				AssertMsg(
+					false,
+					"BlockEventsFromCalenderEvent: Invalid AppID and ClanID",
+				);
 				return false;
 			}
 			if (
@@ -634,7 +637,7 @@ class k {
 		}
 	}
 	SetRequestInFlight(e, t) {
-		w_1(
+		AssertMsg(
 			!t || !this.GetRequestInFlight(e),
 			"Already have a request in flight for",
 			e,
@@ -730,7 +733,7 @@ class k {
 	}
 	BInternalInsertCalendarEventItem(e) {
 		if (!e.unique_id) {
-			w_1(
+			AssertMsg(
 				false,
 				"Attmpted to register a calendar event item with an invalid unique id!",
 			);
@@ -774,7 +777,7 @@ class k {
 			await T.Get().UpdateCommunitionSetting(t, r, n);
 			I.V.RecordAppInteractionEvent(r, I.E.k_eMuted);
 		} else {
-			w_1(
+			AssertMsg(
 				false,
 				"Both clan id and account id are missing, cannot change communication status",
 			);

@@ -1,5 +1,5 @@
 import n from "./63696.js";
-import i, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export class mX extends n.Component {
 	GetArgument(e, t = false) {
 		if (!e || (t && this.props.args[e] === undefined)) {
@@ -112,7 +112,11 @@ function o(e, t, r = 0) {
 							} else if (a == 3 || a == 4) {
 								n += e_s;
 							} else {
-								w(false, "Not expecting to accumulate buffer in state %u", a);
+								AssertMsg(
+									false,
+									"Not expecting to accumulate buffer in state %u",
+									a,
+								);
 							}
 						} else {
 							o = true;

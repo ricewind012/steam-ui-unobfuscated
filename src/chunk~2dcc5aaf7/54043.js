@@ -7,7 +7,7 @@ import { A as A_1 } from "./90765.js";
 import c, { XB } from "./52451.js";
 import m from "./31958.js";
 import u from "./90242.js";
-import d, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 const A = new (require(/*webcrack:missing*/ "./83599.js").wd)("DragDrop").Debug;
 export function ck(e) {
 	return e.children;
@@ -115,7 +115,7 @@ export class np {
 	m_elCloneOriginal;
 	m_nodeCloneCopy;
 	MakeDragClone(e) {
-		w(
+		AssertMsg(
 			!this.m_nodeCloneCopy && !this.m_elCloneOriginal,
 			"Drag already in progress",
 		);

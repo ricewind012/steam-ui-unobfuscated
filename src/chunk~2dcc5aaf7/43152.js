@@ -4,7 +4,7 @@ import i, { D7 } from "./33572.js";
 import a, { Gn } from "./89193.js";
 import s from "./63696.js";
 import o from "./10975.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c, { Jc } from "./79769.js";
 import u from "./83599.js";
 import { gc, x2 } from "./52451.js";
@@ -92,7 +92,7 @@ export class PE {
 		}
 	}
 	SetVirtualKeyboardDone() {
-		w(
+		AssertMsg(
 			this.m_bUseVRKeyboard,
 			"We should only be showing the Done button on VR keyboards",
 		);
@@ -227,8 +227,11 @@ export class PE {
 			}
 			this.HandleVirtualKeyDown(e.charAt(0));
 		}
-		w(t.charAt(0) == " ", "Dead key characters should start with a space");
-		w(r.length == t.length, "Dead key composition length mismatch");
+		AssertMsg(
+			t.charAt(0) == " ",
+			"Dead key characters should start with a space",
+		);
+		AssertMsg(r.length == t.length, "Dead key composition length mismatch");
 		this.m_strDeadKeyPending = e;
 		this.m_strDeadKeyNext = t;
 		this.m_strDeadKeyCombined = r;

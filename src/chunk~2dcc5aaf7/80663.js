@@ -18,7 +18,7 @@ import f, { f5 } from "./36383.js";
 import b from "./77644.js";
 import y from "./54946.js";
 import S from "./48332.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import k from "./38849.js";
 import D from "./79769.js";
 import "./16761.js";
@@ -502,7 +502,10 @@ export class fl {
 					case 7:
 					case 0: {
 						let e = this.GetChatRoomGroup(r);
-						w_1(e, "Got state change for ChatRoomGroup we don't know about");
+						AssertMsg(
+							e,
+							"Got state change for ChatRoomGroup we don't know about",
+						);
 						if (e) {
 							e.UpdateUserState(t.user_chat_group_state());
 						}
@@ -512,7 +515,7 @@ export class fl {
 						break;
 					}
 					default: {
-						w_1(
+						AssertMsg(
 							false,
 							`Don't know how to handle state change of type ${f5(n)} `,
 						);
@@ -989,7 +992,7 @@ export class fl {
 	DecRefActiveChatRoomGroup(e) {
 		let t = this.m_mapActiveChatGroupsToRefCount.get(e);
 		let r = t !== undefined && t > 0;
-		w_1(
+		AssertMsg(
 			r,
 			"Attempting to DecRef a Chat Group that has no existing references. Doing nothing.",
 		);
@@ -1039,7 +1042,7 @@ export class fl {
 			let t = [];
 			let r = h.w.Init(f.Jw);
 			this.m_mapActiveChatGroupsToRefCount.forEach((e, n) => {
-				w_1(
+				AssertMsg(
 					e > 0,
 					"SendActiveChatRoomGroupsToServer found invalid ref count for chat group.",
 				);

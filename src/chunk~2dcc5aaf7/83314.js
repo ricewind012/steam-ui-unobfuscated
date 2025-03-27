@@ -97,7 +97,7 @@ import { CI } from "./72476.js";
 import { z8 } from "./60221.js";
 import ge from "./43014.js";
 import he from "./53622.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 const u = m;
 const N = D;
 const x = [
@@ -2063,7 +2063,7 @@ const Ne = PA((e) => {
 		const l = Z || s || s || a || s || a || o;
 		const c = s && activator?.bindings[e]?.game_action?.action_key;
 		const u = s && activator?.bindings[e]?.mode_shift;
-		w_1(!u, "Mode shift bindings should not be handled here.");
+		AssertMsg(!u, "Mode shift bindings should not be handled here.");
 		return {
 			bIsExtraBinding: t,
 			bIsBoundToEmptyBinding: i,

@@ -7,7 +7,7 @@ import {
 	CLocLanguageArray,
 } from "../../actual_src/utils/localization.js";
 
-import { FailAssertion } from "../../actual_src/utils/assert.js";
+import { AssertMsg, FailAssertion } from "../../actual_src/utils/assert.js";
 import n, { PA } from "./41230.js";
 import i, { useEffect, useRef, useMemo, useState } from "./63696.js";
 import a, { tB } from "./69137.js";
@@ -35,7 +35,6 @@ import I, { b as b_1 } from "./59750.js";
 import E, { BL } from "./99251.js";
 import M, { Ue } from "./28864.js";
 import N from "./97510.js";
-import F, { w as w_1 } from "./49455.js";
 import P, { NT } from "./53807.js";
 import z from "./30697.js";
 import x from "./25752.js";
@@ -135,7 +134,7 @@ function L(e, t, r, n, i, a) {
 					? "app"
 					: null)
 	) {
-		w_1(
+		AssertMsg(
 			false,
 			`StoreItemWidgetSalePageAction: unexpected type: ${e.GetStoreItemType()}`,
 		);

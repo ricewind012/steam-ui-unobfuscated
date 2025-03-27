@@ -59,7 +59,7 @@ import te from "./58394.js";
 import { TB } from "./78771.js";
 import ie from "./50376.js";
 import _e from "./75883.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import Be from "./30449.js";
 import Ee from "./72905.js";
 import { aL } from "./92059.js";
@@ -2906,7 +2906,7 @@ function yt(e) {
 		className: x.SystemUpdateIcon,
 	});
 	let o = n.createElement(St, null);
-	w(!Y(e.location), "Missing short template");
+	AssertMsg(!Y(e.location), "Missing short template");
 	return n.createElement(
 		P7,
 		{
@@ -2944,7 +2944,7 @@ function wt(e) {
 			? "#Notification_OverlaySplashScreen_Friends"
 			: "#Notification_OverlaySplashScreen_Public";
 	let u = Localize(m);
-	w(!Y(e.location), "Missing short template");
+	AssertMsg(!Y(e.location), "Missing short template");
 	return n.createElement(
 		P7,
 		{
@@ -3013,7 +3013,7 @@ function Bt(e) {
 			description: s,
 		};
 	})(a.data);
-	w(!Y(e.location), "Missing short template");
+	AssertMsg(!Y(e.location), "Missing short template");
 	return n.createElement(
 		P7,
 		{

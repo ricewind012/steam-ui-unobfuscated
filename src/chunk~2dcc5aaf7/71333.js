@@ -18,7 +18,7 @@ import C from "./56726.js";
 import { mK } from "./13869.js";
 import f from "./50376.js";
 import b from "./26853.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import S, { A as A_1 } from "./90765.js";
 import { l as l_1 } from "./80254.js";
 import I from "./52451.js";
@@ -107,7 +107,7 @@ export let h = class extends i.Component {
 		}
 	}
 	RenderContextMenu() {
-		w(
+		AssertMsg(
 			this.storedSettings !== null,
 			"Illegal state, stored settings must be nonnull",
 		);

@@ -15,7 +15,7 @@ import g from "./54946.js";
 import h from "./34043.js";
 import C from "./46948.js";
 import _ from "./16053.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import y from "./72476.js";
 import S from "./96538.js";
 import w from "./96593.js";
@@ -905,9 +905,9 @@ class Y {
 		this.m_mapActivityByDay.forEach((t) => {
 			t.events.forEach((t) => {
 				const r = t.GetAppIds();
-				w_1(r && r[0], "Bad appid list from", t, r);
+				AssertMsg(r && r[0], "Bad appid list from", t, r);
 				r.forEach((r) => {
-					w_1(r, "Bad appid", r, "in", t);
+					AssertMsg(r, "Bad appid", r, "in", t);
 					e.add(r);
 				});
 			});
@@ -1037,7 +1037,7 @@ class Y {
 	static GetLocalMidnightInRTime32(e) {
 		if (Y.sm_tzOffset === undefined) {
 			Y.sm_tzOffset = new Date().getTimezoneOffset() * 60;
-			w_1(
+			AssertMsg(
 				Y.sm_tzOffset || Y.sm_tzOffset === 0,
 				`Computed invalid timezone offset ${Y.sm_tzOffset}`,
 			);
@@ -1047,7 +1047,7 @@ class Y {
 		return Math.floor(r / 86400) * 86400 + t;
 	}
 	static BuildAchievementMapFromProto(e, t, r) {
-		w_1(r.appid() == t, "unexpected app data in achievement display map");
+		AssertMsg(r.appid() == t, "unexpected app data in achievement display map");
 		for (let n of r.achievements()) {
 			let r = {
 				strName: n.display_name(),

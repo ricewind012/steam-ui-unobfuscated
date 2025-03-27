@@ -8,7 +8,7 @@ import i from "./83957.js";
 import s, { Gn } from "./89193.js";
 import o, { sf, Lg } from "./44846.js";
 import "./53833.js";
-import l, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c from "./79769.js";
 import u from "./31958.js";
 import d from "./93960.js";
@@ -958,7 +958,7 @@ class G {
 		this.DownloadSegment(this.m_representation.strID, r, e, t);
 	}
 	async DownloadSegment(e, t, r, n, i = performance.now()) {
-		w_1(
+		AssertMsg(
 			this.m_xhrDownload === null,
 			"Trying to download another segment while a download is already in flight",
 		);
@@ -1532,7 +1532,7 @@ export class Zn {
 	}
 	async DownloadMPD() {
 		if (this.m_xhrUpdateMPD) {
-			w_1(false, "Multiple MPD download requests");
+			AssertMsg(false, "Multiple MPD download requests");
 			return null;
 		}
 		let e = performance.now();
@@ -2249,7 +2249,10 @@ export class Zn {
 		if (!this.m_seekingToTime) {
 			return e;
 		}
-		w_1(this.m_bPlaybackStarted, "Missing mpd info to calculate seek time");
+		AssertMsg(
+			this.m_bPlaybackStarted,
+			"Missing mpd info to calculate seek time",
+		);
 		let t =
 			this.m_seekingToTime.eSeekType == lU.FromAvailableStart
 				? this.GetAvailableVideoStartTime()

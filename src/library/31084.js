@@ -1,6 +1,6 @@
 import "./87531.js";
 import r from "./21937.js";
-import i, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export const XX = new (class {
 	m_mapManagers = new WeakMap();
 	GetContextMenuManagerFromWindow(e) {
@@ -23,7 +23,7 @@ export const XX = new (class {
 		return t;
 	}
 	SetMenuManager(e, t) {
-		w(
+		AssertMsg(
 			this.m_mapManagers.get(e) === undefined || !t || !t || e == window,
 			`Stomping CContextMenuManager for ${e.document.title}!`,
 		);

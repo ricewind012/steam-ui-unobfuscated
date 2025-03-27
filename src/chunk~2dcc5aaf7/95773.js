@@ -24,7 +24,7 @@ import T, { u as u_1 } from "./17385.js";
 import N from "./4563.js";
 import F from "./54946.js";
 import G from "./46948.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import U from "./70839.js";
 import V from "./95377.js";
 import H from "./36934.js";
@@ -1486,7 +1486,7 @@ class z extends L {
 				);
 				this.m_bClientInitComplete = true;
 			} else {
-				w_1(false, "Can't initialize settings from client");
+				AssertMsg(false, "Can't initialize settings from client");
 			}
 		}
 	}
@@ -1637,7 +1637,7 @@ export class m {
 	m_exportsVoiceInterface = null;
 	constructor(e, t = {}) {
 		Gn(this);
-		w_1(!xm, "FriendsUIApp already initialized");
+		AssertMsg(!xm, "FriendsUIApp already initialized");
 		xm = this;
 		window.g_FriendsUIApp = this;
 		this.m_Storage = e;
@@ -1908,7 +1908,7 @@ export class m {
 	GetLocalMidnightInRTime32(e) {
 		if (m.sm_tzOffset === undefined) {
 			m.sm_tzOffset = new Date().getTimezoneOffset() * 60;
-			w_1(
+			AssertMsg(
 				m.sm_tzOffset || m.sm_tzOffset === 0,
 				`Computed invalid timezone offset ${m.sm_tzOffset}`,
 			);

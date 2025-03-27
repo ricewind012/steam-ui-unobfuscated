@@ -1,30 +1,30 @@
 import n from "./12368.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import a from "./59139.js";
 export class O extends n.P {
 	async GetString(e) {
-		w(
+		AssertMsg(
 			a.W.BHasUser(),
 			`Attempted to fetch key ${e} from user roaming config before a user was logged in`,
 		);
 		return SteamClient.RoamingStorage.GetString(e);
 	}
 	async StoreString(e, t) {
-		w(
+		AssertMsg(
 			a.W.BHasUser(),
 			`Attempted to write key ${e} user roaming config before a user was logged in`,
 		);
 		return SteamClient.RoamingStorage.SetString(e, t);
 	}
 	async RemoveObject(e) {
-		w(
+		AssertMsg(
 			a.W.BHasUser(),
 			`Attempted to remove key ${e} user roaming config before a user was logged in`,
 		);
 		return SteamClient.RoamingStorage.DeleteKey(e);
 	}
 	async GetObject(e) {
-		w(
+		AssertMsg(
 			a.W.BHasUser(),
 			`Attempted to fetch key ${e} user roaming config before a user was logged in`,
 		);
@@ -32,7 +32,7 @@ export class O extends n.P {
 		return JSON.parse(t);
 	}
 	async StoreObject(e, t) {
-		w(
+		AssertMsg(
 			a.W.BHasUser(),
 			`Attempted to write key ${e} user roaming config before a user was logged in`,
 		);

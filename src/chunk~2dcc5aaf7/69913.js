@@ -14,7 +14,7 @@ import { q3 } from "./90095.js";
 import g from "./78057.js";
 import h from "./63696.js";
 import { Y2 } from "./72476.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import b from "./94361.js";
 import y, { q } from "./29285.js";
 import { n as n_1 } from "./26667.js";
@@ -185,7 +185,7 @@ export function uA(e) {
 		(!Y2() ||
 			!!((e) => {
 				let t = G.hasOwnProperty(e);
-				w_1(t, "OverlayWindowAvailableInChina_t missing key for", e);
+				AssertMsg(t, "OverlayWindowAvailableInChina_t missing key for", e);
 				return !!t && G[e];
 			})(e)) &&
 		!q()

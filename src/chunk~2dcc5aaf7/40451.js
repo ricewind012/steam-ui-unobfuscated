@@ -1,6 +1,6 @@
 import n from "./63696.js";
 import { R7 } from "./11131.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 const s = {
 	AboutSteam: {
 		strURL: "steam://open/about",
@@ -38,7 +38,7 @@ export function d() {
 				return null;
 			}
 			const s_t = s[t];
-			w(
+			AssertMsg(
 				!("strURL" in s_t) || !("openHandler" in s_t),
 				`Can't have both url opener and delegate opener for dialog ${t}`,
 			);

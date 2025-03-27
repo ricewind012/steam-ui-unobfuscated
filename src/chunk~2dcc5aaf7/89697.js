@@ -4,7 +4,7 @@ import a from "./31222.js";
 import s from "./58663.js";
 import o from "./48307.js";
 import l from "./75888.js";
-import M, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import T, { Tc } from "./72476.js";
 import { useState, useEffect } from "./63696.js";
 import { H } from "./16154.js";
@@ -1338,7 +1338,7 @@ class L {
 		}
 	}
 	async InternalLoadCanUserClaimItem() {
-		w_1(
+		AssertMsg(
 			T.iA.logged_in,
 			"User must be logged to use CSaleItemClaimableRewardsStore",
 		);
@@ -1403,11 +1403,11 @@ class L {
 		}
 	}
 	async InternalUserClaimItem() {
-		w_1(
+		AssertMsg(
 			T.iA.logged_in,
 			"User must be logged to use CSaleItemClaimableRewardsStore",
 		);
-		w_1(
+		AssertMsg(
 			this.m_claimState.bCanClaimNewItem,
 			"Only should be called when we previously verified you can claim something. ",
 		);
@@ -1498,7 +1498,7 @@ class L {
 	constructor() {}
 	Init() {
 		const e = Tc("loyalty_webapi_token", "application_config");
-		w_1(
+		AssertMsg(
 			e,
 			"CQuestCommunityInventoryStore: missing loyalty_webapi_token oauth permission",
 		);

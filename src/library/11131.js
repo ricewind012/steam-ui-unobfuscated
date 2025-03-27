@@ -12,7 +12,7 @@ import c, { Gn } from "./89193.js";
 import l from "./63696.js";
 import u from "./17385.js";
 import m, { Fj } from "./736.js";
-import d, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import h, { s as s_1 } from "./81255.js";
 import { Qi, vJ } from "./52451.js";
 import _, { td } from "./72476.js";
@@ -158,7 +158,7 @@ export class Ad {
 	m_bFocused = false;
 	constructor(e, t) {
 		Gn(this);
-		w_1(
+		AssertMsg(
 			e,
 			"Name is required.  This is an internal name, different from title.",
 		);
@@ -593,7 +593,7 @@ class k {
 				this.m_mapPopups.clear();
 			});
 			let e = document.querySelector("head");
-			w_1(e, "Couldn't find head element");
+			AssertMsg(e, "Couldn't find head element");
 			if (e) {
 				this.m_DynamicCSSObserver = new MutationObserver(() => {
 					const e = GetStyleSheetLinks();

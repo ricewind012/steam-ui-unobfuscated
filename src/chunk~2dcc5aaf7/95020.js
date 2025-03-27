@@ -1,7 +1,7 @@
 import n from "./63696.js";
 import i, { W6 } from "./49519.js";
 import a from "./90242.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import o, { yK } from "./72476.js";
 import u, { wJ } from "./45328.js";
 import { NT } from "./53807.js";
@@ -79,7 +79,7 @@ function h(e, t) {
 			return false;
 		}
 		default: {
-			w(false, `Unknown route specified for link: ${e}`);
+			AssertMsg(false, `Unknown route specified for link: ${e}`);
 			return false;
 		}
 	}
@@ -205,7 +205,7 @@ function y(e, t, r) {
 			return `${a}news/`;
 		}
 		default: {
-			w(false, "Unknown route specified for link");
+			AssertMsg(false, "Unknown route specified for link");
 			return "";
 		}
 	}

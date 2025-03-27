@@ -35,7 +35,7 @@ import G from "./35488.js";
 import O from "./10606.js";
 import { pg } from "./13869.js";
 import L from "./50376.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { A as A_1 } from "./90765.js";
 import V from "./52451.js";
 import H, { Qn, CI } from "./72476.js";
@@ -511,7 +511,7 @@ export function jy(e, t, r, n, i) {
 	switch (e) {
 		case "Play":
 		case "Launch": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
@@ -537,7 +537,7 @@ export function jy(e, t, r, n, i) {
 			return () => SteamClient.Apps.StreamGame(t.appid, a.clientid, -1);
 		}
 		case "Cancel": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
@@ -575,7 +575,7 @@ export function jy(e, t, r, n, i) {
 				})(t, i);
 		}
 		case "Pause": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
@@ -584,7 +584,7 @@ export function jy(e, t, r, n, i) {
 		case "Download":
 		case "Resume":
 		case "Update": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
@@ -599,21 +599,21 @@ export function jy(e, t, r, n, i) {
 			}
 		}
 		case "Uninstall": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => Uo([t.appid], i, false);
 		}
 		case "RemoveShortcut": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => pe(t.appid);
 		}
 		case "BorrowApp": {
-			w_1(
+			AssertMsg(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
@@ -954,7 +954,7 @@ let Ie = class extends d.Component {
 		} else {
 			return (r) => {
 				let n = ((e, t, r, n) => {
-					w_1(
+					AssertMsg(
 						r == "local",
 						"Bulk management actions currently only supported on local clients",
 					);

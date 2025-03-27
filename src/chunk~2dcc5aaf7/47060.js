@@ -34,7 +34,7 @@ import { A as A_1 } from "./90765.js";
 import v from "./35488.js";
 import I from "./88696.js";
 import E from "./56262.js";
-import M, { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import T from "./69164.js";
 import R, { ZC } from "./39147.js";
 import k from "./91486.js";
@@ -1603,7 +1603,7 @@ class Pe extends i.Component {
 			const e = this.m_rgelJumpBarSections.findIndex(
 				(e) => e?.current == t.target,
 			);
-			w_1(e !== -1, "Intersection target not in map");
+			AssertMsg(e !== -1, "Intersection target not in map");
 			let Oe_OnScreen = Oe.OnScreen;
 			if (t.boundingClientRect.height == 0) {
 				Oe_OnScreen = Oe.Empty;

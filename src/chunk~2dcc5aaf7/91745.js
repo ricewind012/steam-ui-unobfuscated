@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i from "./63696.js";
 import a, { Gn, fm } from "./89193.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { $b, fd } from "./88750.js";
 import { Vr } from "./98995.js";
 import { hk } from "./43152.js";
@@ -231,7 +231,7 @@ class A {
 		return this.GetToggleSetting(e)?.currentValue || false;
 	}
 	GetToggleSetting(e) {
-		w(
+		AssertMsg(
 			this.m_mapToggles.size == 0 || this.m_mapToggles.has(e),
 			`Invalid toggle '${e}' -- did someone forget to add it to the map?`,
 		);
@@ -244,7 +244,7 @@ class A {
 		return this.GetAllToggles().filter(([t, r]) => r.eShowInPanel == e);
 	}
 	SetToggle(e, t) {
-		w(
+		AssertMsg(
 			this.m_mapToggles.has(e),
 			`Invalid toggle '${e}' -- did someone forget to add it to the map?`,
 		);

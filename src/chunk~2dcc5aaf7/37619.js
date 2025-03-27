@@ -3,7 +3,7 @@ import n, { Cg } from "./34629.js";
 import i, { nN } from "./3524.js";
 import _a from "./63696.js";
 import { R7 } from "./11131.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c from "./79769.js";
 import m from "./83599.js";
 import u, { QS } from "./52451.js";
@@ -25,7 +25,7 @@ class p {
 		return this.m_rgTrees.find((t) => t.browser == e);
 	}
 	RegisterNavTree(e, t, r) {
-		w(!this.FindTreeByName(e), `Duplicate focus nav tree ${e}`);
+		AssertMsg(!this.FindTreeByName(e), `Duplicate focus nav tree ${e}`);
 		d(`Registering tree ${e}`);
 		const n = new c.e0();
 		const i = {
@@ -165,7 +165,10 @@ export function Z(e, t, r, n) {
 		if (!n) {
 			return;
 		}
-		w(r.current.BFocusWithin(), "Nav system expected to match bFocused state");
+		AssertMsg(
+			r.current.BFocusWithin(),
+			"Nav system expected to match bFocused state",
+		);
 		const e = r.current.NavTree();
 		g.SetBrowserViewFocus(t, e);
 		return () => g.SetBrowserViewBlurred(t, e);

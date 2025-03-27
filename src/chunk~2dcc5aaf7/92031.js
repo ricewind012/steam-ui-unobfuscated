@@ -1,6 +1,6 @@
 import n from "./72476.js";
 import { t } from "./93023.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export const sc = 0;
 const o = "061818254b2c99ac49e6626adb128ed1282a392f";
 export const IU = 120;
@@ -76,7 +76,7 @@ export class by {
 		} catch {}
 	}
 	SerializeToCacheObject() {
-		w(
+		AssertMsg(
 			this.m_bInitialized,
 			"Attempting to serialize an uninitialized AppInfo object for caching!",
 		);

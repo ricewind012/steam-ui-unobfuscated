@@ -26,7 +26,7 @@ import v from "./52451.js";
 import { u as u_1 } from "./24761.js";
 import E from "./59704.js";
 import M from "./8573.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import R from "./72945.js";
 import { A as A_1 } from "./90765.js";
 import G from "./86360.js";
@@ -628,7 +628,7 @@ Q = Cg([C.PA], Q);
 let Z = class extends _.Component {
 	render() {
 		let e = this.props.roomList.indexOf(this.props.room);
-		w(e !== -1, "Couldn't find CChatRoom inside of its list?");
+		AssertMsg(e !== -1, "Couldn't find CChatRoom inside of its list?");
 		let t = e - 1;
 		let r = () => {
 			this.props.room
@@ -1395,7 +1395,7 @@ let Ee = class extends _.Component {
 		)
 			.then(() => {
 				this.props.group.DeleteInviteLink(e.invite_code()).then((r) => {
-					w(
+					AssertMsg(
 						t.loadingState == "loaded",
 						"somehow got a valid link to delete without links being loaded",
 					);

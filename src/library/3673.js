@@ -1,5 +1,5 @@
 import r from "./63696.js";
-import i, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import s from "./79769.js";
 import { hL } from "./52451.js";
 import a from "./21440.js";
@@ -41,7 +41,7 @@ export class SZ {
 		}
 	}
 	RegisterOverlay(e) {
-		w(
+		AssertMsg(
 			this.m_cMountedOverlays == 0,
 			"Duplicate modal DialogOverlay; modals will appear in both",
 		);
@@ -55,7 +55,7 @@ export class SZ {
 	OnModalCountChanged(e) {
 		if (e == "show" && this.m_cMountedOverlays == 0) {
 			window.setTimeout(() => {
-				w(
+				AssertMsg(
 					this.m_cMountedOverlays > 0,
 					"Modal was shown but ModalManager has no associated DialogOverlay",
 				);
@@ -89,7 +89,7 @@ export class SZ {
 		this.OnModalCountChanged("hide");
 	}
 	ShowModalInternal(e) {
-		w(
+		AssertMsg(
 			!this.m_bOnlyPopups,
 			"Attempting to show modal in popup-only modal manager; will not display.",
 		);
@@ -107,7 +107,7 @@ export class SZ {
 		return n;
 	}
 	ShowPortalModal() {
-		w(
+		AssertMsg(
 			!this.m_bOnlyPopups,
 			"Attempting to show modal in popup-only modal manager; will not display.",
 		);
@@ -210,7 +210,7 @@ export const BR = new (class {
 		return t;
 	}
 	RegisterModalManager(e, t) {
-		w(
+		AssertMsg(
 			!this.m_mapModalManager.has(t) || t == window,
 			`Stomping CModalManager for ${t.document.title}!`,
 		);

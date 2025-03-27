@@ -1,6 +1,6 @@
 import r, { n9, bV } from "./92059.js";
 import i from "./49810.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { wm } from "./53807.js";
 import a from "./43691.js";
 import c from "./63696.js";
@@ -99,7 +99,7 @@ export class Ay {
 			);
 			return true;
 		} else {
-			w(
+			AssertMsg(
 				false,
 				"CStoreNavEvents::SetNavEventParams was not called before calling InstrumentLink!",
 			);

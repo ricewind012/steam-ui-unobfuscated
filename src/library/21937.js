@@ -1,6 +1,6 @@
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 import r from "./87531.js";
-import i, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import s from "./79769.js";
 export class z {
 	m_callbacksMenusChanged = new s.lu();
@@ -78,7 +78,7 @@ export class z {
 				this.m_callbacksMenusChanged.Dispatch();
 			}
 		} else {
-			w(e == this.m_ActiveMenu, "Call to hide inactive menu");
+			AssertMsg(e == this.m_ActiveMenu, "Call to hide inactive menu");
 			if (e == this.m_ActiveMenu) {
 				this.HideActiveMenu();
 				this.m_callbacksMenusChanged.Dispatch();

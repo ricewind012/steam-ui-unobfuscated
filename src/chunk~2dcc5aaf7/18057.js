@@ -10,7 +10,7 @@ import y from "./49171.js";
 import S, { zy, W6 } from "./49519.js";
 import w from "./39941.js";
 import B from "./94361.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export let AX = i.AX;
 export let R_ = i.R_;
 export let VT = i.VT;
@@ -264,7 +264,7 @@ function L(e) {
 }
 export function jB() {
 	const e = W6();
-	w_1(
+	AssertMsg(
 		e && "entries" in e,
 		"History object does not look like a MemoryHistory, which the calling code expects!",
 	);

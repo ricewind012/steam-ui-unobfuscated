@@ -12,7 +12,6 @@ import "./33572.js";
 import o from "./5822.js";
 import l from "./55489.js";
 import "./44234.js";
-import { w as w_1 } from "./49455.js";
 import u from "./10606.js";
 import { B6 } from "./49519.js";
 import A from "./46422.js";
@@ -794,7 +793,7 @@ export class T {
 		} else if (this.m_fnFocusApplicationRoot) {
 			this.m_fnFocusApplicationRoot();
 		} else {
-			w_1(false, "FocusApplicationRoot called before ready");
+			AssertMsg(false, "FocusApplicationRoot called before ready");
 		}
 	}
 	get forcedAppID() {

@@ -7,7 +7,7 @@ import * as l from "./99104.js";
 import * as c from "./22588.js";
 import * as m from "./84629.js";
 import * as u from "./67429.js";
-import * as d from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import * as A from "./43691.js";
 import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization.js";
 export const k_strGRFAQ = "23B7-49AD-4A28-9590";
@@ -54,7 +54,7 @@ export class CGameRecordingStore {
 		return this.m_rgAppsWithBackgroundVideo;
 	}
 	GetTimelineLoaderForGame(e) {
-		(0, d.w)(e, `Invalid GameID: ${e}`);
+		(0, AssertMsg)(e, `Invalid GameID: ${e}`);
 		let t = this.m_mapTimelineLoaders.get(e);
 		if (!t) {
 			let r = new c.SX();
@@ -87,7 +87,7 @@ export class CGameRecordingStore {
 		};
 	}
 	GetTimelineLoaderForClip(e) {
-		(0, d.w)(e, `Invalid ClipID: ${e}`);
+		(0, AssertMsg)(e, `Invalid ClipID: ${e}`);
 		let t = this.m_mapClipLoaders.get(e);
 		if (!t) {
 			let r = new c.SX();
@@ -110,7 +110,7 @@ export class CGameRecordingStore {
 		};
 	}
 	GetTimelineLoaderForSharedClip(e) {
-		(0, d.w)(e, "Invalid clip");
+		(0, AssertMsg)(e, "Invalid clip");
 		let t = this.m_mapSharedClipLoaders.get(e.clip_id);
 		if (!t) {
 			let r = new c.SX();
@@ -194,12 +194,15 @@ export class CGameRecordingStore {
 	}
 	OnTimelineEntryChanged(e) {
 		if (!e.Body().entry(false)) {
-			(0, d.w)(false, "OnTimelineEntryChanged received an invalid protobuf");
+			(0, AssertMsg)(
+				false,
+				"OnTimelineEntryChanged received an invalid protobuf",
+			);
 			return 1;
 		}
 		const { entry: t } = e.Body().toObject();
 		if (!t) {
-			(0, d.w)(
+			(0, AssertMsg)(
 				false,
 				"OnTimelineEntryChanged received an invalid protobuf after conversion",
 			);

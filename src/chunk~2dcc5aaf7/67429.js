@@ -1,7 +1,7 @@
 import n from "./37976.js";
 import i from "./44846.js";
 import a from "./92031.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export class VS {
 	m_ulGameID;
 	constructor(e, t, r) {
@@ -59,7 +59,7 @@ export class VS {
 				return this.GetAppID() === a.sc && this.GetModID() & 2147483648;
 			}
 			default: {
-				w(false, `Unknown GameID type: ${this.GetType()}`);
+				AssertMsg(false, `Unknown GameID type: ${this.GetType()}`);
 				return false;
 			}
 		}

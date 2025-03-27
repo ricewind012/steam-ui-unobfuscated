@@ -1,6 +1,6 @@
 import r from "./63696.js";
 import i from "./28987.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import o from "./43691.js";
 import { OO } from "./67784.js";
 import c from "./9731.js";
@@ -15,7 +15,7 @@ export let Bu = c.Bu;
 export const QOContext = r.createContext({});
 export const rP = (e) => {
 	const t = r.useContext(QOContext);
-	w(
+	AssertMsg(
 		e?.bSuppressAssert || t.IN_GAMEPADUI !== undefined,
 		"Trying to use ConfigContext without a provider!  Add ConfigContextRoot to application.",
 	);

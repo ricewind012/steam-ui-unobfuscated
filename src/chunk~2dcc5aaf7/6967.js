@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i, { useRef, useEffect } from "./63696.js";
 import a, { m as m_1 } from "./39039.js";
-import s, { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import o from "./43691.js";
 import l, { q_ as q, ZI, tH } from "./84629.js";
 import c, { c5 } from "./91720.js";
@@ -195,7 +195,7 @@ class p {
 				e[0].cPxMajorAxis,
 				e[0].bPreciseTiming,
 			);
-			w(
+			AssertMsg(
 				r?.length == t.length,
 				`CThumbnailCache.InternalLoadMultipleThumbnails request ${t.length} and got back ${r?.length}`,
 			);

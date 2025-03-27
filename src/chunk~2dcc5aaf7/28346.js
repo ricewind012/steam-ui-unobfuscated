@@ -3,7 +3,7 @@ import n from "./63696.js";
 import i from "./92107.js";
 import { Xr } from "./14629.js";
 import o from "./98995.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import m from "./50376.js";
 import u from "./35488.js";
 import { A as A_1 } from "./90765.js";
@@ -136,7 +136,7 @@ function b(e) {
 	].find((t) => t.eID == e);
 	return (
 		t ||
-		(w(
+		(AssertMsg(
 			false,
 			`Unable to find feature '${e}'. The structure for features likely needs to be expanded`,
 		),

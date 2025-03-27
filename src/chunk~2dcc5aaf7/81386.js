@@ -8,7 +8,7 @@ import i from "./12176.js";
 import a from "./26052.js";
 import s from "./95773.js";
 import o, { Gn, z7 } from "./89193.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 export function f(e, t) {
 	return (
 		e == t ||
@@ -97,7 +97,7 @@ export class x {
 			} else if (t.chat) {
 				r.set_chat_group_id(t.chat.GetGroupID());
 			} else {
-				w(false, "empty favorite struct");
+				AssertMsg(false, "empty favorite struct");
 			}
 		}
 		return a.DF.SetFavorites(this.m_CMInterface.GetServiceTransport(), e).then(

@@ -54,7 +54,7 @@ import Re from "./50376.js";
 import ke, { useTable } from "./50169.js";
 import { Te as Te_2 } from "./55007.js";
 import Ne, { Gn } from "./89193.js";
-import { w as w_2 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import Ge, { m, j as j_2 } from "./56332.js";
 import { Z as Z_2, q as q_2 } from "./9758.js";
 import rt from "./78055.js";
@@ -946,7 +946,7 @@ class He {
 	}
 	Prefs() {
 		const e = We && We.filters && We.filters[this.id];
-		w_2(e, "Order of operations bug, preferences not loaded?");
+		AssertMsg(e, "Order of operations bug, preferences not loaded?");
 		return e;
 	}
 	StartedRequest(e) {
@@ -1338,7 +1338,7 @@ class je {
 		this.Modified();
 	}
 	SetAppIDFromURL(e) {
-		w_2(
+		AssertMsg(
 			!this.m_fixedAppID,
 			"Shouldn't get an AppID from the URL for server browser with Fixed AppID",
 		);

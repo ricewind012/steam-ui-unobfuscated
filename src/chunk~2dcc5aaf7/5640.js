@@ -9,7 +9,7 @@ import m from "./46422.js";
 import { B6 } from "./49519.js";
 import d from "./87935.js";
 import A from "./52451.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import g from "./64004.js";
 import h from "./49171.js";
 import C from "./10294.js";
@@ -272,7 +272,7 @@ class O {
 				if (typeof e == "boolean" || typeof e == "number") {
 					return e;
 				} else {
-					w(typeof e == "function", "Invalid type in route table");
+					AssertMsg(typeof e == "function", "Invalid type in route table");
 					return e(t, n);
 				}
 			}

@@ -1,5 +1,5 @@
 import r from "./63696.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { CH } from "./42898.js";
 import { QS } from "./28864.js";
 function a(e, t) {
@@ -24,7 +24,7 @@ export function wY(e) {
 			(e, t) =>
 				e.ResizeObserver
 					? new e.ResizeObserver(t)
-					: (w(false, "ResizeObserver is not available"),
+					: (AssertMsg(false, "ResizeObserver is not available"),
 						{
 							observe: () => {},
 							unobserve: () => {},

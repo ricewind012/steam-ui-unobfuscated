@@ -10,7 +10,7 @@ import u from "./34792.js";
 import d from "./46422.js";
 import A, { gS } from "./14629.js";
 import { x2 } from "./31706.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import h from "./52451.js";
 import C from "./72476.js";
 import _ from "./12176.js";
@@ -297,7 +297,7 @@ class L {
 	}
 	SelectGameListView(e, t) {
 		if (e != this.selectedGameListView || t != this.currentCollectionID) {
-			w_1(
+			AssertMsg(
 				e != 11,
 				"Should not select kSearchResults explicitly; enter search instead.",
 			);
@@ -305,7 +305,7 @@ class L {
 				this.ExitSearch();
 			}
 			if (e == 10) {
-				w_1(
+				AssertMsg(
 					!!t,
 					"Should not select single-collection mode without specifying the collection.",
 				);
@@ -353,7 +353,7 @@ class L {
 	}
 	async SetSearchText(e) {
 		if (!this.BIsSearchActive() && e.length > 0) {
-			w_1(
+			AssertMsg(
 				!this.BIsSearchActive(),
 				"Cannot start text search while other search is already active.",
 			);
@@ -369,7 +369,7 @@ class L {
 		}
 	}
 	StartSearchByType(e) {
-		w_1(
+		AssertMsg(
 			!this.BIsSearchActive(),
 			"Cannot start search by type while other search is already active.",
 		);
@@ -649,7 +649,7 @@ class L {
 			"steam://open/bigpicture/librarydetails/",
 			"steam://open/library/details/",
 		);
-		w_1(
+		AssertMsg(
 			e.startsWith("steam://open/library/") ||
 				e.startsWith("steam://open/games/") ||
 				e.startsWith("steam://open/games/") ||

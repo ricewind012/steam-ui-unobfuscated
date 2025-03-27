@@ -28,7 +28,7 @@ import I from "./64608.js";
 import E from "./42318.js";
 import M, { HT } from "./13869.js";
 import T from "./50376.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { A as A_1 } from "./90765.js";
 import F from "./52451.js";
 import G from "./69164.js";
@@ -94,7 +94,7 @@ let X = class extends d.Component {
 	}
 	OnDragEnter(e, t) {
 		if (e) {
-			w_1(
+			AssertMsg(
 				e.type == "friend" ||
 					e.type == "chatroomgroup" ||
 					e.type == "chatroomgroup" ||
@@ -105,7 +105,7 @@ let X = class extends d.Component {
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
 		} else {
-			w_1(t, "Invalid data type passed to FriendChatDialog.OnDrop");
+			AssertMsg(t, "Invalid data type passed to FriendChatDialog.OnDrop");
 		}
 		if (!e) {
 			return true;
@@ -160,7 +160,7 @@ let X = class extends d.Component {
 	}
 	OnDrop(e, t) {
 		if (e) {
-			w_1(
+			AssertMsg(
 				e.type == "friend" ||
 					e.type == "chatroomgroup" ||
 					e.type == "chatroomgroup" ||
@@ -171,7 +171,7 @@ let X = class extends d.Component {
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
 		} else {
-			w_1(
+			AssertMsg(
 				t.dataTransfer.files.length != 0,
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
@@ -843,7 +843,7 @@ export let yA = class extends d.Component {
 		this.m_refChatTabs = e;
 	}
 	OnDragEnter(e) {
-		w_1(
+		AssertMsg(
 			e &&
 				(e.type == "chattab" ||
 					e.type == "friend" ||
@@ -878,7 +878,7 @@ export let yA = class extends d.Component {
 		}
 	}
 	OnDrop(e, t) {
-		w_1(
+		AssertMsg(
 			e &&
 				(e.type == "chattab" ||
 					e.type == "friend" ||
@@ -1788,7 +1788,7 @@ export let C1 = class extends d.Component {
 	render() {
 		const { chatView, group, clan, ...n } = this.props;
 		if (!group && !clan) {
-			w_1(
+			AssertMsg(
 				false,
 				"Either a group or clan must be passed to DropGroupToInviteFriendMessage.",
 			);

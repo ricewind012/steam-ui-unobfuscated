@@ -10,7 +10,7 @@ import u, { Gn, fm } from "./89193.js";
 import m, { JS } from "./1691.js";
 import d from "./94195.js";
 import h from "./49395.js";
-import { w as w_1 } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import g from "./79769.js";
 import f from "./25265.js";
 import b, { Dp } from "./736.js";
@@ -330,7 +330,7 @@ class w {
 				this.m_nPerfClockServerMSOffset = i - t;
 				this.m_nWallClockDriftMS = n.getTime() - i;
 			} else {
-				w_1(
+				AssertMsg(
 					false,
 					`Error computing server time, server echo: ${r} server time ${i}`,
 				);
@@ -739,7 +739,7 @@ class x {
 			let a;
 			let c = "immediate";
 			let l = (t) => {
-				w_1(!r, "fnPingingComplete called a second time");
+				AssertMsg(!r, "fnPingingComplete called a second time");
 				if (!r) {
 					const n = Object.keys(t)
 						.map((e) => t[e])
@@ -1009,7 +1009,7 @@ export class pn extends w {
 			}, 3000);
 			t.onopen = () => {
 				console.log(`Connected socket to host ${e.strHost}`);
-				w_1(!i, "Socket connection was opened after timing out.");
+				AssertMsg(!i, "Socket connection was opened after timing out.");
 				if (!i) {
 					window.clearTimeout(s);
 				}
@@ -1018,7 +1018,7 @@ export class pn extends w {
 			t.onerror = (t) => {
 				if (!i) {
 					window.clearTimeout(s);
-					w_1(false, "Socket connect failed", t);
+					AssertMsg(false, "Socket connect failed", t);
 					console.log(t);
 					if (t.message) {
 						console.log(t.message);

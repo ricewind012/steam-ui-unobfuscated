@@ -1,14 +1,14 @@
 import n, { PA } from "./41230.js";
 import i from "./63696.js";
 import a from "./64608.js";
-import { w } from "./49455.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { A } from "./90765.js";
 import { Qn } from "./72476.js";
 import c from "./46701.js";
 export const e = PA((e) => {
 	const { onCancel: t, closeModal: r, bOKDisabled: n, onOK: m } = e;
 	const u = Qn();
-	w(
+	AssertMsg(
 		r || t,
 		`Either closeModal or onCancel should be passed to GenericDialog. Classes: ${e.className} ${e.modalClassName}`,
 	);
