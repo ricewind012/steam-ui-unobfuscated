@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	RecordingPage: "_1rBjwru6vKnQD7tfRGRa5c",
 	RecordingButtonContainer: "_82I_KqMbfVeLB4toVhGXr",

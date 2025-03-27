@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	EntryLabel: "_30qj_go1hm7_x09KzHFVna",
 	EntryValue: "_1PBuyc38k9xkUt4KB_lXh-",

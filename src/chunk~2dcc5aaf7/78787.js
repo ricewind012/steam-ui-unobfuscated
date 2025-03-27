@@ -1,29 +1,29 @@
-export var fK;
-var i = require("./33036.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require(/*webcrack:missing*/ "./4690.js");
-var l = require("./64608.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require("./47268.js");
-var A = d;
-var p = require("./52192.js");
-var g = require("./72655.js");
-var h = require(/*webcrack:missing*/ "./61657.js");
-var C = require(/*webcrack:missing*/ "./88750.js");
-var _ = require(/*webcrack:missing*/ "./31084.js");
-var f = require("./46422.js");
-var b = require("./31319.js");
-var y = require("./62486.js");
+import i from "./33036.js";
+import a from "./63696.js";
+import s from "./69164.js";
+import o from "./4690.js";
+import l from "./64608.js";
+import c, { A as A_1 } from "./90765.js";
+import u, { Ue } from "./52451.js";
+import d from "./47268.js";
+import p from "./52192.js";
+import g from "./72655.js";
+import h from "./61657.js";
+import C from "./88750.js";
+import _, { lX } from "./31084.js";
+import f, { LC } from "./46422.js";
+import b, { pw } from "./31319.js";
+import y, { Fq } from "./62486.js";
+export let fK;
+const A = d;
 export function E0(e) {
 	return BigInt(BigInt(1) << BigInt(e));
 }
 export function UP(e, t) {
 	return (e & E0(t)) != Dk;
 }
-(function (e) {
+((e) => {
 	e[(e.k_eGamepadButtonBitMask_RightTriggerFullPull = 0)] =
 		"k_eGamepadButtonBitMask_RightTriggerFullPull";
 	e[(e.k_eGamepadButtonBitMask_LeftTriggerFullPull = 1)] =
@@ -245,8 +245,8 @@ export function ej(e) {
 	t &= ~T;
 	return t;
 }
-var z;
-(function (e) {
+let z;
+((e) => {
 	e[(e.eLeftColumn = 0)] = "eLeftColumn";
 	e[(e.eRightColumn = 1)] = "eRightColumn";
 	e[(e.eCenterTop = 2)] = "eCenterTop";
@@ -786,69 +786,56 @@ const Q = new Map([
 ]);
 export function ZZ(e) {
 	const {
-		nButtonMaskValue: t,
-		nAvailableButtonsMask: r,
-		overrideStyle: i,
-		controllerDetailItem: s,
+		nButtonMaskValue,
+		nAvailableButtonsMask,
+		overrideStyle,
+		controllerDetailItem,
 	} = e;
-	let o = a.createElement(a.Fragment, null);
-	if ((t & r) != t && t != Dk) {
-		o = a.createElement(
-			"div",
-			{
-				key: "ButtonNotFound",
-			},
-			" ",
-			(0, y.Fq)("GyroButtonNotFound"),
-			" ",
-		);
-	} else if (t == r) {
-		o = a.createElement(
-			"div",
-			{
-				key: "AllSelected",
-			},
-			" ",
-			(0, y.Fq)("GyroAllSelected"),
-			" ",
-		);
-	} else if (t == Dk) {
-		o = a.createElement(
-			"div",
-			{
-				key: "NoneSelected",
-			},
-			" ",
-			(0, y.Fq)("GyroNoneSelected"),
-			" ",
-		);
+	let o = <></>;
+	if (
+		(nButtonMaskValue & nAvailableButtonsMask) != nButtonMaskValue &&
+		nButtonMaskValue != Dk
+	) {
+		o = <div key="ButtonNotFound"> {Fq("GyroButtonNotFound")} </div>;
+	} else if (nButtonMaskValue == nAvailableButtonsMask) {
+		o = <div key="AllSelected"> {Fq("GyroAllSelected")} </div>;
+	} else if (nButtonMaskValue == Dk) {
+		o = <div key="NoneSelected"> {Fq("GyroNoneSelected")} </div>;
 	} else {
-		let e = a.createElement(a.Fragment, null);
+		let e = <></>;
 		let r = 0;
 		Object.values(fK).forEach((n) => {
 			if (r < 4 && typeof n == "number") {
 				const o = n;
-				if (UP(t, o)) {
-					const t = ne(o, s.eControllerType, i);
+				if (UP(nButtonMaskValue, o)) {
+					const t = ne(o, controllerDetailItem.eControllerType, overrideStyle);
 					if (
 						t &&
-						((e = a.createElement(a.Fragment, null, e, t, " ")), r++, r == 4)
+						((e = (
+							<>
+								{e}
+								{t}{" "}
+							</>
+						)),
+						r++,
+						r == 4)
 					) {
-						e = a.createElement(a.Fragment, null, e, "...");
+						e = (
+							<>
+								{e}
+								...
+							</>
+						);
 						return;
 					}
 				}
 			}
 		});
-		o = a.createElement(
-			"div",
-			{
-				key: "MultiButtonContents",
-				className: "GamepadMultiButtonContents",
-			},
-			" ",
-			e,
-			" ",
+		o = (
+			<div key="MultiButtonContents" className="GamepadMultiButtonContents">
+				{" "}
+				{e}{" "}
+			</div>
 		);
 	}
 	return o;
@@ -1291,65 +1278,75 @@ function ne(e, t, r) {
 	const n = Y.get(e);
 	const i = n?.eSource;
 	const s = n?.eMode;
-	return a.createElement(p.UT, {
-		controllerType: t,
-		controllerSource: i,
-		controllerModeInput: s,
-		className: r || A.Glyph,
-	});
+	return (
+		<p.UT
+			controllerType={t}
+			controllerSource={i}
+			controllerModeInput={s}
+			className={r || A.Glyph}
+		/>
+	);
 }
-function ie(e) {
+function Ie(e) {
 	const {
-		eControllerType: t,
-		eButtonBit: r,
-		nButtonBitMaskValue: n,
-		nAvailableButtonsMask: i,
-		onClickButtonBit: s,
-		onFocussed: o,
-		onMouseOver: m,
-		additionalClass: u,
-		navRef: d,
-		bAutoFocus: p,
-		onGamepadDirection: g,
-		onSecondaryButton: h,
-		onSecondaryActionDescription: C,
-		onContextMenu: _,
+		eControllerType,
+		eButtonBit,
+		nButtonBitMaskValue,
+		nAvailableButtonsMask,
+		onClickButtonBit,
+		onFocussed,
+		onMouseOver,
+		additionalClass,
+		navRef,
+		bAutoFocus,
+		onGamepadDirection,
+		onSecondaryButton,
+		onSecondaryActionDescription,
+		onContextMenu,
 	} = e;
-	const [f, b] = a.useState(UP(n, r));
+	const [f, setF] = a.useState(UP(nButtonBitMaskValue, eButtonBit));
 	a.useEffect(() => {
-		b(UP(n, r));
-	}, [n, r]);
-	if (r == null) {
-		return a.createElement(a.Fragment, null);
+		setF(UP(nButtonBitMaskValue, eButtonBit));
+	}, [nButtonBitMaskValue, eButtonBit]);
+	if (eButtonBit == null) {
+		return <></>;
 	}
-	if (!UP(i, r)) {
-		return a.createElement(a.Fragment, null);
+	if (!UP(nAvailableButtonsMask, eButtonBit)) {
+		return <></>;
 	}
-	const y = ne(r, t);
-	return a.createElement(l.Yh, {
-		className: (0, c.A)(A.EButtonToggle, u, UP(n, r) && A.ButtonActive),
-		label: y,
-		checked: f,
-		onChange: (e) =>
-			((e) => {
-				s(r);
-				b(e);
-			})(e),
-		onFocus: () => o(r),
-		onBlur: () => o(undefined),
-		bottomSeparator: "none",
-		autoFocus: p,
-		navRef: d,
-		onGamepadDirection: g,
-		onMouseOver: () => m?.(r),
-		onSecondaryButton: h,
-		onSecondaryActionDescription: C,
-		onContextMenu: _,
-	});
+	const y = ne(eButtonBit, eControllerType);
+	return (
+		<l.Yh
+			className={A_1(
+				A.EButtonToggle,
+				additionalClass,
+				UP(nButtonBitMaskValue, eButtonBit) && A.ButtonActive,
+			)}
+			label={y}
+			checked={f}
+			onChange={(e) =>
+				((e) => {
+					onClickButtonBit(eButtonBit);
+					setF(e);
+				})(e)
+			}
+			onFocus={() => onFocussed(eButtonBit)}
+			onBlur={() => onFocussed(undefined)}
+			bottomSeparator="none"
+			autoFocus={bAutoFocus}
+			navRef={navRef}
+			onGamepadDirection={onGamepadDirection}
+			onMouseOver={() => onMouseOver?.(eButtonBit)}
+			onSecondaryButton={onSecondaryButton}
+			onSecondaryActionDescription={onSecondaryActionDescription}
+			onContextMenu={onContextMenu}
+		/>
+	);
 }
 function ae(e, t) {
 	const r =
 		t.eControllerType == 45 ||
+		t.eControllerType == 34 ||
 		t.eControllerType == 34 ||
 		t.eControllerType == 48;
 	return {
@@ -1417,190 +1414,183 @@ function ae(e, t) {
 		bR5: UP(e, fK.k_eGamepadButtonBitMask_ButtonBackGripRightLower),
 	};
 }
-function se(e) {
-	const {
-		topButton: t,
-		leftButton: r,
-		rightButton: n,
-		bottomButton: i,
-		...s
-	} = e;
-	const l = a.useRef(undefined);
-	const m = a.useRef(undefined);
-	const d = a.useRef(undefined);
-	const p = a.useRef(undefined);
-	const C = a.useRef(undefined);
+function Se(e) {
+	const { topButton, leftButton, rightButton, bottomButton, ...s } = e;
+	const LRef = a.useRef(undefined);
+	const MRef = a.useRef(undefined);
+	const DRef = a.useRef(undefined);
+	const PRef = a.useRef(undefined);
+	const CRef = a.useRef(undefined);
 	const _ = a.useCallback(
 		(e) => {
-			if (l.current?.BHasFocus()) {
+			if (LRef.current?.BHasFocus()) {
 				return false;
 			}
 			switch (e.detail.button) {
-				case h.pR.DIR_UP:
-					if (m.current?.BHasFocus()) {
+				case h.pR.DIR_UP: {
+					if (MRef.current?.BHasFocus()) {
 						return false;
 					}
-					m.current?.TakeFocus(e.detail.button);
+					MRef.current?.TakeFocus(e.detail.button);
 					break;
-				case h.pR.DIR_DOWN:
-					if (d.current?.BHasFocus()) {
+				}
+				case h.pR.DIR_DOWN: {
+					if (DRef.current?.BHasFocus()) {
 						return false;
 					}
-					d.current?.TakeFocus(e.detail.button);
+					DRef.current?.TakeFocus(e.detail.button);
 					break;
-				case h.pR.DIR_LEFT:
-					if (p.current?.BHasFocus()) {
-						p.current?.ParentTakeFocus(e.detail.button);
+				}
+				case h.pR.DIR_LEFT: {
+					if (PRef.current?.BHasFocus()) {
+						PRef.current?.ParentTakeFocus(e.detail.button);
 					} else {
-						p.current?.TakeFocus(e.detail.button);
+						PRef.current?.TakeFocus(e.detail.button);
 					}
 					break;
-				case h.pR.DIR_RIGHT:
-					if (C.current?.BHasFocus()) {
-						C.current?.ParentTakeFocus(e.detail.button);
+				}
+				case h.pR.DIR_RIGHT: {
+					if (CRef.current?.BHasFocus()) {
+						CRef.current?.ParentTakeFocus(e.detail.button);
 					} else {
-						C.current?.TakeFocus(e.detail.button);
+						CRef.current?.TakeFocus(e.detail.button);
 					}
+				}
 			}
 			e.stopPropagation();
 			return true;
 		},
-		[l, m, d, p, C],
+		[LRef, MRef, DRef, PRef, CRef],
 	);
-	const f = (0, u.Ue)(l, e.navRef);
-	return a.createElement(
-		g.YZ,
-		{
-			className: A.CardinalButtonGroup,
-			navRef: f,
-			navEntryPreferPosition: o.iU.PREFERRED_CHILD,
-			onGamepadDirection: e.onGamepadDirection,
-			noFocusRing: true,
-		},
-		a.createElement(ie, {
-			key: "top",
-			eButtonBit: t,
-			...e,
-			additionalClass: (0, c.A)(A.CardinalButtonGroupButton, A.TopButton),
-			navRef: m,
-			onGamepadDirection: _,
-		}),
-		a.createElement(ie, {
-			key: "bottom",
-			eButtonBit: i,
-			...e,
-			additionalClass: (0, c.A)(A.CardinalButtonGroupButton, A.BottomButton),
-			navRef: d,
-			onGamepadDirection: _,
-		}),
-		a.createElement(ie, {
-			key: "left",
-			eButtonBit: r,
-			...e,
-			additionalClass: (0, c.A)(A.CardinalButtonGroupButton, A.LeftButton),
-			navRef: p,
-			onGamepadDirection: _,
-		}),
-		a.createElement(ie, {
-			key: "right",
-			eButtonBit: n,
-			...e,
-			additionalClass: (0, c.A)(A.CardinalButtonGroupButton, A.RightButton),
-			navRef: C,
-			onGamepadDirection: _,
-		}),
+	const f = Ue(LRef, e.navRef);
+	return (
+		<g.YZ
+			className={A.CardinalButtonGroup}
+			navRef={f}
+			navEntryPreferPosition={o.iU.PREFERRED_CHILD}
+			onGamepadDirection={e.onGamepadDirection}
+			noFocusRing
+		>
+			<Ie
+				key="top"
+				eButtonBit={topButton}
+				{...e}
+				additionalClass={A_1(A.CardinalButtonGroupButton, A.TopButton)}
+				navRef={MRef}
+				onGamepadDirection={_}
+			/>
+			<Ie
+				key="bottom"
+				eButtonBit={bottomButton}
+				{...e}
+				additionalClass={A_1(A.CardinalButtonGroupButton, A.BottomButton)}
+				navRef={DRef}
+				onGamepadDirection={_}
+			/>
+			<Ie
+				key="left"
+				eButtonBit={leftButton}
+				{...e}
+				additionalClass={A_1(A.CardinalButtonGroupButton, A.LeftButton)}
+				navRef={PRef}
+				onGamepadDirection={_}
+			/>
+			<Ie
+				key="right"
+				eButtonBit={rightButton}
+				{...e}
+				additionalClass={A_1(A.CardinalButtonGroupButton, A.RightButton)}
+				navRef={CRef}
+				onGamepadDirection={_}
+			/>
+		</g.YZ>
 	);
 }
 export function lP(e) {
-	(0, b.pw)();
-	(0, f.LC)();
+	pw();
+	LC();
 	const {
-		nSelectedButtonMaskValue: t,
-		nAvailableButtonsMask: r,
-		controllerDetailItem: u,
-		onSetButtonMaskSetting: d,
+		nSelectedButtonMaskValue,
+		nAvailableButtonsMask,
+		controllerDetailItem,
+		onSetButtonMaskSetting,
 	} = e;
-	const { eControllerType: g } = u;
-	const [h, v] = a.useState(t);
-	const [E, M] = a.useState(ae(h, u));
+	const { eControllerType } = controllerDetailItem;
+	const [h, setH] = a.useState(nSelectedButtonMaskValue);
+	const [E, setE] = a.useState(ae(h, controllerDetailItem));
 	a.useEffect(() => {
-		M(ae(h, u));
-	}, [h, u]);
-	const [T, R] = a.useState(" ");
+		setE(ae(h, controllerDetailItem));
+	}, [h, controllerDetailItem]);
+	const [T, setT] = a.useState(" ");
 	const k = a.useCallback(
 		(e) => {
-			if (e === undefined);
-			else {
-				const t = (function (e, t) {
+			if (e === undefined) {
+			} else {
+				const t = ((e, t) => {
 					const r = Y.get(e);
 					const n = r?.eSource;
 					const i = r?.eMode;
-					const s = a.createElement(p.UT, {
-						controllerType: t,
-						controllerSource: n,
-						controllerModeInput: i,
-						className: A.GylphToolTip,
-					});
+					const s = (
+						<p.UT
+							controllerType={t}
+							controllerSource={n}
+							controllerModeInput={i}
+							className={A.GylphToolTip}
+						/>
+					);
 					let o;
 					o =
 						t === 39
 							? re.has(e)
-								? (0, y.Fq)(re.get(e))
-								: (0, y.Fq)(K.get(e))
+								? Fq(re.get(e))
+								: Fq(K.get(e))
 							: t === 40
 								? te.has(e)
-									? (0, y.Fq)(te.get(e))
-									: (0, y.Fq)(K.get(e))
+									? Fq(te.get(e))
+									: Fq(K.get(e))
 								: t === 41
 									? ee.has(e)
-										? (0, y.Fq)(ee.get(e))
-										: (0, y.Fq)(K.get(e))
+										? Fq(ee.get(e))
+										: Fq(K.get(e))
 									: t === 38
 										? $.has(e)
-											? (0, y.Fq)($.get(e))
-											: (0, y.Fq)(K.get(e))
-										: t === 34 || t === 45 || t === 48
+											? Fq($.get(e))
+											: Fq(K.get(e))
+										: t === 34 || t === 45 || t === 45 || t === 48
 											? J.has(e)
-												? (0, y.Fq)(J.get(e))
-												: (0, y.Fq)(K.get(e))
+												? Fq(J.get(e))
+												: Fq(K.get(e))
 											: t === 49 && X.has(e)
-												? (0, y.Fq)(X.get(e))
-												: (0, y.Fq)(K.get(e));
-					return a.createElement(
-						"div",
-						{
-							className: (0, c.A)(A.Row, A.ToolTip),
-						},
-						s,
-						": ",
-						a.createElement(
-							"div",
-							{
-								className: (0, c.A)("DialogButton _DialogLayout Small"),
-							},
-							" ",
-							o,
-							" ",
-						),
+												? Fq(X.get(e))
+												: Fq(K.get(e));
+					return (
+						<div className={A_1(A.Row, A.ToolTip)}>
+							{s}
+							{": "}
+							<div className={A_1("DialogButton _DialogLayout Small")}>
+								{" "}
+								{o}{" "}
+							</div>
+						</div>
 					);
-				})(e, g);
-				R(t);
+				})(e, eControllerType);
+				setT(t);
 			}
 		},
-		[g],
+		[eControllerType],
 	);
 	const D = a.useCallback(
 		(e) => {
 			k(e);
 			const t = h ^ E0(e);
-			v(t);
-			d(t);
+			setH(t);
+			onSetButtonMaskSetting(t);
 		},
-		[h, d, k],
+		[h, onSetButtonMaskSetting, k],
 	);
 	const N = {
 		eFlow: 2,
-		controller: u,
+		controller: controllerDetailItem,
 		controllerSupportFlowState: E,
 		bUsePSButtons: false,
 		diegeticButtonPressHandlers: {
@@ -1705,38 +1695,33 @@ export function lP(e) {
 			},
 		},
 	};
-	const [F, G] = a.useState(t);
+	const [F, setF] = a.useState(nSelectedButtonMaskValue);
 	const O = h != F;
 	const P = O
 		? Localize("#Settings_ControllerCalibration_DiscardChanges")
 		: undefined;
 	const L = a.useCallback(() => {
 		if (O) {
-			d(F);
+			onSetButtonMaskSetting(F);
 		}
-	}, [O, F, d]);
+	}, [O, F, onSetButtonMaskSetting]);
 	const U = a.useCallback(
 		(e) => {
-			const t = a.createElement(
-				C.tz,
-				null,
-				a.createElement(
-					C.kt,
-					{
-						disabled: !O,
-						onSelected: L,
-					},
-					Localize("#Settings_ControllerCalibration_DiscardChanges"),
-				),
+			const t = (
+				<C.tz>
+					<C.kt disabled={!O} onSelected={L}>
+						{Localize("#Settings_ControllerCalibration_DiscardChanges")}
+					</C.kt>
+				</C.tz>
 			);
-			(0, _.lX)(t, e);
+			lX(t, e);
 		},
 		[O, L],
 	);
 	const W = {
-		eControllerType: g,
+		eControllerType: eControllerType,
 		nButtonBitMaskValue: h,
-		nAvailableButtonsMask: r,
+		nAvailableButtonsMask: nAvailableButtonsMask,
 		onClickButtonBit: D,
 		onFocussed: k,
 		onMouseOver: k,
@@ -1746,11 +1731,19 @@ export function lP(e) {
 	};
 	const V = a.useMemo(
 		() =>
-			(function (e, t) {
+			((e, t) => {
 				let r = new Map();
-				const i = fK.k_eGamepadButtonBitMask_RightTriggerFullPull;
-				const a = fK.k_eGamepadButtonBitMask_ButtonQuickAccessMenu;
-				for (let n = i; n <= a; n++) {
+
+				const {
+					k_eGamepadButtonBitMask_RightTriggerFullPull,
+					k_eGamepadButtonBitMask_ButtonQuickAccessMenu,
+				} = fK;
+
+				for (
+					let n = k_eGamepadButtonBitMask_RightTriggerFullPull;
+					n <= k_eGamepadButtonBitMask_ButtonQuickAccessMenu;
+					n++
+				) {
 					if (UP(t, n)) {
 						let t;
 						const i = Q.get(e);
@@ -1763,8 +1756,8 @@ export function lP(e) {
 				return new Map(
 					[...r.entries()].sort((e, t) => e[1].order - t[1].order),
 				);
-			})(g, r),
-		[g, r],
+			})(eControllerType, nAvailableButtonsMask),
+		[eControllerType, nAvailableButtonsMask],
 	);
 	const H = (e, t) =>
 		a.useMemo(
@@ -1774,12 +1767,7 @@ export function lP(e) {
 	const j = (e, t, r) =>
 		H(t, e).map((e) => {
 			const t = UP(h, e);
-			return a.createElement(ie, {
-				key: e,
-				eButtonBit: e,
-				bAutoFocus: t,
-				...r,
-			});
+			return <Ie key={e} eButtonBit={e} bAutoFocus={t} {...r} />;
 		});
 	const q = ((e, t) => {
 		const i = [
@@ -1790,45 +1778,43 @@ export function lP(e) {
 		];
 		const s = H(z.eLeftColumn, e);
 		const o = s.map((e, o) => {
-			const l = s[o];
-			if (l === fK.k_eGamepadButtonBitMask_ButtonDPadUp) {
-				if (Boolean(r & I)) {
-					return a.createElement(se, {
-						key: "dpad-group",
-						topButton: fK.k_eGamepadButtonBitMask_ButtonDPadUp,
-						leftButton: fK.k_eGamepadButtonBitMask_ButtonDPadLeft,
-						rightButton: fK.k_eGamepadButtonBitMask_ButtonDPadRight,
-						bottomButton: fK.k_eGamepadButtonBitMask_ButtonDPadDown,
-						...t,
-					});
+			const s_o = s[o];
+			if (s_o === fK.k_eGamepadButtonBitMask_ButtonDPadUp) {
+				if (Boolean(nAvailableButtonsMask & I)) {
+					return (
+						<Se
+							key="dpad-group"
+							topButton={fK.k_eGamepadButtonBitMask_ButtonDPadUp}
+							leftButton={fK.k_eGamepadButtonBitMask_ButtonDPadLeft}
+							rightButton={fK.k_eGamepadButtonBitMask_ButtonDPadRight}
+							bottomButton={fK.k_eGamepadButtonBitMask_ButtonDPadDown}
+							{...t}
+						/>
+					);
 				} else {
 					return null;
 				}
 			}
-			if (i.find((e) => e == l)) {
+			if (i.find((e) => e == s_o)) {
 				return null;
 			}
 			const c = UP(h, e);
 			{
 				const r = o / s.length;
 				const n = 1 - Math.sin(Math.PI * r);
-				return a.createElement(
-					"div",
-					{
-						key: e,
-						style: {
+				return (
+					<div
+						key={e}
+						style={{
 							transform: `translateX(${n * 100}%)`,
-						},
-					},
-					a.createElement(ie, {
-						eButtonBit: e,
-						bAutoFocus: c,
-						...t,
-					}),
+						}}
+					>
+						<Ie eButtonBit={e} bAutoFocus={c} {...t} />
+					</div>
 				);
 			}
 		});
-		return a.createElement(a.Fragment, null, o);
+		return <>{o}</>;
 	})(V, W);
 	const Z = ((e, t) => {
 		const i = [
@@ -1839,195 +1825,162 @@ export function lP(e) {
 		];
 		const s = H(z.eRightColumn, e);
 		const o = s.map((e, o) => {
-			const l = s[o];
-			if (l === fK.k_eGamepadButtonBitMask_ButtonNorth) {
-				if (Boolean(r & I)) {
-					return a.createElement(se, {
-						key: "face-group",
-						topButton: fK.k_eGamepadButtonBitMask_ButtonNorth,
-						leftButton: fK.k_eGamepadButtonBitMask_ButtonWest,
-						rightButton: fK.k_eGamepadButtonBitMask_ButtonEast,
-						bottomButton: fK.k_eGamepadButtonBitMask_ButtonSouth,
-						...t,
-					});
+			const s_o = s[o];
+			if (s_o === fK.k_eGamepadButtonBitMask_ButtonNorth) {
+				if (Boolean(nAvailableButtonsMask & I)) {
+					return (
+						<Se
+							key="face-group"
+							topButton={fK.k_eGamepadButtonBitMask_ButtonNorth}
+							leftButton={fK.k_eGamepadButtonBitMask_ButtonWest}
+							rightButton={fK.k_eGamepadButtonBitMask_ButtonEast}
+							bottomButton={fK.k_eGamepadButtonBitMask_ButtonSouth}
+							{...t}
+						/>
+					);
 				} else {
 					return null;
 				}
 			}
-			if (i.find((e) => e == l)) {
+			if (i.find((e) => e == s_o)) {
 				return null;
 			}
 			const c = UP(h, e);
 			{
 				const r = o / s.length;
 				const n = 1 - Math.sin(Math.PI * r);
-				return a.createElement(
-					"div",
-					{
-						key: e,
-						style: {
+				return (
+					<div
+						key={e}
+						style={{
 							transform: `translateX(${-n * 100}%)`,
-						},
-					},
-					a.createElement(ie, {
-						eButtonBit: e,
-						bAutoFocus: c,
-						...t,
-					}),
+						}}
+					>
+						<Ie eButtonBit={e} bAutoFocus={c} {...t} />
+					</div>
 				);
 			}
 		});
-		return a.createElement(a.Fragment, null, o);
+		return <>{o}</>;
 	})(V, W);
 	const ne = j(V, z.eCenterTopUpper, W);
 	const oe = j(V, z.eCenterTop, W);
 	const le = j(V, z.eCenterBottom, W);
 	const ce = j(V, z.eCenterBottomLower, W);
 	const me = j(V, z.eCenterBottomLowerLower, W);
-	return a.createElement(
-		a.Fragment,
-		null,
-		a.createElement(
-			l.Xp,
-			{
-				key: "ThreeColumn",
-				className: A.LeftRightCenterGroup,
-			},
-			a.createElement(
-				s.Z,
-				{
-					key: "LeftCenter",
-					"flow-children": "grid",
-					focusable: false,
-					navEntryPreferPosition: o.iU.MAINTAIN_Y,
-					className: A.ButtonPanelLeft,
-				},
-				q,
-			),
-			a.createElement(
-				s.Z,
-				{
-					key: "MiddleCenter",
-					"flow-children": "grid",
-					focusable: false,
-					navEntryPreferPosition: o.iU.MAINTAIN_Y,
-					className: A.Center,
-				},
-				a.createElement(
-					s.Z,
-					{
-						key: "ToolTipDisplay",
-						"flow-children": "row",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_Y,
-						className: A.Center,
-					},
-					a.createElement(l.a3, null, T),
-				),
-				a.createElement(
-					s.Z,
-					{
-						key: "UpperTopMiddleRow",
-						"flow-children": "row",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_X,
-						className: A.Row,
-					},
-					ne,
-				),
-				a.createElement(
-					s.Z,
-					{
-						key: "TopMiddleRow",
-						"flow-children": "grid",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_X,
-						className: A.Row,
-					},
-					oe,
-				),
-				a.createElement(i.BB, {
-					...N,
-				}),
-				a.createElement(
-					s.Z,
-					{
-						key: "BottomMiddleRow",
-						"flow-children": "row",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_X,
-						className: A.Row,
-					},
-					le,
-				),
-				a.createElement(
-					s.Z,
-					{
-						key: "LowerBottomMiddleRow",
-						"flow-children": "row",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_X,
-						className: A.Row,
-					},
-					ce,
-				),
-				a.createElement(
-					s.Z,
-					{
-						key: "LowerLowerBottomMiddleRow",
-						"flow-children": "row",
-						focusable: false,
-						navEntryPreferPosition: o.iU.MAINTAIN_X,
-						className: A.Row,
-					},
-					me,
-				),
-			),
-			a.createElement(
-				s.Z,
-				{
-					key: "RightCenter",
-					"flow-children": "grid",
-					focusable: false,
-					navEntryPreferPosition: o.iU.MAINTAIN_Y,
-					className: A.ButtonPanelRight,
-				},
-				Z,
-			),
-		),
-		a.createElement(
-			s.Z,
-			{
-				key: "Mass Selectors",
-				"flow-children": "row",
-				focusable: false,
-				navEntryPreferPosition: o.iU.MAINTAIN_Y,
-				className: A.DialogButtonRow,
-			},
-			a.createElement(
-				l.wl,
-				{
-					key: "SelectNone",
-					onClick: () => {
-						v(Dk);
-						d(Dk);
-					},
-					disabled: h == Dk,
-				},
-				(0, y.Fq)("GyroSelectNone"),
-			),
-			a.createElement(
-				l.wl,
-				{
-					key: "SelectAll",
-					onClick: () => {
-						v(r);
-						d(r);
-					},
-					disabled: h == r,
-				},
-				(0, y.Fq)("GyroSelectAll"),
-			),
-		),
+	return (
+		<>
+			<l.Xp key="ThreeColumn" className={A.LeftRightCenterGroup}>
+				<s.Z
+					key="LeftCenter"
+					flow-children="grid"
+					focusable={false}
+					navEntryPreferPosition={o.iU.MAINTAIN_Y}
+					className={A.ButtonPanelLeft}
+				>
+					{q}
+				</s.Z>
+				<s.Z
+					key="MiddleCenter"
+					flow-children="grid"
+					focusable={false}
+					navEntryPreferPosition={o.iU.MAINTAIN_Y}
+					className={A.Center}
+				>
+					<s.Z
+						key="ToolTipDisplay"
+						flow-children="row"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_Y}
+						className={A.Center}
+					>
+						<l.a3>{T}</l.a3>
+					</s.Z>
+					<s.Z
+						key="UpperTopMiddleRow"
+						flow-children="row"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_X}
+						className={A.Row}
+					>
+						{ne}
+					</s.Z>
+					<s.Z
+						key="TopMiddleRow"
+						flow-children="grid"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_X}
+						className={A.Row}
+					>
+						{oe}
+					</s.Z>
+					<i.BB {...N} />
+					<s.Z
+						key="BottomMiddleRow"
+						flow-children="row"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_X}
+						className={A.Row}
+					>
+						{le}
+					</s.Z>
+					<s.Z
+						key="LowerBottomMiddleRow"
+						flow-children="row"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_X}
+						className={A.Row}
+					>
+						{ce}
+					</s.Z>
+					<s.Z
+						key="LowerLowerBottomMiddleRow"
+						flow-children="row"
+						focusable={false}
+						navEntryPreferPosition={o.iU.MAINTAIN_X}
+						className={A.Row}
+					>
+						{me}
+					</s.Z>
+				</s.Z>
+				<s.Z
+					key="RightCenter"
+					flow-children="grid"
+					focusable={false}
+					navEntryPreferPosition={o.iU.MAINTAIN_Y}
+					className={A.ButtonPanelRight}
+				>
+					{Z}
+				</s.Z>
+			</l.Xp>
+			<s.Z
+				key="Mass Selectors"
+				flow-children="row"
+				focusable={false}
+				navEntryPreferPosition={o.iU.MAINTAIN_Y}
+				className={A.DialogButtonRow}
+			>
+				<l.wl
+					key="SelectNone"
+					onClick={() => {
+						setH(Dk);
+						onSetButtonMaskSetting(Dk);
+					}}
+					disabled={h == Dk}
+				>
+					{Fq("GyroSelectNone")}
+				</l.wl>
+				<l.wl
+					key="SelectAll"
+					onClick={() => {
+						setH(nAvailableButtonsMask);
+						onSetButtonMaskSetting(nAvailableButtonsMask);
+					}}
+					disabled={h == nAvailableButtonsMask}
+				>
+					{Fq("GyroSelectAll")}
+				</l.wl>
+			</s.Z>
+		</>
 	);
 }

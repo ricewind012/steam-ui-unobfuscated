@@ -1,12 +1,96 @@
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
+import {
+	LocalizeReact,
+	Localize,
+	LocalizationManager,
+} from "../../actual_src/utils/localization.js";
+import {
+	GetOwningWindowForEvent,
+	CopyURLToClipboard,
+	_f,
+	BElementContainsSelection,
+} from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./47296.js";
+import a from "./44846.js";
+import s, { xv } from "./44234.js";
+import o from "./97023.js";
+import c, { Fd } from "./52451.js";
+import p, { zy } from "./95773.js";
+import C, { u as u_1 } from "./17385.js";
+import f from "./52003.js";
+import b from "./11131.js";
+import y from "./79769.js";
+import S, { w as w_1, z as z_1 } from "./49455.js";
+import B from "./36383.js";
+import v from "./12176.js";
+import I, { z7, Gn, h5 } from "./89193.js";
+import M from "./43951.js";
+import R from "./70839.js";
+import k from "./83957.js";
+import N, { PA } from "./41230.js";
+import F, { useState } from "./63696.js";
+import O, { EP, DH, xE } from "./59704.js";
+import P from "./66408.js";
+import L from "./69164.js";
+import z from "./50376.js";
+import U from "./24171.js";
+import H, { JG } from "./98829.js";
+import j from "./92031.js";
+import q, { t7 } from "./82594.js";
+import { F2 } from "./58215.js";
+import X from "./53414.js";
+import { Ic, Nw } from "./78060.js";
+import $, { HT } from "./13869.js";
+import ee from "./26853.js";
+import te from "./72476.js";
+import { A as A_2 } from "./90765.js";
+import le from "./47277.js";
+import pe from "./50979.js";
+import { N8 } from "./50712.js";
+import he from "./8573.js";
+import { Dn } from "./45328.js";
+import _e from "./46066.js";
+import fe from "./8974.js";
+import be from "./56840.js";
+import ye from "./64608.js";
+import Se from "./44164.js";
+import we from "./4042.js";
+import Be from "./29889.js";
+import ve, { s as s_2 } from "./81255.js";
+import Ie from "./31958.js";
+import { EK } from "./51095.js";
+import Me from "./53807.js";
+import { G } from "./92757.js";
+import Re from "./1918.js";
+import ke from "./54352.js";
+import Ne from "./8653.js";
+import { xE } from "./48301.js";
+import je from "./43397.js";
+import { k as k_2 } from "./15498.js";
+import { p as p_2, E as E_2 } from "./92008.js";
+import Xe from "./55116.js";
+import Je from "./98995.js";
+import $e, { L as L_2 } from "./76319.js";
+import { XX } from "./76815.js";
+import Xt from "./29971.js";
+import { Z9 } from "./91720.js";
+import $t from "./48042.js";
+import er from "./91789.js";
+import tr from "./73870.js";
+import { Fj, Dp } from "./736.js";
+import { q3 } from "./90095.js";
+import ir from "./7470.js";
+import ar from "./85243.js";
+import { OJ, h3 } from "./63439.js";
+import { createPortal } from "./78325.js";
+import lr from "./37024.js";
+import mr from "./24295.js";
+import hr, { CO as CO_2, h8 as h8_2 } from "./40357.js";
 export let h8 = hr.h8;
 export let _k = hr._k;
 export let CO = hr.CO;
 export let wj = hr.wj;
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./47296.js");
-var a = require(/*webcrack:missing*/ "./44846.js");
-var s = require("./44234.js");
-var o = require("./97023.js");
 class l {
 	AddTrackedWindow(e) {}
 	BIsUserIdle(e) {
@@ -39,8 +123,6 @@ class l {
 		}
 	}
 }
-var c = require(/*webcrack:missing*/ "./52451.js");
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 class u extends l {
 	m_msUserLastAction;
 	m_rgWindows = [];
@@ -102,7 +184,7 @@ class u extends l {
 		}
 	}
 }
-(0, n.Cg)([c.oI], u.prototype, "OnUserAction", null);
+Cg([c.oI], u.prototype, "OnUserAction", null);
 class d extends u {
 	m_eActiveState = o.GQ.k_EComputerActiveStateActive;
 	m_hRegisterForComputerActiveStateChange = null;
@@ -142,10 +224,9 @@ class d extends u {
 		}
 	}
 }
-(0, n.Cg)([c.oI], d.prototype, "OnComputerActiveStateChange", null);
-(0, n.Cg)([c.oI], d.prototype, "UpdateStillActive", null);
+Cg([c.oI], d.prototype, "OnComputerActiveStateChange", null);
+Cg([c.oI], d.prototype, "UpdateStillActive", null);
 var A;
-var p = require("./95773.js");
 class g {
 	m_FriendStore;
 	constructor(e) {
@@ -157,7 +238,9 @@ class g {
 				icon: e.persona.avatar_url_medium,
 				...t,
 			},
-			(t) => e.OpenChatDialog(t),
+			(t) => {
+				return e.OpenChatDialog(t);
+			},
 			r,
 		);
 	}
@@ -209,14 +292,13 @@ class h extends g {
 		return Promise.resolve();
 	}
 }
-var C = require(/*webcrack:missing*/ "./17385.js");
 class _ extends g {
 	GetNotificationPermissionLevel() {
 		if (typeof Notification == "undefined") {
 			return "unsupported";
 		}
 		let e = Notification.permission;
-		if (e == "default" || e == "granted" || e == "denied") {
+		if (e == "default" || e == "granted" || e == "granted" || e == "denied") {
 			return e;
 		} else {
 			return "unsupported";
@@ -238,7 +320,9 @@ class _ extends g {
 		window.setTimeout(() => {
 			i.close();
 		}, r.timeoutMS || 5000);
-		i.addEventListener("click", () => this.OnNotificationClicked(i, t));
+		i.addEventListener("click", () => {
+			return this.OnNotificationClicked(i, t);
+		});
 		return new Promise((e, t) => {
 			i.addEventListener("close", () => {
 				e();
@@ -266,10 +350,6 @@ class _ extends g {
 		}
 	}
 }
-var f = require("./52003.js");
-var b = require(/*webcrack:missing*/ "./11131.js");
-var y = require(/*webcrack:missing*/ "./79769.js");
-var S = require(/*webcrack:missing*/ "./49455.js");
 class w {
 	m_data;
 	m_bDropConsumed = false;
@@ -279,7 +359,7 @@ class w {
 		return !!this.m_data;
 	}
 	StartDrag(e) {
-		(0, S.w)(
+		w_1(
 			!this.m_data,
 			"second drag started, existing data discarded",
 			this.m_data,
@@ -318,16 +398,13 @@ class w {
 		return this.m_bDropConsumed;
 	}
 	SetDropConsumed() {
-		(0, S.w)(this.BInDrag(), "Asked to set drop consumed but no active drag");
+		w_1(this.BInDrag(), "Asked to set drop consumed but no active drag");
 		this.m_bDropConsumed = true;
 	}
 	RegisterForDropComplete(e) {
 		return this.m_onDropCompleteCallbacks.Register(e);
 	}
 }
-var B = require("./36383.js");
-var v = require(/*webcrack:missing*/ "./12176.js");
-var I = require(/*webcrack:missing*/ "./89193.js");
 class E {
 	m_fnFillAppUsabilityMetrics;
 	constructor(e, t) {
@@ -341,7 +418,9 @@ class E {
 				t.Body().set_client_build(s.TS.BUILD_TIMESTAMP);
 				t.Body().set_in_web(!s.TS.IN_CLIENT);
 				if (!p.xm.ready_to_render) {
-					await (0, I.z7)(() => p.xm.ready_to_render);
+					await z7(() => {
+						return p.xm.ready_to_render;
+					});
 				}
 				await p.xm.SettingsStore.FillInChatUsabilityMetrics(t.Body());
 				await p.xm.FriendStore.FillInChatUsabilityMetrics(t.Body());
@@ -360,7 +439,6 @@ class E {
 		);
 	}
 }
-var M = require("./43951.js");
 class T {
 	m_mapBrowserInfo = new Map();
 	m_hOverlayChatBrowserInfoChanged = null;
@@ -448,21 +526,8 @@ class T {
 		p.xm.UIStore.OnOverlayBrowserClosed(t);
 	}
 }
-(0, n.Cg)([c.oI], T.prototype, "OnOverlayChatBrowserInfoChanged", null);
-var R = require("./70839.js");
-var k = require(/*webcrack:missing*/ "./83957.js");
+Cg([c.oI], T.prototype, "OnOverlayChatBrowserInfoChanged", null);
 var D = k;
-var N = require(/*webcrack:missing*/ "./41230.js");
-var F = require(/*webcrack:missing*/ "./63696.js");
-import {
-	LocalizeReact,
-	Localize,
-	LocalizationManager,
-} from "../../actual_src/utils/localization.js";
-var O = require("./59704.js");
-var P = require("./66408.js");
-var L = require(/*webcrack:missing*/ "./69164.js");
-var z = require(/*webcrack:missing*/ "./50376.js");
 let x = class extends F.Component {
 	constructor(e) {
 		super(e);
@@ -500,11 +565,11 @@ let x = class extends F.Component {
 			SteamClient.WebChat !== undefined
 		) {
 			let t = "steam://broadcast/watch/" + this.props.broadcaster.steamid64;
-			let r = (0, hr.CO)(e);
+			let r = CO_2(e);
 			SteamClient.WebChat.OpenURLInClient(t, r.m_unPID, false);
 		} else {
 			let t = `${s.TS.COMMUNITY_BASE_URL}broadcast/watch/${this.props.broadcaster.steamid64}`;
-			(0, O.EP)(e, t);
+			EP(e, t);
 			e.stopPropagation();
 		}
 		this.OnClose();
@@ -562,7 +627,12 @@ let x = class extends F.Component {
 				strThumbnail: "",
 				bExpired: false,
 			};
-			if (this.state.bDismissed || !this.props.broadcastid || n.bExpired) {
+			if (
+				this.state.bDismissed ||
+				!this.props.broadcastid ||
+				!this.props.broadcastid ||
+				n.bExpired
+			) {
 				return F.createElement(
 					"div",
 					{
@@ -663,12 +733,11 @@ let x = class extends F.Component {
 		}
 	}
 };
-(0, n.Cg)([c.oI], x.prototype, "OnWatch", null);
-(0, n.Cg)([c.oI], x.prototype, "OnClose", null);
-(0, n.Cg)([c.oI], x.prototype, "OnOpen", null);
-(0, n.Cg)([c.oI], x.prototype, "ShowThumbnail", null);
-x = (0, n.Cg)([N.PA], x);
-var U = require("./24171.js");
+Cg([c.oI], x.prototype, "OnWatch", null);
+Cg([c.oI], x.prototype, "OnClose", null);
+Cg([c.oI], x.prototype, "OnOpen", null);
+Cg([c.oI], x.prototype, "ShowThumbnail", null);
+x = Cg([N.PA], x);
 let W = class extends F.Component {
 	m_pollTimeout = undefined;
 	m_broadcastid = undefined;
@@ -825,10 +894,10 @@ let W = class extends F.Component {
 		);
 	}
 };
-(0, n.Cg)([c.oI], W.prototype, "OnAccept", null);
-(0, n.Cg)([c.oI], W.prototype, "OnClose", null);
-(0, n.Cg)([c.oI], W.prototype, "ShowThumbnail", null);
-W = (0, n.Cg)([N.PA], W);
+Cg([c.oI], W.prototype, "OnAccept", null);
+Cg([c.oI], W.prototype, "OnClose", null);
+Cg([c.oI], W.prototype, "ShowThumbnail", null);
+W = Cg([N.PA], W);
 class V extends F.Component {
 	m_pollTimeout = undefined;
 	m_broadcastid = undefined;
@@ -848,11 +917,11 @@ class V extends F.Component {
 			SteamClient.WebChat !== undefined
 		) {
 			let t = "steam://broadcast/watch/" + this.props.broadcaster.steamid64;
-			let r = (0, hr.CO)(e);
+			let r = CO_2(e);
 			SteamClient.WebChat.OpenURLInClient(t, r.m_unPID, false);
 		} else {
 			let t = `${s.TS.COMMUNITY_BASE_URL}broadcast/watch/${this.props.broadcaster.steamid64}`;
-			(0, O.EP)(e, t);
+			EP(e, t);
 			e.stopPropagation();
 		}
 	}
@@ -945,14 +1014,11 @@ class V extends F.Component {
 		);
 	}
 }
-(0, n.Cg)([c.oI], V.prototype, "OnWatch", null);
-(0, n.Cg)([c.oI], V.prototype, "ShowThumbnail", null);
-var H = require("./98829.js");
-var j = require("./92031.js");
-var q = require("./82594.js");
+Cg([c.oI], V.prototype, "OnWatch", null);
+Cg([c.oI], V.prototype, "ShowThumbnail", null);
 function Q(e) {
 	const { appID: t } = e;
-	const [r] = (0, q.t7)(t, {
+	const [r] = t7(t, {
 		include_assets_without_overrides: true,
 	});
 	const n = r?.GetAssetsWithoutOverrides()?.GetHeaderURL();
@@ -1011,7 +1077,7 @@ let Z = class extends F.Component {
 		this.props.gameInvite.DismissInvite();
 	}
 	OnShowGameContextMenu(e) {
-		(0, H.JG)((0, hr.CO)(e), this.props.gameInvite.appID, e);
+		JG(CO_2(e), this.props.gameInvite.appID, e);
 	}
 	render() {
 		let e = p.xm.AppInfoStore.GetAppInfo(this.props.gameInvite.appID);
@@ -1053,6 +1119,7 @@ let Z = class extends F.Component {
 		}
 		if (
 			this.props.gameInvite.bOld ||
+			this.props.gameInvite.bDismissed ||
 			this.props.gameInvite.bDismissed ||
 			this.props.inviter.persona.m_unGamePlayedAppID !=
 				this.props.gameInvite.appID
@@ -1146,16 +1213,16 @@ let Z = class extends F.Component {
 			let e = t.persona.player_group;
 			if (e) {
 				r = p.xm.FriendStore.FriendGroupStore.ingame_group.member_list
-					.map((r) =>
-						r != t && r.persona.player_group == e
+					.map((r) => {
+						return r != t && r.persona.player_group == e
 							? (n--,
 								F.createElement(H.gv, {
 									key: r.accountid,
 									friend: r,
 									context: null,
 								}))
-							: null,
-					)
+							: null;
+					})
 					.filter(Boolean);
 			}
 		}
@@ -1185,10 +1252,9 @@ let Z = class extends F.Component {
 			{
 				className: "msg ChatMessageInvite gameInviteMsg",
 				style: i,
-				onOKButton: l ? null : this.AcceptGameInvite,
-				onOKActionDescription: l
-					? null
-					: (0, Localize)("#ChatRoom_GameInvite_Accept"),
+				onOKButton: l || this.AcceptGameInvite,
+				onOKActionDescription:
+					l || (0, Localize)("#ChatRoom_GameInvite_Accept"),
 			},
 			F.createElement(
 				"div",
@@ -1331,26 +1397,14 @@ let Z = class extends F.Component {
 		);
 	}
 };
-(0, n.Cg)([c.oI], Z.prototype, "AcceptGameInvite", null);
-(0, n.Cg)([c.oI], Z.prototype, "BCanAcceptVoiceChat", null);
-(0, n.Cg)([c.oI], Z.prototype, "AcceptGameInviteAndVoiceChat", null);
-(0, n.Cg)([c.oI], Z.prototype, "DismissInvite", null);
-(0, n.Cg)([c.oI], Z.prototype, "OnShowGameContextMenu", null);
-Z = (0, n.Cg)([N.PA], Z);
-import {
-	GetOwningWindowForEvent,
-	CopyURLToClipboard,
-	_f,
-	BElementContainsSelection,
-} from "../../actual_src/utils/domutils.js";
-var K = require("./58215.js");
-var X = require("./53414.js");
-var J = require("./78060.js");
-var $ = require("./13869.js");
-var ee = require(/*webcrack:missing*/ "./26853.js");
-var te = require(/*webcrack:missing*/ "./72476.js");
-const re = (0, p.zy)(function (e, t, r) {
-	(0, $.HT)(
+Cg([c.oI], Z.prototype, "AcceptGameInvite", null);
+Cg([c.oI], Z.prototype, "BCanAcceptVoiceChat", null);
+Cg([c.oI], Z.prototype, "AcceptGameInviteAndVoiceChat", null);
+Cg([c.oI], Z.prototype, "DismissInvite", null);
+Cg([c.oI], Z.prototype, "OnShowGameContextMenu", null);
+Z = Cg([N.PA], Z);
+const re = zy(function (e, t, r) {
+	HT(
 		F.createElement(ae, {
 			...e,
 			bIsInviteDialog: true,
@@ -1362,24 +1416,23 @@ const re = (0, p.zy)(function (e, t, r) {
 			popupWidth: 540,
 			popupHeight: 260,
 		},
-		(0, hr.h8)(r),
+		h8_2(r),
 	);
 });
 let ne = class extends F.Component {
 	static contextType = te.QO;
 	AcceptInvite(e) {
 		let t = GetOwningWindowForEvent(e);
-		p.xm.ChatStore.InviteStore.AcceptInvite(
-			this.props.invite,
-			(0, hr.CO)(e),
-		).then((e) => {
-			this.HandleJoinResult(t, e);
-		});
+		p.xm.ChatStore.InviteStore.AcceptInvite(this.props.invite, CO_2(e)).then(
+			(e) => {
+				this.HandleJoinResult(t, e);
+			},
+		);
 	}
 	HandleJoinResult(e, t) {
-		const r = (0, K.F2)(t);
+		const r = F2(t);
 		if (r) {
-			(0, J.Ic)(
+			Ic(
 				e,
 				(0, Localize)("#ChatRoom_InviteMessage_Header"),
 				r,
@@ -1535,7 +1588,7 @@ let ne = class extends F.Component {
 				{
 					className: o,
 					focusable: true,
-					onActivate: i || g ? null : this.AcceptInvite,
+					onActivate: i || g || this.AcceptInvite,
 				},
 				F.createElement(
 					"div",
@@ -1632,9 +1685,9 @@ let ne = class extends F.Component {
 		);
 	}
 };
-(0, n.Cg)([c.oI], ne.prototype, "AcceptInvite", null);
-ne = (0, n.Cg)([N.PA], ne);
-let ie = (0, N.PA)((e) => {
+Cg([c.oI], ne.prototype, "AcceptInvite", null);
+ne = Cg([N.PA], ne);
+let ie = PA((e) => {
 	let t = e.invite;
 	let r = e.inviter;
 	let n = e.invitee;
@@ -1835,10 +1888,8 @@ class se extends F.Component {
 		);
 	}
 }
-(0, n.Cg)([c.oI], se.prototype, "CopyToClipboard", null);
-(0, n.Cg)([c.oI], se.prototype, "HandleFocus", null);
-var oe = require(/*webcrack:missing*/ "./90765.js");
-var le = require("./47277.js");
+Cg([c.oI], se.prototype, "CopyToClipboard", null);
+Cg([c.oI], se.prototype, "HandleFocus", null);
 var ce = le;
 class me extends F.Component {
 	m_preElem;
@@ -1847,7 +1898,12 @@ class me extends F.Component {
 			return;
 		}
 		let e = this.m_preElem.ownerDocument.defaultView;
-		if (!e || typeof e.PR == "object" || e.PR === true) {
+		if (
+			!e ||
+			typeof e.PR == "object" ||
+			typeof e.PR == "object" ||
+			e.PR === true
+		) {
 			return;
 		}
 		e.PR = true;
@@ -1884,7 +1940,7 @@ class me extends F.Component {
 			F.createElement(
 				"pre",
 				{
-					className: (0, oe.A)("prettyprint", ce.CodeMessage),
+					className: A_2("prettyprint", ce.CodeMessage),
 					ref: this.BindRef,
 				},
 				this.props.children,
@@ -1892,9 +1948,9 @@ class me extends F.Component {
 		);
 	}
 }
-(0, n.Cg)([c.oI], me.prototype, "BindRef", null);
-const ue = ({ children: e }) =>
-	F.createElement(
+Cg([c.oI], me.prototype, "BindRef", null);
+const ue = ({ children: e }) => {
+	return F.createElement(
 		"div",
 		null,
 		F.createElement(
@@ -1905,16 +1961,18 @@ const ue = ({ children: e }) =>
 			e,
 		),
 	);
-const de = ({ children: e }) =>
-	F.createElement(
+};
+const de = ({ children: e }) => {
+	return F.createElement(
 		"div",
 		{
 			className: ce.QuoteMessage,
 		},
 		e,
 	);
-const Ae = ({ children: e }) =>
-	F.createElement(
+};
+const Ae = ({ children: e }) => {
+	return F.createElement(
 		P.xh,
 		{
 			text: e,
@@ -1933,34 +1991,18 @@ const Ae = ({ children: e }) =>
 			),
 		),
 	);
-var pe = require("./50979.js");
-var ge = require("./50712.js");
-var he = require(/*webcrack:missing*/ "./8573.js");
-var Ce = require(/*webcrack:missing*/ "./45328.js");
-var _e = require("./46066.js");
-var fe = require("./8974.js");
-var be = require("./56840.js");
-var ye = require("./64608.js");
-var Se = require("./44164.js");
-var we = require("./4042.js");
-var Be = require("./29889.js");
-var ve = require(/*webcrack:missing*/ "./81255.js");
-var Ie = require(/*webcrack:missing*/ "./31958.js");
-var Ee = require("./51095.js");
-var Me = require(/*webcrack:missing*/ "./53807.js");
-var Te = require("./92757.js");
-var Re = require("./1918.js");
-var ke = require("./54352.js");
+};
 var De = ke;
-var Ne = require("./8653.js");
-var Fe = require("./48301.js");
 function Ge(e) {
 	if (e.context.chat instanceof Ne.s) {
 		let t = e.args.appid;
 		let r = p.xm.AppInfoStore.GetAppInfo(parseInt(t)).name;
 		const n =
-			e.args?.connectString || e.args?.remoteplay || e.args?.lobbyID
-				? (0, Fe.xE)(
+			e.args?.connectString ||
+			e.args?.remoteplay ||
+			e.args?.remoteplay ||
+			e.args?.lobbyID
+				? xE(
 						e.context.chat.chat_partner.accountid,
 						parseInt(t),
 						e.args?.connectString,
@@ -2100,8 +2142,6 @@ function He(e) {
 		};
 	};
 }
-var je = require("./43397.js");
-var qe = require("./15498.js");
 function Qe(e) {
 	const { href: t, copyText: r, loadFailed: n, children: i } = e;
 	let a = "NonInlinedEmbed";
@@ -2138,7 +2178,7 @@ function Ze(e) {
 		fallbackRender: i,
 		children: a,
 	} = e;
-	const s = (0, qe.k)(p.xm.CookiePreferenceStore);
+	const s = k_2(p.xm.CookiePreferenceStore);
 	if (!s) {
 		return null;
 	}
@@ -2161,11 +2201,9 @@ function Ze(e) {
 	}
 }
 var Ye;
-var Ke = require("./92008.js");
-var Xe = require("./55116.js");
-var Je = require(/*webcrack:missing*/ "./98995.js");
-var $e = require("./76319.js");
-const et = F.lazy(() => require.e(7462).then(require.bind(require, 84512)));
+const et = F.lazy(() => {
+	return require.e(7462).then(require.bind(require, 84512));
+});
 function tt(e) {
 	return F.createElement(
 		F.Suspense,
@@ -2266,7 +2304,7 @@ let it = class extends pe.mX {
 		}
 	}
 };
-it = (0, n.Cg)([N.PA], it);
+it = Cg([N.PA], it);
 class at extends F.Component {
 	m_elContainer;
 	m_frameInitialXPos;
@@ -2304,7 +2342,7 @@ class at extends F.Component {
 	TrackAction(e) {
 		if (!this.m_telemetryTrackedActions[e]) {
 			this.m_telemetryTrackedActions[e] = true;
-			(0, $e.L)(e);
+			L_2(e);
 		}
 	}
 	BindContainer(e) {
@@ -2604,14 +2642,14 @@ class at extends F.Component {
 		}
 	}
 }
-(0, n.Cg)([c.oI], at.prototype, "BindContainer", null);
-(0, n.Cg)([c.oI], at.prototype, "handleCollapse", null);
-(0, n.Cg)([c.oI], at.prototype, "OnSizeChanged", null);
-(0, n.Cg)([c.oI], at.prototype, "handleRestore", null);
-(0, n.Cg)([c.oI], at.prototype, "OnResize", null);
-(0, n.Cg)([c.oI], at.prototype, "HandleMouseMove", null);
-(0, n.Cg)([c.oI], at.prototype, "HandleTallImages", null);
-(0, n.Cg)([c.oI], at.prototype, "HandleMouseUp", null);
+Cg([c.oI], at.prototype, "BindContainer", null);
+Cg([c.oI], at.prototype, "handleCollapse", null);
+Cg([c.oI], at.prototype, "OnSizeChanged", null);
+Cg([c.oI], at.prototype, "handleRestore", null);
+Cg([c.oI], at.prototype, "OnResize", null);
+Cg([c.oI], at.prototype, "HandleMouseMove", null);
+Cg([c.oI], at.prototype, "HandleTallImages", null);
+Cg([c.oI], at.prototype, "HandleMouseUp", null);
 class st extends F.Component {
 	constructor(e) {
 		super(e);
@@ -2716,7 +2754,7 @@ function lt(e) {
 		),
 	);
 }
-(0, n.Cg)([c.oI], st.prototype, "OnToggleCollapse", null);
+Cg([c.oI], st.prototype, "OnToggleCollapse", null);
 let ct = class extends pe.mX {
 	GetVideoID() {
 		return this.GetArgument("v").replace(
@@ -2732,7 +2770,9 @@ let ct = class extends pe.mX {
 				Ze,
 				{
 					preference: "youtube",
-					fallbackRender: () => this.renderNoEmbed(),
+					fallbackRender: () => {
+						return this.renderNoEmbed();
+					},
 				},
 				F.createElement(mt, {
 					videoId: this.GetVideoID(),
@@ -2760,7 +2800,7 @@ let ct = class extends pe.mX {
 		);
 	}
 };
-ct = (0, n.Cg)([N.PA], ct);
+ct = Cg([N.PA], ct);
 class mt extends F.Component {
 	containerRef = F.createRef();
 	constructor(e) {
@@ -2810,7 +2850,7 @@ class mt extends F.Component {
 		if (i) {
 			r += "&t=" + encodeURIComponent(i);
 		}
-		const a = (0, ge.N8)(i);
+		const a = N8(i);
 		return F.createElement(
 			P.xh,
 			{
@@ -2887,9 +2927,9 @@ class mt extends F.Component {
 	}
 }
 var ut;
-(0, n.Cg)([c.oI], mt.prototype, "OnVideoInfoChanged", null);
-(0, n.Cg)([c.oI], mt.prototype, "OnPlayerReady", null);
-(0, n.Cg)([c.oI], mt.prototype, "OnPlaceholderImageLoad", null);
+Cg([c.oI], mt.prototype, "OnVideoInfoChanged", null);
+Cg([c.oI], mt.prototype, "OnPlayerReady", null);
+Cg([c.oI], mt.prototype, "OnPlaceholderImageLoad", null);
 (function (e) {
 	e[(e.Loading = 1)] = "Loading";
 	e[(e.Loaded = 2)] = "Loaded";
@@ -2972,7 +3012,7 @@ let dt = class extends pe.mX {
 		} else {
 			o = (l - 50) * i + 50;
 		}
-		(0, $.HT)(
+		HT(
 			F.createElement(gt, {
 				imageUrl: t,
 				ownerWin: a,
@@ -2985,11 +3025,11 @@ let dt = class extends pe.mX {
 				popupHeight: l,
 				popupWidth: o,
 			},
-			(0, hr.h8)(a),
+			h8_2(a),
 		);
 	}
 	OnContextMenu(e) {
-		(0, O.DH)(e, this.GetArgument("src"));
+		DH(e, this.GetArgument("src"));
 	}
 	OnClick(e) {
 		let t = this.GetArgument("src");
@@ -3089,7 +3129,9 @@ let dt = class extends pe.mX {
 		if (this.GetArgument("proxied") == "true") {
 			t += "?s=652x652";
 		}
-		const m = this.props.parentTags.some((e) => e === "spoiler")
+		const m = this.props.parentTags.some((e) => {
+			return e === "spoiler";
+		})
 			? {
 					minWidth: `${Math.min(l, this.k_nMaxImageWidth)}px`,
 				}
@@ -3113,7 +3155,7 @@ let dt = class extends pe.mX {
 				F.createElement(
 					"div",
 					{
-						className: (0, oe.A)("chatImageContainer", s && "giphyImg"),
+						className: A_2("chatImageContainer", s && "giphyImg"),
 						style: m,
 					},
 					F.createElement(
@@ -3211,7 +3253,7 @@ function gt(e) {
 	const { closeModal: t, ownerWin: r, imageUrl: n, fullImageUrl: i } = e;
 	const a = F.useCallback(
 		(e) => {
-			(0, O.DH)(e, i);
+			DH(e, i);
 		},
 		[i],
 	);
@@ -3234,13 +3276,13 @@ function gt(e) {
 		),
 	);
 }
-(0, n.Cg)([c.oI], dt.prototype, "OnToggleCollapse", null);
-(0, n.Cg)([c.oI], dt.prototype, "OnImageLoad", null);
-(0, n.Cg)([c.oI], dt.prototype, "OnImageError", null);
-(0, n.Cg)([c.oI], dt.prototype, "ShowModal", null);
-(0, n.Cg)([c.oI], dt.prototype, "OnContextMenu", null);
-(0, n.Cg)([c.oI], dt.prototype, "OnClick", null);
-dt = (0, n.Cg)([N.PA], dt);
+Cg([c.oI], dt.prototype, "OnToggleCollapse", null);
+Cg([c.oI], dt.prototype, "OnImageLoad", null);
+Cg([c.oI], dt.prototype, "OnImageError", null);
+Cg([c.oI], dt.prototype, "ShowModal", null);
+Cg([c.oI], dt.prototype, "OnContextMenu", null);
+Cg([c.oI], dt.prototype, "OnClick", null);
+dt = Cg([N.PA], dt);
 let ht = class extends pe.mX {
 	m_elVideo;
 	m_listeners = new y.Ji();
@@ -3286,7 +3328,7 @@ let ht = class extends pe.mX {
 		);
 		let t = _f(this.m_elVideo, "y");
 		if (t) {
-			this.m_resizeObserver = (0, c.Fd)(t, this.OnResizeScrollAncestor);
+			this.m_resizeObserver = Fd(t, this.OnResizeScrollAncestor);
 		}
 		let r = t
 			? {
@@ -3366,8 +3408,12 @@ let ht = class extends pe.mX {
 		} else {
 			return F.createElement(Ze, {
 				preference: "generic",
-				render: () => this.renderEmbedded(),
-				fallbackRender: () => this.renderNoEmbed(),
+				render: () => {
+					return this.renderEmbedded();
+				},
+				fallbackRender: () => {
+					return this.renderNoEmbed();
+				},
 			});
 		}
 	}
@@ -3551,7 +3597,7 @@ function Ct(e) {
 				className: De.AssociatedApp,
 				onActivate: (e) => {
 					let r = GetOwningWindowForEvent(e);
-					(0, O.EP)(r, `${s.TS.STORE_BASE_URL}app/${t}`);
+					EP(r, `${s.TS.STORE_BASE_URL}app/${t}`);
 				},
 				onOKActionDescription: (0, Localize)("#AssociatedApp_ViewOnStore"),
 			},
@@ -3569,16 +3615,16 @@ function Ct(e) {
 		),
 	);
 }
-(0, n.Cg)([c.oI], ht.prototype, "StartVideo", null);
-(0, n.Cg)([c.oI], ht.prototype, "BindVideo", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnLoadMetadata", null);
-(0, n.Cg)([c.oI, (0, ve.s)(100)], ht.prototype, "OnResizeScrollAncestor", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnVideoPlay", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnVideoPause", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnVideoError", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnVideoLoaded", null);
-(0, n.Cg)([c.oI], ht.prototype, "OnPanelActivate", null);
-ht = (0, n.Cg)([N.PA], ht);
+Cg([c.oI], ht.prototype, "StartVideo", null);
+Cg([c.oI], ht.prototype, "BindVideo", null);
+Cg([c.oI], ht.prototype, "OnLoadMetadata", null);
+Cg([c.oI, s_2(100)], ht.prototype, "OnResizeScrollAncestor", null);
+Cg([c.oI], ht.prototype, "OnVideoPlay", null);
+Cg([c.oI], ht.prototype, "OnVideoPause", null);
+Cg([c.oI], ht.prototype, "OnVideoError", null);
+Cg([c.oI], ht.prototype, "OnVideoLoaded", null);
+Cg([c.oI], ht.prototype, "OnPanelActivate", null);
+ht = Cg([N.PA], ht);
 class _t extends F.Component {
 	OnLoad() {
 		if (this.props.context.onLoad) {
@@ -3604,7 +3650,7 @@ function ft(e) {
 		srcSet: `${s} 1x, ${o} 2x`,
 	});
 }
-(0, n.Cg)([c.oI], _t.prototype, "OnLoad", null);
+Cg([c.oI], _t.prototype, "OnLoad", null);
 let bt = class extends pe.mX {
 	CopyToClipboard() {
 		let e = this.GetArgument("url");
@@ -3658,7 +3704,7 @@ let bt = class extends pe.mX {
 						if (!p.xm.IsGamepadUIActive()) {
 							return;
 						}
-						let e = (0, Ke.p)(n) ? (0, Ke.E)(n) : n;
+						let e = p_2(n) ? E_2(n) : n;
 						p.xm.OpenURLInBrowser(e, C.m);
 					},
 					onOKActionDescription: (0, Localize)("#Chat_Visit_Link"),
@@ -3696,7 +3742,7 @@ let bt = class extends pe.mX {
 								className: "ChatMessageOpenGraph_Image",
 								src: e,
 								onContextMenu: (e) => {
-									(0, O.xE)(e, n);
+									xE(e, n);
 								},
 							}),
 						),
@@ -3778,10 +3824,10 @@ let bt = class extends pe.mX {
 		);
 	}
 };
-(0, n.Cg)([c.oI], bt.prototype, "CopyToClipboard", null);
-(0, n.Cg)([c.oI], bt.prototype, "HandleFocus", null);
-(0, n.Cg)([c.oI], bt.prototype, "OnLoad", null);
-bt = (0, n.Cg)([N.PA], bt);
+Cg([c.oI], bt.prototype, "CopyToClipboard", null);
+Cg([c.oI], bt.prototype, "HandleFocus", null);
+Cg([c.oI], bt.prototype, "OnLoad", null);
+bt = Cg([N.PA], bt);
 let yt = class extends pe.mX {
 	FormatCreatedDate(e) {
 		let t = new Date(e);
@@ -3813,7 +3859,7 @@ let yt = class extends pe.mX {
 			r = r.parentElement;
 		}
 		if (!t && !BElementContainsSelection(n)) {
-			(0, O.EP)(e, this.GetArgument("url"));
+			EP(e, this.GetArgument("url"));
 		}
 	}
 	OnImageLoaded() {
@@ -3969,9 +4015,9 @@ let yt = class extends pe.mX {
 		);
 	}
 };
-(0, n.Cg)([c.oI], yt.prototype, "OpenTweet", null);
-(0, n.Cg)([c.oI], yt.prototype, "OnImageLoaded", null);
-yt = (0, n.Cg)([N.PA], yt);
+Cg([c.oI], yt.prototype, "OpenTweet", null);
+Cg([c.oI], yt.prototype, "OnImageLoaded", null);
+yt = Cg([N.PA], yt);
 let St = class extends pe.mX {
 	constructor(e) {
 		super(e);
@@ -4158,11 +4204,11 @@ function wt(e) {
 		s = a;
 	}
 	const l = {
-		flex: isNaN(o) ? undefined : `1 1 ${o}px`,
+		flex: isNaN(o) || `1 1 ${o}px`,
 		maxWidth: a,
 	};
 	return F.createElement("iframe", {
-		height: isNaN(o) ? undefined : `${o}px`,
+		height: isNaN(o) || `${o}px`,
 		style: l,
 		src: r,
 		scrolling: "no",
@@ -4171,9 +4217,9 @@ function wt(e) {
 		allowFullScreen: t === "Vimeo" || undefined,
 	});
 }
-(0, n.Cg)([c.oI], St.prototype, "Activate", null);
-(0, n.Cg)([c.oI], St.prototype, "OnImageLoaded", null);
-St = (0, n.Cg)([N.PA], St);
+Cg([c.oI], St.prototype, "Activate", null);
+Cg([c.oI], St.prototype, "OnImageLoaded", null);
+St = Cg([N.PA], St);
 class Bt extends pe.mX {
 	render() {
 		return F.createElement(Ae, null, this.props.children);
@@ -4187,7 +4233,7 @@ class vt extends pe.mX {
 		return F.createElement(
 			"div",
 			{
-				className: (0, oe.A)(De.plusOne, e && De.MsgAnimating),
+				className: A_2(De.plusOne, e && De.MsgAnimating),
 				onAnimationStart: t,
 				onAnimationEnd: r,
 			},
@@ -4202,8 +4248,8 @@ class It extends pe.mX {
 		} = this.props;
 		const n = this.props.children;
 		const i = this.GetArgument("result");
-		const a = (0, oe.A)(De.flipCoinAndResult, e && De.MsgAnimating);
-		const s = (0, oe.A)(De.flipCoinContainer, i);
+		const a = A_2(De.flipCoinAndResult, e && De.MsgAnimating);
+		const s = A_2(De.flipCoinContainer, i);
 		return F.createElement(
 			P.xh,
 			{
@@ -4257,7 +4303,7 @@ class It extends pe.mX {
 }
 class Et extends pe.mX {
 	Pad(e, t) {
-		let r = e + "";
+		let r = String(e);
 		while (r.length < t) {
 			r = "0" + r;
 		}
@@ -4395,7 +4441,7 @@ class Et extends pe.mX {
 			F.createElement(
 				"div",
 				{
-					className: (0, oe.A)(De.randomMsg, s && De.MsgAnimating),
+					className: A_2(De.randomMsg, s && De.MsgAnimating),
 					onAnimationStart: o,
 					onAnimationEnd: l,
 				},
@@ -4722,7 +4768,7 @@ let Pt = class extends pe.mX {
 		let s = parseInt(this.GetArgument("file_type"));
 		let o = ["SteamPublishedFile"];
 		switch (s) {
-			case 16:
+			case 16: {
 				o.push("clip");
 				e = F.createElement(tt, {
 					previewURL: a,
@@ -4730,12 +4776,15 @@ let Pt = class extends pe.mX {
 				});
 				a = undefined;
 				break;
-			case 4:
+			}
+			case 4: {
 				o.push("video");
 				break;
+			}
 			case 3:
-			case 5:
+			case 5: {
 				o.push("image");
+			}
 		}
 		if (p.xm.SettingsStore.FriendsSettings.bDisableEmbedInlining) {
 			let e = r;
@@ -4744,12 +4793,14 @@ let Pt = class extends pe.mX {
 			}
 			let t = F.createElement(z.Rkk, null);
 			switch (s) {
-				case 4:
+				case 4: {
 					t = F.createElement(z.CeX, null);
 					break;
+				}
 				case 3:
-				case 5:
+				case 5: {
 					t = F.createElement(z._V3, null);
+				}
 			}
 			return F.createElement(
 				Qe,
@@ -4816,7 +4867,7 @@ let Pt = class extends pe.mX {
 						className: "ChatLargeImageContainer_Image",
 						src: a,
 						onContextMenu: (e) => {
-							(0, O.DH)(e, r);
+							DH(e, r);
 						},
 					}),
 				),
@@ -4882,7 +4933,7 @@ let Pt = class extends pe.mX {
 		);
 	}
 };
-Pt = (0, n.Cg)([N.PA], Pt);
+Pt = Cg([N.PA], Pt);
 class Lt extends pe.mX {
 	OnCreateOfferClick(e) {
 		let t = "NewTradeOffer" + parseInt(this.GetArgument("partner"));
@@ -4978,7 +5029,7 @@ class Lt extends pe.mX {
 		);
 	}
 }
-(0, n.Cg)([c.oI], Lt.prototype, "OnCreateOfferClick", null);
+Cg([c.oI], Lt.prototype, "OnCreateOfferClick", null);
 class zt extends pe.mX {
 	ViewOfferClick(e) {
 		let t = this.GetArgument("id");
@@ -4995,7 +5046,7 @@ class zt extends pe.mX {
 		let t = this.props.context.chat.self.steamid64;
 		let r = this.GetArgument("id");
 		let n = `${s.TS.COMMUNITY_BASE_URL}profiles/${t}/tradeoffers/sent/#tradeofferid_${r}`;
-		(0, O.EP)(e, n);
+		EP(e, n);
 	}
 	render() {
 		let e = this.GetArgument("id");
@@ -5098,8 +5149,8 @@ class zt extends pe.mX {
 		);
 	}
 }
-(0, n.Cg)([c.oI], zt.prototype, "ViewOfferClick", null);
-(0, n.Cg)([c.oI], zt.prototype, "ViewMyOffersClick", null);
+Cg([c.oI], zt.prototype, "ViewOfferClick", null);
+Cg([c.oI], zt.prototype, "ViewMyOffersClick", null);
 class xt extends pe.mX {
 	constructor(e) {
 		super(e);
@@ -5176,13 +5227,13 @@ let Ut = class extends pe.mX {
 		}
 		this.containerRef.current.ownerDocument.defaultView.setTimeout(() => {
 			if (this.m_bMounted) {
-				this.setState((e) =>
-					e.bLoading
+				this.setState((e) => {
+					return e.bLoading
 						? {
 								bStillLoading: true,
 							}
-						: null,
-				);
+						: null;
+				});
 			}
 		}, 500);
 	}
@@ -5215,9 +5266,13 @@ let Ut = class extends pe.mX {
 					A.color = "#" + this.state.description.name_color();
 				}
 				if (this.state.description.icon_url_large()) {
-					d = `${s.TS.COMMUNITY_BASE_URL}economy/image/${this.state.description.icon_url_large()}/512x512`;
+					d = `${
+						s.TS.COMMUNITY_BASE_URL
+					}economy/image/${this.state.description.icon_url_large()}/512x512`;
 				} else if (this.state.description.icon_url()) {
-					d = `${s.TS.COMMUNITY_BASE_URL}economy/image/${this.state.description.icon_url()}/512x512`;
+					d = `${
+						s.TS.COMMUNITY_BASE_URL
+					}economy/image/${this.state.description.icon_url()}/512x512`;
 				}
 			}
 			return F.createElement(
@@ -5258,7 +5313,7 @@ let Ut = class extends pe.mX {
 								className: "ChatMessageOpenGraph_Image",
 								src: d,
 								onContextMenu: (e) => {
-									(0, O.xE)(e, t);
+									xE(e, t);
 								},
 							}),
 						),
@@ -5432,9 +5487,9 @@ let Ut = class extends pe.mX {
 		);
 	}
 };
-(0, n.Cg)([c.oI], Ut.prototype, "CopyToClipboard", null);
-(0, n.Cg)([c.oI], Ut.prototype, "OnImageLoaded", null);
-Ut = (0, n.Cg)([N.PA], Ut);
+Cg([c.oI], Ut.prototype, "CopyToClipboard", null);
+Cg([c.oI], Ut.prototype, "OnImageLoaded", null);
+Ut = Cg([N.PA], Ut);
 class Wt extends pe.mX {
 	render() {
 		let e = this.props.children ? this.props.args[""] : "";
@@ -5526,7 +5581,7 @@ let Vt = class extends pe.mX {
 		return F.createElement("span", null, "@" + e);
 	}
 };
-Vt = (0, n.Cg)([N.PA], Vt);
+Vt = Cg([N.PA], Vt);
 class Ht extends pe.mX {
 	render() {
 		let e = "";
@@ -5579,7 +5634,11 @@ let qt = class extends pe.mX {
 		const t = await (async function (e) {
 			const t = s.TS.COUNTRY || "US";
 			const r = await D.get(
-				`${s.TS.STORE_BASE_URL}api/appdetails?appids=${e}&cc=${t}&language=${s.TS.LANGUAGE}&filters=basic,price_overview,developers,screenshots,movies,release_date,content_descriptors&client=${s.TS.IN_CLIENT}&origin=${(0, s.xv)()}`,
+				`${s.TS.STORE_BASE_URL}api/appdetails?appids=${e}&cc=${t}&language=${
+					s.TS.LANGUAGE
+				}&filters=basic,price_overview,developers,screenshots,movies,release_date,content_descriptors&client=${
+					s.TS.IN_CLIENT
+				}&origin=${xv()}`,
 			);
 			let n = null;
 			if (r && r.data) {
@@ -5604,7 +5663,7 @@ let qt = class extends pe.mX {
 			return {
 				name: i,
 				is_free: a,
-				description: (0, Ee.EK)(o),
+				description: EK(o),
 				header_image: l,
 				developer: c && c[0],
 				screenshot: m && m[0] && m[0].path_thumbnail,
@@ -5617,7 +5676,7 @@ let qt = class extends pe.mX {
 					u[0].webm[480].replace("http://", "https://"),
 				thumbnail: u && u[0] && u[0].thumbnail,
 				release_date: d && d.date,
-				url: (0, Ce.Dn)(g, "chatlink"),
+				url: Dn(g, "chatlink"),
 				price: A && A.final_formatted,
 				initial_price: A && A.initial_formatted,
 				discount: A && A.discount_percent && A.discount_percent,
@@ -5639,7 +5698,7 @@ let qt = class extends pe.mX {
 		}
 		let r = this.m_contentRef.current;
 		if (r) {
-			this.m_resizeObserver = (0, c.Fd)(r, this.OnResize);
+			this.m_resizeObserver = Fd(r, this.OnResize);
 		}
 	}
 	componentWillUnmount() {
@@ -5676,7 +5735,7 @@ let qt = class extends pe.mX {
 	}
 	OpenStoreLink(e) {
 		let t = GetOwningWindowForEvent(e);
-		(0, O.EP)(t, this.state.SteamStoreItem.url);
+		EP(t, this.state.SteamStoreItem.url);
 		e.stopPropagation();
 	}
 	PlayVideoClicked() {
@@ -5807,8 +5866,16 @@ let qt = class extends pe.mX {
 			this.m_storePreferences
 				.content_descriptor_preferences()
 				.content_descriptors_to_exclude()
-				.map((e) => e.content_descriptorid());
-		if (g && C && g.some((e) => C.indexOf(e) !== -1)) {
+				.map((e) => {
+					return e.content_descriptorid();
+				});
+		if (
+			g &&
+			C &&
+			g.some((e) => {
+				return C.indexOf(e) !== -1;
+			})
+		) {
 			h = true;
 		}
 		let _ = [];
@@ -5840,7 +5907,9 @@ let qt = class extends pe.mX {
 						F.createElement("img", {
 							className: De.ChatMessageSteamStore_ScreenshotThumbnail,
 							src: r,
-							onMouseEnter: () => this.OnThumbnailOver(t),
+							onMouseEnter: () => {
+								return this.OnThumbnailOver(t);
+							},
 						}),
 					),
 				);
@@ -5859,23 +5928,27 @@ let qt = class extends pe.mX {
 			" ",
 		);
 		switch (this.state.nContentSize) {
-			case jt.Tiny:
+			case jt.Tiny: {
 				b = De.TinyContent;
 				break;
-			case jt.Small:
+			}
+			case jt.Small: {
 				b = De.SmallContent;
 				break;
-			case jt.Medium:
+			}
+			case jt.Medium: {
 				b = De.MediumContent;
 				break;
-			case jt.Large:
+			}
+			case jt.Large: {
 				b = De.LargeContent;
+			}
 		}
 		return F.createElement(
 			L.Z,
 			{
 				ref: this.m_contentRef,
-				className: (0, oe.A)(
+				className: A_2(
 					De.ChatMessageSteamStore,
 					h ? De.ChatMessagesSteamStore_FilteredContent : null,
 					b,
@@ -5899,7 +5972,7 @@ let qt = class extends pe.mX {
 						F.createElement("img", {
 							className: De.ChatMessageSteamStore_HeaderImage,
 							src: a,
-							onClick: h ? null : this.OpenStoreLink,
+							onClick: h || this.OpenStoreLink,
 						}),
 						h &&
 							F.createElement(
@@ -5910,10 +5983,7 @@ let qt = class extends pe.mX {
 								(0, Localize)("#bbcode_steam_store_embed_Image_Filtered"),
 							),
 						F.createElement("img", {
-							className: (0, oe.A)(
-								De.ChatMessageSteamStore_HeaderImage,
-								De.Blurred,
-							),
+							className: A_2(De.ChatMessageSteamStore_HeaderImage, De.Blurred),
 							src: a,
 						}),
 					),
@@ -5926,7 +5996,7 @@ let qt = class extends pe.mX {
 						"div",
 						{
 							className: De.ChatMessageSteamStore_GameNameAndIcon,
-							onClick: h ? null : this.OpenStoreLink,
+							onClick: h || this.OpenStoreLink,
 						},
 						F.createElement(
 							"div",
@@ -6035,7 +6105,7 @@ let qt = class extends pe.mX {
 											F.createElement(
 												"div",
 												{
-													className: (0, oe.A)(
+													className: A_2(
 														De.ChatMessageSteamStore_Pricing_Final,
 														y ? De.hasDiscount : null,
 													),
@@ -6093,7 +6163,7 @@ let qt = class extends pe.mX {
 								F.createElement(
 									"div",
 									{
-										className: (0, oe.A)(
+										className: A_2(
 											De.ChatMessageSteamStore_VideoThumbnail,
 											w ? De.videoPlaying : null,
 										),
@@ -6144,7 +6214,7 @@ let qt = class extends pe.mX {
 				F.createElement(
 					"div",
 					{
-						className: (0, oe.A)(
+						className: A_2(
 							De.ChatMessageSteamStore_VideoLargeContainer,
 							w ? De.videoPlaying : null,
 						),
@@ -6169,14 +6239,14 @@ let qt = class extends pe.mX {
 		);
 	}
 };
-(0, n.Cg)([c.oI, (0, ve.s)(100)], qt.prototype, "OnResize", null);
-(0, n.Cg)([c.oI], qt.prototype, "OnFrameLoaded", null);
-(0, n.Cg)([c.oI], qt.prototype, "OpenStoreLink", null);
-(0, n.Cg)([c.oI], qt.prototype, "PlayVideoClicked", null);
-(0, n.Cg)([c.oI], qt.prototype, "OnThumbnailOver", null);
-(0, n.Cg)([c.oI], qt.prototype, "OnThumbnailLeave", null);
-(0, n.Cg)([c.oI], qt.prototype, "CopyToClipboard", null);
-qt = (0, n.Cg)([N.PA], qt);
+Cg([c.oI, s_2(100)], qt.prototype, "OnResize", null);
+Cg([c.oI], qt.prototype, "OnFrameLoaded", null);
+Cg([c.oI], qt.prototype, "OpenStoreLink", null);
+Cg([c.oI], qt.prototype, "PlayVideoClicked", null);
+Cg([c.oI], qt.prototype, "OnThumbnailOver", null);
+Cg([c.oI], qt.prototype, "OnThumbnailLeave", null);
+Cg([c.oI], qt.prototype, "CopyToClipboard", null);
+qt = Cg([N.PA], qt);
 let Qt = class extends pe.mX {
 	static {
 		Ye = this;
@@ -6241,7 +6311,7 @@ let Qt = class extends pe.mX {
 						style: {
 							padding: "0px 8px",
 						},
-						onClick: this.state.bDisabled ? undefined : this.OnReplayAnimation,
+						onClick: this.state.bDisabled || this.OnReplayAnimation,
 					},
 					(0, Localize)("#ChatRoom_ReplayRoomEffect"),
 				),
@@ -6249,8 +6319,8 @@ let Qt = class extends pe.mX {
 		);
 	}
 };
-(0, n.Cg)([c.oI], Qt.prototype, "OnReplayAnimation", null);
-Qt = Ye = (0, n.Cg)([N.PA], Qt);
+Cg([c.oI], Qt.prototype, "OnReplayAnimation", null);
+Qt = Ye = Cg([N.PA], Qt);
 class Zt extends pe.mX {
 	m_imageRef = F.createRef();
 	state = {
@@ -6268,7 +6338,7 @@ class Zt extends pe.mX {
 	}
 	render() {
 		const e = this.GetArgument("type");
-		const t = (0, Te.G)(s.TS.COMMUNITY_CDN_URL, e);
+		const t = G(s.TS.COMMUNITY_CDN_URL, e);
 		return F.createElement(
 			"div",
 			{
@@ -6306,10 +6376,16 @@ function Yt(e) {
 		F.useEffect(() => {
 			let t = true;
 			D.get(
-				`${s.TS.COMMUNITY_CDN_URL}economy/stickerjson/${encodeURIComponent(e)}?l=${encodeURIComponent(s.TS.LANGUAGE)}&origin=${(0, s.xv)()}`,
+				`${s.TS.COMMUNITY_CDN_URL}economy/stickerjson/${encodeURIComponent(
+					e,
+				)}?l=${encodeURIComponent(s.TS.LANGUAGE)}&origin=${xv()}`,
 			)
-				.then((e) => t && r(e.data))
-				.catch((e) => console.error(`Failed to load stickerJSON: ${e}`));
+				.then((e) => {
+					return t && r(e.data);
+				})
+				.catch((e) => {
+					return console.error(`Failed to load stickerJSON: ${e}`);
+				});
 			return () => {
 				t = false;
 			};
@@ -6328,23 +6404,9 @@ function Yt(e) {
 		},
 	});
 }
-(0, n.Cg)([c.oI], Zt.prototype, "OnMouseOver", null);
-(0, n.Cg)([c.oI], Zt.prototype, "OnMouseOut", null);
-var Kt = require("./76815.js");
-var Xt = require("./29971.js");
-var Jt = require("./91720.js");
-var $t = require("./48042.js");
-var er = require("./91789.js");
-var tr = require(/*webcrack:missing*/ "./73870.js");
-var rr = require(/*webcrack:missing*/ "./736.js");
-var nr = require(/*webcrack:missing*/ "./90095.js");
-var ir = require(/*webcrack:missing*/ "./7470.js");
-var ar = require(/*webcrack:missing*/ "./85243.js");
-var sr = require(/*webcrack:missing*/ "./63439.js");
-var or = require(/*webcrack:missing*/ "./78325.js");
-var lr = require("./37024.js");
+Cg([c.oI], Zt.prototype, "OnMouseOver", null);
+Cg([c.oI], Zt.prototype, "OnMouseOut", null);
 var cr = lr;
-var mr = require(/*webcrack:missing*/ "./24295.js");
 class ur {
 	m_VoiceChatStore;
 	m_CMInterface;
@@ -6366,14 +6428,17 @@ class ur {
 		}
 	}
 }
-let dr = (0, N.PA)((e) => {
-	const t = (0, nr.q3)(() => e.cm.steamid.ConvertTo64BitString());
-	const r = F.useMemo(
-		() => ({
-			useActiveAccount: () => t,
-		}),
-		[t],
-	);
+let dr = PA((e) => {
+	const t = q3(() => {
+		return e.cm.steamid.ConvertTo64BitString();
+	});
+	const r = F.useMemo(() => {
+		return {
+			useActiveAccount: () => {
+				return t;
+			},
+		};
+	}, [t]);
 	const n = e.voiceChat.video_streams;
 	return F.createElement(
 		mr.Rh,
@@ -6381,30 +6446,33 @@ let dr = (0, N.PA)((e) => {
 			value: r,
 		},
 		n
-			.filter((e) => e.stream)
-			.map((e) =>
-				F.createElement(Ar, {
+			.filter((e) => {
+				return e.stream;
+			})
+			.map((e) => {
+				return F.createElement(Ar, {
 					key: e.unique_id,
 					video: e,
-				}),
-			),
+				});
+			}),
 		n
-			.filter(
-				(t) =>
+			.filter((t) => {
+				return (
 					t.stream &&
 					t.showOnDesktop &&
-					e.voiceChat.GetUserSendsVideo(t.accountid),
-			)
-			.map((e) =>
-				F.createElement(pr, {
+					e.voiceChat.GetUserSendsVideo(t.accountid)
+				);
+			})
+			.map((e) => {
+				return F.createElement(pr, {
 					key: e.unique_id,
 					video: e,
-				}),
-			),
+				});
+			}),
 	);
 });
 function Ar(e) {
-	const t = (0, sr.OJ)("RemoteVideo-" + e.video.unique_id, {
+	const t = OJ("RemoteVideo-" + e.video.unique_id, {
 		browserType: ar.W.EBrowserType_OpenVROverlay,
 		eCreationFlags: b.Wf.DisableDPIScale,
 		strVROverlayKey: "valve.steam.friendsui.remotevideo_" + e.video.unique_id,
@@ -6420,7 +6488,7 @@ function Ar(e) {
 	});
 	const { element: r } = t;
 	if (r) {
-		return (0, or.createPortal)(
+		return createPortal(
 			F.createElement(gr, {
 				...e,
 			}),
@@ -6431,8 +6499,8 @@ function Ar(e) {
 	}
 }
 function pr(e) {
-	const t = (0, sr.h3)("RemoteVideoDesktop-" + e.video.accountid);
-	const r = (0, sr.OJ)(
+	const t = h3("RemoteVideoDesktop-" + e.video.accountid);
+	const r = OJ(
 		"RemoteVideoDesktop-" + e.video.unique_id,
 		{
 			browserType: ar.W.EBrowserType_DirectHWND,
@@ -6461,11 +6529,18 @@ function pr(e) {
 	if (i) {
 		const t = p.xm.FriendStore.GetPlayer(e.video.accountid);
 		t.LoadIfNecessary();
-		(0, I.z7)(() => t.is_ready, {
-			timeout: 5000,
-		}).then(() => (i.title = t.display_name));
+		z7(
+			() => {
+				return t.is_ready;
+			},
+			{
+				timeout: 5000,
+			},
+		).then(() => {
+			return (i.title = t.display_name);
+		});
 	}
-	return (0, or.createPortal)(
+	return createPortal(
 		F.createElement(gr, {
 			...e,
 		}),
@@ -6492,7 +6567,6 @@ function gr(e) {
 		}),
 	);
 }
-var hr = require("./40357.js");
 export class kP extends p.iw {
 	m_window;
 	constructor(e) {
@@ -6543,7 +6617,7 @@ export class kP extends p.iw {
 		return this.m_window.document.hasFocus();
 	}
 	IsMinimized() {
-		if ((0, rr.Fj)(this.m_window, "Window.IsWindowMinimized")) {
+		if (Fj(this.m_window, "Window.IsWindowMinimized")) {
 			return this.m_window.SteamClient.Window.IsWindowMinimized();
 		} else {
 			return Promise.resolve(false);
@@ -6631,7 +6705,7 @@ class yr {
 	m_bShowFriendsListOnLoadFromLoader = undefined;
 	m_eUIMode = -1;
 	constructor(e, t) {
-		(0, I.Gn)(this);
+		Gn(this);
 		this.m_FriendsUIApp = e;
 		this.m_bEmbeddedApp = t;
 		if (!this.IsEmbeddedApp()) {
@@ -6658,13 +6732,13 @@ class yr {
 			);
 			window.addEventListener("message", this.HandleWebLoaderPostMessage);
 		} else {
-			(0, S.w)(
+			w_1(
 				!s.TS.IN_CLIENT,
 				"Config.IN_CLIENT set but SteamClient globals not available",
 			);
 			window.addEventListener("message", this.HandlePostMessage);
 		}
-		if ((0, rr.Dp)("Messaging.RegisterForMessages")) {
+		if (Dp("Messaging.RegisterForMessages")) {
 			this.m_setSteamClientListeners.add(
 				SteamClient.Messaging.RegisterForMessages(
 					"LibraryCommands",
@@ -6678,14 +6752,16 @@ class yr {
 				),
 			);
 		}
-		if ((0, rr.Dp)("WebChat.RegisterForUIModeChange")) {
+		if (Dp("WebChat.RegisterForUIModeChange")) {
 			this.m_setSteamClientListeners.add(
 				SteamClient.WebChat.RegisterForUIModeChange(this.HandleUIModeChange),
 			);
 		}
 	}
 	RemoveListeners() {
-		this.m_setSteamClientListeners.forEach((e) => e.unregister());
+		this.m_setSteamClientListeners.forEach((e) => {
+			return e.unregister();
+		});
 		this.m_setSteamClientListeners.clear();
 	}
 	IsGamepadUIActive() {
@@ -6772,23 +6848,29 @@ class yr {
 		this.ExecuteCommand(n, i);
 	}
 	RegisterForSteamURLs(e) {
-		e("friends/message", (e, t) =>
-			this.ExecuteCommand(this.m_FriendsUIApp.GetDefaultBrowserContext(), {
-				command: "ShowFriendChatDialog",
-				steamid: t,
-				btakefocus: true,
-			}),
-		);
-		e("friends/joinchat", (e, t) =>
-			this.ExecuteCommand(this.m_FriendsUIApp.GetDefaultBrowserContext(), {
-				command: "ShowFriendChatDialog",
-				steamid: t,
-				btakefocus: true,
-			}),
-		);
+		e("friends/message", (e, t) => {
+			return this.ExecuteCommand(
+				this.m_FriendsUIApp.GetDefaultBrowserContext(),
+				{
+					command: "ShowFriendChatDialog",
+					steamid: t,
+					btakefocus: true,
+				},
+			);
+		});
+		e("friends/joinchat", (e, t) => {
+			return this.ExecuteCommand(
+				this.m_FriendsUIApp.GetDefaultBrowserContext(),
+				{
+					command: "ShowFriendChatDialog",
+					steamid: t,
+					btakefocus: true,
+				},
+			);
+		});
 	}
 	SendPersonaUpdateToLibrary(e) {
-		if ((0, rr.Dp)("Messaging.PostMessage")) {
+		if (Dp("Messaging.PostMessage")) {
 			SteamClient.Messaging.PostMessage(
 				"PersonaState",
 				"PersonaUpdate",
@@ -6853,9 +6935,10 @@ class yr {
 	ExecuteCommand(e, t) {
 		const r = t.command;
 		switch (r) {
-			case "ShowPopupFriendsList":
+			case "ShowPopupFriendsList": {
 				this.ShowPopupFriendsList(e, false, true);
 				break;
+			}
 			case "ShowFriendChatDialog":
 				{
 					let r = new he.b(t.steamid);
@@ -6900,10 +6983,11 @@ class yr {
 					}
 				}
 				break;
-			case "ShowChatRoomGroupDialog":
+			case "ShowChatRoomGroupDialog": {
 				this.ShowChatRoomGroupDialog(e, t.chat_group_id, t.chat_room_id);
 				break;
-			case "ShowChatRoomGroupInvite":
+			}
+			case "ShowChatRoomGroupInvite": {
 				if (this.m_FriendsUIApp.ready_to_render) {
 					let r = this.m_FriendsUIApp.ChatStore.InviteStore.GetInviteFromCode(
 						t.invite_code,
@@ -6918,10 +7002,12 @@ class yr {
 					);
 				}
 				break;
-			case "SetPersonaState":
+			}
+			case "SetPersonaState": {
 				this.m_FriendsUIApp.FriendStore.SetUserPersonaState(t.persona_state);
 				break;
-			case "ShowWatchBroadcast":
+			}
+			case "ShowWatchBroadcast": {
 				let n = new he.b(t.steamid);
 				this.m_FriendsUIApp.UIStore.ShowOrActivateBroadcast(
 					e,
@@ -6929,26 +7015,30 @@ class yr {
 					true,
 				).ShowWatchPromptDialog();
 				break;
-			case "ToggleDockedMode":
+			}
+			case "ToggleDockedMode": {
 				this.ToggleSingleWindowMode(t.checked);
 				break;
-			default:
-				(0, S.z)(r, `Unhandled command type: ${r}`);
+			}
+			default: {
+				z_1(r, `Unhandled command type: ${r}`);
+			}
 		}
 	}
 	Init(e, t, r) {
 		let n = [];
 		n.push([
 			"Load Preferences",
-			() =>
-				this.m_FriendsUIApp.SettingsStore.GetObjectFromLocalStorageWhenReady(
+			() => {
+				return this.m_FriendsUIApp.SettingsStore.GetObjectFromLocalStorageWhenReady(
 					br,
 					fr,
 				).then((e) => {
-					(0, I.h5)(() => {
+					h5(() => {
 						this.m_UIDisplayPrefs = e;
 					});
-				}),
+				});
+			},
 		]);
 		e.RunWhenLoggedOn(() => {
 			b.Of.SetCurrentLoggedInAccountID(e.steamid.GetAccountID());
@@ -6968,8 +7058,8 @@ class yr {
 		) {
 			n.push([
 				"SteamClient.FriendSettings.GetEnabledFeatures",
-				() =>
-					SteamClient.FriendSettings.GetEnabledFeatures().then((e) => {
+				() => {
+					return SteamClient.FriendSettings.GetEnabledFeatures().then((e) => {
 						let t = false;
 						for (let r of e) {
 							if (r.feature == "LoaderWindowSynchronization") {
@@ -6978,18 +7068,29 @@ class yr {
 							}
 						}
 						if (t) {
-							return (0, I.z7)(
-								() => this.m_strLoaderWindowRestoreDetails !== undefined,
-							);
+							return z7(() => {
+								return this.m_strLoaderWindowRestoreDetails !== undefined;
+							});
 						} else {
 							return Promise.resolve();
 						}
-					}),
+					});
+				},
 			]);
 		}
-		n.push(["VRPopupManager", () => this.m_VRPopupManager.Init(e)]);
+		n.push([
+			"VRPopupManager",
+			() => {
+				return this.m_VRPopupManager.Init(e);
+			},
+		]);
 		if (!t) {
-			n.push(["GRS", () => (0, Jt.Z9)(e.GetServiceTransport(), undefined)]);
+			n.push([
+				"GRS",
+				() => {
+					return Z9(e.GetServiceTransport(), undefined);
+				},
+			]);
 		}
 		return n;
 	}
@@ -7190,27 +7291,22 @@ class yr {
 		}
 	}
 }
-(0, n.Cg)([I.sH], yr.prototype, "m_UIDisplayPrefs", undefined);
-(0, n.Cg)([I.sH], yr.prototype, "m_bUpdatedBuildAvailable", undefined);
-(0, n.Cg)([I.sH], yr.prototype, "m_nSecondsOutOfDate", undefined);
-(0, n.Cg)([I.sH], yr.prototype, "m_strLoaderWindowRestoreDetails", undefined);
-(0, n.Cg)(
-	[I.sH],
-	yr.prototype,
-	"m_bShowFriendsListOnLoadFromLoader",
-	undefined,
-);
-(0, n.Cg)([I.sH], yr.prototype, "m_eUIMode", undefined);
-(0, n.Cg)([c.oI], yr.prototype, "HandlePostMessage", null);
-(0, n.Cg)([c.oI], yr.prototype, "HandleUIModeChange", null);
-(0, n.Cg)([c.oI], yr.prototype, "HandleLibraryCommandMessage", null);
-(0, n.Cg)([c.oI], yr.prototype, "HandlePersonaStateMessage", null);
-(0, n.Cg)([c.oI], yr.prototype, "HandleWebLoaderPostMessage", null);
-(0, n.Cg)([p.Nw], yr.prototype, "SetUserPersonaStateWhenReady", null);
-(0, n.Cg)([I.EW], yr.prototype, "UIDisplayPrefs", null);
-(0, n.Cg)([I.XI], yr.prototype, "SetUIDisplayPref", null);
-(0, n.Cg)([p.Nw], yr.prototype, "ShowPopupFriendsList", null);
-(0, n.Cg)([p.Nw], yr.prototype, "ShowChatUnreadMessages", null);
+Cg([I.sH], yr.prototype, "m_UIDisplayPrefs", undefined);
+Cg([I.sH], yr.prototype, "m_bUpdatedBuildAvailable", undefined);
+Cg([I.sH], yr.prototype, "m_nSecondsOutOfDate", undefined);
+Cg([I.sH], yr.prototype, "m_strLoaderWindowRestoreDetails", undefined);
+Cg([I.sH], yr.prototype, "m_bShowFriendsListOnLoadFromLoader", undefined);
+Cg([I.sH], yr.prototype, "m_eUIMode", undefined);
+Cg([c.oI], yr.prototype, "HandlePostMessage", null);
+Cg([c.oI], yr.prototype, "HandleUIModeChange", null);
+Cg([c.oI], yr.prototype, "HandleLibraryCommandMessage", null);
+Cg([c.oI], yr.prototype, "HandlePersonaStateMessage", null);
+Cg([c.oI], yr.prototype, "HandleWebLoaderPostMessage", null);
+Cg([p.Nw], yr.prototype, "SetUserPersonaStateWhenReady", null);
+Cg([I.EW], yr.prototype, "UIDisplayPrefs", null);
+Cg([I.XI], yr.prototype, "SetUIDisplayPref", null);
+Cg([p.Nw], yr.prototype, "ShowPopupFriendsList", null);
+Cg([p.Nw], yr.prototype, "ShowChatUnreadMessages", null);
 export class Yw extends p.m {
 	m_IdleTracker;
 	m_AudioPlaybackManager = new $t.u();
@@ -7261,7 +7357,7 @@ export class Yw extends p.m {
 		this.m_ChatRoomEffectSettings = Re.B;
 		ZM = this.m_DesktopApp;
 		this.m_AudioPlaybackManager.SetVoiceStore(this.m_VoiceChatStore);
-		(0, S.w)(!s.TS.IN_MOBILE, "DesktopApp initialized in mobile context");
+		w_1(!s.TS.IN_MOBILE, "DesktopApp initialized in mobile context");
 	}
 	Init(e, t, r) {
 		let n = t ? new h(this.m_FriendStore) : new _(this.m_FriendStore);
@@ -7353,7 +7449,7 @@ export class Yw extends p.m {
 		}
 		if (t) {
 			let e = ZM.m_bShowFriendsListOnLoadFromLoader === true;
-			if (!(0, C.u)(p.xm.GetDefaultBrowserContext(), C.m)) {
+			if (!u_1(p.xm.GetDefaultBrowserContext(), C.m)) {
 				console.log(
 					"Blocked taking focus in root context during ShowPopupFriendsList, because other context is primary",
 				);
@@ -7417,79 +7513,97 @@ export class Yw extends p.m {
 		} else {
 			let e = "";
 			switch (r) {
-				case i.l.k_ERemoteClientLaunchParentalUnlockFailed:
+				case i.l.k_ERemoteClientLaunchParentalUnlockFailed: {
 					e = "#RemotePlay_ErrorInviteFailed_ParentalUnlockFailed";
 					break;
-				case i.l.k_ERemoteClientLaunchScreenLocked:
+				}
+				case i.l.k_ERemoteClientLaunchScreenLocked: {
 					e = "#RemotePlay_ErrorInviteFailed_ScreenLocked";
 					break;
-				case i.l.k_ERemoteClientLaunchDriversNotInstalled:
+				}
+				case i.l.k_ERemoteClientLaunchDriversNotInstalled: {
 					e = "#RemotePlay_ErrorInviteFailed_DriversNotInstalled";
 					break;
-				case i.l.k_ERemoteClientLaunchDisabledRemote:
+				}
+				case i.l.k_ERemoteClientLaunchDisabledRemote: {
 					e = "#RemotePlay_ErrorInviteFailed_Disabled";
 					break;
-				case i.l.k_ERemoteClientLaunchBroadcasting:
+				}
+				case i.l.k_ERemoteClientLaunchBroadcasting: {
 					e = "#RemotePlay_ErrorInviteFailed_BroadcastingActive";
 					break;
-				case i.l.k_ERemoteClientLaunchTransportUnavailable:
+				}
+				case i.l.k_ERemoteClientLaunchTransportUnavailable: {
 					e = "#RemotePlay_ErrorInviteFailed_TransportUnavailable";
 					break;
-				case i.l.k_ERemoteClientLaunchInvisible:
+				}
+				case i.l.k_ERemoteClientLaunchInvisible: {
 					e = "#RemotePlay_ErrorInviteFailed_Invisible";
 					break;
-				case i.l.k_ERemoteClientLaunchRestrictedCountry:
+				}
+				case i.l.k_ERemoteClientLaunchRestrictedCountry: {
 					e = "#RemotePlay_ErrorInviteFailed_RestrictedCountry";
 					break;
-				default:
+				}
+				default: {
 					e = "#RemotePlay_ErrorInviteFailed_Failed";
+				}
 			}
 			this.ShowAlert((0, Localize)("#RemotePlay_Error"), (0, Localize)(e));
 		}
 	}
 	RemoteClientLaunchFailed(e) {
-		if (e === i.l.k_ERemoteClientLaunchOK);
-		else {
+		if (e === i.l.k_ERemoteClientLaunchOK) {
+		} else {
 			let t = "";
 			switch (e) {
-				case i.l.k_ERemoteClientLaunchParentalUnlockFailed:
+				case i.l.k_ERemoteClientLaunchParentalUnlockFailed: {
 					t = "#RemotePlay_ErrorInviteFailed_ParentalUnlockFailed";
 					break;
-				case i.l.k_ERemoteClientLaunchScreenLocked:
+				}
+				case i.l.k_ERemoteClientLaunchScreenLocked: {
 					t = "#RemotePlay_ErrorInviteFailed_ScreenLocked";
 					break;
-				case i.l.k_ERemoteClientLaunchDriversNotInstalled:
+				}
+				case i.l.k_ERemoteClientLaunchDriversNotInstalled: {
 					t = "#RemotePlay_ErrorInviteFailed_DriversNotInstalled";
 					break;
-				case i.l.k_ERemoteClientLaunchDisabledRemote:
+				}
+				case i.l.k_ERemoteClientLaunchDisabledRemote: {
 					t = "#RemotePlay_ErrorInviteFailed_Disabled";
 					break;
-				case i.l.k_ERemoteClientLaunchBroadcasting:
+				}
+				case i.l.k_ERemoteClientLaunchBroadcasting: {
 					t = "#RemotePlay_ErrorInviteFailed_BroadcastingActive";
 					break;
-				case i.l.k_ERemoteClientLaunchTransportUnavailable:
+				}
+				case i.l.k_ERemoteClientLaunchTransportUnavailable: {
 					t = "#RemotePlay_ErrorInviteFailed_TransportUnavailable";
 					break;
-				case i.l.k_ERemoteClientLaunchInvisible:
+				}
+				case i.l.k_ERemoteClientLaunchInvisible: {
 					t = "#RemotePlay_ErrorInviteFailed_Invisible";
 					break;
-				case i.l.k_ERemoteClientLaunchRestrictedCountry:
+				}
+				case i.l.k_ERemoteClientLaunchRestrictedCountry: {
 					t = "#RemotePlay_ErrorInviteFailed_RestrictedCountry";
 					break;
-				default:
+				}
+				default: {
 					t = "#RemotePlay_ErrorInviteFailed_Failed";
+				}
 			}
 			this.ShowAlert((0, Localize)("#RemotePlay_Error"), (0, Localize)(t));
 		}
 	}
 	ShowAlert(e, t, r) {
-		return (0, J.Nw)(e, t, r);
+		return Nw(e, t, r);
 	}
 	OpenURLInBrowser(e, t) {
 		if (s.TS.IN_CLIENT) {
 			SteamClient.WebChat.OpenURLInClient(e, t.m_unPID, false);
 		} else {
-			(0, O.EP)(window, e);
+			EP(window, e);
 		}
 	}
 	BIsValidBrowserContext(e) {
@@ -7501,11 +7615,11 @@ export class Yw extends p.m {
 	ShowCloseActiveVoiceConfirmation(e, t) {
 		if (!this.m_DesktopApp.UIDisplayPrefs.bDontShowVoiceAlert) {
 			let e = t.popup;
-			(0, Kt.XX)(e.GetWindow());
+			XX(e.GetWindow());
 		}
 	}
 	OnVoiceChatActiveStateChange(e) {
-		if ((0, rr.Dp)("Browser.SetBackgroundThrottlingDisabled")) {
+		if (Dp("Browser.SetBackgroundThrottlingDisabled")) {
 			SteamClient.Browser.SetBackgroundThrottlingDisabled(e);
 		}
 	}
@@ -7571,12 +7685,12 @@ export class Yw extends p.m {
 		return this.m_DesktopApp.VRPopupManager();
 	}
 }
-(0, n.Cg)([c.oI], Yw.prototype, "RemotePlayGroupCreated", null);
-(0, n.Cg)([c.oI], Yw.prototype, "RemoteClientStarted", null);
-(0, n.Cg)([c.oI], Yw.prototype, "RemoteClientInviteResult", null);
-(0, n.Cg)([c.oI], Yw.prototype, "RemoteClientLaunchResult", null);
-(0, n.Cg)([c.oI], Yw.prototype, "RemoteClientLaunchFailed", null);
-(0, n.Cg)([c.oI], Yw.prototype, "OnVoiceChatActiveStateChange", null);
+Cg([c.oI], Yw.prototype, "RemotePlayGroupCreated", null);
+Cg([c.oI], Yw.prototype, "RemoteClientStarted", null);
+Cg([c.oI], Yw.prototype, "RemoteClientInviteResult", null);
+Cg([c.oI], Yw.prototype, "RemoteClientLaunchResult", null);
+Cg([c.oI], Yw.prototype, "RemoteClientLaunchFailed", null);
+Cg([c.oI], Yw.prototype, "OnVoiceChatActiveStateChange", null);
 export function xT(e) {
 	const t = Yw.k_pchStartupParamKey;
 	window.sessionStorage.setItem(
@@ -7590,12 +7704,14 @@ export function xT(e) {
 	);
 }
 export function PJ(e) {
-	const t = (0, F.useState)(0)[1];
+	const t = useState(0)[1];
 	return [
 		ZM.UIDisplayPrefs[e],
 		(r) => {
 			ZM.SetUIDisplayPref(e, r);
-			t((e) => e + 1);
+			t((e) => {
+				return e + 1;
+			});
 		},
 	];
 }

@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-export class qN extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+export class qN extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!qN.prototype.width) {
 			i.Sg(qN.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -69,7 +69,7 @@ export class qN extends a {
 		return i.zj(qN.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		qN.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -77,7 +77,7 @@ export class qN extends a {
 		i.i0(qN.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		qN.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -85,14 +85,14 @@ export class qN extends a {
 		return "CStreamVideoMode";
 	}
 }
-export class ye extends a {
+export class ye extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!ye.prototype.codec) {
 			i.Sg(ye.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -145,7 +145,7 @@ export class ye extends a {
 		return i.zj(ye.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ye.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -153,7 +153,7 @@ export class ye extends a {
 		i.i0(ye.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ye.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -161,14 +161,14 @@ export class ye extends a {
 		return "CStreamVideoLimit";
 	}
 }
-export class fO extends a {
+export class fO extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!fO.prototype.quality) {
 			i.Sg(fO.M());
 		}
-		a.initialize(this, e, 0, -1, [24], null);
+		n_Message.initialize(this, e, 0, -1, [24], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -341,7 +341,7 @@ export class fO extends a {
 		return i.zj(fO.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		fO.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -349,7 +349,7 @@ export class fO extends a {
 		i.i0(fO.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		fO.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -357,14 +357,14 @@ export class fO extends a {
 		return "CStreamingClientConfig";
 	}
 }
-export class Fh extends a {
+export class Fh extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Fh.prototype.change_desktop_resolution) {
 			i.Sg(Fh.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -449,7 +449,7 @@ export class Fh extends a {
 		return i.zj(Fh.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Fh.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -457,7 +457,7 @@ export class Fh extends a {
 		i.i0(Fh.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Fh.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

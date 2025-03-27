@@ -1,17 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./58663.js");
-var l = require(/*webcrack:missing*/ "./48307.js");
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require("./12251.js");
-const u = o.Message;
-class d extends u {
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s from "./52451.js";
+import o from "./58663.js";
+import l from "./48307.js";
+import c, { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+import k from "./75144.js";
+import { I as I_1 } from "./61416.js";
+const o_Message = o.Message;
+class d extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return d.toObject(e, this);
@@ -37,13 +39,13 @@ class d extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -51,14 +53,14 @@ class d extends u {
 		return "CStorageDeviceManager_IsServiceAvailable_Request";
 	}
 }
-class A extends u {
+class A extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.is_available) {
 			l.Sg(A.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -97,7 +99,7 @@ class A extends u {
 		return l.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -105,7 +107,7 @@ class A extends u {
 		l.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -113,14 +115,14 @@ class A extends u {
 		return "CStorageDeviceManager_IsServiceAvailable_Response";
 	}
 }
-class p extends u {
+class p extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.id) {
 			l.Sg(p.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -210,7 +212,7 @@ class p extends u {
 		return l.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -218,7 +220,7 @@ class p extends u {
 		l.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -226,14 +228,14 @@ class p extends u {
 		return "CStorageDeviceManagerDrive";
 	}
 }
-class g extends u {
+class g extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.id) {
 			l.Sg(g.M());
 		}
-		u.initialize(this, e, 0, -1, [12], null);
+		o_Message.initialize(this, e, 0, -1, [12], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -341,7 +343,7 @@ class g extends u {
 		return l.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -349,7 +351,7 @@ class g extends u {
 		l.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -357,14 +359,14 @@ class g extends u {
 		return "CStorageDeviceManagerBlockDevice";
 	}
 }
-class h extends u {
+class h extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.drives) {
 			l.Sg(h.M());
 		}
-		u.initialize(this, e, 0, -1, [1, 2], null);
+		o_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -430,7 +432,7 @@ class h extends u {
 		return l.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -438,7 +440,7 @@ class h extends u {
 		l.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -446,11 +448,11 @@ class h extends u {
 		return "CStorageDeviceManagerState";
 	}
 }
-class C extends u {
+class C extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return C.toObject(e, this);
@@ -476,13 +478,13 @@ class C extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -490,14 +492,14 @@ class C extends u {
 		return "CStorageDeviceManager_GetState_Request";
 	}
 }
-class _ extends u {
+class _ extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.state) {
 			l.Sg(_.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -535,7 +537,7 @@ class _ extends u {
 		return l.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -543,7 +545,7 @@ class _ extends u {
 		l.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -551,11 +553,11 @@ class _ extends u {
 		return "CStorageDeviceManager_GetState_Response";
 	}
 }
-class f extends u {
+class f extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return f.toObject(e, this);
@@ -581,13 +583,13 @@ class f extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -595,14 +597,14 @@ class f extends u {
 		return "CStorageDeviceManager_StateChanged_Notification";
 	}
 }
-class b extends u {
+class b extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.drive_id) {
 			l.Sg(b.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -641,7 +643,7 @@ class b extends u {
 		return l.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -649,7 +651,7 @@ class b extends u {
 		l.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -657,11 +659,11 @@ class b extends u {
 		return "CStorageDeviceManager_Eject_Request";
 	}
 }
-class y extends u {
+class y extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return y.toObject(e, this);
@@ -687,13 +689,13 @@ class y extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -701,14 +703,14 @@ class y extends u {
 		return "CStorageDeviceManager_Eject_Response";
 	}
 }
-class S extends u {
+class S extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S.prototype.drive_id) {
 			l.Sg(S.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -757,7 +759,7 @@ class S extends u {
 		return l.zj(S.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -765,7 +767,7 @@ class S extends u {
 		l.i0(S.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -773,11 +775,11 @@ class S extends u {
 		return "CStorageDeviceManager_Adopt_Request";
 	}
 }
-class w extends u {
+class w extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return w.toObject(e, this);
@@ -803,13 +805,13 @@ class w extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -817,14 +819,14 @@ class w extends u {
 		return "CStorageDeviceManager_Adopt_Response";
 	}
 }
-class B extends u {
+class B extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!B.prototype.block_device_id) {
 			l.Sg(B.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -863,7 +865,7 @@ class B extends u {
 		return l.zj(B.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -871,7 +873,7 @@ class B extends u {
 		l.i0(B.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -879,11 +881,11 @@ class B extends u {
 		return "CStorageDeviceManager_Format_Request";
 	}
 }
-class v extends u {
+class v extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return v.toObject(e, this);
@@ -909,13 +911,13 @@ class v extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -923,14 +925,14 @@ class v extends u {
 		return "CStorageDeviceManager_Format_Response";
 	}
 }
-class I extends u {
+class I extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!I.prototype.block_device_id) {
 			l.Sg(I.M());
 		}
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -969,7 +971,7 @@ class I extends u {
 		return l.zj(I.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -977,7 +979,7 @@ class I extends u {
 		l.i0(I.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -985,11 +987,11 @@ class I extends u {
 		return "CStorageDeviceManager_Unmount_Request";
 	}
 }
-class E extends u {
+class E extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return E.toObject(e, this);
@@ -1015,13 +1017,13 @@ class E extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1029,11 +1031,11 @@ class E extends u {
 		return "CStorageDeviceManager_Unmount_Response";
 	}
 }
-class M extends u {
+class M extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return M.toObject(e, this);
@@ -1059,13 +1061,13 @@ class M extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1073,11 +1075,11 @@ class M extends u {
 		return "CStorageDeviceManager_TrimAll_Request";
 	}
 }
-class T extends u {
+class T extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		u.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return T.toObject(e, this);
@@ -1103,13 +1105,13 @@ class T extends u {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1117,15 +1119,15 @@ class T extends u {
 		return "CStorageDeviceManager_TrimAll_Response";
 	}
 }
-var R;
-(function (e) {
+let R;
+((e) => {
 	e.IsServiceAvailableHandler = {
 		name: "StorageDeviceManager.IsServiceAvailable#1",
 		request: d,
 		response: A,
 	};
-	e.IsServiceAvailable = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.IsServiceAvailable = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1133,7 +1135,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"StorageDeviceManager.IsServiceAvailable#1",
-				(0, c.I8)(d, e),
+				I8(d, e),
 				A,
 				{
 					ePrivilege: 1,
@@ -1142,8 +1144,8 @@ var R;
 			);
 		}
 	};
-	e.SendMsgIsServiceAvailable = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgIsServiceAvailable = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1151,7 +1153,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"StorageDeviceManager.IsServiceAvailable#1",
-				(0, c.I8)(d, e),
+				I8(d, e),
 				A,
 				{
 					ePrivilege: 1,
@@ -1165,27 +1167,27 @@ var R;
 		request: C,
 		response: _,
 	};
-	e.GetState = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.GetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.GetState#1", (0, c.I8)(C, e), _, {
+			return t.SendMsg("StorageDeviceManager.GetState#1", I8(C, e), _, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgGetState = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.GetState#1", (0, c.I8)(C, e), _, {
+			return t.SendMsg("StorageDeviceManager.GetState#1", I8(C, e), _, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1195,8 +1197,8 @@ var R;
 		name: "StorageDeviceManager.NotifyStateChanged#1",
 		request: f,
 	};
-	e.RegisterForNotifyStateChanged = function (t, r) {
-		if ((r = r || (0, m.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1208,14 +1210,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyStateChanged = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.NotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"StorageDeviceManager.NotifyStateChanged#1",
-				(0, c.I8)(f, e),
+				I8(f, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 1,
@@ -1223,14 +1225,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyStateChanged = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"StorageDeviceManager.NotifyStateChanged#1",
-				(0, c.I8)(f, e),
+				I8(f, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 1,
@@ -1243,27 +1245,27 @@ var R;
 		request: S,
 		response: w,
 	};
-	e.Adopt = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.Adopt = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Adopt#1", (0, c.I8)(S, e), w, {
+			return t.SendMsg("StorageDeviceManager.Adopt#1", I8(S, e), w, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgAdopt = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgAdopt = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Adopt#1", (0, c.I8)(S, e), w, {
+			return t.SendMsg("StorageDeviceManager.Adopt#1", I8(S, e), w, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1274,27 +1276,27 @@ var R;
 		request: b,
 		response: y,
 	};
-	e.Eject = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.Eject = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Eject#1", (0, c.I8)(b, e), y, {
+			return t.SendMsg("StorageDeviceManager.Eject#1", I8(b, e), y, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgEject = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgEject = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Eject#1", (0, c.I8)(b, e), y, {
+			return t.SendMsg("StorageDeviceManager.Eject#1", I8(b, e), y, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1305,27 +1307,27 @@ var R;
 		request: B,
 		response: v,
 	};
-	e.Format = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.Format = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Format#1", (0, c.I8)(B, e), v, {
+			return t.SendMsg("StorageDeviceManager.Format#1", I8(B, e), v, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgFormat = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgFormat = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Format#1", (0, c.I8)(B, e), v, {
+			return t.SendMsg("StorageDeviceManager.Format#1", I8(B, e), v, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1336,27 +1338,27 @@ var R;
 		request: I,
 		response: E,
 	};
-	e.Unmount = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.Unmount = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Unmount#1", (0, c.I8)(I, e), E, {
+			return t.SendMsg("StorageDeviceManager.Unmount#1", I8(I, e), E, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgUnmount = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgUnmount = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.Unmount#1", (0, c.I8)(I, e), E, {
+			return t.SendMsg("StorageDeviceManager.Unmount#1", I8(I, e), E, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1367,35 +1369,33 @@ var R;
 		request: M,
 		response: T,
 	};
-	e.TrimAll = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.TrimAll = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.TrimAll#1", (0, c.I8)(M, e), T, {
+			return t.SendMsg("StorageDeviceManager.TrimAll#1", I8(M, e), T, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgTrimAll = function (e, t) {
-		if ((t = t || (0, m.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgTrimAll = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("StorageDeviceManager.TrimAll#1", (0, c.I8)(M, e), T, {
+			return t.SendMsg("StorageDeviceManager.TrimAll#1", I8(M, e), T, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
 })((R ||= {}));
-var k = require(/*webcrack:missing*/ "./75144.js");
-var D = require(/*webcrack:missing*/ "./61416.js");
 const N = "SystemStorageService";
 const F = "State";
 const G = "IsServiceAvailable";
@@ -1433,12 +1433,12 @@ class P {
 	}
 }
 export function vM(e) {
-	const t = (function () {
+	const t = (() => {
 		const e = i.useCallback(async () => {
 			const e = await R.IsServiceAvailable({});
 			return e.BSuccess() && e.Body().is_available();
 		}, []);
-		const t = (0, D.I)({
+		const t = I_1({
 			queryKey: [N, G],
 			queryFn: e,
 			staleTime: Infinity,
@@ -1452,7 +1452,7 @@ export function vM(e) {
 		}
 		return e.Body().toObject().state;
 	}, []);
-	return (0, D.I)({
+	return I_1({
 		queryKey: O(),
 		queryFn: r,
 		staleTime: Infinity,
@@ -1481,10 +1481,8 @@ export function Ff() {
 		vM((e) =>
 			e?.drives?.filter(
 				(t) =>
-					!!(function (e) {
-						return e.is_formattable && e.is_unformatted;
-					})(t) ||
-					!(function (e, t) {
+					!!((e) => e.is_formattable && e.is_unformatted)(t) ||
+					!((e, t) => {
 						for (const r of t) {
 							if (r.drive_id == e.id && r.has_steam_library) {
 								return true;
@@ -1560,10 +1558,10 @@ export function gf() {
 	const t = CN(e?.drive_id);
 	return !!e && !!t && t.is_unformatted;
 }
-(0, n.Cg)([s.oI], P.prototype, "OnStateChanged", null);
-(0, n.Cg)([s.oI], P.prototype, "Adopt", null);
-(0, n.Cg)([s.oI], P.prototype, "TrimAll", null);
-(0, n.Cg)([s.oI], P.prototype, "Unmount", null);
+Cg([s.oI], P.prototype, "OnStateChanged", null);
+Cg([s.oI], P.prototype, "Adopt", null);
+Cg([s.oI], P.prototype, "TrimAll", null);
+Cg([s.oI], P.prototype, "Unmount", null);
 export const _r = new P();
 class K {
 	m_bIsSDCardFormatting = false;
@@ -1575,7 +1573,7 @@ class K {
 		return this.m_progressFormat;
 	}
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.ClearFormatProgress();
 	}
 	async Init() {
@@ -1606,8 +1604,8 @@ class K {
 		return t.result;
 	}
 }
-(0, n.Cg)([a.sH], K.prototype, "m_bIsSDCardFormatting", undefined);
-(0, n.Cg)([a.sH], K.prototype, "m_progressFormat", undefined);
-(0, n.Cg)([a.XI.bound], K.prototype, "OnFormatStorageProgress", null);
-(0, n.Cg)([a.XI.bound], K.prototype, "ClearFormatProgress", null);
+Cg([a.sH], K.prototype, "m_bIsSDCardFormatting", undefined);
+Cg([a.sH], K.prototype, "m_progressFormat", undefined);
+Cg([a.XI.bound], K.prototype, "OnFormatStorageProgress", null);
+Cg([a.XI.bound], K.prototype, "ClearFormatProgress", null);
 export const bh = new K();

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Dialog: "_1cgXLHf7VZ0qhEvoqHUUCG",
 	MainContent: "GzUVf0LC6Tj7nkzh1bFzT",
 	Header: "_2P2XwuwTVuPTlEB6tytZrl",

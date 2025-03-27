@@ -1,10 +1,54 @@
-var n = require(/*webcrack:missing*/ "./90039.js");
-var i = require(/*webcrack:missing*/ "./42898.js");
-var a = require(/*webcrack:missing*/ "./37195.js");
-var s = require(/*webcrack:missing*/ "./67599.js");
-var o = require("./43780.js");
-var l = require(/*webcrack:missing*/ "./81429.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
+import n from "./90039.js";
+import i, { hL, gc } from "./42898.js";
+import a, { b6 } from "./37195.js";
+import s from "./67599.js";
+import o, { CS, vE, op } from "./43780.js";
+import l from "./81429.js";
+import f from "./63696.js";
+import y from "./49787.js";
+import w, { wn, T2, $B } from "./18305.js";
+import { A as A_1 } from "./90765.js";
+import { df, Bc } from "./45264.js";
+import { EC, WA, $G, Sy, qq, O8 } from "./38602.js";
+import N from "./78325.js";
+import F, { st as st_1, wh, y_ as y_1 } from "./87300.js";
+import { z as z_1 } from "./30814.js";
+import O, { w as w_1 } from "./62738.js";
+import P, { sM, tG, JJ } from "./16486.js";
+import "./45772.js";
+import "./74763.js";
+import X, { S as S_1 } from "./17372.js";
+import $ from "./64608.js";
+import ee from "./10606.js";
+import te from "./13869.js";
+import oe from "./48139.js";
+import ue from "./4452.js";
+import Ae from "./91633.js";
+import pe from "./12774.js";
+import ge from "./94790.js";
+import he from "./26853.js";
+import Ce, { Jc } from "./79769.js";
+import be from "./76627.js";
+import Re from "./69164.js";
+import { ak } from "./69.js";
+import { FN } from "./41537.js";
+import { Nr } from "./42318.js";
+import Fe from "./87429.js";
+import Ue, { D5, Ue as Ue_1, cZ, hL, o4, l6, uD } from "./52451.js";
+import He, { Qn } from "./72476.js";
+import je from "./71594.js";
+import qe from "./35488.js";
+import Qe from "./98995.js";
+import Ze from "./43691.js";
+import { SP } from "./51076.js";
+import yt from "./10325.js";
+import St from "./14628.js";
+import wt from "./7204.js";
+import Et from "./94361.js";
+import { R7 } from "./11131.js";
 class m {
 	m_nodes = [];
 	m_schema;
@@ -170,7 +214,7 @@ class d extends o.Al {
 					i.accumulate(
 						r.nodes.paragraph,
 						r.text(
-							(function (e) {
+							((e) => {
 								let t = "";
 								e.descendants((e) => {
 									if (e.isText) {
@@ -197,7 +241,7 @@ function p(e, t, r, n) {
 	let i = r.marks;
 	let a = "";
 	const s = t.mapNodes.get(r.type);
-	const { tag: l, args: m } = (function (e, t) {
+	const { tag: l, args: m } = ((e, t) => {
 		if (e && e.AttrsToBBArgs) {
 			const { tag: r = e.tag, args: n = {} } = e.AttrsToBBArgs(t.attrs, t);
 			return {
@@ -211,28 +255,28 @@ function p(e, t, r, n) {
 		};
 	})(s, r);
 	if (l) {
-		a += (0, o.CS)(l, m);
+		a += CS(l, m);
 	}
 	r.content.forEach((r) => {
 		[a, i] = g(t, i, r.marks, a);
-		[a, i] = (function (e, t, r, n) {
+		[a, i] = ((e, t, r, n) => {
 			let i;
 			for (const a of r) {
-				if (t.indexOf(a) === -1) {
+				if (!t.includes(a)) {
 					i ||= t.slice();
 					const r = e.mapMarks.get(a.type);
 					AssertMsg(r, "mark missing bbtag");
 					if (r) {
 						i.push(a);
 						const { args: e, tag: t } = h(r, a);
-						n += (0, o.CS)(t, e);
+						n += CS(t, e);
 					}
 				}
 			}
 			return [n, i ?? t];
 		})(t, i, r.marks, a);
 		if (r.type.isText) {
-			a += (0, o.vE)(r.text || "");
+			a += vE(r.text || "");
 		} else if (r.type == e.nodes.hard_break) {
 			a += "\n";
 		} else {
@@ -241,14 +285,14 @@ function p(e, t, r, n) {
 	});
 	[a] = g(t, i, n, a);
 	if (l) {
-		a += (0, o.op)(l);
+		a += op(l);
 	}
 	return a;
 }
 function g(e, t, r, n) {
 	const i = [];
 	for (const e of t) {
-		if (r.indexOf(e) === -1) {
+		if (!r.includes(e)) {
 			i.push(e);
 		}
 	}
@@ -263,7 +307,7 @@ function g(e, t, r, n) {
 		const t = a.pop();
 		const r = e.mapMarks.get(t.type);
 		const { tag: s } = h(r, t);
-		n += (0, o.op)(s);
+		n += op(s);
 		const l = i.indexOf(t);
 		if (l != -1) {
 			i.splice(l, 1);
@@ -346,7 +390,7 @@ class _ {
 				};
 			},
 		});
-		const t = [(0, a.b6)(), e];
+		const t = [b6(), e];
 		return s.$t.create({
 			schema: this.m_schemaConfig.pm_schema,
 			doc: this.m_bbcodeParser.ParseBBCode(this.m_bbcode),
@@ -378,13 +422,12 @@ class _ {
 		}
 	}
 }
-var f = require(/*webcrack:missing*/ "./63696.js");
 function b(e, t) {
 	const { msAutosaveTimeout: r = 1000, msMaxInterval: n = r * 10 } = t || {};
 	const [a, s] = f.useState(false);
 	const o = f.useRef(0);
-	(function (e, t) {
-		(0, i.hL)(e?.OnStateChangedCallbacks, t);
+	((e, t) => {
+		hL(e?.OnStateChangedCallbacks, t);
 	})(
 		e,
 		f.useCallback(() => {
@@ -401,7 +444,7 @@ function b(e, t) {
 			l = undefined;
 			const c = performance.now();
 			const m = c - o.current;
-			if (a || m >= r || c - t >= n) {
+			if (a || m >= r || m >= r || c - t >= n) {
 				console.log("Committing changes");
 				e.CommitChanges();
 				s(false);
@@ -421,10 +464,7 @@ function b(e, t) {
 		bDirty: a,
 	};
 }
-var y = require("./49787.js");
-var S = y;
-var w = require(/*webcrack:missing*/ "./18305.js");
-var B = require(/*webcrack:missing*/ "./90765.js");
+const S = y;
 function v(e, t, r = 0) {
 	return () => [
 		e,
@@ -444,7 +484,7 @@ const I = {
 					tag: "p",
 				},
 			],
-			toDOM: v("p", (0, B.A)("pm_paragraph", S.Paragraph)),
+			toDOM: v("p", A_1("pm_paragraph", S.Paragraph)),
 			bbCode: {
 				tag: "p",
 				autocloses: true,
@@ -461,12 +501,13 @@ const I = {
 			defining: true,
 			parseDOM: [1, 2, 3, 4, 5].map((e) => ({
 				tag: `h${e}`,
+
 				attrs: {
 					level: e,
 				},
 			})),
 			toDOM: (e) => [
-				"h" + e.attrs.level,
+				`h${e.attrs.level}`,
 				{
 					class: `BB_Header${e.attrs.level} ${S[`Header${e.attrs.level}`]}`,
 				},
@@ -474,9 +515,11 @@ const I = {
 			],
 			bbCode: [1, 2, 3, 4, 5].map((e) => ({
 				tag: `h${e}`,
+
 				BBArgsToAttrs: () => ({
 					level: e,
 				}),
+
 				AttrsToBBArgs: (e) => ({
 					tag: `h${e.level}`,
 				}),
@@ -701,7 +744,7 @@ const I = {
 				},
 				{
 					tag: "b",
-					getAttrs: (e) => e.style.fontWeight != "normal" && null,
+					getAttrs: (e) => e.style.fontWeight != "normal",
 				},
 				{
 					style: "font-weight=400",
@@ -709,10 +752,10 @@ const I = {
 				},
 				{
 					style: "font-weight",
-					getAttrs: (e) => /^(bold(er)?|[5-9]\d{2,})$/.test(e) && null,
+					getAttrs: (e) => /^(bold(er)?|[5-9]\d{2,})$/.test(e),
 				},
 			],
-			toDOM: v("b", (0, B.A)("BB_Bold", S.Bold)),
+			toDOM: v("b", A_1("BB_Bold", S.Bold)),
 			bbCode: {
 				tag: "b",
 			},
@@ -733,7 +776,7 @@ const I = {
 					clearMark: (e) => e.type.name == "em",
 				},
 			],
-			toDOM: v("i", (0, B.A)("BB_Italic", S.Italic)),
+			toDOM: v("i", A_1("BB_Italic", S.Italic)),
 			bbCode: {
 				tag: "i",
 			},
@@ -747,7 +790,7 @@ const I = {
 					style: "text-decoration=underline",
 				},
 			],
-			toDOM: v("u", (0, B.A)("BB_Underline", S.Underline)),
+			toDOM: v("u", A_1("BB_Underline", S.Underline)),
 			bbCode: {
 				tag: "u",
 			},
@@ -758,7 +801,7 @@ const I = {
 					style: "text-decoration=line-through",
 				},
 			],
-			toDOM: v("span", (0, B.A)("BB_Strike", S.Strike)),
+			toDOM: v("span", A_1("BB_Strike", S.Strike)),
 			bbCode: {
 				tag: "strike",
 			},
@@ -769,7 +812,7 @@ const I = {
 					tag: "code",
 				},
 			],
-			toDOM: v("code", (0, B.A)("BB_Code", S.Code)),
+			toDOM: v("code", A_1("BB_Code", S.Code)),
 			bbCode: {
 				tag: "c",
 			},
@@ -970,13 +1013,6 @@ const R = new (class {
 		});
 	}
 })(T);
-var k = require("./45264.js");
-var D = require("./38602.js");
-var N = require(/*webcrack:missing*/ "./78325.js");
-var F = require(/*webcrack:missing*/ "./87300.js");
-var G = require(/*webcrack:missing*/ "./30814.js");
-var O = require(/*webcrack:missing*/ "./62738.js");
-var P = require(/*webcrack:missing*/ "./16486.js");
 function L(e, t) {
 	const { from: r, $from: n, to: i, empty: a } = e.selection;
 	if (a) {
@@ -1032,8 +1068,6 @@ function W(e, t, r) {
 		e.dispatch(e.state.tr.setSelection(s.U3.near(t)));
 	}
 }
-require(/*webcrack:missing*/ "./45772.js");
-require(/*webcrack:missing*/ "./74763.js");
 const V = f.createContext(undefined);
 function H(e) {
 	const { view: t, pmState: r, children: n } = e;
@@ -1052,7 +1086,7 @@ function H(e) {
 		n,
 	);
 }
-const j = f.memo(function (e) {
+const j = f.memo((e) => {
 	const { schema: t, refOnUpdate: r } = e;
 	q(
 		f.useMemo(
@@ -1066,13 +1100,13 @@ const j = f.memo(function (e) {
 			[r],
 		),
 	);
-	q(f.useMemo(() => (0, G.z)(), []));
+	q(f.useMemo(() => z_1(), []));
 	q(
 		f.useMemo(
 			() =>
-				(function (e) {
+				((e) => {
 					const { nodes: t, marks: r } = e;
-					const n = (0, F.st)(F.I$, (e, r) => {
+					const n = st_1(F.I$, (e, r) => {
 						if (r) {
 							r(
 								e.tr
@@ -1090,38 +1124,38 @@ const j = f.memo(function (e) {
 						Escape: F.hy,
 						"Mod-Enter": n,
 						"Shift-Enter": n,
-						"Mod-b": (0, F.wh)(r.strong),
-						"Mod-i": (0, F.wh)(r.italic),
-						"Mod-u": (0, F.wh)(r.underline),
-						"Mod-Shift-x": (0, F.wh)(r.strikethrough),
-						"Ctrl-Shift-s": (0, F.wh)(r.strikethrough),
-						Enter: (0, w.wn)(t.list_item),
-						"Mod-[": (0, w.T2)(t.list_item),
-						"Mod-]": (0, w.$B)(t.list_item),
-						"Ctrl-Shift-1": (0, F.y_)(t.heading, {
+						"Mod-b": wh(r.strong),
+						"Mod-i": wh(r.italic),
+						"Mod-u": wh(r.underline),
+						"Mod-Shift-x": wh(r.strikethrough),
+						"Ctrl-Shift-s": wh(r.strikethrough),
+						Enter: wn(t.list_item),
+						"Mod-[": T2(t.list_item),
+						"Mod-]": $B(t.list_item),
+						"Ctrl-Shift-1": y_1(t.heading, {
 							level: 1,
 						}),
-						"Ctrl-Shift-2": (0, F.y_)(t.heading, {
+						"Ctrl-Shift-2": y_1(t.heading, {
 							level: 2,
 						}),
-						"Ctrl-Shift-3": (0, F.y_)(t.heading, {
+						"Ctrl-Shift-3": y_1(t.heading, {
 							level: 3,
 						}),
-						"Ctrl-Shift-4": (0, F.y_)(t.heading, {
+						"Ctrl-Shift-4": y_1(t.heading, {
 							level: 4,
 						}),
-						"Ctrl-Shift-5": (0, F.y_)(t.heading, {
+						"Ctrl-Shift-5": y_1(t.heading, {
 							level: 5,
 						}),
-						"Ctrl-Shift-7": (0, F.y_)(t.ordered_list),
-						"Ctrl-Shift-8": (0, F.y_)(t.bullet_list),
-						"Ctrl-Shift-0": (0, F.y_)(t.paragraph),
+						"Ctrl-Shift-7": y_1(t.ordered_list),
+						"Ctrl-Shift-8": y_1(t.bullet_list),
+						"Ctrl-Shift-0": y_1(t.paragraph),
 					};
 					if (r.code) {
-						i["Ctrl-Shift-c"] = (0, F.wh)(r.code);
+						i["Ctrl-Shift-c"] = wh(r.code);
 					}
 					if (t.code_block) {
-						i["Alt-Ctrl-Shift-c"] = (0, F.y_)(t.code_block);
+						i["Alt-Ctrl-Shift-c"] = y_1(t.code_block);
 					}
 					if (t.horizontal_rule) {
 						i["Mod-_"] = (e, r) => {
@@ -1135,20 +1169,20 @@ const j = f.memo(function (e) {
 							return true;
 						};
 					}
-					return (0, O.w)(i);
+					return w_1(i);
 				})(t),
 			[t],
 		),
 	);
-	q(f.useMemo(() => (0, O.w)(F.RV), []));
+	q(f.useMemo(() => w_1(F.RV), []));
 	q(
 		f.useMemo(
 			() =>
-				(function (e) {
+				((e) => {
 					const { nodes: t, marks: r } = e;
-					return (0, P.sM)({
+					return sM({
 						rules: [
-							(0, P.tG)(
+							tG(
 								/^(\d+)\.\s$/,
 								t.ordered_list,
 								(e) => ({
@@ -1156,13 +1190,13 @@ const j = f.memo(function (e) {
 								}),
 								(e, t) => t.childCount + t.attrs.order == parseInt(e[1]),
 							),
-							(0, P.tG)(/^\s*([-+*])\s$/, t.bullet_list),
+							tG(/^\s*([-+*])\s$/, t.bullet_list),
 							_U(/\*([^*]+)\*/, r.strong),
 							_U(/_([^_]+)_/, r.italic),
 							_U(/~([^~]+)~/, r.strike),
 							_U(/`([^`]+)`/, r.code),
-							(0, P.JJ)(/^```$/, t.code_block),
-							(0, P.JJ)(/^(#{1,5})\s$/, t.heading, (e) => ({
+							JJ(/^```$/, t.code_block),
+							JJ(/^(#{1,5})\s$/, t.heading, (e) => ({
 								level: e[1].length,
 							})),
 							t.horizontal_rule &&
@@ -1192,7 +1226,7 @@ function q(e) {
 function Q() {
 	return f.useContext(V)?.view;
 }
-const Z = f.memo(function (e) {
+const Z = f.memo((e) => {
 	const { specs: t } = e;
 	const [r, n] = f.useState([]);
 	const i = f.useRef(0);
@@ -1296,11 +1330,6 @@ class K {
 		this.onPropsChanged();
 	}
 }
-var X = require(/*webcrack:missing*/ "./17372.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var $ = require("./64608.js");
-var ee = require("./10606.js");
-var te = require("./13869.js");
 function re(e) {
 	const {
 		closeModal: t,
@@ -1320,7 +1349,7 @@ function re(e) {
 		}
 		t();
 	}, [a, t]);
-	const d = l ? undefined : u;
+	const d = l || u;
 	return f.createElement(
 		te.x_,
 		{
@@ -1356,7 +1385,7 @@ function ne(e, t) {
 			let a = "";
 			let s = "";
 			let { from: o, to: l } = i;
-			const c = (function (e, t, r) {
+			const c = ((e, t, r) => {
 				const { parent: n } = r;
 				const i = n.childAfter(r.parentOffset);
 				const a = i.node?.marks.find((e) => e.type == t);
@@ -1445,7 +1474,7 @@ function ne(e, t) {
 			),
 	];
 }
-const ie = f.memo(function (e) {
+const ie = f.memo((e) => {
 	const {
 		schema: t,
 		strLinkText: r,
@@ -1539,7 +1568,7 @@ function ae(e) {
 		),
 	);
 }
-const se = f.memo(function (e) {
+const se = f.memo((e) => {
 	const { attrName: t, fnRender: r, value: n, setValues: i } = e;
 	return r(
 		n,
@@ -1553,8 +1582,7 @@ const se = f.memo(function (e) {
 		),
 	);
 });
-var oe = require("./48139.js");
-const le = f.memo(function (e) {
+const le = f.memo((e) => {
 	const { linkMarkType: t, onURLPasted: r, schema: n, onClickURL: i = me } = e;
 	const a = f.useRef(i);
 	a.current = i;
@@ -1593,7 +1621,7 @@ const le = f.memo(function (e) {
 							if (o.index > 0) {
 								c.push(n.text(e.substring(0, o.index)));
 							}
-							const i = (0, X.S)(o[0]);
+							const i = S_1(o[0]);
 							const a = r && r(i);
 							if (a && a !== "default") {
 								if (a !== "remove") {
@@ -1689,18 +1717,10 @@ function ce(e) {
 function me(e, t) {
 	t.open(e);
 }
-var ue = require(/*webcrack:missing*/ "./4452.js");
-var de = ue;
-var Ae = require(/*webcrack:missing*/ "./91633.js");
-var pe = require("./12774.js");
-var ge = require("./94790.js");
-var he = require(/*webcrack:missing*/ "./26853.js");
-var Ce = require(/*webcrack:missing*/ "./79769.js");
-import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
+const de = ue;
 function fe(e) {
 	e.preventDefault();
 }
-var be = require("./76627.js");
 function ye(e) {
 	const {
 		children: t,
@@ -1730,14 +1750,14 @@ function ye(e) {
 		),
 	);
 }
-const Se = f.memo(function (e) {
+const Se = f.memo((e) => {
 	const { nodeType: t } = e;
 	const r = Ee();
 	const {
 		placeholderElements: n,
 		createPlaceholder: i,
 		replacePlaceholder: a,
-	} = (function (e, t = "PlaceholderPlugin") {
+	} = ((e, t = "PlaceholderPlugin") => {
 		const [r, n] = f.useState([]);
 		const [i] = f.useState(
 			() =>
@@ -1866,7 +1886,7 @@ const Se = f.memo(function (e) {
 			replacePlaceholder: m,
 		};
 	})("span", "FileUploadPlaceholder");
-	(function (e, t) {
+	((e, t) => {
 		q(
 			f.useMemo(
 				() =>
@@ -1974,7 +1994,7 @@ class ve {
 	m_fnProcessFileUpload;
 	m_fnFetchImageURL;
 	m_bAllowImageHotLinking;
-	m_errors = (0, Ce.Jc)([]);
+	m_errors = Jc([]);
 	m_view;
 	m_fnCreatePlaceholder;
 	m_fnReplacePlaceholder;
@@ -2100,9 +2120,9 @@ const Ie = f.createContext(undefined);
 function Ee() {
 	return f.useContext(Ie).manager;
 }
-const Me = f.memo(function (e) {
+const Me = f.memo((e) => {
 	const { manager: t } = e;
-	const r = (0, i.gc)(t.GetErrors());
+	const r = gc(t.GetErrors());
 	if (r.length) {
 		return f.createElement(
 			ge.E,
@@ -2140,7 +2160,7 @@ function Te(e) {
 		},
 		[t],
 	);
-	const [i, a] = (function (e) {
+	const [i, a] = ((e) => {
 		const [t, r] = f.useState(false);
 		return [
 			{
@@ -2178,11 +2198,6 @@ function Te(e) {
 		...r.props,
 	});
 }
-var Re = require(/*webcrack:missing*/ "./69164.js");
-var ke = require("./69.js");
-var De = require(/*webcrack:missing*/ "./41537.js");
-var Ne = require(/*webcrack:missing*/ "./42318.js");
-var Fe = require(/*webcrack:missing*/ "./87429.js");
 const Ge = "noborder";
 const Oe = "equalcells";
 const Pe = Fe.of({
@@ -2232,7 +2247,7 @@ Pe.table_row;
 v("tr", S.TableRow);
 Pe.table_cell;
 Pe.table_header;
-const ze = f.memo(function (e) {
+const ze = f.memo((e) => {
 	const { schema: t } = e;
 	const r = !!("table" in t.nodes) && !!t.nodes.table.spec.tableRole;
 	q(
@@ -2257,15 +2272,14 @@ class xe extends Fe.Qg {
 		return !!super.update(e) && (this.SetTableClass(e), true);
 	}
 	SetTableClass(e) {
-		this.table.className = (0, B.A)(
+		this.table.className = A_1(
 			S.Table,
 			e.attrs[Ge] && S.NoBorder,
 			e.attrs[Oe] && S.EqualCells,
 		);
 	}
 }
-var Ue = require(/*webcrack:missing*/ "./52451.js");
-const We = (0, Ne.Nr)(function (e) {
+const We = Nr((e) => {
 	const {
 		pmState: t,
 		className: r,
@@ -2287,22 +2301,22 @@ const We = (0, Ne.Nr)(function (e) {
 		}
 	}, [t, l]);
 	f.useEffect(() => () => m?.destroy(), [m]);
-	(0, Ue.D5)(i, m);
+	D5(i, m);
 	const {
 		refDiv: d,
 		onActivate: A,
 		onGamepadDirection: p,
-	} = (function (e) {
+	} = ((e) => {
 		const t = f.useRef();
-		const r = (0, De.FN)();
+		const r = FN();
 		const n = f.useCallback(() => {
 			r.ShowVirtualKeyboard();
 			let n = e?.hasFocus();
 			if (!n) {
 				e.focus();
 				let r = e.dom.childNodes;
-				for (let n = 0; n < r.length; ++n) {
-					let i = r[n];
+
+				for (let i of r) {
 					let a = i.offsetTop;
 					if (a !== undefined && a >= t.current.scrollTop) {
 						let t = i.getBoundingClientRect();
@@ -2313,14 +2327,14 @@ const We = (0, Ne.Nr)(function (e) {
 			}
 		}, [r, e]);
 		const i = f.useCallback((e) => e.currentTarget == e.target, []);
-		const a = (0, ke.ak)(t, null, null, i);
+		const a = ak(t, null, null, i);
 		return {
 			refDiv: t,
 			onActivate: n,
 			onGamepadDirection: a,
 		};
 	})(m);
-	const g = (0, Ue.Ue)(d, c);
+	const g = Ue_1(d, c);
 	if (!t) {
 		return null;
 	}
@@ -2333,7 +2347,7 @@ const We = (0, Ne.Nr)(function (e) {
 		},
 		f.createElement(Re.Z, {
 			key: `editordiv_${a}`,
-			className: (0, B.A)(r, be.Container),
+			className: A_1(r, be.Container),
 			ref: g,
 			spellCheck: a,
 			focusable: true,
@@ -2356,7 +2370,7 @@ const We = (0, Ne.Nr)(function (e) {
 		o,
 	);
 });
-const Ve = f.memo(function (e) {
+const Ve = f.memo((e) => {
 	const { parser: t, schema: r } = e;
 	q(
 		f.useMemo(
@@ -2364,7 +2378,7 @@ const Ve = f.memo(function (e) {
 				new s.k_({
 					props: {
 						transformPasted: (e, n) =>
-							(function (e, t, r) {
+							((e, t, r) => {
 								let n = false;
 								r.content.forEach((e) => {
 									if (e.type == t) {
@@ -2384,19 +2398,14 @@ const Ve = f.memo(function (e) {
 	);
 	return null;
 });
-var He = require(/*webcrack:missing*/ "./72476.js");
-var je = require("./71594.js");
-var qe = require("./35488.js");
-var Qe = require(/*webcrack:missing*/ "./98995.js");
-var Ze = require(/*webcrack:missing*/ "./43691.js");
 const Ye = () => f.useContext(Xe);
 function Ke(e) {
 	const { view: t, refUpdateToolbar: r, children: n } = e;
 	const i = f.useRef();
 	i.current ||= new Ce.lu();
 	f.useEffect(() => {
-		(0, Ue.cZ)(r, () => i.current.Dispatch(t));
-		return () => (0, Ue.cZ)(r, undefined);
+		cZ(r, () => i.current.Dispatch(t));
+		return () => cZ(r, undefined);
 	}, [t, r]);
 	const a = f.useMemo(
 		() => ({
@@ -2432,7 +2441,7 @@ function et(e) {
 	return f.createElement(
 		"div",
 		{
-			className: (0, B.A)(e.className, be.ToolbarRowOverflowContainer),
+			className: A_1(e.className, be.ToolbarRowOverflowContainer),
 		},
 		f.createElement(
 			Re.Z,
@@ -2449,7 +2458,7 @@ function tt(e) {
 	const { callbacks: a, view: s } = Ye();
 	const [o, l] = f.useState(() => z(s.state, t, r));
 	const c = f.useCallback((e) => l(z(e.state, t, r)), [t, r]);
-	(0, Ue.hL)(a, c);
+	hL(a, c);
 	const m = f.useMemo(() => F.y_(t, r), [r, t]);
 	return f.createElement(nt, {
 		...i,
@@ -2463,7 +2472,7 @@ function rt(e) {
 	const { callbacks: i, view: a } = Ye();
 	const [s, o] = f.useState(() => L(a.state, t));
 	const l = f.useCallback((e) => o(L(e.state, t)), [t]);
-	(0, Ue.hL)(i, l);
+	hL(i, l);
 	const c = f.useMemo(() => F.wh(t), [t]);
 	return f.createElement(nt, {
 		...n,
@@ -2476,7 +2485,7 @@ function nt(e) {
 	const { command: t, toggled: r, children: n, ...i } = e;
 	const { view: a, callbacks: s } = Ye();
 	const [o, l] = f.useState(() => t(a.state));
-	(0, Ue.hL)(
+	hL(
 		s,
 		f.useCallback((e) => l(t(e.state)), [t]),
 	);
@@ -2490,7 +2499,7 @@ function nt(e) {
 		f.createElement(
 			$.$n,
 			{
-				className: (0, B.A)(be.CommandButton, r && be.Toggled),
+				className: A_1(be.CommandButton, r && be.Toggled),
 				onMouseDown: (e) => {
 					e.preventDefault();
 					t(a.state, a.dispatch, a);
@@ -2519,7 +2528,7 @@ function it(e) {
 		f.createElement(
 			$.$n,
 			{
-				className: (0, B.A)(be.CommandButton, r && be.Toggled, a),
+				className: A_1(be.CommandButton, r && be.Toggled, a),
 				onMouseDown: (e) => {
 					e.preventDefault();
 					t();
@@ -2605,27 +2614,31 @@ function lt(e) {
 function ct(e) {
 	const { modifier: t } = e;
 	switch (t) {
-		case "Mod":
+		case "Mod": {
 			if (Ze.TS.PLATFORM == "macos") {
 				return "⌘";
 			} else {
 				return "Ctrl";
 			}
-		case "Shift":
+		}
+		case "Shift": {
 			Ze.TS.PLATFORM;
 			return "Shift";
-		case "Ctrl":
+		}
+		case "Ctrl": {
 			if (Ze.TS.PLATFORM == "macos") {
 				return "Control";
 			} else {
 				return "Ctrl";
 			}
-		case "Alt":
+		}
+		case "Alt": {
 			if (Ze.TS.PLATFORM == "macos") {
 				return "Option";
 			} else {
 				return "Alt";
 			}
+		}
 	}
 	return null;
 }
@@ -2634,7 +2647,7 @@ function mt(e) {
 	const { callbacks: i, view: a } = Ye();
 	const [s, o] = f.useState(() => L(a.state, t.marks.link));
 	const l = f.useCallback((e) => o(L(e.state, t.marks.link)), [t]);
-	(0, Ue.hL)(i, l);
+	hL(i, l);
 	const [c, m] = ne(t, r);
 	return f.createElement(
 		f.Fragment,
@@ -2826,7 +2839,7 @@ function gt(e) {
 	const l = f.useMemo(() => w.T2(o), [o]);
 	const c = f.useMemo(() => w.$B(o), [o]);
 	const [m, u] = f.useState(() => l(i.state) || c(i.state));
-	(0, Ue.hL)(
+	hL(
 		n,
 		f.useCallback(
 			(e) => {
@@ -2881,7 +2894,7 @@ function ht(e) {
 	const [l, c] = f.useState(() => o(s));
 	const m = f.useMemo(() => w.Sd(t), [t]);
 	const u = f.useMemo(() => w.T2(r), [r]);
-	(0, Ue.hL)(
+	hL(
 		a,
 		f.useCallback(
 			(e) => {
@@ -2925,7 +2938,6 @@ function _t(e) {
 		f.createElement(qe.SpellCheck, null),
 	);
 }
-var ft = require("./51076.js");
 function bt(e) {
 	const {
 		schema: t,
@@ -2935,7 +2947,7 @@ function bt(e) {
 		bSpellcheckEnabled: a,
 		setSpellcheckEnabled: s,
 	} = e;
-	const [o, l] = (0, ft.SP)("FormattingToolbar_Expanded", false);
+	const [o, l] = SP("FormattingToolbar_Expanded", false);
 	return f.createElement(
 		Ke,
 		{
@@ -2945,7 +2957,7 @@ function bt(e) {
 		f.createElement(
 			"div",
 			{
-				className: (0, B.A)(be.Toolbar, i),
+				className: A_1(be.Toolbar, i),
 			},
 			f.createElement(
 				et,
@@ -3009,16 +3021,13 @@ function bt(e) {
 		),
 	);
 }
-var yt = require("./10325.js");
-var St = require(/*webcrack:missing*/ "./14628.js");
-var wt = require("./7204.js");
 function Bt(e) {
 	const { deleteNote: t, hidden: r, pmState: n } = e;
 	const [i, a] = f.useState();
 	const s = f.useRef();
-	const o = (0, D.EC)();
-	const l = (0, D.WA)();
-	const c = (0, He.Qn)();
+	const o = EC();
+	const l = WA();
+	const c = Qn();
 	const m = {
 		onSecondaryButton: () => t(),
 		onSecondaryActionDescription: (0, Localize)("#UserGameNotes_DeleteNote"),
@@ -3062,9 +3071,9 @@ function Bt(e) {
 		),
 	);
 }
-const vt = f.memo(function (e) {
+const vt = f.memo((e) => {
 	const { schema: t } = e;
-	const r = (0, D.$G)();
+	const r = $G();
 	const n = f.useMemo(
 		() => [
 			{
@@ -3096,7 +3105,7 @@ const vt = f.memo(function (e) {
 function It(e) {
 	const { src: t, selected: r } = e;
 	const [n, i] = f.useState();
-	const a = (0, D.Sy)();
+	const a = Sy();
 	f.useEffect(() => {
 		let e = false;
 		a.ResolveImageURL(t).then((t) => {
@@ -3120,15 +3129,13 @@ function It(e) {
 		return null;
 	}
 }
-var Et = require("./94361.js");
-var Mt = require(/*webcrack:missing*/ "./11131.js");
 const Tt = 10;
 export function U(e) {
 	const { note: t, hidden: r = false } = e;
 	const [n, i] = f.useState(undefined);
 	const a = f.useRef(false);
-	const s = (0, He.Qn)();
-	const { mutate: o } = (0, k.df)(t, i);
+	const s = Qn();
+	const { mutate: o } = df(t, i);
 	const [l, c] = f.useState();
 	f.useEffect(() => {
 		if (!a.current) {
@@ -3138,7 +3145,7 @@ export function U(e) {
 					bbcode: e,
 				}),
 			);
-			(function (e, t) {
+			((e, t) => {
 				e.UpdateState((e) => {
 					const r = [];
 					e.doc.descendants((e, n) => {
@@ -3182,8 +3189,8 @@ export function U(e) {
 			l.CommitChanges();
 		}
 	}, [r, l]);
-	const u = (0, Mt.R7)().ownerWindow;
-	(0, Ue.o4)(
+	const u = R7().ownerWindow;
+	o4(
 		u.document,
 		f.useCallback(
 			(e) => {
@@ -3194,7 +3201,7 @@ export function U(e) {
 			[l],
 		),
 	);
-	(0, Ue.l6)(
+	l6(
 		window,
 		"beforeunload",
 		f.useCallback(
@@ -3207,8 +3214,8 @@ export function U(e) {
 			[l],
 		),
 	);
-	const d = (function (e, t) {
-		const r = (0, D.Sy)();
+	const d = ((e, t) => {
+		const r = Sy();
 		return f.useCallback(
 			async (n) => {
 				const i = await r.UploadImage(`notes_${e}_images/`, n);
@@ -3219,8 +3226,8 @@ export function U(e) {
 			[r, e, t],
 		);
 	})(t.appid, R.pm_schema);
-	const A = (0, D.qq)();
-	const p = (0, k.Bc)(t, A);
+	const A = qq();
+	const p = Bc(t, A);
 	return f.createElement(
 		ye,
 		{
@@ -3270,10 +3277,10 @@ function kt(e) {
 }
 function Dt(e) {
 	const { note: t, bDirty: r } = e;
-	const [n, i, a] = (0, Ue.uD)(false);
-	const s = (0, D.O8)();
-	const o = (0, D.qq)();
-	const { mutate: l, isPending: c } = (0, k.Bc)(t, o);
+	const [n, i, a] = uD(false);
+	const s = O8();
+	const o = qq();
+	const { mutate: l, isPending: c } = Bc(t, o);
 	const m = f.useCallback(() => {
 		if (!r && t.not_persisted) {
 			l();
@@ -3315,7 +3322,7 @@ function Dt(e) {
 }
 function Nt(e) {
 	const { bDirty: t } = e;
-	const r = (0, D.qq)();
+	const r = qq();
 	if (t) {
 		return f.createElement(
 			$.jn,

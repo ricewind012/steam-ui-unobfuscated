@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
 import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
-var o = require("./7558.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./10731.js");
-var u = m;
-var d = require(/*webcrack:missing*/ "./89193.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { cZ } from "./52451.js";
+import o from "./7558.js";
+import { A as A_1 } from "./90765.js";
+import m from "./10731.js";
+import d, { Gn } from "./89193.js";
+import A from "./41230.js";
+import { q3 } from "./90095.js";
+const u = m;
 const g = new (class {
 	m_data = new Map();
 	get(e) {
@@ -21,11 +21,11 @@ const g = new (class {
 		}
 	}
 })();
-const h = i.createContext(null);
+const HContext = i.createContext(null);
 export let kd = class extends i.Component {
 	constructor(e) {
 		super(e);
-		(0, d.Gn)(this);
+		Gn(this);
 	}
 	m_mountedSmartScrollContainers = [];
 	AddSmartScrollContainer(e) {
@@ -48,7 +48,7 @@ export let kd = class extends i.Component {
 	}
 	render() {
 		return i.createElement(
-			h.Provider,
+			HContext.Provider,
 			{
 				value: this,
 			},
@@ -57,18 +57,18 @@ export let kd = class extends i.Component {
 	}
 };
 export function iE() {
-	const e = i.useContext(h);
-	return (0, p.q3)(() =>
-		e.m_mountedSmartScrollContainers.length == 0
-			? null
-			: e.m_mountedSmartScrollContainers[
-					e.m_mountedSmartScrollContainers.length - 1
-				],
+	const e = i.useContext(HContext);
+	return q3(
+		() =>
+			e.m_mountedSmartScrollContainers.length == 0 ||
+			e.m_mountedSmartScrollContainers[
+				e.m_mountedSmartScrollContainers.length - 1
+			],
 	);
 }
-(0, n.Cg)([d.sH], kd.prototype, "m_mountedSmartScrollContainers", undefined);
-(0, n.Cg)([d.EW], kd.prototype, "latestScrollContainerScrollTop", null);
-kd = (0, n.Cg)([A.PA], kd);
+Cg([d.sH], kd.prototype, "m_mountedSmartScrollContainers", undefined);
+Cg([d.EW], kd.prototype, "latestScrollContainerScrollTop", null);
+kd = Cg([A.PA], kd);
 class f extends i.Component {
 	m_animation;
 	m_elTarget;
@@ -112,7 +112,7 @@ class f extends i.Component {
 	}
 	UpdateRef(e) {
 		this.m_elTarget = e;
-		(0, a.cZ)(this.props.innerRef, e);
+		cZ(this.props.innerRef, e);
 	}
 	ScrollToTop() {
 		this.ScrollTo(0);
@@ -144,16 +144,11 @@ class f extends i.Component {
 		}
 	}
 	render() {
-		const {
-			className: e,
-			innerRef: t,
-			strRememberScrollKey: r,
-			...n
-		} = this.props;
+		const { className, innerRef, strRememberScrollKey, ...n } = this.props;
 		return i.createElement(
 			"div",
 			{
-				className: (0, l.A)(u.Body, e),
+				className: A_1(u.Body, className),
 				...n,
 				ref: this.UpdateRef,
 			},
@@ -170,14 +165,14 @@ function b(e) {
 		e.children,
 	);
 }
-(0, n.Cg)([a.oI], f.prototype, "UpdateRef", null);
-(0, n.Cg)([a.oI], f.prototype, "ScrollToTop", null);
+Cg([a.oI], f.prototype, "UpdateRef", null);
+Cg([a.oI], f.prototype, "ScrollToTop", null);
 export class ix extends i.Component {
 	constructor(e) {
 		super(e);
-		(0, d.Gn)(this);
+		Gn(this);
 	}
-	static contextType = h;
+	static contextType = HContext;
 	static defaultProps = {
 		scrollToTopThreshold: 1000,
 	};
@@ -230,30 +225,30 @@ export class ix extends i.Component {
 	}
 	render() {
 		const {
-			className: e,
-			onScroll: t,
-			scrollClassName: r,
-			scrollToTopThreshold: n,
-			scrollToTopButtonWrapper: a,
-			innerRef: s,
-			strRememberScrollKey: o,
+			className,
+			onScroll,
+			scrollClassName,
+			scrollToTopThreshold,
+			scrollToTopButtonWrapper,
+			innerRef,
+			strRememberScrollKey,
 			...c
 		} = this.props;
-		let m = a || b;
+		let m = scrollToTopButtonWrapper || b;
 		return i.createElement(
 			"div",
 			{
-				className: (0, l.A)(u.Container, e),
+				className: A_1(u.Container, className),
 				...c,
 			},
 			i.createElement(
 				f,
 				{
-					className: r,
+					className: scrollClassName,
 					ref: this.m_elTarget,
 					onScroll: this.OnScroll,
-					innerRef: s,
-					strRememberScrollKey: o,
+					innerRef: innerRef,
+					strRememberScrollKey: strRememberScrollKey,
 				},
 				this.props.children,
 			),
@@ -268,17 +263,17 @@ export class ix extends i.Component {
 		);
 	}
 }
-(0, n.Cg)([d.sH], ix.prototype, "m_nScrollTop", undefined);
-(0, n.Cg)([a.oI], ix.prototype, "OnScroll", null);
-(0, n.Cg)([a.oI], ix.prototype, "ScrollToTop", null);
+Cg([d.sH], ix.prototype, "m_nScrollTop", undefined);
+Cg([a.oI], ix.prototype, "OnScroll", null);
+Cg([a.oI], ix.prototype, "ScrollToTop", null);
 class S extends i.Component {
 	render() {
-		let { action: e, visible: t } = this.props;
+		let { action, visible } = this.props;
 		return i.createElement(
 			"div",
 			{
-				className: (0, l.A)(u.ScrollToTopButton, t && u.Visible),
-				onClick: e,
+				className: A_1(u.ScrollToTopButton, visible && u.Visible),
+				onClick: action,
 			},
 			i.createElement("div", null, Localize("#Generic_ScrollToTop")),
 		);

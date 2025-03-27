@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./49455.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn, h5 } from "./89193.js";
+import o, { w } from "./49455.js";
+import c from "./72476.js";
+const a = i;
 class m {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	exportFn = undefined;
 	file = undefined;
@@ -25,19 +25,19 @@ class m {
 	uploadProgress = 0;
 	strErrorDescription = undefined;
 }
-(0, n.Cg)([s.sH], m.prototype, "file", undefined);
-(0, n.Cg)([s.sH], m.prototype, "dataURL", undefined);
-(0, n.Cg)([s.sH], m.prototype, "imageWidth", undefined);
-(0, n.Cg)([s.sH], m.prototype, "imageHeight", undefined);
-(0, n.Cg)([s.sH], m.prototype, "eUploadState", undefined);
-(0, n.Cg)([s.sH], m.prototype, "uploadProgress", undefined);
-(0, n.Cg)([s.sH], m.prototype, "strErrorDescription", undefined);
+Cg([s.sH], m.prototype, "file", undefined);
+Cg([s.sH], m.prototype, "dataURL", undefined);
+Cg([s.sH], m.prototype, "imageWidth", undefined);
+Cg([s.sH], m.prototype, "imageHeight", undefined);
+Cg([s.sH], m.prototype, "eUploadState", undefined);
+Cg([s.sH], m.prototype, "uploadProgress", undefined);
+Cg([s.sH], m.prototype, "strErrorDescription", undefined);
 export class i6 {
 	m_Callbacks;
 	m_fileUploadProps = new m();
 	m_onComplete;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_Callbacks = e;
 	}
 	get file_upload_props() {
@@ -60,21 +60,21 @@ export class i6 {
 		this.m_fileUploadProps.displayFileName = null;
 	}
 	async StartFileExportToUpload(e, t = {}) {
-		const { displayFilename: r, info: n, onComplete: i } = t;
+		const { displayFilename, info, onComplete } = t;
 		this.m_fileUploadProps.eUploadState = 7;
 		this.m_fileUploadProps.uploadProgress = 0;
-		this.m_onComplete = i;
-		this.m_fileUploadProps.fileInfo = n;
+		this.m_onComplete = onComplete;
+		this.m_fileUploadProps.fileInfo = info;
 		this.SetFileToUpload(e);
-		this.m_fileUploadProps.displayFileName = r;
+		this.m_fileUploadProps.displayFileName = displayFilename;
 	}
 	async SetImageFileToUpload(e, t = {}) {
-		const { processor: r = d, info: n } = t;
+		const { processor = d, info } = t;
 		if (!e) {
 			this.SetFileToUpload(null);
 			return;
 		}
-		this.m_fileUploadProps.fileInfo = n;
+		this.m_fileUploadProps.fileInfo = info;
 		const i = this.m_Callbacks.GetFileNameOverride?.() ?? e.name;
 		if (e.size > this.m_Callbacks.GetMaxFileSizeMB() * 1024 * 1024) {
 			this.SetUploadFileError(
@@ -89,7 +89,7 @@ export class i6 {
 		}
 		let a = e.name.split(".").pop().toLowerCase();
 		if (
-			[
+			![
 				"jpg",
 				"jpeg",
 				"png",
@@ -99,7 +99,7 @@ export class i6 {
 				"mp4",
 				"mpeg",
 				"ogv",
-			].indexOf(a) == -1
+			].includes(a)
 		) {
 			this.SetUploadFileError(
 				5,
@@ -107,7 +107,7 @@ export class i6 {
 			);
 			return;
 		}
-		const s = await r(e);
+		const s = await processor(e);
 		this.SetFileToUpload(s.file);
 		this.m_fileUploadProps.imageHeight = s.height;
 		this.m_fileUploadProps.imageWidth = s.width;
@@ -131,7 +131,7 @@ export class i6 {
 			return;
 		}
 		let n = e.name.split(".").pop().toLowerCase();
-		if (["zip"].indexOf(n) != -1) {
+		if (["zip"].includes(n)) {
 			this.SetFileToUpload(e);
 		} else {
 			this.SetUploadFileError(
@@ -165,8 +165,9 @@ export class i6 {
 				console.error(`Failed to created object URL from file: ${e}`);
 			}
 			this.m_fileUploadProps.displayFileName = this.m_fileUploadProps.file.name;
-			this.m_fileUploadProps.uploadFileName =
-				window.performance.now() + "_" + this.m_fileUploadProps.file.name;
+			this.m_fileUploadProps.uploadFileName = `${window.performance.now()}_${
+				this.m_fileUploadProps.file.name
+			}`;
 		}
 		this.m_fileUploadProps.eUploadState = 1;
 		let r = "";
@@ -185,30 +186,26 @@ export class i6 {
 		this.m_fileUploadProps.uploadProgress = 0;
 		if (this.m_fileUploadProps.exportFn) {
 			this.m_fileUploadProps.eUploadState = 7;
-			const { eResult: e, file: t } = await this.m_fileUploadProps.exportFn(
-				(e) => {
-					(0, s.h5)(() => {
-						this.m_fileUploadProps.uploadProgress = e * 0.5;
-					});
-				},
-			);
-			if (e != 1 || !t) {
+			const { eResult, file } = await this.m_fileUploadProps.exportFn((e) => {
+				h5(() => {
+					this.m_fileUploadProps.uploadProgress = e * 0.5;
+				});
+			});
+			if (eResult != 1 || !file) {
 				this.SetUploadFileError(
 					3,
 					Localize("#Chat_Settings_Error_ExportFailed"),
 				);
 				return new Response();
 			}
-			this.m_fileUploadProps.file = t;
-			this.m_fileUploadProps.uploadFileName =
-				window.performance.now() + "_" + t.name;
+			this.m_fileUploadProps.file = file;
+			this.m_fileUploadProps.uploadFileName = `${window.performance.now()}_${
+				file.name
+			}`;
 		}
 		let t = this.m_fileUploadProps.file;
 		if (!t) {
-			(0, o.w)(
-				false,
-				"Must SetImageFileToUpload before calling BeginFileUpload",
-			);
+			w(false, "Must SetImageFileToUpload before calling BeginFileUpload");
 			throw new Error("Invalid State");
 		}
 		this.m_fileUploadProps.eUploadState = 2;
@@ -247,7 +244,7 @@ export class i6 {
 			} catch (e) {}
 			if (!t.ok) {
 				let r = null;
-				(0, s.h5)(() => {
+				h5(() => {
 					this.m_fileUploadProps.eUploadState = 3;
 					this.LogFileUploadMessage(t);
 					r = e?.message
@@ -268,7 +265,7 @@ export class i6 {
 			return this.DoFileUpload(e.result);
 		} catch (e) {
 			let t = e || Localize("#ConnectionTrouble_FailedToConnect");
-			(0, s.h5)(() => {
+			h5(() => {
 				this.m_fileUploadProps.eUploadState = 3;
 				this.m_fileUploadProps.strErrorDescription = Localize(
 					"#Chat_Upload_ErrorStart",
@@ -288,7 +285,7 @@ export class i6 {
 				const r = t ? 50 : 100;
 				const n = (t ? 50 : 0) + (e.loaded / e.total) * r;
 				if (n > this.m_fileUploadProps.uploadProgress) {
-					(0, s.h5)(() => {
+					h5(() => {
 						this.m_fileUploadProps.uploadProgress = n;
 					});
 				}
@@ -296,18 +293,19 @@ export class i6 {
 			headers: {},
 			transformRequest: [(e) => e],
 		};
-		for (let t = 0; t < e.request_headers.length; ++t) {
-			let r = e.request_headers[t];
+
+		for (let r of e.request_headers) {
 			if (r.name != "Content-Length" && r.name != "Host") {
 				n.headers[r.name] = r.value;
 			}
 		}
+
 		try {
 			await a.put(r, t, n);
 			return this.CommitFileUpload(true, e.ugcid);
 		} catch (t) {
 			this.LogFileUploadMessage(t.response);
-			(0, s.h5)(() => {
+			h5(() => {
 				this.m_fileUploadProps.strErrorDescription = Localize(
 					"#Chat_Upload_ErrorCloud",
 				);
@@ -365,7 +363,7 @@ export class i6 {
 				return null;
 			}
 			let n = null;
-			(0, s.h5)(() => {
+			h5(() => {
 				this.LogFileUploadMessage(t);
 				this.m_fileUploadProps.uploadProgress = 0;
 				this.m_fileUploadProps.eUploadState = 3;
@@ -393,6 +391,7 @@ export class i6 {
 		if (
 			this.m_fileUploadProps.eUploadState == 3 ||
 			this.m_fileUploadProps.eUploadState == 4 ||
+			this.m_fileUploadProps.eUploadState == 4 ||
 			this.m_fileUploadProps.eUploadState == 5
 		) {
 			this.Reset();
@@ -407,7 +406,7 @@ function d(e) {
 		let r = new FileReader();
 		r.onload = () => {
 			let n = e;
-			let i = (function (e) {
+			let i = ((e) => {
 				let t = new DataView(e);
 				let r = 0;
 				let n = 0;
@@ -482,14 +481,14 @@ function d(e) {
 		r.readAsArrayBuffer(e);
 	});
 }
-(0, n.Cg)([s.XI], i6.prototype, "SetUploadFileError", null);
-(0, n.Cg)([s.XI], i6.prototype, "StartFileExportToUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "SetImageFileToUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "SetOtherFileToUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "SetFileToUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "RetryFileUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "BeginFileUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "DoFileUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "CommitFileUpload", null);
-(0, n.Cg)([s.XI], i6.prototype, "ClearFileUploadError", null);
-(0, n.Cg)([s.XI], i6.prototype, "Reset", null);
+Cg([s.XI], i6.prototype, "SetUploadFileError", null);
+Cg([s.XI], i6.prototype, "StartFileExportToUpload", null);
+Cg([s.XI], i6.prototype, "SetImageFileToUpload", null);
+Cg([s.XI], i6.prototype, "SetOtherFileToUpload", null);
+Cg([s.XI], i6.prototype, "SetFileToUpload", null);
+Cg([s.XI], i6.prototype, "RetryFileUpload", null);
+Cg([s.XI], i6.prototype, "BeginFileUpload", null);
+Cg([s.XI], i6.prototype, "DoFileUpload", null);
+Cg([s.XI], i6.prototype, "CommitFileUpload", null);
+Cg([s.XI], i6.prototype, "ClearFileUploadError", null);
+Cg([s.XI], i6.prototype, "Reset", null);

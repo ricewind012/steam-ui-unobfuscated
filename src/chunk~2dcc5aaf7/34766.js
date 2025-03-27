@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	CaptivePortalBrowserViewContainer: "_3UTt2nIWBgUA6Si5bv8xfQ",
 	CaptivePortalBrowserView: "_1OG5SeMlZEg_X4SRfsy1HU",

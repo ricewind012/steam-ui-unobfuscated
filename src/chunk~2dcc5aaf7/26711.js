@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	toastAnimateInMS: "300ms",
 	toastAnimateOutMS: "300ms",

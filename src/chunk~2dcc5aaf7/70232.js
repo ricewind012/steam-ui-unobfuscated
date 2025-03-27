@@ -1,10 +1,10 @@
-export var E;
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./72476.js");
-var o = require(/*webcrack:missing*/ "./79769.js");
-var l = require("./42731.js");
-(function (e) {
+import i from "./83957.js";
+import s from "./72476.js";
+import o from "./79769.js";
+import l from "./42731.js";
+export let E;
+const a = i;
+((e) => {
 	e[(e.k_eDiscussions = 0)] = "k_eDiscussions";
 	e[(e.k_eThumbsUp = 1)] = "k_eThumbsUp";
 	e[(e.k_eClickThrough = 2)] = "k_eClickThrough";
@@ -140,11 +140,11 @@ export const V = new (class {
 	}
 	SendExperimentEventToSteam(e, t) {
 		this.InitBrowserID();
-		const r = s.TS.STORE_BASE_URL + "events/ajaxreportnewshubstats/";
+		const r = `${s.TS.STORE_BASE_URL}events/ajaxreportnewshubstats/`;
 		const n = new URLSearchParams();
-		n.append("page_action", "" + e);
+		n.append("page_action", `${e}`);
 		n.append("snr", s.TS.SNR);
-		n.append("uint_data", "" + t);
+		n.append("uint_data", `${t}`);
 		n.append("str_data", this.m_sBrowserID);
 		a.post(r, n);
 	}
@@ -153,13 +153,14 @@ export const V = new (class {
 			if (s.TS.IN_CLIENT) {
 				this.m_sBrowserID = "steam";
 			} else {
-				const e = navigator.userAgent;
+				const navigator_userAgent = navigator.userAgent;
 				if (
-					/iPhone|iPad|iPod/i.test(e) ||
-					(/Macintosh/i.test(e) && /Safari/i.test(e))
+					/iPhone|iPad|iPod/i.test(navigator_userAgent) ||
+					(/Macintosh/i.test(navigator_userAgent) &&
+						/Safari/i.test(navigator_userAgent))
 				) {
 					this.m_sBrowserID = "ios";
-				} else if (/Android/i.test(e)) {
+				} else if (/Android/i.test(navigator_userAgent)) {
 					this.m_sBrowserID = "android";
 				} else {
 					this.m_sBrowserID = "";

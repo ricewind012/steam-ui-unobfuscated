@@ -1,33 +1,33 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require("./333.js");
-var m = require(/*webcrack:missing*/ "./8573.js");
-var u = require("./33223.js");
-var d = require("./39039.js");
 import { PadArray } from "../../actual_src/utils/arrayutils.js";
-var p = require(/*webcrack:missing*/ "./49455.js");
-var g = require("./16154.js");
-var h = require(/*webcrack:missing*/ "./79769.js");
-require(/*webcrack:missing*/ "./52451.js");
 import { Sleep } from "../../actual_src/utils/time.js";
-var _ = require(/*webcrack:missing*/ "./72476.js");
-var f = require(/*webcrack:missing*/ "./36885.js");
-var b = require("./21920.js");
-var y = require(/*webcrack:missing*/ "./93960.js");
-var S = require(/*webcrack:missing*/ "./43691.js");
-var w = require("./39082.js");
-var B = require("./71472.js");
+import n, { Cg } from "./34629.js";
+import i, { x6, Lg } from "./44846.js";
+import a from "./83957.js";
+import o, { Gn, h5 } from "./89193.js";
+import l, { useState, useEffect } from "./63696.js";
+import c, { s4, yu } from "./333.js";
+import m from "./8573.js";
+import u from "./33223.js";
+import d, { m as m_1 } from "./39039.js";
+import { w as w_1 } from "./49455.js";
+import { H } from "./16154.js";
+import h, { RR } from "./79769.js";
+import "./52451.js";
+import _ from "./72476.js";
+import { mJ } from "./36885.js";
+import b, { yh } from "./21920.js";
+import y from "./93960.js";
+import S from "./43691.js";
+import w from "./39082.js";
+import { P } from "./71472.js";
+const s = a;
 class v {
 	m_filesToUpload = o.sH.array();
 	m_strUploadPath = null;
 	m_fnUploadSuccessCallback = null;
 	m_bSynchronousUpload = false;
 	constructor(e, t, r) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_strUploadPath = e;
 		this.m_fnUploadSuccessCallback = t;
 		this.m_bSynchronousUpload = r;
@@ -146,49 +146,57 @@ class v {
 			}
 		}
 		if (!this.m_bSynchronousUpload) {
-			s = await (0, h.RR)(a);
+			s = await RR(a);
 		}
 		Object.keys(s).forEach((r) => {
-			const n = s[r];
+			const s_r = s[r];
 			const i = this.m_filesToUpload.find(
 				(e) => `${e.uploadTime}/${e.file.name}` === r,
 			);
 			if (i) {
-				if (n && n.success === 1) {
+				if (s_r && s_r.success === 1) {
 					i.status = "success";
-					const r = (0, B.P)(n.language, t, e);
+					const r = P(s_r.language, t, e);
 					this.m_fnUploadSuccessCallback(
-						n.image_hash,
-						n.file_name,
+						s_r.image_hash,
+						s_r.file_name,
 						r,
-						(function (e) {
+						((e) => {
 							switch (e) {
-								case 2:
+								case 2: {
 									return "image/gif";
-								case 1:
+								}
+								case 1: {
 									return "image/jpeg";
-								case 3:
+								}
+								case 3: {
 									return "image/png";
-								case 4:
+								}
+								case 4: {
 									return "video/mp4";
-								case 5:
+								}
+								case 5: {
 									return "video/webm";
-								case 6:
+								}
+								case 6: {
 									return "text/vtt";
-								case 7:
+								}
+								case 7: {
 									return "text/srt";
-								case 10:
+								}
+								case 10: {
 									return "image/webp";
+								}
 							}
 							return null;
-						})(n.file_type),
+						})(s_r.file_type),
 						i.type,
 						i.width,
 						i.height,
 					);
 				} else {
 					i.status = "failed";
-					i.message = n.message;
+					i.message = s_r.message;
 				}
 			}
 		});
@@ -199,10 +207,10 @@ class v {
 		const l = new FormData();
 		l.append("assetfile", e, t);
 		l.append("sessionid", S.TS.SESSIONID);
-		l.append("elangauge", "" + r);
+		l.append("elangauge", `${r}`);
 		l.append("originalname", t);
 		if (i?.length > 0) {
-			l.append("resize", i.map((e) => e.width + "x" + e.height).join(","));
+			l.append("resize", i.map((e) => `${e.width}x${e.height}`).join(","));
 		}
 		if (n) {
 			l.append("arttype", n);
@@ -223,7 +231,7 @@ class v {
 				},
 			});
 		} catch (e) {
-			const t = (0, g.H)(e);
+			const t = H(e);
 			console.log("CCloudImageUploader.UploadFile failed ", t, e);
 			o = e.response;
 		}
@@ -252,23 +260,23 @@ function I(e) {
 		return null;
 	}
 }
-(0, n.Cg)([o.sH], v.prototype, "m_filesToUpload", undefined);
-(0, n.Cg)([y.o], v.prototype, "GetUploadImages", null);
-(0, n.Cg)([y.o], v.prototype, "ClearImages", null);
-(0, n.Cg)([y.o], v.prototype, "DeleteUploadImage", null);
-(0, n.Cg)([y.o], v.prototype, "AddImageForLanguage", null);
-(0, n.Cg)([y.o], v.prototype, "UploadAllImages", null);
-export var wI;
+Cg([o.sH], v.prototype, "m_filesToUpload", undefined);
+Cg([y.o], v.prototype, "GetUploadImages", null);
+Cg([y.o], v.prototype, "ClearImages", null);
+Cg([y.o], v.prototype, "DeleteUploadImage", null);
+Cg([y.o], v.prototype, "AddImageForLanguage", null);
+Cg([y.o], v.prototype, "UploadAllImages", null);
+export let wI;
 export function AS(e, t, r, n = false) {
 	if (r) {
 		for (let i of r) {
-			if (n ? (0, c.s4)(e, t, i) : (0, c.yu)(e, t, i)) {
+			if (n ? s4(e, t, i) : yu(e, t, i)) {
 				return i;
 			}
 		}
 	}
 }
-(function (e) {
+((e) => {
 	e.full = "";
 	e.background_main = "_960x311";
 	e.background_mini = "_480x156";
@@ -286,7 +294,7 @@ export const pb = [
 ];
 export class i6 {
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 		if (_.TS.WEB_UNIVERSE == "dev") {
 			window.g_ClanImageStore = this;
 		}
@@ -315,29 +323,37 @@ export class i6 {
 	}
 	static GetExtensionStringForFileType(e) {
 		switch (e) {
-			case 1:
+			case 1: {
 				return ".jpg";
-			case 2:
+			}
+			case 2: {
 				return ".gif";
-			case 3:
+			}
+			case 3: {
 				return ".png";
-			case 5:
+			}
+			case 5: {
 				return ".webm";
-			case 4:
+			}
+			case 4: {
 				return ".mp4";
-			case 7:
+			}
+			case 7: {
 				return ".srt";
-			case 6:
+			}
+			case 6: {
 				return ".vtt";
-			case 10:
+			}
+			case 10: {
 				return ".webp";
+			}
 		}
 	}
 	static GetExtensionString(e) {
 		return i6.GetExtensionStringForFileType(e.file_type) || ".jpg";
 	}
 	static GetExtensionTypeFromURL(e) {
-		return (0, b.yh)(e);
+		return yh(e);
 	}
 	static GetHashAndExt(e) {
 		if (e) {
@@ -355,7 +371,7 @@ export class i6 {
 	}
 	m_vecClanImageDragListener = new Array();
 	AddClanImageDragListener(e) {
-		if (this.m_vecClanImageDragListener.indexOf(e) == -1) {
+		if (!this.m_vecClanImageDragListener.includes(e)) {
 			this.m_vecClanImageDragListener.push(e);
 		}
 	}
@@ -383,15 +399,13 @@ export class i6 {
 	}
 	async InternalLoadClanImages(e, t, r) {
 		let n = e.GetAccountID();
-		(0, p.w)(e && n != 0, "ClanSteamID missing:" + e);
+		w_1(e && n != 0, `ClanSteamID missing:${e}`);
 		if (e && (!this.m_mapClanToImages.has(n) || t)) {
 			let t = {};
 			let i = null;
-			const a =
-				_.TS.COMMUNITY_BASE_URL +
-				"/gid/" +
-				e.ConvertTo64BitString() +
-				"/getimages/";
+			const a = `${
+				_.TS.COMMUNITY_BASE_URL
+			}/gid/${e.ConvertTo64BitString()}/getimages/`;
 			i = await s.get(a, {
 				params: t,
 				withCredentials: true,
@@ -400,7 +414,7 @@ export class i6 {
 			for (let e of i.data.images) {
 				e.clanAccountID = n;
 			}
-			(0, o.h5)(() => {
+			h5(() => {
 				this.m_mapClanImageLoadState.set(n, {
 					loaded: true,
 				});
@@ -429,7 +443,7 @@ export class i6 {
 			t = t.trim().toLowerCase();
 			let r = new Array();
 			for (let n of e) {
-				if (n.file_name && n.file_name.toLowerCase().indexOf(t) >= 0) {
+				if (n.file_name && n.file_name.toLowerCase().includes(t)) {
 					r.push(n);
 				}
 			}
@@ -480,15 +494,12 @@ export class i6 {
 		};
 		let n = e.GetAccountID();
 		let i = await s.get(
-			_.TS.COMMUNITY_BASE_URL +
-				"/gid/" +
-				e.ConvertTo64BitString() +
-				"/deleteimage/",
+			`${_.TS.COMMUNITY_BASE_URL}/gid/${e.ConvertTo64BitString()}/deleteimage/`,
 			{
 				params: r,
 			},
 		);
-		if (!i || i.status != 200 || i.data.success != 1) {
+		if (!i || i.status != 200 || i.status != 200 || i.data.success != 1) {
 			return i.data;
 		}
 		let a = this.m_mapClanToImages.get(n);
@@ -514,30 +525,19 @@ export class i6 {
 			let s = t.substring(t.lastIndexOf("."));
 			let o = t.substring(0, t.length - s.length);
 			if (n && a == "localized_image_group") {
-				return (
-					(0, f.mJ)() +
-					e.GetAccountID() +
-					"/" +
-					o +
-					"/" +
-					(0, i.x6)((0, i.Lg)(n)) +
-					s
-				);
+				return `${mJ() + e.GetAccountID()}/${o}/${x6(Lg(n))}${s}`;
 			} else {
-				return (0, f.mJ)() + e.GetAccountID() + "/" + o + r + s;
+				return `${mJ() + e.GetAccountID()}/${o}${r}${s}`;
 			}
 		}
-		return (0, f.mJ)() + e.GetAccountID() + "/" + t;
+		return `${mJ() + e.GetAccountID()}/${t}`;
 	}
 	static GenerateEditableArtworkURLFromHashAndExtension(e, t, r) {
-		let n =
-			_.TS.COMMUNITY_BASE_URL +
-			"gid/" +
-			e.ConvertTo64BitString() +
-			"/showclanimage/?image_hash_and_ext=" +
-			t;
+		let n = `${
+			_.TS.COMMUNITY_BASE_URL
+		}gid/${e.ConvertTo64BitString()}/showclanimage/?image_hash_and_ext=${t}`;
 		if (r) {
-			n += "&lang=" + r;
+			n += `&lang=${r}`;
 		}
 		return n;
 	}
@@ -561,8 +561,7 @@ export class i6 {
 		i.crossOrigin = "anonymous";
 		i.onerror = (t) => {
 			if (!r) {
-				n.err_msg =
-					"Load fail on url " + e + " with error: " + (0, g.H)(t).strErrorMsg;
+				n.err_msg = `Load fail on url ${e} with error: ${H(t).strErrorMsg}`;
 				console.error(n.err_msg);
 			}
 			n.success = 2;
@@ -570,9 +569,9 @@ export class i6 {
 		i.onload = () => {
 			n.width = i.width;
 			n.height = i.height;
-			(0, p.w)(
+			w_1(
 				n.width > 0 && n.height > 0,
-				"unexpected image resolution discovered for strURL: " + e,
+				`unexpected image resolution discovered for strURL: ${e}`,
 			);
 			n.success = 1;
 		};
@@ -598,14 +597,14 @@ export class i6 {
 		let l = new Image();
 		l.crossOrigin = "anonymous";
 		l.onerror = (e) => {
-			s = "Load fail on url " + r + " with error: " + (0, g.H)(e).strErrorMsg;
+			s = `Load fail on url ${r} with error: ${H(e).strErrorMsg}`;
 			console.error(s);
 		};
 		l.onload = () => {
 			let e = new Image();
 			e.crossOrigin = "anonymous";
 			e.onerror = (e) => {
-				s = "Load fail on url " + t + " with error: " + (0, g.H)(e).strErrorMsg;
+				s = `Load fail on url ${t} with error: ${H(e).strErrorMsg}`;
 				console.error(s);
 			};
 			e.onload = () => {
@@ -620,7 +619,7 @@ export class i6 {
 					r.drawImage(l, n, s);
 					t.toBlob((e) => (o = e), "image/jpeg");
 				} catch (e) {
-					s = "Failed during image processing for " + n + " with " + e;
+					s = `Failed during image processing for ${n} with ${e}`;
 				}
 			};
 			e.src = t;
@@ -651,14 +650,12 @@ export class i6 {
 		return d.image_hash + i6.GetExtensionString(d);
 	}
 	async BDoesClanImageFileExistsOnCDNOrOrigin(e, t, r, n) {
-		let i =
-			_.TS.COMMUNITY_BASE_URL +
-			"gid/" +
-			t.ConvertTo64BitString() +
-			"/hasclanimagefile";
+		let i = `${
+			_.TS.COMMUNITY_BASE_URL
+		}gid/${t.ConvertTo64BitString()}/hasclanimagefile`;
 		let a = {
 			image_hash_and_ext: r,
-			lang: "" + n,
+			lang: `${n}`,
 		};
 		return (
 			(
@@ -672,6 +669,7 @@ export class i6 {
 	SetPrimaryImageForImageGroup(e, t) {
 		if (
 			!this.m_curLocImageGroup ||
+			this.m_curLocImageGroup.primaryImage.imageid != e.imageid ||
 			this.m_curLocImageGroup.primaryImage.imageid != e.imageid ||
 			t != this.m_curLocImageGroupType
 		) {
@@ -723,7 +721,7 @@ export class i6 {
 			i.push(this.BDoesClanImageFileExistsOnCDNOrOrigin(e, r, n, t));
 		}
 		let a = await Promise.all(i);
-		(0, o.h5)(() => {
+		h5(() => {
 			for (let e = 0; e < 31; ++e) {
 				if (a[e]) {
 					this.m_curLocImageGroup.localized_images[e] =
@@ -773,18 +771,18 @@ export class i6 {
 		);
 	}
 }
-(0, n.Cg)([o.sH], i6.prototype, "m_mapClanToImages", undefined);
-(0, n.Cg)([o.sH], i6.prototype, "m_mapClanImageLoadState", undefined);
-(0, n.Cg)([o.sH], i6.prototype, "m_curLocImageGroup", undefined);
+Cg([o.sH], i6.prototype, "m_mapClanToImages", undefined);
+Cg([o.sH], i6.prototype, "m_mapClanImageLoadState", undefined);
+Cg([o.sH], i6.prototype, "m_curLocImageGroup", undefined);
 export const pU = new i6();
 export function mr(e) {
 	const t = m.b.InitFromClanID(e);
-	const r = (0, d.m)("useLoadClanImages");
-	const [n, i] = (0, l.useState)(() => pU.BHasLoadedClanImages(t));
-	(0, l.useEffect)(() => {
+	const r = m_1("useLoadClanImages");
+	const [n, setN] = useState(() => pU.BHasLoadedClanImages(t));
+	useEffect(() => {
 		const t = m.b.InitFromClanID(e);
 		if (!pU.BHasLoadedClanImages(t)) {
-			pU.LoadClanImages(t, false, r).then(() => i(true));
+			pU.LoadClanImages(t, false, r).then(() => setN(true));
 		}
 	}, [e, r]);
 	return n;

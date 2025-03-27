@@ -1,151 +1,158 @@
-var n = require(/*webcrack:missing*/ "./69164.js");
-var i = require("./91745.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./78325.js");
-var o = require(/*webcrack:missing*/ "./92251.js");
-var l = require(/*webcrack:missing*/ "./42318.js");
 import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
-var m = require(/*webcrack:missing*/ "./72476.js");
+import n from "./69164.js";
+import i from "./91745.js";
+import a from "./63696.js";
+import s from "./78325.js";
+import o from "./92251.js";
+import l from "./42318.js";
+import { Qn } from "./72476.js";
 const u = 300;
 const d = 80;
 const A = 1000;
-var p;
+let p;
 export function z(e) {
 	const {
-		renderHover: t,
-		hoverDelay: r = u,
-		hoverHideDelay: s = d,
-		visibilityObserver: o,
-		bInteractiveHover: l,
-		bOnlyIfOverflowing: g,
-		bDisabled: _,
-		direction: f,
-		nBodyAlignment: b,
-		nBodyDistance: y,
-		nAllowOffscreenPx: S,
-		nMaxLateralMoveOnScreen: w,
-		onMouseEnter: B,
-		onMouseLeave: v,
-		onButtonDown: I,
-		onButtonUp: E,
-		onContextMenu: M,
-		showFocusRing: T,
-		children: R,
+		renderHover,
+		hoverDelay = u,
+		hoverHideDelay = d,
+		visibilityObserver,
+		bInteractiveHover,
+		bOnlyIfOverflowing,
+		bDisabled,
+		direction,
+		nBodyAlignment,
+		nBodyDistance,
+		nAllowOffscreenPx,
+		nMaxLateralMoveOnScreen,
+		onMouseEnter,
+		onMouseLeave,
+		onButtonDown,
+		onButtonUp,
+		onContextMenu,
+		showFocusRing,
+		children,
 		...k
 	} = e;
-	const D = (0, m.Qn)();
-	const [N, F] = a.useState(p.kHidden);
-	const [G, O] = a.useState();
+	const D = Qn();
+	const [N, setN] = a.useState(p.kHidden);
+	const [G, setG] = a.useState();
 	a.useEffect(() => {
 		C(window);
 	}, []);
 	const P = a.useCallback((e) => {
-		const t = e.currentTarget;
-		F((e) =>
+		const e_currentTarget = e.currentTarget;
+		setN((e) =>
 			e == p.kVisible
 				? e
 				: e == p.kWaitingToHide
 					? p.kVisible
 					: p.kWaitingToShow,
 		);
-		O((e) => e || t);
+		setG((e) => e || e_currentTarget);
 	}, []);
 	a.useEffect(() => {
 		if (N != p.kWaitingToShow) {
 			return;
 		}
-		const e = (function (e) {
+		const e = ((e) => {
 			const t = e;
 			C(e);
 			return Date.now() - t.lastScrollTime;
 		})(GetOwningWindowForElement(G));
-		const t = Math.max(0, r, A - e);
-		const n = window.setTimeout(() => F(p.kVisible), t);
+		const t = Math.max(0, hoverDelay, A - e);
+		const n = window.setTimeout(() => setN(p.kVisible), t);
 		return () => window.clearInterval(n);
-	}, [N, r, G]);
+	}, [N, hoverDelay, G]);
 	const L = a.useCallback(() => {
-		F((e) => (e == p.kHidden ? e : p.kWaitingToHide));
+		setN((e) => (e == p.kHidden ? e : p.kWaitingToHide));
 	}, []);
 	a.useEffect(() => {
 		if (N != p.kWaitingToHide) {
 			return;
 		}
 		const e = window.setTimeout(() => {
-			F(p.kHidden);
-			O(undefined);
-		}, s);
+			setN(p.kHidden);
+			setG(undefined);
+		}, hoverHideDelay);
 		return () => window.clearInterval(e);
-	}, [N, s]);
+	}, [N, hoverHideDelay]);
 	const z = D;
 	const x = N == p.kVisible || N == p.kWaitingToHide;
-	return a.createElement(
-		n.Z,
-		{
-			...k,
-			noFocusRing: !T,
-			focusable: !!k.onClick,
-			onActivate: k.onClick,
-			onButtonDown: I,
-			onButtonUp: E,
-			onMenuButton: M,
-			onContextMenu: M,
-			onMouseEnter:
-				z || e.bDisabled
-					? null
-					: (t) => {
-							if (B) {
-								B(t);
-							}
-							if (
-								!e.bOnlyIfOverflowing ||
-								!(function (e) {
-									const t = e.parentElement;
-									const r = e.offsetLeft;
-									const n = e.offsetTop;
-									const i = r + e.offsetWidth;
-									const a = n + e.offsetHeight;
-									const s = t.scrollLeft;
-									const o = t.scrollTop;
-									const l = s + t.clientWidth;
-									const c = o + t.clientHeight;
-									return r >= s && i <= l && n >= o && a <= c;
-								})(t.currentTarget)
-							) {
-								P(t);
-							}
-						},
-			onMouseLeave: (e) => {
-				if (v) {
-					v(e);
+	return (
+		<n.Z
+			{...k}
+			noFocusRing={!showFocusRing}
+			focusable={!!k.onClick}
+			onActivate={k.onClick}
+			onButtonDown={onButtonDown}
+			onButtonUp={onButtonUp}
+			onMenuButton={onContextMenu}
+			onContextMenu={onContextMenu}
+			onMouseEnter={
+				z ||
+				e.bDisabled ||
+				((t) => {
+					if (onMouseEnter) {
+						onMouseEnter(t);
+					}
+					if (
+						!e.bOnlyIfOverflowing ||
+						!((e) => {
+							const { parentElement, offsetLeft, offsetTop } = e;
+
+							const i = offsetLeft + e.offsetWidth;
+							const a = offsetTop + e.offsetHeight;
+
+							const { scrollLeft, scrollTop } = parentElement;
+
+							const l = scrollLeft + parentElement.clientWidth;
+							const c = scrollTop + parentElement.clientHeight;
+							return (
+								offsetLeft >= scrollLeft &&
+								i <= l &&
+								offsetTop >= scrollTop &&
+								a <= c
+							);
+						})(t.currentTarget)
+					) {
+						P(t);
+					}
+				})
+			}
+			onMouseLeave={(e) => {
+				if (onMouseLeave) {
+					onMouseLeave(e);
 				}
 				if (!i.hG.GetToggle(0)) {
 					L();
 				}
-			},
-		},
-		x &&
-			a.createElement(h, {
-				visibilityObserver: o,
-				renderHover: t,
-				bInteractiveHover: l,
-				direction: f,
-				nBodyAlignment: b,
-				nBodyDistance: y,
-				nAllowOffscreenPx: S,
-				nMaxLateralMoveOnScreen: w,
-				eventTarget: G,
-			}),
-		R,
+			}}
+		>
+			{x && (
+				<H
+					visibilityObserver={visibilityObserver}
+					renderHover={renderHover}
+					bInteractiveHover={bInteractiveHover}
+					direction={direction}
+					nBodyAlignment={nBodyAlignment}
+					nBodyDistance={nBodyDistance}
+					nAllowOffscreenPx={nAllowOffscreenPx}
+					nMaxLateralMoveOnScreen={nMaxLateralMoveOnScreen}
+					eventTarget={G}
+				/>
+			)}
+			{children}
+		</n.Z>
 	);
 }
-function h(e) {
-	const { renderHover: t, eventTarget: r } = e;
-	const n = a.useMemo(() => t(), [t]);
+function H(e) {
+	const { renderHover, eventTarget } = e;
+	const n = a.useMemo(() => renderHover(), [renderHover]);
 	if (!n) {
 		return null;
 	}
 	const i = {
-		target: r,
+		target: eventTarget,
 		bEnablePointerEvents: e.bInteractiveHover,
 		direction: e.direction,
 		nBodyAlignment: e.nBodyAlignment,
@@ -155,14 +162,12 @@ function h(e) {
 		visibilityObserver: e.visibilityObserver,
 	};
 	return s.createPortal(
-		a.createElement(
-			o.g,
-			{
-				...i,
-			},
-			a.createElement("div", null, a.createElement(l.tH, null, n)),
-		),
-		r.ownerDocument.body,
+		<o.g {...i}>
+			<div>
+				<l.tH>{n}</l.tH>
+			</div>
+		</o.g>,
+		eventTarget.ownerDocument.body,
 	);
 }
 function C(e) {
@@ -179,7 +184,7 @@ function _(e) {
 		e.view.lastScrollTime = Date.now();
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.kHidden = 0)] = "kHidden";
 	e[(e.kVisible = 1)] = "kVisible";
 	e[(e.kWaitingToShow = 2)] = "kWaitingToShow";

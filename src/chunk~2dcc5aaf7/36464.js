@@ -1,20 +1,20 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./17231.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require("./36032.js");
-var c = require("./15489.js");
-var m = require("./68292.js");
-var u = require(/*webcrack:missing*/ "./11131.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./41230.js";
+import s from "./17231.js";
+import o from "./52451.js";
+import l from "./36032.js";
+import c from "./15489.js";
+import m, { bg, _k, tj } from "./68292.js";
+import u from "./11131.js";
 export function Cc(e, t, r) {
 	if (e.shiftKey) {
 		return;
 	}
-	const n = (0, m.bg)()?.GetFriend(t.persona.m_steamid.GetAccountID());
+	const n = bg()?.GetFriend(t.persona.m_steamid.GetAccountID());
 	if (n) {
-		const t = (0, m._k)(r.ownerWindow);
-		(0, m.tj)(
+		const t = _k(r.ownerWindow);
+		tj(
 			t,
 			{
 				chatContext: "friendslist",
@@ -35,7 +35,7 @@ export function ul(e) {
 		}),
 	);
 }
-let p = class extends i.Component {
+let P = class extends i.Component {
 	render() {
 		let e = this.props.friend;
 		e.miniProfileData.EnsureCommunityDataLoaded();
@@ -57,64 +57,64 @@ let p = class extends i.Component {
 				}
 			}
 		}
-		return i.createElement(l.Vr, {
-			...t,
-		});
+		return <l.Vr {...t} />;
 	}
 };
-p = (0, n.Cg)([a.PA], p);
+P = Cg([a.PA], P);
 export let fH = class extends i.Component {
 	static contextType = u.gs;
 	RenderMiniProfile() {
 		this.props.friend.miniProfileData.EnsureCommunityDataLoaded();
-		return i.createElement(p, {
-			friend: this.props.friend,
-			renderPlaytime: this.props.renderPlaytime,
-		});
+		return (
+			<P
+				friend={this.props.friend}
+				renderPlaytime={this.props.renderPlaytime}
+			/>
+		);
 	}
 	OnMouseEnter(e) {
 		this.props.friend.miniProfileData.EnsureCommunityDataLoaded();
 	}
 	render() {
 		const {
-			friend: e,
-			size: t,
-			onClick: r,
-			statusStyle: n,
-			statusPosition: a,
-			renderPlaytime: o,
+			friend,
+			size,
+			onClick,
+			statusStyle,
+			statusPosition,
+			renderPlaytime,
 			...l
 		} = this.props;
-		const m = e.persona;
-		let u = r
-			? undefined
-			: (t) => {
-					ul(e);
-				};
-		return i.createElement(
-			c.z,
-			{
-				...l,
-				onMouseEnter: this.OnMouseEnter,
-				renderHover: this.RenderMiniProfile,
-				style: {
+		const e_persona = friend.persona;
+		let u =
+			onClick ||
+			((t) => {
+				ul(friend);
+			});
+		return (
+			<c.z
+				{...l}
+				onMouseEnter={this.OnMouseEnter}
+				renderHover={this.RenderMiniProfile}
+				style={{
 					width: "fit-content",
-				},
-			},
-			i.createElement(s.i8, {
-				persona: m,
-				size: t,
-				statusStyle: n,
-				statusPosition: a,
-				onClick: r,
-				onDoubleClick: u,
-				onContextMenu: (t) => {
-					Cc(t, e, this.context);
-				},
-			}),
+				}}
+			>
+				<s.i8
+					persona={e_persona}
+					size={size}
+					statusStyle={statusStyle}
+					statusPosition={statusPosition}
+					onClick={onClick}
+					onDoubleClick={u}
+					onContextMenu={(t) => {
+						Cc(t, friend, this.context);
+					}}
+				/>
+			</c.z>
 		);
 	}
 };
-(0, n.Cg)([o.oI], fH.prototype, "RenderMiniProfile", null);
-(0, n.Cg)([o.oI], fH.prototype, "OnMouseEnter", null);
-fH = (0, n.Cg)([a.PA], fH);
+Cg([o.oI], fH.prototype, "RenderMiniProfile", null);
+Cg([o.oI], fH.prototype, "OnMouseEnter", null);
+fH = Cg([a.PA], fH);

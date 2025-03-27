@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./72061.js");
-var a = require("./92374.js");
+import n, { useEffect, useContext, useRef } from "./63696.js";
+import i, { Sb } from "./72061.js";
+import a, { aO } from "./92374.js";
 const s = {
 	nBeforeMS: 0,
 	nAfterMS: 12000,
 };
-const o = n.createContext({
+const OContext = n.createContext({
 	globalStartMS: undefined,
 	globalEndMS: undefined,
 	setRange: null,
@@ -23,7 +23,7 @@ const o = n.createContext({
 	zoomOutSelection: null,
 });
 export function tB(e) {
-	const { children: t, loader: r } = e;
+	const { children, loader } = e;
 	const [s, l] = n.useState();
 	const [c, m] = n.useState();
 	const [u, d] = n.useState();
@@ -45,7 +45,7 @@ export function tB(e) {
 	const [b, y] = n.useState();
 	const [S, w] = n.useState();
 	const [B, v] = n.useState(0);
-	const I = (0, a.aO)();
+	const I = aO();
 	const E = n.useCallback(() => {
 		d(null);
 		l(undefined);
@@ -56,14 +56,14 @@ export function tB(e) {
 		I.ClearPlaybackStop();
 	}, [I, g]);
 	const M = n.useCallback((e) => {
-		y(e.valMS > 0 ? e : (0, i.Sb)(0));
+		y(e.valMS > 0 ? e : Sb(0));
 	}, []);
 	const T = n.useCallback(
 		(e) => {
-			const t = r.GetGlobalTimelineEndMS();
+			const t = loader.GetGlobalTimelineEndMS();
 			w(e.valMS < t.valMS ? e : t);
 		},
-		[r],
+		[loader],
 	);
 	const R = n.useCallback(
 		(e, t) => {
@@ -89,7 +89,7 @@ export function tB(e) {
 				r.latestRangeMethod = e;
 				C(r);
 			}
-			l(t.valMS > 0 ? t : (0, i.Sb)(0));
+			l(t.valMS > 0 ? t : Sb(0));
 		},
 		[h, g],
 	);
@@ -106,10 +106,10 @@ export function tB(e) {
 				r.latestRangeMethod = e;
 				f(r);
 			}
-			const n = r.GetGlobalTimelineEndMS();
+			const n = loader.GetGlobalTimelineEndMS();
 			m(t.valMS < n.valMS ? t : n);
 		},
-		[r, _, g],
+		[loader, _, g],
 	);
 	const F = n.useCallback(
 		(e, t, r) => {
@@ -130,7 +130,7 @@ export function tB(e) {
 			v(B - 1);
 		}
 	}, [v, B]);
-	(0, n.useEffect)(() => () => E(), [E, r]);
+	useEffect(() => () => E(), [E, loader]);
 	const P = n.useMemo(
 		() => ({
 			globalStartMS: s,
@@ -146,13 +146,15 @@ export function tB(e) {
 			setRange: F,
 			setPreviewRange: R,
 			clearPreviewSelection: k,
+
 			setSelectedMarker: (e, t, r, n) => {
 				d({
 					strEntryID: e,
 					strTimelineID: t,
 				});
-				F(2, (0, i.Sb)(Math.max(0, r)), (0, i.Sb)(n));
+				F(2, Sb(Math.max(0, r)), Sb(n));
 			},
+
 			clearSelection: E,
 			selectionZoomCount: B,
 			zoomIntoSelection: G,
@@ -160,23 +162,17 @@ export function tB(e) {
 		}),
 		[s, b, S, c, u, A, h, _, D, N, F, R, k, E, B, O, G],
 	);
-	return n.createElement(
-		o.Provider,
-		{
-			value: P,
-		},
-		t,
-	);
+	return <OContext.Provider value={P}>{children}</OContext.Provider>;
 }
 export function _Z() {
-	const e = (0, n.useContext)(o);
+	const e = useContext(OContext);
 	return {
 		nGlobalStartMS: e.globalStartMS,
 		nGlobalEndMS: e.globalEndMS,
 	};
 }
 export function pH() {
-	const e = (0, n.useContext)(o);
+	const e = useContext(OContext);
 	const t =
 		e.globalStartMS !== undefined
 			? e.globalStartMS.valMS - e.startMetrics.originalGlobalMS
@@ -200,33 +196,33 @@ export function pH() {
 	};
 }
 export function UO() {
-	return (0, n.useContext)(o).globalStartMS;
+	return useContext(OContext).globalStartMS;
 }
 export function d7() {
-	return (0, n.useContext)(o).globalEndMS;
+	return useContext(OContext).globalEndMS;
 }
 export function d8() {
-	return (0, n.useContext)(o).setRange;
+	return useContext(OContext).setRange;
 }
 export function nA() {
-	return (0, n.useContext)(o).setStartMS;
+	return useContext(OContext).setStartMS;
 }
 export function eH() {
-	return (0, n.useContext)(o).setEndMS;
+	return useContext(OContext).setEndMS;
 }
 export function eJ() {
-	const e = (0, n.useContext)(o);
+	const e = useContext(OContext);
 	return {
 		selectedMarker: e.selectedMarker,
 		setSelectedMarker: e.setSelectedMarker,
 	};
 }
 export function Pm() {
-	const e = (0, n.useContext)(o);
+	const e = useContext(OContext);
 	return !isNaN(e.globalStartMS?.valMS) && !isNaN(e.globalEndMS?.valMS);
 }
 export function qm() {
-	return (0, n.useContext)(o).clearSelection;
+	return useContext(OContext).clearSelection;
 }
 export function dK() {
 	const e = d8();
@@ -252,10 +248,10 @@ export function dK() {
 			}
 			const g = s.nBeforeMS + s.nAfterMS;
 			if (A === undefined) {
-				A = (0, i.Sb)(p.valMS - g);
+				A = Sb(p.valMS - g);
 			}
 			if (p === undefined) {
-				p = (0, i.Sb)(A.valMS + g);
+				p = Sb(A.valMS + g);
 			}
 			const h = A != a.nGlobalStartMS;
 			const C = p != a.nGlobalEndMS;
@@ -274,34 +270,34 @@ export function dK() {
 	);
 }
 export function eb() {
-	return (0, n.useContext)(o).zoomIntoSelection;
+	return useContext(OContext).zoomIntoSelection;
 }
 export function uq() {
-	return (0, n.useContext)(o).zoomOutSelection;
+	return useContext(OContext).zoomOutSelection;
 }
 export function VM() {
-	return (0, n.useContext)(o).selectionZoomCount;
+	return useContext(OContext).selectionZoomCount;
 }
 export function vv(e) {
-	let t = (0, n.useContext)(o);
-	let r = t.selectionZoomCount;
-	let i = t.globalStartMS;
-	let a = t.globalEndMS;
-	let s = (0, n.useRef)(r);
-	let l = (0, n.useRef)(null);
+	let t = useContext(OContext);
+
+	let { selectionZoomCount, globalStartMS, globalEndMS } = t;
+
+	let s = useRef(selectionZoomCount);
+	let l = useRef(null);
 	l.current = e;
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (!l.current) {
 			return;
 		}
-		let e = !isNaN(i?.valMS) && !isNaN(a?.valMS);
-		if (s.current != r || !e) {
-			s.current = r;
-			if (e && r) {
-				l.current(i, a);
+		let e = !isNaN(globalStartMS?.valMS) && !isNaN(globalEndMS?.valMS);
+		if (s.current != selectionZoomCount || !e) {
+			s.current = selectionZoomCount;
+			if (e && selectionZoomCount) {
+				l.current(globalStartMS, globalEndMS);
 			} else {
 				l.current(null, null);
 			}
 		}
-	}, [r, i, a, s, l]);
+	}, [selectionZoomCount, globalStartMS, globalEndMS, s, l]);
 }

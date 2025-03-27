@@ -1,9 +1,9 @@
-var _n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./79769.js");
-var a = require(/*webcrack:missing*/ "./83599.js");
+import _n from "./63696.js";
+import i, { Jc } from "./79769.js";
+import a from "./83599.js";
 export class n {
 	m_fnReducer;
-	m_SubscribableValue = (0, i.Jc)(undefined);
+	m_SubscribableValue = Jc(undefined);
 	m_mapInputs = new Map();
 	m_nNextInputKey = 0;
 	m_strNameForLog = null;
@@ -69,21 +69,21 @@ export class n {
 	}
 }
 export function x(e, t) {
-	const r = _n.useRef(e);
-	const i = _n.useRef();
-	if (r.current != e) {
-		r.current = e;
-		i.current.Delete();
-		i.current = undefined;
+	const RRef = _n.useRef(e);
+	const IRef = _n.useRef();
+	if (RRef.current != e) {
+		RRef.current = e;
+		IRef.current.Delete();
+		IRef.current = undefined;
 	}
-	if (!i.current && e) {
-		i.current = e.CreateInput(t);
+	if (!IRef.current && e) {
+		IRef.current = e.CreateInput(t);
 	}
 	_n.useEffect(
 		() => () => {
-			i.current?.Delete();
+			IRef.current?.Delete();
 		},
 		[e],
 	);
-	return i.current;
+	return IRef.current;
 }

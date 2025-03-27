@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./51297.js");
-var l = require(/*webcrack:missing*/ "./61416.js");
-var c = require(/*webcrack:missing*/ "./75144.js");
-var m = require("./34792.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import { q3 } from "./90095.js";
+import s from "./52451.js";
+import o from "./51297.js";
+import { I } from "./61416.js";
+import c from "./75144.js";
+import m from "./34792.js";
+import u from "./72476.js";
 const d = "CSystemDisplayManagerStore";
 const A = "State";
 function p() {
@@ -57,7 +57,7 @@ export class fQ {
 	}
 }
 function h(e) {
-	return (0, l.I)({
+	return I({
 		queryKey: p(),
 		queryFn: () => fQ.Get().GetState(),
 		select: e,
@@ -78,7 +78,7 @@ export function l5() {
 	const e = h();
 	const t = Ck();
 	const r = t?.data?.is_internal;
-	const n = (0, a.q3)(() => m.rV.settings?.bDisplayIsExternal);
+	const n = q3(() => m.rV.settings?.bDisplayIsExternal);
 	if (r == null || e?.data?.is_mode_switching_supported != 1) {
 		return n;
 	} else {
@@ -146,5 +146,5 @@ export function EH() {
 		label: e,
 	}));
 }
-(0, n.Cg)([s.oI], fQ.prototype, "OnStateChanged", null);
-(0, n.Cg)([s.oI], fQ.prototype, "SetCompatibilityMode", null);
+Cg([s.oI], fQ.prototype, "OnStateChanged", null);
+Cg([s.oI], fQ.prototype, "SetCompatibilityMode", null);

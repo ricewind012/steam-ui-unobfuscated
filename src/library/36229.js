@@ -1,5 +1,7 @@
-var r;
-(function (e) {
+import i from "./44846.js";
+import s from "./37976.js";
+let r;
+((e) => {
 	e[(e.k_EAccountFlagNormalUser = 0)] = "k_EAccountFlagNormalUser";
 	e[(e.k_EAccountFlagPersonaNameSet = 1)] = "k_EAccountFlagPersonaNameSet";
 	e[(e.k_EAccountFlagUnbannable = 2)] = "k_EAccountFlagUnbannable";
@@ -45,8 +47,6 @@ r.k_EAccountFlagSupervisor;
 r.k_EAccountFlagSupport;
 r.k_EAccountFlagAdmin;
 r.k_EAccountFlagSupervisor;
-var i = require("./44846.js");
-var s = require(/*webcrack:missing*/ "./37976.js");
 export class b2 {
 	m_ulSteamID = s.A.UZERO;
 	constructor(e = 0, t, n, r) {
@@ -83,38 +83,30 @@ export class b2 {
 	}
 	Render() {
 		switch (this.GetAccountType()) {
-			case 0:
-				return "[I:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 7:
-				return "[g:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 4:
-				return (
-					"[A:" +
-					this.GetUniverse() +
-					":" +
-					this.GetAccountID() +
-					":" +
-					this.GetInstance() +
-					"]"
-				);
-			case 3:
-				return "[G:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 2:
-				return (
-					"[M:" +
-					this.GetUniverse() +
-					":" +
-					this.GetAccountID() +
-					":" +
-					this.GetInstance() +
-					"]"
-				);
-			case 5:
-				return "[P:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 6:
-				return "[C:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			default:
-				return "[U:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
+			case 0: {
+				return `[I:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 7: {
+				return `[g:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 4: {
+				return `[A:${this.GetUniverse()}:${this.GetAccountID()}:${this.GetInstance()}]`;
+			}
+			case 3: {
+				return `[G:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 2: {
+				return `[M:${this.GetUniverse()}:${this.GetAccountID()}:${this.GetInstance()}]`;
+			}
+			case 5: {
+				return `[P:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 6: {
+				return `[C:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			default: {
+				return `[U:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
 		}
 	}
 	static InitFromString(e) {
@@ -126,29 +118,37 @@ export class b2 {
 			let c = Number(s);
 			let l = o ? Number(o) : 1;
 			switch (r) {
-				case "I":
+				case "I": {
 					t.SetFromComponents(c, l, 0, a);
 					break;
-				case "g":
+				}
+				case "g": {
 					t.SetFromComponents(c, 0, 7, a);
 					break;
-				case "A":
+				}
+				case "A": {
 					t.SetFromComponents(c, l, 4, a);
 					break;
-				case "G":
+				}
+				case "G": {
 					t.SetFromComponents(c, l, 3, a);
 					break;
-				case "M":
+				}
+				case "M": {
 					t.SetFromComponents(c, l, 2, a);
 					break;
-				case "P":
+				}
+				case "P": {
 					t.SetFromComponents(c, l, 5, a);
 					break;
-				case "C":
+				}
+				case "C": {
 					t.SetFromComponents(c, l, 6, a);
 					break;
-				case "U":
+				}
+				case "U": {
 					t.SetFromComponents(c, l, 1, a);
+				}
 			}
 		} catch (e) {}
 		return t;

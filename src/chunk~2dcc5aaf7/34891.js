@@ -1,25 +1,25 @@
-export var KB;
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./54355.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require("./92374.js");
-var m = require(/*webcrack:missing*/ "./98995.js");
-var u = require("./91720.js");
-var d = require("./83247.js");
-var A = require(/*webcrack:missing*/ "./69164.js");
+import { q3 } from "./90095.js";
+import a from "./63696.js";
+import s from "./54355.js";
+import { A as A_1 } from "./90765.js";
+import { aO } from "./92374.js";
+import m from "./98995.js";
+import { Ks } from "./91720.js";
+import d from "./83247.js";
+import A from "./69164.js";
+export let KB;
 export function fH() {
-	const e = wF((0, c.aO)().GetGameID());
+	const e = wF(aO().GetGameID());
 	if (e === KB.NotRecording || e === KB.NotRunning) {
 		return null;
 	} else {
-		return a.createElement(g, null);
+		return <G />;
 	}
 }
-function g(e) {
-	const t = (0, c.aO)();
-	const r = (0, i.q3)(() => t.GetIsLiveEdge() && !t.GetHidePlayer());
+function G(e) {
+	const t = aO();
+	const r = q3(() => t.GetIsLiveEdge() && !t.GetHidePlayer());
 	const n = a.useCallback(() => {
 		t.SetHidePlayer(false);
 		t.GetGameRecordingVideo().Play();
@@ -27,44 +27,40 @@ function g(e) {
 		t.SetPlaytimeFromGlobalMS(e);
 		t.FocusGlobalMS(e);
 	}, [t]);
-	return a.createElement(
-		m.he,
-		{
-			className: s.GoLiveButtonCtn,
-			toolTipContent: Localize(
+	return (
+		<m.he
+			className={s.GoLiveButtonCtn}
+			toolTipContent={Localize(
 				r ? "#Playback_AtLatest" : "#Playback_JumpToLatest",
-			),
-			direction: "bottom",
-		},
-		a.createElement(
-			A.Z,
-			{
-				onClick: n,
-				className: (0, o.A)(s.GoLiveButton, r && s.IsLive),
-			},
-			a.createElement(d.xA, {
-				className: (0, o.A)(s.JumpToEndIcon),
-			}),
-		),
+			)}
+			direction="bottom"
+		>
+			<A.Z onClick={n} className={A_1(s.GoLiveButton, r && s.IsLive)}>
+				<d.xA className={A_1(s.JumpToEndIcon)} />
+			</A.Z>
+		</m.he>
 	);
 }
 export function wF(e) {
-	const { app: t } = (0, u.Ks)(e);
-	if (!t) {
+	const { app } = Ks(e);
+	if (!app) {
 		return KB.NotRecording;
 	}
-	switch (t.recording_type) {
+	switch (app.recording_type) {
 		default:
 		case 0:
-		case 1:
+		case 1: {
 			return KB.NotRecording;
-		case 2:
+		}
+		case 2: {
 			return KB.ManualRecording;
-		case 3:
+		}
+		case 3: {
 			return KB.BackgroundRecording;
+		}
 	}
 }
-(function (e) {
+((e) => {
 	e.NotRunning = "NotRunning";
 	e.NotRecording = "NotRecording";
 	e.ManualRecording = "ManualRecording";

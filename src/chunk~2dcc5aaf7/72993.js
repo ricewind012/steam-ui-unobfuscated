@@ -1,35 +1,37 @@
-import * as n from /*webcrack:missing*/ "./34629.js";
-import * as i from /*webcrack:missing*/ "./89193.js";
-import * as a from /*webcrack:missing*/ "./41230.js";
-import * as s from /*webcrack:missing*/ "./63696.js";
-import * as o from /*webcrack:missing*/ "./31084.js";
-import * as l from /*webcrack:missing*/ "./45328.js";
+import * as n from "./34629.js";
+import * as i from "./89193.js";
+import * as a from "./41230.js";
+import * as s from "./63696.js";
+import * as o from "./31084.js";
+import * as l from "./45328.js";
 import * as c from "./23024.js";
 import * as m from "./5859.js";
 import * as u from "./65016.js";
-import * as d from /*webcrack:missing*/ "./88750.js";
+import * as d from "./88750.js";
 import * as A from "./27337.js";
 import * as p from "./80493.js";
 import * as g from "./59848.js";
 import * as h from "./29381.js";
-import * as C from /*webcrack:missing*/ "./50376.js";
+import * as C from "./50376.js";
 import * as _ from "./43397.js";
-import * as f from /*webcrack:missing*/ "./79769.js";
-import * as b from /*webcrack:missing*/ "./90765.js";
-import * as y from /*webcrack:missing*/ "./54644.js";
+import * as f from "./79769.js";
+import * as b from "./90765.js";
+import * as y from "./54644.js";
 import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
 import * as w from "./34428.js";
-import * as B from /*webcrack:missing*/ "./31958.js";
-import * as v from /*webcrack:missing*/ "./52451.js";
-import * as I from /*webcrack:missing*/ "./72476.js";
+import * as B from "./31958.js";
+import * as v from "./52451.js";
+import * as I from "./72476.js";
 import * as E from "./21866.js";
 import * as M from "./59715.js";
 import * as T from "./86721.js";
-var R = T;
-import * as k from /*webcrack:missing*/ "./26853.js";
+import * as k from "./26853.js";
+import * as P from "./32263.js";
+import * as U from "./92008.js";
+const R = T;
 function D() {
 	return s.createElement(
 		"div",
@@ -290,7 +292,7 @@ let O = class extends s.Component {
 				s.createElement(
 					"div",
 					{
-						key: n + "none",
+						key: `${n}none`,
 					},
 					t,
 				),
@@ -470,7 +472,6 @@ let O = class extends s.Component {
 	}
 };
 O = (0, n.Cg)([a.PA], O);
-import * as P from /*webcrack:missing*/ "./32263.js";
 class L extends s.Component {
 	m_elSettingsButton;
 	m_SettingsButtonPos;
@@ -597,8 +598,8 @@ class L extends s.Component {
 					(0, Localize)("#Broadcast_None"),
 				),
 			);
-			for (let e = 0; e < this.props.video.ListSubtitles().length; e++) {
-				const t = this.props.video.ListSubtitles()[e];
+
+			for (const t of this.props.video.ListSubtitles()) {
 				a.push(
 					s.createElement(
 						P.n,
@@ -616,6 +617,7 @@ class L extends s.Component {
 					),
 				);
 			}
+
 			o = -292;
 		}
 		const c = this.props.video.BHasPlayer() && this.props.video.BHasTimedText();
@@ -628,8 +630,7 @@ class L extends s.Component {
 				s.createElement(
 					"div",
 					{
-						className:
-							"videoControlButton" + (c ? " ClosedCaptionsActive" : ""),
+						className: `videoControlButton${c ? " ClosedCaptionsActive" : ""}`,
 						onClick: this.OnSubtitlesClick,
 						ref: this.m_elSubtitlesButton,
 					},
@@ -638,9 +639,9 @@ class L extends s.Component {
 			s.createElement(
 				"div",
 				{
-					className:
-						"videoControlButton VideoSettings " +
-						(e ? " VideoSettingsOpen" : ""),
+					className: `videoControlButton VideoSettings ${
+						e ? " VideoSettingsOpen" : ""
+					}`,
 					onClick: this.OnVideoControlClick,
 					ref: this.bindSettingsButton,
 				},
@@ -894,7 +895,6 @@ let x = class extends s.Component {
 (0, n.Cg)([v.oI], x.prototype, "OnMouseUp", null);
 (0, n.Cg)([i.XI], x.prototype, "SetVolumeWithCoord", null);
 x = (0, n.Cg)([a.PA], x);
-import * as U from "./92008.js";
 const W = 15;
 let V = class extends s.Component {
 	m_schHideControls = new f.LU();
@@ -1212,6 +1212,7 @@ let V = class extends s.Component {
 		return (
 			!e ||
 			!!e.GetUserInputNeeded() ||
+			!!e.GetUserInputNeeded() ||
 			c.BroadcastWatchStore.GetBroadcastState(e) == c.fK.Error
 		);
 	}
@@ -1235,7 +1236,7 @@ let V = class extends s.Component {
 			c += " fullscreenVideo";
 		}
 		if (this.props.classes) {
-			c += " " + this.props.classes;
+			c += ` ${this.props.classes}`;
 		}
 		let m = [];
 		if (!this.state.bFullscreen && this.props.actions) {
@@ -1386,7 +1387,7 @@ let j = class extends s.Component {
 			s.createElement(
 				"div",
 				{
-					className: "videoControlsBottom" + (t ? "" : " noSegments"),
+					className: `videoControlsBottom${t ? "" : " noSegments"}`,
 				},
 				s.createElement(ee, {
 					video: e,
@@ -1518,13 +1519,14 @@ const Z = (0, a.PA)((e) => {
 		s.createElement(
 			"div",
 			{
-				className:
-					"videoControlButton videoControlGoLive" + (t ? " isLiveEdge" : ""),
-				onClick: t
-					? null
-					: (t) => {
-							e.video.JumpToLiveEdge();
-						},
+				className: `videoControlButton videoControlGoLive${
+					t ? " isLiveEdge" : ""
+				}`,
+				onClick:
+					t ||
+					((t) => {
+						e.video.JumpToLiveEdge();
+					}),
 			},
 			s.createElement(C.tID, {
 				bHidePreArrow: true,
@@ -1597,10 +1599,9 @@ let K = class extends s.Component {
 		return s.createElement(
 			"div",
 			{
-				className:
-					"videoControlButton jumpToMarker controlFlip" +
-					(e ? "" : " noMarkersOrSegments") +
-					(this.has_previous_marker ? "" : " noMarkersInDirection"),
+				className: `videoControlButton jumpToMarker controlFlip${
+					e ? "" : " noMarkersOrSegments"
+				}${this.has_previous_marker ? "" : " noMarkersInDirection"}`,
 				onClick: this.OnJumpToPreviousMarkerClicked,
 			},
 			s.createElement(C.tID, {
@@ -1650,10 +1651,9 @@ let X = class extends s.Component {
 		return s.createElement(
 			"div",
 			{
-				className:
-					"videoControlButton jumpToMarker" +
-					(e ? "" : " noMarkersOrSegments") +
-					(this.has_next_marker ? "" : " noMarkersInDirection"),
+				className: `videoControlButton jumpToMarker${
+					e ? "" : " noMarkersOrSegments"
+				}${this.has_next_marker ? "" : " noMarkersInDirection"}`,
 				onClick: this.OnJumpToNextMarkerClicked,
 			},
 			s.createElement(C.tID, {
@@ -1674,7 +1674,7 @@ const J = (e) =>
 			className: "timelineMarker",
 			title: e.label,
 			style: {
-				left: e.pos + "%",
+				left: `${e.pos}%`,
 			},
 			onMouseEnter: () => e.onMouseEnter(e.pos),
 			onMouseLeave: e.onMouseLeave,
@@ -1701,10 +1701,10 @@ function $(e) {
 	return s.createElement(
 		"div",
 		{
-			className: "STV_timelineSegment" + n,
+			className: `STV_timelineSegment${n}`,
 			style: {
-				left: t + "%",
-				width: r - t + "%",
+				left: `${t}%`,
+				width: `${r - t}%`,
 				opacity: i,
 			},
 			onClick: e.onClick,
@@ -1712,7 +1712,7 @@ function $(e) {
 		s.createElement("div", {
 			className: "STV_timelineSegmentFrontFill",
 			style: {
-				borderColor: "rgb(" + e.color + ")",
+				borderColor: `rgb(${e.color})`,
 			},
 		}),
 		s.createElement(
@@ -1720,7 +1720,7 @@ function $(e) {
 			{
 				className: "STV_timelineSegmentLabel",
 				style: {
-					color: "rgb(" + e.color + ")",
+					color: `rgb(${e.color})`,
 				},
 			},
 			e.label,
@@ -1728,7 +1728,7 @@ function $(e) {
 		s.createElement("div", {
 			className: "STV_timelineSegmentBackFill",
 			style: {
-				borderColor: "rgb(" + e.color + ")",
+				borderColor: `rgb(${e.color})`,
 			},
 		}),
 	);
@@ -1882,9 +1882,9 @@ let ee = class extends s.Component {
 		if (i < 0.05) {
 			i = 0;
 		}
-		let a = B.OQ(r, 0, 100).toFixed(1) + "%";
-		let o = B.OQ(n, 0, 100).toFixed(1) + "%";
-		let l = B.OQ(i, 0, 100).toFixed(1) + "%";
+		let a = `${B.OQ(r, 0, 100).toFixed(1)}%`;
+		let o = `${B.OQ(n, 0, 100).toFixed(1)}%`;
+		let l = `${B.OQ(i, 0, 100).toFixed(1)}%`;
 		let m = {};
 		let u = {};
 		let d = {};
@@ -2074,7 +2074,7 @@ let ee = class extends s.Component {
 							s.createElement(
 								"div",
 								{
-									className: "STV_timelineGrabber" + _,
+									className: `STV_timelineGrabber${_}`,
 								},
 								s.createElement(
 									"div",
@@ -2392,10 +2392,10 @@ export let LinkOverlay = class extends s.Component {
 									{
 										className: "LinkRegion",
 										style: {
-											left: e.left + "%",
-											top: e.top + "%",
-											width: e.width + "%",
-											height: e.height + "%",
+											left: `${e.left}%`,
+											top: `${e.top}%`,
+											width: `${e.width}%`,
+											height: `${e.height}%`,
 										},
 									},
 									s.createElement(

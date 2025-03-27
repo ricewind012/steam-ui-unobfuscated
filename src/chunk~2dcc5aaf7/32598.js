@@ -1,22 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./77347.js");
-var a = require("./48289.js");
-var s = require("./61175.js");
-var o = require(/*webcrack:missing*/ "./41230.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require(/*webcrack:missing*/ "./88750.js");
-var m = require("./64608.js");
-var u = require("./35488.js");
-var d = require(/*webcrack:missing*/ "./50376.js");
-var A = require(/*webcrack:missing*/ "./98995.js");
-var p = require(/*webcrack:missing*/ "./90765.js");
 import { BIsParent } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require("./14629.js");
-var f = require("./48866.js");
-var b = require("./34348.js");
-var y = b;
+import n, { Cg } from "./34629.js";
+import i from "./77347.js";
+import a from "./48289.js";
+import s from "./61175.js";
+import o from "./41230.js";
+import l from "./63696.js";
+import c from "./88750.js";
+import m from "./64608.js";
+import u from "./35488.js";
+import d from "./50376.js";
+import A from "./98995.js";
+import { A as A_1 } from "./90765.js";
+import C from "./52451.js";
+import _, { $P, Qv } from "./14629.js";
+import f from "./48866.js";
+import b from "./34348.js";
+const y = b;
 let S = class extends l.Component {
 	GetTooltipText(e, t) {
 		if (t) {
@@ -24,37 +24,28 @@ let S = class extends l.Component {
 		}
 		switch (e.eGroup) {
 			case 2:
-			case 1:
-				return "#FilterElement_Tooltip_" + (0, _.$P)(e.eGroup, e.option);
-			case 4:
+			case 1: {
+				return `#FilterElement_Tooltip_${$P(e.eGroup, e.option)}`;
+			}
+			case 4: {
 				return Localize("#FilterElement_Tooltip_StoreTag", e.name);
-			case 6:
+			}
+			case 6: {
 				let t;
 				t = i.OQ.Get().hasSteamConnection
 					? Localize("#FilterElement_Tooltip_FriendLibrary", e.name)
 					: Localize("#FilterElement_Tooltip_FriendLibrary_Offline", e.name);
-				if ((0, _.Qv)(e.eGroup, e.option)) {
-					return l.createElement(
-						l.Fragment,
-						null,
-						l.createElement(
-							"span",
-							{
-								className: y.FiltertagUsername,
-							},
-							t,
-						),
-						l.createElement(
-							"span",
-							{
-								className: y.Asterisk,
-							},
-							"*",
-						),
+				if (Qv(e.eGroup, e.option)) {
+					return (
+						<>
+							<span className={y.FiltertagUsername}>{t}</span>
+							<span className={y.Asterisk}>*</span>
+						</>
 					);
 				} else {
 					return t;
 				}
+			}
 		}
 		return e.name;
 	}
@@ -63,8 +54,8 @@ let S = class extends l.Component {
 		let t;
 		let r;
 		let n = false;
-		let i = e.name;
-		const s = (0, _.Qv)(e.eGroup, e.option);
+		let e_name = e.name;
+		const s = Qv(e.eGroup, e.option);
 		if (e.eGroup === 6) {
 			t =
 				a.O$.IsLibraryAccessDenied(e.option) &&
@@ -74,57 +65,29 @@ let S = class extends l.Component {
 			n = true;
 		}
 		var o;
-		return l.createElement(
-			A.he,
-			{
-				toolTipContent: this.GetTooltipText(e, t),
-				direction: "bottom",
-				key: `${e.eGroup}-${e.option}`,
-				className: (0, p.A)(y.FilterTag, t && y.Error),
-			},
-			l.createElement("div", {
-				className: y.FiltertagSpacer,
-			}),
-			r &&
-				l.createElement(
-					"div",
-					{
-						className: y.FiltertagAvatarSpacer,
-					},
-					" ",
-					l.createElement("img", {
-						src: r,
-						width: 18,
-						height: 18,
-					}),
-					" ",
-				),
-			l.createElement(
-				"div",
-				{
-					className: (0, p.A)(n && y.FiltertagUsername),
-				},
-				i,
-			),
-			s &&
-				l.createElement(
-					"div",
-					{
-						className: y.Asterisk,
-					},
-					"*",
-				),
-			this.props.onClick &&
-				l.createElement(
-					"div",
-					{
-						onClick: this.props.onClick,
-					},
-					l.createElement(d.sED, null),
-				),
-			l.createElement("div", {
-				className: y.FiltertagSpacer,
-			}),
+		return (
+			<A.he
+				toolTipContent={this.GetTooltipText(e, t)}
+				direction="bottom"
+				key={`${e.eGroup}-${e.option}`}
+				className={A_1(y.FilterTag, t && y.Error)}
+			>
+				<div className={y.FiltertagSpacer} />
+				{r && (
+					<div className={y.FiltertagAvatarSpacer}>
+						{" "}
+						<img src={r} width={18} height={18} />{" "}
+					</div>
+				)}
+				<div className={A_1(n && y.FiltertagUsername)}>{e_name}</div>
+				{s && <div className={y.Asterisk}>*</div>}
+				{this.props.onClick && (
+					<div onClick={this.props.onClick}>
+						<d.sED />
+					</div>
+				)}
+				<div className={y.FiltertagSpacer} />
+			</A.he>
 		);
 	}
 };
@@ -136,20 +99,22 @@ export function wf(e, t, r) {
 	if (n.length == 0) {
 		return null;
 	} else {
-		return n.map((t) =>
-			l.createElement(S, {
-				key: `${t.eGroup}-${t.option}`,
-				...t,
-				onClick: r
-					? () => {
-							r(e, t.eGroup, t.option);
-						}
-					: undefined,
-			}),
-		);
+		return n.map((t) => (
+			<S
+				key={`${t.eGroup}-${t.option}`}
+				{...t}
+				onClick={
+					r
+						? () => {
+								r(e, t.eGroup, t.option);
+							}
+						: undefined
+				}
+			/>
+		));
 	}
 }
-S = (0, n.Cg)([o.PA], S);
+S = Cg([o.PA], S);
 export let ye = class extends l.Component {
 	m_searchInputRef = l.createRef();
 	m_containerDivRef = l.createRef();
@@ -219,118 +184,92 @@ export let ye = class extends l.Component {
 		const t = !s.n6.BIsSearchByTypePaneOpen() && !s.n6.BIsSearchByTypeActive();
 		const r = !s.n6.BIsTextSearchActive();
 		const n = s.n6.BIsSearchActive() ? s.n6.currentAppFilter : new _.E6();
-		return l.createElement(
-			"div",
-			{
-				className: (0, p.A)(y.Container, !t && y.ContainerHide),
-				onKeyDown: this.OnKeyDown,
-				ref: this.m_containerDivRef,
-				tabIndex: -1,
-			},
-			l.createElement(
-				"div",
-				{
-					className: y.SearchInput,
-				},
-				t &&
-					l.createElement(m.pd, {
-						ref: this.m_searchInputRef,
-						placeholder: Localize("#FilterEdit_SearchPrompt"),
-						value: e,
-						onChange: this.OnTextChanged,
-						onFocus: this.OnTextSearchFocused,
-						onBlur: this.OnTextSearchBlur,
-						onContextMenu: c.aE,
-						bShowClearAction: true,
-						bAlwaysShowClearAction: this.state.bTextSearchHasFocus,
-					}),
-				!t &&
-					l.createElement(
-						"div",
-						{
-							className: y.SearchFilterInput,
-						},
-						wf(n, undefined, this.OnClearFilterTagClick) ??
-							l.createElement(
-								"div",
-								{
-									key: "prompt",
-									className: y.SearchByTypePrompt,
-								},
-								Localize("#AdvancedSearch_PaneTitle"),
-							),
-						l.createElement(
-							"div",
-							{
-								className: y.SearchFilterInputClear,
-								onClick: s.n6.ExitSearch,
-							},
-							l.createElement(d.sED, null),
-						),
-					),
-			),
-			!this.props.bSmallMode &&
-				l.createElement(
-					"div",
-					{
-						className: (0, p.A)(
+		return (
+			<div
+				className={A_1(y.Container, !t && y.ContainerHide)}
+				onKeyDown={this.OnKeyDown}
+				ref={this.m_containerDivRef}
+				tabIndex={-1}
+			>
+				<div className={y.SearchInput}>
+					{t && (
+						<m.pd
+							ref={this.m_searchInputRef}
+							placeholder={Localize("#FilterEdit_SearchPrompt")}
+							value={e}
+							onChange={this.OnTextChanged}
+							onFocus={this.OnTextSearchFocused}
+							onBlur={this.OnTextSearchBlur}
+							onContextMenu={c.aE}
+							bShowClearAction
+							bAlwaysShowClearAction={this.state.bTextSearchHasFocus}
+						/>
+					)}
+					{!t && (
+						<div className={y.SearchFilterInput}>
+							{wf(n, undefined, this.OnClearFilterTagClick) ?? (
+								<div key="prompt" className={y.SearchByTypePrompt}>
+									{Localize("#AdvancedSearch_PaneTitle")}
+								</div>
+							)}
+							<div
+								className={y.SearchFilterInputClear}
+								onClick={s.n6.ExitSearch}
+							>
+								<d.sED />
+							</div>
+						</div>
+					)}
+				</div>
+				{!this.props.bSmallMode && (
+					<div
+						className={A_1(
 							y.AdvancedSearchContainer,
 							!r && y.Disabled,
 							s.n6.BIsSearchByTypePaneOpen() && y.Extended,
-						),
-					},
-					l.createElement(
-						A.he,
-						{
-							toolTipContent: Localize("#FilterEdit_AdvancedTooltip"),
-						},
-						l.createElement(
-							"div",
-							{
-								className: (0, p.A)(
+						)}
+					>
+						<A.he toolTipContent={Localize("#FilterEdit_AdvancedTooltip")}>
+							<div
+								className={A_1(
 									y.AdvancedSearchButton,
 									s.n6.BIsSearchByTypeActive() && y.Active,
-								),
-								onClick: this.OpenAdvancedSearch,
-							},
-							l.createElement("div", null, l.createElement(u.Filter, null)),
-						),
-					),
-					l.createElement(
-						"div",
-						{
-							className: (0, p.A)(
+								)}
+								onClick={this.OpenAdvancedSearch}
+							>
+								<div>
+									<u.Filter />
+								</div>
+							</div>
+						</A.he>
+						<div
+							className={A_1(
 								y.AdvancedSearchPaneContainer,
 								s.n6.BIsSearchByTypePaneOpen() && y.Visible,
-							),
-						},
-						l.createElement("div", {
-							className: y.AdvancedSearchDismissalOverlay,
-							onClick: this.CloseAdvancedSearch,
-						}),
-						l.createElement(
-							"div",
-							{
-								className: y.AdvancedSearchPane,
-							},
-							l.createElement(f.k, {
-								appFilter: n,
-								fnOnChange: () => this.OnFilterChange(n),
-							}),
-						),
-					),
-				),
+							)}
+						>
+							<div
+								className={y.AdvancedSearchDismissalOverlay}
+								onClick={this.CloseAdvancedSearch}
+							/>
+							<div className={y.AdvancedSearchPane}>
+								<f.k appFilter={n} fnOnChange={() => this.OnFilterChange(n)} />
+							</div>
+						</div>
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([C.oI], ye.prototype, "FocusOnSearch", null);
-(0, n.Cg)([C.oI], ye.prototype, "BIsFocused", null);
-(0, n.Cg)([C.oI], ye.prototype, "OpenAdvancedSearch", null);
-(0, n.Cg)([C.oI], ye.prototype, "CloseAdvancedSearch", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnKeyDown", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnTextChanged", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnTextSearchFocused", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnTextSearchBlur", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnFilterChange", null);
-(0, n.Cg)([C.oI], ye.prototype, "OnClearFilterTagClick", null);
-ye = (0, n.Cg)([o.PA], ye);
+Cg([C.oI], ye.prototype, "FocusOnSearch", null);
+Cg([C.oI], ye.prototype, "BIsFocused", null);
+Cg([C.oI], ye.prototype, "OpenAdvancedSearch", null);
+Cg([C.oI], ye.prototype, "CloseAdvancedSearch", null);
+Cg([C.oI], ye.prototype, "OnKeyDown", null);
+Cg([C.oI], ye.prototype, "OnTextChanged", null);
+Cg([C.oI], ye.prototype, "OnTextSearchFocused", null);
+Cg([C.oI], ye.prototype, "OnTextSearchBlur", null);
+Cg([C.oI], ye.prototype, "OnFilterChange", null);
+Cg([C.oI], ye.prototype, "OnClearFilterTagClick", null);
+ye = Cg([o.PA], ye);

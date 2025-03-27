@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PostTextEntry: "_3x31AgESSlUqX3D4MTHv2m",
 	PostTextEntryArea: "_1JlC29Ic6L-QvL-39X_d-X",

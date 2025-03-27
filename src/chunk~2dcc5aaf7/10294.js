@@ -1,20 +1,20 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./33512.js");
-var o = require(/*webcrack:missing*/ "./49519.js");
-var l = require("./18057.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import s from "./33512.js";
+import { B6 } from "./49519.js";
+import l from "./18057.js";
 export function VA() {
-	return (0, a.q3)(() => Ih.BKioskModeEnabled());
+	return q3(() => Ih.BKioskModeEnabled());
 }
 export function fK() {
-	return (0, a.q3)(() => Ih.BKioskModeLocked());
+	return q3(() => Ih.BKioskModeLocked());
 }
 class u {
 	m_bLocked = true;
 	m_bEnabledForLocalTesting = false;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	BHasKioskModeFeatureBlock(e) {
 		if (!this.BKioskModeLocked()) {
@@ -22,10 +22,12 @@ class u {
 		}
 		switch (e) {
 			case 11:
-			case 0:
+			case 0: {
 				return false;
-			default:
+			}
+			default: {
 				return true;
+			}
 		}
 	}
 	BHasKioskModeRouteBlock(e, t) {
@@ -34,7 +36,7 @@ class u {
 		}
 		const r = [l.BV.Downloads()];
 		for (const t of r) {
-			if ((0, o.B6)(e, t)) {
+			if (B6(e, t)) {
 				return true;
 			}
 		}
@@ -60,8 +62,8 @@ class u {
 		return t;
 	}
 }
-(0, n.Cg)([i.sH], u.prototype, "m_bLocked", undefined);
-(0, n.Cg)([i.sH], u.prototype, "m_bEnabledForLocalTesting", undefined);
-(0, n.Cg)([i.XI], u.prototype, "KioskModeLock", null);
-(0, n.Cg)([i.XI], u.prototype, "BKioskModeUnlock", null);
+Cg([i.sH], u.prototype, "m_bLocked", undefined);
+Cg([i.sH], u.prototype, "m_bEnabledForLocalTesting", undefined);
+Cg([i.XI], u.prototype, "KioskModeLock", null);
+Cg([i.XI], u.prototype, "BKioskModeUnlock", null);
 export const Ih = new u();

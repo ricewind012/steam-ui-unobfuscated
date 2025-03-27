@@ -1,36 +1,36 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
-var o = require("./37499.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require(/*webcrack:missing*/ "./53807.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { QS } from "./52451.js";
+import s from "./79769.js";
+import o from "./37499.js";
+import l, { Gn } from "./89193.js";
+import { Ln } from "./53807.js";
 export function iT(e, t) {
 	return i.useCallback(() => {
-		let r = e.current;
-		return !r || (r.BTryGoBack() || t(), true);
+		let e_current = e.current;
+		return !e_current || (e_current.BTryGoBack() || t(), true);
 	}, [e, t]);
 }
 export function wB(e, t, r) {
-	let n = i.useRef(undefined);
-	let s = i.useRef(undefined);
-	s.current = r;
+	let NRef = i.useRef(undefined);
+	let SRef = i.useRef(undefined);
+	SRef.current = r;
 	let o = i.useCallback(() => {
-		if (s.current) {
-			s.current();
+		if (SRef.current) {
+			SRef.current();
 		}
-	}, [s]);
+	}, [SRef]);
 	return [
-		(0, a.QS)(
+		QS(
 			(r) => {
 				if (r) {
-					n.current = new d(r, e, t, o);
-					return () => n.current.Close();
+					NRef.current = new d(r, e, t, o);
+					return () => NRef.current.Close();
 				}
 			},
-			[n, e, t],
+			[NRef, e, t],
 		),
-		n,
+		NRef,
 	];
 }
 class d {
@@ -57,7 +57,7 @@ class d {
 	m_onNewTabCallbacks = new s.lu();
 	m_rgSteamURLCallbacks = [];
 	constructor(e, t, r, n) {
-		(0, l.Gn)(this);
+		Gn(this);
 		this.m_browser = e;
 		this.m_id = r;
 		this.m_unAppID = t;
@@ -95,7 +95,7 @@ class d {
 	}
 	OnBlockedRequest(e) {
 		for (let t of this.m_rgRegisteredProtocols) {
-			if (e.startsWith(t.m_strScheme + "://")) {
+			if (e.startsWith(`${t.m_strScheme}://`)) {
 				SteamClient.Overlay.HandleProtocolForOverlayBrowser(this.m_unAppID, e);
 			}
 		}
@@ -140,7 +140,7 @@ class d {
 				return true;
 			}
 		}
-		if ((0, c.Ln)(e)) {
+		if (Ln(e)) {
 			this.OnBeforeClose();
 			return true;
 		} else {
@@ -246,30 +246,30 @@ class d {
 		return this.m_onNewTabCallbacks;
 	}
 }
-(0, n.Cg)([l.sH], d.prototype, "m_URLRequested", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_URL", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_loadErrorCode", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_loadErrorURL", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_loadErrorDesc", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_bLoading", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_strTitle", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_pageSecurity", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_bCanGoBackward", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_bCanGoForward", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_rgFavIconURLs", undefined);
-(0, n.Cg)([a.oI], d.prototype, "OnBeforeClose", null);
-(0, n.Cg)([a.oI], d.prototype, "OnBlockedRequest", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnStartRequest", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnStartLoad", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnFinishedRequest", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnCanGoBackForwardChanged", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnPageSecurity", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnSetTitle", null);
-(0, n.Cg)([a.oI], d.prototype, "OnNewTab", null);
-(0, n.Cg)([a.oI], d.prototype, "OnFavIconURLChanged", null);
-(0, n.Cg)([a.oI], d.prototype, "OnSteamURL", null);
-(0, n.Cg)([a.oI], d.prototype, "OnOverlayBrowserProtocolRegistration", null);
-(0, n.Cg)([l.XI.bound], d.prototype, "OnHistoryChanged", null);
-(0, n.Cg)([a.oI], d.prototype, "Reload", null);
-(0, n.Cg)([a.oI], d.prototype, "GoBack", null);
-(0, n.Cg)([a.oI], d.prototype, "GoForward", null);
+Cg([l.sH], d.prototype, "m_URLRequested", undefined);
+Cg([l.sH], d.prototype, "m_URL", undefined);
+Cg([l.sH], d.prototype, "m_loadErrorCode", undefined);
+Cg([l.sH], d.prototype, "m_loadErrorURL", undefined);
+Cg([l.sH], d.prototype, "m_loadErrorDesc", undefined);
+Cg([l.sH], d.prototype, "m_bLoading", undefined);
+Cg([l.sH], d.prototype, "m_strTitle", undefined);
+Cg([l.sH], d.prototype, "m_pageSecurity", undefined);
+Cg([l.sH], d.prototype, "m_bCanGoBackward", undefined);
+Cg([l.sH], d.prototype, "m_bCanGoForward", undefined);
+Cg([l.sH], d.prototype, "m_rgFavIconURLs", undefined);
+Cg([a.oI], d.prototype, "OnBeforeClose", null);
+Cg([a.oI], d.prototype, "OnBlockedRequest", null);
+Cg([l.XI.bound], d.prototype, "OnStartRequest", null);
+Cg([l.XI.bound], d.prototype, "OnStartLoad", null);
+Cg([l.XI.bound], d.prototype, "OnFinishedRequest", null);
+Cg([l.XI.bound], d.prototype, "OnCanGoBackForwardChanged", null);
+Cg([l.XI.bound], d.prototype, "OnPageSecurity", null);
+Cg([l.XI.bound], d.prototype, "OnSetTitle", null);
+Cg([a.oI], d.prototype, "OnNewTab", null);
+Cg([a.oI], d.prototype, "OnFavIconURLChanged", null);
+Cg([a.oI], d.prototype, "OnSteamURL", null);
+Cg([a.oI], d.prototype, "OnOverlayBrowserProtocolRegistration", null);
+Cg([l.XI.bound], d.prototype, "OnHistoryChanged", null);
+Cg([a.oI], d.prototype, "Reload", null);
+Cg([a.oI], d.prototype, "GoBack", null);
+Cg([a.oI], d.prototype, "GoForward", null);

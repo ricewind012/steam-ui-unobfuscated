@@ -1,26 +1,21 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./3715.js");
-var _s = require(/*webcrack:missing*/ "./38215.js");
-require("./42318.js");
+import r from "./63696.js";
+import i from "./3715.js";
+import _s from "./38215.js";
+import "./42318.js";
 export function s(e) {
-	const { steamUI: t } = e;
-	const n = r.useRef(L);
+	const { steamUI } = e;
+	const NRef = r.useRef(L);
 	r.useEffect(() => {
 		L.setDefaultOptions({
 			queries: {
 				staleTime: Infinity,
-				networkMode: t ? "offlineFirst" : undefined,
+				networkMode: steamUI ? "offlineFirst" : undefined,
 			},
 		});
-	}, [t]);
-	let s = e.children;
-	e.debug;
-	return r.createElement(
-		i.Ht,
-		{
-			client: n.current,
-		},
-		s,
-	);
+	}, [steamUI]);
+
+	let { children, debug } = e;
+
+	return <i.Ht client={NRef.current}>{children}</i.Ht>;
 }
 export const L = new _s.E({});

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	RecommendedNote: "_2FTteXbrqI3n7GV0KLxKjB",
 	TransmissionTypeSettings: "_3bRmSOJUVj1nNIriZ3YeMF",
 	HotkeySettingRow: "jTR51Ds1KV4MXKsqBWBPD",

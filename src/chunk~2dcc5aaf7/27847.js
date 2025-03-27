@@ -1,64 +1,64 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./52912.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var o = require("./95773.js");
-var l = require("./53414.js");
-var c = require("./78060.js");
-var m = require("./97422.js");
-var u = require("./13869.js");
-var d = require("./59704.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require(/*webcrack:missing*/ "./63696.js");
-var g = require(/*webcrack:missing*/ "./31084.js");
-var h = require(/*webcrack:missing*/ "./88750.js");
-var C = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var f = require(/*webcrack:missing*/ "./52451.js");
-var b = require(/*webcrack:missing*/ "./50376.js");
-var y = require("./88620.js");
-var S = require("./65815.js");
-var w = S;
-var B = require("./76319.js");
-var v = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a, { CO, h8 } from "./52912.js";
+import o from "./95773.js";
+import l, { qj } from "./53414.js";
+import { Ci } from "./78060.js";
+import m, { Hf } from "./97422.js";
+import u, { HT } from "./13869.js";
+import { EP } from "./59704.js";
+import A from "./41230.js";
+import p from "./63696.js";
+import { lX } from "./31084.js";
+import h from "./88750.js";
+import C from "./64608.js";
+import f from "./52451.js";
+import b from "./50376.js";
+import { E5 } from "./88620.js";
+import S from "./65815.js";
+import { L } from "./76319.js";
+import v from "./72476.js";
+const w = S;
 export function Tz(e, t, r) {
 	let n;
-	let i = (0, a.CO)(e);
+	let i = CO(e);
 	if (t.BIsClanChatRoom()) {
 		n = o.xm.FriendStore.ClanStore.GetClan(t.GetClanID());
 	}
-	return (0, g.lX)(
-		p.createElement(R, {
-			browserContext: i,
-			group: t,
-			clan: n,
-			context: r,
-			ownerWindow: GetOwningWindowForEvent(e),
-		}),
+	return lX(
+		<R
+			browserContext={i}
+			group={t}
+			clan={n}
+			context={r}
+			ownerWindow={GetOwningWindowForEvent(e)}
+		/>,
 		e,
 	);
 }
 export function fM(e, t, r) {
 	let n;
-	let i = (0, a.CO)(e);
+	let i = CO(e);
 	if (t.GetChatGroupIDIfLoaded()) {
 		n = o.xm.ChatStore.GetChatRoomGroup(t.GetChatGroupIDIfLoaded());
 	}
-	return (0, g.lX)(
-		p.createElement(R, {
-			browserContext: i,
-			group: n,
-			clan: t,
-			context: r,
-			ownerWindow: GetOwningWindowForEvent(e),
-		}),
+	return lX(
+		<R
+			browserContext={i}
+			group={n}
+			clan={t}
+			context={r}
+			ownerWindow={GetOwningWindowForEvent(e)}
+		/>,
 		e,
 	);
 }
 function M(e, t) {
-	(0, B.L)("FindGamesToPlayWithFriends/ChatRoom");
+	L("FindGamesToPlayWithFriends/ChatRoom");
 	e.stopPropagation();
-	(0, m.Hf)(t, (0, a.CO)(e));
+	Hf(t, CO(e));
 }
 function T(e, t, r, n, a) {
 	if (
@@ -66,23 +66,18 @@ function T(e, t, r, n, a) {
 		o.xm.SettingsStore.BClientHasFeatureOrOnWeb("FriendsFilter")
 	) {
 		let i = e < 2 || e > 8;
-		return p.createElement(
-			h.kt,
-			{
-				disabled: i,
-				key: n,
-				onSelected: a,
-				className: w.ChatroomContextMenuDisableableItem,
-			},
-			t,
-			i &&
-				p.createElement(
-					"div",
-					{
-						className: w.DisabledDescriptor,
-					},
-					(0, Localize)(r, 2, 8),
-				),
+		return (
+			<h.kt
+				disabled={i}
+				key={n}
+				onSelected={a}
+				className={w.ChatroomContextMenuDisableableItem}
+			>
+				{t}
+				{i && (
+					<div className={w.DisabledDescriptor}>{(0, Localize)(r, 2, 8)}</div>
+				)}
+			</h.kt>
 		);
 	}
 	return null;
@@ -108,7 +103,7 @@ class R extends p.Component {
 			let e = this.props.clan.steamid;
 			t = `${i.TS.COMMUNITY_BASE_URL}gid/${e.ConvertTo64BitString()}`;
 		}
-		(0, d.EP)(e, t);
+		EP(e, t);
 		e.stopPropagation();
 	}
 	FindGamesToPlay(e) {
@@ -118,7 +113,7 @@ class R extends p.Component {
 		);
 	}
 	LeaveChatRoomGroup(e) {
-		(0, l.qj)(e.currentTarget.ownerDocument.defaultView, this.props.group);
+		qj(e.currentTarget.ownerDocument.defaultView, this.props.group);
 	}
 	render() {
 		let e = [];
@@ -129,43 +124,31 @@ class R extends p.Component {
 		let a = this.props.group.memberList.member_list.length;
 		if (n.tab) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "closetab",
-						onSelected: () => {
-							o.xm.UIStore.CloseTab(this.props.browserContext, n.tab);
-						},
-					},
-					(0, Localize)(
+				<h.kt
+					key="closetab"
+					onSelected={() => {
+						o.xm.UIStore.CloseTab(this.props.browserContext, n.tab);
+					}}
+				>
+					{(0, Localize)(
 						this.context?.IN_GAMEPADUI
 							? "#Chat_CloseTabAction_SteamDeck"
 							: "#Chat_CloseTabAction",
-					),
-				),
+					)}
+				</h.kt>,
 			);
 		} else if (!n.is_chat_window) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "opentab",
-						onSelected: this.OpenChatWindow,
-					},
-					(0, Localize)("#Chat_Actions_OpenChat"),
-				),
+				<h.kt key="opentab" onSelected={this.OpenChatWindow}>
+					{(0, Localize)("#Chat_Actions_OpenChat")}
+				</h.kt>,
 			);
 		}
 		if (r && !r.BIsOGG()) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "viewprofile",
-						onSelected: this.ShowClanProfile,
-					},
-					(0, Localize)("#Friend_Menu_ViewProfile"),
-				),
+				<h.kt key="viewprofile" onSelected={this.ShowClanProfile}>
+					{(0, Localize)("#Friend_Menu_ViewProfile")}
+				</h.kt>,
 			);
 		}
 		if (this.props.group.readyToRender) {
@@ -181,18 +164,13 @@ class R extends p.Component {
 			}
 		}
 		e.push(
-			p.createElement(
-				h.kt,
-				{
-					key: "leavechatroom",
-					onSelected: this.LeaveChatRoomGroup,
-				},
-				(0, Localize)(
+			<h.kt key="leavechatroom" onSelected={this.LeaveChatRoomGroup}>
+				{(0, Localize)(
 					r
 						? "#Chat_Actions_LeaveChatRoom"
 						: "#Chat_Actions_LeaveChatRoomGroup",
-				),
-			),
+				)}
+			</h.kt>,
 		);
 		let s = r
 			? {
@@ -204,47 +182,35 @@ class R extends p.Component {
 		if (o.xm.FriendStore.FavoritesStore.BIsFavorited(s)) {
 			if (n.is_favorites) {
 				e.push(
-					p.createElement(
-						h.kt,
-						{
-							key: "quickaccess",
-							onSelected: () => {
-								i.RemoveFromFavorites(s);
-							},
-						},
-						(0, Localize)("#Friend_Menu_RemoveFromQuickAccess"),
-					),
+					<h.kt
+						key="quickaccess"
+						onSelected={() => {
+							i.RemoveFromFavorites(s);
+						}}
+					>
+						{(0, Localize)("#Friend_Menu_RemoveFromQuickAccess")}
+					</h.kt>,
 				);
 			}
 		} else {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "quickaccess",
-						onSelected: () => {
-							i.AddToFavorites(s);
-						},
-					},
-					(0, Localize)("#Friend_Menu_AddToQuickAccess"),
-				),
+				<h.kt
+					key="quickaccess"
+					onSelected={() => {
+						i.AddToFavorites(s);
+					}}
+				>
+					{(0, Localize)("#Friend_Menu_AddToQuickAccess")}
+				</h.kt>,
 			);
 		}
 		if (r && r.BIsOGG()) {
-			e.push(
-				p.createElement(m.Rm, {
-					unAppID: r.GetOGGAppID(),
-					strGameName: r.name,
-				}),
-			);
+			e.push(<m.Rm unAppID={r.GetOGGAppID()} strGameName={r.name} />);
 		}
-		return p.createElement(
-			h.tz,
-			{
-				className: "chatRoomListItemContextMenu",
-				label: t.name,
-			},
-			e,
+		return (
+			<h.tz className="chatRoomListItemContextMenu" label={t.name}>
+				{e}
+			</h.tz>
 		);
 	}
 }
@@ -256,30 +222,25 @@ export function ae(e, t, r, n, i) {
 		return null;
 	}
 	let a = GetOwningWindowForEvent(n);
-	return (0, g.lX)(
-		p.createElement(D, {
-			browserContext: e,
-			group: t,
-			roomID: r,
-			ownerWindow: a,
-			onStartRoomRename: i,
-		}),
+	return lX(
+		<D
+			browserContext={e}
+			group={t}
+			roomID={r}
+			ownerWindow={a}
+			onStartRoomRename={i}
+		/>,
 		n,
 	);
 }
-(0, n.Cg)([f.oI], R.prototype, "OpenChatWindow", null);
-(0, n.Cg)([f.oI], R.prototype, "ShowClanProfile", null);
-(0, n.Cg)([f.oI], R.prototype, "FindGamesToPlay", null);
-(0, n.Cg)([f.oI], R.prototype, "LeaveChatRoomGroup", null);
+Cg([f.oI], R.prototype, "OpenChatWindow", null);
+Cg([f.oI], R.prototype, "ShowClanProfile", null);
+Cg([f.oI], R.prototype, "FindGamesToPlay", null);
+Cg([f.oI], R.prototype, "LeaveChatRoomGroup", null);
 class D extends p.PureComponent {
 	ShowInviteDialog() {
 		let e = this.props.group.GetChatRoom(this.props.roomID);
-		(0, y.E5)(
-			this.props.browserContext,
-			this.props.ownerWindow,
-			this.props.group,
-			e,
-		);
+		E5(this.props.browserContext, this.props.ownerWindow, this.props.group, e);
 	}
 	FindGamesToPlayInChannel(e) {
 		M(
@@ -291,17 +252,14 @@ class D extends p.PureComponent {
 	}
 	SaveVoiceRoom(e) {
 		let t = GetOwningWindowForEvent(e);
-		var r;
-		var n;
-		var i;
+		let r;
+		let n;
+		let i;
 		r = t;
 		n = this.props.group;
 		i = this.props.roomID;
-		(0, u.HT)(
-			p.createElement(N, {
-				group: n,
-				roomID: i,
-			}),
+		HT(
+			<N group={n} roomID={i} />,
 			r,
 			"SaveVoiceRoomDialog",
 			{
@@ -309,11 +267,11 @@ class D extends p.PureComponent {
 				popupWidth: 664,
 				popupHeight: 380,
 			},
-			(0, a.h8)(r),
+			h8(r),
 		);
 	}
 	RemoveRoom() {
-		(0, c.Ci)(
+		Ci(
 			this.props.ownerWindow,
 			(0, Localize)("#Chat_Actions_RemoveRoom"),
 			(0, Localize)("#Chat_Actions_RemoveRoom_Confirm"),
@@ -336,7 +294,7 @@ class D extends p.PureComponent {
 		return (
 			!e.BIsVoiceChannel(t) &&
 			(!i || !a) &&
-			(!r || !!n || !!i || !a) &&
+			(!r || !!n || !!n || !!i || !!n || !!i || !a) &&
 			(!!n || !a)
 		);
 	}
@@ -351,14 +309,9 @@ class D extends p.PureComponent {
 		t.BCanInvite();
 		let o = n.voice_active_member_list.member_count;
 		e.push(
-			p.createElement(
-				h.kt,
-				{
-					key: "invitefriend",
-					onSelected: this.ShowInviteDialog,
-				},
-				(0, Localize)("#Chat_Actions_InviteFriendtoVoice"),
-			),
+			<h.kt key="invitefriend" onSelected={this.ShowInviteDialog}>
+				{(0, Localize)("#Chat_Actions_InviteFriendtoVoice")}
+			</h.kt>,
 		);
 		const l = T(
 			o,
@@ -372,40 +325,28 @@ class D extends p.PureComponent {
 		}
 		if (a) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "savechannel",
-						className: s ? "" : w.ChatRoomContextNoPermission,
-						onSelected: this.SaveVoiceRoom,
-					},
-					!s && p.createElement(b.c_I, null),
-					(0, Localize)("#Chat_Actions_SaveChannel"),
-				),
+				<h.kt
+					key="savechannel"
+					className={s ? "" : w.ChatRoomContextNoPermission}
+					onSelected={this.SaveVoiceRoom}
+				>
+					{!s && <b.c_I />}
+					{(0, Localize)("#Chat_Actions_SaveChannel")}
+				</h.kt>,
 			);
 		}
 		if (this.props.onStartRoomRename && !i && !a && s) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "renameroom",
-						onSelected: this.ChangeRoomName,
-					},
-					(0, Localize)("#Chat_Actions_ChangeRoomName"),
-				),
+				<h.kt key="renameroom" onSelected={this.ChangeRoomName}>
+					{(0, Localize)("#Chat_Actions_ChangeRoomName")}
+				</h.kt>,
 			);
 		}
 		if (!i && s) {
 			e.push(
-				p.createElement(
-					h.kt,
-					{
-						key: "removeroom",
-						onSelected: this.RemoveRoom,
-					},
-					(0, Localize)("#Chat_Actions_RemoveRoom"),
-				),
+				<h.kt key="removeroom" onSelected={this.RemoveRoom}>
+					{(0, Localize)("#Chat_Actions_RemoveRoom")}
+				</h.kt>,
 			);
 		}
 		if (e.length < 1) {
@@ -414,22 +355,19 @@ class D extends p.PureComponent {
 			);
 			return null;
 		} else {
-			return p.createElement(
-				h.tz,
-				{
-					className: "friendsContextMenu",
-					label: t.name,
-				},
-				e,
+			return (
+				<h.tz className="friendsContextMenu" label={t.name}>
+					{e}
+				</h.tz>
 			);
 		}
 	}
 }
-(0, n.Cg)([f.oI], D.prototype, "ShowInviteDialog", null);
-(0, n.Cg)([f.oI], D.prototype, "FindGamesToPlayInChannel", null);
-(0, n.Cg)([f.oI], D.prototype, "SaveVoiceRoom", null);
-(0, n.Cg)([f.oI], D.prototype, "RemoveRoom", null);
-(0, n.Cg)([f.oI], D.prototype, "ChangeRoomName", null);
+Cg([f.oI], D.prototype, "ShowInviteDialog", null);
+Cg([f.oI], D.prototype, "FindGamesToPlayInChannel", null);
+Cg([f.oI], D.prototype, "SaveVoiceRoom", null);
+Cg([f.oI], D.prototype, "RemoveRoom", null);
+Cg([f.oI], D.prototype, "ChangeRoomName", null);
 let N = class extends p.Component {
 	constructor(e) {
 		super(e);
@@ -458,54 +396,35 @@ let N = class extends p.Component {
 		}
 	}
 	render() {
-		return p.createElement(
-			u.x_,
-			{
-				onEscKeypress: this.props.closeModal,
-			},
-			p.createElement(
-				C.U9,
-				{
-					classNameContent: "SaveVoiceRoomDialog",
-					onSubmit: this.HandleSubmit,
-				},
-				p.createElement(C.Y9, null, (0, Localize)("#Chat_SaveVoiceRoom")),
-				p.createElement(
-					C.nB,
-					null,
-					this.state.strError &&
-						p.createElement(
-							C.a3,
-							{
-								className: "nicknameError",
-							},
-							this.state.strError,
-						),
-					p.createElement(
-						C.a3,
-						null,
-						(0, Localize)("#Chat_SaveVoiceRoom_Description"),
-					),
-					p.createElement(C.pd, {
-						type: "text",
-						label: (0, Localize)("#Chat_SaveVoiceRoom_Name"),
-						className: "nicknameInput",
-						value: this.state.strName,
-						onChange: this.HandleTextEntry,
-						autoFocus: true,
-					}),
-				),
-				p.createElement(
-					C.wi,
-					null,
-					p.createElement(C.CB, {
-						onCancel: this.props.closeModal,
-					}),
-				),
-			),
+		return (
+			<u.x_ onEscKeypress={this.props.closeModal}>
+				<C.U9
+					classNameContent="SaveVoiceRoomDialog"
+					onSubmit={this.HandleSubmit}
+				>
+					<C.Y9>{(0, Localize)("#Chat_SaveVoiceRoom")}</C.Y9>
+					<C.nB>
+						{this.state.strError && (
+							<C.a3 className="nicknameError">{this.state.strError}</C.a3>
+						)}
+						<C.a3>{(0, Localize)("#Chat_SaveVoiceRoom_Description")}</C.a3>
+						<C.pd
+							type="text"
+							label={(0, Localize)("#Chat_SaveVoiceRoom_Name")}
+							className="nicknameInput"
+							value={this.state.strName}
+							onChange={this.HandleTextEntry}
+							autoFocus
+						/>
+					</C.nB>
+					<C.wi>
+						<C.CB onCancel={this.props.closeModal} />
+					</C.wi>
+				</C.U9>
+			</u.x_>
 		);
 	}
 };
-(0, n.Cg)([f.oI], N.prototype, "HandleTextEntry", null);
-(0, n.Cg)([f.oI], N.prototype, "HandleSubmit", null);
-N = (0, n.Cg)([A.PA], N);
+Cg([f.oI], N.prototype, "HandleTextEntry", null);
+Cg([f.oI], N.prototype, "HandleSubmit", null);
+N = Cg([A.PA], N);

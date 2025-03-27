@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./39039.js");
-var s = require(/*webcrack:missing*/ "./49455.js");
-var o = require(/*webcrack:missing*/ "./43691.js");
-var l = require("./84629.js");
-var c = require("./91720.js");
-var m = require("./22588.js");
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require(/*webcrack:missing*/ "./89193.js");
-var A = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i, { useRef, useEffect } from "./63696.js";
+import a, { m as m_1 } from "./39039.js";
+import s, { w } from "./49455.js";
+import o from "./43691.js";
+import l, { q_ as q, ZI, tH } from "./84629.js";
+import c, { c5 } from "./91720.js";
+import m from "./22588.js";
+import { CH } from "./52451.js";
+import d, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
 class p {
 	k_QueueWaitUntilRequestMS = 10;
 	k_nMaxBatchSize = 50;
@@ -23,7 +23,7 @@ class p {
 	k_AlreadyResolvedOK = Promise.resolve(true);
 	m_rgThumbnailPerf = [];
 	constructor() {
-		(0, d.Gn)(this);
+		Gn(this);
 	}
 	AddPerfMeasure(e) {
 		this.m_rgThumbnailPerf.push(e);
@@ -35,9 +35,8 @@ class p {
 		const e = this.m_rgThumbnailPerf.length;
 		const t = this.m_rgThumbnailPerf.reduce((e, t) => e + t) / e;
 		const r = Math.sqrt(
-			this.m_rgThumbnailPerf
-				.map((e) => Math.pow(e - t, 2))
-				.reduce((e, t) => e + t) / e,
+			this.m_rgThumbnailPerf.map((e) => (e - t) ** 2).reduce((e, t) => e + t) /
+				e,
 		);
 		const n = Math.max(...this.m_rgThumbnailPerf);
 		const i = Math.min(...this.m_rgThumbnailPerf);
@@ -103,7 +102,7 @@ class p {
 						p.Get().AddPerfMeasure(e.duration);
 					}
 				} catch (e) {
-					(0, l.q_)(`CThumbnailCache:: cant measure ${m}, error: ${e}`);
+					q(`CThumbnailCache:: cant measure ${m}, error: ${e}`);
 				}
 			});
 			c = this.GetThumbnailData(o);
@@ -188,7 +187,7 @@ class p {
 		e.sort((e, t) => e.nRecordingOffsetMS - t.nRecordingOffsetMS);
 		try {
 			const t = e.map((e) => e.nRecordingOffsetMS * 1000);
-			const r = await (0, c.c5)(
+			const r = await c5(
 				e[0].strRecordingID,
 				e[0].strClipID,
 				undefined,
@@ -196,20 +195,20 @@ class p {
 				e[0].cPxMajorAxis,
 				e[0].bPreciseTiming,
 			);
-			(0, s.w)(
+			w(
 				r?.length == t.length,
 				`CThumbnailCache.InternalLoadMultipleThumbnails request ${t.length} and got back ${r?.length}`,
 			);
 			for (let n = 0; n < t.length && n < r?.length; ++n) {
-				const t = e[n];
+				const e_n = e[n];
 				const i = this.GetKey(
-					t.gameID,
-					t.strRecordingID,
-					t.strClipID,
-					t.nRecordingOffsetMS,
-					t.nRecordingStartOffsetMS,
-					t.cPxMajorAxis,
-					t.bPreciseTiming,
+					e_n.gameID,
+					e_n.strRecordingID,
+					e_n.strClipID,
+					e_n.nRecordingOffsetMS,
+					e_n.nRecordingStartOffsetMS,
+					e_n.cPxMajorAxis,
+					e_n.bPreciseTiming,
 				);
 				let a = r ? r[n].image_data() : null;
 				this.SetThumbnailData(i, {
@@ -218,9 +217,9 @@ class p {
 				});
 			}
 		} catch (t) {
-			(0, l.ZI)("Failed to load multiple request thumbnails", t);
-			for (let t = 0; t < e.length; ++t) {
-				const r = e[t];
+			ZI("Failed to load multiple request thumbnails", t);
+
+			for (const r of e) {
 				const n = this.GetKey(
 					r.gameID,
 					r.strRecordingID,
@@ -253,7 +252,7 @@ class p {
 	async InternalLoadThumbnail(e, t, r, n, i, a, s) {
 		const o = this.GetKey(e, t, r, n, i, a, s);
 		try {
-			const e = await (0, c.c5)(t, r, undefined, [n * 1000], a, s);
+			const e = await c5(t, r, undefined, [n * 1000], a, s);
 			if (e?.length > 0) {
 				let t = e ? e[0].image_data() : null;
 				this.SetThumbnailData(o, {
@@ -262,11 +261,9 @@ class p {
 				});
 				return true;
 			}
-			(0, l.tH)(
-				`ThumbnailImage: got empty jpeg ${e.length} list back ${t} @ ${n}`,
-			);
+			tH(`ThumbnailImage: got empty jpeg ${e.length} list back ${t} @ ${n}`);
 		} catch (e) {
-			(0, l.ZI)(`ThumbnailImage: Fail to load thumbnail ${t} @ ${n} with ${e}`);
+			ZI(`ThumbnailImage: Fail to load thumbnail ${t} @ ${n} with ${e}`);
 			this.SetThumbnailData(o, {
 				data: null,
 				bIsLoading: false,
@@ -289,28 +286,28 @@ export function NB() {
 	return p.Get().GetPerfMeasures();
 }
 export function rX(e, t, r, n, s, o, l) {
-	const c = (0, A.q3)(() => p.Get().GetOrQueueThumbnail(e, r, t, n, s, o, l));
-	return (function (e) {
-		const t = (0, i.useRef)(null);
-		const r = (0, u.CH)();
-		const n = (0, a.m)("useThumbnailAsURL");
-		(0, i.useEffect)(() => {
+	const c = q3(() => p.Get().GetOrQueueThumbnail(e, r, t, n, s, o, l));
+	return ((e) => {
+		const TRef = useRef(null);
+		const r = CH();
+		const n = m_1("useThumbnailAsURL");
+		useEffect(() => {
 			if (e && !n?.token?.reason) {
 				const n = new Blob([e], {
 					type: "image/jpeg",
 				});
 				const i = URL.createObjectURL(n);
-				t.current = i;
+				TRef.current = i;
 				r();
 			}
 			return () => {
-				if (t.current) {
-					URL.revokeObjectURL(t.current);
-					t.current = undefined;
+				if (TRef.current) {
+					URL.revokeObjectURL(TRef.current);
+					TRef.current = undefined;
 				}
 			};
 		}, [n?.token?.reason, e, r]);
-		return t.current;
+		return TRef.current;
 	})(c?.data);
 }
-(0, n.Cg)([d.sH], p.prototype, "m_mapThumbnailImages", undefined);
+Cg([d.sH], p.prototype, "m_mapThumbnailImages", undefined);

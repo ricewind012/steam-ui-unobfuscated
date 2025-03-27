@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SpeakerOuter: "_3rRqPJdGrYx9YMtQMciIFY",
 	Speaker: "_3F7-FkJu8-JstT7SouP8XJ",
 	SpeakerPopup: "_3y7kVhhGmtbSgbZdte0EuV",

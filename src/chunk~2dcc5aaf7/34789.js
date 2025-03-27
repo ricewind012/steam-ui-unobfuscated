@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	narrowWidth: "500px",
 	LicensesDialog: "_1wvG6Xu0RaAGmTuBxIDE1s",

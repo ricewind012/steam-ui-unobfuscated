@@ -1,18 +1,44 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./31319.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./18057.js");
-require("./33572.js");
-var o = require("./5822.js");
-var l = require("./55489.js");
-require("./44234.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { IsHTMLElementTextInput } from "../../actual_src/utils/domutils.js";
+import {
+	LocalizationManager,
+	Localize,
+} from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./31319.js";
+import a, { Gn } from "./89193.js";
+import s from "./18057.js";
+import "./33572.js";
+import o from "./5822.js";
+import l from "./55489.js";
+import "./44234.js";
+import { w as w_1 } from "./49455.js";
+import u from "./10606.js";
+import { B6 } from "./49519.js";
+import A from "./46422.js";
+import p from "./96593.js";
+import g, { Pr } from "./72476.js";
+import h from "./93960.js";
+import C from "./90039.js";
+import _, { Jc } from "./79769.js";
+import f from "./83599.js";
+import b from "./82011.js";
+import B, { Dp } from "./736.js";
+import R, { _1, iv } from "./43152.js";
+import N from "./85243.js";
+import F from "./44846.js";
+import G from "./43014.js";
+import P from "./69913.js";
+import L from "./22969.js";
+import z from "./35425.js";
+import x from "./18052.js";
 class c {
 	m_Instance;
 	m_iHideFooterCount = 0;
 	m_bKeyboardVisible = false;
 	m_flCurrentFooterHeight = 0;
 	constructor(e) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_Instance = e;
 	}
 	Init() {
@@ -56,27 +82,19 @@ class c {
 			this.m_Instance.CompositionStateStore.GetCurrentlyFocusedAppidSubscribableValue()
 				.Value === l.VE;
 		return (
-			(!e || this.m_Instance.MenuStore.GetOpenSideMenu() != o.Ez.None || !!t) &&
+			(!e ||
+				this.m_Instance.MenuStore.GetOpenSideMenu() != o.Ez.None ||
+				this.m_Instance.MenuStore.GetOpenSideMenu() != o.Ez.None ||
+				!!t) &&
 			(this.m_Instance.MenuStore.GetOpenSideMenu() != o.Ez.QuickAccess ||
 				(!e && !!t))
 		);
 	}
 }
-(0, n.Cg)([a.sH], c.prototype, "m_iHideFooterCount", undefined);
-(0, n.Cg)([a.sH], c.prototype, "m_bKeyboardVisible", undefined);
-(0, n.Cg)([a.sH], c.prototype, "m_flCurrentFooterHeight", undefined);
-var m = require(/*webcrack:missing*/ "./49455.js");
-var u = require("./10606.js");
-var d = require(/*webcrack:missing*/ "./49519.js");
-var A = require("./46422.js");
-var p = require("./96593.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require(/*webcrack:missing*/ "./93960.js");
-var C = require(/*webcrack:missing*/ "./90039.js");
-var _ = require(/*webcrack:missing*/ "./79769.js");
-var f = require(/*webcrack:missing*/ "./83599.js");
-var b = require("./82011.js");
-(0, n.Cg)(
+Cg([a.sH], c.prototype, "m_iHideFooterCount", undefined);
+Cg([a.sH], c.prototype, "m_bKeyboardVisible", undefined);
+Cg([a.sH], c.prototype, "m_flCurrentFooterHeight", undefined);
+Cg(
 	[h.o],
 	class {
 		m_fnCallback = undefined;
@@ -119,7 +137,7 @@ var b = require("./82011.js");
 	"OnMessage",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[h.o],
 	class {
 		m_postWindow;
@@ -156,7 +174,7 @@ const y = new f.wd("WebBrowser").Debug;
 class S {
 	m_NavigationController;
 	m_postMessage;
-	m_eGameInputSupportLevel = (0, _.Jc)(b.h.Unknown);
+	m_eGameInputSupportLevel = Jc(b.h.Unknown);
 	m_CallbackOnUnhandledInput = new C.l();
 	m_CallbackUpdateActionDescriptions = new C.l();
 	m_lastActionDescriptions;
@@ -167,19 +185,23 @@ class S {
 	}
 	OnMessage(e) {
 		switch (e.type) {
-			case "ButtonPressed":
+			case "ButtonPressed": {
 				this.m_CallbackOnUnhandledInput.Dispatch(e.data.button);
 				break;
-			case "GameInputState":
+			}
+			case "GameInputState": {
 				this.SetGameInputSupportLevel(e.data.support, e.data.source);
 				break;
-			case "PageUnloading":
+			}
+			case "PageUnloading": {
 				this.SetGameInputSupportLevel(b.h.PageUnloading, "PageUnloading");
 				this.m_CallbackUpdateActionDescriptions.Dispatch({});
 				break;
-			case "UpdateActionDescriptions":
+			}
+			case "UpdateActionDescriptions": {
 				this.m_lastActionDescriptions = e.data.descriptions;
 				this.m_CallbackUpdateActionDescriptions.Dispatch(e.data.descriptions);
+			}
 		}
 	}
 	TakeFocus() {
@@ -206,10 +228,12 @@ class S {
 	BClientManagesVirtualKeyboard() {
 		switch (this.m_eGameInputSupportLevel.Value) {
 			case b.h.Full:
-			case b.h.Basic:
+			case b.h.Basic: {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	SetGameInputSupportLevel(e, t) {
@@ -225,7 +249,7 @@ class S {
 		return this.m_CallbackUpdateActionDescriptions.Register(e).Unregister;
 	}
 }
-(0, n.Cg)([h.o], S.prototype, "OnMessage", null);
+Cg([h.o], S.prototype, "OnMessage", null);
 class w {
 	m_browser;
 	m_fnCallback;
@@ -251,9 +275,7 @@ class w {
 		}
 	}
 }
-(0, n.Cg)([h.o], w.prototype, "OnMessage", null);
-var B = require(/*webcrack:missing*/ "./736.js");
-import { AssertMsg } from "../../actual_src/utils/assert.js";
+Cg([h.o], w.prototype, "OnMessage", null);
 const I = "VirtualKeyboardMessage";
 function E(e) {
 	return e && e.type === I;
@@ -314,7 +336,7 @@ class M {
 			type: "VirtualKeyboardMessage",
 			...e,
 		};
-		if ((0, B.Dp)("BrowserView.PostMessageToParent")) {
+		if (Dp("BrowserView.PostMessageToParent")) {
 			SteamClient.BrowserView.PostMessageToParent(t.type, JSON.stringify(t));
 		} else if (this.m_ownerWindow) {
 			AssertMsg(
@@ -326,11 +348,11 @@ class M {
 		}
 	}
 }
-(0, n.Cg)([h.o], M.prototype, "ShowVirtualKeyboard", null);
-(0, n.Cg)([h.o], M.prototype, "ShowModalKeyboard", null);
-(0, n.Cg)([h.o], M.prototype, "HideVirtualKeyboard", null);
-(0, n.Cg)([h.o], M.prototype, "OnBrowserViewMessage", null);
-(0, n.Cg)([h.o], M.prototype, "OnMessage", null);
+Cg([h.o], M.prototype, "ShowVirtualKeyboard", null);
+Cg([h.o], M.prototype, "ShowModalKeyboard", null);
+Cg([h.o], M.prototype, "HideVirtualKeyboard", null);
+Cg([h.o], M.prototype, "OnBrowserViewMessage", null);
+Cg([h.o], M.prototype, "OnMessage", null);
 class _T {
 	m_showKeyboard;
 	m_showModalKeyboard;
@@ -346,22 +368,23 @@ class _T {
 			const e = JSON.parse(t);
 			if (E(e)) {
 				switch (e.message) {
-					case "ShowVirtualKeyboard":
+					case "ShowVirtualKeyboard": {
 						this.m_showKeyboard();
 						break;
-					case "ShowModalKeyboard":
+					}
+					case "ShowModalKeyboard": {
 						this.m_showModalKeyboard();
 						break;
-					case "HideVirtualKeyboard":
+					}
+					case "HideVirtualKeyboard": {
 						this.m_hideKeyboard();
+					}
 				}
 			}
 		}
 	}
 }
-(0, n.Cg)([h.o], _T.prototype, "OnMessage", null);
-var R = require("./43152.js");
-import { IsHTMLElementTextInput } from "../../actual_src/utils/domutils.js";
+Cg([h.o], _T.prototype, "OnMessage", null);
 class D {
 	Log = new f.wd("WebBrowser", () => this.m_strName).Debug;
 	m_strName;
@@ -391,7 +414,7 @@ class D {
 	m_bCanGoForward = false;
 	m_fnGoBackOverride = undefined;
 	constructor(e, t) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_strName = e;
 		this.m_strUserAgentIdentifier =
 			t?.strUserAgentIdentifier ?? "Valve Steam Client";
@@ -443,9 +466,10 @@ class D {
 				() => this.m_refKeyboard.HideVirtualKeyboard(),
 			);
 		}
-		this.m_gamepadBridge = (function (e, t) {
-			return new S(e, new w(t));
-		})(e, this.m_browserView);
+		this.m_gamepadBridge = ((e, t) => new S(e, new w(t)))(
+			e,
+			this.m_browserView,
+		);
 	}
 	Destroy() {
 		if (this.m_browserView) {
@@ -510,11 +534,12 @@ class D {
 		setTimeout(() => {
 			switch (this.m_gamepadBridge.GetGameInputSupportLevel().Value) {
 				case b.h.Unknown:
-				case b.h.PageUnloading:
+				case b.h.PageUnloading: {
 					this.m_gamepadBridge.SetGameInputSupportLevel(
 						b.h.None,
 						"OnFinishedRequest",
 					);
+				}
 			}
 		}, 1);
 	}
@@ -543,9 +568,9 @@ class D {
 		this.m_browserView.SetFocus(false);
 		this.m_browserView.SetFocus(true);
 		if (this.m_bUseVRKeyboard) {
-			(0, R._1)(e);
+			_1(e);
 		} else {
-			(0, R.iv)(e);
+			iv(e);
 		}
 	}
 	BIsLoadingURL() {
@@ -650,44 +675,33 @@ class D {
 		return this.m_onFinishedRequestCallbacks;
 	}
 }
-(0, n.Cg)([a.sH.ref], D.prototype, "m_history", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_loadErrorCode", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_loadErrorURL", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_loadErrorDesc", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_bLoading", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_bExternalRequest", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_URLRequested", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_URL", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_strTitle", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_bCanGoBackward", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_bCanGoForward", undefined);
-(0, n.Cg)([a.sH], D.prototype, "m_fnGoBackOverride", undefined);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnStartRequest", null);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnStartLoad", null);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnFinishedRequest", null);
-(0, n.Cg)([h.o], D.prototype, "OnBeforeClose", null);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnSetTitle", null);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnCanGoBackForwardChanged", null);
-(0, n.Cg)([h.o], D.prototype, "OnHistoryChanged", null);
-(0, n.Cg)([a.XI.bound], D.prototype, "OnLoadError", null);
-(0, n.Cg)([h.o], D.prototype, "OnVirtualKeyboardPress", null);
-(0, n.Cg)([h.o], D.prototype, "Reload", null);
-(0, n.Cg)([h.o], D.prototype, "GoBack", null);
-(0, n.Cg)([h.o], D.prototype, "GoForward", null);
-(0, n.Cg)([a.XI], D.prototype, "LoadURL", null);
-(0, n.Cg)([h.o], D.prototype, "OnNodeHasFocus", null);
-(0, n.Cg)([h.o], D.prototype, "BrowserViewOnMessage", null);
-var N = require(/*webcrack:missing*/ "./85243.js");
-var F = require(/*webcrack:missing*/ "./44846.js");
-var G = require("./43014.js");
-import {
-	LocalizationManager,
-	Localize,
-} from "../../actual_src/utils/localization.js";
-var P = require("./69913.js");
-var L = require("./22969.js");
-var z = require("./35425.js");
-var x = require("./18052.js");
+Cg([a.sH.ref], D.prototype, "m_history", undefined);
+Cg([a.sH], D.prototype, "m_loadErrorCode", undefined);
+Cg([a.sH], D.prototype, "m_loadErrorURL", undefined);
+Cg([a.sH], D.prototype, "m_loadErrorDesc", undefined);
+Cg([a.sH], D.prototype, "m_bLoading", undefined);
+Cg([a.sH], D.prototype, "m_bExternalRequest", undefined);
+Cg([a.sH], D.prototype, "m_URLRequested", undefined);
+Cg([a.sH], D.prototype, "m_URL", undefined);
+Cg([a.sH], D.prototype, "m_strTitle", undefined);
+Cg([a.sH], D.prototype, "m_bCanGoBackward", undefined);
+Cg([a.sH], D.prototype, "m_bCanGoForward", undefined);
+Cg([a.sH], D.prototype, "m_fnGoBackOverride", undefined);
+Cg([a.XI.bound], D.prototype, "OnStartRequest", null);
+Cg([a.XI.bound], D.prototype, "OnStartLoad", null);
+Cg([a.XI.bound], D.prototype, "OnFinishedRequest", null);
+Cg([h.o], D.prototype, "OnBeforeClose", null);
+Cg([a.XI.bound], D.prototype, "OnSetTitle", null);
+Cg([a.XI.bound], D.prototype, "OnCanGoBackForwardChanged", null);
+Cg([h.o], D.prototype, "OnHistoryChanged", null);
+Cg([a.XI.bound], D.prototype, "OnLoadError", null);
+Cg([h.o], D.prototype, "OnVirtualKeyboardPress", null);
+Cg([h.o], D.prototype, "Reload", null);
+Cg([h.o], D.prototype, "GoBack", null);
+Cg([h.o], D.prototype, "GoForward", null);
+Cg([a.XI], D.prototype, "LoadURL", null);
+Cg([h.o], D.prototype, "OnNodeHasFocus", null);
+Cg([h.o], D.prototype, "BrowserViewOnMessage", null);
 new f.wd("VR");
 export class T {
 	m_params = undefined;
@@ -716,12 +730,12 @@ export class T {
 	m_arrBackstack = [];
 	m_currentBackstackLevel = 0;
 	constructor(e) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_params = e;
 		let t =
 			e.eWindowType != N.W7.OverlayDesktopUI &&
 			e.eWindowType != N.W7.OverlayGamepadUI &&
-			(0, g.Pr)()
+			Pr()
 				? F.WU.k_EPositionTopRight
 				: F.WU.k_EPositionBottomRight;
 		this.m_notificationPosition = {
@@ -780,7 +794,7 @@ export class T {
 		} else if (this.m_fnFocusApplicationRoot) {
 			this.m_fnFocusApplicationRoot();
 		} else {
-			(0, m.w)(false, "FocusApplicationRoot called before ready");
+			w_1(false, "FocusApplicationRoot called before ready");
 		}
 	}
 	get forcedAppID() {
@@ -942,9 +956,10 @@ export class T {
 						}
 						break;
 					}
-					case "REPLACE":
+					case "REPLACE": {
 						this.m_arrBackstack.pop();
 						this.m_arrBackstack.push(this.m_locationPathname);
+					}
 				}
 			}
 		});
@@ -973,7 +988,7 @@ export class T {
 		this.m_Navigator = e;
 	}
 	BRouteMatch(e) {
-		return !!(0, d.B6)(this.m_locationPathname, e);
+		return !!B6(this.m_locationPathname, e);
 	}
 	BIsOverlayPath() {
 		return A.oy.BIsOverlayPath(this.m_locationPathname);
@@ -1004,6 +1019,9 @@ export class T {
 		console.log("BViewingPreLoginRoute", this.m_locationPathname);
 		if (
 			!this.m_locationPathname ||
+			this.m_locationPathname == "/" ||
+			this.m_locationPathname == "/" ||
+			this.m_locationPathname == "/index.html" ||
 			this.m_locationPathname == "/" ||
 			this.m_locationPathname == "/index.html" ||
 			this.m_locationPathname == "/sp.html"
@@ -1043,6 +1061,9 @@ export class T {
 		return (
 			!!this.IsMainGamepadUIWindow() ||
 			!!this.IsGamepadUIOverlayWindow() ||
+			!!this.IsGamepadUIOverlayWindow() ||
+			!!this.IsVRWindow() ||
+			!!this.IsGamepadUIOverlayWindow() ||
 			!!this.IsVRWindow() ||
 			!!this.IsStandaloneKeyboardWindow()
 		);
@@ -1050,6 +1071,7 @@ export class T {
 	IsDesktopUIWindow() {
 		return (
 			!!this.IsMainDesktopWindow() ||
+			!!this.IsDesktopOverlayWindow() ||
 			!!this.IsDesktopOverlayWindow() ||
 			!!this.IsSteamChinaReviewLauncher()
 		);
@@ -1114,7 +1136,7 @@ export class T {
 		const r = !!this.MainRunningAppID;
 		if (r && this.m_lastControllerConfigURL !== undefined) {
 			if (
-				!(0, d.B6)(this.m_lastControllerConfigURL, {
+				!B6(this.m_lastControllerConfigURL, {
 					path: s.BV.GamepadUI.ControllerConfigurator.Root(
 						this.MainRunningAppID,
 					),
@@ -1126,13 +1148,13 @@ export class T {
 				);
 			}
 			if (
-				(0, d.B6)(this.m_lastControllerConfigURL, {
+				B6(this.m_lastControllerConfigURL, {
 					path: s.BV.GamepadUI.ControllerConfigurator.ChooseBinding(
 						this.MainRunningAppID,
 					),
 					exact: false,
 				}) ||
-				(0, d.B6)(this.m_lastControllerConfigURL, {
+				B6(this.m_lastControllerConfigURL, {
 					path: s.BV.GamepadUI.ControllerConfigurator.ModeSettings(
 						this.MainRunningAppID,
 					),
@@ -1148,9 +1170,7 @@ export class T {
 			return;
 		}
 		if (r && !t) {
-			if (
-				(0, d.B6)(this.m_history.location.pathname, s.BV.GamepadUI.GameAPIOSK())
-			) {
+			if (B6(this.m_history.location.pathname, s.BV.GamepadUI.GameAPIOSK())) {
 				SteamClient.Input.SetGamepadKeyboardText(false, "");
 			}
 			this.MenuStore.ToggleSideMenu(o.Ez.Main);
@@ -1158,7 +1178,7 @@ export class T {
 		}
 		if (
 			r &&
-			(0, d.B6)(
+			B6(
 				this.m_history.location.pathname,
 				s.BV.GamepadUI.ControllerConfigurator.Root(),
 			)
@@ -1257,16 +1277,11 @@ export class T {
 		);
 	}
 }
-(0, n.Cg)([a.sH], T.prototype, "m_params", undefined);
-(0, n.Cg)(
-	[a.sH],
-	T.prototype,
-	"m_bIsGamepadApplicationUIInitialized",
-	undefined,
-);
-(0, n.Cg)([a.sH], T.prototype, "m_BrowserWindow", undefined);
-(0, n.Cg)([a.sH], T.prototype, "m_bShowingGlobalModal", undefined);
-(0, n.Cg)([a.sH], T.prototype, "m_locationPathname", undefined);
-(0, n.Cg)([a.sH.deep], T.prototype, "m_notificationPosition", undefined);
-(0, n.Cg)([h.o], T.prototype, "FocusApplicationRoot", null);
-(0, n.Cg)([a.XI.bound], T.prototype, "SetNotificationPosition", null);
+Cg([a.sH], T.prototype, "m_params", undefined);
+Cg([a.sH], T.prototype, "m_bIsGamepadApplicationUIInitialized", undefined);
+Cg([a.sH], T.prototype, "m_BrowserWindow", undefined);
+Cg([a.sH], T.prototype, "m_bShowingGlobalModal", undefined);
+Cg([a.sH], T.prototype, "m_locationPathname", undefined);
+Cg([a.sH.deep], T.prototype, "m_notificationPosition", undefined);
+Cg([h.o], T.prototype, "FocusApplicationRoot", null);
+Cg([a.XI.bound], T.prototype, "SetNotificationPosition", null);

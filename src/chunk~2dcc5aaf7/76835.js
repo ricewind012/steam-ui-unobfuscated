@@ -1,5 +1,5 @@
-export var il;
-var i;
+export let il;
+let i;
 export function hT(e) {
 	return e.type === "gamemode";
 }
@@ -81,18 +81,19 @@ export function rU(e) {
 			r.handle = e.screenshot_handle;
 			break;
 		}
-		default:
+		default: {
 			return null;
+		}
 	}
 	return t;
 }
-(function (e) {
+((e) => {
 	e[(e.Invalid = 0)] = "Invalid";
 	e[(e.Playing = 1)] = "Playing";
 	e[(e.Staging = 2)] = "Staging";
 	e[(e.Menus = 3)] = "Menus";
 })((il ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Invalid = 0)] = "Invalid";
 	e[(e.None = 1)] = "None";
 	e[(e.Standard = 2)] = "Standard";

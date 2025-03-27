@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./65504.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./22091.js");
-var o = require("./39940.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./58254.js");
-var m = require("./51943.js");
-var u = require("./74362.js");
+import n from "./63696.js";
+import i from "./65504.js";
+import a, { q3 } from "./90095.js";
+import s from "./22091.js";
+import o from "./39940.js";
+import { A } from "./90765.js";
+import c from "./58254.js";
+import { Cu } from "./51943.js";
+import u from "./74362.js";
 export function K(e) {
 	const { bPlayingMovie: t, ..._r } = e;
 	const a = n.useRef(undefined);
@@ -30,7 +30,7 @@ export function K(e) {
 		}),
 	);
 }
-export const r = n.forwardRef(function (e, t) {
+export const r = n.forwardRef((e, t) => {
 	const {
 		strOverrideStartupMovie: r,
 		bFullscreenVideo: c = false,
@@ -39,8 +39,8 @@ export const r = n.forwardRef(function (e, t) {
 		onVideoPlay: p,
 	} = e;
 	const [g, h] = n.useState(false);
-	const C = (0, a.q3)(() => s.Fd.Get().GetControllers());
-	const _ = (0, m.Cu)(u.T4.Output);
+	const C = q3(() => s.Fd.Get().GetControllers());
+	const _ = Cu(u.T4.Output);
 	const f = n.useCallback(() => {
 		if (_.flVolume > 0) {
 			C.filter((e) => e.eControllerType == 4)?.forEach((e) => {
@@ -58,8 +58,8 @@ export const r = n.forwardRef(function (e, t) {
 			p();
 		}
 	}, [h, C, _, p]);
-	let b = (0, l.A)(i.Container, g && i.MoviePlaying);
-	let y = (0, l.A)(c && i.FullscreenVideo);
+	let b = A(i.Container, g && i.MoviePlaying);
+	let y = A(c && i.FullscreenVideo);
 	return n.createElement(
 		"div",
 		{

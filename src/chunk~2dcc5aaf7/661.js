@@ -1,40 +1,44 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-const i = (0, n.createContext)({});
+import n, { createContext, useMemo, useContext } from "./63696.js";
+const IContext = createContext({});
 export function m(e) {
 	const {
-		children: t,
-		onMarkerCreated: r,
-		onNavigateToClip: a,
-		onNavigateToScreenshot: s,
-		onSetGamepadHeaderVisible: o,
-		onShowProgressBar: l,
-		onNavigateToGRSettings: c,
-		onNavigateToMedia: m,
-		onNavigateToFAQ: u,
-		onShowError: d,
+		children,
+		onMarkerCreated,
+		onNavigateToClip,
+		onNavigateToScreenshot,
+		onSetGamepadHeaderVisible,
+		onShowProgressBar,
+		onNavigateToGRSettings,
+		onNavigateToMedia,
+		onNavigateToFAQ,
+		onShowError,
 	} = e;
-	const A = (0, n.useMemo)(
+	const A = useMemo(
 		() => ({
-			onMarkerCreated: r,
-			onNavigateToClip: a,
-			onNavigateToGRSettings: c,
-			onNavigateToScreenshot: s,
-			onSetGamepadHeaderVisible: o,
-			onShowProgressBar: l,
-			onNavigateToMedia: m,
-			onNavigateToFAQ: u,
-			onShowError: d,
+			onMarkerCreated: onMarkerCreated,
+			onNavigateToClip: onNavigateToClip,
+			onNavigateToGRSettings: onNavigateToGRSettings,
+			onNavigateToScreenshot: onNavigateToScreenshot,
+			onSetGamepadHeaderVisible: onSetGamepadHeaderVisible,
+			onShowProgressBar: onShowProgressBar,
+			onNavigateToMedia: onNavigateToMedia,
+			onNavigateToFAQ: onNavigateToFAQ,
+			onShowError: onShowError,
 		}),
-		[a, r, s, o, l, c, m, u, d],
+		[
+			onNavigateToClip,
+			onMarkerCreated,
+			onNavigateToScreenshot,
+			onSetGamepadHeaderVisible,
+			onShowProgressBar,
+			onNavigateToGRSettings,
+			onNavigateToMedia,
+			onNavigateToFAQ,
+			onShowError,
+		],
 	);
-	return n.createElement(
-		i.Provider,
-		{
-			value: A,
-		},
-		t,
-	);
+	return <IContext.Provider value={A}>{children}</IContext.Provider>;
 }
 export function f() {
-	return (0, n.useContext)(i);
+	return useContext(IContext);
 }

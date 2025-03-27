@@ -1,10 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./39039.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i, { m as m_1 } from "./39039.js";
+import a from "./83957.js";
+import o, { Gn, h5 } from "./89193.js";
+import l from "./63696.js";
+import c, { Tc } from "./72476.js";
+import u from "./8573.js";
+import { I8 } from "./12176.js";
+import A from "./58663.js";
+import p from "./48307.js";
+const s = a;
 class m {
 	m_clanSteamID;
 	m_appidList = new Array();
@@ -19,7 +23,7 @@ class m {
 	m_bIsHidden = false;
 	m_clanAccountFlags = 0;
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_clanSteamID = e;
 	}
 	Initialize(e) {
@@ -82,16 +86,18 @@ class m {
 	GetCreatorHomeURL(e) {
 		if (this.m_strVanity) {
 			switch (e) {
-				case "publisher":
-					return c.TS.STORE_BASE_URL + "publisher/" + this.m_strVanity + "/";
-				case "franchise":
-					return c.TS.STORE_BASE_URL + "franchise/" + this.m_strVanity + "/";
+				case "publisher": {
+					return `${c.TS.STORE_BASE_URL}publisher/${this.m_strVanity}/`;
+				}
+				case "franchise": {
+					return `${c.TS.STORE_BASE_URL}franchise/${this.m_strVanity}/`;
+				}
 			}
-			return c.TS.STORE_BASE_URL + "developer/" + this.m_strVanity + "/";
+			return `${c.TS.STORE_BASE_URL}developer/${this.m_strVanity}/`;
 		}
-		return (
-			c.TS.STORE_BASE_URL + "curator/" + this.m_clanSteamID.GetAccountID() + "/"
-		);
+		return `${
+			c.TS.STORE_BASE_URL
+		}curator/${this.m_clanSteamID.GetAccountID()}/`;
 	}
 	BHasWebLink() {
 		return this.m_webLink !== undefined;
@@ -111,7 +117,7 @@ class m {
 		}
 	}
 	async UpdateGroupFlagsFeature(e, t) {
-		let r = c.TS.PARTNER_BASE_URL + "sales/ajaxupdateclanaccountflags";
+		let r = `${c.TS.PARTNER_BASE_URL}sales/ajaxupdateclanaccountflags`;
 		let n = this.m_clanAccountFlags;
 		e.forEach((e) => {
 			if (t) {
@@ -155,22 +161,20 @@ class m {
 		}
 	}
 }
-(0, n.Cg)([o.sH], m.prototype, "m_appidList", undefined);
-(0, n.Cg)([o.sH], m.prototype, "m_nFollowers", undefined);
-(0, n.Cg)([o.sH], m.prototype, "m_clanAccountFlags", undefined);
-var u = require(/*webcrack:missing*/ "./8573.js");
-var d = require(/*webcrack:missing*/ "./12176.js");
-var A = require(/*webcrack:missing*/ "./58663.js");
-var p = require(/*webcrack:missing*/ "./48307.js");
-const g = A.Message;
-class h extends g {
+Cg([o.sH], m.prototype, "m_appidList", undefined);
+Cg([o.sH], m.prototype, "m_nFollowers", undefined);
+Cg([o.sH], m.prototype, "m_clanAccountFlags", undefined);
+
+const { Message } = A;
+
+class h extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.clan_account_id) {
 			p.Sg(h.M());
 		}
-		g.initialize(this, e, 0, -1, [2], null);
+		Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -217,7 +221,7 @@ class h extends g {
 		return p.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -225,7 +229,7 @@ class h extends g {
 		p.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -233,15 +237,14 @@ class h extends g {
 		return "CDeveloperPageToApps";
 	}
 }
-const C = A.Message;
-class _ extends C {
+class _ extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.clan_account_ids) {
 			p.Sg(_.M());
 		}
-		C.initialize(this, e, 0, -1, [1], null);
+		Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -288,7 +291,7 @@ class _ extends C {
 		return p.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -296,7 +299,7 @@ class _ extends C {
 		p.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -304,14 +307,14 @@ class _ extends C {
 		return "CStoreCatalog_GetDevPageAllAppsLinked_Request";
 	}
 }
-class f extends C {
+class f extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.results) {
 			p.Sg(f.M());
 		}
-		C.initialize(this, e, 0, -1, [1], null);
+		Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -351,7 +354,7 @@ class f extends C {
 		return p.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -359,7 +362,7 @@ class f extends C {
 		p.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -367,29 +370,23 @@ class f extends C {
 		return "CStoreCatalog_GetDevPageAllAppsLinked_Response";
 	}
 }
-var b;
-(function (e) {
-	e.GetDevPageAllAppsLinked = function (e, t) {
-		return e.SendMsg(
-			"StoreCatalog.GetDevPageAllAppsLinked#1",
-			(0, d.I8)(_, t),
-			f,
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
+let b;
+((e) => {
+	e.GetDevPageAllAppsLinked = (e, t) =>
+		e.SendMsg("StoreCatalog.GetDevPageAllAppsLinked#1", I8(_, t), f, {
+			ePrivilege: 1,
+		});
 })((b ||= {}));
 class y {
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 	m_mapClanToCreatorHome = new Map();
 	m_mapAppToCreatorIDList = new Map();
 	m_bLoadedFromConfig = false;
 	LazyInit() {
 		if (!this.m_bLoadedFromConfig) {
-			let e = (0, c.Tc)("creatorhome", "application_config");
+			let e = Tc("creatorhome", "application_config");
 			if (this.ValidateStoreDefault(e)) {
 				e.forEach((e) => {
 					let t = Number(e.creator_clan_id);
@@ -400,7 +397,7 @@ class y {
 					this.m_mapClanToCreatorHome.set(t, n);
 				});
 			}
-			let t = (0, c.Tc)("creatorhomeforapp", "application_config");
+			let t = Tc("creatorhomeforapp", "application_config");
 			if (this.ValidateStoreDefaultAppList(t)) {
 				t.forEach((e) => {
 					if (e.appid !== undefined) {
@@ -470,11 +467,9 @@ class y {
 			l: c.TS.LANGUAGE,
 			origin: self.origin,
 		};
-		let n =
-			c.TS.STORE_BASE_URL +
-			"curator/" +
-			e.GetClanAccountID() +
-			"/ajaxgetcreatorhomeinfo";
+		let n = `${
+			c.TS.STORE_BASE_URL
+		}curator/${e.GetClanAccountID()}/ajaxgetcreatorhomeinfo`;
 		let i = await s.get(n, {
 			params: r,
 			cancelToken: t && t.token,
@@ -488,7 +483,7 @@ class y {
 			let r = {
 				appid: e,
 			};
-			let n = c.TS.STORE_BASE_URL + "events/ajaxgetcreatorhomeidforapp";
+			let n = `${c.TS.STORE_BASE_URL}events/ajaxgetcreatorhomeidforapp`;
 			let i = await s.get(n, {
 				params: r,
 				cancelToken: t && t.token,
@@ -513,7 +508,7 @@ class y {
 			cancelToken: r.token,
 		});
 		if (l.data.curators) {
-			(0, o.h5)(() => {
+			h5(() => {
 				l.data.curators.forEach((e) => {
 					if (!this.m_mapClanToCreatorHome.has(e.creator_clan_id)) {
 						let t = u.b.InitFromClanID(e.creator_clan_id);
@@ -535,14 +530,14 @@ class y {
 		}
 	}
 }
-(0, n.Cg)([o.sH], y.prototype, "m_mapClanToCreatorHome", undefined);
-(0, n.Cg)([o.sH], y.prototype, "m_mapAppToCreatorIDList", undefined);
-(0, n.Cg)([o.XI], y.prototype, "LazyInit", null);
+Cg([o.sH], y.prototype, "m_mapClanToCreatorHome", undefined);
+Cg([o.sH], y.prototype, "m_mapAppToCreatorIDList", undefined);
+Cg([o.XI], y.prototype, "LazyInit", null);
 export const pF = new y();
 export function FV(e) {
 	const t = u.b.InitFromClanID(e);
 	const [r, n] = l.useState(pF.GetCreatorHome(t));
-	const a = (0, i.m)("useCreatorHome");
+	const a = m_1("useCreatorHome");
 	l.useEffect(() => {
 		const t = u.b.InitFromClanID(e);
 		if (pF.BHasCreatorHomeLoaded(t)) {

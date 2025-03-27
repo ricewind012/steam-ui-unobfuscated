@@ -1,4 +1,4 @@
-import * as n from /*webcrack:missing*/ "./63696.js";
+import * as n from "./63696.js";
 import * as i from "./58752.js";
 import * as a from "./35488.js";
 import * as s from "./34792.js";
@@ -8,7 +8,7 @@ import * as c from "./92374.js";
 import * as m from "./99998.js";
 import * as u from "./34891.js";
 import * as d from "./68956.js";
-import * as A from /*webcrack:missing*/ "./90095.js";
+import * as A from "./90095.js";
 import * as p from "./29516.js";
 import * as g from "./67429.js";
 import * as h from "./52808.js";
@@ -19,29 +19,29 @@ import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import * as y from /*webcrack:missing*/ "./90765.js";
+import * as y from "./90765.js";
 import * as S from "./34461.js";
 import * as w from "./4069.js";
 import * as B from "./96680.js";
 import * as v from "./18869.js";
 import * as I from "./3499.js";
-import * as E from /*webcrack:missing*/ "./58254.js";
+import * as E from "./58254.js";
 import * as M from "./69767.js";
 import * as T from "./44926.js";
-import * as R from /*webcrack:missing*/ "./90685.js";
-import * as k from /*webcrack:missing*/ "./72476.js";
+import * as R from "./90685.js";
+import * as k from "./72476.js";
 import * as D from "./28592.js";
-import * as N from /*webcrack:missing*/ "./98995.js";
-import * as F from /*webcrack:missing*/ "./46382.js";
-import * as G from /*webcrack:missing*/ "./92251.js";
+import * as N from "./98995.js";
+import * as F from "./46382.js";
+import * as G from "./92251.js";
 import * as O from "./51582.js";
-import * as P from /*webcrack:missing*/ "./52451.js";
+import * as P from "./52451.js";
 import * as L from "./64004.js";
 import * as z from "./3874.js";
 import * as x from "./21163.js";
-import * as U from /*webcrack:missing*/ "./85243.js";
+import * as U from "./85243.js";
 const W = parseInt(i.animationTransitionMS);
-export default (function (e) {
+export default (e) => {
 	const { gameID: t, timelineWidth: r } = e;
 	const i = (0, h.Mm)(new g.VS(t));
 	const a = (0, B.$2)().DesktopOverlay;
@@ -57,7 +57,7 @@ export default (function (e) {
 	} else {
 		return null;
 	}
-});
+};
 function H(e) {
 	return n.createElement(
 		"div",
@@ -124,7 +124,7 @@ function j(e) {
 		bShowClipSavedHint: T,
 		hideClipSavedHint: R,
 		showClipSavedHintIfNecessary: D,
-	} = (function () {
+	} = (() => {
 		const [e, t] = (0, n.useState)(false);
 		const r = (0, F.rX)();
 		const i = (0, B.$2)().DesktopOverlay;
@@ -283,7 +283,7 @@ export function useHandleTimelineOverlayNotifications(e) {
 		[e, t],
 	);
 }
-const Q = n.forwardRef(function (e, t) {
+const Q = n.forwardRef((e, t) => {
 	const { gameID: r, loader: a, timelineWidth: l } = e;
 	const u = (0, o.$O)(r);
 	const d = (0, w.useGameRecordingShortcuts)();
@@ -301,7 +301,7 @@ const Q = n.forwardRef(function (e, t) {
 	}, [v, C, S]);
 	const [I] = (0, s.VI)("g_background_mode");
 	const [E, T] = (0, n.useState)(I == 1);
-	(function (e, t) {
+	((e, t) => {
 		n.useEffect(() => {
 			const r = (0, o.Od)(e, t);
 			return () => {
@@ -583,7 +583,7 @@ function $(e) {
 	const d = (0, c.aO)();
 	const [p, g] = (0, n.useState)();
 	const h = (0, B.$2)().DesktopOverlay;
-	const C = a || l || s || m;
+	const C = a || l || l || s || l || s || m;
 	n.useEffect(() => {
 		if (r) {
 			h.SetFnChangeTimelineExpansion((e) => d.SetHidePlayer(!e));
@@ -701,7 +701,7 @@ function ee(e) {
 		bIsRemotePlayActive: o,
 	} = e;
 	const l = r ?? t;
-	const c = (0, D.xj)("steam://open/recording/" + l);
+	const c = (0, D.xj)(`steam://open/recording/${l}`);
 	let m = n.useCallback(() => {
 		if (!a) {
 			c();

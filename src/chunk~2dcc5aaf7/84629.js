@@ -5,11 +5,10 @@ function i(e) {
 		e(r, ...t);
 	};
 }
-export const q_ = i(n.Debug);
+export const tG = i(n.Debug);
 export const fX = i(n.Info);
 export const tH = i(n.Warning);
 export const ZI = i(n.Error);
-export const tG = q_;
 export function xv() {
 	return n.IsDebugEnabled();
 }

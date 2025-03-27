@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./72476.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var _s = a;
+import n, { xv } from "./72476.js";
+import i from "./89193.js";
+import a from "./83957.js";
+const _s = a;
 export class h {
 	m_mapEmoticonHovers = i.sH.map();
 	m_inflightRequests = {};
@@ -17,23 +17,24 @@ export class h {
 		return !!this.m_mapEmoticonHovers.get(e);
 	}
 	async Load(e) {
-		const t = `${n.TS.COMMUNITY_CDN_URL}economy/emoticonhoverjson/${encodeURIComponent(e)}?l=${encodeURIComponent(n.TS.LANGUAGE)}&origin=${(0, n.xv)()}`;
+		const t = `${
+			n.TS.COMMUNITY_CDN_URL
+		}economy/emoticonhoverjson/${encodeURIComponent(e)}?l=${encodeURIComponent(
+			n.TS.LANGUAGE,
+		)}&origin=${xv()}`;
 		this.m_inflightRequests[e] = true;
 		try {
-			const { data: r } = await _s.get(t);
+			const { data } = await _s.get(t);
 			if (
-				!(function (e) {
-					return (
-						e &&
-						typeof e == "object" &&
-						typeof e.appid == "number" &&
-						typeof e.app_name == "string"
-					);
-				})(r)
+				!((e) =>
+					e &&
+					typeof e == "object" &&
+					typeof e.appid == "number" &&
+					typeof e.app_name == "string")(data)
 			) {
 				this.m_mapEmoticonHovers.set(e, null);
 			} else {
-				this.m_mapEmoticonHovers.set(e, r);
+				this.m_mapEmoticonHovers.set(e, data);
 			}
 		} catch (t) {
 			this.m_mapEmoticonHovers.set(e, null);

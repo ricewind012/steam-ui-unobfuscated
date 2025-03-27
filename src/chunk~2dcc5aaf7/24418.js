@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	"duration-app-launch": "800ms",
 	EventDetailsPageContainer: "_2Ptras-ZC31rwdT6pD-t0a",

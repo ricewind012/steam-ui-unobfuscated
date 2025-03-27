@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./93960.js");
 import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
-var s = require(/*webcrack:missing*/ "./61657.js");
-var o = require(/*webcrack:missing*/ "./43691.js");
+import n, { Cg } from "./34629.js";
+import i from "./93960.js";
+import s from "./61657.js";
+import o from "./43691.js";
 export class Q extends s.nh {
 	m_lastButtonDown = s.pR.INVALID;
 	constructor(e) {
@@ -57,9 +57,9 @@ export class Q extends s.nh {
 			return true;
 		}
 		const t = this.GetKeycodeFromEvent(e);
-		let r = e.target;
+		let e_target = e.target;
 		const n = Array.from(
-			r.ownerDocument.getElementsByClassName("gpfocus"),
+			e_target.ownerDocument.getElementsByClassName("gpfocus"),
 		).some((e) =>
 			Array.from(e.classList).some((e) => e.includes("virtualkeyboard")),
 		);
@@ -68,101 +68,127 @@ export class Q extends s.nh {
 				if (n) {
 					return true;
 				}
-				let t = r?.value.indexOf("\n");
+				let t = e_target?.value.indexOf("\n");
 				return (
 					e.target.nodeName === "TEXTAREA" &&
 					t >= 0 &&
-					t < (r?.selectionStart ?? 0)
+					t < (e_target?.selectionStart ?? 0)
 				);
 			}
 			case "ArrowDown": {
 				if (n) {
 					return true;
 				}
-				let t = r?.value.lastIndexOf("\n");
+				let t = e_target?.value.lastIndexOf("\n");
 				return (
 					e.target.nodeName === "TEXTAREA" &&
 					t >= 0 &&
-					t >= (r?.selectionStart ?? 0) &&
-					(r?.selectionEnd ?? 0) < r?.value.length
+					t >= (e_target?.selectionStart ?? 0) &&
+					(e_target?.selectionEnd ?? 0) < e_target?.value.length
 				);
 			}
-			case "ArrowLeft":
-				return (
-					!!n || ((r?.selectionStart ?? 0) > 0 && (r?.selectionEnd ?? 0) > 0)
-				);
-			case "ArrowRight":
+			case "ArrowLeft": {
 				return (
 					!!n ||
-					((r?.selectionStart ?? 0) < r?.value.length &&
-						(r?.selectionEnd ?? 0) < r?.value.length)
+					((e_target?.selectionStart ?? 0) > 0 &&
+						(e_target?.selectionEnd ?? 0) > 0)
 				);
+			}
+			case "ArrowRight": {
+				return (
+					!!n ||
+					((e_target?.selectionStart ?? 0) < e_target?.value.length &&
+						(e_target?.selectionEnd ?? 0) < e_target?.value.length)
+				);
+			}
 			case "Enter":
-			case "Backspace":
+			case "Backspace": {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	TranslateKey(e) {
 		const t = this.GetKeycodeFromEvent(e);
-		const r = e.ctrlKey;
-		const n = e.shiftKey;
+
+		const { ctrlKey, shiftKey } = e;
+
 		if (this.BShouldSwallowEventForTextInputWorkaround(e)) {
 			return s.pR.INVALID;
 		}
-		if (r && n) {
+		if (ctrlKey && shiftKey) {
 			switch (t) {
-				case "Digit4":
+				case "Digit4": {
 					return s.pR.TRIGGER_LEFT;
-				case "Digit5":
+				}
+				case "Digit5": {
 					return s.pR.TRIGGER_RIGHT;
-				default:
+				}
+				default: {
 					return s.pR.INVALID;
+				}
 			}
 		}
-		if (r) {
+		if (ctrlKey) {
 			switch (t) {
-				case "Digit1":
+				case "Digit1": {
 					return s.pR.STEAM_GUIDE;
-				case "Digit2":
+				}
+				case "Digit2": {
 					return s.pR.STEAM_QUICK_MENU;
+				}
 				case "Digit3":
-				case "Digit9":
+				case "Digit9": {
 					return s.pR.SELECT;
-				case "Digit4":
+				}
+				case "Digit4": {
 					return s.pR.BUMPER_LEFT;
-				case "Digit5":
+				}
+				case "Digit5": {
 					return s.pR.BUMPER_RIGHT;
-				case "Digit6":
+				}
+				case "Digit6": {
 					return s.pR.LSTICK_CLICK;
-				case "Digit7":
+				}
+				case "Digit7": {
 					return s.pR.RSTICK_CLICK;
-				case "Digit8":
+				}
+				case "Digit8": {
 					return s.pR.OPTIONS;
-				case "Digit0":
+				}
+				case "Digit0": {
 					return s.pR.START;
+				}
 			}
 		}
 		switch (t) {
-			case "Escape":
+			case "Escape": {
 				return s.pR.CANCEL;
-			case "Enter":
+			}
+			case "Enter": {
 				return s.pR.OK;
-			case "Backspace":
+			}
+			case "Backspace": {
 				return s.pR.SECONDARY;
-			case "ArrowUp":
+			}
+			case "ArrowUp": {
 				return s.pR.DIR_UP;
-			case "ArrowDown":
+			}
+			case "ArrowDown": {
 				return s.pR.DIR_DOWN;
-			case "ArrowLeft":
+			}
+			case "ArrowLeft": {
 				return s.pR.DIR_LEFT;
-			case "ArrowRight":
+			}
+			case "ArrowRight": {
 				return s.pR.DIR_RIGHT;
+			}
 		}
 		return s.pR.INVALID;
 	}
 }
-(0, n.Cg)([i.o], Q.prototype, "OnKeyDown", null);
-(0, n.Cg)([i.o], Q.prototype, "OnKeyUp", null);
-(0, n.Cg)([i.o], Q.prototype, "Reset", null);
+Cg([i.o], Q.prototype, "OnKeyDown", null);
+Cg([i.o], Q.prototype, "OnKeyUp", null);
+Cg([i.o], Q.prototype, "Reset", null);

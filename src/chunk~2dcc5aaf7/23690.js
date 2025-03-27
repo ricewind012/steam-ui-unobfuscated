@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	TourPositioner: "_3SETpnYbAtvmO7w4gpOCtK",
 	TourBox: "_1lcizT_Nbxsk484XzTtcFf",

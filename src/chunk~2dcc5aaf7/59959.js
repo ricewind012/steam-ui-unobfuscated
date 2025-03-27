@@ -1,35 +1,48 @@
-var n;
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./8573.js");
-var l = require("./823.js");
-var c = require("./83591.js");
-var m = require(/*webcrack:missing*/ "./34629.js");
-var u = require(/*webcrack:missing*/ "./83957.js");
-var d = u;
-var A = require(/*webcrack:missing*/ "./89193.js");
-var p = require(/*webcrack:missing*/ "./42689.js");
-var g = p;
-var h = require("./84731.js");
-var C = require("./13665.js");
-var _ = require("./13484.js");
-var f = require("./5859.js");
-var b = require("./527.js");
-var y = require(/*webcrack:missing*/ "./49455.js");
-var S = require("./16154.js");
-var w = require(/*webcrack:missing*/ "./93960.js");
 import {
 	Localize,
 	LocalizeCalendarWeekday,
 	LocalizeCalendarTime,
 	LocalizeCalendarWeekdayAndDayMonth,
 } from "../../actual_src/utils/localization.js";
-var v = require(/*webcrack:missing*/ "./72476.js");
-var I = require("./70232.js");
-var E = require("./42731.js");
-require("./95020.js");
-(function (e) {
+
+import i, { PA } from "./41230.js";
+import a, { q3 } from "./90095.js";
+import s from "./63696.js";
+import o from "./8573.js";
+import l from "./823.js";
+import c from "./83591.js";
+import m, { Cg } from "./34629.js";
+import u from "./83957.js";
+import A, { Gn, h5, fm } from "./89193.js";
+import p from "./42689.js";
+import h from "./84731.js";
+import C from "./13665.js";
+import _ from "./13484.js";
+import f from "./5859.js";
+import b, { Li } from "./527.js";
+import { w as w_1 } from "./49455.js";
+import { H as H_1 } from "./16154.js";
+import w from "./93960.js";
+import v, { Tc } from "./72476.js";
+import I from "./70232.js";
+import E from "./42731.js";
+import "./95020.js";
+import M from "./12956.js";
+import { A as A_1 } from "./90765.js";
+import P from "./10606.js";
+import { pg } from "./13869.js";
+import z from "./12911.js";
+import x from "./74670.js";
+import U from "./99327.js";
+import W from "./76565.js";
+import V, { vg } from "./4816.js";
+import H from "./90242.js";
+import j from "./50376.js";
+import q from "./98995.js";
+let n;
+const d = u;
+const g = p;
+((e) => {
 	e.Default = "default";
 	e.Upcoming = "upcoming";
 	e.Featured = "featured";
@@ -41,10 +54,9 @@ require("./95020.js");
 	e.Dev_Sales = "associated_sales";
 })((n ||= {}));
 new Map();
-var M = require("./12956.js");
 class T {
 	constructor() {
-		(0, A.Gn)(this);
+		Gn(this);
 	}
 	m_mapBlockedAppIds = new Map();
 	m_mapBlockedClanIds = new Map();
@@ -60,12 +72,13 @@ class T {
 		return this.m_mapBlockedAppIds.size + this.m_mapBlockedClanIds.size;
 	}
 	Init() {
-		const e = (0, v.Tc)("mutedcomminfo", "application_config");
+		const e = Tc("mutedcomminfo", "application_config");
 		if (this.ValidateStoreDefault(e)) {
 			if (v.TS.WEB_UNIVERSE == "dev" || v.TS.WEB_UNIVERSE == "beta") {
 				console.log(
-					"DEV_DEBUG: CMutedCommunicationStore loading bundles payload: " +
-						JSON.stringify(e),
+					`DEV_DEBUG: CMutedCommunicationStore loading bundles payload: ${JSON.stringify(
+						e,
+					)}`,
 				);
 			}
 			if (e.appids) {
@@ -99,7 +112,7 @@ class T {
 		return this.m_mapBlockedClanIds.has(e);
 	}
 	async UpdateCommunitionSetting(e, t, r) {
-		const n = v.TS.STORE_BASE_URL + "account/optoutappcommunication/";
+		const n = `${v.TS.STORE_BASE_URL}account/optoutappcommunication/`;
 		const i = new FormData();
 		i.append("sessionid", v.TS.SESSIONID);
 		i.append("allowCommunication", e ? "1" : "0");
@@ -118,10 +131,7 @@ class T {
 			i.append("appId", t.toString());
 		} else {
 			if (!r) {
-				(0, y.w)(
-					false,
-					"BlockEventsFromCalenderEvent: Invalid AppID and ClanID",
-				);
+				w_1(false, "BlockEventsFromCalenderEvent: Invalid AppID and ClanID");
 				return false;
 			}
 			if (
@@ -140,16 +150,16 @@ class T {
 		try {
 			return (await d.post(n, i)).data.success == 1;
 		} catch (e) {
-			console.error("Blocking app id hit error " + (0, S.H)(e).strErrorMsg);
+			console.error(`Blocking app id hit error ${H_1(e).strErrorMsg}`);
 			return false;
 		}
 	}
 }
-(0, m.Cg)([A.sH], T.prototype, "m_mapBlockedAppIds", undefined);
-(0, m.Cg)([A.sH], T.prototype, "m_mapBlockedClanIds", undefined);
+Cg([A.sH], T.prototype, "m_mapBlockedAppIds", undefined);
+Cg([A.sH], T.prototype, "m_mapBlockedClanIds", undefined);
 function R(e, t, r, n) {
 	return {
-		strId: "section-" + t,
+		strId: `section-${t}`,
 		strSectionLabel: t,
 		rtSectionStart: r,
 		rtSectionEnd: n,
@@ -177,7 +187,7 @@ class k {
 	m_key;
 	m_collectionMetaData = undefined;
 	constructor(e, t) {
-		(0, A.Gn)(this);
+		Gn(this);
 		this.m_key = e;
 		this.m_visibilityStore = new E.vJ(t);
 		c.Fm.Get().HintLoad();
@@ -486,7 +496,7 @@ class k {
 	}
 	async RegisterCalendarEventsAndModels(e) {
 		await c.Fm.Get().HintLoad();
-		(0, A.h5)(() => {
+		h5(() => {
 			this.RegisterCalendarApps(e.apps);
 			this.RegisterCalendarClans(e.clans);
 			this.RegisterCalendarEvents(e.documents);
@@ -555,7 +565,7 @@ class k {
 		}
 		const t = C.KN.Get();
 		for (const r of e) {
-			const e = r.vote === undefined ? undefined : Boolean(r.vote);
+			const e = r.vote === undefined || Boolean(r.vote);
 			t.SetVote(r.id, e);
 		}
 	}
@@ -624,7 +634,7 @@ class k {
 		}
 	}
 	SetRequestInFlight(e, t) {
-		(0, y.w)(
+		w_1(
 			!t || !this.GetRequestInFlight(e),
 			"Already have a request in flight for",
 			e,
@@ -643,7 +653,7 @@ class k {
 		if (r) {
 			return r;
 		}
-		const n = v.TS.STORE_BASE_URL + "events/ajaxgetusereventcalendarrange/";
+		const n = `${v.TS.STORE_BASE_URL}events/ajaxgetusereventcalendarrange/`;
 		const i =
 			e === "forward" ? this.m_nForwardStuckCount : this.m_nBackwardStuckCount;
 		const a = i < 3 ? i : 0;
@@ -699,15 +709,15 @@ class k {
 					}
 				} else {
 					console.error(
-						"LoadAdditionalEvents was not successful: Msg" + r.data.msg,
+						`LoadAdditionalEvents was not successful: Msg${r.data.msg}`,
 					);
 				}
 				return r.data.success;
 			})
 			.catch((t) => {
 				this.SetRequestInFlight(e, null);
-				let r = (0, S.H)(t);
-				console.error("LoadAdditionalEvents hit error " + r.strErrorMsg, r);
+				let r = H_1(t);
+				console.error(`LoadAdditionalEvents hit error ${r.strErrorMsg}`, r);
 				if (e == "forward") {
 					this.m_bFinishedSearchingForward = true;
 				} else {
@@ -720,7 +730,7 @@ class k {
 	}
 	BInternalInsertCalendarEventItem(e) {
 		if (!e.unique_id) {
-			(0, y.w)(
+			w_1(
 				false,
 				"Attmpted to register a calendar event item with an invalid unique id!",
 			);
@@ -764,7 +774,7 @@ class k {
 			await T.Get().UpdateCommunitionSetting(t, r, n);
 			I.V.RecordAppInteractionEvent(r, I.E.k_eMuted);
 		} else {
-			(0, y.w)(
+			w_1(
 				false,
 				"Both clan id and account id are missing, cannot change communication status",
 			);
@@ -777,26 +787,26 @@ class k {
 		return Array.from(this.m_mapCalendarAppsByID.keys());
 	}
 }
-(0, m.Cg)([A.sH], k.prototype, "m_mapCalendarAppsByID", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_mapCalendarClansByID", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_mapCalendarEventsByGid", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_rgSortedCalendarEvents", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_bFinishedSearchingForward", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_bFinishedSearchingBackward", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_rgCalendarSections", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_rgFutureSections", undefined);
-(0, m.Cg)([A.sH], k.prototype, "m_collectionMetaData", undefined);
-(0, m.Cg)([A.XI], k.prototype, "InitCalendarSections", null);
-(0, m.Cg)([A.XI], k.prototype, "InitFutureCalendarSections", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterCalendarEventsAndModels", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterCalendarApps", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterCalendarClans", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterReadEvents", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterEventVotes", null);
-(0, m.Cg)([A.XI], k.prototype, "RegisterCalendarEvents", null);
-(0, m.Cg)([w.o], k.prototype, "BHitEventHorizon", null);
-(0, m.Cg)([A.XI.bound], k.prototype, "LoadAdditionalEvents", null);
-(0, m.Cg)([A.XI], k.prototype, "UpdateEventBlockFromCalendarEvent", null);
+Cg([A.sH], k.prototype, "m_mapCalendarAppsByID", undefined);
+Cg([A.sH], k.prototype, "m_mapCalendarClansByID", undefined);
+Cg([A.sH], k.prototype, "m_mapCalendarEventsByGid", undefined);
+Cg([A.sH], k.prototype, "m_rgSortedCalendarEvents", undefined);
+Cg([A.sH], k.prototype, "m_bFinishedSearchingForward", undefined);
+Cg([A.sH], k.prototype, "m_bFinishedSearchingBackward", undefined);
+Cg([A.sH], k.prototype, "m_rgCalendarSections", undefined);
+Cg([A.sH], k.prototype, "m_rgFutureSections", undefined);
+Cg([A.sH], k.prototype, "m_collectionMetaData", undefined);
+Cg([A.XI], k.prototype, "InitCalendarSections", null);
+Cg([A.XI], k.prototype, "InitFutureCalendarSections", null);
+Cg([A.XI], k.prototype, "RegisterCalendarEventsAndModels", null);
+Cg([A.XI], k.prototype, "RegisterCalendarApps", null);
+Cg([A.XI], k.prototype, "RegisterCalendarClans", null);
+Cg([A.XI], k.prototype, "RegisterReadEvents", null);
+Cg([A.XI], k.prototype, "RegisterEventVotes", null);
+Cg([A.XI], k.prototype, "RegisterCalendarEvents", null);
+Cg([w.o], k.prototype, "BHitEventHorizon", null);
+Cg([A.XI.bound], k.prototype, "LoadAdditionalEvents", null);
+Cg([A.XI], k.prototype, "UpdateEventBlockFromCalendarEvent", null);
 class D {
 	m_rgLoadedEventsBox = A.sH.box([]);
 	m_lastLoadLatch = null;
@@ -808,14 +818,14 @@ class D {
 	m_bAllowMutedAndIgnoredSources;
 	m_rgAutorunDisposer;
 	constructor(e, t, r, n, i, a) {
-		(0, A.Gn)(this);
+		Gn(this);
 		this.m_fnGetUnfilteredEvents = e;
 		this.m_fnLoadAdditionalEvents = t;
 		this.m_fnBHitEventHorizon = r;
 		this.m_fnBIsEventInView = n;
 		this.m_bSkipStorePreferenceCheck = i;
 		this.m_bAllowMutedAndIgnoredSources = a;
-		this.m_rgAutorunDisposer = (0, A.fm)(async () => {
+		this.m_rgAutorunDisposer = fm(async () => {
 			const e = this.viewFilteredEvents.slice();
 			if (!this.m_bSkipStorePreferenceCheck) {
 				const t = Array.from(
@@ -853,7 +863,7 @@ class D {
 				}
 				if (
 					!this.m_bSkipStorePreferenceCheck &&
-					(0, b.Li)(f.A.Get().GetApp(e.appid))
+					Li(f.A.Get().GetApp(e.appid))
 				) {
 					return false;
 				}
@@ -938,43 +948,37 @@ class D {
 			});
 	}
 }
-(0, m.Cg)([A.EW.struct], D.prototype, "viewFilteredEvents", null);
-(0, m.Cg)([A.EW.struct], D.prototype, "filteredAndCheckedEvents", null);
+Cg([A.EW.struct], D.prototype, "viewFilteredEvents", null);
+Cg([A.EW.struct], D.prototype, "filteredAndCheckedEvents", null);
 const N = A.sH.box(null);
 const F = new Map();
 function G() {
 	if (N.get() == null) {
-		(function (e, t) {
+		((e, t) => {
 			let r = "";
 			if (e.appids && e.appids.length > 0) {
-				r += "appids:" + e.appids.sort().join(",");
+				r += `appids:${e.appids.sort().join(",")}`;
 			}
 			if (e.clanaccountids && e.clanaccountids.length > 0) {
-				r += "clanids:" + e.clanaccountids.sort().join(",");
+				r += `clanids:${e.clanaccountids.sort().join(",")}`;
 			}
 			if (e.collectionid) {
-				r += "collection:" + e.collectionid;
+				r += `collection:${e.collectionid}`;
 			}
 			if (e.saleid) {
-				r += "sale:" + e.saleid;
+				r += `sale:${e.saleid}`;
 			}
 			if (e.bSectionByDay) {
 				r += "_sectionbyday";
 			}
 			if (e.rtCalendarEnd) {
-				r += "_end:" + e.rtCalendarEnd;
+				r += `_end:${e.rtCalendarEnd}`;
 			}
 			if (e.rgTags && e.rgTags.length > 0) {
-				r += "_tags:" + e.rgTags.slice().sort().join(",");
+				r += `_tags:${e.rgTags.slice().sort().join(",")}`;
 			}
 			if (e.hubtype) {
-				r +=
-					"_hubtype:" +
-					e.hubtype +
-					"_" +
-					e.category_or_language +
-					"_" +
-					e.tag_name;
+				r += `_hubtype:${e.hubtype}_${e.category_or_language}_${e.tag_name}`;
 			}
 			if (N.get() !== r) {
 				N.set(r);
@@ -987,41 +991,32 @@ function G() {
 	return F.get(N.get());
 }
 window.g_EventCalendarMap = F;
-var O = require(/*webcrack:missing*/ "./90765.js");
-var P = require("./10606.js");
-var L = require("./13869.js");
-var z = require("./12911.js");
-var x = require("./74670.js");
-var U = require("./99327.js");
-var W = require("./76565.js");
-var V = require("./4816.js");
-var H = require(/*webcrack:missing*/ "./90242.js");
-var j = require(/*webcrack:missing*/ "./50376.js");
-var q = require(/*webcrack:missing*/ "./98995.js");
-const Q = (0, i.PA)((e) => {
-	const { closeModal: t } = e;
-	return s.createElement(P.o0, {
-		strTitle: (0, Localize)(
-			"#EventCalendar_GameSource_UnhideCuratorsDialog_Title",
-		),
-		strDescription: (0, Localize)(
-			"#EventCalendar_GameSource_UnhideCuratorsDialog_Description",
-		),
-		strOKButtonText: (0, Localize)(
-			"#EventCalendar_GameSource_UnhideCuratorsDialog_OKButton",
-		),
-		strCancelButtonText: (0, Localize)(
-			"#EventCalendar_GameSource_UnhideCuratorsDialog_CancelButton",
-		),
-		onOK: () => {
-			G().m_visibilityStore.SetGameSourceAllowed(E.FD.k_ECurator, true);
-			t();
-		},
-		onCancel: () => {
-			G().m_visibilityStore.SetCuratorUnhideOnFollowDialogDismissed(true);
-			t();
-		},
-	});
+const Q = PA((e) => {
+	const { closeModal } = e;
+	return (
+		<P.o0
+			strTitle={(0, Localize)(
+				"#EventCalendar_GameSource_UnhideCuratorsDialog_Title",
+			)}
+			strDescription={(0, Localize)(
+				"#EventCalendar_GameSource_UnhideCuratorsDialog_Description",
+			)}
+			strOKButtonText={(0, Localize)(
+				"#EventCalendar_GameSource_UnhideCuratorsDialog_OKButton",
+			)}
+			strCancelButtonText={(0, Localize)(
+				"#EventCalendar_GameSource_UnhideCuratorsDialog_CancelButton",
+			)}
+			onOK={() => {
+				G().m_visibilityStore.SetGameSourceAllowed(E.FD.k_ECurator, true);
+				closeModal();
+			}}
+			onCancel={() => {
+				G().m_visibilityStore.SetCuratorUnhideOnFollowDialogDismissed(true);
+				closeModal();
+			}}
+		/>
+	);
 });
 function Z(e) {
 	if (!e) {
@@ -1030,7 +1025,7 @@ function Z(e) {
 				!G().m_visibilityStore.BCuratorUnhideOnFollowDialogDismissed() &&
 				!G().m_visibilityStore.BIsGameSourceAllowed(E.FD.k_ECurator)
 			) {
-				(0, L.pg)(s.createElement(Q, null), window);
+				pg(<Q />, window);
 			}
 		}
 	}
@@ -1038,15 +1033,15 @@ function Z(e) {
 function Y() {
 	return (
 		!!C.KN.Get().BIsUserLoggedIn() ||
-		((0, L.pg)(
-			s.createElement(P.o0, {
-				strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
-				strDescription: (0, Localize)(
+		(pg(
+			<P.o0
+				strTitle={(0, Localize)("#EventDisplay_Share_NotLoggedIn")}
+				strDescription={(0, Localize)(
 					"#EventDisplay_Share_NotLoggedIn_Description",
-				),
-				strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
-				onOK: () => (0, V.vg)(),
-			}),
+				)}
+				strOKButtonText={(0, Localize)("#MobileLogin_SignIn")}
+				onOK={() => vg()}
+			/>,
 			window,
 		),
 		false)
@@ -1056,137 +1051,126 @@ function K(e) {
 	const t = o.b.InitFromClanID(e);
 	const r = C.KN.Get().GetPartnerEventPermissions(t);
 	return (
-		!r ||
-		!r.limited_user ||
-		((0, L.pg)(s.createElement(U.g, null), window), false)
+		!r || !r.limited_user || !r.limited_user || (pg(<U.g />, window), false)
 	);
 }
 const X = (e) => {
-	const {
-		className: t,
-		bIgnored: r,
-		bApplyingFollowing: n,
-		bFollowing: i,
-		onFollowClick: a,
-	} = e;
+	const { className, bIgnored, bApplyingFollowing, bFollowing, onFollowClick } =
+		e;
 	if (M.HD.bIsFollowingEnabled) {
-		return s.createElement(
-			q.he,
-			{
-				toolTipContent:
-					r || i ? undefined : (0, Localize)("#CreatorHome_Follow_tooltip"),
-			},
-			s.createElement(
-				H.ml,
-				{
-					className: (0, O.A)(
+		return (
+			<q.he
+				toolTipContent={
+					bIgnored || bFollowing || (0, Localize)("#CreatorHome_Follow_tooltip")
+				}
+			>
+				<H.ml
+					className={A_1(
 						W.Button,
 						x.FollowButton,
 						"FollowButton",
-						t,
-						i ? "Followed" : "",
-					),
-					onClick: a,
-				},
-				n &&
-					s.createElement(z.k, {
-						size: 15,
-					}),
-				!n && (i || r) && s.createElement(j.Jlk, null),
-				s.createElement(
-					"div",
-					{
-						className: x.FollowBtnText,
-					},
-					!n &&
-						(i
-							? (0, Localize)("#Button_Followed")
-							: r
-								? (0, Localize)("#Button_Ignored")
-								: (0, Localize)("#Button_Follow")),
-				),
-			),
+						className,
+						bFollowing ? "Followed" : "",
+					)}
+					onClick={onFollowClick}
+				>
+					{bApplyingFollowing && <z.k size={15} />}
+					{!bApplyingFollowing && (bFollowing || bIgnored) && <j.Jlk />}
+					<div className={x.FollowBtnText}>
+						{!bApplyingFollowing &&
+							(bFollowing
+								? (0, Localize)("#Button_Followed")
+								: bIgnored
+									? (0, Localize)("#Button_Ignored")
+									: (0, Localize)("#Button_Follow"))}
+					</div>
+				</H.ml>
+			</q.he>
 		);
 	} else {
 		return null;
 	}
 };
 export const of = (e) => {
-	const [t, r] = s.useState(false);
-	const { clanAccountID: n, className: i } = e;
-	const m = o.b.InitFromClanID(n);
-	const u = (0, a.q3)(() => c.Fm.Get().BIsFollowingCurator(m));
-	const d = (0, a.q3)(() => !u && c.Fm.Get().BIsIgnoringCurator(m));
-	return s.createElement(X, {
-		className: i,
-		bIgnored: d,
-		bFollowing: u,
-		bApplyingFollowing: t,
-		onFollowClick: () => {
-			const { clanAccountID: t } = e;
-			if (Y() && K(t)) {
-				r(true);
-				(() => {
-					const { clanAccountID: t, creatorID: n } = e;
-					const i = o.b.InitFromClanID(t);
-					const a = c.Fm.Get().BIsFollowingCurator(i);
-					const s = !a && c.Fm.Get().BIsIgnoringCurator(i);
-					c.Fm.Get()
-						.UpdateFollowOrIgnoreCurator(i, !s, !s && !a)
-						.then((e) => {
-							if (n) {
-								let e = l.pF.GetCreatorHomeByID(n);
-								if (!s) {
-									e.AdjustFollower(a ? -1 : 1);
+	const [t, setT] = s.useState(false);
+	const { clanAccountID, className } = e;
+	const m = o.b.InitFromClanID(clanAccountID);
+	const u = q3(() => c.Fm.Get().BIsFollowingCurator(m));
+	const d = q3(() => !u && c.Fm.Get().BIsIgnoringCurator(m));
+	return (
+		<X
+			className={className}
+			bIgnored={d}
+			bFollowing={u}
+			bApplyingFollowing={t}
+			onFollowClick={() => {
+				const { clanAccountID: clanAccountID_1 } = e;
+				if (Y() && K(clanAccountID_1)) {
+					setT(true);
+					(() => {
+						const { clanAccountID: clanAccountID_2, creatorID } = e;
+						const i = o.b.InitFromClanID(clanAccountID_2);
+						const a = c.Fm.Get().BIsFollowingCurator(i);
+						const s = !a && c.Fm.Get().BIsIgnoringCurator(i);
+						c.Fm.Get()
+							.UpdateFollowOrIgnoreCurator(i, !s, !s && !a)
+							.then((e) => {
+								if (creatorID) {
+									let e = l.pF.GetCreatorHomeByID(creatorID);
+									if (!s) {
+										e.AdjustFollower(a ? -1 : 1);
+									}
 								}
-							}
-							r(false);
-						})
-						.then(() => {
-							Z(a);
-						})
-						.catch((e) => {
-							r(false);
-							let t = (0, S.H)(e);
-							console.error(
-								"CuratorFollowButton hit error: " + t.strErrorMsg,
-								t,
-							);
-						});
-				})();
-			}
-		},
-	});
+								setT(false);
+							})
+							.then(() => {
+								Z(a);
+							})
+							.catch((e) => {
+								setT(false);
+								let t = H_1(e);
+								console.error(
+									`CuratorFollowButton hit error: ${t.strErrorMsg}`,
+									t,
+								);
+							});
+					})();
+				}
+			}}
+		/>
+	);
 };
 export const do2 = (e) => {
-	const [t, r] = s.useState(false);
-	const { appid: n, className: i } = e;
-	const a = c.Fm.Get().BFollowsApp(n);
-	const o = !a && c.Fm.Get().BIsGameIgnored(n);
-	return s.createElement(X, {
-		className: i,
-		bIgnored: o,
-		bFollowing: a,
-		bApplyingFollowing: t,
-		onFollowClick: () => {
-			if (Y()) {
-				r(true);
-				(() => {
-					const { appid: t } = e;
-					const n = c.Fm.Get().BFollowsApp(t);
-					const i = !n && c.Fm.Get().BIsGameIgnored(t);
-					c.Fm.Get()
-						.UpdateFollowingApp(t, !i && !n)
-						.then(() => {
-							r(false);
-						})
-						.catch((e) => {
-							r(false);
-							const t = (0, S.H)(e);
-							console.error("AppFollowButton hit error: " + t.strErrorMsg, t);
-						});
-				})();
-			}
-		},
-	});
+	const [t, setT] = s.useState(false);
+	const { appid, className } = e;
+	const a = c.Fm.Get().BFollowsApp(appid);
+	const o = !a && c.Fm.Get().BIsGameIgnored(appid);
+	return (
+		<X
+			className={className}
+			bIgnored={o}
+			bFollowing={a}
+			bApplyingFollowing={t}
+			onFollowClick={() => {
+				if (Y()) {
+					setT(true);
+					(() => {
+						const { appid: appid_1 } = e;
+						const n = c.Fm.Get().BFollowsApp(appid_1);
+						const i = !n && c.Fm.Get().BIsGameIgnored(appid_1);
+						c.Fm.Get()
+							.UpdateFollowingApp(appid_1, !i && !n)
+							.then(() => {
+								setT(false);
+							})
+							.catch((e) => {
+								setT(false);
+								const t = H_1(e);
+								console.error(`AppFollowButton hit error: ${t.strErrorMsg}`, t);
+							});
+					})();
+				}
+			}}
+		/>
+	);
 };

@@ -1,65 +1,87 @@
-var n;
+let n;
 export function Rz(e) {
 	switch (e) {
-		case 0:
+		case 0: {
 			return "app";
-		case 2:
+		}
+		case 2: {
 			return "bundle";
-		case 1:
+		}
+		case 1: {
 			return "package";
-		case 3:
+		}
+		case 3: {
 			return "mtx";
+		}
 	}
 	return "invalid";
 }
 export function SW(e) {
 	switch (e) {
-		case "sub":
+		case "sub": {
 			return 1;
-		case "bundle":
+		}
+		case "bundle": {
 			return 2;
-		default:
+		}
+		default: {
 			return 0;
+		}
 	}
 }
 export function _4(e, t) {
 	switch (e) {
-		case 2:
+		case 2: {
 			return "bundle";
-		case 1:
+		}
+		case 1: {
 			return "sub";
-		default:
+		}
+		default: {
 			switch (t) {
 				case 0:
-				default:
+				default: {
 					return "game";
-				case 12:
+				}
+				case 12: {
 					return "beta";
-				case 4:
+				}
+				case 4: {
 					return "dlc";
-				case 1:
+				}
+				case 1: {
 					return "demo";
-				case 6:
+				}
+				case 6: {
 					return "software";
+				}
 				case 7:
-				case 3:
+				case 3: {
 					return "video";
-				case 10:
+				}
+				case 10: {
 					return "hardware";
-				case 11:
+				}
+				case 11: {
 					return "music";
-				case 13:
+				}
+				case 13: {
 					return "tool";
-				case 2:
+				}
+				case 2: {
 					return "mod";
-				case 9:
+				}
+				case 9: {
 					return "episode";
-				case 8:
+				}
+				case 8: {
 					return "series";
+				}
 			}
+		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.k_NotRejected = -1)] = "k_NotRejected";
 	e[(e.k_RejectNoMainCap = 0)] = "k_RejectNoMainCap";
 	e[(e.k_RejectWrongPlatform = 1)] = "k_RejectWrongPlatform";

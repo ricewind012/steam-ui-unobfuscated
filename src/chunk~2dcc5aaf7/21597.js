@@ -1,100 +1,80 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./84009.js");
-var a = i;
-var s = require("./61662.js");
 import {
 	Localize,
 	LocalizeRtime32ToShortDate,
 } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require("./60142.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require("./78721.js");
-var d = require("./18869.js");
-var A = require("./26094.js");
+import n from "./63696.js";
+import i from "./84009.js";
+import s from "./61662.js";
+import { A as A_1 } from "./90765.js";
+import c from "./60142.js";
+import { Qn } from "./72476.js";
+import { fu } from "./78721.js";
+import { br } from "./18869.js";
+import A, { jE } from "./26094.js";
+const a = i;
 export function R(e) {
-	const { screenshot: t, sizeAxis: r, onClick: i, className: p, ...h } = e;
-	const C = (0, d.br)();
-	const _ = (0, A.jE)();
-	const f = (e) => _(t, e.currentTarget);
-	const b = !(0, m.Qn)();
-	let y = (0, l.A)(
+	const { screenshot, sizeAxis, onClick, className, ...h } = e;
+	const C = br();
+	const _ = jE();
+	const f = (e) => _(screenshot, e.currentTarget);
+	const b = !Qn();
+	let y = A_1(
 		a.ClickableScreenshotImg,
-		r == "width" ? a.UseWidth : a.UseHeight,
+		sizeAxis == "width" ? a.UseWidth : a.UseHeight,
 	);
-	return n.createElement(
-		s.z,
-		{
-			...h,
-			className: (0, l.A)(p, a.ClickableScreenshot),
-			renderHover: () =>
-				n.createElement(g, {
-					url: t.strUrl,
-					dateCreated: t.rtCreated,
-					caption: t.remote?.short_description,
-				}),
-			onClick:
-				i ||
+	return (
+		<s.z
+			{...h}
+			className={A_1(className, a.ClickableScreenshot)}
+			renderHover={() => (
+				<G
+					url={screenshot.strUrl}
+					dateCreated={screenshot.rtCreated}
+					caption={screenshot.remote?.short_description}
+				/>
+			)}
+			onClick={
+				onClick ||
 				(() =>
 					C.Media.Screenshot({
 						state: {
-							id: t.id,
+							id: screenshot.id,
 							filter: {
 								listSource: {
 									type: "app",
-									gameid: t.strGameID,
+									gameid: screenshot.strGameID,
 								},
 							},
 						},
-					})),
-			onContextMenu: f,
-			showFocusRing: true,
-			onMenuActionDescription: (0, Localize)("#Generic_Share"),
-		},
-		n.createElement("img", {
-			className: y,
-			src: (0, u.fu)(t.strUrl),
-		}),
-		b &&
-			n.createElement(
-				"div",
-				{
-					className: a.ScreenshotShareIcon,
-					onClick: (e) => {
+					}))
+			}
+			onContextMenu={f}
+			showFocusRing
+			onMenuActionDescription={(0, Localize)("#Generic_Share")}
+		>
+			<img className={y} src={fu(screenshot.strUrl)} />
+			{b && (
+				<div
+					className={a.ScreenshotShareIcon}
+					onClick={(e) => {
 						e.preventDefault();
 						e.stopPropagation();
 						f(e);
-					},
-				},
-				n.createElement(c.li, null),
-			),
+					}}
+				>
+					<c.li />
+				</div>
+			)}
+		</s.z>
 	);
 }
-function g(e) {
-	const { url: t, caption: r, dateCreated: i } = e;
-	return n.createElement(
-		s.M,
-		{
-			className: a.Hover,
-		},
-		n.createElement("img", {
-			className: a.Screenshot,
-			src: (0, u.fu)(t),
-		}),
-		r &&
-			n.createElement(
-				"div",
-				{
-					className: a.Caption,
-				},
-				r,
-			),
-		n.createElement(
-			"div",
-			{
-				className: a.Date,
-			},
-			LocalizeRtime32ToShortDate(i),
-		),
+function G(e) {
+	const { url, caption, dateCreated } = e;
+	return (
+		<s.M className={a.Hover}>
+			<img className={a.Screenshot} src={fu(url)} />
+			{caption && <div className={a.Caption}>{caption}</div>}
+			<div className={a.Date}>{LocalizeRtime32ToShortDate(dateCreated)}</div>
+		</s.M>
 	);
 }

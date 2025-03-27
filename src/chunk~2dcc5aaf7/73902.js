@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DragTarget: "_2sUvh2ZpsDAw1xNqgRBELg",
 	DragOnTopOfMe: "_1mvpIyLL0-Pd4QMIoRXHtu",
 	DescriptionCtn: "_3DQEBNkYGY3hyLFAjhtq7V",

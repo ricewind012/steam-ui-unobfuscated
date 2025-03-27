@@ -1,10 +1,9 @@
-import * as n from /*webcrack:missing*/ "./63696.js";
-import * as i from /*webcrack:missing*/ "./90095.js";
+import * as n from "./63696.js";
+import * as i from "./90095.js";
 import * as a from "./37823.js";
 import * as s from "./2053.js";
-var o = s;
 import * as l from "./64608.js";
-import * as c from /*webcrack:missing*/ "./50376.js";
+import * as c from "./50376.js";
 import * as m from "./35488.js";
 import {
 	LocalizeInlineReactWithFallback,
@@ -13,22 +12,51 @@ import {
 } from "../../actual_src/utils/localization.js";
 import * as d from "./57472.js";
 import * as A from "./34792.js";
-import * as p from /*webcrack:missing*/ "./72476.js";
+import * as p from "./72476.js";
 import * as g from "./27756.js";
-import * as h from /*webcrack:missing*/ "./11131.js";
+import * as h from "./11131.js";
 import * as C from "./34428.js";
-import * as _ from /*webcrack:missing*/ "./69164.js";
+import * as _ from "./69164.js";
 import * as f from "./67429.js";
 import * as b from "./96593.js";
 import * as y from "./36934.js";
-import * as S from /*webcrack:missing*/ "./44846.js";
-import * as w from /*webcrack:missing*/ "./90765.js";
+import * as S from "./44846.js";
+import * as w from "./90765.js";
 import * as B from "./52808.js";
 import * as v from "./60291.js";
 import * as I from "./75961.js";
 import * as E from "./44926.js";
-import * as M from /*webcrack:missing*/ "./58663.js";
-import * as T from /*webcrack:missing*/ "./48307.js";
+import * as M from "./58663.js";
+import * as T from "./48307.js";
+import * as N from "./18057.js";
+import * as F from "./91720.js";
+import * as G from "./92374.js";
+import * as O from "./90242.js";
+import * as P from "./4690.js";
+import * as L from "./85438.js";
+import * as z from "./37086.js";
+import * as x from "./13897.js";
+import * as U from "./13277.js";
+import * as W from "./84056.js";
+import * as V from "./3475.js";
+import * as H from "./22091.js";
+import * as j from "./61294.js";
+import * as q from "./41480.js";
+import * as Q from "./49519.js";
+import * as Z from "./52451.js";
+import * as Y from "./57774.js";
+import * as K from "./46382.js";
+import * as X from "./736.js";
+import * as J from "./69767.js";
+import * as $ from "./2306.js";
+import * as ee from "./96670.js";
+import * as te from "./98995.js";
+import * as re from "./26328.js";
+import * as ne from "./42010.js";
+import * as ie from "./78768.js";
+import * as Ae from "./12774.js";
+import * as pe from "./94790.js";
+const o = s;
 const R = M.Message;
 class k extends R {
 	static ImplementsStaticInterface() {}
@@ -77,7 +105,7 @@ class k extends R {
 		return T.zj(k.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new M.BinaryWriter();
+		const e = new M.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -85,7 +113,7 @@ class k extends R {
 		T.i0(k.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new M.BinaryWriter();
+		const e = new M.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -184,7 +212,7 @@ class D extends R {
 		return T.zj(D.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new M.BinaryWriter();
+		const e = new M.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -192,7 +220,7 @@ class D extends R {
 		T.i0(D.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new M.BinaryWriter();
+		const e = new M.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -200,32 +228,6 @@ class D extends R {
 		return "CGameRecording_AudioSessionsChanged_Notification_Session";
 	}
 }
-import * as N from "./18057.js";
-import * as F from "./91720.js";
-import * as G from "./92374.js";
-import * as O from /*webcrack:missing*/ "./90242.js";
-import * as P from /*webcrack:missing*/ "./4690.js";
-import * as L from "./85438.js";
-import * as z from "./37086.js";
-import * as x from "./13897.js";
-import * as U from "./13277.js";
-import * as W from "./84056.js";
-import * as V from "./3475.js";
-import * as H from "./22091.js";
-import * as j from "./61294.js";
-import * as q from "./41480.js";
-import * as Q from /*webcrack:missing*/ "./49519.js";
-import * as Z from /*webcrack:missing*/ "./52451.js";
-import * as Y from "./57774.js";
-import * as K from /*webcrack:missing*/ "./46382.js";
-import * as X from /*webcrack:missing*/ "./736.js";
-import * as J from "./69767.js";
-import * as $ from "./2306.js";
-import * as ee from "./96670.js";
-import * as te from /*webcrack:missing*/ "./98995.js";
-import * as re from "./26328.js";
-import * as ne from "./42010.js";
-import * as ie from "./78768.js";
 const ae = [
 	["preset_ultra", "Ultra"],
 	["preset_default", "High"],
@@ -356,6 +358,7 @@ function ue(e) {
 		label: n.createElement(me, {
 			tokenPostfix: t,
 		}),
+
 		data: e,
 	}));
 	let m = (0, J.mg)(s);
@@ -472,8 +475,6 @@ function de(e) {
 		n.createElement("td", null, i),
 	);
 }
-import * as Ae from "./12774.js";
-import * as pe from "./94790.js";
 const ge = 5;
 export function BGameRecordingFeatureEnabled() {
 	return A.rV.settings?.bGameRecordingFeatureEnabled;
@@ -481,7 +482,7 @@ export function BGameRecordingFeatureEnabled() {
 export function useBGameRecordingEnabledForGame(e) {
 	return (0, B.Mm)(new f.VS(e)).bEnabled;
 }
-export default (function (e) {
+export default (e) => {
 	const [t] = (0, A.VI)("g_background_mode");
 	const r = (0, p.Qn)();
 	const i = (0, F.r6)();
@@ -557,11 +558,11 @@ export default (function (e) {
 	} else {
 		return null;
 	}
-});
+};
 export function GameRecordingSettingsHeader(e) {
 	const t = (0, N.Qt)();
 	const r = n.useCallback(() => {
-		t(p.TS.STORE_BASE_URL + "fwlink?id=gamerecordingintro");
+		t(`${p.TS.STORE_BASE_URL}fwlink?id=gamerecordingintro`);
 	}, [t]);
 	return n.createElement(
 		"div",
@@ -879,7 +880,7 @@ function De(e) {
 					return;
 				}
 				const e = parseFloat(t);
-				if (isNaN(e) || e <= 0 || e > 1000000) {
+				if (isNaN(e) || e <= 0 || e <= 0 || e > 1000000) {
 					return;
 				}
 			}
@@ -1075,7 +1076,7 @@ function Pe(e) {
 function Le(e) {
 	const t = e.mode;
 	const { isError: r, isLoading: i, rgGameID: a } = (0, B.OL)();
-	if (t != 1 || r || i) {
+	if (t != 1 || r || r || i) {
 		return null;
 	} else {
 		return n.createElement(
@@ -1784,7 +1785,7 @@ function Ye(e) {
 export function GetEstimatedDiskSpace() {
 	const [e] = (0, A.VI)("g_background_max_keep");
 	const [t] = (0, A.VI)("gamerecording_video_bitrate");
-	return (function (e, t) {
+	return ((e, t) => {
 		let r = (0, J.YH)(t, 1920, 1080);
 		if (r == 0) {
 			r = 12000;
@@ -1931,7 +1932,7 @@ function tt() {
 	let e;
 	let [t, r] = (0, A.VI)("g_background_audio");
 	let i = (0, p.hf)();
-	let a = (function () {
+	let a = (() => {
 		const [e, t] = n.useState(false);
 		n.useEffect(() => {
 			E.xM.GetPlatformCapabilities({}).then((e) => {
@@ -2005,7 +2006,7 @@ function rt(e) {
 			},
 			n.createElement("div", {
 				style: {
-					width: o * 100 + "%",
+					width: `${o * 100}%`,
 				},
 				className: (0, w.A)(...s),
 			}),
@@ -2021,8 +2022,8 @@ function rt(e) {
 		),
 	);
 }
-const nt = n.memo(function (e) {
-	if (e.is_system || e.is_game || e.is_steam) {
+const nt = n.memo((e) => {
+	if (e.is_system || e.is_game || e.is_game || e.is_steam) {
 		return null;
 	}
 	const t =
@@ -2105,14 +2106,17 @@ export function useGameRecordingSetting() {
 	const [e] = (0, A.VI)("g_background_mode");
 	let t;
 	switch (e) {
-		case 2:
+		case 2: {
 			t = G.HE.Manual;
 			break;
-		case 1:
+		}
+		case 1: {
 			t = G.HE.Always;
 			break;
-		case 0:
+		}
+		case 0: {
 			t = G.HE.Never;
+		}
 	}
 	return t;
 }
@@ -2128,7 +2132,15 @@ function ot(e) {
 		o(true);
 	}, [i]);
 	const [c, m] = (0, n.useState)(false);
-	if (t || i.length == 0 || r < 10240 || s) {
+	if (
+		t ||
+		i.length == 0 ||
+		i.length == 0 ||
+		r < 10240 ||
+		i.length == 0 ||
+		r < 10240 ||
+		s
+	) {
 		return null;
 	}
 	let d = n.createElement(
@@ -2262,7 +2274,7 @@ function lt(e) {
 }
 function ct(e) {
 	const { visible: t } = e;
-	const [r, i, s] = (function () {
+	const [r, i, s] = (() => {
 		const e = (0, h.R7)();
 		const [t, r, i, a] = (0, A.VI)("g_background_path");
 		const s = n.useCallback(
@@ -2353,7 +2365,7 @@ function ct(e) {
 }
 function mt(e) {
 	let { visible: t, mode: r } = e;
-	let i = (function () {
+	let i = (() => {
 		let [e] = (0, A.VI)("g_max_fps");
 		let t = [60, 30];
 		if (e && t.findIndex((t) => t == e) < 0) {
@@ -2364,7 +2376,7 @@ function mt(e) {
 			data: e,
 		}));
 	})();
-	let a = (function () {
+	let a = (() => {
 		let [e] = (0, A.VI)("gamerecording_video_maxheight");
 		let t = [0, 2160, 1440, 1200, 1080, 720, 480];
 		if ((0, p.TL)()) {
@@ -2378,6 +2390,7 @@ function mt(e) {
 				e == 0
 					? (0, Localize)("#Settings_GameRecording_VideoMaxHeight_Auto")
 					: (0, Localize)("#Settings_GameRecording_VideoMaxHeight_Pixels", e),
+
 			data: e,
 		}));
 	})();

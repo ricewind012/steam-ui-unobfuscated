@@ -1,5 +1,5 @@
-export var l;
-(function (e) {
+export let l;
+((e) => {
 	e[(e.k_ERemoteClientLaunchOK = 1)] = "k_ERemoteClientLaunchOK";
 	e[(e.k_ERemoteClientLaunchFail = 2)] = "k_ERemoteClientLaunchFail";
 	e[(e.k_ERemoteClientLaunchRequiresUI = 3)] =

@@ -1,27 +1,42 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require("./64608.js");
-require("./28346.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require(/*webcrack:missing*/ "./31084.js");
-var d = require(/*webcrack:missing*/ "./88750.js");
-var A = require("./78057.js");
-var p = require(/*webcrack:missing*/ "./58254.js");
-var g = require("./12767.js");
-var h = require(/*webcrack:missing*/ "./49455.js");
-var C = require("./65016.js");
-var _ = require(/*webcrack:missing*/ "./79769.js");
-var f = require("./4527.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { fm, h5 } from "./89193.js";
+import s, { PA } from "./41230.js";
+import o from "./64608.js";
+import "./28346.js";
+import l from "./52451.js";
+import c, { A as A_1 } from "./90765.js";
+import m from "./72476.js";
+import u, { lX } from "./31084.js";
+import d from "./88750.js";
+import A from "./78057.js";
+import p from "./58254.js";
+import g from "./12767.js";
+import { w as w_1 } from "./49455.js";
+import C from "./65016.js";
+import _ from "./79769.js";
+import f from "./4527.js";
+import y from "./3235.js";
+import w, { i_ as i_1 } from "./43397.js";
+import { l as l_1 } from "./47742.js";
+import v from "./83665.js";
+import x from "./96000.js";
+import U from "./34792.js";
+import W from "./88244.js";
+import H from "./98995.js";
+import j from "./10606.js";
+import { pg } from "./13869.js";
+import Z from "./69164.js";
+import Y from "./46621.js";
+import { L as L_1 } from "./736.js";
+import J, { $B } from "./87935.js";
+import $ from "./2326.js";
+import { br } from "./18869.js";
+import te from "./71769.js";
 var b = f;
-var y = require("./3235.js");
 var S = y;
-var w = require("./43397.js");
-var B = require(/*webcrack:missing*/ "./47742.js");
-var v = require("./83665.js");
 const I = {
 	exit: b.FullscreenExitStart,
 	exitActive: b.FullscreenExitActive,
@@ -30,13 +45,13 @@ const I = {
 	enterDone: b.FullscreenEnterDone,
 	enterActive: b.FullscreenEnterActive,
 };
-const E = (0, w.i_)(S["duration-app-launch"]);
+const E = i_1(S["duration-app-launch"]);
 const M = {
 	pinnedPosition: "BottomLeft",
 	nWidthPct: 50,
 	nHeightPct: 50,
 };
-const T = i.createContext({
+const TContext = i.createContext({
 	bFullscreen: false,
 });
 class R extends i.Component {
@@ -66,7 +81,12 @@ class R extends i.Component {
 		);
 	}
 	GetLogoPosition() {
-		return this.state.logoPosition || this.props.logoPosition || M;
+		return (
+			this.state.logoPosition ||
+			this.props.logoPosition ||
+			this.props.logoPosition ||
+			M
+		);
 	}
 	SetPinnedPosition(e) {
 		this.setState(
@@ -102,7 +122,7 @@ class R extends i.Component {
 	render() {
 		if (!this.props.editMode) {
 			return i.createElement(
-				T.Provider,
+				TContext.Provider,
 				{
 					value: {
 						bFullscreen: this.props.bFullscreen,
@@ -114,10 +134,10 @@ class R extends i.Component {
 				}),
 			);
 		}
-		const { children: e, logoPosition: t, editMode: r, ...n } = this.props;
+		const { children, logoPosition, editMode, ...n } = this.props;
 		const a = this.GetLogoPosition();
 		return i.createElement(
-			T.Provider,
+			TContext.Provider,
 			{
 				value: {
 					bFullscreen: this.props.bFullscreen,
@@ -134,38 +154,46 @@ class R extends i.Component {
 				},
 				i.createElement("div", {
 					className: `${b.PinBox} ${b.BottomLeft}`,
-					onClick: () => this.SetPinnedPosition("BottomLeft"),
+					onClick: () => {
+						return this.SetPinnedPosition("BottomLeft");
+					},
 					title: "Pin to Bottom Left",
 				}),
 				i.createElement("div", {
 					className: `${b.PinBox} ${b.UpperCenter}`,
-					onClick: () => this.SetPinnedPosition("UpperCenter"),
+					onClick: () => {
+						return this.SetPinnedPosition("UpperCenter");
+					},
 					title: "Pin to Top Center",
 				}),
 				i.createElement("div", {
 					className: `${b.PinBox} ${b.CenterCenter}`,
-					onClick: () => this.SetPinnedPosition("CenterCenter"),
+					onClick: () => {
+						return this.SetPinnedPosition("CenterCenter");
+					},
 					title: "Pin to Center",
 				}),
 				i.createElement("div", {
 					className: `${b.PinBox} ${b.BottomCenter}`,
-					onClick: () => this.SetPinnedPosition("BottomCenter"),
+					onClick: () => {
+						return this.SetPinnedPosition("BottomCenter");
+					},
 					title: "Pin to Bottom Center",
 				}),
-				e,
+				children,
 			),
 		);
 	}
 }
-(0, n.Cg)([l.oI], R.prototype, "SetDimensions", null);
-(0, n.Cg)([l.oI], R.prototype, "OnPositionChanged", null);
-(0, n.Cg)([l.oI], R.prototype, "PostPositionChangeCallback", null);
+Cg([l.oI], R.prototype, "SetDimensions", null);
+Cg([l.oI], R.prototype, "OnPositionChanged", null);
+Cg([l.oI], R.prototype, "PostPositionChangeCallback", null);
 let k = class extends i.Component {
 	m_refBackgroundImage = i.createRef();
 	m_refLogoImage = i.createRef();
 	constructor(e) {
 		super(e);
-		(0, h.w)(
+		w_1(
 			!e.editMode || e.rgLogoImages.length <= 1,
 			"Can't use multiple logo images in edit mode",
 		);
@@ -180,6 +208,8 @@ let k = class extends i.Component {
 		if (
 			JSON.stringify(e.rgHeaderImages) !=
 				JSON.stringify(this.props.rgHeaderImages) ||
+			JSON.stringify(e.rgLogoImages) !=
+				JSON.stringify(this.props.rgLogoImages) ||
 			JSON.stringify(e.rgLogoImages) !=
 				JSON.stringify(this.props.rgLogoImages) ||
 			JSON.stringify(e.rgBlurImages) != JSON.stringify(this.props.rgBlurImages)
@@ -253,24 +283,24 @@ let k = class extends i.Component {
 	}
 	render() {
 		const {
-			rgLogoImages: e,
-			editMode: t,
-			logoPosition: r,
-			className: n,
-			classNameNoLogo: a,
-			fnOnPositionChanged: s,
-			height: o,
+			rgLogoImages,
+			editMode,
+			logoPosition,
+			className,
+			classNameNoLogo,
+			fnOnPositionChanged,
+			height,
 		} = this.props;
-		const { bFallbackHeader: l, bHasLogoImage: m } = this.state;
-		const u = (0, c.A)(
+		const { bFallbackHeader, bHasLogoImage } = this.state;
+		const u = A_1(
 			b.TopCapsule,
-			n,
+			className,
 			!this.state.bHasHeaderImage && b.NoArt,
-			(!this.props.hasHeroImage || l) && b.FallbackArt,
-			!m && a,
+			(!this.props.hasHeroImage || bFallbackHeader) && b.FallbackArt,
+			!bHasLogoImage && classNameNoLogo,
 		);
 		const d = {
-			"--header-height": o == null ? undefined : o + "px",
+			"--header-height": height == null || height + "px",
 		};
 		return i.createElement(
 			v.M,
@@ -280,8 +310,8 @@ let k = class extends i.Component {
 				in: this.props.bFullscreen,
 				classNames: I,
 			},
-			(n) =>
-				i.createElement(
+			(n) => {
+				return i.createElement(
 					"div",
 					{
 						ref: n,
@@ -298,24 +328,21 @@ let k = class extends i.Component {
 						onError: this.OnHeaderError,
 						onLoad: this.OnLoaded,
 					}),
-					m &&
+					bHasLogoImage &&
 						i.createElement(
 							N,
 							{
-								key: e[0],
-								strLogoImageURL: e[0],
-								editMode: t,
-								logoPosition: r || M,
-								fnOnPositionChanged: t && s,
+								key: rgLogoImages[0],
+								strLogoImageURL: rgLogoImages[0],
+								editMode: editMode,
+								logoPosition: logoPosition || M,
+								fnOnPositionChanged: editMode && fnOnPositionChanged,
 								fullscreen: this.props.bFullscreen,
 							},
 							i.createElement(g.c, {
 								ref: this.m_refLogoImage,
-								className: (0, c.A)(
-									b.TitleLogo,
-									this.state.bLogoLoaded && b.Loaded,
-								),
-								rgSources: e,
+								className: A_1(b.TitleLogo, this.state.bLogoLoaded && b.Loaded),
+								rgSources: rgLogoImages,
 								onLoad: this.OnLogoLoad,
 								onIncrementalError: this.OnIncrementalLogoError,
 								onError: this.OnLogoError,
@@ -325,16 +352,17 @@ let k = class extends i.Component {
 					i.createElement("div", {
 						className: b.TopGradient,
 					}),
-				),
+				);
+			},
 		);
 	}
 };
-(0, n.Cg)([l.oI], k.prototype, "OnHeaderError", null);
-(0, n.Cg)([l.oI], k.prototype, "OnIncrementalLogoError", null);
-(0, n.Cg)([l.oI], k.prototype, "OnLogoError", null);
-(0, n.Cg)([l.oI], k.prototype, "OnLogoLoad", null);
-(0, n.Cg)([l.oI], k.prototype, "OnLoaded", null);
-k = (0, n.Cg)([s.PA], k);
+Cg([l.oI], k.prototype, "OnHeaderError", null);
+Cg([l.oI], k.prototype, "OnIncrementalLogoError", null);
+Cg([l.oI], k.prototype, "OnLogoError", null);
+Cg([l.oI], k.prototype, "OnLogoLoad", null);
+Cg([l.oI], k.prototype, "OnLoaded", null);
+k = Cg([s.PA], k);
 class D extends i.Component {
 	m_refBackgroundImage = i.createRef();
 	m_refCanvasBlurImage;
@@ -354,6 +382,12 @@ class D extends i.Component {
 	componentDidUpdate(e) {
 		if (
 			e.appid != this.props.appid ||
+			JSON.stringify(e.rgHeaderImages) !=
+				JSON.stringify(this.props.rgHeaderImages) ||
+			JSON.stringify(e.rgHeaderImages) !=
+				JSON.stringify(this.props.rgHeaderImages) ||
+			JSON.stringify(e.rgBlurImages) !=
+				JSON.stringify(this.props.rgBlurImages) ||
 			JSON.stringify(e.rgHeaderImages) !=
 				JSON.stringify(this.props.rgHeaderImages) ||
 			JSON.stringify(e.rgBlurImages) !=
@@ -426,14 +460,14 @@ class D extends i.Component {
 				this.props.rgBlurImages[this.state.nBlurImageIndex] &&
 				i.createElement("img", {
 					src: this.props.rgBlurImages[this.state.nBlurImageIndex],
-					className: (0, c.A)(b.ImgSrc, b.ImgBlur, b.ImgBlurBackdrop),
+					className: A_1(b.ImgSrc, b.ImgBlur, b.ImgBlurBackdrop),
 					onError: this.OnBlurImageFailed,
 				}),
 			this.state.bUseCanvasBlur &&
 				this.state.bBackgroundLoaded &&
 				!this.props.bLowPerfMode &&
 				i.createElement(C.m, {
-					className: (0, c.A)(b.ImgSrc, b.ImgBlur, b.ImgBlurBackdrop),
+					className: A_1(b.ImgSrc, b.ImgBlur, b.ImgBlurBackdrop),
 					elementRef: this.m_refCanvasBlurImage,
 					updateRate: 0,
 					width: 192,
@@ -442,8 +476,8 @@ class D extends i.Component {
 					blurAmount: 3,
 				}),
 		);
-		return i.createElement(T.Consumer, null, (t) =>
-			i.createElement(
+		return i.createElement(TContext.Consumer, null, (t) => {
+			return i.createElement(
 				v.M,
 				{
 					timeout: E,
@@ -451,26 +485,26 @@ class D extends i.Component {
 					in: t.bFullscreen,
 					classNames: I,
 				},
-				(t) =>
-					i.createElement(
+				(t) => {
+					return i.createElement(
 						"div",
 						{
 							ref: t,
-							className: (0, c.A)(b.HeaderBackgroundImage, b.Glassy),
+							className: A_1(b.HeaderBackgroundImage, b.Glassy),
 						},
 						!this.state.bUseCanvasBlur &&
 							this.state.bBackgroundLoaded &&
 							this.props.rgBlurImages[this.state.nBlurImageIndex] &&
 							i.createElement("img", {
 								src: this.props.rgBlurImages[this.state.nBlurImageIndex],
-								className: (0, c.A)(b.ImgSrc, b.ImgBlur),
+								className: A_1(b.ImgSrc, b.ImgBlur),
 								onError: this.OnBlurImageFailed,
 							}),
 						this.state.bUseCanvasBlur &&
 							this.state.bBackgroundLoaded &&
 							!this.props.bLowPerfMode &&
 							i.createElement(C.m, {
-								className: (0, c.A)(b.ImgSrc, b.ImgBlur),
+								className: A_1(b.ImgSrc, b.ImgBlur),
 								elementRef: this.m_refCanvasBlurImage,
 								updateRate: 0,
 								width: 192,
@@ -494,33 +528,33 @@ class D extends i.Component {
 								}),
 						),
 						e,
-					),
-			),
-		);
+					);
+				},
+			);
+		});
 	}
 }
 function N(e) {
 	const {
-		logoPosition: t,
-		strLogoImageURL: r,
-		children: n,
-		fnOnPositionChanged: a,
-		fullscreen: s,
+		logoPosition,
+		strLogoImageURL,
+		children,
+		fnOnPositionChanged,
+		fullscreen,
 	} = e;
-	const {
-		nBottomPct: o,
-		nTopPct: l,
-		nLeftPct: m,
-		nRightPct: u,
-	} = F(t.pinnedPosition, t.nWidthPct, t.nHeightPct);
-	i.useContext(T);
+	const { nBottomPct, nTopPct, nLeftPct, nRightPct } = F(
+		logoPosition.pinnedPosition,
+		logoPosition.nWidthPct,
+		logoPosition.nHeightPct,
+	);
+	i.useContext(TContext);
 	const d = {
-		left: `${m}%`,
-		top: `${l}%`,
-		width: `${t.nWidthPct}%`,
-		height: `${t.nHeightPct}%`,
+		left: `${nLeftPct}%`,
+		top: `${nTopPct}%`,
+		width: `${logoPosition.nWidthPct}%`,
+		height: `${logoPosition.nHeightPct}%`,
 	};
-	const A = (0, c.A)(b.BoxSizer, b[t.pinnedPosition]);
+	const A = A_1(b.BoxSizer, b[logoPosition.pinnedPosition]);
 	return i.createElement(
 		"div",
 		{
@@ -543,32 +577,33 @@ function N(e) {
 						{
 							timeout: E,
 							appear: true,
-							in: s,
+							in: fullscreen,
 							classNames: I,
 						},
-						(e) =>
-							i.createElement(
+						(e) => {
+							return i.createElement(
 								"div",
 								{
 									ref: e,
 									className: b.TitleImageContainer,
 								},
-								n,
-							),
+								children,
+							);
+						},
 					),
 				),
 			e.editMode &&
 				i.createElement(
 					O,
 					{
-						id: r,
-						pinType: t.pinnedPosition,
+						id: strLogoImageURL,
+						pinType: logoPosition.pinnedPosition,
 						index: 0,
-						widthPct: t.nWidthPct,
-						heightPct: t.nHeightPct,
-						fnOnPositionChanged: a,
+						widthPct: logoPosition.nWidthPct,
+						heightPct: logoPosition.nHeightPct,
+						fnOnPositionChanged: fnOnPositionChanged,
 					},
-					n,
+					children,
 				),
 		),
 	);
@@ -579,35 +614,40 @@ function F(e, t, r) {
 	let a;
 	let s;
 	switch (e) {
-		case "BottomLeft":
+		case "BottomLeft": {
 			n = 0;
 			i = 100 - r;
 			a = 0;
 			s = 100 - t;
 			break;
-		case "UpperLeft":
+		}
+		case "UpperLeft": {
 			n = 100 - r;
 			i = 0;
 			a = 0;
 			s = 100 - t;
 			break;
-		case "CenterCenter":
+		}
+		case "CenterCenter": {
 			n = (100 - r) / 2;
 			i = (100 - r) / 2;
 			a = (100 - t) / 2;
 			s = (100 - t) / 2;
 			break;
-		case "UpperCenter":
+		}
+		case "UpperCenter": {
 			n = 100 - r;
 			i = 0;
 			a = (100 - t) / 2;
 			s = (100 - t) / 2;
 			break;
-		case "BottomCenter":
+		}
+		case "BottomCenter": {
 			n = 0;
 			i = 100 - r;
 			a = (100 - t) / 2;
 			s = (100 - t) / 2;
+		}
 	}
 	return {
 		nBottomPct: n,
@@ -617,9 +657,9 @@ function F(e, t, r) {
 	};
 }
 var G;
-(0, n.Cg)([l.oI], D.prototype, "OnIncrementalError", null);
-(0, n.Cg)([l.oI], D.prototype, "OnHeaderLoad", null);
-(0, n.Cg)([l.oI], D.prototype, "OnBlurImageFailed", null);
+Cg([l.oI], D.prototype, "OnIncrementalError", null);
+Cg([l.oI], D.prototype, "OnHeaderLoad", null);
+Cg([l.oI], D.prototype, "OnBlurImageFailed", null);
 (function (e) {
 	e.topleft = "Topleft";
 	e.top = "Top";
@@ -657,21 +697,25 @@ class O extends i.Component {
 		}
 	}
 	static getDerivedStateFromProps(e, t) {
-		const { pinType: r, widthPct: n, heightPct: i, id: a } = e;
-		if (t && t.id == a) {
+		const { pinType, widthPct, heightPct, id } = e;
+		if (t && t.id == id) {
 			return null;
 		}
-		const { nBottomPct: s, nTopPct: o, nLeftPct: l, nRightPct: c } = F(r, n, i);
+		const { nBottomPct, nTopPct, nLeftPct, nRightPct } = F(
+			pinType,
+			widthPct,
+			heightPct,
+		);
 		return {
-			id: a,
-			curBottomPosPct: s,
-			curTopPosPct: o,
-			curLeftPosPct: l,
-			curRightPosPct: c,
-			curWidthPct: n,
-			curHeightPct: i,
+			id: id,
+			curBottomPosPct: nBottomPct,
+			curTopPosPct: nTopPct,
+			curLeftPosPct: nLeftPct,
+			curRightPosPct: nRightPct,
+			curWidthPct: widthPct,
+			curHeightPct: heightPct,
 			EdgeDown: null,
-			pinType: r,
+			pinType: pinType,
 		};
 	}
 	LinkRegionBoxRef(e) {
@@ -713,17 +757,16 @@ class O extends i.Component {
 		e.stopPropagation();
 	}
 	UpdateBoxPosition() {
-		const {
-			nBottomPct: e,
-			nTopPct: t,
-			nLeftPct: r,
-			nRightPct: n,
-		} = F(this.m_pinType, this.state.curWidthPct, this.state.curHeightPct);
+		const { nBottomPct, nTopPct, nLeftPct, nRightPct } = F(
+			this.m_pinType,
+			this.state.curWidthPct,
+			this.state.curHeightPct,
+		);
 		this.setState({
-			curBottomPosPct: e,
-			curTopPosPct: t,
-			curLeftPosPct: r,
-			curRightPosPct: n,
+			curBottomPosPct: nBottomPct,
+			curTopPosPct: nTopPct,
+			curLeftPosPct: nLeftPct,
+			curRightPosPct: nRightPct,
 		});
 	}
 	OnMouseMove(e, t) {
@@ -732,31 +775,35 @@ class O extends i.Component {
 				this.m_fnMouseUp();
 			}
 			switch (t) {
-				case G.left:
+				case G.left: {
 					this.setState({
 						curLeftPosPct: this.CalcLeftEdge(e.clientX),
 					});
 					this.CheckLeftEdge();
 					break;
-				case G.right:
+				}
+				case G.right: {
 					this.setState({
 						curRightPosPct: this.CalcRightEdge(e.clientX),
 					});
 					this.CheckRightEdge();
 					break;
-				case G.top:
+				}
+				case G.top: {
 					this.setState({
 						curTopPosPct: this.CalcTopEdge(e.clientY),
 					});
 					this.CheckTopEdge();
 					break;
-				case G.bottom:
+				}
+				case G.bottom: {
 					this.setState({
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
 					this.CheckBottomEdge();
 					break;
-				case G.topleft:
+				}
+				case G.topleft: {
 					this.setState({
 						curTopPosPct: this.CalcTopEdge(e.clientY),
 					});
@@ -766,7 +813,8 @@ class O extends i.Component {
 					this.CheckTopEdge();
 					this.CheckLeftEdge();
 					break;
-				case G.topright:
+				}
+				case G.topright: {
 					this.setState({
 						curTopPosPct: this.CalcTopEdge(e.clientY),
 					});
@@ -776,7 +824,8 @@ class O extends i.Component {
 					this.CheckTopEdge();
 					this.CheckRightEdge();
 					break;
-				case G.bottomleft:
+				}
+				case G.bottomleft: {
 					this.setState({
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
@@ -786,7 +835,8 @@ class O extends i.Component {
 					this.CheckBottomEdge();
 					this.CheckLeftEdge();
 					break;
-				case G.bottomright:
+				}
+				case G.bottomright: {
 					this.setState({
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
@@ -796,7 +846,8 @@ class O extends i.Component {
 					this.CheckBottomEdge();
 					this.CheckRightEdge();
 					break;
-				case G.middle:
+				}
+				case G.middle: {
 					this.setState({
 						curRightPosPct: this.CalcRightEdge(e.clientX),
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
@@ -819,6 +870,7 @@ class O extends i.Component {
 					this.CheckBottomEdge();
 					this.CheckLeftEdge();
 					this.CheckRightEdge();
+				}
 			}
 			if (this.state.curTopPosPct > 98) {
 				this.setState({
@@ -903,6 +955,7 @@ class O extends i.Component {
 		if (
 			this.props.pinType == "CenterCenter" ||
 			this.props.pinType == "BottomCenter" ||
+			this.props.pinType == "BottomCenter" ||
 			this.props.pinType == "UpperCenter"
 		) {
 			let e = Math.min(Math.max(t, 0), 45);
@@ -922,6 +975,7 @@ class O extends i.Component {
 				(this.state.curWidthPct - this.m_nLocalOffsetXPct));
 		if (
 			this.props.pinType == "CenterCenter" ||
+			this.props.pinType == "BottomCenter" ||
 			this.props.pinType == "BottomCenter" ||
 			this.props.pinType == "UpperCenter"
 		) {
@@ -1006,9 +1060,9 @@ class O extends i.Component {
 			right: this.state.curRightPosPct + "%",
 			bottom: this.state.curBottomPosPct + "%",
 		};
-		let t = (0, c.A)(
+		let t = A_1(
 			b.BoxSizerDragBox,
-			this.state.EdgeDown && (0, c.A)(b.EdgeDown, b[this.state.EdgeDown]),
+			this.state.EdgeDown && A_1(b.EdgeDown, b[this.state.EdgeDown]),
 			b[this.props.pinType],
 		);
 		return i.createElement(
@@ -1100,31 +1154,31 @@ class O extends i.Component {
 		);
 	}
 }
-(0, n.Cg)([l.oI], O.prototype, "LinkRegionBoxRef", null);
-(0, n.Cg)([l.oI], O.prototype, "OnMouseDown", null);
-(0, n.Cg)([l.oI], O.prototype, "UpdateBoxPosition", null);
-(0, n.Cg)([l.oI], O.prototype, "OnMouseMove", null);
-(0, n.Cg)([l.oI], O.prototype, "CheckBottomEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CheckRightEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CheckTopEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CheckLeftEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CalcLeftEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CalcRightEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CalcTopEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "CalcBottomEdge", null);
-(0, n.Cg)([l.oI], O.prototype, "OnMouseUp", null);
-(0, n.Cg)([l.oI], O.prototype, "OnResizeComplete", null);
+Cg([l.oI], O.prototype, "LinkRegionBoxRef", null);
+Cg([l.oI], O.prototype, "OnMouseDown", null);
+Cg([l.oI], O.prototype, "UpdateBoxPosition", null);
+Cg([l.oI], O.prototype, "OnMouseMove", null);
+Cg([l.oI], O.prototype, "CheckBottomEdge", null);
+Cg([l.oI], O.prototype, "CheckRightEdge", null);
+Cg([l.oI], O.prototype, "CheckTopEdge", null);
+Cg([l.oI], O.prototype, "CheckLeftEdge", null);
+Cg([l.oI], O.prototype, "CalcLeftEdge", null);
+Cg([l.oI], O.prototype, "CalcRightEdge", null);
+Cg([l.oI], O.prototype, "CalcTopEdge", null);
+Cg([l.oI], O.prototype, "CalcBottomEdge", null);
+Cg([l.oI], O.prototype, "OnMouseUp", null);
+Cg([l.oI], O.prototype, "OnResizeComplete", null);
 const P = (e) => {
-	const { title: t, className: r } = e;
+	const { title, className } = e;
 	let n = 26;
-	if (t.length > 8) {
-		n = Math.max(n - (t.length - 5) / 2, 5.8);
+	if (title.length > 8) {
+		n = Math.max(n - (title.length - 5) / 2, 5.8);
 	}
-	const [a, s] = (0, B.l)();
+	const [a, s] = l_1();
 	return i.createElement(
 		"svg",
 		{
-			className: (0, c.A)(b.SVGTitle, r),
+			className: A_1(b.SVGTitle, className),
 			viewBox: "0 0 300 14",
 		},
 		i.createElement(
@@ -1176,13 +1230,13 @@ const P = (e) => {
 				fontWeight: "200",
 				fill: s,
 			},
-			t,
+			title,
 		),
 	);
 };
 function L(e) {
-	const { title: t, children: r } = e;
-	const n = i.useContext(T);
+	const { title, children } = e;
+	const n = i.useContext(TContext);
 	const a = i.useRef(null);
 	return i.createElement(
 		p.A,
@@ -1197,16 +1251,16 @@ function L(e) {
 			"div",
 			{
 				ref: a,
-				className: (0, c.A)(b.TitleSection, t ? b.NoLogo : ""),
+				className: A_1(b.TitleSection, title ? b.NoLogo : ""),
 			},
 			i.createElement(
 				"div",
 				{
 					className: b.TextNameSpace,
 				},
-				!!t &&
+				!!title &&
 					i.createElement(P, {
-						title: t,
+						title: title,
 					}),
 			),
 			i.createElement(
@@ -1214,45 +1268,34 @@ function L(e) {
 				{
 					className: b.Features,
 				},
-				r,
+				children,
 			),
 		),
 	);
 }
 var z;
-var x = require("./96000.js");
-var U = require("./34792.js");
-var W = require("./88244.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var H = require(/*webcrack:missing*/ "./98995.js");
-var j = require("./10606.js");
-var q = require("./13869.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var Z = require(/*webcrack:missing*/ "./69164.js");
-var Y = require("./46621.js");
 var K = Y;
-var X = require(/*webcrack:missing*/ "./736.js");
-var J = require("./87935.js");
-var $ = require("./2326.js");
-var ee = require("./18869.js");
-var te = require("./71769.js");
-const re = (0, s.PA)(function (e) {
-	let { collection: t, app: r } = e;
-	const n = (0, ee.br)();
+const re = PA(function (e) {
+	let { collection, app } = e;
+	const n = br();
 	return i.createElement(
 		d.tz,
 		null,
 		i.createElement(
 			d.kt,
 			{
-				onSelected: () => n.Collection(t.id),
+				onSelected: () => {
+					return n.Collection(collection.id);
+				},
 			},
 			(0, Localize)("#GameDetails_CollectionContext_GoTo"),
 		),
 		i.createElement(
 			d.kt,
 			{
-				onSelected: () => t.AsDragDropCollection().RemoveApps([r]),
+				onSelected: () => {
+					return collection.AsDragDropCollection().RemoveApps([app]);
+				},
 			},
 			(0, Localize)("#GameDetails_CollectionContext_Remove"),
 		),
@@ -1266,14 +1309,16 @@ let ne = class extends i.Component {
 			i.createElement(
 				d.kt,
 				{
-					onSelected: () => x.md.SetAppsAsHidden([this.props.app.appid], false),
+					onSelected: () => {
+						return x.md.SetAppsAsHidden([this.props.app.appid], false);
+					},
 				},
 				(0, Localize)("#GameAction_RemoveFromHidden"),
 			),
 		);
 	}
 };
-ne = (0, n.Cg)([s.PA], ne);
+ne = Cg([s.PA], ne);
 export let xZ = class extends i.Component {
 	static {
 		z = this;
@@ -1323,13 +1368,13 @@ export let xZ = class extends i.Component {
 		return z.GetAllImageInfo(e.overview);
 	}
 	static GetAllImageInfo(e) {
-		let { rgHeroImages: t, bHasHeroImage: r } = A.H.GetHeroImages(e);
-		let { rgLogoImages: n, logoPosition: i } = A.H.GetLogoImages(e);
+		let { rgHeroImages, bHasHeroImage } = A.H.GetHeroImages(e);
+		let { rgLogoImages, logoPosition } = A.H.GetLogoImages(e);
 		return {
-			rgHeroImages: t,
-			bHasHeroImage: r,
-			rgLogoImages: n,
-			logoPosition: i,
+			rgHeroImages: rgHeroImages,
+			bHasHeroImage: bHasHeroImage,
+			rgLogoImages: rgLogoImages,
+			logoPosition: logoPosition,
 			rgHeaderBlurImages: A.H.GetHeroBlurImages(e),
 		};
 	}
@@ -1338,9 +1383,9 @@ export let xZ = class extends i.Component {
 			this.m_disposer();
 		}
 		const e = this.props.overview;
-		this.m_disposer = (0, a.fm)(() => {
+		this.m_disposer = fm(() => {
 			let t = A.H.GetCustomLogoPosition(e);
-			(0, a.h5)(() => {
+			h5(() => {
 				if (t) {
 					this.setState({
 						customLogoPosition: t,
@@ -1362,9 +1407,11 @@ export let xZ = class extends i.Component {
 					{
 						nDelayShowMS: 10,
 						toolTipContent: (0, Localize)("#GameList_Category_Hidden_Tooltip"),
-						className: (0, c.A)(K.InCollection, K.InHidden),
+						className: A_1(K.InCollection, K.InHidden),
 						key: e.appid,
-						onClick: (t) => this.ShowHiddenContextMenu(t, e),
+						onClick: (t) => {
+							return this.ShowHiddenContextMenu(t, e);
+						},
 						onContextMenu: (t) => {
 							this.ShowHiddenContextMenu(t, e);
 							t.preventDefault();
@@ -1394,7 +1441,7 @@ export let xZ = class extends i.Component {
 		return t;
 	}
 	ShowHiddenContextMenu(e, t) {
-		(0, u.lX)(
+		lX(
 			i.createElement(ne, {
 				app: t,
 			}),
@@ -1409,7 +1456,7 @@ export let xZ = class extends i.Component {
 		const t =
 			!this.state.bLogoFailedToLoad && this.state.rgLogoImages.length > 0;
 		if (!this.context?.IN_GAMEPADUI) {
-			(0, u.lX)(
+			lX(
 				i.createElement(
 					d.tz,
 					null,
@@ -1462,19 +1509,13 @@ export let xZ = class extends i.Component {
 	get is_hero_custom_image() {
 		return (
 			this.m_refTopCapsule.current &&
-			(0, J.$B)(
-				this.m_refTopCapsule.current.background_src,
-				J.Uq.Library.CustomImages,
-			)
+			$B(this.m_refTopCapsule.current.background_src, J.Uq.Library.CustomImages)
 		);
 	}
 	get is_logo_custom_image() {
 		return (
 			this.m_refTopCapsule.current &&
-			(0, J.$B)(
-				this.m_refTopCapsule.current.logo_src,
-				J.Uq.Library.CustomImages,
-			)
+			$B(this.m_refTopCapsule.current.logo_src, J.Uq.Library.CustomImages)
 		);
 	}
 	OnChangeArtwork(e, t, r) {
@@ -1529,15 +1570,15 @@ export let xZ = class extends i.Component {
 	}
 	OnFileInputChange(e, t) {
 		const r = GetOwningWindowForEvent(e);
-		const n = e.target;
-		const a = n.files[0];
+		const e_target = e.target;
+		const a = e_target.files[0];
 		const s = a.type.match(/image\/(.+)/);
 		let o = s && s[1];
 		if (o == "jpeg") {
 			o = "jpg";
 		}
 		if (o != "jpg" && o != "png") {
-			(0, q.pg)(
+			pg(
 				i.createElement(j.KG, {
 					strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
 					strDescription: (0, Localize)("#CustomArt_BadFileType"),
@@ -1560,11 +1601,11 @@ export let xZ = class extends i.Component {
 				t,
 			)
 				.then(() => {
-					n.value = null;
+					e_target.value = null;
 				})
 				.catch((e) => {
 					console.log("Set artwork failed", e);
-					(0, q.pg)(
+					pg(
 						i.createElement(j.KG, {
 							strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
 							strDescription: (0, Localize)("#CustomArt_UnknownError"),
@@ -1574,7 +1615,7 @@ export let xZ = class extends i.Component {
 							strTitle: (0, Localize)("#CustomArt_ErrorTitle"),
 						},
 					);
-					n.value = null;
+					e_target.value = null;
 				});
 		};
 		l.readAsDataURL(a);
@@ -1591,23 +1632,23 @@ export let xZ = class extends i.Component {
 		});
 	}
 	render() {
-		const { overview: e, fullscreen: t = false } = this.props;
+		const { overview, fullscreen = false } = this.props;
 		const {
-			rgHeroImages: r,
-			bHasHeroImage: n,
-			rgLogoImages: a,
-			logoPosition: s,
-			rgHeaderBlurImages: o,
-			customLogoPosition: l,
+			rgHeroImages,
+			bHasHeroImage,
+			rgLogoImages,
+			logoPosition,
+			rgHeaderBlurImages,
+			customLogoPosition,
 		} = this.state;
-		const m = !this.state.bLogoFailedToLoad && a.length > 0;
+		const m = !this.state.bLogoFailedToLoad && rgLogoImages.length > 0;
 		const [u] = U.rV.GetClientSetting("library_low_perf_mode");
 		z.GetAllImageInfo(this.props.overview);
-		const d = this.context?.IN_GAMEPADUI ? undefined : W.o.rightPanelWidth / 3;
+		const d = this.context?.IN_GAMEPADUI || W.o.rightPanelWidth / 3;
 		return i.createElement(
 			"div",
 			{
-				className: (0, c.A)(this.props.className, K.Container),
+				className: A_1(this.props.className, K.Container),
 				onContextMenu: this.ShowContextMenu,
 			},
 			i.createElement("input", {
@@ -1635,7 +1676,7 @@ export let xZ = class extends i.Component {
 			i.createElement(
 				R,
 				{
-					bFullscreen: t,
+					bFullscreen: fullscreen,
 					height: d,
 					editMode: this.state.bEditMode,
 					ref: this.m_refTopCapsule,
@@ -1645,16 +1686,16 @@ export let xZ = class extends i.Component {
 					fnReportLogoCacheMiss: ae,
 					fnReportHeroImageMiss: se,
 					appid: this.props.overview.appid,
-					hasHeroImage: n,
-					rgHeaderImages: r,
-					rgBlurImages: o,
-					rgLogoImages: a,
+					hasHeroImage: bHasHeroImage,
+					rgHeaderImages: rgHeroImages,
+					rgBlurImages: rgHeaderBlurImages,
+					rgLogoImages: rgLogoImages,
 					classNameNoLogo: !m && K.NoLogoImage,
-					logoPosition: l || s,
+					logoPosition: customLogoPosition || logoPosition,
 					fnOnPositionChanged: this.OnLogoPositionChange,
 				},
 				i.createElement(ce, {
-					overview: e,
+					overview: overview,
 					haslogo: m,
 					editMode: this.state.bEditMode,
 					onExitEditMode: () => {
@@ -1664,50 +1705,50 @@ export let xZ = class extends i.Component {
 				}),
 				!this.state.bEditMode &&
 					!this.context?.IN_GAMEPADUI &&
-					!t &&
+					!fullscreen &&
 					i.createElement(
 						Z.Z,
 						{
 							"flow-children": "row",
 							className: K.HeaderFeatures,
 						},
-						this.GetAppsCollectionList(e),
+						this.GetAppsCollectionList(overview),
 					),
 				!this.state.bEditMode &&
 					this.context?.IN_GAMEPADUI &&
-					!t &&
+					!fullscreen &&
 					i.createElement(
 						"div",
 						{
 							className: K.HeaderFriendsInGameBadge,
 						},
 						i.createElement($.n8, {
-							appid: e.appid,
+							appid: overview.appid,
 						}),
 					),
 				!this.state.bEditMode &&
-					!t &&
+					!fullscreen &&
 					i.createElement(Gl, {
-						overview: e,
+						overview: overview,
 					}),
 			),
 		);
 	}
 };
 function ae(e, t) {
-	if (e && (0, X.L)("Apps") && (0, J.$B)(t, J.Uq.Library.Assets)) {
+	if (e && L_1("Apps") && $B(t, J.Uq.Library.Assets)) {
 		SteamClient.Apps.ReportLibraryAssetCacheMiss(e, 2);
 	}
 }
 function se(e, t) {
-	if (e && (0, X.L)("Apps") && (0, J.$B)(t, J.Uq.Library.Assets)) {
+	if (e && L_1("Apps") && $B(t, J.Uq.Library.Assets)) {
 		SteamClient.Apps.ReportLibraryAssetCacheMiss(e, 1);
 	}
 }
 export function Gl(e) {
-	const { overview: t, className: r } = e;
-	if (t.optional_parent_app_id) {
-		if (t.app_type != 8) {
+	const { overview, className } = e;
+	if (overview.optional_parent_app_id) {
+		if (overview.app_type != 8) {
 			return null;
 		} else {
 			return i.createElement(
@@ -1718,7 +1759,7 @@ export function Gl(e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, c.A)(K.DemoBanner, r),
+						className: A_1(K.DemoBanner, className),
 					},
 					i.createElement(
 						"div",
@@ -1735,14 +1776,14 @@ export function Gl(e) {
 	}
 }
 function le(e) {
-	const { app: t, collection: r } = e;
-	const n = (0, ee.br)();
+	const { app, collection } = e;
+	const n = br();
 	const a = i.useCallback(
 		(e) => {
-			(0, u.lX)(
+			lX(
 				i.createElement(re, {
-					collection: r,
-					app: t,
+					collection: collection,
+					app: app,
 				}),
 				e.currentTarget,
 				{
@@ -1753,7 +1794,7 @@ function le(e) {
 			e.preventDefault();
 			e.stopPropagation();
 		},
-		[t, r],
+		[app, collection],
 	);
 	return i.createElement(
 		H.he,
@@ -1762,46 +1803,48 @@ function le(e) {
 			direction: "left",
 			nDelayShowMS: 10,
 			toolTipContent: (0, Localize)("#GameList_View_ThisCollection"),
-			onClick: () => n.Collection(r.id),
+			onClick: () => {
+				return n.Collection(collection.id);
+			},
 			onContextMenu: a,
 			className: K.InCollection,
 		},
-		r.displayName,
+		collection.displayName,
 	);
 }
-(0, n.Cg)([l.oI], xZ.prototype, "FetchCustomLogoPosition", null);
-(0, n.Cg)([l.oI], xZ.prototype, "ShowHiddenContextMenu", null);
-(0, n.Cg)([l.oI], xZ.prototype, "ShowContextMenu", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnChangeHero", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnChangeLogo", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnToggleEditMode", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnResetLogoPosition", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnLogoLoaded", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnFileInputChange", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnHeroFileInputChange", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnLogoFileInputChange", null);
-(0, n.Cg)([l.oI], xZ.prototype, "OnLogoPositionChange", null);
-xZ = z = (0, n.Cg)([s.PA], xZ);
+Cg([l.oI], xZ.prototype, "FetchCustomLogoPosition", null);
+Cg([l.oI], xZ.prototype, "ShowHiddenContextMenu", null);
+Cg([l.oI], xZ.prototype, "ShowContextMenu", null);
+Cg([l.oI], xZ.prototype, "OnChangeHero", null);
+Cg([l.oI], xZ.prototype, "OnChangeLogo", null);
+Cg([l.oI], xZ.prototype, "OnToggleEditMode", null);
+Cg([l.oI], xZ.prototype, "OnResetLogoPosition", null);
+Cg([l.oI], xZ.prototype, "OnLogoLoaded", null);
+Cg([l.oI], xZ.prototype, "OnFileInputChange", null);
+Cg([l.oI], xZ.prototype, "OnHeroFileInputChange", null);
+Cg([l.oI], xZ.prototype, "OnLogoFileInputChange", null);
+Cg([l.oI], xZ.prototype, "OnLogoPositionChange", null);
+xZ = z = Cg([s.PA], xZ);
 class ce extends i.Component {
 	render() {
-		const { haslogo: e, overview: t, editMode: r, gamepadUI: n } = this.props;
+		const { haslogo, overview, editMode, gamepadUI } = this.props;
 		return i.createElement(
 			L,
 			{
-				title: e ? null : t.display_name,
+				title: haslogo || overview.display_name,
 			},
 			i.createElement(
 				"div",
 				{
 					className: K.Column,
 				},
-				!r &&
+				!editMode &&
 					i.createElement(te.jt, {
-						overview: t,
+						overview: overview,
 					}),
-				!r && false,
+				!editMode && false,
 			),
-			r &&
+			editMode &&
 				i.createElement(
 					i.Fragment,
 					null,

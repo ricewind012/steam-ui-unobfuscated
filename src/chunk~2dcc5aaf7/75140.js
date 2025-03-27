@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./41485.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, h5 } from "./89193.js";
+import a from "./52451.js";
+import s from "./41485.js";
 export const dH = "#E4E4E4";
 export const Od = "#232323";
 export class gw {
@@ -28,7 +28,7 @@ export class gw {
 		return new gw(undefined, e, t);
 	}
 	constructor(e, t, r) {
-		(0, i.Gn)(this);
+		Gn(this);
 		if (e) {
 			this.m_controllerTouchMenuSettings = e;
 			this.m_controllerTouchMenuState.unControllerIndex = e.controller_idx;
@@ -87,7 +87,7 @@ export class gw {
 				if (!t.bound || t.placeholder) {
 					continue;
 				}
-				const r = (t.color_background ?? "") + "|" + (t.color_foreground ?? "");
+				const r = `${t.color_background ?? ""}|${t.color_foreground ?? ""}`;
 				const n = e.get(r) ?? 0;
 				e.set(r, n + 1);
 			}
@@ -116,8 +116,8 @@ export class gw {
 			const e = this.m_controllerTouchMenuSettings.popup_keys.filter(
 				(e) => e.key_idx != 0,
 			);
-			const r = e.length;
-			const n = -e.indexOf(t) * ((Math.PI * 2) / r) + Math.PI / 2;
+			const e_length = e.length;
+			const n = -e.indexOf(t) * ((Math.PI * 2) / e_length) + Math.PI / 2;
 			this.MenuState.x = Math.cos(n) * 1000;
 			this.MenuState.y = Math.sin(n) * 1000;
 		}
@@ -165,10 +165,11 @@ export class gw {
 		let t = -1;
 		switch (this.m_controllerTouchMenuSettings.menu_style) {
 			case 0:
-			case 2:
+			case 2: {
 				t = e.nSelectedItem;
 				break;
-			default:
+			}
+			default: {
 				if (Math.hypot(e.x, e.y) <= this.CenterButtonRadius) {
 					t = this.m_controllerMenuCenterButtonBound ? 0 : -1;
 					break;
@@ -197,6 +198,7 @@ export class gw {
 						return;
 					}
 				}
+			}
 		}
 		if (t != this.m_controllerMenuActiveMenuItem) {
 			this.m_controllerMenuActiveMenuItem = t;
@@ -219,21 +221,21 @@ export class gw {
 		return this.m_controllerMenuActiveMenuItem;
 	}
 }
-(0, n.Cg)([i.sH], gw.prototype, "m_controllerTouchMenuState", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_controllerMenuActiveMenuItem", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_controllerMenuCenterButtonBound", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_bShowCursor", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_bPreview", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_nNumRadialOuterSegments", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_strDescriptionPopupBackground", undefined);
-(0, n.Cg)([i.sH], gw.prototype, "m_strDescriptionPopupForeground", undefined);
-(0, n.Cg)([i.EW], gw.prototype, "CenterButtonRadius", null);
+Cg([i.sH], gw.prototype, "m_controllerTouchMenuState", undefined);
+Cg([i.sH], gw.prototype, "m_controllerMenuActiveMenuItem", undefined);
+Cg([i.sH], gw.prototype, "m_controllerMenuCenterButtonBound", undefined);
+Cg([i.sH], gw.prototype, "m_bShowCursor", undefined);
+Cg([i.sH], gw.prototype, "m_bPreview", undefined);
+Cg([i.sH], gw.prototype, "m_nNumRadialOuterSegments", undefined);
+Cg([i.sH], gw.prototype, "m_strDescriptionPopupBackground", undefined);
+Cg([i.sH], gw.prototype, "m_strDescriptionPopupForeground", undefined);
+Cg([i.EW], gw.prototype, "CenterButtonRadius", null);
 class m {
 	m_mapActiveTouchMenus = new i.Es([]);
 	m_arrAppsWithTouchMenus = new Array();
 	onTouchMenuCreateDestroy(e) {
 		const t = s.sx.deserializeBinary(e).toObject();
-		if (t.created && this.m_arrAppsWithTouchMenus.indexOf(t.appID) == -1) {
+		if (t.created && !this.m_arrAppsWithTouchMenus.includes(t.appID)) {
 			this.m_arrAppsWithTouchMenus.push(t.appID);
 		}
 		if (this.m_mapActiveTouchMenus === undefined) {
@@ -241,9 +243,9 @@ class m {
 		}
 		const r = this.TouchMenuGetKeyFromMessage(t);
 		if (t.created) {
-			(0, i.h5)(() => this.m_mapActiveTouchMenus.set(r, gw.FromMessage(t)));
+			h5(() => this.m_mapActiveTouchMenus.set(r, gw.FromMessage(t)));
 		} else {
-			(0, i.h5)(() => this.m_mapActiveTouchMenus.delete(r));
+			h5(() => this.m_mapActiveTouchMenus.delete(r));
 		}
 	}
 	onTouchMenuInput(e, t, r, n, i, a) {
@@ -274,7 +276,7 @@ class m {
 		return Array.from(this.m_mapActiveTouchMenus.values())[e];
 	}
 	TouchMenuGetKeyInternal(e, t) {
-		return e?.toString() + "," + t?.toString();
+		return `${e?.toString()},${t?.toString()}`;
 	}
 	TouchMenuGetKeyFromMessage(e) {
 		return this.TouchMenuGetKeyInternal(e?.controller_idx, e?.menu_idx);
@@ -289,11 +291,11 @@ class m {
 		);
 	}
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 }
-(0, n.Cg)([a.oI], m.prototype, "onTouchMenuCreateDestroy", null);
-(0, n.Cg)([a.oI], m.prototype, "onTouchMenuInput", null);
-(0, n.Cg)([i.EW], m.prototype, "ActiveTouchMenus", null);
-(0, n.Cg)([i.EW], m.prototype, "AppsWithTouchMenusEnabled", null);
+Cg([a.oI], m.prototype, "onTouchMenuCreateDestroy", null);
+Cg([a.oI], m.prototype, "onTouchMenuInput", null);
+Cg([i.EW], m.prototype, "ActiveTouchMenus", null);
+Cg([i.EW], m.prototype, "AppsWithTouchMenusEnabled", null);
 export const Mf = new m();

@@ -1,20 +1,40 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
 import { ArrayWithoutElement } from "../../actual_src/utils/arrayutils.js";
-var s = require("./3274.js");
-var o = s;
-var l = require("./46422.js");
-var c = require("./73375.js");
-var m = require("./60917.js");
-var u = require(/*webcrack:missing*/ "./49519.js");
-var d = require("./18057.js");
-var A = require("./96680.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
-var g = require("./26711.js");
-var h = g;
-var C = require("./11374.js");
-var _ = require(/*webcrack:missing*/ "./90765.js");
-var f = require(/*webcrack:missing*/ "./44846.js");
+import n from "./63696.js";
+import i from "./78325.js";
+import s from "./3274.js";
+import l from "./46422.js";
+import c, { sd } from "./73375.js";
+import m, { PU, lf, $S } from "./60917.js";
+import u, { W5 } from "./49519.js";
+import d from "./18057.js";
+import A, { $2 } from "./96680.js";
+import p, { q3 } from "./90095.js";
+import g from "./26711.js";
+import C, { WZ, oS, xW, F7 } from "./11374.js";
+import _, { A as A_1 } from "./90765.js";
+import f from "./44846.js";
+import { u6 } from "./43152.js";
+import { b_ as b_1 } from "./94496.js";
+import { Pr, rP, uI, Qn } from "./72476.js";
+import F, { hi, Tj, a5, W_ as W_1, OU, uH, $v } from "./9252.js";
+import G from "./84572.js";
+import P from "./85243.js";
+import { OJ } from "./63439.js";
+import z, { yq } from "./11131.js";
+import { w as w_1 } from "./49455.js";
+import U from "./35488.js";
+import { fg } from "./69913.js";
+import { IF } from "./45967.js";
+import { w as w_1 } from "./10501.js";
+import re from "./35425.js";
+import { Cg } from "./34629.js";
+import ie from "./16251.js";
+import ae, { Gn } from "./89193.js";
+import se from "./52451.js";
+import { I as I_2 } from "./61416.js";
+import { WR } from "./67686.js";
+const o = s;
+const h = g;
 const b = 0;
 const y = parseInt(h.toastAnimateInMS) + parseInt(h.toastAnimateOutMS) + b;
 const S = 1000;
@@ -23,7 +43,7 @@ const B = 80;
 const v = 20;
 function I(e) {
 	const { className: t, notification: r, displayInVR: i, onDismiss: a } = e;
-	(function (e) {
+	((e) => {
 		n.useEffect(() => {
 			if (e) {
 				m.Tu.PlayNotificationSound(e);
@@ -31,12 +51,7 @@ function I(e) {
 		}, [e]);
 	})(r);
 	let s;
-	let o = (0, _.A)(
-		t,
-		h.GamepadToastPopup,
-		(i ?? false) && h.VR,
-		(0, C.WZ)(r) && h.Warning,
-	);
+	let o = A_1(t, h.GamepadToastPopup, (i ?? false) && h.VR, WZ(r) && h.Warning);
 	if (r) {
 		s = {
 			eType: r.eType,
@@ -68,7 +83,7 @@ function E(e) {
 }
 function M(e, t, r) {
 	return [
-		(0, _.A)(
+		A_1(
 			h.GamepadToastPlaceholder,
 			(t.position == f.WU.k_EPositionTopLeft ||
 				t.position == f.WU.k_EPositionTopRight) &&
@@ -76,11 +91,11 @@ function M(e, t, r) {
 			(t.position == f.WU.k_EPositionTopLeft ||
 				t.position == f.WU.k_EPositionBottomLeft) &&
 				h.PositionLeft,
-			(0, C.WZ)(e) && h.Warning,
-			(0, C.oS)(e) && h.TinyToast,
+			WZ(e) && h.Warning,
+			oS(e) && h.TinyToast,
 			r && h.InGame,
 		),
-		(0, _.A)(
+		A_1(
 			(t.position == f.WU.k_EPositionTopLeft ||
 				t.position == f.WU.k_EPositionTopRight) &&
 				h.PositionTop,
@@ -102,7 +117,7 @@ function T(e, t) {
 			i(false);
 		}
 	}, [e, r, a]);
-	let o = (function (e, t, r) {
+	let o = ((e, t, r) => {
 		let i = n.useRef(undefined);
 		let a = n.useRef(undefined);
 		let s = n.useRef(undefined);
@@ -140,31 +155,21 @@ function R(e, t) {
 		return () => window.clearTimeout(r);
 	}, [e, t]);
 }
-var _k = require("./43152.js");
-var D = require("./94496.js");
-var N = require(/*webcrack:missing*/ "./72476.js");
-var F = require("./9252.js");
-var G = require("./84572.js");
-var O = G;
-var P = require(/*webcrack:missing*/ "./85243.js");
-var L = require(/*webcrack:missing*/ "./63439.js");
-var z = require(/*webcrack:missing*/ "./11131.js");
-var x = require(/*webcrack:missing*/ "./49455.js");
-var U = require("./35488.js");
+const O = G;
 const W = 0;
 const V = 300;
 const H = 300;
 const j = 0;
 const q = 283;
-var Q;
+let Q;
 function Z(e) {
 	let { appid: t, notifications: r, onDismiss: i } = e;
-	let [a, s] = (function () {
+	let [a, s] = (() => {
 		let [e, t] = n.useState([]);
 		let r = n.useCallback(
 			(e, r) => {
 				t((t) => {
-					let n = (0, C.xW)(e);
+					let n = xW(e);
 					return [
 						...t,
 						{
@@ -195,12 +200,12 @@ function Z(e) {
 		m_flLastScreenDPI: undefined,
 		m_lastPosition: undefined,
 	});
-	const l = (0, A.$2)();
-	const c = (0, p.q3)(() => l.NotificationPosition);
+	const l = $2();
+	const c = q3(() => l.NotificationPosition);
 	const u = !!t;
-	const d = (0, F.hi)(u);
+	const d = hi(u);
 	n.useEffect(() => {
-		(function (e, t, r, n) {
+		((e, t, r, n) => {
 			if (t.length == 0) {
 				return;
 			}
@@ -208,12 +213,21 @@ function Z(e) {
 			let a =
 				e.m_nLastScreenLeft !== i.m_nLeft ||
 				e.m_nLastScreenTop !== i.m_nTop ||
+				e.m_nLastScreenTop !== i.m_nTop ||
+				e.m_nLastScreenWidth !== i.m_nWidth ||
+				e.m_nLastScreenTop !== i.m_nTop ||
+				e.m_nLastScreenWidth !== i.m_nWidth ||
+				e.m_nLastScreenHeight !== i.m_nHeight ||
+				e.m_nLastScreenTop !== i.m_nTop ||
 				e.m_nLastScreenWidth !== i.m_nWidth ||
 				e.m_nLastScreenHeight !== i.m_nHeight ||
 				e.m_flLastScreenDPI !== r.m_flDPI;
 			let s = e.m_lastPosition;
 			let o =
 				!s ||
+				n.position !== s.position ||
+				n.position !== s.position ||
+				n.horizontalInset !== s.horizontalInset ||
 				n.position !== s.position ||
 				n.horizontalInset !== s.horizontalInset ||
 				n.verticalInset !== s.verticalInset;
@@ -240,8 +254,8 @@ function Z(e) {
 			e = a.length > 0 ? requestAnimationFrame(r) : undefined;
 		};
 		let r = () => {
-			(function (e, t, r) {
-				let n = (0, N.Pr)();
+			((e, t, r) => {
+				let n = Pr();
 				let i = performance.now();
 				for (let t of e) {
 					if (t.m_eState == Q.FadingOut && i >= t.m_flLastEventTime + H) {
@@ -256,11 +270,12 @@ function Z(e) {
 					let e = 1;
 					let r = false;
 					switch (t.m_eState) {
-						case Q.NotShown:
+						case Q.NotShown: {
 							o.push(t);
 							t.m_flLastEventTime = i;
 							t.m_eState = Q.FadingIn;
-						case Q.FadingIn:
+						}
+						case Q.FadingIn: {
 							if (i >= t.m_flLastEventTime + V) {
 								t.m_eState = Q.Showing;
 								t.m_flLastEventTime = i;
@@ -269,7 +284,8 @@ function Z(e) {
 							}
 							r = true;
 							break;
-						case Q.Showing:
+						}
+						case Q.Showing: {
 							let n = false;
 							if (t.m_notification.fnNotificationResolved) {
 								n = t.m_notification.fnNotificationResolved();
@@ -286,18 +302,22 @@ function Z(e) {
 							}
 							r = true;
 							break;
-						case Q.FadingOut:
-							(0, x.w)(
+						}
+						case Q.FadingOut: {
+							w_1(
 								i < t.m_flLastEventTime + H,
 								"Toast should have been deleted earlier in animation loop",
 							);
 							e = 1 - (i - t.m_flLastEventTime) / H;
 							r = true;
 							break;
-						case Q.Finished:
+						}
+						case Q.Finished: {
 							break;
-						default:
-							(0, x.w)(false, "Unknown toast animation state");
+						}
+						default: {
+							w_1(false, "Unknown toast animation state");
+						}
 					}
 					if (r) {
 						s.push({
@@ -324,22 +344,26 @@ function Z(e) {
 				let h = 0;
 				let C = 0;
 				switch (r.position) {
-					case f.WU.k_EPositionTopLeft:
+					case f.WU.k_EPositionTopLeft: {
 						h = c;
 						C = u + a;
 						break;
-					case f.WU.k_EPositionTopRight:
+					}
+					case f.WU.k_EPositionTopRight: {
 						h = d;
 						C = u + a;
 						break;
-					case f.WU.k_EPositionBottomLeft:
+					}
+					case f.WU.k_EPositionBottomLeft: {
 						h = c;
 						C = A - a;
 						break;
+					}
 					default:
-					case f.WU.k_EPositionBottomRight:
+					case f.WU.k_EPositionBottomRight: {
 						h = d;
 						C = A - a;
+					}
 				}
 				for (let e of s) {
 					let i;
@@ -349,29 +373,33 @@ function Z(e) {
 						s = 0;
 					}
 					switch (r.position) {
-						case f.WU.k_EPositionTopLeft:
+						case f.WU.k_EPositionTopLeft: {
 							i = h;
 							a = C - s - e.toast.m_nToastHeight;
 							C -= e.toast.m_nToastHeight - s;
 							break;
-						case f.WU.k_EPositionTopRight:
+						}
+						case f.WU.k_EPositionTopRight: {
 							i = h - q;
 							a = C - s - e.toast.m_nToastHeight;
 							C -= e.toast.m_nToastHeight - s;
 							break;
-						case f.WU.k_EPositionBottomLeft:
+						}
+						case f.WU.k_EPositionBottomLeft: {
 							i = h;
 							a = C + s;
 							C += e.toast.m_nToastHeight - s;
 							break;
+						}
 						default:
-						case f.WU.k_EPositionBottomRight:
+						case f.WU.k_EPositionBottomRight: {
 							i = h - q;
 							a = C + s;
 							C += e.toast.m_nToastHeight - s;
+						}
 					}
 					if (i !== e.toast.m_nLastX || a !== e.toast.m_nLastY) {
-						(0, F.Tj)(
+						Tj(
 							`moving toast ${e.toast.m_notification.notificationID} to ${i}, ${a}`,
 							e,
 						);
@@ -402,18 +430,20 @@ function Z(e) {
 	}, [r, a, d, i, c, o]);
 	n.useEffect(() => {
 		if (F.Ad.IsDebugEnabled()) {
-			(0, F.a5)(
+			a5(
 				"Notification state change, current notifications and popup states:",
-				(0, F.W_)(r),
+				W_1(r),
 				a.map(
 					(e) =>
-						`Popup ${e.m_notification.notificationID}: ${e.m_bDismissed ? "dismissed" : "active"} ${Q[e.m_eState]}`,
+						`Popup ${e.m_notification.notificationID}: ${
+							e.m_bDismissed ? "dismissed" : "active"
+						} ${Q[e.m_eState]}`,
 				),
 			);
 		}
 	}, [r, a]);
-	const g = (0, F.OU)(t);
-	(0, F.a5)("toast stack rendering", g, (0, F.W_)(r));
+	const g = OU(t);
+	a5("toast stack rendering", g, W_1(r));
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -440,20 +470,20 @@ function _Y(e) {
 		toastCount: l,
 	} = e;
 	const c = n.useCallback(() => a(r), [r, a]);
-	let m = (0, A.$2)();
+	let m = $2();
 	let u = !!t;
 	let d = u
 		? `notificationtoasts_uid${t}-${r.notificationID}`
 		: `notificationtoasts_${r.notificationID}_desktop`;
-	let p = u ? undefined : P.W.EBrowserType_DirectHWND_Borderless;
+	let p = u || P.W.EBrowserType_DirectHWND_Borderless;
 	let g = u ? m.params.browserInfo : undefined;
-	let h = (0, C.xW)(r);
+	let h = xW(r);
 	const _ =
-		(0, z.yq)(z.Dr.Notification) |
+		yq(z.Dr.Notification) |
 		z.Wf.Composited |
 		z.Wf.Hidden |
 		z.Wf.ApplyBrowserScaleToDimensions;
-	const { popup: f, element: b } = (0, L.OJ)(d, {
+	const { popup: f, element: b } = OJ(d, {
 		title: d,
 		dimensions: {
 			width: q,
@@ -510,7 +540,7 @@ function X(e) {
 		"div",
 		{
 			style: J(e.notification),
-			className: (0, _.A)(O.DesktopToastPopup, o),
+			className: A_1(O.DesktopToastPopup, o),
 		},
 		n.createElement(
 			"div",
@@ -536,21 +566,13 @@ function J(e) {
 		return {};
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.NotShown = 0)] = "NotShown";
 	e[(e.FadingIn = 1)] = "FadingIn";
 	e[(e.Showing = 2)] = "Showing";
 	e[(e.FadingOut = 3)] = "FadingOut";
 	e[(e.Finished = 4)] = "Finished";
 })((Q ||= {}));
-var $ = require("./69913.js");
-var ee = require("./45967.js");
-var te = require("./10501.js");
-var re = require("./35425.js");
-var ne = require(/*webcrack:missing*/ "./34629.js");
-var ie = require("./16251.js");
-var ae = require(/*webcrack:missing*/ "./89193.js");
-var se = require(/*webcrack:missing*/ "./52451.js");
 class oe {
 	m_bInitialized = false;
 	m_fnDismiss;
@@ -560,10 +582,10 @@ class oe {
 	m_bNotificationShowing = false;
 	m_nFailsafeTimer = 0;
 	constructor() {
-		(0, ae.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
-		(0, x.w)(
+		w_1(
 			!this.m_bInitialized,
 			"ToastManagerVRNotifications already initialized",
 		);
@@ -574,7 +596,7 @@ class oe {
 			);
 	}
 	Shutdown() {
-		(0, x.w)(
+		w_1(
 			this.m_bInitialized,
 			"ToastManagerVRNotifications Shutdown called when not intialized",
 		);
@@ -584,8 +606,9 @@ class oe {
 	OnVRNotificationEvent(e, t) {
 		switch (e) {
 			case ie.e6.Notification_Hidden:
-			case ie.e6.Notification_Destroyed:
+			case ie.e6.Notification_Destroyed: {
 				this.ResetDisplayedNotification();
+			}
 		}
 	}
 	ResetDisplayedNotification() {
@@ -600,7 +623,7 @@ class oe {
 	UpdateNotificationShowing() {
 		const e = !!this.nNotificationId;
 		if (!e && this.m_bNotificationShowing) {
-			(0, F.a5)(
+			a5(
 				"VRNotifications UpdateNotificationShowing VR notification is now hidden, dismissing toast",
 			);
 			this?.m_fnDismiss();
@@ -609,8 +632,8 @@ class oe {
 		this.m_bNotificationShowing = e;
 	}
 	ShowNotification(e, t, r) {
-		(0, F.a5)(`VRNotifications ShowNotification type ${e}`);
-		(0, x.w)(
+		a5(`VRNotifications ShowNotification type ${e}`);
+		w_1(
 			!this.m_bNotificationShowing,
 			"Can't show a VR notification while one is still in progress",
 		);
@@ -624,22 +647,20 @@ class oe {
 					t,
 				);
 			this.nNotificationId.catch((e) => {
-				(0, F.uH)(
-					`VRNotifications ShowCustomNotification failed with reason ${e}`,
-				);
+				uH(`VRNotifications ShowCustomNotification failed with reason ${e}`);
 				this.ResetDisplayedNotification();
 			});
 			this.UpdateNotificationShowing();
 		}
 		this.m_nFailsafeTimer = window.setTimeout(() => {
-			(0, F.uH)(
+			uH(
 				`VRNotifications Failsafe timer triggering after 20000ms. notificationId=${this.nDebugLastNotificationId}`,
 			);
 			this.ResetDisplayedNotification();
 		}, 20000);
 	}
 	HideNotification() {
-		(0, F.a5)("VRNotifications HideNotification");
+		a5("VRNotifications HideNotification");
 		if (this.nNotificationId) {
 			this.nNotificationId.then((e) => {
 				this.nDebugLastNotificationId = e;
@@ -648,19 +669,17 @@ class oe {
 		}
 	}
 }
-(0, ne.Cg)([ae.sH], oe.prototype, "m_bNotificationShowing", undefined);
-(0, ne.Cg)([se.oI], oe.prototype, "OnVRNotificationEvent", null);
-var le = require(/*webcrack:missing*/ "./61416.js");
-var ce = require("./67686.js");
+Cg([ae.sH], oe.prototype, "m_bNotificationShowing", undefined);
+Cg([se.oI], oe.prototype, "OnVRNotificationEvent", null);
 export function Y(e) {
 	let { appid: t } = e;
 	t = t || 0;
-	const r = (0, N.rP)();
-	const i = (0, ee.IF)();
+	const r = rP();
+	const i = IF();
 	const a = Ce(t);
-	const s = (0, N.uI)();
+	const s = uI();
 	const o = r.IN_VR && i;
-	const l = (0, te.w)();
+	const l = w_1();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -683,8 +702,8 @@ export function Y(e) {
 }
 function ue(e) {
 	const { appid: t, bFocusedLocation: r } = e;
-	const i = (0, A.$2)();
-	const a = (0, p.q3)(() => i.NotificationPosition);
+	const i = $2();
+	const a = q3(() => i.NotificationPosition);
 	const {
 		currentToast: s,
 		bVisible: l,
@@ -699,7 +718,7 @@ function ue(e) {
 	if (!l) {
 		return null;
 	}
-	const h = (0, _.A)(o.ToastContainerEmbedded, u);
+	const h = A_1(o.ToastContainerEmbedded, u);
 	return n.createElement(
 		"div",
 		{
@@ -719,12 +738,12 @@ function de(e) {
 		(e) => l.oy.NavigationManager.RegisterInputSource(e),
 		[],
 	);
-	const s = (0, c.sd)(a, {
+	const s = sd(a, {
 		name: "notificationtoasts",
 		eCreationFlags: z.Wf.NotFocusable,
 	});
-	const o = (0, A.$2)();
-	const m = (0, p.q3)(() => o.NotificationPosition);
+	const o = $2();
+	const m = q3(() => o.NotificationPosition);
 	const {
 		currentToast: u,
 		bVisible: d,
@@ -732,7 +751,7 @@ function de(e) {
 		fnDismiss: h,
 	} = pe(s?.GetViewWindow()?.name, r, t);
 	R(u?.nToastDurationMS, h);
-	(function (e, t) {
+	((e, t) => {
 		n.useEffect(() => {
 			e?.GetBrowserView()?.SetVisible(t);
 		}, [e, t]);
@@ -766,7 +785,7 @@ function de(e) {
 function Ae(e) {
 	let { appid: t, bFocusedLocation: r } = e;
 	t = t || 0;
-	let a = (0, A.$2)();
+	let a = $2();
 	const s = n.useMemo(() => new oe(), []);
 	const o = {
 		width: w + (false ? 0 : v),
@@ -777,9 +796,9 @@ function Ae(e) {
 		bVisible: c,
 		fnDismiss: m,
 	} = pe("notificationtoasts_vr", r, t);
-	const u = (0, p.q3)(() => s.NotificationShowing);
-	const d = (0, C.F7)(l?.eType);
-	const { popup: g, element: h } = (0, ce.WR)(
+	const u = q3(() => s.NotificationShowing);
+	const d = F7(l?.eType);
+	const { popup: g, element: h } = WR(
 		"VRNotificationToasts",
 		{
 			browserType: P.W.EBrowserType_OpenVROverlay,
@@ -824,28 +843,28 @@ function pe(e, t, r) {
 	const [n, i, a] = he(0, t, false, 1);
 	const s = n.length ? n[0] : null;
 	const [o, l] = T(s, i);
-	const c = (0, F.OU)(r);
-	(0, F.a5)("rendering browserview toasts", c, e, (0, F.W_)(n), (0, F.$v)(a));
+	const c = OU(r);
+	a5("rendering browserview toasts", c, e, W_1(n), $v(a));
 	return {
 		currentToast: s,
 		bVisible: s != null && !l,
-		bAppRunning: !!(0, u.W5)(d.BV.GamepadUI.AppRunning()),
+		bAppRunning: !!W5(d.BV.GamepadUI.AppRunning()),
 		fnDismiss: o,
 	};
 }
 export function k(e) {
 	let { appid: t } = e;
 	t = t || 0;
-	const r = (0, N.Qn)();
+	const r = Qn();
 	const i = r ? 1 : 3;
-	const a = (0, N.rP)();
-	const s = (0, ee.IF)();
+	const a = rP();
+	const s = IF();
 	const o = Ce(t) && a.IN_VR === s;
 	const l = !r && !t;
 	const [c, m, u] = he(t, o, l, i);
-	const d = (0, F.OU)(t);
-	(0, F.a5)("rendering toasts", d, (0, F.W_)(c), (0, F.$v)(u));
-	(0, x.w)(!r, "GamepadUI uses ToastManagerGamepadUI");
+	const d = OU(t);
+	a5("rendering toasts", d, W_1(c), $v(u));
+	w_1(!r, "GamepadUI uses ToastManagerGamepadUI");
 	return n.createElement(Z, {
 		appid: t,
 		notifications: c,
@@ -855,28 +874,28 @@ export function k(e) {
 function he(e, t, r, i) {
 	console.assert(e !== undefined);
 	let [s, o] = n.useState([]);
-	let l = (0, _k.u6)();
-	let c = (function () {
-		let e = (0, A.$2)();
-		return (0, $.fg)(e.DesktopOverlay);
+	let l = u6();
+	let c = (() => {
+		let e = $2();
+		return fg(e.DesktopOverlay);
 	})();
-	let u = (0, m.PU)(e);
+	let u = PU(e);
 	let d = !l && t && !u && !c;
-	let p = (0, m.lf)();
-	let g = (0, m.$S)(e);
-	let h = (function (e, t, r) {
+	let p = lf();
+	let g = $S(e);
+	let h = ((e, t, r) => {
 		const n = 5000;
 		let i = !!e && t && r;
-		const a = (0, le.I)({
+		const a = I_2({
 			queryKey: ["SteamClient", "DefaultMonitorHasFullscreenWindow"],
 			queryFn: async () => {
-				(0, F.a5)("---querying window", e);
+				a5("---querying window", e);
 				return await SteamClient.Window.DefaultMonitorHasFullscreenWindow();
 			},
 			enabled: i,
 			staleTime: n,
 		});
-		return !!i && (a.isStale ? undefined : a.data);
+		return !!i && (a.isStale || a.data);
 	})(p, d && s.length < i, r);
 	n.useEffect(() => {
 		if (h) {
@@ -905,7 +924,7 @@ function he(e, t, r, i) {
 				n--;
 			}
 			if (r) {
-				(0, F.a5)("setting toasts to", (0, F.W_)(r));
+				a5("setting toasts to", W_1(r));
 				return r;
 			} else {
 				return t;
@@ -921,8 +940,8 @@ function he(e, t, r, i) {
 		(e) => {
 			o((t) => {
 				let r = ArrayWithoutElement(t, e);
-				(0, F.a5)("dismissing toast", e.notificationID, (0, F.W_)(r));
-				(0, x.w)(
+				a5("dismissing toast", e.notificationID, W_1(r));
+				w_1(
 					r.length < t.length,
 					`After dismssing toast ${e.notificationID}, active toasts did not get smaller: ${t.length} toasts`,
 				);
@@ -948,5 +967,5 @@ function he(e, t, r, i) {
 	];
 }
 function Ce(e) {
-	return e == (0, D.b_)();
+	return e == b_1();
 }

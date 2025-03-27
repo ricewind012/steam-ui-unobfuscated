@@ -1,22 +1,32 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./45328.js");
-var a = require("./83591.js");
-var s = require("./9536.js");
-var o = require(/*webcrack:missing*/ "./61416.js");
-var l = require(/*webcrack:missing*/ "./12176.js");
-var c = require(/*webcrack:missing*/ "./46382.js");
-var m = require("./92031.js");
-var u = require(/*webcrack:missing*/ "./58663.js");
-var d = require(/*webcrack:missing*/ "./48307.js");
-const A = u.Message;
-class p extends A {
+import { Localize } from "../../actual_src/utils/localization.js";
+import n, { useEffect, useCallback } from "./63696.js";
+import { wJ, L3 } from "./45328.js";
+import a from "./83591.js";
+import s, { v as v_1 } from "./9536.js";
+import o, { I as I_1 } from "./61416.js";
+import l, { I8 } from "./12176.js";
+import c, { rW } from "./46382.js";
+import m from "./92031.js";
+import u from "./58663.js";
+import d from "./48307.js";
+import C from "./43691.js";
+import { SW } from "./58839.js";
+import { G6 } from "./82594.js";
+import { Id } from "./43397.js";
+import w, { u_Message as A_1 } from "./90765.js";
+import v, { yK } from "./72476.js";
+import I from "./26853.js";
+import E from "./4014.js";
+import { n9, pn } from "./92059.js";
+const u_Message = u.Message;
+class p extends u_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.packageid) {
 			d.Sg(p.M());
 		}
-		A.initialize(this, e, 0, -1, undefined, null);
+		u_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -60,7 +70,7 @@ class p extends A {
 		return d.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new u.BinaryWriter();
+		const e = new u.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -68,7 +78,7 @@ class p extends A {
 		d.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new u.BinaryWriter();
+		const e = new u.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -76,14 +86,14 @@ class p extends A {
 		return "CPhysicalGoods_CheckInventoryAvailableByPackage_Request";
 	}
 }
-class g extends A {
+class g extends u_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.inventory_available) {
 			d.Sg(g.M());
 		}
-		A.initialize(this, e, 0, -1, undefined, null);
+		u_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -127,7 +137,7 @@ class g extends A {
 		return d.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new u.BinaryWriter();
+		const e = new u.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -135,7 +145,7 @@ class g extends A {
 		d.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new u.BinaryWriter();
+		const e = new u.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -143,33 +153,31 @@ class g extends A {
 		return "CPhysicalGoods_CheckInventoryAvailableByPackage_Response";
 	}
 }
-var _h;
-(function (e) {
-	e.CheckInventoryAvailableByPackage = function (e, t) {
-		return e.SendMsg(
-			"PhysicalGoods.CheckInventoryAvailableByPackage#1",
-			(0, l.I8)(p, t),
-			g,
-			{
-				bConstMethod: true,
-				ePrivilege: 0,
-				eWebAPIKeyRequirement: 1,
-			},
-		);
-	};
+let _h;
+((e) => {
+	e.CheckInventoryAvailableByPackage = (e, t) =>
+		e.SendMsg("PhysicalGoods.CheckInventoryAvailableByPackage#1", I8(p, t), g, {
+			bConstMethod: true,
+			ePrivilege: 0,
+			eWebAPIKeyRequirement: 1,
+		});
 })((_h ||= {}));
-var C = require(/*webcrack:missing*/ "./43691.js");
 const _ = {
 	high_pending_orders: false,
 	inventory_available: true,
 };
 function f(e) {
-	const t = (0, c.rW)();
-	const r = (0, o.I)({
+	const t = rW();
+	const r = I_1({
 		queryKey: [e?.GetID() || m.sc, e?.GetStoreItemType() || "invalid"],
 		queryFn: () =>
-			(async function (e, t) {
-				if (!e || e.GetStoreItemType() !== 1 || e.GetAppType() !== 10) {
+			(async (e, t) => {
+				if (
+					!e ||
+					e.GetStoreItemType() !== 1 ||
+					e.GetStoreItemType() !== 1 ||
+					e.GetAppType() !== 10
+				) {
 					return _;
 				}
 				const r = l.w.Init(p);
@@ -195,26 +203,17 @@ function f(e) {
 		return r.data;
 	}
 }
-var b = require("./58839.js");
-var y = require("./82594.js");
-var S = require("./43397.js");
-var w = require(/*webcrack:missing*/ "./90765.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var v = require(/*webcrack:missing*/ "./72476.js");
-var I = require(/*webcrack:missing*/ "./26853.js");
-var E = require("./4014.js");
 var M = E;
-var T = require(/*webcrack:missing*/ "./92059.js");
 export function h(e) {
 	const { info: t, className: r } = e;
-	const s = (0, T.n9)();
-	const [o] = (0, y.G6)(t.id, (0, b.SW)(t.type), {});
+	const s = n9();
+	const [o] = G6(t.id, SW(t.type), {});
 	const l = f(o);
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		a.Fm.Get().HintLoad();
 	}, []);
-	const c = (0, n.useCallback)(() => {
-		(0, S.Id)(window, `steam://run/${o?.GetAppIDToRun()}`);
+	const c = useCallback(() => {
+		Id(window, `steam://run/${o?.GetAppIDToRun()}`);
 	}, [o]);
 	if (!o || o.GetAppType() == 8) {
 		return null;
@@ -222,6 +221,7 @@ export function h(e) {
 	const m = o.GetBestPurchaseOption();
 	const u =
 		o.BIsFree() ||
+		o.GetBestPurchasePriceFormatted() == "0" ||
 		o.GetBestPurchasePriceFormatted() == "0" ||
 		o.GetBestPurchaseOption().discount_pct >= 100;
 	if (o.GetStoreItemType() == 1) {
@@ -236,7 +236,7 @@ export function h(e) {
 				return n.createElement(
 					"div",
 					{
-						className: (0, w.A)(M.ActionOutOfStock, r),
+						className: A_1(M.ActionOutOfStock, r),
 					},
 					n.createElement(
 						"span",
@@ -259,16 +259,16 @@ export function h(e) {
 			return null;
 		}
 		if (!e && m?.is_free_to_keep) {
-			if (v.TS.IN_CLIENT || (0, v.yK)() != "store") {
-				const e = (0, i.wJ)(
+			if (v.TS.IN_CLIENT || yK() != "store") {
+				const e = wJ(
 					`${v.TS.IN_CLIENT ? "steam://openurl/" : ""}${o.GetStorePageURL()}`,
 					s,
 				);
 				return n.createElement(
 					"div",
 					{
-						onClick: (t) => (0, S.Id)(t, e),
-						className: (0, w.A)(M.Action, r),
+						onClick: (t) => Id(t, e),
+						className: A_1(M.Action, r),
 					},
 					n.createElement(
 						"span",
@@ -278,10 +278,7 @@ export function h(e) {
 				);
 			}
 			{
-				const e = (0, i.wJ)(
-					`${v.TS.STORE_BASE_URL}freelicense/addfreelicense`,
-					s,
-				);
+				const e = wJ(`${v.TS.STORE_BASE_URL}freelicense/addfreelicense`, s);
 				return n.createElement(
 					"form",
 					{
@@ -301,7 +298,7 @@ export function h(e) {
 					n.createElement(
 						"button",
 						{
-							className: (0, w.A)(M.Action, r),
+							className: A_1(M.Action, r),
 							type: "submit",
 						},
 						(0, Localize)("#EventDisplay_CallToAction_AddToAccount"),
@@ -319,19 +316,19 @@ export function h(e) {
 			return n.createElement(
 				"div",
 				{
-					className: (0, w.A)(M.Action, r),
+					className: A_1(M.Action, r),
 					onClick: c,
 				},
 				n.createElement("span", null, t),
 			);
 		}
 		if (o.GetBestPurchasePriceFormatted() == "") {
-			const e = (0, i.wJ)(o.GetStorePageURL(), s);
+			const e = wJ(o.GetStorePageURL(), s);
 			return n.createElement(
 				"a",
 				{
 					href: e,
-					className: (0, w.A)(M.Action, r),
+					className: A_1(M.Action, r),
 				},
 				(0, Localize)("#EventDisplay_CallToAction_VisitStore"),
 			);
@@ -345,9 +342,9 @@ export function h(e) {
 }
 function k(e) {
 	const { className: t, storeItem: r, info: o } = e;
-	const l = (0, T.n9)();
-	const c = (0, s.v)();
-	const m = (0, n.useCallback)(
+	const l = n9();
+	const c = v_1();
+	const m = useCallback(
 		(e) => {
 			let t;
 			let n;
@@ -364,13 +361,13 @@ function k(e) {
 				window.g_bUseNewCartAPI &&
 				typeof window.AddItemToCart == "function"
 			) {
-				window.AddItemToCart(n, t, (0, T.pn)(l));
+				window.AddItemToCart(n, t, pn(l));
 				return true;
 			}
 			{
 				const r = `${v.TS.STORE_BASE_URL}cart/addtocart`;
 				const s = `${v.TS.STORE_BASE_URL}cart`;
-				const o = (0, i.L3)(l);
+				const o = L3(l);
 				a.Fm.Get().AddToCart(e, n, r, s, o, t, c);
 			}
 			return true;
@@ -380,7 +377,7 @@ function k(e) {
 	return n.createElement(
 		"div",
 		{
-			className: (0, w.A)(M.Action, t),
+			className: A_1(M.Action, t),
 			onClick: m,
 		},
 		n.createElement("span", null, (0, Localize)("#Store_AddToCart")),

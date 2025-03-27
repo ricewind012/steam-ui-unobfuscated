@@ -1,27 +1,27 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var s = require("./90242.js");
-var o = require("./92251.js");
-var a = require("./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require("./57447.js");
-var u = l;
-const m = r.createContext({});
-const d = () => r.useContext(m);
+import r from "./63696.js";
+import i from "./78325.js";
+import s from "./90242.js";
+import o from "./92251.js";
+import a, { A } from "./90765.js";
+import l from "./57447.js";
+const u = l;
+const MContext = r.createContext({});
+const d = () => r.useContext(MContext);
 export function ep(e) {
-	const { targetElement: t, children: n } = e;
+	const { targetElement, children } = e;
 	const i = r.useMemo(
 		() => ({
-			targetElement: t,
+			targetElement: targetElement,
 		}),
-		[t],
+		[targetElement],
 	);
 	return r.createElement(
-		m.Provider,
+		MContext.Provider,
 		{
 			value: i,
 		},
-		n,
+		children,
 	);
 }
 export function C$(e) {
@@ -33,7 +33,7 @@ export function C$(e) {
 		[t],
 	);
 	return r.createElement(
-		m.Provider,
+		MContext.Provider,
 		{
 			value: i,
 		},
@@ -44,7 +44,7 @@ export function C$(e) {
 	);
 }
 export function he(e) {
-	const { divProps: t, tooltipProps: n } = b({
+	const { divProps, tooltipProps } = b({
 		...e,
 		toolTipContent: e.toolTipContent
 			? r.createElement(zQ, null, C(e.toolTipContent))
@@ -55,47 +55,47 @@ export function he(e) {
 		{
 			className: "tool-tip-source",
 			noFocusRing: true,
-			focusable: e.bNavStop ?? !!t.onClick,
-			...t,
+			focusable: e.bNavStop ?? !!divProps.onClick,
+			...divProps,
 		},
 		r.createElement(B, {
-			...n,
+			...tooltipProps,
 		}),
 		e.children,
 	);
 }
 export function m9(e) {
-	const { divProps: t, tooltipProps: n } = b(e);
+	const { divProps, tooltipProps } = b(e);
 	return r.createElement(
 		s.ml,
 		{
 			className: "tool-tip-source",
 			noFocusRing: true,
-			focusable: e.bNavStop ?? !!t.onClick,
-			...t,
+			focusable: e.bNavStop ?? !!divProps.onClick,
+			...divProps,
 		},
 		r.createElement(B, {
-			...n,
+			...tooltipProps,
 		}),
 		e.children,
 	);
 }
 export function zs(e) {
-	const { divProps: t, tooltipProps: n } = b(e);
+	const { divProps, tooltipProps } = b(e);
 	return r.createElement(
 		"rect",
 		{
-			...t,
+			...divProps,
 		},
 		r.createElement(B, {
-			...n,
+			...tooltipProps,
 		}),
 		e.children,
 	);
 }
 export function Gq(e) {
-	const { children: t } = e;
-	const { divProps: n, tooltipProps: i } = b({
+	const { children } = e;
+	const { divProps, tooltipProps } = b({
 		...e,
 		toolTipContent: e.toolTipContent
 			? r.createElement(zQ, null, C(e.toolTipContent))
@@ -104,39 +104,39 @@ export function Gq(e) {
 	return r.createElement(
 		r.Fragment,
 		null,
-		r.cloneElement(t, {
-			...n,
-			...t.props,
+		r.cloneElement(children, {
+			...divProps,
+			...children.props,
 		}),
 		r.createElement(B, {
-			...i,
+			...tooltipProps,
 		}),
 	);
 }
 function b(e) {
 	const {
-		toolTipContent: t,
-		nDelayShowMS: n = 300,
-		bDisabled: i,
-		direction: s,
-		nBodyAlignment: o,
-		nBodyDistance: a,
-		nAllowOffscreenPx: c,
-		nMaxLateralMoveOnScreen: l,
-		strTooltipClassname: u,
-		bNavStop: m,
-		bTopmost: d,
-		children: h,
+		toolTipContent,
+		nDelayShowMS = 300,
+		bDisabled,
+		direction,
+		nBodyAlignment,
+		nBodyDistance,
+		nAllowOffscreenPx,
+		nMaxLateralMoveOnScreen,
+		strTooltipClassname,
+		bNavStop,
+		bTopmost,
+		children,
 		...p
 	} = e;
 	const g = {
-		direction: s,
-		nBodyAlignment: o,
-		nBodyDistance: a,
-		nAllowOffscreenPx: c,
-		nMaxLateralMoveOnScreen: l,
-		className: u,
-		bTopmost: d,
+		direction: direction,
+		nBodyAlignment: nBodyAlignment,
+		nBodyDistance: nBodyDistance,
+		nAllowOffscreenPx: nAllowOffscreenPx,
+		nMaxLateralMoveOnScreen: nMaxLateralMoveOnScreen,
+		className: strTooltipClassname,
+		bTopmost: bTopmost,
 	};
 	const [f, _] = r.useState(false);
 	const [w, b] = r.useState();
@@ -156,11 +156,11 @@ function b(e) {
 			setHovered: _,
 		},
 		tooltipProps: {
-			active: f && !i,
+			active: f && !bDisabled,
 			target: w,
-			nDelayShowMS: n,
+			nDelayShowMS: nDelayShowMS,
 			hoverPositionProps: g,
-			children: t,
+			children: toolTipContent,
 		},
 	};
 }
@@ -172,80 +172,80 @@ function C(e) {
 	}
 }
 export function fS(e) {
-	const { divProps: t, tooltipProps: n, stateHandlers: i } = b(e);
+	const { divProps, tooltipProps, stateHandlers } = b(e);
 	return {
-		divProps: t,
-		stateHandlers: i,
+		divProps: divProps,
+		stateHandlers: stateHandlers,
 		tooltip: r.createElement(B, {
-			...n,
+			...tooltipProps,
 		}),
 	};
 }
 export function zQ(e) {
 	return r.createElement("div", {
 		...e,
-		className: (0, a.A)(u.TextToolTip, e.className),
+		className: A(u.TextToolTip, e.className),
 	});
 }
 export function t1(e) {
-	const { className: t, ...n } = e;
+	const { className, ...n } = e;
 	return r.createElement("div", {
-		className: (0, a.A)(u.ToolTipCustom, t),
+		className: A(u.ToolTipCustom, className),
 		...n,
 	});
 }
 export function MA(e) {
-	const { className: t, center: n, ...i } = e;
+	const { className, center, ...i } = e;
 	return r.createElement("div", {
-		className: (0, a.A)(u.ToolTipTitle, n ? u.Center : "", t),
+		className: A(u.ToolTipTitle, center ? u.Center : "", className),
 		...i,
 	});
 }
 export function I2(e) {
-	const { className: t, ...n } = e;
+	const { className, ...n } = e;
 	return r.createElement("div", {
-		className: (0, a.A)(u.ToolTipInsetContent, t),
+		className: A(u.ToolTipInsetContent, className),
 		...n,
 	});
 }
 function B(e) {
 	const {
-		active: t,
-		target: n,
-		nDelayShowMS: s = 300,
-		hoverPositionProps: a,
-		children: c,
+		active,
+		target,
+		nDelayShowMS = 300,
+		hoverPositionProps,
+		children,
 	} = e;
-	const [l, u] = r.useState(t);
+	const [l, u] = r.useState(active);
 	const m = d();
 	r.useEffect(() => {
-		if (t) {
-			if (s) {
-				const e = window.setTimeout(() => u(true), s);
+		if (active) {
+			if (nDelayShowMS) {
+				const e = window.setTimeout(() => u(true), nDelayShowMS);
 				return () => window.clearTimeout(e);
 			}
 			u(true);
 		} else {
 			u(false);
 		}
-	}, [t]);
+	}, [active]);
 	if (!l) {
 		return null;
 	}
-	if (!c || !n) {
+	if (!children || !target) {
 		return null;
 	}
-	const { targetElement: h } = m;
+	const { targetElement } = m;
 	return i.createPortal(
 		r.createElement(
 			o.g,
 			{
-				target: n,
-				...a,
+				target: target,
+				...hoverPositionProps,
 			},
-			c,
+			children,
 		),
-		h ?? n.ownerDocument.body,
+		targetElement ?? target.ownerDocument.body,
 	);
 }
 const x = "DEBUG_StickyHovers";

@@ -1,61 +1,57 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
+import n from "./63696.js";
+import i from "./78325.js";
 export function R(e) {
 	const {
-		visible: t = true,
-		className: r,
-		keepMounted: a = false,
-		expandDirection: s = "height",
-		msAnimationDuration: o = 250,
-		children: l,
+		visible = true,
+		className,
+		keepMounted = false,
+		expandDirection = "height",
+		msAnimationDuration = 250,
+		children,
 	} = e;
-	const {
-		style: c,
-		active: m,
-		refDiv: u,
-	} = (function (e, t = "height", r = 250) {
-		const a = n.useRef();
-		const s = n.useRef(true);
-		const [o, l] = n.useState("idle");
-		const [c, m] = n.useState({});
+	const { style, active, refDiv } = ((e, t = "height", r = 250) => {
+		const ARef = n.useRef();
+		const SRef = n.useRef(true);
+		const [o, setO] = n.useState("idle");
+		const [c, setC] = n.useState({});
 		n.useLayoutEffect(() => {
-			if (s.current) {
-				s.current = false;
+			if (SRef.current) {
+				SRef.current = false;
 			} else {
-				l("start");
+				setO("start");
 			}
 		}, [e]);
 		n.useLayoutEffect(() => {
-			const r = a.current;
+			const a_current = ARef.current;
 			const n = t == "height" ? "scrollHeight" : "scrollWidth";
 			const s = () => {
 				i.unstable_batchedUpdates(() => {
-					m({});
-					l("idle");
+					setC({});
+					setO("idle");
 				});
 			};
 			if (o == "start") {
-				const i = r[n];
-				if (i == 0) {
+				const a_current_n = a_current[n];
+				if (a_current_n == 0) {
 					s();
 				} else {
-					m((r) => ({
-						[t]: e ? "0px" : `${i}px`,
+					setC((r) => ({
+						[t]: e ? "0px" : `${a_current_n}px`,
 						...r,
 						overflow: "hidden",
 					}));
-					l("active");
+					setO("active");
 				}
 			} else if (o == "active") {
-				r.scrollTop;
-				const i = r[n];
-				m({
+				a_current.scrollTop;
+				const a_current_n = a_current[n];
+				setC({
 					overflow: "hidden",
-					[t]: e ? `${i}px` : "0px",
+					[t]: e ? `${a_current_n}px` : "0px",
 				});
-				r.addEventListener("transitionend", s);
+				a_current.addEventListener("transitionend", s);
 				return () => {
-					r.removeEventListener("transitionend", s);
+					a_current.removeEventListener("transitionend", s);
 				};
 			}
 		}, [o, e]);
@@ -66,18 +62,14 @@ export function R(e) {
 		return {
 			style: u,
 			active: o != "idle",
-			refDiv: a,
+			refDiv: ARef,
 		};
-	})(t, s, o);
-	if (t || m || a) {
-		return n.createElement(
-			"div",
-			{
-				className: r,
-				ref: u,
-				style: c,
-			},
-			l,
+	})(visible, expandDirection, msAnimationDuration);
+	if (visible || active || active || keepMounted) {
+		return (
+			<div className={className} ref={refDiv} style={style}>
+				{children}
+			</div>
 		);
 	} else {
 		return null;

@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./52451.js";
 class s {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapOfSelectedApps = new Map();
 	m_anchor;
@@ -70,15 +70,15 @@ class s {
 		return this.m_lastRangeSelection;
 	}
 }
-(0, n.Cg)([i.sH], s.prototype, "m_mapOfSelectedApps", undefined);
-(0, n.Cg)([a.oI], s.prototype, "SetAnchor", null);
-(0, n.Cg)([a.oI], s.prototype, "RemoveAnchor", null);
-(0, n.Cg)([a.oI], s.prototype, "ToggleAppIsSelected", null);
-(0, n.Cg)([i.XI.bound], s.prototype, "SelectRange", null);
-(0, n.Cg)([a.oI], s.prototype, "BIsSelectedApp", null);
-(0, n.Cg)([a.oI], s.prototype, "ClearSelection", null);
-(0, n.Cg)([a.oI], s.prototype, "GetSelectedAppsInContext", null);
-(0, n.Cg)([a.oI], s.prototype, "GetSelectedAppIds", null);
-(0, n.Cg)([a.oI], s.prototype, "GetLastRangeSelection", null);
+Cg([i.sH], s.prototype, "m_mapOfSelectedApps", undefined);
+Cg([a.oI], s.prototype, "SetAnchor", null);
+Cg([a.oI], s.prototype, "RemoveAnchor", null);
+Cg([a.oI], s.prototype, "ToggleAppIsSelected", null);
+Cg([i.XI.bound], s.prototype, "SelectRange", null);
+Cg([a.oI], s.prototype, "BIsSelectedApp", null);
+Cg([a.oI], s.prototype, "ClearSelection", null);
+Cg([a.oI], s.prototype, "GetSelectedAppsInContext", null);
+Cg([a.oI], s.prototype, "GetSelectedAppIds", null);
+Cg([a.oI], s.prototype, "GetLastRangeSelection", null);
 export const b = new s();
 window.multiSelectStore = b;

@@ -1,129 +1,104 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./21955.js");
-var a = require("./64608.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
 import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
 import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
-export function z2(e) {
+import n from "./63696.js";
+import i from "./21955.js";
+import a from "./64608.js";
+import s, { A } from "./90765.js";
+import o, { $$ } from "./52451.js";
+export function Z2(e) {
 	const {
-		nProgress: t,
-		nTransitionSec: r = 1,
-		margin: a = "none",
-		indeterminate: o,
-		color: l = "var(--gpColor-Blue, #1a9fff)",
-		className: c,
-		backgroundColor: m,
+		nProgress,
+		nTransitionSec = 1,
+		margin = "none",
+		indeterminate,
+		color = "var(--gpColor-Blue, #1a9fff)",
+		className,
+		backgroundColor,
 	} = e;
-	const u = o && t == 0;
+	const u = indeterminate && nProgress == 0;
 	const d = u
 		? {}
 		: {
-				width: `${t}%`,
-				transition: `${r}s ease`,
+				width: `${nProgress}%`,
+				transition: `${nTransitionSec}s ease`,
 			};
-	return n.createElement(
-		"div",
-		{
-			className: (0, s.A)(
+	return (
+		<div
+			className={A(
 				i.ProgressBar,
-				a == "standard" && i.StandardMargin,
-				c,
-			),
-			style: {
-				background: m,
-			},
-		},
-		n.createElement("div", {
-			key: `${u}`,
-			className: (0, s.A)(i.Percent, u && i.Indeterminate),
-			style: {
-				...d,
-				background: l,
-			},
-		}),
+				margin == "standard" && i.StandardMargin,
+				className,
+			)}
+			style={{
+				background: backgroundColor,
+			}}
+		>
+			<div
+				key={`${u}`}
+				className={A(i.Percent, u && i.Indeterminate)}
+				style={{
+					...d,
+					background: color,
+				}}
+			/>
+		</div>
 	);
 }
-function u(e) {
-	const t = (function (e, t = Seconds.PerDay * 2) {
-		const [r, i] = n.useState(null);
-		(0, o.$$)(
+function U(e) {
+	const t = ((e, t = Seconds.PerDay * 2) => {
+		const [r, setR] = n.useState(null);
+		$$(
 			() => {
 				const r = GetUnixTime();
 				const n = e - r;
-				if (e == null || n > t || isNaN(n)) {
-					i(null);
+				if (e == null || n > t || n > t || isNaN(n)) {
+					setR(null);
 					return;
 				}
 				let a = n < 1 ? 1 : n;
 				a = Math.floor(a);
 				const s = LocalizeTimeRemaining(a);
-				i(s);
+				setR(s);
 			},
 			500,
 			[e, t],
 		);
 		return r;
 	})(e.rtEstimatedCompletionTime);
-	return n.createElement(
-		"div",
-		{
-			className: i.TimeRemaining,
-		},
-		t,
-	);
+	return <div className={i.TimeRemaining}>{t}</div>;
 }
 export function hA(e) {
 	const {
-		indeterminate: t,
-		nTransitionSec: r,
-		nProgress: s,
-		childrenContainerWidth: o,
-		margin: l,
-		rtEstimatedCompletionTime: c,
-		sOperationText: d,
+		indeterminate,
+		nTransitionSec,
+		nProgress,
+		childrenContainerWidth,
+		margin,
+		rtEstimatedCompletionTime,
+		sOperationText,
 		...A
 	} = e;
-	const p = !d && !c ? "standard" : "none";
-	const g = c != null && c > 0;
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			a.D0,
-			{
-				focusable: true,
-				childrenContainerWidth: o || "fixed",
-				...A,
-			},
-			n.createElement(
-				"div",
-				{
-					className: i.ProgressBarFieldStatus,
-				},
-				n.createElement(
-					"div",
-					{
-						className: i.TextContainer,
-					},
-					g
-						? n.createElement(u, {
-								rtEstimatedCompletionTime: c,
-							})
-						: n.createElement("div", null),
-					n.createElement(
-						"div",
-						{
-							className: i.OperationText,
-						},
-						d,
-					),
-				),
-				n.createElement(z2, {
-					margin: p,
-					...e,
-				}),
-			),
-		),
+	const p = !sOperationText && !rtEstimatedCompletionTime ? "standard" : "none";
+	const g = rtEstimatedCompletionTime != null && rtEstimatedCompletionTime > 0;
+	return (
+		<>
+			<a.D0
+				focusable
+				childrenContainerWidth={childrenContainerWidth || "fixed"}
+				{...A}
+			>
+				<div className={i.ProgressBarFieldStatus}>
+					<div className={i.TextContainer}>
+						{g ? (
+							<U rtEstimatedCompletionTime={rtEstimatedCompletionTime} />
+						) : (
+							<div />
+						)}
+						<div className={i.OperationText}>{sOperationText}</div>
+					</div>
+					<Z2 margin={p} {...e} />
+				</div>
+			</a.D0>
+		</>
 	);
 }

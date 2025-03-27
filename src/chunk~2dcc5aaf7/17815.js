@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./44351.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require("./97063.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./81255.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./44351.js";
+import s, { A } from "./90765.js";
+import l, { Fd } from "./52451.js";
+import c from "./97063.js";
+import u, { s as s_2 } from "./81255.js";
+const m = c;
 export class S extends i.Component {
 	m_contentRef;
 	m_resizeObserver;
@@ -29,6 +29,7 @@ export class S extends i.Component {
 		if (
 			r != this.state.bHeightOverflows ||
 			t != this.state.nItemsHidden ||
+			t != this.state.nItemsHidden ||
 			e != this.state.nBoxHeight
 		) {
 			this.setState((n) => ({
@@ -49,7 +50,7 @@ export class S extends i.Component {
 			let e =
 				this.props.expandString || (0, Localize)("#OverflowBox_Action_Expand");
 			if (this.props.nMaxRows) {
-				e += " " + (0, Localize)("#OverflowBox_More", this.state.nItemsHidden);
+				e += ` ${(0, Localize)("#OverflowBox_More", this.state.nItemsHidden)}`;
 			}
 			return e;
 		}
@@ -57,10 +58,7 @@ export class S extends i.Component {
 	componentDidMount() {
 		this.forceUpdate();
 		if (this.m_contentRef.current) {
-			this.m_resizeObserver = (0, l.Fd)(
-				this.m_contentRef.current,
-				this.OnResize,
-			);
+			this.m_resizeObserver = Fd(this.m_contentRef.current, this.OnResize);
 		}
 		this.SetOverflowState();
 	}
@@ -118,14 +116,14 @@ export class S extends i.Component {
 			suppressMask: o,
 			className: l,
 		} = this.props;
-		const c = (0, s.A)(r, m.ButtonContainer);
+		const c = A(r, m.ButtonContainer);
 		let u;
 		let d;
 		let A;
 		let p = {
 			maxHeight: this.state.bExpanded
 				? this.getBoxHeight()
-				: this.CalculateMaxHeight().nBoxHeight + "px",
+				: `${this.CalculateMaxHeight().nBoxHeight}px`,
 		};
 		if (this.props.nMaxRows) {
 			p.display = "flex";
@@ -140,49 +138,40 @@ export class S extends i.Component {
 				u = e;
 				d = m.BoxCollapsed;
 			}
-			A = i.createElement(
-				"div",
-				{
-					className: m.ButtonContainer,
-				},
-				i.createElement(
-					a.QW,
-					{
-						className: (0, s.A)(c, m.ShorterButton),
-						onClick: this.ToggleExpanded,
-					},
-					this.ButtonText(),
-				),
+			A = (
+				<div className={m.ButtonContainer}>
+					<a.QW className={A(c, m.ShorterButton)} onClick={this.ToggleExpanded}>
+						{this.ButtonText()}
+					</a.QW>
+				</div>
 			);
 		} else {
 			u = t;
 			A = null;
 		}
-		return i.createElement(
-			"div",
-			{
-				className: (0, s.A)(
+		return (
+			<div
+				className={A(
 					m.OverflowBox,
 					this.state.bExpanded !== undefined && m.ExplicitlyCollapsed,
 					l,
-				),
-			},
-			i.createElement(
-				"div",
-				{
-					ref: this.m_contentRef,
-					className: (0, s.A)(
+				)}
+			>
+				<div
+					ref={this.m_contentRef}
+					className={A(
 						u,
 						m.OverflowBoxContent,
 						d,
 						n && m.NoTransitions,
 						o && m.NoMask,
-					),
-					style: p,
-				},
-				this.props.children,
-			),
-			A,
+					)}
+					style={p}
+				>
+					{this.props.children}
+				</div>
+				{A}
+			</div>
 		);
 	}
 	ToggleExpanded() {
@@ -191,5 +180,5 @@ export class S extends i.Component {
 		}));
 	}
 }
-(0, n.Cg)([l.oI, (0, u.s)(100)], S.prototype, "OnResize", null);
-(0, n.Cg)([l.oI], S.prototype, "ToggleExpanded", null);
+Cg([l.oI, s_2(100)], S.prototype, "OnResize", null);
+Cg([l.oI], S.prototype, "ToggleExpanded", null);

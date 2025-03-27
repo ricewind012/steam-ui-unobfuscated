@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./50979.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var o = require(/*webcrack:missing*/ "./79769.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./3756.js");
-var m = require("./90601.js");
-var u = require("./8653.js");
-var d = require("./95773.js");
-var A = require("./5128.js");
+import { Cg } from "./34629.js";
+import { js } from "./50979.js";
+import a, { Gn } from "./89193.js";
+import o from "./79769.js";
+import l from "./72476.js";
+import c from "./3756.js";
+import m from "./90601.js";
+import u from "./8653.js";
+import d from "./95773.js";
+import A from "./5128.js";
 export class JB extends A.Q {
 	m_tabset;
 	m_chat;
@@ -25,7 +25,7 @@ export class JB extends A.Q {
 	m_clipToUpload = undefined;
 	constructor(e, t) {
 		super();
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_tabset = e;
 		this.m_chat = t;
 		if (this.m_tabset) {
@@ -216,7 +216,7 @@ export class JB extends A.Q {
 		return this.m_chat.BVoiceActive();
 	}
 	ConvertMessageToBBCode(e) {
-		return (0, i.js)(e);
+		return js(e);
 	}
 	async SendChatMessage(e) {
 		return this.m_chat.SendChatMessage(this.ConvertMessageToBBCode(e));
@@ -226,8 +226,8 @@ export class JB extends A.Q {
 		this.m_textEntryChangeCallbacks.Dispatch(this.m_strTextEntry);
 	}
 }
-(0, n.Cg)([a.sH], JB.prototype, "m_bScrolledToBottom", undefined);
-(0, n.Cg)([a.sH], JB.prototype, "m_clipToUpload", undefined);
+Cg([a.sH], JB.prototype, "m_bScrolledToBottom", undefined);
+Cg([a.sH], JB.prototype, "m_clipToUpload", undefined);
 export class CF extends JB {
 	m_parentGroupView;
 	constructor(e, t, r) {
@@ -246,7 +246,7 @@ export class CF extends JB {
 		return this.m_parentGroupView.BIsMemberNameAmbiguous(e);
 	}
 	ConvertMessageToBBCode(e) {
-		let t = (0, i.js)(e);
+		let t = js(e);
 		return this.m_parentGroupView.ProcessMentions(t);
 	}
 	get virtualizer() {

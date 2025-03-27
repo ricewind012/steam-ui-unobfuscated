@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ErrorConditionBackground: "_3bFjiNM-fj5WMVMUa8LZKT",
 	ErrorConditionContainer: "_1C84luK9dQovzGP1ZlNuLL",
 	Header: "_2zUgH7uEVO5bCoUFhmcAqs",

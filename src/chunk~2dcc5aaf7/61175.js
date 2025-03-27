@@ -1,32 +1,32 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./96593.js");
-var s = require("./96000.js");
-var o = require("./76356.js");
-var l = require("./47979.js");
-var c = require("./29547.js");
-var m = require(/*webcrack:missing*/ "./88696.js");
-var u = require("./34792.js");
-var d = require("./46422.js");
-var A = require("./14629.js");
-var p = require("./31706.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./52451.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require(/*webcrack:missing*/ "./12176.js");
-var f = require("./64880.js");
-var b = require("./85606.js");
-var y = require("./5859.js");
-var S = require(/*webcrack:missing*/ "./83599.js");
-var w = require("./18057.js");
-var B = require("./5640.js");
-var v = require(/*webcrack:missing*/ "./8573.js");
-var I = require("./13688.js");
-var E = require("./49171.js");
-var M = require("./79112.js");
-var T = require("./45967.js");
-var R = require("./36813.js");
-var k = require("./31930.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, h5, fm, z7 } from "./89193.js";
+import a from "./96593.js";
+import s from "./96000.js";
+import o from "./76356.js";
+import l from "./47979.js";
+import c from "./29547.js";
+import m from "./88696.js";
+import u from "./34792.js";
+import d from "./46422.js";
+import A, { gS } from "./14629.js";
+import { x2 } from "./31706.js";
+import { w as w_1 } from "./49455.js";
+import h from "./52451.js";
+import C from "./72476.js";
+import _ from "./12176.js";
+import f from "./64880.js";
+import b, { rV, Bn, hc } from "./85606.js";
+import y from "./5859.js";
+import S from "./83599.js";
+import w from "./18057.js";
+import B from "./5640.js";
+import v from "./8573.js";
+import I, { dq } from "./13688.js";
+import E from "./49171.js";
+import { lF } from "./79112.js";
+import T from "./45967.js";
+import R from "./36813.js";
+import k from "./31930.js";
 const D = new S.wd("LibraryUIStore/BasicUIStore");
 export const B6 = 593110;
 export const aF = 1675200;
@@ -47,7 +47,7 @@ class P {
 }
 class L {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_localStorage = new m.A();
 	m_cm;
@@ -79,9 +79,9 @@ class L {
 		if (!t || t.nVersion != 1) {
 			t = new P();
 		}
-		(0, i.h5)(() => {
-			let e = t.eGameListView;
-			this.m_eSelectedGameListView = e || 1;
+		h5(() => {
+			let t_eGameListView = t.eGameListView;
+			this.m_eSelectedGameListView = t_eGameListView || 1;
 			this.m_bGameListGroupedByCollection = t.bGroupedByCollection;
 			this.m_bGameListGroupedBySharedLibraries = t.bGroupBySharedLibraries;
 			this.m_bGameListSortedByRecent = t.bSortedByRecent;
@@ -110,7 +110,7 @@ class L {
 			"PostToLibrary",
 			this.OnPostMessage,
 		);
-		(0, i.fm)(() => {
+		fm(() => {
 			const e = s.md.GetCollection(s.A8.Recent);
 			if (!e || e.visibleApps.length == 0) {
 				return;
@@ -170,7 +170,7 @@ class L {
 		}
 	}
 	PreserveNavigation() {
-		(0, i.fm)(() => {
+		fm(() => {
 			const e = {
 				m_RecentGamesFirstApp: this.m_RecentGamesFirstApp,
 			};
@@ -193,6 +193,7 @@ class L {
 		if (
 			!this.m_gameListSelection ||
 			this.m_gameListSelection.nAppId != t ||
+			this.m_gameListSelection.nAppId != t ||
 			this.m_gameListSelection.strCollectionId != e
 		) {
 			this.m_gameListSelection = {
@@ -207,8 +208,8 @@ class L {
 		return this.m_currentAppFilter;
 	}
 	get collectionsAppFilter() {
-		const e = (0, M.lF)();
-		if ((0, I.dq)(e)) {
+		const e = lF();
+		if (dq(e)) {
 			return this.m_collectionsAppFilterGamepad;
 		} else {
 			return this.m_collectionsAppFilter;
@@ -266,6 +267,7 @@ class L {
 		if (
 			!this.currentGameListSelection.nAppId ||
 			!this.currentGameListSelection.strCollectionId ||
+			!this.currentGameListSelection.strCollectionId ||
 			!E.z.BRouteMatch(w.BV.Library.App.Root())
 		) {
 			return;
@@ -278,8 +280,9 @@ class L {
 		const t = () =>
 			!E.z.BRouteMatch(w.BV.Library.App.Root()) ||
 			e.appid != this.currentGameListSelection.nAppId ||
+			e.appid != this.currentGameListSelection.nAppId ||
 			e.strCollectionId != this.currentGameListSelection.strCollectionId;
-		(0, i.z7)(
+		z7(
 			() =>
 				t() ||
 				l.b.GetSelectedAppsInContext().filter((t) => t.key != e.key).length > 0,
@@ -287,14 +290,14 @@ class L {
 				if (t()) {
 					l.b.RemoveAnchor(e);
 				} else {
-					(0, M.lF)().AllCollections();
+					lF().AllCollections();
 				}
 			},
 		);
 	}
 	SelectGameListView(e, t) {
 		if (e != this.selectedGameListView || t != this.currentCollectionID) {
-			(0, g.w)(
+			w_1(
 				e != 11,
 				"Should not select kSearchResults explicitly; enter search instead.",
 			);
@@ -302,11 +305,11 @@ class L {
 				this.ExitSearch();
 			}
 			if (e == 10) {
-				(0, g.w)(
+				w_1(
 					!!t,
 					"Should not select single-collection mode without specifying the collection.",
 				);
-				(0, M.lF)().Collection(t);
+				lF().Collection(t);
 				this.SetIsCollapsed(t, false);
 			}
 			this.m_eSelectedGameListView = e;
@@ -350,7 +353,7 @@ class L {
 	}
 	async SetSearchText(e) {
 		if (!this.BIsSearchActive() && e.length > 0) {
-			(0, g.w)(
+			w_1(
 				!this.BIsSearchActive(),
 				"Cannot start text search while other search is already active.",
 			);
@@ -366,7 +369,7 @@ class L {
 		}
 	}
 	StartSearchByType(e) {
-		(0, g.w)(
+		w_1(
 			!this.BIsSearchActive(),
 			"Cannot start search by type while other search is already active.",
 		);
@@ -396,12 +399,12 @@ class L {
 		}
 		{
 			let t = _.w.Init(f.pI);
-			(0, b.rV)(t);
-			(0, b.Bn)(t, {
+			rV(t);
+			Bn(t, {
 				include_basic_info: true,
 				include_assets: true,
 			});
-			(0, b.hc)(t, {
+			hc(t, {
 				type_filters: {
 					include_apps: true,
 					include_software: true,
@@ -512,7 +515,7 @@ class L {
 	}
 	GetCollectionList() {
 		switch (this.selectedGameListView) {
-			case 10:
+			case 10: {
 				const e =
 					!!this.currentCollectionID &&
 					s.md.GetCollection(this.currentCollectionID);
@@ -521,7 +524,8 @@ class L {
 				} else {
 					return [];
 				}
-			case 1:
+			}
+			case 1: {
 				if (this.bIsGameListSortedByRecent) {
 					return s.md.recentAppCollections;
 				}
@@ -535,7 +539,8 @@ class L {
 					t = t.concat(s.md.sharedLibrariesCollections);
 				}
 				return t;
-			case 11:
+			}
+			case 11: {
 				const r = this.bIsGameListSortedByRecent
 					? s.md.recentAppCollections.slice()
 					: s.md.appTypeCollections.slice();
@@ -544,6 +549,7 @@ class L {
 					r.push(n);
 				}
 				return r;
+			}
 		}
 	}
 	UpdateGameListSelection() {
@@ -572,27 +578,27 @@ class L {
 		}
 	}
 	NavigateToCollectionSaveDialog(e) {
-		const t = (0, A.gS)(e);
+		const t = gS(e);
 		if (!t) {
 			D.Debug("Ignoring unrecognized tag", e);
 			return;
 		}
-		const { eGroup: r, option: n, name: i } = t;
-		if (i && s.md.BIsSystemCollectionName(i)) {
-			D.Debug("Ignoring system name", i);
+		const { eGroup, option, name } = t;
+		if (name && s.md.BIsSystemCollectionName(name)) {
+			D.Debug("Ignoring system name", name);
 			return;
 		}
-		if (i && s.md.GetUserCollectionsByName(i).length > 0) {
-			const e = s.md.GetUserCollectionsByName(i)[0];
-			D.Debug("Opening existing collection", i);
-			(0, M.lF)().Collection(e.id);
+		if (name && s.md.GetUserCollectionsByName(name).length > 0) {
+			const e = s.md.GetUserCollectionsByName(name)[0];
+			D.Debug("Opening existing collection", name);
+			lF().Collection(e.id);
 			return;
 		}
 		this.ExitSearch();
 		const a = new A.E6();
-		a.SelectOption(r, n, true);
+		a.SelectOption(eGroup, option, true);
 		n6.StartSearchByType(a);
-		(0, p.x2)(window, i, a);
+		x2(window, name, a);
 	}
 	ShowSharedAppsInLibrary(e, t) {
 		let r = new v.b(this.currentUserSteamID);
@@ -613,7 +619,7 @@ class L {
 		this.SelectGameListView(1);
 		this.SetGameListSortedByRecent(false);
 		for (const t of [1, 2, 8192, 2048, 4]) {
-			this.SelectCollectionsAppFilterOption(0, t, e.indexOf(t) >= 0);
+			this.SelectCollectionsAppFilterOption(0, t, e.includes(t));
 		}
 	}
 	GetRecentGamesFirstApp() {
@@ -643,8 +649,14 @@ class L {
 			"steam://open/bigpicture/librarydetails/",
 			"steam://open/library/details/",
 		);
-		(0, g.w)(
+		w_1(
 			e.startsWith("steam://open/library/") ||
+				e.startsWith("steam://open/games/") ||
+				e.startsWith("steam://open/games/") ||
+				e.startsWith("steam://nav/games/") ||
+				e.startsWith("steam://open/games/") ||
+				e.startsWith("steam://nav/games/") ||
+				e == "steam://open/library" ||
 				e.startsWith("steam://open/games/") ||
 				e.startsWith("steam://nav/games/") ||
 				e == "steam://open/library" ||
@@ -661,78 +673,94 @@ class L {
 		if (!this.IsGamepadUIWindowActive(e)) {
 			this.ExitSearch();
 		}
-		const n = e.Navigator;
+		const e_Navigator = e.Navigator;
 		if (t == "open") {
 			t = r;
 			r = "";
 		}
 		switch (t) {
-			case w.Qc:
+			case w.Qc: {
 				return;
-			case "games":
+			}
+			case "games": {
 				this.SelectCollectionsAppFilterOption(0, 1, true);
-			case "library":
+			}
+			case "library": {
 				this.EnsureLargeMode();
-				n.Home();
+				e_Navigator.Home();
 				return;
-			case "view":
+			}
+			case "view": {
 				this.EnsureLargeMode();
 				switch (r) {
-					case "all":
+					case "all": {
 						this.ShowCollectionViewWithAppTypes(1, 2, 8192, 2048, 4);
 						this.SelectCollectionsAppFilterOption(1, 2, false);
 						return;
-					case "games":
+					}
+					case "games": {
 						this.ShowCollectionViewWithAppTypes(1);
 						return;
-					case "soundtracks":
+					}
+					case "soundtracks": {
 						this.SelectCollectionsAppFilterOption(0, 8192, true);
-						n.Collection(s.A8.AppType_Soundtracks);
+						e_Navigator.Collection(s.A8.AppType_Soundtracks);
 						return;
-					case "software":
+					}
+					case "software": {
 						this.ShowCollectionViewWithAppTypes(2);
 						return;
-					case "videos":
+					}
+					case "videos": {
 						this.ShowCollectionViewWithAppTypes(2048);
 						return;
-					case "tools":
+					}
+					case "tools": {
 						this.ShowCollectionViewWithAppTypes(4);
 						return;
-					case "recent":
+					}
+					case "recent": {
 						this.SelectGameListView(1);
 						this.SetGameListSortedByRecent(true);
 						return;
-					case "installed":
+					}
+					case "installed": {
 						this.SelectGameListView(1);
 						this.SelectCollectionsAppFilterOption(1, 2, true);
 						return;
-					case "all-collections":
-						n.AllCollections();
+					}
+					case "all-collections": {
+						e_Navigator.AllCollections();
 						return;
-					case "login":
-						if ((0, I.dq)(n)) {
-							n.Login();
+					}
+					case "login": {
+						if (dq(e_Navigator)) {
+							e_Navigator.Login();
 						}
 						return;
-					default:
-						n.Home();
+					}
+					default: {
+						e_Navigator.Home();
 						return;
+					}
 				}
-			case "collection":
+			}
+			case "collection": {
 				this.EnsureLargeMode();
 				if (r == "hidden") {
 					this.SelectGameListView(10, r);
 				}
-				n.Collection(r);
+				e_Navigator.Collection(r);
 				return;
+			}
 			case "details":
 				{
 					this.EnsureLargeMode();
 					let e = r.split("|");
 					let t = +e[0];
-					let i = e[1];
+					let [, i] = e;
 					if (a.tw.GetAppOverviewByAppID(t)) {
-						n.App(t, {
+						e_Navigator.App(t, {
 							strCollectionId: i,
 						});
 						return;
@@ -744,74 +772,85 @@ class L {
 					this.EnsureLargeMode();
 					let e = decodeURIComponent(r).split("|");
 					let t = +e[0];
-					let i = e[1];
+					let [, i] = e;
 					if (a.tw.GetAppOverviewByAppID(t)) {
-						n.App(t, {
+						e_Navigator.App(t, {
 							gidPartnerEvent: i,
 						});
 						return;
 					}
 				}
 				break;
-			case "media":
-				if ((0, I.dq)(n)) {
+			case "media": {
+				if (dq(e_Navigator)) {
 					this.EnsureLargeMode();
-					n.Media.Grid();
+					e_Navigator.Media.Grid();
 				}
 				return;
-			case "downloads":
+			}
+			case "downloads": {
 				this.EnsureLargeMode();
-				n.Downloads();
+				e_Navigator.Downloads();
 				return;
-			case "dynamic-collection":
+			}
+			case "dynamic-collection": {
 				this.EnsureLargeMode();
 				this.NavigateToCollectionSaveDialog(r);
 				return;
-			case "shared-apps":
-				if ((0, I.dq)(n)) {
+			}
+			case "shared-apps": {
+				if (dq(e_Navigator)) {
 					SteamClient.Messaging.PostMessage("Library", "shared-apps", r);
 				} else {
-					n.Home();
+					e_Navigator.Home();
 					this.NavigateToSharedAppsDesktopUI(r);
 				}
 				return;
-			default:
-				n.Home();
+			}
+			default: {
+				e_Navigator.Home();
+			}
 		}
 		if (this.IsGamepadUIWindowActive(e)) {
 			switch (t) {
-				case "gameapiosk":
+				case "gameapiosk": {
 					E.z.m_history.push(w.BV.GamepadUI.GameAPIOSK());
 					return;
-				case "search":
+				}
+				case "search": {
 					E.z.m_history.push(w.BV.GamepadUI.Search.Tab("All"));
 					return;
-				case "settings":
+				}
+				case "settings": {
 					const e = x[r] || w.BV.Settings.General;
 					E.z.m_history.push(e());
 					return;
-				case "settingszoo":
+				}
+				case "settingszoo": {
 					E.z.m_history.push((d.GA[r] || w.BV.GamepadUI.Zoo.Modals)());
 					return;
+				}
 				case "appproperties":
 					{
 						const e = r.split("|");
 						const t = +e[0];
-						const i = e[1];
-						n.AppProperties(t, i);
+						const [, i] = e;
+						e_Navigator.AppProperties(t, i);
 					}
 					return;
-				case "apprunning":
+				case "apprunning": {
 					d.oy.NavigateToRunningApp(false);
 					return;
-				case "powermenu":
+				}
+				case "powermenu": {
 					d.oy.OpenPowerMenu(null);
 					return;
+				}
 				case "controllerconfigurator":
 					{
 						const e = r.split("|");
 						const t = +e[0];
-						const n = e[1];
+						const [, n] = e;
 						const i = JSON.parse(e[2]);
 						E.z.m_history.push(
 							(U[n] || w.BV.GamepadUI.ControllerConfigurator.Main)(t),
@@ -848,64 +887,54 @@ class L {
 		o.I.SetActiveDurationControlHandler(e);
 	}
 }
-(0, n.Cg)([i.sH], L.prototype, "m_bIsCollectionEditorOpen", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_bIsCollectionRenameOpen", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_bIsSearchByTypePaneOpen", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_gameListSelection", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_eSelectedGameListView", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_currentAppFilter", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_collectionsAppFilter", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_collectionsAppFilterGamepad", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_bGameListGroupedByCollection", undefined);
-(0, n.Cg)(
-	[i.sH],
-	L.prototype,
-	"m_bGameListGroupedBySharedLibraries",
-	undefined,
-);
-(0, n.Cg)([i.sH], L.prototype, "m_bGameListSortedByRecent", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_mapLibrarySectionCollapseState", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_RecentGamesFirstApp", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_setStoreSuggestionIds", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_setStoreSuggestions", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_setClientSuggestionIds", undefined);
-(0, n.Cg)([i.XI.bound], L.prototype, "SetGameListGroupedByCollection", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "SetGameListGroupedBySharedLibrary", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "SetGameListSortedByRecent", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "SelectCollectionsAppFilterOption", null);
-(0, n.Cg)(
-	[i.XI.bound],
-	L.prototype,
-	"SelectGamepadCollectionsAppFilterOption",
-	null,
-);
-(0, n.Cg)([i.XI.bound], L.prototype, "SelectGameListView", null);
-(0, n.Cg)([h.oI], L.prototype, "BIsTextSearchActive", null);
-(0, n.Cg)([h.oI], L.prototype, "BIsSearchByTypeActive", null);
-(0, n.Cg)([h.oI], L.prototype, "BIsSearchActive", null);
-(0, n.Cg)([h.oI], L.prototype, "BIsSearchByTypePaneOpen", null);
-(0, n.Cg)([h.oI], L.prototype, "SetSearchByTypePaneOpen", null);
-(0, n.Cg)([h.oI], L.prototype, "ResetSearch", null);
-(0, n.Cg)([h.oI], L.prototype, "ExitSearch", null);
-(0, n.Cg)([h.oI], L.prototype, "SetSearchText", null);
-(0, n.Cg)([h.oI], L.prototype, "StartSearchByType", null);
-(0, n.Cg)([h.oI], L.prototype, "FetchSearchSuggestions", null);
-(0, n.Cg)([h.oI], L.prototype, "IsCollapsed", null);
-(0, n.Cg)([h.oI], L.prototype, "toggleCollapsed", null);
-(0, n.Cg)([h.oI], L.prototype, "SetIsCollapsed", null);
-(0, n.Cg)([h.oI], L.prototype, "ExpandAll", null);
-(0, n.Cg)([h.oI], L.prototype, "CollapseAll", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "ExpandOrCollapseAll", null);
-(0, n.Cg)([i.XI], L.prototype, "CleanupCollapseStateMap", null);
-(0, n.Cg)([h.oI], L.prototype, "GetVisibleCollections", null);
-(0, n.Cg)([h.oI], L.prototype, "GetCollectionList", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "NavigateToCollectionSaveDialog", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "NavigateToSharedAppsDesktopUI", null);
-(0, n.Cg)([i.XI], L.prototype, "SetRecentGamesFirstApp", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "OnPostMessage", null);
-(0, n.Cg)([h.oI], L.prototype, "OnOpenLibrary", null);
-(0, n.Cg)([h.oI], L.prototype, "SaveLocalState", null);
-(0, n.Cg)([h.oI], L.prototype, "ShowDurationControlDialog", null);
+Cg([i.sH], L.prototype, "m_bIsCollectionEditorOpen", undefined);
+Cg([i.sH], L.prototype, "m_bIsCollectionRenameOpen", undefined);
+Cg([i.sH], L.prototype, "m_bIsSearchByTypePaneOpen", undefined);
+Cg([i.sH], L.prototype, "m_gameListSelection", undefined);
+Cg([i.sH], L.prototype, "m_eSelectedGameListView", undefined);
+Cg([i.sH], L.prototype, "m_currentAppFilter", undefined);
+Cg([i.sH], L.prototype, "m_collectionsAppFilter", undefined);
+Cg([i.sH], L.prototype, "m_collectionsAppFilterGamepad", undefined);
+Cg([i.sH], L.prototype, "m_bGameListGroupedByCollection", undefined);
+Cg([i.sH], L.prototype, "m_bGameListGroupedBySharedLibraries", undefined);
+Cg([i.sH], L.prototype, "m_bGameListSortedByRecent", undefined);
+Cg([i.sH], L.prototype, "m_mapLibrarySectionCollapseState", undefined);
+Cg([i.sH], L.prototype, "m_RecentGamesFirstApp", undefined);
+Cg([i.sH], L.prototype, "m_setStoreSuggestionIds", undefined);
+Cg([i.sH], L.prototype, "m_setStoreSuggestions", undefined);
+Cg([i.sH], L.prototype, "m_setClientSuggestionIds", undefined);
+Cg([i.XI.bound], L.prototype, "SetGameListGroupedByCollection", null);
+Cg([i.XI.bound], L.prototype, "SetGameListGroupedBySharedLibrary", null);
+Cg([i.XI.bound], L.prototype, "SetGameListSortedByRecent", null);
+Cg([i.XI.bound], L.prototype, "SelectCollectionsAppFilterOption", null);
+Cg([i.XI.bound], L.prototype, "SelectGamepadCollectionsAppFilterOption", null);
+Cg([i.XI.bound], L.prototype, "SelectGameListView", null);
+Cg([h.oI], L.prototype, "BIsTextSearchActive", null);
+Cg([h.oI], L.prototype, "BIsSearchByTypeActive", null);
+Cg([h.oI], L.prototype, "BIsSearchActive", null);
+Cg([h.oI], L.prototype, "BIsSearchByTypePaneOpen", null);
+Cg([h.oI], L.prototype, "SetSearchByTypePaneOpen", null);
+Cg([h.oI], L.prototype, "ResetSearch", null);
+Cg([h.oI], L.prototype, "ExitSearch", null);
+Cg([h.oI], L.prototype, "SetSearchText", null);
+Cg([h.oI], L.prototype, "StartSearchByType", null);
+Cg([h.oI], L.prototype, "FetchSearchSuggestions", null);
+Cg([h.oI], L.prototype, "IsCollapsed", null);
+Cg([h.oI], L.prototype, "toggleCollapsed", null);
+Cg([h.oI], L.prototype, "SetIsCollapsed", null);
+Cg([h.oI], L.prototype, "ExpandAll", null);
+Cg([h.oI], L.prototype, "CollapseAll", null);
+Cg([i.XI.bound], L.prototype, "ExpandOrCollapseAll", null);
+Cg([i.XI], L.prototype, "CleanupCollapseStateMap", null);
+Cg([h.oI], L.prototype, "GetVisibleCollections", null);
+Cg([h.oI], L.prototype, "GetCollectionList", null);
+Cg([i.XI.bound], L.prototype, "NavigateToCollectionSaveDialog", null);
+Cg([i.XI.bound], L.prototype, "NavigateToSharedAppsDesktopUI", null);
+Cg([i.XI], L.prototype, "SetRecentGamesFirstApp", null);
+Cg([i.XI.bound], L.prototype, "OnPostMessage", null);
+Cg([h.oI], L.prototype, "OnOpenLibrary", null);
+Cg([h.oI], L.prototype, "SaveLocalState", null);
+Cg([h.oI], L.prototype, "ShowDurationControlDialog", null);
 export const n6 = new L();
 window.uiStore = n6;
 const x = {

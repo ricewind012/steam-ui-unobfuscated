@@ -1,52 +1,52 @@
-var n = require("./2053.js");
-var i = n;
-var a = require("./31319.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./85243.js");
-var l = require(/*webcrack:missing*/ "./69164.js");
-var c = require(/*webcrack:missing*/ "./42318.js");
-var m = require("./10606.js");
-var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require("./31800.js");
-var A = require("./55489.js");
-var p = require("./55116.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
+import n from "./2053.js";
+import { Xf } from "./31319.js";
+import s from "./63696.js";
+import o from "./85243.js";
+import l from "./69164.js";
+import c from "./42318.js";
+import m from "./10606.js";
+import { A as A_1 } from "./90765.js";
+import { iW, Wh, ez } from "./31800.js";
+import A, { Bx } from "./55489.js";
+import p from "./55116.js";
+import { rP } from "./72476.js";
+const i = n;
 const h = 300;
 export function M(e) {
 	const {
-		className: t,
-		onEscKeypress: r,
-		padding: n,
-		bGamepadUIScrollWithin: m,
-		children: C,
+		className,
+		onEscKeypress,
+		padding,
+		bGamepadUIScrollWithin,
+		children,
 	} = e;
-	(0, A.Bx)(o.I5.Overlay, "GamepadModalPosition");
-	(0, d.iW)(true, "GamepadModalPosition");
-	(0, a.Xf)("hidden", "GamepadModalPosition");
-	(0, d.Wh)(null, "GamepadModalPosition");
-	(0, d.ez)(true, "GamepadModalPosition");
-	const _ = (0, g.rP)();
-	const f = n ?? "standard";
-	const b = (0, u.A)(
+	Bx(o.I5.Overlay, "GamepadModalPosition");
+	iW(true, "GamepadModalPosition");
+	Xf("hidden", "GamepadModalPosition");
+	Wh(null, "GamepadModalPosition");
+	ez(true, "GamepadModalPosition");
+	const _ = rP();
+	const f = padding ?? "standard";
+	const b = A_1(
 		i.ModalPosition,
 		f == "standard" && i.WithStandardPadding,
-		m && i.ScrollWithin,
+		bGamepadUIScrollWithin && i.ScrollWithin,
 		_.IN_VR && i.VR,
-		t,
+		className,
 	);
-	const { fnClick: y, refElem: S } = (function (e) {
-		const t = s.useRef(undefined);
-		const r = s.useRef(Date.now());
-		const n = (0, g.rP)().IN_VR;
+	const { fnClick, refElem } = ((e) => {
+		const TRef = s.useRef(undefined);
+		const RRef = s.useRef(Date.now());
+		const n = rP().IN_VR;
 		s.useEffect(() => {
 			if (n) {
 				return;
 			}
-			const e = t.current?.ownerDocument?.defaultView;
+			const e = TRef.current?.ownerDocument?.defaultView;
 			if (!e) {
 				return;
 			}
-			const i = () => (r.current = Date.now());
+			const i = () => (RRef.current = Date.now());
 			e.addEventListener("focus", i);
 			return () => {
 				e.removeEventListener("focus", i);
@@ -54,7 +54,7 @@ export function M(e) {
 		}, [n]);
 		const i = s.useCallback(
 			(t) => {
-				const i = Date.now() - r.current;
+				const i = Date.now() - RRef.current;
 				if (!!n || !(i < h)) {
 					if (t.target === t.currentTarget) {
 						e?.();
@@ -64,34 +64,36 @@ export function M(e) {
 			[n, e],
 		);
 		return {
-			refElem: t,
+			refElem: TRef,
 			fnClick: i,
 		};
-	})(r);
-	return s.createElement(
-		l.Z,
-		{
-			className: b,
-			onCancelButton: r,
-			focusableIfNoChildren: true,
-			ref: S,
-		},
-		s.createElement(l.Z, {
-			onClick: y,
-			focusable: false,
-			className: i.ModalClickToDismiss,
-		}),
-		s.createElement(p.q, null, s.createElement(c.tH, null, C)),
+	})(onEscKeypress);
+	return (
+		<l.Z
+			className={b}
+			onCancelButton={onEscKeypress}
+			focusableIfNoChildren
+			ref={refElem}
+		>
+			<l.Z
+				onClick={fnClick}
+				focusable={false}
+				className={i.ModalClickToDismiss}
+			/>
+			<p.q>
+				<c.tH>{children}</c.tH>
+			</p.q>
+		</l.Z>
 	);
 }
 export function I(e) {
-	return s.createElement(
-		m.Nm.Provider,
-		{
-			value: {
+	return (
+		<m.Nm.Provider
+			value={{
 				ModalPosition: M,
-			},
-		},
-		e.children,
+			}}
+		>
+			{e.children}
+		</m.Nm.Provider>
 	);
 }

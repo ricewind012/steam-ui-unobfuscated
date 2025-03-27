@@ -1,8 +1,8 @@
-export var TU;
+export let TU;
 export function nA(e) {
 	return e === TU.k_ESteamRealmChina;
 }
-(function (e) {
+((e) => {
 	e[(e.k_ESteamRealmUnknown = 0)] = "k_ESteamRealmUnknown";
 	e[(e.k_ESteamRealmGlobal = 1)] = "k_ESteamRealmGlobal";
 	e[(e.k_ESteamRealmChina = 2)] = "k_ESteamRealmChina";

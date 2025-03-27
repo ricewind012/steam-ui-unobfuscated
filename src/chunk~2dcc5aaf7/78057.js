@@ -1,30 +1,30 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./87935.js");
-var o = require("./96593.js");
-var l = require("./1252.js");
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./96538.js");
-var d = require("./16053.js");
-var A = require(/*webcrack:missing*/ "./83957.js");
-var p = A;
-var g = require("./51095.js");
-var h = require(/*webcrack:missing*/ "./79769.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require(/*webcrack:missing*/ "./44846.js");
-var f = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s from "./87935.js";
+import o from "./96593.js";
+import l from "./1252.js";
+import c from "./12176.js";
+import m from "./52451.js";
+import u from "./96538.js";
+import d from "./16053.js";
+import A from "./83957.js";
+import g, { EK } from "./51095.js";
+import h from "./79769.js";
+import C from "./72476.js";
+import { ID } from "./44846.js";
+import { q3 } from "./90095.js";
+const p = A;
 export function T(e) {
 	i.useEffect(
 		() => (e ? H.RegisterForAppData(e, () => {}).unregister : () => {}),
 		[e],
 	);
-	return (0, f.q3)(() => (e ? H.GetAppDetails(e) : null));
+	return q3(() => (e ? H.GetAppDetails(e) : null));
 }
 class y {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	details = null;
 	associationData = null;
@@ -37,18 +37,18 @@ class y {
 	hAppDetails = null;
 	bLoadingAchievments = false;
 }
-(0, n.Cg)([a.sH], y.prototype, "details", undefined);
-(0, n.Cg)([a.sH.ref], y.prototype, "associationData", undefined);
-(0, n.Cg)([a.sH.ref], y.prototype, "appDetailsSpotlight", undefined);
-(0, n.Cg)([a.sH.ref], y.prototype, "descriptionsData", undefined);
-(0, n.Cg)([a.sH.ref], y.prototype, "customImageInfo", undefined);
+Cg([a.sH], y.prototype, "details", undefined);
+Cg([a.sH.ref], y.prototype, "associationData", undefined);
+Cg([a.sH.ref], y.prototype, "appDetailsSpotlight", undefined);
+Cg([a.sH.ref], y.prototype, "descriptionsData", undefined);
+Cg([a.sH.ref], y.prototype, "customImageInfo", undefined);
 const S = "associations";
 const w = "descriptions";
 const B = "achievements";
 const v = "customimage";
 class I {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_mapAppData = new a.Es();
 	m_setDetailsInProgress = new Set();
@@ -239,7 +239,7 @@ class I {
 		u.O.SetCachedDataForApp(e, S, 2, t.associationData);
 		t.descriptionsData = {
 			strFullDescription: r.strFullDescription,
-			strSnippet: (0, g.EK)(r.strSnippet),
+			strSnippet: EK(r.strSnippet),
 		};
 		u.O.SetCachedDataForApp(e, w, 1, t.descriptionsData);
 	}
@@ -308,53 +308,64 @@ class I {
 		if (!e.logoPosition) {
 			return false;
 		}
-		const t = e.logoPosition;
-		const r = t.pinnedPosition;
+		const e_logoPosition = e.logoPosition;
+		const e_logoPosition_pinnedPosition = e_logoPosition.pinnedPosition;
 		return (
-			(r == "UpperLeft" ||
-				r == "BottomLeft" ||
-				r == "UpperCenter" ||
-				r == "CenterCenter" ||
-				r == "BottomCenter") &&
-			!!t.nWidthPct &&
-			!!t.nHeightPct &&
-			!(t.nWidthPct < 0) &&
-			!(t.nWidthPct > 100) &&
-			!(t.nHeightPct < 0) &&
-			!(t.nHeightPct > 100)
+			(e_logoPosition_pinnedPosition == "UpperLeft" ||
+				e_logoPosition_pinnedPosition == "BottomLeft" ||
+				e_logoPosition_pinnedPosition == "BottomLeft" ||
+				e_logoPosition_pinnedPosition == "UpperCenter" ||
+				e_logoPosition_pinnedPosition == "BottomLeft" ||
+				e_logoPosition_pinnedPosition == "UpperCenter" ||
+				e_logoPosition_pinnedPosition == "CenterCenter" ||
+				e_logoPosition_pinnedPosition == "BottomLeft" ||
+				e_logoPosition_pinnedPosition == "UpperCenter" ||
+				e_logoPosition_pinnedPosition == "CenterCenter" ||
+				e_logoPosition_pinnedPosition == "BottomCenter") &&
+			!!e_logoPosition.nWidthPct &&
+			!!e_logoPosition.nHeightPct &&
+			!(e_logoPosition.nWidthPct < 0) &&
+			!(e_logoPosition.nWidthPct > 100) &&
+			!(e_logoPosition.nHeightPct < 0) &&
+			!(e_logoPosition.nHeightPct > 100)
 		);
 	}
 	async RequestCustomImageInfo(e) {
-		const t = e.appid;
-		let r = this.GetAppData(t);
+		const e_appid = e.appid;
+		let r = this.GetAppData(e_appid);
 		if (r.customImageInfo == null) {
-			let n = await u.O.GetCachedDataForApp(t, v, 1);
+			let n = await u.O.GetCachedDataForApp(e_appid, v, 1);
 			if (n) {
 				r.customImageInfo = n;
 				r.customImageInfoRtime = e.rt_custom_image_mtime;
 			}
 		}
-		const n = s.B7.BuildCustomAssetURL(t, "", "json", e.rt_custom_image_mtime);
+		const n = s.B7.BuildCustomAssetURL(
+			e_appid,
+			"",
+			"json",
+			e.rt_custom_image_mtime,
+		);
 		try {
 			const i = await p.get(n, {
 				withCredentials: false,
 			});
 			if (this.ValidateCustomImageInfo(i.data)) {
-				const n = i.data;
-				if (JSON.stringify(n) != JSON.stringify(r.customImageInfo)) {
-					r.customImageInfo = n;
-					u.O.SetCachedDataForApp(t, v, 1, n);
+				const i_data = i.data;
+				if (JSON.stringify(i_data) != JSON.stringify(r.customImageInfo)) {
+					r.customImageInfo = i_data;
+					u.O.SetCachedDataForApp(e_appid, v, 1, i_data);
 				}
 				r.customImageInfoRtime = e.rt_custom_image_mtime;
 			} else {
 				r.customImageInfo = undefined;
 				r.customImageInfoRtime = e.rt_custom_image_mtime;
-				u.O.SetCachedDataForApp(t, v, 1, undefined);
+				u.O.SetCachedDataForApp(e_appid, v, 1, undefined);
 			}
 		} catch (n) {
 			r.customImageInfo = undefined;
 			r.customImageInfoRtime = e.rt_custom_image_mtime;
-			u.O.SetCachedDataForApp(t, v, 1, undefined);
+			u.O.SetCachedDataForApp(e_appid, v, 1, undefined);
 		}
 	}
 	async SaveCustomLogoPosition(e, t) {
@@ -381,10 +392,14 @@ class I {
 		});
 	}
 	GetHeroImages(e) {
-		let t = e.appid;
-		const r = e.rt_store_asset_mtime;
+		let { appid, rt_store_asset_mtime } = e;
+
 		let n = o.tw.GetCustomHeroImageURLs(e);
-		let i = this.GetHeroImagesForAppId(t, e.local_cache_version, r);
+		let i = this.GetHeroImagesForAppId(
+			appid,
+			e.local_cache_version,
+			rt_store_asset_mtime,
+		);
 		let a =
 			e.optional_parent_app_id &&
 			this.GetHeroImagesForAppId(
@@ -393,13 +408,13 @@ class I {
 				e.rt_store_asset_mtime,
 			);
 		if ((!i.bHasHeroImage || i.rgHeroImages.length == 0) && !!a) {
-			t = e.optional_parent_app_id;
+			appid = e.optional_parent_app_id;
 			i = a;
 		}
 		return {
 			rgHeroImages: [...n, ...i.rgHeroImages],
 			bHasHeroImage: i.bHasHeroImage,
-			appid: t,
+			appid: appid,
 		};
 	}
 	GetHeroImagesForAppId(e, t, r) {
@@ -407,12 +422,14 @@ class I {
 		let i = false;
 		const a = this.GetAppDetails(e);
 		if (a) {
-			const o = a.libraryAssets;
-			if (o && o.strHeroImage) {
+			const a_libraryAssets = a.libraryAssets;
+			if (a_libraryAssets && a_libraryAssets.strHeroImage) {
 				i = true;
-				n.push(s.B7.BuildCachedLibraryAssetURL(e, o.strHeroImage, t));
+				n.push(
+					s.B7.BuildCachedLibraryAssetURL(e, a_libraryAssets.strHeroImage, t),
+				);
 				n.push(s.B7.BuildLegacyCachedLibraryAssetURL(e, "library_hero.jpg", t));
-				n.push(s.B7.BuildLibraryAssetURL(e, o.strHeroImage, r));
+				n.push(s.B7.BuildLibraryAssetURL(e, a_libraryAssets.strHeroImage, r));
 			}
 		}
 		return {
@@ -422,10 +439,14 @@ class I {
 	}
 	GetHeroBlurImages(e) {
 		let t = Array(o.tw.GetCustomHeroImageURLs(e).length).fill("");
-		const r = e.rt_store_asset_mtime;
+		const e_rt_store_asset_mtime = e.rt_store_asset_mtime;
 		const n = this.GetHeroImages(e);
 		t.push(
-			...this.GetHeroBlurImagesForAppId(n.appid, e.local_cache_version, r),
+			...this.GetHeroBlurImagesForAppId(
+				n.appid,
+				e.local_cache_version,
+				e_rt_store_asset_mtime,
+			),
 		);
 		return t;
 	}
@@ -433,24 +454,32 @@ class I {
 		let n = [];
 		const i = this.GetAppDetails(e);
 		if (i) {
-			const a = i.libraryAssets;
-			if (a && a.strHeroBlurImage) {
-				n.push(s.B7.BuildCachedLibraryAssetURL(e, a.strHeroBlurImage, t));
+			const i_libraryAssets = i.libraryAssets;
+			if (i_libraryAssets && i_libraryAssets.strHeroBlurImage) {
+				n.push(
+					s.B7.BuildCachedLibraryAssetURL(
+						e,
+						i_libraryAssets.strHeroBlurImage,
+						t,
+					),
+				);
 				n.push(
 					s.B7.BuildLegacyCachedLibraryAssetURL(e, "library_hero_blur.jpg", t),
 				);
-				n.push(s.B7.BuildLibraryAssetURL(e, a.strHeroBlurImage, r));
+				n.push(
+					s.B7.BuildLibraryAssetURL(e, i_libraryAssets.strHeroBlurImage, r),
+				);
 			}
 		}
 		return n;
 	}
 	GetLogoImages(e) {
-		const t = e.appid;
-		const r = e.rt_store_asset_mtime;
-		let { rgLogoImages: n, logoPosition: i } = this.GetLogoImagesForAppId(
-			t,
+		const { appid, rt_store_asset_mtime } = e;
+
+		let { rgLogoImages, logoPosition } = this.GetLogoImagesForAppId(
+			appid,
 			e.local_cache_version,
-			r,
+			rt_store_asset_mtime,
 		);
 		let a = o.tw.GetCustomLogoImageURLs(e);
 		let s =
@@ -460,15 +489,15 @@ class I {
 				e.local_cache_version,
 				e.rt_store_asset_mtime,
 			);
-		if (n.length == 0 && s) {
-			n = s.rgLogoImages;
+		if (rgLogoImages.length == 0 && s) {
+			rgLogoImages = s.rgLogoImages;
 		}
-		if (!i && s) {
-			i = s.logoPosition;
+		if (!logoPosition && s) {
+			logoPosition = s.logoPosition;
 		}
 		return {
-			rgLogoImages: [...a, ...n],
-			logoPosition: i,
+			rgLogoImages: [...a, ...rgLogoImages],
+			logoPosition: logoPosition,
 		};
 	}
 	GetLogoImagesForAppId(e, t, r) {
@@ -476,11 +505,13 @@ class I {
 		let i = null;
 		const a = this.GetAppDetails(e);
 		if (a && a.libraryAssets && a.libraryAssets.strLogoImage) {
-			const o = a.libraryAssets;
-			i = o.logoPosition;
-			n.push(s.B7.BuildCachedLibraryAssetURL(e, o.strLogoImage, t));
+			const a_libraryAssets = a.libraryAssets;
+			i = a_libraryAssets.logoPosition;
+			n.push(
+				s.B7.BuildCachedLibraryAssetURL(e, a_libraryAssets.strLogoImage, t),
+			);
 			n.push(s.B7.BuildLegacyCachedLibraryAssetURL(e, "logo.png", t));
-			n.push(s.B7.BuildLibraryAssetURL(e, o.strLogoImage, r));
+			n.push(s.B7.BuildLibraryAssetURL(e, a_libraryAssets.strLogoImage, r));
 		}
 		return {
 			rgLogoImages: n,
@@ -488,16 +519,22 @@ class I {
 		};
 	}
 	GetHeaderImages(e) {
-		let t = e.appid;
-		const r = e.rt_store_asset_mtime;
+		let { appid, rt_store_asset_mtime } = e;
+
 		let n = o.tw.GetCustomLandcapeImageURLs(e);
-		let i = this.GetHeaderImagesForAppId(t, e.local_cache_version, r);
+		let i = this.GetHeaderImagesForAppId(
+			appid,
+			e.local_cache_version,
+			rt_store_asset_mtime,
+		);
 		if (i.length == 0) {
 			const r = e.header_filename ? e.header_filename : "header.jpg";
-			i.push(s.B7.BuildCachedLibraryAssetURL(t, r, e.local_cache_version ?? 0));
+			i.push(
+				s.B7.BuildCachedLibraryAssetURL(appid, r, e.local_cache_version ?? 0),
+			);
 			i.push(
 				s.B7.BuildLegacyCachedLibraryAssetURL(
-					t,
+					appid,
 					"header.jpg",
 					e.local_cache_version ?? 0,
 				),
@@ -512,10 +549,12 @@ class I {
 		let n = [];
 		const i = this.GetAppDetails(e);
 		if (i && i.libraryAssets && i.libraryAssets.strHeaderImage) {
-			const a = i.libraryAssets;
-			n.push(s.B7.BuildCachedLibraryAssetURL(e, a.strHeaderImage, t));
+			const i_libraryAssets = i.libraryAssets;
+			n.push(
+				s.B7.BuildCachedLibraryAssetURL(e, i_libraryAssets.strHeaderImage, t),
+			);
 			n.push(s.B7.BuildLegacyCachedLibraryAssetURL(e, "header.jpg", t));
-			n.push(s.B7.BuildLibraryAssetURL(e, a.strHeaderImage, r));
+			n.push(s.B7.BuildLibraryAssetURL(e, i_libraryAssets.strHeaderImage, r));
 		}
 		return n;
 	}
@@ -535,17 +574,17 @@ class I {
 		r.Schedule(t, () => this.m_mapRecentlyLaunchedApps.delete(e));
 	}
 	BIsWorkshopVisible(e) {
-		return !(0, _.ID)(C.TS.LAUNCHER_TYPE) && e.bWorkshopVisible;
+		return !ID(C.TS.LAUNCHER_TYPE) && e.bWorkshopVisible;
 	}
 	BHasMarketPresence(e) {
-		return !(0, _.ID)(C.TS.LAUNCHER_TYPE) && e.bCommunityMarketPresence;
+		return !ID(C.TS.LAUNCHER_TYPE) && e.bCommunityMarketPresence;
 	}
 }
-(0, n.Cg)([m.oI], I.prototype, "AppDetailsChanged", null);
-(0, n.Cg)([m.oI], I.prototype, "RequestAchievements", null);
-(0, n.Cg)([m.oI], I.prototype, "RequestAssociationData", null);
-(0, n.Cg)([m.oI], I.prototype, "RequestDescriptionsData", null);
-(0, n.Cg)([a.XI.bound], I.prototype, "SetAjaxLibraryAppDetails", null);
-(0, n.Cg)([m.oI], I.prototype, "GetAjaxLibraryAppDetails", null);
+Cg([m.oI], I.prototype, "AppDetailsChanged", null);
+Cg([m.oI], I.prototype, "RequestAchievements", null);
+Cg([m.oI], I.prototype, "RequestAssociationData", null);
+Cg([m.oI], I.prototype, "RequestDescriptionsData", null);
+Cg([a.XI.bound], I.prototype, "SetAjaxLibraryAppDetails", null);
+Cg([m.oI], I.prototype, "GetAjaxLibraryAppDetails", null);
 export const H = new I();
 window.appDetailsStore = H;

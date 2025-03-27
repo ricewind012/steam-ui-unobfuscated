@@ -1,16 +1,51 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./35488.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./90242.js");
-var l = require("./60680.js");
-var c = l;
-const m = i.forwardRef(function (e, t) {
-	return i.createElement(
+import { _f } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./35488.js";
+import s, { A as A_1 } from "./90765.js";
+import o from "./90242.js";
+import l from "./60680.js";
+import u from "./96000.js";
+import d from "./48289.js";
+import A, { VI } from "./34792.js";
+import p from "./88244.js";
+import g from "./61175.js";
+import h from "./39400.js";
+import C, { Gn } from "./89193.js";
+import _, { PA } from "./41230.js";
+import f, { q3 } from "./90095.js";
+import b, { lX } from "./31084.js";
+import y from "./69164.js";
+import S, { Wm } from "./56655.js";
+import w from "./64608.js";
+import B from "./7514.js";
+import v from "./42318.js";
+import { w as w_1 } from "./49455.js";
+import T, { Fd, uD } from "./52451.js";
+import R, { Qn } from "./72476.js";
+import k from "./10927.js";
+import D from "./13260.js";
+import { J as J_1 } from "./4237.js";
+import G, { jF, YQ, aH } from "./30496.js";
+import { g as g_1 } from "./23393.js";
+import P from "./59298.js";
+import { J as J_1 } from "./81432.js";
+import z from "./74491.js";
+import x, { to } from "./69.js";
+import U from "./91486.js";
+import { bJ } from "./3524.js";
+const c = l;
+const m = i.forwardRef((e, t) =>
+	i.createElement(
 		o.fu,
 		{
 			noFocusRing: true,
-			className: (0, s.A)(
+			className: A_1(
 				e.className,
 				c.BasicHomeDropDownControlButton,
 				c.SortingDropDownControlButton,
@@ -29,49 +64,14 @@ const m = i.forwardRef(function (e, t) {
 		i.createElement(a.SortDescending, {
 			className: c.SortIcon,
 		}),
-	);
-});
-var u = require("./96000.js");
-var d = require("./48289.js");
-var A = require("./34792.js");
-var p = require("./88244.js");
-var g = require("./61175.js");
-var h = require("./39400.js");
-var C = require(/*webcrack:missing*/ "./89193.js");
-var _ = require(/*webcrack:missing*/ "./41230.js");
-var f = require(/*webcrack:missing*/ "./90095.js");
-var b = require(/*webcrack:missing*/ "./31084.js");
-var y = require(/*webcrack:missing*/ "./69164.js");
-var S = require("./56655.js");
-var w = require("./64608.js");
-var B = require("./7514.js");
-var v = require(/*webcrack:missing*/ "./42318.js");
-var I = require(/*webcrack:missing*/ "./49455.js");
-import { _f } from "../../actual_src/utils/domutils.js";
-import {
-	Localize,
-	LocalizeReact,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
-var T = require(/*webcrack:missing*/ "./52451.js");
-var R = require(/*webcrack:missing*/ "./72476.js");
-var k = require("./10927.js");
-var D = require("./13260.js");
-var N = D;
-var F = require("./4237.js");
-var G = require("./30496.js");
-var O = require("./23393.js");
-var P = require("./59298.js");
-var L = require("./81432.js");
-var z = require("./74491.js");
-var x = require("./69.js");
-var U = require("./91486.js");
-var W = require(/*webcrack:missing*/ "./3524.js");
+	),
+);
+const N = D;
 export let OJ = class extends i.Component {
 	static contextType = R.QO;
 	constructor(e) {
 		super(e);
-		(0, C.Gn)(this);
+		Gn(this);
 	}
 	m_elDivRef = i.createRef();
 	OnChange(e) {
@@ -97,7 +97,7 @@ export let OJ = class extends i.Component {
 		return i.createElement(
 			"div",
 			{
-				className: (0, s.A)(N.SortingDropDown, e),
+				className: A_1(N.SortingDropDown, e),
 				ref: this.m_elDivRef,
 				tabIndex: -1,
 				...o,
@@ -124,17 +124,17 @@ export let OJ = class extends i.Component {
 	}
 };
 export function dq(e) {
-	const t = (0, S.Wm)(3);
-	const r = (0, S.Wm)(2);
-	const n = (0, S.Wm)(0);
-	const a = (0, S.Wm)(1);
+	const t = Wm(3);
+	const r = Wm(2);
+	const n = Wm(0);
+	const a = Wm(1);
 	const o = e.overrideCompatFilter ?? u.md.GetCurrentGamepadFilter();
 	let l = null;
 	if (u.md.BHasNonGamepadOptions()) {
 		l = i.createElement(
 			"div",
 			{
-				className: (0, s.A)(N.CompatFooterIcons, N.Advanced),
+				className: A_1(N.CompatFooterIcons, N.Advanced),
 			},
 			Localize("#Library_FilteredBy_Advanced"),
 		);
@@ -170,28 +170,39 @@ export function dq(e) {
 }
 function j(e) {
 	switch (e) {
-		case 1:
+		case 1: {
 			return Localize("#Library_SortByAlphabetical");
-		case 10:
+		}
+		case 10: {
 			return Localize("#Library_SortByFriendsPlaying");
-		case 2:
+		}
+		case 2: {
 			return Localize("#Library_SortByPctAchievementsComplete");
-		case 3:
+		}
+		case 3: {
 			return Localize("#Library_SortByLastUpdated");
-		case 4:
+		}
+		case 4: {
 			return Localize("#Library_SortByHoursPlayed");
-		case 5:
+		}
+		case 5: {
 			return Localize("#Library_SortByLastPlayed");
-		case 6:
+		}
+		case 6: {
 			return Localize("#Library_SortByReleaseDate");
-		case 7:
+		}
+		case 7: {
 			return Localize("#Library_SortByAddedToLibrary");
-		case 8:
+		}
+		case 8: {
 			return Localize("#Library_SortBySizeOnDisk");
-		case 9:
+		}
+		case 9: {
 			return Localize("#Library_SortByMetacriticScore");
-		case 11:
+		}
+		case 11: {
 			return Localize("#Library_SortBySteamReview");
+		}
 	}
 }
 function q() {
@@ -206,8 +217,8 @@ export function K9(e) {
 		[e],
 	);
 }
-(0, n.Cg)([C.XI.bound], OJ.prototype, "OnChange", null);
-OJ = (0, n.Cg)([_.PA], OJ);
+Cg([C.XI.bound], OJ.prototype, "OnChange", null);
+OJ = Cg([_.PA], OJ);
 class Z extends i.Component {
 	m_elemScrollableAncestor = null;
 	m_elemHeader = null;
@@ -225,7 +236,7 @@ class Z extends i.Component {
 					"scroll",
 					this.updateBackgroundFade,
 				);
-				this.m_resizeObserver = (0, T.Fd)(
+				this.m_resizeObserver = Fd(
 					this.m_elemScrollableAncestor,
 					this.updateBackgroundFade,
 				);
@@ -272,15 +283,15 @@ class Z extends i.Component {
 			this.m_fBackgroundOpacity = a;
 			this.m_elemHeader.style.setProperty(
 				"--sticky-header-background-opacity",
-				"" + a,
+				`${a}`,
 			);
 		}
 	}
 	render() {
 		let e = this.props.subSectionName;
 		let t = this.props.notReallySticky;
-		let r = t ? null : this.setHeaderElement;
-		let n = (0, s.A)(N.AppGridSectionHeader, t && N.NotReallySticky);
+		let r = t || this.setHeaderElement;
+		let n = A_1(N.AppGridSectionHeader, t && N.NotReallySticky);
 		let a = {};
 		if (this.props.hideHeaderIfEmpty && !e) {
 			a = {
@@ -290,7 +301,7 @@ class Z extends i.Component {
 		return i.createElement(
 			"div",
 			{
-				key: "Header" + this.props.subSectionName,
+				key: `Header${this.props.subSectionName}`,
 				ref: r,
 				className: n,
 				style: a,
@@ -308,9 +319,9 @@ class Z extends i.Component {
 		);
 	}
 }
-(0, n.Cg)([T.oI], Z.prototype, "setHeaderElement", null);
-(0, n.Cg)([T.oI], Z.prototype, "updateBackgroundFade", null);
-const Y = (0, _.PA)((e) => {
+Cg([T.oI], Z.prototype, "setHeaderElement", null);
+Cg([T.oI], Z.prototype, "updateBackgroundFade", null);
+const Y = PA((e) => {
 	const t = i.useContext(R.QO);
 	const r = {
 		childWidth: e.childWidth,
@@ -324,7 +335,7 @@ const Y = (0, _.PA)((e) => {
 			i.createElement(
 				v.tH,
 				{
-					key: "app_list_" + r.appid,
+					key: `app_list_${r.appid}`,
 				},
 				i.createElement(
 					G.TK,
@@ -338,7 +349,7 @@ const Y = (0, _.PA)((e) => {
 						sortByType: e.eSortBy,
 						onGamepadFocus: () => e.onItemFocused(e.sectionIndex, a),
 						fnScrollIntoViewHandler: e.fnScrollIntoViewHandler,
-						bShortLayout: (0, G.jF)(n, t?.IN_GAMEPADUI) == 1,
+						bShortLayout: jF(n, t?.IN_GAMEPADUI) == 1,
 						onClick: e.onSelectApp ? () => e.onSelectApp(r.appid) : undefined,
 					},
 					i.createElement(U.z, {
@@ -388,9 +399,10 @@ function K(e, t) {
 		case 2:
 		case 3:
 		case 7:
-		case 10:
+		case 10: {
 			return "";
-		case 4:
+		}
+		case 4: {
 			if (e.minutes_playtime_forever >= 6000) {
 				return Localize("#GridSection_Over100Hours");
 			} else if (e.minutes_playtime_forever >= 3600) {
@@ -408,15 +420,18 @@ function K(e, t) {
 			} else {
 				return Localize("#GridSection_NoPlaytime");
 			}
-		case 5:
+		}
+		case 5: {
 			return e.GetLastPlayedSectionName();
-		case 6:
+		}
+		case 6: {
 			if (e.GetCanonicalReleaseDate() == 0 && e.BIsUnreleased()) {
 				return Localize("#AppBox_ComingSoon");
 			} else {
 				return e.GetCanonicalReleaseYear();
 			}
-		case 8:
+		}
+		case 8: {
 			const t = 1073741824;
 			let r = parseFloat(e.size_on_disk);
 			if (r > t * 100) {
@@ -432,7 +447,8 @@ function K(e, t) {
 			} else {
 				return Localize("#GridSection_NotInstalled");
 			}
-		case 9:
+		}
+		case 9: {
 			if (e.metacritic_score >= 90) {
 				return Localize("#GridSection_Over90Metacritic");
 			} else if (e.metacritic_score >= 80) {
@@ -444,10 +460,13 @@ function K(e, t) {
 			} else {
 				return Localize("#GridSection_EverythingElseMetacritic");
 			}
-		case 11:
-			return Localize("#SteamReviewScore_" + e.review_score);
-		default:
-			(0, I.w)(false, "Unknown sort type in ComputeChildSectionName");
+		}
+		case 11: {
+			return Localize(`#SteamReviewScore_${e.review_score}`);
+		}
+		default: {
+			w_1(false, "Unknown sort type in ComputeChildSectionName");
+		}
 	}
 	return "";
 }
@@ -473,15 +492,12 @@ export function xZ() {
 	const n = i.useContext(B.Ce);
 	const a = i.useCallback(
 		(e) => {
-			(function (e, t, r) {
+			((e, t, r) => {
 				let n = {
 					bOverlapHorizontal: true,
 					bMatchWidth: true,
 					bFitToWindow: true,
-					strClassName: (0, s.A)(
-						"DialogMenuPosition",
-						N.SortingDropDownContainer,
-					),
+					strClassName: A_1("DialogMenuPosition", N.SortingDropDownContainer),
 				};
 				let a = q();
 				let o = i.createElement(
@@ -495,7 +511,7 @@ export function xZ() {
 						strDropDownItemClassName: N.SortingDropDownItems,
 					}),
 				);
-				let l = (0, b.lX)(o, e, n);
+				let l = lX(o, e, n);
 				l.SetLabel(Localize("#Library_SortCollectionBy"));
 			})(e, n, (e, t) => r(t.data));
 		},
@@ -514,15 +530,15 @@ function J(e) {
 		stickyHeaders: n,
 		hideHeaderIfEmpty: a,
 	} = e;
-	const [s] = (0, A.VI)("library_display_size");
-	const o = (0, R.Qn)();
+	const [s] = VI("library_display_size");
+	const o = Qn();
 	const l = i.useContext(z.g);
 	const c = o
-		? (0, G.YQ)(l.libraryWidth, l.libraryHeight)
+		? YQ(l.libraryWidth, l.libraryHeight)
 		: p.o.GetComputedDisplaySize(s);
-	return (0, f.q3)(() => {
+	return q3(() => {
 		const s = n !== false;
-		const l = (0, O.g)(r);
+		const l = g_1(r);
 		const m = l ? t.slice().sort(l) : t;
 		let u;
 		let d = -1;
@@ -530,7 +546,7 @@ function J(e) {
 		const p = {
 			nPaddingBottom: o ? 9 : 24,
 			nGridRowGap: o ? 42 : 24,
-			...(0, G.aH)(c, o, e.strCollectionId),
+			...aH(c, o, e.strCollectionId),
 		};
 		for (let e = 0; e < m.length; ++e) {
 			let t = m[e];
@@ -601,7 +617,7 @@ export const lx = (e) => {
 		stickyHeaders: false,
 		hideHeaderIfEmpty: true,
 	});
-	const [s, o, l] = (0, T.uD)();
+	const [s, o, l] = uD();
 	const c = i.createRef();
 	const m = {
 		onOptionsButton: (t) => e.showSortingContextMenu(t),
@@ -611,8 +627,8 @@ export const lx = (e) => {
 		m.onSecondaryButton = o;
 		m.onSecondaryActionDescription = i.createElement(dq, null);
 	}
-	(0, x.to)(e.elScrollElement, c);
-	const u = (0, W.bJ)();
+	to(e.elScrollElement, c);
+	const u = bJ();
 	return i.createElement(
 		y.Z,
 		{
@@ -675,8 +691,8 @@ const re = (e) => {
 		navRefPlaceholder: p,
 		bindNavRef: g,
 		FastScrollTo: h,
-	} = (0, F.J)(t, n, s);
-	const C = (function (e) {
+	} = J_1(t, n, s);
+	const C = ((e) => {
 		const {
 			childSections: t,
 			strCollectionId: r,
@@ -714,8 +730,8 @@ const re = (e) => {
 		onFocusWithinContainer: _,
 		fastScrollOverlay: f,
 		onGamepadDirectionGridContainer: b,
-	} = (0, L.J)(u, A, p);
-	const S = (0, R.Qn)();
+	} = J_1(u, A, p);
+	const S = Qn();
 	const w = i.useCallback(
 		(e) => {
 			if (n == 1) {
@@ -765,7 +781,7 @@ const ne = (e) => {
 		bIsDynamic: n,
 		bIsEditable: a,
 		nApps: s,
-	} = (0, f.q3)(() => {
+	} = q3(() => {
 		const e = t && u.md.GetCollection(t);
 		return {
 			bAllowsDragAndDrop: e?.bAllowsDragAndDrop,
@@ -790,7 +806,7 @@ const ne = (e) => {
 	} else {
 		o = ["#CollectionView_EmptyReadOnlyCollection"];
 	}
-	const [l, c, m] = (0, T.uD)();
+	const [l, c, m] = uD();
 	let d = {
 		onSecondaryButton: c,
 	};
@@ -821,7 +837,7 @@ const ne = (e) => {
 	);
 };
 function ie(e) {
-	const t = (0, f.q3)(() => g.n6.collectionsAppFilter.BIsSelected(1, 2));
+	const t = q3(() => g.n6.collectionsAppFilter.BIsSelected(1, 2));
 	return i.createElement(
 		y.Z,
 		{

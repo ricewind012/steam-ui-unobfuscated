@@ -1,7 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
+import n, { Cg } from "./34629.js";
+import i, {
+	useState,
+	useEffect,
+	createContext,
+	useContext,
+	useCallback,
+} from "./63696.js";
+import a from "./52451.js";
+import s from "./79769.js";
 class o {
 	m_bInitialized = false;
 	m_Bus;
@@ -88,21 +94,21 @@ class o {
 	}
 }
 function l() {
-	const [e, t] = (0, i.useState)(aJ.IsConnected());
-	(0, i.useEffect)(() => {
+	const [e, t] = useState(aJ.IsConnected());
+	useEffect(() => {
 		let e = aJ.GetConnectCallbacks().Register(t);
 		return () => e.Unregister();
 	}, []);
 	return e;
 }
-(0, n.Cg)([a.oI], o.prototype, "ConnectHandler", null);
-(0, n.Cg)([a.oI], o.prototype, "DisconnectHandler", null);
-export const E3 = (0, i.createContext)(null);
-export const Y5 = ({ name: e, children: t }) => {
-	const { inputContext: r } = (function (e) {
+Cg([a.oI], o.prototype, "ConnectHandler", null);
+Cg([a.oI], o.prototype, "DisconnectHandler", null);
+export const E3Context = createContext(null);
+export const Y5 = ({ name, children }) => {
+	const { inputContext } = ((e) => {
 		const t = l();
-		const [r, n] = (0, i.useState)();
-		(0, i.useEffect)(() => {
+		const [r, n] = useState();
+		useEffect(() => {
 			if (t) {
 				if (!r) {
 					aJ.GetBus().create_input_context(e).then(n);
@@ -111,7 +117,7 @@ export const Y5 = ({ name: e, children: t }) => {
 				n(null);
 			}
 		}, [t, r, e]);
-		(0, i.useEffect)(() => {
+		useEffect(() => {
 			if (r) {
 				const e = (async () => {
 					r.set_capabilities(
@@ -138,17 +144,13 @@ export const Y5 = ({ name: e, children: t }) => {
 			bConnected: t,
 			inputContext: r,
 		};
-	})(e);
-	return i.createElement(
-		E3.Provider,
-		{
-			value: r,
-		},
-		t,
+	})(name);
+	return (
+		<E3Context.Provider value={inputContext}>{children}</E3Context.Provider>
 	);
 };
 function u() {
-	return (0, i.useContext)(E3);
+	return useContext(E3Context);
 }
 class d {
 	strText = "";
@@ -157,8 +159,8 @@ class d {
 }
 export function kM() {
 	const e = u();
-	const [t, r] = (0, i.useState)(() => new d());
-	(0, i.useEffect)(() => {
+	const [t, r] = useState(() => new d());
+	useEffect(() => {
 		if (e) {
 			const t = Promise.all([
 				e.connect("update-preedit-text", (e, t, n) => {
@@ -199,8 +201,8 @@ class p {
 }
 export function VX() {
 	const e = u();
-	const [t, r] = (0, i.useState)(() => new p());
-	(0, i.useEffect)(() => {
+	const [t, r] = useState(() => new p());
+	useEffect(() => {
 		if (e) {
 			const t = Promise.all([
 				e.connect("update-auxiliary-text", (e, t) => {
@@ -244,8 +246,8 @@ class h {
 }
 export function WF() {
 	const e = u();
-	const [t, r] = (0, i.useState)(() => new h());
-	(0, i.useEffect)(() => {
+	const [t, r] = useState(() => new h());
+	useEffect(() => {
 		if (e) {
 			const t = Promise.all([
 				e.connect("update-lookup-table", async (e, t) => {
@@ -297,7 +299,7 @@ export function WF() {
 }
 export function u7(e, t, r) {
 	const n = u();
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		if (n) {
 			const i = Promise.all([
 				n.connect("commit-text", e),
@@ -521,15 +523,15 @@ function v(e) {
 }
 export function E5(e) {
 	const t = l();
-	const [r, n] = (0, i.useState)(() => v(e));
-	const a = (0, i.useCallback)(() => {
+	const [r, n] = useState(() => v(e));
+	const a = useCallback(() => {
 		n(v(e));
 	}, [e]);
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		let e = aJ.GetAvailableEnginesCallbacks().Register(a);
 		return () => e.Unregister();
 	}, [a]);
-	(0, i.useEffect)(a, [a, t]);
+	useEffect(a, [a, t]);
 	return r;
 }
 export function CB(e, t, r) {
@@ -546,15 +548,15 @@ export function CB(e, t, r) {
 }
 export function mQ(e) {
 	const t = u();
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		if (!t) {
 			return;
 		}
-		const r = w[e];
+		const w_e = w[e];
 		(async () => {
-			if (r !== undefined) {
+			if (w_e !== undefined) {
 				let n = [];
-				for (const t of r.vecSettings || []) {
+				for (const t of w_e.vecSettings || []) {
 					if (t.type === "gsettings") {
 						const [r, i] = t.strRoot.split(":");
 						let a;
@@ -581,12 +583,12 @@ export function mQ(e) {
 					}
 				}
 				await Promise.all(n);
-				await t.set_engine(r.engineName);
+				await t.set_engine(w_e.engineName);
 			} else {
 				await t.set_engine("xkb:us::eng");
 			}
 		})();
-		for (const e of r?.vecSettings || []) {
+		for (const e of w_e?.vecSettings || []) {
 			if (!e.type.startsWith("property-") || e.mapKeyValues === undefined) {
 				continue;
 			}

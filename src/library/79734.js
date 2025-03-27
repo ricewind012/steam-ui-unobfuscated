@@ -1,17 +1,23 @@
-var r = require("./4690.js");
+import r from "./4690.js";
 export function O(e) {
 	switch (e) {
-		case "column":
+		case "column": {
 			return r.xj.COLUMN;
-		case "column-reverse":
+		}
+		case "column-reverse": {
 			return r.xj.COLUMN_REVERSE;
-		case "row":
+		}
+		case "row": {
 			return r.xj.ROW;
-		case "row-reverse":
+		}
+		case "row-reverse": {
 			return r.xj.ROW_REVERSE;
-		case "grid":
+		}
+		case "grid": {
 			return r.xj.GRID;
-		default:
+		}
+		default: {
 			return r.xj.NONE;
+		}
 	}
 }

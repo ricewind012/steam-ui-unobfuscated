@@ -1,4 +1,4 @@
-var n = require("./19810.js");
+import n, { Ut } from "./19810.js";
 export function D7(e) {
 	try {
 		return n.DX.deserializeBinary(e).toObject();
@@ -21,8 +21,8 @@ function a(e) {
 		};
 	}
 }
-export var Y7;
-(function (e) {
+export let Y7;
+((e) => {
 	e[(e.Success = 0)] = "Success";
 	e[(e.HeaderSerializationFailure = 1)] = "HeaderSerializationFailure";
 	e[(e.PayloadSerializationFailure = 2)] = "PayloadSerializationFailure";
@@ -33,15 +33,17 @@ export class xn extends Error {
 	constructor(e) {
 		let t = "";
 		switch (e?.origin) {
-			case 1:
+			case 1: {
 				t += "Local ";
 				break;
-			case 2:
+			}
+			case 2: {
 				t += "Remote ";
+			}
 		}
-		t += (0, n.Ut)(e?.error ?? 0);
+		t += Ut(e?.error ?? 0);
 		if (e?.description) {
-			t += ": " + e.description;
+			t += `: ${e.description}`;
 		}
 		super(t);
 		this.error = e;
@@ -81,7 +83,7 @@ export class tC {
 		}
 		console.error(
 			"Sending VRGamepadUI Message Error Response",
-			(0, n.Ut)(t),
+			Ut(t),
 			":",
 			i.description(),
 		);
@@ -127,17 +129,17 @@ export class tC {
 			this.SendErrorResponse(e, 7, i.error);
 			return;
 		}
-		const o = i.result;
-		const l = a(() => n(o));
+		const i_result = i.result;
+		const l = a(() => n(i_result));
 		if ("error" in l) {
 			this.SendErrorResponse(e, 2, l.error);
 			return;
 		}
-		let c = l.result;
-		if (c == null) {
-			c = {};
+		let l_result = l.result;
+		if (l_result == null) {
+			l_result = {};
 		}
-		(c instanceof Promise ? c : Promise.resolve(c)).then(
+		(l_result instanceof Promise ? l_result : Promise.resolve(l_result)).then(
 			(t) => {
 				const n = a(() => r.msgClassResponse_t.fromObject(t ?? {}));
 				if ("error" in n) {
@@ -149,14 +151,15 @@ export class tC {
 					response_to_message_id: e.message_id,
 				};
 				const o = this.m_Endpoint.SendVRGamepadUIMessage(i, n.result);
-				if (o == Y7.Success);
-				else {
+				if (o == Y7.Success) {
+				} else {
 					switch (o) {
 						case Y7.HeaderSerializationFailure:
-						case Y7.PayloadSerializationFailure:
-							this.SendErrorResponse(e, 6, "Response " + Y7[o]);
+						case Y7.PayloadSerializationFailure: {
+							this.SendErrorResponse(e, 6, `Response ${Y7[o]}`);
 							break;
-						default:
+						}
+						default: {
 							console.error(
 								"Failed to send VRGamepadUI Message Response:",
 								Y7[o],
@@ -165,6 +168,7 @@ export class tC {
 									responseHeader: i,
 								},
 							);
+						}
 					}
 				}
 			},
@@ -260,7 +264,7 @@ export class $k {
 					new xn({
 						error: 0,
 						origin: 1,
-						description: "Request " + Y7[u],
+						description: `Request ${Y7[u]}`,
 					}),
 				);
 			}

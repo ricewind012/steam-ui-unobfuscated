@@ -1,37 +1,37 @@
-var n = require("./63367.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
+import n, { zK } from "./63367.js";
+import i, { useRef, useState, useCallback, useEffect } from "./63696.js";
 export function Z(e, t, r) {
-	const a = (0, i.useRef)(undefined);
-	const [s, o] = (0, i.useState)(false);
-	let l = (0, i.useCallback)(() => o(false), [o]);
-	let c = (0, i.useCallback)(
+	const ARef = useRef(undefined);
+	const [s, setS] = useState(false);
+	let l = useCallback(() => setS(false), [setS]);
+	let c = useCallback(
 		(e, i) => {
 			if (t !== false) {
 				if (r) {
-					let { rgParts: e, params: a } = (0, n.zK)(t, i);
+					let { rgParts, params } = zK(t, i);
 					r({
 						strURL: i,
 						strFragmentURL: t,
-						urlParams: a,
-						urlParts: e,
+						urlParams: params,
+						urlParts: rgParts,
 					});
 				}
-				a.current?.SteamClient.Window.BringToFront();
-				o(true);
+				ARef.current?.SteamClient.Window.BringToFront();
+				setS(true);
 			}
 		},
 		[t, r],
 	);
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		if (t === false) {
 			return;
 		}
 		return n.Dt.RegisterForRunSteamURL(e, t, c).unregister;
 	}, [e, t, c]);
-	return [s, a, l];
+	return [s, ARef, l];
 }
 export function q() {
-	return (0, i.useCallback)((e) => {
+	return useCallback((e) => {
 		if (e) {
 			e.SteamClient.Browser.NotifyUserActivation();
 		}

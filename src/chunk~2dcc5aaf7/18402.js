@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	FocusRingRoot: "_3FIjYetykQsFYR08l1v7Ls",
 	FocusRing: "_1wPplsegQqCoe06wXPhzKT",
 	flash: "_1RqM3Kl3-lPbdsdw6xcEm9",

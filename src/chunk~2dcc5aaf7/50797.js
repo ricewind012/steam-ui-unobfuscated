@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	NetworkDialog: "_6yT3E5m7w5RqC1BhXObON",
 	ActiveHeader: "_2H7XiXMYhK0zwAEDlPaJe7",
 	ClosedHeader: "_3NRKz1z20dPXYXf7lLHOVa",

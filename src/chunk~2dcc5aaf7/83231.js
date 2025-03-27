@@ -1,9 +1,3 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./46970.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./7470.js");
-var l = require(/*webcrack:missing*/ "./11131.js");
 import {
 	ClientRectToScreenCoords,
 	No,
@@ -13,29 +7,33 @@ import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require("./95773.js");
-var A = require("./23024.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require("./27337.js");
-var h = require("./36032.js");
-var C = require(/*webcrack:missing*/ "./92251.js");
+import n, { Cg } from "./34629.js";
+import i from "./46970.js";
+import a from "./41230.js";
+import s from "./63696.js";
+import o from "./7470.js";
+import l, { yq } from "./11131.js";
+import u from "./52451.js";
+import d from "./95773.js";
+import A from "./23024.js";
+import p from "./8573.js";
+import g from "./27337.js";
+import h from "./36032.js";
+import C from "./92251.js";
 export function Rg(e) {
-	return s.createElement(
-		C.g,
-		{
-			target: e.target,
-			className: "friendHover miniProfileHover",
-			visibilityObserver: e.hoverInstance,
-			onNoSpace: e.onNoSpace,
-			direction: e.direction,
-		},
-		s.createElement(A6, {
-			hoverInstance: e.hoverInstance,
-		}),
+	return (
+		<C.g
+			target={e.target}
+			className="friendHover miniProfileHover"
+			visibilityObserver={e.hoverInstance}
+			onNoSpace={e.onNoSpace}
+			direction={e.direction}
+		>
+			<A6 hoverInstance={e.hoverInstance} />
+		</C.g>
 	);
 }
-let f = class extends s.Component {
+let F = class extends s.Component {
 	constructor(e) {
 		super(e);
 		const t =
@@ -67,16 +65,14 @@ let f = class extends s.Component {
 	}
 	render() {
 		if (this.state.broadcastInfo) {
-			return s.createElement(g.y, {
-				src: this.state.broadcastInfo.m_strThumbnailUrl,
-			});
+			return <g.y src={this.state.broadcastInfo.m_strThumbnailUrl} />;
 		} else {
 			return null;
 		}
 	}
 };
-f = (0, n.Cg)([a.PA], f);
-class b extends s.Component {
+F = Cg([a.PA], F);
+class B_1 extends s.Component {
 	render() {
 		let e =
 			d.xm.FriendStore.FriendGroupStore.incoming_invites_group.map_steamid_to_mutual_friends.get(
@@ -84,70 +80,46 @@ class b extends s.Component {
 			);
 		if (e != null) {
 			let t = 10;
-			let r = s.createElement(
-				"div",
-				{
-					className: "mutualFriendTitle",
-				},
-				" ",
-				Localize("#FriendGroup_MutualFriends_Title"),
-				" ",
+			let r = (
+				<div className="mutualFriendTitle">
+					{" "}
+					{Localize("#FriendGroup_MutualFriends_Title")}{" "}
+				</div>
 			);
 			let n = [];
 			let i = Array.from(e);
 			for (let e = 0; e < i.length && e < t; e++) {
 				let t = d.xm.FriendStore.GetFriend(i[e]);
 				n.push(
-					s.createElement(
-						"div",
-						{
-							className: "mutualFriend",
-							key: t.steamid64,
-						},
-						s.createElement("img", {
-							className: "mutualFriendAvatar",
-							src: t.persona.avatar_url_medium,
-						}),
-						s.createElement(
-							"div",
-							{
-								className: "mutualFriendLabel",
-							},
-							t.display_name,
-						),
-					),
+					<div className="mutualFriend" key={t.steamid64}>
+						<img
+							className="mutualFriendAvatar"
+							src={t.persona.avatar_url_medium}
+						/>
+						<div className="mutualFriendLabel">{t.display_name}</div>
+					</div>,
 				);
 			}
 			if (i.length >= t) {
 				n.push(
-					s.createElement(
-						"div",
-						{
-							className: "mutualFriend",
-						},
-						s.createElement(
-							"div",
-							{
-								className: "mutualFriendLabel plusOthersLabel",
-							},
-							LocalizePlural("#FriendGroup_MutualFriends_Others", i.length - t),
-						),
-					),
+					<div className="mutualFriend">
+						<div className="mutualFriendLabel plusOthersLabel">
+							{LocalizePlural(
+								"#FriendGroup_MutualFriends_Others",
+								i.length - t,
+							)}
+						</div>
+					</div>,
 				);
 			}
-			return s.createElement(
-				"div",
-				{
-					className: "mutualFriendsContainer",
-				},
-				" ",
-				r,
-				" ",
-				s.createElement("div", null, " ", n, " "),
-				" ",
+			return (
+				<div className="mutualFriendsContainer">
+					{" "}
+					{r} <div> {n} </div>{" "}
+				</div>
 			);
 		}
-		return s.createElement("div", null);
+		return <div />;
 	}
 }
 export let A6 = class extends s.Component {
@@ -156,22 +128,18 @@ export let A6 = class extends s.Component {
 	}
 	render() {
 		let e = this.props.hoverInstance.hover;
-		let t = e.persona;
+		let e_persona = e.persona;
 		let r = {
 			className: "miniProfileHoverInner",
 			persona: e.persona,
 			data_loader: e.data_loader,
 		};
-		if (t.is_watchingbroadcast) {
+		if (e_persona.is_watchingbroadcast) {
 			r.broadcast_description = e.friend.GetBroadcastDescription();
-			r.broadcast_thumbnail = s.createElement(
-				"div",
-				{
-					className: "watchingbroadcastThumbnail",
-				},
-				s.createElement(f, {
-					broadcastAccountID: t.m_broadcastAccountId,
-				}),
+			r.broadcast_thumbnail = (
+				<div className="watchingbroadcastThumbnail">
+					<F broadcastAccountID={e_persona.m_broadcastAccountId} />
+				</div>
 			);
 		}
 		if (e.friend.has_nickname) {
@@ -180,24 +148,20 @@ export let A6 = class extends s.Component {
 		r.is_friend = e.friend.is_friend || e.friend == d.xm.FriendStore.self;
 		r.is_blocked = e.friend.is_blocked;
 		r.friend_relationship = e.friend.efriendrelationship;
-		let n = s.createElement("div", null);
+		let n = <div />;
 		let a = this.props.hoverInstance.context;
 		if (
 			a &&
 			a.friendGroup &&
 			a.friendGroup.m_eDisplayType == i.oy.eIncomingInvites
 		) {
-			n = s.createElement(b, {
-				friend: e.friend,
-			});
+			n = <B_1 friend={e.friend} />;
 		}
 		r.mutual_friends = n;
-		return s.createElement(h.Vr, {
-			...r,
-		});
+		return <h.Vr {...r} />;
 	}
 };
-A6 = (0, n.Cg)([a.PA], A6);
+A6 = Cg([a.PA], A6);
 class S extends l.Ad {
 	m_hoverProps;
 	m_reactRoot;
@@ -205,12 +169,12 @@ class S extends l.Ad {
 		super("hoverpopup", {
 			title: "hover",
 			html_class: "friendsui-container HoverPopup client_chat_frame",
-			body_class: "HoverPopupBody Hover" + e.className,
+			body_class: `HoverPopupBody Hover${e.className}`,
 			replace_existing_popup: true,
 			target_browser: t,
 			window_opener_id:
 				e.target.ownerDocument.defaultView?.SteamClient.Browser.GetBrowserID(),
-			eCreationFlags: (0, l.yq)(l.Dr.Tooltip),
+			eCreationFlags: yq(l.Dr.Tooltip),
 		});
 		this.m_hoverProps = e;
 	}
@@ -235,14 +199,9 @@ class S extends l.Ad {
 		let r = this.InternalRender();
 		this.m_reactRoot = o.H(t);
 		this.m_reactRoot.render(
-			s.createElement(
-				B,
-				{
-					...this.m_hoverProps,
-					popup: e,
-				},
-				r,
-			),
+			<B {...this.m_hoverProps} popup={e}>
+				{r}
+			</B>,
 		);
 	}
 	OnClose() {
@@ -265,9 +224,7 @@ export class Io extends S {
 	OnLoad() {}
 	OnResize() {}
 	InternalRender() {
-		return s.createElement(A6, {
-			hoverInstance: this.m_instance,
-		});
+		return <A6 hoverInstance={this.m_instance} />;
 	}
 }
 let B = class extends s.Component {
@@ -309,13 +266,10 @@ let B = class extends s.Component {
 				},
 			);
 		}
-		return s.createElement(
-			"div",
-			{
-				className: "HoverPositionPopup",
-				ref: this.bindHover,
-			},
-			this.props.children,
+		return (
+			<div className="HoverPositionPopup" ref={this.bindHover}>
+				{this.props.children}
+			</div>
 		);
 	}
 	positionHover() {
@@ -338,40 +292,41 @@ let B = class extends s.Component {
 		}
 		let i = ClientRectToScreenCoords(n, t.getBoundingClientRect());
 		let a = ClientRectToScreenCoords(r, e.getBoundingClientRect());
-		let s = i.left;
-		let o = i.top;
-		let l = r.screen;
+
+		let { left, top } = i;
+
+		let r_screen = r.screen;
 		let m = 0;
-		if (l.availLeft) {
-			m = l.availLeft;
+		if (r_screen.availLeft) {
+			m = r_screen.availLeft;
 		}
 		let u = i.right + No(a) + 2;
 		let d = r.screen.availWidth + m - u;
 		let A = i.left - No(a) - m;
-		s = d < 2 && A > d ? i.left - No(a) - 3 + 3 : i.left + No(i) - -3;
+		left = d < 2 && A > d ? i.left - No(a) - 3 + 3 : i.left + No(i) - -3;
 		let p = 0;
 		if (SY(i) < 48) {
 			p = Math.floor(SY(i) / 2) - 24;
 		}
-		o = i.top - 15 + p;
+		top = i.top - 15 + p;
 		if (i.top + SY(a) + 0 > r.screen.availHeight) {
 			let t = SY(a) + 0 - (r.screen.availHeight - i.top);
 			let n = e.querySelector(".miniprofile_ingame") != null ? 78 : 24;
 			t = Math.min(SY(a) - n, t);
-			o = i.top - t;
+			top = i.top - t;
 		}
-		s = Math.floor(s);
-		o = Math.floor(o);
+		left = Math.floor(left);
+		top = Math.floor(top);
 		let g = Math.ceil(No(a));
 		let h = Math.ceil(SY(a));
-		if (s != this.state.x) {
+		if (left != this.state.x) {
 			this.setState({
-				x: s,
+				x: left,
 			});
 		}
-		if (o != this.state.y) {
+		if (top != this.state.y) {
 			this.setState({
-				y: o,
+				y: top,
 			});
 		}
 		if (g != this.state.width) {
@@ -391,5 +346,5 @@ let B = class extends s.Component {
 		}
 	}
 };
-(0, n.Cg)([u.oI], B.prototype, "bindHover", null);
-B = (0, n.Cg)([a.PA], B);
+Cg([u.oI], B.prototype, "bindHover", null);
+B = Cg([a.PA], B);

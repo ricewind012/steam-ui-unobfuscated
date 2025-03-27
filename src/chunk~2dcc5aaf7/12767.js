@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./52451.js";
 export class c extends i.Component {
 	m_refImage = i.createRef();
 	constructor(e) {
@@ -56,19 +56,11 @@ export class c extends i.Component {
 		}
 	}
 	render() {
-		const {
-			rgSources: e,
-			onIncrementalError: t,
-			onError: r,
-			...n
-		} = this.props;
+		const { rgSources, onIncrementalError, onError, ...n } = this.props;
 		const a = this.src;
-		return i.createElement("img", {
-			ref: this.m_refImage,
-			...n,
-			src: a,
-			onError: this.OnImageError,
-		});
+		return (
+			<img ref={this.m_refImage} {...n} src={a} onError={this.OnImageError} />
+		);
 	}
 }
-(0, n.Cg)([a.oI], c.prototype, "OnImageError", null);
+Cg([a.oI], c.prototype, "OnImageError", null);

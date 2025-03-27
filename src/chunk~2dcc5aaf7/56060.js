@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-export class S1 extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+export class S1 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S1.prototype.type) {
 			i.Sg(S1.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -52,7 +52,7 @@ export class S1 extends a {
 		return i.zj(S1.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S1.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -60,7 +60,7 @@ export class S1 extends a {
 		i.i0(S1.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S1.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -68,14 +68,14 @@ export class S1 extends a {
 		return "CSteamVR_Header";
 	}
 }
-export class sR extends a {
+export class sR extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!sR.prototype.header) {
 			i.Sg(sR.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -119,7 +119,7 @@ export class sR extends a {
 		return i.zj(sR.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		sR.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -127,7 +127,7 @@ export class sR extends a {
 		i.i0(sR.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		sR.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -135,14 +135,14 @@ export class sR extends a {
 		return "CSteamVR_VRGamepadUI_Message";
 	}
 }
-export class OK extends a {
+export class OK extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!OK.prototype.section) {
 			i.Sg(OK.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -206,7 +206,7 @@ export class OK extends a {
 		return i.zj(OK.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		OK.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -214,7 +214,7 @@ export class OK extends a {
 		i.i0(OK.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		OK.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

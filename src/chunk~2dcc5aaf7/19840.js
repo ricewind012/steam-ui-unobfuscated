@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./79769.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import n from "./63696.js";
+import i from "./79769.js";
+import { hL } from "./52451.js";
 const s = (e) => e != null;
 export function M(e, t) {
-	const [r, i] = n.useState(window.localStorage.getItem(e));
-	const o = n.useRef(e);
+	const [r, setR] = n.useState(window.localStorage.getItem(e));
+	const ORef = n.useRef(e);
 	n.useEffect(() => {
-		if (e != o.current) {
-			i(window.localStorage.getItem(e));
-			o.current = e;
+		if (e != ORef.current) {
+			setR(window.localStorage.getItem(e));
+			ORef.current = e;
 		}
 	}, [e]);
-	const c = e == o.current ? r : window.localStorage.getItem(e);
+	const c = e == ORef.current ? r : window.localStorage.getItem(e);
 	let m = t;
 	if (s(c)) {
 		m = s(t)
@@ -20,13 +20,13 @@ export function M(e, t) {
 				: t.constructor(c)
 			: c;
 	}
-	(0, a.hL)(l.Get().GetLocalStoreChangeCallback(e), i);
+	hL(l.Get().GetLocalStoreChangeCallback(e), setR);
 	return [
 		m,
 		(t) => {
 			const r = s(t) ? String(t) : null;
 			window.localStorage.setItem(e, r);
-			i(r);
+			setR(r);
 			l.Get().GetLocalStoreChangeCallback(e).Dispatch(r);
 		},
 	];

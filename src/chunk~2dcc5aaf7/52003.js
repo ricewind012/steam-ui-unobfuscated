@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./5128.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./21866.js");
-var o = require(/*webcrack:missing*/ "./8573.js");
+import { Cg } from "./34629.js";
+import i from "./5128.js";
+import a, { Gn } from "./89193.js";
+import s from "./21866.js";
+import o from "./8573.js";
 export class w extends i.Q {
 	m_steamID;
 	m_tabset;
@@ -11,7 +11,7 @@ export class w extends i.Q {
 	m_watchPromptInitialFriend = undefined;
 	constructor(e, t) {
 		super();
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_steamID = o.b.InitFromAccountID(t);
 		this.m_tabset = e;
 		this.InitInfo();
@@ -22,10 +22,10 @@ export class w extends i.Q {
 		);
 	}
 	static async GetBroadcastWatchStore() {
-		const { BroadcastWatchStore: e } = await require
+		const { BroadcastWatchStore } = await require
 			.e(7653)
 			.then(require.bind(require, 23024));
-		return e;
+		return BroadcastWatchStore;
 	}
 	GetSteamID() {
 		return this.m_steamID;
@@ -39,7 +39,7 @@ export class w extends i.Q {
 		}
 	}
 	GetUniqueID() {
-		return "br" + this.m_steamID.GetAccountID();
+		return `br${this.m_steamID.GetAccountID()}`;
 	}
 	OnTabFocus() {}
 	InternalOnTabActivate() {}
@@ -73,8 +73,8 @@ export class w extends i.Q {
 		this.m_watchPromptInitialFriend = undefined;
 	}
 }
-(0, n.Cg)([a.sH], w.prototype, "m_info", undefined);
-(0, n.Cg)([a.sH], w.prototype, "m_bShowWatchPromptDialog", undefined);
-(0, n.Cg)([a.sH], w.prototype, "m_watchPromptInitialFriend", undefined);
-(0, n.Cg)([a.XI], w.prototype, "ShowWatchPromptDialog", null);
-(0, n.Cg)([a.XI], w.prototype, "HideWatchPromptDialog", null);
+Cg([a.sH], w.prototype, "m_info", undefined);
+Cg([a.sH], w.prototype, "m_bShowWatchPromptDialog", undefined);
+Cg([a.sH], w.prototype, "m_watchPromptInitialFriend", undefined);
+Cg([a.XI], w.prototype, "ShowWatchPromptDialog", null);
+Cg([a.XI], w.prototype, "HideWatchPromptDialog", null);

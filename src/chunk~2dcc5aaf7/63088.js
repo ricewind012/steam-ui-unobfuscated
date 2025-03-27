@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require("./99104.js");
-var s = require(/*webcrack:missing*/ "./42318.js");
 import { CLocalizationManager } from "../../actual_src/utils/localization.js";
-var l = require("./31930.js");
+import n from "./63696.js";
+import i from "./12176.js";
+import a from "./99104.js";
+import s from "./42318.js";
+import l from "./31930.js";
 async function c(e, t = "SHA-256") {
 	let r;
-	var n;
+	let n;
 	if (typeof e == "string") {
 		n = e;
 		r = new TextEncoder().encode(n).buffer;
@@ -16,7 +16,7 @@ async function c(e, t = "SHA-256") {
 	const i = await window.crypto.subtle.digest(t, r);
 	a = i;
 	return Array.prototype.map
-		.call(new Uint8Array(a), (e) => ("00" + e.toString(16)).slice(-2))
+		.call(new Uint8Array(a), (e) => `00${e.toString(16)}`.slice(-2))
 		.join("");
 	var a;
 }
@@ -163,10 +163,10 @@ class _ {
 				return null;
 			}
 			0;
-			const n = await (function (e, t) {
+			const n = await ((e, t) => {
 				try {
 					if (e.stack && e.stack.match(b)) {
-						return (async function (e, t) {
+						return (async (e, t) => {
 							const { cCallsitesToIgnore: r, bIncludeMessageInIdentifier: n } =
 								t;
 							const i = e.stack?.split("\n") ?? [];
@@ -198,7 +198,7 @@ class _ {
 							};
 						})(e, t);
 					} else if (e.stack && e.stack.match(y)) {
-						return (async function (e, t) {
+						return (async (e, t) => {
 							const { cCallsitesToIgnore: r, bIncludeMessageInIdentifier: n } =
 								t;
 							const i = e.stack?.split("\n") ?? [];
@@ -230,15 +230,15 @@ class _ {
 							};
 						})(e, t);
 					} else if (e.stack && e.stack.match(S)) {
-						return (async function (e, t) {
+						return (async (e, t) => {
 							const { bIncludeMessageInIdentifier: r, cCallsitesToIgnore: n } =
 								t;
 							const i = e.stack?.split("\n") ?? [];
 							const a = i[n];
 							const s = a.split("/");
 							let o = s[s.length - 1];
-							if (a.indexOf("@") > -1) {
-								o = a.split("@")[0] + "@" + o;
+							if (a.includes("@")) {
+								o = `${a.split("@")[0]}@${o}`;
 							}
 							if (r) {
 								o = `${o} ${e.message}`;
@@ -363,7 +363,7 @@ class _ {
 			const { report: t, count: n } = r[e];
 			const i = new a.tF();
 			i.set_count(n);
-			i.set_identifier(t.identifier + " " + t.identifierHash);
+			i.set_identifier(`${t.identifier} ${t.identifierHash}`);
 			i.set_message(JSON.stringify(t.message));
 			if (t.strComponentStack) {
 				i.set_context(
@@ -409,7 +409,7 @@ const S = /.*\/bundle-[a-zA-Z0-9]+:\d+:\d+/;
 let w;
 let B = false;
 function v(e) {
-	return (function (e) {
+	return ((e) => {
 		const t = "https://";
 		const r = e.indexOf(t);
 		if (r === -1) {
@@ -422,7 +422,7 @@ function v(e) {
 			return e.slice(0, r) + e.slice(n);
 		}
 	})(
-		(function (e) {
+		((e) => {
 			const t = e.lastIndexOf("?");
 			if (t === -1) {
 				return e;

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	AppPartnerEventsPage: "_3CJsgSK-y815Zeoe6bz6dh",
 	AppPartnerEventsBanner: "_1HRiMtg_SGUiOa-NXDzZl7",

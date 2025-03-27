@@ -1,24 +1,24 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var _o = require(/*webcrack:missing*/ "./20590.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./26853.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import _o from "./20590.js";
+import l from "./52451.js";
+import { A } from "./90765.js";
+import m from "./26853.js";
+let n;
+((e) => {
 	e[(e.NotLoaded = 0)] = "NotLoaded";
 	e[(e.Loading = 1)] = "Loading";
 	e[(e.Loaded = 2)] = "Loaded";
 })((n ||= {}));
-let u = n.NotLoaded;
+let n_NotLoaded = n.NotLoaded;
 let d = [];
 export function o(e) {
-	if (u == n.Loaded) {
+	if (n_NotLoaded == n.Loaded) {
 		e();
 		return;
 	}
-	if (u == n.NotLoaded) {
+	if (n_NotLoaded == n.NotLoaded) {
 		let e = document.createElement("script");
 		e.src = "https://www.youtube.com/iframe_api";
 		let t = document.getElementsByTagName("script")[0];
@@ -30,7 +30,7 @@ export function o(e) {
 	}
 }
 function p() {
-	u = n.Loaded;
+	n_NotLoaded = n.Loaded;
 	for (let e of d) {
 		e();
 	}
@@ -44,13 +44,13 @@ export class N extends a.Component {
 	static s_nPlayerIndex = 0;
 	constructor(e) {
 		super(e);
-		this.m_strPlayerID = "YoutubePlayer_" + N.s_nPlayerIndex++;
+		this.m_strPlayerID = `YoutubePlayer_${N.s_nPlayerIndex++}`;
 		this.state = {
 			bYoutubeLoaded: false,
 		};
 	}
 	componentWillUnmount() {
-		var e;
+		let e;
 		this.DestroyPlayer();
 		e = this.OnYoutubeScriptsReady;
 		FindAndRemove(d, e);
@@ -62,6 +62,9 @@ export class N extends a.Component {
 		const r = this.props;
 		if (
 			r.autoplay != e.autoplay ||
+			r.controls != e.controls ||
+			r.controls != e.controls ||
+			r.showInfo != e.showInfo ||
 			r.controls != e.controls ||
 			r.showInfo != e.showInfo ||
 			r.video != e.video
@@ -181,27 +184,32 @@ export class N extends a.Component {
 	}
 	OnPlayerStateChange(e) {
 		switch (e.data) {
-			case YT.PlayerState.UNSTARTED:
+			case YT.PlayerState.UNSTARTED: {
 				break;
-			case YT.PlayerState.BUFFERING:
+			}
+			case YT.PlayerState.BUFFERING: {
 				if (this.props.onBuffering) {
 					this.props.onBuffering();
 				}
 				break;
-			case YT.PlayerState.PLAYING:
+			}
+			case YT.PlayerState.PLAYING: {
 				if (this.props.onPlaying) {
 					this.props.onPlaying();
 				}
 				break;
-			case YT.PlayerState.PAUSED:
+			}
+			case YT.PlayerState.PAUSED: {
 				if (this.props.onPaused) {
 					this.props.onPaused();
 				}
 				break;
-			case YT.PlayerState.ENDED:
+			}
+			case YT.PlayerState.ENDED: {
 				if (this.props.onMovieEnd) {
 					this.props.onMovieEnd();
 				}
+			}
 		}
 	}
 	OnError(e) {
@@ -224,35 +232,27 @@ export class N extends a.Component {
 		}
 	}
 	render() {
-		const e = a.createElement(
-			"div",
-			{
-				key: this.m_strPlayerID,
-				ref: this.BindPlayerContainer,
-				className: (0, c.A)("YoutubePlayer", this.props.classnames),
-			},
-			a.createElement(m.t, {
-				className: "YoutubePlayerThrobber",
-			}),
+		const e = (
+			<div
+				key={this.m_strPlayerID}
+				ref={this.BindPlayerContainer}
+				className={A("YoutubePlayer", this.props.classnames)}
+			>
+				<m.t className="YoutubePlayerThrobber" />
+			</div>
 		);
 		if (this.props.autopause) {
-			return a.createElement(
-				_o.Y,
-				{
-					onLeave: this.OnPlayerLeftView,
-				},
-				e,
-			);
+			return <_o.Y onLeave={this.OnPlayerLeftView}>{e}</_o.Y>;
 		} else {
 			return e;
 		}
 	}
 }
-(0, i.Cg)([l.oI], N.prototype, "BindPlayerContainer", null);
-(0, i.Cg)([l.oI], N.prototype, "OnYoutubeScriptsReady", null);
-(0, i.Cg)([l.oI], N.prototype, "CreatePlayer", null);
-(0, i.Cg)([l.oI], N.prototype, "OnPlayerReady", null);
-(0, i.Cg)([l.oI], N.prototype, "OnPlayerStateChange", null);
-(0, i.Cg)([l.oI], N.prototype, "OnError", null);
-(0, i.Cg)([l.oI], N.prototype, "OnPlayerLeftView", null);
-(0, i.Cg)([l.oI], N.prototype, "PlayVideo", null);
+Cg([l.oI], N.prototype, "BindPlayerContainer", null);
+Cg([l.oI], N.prototype, "OnYoutubeScriptsReady", null);
+Cg([l.oI], N.prototype, "CreatePlayer", null);
+Cg([l.oI], N.prototype, "OnPlayerReady", null);
+Cg([l.oI], N.prototype, "OnPlayerStateChange", null);
+Cg([l.oI], N.prototype, "OnError", null);
+Cg([l.oI], N.prototype, "OnPlayerLeftView", null);
+Cg([l.oI], N.prototype, "PlayVideo", null);

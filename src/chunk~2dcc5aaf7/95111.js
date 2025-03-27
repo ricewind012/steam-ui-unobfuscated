@@ -1,17 +1,17 @@
-var _n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
 import { Seconds } from "../../actual_src/utils/time.js";
-var l = require(/*webcrack:missing*/ "./72476.js");
-const c = Seconds.PerMinute;
+import { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn } from "./89193.js";
+import l, { xv } from "./72476.js";
+const a = i;
+const Seconds_PerMinute = Seconds.PerMinute;
 export class n {
 	m_accountid;
 	m_bLoadingData = false;
 	m_rtLastLoad = 0;
 	m_communityData = undefined;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_accountid = e;
 	}
 	get community_data() {
@@ -38,15 +38,13 @@ export class n {
 	}
 	EnsureCommunityDataLoaded() {
 		const e = this.m_communityData || this.m_bLoadingData;
-		const t = Date.now() > this.m_rtLastLoad + c * 1000;
+		const t = Date.now() > this.m_rtLastLoad + Seconds_PerMinute * 1000;
 		if (!e || (t && !this.m_bLoadingData)) {
 			this.m_bLoadingData = true;
 			a.get(
-				l.TS.CHAT_BASE_URL +
-					"miniprofile/" +
-					this.m_accountid +
-					"/json/?origin=" +
-					(0, l.xv)(),
+				`${l.TS.CHAT_BASE_URL}miniprofile/${
+					this.m_accountid
+				}/json/?origin=${xv()}`,
 			)
 				.then((e) => {
 					let t = e.data;
@@ -62,4 +60,4 @@ export class n {
 		}
 	}
 }
-(0, _n.Cg)([s.sH], n.prototype, "m_communityData", undefined);
+Cg([s.sH], n.prototype, "m_communityData", undefined);

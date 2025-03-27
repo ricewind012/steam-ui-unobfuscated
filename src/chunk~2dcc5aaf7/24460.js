@@ -1,66 +1,73 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./64608.js");
-var o = require("./10606.js");
-var l = require("./48289.js");
 import {
 	Localize,
 	LocalizeReact,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var m = require("./34792.js");
-var u = require("./18057.js");
-var d = require("./13869.js");
-var A = require("./87935.js");
-var p = require("./23924.js");
-var g = p;
-var h = require(/*webcrack:missing*/ "./11131.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require("./51095.js");
-var f = require(/*webcrack:missing*/ "./26853.js");
-var b = require("./35488.js");
-var y = require(/*webcrack:missing*/ "./90765.js");
-var S = require("./57472.js");
-var w = require("./5640.js");
-var B = require("./89748.js");
-var v = require("./63937.js");
-var I = require("./98325.js");
-var E = require(/*webcrack:missing*/ "./50376.js");
-var M = require("./17231.js");
-var T = require(/*webcrack:missing*/ "./8573.js");
-var R = require("./17613.js");
-var k = require(/*webcrack:missing*/ "./24295.js");
-var D = require("./15918.js");
-var N = require("./68608.js");
-var F = require(/*webcrack:missing*/ "./12176.js");
-var G = require("./54946.js");
-var O = require(/*webcrack:missing*/ "./61416.js");
-var P = require(/*webcrack:missing*/ "./46382.js");
-var L = require(/*webcrack:missing*/ "./69164.js");
-function z(e) {
-	return n.createElement(E.d1w, null);
+import n, { useState } from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a, { PA } from "./41230.js";
+import s from "./64608.js";
+import o from "./10606.js";
+import l, { KM, gt } from "./48289.js";
+import m, { vL, I5 } from "./34792.js";
+import u, { bG, Qt } from "./18057.js";
+import d, { pg } from "./13869.js";
+import A from "./87935.js";
+import p from "./23924.js";
+import h, { R7 } from "./11131.js";
+import C, { Qn, hf } from "./72476.js";
+import _, { lY } from "./51095.js";
+import f from "./26853.js";
+import b from "./35488.js";
+import { A as A_1 } from "./90765.js";
+import S from "./57472.js";
+import w, { Wf, mV, Wp } from "./5640.js";
+import { QR, qw, IU } from "./89748.js";
+import { p8, Hs, ll } from "./63937.js";
+import I from "./98325.js";
+import E from "./50376.js";
+import M from "./17231.js";
+import T from "./8573.js";
+import { js } from "./17613.js";
+import { LH } from "./24295.js";
+import D, { M8 } from "./15918.js";
+import N from "./68608.js";
+import F from "./12176.js";
+import G from "./54946.js";
+import { I as I_1 } from "./61416.js";
+import { KV } from "./46382.js";
+import L from "./69164.js";
+import { Id, yt } from "./77347.js";
+import { vJ } from "./52451.js";
+import Q from "./3475.js";
+import Z, { n as n_1 } from "./26667.js";
+import Y from "./3651.js";
+import { $I } from "./89600.js";
+import X from "./2306.js";
+import J from "./90242.js";
+import $ from "./37086.js";
+const g = p;
+function Z_1(e) {
+	return <E.d1w />;
 }
-function x(e) {
-	return n.createElement(E.Bir, null);
+function X_1(e) {
+	return <E.Bir />;
 }
 function U(e) {
-	return n.createElement(
-		"div",
-		{
-			className: (0, y.A)(I.RoleIcon, e.className),
-		},
-		e.role == 2 ? n.createElement(x, null) : n.createElement(z, null),
+	return (
+		<div className={A_1(I.RoleIcon, e.className)}>
+			{e.role == 2 ? <X_1 /> : <Z_1 />}
+		</div>
 	);
 }
 function W(e) {
-	const { strSteamID: t, role: r, persona: i, isSelf: a } = e;
-	const s = new T.b(t);
+	const { strSteamID, role, persona, isSelf } = e;
+	const s = new T.b(strSteamID);
 	let o = e.size || "Large";
-	const l = (0, D.M8)();
-	const m = (function () {
-		const e = (0, P.KV)();
-		return (0, O.I)({
+	const l = M8();
+	const m = (() => {
+		const e = KV();
+		return I_1({
 			queryKey: ["communitypreferences"],
 			queryFn: async () => {
 				const t = F.w.Init(G.tz);
@@ -76,340 +83,290 @@ function W(e) {
 	})();
 	const u = l.data?.get(s.GetAccountID());
 	const d = m.data?.preferences().parenthesize_nicknames();
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			"a",
-			{
-				className: I.ProfileLink,
-				href: i.GetCommunityProfileURL(),
-				onClick: (e) => {
+	return (
+		<>
+			<a
+				className={I.ProfileLink}
+				href={persona.GetCommunityProfileURL()}
+				onClick={(e) => {
 					e.stopPropagation();
-				},
-			},
-			n.createElement(M.i8, {
-				className: I.Avatar,
-				persona: i,
-				size: o,
-				statusPosition: "right",
-			}),
-			n.createElement(N.D, {
-				className: I.PlayerName,
-				bIsSelf: a,
-				bHideStatus: false,
-				bHidePersona: false,
-				bParenthesizeNicknames: d,
-				bCompactView: false,
-				persona: i,
-				strNickname: u,
-				eFriendRelationship: 3,
-			}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: I.RoleAndIcon,
-			},
-			n.createElement(U, {
-				className: I.ProfileRoleIcon,
-				role: r,
-			}),
-			n.createElement(
-				"div",
-				{
-					className: I.RoleName,
-				},
-				(0, Localize)(`#FamilyManagement_Role_${r}`),
-			),
-		),
+				}}
+			>
+				<M.i8
+					className={I.Avatar}
+					persona={persona}
+					size={o}
+					statusPosition="right"
+				/>
+				<N.D
+					className={I.PlayerName}
+					bIsSelf={isSelf}
+					bHideStatus={false}
+					bHidePersona={false}
+					bParenthesizeNicknames={d}
+					bCompactView={false}
+					persona={persona}
+					strNickname={u}
+					eFriendRelationship={3}
+				/>
+			</a>
+			<div className={I.RoleAndIcon}>
+				<U className={I.ProfileRoleIcon} role={role} />
+				<div className={I.RoleName}>
+					{(0, Localize)(`#FamilyManagement_Role_${role}`)}
+				</div>
+			</div>
+		</>
 	);
 }
 function V(e) {
-	const { strSteamID: t, role: r, bInvitePending: i, children: a } = e;
-	const s = (0, k.LH)();
-	const [o, l] = (0, n.useState)(false);
-	const m = s == t;
-	const u = (0, R.js)(t);
-	(0, v.p8)(u, "#FamilyManagement_ErrorLoadFamilyGeneric");
+	const { strSteamID, role, bInvitePending, children } = e;
+	const s = LH();
+	const [o, setO] = useState(false);
+	const m = s == strSteamID;
+	const u = js(strSteamID);
+	p8(u, "#FamilyManagement_ErrorLoadFamilyGeneric");
 	if (!u.isSuccess) {
 		return null;
 	}
-	const d = u.data;
-	return n.createElement(
-		L.Z,
-		{
-			className: (0, y.A)(I.FamilyMemberRow, m && I.ActiveFamilyMemberRow),
-		},
-		n.createElement(
-			L.Z,
-			{
-				className: I.FamilyMemberRowTop,
-				onActivate: a ? () => l(!o) : undefined,
-			},
-			n.createElement(
-				"div",
-				{
-					className: I.Left,
-				},
-				n.createElement(W, {
-					strSteamID: t,
-					role: r,
-					persona: d,
-					isSelf: m,
-				}),
-				i &&
-					n.createElement(
-						"div",
-						{
-							className: I.InvitePending,
-						},
-						(0, Localize)("#FamilyManagement_InvitePending"),
-					),
-				m &&
-					n.createElement(
-						"span",
-						{
-							className: I.MeBadge,
-						},
-						(0, Localize)("#FamilyManagement_Me"),
-					),
-			),
-			a &&
-				n.createElement(H, {
-					bExpanded: o,
-					setExpanded: l,
-				}),
-		),
-		o && a,
+	const u_data = u.data;
+	return (
+		<L.Z className={A_1(I.FamilyMemberRow, m && I.ActiveFamilyMemberRow)}>
+			<L.Z
+				className={I.FamilyMemberRowTop}
+				onActivate={children ? () => setO(!o) : undefined}
+			>
+				<div className={I.Left}>
+					<W strSteamID={strSteamID} role={role} persona={u_data} isSelf={m} />
+					{bInvitePending && (
+						<div className={I.InvitePending}>
+							{(0, Localize)("#FamilyManagement_InvitePending")}
+						</div>
+					)}
+					{m && (
+						<span className={I.MeBadge}>
+							{(0, Localize)("#FamilyManagement_Me")}
+						</span>
+					)}
+				</div>
+				{children && <H bExpanded={o} setExpanded={setO} />}
+			</L.Z>
+			{o && children}
+		</L.Z>
 	);
 }
 function H(e) {
-	const { bExpanded: t, setExpanded: r } = e;
-	return n.createElement(
-		s.wl,
-		{
-			className: (0, y.A)(I.ExpandRowButton, t && I.Selected),
-			onClick: () => r(!t),
-		},
-		n.createElement(E.b8_, {
-			direction: "down",
-		}),
+	const { bExpanded, setExpanded } = e;
+	return (
+		<s.wl
+			className={A_1(I.ExpandRowButton, bExpanded && I.Selected)}
+			onClick={() => setExpanded(!bExpanded)}
+		>
+			<E.b8_ direction="down" />
+		</s.wl>
 	);
 }
-var j = require("./77347.js");
-var q = require(/*webcrack:missing*/ "./52451.js");
-var Q = require("./3475.js");
-var Z = require(/*webcrack:missing*/ "./26667.js");
-var Y = require("./3651.js");
-var K = require("./89600.js");
-var X = require("./2306.js");
-var J = require(/*webcrack:missing*/ "./90242.js");
-var $ = require("./37086.js");
-const ee = () => {
-	const e = (0, u.bG)("ParentalSetup");
-	return n.createElement(
-		s.G5,
-		null,
-		n.createElement(
-			$.WG,
-			{
-				label: (0, Localize)("#FamilySettings_FamilyView_Header"),
-				description: (0, Localize)("#FamilySettings_FamilyView_Desc"),
-				onClick: e,
-			},
-			(0, Localize)("#FamilySettings_Manage_ButtonText"),
-		),
+const Ee = () => {
+	const e = bG("ParentalSetup");
+	return (
+		<s.G5>
+			<$.WG
+				label={(0, Localize)("#FamilySettings_FamilyView_Header")}
+				description={(0, Localize)("#FamilySettings_FamilyView_Desc")}
+				onClick={e}
+			>
+				{(0, Localize)("#FamilySettings_Manage_ButtonText")}
+			</$.WG>
+		</s.G5>
 	);
 };
-const te = (e) => {
-	const { settings: t } = e;
-	(0, B.QR)();
-	(0, j.Id)();
-	const r = (0, i.q3)(
+const Te = (e) => {
+	const { settings } = e;
+	QR();
+	Id();
+	const r = q3(
 		() =>
-			t &&
-			t.vecFamilySharingUsers
+			settings &&
+			settings.vecFamilySharingUsers
 				.map((e) => l.O$.GetFriendState(e.nAccountID))
 				.reduce((e, t, r, n) => e && !!t?.display_name, true),
 	);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(re, null),
-		t !== null &&
-			r &&
-			n.createElement(
-				n.Fragment,
-				null,
-				n.createElement(ne, {
-					settings: t,
-				}),
-				n.createElement(ae, {
-					settings: t,
-				}),
-				n.createElement(se, {
-					settings: t,
-				}),
-			),
-		t !== null &&
-			!r &&
-			n.createElement(
-				"div",
-				{
-					className: g.ThrobberWrapper,
-				},
-				n.createElement(f.t, null),
-			),
-		t === null &&
-			n.createElement(s.nB, null, (0, Localize)("#FamilySettings_Offline")),
+	return (
+		<>
+			<Re />
+			{settings !== null && r && (
+				<>
+					<Ne settings={settings} />
+					<Ae_1 settings={settings} />
+					<Se settings={settings} />
+				</>
+			)}
+			{settings !== null && !r && (
+				<div className={g.ThrobberWrapper}>
+					<f.t />
+				</div>
+			)}
+			{settings === null && (
+				<s.nB>{(0, Localize)("#FamilySettings_Offline")}</s.nB>
+			)}
+		</>
 	);
 };
-const re = () => {
-	const e = (0, u.Qt)(A.B7.ResolveURL("FamilySharing"));
-	return n.createElement(
-		$.WG,
-		{
-			label: (0, Localize)("#FamilySettings_Header"),
-			description: (0, Localize)("#FamilySettings_Description"),
-			onClick: e,
-		},
-		(0, Localize)("#FamilySettings_Manage_ButtonText"),
+const Re = () => {
+	const e = Qt(A.B7.ResolveURL("FamilySharing"));
+	return (
+		<$.WG
+			label={(0, Localize)("#FamilySettings_Header")}
+			description={(0, Localize)("#FamilySettings_Description")}
+			onClick={e}
+		>
+			{(0, Localize)("#FamilySettings_Manage_ButtonText")}
+		</$.WG>
 	);
 };
-const ne = (e) => {
-	const { bIsDeviceAuthorizedForFamilySharing: t, nMaxAuthorizedAccounts: r } =
+const Ne = (e) => {
+	const { bIsDeviceAuthorizedForFamilySharing, nMaxAuthorizedAccounts } =
 		e.settings;
-	const i = n.useRef(undefined);
-	const a = (0, h.R7)();
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(X.C, {
-			feature: 7,
-			ref: i,
-			className: g.AuthorizeUserField,
-			checked: t,
-			label: (0, Localize)("#FamilySettings_AuthorizeLocalDevice"),
-			description: (0, Localize)("#FamilySettings_UserListDescription", r),
-			onChange: (e) => {
-				if (e) {
-					SteamClient.FamilySharing.AuthorizeLocalDevice().then((t) => {
-						if (t != 1) {
-							let r;
-							switch (t) {
-								case 18:
-									r = (0, Localize)("#FamilySettings_SteamGuardRequired", t);
-									break;
-								case 25:
-									r = (0, Localize)("#FamilySettings_LimitExceeded", t);
-									break;
-								default:
-									r = (0, Localize)("#FamilySettings_FailedToAuthorize", t);
+	const IRef = n.useRef(undefined);
+	const a = R7();
+	return (
+		<>
+			<X.C
+				feature={7}
+				ref={IRef}
+				className={g.AuthorizeUserField}
+				checked={bIsDeviceAuthorizedForFamilySharing}
+				label={(0, Localize)("#FamilySettings_AuthorizeLocalDevice")}
+				description={(0, Localize)(
+					"#FamilySettings_UserListDescription",
+					nMaxAuthorizedAccounts,
+				)}
+				onChange={(e) => {
+					if (e) {
+						SteamClient.FamilySharing.AuthorizeLocalDevice().then((t) => {
+							if (t != 1) {
+								let r;
+								switch (t) {
+									case 18: {
+										r = (0, Localize)("#FamilySettings_SteamGuardRequired", t);
+										break;
+									}
+									case 25: {
+										r = (0, Localize)("#FamilySettings_LimitExceeded", t);
+										break;
+									}
+									default: {
+										r = (0, Localize)("#FamilySettings_FailedToAuthorize", t);
+									}
+								}
+								pg(
+									<o.KG
+										strTitle={(0, Localize)("#Error_Generic")}
+										strDescription={r}
+									/>,
+									a.ownerWindow ?? window,
+									{
+										strTitle: (0, Localize)("#Error_Generic"),
+										bForcePopOut: true,
+									},
+								);
+								IRef.current.SetChecked(!e, false);
 							}
-							(0, d.pg)(
-								n.createElement(o.KG, {
-									strTitle: (0, Localize)("#Error_Generic"),
-									strDescription: r,
-								}),
-								a.ownerWindow ?? window,
-								{
-									strTitle: (0, Localize)("#Error_Generic"),
-									bForcePopOut: true,
-								},
-							);
-							i.current.SetChecked(!e, false);
-						}
-					});
-				} else {
-					SteamClient.FamilySharing.DeauthorizeLocalDevice().then((t) => {
-						if (t != 1) {
-							(0, d.pg)(
-								n.createElement(o.KG, {
-									strTitle: (0, Localize)("#Error_Generic"),
-									strDescription: (0, Localize)(
-										"#FamilySettings_FailedToDeauthorize",
-										t,
-									),
-								}),
-								a.ownerWindow ?? window,
-								{
-									strTitle: (0, Localize)("#Error_Generic"),
-									bForcePopOut: true,
-								},
-							);
-							i.current.SetChecked(!e, false);
-						}
-					});
-				}
-			},
-		}),
+						});
+					} else {
+						SteamClient.FamilySharing.DeauthorizeLocalDevice().then((t) => {
+							if (t != 1) {
+								pg(
+									<o.KG
+										strTitle={(0, Localize)("#Error_Generic")}
+										strDescription={(0, Localize)(
+											"#FamilySettings_FailedToDeauthorize",
+											t,
+										)}
+									/>,
+									a.ownerWindow ?? window,
+									{
+										strTitle: (0, Localize)("#Error_Generic"),
+										bForcePopOut: true,
+									},
+								);
+								IRef.current.SetChecked(!e, false);
+							}
+						});
+					}
+				}}
+			/>
+		</>
 	);
 };
-const ie = (0, a.PA)((e) => {
-	const { accountID: t, authorized: r, enabled: i, nMaxBorrowers: a } = e;
-	const s = l.O$.GetFriendState(t);
-	const m = n.useRef(undefined);
-	const u = (0, h.R7)();
+const Ie = PA((e) => {
+	const { accountID, authorized, enabled, nMaxBorrowers } = e;
+	const s = l.O$.GetFriendState(accountID);
+	const MRef = n.useRef(undefined);
+	const u = R7();
 	if (!s.display_name) {
 		return null;
 	}
-	return n.createElement(X.C, {
-		feature: 7,
-		ref: m,
-		disabled: !i,
-		className: g.User,
-		label: s.display_name,
-		checked: r,
-		onChange: (e) => {
-			SteamClient.FamilySharing.UpdateAuthorizedBorrower(t, e).then((t) => {
-				if (t == 25) {
-					(0, d.pg)(
-						n.createElement(o.KG, {
-							strTitle: (0, Localize)("#Error_Generic"),
-							strDescription: (0, Localize)(
-								"#FamilySettings_TooManyBorrowers",
-								a,
-							),
-						}),
-						u.ownerWindow ?? window,
-						{
-							strTitle: (0, Localize)("#Error_Generic"),
-							bForcePopOut: true,
-						},
-					);
-					m.current.SetChecked(!e, false);
-				} else if (t != 1) {
-					(0, d.pg)(
-						n.createElement(o.KG, {
-							strTitle: (0, Localize)("#Error_Generic"),
-							strDescription: (0, Localize)(
-								"#FamilySettings_FailedToUpdateBorrower",
-								t,
-							),
-						}),
-						u.ownerWindow ?? window,
-						{
-							strTitle: (0, Localize)("#Error_Generic"),
-							bForcePopOut: true,
-						},
-					);
-					m.current.SetChecked(!e, false);
-				}
-			});
-		},
-		bottomSeparator: "none",
-	});
+	return (
+		<X.C
+			feature={7}
+			ref={MRef}
+			disabled={!enabled}
+			className={g.User}
+			label={s.display_name}
+			checked={authorized}
+			onChange={(e) => {
+				SteamClient.FamilySharing.UpdateAuthorizedBorrower(accountID, e).then(
+					(t) => {
+						if (t == 25) {
+							pg(
+								<o.KG
+									strTitle={(0, Localize)("#Error_Generic")}
+									strDescription={(0, Localize)(
+										"#FamilySettings_TooManyBorrowers",
+										nMaxBorrowers,
+									)}
+								/>,
+								u.ownerWindow ?? window,
+								{
+									strTitle: (0, Localize)("#Error_Generic"),
+									bForcePopOut: true,
+								},
+							);
+							MRef.current.SetChecked(!e, false);
+						} else if (t != 1) {
+							pg(
+								<o.KG
+									strTitle={(0, Localize)("#Error_Generic")}
+									strDescription={(0, Localize)(
+										"#FamilySettings_FailedToUpdateBorrower",
+										t,
+									)}
+								/>,
+								u.ownerWindow ?? window,
+								{
+									strTitle: (0, Localize)("#Error_Generic"),
+									bForcePopOut: true,
+								},
+							);
+							MRef.current.SetChecked(!e, false);
+						}
+					},
+				);
+			}}
+			bottomSeparator="none"
+		/>
+	);
 });
-const ae = (e) => {
+const Ae_1 = (e) => {
 	const {
-		bIsDeviceAuthorizedForFamilySharing: t,
-		nMaxAuthorizedAccounts: r,
-		vecFamilySharingUsers: i,
+		bIsDeviceAuthorizedForFamilySharing,
+		nMaxAuthorizedAccounts,
+		vecFamilySharingUsers,
 	} = e.settings;
-	const a = new Map(i.map((e) => [e.nAccountID, e]));
-	const [o, m] = n.useState(
-		i
+	const a = new Map(vecFamilySharingUsers.map((e) => [e.nAccountID, e]));
+	const [o, setO] = n.useState(
+		vecFamilySharingUsers
 			.map((e) => e.nAccountID)
 			.filter((e) => e != l.O$.currentUserSteamID.GetAccountID())
 			.sort((e, t) => {
@@ -421,7 +378,7 @@ const ae = (e) => {
 					return 1;
 				} else {
 					return (
-						(0, _.lY)(
+						lY(
 							l.O$.GetFriendState(e)?.display_name,
 							l.O$.GetFriendState(t)?.display_name,
 						) || e - t
@@ -429,193 +386,134 @@ const ae = (e) => {
 				}
 			}),
 	);
-	if (!t) {
+	if (!bIsDeviceAuthorizedForFamilySharing) {
 		return null;
 	}
 	let u;
 	if (o.length == 0) {
-		u = n.createElement(s.D0, {
-			className: g.User,
-			disabled: true,
-			icon: n.createElement(b.BlockUser, null),
-			label: (0, Localize)("#FamilySettings_UserList_NoAccounts"),
-			bottomSeparator: "none",
-		});
+		u = (
+			<s.D0
+				className={g.User}
+				disabled
+				icon={<b.BlockUser />}
+				label={(0, Localize)("#FamilySettings_UserList_NoAccounts")}
+				bottomSeparator="none"
+			/>
+		);
 	} else {
-		const e = i.reduce((e, t) => (t.bAuthorized ? e + 1 : e), 0);
+		const e = vecFamilySharingUsers.reduce(
+			(e, t) => (t.bAuthorized ? e + 1 : e),
+			0,
+		);
 		u = o.map((t) => {
 			const i = a.get(t);
-			return n.createElement(ie, {
-				key: t,
-				accountID: t,
-				authorized: i?.bAuthorized,
-				enabled: e < r || i?.bAuthorized,
-				nMaxBorrowers: r,
-			});
+			return (
+				<Ie
+					key={t}
+					accountID={t}
+					authorized={i?.bAuthorized}
+					enabled={e < nMaxAuthorizedAccounts || i?.bAuthorized}
+					nMaxBorrowers={nMaxAuthorizedAccounts}
+				/>
+			);
 		});
 	}
-	return n.createElement(
-		"div",
-		{
-			className: g.UserList,
-		},
-		n.createElement(
-			"div",
-			{
-				className: g.UserListHeader,
-			},
-			n.createElement(
-				"div",
-				null,
-				(0, Localize)("#FamilySettings_UserList_LeftColumn"),
-			),
-			n.createElement(
-				"div",
-				null,
-				(0, Localize)("#FamilySettings_UserList_RightColumn"),
-			),
-		),
-		u,
+	return (
+		<div className={g.UserList}>
+			<div className={g.UserListHeader}>
+				<div>{(0, Localize)("#FamilySettings_UserList_LeftColumn")}</div>
+				<div>{(0, Localize)("#FamilySettings_UserList_RightColumn")}</div>
+			</div>
+			{u}
+		</div>
 	);
 };
-const se = (e) => {
-	const { bIsDeviceAuthorizedForFamilySharing: t } = e.settings;
-	if (t) {
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(S.G, {
-				feature: Q.uX,
-				setting: "show_family_sharing_notifications",
-				label: (0, Localize)("#FamilySettings_ShowNotifications"),
-			}),
+const Se = (e) => {
+	const { bIsDeviceAuthorizedForFamilySharing } = e.settings;
+	if (bIsDeviceAuthorizedForFamilySharing) {
+		return (
+			<>
+				<S.G
+					feature={Q.uX}
+					setting="show_family_sharing_notifications"
+					label={(0, Localize)("#FamilySettings_ShowNotifications")}
+				/>
+			</>
 		);
 	} else {
 		return null;
 	}
 };
-const oe = () => {
-	const e = (0, B.qw)().GetFamilyGroupID();
-	const t = (0, v.Hs)(e);
-	const r = (0, C.Qn)();
-	const i = (0, u.Qt)(
+const Oe = () => {
+	const e = qw().GetFamilyGroupID();
+	const t = Hs(e);
+	const r = Qn();
+	const i = Qt(
 		A.B7.ResolveURL("FamilyManagement") + (r ? "?fromsettings=1" : ""),
 	);
 	if (t.isLoading) {
-		return n.createElement(
-			"div",
-			{
-				className: g.ThrobberContainer,
-			},
-			n.createElement(f.t, null),
+		return (
+			<div className={g.ThrobberContainer}>
+				<f.t />
+			</div>
 		);
 	}
 	if (t.isError) {
-		const e = n.createElement("b", null, (0, B.qw)().GetFamilyGroupName(), " ");
-		return n.createElement(
-			"div",
-			null,
-			" ",
-			LocalizeReact("#FamilyGroup_QueryFailed", e),
-			" ",
-		);
+		const e = <b>{qw().GetFamilyGroupName()} </b>;
+		return <div> {LocalizeReact("#FamilyGroup_QueryFailed", e)} </div>;
 	}
 	const a = t.data
 		.members()
-		.findIndex((e) => e.steamid() === (0, B.qw)().GetCurrentUser().strSteamID);
+		.findIndex((e) => e.steamid() === qw().GetCurrentUser().strSteamID);
 	const s = t.data.members()[a];
 	const o = t.data.members().slice();
 	if (a !== -1) {
 		o.splice(a, 1);
 	}
-	return n.createElement(
-		"div",
-		{
-			className: g.FamilyGroup,
-		},
-		n.createElement(
-			"div",
-			{
-				className: g.FamilyNameRow,
-			},
-			n.createElement(
-				"span",
-				{
-					className: g.YourFamily,
-				},
-				(0, Localize)("#FamilyManagement_YourFamily"),
-			),
-			n.createElement(
-				"div",
-				{
-					className: g.FamilyName,
-				},
-				t.data.name(),
-			),
-		),
-		a !== -1 &&
-			n.createElement(V, {
-				strSteamID: s.steamid(),
-				role: s.role(),
-			}),
-		o.map((e) =>
-			n.createElement(V, {
-				strSteamID: e.steamid(),
-				role: e.role(),
-				key: e.steamid(),
-			}),
-		),
-		n.createElement(
-			$.CS,
-			{
-				className: g.ManageFamilyButton,
-				onClick: i,
-			},
-			(0, Localize)("#FamilyGroup_ManageFamily"),
-		),
+	return (
+		<div className={g.FamilyGroup}>
+			<div className={g.FamilyNameRow}>
+				<span className={g.YourFamily}>
+					{(0, Localize)("#FamilyManagement_YourFamily")}
+				</span>
+				<div className={g.FamilyName}>{t.data.name()}</div>
+			</div>
+			{a !== -1 && <V strSteamID={s.steamid()} role={s.role()} />}
+			{o.map((e) => (
+				<V strSteamID={e.steamid()} role={e.role()} key={e.steamid()} />
+			))}
+			<$.CS className={g.ManageFamilyButton} onClick={i}>
+				{(0, Localize)("#FamilyGroup_ManageFamily")}
+			</$.CS>
+		</div>
 	);
 };
-function le() {
-	const e = (0, B.QR)();
-	const t = (0, j.Id)();
-	const r = (0, j.yt)();
-	const i = n.createElement("b", null, (0, B.qw)().GetFamilyGroupName(), " ");
-	return n.createElement(
-		n.Fragment,
-		null,
-		!t &&
-			n.createElement(
-				s.a3,
-				null,
-				LocalizeReact("#FamilyGroup_Offline", i),
-				" ",
-			),
-		e &&
-			n.createElement(
-				"div",
-				{
-					className: g.OfflineButton,
-				},
-				n.createElement(
-					s.$n,
-					{
-						onClick: (e) => (0, K.$I)(e, r),
-					},
-					(0, Localize)("#GoOnline"),
-				),
-			),
+function Le() {
+	const e = QR();
+	const t = Id();
+	const r = yt();
+	const i = <b>{qw().GetFamilyGroupName()} </b>;
+	return (
+		<>
+			{!t && <s.a3>{LocalizeReact("#FamilyGroup_Offline", i)} </s.a3>}
+			{e && (
+				<div className={g.OfflineButton}>
+					<s.$n onClick={(e) => $I(e, r)}>{(0, Localize)("#GoOnline")}</s.$n>
+				</div>
+			)}
+		</>
 	);
 }
 export function Ci() {
-	const e = (0, C.hf)();
-	const t = (0, w.Wf)();
-	const r = (0, w.mV)();
-	const i = !(0, w.Wp)();
-	const a = (0, B.IU)();
-	const o = (0, j.Id)();
-	const l = (0, u.Qt)(A.B7.ResolveURL("FamilyManagement"));
-	const d = (0, v.ll)((0, B.qw)().GetFamilyGroupID());
-	const p = (0, m.vL)();
+	const e = hf();
+	const t = Wf();
+	const r = mV();
+	const i = !Wp();
+	const a = IU();
+	const o = Id();
+	const l = Qt(A.B7.ResolveURL("FamilyManagement"));
+	const d = ll(qw().GetFamilyGroupID());
+	const p = vL();
 	const h = p?.vecFamilySharingUsers.reduce(
 		(e, t) => e || t.bAuthorized,
 		false,
@@ -623,428 +521,288 @@ export function Ci() {
 	const _ = (!t || !i) && r;
 	const f = h;
 	if (a) {
-		return n.createElement(
-			$.sh,
-			{
-				className: g.FamilyPanel,
-			},
-			o && n.createElement(oe, null),
-			!o && n.createElement(le, null),
-			e && _ && d == 1 && n.createElement(ee, null),
+		return (
+			<$.sh className={g.FamilyPanel}>
+				{o && <Oe />}
+				{!o && <Le />}
+				{e && _ && d == 1 && <Ee />}
+			</$.sh>
 		);
 	} else {
-		return n.createElement(
-			$.sh,
-			{
-				className: g.FamilyPanel,
-			},
-			n.createElement(
-				"div",
-				null,
-				" ",
-				LocalizeInlineReactWithFallback(
-					"#FamilyGroup_TrySteamFamilies",
-					n.createElement(J.Ii, {
-						onClick: l,
-					}),
-				),
-			),
-			n.createElement(
-				"div",
-				{
-					className: g.TrySteamFamiliesButtonContainer,
-				},
-				n.createElement(
-					s.jn,
-					{
-						className: g.TrySteamFamiliesButton,
-						onClick: l,
-					},
-					(0, Localize)("#FamilyGroup_TrySteamFamilies_Button"),
-				),
-				n.createElement(
-					"div",
-					{
-						className: g.Placeholder,
-					},
-					"\xA0",
-				),
-			),
-			e && _ && n.createElement(ee, null),
-			f &&
-				n.createElement(te, {
-					settings: p,
-				}),
+		return (
+			<$.sh className={g.FamilyPanel}>
+				<div>
+					{" "}
+					{LocalizeInlineReactWithFallback(
+						"#FamilyGroup_TrySteamFamilies",
+						<J.Ii onClick={l} />,
+					)}
+				</div>
+				<div className={g.TrySteamFamiliesButtonContainer}>
+					<s.jn className={g.TrySteamFamiliesButton} onClick={l}>
+						{(0, Localize)("#FamilyGroup_TrySteamFamilies_Button")}
+					</s.jn>
+					<div className={g.Placeholder}>{"\xA0"}</div>
+				</div>
+				{e && _ && <Ee />}
+				{f && <Te settings={p} />}
+			</$.sh>
 		);
 	}
 }
-function me(e) {
-	const { dlc: t, appidParent: r } = e;
-	return n.createElement(
-		"div",
-		{
-			className: g.AvailableLenderDLCRow,
-		},
-		n.createElement(
-			"div",
-			{
-				className: g.Image,
-			},
-			n.createElement(Y.lx, {
-				item: t,
-				appidParent: r,
-			}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: g.Name,
-			},
-			t.strName,
-		),
+function Me(e) {
+	const { dlc, appidParent } = e;
+	return (
+		<div className={g.AvailableLenderDLCRow}>
+			<div className={g.Image}>
+				<Y.lx item={dlc} appidParent={appidParent} />
+			</div>
+			<div className={g.Name}>{dlc.strName}</div>
+		</div>
 	);
 }
-function ue(e) {
-	const { steamid64: t } = e;
-	const r = new T.b(t);
-	const i = (0, l.KM)(r);
-	const a = (0, l.gt)(r);
-	const [s] = (0, m.I5)("bParenthesizeNicknames");
-	return n.createElement(
-		"div",
-		{
-			className: g.AvatarAndPersona,
-		},
-		n.createElement(M.i8, {
-			className: g.Avatar,
-			persona: a,
-			statusPosition: "right",
-		}),
-		n.createElement(N.D, {
-			className: g.PlayerName,
-			bIsSelf: false,
-			bParenthesizeNicknames: s,
-			bHideStatus: true,
-			bCompactView: false,
-			persona: a,
-			eFriendRelationship: 3,
-			strNickname: i,
-		}),
+function Ue(e) {
+	const { steamid64 } = e;
+	const r = new T.b(steamid64);
+	const i = KM(r);
+	const a = gt(r);
+	const [s] = I5("bParenthesizeNicknames");
+	return (
+		<div className={g.AvatarAndPersona}>
+			<M.i8 className={g.Avatar} persona={a} statusPosition="right" />
+			<N.D
+				className={g.PlayerName}
+				bIsSelf={false}
+				bParenthesizeNicknames={s}
+				bHideStatus
+				bCompactView={false}
+				persona={a}
+				eFriendRelationship={3}
+				strNickname={i}
+			/>
+		</div>
 	);
 }
-function de(e) {
-	const { vecDLC: t, appidParent: r, nRemaining: i, nCommon: a } = e;
+function De(e) {
+	const { vecDLC, appidParent, nRemaining, nCommon } = e;
 	let s;
-	if (t.length == 0) {
+	if (vecDLC.length == 0) {
 		s =
-			a == 0
+			nCommon == 0
 				? (0, Localize)("#FamilyGroup_ChoosePreferredLender_NoDLC")
-				: (0, Localize)("#FamilyGroup_ChoosePreferredLender_CommonOnly", a);
-	} else if (i > 0) {
-		s = (0, Localize)("#FamilyGroup_ChoosePreferredLender_DLCAdditional", i);
+				: (0, Localize)(
+						"#FamilyGroup_ChoosePreferredLender_CommonOnly",
+						nCommon,
+					);
+	} else if (nRemaining > 0) {
+		s = (0, Localize)(
+			"#FamilyGroup_ChoosePreferredLender_DLCAdditional",
+			nRemaining,
+		);
 	}
-	return n.createElement(
-		"div",
-		{
-			className: g.DLCList,
-		},
-		t.map((e) =>
-			n.createElement(me, {
-				dlc: e,
-				appidParent: r,
-				key: e.unAppID,
-			}),
-		),
-		s &&
-			n.createElement(
-				"div",
-				{
-					className: g.AvailableLenderDLCRow,
-				},
-				s,
-			),
+	return (
+		<div className={g.DLCList}>
+			{vecDLC.map((e) => (
+				<Me dlc={e} appidParent={appidParent} key={e.unAppID} />
+			))}
+			{s && <div className={g.AvailableLenderDLCRow}>{s}</div>}
+		</div>
 	);
 }
 function Ae(e) {
-	const {
-		lender: t,
-		selected: r,
-		onClick: i,
-		nTotalLenders: a,
-		mapDLCCount: s,
-		appidParent: o,
-	} = e;
-	const l = t.vecDLC.filter((e) => s.get(e.unAppID) != a);
-	const m = t.vecDLC.length - l.length;
+	const { lender, selected, onClick, nTotalLenders, mapDLCCount, appidParent } =
+		e;
+	const l = lender.vecDLC.filter(
+		(e) => mapDLCCount.get(e.unAppID) != nTotalLenders,
+	);
+	const m = lender.vecDLC.length - l.length;
 	l.sort(
 		(e, t) =>
-			s.get(e.unAppID) - s.get(t.unAppID) || (0, _.lY)(e.strName, t.strName),
+			mapDLCCount.get(e.unAppID) - mapDLCCount.get(t.unAppID) ||
+			lY(e.strName, t.strName),
 	);
 	let u = l;
 	if (u.length > 3) {
 		u = u.slice(0, 2);
 	}
 	let d = l.length - u.length;
-	return n.createElement(
-		L.Z,
-		{
-			className: (0, y.A)(g.AvailableLenderRow, r && g.Selected),
-			onActivate: i,
-			autoFocus: r,
-		},
-		n.createElement(
-			"div",
-			{
-				className: g.TopRow,
-			},
-			n.createElement(ue, {
-				steamid64: t.steamid,
-			}),
-			n.createElement(
-				"div",
-				{
-					className: g.PreferredCopy,
-				},
-				r && (0, Localize)("#FamilyGroup_PreferredCopy"),
-				n.createElement(
-					"div",
-					{
-						className: g.Icon,
-					},
-					r && n.createElement(b.Star, null),
-				),
-			),
-		),
-		n.createElement(de, {
-			vecDLC: u,
-			appidParent: o,
-			nRemaining: d,
-			nCommon: m,
-		}),
+	return (
+		<L.Z
+			className={A_1(g.AvailableLenderRow, selected && g.Selected)}
+			onActivate={onClick}
+			autoFocus={selected}
+		>
+			<div className={g.TopRow}>
+				<Ue steamid64={lender.steamid} />
+				<div className={g.PreferredCopy}>
+					{selected && (0, Localize)("#FamilyGroup_PreferredCopy")}
+					<div className={g.Icon}>{selected && <b.Star />}</div>
+				</div>
+			</div>
+			<De vecDLC={u} appidParent={appidParent} nRemaining={d} nCommon={m} />
+		</L.Z>
 	);
 }
-function pe(e) {
+function Pe(e) {
 	const {
-		rgLenders: t,
-		strPreferredLender: r,
-		setPreferredLender: i,
-		details: a,
-		mapDLCCount: s,
+		rgLenders,
+		strPreferredLender,
+		setPreferredLender,
+		details,
+		mapDLCCount,
 	} = e;
-	return n.createElement(
-		"div",
-		{
-			className: g.AvailableLenderList,
-		},
-		t
-			?.sort(
-				(e, t) =>
-					t.vecDLC.length - e.vecDLC.length || (0, _.lY)(e.steamid, t.steamid),
-			)
-			.map((e) =>
-				n.createElement(Ae, {
-					lender: e,
-					selected: r == e.steamid,
-					key: e.steamid,
-					onClick: () => i(e.steamid),
-					nTotalLenders: t.length,
-					mapDLCCount: s,
-					appidParent: a.unAppID,
-				}),
-			),
+	return (
+		<div className={g.AvailableLenderList}>
+			{rgLenders
+				?.sort(
+					(e, t) =>
+						t.vecDLC.length - e.vecDLC.length || lY(e.steamid, t.steamid),
+				)
+				.map((e) => (
+					<Ae
+						lender={e}
+						selected={strPreferredLender == e.steamid}
+						key={e.steamid}
+						onClick={() => setPreferredLender(e.steamid)}
+						nTotalLenders={rgLenders.length}
+						mapDLCCount={mapDLCCount}
+						appidParent={details.unAppID}
+					/>
+				))}
+		</div>
 	);
 }
-function ge(e) {
-	const { rgLenders: t } = e;
-	const [r, i] = n.useState(new Map());
+function Ge(e) {
+	const { rgLenders } = e;
+	const [r, setR] = n.useState(new Map());
 	n.useEffect(() => {
-		if (t.length > 0) {
+		if (rgLenders.length > 0) {
 			const e = new Map();
-			for (const r of t) {
+			for (const r of rgLenders) {
 				for (let t of r.vecDLC) {
 					const r = (e.get(t.unAppID) || 0) + 1;
 					e.set(t.unAppID, r);
 				}
 			}
-			i(e);
+			setR(e);
 		}
-	}, [t]);
+	}, [rgLenders]);
 	const a = Array.from(r?.values()).reduce(
-		(e, r) => e + (r == t.length ? 1 : 0),
+		(e, r) => e + (r == rgLenders.length ? 1 : 0),
 		0,
 	);
-	return n.createElement(
-		L.Z,
-		{
-			className: g.AvailableLenders,
-		},
-		n.createElement(pe, {
-			...e,
-			mapDLCCount: r,
-			nCommonDLC: a,
-		}),
-		n.createElement(
-			"div",
-			{
-				className: g.InCommon,
-			},
-			(0, Localize)("#FamilyGroup_ChoosePreferredLender_DLCInCommon", a),
-		),
+	return (
+		<L.Z className={g.AvailableLenders}>
+			<Pe {...e} mapDLCCount={r} nCommonDLC={a} />
+			<div className={g.InCommon}>
+				{(0, Localize)("#FamilyGroup_ChoosePreferredLender_DLCInCommon", a)}
+			</div>
+		</L.Z>
 	);
 }
-function he(e) {
-	const { onClose: t, details: r, appID: i, rgLenders: a } = e;
-	const [o, l] = n.useState("");
-	const [m, u] = n.useState("");
-	A = i;
-	const d = (0, Z.n)({
+function He(e) {
+	const { onClose, details, appID, rgLenders } = e;
+	const [o, setO] = n.useState("");
+	const [m, setM] = n.useState("");
+	A = appID;
+	const d = n_1({
 		mutationFn: async (e) =>
 			await SteamClient.FamilySharing.SetPreferredLender(A, e),
 	});
 	var A;
-	const p = (0, j.Id)();
-	const h = (0, j.yt)();
-	const C = r.eDisplayStatus == 4;
+	const p = Id();
+	const h = yt();
+	const C = details.eDisplayStatus == 4;
 	const _ = p && !C;
 	n.useEffect(() => {
-		if (a.length > 0) {
-			const e = a.find((e) => e.bPreferred)?.steamid || a[0].steamid;
-			l(e);
+		if (rgLenders.length > 0) {
+			const e =
+				rgLenders.find((e) => e.bPreferred)?.steamid || rgLenders[0].steamid;
+			setO(e);
 		}
-	}, [a]);
+	}, [rgLenders]);
 	const f = async () => {
 		const e = new T.b(o);
-		u("");
+		setM("");
 		if ((await d.mutateAsync(e.GetAccountID())) == 1) {
-			if (t) {
-				t();
+			if (onClose) {
+				onClose();
 			}
 		} else {
-			u((0, Localize)("#FamilyGroup_ChoosePreferredLender_Error"));
+			setM((0, Localize)("#FamilyGroup_ChoosePreferredLender_Error"));
 		}
 	};
-	return n.createElement(
-		L.Z,
-		{
-			className: g.ChoosePreferredLenderDialog,
-		},
-		n.createElement(
-			s.Y9,
-			null,
-			(0, Localize)("#FamilyGroup_ChoosePreferredLender_Title"),
-		),
-		n.createElement(
-			s.f3,
-			{
-				className: g.Body,
-				autoFocus: true,
-				retainFocus: true,
-			},
-			m &&
-				n.createElement(
-					s.a3,
-					{
-						className: g.Error,
-					},
-					m,
-				),
-			_ &&
-				n.createElement(
-					n.Fragment,
-					null,
-					n.createElement(
-						s.a3,
-						{
-							className: g.PreferredCopyDisc,
-						},
-						(0, Localize)("#FamilyGroup_ChoosePreferredLender_Text"),
-					),
-					n.createElement(ge, {
-						rgLenders: a,
-						strPreferredLender: o,
-						setPreferredLender: l,
-						details: r,
-					}),
-					n.createElement(
-						s.wi,
-						null,
-						n.createElement(s.CB, {
-							onOK: f,
-							bOKDisabled: d.isPending,
-							onCancel: t,
-						}),
-					),
-				),
-			!p &&
-				n.createElement(
-					n.Fragment,
-					null,
-					n.createElement(
-						s.a3,
-						null,
-						LocalizeReact(
-							"#FamilyGroup_Offline",
-							n.createElement("b", null, (0, B.qw)().GetFamilyGroupName()),
-						),
-						" ",
-					),
-					n.createElement(
-						s.wi,
-						null,
-						n.createElement(s.CB, {
-							onOK: (e) => (0, K.$I)(e, h),
-							strOKText: (0, Localize)("#GoOnline"),
-							onCancel: t,
-						}),
-					),
-				),
-			p &&
-				!_ &&
-				n.createElement(
-					n.Fragment,
-					null,
-					C &&
-						n.createElement(
-							s.a3,
-							null,
-							" ",
-							(0, Localize)("#FamilyGroup_ChoosePreferredLender_AppRunning"),
-							" ",
-						),
-					n.createElement(
-						s.wi,
-						{
-							className: g.OfflineFooter,
-						},
-						n.createElement(
-							s.jn,
-							{
-								onClick: f,
-							},
-							(0, Localize)("#Button_OK"),
-						),
-					),
-				),
-		),
+	return (
+		<L.Z className={g.ChoosePreferredLenderDialog}>
+			<s.Y9>{(0, Localize)("#FamilyGroup_ChoosePreferredLender_Title")}</s.Y9>
+			<s.f3 className={g.Body} autoFocus retainFocus>
+				{m && <s.a3 className={g.Error}>{m}</s.a3>}
+				{_ && (
+					<>
+						<s.a3 className={g.PreferredCopyDisc}>
+							{(0, Localize)("#FamilyGroup_ChoosePreferredLender_Text")}
+						</s.a3>
+						<Ge
+							rgLenders={rgLenders}
+							strPreferredLender={o}
+							setPreferredLender={setO}
+							details={details}
+						/>
+						<s.wi>
+							<s.CB onOK={f} bOKDisabled={d.isPending} onCancel={onClose} />
+						</s.wi>
+					</>
+				)}
+				{!p && (
+					<>
+						<s.a3>
+							{LocalizeReact(
+								"#FamilyGroup_Offline",
+								<b>{qw().GetFamilyGroupName()}</b>,
+							)}{" "}
+						</s.a3>
+						<s.wi>
+							<s.CB
+								onOK={(e) => $I(e, h)}
+								strOKText={(0, Localize)("#GoOnline")}
+								onCancel={onClose}
+							/>
+						</s.wi>
+					</>
+				)}
+				{p && !_ && (
+					<>
+						{C && (
+							<s.a3>
+								{" "}
+								{(0, Localize)(
+									"#FamilyGroup_ChoosePreferredLender_AppRunning",
+								)}{" "}
+							</s.a3>
+						)}
+						<s.wi className={g.OfflineFooter}>
+							<s.jn onClick={f}>{(0, Localize)("#Button_OK")}</s.jn>
+						</s.wi>
+					</>
+				)}
+			</s.f3>
+		</L.Z>
 	);
 }
 export function YZ(e) {
-	const { active: t, onDismiss: r, appID: i, details: a } = e;
-	const s = (0, q.vJ)(
-		() => t && SteamClient.FamilySharing.GetAvailableLenders(i),
-		[i, t, a],
+	const { active, onDismiss, appID, details } = e;
+	const s = vJ(
+		() => active && SteamClient.FamilySharing.GetAvailableLenders(appID),
+		[appID, active, details],
 	);
-	return n.createElement(
-		o.mt,
-		{
-			active: s?.length > 0 && t,
-			onDismiss: r,
-		},
-		n.createElement(he, {
-			appID: a.unAppID,
-			details: a,
-			rgLenders: s,
-			onClose: r,
-		}),
+	return (
+		<o.mt active={s?.length > 0 && active} onDismiss={onDismiss}>
+			<He
+				appID={details.unAppID}
+				details={details}
+				rgLenders={s}
+				onClose={onDismiss}
+			/>
+		</o.mt>
 	);
 }

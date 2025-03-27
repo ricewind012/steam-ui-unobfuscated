@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	AppCarouselTrailerCtn: "_2DzJ9TSrYmyo1tY_R-1jym",
 	AutoplayCheckbox: "ZZgGaqlJvV83f4CYl3O3N",

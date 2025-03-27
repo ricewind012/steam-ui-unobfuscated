@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PersonaStatusIcon: "KxAI_M9gWx3OnKSshHOs6",
 	MobilePhoneIcon: "_1iRFj5lJrMqMnRb3GZYPSw",

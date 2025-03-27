@@ -1,9 +1,9 @@
-export var V2;
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./16117.js");
-var s = require("./83610.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
-var l = require("./44184.js");
+import i from "./63696.js";
+import a, { j$, UT } from "./16117.js";
+import s from "./83610.js";
+import o, { Y2 } from "./72476.js";
+import l from "./44184.js";
+export let V2;
 function c(e) {
 	return {
 		sizeStr: e == V2.full ? l.sizeFull : l.sizeThumb,
@@ -11,43 +11,47 @@ function c(e) {
 	};
 }
 export function gH(e) {
-	if ((0, o.Y2)()) {
+	if (Y2()) {
 		return null;
 	}
-	let t = (0, a.j$)(e.args);
+	let t = j$(e.args);
 	if (t) {
 		let e = t.split(";");
 		if (e.length == 2) {
-			let t = e[0];
+			let [t] = e;
 			let r = e[1].toLocaleLowerCase();
-			const { sizeStr: n, alignStr: a } = c(r);
-			return i.createElement(s.A, {
-				videoID: t,
-				classNameAlign: a,
-				classNameSize: n,
-				bShowVideoImmediately: true,
-			});
+			const { sizeStr, alignStr } = c(r);
+			return (
+				<s.A
+					videoID={t}
+					classNameAlign={alignStr}
+					classNameSize={sizeStr}
+					bShowVideoImmediately
+				/>
+			);
 		}
 	}
-	return i.createElement(i.Fragment, null);
+	return <></>;
 }
 export function Eo(e) {
-	if ((0, o.Y2)() || o.TS.COUNTRY.toLocaleUpperCase() == "CN") {
-		return (0, a.UT)(e);
+	if (Y2() || o.TS.COUNTRY.toLocaleUpperCase() == "CN") {
+		return UT(e);
 	}
-	const t = (0, a.j$)(e.args, "youtubeid");
-	const r = (0, a.j$)(e.args, "size");
-	const n = (0, a.j$)(e.args, "seconds");
-	const { sizeStr: l, alignStr: m } = c(r);
-	return i.createElement(s.A, {
-		videoID: t,
-		nStartSeconds: n ? Number.parseInt(n) : undefined,
-		classNameAlign: m,
-		classNameSize: l,
-		bShowVideoImmediately: true,
-	});
+	const t = j$(e.args, "youtubeid");
+	const r = j$(e.args, "size");
+	const n = j$(e.args, "seconds");
+	const { sizeStr, alignStr } = c(r);
+	return (
+		<s.A
+			videoID={t}
+			nStartSeconds={n ? Number.parseInt(n) : undefined}
+			classNameAlign={alignStr}
+			classNameSize={sizeStr}
+			bShowVideoImmediately
+		/>
+	);
 }
-(function (e) {
+((e) => {
 	e.left = "leftthumb";
 	e.right = "rightthumb";
 	e.full = "full";

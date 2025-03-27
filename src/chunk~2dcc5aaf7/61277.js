@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./88696.js");
-var s = require(/*webcrack:missing*/ "./49455.js");
-export var H;
-var l;
-(function (e) {
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./88696.js";
+import { w } from "./49455.js";
+export let H;
+let l;
+((e) => {
 	e[(e.k_eIntro = 0)] = "k_eIntro";
 	e[(e.k_eNonVerifiedGame = 1)] = "k_eNonVerifiedGame";
 	e[(e.k_eGyro = 2)] = "k_eGyro";
@@ -26,7 +26,7 @@ var l;
 	e[(e.k_eIntroToVRTheater = 15)] = "k_eIntroToVRTheater";
 	e[(e.k_eHDRRequiresUserAction = 16)] = "k_eHDRRequiresUserAction";
 })((H ||= {}));
-(function (e) {
+((e) => {
 	e[(e.EveryTime = 0)] = "EveryTime";
 	e[(e.Once = 1)] = "Once";
 	e[(e.OncePerGame = 2)] = "OncePerGame";
@@ -101,7 +101,7 @@ const c = {
 };
 class m {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_localStorage;
 	m_cachedVersionsSeen;
@@ -268,27 +268,27 @@ class m {
 		});
 	}
 }
-(0, n.Cg)([i.sH], m.prototype, "m_VisibleInterstitials", undefined);
-(0, n.Cg)([i.XI], m.prototype, "AddInterstitialToQueue", null);
+Cg([i.sH], m.prototype, "m_VisibleInterstitials", undefined);
+Cg([i.XI], m.prototype, "AddInterstitialToQueue", null);
 class u {
 	m_sBaseKeyName;
 	m_eInterstitial;
 	constructor(e) {
 		this.m_eInterstitial = e;
-		const t = c[e];
-		if (t.mode == l.EveryTime) {
-			(0, s.w)(
-				!t.unVersion,
+		const c_e = c[e];
+		if (c_e.mode == l.EveryTime) {
+			w(
+				!c_e.unVersion,
 				"EveryTime ConfiguratorInterstitials shouldn't specify unVersion",
 			);
 		} else {
-			(0, s.w)(
-				t.unVersion > 0,
+			w(
+				c_e.unVersion > 0,
 				"Once and OncePerGame ConfiguratorInterstitials must specify unVersion > 0",
 			);
 		}
 		const r = H[this.m_eInterstitial];
-		(0, s.w)(
+		w(
 			r.startsWith("k_e"),
 			"ConfiguratorInterstitials doesn't match the expected naming pattern",
 		);
@@ -298,18 +298,18 @@ class u {
 		return c[this.m_eInterstitial].unVersion ?? 0;
 	}
 	get storageKey() {
-		return "Deck_ConfiguratorInterstitialsVersionSeen_" + this.m_sBaseKeyName;
+		return `Deck_ConfiguratorInterstitialsVersionSeen_${this.m_sBaseKeyName}`;
 	}
 	get storageCheckBoxKey() {
 		if (c[this.m_eInterstitial].mode !== l.Once) {
-			return "Deck_ConfiguratorInterstitialsCheckbox_" + this.m_sBaseKeyName;
+			return `Deck_ConfiguratorInterstitialsCheckbox_${this.m_sBaseKeyName}`;
 		} else {
 			return undefined;
 		}
 	}
 	get storageAppsKey() {
 		if (c[this.m_eInterstitial].mode !== l.Once) {
-			return "Deck_ConfiguratorInterstitialApps_" + this.m_sBaseKeyName;
+			return `Deck_ConfiguratorInterstitialApps_${this.m_sBaseKeyName}`;
 		} else {
 			return undefined;
 		}

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	MediaListItemWidth: "144px",
 	MediaListGap: "8px",
 	TimelineGrid: "XPLT1pOBkRalr1GQkOLK5",

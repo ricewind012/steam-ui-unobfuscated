@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./10975.js");
 import { BA, IsHTMLElement } from "../../actual_src/utils/domutils.js";
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import i from "./10975.js";
+import s, { Pt, Ue } from "./52451.js";
+import o, { rP } from "./72476.js";
 const _l = new WeakMap();
 function c(e) {
 	if (e) {
@@ -13,22 +13,23 @@ function c(e) {
 	}
 }
 export function j(e) {
-	const t = (0, o.rP)({
+	const t = rP({
 		bSuppressAssert: true,
 	}).IN_VR;
 	const r = n.useMemo(() => new Map(), []);
-	const [i, l] = n.useState(false);
-	const m = n.useRef(undefined);
-	const u = e.onClick;
+	const [i, setI] = n.useState(false);
+	const MRef = n.useRef(undefined);
+
+	const { onClick, onTouchStart, onTouchMove, onTouchEnd } = e;
+
 	const d = n.useCallback(
 		(e) => {
-			if (u) {
-				u(e);
+			if (onClick) {
+				onClick(e);
 			}
 		},
-		[u],
+		[onClick],
 	);
-	const A = e.onTouchStart;
 	const p = n.useCallback(
 		(e) => {
 			for (const t of Array.from(e.targetTouches)) {
@@ -45,14 +46,13 @@ export function j(e) {
 					});
 				}
 			}
-			l(r.size > 0);
-			if (A) {
-				A(e);
+			setI(r.size > 0);
+			if (onTouchStart) {
+				onTouchStart(e);
 			}
 		},
-		[A, r],
+		[onTouchStart, r],
 	);
-	const g = e.onTouchMove;
 	const h = n.useCallback(
 		(e) => {
 			for (const t of Array.from(e.changedTouches)) {
@@ -60,13 +60,12 @@ export function j(e) {
 					r.get(t.identifier).bReceivedTouchMove = true;
 				}
 			}
-			if (g) {
-				g(e);
+			if (onTouchMove) {
+				onTouchMove(e);
 			}
 		},
-		[g, r],
+		[onTouchMove, r],
 	);
-	const C = e.onTouchEnd;
 	const _ = n.useCallback(
 		(e) => {
 			let t = false;
@@ -74,7 +73,7 @@ export function j(e) {
 				if (!r.has(n.identifier)) {
 					continue;
 				}
-				if (t || !m.current) {
+				if (t || !MRef.current) {
 					continue;
 				}
 				const i = r.get(n.identifier);
@@ -86,29 +85,29 @@ export function j(e) {
 				if (i.bScrolled) {
 					continue;
 				}
-				const s = i.elemTouchStart;
-				const o = m.current.ownerDocument.elementFromPoint(
+				const i_elemTouchStart = i.elemTouchStart;
+				const o = MRef.current.ownerDocument.elementFromPoint(
 					n.clientX,
 					n.clientY,
 				);
 				const l = (0, BA)(
-					IsHTMLElement(s) ? s : undefined,
+					IsHTMLElement(i_elemTouchStart) ? i_elemTouchStart : undefined,
 					IsHTMLElement(o) ? o : undefined,
 				);
-				if (m.current.contains(l)) {
+				if (MRef.current.contains(l)) {
 					l?.click?.();
 					t = true;
 				}
 			}
-			l(r.size > 0);
-			if (C) {
-				C(e);
+			setI(r.size > 0);
+			if (onTouchEnd) {
+				onTouchEnd(e);
 			}
 		},
-		[C, r],
+		[onTouchEnd, r],
 	);
 	n.useEffect(() => {
-		const e = c(m.current?.ownerDocument?.defaultView ?? undefined);
+		const e = c(MRef.current?.ownerDocument?.defaultView ?? undefined);
 		return () => {
 			for (const t of r.keys()) {
 				e?.delete(t);
@@ -123,8 +122,8 @@ export function j(e) {
 		},
 		[r],
 	);
-	const b = (0, s.Pt)(i ? f : undefined);
-	const y = (0, s.Ue)(m, b);
+	const b = Pt(i ? f : undefined);
+	const y = Ue(MRef, b);
 	if (t && e.onClick) {
 		e.onClick = d;
 		e.onTouchStart = p;
@@ -136,20 +135,20 @@ export function j(e) {
 	}
 }
 export function l(e) {
-	const t = (0, o.rP)({
+	const t = rP({
 		bSuppressAssert: true,
 	}).IN_VR;
-	const r = e.onClick;
+	const e_onClick = e.onClick;
 	const a = n.useCallback(
 		(e) => {
 			i.eZ.PlayNavSound(i.PN.BasicNav);
-			if (r) {
-				r(e);
+			if (e_onClick) {
+				e_onClick(e);
 			}
 		},
-		[r],
+		[e_onClick],
 	);
-	if (t && r) {
+	if (t && e_onClick) {
 		e.onClick = a;
 	}
 }

@@ -1,5 +1,5 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
 import { Unique } from "../../actual_src/utils/arrayutils.js";
+import r from "./63696.js";
 const s = r.createContext({
 	body_class: "",
 });
@@ -15,13 +15,7 @@ export function p(e) {
 		}),
 		[i, t],
 	);
-	return r.createElement(
-		s.Provider,
-		{
-			value: a,
-		},
-		n,
-	);
+	return <s.Provider value={a}>{n}</s.Provider>;
 }
 function c(e, t) {
 	const n = e ? e.split(/\s/) : [];

@@ -1,5 +1,5 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./93960.js");
+import r, { Cg } from "./34629.js";
+import i from "./93960.js";
 class s {
 	m_eLoginState;
 	constructor() {
@@ -12,5 +12,5 @@ class s {
 		return this.m_eLoginState == 6 || this.m_eLoginState == 7;
 	}
 }
-(0, r.Cg)([i.o], s.prototype, "OnLoginStateChange", null);
+Cg([i.o], s.prototype, "OnLoginStateChange", null);
 export const W = new s();

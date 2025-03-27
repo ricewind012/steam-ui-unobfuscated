@@ -1,52 +1,52 @@
-var n;
-var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./78325.js");
-var o = require(/*webcrack:missing*/ "./11131.js");
-var l = require(/*webcrack:missing*/ "./63439.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./13869.js");
-var d = require(/*webcrack:missing*/ "./53807.js");
-var A = require("./96680.js");
-function p(e) {
+import i from "./64608.js";
+import a from "./63696.js";
+import s from "./78325.js";
+import o from "./11131.js";
+import l, { OJ } from "./63439.js";
+import m, { l6 } from "./52451.js";
+import u from "./13869.js";
+import d, { wm } from "./53807.js";
+import { $2 } from "./96680.js";
+let n;
+function P(e) {
 	const {
-		bAlertDialog: t,
-		strURL: r,
-		strMessage: n,
-		ownerWindow: p,
-		targetBrowserInfo: g,
-		browser: h,
-		onClose: C,
+		bAlertDialog,
+		strURL,
+		strMessage,
+		ownerWindow,
+		targetBrowserInfo,
+		browser,
+		onClose,
 	} = e;
-	const _ = (function () {
-		const e = (0, A.$2)();
+	const _ = (() => {
+		const e = $2();
 		return e.IsDesktopOverlayWindow() || e.IsGamepadUIOverlayWindow();
 	})();
-	const f = g.m_unPID + "_Alert";
+	const f = `${targetBrowserInfo.m_unPID}_Alert`;
 	const b = o.Wf.NoTaskbarIcon;
-	const { popup: y, element: S } = (0, l.OJ)(f, {
+	const { popup, element } = OJ(f, {
 		title: f,
 		html_class: "fullheight ModalDialogPopup",
 		body_class: "fullheight ModalDialogBody",
 		popup_class: "fullheight",
-		target_browser: g,
+		target_browser: targetBrowserInfo,
 		dimensions: {
 			width: 500,
 			height: 250,
 		},
 		eCreationFlags: b,
-		center_on_window: p,
+		center_on_window: ownerWindow,
 		bModal: true,
 	});
 	const w = a.useCallback(() => {
-		h.DialogResponse(false);
-		C();
-	}, [h, C]);
+		browser.DialogResponse(false);
+		onClose();
+	}, [browser, onClose]);
 	const B = a.useCallback(() => {
-		h.DialogResponse(true);
-		C();
-	}, [h, C]);
+		browser.DialogResponse(true);
+		onClose();
+	}, [browser, onClose]);
 	const v = a.useCallback(
 		(e) => {
 			if (e.key == "Escape") {
@@ -57,74 +57,56 @@ function p(e) {
 		},
 		[w],
 	);
-	(0, m.l6)(y, "keydown", v, {
+	l6(popup, "keydown", v, {
 		capture: true,
 	});
 	a.useEffect(() => {
-		if (y && !_) {
-			y.SteamClient.Window.SetModal(true);
-			y.SteamClient.Window.BringToFront();
+		if (popup && !_) {
+			popup.SteamClient.Window.SetModal(true);
+			popup.SteamClient.Window.BringToFront();
 		}
-	}, [y, _]);
-	if (!S) {
+	}, [popup, _]);
+	if (!element) {
 		return null;
 	}
-	const I = (0, d.wm)(r);
+	const I = wm(strURL);
 	return s.createPortal(
-		a.createElement(
-			"div",
-			{
-				className: "PopupFullWindow",
-			},
-			a.createElement(
-				u.x_,
-				{
-					onEscKeypress: w,
-				},
-				a.createElement(
-					i.UC,
-					null,
-					a.createElement(i.Y9, null, Localize("#BrowserJSDialog_Header", I)),
-					a.createElement(i.a3, null, n),
-					a.createElement(
-						i.wi,
-						null,
-						t &&
-							a.createElement(
-								i.$n,
-								{
-									onClick: w,
-								},
-								Localize("#Button_OK"),
-							),
-						!t &&
-							a.createElement(i.CB, {
-								onOK: B,
-								strOKText: Localize("#Button_OK"),
-								onCancel: w,
-								strCancelText: Localize("#Button_Cancel"),
-							}),
-					),
-				),
-			),
-		),
-		S,
+		<div className="PopupFullWindow">
+			<u.x_ onEscKeypress={w}>
+				<i.UC>
+					<i.Y9>{Localize("#BrowserJSDialog_Header", I)}</i.Y9>
+					<i.a3>{strMessage}</i.a3>
+					<i.wi>
+						{bAlertDialog && <i.$n onClick={w}>{Localize("#Button_OK")}</i.$n>}
+						{!bAlertDialog && (
+							<i.CB
+								onOK={B}
+								strOKText={Localize("#Button_OK")}
+								onCancel={w}
+								strCancelText={Localize("#Button_Cancel")}
+							/>
+						)}
+					</i.wi>
+				</i.UC>
+			</u.x_>
+		</div>,
+		element,
 	);
 }
 export function b(e, t, r) {
-	const [i, s] = a.useState(n.k_None);
-	const [o, l] = a.useState();
-	const c = a.useRef(undefined);
+	const [i, setI] = a.useState(n.k_None);
+	const [o, setO] = a.useState();
+	const CRef = a.useRef(undefined);
 	const m = a.useCallback((e) => {
-		l(e);
-		s(n.k_Alert);
+		setO(e);
+		setI(n.k_Alert);
 	}, []);
 	const u = a.useCallback((e) => {
-		l(e);
-		s(n.k_Confirm);
+		setO(e);
+		setI(n.k_Confirm);
 	}, []);
 	const d = a.useCallback((e, t) => {
-		c.current = e;
+		CRef.current = e;
 	}, []);
 	a.useEffect(() => {
 		if (r) {
@@ -140,20 +122,22 @@ export function b(e, t, r) {
 		}
 	}, [r, m, u, d]);
 	if (i != n.k_None) {
-		return a.createElement(p, {
-			bAlertDialog: i == n.k_Alert,
-			ownerWindow: e,
-			targetBrowserInfo: t,
-			browser: r,
-			onClose: () => s(n.k_None),
-			strURL: c.current,
-			strMessage: o,
-		});
+		return (
+			<P
+				bAlertDialog={i == n.k_Alert}
+				ownerWindow={e}
+				targetBrowserInfo={t}
+				browser={r}
+				onClose={() => setI(n.k_None)}
+				strURL={CRef.current}
+				strMessage={o}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.k_None = 0)] = "k_None";
 	e[(e.k_Alert = 1)] = "k_Alert";
 	e[(e.k_Confirm = 2)] = "k_Confirm";

@@ -1,44 +1,40 @@
+import n, { createContext, useContext, useCallback } from "./63696.js";
+import i, { W6, B6 } from "./49519.js";
+import a from "./79769.js";
+import s from "./79112.js";
 export let br = s.br;
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49519.js");
-var a = require(/*webcrack:missing*/ "./79769.js");
-var s = require("./79112.js");
-export const GL = (0, n.createContext)({
+export const GLContext = createContext({
 	OnNavigateBack: new a.lu(),
 	refGlobalBackOverride: {
 		current: undefined,
 	},
 	rgSuppressForwardBackNavigation: [],
-	fnFocusNavigationRoot: function () {},
+	fnFocusNavigationRoot() {},
 });
 export function K1() {
-	return (0, n.useContext)(GL)?.fnFocusNavigationRoot || function () {};
+	return useContext(GLContext)?.fnFocusNavigationRoot || (() => {});
 }
 export function tn(e, t = {}) {
-	const { bNoRedundantNavigation: r, bReplace: a, state: s } = t;
-	const o = (0, i.W6)();
+	const { bNoRedundantNavigation, bReplace, state } = t;
+	const o = W6();
 	const c = K1();
-	return (0, n.useCallback)(
+	return useCallback(
 		(t, n = {}) => {
 			const i = e
 				? {
-						bNoRedundantNavigation: r,
-						bReplace: a,
-						state: s,
+						bNoRedundantNavigation: bNoRedundantNavigation,
+						bReplace: bReplace,
+						state: state,
 					}
 				: n;
 			We(o, e || t, i.bReplace, i.bNoRedundantNavigation, i.state);
 			c();
 		},
-		[o, c, e, r, a, s],
+		[o, c, e, bNoRedundantNavigation, bReplace, state],
 	);
 }
 export function We(e, t, r, n, a) {
-	const {
-		bReplace: s,
-		bNoRedundantNavigation: o,
-		state: l,
-	} = (function (e, t, r) {
+	const { bReplace, bNoRedundantNavigation, state } = ((e, t, r) => {
 		if (typeof e == "object") {
 			return e;
 		} else {
@@ -49,11 +45,11 @@ export function We(e, t, r, n, a) {
 			};
 		}
 	})(r, n, a);
-	if (!o || !(0, i.B6)(t, e.location.pathname)) {
-		if (s) {
-			e.replace(t, l);
+	if (!bNoRedundantNavigation || !B6(t, e.location.pathname)) {
+		if (bReplace) {
+			e.replace(t, state);
 		} else {
-			e.push(t, l);
+			e.push(t, state);
 		}
 	}
 }

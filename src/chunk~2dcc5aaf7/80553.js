@@ -1,5 +1,5 @@
-var n = require("./91369.js");
-var i = require("./45967.js");
+import n from "./91369.js";
+import i from "./45967.js";
 export function c(e) {
 	if (i.qL.IsSteamVRSimulatedOnDesktop) {
 		console.log(

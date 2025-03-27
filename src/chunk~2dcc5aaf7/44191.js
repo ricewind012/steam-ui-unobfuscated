@@ -1,5 +1,5 @@
-export var h;
-(function (e) {
+export let h;
+((e) => {
 	e.General = "general";
 	e.Compatibility = "compatibility";
 	e.Updates = "updates";

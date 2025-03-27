@@ -1,3 +1,49 @@
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
+import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { GetTotalZoom } from "../../actual_src/utils/domutils.js";
+import n from "./44351.js";
+import i, { Cg } from "./34629.js";
+import _a from "./63696.js";
+import s, { b$ } from "./90242.js";
+import o from "./69164.js";
+import l from "./50376.js";
+import c, { w as w_1 } from "./49455.js";
+import { A as A_1 } from "./90765.js";
+import d, { Ue, XB, wY } from "./52451.js";
+import A from "./29889.js";
+import p from "./27793.js";
+import g, { Zt } from "./7514.js";
+import S from "./26970.js";
+import w from "./83441.js";
+import T, { lX } from "./31084.js";
+import R from "./98995.js";
+import k from "./28999.js";
+import X from "./91999.js";
+import $ from "./54043.js";
+import ee from "./97936.js";
+import re from "./12316.js";
+import ne from "./2053.js";
+import ae, { K$, Qh } from "./22004.js";
+import se from "./91371.js";
+import { rP as rP_1 } from "./72476.js";
+import { cZ } from "./28864.js";
+import fe from "./35488.js";
+import be from "./10768.js";
+import Se from "./88750.js";
+import { C7 } from "./28869.js";
+import Me from "./62403.js";
+import De from "./34384.js";
+import { OQ, bT } from "./31958.js";
+import { D0 as D0_1, LD, Fg } from "./34742.js";
+import Oe from "./10975.js";
+import Pe from "./72655.js";
+import Le from "./61657.js";
+import { i_ as i_1 } from "./43397.js";
+import xe from "./16251.js";
+import { tw } from "./69.js";
 export let vn = ee.vn;
 export let v$ = ee.v$;
 export let a_ = g.a_;
@@ -50,24 +96,8 @@ export let f3 = n.f3;
 export let nB = n.nB;
 export let Nv = re.Nv;
 export let pF = n.pF;
-var n = require("./44351.js");
-var i = require(/*webcrack:missing*/ "./34629.js");
-var _a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./90242.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require(/*webcrack:missing*/ "./50376.js");
-var c = require(/*webcrack:missing*/ "./49455.js");
-var _m = require(/*webcrack:missing*/ "./90765.js");
-import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require("./29889.js");
-var p = require("./27793.js");
-var g = require("./7514.js");
-const h = _a.forwardRef(function (e, t) {
-	const r = (0, g.Zt)("InputElement", s.BA);
+const h = _a.forwardRef((e, t) => {
+	const r = Zt("InputElement", s.BA);
 	return _a.createElement(r, {
 		...e,
 		ref: t,
@@ -131,12 +161,8 @@ export class pd extends _a.PureComponent {
 	Validate() {
 		this.setState({
 			m_bNumberBelowMinRange:
-				this.props.rangeMin !== null &&
-				this.props.rangeMin !== undefined &&
 				Number(this.m_elInput?.value) < this.props.rangeMin,
 			m_bNumberAboveMaxRange:
-				this.props.rangeMax !== null &&
-				this.props.rangeMax !== undefined &&
 				Number(this.m_elInput?.value) > this.props.rangeMax,
 			m_bIsNotNumeric:
 				this.props.mustBeNumeric == 1 && isNaN(Number(this.m_elInput?.value)),
@@ -213,34 +239,34 @@ export class pd extends _a.PureComponent {
 		}
 	}
 	CheckProps(e) {
-		(0, c.w)(
+		w_1(
 			(!e.bShowClearAction && !e.bAlwaysShowClearAction) || e.onChange,
 			"In order for bShowClearAction to work correctly, you should be handling onChange and passing value to the Dialog.Input.",
 		);
 	}
 	render() {
 		const {
-			label: e,
-			description: t,
-			requiredLabel: r,
-			bShowCopyAction: i,
-			bShowClearAction: s,
-			bAlwaysShowClearAction: c,
-			rangeMin: m,
-			rangeMax: d,
-			mustBeNumeric: A,
-			mustBeURL: g,
-			fnStrValidateURL: C,
-			mustBeEmail: _,
-			focusOnMount: f,
-			tooltip: b,
-			inlineControls: y,
-			maxChars: S,
+			label,
+			description,
+			requiredLabel,
+			bShowCopyAction,
+			bShowClearAction,
+			bAlwaysShowClearAction,
+			rangeMin,
+			rangeMax,
+			mustBeNumeric,
+			mustBeURL,
+			fnStrValidateURL,
+			mustBeEmail,
+			focusOnMount,
+			tooltip,
+			inlineControls,
+			maxChars,
 			...w
 		} = this.props;
-		let B =
-			"DialogInput DialogInputPlaceholder DialogTextInputBase" +
-			(w.className ? " " + w.className : "");
+		let B = `DialogInput DialogInputPlaceholder DialogTextInputBase${
+			w.className ? ` ${w.className}` : ""
+		}`;
 		let v = "copiedAnimation";
 		let I = this.state.m_bCompletedCopiedAnimation;
 		if (this.m_CopiedAnimation) {
@@ -251,7 +277,7 @@ export class pd extends _a.PureComponent {
 		}
 		let E = {};
 		if (this.state.m_CopiedYPos !== undefined) {
-			E.transform = "translateY(" + this.state.m_CopiedYPos + "px)";
+			E.transform = `translateY(${this.state.m_CopiedYPos}px)`;
 		}
 		let M = _a.createElement(
 			_a.Fragment,
@@ -270,7 +296,7 @@ export class pd extends _a.PureComponent {
 					ref: this.OnInputRef,
 					onChange: this.OnChanged,
 				}),
-				i &&
+				bShowCopyAction &&
 					_a.createElement(
 						"div",
 						{
@@ -293,7 +319,7 @@ export class pd extends _a.PureComponent {
 							(0, Localize)("#Button_Copied"),
 						),
 					),
-				(c || (s && w.value)) &&
+				(bAlwaysShowClearAction || (bShowClearAction && w.value)) &&
 					_a.createElement(
 						"div",
 						{
@@ -302,18 +328,18 @@ export class pd extends _a.PureComponent {
 						},
 						_a.createElement(l.sED, null),
 					),
-				y,
+				inlineControls,
 			),
-			t &&
+			description &&
 				_a.createElement(
 					"div",
 					{
 						className: "DialogLabelExplainer",
 					},
-					t,
+					description,
 				),
 		);
-		if (e) {
+		if (label) {
 			return _a.createElement(
 				"div",
 				{
@@ -328,7 +354,7 @@ export class pd extends _a.PureComponent {
 						{
 							className: "DialogLabel",
 						},
-						e,
+						label,
 						" ",
 						this.props.tooltip &&
 							_a.createElement(p.o, {
@@ -403,7 +429,7 @@ export class pd extends _a.PureComponent {
 								"div",
 								null,
 								" ",
-								LocalizeReact("#Input_Error_TooManyCharacters", S),
+								LocalizeReact("#Input_Error_TooManyCharacters", maxChars),
 								" ",
 							)
 						: null,
@@ -414,10 +440,10 @@ export class pd extends _a.PureComponent {
 		}
 	}
 }
-(0, i.Cg)([d.oI], pd.prototype, "OnInputRef", null);
-(0, i.Cg)([d.oI], pd.prototype, "OnChanged", null);
-(0, i.Cg)([d.oI], pd.prototype, "OnCopyClick", null);
-(0, i.Cg)([d.oI], pd.prototype, "OnClearClick", null);
+Cg([d.oI], pd.prototype, "OnInputRef", null);
+Cg([d.oI], pd.prototype, "OnChanged", null);
+Cg([d.oI], pd.prototype, "OnCopyClick", null);
+Cg([d.oI], pd.prototype, "OnClearClick", null);
 export class eo extends pd {
 	m_bFocused = false;
 	OnBackgroundClick() {
@@ -445,24 +471,24 @@ export class eo extends pd {
 	}
 	render() {
 		const {
-			label: e,
-			description: t,
-			requiredLabel: r,
-			bShowCopyAction: n,
-			bShowClearAction: i,
-			bAlwaysShowClearAction: l,
-			rangeMin: c,
-			rangeMax: u,
-			maxChars: d,
-			mustBeNumeric: A,
-			mustBeURL: p,
-			fnStrValidateURL: g,
-			mustBeEmail: h,
-			focusOnMount: C,
-			tooltip: _,
-			inlineControls: f,
-			className: b,
-			children: y,
+			label,
+			description,
+			requiredLabel,
+			bShowCopyAction,
+			bShowClearAction,
+			bAlwaysShowClearAction,
+			rangeMin,
+			rangeMax,
+			maxChars,
+			mustBeNumeric,
+			mustBeURL,
+			fnStrValidateURL,
+			mustBeEmail,
+			focusOnMount,
+			tooltip,
+			inlineControls,
+			className,
+			children,
 			...S
 		} = this.props;
 		return _a.createElement(
@@ -473,18 +499,18 @@ export class eo extends pd {
 			_a.createElement(
 				"label",
 				null,
-				e &&
+				label &&
 					_a.createElement(
 						"div",
 						{
 							className: "DialogLabel",
 						},
-						e,
+						label,
 					),
 				_a.createElement(
 					"div",
 					{
-						className: (0, _m.A)(
+						className: A_1(
 							"_DialogInputContainer",
 							"DialogTextInputBase",
 							this.m_bFocused && "Active",
@@ -497,7 +523,7 @@ export class eo extends pd {
 							className: "DialogListBuilderInput_List",
 							"flow-children": "row",
 						},
-						_a.Children.map(y, (e, t) =>
+						_a.Children.map(children, (e, t) =>
 							_a.createElement(
 								"div",
 								{
@@ -518,25 +544,25 @@ export class eo extends pd {
 						}),
 					),
 				),
-				t &&
+				description &&
 					_a.createElement(
 						"div",
 						{
 							className: "DialogLabelExplainer",
 						},
-						t,
+						description,
 					),
 			),
 		);
 	}
 }
-(0, i.Cg)([d.oI], eo.prototype, "OnBackgroundClick", null);
-(0, i.Cg)([d.oI], eo.prototype, "OnInputFocus", null);
-(0, i.Cg)([d.oI], eo.prototype, "OnInputBlur", null);
+Cg([d.oI], eo.prototype, "OnBackgroundClick", null);
+Cg([d.oI], eo.prototype, "OnInputFocus", null);
+Cg([d.oI], eo.prototype, "OnInputBlur", null);
 export const Zy = (e, t) =>
-	"" + (e != null ? Number.parseFloat(e.toFixed(3)) : null) + (t ?? "");
+	`${e != null ? Number.parseFloat(e.toFixed(3)) : null}${t ?? ""}`;
 export const Kc = (e) => {
-	const t = (0, g.Zt)("SliderField", rP);
+	const t = Zt("SliderField", rP);
 	return _a.createElement(t, {
 		...e,
 	});
@@ -547,7 +573,7 @@ export class rP extends _a.Component {
 		super(e);
 	}
 	ClampValue(e) {
-		if (e === undefined || isNaN(e) || e < this.props.min) {
+		if (e === undefined || isNaN(e) || isNaN(e) || e < this.props.min) {
 			return this.props.min;
 		} else if (e > this.props.max) {
 			return this.props.max;
@@ -673,34 +699,34 @@ export class rP extends _a.Component {
 		let e = {};
 		let t = {};
 		if (this.BPropsValid()) {
-			let r =
+			let r = `${
 				((this.props.value - this.props.min) * 100) /
-					(this.props.max - this.props.min) +
-				"%";
+				(this.props.max - this.props.min)
+			}%`;
 			e.width = r;
 			t.left = r;
 		}
-		const { label: r, description: n, tooltip: i, ...s } = this.props;
+		const { label, description, tooltip, ...s } = this.props;
 		const o = this.props.renderValue ?? Zy;
 		return _a.createElement(
 			"div",
 			{
-				className:
-					"DialogSlider_Container _DialogInputContainer _DialogLayout" +
-					(this.props.className ? " " + this.props.className : ""),
+				className: `DialogSlider_Container _DialogInputContainer _DialogLayout${
+					this.props.className ? ` ${this.props.className}` : ""
+				}`,
 				onKeyDown: this.OnKeyDown,
 				tabIndex: this.props.tabIndex || 0,
 			},
-			r &&
+			label &&
 				_a.createElement(
 					"div",
 					{
 						className: "DialogLabel",
 					},
-					r,
-					Boolean(i) &&
+					label,
+					Boolean(tooltip) &&
 						_a.createElement(p.o, {
-							tooltip: i,
+							tooltip: tooltip,
 						}),
 				),
 			_a.createElement(
@@ -727,82 +753,76 @@ export class rP extends _a.Component {
 					},
 					o(this.props.value, this.props.valueSuffix),
 				),
-			n &&
+			description &&
 				_a.createElement(
 					"div",
 					{
 						className: "DialogLabelExplainer",
 					},
-					n,
+					description,
 				),
 		);
 	}
 }
-(0, i.Cg)([d.oI], rP.prototype, "OnMouseDown", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnMouseMove", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnMouseUp", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnTouchStart", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnTouchMove", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnTouchEnd", null);
-(0, i.Cg)([d.oI], rP.prototype, "OnKeyDown", null);
-var S = require("./26970.js");
-var w = require("./83441.js");
-var B = w;
-const v = _a.createContext({
+Cg([d.oI], rP.prototype, "OnMouseDown", null);
+Cg([d.oI], rP.prototype, "OnMouseMove", null);
+Cg([d.oI], rP.prototype, "OnMouseUp", null);
+Cg([d.oI], rP.prototype, "OnTouchStart", null);
+Cg([d.oI], rP.prototype, "OnTouchMove", null);
+Cg([d.oI], rP.prototype, "OnTouchEnd", null);
+Cg([d.oI], rP.prototype, "OnKeyDown", null);
+const B = w;
+const VContext = _a.createContext({
 	setValue: () => {},
 });
 export function zW(e) {
-	const { value: t, onChange: r, classNames: n, disabled: i, children: s } = e;
+	const { value, onChange, classNames, disabled, children } = e;
 	const l = {
-		value: t,
-		setValue: r,
-		disabled: i,
+		value: value,
+		setValue: onChange,
+		disabled: disabled,
 	};
 	return _a.createElement(
-		v.Provider,
+		VContext.Provider,
 		{
 			value: l,
 		},
 		_a.createElement(
 			o.Z,
 			{
-				className: (0, _m.A)(
+				className: A_1(
 					B.Group,
 					"Shared_Radio_Group",
-					n,
-					i && B.Disabled,
+					classNames,
+					disabled && B.Disabled,
 					l.bVertical && B.VerticalGrouping,
 				),
 			},
-			s,
+			children,
 		),
 	);
 }
 export function a(e) {
-	const { value: t, children: r, ...n } = e;
-	const { value: i, setValue: o, disabled: l } = _a.useContext(v);
-	let c = o;
-	const u = t === i;
+	const { value, children, ...n } = e;
+	const { value: value_1, setValue, disabled } = _a.useContext(VContext);
+	let c = setValue;
+	const u = value === value_1;
 	return _a.createElement(
 		s.ml,
 		{
-			className: (0, _m.A)(
+			className: A_1(
 				B.Button,
 				"RadioButton",
 				u && B.Active,
-				l && B.Disabled,
+				disabled && B.Disabled,
 			),
-			onClick: l ? undefined : () => c(t),
+			onClick: disabled || (() => c(value)),
 			...n,
 		},
-		r,
+		children,
 	);
 }
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-var T = require(/*webcrack:missing*/ "./31084.js");
-var R = require(/*webcrack:missing*/ "./98995.js");
-var k = require("./28999.js");
-var D = k;
+const D = k;
 export function m1(e) {
 	return typeof e == "object" && "data" in e;
 }
@@ -840,8 +860,8 @@ function P(e, t) {
 				e.label === t.label &&
 				e.tooltip === t.tooltip &&
 				OV(e) == OV(t) &&
-				(!OV(e) || !OV(t) || !!O(e.options, t.options)) &&
-				(!m1(e) || !m1(t) || e.data === t.data))
+				(!OV(e) || !OV(t) || !OV(t) || !!O(e.options, t.options)) &&
+				(!m1(e) || !m1(t) || !m1(t) || e.data === t.data))
 		);
 	}
 }
@@ -864,8 +884,7 @@ export function Ld(e) {
 }
 function z(e, t) {
 	if (e != null) {
-		for (let r = 0; r < e.length; r++) {
-			const n = e[r];
+		for (const n of e) {
 			if (m1(n) && n.data === t) {
 				return n;
 			}
@@ -879,47 +898,36 @@ function z(e, t) {
 	}
 }
 export function m(e) {
-	const t = (0, g.Zt)("DropDownField", pU);
+	const t = Zt("DropDownField", pU);
 	return _a.createElement(t, {
 		...e,
 	});
 }
 export function pU(e) {
-	const {
-		label: t,
-		tooltip: r,
-		strClassName: i,
-		dropDownControlRef: s,
-		...o
-	} = e;
+	const { label, tooltip, strClassName, dropDownControlRef, ...o } = e;
 	return _a.createElement(
 		n.mq,
 		{
-			label: t,
-			tooltip: r,
-			className: i,
+			label: label,
+			tooltip: tooltip,
+			className: strClassName,
 		},
 		_a.createElement(ZU, {
-			menuLabel: t,
+			menuLabel: label,
 			...o,
-			ref: s,
+			ref: dropDownControlRef,
 		}),
 	);
 }
-export const Ws = _a.forwardRef(function (e, t) {
-	return _a.createElement(
+export const Ws = _a.forwardRef((e, t) =>
+	_a.createElement(
 		s.fu,
 		{
 			focusable: e.focusable,
-			className: (0, _m.A)(
-				e.className,
-				"DialogDropDown",
-				"_DialogInputContainer",
-				{
-					Active: e.opened,
-					Disabled: e.disabled,
-				},
-			),
+			className: A_1(e.className, "DialogDropDown", "_DialogInputContainer", {
+				Active: e.opened,
+				Disabled: e.disabled,
+			}),
 			tabIndex: e.tabIndex,
 			onClick: e.onClick,
 			onKeyDown: e.onKeyDown,
@@ -933,12 +941,12 @@ export const Ws = _a.forwardRef(function (e, t) {
 			_a.createElement(
 				"div",
 				{
-					className: (0, _m.A)(e.arrowClassName, "DialogDropDown_Arrow"),
+					className: A_1(e.arrowClassName, "DialogDropDown_Arrow"),
 				},
 				_a.createElement(l.GB9, null),
 			),
-	);
-});
+	),
+);
 export class ZU extends _a.Component {
 	static contextType = g.Ce;
 	m_elInput;
@@ -1000,7 +1008,7 @@ export class ZU extends _a.Component {
 		const r = !O(e.rgOptions, this.props.rgOptions);
 		const n = e.selectedOption !== this.props.selectedOption;
 		const i = this.value !== t.value;
-		if (!this.props.controlled && (r || i || n)) {
+		if (!this.props.controlled && (r || i || i || n)) {
 			if (n || this.value == null) {
 				this.SetSelectedOption(this.props.selectedOption);
 			} else {
@@ -1052,7 +1060,7 @@ export class ZU extends _a.Component {
 	BuildMenu() {
 		let e = "DialogMenuPosition";
 		if (this.props.strDropDownClassName) {
-			e += " " + this.props.strDropDownClassName;
+			e += ` ${this.props.strDropDownClassName}`;
 		}
 		let t = {
 			bOverlapHorizontal: true,
@@ -1063,7 +1071,7 @@ export class ZU extends _a.Component {
 			...this.props.contextMenuPositionOptions,
 		};
 		let r = this.props.contextMenuPositionOptions?.onCancel;
-		this.m_iMenuInstance = (0, T.lX)(
+		this.m_iMenuInstance = lX(
 			_a.createElement(n4, {
 				rgOptions: this.props.rgOptions,
 				onValueSelected: this.OnValueSelected,
@@ -1125,15 +1133,18 @@ export class ZU extends _a.Component {
 				: e;
 		const r = this.props.focusable ?? true;
 		const n =
-			this.props.renderButton || this.context.DropDownControlButton || Ws;
+			this.props.renderButton ||
+			this.context.DropDownControlButton ||
+			this.context.DropDownControlButton ||
+			Ws;
 		return _a.createElement(
 			n,
 			{
 				focusable: r,
 				disabled: this.props.disabled ?? false,
 				opened: this.state.bOpened,
-				onClick: this.props.disabled ? undefined : this.ToggleMenu,
-				onKeyDown: this.props.disabled ? undefined : this.OnKeyDown,
+				onClick: this.props.disabled || this.ToggleMenu,
+				onKeyDown: this.props.disabled || this.OnKeyDown,
 				tabIndex: this.props.tabIndex ?? (r ? 0 : undefined),
 				ref: this.OnInputRef,
 				className: this.props.strDropDownButtonClassName,
@@ -1143,15 +1154,15 @@ export class ZU extends _a.Component {
 		);
 	}
 }
-(0, i.Cg)([d.oI], ZU.prototype, "OnInputRef", null);
-(0, i.Cg)([d.oI], ZU.prototype, "ToggleMenu", null);
-(0, i.Cg)([d.oI], ZU.prototype, "OnValueSelected", null);
-(0, i.Cg)([d.oI], ZU.prototype, "ShowMenu", null);
-(0, i.Cg)([d.oI], ZU.prototype, "HideMenu", null);
-(0, i.Cg)([d.oI], ZU.prototype, "OnKeyDown", null);
+Cg([d.oI], ZU.prototype, "OnInputRef", null);
+Cg([d.oI], ZU.prototype, "ToggleMenu", null);
+Cg([d.oI], ZU.prototype, "OnValueSelected", null);
+Cg([d.oI], ZU.prototype, "ShowMenu", null);
+Cg([d.oI], ZU.prototype, "HideMenu", null);
+Cg([d.oI], ZU.prototype, "OnKeyDown", null);
 export const Gt = _a.createContext(null);
 export function n4(e) {
-	const t = (0, g.Zt)("DropDownMenu", Q);
+	const t = Zt("DropDownMenu", Q);
 	return _a.createElement(
 		Gt.Provider,
 		{
@@ -1177,13 +1188,13 @@ function q(e, t, r, n) {
 }
 function Q(e) {
 	const {
-		rgOptions: t,
-		strDropDownItemClassName: r,
-		onValueSelected: n,
-		selectedValue: i,
+		rgOptions,
+		strDropDownItemClassName,
+		onValueSelected,
+		selectedValue,
 	} = e;
-	const [s, o] = _a.useState(i);
-	const l = _a.useMemo(() => t.filter(m1), [t]);
+	const [s, o] = _a.useState(selectedValue);
+	const l = _a.useMemo(() => rgOptions.filter(m1), [rgOptions]);
 	const c = _a.useCallback(
 		(e) => {
 			q(e, l, s, (e) => o(e.data));
@@ -1193,7 +1204,7 @@ function Q(e) {
 	return _a.createElement(
 		"div",
 		{
-			className: (0, _m.A)(
+			className: A_1(
 				D.DialogDropDownMenu,
 				"_DialogInputContainer",
 				e.strDropDownMenuCtnClass,
@@ -1201,21 +1212,21 @@ function Q(e) {
 			onKeyDown: c,
 		},
 		_a.createElement(Z, {
-			rgOptions: t,
-			strDropDownItemClassName: r,
-			onValueSelected: n,
+			rgOptions: rgOptions,
+			strDropDownItemClassName: strDropDownItemClassName,
+			onValueSelected: onValueSelected,
 			activeValue: s,
 			setActiveValue: o,
 		}),
 	);
 }
 function Z(e) {
-	const { rgOptions: t, ...r } = e;
-	return t.map((e, t) =>
+	const { rgOptions, ...r } = e;
+	return rgOptions.map((e, t) =>
 		MJ(e)
 			? _a.createElement("hr", {
 					key: t,
-					className: (0, _m.A)(
+					className: A_1(
 						D.DialogDropDownMenu_Item,
 						D.DialogDropDownMenu_Separator,
 					),
@@ -1235,42 +1246,42 @@ function Z(e) {
 }
 function Y(e) {
 	const {
-		option: t,
-		strDropDownItemClassName: r,
-		onValueSelected: n,
-		activeValue: i,
-		setActiveValue: s,
+		option,
+		strDropDownItemClassName,
+		onValueSelected,
+		activeValue,
+		setActiveValue,
 	} = e;
 	const o = _a.useCallback((e) => e && e.focus(), []);
 	const l = _a.useCallback(() => {
-		s(t.data);
-	}, [s, t]);
-	const c = t.data === i;
+		setActiveValue(option.data);
+	}, [setActiveValue, option]);
+	const c = option.data === activeValue;
 	return _a.createElement(
 		"button",
 		{
 			type: "button",
-			className: (0, _m.A)(
+			className: A_1(
 				D.DialogDropDownMenu_Item,
-				r,
-				t.strOptionClass,
+				strDropDownItemClassName,
+				option.strOptionClass,
 				c && "ContextMenuAutoFocus",
 			),
-			onClick: (e) => n(e, t),
+			onClick: (e) => onValueSelected(e, option),
 			ref: c ? o : undefined,
 			onMouseEnter: l,
 		},
-		Boolean(t.tooltip)
+		Boolean(option.tooltip)
 			? _a.createElement(
 					R.he,
 					{
-						toolTipContent: t.tooltip,
+						toolTipContent: option.tooltip,
 						bTopmost: true,
 						className: "TooltipContainer",
 					},
-					t.label,
+					option.label,
 				)
-			: _a.createElement("div", null, t.label),
+			: _a.createElement("div", null, option.label),
 	);
 }
 class K extends _a.Component {
@@ -1286,40 +1297,34 @@ class K extends _a.Component {
 		}
 	}
 	render() {
-		const {
-			fnLoadOptions: e,
-			strInitialDisplay: t,
-			initialValue: r,
-			...n
-		} = this.props;
-		let { rgOptions: i } = this.state;
-		if (i === undefined) {
-			if (t || r) {
-				i = [
+		const { fnLoadOptions, strInitialDisplay, initialValue, ...n } = this.props;
+		let { rgOptions } = this.state;
+		if (rgOptions === undefined) {
+			if (strInitialDisplay || initialValue) {
+				rgOptions = [
 					{
-						label: t,
-						data: r,
+						label: strInitialDisplay,
+						data: initialValue,
 					},
 				];
-				n.selectedOption = r;
+				n.selectedOption = initialValue;
 			} else {
-				i = [];
+				rgOptions = [];
 			}
 		}
 		return _a.createElement(m, {
 			...n,
-			rgOptions: i,
+			rgOptions: rgOptions,
 			onMenuOpened: this.OnMenuOpened,
 		});
 	}
 }
-(0, i.Cg)([d.oI], K.prototype, "OnMenuOpened", null);
-var X = require("./91999.js");
+Cg([d.oI], K.prototype, "OnMenuOpened", null);
 export function aZ(e) {
 	const t = e.descriptionVisibility ?? "always";
 	const r = e.upperDescriptionVisibility ?? "always";
 	const n = e.iconVisibility ?? "always";
-	const i = (0, _m.A)(X.DropDownLabelContainer, e.strClassNames);
+	const i = A_1(X.DropDownLabelContainer, e.strClassNames);
 	const s = _a.useContext(Gt) != null;
 	const o = e.description != null && (s || t == "always");
 	const l = e.upperDescription != null && (s || r == "always");
@@ -1353,7 +1358,7 @@ export function aZ(e) {
 			_a.createElement(
 				"div",
 				{
-					className: (0, _m.A)(X.DropDownLabelTitle, e.strTitleClassNames),
+					className: A_1(X.DropDownLabelTitle, e.strTitleClassNames),
 				},
 				e.title,
 			),
@@ -1368,8 +1373,6 @@ export function aZ(e) {
 		),
 	);
 }
-var $ = require("./54043.js");
-var ee = require("./97936.js");
 export class Cl extends _a.Component {
 	m_refTextArea = _a.createRef();
 	m_nTextAreaPadding;
@@ -1394,14 +1397,14 @@ export class Cl extends _a.Component {
 		}
 		if (i < this.m_cEntryLength) {
 			n = window.scrollY;
-			e.style.height = t + "px";
+			e.style.height = `${t}px`;
 		}
 		if (e.scrollHeight > r) {
-			e.style.height = r + "px";
+			e.style.height = `${r}px`;
 			e.style.overflow = "auto";
 		} else if (e.scrollHeight != e.clientHeight) {
 			let r = Math.max(e.scrollHeight, t);
-			e.style.height = r - this.m_nTextAreaPadding + "px";
+			e.style.height = `${r - this.m_nTextAreaPadding}px`;
 			if (e.style.overflow == "auto") {
 				e.style.overflow = "hidden";
 			}
@@ -1474,7 +1477,7 @@ export class Cl extends _a.Component {
 		}
 	}
 	render() {
-		const { nMinHeight: e, nMaxHeight: t, ...r } = this.props;
+		const { nMinHeight, nMaxHeight, ...r } = this.props;
 		return _a.createElement(s.dO, {
 			...r,
 			ref: this.m_refTextArea,
@@ -1486,49 +1489,43 @@ export class Cl extends _a.Component {
 		});
 	}
 }
-(0, i.Cg)([d.oI], Cl.prototype, "InternalOnInput", null);
-(0, i.Cg)([d.oI], Cl.prototype, "OnKeyUp", null);
-(0, i.Cg)([d.oI], Cl.prototype, "OnBlur", null);
-(0, i.Cg)([d.oI], Cl.prototype, "OnClick", null);
-(0, i.Cg)([d.oI], Cl.prototype, "OnPaste", null);
-(0, i.Cg)([d.oI], Cl.prototype, "OnCut", null);
-var re = require("./12316.js");
-var ne = require("./2053.js");
-var ie = ne;
-var ae = require("./22004.js");
-var se = require("./91371.js");
-var oe = se;
-var le = require(/*webcrack:missing*/ "./72476.js");
-var ce = require(/*webcrack:missing*/ "./28864.js");
+Cg([d.oI], Cl.prototype, "InternalOnInput", null);
+Cg([d.oI], Cl.prototype, "OnKeyUp", null);
+Cg([d.oI], Cl.prototype, "OnBlur", null);
+Cg([d.oI], Cl.prototype, "OnClick", null);
+Cg([d.oI], Cl.prototype, "OnPaste", null);
+Cg([d.oI], Cl.prototype, "OnCut", null);
+const ie = ne;
+const oe = se;
 const me = _a.createContext(null);
 function ue(e) {
 	const t = _a.useContext(me);
-	const r = (0, le.rP)().IN_VR;
-	const { title: n, icon: i, active: s, ...l } = e;
+	const r = rP_1().IN_VR;
+	const { title, icon, active, ...l } = e;
 	return _a.createElement(
 		o.Z,
 		{
-			preferredFocus: s,
-			navRef: s && t ? t : undefined,
+			preferredFocus: active,
+			navRef: active && t ? t : undefined,
 			noFocusRing: true,
-			onActivate: r ? undefined : l.onClick,
-			onFocus: r ? undefined : l.onClick,
+			onActivate: r || l.onClick,
+			onFocus: r || l.onClick,
 			...l,
 		},
-		i &&
+		icon &&
 			_a.createElement(
 				"div",
 				{
 					className: oe.PageListItem_Icon,
 				},
-				i,
+				icon,
 			),
 		_a.createElement(
 			"div",
 			{
 				className: oe.PageListItem_Title,
 			},
-			n,
+			title,
 		),
 	);
 }
@@ -1537,16 +1534,16 @@ function de(e) {
 		className: oe.Separator,
 	});
 }
-const Ae = _a.forwardRef(function (e, t) {
-	const { page: r, bAutoFocusPageContent: n, showTitle: i = false } = e;
+const Ae = _a.forwardRef((e, t) => {
+	const { page, bAutoFocusPageContent, showTitle = false } = e;
 	const s = _a.useRef(null);
 	const o = _a.useRef(true);
 	_a.useEffect(() => {
-		if (!o.current || !n) {
+		if (!o.current || !bAutoFocusPageContent) {
 			s.current?.TakeFocus();
 		}
 		o.current = false;
-	}, [r, n]);
+	}, [page, bAutoFocusPageContent]);
 	return _a.createElement(
 		me.Provider,
 		{
@@ -1555,7 +1552,7 @@ const Ae = _a.forwardRef(function (e, t) {
 		_a.createElement(ee.Mw, {
 			...e,
 			stylesheet: oe,
-			showTitle: i,
+			showTitle: showTitle,
 			PageListItemComponent: ue,
 			PageListSeparatorComponent: de,
 			renderPageContent:
@@ -1571,25 +1568,30 @@ const Ae = _a.forwardRef(function (e, t) {
 	);
 });
 function pe(e) {
-	const { pages: t, activePage: r, refForPage: n, PageComponent: i } = e;
-	const s = (function (e) {
+	const { pages, activePage, refForPage, PageComponent } = e;
+	const s = ((e) => {
 		let t = _a.useRef(e);
 		let r = _a.useRef(ae.fz.None);
-		let n = t.current;
-		if (n == e) {
+		let t_current = t.current;
+		if (t_current == e) {
 			return r.current;
 		}
 		let i = ae.fz.None;
-		if (n < e) {
+		if (t_current < e) {
 			i = ae.fz.Down;
-		} else if (n > e) {
+		} else if (t_current > e) {
 			i = ae.fz.Up;
 		}
 		t.current = e;
 		r.current = i;
 		return i;
-	})(_a.useMemo(() => t.findIndex((e) => e == r), [t, r]));
-	const o = (function (e, t) {
+	})(
+		_a.useMemo(
+			() => pages.findIndex((e) => e == activePage),
+			[pages, activePage],
+		),
+	);
+	const o = ((e, t) => {
 		const r = _a.useMemo(() => new Map(), []);
 		const n = _a.useRef();
 		n.current = e;
@@ -1599,44 +1601,44 @@ function pe(e) {
 			(e) => (t) => {
 				r.set(e, t);
 				if (e === n.current) {
-					(0, ce.cZ)(i.current, t);
+					cZ(i.current, t);
 				}
 			},
 			[r],
 		);
 		_a.useEffect(() => {
-			(0, ce.cZ)(t, e && r.get(e));
-			return () => (0, ce.cZ)(t, undefined);
+			cZ(t, e && r.get(e));
+			return () => cZ(t, undefined);
 		}, [r, e, t]);
 		return s;
-	})(r?.identifier, n);
-	let l = (0, ae.K$)(oe, s);
+	})(activePage?.identifier, refForPage);
+	let l = K$(oe, s);
 	return _a.createElement(
 		ae.FF,
 		{
-			childrenKey: r?.identifier,
-			childrenClasses: (0, ae.Qh)(oe, oe.ContentTransition),
+			childrenKey: activePage?.identifier,
+			childrenClasses: Qh(oe, oe.ContentTransition),
 			directionClass: l,
 			animate: s != ae.fz.None,
 		},
-		r &&
-			_a.createElement(i, {
-				ref: o(r.identifier),
-				key: r.identifier,
+		activePage &&
+			_a.createElement(PageComponent, {
+				ref: o(activePage.identifier),
+				key: activePage.identifier,
 				stylesheet: oe,
-				activePage: r,
+				activePage: activePage,
 			}),
 	);
 }
-const ge = _a.forwardRef(function (e, t) {
-	return _a.createElement(s.BA, {
+const ge = _a.forwardRef((e, t) =>
+	_a.createElement(s.BA, {
 		noFocusRing: true,
 		...e,
 		ref: t,
-		className: (0, _m.A)(ie.BasicTextInput, e.className),
+		className: A_1(ie.BasicTextInput, e.className),
 		size: e.size ?? 1,
-	});
-});
+	}),
+);
 const he = (e) =>
 	_a.createElement(Vb, {
 		layout: "below",
@@ -1668,7 +1670,7 @@ export function X8(e) {
 	}
 	const t = e.topPadding ?? "standard";
 	const r = e.alignItems ?? "left";
-	const n = (0, _m.A)(
+	const n = A_1(
 		ie.BottomButtons,
 		t == "standard" && ie.StandardPadding,
 		t == "compact" && ie.CompactPadding,
@@ -1691,57 +1693,53 @@ export function X8(e) {
 		),
 	);
 }
-var fe = require("./35488.js");
-var be = require("./10768.js");
-var ye = be;
-var Se = require(/*webcrack:missing*/ "./88750.js");
-var we = require(/*webcrack:missing*/ "./28869.js");
+const ye = be;
 export function Vb(e) {
 	const {
-		label: t,
-		tooltip: r,
-		explainer: n,
-		explainerTitle: i,
-		disabled: s,
-		strClassName: o,
-		dropDownControlRef: l,
-		description: c,
-		layout: m,
-		bottomSeparator: u,
-		highlightOnFocus: d,
-		autoFocus: A,
-		indentLevel: p,
-		childrenContainerWidth: g = "fixed",
-		onContextMenu: h,
-		onActivate: C,
+		label,
+		tooltip,
+		explainer,
+		explainerTitle,
+		disabled,
+		strClassName,
+		dropDownControlRef,
+		description,
+		layout,
+		bottomSeparator,
+		highlightOnFocus,
+		autoFocus,
+		indentLevel,
+		childrenContainerWidth = "fixed",
+		onContextMenu,
+		onActivate,
 		..._
 	} = e;
-	const { actionDescriptions: f, gamepadEvents: b, props: y } = (0, we.C7)(_);
+	const { actionDescriptions, gamepadEvents, props } = C7(_);
 	return _a.createElement(
 		re.D0,
 		{
-			className: o,
-			disabled: s,
-			label: t,
-			onActivate: C,
-			description: c ?? r,
-			childrenLayout: m ?? "inline",
-			childrenContainerWidth: g,
-			bottomSeparator: u,
-			highlightOnFocus: d,
-			autoFocus: A,
-			indentLevel: p,
-			onContextMenu: h,
-			actionDescriptionMap: f,
-			explainer: n,
-			explainerTitle: i,
-			...b,
+			className: strClassName,
+			disabled: disabled,
+			label: label,
+			onActivate: onActivate,
+			description: description ?? tooltip,
+			childrenLayout: layout ?? "inline",
+			childrenContainerWidth: childrenContainerWidth,
+			bottomSeparator: bottomSeparator,
+			highlightOnFocus: highlightOnFocus,
+			autoFocus: autoFocus,
+			indentLevel: indentLevel,
+			onContextMenu: onContextMenu,
+			actionDescriptionMap: actionDescriptions,
+			explainer: explainer,
+			explainerTitle: explainerTitle,
+			...gamepadEvents,
 		},
 		_a.createElement(ZU, {
-			menuLabel: t,
-			disabled: s,
-			...y,
-			ref: l,
+			menuLabel: label,
+			disabled: disabled,
+			...props,
+			ref: dropDownControlRef,
 		}),
 	);
 }
@@ -1793,11 +1791,11 @@ export function Mm(e) {
 		t(e.rgOptions),
 	);
 }
-export const OB = _a.forwardRef(function (e, t) {
-	return _a.createElement(
+export const OB = _a.forwardRef((e, t) =>
+	_a.createElement(
 		n.$n,
 		{
-			className: (0, _m.A)(ye.DropDownControlButton, e.className),
+			className: A_1(ye.DropDownControlButton, e.className),
 			focusable: e.focusable,
 			disabled: e.disabled,
 			onClick: e.onClick,
@@ -1811,19 +1809,18 @@ export const OB = _a.forwardRef(function (e, t) {
 			},
 			e.children,
 			_a.createElement("div", {
-				className: (0, _m.A)(ie.Spacer, "Spacer"),
+				className: A_1(ie.Spacer, "Spacer"),
 			}),
 			_a.createElement(fe.Carat, {
 				direction: "down",
 			}),
 		),
-	);
-});
-var Me = require("./62403.js");
-export const yA = _a.forwardRef(function (e, t) {
-	const { className: r, ...i } = e;
+	),
+);
+export const yA = _a.forwardRef((e, t) => {
+	const { className, ...i } = e;
 	let s = _a.useRef();
-	let l = (0, d.Ue)(t, s);
+	let l = Ue(t, s);
 	const [c, m] = _a.useState(false);
 	const A = _a.useCallback(() => {
 		m((e) => !e);
@@ -1832,7 +1829,7 @@ export const yA = _a.forwardRef(function (e, t) {
 	return _a.createElement(
 		o.Z,
 		{
-			className: r,
+			className: className,
 			onOptionsButton: A,
 			onOptionsActionDescription: (0, Localize)(
 				c ? "#Login_HidePassword" : "#Login_ShowPassword",
@@ -1857,9 +1854,9 @@ export const yA = _a.forwardRef(function (e, t) {
 		}),
 	);
 });
-export const MQ = _a.forwardRef(function (e, t) {
-	const { className: r, value: n, ...i } = e;
-	const s = n ?? "";
+export const MQ = _a.forwardRef((e, t) => {
+	const { className, value, ...i } = e;
+	const s = value ?? "";
 	return _a.createElement(re.qq, {
 		autoComplete: "off",
 		value: s,
@@ -1868,23 +1865,23 @@ export const MQ = _a.forwardRef(function (e, t) {
 		...i,
 		onChange: (e) => {
 			if (
-				!(function (e) {
+				!((e) => {
 					const t = e.split(".");
 					if (t.length > 4) {
 						return false;
 					}
 					for (let e = 0; e < t.length; e++) {
-						const r = t[e];
-						if (r == "") {
+						const t_e = t[e];
+						if (t_e == "") {
 							if (e == t.length - 1) {
 								continue;
 							}
 							return false;
 						}
-						if (!/^[0-9]*$/.test(r)) {
+						if (!/^[0-9]*$/.test(t_e)) {
 							return false;
 						}
-						const n = parseInt(r);
+						const n = parseInt(t_e);
 						if (!(n >= 0) || !(n <= 255)) {
 							return false;
 						}
@@ -1901,62 +1898,62 @@ export const MQ = _a.forwardRef(function (e, t) {
 });
 export function QJ(e) {
 	const {
-		digits: t,
-		onChange: r,
-		autoFocus: n,
-		type: i,
-		className: l,
-		digitClassName: c,
-		value: u,
-		validateDigit: d,
+		digits,
+		onChange,
+		autoFocus,
+		type,
+		className,
+		digitClassName,
+		value,
+		validateDigit,
 	} = e;
 	const A = _a.useRef([]);
 	_a.useEffect(() => {
-		A.current[Math.min(u.length, t - 1)]?.current?.TakeFocus();
-	}, [t, u]);
+		A.current[Math.min(value.length, digits - 1)]?.current?.TakeFocus();
+	}, [digits, value]);
 	const p = (e) => {
-		if (!d || !!d(e.target.value)) {
-			r(u + e.target.value);
+		if (!validateDigit || !!validateDigit(e.target.value)) {
+			onChange(value + e.target.value);
 		}
 	};
 	const g = (e) => {
 		if (e.key === "Backspace") {
-			r(u.slice(0, -1));
+			onChange(value.slice(0, -1));
 			e.preventDefault();
 		}
 	};
 	const h = (e) => {
 		let n = e.clipboardData.getData("Text");
-		if (d) {
+		if (validateDigit) {
 			n = n
 				.split("")
-				.filter((e) => d(e))
+				.filter((e) => validateDigit(e))
 				.join("");
 		}
-		r((u + n).slice(0, t));
+		onChange((value + n).slice(0, digits));
 		e.preventDefault();
 	};
 	const _ = [];
-	for (let e = 0; e < t; e++) {
-		A.current[e] ||= (0, s.b$)();
+	for (let e = 0; e < digits; e++) {
+		A.current[e] ||= b$();
 		_.push(
 			_a.createElement(
 				o.Z,
 				{
-					key: "digit_" + e,
-					className: c,
+					key: `digit_${e}`,
+					className: digitClassName,
 					navRef: A.current[e],
 				},
 				_a.createElement(pd, {
-					type: i || "password",
+					type: type || "password",
 					maxLength: 1,
-					autoFocus: n && e == 0,
+					autoFocus: autoFocus && e == 0,
 					onChange: p,
 					onPaste: h,
 					onKeyDown: g,
-					value: u.charAt(e),
-					disabled: e != Math.min(u.length, t - 1),
-					className: (0, _m.A)(Me.PinDigit),
+					value: value.charAt(e),
+					disabled: e != Math.min(value.length, digits - 1),
+					className: A_1(Me.PinDigit),
 				}),
 			),
 		);
@@ -1965,23 +1962,14 @@ export function QJ(e) {
 		o.Z,
 		{
 			"flow-children": "row",
-			className: (0, _m.A)(l, Me.Digits),
+			className: A_1(className, Me.Digits),
 		},
 		_,
 	);
 }
-var De = require("./34384.js");
-var Ne = De;
-var Fe = require(/*webcrack:missing*/ "./31958.js");
-var Ge = require(/*webcrack:missing*/ "./34742.js");
-var Oe = require(/*webcrack:missing*/ "./10975.js");
-var Pe = require("./72655.js");
-var Le = require(/*webcrack:missing*/ "./61657.js");
-var ze = require("./43397.js");
-var xe = require("./16251.js");
-import { GetTotalZoom } from "../../actual_src/utils/domutils.js";
+const Ne = De;
 const We = 1;
-const Ve = (0, ze.i_)(Ne["error-shake-duration"]);
+const Ve = i_1(Ne["error-shake-duration"]);
 function He(e, t) {
 	if (t < 0) {
 		return 0;
@@ -2000,8 +1988,8 @@ function je(e, t, r) {
 function qe(e, t, r) {
 	return (r - e) / (t - e);
 }
-var Qe;
-(function (e) {
+let Qe;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.MouseDragging = 1)] = "MouseDragging";
 	e[(e.TouchStart = 2)] = "TouchStart";
@@ -2015,7 +2003,7 @@ export class A0 extends _a.Component {
 	m_handleBounds = undefined;
 	m_fZoom = 1;
 	m_eDragMode = Qe.None;
-	m_vTouchStartPosition = (0, Ge.D0)();
+	m_vTouchStartPosition = D0_1();
 	m_fStartValue;
 	m_fLatestUserValue;
 	m_fLatestOnChangeValue;
@@ -2053,7 +2041,7 @@ export class A0 extends _a.Component {
 		const e =
 			this.props.value == null || isNaN(this.props.value)
 				? this.props.min
-				: (0, Fe.OQ)(this.props.value, this.props.min, this.props.max);
+				: OQ(this.props.value, this.props.min, this.props.max);
 		return qe(this.props.min, this.props.max, e);
 	}
 	get normalizedDefaultValue() {
@@ -2068,7 +2056,7 @@ export class A0 extends _a.Component {
 		}
 	}
 	get normalizedSliderOrigin() {
-		const e = (0, Fe.OQ)(0, this.props.min, this.props.max);
+		const e = OQ(0, this.props.min, this.props.max);
 		return qe(this.props.min, this.props.max, e);
 	}
 	get CanResetToDefault() {
@@ -2078,13 +2066,16 @@ export class A0 extends _a.Component {
 	}
 	get SliderChangeSource() {
 		switch (this.m_eDragMode) {
-			case Qe.MouseDragging:
+			case Qe.MouseDragging: {
 				return 1;
+			}
 			case Qe.TouchDragging:
-			case Qe.TouchStart:
+			case Qe.TouchStart: {
 				return 0;
-			case Qe.None:
+			}
+			case Qe.None: {
 				return;
+			}
 		}
 	}
 	constructor(e) {
@@ -2106,14 +2097,15 @@ export class A0 extends _a.Component {
 			switch (e) {
 				case Qe.MouseDragging:
 				case Qe.TouchDragging:
-				case Qe.TouchStart:
+				case Qe.TouchStart: {
 					this.RecomputeSliderBounds();
 					this.m_fStartValue = this.props.value;
 					this.m_fLatestUserValue = this.props.value;
+				}
 				case Qe.None:
 			}
 			switch (e) {
-				case Qe.MouseDragging:
+				case Qe.MouseDragging: {
 					this.m_refSlider.current?.ownerDocument?.addEventListener(
 						"mousemove",
 						this.OnWindowMouseMove,
@@ -2129,8 +2121,9 @@ export class A0 extends _a.Component {
 						},
 					);
 					break;
+				}
 				case Qe.TouchStart:
-				case Qe.TouchDragging:
+				case Qe.TouchDragging: {
 					this.m_refSlider.current?.ownerDocument?.addEventListener(
 						"touchmove",
 						this.OnWindowTouchMove,
@@ -2146,8 +2139,10 @@ export class A0 extends _a.Component {
 						},
 					);
 					break;
-				case Qe.None:
+				}
+				case Qe.None: {
 					this.RemoveDocumentEventListeners();
+				}
 			}
 		}
 	}
@@ -2174,13 +2169,13 @@ export class A0 extends _a.Component {
 			this.m_fInitalRepeatTime = performance.now();
 		}
 		const r = performance.now() - this.m_fInitalRepeatTime;
-		const n = (0, Fe.bT)(r, 0, 2000, 500, 250);
-		const i = Math.pow(2, Math.floor(r / n));
+		const n = bT(r, 0, 2000, 500, 250);
+		const i = 2 ** Math.floor(r / n);
 		const a = this.normalizedDpadStep * i;
-		const s = (0, Fe.OQ)(a, this.normalizedDpadStep, 0.05) * t;
+		const s = OQ(a, this.normalizedDpadStep, 0.05) * t;
 		const o = He(this.normalizedStep, this.normalizedClampedValue + s);
 		let l = je(this.props.min, this.props.max, o);
-		l = (0, Fe.OQ)(
+		l = OQ(
 			l,
 			this.props.clampMin ?? this.props.min,
 			this.props.clampMax ?? this.props.max,
@@ -2235,7 +2230,7 @@ export class A0 extends _a.Component {
 		let n = je(this.props.min, this.props.max, r);
 		const i = this.props.clampMin ?? this.props.min;
 		const a = this.props.clampMax ?? this.props.max;
-		n = (0, Fe.OQ)(n, i, a);
+		n = OQ(n, i, a);
 		if (n != this.props.value) {
 			const e = n > this.props.value;
 			const t = this.step == 0;
@@ -2313,13 +2308,13 @@ export class A0 extends _a.Component {
 	OnWindowTouchMove(e) {
 		if (e.touches.length == 1) {
 			switch (this.m_eDragMode) {
-				case Qe.TouchStart:
+				case Qe.TouchStart: {
 					const t = {
 						x: e.touches[0].clientX,
 						y: e.touches[0].clientY,
 					};
-					if ((0, Ge.LD)(this.m_vTouchStartPosition, t) >= 10) {
-						const e = (0, Ge.Fg)(this.m_vTouchStartPosition, t);
+					if (LD(this.m_vTouchStartPosition, t) >= 10) {
+						const e = Fg(this.m_vTouchStartPosition, t);
 						if (Math.abs(e.x) > Math.abs(e.y)) {
 							this.SetDragMode(Qe.TouchDragging);
 							this.m_refSlider.current?.focus();
@@ -2328,8 +2323,10 @@ export class A0 extends _a.Component {
 						}
 					}
 					break;
-				case Qe.TouchDragging:
+				}
+				case Qe.TouchDragging: {
 					this.UpdateSliderValueForPosition(e.touches[0].clientX);
+				}
 			}
 			e.preventDefault();
 		}
@@ -2423,7 +2420,7 @@ export class A0 extends _a.Component {
 					(0, Localize)("#ResetToDefault"),
 				),
 			);
-			(0, T.lX)(t, e);
+			lX(t, e);
 		}
 	}
 	render() {
@@ -2461,12 +2458,12 @@ export class A0 extends _a.Component {
 			this.props.handleType == "leftparen" ||
 			this.props.handleType == "rightparen"
 		) {
-			_ = (0, _m.A)(
+			_ = A_1(
 				Ne.ParenSliderHandle,
 				this.props.handleType == "leftparen" ? Ne.Left : Ne.Right,
 				"SliderHandle",
 			);
-			f = (0, _m.A)(
+			f = A_1(
 				Ne.ParenSliderHandleContainer,
 				this.props.handleType == "leftparen" ? Ne.Left : Ne.Right,
 				"SliderHandleContainer",
@@ -2476,7 +2473,7 @@ export class A0 extends _a.Component {
 			Pe.YZ,
 			{
 				noFocusRing: true,
-				className: (0, _m.A)(
+				className: A_1(
 					Ne.SliderControlPanelGroup,
 					"SliderControlPanelGroup",
 					this.props.className,
@@ -2484,9 +2481,8 @@ export class A0 extends _a.Component {
 				navRef: this.props.navRef,
 				onMouseDown: (e) => this.OnMouseDown(e.nativeEvent),
 				onTouchStart: (e) => this.OnTouchStart(e.nativeEvent),
-				onOKActionDescription: this.props.disabled
-					? null
-					: (0, Localize)("#Slider_AdjustSlider"),
+				onOKActionDescription:
+					this.props.disabled || (0, Localize)("#Slider_AdjustSlider"),
 				focusable: o,
 				childFocusDisabled: this.props.disabled || !o,
 				onContextMenu: this.OnContextMenu,
@@ -2504,7 +2500,7 @@ export class A0 extends _a.Component {
 			_a.createElement(
 				s.ml,
 				{
-					className: (0, _m.A)(
+					className: A_1(
 						Ne.SliderControlAndNotches,
 						this.props.disabled && Ne.Disabled,
 						A && Ne.WithDefaultValue,
@@ -2526,7 +2522,7 @@ export class A0 extends _a.Component {
 						"--slider-extra-notch-padding":
 							this.props.extraNotchPadding ?? "0px",
 					},
-					ref: (0, d.XB)(this.m_refSlider, this.props.innerRef),
+					ref: XB(this.m_refSlider, this.props.innerRef),
 					navRef: this.m_navRefSlider,
 					onGamepadDirection: this.OnGamepadDirection,
 					onOKButton: this.BlurInnerSlider,
@@ -2537,10 +2533,10 @@ export class A0 extends _a.Component {
 				_a.createElement(
 					"div",
 					{
-						className: (0, _m.A)(Ne.SliderControl, "SliderControl"),
+						className: A_1(Ne.SliderControl, "SliderControl"),
 					},
 					_a.createElement("div", {
-						className: (0, _m.A)(
+						className: A_1(
 							Ne.SliderTrack,
 							this.props.notchCount != null && t && Ne.SliderHasNotches,
 							{
@@ -2600,20 +2596,15 @@ export class A0 extends _a.Component {
 	}
 }
 function Ye(e) {
-	let {
-		sliderValue: t,
-		notchCount: r,
-		notchLabels: n,
-		notchTicksVisible: i,
-		renderNotch: s,
-	} = e;
-	let l = n ?? [];
-	if (!r) {
+	let { sliderValue, notchCount, notchLabels, notchTicksVisible, renderNotch } =
+		e;
+	let l = notchLabels ?? [];
+	if (!notchCount) {
 		return null;
 	}
 	let c = false;
 	let u = [];
-	for (let e = 0; e < r; ++e) {
+	for (let e = 0; e < notchCount; ++e) {
 		let n = l.find((t) => t.notchIndex == e);
 		if (n) {
 			c = true;
@@ -2622,18 +2613,18 @@ function Ye(e) {
 			_a.createElement(Ke, {
 				key: e,
 				notchIndex: e,
-				sliderValue: t,
+				sliderValue: sliderValue,
 				notchLabel: n,
-				notchCount: r,
-				notchTicksVisible: i,
-				renderNotch: s,
+				notchCount: notchCount,
+				notchTicksVisible: notchTicksVisible,
+				renderNotch: renderNotch,
 			}),
 		);
 	}
 	return _a.createElement(
 		o.Z,
 		{
-			className: (0, _m.A)(Ne.SliderNotchContainer),
+			className: A_1(Ne.SliderNotchContainer),
 		},
 		u,
 	);
@@ -2652,7 +2643,7 @@ function Ke(e) {
 	return _a.createElement(
 		"div",
 		{
-			className: (0, _m.A)(Ne.SliderNotch, r && Ne.AlignToEnds),
+			className: A_1(Ne.SliderNotch, r && Ne.AlignToEnds),
 		},
 		e.renderNotch
 			? e.renderNotch(s)
@@ -2662,22 +2653,22 @@ function Ke(e) {
 	);
 }
 function Xe(e) {
-	const { alignLeftEnd: t, alignRightEnd: r, active: n } = e;
+	const { alignLeftEnd, alignRightEnd, active } = e;
 	return _a.createElement(
 		_a.Fragment,
 		null,
 		e.notchTicksVisible &&
 			_a.createElement("div", {
-				className: (0, _m.A)(Ne.SliderNotchTick, n && Ne.TickActive),
+				className: A_1(Ne.SliderNotchTick, active && Ne.TickActive),
 			}),
 		e.notchLabel &&
 			_a.createElement(
 				"div",
 				{
-					className: (0, _m.A)(
+					className: A_1(
 						Ne.SliderNotchLabel,
-						t && Ne.AlignToLeft,
-						r && Ne.AlignToRight,
+						alignLeftEnd && Ne.AlignToLeft,
+						alignRightEnd && Ne.AlignToRight,
 					),
 				},
 				e.notchLabel?.label,
@@ -2686,63 +2677,70 @@ function Xe(e) {
 }
 export function d3(e) {
 	const {
-		label: t,
-		description: r,
-		tabIndex: n,
-		className: i,
-		showValue: s,
-		renderValue: o,
-		valueSuffix: l,
-		tooltip: c,
-		layout: m,
-		padding: A,
-		bottomSeparator: p,
-		notchCount: g,
-		indentLevel: h,
-		editableValue: C,
-		highlightOnFocus: _,
-		parentSliderRef: b,
-		onOptionsButton: y,
-		onOptionsActionDescription: S,
-		iconLocation: w,
-		childrenContainerWidth: B,
-		explainer: v,
-		explainerTitle: I,
-		onActivate: E,
-		disabled: M,
+		label,
+		description,
+		tabIndex,
+		className,
+		showValue,
+		renderValue,
+		valueSuffix,
+		tooltip,
+		layout,
+		padding,
+		bottomSeparator,
+		notchCount,
+		indentLevel,
+		editableValue,
+		highlightOnFocus,
+		parentSliderRef,
+		onOptionsButton,
+		onOptionsActionDescription,
+		iconLocation,
+		childrenContainerWidth,
+		explainer,
+		explainerTitle,
+		onActivate,
+		disabled,
 		...T
 	} = e;
-	const { icon: R, ...k } = T;
+	const { icon, ...k } = T;
 	const D = _a.useRef(null);
 	const N = _a.useRef(null);
 	const F = _a.useRef(null);
-	const G = (o ?? Zy)(e.value, e.valueSuffix);
-	const O = (function (e) {
-		const { min: t, max: r } = e;
+	const G = (renderValue ?? Zy)(e.value, e.valueSuffix);
+	const O = ((e) => {
+		const { min, max } = e;
 		const n = e.validValues ?? "steps";
 		const i = e.step ?? We;
 		const s = _a.useCallback(
 			(e) => typeof e == "number" && !Number.isNaN(e),
 			[],
 		);
-		const o = _a.useCallback((e) => !!s(e) && e >= t && e <= r, [s, t, r]);
+		const o = _a.useCallback(
+			(e) => !!s(e) && e >= min && e <= max,
+			[s, min, max],
+		);
 		const l = _a.useCallback(
-			(e) => !!o(e) && (i == 0 || ((e - t) / i) % 1 == 0),
-			[o, t, i],
+			(e) => !!o(e) && (i == 0 || ((e - min) / i) % 1 == 0),
+			[o, min, i],
 		);
 		const c = _a.useCallback(
 			(e) => !!s(e) && typeof n == "function" && n(e),
 			[s, n],
 		);
 		switch (n) {
-			case "all":
+			case "all": {
 				return s;
-			case "range":
+			}
+			case "range": {
 				return o;
-			case "steps":
+			}
+			case "steps": {
 				return l;
-			default:
+			}
+			default: {
 				return c;
+			}
 		}
 	})(e);
 	const [P, L] = _a.useState(false);
@@ -2768,8 +2766,8 @@ export function d3(e) {
 			N.current?.TakeFocus();
 		}
 	}, [F, N, P]);
-	let U = t;
-	if (C) {
+	let U = label;
+	if (editableValue) {
 		U = _a.createElement(
 			_a.Fragment,
 			null,
@@ -2790,7 +2788,7 @@ export function d3(e) {
 				validator: O,
 			}),
 		);
-	} else if (s) {
+	} else if (showValue) {
 		U = _a.createElement(
 			_a.Fragment,
 			null,
@@ -2823,43 +2821,43 @@ export function d3(e) {
 		},
 		[W],
 	);
-	const j = (0, d.Ue)(W, b);
-	const q = C ? z : undefined;
-	const Q = C ? (0, Localize)("#Slider_EditValue") : undefined;
-	let Z = y || q;
-	let Y = y ? S : Q;
-	let K = y ? q : undefined;
-	let X = y ? Q : undefined;
+	const j = Ue(W, parentSliderRef);
+	const q = editableValue ? z : undefined;
+	const Q = editableValue ? (0, Localize)("#Slider_EditValue") : undefined;
+	let Z = onOptionsButton || q;
+	let Y = onOptionsButton ? onOptionsActionDescription : Q;
+	let K = onOptionsButton ? q : undefined;
+	let X = onOptionsButton ? Q : undefined;
 	return _a.createElement(
 		re.D0,
 		{
-			disabled: M,
-			childrenLayout: m ?? "below",
-			padding: A,
-			bottomSeparator: p,
-			childrenContainerWidth: B ?? "fixed",
+			disabled: disabled,
+			childrenLayout: layout ?? "below",
+			padding: padding,
+			bottomSeparator: bottomSeparator,
+			childrenContainerWidth: childrenContainerWidth ?? "fixed",
 			label: U,
-			description: r,
+			description: description,
 			ref: D,
-			className: i,
+			className: className,
 			onTouchStart: V,
 			onContextMenu: H,
-			indentLevel: h,
+			indentLevel: indentLevel,
 			onMenuActionDescription: X,
 			onMenuButton: K,
-			onActivate: E,
-			highlightOnFocus: _,
+			onActivate: onActivate,
+			highlightOnFocus: highlightOnFocus,
 			onOptionsButton: Z,
 			onOptionsActionDescription: Y,
-			icon: R,
-			iconLocation: w ?? "before-children",
-			explainer: v,
-			explainerTitle: I,
+			icon: icon,
+			iconLocation: iconLocation ?? "before-children",
+			explainer: explainer,
+			explainerTitle: explainerTitle,
 		},
 		_a.createElement(A0, {
 			ref: j,
-			disabled: M,
-			notchCount: g,
+			disabled: disabled,
+			notchCount: notchCount,
 			focusable: !P,
 			navRef: N,
 			...k,
@@ -2868,19 +2866,19 @@ export function d3(e) {
 }
 function $e(e) {
 	const {
-		editing: t,
-		renderedValue: r,
-		valueSuffix: n,
-		onClick: i,
-		onChangeComplete: o,
-		navRef: l,
-		validator: c,
+		editing,
+		renderedValue,
+		valueSuffix,
+		onClick,
+		onChangeComplete,
+		navRef,
+		validator,
 	} = e;
 	const A = _a.useRef(null);
 	const p = _a.useRef(null);
 	const g = _a.useRef(null);
-	const h = (0, d.Ue)(l, g);
-	const { fnTriggerErrorShake: C, bPlayingErrorShake: _ } = (function (e) {
+	const h = Ue(navRef, g);
+	const { fnTriggerErrorShake, bPlayingErrorShake } = ((e) => {
 		const [t, r] = _a.useState(false);
 		const n = _a.useRef();
 		const i = _a.useRef();
@@ -2907,39 +2905,39 @@ function $e(e) {
 			bPlayingErrorShake: t,
 		};
 	})(A);
-	const f = t || _;
+	const f = editing || bPlayingErrorShake;
 	const [b, y] = _a.useState("");
 	_a.useEffect(() => {
 		if (!f) {
 			y("");
 		}
 	}, [f]);
-	const S = c(Number.parseFloat(b));
+	const S = validator(Number.parseFloat(b));
 	const w = _a.useRef(false);
 	const B = _a.useCallback(
 		(e) => {
 			if (!S && b.length > 0) {
-				C();
+				fnTriggerErrorShake();
 			}
 			if (!w.current) {
 				if (S || e) {
-					o(Number.parseFloat(b));
+					onChangeComplete(Number.parseFloat(b));
 					w.current = true;
 				}
 			}
 		},
-		[S, b, C, o],
+		[S, b, fnTriggerErrorShake, onChangeComplete],
 	);
 	const v = _a.useCallback(() => p.current?.TakeFocusAndShowKeyboard(), [p]);
 	const I = _a.useRef(false);
 	_a.useEffect(() => {
-		if (t && !I.current) {
+		if (editing && !I.current) {
 			v();
 		}
-		I.current = t;
-	}, [g, t, v]);
-	const E = _ || (f && !S && b.length > 0 && b != "-");
-	const M = (0, _m.A)(Ne.DescriptionValue, E && Ne.RedBorder);
+		I.current = editing;
+	}, [g, editing, v]);
+	const E = bPlayingErrorShake || (f && !S && b.length > 0 && b != "-");
+	const M = A_1(Ne.DescriptionValue, E && Ne.RedBorder);
 	const [T, R] = _a.useState(0);
 	const [k, D] = _a.useState(0);
 	const N = _a.useRef();
@@ -2952,14 +2950,14 @@ function $e(e) {
 		}
 	}, [f]);
 	_a.useLayoutEffect(F, [F]);
-	const G = (0, d.wY)(F);
-	const O = (0, d.Ue)(N, G);
+	const G = wY(F);
+	const O = Ue(N, G);
 	_a.useEffect(() => {
 		if (g.current?.BHasFocus()) {
 			g.current?.Node().ForceMeasureFocusRing();
 		}
 	}, [k]);
-	const P = f ? b : r;
+	const P = f ? b : renderedValue;
 	const L = f ? Math.max(T, k) : T;
 	return _a.createElement(
 		"div",
@@ -2978,18 +2976,18 @@ function $e(e) {
 			refKeyboardHandle: p,
 			navRef: h,
 			ref: A,
-			focusable: t,
+			focusable: editing,
 			className: Ne.EditableValue,
 			style: {
 				width: L,
 			},
 			onEnterKeyPress: () => B(false),
 			strEnterKeyLabel: (0, Localize)("#ActionButtonLabelDone"),
-			onClick: i,
+			onClick: onClick,
 			onFocus: () => (w.current = false),
 			onBlur: () => B(true),
 			value: P,
-			placeholder: r,
+			placeholder: renderedValue,
 			onChange: (e) => y(e.target.value.trim()),
 			onCancelButton: () => B(true),
 			onCancelActionDescription: (0, Localize)("#ActionButtonLabelDone"),
@@ -3002,25 +3000,25 @@ function $e(e) {
 }
 export function ou(e) {
 	const {
-		label: t,
-		description: r,
-		tabIndex: n,
-		className: i,
-		showValue: s,
-		tooltip: o,
-		layout: l,
-		padding: c,
-		bottomSeparator: u,
-		indentLevel: d,
-		sliders: A,
-		highlightOnFocus: p,
-		useLeftRightParen: g,
+		label,
+		description,
+		tabIndex,
+		className,
+		showValue,
+		tooltip,
+		layout,
+		padding,
+		bottomSeparator,
+		indentLevel,
+		sliders,
+		highlightOnFocus,
+		useLeftRightParen,
 	} = e;
 	const h = _a.useRef(new Array());
 	let C = [];
-	A.forEach((e, t) => {
+	sliders.forEach((e, t) => {
 		let r = "verticalline";
-		if (g && !e.noLabel) {
+		if (useLeftRightParen && !e.noLabel) {
 			r = t == 0 ? "rightparen" : "leftparen";
 		}
 		C.push(
@@ -3039,69 +3037,62 @@ export function ou(e) {
 	return _a.createElement(
 		re.D0,
 		{
-			childrenLayout: l ?? "below",
-			padding: c,
-			bottomSeparator: u,
+			childrenLayout: layout ?? "below",
+			padding: padding,
+			bottomSeparator: bottomSeparator,
 			childrenContainerWidth: "max",
-			label: t,
-			description: r,
-			className: (0, _m.A)(Ne.CompoundSlider, i),
-			indentLevel: d,
-			highlightOnFocus: p,
+			label: label,
+			description: description,
+			className: A_1(Ne.CompoundSlider, className),
+			indentLevel: indentLevel,
+			highlightOnFocus: highlightOnFocus,
 		},
 		_a.createElement(rt, {
 			key: "labels",
-			sliders: A,
+			sliders: sliders,
 			sliderRefs: h,
 		}),
 		C,
 	);
 }
-(0, i.Cg)([d.oI], A0.prototype, "RecomputeSliderBounds", null);
-(0, i.Cg)([d.oI], A0.prototype, "SetDragMode", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnGamepadDirection", null);
-(0, i.Cg)([d.oI], A0.prototype, "UpdateSliderValueForPosition", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnWindowMouseMove", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnWindowMouseUp", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnMouseDown", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnTouchStart", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnWindowTouchMove", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnWindowTouchEnd", null);
-(0, i.Cg)([d.oI], A0.prototype, "Complete", null);
-(0, i.Cg)([d.oI], A0.prototype, "BlurInnerSlider", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnInnerSliderFocus", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnInnerSliderBlur", null);
-(0, i.Cg)([d.oI], A0.prototype, "ResetToDefault", null);
-(0, i.Cg)([d.oI], A0.prototype, "OnContextMenu", null);
-const tt = _a.forwardRef(function (e, t) {
-	const {
-		label: r,
-		labelIndex: n,
-		xOffset: i,
-		onResize: s,
-		OnMouseDown: o,
-		OnTouchStart: l,
-	} = e;
+Cg([d.oI], A0.prototype, "RecomputeSliderBounds", null);
+Cg([d.oI], A0.prototype, "SetDragMode", null);
+Cg([d.oI], A0.prototype, "OnGamepadDirection", null);
+Cg([d.oI], A0.prototype, "UpdateSliderValueForPosition", null);
+Cg([d.oI], A0.prototype, "OnWindowMouseMove", null);
+Cg([d.oI], A0.prototype, "OnWindowMouseUp", null);
+Cg([d.oI], A0.prototype, "OnMouseDown", null);
+Cg([d.oI], A0.prototype, "OnTouchStart", null);
+Cg([d.oI], A0.prototype, "OnWindowTouchMove", null);
+Cg([d.oI], A0.prototype, "OnWindowTouchEnd", null);
+Cg([d.oI], A0.prototype, "Complete", null);
+Cg([d.oI], A0.prototype, "BlurInnerSlider", null);
+Cg([d.oI], A0.prototype, "OnInnerSliderFocus", null);
+Cg([d.oI], A0.prototype, "OnInnerSliderBlur", null);
+Cg([d.oI], A0.prototype, "ResetToDefault", null);
+Cg([d.oI], A0.prototype, "OnContextMenu", null);
+const tt = _a.forwardRef((e, t) => {
+	const { label, labelIndex, xOffset, onResize, OnMouseDown, OnTouchStart } = e;
 	_a.useEffect(() => {
-		s(n);
-	}, [s, n]);
+		onResize(labelIndex);
+	}, [onResize, labelIndex]);
 	const c = _a.useCallback(
 		(e) => {
-			s(n);
+			onResize(labelIndex);
 		},
-		[s, n],
+		[onResize, labelIndex],
 	);
-	const m = (0, d.wY)(c);
-	const u = (0, d.Ue)(m, t);
+	const m = wY(c);
+	const u = Ue(m, t);
 	return _a.createElement(
 		"div",
 		{
 			className: Ne.CompoundSliderSubSliderLabel,
 			ref: u,
-			onMouseDown: o,
-			onTouchStart: l,
+			onMouseDown: OnMouseDown,
+			onTouchStart: OnTouchStart,
 			style: {
-				transform: `translateX(${i}px)`,
+				transform: `translateX(${xOffset}px)`,
 			},
 		},
 		_a.createElement(
@@ -3109,16 +3100,16 @@ const tt = _a.forwardRef(function (e, t) {
 			{
 				className: Ne.CompoundSliderSubSliderLabelInternal,
 			},
-			r,
+			label,
 		),
 	);
 });
 function rt(e) {
-	const { sliders: t, sliderRefs: r } = e;
+	const { sliders, sliderRefs } = e;
 	const n = _a.useRef(null);
-	const i = t.length;
+	const t_length = sliders.length;
 	const s = _a.useRef([]);
-	const [o, l] = _a.useState(new Array(i));
+	const [o, l] = _a.useState(new Array(t_length));
 	const c = _a.useCallback(
 		(e) => {
 			l((t) => {
@@ -3137,15 +3128,13 @@ function rt(e) {
 			parseFloat(e.paddingLeft) -
 			parseFloat(e.paddingRight);
 	}
-	const u = t.filter((e) => !e.noLabel);
+	const u = sliders.filter((e) => !e.noLabel);
 	let d = [];
 	let A = [];
 	let p = [];
 	u.forEach((e, t) => {
 		const r =
-			e.value == null || isNaN(e.value)
-				? e.min
-				: (0, Fe.OQ)(e.value, e.min, e.max);
+			e.value == null || isNaN(e.value) ? e.min : OQ(e.value, e.min, e.max);
 		p.push(qe(e.min, e.max, r));
 		let n = m * p[t];
 		let i = false;
@@ -3164,8 +3153,8 @@ function rt(e) {
 	});
 	let g = [];
 	u.forEach((e, t) => {
-		const n = "" + Math.round(p[t] * 100);
-		const i = r.current?.[t];
+		const n = `${Math.round(p[t] * 100)}`;
+		const i = sliderRefs.current?.[t];
 		g.push(
 			_a.createElement(tt, {
 				key: t,
@@ -3204,48 +3193,49 @@ function nt(e, t) {
 }
 export function gz(e) {
 	const {
-		rValues: t,
-		onChange: r,
-		onChangeComplete: n,
-		value: i,
-		renderValue: s,
-		showBookendLabels: o = false,
+		rValues,
+		onChange,
+		onChangeComplete,
+		value,
+		renderValue,
+		showBookendLabels = false,
 		...l
 	} = e;
-	const [c, m] = _a.useState(nt(t, i));
+	const [c, m] = _a.useState(nt(rValues, value));
 	const u = _a.useCallback(
 		(e, n) => {
 			m(e);
-			if (r) {
-				r(t[e], n);
+			if (onChange) {
+				onChange(rValues[e], n);
 			}
 		},
-		[t, r],
+		[rValues, onChange],
 	);
 	const d = _a.useCallback(
 		(e, r) => {
-			if (n) {
-				n(t[e], r);
+			if (onChangeComplete) {
+				onChangeComplete(rValues[e], r);
 			}
 		},
-		[t, n],
+		[rValues, onChangeComplete],
 	);
 	const A = _a.useCallback(
-		(e, r) => (s ? s(t[e], r) : t[e].toString()),
-		[t, s],
+		(e, r) =>
+			renderValue ? renderValue(rValues[e], r) : rValues[e].toString(),
+		[rValues, renderValue],
 	);
 	_a.useEffect(() => {
-		m(nt(t, i));
-	}, [t, i]);
-	const p = t.length - 1;
+		m(nt(rValues, value));
+	}, [rValues, value]);
+	const p = rValues.length - 1;
 	const g = [
 		{
 			notchIndex: 0,
-			label: t[0]?.toString(),
+			label: rValues[0]?.toString(),
 		},
 		{
 			notchIndex: 1,
-			label: t[p]?.toString(),
+			label: rValues[p]?.toString(),
 		},
 	];
 	return _a.createElement(d3, {
@@ -3256,40 +3246,33 @@ export function gz(e) {
 		value: c,
 		step: 1,
 		notchCount: 2,
-		notchLabels: o ? g : undefined,
+		notchLabels: showBookendLabels ? g : undefined,
 		renderValue: A,
 		notchTicksVisible: false,
 		...l,
 	});
 }
-export const J0 = _a.forwardRef(function (e, t) {
-	const {
-		value: r,
-		onChange: n,
-		disabled: i,
-		className: o,
-		focusable: l,
-		children: c,
-		navRef: u,
-	} = e;
+export const J0 = _a.forwardRef((e, t) => {
+	const { value, onChange, disabled, className, focusable, children, navRef } =
+		e;
 	return _a.createElement(
 		s.ml,
 		{
 			noFocusRing: true,
-			className: (0, _m.A)(o, ie.Toggle, {
-				[ie.Disabled]: !!i,
-				[ie.On]: !!r,
+			className: A_1(className, ie.Toggle, {
+				[ie.Disabled]: !!disabled,
+				[ie.On]: !!value,
 			}),
 			onClick: () => {
-				if (!i && n) {
-					const e = !r;
-					n(e);
+				if (!disabled && onChange) {
+					const e = !value;
+					onChange(e);
 					Oe.eZ.PlayNavSound(e ? Oe.PN.ToggleOn : Oe.PN.ToggleOff);
 				}
 			},
 			ref: t,
-			navRef: u,
-			focusable: l,
+			navRef: navRef,
+			focusable: focusable,
 		},
 		_a.createElement("div", {
 			className: ie.ToggleRail,
@@ -3297,7 +3280,7 @@ export const J0 = _a.forwardRef(function (e, t) {
 		_a.createElement("div", {
 			className: ie.ToggleSwitch,
 		}),
-		c,
+		children,
 	);
 });
 export class y4 extends n.pF {
@@ -3308,7 +3291,7 @@ export class y4 extends n.pF {
 	}
 	render() {
 		const e = !!this.props.disabled;
-		const { actionDescriptions: t, gamepadEvents: r } = (0, we.C7)(this.props);
+		const { actionDescriptions, gamepadEvents } = C7(this.props);
 		return _a.createElement(
 			re.D0,
 			{
@@ -3324,10 +3307,10 @@ export class y4 extends n.pF {
 				highlightOnFocus: this.props.highlightOnFocus,
 				inlineWrap: "keep-inline",
 				onContextMenu: this.props.onContextMenu,
-				actionDescriptionMap: t,
+				actionDescriptionMap: actionDescriptions,
 				onClick: this.props.onClick,
 				indentLevel: this.props.indentLevel,
-				...r,
+				...gamepadEvents,
 			},
 			_a.createElement(J0, {
 				onChange: this.OnToggleChange,
@@ -3338,35 +3321,34 @@ export class y4 extends n.pF {
 		);
 	}
 }
-(0, i.Cg)([d.oI], y4.prototype, "OnToggleChange", null);
-var ot = require("./69.js");
+Cg([d.oI], y4.prototype, "OnToggleChange", null);
 export function P9(e) {
-	const { children: t, bCenterVertically: r, refElem: n, ...i } = e;
-	const s = (0, _m.A)(
+	const { children, bCenterVertically, refElem, ...i } = e;
+	const s = A_1(
 		ie.GamepadDialogContent,
 		"DialogContent _DialogLayout",
 		e.className,
-		r && " _DialogCenterVertically",
+		bCenterVertically && " _DialogCenterVertically",
 	);
-	const { ref: l, navRef: c } = (0, ot.tw)();
-	const u = (0, d.Ue)(n, l);
+	const { ref, navRef } = tw();
+	const u = Ue(refElem, ref);
 	return _a.createElement(
 		o.Z,
 		{
 			...i,
 			className: s,
 			ref: u,
-			navRef: c,
+			navRef: navRef,
 		},
 		_a.createElement(
 			o.Z,
 			{
-				className: (0, _m.A)(
+				className: A_1(
 					ie.GamepadDialogContent_InnerWidth,
 					"DialogContent_InnerWidth",
 				),
 			},
-			t,
+			children,
 		),
 	);
 }

@@ -1,4 +1,4 @@
-var n = {
+const n = {
 	"./genesis_a.png": 30115,
 	"./genesis_b.png": 93256,
 	"./genesis_c.png": 3473,
@@ -460,21 +460,26 @@ var n = {
 	"./ghost_110_social_0308.png": 62613,
 	"./special_blank.png": 52275,
 };
-function i(e) {
-	var t = a(e);
-	return require(t);
+
+class i {
+	constructor(e) {
+		const t = a(e);
+		return require(t);
+	}
+
+	static keys() {
+		return Object.keys(n);
+	}
 }
+
 function a(e) {
 	if (!require.o(n, e)) {
-		var t = new Error("Cannot find module '" + e + "'");
+		const t = new Error(`Cannot find module '${e}'`);
 		t.code = "MODULE_NOT_FOUND";
 		throw t;
 	}
 	return n[e];
 }
-i.keys = function () {
-	return Object.keys(n);
-};
 i.resolve = a;
-module.exports = i;
+export default i;
 i.id = 33855;

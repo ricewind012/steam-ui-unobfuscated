@@ -1,36 +1,36 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./37322.js");
-var a = require("./91705.js");
-var s = require(/*webcrack:missing*/ "./88696.js");
-var o = require("./31993.js");
-var l = require("./3963.js");
-var c = require("./5640.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require("./3475.js");
-var d = require(/*webcrack:missing*/ "./44846.js");
-var A = require(/*webcrack:missing*/ "./12176.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require("./54946.js");
-var h = require("./34043.js");
-var C = require("./46948.js");
-var _ = require("./16053.js");
-var f = require(/*webcrack:missing*/ "./49455.js");
 import { Seconds } from "../../actual_src/utils/time.js";
-var y = require(/*webcrack:missing*/ "./72476.js");
-var S = require("./96538.js");
-var w = require("./96593.js");
-var B = require("./57016.js");
-var v = require("./34792.js");
-var I = require("./5859.js");
-var E = require("./63088.js");
-var M = require("./48289.js");
+import n, { Cg } from "./34629.js";
+import i from "./37322.js";
+import a from "./91705.js";
+import s from "./88696.js";
+import o from "./31993.js";
+import l from "./3963.js";
+import c from "./5640.js";
+import m, { Gn, EW, L3, h5 } from "./89193.js";
+import u from "./3475.js";
+import d from "./44846.js";
+import A from "./12176.js";
+import p from "./8573.js";
+import g from "./54946.js";
+import h from "./34043.js";
+import C from "./46948.js";
+import _ from "./16053.js";
+import { w as w_1 } from "./49455.js";
+import y from "./72476.js";
+import S from "./96538.js";
+import w from "./96593.js";
+import B from "./57016.js";
+import v from "./34792.js";
+import I from "./5859.js";
+import { aj } from "./63088.js";
+import M from "./48289.js";
 const T = "achievementmap";
 const R = Seconds.PerMonth * 2;
 const k = "usernews";
 const D = "gameactivity";
 class N {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	gameid;
 	unUniqueID;
@@ -74,21 +74,27 @@ class N {
 		}
 		switch (this.eEventType) {
 			case a._Q.FilePublished_Screenshot:
-			case a._Q.FilePublished_Video:
+			case a._Q.FilePublished_Video: {
 				return 5;
-			case a._Q.UserStatus:
+			}
+			case a._Q.UserStatus: {
 				return 15;
+			}
 			case a._Q.ReceivedNewGame:
 			case a._Q.PlayedGameFirstTime:
 			case a._Q.AddedGameToWishlist:
-			case a._Q.AchievementUnlocked:
+			case a._Q.AchievementUnlocked: {
 				return 16;
-			case a._Q.PostedAnnouncement:
+			}
+			case a._Q.PostedAnnouncement: {
 				return 11;
-			case a._Q.RecommendedGame:
+			}
+			case a._Q.RecommendedGame: {
 				return 8;
-			default:
+			}
+			default: {
 				return 0;
+			}
 		}
 	}
 	AddCommentThread(e, t) {
@@ -138,7 +144,7 @@ class N {
 	}
 	DeleteOnServer() {
 		console.log(
-			"No delete method implemented for events of type " + this.eEventType,
+			`No delete method implemented for events of type ${this.eEventType}`,
 		);
 	}
 	GetParentalFeature() {
@@ -152,8 +158,8 @@ class N {
 		}
 	}
 }
-(0, n.Cg)([m.sH.shallow], N.prototype, "commentThreads", undefined);
-(0, n.Cg)([m.sH], N.prototype, "activeThread", undefined);
+Cg([m.sH.shallow], N.prototype, "commentThreads", undefined);
+Cg([m.sH], N.prototype, "activeThread", undefined);
 class F extends N {
 	m_rgAchievements = [];
 	m_rtOldestAchievement = undefined;
@@ -177,8 +183,8 @@ class F extends N {
 				}
 				this.m_rtOldestAchievement = t;
 				this.AddCommentThread(
-					"" + this.m_rtOldestAchievement,
-					"" + this.eEventType,
+					`${this.m_rtOldestAchievement}`,
+					`${this.eEventType}`,
 				);
 			}
 		}
@@ -187,8 +193,8 @@ class F extends N {
 		return this.m_rgAchievements;
 	}
 }
-export var qz;
-(function (e) {
+export let qz;
+((e) => {
 	e[(e.k_ETradingCardActivity_Invalid = 0)] = "k_ETradingCardActivity_Invalid";
 	e[(e.k_ETradingCardActivity_CardDrop = 1)] =
 		"k_ETradingCardActivity_CardDrop";
@@ -246,7 +252,7 @@ class L extends N {
 	m_cardAssetIDs = [];
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromGameActivity(
 			2,
 			qz.k_ETradingCardActivity_CardDrop,
@@ -278,13 +284,13 @@ class L extends N {
 		return this.m_rgTradingCards;
 	}
 }
-(0, n.Cg)([m.sH], L.prototype, "m_rgTradingCards", undefined);
+Cg([m.sH], L.prototype, "m_rgTradingCards", undefined);
 export class hO extends N {
 	m_rgScreenshots = [];
 	m_bIsValid = true;
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromUserNewsEvent(a._Q.FilePublished_Screenshot, r, e, t);
 		this.m_bIsValid = false;
 	}
@@ -316,14 +322,14 @@ export class hO extends N {
 		return this.m_bIsValid;
 	}
 }
-(0, n.Cg)([m.sH], hO.prototype, "m_rgScreenshots", undefined);
-(0, n.Cg)([m.sH], hO.prototype, "m_bIsValid", undefined);
+Cg([m.sH], hO.prototype, "m_rgScreenshots", undefined);
+Cg([m.sH], hO.prototype, "m_bIsValid", undefined);
 export class UV extends N {
 	m_rgVideos = [];
 	m_bIsValid = true;
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromUserNewsEvent(a._Q.FilePublished_Video, r, e, t);
 		this.m_bIsValid = false;
 	}
@@ -354,13 +360,13 @@ export class UV extends N {
 		return this.m_bIsValid;
 	}
 }
-(0, n.Cg)([m.sH], UV.prototype, "m_rgVideos", undefined);
-(0, n.Cg)([m.sH], UV.prototype, "m_bIsValid", undefined);
+Cg([m.sH], UV.prototype, "m_rgVideos", undefined);
+Cg([m.sH], UV.prototype, "m_bIsValid", undefined);
 class U extends N {
 	m_RecommendationDetails = null;
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromUserNewsEvent(a._Q.RecommendedGame, r, e, t);
 	}
 	async AddRecommendation(e) {
@@ -377,12 +383,12 @@ class U extends N {
 		return this.m_RecommendationDetails;
 	}
 }
-(0, n.Cg)([m.sH.shallow], U.prototype, "m_RecommendationDetails", undefined);
+Cg([m.sH.shallow], U.prototype, "m_RecommendationDetails", undefined);
 class W extends N {
 	m_rgAppIds = [];
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromUserNewsEvent(r, undefined, e, t);
 	}
 	AddAppId(e) {
@@ -395,7 +401,7 @@ class W extends N {
 		return this.m_rgAppIds;
 	}
 }
-(0, n.Cg)([m.sH.shallow], W.prototype, "m_rgAppIds", undefined);
+Cg([m.sH.shallow], W.prototype, "m_rgAppIds", undefined);
 class V extends W {
 	constructor(e, t) {
 		super(e, t, a._Q.ReceivedNewGame);
@@ -417,19 +423,19 @@ class H extends W {
 }
 class j {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	statusText = undefined;
 	time = undefined;
 }
-(0, n.Cg)([m.sH], j.prototype, "statusText", undefined);
-(0, n.Cg)([m.sH], j.prototype, "time", undefined);
+Cg([m.sH], j.prototype, "statusText", undefined);
+Cg([m.sH], j.prototype, "time", undefined);
 class q extends N {
 	m_userStatus = undefined;
 	m_bIsValid = true;
 	constructor(e, t, r) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.InitFromUserNewsEvent(a._Q.UserStatus, r, e, t);
 	}
 	async AddUserStatus(e) {
@@ -465,8 +471,8 @@ class q extends N {
 		}
 	}
 }
-(0, n.Cg)([m.sH.shallow], q.prototype, "m_userStatus", undefined);
-(0, n.Cg)([m.sH], q.prototype, "m_bIsValid", undefined);
+Cg([m.sH.shallow], q.prototype, "m_userStatus", undefined);
+Cg([m.sH], q.prototype, "m_bIsValid", undefined);
 export class fE extends N {
 	m_gidAnnouncement = "";
 	m_unTimeLastMod = 0;
@@ -527,7 +533,7 @@ export class fE extends N {
 }
 class Z {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	m_rgEvents = m.sH.array();
 	m_rtDayBegin;
@@ -545,7 +551,7 @@ class Z {
 		const a = (n && n.toString()) || e.gameid();
 		if (a != "0") {
 			i.InitFromUserNewsEvent(r, a, e.eventtime(), t);
-			i.AddCommentThread("" + e.eventtime(), "" + r);
+			i.AddCommentThread(`${e.eventtime()}`, `${r}`);
 			this.AddEvent(i);
 		} else {
 			console.warn("No gameid for event", e.toObject());
@@ -601,7 +607,7 @@ class Z {
 			} else {
 				const r = `Achievement ${t} missing from map for ${e.gameid()}`;
 				console.warn(r);
-				(0, E.aj)().ReportError(new Error(r), {
+				aj().ReportError(new Error(r), {
 					bIncludeMessageInIdentifier: true,
 				});
 			}
@@ -614,7 +620,7 @@ class Z {
 			return;
 		}
 		let n = new q(e.eventtime(), t, r);
-		n.AddCommentThread("" + e.eventtime());
+		n.AddCommentThread(`${e.eventtime()}`);
 		this.AddEvent(n);
 		await n.AddUserStatus(e.eventtime());
 	}
@@ -625,7 +631,7 @@ class Z {
 			return;
 		}
 		let i = new U(e.eventtime(), t, n);
-		i.AddCommentThread("" + r);
+		i.AddCommentThread(`${r}`);
 		this.AddEvent(i);
 		await i.AddRecommendation(r);
 	}
@@ -685,9 +691,10 @@ class Z {
 		}
 		const n = r.toString();
 		switch (e.event_sub_type()) {
-			case qz.k_ETradingCardActivity_BadgeCraft:
+			case qz.k_ETradingCardActivity_BadgeCraft: {
 				this.AddEvent(new O(e, t, n));
 				break;
+			}
 			case qz.k_ETradingCardActivity_CardDrop:
 				{
 					let r = t.GetAccountID();
@@ -700,8 +707,9 @@ class Z {
 					i.AddTradingCard(e);
 				}
 				break;
-			case qz.k_ETradingCardActivity_BoosterDrop:
+			case qz.k_ETradingCardActivity_BoosterDrop: {
 				this.AddEvent(new P(e, t, n));
+			}
 		}
 	}
 	RemoveEvent(e) {
@@ -754,22 +762,22 @@ class Z {
 		);
 	}
 }
-(0, n.Cg)([m.sH.shallow], Z.prototype, "m_rgEvents", undefined);
-(0, n.Cg)([m.XI], Z.prototype, "AddEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddActivityEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddScreenshotEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddVideoEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddAchievementEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddUserStatusEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddRecommendedGameEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddReceivedGameEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddWishlistedGameEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddPartnerEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "AddSteamTradingCardEvent", null);
-(0, n.Cg)([m.XI], Z.prototype, "RemoveEvent", null);
-(0, n.Cg)(
+Cg([m.sH.shallow], Z.prototype, "m_rgEvents", undefined);
+Cg([m.XI], Z.prototype, "AddEvent", null);
+Cg([m.XI], Z.prototype, "AddActivityEvent", null);
+Cg([m.XI], Z.prototype, "AddScreenshotEvent", null);
+Cg([m.XI], Z.prototype, "AddVideoEvent", null);
+Cg([m.XI], Z.prototype, "AddAchievementEvent", null);
+Cg([m.XI], Z.prototype, "AddUserStatusEvent", null);
+Cg([m.XI], Z.prototype, "AddRecommendedGameEvent", null);
+Cg([m.XI], Z.prototype, "AddReceivedGameEvent", null);
+Cg([m.XI], Z.prototype, "AddWishlistedGameEvent", null);
+Cg([m.XI], Z.prototype, "AddPartnerEvent", null);
+Cg([m.XI], Z.prototype, "AddSteamTradingCardEvent", null);
+Cg([m.XI], Z.prototype, "RemoveEvent", null);
+Cg(
 	[
-		(0, m.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -777,9 +785,9 @@ class Z {
 	"isValid",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, m.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -799,7 +807,7 @@ class Y {
 	m_mapActivityByDay = new Map();
 	m_AchievementMap = new Map();
 	constructor(e) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_unAppID = e;
 		this.m_mapActivityByDay.clear();
 		this.m_AchievementMap.clear();
@@ -877,16 +885,16 @@ class Y {
 		}
 		return Promise.all(t);
 	}
-	MergeUserNews = (0, m.L3)(function* (e) {
+	MergeUserNews = L3(function* (e) {
 		if (e.news().length != 0) {
-			for (let t = 0; t < e.achievement_display_data().length; t++) {
-				const r = e.achievement_display_data()[t];
+			for (const r of e.achievement_display_data()) {
 				const n = r.appid();
 				if (!this.m_AchievementMap.has(n)) {
 					this.m_AchievementMap.set(n, new Map());
 				}
 				Y.BuildAchievementMapFromProto(this.m_AchievementMap.get(n), n, r);
 			}
+
 			yield this.AddNewsEvents(e.news());
 			yield this.RequestStoreItems();
 			this.SortEvents();
@@ -897,9 +905,9 @@ class Y {
 		this.m_mapActivityByDay.forEach((t) => {
 			t.events.forEach((t) => {
 				const r = t.GetAppIds();
-				(0, f.w)(r && r[0], "Bad appid list from", t, r);
+				w_1(r && r[0], "Bad appid list from", t, r);
 				r.forEach((r) => {
-					(0, f.w)(r, "Bad appid", r, "in", t);
+					w_1(r, "Bad appid", r, "in", t);
 					e.add(r);
 				});
 			});
@@ -937,39 +945,49 @@ class Y {
 		let i = e.eventtype();
 		let s = new p.b(e.steamid_actor());
 		switch (i) {
-			case a._Q.AchievementUnlocked:
+			case a._Q.AchievementUnlocked: {
 				await n.AddAchievementEvent(
 					e,
 					s,
 					this.m_AchievementMap.get(Number(e.gameid())),
 				);
 				break;
-			case a._Q.FilePublished_Screenshot:
+			}
+			case a._Q.FilePublished_Screenshot: {
 				await n.AddScreenshotEvent(e, s);
 				break;
-			case a._Q.FilePublished_Video:
+			}
+			case a._Q.FilePublished_Video: {
 				await n.AddVideoEvent(e, s);
 				break;
-			case a._Q.UserStatus:
+			}
+			case a._Q.UserStatus: {
 				await n.AddUserStatusEvent(e, s);
 				break;
-			case a._Q.RecommendedGame:
+			}
+			case a._Q.RecommendedGame: {
 				await n.AddRecommendedGameEvent(e, s, this.m_unAppID);
 				break;
-			case a._Q.ReceivedNewGame:
+			}
+			case a._Q.ReceivedNewGame: {
 				await n.AddReceivedGameEvent(e, s, this.m_unAppID);
 				break;
-			case a._Q.AddedGameToWishlist:
+			}
+			case a._Q.AddedGameToWishlist: {
 				await n.AddWishlistedGameEvent(e, s);
 				break;
-			case a._Q.PlayedGameFirstTime:
+			}
+			case a._Q.PlayedGameFirstTime: {
 				await n.AddActivityEvent(e, s, i, this.m_unAppID);
 				break;
-			case a._Q.PostedAnnouncement:
+			}
+			case a._Q.PostedAnnouncement: {
 				await n.AddPartnerEvent(e, s);
 				break;
-			default:
-				console.log("Unknown Event Type " + a._Q[i]);
+			}
+			default: {
+				console.log(`Unknown Event Type ${a._Q[i]}`);
+			}
 		}
 	}
 	async DeleteLocally(e) {
@@ -1003,20 +1021,23 @@ class Y {
 		);
 		let i = e.event_type();
 		switch (i) {
-			case 1:
+			case 1: {
 				break;
-			case 2:
+			}
+			case 2: {
 				n.AddSteamTradingCardEvent(e, t, this.m_unAppID);
 				break;
-			default:
-				console.log("Unknown game activity type: " + i);
+			}
+			default: {
+				console.log(`Unknown game activity type: ${i}`);
+			}
 		}
 	}
 	static sm_tzOffset;
 	static GetLocalMidnightInRTime32(e) {
 		if (Y.sm_tzOffset === undefined) {
 			Y.sm_tzOffset = new Date().getTimezoneOffset() * 60;
-			(0, f.w)(
+			w_1(
 				Y.sm_tzOffset || Y.sm_tzOffset === 0,
 				`Computed invalid timezone offset ${Y.sm_tzOffset}`,
 			);
@@ -1026,13 +1047,12 @@ class Y {
 		return Math.floor(r / 86400) * 86400 + t;
 	}
 	static BuildAchievementMapFromProto(e, t, r) {
-		(0, f.w)(r.appid() == t, "unexpected app data in achievement display map");
+		w_1(r.appid() == t, "unexpected app data in achievement display map");
 		for (let n of r.achievements()) {
 			let r = {
 				strName: n.display_name(),
 				strDescription: n.display_description(),
-				strImage:
-					y.TS.MEDIA_CDN_COMMUNITY_URL + "images/apps/" + t + "/" + n.icon(),
+				strImage: `${y.TS.MEDIA_CDN_COMMUNITY_URL}images/apps/${t}/${n.icon()}`,
 				flAchieved: n.unlocked_pct(),
 				bHidden: n.hidden(),
 				strID: n.name(),
@@ -1065,7 +1085,7 @@ class Y {
 		let e = [];
 		for (let t of this.m_rgCachedGameActivityEvents) {
 			if (this.BEventIsTooOldToCache(t.timestamp())) {
-				console.log("old game activity " + t.timestamp());
+				console.log(`old game activity ${t.timestamp()}`);
 				continue;
 			}
 			let r = t.serializeBinary();
@@ -1087,11 +1107,11 @@ class Y {
 		}
 	}
 }
-(0, n.Cg)([m.sH], Y.prototype, "m_bNoMoreHistoryAvailable", undefined);
-(0, n.Cg)([m.sH.shallow], Y.prototype, "m_mapActivityByDay", undefined);
-(0, n.Cg)(
+Cg([m.sH], Y.prototype, "m_bNoMoreHistoryAvailable", undefined);
+Cg([m.sH.shallow], Y.prototype, "m_mapActivityByDay", undefined);
+Cg(
 	[
-		(0, m.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1099,9 +1119,9 @@ class Y {
 	"lastAddedEventType",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, m.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1109,9 +1129,9 @@ class Y {
 	"lastAddedPartnerEvent",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, m.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1119,12 +1139,12 @@ class Y {
 	"appActivityByDay",
 	null,
 );
-(0, n.Cg)([m.XI], Y.prototype, "SortEvents", null);
-(0, n.Cg)([m.XI], Y.prototype, "AddUserNewsEvent", null);
-(0, n.Cg)([m.XI], Y.prototype, "MergeGameActivity", null);
+Cg([m.XI], Y.prototype, "SortEvents", null);
+Cg([m.XI], Y.prototype, "AddUserNewsEvent", null);
+Cg([m.XI], Y.prototype, "MergeGameActivity", null);
 class K {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_mapAppActivity = new Map();
@@ -1308,7 +1328,7 @@ class K {
 			this.m_rgDeckCompatibilityFeedback_Ask,
 		);
 	}
-	RestoreCachedActivity = (0, m.L3)(function* (e) {
+	RestoreCachedActivity = L3(function* (e) {
 		let t = new Y(e);
 		let r = yield S.O.GetCachedDataForApp(e, T, 5);
 		if (!r) {
@@ -1414,7 +1434,7 @@ class K {
 			n.Body().set_endtime(r.earliest_game_activity_time - 1);
 			s = await _.ag.GetActivity(this.m_CMInterface.GetServiceTransport(), n);
 		}
-		(0, m.h5)(() => {
+		h5(() => {
 			r.MergeUserNews(i.Body());
 			if (s) {
 				this.m_mapAppActivity
@@ -1451,66 +1471,83 @@ function J() {
 }
 function $(e) {
 	switch (e) {
-		case a._Q.FriendAdded:
+		case a._Q.FriendAdded: {
 			return 1;
-		case a._Q.AchievementUnlocked:
+		}
+		case a._Q.AchievementUnlocked: {
 			return 2;
+		}
 		case a._Q.ReceivedNewGame:
-		case a._Q.PlayedGameFirstTime:
+		case a._Q.PlayedGameFirstTime: {
 			return 4;
-		case a._Q.JoinedGroup:
+		}
+		case a._Q.JoinedGroup: {
 			return 8;
-		case a._Q.AddedGameToWishlist:
+		}
+		case a._Q.AddedGameToWishlist: {
 			return 128;
-		case a._Q.RecommendedGame:
+		}
+		case a._Q.RecommendedGame: {
 			return 256;
-		case a._Q.ScreenshotPublished_Deprecated:
+		}
+		case a._Q.ScreenshotPublished_Deprecated: {
 			return 512;
-		case a._Q.VideoPublished_Deprecated:
+		}
+		case a._Q.VideoPublished_Deprecated: {
 			return 1024;
-		case a._Q.FilePublished_Screenshot:
+		}
+		case a._Q.FilePublished_Screenshot: {
 			return 512;
-		case a._Q.FilePublished_Video:
+		}
+		case a._Q.FilePublished_Video: {
 			return 1024;
-		case a._Q.FilePublished_WorkshopItem:
+		}
+		case a._Q.FilePublished_WorkshopItem: {
 			return 8192;
-		case a._Q.UserStatus:
+		}
+		case a._Q.UserStatus: {
 			return 4096;
+		}
 		case a._Q.FilePublished_Collection:
 		case a._Q.FilePublished_WebGuide:
-		case a._Q.FilePublished_Art:
+		case a._Q.FilePublished_Art: {
 			return 8192;
-		case a._Q.ClanAchievement:
+		}
+		case a._Q.ClanAchievement: {
 			return 65536;
-		case a._Q.PostedAnnouncement:
+		}
+		case a._Q.PostedAnnouncement: {
 			return 131072;
-		case a._Q.ScheduledEvent:
+		}
+		case a._Q.ScheduledEvent: {
 			return 262144;
-		case a._Q.SelectedNewPOTW:
+		}
+		case a._Q.SelectedNewPOTW: {
 			return 524288;
-		case a._Q.PromotedNewAdmin:
+		}
+		case a._Q.PromotedNewAdmin: {
 			return 1048576;
-		case a._Q.MessageOnClanPage:
+		}
+		case a._Q.MessageOnClanPage: {
 			return 2097152;
-		case a._Q.CuratorRecommendedGame:
+		}
+		case a._Q.CuratorRecommendedGame: {
 			return 4194304;
-		case a._Q.FileFavorited:
+		}
+		case a._Q.FileFavorited: {
 			return 16384;
-		default:
+		}
+		default: {
 			console.log("Unknown user news type", e);
+		}
 	}
 	return 0;
 }
-(0, n.Cg)([m.sH.shallow], K.prototype, "m_mapAppActivity", undefined);
-(0, n.Cg)([m.sH], K.prototype, "m_rgDeckCompatibilityFeedback_Ask", undefined);
-(0, n.Cg)(
-	[m.sH],
-	K.prototype,
-	"m_deckCompatibilityFeedback_EligibleApps",
-	undefined,
-);
-(0, n.Cg)([m.XI.bound], K.prototype, "OnAppLifetimeNotification", null);
-(0, n.Cg)([m.XI.bound], K.prototype, "OnScreenshotNotification", null);
-(0, n.Cg)([m.XI.bound], K.prototype, "OnAchievementNotification", null);
+Cg([m.sH.shallow], K.prototype, "m_mapAppActivity", undefined);
+Cg([m.sH], K.prototype, "m_rgDeckCompatibilityFeedback_Ask", undefined);
+Cg([m.sH], K.prototype, "m_deckCompatibilityFeedback_EligibleApps", undefined);
+Cg([m.XI.bound], K.prototype, "OnAppLifetimeNotification", null);
+Cg([m.XI.bound], K.prototype, "OnScreenshotNotification", null);
+Cg([m.XI.bound], K.prototype, "OnAchievementNotification", null);
 export const yX = new K();
 window.appActivityStore = yX;

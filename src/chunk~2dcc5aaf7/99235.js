@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./51297.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./31930.js");
-var l = require(/*webcrack:missing*/ "./93960.js");
+import { Cg } from "./34629.js";
+import i from "./51297.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./31930.js";
+import l from "./93960.js";
 const c = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"WebUITransportStore",
 );
@@ -12,7 +12,7 @@ class m {
 	m_transport;
 	m_nConnectCount = 0;
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	GetTransport() {
 		return this.m_transport;
@@ -47,12 +47,12 @@ class m {
 		this.m_transport.messageHandlers.InstallErrorReportingStore(e);
 	}
 }
-(0, n.Cg)([a.sH], m.prototype, "m_bConnected", undefined);
-(0, n.Cg)([l.o], m.prototype, "OnConnectionStatus", null);
-(0, n.Cg)([l.o], m.prototype, "OnReconnectError", null);
+Cg([a.sH], m.prototype, "m_bConnected", undefined);
+Cg([l.o], m.prototype, "OnConnectionStatus", null);
+Cg([l.o], m.prototype, "OnReconnectError", null);
 export const r = new m();
 export function q() {
 	return {
-		bConnected: (0, s.q3)(() => r.m_bConnected),
+		bConnected: q3(() => r.m_bConnected),
 	};
 }

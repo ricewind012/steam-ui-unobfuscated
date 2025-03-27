@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SuspendDialog: "_3579bzh8xDL8Du3019J05O",
 	Spacer: "zLPEsoGuyAwn1FGYcGfu1",
 	LoadingThrobber: "_2X0aEXpvRiFLHJwErptjCh",

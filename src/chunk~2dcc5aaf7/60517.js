@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./12251.js");
-const o = n.Message;
-class l extends o {
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+const n_Message = n.Message;
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return l.toObject(e, this);
@@ -33,13 +33,13 @@ class l extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -47,14 +47,14 @@ class l extends o {
 		return "CBluetoothManager_GetState_Request";
 	}
 }
-class c extends o {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.id) {
 			i.Sg(c.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -93,7 +93,7 @@ class c extends o {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -101,7 +101,7 @@ class c extends o {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -109,14 +109,14 @@ class c extends o {
 		return "CMsgBluetoothManagerAdapterInfo";
 	}
 }
-class m extends o {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.id) {
 			i.Sg(m.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -180,7 +180,7 @@ class m extends o {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -188,7 +188,7 @@ class m extends o {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -196,14 +196,14 @@ class m extends o {
 		return "CMsgBluetoothManagerDeviceInfo";
 	}
 }
-class u extends o {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.is_service_available) {
 			i.Sg(u.M());
 		}
-		o.initialize(this, e, 0, -1, [4, 5], null);
+		n_Message.initialize(this, e, 0, -1, [4, 5], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -264,7 +264,7 @@ class u extends o {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -272,7 +272,7 @@ class u extends o {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -280,14 +280,14 @@ class u extends o {
 		return "CBluetoothManager_GetState_Response";
 	}
 }
-class d extends o {
+class d extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.id) {
 			i.Sg(d.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -326,7 +326,7 @@ class d extends o {
 		return i.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -334,7 +334,7 @@ class d extends o {
 		i.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -342,14 +342,14 @@ class d extends o {
 		return "CBluetoothManager_GetAdapterDetails_Request";
 	}
 }
-class A extends o {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.id) {
 			i.Sg(A.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -409,7 +409,7 @@ class A extends o {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -417,7 +417,7 @@ class A extends o {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -425,14 +425,14 @@ class A extends o {
 		return "CMsgBluetoothManagerAdapterDetails";
 	}
 }
-class p extends o {
+class p extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.adapter) {
 			i.Sg(p.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -470,7 +470,7 @@ class p extends o {
 		return i.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -478,7 +478,7 @@ class p extends o {
 		i.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -486,14 +486,14 @@ class p extends o {
 		return "CBluetoothManager_GetAdapterDetails_Response";
 	}
 }
-class g extends o {
+class g extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.id) {
 			i.Sg(g.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -532,7 +532,7 @@ class g extends o {
 		return i.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -540,7 +540,7 @@ class g extends o {
 		i.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -548,14 +548,14 @@ class g extends o {
 		return "CBluetoothManager_GetDeviceDetails_Request";
 	}
 }
-class h extends o {
+class h extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.id) {
 			i.Sg(h.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -656,7 +656,7 @@ class h extends o {
 		return i.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -664,7 +664,7 @@ class h extends o {
 		i.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -672,14 +672,14 @@ class h extends o {
 		return "CMsgBluetoothManagerDeviceDetails";
 	}
 }
-class C extends o {
+class C extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.device) {
 			i.Sg(C.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -717,7 +717,7 @@ class C extends o {
 		return i.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -725,7 +725,7 @@ class C extends o {
 		i.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -733,11 +733,11 @@ class C extends o {
 		return "CBluetoothManager_GetDeviceDetails_Response";
 	}
 }
-class _ extends o {
+class _ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return _.toObject(e, this);
@@ -763,13 +763,13 @@ class _ extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -777,14 +777,14 @@ class _ extends o {
 		return "CBluetoothManager_StateChanged_Notification";
 	}
 }
-class f extends o {
+class f extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.enabled) {
 			i.Sg(f.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -823,7 +823,7 @@ class f extends o {
 		return i.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -831,7 +831,7 @@ class f extends o {
 		i.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -839,11 +839,11 @@ class f extends o {
 		return "CBluetoothManager_SetDiscovering_Request";
 	}
 }
-class b extends o {
+class b extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return b.toObject(e, this);
@@ -869,13 +869,13 @@ class b extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -883,14 +883,14 @@ class b extends o {
 		return "CBluetoothManager_SetDiscovering_Response";
 	}
 }
-class y extends o {
+class y extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.device) {
 			i.Sg(y.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -929,7 +929,7 @@ class y extends o {
 		return i.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -937,7 +937,7 @@ class y extends o {
 		i.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -945,11 +945,11 @@ class y extends o {
 		return "CBluetoothManager_Pair_Request";
 	}
 }
-class S extends o {
+class S extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return S.toObject(e, this);
@@ -975,13 +975,13 @@ class S extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -989,14 +989,14 @@ class S extends o {
 		return "CBluetoothManager_Pair_Response";
 	}
 }
-class w extends o {
+class w extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!w.prototype.device) {
 			i.Sg(w.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1035,7 +1035,7 @@ class w extends o {
 		return i.zj(w.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1043,7 +1043,7 @@ class w extends o {
 		i.i0(w.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1051,11 +1051,11 @@ class w extends o {
 		return "CBluetoothManager_CancelPair_Request";
 	}
 }
-class B extends o {
+class B extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return B.toObject(e, this);
@@ -1081,13 +1081,13 @@ class B extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1095,14 +1095,14 @@ class B extends o {
 		return "CBluetoothManager_CancelPair_Response";
 	}
 }
-class v extends o {
+class v extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!v.prototype.device) {
 			i.Sg(v.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1141,7 +1141,7 @@ class v extends o {
 		return i.zj(v.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1149,7 +1149,7 @@ class v extends o {
 		i.i0(v.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1157,11 +1157,11 @@ class v extends o {
 		return "CBluetoothManager_Forget_Request";
 	}
 }
-class I extends o {
+class I extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return I.toObject(e, this);
@@ -1187,13 +1187,13 @@ class I extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1201,14 +1201,14 @@ class I extends o {
 		return "CBluetoothManager_Forget_Response";
 	}
 }
-class E extends o {
+class E extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!E.prototype.device) {
 			i.Sg(E.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1247,7 +1247,7 @@ class E extends o {
 		return i.zj(E.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1255,7 +1255,7 @@ class E extends o {
 		i.i0(E.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1263,11 +1263,11 @@ class E extends o {
 		return "CBluetoothManager_Connect_Request";
 	}
 }
-class M extends o {
+class M extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return M.toObject(e, this);
@@ -1293,13 +1293,13 @@ class M extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1307,14 +1307,14 @@ class M extends o {
 		return "CBluetoothManager_Connect_Response";
 	}
 }
-class T extends o {
+class T extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!T.prototype.device) {
 			i.Sg(T.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1353,7 +1353,7 @@ class T extends o {
 		return i.zj(T.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1361,7 +1361,7 @@ class T extends o {
 		i.i0(T.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1369,11 +1369,11 @@ class T extends o {
 		return "CBluetoothManager_Disconnect_Request";
 	}
 }
-class R extends o {
+class R extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return R.toObject(e, this);
@@ -1399,13 +1399,13 @@ class R extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1413,14 +1413,14 @@ class R extends o {
 		return "CBluetoothManager_Disconnect_Response";
 	}
 }
-class k extends o {
+class k extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!k.prototype.device) {
 			i.Sg(k.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1464,7 +1464,7 @@ class k extends o {
 		return i.zj(k.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1472,7 +1472,7 @@ class k extends o {
 		i.i0(k.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1480,11 +1480,11 @@ class k extends o {
 		return "CBluetoothManager_SetWakeAllowed_Request";
 	}
 }
-class D extends o {
+class D extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return D.toObject(e, this);
@@ -1510,13 +1510,13 @@ class D extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1524,14 +1524,14 @@ class D extends o {
 		return "CBluetoothManager_SetWakeAllowed_Response";
 	}
 }
-class N extends o {
+class N extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!N.prototype.device) {
 			i.Sg(N.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1575,7 +1575,7 @@ class N extends o {
 		return i.zj(N.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1583,7 +1583,7 @@ class N extends o {
 		i.i0(N.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1591,11 +1591,11 @@ class N extends o {
 		return "CBluetoothManager_SetTrusted_Request";
 	}
 }
-class F extends o {
+class F extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return F.toObject(e, this);
@@ -1621,13 +1621,13 @@ class F extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1635,34 +1635,34 @@ class F extends o {
 		return "CBluetoothManager_SetTrusted_Response";
 	}
 }
-export var RF;
-(function (e) {
+export let RF;
+((e) => {
 	e.GetStateHandler = {
 		name: "BluetoothManager.GetState#1",
 		request: l,
 		response: u,
 	};
-	e.GetState = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.GetState#1", (0, a.I8)(l, e), u, {
+			return t.SendMsg("BluetoothManager.GetState#1", I8(l, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgGetState = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.GetState#1", (0, a.I8)(l, e), u, {
+			return t.SendMsg("BluetoothManager.GetState#1", I8(l, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1673,40 +1673,30 @@ export var RF;
 		request: d,
 		response: p,
 	};
-	e.GetAdapterDetails = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetAdapterDetails = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.GetAdapterDetails#1",
-				(0, a.I8)(d, e),
-				p,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.GetAdapterDetails#1", I8(d, e), p, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
-	e.SendMsgGetAdapterDetails = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetAdapterDetails = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.GetAdapterDetails#1",
-				(0, a.I8)(d, e),
-				p,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.GetAdapterDetails#1", I8(d, e), p, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
 	e.GetDeviceDetailsHandler = {
@@ -1714,48 +1704,38 @@ export var RF;
 		request: g,
 		response: C,
 	};
-	e.GetDeviceDetails = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetDeviceDetails = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.GetDeviceDetails#1",
-				(0, a.I8)(g, e),
-				C,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.GetDeviceDetails#1", I8(g, e), C, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
-	e.SendMsgGetDeviceDetails = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetDeviceDetails = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.GetDeviceDetails#1",
-				(0, a.I8)(g, e),
-				C,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.GetDeviceDetails#1", I8(g, e), C, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
 	e.NotifyStateChangedHandler = {
 		name: "BluetoothManager.NotifyStateChanged#1",
 		request: _,
 	};
-	e.RegisterForNotifyStateChanged = function (t, r) {
-		if ((r = r || (0, s.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1767,14 +1747,14 @@ export var RF;
 			);
 		}
 	};
-	e.NotifyStateChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.NotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"BluetoothManager.NotifyStateChanged#1",
-				(0, a.I8)(_, e),
+				I8(_, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 1,
@@ -1782,14 +1762,14 @@ export var RF;
 			);
 		}
 	};
-	e.SendMsgNotifyStateChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"BluetoothManager.NotifyStateChanged#1",
-				(0, a.I8)(_, e),
+				I8(_, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 1,
@@ -1802,40 +1782,30 @@ export var RF;
 		request: f,
 		response: b,
 	};
-	e.SetDiscovering = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SetDiscovering = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.SetDiscovering#1",
-				(0, a.I8)(f, e),
-				b,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.SetDiscovering#1", I8(f, e), b, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
-	e.SendMsgSetDiscovering = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSetDiscovering = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.SetDiscovering#1",
-				(0, a.I8)(f, e),
-				b,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.SetDiscovering#1", I8(f, e), b, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
 	e.PairHandler = {
@@ -1843,27 +1813,27 @@ export var RF;
 		request: y,
 		response: S,
 	};
-	e.Pair = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.Pair = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Pair#1", (0, a.I8)(y, e), S, {
+			return t.SendMsg("BluetoothManager.Pair#1", I8(y, e), S, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgPair = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgPair = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Pair#1", (0, a.I8)(y, e), S, {
+			return t.SendMsg("BluetoothManager.Pair#1", I8(y, e), S, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1874,27 +1844,27 @@ export var RF;
 		request: w,
 		response: B,
 	};
-	e.CancelPair = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.CancelPair = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.CancelPair#1", (0, a.I8)(w, e), B, {
+			return t.SendMsg("BluetoothManager.CancelPair#1", I8(w, e), B, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgCancelPair = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgCancelPair = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.CancelPair#1", (0, a.I8)(w, e), B, {
+			return t.SendMsg("BluetoothManager.CancelPair#1", I8(w, e), B, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1905,27 +1875,27 @@ export var RF;
 		request: v,
 		response: I,
 	};
-	e.Forget = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.Forget = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Forget#1", (0, a.I8)(v, e), I, {
+			return t.SendMsg("BluetoothManager.Forget#1", I8(v, e), I, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgForget = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgForget = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Forget#1", (0, a.I8)(v, e), I, {
+			return t.SendMsg("BluetoothManager.Forget#1", I8(v, e), I, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1936,27 +1906,27 @@ export var RF;
 		request: E,
 		response: M,
 	};
-	e.Connect = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.Connect = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Connect#1", (0, a.I8)(E, e), M, {
+			return t.SendMsg("BluetoothManager.Connect#1", I8(E, e), M, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgConnect = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgConnect = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Connect#1", (0, a.I8)(E, e), M, {
+			return t.SendMsg("BluetoothManager.Connect#1", I8(E, e), M, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1967,27 +1937,27 @@ export var RF;
 		request: T,
 		response: R,
 	};
-	e.Disconnect = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.Disconnect = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Disconnect#1", (0, a.I8)(T, e), R, {
+			return t.SendMsg("BluetoothManager.Disconnect#1", I8(T, e), R, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgDisconnect = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgDisconnect = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.Disconnect#1", (0, a.I8)(T, e), R, {
+			return t.SendMsg("BluetoothManager.Disconnect#1", I8(T, e), R, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -1998,40 +1968,30 @@ export var RF;
 		request: k,
 		response: D,
 	};
-	e.SetWakeAllowed = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SetWakeAllowed = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.SetWakeAllowed#1",
-				(0, a.I8)(k, e),
-				D,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.SetWakeAllowed#1", I8(k, e), D, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
-	e.SendMsgSetWakeAllowed = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSetWakeAllowed = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"BluetoothManager.SetWakeAllowed#1",
-				(0, a.I8)(k, e),
-				D,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendMsg("BluetoothManager.SetWakeAllowed#1", I8(k, e), D, {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
 	e.SetTrustedHandler = {
@@ -2039,27 +1999,27 @@ export var RF;
 		request: N,
 		response: F,
 	};
-	e.SetTrusted = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SetTrusted = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.SetTrusted#1", (0, a.I8)(N, e), F, {
+			return t.SendMsg("BluetoothManager.SetTrusted#1", I8(N, e), F, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgSetTrusted = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSetTrusted = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("BluetoothManager.SetTrusted#1", (0, a.I8)(N, e), F, {
+			return t.SendMsg("BluetoothManager.SetTrusted#1", I8(N, e), F, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});

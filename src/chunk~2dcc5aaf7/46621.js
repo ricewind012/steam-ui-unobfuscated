@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Container: "_6-WKlwpwjgMWFow-NM_W4",
 	HeroImageContainer: "_1NwZvAibxPFLbkzXzl8LlW",

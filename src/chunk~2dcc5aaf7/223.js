@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import { A } from "./90765.js";
+import s, { Fd } from "./52451.js";
 export class b extends i.Component {
 	m_elOuterContainer = null;
 	m_resizeObserver = undefined;
@@ -45,9 +45,9 @@ export class b extends i.Component {
 		if (this.props.fnDimensionsChanged) {
 			this.props.fnDimensionsChanged(t, r);
 		}
-		if ((0, a.A)(...e) != this.state.strResponsiveClasses) {
+		if (A(...e) != this.state.strResponsiveClasses) {
 			this.setState({
-				strResponsiveClasses: (0, a.A)(...e),
+				strResponsiveClasses: A(...e),
 			});
 		}
 	}
@@ -55,33 +55,33 @@ export class b extends i.Component {
 		this.m_elOuterContainer = e;
 		if (e) {
 			this.m_resizeObserver?.disconnect();
-			this.m_resizeObserver = (0, s.Fd)(e, this.OnResize);
+			this.m_resizeObserver = Fd(e, this.OnResize);
 			this.OnResize();
 		}
 	}
 	render() {
 		const {
-			className: e,
-			breakUltraNarrow: t,
-			breakNarrow: r,
-			breakWide: n,
-			breakUltraWide: s,
-			breakShort: o,
-			breakTall: l,
-			strMedium: c,
-			fnDimensionsChanged: m,
+			className,
+			breakUltraNarrow,
+			breakNarrow,
+			breakWide,
+			breakUltraWide,
+			breakShort,
+			breakTall,
+			strMedium,
+			fnDimensionsChanged,
 			...u
 		} = this.props;
-		return i.createElement(
-			"div",
-			{
-				className: (0, a.A)(e, this.state.strResponsiveClasses),
-				...u,
-				ref: this.BindOuterContainer,
-			},
-			this.props.children,
+		return (
+			<div
+				className={A(className, this.state.strResponsiveClasses)}
+				{...u}
+				ref={this.BindOuterContainer}
+			>
+				{this.props.children}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([s.oI], b.prototype, "OnResize", null);
-(0, n.Cg)([s.oI], b.prototype, "BindOuterContainer", null);
+Cg([s.oI], b.prototype, "OnResize", null);
+Cg([s.oI], b.prototype, "BindOuterContainer", null);

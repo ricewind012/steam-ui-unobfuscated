@@ -1,21 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./95773.js");
-var a = require("./52912.js");
-var s = require("./44234.js");
-var o = require("./13869.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require(/*webcrack:missing*/ "./41230.js");
-var m = require("./50551.js");
-var u = require(/*webcrack:missing*/ "./52451.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require("./64608.js");
-var p = require("./95377.js");
-var g = require("./98829.js");
-var h = require(/*webcrack:missing*/ "./50376.js");
-var C = require("./52194.js");
-var _ = C;
-var f = require(/*webcrack:missing*/ "./90765.js");
-let b = class extends l.Component {
+import n, { Cg } from "./34629.js";
+import i from "./95773.js";
+import a, { h8 } from "./52912.js";
+import s from "./44234.js";
+import o, { HT } from "./13869.js";
+import l from "./63696.js";
+import c, { PA } from "./41230.js";
+import m from "./50551.js";
+import u from "./52451.js";
+import A from "./64608.js";
+import p from "./95377.js";
+import g from "./98829.js";
+import h from "./50376.js";
+import C from "./52194.js";
+import { A as A_1 } from "./90765.js";
+import { yi } from "./5222.js";
+const _ = C;
+let B = class extends l.Component {
 	m_elVoiceSettingsMarkerScroll;
 	m_window;
 	m_iTimeOutVoiceSettingsScroll;
@@ -45,30 +46,30 @@ let b = class extends l.Component {
 			.catch(this.gotMediaDevicesError);
 	}
 	gotMediaDevices(e) {
-		for (let t = 0; t < e.length; ++t) {
-			let r = e[t];
+		for (let r of e) {
 			if (r.kind == "audioinput") {
 				if (r.deviceId != "default") {
-					let e = r.label;
+					let r_label = r.label;
 					if (r.deviceId == "communications") {
-						e = Localize("#Voice_DefaultCommunicationsDefault");
+						r_label = Localize("#Voice_DefaultCommunicationsDefault");
 					}
 					this.m_rgMicOptions.push({
-						label: e,
+						label: r_label,
 						data: r.deviceId,
 					});
 				}
 			} else if (r.kind == "audiooutput" && r.deviceId != "default") {
-				let e = r.label;
+				let r_label = r.label;
 				if (r.deviceId == "communications") {
-					e = Localize("#Voice_DefaultCommunicationsDefault");
+					r_label = Localize("#Voice_DefaultCommunicationsDefault");
 				}
 				this.m_rgOutputOptions.push({
-					label: e,
+					label: r_label,
 					data: r.deviceId,
 				});
 			}
 		}
+
 		this.setState({
 			micOptionsReady: true,
 		});
@@ -279,434 +280,299 @@ let b = class extends l.Component {
 			a = Localize("#VoicePushToTalkPressHotKey");
 		}
 		const C = t ? "pushtomute" : e ? "pushtotalk" : "openmic";
-		return l.createElement(
-			A.lV,
-			{
-				className: (0, f.A)("DialogBody", "VoiceSettings", _.VoiceSettings),
-				onContextMenu: this.onContextMenu,
-				onSubmit: this.onSubmit,
-				onMouseDown: this.onMouseDown,
-				onClick: this.onClick,
-				onKeyDown: this.onKeyDown,
-			},
-			l.createElement(
-				"div",
-				{
-					className: "_FixedHeight",
-				},
-				l.createElement(
-					"div",
-					{
-						className: "voiceSelfHeader",
-					},
-					l.createElement(
-						"div",
-						{
-							className: "DialogLabel",
-						},
-						Localize("#VoiceSetupHeader"),
-					),
-					l.createElement(
-						"div",
-						{
-							className: "voiceMicTestContainer",
-						},
-						l.createElement(
-							"div",
-							{
-								className: "voiceSelfDirections",
-								title: Localize("#VoiceWhenMicIsWorking"),
-							},
-							l.createElement(g.bP, {
-								friend: u,
-								key: u.accountid,
-								showVoiceLevel: true,
-								context: undefined,
-								noActions: true,
-								listStatusIndicator: l.createElement("div", {
-									className: "connectionSpinner",
-								}),
-							}),
-							l.createElement(
-								A.$n,
-								{
-									className: "LocalMicTestButton " + (m ? "Primary" : "Off"),
-									onClick: m
-										? this.OnStopLocalMicTest
-										: this.OnStartLocalMicTest,
-								},
-								m
-									? Localize("#VoiceStopLocalMicTest")
-									: Localize("#VoiceStartLocalMicTest"),
-							),
-						),
-					),
-				),
-				this.state.micOptionsReady &&
-					l.createElement(A.m, {
-						strClassName: "InputDevice",
-						label: Localize("#VoiceDevice"),
-						rgOptions: this.m_rgMicOptions,
-						strDefaultLabel: Localize("#DefaultMic"),
-						selectedOption: this.props.voiceStore.GetSelectedMic(),
-						onChange: this.OnMicDropdownChanged,
-					}),
-				!this.state.micOptionsReady &&
-					l.createElement(A.m, {
-						label: Localize("#VoiceDevice"),
-						rgOptions: this.m_rgMicOptions,
-						strDefaultLabel: Localize("#MicLoading..."),
-					}),
-				this.state.outputOptionsReady &&
-					l.createElement(A.m, {
-						label: Localize("#VoiceOutputDevice"),
-						rgOptions: this.m_rgOutputOptions,
-						strDefaultLabel: Localize("#DefaultOutputDevice"),
-						selectedOption: this.props.voiceStore.GetSelectedOutputDevice(),
-						onChange: this.OnOutputDeviceDropdownChanged,
-					}),
-				!this.state.outputOptionsReady &&
-					l.createElement(A.m, {
-						label: Localize("#VoiceOutputDevice"),
-						rgOptions: this.m_rgOutputOptions,
-						strDefaultLabel: Localize("#OutputDeviceLoading..."),
-					}),
-				l.createElement(A.JU, null, Localize("#VoiceVolume")),
-				l.createElement(
-					A.dR,
-					{
-						className: "DialogLabelStrong",
-					},
-					l.createElement(A.Kc, {
-						min: 0,
-						max: 100,
-						label: Localize("#VoiceInputGain"),
-						description: Localize("#VoiceInputGainExplainer"),
-						value: this.props.voiceStore.ConvertGainValueToSliderValue(
-							this.props.voiceStore.GetVoiceInputGain(),
-							p.F$.k_MaxInputOutputGainValue,
-						),
-						onChange: this.OnInputGainChanged,
-					}),
-					l.createElement(A.Kc, {
-						min: 0,
-						max: 100,
-						label: Localize("#VoiceOutputGain"),
-						description: Localize("#VoiceOutputGainExplainer"),
-						value: this.props.voiceStore.ConvertGainValueToSliderValue(
-							this.props.voiceStore.GetVoiceOutputGain(),
-							p.F$.k_MaxInputOutputGainValue,
-						),
-						onChange: this.OnOutputGainChanged,
-					}),
-				),
-				typeof SteamClient != "undefined" &&
+		return (
+			<A.lV
+				className={A_1("DialogBody", "VoiceSettings", _.VoiceSettings)}
+				onContextMenu={this.onContextMenu}
+				onSubmit={this.onSubmit}
+				onMouseDown={this.onMouseDown}
+				onClick={this.onClick}
+				onKeyDown={this.onKeyDown}
+			>
+				<div className="_FixedHeight">
+					<div className="voiceSelfHeader">
+						<div className="DialogLabel">{Localize("#VoiceSetupHeader")}</div>
+						<div className="voiceMicTestContainer">
+							<div
+								className="voiceSelfDirections"
+								title={Localize("#VoiceWhenMicIsWorking")}
+							>
+								<g.bP
+									friend={u}
+									key={u.accountid}
+									showVoiceLevel
+									context={undefined}
+									noActions
+									listStatusIndicator={<div className="connectionSpinner" />}
+								/>
+								<A.$n
+									className={`LocalMicTestButton ${m ? "Primary" : "Off"}`}
+									onClick={
+										m ? this.OnStopLocalMicTest : this.OnStartLocalMicTest
+									}
+								>
+									{m
+										? Localize("#VoiceStopLocalMicTest")
+										: Localize("#VoiceStartLocalMicTest")}
+								</A.$n>
+							</div>
+						</div>
+					</div>
+					{this.state.micOptionsReady && (
+						<A.m
+							strClassName="InputDevice"
+							label={Localize("#VoiceDevice")}
+							rgOptions={this.m_rgMicOptions}
+							strDefaultLabel={Localize("#DefaultMic")}
+							selectedOption={this.props.voiceStore.GetSelectedMic()}
+							onChange={this.OnMicDropdownChanged}
+						/>
+					)}
+					{!this.state.micOptionsReady && (
+						<A.m
+							label={Localize("#VoiceDevice")}
+							rgOptions={this.m_rgMicOptions}
+							strDefaultLabel={Localize("#MicLoading...")}
+						/>
+					)}
+					{this.state.outputOptionsReady && (
+						<A.m
+							label={Localize("#VoiceOutputDevice")}
+							rgOptions={this.m_rgOutputOptions}
+							strDefaultLabel={Localize("#DefaultOutputDevice")}
+							selectedOption={this.props.voiceStore.GetSelectedOutputDevice()}
+							onChange={this.OnOutputDeviceDropdownChanged}
+						/>
+					)}
+					{!this.state.outputOptionsReady && (
+						<A.m
+							label={Localize("#VoiceOutputDevice")}
+							rgOptions={this.m_rgOutputOptions}
+							strDefaultLabel={Localize("#OutputDeviceLoading...")}
+						/>
+					)}
+					<A.JU>{Localize("#VoiceVolume")}</A.JU>
+					<A.dR className="DialogLabelStrong">
+						<A.Kc
+							min={0}
+							max={100}
+							label={Localize("#VoiceInputGain")}
+							description={Localize("#VoiceInputGainExplainer")}
+							value={this.props.voiceStore.ConvertGainValueToSliderValue(
+								this.props.voiceStore.GetVoiceInputGain(),
+								p.F$.k_MaxInputOutputGainValue,
+							)}
+							onChange={this.OnInputGainChanged}
+						/>
+						<A.Kc
+							min={0}
+							max={100}
+							label={Localize("#VoiceOutputGain")}
+							description={Localize("#VoiceOutputGainExplainer")}
+							value={this.props.voiceStore.ConvertGainValueToSliderValue(
+								this.props.voiceStore.GetVoiceOutputGain(),
+								p.F$.k_MaxInputOutputGainValue,
+							)}
+							onChange={this.OnOutputGainChanged}
+						/>
+					</A.dR>
+					{typeof SteamClient != "undefined" &&
 					SteamClient.WebChat != null &&
-					SteamClient.WebChat.SetPushToMuteEnabled != null
-					? l.createElement(
-							"div",
-							{
-								className:
-									"_DialogSection pushToTalkSection" + (r ? "" : " disabled"),
-							},
-							l.createElement(
-								A.JU,
-								null,
-								Localize("#VoiceTransmissionType_Label"),
-								!r &&
-									l.createElement(
-										"span",
-										{
-											className: "disabledNotice",
-										},
-										" (",
-										Localize("#VoiceTransmissionType_Disabled"),
-										") ",
-									),
-							),
-							l.createElement(
-								"div",
-								{
-									className: _.TransmissionTypeSettings,
-								},
-								l.createElement(
-									A.zW,
-									{
-										value: C,
-										onChange: this.OnTransmissionTypeChange,
-									},
-									l.createElement(
-										A.a,
-										{
-											value: "openmic",
-										},
-										Localize("#VoiceTransmissionType_OpenMic"),
-									),
-									l.createElement(
-										A.a,
-										{
-											value: "pushtotalk",
-										},
-										Localize("#VoiceTransmissionType_PushToTalk"),
-									),
-									l.createElement(
-										A.a,
-										{
-											value: "pushtomute",
-										},
-										Localize("#VoiceTransmissionType_PushToMute"),
-									),
-								),
-								l.createElement(
-									"div",
-									{
-										className: _.HotkeySettingRow,
-									},
-									l.createElement(
-										"div",
-										{
-											className: _.HotkeySettingDescription,
-										},
-										e ? a : t ? s : o,
-									),
-									l.createElement(
-										A.$n,
-										{
-											disabled: !r,
-											className: (0, f.A)(
-												_.HotkeyButton,
-												this.state.hotkeyCapturing && _.Capturing,
-											),
-											onClick: this.AssignHotkey,
-										},
-										n,
-									),
-									!e &&
-										!t &&
-										l.createElement(
-											A.$n,
-											{
-												className: _.HotkeyClearButton,
-												onClick: this.ClearHotKey,
-												title: Localize("#VoiceClearHotKeyTooltip"),
-											},
-											l.createElement(h.sED, null),
-										),
-								),
-								l.createElement(
-									"div",
-									{
-										className: _.HotkeySettingRow,
-									},
-									l.createElement(
-										"span",
-										{
-											className: _.HotkeySettingDescription,
-										},
-										Localize("#VoicePushToSomethingSoundOption"),
-									),
-									l.createElement(A.Hk, {
-										value: c,
-										onChange: (e) => this.OnPPTSoundChecked(e),
-									}),
-								),
-							),
-						)
-					: l.createElement(
-							"div",
-							{
-								className:
-									"_DialogSection pushToTalkSection" + (r ? "" : " disabled"),
-							},
-							l.createElement(
-								A.JU,
-								null,
-								Localize("#VoiceTransmissionType"),
-								!r &&
-									l.createElement(
-										"span",
-										{
-											className: "disabledNotice",
-										},
-										" (",
-										Localize("#g_DisabledOnWeb"),
-										") ",
-									),
-							),
-							l.createElement(A.P8, {
-								disabled: !r,
-								label: Localize("#VoiceTransmissionTypeExplainer"),
-								value: e,
-								onChange: this.OnTogglePushToTalk,
-							}),
-							e &&
-								l.createElement(
-									"div",
-									{
-										className: "pushtoTalkKeyAssignContainer displayRow",
-									},
-									l.createElement(
-										A.JU,
-										{
-											className: "DialogLabelExplainer",
-										},
-										a,
-									),
-									l.createElement(
-										A.$n,
-										{
-											disabled: !r,
-											className: this.state.hotkeyCapturing && "capturingKey",
-											onClick: this.AssignHotkey,
-										},
-										n,
-									),
-								),
-						),
-				l.createElement(y, {
-					voiceStore: this.props.voiceStore,
-				}),
-				l.createElement(
-					A.$n,
-					{
-						className: (0, f.A)(
-							"advancedSettingsButton",
-							_.AdvancedSettingsButton,
-						),
-						onClick: this.OnShowAdvancedSettings,
-					},
-					this.state.showAdvanced
-						? Localize("#VoiceHideAdvancedSettings")
-						: Localize("#VoiceShowAdvancedSettings"),
-					l.createElement(h.GB9, null),
-				),
-				l.createElement(S, {
-					voiceStore: this.props.voiceStore,
-					visible: this.state.showAdvanced,
-				}),
-				l.createElement("div", {
-					className: "scrollToRef",
-					ref: this.VoiceSettingsRefMarker,
-				}),
-			),
+					SteamClient.WebChat.SetPushToMuteEnabled != null ? (
+						<div
+							className={`_DialogSection pushToTalkSection${
+								r ? "" : " disabled"
+							}`}
+						>
+							<A.JU>
+								{Localize("#VoiceTransmissionType_Label")}
+								{!r && (
+									<span className="disabledNotice">
+										{" ("}
+										{Localize("#VoiceTransmissionType_Disabled")}
+										{") "}
+									</span>
+								)}
+							</A.JU>
+							<div className={_.TransmissionTypeSettings}>
+								<A.zW value={C} onChange={this.OnTransmissionTypeChange}>
+									<A.a value="openmic">
+										{Localize("#VoiceTransmissionType_OpenMic")}
+									</A.a>
+									<A.a value="pushtotalk">
+										{Localize("#VoiceTransmissionType_PushToTalk")}
+									</A.a>
+									<A.a value="pushtomute">
+										{Localize("#VoiceTransmissionType_PushToMute")}
+									</A.a>
+								</A.zW>
+								<div className={_.HotkeySettingRow}>
+									<div className={_.HotkeySettingDescription}>
+										{e ? a : t ? s : o}
+									</div>
+									<A.$n
+										disabled={!r}
+										className={A_1(
+											_.HotkeyButton,
+											this.state.hotkeyCapturing && _.Capturing,
+										)}
+										onClick={this.AssignHotkey}
+									>
+										{n}
+									</A.$n>
+									{!e && !t && (
+										<A.$n
+											className={_.HotkeyClearButton}
+											onClick={this.ClearHotKey}
+											title={Localize("#VoiceClearHotKeyTooltip")}
+										>
+											<h.sED />
+										</A.$n>
+									)}
+								</div>
+								<div className={_.HotkeySettingRow}>
+									<span className={_.HotkeySettingDescription}>
+										{Localize("#VoicePushToSomethingSoundOption")}
+									</span>
+									<A.Hk value={c} onChange={(e) => this.OnPPTSoundChecked(e)} />
+								</div>
+							</div>
+						</div>
+					) : (
+						<div
+							className={`_DialogSection pushToTalkSection${
+								r ? "" : " disabled"
+							}`}
+						>
+							<A.JU>
+								{Localize("#VoiceTransmissionType")}
+								{!r && (
+									<span className="disabledNotice">
+										{" ("}
+										{Localize("#g_DisabledOnWeb")}
+										{") "}
+									</span>
+								)}
+							</A.JU>
+							<A.P8
+								disabled={!r}
+								label={Localize("#VoiceTransmissionTypeExplainer")}
+								value={e}
+								onChange={this.OnTogglePushToTalk}
+							/>
+							{e && (
+								<div className="pushtoTalkKeyAssignContainer displayRow">
+									<A.JU className="DialogLabelExplainer">{a}</A.JU>
+									<A.$n
+										disabled={!r}
+										className={this.state.hotkeyCapturing && "capturingKey"}
+										onClick={this.AssignHotkey}
+									>
+										{n}
+									</A.$n>
+								</div>
+							)}
+						</div>
+					)}
+					<Y voiceStore={this.props.voiceStore} />
+					<A.$n
+						className={A_1("advancedSettingsButton", _.AdvancedSettingsButton)}
+						onClick={this.OnShowAdvancedSettings}
+					>
+						{this.state.showAdvanced
+							? Localize("#VoiceHideAdvancedSettings")
+							: Localize("#VoiceShowAdvancedSettings")}
+						<h.GB9 />
+					</A.$n>
+					<S
+						voiceStore={this.props.voiceStore}
+						visible={this.state.showAdvanced}
+					/>
+					<div className="scrollToRef" ref={this.VoiceSettingsRefMarker} />
+				</div>
+			</A.lV>
 		);
 	}
 };
-(0, n.Cg)([u.oI], b.prototype, "gotMediaDevices", null);
-(0, n.Cg)([u.oI], b.prototype, "gotMediaDevicesError", null);
-(0, n.Cg)([u.oI], b.prototype, "onSubmit", null);
-(0, n.Cg)([u.oI], b.prototype, "VoiceSettingsRefMarker", null);
-(0, n.Cg)([u.oI], b.prototype, "OnShowAdvancedSettings", null);
-(0, n.Cg)([u.oI], b.prototype, "OnMicDropdownChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "OnOutputDeviceDropdownChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "OnInputGainChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "OnOutputGainChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "OnXButtonDown", null);
-(0, n.Cg)([u.oI], b.prototype, "OnTogglePushToTalk", null);
-(0, n.Cg)([u.oI], b.prototype, "AssignHotkey", null);
-(0, n.Cg)([u.oI], b.prototype, "ClearHotKey", null);
-(0, n.Cg)([u.oI], b.prototype, "OnTransmissionTypeChange", null);
-(0, n.Cg)([u.oI], b.prototype, "onMouseDown", null);
-(0, n.Cg)([u.oI], b.prototype, "onClick", null);
-(0, n.Cg)([u.oI], b.prototype, "onContextMenu", null);
-(0, n.Cg)([u.oI], b.prototype, "onKeyDown", null);
-(0, n.Cg)([u.oI], b.prototype, "OnPPTSoundChecked", null);
-(0, n.Cg)([u.oI], b.prototype, "OnStartLocalMicTest", null);
-(0, n.Cg)([u.oI], b.prototype, "OnStopLocalMicTest", null);
-b = (0, n.Cg)([c.PA], b);
-const y = (0, c.PA)((e) => {
-	const { voiceStore: t } = e;
-	const r = t.GetUseNoiseGateLevel();
+Cg([u.oI], B.prototype, "gotMediaDevices", null);
+Cg([u.oI], B.prototype, "gotMediaDevicesError", null);
+Cg([u.oI], B.prototype, "onSubmit", null);
+Cg([u.oI], B.prototype, "VoiceSettingsRefMarker", null);
+Cg([u.oI], B.prototype, "OnShowAdvancedSettings", null);
+Cg([u.oI], B.prototype, "OnMicDropdownChanged", null);
+Cg([u.oI], B.prototype, "OnOutputDeviceDropdownChanged", null);
+Cg([u.oI], B.prototype, "OnInputGainChanged", null);
+Cg([u.oI], B.prototype, "OnOutputGainChanged", null);
+Cg([u.oI], B.prototype, "OnXButtonDown", null);
+Cg([u.oI], B.prototype, "OnTogglePushToTalk", null);
+Cg([u.oI], B.prototype, "AssignHotkey", null);
+Cg([u.oI], B.prototype, "ClearHotKey", null);
+Cg([u.oI], B.prototype, "OnTransmissionTypeChange", null);
+Cg([u.oI], B.prototype, "onMouseDown", null);
+Cg([u.oI], B.prototype, "onClick", null);
+Cg([u.oI], B.prototype, "onContextMenu", null);
+Cg([u.oI], B.prototype, "onKeyDown", null);
+Cg([u.oI], B.prototype, "OnPPTSoundChecked", null);
+Cg([u.oI], B.prototype, "OnStartLocalMicTest", null);
+Cg([u.oI], B.prototype, "OnStopLocalMicTest", null);
+B = Cg([c.PA], B);
+const Y = PA((e) => {
+	const { voiceStore } = e;
+	const r = voiceStore.GetUseNoiseGateLevel();
 	const n = r === p.HT.k_ENoiseGateLevel_Low ? p.HT.k_ENoiseGateLevel_Off : r;
-	return l.createElement(
-		"div",
-		{
-			className: "_DialogSection",
-		},
-		l.createElement(A.JU, null, Localize("#VoiceTransmisionThreshold")),
-		l.createElement(
-			A.JU,
-			{
-				className: "DialogLabelStrong",
-			},
-			Localize("#VoiceTransmissionThresholdExplainer"),
-		),
-		l.createElement(
-			A.zW,
-			{
-				value: n,
-				onChange: (e) => t.SetUseNoiseGateLevel(e),
-			},
-			l.createElement(
-				A.a,
-				{
-					value: p.HT.k_ENoiseGateLevel_Off,
-				},
-				Localize("#VoiceTransmissionThresholdOff"),
-			),
-			l.createElement(
-				A.a,
-				{
-					value: p.HT.k_ENoiseGateLevel_Medium,
-				},
-				Localize("#VoiceTransmissionThresholdMedium"),
-				l.createElement(
-					"span",
-					{
-						className: _.RecommendedNote,
-					},
-					Localize("#VoiceTransmissionThresholdRecommended"),
-				),
-			),
-			l.createElement(
-				A.a,
-				{
-					value: p.HT.k_ENoiseGateLevel_High,
-				},
-				Localize("#VoiceTransmissionThresholdHigh"),
-			),
-		),
+	return (
+		<div className="_DialogSection">
+			<A.JU>{Localize("#VoiceTransmisionThreshold")}</A.JU>
+			<A.JU className="DialogLabelStrong">
+				{Localize("#VoiceTransmissionThresholdExplainer")}
+			</A.JU>
+			<A.zW value={n} onChange={(e) => voiceStore.SetUseNoiseGateLevel(e)}>
+				<A.a value={p.HT.k_ENoiseGateLevel_Off}>
+					{Localize("#VoiceTransmissionThresholdOff")}
+				</A.a>
+				<A.a value={p.HT.k_ENoiseGateLevel_Medium}>
+					{Localize("#VoiceTransmissionThresholdMedium")}
+					<span className={_.RecommendedNote}>
+						{Localize("#VoiceTransmissionThresholdRecommended")}
+					</span>
+				</A.a>
+				<A.a value={p.HT.k_ENoiseGateLevel_High}>
+					{Localize("#VoiceTransmissionThresholdHigh")}
+				</A.a>
+			</A.zW>
+		</div>
 	);
 });
-const S = (0, c.PA)((e) => {
-	const { voiceStore: t, visible: r } = e;
-	return l.createElement(
-		"div",
-		{
-			className: "advancedSettings" + (r ? " showAdvanced" : ""),
-		},
-		l.createElement(A.JU, null, Localize("#VoiceAdvancedSettings")),
-		l.createElement(
-			A.JU,
-			{
-				className: "DialogLabelExplainer Left",
-			},
-			Localize("#VoiceAdvancedSettingsExplainer"),
-		),
-		l.createElement(A.P8, {
-			className: _.ToggleRow,
-			label: Localize("#VoiceEchoCancellation"),
-			value: t.GetUseEchoCancellation(),
-			onChange: (e) => t.SetUseEchoCancellation(e),
-		}),
-		l.createElement(A.P8, {
-			className: _.ToggleRow,
-			label: Localize("#VoiceNoiseCancellation"),
-			value: t.GetUseNoiseCancellation(),
-			onChange: (e) => t.SetUseNoiseCancellation(e),
-		}),
-		l.createElement(A.P8, {
-			className: _.ToggleRow,
-			label: Localize("#VoiceAutoGainControl"),
-			value: t.GetUseAutoGainControl(),
-			onChange: (e) => t.SetUseAutoGainControl(e),
-		}),
-		l.createElement(
-			A.$n,
-			{
-				className: "copyVoiceLogsButton",
-				onClick: () =>
-					(function (e) {
+const S = PA((e) => {
+	const { voiceStore, visible } = e;
+	return (
+		<div className={`advancedSettings${visible ? " showAdvanced" : ""}`}>
+			<A.JU>{Localize("#VoiceAdvancedSettings")}</A.JU>
+			<A.JU className="DialogLabelExplainer Left">
+				{Localize("#VoiceAdvancedSettingsExplainer")}
+			</A.JU>
+			<A.P8
+				className={_.ToggleRow}
+				label={Localize("#VoiceEchoCancellation")}
+				value={voiceStore.GetUseEchoCancellation()}
+				onChange={(e) => voiceStore.SetUseEchoCancellation(e)}
+			/>
+			<A.P8
+				className={_.ToggleRow}
+				label={Localize("#VoiceNoiseCancellation")}
+				value={voiceStore.GetUseNoiseCancellation()}
+				onChange={(e) => voiceStore.SetUseNoiseCancellation(e)}
+			/>
+			<A.P8
+				className={_.ToggleRow}
+				label={Localize("#VoiceAutoGainControl")}
+				value={voiceStore.GetUseAutoGainControl()}
+				onChange={(e) => voiceStore.SetUseAutoGainControl(e)}
+			/>
+			<A.$n
+				className="copyVoiceLogsButton"
+				onClick={() =>
+					((e) => {
 						const t = e.GetVoiceLogs();
 						const r = document.createElement("textarea");
 						r.textContent = t;
@@ -720,19 +586,17 @@ const S = (0, c.PA)((e) => {
 						} finally {
 							document.body.removeChild(r);
 						}
-					})(t),
-			},
-			Localize("#CopyVoiceChatLogs"),
-		),
+					})(voiceStore)
+				}
+			>
+				{Localize("#CopyVoiceChatLogs")}
+			</A.$n>
+		</div>
 	);
 });
-var w = require("./5222.js");
 export function T(e, t, r) {
-	(0, o.HT)(
-		l.createElement(v, {
-			browserContext: e,
-			startingPage: r,
-		}),
+	HT(
+		<V browserContext={e} startingPage={r} />,
 		t,
 		Localize("#FriendSettings_Title"),
 		{
@@ -740,10 +604,10 @@ export function T(e, t, r) {
 			popupWidth: 842,
 			popupHeight: 720,
 		},
-		(0, a.h8)(t),
+		h8(t),
 	);
 }
-let v = class extends l.Component {
+let V = class extends l.Component {
 	constructor(e) {
 		super(e, Localize("#Settings"));
 	}
@@ -773,228 +637,152 @@ let v = class extends l.Component {
 				{
 					title: Localize("#FriendSettings_Friends"),
 					identifier: "friends",
-					content: l.createElement(m.dG, {
-						...t,
-					}),
+					content: <m.dG {...t} />,
 				},
 				{
 					title: Localize("#FriendSettings_Chat"),
 					identifier: "chat",
-					content: l.createElement(m.IW, {
-						...t,
-					}),
+					content: <m.IW {...t} />,
 				},
 				{
 					title: Localize("#FriendSettings_SizeAndScaling"),
 					identifier: "sizeAndScaling",
-					content: l.createElement(m.vQ, {
-						...t,
-					}),
+					content: <m.vQ {...t} />,
 				},
 				{
 					title: Localize("#FriendSettings_Notifications"),
 					identifier: "notifications",
-					content: l.createElement(I, {
-						...t,
-					}),
+					content: <I {...t} />,
 				},
 				{
 					title: Localize("#FriendSettings_Voice"),
 					identifier: "voice",
-					content: l.createElement(b, {
-						onCancel: this.props.closeModal,
-						voiceStore: i.xm.ChatStore.VoiceChat,
-					}),
+					content: (
+						<B
+							onCancel={this.props.closeModal}
+							voiceStore={i.xm.ChatStore.VoiceChat}
+						/>
+					),
 				},
 			],
 			startingPage: this.props.startingPage,
 		};
-		return l.createElement(
-			o.x_,
-			{
-				onEscKeypress: this.props.closeModal,
-			},
-			l.createElement(A.Bv, {
-				...r,
-			}),
+		return (
+			<o.x_ onEscKeypress={this.props.closeModal}>
+				<A.Bv {...r} />
+			</o.x_>
 		);
 	}
 };
-v = (0, n.Cg)([c.PA], v);
+V = Cg([c.PA], V);
 let I = class extends m.jr {
-	m_rgOptions = (0, w.yi)(false);
+	m_rgOptions = yi(false);
 	constructor(e) {
 		super(e);
 	}
 	FriendsSettingsNotificationRow(e) {
-		let t = this.FriendsSettingsCheckbox;
-		return l.createElement(
-			"div",
-			null,
-			l.createElement(
-				"div",
-				{
-					className: "FriendsSettingsNotificationRow",
-				},
-				l.createElement(
-					"div",
-					{
-						className: "FriendsSettingsNotificationRow_Label",
-					},
-					e.strLabel,
-				),
-				l.createElement(
-					"div",
-					{
-						className: "FriendsSettingsNotificationRow_Checkbox",
-					},
-					l.createElement(t, {
-						strName: e.strNameShow,
-					}),
-				),
-				l.createElement(
-					"div",
-					{
-						className: "FriendsSettingsNotificationRow_Checkbox",
-					},
-					l.createElement(t, {
-						strName: e.strNameSound,
-					}),
-				),
-			),
+		let T_1 = this.FriendsSettingsCheckbox;
+		return (
+			<div>
+				<div className="FriendsSettingsNotificationRow">
+					<div className="FriendsSettingsNotificationRow_Label">
+						{e.strLabel}
+					</div>
+					<div className="FriendsSettingsNotificationRow_Checkbox">
+						<T_1 strName={e.strNameShow} />
+					</div>
+					<div className="FriendsSettingsNotificationRow_Checkbox">
+						<T_1 strName={e.strNameSound} />
+					</div>
+				</div>
+			</div>
 		);
 	}
 	render() {
 		let e = this.state.friendSettings;
-		let t = this.FriendsSettingsNotificationRow;
-		return l.createElement(
-			A.lV,
-			{
-				className: "DialogBody",
-				onSubmit: this.OnSubmit,
-			},
-			l.createElement(
-				"div",
-				{
-					className: "SettingsGroup",
-				},
-				l.createElement(
-					"div",
-					{
-						className:
-							"FriendsSettingsNotificationRow FriendsSettingsNotificationRow_Header",
-					},
-					l.createElement(
-						"div",
-						{
-							className: "FriendsSettingsNotificationRow_Label",
-						},
-						Localize("#FriendSettings_Notification_Table_Label"),
-					),
-					l.createElement(
-						"div",
-						{
-							className: "FriendsSettingsNotificationRow_Checkbox",
-						},
-						Localize("#FriendSettings_Notification_Table_Show"),
-					),
-					l.createElement(
-						"div",
-						{
-							className: "FriendsSettingsNotificationRow_Checkbox",
-						},
-						Localize("#FriendSettings_Notification_Table_Play"),
-					),
-				),
-				l.createElement(t, {
-					strLabel: Localize("#FriendSettings_Notification_FriendJoins"),
-					strNameShow: "bNotifications_ShowIngame",
-					strNameSound: "bSounds_PlayIngame",
-				}),
-				l.createElement(t, {
-					strLabel: Localize("#FriendSettings_Notification_FriendOnline"),
-					strNameShow: "bNotifications_ShowOnline",
-					strNameSound: "bSounds_PlayOnline",
-				}),
-				l.createElement(t, {
-					strLabel: Localize("#FriendSettings_Notification_ChatMessage"),
-					strNameShow: "bNotifications_ShowMessage",
-					strNameSound: "bSounds_PlayMessage",
-				}),
-				l.createElement(t, {
-					strLabel: Localize(
-						"#FriendSettings_Notification_ChatRoomNotification",
-					),
-					strNameShow: "bNotifications_ShowChatRoomNotification",
-					strNameSound: "bSounds_PlayChatRoomNotification",
-				}),
-				this.props.bShowGroupOpts &&
-					l.createElement(t, {
-						strLabel: Localize("#FriendSettings_Notification_GroupEvent"),
-						strNameShow: "bNotifications_EventsAndAnnouncements",
-						strNameSound: "bSounds_EventsAndAnnouncements",
-					}),
-			),
-			this.props.bShowPopupOpts &&
-				this.props.bShowClientOpts &&
-				l.createElement(
-					"div",
-					{
-						className: "SettingsGroup",
-					},
-					l.createElement(
-						"div",
-						{
-							className: "FriendsSettingsFlashSection",
-						},
-						l.createElement(
-							A.JU,
-							{
-								className: "FriendsSettingsFlashSection_Header",
-							},
-							Localize("#FriendSettings_Flash_Header"),
-						),
-						l.createElement(
-							A.Xp,
-							{
-								className: "FriendsSettingsFlashSection_ButtonRow",
-							},
-							l.createElement(
-								A.$n,
-								{
-									className: e.nChatFlashMode == 0 ? "Primary" : "Off",
-									value: 0,
-									onClick: this.HandleRadioChange,
-								},
-								Localize("#FriendSettings_Flash_Always"),
-							),
-							l.createElement(
-								A.$n,
-								{
-									className: e.nChatFlashMode == 1 ? "Primary" : "Off",
-									value: 1,
-									onClick: this.HandleRadioChange,
-								},
-								Localize("#FriendSettings_Flash_Minimized"),
-							),
-							l.createElement(
-								A.$n,
-								{
-									className: e.nChatFlashMode == 2 ? "Primary" : "Off",
-									value: 2,
-									onClick: this.HandleRadioChange,
-								},
-								Localize("#FriendSettings_Flash_Never"),
-							),
-						),
-					),
-				),
-			!this.props.bSubmitImmediate &&
-				l.createElement(A.CB, {
-					onCancel: this.props.onCancel,
-				}),
+		let T_1 = this.FriendsSettingsNotificationRow;
+		return (
+			<A.lV className="DialogBody" onSubmit={this.OnSubmit}>
+				<div className="SettingsGroup">
+					<div className="FriendsSettingsNotificationRow FriendsSettingsNotificationRow_Header">
+						<div className="FriendsSettingsNotificationRow_Label">
+							{Localize("#FriendSettings_Notification_Table_Label")}
+						</div>
+						<div className="FriendsSettingsNotificationRow_Checkbox">
+							{Localize("#FriendSettings_Notification_Table_Show")}
+						</div>
+						<div className="FriendsSettingsNotificationRow_Checkbox">
+							{Localize("#FriendSettings_Notification_Table_Play")}
+						</div>
+					</div>
+					<T_1
+						strLabel={Localize("#FriendSettings_Notification_FriendJoins")}
+						strNameShow="bNotifications_ShowIngame"
+						strNameSound="bSounds_PlayIngame"
+					/>
+					<T_1
+						strLabel={Localize("#FriendSettings_Notification_FriendOnline")}
+						strNameShow="bNotifications_ShowOnline"
+						strNameSound="bSounds_PlayOnline"
+					/>
+					<T_1
+						strLabel={Localize("#FriendSettings_Notification_ChatMessage")}
+						strNameShow="bNotifications_ShowMessage"
+						strNameSound="bSounds_PlayMessage"
+					/>
+					<T_1
+						strLabel={Localize(
+							"#FriendSettings_Notification_ChatRoomNotification",
+						)}
+						strNameShow="bNotifications_ShowChatRoomNotification"
+						strNameSound="bSounds_PlayChatRoomNotification"
+					/>
+					{this.props.bShowGroupOpts && (
+						<T_1
+							strLabel={Localize("#FriendSettings_Notification_GroupEvent")}
+							strNameShow="bNotifications_EventsAndAnnouncements"
+							strNameSound="bSounds_EventsAndAnnouncements"
+						/>
+					)}
+				</div>
+				{this.props.bShowPopupOpts && this.props.bShowClientOpts && (
+					<div className="SettingsGroup">
+						<div className="FriendsSettingsFlashSection">
+							<A.JU className="FriendsSettingsFlashSection_Header">
+								{Localize("#FriendSettings_Flash_Header")}
+							</A.JU>
+							<A.Xp className="FriendsSettingsFlashSection_ButtonRow">
+								<A.$n
+									className={e.nChatFlashMode == 0 ? "Primary" : "Off"}
+									value={0}
+									onClick={this.HandleRadioChange}
+								>
+									{Localize("#FriendSettings_Flash_Always")}
+								</A.$n>
+								<A.$n
+									className={e.nChatFlashMode == 1 ? "Primary" : "Off"}
+									value={1}
+									onClick={this.HandleRadioChange}
+								>
+									{Localize("#FriendSettings_Flash_Minimized")}
+								</A.$n>
+								<A.$n
+									className={e.nChatFlashMode == 2 ? "Primary" : "Off"}
+									value={2}
+									onClick={this.HandleRadioChange}
+								>
+									{Localize("#FriendSettings_Flash_Never")}
+								</A.$n>
+							</A.Xp>
+						</div>
+					</div>
+				)}
+				{!this.props.bSubmitImmediate && (
+					<A.CB onCancel={this.props.onCancel} />
+				)}
+			</A.lV>
 		);
 	}
 };
-(0, n.Cg)([u.oI], I.prototype, "FriendsSettingsNotificationRow", null);
-I = (0, n.Cg)([c.PA], I);
+Cg([u.oI], I.prototype, "FriendsSettingsNotificationRow", null);
+I = Cg([c.PA], I);

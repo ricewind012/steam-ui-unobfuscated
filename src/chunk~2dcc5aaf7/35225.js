@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	thumbnailWidth: "320",
 	LoadingTimeline: "_3Q5mItz1omGnn-T1D3hSx6",
 	ScrollAndControlsCtn: "_1fH0OLSeGlehC7ZroCzqe9",

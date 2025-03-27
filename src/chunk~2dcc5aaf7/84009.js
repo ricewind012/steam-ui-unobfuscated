@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ClickableScreenshot: "_3JNo1hUKCpMJiJSM2dD5Kq",
 	ClickableScreenshotImg: "_21yM8Jxi06nOAC-Lr1vfOh",
 	UseWidth: "_1zPkVnKexQdCEe_yQuhRVw",

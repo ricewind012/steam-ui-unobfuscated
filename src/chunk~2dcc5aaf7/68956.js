@@ -1,61 +1,67 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require("./81469.js");
-var s = a;
-var o = require("./84921.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var m = require("./92374.js");
-var u = require(/*webcrack:missing*/ "./83599.js");
-var d = require("./6967.js");
-var A = require(/*webcrack:missing*/ "./43691.js");
-var p = require("./35488.js");
-var g = require(/*webcrack:missing*/ "./52451.js");
-var h = require("./29516.js");
-var C = require("./59005.js");
-var _ = require("./76835.js");
-var f = require("./91720.js");
-var b = require("./96360.js");
-var y = require("./37576.js");
-var S = y;
-var w = require("./67429.js");
+import { LocalizeDurationAbbreviation } from "../../actual_src/utils/localization/datetime.js";
+import { ToggleFullscreen } from "../../actual_src/utils/domutils.js";
+import n, { useState, useEffect, useMemo, useCallback } from "./63696.js";
+import i, { A as A_1 } from "./90765.js";
+import a from "./81469.js";
+import o, { xE } from "./84921.js";
+import { q3 } from "./90095.js";
+import { aO } from "./92374.js";
+import u from "./83599.js";
+import d, { NB } from "./6967.js";
+import A from "./43691.js";
+import p from "./35488.js";
+import g, { Ue } from "./52451.js";
+import h, { _Z, Pm } from "./29516.js";
+import { wj } from "./59005.js";
+import _, { hT, Te, xz, N$, sX, eJ } from "./76835.js";
+import f, { dd } from "./91720.js";
+import b from "./96360.js";
+import y from "./37576.js";
+import w from "./67429.js";
+import T from "./69164.js";
+import R from "./98995.js";
+import k, { f as f_1 } from "./661.js";
+import D from "./90242.js";
+import N from "./94361.js";
+import F from "./26516.js";
+const s = a;
+const S = y;
 const B = parseInt(S.animationDuration);
-function v() {
-	const e = (0, m.aO)();
-	const t = (0, l.q3)(() => e.GetDisplayHighlightEntry());
-	const [r, i] = (0, n.useState)(null);
-	const a = n.useRef(0);
-	(0, n.useEffect)(() => {
-		if (t?.entry && !(0, _.hT)(t.entry) && !(0, _.Te)(t.entry)) {
-			i(t.entry);
-			a.current = window.setTimeout(
+function V_1() {
+	const e = aO();
+	const t = q3(() => e.GetDisplayHighlightEntry());
+	const [r, setR] = useState(null);
+	const ARef = n.useRef(0);
+	useEffect(() => {
+		if (t?.entry && !hT(t.entry) && !Te(t.entry)) {
+			setR(t.entry);
+			ARef.current = window.setTimeout(
 				() => {
 					e.SetDisplayHighlightEntry(null);
 				},
 				t.duration ? t.duration : B,
 			);
-			return () => window.clearTimeout(a.current);
+			return () => window.clearTimeout(ARef.current);
 		}
-		i(null);
+		setR(null);
 	}, [t, e]);
 	if (r) {
-		return n.createElement(I, {
-			entry: r,
-		});
+		return <I entry={r} />;
 	} else {
 		return null;
 	}
 }
 function I(e) {
-	const { entry: t } = e;
-	const r = (0, m.aO)();
-	const i = (0, l.q3)(() => r.GetGameID());
+	const { entry } = e;
+	const r = aO();
+	const i = q3(() => r.GetGameID());
 	const a = r.GetGameRecordingVideo();
-	const s = (0, l.q3)(() => r.GetRecordingID());
-	const o = (0, l.q3)(() => a.IsInitialized());
+	const s = q3(() => r.GetRecordingID());
+	const o = q3(() => a.IsInitialized());
 	const u = a.GetVideoHeight();
 	const d = a.GetVideoWidth();
 	const A =
@@ -66,122 +72,86 @@ function I(e) {
 				}
 			: {};
 	let p;
-	if ((0, _.xz)(t)) {
-		p = n.createElement(E, {
-			entry: t,
-			strGameID: i,
-		});
-	} else if ((0, _.N$)(t)) {
-		p = n.createElement(M, {
-			key: t.id,
-			entry: t,
-			strMarkerIcon: t.icon,
-			title: t.title ? t.title : Localize("#Marker_UserMarker_Title"),
-			description: t.description || "",
-		});
-	} else if ((0, _.sX)(t)) {
-		p = n.createElement(M, {
-			key: t.id,
-			entry: t,
-			strMarkerIcon: t.icon,
-			title: Localize("#MediaManager_ItemType_Screenshot"),
-			description: "",
-		});
-	} else if ((0, _.eJ)(t)) {
-		p = n.createElement(M, {
-			key: t.id,
-			entry: t,
-			strMarkerIcon: t.icon,
-			title: t.title || "",
-			description: t.description || "",
-		});
+	if (xz(entry)) {
+		p = <E entry={entry} strGameID={i} />;
+	} else if (N$(entry)) {
+		p = (
+			<M
+				key={entry.id}
+				entry={entry}
+				strMarkerIcon={entry.icon}
+				title={entry.title ? entry.title : Localize("#Marker_UserMarker_Title")}
+				description={entry.description || ""}
+			/>
+		);
+	} else if (sX(entry)) {
+		p = (
+			<M
+				key={entry.id}
+				entry={entry}
+				strMarkerIcon={entry.icon}
+				title={Localize("#MediaManager_ItemType_Screenshot")}
+				description=""
+			/>
+		);
+	} else if (eJ(entry)) {
+		p = (
+			<M
+				key={entry.id}
+				entry={entry}
+				strMarkerIcon={entry.icon}
+				title={entry.title || ""}
+				description={entry.description || ""}
+			/>
+		);
 	}
-	return n.createElement(
-		"div",
-		{
-			className: S.BannerVideoOverlay,
-			style: A,
-		},
-		p,
+	return (
+		<div className={S.BannerVideoOverlay} style={A}>
+			{p}
+		</div>
 	);
 }
 function E(e) {
-	const { entry: t, strGameID: r } = e;
-	const i = new w.VS(r);
-	const a = (0, f.dd)(i.GetAppID(), t.achievement_name);
+	const { entry, strGameID } = e;
+	const i = new w.VS(strGameID);
+	const a = dd(i.GetAppID(), entry.achievement_name);
 	if (a) {
-		return n.createElement(M, {
-			key: t.id,
-			entry: t,
-			strMarkerIcon: "steam_achievement",
-			title: a.name ?? "",
-			description: a.description ?? "",
-		});
+		return (
+			<M
+				key={entry.id}
+				entry={entry}
+				strMarkerIcon="steam_achievement"
+				title={a.name ?? ""}
+				description={a.description ?? ""}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
 function M(e) {
-	const { entry: t, strMarkerIcon: r, title: i, description: a } = e;
-	return n.createElement(
-		"div",
-		{
-			className: S.PlayerHighlightBanner,
-		},
-		n.createElement(
-			"div",
-			{
-				className: S.BannerContents,
-			},
-			n.createElement(
-				"div",
-				{
-					className: S.HighlightIcon,
-				},
-				n.createElement(b.Zo, {
-					entry: t,
-					strMarkerIcon: r,
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: S.InfoBox,
-				},
-				i &&
-					n.createElement(
-						"div",
-						{
-							className: S.HighlightTitle,
-						},
-						i,
-					),
-				a &&
-					n.createElement(
-						"div",
-						{
-							className: S.HighlightDesc,
-						},
-						a,
-					),
-			),
-		),
+	const { entry, strMarkerIcon, title, description } = e;
+	return (
+		<div className={S.PlayerHighlightBanner}>
+			<div className={S.BannerContents}>
+				<div className={S.HighlightIcon}>
+					<b.Zo entry={entry} strMarkerIcon={strMarkerIcon} />
+				</div>
+				<div className={S.InfoBox}>
+					{title && <div className={S.HighlightTitle}>{title}</div>}
+					{description && <div className={S.HighlightDesc}>{description}</div>}
+				</div>
+			</div>
+		</div>
 	);
 }
-var T = require(/*webcrack:missing*/ "./69164.js");
-var R = require(/*webcrack:missing*/ "./98995.js");
-var k = require("./661.js");
-var D = require(/*webcrack:missing*/ "./90242.js");
-var N = require("./94361.js");
-var F = require("./26516.js");
-var G = F;
-import { LocalizeDurationAbbreviation } from "../../actual_src/utils/localization/datetime.js";
+const G = F;
 const P = parseInt(G.animationDuration);
 function L() {
-	const e = (0, m.aO)();
+	const e = aO();
 	const t = e.GetGameRecordingVideo();
-	const r = (0, l.q3)(() => e.GetRecordingID());
-	const i = (0, l.q3)(() => t.IsInitialized());
+	const r = q3(() => e.GetRecordingID());
+	const i = q3(() => t.IsInitialized());
 	const a = t.GetVideoHeight();
 	const s = t.GetVideoWidth();
 	const o =
@@ -191,10 +161,10 @@ function L() {
 					width: s,
 				}
 			: {};
-	const c = n.useRef(0);
-	const u = (0, l.q3)(() => e.GetRelativeTimeForDisplay());
-	const d = (0, l.q3)(() => e.GetGameRecordingVideo().IsInitialized());
-	const A = (0, n.useMemo)(() => {
+	const CRef = n.useRef(0);
+	const u = q3(() => e.GetRelativeTimeForDisplay());
+	const d = q3(() => e.GetGameRecordingVideo().IsInitialized());
+	const A = useMemo(() => {
 		if (isNaN(u) || !d) {
 			return null;
 		}
@@ -208,68 +178,59 @@ function L() {
 		}
 		return null;
 	}, [d, u, e]);
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (!isNaN(u)) {
-			c.current = window.setTimeout(() => {
+			CRef.current = window.setTimeout(() => {
 				e.ClearRelativeTimeDisplay();
 			}, P);
-			return () => window.clearTimeout(c.current);
+			return () => window.clearTimeout(CRef.current);
 		}
 	}, [u, e]);
 	if (isNaN(u)) {
 		return null;
 	} else {
-		return n.createElement(
-			"div",
-			{
-				className: G.RelativeTimeContainer,
-				style: o,
-			},
-			n.createElement(
-				"div",
-				{
-					className: G.RelativeTime,
-					key: A,
-				},
-				A,
-			),
+		return (
+			<div className={G.RelativeTimeContainer} style={o}>
+				<div className={G.RelativeTime} key={A}>
+					{A}
+				</div>
+			</div>
 		);
 	}
 }
-import { ToggleFullscreen } from "../../actual_src/utils/domutils.js";
 export function J(e) {
 	const {
-		disableSound: t,
-		positionAbsolute: r = true,
-		refVideoResize: a,
-		style: c,
-		refFullscreen: u,
+		disableSound,
+		positionAbsolute = true,
+		refVideoResize,
+		style,
+		refFullscreen,
 	} = e;
-	const d = (0, m.aO)();
-	const p = (0, o.xE)(d.StopPlayback, d.SetVideoElement);
+	const d = aO();
+	const p = xE(d.StopPlayback, d.SetVideoElement);
 	const _ = d.GetGameRecordingVideo();
-	const f = (0, l.q3)(() => d.GetRecordingID());
-	const b = (0, l.q3)(() => _.GetPlaybackError());
-	const y = (0, l.q3)(() => d.GetRecordingMode() === "Overlay");
-	const S = (function () {
-		const e = (0, m.aO)();
-		const t = (0, l.q3)(() => e.GetGlobalMSPlaytime());
-		const { nGlobalEndMS: r, nGlobalStartMS: n } = (0, h._Z)();
+	const f = q3(() => d.GetRecordingID());
+	const b = q3(() => _.GetPlaybackError());
+	const y = q3(() => d.GetRecordingMode() === "Overlay");
+	const S = (() => {
+		const e = aO();
+		const t = q3(() => e.GetGlobalMSPlaytime());
+		const { nGlobalEndMS, nGlobalStartMS } = _Z();
 		const i = e.GetGameRecordingVideo();
 		return (
-			!(0, l.q3)(() => i.GetPlaybackError()) &&
+			!q3(() => i.GetPlaybackError()) &&
 			!!t &&
-			!!n &&
-			!!r &&
-			t.valMS >= n.valMS &&
-			t.valMS <= r.valMS
+			!!nGlobalStartMS &&
+			!!nGlobalEndMS &&
+			t.valMS >= nGlobalStartMS.valMS &&
+			t.valMS <= nGlobalEndMS.valMS
 		);
 	})();
-	const w = (0, h.Pm)();
+	const w = Pm();
 	const B = b || !f;
-	const I = n.useRef();
-	let E = (0, g.Ue)(p, a);
-	const M = (0, C.wj)();
+	const IRef = n.useRef();
+	let E = Ue(p, refVideoResize);
+	const M = wj();
 	const T = n.useCallback(
 		(e) => {
 			if (!B) {
@@ -283,96 +244,80 @@ export function J(e) {
 		[B, M],
 	);
 	const R = !A.TS.IN_STEAMUI && !!e.autoPlay;
-	let k = (0, i.A)(
+	let k = A_1(
 		s.GameRecordingPlayer,
 		B && s.NoVideo,
-		r && s.PositionAbsolute,
+		positionAbsolute && s.PositionAbsolute,
 		w && s.ClippingMode,
 		y && s.Overlay,
 		S && s.PlayingClippedRegion,
 	);
-	return n.createElement(
-		"div",
-		{
-			ref: I,
-			className: k,
-			onClick: function () {
+	return (
+		<div
+			ref={IRef}
+			className={k}
+			onClick={() => {
 				if (f) {
 					d.TogglePlayPause();
 				}
-			},
-			onContextMenu: T,
-			style: c,
-			onDoubleClick: function () {
-				if (f && u.current) {
-					ToggleFullscreen(u.current);
+			}}
+			onContextMenu={T}
+			style={style}
+			onDoubleClick={() => {
+				if (f && refFullscreen.current) {
+					ToggleFullscreen(refFullscreen.current);
 				}
-			},
-		},
-		n.createElement("video", {
-			ref: E,
-			controls: false,
-			muted: t,
-			autoPlay: R,
-			playsInline: R,
-		}),
-		n.createElement(H, {
-			player: _,
-		}),
-		n.createElement(U, null),
-		n.createElement(W, null),
-		n.createElement(V, null),
-		!f && n.createElement(j, null),
-		n.createElement(v, null),
-		n.createElement(L, null),
+			}}
+		>
+			<video
+				ref={E}
+				controls={false}
+				muted={disableSound}
+				autoPlay={R}
+				playsInline={R}
+			/>
+			<H player={_} />
+			<U />
+			<W />
+			<V />
+			{!f && <J_1 />}
+			<V_1 />
+			<L />
+		</div>
 	);
 }
 function U() {
-	const e = (0, m.aO)();
+	const e = aO();
 	const t = u.fi.Get().IsDebugLogEnabled("GR");
-	const r = (0, l.q3)(() => e.GetPlaybackStats());
+	const r = q3(() => e.GetPlaybackStats());
 	if (t && r) {
-		return n.createElement(
-			"div",
-			{
-				className: s.PerfCtnVideo,
-			},
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Average Seek MS: "),
-				n.createElement("span", null, r.nMean.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "StdDev Seek MS: "),
-				n.createElement("span", null, r.nStdDev.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Slowest Seek MS: "),
-				n.createElement("span", null, r.nMax.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Fastest Seek MS: "),
-				n.createElement("span", null, r.nMin.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "# Seeks: "),
-				n.createElement("span", null, r.nLength),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Last Val: "),
-				n.createElement("span", null, r.nLastVal.toFixed(3)),
-			),
+		return (
+			<div className={s.PerfCtnVideo}>
+				<div>
+					<span>{"Average Seek MS: "}</span>
+					<span>{r.nMean.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"StdDev Seek MS: "}</span>
+					<span>{r.nStdDev.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"Slowest Seek MS: "}</span>
+					<span>{r.nMax.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"Fastest Seek MS: "}</span>
+					<span>{r.nMin.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"# Seeks: "}</span>
+					<span>{r.nLength}</span>
+				</div>
+				<div>
+					<span>{"Last Val: "}</span>
+					<span>{r.nLastVal.toFixed(3)}</span>
+				</div>
+			</div>
 		);
 	} else {
 		return null;
@@ -380,119 +325,98 @@ function U() {
 }
 function W() {
 	const e = u.fi.Get().IsDebugLogEnabled("GR");
-	const t = (0, m.aO)();
-	(0, l.q3)(() => {
+	const t = aO();
+	q3(() => {
 		t.GetGlobalMSPlaytime();
 	});
-	const r = (0, d.NB)();
+	const r = NB();
 	if (e && r) {
-		return n.createElement(
-			"div",
-			{
-				className: s.PerfCtnThumbnails,
-			},
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Avg Thumbnail Load MS: "),
-				n.createElement("span", null, r.nMean.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "StdDev Thumbnail Load MS: "),
-				n.createElement("span", null, r.nStdDev.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Slowest Thumbnail Load MS: "),
-				n.createElement("span", null, r.nMax.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Fastest Thumbnail Load MS: "),
-				n.createElement("span", null, r.nMin.toFixed(3)),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "# Loaded: "),
-				n.createElement("span", null, r.nLength),
-			),
-			n.createElement(
-				"div",
-				null,
-				n.createElement("span", null, "Last Load: "),
-				n.createElement("span", null, r.nLastVal.toFixed(3)),
-			),
+		return (
+			<div className={s.PerfCtnThumbnails}>
+				<div>
+					<span>{"Avg Thumbnail Load MS: "}</span>
+					<span>{r.nMean.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"StdDev Thumbnail Load MS: "}</span>
+					<span>{r.nStdDev.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"Slowest Thumbnail Load MS: "}</span>
+					<span>{r.nMax.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"Fastest Thumbnail Load MS: "}</span>
+					<span>{r.nMin.toFixed(3)}</span>
+				</div>
+				<div>
+					<span>{"# Loaded: "}</span>
+					<span>{r.nLength}</span>
+				</div>
+				<div>
+					<span>{"Last Load: "}</span>
+					<span>{r.nLastVal.toFixed(3)}</span>
+				</div>
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
 function V() {
-	const e = (0, m.aO)();
+	const e = aO();
 	const t = e.GetGameRecordingVideo();
 	const r = t.GetVideoHeight();
-	const i = (0, l.q3)(() => t.BVideoElementWaiting());
-	const a = (0, l.q3)(() => t.IsPaused());
-	const o = (0, l.q3)(() => t.GetPlaybackError());
-	const c = (0, l.q3)(() => t.IsInitialized());
-	if (!(0, l.q3)(() => e.GetRecordingID()) || (c && !i) || o || a) {
+	const i = q3(() => t.BVideoElementWaiting());
+	const a = q3(() => t.IsPaused());
+	const o = q3(() => t.GetPlaybackError());
+	const c = q3(() => t.IsInitialized());
+	if (!q3(() => e.GetRecordingID()) || (c && !i) || o || a) {
 		return null;
 	} else {
-		return n.createElement(
-			"div",
-			{
-				className: s.LoadingSpinner,
-				style: {
+		return (
+			<div
+				className={s.LoadingSpinner}
+				style={{
 					height: r,
-				},
-			},
-			n.createElement(p.Spinner, null),
+				}}
+			>
+				<p.Spinner />
+			</div>
 		);
 	}
 }
 function H(e) {
-	const { player: t } = e;
-	const r = (0, l.q3)(() => t.GetPlaybackError());
-	(0, l.q3)(() => t.GetMediaTypeError());
+	const { player } = e;
+	const r = q3(() => player.GetPlaybackError());
+	q3(() => player.GetMediaTypeError());
 	let i = "";
 	switch (r) {
 		case o.ep.DownloadFailed:
 		case o.ep.PlaybackError:
-		case o.ep.MediaTypeError:
+		case o.ep.MediaTypeError: {
 			i = "#GameRecording_PlayerError_Generic";
+		}
 	}
 	if (i) {
-		return n.createElement(
-			"div",
-			{
-				className: s.PlayerError,
-			},
-			n.createElement(
-				"div",
-				{
-					className: s.Text,
-				},
-				Localize(i),
-			),
+		return (
+			<div className={s.PlayerError}>
+				<div className={s.Text}>{Localize(i)}</div>
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
-function j() {
-	const e = (0, m.aO)();
-	const t = (0, l.q3)(() => e.GetGamepadMode());
-	const { onNavigateToClip: r, onNavigateToFAQ: a } = (0, k.f)();
-	const o = (0, l.q3)(() => e.GetGlobalMSPlaytime());
+function J_1() {
+	const e = aO();
+	const t = q3(() => e.GetGamepadMode());
+	const { onNavigateToClip, onNavigateToFAQ } = f_1();
+	const o = q3(() => e.GetGlobalMSPlaytime());
 	const u = e.GetClosestPreviousRecordingForGlobalMS(o);
 	const d = e.GetClosestNextRecordingForGlobalMS(o);
-	const A = (0, l.q3)(() => e.GetClipsAtGlobalMS(o));
-	const p = (0, n.useCallback)(
+	const A = q3(() => e.GetClipsAtGlobalMS(o));
+	const p = useCallback(
 		(t) => {
 			if (u) {
 				const r = Math.max(parseInt(u.duration_ms) - 500, 0);
@@ -502,7 +426,7 @@ function j() {
 		},
 		[e, u],
 	);
-	const g = (0, n.useCallback)(
+	const g = useCallback(
 		(t) => {
 			if (d) {
 				e.SetPlaytimeFromRecordingOffset(d.recording_id, 0);
@@ -511,112 +435,81 @@ function j() {
 		},
 		[e, d],
 	);
-	const h = (0, n.useCallback)(
+	const h = useCallback(
 		(e) => {
 			if (A.length > 0) {
 				N.y.ReportTrackedAction(
 					"/GameRecording/Tooltip/ViewClip/PlayerNoContent",
 				);
-				r(A[0].strClipID);
+				onNavigateToClip(A[0].strClipID);
 				e.stopPropagation();
 			}
 		},
-		[A, r],
+		[A, onNavigateToClip],
 	);
-	return n.createElement(
-		"div",
-		{
-			className: s.PlayerError,
-		},
-		n.createElement(
-			"div",
-			{
-				className: s.Title,
-			},
-			Localize("#GameRecording_PlayerNoContent"),
-		),
-		n.createElement(
-			"div",
-			{
-				className: s.Description,
-			},
-			LocalizeInlineReactWithFallback(
-				"#GameRecording_PlayerNoContentDescription",
-				n.createElement(D.Ii, {
-					href: "#",
-					onClick: a,
-				}),
-			),
-		),
-		!t &&
-			n.createElement(
-				"div",
-				{
-					className: s.Buttons,
-				},
-				n.createElement(
-					R.he,
-					{
-						direction: "bottom",
-						toolTipContent: Localize(
+	return (
+		<div className={s.PlayerError}>
+			<div className={s.Title}>
+				{Localize("#GameRecording_PlayerNoContent")}
+			</div>
+			<div className={s.Description}>
+				{LocalizeInlineReactWithFallback(
+					"#GameRecording_PlayerNoContentDescription",
+					<D.Ii href="#" onClick={onNavigateToFAQ} />,
+				)}
+			</div>
+			{!t && (
+				<div className={s.Buttons}>
+					<R.he
+						direction="bottom"
+						toolTipContent={Localize(
 							u
 								? "#GameRecording_PlayerNoContentJumpPrevious_tooltip"
 								: "#GameRecording_PlayerNoContentJumpNoContent_tooltip",
-						),
-					},
-					n.createElement(
-						T.Z,
-						{
-							className: (0, i.A)(
-								s.Button,
-								s.JumpPrevious,
-								!u && s.DisableButton,
-							),
-							onClick: p,
-							onActivate: p,
-						},
-						Localize("#GameRecording_PlayerNoContentJumpPrevious"),
-					),
-				),
-				A.length > 0 &&
-					n.createElement(
-						R.he,
-						{
-							direction: "bottom",
-							toolTipContent: Localize(
+						)}
+					>
+						<T.Z
+							className={A_1(s.Button, s.JumpPrevious, !u && s.DisableButton)}
+							onClick={p}
+							onActivate={p}
+						>
+							{Localize("#GameRecording_PlayerNoContentJumpPrevious")}
+						</T.Z>
+					</R.he>
+					{A.length > 0 && (
+						<R.he
+							direction="bottom"
+							toolTipContent={Localize(
 								"#GameRecording_PlayerNoContentSeeClip_tooltip",
-							),
-						},
-						n.createElement(
-							T.Z,
-							{
-								onClick: h,
-								onActivate: h,
-								className: (0, i.A)(s.Button, s.GoToClip),
-							},
-							Localize("#GameRecording_PlayerNoContentSeeClip"),
-						),
-					),
-				n.createElement(
-					R.he,
-					{
-						direction: "bottom",
-						toolTipContent: Localize(
+							)}
+						>
+							<T.Z
+								onClick={h}
+								onActivate={h}
+								className={A_1(s.Button, s.GoToClip)}
+							>
+								{Localize("#GameRecording_PlayerNoContentSeeClip")}
+							</T.Z>
+						</R.he>
+					)}
+					<R.he
+						direction="bottom"
+						toolTipContent={Localize(
 							d
 								? "#GameRecording_PlayerNoContentJumpNext_tooltip"
 								: "#GameRecording_PlayerNoContentJumpNoContent_tooltip",
-						),
-					},
-					n.createElement(
-						T.Z,
-						{
-							className: (0, i.A)(s.Button, s.JumpNext, !d && s.DisableButton),
-							onClick: g,
-							onActivate: g,
-						},
-						Localize("#GameRecording_PlayerNoContentJumpNext"),
-					),
-				),
-			),
+						)}
+					>
+						<T.Z
+							className={A_1(s.Button, s.JumpNext, !d && s.DisableButton)}
+							onClick={g}
+							onActivate={g}
+						>
+							{Localize("#GameRecording_PlayerNoContentJumpNext")}
+						</T.Z>
+					</R.he>
+				</div>
+			)}
+		</div>
 	);
 }

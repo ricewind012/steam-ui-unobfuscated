@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./18057.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./49519.js");
-var c = require("./55700.js");
-var m = require(/*webcrack:missing*/ "./93960.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./87935.js");
-var A = require(/*webcrack:missing*/ "./83599.js");
-var p = require("./79883.js");
-var g = require("./18869.js");
-var h = require("./34792.js");
-var C = require("./93966.js");
-var _ = require("./18052.js");
+import n, { Cg } from "./34629.js";
+import i, { jB } from "./18057.js";
+import a, { Gn } from "./89193.js";
+import s, { q3 } from "./90095.js";
+import o, { useEffect, useCallback } from "./63696.js";
+import { B6, W5 } from "./49519.js";
+import { v } from "./55700.js";
+import m from "./93960.js";
+import u from "./72476.js";
+import d from "./87935.js";
+import A from "./83599.js";
+import p from "./79883.js";
+import { We } from "./18869.js";
+import h from "./34792.js";
+import { VM } from "./93966.js";
+import _ from "./18052.js";
 const f = ["data:text/html"];
 const b = new A.wd("BrowserBackstack");
 class y {
@@ -41,7 +41,7 @@ class y {
 	m_pageSecurity = null;
 	m_tabbedBrowserStore;
 	constructor(e, t) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_browser = e;
 		this.m_history = t;
 		this.m_lastLocation = t.location;
@@ -104,7 +104,9 @@ class y {
 			const n = this.BIsWaitingForHistoryCallback();
 			const i = e.index - this.m_browserHistory.index;
 			b.Debug(
-				`Browser history - ${n ? "expected " : ""}change.  Delta: ${i}.${r ? `  ${r}ms since navigation.` : ""}`,
+				`Browser history - ${n ? "expected " : ""}change.  Delta: ${i}.${
+					r ? `  ${r}ms since navigation.` : ""
+				}`,
 			);
 			if (n) {
 				let t =
@@ -128,13 +130,17 @@ class y {
 					this.m_bRouterChangeTriggeredBySync = true;
 					this.m_history.go(i + 1);
 					b.Debug(
-						`Moved history back by an additional ${i + 1} to account for browser delta.`,
+						`Moved history back by an additional ${
+							i + 1
+						} to account for browser delta.`,
 					);
 				} else if (i > 1) {
 					this.m_bRouterChangeTriggeredBySync = true;
 					this.m_history.go(i - 1);
 					b.Debug(
-						`Moved history back by an additional ${i - 1} to account for browser delta.`,
+						`Moved history back by an additional ${
+							i - 1
+						} to account for browser delta.`,
 					);
 				} else {
 					b.Debug(
@@ -142,7 +148,7 @@ class y {
 					);
 				}
 			} else if (t) {
-				const t = (function (e, t) {
+				const t = ((e, t) => {
 					if (e.index === t.index) {
 						return "REPLACE";
 					}
@@ -161,14 +167,15 @@ class y {
 				})(e, this.m_browserHistory);
 				b.Debug(`Processing "${t}" from browser history change.`);
 				switch (t) {
-					case "POP":
+					case "POP": {
 						const t = e.index - this.m_browserHistory.index;
 						this.m_bRouterChangeTriggeredBySync = true;
 						this.m_history.go(t);
 						break;
-					case "PUSH":
-						const { state: r, ...n } = this.m_history.location;
-						const i = r && typeof r == "object" ? r : {};
+					}
+					case "PUSH": {
+						const { state, ...n } = this.m_history.location;
+						const i = state && typeof state == "object" ? state : {};
 						const a = e.entries[e.index].url;
 						const s = this.m_history.entries[this.m_history.length - 1]?.state;
 						if (a == s?.strURL && s?.bExternal) {
@@ -184,6 +191,7 @@ class y {
 								},
 							});
 						}
+					}
 				}
 			} else {
 				b.Debug(
@@ -218,12 +226,12 @@ class y {
 		this.m_bRouterChangeTriggeredBySync = false;
 		const n = E(e);
 		switch (t) {
-			case "POP":
+			case "POP": {
 				if (r) {
 					break;
 				}
 				const t = this.m_history.entries.findIndex(
-					({ key: e }) => e === this.m_lastLocation.key,
+					({ key }) => key === this.m_lastLocation.key,
 				);
 				const i = this.m_history.index - t;
 				if (i === 0) {
@@ -243,24 +251,27 @@ class y {
 					this.m_browser.GoBack();
 				}
 				break;
-			case "PUSH":
+			}
+			case "PUSH": {
 				if (!n) {
 					this.StartWaitingForHistoryCallback();
 					this.LoadURL(T(`${e.key}:${e.pathname}`));
 				}
 				break;
-			case "REPLACE":
+			}
+			case "REPLACE": {
 				if (k(this.m_browserHistory) && !n) {
 					this.StartWaitingForHistoryCallback();
 					this.LoadURL(T(`${e.key}:${e.pathname}`));
 				}
+			}
 		}
 		this.m_lastLocation = e;
 	}
 	ActivateTab(e) {
 		if (
 			e === this.m_lastActiveTab &&
-			(0, l.B6)(this.m_history.location.pathname, {
+			B6(this.m_history.location.pathname, {
 				path: i.BV.Browser(),
 			})
 		) {
@@ -298,7 +309,7 @@ class y {
 	}
 	ShowURL(e, t) {
 		b.Debug("ShowURL", e, t);
-		(0, g.We)(this.m_history, i.BV.Browser(), {
+		We(this.m_history, i.BV.Browser(), {
 			...t,
 			state: {
 				bExternal: true,
@@ -354,9 +365,9 @@ class y {
 }
 let S;
 export function no() {
-	const e = (0, l.W5)(i.BV.Browser());
+	const e = W5(i.BV.Browser());
 	const t = X1;
-	return (0, s.q3)(() =>
+	return q3(() =>
 		S
 			? {
 					activeTab: e ? S.GetLastActiveTab() : null,
@@ -404,45 +415,45 @@ export function Ff(e) {
 	return S.TabbedBrowserStore.AddWebPageRequest(e, true);
 }
 export function TO(e) {
-	const [t, r] = (0, c.v)(e, "SteamBrowser", {
+	const [t, r] = v(e, "SteamBrowser", {
 		bOnlyAllowTrustedPopups: false,
 		strURL: _.p,
 	});
-	const n = (0, i.jB)();
-	(0, o.useEffect)(() => {
+	const n = jB();
+	useEffect(() => {
 		if (t) {
 			S = new y(t, n);
 			window.MainWindowBrowserManager = S;
 		}
 	}, [t, n]);
-	const a = (0, o.useCallback)(() => S?.BIsWaitingForHistoryCallback(), []);
-	(0, C.VM)(a);
+	const a = useCallback(() => S?.BIsWaitingForHistoryCallback(), []);
+	VM(a);
 	return [t, r];
 }
 function E(e) {
-	return !!(0, l.B6)(e.pathname, {
+	return !!B6(e.pathname, {
 		path: i.BV.Browser(),
 	});
 }
-(0, n.Cg)([a.sH], y.prototype, "m_lastActiveTab", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_URLRequested", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_URL", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_loadErrorCode", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_loadErrorURL", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_loadErrorDesc", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_bLoading", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_strTitle", undefined);
-(0, n.Cg)([a.sH], y.prototype, "m_pageSecurity", undefined);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnStartRequest", null);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnStartLoad", null);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnFinishedRequest", null);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnPageSecurity", null);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnSetTitle", null);
-(0, n.Cg)([a.XI.bound], y.prototype, "OnNewTab", null);
-(0, n.Cg)([a.XI], y.prototype, "SyncWithNewBrowserHistory", null);
-(0, n.Cg)([m.o], y.prototype, "ActivateTab", null);
-(0, n.Cg)([m.o], y.prototype, "ShowURL", null);
-(0, n.Cg)([m.o], y.prototype, "Reload", null);
+Cg([a.sH], y.prototype, "m_lastActiveTab", undefined);
+Cg([a.sH], y.prototype, "m_URLRequested", undefined);
+Cg([a.sH], y.prototype, "m_URL", undefined);
+Cg([a.sH], y.prototype, "m_loadErrorCode", undefined);
+Cg([a.sH], y.prototype, "m_loadErrorURL", undefined);
+Cg([a.sH], y.prototype, "m_loadErrorDesc", undefined);
+Cg([a.sH], y.prototype, "m_bLoading", undefined);
+Cg([a.sH], y.prototype, "m_strTitle", undefined);
+Cg([a.sH], y.prototype, "m_pageSecurity", undefined);
+Cg([a.XI.bound], y.prototype, "OnStartRequest", null);
+Cg([a.XI.bound], y.prototype, "OnStartLoad", null);
+Cg([a.XI.bound], y.prototype, "OnFinishedRequest", null);
+Cg([a.XI.bound], y.prototype, "OnPageSecurity", null);
+Cg([a.XI.bound], y.prototype, "OnSetTitle", null);
+Cg([a.XI.bound], y.prototype, "OnNewTab", null);
+Cg([a.XI], y.prototype, "SyncWithNewBrowserHistory", null);
+Cg([m.o], y.prototype, "ActivateTab", null);
+Cg([m.o], y.prototype, "ShowURL", null);
+Cg([m.o], y.prototype, "Reload", null);
 const M = "tracking";
 function T(e) {
 	return `data:text/html,%3Cbody%3E%3C%2Fbody%3E%3C!--${M}:${e}--%3E`;

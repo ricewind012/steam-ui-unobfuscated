@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var _i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./25348.js");
-var l = o;
-var c = require(/*webcrack:missing*/ "./49455.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require(/*webcrack:missing*/ "./4690.js");
-var d = require(/*webcrack:missing*/ "./31958.js");
+import n, { Cg } from "./34629.js";
+import _i from "./63696.js";
+import a, { A } from "./90765.js";
+import s, { wY, Ue, md, xP } from "./52451.js";
+import o from "./25348.js";
+import c, { w } from "./49455.js";
+import m from "./69164.js";
+import u from "./4690.js";
+import d, { OQ } from "./31958.js";
+const l = o;
 export function i(e) {
 	const [t, r] = _i.useState(-1);
 	const n = _i.useRef(undefined);
@@ -30,9 +30,9 @@ export function i(e) {
 		}
 		r(t);
 	}, [g, m, A, a, o, n, d]);
-	const C = (0, s.wY)(h);
+	const C = wY(h);
 	_i.useEffect(h, [h]);
-	const _ = (0, s.Ue)(n, C);
+	const _ = Ue(n, C);
 	return _i.createElement(
 		_i.Fragment,
 		null,
@@ -74,6 +74,42 @@ class p extends _i.Component {
 			this.ComputeLayout();
 		} else if (
 			this.props.maxRows != e.maxRows ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.gridColumnGap != e.gridColumnGap ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.gridColumnGap != e.gridColumnGap ||
+			this.props.gridRowGap != e.gridRowGap ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.gridColumnGap != e.gridColumnGap ||
+			this.props.gridRowGap != e.gridRowGap ||
+			this.props.scaleGridItems != e.scaleGridItems ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.gridColumnGap != e.gridColumnGap ||
+			this.props.gridRowGap != e.gridRowGap ||
+			this.props.scaleGridItems != e.scaleGridItems ||
+			this.props.paddingLeft != e.paddingLeft ||
+			this.props.childElements.length != e.childElements.length ||
+			this.props.childWidth != e.childWidth ||
+			this.props.childHeight != e.childHeight ||
+			this.props.gridColumnGap != e.gridColumnGap ||
+			this.props.gridRowGap != e.gridRowGap ||
+			this.props.scaleGridItems != e.scaleGridItems ||
+			this.props.paddingLeft != e.paddingLeft ||
+			this.props.paddingRight != e.paddingRight ||
 			this.props.childElements.length != e.childElements.length ||
 			this.props.childWidth != e.childWidth ||
 			this.props.childHeight != e.childHeight ||
@@ -128,7 +164,7 @@ class p extends _i.Component {
 				"restorescroll",
 				this.OnRestoreScroll,
 			);
-			this.m_intersectionObserver = (0, s.md)(
+			this.m_intersectionObserver = md(
 				this.m_elGrid.current,
 				this.OnIntersection,
 				{
@@ -149,11 +185,11 @@ class p extends _i.Component {
 	}
 	GetGridStyle(e, t) {
 		return {
-			gridTemplateColumns: "repeat(auto-fill, " + e + "px)",
-			gridAutoRows: t + "px",
+			gridTemplateColumns: `repeat(auto-fill, ${e}px)`,
+			gridAutoRows: `${t}px`,
 			gridColumnGap: this.props.gridColumnGap,
 			gridRowGap: this.props.gridRowGap,
-			fontSize: t / 11 + "px",
+			fontSize: `${t / 11}px`,
 			paddingLeft: this.props.paddingLeft,
 			paddingRight: this.props.paddingRight,
 		};
@@ -183,8 +219,8 @@ class p extends _i.Component {
 		const s = n.innerHeight + i - r.top;
 		const o = Math.floor(a / e) * t;
 		const l = Math.ceil(s / e) * t;
-		const c = (0, d.OQ)(o, 0, this.props.childElements.length);
-		const m = (0, d.OQ)(l, 0, this.props.childElements.length);
+		const c = OQ(o, 0, this.props.childElements.length);
+		const m = OQ(l, 0, this.props.childElements.length);
 		if (
 			c != this.state.iFirstRenderableChild ||
 			m != this.state.iLastRenderableChild
@@ -211,7 +247,7 @@ class p extends _i.Component {
 		for (let e = 0; e < a; ++e) {
 			n.unshift(
 				_i.createElement("div", {
-					key: "_grid_pad_" + e,
+					key: `_grid_pad_${e}`,
 				}),
 			);
 		}
@@ -239,7 +275,7 @@ class p extends _i.Component {
 			height: Math.max(0, h - p - 1) * r,
 		};
 		const f = this.GetChildren(o, d, n);
-		(0, c.w)(f.length <= (p - A + 1) * n, "Too many children for row count");
+		w(f.length <= (p - A + 1) * n, "Too many children for row count");
 		let b = this.props.paddingBottom ?? 0;
 		if (h == 0) {
 			b = 0;
@@ -252,12 +288,9 @@ class p extends _i.Component {
 				navRef: this.props.navRef,
 				navKey: this.props.name,
 				navEntryPreferPosition: u.iU.MAINTAIN_X,
-				className: (0, a.A)(
-					l.Container,
-					this.props.animateExpansion && l.Animate,
-				),
+				className: A(l.Container, this.props.animateExpansion && l.Animate),
 				style: {
-					height: r * h + b + "px",
+					height: `${r * h + b}px`,
 				},
 			},
 			_i.createElement("div", {
@@ -267,7 +300,7 @@ class p extends _i.Component {
 			_i.createElement(
 				m.Z,
 				{
-					className: (0, a.A)(l.CSSGrid, this.props.gridClassName),
+					className: A(l.CSSGrid, this.props.gridClassName),
 					style: this.GetGridStyle(e, t),
 					navEntryPreferPosition: u.iU.MAINTAIN_X,
 				},
@@ -280,18 +313,8 @@ class p extends _i.Component {
 		);
 	}
 }
-(0, n.Cg)(
-	[s.oI, (0, s.xP)("on_scroll", "cssgrid")],
-	p.prototype,
-	"OnScroll",
-	null,
-);
-(0, n.Cg)([s.oI], p.prototype, "OnRestoreScroll", null);
-(0, n.Cg)([s.oI], p.prototype, "OnIntersection", null);
-(0, n.Cg)(
-	[(0, s.xP)("get_children", "cssgrid")],
-	p.prototype,
-	"GetChildren",
-	null,
-);
-(0, n.Cg)([(0, s.xP)("render", "cssgrid")], p.prototype, "render", null);
+Cg([s.oI, xP("on_scroll", "cssgrid")], p.prototype, "OnScroll", null);
+Cg([s.oI], p.prototype, "OnRestoreScroll", null);
+Cg([s.oI], p.prototype, "OnIntersection", null);
+Cg([xP("get_children", "cssgrid")], p.prototype, "GetChildren", null);
+Cg([xP("render", "cssgrid")], p.prototype, "render", null);

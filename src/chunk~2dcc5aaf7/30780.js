@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	"gamepad-page-content-max-width-default": "1100px",
 	"gamepad-page-content-min-gutter-width": "150px",

@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require("./51297.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var m = require("./89411.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o, { $$ } from "./52451.js";
+import l from "./51297.js";
+import { mt } from "./89411.js";
 export class Rk {
 	static s_Singleton = null;
 	static Get() {
@@ -25,7 +25,7 @@ export class Rk {
 		return this.m_eUpdateState;
 	}
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		SteamClient.System.Dock?.RegisterForStateChanges(this.OnStateChanged);
 	}
 	OnStateChanged(e) {
@@ -79,22 +79,22 @@ export class Rk {
 }
 export function AF() {
 	return [
-		(0, s.q3)(() => Rk.Get().eUpdateState),
+		q3(() => Rk.Get().eUpdateState),
 		Rk.Get().CheckForUpdate,
 		Rk.Get().ApplyUpdate,
 	];
 }
 export function Kh() {
-	return (0, s.q3)(() => Rk.Get().msgState?.update_state);
+	return q3(() => Rk.Get().msgState?.update_state);
 }
 export function Mi() {
 	const e = Kh();
 	const t = e?.rtime_estimated_completion;
-	const [r, n] = i.useState(null);
-	(0, o.$$)(() => {
+	const [r, setR] = i.useState(null);
+	$$(() => {
 		const t = GetUnixTime();
 		const r = e?.rtime_estimated_completion;
-		n(r - t);
+		setR(r - t);
 	}, 500);
 	if (t <= 0 || isNaN(r)) {
 		return null;
@@ -105,20 +105,20 @@ export function Mi() {
 export function Qi() {
 	const e = Kh();
 	const t = e?.rtime_last_checked ?? 0;
-	const [r, n] = i.useState(t ? GetUnixTime() - t : null);
-	(0, o.$$)(() => {
+	const [r, setR] = i.useState(t ? GetUnixTime() - t : null);
+	$$(() => {
 		const t = e?.rtime_last_checked;
-		n(t ? GetUnixTime() - t : null);
+		setR(t ? GetUnixTime() - t : null);
 	}, 250);
 	return r;
 }
 export function P7() {
 	const [e] = AF();
-	return (0, m.mt)(e);
+	return mt(e);
 }
-(0, n.Cg)([a.sH], Rk.prototype, "m_eUpdateState", undefined);
-(0, n.Cg)([a.sH], Rk.prototype, "m_msgState", undefined);
-(0, n.Cg)([a.XI.bound], Rk.prototype, "OnStateChanged", null);
-(0, n.Cg)([o.oI], Rk.prototype, "CheckForUpdate", null);
-(0, n.Cg)([o.oI], Rk.prototype, "ApplyUpdate", null);
-(0, n.Cg)([o.oI], Rk.prototype, "DisarmSafetyNet", null);
+Cg([a.sH], Rk.prototype, "m_eUpdateState", undefined);
+Cg([a.sH], Rk.prototype, "m_msgState", undefined);
+Cg([a.XI.bound], Rk.prototype, "OnStateChanged", null);
+Cg([o.oI], Rk.prototype, "CheckForUpdate", null);
+Cg([o.oI], Rk.prototype, "ApplyUpdate", null);
+Cg([o.oI], Rk.prototype, "DisarmSafetyNet", null);

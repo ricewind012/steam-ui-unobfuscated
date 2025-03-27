@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Fd } from "./52451.js";
 export class N extends i.Component {
 	m_elContainer = null;
 	m_resizeObserver = null;
@@ -23,7 +23,7 @@ export class N extends i.Component {
 		}
 		this.m_elContainer = e;
 		if (this.m_elContainer) {
-			this.m_resizeObserver = (0, a.Fd)(this.m_elContainer, this.OnResize);
+			this.m_resizeObserver = Fd(this.m_elContainer, this.OnResize);
 			this.UpdateDimensions(
 				this.m_elContainer.clientWidth,
 				this.m_elContainer.clientHeight,
@@ -52,13 +52,8 @@ export class N extends i.Component {
 		this.UpdateDimensions(r, n);
 	}
 	render() {
-		const {
-			bUseRelativePosition: e,
-			className: t,
-			refToDiv: r,
-			...n
-		} = this.props;
-		const a = e
+		const { bUseRelativePosition, className, refToDiv, ...n } = this.props;
+		const a = bUseRelativePosition
 			? {
 					position: "relative",
 				}
@@ -74,17 +69,12 @@ export class N extends i.Component {
 			height: this.state.nHeight,
 		};
 		const o = this.props.children(s);
-		return i.createElement(
-			"div",
-			{
-				className: t,
-				style: a,
-				ref: this.BindContainerRef,
-				...n,
-			},
-			o,
+		return (
+			<div className={className} style={a} ref={this.BindContainerRef} {...n}>
+				{o}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([a.oI], N.prototype, "BindContainerRef", null);
-(0, n.Cg)([a.oI], N.prototype, "OnResize", null);
+Cg([a.oI], N.prototype, "BindContainerRef", null);
+Cg([a.oI], N.prototype, "OnResize", null);

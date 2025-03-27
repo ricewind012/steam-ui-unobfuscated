@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
 class a {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapAppDetailsCache = new Map();
 	BHasDataForApp(e) {
@@ -62,7 +62,7 @@ class a {
 		);
 	}
 }
-(0, n.Cg)([i.sH.shallow], a.prototype, "m_mapAppDetailsCache", undefined);
-(0, n.Cg)([i.XI], a.prototype, "SetCachedDataForApp", null);
+Cg([i.sH.shallow], a.prototype, "m_mapAppDetailsCache", undefined);
+Cg([i.XI], a.prototype, "SetCachedDataForApp", null);
 export const O = new a();
 window.appDetailsCache = O;

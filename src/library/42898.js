@@ -1,5 +1,5 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./28864.js");
+import r from "./63696.js";
+import i, { QS, Ue } from "./28864.js";
 export function xP(e, t) {
 	return (e, t, n) => n;
 }
@@ -14,57 +14,57 @@ export function Z3(e, t, n = []) {
 	}, [t, ...n]);
 }
 export function eV(e, t, n = []) {
-	const i = r.useRef(e);
-	i.current = e;
+	const IRef = r.useRef(e);
+	IRef.current = e;
 	r.useEffect(() => {
-		if (!i.current) {
+		if (!IRef.current) {
 			return;
 		}
 		const e = setTimeout(() => {
-			if (i.current) {
-				i.current();
+			if (IRef.current) {
+				IRef.current();
 			}
 		}, t);
 		return () => clearTimeout(e);
 	}, [t, ...n]);
 }
 export function $$(e, t, n = [], i = true) {
-	const s = r.useRef(e);
-	s.current = e;
+	const SRef = r.useRef(e);
+	SRef.current = e;
 	r.useEffect(() => {
-		if (!s.current || !i) {
+		if (!SRef.current || !i) {
 			return;
 		}
 		const e = setInterval(() => {
-			if (s.current) {
-				s.current();
+			if (SRef.current) {
+				SRef.current();
 			}
 		}, t);
 		return () => clearInterval(e);
 	}, [t, i, ...n]);
 }
 export function bB(e) {
-	const { msInterval: t, bEnabled: n = true } = e;
-	$$(CH(), t, [], n);
+	const { msInterval, bEnabled = true } = e;
+	$$(CH(), msInterval, [], bEnabled);
 }
 export function L$(e, t, n = true, i = false) {
-	const s = r.useRef(t);
-	s.current = t;
-	const [o, a] = r.useState(false);
-	const c = r.useRef(0);
+	const SRef = r.useRef(t);
+	SRef.current = t;
+	const [o, setO] = r.useState(false);
+	const CRef = r.useRef(0);
 	const l = r.useCallback(() => {
-		a(true);
-		if (s.current) {
-			s.current();
+		setO(true);
+		if (SRef.current) {
+			SRef.current();
 		}
 	}, []);
 	const u = r.useCallback(() => {
-		window.clearTimeout(c.current);
+		window.clearTimeout(CRef.current);
 	}, []);
 	const m = r.useCallback(() => {
-		a(false);
+		setO(false);
 		u();
-		c.current = window.setTimeout(l, e);
+		CRef.current = window.setTimeout(l, e);
 	}, [u, e, l]);
 	const d = r.useCallback(() => {
 		if (n) {
@@ -85,20 +85,20 @@ export function L$(e, t, n = true, i = false) {
 	};
 }
 export function SK(e, t = []) {
-	const [n, i] = r.useState(e <= 0);
-	r.useEffect(() => i(false), t);
-	Z3(() => i(true), e, t);
+	const [n, setN] = r.useState(e <= 0);
+	r.useEffect(() => setN(false), t);
+	Z3(() => setN(true), e, t);
 	return n;
 }
 export function vJ(e, t, n) {
-	const [i, s] = r.useState(n);
+	const [i, setI] = r.useState(n);
 	r.useEffect(() => {
 		let t = true;
 		const n = e();
 		if (n) {
 			n.then((e) => {
 				if (t) {
-					s(e);
+					setI(e);
 				}
 			});
 		}
@@ -109,21 +109,21 @@ export function vJ(e, t, n) {
 	return i;
 }
 export function CH() {
-	const [, e] = r.useState(0);
-	return r.useCallback(() => e((e) => e + 1), []);
+	const [, setE] = r.useState(0);
+	return r.useCallback(() => setE((e) => e + 1), []);
 }
 export function xM() {
-	const e = r.useRef(false);
+	const ERef = r.useRef(false);
 	r.useEffect(
 		() => () => {
-			e.current = true;
+			ERef.current = true;
 		},
 		[],
 	);
-	return r.useCallback(() => e.current, []);
+	return r.useCallback(() => ERef.current, []);
 }
 export function _g(e) {
-	const t = r.useRef({
+	const TRef = r.useRef({
 		flLastExecutionTimeMs: 0,
 		fnLatestCallback: null,
 		nTimeoutHandle: 0,
@@ -138,18 +138,18 @@ export function _g(e) {
 		},
 	});
 	r.useEffect(() => {
-		const e = t.current;
-		return () => e.fnExecuteLatestCallback();
+		const t_current = TRef.current;
+		return () => t_current.fnExecuteLatestCallback();
 	}, []);
 	return r.useCallback(
 		(n) => {
-			const r = t.current;
-			r.fnLatestCallback = n;
-			const i = Date.now() - r.flLastExecutionTimeMs;
+			const t_current = TRef.current;
+			t_current.fnLatestCallback = n;
+			const i = Date.now() - t_current.flLastExecutionTimeMs;
 			const s = Math.max(e - i, 0);
-			window.clearTimeout(r.nTimeoutHandle);
-			r.nTimeoutHandle = window.setTimeout(
-				() => r.fnExecuteLatestCallback(),
+			window.clearTimeout(t_current.nTimeoutHandle);
+			t_current.nTimeoutHandle = window.setTimeout(
+				() => t_current.fnExecuteLatestCallback(),
 				s,
 			);
 		},
@@ -166,7 +166,7 @@ export function ML(e, t, n, i) {
 	}, [e, t, n]);
 }
 export function xA(e, t, n) {
-	return (0, i.QS)(
+	return QS(
 		(r) => {
 			if (r && t) {
 				r.addEventListener(e, t, n);
@@ -220,13 +220,13 @@ export function dh(e) {
 	hL(e, CH());
 }
 export function gc(e) {
-	const [t, n] = r.useState(e?.Value);
+	const [t, setT] = r.useState(e?.Value);
 	r.useEffect(() => {
 		if (e == null) {
 			return;
 		}
-		const t = e.Subscribe(n);
-		n(e.Value);
+		const t = e.Subscribe(setT);
+		setT(e.Value);
 		return t?.Unsubscribe;
 	}, [e]);
 	return t;
@@ -241,43 +241,43 @@ export function x2(e, t) {
 	}, [e, t]);
 }
 export function uN(e, t, n = 1000) {
-	const i = r.useRef(t);
-	i.current = t;
-	const [s, o] = r.useState(e);
-	const [a, c] = r.useState(false);
+	const IRef = r.useRef(t);
+	IRef.current = t;
+	const [s, setS] = r.useState(e);
+	const [a, setA] = r.useState(false);
 	const l = r.useCallback(() => {
-		o(e);
-		c(false);
-	}, [e, o]);
-	const { fnStopTimer: m, fnRestartTimer: d } = L$(n, l, false);
+		setS(e);
+		setA(false);
+	}, [e, setS]);
+	const { fnStopTimer, fnRestartTimer } = L$(n, l, false);
 	const h = r.useCallback(
 		(e) => {
-			d();
-			o(e);
-			c(true);
-			if (i.current) {
-				i.current(e);
+			fnRestartTimer();
+			setS(e);
+			setA(true);
+			if (IRef.current) {
+				IRef.current(e);
 			}
 		},
-		[o, d],
+		[setS, fnRestartTimer],
 	);
 	return [a ? s : e, h, l];
 }
 export function Sz(e) {
-	const t = r.useRef(null);
+	const TRef = r.useRef(null);
 	r.useEffect(() => {
-		t.current = e;
+		TRef.current = e;
 	});
-	return t.current;
+	return TRef.current;
 }
 export function uH(e, t) {
-	const [n, i] = r.useState(e);
+	const [n, setN] = r.useState(e);
 	r.useEffect(() => {
 		if (!e) {
-			const e = window.setTimeout(() => i(false), t);
+			const e = window.setTimeout(() => setN(false), t);
 			return () => window.clearTimeout(e);
 		}
-		i(true);
+		setN(true);
 	}, [e, t]);
 	return n;
 }
@@ -285,87 +285,87 @@ export function DF(e, t) {
 	return uH(e, t) || e;
 }
 export function uD(e = false) {
-	const [t, n] = r.useState(e);
+	const [t, setT] = r.useState(e);
 	return [
 		t,
-		r.useCallback(() => n(true), []),
-		r.useCallback(() => n(false), []),
+		r.useCallback(() => setT(true), []),
+		r.useCallback(() => setT(false), []),
 	];
 }
 export function bs(e) {
-	const t = r.useRef();
+	const TRef = r.useRef();
 	return r.useCallback(() => {
-		if (!t.current || t.current.factory != e) {
-			t.current = {
+		if (!TRef.current || TRef.current.factory != e) {
+			TRef.current = {
 				value: e(),
 				factory: e,
 			};
 		}
-		return t.current.value;
+		return TRef.current.value;
 	}, [e]);
 }
 export function xx(e, t) {
-	const n = r.useRef();
+	const NRef = r.useRef();
 	if (e == null) {
-		n.current = e;
+		NRef.current = e;
 		return e;
 	} else {
-		if (n.current == null || isNaN(n.current)) {
-			n.current = e;
+		if (NRef.current == null || isNaN(NRef.current)) {
+			NRef.current = e;
 		}
-		n.current = Math.min(n.current, e + t);
-		n.current = Math.max(n.current, e - t);
-		return n.current;
+		NRef.current = Math.min(NRef.current, e + t);
+		NRef.current = Math.max(NRef.current, e - t);
+		return NRef.current;
 	}
 }
 export function AX(e) {
-	const t = r.useRef();
-	t.current = e;
-	const n = r.useRef(false);
+	const TRef = r.useRef();
+	TRef.current = e;
+	const NRef = r.useRef(false);
 	const s = r.useCallback((e) => {
-		if (!n.current) {
-			t.current?.(e);
+		if (!NRef.current) {
+			TRef.current?.(e);
 		}
-		n.current = false;
+		NRef.current = false;
 	}, []);
 	const o = r.useCallback((e) => {
-		t.current?.(e);
-		n.current = true;
+		TRef.current?.(e);
+		NRef.current = true;
 	}, []);
 	const a = [xA("mousedown", s), xA("touchstart", o)];
-	return (0, i.Ue)(...a);
+	return Ue(...a);
 }
 export function OP() {
-	const [e, t] = r.useState(false);
+	const [e, setE] = r.useState(false);
 	return [
 		e,
 		{
-			onMouseEnter: r.useCallback(() => t(true), []),
-			onMouseLeave: r.useCallback(() => t(false), []),
+			onMouseEnter: r.useCallback(() => setE(true), []),
+			onMouseLeave: r.useCallback(() => setE(false), []),
 		},
 	];
 }
 export function aA(e = "vertical") {
 	const t = e == "vertical";
-	const n = r.useRef();
-	const s = r.useRef(true);
-	const o = r.useRef(true);
+	const NRef = r.useRef();
+	const SRef = r.useRef(true);
+	const ORef = r.useRef(true);
 	const a = CH();
 	const c = r.useCallback(() => {
-		const e = (t ? n.current?.scrollTop : n.current?.scrollLeft) ?? 0;
+		const e = (t ? NRef.current?.scrollTop : NRef.current?.scrollLeft) ?? 0;
 		const r = e == 0;
 		const i =
-			((t ? n.current?.scrollHeight : n.current?.scrollWidth) ?? 0) - e ==
-			((t ? n.current?.clientHeight : n.current?.clientWidth) ?? 0);
-		if (s.current != r || o.current != i) {
-			s.current = r;
-			o.current = i;
+			((t ? NRef.current?.scrollHeight : NRef.current?.scrollWidth) ?? 0) - e ==
+			((t ? NRef.current?.clientHeight : NRef.current?.clientWidth) ?? 0);
+		if (SRef.current != r || ORef.current != i) {
+			SRef.current = r;
+			ORef.current = i;
 			a();
 		}
 	}, [a, t]);
 	const l = r.useCallback(
 		(e) => {
-			n.current = e;
+			NRef.current = e;
 			c();
 		},
 		[c],
@@ -383,7 +383,7 @@ export function aA(e = "vertical") {
 		subtree: true,
 		childList: true,
 	};
-	const d = (0, i.QS)(
+	const d = QS(
 		(e) => {
 			if (!e || !p) {
 				return;
@@ -397,10 +397,10 @@ export function aA(e = "vertical") {
 	var p;
 	var g;
 	const f = xA("scroll", u);
-	const w = (0, i.Ue)(f, l, d);
+	const w = Ue(f, l, d);
 	return {
-		bScrolledToBeginning: s.current,
-		bScrolledToEnd: o.current,
+		bScrolledToBeginning: SRef.current,
+		bScrolledToEnd: ORef.current,
 		ref: w,
 	};
 }
@@ -417,12 +417,12 @@ function O() {
 	};
 }
 export function ob() {
-	const [e, t] = r.useState(() => O());
+	const [e, setE] = r.useState(() => O());
 	return {
 		...e,
 		reset: r.useCallback(() => {
 			const e = O();
-			t(e);
+			setE(e);
 			return e;
 		}, []),
 	};

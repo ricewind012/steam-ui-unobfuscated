@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_2mu1wGa9DBwSPaacW6GVmk",
 	PreloadThrobber: "_2dqG948uNVB7jwgT1g6O-a",
 	ThreeDots: "_1yjvY9uXrBBn0NDCja0oD8",

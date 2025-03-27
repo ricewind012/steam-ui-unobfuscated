@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	PatchNotesLink: "_3om6pVKUdxdBkypYpSroHM",
 	Alert: "_2iJsgdTIX9Tj23rWnB7Q-c",
 	Error: "_2T8739wyg0K9mokTXWytuZ",

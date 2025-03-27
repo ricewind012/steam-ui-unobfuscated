@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	LanguageScreen: "_20rTpmACn31ladWWrrSv1Y",
 	LeftColumn: "IxhItugvKmgwaUIS0cfsa",

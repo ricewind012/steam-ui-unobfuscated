@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	KeyCaptureModal: "_3ZMKuTjfKpR-tJKchGu6HT",
 	KeyCapture: "_2LRif1NKUxREP-usXA9urF",

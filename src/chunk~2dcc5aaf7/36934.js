@@ -1,10 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require(/*webcrack:missing*/ "./12176.js");
-var l = require("./92031.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s, { sf } from "./44846.js";
+import o from "./12176.js";
+import l from "./92031.js";
+import c from "./72476.js";
+import p from "./10812.js";
+import { w } from "./49455.js";
+import h from "./79769.js";
 class m {
 	m_nLastUpdated = 0;
 	m_mapLanguages = i.sH.map();
@@ -98,14 +101,11 @@ function A(e, t) {
 	}
 	return e;
 }
-var p = require("./10812.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./79769.js");
 export function Xe(e) {
-	return (0, a.q3)(() => Vw.GetAppInfo(e));
+	return q3(() => Vw.GetAppInfo(e));
 }
 export function gx(e) {
-	return (0, a.q3)(() => e.map((e) => Vw.GetAppInfo(e)));
+	return q3(() => e.map((e) => Vw.GetAppInfo(e)));
 }
 class f {
 	m_CMInterface;
@@ -118,7 +118,7 @@ class f {
 	m_CacheStorage = null;
 	m_fnCallbackOnAppInfoLoaded = new h.lu();
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		this.m_CMInterface = e;
@@ -133,10 +133,7 @@ class f {
 	}
 	RegisterCallbackOnLoad(e) {
 		if (!this.BHavePendingAppInfoRequests()) {
-			(0, g.w)(
-				false,
-				"Registering for callback on appinfo load, but nothing queued",
-			);
+			w(false, "Registering for callback on appinfo load, but nothing queued");
 			e();
 			return;
 		}
@@ -146,7 +143,7 @@ class f {
 		return this.m_setPendingAppInfo.has(e);
 	}
 	GetAppInfo(e) {
-		(0, g.w)(this.m_CMInterface, "CAppInfoStore.GetAppInfo called before Init");
+		w(this.m_CMInterface, "CAppInfoStore.GetAppInfo called before Init");
 		if (!this.m_mapAppInfo.has(e)) {
 			let t = new l.by(e);
 			this.m_mapAppInfo.set(e, t);
@@ -184,7 +181,7 @@ class f {
 			console.log("Loading batch of App Info from Steam: ", t);
 			await this.m_CMInterface?.WaitUntilLoggedOn();
 			let e = o.w.Init(p._z);
-			e.Body().set_language((0, s.sf)(c.TS.LANGUAGE));
+			e.Body().set_language(sf(c.TS.LANGUAGE));
 			const r = 50;
 			while (t.length > 0) {
 				const n = Math.min(r, t.length);
@@ -217,7 +214,7 @@ class f {
 		let t = [];
 		for (let r of e.Body().apps()) {
 			let e = this.m_mapAppInfo.get(r.appid());
-			(0, g.w)(e, `Got AppInfo response for unrequested AppID: ${r.appid()}`);
+			w(e, `Got AppInfo response for unrequested AppID: ${r.appid()}`);
 			if (e) {
 				e = new l.by(r.appid());
 				e.DeserializeFromMessage(r);
@@ -261,7 +258,7 @@ class f {
 		this.m_CacheStorage = e;
 	}
 	GetCacheKeyForAppID(e) {
-		return "APPINFO_" + e;
+		return `APPINFO_${e}`;
 	}
 	async LoadAppInfoBatchFromLocalCache(e) {
 		if (!this.m_CacheStorage) {
@@ -277,7 +274,7 @@ class f {
 				return e;
 			}
 			let n = this.m_mapAppInfo.get(e);
-			(0, g.w)(
+			w(
 				n,
 				"Didn't find AppInfo in our map when loading from cache but it should've been there?",
 			);
@@ -395,6 +392,6 @@ class f {
 		return e.m_fetching;
 	}
 }
-(0, n.Cg)([i.XI], f.prototype, "OnGetAppsResponse", null);
-(0, n.Cg)([i.XI], f.prototype, "OnRichPresenceLocUpdate", null);
+Cg([i.XI], f.prototype, "OnGetAppsResponse", null);
+Cg([i.XI], f.prototype, "OnRichPresenceLocUpdate", null);
 export const Vw = new f();

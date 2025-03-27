@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	CollectionShelfBannerCtn: "_1UWjFOu-Qt4ys6s6jINcvd",
 	CollectionShelfBanner: "_1qou9axbxBJJbzzFXgavPP",
 	EALogo: "_1xN-oXex_fqnlwYHyHyER7",

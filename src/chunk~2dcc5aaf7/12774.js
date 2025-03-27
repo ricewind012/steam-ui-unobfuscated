@@ -1,44 +1,46 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./88750.js");
-var o = require("./64608.js");
-var l = require("./13869.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require("./35376.js");
+import n, { Cg } from "./34629.js";
+import i from "./41230.js";
+import a from "./63696.js";
+import s from "./88750.js";
+import o from "./64608.js";
+import l, { pg } from "./13869.js";
+import u from "./35376.js";
 export function ZH(e, t, r, n, i, s, o) {
 	return new Promise((l, c) => {
 		e(
-			a.createElement(o0, {
-				strTitle: t,
-				strDescription: r,
-				strOKButtonText: n,
-				strCancelButtonText: i,
-				onOK: l,
-				onCancel: c,
-				bDestructiveWarning: s,
-				children: o,
-			}),
+			<O0
+				strTitle={t}
+				strDescription={r}
+				strOKButtonText={n}
+				strCancelButtonText={i}
+				onOK={l}
+				onCancel={c}
+				bDestructiveWarning={s}
+			>
+				{o}
+			</O0>,
 		);
 	});
 }
 export function nd(e, t, r, n, i) {
 	return new Promise((s, o) => {
 		e(
-			a.createElement(o0, {
-				bAlertDialog: true,
-				strTitle: t,
-				strDescription: r,
-				strOKButtonText: n,
-				onOK: s,
-				onCancel: s,
-				children: i,
-			}),
+			<O0
+				bAlertDialog
+				strTitle={t}
+				strDescription={r}
+				strOKButtonText={n}
+				onOK={s}
+				onCancel={s}
+			>
+				{i}
+			</O0>,
 		);
 	});
 }
-export let o0 = class extends a.Component {
+export let O0 = class extends a.Component {
 	Cancel(e) {
 		return () => {
 			if (e) {
@@ -51,68 +53,65 @@ export let o0 = class extends a.Component {
 	}
 	render() {
 		const {
-			strTitle: e,
-			strDescription: t,
-			strOKButtonText: r,
-			strCancelButtonText: n,
-			onGamepadCancel: i,
-			strMiddleButtonText: s,
-			onMiddleButton: l,
-			bAlertDialog: c,
-			children: d,
+			strTitle,
+			strDescription,
+			strOKButtonText,
+			strCancelButtonText,
+			onGamepadCancel,
+			strMiddleButtonText,
+			onMiddleButton,
+			bAlertDialog,
+			children,
 			...A
 		} = this.props;
-		const p = r || Localize("#Button_Close");
-		let g = a.createElement(o.CB, {
-			bOKDisabled: this.props.bOKDisabled,
-			bCancelDisabled: this.props.bCancelDisabled,
-			strOKText: r,
-			onCancel: this.Cancel(this.props.onCancel),
-			strCancelText: n,
-		});
-		if (c) {
-			g = a.createElement(o.jn, null, p);
-		} else if (l) {
-			g = a.createElement(o.VQ, {
-				bOKDisabled: this.props.bOKDisabled,
-				bCancelDisabled: this.props.bCancelDisabled,
-				strOKText: r,
-				onCancel: this.Cancel(this.props.onCancel),
-				strCancelText: n,
-				onUpdate: () => {
-					l();
-					if (this.props.closeModal) {
-						this.props.closeModal();
-					}
-				},
-				strUpdateText: s,
-				bUpdateDisabled: this.props.bMiddleDisabled,
-			});
+		const p = strOKButtonText || Localize("#Button_Close");
+		let g = (
+			<o.CB
+				bOKDisabled={this.props.bOKDisabled}
+				bCancelDisabled={this.props.bCancelDisabled}
+				strOKText={strOKButtonText}
+				onCancel={this.Cancel(this.props.onCancel)}
+				strCancelText={strCancelButtonText}
+			/>
+		);
+		if (bAlertDialog) {
+			g = <o.jn>{p}</o.jn>;
+		} else if (onMiddleButton) {
+			g = (
+				<o.VQ
+					bOKDisabled={this.props.bOKDisabled}
+					bCancelDisabled={this.props.bCancelDisabled}
+					strOKText={strOKButtonText}
+					onCancel={this.Cancel(this.props.onCancel)}
+					strCancelText={strCancelButtonText}
+					onUpdate={() => {
+						onMiddleButton();
+						if (this.props.closeModal) {
+							this.props.closeModal();
+						}
+					}}
+					strUpdateText={strMiddleButtonText}
+					bUpdateDisabled={this.props.bMiddleDisabled}
+				/>
+			);
 		}
-		return a.createElement(
-			u.e,
-			{
-				...A,
-			},
-			a.createElement(
-				o.Y9,
-				null,
-				" ",
-				e || a.createElement(a.Fragment, null, "\xA0"),
-				" ",
-			),
-			a.createElement(
-				o.f3,
-				{
-					onCancelButton: this.Cancel(i || this.props.onCancel),
-				},
-				a.createElement(o.a3, null, t, d),
-				a.createElement(o.wi, null, g),
-			),
+		return (
+			<u.e {...A}>
+				<o.Y9> {strTitle || <>{"\xA0"}</>} </o.Y9>
+				<o.f3
+					onCancelButton={this.Cancel(onGamepadCancel || this.props.onCancel)}
+				>
+					<o.a3>
+						{strDescription}
+						{children}
+					</o.a3>
+					<o.wi>{g}</o.wi>
+				</o.f3>
+			</u.e>
 		);
 	}
 };
-o0 = (0, n.Cg)([i.PA], o0);
+O0 = Cg([i.PA], O0);
 export let KG = class extends a.Component {
 	render() {
 		const e = {
@@ -124,20 +123,13 @@ export let KG = class extends a.Component {
 			onCancel: () => {},
 			...this.props,
 		};
-		return a.createElement(o0, {
-			...e,
-		});
+		return <O0 {...e} />;
 	}
 };
 export function pY(e, t) {
-	(0, l.pg)(
-		a.createElement(KG, {
-			strDescription: e,
-		}),
-		t,
-	);
+	pg(<KG strDescription={e} />, t);
 }
-KG = (0, n.Cg)([i.PA], KG);
+KG = Cg([i.PA], KG);
 export let Ee = class extends a.Component {
 	render() {
 		let e = {
@@ -146,61 +138,54 @@ export let Ee = class extends a.Component {
 			bAlertDialog: true,
 			...this.props,
 		};
-		e.strDescription = a.createElement(
-			"span",
-			{
-				style: {
+		e.strDescription = (
+			<span
+				style={{
 					whiteSpace: "pre-line",
-				},
-			},
-			" ",
-			e.strDescription,
-			" ",
+				}}
+			>
+				{" "}
+				{e.strDescription}{" "}
+			</span>
 		);
-		return a.createElement(o0, {
-			...e,
-		});
+		return <O0 {...e} />;
 	}
 };
 export function Zw(e, t, r) {
-	(0, l.pg)(
-		a.createElement(Ee, {
-			strTitle: e,
-			strDescription: t,
-		}),
-		r,
-	);
+	pg(<Ee strTitle={e} strDescription={t} />, r);
 }
-Ee = (0, n.Cg)([i.PA], Ee);
+Ee = Cg([i.PA], Ee);
 export const _Z = (e) => {
 	const {
-		strDisplayNameLocToken: t,
-		confirmDialogContent: r,
-		skipConfirm: n,
-		onSelected: i,
+		strDisplayNameLocToken,
+		confirmDialogContent,
+		skipConfirm,
+		onSelected,
 		...o
 	} = e;
 	const u = a.useCallback(
 		(e) => {
 			((e, t, r, n) => {
-				(0, l.pg)(
-					a.createElement(o0, {
-						strTitle: Localize(t),
-						strDescription: r ?? Localize("#Dialog_AreYouSure"),
-						onOK: n,
-					}),
+				pg(
+					<O0
+						strTitle={Localize(t)}
+						strDescription={r ?? Localize("#Dialog_AreYouSure")}
+						onOK={n}
+					/>,
 					e,
 				);
-			})(GetOwningWindowForEvent(e), t, r, () => i(e));
+			})(
+				GetOwningWindowForEvent(e),
+				strDisplayNameLocToken,
+				confirmDialogContent,
+				() => onSelected(e),
+			);
 		},
-		[t, r, i],
+		[strDisplayNameLocToken, confirmDialogContent, onSelected],
 	);
-	return a.createElement(
-		s.kt,
-		{
-			...o,
-			onSelected: n ? i : u,
-		},
-		Localize(e.strDisplayNameLocToken),
+	return (
+		<s.kt {...o} onSelected={skipConfirm ? onSelected : u}>
+			{Localize(e.strDisplayNameLocToken)}
+		</s.kt>
 	);
 };

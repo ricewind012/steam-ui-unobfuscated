@@ -1,30 +1,25 @@
-var r = require("./28864.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./20893.js");
-const o = i.createContext(function (e) {
-	return {
-		ShowVirtualKeyboard: () => {},
-		ShowModalKeyboard: () => {},
-		SetAsCurrentVirtualKeyboardTarget: () => {},
-		HideVirtualKeyboard: () => {},
-		DelayHideVirtualKeyboard: () => {},
-		BIsActive: () => false,
-		BIsElementValidForInput: () => false,
-	};
-});
+import r, { QS, cZ } from "./28864.js";
+import i from "./63696.js";
+import { VX, W1 } from "./20893.js";
+const OContext = i.createContext((e) => ({
+	ShowVirtualKeyboard: () => {},
+	ShowModalKeyboard: () => {},
+	SetAsCurrentVirtualKeyboardTarget: () => {},
+	HideVirtualKeyboard: () => {},
+	DelayHideVirtualKeyboard: () => {},
+	BIsActive: () => false,
+	BIsElementValidForInput: () => false,
+}));
 export function F6(e) {
-	const { factory: t, children: n } = e;
-	const r = i.useMemo(() => t.CreateVirtualKeyboardRef.bind(t), [t]);
-	return i.createElement(
-		o.Provider,
-		{
-			value: r,
-		},
-		n,
+	const { factory, children } = e;
+	const r = i.useMemo(
+		() => factory.CreateVirtualKeyboardRef.bind(factory),
+		[factory],
 	);
+	return <OContext.Provider value={r}>{children}</OContext.Provider>;
 }
 export function Cz(e, t) {
-	const { onTextEntered: n, ...o } = e;
+	const { onTextEntered, ...o } = e;
 	const a = i.useRef(null);
 	const c = i.useRef({});
 	Object.assign(c.current, {
@@ -49,7 +44,7 @@ export function Cz(e, t) {
 		},
 		[u],
 	);
-	const d = (0, r.QS)(
+	const d = QS(
 		(e) => {
 			a.current = e;
 			const t = [];
@@ -60,20 +55,20 @@ export function Cz(e, t) {
 				);
 				e.addEventListener("click", u.ShowVirtualKeyboard);
 				t.push(() => e.removeEventListener("click", u.ShowVirtualKeyboard));
-				t.push((0, s.VX)(e, u.ShowVirtualKeyboard));
-				t.push((0, s.W1)(e, m));
+				t.push(VX(e, u.ShowVirtualKeyboard));
+				t.push(W1(e, m));
 			}
 			return () => t.forEach((e) => e());
 		},
 		[m, u],
 	);
 	i.useLayoutEffect(() => {
-		(0, r.cZ)(t, {
+		cZ(t, {
 			TakeFocusAndShowKeyboard: () => {
-				const e = a.current;
-				if (e) {
-					if (document.activeElement != e) {
-						e.focus();
+				const a_current = a.current;
+				if (a_current) {
+					if (document.activeElement != a_current) {
+						a_current.focus();
 					}
 					u.ShowVirtualKeyboard();
 				}
@@ -82,13 +77,13 @@ export function Cz(e, t) {
 				u.HideVirtualKeyboard();
 			},
 		});
-		return () => (0, r.cZ)(t, null);
+		return () => cZ(t, null);
 	}, [u, t]);
 	return d;
 }
 export function FN(e) {
 	const t = i.useRef();
-	const n = i.useContext(o);
+	const n = i.useContext(OContext);
 	t.current ||= n(e || {});
 	return t.current;
 }

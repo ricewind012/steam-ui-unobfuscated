@@ -1,142 +1,128 @@
-export var fz;
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./36974.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./23038.js");
-var c = require(/*webcrack:missing*/ "./58254.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
+import i from "./63696.js";
+import a from "./36974.js";
+import o, { A } from "./90765.js";
+import l from "./23038.js";
+import c from "./58254.js";
+import m from "./69164.js";
+export let fz;
+const s = a;
 export function FF(e) {
 	const {
-		childrenKey: t,
-		childrenClasses: r,
-		children: n,
-		directionClass: a,
-		animate: c = true,
+		childrenKey,
+		childrenClasses,
+		children,
+		directionClass,
+		animate = true,
 	} = e;
-	const m = (0, o.A)(s.TransitionGroup, a);
-	return i.createElement(
-		l.A,
-		{
-			className: m,
-			appear: false,
-			enter: c,
-			exit: c,
-		},
-		i.createElement(
-			rO,
-			{
-				key: t,
-				childrenClasses: r,
-			},
-			n,
-		),
+	const m = A(s.TransitionGroup, directionClass);
+	return (
+		<l.A className={m} appear={false} enter={animate} exit={animate}>
+			<RO key={childrenKey} childrenClasses={childrenClasses}>
+				{children}
+			</RO>
+		</l.A>
 	);
 }
-export function rO(e) {
-	const { sizeClass: t, children: r, childrenClasses: n, navKey: a, ...l } = e;
-	const [u, d, A, p] = (function () {
-		let e = i.useRef(null);
-		let t = i.useRef();
+export function RO(e) {
+	const { sizeClass, children, childrenClasses, navKey, ...l } = e;
+	const [u, d, A, p] = (() => {
+		let ERef = i.useRef(null);
+		let TRef = i.useRef();
 		i.useLayoutEffect(() => {
-			let r = e.current;
-			if (!r || t.current) {
+			let e_current = ERef.current;
+			if (!e_current || TRef.current) {
 				return;
 			}
-			t.current = {
-				element: r,
+			TRef.current = {
+				element: e_current,
 				activeProps: new Set(),
 				bExiting: false,
 				fnDone: null,
 			};
-			let n = t.current;
+			let t_current = TRef.current;
 			let i = (e) => {
-				if (e.target == r) {
-					n.activeProps.add(e.propertyName);
+				if (e.target == e_current) {
+					t_current.activeProps.add(e.propertyName);
 				}
 			};
-			r.addEventListener("transitionrun", i, false);
+			e_current.addEventListener("transitionrun", i, false);
 			let a = (e) => {
-				if (e.target == r) {
-					n.activeProps.delete(e.propertyName);
-					if (n.fnDone && n.activeProps.size == 0 && n.bExiting) {
-						n.fnDone();
+				if (e.target == e_current) {
+					t_current.activeProps.delete(e.propertyName);
+					if (
+						t_current.fnDone &&
+						t_current.activeProps.size == 0 &&
+						t_current.bExiting
+					) {
+						t_current.fnDone();
 					}
 				}
 			};
-			r.addEventListener("transitionend", a, false);
-			r.addEventListener("transitioncancel", a, false);
+			e_current.addEventListener("transitionend", a, false);
+			e_current.addEventListener("transitioncancel", a, false);
 		}, []);
 		let r = i.useCallback(
 			(e) => {
-				if (t.current) {
-					t.current.fnDone = e;
+				if (TRef.current) {
+					TRef.current.fnDone = e;
 				} else {
 					e();
 				}
 			},
-			[t],
+			[TRef],
 		);
 		let n = i.useCallback(() => {
-			if (t.current) {
-				t.current.bExiting = false;
+			if (TRef.current) {
+				TRef.current.bExiting = false;
 			}
-		}, [t]);
+		}, [TRef]);
 		let a = i.useCallback(() => {
-			if (t.current) {
-				t.current.bExiting = true;
+			if (TRef.current) {
+				TRef.current.bExiting = true;
 			}
-		}, [t]);
-		return [e, r, n, a];
+		}, [TRef]);
+		return [ERef, r, n, a];
 	})();
-	const g = i.useRef(true);
-	const h = i.useCallback(() => g.current, [g]);
+	const GRef = i.useRef(true);
+	const h = i.useCallback(() => GRef.current, [GRef]);
 	const C = i.useCallback(() => {
-		g.current = true;
+		GRef.current = true;
 		A();
 	}, [A]);
 	const _ = i.useCallback(() => {
-		g.current = false;
+		GRef.current = false;
 		p();
 	}, [p]);
-	const f = e.childrenClasses;
+	const e_childrenClasses = e.childrenClasses;
 	const b = {
-		enter: f.enterStart,
-		enterActive: f.enterEnd,
-		exit: f.exitStart,
-		exitActive: f.exitEnd,
+		enter: e_childrenClasses.enterStart,
+		enterActive: e_childrenClasses.enterEnd,
+		exit: e_childrenClasses.exitStart,
+		exitActive: e_childrenClasses.exitEnd,
 	};
 	if (u.current && !u.current.ownerDocument.defaultView) {
 		return null;
 	} else {
-		return i.createElement(
-			c.A,
-			{
-				nodeRef: u,
-				classNames: b,
-				in: true,
-				timeout: 10000,
-				addEndListener: d,
-				onEntering: C,
-				onExiting: _,
-				...l,
-			},
-			i.createElement(
-				"div",
-				{
-					ref: u,
-					className: (0, o.A)(s.ContentWrapper, t, f.base),
-				},
-				i.createElement(
-					m.Z,
-					{
-						className: t,
-						fnCanTakeFocus: h,
-						navKey: a,
-					},
-					e.children,
-				),
-			),
+		return (
+			<c.A
+				nodeRef={u}
+				classNames={b}
+				in
+				timeout={10000}
+				addEndListener={d}
+				onEntering={C}
+				onExiting={_}
+				{...l}
+			>
+				<div
+					ref={u}
+					className={A(s.ContentWrapper, sizeClass, e_childrenClasses.base)}
+				>
+					<m.Z className={sizeClass} fnCanTakeFocus={h} navKey={navKey}>
+						{e.children}
+					</m.Z>
+				</div>
+			</c.A>
 		);
 	}
 }
@@ -163,27 +149,27 @@ export function K$(e, t) {
 	}
 }
 export function ls(e, t, r, a) {
-	let s = i.useRef(null);
-	let o = i.useRef(fz.None);
-	if (s.current == t) {
-		return o.current;
+	let SRef = i.useRef(null);
+	let ORef = i.useRef(fz.None);
+	if (SRef.current == t) {
+		return ORef.current;
 	}
 	let l = r(e, t);
 	let c = l;
-	if (s.current != null) {
-		c = r(e, s.current);
+	if (SRef.current != null) {
+		c = r(e, SRef.current);
 	}
-	let m = fz.None;
+	let fz_None = fz.None;
 	if (c < l) {
-		m = a[1];
+		fz_None = a[1];
 	} else if (c > l) {
-		m = a[0];
+		fz_None = a[0];
 	}
-	s.current = t;
-	o.current = m;
-	return m;
+	SRef.current = t;
+	ORef.current = fz_None;
+	return fz_None;
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Left = 1)] = "Left";
 	e[(e.Right = 2)] = "Right";

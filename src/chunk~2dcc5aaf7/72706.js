@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	strWidescreenWidth: "1600px",
 	strMidscreenWidth: "1100px",

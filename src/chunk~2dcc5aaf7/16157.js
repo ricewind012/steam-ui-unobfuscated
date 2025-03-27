@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GotSteamDialog: "_2Qusm1gosCAtAqLKo5hioQ",
 	DownloadSteamUrl: "_10lP7BWsYbhm_AclLUpjRi",
 	GameName: "_1_uzwF-1oILlCEkcaApC-n",

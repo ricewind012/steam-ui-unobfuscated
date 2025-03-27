@@ -1,4 +1,4 @@
-var n = {
+const n = {
 	"./bumper_end.wav": 14758,
 	"./camera1.wav": 35973,
 	"./confirmation_negative.wav": 19724,
@@ -35,21 +35,26 @@ var n = {
 	"./recording_stop.wav": 82201,
 	"./timer_expired_alarm.wav": 89948,
 };
-function i(e) {
-	var t = a(e);
-	return require(t);
+
+class i {
+	constructor(e) {
+		const t = a(e);
+		return require(t);
+	}
+
+	static keys() {
+		return Object.keys(n);
+	}
 }
+
 function a(e) {
 	if (!require.o(n, e)) {
-		var t = new Error("Cannot find module '" + e + "'");
+		const t = new Error(`Cannot find module '${e}'`);
 		t.code = "MODULE_NOT_FOUND";
 		throw t;
 	}
 	return n[e];
 }
-i.keys = function () {
-	return Object.keys(n);
-};
 i.resolve = a;
-module.exports = i;
+export default i;
 i.id = 81550;

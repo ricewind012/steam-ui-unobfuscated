@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-class s extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+class s extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!s.prototype.enum) {
 			i.Sg(s.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -62,7 +62,7 @@ class s extends a {
 		return i.zj(s.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -70,7 +70,7 @@ class s extends a {
 		i.i0(s.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -78,14 +78,14 @@ class s extends a {
 		return "CVRGamepadUIShared_DashboardTabIcon";
 	}
 }
-export class UQ extends a {
+export class UQ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!UQ.prototype.tabs) {
 			i.Sg(UQ.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -140,7 +140,7 @@ export class UQ extends a {
 		return i.zj(UQ.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		UQ.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -148,7 +148,7 @@ export class UQ extends a {
 		i.i0(UQ.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		UQ.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -162,14 +162,14 @@ export class UQ extends a {
 		return UQ.getVRPathPropertyKey();
 	}
 }
-class l extends a {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.tab_id) {
 			i.Sg(l.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -227,7 +227,7 @@ class l extends a {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -235,7 +235,7 @@ class l extends a {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -243,14 +243,14 @@ class l extends a {
 		return "CVRGamepadUIShared_PathProperty_DashboardTabs_Tab";
 	}
 }
-class c extends a {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.enum) {
 			i.Sg(c.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -289,7 +289,7 @@ class c extends a {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -297,7 +297,7 @@ class c extends a {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -305,14 +305,14 @@ class c extends a {
 		return "CVRGamepadUIShared_DashboardActionIcon";
 	}
 }
-class m extends a {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.action_id) {
 			i.Sg(m.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -405,7 +405,7 @@ class m extends a {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -413,7 +413,7 @@ class m extends a {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -421,14 +421,14 @@ class m extends a {
 		return "CVRGamepadUIShared_DashboardAction";
 	}
 }
-export class $1 extends a {
+export class $1 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!$1.prototype.actions) {
 			i.Sg($1.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -468,7 +468,7 @@ export class $1 extends a {
 		return i.zj($1.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		$1.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -476,7 +476,7 @@ export class $1 extends a {
 		i.i0($1.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		$1.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -490,14 +490,14 @@ export class $1 extends a {
 		return $1.getVRPathPropertyKey();
 	}
 }
-export class J$ extends a {
+export class J$ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!J$.prototype.windows) {
 			i.Sg(J$.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -537,7 +537,7 @@ export class J$ extends a {
 		return i.zj(J$.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		J$.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -545,7 +545,7 @@ export class J$ extends a {
 		i.i0(J$.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		J$.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -559,14 +559,14 @@ export class J$ extends a {
 		return J$.getVRPathPropertyKey();
 	}
 }
-class A extends a {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.window_id) {
 			i.Sg(A.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -620,7 +620,7 @@ class A extends a {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -628,7 +628,7 @@ class A extends a {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -636,14 +636,14 @@ class A extends a {
 		return "CVRGamepadUIShared_PathProperty_DesktopWindows_Window";
 	}
 }
-export class T4 extends a {
+export class T4 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!T4.prototype.can_sleep) {
 			i.Sg(T4.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -697,7 +697,7 @@ export class T4 extends a {
 		return i.zj(T4.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		T4.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -705,7 +705,7 @@ export class T4 extends a {
 		i.i0(T4.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		T4.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

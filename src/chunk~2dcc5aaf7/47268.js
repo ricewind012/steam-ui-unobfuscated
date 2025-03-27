@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	narrowWidth: "500px",
 	GamepadDialogContent: "_3J4qOQrD1KkY8ip6zHNBxy",

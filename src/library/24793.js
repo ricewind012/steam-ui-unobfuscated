@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	HoverPosition: "_3vg1vYU7iTWqONciv9cuJN",
 	Ready: "_1Ye_0niF2UqB8uQTbm8B6B",
 	NoSpace: "pxVZHRCaftc2xXduMp7bg",

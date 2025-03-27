@@ -1,28 +1,28 @@
-var n = require("./12103.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./83957.js");
-var o = s;
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require("./18057.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require("./87935.js");
-var A = require(/*webcrack:missing*/ "./88696.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var g = require(/*webcrack:missing*/ "./61416.js");
-var h = require(/*webcrack:missing*/ "./3715.js");
-var C = require(/*webcrack:missing*/ "./75144.js");
-var _ = require(/*webcrack:missing*/ "./92059.js");
+import n from "./12103.js";
+import a, { useState } from "./63696.js";
+import s from "./83957.js";
+import { A as A_1 } from "./90765.js";
+import c, { xv } from "./72476.js";
+import { Qt } from "./18057.js";
+import u from "./69164.js";
+import d from "./87935.js";
+import A from "./88696.js";
+import { I } from "./61416.js";
+import { jE } from "./3715.js";
+import C from "./75144.js";
+import { aL } from "./92059.js";
+const i = n;
+const o = s;
 const f = "Deck_SeasonalSale";
 export function Uc(e) {
-	const t = (0, _.aL)(d.B7.GetStoreURL(), "deckbanner");
-	const r = (0, m.Qt)(t);
-	const { strImage: n, fnDismiss: s } = (function () {
-		let { data: e } = (0, g.I)({
+	const t = aL(d.B7.GetStoreURL(), "deckbanner");
+	const r = Qt(t);
+	const { strImage, fnDismiss } = (() => {
+		let { data } = I({
 			queryKey: ["SeasonalSale"],
-			queryFn: ({ signal: e }) =>
-				(async function (e) {
+			queryFn: ({ signal }) =>
+				(async (e) => {
 					let t = new Date();
 					let r = new A.A();
 					let n = await r.GetObject(f);
@@ -38,7 +38,9 @@ export function Uc(e) {
 					}
 					n.nextCheck = S(30).toJSON();
 					try {
-						let t = `${d.B7.GetStoreURL()}api/seasonalsale?l=${encodeURIComponent(c.TS.LANGUAGE)}&origin=${(0, c.xv)()}`;
+						let t = `${d.B7.GetStoreURL()}api/seasonalsale?l=${encodeURIComponent(
+							c.TS.LANGUAGE,
+						)}&origin=${xv()}`;
 						0;
 						let r = await o.get(t, {
 							signal: e,
@@ -62,12 +64,12 @@ export function Uc(e) {
 					} catch (e) {}
 					await r.StoreObject(f, n);
 					return n;
-				})(e),
+				})(signal),
 			staleTime: 0,
 		});
-		const t = (0, h.jE)();
+		const t = jE();
 		let r = a.useCallback(() => {
-			(async function (e, t) {
+			(async (e, t) => {
 				let r = new A.A();
 				let n = {
 					sale: t ?? "",
@@ -77,43 +79,39 @@ export function Uc(e) {
 				e.invalidateQueries({
 					queryKey: ["SeasonalSale"],
 				});
-			})(t, e?.sale);
-		}, [e, t]);
-		let n = e?.hideAfter ? new Date(e.hideAfter) : null;
+			})(t, data?.sale);
+		}, [data, t]);
+		let n = data?.hideAfter ? new Date(data.hideAfter) : null;
 		let i = !!n && !!(n < new Date());
 		let s = "";
-		if (e && e.deckImage && e.state != "complete" && !i) {
-			s = e.deckImage;
+		if (data && data.deckImage && data.state != "complete" && !i) {
+			s = data.deckImage;
 		}
 		return {
 			strImage: s,
 			fnDismiss: r,
 		};
 	})();
-	const [C, b] = (0, a.useState)(false);
+	const [C, setC] = useState(false);
 	let y = a.useCallback(() => {
-		s();
-	}, [s]);
-	if (!n) {
+		fnDismiss();
+	}, [fnDismiss]);
+	if (!strImage) {
 		return null;
 	}
-	let w = (0, l.A)(i.SeasonalSale, C && i.Loaded);
-	return a.createElement(
-		u.Z,
-		{
-			focusClassName: i.Focused,
-			navKey: "SeasonalSale",
-			className: w,
-			focusable: C,
-			onActivate: r,
-			onSecondaryButton: y,
-			onSecondaryActionDescription: (0, Localize)("#Button_Dismiss"),
-		},
-		a.createElement("img", {
-			className: i.Banner,
-			src: n,
-			onLoad: () => b(true),
-		}),
+	let w = A_1(i.SeasonalSale, C && i.Loaded);
+	return (
+		<u.Z
+			focusClassName={i.Focused}
+			navKey="SeasonalSale"
+			className={w}
+			focusable={C}
+			onActivate={r}
+			onSecondaryButton={y}
+			onSecondaryActionDescription={(0, Localize)("#Button_Dismiss")}
+		>
+			<img className={i.Banner} src={strImage} onLoad={() => setC(true)} />
+		</u.Z>
 	);
 }
 export async function RS() {

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BasicFooter: "_3T1iFy2maYycwqgFuzERyf",
 	FooterLegend: "_2JJDHoMl4ArT89aNzlYM3N",

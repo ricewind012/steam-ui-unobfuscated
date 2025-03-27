@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	OOBEButton: "_2Pycdz8wxbwtPBlhPAOHEU",
 	Disabled: "_13eTnp_W1jG4e5Te7CRJI2",

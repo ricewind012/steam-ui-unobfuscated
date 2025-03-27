@@ -1,346 +1,295 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./10606.js");
-var a = require("./3475.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require("./24274.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require("./21426.js");
-var m = c;
-var u = require("./89748.js");
-var d = require("./18057.js");
-var A = require("./77347.js");
-var p = require("./20037.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require("./10294.js");
-var C = require("./6232.js");
-var _ = require(/*webcrack:missing*/ "./11131.js");
+import n from "./63696.js";
+import i from "./10606.js";
+import a from "./3475.js";
+import o, { gB } from "./24274.js";
+import l, { A as A_1 } from "./90765.js";
+import c from "./21426.js";
+import u, { QR, iZ } from "./89748.js";
+import d, { Qt } from "./18057.js";
+import A, { Id } from "./77347.js";
+import p from "./20037.js";
+import g, { rP } from "./72476.js";
+import h from "./10294.js";
+import C, { $ } from "./6232.js";
+import _, { R7 } from "./11131.js";
+const m = c;
 function f(e) {
 	return e >= "0" && e <= "9";
 }
-function b(e) {
-	const { onUnlock: t, closeModal: r } = e;
-	const [a, o] = n.useState("");
-	const [c, u] = n.useState("");
-	const d = n.useRef(undefined);
-	const A = (0, g.rP)();
+function B(e) {
+	const { onUnlock, closeModal } = e;
+	const [a, setA] = n.useState("");
+	const [c, setC] = n.useState("");
+	const DRef = n.useRef(undefined);
+	const A = rP();
 	const h = A.IN_GAMEPADUI || A.IN_VR;
 	const C = n.useCallback((e) => {
 		if (
 			!e.target.value ||
 			(f(e.target.value.slice(-1)) && e.target.value.length <= 4)
 		) {
-			u(e.target.value);
+			setC(e.target.value);
 		}
 	}, []);
 	const _ = n.useCallback(
 		(e) => {
 			SteamClient.Parental.UnlockParentalLock(e, true).then((e) => {
 				switch (e) {
-					case 1:
-						if (r) {
-							r();
+					case 1: {
+						if (closeModal) {
+							closeModal();
 						}
-						if (t) {
-							t();
+						if (onUnlock) {
+							onUnlock();
 						}
 						break;
-					case 25:
-						u("");
-						o((0, Localize)("#FamilyView_UnlockDialog_LimitExceeded"));
-						d.current.focus();
+					}
+					case 25: {
+						setC("");
+						setA((0, Localize)("#FamilyView_UnlockDialog_LimitExceeded"));
+						DRef.current.focus();
 						break;
-					default:
-						u("");
-						o((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
-						d.current.focus();
+					}
+					default: {
+						setC("");
+						setA((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
+						DRef.current.focus();
+					}
 				}
 			});
 		},
-		[r, t],
+		[closeModal, onUnlock],
 	);
 	if (h) {
-		return n.createElement(p.K, {
-			className: m.ParentalPINDialog,
-			title: (0, Localize)("#FamilyView_Dialog_Title"),
-			description: (0, Localize)("#FamilyView_UnlockDialog_Description"),
-			errorText: a,
-			digits: 4,
-			validateDigit: f,
-			onResult: _,
-			onCancel: r,
-		});
+		return (
+			<p.K
+				className={m.ParentalPINDialog}
+				title={(0, Localize)("#FamilyView_Dialog_Title")}
+				description={(0, Localize)("#FamilyView_UnlockDialog_Description")}
+				errorText={a}
+				digits={4}
+				validateDigit={f}
+				onResult={_}
+				onCancel={closeModal}
+			/>
+		);
 	} else {
-		return n.createElement(
-			i.o0,
-			{
-				className: m.ParentalUnlock,
-				onCancel: r || (() => {}),
-				onOK: () => _(c),
-				bOKDisabled: c.length < 4,
-				bAlertDialog: !r,
-				strOKButtonText: (0, Localize)("#Button_OK"),
-				strTitle: (0, Localize)("#FamilyView_Dialog_Title"),
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.Body,
-				},
-				n.createElement(
-					"div",
-					{
-						className: m.ErrorText,
-					},
-					a || n.createElement("span", null, "\xA0"),
-				),
-				n.createElement(
-					"div",
-					{
-						className: m.Description,
-					},
-					(0, Localize)("#FamilyView_UnlockDialog_Description"),
-				),
-				n.createElement("input", {
-					className: (0, l.A)(m.TextInput),
-					ref: d,
-					value: c,
-					type: "password",
-					autoFocus: true,
-					onChange: C,
-				}),
-			),
+		return (
+			<i.o0
+				className={m.ParentalUnlock}
+				onCancel={closeModal || (() => {})}
+				onOK={() => _(c)}
+				bOKDisabled={c.length < 4}
+				bAlertDialog={!closeModal}
+				strOKButtonText={(0, Localize)("#Button_OK")}
+				strTitle={(0, Localize)("#FamilyView_Dialog_Title")}
+			>
+				<div className={m.Body}>
+					<div className={m.ErrorText}>{a || <span>{"\xA0"}</span>}</div>
+					<div className={m.Description}>
+						{(0, Localize)("#FamilyView_UnlockDialog_Description")}
+					</div>
+					<input
+						className={A_1(m.TextInput)}
+						ref={DRef}
+						value={c}
+						type="password"
+						autoFocus
+						onChange={C}
+					/>
+				</div>
+			</i.o0>
 		);
 	}
 }
-function y(e) {
-	const { feature: t, closeModal: r } = e;
-	const [l, c] = n.useState(n.createElement(n.Fragment, null, "\xA0"));
-	const p = (0, A.Id)();
-	const g = (0, u.QR)();
-	const h = (0, u.iZ)();
-	const C = t === a.JC || !t;
+function Y(e) {
+	const { feature, closeModal } = e;
+	const [l, setL] = n.useState(<>{"\xA0"}</>);
+	const p = Id();
+	const g = QR();
+	const h = iZ();
+	const C = feature === a.JC || !feature;
 	const _ = n.useCallback(
 		(e) => {
 			if (e.result !== 84) {
-				c(
+				setL(
 					(0, Localize)(
 						"#FamilyView_RequestFeatureAccess_GenericError",
 						e.result,
 					),
 				);
 			} else {
-				r();
+				closeModal();
 			}
 		},
-		[r],
+		[closeModal],
 	);
-	const f = (0, o.gB)(h.strSteamID, t, r, _);
+	const f = gB(h.strSteamID, feature, closeModal, _);
 	const b = n.useCallback(() => {
-		c(n.createElement(n.Fragment, null, "\xA0"));
+		setL(<>{"\xA0"}</>);
 		f.mutate();
 	}, [f]);
-	const y = (0, d.Qt)("steam://open/goonline");
+	const y = Qt("steam://open/goonline");
 	let S = b;
 	let w = (0, Localize)("#FamilyView_RequestFeatureAccess");
 	let B = (0, Localize)("#FamilyView_RequestFeatureAccess_Request");
 	if (C) {
-		S = r;
+		S = closeModal;
 		w = (0, Localize)("#FamilyView_RequestFeatureAccess_AlwaysBlocked");
 	} else if (g) {
 		S = y;
 		B = (0, Localize)("#AppDetails_GoOnline");
 	} else if (!p) {
-		S = r;
+		S = closeModal;
 		B = undefined;
 		w = (0, Localize)("#FamilyView_RequestFeatureAccess_Offline");
 	}
-	return n.createElement(
-		i.o0,
-		{
-			className: m.ParentalUnlock,
-			bOKDisabled: C,
-			onCancel: r,
-			onOK: S,
-			bAlertDialog: !p && !g,
-			strOKButtonText: B,
-			strTitle: (0, Localize)("#FamilyView_Dialog_Title"),
-		},
-		n.createElement(
-			"div",
-			{
-				className: m.Body,
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.ErrorText,
-				},
-				l,
-			),
-			n.createElement(
-				"div",
-				{
-					className: m.Description,
-				},
-				w,
-			),
-		),
+	return (
+		<i.o0
+			className={m.ParentalUnlock}
+			bOKDisabled={C}
+			onCancel={closeModal}
+			onOK={S}
+			bAlertDialog={!p && !g}
+			strOKButtonText={B}
+			strTitle={(0, Localize)("#FamilyView_Dialog_Title")}
+		>
+			<div className={m.Body}>
+				<div className={m.ErrorText}>{l}</div>
+				<div className={m.Description}>{w}</div>
+			</div>
+		</i.o0>
 	);
 }
 function S(e) {
-	const { onUnlock: t, closeModal: r } = e;
-	const [a, o] = n.useState("");
-	const [c, u] = n.useState("");
-	const d = n.useRef(undefined);
-	const A = (0, g.rP)();
+	const { onUnlock, closeModal } = e;
+	const [a, setA] = n.useState("");
+	const [c, setC] = n.useState("");
+	const DRef = n.useRef(undefined);
+	const A = rP();
 	const C = A.IN_GAMEPADUI || A.IN_VR;
 	const _ = n.useCallback((e) => {
 		if (
 			!e.target.value ||
 			(f(e.target.value.slice(-1)) && e.target.value.length <= 4)
 		) {
-			u(e.target.value);
+			setC(e.target.value);
 		}
 	}, []);
 	const b = n.useCallback(
 		(e) => {
 			if (h.Ih.BKioskModeUnlock(e)) {
-				if (r) {
-					r();
+				if (closeModal) {
+					closeModal();
 				}
-				if (t) {
-					t();
+				if (onUnlock) {
+					onUnlock();
 				}
 				return;
 			}
-			u("");
-			o((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
+			setC("");
+			setA((0, Localize)("#FamilyView_UnlockDialog_WrongPIN"));
 		},
-		[r, t],
+		[closeModal, onUnlock],
 	);
 	if (C) {
-		return n.createElement(p.K, {
-			className: m.ParentalPINDialog,
-			title: (0, Localize)("#KioskMode_Dialog_Title"),
-			description: (0, Localize)("#KioskMode_UnlockDialog_Description"),
-			errorText: a,
-			digits: 4,
-			validateDigit: f,
-			onResult: b,
-			onCancel: r,
-		});
+		return (
+			<p.K
+				className={m.ParentalPINDialog}
+				title={(0, Localize)("#KioskMode_Dialog_Title")}
+				description={(0, Localize)("#KioskMode_UnlockDialog_Description")}
+				errorText={a}
+				digits={4}
+				validateDigit={f}
+				onResult={b}
+				onCancel={closeModal}
+			/>
+		);
 	} else {
-		return n.createElement(
-			i.o0,
-			{
-				className: m.ParentalUnlock,
-				onCancel: r || (() => {}),
-				onOK: () => b(c),
-				bOKDisabled: c.length < 4,
-				bAlertDialog: !r,
-				strOKButtonText: (0, Localize)("#Button_OK"),
-				strTitle: (0, Localize)("#KioskMode_Dialog_Title"),
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.Body,
-				},
-				n.createElement(
-					"div",
-					{
-						className: m.ErrorText,
-					},
-					a || n.createElement("span", null, "\xA0"),
-				),
-				n.createElement(
-					"div",
-					{
-						className: m.Description,
-					},
-					(0, Localize)("#KioskMode_UnlockDialog_Description"),
-				),
-				n.createElement("input", {
-					className: (0, l.A)(m.TextInput),
-					ref: d,
-					value: c,
-					type: "password",
-					autoFocus: true,
-					onChange: _,
-				}),
-			),
+		return (
+			<i.o0
+				className={m.ParentalUnlock}
+				onCancel={closeModal || (() => {})}
+				onOK={() => b(c)}
+				bOKDisabled={c.length < 4}
+				bAlertDialog={!closeModal}
+				strOKButtonText={(0, Localize)("#Button_OK")}
+				strTitle={(0, Localize)("#KioskMode_Dialog_Title")}
+			>
+				<div className={m.Body}>
+					<div className={m.ErrorText}>{a || <span>{"\xA0"}</span>}</div>
+					<div className={m.Description}>
+						{(0, Localize)("#KioskMode_UnlockDialog_Description")}
+					</div>
+					<input
+						className={A_1(m.TextInput)}
+						ref={DRef}
+						value={c}
+						type="password"
+						autoFocus
+						onChange={_}
+					/>
+				</div>
+			</i.o0>
 		);
 	}
 }
-function w(e) {
-	const { closeModal: t } = e;
-	return n.createElement(
-		i.o0,
-		{
-			className: m.RemotePlayStoreBlockedDialog,
-			onCancel: t || (() => {}),
-			onOK: t,
-			bAlertDialog: true,
-			strOKButtonText: (0, Localize)("#Button_OK"),
-			strTitle: (0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Title"),
-		},
-		n.createElement(
-			"div",
-			{
-				className: m.Body,
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.Description,
-				},
-				(0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Description"),
-			),
-		),
+function W(e) {
+	const { closeModal } = e;
+	return (
+		<i.o0
+			className={m.RemotePlayStoreBlockedDialog}
+			onCancel={closeModal || (() => {})}
+			onOK={closeModal}
+			bAlertDialog
+			strOKButtonText={(0, Localize)("#Button_OK")}
+			strTitle={(0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Title")}
+		>
+			<div className={m.Body}>
+				<div className={m.Description}>
+					{(0, Localize)("#RemotePlay_StoreFunctionalityBlocked_Description")}
+				</div>
+			</div>
+		</i.o0>
 	);
 }
 export function g5(e) {
-	const { closeModal: t, onUnlock: r, feature: i } = e;
-	const a = e.blockReason;
-	const s = n.useRef(undefined);
-	s.current = t;
-	const o = n.useRef(undefined);
-	o.current = r;
+	const { closeModal, onUnlock, feature } = e;
+	const e_blockReason = e.blockReason;
+	const SRef = n.useRef(undefined);
+	SRef.current = closeModal;
+	const ORef = n.useRef(undefined);
+	ORef.current = onUnlock;
 	n.useEffect(() => {
-		if (a == 0) {
-			o.current?.();
-			s.current?.();
+		if (e_blockReason == 0) {
+			ORef.current?.();
+			SRef.current?.();
 		}
-	}, [a]);
-	switch (a) {
-		case 4:
-			return n.createElement(S, {
-				onUnlock: r,
-				closeModal: t,
-			});
-		case 3:
-			return n.createElement(w, {
-				closeModal: t,
-			});
-		case 1:
-			return n.createElement(b, {
-				onUnlock: r,
-				closeModal: t,
-			});
-		case 2:
-			return n.createElement(y, {
-				feature: i,
-				closeModal: t,
-			});
-		default:
+	}, [e_blockReason]);
+	switch (e_blockReason) {
+		case 4: {
+			return <S onUnlock={onUnlock} closeModal={closeModal} />;
+		}
+		case 3: {
+			return <W closeModal={closeModal} />;
+		}
+		case 1: {
+			return <B onUnlock={onUnlock} closeModal={closeModal} />;
+		}
+		case 2: {
+			return <Y feature={feature} closeModal={closeModal} />;
+		}
+		default: {
 			return null;
+		}
 	}
 }
 export function wT() {
-	const e = (0, _.R7)();
+	const e = R7();
 	return n.useCallback(
 		(t, r, n) => {
-			(0, C.$)(e?.ownerWindow ?? window, t, r, n);
+			$(e?.ownerWindow ?? window, t, r, n);
 		},
 		[e],
 	);

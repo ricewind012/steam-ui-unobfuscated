@@ -1,5 +1,5 @@
 import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
-var i = require("./7558.js");
+import i from "./7558.js";
 export class w extends i.S2 {
 	m_component;
 	m_propTargets;

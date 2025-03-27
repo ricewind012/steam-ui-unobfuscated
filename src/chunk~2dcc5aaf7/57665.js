@@ -1,37 +1,37 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./49519.js");
-var o = require(/*webcrack:missing*/ "./50376.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require("./61662.js");
 import {
 	LocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var u = require("./36563.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require("./36934.js");
-var p = require("./78057.js");
-var g = require("./1965.js");
-var h = require(/*webcrack:missing*/ "./69164.js");
-var C = require("./26271.js");
-var _ = require("./43520.js");
-var f = require("./56726.js");
-var b = require("./55116.js");
-var y = require("./9808.js");
-var S = require("./18057.js");
-var w = require(/*webcrack:missing*/ "./8573.js");
-var B = require("./32179.js");
-var v = require("./89748.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var E = require("./66732.js");
-var M = require("./46422.js");
-var T = require("./23600.js");
-var R = require("./10335.js");
-var k = R;
-var D = require(/*webcrack:missing*/ "./89193.js");
-var N = require("./96593.js");
+import n, { Cg } from "./34629.js";
+import i, { useState } from "./63696.js";
+import a, { PA } from "./41230.js";
+import s, { W6 } from "./49519.js";
+import o from "./50376.js";
+import l from "./52451.js";
+import c from "./61662.js";
+import u from "./36563.js";
+import { A as A_1 } from "./90765.js";
+import A from "./36934.js";
+import p from "./78057.js";
+import g from "./1965.js";
+import h from "./69164.js";
+import C from "./26271.js";
+import _, { S1 } from "./43520.js";
+import f from "./56726.js";
+import b from "./55116.js";
+import y, { Ms, ry, _h } from "./9808.js";
+import S, { bG } from "./18057.js";
+import w from "./8573.js";
+import { ex, dd, Np, vN } from "./32179.js";
+import { iZ } from "./89748.js";
+import E from "./66732.js";
+import M from "./46422.js";
+import { c as c_1 } from "./23600.js";
+import R from "./10335.js";
+import D, { Gn } from "./89193.js";
+import { Co } from "./96593.js";
+const k = R;
 const F = 10;
 function G(e) {
 	if (e.flAchieved || e.flAchieved === 0) {
@@ -45,7 +45,7 @@ class O extends i.Component {
 		let t = this.props.achievement;
 		let r = t.flAchieved < F;
 		if (t.bAchieved && t.rtUnlocked) {
-			const r = (0, y.Ms)();
+			const r = Ms();
 			e = A.Vw.CMInterface.RTime32ToDate(t.rtUnlocked).toLocaleDateString(
 				LocalizationManager.GetPreferredLocales(),
 				r,
@@ -56,165 +56,117 @@ class O extends i.Component {
 		let n;
 		let a;
 		let s = G(t);
-		if ((0, y.ry)(t)) {
-			const e = (0, y._h)(t);
+		if (ry(t)) {
+			const e = _h(t);
 			if (e) {
-				const { flCurrent: t, flMax: r, flPercentage: a } = e;
-				n = i.createElement(
-					"div",
-					{
-						className: k.SingleAchievementProgressContainer,
-					},
-					i.createElement(
-						"div",
-						{
-							className: k.ProgressLabel,
-						},
-						t + " / " + r,
-					),
-					i.createElement(
-						"div",
-						{
-							className: k.SingleAchievementProgressBar,
-						},
-						i.createElement("div", {
-							className: k.AchievementProgress,
-							style: {
-								width: a + "%",
-							},
-						}),
-					),
+				const { flCurrent, flMax, flPercentage } = e;
+				n = (
+					<div className={k.SingleAchievementProgressContainer}>
+						<div className={k.ProgressLabel}>{`${flCurrent} / ${flMax}`}</div>
+						<div className={k.SingleAchievementProgressBar}>
+							<div
+								className={k.AchievementProgress}
+								style={{
+									width: `${flPercentage}%`,
+								}}
+							/>
+						</div>
+					</div>
 				);
 			}
 		}
 		if (this.props.yourUnlockDate) {
-			const e = (0, y.Ms)();
+			const e = Ms();
 			a = A.Vw.CMInterface.RTime32ToDate(
 				this.props.yourUnlockDate,
 			).toLocaleDateString(LocalizationManager.GetPreferredLocales(), e);
 		}
-		return i.createElement(
-			c.M,
-			{
-				className: (0, d.A)(k.Hover, t.bAchieved ? k.Achieved : k.NotAchieved),
-				blurElement: i.createElement("img", {
-					src: t.strImage,
-				}),
-			},
-			i.createElement(
-				"div",
-				{
-					className: k.TopSection,
-				},
-				i.createElement(Tv, {
-					className: (0, d.A)(k.TopSectionAchievementIcon, k.Icon),
-					achievement: t,
-					hidden: this.props.hidden,
-				}),
-				i.createElement(
-					"div",
-					{
-						className: k.TextSection,
-					},
-					i.createElement(
-						"div",
-						{
-							className: k.Name,
-						},
-						t.strName,
-					),
-					i.createElement(
-						"div",
-						{
-							className: k.Desc,
-						},
-						t.strDescription,
-					),
-					n,
-				),
-			),
-			(e || s) &&
-				i.createElement(
-					"div",
-					{
-						className: k.Unlocked,
-					},
-					e &&
-						i.createElement(
-							"div",
-							null,
-							Localize("#AppDetails_Achievements_Unlocked", e),
-						),
-					s &&
-						i.createElement(
-							"div",
-							{
-								className: (0, d.A)(r && k.RareLabel),
-							},
-							Localize("#AppDetails_PctUnlocked", s),
-						),
-					a &&
-						i.createElement(
-							"div",
-							{
-								className: k.YouUnlocked,
-							},
-							Localize("#AppDetails_Achievements_YouUnlocked", a),
-						),
-				),
+		return (
+			<c.M
+				className={A_1(k.Hover, t.bAchieved ? k.Achieved : k.NotAchieved)}
+				blurElement={<img src={t.strImage} />}
+			>
+				<div className={k.TopSection}>
+					<Tv
+						className={A_1(k.TopSectionAchievementIcon, k.Icon)}
+						achievement={t}
+						hidden={this.props.hidden}
+					/>
+					<div className={k.TextSection}>
+						<div className={k.Name}>{t.strName}</div>
+						<div className={k.Desc}>{t.strDescription}</div>
+						{n}
+					</div>
+				</div>
+				{(e || s) && (
+					<div className={k.Unlocked}>
+						{e && <div>{Localize("#AppDetails_Achievements_Unlocked", e)}</div>}
+						{s && (
+							<div className={A_1(r && k.RareLabel)}>
+								{Localize("#AppDetails_PctUnlocked", s)}
+							</div>
+						)}
+						{a && (
+							<div className={k.YouUnlocked}>
+								{Localize("#AppDetails_Achievements_YouUnlocked", a)}
+							</div>
+						)}
+					</div>
+				)}
+			</c.M>
 		);
 	}
 }
-export const hs = (0, a.PA)(function (e) {
+export const Hs = PA((e) => {
 	const {
-		appid: t,
-		className: r,
-		achievement: n,
-		featured: a,
-		showStats: o,
-		iconClassNames: l,
-		steamidTarget: u,
-		strDisplayName: A,
+		appid,
+		className,
+		achievement,
+		featured,
+		showStats,
+		iconClassNames,
+		steamidTarget,
+		strDisplayName,
 		...p
 	} = e;
-	const g = (0, s.W6)();
-	const C = (0, v.iZ)();
-	const _ = (0, N.Co)(t);
-	const f = (0, B.ex)(t);
-	const b = (0, B.dd)();
-	const y = (0, S.bG)("UserAchievementsPage", u, t);
-	const I = (0, S.bG)("SteamIDAchievementsPage", t);
-	const { focused: E, hovered: M } = (0, T.c)();
+	const g = W6();
+	const C = iZ();
+	const _ = Co(appid);
+	const f = ex(appid);
+	const b = dd();
+	const y = bG("UserAchievementsPage", steamidTarget, appid);
+	const I = bG("SteamIDAchievementsPage", appid);
+	const { focused, hovered } = c_1();
 	const R = i.useCallback(() => {
-		if (u != null && u !== C?.strSteamID) {
+		if (steamidTarget != null && steamidTarget !== C?.strSteamID) {
 			if (b) {
 				g.push(
 					S.BV.Library.App.Achievements.Friend.Individual(
-						t,
-						new w.b(u).GetAccountID(),
+						appid,
+						new w.b(steamidTarget).GetAccountID(),
 					),
 				);
 			} else {
 				y();
 			}
 		} else if (b) {
-			g.push(S.BV.Library.App.Achievements.My.Individual(t));
+			g.push(S.BV.Library.App.Achievements.My.Individual(appid));
 		} else {
 			I();
 		}
-	}, [u, C, t, g, b, y, I]);
+	}, [steamidTarget, C, appid, g, b, y, I]);
 	let D = false;
 	if (f.loading || f.error) {
-		D = n.bHidden;
+		D = achievement.bHidden;
 	} else {
 		let e = null;
-		e = n.strID
-			? () => (0, B.Np)(f.data, n.strID)
-			: () => (0, B.vN)(f.data, n.strName);
-		D = n.bHidden && !e();
+		e = achievement.strID
+			? () => Np(f.data, achievement.strID)
+			: () => vN(f.data, achievement.strName);
+		D = achievement.bHidden && !e();
 	}
-	const F = u && C && C.strSteamID != u;
-	const P = (function (e, t, r, n) {
+	const F = steamidTarget && C && C.strSteamID != steamidTarget;
+	const P = ((e, t, r, n) => {
 		const a = i.useCallback(() => {
 			if (r) {
 				return null;
@@ -237,153 +189,103 @@ export const hs = (0, a.PA)(function (e) {
 					}
 				}
 			}
-			return i.createElement(O, {
-				achievement: e,
-				hidden: false,
-				yourUnlockDate: a,
-			});
+			return <O achievement={e} hidden={false} yourUnlockDate={a} />;
 		}, [r, e, t, n]);
 		return a;
-	})(n, f, D, F);
-	const z = G(n);
-	const x = E || M;
-	const U = D ? Localize("#AppDetailsAchievement_Hidden") : n.strName;
+	})(achievement, f, D, F);
+	const z = G(achievement);
+	const x = focused || hovered;
+	const U = D ? Localize("#AppDetailsAchievement_Hidden") : achievement.strName;
 	const W = D
 		? Localize(
 				_?.minutes_playtime_forever > 0
 					? "#AppDetailsAchievement_HiddenDesc"
 					: "#AppDetailsAchievement_HiddenDesc_Unplayed",
 			)
-		: n.strDescription;
-	return i.createElement(
-		h.Z,
-		{
-			focusable: true,
-			onActivate: R,
-			onOKActionDescription: Localize(
+		: achievement.strDescription;
+	return (
+		<h.Z
+			focusable
+			onActivate={R}
+			onOKActionDescription={Localize(
 				"#AppActivity_Achieved_View_Achievements",
-			),
-			className: (0, d.A)(
-				r,
-				n.bAchieved ? k.Achieved : k.NotAchieved,
-				a && k.Featured,
-			),
-			...p,
-		},
-		i.createElement(
-			c.z,
-			{
-				renderHover: P,
-				className: k.AchievementHoverContainer,
-			},
-			i.createElement(Tv, {
-				className: (0, d.A)(k.Icon, l),
-				achievement: n,
-				hidden: D,
-				pauseAnimation: !x,
-			}),
-		),
-		a &&
-			i.createElement(
-				"div",
-				{
-					className: k.TextSection,
-				},
-				i.createElement(
-					"div",
-					{
-						className: k.Name,
-					},
-					U,
-				),
-				i.createElement(
-					"div",
-					{
-						className: k.Desc,
-					},
-					W,
-				),
-				o &&
-					z &&
-					i.createElement(
-						"div",
-						{
-							className: k.Stats,
-						},
-						Localize("#AppDetails_PctUnlocked", z),
-					),
-			),
+			)}
+			className={A_1(
+				className,
+				achievement.bAchieved ? k.Achieved : k.NotAchieved,
+				featured && k.Featured,
+			)}
+			{...p}
+		>
+			<c.z renderHover={P} className={k.AchievementHoverContainer}>
+				<Tv
+					className={A_1(k.Icon, iconClassNames)}
+					achievement={achievement}
+					hidden={D}
+					pauseAnimation={!x}
+				/>
+			</c.z>
+			{featured && (
+				<div className={k.TextSection}>
+					<div className={k.Name}>{U}</div>
+					<div className={k.Desc}>{W}</div>
+					{showStats && z && (
+						<div className={k.Stats}>
+							{Localize("#AppDetails_PctUnlocked", z)}
+						</div>
+					)}
+				</div>
+			)}
+		</h.Z>
 	);
 });
 export function Tv(e) {
-	const t = e.achievement;
-	return i.createElement(E._, {
-		imgURL: t?.strImage,
-		glow: t && Qv(t.bAchieved, t.flAchieved),
-		pauseAnimation: e.pauseAnimation,
-		hidden: e.hidden,
-		className: e.className,
-	});
+	const e_achievement = e.achievement;
+	return (
+		<E._
+			imgURL={e_achievement?.strImage}
+			glow={
+				e_achievement && Qv(e_achievement.bAchieved, e_achievement.flAchieved)
+			}
+			pauseAnimation={e.pauseAnimation}
+			hidden={e.hidden}
+			className={e.className}
+		/>
+	);
 }
 export function Qv(e, t) {
 	return e && t !== undefined && t < F;
 }
-export function pr(e) {
+export function Pr(e) {
 	const {
-		className: t,
-		nRemaining: r,
-		bShowLabel: n,
-		children: a,
-		eventActorName: s,
-		onActivate: o,
+		className,
+		nRemaining,
+		bShowLabel,
+		children,
+		eventActorName,
+		onActivate,
 		...l
 	} = e;
-	let c = (0, d.A)(n && k.Featured, t, k.RemainderContainer);
-	return i.createElement(
-		h.Z,
-		{
-			focusable: true,
-			...l,
-			className: c,
-			onActivate: o,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, d.A)(k.Remainder),
-			},
-			a,
-			i.createElement(
-				"div",
-				{
-					className: k.RemainderText,
-				},
-				"+",
-				r,
-			),
-		),
-		n &&
-			i.createElement(
-				"div",
-				{
-					className: k.TextSection,
-				},
-				i.createElement(
-					"div",
-					{
-						className: k.Name,
-					},
-					Localize("#AppActivity_Achieved_PlusMore", r),
-				),
-				s &&
-					i.createElement(
-						"div",
-						{
-							className: k.Desc,
-						},
-						Localize("#AppActivity_Achieved_PlusMore_Label", s),
-					),
-			),
+	let c = A_1(bShowLabel && k.Featured, className, k.RemainderContainer);
+	return (
+		<h.Z focusable {...l} className={c} onActivate={onActivate}>
+			<div className={A_1(k.Remainder)}>
+				{children}
+				<div className={k.RemainderText}>+{nRemaining}</div>
+			</div>
+			{bShowLabel && (
+				<div className={k.TextSection}>
+					<div className={k.Name}>
+						{Localize("#AppActivity_Achieved_PlusMore", nRemaining)}
+					</div>
+					{eventActorName && (
+						<div className={k.Desc}>
+							{Localize("#AppActivity_Achieved_PlusMore_Label", eventActorName)}
+						</div>
+					)}
+				</div>
+			)}
+		</h.Z>
 	);
 }
 function U(e, t) {
@@ -394,29 +296,33 @@ export let tm = class extends i.Component {
 	unAppID = undefined;
 	constructor(e) {
 		super(e);
-		(0, D.Gn)(this);
+		Gn(this);
 		this.unAppID = this.props.details.unAppID;
 	}
 	componentDidUpdate() {
 		this.unAppID = this.props.details.unAppID;
 	}
 	KeyExtractor(e) {
-		return this.unAppID + "_" + e.strID;
+		return `${this.unAppID}_${e.strID}`;
 	}
 	RenderItem(e) {
-		return i.createElement(hs, {
-			className: k.AdditionalItem,
-			appid: this.unAppID,
-			achievement: e,
-			onClick: this.ViewAllAchievements,
-		});
+		return (
+			<Hs
+				className={k.AdditionalItem}
+				appid={this.unAppID}
+				achievement={e}
+				onClick={this.ViewAllAchievements}
+			/>
+		);
 	}
 	RenderRest(e) {
-		return i.createElement(pr, {
-			className: k.AdditionalItem,
-			nRemaining: e,
-			onActivate: this.ViewAllAchievements,
-		});
+		return (
+			<Pr
+				className={k.AdditionalItem}
+				nRemaining={e}
+				onActivate={this.ViewAllAchievements}
+			/>
+		);
 	}
 	ViewAllAchievements(e) {
 		U(e, this.unAppID);
@@ -427,307 +333,240 @@ export let tm = class extends i.Component {
 			return null;
 		}
 		let t = e.vecHighlight.length > 0 && e.vecHighlight[0];
-		return i.createElement(
-			g.n,
-			{
-				feature: 3,
-				primaryAction: {
+		return (
+			<g.n
+				feature={3}
+				primaryAction={{
 					label: Localize("#AppDetails_ViewAllAchievements"),
 					action: this.ViewAllAchievements,
-				},
-				label: Localize("#AppDetails_SectionTitle_Achievements"),
-				highlight: i.createElement(V, {
-					achievements: e,
-					appid: this.unAppID,
-				}),
-				rightColumnSection: true,
-				availableOffline: true,
-			},
-			i.createElement(
-				g.n.Body,
-				null,
-				t &&
-					i.createElement(hs, {
-						className: k.RightAchievementSection,
-						appid: this.unAppID,
-						featured: true,
-						achievement: t,
-						onClick: this.ViewAllAchievements,
-					}),
-				e.vecHighlight.length == 2 &&
-					i.createElement(hs, {
-						className: k.RightAchievementSection,
-						appid: this.unAppID,
-						featured: true,
-						achievement: e.vecHighlight[1],
-						onClick: this.ViewAllAchievements,
-					}),
-				e.vecHighlight.length > 2 &&
-					i.createElement(u.S, {
-						className: k.Additional,
-						keyExtractor: this.KeyExtractor,
-						itemRenderer: this.RenderItem,
-						remainderRenderer: this.RenderRest,
-						items: e.vecHighlight.slice(1),
-						totalItemOverride: e.nAchieved - 1,
-					}),
-				e.vecUnachieved.length > 0 &&
-					i.createElement(
-						"div",
-						{
-							className: (0, d.A)(
+				}}
+				label={Localize("#AppDetails_SectionTitle_Achievements")}
+				highlight={<V achievements={e} appid={this.unAppID} />}
+				rightColumnSection
+				availableOffline
+			>
+				<g.n.Body>
+					{t && (
+						<Hs
+							className={k.RightAchievementSection}
+							appid={this.unAppID}
+							featured
+							achievement={t}
+							onClick={this.ViewAllAchievements}
+						/>
+					)}
+					{e.vecHighlight.length == 2 && (
+						<Hs
+							className={k.RightAchievementSection}
+							appid={this.unAppID}
+							featured
+							achievement={e.vecHighlight[1]}
+							onClick={this.ViewAllAchievements}
+						/>
+					)}
+					{e.vecHighlight.length > 2 && (
+						<u.S
+							className={k.Additional}
+							keyExtractor={this.KeyExtractor}
+							itemRenderer={this.RenderItem}
+							remainderRenderer={this.RenderRest}
+							items={e.vecHighlight.slice(1)}
+							totalItemOverride={e.nAchieved - 1}
+						/>
+					)}
+					{e.vecUnachieved.length > 0 && (
+						<div
+							className={A_1(
 								k.UnachievedSection,
 								(t || e.vecHighlight.length > 1) && k.ShowDivider,
-							),
-						},
-						i.createElement(
-							"div",
-							{
-								className: k.Label,
-							},
-							Localize("#AppDetails_Achievements_Locked"),
-						),
-						i.createElement(u.S, {
-							className: (0, d.A)(k.Additional, k.UnachievedList),
-							keyExtractor: this.KeyExtractor,
-							itemRenderer: this.RenderItem,
-							remainderRenderer: this.RenderRest,
-							items: e.vecUnachieved,
-							totalItemOverride: e.nTotal - e.nAchieved,
-						}),
-					),
-			),
+							)}
+						>
+							<div className={k.Label}>
+								{Localize("#AppDetails_Achievements_Locked")}
+							</div>
+							<u.S
+								className={A_1(k.Additional, k.UnachievedList)}
+								keyExtractor={this.KeyExtractor}
+								itemRenderer={this.RenderItem}
+								remainderRenderer={this.RenderRest}
+								items={e.vecUnachieved}
+								totalItemOverride={e.nTotal - e.nAchieved}
+							/>
+						</div>
+					)}
+				</g.n.Body>
+			</g.n>
 		);
 	}
 };
 function V(e) {
-	const { appid: t, achievements: r } = e;
-	const n = Math.floor((r.nAchieved * 100) / r.nTotal);
+	const { appid, achievements } = e;
+	const n = Math.floor((achievements.nAchieved * 100) / achievements.nTotal);
 	const a = n == 100;
-	const s = (0, S.bG)("GlobalAchievementStatsPage", t);
-	return i.createElement(
-		g.n.Highlight,
-		{
-			className: (0, d.A)(k.HighlightDiv, a && k.AllAchieved),
-		},
-		i.createElement(
-			"div",
-			{
-				className: k.UnlockedLabel,
-			},
-			i.createElement(
-				"span",
-				null,
-				" ",
-				Localize(
-					a
-						? "#AppDetails_PlayerUnlockedPercentAll"
-						: "#AppDetails_PlayerUnlockedPercent",
-					r.nAchieved,
-					r.nTotal,
-				),
-			),
-			i.createElement(
-				"span",
-				{
-					className: k.UnlockedLabelPercent,
-				},
-				" (" + n + "%)",
-			),
-		),
-		i.createElement(
-			"div",
-			{
-				className: k.AchievementProgressContainer,
-			},
-			i.createElement("div", {
-				className: k.AchievementProgress,
-				style: {
-					width: n + "%",
-				},
-			}),
-		),
-		a &&
-			i.createElement(o.OiG, {
-				fullcolor: true,
-				className: k.Ribbon,
-			}),
-		i.createElement(
-			"div",
-			{
-				className: k.GlobalStatLabel,
-				onClick: s,
-			},
-			false,
-		),
+	const s = bG("GlobalAchievementStatsPage", appid);
+	return (
+		<g.n.Highlight className={A_1(k.HighlightDiv, a && k.AllAchieved)}>
+			<div className={k.UnlockedLabel}>
+				<span>
+					{" "}
+					{Localize(
+						a
+							? "#AppDetails_PlayerUnlockedPercentAll"
+							: "#AppDetails_PlayerUnlockedPercent",
+						achievements.nAchieved,
+						achievements.nTotal,
+					)}
+				</span>
+				<span className={k.UnlockedLabelPercent}>{` (${n}%)`}</span>
+			</div>
+			<div className={k.AchievementProgressContainer}>
+				<div
+					className={k.AchievementProgress}
+					style={{
+						width: `${n}%`,
+					}}
+				/>
+			</div>
+			{a && <o.OiG fullcolor className={k.Ribbon} />}
+			<div className={k.GlobalStatLabel} onClick={s} />
+		</g.n.Highlight>
 	);
 }
-(0, n.Cg)([D.sH], tm.prototype, "unAppID", undefined);
-(0, n.Cg)([l.oI], tm.prototype, "KeyExtractor", null);
-(0, n.Cg)([l.oI], tm.prototype, "RenderItem", null);
-(0, n.Cg)([l.oI], tm.prototype, "RenderRest", null);
-(0, n.Cg)([l.oI], tm.prototype, "ViewAllAchievements", null);
-tm = (0, n.Cg)([a.PA], tm);
-export const Jq = (0, a.PA)(function (e) {
+Cg([D.sH], tm.prototype, "unAppID", undefined);
+Cg([l.oI], tm.prototype, "KeyExtractor", null);
+Cg([l.oI], tm.prototype, "RenderItem", null);
+Cg([l.oI], tm.prototype, "RenderRest", null);
+Cg([l.oI], tm.prototype, "ViewAllAchievements", null);
+tm = Cg([a.PA], tm);
+export const Jq = PA((e) => {
 	const {
 		details: { unAppID: t },
 	} = e;
 	const r = p.H.GetAchievements(t);
 	const n = r.vecHighlight.length > 0;
 	const a = r.vecUnachieved.length > 0;
-	const [s, o] = i.useState(n);
+	const [s, setS] = i.useState(n);
 	if (r.nTotal == 0 || !r.vecHighlight) {
 		return null;
 	}
 	const l = n && a;
 	const c = n || a;
-	return i.createElement(
-		g.n,
-		{
-			feature: 3,
-			label: Localize("#AppDetails_SectionTitle_Achievements"),
-			highlight: i.createElement(V, {
-				achievements: r,
-				appid: t,
-			}),
-			className: k.BasicAppDetailsAchievementsSection,
-			rightColumnSection: true,
-			availableOffline: true,
-		},
-		i.createElement(
-			g.n.Body,
-			{
-				className: (0, d.A)(
+	return (
+		<g.n
+			feature={3}
+			label={Localize("#AppDetails_SectionTitle_Achievements")}
+			highlight={<V achievements={r} appid={t} />}
+			className={k.BasicAppDetailsAchievementsSection}
+			rightColumnSection
+			availableOffline
+		>
+			<g.n.Body
+				className={A_1(
 					l ? k.BodyStopJiggle : undefined,
 					k.BasicAppDetailsAchievementsSectionBody,
-				),
-			},
-			i.createElement(j, {
-				appid: t,
-				achievements: r.vecHighlight,
-				prioritized: s,
-				onRequestPriority: () => o(true),
-			}),
-			r.vecUnachieved.length > 0 &&
-				i.createElement(
-					"div",
-					{
-						className: k.LockedAchievementsLabel,
-					},
-					Localize("#AppDetails_Achievements_Locked"),
-				),
-			i.createElement(j, {
-				appid: t,
-				achievements: r.vecUnachieved,
-				prioritized: !s,
-				onRequestPriority: () => o(false),
-			}),
-			!c &&
-				i.createElement(
-					f.TD,
-					{
-						onClick: (e) => U(e, t),
-					},
-					Localize("#AppDetails_ViewAllAchievements"),
-				),
-		),
+				)}
+			>
+				<J
+					appid={t}
+					achievements={r.vecHighlight}
+					prioritized={s}
+					onRequestPriority={() => setS(true)}
+				/>
+				{r.vecUnachieved.length > 0 && (
+					<div className={k.LockedAchievementsLabel}>
+						{Localize("#AppDetails_Achievements_Locked")}
+					</div>
+				)}
+				<J
+					appid={t}
+					achievements={r.vecUnachieved}
+					prioritized={!s}
+					onRequestPriority={() => setS(false)}
+				/>
+				{!c && (
+					<f.TD onClick={(e) => U(e, t)}>
+						{Localize("#AppDetails_ViewAllAchievements")}
+					</f.TD>
+				)}
+			</g.n.Body>
+		</g.n>
 	);
 });
-function j(e) {
-	const { appid: t, achievements: r, prioritized: n, onRequestPriority: a } = e;
-	const [s, o] = (0, i.useState)(0);
-	const l = (0, _.S1)();
-	if (!r || r.length === 0) {
+function J(e) {
+	const { appid, achievements, prioritized, onRequestPriority } = e;
+	const [s, setS] = useState(0);
+	const l = S1();
+	if (!achievements || achievements.length === 0) {
 		return null;
 	}
-	return i.createElement(
-		_.VJ,
-		null,
-		i.createElement(
-			h.Z,
-			{
-				"flow-children": "row",
-			},
-			i.createElement(
-				b.q,
-				null,
-				i.createElement(
-					C.Q,
-					{
-						className: k.SummaryCarouselContainer,
-						leftMargin: 32,
-						edgeMask: "none",
-						fnUpdateArrows: () => {},
-						fnRenderScrollingDiv: ({ htmlElementRef: e, ...t }) =>
-							i.createElement("div", {
-								...t,
-								ref: e,
-								style: l,
-							}),
-					},
-					r.map((e, r) =>
-						i.createElement(q, {
-							key: e.strID,
-							achievement: e,
-							appid: t,
-							prioritized: n,
-							detailed: n && r === s,
-							onFocus: (e) => {
-								t = r;
-								a();
-								o(t);
-								return;
-								var t;
-							},
-						}),
-					),
-					i.createElement("div", {
-						style: {
-							width: "16px",
-						},
-						"data-carousel": "ignore",
-					}),
-				),
-			),
-		),
+	return (
+		<_.VJ>
+			<h.Z flow-children="row">
+				<b.q>
+					<C.Q
+						className={k.SummaryCarouselContainer}
+						leftMargin={32}
+						edgeMask="none"
+						fnUpdateArrows={() => {}}
+						fnRenderScrollingDiv={({ htmlElementRef, ...t }) => (
+							<div {...t} ref={htmlElementRef} style={l} />
+						)}
+					>
+						{achievements.map((e, r) => (
+							<Q_1
+								key={e.strID}
+								achievement={e}
+								appid={appid}
+								prioritized={prioritized}
+								detailed={prioritized && r === s}
+								onFocus={(e) => {
+									t = r;
+									onRequestPriority();
+									setS(t);
+									return;
+									var t;
+								}}
+							/>
+						))}
+						<div
+							style={{
+								width: "16px",
+							}}
+							data-carousel="ignore"
+						/>
+					</C.Q>
+				</b.q>
+			</h.Z>
+		</_.VJ>
 	);
 }
-function q(e) {
-	const {
-		appid: t,
-		achievement: r,
-		prioritized: n,
-		detailed: a,
-		onFocus: o,
-	} = e;
-	const l = (0, s.W6)();
-	const c = (0, B.dd)()
-		? () => l.push(S.BV.Library.App.Achievements.My.Individual(t))
+function Q_1(e) {
+	const { appid, achievement, prioritized, detailed, onFocus } = e;
+	const l = W6();
+	const c = dd()
+		? () => l.push(S.BV.Library.App.Achievements.My.Individual(appid))
 		: (e) =>
-				(function (e, t) {
+				((e, t) => {
 					let r = GetOwningWindowForEvent(e);
 					M.oy.WindowStore.GetWindowInstanceFromWindow(
 						r,
 					).Navigator.GlobalAchievements(t);
-				})(e, t);
-	return i.createElement(
-		h.Z,
-		{
-			focusable: true,
-			className: (0, d.A)(k.AchievementCarouselItem, a && k.Detailed),
-			onFocus: o,
-			onActivate: c,
-			onOKActionDescription: Localize("#AppDetails_ViewAllAchievements"),
-		},
-		i.createElement(hs, {
-			achievement: r,
-			appid: t,
-			iconClassNames: (0, d.A)(k.CarouselIcon, n && k.Prioritized),
-		}),
-		a &&
-			i.createElement(Q, {
-				achievement: r,
-			}),
+				})(e, appid);
+	return (
+		<h.Z
+			focusable
+			className={A_1(k.AchievementCarouselItem, detailed && k.Detailed)}
+			onFocus={onFocus}
+			onActivate={c}
+			onOKActionDescription={Localize("#AppDetails_ViewAllAchievements")}
+		>
+			<Hs
+				achievement={achievement}
+				appid={appid}
+				iconClassNames={A_1(k.CarouselIcon, prioritized && k.Prioritized)}
+			/>
+			{detailed && <Q achievement={achievement} />}
+		</h.Z>
 	);
 }
 function Q(e) {
@@ -735,32 +574,15 @@ function Q(e) {
 		achievement: { strName: t, strDescription: r },
 	} = e;
 	const n = G(e.achievement);
-	return i.createElement(
-		"div",
-		{
-			className: k.AchivementCarouselItemDetails,
-		},
-		i.createElement(
-			"div",
-			{
-				className: k.Name,
-			},
-			t,
-		),
-		i.createElement(
-			"div",
-			{
-				className: k.Description,
-			},
-			r,
-		),
-		n &&
-			i.createElement(
-				"div",
-				{
-					className: k.Achieved,
-				},
-				Localize("#AppDetails_PctUnlocked", n),
-			),
+	return (
+		<div className={k.AchivementCarouselItemDetails}>
+			<div className={k.Name}>{t}</div>
+			<div className={k.Description}>{r}</div>
+			{n && (
+				<div className={k.Achieved}>
+					{Localize("#AppDetails_PctUnlocked", n)}
+				</div>
+			)}
+		</div>
 	);
 }

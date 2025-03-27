@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	loadinganimationiterationcount: "20",
 	loadinganimationduration: "1s",

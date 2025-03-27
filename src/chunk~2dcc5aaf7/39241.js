@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	DialogBody: "_3wJ6FshAgQfrT0vwrrdrrm",
 	GameInfoDialogContents: "_1J28NGrw629-j5cVtncv_",

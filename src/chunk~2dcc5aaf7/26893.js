@@ -1,27 +1,27 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require("./65265.js");
-var o = s;
-var l = require("./67686.js");
-var c = require("./93681.js");
-var m = require("./96680.js");
-var u = require("./22969.js");
-var d = require(/*webcrack:missing*/ "./42318.js");
-var A = require(/*webcrack:missing*/ "./11131.js");
-var p = require(/*webcrack:missing*/ "./41230.js");
-var g = require("./35425.js");
+import n from "./63696.js";
+import i from "./78325.js";
+import a from "./85243.js";
+import s from "./65265.js";
+import l, { WR } from "./67686.js";
+import c from "./93681.js";
+import { $2 } from "./96680.js";
+import u, { Xy } from "./22969.js";
+import d from "./42318.js";
+import A from "./11131.js";
+import { PA } from "./41230.js";
+import g from "./35425.js";
+const o = s;
 function h(e) {
-	const { host: t } = e;
-	const r = `${u.b7[t.m_eHostType]} (${t.m_unIndex + 1})`;
-	const { popup: i, element: s } = (0, l.WR)(r, {
+	const { host } = e;
+	const r = `${u.b7[host.m_eHostType]} (${host.m_unIndex + 1})`;
+	const { popup, element } = WR(r, {
 		browserType: a.W.EBrowserType_OpenVROverlay,
 		eCreationFlags: 0,
-		strVROverlayKey: t.overlayKey,
-		title: "SteamVR - " + r,
+		strVROverlayKey: host.overlayKey,
+		title: `SteamVR - ${r}`,
 		dimensions: {
-			width: t.m_Params.unWidth,
-			height: t.m_Params.unHeight,
+			width: host.m_Params.unWidth,
+			height: host.m_Params.unHeight,
 			left: 0,
 			top: 0,
 		},
@@ -29,24 +29,24 @@ function h(e) {
 		popup_class: o.PopupRoot,
 	});
 	n.useEffect(() => {
-		if (i && s) {
-			t.m_Popup = i;
-			t.m_RootElement = s;
+		if (popup && element) {
+			host.m_Popup = popup;
+			host.m_RootElement = element;
 		}
 		return () => {
-			if (t.m_Popup === i) {
-				t.m_Popup = undefined;
+			if (host.m_Popup === popup) {
+				host.m_Popup = undefined;
 			}
-			if (t.m_RootElement === s) {
-				t.m_RootElement = undefined;
+			if (host.m_RootElement === element) {
+				host.m_RootElement = undefined;
 			}
 		};
-	}, [i, s, t]);
+	}, [popup, element, host]);
 	return null;
 }
-export const z = (0, p.PA)(function (e) {
+export const z = PA((e) => {
 	let t = [];
-	const r = (0, m.$2)();
+	const r = $2();
 	const i = r?.BIsGamepadApplicationUIInitialized();
 	for (const e of Object.values(
 		r?.VRPooledPopupStore?.m_mapPooledPopupHosts ?? {},
@@ -61,7 +61,7 @@ export const z = (0, p.PA)(function (e) {
 				n.createElement(
 					d.tH,
 					{
-						key: e.m_eHostType + "-" + e.m_unIndex,
+						key: `${e.m_eHostType}-${e.m_unIndex}`,
 					},
 					n.createElement(h, {
 						host: e,
@@ -73,15 +73,17 @@ export const z = (0, p.PA)(function (e) {
 		return null;
 	}
 });
-const _ = (0, p.PA)(function (e) {
-	const { tooltip: t } = e;
-	const r = A.Of?.GetPopupForWindow(t.m_Element?.ownerDocument?.defaultView);
+const _ = PA((e) => {
+	const { tooltip } = e;
+	const r = A.Of?.GetPopupForWindow(
+		tooltip.m_Element?.ownerDocument?.defaultView,
+	);
 	const a = r?.params?.strVROverlayKey;
 	let s = {
 		parent_overlay_key: a,
 		interactive: false,
-		origin_on_parent: t.m_CalculatedPositionOnParent,
-		offset: t.m_Params.offset,
+		origin_on_parent: tooltip.m_CalculatedPositionOnParent,
+		offset: tooltip.m_Params.offset,
 		inherit_parent_curvature: false,
 	};
 	if (a == g.rn) {
@@ -97,8 +99,8 @@ const _ = (0, p.PA)(function (e) {
 			},
 		};
 	}
-	const { element: l } = (0, u.Xy)(u.b7.Tooltip, s);
-	if (l) {
+	const { element } = Xy(u.b7.Tooltip, s);
+	if (element) {
 		return i.createPortal(
 			n.createElement(
 				"div",
@@ -111,17 +113,17 @@ const _ = (0, p.PA)(function (e) {
 						center: true,
 						delay: 0.5,
 					},
-					t.m_StrText,
+					tooltip.m_StrText,
 				),
 			),
-			l,
+			element,
 		);
 	} else {
 		return null;
 	}
 });
-export const ny = (0, p.PA)(function () {
-	const e = (0, m.$2)();
+export const ny = PA(() => {
+	const e = $2();
 	const t = e?.BIsGamepadApplicationUIInitialized();
 	const r = Array.from(e?.VRPooledPopupStore?.m_mapTooltips.entries() ?? []);
 	if (t) {
@@ -146,7 +148,7 @@ export const ny = (0, p.PA)(function () {
 		return null;
 	}
 });
-const b = n.createContext({
+const BContext = n.createContext({
 	unDelayMS: 0,
 	normalizedPositionOnElement: {
 		x: 0,
@@ -157,4 +159,4 @@ const b = n.createContext({
 		z_pixels: 15,
 	},
 });
-export const Cb = () => n.useContext(b);
+export const Cb = () => n.useContext(BContext);

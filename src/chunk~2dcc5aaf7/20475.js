@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
 import {
 	SortedInsert,
 	FindAndRemoveWhere,
 	FindAndRemove,
 } from "../../actual_src/utils/arrayutils.js";
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./96127.js");
-var o = require("./95773.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require("./46970.js");
-var u = require(/*webcrack:missing*/ "./89193.js");
-var d = require(/*webcrack:missing*/ "./49455.js");
+import n, { Cg } from "./34629.js";
+import a from "./52451.js";
+import s from "./96127.js";
+import o from "./95773.js";
+import c from "./83599.js";
+import m from "./46970.js";
+import { z7 } from "./89193.js";
+import { w } from "./49455.js";
 export const fW = -1;
 const p = -2;
 export class rV {
@@ -74,7 +74,7 @@ export class rV {
 		this.Sort();
 	}
 	SortedInsert(e) {
-		(0, d.w)(
+		w(
 			!this.BHasMember(e.accountid),
 			"Double insert into bucket for accountid",
 			e.accountid,
@@ -88,7 +88,7 @@ export class rV {
 		this.m_rgMembers.sort(this.m_fnSort);
 	}
 }
-(0, n.Cg)([a.oI], rV.prototype, "OnAppInfoLoaded", null);
+Cg([a.oI], rV.prototype, "OnAppInfoLoaded", null);
 class h {
 	rgRegistered = [];
 	bFlatList = undefined;
@@ -125,7 +125,7 @@ export class me {
 	ListenForSettingsChanges() {
 		this.m_bShowMembersInGameGroups =
 			o.xm.SettingsStore.FriendsSettings.bCategorizeInGameFriendsByGame;
-		(0, u.z7)(
+		z7(
 			() =>
 				o.xm.SettingsStore.FriendsSettings.bCategorizeInGameFriendsByGame !==
 				this.m_bShowMembersInGameGroups,
@@ -196,7 +196,7 @@ export class me {
 	GetGroupMemberList(e) {
 		let t = this.m_mapGroupBuckets.get(e);
 		if (t.bFlatList) {
-			(0, d.w)(t.mapBuckets.size == 1, "Flat list has too many buckets");
+			w(t.mapBuckets.size == 1, "Flat list has too many buckets");
 			return [t.mapBuckets.get(0)];
 		}
 		{
@@ -301,7 +301,7 @@ export class me {
 		let n = performance.now();
 		let i = false;
 		if (r.bFlatList) {
-			(0, d.w)(r.mapBuckets.size == 1, "Flat map is too large");
+			w(r.mapBuckets.size == 1, "Flat map is too large");
 			r.mapBuckets.get(0).Remove(t.accountid);
 			r.mapBuckets.get(0).SortedInsert(t);
 			i = true;
@@ -328,7 +328,9 @@ export class me {
 		let a = performance.now();
 		r.msSpentSorting += a - n;
 		this.LOG(
-			`${e}: Resort user ${t.display_name} took ${a - n}ms (total ${r.msSpentSorting}ms)`,
+			`${e}: Resort user ${t.display_name} took ${a - n}ms (total ${
+				r.msSpentSorting
+			}ms)`,
 		);
 		if (i) {
 			this.FireMemberListChanged(r);
@@ -357,7 +359,7 @@ export class me {
 		let a = r.mapBuckets.get(fW);
 		if (a) {
 			for (let t of a.member_list) {
-				if (n.indexOf(t.accountid) == -1) {
+				if (!n.includes(t.accountid)) {
 					i = true;
 					let n = this.GetBucketIdForPlayer(r, t, e);
 					this.RemoveMemberFromBucket(r, fW, t.accountid);
@@ -373,14 +375,16 @@ export class me {
 		let t = this.m_mapGroupBuckets.get(e);
 		if (t) {
 			if (t.bFlatList) {
-				(0, d.w)(t.mapBuckets.size == 1, "Flat list has too many buckets");
+				w(t.mapBuckets.size == 1, "Flat list has too many buckets");
 				let r = performance.now();
 				let n = t.mapBuckets.get(0);
 				n.Sort();
 				let i = performance.now();
 				t.msSpentSorting += i - r;
 				this.LOG(
-					`${e}: List ReSort took ${i - r}ms (total ${t.msSpentSorting}ms) for ${n.member_list.length} members`,
+					`${e}: List ReSort took ${i - r}ms (total ${
+						t.msSpentSorting
+					}ms) for ${n.member_list.length} members`,
 				);
 			} else {
 				t.mapBuckets.get(0).Sort();
@@ -403,20 +407,20 @@ export class me {
 			} else if (t.persona.is_in_nonsteam_game) {
 				return -1;
 			}
-			const r = e.current_game_name;
-			const n = t.current_game_name;
-			if (r) {
-				if (!n) {
+			const e_current_game_name = e.current_game_name;
+			const t_current_game_name = t.current_game_name;
+			if (e_current_game_name) {
+				if (!t_current_game_name) {
 					return -1;
 				}
-				if (r != n) {
-					if (r < n) {
+				if (e_current_game_name != t_current_game_name) {
+					if (e_current_game_name < t_current_game_name) {
 						return -1;
 					} else {
 						return 1;
 					}
 				}
-			} else if (n) {
+			} else if (t_current_game_name) {
 				return 1;
 			}
 		}
@@ -426,7 +430,7 @@ export class me {
 		let t = this.m_mapGroupBuckets.get(e);
 		t.mapBuckets.clear();
 		t.groupSingletons.ClearMemberList();
-		(0, d.w)(t, "PerformInitialPopulate didn't find group");
+		w(t, "PerformInitialPopulate didn't find group");
 		let r = performance.now();
 		let n =
 			o.xm.ChatStore.GetChatRoomGroup(
@@ -481,14 +485,14 @@ export class me {
 		return this.FindCurrentBucketForMember(e, t) !== undefined;
 	}
 	AddMemberToBucketID(e, t, r) {
-		(0, d.w)(
+		w(
 			!this.BIsMemberInAnyBucket(e, r.accountid),
 			"Trying to double add accountid",
 			r.accountid,
 			"which is already in bucket",
 			this.FindCurrentBucketForMember(e, r.accountid),
 		);
-		(0, d.w)(
+		w(
 			!e.bFlatList || t == 0,
 			"Trying to add to non-default bucket in flat list",
 		);
@@ -519,11 +523,11 @@ export class me {
 		return e.id != fW && e.id != 0;
 	}
 	AddToSingletons(e, t) {
-		(0, d.w)(!e.bFlatList, "Adding to singletons in flat list");
+		w(!e.bFlatList, "Adding to singletons in flat list");
 		e.groupSingletons.SortedInsert(t);
 	}
 	RemoveFromSingletons(e, t) {
-		(0, d.w)(!e.bFlatList, "Removing from singletons in flat list");
+		w(!e.bFlatList, "Removing from singletons in flat list");
 		return e.groupSingletons.Remove(t);
 	}
 	GetBucketIdForPlayer(e, t, r) {
@@ -532,11 +536,7 @@ export class me {
 		}
 		let n = this.m_mapGroupBeacons.get(r);
 		if (n) {
-			if (
-				n.find(function (e) {
-					return e.account_id == t.accountid;
-				})
-			) {
+			if (n.find((e) => e.account_id == t.accountid)) {
 				return fW;
 			}
 		}
@@ -604,7 +604,7 @@ export class me {
 		}
 	}
 }
-(0, n.Cg)([a.oI], me.prototype, "ListenForSettingsChanges", null);
-(0, n.Cg)([a.oI], me.prototype, "OnPlayerGameChanged", null);
-(0, n.Cg)([a.oI], me.prototype, "OnPersonaStateChanged", null);
-(0, n.Cg)([a.oI], me.prototype, "OnPartyBeaconsUpdated", null);
+Cg([a.oI], me.prototype, "ListenForSettingsChanges", null);
+Cg([a.oI], me.prototype, "OnPlayerGameChanged", null);
+Cg([a.oI], me.prototype, "OnPersonaStateChanged", null);
+Cg([a.oI], me.prototype, "OnPartyBeaconsUpdated", null);

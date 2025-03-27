@@ -1,13 +1,9 @@
-var n = require(/*webcrack:missing*/ "./61416.js");
-var i = require("./41240.js");
-var a = require("./4855.js");
+import n, { I } from "./61416.js";
+import i, { ER, Jz } from "./41240.js";
+import { eG } from "./4855.js";
 export function j4(e) {
-	const t = (0, a.eG)();
-	return (0, n.I)(
-		(function (e, t) {
-			return o(e, t, "include_screenshots", "screenshots");
-		})(t, e),
-	);
+	const t = eG();
+	return I(((e, t) => o(e, t, "include_screenshots", "screenshots"))(t, e));
 }
 function o(e, t, r, n) {
 	return {
@@ -21,26 +17,26 @@ function l(e, t, r, n, i) {
 	e.setQueryData(c(t, n), r[i]);
 }
 function c(e, t) {
-	return ["StoreItem", e && (0, i.ER)(e), t];
+	return ["StoreItem", e && ER(e), t];
 }
 export function vB(e, t, r) {
-	const n = (0, i.Jz)(t);
+	const n = Jz(t);
 	if (n) {
-		(function (e, t, r) {
+		((e, t, r) => {
 			e.setQueryData(c(t, "default_info"), d(r));
 		})(e, n, t);
 		if (r.include_assets) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "include_assets", "assets");
 			})(e, n, t);
 		}
 		if (r.include_screenshots) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "include_screenshots", "screenshots");
 			})(e, n, t);
 		}
 		if (r.include_assets_without_overrides) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(
 					e,
 					t,
@@ -51,27 +47,27 @@ export function vB(e, t, r) {
 			})(e, n, t);
 		}
 		if (r.include_reviews) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "include_reviews", "reviews");
 			})(e, n, t);
 		}
 		if (r.include_release) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "include_release", "release");
 			})(e, n, t);
 		}
 		if (r.include_tag_count && r.include_tag_count > 0) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "top_tags", "tags");
 			})(e, n, t);
 		}
 		if (r.include_platforms) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "include_platforms", "platforms");
 			})(e, n, t);
 		}
 		if (r.apply_user_filters) {
-			(function (e, t, r) {
+			((e, t, r) => {
 				l(e, t, r, "apply_user_filters", "user_filter_failure");
 			})(e, n, t);
 		}
@@ -114,5 +110,5 @@ function d(e) {
 	return t;
 }
 async function A(e, t, r) {
-	return await e.load(`${(0, i.ER)(t)}|${r}`);
+	return await e.load(`${ER(t)}|${r}`);
 }

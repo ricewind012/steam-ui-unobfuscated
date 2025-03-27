@@ -1,19 +1,28 @@
-var n = require(/*webcrack:missing*/ "./90095.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./61510.js");
-var s = require("./23024.js");
-var o = require(/*webcrack:missing*/ "./36885.js");
-var l = require(/*webcrack:missing*/ "./34629.js");
-var c = require(/*webcrack:missing*/ "./83957.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./89193.js");
-var d = require(/*webcrack:missing*/ "./93960.js");
-var A = require(/*webcrack:missing*/ "./79769.js");
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
+import n, { q3 } from "./90095.js";
+import i, { useState, useEffect } from "./63696.js";
+import a from "./61510.js";
+import s from "./23024.js";
+import o, { mJ } from "./36885.js";
+import l, { Cg } from "./34629.js";
+import c from "./83957.js";
+import u, { Gn, h5 } from "./89193.js";
+import d from "./93960.js";
+import A from "./79769.js";
+import p, { CH } from "./52451.js";
+import g, { Tc } from "./72476.js";
+import { h as h_1 } from "./5047.js";
+import S from "./43397.js";
+import { A as A_1 } from "./90765.js";
+import { L$ } from "./53807.js";
+import I from "./1929.js";
+const m = c;
 class h {
 	constructor() {
-		(0, u.Gn)(this);
+		Gn(this);
 	}
 	giveaway_id = undefined;
 	seconds_until_drawing = undefined;
@@ -41,22 +50,22 @@ class h {
 		return e;
 	}
 }
-(0, l.Cg)([u.sH], h.prototype, "giveaway_id", undefined);
-(0, l.Cg)([u.sH], h.prototype, "seconds_until_drawing", undefined);
-(0, l.Cg)([u.sH], h.prototype, "rtime_start", undefined);
-(0, l.Cg)([u.sH], h.prototype, "rtime_end", undefined);
-(0, l.Cg)([u.sH], h.prototype, "closed", undefined);
-(0, l.Cg)([u.sH], h.prototype, "winner_count", undefined);
+Cg([u.sH], h.prototype, "giveaway_id", undefined);
+Cg([u.sH], h.prototype, "seconds_until_drawing", undefined);
+Cg([u.sH], h.prototype, "rtime_start", undefined);
+Cg([u.sH], h.prototype, "rtime_end", undefined);
+Cg([u.sH], h.prototype, "closed", undefined);
+Cg([u.sH], h.prototype, "winner_count", undefined);
 class C {
 	constructor() {
-		(0, u.Gn)(this);
+		Gn(this);
 	}
 	m_mapGiveawayIDToNextDrawInfo = new Map();
 	m_mapGiveawayIDAndInstanceToNextDrawInfo = new Map();
 	m_bLoadedFromConfig = false;
 	m_mapNextDrawChangeCallback = new Map();
 	GetKey(e, t) {
-		return e + "_" + t;
+		return `${e}_${t}`;
 	}
 	GetInfoByInstance(e, t) {
 		return this.m_mapGiveawayIDAndInstanceToNextDrawInfo.get(this.GetKey(e, t));
@@ -91,7 +100,7 @@ class C {
 		if (!e) {
 			return null;
 		}
-		let r = g.TS.STORE_BASE_URL + "prizes/nextdraw/" + e;
+		let r = `${g.TS.STORE_BASE_URL}prizes/nextdraw/${e}`;
 		let n = null;
 		let i = {
 			origin: self.origin,
@@ -99,7 +108,7 @@ class C {
 		n = await m.get(r, {
 			params: i,
 		});
-		(0, u.h5)(() => {
+		h5(() => {
 			if (!this.m_mapGiveawayIDToNextDrawInfo.has(e)) {
 				this.m_mapGiveawayIDToNextDrawInfo.set(e, new h());
 			}
@@ -133,7 +142,7 @@ class C {
 	}
 	Init() {
 		if (!this.m_bLoadedFromConfig) {
-			let e = (0, g.Tc)("giveawaynextdraw", "application_config");
+			let e = Tc("giveawaynextdraw", "application_config");
 			if (e && e.giveaway_id) {
 				let t = new h();
 				this.CopyToGiveaway(e, t);
@@ -143,8 +152,8 @@ class C {
 		}
 	}
 }
-(0, l.Cg)([u.sH], C.prototype, "m_mapGiveawayIDToNextDrawInfo", undefined);
-(0, l.Cg)([u.XI], C.prototype, "CopyToGiveaway", null);
+Cg([u.sH], C.prototype, "m_mapGiveawayIDToNextDrawInfo", undefined);
+Cg([u.XI], C.prototype, "CopyToGiveaway", null);
 class _ {
 	m_intervalID;
 	m_intervalCountDownID;
@@ -188,14 +197,14 @@ function f(e, t) {
 	}
 }
 function b(e) {
-	const [t] = (0, i.useState)(new _());
-	const r = (0, p.CH)();
-	(0, i.useEffect)(() => {
+	const [t] = useState(new _());
+	const r = CH();
+	useEffect(() => {
 		C.Get()
 			.ReloadGiveaway(e, t.m_myInstanceNumber)
 			.then((n) => {
 				t.SetupRefreshDataInterval(n, () =>
-					(function (e, t) {
+					((e, t) => {
 						const r = C.Get().GetInfoByInstance(e, t.m_myInstanceNumber);
 						if (
 							r &&
@@ -221,172 +230,130 @@ function b(e) {
 		};
 	}, [t, e, r]);
 	const a = C.Get().GetInfoByInstance(e, t.m_myInstanceNumber);
-	const [s, o, l] = (0, n.q3)(() => [
+	const [s, o, l] = q3(() => [
 		a?.winner_count,
 		a?.closed,
 		a?.seconds_until_drawing,
 	]);
 	return {
 		bLoadingGiveawayInfo:
-			!a || a.giveaway_id == null || !a.BStarted() || s === undefined,
+			!a ||
+			a.giveaway_id == null ||
+			a.giveaway_id == null ||
+			!a.BStarted() ||
+			a.giveaway_id == null ||
+			!a.BStarted() ||
+			s === undefined,
 		winner_count: s,
 		closed: o,
 		seconds_until_drawing: l,
 	};
 }
-(0, l.Cg)([d.o], _.prototype, "ClearRefreshInterval", null);
-(0, l.Cg)([d.o], _.prototype, "ClearCountDown", null);
-(0, l.Cg)([d.o], _.prototype, "SetupRefreshDataInterval", null);
-(0, l.Cg)([d.o], _.prototype, "SetupCountDown", null);
-var y = require("./5047.js");
-var S = require("./43397.js");
-var w = require(/*webcrack:missing*/ "./90765.js");
-import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-var v = require(/*webcrack:missing*/ "./53807.js");
-var I = require("./1929.js");
-var E = I;
+Cg([d.o], _.prototype, "ClearRefreshInterval", null);
+Cg([d.o], _.prototype, "ClearCountDown", null);
+Cg([d.o], _.prototype, "SetupRefreshDataInterval", null);
+Cg([d.o], _.prototype, "SetupCountDown", null);
+const E = I;
 export function P(e) {
-	const { latestAnnouncement: t } = e;
-	if (t?.type == "giveaway_draw") {
-		return i.createElement(T, {
-			latestWinner: t,
-		});
+	const { latestAnnouncement } = e;
+	if (latestAnnouncement?.type == "giveaway_draw") {
+		return <T latestWinner={latestAnnouncement} />;
 	} else {
 		return null;
 	}
 }
 function T(e) {
-	const {
-		latestWinner: t,
-		className: r,
-		strActionButton: n,
-		strActionClassname: a,
-	} = e;
-	const s = t.winners_info?.length > 0 ? t.winners_info[0].accountid : 0;
-	const [l, c] = i.useState(s);
-	const m = (0, v.L$)(
-		`${(0, o.mJ)()}4/080b1f163b02a9810fa78f0b32b9396fab012aef.gif`,
-	);
-	const u = (0, v.L$)(
-		`${(0, o.mJ)()}4/56521811317a8298a7aff4a914be964b67dd0325.png`,
-	);
-	const d = b(t.giveaway_gid);
-	let A = d.bLoadingGiveawayInfo || d.closed ? null : d.seconds_until_drawing;
+	const { latestWinner, className, strActionButton, strActionClassname } = e;
+	const s =
+		latestWinner.winners_info?.length > 0
+			? latestWinner.winners_info[0].accountid
+			: 0;
+	const [l, setL] = i.useState(s);
+	const m = L$(`${mJ()}4/080b1f163b02a9810fa78f0b32b9396fab012aef.gif`);
+	const u = L$(`${mJ()}4/56521811317a8298a7aff4a914be964b67dd0325.png`);
+	const d = b(latestWinner.giveaway_gid);
+	let A = d.bLoadingGiveawayInfo || d.closed || d.seconds_until_drawing;
 	const p = s === g.iA.accountid;
 	i.useEffect(() => {
 		if (l != s) {
-			setTimeout(() => c(s), 1500);
+			setTimeout(() => setL(s), 1500);
 		}
 	}, [s, l]);
 	const h =
-		t.winners_info?.length > 0 && Boolean(t.winners_info[0].persona)
-			? t.winners_info[0].persona
+		latestWinner.winners_info?.length > 0 &&
+		Boolean(latestWinner.winners_info[0].persona)
+			? latestWinner.winners_info[0].persona
 			: (0, Localize)("#GA2022_UnknownPersonaName");
-	return i.createElement(
-		S.uU,
-		{
-			href: "https://store.steampowered.com/sale/thegameawardssteamdeckdrop2022",
-			className: r,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, w.A)({
+	return (
+		<S.uU
+			href="https://store.steampowered.com/sale/thegameawardssteamdeckdrop2022"
+			className={className}
+		>
+			<div
+				className={A_1({
 					[E.GiveawayWinnerBox]: true,
 					[E.GiveawayWinnerAnnounced]: l === s,
-				}),
-			},
-			i.createElement(
-				"div",
-				{
-					className: E.GiveawayWinnerBoxLeft,
-				},
-				i.createElement("img", {
-					className: E.GiveawayWinnerArt,
-					src: m,
-				}),
-			),
-			i.createElement(
-				"div",
-				{
-					className: E.GiveawayWinnerBoxRight,
-				},
-				Boolean(l !== s) &&
-					i.createElement(
-						"div",
-						{
-							className: (0, w.A)(E.GiveawayWinnerText),
-						},
-						LocalizeReact(
-							"#GA2022_Congrats_Deck_Unknown",
-							i.createElement("br", null),
-						),
-					),
-				Boolean(l === s) &&
-					i.createElement(
-						"div",
-						{
-							className: (0, w.A)(
-								E.GiveawayWinnerText,
-								E.GiveawayWinnerAnnounced,
-							),
-						},
-						LocalizeReact(
-							p ? "#GA2022_Congrats_Deck_Me" : "#GA2022_Congrats_Deck_OTher",
-							h,
-							i.createElement("br", null),
-						),
-					),
-				Boolean(A > 0) &&
-					i.createElement(
-						"div",
-						{
-							className: E.GiveawayWinnerCountdown,
-						},
-						LocalizeReact("#GA2022_Congrats_NextDraw", A),
-					),
-			),
-			i.createElement("img", {
-				className: E.GiveawayWinnerQuestion,
-				src: u,
-			}),
-			Boolean(n) &&
-				i.createElement(
-					"div",
-					{
-						className: a,
-					},
-					p ? (0, Localize)("#GA2022_YouWonNextSteps") : n,
-				),
-		),
+				})}
+			>
+				<div className={E.GiveawayWinnerBoxLeft}>
+					<img className={E.GiveawayWinnerArt} src={m} />
+				</div>
+				<div className={E.GiveawayWinnerBoxRight}>
+					{Boolean(l !== s) && (
+						<div className={A_1(E.GiveawayWinnerText)}>
+							{LocalizeReact("#GA2022_Congrats_Deck_Unknown", <br />)}
+						</div>
+					)}
+					{Boolean(l === s) && (
+						<div
+							className={A_1(E.GiveawayWinnerText, E.GiveawayWinnerAnnounced)}
+						>
+							{LocalizeReact(
+								p ? "#GA2022_Congrats_Deck_Me" : "#GA2022_Congrats_Deck_OTher",
+								h,
+								<br />,
+							)}
+						</div>
+					)}
+					{Boolean(A > 0) && (
+						<div className={E.GiveawayWinnerCountdown}>
+							{LocalizeReact("#GA2022_Congrats_NextDraw", A)}
+						</div>
+					)}
+				</div>
+				<img className={E.GiveawayWinnerQuestion} src={u} />
+				{Boolean(strActionButton) && (
+					<div className={strActionClassname}>
+						{p ? (0, Localize)("#GA2022_YouWonNextSteps") : strActionButton}
+					</div>
+				)}
+			</div>
+		</S.uU>
 	);
 }
 export function V(e) {
-	const { gidGiveaway: t, stream: r } = e;
-	const o = (function (e, t) {
-		const [r, o] = (0, n.q3)(() => [
+	const { gidGiveaway, stream } = e;
+	const o = ((e, t) => {
+		const [r, o] = q3(() => [
 			t?.steamid,
 			s.BroadcastWatchStore.GetBroadcast(t?.steamid)?.m_ulBroadcastID,
 		]);
-		const [l, c] = i.useState(null);
+		const [l, setL] = i.useState(null);
 		i.useEffect(() => {
 			let e = null;
 			if (r || o) {
 				e = a.q.Get().GetOrCreateChat(o, r);
 				e.StartForSteamID(r, o);
-				c(e);
+				setL(e);
 			}
 			return () => {
 				if (e) {
 					e.Stop();
-					c(null);
+					setL(null);
 				}
 			};
 		}, [r, o]);
-		const m = (0, n.q3)(() => l?.m_latestAnnouncement || null);
+		const m = q3(() => l?.m_latestAnnouncement || null);
 		if (m?.type == "giveaway_draw") {
 			const t = m;
 			if (t.giveaway_gid == e) {
@@ -394,14 +361,14 @@ export function V(e) {
 			}
 		}
 		return null;
-	})(t, r);
-	const l = (0, y.h)("GameAwardDrop2022");
+	})(gidGiveaway, stream);
+	const l = h_1("GameAwardDrop2022");
 	let c = null;
-	let m = E.GiveawayRegisterButton;
+	let E_GiveawayRegisterButton = E.GiveawayRegisterButton;
 	if (g.iA.logged_in) {
 		if (l?.registered) {
 			c = (0, Localize)("#GA2022_AlreadyRegistered");
-			m = E.GiveawayAlreadyRegistered;
+			E_GiveawayRegisterButton = E.GiveawayAlreadyRegistered;
 		} else {
 			c = (0, Localize)("#GA2022_RegisterToWin");
 		}
@@ -409,12 +376,14 @@ export function V(e) {
 		c = (0, Localize)("#GA2022_RegisterLoginToWin");
 	}
 	if (o) {
-		return i.createElement(T, {
-			latestWinner: o,
-			className: E.InViewerBar,
-			strActionButton: c,
-			strActionClassname: m,
-		});
+		return (
+			<T
+				latestWinner={o}
+				className={E.InViewerBar}
+				strActionButton={c}
+				strActionClassname={E_GiveawayRegisterButton}
+			/>
+		);
 	} else {
 		return null;
 	}

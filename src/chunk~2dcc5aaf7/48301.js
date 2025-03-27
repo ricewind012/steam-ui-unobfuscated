@@ -1,32 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./8573.js");
-var a = require("./95773.js");
-var s = require(/*webcrack:missing*/ "./17385.js");
-var o = require("./44234.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
+import n, { Cg } from "./34629.js";
+import i from "./8573.js";
+import a from "./95773.js";
+import s from "./17385.js";
+import o from "./44234.js";
+import l, { Gn } from "./89193.js";
 export function xE(e, t, r, n, a) {
 	let s;
 	let l = i.b.InitFromAccountID(e);
 	if (a) {
-		s = "steam://joinlobby/" + t + "/" + a + "/" + l.ConvertTo64BitString();
+		s = `steam://joinlobby/${t}/${a}/${l.ConvertTo64BitString()}`;
 	} else if (n) {
 		s = o.TS.IN_MOBILE
-			? "https://s.team/remoteplay/connect/" +
-				l.ConvertTo64BitString() +
-				"?appid=" +
-				t +
-				"&" +
-				n
-			: "steam://remoteplay/connect/" +
-				l.ConvertTo64BitString() +
-				"?appid=" +
-				t +
-				"&" +
-				n;
+			? `https://s.team/remoteplay/connect/${l.ConvertTo64BitString()}?appid=${t}&${n}`
+			: `steam://remoteplay/connect/${l.ConvertTo64BitString()}?appid=${t}&${n}`;
 	} else {
-		s = "steam://rungame/" + t + "/" + l.ConvertTo64BitString();
+		s = `steam://rungame/${t}/${l.ConvertTo64BitString()}`;
 		if (r !== undefined) {
-			s += "/" + encodeURIComponent(r);
+			s += `/${encodeURIComponent(r)}`;
 		}
 	}
 	return s;
@@ -41,7 +31,7 @@ class m {
 	bDismissed = undefined;
 	bAccepted = undefined;
 	constructor(e, t, r, n, i, a, s) {
-		(0, l.Gn)(this);
+		Gn(this);
 		this.unAccountIDInviter = e;
 		this.rtTimestamp = t;
 		this.appID = r;
@@ -90,10 +80,10 @@ class m {
 		return a.xm.GetServerRTime32() - this.rtTimestamp > 21600;
 	}
 }
-(0, n.Cg)([l.sH], m.prototype, "bDismissed", undefined);
-(0, n.Cg)([l.sH], m.prototype, "bAccepted", undefined);
-(0, n.Cg)([l.XI], m.prototype, "AcceptGameInvite", null);
-(0, n.Cg)([l.XI], m.prototype, "DismissInvite", null);
+Cg([l.sH], m.prototype, "bDismissed", undefined);
+Cg([l.sH], m.prototype, "bAccepted", undefined);
+Cg([l.XI], m.prototype, "AcceptGameInvite", null);
+Cg([l.XI], m.prototype, "DismissInvite", null);
 const u = {
 	dismisstimes: {},
 };

@@ -1,52 +1,52 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require("./84056.js");
-var _c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require("./50350.js");
-var d = require("./85360.js");
-var A = require("./11625.js");
-var p = require("./22091.js");
-var g = require("./84914.js");
-var h = require("./62486.js");
-var C = require("./52192.js");
-var _ = require("./83314.js");
-var f = require("./85399.js");
 import {
 	LocalizeReact,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var y = require("./93681.js");
-var S = require("./46422.js");
-var w = require("./37449.js");
-var B = require(/*webcrack:missing*/ "./61657.js");
-var v = require("./78057.js");
-var I = require("./33572.js");
-var E = require("./18869.js");
-var M = require("./91703.js");
-var T = require(/*webcrack:missing*/ "./4690.js");
-var R = require("./34792.js");
-var k = require(/*webcrack:missing*/ "./11131.js");
-var D = require("./96680.js");
-var N = require(/*webcrack:missing*/ "./83599.js");
-var F = require("./96593.js");
-var G = require("./78787.js");
-var O = require("./35488.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s, { PA } from "./41230.js";
+import o, { q3 } from "./90095.js";
+import l from "./84056.js";
+import { A as A_1 } from "./90765.js";
+import m from "./69164.js";
+import u from "./50350.js";
+import d, { st } from "./85360.js";
+import A from "./11625.js";
+import p from "./22091.js";
+import g, { N as N_1 } from "./84914.js";
+import h, { K7, q8, ND, GW, Bv, ix, Fq } from "./62486.js";
+import C, { JD, _H, Kw, S1, Xt, yZ } from "./52192.js";
+import _, { dI } from "./83314.js";
+import f, { FD } from "./85399.js";
+import y from "./93681.js";
+import S from "./46422.js";
+import w from "./37449.js";
+import B from "./61657.js";
+import v from "./78057.js";
+import I, { oH } from "./33572.js";
+import E, { tn } from "./18869.js";
+import M, { Cu } from "./91703.js";
+import T from "./4690.js";
+import R from "./34792.js";
+import k, { R7 } from "./11131.js";
+import D, { $2 } from "./96680.js";
+import N from "./83599.js";
+import F from "./96593.js";
+import G, { ej } from "./78787.js";
+import O from "./35488.js";
 const P = new N.wd("ControllerConfiguratorSummary");
 class L {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_bLegacyControllerSummary = false;
 }
-(0, n.Cg)([a.sH], L.prototype, "m_bLegacyControllerSummary", undefined);
+Cg([a.sH], L.prototype, "m_bLegacyControllerSummary", undefined);
 const z = new L();
-const x = i.createContext(null);
+const XContext = i.createContext(null);
 function U() {
-	const e = i.useContext(x);
+	const e = i.useContext(XContext);
 	if (e == null) {
 		throw new Error(
 			"useControllerLayoutContext cannot find ControllerLayoutContext!",
@@ -55,20 +55,20 @@ function U() {
 	return e;
 }
 function W(e) {
-	const { className: t } = e;
+	const { className } = e;
 	return i.createElement("div", {
-		className: (0, _c.A)(t, A.BackgroundController),
+		className: A_1(className, A.BackgroundController),
 	});
 }
 function V(e, t, r) {
 	const n = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const i = d.v3.EditingConfiguration?.sets[n];
-	const a = e.rgBindingOptions;
+	const e_rgBindingOptions = e.rgBindingOptions;
 	let s = null;
 	const o = d.v3.EditingConfiguration?.sets;
-	const c = !(0, h.K7)(o);
+	const c = !K7(o);
 	if (t.controller_action?.action !== undefined) {
-		s = (0, C.JD)(t.controller_action, c ? o : undefined, i?.layers);
+		s = JD(t.controller_action, c ? o : undefined, i?.layers);
 	}
 	if (s && r > 0) {
 		return LocalizeReact("#ControllerBinding_Binding_FriendlyNameMultiple", s);
@@ -84,7 +84,7 @@ function V(e, t, r) {
 			return s;
 		}
 	}
-	let m = a?.find((e) => (0, h.q8)(t, e.data));
+	let m = e_rgBindingOptions?.find((e) => q8(t, e.data));
 	if (m) {
 		if (t.key_binding_data?.friendly_name_utf8 && typeof m.label == "string") {
 			if (r > 0) {
@@ -117,17 +117,17 @@ function V(e, t, r) {
 	if (t?.type == l.N.k_EControllerBindingType_Modeshift) {
 		return Localize(
 			"#ControllerBinding_ModeShift_FriendlyName",
-			(0, h.ND)(h.Dd[t?.mode_shift.source].id),
+			ND(h.Dd[t?.mode_shift.source].id),
 		);
 	} else {
 		return "unknown";
 	}
 }
 function H(e) {
-	const { activator: t, focused: r } = e;
+	const { activator, focused } = e;
 	const n = U();
 	let a = [];
-	t.bindings.forEach((e, t) => {
+	activator.bindings.forEach((e, t) => {
 		if (e.type == 7 && e.controller_action.action == 43) {
 			return;
 		}
@@ -136,7 +136,7 @@ function H(e) {
 			if (a.length == 0 || typeof r != "string") {
 				a.push(r);
 			} else {
-				a[0] += ", " + r;
+				a[0] += `, ${r}`;
 			}
 		}
 	});
@@ -153,7 +153,7 @@ function H(e) {
 					y.r,
 					{
 						key: t,
-						play: r,
+						play: focused,
 						className: A.Activator,
 					},
 					e,
@@ -164,34 +164,34 @@ function H(e) {
 }
 function j(e) {
 	const {
-		input: t,
-		eMode: r,
-		bIconOnRight: n,
-		bShrinkList: a,
-		eSource: s,
-		maxLength: o,
-		parentFocused: l,
+		input,
+		eMode,
+		bIconOnRight,
+		bShrinkList,
+		eSource,
+		maxLength,
+		parentFocused,
 	} = e;
 	const [u, p] = i.useState(false);
 	const g = U();
-	const h = s == 5;
-	const _ = (0, M.Cu)(g.appid, s, t.key);
-	if (r == null) {
+	const h = eSource == 5;
+	const _ = Cu(g.appid, eSource, input.key);
+	if (eMode == null) {
 		return null;
 	}
-	let f = t?.activators;
-	const b = o && t?.activators?.length > o;
+	let f = input?.activators;
+	const b = maxLength && input?.activators?.length > maxLength;
 	if (b) {
-		f = t?.activators.slice(0, o);
+		f = input?.activators.slice(0, maxLength);
 	}
 	let y = f.map((e, t) =>
 		i.createElement(H, {
 			key: t,
-			focused: u || l,
+			focused: u || parentFocused,
 			activator: e,
 		}),
 	);
-	const S = (function (e, t, r, n) {
+	const S = ((e, t, r, n) => {
 		if (r?.activators?.length > 1) {
 			return false;
 		}
@@ -199,7 +199,7 @@ function j(e) {
 			return true;
 		}
 		switch (t) {
-			case 6:
+			case 6: {
 				if (r.key != 13) {
 					return false;
 				}
@@ -207,33 +207,40 @@ function j(e) {
 					return true;
 				}
 				break;
-			case 3:
+			}
+			case 3: {
 				if (e == 4) {
 					switch (r.key) {
 						case 12:
 						case 10:
 						case 11:
-						case 9:
+						case 9: {
 							return true;
-						default:
+						}
+						default: {
 							return false;
+						}
 					}
 				}
 				break;
-			case 1:
+			}
+			case 1: {
 				if (e == 13 || e == 1) {
 					switch (r.key) {
 						case 1:
 						case 7:
 						case 5:
-						case 3:
+						case 3: {
 							return true;
-						default:
+						}
+						default: {
 							return false;
+						}
 					}
 				}
 				break;
-			case 16:
+			}
+			case 16: {
 				if (e == 5) {
 					switch (r.key) {
 						case 53:
@@ -248,20 +255,23 @@ function j(e) {
 						case 58:
 						case 79:
 						case 80:
-						case 68:
+						case 68: {
 							return true;
-						default:
+						}
+						default: {
 							return false;
+						}
 					}
 				}
+			}
 		}
 		return false;
-	})(s, r, t);
+	})(eSource, eMode, input);
 	const w = !y || y.length == 0;
 	if (!S && w) {
 		return null;
 	}
-	let B = (function (e, t) {
+	let B = ((e, t) => {
 		let r = false;
 		t?.activators.forEach((t) => {
 			let n = [];
@@ -274,7 +284,7 @@ function j(e) {
 					if (n.length == 0 || typeof i != "string") {
 						n.push(i);
 					} else {
-						n[0] += ", " + i;
+						n[0] += `, ${i}`;
 					}
 				}
 			});
@@ -283,9 +293,10 @@ function j(e) {
 			}
 		});
 		return r;
-	})(g, t);
-	const v = Q(s, r, t, true) ? A.StandardControl : undefined;
-	const I = a || y.length > 1 || B ? A.ShrinkList : undefined;
+	})(g, input);
+	const v = Q(eSource, eMode, input, true) ? A.StandardControl : undefined;
+	const I =
+		bShrinkList || y.length > 1 || y.length > 1 || B ? A.ShrinkList : undefined;
 	const E = h ? A.DirectAccessButton : undefined;
 	return i.createElement(
 		m.Z,
@@ -304,20 +315,24 @@ function j(e) {
 		i.createElement(
 			"div",
 			{
-				key: t.key,
-				className: (0, _c.A)(A.ControllerInputDisplay, n && A.IconOnRight, I),
+				key: input.key,
+				className: A_1(
+					A.ControllerInputDisplay,
+					bIconOnRight && A.IconOnRight,
+					I,
+				),
 			},
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(v, A.ActivatorText, I),
+					className: A_1(v, A.ActivatorText, I),
 				},
 				w ? "--" : y,
 				b &&
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(v, A.ActivatorText, I, A.IconOnRight),
+							className: A_1(v, A.ActivatorText, I, A.IconOnRight),
 						},
 						" ",
 						"...",
@@ -327,14 +342,14 @@ function j(e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(v, A.InputGlyph),
+					className: A_1(v, A.InputGlyph),
 				},
 				i.createElement(C.VF, {
 					eControllerType: d.v3.EditingConfiguration?.controller_type,
-					eInput: (0, C._H)(t.key),
-					eMode: r,
-					eSource: s,
-					bSmall: a,
+					eInput: _H(input.key),
+					eMode: eMode,
+					eSource: eSource,
+					bSmall: bShrinkList,
 					bPreview: true,
 				}),
 			),
@@ -342,33 +357,33 @@ function j(e) {
 	);
 }
 function q(e) {
-	const { bIconOnRight: t, eMode: r, rgInputs: n, eSource: a } = e;
-	n.sort((e, t) => t.key - e.key);
+	const { bIconOnRight, eMode, rgInputs, eSource } = e;
+	rgInputs.sort((e, t) => t.key - e.key);
 	return i.createElement(
 		i.Fragment,
 		null,
-		n.map((e, n) =>
+		rgInputs.map((e, n) =>
 			i.createElement(j, {
 				key: n,
 				parentFocused: false,
 				input: e,
-				eMode: r,
-				bIconOnRight: t,
-				eSource: a,
+				eMode: eMode,
+				bIconOnRight: bIconOnRight,
+				eSource: eSource,
 				maxLength: 2,
 			}),
 		),
 	);
 }
 function Q(e, t, r, n) {
-	if ((0, f.FD)()) {
+	if (FD()) {
 		return true;
 	}
 	if (r?.activators.length > 1) {
 		return false;
 	}
 	switch (t) {
-		case 6:
+		case 6: {
 			if (r.key != 13) {
 				return r?.activators.length == 0;
 			}
@@ -379,7 +394,8 @@ function Q(e, t, r, n) {
 				return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 10;
 			}
 			break;
-		case 3:
+		}
+		case 3: {
 			if (r?.activators.length < 1) {
 				return false;
 			}
@@ -388,21 +404,27 @@ function Q(e, t, r, n) {
 			}
 			if (e == 4) {
 				switch (r.key) {
-					case 12:
+					case 12: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 3;
-					case 10:
+					}
+					case 10: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 4;
-					case 11:
+					}
+					case 11: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 6;
-					case 9:
+					}
+					case 9: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 5;
-					default:
+					}
+					default: {
 						return r?.activators.length == 0;
+					}
 				}
 			}
 			break;
-		case 1:
-			if (e == 13 || e == 1 || e == 3) {
+		}
+		case 1: {
+			if (e == 13 || e == 1 || e == 1 || e == 3) {
 				if (
 					r?.activators.length > 0 &&
 					r?.activators[0]?.bindings?.length != 1
@@ -410,20 +432,26 @@ function Q(e, t, r, n) {
 					return false;
 				}
 				switch (r.key) {
-					case 1:
+					case 1: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 14;
-					case 7:
+					}
+					case 7: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 16;
-					case 5:
+					}
+					case 5: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 15;
-					case 3:
+					}
+					case 3: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 17;
-					default:
+					}
+					default: {
 						return r?.activators.length == 0;
+					}
 				}
 			}
 			break;
-		case 16:
+		}
+		case 16: {
 			if (r?.activators.length < 1) {
 				return false;
 			}
@@ -432,24 +460,32 @@ function Q(e, t, r, n) {
 			}
 			if (e == 5) {
 				switch (r.key) {
-					case 53:
+					case 53: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 7;
-					case 54:
+					}
+					case 54: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 8;
-					case 61:
+					}
+					case 61: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 1;
-					case 62:
+					}
+					case 62: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 2;
-					case 52:
+					}
+					case 52: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 11;
-					case 51:
+					}
+					case 51: {
 						return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 12;
-					default:
+					}
+					default: {
 						return r?.activators.length == 0;
+					}
 				}
 			}
 			break;
-		case 10:
+		}
+		case 10: {
 			if (r.key != 13 || !n) {
 				return r?.activators.length == 0;
 			}
@@ -462,24 +498,25 @@ function Q(e, t, r, n) {
 			if (e == 7) {
 				return r?.activators[0]?.bindings[0]?.gamepad_button?.button == 2;
 			}
+		}
 	}
 	return false;
 }
 function Z(e) {
-	const { group: t, source: r, baseActionSet: n, layerActionSet: a } = e;
+	const { group, source, baseActionSet, layerActionSet } = e;
 	const s = i.useMemo(() => {
 		let e;
-		if (t) {
+		if (group) {
 			d.v3.EditingConfiguration?.sets.some((t) =>
 				t.source_bindings?.some((t) =>
 					t?.active_group?.inputs?.some((t) =>
 						t.activators?.some((n) =>
 							n.bindings?.some(
 								(n) =>
-									n.mode_shift?.source == r &&
+									n.mode_shift?.source == source &&
 									((e = Localize(
 										h.vU.find((e) => e.input == t.key)?.label ??
-											"#Library_Details_ModeShift_Title_" + h.SW[t.key].id,
+											`#Library_Details_ModeShift_Title_${h.SW[t.key].id}`,
 									)),
 									true),
 							),
@@ -491,30 +528,32 @@ function Z(e) {
 		} else {
 			return e;
 		}
-	}, [t, r]);
-	if (!t) {
+	}, [group, source]);
+	if (!group) {
 		return null;
 	}
-	const o = (0, C.Kw)(t?.modeid);
-	const l = t.mode;
+	const o = Kw(group?.modeid);
+
+	const { mode, game_action } = group;
+
 	let m = o?.friendlyname;
 	if (m) {
 		const e = h.k$[l].summaryId ?? h.k$[l].id;
-		m += " (" + (0, h.GW)(e) + ")";
+		m += ` (${GW(e)})`;
 	}
-	const u = (0, f.FD)() ? A.StandardControl : undefined;
-	const p = t.game_action;
-	if (p != null && p.action_key) {
-		const e = (0, h.Bv)(r, n, a).find(
+	const u = FD() ? A.StandardControl : undefined;
+	if (game_action != null && game_action.action_key) {
+		const e = Bv(source, baseActionSet, layerActionSet).find(
 			(e) =>
-				e.gameAction?.action?.key && e.gameAction?.action?.key == p.action_key,
+				e.gameAction?.action?.key &&
+				e.gameAction?.action?.key == game_action.action_key,
 		);
 		if (e && e.gameAction && e.gameAction.action) {
 			m = e.gameAction.action.display_name;
 		}
 	}
 	if (m?.length == 0) {
-		m = (0, h.GW)(h.k$[l].id);
+		m = GW(h.k$[l].id);
 	}
 	return i.createElement(
 		i.Fragment,
@@ -530,51 +569,54 @@ function Z(e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(A.ControllerInputDisplay),
+					className: A_1(A.ControllerInputDisplay),
 				},
 				Localize("#ControllerSource_ModeShift_Subheader", s),
 			),
 	);
 }
-const Y = (0, s.PA)(function (e) {
+const Y = PA((e) => {
 	const {
-		className: t,
-		focusable: r = true,
-		title: n,
-		additionalLabel: a,
-		additionalLabelStyle: s,
-		bIconOnRight: o,
-		maxLength: l,
-		sourcesFilter: u,
-		parentFocused: p,
-		eSource: g,
-		onActivate: _,
+		className,
+		focusable = true,
+		title,
+		additionalLabel,
+		additionalLabelStyle,
+		bIconOnRight,
+		maxLength,
+		sourcesFilter,
+		parentFocused,
+		eSource,
+		onActivate,
 	} = e;
 	const [b, y] = i.useState(false);
 	const S = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const w = d.v3.ControllerConfiguratorLayerSetIndex;
 	const B = d.v3.EditingConfiguration?.sets[S];
-	const v = B == null ? undefined : B.layers[w];
+	const v = B == null || B.layers[w];
 	const I = v ?? B;
-	const E = u == null ? I?.source_bindings : u(I?.source_bindings);
+	const E =
+		sourcesFilter == null
+			? I?.source_bindings
+			: sourcesFilter(I?.source_bindings);
 	const M = E[0]?.active_group ? E[0]?.active_group?.mode : undefined;
-	const T = g ?? E[0]?.key;
-	const R = (0, C.Kw)(E[0]?.active_group?.modeid);
+	const T = eSource ?? E[0]?.key;
+	const R = Kw(E[0]?.active_group?.modeid);
 	const k = U();
 	const D = {
-		onActivate: _,
+		onActivate: onActivate,
 		onGamepadFocus: () => y(true),
 		onGamepadBlur: () => y(false),
 	};
 	let N = R?.friendlyname;
 	if (N) {
 		const e = h.k$[M].summaryId ?? h.k$[M].id;
-		N += " (" + (0, h.GW)(e) + ")";
+		N += ` (${GW(e)})`;
 	}
-	const F = (0, f.FD)() ? A.StandardControl : undefined;
+	const F = FD() ? A.StandardControl : undefined;
 	const O = E[0]?.active_group?.game_action;
 	if (O != null && O.action_key) {
-		const e = (0, h.Bv)(T, B, v).find(
+		const e = Bv(T, B, v).find(
 			(e) =>
 				e.gameAction?.action?.key && e.gameAction?.action?.key == O.action_key,
 		);
@@ -609,7 +651,7 @@ const Y = (0, s.PA)(function (e) {
 								{
 									className: A.GyroButtonMaskLabel,
 								},
-								(0, h.ix)("GyroEnableButton"),
+								ix("GyroEnableButton"),
 								" ",
 							),
 							i.createElement(
@@ -617,7 +659,7 @@ const Y = (0, s.PA)(function (e) {
 								{
 									className: A.GyroButtonMaskLabel,
 								},
-								(0, h.Fq)("GyroNone"),
+								Fq("GyroNone"),
 								" ",
 							),
 						),
@@ -630,7 +672,7 @@ const Y = (0, s.PA)(function (e) {
 								{
 									className: A.GyroButtonMaskLabel,
 								},
-								(0, h.ix)("GyroEnableButton"),
+								ix("GyroEnableButton"),
 								" ",
 							),
 							i.createElement(
@@ -641,9 +683,9 @@ const Y = (0, s.PA)(function (e) {
 								" ",
 								i.createElement(G.ZZ, {
 									nButtonMaskValue: t,
-									nAvailableButtonsMask: (0, G.ej)(k.controller),
+									nAvailableButtonsMask: ej(k.controller),
 									controllerDetailItem: k.controller,
-									overrideStyle: (0, _c.A)(A.MediumGlyphIcon),
+									overrideStyle: A_1(A.MediumGlyphIcon),
 								}),
 								" ",
 							),
@@ -652,7 +694,7 @@ const Y = (0, s.PA)(function (e) {
 								{
 									className: A.GyroButtonMaskLabel,
 								},
-								(0, h.Fq)(h.BC.find((e) => e.value == r)?.id),
+								Fq(h.BC.find((e) => e.value == r)?.id),
 								" ",
 							),
 						),
@@ -664,8 +706,9 @@ const Y = (0, s.PA)(function (e) {
 			switch (e) {
 				case 11:
 				case 14:
-				case 19:
-					N = (0, h.GW)(s);
+				case 19: {
+					N = GW(s);
+				}
 			}
 		}
 		if (E[0].active_group?.mode_shift_source_group) {
@@ -680,12 +723,12 @@ const Y = (0, s.PA)(function (e) {
 			return i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(A.ControlsListSection, t),
+					className: A_1(A.ControlsListSection, className),
 				},
 				i.createElement(
 					m.Z,
 					{
-						focusable: r,
+						focusable: focusable,
 						...D,
 						noFocusRing: true,
 						className: A.DirectAccessButton,
@@ -695,7 +738,7 @@ const Y = (0, s.PA)(function (e) {
 						{
 							className: A.Title,
 						},
-						n,
+						title,
 					),
 					R?.mode > 0 &&
 						i.createElement(
@@ -710,7 +753,7 @@ const Y = (0, s.PA)(function (e) {
 			);
 		}
 		if (!h.k$[e]?.hideTitleInSummary) {
-			N = (0, h.GW)(s);
+			N = GW(s);
 		}
 	}
 	let z = [];
@@ -725,18 +768,18 @@ const Y = (0, s.PA)(function (e) {
 		);
 		z = z.concat(r);
 	});
-	z.sort((e, t) => (0, C.S1)(e.key) - (0, C.S1)(t.key));
+	z.sort((e, t) => S1(e.key) - S1(t.key));
 	const x = z.length > 4;
-	const W = o ? A.IconOnRight : undefined;
+	const W = bIconOnRight ? A.IconOnRight : undefined;
 	return i.createElement(
 		"div",
 		{
-			className: (0, _c.A)(A.ControlsListSection, t),
+			className: A_1(A.ControlsListSection, className),
 		},
 		i.createElement(
 			m.Z,
 			{
-				focusable: r,
+				focusable: focusable,
 				...D,
 				noFocusRing: true,
 				className: A.DirectAccessButton,
@@ -746,7 +789,7 @@ const Y = (0, s.PA)(function (e) {
 				{
 					className: A.Title,
 				},
-				n,
+				title,
 			),
 			R?.mode > 0 &&
 				i.createElement(
@@ -760,29 +803,34 @@ const Y = (0, s.PA)(function (e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, _c.A)(A.ControllerInputDisplay),
+						className: A_1(A.ControllerInputDisplay),
 					},
 					P,
 				),
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(A.ControllerInputDisplay, A.ActivatorText, W, s),
+					className: A_1(
+						A.ControllerInputDisplay,
+						A.ActivatorText,
+						W,
+						additionalLabelStyle,
+					),
 				},
 				" ",
-				a,
+				additionalLabel,
 				" ",
 			),
 			z.map((e, t) =>
 				i.createElement(j, {
 					key: t,
-					parentFocused: b || p,
+					parentFocused: b || parentFocused,
 					input: e,
 					eMode: M,
 					eSource: E[0].key,
-					bIconOnRight: o,
+					bIconOnRight: bIconOnRight,
 					bShrinkList: x,
-					maxLength: l,
+					maxLength: maxLength,
 				}),
 			),
 			L,
@@ -790,55 +838,53 @@ const Y = (0, s.PA)(function (e) {
 	);
 });
 function K(e) {
-	const { className: t, controllerSource: r, capability: n } = e;
+	const { className, controllerSource, capability } = e;
 	const a = U();
-	const s = (0, M.Cu)(a.appid, r);
+	const s = Cu(a.appid, controllerSource);
 	let o = a?.controller.unCapabilities;
-	if (n && !(o & n)) {
+	if (capability && !(o & capability)) {
 		return null;
 	}
 	const l = h.Dd[r].id;
 	let c;
-	if (r != 6 && r != 7) {
-		c = (0, h.ND)(l) || (0, C.Xt)(l);
+	if (controllerSource != 6 && controllerSource != 7) {
+		c = ND(l) || Xt(l);
 	}
 	return i.createElement(Y, {
-		className: t,
+		className: className,
 		title: c,
 		sourcesFilter: (e) => {
 			if (!e) {
 				return [];
 			}
-			return e.filter((e) => e.key == r).sort((e) => e.key);
+			return e.filter((e) => e.key == controllerSource).sort((e) => e.key);
 		},
 		additionalLabel: undefined,
 		bIconOnRight: false,
 		maxLength: 2,
 		parentFocused: false,
-		eSource: r,
+		eSource: controllerSource,
 		onActivate: s,
 	});
 }
 function X(e) {
-	return (function (e, t) {
-		return (r) => {
-			if (!r) {
-				return [];
-			}
-			let n = r.filter((t) => t.key == e);
-			n = n.sort((e) => e.key);
-			let i = [];
-			n.forEach((e) => {
-				let r = e?.active_group?.inputs.filter(
-					(e) =>
-						!h.SW[e.key]?.macro &&
-						!h.SW[e.key]?.dupe &&
-						(t == null || t.includes(e.key)),
-				);
-				i = i.concat(r);
-			});
-			return i;
-		};
+	return ((e, t) => (r) => {
+		if (!r) {
+			return [];
+		}
+		let n = r.filter((t) => t.key == e);
+		n = n.sort((e) => e.key);
+		let i = [];
+		n.forEach((e) => {
+			let r = e?.active_group?.inputs.filter(
+				(e) =>
+					!h.SW[e.key]?.macro &&
+					!h.SW[e.key]?.dupe &&
+					(t == null || t.includes(e.key)),
+			);
+			i = i.concat(r);
+		});
+		return i;
 	})(5, e);
 }
 function J() {
@@ -847,24 +893,24 @@ function J() {
 		fnRightShoulderButtons: X([54]),
 	};
 }
-const $ = (0, s.PA)(function (e) {
-	const { funcFilter: t, className: r, bIconOnRight: n, capability: a } = e;
+const $ = PA((e) => {
+	const { funcFilter, className, bIconOnRight, capability } = e;
 	const s = U();
 	const o = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const l = d.v3.ControllerConfiguratorLayerSetIndex;
 	const c = d.v3.EditingConfiguration?.sets[o];
-	const m = (c == null ? undefined : c.layers[l]) ?? c;
-	let u = t(m?.source_bindings);
+	const m = (c == null || c.layers[l]) ?? c;
+	let u = funcFilter(m?.source_bindings);
 	if (u.length == 0) {
 		return null;
 	}
-	if (a && !(s?.controller.unCapabilities & a)) {
+	if (capability && !(s?.controller.unCapabilities & capability)) {
 		return null;
 	}
 	if (
-		(a == 1024 || a == 4194304) &&
-		((s.controller.eControllerType == 39 && !n) ||
-			(s.controller.eControllerType == 40 && n))
+		(capability == 1024 || capability == 4194304) &&
+		((s.controller.eControllerType == 39 && !bIconOnRight) ||
+			(s.controller.eControllerType == 40 && bIconOnRight))
 	) {
 		return null;
 	}
@@ -873,60 +919,61 @@ const $ = (0, s.PA)(function (e) {
 	return i.createElement(
 		"div",
 		{
-			className: r,
+			className: className,
 		},
 		i.createElement(q, {
 			rgInputs: u,
 			eMode: p,
-			bIconOnRight: n,
+			bIconOnRight: bIconOnRight,
 			eSource: A[0].key,
 		}),
 	);
 });
-const ee = (0, s.PA)(function (e) {
-	const {
-		controllerSource: t,
-		className: r,
-		bIconOnRight: n,
-		capability: a,
-	} = e;
-	const s = (0, o.q3)(() => z.m_bLegacyControllerSummary);
+const ee = PA((e) => {
+	const { controllerSource, className, bIconOnRight, capability } = e;
+	const s = q3(() => z.m_bLegacyControllerSummary);
 	const [l, u] = i.useState(false);
 	const p = (e) => {
 		if (!e) {
 			return [];
 		}
-		return e.filter((e) => e.key == t).sort((e) => e.key);
+		return e.filter((e) => e.key == controllerSource).sort((e) => e.key);
 	};
 	const g = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const _ = d.v3.ControllerConfiguratorLayerSetIndex;
 	const f = d.v3.EditingConfiguration?.sets[g];
-	const b = (f == null ? undefined : f.layers[_]) ?? f;
+	const b = (f == null || f.layers[_]) ?? f;
 	const y = p == null ? b?.source_bindings : p(b?.source_bindings);
 	const S = h.Dd[t].id;
 	const w = U();
-	const B = (0, M.Cu)(w.appid, t);
-	if (a && !(w?.controller.unCapabilities & a)) {
+	const B = Cu(w.appid, controllerSource);
+	if (capability && !(w?.controller.unCapabilities & capability)) {
 		return null;
 	}
 	let v;
 	let I;
 	let E;
-	if (t != 6 && t != 7) {
-		I = (0, h.ND)(S) || (0, C.Xt)(S);
+	if (controllerSource != 6 && controllerSource != 7) {
+		I = ND(S) || Xt(S);
 	}
 	let T = false;
 	if (
 		(y?.length != 1 || !y[0]?.active_group) &&
-		((v = "--"), (E = A.StandardControl), t == 11 && ((T = true), s))
+		((v = "--"),
+		(E = A.StandardControl),
+		controllerSource == 11 && ((T = true), s))
 	) {
 		return null;
 	}
-	const R = t == 1 || t == 2 || 11;
+	const R =
+		controllerSource == 1 ||
+		controllerSource == 2 ||
+		controllerSource == 2 ||
+		11;
 	return i.createElement(
 		"div",
 		{
-			className: (0, _c.A)(r, T && A.Empty),
+			className: A_1(className, T && A.Empty),
 		},
 		i.createElement(
 			m.Z,
@@ -944,7 +991,10 @@ const ee = (0, s.PA)(function (e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(A.ControllerInputDisplay, n && A.IconOnRight),
+					className: A_1(
+						A.ControllerInputDisplay,
+						bIconOnRight && A.IconOnRight,
+					),
 				},
 				i.createElement(Y, {
 					title: I,
@@ -953,19 +1003,19 @@ const ee = (0, s.PA)(function (e) {
 					sourcesFilter: p,
 					additionalLabel: v,
 					additionalLabelStyle: E,
-					bIconOnRight: n,
+					bIconOnRight: bIconOnRight,
 					maxLength: 2,
-					eSource: t,
+					eSource: controllerSource,
 				}),
 				!R &&
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(A.InputGlyph),
+							className: A_1(A.InputGlyph),
 						},
 						i.createElement(C.UT, {
 							controllerType: d.v3.EditingConfiguration?.controller_type,
-							controllerSource: t,
+							controllerSource: controllerSource,
 							controllerModeInput: 0,
 							className: A.MediumGlyphIcon,
 						}),
@@ -974,23 +1024,23 @@ const ee = (0, s.PA)(function (e) {
 		),
 	);
 });
-const te = (0, s.PA)(function (e) {
-	const { controllerSource: t, className: r, bIconOnRight: n } = e;
+const te = PA((e) => {
+	const { controllerSource, className, bIconOnRight } = e;
 	const [a, s] = i.useState(false);
 	const o = (e) => {
 		if (!e) {
 			return [];
 		}
-		return e.filter((e) => e.key == t).sort((e) => e.key);
+		return e.filter((e) => e.key == controllerSource).sort((e) => e.key);
 	};
 	let l;
 	const u = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const p = d.v3.ControllerConfiguratorLayerSetIndex;
 	const g = d.v3.EditingConfiguration?.sets[u];
-	const h = (g == null ? undefined : g.layers[p]) ?? g;
+	const h = (g == null || g.layers[p]) ?? g;
 	const _ = o == null ? h?.source_bindings : o(h?.source_bindings);
 	const y = U();
-	const S = (0, M.Cu)(y.appid, t);
+	const S = Cu(y.appid, controllerSource);
 	let w = false;
 	let B = false;
 	if (
@@ -1003,7 +1053,7 @@ const te = (0, s.PA)(function (e) {
 		const e = _[0].active_group?.inputs;
 		const r = _[0].active_group?.settings;
 		if (
-			!(function (e, t, r, n) {
+			!((e, t, r, n) => {
 				let i = [];
 				let a = r.filter((r) => !Q(e, t, r, true));
 				i = i.concat(a);
@@ -1011,13 +1061,24 @@ const te = (0, s.PA)(function (e) {
 					return false;
 				}
 				switch (t) {
-					case 6:
-						return e == 3 || e == 12 || e == 1 || e == 2;
-					case 3:
+					case 6: {
+						return (
+							e == 3 ||
+							e == 12 ||
+							e == 12 ||
+							e == 1 ||
+							e == 12 ||
+							e == 1 ||
+							e == 2
+						);
+					}
+					case 3: {
 						return e == 4;
-					case 1:
+					}
+					case 1: {
 						return true;
-					case 10:
+					}
+					case 10: {
 						let t = 0;
 						n.forEach((e) => {
 							if (e.key == 58) {
@@ -1031,11 +1092,13 @@ const te = (0, s.PA)(function (e) {
 							return t == 2;
 						}
 						break;
-					case 16:
+					}
+					case 16: {
 						return e == 5;
+					}
 				}
 				return false;
-			})(t, 10, e, r)
+			})(controllerSource, 10, e, r)
 		) {
 			r.forEach((e) => {
 				if (e.key == 58 && e.int_value) {
@@ -1043,7 +1106,7 @@ const te = (0, s.PA)(function (e) {
 						e.int_value == 1
 							? Localize("#ControllerBinding_LeftAnalogTrigger")
 							: Localize("#ControllerBinding_RightAnalogTrigger");
-					w = t == 6 ? e.int_value == 1 : e.int_value == 2;
+					w = controllerSource == 6 ? e.int_value == 1 : e.int_value == 2;
 				}
 			});
 		} else {
@@ -1057,13 +1120,13 @@ const te = (0, s.PA)(function (e) {
 		v = v.concat(t);
 	});
 	const I = v.length == 0 && !w && !_[0]?.active_group?.game_action?.action_key;
-	const E = ((0, f.FD)() || !w) && v.length == 0;
+	const E = (FD() || !w) && v.length == 0;
 	const T = w ? A.StandardControl : undefined;
 	const R = B ? A.StandardControl : undefined;
 	return i.createElement(
 		"div",
 		{
-			className: r,
+			className: className,
 		},
 		i.createElement(
 			m.Z,
@@ -1078,13 +1141,16 @@ const te = (0, s.PA)(function (e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, _c.A)(A.ControllerInputDisplay, n && A.IconOnRight),
+					className: A_1(
+						A.ControllerInputDisplay,
+						bIconOnRight && A.IconOnRight,
+					),
 				},
 				I &&
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(A.StandardControl, A.ActivatorText),
+							className: A_1(A.StandardControl, A.ActivatorText),
 						},
 						"--",
 					),
@@ -1093,20 +1159,20 @@ const te = (0, s.PA)(function (e) {
 					sourcesFilter: o,
 					additionalLabel: l,
 					additionalLabelStyle: T,
-					bIconOnRight: n,
+					bIconOnRight: bIconOnRight,
 					maxLength: 2,
 					parentFocused: a,
-					eSource: t,
+					eSource: controllerSource,
 				}),
 				B &&
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(A.InputGlyph, R),
+							className: A_1(A.InputGlyph, R),
 						},
 						i.createElement(C.UT, {
 							controllerType: d.v3.EditingConfiguration?.controller_type,
-							controllerSource: t,
+							controllerSource: controllerSource,
 							controllerModeInput: R ? 13 : 0,
 							className: A.MediumGlyphIcon,
 						}),
@@ -1116,11 +1182,11 @@ const te = (0, s.PA)(function (e) {
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(A.InputGlyph),
+							className: A_1(A.InputGlyph),
 						},
 						i.createElement(C.UT, {
 							controllerType: d.v3.EditingConfiguration?.controller_type,
-							controllerSource: t,
+							controllerSource: controllerSource,
 							controllerModeInput: 13,
 							className: A.MediumGlyphIcon,
 						}),
@@ -1131,7 +1197,7 @@ const te = (0, s.PA)(function (e) {
 });
 function re(e) {
 	const t = U();
-	const r = (0, E.tn)(w.B.GamepadUI.ControllerConfigurator.Main(t.appid));
+	const r = tn(w.B.GamepadUI.ControllerConfigurator.Main(t.appid));
 	if (t.inMainMenu) {
 		return i.createElement(
 			m.Z,
@@ -1149,7 +1215,7 @@ function re(e) {
 	}
 }
 function ne(e) {
-	let t = (function (e) {
+	let t = ((e) => {
 		if (!e) {
 			return null;
 		}
@@ -1226,7 +1292,7 @@ function ne(e) {
 	);
 }
 function ie(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	const n = U();
 	return i.createElement(
 		i.Fragment,
@@ -1239,50 +1305,41 @@ function ie(e) {
 				navEntryPreferPosition: T.iU.PREFERRED_CHILD,
 			},
 			i.createElement($, {
-				funcFilter: t,
+				funcFilter: fnLeftShoulderButtons,
 				bIconOnRight: true,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.LeftShoulderButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 			}),
 			i.createElement($, {
-				funcFilter: r,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightShoulderButtons,
-				),
+				funcFilter: fnRightShoulderButtons,
+				className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 6,
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTriggerButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 7,
 				bIconOnRight: false,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightTriggerButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([55]),
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([56]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([51]),
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([52]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 			}),
 			i.createElement(
 				m.Z,
@@ -1312,7 +1369,7 @@ function ie(e) {
 	);
 }
 function ae(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	U();
 	return i.createElement(
 		i.Fragment,
@@ -1324,23 +1381,17 @@ function ae(e) {
 				focusable: false,
 			},
 			i.createElement($, {
-				funcFilter: t,
+				funcFilter: fnLeftShoulderButtons,
 				bIconOnRight: true,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.LeftShoulderButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 			}),
 			i.createElement($, {
-				funcFilter: r,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightShoulderButtons,
-				),
+				funcFilter: fnRightShoulderButtons,
+				className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([52]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 			}),
 			i.createElement(
 				"div",
@@ -1362,7 +1413,7 @@ function ae(e) {
 	);
 }
 function se(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	const n = U();
 	const a = (n.controller?.unCapabilities & 8388608) != 0;
 	return i.createElement(
@@ -1375,47 +1426,38 @@ function se(e) {
 				focusable: false,
 			},
 			i.createElement($, {
-				funcFilter: t,
+				funcFilter: fnLeftShoulderButtons,
 				bIconOnRight: true,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.LeftShoulderButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 			}),
 			i.createElement($, {
-				funcFilter: r,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightShoulderButtons,
-				),
+				funcFilter: fnRightShoulderButtons,
+				className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 6,
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTriggerButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 7,
 				bIconOnRight: false,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightTriggerButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([51]),
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([52]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 			}),
 			a &&
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 			i.createElement(
 				"div",
@@ -1440,7 +1482,7 @@ function se(e) {
 	);
 }
 function oe(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	const n = U();
 	const a = (n.controller?.unCapabilities & 8388608) != 0;
 	return i.createElement(
@@ -1453,47 +1495,38 @@ function oe(e) {
 				focusable: false,
 			},
 			i.createElement($, {
-				funcFilter: t,
+				funcFilter: fnLeftShoulderButtons,
 				bIconOnRight: true,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.LeftShoulderButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 			}),
 			i.createElement($, {
-				funcFilter: r,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightShoulderButtons,
-				),
+				funcFilter: fnRightShoulderButtons,
+				className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 6,
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTriggerButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 7,
 				bIconOnRight: false,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightTriggerButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([51]),
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([52]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 			}),
 			a &&
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 			i.createElement(
 				"div",
@@ -1524,9 +1557,9 @@ function oe(e) {
 }
 function le(e) {
 	const t = U();
-	const r = t.inMainMenu;
-	const { fnLeftShoulderButtons: n, fnRightShoulderButtons: a } = J();
-	const s = (function (e) {
+	const t_inMainMenu = t.inMainMenu;
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
+	const s = ((e) => {
 		switch (e) {
 			case 33:
 			case 34:
@@ -1534,13 +1567,14 @@ function le(e) {
 			case 48:
 			case 36:
 			case 4:
-			case 43:
+			case 43: {
 				return true;
+			}
 		}
 		return false;
 	})(t?.controller.eControllerType);
 	let o = "";
-	if (r) {
+	if (t_inMainMenu) {
 		o = A.MainMenu;
 	}
 	if (t.controller.eControllerType != 39) {
@@ -1553,7 +1587,7 @@ function le(e) {
 			className: A.ControllerLayout,
 			focusable: false,
 			navEntryPreferPosition: T.iU.PREFERRED_CHILD,
-			autoFocus: !r,
+			autoFocus: !t_inMainMenu,
 		},
 		i.createElement(
 			"div",
@@ -1570,50 +1604,50 @@ function le(e) {
 				},
 				i.createElement($, {
 					capability: 32,
-					funcFilter: n,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftShoulderButtons),
+					className: A_1(A.ControlContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftTriggerButtons),
+					className: A_1(A.ControlContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement($, {
 					capability: 4194304,
 					funcFilter: X([57]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftGripButtonsUpper),
+					className: A_1(A.ControlContainer, A.LeftGripButtonsUpper),
 				}),
 				i.createElement($, {
 					capability: 1024,
 					funcFilter: X([55]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftGripButtons),
+					className: A_1(A.ControlContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					capability: 1073741824,
 					funcFilter: X([79]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftGripButtons),
+					className: A_1(A.ControlContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					capability: 128,
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftGripButtons),
+					className: A_1(A.ControlContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					capability: 8388608,
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftAuxButtons),
+					className: A_1(A.ControlContainer, A.LeftAuxButtons),
 				}),
 				i.createElement(ee, {
 					capability: 4096,
 					controllerSource: 1,
 					bIconOnRight: true,
-					className: (0, _c.A)(A.ControlContainer, A.LeftTrackpad),
+					className: A_1(A.ControlContainer, A.LeftTrackpad),
 				}),
 			),
 			i.createElement(
@@ -1635,7 +1669,7 @@ function le(e) {
 				i.createElement(ee, {
 					capability: 33554432,
 					controllerSource: 11,
-					className: (0, _c.A)(A.ControlContainer, A.CenterTrackpad),
+					className: A_1(A.ControlContainer, A.CenterTrackpad),
 				}),
 			),
 			i.createElement(
@@ -1648,39 +1682,39 @@ function le(e) {
 				},
 				i.createElement($, {
 					capability: 32,
-					funcFilter: a,
-					className: (0, _c.A)(A.ControlContainer, A.RightShoulderButtons),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.ControlContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(A.ControlContainer, A.RightTriggerButtons),
+					className: A_1(A.ControlContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					capability: 4194304,
 					funcFilter: X([58]),
-					className: (0, _c.A)(A.ControlContainer, A.RightGripButtonsUpper),
+					className: A_1(A.ControlContainer, A.RightGripButtonsUpper),
 				}),
 				i.createElement($, {
 					capability: 1024,
 					funcFilter: X([56]),
-					className: (0, _c.A)(A.ControlContainer, A.RightGripButtons),
+					className: A_1(A.ControlContainer, A.RightGripButtons),
 				}),
 				i.createElement($, {
 					capability: 1073741824,
 					funcFilter: X([80]),
-					className: (0, _c.A)(A.ControlContainer, A.RightGripButtons),
+					className: A_1(A.ControlContainer, A.RightGripButtons),
 				}),
 				i.createElement($, {
 					capability: 256,
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.ControlContainer, A.RightGripButtons),
+					className: A_1(A.ControlContainer, A.RightGripButtons),
 				}),
 				i.createElement(ee, {
 					capability: 4096,
 					controllerSource: 2,
 					bIconOnRight: false,
-					className: (0, _c.A)(A.ControlContainer, A.RightTrackpad),
+					className: A_1(A.ControlContainer, A.RightTrackpad),
 				}),
 			),
 		),
@@ -1688,9 +1722,11 @@ function le(e) {
 			m.Z,
 			{
 				"flow-children": "grid",
-				className: (0, _c.A)(A.BottomControlsSections),
-				preferredFocus: r,
-				navEntryPreferPosition: r ? T.iU.PREFERRED_CHILD : T.iU.MAINTAIN_X,
+				className: A_1(A.BottomControlsSections),
+				preferredFocus: t_inMainMenu,
+				navEntryPreferPosition: t_inMainMenu
+					? T.iU.PREFERRED_CHILD
+					: T.iU.MAINTAIN_X,
 			},
 			s &&
 				i.createElement(K, {
@@ -1729,7 +1765,7 @@ function le(e) {
 	);
 }
 function ce(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	const n = U();
 	const a = n.controller?.eControllerType == 45;
 	return i.createElement(
@@ -1742,61 +1778,52 @@ function ce(e) {
 				focusable: false,
 			},
 			i.createElement($, {
-				funcFilter: t,
+				funcFilter: fnLeftShoulderButtons,
 				bIconOnRight: true,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.LeftShoulderButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 			}),
 			i.createElement($, {
-				funcFilter: r,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightShoulderButtons,
-				),
+				funcFilter: fnRightShoulderButtons,
+				className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 6,
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTriggerButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 			}),
 			i.createElement(te, {
 				controllerSource: 7,
 				bIconOnRight: false,
-				className: (0, _c.A)(
-					A.FloatingControlsContainer,
-					A.RightTriggerButtons,
-				),
+				className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([51]),
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+				className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 			}),
 			i.createElement($, {
 				funcFilter: X([52]),
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+				className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 			}),
 			a &&
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 				}),
 			i.createElement(ee, {
 				controllerSource: 1,
 				bIconOnRight: true,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTrackpad),
+				className: A_1(A.FloatingControlsContainer, A.LeftTrackpad),
 			}),
 			i.createElement(ee, {
 				controllerSource: 11,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.CenterTrackpad),
+				className: A_1(A.FloatingControlsContainer, A.CenterTrackpad),
 			}),
 			i.createElement(ee, {
 				controllerSource: 2,
 				bIconOnRight: false,
-				className: (0, _c.A)(A.FloatingControlsContainer, A.RightTrackpad),
+				className: A_1(A.FloatingControlsContainer, A.RightTrackpad),
 			}),
 			i.createElement(
 				"div",
@@ -1824,7 +1851,7 @@ function ce(e) {
 	);
 }
 function me(e) {
-	const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+	const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 	U();
 	return i.createElement(
 		m.Z,
@@ -1833,32 +1860,32 @@ function me(e) {
 			focusable: false,
 		},
 		i.createElement($, {
-			funcFilter: t,
+			funcFilter: fnLeftShoulderButtons,
 			bIconOnRight: true,
-			className: (0, _c.A)(A.FloatingControlsContainer, A.LeftShoulderButtons),
+			className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 		}),
 		i.createElement($, {
-			funcFilter: r,
-			className: (0, _c.A)(A.FloatingControlsContainer, A.RightShoulderButtons),
+			funcFilter: fnRightShoulderButtons,
+			className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 		}),
 		i.createElement(te, {
 			controllerSource: 6,
 			bIconOnRight: true,
-			className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTriggerButtons),
+			className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 		}),
 		i.createElement(te, {
 			controllerSource: 7,
 			bIconOnRight: false,
-			className: (0, _c.A)(A.FloatingControlsContainer, A.RightTriggerButtons),
+			className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 		}),
 		i.createElement($, {
 			funcFilter: X([51]),
 			bIconOnRight: true,
-			className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+			className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 		}),
 		i.createElement($, {
 			funcFilter: X([52]),
-			className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+			className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 		}),
 		i.createElement(
 			"div",
@@ -1889,7 +1916,7 @@ const ue = {
 	2: ie,
 	3: ie,
 	4: function (e) {
-		const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+		const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 		U();
 		return i.createElement(
 			i.Fragment,
@@ -1902,86 +1929,62 @@ const ue = {
 					navEntryPreferPosition: T.iU.PREFERRED_CHILD,
 				},
 				i.createElement($, {
-					funcFilter: t,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftShoulderButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 				}),
 				i.createElement($, {
-					funcFilter: r,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightShoulderButtons,
-					),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([57]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([58]),
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([55]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonLower,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonLower),
 				}),
 				i.createElement($, {
 					funcFilter: X([56]),
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonLower,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonLower),
 				}),
 				i.createElement(ee, {
 					controllerSource: 1,
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTrackpad),
+					className: A_1(A.FloatingControlsContainer, A.LeftTrackpad),
 				}),
 				i.createElement(ee, {
 					controllerSource: 2,
 					bIconOnRight: false,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightTrackpad),
+					className: A_1(A.FloatingControlsContainer, A.RightTrackpad),
 				}),
 				i.createElement(
 					"div",
@@ -2019,7 +2022,7 @@ const ue = {
 	36: me,
 	37: me,
 	38: function (e) {
-		const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+		const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 		U();
 		return i.createElement(
 			i.Fragment,
@@ -2031,49 +2034,37 @@ const ue = {
 					focusable: false,
 				},
 				i.createElement($, {
-					funcFilter: t,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftShoulderButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement($, {
-					funcFilter: r,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightShoulderButtons,
-					),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement(
 					"div",
@@ -2132,7 +2123,7 @@ const ue = {
 	},
 	45: ce,
 	48: function (e) {
-		const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+		const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 		U();
 		return i.createElement(
 			i.Fragment,
@@ -2144,95 +2135,71 @@ const ue = {
 					focusable: false,
 				},
 				i.createElement($, {
-					funcFilter: t,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftShoulderButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement($, {
-					funcFilter: r,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightShoulderButtons,
-					),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([57]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([58]),
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([55]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonLower,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonLower),
 				}),
 				i.createElement($, {
 					funcFilter: X([56]),
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonLower,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonLower),
 				}),
 				i.createElement($, {
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement(ee, {
 					controllerSource: 1,
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftTrackpad),
+					className: A_1(A.FloatingControlsContainer, A.LeftTrackpad),
 				}),
 				i.createElement(ee, {
 					controllerSource: 11,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.CenterTrackpad),
+					className: A_1(A.FloatingControlsContainer, A.CenterTrackpad),
 				}),
 				i.createElement(ee, {
 					controllerSource: 2,
 					bIconOnRight: false,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightTrackpad),
+					className: A_1(A.FloatingControlsContainer, A.RightTrackpad),
 				}),
 				i.createElement(
 					"div",
@@ -2260,7 +2227,7 @@ const ue = {
 		);
 	},
 	46: function (e) {
-		const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+		const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 		U();
 		return i.createElement(
 			i.Fragment,
@@ -2272,68 +2239,50 @@ const ue = {
 					focusable: false,
 				},
 				i.createElement($, {
-					funcFilter: t,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftShoulderButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement($, {
-					funcFilter: r,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightShoulderButtons,
-					),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([57]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonsUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonsUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([58]),
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonsUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonsUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([55]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([56]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 				}),
 				i.createElement(
 					"div",
@@ -2360,7 +2309,7 @@ const ue = {
 	39: ae,
 	40: ae,
 	41: function (e) {
-		const { fnLeftShoulderButtons: t, fnRightShoulderButtons: r } = J();
+		const { fnLeftShoulderButtons, fnRightShoulderButtons } = J();
 		U();
 		return i.createElement(
 			i.Fragment,
@@ -2372,76 +2321,55 @@ const ue = {
 					focusable: false,
 				},
 				i.createElement($, {
-					funcFilter: t,
+					funcFilter: fnLeftShoulderButtons,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftShoulderButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftShoulderButtons),
 				}),
 				i.createElement($, {
-					funcFilter: r,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightShoulderButtons,
-					),
+					funcFilter: fnRightShoulderButtons,
+					className: A_1(A.FloatingControlsContainer, A.RightShoulderButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 6,
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftTriggerButtons),
 				}),
 				i.createElement(te, {
 					controllerSource: 7,
 					bIconOnRight: false,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightTriggerButtons,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightTriggerButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([51]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([52]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightAuxButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightAuxButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([57]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftGripButtonsUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtonsUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([58]),
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.RightGripButtonsUpper,
-					),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtonsUpper),
 				}),
 				i.createElement($, {
 					funcFilter: X([55]),
 					bIconOnRight: true,
-					className: (0, _c.A)(A.FloatingControlsContainer, A.LeftGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.LeftGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([56]),
-					className: (0, _c.A)(A.FloatingControlsContainer, A.RightGripButtons),
+					className: A_1(A.FloatingControlsContainer, A.RightGripButtons),
 				}),
 				i.createElement($, {
 					funcFilter: X([68]),
 					bIconOnRight: true,
-					className: (0, _c.A)(
-						A.FloatingControlsContainer,
-						A.LeftCaptureButton,
-					),
+					className: A_1(A.FloatingControlsContainer, A.LeftCaptureButton),
 				}),
 				i.createElement(
 					"div",
@@ -2473,20 +2401,20 @@ const ue = {
 	400: ne,
 	800: ne,
 };
-export const c = (0, s.PA)(function (e) {
-	const { appid: t, controllerIndex: r, inMainMenu: n, bSharedLayout: a } = e;
-	const s = (0, D.$2)();
-	const l = (0, I.oH)();
-	const h = p.Fd.Get().GetController(r);
+export const c = PA((e) => {
+	const { appid, controllerIndex, inMainMenu, bSharedLayout } = e;
+	const s = $2();
+	const l = oH();
+	const h = p.Fd.Get().GetController(controllerIndex);
 	const y = d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const w = d.v3.ControllerConfiguratorLayerSetIndex;
 	const E = d.v3.EditingConfiguration?.sets[y];
-	const M = E == null ? undefined : E.layers[w];
-	const N = (0, k.R7)();
-	const F = (0, o.q3)(() => z.m_bLegacyControllerSummary);
-	const G = (0, d.st)(t, r);
+	const M = E == null || E.layers[w];
+	const N = R7();
+	const F = q3(() => z.m_bLegacyControllerSummary);
+	const G = st(appid, controllerIndex);
 	if (h && P.IsDebugEnabled()) {
-		P.Debug("Capabilities:", "0x" + h?.unCapabilities.toString(16));
+		P.Debug("Capabilities:", `0x${h?.unCapabilities.toString(16)}`);
 		const e = [];
 		for (let t = 0; t < 32; t++) {
 			if (h.unCapabilities & (1 << t)) {
@@ -2495,39 +2423,42 @@ export const c = (0, s.PA)(function (e) {
 		}
 		P.Debug("Bits:", e.join(", "));
 	}
-	const O = i.useMemo(() => (0, _.dI)(E, M), [E, M]);
+	const O = i.useMemo(() => dI(E, M), [E, M]);
 	const L = i.useCallback(
 		(e) => {
-			if (a) {
+			if (bSharedLayout) {
 				if (e.detail.button == B.pR.CANCEL) {
-					d.v3.ClearPreviewConfiguration(t, r);
+					d.v3.ClearPreviewConfiguration(appid, controllerIndex);
 					return false;
 				}
 				if (e.detail.button == B.pR.SECONDARY) {
 					if (d.v3.PreviewedConfiguration) {
 						d.v3.SetActiveConfigForApp(
-							t,
-							r,
+							appid,
+							controllerIndex,
 							d.v3.PreviewedConfiguration.url,
 							false,
 						);
-						d.v3.ClearPreviewConfiguration(t, r);
+						d.v3.ClearPreviewConfiguration(appid, controllerIndex);
 						s?.NavigateHistory(-2);
 					}
 					return false;
 				}
 			}
-			return (0, g.N)(e);
+			return N_1(e);
 		},
-		[t, r, a, s],
+		[appid, controllerIndex, bSharedLayout, s],
 	);
-	const U = v.H.GetAppDetails(t);
+	const U = v.H.GetAppDetails(appid);
 	const V =
 		G?.bOfficial ||
 		G?.bRecommended ||
+		G?.bRecommended ||
+		G?.bProgenitorOfficial ||
+		G?.bRecommended ||
 		G?.bProgenitorOfficial ||
 		G?.bProgenitorRecommended;
-	let H = (0, C.yZ)(G);
+	let H = yZ(G);
 	if (H == "$$$autosave") {
 		H = Localize("#SettingsController_AutosaveName");
 	}
@@ -2545,7 +2476,7 @@ export const c = (0, s.PA)(function (e) {
 		H = ".";
 	}
 	const j = {};
-	if (a) {
+	if (bSharedLayout) {
 		j[B.pR.SECONDARY] = Localize(
 			"#ControllerConfigurator_ActionButtonLabel_ApplyLayout",
 		);
@@ -2567,18 +2498,18 @@ export const c = (0, s.PA)(function (e) {
 	if (S.oy.ShouldZoomStandaloneConfigurator && A.StandaloneConfigurator) {
 		Z = 2;
 	}
-	let K = a ?? false;
+	let K = bSharedLayout ?? false;
 	let X = "";
-	if (n) {
+	if (inMainMenu) {
 		X = A.MainMenu;
 	}
 	if (p.Fd.Get().GetControllers().length == 0) {
 		return i.createElement(
 			u.Jr,
 			{
-				padForHeader: !n,
-				padForFooter: !n,
-				headerVisibility: n ? "default" : "opaque",
+				padForHeader: !inMainMenu,
+				padForFooter: !inMainMenu,
+				headerVisibility: inMainMenu ? "default" : "opaque",
 			},
 			i.createElement(
 				"div",
@@ -2594,9 +2525,9 @@ export const c = (0, s.PA)(function (e) {
 		return i.createElement(
 			u.Jr,
 			{
-				padForHeader: !n,
-				padForFooter: !n,
-				headerVisibility: n ? "default" : "opaque",
+				padForHeader: !inMainMenu,
+				padForFooter: !inMainMenu,
+				headerVisibility: inMainMenu ? "default" : "opaque",
 			},
 			i.createElement(
 				"div",
@@ -2606,7 +2537,7 @@ export const c = (0, s.PA)(function (e) {
 				i.createElement(
 					m.Z,
 					{
-						className: (0, _c.A)(
+						className: A_1(
 							X,
 							A.ControllerConfiguratorSummary,
 							Q,
@@ -2614,7 +2545,7 @@ export const c = (0, s.PA)(function (e) {
 								S.oy.ShouldZoomStandaloneConfigurator &&
 								A.StandaloneConfigurator,
 							S.oy.ShouldZoomStandaloneConfigurator && A.Fullscreen,
-							n && A.Overlay,
+							inMainMenu && A.Overlay,
 							!F && A.New,
 						),
 						focusableIfNoChildren: true,
@@ -2631,33 +2562,33 @@ export const c = (0, s.PA)(function (e) {
 					q != le &&
 						q != oe &&
 						i.createElement(W, {
-							className: (0, _c.A)(X, A.Absolute),
+							className: A_1(X, A.Absolute),
 						}),
 					i.createElement(
 						"div",
 						{
-							className: (0, _c.A)(A.SubTitle, A.TitleLabel),
+							className: A_1(A.SubTitle, A.TitleLabel),
 						},
 						H,
 					),
 					i.createElement(g.dY, {
 						className: A.SummaryActionSetSelector,
 						bShowWhenOneActionSet: false,
-						wrapAround: !n,
+						wrapAround: !inMainMenu,
 					}),
 					h &&
 						i.createElement(
-							x.Provider,
+							XContext.Provider,
 							{
 								value: {
 									controller: h,
 									rgBindingOptions: O,
-									inMainMenu: n,
-									appid: t,
+									inMainMenu: inMainMenu,
+									appid: appid,
 								},
 							},
 							i.createElement(q, {
-								key: y + "_" + w,
+								key: `${y}_${w}`,
 							}),
 						),
 				),
@@ -2665,30 +2596,30 @@ export const c = (0, s.PA)(function (e) {
 		);
 	} else {
 		return i.createElement(Ae, {
-			appid: t,
-			controllerIndex: r,
+			appid: appid,
+			controllerIndex: controllerIndex,
 			currentConfig: G,
 		});
 	}
 });
 function Ae(e) {
-	const { appid: t, controllerIndex: r, currentConfig: n } = e;
-	const a = F.tw.GetAppOverviewByAppID(t);
-	const s = p.Fd.Get().GetController(r);
+	const { appid, controllerIndex, currentConfig } = e;
+	const a = F.tw.GetAppOverviewByAppID(appid);
+	const s = p.Fd.Get().GetController(controllerIndex);
 	const o = s && p.Fd.GetControllerTypeString(s.eControllerType);
 	return i.createElement(
 		"div",
 		{
-			className: (0, _c.A)(A.OptedOutPage, o),
+			className: A_1(A.OptedOutPage, o),
 		},
 		i.createElement(W, {
 			className: A.OptedOutControllerImg,
 		}),
 		i.createElement(f.dh, {
-			appid: t,
+			appid: appid,
 			app: a,
-			controllerIndex: r,
-			currentConfig: n,
+			controllerIndex: controllerIndex,
+			currentConfig: currentConfig,
 			centerLayout: true,
 		}),
 	);

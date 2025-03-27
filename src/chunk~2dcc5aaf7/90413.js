@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	strHighlightFadeTime: "2000ms",
 	nPlaceholderWidth: "224px",

@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require("./63088.js");
-var c = require(/*webcrack:missing*/ "./79769.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import { aj } from "./63088.js";
+import c from "./79769.js";
+import m from "./52451.js";
+import u from "./72476.js";
+const a = i;
 export class b {
 	m_AppID;
 	m_onEulasDone;
@@ -19,7 +19,7 @@ export class b {
 	m_EULALoader;
 	m_EULAVector;
 	useEulaApprovalState() {
-		return (0, o.q3)(() => ({
+		return q3(() => ({
 			continueFn: this.m_stateContinueFn,
 			cancelFn: this.m_stateCancelFn,
 			currentEula: this.m_currentEula,
@@ -27,7 +27,7 @@ export class b {
 		}));
 	}
 	constructor(e, t, r, n) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_AppID = e;
 		this.m_onEulasDone = t;
 		this.m_onCancelAction = r;
@@ -79,13 +79,13 @@ export class b {
 		this.m_onEulasDone();
 	}
 }
-(0, n.Cg)([s.sH], b.prototype, "m_stateContinueFn", undefined);
-(0, n.Cg)([s.sH], b.prototype, "m_stateCancelFn", undefined);
-(0, n.Cg)([s.sH], b.prototype, "m_currentEula", undefined);
-(0, n.Cg)([m.oI], b.prototype, "CancelAction", null);
-(0, n.Cg)([s.XI], b.prototype, "SetActiveEULA", null);
-(0, n.Cg)([s.XI.bound], b.prototype, "StartEulaFlow", null);
-(0, n.Cg)([s.XI.bound], b.prototype, "ContinueEula", null);
+Cg([s.sH], b.prototype, "m_stateContinueFn", undefined);
+Cg([s.sH], b.prototype, "m_stateCancelFn", undefined);
+Cg([s.sH], b.prototype, "m_currentEula", undefined);
+Cg([m.oI], b.prototype, "CancelAction", null);
+Cg([s.XI], b.prototype, "SetActiveEULA", null);
+Cg([s.XI.bound], b.prototype, "StartEulaFlow", null);
+Cg([s.XI.bound], b.prototype, "ContinueEula", null);
 class A {
 	m_url;
 	m_eulaLang;
@@ -130,7 +130,7 @@ class A {
 		try {
 			r = await a.get(t.toString());
 		} catch (e) {
-			(0, l.aj)().ReportError(e);
+			aj().ReportError(e);
 		}
 		if (this.m_eulaLang == e) {
 			if (r && r.data.content) {

@@ -1,7 +1,7 @@
-require(/*webcrack:missing*/ "./63696.js");
-var n = require("./10537.js");
-var i = n;
-require(/*webcrack:missing*/ "./52451.js");
+import "./63696.js";
+import n from "./10537.js";
+import "./52451.js";
+const i = n;
 export function c() {
 	return window.innerWidth < parseInt(i.strMaxMobileWidth);
 }

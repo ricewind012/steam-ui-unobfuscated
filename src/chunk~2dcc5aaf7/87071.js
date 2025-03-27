@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	confettiDurationMs: "7000s/s",
 	goldfettiDurationMs: "7000s/s",
 	goldfettiColorsNum: "3",

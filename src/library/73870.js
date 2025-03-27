@@ -1,4 +1,4 @@
-var r = require("./12368.js");
+import r from "./12368.js";
 export class A extends r.P {
 	GetString(e) {
 		return Promise.resolve(localStorage.getItem(e));

@@ -1,22 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./87913.js");
-var a = require("./46422.js");
-var s = require("./9156.js");
-var o = require("./89748.js");
-var l = require("./87935.js");
-var c = require(/*webcrack:missing*/ "./37976.js");
-var m = require(/*webcrack:missing*/ "./63696.js");
-var u = require(/*webcrack:missing*/ "./44846.js");
-var d = require("./92031.js");
-var A = require(/*webcrack:missing*/ "./8573.js");
 import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-var g = require(/*webcrack:missing*/ "./79769.js");
-var h = require(/*webcrack:missing*/ "./52451.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require("./5822.js");
-var f = require(/*webcrack:missing*/ "./49455.js");
-var b = require("./45967.js");
-var y = require("./80553.js");
+import n, { Cg } from "./34629.js";
+import i from "./87913.js";
+import a from "./46422.js";
+import s from "./9156.js";
+import { qw } from "./89748.js";
+import l from "./87935.js";
+import c from "./37976.js";
+import m from "./63696.js";
+import u from "./44846.js";
+import d from "./92031.js";
+import A from "./8573.js";
+import g from "./79769.js";
+import h, { hL } from "./52451.js";
+import C from "./72476.js";
+import _ from "./5822.js";
+import { w } from "./49455.js";
+import b from "./45967.js";
+import { c as c_1 } from "./80553.js";
 class S {
 	m_cbOverlayDialogsChanged = new g.lu();
 	m_rgOverlayDialogRequests = [];
@@ -55,7 +55,7 @@ class S {
 			const e = a.oy.WindowStore.GetVRWindowInstance();
 			if (e) {
 				e.NavigateToSteamWeb(t);
-				(0, y.c)(e.GetMainVROverlayKey());
+				c_1(e.GetMainVROverlayKey());
 			}
 		} else {
 			this.GetInstanceForAppID(e.unRequestingAppID).NavigateToSteamWeb(t);
@@ -69,10 +69,11 @@ class S {
 		if (t != 7 && t != 4) {
 			return;
 		}
-		const r = e.unRequestingAppID;
-		const n = e.appid;
-		(0, f.w)(
-			r,
+
+		const { unRequestingAppID, appid } = e;
+
+		w(
+			unRequestingAppID,
 			"OnGameOverlayActivateRequested - no valid requesting appid!",
 			e,
 		);
@@ -94,7 +95,7 @@ class S {
 			case "chat":
 				{
 					let t = new A.b(e.steamidTarget);
-					let n = this.GetInstanceForAppID(r);
+					let n = this.GetInstanceForAppID(unRequestingAppID);
 					i.LN.ShowFriendChatDialog(n, t);
 				}
 				break;
@@ -106,13 +107,18 @@ class S {
 				break;
 			case "stats":
 				{
-					let t = l.B7.ResolveURL("UserStatsPage", e.steamidTarget, r);
+					let t = l.B7.ResolveURL(
+						"UserStatsPage",
+						e.steamidTarget,
+						unRequestingAppID,
+					);
 					this.RouteNavigateToSteamWeb(e, t);
 				}
 				break;
-			case "achievements":
-				this.GetNavigator(e).MyAchievements(r);
+			case "achievements": {
+				this.GetNavigator(e).MyAchievements(unRequestingAppID);
 				break;
+			}
 			case "friendadd":
 			case "friendremove":
 			case "friendrequestaccept":
@@ -121,53 +127,63 @@ class S {
 			case "remoteplaytogetherinvite":
 			case "lobbyinviteconnectstring":
 			case "asyncnotificationsrequested":
-			case "requestplaytime":
+			case "requestplaytime": {
 				this.m_rgOverlayDialogRequests.push(e);
 				this.m_cbOverlayDialogsChanged.Dispatch();
 				break;
-			case "store":
-				if (n == d.sc) {
+			}
+			case "store": {
+				if (appid == d.sc) {
 					this.RouteNavigateToSteamWeb(e, l.B7.GetStoreURL());
 				} else {
 					switch (e.eFlag) {
 						case u.SS.k_EOverlayToStoreFlag_None:
 							{
-								let t = l.B7.ResolveURL("StoreAppPage", n);
+								let t = l.B7.ResolveURL("StoreAppPage", appid);
 								this.RouteNavigateToSteamWeb(e, t);
 							}
 							break;
 						case u.SS.k_EOverlayToStoreFlag_AddToCart:
 						case u.SS.k_EOverlayToStoreFlag_AddToCartAndShow: {
-							let t = l.B7.ResolveURL("StoreAppPageAddToCart", n, e.eFlag);
+							let t = l.B7.ResolveURL("StoreAppPageAddToCart", appid, e.eFlag);
 							this.RouteNavigateToSteamWeb(e, t);
 						}
 					}
 				}
 				break;
-			case "friends":
+			}
+			case "friends": {
 				this.GetNavigator(e).Chat();
 				break;
-			case "community":
+			}
+			case "community": {
 				this.RouteNavigateToSteamWeb(e, C.TS.COMMUNITY_BASE_URL);
 				break;
-			case "settings":
+			}
+			case "settings": {
 				this.GetNavigator(e).Settings("General");
 				break;
+			}
 			case "officialgamegroup":
 				{
-					let t = l.B7.ResolveURL("OfficialGameGroupPage", r);
+					let t = l.B7.ResolveURL("OfficialGameGroupPage", unRequestingAppID);
 					this.RouteNavigateToSteamWeb(e, t);
 				}
 				break;
-			case "leaderboards":
+			case "leaderboards": {
 				if (e.steamidTarget) {
-					let t = l.B7.ResolveURL("UserLeaderboardsPage", e.steamidTarget, r);
+					let t = l.B7.ResolveURL(
+						"UserLeaderboardsPage",
+						e.steamidTarget,
+						unRequestingAppID,
+					);
 					this.RouteNavigateToSteamWeb(e, t);
 				} else {
-					let t = l.B7.ResolveURL("GlobalLeaderboardsPage", r);
+					let t = l.B7.ResolveURL("GlobalLeaderboardsPage", unRequestingAppID);
 					this.RouteNavigateToSteamWeb(e, t);
 				}
 				break;
+			}
 			case "remoteplaytogether":
 				{
 					const t = this.GetNavigator(e);
@@ -180,10 +196,11 @@ class S {
 					t.RemotePlayTogether();
 				}
 				break;
-			default:
+			default: {
 				if (e.bWebPage) {
 					this.AddWebPageRequest(e);
 				}
+			}
 		}
 	}
 	AddWebPageRequest(e) {
@@ -270,6 +287,7 @@ class S {
 		return (
 			this.OnSteamURLOpenExternalForPID(e) ||
 			this.OnSteamURLCancelTransaction(e) ||
+			this.OnSteamURLCancelTransaction(e) ||
 			this.OnSteamURLSucceedTransaction(e)
 		);
 	}
@@ -317,7 +335,7 @@ class S {
 		);
 	}
 	RemoteClientStarted(e, t) {
-		const r = new A.b((0, o.qw)().GetCurrentUser().strSteamID);
+		const r = new A.b(qw().GetCurrentUser().strSteamID);
 		const n = new A.b(e);
 		if (n.GetAccountID() != 0 && n.GetAccountID() != r.GetAccountID()) {
 			let e = this.GetInstanceForGameID(t);
@@ -347,22 +365,22 @@ class S {
 		);
 	}
 }
-(0, n.Cg)([h.oI], S.prototype, "OnOverlayBrowserClosed", null);
-(0, n.Cg)([h.oI], S.prototype, "OnGameOverlayActivateRequested", null);
-(0, n.Cg)([h.oI], S.prototype, "OnSteamURLOpenExternalForPID", null);
-(0, n.Cg)([h.oI], S.prototype, "OnSteamURLCancelTransaction", null);
-(0, n.Cg)([h.oI], S.prototype, "OnSteamURLSucceedTransaction", null);
-(0, n.Cg)([h.oI], S.prototype, "OnSteamURL", null);
-(0, n.Cg)([h.oI], S.prototype, "RemoteClientStarted", null);
-(0, n.Cg)([h.oI], S.prototype, "OnOverlayBrowserProtocol", null);
+Cg([h.oI], S.prototype, "OnOverlayBrowserClosed", null);
+Cg([h.oI], S.prototype, "OnGameOverlayActivateRequested", null);
+Cg([h.oI], S.prototype, "OnSteamURLOpenExternalForPID", null);
+Cg([h.oI], S.prototype, "OnSteamURLCancelTransaction", null);
+Cg([h.oI], S.prototype, "OnSteamURLSucceedTransaction", null);
+Cg([h.oI], S.prototype, "OnSteamURL", null);
+Cg([h.oI], S.prototype, "RemoteClientStarted", null);
+Cg([h.oI], S.prototype, "OnOverlayBrowserProtocol", null);
 export const Q = new S();
 export function r(e) {
-	let [t, r] = m.useState(Q.GetDialogRequests());
+	let [t, setT] = m.useState(Q.GetDialogRequests());
 	const n = m.useCallback(() => {
 		let e = Q.GetDialogRequests();
-		r([...e]);
-	}, [r]);
-	(0, h.hL)(Q.GetDialogRequestsChangedCallbackList(), n);
+		setT([...e]);
+	}, [setT]);
+	hL(Q.GetDialogRequestsChangedCallbackList(), n);
 	return t.filter(
 		(t) => t.unRequestingAppID == e || t.unRequestingAppID == u.w1,
 	);

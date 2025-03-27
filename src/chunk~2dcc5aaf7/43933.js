@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	VolumePopin: "_2iUUMqGBsJmkgjGawC2D5V",
 	VolumePopinHidden: "_1OwmL2oZOrScwfNuhNtZxQ",

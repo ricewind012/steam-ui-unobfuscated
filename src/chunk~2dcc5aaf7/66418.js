@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	statusAndName: "_4ZTzGZ5TTgFyfw1DcXLXS",
 	threeLines: "_1oYSXGjBe7QctQ1ikLpCMm",

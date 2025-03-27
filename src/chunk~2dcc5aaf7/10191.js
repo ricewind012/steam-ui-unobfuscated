@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	PurchaseNoticeContainer: "_3STfNQAZpe1U2ToD52S4dU",
 	RightHandImage: "_1s9uhG-Z4BbYYm7oqFFpS9",
 	PurchaseNoticeLabel: "_1t7927CfvHZSxoXBLDiDaR",

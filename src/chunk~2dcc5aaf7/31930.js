@@ -1,23 +1,25 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./16583.js");
-var o = require(/*webcrack:missing*/ "./12176.js");
-var l = require("./12251.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./49455.js");
-var u = require(/*webcrack:missing*/ "./25265.js");
-var d = require(/*webcrack:missing*/ "./58663.js");
-var A = require(/*webcrack:missing*/ "./48307.js");
-const p = d.Message;
-class g extends p {
+import n, { Cg } from "./34629.js";
+import i from "./44846.js";
+import a from "./52451.js";
+import s from "./16583.js";
+import o, { I8 } from "./12176.js";
+import l, { OI } from "./12251.js";
+import c from "./83599.js";
+import m, { w } from "./49455.js";
+import u from "./25265.js";
+import d from "./58663.js";
+import A from "./48307.js";
+import f from "./43691.js";
+import { OQ } from "./31958.js";
+const d_Message = d.Message;
+class g extends d_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.auth_key) {
 			A.Sg(g.M());
 		}
-		p.initialize(this, e, 0, -1, undefined, null);
+		d_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -56,7 +58,7 @@ class g extends p {
 		return A.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -64,7 +66,7 @@ class g extends p {
 		A.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -72,11 +74,11 @@ class g extends p {
 		return "CTransportAuth_Authenticate_Request";
 	}
 }
-class h extends p {
+class h extends d_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		p.initialize(this, e, 0, -1, undefined, null);
+		d_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return h.toObject(e, this);
@@ -102,13 +104,13 @@ class h extends p {
 		return e;
 	}
 	serializeBinary() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -116,11 +118,11 @@ class h extends p {
 		return "CTransportAuth_Authenticate_Response";
 	}
 }
-class C extends p {
+class C extends d_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		p.initialize(this, e, 0, -1, undefined, null);
+		d_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return C.toObject(e, this);
@@ -146,13 +148,13 @@ class C extends p {
 		return e;
 	}
 	serializeBinary() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new d.BinaryWriter();
+		const e = new d.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -160,34 +162,34 @@ class C extends p {
 		return "CTransportAuth_StartShutdown_Notification";
 	}
 }
-var _;
-(function (e) {
+let _;
+((e) => {
 	e.AuthenticateHandler = {
 		name: "TransportAuth.Authenticate#1",
 		request: g,
 		response: h,
 	};
-	e.Authenticate = function (e, t) {
-		if ((t = t || (0, l.OI)().GetDefaultTransport()) == null) {
+	e.Authenticate = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("TransportAuth.Authenticate#1", (0, o.I8)(g, e), h, {
+			return t.SendMsg("TransportAuth.Authenticate#1", I8(g, e), h, {
 				ePrivilege: 1,
 				eClientExecutionSite: 3,
 			});
 		}
 	};
-	e.SendMsgAuthenticate = function (e, t) {
-		if ((t = t || (0, l.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgAuthenticate = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("TransportAuth.Authenticate#1", (0, o.I8)(g, e), h, {
+			return t.SendMsg("TransportAuth.Authenticate#1", I8(g, e), h, {
 				ePrivilege: 1,
 				eClientExecutionSite: 3,
 			});
@@ -197,8 +199,8 @@ var _;
 		name: "TransportAuth.NotifyStartShutdown#1",
 		request: C,
 	};
-	e.RegisterForNotifyStartShutdown = function (t, r) {
-		if ((r = r || (0, l.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyStartShutdown = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -210,14 +212,14 @@ var _;
 			);
 		}
 	};
-	e.NotifyStartShutdown = function (e, t) {
-		if ((t = t || (0, l.OI)().GetDefaultTransport()) == null) {
+	e.NotifyStartShutdown = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"TransportAuth.NotifyStartShutdown#1",
-				(0, o.I8)(C, e),
+				I8(C, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 3,
@@ -225,14 +227,14 @@ var _;
 			);
 		}
 	};
-	e.SendMsgNotifyStartShutdown = function (e, t) {
-		if ((t = t || (0, l.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyStartShutdown = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"TransportAuth.NotifyStartShutdown#1",
-				(0, o.I8)(C, e),
+				I8(C, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 3,
@@ -241,8 +243,6 @@ var _;
 		}
 	};
 })((_ ||= {}));
-var f = require(/*webcrack:missing*/ "./43691.js");
-var b = require(/*webcrack:missing*/ "./31958.js");
 class y {
 	m_socket = null;
 	m_sName;
@@ -292,7 +292,7 @@ class y {
 		);
 	}
 	GetInterAttemptBackoffMs(e) {
-		return (0, b.OQ)(e, 1, 5) * 1000;
+		return OQ(e, 1, 5) * 1000;
 	}
 	async ConnectWithRetry(e, t, r) {
 		this.m_bConnecting = true;
@@ -468,10 +468,10 @@ class y {
 		}
 	}
 }
-(0, n.Cg)([a.oI], y.prototype, "OnSocketError", null);
-(0, n.Cg)([a.oI], y.prototype, "OnSocketOpen", null);
-(0, n.Cg)([a.oI], y.prototype, "OnSocketClose", null);
-(0, n.Cg)([a.oI], y.prototype, "OnSocketMessage", null);
+Cg([a.oI], y.prototype, "OnSocketError", null);
+Cg([a.oI], y.prototype, "OnSocketOpen", null);
+Cg([a.oI], y.prototype, "OnSocketClose", null);
+Cg([a.oI], y.prototype, "OnSocketMessage", null);
 const S = new c.wd("WebUITransport");
 export class U {
 	m_iMsgSeq = 1;
@@ -522,8 +522,8 @@ export class U {
 		this.m_nMaximumMsgSizeBytes = e.nMaximumMsgSizeBytes;
 		this.CreateConnection(1, "steamUI", e.portSteamUI, e.authKeySteamUI);
 		this.CreateConnection(2, "clientdll", e.portClientdll, e.authKeyClientdll);
-		(0, l.OI)().SetDefaultTransport(this);
-		(0, l.OI)().SetDefaultHandlerRegistry(this.m_messageHandlers);
+		OI().SetDefaultTransport(this);
+		OI().SetDefaultHandlerRegistry(this.m_messageHandlers);
 		_.RegisterForNotifyStartShutdown(this.OnStartShutdown);
 	}
 	get messageHandlers() {
@@ -586,7 +586,7 @@ export class U {
 			const m = this.m_iMsgSeq++;
 			t.SetEMsg(146);
 			t.Hdr().set_target_job_name(e);
-			t.Hdr().set_jobid_source("" + m);
+			t.Hdr().set_jobid_source(`${m}`);
 			const u = t.Serialize();
 			if (u.byteLength >= this.m_nMaximumMsgSizeBytes) {
 				S.Error(
@@ -731,17 +731,17 @@ export class U {
 		const t = parseInt(e.Hdr().jobid_target());
 		const r = this.m_mapPendingMethodRequests.get(t);
 		if (r == null) {
-			(0, m.w)(false, "Transport Error: no pending callback for request");
+			w(false, "Transport Error: no pending callback for request");
 			return;
 		}
-		(0, m.w)(t == r.m_iSeq, "Transport Error: mistmatched request sequence");
+		w(t == r.m_iSeq, "Transport Error: mistmatched request sequence");
 		this.m_mapPendingMethodRequests.delete(t);
 		const n = o.w.InitFromMsg(r.m_responseClass, e);
 		r.m_fnCallback(n);
 	}
 	DispatchNotification(e) {
 		this.m_messageHandlers.DispatchMsgToHandlers(e, (e) => {
-			(0, m.w)(
+			w(
 				false,
 				"Transport Error: A notification should not generate a response",
 			);
@@ -774,9 +774,9 @@ export class U {
 		return 1;
 	}
 }
-(0, n.Cg)([a.oI], U.prototype, "OnWebsocketReconnectStart", null);
-(0, n.Cg)([a.oI], U.prototype, "OnWebsocketReconnectFinish", null);
-(0, n.Cg)([a.oI], U.prototype, "OnWebsocketClose", null);
-(0, n.Cg)([a.oI], U.prototype, "OnWebsocketMessage", null);
-(0, n.Cg)([a.oI], U.prototype, "OnStartShutdown", null);
+Cg([a.oI], U.prototype, "OnWebsocketReconnectStart", null);
+Cg([a.oI], U.prototype, "OnWebsocketReconnectFinish", null);
+Cg([a.oI], U.prototype, "OnWebsocketClose", null);
+Cg([a.oI], U.prototype, "OnWebsocketMessage", null);
+Cg([a.oI], U.prototype, "OnStartShutdown", null);
 export const N = new U();

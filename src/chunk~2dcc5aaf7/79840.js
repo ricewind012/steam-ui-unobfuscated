@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	DiscoveryQueueCarouselCtn: "_2u0N2gUX44_tavazJJb_QP",
 	TextLink: "_3ZdNCUMz9KZMkwPZlO8zmi",

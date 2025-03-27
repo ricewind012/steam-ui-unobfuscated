@@ -1,32 +1,29 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./5640.js");
-var s = require("./28934.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import { l9 } from "./5640.js";
+import { wT } from "./28934.js";
+import o from "./69164.js";
 export function B(e) {
-	const { feature: t, disabled: r, ...o } = e;
-	const l = (0, a.l9)(t);
+	const { feature, disabled, ...o } = e;
+	const l = l9(feature);
 	const c = l !== 0;
-	const m = (0, s.wT)();
-	return n.createElement(i.Vb, {
-		disabled: c || r,
-		onActivate: c && !r ? () => m(l, t) : undefined,
-		...o,
-	});
+	const m = wT();
+	return (
+		<i.Vb
+			disabled={c || disabled}
+			onActivate={c && !disabled ? () => m(l, feature) : undefined}
+			{...o}
+		/>
+	);
 }
 export function I(e) {
-	const { feature: t, disabled: r, ...l } = e;
-	const c = (0, a.l9)(t);
+	const { feature, disabled, ...l } = e;
+	const c = l9(feature);
 	const m = c !== 0;
-	const u = (0, s.wT)();
-	return n.createElement(
-		o.Z,
-		{
-			onActivate: m && !r ? () => u(c, t) : undefined,
-		},
-		n.createElement(i.ZU, {
-			disabled: m || r,
-			...l,
-		}),
+	const u = wT();
+	return (
+		<o.Z onActivate={m && !disabled ? () => u(c, feature) : undefined}>
+			<i.ZU disabled={m || disabled} {...l} />
+		</o.Z>
 	);
 }

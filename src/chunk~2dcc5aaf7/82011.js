@@ -1,6 +1,6 @@
 export const T = "GamepadInput";
-export var h;
-(function (e) {
+export let h;
+((e) => {
 	e[(e.PageUnloading = 0)] = "PageUnloading";
 	e[(e.Unknown = 1)] = "Unknown";
 	e[(e.None = 2)] = "None";

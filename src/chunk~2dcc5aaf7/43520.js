@@ -1,59 +1,45 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-const i = (0, n.createContext)(null);
+import n, { createContext, useContext } from "./63696.js";
+const IContext = createContext(null);
 export function hL(e) {
-	const { spacing: t, children: r } = e;
-	return n.createElement(
-		i.Provider,
-		{
-			value: l(t),
-		},
-		r,
-	);
+	const { spacing, children } = e;
+	return <IContext.Provider value={l(spacing)}>{children}</IContext.Provider>;
 }
 export function VJ(e) {
 	const t = o();
-	return n.createElement(
-		"div",
-		{
-			style: c(t),
-		},
-		n.createElement(
-			i.Provider,
-			{
-				value: null,
-			},
-			e.children,
-		),
+	return (
+		<div style={c(t)}>
+			<IContext.Provider value={null}>{e.children}</IContext.Provider>
+		</div>
 	);
 }
 function o() {
-	return (0, n.useContext)(i);
+	return useContext(IContext);
 }
 function l(e) {
 	return {
-		top: e.vertical || e.top || 0,
-		bottom: e.vertical || e.bottom || 0,
-		left: e.horizontal || e.left || 0,
-		right: e.horizontal || e.right || 0,
+		top: e.vertical || e.top || e.top || 0,
+		bottom: e.vertical || e.bottom || e.bottom || 0,
+		left: e.horizontal || e.left || e.left || 0,
+		right: e.horizontal || e.right || e.right || 0,
 	};
 }
 function c(e) {
 	if (!e) {
 		return;
 	}
-	const { top: t, bottom: r, left: n, right: i } = e;
+	const { top, bottom, left, right } = e;
 	const a = {};
-	if (t) {
-		a.marginTop = `-${t}px`;
+	if (top) {
+		a.marginTop = `-${top}px`;
 	}
-	if (r) {
-		a.marginBottom = `-${r}px`;
+	if (bottom) {
+		a.marginBottom = `-${bottom}px`;
 	}
-	if (n) {
-		a.marginLeft = `-${n}px`;
+	if (left) {
+		a.marginLeft = `-${left}px`;
 	}
-	if (i) {
-		a.marginRight = `-${i}px`;
+	if (right) {
+		a.marginRight = `-${right}px`;
 	}
 	return a;
 }

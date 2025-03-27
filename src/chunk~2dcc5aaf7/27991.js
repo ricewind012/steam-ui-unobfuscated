@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PanelSection: "_2WRf66Xzh8kEeWw4zIogSl",
 	PanelSectionTitle: "_4GkvBhnJdWjc8nDgJ73N0",

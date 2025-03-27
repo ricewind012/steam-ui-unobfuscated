@@ -1,26 +1,3 @@
-var n = require("./91486.js");
-var i = require("./18057.js");
-var a = require("./40361.js");
-var s = require("./39649.js");
-var o = require("./94899.js");
-var l = require("./31800.js");
-var c = require("./64581.js");
-var m = require("./22091.js");
-var u = require("./37499.js");
-var d = require("./75140.js");
-var A = require("./78057.js");
-var p = require("./96593.js");
-var g = require("./3963.js");
-var h = require("./48289.js");
-var C = require("./5640.js");
-var _ = require("./34792.js");
-var f = require("./89748.js");
-var b = require("./46422.js");
-var y = require("./87935.js");
-var S = require("./83718.js");
-var w = require("./22176.js");
-var B = require(/*webcrack:missing*/ "./63696.js");
-var v = require("./64608.js");
 import {
 	Localize,
 	LocalizeReact,
@@ -29,10 +6,137 @@ import {
 	LocalizeDateHumanReadable,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var E = require("./17231.js");
-var M = require("./68608.js");
-var T = require(/*webcrack:missing*/ "./90095.js");
-var R = require("./99869.js");
+
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	LocalizeTimeSince,
+	ETimeSinceSuffix,
+} from "../../actual_src/utils/localization/datetime.js";
+import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
+import n from "./91486.js";
+import i, { bG } from "./18057.js";
+import a, { DJ } from "./40361.js";
+import s from "./39649.js";
+import o from "./94899.js";
+import l, { hj, j1 } from "./31800.js";
+import c from "./64581.js";
+import m, { tk } from "./22091.js";
+import u, { r } from "./37499.js";
+import d from "./75140.js";
+import A, { T as T_2 } from "./78057.js";
+import p, { Co, _R } from "./96593.js";
+import g from "./3963.js";
+import h, { gt as gt_2, OU, TT } from "./48289.js";
+import C, { hb } from "./5640.js";
+import _, { I5, VI } from "./34792.js";
+import f, { iZ, qw } from "./89748.js";
+import b from "./46422.js";
+import y from "./87935.js";
+import S, { aS } from "./83718.js";
+import w from "./22176.js";
+import B, { useState, useEffect, useRef } from "./63696.js";
+import v from "./64608.js";
+import E from "./17231.js";
+import M from "./68608.js";
+import T, { q3 } from "./90095.js";
+import R from "./99869.js";
+import N, { xj } from "./28592.js";
+import F from "./10709.js";
+import G from "./34394.js";
+import O from "./96000.js";
+import P from "./79421.js";
+import L from "./33000.js";
+import z from "./90985.js";
+import x from "./69164.js";
+import U from "./23783.js";
+import W from "./50376.js";
+import V from "./67189.js";
+import j from "./46424.js";
+import q, { $2 } from "./96680.js";
+import $ from "./32836.js";
+import ee, { vx, B$, Mb, r2, wm, uA, W6 } from "./69913.js";
+import te from "./10606.js";
+import ne from "./52177.js";
+import ie from "./48197.js";
+import ae from "./37086.js";
+import se from "./78325.js";
+import oe from "./49519.js";
+import le from "./56654.js";
+import ce, { sf } from "./44846.js";
+import me from "./85243.js";
+import { lX } from "./31084.js";
+import de, { yq, R7 } from "./11131.js";
+import { o as o_2 } from "./73259.js";
+import { QP } from "./45264.js";
+import ge from "./3524.js";
+import he from "./92251.js";
+import Ce from "./8573.js";
+import { Fj } from "./736.js";
+import fe from "./88750.js";
+import { Nr as Nr_2 } from "./42318.js";
+import ye from "./35488.js";
+import Se from "./91435.js";
+import { pg } from "./13869.js";
+import Be from "./27773.js";
+import ve from "./98995.js";
+import { A as A_2 } from "./90765.js";
+import { dm } from "./34428.js";
+import { Ue as Ue_2, dh, wY, $$, CH, hL } from "./52451.js";
+import De from "./78055.js";
+import Ne from "./32792.js";
+import { jy } from "./5808.js";
+import { $u, C4 } from "./56262.js";
+import { TE } from "./13200.js";
+import Pe from "./43873.js";
+import Le from "./84108.js";
+import ze from "./39054.js";
+import xe from "./78721.js";
+import Ue, { $0, oG } from "./2326.js";
+import We from "./36464.js";
+import { l as l_2 } from "./80254.js";
+import { I } from "./61416.js";
+import je from "./81546.js";
+import { ex } from "./32179.js";
+import { Qv } from "./57665.js";
+import Ze from "./66732.js";
+import Ye from "./3200.js";
+import Ke from "./79671.js";
+import Xe from "./13484.js";
+import Je from "./43691.js";
+import { Yb, gQ } from "./39002.js";
+import { MZ } from "./3499.js";
+import { bY } from "./67429.js";
+import ft from "./26105.js";
+import bt from "./60917.js";
+import yt from "./79769.js";
+import { f as f_2 } from "./63538.js";
+import Tt from "./27897.js";
+import kt, { hi } from "./9252.js";
+import { OJ } from "./63439.js";
+import Pt, { $A } from "./66127.js";
+import { sH } from "./89193.js";
+import zt, { Y2 } from "./72476.js";
+import { q as q_2 } from "./29285.js";
+import { O as O_2 } from "./85438.js";
+import { br as br_2 } from "./18869.js";
+import er from "./54747.js";
+import tr from "./91306.js";
+import rr from "./5482.js";
+import ir from "./25014.js";
+import sr from "./6263.js";
+import { SO } from "./90685.js";
+import cr from "./14982.js";
+import { useHandleTimelineOverlayNotifications } from "./44216.js";
+import {
+	useBGameRecordingEnabledForGame,
+	BGameRecordingFeatureEnabled,
+} from "./4069.js";
+import dr from "./36813.js";
+import Ar from "./18914.js";
+import pr from "./33572.js";
+import gr from "./13442.js";
+import hr from "./72636.js";
+import Cr, { _Y } from "./60353.js";
 function k(e) {
 	const { value: t, selected: r, onSelected: n, children: i } = e;
 	const a = t.toString();
@@ -59,11 +163,11 @@ function k(e) {
 }
 function D(e) {
 	const { overview: t, requestingUserSteamID: r, onClose: n } = e;
-	const [i] = (0, _.I5)("bParenthesizeNicknames");
-	const [a, s] = (0, _.VI)("broadcast_permissions");
+	const [i] = I5("bParenthesizeNicknames");
+	const [a, s] = VI("broadcast_permissions");
 	const [o, l] = B.useState(a);
-	const c = (0, h.gt)(r);
-	const m = (0, T.q3)(() => h.O$.GetFriendState(r)?.nickname);
+	const c = gt_2(r);
+	const m = q3(() => h.O$.GetFriendState(r)?.nickname);
 	const u = B.useCallback(() => {
 		s(o).then((e) => {
 			if (e) {
@@ -186,22 +290,9 @@ function D(e) {
 		),
 	);
 }
-var N = require("./28592.js");
-var F = require("./10709.js");
-var G = require("./34394.js");
-var O = require("./96000.js");
-var P = require("./79421.js");
-var L = require("./33000.js");
-var z = require("./90985.js");
-var x = require(/*webcrack:missing*/ "./69164.js");
-var U = require("./23783.js");
-var W = require(/*webcrack:missing*/ "./50376.js");
-var V = require("./67189.js");
-var H = V;
-var j = require("./46424.js");
-var q = require("./96680.js");
+const H = V;
 function Q(e) {
-	const t = (0, T.q3)(() => z.l.playbackState);
+	const t = q3(() => z.l.playbackState);
 	const [r, n] = B.useState(false);
 	return B.createElement(
 		x.Z,
@@ -233,7 +324,7 @@ const Z = 600;
 const Y = 500;
 function K(e) {
 	const [t, r] = B.useState();
-	const n = nv((0, q.$2)(), Z, Y);
+	const n = nv($2(), Z, Y);
 	return B.createElement(
 		S.rG,
 		{
@@ -255,7 +346,7 @@ function K(e) {
 	);
 }
 function X(e) {
-	const t = (0, p.Co)(e.appid);
+	const t = Co(e.appid);
 	return B.createElement(
 		"div",
 		{
@@ -279,7 +370,7 @@ function X(e) {
 	);
 }
 function J(e) {
-	const t = (0, T.q3)(() => O.md.GetCollection(O.A8.AppType_Soundtracks));
+	const t = q3(() => O.md.GetCollection(O.A8.AppType_Soundtracks));
 	let r = B.useRef(undefined);
 	const [n, i] = B.useState(true);
 	let a = t.visibleApps.filter((e) => !n || e.installed);
@@ -289,7 +380,7 @@ function J(e) {
 			className: H.OuterContainer,
 			scrollClassName: H.ContainerScroll,
 			innerRef: r,
-			strRememberScrollKey: "overlay-collection-" + t.id,
+			strRememberScrollKey: `overlay-collection-${t.id}`,
 		},
 		B.createElement(
 			"div",
@@ -312,9 +403,6 @@ function J(e) {
 		),
 	);
 }
-var $ = require("./32836.js");
-var ee = require("./69913.js");
-var te = require("./10606.js");
 function re(e) {
 	const { app: t, onClose: r } = e;
 	const [n, i] = B.useState(B.createElement(B.Fragment, null, "\xA0"));
@@ -329,7 +417,7 @@ function re(e) {
 		},
 		[r],
 	);
-	const l = (0, ee.vx)(t.appid, a, r, o);
+	const l = vx(t.appid, a, r, o);
 	const c = B.useCallback(() => {
 		l.mutate();
 	}, [l]);
@@ -373,77 +461,21 @@ function re(e) {
 		),
 	);
 }
-var ne = require("./52177.js");
-var ie = require("./48197.js");
-var ae = require("./37086.js");
-var se = require(/*webcrack:missing*/ "./78325.js");
-var oe = require(/*webcrack:missing*/ "./49519.js");
-var le = require("./56654.js");
-var ce = require(/*webcrack:missing*/ "./44846.js");
-var me = require(/*webcrack:missing*/ "./85243.js");
-var ue = require(/*webcrack:missing*/ "./31084.js");
-var de = require(/*webcrack:missing*/ "./11131.js");
-var Ae = require("./73259.js");
-var pe = require("./45264.js");
-var ge = require(/*webcrack:missing*/ "./3524.js");
-var he = require(/*webcrack:missing*/ "./92251.js");
-var Ce = require(/*webcrack:missing*/ "./8573.js");
-var _e = require(/*webcrack:missing*/ "./736.js");
-var fe = require(/*webcrack:missing*/ "./88750.js");
-var be = require(/*webcrack:missing*/ "./42318.js");
-var ye = require("./35488.js");
-var Se = require(/*webcrack:missing*/ "./91435.js");
-var we = require("./13869.js");
-var Be = require(/*webcrack:missing*/ "./27773.js");
-var ve = require(/*webcrack:missing*/ "./98995.js");
-var Ie = require(/*webcrack:missing*/ "./90765.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import {
-	LocalizeTimeSince,
-	ETimeSinceSuffix,
-} from "../../actual_src/utils/localization/datetime.js";
-var Te = require("./34428.js");
-var Re = require(/*webcrack:missing*/ "./52451.js");
-import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
-var De = require("./78055.js");
-var Ne = require("./32792.js");
-var Fe = require("./5808.js");
-var Ge = require("./56262.js");
-var Oe = require("./13200.js");
-var Pe = require("./43873.js");
-var Le = require("./84108.js");
-var ze = require("./39054.js");
-var xe = require("./78721.js");
-var Ue = require("./2326.js");
-var We = require("./36464.js");
-var Ve = require("./80254.js");
-var He = require(/*webcrack:missing*/ "./61416.js");
-var je = require("./81546.js");
-var qe = require("./32179.js");
-var Qe = require("./57665.js");
-var Ze = require("./66732.js");
-var Ye = require("./3200.js");
-var Ke = require(/*webcrack:missing*/ "./79671.js");
-var Xe = require("./13484.js");
-var Je = require(/*webcrack:missing*/ "./43691.js");
-var $e = require("./39002.js");
-var et = require("./3499.js");
-var tt = require("./67429.js");
 function rt() {
-	const e = (0, q.$2)();
-	return (0, T.q3)(() => e.DesktopOverlay.time_session_start);
+	const e = $2();
+	return q3(() => e.DesktopOverlay.time_session_start);
 }
 function nt(e) {
 	const { title: t, icon: r, onClick: n, bContainChildren: i, children: a } = e;
 	return B.createElement(
 		"div",
 		{
-			className: (0, Ie.A)(w.GameOverviewSection, i && w.HasBackground),
+			className: A_2(w.GameOverviewSection, i && w.HasBackground),
 		},
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(w.GameOverviewSectionHeader, n && w.Clickable),
+				className: A_2(w.GameOverviewSectionHeader, n && w.Clickable),
 				onClick: n,
 			},
 			B.createElement(
@@ -462,10 +494,7 @@ function nt(e) {
 			B.createElement(
 				"div",
 				{
-					className: (0, Ie.A)(
-						w.GameOverviewSectionChildren,
-						i && w.ContainChildren,
-					),
+					className: A_2(w.GameOverviewSectionChildren, i && w.ContainChildren),
 				},
 				a,
 			),
@@ -473,8 +502,8 @@ function nt(e) {
 }
 function it(e) {
 	const { title: t, friends: r } = e;
-	const n = (0, q.$2)().DesktopOverlay;
-	const i = (0, a.DJ)();
+	const n = $2().DesktopOverlay;
+	const i = DJ();
 	const s = B.useCallback(() => {
 		n.SetWindowVisibility(ee.w9.FriendsList, ee.tc.Closed);
 	}, [n]);
@@ -517,7 +546,7 @@ function it(e) {
 }
 function at(e) {
 	const { appid: t } = e;
-	const r = (0, Ue.$0)(t);
+	const r = $0(t);
 	return B.createElement(
 		B.Fragment,
 		null,
@@ -530,7 +559,7 @@ function at(e) {
 }
 function st(e) {
 	const { appid: t } = e;
-	const r = (0, Ue.oG)(t);
+	const r = oG(t);
 	return B.createElement(
 		B.Fragment,
 		null,
@@ -543,13 +572,18 @@ function st(e) {
 }
 function ot(e) {
 	const { title: t, appid: r, useGuidesQuery: n } = e;
-	const i = (0, q.$2)().DesktopOverlay;
-	const s = (0, a.DJ)();
+	const i = $2().DesktopOverlay;
+	const s = DJ();
 	let o = n(r, 1, 3);
 	const l = B.useCallback(() => {
 		i.SetWindowVisibility(ee.w9.Guides, ee.tc.Visible);
 	}, [i]);
-	if (o.isLoading || !o.data || o.data.publishedfiledetails.length == 0) {
+	if (
+		o.isLoading ||
+		!o.data ||
+		!o.data ||
+		o.data.publishedfiledetails.length == 0
+	) {
 		return null;
 	} else {
 		return B.createElement(
@@ -615,7 +649,7 @@ function ct(e) {
 }
 function mt(e) {
 	const { screenshot: t } = e;
-	const r = (0, q.$2)().DesktopOverlay;
+	const r = $2().DesktopOverlay;
 	const n = B.useCallback(() => {
 		r.SetWindowVisibility(ee.w9.Screenshots, ee.tc.Visible);
 	}, [r]);
@@ -632,13 +666,13 @@ function mt(e) {
 }
 function ut(e) {
 	const { appid: t } = e;
-	const r = (0, q.$2)().DesktopOverlay;
+	const r = $2().DesktopOverlay;
 	const n = rt();
-	const { bLoadingInitialData: i, rgMedia: a } = (0, et.MZ)(
+	const { bLoadingInitialData: i, rgMedia: a } = MZ(
 		{
 			listSource: {
 				type: "app",
-				gameid: (0, tt.bY)(t),
+				gameid: bY(t),
 			},
 			mediaType: "screenshot",
 			uploadStatus: "all",
@@ -681,8 +715,8 @@ function ut(e) {
 }
 function dt(e) {
 	const { achievement: t } = e;
-	const r = (0, Qe.Qv)(t.bAchieved, t.flAchieved);
-	const n = (0, q.$2)().DesktopOverlay;
+	const r = Qv(t.bAchieved, t.flAchieved);
+	const n = $2().DesktopOverlay;
 	const i = B.useCallback(() => {
 		n.SetWindowVisibility(ee.w9.Achievements, ee.tc.Visible);
 	}, [n]);
@@ -737,9 +771,9 @@ function dt(e) {
 }
 function At(e) {
 	const { appid: t } = e;
-	const r = (0, q.$2)().DesktopOverlay;
+	const r = $2().DesktopOverlay;
 	const n = rt();
-	const i = (0, qe.ex)(t);
+	const i = ex(t);
 	const a = B.useCallback(() => {
 		r.SetWindowVisibility(ee.w9.Achievements, ee.tc.Visible);
 	}, [r]);
@@ -779,14 +813,10 @@ function At(e) {
 	);
 }
 function pt(e) {
-	const t = (0, q.$2)().DesktopOverlay;
-	let [r, n] = (0, ee.B$)(t);
-	const i = (0, Ve.l)(r, "#AppOverlay_GameOverview_TotalPlaytime_", true);
-	const a = (0, Ve.l)(
-		n,
-		"#AppOverlay_GameOverview_LastTwoWeeksPlaytime_",
-		true,
-	);
+	const t = $2().DesktopOverlay;
+	let [r, n] = B$(t);
+	const i = l_2(r, "#AppOverlay_GameOverview_TotalPlaytime_", true);
+	const a = l_2(n, "#AppOverlay_GameOverview_LastTwoWeeksPlaytime_", true);
 	return B.createElement(
 		nt,
 		{
@@ -806,8 +836,8 @@ function pt(e) {
 }
 function gt(e) {
 	const { eventModel: t } = e;
-	const r = (0, ce.sf)(Je.TS.LANGUAGE);
-	const n = (0, a.DJ)();
+	const r = sf(Je.TS.LANGUAGE);
+	const n = DJ();
 	const i = B.useCallback(() => {
 		n.SteamWeb(
 			y.B7.ResolveURL("EventAnnouncementPage", t.appid, t.AnnouncementGID),
@@ -837,25 +867,24 @@ function gt(e) {
 }
 function ht(e) {
 	const { appid: t } = e;
-	const r = (function (e) {
-		return (0, He.I)({
+	const r = ((e) =>
+		I({
 			queryKey: [`GameOverviewNews${e}`],
 			queryFn: async () => {
 				Xe.O3.Init();
 				return await Xe.O3.LoadAdjacentPartnerEvents(null, null, e, 0, 3);
 			},
 			staleTime: Seconds.PerDay * 1 * 1000,
-		});
-	})(t);
+		}))(t);
 	const n = rt() - 2592000;
-	const i = (0, a.DJ)();
+	const i = DJ();
 	const s = B.useCallback(
 		(e) => {
 			i.SteamWeb(y.B7.ResolveURL("GameHubNews", t));
 		},
 		[t, i],
 	);
-	if (r.isLoading || r.isError || !r.data) {
+	if (r.isLoading || r.isError || r.isError || !r.data) {
 		return null;
 	}
 	if (r.data.filter((e) => e.GetPostTimeAndDateUnixSeconds() > n).length == 0) {
@@ -879,8 +908,8 @@ function ht(e) {
 }
 function Ct(e) {
 	const { appid: t } = e;
-	const r = (0, q.$2)().DesktopOverlay;
-	const n = (function () {
+	const r = $2().DesktopOverlay;
+	const n = (() => {
 		const [e, t] = B.useState();
 		B.useEffect(() => {
 			let e = () => {
@@ -896,7 +925,7 @@ function Ct(e) {
 		}, []);
 		return e;
 	})();
-	const i = (0, a.DJ)();
+	const i = DJ();
 	const s = B.useCallback(() => {
 		r.SetWindowVisibility(ee.w9.Players, ee.tc.Visible);
 	}, [r]);
@@ -951,16 +980,16 @@ function Ct(e) {
 		),
 	);
 }
-const _t = (0, be.Nr)((e) => {
+const _t = Nr_2((e) => {
 	const { appid: t } = e;
-	const r = (0, q.$2)();
+	const r = $2();
 	const n = r.DesktopOverlay;
 	const i = ee.w9.GameOverview;
-	const a = (0, T.q3)(() => n.BWindowVisible(i));
+	const a = q3(() => n.BWindowVisible(i));
 	const [s, o] = B.useState();
 	const l = ty(i);
-	const c = (0, Re.Ue)(o, l);
-	const m = (0, T.q3)(() => n.game_overview_sections);
+	const c = Ue_2(o, l);
+	const m = q3(() => n.game_overview_sections);
 	const u = nv(r, 350, 475, 250, 300);
 	const d = B.useCallback(() => {
 		n.SetWindowVisibility(i, ee.tc.Closed);
@@ -970,7 +999,7 @@ const _t = (0, be.Nr)((e) => {
 			if (!e.destination) {
 				return;
 			}
-			let r = (0, $e.Yb)(m, e.source.index, e.destination.index);
+			let r = Yb(m, e.source.index, e.destination.index);
 			n.SetSortedGameOverviewSections(r);
 		},
 		[n, m],
@@ -1008,7 +1037,7 @@ const _t = (0, be.Nr)((e) => {
 							B.createElement(
 								"div",
 								{
-									className: (0, Ie.A)(
+									className: A_2(
 										w.GameOverview,
 										r.isDraggingOver && w.IsDraggingOver,
 									),
@@ -1018,48 +1047,57 @@ const _t = (0, be.Nr)((e) => {
 								m.map((e, r) => {
 									let n = null;
 									switch (e) {
-										case ee.GO.Playtime:
+										case ee.GO.Playtime: {
 											n = B.createElement(pt, null);
 											break;
-										case ee.GO.FriendsInGame:
+										}
+										case ee.GO.FriendsInGame: {
 											n = B.createElement(at, {
 												appid: t,
 											});
 											break;
-										case ee.GO.FriendsRecentlyPlayed:
+										}
+										case ee.GO.FriendsRecentlyPlayed: {
 											n = B.createElement(st, {
 												appid: t,
 											});
 											break;
-										case ee.GO.Achievements:
+										}
+										case ee.GO.Achievements: {
 											n = B.createElement(At, {
 												appid: t,
 											});
 											break;
-										case ee.GO.Screenshots:
+										}
+										case ee.GO.Screenshots: {
 											n = B.createElement(ut, {
 												appid: t,
 											});
 											break;
-										case ee.GO.FavoriteGuides:
+										}
+										case ee.GO.FavoriteGuides: {
 											n = B.createElement(lt, {
 												appid: t,
 											});
 											break;
-										case ee.GO.TopGuides:
+										}
+										case ee.GO.TopGuides: {
 											n = B.createElement(ct, {
 												appid: t,
 											});
 											break;
-										case ee.GO.News:
+										}
+										case ee.GO.News: {
 											n = B.createElement(ht, {
 												appid: t,
 											});
 											break;
-										case ee.GO.Players:
+										}
+										case ee.GO.Players: {
 											n = B.createElement(Ct, {
 												appid: t,
 											});
+										}
 									}
 									return B.createElement(
 										Ke.sx,
@@ -1072,11 +1110,11 @@ const _t = (0, be.Nr)((e) => {
 											B.createElement(
 												"div",
 												{
-													className: (0, Ie.A)(t.isDragging && w.IsDragging),
+													className: A_2(t.isDragging && w.IsDragging),
 													ref: e.innerRef,
 													...e.draggableProps,
 													...e.dragHandleProps,
-													style: (0, $e.gQ)(e.draggableProps.style),
+													style: gQ(e.draggableProps.style),
 												},
 												n,
 											),
@@ -1091,9 +1129,6 @@ const _t = (0, be.Nr)((e) => {
 		return null;
 	}
 });
-var ft = require("./26105.js");
-var bt = require("./60917.js");
-var yt = require(/*webcrack:missing*/ "./79769.js");
 const St = 86400;
 function wt(e) {
 	const {
@@ -1118,12 +1153,12 @@ function wt(e) {
 	return B.createElement(
 		"div",
 		{
-			className: (0, Ie.A)(ft.OverlayClock, n && ft.Flipped),
+			className: A_2(ft.OverlayClock, n && ft.Flipped),
 		},
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(ft.Tabs, r && ft.Hidden),
+				className: A_2(ft.Tabs, r && ft.Hidden),
 			},
 			B.createElement(
 				v.zW,
@@ -1166,7 +1201,7 @@ function Bt(e) {
 	const { bShowPinnedView: t, flipped: r, settings: n, setSettings: i } = e;
 	const [a, s] = B.useState(false);
 	const [o, c] = B.useState(1000);
-	const m = (function (e) {
+	const m = ((e) => {
 		const [t, r] = B.useState(new Date());
 		B.useEffect(() => {
 			let t = window.setTimeout(() => r(new Date()), e);
@@ -1182,7 +1217,7 @@ function Bt(e) {
 		},
 		[a],
 	);
-	const d = (0, l.hj)();
+	const d = hj();
 	const A = n?.nClockFontSize ?? 48;
 	const p = B.useRef(undefined);
 	B.useEffect(() => {
@@ -1200,13 +1235,13 @@ function Bt(e) {
 	return B.createElement(
 		"div",
 		{
-			className: (0, Ie.A)(ft.TabClock, r && ft.Flipped),
+			className: A_2(ft.TabClock, r && ft.Flipped),
 			onDoubleClick: u,
 		},
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(ft.ResizeTextContainer, t && ft.Hidden),
+				className: A_2(ft.ResizeTextContainer, t && ft.Hidden),
 			},
 			B.createElement(
 				v.JU,
@@ -1227,7 +1262,7 @@ function Bt(e) {
 			B.createElement(
 				"div",
 				{
-					className: (0, Ie.A)(ft.ResizeTextContainer, t && ft.Hidden),
+					className: A_2(ft.ResizeTextContainer, t && ft.Hidden),
 				},
 				B.createElement(
 					v.JU,
@@ -1261,12 +1296,12 @@ function Bt(e) {
 }
 function vt(e) {
 	const { bShowPinnedView: t, timerStore: r } = e;
-	(0, Re.dh)(r.EventsChanged());
+	dh(r.EventsChanged());
 	return B.createElement(
 		x.Z,
 		{
 			retainFocus: true,
-			className: (0, Ie.A)(ft.TabTimer),
+			className: A_2(ft.TabTimer),
 		},
 		B.createElement(It, {
 			timerStore: r,
@@ -1275,12 +1310,12 @@ function vt(e) {
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(ft.ControlButtons, t && ft.Hidden),
+				className: A_2(ft.ControlButtons, t && ft.Hidden),
 			},
 			B.createElement(
 				v.$n,
 				{
-					className: (0, Ie.A)(ft.Repeat, r.Repeat() && ft.Active),
+					className: A_2(ft.Repeat, r.Repeat() && ft.Active),
 					onClick: () => r.SetRepeat(!r.Repeat()),
 				},
 				B.createElement(
@@ -1319,7 +1354,7 @@ function vt(e) {
 				B.createElement(
 					v.$n,
 					{
-						className: (0, Ie.A)(ft.StartStop, "Primary"),
+						className: A_2(ft.StartStop, "Primary"),
 						onClick: () => r.SetPauseTime(Date.now()),
 					},
 					B.createElement(
@@ -1335,7 +1370,7 @@ function vt(e) {
 				B.createElement(
 					v.$n,
 					{
-						className: (0, Ie.A)(ft.StartStop, "Primary"),
+						className: A_2(ft.StartStop, "Primary"),
 						onClick: () => {
 							if (r.PauseTime()) {
 								const e = Date.now() - r.PauseTime();
@@ -1413,7 +1448,7 @@ function It(e) {
 			B.createElement(
 				"span",
 				{
-					className: (0, Ie.A)(ft.TimePartLabel, r && ft.Hidden),
+					className: A_2(ft.TimePartLabel, r && ft.Hidden),
 				},
 				"\xA0",
 			),
@@ -1488,7 +1523,7 @@ function It(e) {
 		return B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(ft.Remaining, ft.AllowDrag),
+				className: A_2(ft.Remaining, ft.AllowDrag),
 			},
 			d.map((e, n) =>
 				B.createElement(
@@ -1505,10 +1540,7 @@ function It(e) {
 						B.createElement(
 							"span",
 							{
-								className: (0, Ie.A)(
-									ft.TimePart,
-									(t.BRunning() || r) && ft.Running,
-								),
+								className: A_2(ft.TimePart, (t.BRunning() || r) && ft.Running),
 								onClick: () => {
 									e = n;
 									if (!t.BRunning()) {
@@ -1524,7 +1556,7 @@ function It(e) {
 						B.createElement(
 							"span",
 							{
-								className: (0, Ie.A)(ft.TimePartLabel, r && ft.Hidden),
+								className: A_2(ft.TimePartLabel, r && ft.Hidden),
 							},
 							p[n],
 						),
@@ -1642,17 +1674,13 @@ class Et {
 		return this.m_nDuration;
 	}
 }
-var Mt = require("./63538.js");
-var Tt = require("./27897.js");
-var Rt = Tt;
-var kt = require("./9252.js");
-var Dt = require(/*webcrack:missing*/ "./63439.js");
+const Rt = Tt;
 const Nt = 1000;
 const Ft = 5;
 function Gt(e) {
 	const { appid: t } = e;
-	const r = (0, q.$2)();
-	const [n, i] = (0, ee.Mb)(r.DesktopOverlay);
+	const r = $2();
+	const [n, i] = Mb(r.DesktopOverlay);
 	if (n) {
 		return B.createElement(Ot, {
 			appid: t,
@@ -1665,11 +1693,11 @@ function Gt(e) {
 }
 function Ot(e) {
 	const { appid: t, instance: r, onClear: n } = e;
-	const i = (0, kt.hi)(true);
+	const i = hi(true);
 	let a = i.m_full.m_nWidth;
 	let s = i.m_full.m_nHeight;
 	let o = `durationcontrolinit_uid${t}`;
-	const { popup: l, element: c } = (0, Dt.OJ)(o, {
+	const { popup: l, element: c } = OJ(o, {
 		title: o,
 		dimensions: {
 			width: a,
@@ -1681,12 +1709,12 @@ function Ot(e) {
 		eCreationFlags:
 			de.Wf.Composited |
 			de.Wf.Hidden |
-			(0, de.yq)(de.Dr.Notification) |
+			yq(de.Dr.Notification) |
 			de.Wf.ApplyBrowserScaleToDimensions |
 			de.Wf.AlwaysOnTop,
 	});
-	const m = (function (e, t, r, n) {
-		return B.useCallback(
+	const m = ((e, t, r, n) =>
+		B.useCallback(
 			(i) => {
 				if (!e) {
 					return;
@@ -1700,10 +1728,9 @@ function Ot(e) {
 				e.SteamClient.Window.ShowWindow();
 			},
 			[e, t, r, n],
-		);
-	})(l, a, s, i.m_flDPI);
-	const u = (0, Re.wY)(m);
-	(function (e, t, r) {
+		))(l, a, s, i.m_flDPI);
+	const u = wY(m);
+	((e, t, r) => {
 		let n = B.useRef(r);
 		let i = B.useRef(t);
 		B.useEffect(() => {
@@ -1744,18 +1771,15 @@ function Ot(e) {
 		c,
 	);
 }
-var Pt = require("./66127.js");
-var Lt = require(/*webcrack:missing*/ "./89193.js");
-var zt = require(/*webcrack:missing*/ "./72476.js");
-let xt = (0, Lt.sH)({
+let xt = sH({
 	map: null,
 });
 let Ut = false;
 function Wt() {
-	return (0, T.q3)(
+	return q3(
 		() =>
 			!!xt.map ||
-			((async function () {
+			((async () => {
 				if (Ut) {
 					return;
 				}
@@ -1835,7 +1859,7 @@ function jt(e, t) {
 		return a;
 	}
 	let s = r.partner_desc;
-	if (r.partner_desc.toLowerCase().indexOf(i.toLowerCase()) < 0) {
+	if (!r.partner_desc.toLowerCase().includes(i.toLowerCase())) {
 		s += ` (${a})`;
 	} else if (n.length > 1 && !t) {
 		s += " (";
@@ -1851,11 +1875,11 @@ function jt(e, t) {
 }
 function qt(e) {
 	const t = e.loc || e.popid;
-	const r = (function (e) {
+	const r = ((e) => {
 		Wt();
 		return Vt(e);
 	})(t);
-	const n = (function (e) {
+	const n = ((e) => {
 		if (e) {
 			if (typeof e != "string") {
 				e = e.popid;
@@ -1868,13 +1892,13 @@ function qt(e) {
 	let i;
 	let a;
 	if (r) {
-		i = n + ": " + r.partner_name + " " + jt(r, false);
+		i = `${n}: ${r.partner_name} ${jt(r, false)}`;
 		a =
 			e.detail == "city_only"
 				? Ht(r)
 				: e.detail == "partner_brief"
 					? jt(r, true)
-					: r.partner_name + " " + jt(r, true);
+					: `${r.partner_name} ${jt(r, true)}`;
 	} else {
 		a = n;
 	}
@@ -1882,13 +1906,13 @@ function qt(e) {
 		"span",
 		{
 			title: i,
-			className: (0, Ie.A)(e.className, w.SDRPOPID),
+			className: A_2(e.className, w.SDRPOPID),
 		},
 		a,
 	);
 }
-var Qt;
-(function (e) {
+let Qt;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Connecting = 1)] = "Connecting";
 	e[(e.FindingRoute = 2)] = "FindingRoute";
@@ -2034,7 +2058,7 @@ function Yt(e) {
 				B.createElement(
 					"span",
 					{
-						className: (0, Ie.A)(w.PingMS, p),
+						className: A_2(w.PingMS, p),
 						title: (0, Localize)("#OverlayNetworkStatus_PingTooltip"),
 					},
 					(0, Localize)("#OverlayNetworkStatus_Ping", h),
@@ -2042,7 +2066,7 @@ function Yt(e) {
 				B.createElement(
 					"span",
 					{
-						className: (0, Ie.A)(w.Loss, g),
+						className: A_2(w.Loss, g),
 						title: (0, Localize)("#OverlayNetworkStatus_LossTooltip"),
 					},
 					C,
@@ -2099,7 +2123,7 @@ function Kt(e) {
 		Pt.yC.Get().BeginAppSummaryUpdates(t);
 		return () => Pt.yC.Get().EndAppSummaryUpdates(t);
 	}, [t]);
-	let r = (0, Pt.$A)(t);
+	let r = $A(t);
 	if (r) {
 		return B.createElement(Yt, {
 			summary: r,
@@ -2108,16 +2132,10 @@ function Kt(e) {
 		return null;
 	}
 }
-var Xt = require(/*webcrack:missing*/ "./29285.js");
-var Jt = require("./85438.js");
-var $t = require("./18869.js");
-var er = require("./54747.js");
-var tr = require("./91306.js");
-var rr = require("./5482.js");
 function nr(e) {
 	const { appid: t } = e;
-	const r = (0, h.OU)(t);
-	const { ownerWindow: n } = (0, de.R7)();
+	const r = OU(t);
+	const { ownerWindow: n } = R7();
 	return B.createElement(
 		"div",
 		{
@@ -2193,9 +2211,7 @@ function nr(e) {
 		),
 	);
 }
-var ir = require("./25014.js");
-var ar = ir;
-var sr = require("./6263.js");
+const ar = ir;
 function or(e) {
 	const { nWarningSeconds: t = 300, className: r, ...n } = e;
 	const [i, a] = B.useState(0);
@@ -2223,7 +2239,7 @@ function or(e) {
 	const p = B.useCallback(() => {
 		o(false);
 	}, []);
-	(0, Re.$$)(
+	$$(
 		() => {
 			a((e) => e - 1);
 		},
@@ -2236,7 +2252,7 @@ function or(e) {
 			x.Z,
 			{
 				onActivate: A,
-				className: (0, Ie.A)(ar.ParentalPlaytime, r, i <= t && ar.Warning),
+				className: A_2(ar.ParentalPlaytime, r, i <= t && ar.Warning),
 				...n,
 			},
 			(0, Localize)("#Parental_PlaytimeRemaining", u),
@@ -2259,23 +2275,13 @@ function or(e) {
 		return null;
 	}
 }
-var lr = require(/*webcrack:missing*/ "./90685.js");
-var cr = require("./14982.js");
-var mr = require("./44216.js");
-var ur = require("./4069.js");
-var dr = require("./36813.js");
-var Ar = require("./18914.js");
-var pr = require("./33572.js");
-var gr = require("./13442.js");
-var hr = require("./72636.js");
-var Cr = require("./60353.js");
 const _r = B.lazy(() => require.e(7462).then(require.bind(require, 44216)));
 function fr() {
-	return (0, q.$2)().DesktopOverlay;
+	return $2().DesktopOverlay;
 }
 function br(e) {
 	const { children: t } = e;
-	(function () {
+	(() => {
 		const e = fr();
 		B.useEffect(() => {
 			e.EnterMinimalMode();
@@ -2287,7 +2293,7 @@ function br(e) {
 function yr(e) {
 	const { children: t } = e;
 	const r = fr();
-	if ((0, T.q3)(() => r.minimal_mode)) {
+	if (q3(() => r.minimal_mode)) {
 		return null;
 	} else {
 		return B.createElement(B.Fragment, null, t);
@@ -2295,13 +2301,13 @@ function yr(e) {
 }
 export function $i(e) {
 	const { gameid: t, width: r, height: n } = e;
-	const i = (0, q.$2)();
-	const a = (function () {
-		const e = (0, q.$2)();
-		return (0, T.q3)(() => e.DesktopOverlay.IsInitialized());
+	const i = $2();
+	const a = (() => {
+		const e = $2();
+		return q3(() => e.DesktopOverlay.IsInitialized());
 	})();
-	const s = (0, T.q3)(() => i.DesktopOverlay.preview_pinned_mode);
-	const o = (0, p._R)(t);
+	const s = q3(() => i.DesktopOverlay.preview_pinned_mode);
+	const o = _R(t);
 	B.useEffect(() => {
 		i.DesktopOverlay.Init();
 		return () => i.DesktopOverlay.Shutdown();
@@ -2318,7 +2324,7 @@ export function $i(e) {
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(w.Wrapper, s && w.PreviewPinnedView),
+				className: A_2(w.Wrapper, s && w.PreviewPinnedView),
 			},
 			B.createElement(
 				S.bj.Provider,
@@ -2398,60 +2404,69 @@ function wr(e) {
 		[e],
 	);
 }
-const Br = (0, be.Nr)((e) => {
+const Br = Nr_2((e) => {
 	const { appid: t } = e;
 	const r = wr(t);
-	const n = (0, u.r)(t);
+	const n = r(t);
 	if (n.length == 0) {
 		return null;
 	}
 	let i = n[0];
 	let a = null;
 	switch (i.strDialog) {
-		case "friendadd":
+		case "friendadd": {
 			a = B.createElement(s.eu, {
 				request: i,
 			});
 			break;
-		case "friendremove":
+		}
+		case "friendremove": {
 			a = B.createElement(s.Dy, {
 				request: i,
 			});
 			break;
-		case "friendrequestaccept":
+		}
+		case "friendrequestaccept": {
 			a = B.createElement(s.II, {
 				request: i,
 			});
 			break;
-		case "friendrequestignore":
+		}
+		case "friendrequestignore": {
 			a = B.createElement(s.C, {
 				request: i,
 			});
 			break;
-		case "lobbyinvite":
+		}
+		case "lobbyinvite": {
 			a = B.createElement(s.Id, {
 				request: i,
 			});
 			break;
-		case "remoteplaytogetherinvite":
+		}
+		case "remoteplaytogetherinvite": {
 			a = B.createElement(s.om, {
 				request: i,
 			});
 			break;
-		case "lobbyinviteconnectstring":
+		}
+		case "lobbyinviteconnectstring": {
 			a = B.createElement(s.fR, {
 				request: i,
 			});
 			break;
-		case "asyncnotificationsrequested":
+		}
+		case "asyncnotificationsrequested": {
 			a = B.createElement(s.fe, {
 				request: i,
 			});
 			break;
-		case "requestplaytime":
+		}
+		case "requestplaytime": {
 			a = B.createElement(s.SG, {
 				request: i,
 			});
+		}
 	}
 	if (a) {
 		return B.createElement(br, null, a);
@@ -2480,14 +2495,12 @@ const Br = (0, be.Nr)((e) => {
 		);
 	}
 });
-const vr = (0, be.Nr)((e) => {
+const vr = Nr_2((e) => {
 	const { appid: t } = e;
 	const r = fr();
-	const n = (0, T.q3)(() => r.overlay_active);
-	const i = (0, T.q3)(() => d.Mf.AppsWithTouchMenusEnabled.indexOf(t) == -1);
-	const a = (0, T.q3)(() =>
-		d.Mf.ActiveTouchMenus.some((e) => e.MenuState?.bActive),
-	);
+	const n = q3(() => r.overlay_active);
+	const i = q3(() => !d.Mf.AppsWithTouchMenusEnabled.includes(t));
+	const a = q3(() => d.Mf.ActiveTouchMenus.some((e) => e.MenuState?.bActive));
 	if (i || n) {
 		return null;
 	} else {
@@ -2497,21 +2510,21 @@ const vr = (0, be.Nr)((e) => {
 		});
 	}
 });
-const Ir = (0, be.Nr)((e) => {
+const Ir = Nr_2((e) => {
 	const { gameID: t } = e;
-	const r = (0, p._R)(t);
-	const i = (0, q.$2)().DesktopOverlay;
-	const a = (0, $t.br)();
-	const s = (0, ur.useBGameRecordingEnabledForGame)(t);
-	const [o] = (0, _.VI)("g_background_mode");
-	const l = (0, zt.Y2)() || o === 0;
-	let c = (0, Ie.A)(w.TopSectionMiddle, l && w.ShowGameLogo);
-	const [m, u] = (0, B.useState)();
+	const r = _R(t);
+	const i = $2().DesktopOverlay;
+	const a = br_2();
+	const s = useBGameRecordingEnabledForGame(t);
+	const [o] = VI("g_background_mode");
+	const l = Y2() || o === 0;
+	let c = A_2(w.TopSectionMiddle, l && w.ShowGameLogo);
+	const [m, u] = useState();
 	const d = B.useCallback((e) => {
 		u(e.contentRect.width * 0.8);
 	}, []);
-	const A = (0, Re.wY)(d);
-	(0, B.useEffect)(() => {
+	const A = wY(d);
+	useEffect(() => {
 		if (l) {
 			i.SetFnChangeTimelineExpansion(() => a.Settings("GameRecording"));
 		}
@@ -2537,7 +2550,7 @@ const Ir = (0, be.Nr)((e) => {
 					backgroundType: "transparent",
 				}),
 			!l &&
-				(0, ur.BGameRecordingFeatureEnabled)() &&
+				BGameRecordingFeatureEnabled() &&
 				s &&
 				B.createElement(cn, {
 					gameID: r.GetGameID(),
@@ -2560,8 +2573,8 @@ const Ir = (0, be.Nr)((e) => {
 });
 function Er(e) {
 	const { appid: t } = e;
-	const [r] = (0, _.VI)("overlay_key");
-	const n = (0, T.q3)(() => p.tw.GetAppOverviewByAppID(t));
+	const [r] = VI("overlay_key");
+	const n = q3(() => p.tw.GetAppOverviewByAppID(t));
 	const i = B.useCallback(() => {
 		SteamClient.Overlay.SetOverlayState(n.gameid, me.I5.Hidden);
 	}, [n]);
@@ -2587,7 +2600,7 @@ function Er(e) {
 				{
 					className: w.KBShortcut,
 				},
-				"(" + r?.display_name + ")",
+				`(${r?.display_name})`,
 			),
 		),
 		B.createElement(v.$n, {
@@ -2599,13 +2612,13 @@ function Er(e) {
 }
 function Mr(e) {
 	const { app: t } = e;
-	const r = (0, l.hj)();
-	const n = (function () {
-		const e = (0, l.j1)();
+	const r = hj();
+	const n = (() => {
+		const e = j1();
 		return LocalizeDateHumanReadable(e.getTime() / 1000);
 	})();
 	const i = fr();
-	const a = (0, T.q3)(() => i.time_session_start);
+	const a = q3(() => i.time_session_start);
 	const [s, o] = B.useState("");
 	const c = b.oy.BIsStreamingRemotePlayTogetherGame(t.appid)
 		? "#AppOverlay_StopStreaming"
@@ -2675,13 +2688,7 @@ function Mr(e) {
 			{
 				className: w.ExitGameBtn,
 				onClick: (e) => {
-					const r = (0, Fe.jy)(
-						"Stop",
-						t,
-						"selected",
-						100,
-						GetOwningWindowForEvent(e),
-					);
+					const r = jy("Stop", t, "selected", 100, GetOwningWindowForEvent(e));
 					if (r) {
 						r();
 					}
@@ -2693,7 +2700,7 @@ function Mr(e) {
 }
 function Tr(e) {
 	const t = fr();
-	const r = (0, ee.r2)(t);
+	const r = r2(t);
 	if (!r || r.unSecondsAllowed == 0) {
 		return null;
 	}
@@ -2726,7 +2733,7 @@ export function ty(e) {
 export function nv(e, t, r, n, i, a, s) {
 	return B.useCallback(
 		(o) => {
-			const l = (0, ee.wm)(e, t, r, n, i);
+			const l = wm(e, t, r, n, i);
 			const {
 				screenWidth: c,
 				screenHeight: m,
@@ -2843,7 +2850,7 @@ function Dr(e) {
 	const { windowType: t, onToggleOn: r, ...n } = e;
 	let i = B.useRef(undefined);
 	const a = fr();
-	const s = (0, T.q3)(() => a.BWindowVisible(t));
+	const s = q3(() => a.BWindowVisible(t));
 	const o = B.useCallback(() => {
 		if (a.ToggleWindowVisibility(t) && r) {
 			r();
@@ -2878,7 +2885,7 @@ function Dr(e) {
 }
 function Nr(e) {
 	const t = fr();
-	const r = (0, T.q3)(() => t.has_minimized_windows);
+	const r = q3(() => t.has_minimized_windows);
 	const n = B.useCallback(() => {
 		if (r) {
 			t.RestoreMinimizedWindows();
@@ -2904,7 +2911,7 @@ function Nr(e) {
 			B.createElement(
 				v.$n,
 				{
-					className: (0, Ie.A)(w.ToolbarButton),
+					className: A_2(w.ToolbarButton),
 					svgicon: () => s,
 					onClick: n,
 				},
@@ -2936,14 +2943,14 @@ function Nr(e) {
 				nDelayShowMS: 25,
 			},
 			B.createElement(v.$n, {
-				className: (0, Ie.A)(w.ToolbarButton),
+				className: A_2(w.ToolbarButton),
 				svgicon: () => s,
 				onClick: n,
 			}),
 		);
 	}
 }
-const Fr = B.forwardRef(function (e, t) {
+const Fr = B.forwardRef((e, t) => {
 	const {
 		windowType: r,
 		bToggled: n,
@@ -2955,12 +2962,12 @@ const Fr = B.forwardRef(function (e, t) {
 		hoveringContent: c,
 		pulse: m,
 	} = e;
-	const u = (0, Mt.f)(r);
-	const d = (0, C.hb)(u.parentalFeature);
+	const u = f_2(r);
+	const d = hb(u.parentalFeature);
 	const A = Hr();
-	const p = (0, B.useRef)(undefined);
-	const g = (0, Re.Ue)(p, t);
-	if (!(0, ee.uA)(r)) {
+	const p = useRef(undefined);
+	const g = Ue_2(p, t);
+	if (!uA(r)) {
 		return null;
 	}
 	const h =
@@ -2990,7 +2997,7 @@ const Fr = B.forwardRef(function (e, t) {
 			B.createElement(
 				v.$n,
 				{
-					className: (0, Ie.A)(w.ToolbarButton, l, n && w.Toggled),
+					className: A_2(w.ToolbarButton, l, n && w.Toggled),
 					svgicon: u.svgicon,
 					onClick: i,
 					disabled: o || d,
@@ -3024,7 +3031,7 @@ const Fr = B.forwardRef(function (e, t) {
 				nDelayShowMS: 25,
 			},
 			B.createElement(v.$n, {
-				className: (0, Ie.A)(w.ToolbarButton, l, n && w.Toggled),
+				className: A_2(w.ToolbarButton, l, n && w.Toggled),
 				svgicon: u.svgicon,
 				onClick: i,
 				disabled: o || d,
@@ -3036,7 +3043,7 @@ const Fr = B.forwardRef(function (e, t) {
 		);
 	}
 });
-const Gr = (0, be.Nr)(function (e) {
+const Gr = Nr_2((e) => {
 	const { appid: t, overview: r } = e;
 	return B.createElement(
 		B.Fragment,
@@ -3103,9 +3110,9 @@ const Gr = (0, be.Nr)(function (e) {
 		}),
 	);
 });
-const Or = (0, be.Nr)((e) => {
+const Or = Nr_2((e) => {
 	const { appid: t } = e;
-	const r = (0, m.tk)().length > 0;
+	const r = tk().length > 0;
 	return B.createElement(Fr, {
 		windowType: ee.w9.Controller,
 		onToggle: () => SteamClient.Apps.ShowControllerConfigurator(t),
@@ -3113,25 +3120,25 @@ const Or = (0, be.Nr)((e) => {
 		disabled: !r,
 	});
 });
-const Pr = (0, be.Nr)((e) => {
-	const t = (0, N.xj)("steam://open/settings/ingame");
+const Pr = Nr_2((e) => {
+	const t = xj("steam://open/settings/ingame");
 	return B.createElement(Fr, {
 		windowType: ee.w9.Settings,
 		onToggle: () => t(),
 		bToggled: false,
 	});
 });
-const Lr = (0, be.Nr)((e) => {
+const Lr = Nr_2((e) => {
 	const { app: t } = e;
 	const r = fr();
-	const n = (0, T.q3)(() => r.timeline_expanded);
+	const n = q3(() => r.timeline_expanded);
 	const i = B.useCallback(
 		() => r.ChangeTimelineExpansion(!r.timeline_expanded),
 		[r],
 	);
-	const { introStateQuery: a, markLinkDismissed: s } = (0, Jt.O)();
+	const { introStateQuery: a, markLinkDismissed: s } = O_2();
 	const o = a.data && !a.data.rtSeen && !a.data.rtLinkDismissed;
-	const l = (0, ur.useBGameRecordingEnabledForGame)(t.gameid);
+	const l = useBGameRecordingEnabledForGame(t.gameid);
 	return B.createElement(Fr, {
 		windowType: ee.w9.Timeline,
 		onToggle: i,
@@ -3146,7 +3153,7 @@ const Lr = (0, be.Nr)((e) => {
 });
 function zr(e) {
 	const { onDismiss: t } = e;
-	const r = (0, $t.br)();
+	const r = br_2();
 	return B.createElement(
 		xr,
 		{
@@ -3182,7 +3189,7 @@ function xr(e) {
 	return B.createElement(
 		"div",
 		{
-			className: (0, Ie.A)(w.TimelineHintContainer),
+			className: A_2(w.TimelineHintContainer),
 		},
 		B.createElement(
 			"div",
@@ -3233,25 +3240,25 @@ function Vr(e) {
 	);
 }
 function Hr() {
-	const [e] = (0, _.VI)("overlay_toolbar_list_view");
+	const [e] = VI("overlay_toolbar_list_view");
 	return e;
 }
-const jr = (0, be.Nr)((e) => {
+const jr = Nr_2((e) => {
 	const { appid: t } = e;
-	const r = (0, p.Co)(t);
-	const n = (0, A.T)(t);
-	const i = (function () {
-		const [e] = (0, _.VI)("overlay_toolbar_list_view");
+	const r = Co(t);
+	const n = T_2(t);
+	const i = (() => {
+		const [e] = VI("overlay_toolbar_list_view");
 		if (e) {
 			return w.LocationLeft;
 		} else {
 			return w.LocationBottom;
 		}
 	})();
-	const { rTabs: a } = (0, ee.W6)();
-	const s = !(0, Xt.q)();
-	const o = (0, q.$2)();
-	const l = (0, lr.SO)(o?.BrowserWindow);
+	const { rTabs: a } = W6();
+	const s = !q_2();
+	const o = $2();
+	const l = SO(o?.BrowserWindow);
 	return B.createElement(
 		"div",
 		{
@@ -3260,7 +3267,7 @@ const jr = (0, be.Nr)((e) => {
 		B.createElement(
 			"div",
 			{
-				className: (0, Ie.A)(w.ToolbarContainer, i),
+				className: A_2(w.ToolbarContainer, i),
 			},
 			s &&
 				B.createElement(
@@ -3308,7 +3315,7 @@ const jr = (0, be.Nr)((e) => {
 						}
 					}),
 					l > 900 &&
-						(0, ur.BGameRecordingFeatureEnabled)() &&
+						BGameRecordingFeatureEnabled() &&
 						B.createElement(Lr, {
 							app: r,
 						}),
@@ -3326,7 +3333,7 @@ const jr = (0, be.Nr)((e) => {
 });
 function qr(e) {
 	const { app: t, details: r, window: n, ...i } = e;
-	const a = (0, Mt.f)(n);
+	const a = f_2(n);
 	const s = a.buttonVisible?.(t, r) ?? true;
 	const o =
 		e.bDisabled !== undefined
@@ -3345,7 +3352,7 @@ function qr(e) {
 }
 function Qr(e) {
 	const t = fr();
-	const [r] = (0, _.VI)("web_browser_home");
+	const [r] = VI("web_browser_home");
 	return qr({
 		onToggleOn: B.useCallback(() => {
 			if (t.web_requests.length == 0) {
@@ -3368,8 +3375,8 @@ function Zr(e) {
 }
 function Yr(e) {
 	const t = fr();
-	const r = (0, T.q3)(() => t.m_bShowClipSavedHint);
-	const n = (0, N.xj)("steam://open/screenshots/" + e.app.appid);
+	const r = q3(() => t.m_bShowClipSavedHint);
+	const n = xj(`steam://open/screenshots/${e.app.appid}`);
 	if (e.windowWidth <= 900) {
 		return B.createElement(Fr, {
 			windowType: ee.w9.Screenshots,
@@ -3386,7 +3393,7 @@ function Yr(e) {
 }
 export function Tk(e) {
 	const { onRequestClose: t, onViewClip: r } = e;
-	const n = (0, Mt.f)(ee.w9.Screenshots).svgicon;
+	const n = f_2(ee.w9.Screenshots).svgicon;
 	return B.createElement(
 		xr,
 		{
@@ -3452,7 +3459,7 @@ function Xr(e) {
 	}
 }
 function Jr(e) {
-	const t = (0, h.OU)(e.app.appid);
+	const t = OU(e.app.appid);
 	if (t === undefined) {
 		return null;
 	} else {
@@ -3462,7 +3469,7 @@ function Jr(e) {
 		});
 	}
 }
-const $r = (0, be.Nr)((e) => {
+const $r = Nr_2((e) => {
 	const { appid: t } = e;
 	const [r, n] = B.useState(null);
 	const i = B.useRef(undefined);
@@ -3588,7 +3595,7 @@ const $r = (0, be.Nr)((e) => {
 	const h = B.useCallback(() => {
 		if (s.current.GetTransID() != ce.kF) {
 			if (a.current) {
-				(0, we.pg)(
+				pg(
 					B.createElement(te.o0, {
 						strTitle: (0, Localize)("#Overlay_MicroTxnCancelDlgTitle"),
 						strDescription: (0, Localize)("#Overlay_MicroTxnCancelDlgText"),
@@ -3653,7 +3660,7 @@ function en(e) {
 		bPinnable: a,
 	} = e;
 	const s = fr();
-	const o = (0, T.q3)(() => s.BWindowVisible(r));
+	const o = q3(() => s.BWindowVisible(r));
 	const l = ty(r);
 	const c = B.useCallback(() => {
 		s.SetWindowVisibility(r, ee.tc.Closed);
@@ -3690,10 +3697,10 @@ function tn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.Settings;
-	const i = (0, T.q3)(() => r.settings_page);
-	const a = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.settings_page);
+	const a = q3(() => r.BWindowVisible(n));
 	const s = ty(n);
-	const o = nv((0, q.$2)(), 850, 696);
+	const o = nv($2(), 850, 696);
 	const l = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
@@ -3703,7 +3710,7 @@ function tn(e) {
 			{
 				refPopup: s,
 				strName: "Settings",
-				className: (0, Ie.A)(w.SettingsModalRoot, w.NoTitlebarSpacer),
+				className: A_2(w.SettingsModalRoot, w.NoTitlebarSpacer),
 				bFitToContent: true,
 				updateParamsBeforeShow: o,
 				onClose: l,
@@ -3724,9 +3731,9 @@ function rn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.Broadcast;
-	const a = (0, S.aS)(1, 1);
-	const s = (0, f.iZ)();
-	const o = (0, i.bG)("SteamIDBroadcastPage", s.strSteamID);
+	const a = aS(1, 1);
+	const s = iZ();
+	const o = bG("SteamIDBroadcastPage", s.strSteamID);
 	const [l, c] = B.useState();
 	const m = l?.bIsBroadcasting || l?.nRequests > 0;
 	B.useEffect(() => {
@@ -3812,9 +3819,9 @@ function nn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.BroadcastChat;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
-	const a = nv((0, q.$2)(), 400, 150, 400, 150);
-	const s = (0, f.iZ)();
+	const i = q3(() => r.BWindowVisible(n));
+	const a = nv($2(), 400, 150, 400, 150);
+	const s = iZ();
 	const [o, l] = B.useState();
 	const c = o?.bIsBroadcasting;
 	B.useEffect(() => {
@@ -3858,11 +3865,11 @@ function an(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.BroadcastFirstTime;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
-	const a = (0, S.aS)(400, 450, 400, 450);
+	const i = q3(() => r.BWindowVisible(n));
+	const a = aS(400, 450, 400, 450);
 	const [s, o] = B.useState();
-	const l = (0, h.TT)(s);
-	const c = (0, p.Co)(e.appid);
+	const l = TT(s);
+	const c = Co(e.appid);
 	B.useEffect(() => {
 		const e = SteamClient.Messaging.RegisterForMessages(
 			"Broadcast",
@@ -3902,9 +3909,9 @@ function sn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.SoundtrackPlayer;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const a = ty(n);
-	const s = nv((0, q.$2)(), 278, 169);
+	const s = nv($2(), 278, 169);
 	const o = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
@@ -3930,13 +3937,13 @@ function on(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.Timer;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const a = ty(n);
-	const s = nv((0, q.$2)(), 304, 200);
+	const s = nv($2(), 304, 200);
 	const o = dn(n);
-	const l = (function (e) {
+	const l = ((e) => {
 		const t = fr();
-		const r = (0, T.q3)(() => t.BWindowFlipped(e));
+		const r = q3(() => t.BWindowFlipped(e));
 		const n = B.useCallback(() => {
 			t.SetWindowFlipped(e, !r);
 		}, [t, e, r]);
@@ -3948,7 +3955,7 @@ function on(e) {
 	const c = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
-	const m = (0, T.q3)(() => r.clock_settings);
+	const m = q3(() => r.clock_settings);
 	const u = B.useCallback((e) => r.SetClockSettings(e), [r]);
 	if (i) {
 		return B.createElement(
@@ -3980,9 +3987,9 @@ function ln(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.RemotePlayTogether;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const a = ty(n);
-	const s = nv((0, q.$2)(), 512, 834, 512, 420, 512, undefined);
+	const s = nv($2(), 512, 834, 512, 420, 512, undefined);
 	const o = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
@@ -4005,10 +4012,10 @@ function ln(e) {
 function cn(e) {
 	const { gameID: t, timelineWidth: r } = e;
 	const n = ty(ee.w9.Timeline);
-	const [i, a] = (0, B.useState)(null);
-	(0, mr.useHandleTimelineOverlayNotifications)(t);
-	const s = (0, q.$2)();
-	const o = (0, T.q3)(() => s.params);
+	const [i, a] = useState(null);
+	useHandleTimelineOverlayNotifications(t);
+	const s = $2();
+	const o = q3(() => s.params);
 	const l = o.nScreenWidth;
 	const c = o.nScreenHeight;
 	B.useEffect(() => {
@@ -4060,9 +4067,9 @@ function mn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.AIContentReport;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
-	const a = (0, S.aS)(400, 450, 400, 450);
-	const s = (0, p.Co)(e.appid);
+	const i = q3(() => r.BWindowVisible(n));
+	const a = aS(400, 450, 400, 450);
+	const s = Co(e.appid);
 	const o = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
@@ -4086,16 +4093,16 @@ function mn(e) {
 }
 function un(e) {
 	const { appid: t } = e;
-	const r = (0, A.T)(t);
-	const n = (0, T.q3)(() => r && A.H.GetAchievements(t));
+	const r = T_2(t);
+	const n = q3(() => r && A.H.GetAchievements(t));
 	const i = n && n.nTotal > 0;
 	const a = fr();
 	const s = ee.w9.Achievements;
-	const o = (0, T.q3)(() => a.BWindowVisible(s));
+	const o = q3(() => a.BWindowVisible(s));
 	const l = ty(s);
-	const c = nv((0, q.$2)(), 560, 500, 300, 100);
+	const c = nv($2(), 560, 500, 300, 100);
 	const m = dn(s);
-	const u = (0, T.q3)(() => a.GetPinnedWindowData(s));
+	const u = q3(() => a.GetPinnedWindowData(s));
 	const d = B.useCallback(() => {
 		a.SetWindowVisibility(s, ee.tc.Closed);
 	}, [s, a]);
@@ -4132,13 +4139,13 @@ function un(e) {
 function dn(e) {
 	const t = fr();
 	let r = B.useRef(undefined);
-	const n = (0, T.q3)(() => t.BWindowPinned(e));
-	const i = (0, T.q3)(() => t.GetPinnedWindowOpacity(e));
-	const a = (0, T.q3)(() => t.overlay_active);
-	const s = (0, T.q3)(() => t.preview_pinned_mode) || !a;
+	const n = q3(() => t.BWindowPinned(e));
+	const i = q3(() => t.GetPinnedWindowOpacity(e));
+	const a = q3(() => t.overlay_active);
+	const s = q3(() => t.preview_pinned_mode) || !a;
 	const o = B.useCallback(() => {
 		if (r.current) {
-			if ((0, _e.Fj)(r.current, "Overlay.SetWindowAlpha")) {
+			if (Fj(r.current, "Overlay.SetWindowAlpha")) {
 				if (s) {
 					r.current.SteamClient.Overlay.SetWindowAlpha(i);
 				} else {
@@ -4201,7 +4208,7 @@ function dn(e) {
 					),
 				),
 			);
-			(0, ue.lX)(a, r, {
+			lX(a, r, {
 				bForcePopup: true,
 			}).SetOnHideCallback(i);
 		},
@@ -4221,13 +4228,13 @@ function pn(e) {
 	const { overview: t } = e;
 	const r = fr();
 	const n = ee.w9.Notes;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const s = ty(n);
-	const o = (0, q.$2)();
+	const o = $2();
 	const l = nv(o, 600, 500, 250, 255);
-	const c = (0, a.DJ)();
-	const m = (function () {
-		let e = (0, A.T)(ce.oe);
+	const c = DJ();
+	const m = (() => {
+		let e = T_2(ce.oe);
 		return e?.eCloudStatus ?? 2;
 	})();
 	const u = B.useCallback(() => {
@@ -4242,9 +4249,9 @@ function pn(e) {
 	const p = B.useCallback(
 		(e) => {
 			SteamClient.GameNotes.ResolveSyncConflicts(e).then((e) => {
-				if (e === 1);
-				else {
-					(0, we.pg)(
+				if (e === 1) {
+				} else {
+					pg(
 						B.createElement(te.KG, {
 							strTitle: (0, Localize)(
 								"#AppOverlay_GameNotes_CloudSync_Error_Title",
@@ -4262,8 +4269,8 @@ function pn(e) {
 	);
 	const g = B.useCallback(() => {
 		switch (m) {
-			case 9:
-				(0, Oe.TE)(
+			case 9: {
+				TE(
 					{
 						bOnAppLaunch: false,
 						appid: ce.oe,
@@ -4277,9 +4284,10 @@ function pn(e) {
 					o.BrowserWindow,
 				);
 				break;
-			case 3:
+			}
+			case 3: {
 				SteamClient.GameNotes.GetQuota().then((e) => {
-					(0, we.pg)(
+					pg(
 						B.createElement(
 							te.o0,
 							{
@@ -4294,7 +4302,7 @@ function pn(e) {
 										"#AppOverlay_GameNotes_Quota_Storage_Desc",
 									),
 								},
-								(0, Te.dm)(e.bytesAvailable),
+								dm(e.bytesAvailable),
 							),
 							B.createElement(
 								v.D0,
@@ -4310,15 +4318,16 @@ function pn(e) {
 						o.BrowserWindow,
 					);
 				});
+			}
 		}
 	}, [m, o, p]);
-	const h = (0, pe.QP)(t.appid, t.BIsShortcut() ? t.display_name : undefined);
-	const C = B.useMemo(() => [(0, Ae.o)(h)], [h]);
+	const h = QP(t.appid, t.BIsShortcut() ? t.display_name : undefined);
+	const C = B.useMemo(() => [o_2(h)], [h]);
 	const _ = dn(n);
 	let f = null;
 	if (i) {
-		const e = (0, Ge.$u)(m);
-		const t = (0, Ge.C4)(m);
+		const e = $u(m);
+		const t = C4(m);
 		f = B.createElement(
 			Be.g,
 			{
@@ -4377,20 +4386,20 @@ function pn(e) {
 }
 function gn(e) {
 	const { appid: t } = e;
-	const r = (0, q.$2)();
+	const r = $2();
 	const n = fr();
 	const i = ee.w9.Screenshots;
-	const a = (0, T.q3)(() => n.BWindowVisible(i));
+	const a = q3(() => n.BWindowVisible(i));
 	const {
 		initialItem: s,
 		initialView: o,
 		initialFilter: l = {
 			listSource: {
 				type: "app",
-				gameid: (0, tt.bY)(t),
+				gameid: bY(t),
 			},
 		},
-	} = (0, T.q3)(() => n.GetInitialMediaState());
+	} = q3(() => n.GetInitialMediaState());
 	const c = ty(i);
 	const m = nv(
 		r,
@@ -4424,13 +4433,13 @@ function gn(e) {
 }
 function hn(e) {
 	const { appid: t, onClose: r } = e;
-	const n = (0, f.qw)().cm;
-	const a = (0, q.$2)();
+	const n = qw().cm;
+	const a = $2();
 	const {
 		popup: s,
 		element: o,
 		configurator: l,
-	} = (function (e, t, r, n) {
+	} = ((e, t, r, n) => {
 		const a = "ControllerConfiguratorPopupForOverlay";
 		const s = B.useRef(undefined);
 		s.current ||= new gr.T({
@@ -4465,7 +4474,7 @@ function hn(e) {
 				});
 			},
 		};
-		const { popup: m, element: u } = (0, Cr._Y)(
+		const { popup: m, element: u } = _Y(
 			"ControllerConfigurator",
 			s.current,
 			Cr.Uv.GamepadUI,
@@ -4557,7 +4566,7 @@ function Cn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.Controller;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const a = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);
@@ -4584,12 +4593,12 @@ function fn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.Browser;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
-	const [a] = (0, _.VI)("web_browser_home");
+	const i = q3(() => r.BWindowVisible(n));
+	const [a] = VI("web_browser_home");
 	const s = B.useRef(undefined);
 	const o = ty(n);
-	const l = (0, Re.Ue)(s, o);
-	const c = (0, Re.CH)();
+	const l = Ue_2(s, o);
+	const c = CH();
 	const m = dn(n);
 	const u = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
@@ -4598,7 +4607,7 @@ function fn(e) {
 	const d = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [r, n]);
-	const A = (0, T.q3)(() => r.active_web_requestid);
+	const A = q3(() => r.active_web_requestid);
 	const p = r.web_requests;
 	const g = B.useCallback(() => {
 		c();
@@ -4606,7 +4615,7 @@ function fn(e) {
 			s.current.SteamClient.Window.BringToFront();
 		}
 	}, [c]);
-	(0, Re.hL)(r.GetWebPageRequestsChangedCallbackList(), g);
+	hL(r.GetWebPageRequestsChangedCallbackList(), g);
 	const h = B.useCallback(
 		(e) => {
 			r.RemoveWebPageRequest(e);
@@ -4701,9 +4710,9 @@ function wn(e) {
 	const { appid: t } = e;
 	const r = fr();
 	const n = ee.w9.MultiplayerSessionLinkShare;
-	const i = (0, T.q3)(() => r.BWindowVisible(n));
+	const i = q3(() => r.BWindowVisible(n));
 	const a = ty(n);
-	(0, q.$2)();
+	$2();
 	const s = B.useCallback(() => {
 		r.SetWindowVisibility(n, ee.tc.Closed);
 	}, [n, r]);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	HighlightContextMenuItem: "_28S8ry9bxlwML-iCsdsuB",
 	MenuItem: "JZCa05wXidmR0BEW4wKuT",
 	EditMarker: "sMTceKd747vq8bsuL3OW9",

@@ -1,33 +1,33 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./72476.js");
-var a = require("./52912.js");
-var s = require("./95773.js");
-var o = require("./15855.js");
-var l = require("./53414.js");
-var c = require("./68665.js");
-var m = require("./98829.js");
-var u = require("./13869.js");
-var d = require(/*webcrack:missing*/ "./41230.js");
-var A = require(/*webcrack:missing*/ "./63696.js");
-var p = require("./64608.js");
-var g = require(/*webcrack:missing*/ "./50376.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require(/*webcrack:missing*/ "./49455.js");
-var f = require(/*webcrack:missing*/ "./69164.js");
-var b = require("./55116.js");
+import n, { Cg } from "./34629.js";
+import i from "./72476.js";
+import a, { h8 } from "./52912.js";
+import s from "./95773.js";
+import o from "./15855.js";
+import l from "./53414.js";
+import c from "./68665.js";
+import m from "./98829.js";
+import u, { HT } from "./13869.js";
+import d, { PA } from "./41230.js";
+import A from "./63696.js";
+import p from "./64608.js";
+import g from "./50376.js";
+import C from "./52451.js";
+import { w } from "./49455.js";
+import f from "./69164.js";
+import b from "./55116.js";
 export function E5(e, t, r, n, i) {
 	jv(e, t, r, n, false, i);
 }
 export function jv(e, t, r, n, i, s) {
-	(0, u.HT)(
-		A.createElement(v, {
-			browserContext: e,
-			chatRoomGroup: r,
-			chatRoom: n,
-			bIsDropInvite: i,
-			vecInvitePlayers: s,
-		}),
+	HT(
+		<V
+			browserContext={e}
+			chatRoomGroup={r}
+			chatRoom={n}
+			bIsDropInvite={i}
+			vecInvitePlayers={s}
+		/>,
 		t,
 		"ChatRoomGroupInviteDialog",
 		{
@@ -35,7 +35,7 @@ export function jv(e, t, r, n, i, s) {
 			popupWidth: 664,
 			popupHeight: 680,
 		},
-		(0, a.h8)(t),
+		h8(t),
 	);
 }
 export let Rf = class extends A.Component {
@@ -61,30 +61,28 @@ export let Rf = class extends A.Component {
 			e = undefined;
 			t = "";
 		}
-		return A.createElement(
-			A.Fragment,
-			null,
-			A.createElement(p.pd, {
-				label: Localize("#Chat_Invite_Linkheader"),
-				className: "InviteFriendToChatDialog_LinkInput",
-				type: "text",
-				value: e ? e.strInviteURL : t,
-				readOnly: true,
-				bShowCopyAction: !!e,
-				onFocus: this.OnFocus,
-				onClick: this.OnFocus,
-			}),
-			!this.props.disabled &&
-				A.createElement(B, {
-					onGenerate: this.GenerateLink,
-					chat: this.props.chat,
-				}),
+		return (
+			<>
+				<p.pd
+					label={Localize("#Chat_Invite_Linkheader")}
+					className="InviteFriendToChatDialog_LinkInput"
+					type="text"
+					value={e ? e.strInviteURL : t}
+					readOnly
+					bShowCopyAction={!!e}
+					onFocus={this.OnFocus}
+					onClick={this.OnFocus}
+				/>
+				{!this.props.disabled && (
+					<B onGenerate={this.GenerateLink} chat={this.props.chat} />
+				)}
+			</>
 		);
 	}
 };
-(0, n.Cg)([C.oI], Rf.prototype, "GenerateLink", null);
-(0, n.Cg)([C.oI], Rf.prototype, "OnFocus", null);
-Rf = (0, n.Cg)([d.PA], Rf);
+Cg([C.oI], Rf.prototype, "GenerateLink", null);
+Cg([C.oI], Rf.prototype, "OnFocus", null);
+Rf = Cg([d.PA], Rf);
 let B = class extends A.Component {
 	constructor(e) {
 		super(e);
@@ -119,27 +117,25 @@ let B = class extends A.Component {
 				data: 0,
 			},
 		];
-		return A.createElement(
-			"div",
-			{
-				className: "expireLinkInContainer",
-			},
-			A.createElement(p.JU, null, Localize("#InviteLink_ExpireDropDownLabel")),
-			A.createElement(p.m, {
-				strClassName: "inviteLinkDropDown",
-				rgOptions: t,
-				strDefaultLabel: e
-					? this.CreateExpiresText(e.rtExpires)
-					: A.createElement("span", null, "\xA0"),
-				onChange: this.OnDropDownChange,
-				selectedOption: undefined,
-			}),
+		return (
+			<div className="expireLinkInContainer">
+				<p.JU>{Localize("#InviteLink_ExpireDropDownLabel")}</p.JU>
+				<p.m
+					strClassName="inviteLinkDropDown"
+					rgOptions={t}
+					strDefaultLabel={
+						e ? this.CreateExpiresText(e.rtExpires) : <span>{"\xA0"}</span>
+					}
+					onChange={this.OnDropDownChange}
+					selectedOption={undefined}
+				/>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([C.oI], B.prototype, "OnDropDownChange", null);
-B = (0, n.Cg)([d.PA], B);
-class v extends A.PureComponent {
+Cg([C.oI], B.prototype, "OnDropDownChange", null);
+B = Cg([d.PA], B);
+class V extends A.PureComponent {
 	static contextType = i.QO;
 	m_setMembersOfGroup;
 	constructor(e) {
@@ -156,8 +152,8 @@ class v extends A.PureComponent {
 		}
 	}
 	BuildMemberOfGroupSet(e) {
-		let t = e.chatRoomGroup;
-		this.m_setMembersOfGroup = t.memberList.GetCurrentMemberSet();
+		let e_chatRoomGroup = e.chatRoomGroup;
+		this.m_setMembersOfGroup = e_chatRoomGroup.memberList.GetCurrentMemberSet();
 		this.forceUpdate();
 	}
 	DismissDialog() {
@@ -170,7 +166,7 @@ class v extends A.PureComponent {
 		this.props.closeModal();
 	}
 	OnDragEnter(e, t) {
-		(0, _.w)(
+		w(
 			(e && e.type == "friend") || t,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDragEnter",
 		);
@@ -185,17 +181,21 @@ class v extends A.PureComponent {
 		return true;
 	}
 	OnDragLeave() {
-		const { dropToInviteFriend: e, rgPickedFriends: t } = this.state;
-		if (e) {
-			const r = t.findIndex((t) => t.accountid === e.accountid);
+		const { dropToInviteFriend, rgPickedFriends } = this.state;
+		if (dropToInviteFriend) {
+			const r = rgPickedFriends.findIndex(
+				(t) => t.accountid === dropToInviteFriend.accountid,
+			);
 			this.setState({
 				dropToInviteFriend: undefined,
-				rgPickedFriends: t.slice(0, r).concat(t.slice(r + 1)),
+				rgPickedFriends: rgPickedFriends
+					.slice(0, r)
+					.concat(rgPickedFriends.slice(r + 1)),
 			});
 		}
 	}
 	OnDrop(e, t) {
-		(0, _.w)(
+		w(
 			e && e.type == "friend",
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);
@@ -250,187 +250,108 @@ class v extends A.PureComponent {
 				}
 			});
 		} else {
-			(0, _.w)(false, "User should not be able to invite to the group");
+			w(false, "User should not be able to invite to the group");
 		}
 		t = this.props.bIsDropInvite
 			? Localize("#Chat_InviteFriends_DropInvite_Pre")
 			: a
 				? Localize("#Chat_InviteFriends")
 				: Localize("#Chat_InviteGroupMembers");
-		let m =
-			"ChatRoomGroupInviteDialog" +
-			(this.props.bIsDropInvite ? " IsDropInvite" : "");
+		let m = `ChatRoomGroupInviteDialog${
+			this.props.bIsDropInvite ? " IsDropInvite" : ""
+		}`;
 		if (this.context?.IN_GAMEPADUI) {
 			m += " GamepadMode";
 		}
-		return A.createElement(
-			u.x_,
-			{
-				onEscKeypress: this.DismissDialog,
-			},
-			A.createElement(
-				p.U9,
-				{
-					classNameContent: m,
-					onSubmit: this.OnSubmit,
-				},
-				A.createElement(
-					p.Y9,
-					null,
-					n
-						? A.createElement(
-								"div",
-								{
-									className: "InviteToVoiceHeader",
-								},
-								Localize("#Chat_Actions_InviteFriend_VoiceChat"),
-								A.createElement(
-									"div",
-									{
-										className: "DialogHeaderSubtitle DialogHighlight",
-									},
-									'"',
-									this.props.chatRoom.name,
-									'"',
-								),
-							)
-						: Localize("#Chat_Actions_InviteFriend"),
-					A.createElement(
-						"div",
-						{
-							className: "displayRow",
-						},
-						A.createElement(l.I, {
-							group: this.props.chatRoomGroup,
-							small: true,
-						}),
-						A.createElement(
-							"div",
-							{
-								className: "DialogHeaderSubtitle DialogHighlight",
-							},
-							r,
-						),
-					),
-				),
-				A.createElement(
-					p.nB,
-					null,
-					A.createElement(
-						b.g,
-						null,
-						!this.props.bIsDropInvite &&
-							a &&
-							!this.context?.IN_GAMEPADUI &&
-							A.createElement(
-								A.Fragment,
-								null,
-								A.createElement(
-									"div",
-									{
-										className: "inviteLinkContainer",
-									},
-									A.createElement(Rf, {
-										chat: e,
-										disabled: false,
-									}),
-								),
-								A.createElement(
-									"div",
-									{
-										className: "OrSeparator",
-									},
-									A.createElement("div", {
-										className: "HBar",
-									}),
-									A.createElement(
-										"div",
-										{
-											className: "OrSeparatorLabel",
-										},
-										Localize("#Chat_InviteFriends_OR_Separator"),
-									),
-									A.createElement("div", {
-										className: "HBar",
-									}),
-								),
-							),
-						A.createElement(
-							o.T,
-							{
-								className: "",
-								...this.GetDragDropProps(),
-							},
-							A.createElement(c.r, {
-								label: t,
-								eSort: 0,
-								rgPickedFriends: this.state.rgPickedFriends,
-								bDropInvite: this.props.bIsDropInvite,
-								renderChosenFriend: I,
-								onChange: (e) =>
-									this.setState({
-										rgPickedFriends: e,
-									}),
-								excludeFriend: (e) => i.has(e.accountid),
-							}),
-						),
-					),
-				),
-				A.createElement(
-					p.wi,
-					null,
-					A.createElement(
-						f.Z,
-						{
-							className: "DialogTwoColLayout _DialogColLayout",
-							"flow-children": "row",
-						},
-						A.createElement(
-							p.jn,
-							{
-								disabled: this.state.rgPickedFriends.length === 0,
-							},
-							Localize("#Chat_Invite"),
-						),
-						A.createElement(
-							p.$n,
-							{
-								onClick: this.DismissDialog,
-							},
-							Localize("#Button_Close"),
-						),
-					),
-				),
-			),
+		return (
+			<u.x_ onEscKeypress={this.DismissDialog}>
+				<p.U9 classNameContent={m} onSubmit={this.OnSubmit}>
+					<p.Y9>
+						{n ? (
+							<div className="InviteToVoiceHeader">
+								{Localize("#Chat_Actions_InviteFriend_VoiceChat")}
+								<div className="DialogHeaderSubtitle DialogHighlight">
+									"{this.props.chatRoom.name}"
+								</div>
+							</div>
+						) : (
+							Localize("#Chat_Actions_InviteFriend")
+						)}
+						<div className="displayRow">
+							<l.I group={this.props.chatRoomGroup} small />
+							<div className="DialogHeaderSubtitle DialogHighlight">{r}</div>
+						</div>
+					</p.Y9>
+					<p.nB>
+						<b.g>
+							{!this.props.bIsDropInvite &&
+								a &&
+								!this.context?.IN_GAMEPADUI && (
+									<>
+										<div className="inviteLinkContainer">
+											<Rf chat={e} disabled={false} />
+										</div>
+										<div className="OrSeparator">
+											<div className="HBar" />
+											<div className="OrSeparatorLabel">
+												{Localize("#Chat_InviteFriends_OR_Separator")}
+											</div>
+											<div className="HBar" />
+										</div>
+									</>
+								)}
+							<o.T className="" {...this.GetDragDropProps()}>
+								<c.r
+									label={t}
+									eSort={0}
+									rgPickedFriends={this.state.rgPickedFriends}
+									bDropInvite={this.props.bIsDropInvite}
+									renderChosenFriend={I}
+									onChange={(e) =>
+										this.setState({
+											rgPickedFriends: e,
+										})
+									}
+									excludeFriend={(e) => i.has(e.accountid)}
+								/>
+							</o.T>
+						</b.g>
+					</p.nB>
+					<p.wi>
+						<f.Z
+							className="DialogTwoColLayout _DialogColLayout"
+							flow-children="row"
+						>
+							<p.jn disabled={this.state.rgPickedFriends.length === 0}>
+								{Localize("#Chat_Invite")}
+							</p.jn>
+							<p.$n onClick={this.DismissDialog}>
+								{Localize("#Button_Close")}
+							</p.$n>
+						</f.Z>
+					</p.wi>
+				</p.U9>
+			</u.x_>
 		);
 	}
 }
-(0, n.Cg)([C.oI], v.prototype, "DismissDialog", null);
-(0, n.Cg)([C.oI], v.prototype, "OnSubmit", null);
-(0, n.Cg)([C.oI], v.prototype, "OnDragEnter", null);
-(0, n.Cg)([C.oI], v.prototype, "OnDragLeave", null);
-(0, n.Cg)([C.oI], v.prototype, "OnDrop", null);
-let I = (0, d.PA)((e) =>
-	A.createElement(
-		A.Fragment,
-		null,
-		A.createElement(
-			m.Rg,
-			{
-				friend: e.friend,
-				context: null,
-			},
-			A.createElement(
-				f.Z,
-				{
-					className: "FriendPicker_ChosenFriend",
-					onActivate: () => {
-						e.onClick(e.friend);
-					},
-				},
-				A.createElement("span", null, e.friend.display_name),
-				A.createElement(g.sED, null),
-			),
-		),
-	),
-);
+Cg([C.oI], V.prototype, "DismissDialog", null);
+Cg([C.oI], V.prototype, "OnSubmit", null);
+Cg([C.oI], V.prototype, "OnDragEnter", null);
+Cg([C.oI], V.prototype, "OnDragLeave", null);
+Cg([C.oI], V.prototype, "OnDrop", null);
+let I = PA((e) => (
+	<>
+		<m.Rg friend={e.friend} context={null}>
+			<f.Z
+				className="FriendPicker_ChosenFriend"
+				onActivate={() => {
+					e.onClick(e.friend);
+				}}
+			>
+				<span>{e.friend.display_name}</span>
+				<g.sED />
+			</f.Z>
+		</m.Rg>
+	</>
+));

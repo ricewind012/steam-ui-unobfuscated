@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./27939.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require(/*webcrack:missing*/ "./81255.js");
-var m = require("./7558.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./27939.js";
+import { A as A_1 } from "./90765.js";
+import l, { Fd } from "./52451.js";
+import c, { s as s_1 } from "./81255.js";
+import m from "./7558.js";
+const s = a;
 export class Q extends i.Component {
 	m_elContents = null;
 	m_resizeObserver;
@@ -20,10 +20,7 @@ export class Q extends i.Component {
 	componentDidMount() {
 		if (
 			this.m_elContents &&
-			((this.m_resizeObserver = (0, l.Fd)(
-				this.m_elContents,
-				this.UpdateScrollArrows,
-			)),
+			((this.m_resizeObserver = Fd(this.m_elContents, this.UpdateScrollArrows)),
 			this.props.initialScrollToChild != null)
 		) {
 			const e = this.m_elContents.children[this.props.initialScrollToChild];
@@ -77,9 +74,9 @@ export class Q extends i.Component {
 		let n = this.m_elContents.children;
 		let i = null;
 		for (let e = r; e < n.length; e++) {
-			let r = n[e];
-			if (!g(r) && !A(r, t)) {
-				i = r;
+			let n_e = n[e];
+			if (!g(n_e) && !A(n_e, t)) {
+				i = n_e;
 				break;
 			}
 		}
@@ -108,8 +105,8 @@ export class Q extends i.Component {
 			let r = t;
 			let n = this.m_elContents.children;
 			for (r = t; r < n.length; r++) {
-				let t = n[r];
-				if (!g(t) && !A(t, e)) {
+				let n_r = n[r];
+				if (!g(n_r) && !A(n_r, e)) {
 					r--;
 					break;
 				}
@@ -172,18 +169,18 @@ export class Q extends i.Component {
 	}
 	render() {
 		const {
-			className: e,
-			leftMargin: t,
-			edgeMask: r,
-			initialScrollToChild: n,
-			customPadding: a,
-			fnUpdateArrows: l,
-			fnOnChildrenVisible: c,
-			fnRenderScrollingDiv: m,
+			className,
+			leftMargin,
+			edgeMask,
+			initialScrollToChild,
+			customPadding,
+			fnUpdateArrows,
+			fnOnChildrenVisible,
+			fnRenderScrollingDiv,
 			...u
 		} = this.props;
 		let d;
-		let A = (0, o.A)(s.BoxCarousel, e);
+		let A = A_1(s.BoxCarousel, className);
 		if (this.props.edgeMask && this.props.edgeMask != "old") {
 			if (this.props.edgeMask == "new") {
 				d = s.MaskRightNew;
@@ -198,35 +195,32 @@ export class Q extends i.Component {
 		if (this.props.gap) {
 			p.gap = this.props.gap;
 		}
-		const g = (0, o.A)(
+		const g = A_1(
 			s.BoxCarouselContents,
 			d,
 			this.state.bAnimatingScroll && s.AnimatingScroll,
 			this.state.bOnLastPage && s.OnLastPage,
 		);
-		return i.createElement(
-			"div",
-			{
-				className: A,
-				...u,
-			},
-			m
-				? m({
+		return (
+			<div className={A} {...u}>
+				{fnRenderScrollingDiv ? (
+					fnRenderScrollingDiv({
 						htmlElementRef: this.BindContents,
 						className: g,
 						onScroll: this.UpdateScrollArrows,
 						children: this.props.children,
 					})
-				: i.createElement(
-						"div",
-						{
-							ref: this.BindContents,
-							className: g,
-							onScroll: this.UpdateScrollArrows,
-							style: p,
-						},
-						this.props.children,
-					),
+				) : (
+					<div
+						ref={this.BindContents}
+						className={g}
+						onScroll={this.UpdateScrollArrows}
+						style={p}
+					>
+						{this.props.children}
+					</div>
+				)}
+			</div>
 		);
 	}
 }
@@ -240,10 +234,10 @@ function A(e, t, r = 0) {
 	return n >= t.scrollLeft && i < a;
 }
 function p(e) {
-	let t = e.scrollLeft;
-	let r = e.children;
-	for (let e = 0; e < r.length; e++) {
-		if (d(r[e]) >= t) {
+	let { scrollLeft, children } = e;
+
+	for (let e = 0; e < children.length; e++) {
+		if (d(children[e]) >= scrollLeft) {
 			return e;
 		}
 	}
@@ -252,9 +246,9 @@ function p(e) {
 function g(e) {
 	return e.getAttribute("data-carousel") == "ignore";
 }
-(0, n.Cg)([l.oI], Q.prototype, "BindContents", null);
-(0, n.Cg)([l.oI], Q.prototype, "ScrollLeft", null);
-(0, n.Cg)([l.oI], Q.prototype, "ScrollRight", null);
-(0, n.Cg)([l.oI, (0, c.s)(250)], Q.prototype, "UpdateScrollArrows", null);
-(0, n.Cg)([l.oI], Q.prototype, "OnScrollComplete", null);
-(0, n.Cg)([l.oI], Q.prototype, "ScrollToFirstChild", null);
+Cg([l.oI], Q.prototype, "BindContents", null);
+Cg([l.oI], Q.prototype, "ScrollLeft", null);
+Cg([l.oI], Q.prototype, "ScrollRight", null);
+Cg([l.oI, s_1(250)], Q.prototype, "UpdateScrollArrows", null);
+Cg([l.oI], Q.prototype, "OnScrollComplete", null);
+Cg([l.oI], Q.prototype, "ScrollToFirstChild", null);

@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./61657.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require("./84056.js");
-var o = require(/*webcrack:missing*/ "./93960.js");
+import n, { Cg } from "./34629.js";
+import i from "./61657.js";
+import a from "./85243.js";
+import s from "./84056.js";
+import o from "./93960.js";
 const l = {
 	[s.H.GAMEPAD_BUTTON_A]: i.pR.OK,
 	[s.H.GAMEPAD_BUTTON_B]: i.pR.CANCEL,
@@ -93,15 +93,15 @@ export class E extends i.nh {
 		SteamClient.Input?.EnableControllerAnalogInputMessages(e);
 	}
 	HandleControllerInputMessages(e, t, r, n, a) {
-		const o = l[t];
+		const l_t = l[t];
 		const c = this.GetController(e);
-		if (o != null) {
+		if (l_t != null) {
 			if (r && !c.activeButtons[o]) {
 				c.activeButtons[o] = true;
-				this.OnButtonDown(o, e);
+				this.OnButtonDown(l_t, e);
 			} else if (!r && c.activeButtons[o]) {
 				c.activeButtons[o] = false;
-				this.OnButtonUp(o, e);
+				this.OnButtonUp(l_t, e);
 			}
 		} else if (t != s.H.GAMEPAD_ANALOG_SCROLL) {
 			if (t == s.H.GAMEPAD_ANALOG_LEFT_KEYBOARD_CURSOR) {
@@ -117,7 +117,7 @@ export class E extends i.nh {
 		}
 	}
 }
-(0, n.Cg)([o.o], E.prototype, "OnControllerListChanged", null);
-(0, n.Cg)([o.o], E.prototype, "HandleSystemKeyEvents", null);
-(0, n.Cg)([o.o], E.prototype, "EnableAnalogInputMessages", null);
-(0, n.Cg)([o.o], E.prototype, "HandleControllerInputMessages", null);
+Cg([o.o], E.prototype, "OnControllerListChanged", null);
+Cg([o.o], E.prototype, "HandleSystemKeyEvents", null);
+Cg([o.o], E.prototype, "EnableAnalogInputMessages", null);
+Cg([o.o], E.prototype, "HandleControllerInputMessages", null);

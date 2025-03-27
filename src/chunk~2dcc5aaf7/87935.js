@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./3475.js");
-var a = require(/*webcrack:missing*/ "./72476.js");
-var s = require(/*webcrack:missing*/ "./53807.js");
-var o = require(/*webcrack:missing*/ "./45328.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var c = require(/*webcrack:missing*/ "./90095.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
+import n, { Cg } from "./34629.js";
+import i from "./3475.js";
+import a from "./72476.js";
+import { wm } from "./53807.js";
+import o, { Dn, f2 } from "./45328.js";
+import { q3 } from "./90095.js";
+import m, { Gn } from "./89193.js";
 const u = [
 	"AllNotifications",
 	"AppHoverPublic",
@@ -146,7 +146,7 @@ class d {
 	m_steamUrls = null;
 	m_nGeneration = 0;
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 		o.Ay.SetNavEventParams("steamclient", "library");
 		SteamClient.URL?.RegisterForSteamURLChanges(() => this.onURLChanges());
 	}
@@ -156,18 +156,20 @@ class d {
 	async Init() {
 		this.m_steamUrls = {};
 		const e = await SteamClient.URL.GetSteamURLList([...u]);
-		const t = u.length;
+		const u_length = u.length;
 		const r = Object.keys(e || {});
-		const n = r.length;
-		if (t !== n) {
-			console.error(`CURLStore requested ${t} URLs but receieved ${n}`);
+		const r_length = r.length;
+		if (u_length !== r_length) {
+			console.error(
+				`CURLStore requested ${u_length} URLs but receieved ${r_length}`,
+			);
 		}
 		r.forEach((t, r) => {
-			const n = e[t];
-			this.m_steamUrls[t] = n;
+			const e_t = e[t];
+			this.m_steamUrls[t] = e_t;
 			if (t.toLowerCase() !== t) {
 				this.m_steamUrls[t.toLowerCase()] = {
-					...n,
+					...e_t,
 					bDuplicate: true,
 				};
 			}
@@ -177,7 +179,7 @@ class d {
 		a.TS.STORE_BASE_URL = this.GetStoreURL();
 		a.TS.STORE_CHECKOUT_BASE_URL = this.GetStoreURL();
 		a.TS.STORE_CDN_URL = this.GetStoreCDNURL();
-		a.TS.PUBLIC_SHARED_URL = this.GetStoreCDNURL() + "public/shared/";
+		a.TS.PUBLIC_SHARED_URL = `${this.GetStoreCDNURL()}public/shared/`;
 		a.TS.COMMUNITY_BASE_URL = this.GetCommunityURL();
 		a.TS.COMMUNITY_CDN_URL = this.GetCommunityCDNURL();
 		a.TS.COMMUNITY_CDN_ASSET_URL = this.GetCommunityCDNAssetURL();
@@ -225,9 +227,9 @@ class d {
 		if (!r) {
 			return;
 		}
-		let n = r.url;
+		let r_url = r.url;
 		if (t.length > 0) {
-			n = n.replace(/%p(\d+)%/g, function (e, r) {
+			r_url = r_url.replace(/%p(\d+)%/g, (e, r) => {
 				if (t[r - 1] !== undefined) {
 					return String(t[r - 1]);
 				} else {
@@ -235,10 +237,10 @@ class d {
 				}
 			});
 		}
-		if (n.startsWith("http://")) {
-			n.replace(/^http:\/\//, "https://");
+		if (r_url.startsWith("http://")) {
+			r_url.replace(/^http:\/\//, "https://");
 		}
-		return n;
+		return r_url;
 	}
 	GetMatchingUrls(e) {
 		let t = [];
@@ -248,7 +250,7 @@ class d {
 				if (!r[n].regexMatchURL) {
 					let e = r[n].url;
 					e = e.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-					e = "^" + e;
+					e = `^${e}`;
 					e = e.replace("http://", "https?://");
 					e = e.replace("%p1%", ".+");
 					e = e.replace("%p2%", ".+");
@@ -278,23 +280,23 @@ class d {
 		return this.ResolveURL("AvatarBaseURL");
 	}
 	GetCommunityCDNAssetURL() {
-		return this.ResolveURL("CommunityImages") + "assets/";
+		return `${this.ResolveURL("CommunityImages")}assets/`;
 	}
 	GetMediaCDNUrl() {
 		let e = this.ResolveURL("CommunityImages");
-		return "https://" + (0, s.wm)(e) + "/";
+		return `https://${wm(e)}/`;
 	}
 	GetBaseURLSharedCDN() {
 		let e = this.ResolveURL("BaseURLSharedCDN");
-		return `https://${(0, s.wm)(e)}/`;
+		return `https://${wm(e)}/`;
 	}
 	GetClanCDNAssetURL() {
 		let e = this.ResolveURL("ClanAssetCDN");
-		return `https://${(0, s.wm)(e)}/`;
+		return `https://${wm(e)}/`;
 	}
 	GetVideoCDNAssetURL() {
 		let e = this.ResolveURL("VideoCDN");
-		return `https://${(0, s.wm)(e)}/`;
+		return `https://${wm(e)}/`;
 	}
 	GetCommunityCDNURL() {
 		return this.ResolveURL("CommunityCDN");
@@ -303,7 +305,7 @@ class d {
 		return this.ResolveURL("StoreAppImages");
 	}
 	GetStoreIconBaseURL() {
-		return this.GetBaseURLSharedCDN() + "store_item_assets/steam/apps/";
+		return `${this.GetBaseURLSharedCDN()}store_item_assets/steam/apps/`;
 	}
 	GetStoreGreatOnDeckURL() {
 		return this.ResolveURL("StoreGreatOnDeck");
@@ -324,16 +326,16 @@ class d {
 		return this.ResolveURL("WebAPI");
 	}
 	BuildSteamURL(e, ...t) {
-		return "steam://url/" + e + "/" + t.join("/");
+		return `steam://url/${e}/${t.join("/")}`;
 	}
 	BuildStoreAppURL(e, t = null) {
-		return (0, o.Dn)(e, t);
+		return Dn(e, t);
 	}
 	BuildStoreAppDlcURL(e, t = null) {
-		return (0, o.f2)(e, t);
+		return f2(e, t);
 	}
 	BuildAppPointsShopURL(e) {
-		return this.ResolveURL("PointsShop") + "app/" + e;
+		return `${this.ResolveURL("PointsShop")}app/${e}`;
 	}
 	NavigateToSteamURLInOwningWindow(e, t, ...r) {
 		GetOwningWindowForEvent(e).location.href = this.BuildSteamURL(t, ...r);
@@ -371,7 +373,7 @@ class d {
 		return false;
 	}
 }
-(0, n.Cg)([m.sH], d.prototype, "m_nGeneration", undefined);
+Cg([m.sH], d.prototype, "m_nGeneration", undefined);
 export const Uq = {
 	Library: {
 		Assets: "/assets",
@@ -391,7 +393,7 @@ export function $B(e, t) {
 	return e && e.startsWith(t);
 }
 export function vh(e, ...t) {
-	(0, c.q3)(() => B7.generation);
+	q3(() => B7.generation);
 	return B7.ResolveURL(e, ...t);
 }
 export const B7 = new d();

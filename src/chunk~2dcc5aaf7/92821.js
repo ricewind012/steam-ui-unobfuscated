@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GyroRotationAxisIcon: "g7noT7YxwM5n3eVy0RMtw",
 	RotateChilden: "_2UVaMCd5o_4_dTUaB9ch2T",
 	Rotatable: "_1vcj49lJ9gpCeSZHC7wKD_",

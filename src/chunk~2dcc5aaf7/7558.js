@@ -18,13 +18,12 @@ export class S2 {
 		this.m_msStart = performance.now();
 		this.m_msEnd = this.m_msStart + this.m_options.msDuration;
 		switch (this.m_options.timing) {
-			case "linear":
-				e = function (e) {
-					return e;
-				};
+			case "linear": {
+				e = (e) => e;
 				break;
-			case "cubic-in-out":
-				e = function (e) {
+			}
+			case "cubic-in-out": {
+				e = (e) => {
 					if (e < 0.5) {
 						return e * 4 * e * e;
 					} else {
@@ -32,10 +31,10 @@ export class S2 {
 					}
 				};
 				break;
-			default:
-				e = function (e) {
-					return 0.5 - Math.cos(e * Math.PI) / 2;
-				};
+			}
+			default: {
+				e = (e) => 0.5 - Math.cos(e * Math.PI) / 2;
+			}
 		}
 		this.m_bActive = true;
 		this.m_fnBoundAnimationFunc = this.OnInterval.bind(this, e);

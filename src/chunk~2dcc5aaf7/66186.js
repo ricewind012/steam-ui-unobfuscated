@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require("./51297.js");
-var m = require("./60917.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s from "./44846.js";
+import { q3 } from "./90095.js";
+import l, { _g, L$ } from "./52451.js";
+import c from "./51297.js";
+import m from "./60917.js";
+import u, { l5 } from "./96555.js";
+import d, { VI } from "./34792.js";
+import A from "./43691.js";
 import("../../actual_src/utils/localization.js");
-var u = require("./96555.js");
-var d = require("./34792.js");
-var A = require(/*webcrack:missing*/ "./43691.js");
 export class Hn {
 	static s_Singleton = null;
 	static Get() {
@@ -46,7 +46,7 @@ export class Hn {
 		return this.msgDiagnosticInfo?.battery_temp_c;
 	}
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		SteamClient.System.Perf?.RegisterForDiagnosticInfoChanges(
 			this.OnDiagnosticInfoChanged,
 		);
@@ -251,7 +251,7 @@ export class Hn {
 	}
 }
 export function C9() {
-	const e = (0, o.q3)(() => Hn.Get().msgDiagnosticInfo);
+	const e = q3(() => Hn.Get().msgDiagnosticInfo);
 	let t = 0;
 	let r = 0;
 	for (const n of e.interfaces ?? []) {
@@ -265,64 +265,62 @@ export function N$() {
 	return t != 0;
 }
 export function pq() {
-	return (0, o.q3)(() => Hn.Get().msgLimits?.is_dynamic_vrs_available ?? false);
+	return q3(() => Hn.Get().msgLimits?.is_dynamic_vrs_available ?? false);
 }
 export function tv() {
-	return (0, o.q3)(
+	return q3(
 		() => Hn.Get().msgSettingsPerApp?.is_variable_resolution_enabled ?? false,
 	);
 }
 export function Cv(e = 100) {
-	const t = (0, u.l5)();
-	const r = (0, o.q3)(
+	const t = l5();
+	const r = q3(
 		() => !Hn.Get().msgLimits?.disable_refresh_rate_management ?? true,
 	);
-	const n = (0, o.q3)(
+	const n = q3(
 		() =>
 			(t
 				? Hn.Get().msgSettingsPerApp?.fps_limit_external
 				: Hn.Get().msgSettingsPerApp?.fps_limit) ?? 0,
 	);
-	const i = (0, o.q3)(
+	const i = q3(
 		() =>
 			(t
 				? Hn.Get().msgLimits?.fps_limit_options_external
 				: Hn.Get().msgLimits?.fps_limit_options) ?? [],
 	);
-	const a = (0, l._g)(e);
+	const a = _g(e);
 	return [r, n, i, (e) => a(() => Hn.Get().SetFPSLimit(t, e))];
 }
 export function Jt() {
-	return (0, o.q3)(() => Hn.Get().msgLimits?.is_nis_supported ?? false);
+	return q3(() => Hn.Get().msgLimits?.is_nis_supported ?? false);
 }
 export function pB() {
 	return [
-		!(0, o.q3)(
+		!q3(
 			() =>
 				Hn.Get().msgLimits?.is_split_scaling_and_filtering_supported ?? false,
 		),
-		(0, o.q3)(() => Hn.Get().msgSettingsPerApp?.scaling_filter ?? 4),
+		q3(() => Hn.Get().msgSettingsPerApp?.scaling_filter ?? 4),
 		Hn.Get().SetScalingFilter,
 	];
 }
 export function mx(e = 100) {
-	const t = (0, o.q3)(() => Hn.Get().msgSettingsPerApp?.fsr_sharpness ?? 0);
-	const r = (0, o.q3)(() => Hn.Get().msgLimits?.fsr_sharpness_min ?? 0);
-	const n = (0, o.q3)(() => Hn.Get().msgLimits?.fsr_sharpness_max ?? 8);
-	const i = (0, l._g)(e);
+	const t = q3(() => Hn.Get().msgSettingsPerApp?.fsr_sharpness ?? 0);
+	const r = q3(() => Hn.Get().msgLimits?.fsr_sharpness_min ?? 0);
+	const n = q3(() => Hn.Get().msgLimits?.fsr_sharpness_max ?? 8);
+	const i = _g(e);
 	return [t, r, n, (e) => i(() => Hn.Get().SetFSRSharpness(e))];
 }
 export function fb(e = 100) {
-	const t = (0, o.q3)(() => Hn.Get().msgSettingsPerApp?.nis_sharpness ?? 0);
-	const r = (0, o.q3)(() => Hn.Get().msgLimits?.nis_sharpness_min ?? 0);
-	const n = (0, o.q3)(() => Hn.Get().msgLimits?.nis_sharpness_max ?? 8);
-	const i = (0, l._g)(e);
+	const t = q3(() => Hn.Get().msgSettingsPerApp?.nis_sharpness ?? 0);
+	const r = q3(() => Hn.Get().msgLimits?.nis_sharpness_min ?? 0);
+	const n = q3(() => Hn.Get().msgLimits?.nis_sharpness_max ?? 8);
+	const i = _g(e);
 	return [t, r, n, (e) => i(() => Hn.Get().SetNISSharpness(e))];
 }
 export function LG() {
-	const e = (0, o.q3)(
-		() => Hn.Get().msgSettingsPerApp?.gpu_performance_level ?? 1,
-	);
+	const e = q3(() => Hn.Get().msgSettingsPerApp?.gpu_performance_level ?? 1);
 	return [
 		e == 2,
 		e == 5,
@@ -333,29 +331,23 @@ export function LG() {
 	];
 }
 export function Pc(e = 100) {
-	const t = (0, o.q3)(
-		() => Hn.Get().msgLimits?.gpu_performance_manual_min_mhz ?? 0,
-	);
-	const r = (0, o.q3)(
-		() => Hn.Get().msgLimits?.gpu_performance_manual_max_mhz ?? 0,
-	);
-	const n = (0, o.q3)(
+	const t = q3(() => Hn.Get().msgLimits?.gpu_performance_manual_min_mhz ?? 0);
+	const r = q3(() => Hn.Get().msgLimits?.gpu_performance_manual_max_mhz ?? 0);
+	const n = q3(
 		() => Hn.Get().msgSettingsPerApp?.gpu_performance_manual_mhz ?? 0,
 	);
-	const i = (0, l._g)(e);
+	const i = _g(e);
 	return [n, t, r, (e) => i(() => Hn.Get().SetGPUPerformanceManualMhz(e))];
 }
 export function Sq() {
 	return [
-		(0, o.q3)(
-			() => Hn.Get().msgSettingsPerApp?.is_low_latency_mode_enabled ?? false,
-		),
+		q3(() => Hn.Get().msgSettingsPerApp?.is_low_latency_mode_enabled ?? false),
 		Hn.Get().SetLowLatencyModeEnabled,
 	];
 }
 export function At() {
 	return [
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgSettingsGlobal?.is_show_perf_overlay_over_steam_enabled ??
 				false,
@@ -365,13 +357,13 @@ export function At() {
 }
 export function aS() {
 	return [
-		(0, o.q3)(() => Hn.Get().msgSettingsGlobal?.perf_overlay_level ?? 0),
+		q3(() => Hn.Get().msgSettingsGlobal?.perf_overlay_level ?? 0),
 		Hn.Get().SetPerfOverlayLevel,
 	];
 }
 export function _4() {
 	return [
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgSettingsGlobal?.allow_external_display_refresh_control ??
 				false,
@@ -380,37 +372,33 @@ export function _4() {
 	];
 }
 export function zn(e = 700) {
-	const t = (0, u.l5)();
-	const r = (function (e) {
-		const t = (0, o.q3)(
+	const t = l5();
+	const r = ((e) => {
+		const t = q3(
 			() =>
 				Hn.Get().msgLimits?.is_manual_display_refresh_rate_available ?? false,
 		);
-		const r = (0, o.q3)(
+		const r = q3(
 			() =>
 				Hn.Get().msgSettingsGlobal?.allow_external_display_refresh_control ??
 				false,
 		);
 		const n = t && r;
-		const i = (0, o.q3)(
-			() => Hn.Get().msgLimits?.display_refresh_manual_hz_min ?? 40,
-		);
-		const a = (0, o.q3)(
-			() => Hn.Get().msgLimits?.display_refresh_manual_hz_max ?? 60,
-		);
-		const s = (0, o.q3)(
+		const i = q3(() => Hn.Get().msgLimits?.display_refresh_manual_hz_min ?? 40);
+		const a = q3(() => Hn.Get().msgLimits?.display_refresh_manual_hz_max ?? 60);
+		const s = q3(
 			() => Hn.Get().msgSettingsPerApp?.display_refresh_manual_hz ?? 0,
 		);
-		const l = (0, o.q3)(
+		const l = q3(
 			() => Hn.Get().msgLimits?.display_external_refresh_manual_hz_min ?? 40,
 		);
-		const c = (0, o.q3)(
+		const c = q3(
 			() => Hn.Get().msgLimits?.display_external_refresh_manual_hz_max ?? 60,
 		);
-		const m = (0, o.q3)(
+		const m = q3(
 			() => Hn.Get().msgSettingsPerApp?.display_external_refresh_manual_hz ?? 0,
 		);
-		const u = (0, o.q3)(
+		const u = q3(
 			() => Hn.Get().msgLimits?.disable_refresh_rate_management ?? false,
 		);
 		return {
@@ -420,62 +408,60 @@ export function zn(e = 700) {
 			nCurrentHz: e ? m : s,
 		};
 	})(t);
-	const [n, a] = i.useState(r.nCurrentHz);
+	const [n, setN] = i.useState(r.nCurrentHz);
 	const s = i.useCallback(() => {
 		if (r.nCurrentHz != n) {
 			Hn.Get().SetDisplayRefreshRateManualHz(t, n);
 		}
 	}, [t, r, n]);
-	const { fnStopTimer: c, fnRestartTimer: m } = (0, l.L$)(e, s, false);
+	const { fnStopTimer, fnRestartTimer } = L$(e, s, false);
 	const d = i.useCallback(
 		(e) => {
-			m();
-			a(e);
+			fnRestartTimer();
+			setN(e);
 		},
-		[m],
+		[fnRestartTimer],
 	);
 	const A = i.useCallback(
 		(e) => {
-			c();
-			a(e);
+			fnStopTimer();
+			setN(e);
 			Hn.Get().SetDisplayRefreshRateManualHz(t, e);
 		},
-		[t, c],
+		[t, fnStopTimer],
 	);
 	return [r, d, A];
 }
 export function uq() {
-	return (0, d.VI)("overlay_fps_counter_high_contrast");
+	return VI("overlay_fps_counter_high_contrast");
 }
 export function CP() {
-	return (0, d.VI)("overlay_fps_counter_corner");
+	return VI("overlay_fps_counter_corner");
 }
 export function kS() {
-	const e = (0, o.q3)(
-		() => Hn.Get().msgLimits?.perf_overlay_is_standalone ?? false,
-	);
-	const t = (0, o.q3)(
+	const e = q3(() => Hn.Get().msgLimits?.perf_overlay_is_standalone ?? false);
+	const t = q3(
 		() => Hn.Get().msgSettingsGlobal?.perf_overlay_service_state ?? 0,
 	);
 	return [t != 0, t == 2, e];
 }
 export function CN() {
-	const e = (0, o.q3)(
+	const e = q3(
 		() => Hn.Get().msgSettingsGlobal?.system_trace_service_state ?? 0,
 	);
 	return [e != 0, e == 2];
 }
 export function gU() {
-	const e = (0, o.q3)(
+	const e = q3(
 		() => Hn.Get().msgSettingsGlobal?.graphics_profiling_service_state ?? 0,
 	);
 	return [e != 0, e == 2];
 }
 export function gc() {
-	return (0, o.q3)(() => Hn.Get().msgState?.current_game_id ?? "");
+	return q3(() => Hn.Get().msgState?.current_game_id ?? "");
 }
 export function Q3() {
-	return (0, o.q3)(() => Hn.Get().msgState?.active_profile_game_id ?? "");
+	return q3(() => Hn.Get().msgState?.active_profile_game_id ?? "");
 }
 export function mM(e) {
 	return e == `${s.qx}`;
@@ -485,35 +471,31 @@ export function M9() {
 }
 export function xu() {
 	return [
-		(0, o.q3)(
-			() => Hn.Get().msgSettingsGlobal?.is_advanced_settings_enabled ?? false,
-		),
+		q3(() => Hn.Get().msgSettingsGlobal?.is_advanced_settings_enabled ?? false),
 		Hn.Get().SetAdvancedSettingsEnabled,
 	];
 }
 export function g7() {
 	return [
-		(0, o.q3)(() => Hn.Get().msgLimits?.is_vrr_supported ?? false),
-		(0, o.q3)(() => Hn.Get().msgSettingsPerApp?.is_vrr_enabled ?? false),
+		q3(() => Hn.Get().msgLimits?.is_vrr_supported ?? false),
+		q3(() => Hn.Get().msgSettingsPerApp?.is_vrr_enabled ?? false),
 		Hn.Get().SetVRREnabled,
 	];
 }
 export function Sj() {
 	return [
 		true,
-		(0, o.q3)(
-			() => Hn.Get().msgSettingsGlobal?.is_color_management_enabled ?? true,
-		),
+		q3(() => Hn.Get().msgSettingsGlobal?.is_color_management_enabled ?? true),
 		Hn.Get().SetColorManagmentEnabled,
 	];
 }
 export function vy() {
 	return [
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgLimits?.is_dynamic_refresh_rate_in_steam_supported ?? false,
 		),
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgSettingsPerApp?.use_dynamic_refresh_rate_in_steam ?? false,
 		),
@@ -522,21 +504,21 @@ export function vy() {
 }
 export function bS() {
 	return [
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgLimits?.is_split_scaling_and_filtering_supported ?? false,
 		),
-		(0, o.q3)(() => Hn.Get().msgSettingsPerApp?.split_scaling_filter ?? 0),
+		q3(() => Hn.Get().msgSettingsPerApp?.split_scaling_filter ?? 0),
 		Hn.Get().SetSplitScalingFilter,
 	];
 }
 export function xm() {
 	return [
-		(0, o.q3)(
+		q3(
 			() =>
 				Hn.Get().msgLimits?.is_split_scaling_and_filtering_supported ?? false,
 		),
-		(0, o.q3)(() => Hn.Get().msgSettingsPerApp?.split_scaling_scaler ?? 0),
+		q3(() => Hn.Get().msgSettingsPerApp?.split_scaling_scaler ?? 0),
 		Hn.Get().SetSplitScalingScaler,
 	];
 }
@@ -546,18 +528,23 @@ export function eE() {
 	if (r) {
 		return n;
 	} else if (e) {
-		return (function (e) {
+		return ((e) => {
 			switch (e) {
-				case 1:
+				case 1: {
 					return 3;
-				case 2:
+				}
+				case 2: {
 					return 2;
-				case 4:
+				}
+				case 4: {
 					return 1;
-				case 5:
+				}
+				case 5: {
 					return 4;
-				default:
+				}
+				default: {
 					return null;
+				}
 			}
 		})(t);
 	} else {
@@ -567,52 +554,50 @@ export function eE() {
 export function WI() {
 	return [
 		A.TS.IN_GAMESCOPE,
-		(0, o.q3)(
-			() => Hn.Get().msgSettingsGlobal?.is_hdr_debug_heatmap_enabled ?? false,
-		),
+		q3(() => Hn.Get().msgSettingsGlobal?.is_hdr_debug_heatmap_enabled ?? false),
 		Hn.Get().SetHDRDebugHeatmapEnabled,
 	];
 }
 export function nR() {
 	return [
 		A.TS.IN_GAMESCOPE,
-		(0, o.q3)(() => Hn.Get().msgSettingsGlobal?.sdr_to_hdr_brightness ?? 1),
+		q3(() => Hn.Get().msgSettingsGlobal?.sdr_to_hdr_brightness ?? 1),
 		Hn.Get().SetHDRSDRContentBrightness,
 	];
 }
-(0, n.Cg)([a.sH], Hn.prototype, "m_msgDiagnosticInfo", undefined);
-(0, n.Cg)([a.sH], Hn.prototype, "m_msgState", undefined);
-(0, n.Cg)([a.XI.bound], Hn.prototype, "OnDiagnosticInfoChanged", null);
-(0, n.Cg)([a.XI.bound], Hn.prototype, "OnStateChanged", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetDiagnosticUpdateRate", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetSystemTracingEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetGraphicsProfilingEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetPerfOverlayEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetPerfOverlayLevel", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetShowPerfOverlayOverSteamEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetGPUPerformanceLevel", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetGPUPerformanceManualMhz", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetFPSLimitEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetFPSLimit", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetVariableResolutionEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetDynamicRefreshRateEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetCPUGovernor", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetCPUGovernorManualMhz", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetScalingFilter", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetFSRSharpness", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetNISSharpness", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetLowLatencyModeEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetDisplayRefreshRateManualHz", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SaveGameProfile", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetGameSpecificProfileEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetAdvancedSettingsEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "ResetCurrentPerfProfileSettings", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetAllowExternalDisplayRefreshControl", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetColorManagmentEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetVRREnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetUseDynamicRefreshRateInSteam", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetSplitScalingFilter", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetSplitScalingScaler", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetHDROnSDRTonemapOperator", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetHDRDebugHeatmapEnabled", null);
-(0, n.Cg)([l.oI], Hn.prototype, "SetHDRSDRContentBrightness", null);
+Cg([a.sH], Hn.prototype, "m_msgDiagnosticInfo", undefined);
+Cg([a.sH], Hn.prototype, "m_msgState", undefined);
+Cg([a.XI.bound], Hn.prototype, "OnDiagnosticInfoChanged", null);
+Cg([a.XI.bound], Hn.prototype, "OnStateChanged", null);
+Cg([l.oI], Hn.prototype, "SetDiagnosticUpdateRate", null);
+Cg([l.oI], Hn.prototype, "SetSystemTracingEnabled", null);
+Cg([l.oI], Hn.prototype, "SetGraphicsProfilingEnabled", null);
+Cg([l.oI], Hn.prototype, "SetPerfOverlayEnabled", null);
+Cg([l.oI], Hn.prototype, "SetPerfOverlayLevel", null);
+Cg([l.oI], Hn.prototype, "SetShowPerfOverlayOverSteamEnabled", null);
+Cg([l.oI], Hn.prototype, "SetGPUPerformanceLevel", null);
+Cg([l.oI], Hn.prototype, "SetGPUPerformanceManualMhz", null);
+Cg([l.oI], Hn.prototype, "SetFPSLimitEnabled", null);
+Cg([l.oI], Hn.prototype, "SetFPSLimit", null);
+Cg([l.oI], Hn.prototype, "SetVariableResolutionEnabled", null);
+Cg([l.oI], Hn.prototype, "SetDynamicRefreshRateEnabled", null);
+Cg([l.oI], Hn.prototype, "SetCPUGovernor", null);
+Cg([l.oI], Hn.prototype, "SetCPUGovernorManualMhz", null);
+Cg([l.oI], Hn.prototype, "SetScalingFilter", null);
+Cg([l.oI], Hn.prototype, "SetFSRSharpness", null);
+Cg([l.oI], Hn.prototype, "SetNISSharpness", null);
+Cg([l.oI], Hn.prototype, "SetLowLatencyModeEnabled", null);
+Cg([l.oI], Hn.prototype, "SetDisplayRefreshRateManualHz", null);
+Cg([l.oI], Hn.prototype, "SaveGameProfile", null);
+Cg([l.oI], Hn.prototype, "SetGameSpecificProfileEnabled", null);
+Cg([l.oI], Hn.prototype, "SetAdvancedSettingsEnabled", null);
+Cg([l.oI], Hn.prototype, "ResetCurrentPerfProfileSettings", null);
+Cg([l.oI], Hn.prototype, "SetAllowExternalDisplayRefreshControl", null);
+Cg([l.oI], Hn.prototype, "SetColorManagmentEnabled", null);
+Cg([l.oI], Hn.prototype, "SetVRREnabled", null);
+Cg([l.oI], Hn.prototype, "SetUseDynamicRefreshRateInSteam", null);
+Cg([l.oI], Hn.prototype, "SetSplitScalingFilter", null);
+Cg([l.oI], Hn.prototype, "SetSplitScalingScaler", null);
+Cg([l.oI], Hn.prototype, "SetHDROnSDRTonemapOperator", null);
+Cg([l.oI], Hn.prototype, "SetHDRDebugHeatmapEnabled", null);
+Cg([l.oI], Hn.prototype, "SetHDRSDRContentBrightness", null);

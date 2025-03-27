@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	CloseButton: "_15GEboHKZf01mzV0rQgP1p",
 	SinglePageIntro: "_1TV2TLk7RNa3PqD1_WKqfs",

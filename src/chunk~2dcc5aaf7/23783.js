@@ -1,238 +1,210 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./90985.js");
-var o = require("./84241.js");
-var l = o;
-var c = require("./15521.js");
-var m = require("./35488.js");
-var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require(/*webcrack:missing*/ "./31084.js");
-var A = require(/*webcrack:missing*/ "./88750.js");
-var p = require("./5808.js");
-var g = require(/*webcrack:missing*/ "./11131.js");
-require(/*webcrack:missing*/ "./98995.js");
-var h = require("./22639.js");
-var C = require("./96593.js");
-var _ = require("./18869.js");
-var f = require(/*webcrack:missing*/ "./69164.js");
-var b = require("./93681.js");
-var y = require("./13688.js");
-var S = require("./61175.js");
-var w = require(/*webcrack:missing*/ "./4690.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var v = require(/*webcrack:missing*/ "./52451.js");
-var I = require(/*webcrack:missing*/ "./72476.js");
 import { Timestamp } from "../../actual_src/utils/time.js";
-var M = require("./91486.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a, { q3 } from "./90095.js";
+import s from "./90985.js";
+import o from "./84241.js";
+import c from "./15521.js";
+import m from "./35488.js";
+import u, { A as A_1 } from "./90765.js";
+import d, { lX } from "./31084.js";
+import A from "./88750.js";
+import { aF } from "./5808.js";
+import { R7 } from "./11131.js";
+import "./98995.js";
+import h from "./22639.js";
+import C, { Co } from "./96593.js";
+import _, { br } from "./18869.js";
+import f from "./69164.js";
+import b from "./93681.js";
+import y, { k1 } from "./13688.js";
+import S from "./61175.js";
+import w from "./4690.js";
+import { uN } from "./52451.js";
+import { Qn } from "./72476.js";
+import M from "./91486.js";
+const l = o;
 export function TF(e) {
-	const t = (0, a.q3)(() => s.l.playbackState);
-	const { ownerWindow: r } = (0, g.R7)();
-	const [o, d] = (0, v.uN)(t?.nVolume, (e) => SteamClient.Music.SetVolume(e));
+	const t = q3(() => s.l.playbackState);
+	const { ownerWindow } = R7();
+	const [o, d] = uN(t?.nVolume, (e) => SteamClient.Music.SetVolume(e));
 	const A = !t || t.uSoundtrackAppId != e.appid;
 	const h =
 		t?.ePlaybackStatus == c.f.AudioPlayback_Idle ||
 		t?.ePlaybackStatus == c.f.AudioPlayback_Paused ||
+		t?.ePlaybackStatus == c.f.AudioPlayback_Paused ||
 		A;
-	const C = (0, I.Qn)();
+	const C = Qn();
 	let _;
 	let b;
 	let y = 2;
 	switch (t?.eRepeatStatus) {
 		default:
-		case 0:
-			_ = n.createElement(m.Repeat, null);
+		case 0: {
+			_ = <m.Repeat />;
 			y = 1;
 			b = false;
 			break;
-		case 1:
-			_ = n.createElement(m.Repeat, null);
+		}
+		case 1: {
+			_ = <m.Repeat />;
 			y = 2;
 			b = true;
 			break;
-		case 2:
-			_ = n.createElement(m.RepeatOne, null);
+		}
+		case 2: {
+			_ = <m.RepeatOne />;
 			y = 0;
 			b = true;
+		}
 	}
-	const S = e.bFloatingControls;
+	const e_bFloatingControls = e.bFloatingControls;
 	const B = {
 		onClick: () => SteamClient.Music.ToggleMuteVolume(),
 	};
-	return n.createElement(
-		"div",
-		{
-			className: (0, u.A)(
+	return (
+		<div
+			className={A_1(
 				l.ControlBlock,
 				A && l.NotPlaying,
-				S && l.FloatingLayout,
-			),
-		},
-		n.createElement(k, {
-			playbackState: t,
-			disabled: A,
-		}),
-		n.createElement(
-			"div",
-			{
-				className: (0, u.A)(l.ControlsAndVolume, S && l.Row),
-			},
-			n.createElement(
-				f.Z,
-				{
-					className: l.Controls,
-					navEntryPreferPosition: w.iU.PREFERRED_CHILD,
-				},
-				n.createElement(
-					R,
-					{
-						focusable: !A,
-						disabled: A,
-						active: t?.bShuffle,
-						onClick: () => SteamClient.Music.SetPlayingShuffled(!t?.bShuffle),
-					},
-					n.createElement(m.Shuffle, null),
-				),
-				n.createElement(
-					R,
-					{
-						focusable: !A,
-						disabled: A,
-						active: true,
-						onClick: () => SteamClient.Music.PlayPrevious(),
-					},
-					n.createElement(m.PrevTrack, null),
-				),
-				n.createElement(
-					R,
-					{
-						active: true,
-						preferredFocus: true,
-						size: "large",
-						onClick: () => {
+				e_bFloatingControls && l.FloatingLayout,
+			)}
+		>
+			<K playbackState={t} disabled={A} />
+			<div className={A_1(l.ControlsAndVolume, e_bFloatingControls && l.Row)}>
+				<f.Z
+					className={l.Controls}
+					navEntryPreferPosition={w.iU.PREFERRED_CHILD}
+				>
+					<R
+						focusable={!A}
+						disabled={A}
+						active={t?.bShuffle}
+						onClick={() => SteamClient.Music.SetPlayingShuffled(!t?.bShuffle)}
+					>
+						<m.Shuffle />
+					</R>
+					<R
+						focusable={!A}
+						disabled={A}
+						active
+						onClick={() => SteamClient.Music.PlayPrevious()}
+					>
+						<m.PrevTrack />
+					</R>
+					<R
+						active
+						preferredFocus
+						size="large"
+						onClick={() => {
 							if (A) {
-								(0, p.aF)(e.appid, r);
+								aF(e.appid, ownerWindow);
 							} else {
 								SteamClient.Music.TogglePlayPause();
 							}
-						},
-					},
-					h && n.createElement(m.Play, null),
-					!h && n.createElement(m.Pause, null),
-				),
-				n.createElement(
-					R,
-					{
-						focusable: !A,
-						disabled: A,
-						active: true,
-						onClick: () => SteamClient.Music.PlayNext(),
-					},
-					n.createElement(m.NextTrack, null),
-				),
-				n.createElement(
-					R,
-					{
-						focusable: !A,
-						disabled: A,
-						active: b,
-						onClick: () => SteamClient.Music.SetPlayingRepeatStatus(y),
-					},
-					_,
-				),
-			),
-			n.createElement(i.d3, {
-				className: l.VolumeControl,
-				icon:
-					t?.nVolume == 0
-						? n.createElement(m.VolumeMuted, {
-								...B,
-							})
-						: n.createElement(m.Volume, {
-								...B,
-							}),
-				disabled: A,
-				value: o,
-				showHandle: C,
-				bottomSeparator: "none",
-				min: 0,
-				max: 100,
-				step: 2,
-				onChange: d,
-			}),
-		),
+						}}
+					>
+						{h && <m.Play />}
+						{!h && <m.Pause />}
+					</R>
+					<R
+						focusable={!A}
+						disabled={A}
+						active
+						onClick={() => SteamClient.Music.PlayNext()}
+					>
+						<m.NextTrack />
+					</R>
+					<R
+						focusable={!A}
+						disabled={A}
+						active={b}
+						onClick={() => SteamClient.Music.SetPlayingRepeatStatus(y)}
+					>
+						{_}
+					</R>
+				</f.Z>
+				<i.d3
+					className={l.VolumeControl}
+					icon={
+						t?.nVolume == 0 ? <m.VolumeMuted {...B} /> : <m.Volume {...B} />
+					}
+					disabled={A}
+					value={o}
+					showHandle={C}
+					bottomSeparator="none"
+					min={0}
+					max={100}
+					step={2}
+					onChange={d}
+				/>
+			</div>
+		</div>
 	);
 }
 function R(e) {
-	const { size: t = "standard", onClick: r, className: a, active: s, ...o } = e;
-	return n.createElement(
-		i.$n,
-		{
-			onClick: (t) => {
+	const { size = "standard", onClick, className, active, ...o } = e;
+	return (
+		<i.$n
+			onClick={(t) => {
 				t.stopPropagation();
 				e.onClick?.(t);
-			},
-			...o,
-			className: (0, u.A)(
+			}}
+			{...o}
+			className={A_1(
 				l.IconButton,
-				s && l.Active,
-				t == "large" && l.Large,
-				a,
-			),
-		},
-		e.children,
+				active && l.Active,
+				size == "large" && l.Large,
+				className,
+			)}
+		>
+			{e.children}
+		</i.$n>
 	);
 }
-function k(e) {
-	const { playbackState: t, disabled: r } = e;
-	const [a, s] = n.useState();
-	const o = (0, I.Qn)();
+function K(e) {
+	const { playbackState, disabled } = e;
+	const [a, setA] = n.useState();
+	const o = Qn();
 	n.useEffect(
-		() => SteamClient.Music.RegisterForMusicPlaybackPosition(s).unregister,
+		() => SteamClient.Music.RegisterForMusicPlaybackPosition(setA).unregister,
 		[],
 	);
 	let c = 0;
 	let m = 100;
 	let u = "";
-	if (!r) {
+	if (!disabled) {
 		u = Timestamp(a);
 		c = a;
-		m = t.nLengthInMsec;
+		m = playbackState.nLengthInMsec;
 	}
-	return n.createElement(
-		f.Z,
-		{
-			className: l.Progress,
-		},
-		n.createElement(
-			"div",
-			{
-				className: l.Text,
-			},
-			u,
-		),
-		n.createElement(i.A0, {
-			disabled: e.disabled,
-			value: c,
-			showHandle: o,
-			min: 0,
-			max: m,
-			step: 1000,
-			onChangeComplete: (e) => {
-				t = e;
-				SteamClient.Music.SetPlaybackPosition(Math.round(t));
-				return;
-				var t;
-			},
-		}),
+	return (
+		<f.Z className={l.Progress}>
+			<div className={l.Text}>{u}</div>
+			<i.A0
+				disabled={e.disabled}
+				value={c}
+				showHandle={o}
+				min={0}
+				max={m}
+				step={1000}
+				onChangeComplete={(e) => {
+					t = e;
+					SteamClient.Music.SetPlaybackPosition(Math.round(t));
+					return;
+					var t;
+				}}
+			/>
+		</f.Z>
 	);
 }
 export function tx() {
-	const e = (0, a.q3)(() => s.l.playbackState);
+	const e = q3(() => s.l.playbackState);
 	return {
 		bShouldShowIcon: !!e,
 		onShowControls: (e) => {
-			(0, d.lX)(n.createElement(F, null), e, {
+			lX(<F />, e, {
 				bPreferPopTop: false,
 				bDisablePopTop: false,
 				bForcePopup: true,
@@ -241,112 +213,70 @@ export function tx() {
 		playbackState: e,
 	};
 }
-export function pw(e) {
-	const { appid: t } = e;
-	const r = (0, _.br)();
-	const s = (0, C.Co)(t);
+export function Pw(e) {
+	const { appid } = e;
+	const r = br();
+	const s = Co(appid);
 	const o = s?.display_name;
-	const c = (0, a.q3)(() => h.ET.GetTrackDetails(t, e.currentTrack));
+	const c = q3(() => h.ET.GetTrackDetails(appid, e.currentTrack));
 	const m = c?.displayName;
-	return n.createElement(
-		i.cK,
-		{
-			className: l.CurrentTrack,
-			onClick: () => {
-				r.App(t);
-			},
-		},
-		n.createElement(
-			"div",
-			{
-				className: l.CurrentTrackContainer,
-			},
-			n.createElement(
-				"div",
-				{
-					className: l.Art,
-				},
-				n.createElement(M.z, {
-					app: s,
-					eAssetType: 7,
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: l.Details,
-				},
-				n.createElement(
-					"div",
-					{
-						className: l.SoundtrackName,
-					},
-					n.createElement(b.r, null, o),
-				),
-				n.createElement(
-					"div",
-					{
-						className: l.TrackName,
-					},
-					n.createElement(b.r, null, m),
-				),
-			),
-		),
+	return (
+		<i.cK
+			className={l.CurrentTrack}
+			onClick={() => {
+				r.App(appid);
+			}}
+		>
+			<div className={l.CurrentTrackContainer}>
+				<div className={l.Art}>
+					<M.z app={s} eAssetType={7} />
+				</div>
+				<div className={l.Details}>
+					<div className={l.SoundtrackName}>
+						<b.r>{o}</b.r>
+					</div>
+					<div className={l.TrackName}>
+						<b.r>{m}</b.r>
+					</div>
+				</div>
+			</div>
+		</i.cK>
 	);
 }
 function F(e) {
-	const t = (0, a.q3)(() => s.l.playbackState);
+	const t = q3(() => s.l.playbackState);
 	if (t && t.uSoundtrackAppId) {
-		return n.createElement(
-			A.tz,
-			null,
-			n.createElement(
-				"div",
-				{
-					className: l.ContextMenu,
-				},
-				n.createElement(TF, {
-					appid: t.uSoundtrackAppId,
-				}),
-				n.createElement(pw, {
-					appid: t.uSoundtrackAppId,
-					currentTrack: t.nActiveTrack,
-				}),
-			),
+		return (
+			<A.tz>
+				<div className={l.ContextMenu}>
+					<TF appid={t.uSoundtrackAppId} />
+					<Pw appid={t.uSoundtrackAppId} currentTrack={t.nActiveTrack} />
+				</div>
+			</A.tz>
 		);
 	} else {
 		return null;
 	}
 }
 export function SK() {
-	const e = (0, a.q3)(() => s.l.playbackState);
-	const t = (0, y.k1)();
-	return n.createElement(
-		f.Z,
-		{
-			className: l.QuickAccess,
-		},
-		e?.uSoundtrackAppId &&
-			n.createElement(
-				n.Fragment,
-				null,
-				n.createElement(pw, {
-					appid: e.uSoundtrackAppId,
-					currentTrack: e.nActiveTrack,
-				}),
-				n.createElement(TF, {
-					appid: e.uSoundtrackAppId,
-				}),
-			),
-		n.createElement(
-			i.$n,
-			{
-				onClick: () => {
+	const e = q3(() => s.l.playbackState);
+	const t = k1();
+	return (
+		<f.Z className={l.QuickAccess}>
+			{e?.uSoundtrackAppId && (
+				<>
+					<Pw appid={e.uSoundtrackAppId} currentTrack={e.nActiveTrack} />
+					<TF appid={e.uSoundtrackAppId} />
+				</>
+			)}
+			<i.$n
+				onClick={() => {
 					S.n6.SelectGamepadCollectionsAppFilterOption(0, 8192, true);
 					t.LibraryTab("Soundtracks");
-				},
-			},
-			(0, Localize)("#SoundtrackControls_Browse"),
-		),
+				}}
+			>
+				{(0, Localize)("#SoundtrackControls_Browse")}
+			</i.$n>
+		</f.Z>
 	);
 }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Dark: "_2UAf_T9P3-2l5Rr-IlNksx",
 	Background: "yjs9mmsKYDARPUPSoBFw3",
 	Foreground: "JgT6ZW65muFgrXnrRrXyD",

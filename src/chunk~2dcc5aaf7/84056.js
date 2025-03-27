@@ -1,6 +1,6 @@
-export var N;
-export var H;
-(function (e) {
+export let N;
+export let H;
+((e) => {
 	e[(e.k_EControllerBindingType_None = 0)] = "k_EControllerBindingType_None";
 	e[(e.k_EControllerBindingType_Key = 1)] = "k_EControllerBindingType_Key";
 	e[(e.k_EControllerBindingType_MouseButton = 2)] =
@@ -16,7 +16,7 @@ export var H;
 	e[(e.k_EControllerBindingType_ControllerAction = 7)] =
 		"k_EControllerBindingType_ControllerAction";
 })((N ||= {}));
-(function (e) {
+((e) => {
 	e[(e.GAMEPAD_BUTTON_A = 0)] = "GAMEPAD_BUTTON_A";
 	e[(e.GAMEPAD_BUTTON_B = 1)] = "GAMEPAD_BUTTON_B";
 	e[(e.GAMEPAD_BUTTON_X = 2)] = "GAMEPAD_BUTTON_X";

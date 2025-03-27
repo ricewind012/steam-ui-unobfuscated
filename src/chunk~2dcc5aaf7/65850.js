@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./80222.js");
-const o = n.Message;
-export class St extends o {
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+import s from "./80222.js";
+const n_Message = n.Message;
+export class St extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!St.prototype.request) {
 			i.Sg(St.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -53,7 +53,7 @@ export class St extends o {
 		return i.zj(St.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		St.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -61,7 +61,7 @@ export class St extends o {
 		i.i0(St.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		St.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -69,14 +69,14 @@ export class St extends o {
 		return "CPartnerStoreBrowse_GetItems_Request";
 	}
 }
-class c extends o {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.ids) {
 			i.Sg(c.M());
 		}
-		o.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -116,7 +116,7 @@ class c extends o {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -124,7 +124,7 @@ class c extends o {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -132,14 +132,14 @@ class c extends o {
 		return "CPartnerStoreBrowse_GetCountryRestrictions_Request";
 	}
 }
-class m extends o {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.results) {
 			i.Sg(m.M());
 		}
-		o.initialize(this, e, 0, -1, [1, 2], null);
+		n_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -185,7 +185,7 @@ class m extends o {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -193,7 +193,7 @@ class m extends o {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -201,14 +201,14 @@ class m extends o {
 		return "CPartnerStoreBrowse_GetCountryRestrictions_Response";
 	}
 }
-class u extends o {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.id) {
 			i.Sg(u.M());
 		}
-		o.initialize(this, e, 0, -1, [3, 4], null);
+		n_Message.initialize(this, e, 0, -1, [3, 4], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -265,7 +265,7 @@ class u extends o {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -273,7 +273,7 @@ class u extends o {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -281,23 +281,16 @@ class u extends o {
 		return "CPartnerStoreBrowse_GetCountryRestrictions_Response_CCountryRestrictions";
 	}
 }
-export var BT;
-(function (e) {
-	e.GetItems = function (e, t) {
-		return e.SendMsg("PartnerStoreBrowse.GetItems#1", (0, a.I8)(St, t), s.yE, {
+export let BT;
+((e) => {
+	e.GetItems = (e, t) =>
+		e.SendMsg("PartnerStoreBrowse.GetItems#1", I8(St, t), s.yE, {
 			bConstMethod: true,
 			ePrivilege: 1,
 		});
-	};
-	e.GetCountryRestrictions = function (e, t) {
-		return e.SendMsg(
-			"PartnerStoreBrowse.GetCountryRestrictions#1",
-			(0, a.I8)(c, t),
-			m,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-			},
-		);
-	};
+	e.GetCountryRestrictions = (e, t) =>
+		e.SendMsg("PartnerStoreBrowse.GetCountryRestrictions#1", I8(c, t), m, {
+			bConstMethod: true,
+			ePrivilege: 1,
+		});
 })((BT ||= {}));

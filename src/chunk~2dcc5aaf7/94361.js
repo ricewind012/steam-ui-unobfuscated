@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require("./99104.js");
-var s = require(/*webcrack:missing*/ "./83599.js");
 import { Seconds } from "../../actual_src/utils/time.js";
-var l = require(/*webcrack:missing*/ "./93960.js");
+import n, { Cg } from "./34629.js";
+import i from "./12176.js";
+import a from "./99104.js";
+import s from "./83599.js";
+import l from "./93960.js";
 const c = new s.wd("ReactUsageReporting").Debug;
 const m = Seconds.PerMinute * 1000;
 class u {
@@ -42,15 +42,15 @@ class u {
 		}
 	}
 	ReportRouteMatch(e) {
-		c("Route match: " + e);
+		c(`Route match: ${e}`);
 		this.ReportInternal(e, this.m_mapRoutes);
 	}
 	ReportTrackedComponent(e) {
-		c("Tracked component: " + e);
+		c(`Tracked component: ${e}`);
 		this.ReportInternal(e, this.m_mapComponents);
 	}
 	ReportTrackedAction(e) {
-		c("User action: " + e);
+		c(`User action: ${e}`);
 		this.ReportInternal(e, this.m_mapActions);
 	}
 	ShouldSendMetricsImmediately() {
@@ -94,5 +94,5 @@ class u {
 		return this.m_strProduct;
 	}
 }
-(0, n.Cg)([l.o], u.prototype, "CheckSend", null);
+Cg([l.o], u.prototype, "CheckSend", null);
 export const y = new u();

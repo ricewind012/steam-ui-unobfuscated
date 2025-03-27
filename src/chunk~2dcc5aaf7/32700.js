@@ -3,14 +3,16 @@ import {
 	CLocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var i = require(/*webcrack:missing*/ "./44846.js");
+import i, { Lg } from "./44846.js";
+import s, { CH, hL } from "./52451.js";
+import o, { q } from "./29285.js";
 async function a(e) {
 	const t = [];
 	for (let r = 0; r < 31; r++) {
-		const n = (0, i.Lg)(r);
+		const n = Lg(r);
 		t.push(e(n));
 	}
-	return (function (e) {
+	return ((e) => {
 		const t = {};
 		const r = {};
 		const n = window.document.createElement("canvas");
@@ -31,8 +33,6 @@ async function a(e) {
 		return t;
 	})(await Promise.all(t));
 }
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./29285.js");
 export function VD(e) {
 	return require("./61800.js")(`./steamui_${e}.json`);
 }
@@ -40,14 +40,14 @@ export function CI(e) {
 	return require("./32290.js")(`./shared_${e}.json`);
 }
 function m(e) {
-	if ((0, o.q)()) {
+	if (q()) {
 		return require("./74922.js")(`./reducedui_${e}.json`);
 	} else {
 		return Promise.resolve({});
 	}
 }
 export async function Qu() {
-	await (async function (e, ...t) {
+	await (async (e, ...t) => {
 		let r = await a(e);
 		for (const e of t) {
 			r = {
@@ -67,9 +67,9 @@ export async function uV(e) {
 	const r = e === t;
 	const [i, a, s, o, u] = await Promise.all([
 		VD(e),
-		r ? null : VD(t),
+		r || VD(t),
 		CI(e),
-		r ? null : CI(t),
+		r || CI(t),
 		m(e),
 	]);
 	LocalizationManager.InitFromObjects(i, a, s, o, true);
@@ -79,122 +79,161 @@ export function Bb(e, t) {
 	const r = t ? "#DisplayStatus_Compact_" : "#DisplayStatus_";
 	let i = "";
 	switch (e) {
-		case 0:
+		case 0: {
 			i = "Invalid";
 			break;
-		case 1:
+		}
+		case 1: {
 			i = "Launching";
 			break;
-		case 2:
+		}
+		case 2: {
 			i = "Uninstalling";
 			break;
-		case 3:
+		}
+		case 3: {
 			i = "Installing";
 			break;
-		case 4:
+		}
+		case 4: {
 			i = "Running";
 			break;
-		case 5:
+		}
+		case 5: {
 			i = "Validating";
 			break;
-		case 6:
+		}
+		case 6: {
 			i = "Updating";
 			break;
-		case 7:
+		}
+		case 7: {
 			i = "Downloading";
 			break;
-		case 8:
+		}
+		case 8: {
 			i = "Synchronizing";
 			break;
-		case 9:
+		}
+		case 9: {
 			i = "ReadyToInstall";
 			break;
-		case 10:
+		}
+		case 10: {
 			i = "ReadyToPreload";
 			break;
-		case 11:
+		}
+		case 11: {
 			i = "ReadyToLaunch";
 			break;
-		case 12:
+		}
+		case 12: {
 			i = "RegionRestricted";
 			break;
-		case 13:
+		}
+		case 13: {
 			i = "PresaleOnly";
 			break;
-		case 14:
+		}
+		case 14: {
 			i = "InvalidPlatform";
 			break;
-		case 16:
+		}
+		case 16: {
 			i = "PreloadComplete";
 			break;
-		case 17:
+		}
+		case 17: {
 			i = "BorrowerLocked";
 			break;
-		case 37:
+		}
+		case 37: {
 			i = "OwnerLocked";
 			break;
-		case 18:
+		}
+		case 18: {
 			i = "UpdatePaused";
 			break;
-		case 19:
+		}
+		case 19: {
 			i = "UpdateQueued";
 			break;
-		case 20:
+		}
+		case 20: {
 			i = "UpdateRequired";
 			break;
-		case 21:
+		}
+		case 21: {
 			i = "UpdateDisabled";
 			break;
-		case 39:
+		}
+		case 39: {
 			i = "UpdateFailed";
 			break;
-		case 22:
+		}
+		case 22: {
 			i = "DownloadPaused";
 			break;
-		case 23:
+		}
+		case 23: {
 			i = "DownloadQueued";
 			break;
-		case 24:
+		}
+		case 24: {
 			i = "DownloadRequired";
 			break;
-		case 25:
+		}
+		case 25: {
 			i = "DownloadDisabled";
 			break;
-		case 38:
+		}
+		case 38: {
 			i = "DownloadFailed";
 			break;
-		case 26:
+		}
+		case 26: {
 			i = "LicensePending";
 			break;
-		case 27:
+		}
+		case 27: {
 			i = "LicenseExpired";
 			break;
-		case 28:
+		}
+		case 28: {
 			i = "AvailForFree";
 			break;
-		case 29:
+		}
+		case 29: {
 			i = "AvailToBorrow";
 			break;
-		case 30:
+		}
+		case 30: {
 			i = "AvailGuestPass";
 			break;
-		case 31:
+		}
+		case 31: {
 			i = "Purchase";
 			break;
-		case 32:
+		}
+		case 32: {
 			i = "Unavailable";
 			break;
-		case 33:
+		}
+		case 33: {
 			i = "NotLaunchable";
 			break;
-		case 34:
+		}
+		case 34: {
 			i = "CloudError";
 			break;
-		case 35:
+		}
+		case 35: {
 			i = "CloudOutOfDate";
 			break;
-		case 36:
+		}
+		case 36: {
 			i = "Terminating";
+		}
 	}
 	return (0, Localize)(r + i);
 }
@@ -203,6 +242,6 @@ export function Np(e, t) {
 	return (0, Localize)((r ? "#GameActionPlural_" : "#GameAction_") + e);
 }
 export function Qf() {
-	let e = (0, s.CH)();
-	(0, s.hL)(LocalizationManager.GetTokensChangedCallbackList(), e);
+	let e = CH();
+	hL(LocalizationManager.GetTokensChangedCallbackList(), e);
 }

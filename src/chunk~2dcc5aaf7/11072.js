@@ -1,11 +1,18 @@
 import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
-var i = require("./74292.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./31958.js");
-var o = require("./65844.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require("./72061.js");
-const m = a.createContext({
+import i from "./74292.js";
+import a, {
+	useState,
+	useRef,
+	useCallback,
+	useEffect,
+	useMemo,
+	useContext,
+} from "./63696.js";
+import s from "./31958.js";
+import { uR } from "./65844.js";
+import { q3 } from "./90095.js";
+import { OB, QP } from "./72061.js";
+const MContext = a.createContext({
 	bInContainer: false,
 	bContainerFocus: false,
 	nMouseClientXPX: null,
@@ -16,50 +23,50 @@ const m = a.createContext({
 	setContextMenuOpen: () => {},
 });
 export function RF(e) {
-	const { children: t } = e;
-	const [r, u] = (0, a.useState)(false);
-	const [d, A] = (0, a.useState)(false);
-	const [p, g] = (0, a.useState)(false);
-	const [h, C] = (0, a.useState)();
-	const _ = (0, a.useRef)();
-	const f = (0, o.uR)();
-	const b = (0, l.q3)(() => f.GetScrollableWidthPX());
-	const y = (0, l.q3)(() => f.GetVisualWindowStartPX());
-	const S = (0, l.q3)(() => f.GetScrollWindowWidth());
-	const w = (0, l.q3)(() => f.GetScrollWindowOffset());
-	const B = (0, l.q3)(() => f.GetTimelineMarginWidth());
+	const { children } = e;
+	const [r, u] = useState(false);
+	const [d, A] = useState(false);
+	const [p, g] = useState(false);
+	const [h, C] = useState();
+	const _ = useRef();
+	const f = uR();
+	const b = q3(() => f.GetScrollableWidthPX());
+	const y = q3(() => f.GetVisualWindowStartPX());
+	const S = q3(() => f.GetScrollWindowWidth());
+	const w = q3(() => f.GetScrollWindowOffset());
+	const B = q3(() => f.GetTimelineMarginWidth());
 	const v = a.useMemo(() => {
 		if (_.current) {
 			const e = y - w - B;
-			return (0, c.OB)(s.OQ(h + e, 0, b));
+			return OB(s.OQ(h + e, 0, b));
 		}
-		return (0, c.OB)(0);
+		return OB(0);
 	}, [B, h, w, y, b]);
 	const I = a.useMemo(() => {
 		if (_.current) {
 			const e = _.current.getBoundingClientRect();
 			const t = b > S ? w : e.x;
-			return (0, c.QP)(s.OQ(h - t, 0, S));
+			return QP(s.OQ(h - t, 0, S));
 		}
-		return (0, c.QP)(0);
+		return QP(0);
 	}, [h, w, S, b]);
-	const E = (0, a.useCallback)((e, t) => {
+	const E = useCallback((e, t) => {
 		if (_.current) {
 			_.current.addEventListener(e, t);
 		}
 		return () => _.current?.removeEventListener(e, t);
 	}, []);
-	const M = (0, a.useCallback)(() => u(true), []);
-	const T = (0, a.useCallback)(() => u(false), []);
-	const R = (0, a.useCallback)((e) => C(e.clientX), []);
-	const k = (0, a.useCallback)((e) => A(true), []);
-	const D = (0, a.useCallback)((e) => A(false), []);
-	(0, a.useEffect)(() => {
+	const M = useCallback(() => u(true), []);
+	const T = useCallback(() => u(false), []);
+	const R = useCallback((e) => C(e.clientX), []);
+	const k = useCallback((e) => A(true), []);
+	const D = useCallback((e) => A(false), []);
+	useEffect(() => {
 		const e = GetOwningWindowForElement(_.current);
 		e.addEventListener("mousemove", R);
 		return () => e.removeEventListener("mousemove", R);
 	}, [R]);
-	const N = (0, a.useMemo)(
+	const N = useMemo(
 		() => ({
 			bContainerFocus: d,
 			bInContainer: r,
@@ -72,29 +79,25 @@ export function RF(e) {
 		}),
 		[d, r, p, h, v, I, E],
 	);
-	return a.createElement(
-		m.Provider,
-		{
-			value: N,
-		},
-		a.createElement(
-			"div",
-			{
-				ref: _,
-				onMouseOver: k,
-				onFocus: k,
-				onMouseOut: D,
-				onBlur: D,
-				onMouseEnter: M,
-				onMouseLeave: T,
-				className: i.MouseListenerContainer,
-			},
-			t,
-		),
+	return (
+		<MContext.Provider value={N}>
+			<div
+				ref={_}
+				onMouseOver={k}
+				onFocus={k}
+				onMouseOut={D}
+				onBlur={D}
+				onMouseEnter={M}
+				onMouseLeave={T}
+				className={i.MouseListenerContainer}
+			>
+				{children}
+			</div>
+		</MContext.Provider>
 	);
 }
 export function yR() {
-	return (0, a.useContext)(m);
+	return useContext(MContext);
 }
 export function xS() {
 	return yR().globalMouseXPX;
@@ -114,16 +117,16 @@ export function fR() {
 }
 export function gZ(e, t) {
 	const r = yR().fnRegisterMouseEvent;
-	const n = (0, a.useRef)();
-	const i = (0, a.useCallback)(() => {
+	const n = useRef();
+	const i = useCallback(() => {
 		n.current = r(e, t);
 	}, [r, t, e]);
-	const s = (0, a.useCallback)(() => {
+	const s = useCallback(() => {
 		if (n.current) {
 			n.current();
 		}
 	}, []);
-	(0, a.useEffect)(() => {
+	useEffect(() => {
 		i();
 		return () => s();
 	}, [i, s]);

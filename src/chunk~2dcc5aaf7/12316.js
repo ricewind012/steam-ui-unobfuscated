@@ -1,60 +1,60 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./69164.js");
-var a = require(/*webcrack:missing*/ "./4690.js");
-var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require("./2053.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require(/*webcrack:missing*/ "./11131.js");
-var A = require("./12774.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var g = require("./27793.js");
-export const D0 = n.forwardRef(function (e, t) {
+import n from "./63696.js";
+import i from "./69164.js";
+import a from "./4690.js";
+import s from "./64608.js";
+import o, { A as A_1 } from "./90765.js";
+import l, { Ue, RY } from "./52451.js";
+import c from "./2053.js";
+import u, { Qn } from "./72476.js";
+import d, { R7 } from "./11131.js";
+import A, { Zw } from "./12774.js";
+import g from "./27793.js";
+const m = c;
+export const D0 = n.forwardRef((props, ref) => {
 	const {
-		label: r,
-		description: a,
-		icon: s,
-		children: c,
-		childrenLayout: h,
-		inlineWrap: C,
-		childrenContainerWidth: _,
-		spacingBetweenLabelAndChild: f,
-		padding: b,
-		disabled: y,
-		bottomSeparator: S,
-		className: w,
-		highlightOnFocus: B,
-		indentLevel: v,
-		verticalAlignment: I,
-		iconLocation: E,
-		tooltip: M,
-		explainer: T,
-		explainerTitle: R,
+		label,
+		description,
+		icon,
+		children,
+		childrenLayout,
+		inlineWrap,
+		childrenContainerWidth,
+		spacingBetweenLabelAndChild,
+		padding,
+		disabled,
+		bottomSeparator,
+		className,
+		highlightOnFocus,
+		indentLevel,
+		verticalAlignment,
+		iconLocation,
+		tooltip,
+		explainer,
+		explainerTitle,
 		...k
-	} = e;
-	const D = (0, u.Qn)();
-	const N = h ?? "inline";
-	const F = E ?? "front";
-	const G = F == "front" && !!s;
-	const O = F == "before-children" && !!s;
-	const P = N == "inline" && !!c;
-	const L = N == "below" && !!c;
-	const z = C ?? (D ? "shift-children-below" : "keep-inline");
-	const x = !!k.onClick || !!k.onActivate || !!k.focusable;
-	const U = (s != null && G) || r != null || (P && c != null);
-	const W = _ ?? "min";
-	const V = f ?? "standard";
-	const H = b ?? "standard";
-	const j = S ?? "standard";
-	const q = B ?? true;
-	const Q = v ?? 0;
-	const Z = I ?? "center";
-	const Y = (function (e, t) {
-		const r = (0, d.R7)();
+	} = props;
+	const D = Qn();
+	const N = childrenLayout ?? "inline";
+	const F = iconLocation ?? "front";
+	const G = F == "front" && !!icon;
+	const O = F == "before-children" && !!icon;
+	const P = N == "inline" && !!children;
+	const L = N == "below" && !!children;
+	const z = inlineWrap ?? (D ? "shift-children-below" : "keep-inline");
+	const x = !!k.onClick || !!k.onActivate || !!k.onActivate || !!k.focusable;
+	const U = (icon != null && G) || label != null || (P && children != null);
+	const W = childrenContainerWidth ?? "min";
+	const V = spacingBetweenLabelAndChild ?? "standard";
+	const H = padding ?? "standard";
+	const j = bottomSeparator ?? "standard";
+	const q = highlightOnFocus ?? true;
+	const Q = indentLevel ?? 0;
+	const Z = verticalAlignment ?? "center";
+	const Y = ((e, t) => {
+		const r = R7();
 		const i = n.useCallback(() => {
-			(0, A.Zw)(e, t, r.ownerWindow ?? window);
+			Zw(e, t, r.ownerWindow ?? window);
 		}, [r, e, t]);
 		if (t == null) {
 			return {};
@@ -64,38 +64,37 @@ export const D0 = n.forwardRef(function (e, t) {
 			onOptionsButton: i,
 			onOptionsActionDescription: a,
 		};
-	})(R ?? r, T);
-	const K = n.useRef();
-	const X = (0, l.Ue)(K, e.navRef);
+	})(explainerTitle ?? label, explainer);
+	const KRef = n.useRef();
+	const X = Ue(KRef, props.navRef);
 	const J = n.useCallback(
 		(e) => {
-			K.current?.TakeFocus();
+			KRef.current?.TakeFocus();
 			e.preventDefault();
 		},
-		[K],
+		[KRef],
 	);
-	return n.createElement(
-		i.Z,
-		{
-			focusable: x,
-			noFocusRing: true,
-			scrollIntoViewWhenChildFocused: true,
-			onActivate: (e) => k.onClick?.(e),
-			ref: t,
-			onMouseDown: x ? undefined : J,
-			...k,
-			...Y,
-			navRef: X,
-			className: (0, o.A)(
-				w,
+	return (
+		<i.Z
+			focusable={x}
+			noFocusRing
+			scrollIntoViewWhenChildFocused
+			onActivate={(e) => k.onClick?.(e)}
+			ref={ref}
+			onMouseDown={x || J}
+			{...k}
+			{...Y}
+			navRef={X}
+			className={A_1(
+				className,
 				m.Field,
-				y && m.Disabled,
+				disabled && m.Disabled,
 				U && m.WithFirstRow,
 				P && m.WithChildrenInline,
 				L && m.WithChildrenBelow,
 				Z == "center" && m.VerticalAlignCenter,
 				z == "shift-children-below" && m.InlineWrapShiftsChildrenBelow,
-				!!a && m.WithDescription,
+				!!description && m.WithDescription,
 				j == "standard" && m.WithBottomSeparatorStandard,
 				j == "thick" && m.WithBottomSeparatorThick,
 				W == "fixed" && m.ChildrenWidthFixed,
@@ -105,197 +104,128 @@ export const D0 = n.forwardRef(function (e, t) {
 				H == "compact" && m.CompactPadding,
 				x && m.Clickable,
 				q && m.HighlightOnFocus,
-			),
-			style: {
+			)}
+			style={{
 				"--indent-level": Q,
-			},
-		},
-		U &&
-			n.createElement(
-				"div",
-				{
-					className: m.FieldLabelRow,
-				},
-				n.createElement(
-					"div",
-					{
-						className: m.FieldLabel,
-					},
-					G &&
-						n.createElement(
-							"div",
-							{
-								className: (0, o.A)(m.FieldIcon, m.Front),
-							},
-							s,
-						),
-					r,
-					M &&
-						n.createElement(g.o, {
-							tooltip: M,
-						}),
-				),
-				P &&
-					n.createElement(
-						"div",
-						{
-							className: m.FieldChildrenWithIcon,
-						},
-						O &&
-							n.createElement(
-								"div",
-								{
-									className: (0, o.A)(m.FieldIcon, m.BeforeChildren),
-								},
-								s,
-							),
-						n.createElement(
-							"div",
-							{
-								className: m.FieldChildrenInner,
-							},
-							c,
-						),
-					),
-			),
-		L &&
-			n.createElement(
-				"div",
-				{
-					className: m.FieldChildrenWithIcon,
-				},
-				O &&
-					n.createElement(
-						"div",
-						{
-							className: (0, o.A)(m.FieldIcon, m.BeforeChildren),
-						},
-						s,
-					),
-				n.createElement(
-					"div",
-					{
-						className: m.FieldChildrenInner,
-					},
-					c,
-				),
-			),
-		a &&
-			n.createElement(
-				"div",
-				{
-					className: m.FieldDescription,
-				},
-				a,
-			),
+			}}
+		>
+			{U && (
+				<div className={m.FieldLabelRow}>
+					<div className={m.FieldLabel}>
+						{G && <div className={A_1(m.FieldIcon, m.Front)}>{icon}</div>}
+						{label}
+						{tooltip && <g.o tooltip={tooltip} />}
+					</div>
+					{P && (
+						<div className={m.FieldChildrenWithIcon}>
+							{O && (
+								<div className={A_1(m.FieldIcon, m.BeforeChildren)}>{icon}</div>
+							)}
+							<div className={m.FieldChildrenInner}>{children}</div>
+						</div>
+					)}
+				</div>
+			)}
+			{L && (
+				<div className={m.FieldChildrenWithIcon}>
+					{O && (
+						<div className={A_1(m.FieldIcon, m.BeforeChildren)}>{icon}</div>
+					)}
+					<div className={m.FieldChildrenInner}>{children}</div>
+				</div>
+			)}
+			{description && <div className={m.FieldDescription}>{description}</div>}
+		</i.Z>
 	);
 });
 export function Nv(e) {
-	const { layout: t, ...r } = e;
-	return n.createElement(
-		D0,
-		{
-			spacingBetweenLabelAndChild: "none",
-			childrenLayout: e.layout,
-			...r,
-		},
-		n.createElement(
-			"div",
-			{
-				className: m.LabelFieldValue,
-			},
-			e.children,
-		),
+	const { layout, ...r } = e;
+	return (
+		<D0 spacingBetweenLabelAndChild="none" childrenLayout={e.layout} {...r}>
+			<div className={m.LabelFieldValue}>{e.children}</div>
+		</D0>
 	);
 }
-export const xh = n.forwardRef(function (e, t) {
+export const xh = n.forwardRef((props, ref) => {
 	const {
-		label: r,
-		description: i,
-		explainer: a,
-		icon: o,
-		layout: c,
-		disabled: m,
-		onActivate: u,
-		bottomSeparator: d,
-		highlightOnFocus: A,
-		childrenContainerWidth: p,
-		padding: g,
-		inlineWrap: C,
-		fieldClassName: _,
-		fieldChildren: f,
+		label,
+		description,
+		explainer,
+		icon,
+		layout,
+		disabled,
+		onActivate,
+		bottomSeparator,
+		highlightOnFocus,
+		childrenContainerWidth,
+		padding,
+		inlineWrap,
+		fieldClassName,
+		fieldChildren,
 		...b
-	} = e;
-	const { refWithValue: y, refForElement: S } = (0, l.RY)(t);
-	return n.createElement(
-		D0,
-		{
-			label: r,
-			description: i,
-			icon: o,
-			bottomSeparator: d,
-			highlightOnFocus: A,
-			childrenLayout: c ?? "inline",
-			childrenContainerWidth: p ?? "min",
-			onMouseDown: (e) => {
-				y.current?.focus();
+	} = props;
+	const { refWithValue, refForElement } = RY(ref);
+	return (
+		<D0
+			label={label}
+			description={description}
+			icon={icon}
+			bottomSeparator={bottomSeparator}
+			highlightOnFocus={highlightOnFocus}
+			childrenLayout={layout ?? "inline"}
+			childrenContainerWidth={childrenContainerWidth ?? "min"}
+			onMouseDown={(e) => {
+				refWithValue.current?.focus();
 				e.preventDefault();
-			},
-			padding: g,
-			inlineWrap: C,
-			explainer: a,
-			className: _,
-			disabled: m,
-			onActivate: m ? u : undefined,
-		},
-		n.createElement(s.$n, {
-			...b,
-			disabled: m,
-			ref: S,
-		}),
-		f,
+			}}
+			padding={padding}
+			inlineWrap={inlineWrap}
+			explainer={explainer}
+			className={fieldClassName}
+			disabled={disabled}
+			onActivate={disabled ? onActivate : undefined}
+		>
+			<s.$n {...b} disabled={disabled} ref={refForElement} />
+			{fieldChildren}
+		</D0>
 	);
 });
-export const qq = n.forwardRef(function (e, t) {
+export const qq = n.forwardRef((props, ref) => {
 	const {
-		label: r,
-		description: i,
-		icon: a,
-		layout: o,
-		bottomSeparator: c,
-		highlightOnFocus: m,
+		label,
+		description,
+		icon,
+		layout,
+		bottomSeparator,
+		highlightOnFocus,
 		...u
-	} = e;
-	const { refWithValue: d, refForElement: A } = (0, l.RY)(t);
-	return n.createElement(
-		D0,
-		{
-			label: r,
-			description: i,
-			icon: a,
-			bottomSeparator: c,
-			highlightOnFocus: m,
-			childrenLayout: o ?? "inline",
-			childrenContainerWidth: "fixed",
-			onMouseDown: (e) => {
-				d.current?.element?.focus();
+	} = props;
+	const { refWithValue, refForElement } = RY(ref);
+	return (
+		<D0
+			label={label}
+			description={description}
+			icon={icon}
+			bottomSeparator={bottomSeparator}
+			highlightOnFocus={highlightOnFocus}
+			childrenLayout={layout ?? "inline"}
+			childrenContainerWidth="fixed"
+			onMouseDown={(e) => {
+				refWithValue.current?.element?.focus();
 				e.preventDefault();
-			},
-		},
-		n.createElement(s.pd, {
-			...u,
-			ref: A,
-		}),
+			}}
+		>
+			<s.pd {...u} ref={refForElement} />
+		</D0>
 	);
 });
 export function $S(e) {
 	const t = e.alignItems ?? "left";
 	const r = e.spacing ?? "standard";
 	const s = e.itemMaxSize ?? "gamepad";
-	return n.createElement(
-		i.Z,
-		{
-			className: (0, o.A)(
+	return (
+		<i.Z
+			className={A_1(
 				m.ControlsListOuterPanel,
 				t == "left" && m.AlignLeft,
 				t == "right" && m.AlignRight,
@@ -304,65 +234,44 @@ export function $S(e) {
 				r == "extra" && m.ExtraSpacing,
 				s == "desktop" && m.ItemMaxSizeDesktop,
 				e.fullWidth && m.FullWidth,
-			),
-			navEntryPreferPosition: a.iU.PREFERRED_CHILD,
-		},
-		n.Children.map(
-			e.children,
-			(e) =>
-				e &&
-				n.createElement(
-					"div",
-					{
-						className: m.ControlsListChild,
-					},
-					e,
-				),
-		),
+			)}
+			navEntryPreferPosition={a.iU.PREFERRED_CHILD}
+		>
+			{n.Children.map(
+				e.children,
+				(e) => e && <div className={m.ControlsListChild}>{e}</div>,
+			)}
+		</i.Z>
 	);
 }
 export function BC(e) {
-	const {
-		children: t,
-		alignItems: r,
-		spacing: i,
-		itemMaxSize: a,
-		fullWidth: s,
-		...o
-	} = e;
+	const { children, alignItems, spacing, itemMaxSize, fullWidth, ...o } = e;
 	const l = {
-		fullWidth: s,
-		children: t,
-		alignItems: r,
-		spacing: i,
-		itemMaxSize: a,
+		fullWidth: fullWidth,
+		children: children,
+		alignItems: alignItems,
+		spacing: spacing,
+		itemMaxSize: itemMaxSize,
 	};
-	return n.createElement(
-		D0,
-		{
-			childrenLayout: "below",
-			...o,
-		},
-		n.createElement($S, {
-			...l,
-		}),
+	return (
+		<D0 childrenLayout="below" {...o}>
+			<$S {...l} />
+		</D0>
 	);
 }
 export function T8(e) {
 	const t = e.onClick ?? (() => {});
-	return n.createElement(
-		Nv,
-		{
-			key: e.name,
-			label: e.name,
-			onClick: t,
-			bottomSeparator: e.bottomSeparator,
-		},
-		e.value,
+	return (
+		<Nv
+			key={e.name}
+			label={e.name}
+			onClick={t}
+			bottomSeparator={e.bottomSeparator}
+		>
+			{e.value}
+		</Nv>
 	);
 }
 export function Nu(e) {
-	return n.createElement("div", {
-		className: (0, o.A)(m.StandaloneFieldSeparator, e.className),
-	});
+	return <div className={A_1(m.StandaloneFieldSeparator, e.className)} />;
 }

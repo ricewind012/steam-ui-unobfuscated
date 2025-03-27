@@ -1,22 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require(/*webcrack:missing*/ "./61416.js");
-var s = require(/*webcrack:missing*/ "./24295.js");
-var o = require(/*webcrack:missing*/ "./46382.js");
-var l = require("./59401.js");
-require("./54946.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require(/*webcrack:missing*/ "./58663.js");
-var u = require(/*webcrack:missing*/ "./48307.js");
-const d = m.Message;
-class A extends d {
+import n, { useContext, createContext, useEffect } from "./63696.js";
+import i, { I8 } from "./12176.js";
+import { I as I_1 } from "./61416.js";
+import { LH } from "./24295.js";
+import { KV } from "./46382.js";
+import l from "./59401.js";
+import "./54946.js";
+import m from "./58663.js";
+import u from "./48307.js";
+import L from "./43691.js";
+import "./24274.js";
+import "./36229.js";
+const m_Message = m.Message;
+class A extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.steamid_requester) {
 			u.Sg(A.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -60,7 +63,7 @@ class A extends d {
 		return u.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -68,7 +71,7 @@ class A extends d {
 		u.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -76,14 +79,14 @@ class A extends d {
 		return "CShoppingCart_CreateNew_Request";
 	}
 }
-class p extends d {
+class p extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.gidshoppingcart) {
 			u.Sg(p.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -122,7 +125,7 @@ class p extends d {
 		return u.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -130,7 +133,7 @@ class p extends d {
 		u.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -138,14 +141,14 @@ class p extends d {
 		return "CShoppingCart_CreateNew_Response";
 	}
 }
-class g extends d {
+class g extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.amount) {
 			u.Sg(g.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -189,7 +192,7 @@ class g extends d {
 		return u.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -197,7 +200,7 @@ class g extends d {
 		u.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -205,14 +208,14 @@ class g extends d {
 		return "CShoppingCart_Amount";
 	}
 }
-class h extends d {
+class h extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.packageid) {
 			u.Sg(h.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -270,7 +273,7 @@ class h extends d {
 		return u.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -278,7 +281,7 @@ class h extends d {
 		u.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -286,14 +289,14 @@ class h extends d {
 		return "CShoppingCart_PackageItem";
 	}
 }
-class C extends d {
+class C extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.walletcredit) {
 			u.Sg(C.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -331,7 +334,7 @@ class C extends d {
 		return u.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -339,7 +342,7 @@ class C extends d {
 		u.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -347,14 +350,14 @@ class C extends d {
 		return "CShoppingCart_WalletCreditItem";
 	}
 }
-class _ extends d {
+class _ extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.couponid) {
 			u.Sg(_.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -408,7 +411,7 @@ class _ extends d {
 		return u.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -416,7 +419,7 @@ class _ extends d {
 		u.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -424,14 +427,14 @@ class _ extends d {
 		return "CShoppingCart_CouponItem";
 	}
 }
-class f extends d {
+class f extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.microtxnappid) {
 			u.Sg(f.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -475,7 +478,7 @@ class f extends d {
 		return u.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -483,7 +486,7 @@ class f extends d {
 		u.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -491,14 +494,14 @@ class f extends d {
 		return "CShoppingCart_MicroTxnAsset";
 	}
 }
-class b extends d {
+class b extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.bundleid) {
 			u.Sg(b.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -542,7 +545,7 @@ class b extends d {
 		return u.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -550,7 +553,7 @@ class b extends d {
 		u.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -558,14 +561,14 @@ class b extends d {
 		return "CShoppingCart_BundleItem";
 	}
 }
-class y extends d {
+class y extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.reward_id) {
 			u.Sg(y.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -604,7 +607,7 @@ class y extends d {
 		return u.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -612,7 +615,7 @@ class y extends d {
 		u.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -620,14 +623,14 @@ class y extends d {
 		return "CShoppingCart_LoyaltyRewardItem";
 	}
 }
-class S extends d {
+class S extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S.prototype.gidparent) {
 			u.Sg(S.M());
 		}
-		d.initialize(this, e, 0, -1, [2], null);
+		m_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -672,7 +675,7 @@ class S extends d {
 		return u.zj(S.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -680,7 +683,7 @@ class S extends d {
 		u.i0(S.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -688,14 +691,14 @@ class S extends d {
 		return "CShoppingCart_RelationShip";
 	}
 }
-class w extends d {
+class w extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!w.prototype.couponid) {
 			u.Sg(w.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -744,7 +747,7 @@ class w extends d {
 		return u.zj(w.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -752,7 +755,7 @@ class w extends d {
 		u.i0(w.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -760,14 +763,14 @@ class w extends d {
 		return "CShoppingCart_AvailableCoupon";
 	}
 }
-class B extends d {
+class B extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!B.prototype.gidlineitem) {
 			u.Sg(B.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -830,7 +833,7 @@ class B extends d {
 		return u.zj(B.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -838,7 +841,7 @@ class B extends d {
 		u.i0(B.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -846,14 +849,14 @@ class B extends d {
 		return "CShoppingCart_Item";
 	}
 }
-class v extends d {
+class v extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!v.prototype.coupons) {
 			u.Sg(v.M());
 		}
-		d.initialize(this, e, 0, -1, [1], null);
+		m_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -893,7 +896,7 @@ class v extends d {
 		return u.zj(v.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -901,7 +904,7 @@ class v extends d {
 		u.i0(v.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -909,14 +912,14 @@ class v extends d {
 		return "CShoppingCart_Potentials";
 	}
 }
-class I extends d {
+class I extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!I.prototype.gidshoppingcart) {
 			u.Sg(I.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -955,7 +958,7 @@ class I extends d {
 		return u.zj(I.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -963,7 +966,7 @@ class I extends d {
 		u.i0(I.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -971,14 +974,14 @@ class I extends d {
 		return "CShoppingCart_GetContents_Request";
 	}
 }
-class E extends d {
+class E extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!E.prototype.lineitems) {
 			u.Sg(E.M());
 		}
-		d.initialize(this, e, 0, -1, [1, 2], null);
+		m_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1028,7 +1031,7 @@ class E extends d {
 		return u.zj(E.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1036,7 +1039,7 @@ class E extends d {
 		u.i0(E.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1044,14 +1047,14 @@ class E extends d {
 		return "CShoppingCart_Contents";
 	}
 }
-class M extends d {
+class M extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!M.prototype.gidshoppingcart) {
 			u.Sg(M.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1114,7 +1117,7 @@ class M extends d {
 		return u.zj(M.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1122,7 +1125,7 @@ class M extends d {
 		u.i0(M.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1130,14 +1133,14 @@ class M extends d {
 		return "CShoppingCart_GetContents_Response";
 	}
 }
-class T extends d {
+class T extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!T.prototype.gidshoppingcart) {
 			u.Sg(T.M());
 		}
-		d.initialize(this, e, 0, -1, [4], null);
+		m_Message.initialize(this, e, 0, -1, [4], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1198,7 +1201,7 @@ class T extends d {
 		return u.zj(T.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1206,7 +1209,7 @@ class T extends d {
 		u.i0(T.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1214,14 +1217,14 @@ class T extends d {
 		return "CShoppingCart_AddPackages_Request";
 	}
 }
-class R extends d {
+class R extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!R.prototype.gidshoppingcart) {
 			u.Sg(R.M());
 		}
-		d.initialize(this, e, 0, -1, [3], null);
+		m_Message.initialize(this, e, 0, -1, [3], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1272,7 +1275,7 @@ class R extends d {
 		return u.zj(R.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1280,7 +1283,7 @@ class R extends d {
 		u.i0(R.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1288,14 +1291,14 @@ class R extends d {
 		return "CShoppingCart_AddPackages_Response";
 	}
 }
-class k extends d {
+class k extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!k.prototype.gidshoppingcart) {
 			u.Sg(k.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1344,7 +1347,7 @@ class k extends d {
 		return u.zj(k.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1352,7 +1355,7 @@ class k extends d {
 		u.i0(k.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		k.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1360,14 +1363,14 @@ class k extends d {
 		return "CShoppingCart_UpdatePackageQuantity_Request";
 	}
 }
-class D extends d {
+class D extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!D.prototype.gidshoppingcart) {
 			u.Sg(D.M());
 		}
-		d.initialize(this, e, 0, -1, [3], null);
+		m_Message.initialize(this, e, 0, -1, [3], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1418,7 +1421,7 @@ class D extends d {
 		return u.zj(D.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1426,7 +1429,7 @@ class D extends d {
 		u.i0(D.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		D.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1434,14 +1437,14 @@ class D extends d {
 		return "CShoppingCart_UpdatePackageQuantity_Response";
 	}
 }
-class N extends d {
+class N extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!N.prototype.gidshoppingcart) {
 			u.Sg(N.M());
 		}
-		d.initialize(this, e, 0, -1, undefined, null);
+		m_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1506,7 +1509,7 @@ class N extends d {
 		return u.zj(N.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1514,7 +1517,7 @@ class N extends d {
 		u.i0(N.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1522,14 +1525,14 @@ class N extends d {
 		return "CShoppingCart_AddBundle_Request";
 	}
 }
-class F extends d {
+class F extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!F.prototype.contents) {
 			u.Sg(F.M());
 		}
-		d.initialize(this, e, 0, -1, [2], null);
+		m_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1575,7 +1578,7 @@ class F extends d {
 		return u.zj(F.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1583,7 +1586,7 @@ class F extends d {
 		u.i0(F.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1591,14 +1594,14 @@ class F extends d {
 		return "CShoppingCart_AddBundle_Response";
 	}
 }
-class G extends d {
+class G extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!G.prototype.gidshoppingcart) {
 			u.Sg(G.M());
 		}
-		d.initialize(this, e, 0, -1, [2], null);
+		m_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1650,7 +1653,7 @@ class G extends d {
 		return u.zj(G.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		G.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1658,7 +1661,7 @@ class G extends d {
 		u.i0(G.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		G.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1666,14 +1669,14 @@ class G extends d {
 		return "CShoppingCart_RemoveLineItems_Request";
 	}
 }
-class O extends d {
+class O extends m_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!O.prototype.contents) {
 			u.Sg(O.M());
 		}
-		d.initialize(this, e, 0, -1, [2], null);
+		m_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1719,7 +1722,7 @@ class O extends d {
 		return u.zj(O.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		O.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1727,7 +1730,7 @@ class O extends d {
 		u.i0(O.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new m.BinaryWriter();
+		const e = new m.BinaryWriter();
 		O.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1735,64 +1738,40 @@ class O extends d {
 		return "CShoppingCart_RemoveLineItems_Response";
 	}
 }
-var P;
-(function (e) {
-	e.CreateNewShoppingCart = function (e, t) {
-		return e.SendMsg(
-			"ShoppingCart.CreateNewShoppingCart#1",
-			(0, i.I8)(A, t),
-			p,
-			{
-				ePrivilege: 1,
-				eWebAPIKeyRequirement: 1,
-			},
-		);
-	};
-	e.GetShoppingCartContents = function (e, t) {
-		return e.SendMsg(
-			"ShoppingCart.GetShoppingCartContents#1",
-			(0, i.I8)(I, t),
-			M,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-				eWebAPIKeyRequirement: 1,
-			},
-		);
-	};
-	e.AddPackages = function (e, t) {
-		return e.SendMsg("ShoppingCart.AddPackages#1", (0, i.I8)(T, t), R, {
+let P;
+((e) => {
+	e.CreateNewShoppingCart = (e, t) =>
+		e.SendMsg("ShoppingCart.CreateNewShoppingCart#1", I8(A, t), p, {
 			ePrivilege: 1,
 			eWebAPIKeyRequirement: 1,
 		});
-	};
-	e.UpdatePackageQuantity = function (e, t) {
-		return e.SendMsg(
-			"ShoppingCart.UpdatePackageQuantity#1",
-			(0, i.I8)(k, t),
-			D,
-			{
-				ePrivilege: 1,
-				eWebAPIKeyRequirement: 1,
-			},
-		);
-	};
-	e.AddBundle = function (e, t) {
-		return e.SendMsg("ShoppingCart.AddBundle#1", (0, i.I8)(N, t), F, {
+	e.GetShoppingCartContents = (e, t) =>
+		e.SendMsg("ShoppingCart.GetShoppingCartContents#1", I8(I, t), M, {
+			bConstMethod: true,
 			ePrivilege: 1,
 			eWebAPIKeyRequirement: 1,
 		});
-	};
-	e.RemoveLineItems = function (e, t) {
-		return e.SendMsg("ShoppingCart.RemoveLineItems#1", (0, i.I8)(G, t), O, {
+	e.AddPackages = (e, t) =>
+		e.SendMsg("ShoppingCart.AddPackages#1", I8(T, t), R, {
 			ePrivilege: 1,
 			eWebAPIKeyRequirement: 1,
 		});
-	};
+	e.UpdatePackageQuantity = (e, t) =>
+		e.SendMsg("ShoppingCart.UpdatePackageQuantity#1", I8(k, t), D, {
+			ePrivilege: 1,
+			eWebAPIKeyRequirement: 1,
+		});
+	e.AddBundle = (e, t) =>
+		e.SendMsg("ShoppingCart.AddBundle#1", I8(N, t), F, {
+			ePrivilege: 1,
+			eWebAPIKeyRequirement: 1,
+		});
+	e.RemoveLineItems = (e, t) =>
+		e.SendMsg("ShoppingCart.RemoveLineItems#1", I8(G, t), O, {
+			ePrivilege: 1,
+			eWebAPIKeyRequirement: 1,
+		});
 })((P ||= {}));
-var L = require(/*webcrack:missing*/ "./43691.js");
-require("./24274.js");
-require(/*webcrack:missing*/ "./36229.js");
 export const j$ = (e, t) =>
 	t === undefined
 		? ["get_family_group_for_user ", e]
@@ -1808,9 +1787,9 @@ const V = n.createContext({
 	staleTimeMs: Infinity,
 });
 export function Hs(e) {
-	const t = (0, o.KV)();
-	const r = (0, n.useContext)(V).staleTimeMs;
-	return (0, a.I)({
+	const t = KV();
+	const r = useContext(V).staleTimeMs;
+	return I_1({
 		queryKey: JM(e),
 		queryFn: async () => {
 			if (e) {
@@ -1826,19 +1805,19 @@ export function Hs(e) {
 	});
 }
 export function ll(e) {
-	const t = (0, s.LH)();
+	const t = LH();
 	const r = Hs(e);
 	return r.data
 		?.members()
 		.find((e) => e.steamid() == t)
 		?.role();
 }
-const q = (0, n.createContext)({
+const q = createContext({
 	errorMessage: null,
 	setErrorMessage: (e) => {},
 });
-var Q;
-(function (e) {
+let Q;
+((e) => {
 	e[(e.k_EFamilyQueryNone = 0)] = "k_EFamilyQueryNone";
 	e[(e.k_EFamilyQueryLoadFamily = 1)] = "k_EFamilyQueryLoadFamily";
 	e[(e.k_EFamilyQueryJoinFamily = 2)] = "k_EFamilyQueryJoinFamily";
@@ -1873,14 +1852,14 @@ Q.k_EFamilyQueryInviteToFamily;
 Q.k_EFamilyQueryRemoveFromFamily;
 Q.k_EFamilyQueryInviteToFamily;
 function Z() {
-	const { setErrorMessage: e } = (0, n.useContext)(q);
+	const { setErrorMessage: e } = useContext(q);
 	return {
 		setErrorMessage: e,
 	};
 }
 export function p8(e, t) {
 	const { setErrorMessage: r } = Z();
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (e.isError) {
 			r((0, Localize)(t));
 		}

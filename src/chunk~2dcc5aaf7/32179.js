@@ -1,22 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./8573.js");
-var l = require("./51297.js");
-var c = require(/*webcrack:missing*/ "./58663.js");
-var m = require(/*webcrack:missing*/ "./48307.js");
-var u = require(/*webcrack:missing*/ "./12176.js");
-var d = require("./12251.js");
-const A = c.Message;
-class p extends A {
+import n, { Cg } from "./34629.js";
+import i, { Gn, h5 } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s, { useMemo, useCallback } from "./63696.js";
+import o from "./8573.js";
+import l from "./51297.js";
+import c from "./58663.js";
+import m from "./48307.js";
+import u, { I8 } from "./12176.js";
+import d, { OI } from "./12251.js";
+const c_Message = c.Message;
+class p extends c_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.gameid) {
 			m.Sg(p.M());
 		}
-		A.initialize(this, e, 0, -1, undefined, null);
+		c_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -55,7 +55,7 @@ class p extends A {
 		return m.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -63,7 +63,7 @@ class p extends A {
 		m.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -71,14 +71,14 @@ class p extends A {
 		return "CAchievements_GetInfo_Request";
 	}
 }
-class g extends A {
+class g extends c_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.achievements) {
 			m.Sg(g.M());
 		}
-		A.initialize(this, e, 0, -1, [1], null);
+		c_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -118,7 +118,7 @@ class g extends A {
 		return m.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -126,7 +126,7 @@ class g extends A {
 		m.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -134,14 +134,14 @@ class g extends A {
 		return "CAchievements_GetInfo_Response";
 	}
 }
-class h extends A {
+class h extends c_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.id) {
 			m.Sg(h.M());
 		}
-		A.initialize(this, e, 0, -1, undefined, null);
+		c_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -210,7 +210,7 @@ class h extends A {
 		return m.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -218,7 +218,7 @@ class h extends A {
 		m.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new c.BinaryWriter();
+		const e = new c.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -226,37 +226,37 @@ class h extends A {
 		return "CAchievements_GetInfo_Response_Info";
 	}
 }
-var C;
+let C;
 function _(e, t) {
 	return `${e}_${t}`;
 }
-(function (e) {
+((e) => {
 	e.GetInfoHandler = {
 		name: "Achievements.GetInfo#1",
 		request: p,
 		response: g,
 	};
-	e.GetInfo = function (e, t) {
-		if ((t = t || (0, d.OI)().GetDefaultTransport()) == null) {
+	e.GetInfo = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Achievements.GetInfo#1", (0, u.I8)(p, e), g, {
+			return t.SendMsg("Achievements.GetInfo#1", I8(p, e), g, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
 		}
 	};
-	e.SendMsgGetInfo = function (e, t) {
-		if ((t = t || (0, d.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetInfo = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Achievements.GetInfo#1", (0, u.I8)(p, e), g, {
+			return t.SendMsg("Achievements.GetInfo#1", I8(p, e), g, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
@@ -265,7 +265,7 @@ function _(e, t) {
 })((C ||= {}));
 class f {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapPlayerAchievements = new Map();
 	m_mapInflightAchievementsRequests = new Map();
@@ -308,7 +308,7 @@ class f {
 				data: y(a.data),
 			};
 		}
-		(0, i.h5)(() => {
+		h5(() => {
 			this.m_mapPlayerAchievements.set(n, s);
 			this.m_mapInflightAchievementsRequests.delete(n);
 		});
@@ -381,7 +381,7 @@ class f {
 				data: w(t.data),
 			};
 		}
-		(0, i.h5)(() => {
+		h5(() => {
 			this.m_mapMyAchievements.set(e, r);
 			this.m_mapGlobalAchievements.set(e, n);
 			this.m_mapInflightMyAchievementsRequests.delete(e);
@@ -414,11 +414,11 @@ class f {
 		);
 	}
 }
-(0, n.Cg)([i.sH], f.prototype, "m_mapPlayerAchievements", undefined);
-(0, n.Cg)([i.sH], f.prototype, "m_mapMyAchievements", undefined);
-(0, n.Cg)([i.sH], f.prototype, "m_mapAchievementsByID", undefined);
-(0, n.Cg)([i.sH], f.prototype, "m_mapGlobalAchievements", undefined);
-(0, n.Cg)([i.XI.bound], f.prototype, "OnAchievementChange", null);
+Cg([i.sH], f.prototype, "m_mapPlayerAchievements", undefined);
+Cg([i.sH], f.prototype, "m_mapMyAchievements", undefined);
+Cg([i.sH], f.prototype, "m_mapAchievementsByID", undefined);
+Cg([i.sH], f.prototype, "m_mapGlobalAchievements", undefined);
+Cg([i.XI.bound], f.prototype, "OnAchievementChange", null);
 export const p6 = new f();
 function y(e) {
 	const t = {
@@ -461,30 +461,30 @@ function w(e) {
 	return t;
 }
 export function kn(e, t) {
-	return (0, a.q3)(() => p6.GetPlayerAchievements(e, t));
+	return q3(() => p6.GetPlayerAchievements(e, t));
 }
 export function ex(e) {
-	return (0, a.q3)(() => p6.GetMyAchievements(e));
+	return q3(() => p6.GetMyAchievements(e));
 }
 export function Hc(e) {
-	return (0, a.q3)(() => p6.GetGlobalAchievements(e));
+	return q3(() => p6.GetGlobalAchievements(e));
 }
 export function hj(e, t) {
 	const r = kn(e, t);
 	const n = ex(e);
 	const i = Hc(e);
-	return (0, s.useMemo)(() => {
+	return useMemo(() => {
 		const { data: e, loading: t, error: a } = r;
 		const { data: s, loading: o, error: l } = n;
 		const { data: c, loading: m, error: u } = i;
-		if (t || o || m) {
+		if (t || o || o || m) {
 			return {
 				loading: true,
 			};
 		}
-		if (a || l || u) {
+		if (a || l || l || u) {
 			return {
-				error: a || l || u,
+				error: a || l || l || u,
 			};
 		}
 		const d = {
@@ -554,7 +554,7 @@ export function dd() {
 	return true;
 }
 export function w$() {
-	return (0, s.useCallback)(() => p6.ResetFailures(), []);
+	return useCallback(() => p6.ResetFailures(), []);
 }
 export function Np(e, t) {
 	let r = e.achieved[t];

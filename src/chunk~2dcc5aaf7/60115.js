@@ -1,14 +1,14 @@
-var n = require("./33572.js");
-var i = require("./96680.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./31084.js");
-var o = require(/*webcrack:missing*/ "./61657.js");
-var l = require("./10606.js");
-var c = require("./73375.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
+import { ch } from "./33572.js";
+import i, { $2 } from "./96680.js";
+import a from "./63696.js";
+import s from "./31084.js";
+import o from "./61657.js";
+import l from "./10606.js";
+import { Fx } from "./73375.js";
+import m, { fm } from "./89193.js";
 export function k6(e, t, r) {
-	const o = (0, n.ch)();
-	const m = (0, i.$2)().BrowserWindow;
+	const o = ch();
+	const m = $2().BrowserWindow;
 	a.useEffect(() => {
 		if (t) {
 			t.GetBrowserView().SetTouchGesturesToCancel([9, 10]);
@@ -26,7 +26,7 @@ export function k6(e, t, r) {
 			return s.XX.RegisterChildWindow(m, e);
 		}
 	}, [t, m]);
-	const u = (0, c.Fx)(t?.GetBrowserView(), 1);
+	const u = Fx(t?.GetBrowserView(), 1);
 	return {
 		fnOnFocusNavActivated: a.useCallback(() => {
 			t?.GetBrowserView().SetFocus(true);
@@ -40,7 +40,7 @@ export function k6(e, t, r) {
 	};
 }
 export function on() {
-	const e = (0, i.$2)();
+	const e = $2();
 	return a.useCallback(
 		(t) => {
 			if (t.detail.button == o.pR.STEAM_GUIDE) {
@@ -56,11 +56,8 @@ export function on() {
 	);
 }
 export function Y$(e) {
-	const t = (0, n.ch)();
-	const [r, i] = a.useState(() => t.GetLastRequestedSideMenu() == e);
-	a.useEffect(
-		() => (0, m.fm)(() => i(t.GetLastRequestedSideMenu() == e)),
-		[t, e],
-	);
+	const t = ch();
+	const [r, setR] = a.useState(() => t.GetLastRequestedSideMenu() == e);
+	a.useEffect(() => fm(() => setR(t.GetLastRequestedSideMenu() == e)), [t, e]);
 	return r;
 }

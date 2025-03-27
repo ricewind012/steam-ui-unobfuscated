@@ -1,22 +1,46 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./42689.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./44846.js");
-var l = require(/*webcrack:missing*/ "./31084.js");
-var c = require("./84731.js");
-var m = require("./34875.js");
-var u = require("./78771.js");
-var d = require("./70232.js");
-var A = require("./12956.js");
-var p = require("./13665.js");
-var g = require(/*webcrack:missing*/ "./89193.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var C = require(/*webcrack:missing*/ "./83957.js");
-var _ = C;
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeDateHumanReadable,
+} from "../../actual_src/utils/localization.js";
+import { Seconds, IsDateSameYear } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./41230.js";
+import a from "./42689.js";
+import s from "./63696.js";
+import o, { sf, Lg } from "./44846.js";
+import l, { lX } from "./31084.js";
+import c from "./84731.js";
+import { RR } from "./34875.js";
+import u from "./78771.js";
+import d from "./70232.js";
+import A, { sB } from "./12956.js";
+import p from "./13665.js";
+import g, { Gn, h5 } from "./89193.js";
+import h, { Fd } from "./72476.js";
+import C from "./83957.js";
+import _y from "./24892.js";
+import S from "./64608.js";
+import { yi } from "./82775.js";
+import B from "./10606.js";
+import { pg, HT } from "./13869.js";
+import I from "./50376.js";
+import E from "./26853.js";
+import M from "./98995.js";
+import { H as H_1 } from "./16154.js";
+import { A as A_1 } from "./90765.js";
+import D from "./52451.js";
+import { k2 } from "./53807.js";
+import G from "./43088.js";
+import P, { qT, LJ } from "./95020.js";
+import L from "./6440.js";
+import z from "./76565.js";
+import { vg } from "./4816.js";
+import U from "./24218.js";
+const _ = C;
 class f {
 	constructor() {
-		(0, g.Gn)(this);
+		Gn(this);
 	}
 	m_bValidatedEmail = false;
 	m_nMobileDeviceCount = 0;
@@ -25,9 +49,9 @@ class f {
 	m_bLoadedFromConfig = false;
 	LazyInit() {
 		if (!this.m_bLoadedFromConfig) {
-			let e = (0, h.Fd)("notificationstore", "application_config");
+			let e = Fd("notificationstore", "application_config");
 			if (this.ValidateStoreDefault(e)) {
-				(0, g.h5)(() => {
+				h5(() => {
 					this.m_bIsLoaded = true;
 					this.m_bValidatedEmail = e.email_validated;
 					this.m_nMobileDeviceCount = e.mobile_device_count;
@@ -62,12 +86,12 @@ class f {
 		}
 	}
 	async InternalLoad() {
-		const e = h.TS.STORE_BASE_URL + "notification/ajaxusersettings";
+		const e = `${h.TS.STORE_BASE_URL}notification/ajaxusersettings`;
 		const t = await _.get(e, {
 			withCredentials: true,
 		});
 		if (t.data.success == 1) {
-			(0, g.h5)(() => {
+			h5(() => {
 				this.m_bIsLoaded = true;
 				this.m_bValidatedEmail = t.data.email_validated;
 				this.m_nMobileDeviceCount = t.data.mobile_device_count;
@@ -76,35 +100,11 @@ class f {
 		return t.data.success;
 	}
 }
-(0, n.Cg)([g.sH], f.prototype, "m_bValidatedEmail", undefined);
-(0, n.Cg)([g.sH], f.prototype, "m_nMobileDeviceCount", undefined);
+Cg([g.sH], f.prototype, "m_bValidatedEmail", undefined);
+Cg([g.sH], f.prototype, "m_nMobileDeviceCount", undefined);
 let b = new f();
-var _y = require(/*webcrack:missing*/ "./24892.js");
-var S = require("./64608.js");
-var w = require("./82775.js");
-var B = require("./10606.js");
-var v = require("./13869.js");
-var I = require(/*webcrack:missing*/ "./50376.js");
-var E = require(/*webcrack:missing*/ "./26853.js");
-var M = require(/*webcrack:missing*/ "./98995.js");
-var T = require("./16154.js");
-var R = require(/*webcrack:missing*/ "./90765.js");
-import {
-	Localize,
-	LocalizeReact,
-	LocalizeDateHumanReadable,
-} from "../../actual_src/utils/localization.js";
-var D = require(/*webcrack:missing*/ "./52451.js");
-import { Seconds, IsDateSameYear } from "../../actual_src/utils/time.js";
-var F = require(/*webcrack:missing*/ "./53807.js");
-var G = require("./43088.js");
-var O = G;
-var P = require("./95020.js");
-var L = require("./6440.js");
-var z = require("./76565.js");
-var x = require("./4816.js");
-var U = require("./24218.js");
-export let j = class extends s.Component {
+const O = G;
+export let J = class extends s.Component {
 	m_iMenuInstance;
 	m_elDropDownRef = s.createRef();
 	m_bLoadWasCancelled = false;
@@ -116,9 +116,7 @@ export let j = class extends s.Component {
 		if (this.state.bIsLoadingNotificationSettings) {
 			b.HintLoad()
 				.catch((e) => {
-					console.error(
-						"EventReminderWidget load fail: " + (0, T.H)(e).strErrorMsg,
-					);
+					console.error(`EventReminderWidget load fail: ${H_1(e).strErrorMsg}`);
 					return 2;
 				})
 				.then((e) => {
@@ -152,37 +150,35 @@ export let j = class extends s.Component {
 			e.stopPropagation();
 			e.preventDefault();
 		} else {
-			(0, v.pg)(
-				s.createElement(B.o0, {
-					strTitle: (0, Localize)("#EventDisplay_Share_NotLoggedIn"),
-					strDescription: (0, Localize)(
+			pg(
+				<B.o0
+					strTitle={(0, Localize)("#EventDisplay_Share_NotLoggedIn")}
+					strDescription={(0, Localize)(
 						"#EventDisplay_Share_NotLoggedIn_Description",
-					),
-					strOKButtonText: (0, Localize)("#MobileLogin_SignIn"),
-					onOK: () => (0, x.vg)(),
-				}),
+					)}
+					strOKButtonText={(0, Localize)("#MobileLogin_SignIn")}
+					onOK={() => vg()}
+				/>,
 				window,
 			);
 		}
 	}
 	ShowMenu() {
-		let e = s.createElement(_j, {
-			...this.props,
-			fnHasReminderSet: (e) => this.BHasSomeNotificationSetting(e),
-			fnHidePanel: this.HideMenu,
-		});
+		let e = (
+			<_j
+				{...this.props}
+				fnHasReminderSet={(e) => this.BHasSomeNotificationSetting(e)}
+				fnHidePanel={this.HideMenu}
+			/>
+		);
 		let t = {
 			bOverlapHorizontal: true,
 			bOverlapVertical: true,
 			bDisablePopTop: true,
 			bMatchWidth: true,
-			strClassName: (0, R.A)(
-				L.ReminderDialog,
-				L.ReminderOptions,
-				_y.contextMenu,
-			),
+			strClassName: A_1(L.ReminderDialog, L.ReminderOptions, _y.contextMenu),
 		};
-		this.m_iMenuInstance = (0, l.lX)(e, this.m_elDropDownRef.current, t);
+		this.m_iMenuInstance = lX(e, this.m_elDropDownRef.current, t);
 		this.m_iMenuInstance.SetOnHideCallback(this.HideMenu);
 		this.setState({
 			bIsOpen: true,
@@ -201,18 +197,18 @@ export let j = class extends s.Component {
 		});
 	}
 	BHasSomeNotificationSetting(e) {
-		const t = e.GID;
+		const e_GID = e.GID;
 		return (
 			(b.BHasValidatedEmail() &&
 				p.KN.Get().BFollowsEventAndNotifiedBy(
 					e.clanSteamID,
-					t,
+					e_GID,
 					p.Nh.k_ENotifyFlagByEmail,
 				)) ||
 			(b.BHasPushNotification() &&
 				p.KN.Get().BFollowsEventAndNotifiedBy(
 					e.clanSteamID,
-					t,
+					e_GID,
 					p.Nh.k_ENotifyFlagByPush,
 				))
 		);
@@ -220,100 +216,88 @@ export let j = class extends s.Component {
 	render() {
 		const e = this.props.bOnlyShowIcon && !this.state.bIsOpen;
 		const t = this.BHasSomeNotificationSetting(this.props.eventModel);
-		const r = (0, A.sB)();
+		const r = sB();
 		if (
 			this.props.eventModel.startTime < r ||
 			this.props.eventModel.BIsUnlistedEvent()
 		) {
 			return null;
 		} else {
-			return s.createElement(
-				"div",
-				{
-					className: (0, R.A)({
+			return (
+				<div
+					className={A_1({
 						[L.ReminderCheckBox]: true,
 						[O.ReminderCtn]: true,
 						[L.IconMode]: e,
 						[L.TextMode]: !e,
 						ReminderSet: t,
 						RemindMeWidget: true,
-					}),
-					onClick: this.ToggleMenu,
-					ref: this.m_elDropDownRef,
-				},
-				t &&
-					s.createElement(
-						"div",
-						{
-							className: L.RemindCheck,
-						},
-						s.createElement(I.Jlk, null),
-					),
-				e &&
-					s.createElement(
-						"div",
-						{
-							className: L.RemindBell,
-						},
-						s.createElement(I.IrQ, null),
-					),
-				s.createElement(
-					"div",
-					{
-						className: L.ReminderDefault,
-					},
-					(0, Localize)("#EventDisplay_Reminder_SetReminder"),
-				),
-				s.createElement("div", {
-					className: L.ReminderOptions,
-				}),
+					})}
+					onClick={this.ToggleMenu}
+					ref={this.m_elDropDownRef}
+				>
+					{t && (
+						<div className={L.RemindCheck}>
+							<I.Jlk />
+						</div>
+					)}
+					{e && (
+						<div className={L.RemindBell}>
+							<I.IrQ />
+						</div>
+					)}
+					<div className={L.ReminderDefault}>
+						{(0, Localize)("#EventDisplay_Reminder_SetReminder")}
+					</div>
+					<div className={L.ReminderOptions} />
+				</div>
 			);
 		}
 	}
 };
 export function y(e) {
-	const { bPreviewMode: t, eventGID: r, ...n } = e;
-	const i = (0, m.RR)(r);
+	const { bPreviewMode, eventGID, ...n } = e;
+	const i = RR(eventGID);
 	if (!i) {
-		if (t) {
-			return s.createElement(
-				"div",
-				{
-					className: U.ErrorDiv,
-				},
-				(0, Localize)("#EventDidplay_Reminder_EventNotVisible", r),
+		if (bPreviewMode) {
+			return (
+				<div className={U.ErrorDiv}>
+					{(0, Localize)("#EventDidplay_Reminder_EventNotVisible", eventGID)}
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
-	const a = (0, o.sf)(h.TS.LANGUAGE);
-	return s.createElement(j, {
-		lang: a,
-		...n,
-		eventModel: i,
-	});
+	const a = sf(h.TS.LANGUAGE);
+	return <J lang={a} {...n} eventModel={i} />;
 }
 function H(e) {
 	return a.unix(e).utc().format("YYYYMMDD[T]HHmmss[Z]");
 }
-(0, n.Cg)([D.oI], j.prototype, "ToggleMenu", null);
-(0, n.Cg)([D.oI], j.prototype, "ShowMenu", null);
-(0, n.Cg)([D.oI], j.prototype, "HideMenu", null);
-j = (0, n.Cg)([i.PA], j);
+Cg([D.oI], J.prototype, "ToggleMenu", null);
+Cg([D.oI], J.prototype, "ShowMenu", null);
+Cg([D.oI], J.prototype, "HideMenu", null);
+J = Cg([i.PA], J);
 let _j = class extends s.Component {
 	state = {
 		bIsRequestInFlight: false,
 	};
 	async OnChangeFollowOrIgnore(e, t, r) {
-		const { eventModel: n } = this.props;
-		const i = n?.GID;
+		const { eventModel } = this.props;
+		const i = eventModel?.GID;
 		if (i && i != o.kF) {
 			this.setState({
 				bIsRequestInFlight: true,
 			});
 			try {
-				await p.KN.Get().SetFollowOrUnfollowEvent(!e, t, n.clanSteamID, i, r);
+				await p.KN.Get().SetFollowOrUnfollowEvent(
+					!e,
+					t,
+					eventModel.clanSteamID,
+					i,
+					r,
+				);
 				if (e) {
 					if (r === p.Nh.k_ENotifyFlagByEmail) {
 						this.TrackEventAction(d.E.k_eReminder_Email);
@@ -322,23 +306,21 @@ let _j = class extends s.Component {
 					}
 				}
 			} catch (e) {
-				(0, v.HT)(
-					s.createElement(
-						B.KG,
-						{
-							strTitle: (0, Localize)(
-								t
-									? "#EventDisplay_Reminder_IgnoreEvent_Error"
-									: "#EventDisplay_Reminder_FollowEvent_Error",
-							),
-							strDescription: (0, Localize)(
-								t
-									? "#EventDisplay_Reminder_IgnoreEvent_ErrorDesc"
-									: "#EventDisplay_Reminder_FollowEvent_ErrorDesc",
-							),
-						},
-						(0, T.H)(e).strErrorMsg,
-					),
+				HT(
+					<B.KG
+						strTitle={(0, Localize)(
+							t
+								? "#EventDisplay_Reminder_IgnoreEvent_Error"
+								: "#EventDisplay_Reminder_FollowEvent_Error",
+						)}
+						strDescription={(0, Localize)(
+							t
+								? "#EventDisplay_Reminder_IgnoreEvent_ErrorDesc"
+								: "#EventDisplay_Reminder_FollowEvent_ErrorDesc",
+						)}
+					>
+						{H_1(e).strErrorMsg}
+					</B.KG>,
 					window,
 				);
 			}
@@ -354,281 +336,235 @@ let _j = class extends s.Component {
 		this.OnChangeFollowOrIgnore(e, false, p.Nh.k_ENotifyFlagByPush);
 	}
 	GetExternalCalendarEventTitle() {
-		const { eventModel: e, lang: t } = this.props;
-		const r = e.GetNameWithFallback(t);
-		if (c.NK.BHasEntityNameForID(e.appid, e.clanSteamID.GetAccountID())) {
-			return `${c.NK.GetEntityNameForID(e.appid, e.clanSteamID.GetAccountID())}: ${r}`;
+		const { eventModel, lang } = this.props;
+		const r = eventModel.GetNameWithFallback(lang);
+		if (
+			c.NK.BHasEntityNameForID(
+				eventModel.appid,
+				eventModel.clanSteamID.GetAccountID(),
+			)
+		) {
+			return `${c.NK.GetEntityNameForID(
+				eventModel.appid,
+				eventModel.clanSteamID.GetAccountID(),
+			)}: ${r}`;
 		}
 		return r;
 	}
 	TrackEventAction(e) {
-		const { eventModel: t } = this.props;
-		d.V.RecordAppInteractionEvent(t.appid, e);
+		const { eventModel } = this.props;
+		d.V.RecordAppInteractionEvent(eventModel.appid, e);
 	}
 	GetExternalCalendarEventBody() {
-		const { eventModel: e, lang: t } = this.props;
-		let r = e.GetSubTitleWithLanguageFallback(t);
+		const { eventModel, lang } = this.props;
+		let r = eventModel.GetSubTitleWithLanguageFallback(lang);
 		r = r ? `${r}\n\n\n` : "";
-		const n = e.GetSummaryWithFallback(t);
-		const i = e.jsondata.bSaleEnabled
+		const n = eventModel.GetSummaryWithFallback(lang);
+		const i = eventModel.jsondata.bSaleEnabled
 			? P.PH.k_eStoreSalePage
 			: P.PH.k_eStoreView;
-		return `${r}${n}\n\n${(0, P.qT)(e, i, "forceAbsolute")}`;
+		return `${r}${n}\n\n${qT(eventModel, i, "forceAbsolute")}`;
 	}
 	GetGoogleCalendarLink() {
-		const { eventModel: e } = this.props;
+		const { eventModel } = this.props;
 		const t = encodeURIComponent(this.GetExternalCalendarEventTitle());
 		const r = encodeURIComponent(this.GetExternalCalendarEventBody());
-		const n = e.GetStartTimeAndDateUnixSeconds();
+		const n = eventModel.GetStartTimeAndDateUnixSeconds();
 		const i = H(n);
-		const a = H(e.GetEndTimeAndDateUnixSeconds() || n + Seconds.PerHour);
-		const s = `${h.TS.IN_CLIENT ? "steam://openurl_external/" : ""}https://calendar.google.com/calendar/r/eventedit?text=${t}&details=${r}&dates=${i}/${a}`;
-		return (0, F.k2)(s);
+		const a = H(
+			eventModel.GetEndTimeAndDateUnixSeconds() || n + Seconds.PerHour,
+		);
+		const s = `${
+			h.TS.IN_CLIENT ? "steam://openurl_external/" : ""
+		}https://calendar.google.com/calendar/r/eventedit?text=${t}&details=${r}&dates=${i}/${a}`;
+		return k2(s);
 	}
 	GetICSDownloadLink(e) {
-		const { eventModel: t, lang: r } = this.props;
-		const n = t.appid
-			? "app/" + t.appid
-			: "group/" + t.clanSteamID.GetAccountID();
-		const i = "l=" + (0, o.Lg)(r);
-		return `${h.TS.STORE_BASE_URL}${(0, P.LJ)()}/download/${n}/${e}/${t.GID}?${i}`;
+		const { eventModel, lang } = this.props;
+		const n = eventModel.appid
+			? `app/${eventModel.appid}`
+			: `group/${eventModel.clanSteamID.GetAccountID()}`;
+		const i = `l=${Lg(lang)}`;
+		return `${h.TS.STORE_BASE_URL}${LJ()}/download/${n}/${e}/${
+			eventModel.GID
+		}?${i}`;
 	}
 	render() {
 		const {
-			eventModel: e,
-			bShowStartTime: t,
-			bExpandLeft: r,
-			bOnlyShowIcon: n,
-			fnHasReminderSet: i,
-			fnHidePanel: a,
+			eventModel,
+			bShowStartTime,
+			bExpandLeft,
+			bOnlyShowIcon,
+			fnHasReminderSet,
+			fnHidePanel,
 		} = this.props;
 		const o = b.BHasValidatedEmail();
 		const l = b.BHasPushNotification();
-		const c = t && e.GetStartTimeAndDateUnixSeconds();
-		return s.createElement(
-			"div",
-			null,
-			s.createElement(
-				"div",
-				{
-					className: (0, R.A)(
+		const c = bShowStartTime && eventModel.GetStartTimeAndDateUnixSeconds();
+		return (
+			<div>
+				<div
+					className={A_1(
 						L.ReminderCheckBox,
-						n ? L.IconMode : L.TextMode,
+						bOnlyShowIcon ? L.IconMode : L.TextMode,
 						"RemindMeWidget",
-					),
-					onClick: a,
-				},
-				i(this.props.eventModel) &&
-					s.createElement(
-						"div",
-						{
-							className: L.RemindCheck,
-						},
-						s.createElement(I.Jlk, null),
-					),
-				n &&
-					s.createElement(
-						"div",
-						{
-							className: L.RemindBell,
-						},
-						s.createElement(I.IrQ, null),
-					),
-				s.createElement(
-					"div",
-					{
-						className: L.ReminderDefault,
-					},
-					(0, Localize)("#EventDisplay_Reminder_SetReminder"),
-				),
-				s.createElement("div", {
-					className: L.ReminderOpennedOptions,
-				}),
-			),
-			s.createElement(
-				"div",
-				{
-					className: (0, R.A)(
+					)}
+					onClick={fnHidePanel}
+				>
+					{fnHasReminderSet(this.props.eventModel) && (
+						<div className={L.RemindCheck}>
+							<I.Jlk />
+						</div>
+					)}
+					{bOnlyShowIcon && (
+						<div className={L.RemindBell}>
+							<I.IrQ />
+						</div>
+					)}
+					<div className={L.ReminderDefault}>
+						{(0, Localize)("#EventDisplay_Reminder_SetReminder")}
+					</div>
+					<div className={L.ReminderOpennedOptions} />
+				</div>
+				<div
+					className={A_1(
 						L.FlexColumnContainer,
 						L.ReminderBackground,
-						r && L.ReminderExpandsLeft,
-					),
-				},
-				this.state.bIsRequestInFlight &&
-					s.createElement(E.t, {
-						className: L.RpcThrobber,
-						size: "xlarge",
-						position: "center",
-					}),
-				c &&
-					s.createElement(
-						"div",
-						{
-							className: L.FullStartTime,
-						},
-						LocalizeReact(
-							"#EventDisplay_EventUpcoming_WithDateAndTime",
-							LocalizeDateHumanReadable(
-								c,
-								IsDateSameYear(
-									new Date(c * 1000),
-									A.HD.GetTimeNowWithOverrideAsDate(),
+						bExpandLeft && L.ReminderExpandsLeft,
+					)}
+				>
+					{this.state.bIsRequestInFlight && (
+						<E.t className={L.RpcThrobber} size="xlarge" position="center" />
+					)}
+					{c && (
+						<div className={L.FullStartTime}>
+							{LocalizeReact(
+								"#EventDisplay_EventUpcoming_WithDateAndTime",
+								LocalizeDateHumanReadable(
+									c,
+									IsDateSameYear(
+										new Date(c * 1000),
+										A.HD.GetTimeNowWithOverrideAsDate(),
+									),
 								),
-							),
-							(0, w.yi)(c, true),
-						),
-					),
-				s.createElement(
-					"div",
-					{
-						className: L.ReminderOptionsHeader,
-					},
-					(0, Localize)("#EventDisplay_Reminder_GetNotification_Via"),
-				),
-				s.createElement(
-					"div",
-					{
-						className: (0, R.A)(L.ReminderOption, !o && L.Unverified),
-					},
-					s.createElement(
-						M.he,
-						{
-							className: L.CheckboxWrapper,
-							bTopmost: true,
-							toolTipContent: (0, Localize)(
+								yi(c, true),
+							)}
+						</div>
+					)}
+					<div className={L.ReminderOptionsHeader}>
+						{(0, Localize)("#EventDisplay_Reminder_GetNotification_Via")}
+					</div>
+					<div className={A_1(L.ReminderOption, !o && L.Unverified)}>
+						<M.he
+							className={L.CheckboxWrapper}
+							bTopmost
+							toolTipContent={(0, Localize)(
 								o
 									? "#EventReminder_NotifyByEmail_ttip"
 									: "#EventReminder_NotifyByEmail_Missing",
-							),
-						},
-						s.createElement(S.Yh, {
-							label: (0, Localize)("#EventDisplay_Reminder_ViaEmail"),
-							disabled: !o,
-							checked: p.KN.Get().BFollowsEventAndNotifiedBy(
-								e.clanSteamID,
-								e.GID,
-								p.Nh.k_ENotifyFlagByEmail,
-							),
-							onChange: this.OnChangeFollowByEmail,
-						}),
-					),
-					!o &&
-						s.createElement(
-							"div",
-							{
-								className: z.FlexColumnContainer,
-							},
-							s.createElement(
-								"a",
-								{
-									href: h.TS.STORE_BASE_URL + "account/",
-									target: h.TS.IN_CLIENT ? undefined : "_blank",
-									onClick: () =>
-										this.TrackEventAction(d.E.k_eReminder_EmailUnverified),
-								},
-								(0, Localize)("#EventReminder_NotifyByEmail_Missing_Add"),
-							),
-						),
-				),
-				s.createElement(
-					"div",
-					{
-						className: (0, R.A)(L.ReminderOption, !l && L.Unverified),
-					},
-					s.createElement(
-						M.he,
-						{
-							className: L.CheckboxWrapper,
-							bTopmost: true,
-							toolTipContent: (0, Localize)(
+							)}
+						>
+							<S.Yh
+								label={(0, Localize)("#EventDisplay_Reminder_ViaEmail")}
+								disabled={!o}
+								checked={p.KN.Get().BFollowsEventAndNotifiedBy(
+									eventModel.clanSteamID,
+									eventModel.GID,
+									p.Nh.k_ENotifyFlagByEmail,
+								)}
+								onChange={this.OnChangeFollowByEmail}
+							/>
+						</M.he>
+						{!o && (
+							<div className={z.FlexColumnContainer}>
+								<a
+									href={`${h.TS.STORE_BASE_URL}account/`}
+									target={h.TS.IN_CLIENT || "_blank"}
+									onClick={() =>
+										this.TrackEventAction(d.E.k_eReminder_EmailUnverified)
+									}
+								>
+									{(0, Localize)("#EventReminder_NotifyByEmail_Missing_Add")}
+								</a>
+							</div>
+						)}
+					</div>
+					<div className={A_1(L.ReminderOption, !l && L.Unverified)}>
+						<M.he
+							className={L.CheckboxWrapper}
+							bTopmost
+							toolTipContent={(0, Localize)(
 								l
 									? "#EventReminder_NotifyByMobile_ttip"
 									: "#EventReminder_NotifyByMobile_Missing",
-							),
-						},
-						s.createElement(S.Yh, {
-							label: (0, Localize)("#EventDisplay_Reminder_ViaMobileApp"),
-							disabled: !l,
-							checked: p.KN.Get().BFollowsEventAndNotifiedBy(
-								e.clanSteamID,
-								e.GID,
-								p.Nh.k_ENotifyFlagByPush,
-							),
-							onChange: this.OnChangeFollowByPush,
-						}),
-					),
-					!l &&
-						s.createElement(
-							"div",
-							{
-								className: z.FlexColumnContainer,
-							},
-							s.createElement(
-								"a",
-								{
-									href: h.TS.STORE_BASE_URL + "mobile/?show=steamapp",
-									target: h.TS.IN_CLIENT ? undefined : "_blank",
-									onClick: () =>
-										this.TrackEventAction(d.E.k_eReminder_MobilePushMissing),
-								},
-								(0, Localize)("#EventReminder_NotifyByMobile_Install"),
-							),
-						),
-				),
-				s.createElement(
-					s.Fragment,
-					null,
-					s.createElement(
-						"div",
-						{
-							className: L.ReminderOptionsHeader,
-						},
-						(0, Localize)("#EventDisplay_Reminder_AddToCalendar"),
-					),
-					s.createElement(
-						"div",
-						{
-							className: L.ReminderCalendarOptions,
-						},
-						s.createElement(
-							"a",
-							{
-								className: L.ReminderOption,
-								href: this.GetICSDownloadLink("ics"),
-								onClick: () =>
-									this.TrackEventAction(d.E.k_eReminder_CalendarApple),
-							},
-							(0, Localize)("#EventDisplay_Reminder_AppleCalendar_Short"),
-						),
-						s.createElement(
-							"a",
-							{
-								className: L.ReminderOption,
-								target: h.TS.IN_CLIENT ? undefined : "_blank",
-								href: this.GetGoogleCalendarLink(),
-								onClick: () =>
-									this.TrackEventAction(d.E.k_eReminder_CalendarGoogle),
-							},
-							(0, Localize)("#EventDisplay_Reminder_GoogleCalendar_Short"),
-						),
-						s.createElement(
-							"a",
-							{
-								className: L.ReminderOption,
-								href: this.GetICSDownloadLink("outlook"),
-								onClick: () =>
-									this.TrackEventAction(d.E.k_eReminder_CalendarOutlook),
-							},
-							(0, Localize)("#EventDisplay_Reminder_OutlookCalendar_Short"),
-						),
-					),
-				),
-				false,
-			),
+							)}
+						>
+							<S.Yh
+								label={(0, Localize)("#EventDisplay_Reminder_ViaMobileApp")}
+								disabled={!l}
+								checked={p.KN.Get().BFollowsEventAndNotifiedBy(
+									eventModel.clanSteamID,
+									eventModel.GID,
+									p.Nh.k_ENotifyFlagByPush,
+								)}
+								onChange={this.OnChangeFollowByPush}
+							/>
+						</M.he>
+						{!l && (
+							<div className={z.FlexColumnContainer}>
+								<a
+									href={`${h.TS.STORE_BASE_URL}mobile/?show=steamapp`}
+									target={h.TS.IN_CLIENT || "_blank"}
+									onClick={() =>
+										this.TrackEventAction(d.E.k_eReminder_MobilePushMissing)
+									}
+								>
+									{(0, Localize)("#EventReminder_NotifyByMobile_Install")}
+								</a>
+							</div>
+						)}
+					</div>
+					<>
+						<div className={L.ReminderOptionsHeader}>
+							{(0, Localize)("#EventDisplay_Reminder_AddToCalendar")}
+						</div>
+						<div className={L.ReminderCalendarOptions}>
+							<a
+								className={L.ReminderOption}
+								href={this.GetICSDownloadLink("ics")}
+								onClick={() =>
+									this.TrackEventAction(d.E.k_eReminder_CalendarApple)
+								}
+							>
+								{(0, Localize)("#EventDisplay_Reminder_AppleCalendar_Short")}
+							</a>
+							<a
+								className={L.ReminderOption}
+								target={h.TS.IN_CLIENT || "_blank"}
+								href={this.GetGoogleCalendarLink()}
+								onClick={() =>
+									this.TrackEventAction(d.E.k_eReminder_CalendarGoogle)
+								}
+							>
+								{(0, Localize)("#EventDisplay_Reminder_GoogleCalendar_Short")}
+							</a>
+							<a
+								className={L.ReminderOption}
+								href={this.GetICSDownloadLink("outlook")}
+								onClick={() =>
+									this.TrackEventAction(d.E.k_eReminder_CalendarOutlook)
+								}
+							>
+								{(0, Localize)("#EventDisplay_Reminder_OutlookCalendar_Short")}
+							</a>
+						</div>
+					</>
+				</div>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([D.oI], _j.prototype, "OnChangeFollowByEmail", null);
-(0, n.Cg)([D.oI], _j.prototype, "OnChangeFollowByPush", null);
-(0, n.Cg)([D.oI], _j.prototype, "TrackEventAction", null);
-_j = (0, n.Cg)([i.PA], _j);
+Cg([D.oI], _j.prototype, "OnChangeFollowByEmail", null);
+Cg([D.oI], _j.prototype, "OnChangeFollowByPush", null);
+Cg([D.oI], _j.prototype, "TrackEventAction", null);
+_j = Cg([i.PA], _j);

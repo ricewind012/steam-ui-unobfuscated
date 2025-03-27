@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SpeakerName_InGame: "_1KPraihJAKiBwLJWmOlju2",
 	SpeakerName_WatchingBroadcast: "_3BwaMxcd1CI9bmfnLJc7lo",

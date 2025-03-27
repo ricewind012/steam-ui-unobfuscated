@@ -1,11 +1,12 @@
-var n = require("./56060.js");
-var i = require("./19810.js");
-var a = require("./97838.js");
-var s = require("./6023.js");
+import n from "./56060.js";
+import i from "./19810.js";
+import a from "./97838.js";
+import s, { D7 } from "./6023.js";
 const o = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"VRGamepadUIMessages",
 );
-const l = new (class {
+
+export const p = new (class {
 	m_Steam_Provider = new s.tC(this, i.nV);
 	m_SteamVR_Client = new s.$k(this);
 	m_SteamVR_ClientMethods = new i._i(this.m_SteamVR_Client);
@@ -18,7 +19,7 @@ const l = new (class {
 	}
 	async Init() {
 		a.N.RegisterOnMsg(33, n.sR, (e) => {
-			const t = (0, s.D7)(e.header());
+			const t = D7(e.header());
 			if (t) {
 				if (o.IsDebugEnabled()) {
 					if (t.response_to_message_id == null) {
@@ -84,5 +85,5 @@ const l = new (class {
 		return a.N.IsConnected();
 	}
 })();
-export const I = () => l.Init();
-export const p = l;
+
+export const I = () => p.Init();

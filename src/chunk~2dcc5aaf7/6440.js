@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	FlexColumnContainer: "_15ufNax9QUSW3N7J3t5TmY",
 	FullStartTime: "_1YLHWZHuAxRYOyv0nq0a3Z",
 	ReminderDialog: "_3YUEYUcuh0PTxYsV6Fecqq",

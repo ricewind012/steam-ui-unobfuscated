@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
+import n, { useState, useEffect, useMemo } from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a, { mJ } from "./89193.js";
+import { V } from "./54362.js";
 const s = "/images/StorageClips.png";
 const o = "/images/StorageScreenshots.png";
 const l = "/images/StorageVideos.png";
-var c = require("./54362.js");
 export function Tq() {
 	return window.g_GRS;
 }
@@ -14,7 +14,7 @@ export async function Z9(e, t, n) {
 			Promise.resolve().then(require.bind(require, 57622)),
 		]);
 		if (n) {
-			(0, c.V)(n);
+			V(n);
 		}
 		let a = new i();
 		await a.Init(e, t);
@@ -35,15 +35,15 @@ function d() {
 	};
 }
 export function z() {
-	const [e, t] = (0, n.useState)(d());
-	(0, n.useEffect)(() => (0, a.mJ)(d, t), []);
+	const [e, setE] = useState(d());
+	useEffect(() => mJ(d, setE), []);
 	return e;
 }
 export function Ks(e) {
-	const { bLoading: t, rgApps: r } = z();
+	const { bLoading, rgApps } = z();
 	return {
-		bLoading: t,
-		app: (0, n.useMemo)(() => r.find((t) => t.game_id === e), [r, e]),
+		bLoading: bLoading,
+		app: useMemo(() => rgApps.find((t) => t.game_id === e), [rgApps, e]),
 	};
 }
 export function kP(e) {
@@ -69,15 +69,15 @@ function _(e) {
 	}
 }
 export function Km(e) {
-	const [t, r] = (0, n.useState)(() => _(e));
-	(0, n.useEffect)(() => {
-		r(_(e));
-		return (0, a.mJ)(() => _(e), r);
+	const [t, setT] = useState(() => _(e));
+	useEffect(() => {
+		setT(_(e));
+		return mJ(() => _(e), setT);
 	}, [e]);
 	return t;
 }
 export function y$(e) {
-	return (0, i.q3)(() => Tq()?.GetClipSummaries(e));
+	return q3(() => Tq()?.GetClipSummaries(e));
 }
 export function XA(e) {
 	return Tq()?.GetClipSummary(e);
@@ -86,10 +86,10 @@ export function RV(e) {
 	return (Tq() != null && e && Tq().GetClipSummariesForGame(e)) || [];
 }
 export function uX(e) {
-	return (0, i.q3)(() => Tq()?.GetClipSummary(e));
+	return q3(() => Tq()?.GetClipSummary(e));
 }
 export function $O(e) {
-	return (0, i.q3)(() => (e && Tq()?.GetClipSummariesForGame(e)) || []);
+	return q3(() => (e && Tq()?.GetClipSummariesForGame(e)) || []);
 }
 export function c5(e, t, r, n, i, a) {
 	if (Tq() != null) {
@@ -143,7 +143,7 @@ export function YM(e, t, r) {
 	}
 }
 export function Bn(e) {
-	return (0, i.q3)(() => {
+	return q3(() => {
 		if (Tq() != null) {
 			return Tq().GetClipExportProgress(e);
 		}
@@ -190,14 +190,14 @@ export function Fc() {
 	}
 }
 export function dd(e, t) {
-	return (0, i.q3)(() => {
+	return q3(() => {
 		if (Tq() != null) {
 			return Tq().GetAchievementInfo(e, t);
 		}
 	});
 }
 export function i3() {
-	return (0, i.q3)(() => {
+	return q3(() => {
 		if (Tq() != null) {
 			return Tq().GetLastClip();
 		}
@@ -209,12 +209,12 @@ export function f5(e) {
 	}
 }
 export function yH(e, t) {
-	const [r, i] = n.useState(0);
-	(0, n.useEffect)(() => {
+	const [r, setR] = n.useState(0);
+	useEffect(() => {
 		if (Tq() != null) {
 			Tq()
 				.GetTotalDiskSpaceUsage(e, t)
-				.then((e) => i(e));
+				.then((e) => setR(e));
 		}
 	}, [e, t]);
 	return r;
@@ -228,12 +228,15 @@ export function gu(e, t, r, n, i) {
 export function zZ(e) {
 	switch (e) {
 		default:
-		case 0:
+		case 0: {
 			return l;
-		case 1:
+		}
+		case 1: {
 			return s;
-		case 2:
+		}
+		case 2: {
 			return o;
+		}
 	}
 }
 export async function e6() {
@@ -242,7 +245,7 @@ export async function e6() {
 	}
 }
 export function r6() {
-	return (0, i.q3)(() => {
+	return q3(() => {
 		if (Tq() != null) {
 			return !Tq().BEnoughDiskSpace();
 		}

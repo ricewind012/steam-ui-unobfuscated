@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	RoleIcon: "_1uvKF_UbD6VhnVdaRkXhbu",
 	ProfileLink: "_2oSTSohQ1CZIgVn7E6_0Ft",

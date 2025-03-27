@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	v6: "_2LxgdMcpWJRjkxZKbmeEEb",
 	SubText: "vg0EOhKTLB3tLvshHMr7l",
 	AvatarImageContainer: "_33hdFBTwBs64Fcp-bPdf4E",

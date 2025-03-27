@@ -1,19 +1,31 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./31958.js");
-var a = require("./44234.js");
-var _s = require(/*webcrack:missing*/ "./12176.js");
-var o = require(/*webcrack:missing*/ "./8573.js");
-var l = require(/*webcrack:missing*/ "./58663.js");
-var c = require(/*webcrack:missing*/ "./48307.js");
-const m = l.Message;
-class u extends m {
+import { Localize } from "../../actual_src/utils/localization.js";
+import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./31958.js";
+import a from "./44234.js";
+import _s, { I8 } from "./12176.js";
+import o from "./8573.js";
+import l from "./58663.js";
+import c from "./48307.js";
+import T from "./96127.js";
+import R from "./95773.js";
+import k, { Gn } from "./89193.js";
+import N from "./16761.js";
+import "./80663.js";
+import F from "./89459.js";
+import G from "./52451.js";
+import { s as s_1 } from "./81255.js";
+import L from "./83599.js";
+import z from "./60857.js";
+const l_Message = l.Message;
+class u extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.steamid1) {
 			c.Sg(u.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -92,7 +104,7 @@ class u extends m {
 		return c.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -100,7 +112,7 @@ class u extends m {
 		c.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -108,14 +120,14 @@ class u extends m {
 		return "CFriendMessages_GetRecentMessages_Request";
 	}
 }
-class d extends m {
+class d extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.messages) {
 			c.Sg(d.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -160,7 +172,7 @@ class d extends m {
 		return c.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -168,7 +180,7 @@ class d extends m {
 		c.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -176,14 +188,14 @@ class d extends m {
 		return "CFriendMessages_GetRecentMessages_Response";
 	}
 }
-class A extends m {
+class A extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.accountid) {
 			c.Sg(A.M());
 		}
-		m.initialize(this, e, 0, -1, [5], null);
+		l_Message.initialize(this, e, 0, -1, [5], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -243,7 +255,7 @@ class A extends m {
 		return c.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -251,7 +263,7 @@ class A extends m {
 		c.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -259,14 +271,14 @@ class A extends m {
 		return "CFriendMessages_GetRecentMessages_Response_FriendMessage";
 	}
 }
-class p extends m {
+class p extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.reaction_type) {
 			c.Sg(p.M());
 		}
-		m.initialize(this, e, 0, -1, [3], null);
+		l_Message.initialize(this, e, 0, -1, [3], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -318,7 +330,7 @@ class p extends m {
 		return c.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -326,7 +338,7 @@ class p extends m {
 		c.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -334,14 +346,14 @@ class p extends m {
 		return "CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction";
 	}
 }
-class g extends m {
+class g extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.lastmessage_since) {
 			c.Sg(g.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -385,7 +397,7 @@ class g extends m {
 		return c.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -393,7 +405,7 @@ class g extends m {
 		c.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -401,14 +413,14 @@ class g extends m {
 		return "CFriendsMessages_GetActiveMessageSessions_Request";
 	}
 }
-class h extends m {
+class h extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.message_sessions) {
 			c.Sg(h.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -453,7 +465,7 @@ class h extends m {
 		return c.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -461,7 +473,7 @@ class h extends m {
 		c.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -469,14 +481,14 @@ class h extends m {
 		return "CFriendsMessages_GetActiveMessageSessions_Response";
 	}
 }
-class C extends m {
+class C extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.accountid_friend) {
 			c.Sg(C.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -530,7 +542,7 @@ class C extends m {
 		return c.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -538,7 +550,7 @@ class C extends m {
 		c.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -546,14 +558,14 @@ class C extends m {
 		return "CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession";
 	}
 }
-class _ extends m {
+class _ extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.steamid) {
 			c.Sg(_.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -622,7 +634,7 @@ class _ extends m {
 		return c.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -630,7 +642,7 @@ class _ extends m {
 		c.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -638,14 +650,14 @@ class _ extends m {
 		return "CFriendMessages_SendMessage_Request";
 	}
 }
-class f extends m {
+class f extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.modified_message) {
 			c.Sg(f.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -699,7 +711,7 @@ class f extends m {
 		return c.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -707,7 +719,7 @@ class f extends m {
 		c.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -715,14 +727,14 @@ class f extends m {
 		return "CFriendMessages_SendMessage_Response";
 	}
 }
-class _b extends m {
+class _b extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_b.prototype.steamid_friend) {
 			c.Sg(_b.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -801,7 +813,7 @@ class _b extends m {
 		return c.zj(_b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -809,7 +821,7 @@ class _b extends m {
 		c.i0(_b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -817,14 +829,14 @@ class _b extends m {
 		return "CFriendMessages_IncomingMessage_Notification";
 	}
 }
-class y extends m {
+class y extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.steamid_partner) {
 			c.Sg(y.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -868,7 +880,7 @@ class y extends m {
 		return c.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -876,7 +888,7 @@ class y extends m {
 		c.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -884,14 +896,14 @@ class y extends m {
 		return "CFriendMessages_AckMessage_Notification";
 	}
 }
-class S extends m {
+class S extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S.prototype.steamid) {
 			c.Sg(S.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -930,7 +942,7 @@ class S extends m {
 		return c.zj(S.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -938,7 +950,7 @@ class S extends m {
 		c.i0(S.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -946,14 +958,14 @@ class S extends m {
 		return "CFriendMessages_IsInFriendsUIBeta_Request";
 	}
 }
-class w extends m {
+class w extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!w.prototype.online_in_friendsui) {
 			c.Sg(w.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -997,7 +1009,7 @@ class w extends m {
 		return c.zj(w.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1005,7 +1017,7 @@ class w extends m {
 		c.i0(w.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1013,14 +1025,14 @@ class w extends m {
 		return "CFriendMessages_IsInFriendsUIBeta_Response";
 	}
 }
-class B extends m {
+class B extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!B.prototype.steamid) {
 			c.Sg(B.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1084,7 +1096,7 @@ class B extends m {
 		return c.zj(B.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1092,7 +1104,7 @@ class B extends m {
 		c.i0(B.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1100,14 +1112,14 @@ class B extends m {
 		return "CFriendMessages_UpdateMessageReaction_Request";
 	}
 }
-class v extends m {
+class v extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!v.prototype.reactors) {
 			c.Sg(v.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1149,7 +1161,7 @@ class v extends m {
 		return c.zj(v.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1157,7 +1169,7 @@ class v extends m {
 		c.i0(v.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1165,14 +1177,14 @@ class v extends m {
 		return "CFriendMessages_UpdateMessageReaction_Response";
 	}
 }
-class I extends m {
+class I extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!I.prototype.steamid_friend) {
 			c.Sg(I.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1241,7 +1253,7 @@ class I extends m {
 		return c.zj(I.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1249,7 +1261,7 @@ class I extends m {
 		c.i0(I.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1257,63 +1269,37 @@ class I extends m {
 		return "CFriendMessages_MessageReaction_Notification";
 	}
 }
-var E;
+let E;
 var M;
-(function (e) {
-	e.GetRecentMessages = function (e, t) {
-		return e.SendMsg(
-			"FriendMessages.GetRecentMessages#1",
-			(0, _s.I8)(u, t),
-			d,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.GetActiveMessageSessions = function (e, t) {
-		return e.SendMsg(
-			"FriendMessages.GetActiveMessageSessions#1",
-			(0, _s.I8)(g, t),
-			h,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.SendMessage = function (e, t) {
-		return e.SendMsg("FriendMessages.SendMessage#1", (0, _s.I8)(_, t), f, {
+((e) => {
+	e.GetRecentMessages = (e, t) =>
+		e.SendMsg("FriendMessages.GetRecentMessages#1", I8(u, t), d, {
+			bConstMethod: true,
 			ePrivilege: 1,
 		});
-	};
-	e.AckMessage = function (e, t) {
-		return e.SendNotification("FriendMessages.AckMessage#1", (0, _s.I8)(y, t), {
+	e.GetActiveMessageSessions = (e, t) =>
+		e.SendMsg("FriendMessages.GetActiveMessageSessions#1", I8(g, t), h, {
+			bConstMethod: true,
 			ePrivilege: 1,
 		});
-	};
-	e.IsInFriendsUIBeta = function (e, t) {
-		return e.SendMsg(
-			"FriendMessages.IsInFriendsUIBeta#1",
-			(0, _s.I8)(S, t),
-			w,
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.UpdateMessageReaction = function (e, t) {
-		return e.SendMsg(
-			"FriendMessages.UpdateMessageReaction#1",
-			(0, _s.I8)(B, t),
-			v,
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
+	e.SendMessage = (e, t) =>
+		e.SendMsg("FriendMessages.SendMessage#1", I8(_, t), f, {
+			ePrivilege: 1,
+		});
+	e.AckMessage = (e, t) =>
+		e.SendNotification("FriendMessages.AckMessage#1", I8(y, t), {
+			ePrivilege: 1,
+		});
+	e.IsInFriendsUIBeta = (e, t) =>
+		e.SendMsg("FriendMessages.IsInFriendsUIBeta#1", I8(S, t), w, {
+			ePrivilege: 1,
+		});
+	e.UpdateMessageReaction = (e, t) =>
+		e.SendMsg("FriendMessages.UpdateMessageReaction#1", I8(B, t), v, {
+			ePrivilege: 1,
+		});
 })((E ||= {}));
-(function (e) {
+((e) => {
 	e.IncomingMessageHandler = {
 		name: "FriendMessagesClient.IncomingMessage#1",
 		request: _b,
@@ -1327,18 +1313,6 @@ var M;
 		request: I,
 	};
 })((M ||= {}));
-var T = require("./96127.js");
-var R = require("./95773.js");
-var k = require(/*webcrack:missing*/ "./89193.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var N = require("./16761.js");
-require("./80663.js");
-var F = require("./89459.js");
-var G = require(/*webcrack:missing*/ "./52451.js");
-var O = require(/*webcrack:missing*/ "./81255.js");
-import { Seconds } from "../../actual_src/utils/time.js";
-var L = require(/*webcrack:missing*/ "./83599.js");
-var z = require("./60857.js");
 const x = new L.wd("Chat");
 const U = "FriendRecentChats";
 export class b {
@@ -1350,7 +1324,7 @@ export class b {
 	m_mapRecentIgnoreTimeBeforeByFriend = k.sH.map();
 	m_LastMessageCache = a.TS.IN_MOBILE ? new H() : new j();
 	constructor(e) {
-		(0, k.Gn)(this);
+		Gn(this);
 		this.m_ChatStore = e;
 	}
 	Init() {
@@ -1676,10 +1650,10 @@ export class b {
 		}
 	}
 }
-(0, n.Cg)([k.sH], b.prototype, "m_rgFriendChats", undefined);
-(0, n.Cg)([k.sH], b.prototype, "m_bReceivedFriendChats", undefined);
-(0, n.Cg)([k.XI], b.prototype, "ClearRecentChatsForFriend", null);
-(0, n.Cg)([k.EW], b.prototype, "GetRecentlyChattingFriends", null);
+Cg([k.sH], b.prototype, "m_rgFriendChats", undefined);
+Cg([k.sH], b.prototype, "m_bReceivedFriendChats", undefined);
+Cg([k.XI], b.prototype, "ClearRecentChatsForFriend", null);
+Cg([k.EW], b.prototype, "GetRecentlyChattingFriends", null);
 export class s extends N.o {
 	m_unAccountIDFriend;
 	m_iClearFriendIsTypingInterval = undefined;
@@ -1688,7 +1662,7 @@ export class s extends N.o {
 	m_bNeedsNonFriendWarning = false;
 	constructor(e, t, r) {
 		super(t.FriendStore, t, r);
-		(0, k.Gn)(this);
+		Gn(this);
 		this.m_unAccountIDFriend = e;
 		this.m_MessageSendQueue = new z.G(e.toString());
 		this.m_MessageSendQueue
@@ -1820,8 +1794,10 @@ export class s extends N.o {
 						eReactionType: e.reaction_type(),
 						strReaction: e.reaction(),
 						cReactors: e.reactors().length,
-						bUserReacted:
-							e.reactors().indexOf(R.xm.FriendStore.self.accountid) > -1,
+
+						bUserReacted: e
+							.reactors()
+							.includes(R.xm.FriendStore.self.accountid),
 					})),
 				),
 			);
@@ -1860,7 +1836,7 @@ export class s extends N.o {
 		}
 	}
 	get unique_id() {
-		return "f" + this.accountid_partner;
+		return `f${this.accountid_partner}`;
 	}
 	BIsVoiceAllowed() {
 		return (
@@ -1918,7 +1894,7 @@ export class s extends N.o {
 			o.b.InitFromAccountID(this.accountid_partner).ConvertTo64BitString(),
 		);
 		r.Body().set_contains_bbcode(true);
-		let n = (function () {
+		let n = (() => {
 			let e = "";
 			for (let t = 0; t < 16; t++) {
 				e += i.Tg(0, 15).toString(16);
@@ -2014,8 +1990,7 @@ export class s extends N.o {
 	PlayFriendMessageSound() {
 		if (!R.xm.FriendStore.GetUserDoNotDisturb()) {
 			R.xm.AudioPlaybackManager.PlayAudioURL(
-				a.TS.COMMUNITY_CDN_URL +
-					"public/sounds/webui/ui_steam_message_old_smooth.m4a",
+				`${a.TS.COMMUNITY_CDN_URL}public/sounds/webui/ui_steam_message_old_smooth.m4a`,
 			);
 		}
 	}
@@ -2034,7 +2009,7 @@ export class s extends N.o {
 				let t = {
 					title: this.chat_partner.display_name,
 					body: r,
-					tag: "message_" + this.chat_partner.accountid,
+					tag: `message_${this.chat_partner.accountid}`,
 					steamid: this.chat_partner.persona.m_steamid.ConvertTo64BitString(),
 				};
 				t = this.DecorateNotification(e, t, r, n);
@@ -2121,19 +2096,19 @@ export class s extends N.o {
 				{
 					title: "",
 					body: (0, Localize)("#Chat_BroadcastViewRequest_Notification"),
-					tag: "message_" + this.chat_partner.accountid,
+					tag: `message_${this.chat_partner.accountid}`,
 					steamid: this.chat_partner.persona.m_steamid.ConvertTo64BitString(),
 				},
 			);
 		}
 	}
 }
-(0, n.Cg)([k.sH], s.prototype, "m_bFriendIsTyping", undefined);
-(0, n.Cg)([k.sH], s.prototype, "m_bNeedsNonFriendWarning", undefined);
-(0, n.Cg)([k.XI], s.prototype, "ToggleVoiceChat", null);
-(0, n.Cg)([G.oI, (0, O.s)(100)], s.prototype, "PlayFriendMessageSound", null);
-(0, n.Cg)([k.XI], s.prototype, "ClearFriendIsTypingState", null);
-(0, n.Cg)([k.XI], s.prototype, "ViewerNeedsApproval", null);
+Cg([k.sH], s.prototype, "m_bFriendIsTyping", undefined);
+Cg([k.sH], s.prototype, "m_bNeedsNonFriendWarning", undefined);
+Cg([k.XI], s.prototype, "ToggleVoiceChat", null);
+Cg([G.oI, s_1(100)], s.prototype, "PlayFriendMessageSound", null);
+Cg([k.XI], s.prototype, "ClearFriendIsTypingState", null);
+Cg([k.XI], s.prototype, "ViewerNeedsApproval", null);
 class H {
 	static StorageKey = "FriendLastMessageCache";
 	m_cache = k.sH.map();

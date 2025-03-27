@@ -1,11 +1,35 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./88724.js");
-var o = require(/*webcrack:missing*/ "./16583.js");
-var l = require("./21866.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-var m = require("./93023.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a, { I8 } from "./12176.js";
+import s, { tp } from "./88724.js";
+import o, { Kx } from "./16583.js";
+import l from "./21866.js";
+import c from "./8573.js";
+import m from "./93023.js";
+import d from "./36383.js";
+import A from "./82755.js";
+import p from "./49395.js";
+import g from "./58663.js";
+import h from "./48307.js";
+import "./29218.js";
+import w from "./26052.js";
+import B from "./54946.js";
+import v from "./46066.js";
+import I from "./32493.js";
+import E from "./95773.js";
+import M, { Gn, fm, h5 } from "./89193.js";
+import { w as w_1 } from "./49455.js";
+import D from "./46970.js";
+import N from "./81386.js";
+import F, { S$, aP } from "./44846.js";
+import G from "./79769.js";
+import { s as s_1 } from "./81255.js";
+import L from "./52451.js";
+import z from "./83957.js";
+import { H as H_1 } from "./16154.js";
+import { Dp } from "./736.js";
+import H from "./95111.js";
 class u extends s.Z {
 	UpdateFromMessage(e, t) {
 		if ((e & 1) != 0) {
@@ -28,7 +52,8 @@ class u extends s.Z {
 			this.m_strPlayerName = e;
 		}
 		if ((e & 64) != 0) {
-			this.m_rtLastSeenOnline = t.last_seen_online() || t.last_logoff() || 0;
+			this.m_rtLastSeenOnline =
+				t.last_seen_online() || t.last_logoff() || t.last_logoff() || 0;
 		}
 		if ((e & 16) != 0) {
 			let e = t.avatar_hash();
@@ -37,7 +62,7 @@ class u extends s.Z {
 				for (let t = 0; t < e.length && r; t++) {
 					r = !e[t];
 				}
-				this.m_strAvatarHash = r ? m.d : (0, o.Kx)(e);
+				this.m_strAvatarHash = r ? m.d : Kx(e);
 			}
 		}
 		if (t.persona_state_flags() !== undefined) {
@@ -83,21 +108,17 @@ class u extends s.Z {
 		}
 	}
 }
-var d = require("./36383.js");
-var A = require(/*webcrack:missing*/ "./82755.js");
-var p = require(/*webcrack:missing*/ "./49395.js");
-var g = require(/*webcrack:missing*/ "./58663.js");
-var h = require(/*webcrack:missing*/ "./48307.js");
-require(/*webcrack:missing*/ "./29218.js");
-const C = g.Message;
-class _ extends C {
+
+const { Message } = g;
+
+class _ extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.app_id) {
 			h.Sg(_.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -146,7 +167,7 @@ class _ extends C {
 		return h.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -154,7 +175,7 @@ class _ extends C {
 		h.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -162,15 +183,14 @@ class _ extends C {
 		return "CMsgClientMMSInviteToLobby";
 	}
 }
-const f = g.Message;
-class b extends f {
+class b extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.impressions) {
 			h.Sg(b.M());
 		}
-		f.initialize(this, e, 0, -1, [1], null);
+		Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -210,7 +230,7 @@ class b extends f {
 		return h.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -218,7 +238,7 @@ class b extends f {
 		h.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -226,14 +246,14 @@ class b extends f {
 		return "CProductImpressionsFromClient_Notification";
 	}
 }
-class y extends f {
+class y extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.type) {
 			h.Sg(y.M());
 		}
-		f.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -282,7 +302,7 @@ class y extends f {
 		return h.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -290,7 +310,7 @@ class y extends f {
 		h.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new g.BinaryWriter();
+		const e = new g.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -298,25 +318,17 @@ class y extends f {
 		return "CProductImpressionsFromClient_Notification_Impression";
 	}
 }
-var S;
-(function (e) {
-	e.ReportProductImpressionsFromClient = function (e, t) {
-		return e.SendNotification(
+let S;
+((e) => {
+	e.ReportProductImpressionsFromClient = (e, t) =>
+		e.SendNotification(
 			"ExperimentService.ReportProductImpressionsFromClient#1",
-			(0, a.I8)(b, t),
+			I8(b, t),
 			{
 				ePrivilege: 1,
 			},
 		);
-	};
 })((S ||= {}));
-var w = require("./26052.js");
-var B = require("./54946.js");
-var v = require("./46066.js");
-var I = require("./32493.js");
-var E = require("./95773.js");
-var M = require(/*webcrack:missing*/ "./89193.js");
-var T = require(/*webcrack:missing*/ "./49455.js");
 class R {
 	m_bInitialized = false;
 	m_bGotInitialState = false;
@@ -336,7 +348,7 @@ class R {
 	m_bPersonaStateDesired = false;
 	m_bPersonaStateLoadRequested = false;
 	constructor(e, t) {
-		(0, M.Gn)(this);
+		Gn(this);
 		this.m_steamid = e;
 		this.m_eClanRelationship = t;
 	}
@@ -399,23 +411,23 @@ class R {
 		return this.m_unOGGAppID;
 	}
 	BMatchesSearchString(e) {
-		return this.m_strClanName.toLocaleLowerCase().indexOf(e) !== -1;
+		return this.m_strClanName.toLocaleLowerCase().includes(e);
 	}
 	get avatar_url() {
-		return (0, s.tp)(this.m_strAvatarHash);
+		return tp(this.m_strAvatarHash);
 	}
 	get avatar_url_medium() {
 		if (this.BIsOGG()) {
 			return this.avatar_url;
 		} else {
-			return (0, s.tp)(this.m_strAvatarHash, "medium");
+			return tp(this.m_strAvatarHash, "medium");
 		}
 	}
 	get avatar_url_full() {
 		if (this.BIsOGG()) {
 			return this.avatar_url;
 		} else {
-			return (0, s.tp)(this.m_strAvatarHash, "full");
+			return tp(this.m_strAvatarHash, "full");
 		}
 	}
 	OpenChatDialog(e, t = true) {
@@ -445,7 +457,7 @@ class R {
 				for (let t = 0; t < e.length && r; t++) {
 					r = !e[t];
 				}
-				this.m_strAvatarHash = r ? s.dV : (0, o.Kx)(e);
+				this.m_strAvatarHash = r ? s.dV : Kx(e);
 			}
 		}
 	}
@@ -490,26 +502,26 @@ class R {
 		this.m_ulChatRoomGroupID = e;
 	}
 }
-(0, n.Cg)([M.sH], R.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_bGotInitialState", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_eClanRelationship", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_strAvatarHash", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_ulChatRoomGroupID", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_cMemberCount", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_cUsersOnline", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_cUsersInGame", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_cChatRoomMembers", undefined);
-(0, n.Cg)([M.sH], R.prototype, "m_bChatRoomPrivate", undefined);
-(0, n.Cg)([M.EW], R.prototype, "avatar_url", null);
-(0, n.Cg)([M.EW], R.prototype, "avatar_url_medium", null);
-(0, n.Cg)([M.EW], R.prototype, "avatar_url_full", null);
+Cg([M.sH], R.prototype, "m_bInitialized", undefined);
+Cg([M.sH], R.prototype, "m_bGotInitialState", undefined);
+Cg([M.sH], R.prototype, "m_eClanRelationship", undefined);
+Cg([M.sH], R.prototype, "m_strAvatarHash", undefined);
+Cg([M.sH], R.prototype, "m_ulChatRoomGroupID", undefined);
+Cg([M.sH], R.prototype, "m_cMemberCount", undefined);
+Cg([M.sH], R.prototype, "m_cUsersOnline", undefined);
+Cg([M.sH], R.prototype, "m_cUsersInGame", undefined);
+Cg([M.sH], R.prototype, "m_cChatRoomMembers", undefined);
+Cg([M.sH], R.prototype, "m_bChatRoomPrivate", undefined);
+Cg([M.EW], R.prototype, "avatar_url", null);
+Cg([M.EW], R.prototype, "avatar_url_medium", null);
+Cg([M.EW], R.prototype, "avatar_url_full", null);
 class k {
 	m_CMInterface;
 	m_FriendStore;
 	m_mapClans = M.sH.map();
 	m_iIntervalLoadClanData;
 	constructor(e) {
-		(0, M.Gn)(this);
+		Gn(this);
 		this.m_FriendStore = e;
 	}
 	Init(e) {
@@ -547,7 +559,7 @@ class k {
 	GetClan(e) {
 		let t;
 		if (e instanceof c.b) {
-			(0, T.w)(e.BIsClanAccount(), "expected clan steamid in GetClan()");
+			w_1(e.BIsClanAccount(), "expected clan steamid in GetClan()");
 			t = e.GetAccountID();
 		} else {
 			t = e;
@@ -641,18 +653,9 @@ class k {
 		this.GetOrCreateClan(r).ReadPersonaStateUpdate(e, t);
 	}
 }
-(0, n.Cg)([M.EW], k.prototype, "clan_invite_count", null);
-(0, n.Cg)([M.EW], k.prototype, "clan_invites", null);
-var D = require("./46970.js");
-var N = require("./81386.js");
-var F = require(/*webcrack:missing*/ "./44846.js");
-var G = require(/*webcrack:missing*/ "./79769.js");
-var O = require(/*webcrack:missing*/ "./81255.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var L = require(/*webcrack:missing*/ "./52451.js");
-var z = require(/*webcrack:missing*/ "./83957.js");
-var x = z;
-var U = require("./16154.js");
+Cg([M.EW], k.prototype, "clan_invite_count", null);
+Cg([M.EW], k.prototype, "clan_invites", null);
+const x = z;
 class W {
 	m_numStartingTokens = 0;
 	m_numTokensPerMillisecond = 0;
@@ -681,8 +684,6 @@ class W {
 		return !(this.m_flTokens < 1) && ((this.m_flTokens -= 1), true);
 	}
 }
-var V = require(/*webcrack:missing*/ "./736.js");
-var H = require("./95111.js");
 const j = new (require(/*webcrack:missing*/ "./83599.js").wd)("FriendsUI")
 	.Debug;
 export class YS {
@@ -714,11 +715,11 @@ export class $c {
 	m_tsLastPersonaStateUpdate = 0;
 	m_miniProfileDataLoader;
 	constructor(e, t = null, r = null) {
-		(0, M.Gn)(this);
+		Gn(this);
 		this.m_unAccountID = e;
 		this.m_persona = new u(c.b.InitFromAccountID(e));
 		if (e == 0) {
-			(0, T.w)(false, "unset accountid");
+			w_1(false, "unset accountid");
 			this.m_persona.m_bInitialized = true;
 		}
 		if (t) {
@@ -777,13 +778,13 @@ export class $c {
 		this.m_eFriendRelationship = e;
 	}
 	get is_friend() {
-		return (0, F.S$)(this.m_eFriendRelationship);
+		return S$(this.m_eFriendRelationship);
 	}
 	get is_blocked() {
-		return (0, F.aP)(this.m_eFriendRelationship);
+		return aP(this.m_eFriendRelationship);
 	}
 	GetCommunityProfileURL() {
-		return i.TS.COMMUNITY_BASE_URL + "profiles/" + this.steamid64 + "/";
+		return `${i.TS.COMMUNITY_BASE_URL}profiles/${this.steamid64}/`;
 	}
 	get has_nickname() {
 		return !!this.m_strNickname;
@@ -862,7 +863,7 @@ export class $c {
 		if (this.has_nickname) {
 			let e = this.primary_display_name;
 			if (this.showing_secondary_display_name) {
-				e += "\xA0(" + this.secondary_display_name + ")";
+				e += `\xA0(${this.secondary_display_name})`;
 			}
 			return e;
 		}
@@ -914,7 +915,7 @@ export class $c {
 					this.m_persona.m_strPlayerName,
 				);
 			};
-			(0, M.fm)(e);
+			fm(e);
 			if (this.m_strPlayerNameNormalized === undefined) {
 				e();
 			}
@@ -943,7 +944,7 @@ export class $c {
 					this.current_game_name,
 				);
 			};
-			(0, M.fm)(e);
+			fm(e);
 			if (this.m_strGameNameNormalized === undefined) {
 				e();
 			}
@@ -975,17 +976,17 @@ export class $c {
 		}
 	}
 	BMatchesSearchString(e, t) {
-		if (this.player_name_normalized.indexOf(e) !== -1) {
+		if (this.player_name_normalized.includes(e)) {
 			return true;
 		}
 		if (this.has_nickname) {
-			if (this.m_strPlayerNicknameNormalized.indexOf(e) !== -1) {
+			if (this.m_strPlayerNicknameNormalized.includes(e)) {
 				return true;
 			}
 		} else if (
 			t &&
 			this.m_persona.is_ingame &&
-			this.game_name_normalized.indexOf(e) !== -1
+			this.game_name_normalized.includes(e)
 		) {
 			return true;
 		}
@@ -997,7 +998,7 @@ export class $c {
 			e.Body().add_Ids().set_steamid(this.steamid64);
 			e.Body().set_id_count(1);
 			E.xm.CMInterface.SendMsgAndAwaitResponse(e, p.sZ).then((e) => {
-				(0, T.w)(
+				w_1(
 					e.Body().responses().length == 1,
 					"Got an invalid number of responses to CMsgClientAMGetPersonaNameHistory",
 				);
@@ -1005,16 +1006,16 @@ export class $c {
 					return;
 				}
 				let t = e.Body().responses()[0];
-				(0, T.w)(
+				w_1(
 					t.steamid() == this.steamid64,
 					"Got a response for the wrong user from CMsgClientAMGetPersonaNameHistory",
 				);
 				if (t.steamid() == this.steamid64) {
-					(0, T.w)(
+					w_1(
 						this.m_rgPersonaNameHistory.length == 0,
 						"Got persona name history response for same user twice.",
 					);
-					(0, M.h5)(() => {
+					h5(() => {
 						for (let e of t.names()) {
 							this.m_rgPersonaNameHistory.push(e.name());
 						}
@@ -1166,7 +1167,7 @@ export class $c {
 					this.m_equippedProfileItems.avatar_frame.image_large = t.frame;
 				});
 		} catch (e) {
-			let t = (0, U.H)(e);
+			let t = H_1(e);
 			console.error(`Error when calling ajaxgetgoldenprofiledata: ${t}`);
 		}
 	}
@@ -1174,7 +1175,7 @@ export class $c {
 		return this.m_bLoadedEquippedProfileItems;
 	}
 	GetEquippedProfileItems() {
-		(0, T.w)(
+		w_1(
 			this.BLoadedEquippedItems(),
 			"Called GetEquippedProfileItems without loading",
 		);
@@ -1195,31 +1196,31 @@ export class $c {
 		return this.m_miniProfileDataLoader;
 	}
 }
-(0, n.Cg)([M.sH], $c.prototype, "m_persona", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_eFriendRelationship", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_bPersonaNameHistoryLoaded", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_rgPersonaNameHistory", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_strPlayerNicknameNormalized", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_strNickname", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_NotificationSettings", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_bLoadedEquippedProfileItems", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_bRequestedEquippedProfileItems", undefined);
-(0, n.Cg)([M.sH], $c.prototype, "m_equippedProfileItems", undefined);
-(0, n.Cg)([M.EW], $c.prototype, "display_name", null);
-(0, n.Cg)([M.EW], $c.prototype, "secondary_display_name", null);
-(0, n.Cg)([M.EW], $c.prototype, "current_game_name", null);
-(0, n.Cg)([M.EW], $c.prototype, "current_game_icon_url", null);
-(0, n.Cg)([M.EW], $c.prototype, "current_game_rich_presence", null);
-(0, n.Cg)([M.EW], $c.prototype, "persona_name_history", null);
-(0, n.Cg)([M.EW], $c.prototype, "persona_name_history_loaded", null);
-(0, n.Cg)([M.EW], $c.prototype, "localized_online_status", null);
+Cg([M.sH], $c.prototype, "m_persona", undefined);
+Cg([M.sH], $c.prototype, "m_eFriendRelationship", undefined);
+Cg([M.sH], $c.prototype, "m_bPersonaNameHistoryLoaded", undefined);
+Cg([M.sH], $c.prototype, "m_rgPersonaNameHistory", undefined);
+Cg([M.sH], $c.prototype, "m_strPlayerNicknameNormalized", undefined);
+Cg([M.sH], $c.prototype, "m_strNickname", undefined);
+Cg([M.sH], $c.prototype, "m_NotificationSettings", undefined);
+Cg([M.sH], $c.prototype, "m_bLoadedEquippedProfileItems", undefined);
+Cg([M.sH], $c.prototype, "m_bRequestedEquippedProfileItems", undefined);
+Cg([M.sH], $c.prototype, "m_equippedProfileItems", undefined);
+Cg([M.EW], $c.prototype, "display_name", null);
+Cg([M.EW], $c.prototype, "secondary_display_name", null);
+Cg([M.EW], $c.prototype, "current_game_name", null);
+Cg([M.EW], $c.prototype, "current_game_icon_url", null);
+Cg([M.EW], $c.prototype, "current_game_rich_presence", null);
+Cg([M.EW], $c.prototype, "persona_name_history", null);
+Cg([M.EW], $c.prototype, "persona_name_history_loaded", null);
+Cg([M.EW], $c.prototype, "localized_online_status", null);
 const Z = "FriendStoreLocalPrefs";
 class Y {
 	m_CMInterface;
 	m_currentMsg = null;
 	m_mapLastSeenApp = new Map();
 	constructor() {
-		(0, M.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		this.m_CMInterface = e;
@@ -1248,13 +1249,13 @@ class Y {
 			r.set_type(2);
 			r.set_num_impressions(0);
 		} else {
-			for (let t = 0; t < this.m_currentMsg.Body().impressions().length; ++t) {
-				let n = this.m_currentMsg.Body().impressions()[t];
+			for (let n of this.m_currentMsg.Body().impressions()) {
 				if (n.appid() == e && n.type() == 1) {
 					r = n;
 					break;
 				}
 			}
+
 			if (!r) {
 				r = this.m_currentMsg.Body().add_impressions();
 				r.set_appid(e);
@@ -1275,7 +1276,7 @@ class Y {
 		}
 	}
 }
-(0, n.Cg)([M.XI.bound], Y.prototype, "NotifyImpressions", null);
+Cg([M.XI.bound], Y.prototype, "NotifyImpressions", null);
 export class VT {
 	m_FriendGroupStore = new D.Oz(this);
 	m_ClanStore = new k(this);
@@ -1315,7 +1316,7 @@ export class VT {
 	m_vecLastTenChangeStatusReasons = [];
 	m_TokenFailureAssertCount = 30;
 	constructor() {
-		(0, M.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		this.m_CMInterface = e;
@@ -1332,7 +1333,7 @@ export class VT {
 					1,
 				);
 				let e = true;
-				if ((0, V.Dp)("WebChat.GetSignIntoFriendsOnStart")) {
+				if (Dp("WebChat.GetSignIntoFriendsOnStart")) {
 					e = await SteamClient.WebChat.GetSignIntoFriendsOnStart();
 				}
 				E.xm.SettingsStore.GetObjectFromLocalStorage(
@@ -1415,7 +1416,7 @@ export class VT {
 			A.XN,
 			this.OnPersonaStateUpdate,
 		);
-		(0, M.fm)(() => {
+		fm(() => {
 			let e =
 				E.xm.ParentalStore.BIsFriendsBlocked() ||
 				E.xm.SettingsStore.IsSteamInTournamentMode();
@@ -1497,7 +1498,24 @@ export class VT {
 				f = undefined;
 			}
 			let b = false;
-			if (_ || u || A || s.is_in_nonsteam_game || f || p) {
+			if (
+				_ ||
+				u ||
+				u ||
+				A ||
+				u ||
+				A ||
+				s.is_in_nonsteam_game ||
+				u ||
+				A ||
+				s.is_in_nonsteam_game ||
+				f ||
+				u ||
+				A ||
+				s.is_in_nonsteam_game ||
+				f ||
+				p
+			) {
 				C = u != _;
 				if (_) {
 					r.add(_);
@@ -1561,7 +1579,10 @@ export class VT {
 					_ && a.BWasRecentlyPlayingAppID(_),
 				);
 			}
-			if (!b && (s.m_ePersonaState != o || !!C || s.m_strPlayerName != m)) {
+			if (
+				!b &&
+				(s.m_ePersonaState != o || !!C || !!C || s.m_strPlayerName != m)
+			) {
 				this.m_rgPersonaStateChangeCallbacks.Dispatch(a);
 			}
 		}
@@ -1634,7 +1655,7 @@ export class VT {
 				message: "ShowFriendsErrorRetryDialog",
 			};
 			window.parent.postMessage(e, "https://steamloopback.host");
-			(0, T.w)(false, "GetFriendsList returned", t.GetEResult());
+			w_1(false, "GetFriendsList returned", t.GetEResult());
 		}
 	}
 	get not_ready_to_render_reason() {
@@ -1760,12 +1781,12 @@ export class VT {
 		let t = new Date().getTime();
 		this.m_mapApprovedNonFriendMessages.set(e, t + 86400000);
 		let r = "";
-		this.m_mapApprovedNonFriendMessages.forEach(function (e, n, i) {
+		this.m_mapApprovedNonFriendMessages.forEach((e, n, i) => {
 			if (e > t) {
 				if (r.length != 0) {
 					r += ",";
 				}
-				r += n.toString() + "=" + e.toString();
+				r += `${n.toString()}=${e.toString()}`;
 			}
 		});
 		this.m_FriendStorePrefs.strNonFriendsAllowedToMsg = r;
@@ -1853,10 +1874,11 @@ export class VT {
 		if (!this.m_TokenBucketChangeStatus.BRemoveToken()) {
 			if (this.m_TokenFailureAssertCount > 0) {
 				--this.m_TokenFailureAssertCount;
-				(0, T.w)(
+				w_1(
 					false,
-					"No ClientChangeStatus tokens, last 10 reasons: " +
-						this.m_vecLastTenChangeStatusReasons.join(","),
+					`No ClientChangeStatus tokens, last 10 reasons: ${this.m_vecLastTenChangeStatusReasons.join(
+						",",
+					)}`,
 				);
 			}
 			return false;
@@ -1906,7 +1928,7 @@ export class VT {
 				return null;
 			}
 		} else {
-			(0, T.w)(false, `Friend missing from cache: ${e}`);
+			w_1(false, `Friend missing from cache: ${e}`);
 		}
 		return t;
 	}
@@ -1982,7 +2004,7 @@ export class VT {
 				for (let r of e) {
 					let e = this.GetPlayer(r);
 					if (e && !e.persona.m_bNameInitialized) {
-						(0, T.w)(
+						w_1(
 							e.m_bPersonaStateLoadRequested,
 							"PersonaStateLoadRequested not set",
 						);
@@ -2162,7 +2184,7 @@ export class VT {
 			}
 		}
 		let a = this.m_setFriendAccountIDs.has(n);
-		if ((0, F.S$)(t)) {
+		if (S$(t)) {
 			let e;
 			if (a) {
 				e = this.GetFriend(n);
@@ -2226,7 +2248,13 @@ export class VT {
 		const t = performance.now();
 		window.setTimeout(() => {
 			j(
-				`Completed request to load initial persona states in ${(t - e).toFixed(0)}ms (${(performance.now() - this.m_tsLastConnect).toFixed(0)}ms since connect), received ${this.m_cFriendPersonaStatesInitialized} personas`,
+				`Completed request to load initial persona states in ${(t - e).toFixed(
+					0,
+				)}ms (${(performance.now() - this.m_tsLastConnect).toFixed(
+					0,
+				)}ms since connect), received ${
+					this.m_cFriendPersonaStatesInitialized
+				} personas`,
 			);
 			this.m_bInitialPersonaStatesLoaded = true;
 			this.StartWaitForInitialAppInfo();
@@ -2237,6 +2265,7 @@ export class VT {
 	OnFriendPersonaStateChanged(e, t, r, n, i) {
 		if (
 			!E.xm.NotificationManager.BNotificationsPermitted() ||
+			!E.xm.SettingsStore.BReady() ||
 			!E.xm.SettingsStore.BReady() ||
 			E.xm.FriendStore.GetUserDoNotDisturb()
 		) {
@@ -2255,7 +2284,7 @@ export class VT {
 					title: e.display_name,
 					body: Localize("#Friend_StateChange_InGame", t),
 					rawbody: t,
-					tag: "state_" + e.accountid,
+					tag: `state_${e.accountid}`,
 					state: "ingame",
 					steamid: e.persona.m_steamid.ConvertTo64BitString(),
 				});
@@ -2266,7 +2295,7 @@ export class VT {
 			E.xm.NotificationManager.DisplayNotificationFromFriend(e, {
 				title: e.display_name,
 				body: Localize("#Friend_StateChange_Online"),
-				tag: "state_" + e.accountid,
+				tag: `state_${e.accountid}`,
 				state: "online",
 				steamid: e.persona.m_steamid.ConvertTo64BitString(),
 			});
@@ -2275,16 +2304,14 @@ export class VT {
 	PlayJoinGameSound() {
 		if (!E.xm.FriendStore.GetUserDoNotDisturb()) {
 			E.xm.AudioPlaybackManager.PlayAudioURL(
-				i.TS.COMMUNITY_CDN_URL +
-					"public/sounds/webui/ui_steam_smoother_friend_join.m4a",
+				`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/ui_steam_smoother_friend_join.m4a`,
 			);
 		}
 	}
 	PlayFriendOnlineSound() {
 		if (!E.xm.FriendStore.GetUserDoNotDisturb()) {
 			E.xm.AudioPlaybackManager.PlayAudioURL(
-				i.TS.COMMUNITY_CDN_URL +
-					"public/sounds/webui/ui_steam_smoother_friend_online.m4a",
+				`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/ui_steam_smoother_friend_online.m4a`,
 			);
 		}
 	}
@@ -2302,7 +2329,7 @@ export class VT {
 		B.xt
 			.GetPerFriendPreferences(this.m_CMInterface.GetServiceTransport(), e)
 			.then((e) => {
-				(0, M.h5)(() => {
+				h5(() => {
 					for (let t of e.Body().preferences()) {
 						let e = this.GetPlayer(t.accountid());
 						if (e) {
@@ -2411,40 +2438,46 @@ export class VT {
 }
 export function uQ(e) {
 	switch (e) {
-		case 25:
+		case 25: {
 			return "#Friend_InviteError_LimitExceeded";
-		case 15:
+		}
+		case 15: {
 			return "#Friend_InviteError_AccessDenied";
-		case 40:
+		}
+		case 40: {
 			return "#Friend_InviteError_Blocked";
-		case 11:
+		}
+		case 11: {
 			return "#Friend_InviteError_InvalidState";
-		case 84:
+		}
+		case 84: {
 			return "#Friend_InviteError_RateLimitExceeded";
-		case 24:
+		}
+		case 24: {
 			return "#Friend_InviteError_InsufficientPrivilege";
+		}
 	}
 	return "#Friend_InviteError";
 }
-(0, n.Cg)([M.sH], VT.prototype, "m_self", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_setFriendAccountIDs", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_eUserPersonaState", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_bPerFriendPreferencesLoaded", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_bReceivedFriendsList", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_bInitialPersonaStatesLoaded", undefined);
-(0, n.Cg)([M.sH], VT.prototype, "m_bInitialAppInfoLoaded", undefined);
-(0, n.Cg)([L.oI], VT.prototype, "OnPersonaStateUpdate", null);
-(0, n.Cg)([M.EW], VT.prototype, "not_ready_to_render_reason", null);
-(0, n.Cg)([M.XI], VT.prototype, "OnParentalLockChanged", null);
-(0, n.Cg)([M.EW], VT.prototype, "all_friends", null);
-(0, n.Cg)([M.EW], VT.prototype, "online_friends", null);
-(0, n.Cg)([M.XI], VT.prototype, "SetPersonasOffline", null);
-(0, n.Cg)([M.XI], VT.prototype, "SetFriendsList", null);
-(0, n.Cg)([L.oI, (0, O.s)(100)], VT.prototype, "PlayJoinGameSound", null);
-(0, n.Cg)([L.oI, (0, O.s)(100)], VT.prototype, "PlayFriendOnlineSound", null);
-(0, n.Cg)([M.XI], VT.prototype, "SetPlayerNickname", null);
-(0, n.Cg)([M.XI], VT.prototype, "SetPlayerNotificationSettings", null);
-(0, n.Cg)([M.XI], VT.prototype, "SetPlayerPerFriendPreferences", null);
-(0, n.Cg)([M.XI], VT.prototype, "InviteToGame", null);
-(0, n.Cg)([M.XI], VT.prototype, "InviteToLobby", null);
-(0, n.Cg)([M.XI], VT.prototype, "InviteToWatch", null);
+Cg([M.sH], VT.prototype, "m_self", undefined);
+Cg([M.sH], VT.prototype, "m_setFriendAccountIDs", undefined);
+Cg([M.sH], VT.prototype, "m_eUserPersonaState", undefined);
+Cg([M.sH], VT.prototype, "m_bPerFriendPreferencesLoaded", undefined);
+Cg([M.sH], VT.prototype, "m_bReceivedFriendsList", undefined);
+Cg([M.sH], VT.prototype, "m_bInitialPersonaStatesLoaded", undefined);
+Cg([M.sH], VT.prototype, "m_bInitialAppInfoLoaded", undefined);
+Cg([L.oI], VT.prototype, "OnPersonaStateUpdate", null);
+Cg([M.EW], VT.prototype, "not_ready_to_render_reason", null);
+Cg([M.XI], VT.prototype, "OnParentalLockChanged", null);
+Cg([M.EW], VT.prototype, "all_friends", null);
+Cg([M.EW], VT.prototype, "online_friends", null);
+Cg([M.XI], VT.prototype, "SetPersonasOffline", null);
+Cg([M.XI], VT.prototype, "SetFriendsList", null);
+Cg([L.oI, s_1(100)], VT.prototype, "PlayJoinGameSound", null);
+Cg([L.oI, s_1(100)], VT.prototype, "PlayFriendOnlineSound", null);
+Cg([M.XI], VT.prototype, "SetPlayerNickname", null);
+Cg([M.XI], VT.prototype, "SetPlayerNotificationSettings", null);
+Cg([M.XI], VT.prototype, "SetPlayerPerFriendPreferences", null);
+Cg([M.XI], VT.prototype, "InviteToGame", null);
+Cg([M.XI], VT.prototype, "InviteToLobby", null);
+Cg([M.XI], VT.prototype, "InviteToWatch", null);

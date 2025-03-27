@@ -4,14 +4,14 @@ function n(e) {
 		typeof e == "object" &&
 		!Array.isArray(e) &&
 		Object.keys(e).every((t) =>
-			(function (e) {
-				return !!e && typeof e == "object" && !!Array.isArray(e) && e.every(i);
-			})(e[t]),
+			((e) => !!e && typeof e == "object" && !!Array.isArray(e) && e.every(i))(
+				e[t],
+			),
 		)
 	);
 }
 function i(e) {
-	if (!e || typeof e != "object" || Array.isArray(e)) {
+	if (!e || typeof e != "object" || typeof e != "object" || Array.isArray(e)) {
 		return false;
 	}
 	const t = e;

@@ -1,29 +1,29 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require("./44926.js");
 import {
 	FindAndRemove,
 	SortedFindLessOrEqual,
 	SortedInsert,
 } from "../../actual_src/utils/arrayutils.js";
-var l = require("./84629.js");
-var c = require("./76835.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var u = require(/*webcrack:missing*/ "./79769.js");
-var d = require(/*webcrack:missing*/ "./93960.js");
-var A = require("./72061.js");
-var p = require(/*webcrack:missing*/ "./63696.js");
-var g = require("./91720.js");
-var h = require(/*webcrack:missing*/ "./89193.js");
-var C = require("./67429.js");
-var _ = require("./36934.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s from "./44926.js";
+import l, { q_ as q, ZI, tG } from "./84629.js";
+import c, { rU, hT, Te, eJ, N$ } from "./76835.js";
+import u from "./79769.js";
+import d from "./93960.js";
+import A, { Sb, sK } from "./72061.js";
+import p from "./63696.js";
+import { Y$, kP } from "./91720.js";
+import h, { Gn } from "./89193.js";
+import C from "./67429.js";
+import _ from "./36934.js";
+const a = i;
 export const kh = 3000;
 const y = kh + 1000;
 export class SX {
 	constructor() {
-		(0, h.Gn)(this);
+		Gn(this);
 	}
 	m_bInitialized = false;
 	m_rgListeners = [];
@@ -67,13 +67,13 @@ export class SX {
 		const t = await s.xM.GetTimelinesForApp({
 			game_id: e,
 		});
-		const { timelines: r = [] } = t.Body().toObject();
+		const { timelines = [] } = t.Body().toObject();
 		this.m_mapRunningTimelines.forEach((e, t) => {
-			if (!r.find((e) => e.timeline_id == t)) {
-				r.push(e.m_metadata);
+			if (!timelines.find((e) => e.timeline_id == t)) {
+				timelines.push(e.m_metadata);
 			}
 		});
-		this.UpdateTimelineMetadata(r);
+		this.UpdateTimelineMetadata(timelines);
 		this.m_fnTimelineURLBuilder = (e) =>
 			`https://steamloopback.host/gamerecordings/timelines/${e}.json`;
 		this.m_bInitialized = true;
@@ -85,22 +85,22 @@ export class SX {
 			clip_id: e,
 		});
 		if (t.GetEResult() != 1) {
-			throw new Error("Unable to load clip " + e);
+			throw new Error(`Unable to load clip ${e}`);
 		}
 		const {
-			timelines: r = [],
-			game_id: n,
-			first_timeline_start_offset_ms: i,
+			timelines = [],
+			game_id,
+			first_timeline_start_offset_ms,
 		} = t.Body().toObject();
-		this.m_gameID = n;
-		this.UpdateTimelineMetadata(r);
+		this.m_gameID = game_id;
+		this.UpdateTimelineMetadata(timelines);
 		for (let t of this.m_rgTimelineMetadata) {
-			(0, l.q_)(`Loaded clip ${e} timeline ${t.metadata.timeline_id}`);
+			q(`Loaded clip ${e} timeline ${t.metadata.timeline_id}`);
 			for (let e of t.metadata.recordings) {
-				(0, l.q_)(`Clip recording ${e.recording_id} duration ${e.duration_ms}`);
+				q(`Clip recording ${e.recording_id} duration ${e.duration_ms}`);
 			}
 		}
-		this.m_ulFirstTimelineOffsetMS = parseInt(i);
+		this.m_ulFirstTimelineOffsetMS = parseInt(first_timeline_start_offset_ms);
 		this.m_fnTimelineURLBuilder = (e) =>
 			`https://steamloopback.host/gamerecordings/clips/${this.m_clipID}/timelines/${e}.json`;
 		this.m_bInitialized = true;
@@ -121,7 +121,7 @@ export class SX {
 				);
 			} else {
 				r.push({
-					nGlobalOffsetMS: (0, A.Sb)(n),
+					nGlobalOffsetMS: Sb(n),
 					metadata: t,
 				});
 				n += parseInt(t.duration_ms);
@@ -162,9 +162,9 @@ export class SX {
 	}
 	FireEvent(e, ...t) {
 		for (let r of this.m_rgListeners) {
-			let n = r[e];
-			if (n instanceof Function) {
-				n.apply(r, t);
+			let r_e = r[e];
+			if (r_e instanceof Function) {
+				r_e.apply(r, t);
 			}
 		}
 	}
@@ -239,24 +239,29 @@ export class SX {
 			const a = [];
 			for (const t of e.entries) {
 				switch (t.type) {
-					case "phase":
+					case "phase": {
 						i.push(t);
 						break;
-					case "gamemode":
+					}
+					case "gamemode": {
 						r.push(t);
 						break;
-					case "state_description":
+					}
+					case "state_description": {
 						n.push(t);
 						break;
+					}
 					case "achievement":
 					case "error":
 					case "event":
 					case "screenshot":
-					case "usermarker":
+					case "usermarker": {
 						a.push(t);
 						break;
-					default:
+					}
+					default: {
 						console.error(`Unknown timeline entry type ${t.type}`);
+					}
 				}
 			}
 			const s = (e, t) => parseInt(e.time) - parseInt(t.time);
@@ -341,14 +346,14 @@ export class SX {
 			if (r < n + SX.ApplyTimelineRounding(a, t)) {
 				return {
 					strTimelineID: e.metadata.timeline_id,
-					nTimelineOffsetMS: (0, A.sK)(r - n - i),
+					nTimelineOffsetMS: sK(r - n - i),
 				};
 			}
 			n += a;
 		}
 		return {
 			strTimelineID: undefined,
-			nTimelineOffsetMS: (0, A.sK)(NaN),
+			nTimelineOffsetMS: sK(NaN),
 		};
 	}
 	ConvertRecordingOffsetToGlobalOffset(e, t, r) {
@@ -608,7 +613,7 @@ export class SX {
 					timelineID: t.strTimelineID,
 					timelineState: r.m_strState,
 					entry: e,
-					globalMS: (0, A.Sb)(i),
+					globalMS: Sb(i),
 				};
 			}
 		}
@@ -651,7 +656,7 @@ export class SX {
 							timelineID: t.metadata.timeline_id,
 							timelineState: r.m_strState,
 							entry: e,
-							globalMS: (0, A.Sb)(i),
+							globalMS: Sb(i),
 						};
 					}
 				}
@@ -690,7 +695,7 @@ export class SX {
 					timelineID: t.strTimelineID,
 					timelineState: r.m_strState,
 					entry: e,
-					globalMS: (0, A.Sb)(i),
+					globalMS: Sb(i),
 				};
 			} else {
 				return {
@@ -734,7 +739,7 @@ export class SX {
 							timelineID: t.metadata.timeline_id,
 							timelineState: r.m_strState,
 							entry: e,
-							globalMS: (0, A.Sb)(i),
+							globalMS: Sb(i),
 						};
 					} else {
 						return {
@@ -793,15 +798,15 @@ export class SX {
 		}
 	}
 	AdvanceGameModeIndex(e) {
-		let t = e.m_iGameModeChanges;
-		while (t + 1 < e.m_data.m_rgGameModeChanges.length) {
-			let r = e.m_data.m_rgGameModeChanges[t + 1];
+		let e_m_iGameModeChanges = e.m_iGameModeChanges;
+		while (e_m_iGameModeChanges + 1 < e.m_data.m_rgGameModeChanges.length) {
+			let r = e.m_data.m_rgGameModeChanges[e_m_iGameModeChanges + 1];
 			if (parseInt(r.time) > e.m_nTimelineOffsetMS) {
 				break;
 			}
-			t++;
+			e_m_iGameModeChanges++;
 		}
-		e.m_iGameModeChanges = t;
+		e.m_iGameModeChanges = e_m_iGameModeChanges;
 	}
 	AdvanceEntriesIndex(e) {
 		for (
@@ -887,21 +892,21 @@ export class SX {
 	*GetIteratorEntriesWithin(e, t) {
 		let r = e.m_data.m_rgEntries;
 		for (let n = e.m_iEntries; n >= 0 && n < r.length; n++) {
-			let i = r[n];
-			if (parseInt(i.time) >= e.m_nTimelineOffsetMS + t) {
+			let r_n = r[n];
+			if (parseInt(r_n.time) >= e.m_nTimelineOffsetMS + t) {
 				break;
 			}
-			yield i;
+			yield r_n;
 		}
 	}
 	*GetIteratorGameModesWithin(e, t) {
 		let r = e.m_data.m_rgGameModeChanges;
 		for (let n = e.m_iEntries; n >= 0 && n < r.length; n++) {
-			let i = r[n];
-			if (parseInt(i.time) >= e.m_nTimelineOffsetMS + t) {
+			let r_n = r[n];
+			if (parseInt(r_n.time) >= e.m_nTimelineOffsetMS + t) {
 				break;
 			}
-			yield i;
+			yield r_n;
 		}
 	}
 	GetFirstRecording() {
@@ -984,18 +989,18 @@ export class SX {
 	}
 	AddEventToTimeline(e, t, r, n, i, a, s, o) {
 		if (!this.m_bInitialized) {
-			(0, l.ZI)("timeline loader not initialized, unexpected");
+			ZI("timeline loader not initialized, unexpected");
 			return false;
 		}
 		const c = this.m_mapTimelineData.get(e);
 		if (!c) {
-			(0, l.ZI)(`failed to find timeline ${e}`);
+			ZI(`failed to find timeline ${e}`);
 			return false;
 		}
 		const m = t + this.GetTimelineStartBeforeGlobalZeroMS(e);
 		const u = {
 			id: n,
-			time: m + "",
+			time: `${m}`,
 			type: "event",
 			icon: r,
 			title: a,
@@ -1004,24 +1009,24 @@ export class SX {
 			duration: `${o}`,
 			possible_clip: 2,
 		};
-		(0, l.tG)(`adding timeline event marker at ${e} at ${m} MS`);
+		tG(`adding timeline event marker at ${e} at ${m} MS`);
 		this.InsertEntryIntoTimelineSorted(c, u);
 		this.FireEvent("OnInvalidate", e);
 		return true;
 	}
 	RemoveTimelineEvent(e, t) {
 		if (!this.m_bInitialized) {
-			(0, l.ZI)("timeline loader not initialized, unexpected");
+			ZI("timeline loader not initialized, unexpected");
 			return false;
 		}
 		const r = this.m_mapTimelineData.get(e);
 		if (!r) {
-			(0, l.ZI)(`failed to find timeline ${e}`);
+			ZI(`failed to find timeline ${e}`);
 			return false;
 		}
 		const n = r.m_rgEntries.findIndex((e) => e.id === t);
 		if (n < 0) {
-			(0, l.ZI)(`failed to find entry by id: ${t}`);
+			ZI(`failed to find entry by id: ${t}`);
 			return false;
 		} else {
 			r.m_rgEntries.splice(n, 1);
@@ -1031,51 +1036,51 @@ export class SX {
 	}
 	AddUserMarker(e, t, r, n) {
 		if (!this.m_bInitialized) {
-			(0, l.ZI)("timeline loader not initialized, unexpected");
+			ZI("timeline loader not initialized, unexpected");
 			return false;
 		}
 		const i = this.m_mapTimelineData.get(e);
 		if (!i) {
-			(0, l.ZI)(`failed to find timeline ${e}`);
+			ZI(`failed to find timeline ${e}`);
 			return false;
 		}
 		const a = t + this.GetTimelineStartBeforeGlobalZeroMS(e);
 		const s = {
 			id: n,
-			time: a + "",
+			time: `${a}`,
 			type: "usermarker",
 			icon: r,
 			title: "",
 			description: "",
 			priority: 0,
 		};
-		(0, l.tG)(`adding user marker at ${e} at ${a} MS`);
+		tG(`adding user marker at ${e} at ${a} MS`);
 		this.InsertEntryIntoTimelineSorted(i, s);
 		this.FireEvent("OnInvalidate", e);
 		return true;
 	}
 	UpdateUserMarker(e, t, r) {
 		if (!this.m_bInitialized) {
-			(0, l.ZI)("timeline loader not initialized, unexpected");
+			ZI("timeline loader not initialized, unexpected");
 			return false;
 		}
 		const n = this.m_mapTimelineData.get(e);
 		if (!n) {
-			(0, l.ZI)(`failed to find timeline ${e}`);
+			ZI(`failed to find timeline ${e}`);
 			return false;
 		}
 		const i = n.m_rgEntries.findIndex((e) => e.id === t);
 		if (i < 0) {
-			(0, l.ZI)(`failed to find entry by id: ${t}`);
+			ZI(`failed to find entry by id: ${t}`);
 			return false;
 		}
 		const a = n.m_rgEntries[i];
-		const s = a.time;
+		const a_time = a.time;
 		a.icon = r.strIcon;
-		a.time = "" + r.nTimelineOffsetMS;
+		a.time = `${r.nTimelineOffsetMS}`;
 		a.title = r.name;
 		a.description = r.description;
-		if (s != a.time) {
+		if (a_time != a.time) {
 			n.m_rgEntries.splice(i, 1);
 			this.InsertEntryIntoTimelineSorted(n, a);
 		}
@@ -1084,17 +1089,17 @@ export class SX {
 	}
 	RemoveUserMarker(e, t) {
 		if (!this.m_bInitialized) {
-			(0, l.ZI)("timeline loader not initialized, unexpected");
+			ZI("timeline loader not initialized, unexpected");
 			return false;
 		}
 		const r = this.m_mapTimelineData.get(e);
 		if (!r) {
-			(0, l.ZI)(`failed to find timeline ${e}`);
+			ZI(`failed to find timeline ${e}`);
 			return false;
 		}
 		const n = r.m_rgEntries.findIndex((e) => e.id === t);
 		if (n < 0) {
-			(0, l.ZI)(`failed to find entry by id: ${t}`);
+			ZI(`failed to find entry by id: ${t}`);
 			return false;
 		} else {
 			r.m_rgEntries.splice(n, 1);
@@ -1119,7 +1124,7 @@ export class SX {
 		SortedInsert(
 			this.m_rgTimelineMetadata,
 			{
-				nGlobalOffsetMS: (0, A.Sb)(a),
+				nGlobalOffsetMS: Sb(a),
 				metadata: n,
 			},
 			(e, t) => e.metadata.date_recorded - t.metadata.date_recorded,
@@ -1173,17 +1178,17 @@ export class SX {
 		if (!t || !r) {
 			return;
 		}
-		let n = (0, c.rU)(e);
+		let n = rU(e);
 		if (!n) {
 			return;
 		}
-		if ((0, c.hT)(n)) {
+		if (hT(n)) {
 			SortedInsert(
 				r.m_rgGameModeChanges,
 				n,
 				(e, t) => parseInt(e.time) - parseInt(t.time),
 			);
-		} else if ((0, c.Te)(n)) {
+		} else if (Te(n)) {
 			SortedInsert(
 				r.m_rgStateDescriptions,
 				n,
@@ -1212,12 +1217,12 @@ export class SX {
 		this.FireEvent("OnInvalidate", e);
 	}
 	RecordingSessionChanged(e) {
-		let t = e.session_id;
-		let r = e.notification_type;
-		if (r == 1) {
+		let { session_id, notification_type } = e;
+
+		if (notification_type == 1) {
 			const r = this.m_mapRunningTimelines.get(e.timeline_id);
 			if (!r) {
-				this.FireEvent("OnInvalidateRecording", e.timeline_id, t);
+				this.FireEvent("OnInvalidateRecording", e.timeline_id, session_id);
 				AssertMsg(
 					false,
 					"Received recording started message before timeline info",
@@ -1225,7 +1230,7 @@ export class SX {
 				return;
 			}
 			const n = {
-				recording_id: t,
+				recording_id: session_id,
 				start_offset_ms: e.start_offset,
 				recording_zero_timeline_offset_ms: e.start_offset,
 				duration_ms: e.duration_ms,
@@ -1233,18 +1238,20 @@ export class SX {
 			};
 			r.m_metadata.recordings.push(n);
 			r.m_runningRecording = n;
-		} else if (r == 2) {
-			const r = this.GetRunningTimelineForRecording(e.timeline_id, t);
+		} else if (notification_type == 2) {
+			const r = this.GetRunningTimelineForRecording(e.timeline_id, session_id);
 			if (!r) {
 				return;
 			}
 			r.m_runningRecording.duration_ms = e.duration_ms;
 			r.m_runningRecording = null;
-			this.FireEvent("OnInvalidateRecording", e.timeline_id, t);
-		} else if (r == 4) {
+			this.FireEvent("OnInvalidateRecording", e.timeline_id, session_id);
+		} else if (notification_type == 4) {
 			const r = this.GetTimelineMetadata(e.timeline_id);
 			if (r) {
-				const n = r.metadata.recordings.find((e) => e.recording_id === t);
+				const n = r.metadata.recordings.find(
+					(e) => e.recording_id === session_id,
+				);
 				if (n) {
 					n.start_offset_ms = e.start_offset;
 					n.duration_ms = e.duration_ms;
@@ -1254,13 +1261,15 @@ export class SX {
 					}
 				}
 			}
-			if (!this.GetRunningTimelineForRecording(e.timeline_id, t)) {
-				this.FireEvent("OnInvalidateRecording", e.timeline_id, t);
+			if (!this.GetRunningTimelineForRecording(e.timeline_id, session_id)) {
+				this.FireEvent("OnInvalidateRecording", e.timeline_id, session_id);
 			}
-		} else if (r == 3) {
+		} else if (notification_type == 3) {
 			const r = this.GetTimelineMetadata(e.timeline_id);
 			if (r) {
-				const e = r.metadata.recordings.filter((e) => e.recording_id !== t);
+				const e = r.metadata.recordings.filter(
+					(e) => e.recording_id !== session_id,
+				);
 				r.metadata.recordings = e;
 			}
 		}
@@ -1272,9 +1281,9 @@ export class SX {
 			const t = isNaN(parseInt(e.metadata.duration_ms))
 				? 0
 				: parseInt(e.metadata.duration_ms);
-			return (0, A.Sb)(e.nGlobalOffsetMS.valMS + t);
+			return Sb(e.nGlobalOffsetMS.valMS + t);
 		}
-		return (0, A.Sb)(0);
+		return Sb(0);
 	}
 	GetEndOfRecordingsMS() {
 		const e = this.m_rgTimelineMetadata[this.m_rgTimelineMetadata.length - 1];
@@ -1294,7 +1303,7 @@ export class SX {
 				} else if (!isNaN(parseInt(t.duration_ms))) {
 					a = parseInt(t.duration_ms);
 				}
-				return (0, A.Sb)(e.nGlobalOffsetMS.valMS + n + a);
+				return Sb(e.nGlobalOffsetMS.valMS + n + a);
 			}
 		}
 		return null;
@@ -1350,7 +1359,7 @@ export class SX {
 				if (A && r > n) {
 					continue;
 				}
-				if (!(0, c.eJ)(e) && !(0, c.N$)(e)) {
+				if (!eJ(e) && !N$(e)) {
 					continue;
 				}
 				const a = w(e);
@@ -1383,29 +1392,33 @@ export class SX {
 		};
 	}
 	async GenerateClipNameFromTimeline(e, t, r, n) {
-		const { strTimelinePart: i, strAppNamePart: a } =
+		const { strTimelinePart, strAppNamePart } =
 			await this.GenerateNamePartsFromTimeline(e, t, r, n);
 		const s = new Date();
 		const o = [
-			a,
-			`${s.getFullYear()}-${(s.getMonth() + 1).toString().padStart(2, "0")}-${s.getDate().toString().padStart(2, "0")} ${s.toLocaleTimeString()}`,
-			i,
+			strAppNamePart,
+			`${s.getFullYear()}-${(s.getMonth() + 1).toString().padStart(2, "0")}-${s
+				.getDate()
+				.toString()
+				.padStart(2, "0")} ${s.toLocaleTimeString()}`,
+			strTimelinePart,
 		]
 			.filter((e) => e)
 			.join(" - ");
-		(0, l.q_)(`Generated clip name "${o}"`);
+		q(`Generated clip name "${o}"`);
 		return o;
 	}
 }
 function w(e) {
 	switch (e.type) {
-		case "event":
+		case "event": {
 			const t = e;
 			return {
 				rank: 50000 + e.priority,
 				strTitle: t.title,
 			};
-		case "usermarker":
+		}
+		case "usermarker": {
 			const r = e;
 			if (r.title || r.description) {
 				return {
@@ -1415,21 +1428,24 @@ function w(e) {
 			} else {
 				return null;
 			}
-		case "state_description":
+		}
+		case "state_description": {
 			return {
 				rank: 40000,
 				strTitle: e.title,
 			};
-		case "achievement":
+		}
+		case "achievement": {
 			return {
 				rank: 90000,
 				strTitle: e.title,
 			};
+		}
 	}
 	return null;
 }
 export function Ni(e) {
-	const t = p.useMemo(() => (0, g.Y$)(e), [e]);
+	const t = p.useMemo(() => Y$(e), [e]);
 	const r = p.useCallback(
 		(t) =>
 			`https://steamloopback.host/gamerecordings/clips/${e}/video/${t}/session.mpd`,
@@ -1442,7 +1458,7 @@ export function Ni(e) {
 	};
 }
 export function Fc(e) {
-	const t = p.useMemo(() => (0, g.kP)(e), [e]);
+	const t = p.useMemo(() => kP(e), [e]);
 	const r = p.useCallback(
 		(e) => `https://steamloopback.host/gamerecordings/video/${e}/session.mpd`,
 		[],
@@ -1453,5 +1469,5 @@ export function Fc(e) {
 		fnGetManifest: r,
 	};
 }
-(0, n.Cg)([h.sH], SX.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([d.o], SX.prototype, "UpdateRunningTimelines", null);
+Cg([h.sH], SX.prototype, "m_bInitialized", undefined);
+Cg([d.o], SX.prototype, "UpdateRunningTimelines", null);

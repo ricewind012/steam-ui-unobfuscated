@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var a = require("./10606.js");
+import n from "./63696.js";
+import a from "./10606.js";
 export function I() {
 	const [e, t] = n.useState(false);
 	const [r, i] = n.useState(false);
@@ -26,15 +26,13 @@ export function I() {
 }
 export function p(e) {
 	const { active: t, onDismiss: r } = e;
-	return n.createElement(
-		a.EN,
-		{
-			active: t,
-		},
-		n.createElement(a.KG, {
-			strTitle: Localize("#BootReserve_Dialog_Title"),
-			strDescription: Localize("#BootReserve_Dialog_Contents"),
-			closeModal: r,
-		}),
+	return (
+		<a.EN active={t}>
+			<a.KG
+				strTitle={Localize("#BootReserve_Dialog_Title")}
+				strDescription={Localize("#BootReserve_Dialog_Contents")}
+				closeModal={r}
+			/>
+		</a.EN>
 	);
 }

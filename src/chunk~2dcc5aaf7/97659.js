@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ErrorScreen: "m2DlVaqcdL6aPaErxgZH4",
 	Icon: "_1-WLjOjzS49zV7ya7IhUXc",
 	Text: "_26OSX5597k0hIJxnso6XI7",

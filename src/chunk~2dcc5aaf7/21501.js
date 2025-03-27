@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LinkRegionDragBox: "Rtlc-BB1aJFRIM1lH4zN1",
 	EdgeDown: "i9zrHPy0-LgZONeZE4fgG",
 	LinkRegionGridBox: "_1Ob4AvWwUMx67yR7owjqse",

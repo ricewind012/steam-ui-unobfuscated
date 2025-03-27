@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	AnimatedCallout: "PVXAA8K7W59k1ZLVWAPy9",
 	Bob: "_33nAFYa-4M0coUprfk3WqL",
 	Pulse: "_2pLSojgHqkjUtB38scov5A",

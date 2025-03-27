@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ClipVideo: "_2l-1Pz5xsmqu_WjCKFECIC",
 	Hidden: "_1Mrd-kYb4o3sMUsQtOtGC4",
 	Enter: "A8T77nQGyv_h_6mVeqqfH",

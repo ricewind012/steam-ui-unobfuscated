@@ -1,5 +1,5 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
 import { FailAssertion } from "../../actual_src/utils/assert.js";
+import r from "./63696.js";
 const s = r.createContext(undefined);
 const o = s.Provider;
 const a = () => {

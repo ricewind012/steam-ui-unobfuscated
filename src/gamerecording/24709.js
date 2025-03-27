@@ -1,8 +1,8 @@
-import * as i from /*webcrack:missing*/ "./63696.js";
-import * as n from /*webcrack:missing*/ "./44926.js";
-import * as a from /*webcrack:missing*/ "./91720.js";
-import * as s from /*webcrack:missing*/ "./93092.js";
-import * as l from /*webcrack:missing*/ "./64608.js";
+import * as i from "./63696.js";
+import * as n from "./44926.js";
+import * as a from "./91720.js";
+import * as s from "./93092.js";
+import * as l from "./64608.js";
 import { Localize } from "../../actual_src/utils/localization.js";
 import * as m from "./11995.js";
 export default function c(e) {
@@ -59,7 +59,7 @@ function d(e) {
 	);
 	let m = Localize("#Chat_Uploading", r.clip_id);
 	let c = {
-		width: t + "%",
+		width: `${t}%`,
 	};
 	return i.createElement(
 		"div",

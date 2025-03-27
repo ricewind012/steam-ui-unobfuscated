@@ -1,6 +1,6 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./93960.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
+import { Cg } from "./34629.js";
+import i from "./93960.js";
 export class Q {
 	m_fnRender;
 	m_rgLoadingLinks = [];
@@ -12,8 +12,8 @@ export class Q {
 			}
 		} else if (e) {
 			let t = e.getElementsByTagName("link");
-			for (let e = 0; e < t.length; e++) {
-				let n = t[e];
+
+			for (let n of t) {
 				this.AddLink(n, false);
 			}
 		}
@@ -22,7 +22,12 @@ export class Q {
 		if (t) {
 			let t = false;
 			try {
-				if (!e.sheet || !e.sheet.cssRules || e.sheet.cssRules.length == 0) {
+				if (
+					!e.sheet ||
+					!e.sheet.cssRules ||
+					!e.sheet.cssRules ||
+					e.sheet.cssRules.length == 0
+				) {
 					t = true;
 				}
 			} catch (e) {}
@@ -51,4 +56,4 @@ export class Q {
 		}
 	}
 }
-(0, r.Cg)([i.o], Q.prototype, "OnLinkLoad", null);
+Cg([i.o], Q.prototype, "OnLinkLoad", null);

@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./8573.js");
-var c = require(/*webcrack:missing*/ "./49455.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require("./823.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn, h5 } from "./89193.js";
+import { useState, useEffect } from "./63696.js";
+import l from "./8573.js";
+import { w } from "./49455.js";
+import m, { Fd } from "./72476.js";
+import u from "./823.js";
+const a = i;
 class d {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_mapAppIDToClanInfo = new Map();
 	m_mapVanityToClanInfo = new Map();
@@ -22,8 +22,8 @@ class d {
 	}
 	LazyInit() {
 		if (!this.m_bLoadedFromConfig) {
-			(0, s.h5)(() => {
-				let e = (0, m.Fd)("groupvanityinfo", "application_config");
+			h5(() => {
+				let e = Fd("groupvanityinfo", "application_config");
 				if (this.ValidateClanConfig(e)) {
 					e.forEach((e) => {
 						this.InternalSetupValue(e);
@@ -34,7 +34,7 @@ class d {
 		}
 	}
 	AddGroupVanities(e) {
-		(0, s.h5)(() => {
+		h5(() => {
 			if (this.ValidateClanConfig(e)) {
 				e.forEach((e) => {
 					this.InternalSetupValue(e);
@@ -54,8 +54,8 @@ class d {
 		);
 	}
 	BHasClanInfoLoaded(e) {
-		(0, c.w)(e.BIsValid(), "Clan SteamID is not valid when ClanInfo");
-		(0, c.w)(
+		w(e.BIsValid(), "Clan SteamID is not valid when ClanInfo");
+		w(
 			e.BIsClanAccount(),
 			"Clan SteamID is not a clan account id when requesting clan info ",
 		);
@@ -106,21 +106,21 @@ class d {
 		if (typeof e == "string") {
 			e = parseInt(e);
 		}
-		(0, c.w)(e != 0, "LoadOGGClanInfoForAppID called with appid of zero");
+		w(e != 0, "LoadOGGClanInfoForAppID called with appid of zero");
 		if (e == 0) {
 			return null;
 		}
 		if (this.m_mapAppIDToClanInfo.has(e)) {
 			return this.m_mapAppIDToClanInfo.get(e);
 		}
-		let t = "appid_" + e;
+		let t = `appid_${e}`;
 		if (!this.m_mapPromisesLoading.has(t)) {
 			this.m_mapPromisesLoading.set(t, this.InternalLoadOGGClanInfoForAppID(e));
 		}
 		return this.m_mapPromisesLoading.get(t);
 	}
 	async InternalLoadOGGClanInfoForAppID(e) {
-		const t = m.TS.COMMUNITY_BASE_URL + "ogg/" + e + "/ajaxgetvanityandclanid/";
+		const t = `${m.TS.COMMUNITY_BASE_URL}ogg/${e}/ajaxgetvanityandclanid/`;
 		let r = null;
 		try {
 			r = (
@@ -141,7 +141,7 @@ class d {
 		if (this.m_mapVanityToClanInfo.has(e?.toLocaleLowerCase())) {
 			return this.m_mapVanityToClanInfo.get(e?.toLocaleLowerCase());
 		}
-		let t = "storevanity_" + e?.toLocaleLowerCase();
+		let t = `storevanity_${e?.toLocaleLowerCase()}`;
 		if (!this.m_mapPromisesLoading.has(t)) {
 			this.m_mapPromisesLoading.set(
 				t,
@@ -151,8 +151,7 @@ class d {
 		return this.m_mapPromisesLoading.get(t);
 	}
 	async InternalLoadOGGClanInfoForIdentifier(e) {
-		const t =
-			m.TS.COMMUNITY_BASE_URL + "games/" + e + "/ajaxgetvanityandclanid/";
+		const t = `${m.TS.COMMUNITY_BASE_URL}games/${e}/ajaxgetvanityandclanid/`;
 		let r = await a.get(t, {
 			params: this.GetRequestParam(),
 		});
@@ -164,7 +163,7 @@ class d {
 		if (this.m_mapVanityToClanInfo.has(e?.toLocaleLowerCase())) {
 			return this.m_mapVanityToClanInfo.get(e?.toLocaleLowerCase());
 		}
-		let t = "community_name_" + e;
+		let t = `community_name_${e}`;
 		if (!this.m_mapPromisesLoading.has(t)) {
 			this.m_mapPromisesLoading.set(
 				t,
@@ -174,8 +173,7 @@ class d {
 		return this.m_mapPromisesLoading.get(t);
 	}
 	async InternalLoadOGGClanInfoForGroupVanity(e) {
-		const t =
-			m.TS.COMMUNITY_BASE_URL + "groups/" + e + "/ajaxgetvanityandclanid/";
+		const t = `${m.TS.COMMUNITY_BASE_URL}groups/${e}/ajaxgetvanityandclanid/`;
 		let r = await a.get(t, {
 			params: this.GetRequestParam(),
 		});
@@ -188,7 +186,7 @@ class d {
 		if (this.m_mapClanAccountIDToClanInfo.has(t)) {
 			return this.m_mapClanAccountIDToClanInfo.get(t);
 		}
-		let r = "clanaccountid_" + t;
+		let r = `clanaccountid_${t}`;
 		if (!this.m_mapPromisesLoading.has(r)) {
 			this.m_mapPromisesLoading.set(
 				r,
@@ -203,11 +201,9 @@ class d {
 	}
 	async InternalLoadClanInfoForClanSteamID(e) {
 		let t = e.GetAccountID();
-		const r =
-			m.TS.COMMUNITY_BASE_URL +
-			"gid/" +
-			e.ConvertTo64BitString() +
-			"/ajaxgetvanityandclanid/";
+		const r = `${
+			m.TS.COMMUNITY_BASE_URL
+		}gid/${e.ConvertTo64BitString()}/ajaxgetvanityandclanid/`;
 		let n = await a.get(r, {
 			params: this.GetRequestParam(),
 		});
@@ -252,7 +248,7 @@ class d {
 	}
 	GetClanInfoByClanAccountID(e) {
 		this.LazyInit();
-		(0, c.w)(
+		w(
 			!!e,
 			"Unepxected clanid when requesting information. GetClanInfoByClanAccountID ",
 		);
@@ -267,40 +263,38 @@ class d {
 		return (
 			m.TS.COMMUNITY_BASE_URL +
 			(r.vanity_url
-				? "groups/" + r.vanity_url
-				: "gid/" + e.ConvertTo64BitString())
+				? `groups/${r.vanity_url}`
+				: `gid/${e.ConvertTo64BitString()}`)
 		);
 	}
 }
-(0, n.Cg)([s.sH], d.prototype, "m_mapAppIDToClanInfo", undefined);
-(0, n.Cg)([s.sH], d.prototype, "m_mapVanityToClanInfo", undefined);
-(0, n.Cg)([s.sH], d.prototype, "m_mapClanAccountIDToClanInfo", undefined);
-(0, n.Cg)([s.XI], d.prototype, "RegisterClanData", null);
-(0, n.Cg)([s.XI], d.prototype, "InternalSetupValue", null);
+Cg([s.sH], d.prototype, "m_mapAppIDToClanInfo", undefined);
+Cg([s.sH], d.prototype, "m_mapVanityToClanInfo", undefined);
+Cg([s.sH], d.prototype, "m_mapClanAccountIDToClanInfo", undefined);
+Cg([s.XI], d.prototype, "RegisterClanData", null);
+Cg([s.XI], d.prototype, "InternalSetupValue", null);
 export const ac = new d();
 export function TB(e) {
-	const [t, r] = (0, o.useState)(
-		e ? ac.GetClanInfoByClanAccountID(e) : undefined,
-	);
-	const [n, i] = (0, o.useState)(!!e && !ac.BHasClanInfoLoadedByAccountID(e));
-	(0, o.useEffect)(() => {
+	const [t, setT] = useState(e ? ac.GetClanInfoByClanAccountID(e) : undefined);
+	const [n, setN] = useState(!!e && !ac.BHasClanInfoLoadedByAccountID(e));
+	useEffect(() => {
 		if (e) {
 			if (ac.BHasClanInfoLoadedByAccountID(e)) {
-				r(ac.GetClanInfoByClanAccountID(e));
-				i(false);
+				setT(ac.GetClanInfoByClanAccountID(e));
+				setN(false);
 			} else {
-				i(true);
+				setN(true);
 				const t = l.b.InitFromClanID(
 					typeof e == "string" ? Number.parseInt(e) : e,
 				);
 				ac.LoadClanInfoForClanSteamID(t).then((e) => {
-					r(e ?? undefined);
-					i(false);
+					setT(e ?? undefined);
+					setN(false);
 				});
 			}
 		} else {
-			r(undefined);
-			i(false);
+			setT(undefined);
+			setN(false);
 		}
 	}, [e]);
 	return [n, t];

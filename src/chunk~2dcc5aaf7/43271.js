@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./12251.js");
-const o = n.Message;
-class l extends o {
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+const n_Message = n.Message;
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return l.toObject(e, this);
@@ -33,13 +33,13 @@ class l extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -47,11 +47,11 @@ class l extends o {
 		return "CSystemManager_Hibernate_Request";
 	}
 }
-class c extends o {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return c.toObject(e, this);
@@ -77,13 +77,13 @@ class c extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -91,14 +91,14 @@ class c extends o {
 		return "CSystemManager_Hibernate_Response";
 	}
 }
-class m extends o {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.path) {
 			i.Sg(m.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -142,7 +142,7 @@ class m extends o {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -150,7 +150,7 @@ class m extends o {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -158,11 +158,11 @@ class m extends o {
 		return "CSystemManager_WriteFile_Request";
 	}
 }
-class u extends o {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return u.toObject(e, this);
@@ -188,13 +188,13 @@ class u extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -202,34 +202,34 @@ class u extends o {
 		return "CSystemManager_WriteFile_Response";
 	}
 }
-export var GZ;
-(function (e) {
+export let GZ;
+((e) => {
 	e.HibernateHandler = {
 		name: "SystemManager.Hibernate#1",
 		request: l,
 		response: c,
 	};
-	e.Hibernate = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.Hibernate = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SystemManager.Hibernate#1", (0, a.I8)(l, e), c, {
+			return t.SendMsg("SystemManager.Hibernate#1", I8(l, e), c, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
 		}
 	};
-	e.SendMsgHibernate = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgHibernate = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SystemManager.Hibernate#1", (0, a.I8)(l, e), c, {
+			return t.SendMsg("SystemManager.Hibernate#1", I8(l, e), c, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
@@ -240,27 +240,27 @@ export var GZ;
 		request: m,
 		response: u,
 	};
-	e.WriteFile = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.WriteFile = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SystemManager.WriteFile#1", (0, a.I8)(m, e), u, {
+			return t.SendMsg("SystemManager.WriteFile#1", I8(m, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
 		}
 	};
-	e.SendMsgWriteFile = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgWriteFile = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SystemManager.WriteFile#1", (0, a.I8)(m, e), u, {
+			return t.SendMsg("SystemManager.WriteFile#1", I8(m, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});

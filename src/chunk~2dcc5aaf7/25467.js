@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./52451.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./60517.js");
-var o = require("./22091.js");
-var l = require(/*webcrack:missing*/ "./75144.js");
-var c = require(/*webcrack:missing*/ "./61416.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./52451.js";
+import a, { useEffect } from "./63696.js";
+import s from "./60517.js";
+import { kS } from "./22091.js";
+import l from "./75144.js";
+import { I } from "./61416.js";
+import m, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
 function d(e) {
 	return ["BluetoothManagerService", "State", "Device", e];
 }
@@ -14,7 +14,7 @@ class A {
 	m_bForceShowAllDevices = false;
 	m_nDiscoveryRequestCount = 0;
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	async Init() {
 		s.RF.RegisterForNotifyStateChanged(this.OnStateChanged);
@@ -42,8 +42,8 @@ class A {
 		};
 	}
 }
-(0, n.Cg)([m.sH], A.prototype, "m_bForceShowAllDevices", undefined);
-(0, n.Cg)([i.oI], A.prototype, "OnStateChanged", null);
+Cg([m.sH], A.prototype, "m_bForceShowAllDevices", undefined);
+Cg([i.oI], A.prototype, "OnStateChanged", null);
 export const Y4 = new A();
 function g(e) {
 	const t = a.useCallback(async () => {
@@ -53,7 +53,7 @@ function g(e) {
 		}
 		return e.Body().toObject();
 	}, []);
-	return (0, c.I)({
+	return I({
 		queryKey: ["BluetoothManagerService", "State"],
 		queryFn: t,
 		staleTime: Infinity,
@@ -85,7 +85,7 @@ export function cS(e, t) {
 		}
 		return t.Body().toObject().device;
 	}, [e]);
-	const n = (0, c.I)({
+	const n = I({
 		queryKey: d(e),
 		queryFn: r,
 		staleTime: Infinity,
@@ -104,30 +104,29 @@ export function KO(e = false) {
 	return (
 		g((t) => {
 			const r = (t.devices ?? []).filter((t) =>
-				(function (e, t) {
-					return (
-						!!t ||
-						(!e.should_hide_hint &&
-							!!(function (e) {
-								switch (e) {
-									case 4:
-									case 5:
-									case 6:
-									case 7:
-									case 8:
-									case 9:
-									case 10:
-									case 11:
-										return true;
-									default:
-										return false;
+				((e, t) =>
+					!!t ||
+					(!e.should_hide_hint &&
+						!!((e) => {
+							switch (e) {
+								case 4:
+								case 5:
+								case 6:
+								case 7:
+								case 8:
+								case 9:
+								case 10:
+								case 11: {
+									return true;
 								}
-							})(e.etype))
-					);
-				})(t, e),
+								default: {
+									return false;
+								}
+							}
+						})(e.etype)))(t, e),
 			);
 			r.sort((e, t) =>
-				(function (e, t) {
+				((e, t) => {
 					if (e.is_connected != t.is_connected) {
 						if (e.is_connected) {
 							return -1;
@@ -150,7 +149,7 @@ export function KO(e = false) {
 	);
 }
 export function ws(e) {
-	const t = (0, o.kS)(e?.mac ?? "");
+	const t = kS(e?.mac ?? "");
 	if (e?.battery_percent != null) {
 		return e.battery_percent;
 	} else {
@@ -170,10 +169,10 @@ export function Fi(e) {
 }
 export function cg() {
 	return [
-		(0, u.q3)(() => Y4.m_bForceShowAllDevices),
+		q3(() => Y4.m_bForceShowAllDevices),
 		(e) => (Y4.m_bForceShowAllDevices = e),
 	];
 }
 export function sr() {
-	(0, a.useEffect)(() => Y4.RequestDiscovery(), []);
+	useEffect(() => Y4.RequestDiscovery(), []);
 }

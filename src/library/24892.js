@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ContextMenuMouseOverlay: "_3Knd7Am6tTwTTu605YN4IX",
 	ContextMenuPosition: "_2yAm5LY_eu-Vg_52l0HFlM",

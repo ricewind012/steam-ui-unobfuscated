@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GameRecordingPlayer: "_1AGqAVUQuj81DaUOKJ9Eon",
 	Overlay: "_1PKb5jI6E9EN9uLLK030zW",
 	NoVideo: "DaqWGn7r6dsiUT-0iSrbT",

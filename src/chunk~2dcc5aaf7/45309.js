@@ -1,130 +1,117 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./88750.js");
-var s = require("./10606.js");
-var o = require("./13869.js");
-var l = require(/*webcrack:missing*/ "./11131.js");
 import { Localize } from "../../actual_src/utils/localization.js";
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./88750.js";
+import s from "./10606.js";
+import o, { pg } from "./13869.js";
+import l, { R7 } from "./11131.js";
 export function Ql(e) {
-	const t = (0, l.R7)();
-	return n.createElement(
-		i.$n,
-		{
-			onClick: () =>
-				(0, o.pg)(
+	const t = R7();
+	return (
+		<i.$n
+			onClick={() =>
+				pg(
 					n.cloneElement(e.children, {
 						onResult: e.onResult,
 					}),
 					t.ownerWindow ?? window,
-				),
-		},
-		e.title,
+				)
+			}
+		>
+			{e.title}
+		</i.$n>
 	);
 }
 export function G(e) {
-	const t = (0, l.R7)();
-	return n.createElement(
-		a.kt,
-		{
-			onSelected: () =>
-				(0, o.pg)(
+	const t = R7();
+	return (
+		<a.kt
+			onSelected={() =>
+				pg(
 					n.cloneElement(e.children, {
 						onResult: e.onResult,
 					}),
 					t.ownerWindow ?? window,
-				),
-		},
-		e.title,
+				)
+			}
+		>
+			{e.title}
+		</a.kt>
 	);
 }
 export function X_(e) {
 	const {
-		className: t,
-		title: r,
-		description: a,
-		closeModal: o,
-		disableCommit: l,
-		onCommitResult: m,
-		onCancel: u,
-		onCustomOK: d,
-		bAlertDialog: A,
-		children: p,
+		className,
+		title,
+		description,
+		closeModal,
+		disableCommit,
+		onCommitResult,
+		onCancel,
+		onCustomOK,
+		bAlertDialog,
+		children,
 	} = e;
 	const g = () => {
-		if (u) {
-			u();
+		if (onCancel) {
+			onCancel();
 		}
-		if (o) {
-			o();
+		if (closeModal) {
+			closeModal();
 		}
 	};
-	return n.createElement(
-		s.eV,
-		{
-			className: t,
-			onOK:
-				d ??
+	return (
+		<s.eV
+			className={className}
+			onOK={
+				onCustomOK ??
 				(() => {
-					if (!l) {
-						if (m) {
-							m();
+					if (!disableCommit) {
+						if (onCommitResult) {
+							onCommitResult();
 						}
-						if (o) {
-							o();
+						if (closeModal) {
+							closeModal();
 						}
 					}
-				}),
-			onCancel: g,
-		},
-		r && n.createElement(i.Y9, null, r),
-		a != null && n.createElement(i.a3, null, a),
-		p,
-		n.createElement(
-			i.wi,
-			null,
-			A
-				? n.createElement(
-						i.jn,
-						{
-							onClick: g,
-						},
-						" ",
-						Localize("#Button_Cancel"),
-						" ",
-					)
-				: n.createElement(i.CB, {
-						bOKDisabled: l,
-						onCancel: g,
-					}),
-		),
+				})
+			}
+			onCancel={g}
+		>
+			{title && <i.Y9>{title}</i.Y9>}
+			{description != null && <i.a3>{description}</i.a3>}
+			{children}
+			<i.wi>
+				{bAlertDialog ? (
+					<i.jn onClick={g}> {Localize("#Button_Cancel")} </i.jn>
+				) : (
+					<i.CB bOKDisabled={disableCommit} onCancel={g} />
+				)}
+			</i.wi>
+		</s.eV>
 	);
 }
 export function Qj(e) {
-	const { onResult: t, isValid: r, inputOptions: a, children: s, ...o } = e;
-	const [l, c] = n.useState("");
-	const m = r ? r(l) : l?.length > 0;
+	const { onResult, isValid, inputOptions, children, ...o } = e;
+	const [l, setL] = n.useState("");
+	const m = isValid ? isValid(l) : l?.length > 0;
 	const u =
-		t == null
-			? undefined
-			: () => {
-					if (m && t) {
-						t(l);
-					}
-				};
-	return n.createElement(
-		X_,
-		{
-			...o,
-			disableCommit: !m,
-			onCommitResult: u,
-		},
-		n.createElement(i.pd, {
-			autoFocus: true,
-			onChange: (e) => {
-				c(e.target.value);
-			},
-			...a,
-		}),
-		s,
+		onResult == null ||
+		(() => {
+			if (m && onResult) {
+				onResult(l);
+			}
+		});
+	return (
+		<X_ {...o} disableCommit={!m} onCommitResult={u}>
+			<i.pd
+				autoFocus
+				onChange={(e) => {
+					setL(e.target.value);
+				}}
+				{...inputOptions}
+			/>
+			{children}
+		</X_>
 	);
 }

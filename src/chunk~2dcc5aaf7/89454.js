@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	BroadcastChat: "_3URK7gSLJV_b2M32URtdZ1",
 	ChatEntry: "_3soy-wJhd4RZ8SNtC31AOz",
 	ChatPanel: "_2ZCAIdTy8CoxNNL8KBGNM",

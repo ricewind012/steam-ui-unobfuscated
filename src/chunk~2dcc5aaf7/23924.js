@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	UserList: "_3OP8k2mqIbHCq04FYzGlqp",
 	AuthorizeUserField: "_3ZlCeQQKLtCFOU_49-t_hV",

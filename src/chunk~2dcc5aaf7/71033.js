@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require(/*webcrack:missing*/ "./63696.js");
 import { Sleep } from "../../actual_src/utils/time.js";
-var u = require("./56970.js");
-var d = require("./13925.js");
-var A = require("./46422.js");
+import n, { Cg } from "./34629.js";
+import i from "./44846.js";
+import a from "./52451.js";
+import s from "./83599.js";
+import o, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import c from "./63696.js";
+import u from "./56970.js";
+import { Di } from "./13925.js";
+import A from "./46422.js";
 const p = new s.wd("SuspendResume");
 const g = false;
 class h {
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 	m_eSuspendResumeProgress = i.jH.k_ESuspendResumeProgressState_Invalid;
 	m_bSuspending = false;
@@ -96,8 +96,8 @@ class h {
 	}
 	OnPrepareForSuspendProgress(e) {
 		p.Info("OnPrepareForSuspendProgress", e);
-		let t = e.state;
-		this.m_eSuspendResumeProgress = t;
+		let e_state = e.state;
+		this.m_eSuspendResumeProgress = e_state;
 		if (
 			this.BShowSuspendResumeDialogs() &&
 			this.m_eSuspendResumeProgress !=
@@ -114,7 +114,7 @@ class h {
 		this.m_bShowResumeUI = true;
 		if (this.BShowSuspendResumeDialogs()) {
 			if (u.yE.GetSettings().bLockOnWake) {
-				(0, d.Di)({
+				Di({
 					preventCancel: true,
 					preventSteamButtons: true,
 				});
@@ -130,12 +130,13 @@ class h {
 	}
 	OnResumeSuspendedGamesProgress(e) {
 		p.Info("OnResumeSuspendedGamesProgress", e);
-		let t = e.state;
-		this.m_eSuspendResumeProgress = t;
+		let e_state = e.state;
+		this.m_eSuspendResumeProgress = e_state;
 		if (
 			!e.bGameSuspended ||
-			t == i.jH.k_ESuspendResumeProgressState_Invalid ||
-			t == i.jH.k_ESuspendResumeProgressState_Complete
+			e_state == i.jH.k_ESuspendResumeProgressState_Invalid ||
+			e_state == i.jH.k_ESuspendResumeProgressState_Invalid ||
+			e_state == i.jH.k_ESuspendResumeProgressState_Complete
 		) {
 			this.m_bResuming = false;
 		}
@@ -147,27 +148,27 @@ class h {
 		};
 	}
 }
-(0, n.Cg)([o.sH], h.prototype, "m_eSuspendResumeProgress", undefined);
-(0, n.Cg)([o.sH], h.prototype, "m_bSuspending", undefined);
-(0, n.Cg)([o.sH], h.prototype, "m_bResuming", undefined);
-(0, n.Cg)([o.sH], h.prototype, "m_bShowResumeUI", undefined);
-(0, n.Cg)([o.XI], h.prototype, "NotifyResumeUIDone", null);
-(0, n.Cg)([o.XI.bound], h.prototype, "OnSuspendRequest", null);
-(0, n.Cg)([a.oI], h.prototype, "OnPrepareForSuspendProgress", null);
-(0, n.Cg)([o.XI.bound], h.prototype, "OnSystemResumedFromSuspend", null);
-(0, n.Cg)([o.XI.bound], h.prototype, "OnResumeSuspendedGamesProgress", null);
+Cg([o.sH], h.prototype, "m_eSuspendResumeProgress", undefined);
+Cg([o.sH], h.prototype, "m_bSuspending", undefined);
+Cg([o.sH], h.prototype, "m_bResuming", undefined);
+Cg([o.sH], h.prototype, "m_bShowResumeUI", undefined);
+Cg([o.XI], h.prototype, "NotifyResumeUIDone", null);
+Cg([o.XI.bound], h.prototype, "OnSuspendRequest", null);
+Cg([a.oI], h.prototype, "OnPrepareForSuspendProgress", null);
+Cg([o.XI.bound], h.prototype, "OnSystemResumedFromSuspend", null);
+Cg([o.XI.bound], h.prototype, "OnResumeSuspendedGamesProgress", null);
 export const Ze = new h();
 export function px() {
 	return g;
 }
 export function sp() {
-	return (0, l.q3)(() => Ze.GetSuspendResumeState());
+	return q3(() => Ze.GetSuspendResumeState());
 }
 export function Tx() {
-	return (0, l.q3)(() => Ze.suspending);
+	return q3(() => Ze.suspending);
 }
 export function _0() {
-	return (0, l.q3)(() => Ze.show_resume_ui || Ze.resuming);
+	return q3(() => Ze.show_resume_ui || Ze.resuming);
 }
 export function Nx(e = true) {
 	c.useEffect(() => {
@@ -177,18 +178,18 @@ export function Nx(e = true) {
 	}, [e]);
 }
 export function GP(e) {
-	const [t, r] = c.useState(false);
-	const n = c.useRef(0);
+	const [t, setT] = c.useState(false);
+	const NRef = c.useRef(0);
 	const i = c.useCallback(() => {
-		r(true);
-		window.clearTimeout(n.current);
-		n.current = window.setTimeout(() => r(false), e * 1000);
-	}, [e, n]);
+		setT(true);
+		window.clearTimeout(NRef.current);
+		NRef.current = window.setTimeout(() => setT(false), e * 1000);
+	}, [e, NRef]);
 	c.useEffect(() => {
 		const e = SteamClient.System.RegisterForOnResumeFromSuspend(i);
 		return () => e.unregister();
 	}, [i]);
-	c.useEffect(() => () => window.clearTimeout(n.current), []);
+	c.useEffect(() => () => window.clearTimeout(NRef.current), []);
 	return t;
 }
 window.SuspendResumeStore = Ze;

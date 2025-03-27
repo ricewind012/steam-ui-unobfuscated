@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	"duration-app-launch": "800ms",
 	ReadMoreLink: "_2mvgc6dpEDHRJlTWhGDz7h",

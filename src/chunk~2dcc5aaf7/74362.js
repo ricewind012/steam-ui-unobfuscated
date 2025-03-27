@@ -1,11 +1,11 @@
 export const vn = 4294967295;
-export var T4;
-export var z1;
-(function (e) {
+export let T4;
+export let z1;
+((e) => {
 	e[(e.Input = 0)] = "Input";
 	e[(e.Output = 1)] = "Output";
 })((T4 ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Input = 0)] = "Input";
 	e[(e.AllOutput = 1)] = "AllOutput";
 	e[(e.Left = 2)] = "Left";

@@ -20,10 +20,10 @@ export function w(e, t, r) {
 	let i = document.createElement("canvas").getContext("2d");
 	e: for (let e = r.startingSizePx; e > r.minSizePx; e--) {
 		let a = 1;
-		i.font = e + "px " + r.fontFamily;
+		i.font = `${e}px ${r.fontFamily}`;
 		let s = "";
 		for (let e = 0; e < n.length; e++) {
-			s += " " + n[e];
+			s += ` ${n[e]}`;
 			if (i.measureText(s.trim()).width > t) {
 				a++;
 				if (

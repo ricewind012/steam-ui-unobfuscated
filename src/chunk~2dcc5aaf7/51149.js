@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LoadingTimeline: "_3HMMNaShMT1M773fCgCd",
 	ScrollAndControlsCtn: "gAhqB_Mx8V-7QYnzQP1eo",
 	GamepadMode: "XkOPy2hiLaUWJsZVWC23u",

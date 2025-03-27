@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	BrowserViewHost: "_2JQwVCR2d_haTggP2MFPQ4",
 	MarketingMessagesDialog: "_31Kkeb6BIUOVu8QL-dgtY-",
 	FooterControls: "_1dkScx4uNaRq0A1SAI6ai4",

@@ -1,6 +1,6 @@
-export var D$;
-var i = require("./61657.js");
-(function (e) {
+import i from "./61657.js";
+export let D$;
+((e) => {
 	e[(e.GAMEPAD = 0)] = "GAMEPAD";
 	e[(e.KEYBOARD = 1)] = "KEYBOARD";
 	e[(e.APPLICATION = 2)] = "APPLICATION";
@@ -16,7 +16,7 @@ let s = {
 function o(e, t, n) {
 	e.addEventListener(t, n);
 	return () =>
-		(function (e, t, n) {
+		((e, t, n) => {
 			e.removeEventListener(t, n);
 		})(e, t, n);
 }
@@ -52,7 +52,12 @@ export function W1(e, t) {
 }
 export function AE(e, t, n) {
 	let r = e;
-	if (!r || !r.ownerDocument || !r.ownerDocument.defaultView) {
+	if (
+		!r ||
+		!r.ownerDocument ||
+		!r.ownerDocument ||
+		!r.ownerDocument.defaultView
+	) {
 		return true;
 	}
 	let i = new r.ownerDocument.defaultView.CustomEvent(t, {
@@ -79,7 +84,7 @@ export function IA(e) {
 	if (o) {
 		r = true;
 		n = AE(e.target, o, e.detail);
-	} else if (t.indexOf(e.detail.button) !== -1) {
+	} else if (t.includes(e.detail.button)) {
 		r = true;
 		n = AE(e.target, "vgp_ondirection", e.detail);
 	}
@@ -98,30 +103,30 @@ function C(e) {
 }
 export function Y3(e) {
 	const {
-		onOKActionDescription: t,
-		onCancelActionDescription: n,
-		onSecondaryActionDescription: r,
-		onOptionsActionDescription: s,
-		onMenuActionDescription: o,
-		actionDescriptionMap: a,
+		onOKActionDescription,
+		onCancelActionDescription,
+		onSecondaryActionDescription,
+		onOptionsActionDescription,
+		onMenuActionDescription,
+		actionDescriptionMap,
 	} = e;
 	const c = {
-		...a,
+		...actionDescriptionMap,
 	};
-	if (t !== undefined) {
-		c[i.pR.OK] = t;
+	if (onOKActionDescription !== undefined) {
+		c[i.pR.OK] = onOKActionDescription;
 	}
-	if (n !== undefined) {
-		c[i.pR.CANCEL] = n;
+	if (onCancelActionDescription !== undefined) {
+		c[i.pR.CANCEL] = onCancelActionDescription;
 	}
-	if (r !== undefined) {
-		c[i.pR.SECONDARY] = r;
+	if (onSecondaryActionDescription !== undefined) {
+		c[i.pR.SECONDARY] = onSecondaryActionDescription;
 	}
-	if (s !== undefined) {
-		c[i.pR.OPTIONS] = s;
+	if (onOptionsActionDescription !== undefined) {
+		c[i.pR.OPTIONS] = onOptionsActionDescription;
 	}
-	if (o !== undefined) {
-		c[i.pR.START] = o;
+	if (onMenuActionDescription !== undefined) {
+		c[i.pR.START] = onMenuActionDescription;
 	}
 	return c;
 }

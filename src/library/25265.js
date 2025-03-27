@@ -1,10 +1,10 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./12176.js");
-require("./1691.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
+import r, { Cg } from "./34629.js";
+import i from "./12176.js";
+import "./1691.js";
+import s, { Gn, h5 } from "./89193.js";
 export class $ {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_mapCallbacks = new Map();
 	m_rgRegisteredEMsgs = [];
@@ -115,7 +115,7 @@ export class $ {
 			}
 		};
 		if (this.m_mapServiceMethodHandlers.has(e.name)) {
-			console.error("Duplicate registration for method " + e.name);
+			console.error(`Duplicate registration for method ${e.name}`);
 		} else {
 			this.m_mapServiceMethodHandlers.set(e.name, [
 				{
@@ -180,7 +180,7 @@ export class $ {
 	}
 	RegisterEMessageAction(e, t, n) {
 		return this.AddCallback(e, t, (e) => {
-			(0, s.h5)(() => {
+			h5(() => {
 				n(i.w.InitFromMsg(t, e));
 			});
 		});
@@ -191,7 +191,7 @@ export class $ {
 	RegisterServiceNotificationHandlerAction(e, t) {
 		return this.AddServiceNotificationHandler(e, (e) => {
 			let n;
-			(0, s.h5)(() => {
+			h5(() => {
 				n = t(e);
 			});
 			return n;
@@ -203,17 +203,12 @@ export class $ {
 	RegisterServiceMethodHandlerAction(e, t) {
 		return this.AddServiceMethodHandler(e, (e, n) => {
 			let r;
-			(0, s.h5)(() => {
+			h5(() => {
 				r = t(e, n);
 			});
 			return r;
 		});
 	}
 }
-(0, r.Cg)([s.sH], $.prototype, "m_rgRegisteredEMsgs", undefined);
-(0, r.Cg)(
-	[s.sH],
-	$.prototype,
-	"m_rgRegisteredServiceMethodHandlers",
-	undefined,
-);
+Cg([s.sH], $.prototype, "m_rgRegisteredEMsgs", undefined);
+Cg([s.sH], $.prototype, "m_rgRegisteredServiceMethodHandlers", undefined);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ChatMessageSteamStore_Failed: "_1JZstfJ6jCBChXx0ZDwfpR",
 	ChatMessageSteamStore: "_2_QSE1Nit6wrabY5ZgDZOz",

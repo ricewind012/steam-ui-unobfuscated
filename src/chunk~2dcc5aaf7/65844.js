@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./31958.js");
 import { SortedFindLessOrEqual } from "../../actual_src/utils/arrayutils.js";
-var o = require("./84629.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require("./29516.js");
-var u = require("./72061.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { OQ } from "./31958.js";
+import o, { q_ as q, tG } from "./84629.js";
+import l, { useState, useEffect, useContext } from "./63696.js";
+import c from "./52451.js";
+import { Pm, vv } from "./29516.js";
+import { Sb } from "./72061.js";
 const d = 300000;
-export var Jv;
-(function (e) {
+export let Jv;
+((e) => {
 	e.Playhead = "Playhead";
 	e.RangeLeft = "RangeLeft";
 	e.RangeRight = "RangeRight";
@@ -21,7 +21,7 @@ class p {
 	m_maskBounds = [-1, -1];
 	m_eventTarget;
 	constructor(e, t) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_loader = e;
 		this.m_eventTarget = t;
 	}
@@ -44,7 +44,7 @@ class p {
 		return this.m_loader.IsActiveTimeline(e);
 	}
 	GetStateDescriptionAtGlobalMS(e) {
-		return this.m_loader.GetStateDescriptionAtGlobalMS((0, u.Sb)(e));
+		return this.m_loader.GetStateDescriptionAtGlobalMS(Sb(e));
 	}
 	GetTimelineOffsetFromGlobal(e, t) {
 		return this.m_loader.GetTimelineOffsetFromGlobal(e, t);
@@ -134,7 +134,7 @@ class g {
 	m_thumbnailHighlightEntry = undefined;
 	m_phaseToHighlight = undefined;
 	constructor(e, t, r) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_playbackCoordinator = t;
 		this.m_timelineMask = new p(e, this);
 		this.m_fnUnregisterPlaybackCoordinator = t.AddEventListener(this);
@@ -163,21 +163,25 @@ class g {
 		}
 	}
 	OnTimelineLoaded(e) {
-		(0, o.q_)("OnTimelineLoaded", e);
+		q("OnTimelineLoaded", e);
 		if (this.FindTimelineOffsets(e)) {
 			this.ComputeEntriesForTimeline(e);
 		} else {
-			(0, o.tG)("Missing timeline offset metadata for", e);
+			tG("Missing timeline offset metadata for", e);
 		}
 	}
 	OnInvalidate(e) {
-		(0, o.q_)("on invalidate", e);
+		q("on invalidate", e);
 		const t = this.m_timelineMask.GetGlobalTimelineEndMS().valMS;
 		const r = t - this.m_durationMS;
 		const n = this.m_durationMS <= 0;
 		let i;
 		this.m_durationMS = t;
-		let s = this.IsTempZoom() || this.m_bCustomZoom || this.m_bUserClipping;
+		let s =
+			this.IsTempZoom() ||
+			this.m_bCustomZoom ||
+			this.m_bCustomZoom ||
+			this.m_bUserClipping;
 		if (r > 0 && n) {
 			this.m_msVisible = this.ComputeDefaultMSVisible();
 		} else if (r > 0 && !this.m_bAutoScrollPaused && !s) {
@@ -211,7 +215,7 @@ class g {
 			const e = this.FindTimelineOffsets(i.strTimelineID);
 			if (e) {
 				const t = e.globalOffsetMS + i.nTimelineOffsetMS;
-				const r = (0, a.OQ)(
+				const r = OQ(
 					this.ConvertGlobalMSToGlobalPXOffset(t),
 					0,
 					this.GetMaxScrollLeftPX(),
@@ -349,17 +353,17 @@ class g {
 	UpdateClipSummaries(e = []) {
 		this.m_mapTimelineClips.clear();
 		e.forEach((e) => {
-			const t = e.start_timeline_id;
-			if (!this.m_mapTimelineClips.has(t)) {
-				this.m_mapTimelineClips.set(t, []);
+			const e_start_timeline_id = e.start_timeline_id;
+			if (!this.m_mapTimelineClips.has(e_start_timeline_id)) {
+				this.m_mapTimelineClips.set(e_start_timeline_id, []);
 			}
 			const r = {
 				clipID: e.clip_id,
 				msDuration: parseInt(e.duration_ms),
 				msTimelineOffset: parseInt(e.start_offset_ms),
-				timelineID: t,
+				timelineID: e_start_timeline_id,
 			};
-			this.m_mapTimelineClips.get(t).push(r);
+			this.m_mapTimelineClips.get(e_start_timeline_id).push(r);
 		});
 	}
 	BEmpty() {
@@ -431,7 +435,7 @@ class g {
 		this.ScrollToOffsetCentered(t);
 	}
 	ScrollToOffset(e) {
-		this.m_scrollLeftPX = (0, a.OQ)(e, 0, this.GetMaxScrollLeftPX());
+		this.m_scrollLeftPX = OQ(e, 0, this.GetMaxScrollLeftPX());
 	}
 	ScrollToOffsetCentered(e) {
 		const t = Math.max(0, e - this.m_scrollWindowWidth * 0.5);
@@ -524,7 +528,7 @@ class g {
 		return Math.max(this.m_scrollLeftPX - this.GetOverscanWidth(), 0);
 	}
 	GetVirtualWindowWidthPX() {
-		const e = (0, a.OQ)(this.m_scrollLeftPX, 0, this.GetOverscanWidth());
+		const e = OQ(this.m_scrollLeftPX, 0, this.GetOverscanWidth());
 		const t = Math.min(
 			this.GetScrollableWidthPX() -
 				(this.m_scrollLeftPX + this.m_scrollWindowWidth),
@@ -667,17 +671,17 @@ class g {
 		if (!t) {
 			return null;
 		}
-		const { nTimelineOffsetMS: r, strTimelineID: n } = t;
-		if (!n) {
+		const { nTimelineOffsetMS, strTimelineID } = t;
+		if (!strTimelineID) {
 			return null;
 		}
-		if (this.m_mapTimelineClips.has(n)) {
+		if (this.m_mapTimelineClips.has(strTimelineID)) {
 			return this.m_mapTimelineClips
-				.get(n)
+				.get(strTimelineID)
 				.find(
 					(e) =>
-						e.msTimelineOffset <= r.valMS &&
-						e.msTimelineOffset + e.msDuration >= r.valMS,
+						e.msTimelineOffset <= nTimelineOffsetMS.valMS &&
+						e.msTimelineOffset + e.msDuration >= nTimelineOffsetMS.valMS,
 				);
 		}
 		return null;
@@ -775,71 +779,66 @@ class g {
 		return this.m_phaseToHighlight;
 	}
 }
-(0, n.Cg)([i.sH], g.prototype, "m_durationMS", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_scrollLeftPX", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_scrollWindowWidth", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_scrollWindowOffsetPX", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_bAutoScrollPaused", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_autoScrollPauseTimeout", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_msVisible", undefined);
-(0, n.Cg)([i.sH.ref], g.prototype, "m_rgTimelineOffsets", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_eThumbnailComponent", undefined);
-(0, n.Cg)(
-	[i.sH],
-	g.prototype,
-	"m_nGlobalRelativeThumbnailPositionPX",
-	undefined,
-);
-(0, n.Cg)([i.sH], g.prototype, "m_thumbnailHighlightEntry", undefined);
-(0, n.Cg)([i.sH], g.prototype, "m_phaseToHighlight", undefined);
-(0, n.Cg)([i.XI], g.prototype, "OnLoaderInitialized", null);
-(0, n.Cg)([i.XI], g.prototype, "InitDefaultsIfReady", null);
-(0, n.Cg)([i.XI], g.prototype, "OnInvalidate", null);
-(0, n.Cg)([i.XI], g.prototype, "ZoomIn", null);
-(0, n.Cg)([i.XI], g.prototype, "ZoomOut", null);
-(0, n.Cg)([i.XI], g.prototype, "SetTempZoomScale", null);
-(0, n.Cg)([i.XI], g.prototype, "ClearTempZoomScale", null);
-(0, n.Cg)([i.XI], g.prototype, "UpdateClipSummaries", null);
-(0, n.Cg)([c.oI], g.prototype, "BReachedMaxScroll", null);
-(0, n.Cg)([c.oI], g.prototype, "BReachedMinScroll", null);
-const h = l.createContext(null);
+Cg([i.sH], g.prototype, "m_durationMS", undefined);
+Cg([i.sH], g.prototype, "m_scrollLeftPX", undefined);
+Cg([i.sH], g.prototype, "m_scrollWindowWidth", undefined);
+Cg([i.sH], g.prototype, "m_scrollWindowOffsetPX", undefined);
+Cg([i.sH], g.prototype, "m_bAutoScrollPaused", undefined);
+Cg([i.sH], g.prototype, "m_autoScrollPauseTimeout", undefined);
+Cg([i.sH], g.prototype, "m_msVisible", undefined);
+Cg([i.sH.ref], g.prototype, "m_rgTimelineOffsets", undefined);
+Cg([i.sH], g.prototype, "m_bInitialized", undefined);
+Cg([i.sH], g.prototype, "m_eThumbnailComponent", undefined);
+Cg([i.sH], g.prototype, "m_nGlobalRelativeThumbnailPositionPX", undefined);
+Cg([i.sH], g.prototype, "m_thumbnailHighlightEntry", undefined);
+Cg([i.sH], g.prototype, "m_phaseToHighlight", undefined);
+Cg([i.XI], g.prototype, "OnLoaderInitialized", null);
+Cg([i.XI], g.prototype, "InitDefaultsIfReady", null);
+Cg([i.XI], g.prototype, "OnInvalidate", null);
+Cg([i.XI], g.prototype, "ZoomIn", null);
+Cg([i.XI], g.prototype, "ZoomOut", null);
+Cg([i.XI], g.prototype, "SetTempZoomScale", null);
+Cg([i.XI], g.prototype, "ClearTempZoomScale", null);
+Cg([i.XI], g.prototype, "UpdateClipSummaries", null);
+Cg([c.oI], g.prototype, "BReachedMaxScroll", null);
+Cg([c.oI], g.prototype, "BReachedMinScroll", null);
+const HContext = l.createContext(null);
 export function _T(e) {
 	let {
-		loader: t,
-		playbackCoordinator: r,
-		children: n,
-		clipSummaries: i,
-		refTimelineParentCtn: a,
+		loader,
+		playbackCoordinator,
+		children,
+		clipSummaries,
+		refTimelineParentCtn,
 	} = e;
-	let [s, o] = (0, l.useState)(null);
-	(0, l.useEffect)(() => {
-		if (!t) {
+	let [s, o] = useState(null);
+	useEffect(() => {
+		if (!loader) {
 			return;
 		}
-		let e = new g(t, r, i);
+		let e = new g(loader, playbackCoordinator, clipSummaries);
 		o(e);
 		return () => e.Close();
-	}, [t]);
-	(0, l.useEffect)(() => {
+	}, [loader]);
+	useEffect(() => {
 		if (s) {
-			s.UpdateClipSummaries(i);
+			s.UpdateClipSummaries(clipSummaries);
 		}
-	}, [s, i]);
-	(0, l.useEffect)(() => {
-		if (s && a) {
-			s.SetTimelineParentCtnRef(a.current);
+	}, [s, clipSummaries]);
+	useEffect(() => {
+		if (s && refTimelineParentCtn) {
+			s.SetTimelineParentCtnRef(refTimelineParentCtn.current);
 		}
-	}, [s, a]);
-	(function (e) {
-		let t = (0, m.Pm)();
-		(0, l.useEffect)(() => {
+	}, [s, refTimelineParentCtn]);
+	((e) => {
+		let t = Pm();
+		useEffect(() => {
 			if (e) {
 				e.SetUserIsClipping(t);
 			}
 		}, [e, t]);
 	})(s);
-	(function (e) {
+	((e) => {
 		let t = l.useCallback(
 			(t, r) => {
 				if (!e) {
@@ -860,20 +859,14 @@ export function _T(e) {
 			},
 			[e],
 		);
-		(0, m.vv)(t);
+		vv(t);
 	})(s);
 	if (s) {
-		return l.createElement(
-			h.Provider,
-			{
-				value: s,
-			},
-			n,
-		);
+		return <HContext.Provider value={s}>{children}</HContext.Provider>;
 	} else {
 		return null;
 	}
 }
 export function uR() {
-	return (0, l.useContext)(h);
+	return useContext(HContext);
 }

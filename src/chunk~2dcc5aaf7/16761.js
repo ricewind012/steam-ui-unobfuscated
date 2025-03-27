@@ -1,12 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./89459.js");
-var s = require("./50979.js");
-var _o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require(/*webcrack:missing*/ "./49455.js");
-var m = require(/*webcrack:missing*/ "./83599.js");
 import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a, { $T } from "./89459.js";
+import s, { Hd } from "./50979.js";
+import _o, { Gn, h5 } from "./89193.js";
+import l from "./44846.js";
+import c, { w } from "./49455.js";
+import m from "./83599.js";
+import p from "./95773.js";
 class d {
 	static k_QueueForEffect = {
 		snowball: "snowball",
@@ -25,7 +26,7 @@ class d {
 	settings;
 	constructor(e, t) {
 		if (!t.hasOwnProperty(e)) {
-			throw new Error("Room effect " + e + " is not defined.");
+			throw new Error(`Room effect ${e} is not defined.`);
 		}
 		this.name = e;
 		this.timestamp = Date.now();
@@ -72,7 +73,7 @@ class A {
 	m_effectSettings;
 	m_rgRunningEffects = [];
 	constructor(e) {
-		(0, _o.Gn)(this);
+		Gn(this);
 		this.m_effectSettings = e;
 	}
 	AddRoomEffect(e) {
@@ -111,9 +112,8 @@ class A {
 		}
 	}
 }
-(0, n.Cg)([_o.sH], A.prototype, "m_rgRunningEffects", undefined);
-var p = require("./95773.js");
-const g = Seconds.PerMinute;
+Cg([_o.sH], A.prototype, "m_rgRunningEffects", undefined);
+const Seconds_PerMinute = Seconds.PerMinute;
 const h = Seconds.PerHour * 6;
 export class o {
 	BASELOG = new m.wd("Chat", () => this.unique_id).Debug;
@@ -147,7 +147,7 @@ export class o {
 	m_setInflightClientMessageID = new Set();
 	m_MessageSendQueue;
 	constructor(e, t, r) {
-		(0, _o.Gn)(this);
+		Gn(this);
 		this.m_FriendStore = e;
 		this.m_ChatStore = t;
 		this.m_CMInterface = r;
@@ -201,11 +201,11 @@ export class o {
 	async SendWithRetries(e, t) {
 		let r = 1;
 		const n = Date.now();
-		while (Date.now() - g * 1000 < n) {
+		while (Date.now() - Seconds_PerMinute * 1000 < n) {
 			try {
 				const n = await t();
 				if (n.GetEResult() === 1) {
-					return (0, _o.h5)(() => {
+					return h5(() => {
 						e.rtTimestamp = n.Body().server_timestamp();
 						e.unOrdinal = n.Body().ordinal() || 0;
 						this.OnUserChatEcho(
@@ -230,13 +230,15 @@ export class o {
 					});
 				}
 				switch (n.GetEResult()) {
-					case 15:
+					case 15: {
 						e.SetErrorSending(a.Bm.NotFriends);
 						return e.eErrorSending;
-					case 84:
+					}
+					case 84: {
 						e.SetErrorSending(a.Bm.RateLimitExceeded);
 						return e.eErrorSending;
-					default:
+					}
+					default: {
 						if (n.Hdr().transport_error() === 3) {
 							e.SetErrorSending(a.Bm.Generic);
 							return e.eErrorSending;
@@ -244,11 +246,12 @@ export class o {
 						console.warn(
 							`Error sending message (Attempt #${r}). Got EResult ${n.GetEResult()}`,
 						);
+					}
 				}
 			} catch (e) {
 				console.warn(`Error sending message (Attempt #${r}). Got error ${e}`);
 			}
-			const n = Math.pow(2, r - 1) * 1;
+			const n = 2 ** (r - 1) * 1;
 			await new Promise((e) => setTimeout(e, n * 1000));
 			r++;
 		}
@@ -260,7 +263,8 @@ export class o {
 			this.m_cUnreadChatMessages = e;
 		}
 		this.m_bHasUnreadPriorityChatMessages = false;
-		this.m_rtLastAckedChatMsg = this.m_rtLastServerAckedChatMsg = t;
+		this.m_rtLastAckedChatMsg = t;
+		this.m_rtLastServerAckedChatMsg = t;
 		this.m_rtLastMessageReceived = r;
 		if (this.m_rtLastAckedChatMsg < this.m_rtLastMessageReceived) {
 			this.m_rtFirstUnreadChatMsg = this.m_rtLastAckedChatMsg + 1;
@@ -391,7 +395,7 @@ export class o {
 		}
 		let r = this.m_rgChatMessages.indexOf(t);
 		if (r < 0) {
-			(0, c.w)(false, "Failed to find message being removed");
+			w(false, "Failed to find message being removed");
 		} else {
 			this.m_rgChatMessages.splice(0, r + 1);
 		}
@@ -451,7 +455,7 @@ export class o {
 		this.AddRoomEffectIfNeeded(s.strMessage);
 	}
 	AddRoomEffectIfNeeded(e) {
-		const t = (0, s.Hd)(e);
+		const t = Hd(e);
 		if (t && t[0] && t[0].tag === "roomeffect") {
 			this.m_chatRoomEffects.AddRoomEffect(t[0].args.type);
 		}
@@ -557,7 +561,7 @@ export class o {
 		this.InternalAppendChatMsg(new a.on(e, t, r));
 	}
 	AddNewServerMsg(e, t, r, n, i, s, o) {
-		if (!(0, a.$T)(n)) {
+		if (!$T(n)) {
 			return;
 		}
 		let l = new a.D8(e, t, r, i, [], n, s, o);
@@ -634,7 +638,7 @@ export class o {
 			t < this.m_rgChatMessages.length &&
 			this.m_rgChatMessages[t].unOrdinal == -1;
 			t++
-		);
+		) {}
 		if (t >= this.m_rgChatMessages.length) {
 			this.m_oldestMessageTime = l.TQ;
 			this.m_oldestMessageOrdinal = 0;
@@ -685,10 +689,10 @@ export class o {
 		this.m_rgChatMessages = t;
 	}
 	GetBeginFileUploadURL() {
-		return i.TS.CHAT_BASE_URL + "chat/beginfileupload/";
+		return `${i.TS.CHAT_BASE_URL}chat/beginfileupload/`;
 	}
 	GetCommitFileUploadURL() {
-		return i.TS.CHAT_BASE_URL + "chat/commitfileupload/";
+		return `${i.TS.CHAT_BASE_URL}chat/commitfileupload/`;
 	}
 	LogFileUploadMessage(e) {
 		this.BASELOG(e);
@@ -762,25 +766,25 @@ export class o {
 		}
 	}
 }
-(0, n.Cg)([_o.sH], o.prototype, "m_bReceivedChatLogs", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_bMoreAvailable", undefined);
-(0, n.Cg)([_o.sH.shallow], o.prototype, "m_rgChatMessages", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_cUnreadChatMessages", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_rtFirstUnreadChatMsg", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_rtLastAckedChatMsg", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_rtLastMessageReceived", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_rtLastServerMessageReceived", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_strLastMessage", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_accountIDLastMessage", undefined);
-(0, n.Cg)([_o.sH], o.prototype, "m_rtFirstUnread", undefined);
-(0, n.Cg)([_o.XI], o.prototype, "InitMessageSessionFromServer", null);
-(0, n.Cg)([_o.XI], o.prototype, "AddMessagesToHistory", null);
-(0, n.Cg)([_o.XI], o.prototype, "OnActivate", null);
-(0, n.Cg)([_o.XI], o.prototype, "OnDeactivate", null);
-(0, n.Cg)([_o.XI], o.prototype, "AppendChatMsg", null);
-(0, n.Cg)([_o.XI], o.prototype, "AppendLocalEchoChatMsg", null);
-(0, n.Cg)([_o.XI], o.prototype, "AddNewChatMsgAndNotify", null);
-(0, n.Cg)([_o.XI], o.prototype, "UpdateChatMessageDeletedState", null);
-(0, n.Cg)([_o.XI], o.prototype, "AddVoiceChannelInviteMsg", null);
-(0, n.Cg)([_o.XI], o.prototype, "AddLocalMsg", null);
-(0, n.Cg)([_o.XI], o.prototype, "AddNewServerMsg", null);
+Cg([_o.sH], o.prototype, "m_bReceivedChatLogs", undefined);
+Cg([_o.sH], o.prototype, "m_bMoreAvailable", undefined);
+Cg([_o.sH.shallow], o.prototype, "m_rgChatMessages", undefined);
+Cg([_o.sH], o.prototype, "m_cUnreadChatMessages", undefined);
+Cg([_o.sH], o.prototype, "m_rtFirstUnreadChatMsg", undefined);
+Cg([_o.sH], o.prototype, "m_rtLastAckedChatMsg", undefined);
+Cg([_o.sH], o.prototype, "m_rtLastMessageReceived", undefined);
+Cg([_o.sH], o.prototype, "m_rtLastServerMessageReceived", undefined);
+Cg([_o.sH], o.prototype, "m_strLastMessage", undefined);
+Cg([_o.sH], o.prototype, "m_accountIDLastMessage", undefined);
+Cg([_o.sH], o.prototype, "m_rtFirstUnread", undefined);
+Cg([_o.XI], o.prototype, "InitMessageSessionFromServer", null);
+Cg([_o.XI], o.prototype, "AddMessagesToHistory", null);
+Cg([_o.XI], o.prototype, "OnActivate", null);
+Cg([_o.XI], o.prototype, "OnDeactivate", null);
+Cg([_o.XI], o.prototype, "AppendChatMsg", null);
+Cg([_o.XI], o.prototype, "AppendLocalEchoChatMsg", null);
+Cg([_o.XI], o.prototype, "AddNewChatMsgAndNotify", null);
+Cg([_o.XI], o.prototype, "UpdateChatMessageDeletedState", null);
+Cg([_o.XI], o.prototype, "AddVoiceChannelInviteMsg", null);
+Cg([_o.XI], o.prototype, "AddLocalMsg", null);
+Cg([_o.XI], o.prototype, "AddNewServerMsg", null);

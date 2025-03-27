@@ -1,13 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./37322.js");
-var a = require(/*webcrack:missing*/ "./58663.js");
-var s = require(/*webcrack:missing*/ "./12176.js");
-var o = require(/*webcrack:missing*/ "./93960.js");
-var l = require(/*webcrack:missing*/ "./83957.js");
-var c = l;
-var m = require(/*webcrack:missing*/ "./16583.js");
-var u = require(/*webcrack:missing*/ "./8573.js");
-var d = require("./51095.js");
+import { VY } from "../../actual_src/utils/cookies.js";
+import n, { Cg } from "./34629.js";
+import i from "./37322.js";
+import a from "./58663.js";
+import s from "./12176.js";
+import o from "./93960.js";
+import l from "./83957.js";
+import m from "./16583.js";
+import u from "./8573.js";
+import d, { he } from "./51095.js";
+const c = l;
 function A(e) {
 	try {
 		if (!e || typeof e != "string") {
@@ -18,8 +19,8 @@ function A(e) {
 			return null;
 		}
 		const [r, n] = t;
-		const i = (0, d.he)(r);
-		const a = (0, d.he)(n);
+		const i = he(r);
+		const a = he(n);
 		if (i && a) {
 			return {
 				header: JSON.parse(i),
@@ -40,7 +41,6 @@ function p(e) {
 		return 0;
 	}
 }
-import { VY } from "../../actual_src/utils/cookies.js";
 export class D {
 	m_ServiceTransport;
 	m_AnonymousServiceTransport;
@@ -123,9 +123,9 @@ export class D {
 					const t = A(this.m_webApiAccessToken);
 					if (
 						t &&
-						(function (e) {
+						((e) => {
 							const t = p(e);
-							const r = (function (e) {
+							const r = ((e) => {
 								if (e) {
 									return e.body.nbf || e.body.iat;
 								} else {
@@ -200,7 +200,7 @@ export class D {
 	Send(e, t, r, n) {
 		let a = this.CreateWebAPIURL(t);
 		if (!a) {
-			throw "Couldn't find service name " + t;
+			throw `Couldn't find service name ${t}`;
 		}
 		let s = r.SerializeBody();
 		let o = i.iI(s);
@@ -262,6 +262,6 @@ export class D {
 		return n;
 	}
 }
-(0, n.Cg)([o.o], D.prototype, "SendMsgAndAwaitResponse", null);
-(0, n.Cg)([o.o], D.prototype, "SendNotification", null);
-(0, n.Cg)([o.o], D.prototype, "Send", null);
+Cg([o.o], D.prototype, "SendMsgAndAwaitResponse", null);
+Cg([o.o], D.prototype, "SendNotification", null);
+Cg([o.o], D.prototype, "Send", null);

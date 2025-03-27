@@ -1,68 +1,70 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./91486.js");
-var a = require("./36464.js");
-var s = require("./32700.js");
-var o = require("./18057.js");
-var l = require("./14982.js");
-var c = require("./85360.js");
-var m = require("./46422.js");
-var u = require("./78057.js");
-var d = require("./96593.js");
-var A = require("./96000.js");
-var p = require("./97893.js");
-var g = require("./48289.js");
-var h = require("./5640.js");
-var C = require("./87935.js");
-var _ = require("./13200.js");
-var f = require("./96680.js");
-var b = require(/*webcrack:missing*/ "./41230.js");
-var y = require(/*webcrack:missing*/ "./90095.js");
-var S = require(/*webcrack:missing*/ "./63696.js");
-var w = require(/*webcrack:missing*/ "./49519.js");
-var B = require(/*webcrack:missing*/ "./31084.js");
-var v = require(/*webcrack:missing*/ "./11131.js");
-var I = require(/*webcrack:missing*/ "./90242.js");
-var E = require(/*webcrack:missing*/ "./69164.js");
-var M = require(/*webcrack:missing*/ "./8573.js");
-require("./74995.js");
-var T = require(/*webcrack:missing*/ "./10975.js");
-var R = require("./82594.js");
-var k = require("./46217.js");
-var D = require("./35488.js");
-var N = require(/*webcrack:missing*/ "./50376.js");
-var F = require(/*webcrack:missing*/ "./98995.js");
-var G = require(/*webcrack:missing*/ "./90765.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+
 import {
 	Localize,
 	LocalizeRtime32ToShorterDate,
 	LocalizeReact,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var L = require("./34428.js");
-var z = require("./80254.js");
-var x = require(/*webcrack:missing*/ "./52451.js");
-var U = require(/*webcrack:missing*/ "./72476.js");
-var W = require("./20797.js");
-var V = require("./5808.js");
-var H = require("./81884.js");
-var j = require("./56726.js");
-var q = require("./2326.js");
-var Q = require("./96821.js");
+
+import n, { Cg } from "./34629.js";
+import i from "./91486.js";
+import a, { ul } from "./36464.js";
+import s, { Bb } from "./32700.js";
+import o, { Qt } from "./18057.js";
+import l from "./14982.js";
+import c from "./85360.js";
+import m from "./46422.js";
+import u from "./78057.js";
+import d from "./96593.js";
+import A from "./96000.js";
+import p, { MD, eC, Z5 } from "./97893.js";
+import g from "./48289.js";
+import h from "./5640.js";
+import C from "./87935.js";
+import { TE, zI } from "./13200.js";
+import f, { $2 } from "./96680.js";
+import b, { PA } from "./41230.js";
+import { q3 } from "./90095.js";
+import S from "./63696.js";
+import { W6 } from "./49519.js";
+import { lX } from "./31084.js";
+import { R7 } from "./11131.js";
+import I from "./90242.js";
+import E from "./69164.js";
+import M from "./8573.js";
+import "./74995.js";
+import T from "./10975.js";
+import { t7 } from "./82594.js";
+import k from "./46217.js";
+import D from "./35488.js";
+import N from "./50376.js";
+import F from "./98995.js";
+import { A as A_1 } from "./90765.js";
+import { dm } from "./34428.js";
+import z, { l as l_1 } from "./80254.js";
+import x from "./52451.js";
+import U, { Qn } from "./72476.js";
+import W from "./20797.js";
+import V, { zq } from "./5808.js";
+import H, { f as f_1 } from "./81884.js";
+import j from "./56726.js";
+import q from "./2326.js";
+import Q from "./96821.js";
+import K from "./88696.js";
+import X from "./22091.js";
+import { VI } from "./34792.js";
+import { qw } from "./89748.js";
+import ee, { zX } from "./28346.js";
+import te from "./45967.js";
+import { Uy } from "./55571.js";
+import ne from "./10294.js";
+import ie from "./24460.js";
+import ae from "./44191.js";
+import { br } from "./18869.js";
+import { Id, If } from "./77347.js";
 var Z = Q;
 var Y;
-var K = require(/*webcrack:missing*/ "./88696.js");
-var X = require("./22091.js");
-var J = require("./34792.js");
-var $ = require("./89748.js");
-var ee = require("./28346.js");
-var te = require("./45967.js");
-var re = require("./55571.js");
-var ne = require("./10294.js");
-var ie = require("./24460.js");
-var ae = require("./44191.js");
-var se = require("./18869.js");
-var oe = require("./77347.js");
 const le = false;
 const ce = {
 	linux:
@@ -111,128 +113,93 @@ export let XC = class extends S.Component {
 	}
 	render() {
 		let {
-			className: e,
-			overview: t,
-			details: r,
-			stickyheader: n,
-			bInPage: i,
-			strGameActionDetailsOverride: a,
-			onGameInfoToggle: s,
-			onSeek: o,
-			bShowInfoExpanded: l,
-			bShowingLaunchDetails: c,
+			className,
+			overview,
+			details,
+			stickyheader,
+			bInPage,
+			strGameActionDetailsOverride,
+			onGameInfoToggle,
+			onSeek,
+			bShowInfoExpanded,
+			bShowingLaunchDetails,
 			...m
 		} = this.props;
-		t = this.props.overview;
+		overview = this.props.overview;
 		let u = (0, Localize)("#GameAction_ViewDetails");
 		if (this.props.bShowInfoExpanded && !this.props.stickyheader) {
 			u = (0, Localize)("#GameAction_ViewDetails_Collapse");
 		} else if (this.props.stickyheader) {
 			u = (0, Localize)("#GameAction_ViewDetails_ScrollUp");
 		}
-		return S.createElement(
-			"div",
-			{
-				className: (0, G.A)(
-					e,
+		return (
+			<div
+				className={A_1(
+					className,
 					Z.Container,
-					i && Z.InPage,
-					n && Z.StickyHeader,
-					t.display_status == 13 && Z.Presale,
-				),
-				...m,
-			},
-			S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.PlayBar, Z.Glassy),
-					onMouseUp: undefined,
-					onContextMenu: undefined,
-				},
-				S.createElement(
-					E.Z,
-					{
-						className: Z.InnerContainer,
-					},
-					S.createElement(
-						"div",
-						{
-							className: Z.Row,
-						},
-						S.createElement(Le, {
-							overview: t,
-							strGameActionDetailsOverride: false,
-						}),
-						S.createElement(uy, {
-							overview: t,
-							details: this.props.details,
-							strGameActionDetailsOverride: false,
-							onSeek: this.props.onSeek,
-						}),
-						S.createElement(
-							"div",
-							{
-								className: Z.RightControls,
-							},
-							S.createElement(
-								"div",
-								{
-									className: Z.AppButtonsContainer,
-								},
-								S.createElement(h2, {
-									...this.props,
-								}),
-								S.createElement(k1, {
-									overview: t,
-									details: this.props.details,
-								}),
-								!t.BIsModOrShortcut() &&
-									S.createElement(
-										F.he,
-										{
-											direction: "bottom",
-											className: (0, G.A)(
+					bInPage && Z.InPage,
+					stickyheader && Z.StickyHeader,
+					overview.display_status == 13 && Z.Presale,
+				)}
+				{...m}
+			>
+				<div
+					className={A_1(Z.PlayBar, Z.Glassy)}
+					onMouseUp={undefined}
+					onContextMenu={undefined}
+				>
+					<E.Z className={Z.InnerContainer}>
+						<div className={Z.Row}>
+							<Le overview={overview} strGameActionDetailsOverride={false} />
+							<Uy
+								overview={overview}
+								details={this.props.details}
+								strGameActionDetailsOverride={false}
+								onSeek={this.props.onSeek}
+							/>
+							<div className={Z.RightControls}>
+								<div className={Z.AppButtonsContainer}>
+									<H2 {...this.props} />
+									<K1 overview={overview} details={this.props.details} />
+									{!overview.BIsModOrShortcut() && (
+										<F.he
+											direction="bottom"
+											className={A_1(
 												Z.MenuButton,
 												this.props.bShowInfoExpanded && Z.MenuActive,
-											),
-											onClick: this.props.onGameInfoToggle,
-											toolTipContent: u,
-										},
-										S.createElement(
-											"div",
-											{
-												className: Z.DotDotDot,
-											},
-											this.props.stickyheader
-												? S.createElement(N.i3G, {
-														angle: 0,
-													})
-												: S.createElement(N.$$j, null),
-										),
-									),
-								S.createElement(pe, {
-									...this.props,
-								}),
-							),
-						),
-					),
-					S.createElement(BA, {
-						...this.props,
-					}),
-				),
-			),
-			S.createElement("div", {
-				className: (0, G.A)(
-					Z.StickyHeaderShadow,
-					this.props.stickyheader ? Z.Visible : "",
-				),
-			}),
+											)}
+											onClick={this.props.onGameInfoToggle}
+											toolTipContent={u}
+										>
+											<div className={Z.DotDotDot}>
+												{this.props.stickyheader ? (
+													<N.i3G angle={0} />
+												) : (
+													<N.$$j />
+												)}
+											</div>
+										</F.he>
+									)}
+									<Pe_1 {...this.props} />
+								</div>
+							</div>
+						</div>
+						<BA {...this.props} />
+					</E.Z>
+				</div>
+				<div
+					className={A_1(
+						Z.StickyHeaderShadow,
+						this.props.stickyheader ? Z.Visible : "",
+					)}
+				/>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([x.oI], XC.prototype, "OnMouseUp", null);
-XC = Y = (0, n.Cg)([b.PA], XC);
-export let uy = class extends S.Component {
+Cg([x.oI], XC.prototype, "OnMouseUp", null);
+XC = Y = Cg([b.PA], XC);
+export let Uy = class extends S.Component {
 	BIsPermanentlyUnavailable() {
 		if (this.props.overview.BIsAppBlocked()) {
 			return true;
@@ -241,51 +208,44 @@ export let uy = class extends S.Component {
 			case 12:
 			case 13:
 			case 14:
-			case 17:
+			case 17: {
 				return true;
+			}
 		}
 		return false;
 	}
 	render() {
-		return S.createElement(
-			"div",
-			{
-				className: (0, G.A)(
+		return (
+			<div
+				className={A_1(
 					Z.StatusAndStats,
 					this.BIsPermanentlyUnavailable() && Z.PermanentlyUnavailable,
-				),
-			},
-			S.createElement(qj, {
-				overview: this.props.overview,
-				statusPanelType: this.props.statusPanelType,
-				details: this.props.details,
-				strGameActionDetailsOverride: this.props.strGameActionDetailsOverride,
-			}),
-			!(0, $.qw)().BIsOfflineMode() &&
-				!this.BIsPermanentlyUnavailable() &&
-				S.createElement(
-					"div",
-					{
-						className: Z.StatusNameContainer,
-					},
-					S.createElement(Oe, {
-						...this.props,
-					}),
-					S.createElement(Pe, {
-						...this.props,
-					}),
-				),
+				)}
+			>
+				<Qj
+					overview={this.props.overview}
+					statusPanelType={this.props.statusPanelType}
+					details={this.props.details}
+					strGameActionDetailsOverride={this.props.strGameActionDetailsOverride}
+				/>
+				{!qw().BIsOfflineMode() && !this.BIsPermanentlyUnavailable() && (
+					<div className={Z.StatusNameContainer}>
+						<Oe {...this.props} />
+						<Pe {...this.props} />
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-export function h2(e) {
-	const t = (0, f.$2)();
-	const r = (0, U.Qn)();
+export function H2(e) {
+	const t = $2();
+	const r = Qn();
 	const n = (function (e) {
-		const [t, r] = S.useState();
-		const [n, i] = S.useState(false);
-		const [a, s] = S.useState();
-		const o = (0, H.f)(e, t);
+		const [t, setT] = S.useState();
+		const [n, setN] = S.useState(false);
+		const [a, setA] = S.useState();
+		const o = f_1(e, t);
 		const l = "LaunchOptionTipsShown";
 		const c = 3;
 		const m =
@@ -300,13 +260,17 @@ export function h2(e) {
 				if (isNaN(t)) {
 					t = 0;
 				}
-				s(t);
+				setA(t);
 			});
-			const e = setTimeout(() => i(true), 12000);
-			return () => clearTimeout(e);
+			const e = setTimeout(() => {
+				return setN(true);
+			}, 12000);
+			return () => {
+				return clearTimeout(e);
+			};
 		}, []);
 		S.useEffect(() => {
-			SteamClient.Apps.GetLaunchOptionsForApp(e).then(r);
+			SteamClient.Apps.GetLaunchOptionsForApp(e).then(setT);
 		}, [e]);
 		S.useEffect(() => {
 			if (m) {
@@ -315,102 +279,76 @@ export function h2(e) {
 		}, [m, a]);
 		return m;
 	})(e.overview.appid);
-	return S.createElement(
-		"div",
-		{
-			className: Z.MenuButtonContainer,
-		},
-		S.createElement(Ae, {
-			overview: e.overview,
-		}),
-		S.createElement(
-			F.he,
-			{
-				direction: "bottom",
-				className: Z.MenuButton,
-				onClick: (n) => {
+	return (
+		<div className={Z.MenuButtonContainer}>
+			<Ae overview={e.overview} />
+			<F.he
+				direction="bottom"
+				className={Z.MenuButton}
+				onClick={(n) => {
 					if (ne.Ih.BKioskModeLocked()) {
 						return;
 					}
 					const i = {
-						...(0, V.zq)(),
+						...zq(),
 						bOverlapHorizontal: true,
 						bOverlapVertical: false,
 					};
-					(0, B.lX)(
-						S.createElement(V.uU, {
-							...e,
-							client: "selected",
-							launchSource: 100,
-							bInGamepadUI: r,
-							omitPrimaryAction: true,
-							ownerWindow: t?.BrowserWindow,
-						}),
+					lX(
+						<V.uU
+							{...e}
+							client="selected"
+							launchSource={100}
+							bInGamepadUI={r}
+							omitPrimaryAction
+							ownerWindow={t?.BrowserWindow}
+						/>,
 						n.currentTarget,
 						i,
 					);
-				},
-				toolTipContent: (0, Localize)("#GameAction_Manage"),
-				bDisabled: ne.Ih.BKioskModeLocked(),
-			},
-			S.createElement(k.wB, null),
-			n &&
-				S.createElement(l.r9, {
-					className: Z.LaunchOptionCallout,
-					pulseMagnitude: 2,
-					bobberMagnitude: 1.3,
-				}),
-			n &&
-				!e.bShowingLaunchDetails &&
-				S.createElement(
-					"div",
-					{
-						className: Z.LaunchOptionCalloutMessageContainer,
-					},
-					S.createElement(
-						l.kg,
-						{
-							className: Z.LaunchOptionCalloutMessage,
-						},
-						(0, Localize)("#GameAction_Manage_LaunchOptionCallout"),
-					),
-				),
-		),
+				}}
+				toolTipContent={(0, Localize)("#GameAction_Manage")}
+				bDisabled={ne.Ih.BKioskModeLocked()}
+			>
+				<k.wB />
+				{n && (
+					<l.r9
+						className={Z.LaunchOptionCallout}
+						pulseMagnitude={2}
+						bobberMagnitude={1.3}
+					/>
+				)}
+				{n && !e.bShowingLaunchDetails && (
+					<div className={Z.LaunchOptionCalloutMessageContainer}>
+						<l.kg className={Z.LaunchOptionCalloutMessage}>
+							{(0, Localize)("#GameAction_Manage_LaunchOptionCallout")}
+						</l.kg>
+					</div>
+				)}
+			</F.he>
+		</div>
 	);
 }
 function Ae(e) {
-	const { overview: t } = e;
-	if ((0, re.Uy)(t.BIsModOrShortcut() ? undefined : t.appid)) {
-		return S.createElement(
-			F.he,
-			{
-				className: Z.PrivateAppActiveIndicator,
-				toolTipContent: (0, Localize)("#GameAction_ThisAppIsPrivate"),
-			},
-			S.createElement(
-				"svg",
-				{
-					xmlns: "http://www.w3.org/2000/svg",
-					viewBox: "0 0 16 16",
-					fill: "none",
-				},
-				S.createElement("circle", {
-					cx: "8",
-					cy: "8",
-					r: "8",
-					fill: "#D94126",
-				}),
-			),
-			S.createElement(D.FeatureHidden, {
-				className: Z.FeatureHidden,
-			}),
+	const { overview } = e;
+	if (Uy(overview.BIsModOrShortcut() || overview.appid)) {
+		return (
+			<F.he
+				className={Z.PrivateAppActiveIndicator}
+				toolTipContent={(0, Localize)("#GameAction_ThisAppIsPrivate")}
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+					<circle cx="8" cy="8" r="8" fill="#D94126" />
+				</svg>
+				<D.FeatureHidden className={Z.FeatureHidden} />
+			</F.he>
 		);
 	} else {
 		return null;
 	}
 }
-uy = (0, n.Cg)([b.PA], uy);
-let pe = class extends S.Component {
+Uy = Cg([b.PA], Uy);
+let Pe_1 = class extends S.Component {
 	ToggleFavorite() {
 		const e = this.props.overview.appid;
 		A.md.SetAppsAsFavorite([e], !A.md.BIsFavorite(e));
@@ -421,46 +359,41 @@ let pe = class extends S.Component {
 		e = t
 			? (0, Localize)("#GameAction_UnFavorite")
 			: (0, Localize)("#GameAction_Favorite");
-		return S.createElement(
-			F.he,
-			{
-				direction: "bottom",
-				className: (0, G.A)(Z.MenuButton, Z.FavoriteButton, t && Z.Favorited),
-				onClick: this.ToggleFavorite,
-				toolTipContent: e,
-			},
-			S.createElement(k.B1, {
-				filled: t,
-			}),
+		return (
+			<F.he
+				direction="bottom"
+				className={A_1(Z.MenuButton, Z.FavoriteButton, t && Z.Favorited)}
+				onClick={this.ToggleFavorite}
+				toolTipContent={e}
+			>
+				<k.B1 filled={t} />
+			</F.he>
 		);
 	}
 };
-(0, n.Cg)([x.oI], pe.prototype, "ToggleFavorite", null);
-pe = (0, n.Cg)([b.PA], pe);
+Cg([x.oI], Pe_1.prototype, "ToggleFavorite", null);
+Pe_1 = Cg([b.PA], Pe_1);
 export class Mm extends S.Component {
 	render() {
-		const { className: e, progressPct: t, ...r } = this.props;
-		return S.createElement(
-			"div",
-			{
-				className: (0, G.A)(Z.DetailsProgressContainer, e),
-				...r,
-			},
-			S.createElement("div", {
-				className: Z.DetailsProgressBar,
-				style: {
-					width: Math.min(100, t) + "%",
-				},
-			}),
+		const { className, progressPct, ...r } = this.props;
+		return (
+			<div className={A_1(Z.DetailsProgressContainer, className)} {...r}>
+				<div
+					className={Z.DetailsProgressBar}
+					style={{
+						width: Math.min(100, progressPct) + "%",
+					}}
+				/>
+			</div>
 		);
 	}
 }
-export function k1(e) {
-	const t = (0, U.Qn)();
-	const [r] = (0, J.VI)("controller_generic_support");
-	const [n] = (0, J.VI)("controller_xbox_support");
-	const [i] = (0, J.VI)("controller_ps_support");
-	const [a] = (0, J.VI)("controller_switch_support");
+export function K1(e) {
+	const t = Qn();
+	const [r] = VI("controller_generic_support");
+	const [n] = VI("controller_xbox_support");
+	const [i] = VI("controller_ps_support");
+	const [a] = VI("controller_switch_support");
 	let s = r ? 4 : 0;
 	s += n ? 2 : 0;
 	if (
@@ -470,9 +403,11 @@ export function k1(e) {
 		s += 1;
 	}
 	s += a ? 8 : 0;
-	const l = (0, w.W6)();
-	const u = (0, y.q3)(() => X.Fd.Get().GetControllers()?.length > 0);
-	let d = S.createElement(N.bPr, null);
+	const l = W6();
+	const u = q3(() => {
+		return X.Fd.Get().GetControllers()?.length > 0;
+	});
+	let d = <N.bPr />;
 	const A =
 		(X.Fd.Get().GetController(m.oy.MostRecentlyActiveControllerIndex) ?? u)
 			? X.Fd.Get().GetControllers()[0]
@@ -483,52 +418,50 @@ export function k1(e) {
 		case 46:
 		case 34:
 		case 45:
-		case 48:
-			d = S.createElement(D.ControllerType, {
-				controllerType: A.eControllerType,
-			});
+		case 48: {
+			d = <D.ControllerType controllerType={A.eControllerType} />;
+		}
 	}
 	if (t) {
 		c.v3.EnsureEditingConfiguration(
 			e.overview.appid,
 			m.oy.MostRecentlyActiveControllerIndex,
 		);
-		const t = () =>
-			l.push(o.BV.GamepadUI.ControllerConfigurator.Main(e.overview.appid));
+		const t = () => {
+			return l.push(
+				o.BV.GamepadUI.ControllerConfigurator.Main(e.overview.appid),
+			);
+		};
 		const r = () => {
 			T.eZ.PlayNavSound(T.PN.DefaultOk);
 			t();
 		};
-		return S.createElement(
-			E.Z,
-			{
-				actionDescriptionMap: null,
-			},
-			S.createElement(
-				F.he,
-				{
-					direction: "bottom",
-					className: (0, G.A)(Z.MenuButton, Z.ControllerConfigButton),
-					onClick: r,
-				},
-				d,
-			),
+		return (
+			<E.Z actionDescriptionMap={null}>
+				<F.he
+					direction="bottom"
+					className={A_1(Z.MenuButton, Z.ControllerConfigButton)}
+					onClick={r}
+				>
+					{d}
+				</F.he>
+			</E.Z>
 		);
 	}
 	if (u) {
-		return S.createElement(
-			F.he,
-			{
-				direction: "bottom",
-				className: (0, G.A)(Z.MenuButton, Z.ControllerConfigButton),
-				onClick: () => {
+		return (
+			<F.he
+				direction="bottom"
+				className={A_1(Z.MenuButton, Z.ControllerConfigButton)}
+				onClick={() => {
 					SteamClient.Apps.ShowControllerConfigurator(e.overview.appid);
 					if (t) {
 						c.v3.ClearEditingConfiguration();
 					}
-				},
-			},
-			d,
+				}}
+			>
+				{d}
+			</F.he>
 		);
 	} else {
 		return null;
@@ -547,108 +480,99 @@ let Ce = class extends S.Component {
 			return null;
 		}
 		let t = e.nAchieved / e.nTotal == 1;
-		return S.createElement(
-			"div",
-			{
-				className: (0, G.A)(Z.GameStat, Z.MiniAchievements),
-				onClick: () => {
+		return (
+			<div
+				className={A_1(Z.GameStat, Z.MiniAchievements)}
+				onClick={() => {
 					this.props.onSeek("achievements");
-				},
-			},
-			S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.GameStatIcon, Z.AchievementSVG),
-				},
-				S.createElement(N.OiG, {
-					fullcolor: t,
-				}),
-			),
-			S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.GameStatRight, Z.AchievementRight),
-				},
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.PlayBarLabel, Z.AchievementLabel),
-					},
-					(0, Localize)("#AppDetails_SectionTitle_Achievements"),
-				),
-				S.createElement(
-					"div",
-					{
-						className: Z.AchievementProgressRow,
-					},
-					S.createElement(
-						"div",
-						{
-							className: (0, G.A)(
-								Z.PlayBarDetailLabel,
-								Z.AchievementCountLabel,
-							),
-						},
-						e.nAchieved,
-						"/",
-						e.nTotal,
-					),
-					S.createElement(Mm, {
-						progressPct: (e.nAchieved * 100) / e.nTotal,
-					}),
-				),
-			),
+				}}
+			>
+				<div className={A_1(Z.GameStatIcon, Z.AchievementSVG)}>
+					<N.OiG fullcolor={t} />
+				</div>
+				<div className={A_1(Z.GameStatRight, Z.AchievementRight)}>
+					<div className={A_1(Z.PlayBarLabel, Z.AchievementLabel)}>
+						{(0, Localize)("#AppDetails_SectionTitle_Achievements")}
+					</div>
+					<div className={Z.AchievementProgressRow}>
+						<div className={A_1(Z.PlayBarDetailLabel, Z.AchievementCountLabel)}>
+							{e.nAchieved}/{e.nTotal}
+						</div>
+						<Mm progressPct={(e.nAchieved * 100) / e.nTotal} />
+					</div>
+				</div>
+			</div>
 		);
 	}
 };
 function _e(e) {
 	switch (e) {
 		case 0:
-		case 2:
+		case 2: {
 			return (0, Localize)("#AppDetails_CloudStatus_Unknown");
-		case 1:
+		}
+		case 1: {
 			return (0, Localize)("#AppDetails_CloudStatus_Disabled");
-		case 3:
+		}
+		case 3: {
 			return (0, Localize)("#AppDetails_CloudStatus_Synchronized");
-		case 4:
+		}
+		case 4: {
 			return (0, Localize)("#AppDetails_CloudStatus_Checking");
-		case 5:
+		}
+		case 5: {
 			return (0, Localize)("#AppDetails_CloudStatus_OutOfSync");
-		case 6:
+		}
+		case 6: {
 			return (0, Localize)("#AppDetails_CloudStatus_Uploading");
-		case 7:
+		}
+		case 7: {
 			return (0, Localize)("#AppDetails_CloudStatus_Downloading");
-		case 8:
+		}
+		case 8: {
 			return (0, Localize)("#AppDetails_CloudStatus_SyncFailed");
-		case 9:
+		}
+		case 9: {
 			return (0, Localize)("#AppDetails_CloudStatus_Conflict");
-		case 10:
+		}
+		case 10: {
 			return (0, Localize)("#AppDetails_CloudStatus_PendingElsewhere");
+		}
 	}
 }
 export function C4(e) {
 	switch (e) {
 		case 0:
-		case 2:
+		case 2: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Unknown");
-		case 1:
+		}
+		case 1: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Disabled");
-		case 3:
+		}
+		case 3: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Synchronized");
-		case 4:
+		}
+		case 4: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Checking");
-		case 5:
+		}
+		case 5: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_OutOfSync");
-		case 10:
+		}
+		case 10: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_PendingElsewhere");
-		case 6:
+		}
+		case 6: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Uploading");
-		case 7:
+		}
+		case 7: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Downloading");
-		case 8:
+		}
+		case 8: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_SyncFailed");
-		case 9:
+		}
+		case 9: {
 			return (0, Localize)("#AppDetails_CloudStatus_Tooltip_Conflict");
+		}
 	}
 }
 export function $u(e) {
@@ -656,81 +580,62 @@ export function $u(e) {
 	switch (e) {
 		case 0:
 		case 1:
-		case 2:
+		case 2: {
 			break;
-		case 3:
+		}
+		case 3: {
 			t.uploaded = true;
 			break;
+		}
 		case 4:
 		case 6:
-		case 7:
+		case 7: {
 			t.save = true;
 			break;
+		}
 		case 5:
 		case 10:
 		case 8:
-		case 9:
+		case 9: {
 			t.error = true;
+		}
 	}
 	t.className = Z.CloudIconSVG;
 	return t;
 }
-function ye(e) {
-	const { icon: t, label: r, children: n } = e;
-	const i = (0, G.A)(e.classNames, Z.GameStat, Z.LastPlayed);
-	const a = (0, G.A)(
+function Ye(e) {
+	const { icon, label, children } = e;
+	const i = A_1(e.classNames, Z.GameStat, Z.LastPlayed);
+	const a = A_1(
 		e.force_icon && Z.HideWhenNarrow,
 		Z.GameStatRight,
 		Z.LastPlayedRight,
 	);
-	return S.createElement(
-		F.he,
-		{
-			toolTipContent: e.strTooltip,
-		},
-		S.createElement(
-			E.Z,
-			{
-				focusable: false,
-				className: i,
-				onClick: e.on_click,
-			},
-			t &&
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(
+	return (
+		<F.he toolTipContent={e.strTooltip}>
+			<E.Z focusable={false} className={i} onClick={e.on_click}>
+				{icon && (
+					<div
+						className={A_1(
 							e.force_icon ? Z.GameStatIconForced : Z.GameStatIcon,
 							e.force_icon ? Z.PlaytimeIconForced : Z.PlaytimeIcon,
-						),
-					},
-					t,
-				),
-			S.createElement(
-				"div",
-				{
-					className: a,
-				},
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.PlayBarLabel, Z.LastPlayedLabel),
-					},
-					r,
-				),
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.PlayBarDetailLabel, Z.LastPlayedInfo),
-					},
-					n,
-				),
-			),
-		),
+						)}
+					>
+						{icon}
+					</div>
+				)}
+				<div className={a}>
+					<div className={A_1(Z.PlayBarLabel, Z.LastPlayedLabel)}>{label}</div>
+					<div className={A_1(Z.PlayBarDetailLabel, Z.LastPlayedInfo)}>
+						{children}
+					</div>
+				</div>
+			</E.Z>
+		</F.he>
 	);
 }
 function Se(e, t) {
-	(0, _.TE)(
+	TE(
 		{
 			appid: e,
 			onCancel: () => {},
@@ -747,7 +652,7 @@ function Se(e, t) {
 	);
 }
 function we(e, t) {
-	(0, _.zI)(
+	zI(
 		{
 			appid: e,
 			onCancel: () => {},
@@ -759,12 +664,13 @@ function we(e, t) {
 		t,
 	);
 }
-Ce = (0, n.Cg)([b.PA], Ce);
-export const sD = (0, b.PA)(function (e) {
-	let t = (0, v.R7)();
+Ce = Cg([b.PA], Ce);
+export const sD = PA(function (e) {
+	let t = R7();
 	let r = t?.ownerWindow ?? window;
 	if (
 		!e.details.bCloudEnabledForApp ||
+		!e.details.bCloudEnabledForAccount ||
 		!e.details.bCloudEnabledForAccount ||
 		!e.details.bHasAnyLocalContent
 	) {
@@ -776,16 +682,15 @@ export const sD = (0, b.PA)(function (e) {
 	}
 	const i = e.details.eCloudStatus;
 	const a = $u(i);
-	let s = i == 7 || i == 6 || i == 4;
-	let o = i == 9 || i == 10 || i == 5 || i == 8;
+	let s = i == 7 || i == 6 || i == 6 || i == 4;
+	let o = i == 9 || i == 10 || i == 10 || i == 5 || i == 10 || i == 5 || i == 8;
 	let l = i == 9;
 	let c = i == 10;
-	return S.createElement(
-		E.Z,
-		{
-			focusable: o,
-			className: (0, G.A)(o && Z.CloudSyncProblem, Z.CloudStatusRow),
-			onActivate: () => {
+	return (
+		<E.Z
+			focusable={o}
+			className={A_1(o && Z.CloudSyncProblem, Z.CloudStatusRow)}
+			onActivate={() => {
 				if (o) {
 					if (l) {
 						Se(e.details.unAppID, r);
@@ -793,45 +698,29 @@ export const sD = (0, b.PA)(function (e) {
 						we(e.details.unAppID, r);
 					}
 				}
-			},
-			onFocus: e.onFocus,
-			noFocusRing: true,
-		},
-		S.createElement(
-			"span",
-			{
-				className: (0, G.A)(s && Z.CloudSynching, Z.CloudStatusIcon),
-			},
-			S.createElement(D.CloudSync, {
-				...a,
-			}),
-		),
-		S.createElement(
-			"span",
-			{
-				className: Z.CloudStatusLabel,
-			},
-			(0, Localize)("#AppProperties_SteamCloudSection") + ": " + _e(i),
-			" ",
-		),
+			}}
+			onFocus={e.onFocus}
+			noFocusRing
+		>
+			<span className={A_1(s && Z.CloudSynching, Z.CloudStatusIcon)}>
+				<D.CloudSync {...a} />
+			</span>
+			<span className={Z.CloudStatusLabel}>
+				{(0, Localize)("#AppProperties_SteamCloudSection") + ": " + _e(i)}{" "}
+			</span>
+		</E.Z>
 	);
 });
 function ve(e) {
-	return S.createElement(
-		ye,
-		{
-			classNames: (0, G.A)(Z.SuperimposedGridItems),
-			force_icon: true,
-			icon: S.createElement(D.CloudSync, null),
-			label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
-		},
-		S.createElement(
-			j.eJ,
-			{
-				className: Z.ClickablePlayBarItem,
-			},
-			_e(e),
-		),
+	return (
+		<Ye
+			classNames={A_1(Z.SuperimposedGridItems)}
+			force_icon
+			icon={<D.CloudSync />}
+			label={(0, Localize)("#AppDetails_SectionTitle_CloudStatus")}
+		>
+			<j.eJ className={Z.ClickablePlayBarItem}>{_e(e)}</j.eJ>
+		</Ye>
 	);
 }
 function Ie(e) {
@@ -840,25 +729,21 @@ function Ie(e) {
 		e.details.bCloudEnabledForAccount &&
 		e.details.bHasAnyLocalContent
 	) {
-		return S.createElement(
-			"div",
-			{
-				className: Z.PlayBarCloudStatusContainer,
-			},
-			S.createElement(Ee, {
-				...e,
-			}),
-			ve(3),
-			ve(4),
-			ve(6),
-			ve(7),
+		return (
+			<div className={Z.PlayBarCloudStatusContainer}>
+				<Ee {...e} />
+				{ve(3)}
+				{ve(4)}
+				{ve(6)}
+				{ve(7)}
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
 function Ee(e) {
-	let t = (0, v.R7)();
+	let t = R7();
 	let r = t?.ownerWindow ?? window;
 	let n = d.tw.GetAppOverviewByAppID(e.details.unAppID);
 	if (!n || n.BIsModOrShortcut()) {
@@ -866,7 +751,7 @@ function Ee(e) {
 	}
 	const i = e.details.eCloudStatus;
 	const a = $u(i);
-	let s = i == 9 || i == 10 || i == 5 || i == 8;
+	let s = i == 9 || i == 10 || i == 10 || i == 5 || i == 10 || i == 5 || i == 8;
 	let o = i == 9;
 	let l = i == 10;
 	const c = () => {
@@ -878,43 +763,33 @@ function Ee(e) {
 	};
 	const m = C4(i);
 	if (s) {
-		return S.createElement(
-			ye,
-			{
-				classNames: (0, G.A)(
+		return (
+			<Ye
+				classNames={A_1(
 					Z.SuperimposedGridItems,
 					Z.Visible,
 					Z.CloudStatusSyncFail,
-				),
-				force_icon: true,
-				strTooltip: m,
-				on_click: c,
-				icon: S.createElement(D.CloudSync, {
-					...a,
-				}),
-				label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
-			},
-			S.createElement(
-				j.eJ,
-				{
-					className: Z.ClickablePlayBarItem,
-				},
-				_e(i),
-			),
+				)}
+				force_icon
+				strTooltip={m}
+				on_click={c}
+				icon={<D.CloudSync {...a} />}
+				label={(0, Localize)("#AppDetails_SectionTitle_CloudStatus")}
+			>
+				<j.eJ className={Z.ClickablePlayBarItem}>{_e(i)}</j.eJ>
+			</Ye>
 		);
 	} else {
-		return S.createElement(
-			ye,
-			{
-				classNames: (0, G.A)(Z.SuperimposedGridItems, Z.Visible),
-				force_icon: true,
-				strTooltip: m,
-				icon: S.createElement(D.CloudSync, {
-					...a,
-				}),
-				label: (0, Localize)("#AppDetails_SectionTitle_CloudStatus"),
-			},
-			_e(i),
+		return (
+			<Ye
+				classNames={A_1(Z.SuperimposedGridItems, Z.Visible)}
+				force_icon
+				strTooltip={m}
+				icon={<D.CloudSync {...a} />}
+				label={(0, Localize)("#AppDetails_SectionTitle_CloudStatus")}
+			>
+				{_e(i)}
+			</Ye>
 		);
 	}
 }
@@ -922,17 +797,15 @@ function Me(e) {
 	if (e.details.bHasAnyLocalContent || !e.details.lDiskSpaceRequiredBytes) {
 		return null;
 	} else {
-		return S.createElement(
-			ye,
-			{
-				label: (0, Localize)("#AppDetails_SectionTitle_DiskSpaceRequired"),
-			},
-			(0, L.dm)(e.details.lDiskSpaceRequiredBytes),
+		return (
+			<Ye label={(0, Localize)("#AppDetails_SectionTitle_DiskSpaceRequired")}>
+				{dm(e.details.lDiskSpaceRequiredBytes)}
+			</Ye>
 		);
 	}
 }
 function Te(e) {
-	const t = (0, se.br)();
+	const t = br();
 	if (e.details.eDisplayStatus != 11 && e.details.eDisplayStatus != 4) {
 		return null;
 	}
@@ -942,30 +815,27 @@ function Te(e) {
 	) {
 		return null;
 	}
-	const r = e.details.vecBetas.reduce(
-		(t, r) => (r.strName == e.details.strSelectedBeta ? r.strDescription : t),
-		"",
-	);
-	return S.createElement(
-		ye,
-		{
-			label: (0, Localize)("#AppDetails_SectionTitle_SelectedBeta"),
-			strTooltip: (0, Localize)(
+	const r = e.details.vecBetas.reduce((t, r) => {
+		return r.strName == e.details.strSelectedBeta ? r.strDescription : t;
+	}, "");
+	return (
+		<Ye
+			label={(0, Localize)("#AppDetails_SectionTitle_SelectedBeta")}
+			strTooltip={(0, Localize)(
 				"#AppDetails_SectionTitle_SelectedBetaTooltip",
 				e.details.strSelectedBeta,
 				r,
-			),
-		},
-		S.createElement(
-			"div",
-			{
-				className: Z.AppDetailsSelectedBeta,
-				onClick: () => {
+			)}
+		>
+			<div
+				className={Z.AppDetailsSelectedBeta}
+				onClick={() => {
 					t.AppProperties(e.details.unAppID, ae.h.Betas);
-				},
-			},
-			e.details.strSelectedBeta,
-		),
+				}}
+			>
+				{e.details.strSelectedBeta}
+			</div>
+		</Ye>
 	);
 }
 let Re = class extends S.Component {
@@ -981,280 +851,219 @@ let Re = class extends S.Component {
 	}
 	render() {
 		if (this.getLastPlayed()) {
-			return S.createElement(
-				ye,
-				{
-					label: this.props.bIsApplicationOrTool
-						? (0, Localize)("#AppDetails_SectionTitle_LastLaunched")
-						: (0, Localize)("#AppDetails_SectionTitle_LastPlayed"),
-				},
-				this.getLastPlayed(),
+			return (
+				<Ye
+					label={
+						this.props.bIsApplicationOrTool
+							? (0, Localize)("#AppDetails_SectionTitle_LastLaunched")
+							: (0, Localize)("#AppDetails_SectionTitle_LastPlayed")
+					}
+				>
+					{this.getLastPlayed()}
+				</Ye>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-Re = (0, n.Cg)([b.PA], Re);
-let ke = class extends S.Component {
+Re = Cg([b.PA], Re);
+let Ke = class extends S.Component {
 	NavToRedeem(e) {
 		GetOwningWindowForEvent(e).location.href =
 			C.B7.BuildSteamURL("ClaimEntitlements");
 	}
 	render() {
 		const e = (0, Localize)("#AppDetails_ClaimContent");
-		return S.createElement(
-			"div",
-			null,
-			S.createElement(
-				E.Z,
-				null,
-				S.createElement(
-					E.Z,
-					{
-						className: (0, G.A)(Z.LongButton, Z.ClaimButtonContainer),
-					},
-					S.createElement(
-						I.Ii,
-						{
-							noFocusRing: true,
-							className: (0, G.A)(Z.ClaimButton, Z.ButtonChild),
-							onClick: this.NavToRedeem,
-							href: C.B7.GetStoreURL() + "account/claimentitlements",
-						},
-						e.length > 0 &&
-							S.createElement(
-								"div",
-								{
-									className: (0, G.A)(Z.ButtonText),
-								},
-								e,
-							),
-					),
-				),
-			),
+		return (
+			<div>
+				<E.Z>
+					<E.Z className={A_1(Z.LongButton, Z.ClaimButtonContainer)}>
+						<I.Ii
+							noFocusRing
+							className={A_1(Z.ClaimButton, Z.ButtonChild)}
+							onClick={this.NavToRedeem}
+							href={C.B7.GetStoreURL() + "account/claimentitlements"}
+						>
+							{e.length > 0 && <div className={A_1(Z.ButtonText)}>{e}</div>}
+						</I.Ii>
+					</E.Z>
+				</E.Z>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([x.oI], ke.prototype, "NavToRedeem", null);
-ke = (0, n.Cg)([b.PA], ke);
+Cg([x.oI], Ke.prototype, "NavToRedeem", null);
+Ke = Cg([b.PA], Ke);
 let De = class extends S.Component {
 	render() {
 		if (this.props.details.nPlaytimeForever) {
-			return S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.GameStat, Z.Playtime),
-				},
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.GameStatIcon, Z.PlaytimeIcon),
-					},
-					S.createElement(N.eNX, null),
-				),
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.GameStatRight, Z.PlaytimeRight),
-					},
-					S.createElement(
-						"div",
-						{
-							className: (0, G.A)(Z.PlayBarLabel, Z.PlaytimeLabel),
-						},
-						this.props.bIsApplicationOrTool
-							? (0, Localize)("#AppDetails_SectionTitle_UsageTime")
-							: (0, Localize)("#AppDetails_SectionTitle_PlayTime"),
-					),
-					S.createElement(
-						"div",
-						{
-							className: (0, G.A)(Z.PlayBarDetailLabel, Z.PlaytimeInfo),
-						},
-						(0, z.l)(this.props.details.nPlaytimeForever),
-					),
-				),
+			return (
+				<div className={A_1(Z.GameStat, Z.Playtime)}>
+					<div className={A_1(Z.GameStatIcon, Z.PlaytimeIcon)}>
+						<N.eNX />
+					</div>
+					<div className={A_1(Z.GameStatRight, Z.PlaytimeRight)}>
+						<div className={A_1(Z.PlayBarLabel, Z.PlaytimeLabel)}>
+							{this.props.bIsApplicationOrTool
+								? (0, Localize)("#AppDetails_SectionTitle_UsageTime")
+								: (0, Localize)("#AppDetails_SectionTitle_PlayTime")}
+						</div>
+						<div className={A_1(Z.PlayBarDetailLabel, Z.PlaytimeInfo)}>
+							{l_1(this.props.details.nPlaytimeForever)}
+						</div>
+					</div>
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-De = (0, n.Cg)([b.PA], De);
+De = Cg([b.PA], De);
 let Ne = class extends S.Component {
 	render() {
-		return S.createElement(
-			"div",
-			{
-				className: (0, G.A)(Z.GameStat, Z.Playtime),
-			},
-			S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.GameStatIcon, Z.PlaytimeIcon),
-				},
-				S.createElement(N.eNX, null),
-			),
-			S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.GameStatRight, Z.PlaytimeRight),
-				},
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.PlayBarLabel, Z.PlaytimeLabel),
-					},
-					(0, Localize)("#AppDetails_SectionTitle_PlayTimeLeft"),
-				),
-				S.createElement(
-					"div",
-					{
-						className: (0, G.A)(Z.PlayBarDetailLabel, Z.PlaytimeInfo),
-					},
-					(0, z.l)(this.props.timeLeftMin),
-				),
-			),
+		return (
+			<div className={A_1(Z.GameStat, Z.Playtime)}>
+				<div className={A_1(Z.GameStatIcon, Z.PlaytimeIcon)}>
+					<N.eNX />
+				</div>
+				<div className={A_1(Z.GameStatRight, Z.PlaytimeRight)}>
+					<div className={A_1(Z.PlayBarLabel, Z.PlaytimeLabel)}>
+						{(0, Localize)("#AppDetails_SectionTitle_PlayTimeLeft")}
+					</div>
+					<div className={A_1(Z.PlayBarDetailLabel, Z.PlaytimeInfo)}>
+						{l_1(this.props.timeLeftMin)}
+					</div>
+				</div>
+			</div>
 		);
 	}
 };
-Ne = (0, n.Cg)([b.PA], Ne);
-export const BA = (0, b.PA)(function (e) {
-	const { details: t, overview: r } = e;
-	const [n, i] = S.useState(false);
-	const s = (0, o.Qt)(C.B7.ResolveURL("FamilyManagement"));
+Ne = Cg([b.PA], Ne);
+export const BA = PA(function (e) {
+	const { details, overview } = e;
+	const [n, setN] = S.useState(false);
+	const s = Qt(C.B7.ResolveURL("FamilyManagement"));
 	function l() {
 		return (
-			new M.b(t.strOwnerSteamID).GetAccountID() ==
+			new M.b(details.strOwnerSteamID).GetAccountID() ==
 			g.O$.currentUserSteamID.GetAccountID()
 		);
 	}
-	const c = new M.b(t.strLockedBySteamID);
+	const c = new M.b(details.strLockedBySteamID);
 	let m = new M.b();
 	let u = "#AppDetails_LibraryInUse";
 	let d = false;
 	let A = false;
-	if ((0, $.qw)().BIsInFamilyGroup()) {
-		d = t.bHasDifferentCopies;
+	if (qw().BIsInFamilyGroup()) {
+		d = details.bHasDifferentCopies;
 		if (c.BIsValid() && c != g.O$.currentUserSteamID) {
 			m = c;
 			u = l()
 				? "#FamilyGroup_GameOwnerLocked"
 				: "#FamilyGroup_GameBorrowerLocked";
 		} else if (l()) {
-			if (!t.bHasDifferentCopies) {
+			if (!details.bHasDifferentCopies) {
 				return null;
 			}
 			u = "#AppDetails_SharedPreferred_Owned";
 		} else if (
-			t.bIsExcludedFromSharing ||
+			details.bIsExcludedFromSharing ||
 			(function () {
-				const e = new M.b(t.strOwnerSteamID);
+				const e = new M.b(details.strOwnerSteamID);
 				return (
-					!t.bIsSubscribedTo &&
-					!!(0, $.qw)().BIsFamilyGroupMember(e.GetAccountID())
+					!details.bIsSubscribedTo &&
+					!!qw().BIsFamilyGroupMember(e.GetAccountID())
 				);
 			})()
 		) {
-			if (t.bIsFreeApp || r.BIsDemo) {
+			if (details.bIsFreeApp || overview.BIsDemo) {
 				return null;
 			}
 			u = "#FamilyGroup_GameExcluded";
 		} else {
-			if (!t.bIsSubscribedTo) {
+			if (!details.bIsSubscribedTo) {
 				return null;
 			}
-			if (t.bHasDifferentCopies) {
-				m = new M.b(t.strOwnerSteamID);
+			if (details.bHasDifferentCopies) {
+				m = new M.b(details.strOwnerSteamID);
 				u = "#AppDetails_SharedPreferred";
 			} else {
 				u = "#FamilyGroup_GameAvailable";
 			}
 		}
 	} else {
-		if ((0, $.qw)().BIsOfflineMode()) {
+		if (qw().BIsOfflineMode()) {
 			return null;
 		}
 		m = c;
 		if (!l()) {
-			m = new M.b(t.strOwnerSteamID);
+			m = new M.b(details.strOwnerSteamID);
 			u = "#AppDetails_InSharedLibrary";
 		}
 		if (!m.BIsValid()) {
 			return null;
 		}
-		if (t.bIsSubscribedTo) {
+		if (details.bIsSubscribedTo) {
 			A = true;
 		}
 	}
 	let p = m.BIsValid() ? g.O$.GetFriendState(m) : null;
-	const h =
-		m.BIsValid() &&
-		S.createElement(
-			E.Z,
-			{
-				onActivate: () => (0, a.ul)(p),
-			},
-			S.createElement(q.a0, {
-				className: Z.AvatarAndPersona,
-				friend: p,
-				appid: 0,
-				bHideRichPresence: true,
-			}),
-		);
-	return S.createElement(
-		"div",
-		null,
-		S.createElement(
-			E.Z,
-			{
-				className: (0, G.A)(Z.Row, Z.SharedLibrary),
-			},
-			LocalizeReact(u, h),
-			d &&
-				S.createElement(
-					I.Ii,
-					{
-						className: Z.ChooseButton,
-						onClick: () => {
-							i(true);
-						},
-					},
-					(0, Localize)("#AppProperties_ChoosePreferredLender"),
-				),
-			d &&
-				S.createElement(ie.YZ, {
-					active: n,
-					onDismiss: () => {
-						i(false);
-					},
-					appID: t.unAppID,
-					details: t,
-				}),
-		),
-		A &&
-			S.createElement(
-				E.Z,
-				{
-					className: (0, G.A)(Z.Row, Z.OldSharingWarning),
-				},
-				S.createElement(
-					"div",
-					null,
-					" ",
-					LocalizeInlineReactWithFallback(
-						"#FamilyGroup_OldSharingWarning",
-						S.createElement(I.Ii, {
-							className: Z.ChooseButton,
-							onClick: s,
-						}),
-					),
-				),
-			),
+	const h = m.BIsValid() && (
+		<E.Z
+			onActivate={() => {
+				return ul(p);
+			}}
+		>
+			<q.a0
+				className={Z.AvatarAndPersona}
+				friend={p}
+				appid={0}
+				bHideRichPresence
+			/>
+		</E.Z>
+	);
+	return (
+		<div>
+			<E.Z className={A_1(Z.Row, Z.SharedLibrary)}>
+				{LocalizeReact(u, h)}
+				{d && (
+					<I.Ii
+						className={Z.ChooseButton}
+						onClick={() => {
+							setN(true);
+						}}
+					>
+						{(0, Localize)("#AppProperties_ChoosePreferredLender")}
+					</I.Ii>
+				)}
+				{d && (
+					<ie.YZ
+						active={n}
+						onDismiss={() => {
+							setN(false);
+						}}
+						appID={details.unAppID}
+						details={details}
+					/>
+				)}
+			</E.Z>
+			{A && (
+				<E.Z className={A_1(Z.Row, Z.OldSharingWarning)}>
+					<div>
+						{" "}
+						{LocalizeInlineReactWithFallback(
+							"#FamilyGroup_OldSharingWarning",
+							<I.Ii className={Z.ChooseButton} onClick={s} />,
+						)}
+					</div>
+				</E.Z>
+			)}
+		</div>
 	);
 });
-export let qj = class extends S.Component {
+export let Qj = class extends S.Component {
 	m_TimerID;
 	m_hRegisterForGameActionStart = null;
 	m_hRegisterForGameActionEnd = null;
@@ -1337,20 +1146,23 @@ export let qj = class extends S.Component {
 				case "SynchronizingCloud":
 				case "VerifyingFiles":
 				case "CreatingProcess":
-				case "WaitingGameWindow":
+				case "WaitingGameWindow": {
 					t = (0, Localize)("#LaunchApp_Action_" + e.strTaskName);
 					break;
+				}
 				case "DownloadingDepots":
 				case "DownloadingWorkshop":
 				case "ProcessingShaderCache":
-				case "DelayLaunch":
+				case "DelayLaunch": {
 					t = (0, Localize)("#LaunchApp_Action_" + e.strTaskName, r);
 					break;
-				case "RunningInstallScript":
+				}
+				case "RunningInstallScript": {
 					t = (0, Localize)(
 						"#LaunchApp_Action_" + e.strTaskName,
 						e.strTaskDetails,
 					);
+				}
 			}
 		}
 		this.setState({
@@ -1387,54 +1199,40 @@ export let qj = class extends S.Component {
 			case 24:
 			case 20:
 			case 12:
-			case 26:
-				return (0, s.Bb)(
-					this.props.overview.selected_per_client_data.display_status,
-				);
-			case 17:
-				if ((0, $.qw)().BIsInFamilyGroup()) {
+			case 26: {
+				return Bb(this.props.overview.selected_per_client_data.display_status);
+			}
+			case 17: {
+				if (qw().BIsInFamilyGroup()) {
 					return "";
 				} else {
-					return (0, s.Bb)(
+					return Bb(
 						this.props.overview.selected_per_client_data.display_status,
 					);
 				}
+			}
 			case 10:
 			case 13:
-			case 16:
-				return S.createElement(RR, {
-					app: this.props.overview,
-				});
-			case 14:
-				return S.createElement(
-					"div",
-					{
-						className: Z.InvalidPlatform,
-					},
-					S.createElement(
-						"span",
-						null,
-						(0, Localize)("#DisplayStatus_InvalidPlatform"),
-					),
-					S.createElement(
-						"div",
-						{
-							className: Z.Icons,
-						},
-						this.props.details.vecPlatforms.map((e) =>
-							S.createElement("img", {
-								className: Z.Icon,
-								key: e,
-								src: ce[e],
-							}),
-						),
-					),
+			case 16: {
+				return <RR app={this.props.overview} />;
+			}
+			case 14: {
+				return (
+					<div className={Z.InvalidPlatform}>
+						<span>{(0, Localize)("#DisplayStatus_InvalidPlatform")}</span>
+						<div className={Z.Icons}>
+							{this.props.details.vecPlatforms.map((e) => {
+								return <img className={Z.Icon} key={e} src={ce[e]} />;
+							})}
+						</div>
+					</div>
 				);
+			}
 			case 7:
-			case 6:
+			case 6: {
 				if (p.hj.DownloadOverview.update_appid == this.props.details.unAppID) {
 					if (p.hj.DownloadOverview.update_state === "None") {
-						return (0, s.Bb)(
+						return Bb(
 							this.props.overview.selected_per_client_data.display_status,
 						);
 					} else {
@@ -1443,11 +1241,12 @@ export let qj = class extends S.Component {
 						);
 					}
 				} else {
-					return (0, s.Bb)(
+					return Bb(
 						this.props.overview.selected_per_client_data.display_status,
 					);
 				}
-			case 11:
+			}
+			case 11: {
 				if (
 					this.props.overview.selected_per_client_data
 						.update_available_but_disabled_by_app
@@ -1456,6 +1255,7 @@ export let qj = class extends S.Component {
 						"#DisplayStatus_UpdateAvailableButDisabledByApp",
 					);
 				}
+			}
 		}
 		return "";
 	}
@@ -1468,8 +1268,9 @@ export let qj = class extends S.Component {
 			case 23:
 			case 19:
 			case 24:
-			case 20:
+			case 20: {
 				return true;
+			}
 		}
 		return (
 			!!this.props.overview.BIsSelectedClientLocal() &&
@@ -1486,11 +1287,11 @@ export let qj = class extends S.Component {
 			}
 		}
 		if (p.hj.DownloadOverview.update_appid == this.props.details.unAppID) {
-			return (0, p.MD)(p.hj.DownloadOverview);
+			return MD(p.hj.DownloadOverview);
 		}
 		const e = p.hj.GetDownloadItemForAppId(this.props.overview.appid);
 		if (e) {
-			return (0, p.eC)(e);
+			return eC(e);
 		}
 		switch (this.props.overview.selected_per_client_data.display_status) {
 			case 23:
@@ -1498,8 +1299,9 @@ export let qj = class extends S.Component {
 			case 22:
 			case 18:
 			case 24:
-			case 20:
+			case 20: {
 				return this.props.overview.selected_per_client_data.status_percentage;
+			}
 		}
 		return -1;
 	}
@@ -1516,13 +1318,14 @@ export let qj = class extends S.Component {
 		) {
 			switch (p.hj.DownloadOverview.update_state) {
 				case "Unpacking":
-				case "Patching":
-					if ((0, p.Z5)(p.hj.DownloadOverview) > 0) {
+				case "Patching": {
+					if (Z5(p.hj.DownloadOverview) > 0) {
 						return (0, Localize)(
 							"#Downloads_State_PercentComplete",
-							(0, p.MD)(p.hj.DownloadOverview),
+							MD(p.hj.DownloadOverview),
 						);
 					}
+				}
 			}
 			return (0, Localize)(
 				"#Downloads_State_" + p.hj.DownloadOverview.update_state,
@@ -1532,26 +1335,29 @@ export let qj = class extends S.Component {
 		if (Number(e.bytes_total)) {
 			switch (e.display_status) {
 				case 7:
-				case 6:
+				case 6: {
 					if (this.props.overview.BIsPerClientDataLocal(e)) {
 						return "";
 					}
+				}
 				case 23:
 				case 19:
 				case 22:
 				case 18:
 				case 24:
-				case 20:
+				case 20: {
 					return (0, Localize)(
 						"#Downloads_State_Bytes_Of_Bytes",
-						(0, L.dm)(Number(e.bytes_downloaded)),
-						(0, L.dm)(Number(e.bytes_total)),
+						dm(Number(e.bytes_downloaded)),
+						dm(Number(e.bytes_total)),
 					);
+				}
 				case 38:
-				case 39:
+				case 39: {
 					return (0, Localize)(
 						"#Steam_AppUpdateError_" + this.props.details.eAppUpdateError,
 					);
+				}
 			}
 		}
 		return "";
@@ -1564,7 +1370,7 @@ export let qj = class extends S.Component {
 		const t = this.GetDetailsText();
 		const r = this.GetProgressBarPct();
 		let n = this.props.overview.BIsUnreleased();
-		let i = (0, $.qw)().BIsOfflineMode();
+		let i = qw().BIsOfflineMode();
 		let a =
 			this.props.overview.selected_per_client_data.display_status == 22 ||
 			this.props.overview.selected_per_client_data.display_status == 18;
@@ -1573,67 +1379,54 @@ export let qj = class extends S.Component {
 		if (!e && !t) {
 			return null;
 		}
-		let l = (0, G.A)(Z.PlayBarLabel, Z.DetailsSectionStatus);
+		let l = A_1(Z.PlayBarLabel, Z.DetailsSectionStatus);
 		if (n) {
-			l = (0, G.A)(Z.DetailsSectionStatus, Z.ComingSoon);
+			l = A_1(Z.DetailsSectionStatus, Z.ComingSoon);
 		}
 		if (this.props.statusPanelType === 2) {
-			return S.createElement(
-				"div",
-				{
-					className: (0, G.A)(Z.OnlyDownloadBar, this.props.className),
-				},
-				o &&
-					S.createElement(Mm, {
-						className: (0, G.A)(a && Z.DownloadPaused, Z.DownloadProgressBar),
-						progressPct: r < 0 ? 0 : r,
-					}),
+			return (
+				<div className={A_1(Z.OnlyDownloadBar, this.props.className)}>
+					{o && (
+						<Mm
+							className={A_1(a && Z.DownloadPaused, Z.DownloadProgressBar)}
+							progressPct={r < 0 ? 0 : r}
+						/>
+					)}
+				</div>
 			);
 		} else {
-			return S.createElement(
-				"div",
-				{
-					className: (0, G.A)(
+			return (
+				<div
+					className={A_1(
 						Z.DetailsSection,
 						s && Z.Downloading,
 						i && Z.OfflineMode,
 						this.props.className,
-					),
-					onClick: s ? this.GoToDownloads : undefined,
-				},
-				S.createElement(
-					"div",
-					{
-						className: l,
-					},
-					e,
-				),
-				!n &&
-					t.length > 0 &&
-					S.createElement(
-						"div",
-						{
-							className: (0, G.A)(Z.PlayBarDetailLabel, Z.DetailsSectionExtra),
-						},
-						t != e && t,
-						o &&
-							S.createElement(Mm, {
-								className: (0, G.A)(
-									a && Z.DownloadPaused,
-									Z.DownloadProgressBar,
-								),
-								progressPct: r < 0 ? 0 : r,
-							}),
-					),
+					)}
+					onClick={s ? this.GoToDownloads : undefined}
+				>
+					<div className={l}>{e}</div>
+					{!n && t.length > 0 && (
+						<div className={A_1(Z.PlayBarDetailLabel, Z.DetailsSectionExtra)}>
+							{t != e && t}
+							{o && (
+								<Mm
+									className={A_1(a && Z.DownloadPaused, Z.DownloadProgressBar)}
+									progressPct={r < 0 ? 0 : r}
+								/>
+							)}
+						</div>
+					)}
+				</div>
 			);
 		}
 	}
 };
-(0, n.Cg)([x.oI], qj.prototype, "onTimerTick", null);
-(0, n.Cg)([x.oI], qj.prototype, "onGameActionStart", null);
-(0, n.Cg)([x.oI], qj.prototype, "onGetGameActionDetails", null);
-(0, n.Cg)([x.oI], qj.prototype, "onGameActionEnd", null);
-qj = (0, n.Cg)([b.PA], qj);
+Cg([x.oI], Qj.prototype, "onTimerTick", null);
+Cg([x.oI], Qj.prototype, "onGameActionStart", null);
+Cg([x.oI], Qj.prototype, "onGetGameActionDetails", null);
+Cg([x.oI], Qj.prototype, "onGameActionEnd", null);
+Qj = Cg([b.PA], Qj);
 let Oe = class extends S.Component {
 	static contextType = U.QO;
 	BUserHasContentToClaim(e) {
@@ -1680,104 +1473,65 @@ let Oe = class extends S.Component {
 			);
 		}
 		let i = e !== undefined;
-		const a = n.bHasAnyLocalContent;
+		const n_bHasAnyLocalContent = n.bHasAnyLocalContent;
 		let s = this.BUserHasContentToClaim(this.props.details.unAppID);
-		return S.createElement(
-			"div",
-			{
-				className: Z.GameStatsSection,
-			},
-			s &&
-				S.createElement(ke, {
-					...this.props,
-				}),
-			a &&
-				S.createElement(Te, {
-					...this.props,
-				}),
-			!this.context?.IN_GAMEPADUI &&
-				S.createElement(Ie, {
-					...this.props,
-				}),
-			!a &&
-				S.createElement(Me, {
-					...this.props,
-				}),
-			S.createElement(Re, {
-				...this.props,
-				bIsApplicationOrTool: t,
-			}),
-			!i &&
-				S.createElement(De, {
-					...this.props,
-					bIsApplicationOrTool: t,
-				}),
-			i &&
-				S.createElement(Ne, {
-					timeLeftMin: e,
-				}),
-			S.createElement(Ce, {
-				...this.props,
-				onSeek: this.props.onSeek,
-			}),
-			S.createElement(xe, {
-				overview: this.props.overview,
-			}),
+		return (
+			<div className={Z.GameStatsSection}>
+				{s && <Ke {...this.props} />}
+				{n_bHasAnyLocalContent && <Te {...this.props} />}
+				{!this.context?.IN_GAMEPADUI && <Ie {...this.props} />}
+				{!n_bHasAnyLocalContent && <Me {...this.props} />}
+				<Re {...this.props} bIsApplicationOrTool={t} />
+				{!i && <De {...this.props} bIsApplicationOrTool={t} />}
+				{i && <Ne timeLeftMin={e} />}
+				<Ce {...this.props} onSeek={this.props.onSeek} />
+				<Xe overview={this.props.overview} />
+			</div>
 		);
 	}
 };
-Oe = (0, n.Cg)([b.PA], Oe);
+Oe = Cg([b.PA], Oe);
 class Pe extends S.Component {
 	render() {
-		return S.createElement(
-			"div",
-			{
-				className: Z.PlayBarIconAndGame,
-			},
-			S.createElement(i.z, {
-				app: this.props.overview,
-				eAssetType: 4,
-				className: Z.PlayBarGameIcon,
-			}),
-			S.createElement(
-				"span",
-				{
-					className: Z.PlayBarGameName,
-				},
-				this.props.details.strDisplayName,
-			),
+		return (
+			<div className={Z.PlayBarIconAndGame}>
+				<i.z
+					app={this.props.overview}
+					eAssetType={4}
+					className={Z.PlayBarGameIcon}
+				/>
+				<span className={Z.PlayBarGameName}>
+					{this.props.details.strDisplayName}
+				</span>
+			</div>
 		);
 	}
 }
 let Le = class extends S.Component {
 	render() {
-		return S.createElement(
-			"div",
-			{
-				className: Z.ActionSection,
-			},
-			S.createElement(W.aV, {
-				...this.props,
-				bShowStreamingSelector: true,
-				bFakeActions: le,
-			}),
+		return (
+			<div className={Z.ActionSection}>
+				<W.aV {...this.props} bShowStreamingSelector bFakeActions={le} />
+			</div>
 		);
 	}
 };
 export function RR(e) {
-	const { app: t, bCompact: r } = e;
-	const n = (0, oe.Id)();
-	const i = (0, oe.If)();
-	const [a, o] = (0, R.t7)(
-		t.appid,
+	const { app, bCompact } = e;
+	const n = Id();
+	const i = If();
+	const [a, o] = t7(
+		app.appid,
 		{
 			include_release: true,
 		},
 		i,
 	);
 	if (
-		!t ||
-		(t.display_status != 10 && t.display_status != 13 && t.display_status != 16)
+		!app ||
+		(app.display_status != 10 &&
+			app.display_status != 13 &&
+			app.display_status != 16)
 	) {
 		return null;
 	} else if (n && o != 1) {
@@ -1797,51 +1551,42 @@ export function RR(e) {
 			return (0, Localize)("#DisplayStatus_PresaleOnly");
 		}
 	} else {
-		return (0, s.Bb)(t.display_status, r);
+		return Bb(app.display_status, bCompact);
 	}
 }
-function xe(e) {
-	const t = (0, U.Qn)();
-	const r = (0, y.q3)(() => X.Fd.Get().GetControllers()?.length > 0);
-	if (e.overview.BIsModOrShortcut() || U.TS.ON_DECK || !t) {
+function Xe(e) {
+	const t = Qn();
+	const r = q3(() => {
+		return X.Fd.Get().GetControllers()?.length > 0;
+	});
+	if (e.overview.BIsModOrShortcut() || U.TS.ON_DECK || U.TS.ON_DECK || !t) {
 		return null;
 	}
 	if (!r && !te.qL?.HasVRHMDBeenSeen()) {
 		return null;
 	}
 	const n = [1, 2, 16, 18, 20, 3];
-	if (!n.some((t) => (0, ee.zX)(e.overview, t))) {
+	if (
+		!n.some((t) => {
+			return zX(e.overview, t);
+		})
+	) {
 		return null;
 	}
-	const i = (0, ee.zX)(e.overview, 3)
+	const i = zX(e.overview, 3)
 		? "#AppDetails_SectionTitle_Hardware"
 		: "#AppDetails_SectionTitle_Controller";
-	return S.createElement(
-		"div",
-		{
-			className: (0, G.A)(Z.HideWhenNarrow, Z.ControllerSupportInfo),
-		},
-		S.createElement(
-			"div",
-			{
-				className: (0, G.A)(Z.PlayBarLabel, Z.AchievementLabel),
-			},
-			(0, Localize)(i),
-		),
-		S.createElement(
-			"div",
-			{
-				className: (0, G.A)(Z.ControllerSupportRow),
-			},
-			n.map((t, r) =>
-				S.createElement(ee.n$, {
-					key: r,
-					overview: e.overview,
-					feature: t,
-					minimode: true,
-				}),
-			),
-		),
+	return (
+		<div className={A_1(Z.HideWhenNarrow, Z.ControllerSupportInfo)}>
+			<div className={A_1(Z.PlayBarLabel, Z.AchievementLabel)}>
+				{(0, Localize)(i)}
+			</div>
+			<div className={A_1(Z.ControllerSupportRow)}>
+				{n.map((t, r) => {
+					return <ee.n$ key={r} overview={e.overview} feature={t} minimode />;
+				})}
+			</div>
+		</div>
 	);
 }
-Le = (0, n.Cg)([b.PA], Le);
+Le = Cg([b.PA], Le);

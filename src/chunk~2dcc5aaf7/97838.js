@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require("./56060.js");
-var a = require(/*webcrack:missing*/ "./16583.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
+import n from "./58663.js";
+import i from "./56060.js";
+import a from "./16583.js";
+import s from "./79769.js";
 export let N = new (class {
 	m_socket;
 	m_promiseConnect;

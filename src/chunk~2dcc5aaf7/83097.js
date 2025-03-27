@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	BreakNarrow: "1158px",
 	BreakWide: "1774px",

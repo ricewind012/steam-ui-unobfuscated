@@ -1,34 +1,29 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49519.js");
-var a = require("./64608.js");
-var s = require("./97936.js");
-var o = require("./94361.js");
+import n from "./63696.js";
+import { W6, zy, B6 } from "./49519.js";
+import a from "./64608.js";
+import s from "./97936.js";
+import o from "./94361.js";
 export function q(e) {
-	const {
-		pages: t,
-		fnSetNavigateToPage: r,
-		disableRouteReporting: l,
-		...c
-	} = e;
-	const m = (0, i.W6)();
-	const u = (0, i.zy)();
-	const d = t.map((e) => {
+	const { pages, fnSetNavigateToPage, disableRouteReporting, ...c } = e;
+	const m = W6();
+	const u = zy();
+	const d = pages.map((e) => {
 		if (typeof e == "string") {
 			return e;
 		}
-		const { route: t, link: r, ...n } = e;
+		const { route, link, ...n } = e;
 		return {
 			...n,
-			identifier: r || t,
+			identifier: link || route,
 		};
 	});
-	const A = t.filter((e) => e != a.I0 && e?.visible !== false);
-	const p = A.find(({ route: e }) => (0, i.B6)(u.pathname, e)) || A[0];
+	const A = pages.filter((e) => e != a.I0 && e?.visible !== false);
+	const p = A.find(({ route }) => B6(u.pathname, route)) || A[0];
 	const g = n.useCallback(
 		(e) => {
-			if (!(0, i.B6)(e, p.route)) {
-				if (!l) {
-					const r = t.find(
+			if (!B6(e, p.route)) {
+				if (!disableRouteReporting) {
+					const r = pages.find(
 						(t) => typeof t != "string" && (e === t.link || e === t.route),
 					);
 					if (r && typeof r != "string") {
@@ -38,17 +33,12 @@ export function q(e) {
 				m.replace(e);
 			}
 		},
-		[p.route, l, m, t],
+		[p.route, disableRouteReporting, m, pages],
 	);
 	n.useEffect(() => {
-		if (r) {
-			r(g);
+		if (fnSetNavigateToPage) {
+			fnSetNavigateToPage(g);
 		}
-	}, [r, g]);
-	return n.createElement(s.Bv, {
-		onPageRequested: g,
-		page: p.link || p.route,
-		pages: d,
-		...c,
-	});
+	}, [fnSetNavigateToPage, g]);
+	return <s.Bv onPageRequested={g} page={p.link || p.route} pages={d} {...c} />;
 }

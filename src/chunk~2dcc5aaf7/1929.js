@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GiveawayWinnerBox: "_3cv4lblvGYp_wrnLaNEVn0",
 	GiveawayWinnerAnnounced: "oLk3wFE5C0ocSKj9h7UMR",
 	WinnerFlash: "_29x--KnTUnv5WIHAtqtwID",

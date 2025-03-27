@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./94361.js");
+import n from "./63696.js";
+import i from "./94361.js";
 export function p(e) {
-	const { children: t, name: r } = e;
-	var a;
-	a = r;
+	const { children, name } = e;
+	let a;
+	a = name;
 	n.useEffect(() => {
 		i.y.ReportTrackedComponent(a);
 	}, [a]);
-	return n.createElement(n.Fragment, null, t);
+	return <>{children}</>;
 }
 export function L(e) {
 	i.y.ReportTrackedAction(e);

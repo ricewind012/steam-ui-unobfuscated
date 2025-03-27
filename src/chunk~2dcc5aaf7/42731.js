@@ -1,12 +1,12 @@
-export var FD;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./84731.js");
-var o = require(/*webcrack:missing*/ "./49455.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./70232.js");
-var m = require("./12956.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a, { Gn, h5, EW } from "./89193.js";
+import s from "./84731.js";
+import { w } from "./49455.js";
+import { Y2 } from "./72476.js";
+import c from "./70232.js";
+import m from "./12956.js";
+export let FD;
+((e) => {
 	e.k_ERecent = "recent";
 	e.k_ELibrary = "library";
 	e.k_EWishlist = "wishlist";
@@ -26,8 +26,8 @@ const u = [
 ];
 const d = [...u, FD.k_EFeatured];
 const A = [FD.k_EFeatured];
-export var xj;
-(function (e) {
+export let xj;
+((e) => {
 	e.k_ENews = "news";
 	e.k_EEvents = "events";
 	e.k_EStreaming = "streaming";
@@ -64,8 +64,8 @@ export class vJ {
 	m_eStorageType = "session";
 	m_strStorageKey;
 	constructor(e) {
-		(0, a.Gn)(this);
-		(0, a.h5)(() => {
+		Gn(this);
+		h5(() => {
 			if (e?.rgHiddenApps) {
 				e.rgHiddenApps.forEach((e) => this.m_mapHiddenApps.set(e, true));
 			}
@@ -101,7 +101,7 @@ export class vJ {
 	MapClanEventTypeToGroup(e) {
 		let t = null;
 		h.forEach((r, n) => {
-			if (r.indexOf(e) !== -1) {
+			if (r.includes(e)) {
 				t = n;
 			}
 		});
@@ -110,7 +110,7 @@ export class vJ {
 	InitDefaultCheckboxes(e, t, r) {
 		this.m_bInitializedForUpdatesOnly = t;
 		this.m_mapEventTypeGroupsAllowed = C(t ? [xj.k_EUpdates] : g);
-		const i = (0, l.Y2)() ? d : u;
+		const i = Y2() ? d : u;
 		this.m_mapGameSources = C(e ? i : A);
 		if (r) {
 			this.m_mapGameSources.set(FD.k_EFeatured, true);
@@ -124,9 +124,9 @@ export class vJ {
 		if (s) {
 			const e = JSON.parse(s);
 			if (e.rgEventTypeGroupsAllowed && e.rgGameSources) {
-				const { rgEventTypeGroupsAllowed: t, rgGameSources: r } = e;
-				this.m_mapEventTypeGroupsAllowed = C(t);
-				this.m_mapGameSources = C(r);
+				const { rgEventTypeGroupsAllowed, rgGameSources } = e;
+				this.m_mapEventTypeGroupsAllowed = C(rgEventTypeGroupsAllowed);
+				this.m_mapGameSources = C(rgGameSources);
 				if (e.bCuratorUnhideOnFollowDismissed !== undefined) {
 					this.m_bCuratorUnhideOnFollowDialogDismissed =
 						e.bCuratorUnhideOnFollowDismissed;
@@ -183,7 +183,7 @@ export class vJ {
 			if (e == FD.k_ERecent) {
 				this.m_mapGameSources.delete(FD.k_ELibrary);
 			} else if (e == FD.k_ELibrary) {
-				(0, o.w)(
+				w(
 					!this.m_mapGameSources.has(FD.k_ERecent),
 					"Setting Library although Recent already set - illusion was broken",
 				);
@@ -217,6 +217,7 @@ export class vJ {
 			!this.m_mapHiddenClans.has(e.clanid) &&
 			(!!(t & s.bK.k_eRequired) ||
 				!!(t & s.bK.k_eReposted) ||
+				!!(t & s.bK.k_eReposted) ||
 				Boolean(
 					(this.BIsGameSourceAllowed(FD.k_ERecent) && r) ||
 						(this.BIsGameSourceAllowed(FD.k_ELibrary) && t & s.bK.k_eLibrary) ||
@@ -240,7 +241,7 @@ export class vJ {
 		);
 	}
 	BAreAnyEventsFiltered(e) {
-		const t = (0, l.Y2)() ? d : u;
+		const t = Y2() ? d : u;
 		return (
 			(e ? t : A).some((e) => !this.BIsGameSourceAllowed(e)) ||
 			g.some((e) => !this.BIsEventTypeGroupAllowed(e))
@@ -271,19 +272,14 @@ export class vJ {
 		}
 	}
 }
-(0, i.Cg)([a.sH], vJ.prototype, "m_mapEventTypeGroupsAllowed", undefined);
-(0, i.Cg)([a.sH], vJ.prototype, "m_mapGameSources", undefined);
-(0, i.Cg)(
-	[a.sH],
-	vJ.prototype,
-	"m_bCuratorUnhideOnFollowDialogDismissed",
-	undefined,
-);
-(0, i.Cg)([a.sH], vJ.prototype, "m_mapHiddenApps", undefined);
-(0, i.Cg)([a.sH], vJ.prototype, "m_mapHiddenClans", undefined);
-(0, i.Cg)(
+Cg([a.sH], vJ.prototype, "m_mapEventTypeGroupsAllowed", undefined);
+Cg([a.sH], vJ.prototype, "m_mapGameSources", undefined);
+Cg([a.sH], vJ.prototype, "m_bCuratorUnhideOnFollowDialogDismissed", undefined);
+Cg([a.sH], vJ.prototype, "m_mapHiddenApps", undefined);
+Cg([a.sH], vJ.prototype, "m_mapHiddenClans", undefined);
+Cg(
 	[
-		(0, a.EW)({
+		EW({
 			keepAlive: true,
 			equals: a.m3.structural,
 		}),
@@ -292,5 +288,5 @@ export class vJ {
 	"enabledEventTypeSet",
 	null,
 );
-(0, i.Cg)([a.XI], vJ.prototype, "SetEventTypeGroupAllowed", null);
-(0, i.Cg)([a.XI], vJ.prototype, "SetGameSourceAllowed", null);
+Cg([a.XI], vJ.prototype, "SetEventTypeGroupAllowed", null);
+Cg([a.XI], vJ.prototype, "SetGameSourceAllowed", null);

@@ -1,15 +1,15 @@
-var n = require("./55667.js");
-var i = require("./58839.js");
-var a = require("./991.js");
-var s = require("./83591.js");
-var o = require("./5859.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./35268.js");
+import n from "./55667.js";
+import i, { SW } from "./58839.js";
+import a, { f } from "./991.js";
+import s from "./83591.js";
+import o from "./5859.js";
+import l from "./72476.js";
+import c from "./35268.js";
 export async function H2(e, t, r) {
 	if (!e || e.length == 0) {
 		return [];
 	}
-	const n = e.filter((e) => (0, a.f)(e.type)).map((e) => e.id);
+	const n = e.filter((e) => f(e.type)).map((e) => e.id);
 	const i = e.filter((e) => e.type === "sub").map((e) => e.id);
 	const s = e.filter((e) => e.type === "bundle").map((e) => e.id);
 	await Promise.all([
@@ -76,7 +76,7 @@ export async function AX(e, t, r, a) {
 	const u = [];
 	await H2(e, n.Xh, t);
 	for (const n of e) {
-		const e = o.A.Get().GetStoreItem(n.id, (0, i.SW)(n.type));
+		const e = o.A.Get().GetStoreItem(n.id, SW(n.type));
 		if (!e) {
 			s++;
 			continue;
@@ -106,11 +106,7 @@ export async function AX(e, t, r, a) {
 	}
 	if (l.TS.WEB_UNIVERSE === "dev" && u.length === 0) {
 		console.log(
-			"ApplyStorePreferenceFilters: " +
-				s +
-				" failed to load, " +
-				c +
-				" hidden by user filter.",
+			`ApplyStorePreferenceFilters: ${s} failed to load, ${c} hidden by user filter.`,
 		);
 	}
 	return u;
@@ -124,12 +120,13 @@ export async function a9(e, t, r, n, a, l, c) {
 			? (e) =>
 					!e ||
 					s.Fm.Get().BExcludesContentDescriptor(e.GetContentDescriptorIDs()) ||
+					s.Fm.Get().BExcludesContentDescriptor(e.GetContentDescriptorIDs()) ||
 					s.Fm.Get().BExcludeTagIDs(e.GetTagIDs())
 			: Li,
 	);
 	const u = [];
 	for (const e of m) {
-		const t = o.A.Get().GetStoreItem(e.id, (0, i.SW)(e.type));
+		const t = o.A.Get().GetStoreItem(e.id, SW(e.type));
 		if (!t) {
 			continue;
 		}

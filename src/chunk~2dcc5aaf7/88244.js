@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./60712.js");
-var s = a;
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./60712.js";
+const s = a;
 class _o {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_nRightPanelWidth = 0;
 	m_nRightPanelHeight = 0;
@@ -33,7 +33,7 @@ class _o {
 		}
 	}
 }
-(0, n.Cg)([i.sH], _o.prototype, "m_nRightPanelWidth", undefined);
-(0, n.Cg)([i.sH], _o.prototype, "m_nRightPanelHeight", undefined);
-(0, n.Cg)([i.XI], _o.prototype, "SetDimensions", null);
+Cg([i.sH], _o.prototype, "m_nRightPanelWidth", undefined);
+Cg([i.sH], _o.prototype, "m_nRightPanelHeight", undefined);
+Cg([i.XI], _o.prototype, "SetDimensions", null);
 export const o = new _o();

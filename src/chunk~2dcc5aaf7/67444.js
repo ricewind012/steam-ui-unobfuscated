@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	SettingsDialogButton: "_3epr8QYWw_FqFgMx38YEEm",
 	SettingsDialogSubHeader: "_2rK4YqGvSzXLj1bPZL8xMJ",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BindingIcon: "_2IoBnjmcsFcE6jh6cRrOBt",
 	Placeholder: "_6aPbQDiS3UpRJEUJHloyQ",

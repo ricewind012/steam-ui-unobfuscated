@@ -1,40 +1,40 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./42898.js");
+import n from "./63696.js";
+import { uH } from "./42898.js";
 export function H(e, t) {
-	const r = n.useRef();
-	const a = n.useRef();
-	const s = n.useRef();
-	const o = n.useRef();
-	const l = (0, i.uH)(e, t);
+	const RRef = n.useRef();
+	const ARef = n.useRef();
+	const SRef = n.useRef();
+	const ORef = n.useRef();
+	const l = uH(e, t);
 	n.useEffect(() => {
 		if (!e && l) {
-			if (r.current) {
-				s.current = {
-					scrollTop: r.current.scrollTop,
-					scrollLeft: r.current.scrollLeft,
+			if (RRef.current) {
+				SRef.current = {
+					scrollTop: RRef.current.scrollTop,
+					scrollLeft: RRef.current.scrollLeft,
 				};
 			}
-			if (a.current) {
-				o.current = a.current.GetFocusSnapshot();
+			if (ARef.current) {
+				ORef.current = ARef.current.GetFocusSnapshot();
 			}
 		} else if (e && !l) {
-			if (r.current && s.current) {
-				const { scrollTop: e, scrollLeft: t } = s.current;
-				s.current = undefined;
+			if (RRef.current && SRef.current) {
+				const { scrollTop, scrollLeft } = SRef.current;
+				SRef.current = undefined;
 				window.setTimeout(() => {
-					r.current.scrollTop = e;
-					r.current.scrollLeft = t;
+					RRef.current.scrollTop = scrollTop;
+					RRef.current.scrollLeft = scrollLeft;
 				}, 1);
 			}
-			if (a.current && o.current) {
-				a.current.RestoreFocusSnapshot(o.current, 2);
-				o.current = undefined;
+			if (ARef.current && ORef.current) {
+				ARef.current.RestoreFocusSnapshot(ORef.current, 2);
+				ORef.current = undefined;
 			}
 		}
 	}, [e, l]);
 	return {
 		bShouldMount: l || e,
-		refNav: a,
-		refScroll: r,
+		refNav: ARef,
+		refScroll: RRef,
 	};
 }

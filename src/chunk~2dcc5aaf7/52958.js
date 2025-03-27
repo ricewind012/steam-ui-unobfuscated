@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./54043.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./54043.js";
 class s {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapDropTargets = new Map();
 	m_mapCurrentDragPayload = null;
@@ -46,7 +46,7 @@ class s {
 		this.m_rgEndPromises = [];
 	}
 }
-(0, n.Cg)([i.sH], s.prototype, "m_mapDropTargets", undefined);
-(0, n.Cg)([i.sH], s.prototype, "m_mapCurrentDragPayload", undefined);
+Cg([i.sH], s.prototype, "m_mapDropTargets", undefined);
+Cg([i.sH], s.prototype, "m_mapCurrentDragPayload", undefined);
 export const _ = new s();
 window.dragStore = _;

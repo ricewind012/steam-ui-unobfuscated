@@ -1,18 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./48214.js");
-var l = o;
-var c = require(/*webcrack:missing*/ "./90765.js");
-class m extends i.Component {
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { fm } from "./89193.js";
+import s from "./52451.js";
+import o from "./48214.js";
+import { A as A_1 } from "./90765.js";
+const l = o;
+
+export class A extends i.Component {
 	m_strLastSearch;
 	m_rgCurrentMatches = [];
 	m_mapMatchByKey = new Map();
 	containerRef = i.createRef();
 	constructor(e) {
 		super(e);
-		this.m_hMobxSearchDisposer = (0, a.fm)(async () => {
+		this.m_hMobxSearchDisposer = fm(async () => {
 			await this.UpdateSearchResults(this.props.strSearch);
 			this.forceUpdate();
 		});
@@ -27,26 +28,32 @@ class m extends i.Component {
 	}
 	BHandleKeyPress(e) {
 		switch (e) {
-			case 38:
+			case 38: {
 				this.SetSelectedIndexDelta(-1);
 				break;
-			case 40:
+			}
+			case 40: {
 				this.SetSelectedIndexDelta(1);
 				break;
-			case 36:
+			}
+			case 36: {
 				this.SetSelectedIndex(0);
 				break;
-			case 33:
+			}
+			case 33: {
 				this.SetSelectedIndexDelta(-this.GetPageSize());
 				break;
-			case 35:
+			}
+			case 35: {
 				this.SetSelectedIndex(-1);
 				break;
-			case 34:
+			}
+			case 34: {
 				this.SetSelectedIndexDelta(this.GetPageSize());
 				break;
+			}
 			case 13:
-			case 9:
+			case 9: {
 				if (this.state.selectedIndex === undefined) {
 					this.props.onSuggestionSelected(this.props.strSearch);
 					return false;
@@ -55,11 +62,14 @@ class m extends i.Component {
 					this.m_rgCurrentMatches[this.state.selectedIndex],
 				);
 				break;
-			case 27:
+			}
+			case 27: {
 				this.props.onSuggestionSelected(this.props.strSearch);
 				break;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 		return true;
 	}
@@ -187,18 +197,16 @@ class m extends i.Component {
 				let n = this.getKey(t);
 				let a = r === this.state.selectedIndex;
 				e.push(
-					i.createElement(
-						u,
-						{
-							key: n,
-							matchKey: n,
-							fnOnClick: this.OnClickSuggestion,
-							fnOnMouseOver: this.OnMouseOverSuggestion,
-							bIsSelected: a,
-							ref: a ? this.BindSelectedElement : undefined,
-						},
-						this.renderMatch(t),
-					),
+					<U
+						key={n}
+						matchKey={n}
+						fnOnClick={this.OnClickSuggestion}
+						fnOnMouseOver={this.OnMouseOverSuggestion}
+						bIsSelected={a}
+						ref={a ? this.BindSelectedElement : undefined}
+					>
+						{this.renderMatch(t)}
+					</U>,
 				);
 			}
 			if (this.m_rgCurrentMatches.length > t) {
@@ -213,30 +221,26 @@ class m extends i.Component {
 			}
 			e.push(t);
 		}
-		return i.createElement(
-			"div",
-			{
-				className: l.mentionDialogPosition,
-				ref: this.containerRef,
-			},
-			i.createElement(
-				"div",
-				{
-					className: l.mentionDialog,
-					tabIndex: 0,
-					onKeyDown: this.OnKeyDown,
-				},
-				this.renderHeader(),
-				e,
-			),
+		return (
+			<div className={l.mentionDialogPosition} ref={this.containerRef}>
+				<div
+					className={l.mentionDialog}
+					tabIndex={0}
+					onKeyDown={this.OnKeyDown}
+				>
+					{this.renderHeader()}
+					{e}
+				</div>
+			</div>
 		);
 	}
 }
-(0, n.Cg)([s.oI], m.prototype, "OnKeyDown", null);
-(0, n.Cg)([s.oI], m.prototype, "OnClickSuggestion", null);
-(0, n.Cg)([s.oI], m.prototype, "OnMouseOverSuggestion", null);
-(0, n.Cg)([s.oI], m.prototype, "BindSelectedElement", null);
-class u extends i.PureComponent {
+
+Cg([s.oI], A.prototype, "OnKeyDown", null);
+Cg([s.oI], A.prototype, "OnClickSuggestion", null);
+Cg([s.oI], A.prototype, "OnMouseOverSuggestion", null);
+Cg([s.oI], A.prototype, "BindSelectedElement", null);
+class U extends i.PureComponent {
 	containerRef = i.createRef();
 	OnMouseOver(e) {
 		this.props.fnOnMouseOver(this.props.matchKey);
@@ -245,22 +249,21 @@ class u extends i.PureComponent {
 		this.props.fnOnClick(this.props.matchKey);
 	}
 	render() {
-		return i.createElement(
-			"div",
-			{
-				className: (0, c.A)(
+		return (
+			<div
+				className={A_1(
 					l.suggestOption,
 					l.mentionSearchOption,
 					this.props.bIsSelected ? l.selected : "",
-				),
-				onMouseEnter: this.OnMouseOver,
-				onClick: this.OnClick,
-				ref: this.containerRef,
-			},
-			this.props.children,
+				)}
+				onMouseEnter={this.OnMouseOver}
+				onClick={this.OnClick}
+				ref={this.containerRef}
+			>
+				{this.props.children}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([s.oI], u.prototype, "OnMouseOver", null);
-(0, n.Cg)([s.oI], u.prototype, "OnClick", null);
-export const A = m;
+Cg([s.oI], U.prototype, "OnMouseOver", null);
+Cg([s.oI], U.prototype, "OnClick", null);

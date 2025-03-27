@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./61416.js");
-var a = require(/*webcrack:missing*/ "./55037.js");
-var s = require(/*webcrack:missing*/ "./46382.js");
-var o = require(/*webcrack:missing*/ "./16583.js");
-var l = require("./88724.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-require(/*webcrack:missing*/ "./75144.js");
-var m = require("./54946.js");
-var u = require(/*webcrack:missing*/ "./11682.js");
-var d = u;
+import n from "./63696.js";
+import i, { I } from "./61416.js";
+import { E } from "./55037.js";
+import { KV } from "./46382.js";
+import { Kx } from "./16583.js";
+import l from "./88724.js";
+import c from "./8573.js";
+import "./75144.js";
+import m from "./54946.js";
+import u from "./11682.js";
+const d = u;
 function A(e, t) {
 	return new d(
 		async (t) => {
@@ -33,50 +33,42 @@ function A(e, t) {
 	);
 }
 export function js(e) {
-	const t = (0, s.KV)();
-	const r = n.useContext(C);
-	return (0, i.I)(_(r, t, e));
+	const t = KV();
+	const r = n.useContext(CContext);
+	return I(_(r, t, e));
 }
 export function DW(e) {
-	const t = (0, s.KV)();
-	const r = n.useContext(C);
-	return (0, a.E)({
+	const t = KV();
+	const r = n.useContext(CContext);
+	return E({
 		queries: e.map((e) => _(r, t, e)),
 	});
 }
 export function un(e) {
-	const { loadPersonaState: t, children: r } = e;
+	const { loadPersonaState, children } = e;
 	const i = n.useMemo(
 		() => ({
-			loadPersonaState: t,
+			loadPersonaState: loadPersonaState,
 		}),
-		[t],
+		[loadPersonaState],
 	);
-	return n.createElement(
-		C.Provider,
-		{
-			value: i,
-		},
-		r,
-	);
+	return <CContext.Provider value={i}>{children}</CContext.Provider>;
 }
-const C = n.createContext({
+const CContext = n.createContext({
 	loadPersonaState: async (e, t) => {
 		if (e == null) {
 			return null;
 		}
-		const r = await (function (e) {
-			return (f ??= A(e));
-		})(t).load(c.b.InitFromAccountID(e).ConvertTo64BitString());
-		return (function (e, t) {
+		const r = await ((e) => (f ??= A(e)))(t).load(
+			c.b.InitFromAccountID(e).ConvertTo64BitString(),
+		);
+		return ((e, t) => {
 			let r = new l.Z(e);
 			const n = t?.public_data;
 			const i = t?.private_data;
 			r.m_bInitialized = !!t;
 			r.m_ePersonaState = i?.persona_state ?? 0;
-			r.m_strAvatarHash = n?.sha_digest_avatar
-				? (0, o.Kx)(n.sha_digest_avatar)
-				: l.dV;
+			r.m_strAvatarHash = n?.sha_digest_avatar ? Kx(n.sha_digest_avatar) : l.dV;
 			r.m_strPlayerName = n?.persona_name ?? e.ConvertTo64BitString();
 			r.m_strAccountName = i?.account_name;
 			if (i?.persona_state_flags) {

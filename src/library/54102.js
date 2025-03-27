@@ -1,5 +1,5 @@
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var i = require("./20893.js");
+import i from "./20893.js";
 class s {
 	m_root;
 	constructor(e) {

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Dummy: "_2840rmUpPlQD_u2oirCKXu",
 	Selected: "WvAtVArGoU9dj88kJb1G",
 	HighlightIcon: "_3rt1qClyPaHAYiVwOSu9Xz",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	nAchievementHeight: "80px",
 	nGlobalAchievementHeight: "68px",

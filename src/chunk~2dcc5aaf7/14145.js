@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	nRowHeight: "17px",
 	Console: "_1fuML-ekRbTEzgzC597yGP",

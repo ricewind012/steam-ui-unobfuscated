@@ -1,30 +1,30 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./52451.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./88696.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-var m = require(/*webcrack:missing*/ "./12176.js");
-var u = require("./54946.js");
-var d = require("./75888.js");
-var A = require("./89748.js");
-var p = require("./47801.js");
-var g = require("./22091.js");
-var h = require("./60917.js");
-var C = require("./43024.js");
-var _ = require("./18057.js");
-var f = require("./49171.js");
-var b = require("./34792.js");
-var y = require(/*webcrack:missing*/ "./31958.js");
-var S = require(/*webcrack:missing*/ "./61416.js");
-var w = require(/*webcrack:missing*/ "./75144.js");
-var B = require("./77347.js");
-var v = require("./10294.js");
+import n, { Cg } from "./34629.js";
+import i from "./52451.js";
+import a, { Gn, z7 } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./88696.js";
+import l from "./72476.js";
+import c from "./8573.js";
+import m from "./12176.js";
+import u from "./54946.js";
+import d from "./75888.js";
+import A, { Wx, qw } from "./89748.js";
+import p from "./47801.js";
+import g from "./22091.js";
+import h from "./60917.js";
+import C from "./43024.js";
+import _ from "./18057.js";
+import f from "./49171.js";
+import b, { VI, qt } from "./34792.js";
+import y from "./31958.js";
+import { I as I_1 } from "./61416.js";
+import w from "./75144.js";
+import B from "./77347.js";
+import v from "./10294.js";
 const I = "startupmovies";
 export function Tr() {
-	let e = (0, A.Wx)();
-	return (0, s.q3)(() => {
+	let e = Wx();
+	return q3(() => {
 		if (!e) {
 			return null;
 		}
@@ -32,15 +32,15 @@ export function Tr() {
 	});
 }
 export function sf() {
-	return (0, s.q3)(() => iG.GetKeyboardSkins());
+	return q3(() => iG.GetKeyboardSkins());
 }
 export function TR(e) {
-	return (0, s.q3)(() => e && iG.BHasClaimedSteamDeckRewards(e));
+	return q3(() => e && iG.BHasClaimedSteamDeckRewards(e));
 }
 export function FZ() {
-	const [e] = (0, b.VI)("startup_movie_shuffle");
-	const [t] = (0, b.VI)("startup_movie_local_path");
-	return (0, S.I)({
+	const [e] = VI("startup_movie_shuffle");
+	const [t] = VI("startup_movie_local_path");
+	return I_1({
 		queryKey: ["startup_movie_local_path", e, t],
 		queryFn: async () => {
 			let r = t;
@@ -73,12 +73,12 @@ export function dT() {
 	});
 }
 export function oS() {
-	let [e] = (0, b.VI)("startup_movie_id");
+	let [e] = VI("startup_movie_id");
 	return e;
 }
 class N {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_localStorage;
@@ -127,7 +127,11 @@ class N {
 	}
 	BIsValidSteamDeckSerialNumber(e) {
 		return (
-			e && (e.startsWith("FX") || e.startsWith("FW") || e.startsWith("FV"))
+			e &&
+			(e.startsWith("FX") ||
+				e.startsWith("FW") ||
+				e.startsWith("FW") ||
+				e.startsWith("FV"))
 		);
 	}
 	GetKeyboardSkins() {
@@ -214,14 +218,14 @@ class N {
 	async SetStartupMovie(e) {
 		if (e) {
 			await Promise.all([
-				(0, b.qt)("startup_movie_id", e.communityitemid),
-				(0, b.qt)("startup_movie_local_path", e.movie_webm_local_path),
+				qt("startup_movie_id", e.communityitemid),
+				qt("startup_movie_local_path", e.movie_webm_local_path),
 			]);
 			return true;
 		} else {
 			await Promise.all([
-				(0, b.qt)("startup_movie_id", ""),
-				(0, b.qt)("startup_movie_local_path", ""),
+				qt("startup_movie_id", ""),
+				qt("startup_movie_local_path", ""),
 			]);
 			return true;
 		}
@@ -334,7 +338,7 @@ class N {
 		if (e && this.BIsValidSteamDeckSerialNumber(e.strSerialNumber)) {
 			if (
 				!this.BHasClaimedSteamDeckRewards(e.strSerialNumber) &&
-				!(0, A.qw)().BIsOfflineMode()
+				!qw().BIsOfflineMode()
 			) {
 				if (B.OQ.Get().hasSteamConnection) {
 					if (this.m_notifyClaimRewardsTimer) {
@@ -395,7 +399,7 @@ class N {
 		);
 		switch (n.GetEResult()) {
 			case 29:
-			case 1:
+			case 1: {
 				SteamClient.Settings.SetRegisteredSteamDeck(l.iA.steamid, e);
 				this.m_steamDeckRegistration = {
 					strSerialNumber: e,
@@ -403,6 +407,7 @@ class N {
 					bRegistered: true,
 					bIgnoreRegistrationPrompt: false,
 				};
+			}
 		}
 		return {
 			result: n.GetEResult(),
@@ -410,7 +415,7 @@ class N {
 		};
 	}
 	async GetEquippedProfileItemsForUser(e) {
-		await (0, a.z7)(() => this.m_CMInterface != null);
+		await z7(() => this.m_CMInterface != null);
 		let t = m.w.Init(u.aK);
 		t.Body().set_steamid(e.ConvertTo64BitString());
 		t.Body().set_language(l.TS.LANGUAGE);
@@ -420,13 +425,13 @@ class N {
 		);
 		if (r.GetEResult() == 1) {
 			this.m_localStorage.StoreObject(
-				"GetEquippedProfileItemsForUser" + e.ConvertTo64BitString(),
+				`GetEquippedProfileItemsForUser${e.ConvertTo64BitString()}`,
 				r.Body().toObject(),
 			);
 			return r.Body().toObject();
 		} else {
 			return await this.m_localStorage.GetObject(
-				"GetEquippedProfileItemsForUser" + e.ConvertTo64BitString(),
+				`GetEquippedProfileItemsForUser${e.ConvertTo64BitString()}`,
 			);
 		}
 	}
@@ -445,16 +450,16 @@ class N {
 		}
 	}
 }
-(0, n.Cg)([a.sH], N.prototype, "m_equippedItems", undefined);
-(0, n.Cg)([a.sH], N.prototype, "m_keyboardSkins", undefined);
-(0, n.Cg)([a.sH], N.prototype, "m_startupMovies", undefined);
-(0, n.Cg)([a.sH.shallow], N.prototype, "m_mapKeyboardSkinThemes", undefined);
-(0, n.Cg)([a.sH], N.prototype, "m_steamDeckRegistration", undefined);
-(0, n.Cg)([i.oI], N.prototype, "OnFriendEquippedProfileItemsChanged", null);
-(0, n.Cg)([i.oI], N.prototype, "OnNotification", null);
-(0, n.Cg)([i.oI], N.prototype, "OnSystemResumedFromSuspend", null);
-(0, n.Cg)([a.XI], N.prototype, "PopulateStartupMovies", null);
-(0, n.Cg)([a.XI], N.prototype, "IgnoreSteamDeckRewardsPrompt", null);
-(0, n.Cg)([a.XI], N.prototype, "ClaimSteamDeckRewards", null);
+Cg([a.sH], N.prototype, "m_equippedItems", undefined);
+Cg([a.sH], N.prototype, "m_keyboardSkins", undefined);
+Cg([a.sH], N.prototype, "m_startupMovies", undefined);
+Cg([a.sH.shallow], N.prototype, "m_mapKeyboardSkinThemes", undefined);
+Cg([a.sH], N.prototype, "m_steamDeckRegistration", undefined);
+Cg([i.oI], N.prototype, "OnFriendEquippedProfileItemsChanged", null);
+Cg([i.oI], N.prototype, "OnNotification", null);
+Cg([i.oI], N.prototype, "OnSystemResumedFromSuspend", null);
+Cg([a.XI], N.prototype, "PopulateStartupMovies", null);
+Cg([a.XI], N.prototype, "IgnoreSteamDeckRewardsPrompt", null);
+Cg([a.XI], N.prototype, "ClaimSteamDeckRewards", null);
 export const iG = new N();
 window.userProfileStore = iG;

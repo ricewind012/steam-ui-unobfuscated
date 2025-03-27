@@ -1,30 +1,26 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./58663.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./59351.js");
-var l = require("./6630.js");
-var c = require("./41485.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require("./62486.js");
-var d = require("./46422.js");
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require("./18057.js");
-var g = require(/*webcrack:missing*/ "./83599.js");
-var h = require("./49171.js");
-var C = require(/*webcrack:missing*/ "./44846.js");
-var _ = require("./79112.js");
-var f = require(/*webcrack:missing*/ "./49519.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./58663.js";
+import s, { Gn, h5, HO } from "./89193.js";
+import o, { pY } from "./59351.js";
+import l from "./6630.js";
+import c from "./41485.js";
+import m from "./72476.js";
+import u, { X, bp } from "./62486.js";
+import d from "./46422.js";
+import A from "./52451.js";
+import p from "./18057.js";
+import g from "./83599.js";
+import h from "./49171.js";
+import C from "./44846.js";
+import { lF } from "./79112.js";
+import { B6 } from "./49519.js";
 a.Message;
 const b = new g.wd("ControllerConfigurator");
 export function Ij(e) {
-	return (
-		e.eControllerSource +
-		"-" +
-		(e.baseActionSetKey ?? "0") +
-		"-" +
-		(e.layerActionSetKey ?? "0")
-	);
+	return `${e.eControllerSource}-${e.baseActionSetKey ?? "0"}-${
+		e.layerActionSetKey ?? "0"
+	}`;
 }
 class S {
 	m_appId = undefined;
@@ -73,13 +69,13 @@ class S {
 	m_arrBackstack = [];
 	m_currentBackstackLevel = 0;
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 		const e = g.fi.Get().IsDebugLogEnabled("ControllerConfiguratorStore");
 		SteamClient.Input?.RegisterForControllerListChanges(
 			this.OnControllerListChanged,
 		);
 		if (e && m.TS.DEV_MODE) {
-			(0, o.pY)(this, (e, t) =>
+			pY(this, (e, t) =>
 				b.Debug(
 					"%cdeepObserve(ControllerConfiguration):",
 					"color: purple; font-weight: bold;",
@@ -185,8 +181,8 @@ class S {
 		if (!t) {
 			return null;
 		}
-		const r = t.url;
-		return this.m_mapAppConfigs.get(this.m_appId)?.find((e) => e.URL == r);
+		const t_url = t.url;
+		return this.m_mapAppConfigs.get(this.m_appId)?.find((e) => e.URL == t_url);
 	}
 	ClearSelectedConfigCache(e) {
 		if (e) {
@@ -224,7 +220,7 @@ class S {
 	}
 	OnControllerCommandMessage(e) {
 		switch (e.eAction) {
-			case 52:
+			case 52: {
 				if (h.z.BRouteMatch(p.BV.GamepadUI.ControllerConfigurator.Root())) {
 					return;
 				}
@@ -233,6 +229,7 @@ class S {
 				}
 				this.SetChordHintVisible(true);
 				break;
+			}
 			case 53: {
 				this.SetChordHintVisible(false);
 				const e = d.oy.MainRunningApp?.appid;
@@ -250,11 +247,11 @@ class S {
 		if (this.m_PreviewConfiguration) {
 			return;
 		}
-		const r = (0, _.lF)();
+		const r = lF();
 		if (r) {
 			r.App(e);
 		}
-		const n = "workshop://" + t;
+		const n = `workshop://${t}`;
 		const i =
 			v3.EditingConfigurationControllerIndex ??
 			d.oy.MostRecentlyActiveControllerIndex;
@@ -292,6 +289,7 @@ class S {
 			!this.m_bIsUpdatingActiveConfiguration &&
 			(e != this.m_appId ||
 				t != this.m_unControllerIndex ||
+				t != this.m_unControllerIndex ||
 				this.m_CurrentEditedConfigSelectedIdx !=
 					this.m_ConfigSelectionChangeIdx)
 		) {
@@ -315,11 +313,11 @@ class S {
 					.then((r) => {
 						const n = c.ln.deserializeBinary(r).toObject();
 						b.Debug("Loaded controller config for appid", e, r, n);
-						(0, s.h5)(() => this.UpdateEditingConfiguration(e, t, n));
+						h5(() => this.UpdateEditingConfiguration(e, t, n));
 					})
 					.catch((r) => {
 						b.Debug("Loading controller config for appid rejected", e, r);
-						(0, s.h5)(() => this.UpdateEditingConfiguration(e, t, null));
+						h5(() => this.UpdateEditingConfiguration(e, t, null));
 					});
 		}
 	}
@@ -349,11 +347,11 @@ class S {
 					.then((r) => {
 						const n = c.ln.deserializeBinary(r).toObject();
 						b.Debug("Loaded controller config for appid", e, r, n);
-						(0, s.h5)(() => this.UpdatePreviewedConfiguration(e, t, n));
+						h5(() => this.UpdatePreviewedConfiguration(e, t, n));
 					})
 					.catch((r) => {
 						b.Debug("Loading controller config for appid rejected", e, r);
-						(0, s.h5)(() => this.UpdatePreviewedConfiguration(e, t, null));
+						h5(() => this.UpdatePreviewedConfiguration(e, t, null));
 					});
 		}
 	}
@@ -363,18 +361,18 @@ class S {
 			!this.m_ChordSummaryConfiguration
 		) {
 			this.GetActiveConfigForApp(C.qh, e).then((t) => {
-				(0, s.h5)(() => {
+				h5(() => {
 					this.EditingConfigurationWillUpdate();
 					this.m_updatingEditingConfigurationPromise =
 						SteamClient.Input.PreviewConfigForAppAndController(C.qh, e, t.URL)
 							.then((e) => {
 								const t = c.ln.deserializeBinary(e).toObject();
 								b.Debug("Loaded chord config", e, t);
-								(0, s.h5)(() => this.UpdateChordSummaryConfiguration(t));
+								h5(() => this.UpdateChordSummaryConfiguration(t));
 							})
 							.catch((e) => {
 								b.Debug("Loading chord config for appid rejected", e);
-								(0, s.h5)(() => this.UpdateChordSummaryConfiguration(null));
+								h5(() => this.UpdateChordSummaryConfiguration(null));
 							});
 				});
 			});
@@ -467,8 +465,9 @@ class S {
 			v3.SetControllerConfiguratorLayerSetIndex(undefined);
 			return true;
 		}
-		const r = v3.ControllerConfiguratorLayerSetIndex;
-		if (r != null) {
+		const v3_ControllerConfiguratorLayerSetIndex =
+			v3.ControllerConfiguratorLayerSetIndex;
+		if (v3_ControllerConfiguratorLayerSetIndex != null) {
 			const e = t.layers?.[r];
 			if (e == null) {
 				v3.SetControllerConfiguratorLayerSetIndex(undefined);
@@ -491,18 +490,25 @@ class S {
 				e.push({
 					nActionSetIndex: r,
 					nLayerIndex: i,
-					strName: t.display_name + ": " + n.display_name,
+					strName: `${t.display_name}: ${n.display_name}`,
 				});
 			});
 		});
 		return e;
 	}
 	GoToRelativeEditingConfigurationActionSetInFlattenedList(e) {
-		const t = v3.ControllerConfiguratorBaseSetIndex;
-		const r = v3.ControllerConfiguratorLayerSetIndex;
+		const {
+			ControllerConfiguratorBaseSetIndex,
+			ControllerConfiguratorLayerSetIndex,
+		} = v3;
+
 		const n = this.GetFlattenedActionSets();
 		const i =
-			n.findIndex((e) => e.nActionSetIndex == t && e.nLayerIndex == r) + e;
+			n.findIndex(
+				(e) =>
+					e.nActionSetIndex == ControllerConfiguratorBaseSetIndex &&
+					e.nLayerIndex == ControllerConfiguratorLayerSetIndex,
+			) + e;
 		return (
 			!(i < 0) &&
 			!(i >= n.length) &&
@@ -515,17 +521,13 @@ class S {
 		const i = new a.BinaryWriter();
 		r.serializeBinaryToWriter(r.fromObject(t), i);
 		const o = i.getResultBase64String();
-		b.Debug(
-			"SetEditingConfigurationValue serializeBinaryToWriter",
-			(0, s.HO)(t),
-			o,
-		);
+		b.Debug("SetEditingConfigurationValue serializeBinaryToWriter", HO(t), o);
 		this.EditingConfigurationWillUpdate();
 		this.m_updatingEditingConfigurationPromise = n(o)
 			.then((t) => {
 				if (t == null) {
 					b.Debug("SetEditingConfigurationValue returned nothing.");
-					(0, s.h5)(() =>
+					h5(() =>
 						this.UpdateEditingConfiguration(
 							e,
 							this.m_unControllerIndex,
@@ -541,7 +543,7 @@ class S {
 				);
 				this.UpdateEditingConfiguration(e, this.m_unControllerIndex, r);
 				this.m_nEditNumber++;
-				if (r.url.indexOf("autosave://") == -1) {
+				if (!r.url.includes("autosave://")) {
 					this.SaveEditingConfiguration(e);
 				}
 			})
@@ -577,7 +579,7 @@ class S {
 					baseActionSetKey: t.action_set_key,
 					layerActionSetKey: t.action_set_layer_key ?? "",
 				});
-				const n = (0, u.X)(
+				const n = X(
 					this.m_CachedMsgs.m_EditedControllerInputGroup?.settings,
 					u.jg[this.m_CachedMsgs.m_EditedControllerInputGroup.mode],
 					this.m_eSourceType,
@@ -635,7 +637,7 @@ class S {
 				this.m_CachedMsgs.m_EditedControllerInputActivator.settings[
 					e
 				].int_value = t.new_setting.int_value;
-				this.m_EditedControllerInputActivatorSettings = (0, u.X)(
+				this.m_EditedControllerInputActivatorSettings = X(
 					this.m_CachedMsgs.m_EditedControllerInputActivator.settings,
 					u.av[this.m_CachedMsgs.m_EditedControllerInputActivator?.activation],
 					this.m_eSourceType,
@@ -820,7 +822,7 @@ class S {
 	GetAllConfigs() {
 		let e = [];
 		this.m_mapAppConfigs.forEach((t, r) => {
-			if (!(0, u.bp)(r)) {
+			if (!bp(r)) {
 				t.forEach((t) => e.push(t));
 			}
 		});
@@ -875,22 +877,27 @@ class S {
 		}
 		switch (t) {
 			case 2:
-			case 3:
+			case 3: {
 				return [2, 3, 4].some((t) => e === t);
+			}
 			case 4:
-			case 46:
+			case 46: {
 				break;
+			}
 			case 30:
 			case 33:
 			case 31:
-			case 32:
+			case 32: {
 				return [33, 31, 32, 46, 49].some((t) => e === t);
+			}
 			case 34:
 			case 45:
-			case 48:
+			case 48: {
 				return [4, 34, 45, 48].some((t) => e === t);
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 		return false;
 	}
@@ -901,7 +908,7 @@ class S {
 		return this.m_nVirtualMenuPreviewKey;
 	}
 	SetActiveInputBinding(e) {
-		this.m_CachedMsgs.m_MsgControllerInputBinding = (0, s.HO)(e);
+		this.m_CachedMsgs.m_MsgControllerInputBinding = HO(e);
 	}
 	SetVirtualMenuPreviewKey(e) {
 		if (this.m_nVirtualMenuPreviewKey != e) {
@@ -912,7 +919,7 @@ class S {
 		return this.m_CachedMsgs.m_EditedControllerBinding;
 	}
 	SetEditedInputBinding(e) {
-		this.m_CachedMsgs.m_EditedControllerBinding = (0, s.HO)(e);
+		this.m_CachedMsgs.m_EditedControllerBinding = HO(e);
 	}
 	SetActiveInputActivator(e, t, r, n) {
 		this.m_CachedMsgs.m_EditedControllerInputActivator = e;
@@ -922,12 +929,7 @@ class S {
 		) {
 			this.m_eSourceType = r;
 			this.m_eControllerType = n;
-			this.m_EditedControllerInputActivatorSettings = (0, u.X)(
-				e.settings,
-				t,
-				r,
-				n,
-			);
+			this.m_EditedControllerInputActivatorSettings = X(e.settings, t, r, n);
 		}
 	}
 	get CurrentEditedActivator() {
@@ -942,7 +944,7 @@ class S {
 			baseActionSetKey: e,
 			layerActionSetKey: t ?? "",
 		});
-		const o = (0, u.X)(r, n, i, a);
+		const o = X(r, n, i, a);
 		b.Debug("GroupSettings REPLACE", s, "WITH", o);
 		this.m_EditedControllerInputGroupSettings.set(s, o);
 	}
@@ -1001,7 +1003,7 @@ class S {
 		const e = this.ControllerConfiguratorBaseSetIndex ?? 0;
 		const t = this.ControllerConfiguratorLayerSetIndex;
 		const r = this.EditingConfiguration?.sets[e];
-		return (r == null ? undefined : r.layers[t]) ?? r;
+		return (r == null || r.layers[t]) ?? r;
 	}
 	SetControllerConfiguratorLayerSetIndex(e) {
 		this.m_nControllerConfiguratorLayerSetIndex = e;
@@ -1078,13 +1080,13 @@ class S {
 				this.m_locationPathname = e.pathname;
 			}
 			if (
-				(0, f.B6)(
+				B6(
 					this.m_locationPathname,
 					p.BV.GamepadUI.ControllerConfigurator.Root(),
 				)
 			) {
 				if (
-					(0, f.B6)(
+					B6(
 						this.m_locationPathname,
 						p.BV.GamepadUI.ControllerConfigurator.ModeSettings(),
 					)
@@ -1121,9 +1123,10 @@ class S {
 						}
 						break;
 					}
-					case "REPLACE":
+					case "REPLACE": {
 						this.m_arrBackstack.pop();
 						this.m_arrBackstack.push(this.m_locationPathname);
+					}
 				}
 			} else {
 				this.m_arrBackstack = [];
@@ -1143,152 +1146,97 @@ class S {
 	}
 }
 export function st(e, t) {
-	const [r, n] = i.useState(null);
-	const a = v3.SelectedConfigChangeIdx;
+	const [r, setR] = i.useState(null);
+	const v3_SelectedConfigChangeIdx = v3.SelectedConfigChangeIdx;
 	const s = t ?? v3.EditingConfigurationControllerIndex;
 	i.useEffect(() => {
-		v3.GetActiveConfigForApp(e, s).then((e) => n(e));
-	}, [e, s, a]);
+		v3.GetActiveConfigForApp(e, s).then((e) => setR(e));
+	}, [e, s, v3_SelectedConfigChangeIdx]);
 	return r;
 }
-(0, n.Cg)([s.sH], S.prototype, "m_appId", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_lastValidAppId", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_unControllerIndex", undefined);
-(0, n.Cg)([s.sH.deep], S.prototype, "m_mapLoadedConfigs", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_EditingConfiguration", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_PreviewConfiguration", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_ChordSummaryConfiguration", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bIsUpdatingActiveConfiguration", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bChordHintVisible", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_nEditNumber", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_nLastSavedEditNumber", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_nCachedDeletedConfigs", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_nVirtualMenuPreviewKey", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_controllerList", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bCloudSavePending", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bRemotePlayConfigPending", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bCloudConflict", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_ControllerConfiguratorFocusInput", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_strSearch", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_strChooseBindingTab", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_mapAppConfigs", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_bConfigQueryInFlight", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_mapCurrentSelectedConfigs", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_ConfigSelectionChangeIdx", undefined);
-(0, n.Cg)([s.sH], S.prototype, "m_CurrentEditedConfigSelectedIdx", undefined);
-(0, n.Cg)(
-	[s.sH],
-	S.prototype,
-	"m_nControllerConfiguratorBaseSetIndex",
-	undefined,
-);
-(0, n.Cg)(
-	[s.sH],
-	S.prototype,
-	"m_nControllerConfiguratorLayerSetIndex",
-	undefined,
-);
-(0, n.Cg)([s.sH.deep], S.prototype, "m_CachedMsgs", undefined);
-(0, n.Cg)(
-	[s.sH],
-	S.prototype,
-	"m_EditedControllerInputActivatorSettings",
-	undefined,
-);
-(0, n.Cg)(
-	[s.sH],
-	S.prototype,
-	"m_EditedControllerInputGroupSettings",
-	undefined,
-);
-(0, n.Cg)([s.sH], S.prototype, "m_bFilterOtherControllerTypes", undefined);
-(0, n.Cg)([A.oI], S.prototype, "OnControllerListChanged", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "EditingConfigurationWillUpdate", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "UpdateEditingConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "UpdateChordSummaryConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "UpdatePreviewedConfiguration", null);
-(0, n.Cg)([A.oI], S.prototype, "OnControllerCommandMessage", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ShowPreviewForConfig", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ClearPreviewConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ClearChordSummaryConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "EnsureEditingConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "PreviewConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "LoadChordConfig", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ClearEditingConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SaveEditingConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "FreeControllerConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ExportEditingConfiguration", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "BSetIndicesAreOkFixingIfNeeded", null);
-(0, n.Cg)(
+Cg([s.sH], S.prototype, "m_appId", undefined);
+Cg([s.sH], S.prototype, "m_lastValidAppId", undefined);
+Cg([s.sH], S.prototype, "m_unControllerIndex", undefined);
+Cg([s.sH.deep], S.prototype, "m_mapLoadedConfigs", undefined);
+Cg([s.sH], S.prototype, "m_EditingConfiguration", undefined);
+Cg([s.sH], S.prototype, "m_PreviewConfiguration", undefined);
+Cg([s.sH], S.prototype, "m_ChordSummaryConfiguration", undefined);
+Cg([s.sH], S.prototype, "m_bIsUpdatingActiveConfiguration", undefined);
+Cg([s.sH], S.prototype, "m_bChordHintVisible", undefined);
+Cg([s.sH], S.prototype, "m_nEditNumber", undefined);
+Cg([s.sH], S.prototype, "m_nLastSavedEditNumber", undefined);
+Cg([s.sH], S.prototype, "m_nCachedDeletedConfigs", undefined);
+Cg([s.sH], S.prototype, "m_nVirtualMenuPreviewKey", undefined);
+Cg([s.sH], S.prototype, "m_controllerList", undefined);
+Cg([s.sH], S.prototype, "m_bCloudSavePending", undefined);
+Cg([s.sH], S.prototype, "m_bRemotePlayConfigPending", undefined);
+Cg([s.sH], S.prototype, "m_bCloudConflict", undefined);
+Cg([s.sH], S.prototype, "m_ControllerConfiguratorFocusInput", undefined);
+Cg([s.sH], S.prototype, "m_strSearch", undefined);
+Cg([s.sH], S.prototype, "m_strChooseBindingTab", undefined);
+Cg([s.sH], S.prototype, "m_mapAppConfigs", undefined);
+Cg([s.sH], S.prototype, "m_bConfigQueryInFlight", undefined);
+Cg([s.sH], S.prototype, "m_mapCurrentSelectedConfigs", undefined);
+Cg([s.sH], S.prototype, "m_ConfigSelectionChangeIdx", undefined);
+Cg([s.sH], S.prototype, "m_CurrentEditedConfigSelectedIdx", undefined);
+Cg([s.sH], S.prototype, "m_nControllerConfiguratorBaseSetIndex", undefined);
+Cg([s.sH], S.prototype, "m_nControllerConfiguratorLayerSetIndex", undefined);
+Cg([s.sH.deep], S.prototype, "m_CachedMsgs", undefined);
+Cg([s.sH], S.prototype, "m_EditedControllerInputActivatorSettings", undefined);
+Cg([s.sH], S.prototype, "m_EditedControllerInputGroupSettings", undefined);
+Cg([s.sH], S.prototype, "m_bFilterOtherControllerTypes", undefined);
+Cg([A.oI], S.prototype, "OnControllerListChanged", null);
+Cg([s.XI.bound], S.prototype, "EditingConfigurationWillUpdate", null);
+Cg([s.XI.bound], S.prototype, "UpdateEditingConfiguration", null);
+Cg([s.XI.bound], S.prototype, "UpdateChordSummaryConfiguration", null);
+Cg([s.XI.bound], S.prototype, "UpdatePreviewedConfiguration", null);
+Cg([A.oI], S.prototype, "OnControllerCommandMessage", null);
+Cg([s.XI.bound], S.prototype, "ShowPreviewForConfig", null);
+Cg([s.XI.bound], S.prototype, "ClearPreviewConfiguration", null);
+Cg([s.XI.bound], S.prototype, "ClearChordSummaryConfiguration", null);
+Cg([s.XI.bound], S.prototype, "EnsureEditingConfiguration", null);
+Cg([s.XI.bound], S.prototype, "PreviewConfiguration", null);
+Cg([s.XI.bound], S.prototype, "LoadChordConfig", null);
+Cg([s.XI.bound], S.prototype, "ClearEditingConfiguration", null);
+Cg([s.XI.bound], S.prototype, "SaveEditingConfiguration", null);
+Cg([s.XI.bound], S.prototype, "FreeControllerConfiguration", null);
+Cg([s.XI.bound], S.prototype, "ExportEditingConfiguration", null);
+Cg([s.XI.bound], S.prototype, "BSetIndicesAreOkFixingIfNeeded", null);
+Cg(
 	[s.XI.bound],
 	S.prototype,
 	"GoToRelativeEditingConfigurationActionSetInFlattenedList",
 	null,
 );
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerActionSet", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerSourceMode", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerModeShiftBinding", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "DuplicateControllerSourceMode", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"SwapControllerConfigurationSourceModes",
-	null,
-);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerInputActivator", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"SetControllerInputActivatorEnabled",
-	null,
-);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerInputBinding", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetControllerMiscSettings", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ReOrderModeInputs", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "onControllerConfigInfo", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"onControllerConfigCloudStateChange",
-	null,
-);
-(0, n.Cg)([s.XI.bound], S.prototype, "onRemotePlayConfigChange", null);
-(0, n.Cg)([A.oI], S.prototype, "OnShowControllerLayoutPreviewMessage", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SyncDownControllerConfigs", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"RequestRemotePlayControllerConfigs",
-	null,
-);
-(0, n.Cg)([s.XI.bound], S.prototype, "UploadControllerConfigs", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "ResolveControllerConfig", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetActiveConfigForApp", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetActiveInputBinding", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetVirtualMenuPreviewKey", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetEditedInputBinding", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetActiveInputActivator", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetEditedGroupSettings", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetActiveInputGroup", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"SetControllerConfiguratorBaseSetIndex",
-	null,
-);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"SetControllerConfiguratorLayerSetIndex",
-	null,
-);
-(0, n.Cg)(
-	[s.XI.bound],
-	S.prototype,
-	"SetControllerConfiguratorFocusInput",
-	null,
-);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetSearchText", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "SetChooseBindingTab", null);
-(0, n.Cg)([s.XI.bound], S.prototype, "OnConfigSelectionChanged", null);
+Cg([s.XI.bound], S.prototype, "SetControllerActionSet", null);
+Cg([s.XI.bound], S.prototype, "SetControllerSourceMode", null);
+Cg([s.XI.bound], S.prototype, "SetControllerModeShiftBinding", null);
+Cg([s.XI.bound], S.prototype, "DuplicateControllerSourceMode", null);
+Cg([s.XI.bound], S.prototype, "SwapControllerConfigurationSourceModes", null);
+Cg([s.XI.bound], S.prototype, "SetControllerInputActivator", null);
+Cg([s.XI.bound], S.prototype, "SetControllerInputActivatorEnabled", null);
+Cg([s.XI.bound], S.prototype, "SetControllerInputBinding", null);
+Cg([s.XI.bound], S.prototype, "SetControllerMiscSettings", null);
+Cg([s.XI.bound], S.prototype, "ReOrderModeInputs", null);
+Cg([s.XI.bound], S.prototype, "onControllerConfigInfo", null);
+Cg([s.XI.bound], S.prototype, "onControllerConfigCloudStateChange", null);
+Cg([s.XI.bound], S.prototype, "onRemotePlayConfigChange", null);
+Cg([A.oI], S.prototype, "OnShowControllerLayoutPreviewMessage", null);
+Cg([s.XI.bound], S.prototype, "SyncDownControllerConfigs", null);
+Cg([s.XI.bound], S.prototype, "RequestRemotePlayControllerConfigs", null);
+Cg([s.XI.bound], S.prototype, "UploadControllerConfigs", null);
+Cg([s.XI.bound], S.prototype, "ResolveControllerConfig", null);
+Cg([s.XI.bound], S.prototype, "SetActiveConfigForApp", null);
+Cg([s.XI.bound], S.prototype, "SetActiveInputBinding", null);
+Cg([s.XI.bound], S.prototype, "SetVirtualMenuPreviewKey", null);
+Cg([s.XI.bound], S.prototype, "SetEditedInputBinding", null);
+Cg([s.XI.bound], S.prototype, "SetActiveInputActivator", null);
+Cg([s.XI.bound], S.prototype, "SetEditedGroupSettings", null);
+Cg([s.XI.bound], S.prototype, "SetActiveInputGroup", null);
+Cg([s.XI.bound], S.prototype, "SetControllerConfiguratorBaseSetIndex", null);
+Cg([s.XI.bound], S.prototype, "SetControllerConfiguratorLayerSetIndex", null);
+Cg([s.XI.bound], S.prototype, "SetControllerConfiguratorFocusInput", null);
+Cg([s.XI.bound], S.prototype, "SetSearchText", null);
+Cg([s.XI.bound], S.prototype, "SetChooseBindingTab", null);
+Cg([s.XI.bound], S.prototype, "OnConfigSelectionChanged", null);
 export const v3 = new S();

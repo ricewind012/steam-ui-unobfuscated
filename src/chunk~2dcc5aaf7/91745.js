@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./49455.js");
-var o = require(/*webcrack:missing*/ "./88750.js");
-var l = require(/*webcrack:missing*/ "./98995.js");
-var c = require("./43152.js");
-var m = require("./45967.js");
-var u = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn, fm } from "./89193.js";
+import { w } from "./49455.js";
+import { $b, fd } from "./88750.js";
+import { Vr } from "./98995.js";
+import { hk } from "./43152.js";
+import m from "./45967.js";
+import { q3 } from "./90095.js";
 const d = "DEBUG_LibrarySettingsZoo_";
 class A {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_mapToggles = new a.Es();
 	async Init() {
@@ -40,7 +40,7 @@ class A {
 					strDescription:
 						"Hovers will remain open to facilitate debugging and styling.",
 					fnOnChange: (e) => {
-						(0, l.Vr)(e);
+						Vr(e);
 					},
 				},
 			],
@@ -51,7 +51,7 @@ class A {
 					strDescription:
 						"Context menus will remain open to facilitate debugging and styling.",
 					fnOnChange: (e) => {
-						(0, o.$b)(e);
+						$b(e);
 					},
 				},
 			],
@@ -62,7 +62,7 @@ class A {
 					strDescription:
 						"Keyboard will remain open on focus lost to facilitate debugging and styling.",
 					fnOnChange: (e) => {
-						(0, c.hk)(e);
+						hk(e);
 					},
 				},
 			],
@@ -73,7 +73,7 @@ class A {
 					strDescription:
 						"All context menus will be created as popups rather than DOM elements.",
 					fnOnChange: (e) => {
-						(0, o.fd)(e);
+						fd(e);
 					},
 				},
 			],
@@ -223,7 +223,7 @@ class A {
 		this.m_mapToggles.forEach((e, t) => {
 			e.currentValue = !!e.defaultValue;
 		});
-		(0, a.fm)(() => {
+		fm(() => {
 			m.qL?.SetSimulatingVROnDesktop(this.GetToggle(20));
 		});
 	}
@@ -231,7 +231,7 @@ class A {
 		return this.GetToggleSetting(e)?.currentValue || false;
 	}
 	GetToggleSetting(e) {
-		(0, s.w)(
+		w(
 			this.m_mapToggles.size == 0 || this.m_mapToggles.has(e),
 			`Invalid toggle '${e}' -- did someone forget to add it to the map?`,
 		);
@@ -244,7 +244,7 @@ class A {
 		return this.GetAllToggles().filter(([t, r]) => r.eShowInPanel == e);
 	}
 	SetToggle(e, t) {
-		(0, s.w)(
+		w(
 			this.m_mapToggles.has(e),
 			`Invalid toggle '${e}' -- did someone forget to add it to the map?`,
 		);
@@ -258,11 +258,11 @@ class A {
 	}
 }
 export function Dw(e) {
-	const t = (0, u.q3)(() => hG.GetToggle(e));
+	const t = q3(() => hG.GetToggle(e));
 	const r = i.useCallback((t) => hG.SetToggle(e, t), [e]);
 	return i.useMemo(() => [t, r], [t, r]);
 }
-(0, n.Cg)([a.sH], A.prototype, "m_mapToggles", undefined);
-(0, n.Cg)([a.XI.bound], A.prototype, "SetToggle", null);
+Cg([a.sH], A.prototype, "m_mapToggles", undefined);
+Cg([a.XI.bound], A.prototype, "SetToggle", null);
 export const hG = new A();
 window.settingsZooStore = hG;

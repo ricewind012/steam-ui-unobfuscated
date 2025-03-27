@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./18057.js");
-var a = require("./96593.js");
-var s = require("./61175.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require(/*webcrack:missing*/ "./63696.js");
-var m = require(/*webcrack:missing*/ "./85243.js");
-var u = require(/*webcrack:missing*/ "./79769.js");
-var d = require(/*webcrack:missing*/ "./83599.js");
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./72476.js");
-var g = require("./33572.js");
-var h = require("./46422.js");
-var C = require("./5822.js");
-var _ = require("./60917.js");
+import n, { Cg } from "./34629.js";
+import i from "./18057.js";
+import a from "./96593.js";
+import s from "./61175.js";
+import o, { Gn, fm } from "./89193.js";
+import l, { q3 } from "./90095.js";
+import c from "./63696.js";
+import m from "./85243.js";
+import u, { Jc } from "./79769.js";
+import d from "./83599.js";
+import A, { gc } from "./52451.js";
+import p from "./72476.js";
+import g, { IB } from "./33572.js";
+import h from "./46422.js";
+import C from "./5822.js";
+import _ from "./60917.js";
 const f = new d.wd("CompositionState").Debug;
 export const VE = 769;
 const y = 413090;
@@ -29,11 +29,11 @@ export class _n {
 		windowID: 0,
 	};
 	m_mapFocusableApps = new o.Es();
-	m_currentlyFocusedAppid = (0, u.Jc)();
-	m_currentlyFocusedWindowID = (0, u.Jc)();
+	m_currentlyFocusedAppid = Jc();
+	m_currentlyFocusedWindowID = Jc();
 	m_Instance;
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_Instance = e;
 		this.m_currentlyFocusedAppid.Set(VE);
 		const t = Object.keys(m.I5)
@@ -45,8 +45,8 @@ export class _n {
 	}
 	Init() {
 		let e = [];
-		e.push((0, o.fm)(this.EnsureCorrectComposition));
-		e.push((0, o.fm)(this.EnsureCorrectGameOverlayState));
+		e.push(fm(this.EnsureCorrectComposition));
+		e.push(fm(this.EnsureCorrectGameOverlayState));
 		e.push(
 			SteamClient.System.UI.RegisterForFocusChangeEvents(
 				this.OnFocusChangeEvent,
@@ -71,7 +71,11 @@ export class _n {
 			r = true;
 		}
 		t.push(
-			`${this.GetName()}: Focused window = appid: ${e.focusedApp.appid}, pid: ${e.focusedApp.pid}, window: ${e.focusedApp.windowid.toString(16)}, exe: ${e.focusedApp.strExeName}`,
+			`${this.GetName()}: Focused window = appid: ${e.focusedApp.appid}, pid: ${
+				e.focusedApp.pid
+			}, window: ${e.focusedApp.windowid.toString(16)}, exe: ${
+				e.focusedApp.strExeName
+			}`,
 		);
 		let n = new Map();
 		this.m_mapFocusableApps.forEach((e, t) => {
@@ -92,7 +96,9 @@ export class _n {
 				n.windowids.push(e.windowid);
 				i.set(e.appid, n);
 				t.push(
-					`${this.GetName()}: >> #${r} = appid: ${e.appid}, pid: ${e.pid}, window: ${e.windowid.toString(16)}, exe: ${e.strExeName}`,
+					`${this.GetName()}: >> #${r} = appid: ${e.appid}, pid: ${
+						e.pid
+					}, window: ${e.windowid.toString(16)}, exe: ${e.strExeName}`,
 				);
 			});
 			i.forEach((e, t) => {
@@ -125,7 +131,7 @@ export class _n {
 			let e = "";
 			this.m_mapFocusableApps.forEach((t, r) => {
 				if (e.length > 0) {
-					e += ", " + r;
+					e += `, ${r}`;
 				} else {
 					e += r;
 				}
@@ -179,12 +185,13 @@ export class _n {
 	}
 	BHasAnyFocusableNonSteamWindows() {
 		let e = Array.from(this.m_mapFocusableApps.keys());
-		for (let t = 0; t < e.length; ++t) {
-			let r = e[t];
+
+		for (let r of e) {
 			if (r != VE && r != y) {
 				return true;
 			}
 		}
+
 		return false;
 	}
 	BHasAnyFocusableWindowsForAppID(e) {
@@ -409,6 +416,7 @@ export class _n {
 			t == m.I5.Overlay &&
 			(!p.TS.IN_GAMESCOPE ||
 				this.m_Instance.MenuStore.GetOpenSideMenu() == C.Ez.Main ||
+				this.m_Instance.MenuStore.GetOpenSideMenu() == C.Ez.Main ||
 				!!this.m_Instance.BRouteMatch(i.BV.GamepadUI.Chat()))
 		) {
 			r = true;
@@ -428,42 +436,42 @@ export class _n {
 	}
 }
 export function xf() {
-	const e = (0, g.IB)();
-	return (0, A.gc)(e.GetCurrentlyFocusedAppidSubscribableValue());
+	const e = IB();
+	return gc(e.GetCurrentlyFocusedAppidSubscribableValue());
 }
 export function Bx(e, t) {
-	const r = (0, g.IB)();
-	const n = c.useRef(null);
-	const [i, a] = c.useState(false);
+	const r = IB();
+	const NRef = c.useRef(null);
+	const [i, setI] = c.useState(false);
 	c.useEffect(() => {
 		if (!i) {
-			if (n.current == null) {
+			if (NRef.current == null) {
 				r.AddMinimumCompositionStateRequest(e, t);
 			} else {
-				r.ChangeMinimumCompositionStateRequest(n.current, e, t);
+				r.ChangeMinimumCompositionStateRequest(NRef.current, e, t);
 			}
-			n.current = e;
+			NRef.current = e;
 		}
 	}, [e, i, r, t]);
 	c.useEffect(
-		() => () => r.RemoveMinimumCompositionStateRequest(n.current, t),
+		() => () => r.RemoveMinimumCompositionStateRequest(NRef.current, t),
 		[r, t],
 	);
 	return {
 		releaseComposition: c.useCallback(() => {
 			if (!i) {
-				a(true);
-				r.RemoveMinimumCompositionStateRequest(n.current, t);
-				n.current = null;
+				setI(true);
+				r.RemoveMinimumCompositionStateRequest(NRef.current, t);
+				NRef.current = null;
 			}
 		}, [r, i, t]),
 	};
 }
 export function P4() {
-	const e = (0, g.IB)();
-	return (0, l.q3)(() => e.GetCompositionState());
+	const e = IB();
+	return q3(() => e.GetCompositionState());
 }
-(0, n.Cg)([o.sH], _n.prototype, "m_eLatestCompositionState", undefined);
-(0, n.Cg)([o.XI.bound], _n.prototype, "OnFocusChangeEvent", null);
-(0, n.Cg)([A.oI], _n.prototype, "EnsureCorrectComposition", null);
-(0, n.Cg)([A.oI], _n.prototype, "EnsureCorrectGameOverlayState", null);
+Cg([o.sH], _n.prototype, "m_eLatestCompositionState", undefined);
+Cg([o.XI.bound], _n.prototype, "OnFocusChangeEvent", null);
+Cg([A.oI], _n.prototype, "EnsureCorrectComposition", null);
+Cg([A.oI], _n.prototype, "EnsureCorrectGameOverlayState", null);

@@ -1,39 +1,40 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./46263.js");
-var a = require(/*webcrack:missing*/ "./78325.js");
-var s = require(/*webcrack:missing*/ "./11131.js");
+import n, { useState, useCallback } from "./63696.js";
+import i from "./46263.js";
+import a, { createPortal } from "./78325.js";
+import s, { R7 } from "./11131.js";
 export function _D(e) {
-	const { position: t, onAnimationEnd: r, children: o } = e;
-	const { ownerWindow: l } = (0, s.R7)();
-	if (!t || !o) {
+	const { position, onAnimationEnd, children } = e;
+	const { ownerWindow } = R7();
+	if (!position || !children) {
 		return null;
 	}
 	const c = {
-		top: t.y,
-		left: t.x,
+		top: position.y,
+		left: position.x,
 	};
-	return (0, a.createPortal)(
-		n.createElement(
-			"div",
-			{
-				key: Date.now(),
-				className: i.FloatingConfirmation,
-				style: c,
-				onAnimationEnd: (e) => {
-					if (e.animationName === i.FloatingConfirmationAnimation && r) {
-						r(e);
-					}
-				},
-			},
-			o,
-		),
-		l.document.body,
+	return createPortal(
+		<div
+			key={Date.now()}
+			className={i.FloatingConfirmation}
+			style={c}
+			onAnimationEnd={(e) => {
+				if (
+					e.animationName === i.FloatingConfirmationAnimation &&
+					onAnimationEnd
+				) {
+					onAnimationEnd(e);
+				}
+			}}
+		>
+			{children}
+		</div>,
+		ownerWindow.document.body,
 	);
 }
 export function NR() {
-	const [e, t] = (0, n.useState)();
+	const [e, t] = useState();
 	return {
-		onConfirm: (0, n.useCallback)((e) => {
+		onConfirm: useCallback((e) => {
 			t(
 				(t) =>
 					t || {
@@ -44,43 +45,43 @@ export function NR() {
 		}, []),
 		confirmationProps: {
 			position: e,
-			onAnimationEnd: (0, n.useCallback)(() => t(undefined), []),
+			onAnimationEnd: useCallback(() => t(undefined), []),
 		},
 	};
 }
-const c = n.createContext(function (e, t) {
+const CContext = n.createContext((e, t) => {
 	throw new Error(
 		"Somebody is using useShowFloatingConfirmation outside of a <FloatingConfirmationProvider>",
 	);
 });
 export function Zz(e) {
-	const { children: t, showConfirmationOverride: r } = e;
-	const { onConfirm: i, confirmationProps: a } = NR();
+	const { children, showConfirmationOverride } = e;
+	const { onConfirm, confirmationProps } = NR();
 	const [s, m] = n.useState();
-	return n.createElement(
-		c.Provider,
-		{
-			value:
-				r ||
+	return (
+		<CContext.Provider
+			value={
+				showConfirmationOverride ||
 				((e, t) => {
 					m(t);
-					i(e);
-				}),
-		},
-		!r &&
-			n.createElement(
-				_D,
-				{
-					...a,
-					onAnimationEnd: () => {
+					onConfirm(e);
+				})
+			}
+		>
+			{!showConfirmationOverride && (
+				<_D
+					{...confirmationProps}
+					onAnimationEnd={() => {
 						m(undefined);
-					},
-				},
-				s,
-			),
-		t,
+					}}
+				>
+					{s}
+				</_D>
+			)}
+			{children}
+		</CContext.Provider>
 	);
 }
 export function yZ() {
-	return n.useContext(c);
+	return n.useContext(CContext);
 }

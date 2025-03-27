@@ -1,7 +1,7 @@
-export var PP;
-var i = require("./87935.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require(/*webcrack:missing*/ "./52451.js");
+import i from "./87935.js";
+import { vJ } from "./52451.js";
+export let PP;
 export class eA {
 	static g_Singleton = null;
 	m_mapStandardIconFilenames = new Map();
@@ -41,8 +41,9 @@ export class eA {
 					? this.m_mapAppIcons.get(t)?.find((t) => t.strFilename == e)?.strURL
 					: e.startsWith("ghost") ||
 						  e.startsWith("genesis") ||
+						  e.startsWith("genesis") ||
 						  e.startsWith("special_blank")
-						? this.m_URIContext("./" + e).default
+						? this.m_URIContext(`./${e}`).default
 						: "")
 			);
 		}
@@ -85,33 +86,46 @@ export class eA {
 		const t = e.split("_");
 		if (t[0] === "ghost") {
 			switch (t[2]) {
-				case "wpn":
+				case "wpn": {
 					return PP.Weapons;
-				case "ammo":
+				}
+				case "ammo": {
 					return PP.Ammo;
-				case "inv":
+				}
+				case "inv": {
 					return PP.Inventory;
-				case "magic":
+				}
+				case "magic": {
 					return PP.Magic;
-				case "act":
+				}
+				case "act": {
 					return PP.Actions;
-				case "move":
+				}
+				case "move": {
 					return PP.Movement;
-				case "menu":
+				}
+				case "menu": {
 					return PP.Menu;
-				case "vehicle":
+				}
+				case "vehicle": {
 					return PP.Vehicle;
+				}
 				case "setting":
-				case "utility":
+				case "utility": {
 					return PP.Utility;
-				case "input":
+				}
+				case "input": {
 					return PP.Input;
-				case "media":
+				}
+				case "media": {
 					return PP.Media;
-				case "target":
+				}
+				case "target": {
 					return PP.Targets;
-				case "social":
+				}
+				case "social": {
 					return PP.Social;
+				}
 			}
 		}
 		return PP.Other;
@@ -136,7 +150,7 @@ export class eA {
 		});
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.AppIcons = 0)] = "AppIcons";
 	e[(e.Weapons = 1)] = "Weapons";
 	e[(e.Ammo = 2)] = "Ammo";
@@ -157,42 +171,58 @@ export class eA {
 export const dS = Object.values(PP).filter((e) => typeof e == "number");
 export function ZC(e) {
 	switch (e) {
-		case PP.AppIcons:
+		case PP.AppIcons: {
 			return Localize("#ControllerConfigurator_IconCategory_AppIcons");
-		case PP.Weapons:
+		}
+		case PP.Weapons: {
 			return Localize("#ControllerConfigurator_IconCategory_Weapons");
-		case PP.Ammo:
+		}
+		case PP.Ammo: {
 			return Localize("#ControllerConfigurator_IconCategory_Ammo");
-		case PP.Inventory:
+		}
+		case PP.Inventory: {
 			return Localize("#ControllerConfigurator_IconCategory_Inventory");
-		case PP.Magic:
+		}
+		case PP.Magic: {
 			return Localize("#ControllerConfigurator_IconCategory_Magic");
-		case PP.Actions:
+		}
+		case PP.Actions: {
 			return Localize("#ControllerConfigurator_IconCategory_Actions");
-		case PP.Movement:
+		}
+		case PP.Movement: {
 			return Localize("#ControllerConfigurator_IconCategory_Movement");
-		case PP.Menu:
+		}
+		case PP.Menu: {
 			return Localize("#ControllerConfigurator_IconCategory_Menu");
-		case PP.Vehicle:
+		}
+		case PP.Vehicle: {
 			return Localize("#ControllerConfigurator_IconCategory_Vehicle");
-		case PP.Utility:
+		}
+		case PP.Utility: {
 			return Localize("#ControllerConfigurator_IconCategory_Utility");
-		case PP.Input:
+		}
+		case PP.Input: {
 			return Localize("#ControllerConfigurator_IconCategory_Input");
-		case PP.Media:
+		}
+		case PP.Media: {
 			return Localize("#ControllerConfigurator_IconCategory_Media");
-		case PP.Targets:
+		}
+		case PP.Targets: {
 			return Localize("#ControllerConfigurator_IconCategory_Targets");
-		case PP.Social:
+		}
+		case PP.Social: {
 			return Localize("#ControllerConfigurator_IconCategory_Social");
-		case PP.Other:
+		}
+		case PP.Other: {
 			return Localize("#ControllerConfigurator_IconCategory_Other");
-		case PP.User:
+		}
+		case PP.User: {
 			return Localize("#ControllerConfigurator_IconCategory_User");
+		}
 	}
 }
 export function j9(e, t) {
-	return (0, s.vJ)(async () => {
+	return vJ(async () => {
 		if (e != null) {
 			if (e.startsWith("/") || e.startsWith("data:")) {
 				return e;

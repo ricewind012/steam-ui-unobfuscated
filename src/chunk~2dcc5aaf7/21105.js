@@ -1,169 +1,158 @@
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var i = require(/*webcrack:missing*/ "./28864.js");
-var a = require(/*webcrack:missing*/ "./4452.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require("./51076.js");
-var c = require(/*webcrack:missing*/ "./4690.js");
-var m = require("./69.js");
-var u = require("./55116.js");
-var d = require(/*webcrack:missing*/ "./69164.js");
-var A = require("./77045.js");
-var p = A;
-export const MS = o.forwardRef(function (e, t) {
+import i, { Ue } from "./28864.js";
+import a from "./4452.js";
+import o from "./63696.js";
+import l, { Xz } from "./51076.js";
+import c from "./4690.js";
+import m, { tw, ak } from "./69.js";
+import u from "./55116.js";
+import d from "./69164.js";
+import A from "./77045.js";
+const s = a;
+const p = A;
+export const MS = o.forwardRef((props, ref) => {
 	const {
-		scrollDirection: r,
-		scrollPaddingTop: n,
-		scrollPaddingRight: a,
-		scrollPaddingBottom: l,
-		scrollPaddingLeft: c,
-		className: A,
-		children: g,
-		style: h,
+		scrollDirection,
+		scrollPaddingTop,
+		scrollPaddingRight,
+		scrollPaddingBottom,
+		scrollPaddingLeft,
+		className,
+		children,
+		style,
 		...C
-	} = e;
+	} = props;
 	let _;
-	switch (r) {
-		case "x":
+	switch (scrollDirection) {
+		case "x": {
 			_ = p.ScrollX;
 			break;
-		case "both":
+		}
+		case "both": {
 			_ = p.ScrollBoth;
 			break;
-		default:
+		}
+		default: {
 			_ = p.ScrollY;
+		}
 	}
 	let f = {
-		...h,
+		...style,
 	};
-	if (n || n === 0) {
-		f.scrollPaddingTop = n;
+	if (scrollPaddingTop || scrollPaddingTop === 0) {
+		f.scrollPaddingTop = scrollPaddingTop;
 	}
-	if (a || a === 0) {
-		f.scrollPaddingRight = a;
+	if (scrollPaddingRight || scrollPaddingRight === 0) {
+		f.scrollPaddingRight = scrollPaddingRight;
 	}
-	if (l || l === 0) {
-		f.scrollPaddingBottom = l;
+	if (scrollPaddingBottom || scrollPaddingBottom === 0) {
+		f.scrollPaddingBottom = scrollPaddingBottom;
 	}
-	if (c || c === 0) {
-		f.scrollPaddingLeft = c;
+	if (scrollPaddingLeft || scrollPaddingLeft === 0) {
+		f.scrollPaddingLeft = scrollPaddingLeft;
 	}
-	const { ref: b, navRef: y } = (0, m.tw)();
-	const S = (0, i.Ue)(y, C.navRef);
-	const w = (0, i.Ue)(b, t);
-	return o.createElement(
-		d.Z,
-		{
-			...C,
-			style: f,
-			className: s(A, p.ScrollPanel, _),
-			ref: w,
-			navRef: S,
-		},
-		o.createElement(u.q, null, g),
+	const { ref, navRef } = tw();
+	const S = Ue(navRef, C.navRef);
+	const w = Ue(ref, ref);
+	return (
+		<d.Z
+			{...C}
+			style={f}
+			className={s(className, p.ScrollPanel, _)}
+			ref={w}
+			navRef={S}
+		>
+			<u.q>{children}</u.q>
+		</d.Z>
 	);
 });
-export const Qg = o.forwardRef(function (e, t) {
-	const { scrollStepPercent: r, scrollBehavior: n, ...a } = e;
-	const s = o.useRef(null);
+export const Qg = o.forwardRef((props, ref) => {
+	const { scrollStepPercent, scrollBehavior, ...a } = props;
+	const SRef = o.useRef(null);
 	const l = o.useCallback((e) => e.currentTarget != e.target, []);
-	const u = (0, m.ak)(s, n, r, l);
-	const d = (0, i.Ue)(s, t);
-	return o.createElement(MS, {
-		...a,
-		onGamepadDirection: u,
-		ref: d,
-		scrollIntoViewType: c.Yo.NoTransformSparseContent,
-	});
-});
-export const i6 = o.forwardRef(function (e, t) {
-	const { name: r, msScrollRestoreDelay: n, onScroll: i, ...a } = e;
-	return o.createElement(
-		f,
-		{
-			name: r,
-			msScrollRestoreDelay: n,
-			parentOnScroll: i,
-			refDiv: t,
-		},
-		(e, t) =>
-			o.createElement(MS, {
-				...a,
-				onScroll: e,
-				ref: t,
-			}),
+	const u = ak(SRef, scrollBehavior, scrollStepPercent, l);
+	const d = Ue(SRef, ref);
+	return (
+		<MS
+			{...a}
+			onGamepadDirection={u}
+			ref={d}
+			scrollIntoViewType={c.Yo.NoTransformSparseContent}
+		/>
 	);
 });
-export const iq = o.forwardRef(function (e, t) {
-	const { name: r, msScrollRestoreDelay: n, onScroll: i, ...a } = e;
-	return o.createElement(
-		f,
-		{
-			name: r,
-			msScrollRestoreDelay: n,
-			parentOnScroll: i,
-			refDiv: t,
-		},
-		(e, t) =>
-			o.createElement(Qg, {
-				...a,
-				onScroll: e,
-				ref: t,
-			}),
+export const i6 = o.forwardRef((props, ref) => {
+	const { name, msScrollRestoreDelay, onScroll, ...a } = props;
+	return (
+		<F
+			name={name}
+			msScrollRestoreDelay={msScrollRestoreDelay}
+			parentOnScroll={onScroll}
+			refDiv={ref}
+		>
+			{(e, t) => <MS {...a} onScroll={e} ref={t} />}
+		</F>
 	);
 });
-function f(e) {
-	const {
-		name: t,
-		msScrollRestoreDelay: r,
-		parentOnScroll: a,
-		refDiv: s,
-		children: c,
-	} = e;
-	const [m, u] = (0, l.Xz)(`${t}ScrollTop`, 250, 0);
-	const [d, A] = (0, l.Xz)(`${t}ScrollLeft`, 250, 0);
-	const p = o.useRef(0);
-	const g = o.useRef(0);
-	const h = o.useRef();
+export const iq = o.forwardRef((props, ref) => {
+	const { name, msScrollRestoreDelay, onScroll, ...a } = props;
+	return (
+		<F
+			name={name}
+			msScrollRestoreDelay={msScrollRestoreDelay}
+			parentOnScroll={onScroll}
+			refDiv={ref}
+		>
+			{(e, t) => <Qg {...a} onScroll={e} ref={t} />}
+		</F>
+	);
+});
+function F(e) {
+	const { name, msScrollRestoreDelay, parentOnScroll, refDiv, children } = e;
+	const [m, u] = Xz(`${name}ScrollTop`, 250, 0);
+	const [d, A] = Xz(`${name}ScrollLeft`, 250, 0);
+	const PRef = o.useRef(0);
+	const GRef = o.useRef(0);
+	const HRef = o.useRef();
 	let C = o.useCallback(
 		(e) => {
-			const { scrollTop: t, scrollLeft: r } = e.currentTarget;
-			u(t);
-			p.current = t;
-			A(r);
-			g.current = r;
-			if (a) {
-				a(e);
+			const { scrollTop, scrollLeft } = e.currentTarget;
+			u(scrollTop);
+			PRef.current = scrollTop;
+			A(scrollLeft);
+			GRef.current = scrollLeft;
+			if (parentOnScroll) {
+				parentOnScroll(e);
 			}
 		},
-		[u, A, a],
+		[u, A, parentOnScroll],
 	);
 	o.useLayoutEffect(() => {
-		const e = function () {
-			if (h.current) {
+		const e = () => {
+			if (HRef.current) {
 				AssertMsg(
-					h.current.scrollHeight >= m,
-					`Element is ${h.current.scrollHeight} high but trying to restore scrollTop of ${m}, element may need more time to lay out.`,
-					h.current,
+					HRef.current.scrollHeight >= m,
+					`Element is ${HRef.current.scrollHeight} high but trying to restore scrollTop of ${m}, element may need more time to lay out.`,
+					HRef.current,
 				);
-				p.current = m;
-				g.current = d;
-				h.current.scrollTo({
+				PRef.current = m;
+				GRef.current = d;
+				HRef.current.scrollTo({
 					top: m,
 					left: d,
 					behavior: "auto",
 				});
-				h.current.dispatchEvent(new UIEvent("scroll"));
+				HRef.current.dispatchEvent(new UIEvent("scroll"));
 			}
 		};
-		if (m != p.current || d != g.current) {
-			if (r) {
-				window.setTimeout(e, r);
+		if (m != PRef.current || d != GRef.current) {
+			if (msScrollRestoreDelay) {
+				window.setTimeout(e, msScrollRestoreDelay);
 			} else {
 				e();
 			}
 		}
-	}, [m, d, r]);
-	const _ = (0, i.Ue)(h, s);
-	return o.useMemo(() => c(C, _), [C, _, c]);
+	}, [m, d, msScrollRestoreDelay]);
+	const _ = Ue(HRef, refDiv);
+	return o.useMemo(() => children(C, _), [C, _, children]);
 }

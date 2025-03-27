@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require("./96593.js");
-var l = require("./54946.js");
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require("./87935.js");
+import { Cg } from "./34629.js";
+import i, { Gn, h5 } from "./89193.js";
+import a from "./83957.js";
+import o from "./96593.js";
+import l from "./54946.js";
+import c from "./12176.js";
+import m from "./87935.js";
+const s = a;
 const u = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"AppAchivementsProgressCache",
 );
@@ -18,16 +18,16 @@ function d(e, t) {
 }
 class A {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	nVersion = 3;
 	mapCache = new Map();
 }
-(0, n.Cg)([i.sH], A.prototype, "nVersion", undefined);
-(0, n.Cg)([i.sH], A.prototype, "mapCache", undefined);
+Cg([i.sH], A.prototype, "nVersion", undefined);
+Cg([i.sH], A.prototype, "mapCache", undefined);
 class p {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_achievementProgress = undefined;
@@ -57,9 +57,7 @@ class p {
 				this.m_achievementProgress.mapCache = new Map(e.data.mapCache);
 			} else {
 				u.Debug(
-					"Loaded achievement cache at version " +
-						e.data.nVersion +
-						". Migrating to version 3.",
+					`Loaded achievement cache at version ${e.data.nVersion}. Migrating to version 3.`,
 				);
 				this.m_achievementProgress = undefined;
 			}
@@ -124,7 +122,7 @@ class p {
 			e,
 		);
 		this.m_achievementProgress ||= new A();
-		(0, i.h5)(() => {
+		h5(() => {
 			for (let e of t.Body().achievement_progress()) {
 				let t = o.tw.GetAppOverviewByAppID(e.appid());
 				if (t.rt_last_time_played > e.cache_time()) {
@@ -143,7 +141,7 @@ class p {
 		}
 	}
 }
-(0, n.Cg)([i.sH], p.prototype, "m_achievementProgress", undefined);
-(0, n.Cg)([i.XI.bound], p.prototype, "OnAchievementNotification", null);
+Cg([i.sH], p.prototype, "m_achievementProgress", undefined);
+Cg([i.XI.bound], p.prototype, "OnAchievementNotification", null);
 export const y = new p();
 window.appAchievementProgressCache = y;

@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-require("./75248.js");
-var o = require("./6242.js");
-var l = require(/*webcrack:missing*/ "./79769.js");
-var c = require("./18057.js");
-var m = require("./33572.js");
-var u = require("./5822.js");
-var d = require("./97936.js");
-var A = require(/*webcrack:missing*/ "./31958.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { gc, hL } from "./52451.js";
+import s, { Gn, fm } from "./89193.js";
+import "./75248.js";
+import o, { x } from "./6242.js";
+import l from "./79769.js";
+import c from "./18057.js";
+import { we } from "./33572.js";
+import u from "./5822.js";
+import d from "./97936.js";
+import { OQ } from "./31958.js";
+import { q3 } from "./90095.js";
 export class my {
 	m_Instance;
 	m_Opacity = new o.n((e) => Math.max(0, ...e), "Header Opacity");
@@ -36,7 +36,7 @@ export class my {
 	m_nNumTabbedPagesActingAsHeaderBackground = 0;
 	m_flCurrentHeaderHeight = 0;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_Instance = e;
 	}
 	Init() {
@@ -53,8 +53,8 @@ export class my {
 			this.m_BackgroundOpacity.CreateInput("Paged Settings Scroll Position");
 		this.m_BackgroundForPagedSettingsInput.Set(0);
 		return [
-			(0, s.fm)(this.OnSideMenuOpen),
-			(0, s.fm)(this.UpdateHeaderOpacityForCurrentPagedSettings),
+			fm(this.OnSideMenuOpen),
+			fm(this.UpdateHeaderOpacityForCurrentPagedSettings),
 		];
 	}
 	BShowHeader() {
@@ -137,7 +137,7 @@ export class my {
 			const t = Array.from(e.values())[0];
 			const r = 20;
 			const n = Math.max(t.m_flPageListScrollTop, t.m_flPageScrollTop);
-			this.m_BackgroundForPagedSettingsInput.Set((0, A.OQ)(n / r, 0, 1));
+			this.m_BackgroundForPagedSettingsInput.Set(OQ(n / r, 0, 1));
 		}
 	}
 	GetCurrentBrowserAndBackstack() {
@@ -168,18 +168,21 @@ function C(e) {
 	let t = "show-icon";
 	for (const r of e) {
 		switch (r) {
-			case "hidden":
+			case "hidden": {
 				t = "hidden";
 				break;
-			case "show-expanded":
+			}
+			case "show-expanded": {
 				if (t != "hidden") {
 					t = "show-expanded";
 				}
 				break;
-			case "show-icon":
+			}
+			case "show-icon": {
 				if (t != "hidden" && t != "show-expanded") {
 					t = "show-icon";
 				}
+			}
 		}
 	}
 	return t;
@@ -192,22 +195,22 @@ function _(e) {
 	}
 }
 export function dM() {
-	const e = (0, m.we)();
-	return (0, a.gc)(e.m_ShowUniversalSearch.SubscribableValue);
+	const e = we();
+	return gc(e.m_ShowUniversalSearch.SubscribableValue);
 }
 export function Xf(e = "show-icon", t) {
-	const r = (0, m.we)();
-	const n = (0, o.x)(r.m_ShowUniversalSearch, t);
+	const r = we();
+	const n = x(r.m_ShowUniversalSearch, t);
 	i.useEffect(() => {
 		n.Set(e);
 	}, [e, n]);
 }
 export function mH(e) {
-	const t = (0, m.we)();
-	(0, a.hL)(t.m_AcceptSearchTextCallbackList, e);
+	const t = we();
+	hL(t.m_AcceptSearchTextCallbackList, e);
 }
 export function pw(e = true) {
-	const t = (0, m.we)();
+	const t = we();
 	i.useEffect(
 		() =>
 			e ? (t.IncrementHideHeader(), () => t.DecrementHideHeader()) : () => {},
@@ -215,30 +218,25 @@ export function pw(e = true) {
 	);
 }
 export function X2() {
-	const e = (0, m.we)();
-	return (0, p.q3)(() => e?.m_flCurrentHeaderHeight ?? 0);
+	const e = we();
+	return q3(() => e?.m_flCurrentHeaderHeight ?? 0);
 }
-(0, n.Cg)([s.sH], my.prototype, "m_iHideHeaderCount", undefined);
-(0, n.Cg)([s.sH], my.prototype, "m_bForceHeaderAfterResume", undefined);
-(0, n.Cg)([s.sH], my.prototype, "m_currentBrowserAndBackstack", undefined);
-(0, n.Cg)([s.sH], my.prototype, "m_currentBrowserIsExternal", undefined);
-(0, n.Cg)([s.sH], my.prototype, "m_currentBrowserCanEditURL", undefined);
-(0, n.Cg)(
+Cg([s.sH], my.prototype, "m_iHideHeaderCount", undefined);
+Cg([s.sH], my.prototype, "m_bForceHeaderAfterResume", undefined);
+Cg([s.sH], my.prototype, "m_currentBrowserAndBackstack", undefined);
+Cg([s.sH], my.prototype, "m_currentBrowserIsExternal", undefined);
+Cg([s.sH], my.prototype, "m_currentBrowserCanEditURL", undefined);
+Cg(
 	[s.sH],
 	my.prototype,
 	"m_nNumTabbedPagesActingAsHeaderBackground",
 	undefined,
 );
-(0, n.Cg)([s.sH], my.prototype, "m_flCurrentHeaderHeight", undefined);
-(0, n.Cg)([s.sH], my.prototype, "m_bFocusSearch", undefined);
-(0, n.Cg)([a.oI], my.prototype, "OnSuspendRequest", null);
-(0, n.Cg)([a.oI], my.prototype, "OnSystemResumeFromSuspend", null);
-(0, n.Cg)([a.oI], my.prototype, "ClearHeaderAfterResume", null);
-(0, n.Cg)([a.oI], my.prototype, "OnSideMenuOpen", null);
-(0, n.Cg)(
-	[a.oI],
-	my.prototype,
-	"UpdateHeaderOpacityForCurrentPagedSettings",
-	null,
-);
-(0, n.Cg)([s.XI], my.prototype, "SetCurrentBrowserAndBackstack", null);
+Cg([s.sH], my.prototype, "m_flCurrentHeaderHeight", undefined);
+Cg([s.sH], my.prototype, "m_bFocusSearch", undefined);
+Cg([a.oI], my.prototype, "OnSuspendRequest", null);
+Cg([a.oI], my.prototype, "OnSystemResumeFromSuspend", null);
+Cg([a.oI], my.prototype, "ClearHeaderAfterResume", null);
+Cg([a.oI], my.prototype, "OnSideMenuOpen", null);
+Cg([a.oI], my.prototype, "UpdateHeaderOpacityForCurrentPagedSettings", null);
+Cg([s.XI], my.prototype, "SetCurrentBrowserAndBackstack", null);

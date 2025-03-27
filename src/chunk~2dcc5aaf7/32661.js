@@ -1,14 +1,92 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./67863.js");
-var a = require("./73375.js");
-var s = require("./55700.js");
-var o = require("./64608.js");
-var l = require(/*webcrack:missing*/ "./42318.js");
-var c = require("./10606.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require("./17373.js");
-var d = require("./24590.js");
-const A = (0, l.Nr)(function () {
+import { P0 } from "../../actual_src/utils/localization/datetime.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { useRef, useState } from "./63696.js";
+import i from "./67863.js";
+import a from "./73375.js";
+import s, { v as v_1 } from "./55700.js";
+import o from "./64608.js";
+import l, { Nr } from "./42318.js";
+import c from "./10606.js";
+import u from "./17373.js";
+import d, { D as D_1 } from "./24590.js";
+import h, { Ll } from "./95979.js";
+import C, { e_ as e, t0, VI } from "./34792.js";
+import _, { gc, vJ, CH, hL, Ue as Ue_2 } from "./52451.js";
+import f, { cZ } from "./81969.js";
+import y from "./63367.js";
+import S, { CI, hf } from "./72476.js";
+import w from "./59840.js";
+import v, { A as A_2 } from "./90765.js";
+import I from "./35488.js";
+import T, { PA, q3 } from "./90095.js";
+import R from "./5790.js";
+import D, { cM } from "./50341.js";
+import N, { Tt as Tt_2, wN, Yk } from "./89411.js";
+import F from "./87935.js";
+import G from "./30449.js";
+import O from "./97893.js";
+import P, { dm } from "./34428.js";
+import { qw, iZ, Wx } from "./89748.js";
+import te from "./11958.js";
+import ie from "./51964.js";
+import ae from "./43873.js";
+import se from "./29670.js";
+import oe from "./47356.js";
+import le from "./11536.js";
+import ce from "./72655.js";
+import me from "./55116.js";
+import { bG, Qt as Qt_2 } from "./18057.js";
+import de from "./81994.js";
+import ge, { xn } from "./46422.js";
+import { Co, _R } from "./96593.js";
+import Ce from "./26853.js";
+import _e from "./29505.js";
+import { Cg } from "./34629.js";
+import { lX } from "./31084.js";
+import we from "./88750.js";
+import { pg } from "./13869.js";
+import ve, { R7 } from "./11131.js";
+import Ee from "./43599.js";
+import { I as I_2 } from "./61416.js";
+import Te from "./66248.js";
+import Re from "./50376.js";
+import ke, { useTable } from "./50169.js";
+import { Te as Te_2 } from "./55007.js";
+import Ne, { Gn } from "./89193.js";
+import { w as w_2 } from "./49455.js";
+import Ge, { m, j as j_2 } from "./56332.js";
+import { Z as Z_2, q as q_2 } from "./9758.js";
+import rt from "./78055.js";
+import nt from "./81827.js";
+import { mJ } from "./45967.js";
+import lt from "./52177.js";
+import ct from "./63098.js";
+import dt from "./59718.js";
+import "./27954.js";
+import At from "./32792.js";
+import pt from "./73128.js";
+import ht from "./28987.js";
+import Ct from "./83599.js";
+import _t from "./13337.js";
+import yt from "./21110.js";
+import St from "./46430.js";
+import wt, { _U, Dk } from "./76356.js";
+import Bt from "./30496.js";
+import vt from "./56262.js";
+import { T as T_2 } from "./78057.js";
+import Mt from "./33512.js";
+import Tt, { M as M_2 } from "./51517.js";
+import Rt from "./40692.js";
+import Lt from "./17024.js";
+import xt from "./94496.js";
+import Ht from "./37086.js";
+import jt from "./28592.js";
+import qt from "./95753.js";
+import Qt, { XA } from "./91720.js";
+import tr from "./13656.js";
+import rr from "./31627.js";
+const A = Nr(() => {
 	const [e, t] = n.useState();
 	const [r, i] = n.useState();
 	const a = n.useRef(null);
@@ -48,10 +126,10 @@ const A = (0, l.Nr)(function () {
 });
 function p(e) {
 	const { strURL: t, onClose: r, popup: i } = e;
-	const [o, l] = (0, s.v)(i, "MessageDisplay", {
+	const [o, l] = v_1(i, "MessageDisplay", {
 		strURL: t,
 	});
-	(0, d.D)(o);
+	D_1(o);
 	if (o) {
 		return n.createElement(
 			n.Fragment,
@@ -114,18 +192,8 @@ function g(e) {
 		),
 	);
 }
-var h = require("./95979.js");
-var C = require("./34792.js");
-var _ = require(/*webcrack:missing*/ "./52451.js");
-var f = require("./81969.js");
-import { P0 } from "../../actual_src/utils/localization/datetime.js";
-var y = require("./63367.js");
-var S = require(/*webcrack:missing*/ "./72476.js");
-var w = require("./59840.js");
-var B = w;
-var v = require(/*webcrack:missing*/ "./90765.js");
-var I = require("./35488.js");
-const E = (0, l.Nr)(function () {
+const B = w;
+const E = Nr(() => {
 	const [e, t] = n.useState(false);
 	const [r, i] = n.useState();
 	n.useEffect(
@@ -150,7 +218,7 @@ const E = (0, l.Nr)(function () {
 			popupWidth: 500,
 			popupHeight: 300,
 			refPopup: i,
-			className: (0, v.A)(B.AboutSteamDialog, B.Desktop),
+			className: A_2(B.AboutSteamDialog, B.Desktop),
 		},
 		n.createElement(
 			o.Y9,
@@ -183,17 +251,17 @@ const E = (0, l.Nr)(function () {
 	);
 });
 function M() {
-	const [e] = (0, C.e_)("b24HourClock");
-	const t = (0, _.gc)(C.rV.CurrentTimeZoneID);
-	const r = (0, _.vJ)(() => SteamClient.Settings.GetAvailableTimeZones(), []);
+	const [e] = e("b24HourClock");
+	const t = gc(C.rV.CurrentTimeZoneID);
+	const r = vJ(() => SteamClient.Settings.GetAvailableTimeZones(), []);
 	const i = r?.find((e) => e.timezoneID == t);
-	const a = i ? (0, f.cZ)(i) : "";
-	const s = (0, C.t0)();
+	const a = i ? cZ(i) : "";
+	const s = t0();
 	const o = s.vecAvailableClientBetas.find(
 		(e) => e.nBetaID == s.nSelectedBetaID,
 	);
 	const l = o ? o?.strName : Localize("#Settings_System_SteamBeta_None");
-	const c = (0, h.Ll)();
+	const c = Ll();
 	if (!c) {
 		return null;
 	}
@@ -204,7 +272,7 @@ function M() {
 	const d = parseInt(1741736707);
 	const A = d && (0, P0)(d, e, a);
 	const p = c.sSteamBuildDate;
-	const g = (0, S.CI)() ? " GMT+0000" : " GMT-0800";
+	const g = CI() ? " GMT+0000" : " GMT-0800";
 	const y = Date.parse(p + g) / 1000;
 	const w = y ? (0, P0)(y, e, a) : p;
 	return n.createElement(
@@ -267,19 +335,11 @@ function M() {
 		n.createElement("br", null),
 	);
 }
-var T = require(/*webcrack:missing*/ "./90095.js");
-var R = require("./5790.js");
-var k = R;
-var D = require("./50341.js");
-var N = require("./89411.js");
-var F = require("./87935.js");
-var G = require("./30449.js");
-var O = require("./97893.js");
-var P = require("./34428.js");
-const L = (0, l.Nr)(function () {
+const k = R;
+const L = Nr(() => {
 	const [e, t] = n.useState(false);
 	const [r, i] = n.useState();
-	(0, N.Tt)();
+	Tt_2();
 	n.useEffect(
 		() =>
 			y.Dt.RegisterForRunSteamURL(7, "checkforupdates", (e, r) => {
@@ -323,13 +383,13 @@ const L = (0, l.Nr)(function () {
 		),
 	);
 });
-const z = (0, T.PA)((e) => {
+const z = PA((e) => {
 	const [t, r] = n.useState({
 		eResult: 1,
 		strMsg: null,
 	});
 	const [i, a] = n.useState(false);
-	const s = (0, N.Tt)();
+	const s = Tt_2();
 	const o = n.useCallback(() => J(r), []);
 	n.useEffect(() => {
 		s.CheckForUpdates(o());
@@ -416,7 +476,7 @@ const x = (e, t) => {
 	if (t.outerWidth != r || t.outerHeight != n) {
 		const e = t.screenX + t.outerWidth / 2;
 		const i = t.screenY + t.outerHeight / 2;
-		console.log("resizing updater dialog to " + r + ", " + n);
+		console.log(`resizing updater dialog to ${r}, ${n}`);
 		t.SteamClient.Window.ResizeTo(r, n, true);
 		t.SteamClient.Window.MoveTo(Math.round(e - r / 2), Math.round(i - n / 2));
 	}
@@ -432,7 +492,7 @@ const W = (e) =>
 const V = (e) =>
 	n.createElement("div", null, Localize("#Settings_Updates_UpdatePending"));
 const H = (e) => {
-	const t = (0, N.Tt)();
+	const t = Tt_2();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -463,11 +523,11 @@ const Q = (e) =>
 		Localize("#Settings_Updates_UpdateError_Generic"),
 	);
 const Z = (e) => {
-	const t = (0, D.cM)();
+	const t = cM();
 	const r = F.B7.ResolveURL(
 		t ? "SteamClientBetaNewsPageFancy" : "SteamClientNewsPage",
 	);
-	const [i, o] = (0, s.v)(e.popup, "Steam Client Update Notes", {
+	const [i, o] = v_1(e.popup, "Steam Client Update Notes", {
 		strURL: r,
 	});
 	if (i) {
@@ -510,7 +570,7 @@ const Y = (e) => {
 	}
 };
 const K = (e) => {
-	const t = (0, N.wN)();
+	const t = wN();
 	let r = "";
 	if (t) {
 		r = O.hj.LocalizeTimeRemaining(t);
@@ -524,7 +584,7 @@ const K = (e) => {
 	);
 };
 const X = (e) => {
-	const t = (0, N.Tt)();
+	const t = Tt_2();
 	const r = t.m_updateState;
 	const i = r?.progress?.stage_progress;
 	const a = t.GetUpdateSize();
@@ -532,8 +592,8 @@ const X = (e) => {
 		return null;
 	}
 	const s = a * i ?? null;
-	const o = a ? (0, P.dm)(a, 0) : "? MB";
-	const l = s ? (0, P.dm)(s, 0) : "? MB";
+	const o = a ? dm(a, 0) : "? MB";
+	const l = s ? dm(s, 0) : "? MB";
 	return n.createElement(
 		"div",
 		{
@@ -573,14 +633,10 @@ const $ = (e) => {
 			),
 	);
 };
-var ee = require("./89748.js");
-var te = require("./11958.js");
-const re = (0, l.Nr)(function () {
-	const e = (0, S.hf)();
-	const t = (0, T.q3)(
-		() => (0, ee.qw)().GetCurrentUser()?.bPromptToChangePassword,
-	);
-	const r = (0, T.q3)(() => (0, ee.qw)().GetCurrentUser()?.strClientInstanceID);
+const re = Nr(() => {
+	const e = hf();
+	const t = q3(() => qw().GetCurrentUser()?.bPromptToChangePassword);
+	const r = q3(() => qw().GetCurrentUser()?.strClientInstanceID);
 	const [i, a] = n.useState(false);
 	n.useEffect(() => {
 		a(t);
@@ -601,9 +657,9 @@ const re = (0, l.Nr)(function () {
 		onClose: s,
 	});
 });
-const ne = (0, l.Nr)(function () {
-	const e = (0, S.hf)();
-	const t = (0, ee.iZ)();
+const ne = Nr(() => {
+	const e = hf();
+	const t = iZ();
 	const [r, i] = n.useState(false);
 	n.useEffect(
 		() =>
@@ -628,19 +684,10 @@ const ne = (0, l.Nr)(function () {
 		onClose: a,
 	});
 });
-var ie = require("./51964.js");
-var ae = require("./43873.js");
-var se = require("./29670.js");
-var oe = require("./47356.js");
-var le = require("./11536.js");
-var ce = require("./72655.js");
-var me = require("./55116.js");
-var ue = require("./18057.js");
-var de = require("./81994.js");
-const Ae = (0, l.Nr)(function () {
+const Ae = Nr(() => {
 	const [e, t] = n.useState(false);
 	const [r, i] = n.useState();
-	const a = (0, ue.bG)("HardwareSurvey");
+	const a = bG("HardwareSurvey");
 	const s = n.useCallback(() => {
 		t(true);
 	}, []);
@@ -674,7 +721,7 @@ const Ae = (0, l.Nr)(function () {
 		n.createElement(
 			"div",
 			{
-				className: (0, v.A)(le.HardwareSurveyDialog, le.Desktop),
+				className: A_2(le.HardwareSurveyDialog, le.Desktop),
 			},
 			n.createElement(
 				o.Y9,
@@ -742,47 +789,49 @@ function pe() {
 			),
 	);
 }
-var ge = require("./46422.js");
-var he = require("./96593.js");
-var Ce = require(/*webcrack:missing*/ "./26853.js");
-var _e = require("./29505.js");
-var fe = _e;
+const fe = _e;
 function be(e) {
 	const {
 		eShutdownState: t,
 		appid: r,
 		bAllowForceQuit: i,
 		bFailed: a,
-	} = (0, T.q3)(() => ({
+	} = q3(() => ({
 		...ge.oy.GetShutdownState(),
 	}));
-	const s = (0, he.Co)(r);
+	const s = Co(r);
 	let l = a && s;
 	let u = Localize("#Steam_Shutdown_Generic");
 	switch (t) {
 		case 0:
 		case 8:
-		case 1:
+		case 1: {
 			break;
+		}
 		case 2:
-		case 6:
+		case 6: {
 			if (s) {
 				u = Localize("#Steam_Shutdown_Waiting_For_Game", s.display_name);
 			}
 			break;
-		case 3:
+		}
+		case 3: {
 			u = Localize("#Steam_Shutdown_Waiting_For_Cloud");
 			break;
-		case 4:
+		}
+		case 4: {
 			u = Localize("#Steam_Shutdown_Finishing_Download");
 			break;
-		case 5:
+		}
+		case 5: {
 			if (s) {
 				u = Localize("#Steam_Shutdown_Waiting_For_Download", s.display_name);
 			}
 			break;
-		case 7:
+		}
+		case 7: {
 			u = Localize("#Steam_Shutdown_Waiting_For_Logoff");
+		}
 	}
 	if (l) {
 		u = Localize("#Steam_AppMustBeClosedToQuit_Info", s.display_name);
@@ -846,28 +895,10 @@ function be(e) {
 		),
 	);
 }
-var ye = require(/*webcrack:missing*/ "./34629.js");
-var Se = require(/*webcrack:missing*/ "./31084.js");
-var we = require(/*webcrack:missing*/ "./88750.js");
-var Be = require("./13869.js");
-var ve = require(/*webcrack:missing*/ "./11131.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var Ee = require("./43599.js");
-var Me = require(/*webcrack:missing*/ "./61416.js");
-var Te = require("./66248.js");
-var Re = require(/*webcrack:missing*/ "./50376.js");
-var ke = require(/*webcrack:missing*/ "./50169.js");
-var De = require(/*webcrack:missing*/ "./55007.js");
-var Ne = require(/*webcrack:missing*/ "./89193.js");
-var Fe = require(/*webcrack:missing*/ "./49455.js");
-var Ge = require("./56332.js");
-var Oe = require("./9758.js");
-const Pe = (0, l.Nr)(function () {
-	return n.createElement(tt, null);
-});
+const Pe = Nr(() => n.createElement(tt, null));
 function Le(e) {
 	if (e.ip) {
-		return e.ip + ":" + e.port;
+		return `${e.ip}:${e.port}`;
 	} else {
 		return "";
 	}
@@ -904,7 +935,7 @@ class He {
 	fnResorted = null;
 	m_owner;
 	constructor(e, t) {
-		(0, Ne.Gn)(this);
+		Gn(this);
 		this.m_owner = e;
 		this.id = t;
 		this.bRefreshNextTimeWeAreVisible = t != "internet";
@@ -915,7 +946,7 @@ class He {
 	}
 	Prefs() {
 		const e = We && We.filters && We.filters[this.id];
-		(0, Fe.w)(e, "Order of operations bug, preferences not loaded?");
+		w_2(e, "Order of operations bug, preferences not loaded?");
 		return e;
 	}
 	StartedRequest(e) {
@@ -1004,8 +1035,8 @@ class He {
 		const e = this.Prefs();
 		const t = (e.map || "").toLowerCase();
 		const r = (e.name || "").toLowerCase();
-		for (let n = 0; n < this.all_servers.length; ++n) {
-			const i = this.all_servers[n];
+
+		this.all_servers.forEach((i, n) => {
 			i.idxUnfiltered = n;
 			i.idxFiltered = this.filtered_servers.length;
 			if (
@@ -1016,15 +1047,16 @@ class He {
 				(e.Secure == 2 && i.bSecure) ||
 				(e.ping > 0 && i.ping > e.ping) ||
 				(e.appid && i.appid && e.appid != i.appid) ||
-				(t && i.map != null && !(i.map.toLowerCase().indexOf(t) >= 0)) ||
-				(r && i.name != null && !(i.name.toLowerCase().indexOf(r) >= 0))
+				(t && i.map != null && !i.map.toLowerCase().includes(t)) ||
+				(r && i.name != null && !i.name.toLowerCase().includes(r))
 			) {
 				i.bMatchesFilter = false;
 			} else {
 				i.bMatchesFilter = true;
 				this.filtered_servers.push(i);
 			}
-		}
+		});
+
 		if (this.fnResorted) {
 			this.fnResorted();
 		}
@@ -1119,7 +1151,7 @@ class He {
 	}
 	GetSearchSettingsAsString() {
 		const [e, t] = this.GetSearchSettings();
-		return e + "/" + t.join("/");
+		return `${e}/${t.join("/")}`;
 	}
 	SetSortByState(e) {
 		const t = JSON.stringify(e);
@@ -1134,40 +1166,47 @@ class He {
 	SetServerCompareValue(e) {
 		e.compare_val = undefined;
 		switch (this.sortByState.id) {
-			case "bPassword":
+			case "bPassword": {
 				if (e.bHadSuccessfulResponse && e.bPassword != null) {
 					e.compare_val = e.bPassword ? 1 : 0;
 				}
 				break;
-			case "bSecure":
+			}
+			case "bSecure": {
 				if (e.bHadSuccessfulResponse && e.bSecure != null) {
 					e.compare_val = e.bSecure ? 1 : 0;
 				}
 				break;
-			case "botPlayers":
+			}
+			case "botPlayers": {
 				if (e.bHadSuccessfulResponse && e.botPlayers != null) {
 					e.compare_val = e.botPlayers > 0 ? 1 : 0;
 				}
 				break;
-			case "ip":
+			}
+			case "ip": {
 				if (e.ip && e.port) {
-					e.compare_val = e.ip + ":" + ("00000" + e.port).slice(-5);
+					e.compare_val = `${e.ip}:${`00000${e.port}`.slice(-5)}`;
 				}
 				break;
-			case "players":
+			}
+			case "players": {
 				if (e.players >= 0) {
 					e.compare_val = e.players;
 				}
 				break;
-			case "ping":
+			}
+			case "ping": {
 				if (e.ping >= 0) {
 					e.compare_val = e.ping;
 				}
 				break;
-			default:
+			}
+			default: {
 				if (e.bHadSuccessfulResponse) {
 					e.compare_val = e[this.sortByState.id];
 				}
+			}
 		}
 	}
 	StartSearch() {
@@ -1184,7 +1223,12 @@ class He {
 			r,
 			(t) => {
 				if (t.bDoNotRefresh || !t.bHadSuccessfulResponse) {
-					if (e.id == "internet" || e.id == "lan" || e.id == "history") {
+					if (
+						e.id == "internet" ||
+						e.id == "lan" ||
+						e.id == "lan" ||
+						e.id == "history"
+					) {
 						return;
 					}
 					t.gameDesc = Localize("#ServerBrowser_NotResponding");
@@ -1253,16 +1297,16 @@ class He {
 		this.Modified();
 	}
 }
-(0, ye.Cg)([Ne.sH], He.prototype, "seq_num", undefined);
-(0, ye.Cg)([Ne.XI], He.prototype, "StartedRequest", null);
-(0, ye.Cg)([Ne.XI], He.prototype, "ClearServers", null);
-(0, ye.Cg)([Ne.XI], He.prototype, "SetSelectedServer", null);
-(0, ye.Cg)([Ne.XI], He.prototype, "FlushPendingServers", null);
-(0, ye.Cg)([Ne.XI], He.prototype, "StartSearch", null);
-(0, ye.Cg)([Ne.XI], He.prototype, "RefreshComplete", null);
+Cg([Ne.sH], He.prototype, "seq_num", undefined);
+Cg([Ne.XI], He.prototype, "StartedRequest", null);
+Cg([Ne.XI], He.prototype, "ClearServers", null);
+Cg([Ne.XI], He.prototype, "SetSelectedServer", null);
+Cg([Ne.XI], He.prototype, "FlushPendingServers", null);
+Cg([Ne.XI], He.prototype, "StartSearch", null);
+Cg([Ne.XI], He.prototype, "RefreshComplete", null);
 class je {
 	constructor(e) {
-		(0, Ne.Gn)(this);
+		Gn(this);
 		this.m_states = {};
 		this.m_fixedAppID = e;
 	}
@@ -1294,7 +1338,7 @@ class je {
 		this.Modified();
 	}
 	SetAppIDFromURL(e) {
-		(0, Fe.w)(
+		w_2(
 			!this.m_fixedAppID,
 			"Shouldn't get an AppID from the URL for server browser with Fixed AppID",
 		);
@@ -1303,7 +1347,7 @@ class je {
 	}
 	m_appidFromURL = 0;
 	useMultiplayerGames() {
-		return (0, T.q3)(() => this.m_multiplayerGames);
+		return q3(() => this.m_multiplayerGames);
 	}
 	GetMultiplayerGames() {
 		if (this.m_multiplayerGames == null) {
@@ -1316,27 +1360,27 @@ class je {
 	useActiveTabWhenReady() {
 		const e = this.BFixedAppID();
 		const t = this;
-		const r = (0, Me.I)({
+		const r = I_2({
 			enabled: e,
-			queryKey: ["ServerBrowserGamesFixed_" + this.m_fixedAppID],
+			queryKey: [`ServerBrowserGamesFixed_${this.m_fixedAppID}`],
 			queryFn: () => [
 				{
 					appid: this.m_fixedAppID,
 					gamedir: "",
-					name: "App" + this.m_fixedAppID,
+					name: `App${this.m_fixedAppID}`,
 				},
 			],
 		});
-		const i = (0, Me.I)({
+		const i = I_2({
 			enabled: !e,
 			queryKey: ["ServerBrowserGames"],
 			queryFn: () => SteamClient.ServerBrowser.GetMultiplayerGames(),
 		});
 		const a = e ? r.data : i.data;
-		let s = (0, T.q3)(
+		let s = q3(
 			() => this.m_multiplayerGames != null && this.m_activeTab !== undefined,
 		);
-		(0, T.q3)(() => this.seq_num);
+		q3(() => this.seq_num);
 		if (!We || !this.m_activeTab) {
 			SteamClient.ServerBrowser.GetServerListPreferences().then((e) => {
 				console.log("Loaded ServerBrowser preferences");
@@ -1355,7 +1399,7 @@ class je {
 			s = false;
 		}
 		const o = this.m_states.internet && true;
-		n.useEffect(function () {
+		n.useEffect(() => {
 			if (!a) {
 				return;
 			}
@@ -1384,8 +1428,8 @@ class je {
 		}
 	}
 }
-(0, ye.Cg)([Ne.sH], je.prototype, "seq_num", undefined);
-(0, ye.Cg)([Ne.sH], je.prototype, "m_multiplayerGames", undefined);
+Cg([Ne.sH], je.prototype, "seq_num", undefined);
+Cg([Ne.sH], je.prototype, "m_multiplayerGames", undefined);
 const qe = [
 	{
 		id: "internet",
@@ -1441,8 +1485,8 @@ function Ze(e) {
 }
 function Ye(e) {
 	const { tab: t, server: r } = e;
-	const { ownerWindow: i } = (0, ve.R7)();
-	const a = function (e) {
+	const { ownerWindow: i } = R7();
+	const a = (e) => {
 		i.navigator.clipboard.writeText(e).catch((e) => {
 			console.error("Failed to copy to clipboard:", e);
 		});
@@ -1462,7 +1506,7 @@ function Ye(e) {
 			we.kt,
 			{
 				onSelected: () =>
-					(function (e) {
+					((e) => {
 						Ee.Xw.ShowServerGameInfoDialog(e);
 					})(r),
 			},
@@ -1496,7 +1540,7 @@ function Ye(e) {
 				we.kt,
 				{
 					onSelected: () =>
-						(async function (e) {
+						(async (e) => {
 							await SteamClient.ServerBrowser.AddFavoriteServer(Ze(e));
 						})(r),
 				},
@@ -1525,11 +1569,11 @@ function Ye(e) {
 function Ke(e) {
 	const { closeModal: t, owningWindow: r } = e;
 	const [i, a] = n.useState("");
-	const s = async function () {
+	const s = async () => {
 		t();
 		let e = await SteamClient.ServerBrowser.AddFavoriteServersByIP(i);
 		if (e) {
-			(0, Be.pg)(
+			pg(
 				n.createElement(c.KG, {
 					strDescription: Localize(e),
 				}),
@@ -1572,12 +1616,12 @@ function Ke(e) {
 		),
 	);
 }
-const Xe = (0, l.Nr)(function (e) {
+const Xe = Nr((e) => {
 	const { serverBrowserState: t, tab: r } = e;
 	const i = n.useRef(undefined);
 	const a = !t.BFixedAppID() && r.id != "internet";
 	const s = t.GetTabState(r.id);
-	(0, T.q3)(() => s.seq_num);
+	q3(() => s.seq_num);
 	const l = s.GetFilterGame();
 	const c = s.Prefs();
 	const [u, d] = n.useState(l == null && !a);
@@ -1608,6 +1652,7 @@ const Xe = (0, l.Nr)(function (e) {
 			},
 			...e.map((e) => ({
 				data: e,
+
 				label: n.createElement(o.aZ, {
 					title: e.name,
 				}),
@@ -1798,12 +1843,7 @@ const Xe = (0, l.Nr)(function (e) {
 		initialState: Ue,
 		manualSortBy: true,
 	};
-	const S = (0, ke.useTable)(
-		y,
-		ke.useResizeColumns,
-		ke.useFlexLayout,
-		ke.useSortBy,
-	);
+	const S = useTable(y, ke.useResizeColumns, ke.useFlexLayout, ke.useSortBy);
 	const {
 		getTableProps: w,
 		getTableBodyProps: B,
@@ -1816,14 +1856,14 @@ const Xe = (0, l.Nr)(function (e) {
 	const N = M.length;
 	const F = S.state;
 	const G = F && F.sortBy && F.sortBy[0];
-	const O = (0, De.Te)({
+	const O = Te_2({
 		count: N,
 		getScrollElement: () => i.current,
 		estimateSize: n.useCallback(() => 34, [34]),
 		overscan: 5,
 	});
-	const P = (0, n.useRef)(null);
-	const { columnWidths: L, OnMouseDown: z } = (0, Ge.m)(ze, D, P);
+	const P = useRef(null);
+	const { columnWidths: L, OnMouseDown: z } = m(ze, D, P);
 	s.fnResorted = undefined;
 	if (s.selectedServer && i && i.current) {
 		const e = s.selectedServer.idxFiltered * 34 - i.current.scrollTop;
@@ -1849,7 +1889,7 @@ const Xe = (0, l.Nr)(function (e) {
 			if (a) {
 				s.SetSelectedServer(a);
 				if (a.ip && a.port) {
-					(0, Se.lX)(
+					lX(
 						n.createElement(Ye, {
 							tab: r,
 							server: a,
@@ -1876,17 +1916,17 @@ const Xe = (0, l.Nr)(function (e) {
 							key: e.id,
 							icon: e.isVisible ? n.createElement(Re.Jlk, null) : undefined,
 							disabled: t,
-							onSelected: t
-								? undefined
-								: () => {
-										e.toggleHidden(e.isVisible);
-									},
+							onSelected:
+								t ||
+								(() => {
+									e.toggleHidden(e.isVisible);
+								}),
 						},
 						e.HeaderText ?? e.Header,
 					);
 				}),
 			);
-			(0, Se.lX)(t, e, {
+			lX(t, e, {
 				bOverlapHorizontal: true,
 				bOverlapVertical: false,
 			});
@@ -1933,7 +1973,7 @@ const Xe = (0, l.Nr)(function (e) {
 		j(Localize("#ServerBrowser_FilterDescInsecureOnly"));
 	}
 	if (c.ping > 0) {
-		j(Localize("#ServerBrowser_FilterDescLatency") + " < " + c.ping);
+		j(`${Localize("#ServerBrowser_FilterDescLatency")} < ${c.ping}`);
 	}
 	if (c.NoFull) {
 		j(Localize("#ServerBrowser_FilterDescNotFull"));
@@ -1950,7 +1990,7 @@ const Xe = (0, l.Nr)(function (e) {
 		Q = n.createElement(
 			o.wl,
 			{
-				className: (0, v.A)(Te.SearchButton, Te.SearchActive),
+				className: A_2(Te.SearchButton, Te.SearchActive),
 				onClick: () => s.DestroyRequest(),
 			},
 			n.createElement(I.Spinner, {
@@ -1972,7 +2012,7 @@ const Xe = (0, l.Nr)(function (e) {
 		Q = n.createElement(
 			o.wl,
 			{
-				className: (0, v.A)(Te.SearchButton, !t && !e && Te.NewSearchButton),
+				className: A_2(Te.SearchButton, !t && !e && Te.NewSearchButton),
 				onClick: b,
 				disabled: t,
 				title: i,
@@ -1993,7 +2033,7 @@ const Xe = (0, l.Nr)(function (e) {
 					o.wl,
 					{
 						key: e.id,
-						className: (0, v.A)({
+						className: A_2({
 							[Te.SwitchTabButton]: true,
 							[Te.Selected]: e.id == r.id,
 						}),
@@ -2094,7 +2134,7 @@ const Xe = (0, l.Nr)(function (e) {
 									a.style.width = "100%";
 									a.style.height = `${e.size}px`;
 									a.style.transform = `translateY(${e.start}px)`;
-									a.className = (0, v.A)(
+									a.className = A_2(
 										a.className,
 										Te.ServerRow,
 										i && Te.SelectedRow,
@@ -2120,7 +2160,7 @@ const Xe = (0, l.Nr)(function (e) {
 										t.cells.map((e) => {
 											let { key: t, ...r } = e.getCellProps();
 											const i = e.column;
-											(0, Ge.j)(r, Te.currentSortCol, i, L);
+											j_2(r, Te.currentSortCol, i, L);
 											return n.createElement(
 												"span",
 												{
@@ -2145,7 +2185,7 @@ const Xe = (0, l.Nr)(function (e) {
 			n.createElement(
 				"div",
 				{
-					className: (0, v.A)(Te.FilterOptionsCtr, !u && Te.Collapsed),
+					className: A_2(Te.FilterOptionsCtr, !u && Te.Collapsed),
 				},
 				n.createElement(
 					"div",
@@ -2255,7 +2295,7 @@ const Xe = (0, l.Nr)(function (e) {
 				n.createElement(
 					o.wl,
 					{
-						className: (0, v.A)({
+						className: A_2({
 							[Te.ToggleShowFilterDetailsButton]: true,
 							[Te.Selected]: u,
 						}),
@@ -2283,7 +2323,7 @@ const Xe = (0, l.Nr)(function (e) {
 								className: Te.AddFavoriteButton,
 								onClick: (e) => {
 									t = GetOwningWindowForEvent(e);
-									(0, Be.pg)(
+									pg(
 										n.createElement(Ke, {
 											owningWindow: t,
 										}),
@@ -2318,7 +2358,7 @@ const Je = (e) => {
 	let { key: s, ...o } = t.getHeaderProps();
 	const l = t.getSortByToggleProps();
 	l.title = undefined;
-	o.className = (0, v.A)(o.className, Te.ServerListHeaderCell);
+	o.className = A_2(o.className, Te.ServerListHeaderCell);
 	r(o, Te.currentSortCol, t, a);
 	o.title = t.HeaderText;
 	const c = !t.HeaderText;
@@ -2346,7 +2386,7 @@ const Je = (e) => {
 			n.createElement(
 				"div",
 				{
-					key: s + "-resizer",
+					key: `${s}-resizer`,
 					className: Te.ColumnResizer,
 					onMouseDown: (e) => i(e, t.id),
 				},
@@ -2354,7 +2394,7 @@ const Je = (e) => {
 			),
 	);
 };
-const $e = (0, l.Nr)(function (e) {
+const $e = Nr((e) => {
 	const { serverBrowserState: t, onClose: r } = e;
 	const i = t.useActiveTabWhenReady();
 	if (i) {
@@ -2378,21 +2418,18 @@ const $e = (0, l.Nr)(function (e) {
 	}
 });
 let et = new je(0);
-const tt = (0, l.Nr)(function () {
-	const e = n.useCallback(function (e) {
+const tt = Nr(() => {
+	const e = n.useCallback((e) => {
 		const t = new URL(e.strURL)?.searchParams?.get("appid");
 		if (t) {
 			et.SetAppIDFromURL(t);
 		}
 	}, []);
-	let [t, r, i] = (0, Oe.Z)(7, "open/servers", e);
-	const a = n.useCallback(
-		function () {
-			et.StopRequests();
-			i();
-		},
-		[i],
-	);
+	let [t, r, i] = Z_2(7, "open/servers", e);
+	const a = n.useCallback(() => {
+		et.StopRequests();
+		i();
+	}, [i]);
 	if (!t) {
 		return null;
 	}
@@ -2430,19 +2467,16 @@ const tt = (0, l.Nr)(function () {
 		),
 	);
 });
-var rt = require("./78055.js");
-var nt = require("./81827.js");
-var it = require("./45967.js");
-const at = (0, l.Nr)(function () {
-	return n.createElement(
+const at = Nr(() =>
+	n.createElement(
 		n.Fragment,
 		null,
 		n.createElement(st, null),
 		n.createElement(ot, null),
-	);
-});
+	),
+);
 function st() {
-	const { clearError: e, ...t } = (0, it.mJ)();
+	const { clearError: e, ...t } = mJ();
 	if (!t) {
 		return null;
 	}
@@ -2453,26 +2487,31 @@ function st() {
 	let a;
 	let s;
 	switch (t.eClient) {
-		case nt.V.k_EVRError_VRSkipParam:
+		case nt.V.k_EVRError_VRSkipParam: {
 			i = r;
 			a = "#VR_Error_Query_IgnoreSkip";
 			s = "#VR_Error_VRSkipParam";
 			break;
-		case nt.V.k_EVRError_ComponentNotInstalled:
+		}
+		case nt.V.k_EVRError_ComponentNotInstalled: {
 			i = () => SteamClient.OpenVR.InstallVR();
 			a = "#VR_Error_Query_InstallSteamVR";
 			s = "#VR_Error_ComponentNotInstalled";
 			break;
-		case nt.V.k_EVRError_ComponentBusy:
+		}
+		case nt.V.k_EVRError_ComponentBusy: {
 			s = "#VR_Error_ComponentBusy";
 			break;
-		case nt.V.k_EVRError_CrashProtection:
+		}
+		case nt.V.k_EVRError_CrashProtection: {
 			i = r;
 			a = "#VR_Error_Query_Yes";
 			s = "#VR_Error_CrashProtection";
 			break;
-		case nt.V.k_EVRError_HmdError:
+		}
+		case nt.V.k_EVRError_HmdError: {
 			s = Localize("#VR_Error_UnknownError", t.strInit, t.eInit);
+		}
 	}
 	if (s) {
 		return n.createElement(
@@ -2530,12 +2569,10 @@ function ot() {
 		return null;
 	}
 }
-var lt = require("./52177.js");
-var ct = require("./63098.js");
 const mt = n.lazy(() => require.e(1220).then(require.bind(require, 44840)));
 function ut() {
-	const e = (0, _.CH)();
-	(0, _.hL)(ct.U.PopupsChangedCallbacks, e);
+	const e = CH();
+	hL(ct.U.PopupsChangedCallbacks, e);
 	return n.createElement(
 		n.Suspense,
 		{
@@ -2549,16 +2586,9 @@ function ut() {
 		),
 	);
 }
-var dt = require("./59718.js");
-require("./27954.js");
-var At = require("./32792.js");
-var pt = require("./73128.js");
-var gt = pt;
-var ht = require(/*webcrack:missing*/ "./28987.js");
-var Ct = require(/*webcrack:missing*/ "./83599.js");
-var _t = require("./13337.js");
+const gt = pt;
 new Ct.wd("SSA").Debug;
-const ft = (0, l.Nr)(function () {
+const ft = Nr(() => {
 	const e = `${S.TS.STORE_BASE_URL}subscriber_agreement/${S.TS.LANGUAGE}`;
 	const [t, r] = n.useState();
 	const i = n.useCallback((e) => {
@@ -2568,7 +2598,7 @@ const ft = (0, l.Nr)(function () {
 			r(e);
 		}
 	}, []);
-	const a = (0, ge.xn)();
+	const a = xn();
 	if (S.TS.EREALM != ht.TU.k_ESteamRealmGlobal) {
 		return null;
 	}
@@ -2643,7 +2673,7 @@ const ft = (0, l.Nr)(function () {
 });
 const bt = (e) => {
 	let { onClose: t, popup: r, strName: i, strURL: o } = e;
-	const [l, c] = (0, s.v)(r, i, {
+	const [l, c] = v_1(r, i, {
 		strURL: o,
 	});
 	const m = n.useCallback(
@@ -2674,16 +2704,10 @@ const bt = (e) => {
 		return null;
 	}
 };
-var yt = require("./21110.js");
-var St = require("./46430.js");
-var wt = require("./76356.js");
-var Bt = require("./30496.js");
-var vt = require("./56262.js");
-var It = require("./78057.js");
-const Et = (0, l.Nr)(function (e) {
-	let t = (0, wt._U)();
-	const r = (0, S.hf)();
-	const i = (function (e) {
+const Et = Nr((e) => {
+	let t = _U();
+	const r = hf();
+	const i = ((e) => {
 		let [t, r] = n.useState();
 		let i = n.useRef(undefined);
 		let a = n.useRef(undefined);
@@ -2730,17 +2754,17 @@ const Et = (0, l.Nr)(function (e) {
 			e.SteamClient.Window.MoveToLocation("center");
 		}
 	}, []);
-	let u = (function (e, t) {
-		const r = (0, ue.Qt)(`steam://open/library/details/${e}`);
+	let u = ((e, t) => {
+		const r = Qt_2(`steam://open/library/details/${e}`);
 		const i = n.useCallback(() => {
 			r();
 			t();
 		}, [r, t]);
 		return i;
 	})(i, a);
-	let d = (0, he._R)(i);
+	let d = _R(i);
 	let A = d?.appid || 0;
-	let p = (0, It.T)(A);
+	let p = T_2(A);
 	if (i && r && d && p) {
 		return n.createElement(
 			c.hM,
@@ -2818,14 +2842,11 @@ const Et = (0, l.Nr)(function (e) {
 		return null;
 	}
 });
-var Mt = require("./33512.js");
-var Tt = require("./51517.js");
-var Rt = require("./40692.js");
-var kt = Rt;
+const kt = Rt;
 function Dt(e) {
 	const { elCheckbox: t, ...r } = e;
-	const [i, a] = (function () {
-		const e = (0, T.q3)(() => ge.oy.MainRunningApp);
+	const [i, a] = (() => {
+		const e = q3(() => ge.oy.MainRunningApp);
 		return [
 			e != null,
 			n.createElement(Gt, {
@@ -2834,8 +2855,8 @@ function Dt(e) {
 			}),
 		];
 	})();
-	const s = (0, T.q3)(() => ge.oy.GetShutdownState().eShutdownState);
-	const [o, l, c] = (0, Tt.M)({
+	const s = q3(() => ge.oy.GetShutdownState().eShutdownState);
+	const [o, l, c] = M_2({
 		className: kt.Dialog,
 		bCloseOnOK: false,
 		bOKDisabled: i,
@@ -2850,7 +2871,7 @@ function Dt(e) {
 	return [o, l];
 }
 const Nt = () => {
-	const [e, t] = (0, C.VI)("always_show_user_chooser");
+	const [e, t] = VI("always_show_user_chooser");
 	const r = n.createElement(o.Yh, {
 		label: Localize("#ChangeUser_ShouldShowUserChooser"),
 		checked: e,
@@ -2885,7 +2906,7 @@ function Gt(e) {
 		return n.createElement(
 			"div",
 			{
-				className: (0, v.A)(kt.Prompt, kt.Warning),
+				className: A_2(kt.Prompt, kt.Warning),
 			},
 			Localize("#Steam_AppMustBeClosedToQuit_Info", e.mainApp.display_name),
 		);
@@ -2916,9 +2937,7 @@ function Pt(e) {
 	);
 	return n.createElement(n.Fragment, null, t);
 }
-var Lt = require("./17024.js");
-var zt = Lt;
-var xt = require("./94496.js");
+const zt = Lt;
 function Ut(e) {
 	const t = xt.iP.GetDefaultMonitorDimensions();
 	const r = n.useCallback(
@@ -2935,8 +2954,8 @@ function Ut(e) {
 		},
 		[t],
 	);
-	let i = (0, wt.Dk)();
-	let [a, s] = (function (e) {
+	let i = Dk();
+	let [a, s] = ((e) => {
 		let t = n.useCallback(() => {
 			if (e) {
 				e.ConfirmContinue();
@@ -2976,7 +2995,7 @@ function Ut(e) {
 }
 function Wt(e) {
 	let { onComplete: t } = e;
-	let r = (function (e) {
+	let r = ((e) => {
 		let [t, r] = n.useState(undefined);
 		let i = n.useRef(undefined);
 		i.current = e;
@@ -3067,12 +3086,12 @@ function Wt(e) {
 		),
 	);
 }
-const Vt = (0, l.Nr)(function () {
+const Vt = Nr(() => {
 	const [e, t] = n.useState(false);
 	const [r, i] = n.useState("");
 	const [a, s] = n.useState(0);
 	const [l, u] = n.useState();
-	const d = (0, he.Co)(a);
+	const d = Co(a);
 	const A = n.useCallback((e, r) => {
 		t(true);
 		s(e);
@@ -3119,10 +3138,6 @@ const Vt = (0, l.Nr)(function () {
 		),
 	);
 });
-var Ht = require("./37086.js");
-var jt = require("./28592.js");
-var qt = require("./95753.js");
-var Qt = require("./91720.js");
 const Zt = n.lazy(() => require.e(7462).then(require.bind(require, 96884)));
 const Yt = 1020;
 const Kt = 750;
@@ -3130,13 +3145,13 @@ const Xt = 675;
 const Jt = 500;
 const $t = 0.8;
 function er(e) {
-	let [t, r] = (0, n.useState)(null);
-	let [i, a, s] = (0, Oe.Z)(7, "open/screenshots", r);
-	let [o, l, u] = (0, Oe.Z)(7, "open/clip", r);
-	let [d, A, p] = (0, Oe.Z)(7, "open/recording", r);
-	let [g, h, C] = (0, Oe.Z)(7, "open/media", r);
-	let f = (0, Oe.q)();
-	let b = (0, _.Ue)(f, a, l, A, h);
+	let [t, r] = useState(null);
+	let [i, a, s] = Z_2(7, "open/screenshots", r);
+	let [o, l, u] = Z_2(7, "open/clip", r);
+	let [d, A, p] = Z_2(7, "open/recording", r);
+	let [g, h, C] = Z_2(7, "open/media", r);
+	let f = q_2();
+	let b = Ue_2(f, a, l, A, h);
 	let y = () => {
 		s();
 		u();
@@ -3169,17 +3184,21 @@ function er(e) {
 				let r;
 				let n = "all";
 				switch (e) {
-					case "clip":
+					case "clip": {
 						n = "clip";
 						break;
-					case "recording":
+					}
+					case "recording": {
 						n = "recording";
 						break;
-					case "screenshot":
+					}
+					case "screenshot": {
 						n = "screenshot";
 						break;
-					default:
+					}
+					default: {
 						r = e;
+					}
 				}
 				a = {
 					listSource: r
@@ -3206,7 +3225,7 @@ function er(e) {
 					a = {
 						listSource: {
 							type: "app",
-							gameid: (0, Qt.XA)(e).game_id,
+							gameid: XA(e).game_id,
 						},
 					};
 					s = {
@@ -3254,8 +3273,9 @@ function er(e) {
 				}
 				break;
 			}
-			default:
+			default: {
 				console.error(`Unexpected media entry point. "${r}"`);
+			}
 		}
 		return {
 			bActive: t,
@@ -3284,7 +3304,7 @@ function er(e) {
 			),
 		);
 	}
-	let M = (function () {
+	let M = (() => {
 		let e = ve.Of.GetRestoreDetails("Window_SteamDesktop").split("&");
 		let t = {};
 		for (let r of e) {
@@ -3301,7 +3321,7 @@ function er(e) {
 	return n.createElement(
 		c.hM,
 		{
-			className: (0, v.A)(qt.MM),
+			className: A_2(qt.MM),
 			strTitle: Localize("#MediaManager_Dialog_Header"),
 			onDismiss: y,
 			resizable: true,
@@ -3320,11 +3340,9 @@ function er(e) {
 		}),
 	);
 }
-var tr = require("./13656.js");
-var rr = require("./31627.js");
 export function j() {
-	const e = (0, S.hf)();
-	const t = (0, ee.Wx)();
+	const e = hf();
+	const t = Wx();
 	return n.createElement(
 		l.wC,
 		null,
@@ -3334,7 +3352,7 @@ export function j() {
 		n.createElement(E, null),
 		n.createElement(Ae, null),
 		n.createElement(se.p, null),
-		!(0, N.Yk)() && n.createElement(L, null),
+		!Yk() && n.createElement(L, null),
 		n.createElement(re, null),
 		n.createElement(ne, null),
 		n.createElement(ie.z, null),

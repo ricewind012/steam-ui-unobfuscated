@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GhostContainer: "LuubbPZklmPSVpKm5fk33",
 	Ghost: "_9lwONc6gDNvb_4cUrjdme",
 	GhostImageBox: "qDwqSH0fCOLM4QlMqiNv",

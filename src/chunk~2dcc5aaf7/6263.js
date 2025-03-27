@@ -1,25 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./10606.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require("./27987.js");
-var l = o;
-var c = require("./89748.js");
-var m = require("./24274.js");
-var u = require("./77347.js");
-var d = require("./18057.js");
-var A = require("./5640.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./10606.js";
+import o from "./27987.js";
+import c, { QR, iZ } from "./89748.js";
+import m, { hn } from "./24274.js";
+import u, { Id } from "./77347.js";
+import { Qt } from "./18057.js";
+import { L2 } from "./5640.js";
+const l = o;
 export function P3(e) {
-	const [t, r] = n.useState();
-	const [i, o] = n.useState();
-	const [l, c] = n.useState();
+	const [t, setT] = n.useState();
+	const [i, setI] = n.useState();
+	const [l, setL] = n.useState();
 	const m = n.useCallback(() => {
-		o(false);
+		setI(false);
 	}, []);
 	const u = n.useCallback((e, t, r) => {
 		if (t == "PlaytimeExhausted") {
-			o(true);
-			c(r);
+			setI(true);
+			setL(r);
 		}
 	}, []);
 	n.useEffect(
@@ -27,42 +27,39 @@ export function P3(e) {
 		[u],
 	);
 	if (i && l) {
-		return n.createElement(
-			a.hM,
-			{
-				strTitle: Localize("#FamilyView_RequestPlaytime_Title"),
-				onDismiss: m,
-				popupWidth: 500,
-				popupHeight: 350,
-				refPopup: r,
-				modal: true,
-			},
-			n.createElement(db, {
-				onClose: m,
-				strDetails: l,
-			}),
+		return (
+			<a.hM
+				strTitle={Localize("#FamilyView_RequestPlaytime_Title")}
+				onDismiss={m}
+				popupWidth={500}
+				popupHeight={350}
+				refPopup={setT}
+				modal
+			>
+				<Db onClose={m} strDetails={l} />
+			</a.hM>
 		);
 	} else {
 		return null;
 	}
 }
-export function db(e) {
-	const { onClose: t, strDetails: r } = e;
+export function Db(e) {
+	const { onClose, strDetails } = e;
 	const a = new Date().getDay();
-	const o = (0, c.QR)();
-	const p = (0, c.iZ)();
-	const g = (0, A.L2)();
-	const h = (0, u.Id)() && g;
-	const [C, _] = n.useState(n.createElement(n.Fragment, null, "\xA0"));
+	const o = QR();
+	const p = iZ();
+	const g = L2();
+	const h = Id() && g;
+	const [C, setC] = n.useState(<>{"\xA0"}</>);
 	const f = n.useCallback(
 		(e) => {
 			if (e.result === 84) {
-				t();
+				onClose();
 			} else {
-				_(Localize("#FamilyView_RequestPlaytime_GenericError", e.result));
+				setC(Localize("#FamilyView_RequestPlaytime_GenericError", e.result));
 			}
 		},
-		[t],
+		[onClose],
 	);
 	const b =
 		g.temporary_playtime_restrictions !== undefined &&
@@ -70,22 +67,25 @@ export function db(e) {
 			new Date().getTime() / 1000
 			? g.temporary_playtime_restrictions.restrictions
 			: g.playtime_restrictions?.playtime_days[a];
-	const y = (0, m.hn)(p.strSteamID, b, t, f);
-	const S = (0, d.Qt)("steam://open/goonline");
+	const y = hn(p.strSteamID, b, onClose, f);
+	const S = Qt("steam://open/goonline");
 	const w = n.useCallback(() => {
-		_(n.createElement(n.Fragment, null, "\xA0"));
+		setC(<>{"\xA0"}</>);
 		y.mutate();
 	}, [y]);
 	let B;
-	switch (r) {
-		case "minutes":
+	switch (strDetails) {
+		case "minutes": {
 			B = Localize("#AppLaunchError_PlaytimeLimitExceeded_Minutes");
 			break;
-		case "window":
+		}
+		case "window": {
 			B = Localize("#AppLaunchError_PlaytimeLimitExceeded_Window");
 			break;
-		case "manual":
+		}
+		case "manual": {
 			B = Localize("#FamilyView_RequestPlaytime_LimitUpcoming");
+		}
 	}
 	let v = w;
 	let I = Localize("#FamilyView_RequestPlaytime_Request");
@@ -93,59 +93,30 @@ export function db(e) {
 		v = S;
 		I = Localize("#AppDetails_GoOnline");
 	} else if (!h) {
-		v = t;
+		v = onClose;
 		I = Localize("#Button_Close");
 	}
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(i.Y9, null, Localize("#FamilyView_RequestPlaytime_Title")),
-		n.createElement(
-			i.f3,
-			{
-				onCancelButton: t,
-			},
-			n.createElement(
-				i.a3,
-				null,
-				n.createElement(
-					"div",
-					{
-						className: l.ErrorText,
-					},
-					C,
-				),
-				n.createElement("div", null, B),
-				n.createElement(
-					"div",
-					null,
-					Localize(
-						h
-							? "#FamilyView_RequestPlaytime_Description"
-							: "#FamilyView_RequestPlaytime_Description_Offline",
-					),
-				),
-			),
-			n.createElement(
-				i.wi,
-				null,
-				(h || o) &&
-					n.createElement(i.CB, {
-						onOK: v,
-						strOKText: I,
-						onCancel: t,
-					}),
-				!h &&
-					!o &&
-					n.createElement(
-						i.jn,
-						{
-							onClick: v,
-						},
-						I,
-					),
-			),
-		),
+	return (
+		<>
+			<i.Y9>{Localize("#FamilyView_RequestPlaytime_Title")}</i.Y9>
+			<i.f3 onCancelButton={onClose}>
+				<i.a3>
+					<div className={l.ErrorText}>{C}</div>
+					<div>{B}</div>
+					<div>
+						{Localize(
+							h
+								? "#FamilyView_RequestPlaytime_Description"
+								: "#FamilyView_RequestPlaytime_Description_Offline",
+						)}
+					</div>
+				</i.a3>
+				<i.wi>
+					{(h || o) && <i.CB onOK={v} strOKText={I} onCancel={onClose} />}
+					{!h && !o && <i.jn onClick={v}>{I}</i.jn>}
+				</i.wi>
+			</i.f3>
+		</>
 	);
 }
 export function _N(e, t) {

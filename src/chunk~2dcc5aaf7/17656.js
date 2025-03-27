@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	DialogContent_InnerWidth: "_2dCJB5n44Vb0VA6rA7lr_o",
 	FriendPicker_Focus: "_3UaXm-E90pMmvtjroQWhuG",

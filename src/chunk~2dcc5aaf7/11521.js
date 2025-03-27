@@ -1,124 +1,82 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require("./11374.js");
-var s = require("./60917.js");
-var o = require("./87546.js");
-var l = require("./35488.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require("./22091.js");
-var d = require("./74416.js");
-var A = require("./20189.js");
-var p = A;
-var g = require("./48289.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var _C = require(/*webcrack:missing*/ "./8573.js");
-var _ = require("./87913.js");
-var f = require("./73317.js");
-var b = require("./67863.js");
-var y = require("./96680.js");
-var S = require("./18057.js");
-var w = require("./13688.js");
-var B = require("./18869.js");
-var v = require("./65067.js");
-var I = require("./5640.js");
+import n from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a from "./11374.js";
+import s, { XE, ZT } from "./60917.js";
+import o, { Qc } from "./87546.js";
+import l from "./35488.js";
+import c, { A as A_1 } from "./90765.js";
+import u from "./22091.js";
+import { TR } from "./74416.js";
+import A from "./20189.js";
+import g from "./48289.js";
+import h, { Qn, uI, XW, rP } from "./72476.js";
+import _C from "./8573.js";
+import _ from "./87913.js";
+import f from "./73317.js";
+import b, { f_ as f_1 } from "./67863.js";
+import { $2 } from "./96680.js";
+import { bG, Qt } from "./18057.js";
+import { k1 } from "./13688.js";
+import { br } from "./18869.js";
+import v from "./65067.js";
+import { hb } from "./5640.js";
+const p = A;
 function E(e) {
-	const t = (0, o.Qc)();
+	const t = Qc();
 	if (!t.bHasBattery || t.flLevel > 0.1) {
 		return null;
 	}
 	let r = Math.floor(t.flLevel * 100);
 	let i = r < 4;
-	let a = (0, c.A)(p.LowBattery, i && p.ReallyLow);
-	return n.createElement(
-		"div",
-		{
-			className: a,
-		},
-		n.createElement(l.BatteryLow, {
-			className: p.LowBatteryGauge,
-		}),
-		n.createElement(
-			"div",
-			{
-				className: p.Text,
-			},
-			Localize("#QuickAccess_Tab_Notifications_BatteryLow"),
-		),
-		n.createElement(
-			"div",
-			{
-				className: p.Remaining,
-			},
-			`${r}%`,
-		),
+	let a = A_1(p.LowBattery, i && p.ReallyLow);
+	return (
+		<div className={a}>
+			<l.BatteryLow className={p.LowBatteryGauge} />
+			<div className={p.Text}>
+				{Localize("#QuickAccess_Tab_Notifications_BatteryLow")}
+			</div>
+			<div className={p.Remaining}>{`${r}%`}</div>
+		</div>
 	);
 }
 function M(e) {
-	let t = (0, i.q3)(() => f.fN.BSteamDeckHasLowDiskSpace());
+	let t = q3(() => f.fN.BSteamDeckHasLowDiskSpace());
 	const r = n.useCallback(() => {
-		(0, b.f_)(0);
+		f_1(0);
 	}, []);
 	if (!t) {
 		return null;
 	}
 	const s = Localize("#ContentManagement_LowDiskSpaceNotification_Title");
 	const o = Localize("#ContentManagement_LowDiskSpaceNotification_Body");
-	const c = n.createElement(l.HardDrive, null);
-	const u = n.createElement(l.Information, null);
-	return n.createElement(
-		a.P7,
-		{
-			location: 3,
-			logo: c,
-			onActivate: r,
-		},
-		n.createElement(v.OJ, {
-			icon: u,
-			title: s,
-			location: 3,
-		}),
-		n.createElement(
-			v.NF,
-			{
-				multiline: true,
-			},
-			o,
-		),
+	const c = <l.HardDrive />;
+	const u = <l.Information />;
+	return (
+		<a.P7 location={3} logo={c} onActivate={r}>
+			<v.OJ icon={u} title={s} location={3} />
+			<v.NF multiline>{o}</v.NF>
+		</a.P7>
 	);
 }
 function T() {
-	const e = (0, i.q3)(() => u.Fd.Get().GetControllers()).find(
+	const e = q3(() => u.Fd.Get().GetControllers()).find(
 		(e) => e.eControllerType == 4,
 	);
-	const t = (0, d.TR)(e?.strSerialNumber);
-	const r = (0, w.k1)();
+	const t = TR(e?.strSerialNumber);
+	const r = k1();
 	if (!e || t) {
 		return null;
 	}
 	const s = Localize("#Notification_SteamDeckRewards_Title");
 	const o = Localize("#Notification_SteamDeckRewards_Body");
-	const c = n.createElement(l.DeckLogo, null);
-	const A = n.createElement(l.Information, null);
-	return n.createElement(
-		a.P7,
-		{
-			location: 3,
-			logo: c,
-			onActivate: () => r.Account(),
-		},
-		n.createElement(v.OJ, {
-			icon: A,
-			title: s,
-			location: 3,
-		}),
-		n.createElement(
-			v.NF,
-			{
-				multiline: true,
-			},
-			o,
-		),
+	const c = <l.DeckLogo />;
+	const A = <l.Information />;
+	return (
+		<a.P7 location={3} logo={c} onActivate={() => r.Account()}>
+			<v.OJ icon={A} title={s} location={3} />
+			<v.NF multiline>{o}</v.NF>
+		</a.P7>
 	);
 }
 const R = [
@@ -130,15 +88,12 @@ const R = [
 		feature: 1,
 	},
 	{
-		component: function (e) {
-			const t = (0, y.$2)();
+		component(e) {
+			const t = $2();
 			const r = n.useCallback(() => _.LN.ShowInvitesDialog(t), [t]);
-			const i = (0, S.bG)("PendingFriends");
-			const a = (0, h.Qn)() ? r : i;
-			return n.createElement(D, {
-				...e,
-				onActivate: a,
-			});
+			const i = bG("PendingFriends");
+			const a = Qn() ? r : i;
+			return <D {...e} onActivate={a} />;
 		},
 		countItem: "pending_invites",
 		icon: l.AddFriend,
@@ -146,18 +101,17 @@ const R = [
 		feature: 4,
 	},
 	{
-		component: function (e) {
+		component(e) {
 			const t = new _C.b(g.O$.currentUserSteamID);
-			const r = (0, h.uI)();
-			const i = (0, S.Qt)(
-				`${h.TS.COMMUNITY_BASE_URL}profiles/${t.ConvertTo64BitString()}/notifications#comments`,
+			const r = uI();
+			const i = Qt(
+				`${
+					h.TS.COMMUNITY_BASE_URL
+				}profiles/${t.ConvertTo64BitString()}/notifications#comments`,
 			);
-			const a = (0, S.bG)("CommentNotifications");
+			const a = bG("CommentNotifications");
 			const s = r ? a : i;
-			return n.createElement(D, {
-				...e,
-				onActivate: s,
-			});
+			return <D {...e} onActivate={s} />;
 		},
 		countItem: "comments",
 		icon: l.Comment,
@@ -165,12 +119,9 @@ const R = [
 		feature: 2,
 	},
 	{
-		component: function (e) {
-			const t = (0, B.br)();
-			return n.createElement(D, {
-				...e,
-				onActivate: () => t.Chat(),
-			});
+		component(e) {
+			const t = br();
+			return <D {...e} onActivate={() => t.Chat()} />;
 		},
 		countItem: "offline_messages",
 		icon: l.Chat,
@@ -217,103 +168,84 @@ const R = [
 		strLocToken: "#Notification_FamilyInvitePinned_Body",
 	},
 ];
-function k(e) {
-	const { steamURL: t, ...r } = e;
-	const i = (0, S.bG)(t);
-	return n.createElement(D, {
-		...r,
-		onActivate: i,
-	});
+function K(e) {
+	const { steamURL, ...r } = e;
+	const i = bG(steamURL);
+	return <D {...r} onActivate={i} />;
 }
 function D(e) {
 	const {
-		visible: t,
-		displayedCounts: r,
-		onActivate: i,
-		countItem: a,
-		icon: o,
-		strLocToken: l,
-		feature: c,
+		visible,
+		displayedCounts,
+		onActivate,
+		countItem,
+		Icon,
+		strLocToken,
+		feature,
 	} = e;
-	const m = (0, s.XE)()[a];
-	const u = (0, h.XW)();
-	if ((0, I.hb)(c)) {
+	const m = XE()[a];
+	const u = XW();
+	if (hb(feature)) {
 		return null;
 	} else if (m) {
-		if (r && r[a] == m) {
+		if (displayedCounts && displayedCounts[a] == m) {
 			return null;
 		} else {
-			return n.createElement(v.OK, {
-				count: m,
-				icon: n.createElement(o, null),
-				onActivate: i,
-				strLocToken: l,
-				bAlwaysShow: false,
-				eUIMode: u,
-				visible: t,
-			});
+			return (
+				<v.OK
+					count={m}
+					Icon={<Icon />}
+					onActivate={onActivate}
+					strLocToken={strLocToken}
+					bAlwaysShow={false}
+					eUIMode={u}
+					visible={visible}
+				/>
+			);
 		}
 	} else {
 		return null;
 	}
 }
-export function r(e) {
+export function R_1(e) {
 	const t = [];
 	for (let r of R) {
 		if (r.hasOwnProperty("steamURL")) {
 			const i = r;
-			t.push(
-				n.createElement(k, {
-					key: i.strLocToken,
-					...e,
-					...i,
-				}),
-			);
+			t.push(<K key={i.strLocToken} {...e} {...i} />);
 		} else {
 			const i = r;
-			const { component: a, ...s } = i;
-			t.push(
-				n.createElement(a, {
-					key: i.strLocToken,
-					...s,
-					...e,
-				}),
-			);
+			const { Component, ...s } = i;
+			t.push(<Component key={i.strLocToken} {...s} {...e} />);
 		}
 	}
-	return n.createElement(n.Fragment, null, t);
+	return <>{t}</>;
 }
 export function C() {
-	let e = (0, s.ZT)().map((e) =>
-		n.createElement(a.Tm, {
-			key: e.notifications[0].notificationID,
-			location: 3,
-			group: e,
-			onDismiss: undefined,
-		}),
-	);
-	const t = (0, h.rP)().IN_VR;
-	return n.createElement(
-		"div",
-		{
-			className: (0, c.A)(p.QuickAccessNotifications, t && p.VR),
-		},
-		n.createElement(E, null),
-		n.createElement(M, null),
-		n.createElement(r, {
-			visible: true,
-		}),
-		n.createElement(T, null),
-		e,
-		e.length == 0 && n.createElement(G, null),
+	let e = ZT().map((e) => (
+		<a.Tm
+			key={e.notifications[0].notificationID}
+			location={3}
+			group={e}
+			onDismiss={undefined}
+		/>
+	));
+	const t = rP().IN_VR;
+	return (
+		<div className={A_1(p.QuickAccessNotifications, t && p.VR)}>
+			<E />
+			<M />
+			<R_1 visible />
+			<T />
+			{e}
+			{e.length == 0 && <G />}
+		</div>
 	);
 }
 function G(e) {
-	return n.createElement(
-		"div",
-		{
-			className: p.EmptyNotifications,
-		},
-		Localize("#QuickAccess_Tab_Notifications_None"),
+	return (
+		<div className={p.EmptyNotifications}>
+			{Localize("#QuickAccess_Tab_Notifications_None")}
+		</div>
 	);
 }

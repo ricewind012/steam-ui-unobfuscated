@@ -1,23 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-const i = (0, n.createContext)({});
+import n, { createContext, useMemo, useContext } from "./63696.js";
+const IContext = createContext({});
 export function x(e) {
-	const { children: t, onSaveOrShareClipRequested: r } = e;
-	const a = (0, n.useMemo)(
+	const { children, onSaveOrShareClipRequested } = e;
+	const a = useMemo(
 		() => ({
-			onSaveOrShareClipRequested: r,
+			onSaveOrShareClipRequested: onSaveOrShareClipRequested,
 		}),
-		[r],
+		[onSaveOrShareClipRequested],
 	);
-	return n.createElement(
-		i.Provider,
-		{
-			value: a,
-		},
-		t,
-	);
+	return <IContext.Provider value={a}>{children}</IContext.Provider>;
 }
 export function z() {
-	const e = (0, n.useContext)(i);
+	const e = useContext(IContext);
 	if (e.onSaveOrShareClipRequested) {
 		return e.onSaveOrShareClipRequested;
 	} else {

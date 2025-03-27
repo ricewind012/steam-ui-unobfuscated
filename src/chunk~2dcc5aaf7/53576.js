@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	Login: "VZ6x_grhNkIYJG__jEEyp",
 	AnimatedBackground: "_1NBr0Hdw3P-7Q6P5UXs96Y",

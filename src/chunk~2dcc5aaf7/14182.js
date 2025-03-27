@@ -1,30 +1,30 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./23038.js");
-var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./50376.js");
-var l = require("./52912.js");
-var c = require("./95773.js");
-var m = require("./15855.js");
-var u = require("./27847.js");
-var d = require("./78060.js");
-var A = require("./13869.js");
-var p = require(/*webcrack:missing*/ "./69164.js");
-var g = require(/*webcrack:missing*/ "./89193.js");
-var h = require(/*webcrack:missing*/ "./41230.js");
-var C = require(/*webcrack:missing*/ "./31084.js");
-var _ = require(/*webcrack:missing*/ "./88750.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var b = require(/*webcrack:missing*/ "./52451.js");
-var y = require("./98829.js");
-var S = require("./65726.js");
-var w = require("./92564.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var v = require("./88620.js");
-var I = require(/*webcrack:missing*/ "./49455.js");
-var E = require(/*webcrack:missing*/ "./79769.js");
-var M = require(/*webcrack:missing*/ "./72476.js");
-var T = require("./83665.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./23038.js";
+import s from "./64608.js";
+import o from "./50376.js";
+import l, { h8, wj, CO } from "./52912.js";
+import c from "./95773.js";
+import m from "./15855.js";
+import u, { ae } from "./27847.js";
+import d, { Ic } from "./78060.js";
+import A, { HT } from "./13869.js";
+import p from "./69164.js";
+import g, { Gn } from "./89193.js";
+import h from "./41230.js";
+import { lX } from "./31084.js";
+import _ from "./88750.js";
+import b from "./52451.js";
+import y from "./98829.js";
+import S from "./65726.js";
+import w, { nn } from "./92564.js";
+import { E5 } from "./88620.js";
+import { w as w_1 } from "./49455.js";
+import E from "./79769.js";
+import M from "./72476.js";
+import T from "./83665.js";
 export let aq = class extends i.Component {
 	m_schHoverDelay = new E.LU();
 	constructor(e) {
@@ -37,52 +37,46 @@ export let aq = class extends i.Component {
 	OnRoomsContextMenu(e) {
 		if (this.props.groupView.GetGroup().BCanAdminChannel()) {
 			let t = e.currentTarget.ownerDocument.defaultView;
-			(0, C.lX)(
-				i.createElement(
-					_.tz,
-					null,
-					i.createElement(
-						_.kt,
-						{
-							onSelected: () => {
-								this.CreateTextChannel(t);
-							},
-						},
-						Localize("#GroupSettings_Channels_CreateText"),
-					),
-					i.createElement(
-						_.kt,
-						{
-							onSelected: () => {
-								this.CreateVoiceChannel(t);
-							},
-						},
-						Localize("#GroupSettings_Channels_CreateVoice"),
-					),
-				),
+			lX(
+				<_.tz>
+					<_.kt
+						onSelected={() => {
+							this.CreateTextChannel(t);
+						}}
+					>
+						{Localize("#GroupSettings_Channels_CreateText")}
+					</_.kt>
+					<_.kt
+						onSelected={() => {
+							this.CreateVoiceChannel(t);
+						}}
+					>
+						{Localize("#GroupSettings_Channels_CreateVoice")}
+					</_.kt>
+				</_.tz>,
 				e,
 			);
 		}
 	}
 	CreateTextChannel(e) {
-		(0, A.HT)(
-			i.createElement(Ey, {
-				ownerWin: e,
-				groupView: this.props.groupView,
-				bVoiceChannel: false,
-				bJoinChannel: true,
-			}),
+		HT(
+			<Ey
+				ownerWin={e}
+				groupView={this.props.groupView}
+				bVoiceChannel={false}
+				bJoinChannel
+			/>,
 			e,
 		);
 	}
 	CreateVoiceChannel(e) {
-		(0, A.HT)(
-			i.createElement(Ey, {
-				ownerWin: e,
-				groupView: this.props.groupView,
-				bVoiceChannel: true,
-				bJoinChannel: true,
-			}),
+		HT(
+			<Ey
+				ownerWin={e}
+				groupView={this.props.groupView}
+				bVoiceChannel
+				bJoinChannel
+			/>,
 			e,
 		);
 	}
@@ -100,8 +94,8 @@ export let aq = class extends i.Component {
 		this.m_schHoverDelay.Cancel();
 	}
 	ToggleCollapseExpand() {
-		const { groupView: e } = this.props;
-		e.SetChannelListCollapsed(!e.isChannelListCollapsed);
+		const { groupView } = this.props;
+		groupView.SetChannelListCollapsed(!groupView.isChannelListCollapsed);
 	}
 	render() {
 		let e = this.props.groupView.GetGroup();
@@ -118,57 +112,43 @@ export let aq = class extends i.Component {
 			n += " defaultChatOnly";
 		}
 		if (this.props.inactive || r) {
-			return i.createElement("div", {
-				className: n,
-			});
+			return <div className={n} />;
 		} else {
-			return i.createElement(
-				"div",
-				{
-					className: n,
-					onMouseEnter: this.OnMouseEnter,
-					onMouseLeave: this.OnMouseLeave,
-				},
-				i.createElement(
-					"div",
-					{
-						className: "chatRoomChannelGroups",
-						onContextMenu: this.OnRoomsContextMenu,
-					},
-					t &&
-						i.createElement(N, {
-							groupView: this.props.groupView,
-						}),
-					i.createElement(G, {
-						groupView: this.props.groupView,
-					}),
-					(!a || this.state.bMouseHover) &&
-						i.createElement(
-							"div",
-							{
-								className: "chatRoomGroupNavCollapseExpand",
-								title: Localize(
+			return (
+				<div
+					className={n}
+					onMouseEnter={this.OnMouseEnter}
+					onMouseLeave={this.OnMouseLeave}
+				>
+					<div
+						className="chatRoomChannelGroups"
+						onContextMenu={this.OnRoomsContextMenu}
+					>
+						{t && <N groupView={this.props.groupView} />}
+						<G groupView={this.props.groupView} />
+						{(!a || this.state.bMouseHover) && (
+							<div
+								className="chatRoomGroupNavCollapseExpand"
+								title={Localize(
 									a ? "#Tooltip_PinChannelList" : "#Tooltip_UnpinChannelList",
-								),
-								onClick: this.ToggleCollapseExpand,
-							},
-							i.createElement(o.yUp, {
-								bPinned: !a,
-							}),
-						),
-				),
-				i.createElement("div", {
-					className: "disconnectBlocker",
-				}),
+								)}
+								onClick={this.ToggleCollapseExpand}
+							>
+								<o.yUp bPinned={!a} />
+							</div>
+						)}
+					</div>
+					<div className="disconnectBlocker" />
+				</div>
 			);
 		}
 	}
 };
-(0, n.Cg)([b.oI], aq.prototype, "OnRoomsContextMenu", null);
-(0, n.Cg)([b.oI], aq.prototype, "OnMouseEnter", null);
-(0, n.Cg)([b.oI], aq.prototype, "OnMouseLeave", null);
-(0, n.Cg)([b.oI], aq.prototype, "ToggleCollapseExpand", null);
-aq = (0, n.Cg)([h.PA], aq);
+Cg([b.oI], aq.prototype, "OnRoomsContextMenu", null);
+Cg([b.oI], aq.prototype, "OnMouseEnter", null);
+Cg([b.oI], aq.prototype, "OnMouseLeave", null);
+Cg([b.oI], aq.prototype, "ToggleCollapseExpand", null);
+aq = Cg([h.PA], aq);
 export class Ey extends i.Component {
 	m_refInput;
 	OnSubmit() {
@@ -190,7 +170,7 @@ export class Ey extends i.Component {
 					}
 				})
 				.catch((e) => {
-					(0, d.Ic)(
+					Ic(
 						this.props.ownerWin,
 						Localize("#Generic_Error"),
 						Localize("#Chat_CreateChatRoom_GenericError"),
@@ -200,56 +180,39 @@ export class Ey extends i.Component {
 		}
 	}
 	render() {
-		return i.createElement(
-			A.x_,
-			{
-				onEscKeypress: this.props.closeModal,
-			},
-			i.createElement(
-				s.U9,
-				{
-					classNameContent: "CreateChatChannelDialog",
-					onSubmit: this.OnSubmit,
-				},
-				i.createElement(
-					s.Y9,
-					null,
-					Localize(
-						this.props.bVoiceChannel
-							? "#GroupSettings_Channels_CreateVoice"
-							: "#GroupSettings_Channels_CreateText",
-					),
-				),
-				i.createElement(
-					s.nB,
-					null,
-					i.createElement(s.pd, {
-						ref: (e) => {
-							this.m_refInput = e;
-						},
-						autoFocus: true,
-						label: Localize("#Chat_SaveVoiceRoom_Name"),
-					}),
-				),
-				i.createElement(
-					s.wi,
-					null,
-					i.createElement(s.CB, {
-						onCancel: this.props.closeModal,
-					}),
-				),
-			),
+		return (
+			<A.x_ onEscKeypress={this.props.closeModal}>
+				<s.U9
+					classNameContent="CreateChatChannelDialog"
+					onSubmit={this.OnSubmit}
+				>
+					<s.Y9>
+						{Localize(
+							this.props.bVoiceChannel
+								? "#GroupSettings_Channels_CreateVoice"
+								: "#GroupSettings_Channels_CreateText",
+						)}
+					</s.Y9>
+					<s.nB>
+						<s.pd
+							ref={(e) => {
+								this.m_refInput = e;
+							}}
+							autoFocus
+							label={Localize("#Chat_SaveVoiceRoom_Name")}
+						/>
+					</s.nB>
+					<s.wi>
+						<s.CB onCancel={this.props.closeModal} />
+					</s.wi>
+				</s.U9>
+			</A.x_>
 		);
 	}
 }
 export function Nq(e, t, r) {
-	(0, A.HT)(
-		i.createElement(Ey, {
-			ownerWin: e,
-			groupView: t,
-			bVoiceChannel: r,
-			bJoinChannel: true,
-		}),
+	HT(
+		<Ey ownerWin={e} groupView={t} bVoiceChannel={r} bJoinChannel />,
 		e,
 		"CreateChatChannelDialog",
 		{
@@ -257,10 +220,10 @@ export function Nq(e, t, r) {
 			popupWidth: 800,
 			popupHeight: 400,
 		},
-		(0, l.h8)(e),
+		h8(e),
 	);
 }
-(0, n.Cg)([b.oI], Ey.prototype, "OnSubmit", null);
+Cg([b.oI], Ey.prototype, "OnSubmit", null);
 let N = class extends i.Component {
 	OnCreateNewTextChannel(e) {
 		let t = GetOwningWindowForEvent(e);
@@ -282,71 +245,65 @@ let N = class extends i.Component {
 		let t = e.GetGroup().textRoomList;
 		let r = e.GetGroup().BCanAdminChannel();
 		e.isChannelListCollapsed;
-		return i.createElement(
-			"div",
-			{
-				className: "chatRoomTextChannelsGroup",
-			},
-			i.createElement(
-				"div",
-				{
-					className: "ChannelTypeTitle",
-					title: Localize("#Tooltip_TextChannel"),
-					onClick: this.OnCreateNewTextChannel,
-				},
-				i.createElement(
-					"div",
-					{
-						className: "ChannelTypeLabel" + (r ? "" : " NoPermission"),
-						title: r
-							? Localize("#Tooltip_TextChannelCreate")
-							: Localize("#Tooltip_NoPermissionChannelCreate"),
-					},
-					r
-						? Localize("#Chat_AddTextChat")
-						: Localize("#Chat_CreateTextChannel_DefaultName"),
-				),
-				i.createElement(
-					"div",
-					{
-						className: "ChatRoomAddRoomBtn",
-						title: Localize("#Tooltip_TextChannelCreate"),
-					},
-					i.createElement(o.f5w, null),
-				),
-			),
-			t.map((t) =>
-				i.createElement(tc, {
-					key: t.unique_id,
-					chat: t,
-					bRenameActive: e.IsRoomRenameActive(t.GetRoomID()),
-					bActiveChat: t == e.GetActiveChatView().chat,
-					bDefaultRoom: t == e.GetGroup().GetDefaultChatRoom(),
-					onStartRename: this.OnStartChannelRename,
-					onRename: this.OnChannelRename,
-					onEndRename: this.OnEndChannelRename,
-				}),
-			),
+		return (
+			<div className="chatRoomTextChannelsGroup">
+				<div
+					className="ChannelTypeTitle"
+					title={Localize("#Tooltip_TextChannel")}
+					onClick={this.OnCreateNewTextChannel}
+				>
+					<div
+						className={`ChannelTypeLabel${r ? "" : " NoPermission"}`}
+						title={
+							r
+								? Localize("#Tooltip_TextChannelCreate")
+								: Localize("#Tooltip_NoPermissionChannelCreate")
+						}
+					>
+						{r
+							? Localize("#Chat_AddTextChat")
+							: Localize("#Chat_CreateTextChannel_DefaultName")}
+					</div>
+					<div
+						className="ChatRoomAddRoomBtn"
+						title={Localize("#Tooltip_TextChannelCreate")}
+					>
+						<o.f5w />
+					</div>
+				</div>
+				{t.map((t) => (
+					<Tc
+						key={t.unique_id}
+						chat={t}
+						bRenameActive={e.IsRoomRenameActive(t.GetRoomID())}
+						bActiveChat={t == e.GetActiveChatView().chat}
+						bDefaultRoom={t == e.GetGroup().GetDefaultChatRoom()}
+						onStartRename={this.OnStartChannelRename}
+						onRename={this.OnChannelRename}
+						onEndRename={this.OnEndChannelRename}
+					/>
+				))}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([b.oI], N.prototype, "OnCreateNewTextChannel", null);
-(0, n.Cg)([b.oI], N.prototype, "OnStartChannelRename", null);
-(0, n.Cg)([b.oI], N.prototype, "OnChannelRename", null);
-(0, n.Cg)([b.oI], N.prototype, "OnEndChannelRename", null);
-N = (0, n.Cg)([h.PA], N);
-export let tc = class extends i.Component {
+Cg([b.oI], N.prototype, "OnCreateNewTextChannel", null);
+Cg([b.oI], N.prototype, "OnStartChannelRename", null);
+Cg([b.oI], N.prototype, "OnChannelRename", null);
+Cg([b.oI], N.prototype, "OnEndChannelRename", null);
+N = Cg([h.PA], N);
+export let Tc = class extends i.Component {
 	containerRef = i.createRef();
 	ToggleTextChat() {
 		if (this.props.bRenameActive) {
 			return;
 		}
 		let e = c.xm.UIStore.IsChatRoomGroupActive(
-			(0, l.wj)(this.containerRef.current),
+			wj(this.containerRef.current),
 			this.props.chat.GetGroup(),
 		);
 		let t = c.xm.UIStore.ShowAndOrActivateChatRoomGroup(
-			(0, l.wj)(this.containerRef.current),
+			wj(this.containerRef.current),
 			this.props.chat.GetGroup(),
 			false,
 		);
@@ -359,8 +316,8 @@ export let tc = class extends i.Component {
 	}
 	OnContextMenu(e) {
 		if (!this.props.bRenameActive) {
-			(0, u.ae)(
-				(0, l.CO)(e),
+			ae(
+				CO(e),
 				this.props.chat.GetGroup(),
 				this.props.chat.GetRoomID(),
 				e,
@@ -383,51 +340,42 @@ export let tc = class extends i.Component {
 		let s =
 			c.xm.ChatStore.VoiceChat.GetActiveVoiceChatID() ==
 			this.props.chat.GetRoomID();
-		return i.createElement(
-			p.Z,
-			{
-				focusable: true,
-				className: t,
-				onClick: this.ToggleTextChat,
-				onGamepadFocus: this.props.onFocus,
-				onMenuButton: a ? this.OnContextMenu : undefined,
-				onMenuActionDescription: a
-					? Localize("#Chat_ChatRoomGroup_Options")
-					: undefined,
-				onContextMenu: this.OnContextMenu,
-				ref: this.containerRef,
-			},
-			i.createElement(S.RB, {
-				chat: e,
-			}),
-			i.createElement(
-				"div",
-				{
-					className: "chatRoomTextChannelIcon",
-				},
-				s ? i.createElement(o.yFA, null) : i.createElement(o.tcj, null),
-			),
-			!n &&
-				i.createElement(
-					"div",
-					{
-						className: r,
-					},
-					e.BIsDefaultRoom() ? Localize("#Chat_DefaultChannelName") : e.name,
-				),
-			!this.props.bDefaultRoom &&
-				n &&
-				i.createElement(P, {
-					chat: this.props.chat,
-					onRename: this.props.onRename,
-					onEndRename: this.props.onEndRename,
-				}),
+		return (
+			<p.Z
+				focusable
+				className={t}
+				onClick={this.ToggleTextChat}
+				onGamepadFocus={this.props.onFocus}
+				onMenuButton={a ? this.OnContextMenu : undefined}
+				onMenuActionDescription={
+					a ? Localize("#Chat_ChatRoomGroup_Options") : undefined
+				}
+				onContextMenu={this.OnContextMenu}
+				ref={this.containerRef}
+			>
+				<S.RB chat={e} />
+				<div className="chatRoomTextChannelIcon">
+					{s ? <o.yFA /> : <o.tcj />}
+				</div>
+				{!n && (
+					<div className={r}>
+						{e.BIsDefaultRoom() ? Localize("#Chat_DefaultChannelName") : e.name}
+					</div>
+				)}
+				{!this.props.bDefaultRoom && n && (
+					<P
+						chat={this.props.chat}
+						onRename={this.props.onRename}
+						onEndRename={this.props.onEndRename}
+					/>
+				)}
+			</p.Z>
 		);
 	}
 };
-(0, n.Cg)([b.oI], tc.prototype, "ToggleTextChat", null);
-(0, n.Cg)([b.oI], tc.prototype, "OnContextMenu", null);
-tc = (0, n.Cg)([h.PA], tc);
+Cg([b.oI], Tc.prototype, "ToggleTextChat", null);
+Cg([b.oI], Tc.prototype, "OnContextMenu", null);
+Tc = Cg([h.PA], Tc);
 let G = class extends i.Component {
 	CreateVoiceRoom() {
 		this.props.groupView.GetGroup().CreateAndJoinTempVoiceRoom();
@@ -452,58 +400,48 @@ let G = class extends i.Component {
 	render() {
 		let e = this.props.groupView;
 		let t = e.GetGroup().voiceRoomList;
-		return i.createElement(
-			"div",
-			{
-				className: "chatRoomVoiceChannelsGroup",
-			},
-			i.createElement(
-				"div",
-				{
-					className: "ChannelTypeTitle",
-					title: Localize("#Tooltip_VoiceChannelCreate"),
-					onClick: this.CreateVoiceRoom,
-				},
-				i.createElement(
-					"div",
-					{
-						className: "ChannelTypeLabel",
-					},
-					Localize("#Chat_AddVoiceChat"),
-				),
-				i.createElement(
-					"div",
-					{
-						className: "ChatRoomAddRoomBtn",
-						title: Localize("#Tooltip_VoiceChannelCreate"),
-					},
-					i.createElement(o.f5w, null),
-				),
-			),
-			t.map((t) =>
-				i.createElement(mr, {
-					key: t.unique_id,
-					context: "VoiceRoomsGroup",
-					chat: t,
-					bRenameActive: e.GetRenameRoomID() == t.GetRoomID(),
-					onSelect: () => {
-						this.OnVoiceRoomSelected(t);
-					},
-					onStartRename: this.OnStartChannelRename,
-					onRename: this.OnChannelRename,
-					onEndRename: this.OnEndChannelRename,
-				}),
-			),
+		return (
+			<div className="chatRoomVoiceChannelsGroup">
+				<div
+					className="ChannelTypeTitle"
+					title={Localize("#Tooltip_VoiceChannelCreate")}
+					onClick={this.CreateVoiceRoom}
+				>
+					<div className="ChannelTypeLabel">
+						{Localize("#Chat_AddVoiceChat")}
+					</div>
+					<div
+						className="ChatRoomAddRoomBtn"
+						title={Localize("#Tooltip_VoiceChannelCreate")}
+					>
+						<o.f5w />
+					</div>
+				</div>
+				{t.map((t) => (
+					<Mr
+						key={t.unique_id}
+						context="VoiceRoomsGroup"
+						chat={t}
+						bRenameActive={e.GetRenameRoomID() == t.GetRoomID()}
+						onSelect={() => {
+							this.OnVoiceRoomSelected(t);
+						}}
+						onStartRename={this.OnStartChannelRename}
+						onRename={this.OnChannelRename}
+						onEndRename={this.OnEndChannelRename}
+					/>
+				))}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([b.oI], G.prototype, "CreateVoiceRoom", null);
-(0, n.Cg)([b.oI], G.prototype, "OnVoiceRoomSelected", null);
-(0, n.Cg)([b.oI], G.prototype, "OnStartChannelRename", null);
-(0, n.Cg)([b.oI], G.prototype, "OnChannelRename", null);
-(0, n.Cg)([b.oI], G.prototype, "OnEndChannelRename", null);
-G = (0, n.Cg)([h.PA], G);
-export let mr = class extends i.Component {
+Cg([b.oI], G.prototype, "CreateVoiceRoom", null);
+Cg([b.oI], G.prototype, "OnVoiceRoomSelected", null);
+Cg([b.oI], G.prototype, "OnStartChannelRename", null);
+Cg([b.oI], G.prototype, "OnChannelRename", null);
+Cg([b.oI], G.prototype, "OnEndChannelRename", null);
+G = Cg([h.PA], G);
+export let Mr = class extends i.Component {
 	static contextType = M.QO;
 	m_dropConfirmationInterval;
 	m_dropInviteInvitee;
@@ -516,8 +454,8 @@ export let mr = class extends i.Component {
 	}
 	OnContextMenu(e) {
 		if (!this.props.bRenameActive) {
-			(0, u.ae)(
-				(0, l.CO)(e),
+			ae(
+				CO(e),
 				this.props.chat.GetGroup(),
 				this.props.chat.GetRoomID(),
 				e,
@@ -528,8 +466,8 @@ export let mr = class extends i.Component {
 		e.stopPropagation();
 	}
 	InviteToChat(e) {
-		(0, v.E5)(
-			(0, l.CO)(e),
+		E5(
+			CO(e),
 			e.currentTarget.ownerDocument.defaultView,
 			this.props.chat.GetGroup(),
 			this.props.chat,
@@ -537,7 +475,7 @@ export let mr = class extends i.Component {
 		e.stopPropagation();
 	}
 	OnDragEnter(e, t) {
-		(0, I.w)(
+		w_1(
 			e && e.type == "friend",
 			"Invalid type passed to VoiceRoom.OnDragEnter",
 		);
@@ -562,7 +500,7 @@ export let mr = class extends i.Component {
 		e.dataTransfer.dropEffect = "move";
 	}
 	OnDrop(e, t) {
-		(0, I.w)(
+		w_1(
 			e && e.type == "friend",
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);
@@ -591,13 +529,13 @@ export let mr = class extends i.Component {
 						window.clearInterval(this.m_dropConfirmationInterval);
 					}, 1200);
 				} else {
-					(0, w.nn)(
+					nn(
 						{
 							invitee: r.friend,
 							chatview: null,
 							invitedto: this.props.chat,
 						},
-						(0, l.CO)(t),
+						CO(t),
 						e,
 					);
 				}
@@ -643,23 +581,20 @@ export let mr = class extends i.Component {
 						(t) => t.accountid == e.accountid,
 					)
 				: undefined;
-			return i.createElement(
-				T.M,
-				{
-					key: e.accountid,
-					classNames: "friend-anim",
-					timeout: 320,
-				},
-				(r) =>
-					i.createElement(y.bP, {
-						divRef: r,
-						friend: e,
-						key: e.accountid,
-						context: this.GetFriendContext(),
-						showVoiceLevel: true,
-						bInVoiceList: true,
-						video: t,
-					}),
+			return (
+				<T.M key={e.accountid} classNames="friend-anim" timeout={320}>
+					{(r) => (
+						<y.bP
+							divRef={r}
+							friend={e}
+							key={e.accountid}
+							context={this.GetFriendContext()}
+							showVoiceLevel
+							bInVoiceList
+							video={t}
+						/>
+					)}
+				</T.M>
 			);
 		});
 		let A = this.props.chat.voice_active_contains_friends;
@@ -669,22 +604,17 @@ export let mr = class extends i.Component {
 			}
 			A = true;
 			d.push(
-				i.createElement(
-					T.M,
-					{
-						key: n,
-						classNames: "friend-anim",
-						timeout: 320,
-					},
-					(e) =>
-						i.createElement(y.bP, {
-							divRef: e,
-							friend: s,
-							key: n,
-							context: this.GetFriendContext(),
-							showVoiceLevel: true,
-						}),
-				),
+				<T.M key={n} classNames="friend-anim" timeout={320}>
+					{(e) => (
+						<y.bP
+							divRef={e}
+							friend={s}
+							key={n}
+							context={this.GetFriendContext()}
+							showVoiceLevel
+						/>
+					)}
+				</T.M>,
 			);
 		}
 		let p = ["chatRoomVoiceChannel"];
@@ -702,140 +632,104 @@ export let mr = class extends i.Component {
 		}
 		let g = this.props.chat.IsUnsavedVoiceChannel();
 		let h = this.props.chat.name;
-		return i.createElement(
-			m.D,
-			{
-				focusable: true,
-				className: p.join(" "),
-				onClick: this.props.onSelect,
-				onGamepadFocus: this.props.onFocus,
-				...this.GetDragDropProps(),
-				ref: this.props.containerRef,
-			},
-			i.createElement("div", {
-				className: "chatRoomVoiceChannelIconGlow",
-			}),
-			i.createElement(
-				"div",
-				{
-					className: "chatRoomVoiceChannelNameContainer",
-					onContextMenu: this.OnContextMenu,
-				},
-				i.createElement(
-					"div",
-					{
-						className: "chatRoomVoiceChannelIcon",
-					},
-					i.createElement(o.mrd, null),
-				),
-				!this.props.bRenameActive &&
-					i.createElement(
-						"div",
-						{
-							className:
-								"chatRoomVoiceChannelName" + (g ? " unsavedVoiceChannel" : ""),
-						},
-						h,
-					),
-				this.props.bRenameActive &&
-					i.createElement(P, {
-						chat: this.props.chat,
-						onRename: this.props.onRename,
-						onEndRename: this.props.onEndRename,
-					}),
-				!this.props.bRenameActive &&
-					!this.context?.IN_GAMEPADUI &&
-					i.createElement(
-						i.Fragment,
-						null,
-						i.createElement(
-							"div",
-							{
-								onContextMenu: this.OnContextMenu,
-								onClick: this.OnContextMenu,
-								className: "VoiceControlPanelButton chatPinRoom",
-								title: Localize("#Chat_ChannelOptions"),
-							},
-							i.createElement(o.GB9, null),
-						),
-					),
-			),
-			i.createElement(
-				"div",
-				{
-					className: "VoiceChannelParticipants CompactFriendsList",
-				},
-				!A && d,
-				A &&
-					i.createElement(
-						a.A,
-						{
-							enter: true,
-							exit: true,
-						},
-						d,
-					),
-			),
-			i.createElement(
-				"div",
-				{
-					className: u,
-				},
-				Localize("#Chat_VoiceEmptyChannel"),
-			),
-			!this.context?.IN_GAMEPADUI &&
-				i.createElement(y.lg, {
-					name: h,
-					chat: this.props.chat,
-					nostatus: true,
-				}),
-			!t &&
-				i.createElement(tc, {
-					chat: this.props.chat,
-					bRenameActive: false,
-					bActiveChat: false,
-					bDefaultRoom: false,
-				}),
-			i.createElement("div", {
-				className: "ScratchPadConnect",
-			}),
-			this.state.bDropConfirmationNotice &&
-				i.createElement(
-					"div",
-					{
-						className:
-							"dropConfirmationNotice" +
-							(this.state.bDropConfirmationNotice ? " Active" : ""),
-					},
-					i.createElement(
-						"div",
-						{
-							className: "dropConfirmationLabel",
-						},
-						i.createElement("img", {
-							className: "avatar",
-							src: this.m_dropInviteInvitee.persona.avatar_url_medium,
-						}),
-					),
-				),
-			i.createElement("div", {
-				className: "dropTargetBox",
-			}),
+		return (
+			<m.D
+				focusable
+				className={p.join(" ")}
+				onClick={this.props.onSelect}
+				onGamepadFocus={this.props.onFocus}
+				{...this.GetDragDropProps()}
+				ref={this.props.containerRef}
+			>
+				<div className="chatRoomVoiceChannelIconGlow" />
+				<div
+					className="chatRoomVoiceChannelNameContainer"
+					onContextMenu={this.OnContextMenu}
+				>
+					<div className="chatRoomVoiceChannelIcon">
+						<o.mrd />
+					</div>
+					{!this.props.bRenameActive && (
+						<div
+							className={`chatRoomVoiceChannelName${
+								g ? " unsavedVoiceChannel" : ""
+							}`}
+						>
+							{h}
+						</div>
+					)}
+					{this.props.bRenameActive && (
+						<P
+							chat={this.props.chat}
+							onRename={this.props.onRename}
+							onEndRename={this.props.onEndRename}
+						/>
+					)}
+					{!this.props.bRenameActive && !this.context?.IN_GAMEPADUI && (
+						<>
+							<div
+								onContextMenu={this.OnContextMenu}
+								onClick={this.OnContextMenu}
+								className="VoiceControlPanelButton chatPinRoom"
+								title={Localize("#Chat_ChannelOptions")}
+							>
+								<o.GB9 />
+							</div>
+						</>
+					)}
+				</div>
+				<div className="VoiceChannelParticipants CompactFriendsList">
+					{!A && d}
+					{A && (
+						<a.A enter exit>
+							{d}
+						</a.A>
+					)}
+				</div>
+				<div className={u}>{Localize("#Chat_VoiceEmptyChannel")}</div>
+				{!this.context?.IN_GAMEPADUI && (
+					<y.lg name={h} chat={this.props.chat} nostatus />
+				)}
+				{!t && (
+					<Tc
+						chat={this.props.chat}
+						bRenameActive={false}
+						bActiveChat={false}
+						bDefaultRoom={false}
+					/>
+				)}
+				<div className="ScratchPadConnect" />
+				{this.state.bDropConfirmationNotice && (
+					<div
+						className={`dropConfirmationNotice${
+							this.state.bDropConfirmationNotice ? " Active" : ""
+						}`}
+					>
+						<div className="dropConfirmationLabel">
+							<img
+								className="avatar"
+								src={this.m_dropInviteInvitee.persona.avatar_url_medium}
+							/>
+						</div>
+					</div>
+				)}
+				<div className="dropTargetBox" />
+			</m.D>
 		);
 	}
 };
-(0, n.Cg)([b.oI], mr.prototype, "OnContextMenu", null);
-(0, n.Cg)([b.oI], mr.prototype, "InviteToChat", null);
-(0, n.Cg)([b.oI], mr.prototype, "OnDragEnter", null);
-(0, n.Cg)([b.oI], mr.prototype, "OnDragLeave", null);
-(0, n.Cg)([b.oI], mr.prototype, "OnDragOver", null);
-(0, n.Cg)([b.oI], mr.prototype, "OnDrop", null);
-mr = (0, n.Cg)([h.PA], mr);
+Cg([b.oI], Mr.prototype, "OnContextMenu", null);
+Cg([b.oI], Mr.prototype, "InviteToChat", null);
+Cg([b.oI], Mr.prototype, "OnDragEnter", null);
+Cg([b.oI], Mr.prototype, "OnDragLeave", null);
+Cg([b.oI], Mr.prototype, "OnDragOver", null);
+Cg([b.oI], Mr.prototype, "OnDrop", null);
+Mr = Cg([h.PA], Mr);
 let P = class extends i.Component {
 	m_strValue = "";
 	constructor(e) {
 		super(e);
-		(0, g.Gn)(this);
+		Gn(this);
 		this.m_strValue = this.props.chat.name;
 	}
 	componentDidUpdate(e) {
@@ -877,26 +771,23 @@ let P = class extends i.Component {
 		this.props.onEndRename();
 	}
 	render() {
-		return i.createElement(
-			"form",
-			{
-				className: "RenameChatRoomInline",
-				onSubmit: this.OnSubmit,
-			},
-			i.createElement("input", {
-				ref: this.BindInputRef,
-				type: "text",
-				value: this.m_strValue,
-				onChange: this.OnChange,
-				onBlur: this.OnBlur,
-			}),
+		return (
+			<form className="RenameChatRoomInline" onSubmit={this.OnSubmit}>
+				<input
+					ref={this.BindInputRef}
+					type="text"
+					value={this.m_strValue}
+					onChange={this.OnChange}
+					onBlur={this.OnBlur}
+				/>
+			</form>
 		);
 	}
 };
-(0, n.Cg)([g.sH], P.prototype, "m_strValue", undefined);
-(0, n.Cg)([b.oI], P.prototype, "BindInputRef", null);
-(0, n.Cg)([b.oI], P.prototype, "OnChange", null);
-(0, n.Cg)([b.oI], P.prototype, "OnSubmit", null);
-(0, n.Cg)([b.oI], P.prototype, "OnGlobalKeyDown", null);
-(0, n.Cg)([b.oI], P.prototype, "OnBlur", null);
-P = (0, n.Cg)([h.PA], P);
+Cg([g.sH], P.prototype, "m_strValue", undefined);
+Cg([b.oI], P.prototype, "BindInputRef", null);
+Cg([b.oI], P.prototype, "OnChange", null);
+Cg([b.oI], P.prototype, "OnSubmit", null);
+Cg([b.oI], P.prototype, "OnGlobalKeyDown", null);
+Cg([b.oI], P.prototype, "OnBlur", null);
+P = Cg([h.PA], P);

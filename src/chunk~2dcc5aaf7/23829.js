@@ -1,12 +1,12 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./83599.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require(/*webcrack:missing*/ "./93960.js");
-var m = require("./45967.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import s, { Gn } from "./89193.js";
+import o from "./83599.js";
+import { q3 } from "./90095.js";
+import c from "./93960.js";
+import m from "./45967.js";
+let n;
+((e) => {
 	e[(e.String = 0)] = "String";
 	e[(e.Proto = 1)] = "Proto";
 	e[(e.Boolean = 2)] = "Boolean";
@@ -18,7 +18,7 @@ class u {
 	m_Property;
 	m_bRegistered = true;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_Property = e;
 		this.m_Property.IncrementListenerCount();
 	}
@@ -34,8 +34,8 @@ class u {
 		}
 	}
 }
-(0, i.Cg)([s.sH], u.prototype, "m_bRegistered", undefined);
-(0, i.Cg)([c.o], u.prototype, "unregister", null);
+Cg([s.sH], u.prototype, "m_bRegistered", undefined);
+Cg([c.o], u.prototype, "unregister", null);
 class d {
 	m_strPath;
 	Log;
@@ -45,7 +45,7 @@ class d {
 	m_bHasInitiatedFirstUpdate = false;
 	m_DeferredInitialErrorTimeout = undefined;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_strPath = e;
 		this.Log = new o.wd("VRPathProperties", () => e);
 		this.Log.Debug("CBasePathProperty created.", this);
@@ -103,7 +103,7 @@ class d {
 		}
 	}
 }
-(0, i.Cg)([s.sH], d.prototype, "m_value", undefined);
+Cg([s.sH], d.prototype, "m_value", undefined);
 class A extends d {
 	m_ePropertyType = n.String;
 	async UpdateValue() {
@@ -167,7 +167,7 @@ class _ extends d {
 class f {
 	m_mapPathProperties = new Map();
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	GetOrCreatePathProperty(e, t) {
 		const r = typeof e != "string";
@@ -178,20 +178,25 @@ class f {
 				this.m_mapPathProperties.set(i, new p(t));
 			} else {
 				switch (t) {
-					case n.String:
+					case n.String: {
 						this.m_mapPathProperties.set(i, new A(i));
 						break;
-					case n.Boolean:
+					}
+					case n.Boolean: {
 						this.m_mapPathProperties.set(i, new g(i));
 						break;
-					case n.Float:
+					}
+					case n.Float: {
 						this.m_mapPathProperties.set(i, new h(i));
 						break;
-					case n.Double:
+					}
+					case n.Double: {
 						this.m_mapPathProperties.set(i, new C(i));
 						break;
-					case n.Int32:
+					}
+					case n.Int32: {
 						this.m_mapPathProperties.set(i, new _(i));
+					}
 				}
 			}
 		}
@@ -219,7 +224,7 @@ class f {
 export function GU(e) {
 	const t = a.useMemo(() => y.ListenToProtoPathProperty(e), [e]);
 	a.useEffect(() => t.unregister, [t]);
-	return (0, l.q3)(() => t.value);
+	return q3(() => t.value);
 }
-(0, i.Cg)([s.sH], f.prototype, "m_mapPathProperties", undefined);
+Cg([s.sH], f.prototype, "m_mapPathProperties", undefined);
 const y = new f();

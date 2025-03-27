@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"vrgamepadui-floating-side-panel-width": "300px",
 	"vrgamepadui-floating-side-panel-height": "600px",
 	"vrgamepadui-floating-bar-popup-panel-width": "300px",

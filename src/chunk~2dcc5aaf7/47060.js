@@ -1,124 +1,104 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./64608.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./79671.js");
-var c = require("./96593.js");
-var m = require("./89748.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require(/*webcrack:missing*/ "./44846.js");
-var A = require("./78057.js");
-var p = require("./97893.js");
-var g = require("./5640.js");
-var h = require("./34792.js");
-var C = require("./87935.js");
-var _ = require("./30496.js");
 import {
 	LocalizeCalendarTime,
 	LocalizeRTimeToHourAndMinutes,
 	LocalizeRtime32ToShorterDate,
 } from "../../actual_src/utils/localization/datetime.js";
-var b = require(/*webcrack:missing*/ "./52451.js");
-var y = require("./34428.js");
+
 import {
 	Localize,
 	LocalizeReact,
 	BLocStringExists,
 } from "../../actual_src/utils/localization.js";
-var w = require(/*webcrack:missing*/ "./98995.js");
-var B = require(/*webcrack:missing*/ "./90765.js");
-var v = require("./35488.js");
-var I = require(/*webcrack:missing*/ "./88696.js");
-var E = require("./56262.js");
-var M = require(/*webcrack:missing*/ "./49455.js");
-var T = require(/*webcrack:missing*/ "./69164.js");
-var R = require("./39147.js");
-var k = require("./91486.js");
-var D = require("./92031.js");
-var N = require(/*webcrack:missing*/ "./31084.js");
-var F = require(/*webcrack:missing*/ "./88750.js");
-var G = require("./5808.js");
-var O = require("./20797.js");
-var P = require("./91152.js");
-var L = require(/*webcrack:missing*/ "./20893.js");
-var z = require(/*webcrack:missing*/ "./39941.js");
-var x = require(/*webcrack:missing*/ "./49519.js");
-var U = require("./18057.js");
-var W = require(/*webcrack:missing*/ "./4690.js");
-var V = require("./66830.js");
-var H = V;
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var q = require("./18869.js");
-var Q = require("./70239.js");
 import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./64608.js";
+import s, { PA } from "./41230.js";
+import o, { q3 } from "./90095.js";
+import l from "./79671.js";
+import c from "./96593.js";
+import m, { qw } from "./89748.js";
+import u, { Qn } from "./72476.js";
+import d from "./44846.js";
+import A, { T as T_1 } from "./78057.js";
+import p, { zM, bm, v_ as v_1, vO, JD, MD, vH, eC, dZ } from "./97893.js";
+import g, { oA } from "./5640.js";
+import h, { t0, VI } from "./34792.js";
+import C from "./87935.js";
+import _ from "./30496.js";
+import b from "./52451.js";
+import y, { dm } from "./34428.js";
+import w from "./98995.js";
+import { A as A_1 } from "./90765.js";
+import v from "./35488.js";
+import I from "./88696.js";
+import E from "./56262.js";
+import M, { w as w_1 } from "./49455.js";
+import T from "./69164.js";
+import R, { ZC } from "./39147.js";
+import k from "./91486.js";
+import D from "./92031.js";
+import { lX } from "./31084.js";
+import F from "./88750.js";
+import G, { jy, zq } from "./5808.js";
+import O from "./20797.js";
+import P from "./91152.js";
+import L from "./20893.js";
+import z from "./39941.js";
+import { W6 } from "./49519.js";
+import U, { tf, KV } from "./18057.js";
+import W from "./4690.js";
+import V from "./66830.js";
+import q, { br } from "./18869.js";
+import { Kp } from "./70239.js";
+const H = V;
 function Y(e) {
 	SteamClient.Downloads.SuspendLanPeerContent(true);
 }
 function K(e) {
-	const t = (0, p.zM)();
+	const t = zM();
 	if (t.lan_peer_hostname.length == 0) {
 		return null;
 	} else {
-		return i.createElement(
-			"div",
-			{
-				className: (0, B.A)(H.LocalNetworkTransferBar),
-			},
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.LocalNetworkTransferSVG),
-				},
-				t.update_is_upload
-					? i.createElement(v.LanPeerContentSend, null)
-					: i.createElement(v.LanPeerContentReceive, null),
-			),
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.LocalNetworkTransferText),
-				},
-				(0, Localize)(
-					t.update_is_upload
-						? "#Downloads_LocalNetworkTransfer_Upload"
-						: "#Downloads_LocalNetworkTransfer_Download",
-				),
-				i.createElement(
-					"span",
-					{
-						className: H.LocalNetworkTransferHostName,
-					},
-					" ",
-					t.lan_peer_hostname,
-					" ",
-				),
-			),
-			i.createElement(
-				w.he,
-				{
-					className: (0, B.A)(H.ContentTypes, "StopTransferButton"),
-					toolTipContent: (0, Localize)(
+		return (
+			<div className={A_1(H.LocalNetworkTransferBar)}>
+				<div className={A_1(H.LocalNetworkTransferSVG)}>
+					{t.update_is_upload ? (
+						<v.LanPeerContentSend />
+					) : (
+						<v.LanPeerContentReceive />
+					)}
+				</div>
+				<div className={A_1(H.LocalNetworkTransferText)}>
+					{(0, Localize)(
+						t.update_is_upload
+							? "#Downloads_LocalNetworkTransfer_Upload"
+							: "#Downloads_LocalNetworkTransfer_Download",
+					)}
+					<span className={H.LocalNetworkTransferHostName}>
+						{" "}
+						{t.lan_peer_hostname}{" "}
+					</span>
+				</div>
+				<w.he
+					className={A_1(H.ContentTypes, "StopTransferButton")}
+					toolTipContent={(0, Localize)(
 						"#Downloads_LocalNetworkTransfer_Stop_ttip",
-					),
-					direction: "top",
-				},
-				i.createElement(
-					a.$n,
-					{
-						className: (0, B.A)(H.LocalNetworkTransferStop, "BarButton"),
-						onClick: Y,
-					},
-					i.createElement(
-						"div",
-						{
-							className: (0, B.A)(H.LocalNetworkTransferStopSVG),
-						},
-						i.createElement(v.Close, null),
-					),
-					(0, Localize)("#Downloads_LocalNetworkTransfer_Stop"),
-				),
-			),
+					)}
+					direction="top"
+				>
+					<a.$n
+						className={A_1(H.LocalNetworkTransferStop, "BarButton")}
+						onClick={Y}
+					>
+						<div className={A_1(H.LocalNetworkTransferStopSVG)}>
+							<v.Close />
+						</div>
+						{(0, Localize)("#Downloads_LocalNetworkTransfer_Stop")}
+					</a.$n>
+				</w.he>
+			</div>
 		);
 	}
 }
@@ -133,102 +113,85 @@ export function eo(e) {
 	e.stopPropagation();
 }
 const $ = () => {
-	const e = (0, h.t0)();
-	const t = (0, g.oA)();
-	const r = e.vecValidAutoUpdateRestrictHours;
-	const [n] = (0, h.VI)("restrict_auto_updates_start");
-	const [a] = (0, h.VI)("restrict_auto_updates_end");
-	const [s] = (0, h.VI)("restrict_auto_updates");
+	const e = t0();
+	const t = oA();
+	const e_vecValidAutoUpdateRestrictHours = e.vecValidAutoUpdateRestrictHours;
+	const [n] = VI("restrict_auto_updates_start");
+	const [a] = VI("restrict_auto_updates_end");
+	const [s] = VI("restrict_auto_updates");
 	if (!s || (n == 0 && a == 0)) {
-		return i.createElement(
-			"div",
-			{
-				className: H.AutoUpdate,
-			},
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(
-						H.AutoUpdateHours,
-						H.NoHours,
-						t && H.ParentalLocked,
-					),
-					onClick: eo,
-				},
-				(0, Localize)("#Downloads_AutoUpdates_Enabled"),
-			),
+		return (
+			<div className={H.AutoUpdate}>
+				<div
+					className={A_1(H.AutoUpdateHours, H.NoHours, t && H.ParentalLocked)}
+					onClick={eo}
+				>
+					{(0, Localize)("#Downloads_AutoUpdates_Enabled")}
+				</div>
+			</div>
 		);
 	} else {
-		return i.createElement(
-			"div",
-			{
-				className: H.AutoUpdate,
-			},
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.AutoUpdateHours, t && H.ParentalLocked),
-					onClick: eo,
-				},
-				i.createElement(
-					"span",
-					null,
-					LocalizeReact(
-						"#Downloads_ScheduleUpdatesFor",
-						i.createElement(
-							"span",
-							{
-								className: H.UpdateHours,
-							},
-							(0, Localize)(
-								"#Downloads_ScheduledUpdateTimes",
-								r[n].strDisplay,
-								r[a].strDisplay,
-							),
-						),
-					),
-				),
-			),
+		return (
+			<div className={H.AutoUpdate}>
+				<div
+					className={A_1(H.AutoUpdateHours, t && H.ParentalLocked)}
+					onClick={eo}
+				>
+					<span>
+						{LocalizeReact(
+							"#Downloads_ScheduleUpdatesFor",
+							<span className={H.UpdateHours}>
+								{(0, Localize)(
+									"#Downloads_ScheduledUpdateTimes",
+									e_vecValidAutoUpdateRestrictHours[n].strDisplay,
+									e_vecValidAutoUpdateRestrictHours[a].strDisplay,
+								)}
+							</span>,
+						)}
+					</span>
+				</div>
+			</div>
 		);
 	}
 };
-var ee;
+let ee;
 function te(e, t, r) {
 	const n = e.active && r.update_state == "Downloading";
-	let i = ee.k_EUnknown;
+	let ee_k_EUnknown = ee.k_EUnknown;
 	const a = t && t.GetPerClientData("local");
 	const s = a?.update_available_but_disabled_by_app;
 	if (e.update_result != 0 && e.update_result != 4 && e.update_result != 2) {
-		i = ee.k_EError;
+		ee_k_EUnknown = ee.k_EError;
 	} else if (e.queue_index == -1 && e.deferred_time != 0) {
-		i = ee.k_EScheduled;
+		ee_k_EUnknown = ee.k_EScheduled;
 	} else if (s) {
-		i = ee.k_EUpdatesDisabledByApp;
+		ee_k_EUnknown = ee.k_EUpdatesDisabledByApp;
 	} else if (e.paused) {
 		const e = A.H.GetAppDetails(t.appid);
 		const r = e && e.eAutoUpdateValue;
-		i = r && r == 1 ? ee.k_EUpdatesDisabledByUser : ee.k_ERemovedFromQueue;
+		ee_k_EUnknown =
+			r && r == 1 ? ee.k_EUpdatesDisabledByUser : ee.k_ERemovedFromQueue;
 	} else if (e.active) {
-		i = n ? ee.k_EActiveDownloading : ee.k_EActive;
+		ee_k_EUnknown = n ? ee.k_EActiveDownloading : ee.k_EActive;
 	} else if (e.completed && e.completed_time != 0) {
-		i = ee.k_ECompleted;
+		ee_k_EUnknown = ee.k_ECompleted;
 	} else if (e.queue_index == 1) {
-		i = ee.k_EQueuedNext;
+		ee_k_EUnknown = ee.k_EQueuedNext;
 	} else if (e.queue_index >= 0) {
-		i = ee.k_EQueued;
+		ee_k_EUnknown = ee.k_EQueued;
 		if (e.queue_index == 0 && r.paused) {
-			i = ee.k_EActivePaused;
+			ee_k_EUnknown = ee.k_EActivePaused;
 		}
 	} else {
 		const e = A.H.GetAppDetails(t.appid);
 		const r = e && e.eAutoUpdateValue;
 		if (r && r == 1) {
-			i = ee.k_EUpdatesDisabledByUser;
+			ee_k_EUnknown = ee.k_EUpdatesDisabledByUser;
 		}
 	}
-	return i;
+	return ee_k_EUnknown;
 }
-(function (e) {
+((e) => {
 	e[(e.k_EUnknown = 0)] = "k_EUnknown";
 	e[(e.k_EActive = 1)] = "k_EActive";
 	e[(e.k_EActiveDownloading = 2)] = "k_EActiveDownloading";
@@ -304,283 +267,168 @@ const re = {
 		disk: false,
 	},
 };
-const ne = (e) =>
-	e.bytesCurrent > 0
-		? i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(
-					"span",
-					{
-						className: H.Progress,
-					},
-					"\xA0",
-					e.nPercentComplete,
-					"%",
-				),
-				i.createElement(E.Mm, {
-					className: (0, B.A)(H.ProgressBar, H.NotActive),
-					progressPct: e.nPercentComplete,
-				}),
-			)
-		: null;
-function ie(e) {
-	const { className: t, label: r, nPercent: n, children: a } = e;
-	return i.createElement(
-		"div",
-		{
-			className: H.ActiveItemProgressBar,
-		},
-		i.createElement(
-			"div",
-			{
-				className: H.Status,
-			},
-			i.createElement(
-				"div",
-				{
-					className: H.Label,
-				},
-				r,
-			),
-			a,
-		),
-		i.createElement(E.Mm, {
-			className: (0, B.A)(H.ProgressBar, t),
-			progressPct: n,
-		}),
+const Ne_1 = (e) =>
+	e.bytesCurrent > 0 ? (
+		<>
+			<span className={H.Progress}>
+				{"\xA0"}
+				{e.nPercentComplete}%
+			</span>
+			<E.Mm
+				className={A_1(H.ProgressBar, H.NotActive)}
+				progressPct={e.nPercentComplete}
+			/>
+		</>
+	) : null;
+function Ie_1(e) {
+	const { className, label, nPercent, children } = e;
+	return (
+		<div className={H.ActiveItemProgressBar}>
+			<div className={H.Status}>
+				<div className={H.Label}>{label}</div>
+				{children}
+			</div>
+			<E.Mm className={A_1(H.ProgressBar, className)} progressPct={nPercent} />
+		</div>
 	);
 }
-const ae = (0, s.PA)(function (e) {
-	const { item: t, app: r, section: n, index: a, className: s, ...o } = e;
-	const l = (0, p.zM)();
+const Ae_1 = PA((e) => {
+	const { item, app, section, index, className, ...o } = e;
+	const l = zM();
 	const c = re[l.update_state].network;
 	const m = re[l.update_state].disk;
 	let u =
 		re[l.update_state].network &&
-		(0, Localize)("#Downloads_DetailedState_" + re[l.update_state].network);
+		(0, Localize)(`#Downloads_DetailedState_${re[l.update_state].network}`);
 	let d =
 		re[l.update_state].disk &&
-		(0, Localize)("#Downloads_DetailedState_" + re[l.update_state].disk);
-	if (u && (0, p.bm)(l) == (0, p.v_)(l)) {
-		const e =
-			"#Downloads_DetailedState_" + re[l.update_state].network + "_Complete";
+		(0, Localize)(`#Downloads_DetailedState_${re[l.update_state].disk}`);
+	if (u && bm(l) == v_1(l)) {
+		const e = `#Downloads_DetailedState_${re[l.update_state].network}_Complete`;
 		if (BLocStringExists(e)) {
 			u = (0, Localize)(e);
 		}
 	}
-	const [A, g] = (0, p.vO)(l);
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(H.SectionItemStatus, s),
-			...o,
-		},
-		!c &&
-			!m &&
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.SectionItemStatusLine, H.Downloading),
-				},
-				i.createElement(
-					"div",
-					{
-						className: H.State,
-					},
-					(0, Localize)("#Downloads_DetailedState_" + l.update_state),
-				),
-			),
-		(c || m) &&
-			i.createElement(
-				"div",
-				{
-					className: H.ProgressBars,
-				},
-				c &&
-					(0, p.v_)(l) > 0 &&
-					i.createElement(
-						ie,
-						{
-							className: H.Network,
-							label: u,
-							nPercent: (0, p.JD)(l),
-						},
-						i.createElement(le, {
-							currentBytes: (0, p.bm)(l),
-							totalBytes: (0, p.v_)(l),
-							active: true,
-							label: i.createElement(v.Download, {
-								className: H.Icon,
-							}),
-						}),
-					),
-				m &&
-					i.createElement(
-						ie,
-						{
-							className: H.Disk,
-							label: d,
-							nPercent: (0, p.MD)(l),
-						},
-						i.createElement(
-							"div",
-							{
-								className: H.Percentage,
-							},
-							(0, p.MD)(l),
-							"%",
-						),
-					),
-			),
+	const [A, g] = vO(l);
+	return (
+		<div className={A_1(H.SectionItemStatus, className)} {...o}>
+			{!c && !m && (
+				<div className={A_1(H.SectionItemStatusLine, H.Downloading)}>
+					<div className={H.State}>
+						{(0, Localize)(`#Downloads_DetailedState_${l.update_state}`)}
+					</div>
+				</div>
+			)}
+			{(c || m) && (
+				<div className={H.ProgressBars}>
+					{c && v_1(l) > 0 && (
+						<Ie_1 className={H.Network} label={u} nPercent={JD(l)}>
+							<Le
+								currentBytes={bm(l)}
+								totalBytes={v_1(l)}
+								active
+								label={<v.Download className={H.Icon} />}
+							/>
+						</Ie_1>
+					)}
+					{m && (
+						<Ie_1 className={H.Disk} label={d} nPercent={MD(l)}>
+							<div className={H.Percentage}>{MD(l)}%</div>
+						</Ie_1>
+					)}
+				</div>
+			)}
+		</div>
 	);
 });
-const se = (0, s.PA)(function (e) {
-	const { item: t, app: r, section: n, index: a, className: s, ...o } = e;
-	const l = te(t, r, X(t));
+const Se_1 = PA((e) => {
+	const { item, app, section, index, className, ...o } = e;
+	const l = te(item, app, X(item));
 	if (l == ee.k_EActive || l == ee.k_EActiveDownloading) {
-		return i.createElement(ae, {
-			...e,
-		});
+		return <Ae_1 {...e} />;
 	}
-	const [c, m] = (0, p.vH)(t);
-	const u = (0, p.eC)(t);
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(H.SectionItemStatus, s),
-			...o,
-		},
-		l == ee.k_EError &&
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.State, H.Error),
-				},
-				i.createElement(
-					w.he,
-					{
-						className: (0, B.A)(H.ErrorDetails),
-						direction: "bottom",
-						toolTipContent: t.update_error,
-						bDisabled: t.update_error.length == 0,
-					},
-					(0, Localize)("#Steam_AppUpdateError_" + t.update_result),
-				),
-			),
-		(l == ee.k_EScheduled || (l == ee.k_EError && t.deferred_time > 0)) &&
-			i.createElement(
-				"div",
-				{
-					className: H.ScheduledTime,
-				},
-				(0, Localize)(
-					"#Downloads_ScheduledFor",
-					LocalizeCalendarTime(t.deferred_time, {
-						bGranularFutureTime: true,
-						bForce24HourClock: h.rV.friendSettings.b24HourClock,
-					}) +
-						" " +
-						LocalizeRTimeToHourAndMinutes(t.deferred_time, {
+	const [c, m] = vH(item);
+	const u = eC(item);
+	return (
+		<div className={A_1(H.SectionItemStatus, className)} {...o}>
+			{l == ee.k_EError && (
+				<div className={A_1(H.State, H.Error)}>
+					<w.he
+						className={A_1(H.ErrorDetails)}
+						direction="bottom"
+						toolTipContent={item.update_error}
+						bDisabled={item.update_error.length == 0}
+					>
+						{(0, Localize)(`#Steam_AppUpdateError_${item.update_result}`)}
+					</w.he>
+				</div>
+			)}
+			{(l == ee.k_EScheduled ||
+				(l == ee.k_EError && item.deferred_time > 0)) && (
+				<div className={H.ScheduledTime}>
+					{(0, Localize)(
+						"#Downloads_ScheduledFor",
+						`${LocalizeCalendarTime(item.deferred_time, {
+							bGranularFutureTime: true,
 							bForce24HourClock: h.rV.friendSettings.b24HourClock,
-						}),
-				),
-			),
-		l == ee.k_ERemovedFromQueue &&
-			i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.State, H.Paused),
-				},
-				i.createElement(ne, {
-					bytesCurrent: c,
-					nPercentComplete: u,
-				}),
-			),
-		l == ee.k_EActivePaused &&
-			i.createElement(
-				"div",
-				{
-					className: H.State,
-				},
-				i.createElement(
-					"span",
-					{
-						className: (0, B.A)(H.Paused, c > 0 && H.InProgress),
-					},
-					(0, Localize)("#Downloads_State_Paused"),
-				),
-				i.createElement(ne, {
-					bytesCurrent: c,
-					nPercentComplete: u,
-				}),
-			),
-		l == ee.k_ECompleted &&
-			i.createElement(
-				"div",
-				{
-					className: H.CompletedTime,
-				},
-				(0, Localize)(
-					"#Downloads_DownloadFinished",
-					LocalizeRtime32ToShorterDate(t.completed_time) +
-						" " +
-						LocalizeRTimeToHourAndMinutes(t.completed_time, {
+						})} ${LocalizeRTimeToHourAndMinutes(item.deferred_time, {
 							bForce24HourClock: h.rV.friendSettings.b24HourClock,
-						}),
-				),
-			),
-		n != Te.k_EDownloadSection_Active &&
-			l == ee.k_EQueued &&
-			i.createElement(
-				"div",
-				{
-					className: H.State,
-				},
-				i.createElement(ne, {
-					bytesCurrent: c,
-					nPercentComplete: u,
-				}),
-			),
-		l == ee.k_EQueuedNext &&
-			i.createElement(
-				"div",
-				{
-					className: H.State,
-				},
-				i.createElement(
-					"span",
-					{
-						className: (0, B.A)(H.Queued, c > 0 && H.InProgress),
-					},
-					(0, Localize)("#Downloads_State_UpNext"),
-				),
-				i.createElement(ne, {
-					bytesCurrent: c,
-					nPercentComplete: u,
-				}),
-			),
-		l == ee.k_EUpdatesDisabledByUser &&
-			i.createElement(
-				"div",
-				{
-					className: H.SectionItemStatusLine,
-				},
-				i.createElement(ve, {
-					app: r,
-				}),
-			),
-		l == ee.k_EUpdatesDisabledByApp &&
-			i.createElement(
-				"div",
-				{
-					className: H.State,
-				},
-				(0, Localize)("#Downloads_State_UpdatesDiabledByApp"),
-			),
+						})}`,
+					)}
+				</div>
+			)}
+			{l == ee.k_ERemovedFromQueue && (
+				<div className={A_1(H.State, H.Paused)}>
+					<Ne_1 bytesCurrent={c} nPercentComplete={u} />
+				</div>
+			)}
+			{l == ee.k_EActivePaused && (
+				<div className={H.State}>
+					<span className={A_1(H.Paused, c > 0 && H.InProgress)}>
+						{(0, Localize)("#Downloads_State_Paused")}
+					</span>
+					<Ne_1 bytesCurrent={c} nPercentComplete={u} />
+				</div>
+			)}
+			{l == ee.k_ECompleted && (
+				<div className={H.CompletedTime}>
+					{(0, Localize)(
+						"#Downloads_DownloadFinished",
+						`${LocalizeRtime32ToShorterDate(
+							item.completed_time,
+						)} ${LocalizeRTimeToHourAndMinutes(item.completed_time, {
+							bForce24HourClock: h.rV.friendSettings.b24HourClock,
+						})}`,
+					)}
+				</div>
+			)}
+			{section != Te.k_EDownloadSection_Active && l == ee.k_EQueued && (
+				<div className={H.State}>
+					<Ne_1 bytesCurrent={c} nPercentComplete={u} />
+				</div>
+			)}
+			{l == ee.k_EQueuedNext && (
+				<div className={H.State}>
+					<span className={A_1(H.Queued, c > 0 && H.InProgress)}>
+						{(0, Localize)("#Downloads_State_UpNext")}
+					</span>
+					<Ne_1 bytesCurrent={c} nPercentComplete={u} />
+				</div>
+			)}
+			{l == ee.k_EUpdatesDisabledByUser && (
+				<div className={H.SectionItemStatusLine}>
+					<Ve app={app} />
+				</div>
+			)}
+			{l == ee.k_EUpdatesDisabledByApp && (
+				<div className={H.State}>
+					{(0, Localize)("#Downloads_State_UpdatesDiabledByApp")}
+				</div>
+			)}
+		</div>
 	);
 });
-class oe extends i.Component {
+class Oe_1 extends i.Component {
 	SuppressContextMenu(e) {
 		if (!e.shiftKey) {
 			e.preventDefault();
@@ -589,264 +437,192 @@ class oe extends i.Component {
 	}
 	render() {
 		const {
-			item: e,
-			app: t,
-			index: r,
-			section: n,
-			className: s,
-			buttonData: o,
-			bShowRemoveButton: l,
-			bShowPlayButton: c,
-			onRemoveFromDownloadList: m,
-			children: u,
+			item,
+			app,
+			index,
+			section,
+			className,
+			buttonData,
+			bShowRemoveButton,
+			bShowPlayButton,
+			onRemoveFromDownloadList,
+			children,
 			...d
 		} = this.props;
-		return i.createElement(
-			"div",
-			{
-				className: (0, B.A)(H.SectionItemButtons, c && H.AvailableForPlay, s),
-				...d,
-			},
-			i.createElement(
-				"div",
-				{
-					className: H.Buttons,
-				},
-				o &&
-					o.icon &&
-					!c &&
-					i.createElement(
-						w.he,
-						{
-							className: (0, B.A)(H.ButtonWrapper, H.Left, o.wrapperClass),
-							toolTipContent: (0, Localize)(o.toolTip),
-							direction: "top",
-						},
-						i.createElement(
-							a.$n,
-							{
-								className: (0, B.A)(H.Button, o.className),
-								onContextMenu: this.SuppressContextMenu,
-								onClick: o.onClick,
-							},
-							o.icon,
-						),
-					),
-				!o &&
-					!c &&
-					i.createElement("div", {
-						className: (0, B.A)(H.ButtonWrapper, H.Left),
-					}),
-				c &&
-					n == Te.k_EDownloadSection_Completed &&
-					i.createElement(O.aV, {
-						className: H.PlayButton,
-						overview: t,
-						buttonStyle: "short",
-						bShowStreamingSelector: false,
-					}),
-				l &&
-					i.createElement(
-						w.he,
-						{
-							className: (0, B.A)(
+		return (
+			<div
+				className={A_1(
+					H.SectionItemButtons,
+					bShowPlayButton && H.AvailableForPlay,
+					className,
+				)}
+				{...d}
+			>
+				<div className={H.Buttons}>
+					{buttonData && buttonData.icon && !bShowPlayButton && (
+						<w.he
+							className={A_1(H.ButtonWrapper, H.Left, buttonData.wrapperClass)}
+							toolTipContent={(0, Localize)(buttonData.toolTip)}
+							direction="top"
+						>
+							<a.$n
+								className={A_1(H.Button, buttonData.className)}
+								onContextMenu={this.SuppressContextMenu}
+								onClick={buttonData.onClick}
+							>
+								{buttonData.icon}
+							</a.$n>
+						</w.he>
+					)}
+					{!buttonData && !bShowPlayButton && (
+						<div className={A_1(H.ButtonWrapper, H.Left)} />
+					)}
+					{bShowPlayButton && section == Te.k_EDownloadSection_Completed && (
+						<O.aV
+							className={H.PlayButton}
+							overview={app}
+							buttonStyle="short"
+							bShowStreamingSelector={false}
+						/>
+					)}
+					{bShowRemoveButton && (
+						<w.he
+							className={A_1(
 								H.ButtonWrapper,
 								H.Right,
 								H.RemoveFromQueueWrapper,
-							),
-							toolTipContent: (0, Localize)(
-								e.completed
+							)}
+							toolTipContent={(0, Localize)(
+								item.completed
 									? "#Downloads_RemoveFromList_Tooltip"
 									: "#Downloads_RemoveFromQueue_Tooltip",
-							),
-							direction: "top",
-						},
-						i.createElement(
-							a.$n,
-							{
-								className: (0, B.A)(H.Button, H.RemoveFromQueue),
-								onContextMenu: this.SuppressContextMenu,
-								onClick: this.props.onRemoveFromDownloadList,
-							},
-							i.createElement(v.Close, null),
-						),
-					),
-				!l &&
-					i.createElement("div", {
-						className: (0, B.A)(H.ButtonWrapper, H.Right),
-					}),
-			),
+							)}
+							direction="top"
+						>
+							<a.$n
+								className={A_1(H.Button, H.RemoveFromQueue)}
+								onContextMenu={this.SuppressContextMenu}
+								onClick={this.props.onRemoveFromDownloadList}
+							>
+								<v.Close />
+							</a.$n>
+						</w.he>
+					)}
+					{!bShowRemoveButton && (
+						<div className={A_1(H.ButtonWrapper, H.Right)} />
+					)}
+				</div>
+			</div>
 		);
 	}
 }
-function le(e) {
+function Le(e) {
 	const {
-		currentBytes: t = 0,
-		totalBytes: r = 0,
-		active: n,
-		label: a,
-		digitsAfterDecimal: s = 1,
+		currentBytes = 0,
+		totalBytes = 0,
+		active,
+		label,
+		digitsAfterDecimal = 1,
 	} = e;
-	if (t == 0 && r == 0) {
+	if (currentBytes == 0 && totalBytes == 0) {
 		return null;
 	} else {
-		return i.createElement(
-			"div",
-			{
-				className: (0, B.A)(H.Stat, H.ProgressDetails),
-			},
-			!n &&
-				a &&
-				i.createElement(
-					"div",
-					{
-						className: H.Label,
-					},
-					a,
-				),
-			t != 0 &&
-				LocalizeReact(
-					"#Downloads_DownloadedBytesInProgress",
-					i.createElement(
-						"span",
-						{
-							className: (0, B.A)(H.Value, H.InProgress, n && H.Active),
-						},
-						(0, y.dm)(t, {
-							nDigitsAfterDecimal: s,
-							nMinimumDigitsAfterDecimal: s,
-						}),
-					),
-					i.createElement(
-						"span",
-						{
-							className: (0, B.A)(H.Value, H.Denominator),
-						},
-						(0, y.dm)(r, {
-							nDigitsAfterDecimal: s,
-							nMinimumDigitsAfterDecimal: s,
-						}),
-					),
-				),
-			t == 0 &&
-				LocalizeReact(
-					"#Downloads_TotalBytes",
-					i.createElement(
-						"span",
-						{
-							className: H.Value,
-						},
-						(0, y.dm)(r, {
-							nDigitsAfterDecimal: s,
-							nMinimumDigitsAfterDecimal: s,
-						}),
-					),
-				),
-			n &&
-				a &&
-				i.createElement(
-					"div",
-					{
-						className: H.Label,
-					},
-					a,
-				),
+		return (
+			<div className={A_1(H.Stat, H.ProgressDetails)}>
+				{!active && label && <div className={H.Label}>{label}</div>}
+				{currentBytes != 0 &&
+					LocalizeReact(
+						"#Downloads_DownloadedBytesInProgress",
+						<span className={A_1(H.Value, H.InProgress, active && H.Active)}>
+							{dm(currentBytes, {
+								nDigitsAfterDecimal: digitsAfterDecimal,
+								nMinimumDigitsAfterDecimal: digitsAfterDecimal,
+							})}
+						</span>,
+						<span className={A_1(H.Value, H.Denominator)}>
+							{dm(totalBytes, {
+								nDigitsAfterDecimal: digitsAfterDecimal,
+								nMinimumDigitsAfterDecimal: digitsAfterDecimal,
+							})}
+						</span>,
+					)}
+				{currentBytes == 0 &&
+					LocalizeReact(
+						"#Downloads_TotalBytes",
+						<span className={H.Value}>
+							{dm(totalBytes, {
+								nDigitsAfterDecimal: digitsAfterDecimal,
+								nMinimumDigitsAfterDecimal: digitsAfterDecimal,
+							})}
+						</span>,
+					)}
+				{active && label && <div className={H.Label}>{label}</div>}
+			</div>
 		);
 	}
 }
-const ce = (e) =>
-	i.createElement(
-		"div",
-		{
-			className: (0, B.A)(
-				H.ContentType,
-				(e.active || e.completed) && H.Highlight,
-			),
-		},
-		(!e.replaceIconWithStatus || (!e.active && !e.completed)) && e.elIcon,
-		e.replaceIconWithStatus &&
-			e.active &&
-			i.createElement(v.Spinner, {
-				className: (0, B.A)(H.Icon, H.Status),
-			}),
-		e.replaceIconWithStatus &&
-			e.completed &&
-			i.createElement(v.Checkmark, {
-				className: (0, B.A)(H.Icon, H.Status, H.Check),
-			}),
-		e.includeText &&
-			i.createElement(
-				"span",
-				{
-					className: H.Text,
-				},
-				(0, Localize)(e.strToken),
-				e.extraNameContent,
-			),
-		!e.replaceIconWithStatus &&
-			e.active &&
-			i.createElement(v.Spinner, {
-				className: (0, B.A)(H.Icon, H.Status),
-			}),
-		!e.replaceIconWithStatus &&
-			e.completed &&
-			i.createElement(v.Checkmark, {
-				className: (0, B.A)(H.Icon, H.Status, H.Check),
-			}),
-	);
-const me = (e) =>
-	i.createElement(
-		w.t1,
-		{
-			className: H.ContentTypeTooltip,
-		},
-		i.createElement(
-			"div",
-			{
-				className: H.Title,
-			},
-			(0, Localize)("#Downloads_ContentType_Title"),
-		),
-		e.rgIcons.map((e) =>
-			i.createElement(ce, {
-				key: e.strToken,
-				...e,
-				includeText: true,
-			}),
-		),
-	);
-const ue = (e) =>
-	i.createElement(
-		i.Fragment,
-		null,
-		e.rgIcons.map((e) =>
-			i.createElement(ce, {
-				key: e.strToken,
-				...e,
-				includeText: true,
-				replaceIconWithStatus: true,
-			}),
-		),
-	);
-function de(e) {
-	const t = (0, Q.Kp)(e.appid, e.publishedfileid);
-	if (t.isLoading || t.isLoadingError || !t.isSuccess) {
+const Ce_1 = (e) => (
+	<div className={A_1(H.ContentType, (e.active || e.completed) && H.Highlight)}>
+		{(!e.replaceIconWithStatus || (!e.active && !e.completed)) && e.elIcon}
+		{e.replaceIconWithStatus && e.active && (
+			<v.Spinner className={A_1(H.Icon, H.Status)} />
+		)}
+		{e.replaceIconWithStatus && e.completed && (
+			<v.Checkmark className={A_1(H.Icon, H.Status, H.Check)} />
+		)}
+		{e.includeText && (
+			<span className={H.Text}>
+				{(0, Localize)(e.strToken)}
+				{e.extraNameContent}
+			</span>
+		)}
+		{!e.replaceIconWithStatus && e.active && (
+			<v.Spinner className={A_1(H.Icon, H.Status)} />
+		)}
+		{!e.replaceIconWithStatus && e.completed && (
+			<v.Checkmark className={A_1(H.Icon, H.Status, H.Check)} />
+		)}
+	</div>
+);
+const Me_1 = (e) => (
+	<w.t1 className={H.ContentTypeTooltip}>
+		<div className={H.Title}>
+			{(0, Localize)("#Downloads_ContentType_Title")}
+		</div>
+		{e.rgIcons.map((e) => (
+			<Ce_1 key={e.strToken} {...e} includeText />
+		))}
+	</w.t1>
+);
+const Ue = (e) => (
+	<>
+		{e.rgIcons.map((e) => (
+			<Ce_1 key={e.strToken} {...e} includeText replaceIconWithStatus />
+		))}
+	</>
+);
+function De_1(e) {
+	const t = Kp(e.appid, e.publishedfileid);
+	if (t.isLoading || t.isLoadingError || t.isLoadingError || !t.isSuccess) {
 		return null;
 	} else if (t.data?.title && t.data.title.length != 0) {
-		return i.createElement("span", null, " - ", t.data.title);
+		return (
+			<span>
+				{" - "}
+				{t.data.title}
+			</span>
+		);
 	} else {
 		return null;
 	}
 }
 const Ae = (e) => {
-	const t = (0, u.Qn)();
+	const t = Qn();
 	let r = [];
 	let n = true;
 	const a = e.item.appid == e.overview.update_appid;
 	const s = {
-		elIcon: i.createElement(v.Inventory, {
-			className: H.Icon,
-		}),
+		elIcon: <v.Inventory className={H.Icon} />,
 		strToken: e.app.BIsApplicationOrTool()
 			? "#Downloads_ContentType_AppContent"
 			: "#Downloads_ContentType_Content",
@@ -855,18 +631,14 @@ const Ae = (e) => {
 			e.item.update_type_info[d.$6.k_EAppUpdateContentType_Content].completed,
 	};
 	const o = {
-		elIcon: i.createElement(v.Workshop, {
-			className: H.Icon,
-		}),
+		elIcon: <v.Workshop className={H.Icon} />,
 		strToken: "#Downloads_ContentType_Workshop",
 		active: a && e.overview.update_is_workshop,
 		completed:
 			e.item.update_type_info[d.$6.k_EAppUpdateContentType_Workshop].completed,
 	};
 	const l = {
-		elIcon: i.createElement(v.Shader, {
-			className: H.Icon,
-		}),
+		elIcon: <v.Shader className={H.Icon} />,
 		strToken: "#Downloads_ContentType_Shader",
 		active: a && e.overview.update_is_shader,
 		completed:
@@ -885,198 +657,144 @@ const Ae = (e) => {
 		e.item.update_type_info[d.$6.k_EAppUpdateContentType_Workshop].has_update
 	) {
 		if (e.overview.update_publishedfileid?.length != 0) {
-			o.extraNameContent = i.createElement(de, {
-				appid: e.item.appid,
-				publishedfileid: e.overview.update_publishedfileid,
-			});
+			o.extraNameContent = (
+				<De_1
+					appid={e.item.appid}
+					publishedfileid={e.overview.update_publishedfileid}
+				/>
+			);
 		}
 		r.push(o);
 		n = false;
 	}
 	const c = t || e.alwaysExpand;
 	if (!n && r.length > 0) {
-		return i.createElement(
-			w.m9,
-			{
-				className: (0, B.A)(H.ContentTypes, c && H.Expanded),
-				toolTipContent: i.createElement(me, {
-					rgIcons: r,
-				}),
-				direction: "top",
-			},
-			!c &&
-				i.createElement(v.Information, {
-					className: H.Icon,
-				}),
-			c &&
-				i.createElement(ue, {
-					rgIcons: r,
-				}),
+		return (
+			<w.m9
+				className={A_1(H.ContentTypes, c && H.Expanded)}
+				toolTipContent={<Me_1 rgIcons={r} />}
+				direction="top"
+			>
+				{!c && <v.Information className={H.Icon} />}
+				{c && <Ue rgIcons={r} />}
+			</w.m9>
 		);
 	} else {
 		return null;
 	}
 };
-const pe = (e) => {
+const Pe_1 = (e) => {
 	let t;
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			"span",
-			{
-				className: H.Name,
-			},
-			e.app.display_name,
-		),
-		t,
+	return (
+		<>
+			<span className={H.Name}>{e.app.display_name}</span>
+			{t}
+		</>
 	);
 };
-function ge(e) {
-	const { overview: t } = e;
-	const r = (0, g.oA)();
-	const [n] = (0, h.VI)("download_throttle_rate");
-	if (!n || t.lan_peer_hostname.length) {
-		return i.createElement(
-			"div",
-			{
-				className: (0, B.A)(H.Throttle, H.Empty),
-			},
-			"\xA0",
-		);
+function Ge_1(e) {
+	const { overview } = e;
+	const r = oA();
+	const [n] = VI("download_throttle_rate");
+	if (!n || overview.lan_peer_hostname.length) {
+		return <div className={A_1(H.Throttle, H.Empty)}>{"\xA0"}</div>;
 	} else {
-		return i.createElement(
-			"div",
-			{
-				className: (0, B.A)(
+		return (
+			<div
+				className={A_1(
 					H.Throttle,
-					t.throttling_suspended && H.Suspended,
+					overview.throttling_suspended && H.Suspended,
 					r && H.ParentalLocked,
-				),
-				onClick: eo,
-			},
-			(0, Localize)("#Downloads_Throttle"),
-			"\xA0",
-			i.createElement(
-				"span",
-				{
-					className: H.ThrottleValue,
-				},
-				(0, R.ZC)((n * 1000) / 8),
-			),
-			t.throttling_suspended &&
-				i.createElement(
-					"span",
-					{
-						className: H.Suspended,
-					},
-					"\xA0(",
-					(0, Localize)("#Downloads_ThrottleSuspended"),
-					")",
-				),
+				)}
+				onClick={eo}
+			>
+				{(0, Localize)("#Downloads_Throttle")}
+				{"\xA0"}
+				<span className={H.ThrottleValue}>{ZC((n * 1000) / 8)}</span>
+				{overview.throttling_suspended && (
+					<span className={H.Suspended}>
+						{"\xA0("}
+						{(0, Localize)("#Downloads_ThrottleSuspended")})
+					</span>
+				)}
+			</div>
 		);
 	}
 }
-const he = (0, s.PA)(function (e) {
-	const { item: t } = e;
-	const { data: r } = (0, p.dZ)(t);
-	if (r && r.length) {
-		const e = r?.length && r[0].clan_event_gid;
-		return i.createElement(
-			z.N_,
-			{
-				className: H.PatchNotes,
-				to: (0, U.tf)(U.BV.Downloads(), t.appid, e),
-			},
-			i.createElement(v.Scratchpad, {
-				className: H.Icon,
-			}),
-			i.createElement(
-				"div",
-				{
-					className: H.Text,
-				},
-				(0, Localize)("#Downloads_PatchNotes"),
-			),
+const He = PA((e) => {
+	const { item } = e;
+	const { data } = dZ(item);
+	if (data && data.length) {
+		const e = data?.length && data[0].clan_event_gid;
+		return (
+			<z.N_ className={H.PatchNotes} to={tf(U.BV.Downloads(), item.appid, e)}>
+				<v.Scratchpad className={H.Icon} />
+				<div className={H.Text}>{(0, Localize)("#Downloads_PatchNotes")}</div>
+			</z.N_>
 		);
 	}
 	return null;
 });
 const Ce = (e) => {
-	const { item: t, app: r, index: n, section: a, autoFocus: s, ...o } = e;
-	const c = !t.completed;
-	const m = (0, x.W6)();
-	const d = (0, u.Qn)();
-	const A = (0, q.br)();
-	return i.createElement(
-		l.sx,
-		{
-			key: "Download_" + r.appid,
-			draggableId: String(r.appid),
-			index: n,
-			isDragDisabled: !c,
-			...o,
-		},
-		(t, r) =>
-			i.createElement(_e, {
-				...e,
-				provided: t,
-				snapshot: r,
-				history: m,
-				autoFocus: s,
-				bInGamepadUI: d,
-				navigator: A,
-			}),
+	const { item, app, index, section, autoFocus, ...o } = e;
+	const c = !item.completed;
+	const m = W6();
+	const d = Qn();
+	const A = br();
+	return (
+		<l.sx
+			key={`Download_${app.appid}`}
+			draggableId={String(app.appid)}
+			index={index}
+			isDragDisabled={!c}
+			{...o}
+		>
+			{(t, r) => (
+				<_e
+					{...e}
+					provided={t}
+					snapshot={r}
+					history={m}
+					autoFocus={autoFocus}
+					bInGamepadUI={d}
+					navigator={A}
+				/>
+			)}
+		</l.sx>
 	);
 };
-const _e = (0, s.PA)(function (e) {
-	const {
-		provided: t,
-		snapshot: r,
-		history: n,
-		navigator: a,
-		bInGamepadUI: s,
-		...o
-	} = e;
-	const {
-		item: l,
-		app: c,
-		index: m,
-		section: u,
-		autoFocus: d,
-		onFocus: g,
-		onBlur: h,
-		...C
-	} = o;
-	const [_, f] = i.useState(false);
-	const b = l.appid;
-	(0, A.T)(c.appid);
+const _e = PA((e) => {
+	const { provided, snapshot, history, navigator, bInGamepadUI, ...o } = e;
+	const { item, app, index, section, autoFocus, onFocus, onBlur, ...C } = o;
+	const [_, set] = i.useState(false);
+	const l_appid = item.appid;
+	T_1(app.appid);
 	const y = i.useCallback(
 		(e) => {
-			SteamClient.Downloads.ResumeAppUpdate(b);
+			SteamClient.Downloads.ResumeAppUpdate(l_appid);
 			if (e) {
 				e.stopPropagation();
 			}
 		},
-		[b],
+		[l_appid],
 	);
 	i.useCallback(
 		(e) => {
-			SteamClient.Downloads.QueueAppUpdate(b);
+			SteamClient.Downloads.QueueAppUpdate(l_appid);
 			if (e) {
 				e.stopPropagation();
 			}
 		},
-		[b],
+		[l_appid],
 	);
 	const w = i.useCallback(
 		(e) => {
-			Ie(l);
+			Ie(item);
 			if (e) {
 				e.stopPropagation();
 			}
 		},
-		[l],
+		[item],
 	);
 	const I = i.useCallback((e) => {
 		SteamClient.Downloads.EnableAllDownloads(e);
@@ -1093,50 +811,53 @@ const _e = (0, s.PA)(function (e) {
 	);
 	const M = i.useCallback(
 		(e) => {
-			a.App(b);
+			navigator.App(l_appid);
 			if (e) {
 				e.stopPropagation();
 			}
 		},
-		[a, b],
+		[navigator, l_appid],
 	);
 	const R = i.useCallback(
 		(e) => {
 			const t = GetOwningWindowForEvent(e);
-			(0, G.jy)("Play", c, "local", 1001, t)();
+			jy("Play", app, "local", 1001, t)();
 			if (e) {
 				e.stopPropagation();
 			}
 		},
-		[c],
+		[app],
 	);
 	const k = i.useCallback(() => {
-		const e = X(l);
-		const t = te(l, c, e);
+		const e = X(item);
+		const t = te(item, app, e);
 		let r;
 		let n =
-			!s && u == Te.k_EDownloadSection_Completed && c.display_status == 11;
+			!bInGamepadUI &&
+			section == Te.k_EDownloadSection_Completed &&
+			app.display_status == 11;
 		let a =
-			u != Te.k_EDownloadSection_NotQueued &&
+			section != Te.k_EDownloadSection_NotQueued &&
 			t != ee.k_EActive &&
 			t != ee.k_EActiveDownloading;
 		if (t == ee.k_EUpdatesDisabledByApp) {
 			n = false;
 			a = false;
 			r = null;
-		} else if (u != Te.k_EDownloadSection_Active || e.paused) {
-			if (u == Te.k_EDownloadSection_Active && e.paused) {
+		} else if (section != Te.k_EDownloadSection_Active || e.paused) {
+			if (section == Te.k_EDownloadSection_Active && e.paused) {
 				r = {
 					onClick: E,
 					wrapperClass: H.ResumeWrapper,
 					className: H.Resume,
 					toolTip: "#Downloads_Resume_Tooltip",
-					icon: i.createElement(v.Play, null),
+					icon: <v.Play />,
 				};
 			} else if (
-				u == Te.k_EDownloadSection_Queued ||
-				u == Te.k_EDownloadSection_Scheduled ||
-				u == Te.k_EDownloadSection_NotQueued
+				section == Te.k_EDownloadSection_Queued ||
+				section == Te.k_EDownloadSection_Scheduled ||
+				section == Te.k_EDownloadSection_Scheduled ||
+				section == Te.k_EDownloadSection_NotQueued
 			) {
 				r = {
 					onClick: y,
@@ -1146,12 +867,9 @@ const _e = (0, s.PA)(function (e) {
 						t == ee.k_EError
 							? "#Downloads_Retry_Tooltip"
 							: "#Downloads_MoveToTop_Tooltip",
-					icon:
-						t == ee.k_EError
-							? i.createElement(v.Reload, null)
-							: i.createElement(v.Download, null),
+					icon: t == ee.k_EError ? <v.Reload /> : <v.Download />,
 				};
-			} else if (u == Te.k_EDownloadSection_Completed) {
+			} else if (section == Te.k_EDownloadSection_Completed) {
 				r = {
 					onClick: n ? R : M,
 					toolTip: (0, Localize)(
@@ -1165,7 +883,7 @@ const _e = (0, s.PA)(function (e) {
 				wrapperClass: H.PauseWrapper,
 				className: H.Pause,
 				toolTip: "#Downloads_Pause_Tooltip",
-				icon: i.createElement(v.Pause, null),
+				icon: <v.Pause />,
 			};
 		}
 		return {
@@ -1174,24 +892,24 @@ const _e = (0, s.PA)(function (e) {
 			bShowPlayButton: n,
 			onRemoveFromDownloadList: w,
 		};
-	}, [y, M, R, w, E, c, s, l, u]);
+	}, [y, M, R, w, E, app, bInGamepadUI, item, section]);
 	const D = i.useCallback(
 		(e) => {
-			const { bShowRemoveButton: t } = k();
-			(0, N.lX)(
-				i.createElement(Ee, {
-					app: c,
-					item: l,
-					navigator: a,
-					bShowRemoveButton: t,
-					history: n,
-					ownerWindow: GetOwningWindowForEvent(e),
-				}),
+			const { bShowRemoveButton } = k();
+			lX(
+				<Ee
+					app={app}
+					item={item}
+					navigator={navigator}
+					bShowRemoveButton={bShowRemoveButton}
+					history={history}
+					ownerWindow={GetOwningWindowForEvent(e)}
+				/>,
 				e,
-				(0, G.zq)(),
+				zq(),
 			);
 		},
-		[c, l, n, a, k],
+		[app, item, history, navigator, k],
 	);
 	const F = i.useCallback(
 		(e) => {
@@ -1205,341 +923,207 @@ const _e = (0, s.PA)(function (e) {
 		[D],
 	);
 	const O = k();
-	const P = s;
+	const P = bInGamepadUI;
 	const z =
-		u != Te.k_EDownloadSection_Active || r.isDragging
-			? t.draggableProps.style
+		section != Te.k_EDownloadSection_Active || snapshot.isDragging
+			? provided.draggableProps.style
 			: {};
-	return i.createElement(
-		T.Z,
-		{
-			className: (0, B.A)(
+	return (
+		<T.Z
+			className={A_1(
 				H.SectionItemWrapper,
-				r.isDragging && H.Dragging,
+				snapshot.isDragging && H.Dragging,
 				_ && H.Autofocused,
-			),
-			noFocusRing: true,
-			focusable: true,
-			autoFocus: d,
-			onContextMenu: F,
-			onMenuButton: D,
-			"flow-children": "row",
-			ref: t.innerRef,
-			onGamepadFocus: (e) => {
-				f(e.detail.focusSource == L.D$.APPLICATION);
-			},
-			onGamepadBlur: (e) => {
-				f(false);
-			},
-			onFocus: g,
-			onBlur: h,
-			onOKButton: O.buttonData
-				? () => {
-						O.buttonData.onClick(undefined);
-					}
-				: undefined,
-			onOKActionDescription: O.buttonData
-				? (0, Localize)(O.buttonData.toolTip)
-				: undefined,
-			onMenuActionDescription: (0, Localize)("#ActionButtonLabelContextMenu"),
-			...t.draggableProps,
-			...(P ? {} : t.dragHandleProps),
-			style: z,
-		},
-		i.createElement(Be, {
-			app: c,
-			bIsDragging: r.isDragging,
-			bInGamepadUI: s,
-			dragHandleProps: P ? t.dragHandleProps : undefined,
-			buttonProps: O,
-			...o,
-			...C,
-		}),
+			)}
+			noFocusRing
+			focusable
+			autoFocus={autoFocus}
+			onContextMenu={F}
+			onMenuButton={D}
+			flow-children="row"
+			ref={provided.innerRef}
+			onGamepadFocus={(e) => {
+				set(e.detail.focusSource == L.D$.APPLICATION);
+			}}
+			onGamepadBlur={(e) => {
+				set(false);
+			}}
+			onFocus={onFocus}
+			onBlur={onBlur}
+			onOKButton={
+				O.buttonData
+					? () => {
+							O.buttonData.onClick(undefined);
+						}
+					: undefined
+			}
+			onOKActionDescription={
+				O.buttonData ? (0, Localize)(O.buttonData.toolTip) : undefined
+			}
+			onMenuActionDescription={(0, Localize)("#ActionButtonLabelContextMenu")}
+			{...provided.draggableProps}
+			{...(P ? {} : provided.dragHandleProps)}
+			style={z}
+		>
+			<Be
+				app={app}
+				bIsDragging={snapshot.isDragging}
+				bInGamepadUI={bInGamepadUI}
+				dragHandleProps={P ? provided.dragHandleProps : undefined}
+				buttonProps={O}
+				{...o}
+				{...C}
+			/>
+		</T.Z>
 	);
 });
-const fe = (0, s.PA)(function (e) {
-	const { item: t, app: r, bInGamepadUI: n, overview: a } = e;
-	return i.createElement(
-		"div",
-		{
-			className: H.DownloadItemName,
-		},
-		i.createElement(
-			"div",
-			{
-				className: H.Name,
-			},
-			i.createElement(pe, {
-				item: t,
-				app: r,
-				overview: a,
-			}),
-			!n &&
-				i.createElement(Ae, {
-					item: t,
-					app: r,
-					overview: a,
-				}),
-		),
+const Fe_1 = PA((e) => {
+	const { item, app, bInGamepadUI, overview } = e;
+	return (
+		<div className={H.DownloadItemName}>
+			<div className={H.Name}>
+				<Pe_1 item={item} app={app} overview={overview} />
+				{!bInGamepadUI && <Ae item={item} app={app} overview={overview} />}
+			</div>
+		</div>
 	);
 });
-const be = (0, s.PA)(function (e) {
-	const { item: t, app: r, section: n, overview: a } = e;
-	const s = te(t, r, a);
-	const [o, l] = t.active && (0, p.bm)(a) ? (0, p.vO)(a) : (0, p.vH)(t);
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(H.DetailsAndType),
-		},
-		n == Te.k_EDownloadSection_Active &&
-			i.createElement(ge, {
-				overview: a,
-			}),
-		n != Te.k_EDownloadSection_Active &&
-			i.createElement(le, {
-				currentBytes: o,
-				totalBytes: l,
-				active: t.active,
-			}),
-		s != ee.k_EUpdatesDisabledByUser &&
-			i.createElement(ve, {
-				app: r,
-			}),
-		i.createElement(he, {
-			item: t,
-		}),
+const Be_1 = PA((e) => {
+	const { item, app, section, overview } = e;
+	const s = te(item, app, overview);
+	const [o, l] = item.active && bm(overview) ? vO(overview) : vH(item);
+	return (
+		<div className={A_1(H.DetailsAndType)}>
+			{section == Te.k_EDownloadSection_Active && <Ge_1 overview={overview} />}
+			{section != Te.k_EDownloadSection_Active && (
+				<Le currentBytes={o} totalBytes={l} active={item.active} />
+			)}
+			{s != ee.k_EUpdatesDisabledByUser && <Ve app={app} />}
+			<He item={item} />
+		</div>
 	);
 });
-function ye(e) {
-	const { itemAndAppProps: t, buttonProps: r } = e;
-	const n = (0, p.zM)();
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(
+function Ye(e) {
+	const { itemAndAppProps, buttonProps } = e;
+	const n = zM();
+	return (
+		<div
+			className={A_1(
 				H.ActiveItemRightColumn,
 				H.SectionItemColumn,
 				H.NameSection,
 				H.Left,
-			),
-		},
-		i.createElement(R.mr, null),
-		t &&
-			i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(be, {
-					...t,
-					overview: n,
-				}),
-				i.createElement(se, {
-					...t,
-					className: (0, B.A)(H.Right),
-				}),
-				i.createElement(
-					"div",
-					{
-						className: H.Bottom,
-					},
-					i.createElement(
-						"div",
-						{
-							className: H.TimeRemaining,
-						},
-						n.update_seconds_remaining >= 0 &&
-							n.update_seconds_remaining < Seconds.PerMonth &&
-							i.createElement(
-								"span",
-								null,
-								LocalizeReact(
-									"#Downloads_Time_Remaining",
-									i.createElement(
-										"span",
-										{
-											className: H.StartTime,
-										},
-										p.hj.LocalizeTimeRemaining(n.update_seconds_remaining),
-									),
-								),
-							),
-					),
-					i.createElement(oe, {
-						...t,
-						...r,
-					}),
-				),
-			),
+			)}
+		>
+			<R.mr />
+			{itemAndAppProps && (
+				<>
+					<Be_1 {...itemAndAppProps} overview={n} />
+					<Se_1 {...itemAndAppProps} className={A_1(H.Right)} />
+					<div className={H.Bottom}>
+						<div className={H.TimeRemaining}>
+							{n.update_seconds_remaining >= 0 &&
+								n.update_seconds_remaining < Seconds.PerMonth && (
+									<span>
+										{LocalizeReact(
+											"#Downloads_Time_Remaining",
+											<span className={H.StartTime}>
+												{p.hj.LocalizeTimeRemaining(n.update_seconds_remaining)}
+											</span>,
+										)}
+									</span>
+								)}
+						</div>
+						<Oe_1 {...itemAndAppProps} {...buttonProps} />
+					</div>
+				</>
+			)}
+		</div>
 	);
 }
-const Se = (0, s.PA)(function (e) {
-	const {
-		bIsDragging: t,
-		bInGamepadUI: r,
-		dragHandleProps: n,
-		buttonProps: a,
-		...s
-	} = e;
-	const { item: o, app: l, index: c, section: m, autoFocus: u, ...d } = s;
-	const A = (0, q.br)();
-	const g = (0, p.zM)();
-	const h =
-		l &&
-		i.createElement(k.z, {
-			app: l,
-			eAssetType: 4,
-			className: H.DownloadGameIcon,
-		});
-	const C = i.createElement(
-		"div",
-		{
-			className: H.GameIconAndName,
-		},
-		h,
-		i.createElement("div", {
-			className: H.DownloadGameIconBevel,
-		}),
-		i.createElement(fe, {
-			...s,
-			bInGamepadUI: r,
-			overview: g,
-		}),
+const Se = PA((e) => {
+	const { bIsDragging, bInGamepadUI, dragHandleProps, buttonProps, ...s } = e;
+	const { item, app, index, section, autoFocus, ...d } = s;
+	const A = br();
+	const g = zM();
+	const h = app && (
+		<k.z app={app} eAssetType={4} className={H.DownloadGameIcon} />
 	);
-	return i.createElement(
-		"div",
-		{
-			className: H.DownloadSectionActiveItem,
-		},
-		i.createElement(
-			R.b4,
-			{
-				className: H.DownloadGraph,
-				appidTopOfQueue: l.appid,
-				appidOverride: l.appid,
-				nameElement: C,
-				onClick: () => A.App(o.appid),
-			},
-			i.createElement(Ae, {
-				item: o,
-				app: l,
-				overview: g,
-				alwaysExpand: true,
-			}),
-		),
-		i.createElement(ye, {
-			itemAndAppProps: s,
-			buttonProps: a,
-		}),
-		i.createElement("div", {
-			className: H.HoverRing,
-		}),
-		i.createElement(we, {
-			dragHandleProps: n,
-		}),
+	const C = (
+		<div className={H.GameIconAndName}>
+			{h}
+			<div className={H.DownloadGameIconBevel} />
+			<Fe_1 {...s} bInGamepadUI={bInGamepadUI} overview={g} />
+		</div>
+	);
+	return (
+		<div className={H.DownloadSectionActiveItem}>
+			<R.b4
+				className={H.DownloadGraph}
+				appidTopOfQueue={app.appid}
+				appidOverride={app.appid}
+				nameElement={C}
+				onClick={() => A.App(item.appid)}
+			>
+				<Ae item={item} app={app} overview={g} alwaysExpand />
+			</R.b4>
+			<Ye itemAndAppProps={s} buttonProps={buttonProps} />
+			<div className={H.HoverRing} />
+			<We dragHandleProps={dragHandleProps} />
+		</div>
 	);
 });
-function we(e) {
-	const { dragHandleProps: t } = e;
-	return i.createElement(
-		"div",
-		{
-			className: H.DragHandle,
-			...t,
-		},
-		i.createElement(v.Rows, null),
+function We(e) {
+	const { dragHandleProps } = e;
+	return (
+		<div className={H.DragHandle} {...dragHandleProps}>
+			<v.Rows />
+		</div>
 	);
 }
-const Be = (0, s.PA)(function (e) {
-	const {
-		bIsDragging: t,
-		bInGamepadUI: r,
-		dragHandleProps: n,
-		buttonProps: a,
-		...s
-	} = e;
-	const { item: o, app: l, index: c, section: m, autoFocus: u, ...d } = s;
-	const A = X(o);
-	const p = te(o, l, A);
-	const g = !o.completed && p != ee.k_EUpdatesDisabledByApp;
-	const h = m == Te.k_EDownloadSection_Active;
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(H.SectionItem, t && H.Dragging, h && H.Active),
-			...d,
-		},
-		i.createElement(
-			"div",
-			{
-				className: H.SectionItemContent,
-			},
-			!h &&
-				i.createElement(
-					i.Fragment,
-					null,
-					i.createElement(
-						"div",
-						{
-							className: H.AppPortrait,
-						},
-						i.createElement(_.TK, {
-							app: l,
-							bFeatured: true,
-							bHideFooter: true,
-							bHideBanners: true,
-							bShowFriendsAsIcons: false,
-							context: 6,
-						}),
-					),
-					i.createElement(
-						"div",
-						{
-							className: H.SectionItemCenter,
-						},
-						i.createElement(
-							"div",
-							{
-								className: (0, B.A)(H.SectionItemColumn, H.NameSection, H.Left),
-							},
-							i.createElement(fe, {
-								...s,
-								bInGamepadUI: r,
-								overview: A,
-							}),
-							i.createElement(be, {
-								...s,
-								overview: A,
-							}),
-							r &&
-								i.createElement(Ae, {
-									item: o,
-									app: l,
-									overview: A,
-								}),
-						),
-						i.createElement(se, {
-							...s,
-							className: (0, B.A)(H.SectionItemColumn, H.Right),
-						}),
-					),
-					i.createElement(oe, {
-						...s,
-						...a,
-					}),
-				),
-			h &&
-				i.createElement(Se, {
-					...e,
-				}),
-			!h &&
-				g &&
-				i.createElement(we, {
-					dragHandleProps: n,
-				}),
-		),
+const Be = PA((e) => {
+	const { bIsDragging, bInGamepadUI, dragHandleProps, buttonProps, ...s } = e;
+	const { item, app, index, section, autoFocus, ...d } = s;
+	const A = X(item);
+	const p = te(item, app, A);
+	const g = !item.completed && p != ee.k_EUpdatesDisabledByApp;
+	const h = section == Te.k_EDownloadSection_Active;
+	return (
+		<div
+			className={A_1(H.SectionItem, bIsDragging && H.Dragging, h && H.Active)}
+			{...d}
+		>
+			<div className={H.SectionItemContent}>
+				{!h && (
+					<>
+						<div className={H.AppPortrait}>
+							<_.TK
+								app={app}
+								bFeatured
+								bHideFooter
+								bHideBanners
+								bShowFriendsAsIcons={false}
+								context={6}
+							/>
+						</div>
+						<div className={H.SectionItemCenter}>
+							<div className={A_1(H.SectionItemColumn, H.NameSection, H.Left)}>
+								<Fe_1 {...s} bInGamepadUI={bInGamepadUI} overview={A} />
+								<Be_1 {...s} overview={A} />
+								{bInGamepadUI && <Ae item={item} app={app} overview={A} />}
+							</div>
+							<Se_1 {...s} className={A_1(H.SectionItemColumn, H.Right)} />
+						</div>
+						<Oe_1 {...s} {...buttonProps} />
+					</>
+				)}
+				{h && <Se {...e} />}
+				{!h && g && <We dragHandleProps={dragHandleProps} />}
+			</div>
+		</div>
 	);
 });
-let ve = class extends i.Component {
+let Ve = class extends i.Component {
 	OpenAppAutoUpdateSettings() {
 		SteamClient.Apps.OpenAppSettingsDialog(this.props.app.appid, "updates");
 	}
@@ -1552,30 +1136,34 @@ let ve = class extends i.Component {
 	}
 	LocalizeAutoUpdateBehavior(e, t) {
 		switch (e) {
-			case 0:
+			case 0: {
 				return this.getDefaultAppUpdateSettingLocString(t);
-			case 1:
+			}
+			case 1: {
 				return (0, Localize)("#Downloads_AutoUpdate_DoNotUpdate");
-			case 2:
+			}
+			case 2: {
 				return (0, Localize)("#Downloads_AutoUpdate_HighPriority");
-			case 3:
+			}
+			case 3: {
 				return "";
+			}
 		}
 	}
 	render() {
 		const [e] = h.rV.GetClientSetting("default_app_update_behavior");
-		const { app: t, className: r, ...n } = this.props;
-		const a = A.H.GetAppDetails(t.appid);
+		const { app, className, ...n } = this.props;
+		const a = A.H.GetAppDetails(app.appid);
 		const s = a && this.LocalizeAutoUpdateBehavior(a.eAutoUpdateValue, e);
 		if (s) {
-			return i.createElement(
-				"div",
-				{
-					className: (0, B.A)(H.AutoUpdateSettings, r),
-					onClick: this.OpenAppAutoUpdateSettings,
-					...n,
-				},
-				s,
+			return (
+				<div
+					className={A_1(H.AutoUpdateSettings, className)}
+					onClick={this.OpenAppAutoUpdateSettings}
+					{...n}
+				>
+					{s}
+				</div>
 			);
 		} else {
 			return null;
@@ -1589,180 +1177,148 @@ function Ie(e) {
 	}
 }
 function Ee(e) {
-	const {
-		app: t,
-		item: r,
-		navigator: n,
-		bShowRemoveButton: a,
-		history: s,
-		ownerWindow: o,
-	} = e;
-	const l = (0, u.Qn)();
-	const { data: c } = (0, p.dZ)(r);
-	const [m] = (0, h.VI)("download_throttle_rate");
+	const { app, item, navigator, bShowRemoveButton, history, ownerWindow } = e;
+	const l = Qn();
+	const { data } = dZ(item);
+	const [m] = VI("download_throttle_rate");
 	const A = () =>
 		SteamClient.Downloads.SuspendDownloadThrottling(
 			!p.hj.DownloadOverview.throttling_suspended,
 		);
 	const g = [];
-	if (r.queue_index == 0) {
+	if (item.queue_index == 0) {
 		const e = () =>
 			SteamClient.Downloads.SetLaunchOnUpdateComplete(
-				r.launch_on_completion ? D.sc : r.appid,
+				item.launch_on_completion ? D.sc : item.appid,
 			);
 		g.push(
-			i.createElement(
-				F.kt,
-				{
-					key: "launch-on-complete",
-					className: H.ContextMenuItem,
-					onSelected: e,
-				},
-				i.createElement(
-					"span",
-					null,
-					i.createElement(v.Checkmark, {
-						className: (0, B.A)(
+			<F.kt
+				key="launch-on-complete"
+				className={H.ContextMenuItem}
+				onSelected={e}
+			>
+				<span>
+					<v.Checkmark
+						className={A_1(
 							H.LaunchOnCompletion,
-							r.launch_on_completion && H.Active,
-						),
-					}),
-				),
-				(0, Localize)("#Downloads_LaunchWhenComplete"),
-			),
+							item.launch_on_completion && H.Active,
+						)}
+					/>
+				</span>
+				{(0, Localize)("#Downloads_LaunchWhenComplete")}
+			</F.kt>,
 		);
 		if (m > 0) {
 			g.push(
-				i.createElement(
-					F.kt,
-					{
-						key: "suspend-throttle",
-						className: H.ContextMenuItem,
-						onSelected: A,
-					},
-					i.createElement(
-						"span",
-						null,
-						i.createElement(v.Checkmark, {
-							className: (0, B.A)(
+				<F.kt
+					key="suspend-throttle"
+					className={H.ContextMenuItem}
+					onSelected={A}
+				>
+					<span>
+						<v.Checkmark
+							className={A_1(
 								H.LaunchOnCompletion,
 								p.hj.DownloadOverview.throttling_suspended && H.Active,
-							),
-						}),
-					),
-					(0, Localize)("#Downloads_OverrideDownloadThrottle"),
-				),
+							)}
+						/>
+					</span>
+					{(0, Localize)("#Downloads_OverrideDownloadThrottle")}
+				</F.kt>,
 			);
 		}
 	}
-	if (a) {
+	if (bShowRemoveButton) {
 		g.push(
-			i.createElement(
-				F.kt,
-				{
-					key: "remove-from-downloadlist",
-					className: H.ContextMenuItem,
-					onSelected: () => Ie(r),
-				},
-				(0, Localize)(
-					r.completed
+			<F.kt
+				key="remove-from-downloadlist"
+				className={H.ContextMenuItem}
+				onSelected={() => Ie(item)}
+			>
+				{(0, Localize)(
+					item.completed
 						? "#Downloads_RemoveFromList_Tooltip"
 						: "#Downloads_RemoveFromQueue_Tooltip",
-				),
-			),
+				)}
+			</F.kt>,
 		);
 	}
-	if (r.update_type_info[d.$6.k_EAppUpdateContentType_Workshop].has_update) {
+	if (item.update_type_info[d.$6.k_EAppUpdateContentType_Workshop].has_update) {
 		g.push(
-			i.createElement(
-				F.kt,
-				{
-					key: "workshop-items",
-					className: H.ContextMenuItem,
-					onSelected: (e) =>
-						C.B7.NavigateToSteamURLInOwningWindow(
-							e,
-							"SteamWorkshopUpdatedSubscriptions",
-							r.appid,
-						),
-				},
-				(0, Localize)("#Downloads_ViewSubscriptions"),
-			),
+			<F.kt
+				key="workshop-items"
+				className={H.ContextMenuItem}
+				onSelected={(e) =>
+					C.B7.NavigateToSteamURLInOwningWindow(
+						e,
+						"SteamWorkshopUpdatedSubscriptions",
+						item.appid,
+					)
+				}
+			>
+				{(0, Localize)("#Downloads_ViewSubscriptions")}
+			</F.kt>,
 		);
 	}
-	if (c && c.length > 0) {
+	if (data && data.length > 0) {
 		g.push(
-			i.createElement(
-				F.kt,
-				{
-					key: "patch-notes",
-					className: H.ContextMenuItem,
-					onSelected: () =>
-						s.push(U.BV.Downloads(), (0, U.KV)(r.appid, c[0].clan_event_gid)),
-				},
-				(0, Localize)("#Downloads_ViewPatchNotes"),
-			),
+			<F.kt
+				key="patch-notes"
+				className={H.ContextMenuItem}
+				onSelected={() =>
+					history.push(U.BV.Downloads(), KV(item.appid, data[0].clan_event_gid))
+				}
+			>
+				{(0, Localize)("#Downloads_ViewPatchNotes")}
+			</F.kt>,
 		);
 	}
 	g.push(
-		i.createElement(
-			F.kt,
-			{
-				key: "view-in-library",
-				className: H.ContextMenuItem,
-				onSelected: () => n.App(r.appid),
-			},
-			(0, Localize)("#Generic_ViewInLibrary"),
-		),
+		<F.kt
+			key="view-in-library"
+			className={H.ContextMenuItem}
+			onSelected={() => navigator.App(item.appid)}
+		>
+			{(0, Localize)("#Generic_ViewInLibrary")}
+		</F.kt>,
 	);
 	if (g.length > 0) {
-		g.push(
-			i.createElement(F.K5, {
-				key: "download-list-separator",
-			}),
-		);
+		g.push(<F.K5 key="download-list-separator" />);
 	}
-	return i.createElement(G.uU, {
-		overview: t,
-		client: "local",
-		launchSource: 1001,
-		bInGamepadUI: l,
-		additionalActions: g,
-		ownerWindow: o,
-	});
+	return (
+		<G.uU
+			overview={app}
+			client="local"
+			launchSource={1001}
+			bInGamepadUI={l}
+			additionalActions={g}
+			ownerWindow={ownerWindow}
+		/>
+	);
 }
 function Me(e) {
-	const { eSection: t } = e;
-	return i.createElement(
-		"div",
-		{
-			className: H.EmptyTransfers,
-		},
-		i.createElement(
-			"div",
-			{
-				className: H.Text,
-			},
-			(0, Localize)("#Downloads_NoTransfers"),
-		),
-		t == Te.k_EDownloadSection_Active &&
-			i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(R.b4, {
-					className: H.DownloadGraph,
-					appidTopOfQueue: 0,
-					appidOverride: 0,
-					nameElement: undefined,
-				}),
-				i.createElement(ye, null),
-			),
+	const { eSection } = e;
+	return (
+		<div className={H.EmptyTransfers}>
+			<div className={H.Text}>{(0, Localize)("#Downloads_NoTransfers")}</div>
+			{eSection == Te.k_EDownloadSection_Active && (
+				<>
+					<R.b4
+						className={H.DownloadGraph}
+						appidTopOfQueue={0}
+						appidOverride={0}
+						nameElement={undefined}
+					/>
+					<Ye />
+				</>
+			)}
+		</div>
 	);
 }
 var Te;
-(0, n.Cg)([b.oI], ve.prototype, "OpenAppAutoUpdateSettings", null);
-ve = (0, n.Cg)([s.PA], ve);
-(function (e) {
+Cg([b.oI], Ve.prototype, "OpenAppAutoUpdateSettings", null);
+Ve = Cg([s.PA], Ve);
+((e) => {
 	e[(e.k_EDownloadSection_Active = 0)] = "k_EDownloadSection_Active";
 	e[(e.k_EDownloadSection_Queued = 1)] = "k_EDownloadSection_Queued";
 	e[(e.k_EDownloadSection_Scheduled = 2)] = "k_EDownloadSection_Scheduled";
@@ -1773,14 +1329,18 @@ ve = (0, n.Cg)([s.PA], ve);
 const Re = false;
 function ke(e) {
 	switch (e) {
-		case Te.k_EDownloadSection_Queued:
+		case Te.k_EDownloadSection_Queued: {
 			return "#Downloads_Section_Current";
-		case Te.k_EDownloadSection_Scheduled:
+		}
+		case Te.k_EDownloadSection_Scheduled: {
 			return "#Downloads_Section_Scheduled";
-		case Te.k_EDownloadSection_NotQueued:
+		}
+		case Te.k_EDownloadSection_NotQueued: {
 			return "#Downloads_Section_NotQueued";
-		case Te.k_EDownloadSection_Completed:
+		}
+		case Te.k_EDownloadSection_Completed: {
 			return "#Downloads_Section_Completed";
+		}
 	}
 	return "";
 }
@@ -1797,7 +1357,7 @@ let De = class extends i.Component {
 		});
 	}
 	GetStorageKey() {
-		return "DownloadListSection_" + this.props.eSection;
+		return `DownloadListSection_${this.props.eSection}`;
 	}
 	ToggleCollapsed() {}
 	RemoveAll() {
@@ -1809,181 +1369,140 @@ let De = class extends i.Component {
 	}
 	render() {
 		const {
-			eSection: e,
-			storage: t,
-			bFirstSection: r,
-			bIsDroppable: n,
-			items: a,
-			nStartIndex: s,
-			innerRef: o,
-			className: m,
-			onItemClick: u,
-			onItemFocus: d,
-			bInGamepadUI: A,
+			eSection,
+			storage,
+			bFirstSection,
+			bIsDroppable,
+			items,
+			nStartIndex,
+			innerRef,
+			className,
+			onItemClick,
+			onItemFocus,
+			bInGamepadUI,
 			...p
 		} = this.props;
-		const g = a
-			? a.map((t, n) => ({
+		const g = items
+			? items.map((t, n) => ({
 					item: t,
 					app: c.tw.GetAppOverviewByAppID(t.appid),
 					index: t.queue_index,
-					section: e,
-					autoFocus: r && n == 0,
+					section: eSection,
+					autoFocus: bFirstSection && n == 0,
 				}))
 			: [];
-		const h = g.length == 0 && e != Te.k_EDownloadSection_Queued;
-		const C = g.length == 0 && e == Te.k_EDownloadSection_Queued;
-		const _ = g.map((e, t) =>
-			i.createElement(Ce, {
-				key: e.app.appid,
-				...e,
-				index: t + s,
-				onClick: () => this.props.onItemClick(e.app.appid),
-				onFocus: () => d(t),
-			}),
-		);
-		const f = ke(e);
-		const b = (0, B.A)(
-			m,
+		const h = g.length == 0 && eSection != Te.k_EDownloadSection_Queued;
+		const C = g.length == 0 && eSection == Te.k_EDownloadSection_Queued;
+		const _ = g.map((e, t) => (
+			<Ce
+				key={e.app.appid}
+				{...e}
+				index={t + nStartIndex}
+				onClick={() => this.props.onItemClick(e.app.appid)}
+				onFocus={() => onItemFocus(t)}
+			/>
+		));
+		const f = ke(eSection);
+		const b = A_1(
+			className,
 			H.Section,
 			h && H.Empty,
 			C && H.EmptyQueue,
-			e == Te.k_EDownloadSection_Active && H.Active,
-			e == Te.k_EDownloadSection_Completed && H.Completed,
+			eSection == Te.k_EDownloadSection_Active && H.Active,
+			eSection == Te.k_EDownloadSection_Completed && H.Completed,
 		);
-		if (A && h) {
-			return i.createElement("div", {
-				className: b,
-				...p,
-				ref: o,
-			});
+		if (bInGamepadUI && h) {
+			return <div className={b} {...p} ref={innerRef} />;
 		} else {
-			return i.createElement(
-				T.Z,
-				{
-					focusable: false,
-					className: b,
-					...p,
-					ref: o,
-					navEntryPreferPosition: W.iU.MAINTAIN_Y,
-				},
-				i.createElement(Ne, {
-					sectionTitle: f,
-					count: _.length,
-					collapsed: this.state.bCollapsed,
-					onToggleCollapsed: this.ToggleCollapsed,
-					showHours: e == Te.k_EDownloadSection_Queued,
-					showRemoveButton: e == Te.k_EDownloadSection_Completed,
-					onRemove: this.RemoveAll,
-				}),
-				!this.state.bCollapsed &&
-					i.createElement(
-						l.gL,
-						{
-							droppableId: String(e),
-							isDropDisabled: !n,
-						},
-						(t, r) =>
-							i.createElement(Fe, {
-								eSection: e,
-								bIsDroppable: n,
-								bIsDraggingOver: r.isDraggingOver,
-								bEmptyQueue: C,
-								rgElements: _,
-								provided: t,
-							}),
-					),
+			return (
+				<T.Z
+					focusable={false}
+					className={b}
+					{...p}
+					ref={innerRef}
+					navEntryPreferPosition={W.iU.MAINTAIN_Y}
+				>
+					<Ne
+						sectionTitle={f}
+						count={_.length}
+						collapsed={this.state.bCollapsed}
+						onToggleCollapsed={this.ToggleCollapsed}
+						showHours={eSection == Te.k_EDownloadSection_Queued}
+						showRemoveButton={eSection == Te.k_EDownloadSection_Completed}
+						onRemove={this.RemoveAll}
+					/>
+					{!this.state.bCollapsed && (
+						<l.gL droppableId={String(eSection)} isDropDisabled={!bIsDroppable}>
+							{(t, r) => (
+								<Fe
+									eSection={eSection}
+									bIsDroppable={bIsDroppable}
+									bIsDraggingOver={r.isDraggingOver}
+									bEmptyQueue={C}
+									rgElements={_}
+									provided={t}
+								/>
+							)}
+						</l.gL>
+					)}
+				</T.Z>
 			);
 		}
 	}
 };
-(0, n.Cg)([b.oI], De.prototype, "ToggleCollapsed", null);
-(0, n.Cg)([b.oI], De.prototype, "RemoveAll", null);
-De = (0, n.Cg)([s.PA], De);
+Cg([b.oI], De.prototype, "ToggleCollapsed", null);
+Cg([b.oI], De.prototype, "RemoveAll", null);
+De = Cg([s.PA], De);
 const Ne = (e) =>
-	e.sectionTitle &&
-	i.createElement(
-		"div",
-		{
-			className: H.SectionTitle,
-			onClick: e.onToggleCollapsed,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, B.A)(H.TitleAndCount, Re),
-			},
-			Re,
-			i.createElement(
-				"span",
-				{
-					className: H.Title,
-				},
-				(0, Localize)(e.sectionTitle),
-				"\xA0",
-			),
-			i.createElement(
-				"span",
-				{
-					className: H.Count,
-				},
-				"(",
-				e.count,
-				")",
-			),
-		),
-		i.createElement("div", {
-			className: H.Rule,
-		}),
-		e.showHours && i.createElement($, null),
-		e.showRemoveButton &&
-			i.createElement(
-				a.$n,
-				{
-					className: H.RemoveAllButton,
-					onClick: e.onRemove,
-				},
-				(0, Localize)("#Downloads_RemoveAll"),
-			),
+	e.sectionTitle && (
+		<div className={H.SectionTitle} onClick={e.onToggleCollapsed}>
+			<div className={A_1(H.TitleAndCount, Re)}>
+				{Re}
+				<span className={H.Title}>
+					{(0, Localize)(e.sectionTitle)}
+					{"\xA0"}
+				</span>
+				<span className={H.Count}>({e.count})</span>
+			</div>
+			<div className={H.Rule} />
+			{e.showHours && <$ />}
+			{e.showRemoveButton && (
+				<a.$n className={H.RemoveAllButton} onClick={e.onRemove}>
+					{(0, Localize)("#Downloads_RemoveAll")}
+				</a.$n>
+			)}
+		</div>
 	);
 function Fe(e) {
 	const {
-		eSection: t,
-		bIsDroppable: r,
-		bIsDraggingOver: n,
-		bEmptyQueue: a,
-		rgElements: s,
-		provided: o,
+		eSection,
+		bIsDroppable,
+		bIsDraggingOver,
+		bEmptyQueue,
+		rgElements,
+		provided,
 	} = e;
-	return i.createElement(
-		"div",
-		{
-			className: (0, B.A)(H.SectionList, r && H.DropOption, n && H.DragOver),
-			...o.droppableProps,
-			ref: o.innerRef,
-		},
-		s,
-		s.length == 0 &&
-			i.createElement(Me, {
-				eSection: t,
-			}),
-		i.createElement(
-			"span",
-			{
-				className: (0, B.A)(H.PlaceHolder, a && H.Empty),
-			},
-			o.placeholder,
-		),
+	return (
+		<div
+			className={A_1(
+				H.SectionList,
+				bIsDroppable && H.DropOption,
+				bIsDraggingOver && H.DragOver,
+			)}
+			{...provided.droppableProps}
+			ref={provided.innerRef}
+		>
+			{rgElements}
+			{rgElements.length == 0 && <Me eSection={eSection} />}
+			<span className={A_1(H.PlaceHolder, bEmptyQueue && H.Empty)}>
+				{provided.placeholder}
+			</span>
+		</div>
 	);
 }
-const Ge = i.forwardRef(function (e, t) {
-	return i.createElement(De, {
-		...e,
-		innerRef: t,
-	});
-});
-var Oe;
-(function (e) {
+const Ge = i.forwardRef((props, ref) => <De {...props} innerRef={ref} />);
+let Oe;
+((e) => {
 	e[(e.Unknown = 0)] = "Unknown";
 	e[(e.Above = 1)] = "Above";
 	e[(e.OnScreen = 2)] = "OnScreen";
@@ -2084,17 +1603,17 @@ class Pe extends i.Component {
 			const e = this.m_rgelJumpBarSections.findIndex(
 				(e) => e?.current == t.target,
 			);
-			(0, M.w)(e !== -1, "Intersection target not in map");
-			let i = Oe.OnScreen;
+			w_1(e !== -1, "Intersection target not in map");
+			let Oe_OnScreen = Oe.OnScreen;
 			if (t.boundingClientRect.height == 0) {
-				i = Oe.Empty;
+				Oe_OnScreen = Oe.Empty;
 			} else if (t.boundingClientRect.bottom < t.rootBounds.top) {
-				i = Oe.Above;
+				Oe_OnScreen = Oe.Above;
 			} else if (t.boundingClientRect.top > t.rootBounds.bottom) {
-				i = Oe.Below;
+				Oe_OnScreen = Oe.Below;
 			}
-			if (i != n.get(e)) {
-				n.set(e, i);
+			if (Oe_OnScreen != n.get(e)) {
+				n.set(e, Oe_OnScreen);
 				r = true;
 			}
 		}
@@ -2164,8 +1683,8 @@ class Pe extends i.Component {
 					(r != Te.k_EDownloadSection_Queued &&
 						r != Te.k_EDownloadSection_Scheduled) ||
 					n != Te.k_EDownloadSection_NotQueued
-				);
-				else {
+				) {
+				} else {
 					const t = Number(e.draggableId);
 					this.ReorderItems(r, e.source.index, n, e.destination.index, () => {
 						SteamClient.Downloads.PauseAppUpdate(t);
@@ -2193,14 +1712,18 @@ class Pe extends i.Component {
 	}
 	IsSectionDroppable(e) {
 		switch (e) {
-			case Te.k_EDownloadSection_Active:
+			case Te.k_EDownloadSection_Active: {
 				return (
 					this.state.eDragSource == Te.k_EDownloadSection_Active ||
+					this.state.eDragSource == Te.k_EDownloadSection_Queued ||
+					this.state.eDragSource == Te.k_EDownloadSection_Queued ||
+					this.state.eDragSource == Te.k_EDownloadSection_Scheduled ||
 					this.state.eDragSource == Te.k_EDownloadSection_Queued ||
 					this.state.eDragSource == Te.k_EDownloadSection_Scheduled ||
 					this.state.eDragSource == Te.k_EDownloadSection_NotQueued
 				);
-			case Te.k_EDownloadSection_Queued:
+			}
+			case Te.k_EDownloadSection_Queued: {
 				return (
 					(this.state.eDragSource == Te.k_EDownloadSection_Active &&
 						this.GetFilteredSectionItems(Te.k_EDownloadSection_Queued)?.length >
@@ -2209,16 +1732,21 @@ class Pe extends i.Component {
 					this.state.eDragSource == Te.k_EDownloadSection_Scheduled ||
 					this.state.eDragSource == Te.k_EDownloadSection_NotQueued
 				);
-			case Te.k_EDownloadSection_Scheduled:
+			}
+			case Te.k_EDownloadSection_Scheduled: {
 				return false;
-			case Te.k_EDownloadSection_NotQueued:
+			}
+			case Te.k_EDownloadSection_NotQueued: {
 				return (
 					this.state.eDragSource == Te.k_EDownloadSection_Active ||
 					this.state.eDragSource == Te.k_EDownloadSection_Queued ||
+					this.state.eDragSource == Te.k_EDownloadSection_Queued ||
 					this.state.eDragSource == Te.k_EDownloadSection_Scheduled
 				);
-			case Te.k_EDownloadSection_Completed:
+			}
+			case Te.k_EDownloadSection_Completed: {
 				return false;
+			}
 		}
 		return false;
 	}
@@ -2279,15 +1807,15 @@ class Pe extends i.Component {
 			?.filter((e) => !g.jR.BIsAppBlocked(e?.appid));
 	}
 	render() {
-		const { bOffline: e } = this.props;
+		const { bOffline } = this.props;
 		const t = [];
 		const r = [];
 		const n = this.GetFilteredSectionItems(Te.k_EDownloadSection_Queued).slice(
 			0,
 			1,
 		);
-		let a = n.length;
-		if (!e) {
+		let n_length = n.length;
+		if (!bOffline) {
 			let e = true;
 			this.state.mapSectionPositions.forEach((r, n) => {
 				const a = ke(n);
@@ -2297,49 +1825,25 @@ class Pe extends i.Component {
 					e = false;
 				}
 				t.push(
-					i.createElement(
-						"div",
-						{
-							key: "jumpbar_" + n,
-							className: (0, B.A)(H.SectionJumpBar, o && H.Show),
-							onClick: () => {
-								this.JumpToSection(n);
-							},
-							style: {
-								zIndex: 20 - n,
-							},
-						},
-						i.createElement(
-							"div",
-							{
-								className: H.TitleAndCount,
-							},
-							i.createElement(
-								"span",
-								{
-									className: H.Title,
-								},
-								(0, Localize)(a),
-								"\xA0",
-							),
-							i.createElement(
-								"span",
-								{
-									className: H.Count,
-								},
-								"(",
-								s,
-								")",
-							),
-						),
-						i.createElement(
-							"div",
-							{
-								className: H.View,
-							},
-							(0, Localize)("#Downloads_View"),
-						),
-					),
+					<div
+						key={`jumpbar_${n}`}
+						className={A_1(H.SectionJumpBar, o && H.Show)}
+						onClick={() => {
+							this.JumpToSection(n);
+						}}
+						style={{
+							zIndex: 20 - n,
+						}}
+					>
+						<div className={H.TitleAndCount}>
+							<span className={H.Title}>
+								{(0, Localize)(a)}
+								{"\xA0"}
+							</span>
+							<span className={H.Count}>({s})</span>
+						</div>
+						<div className={H.View}>{(0, Localize)("#Downloads_View")}</div>
+					</div>,
 				);
 			});
 			for (
@@ -2352,127 +1856,98 @@ class Pe extends i.Component {
 						? this.GetFilteredSectionItems(e).slice(1)
 						: this.GetFilteredSectionItems(e);
 				r.push(
-					i.createElement(Ge, {
-						key: "section_" + e,
-						eSection: e,
-						bFirstSection: a == 0,
-						storage: this.m_storage,
-						bIsDroppable: this.IsSectionDroppable(e),
-						items: t,
-						nStartIndex: e == Te.k_EDownloadSection_Queued ? 1 : 0,
-						ref: this.m_rgelJumpBarSections[e],
-						onItemClick: this.OnItemClick,
-						onItemFocus: (t) => this.OnItemFocus(e, t),
-						bInGamepadUI: this.props.bInGamepadUI,
-					}),
+					<Ge
+						key={`section_${e}`}
+						eSection={e}
+						bFirstSection={n_length == 0}
+						storage={this.m_storage}
+						bIsDroppable={this.IsSectionDroppable(e)}
+						items={t}
+						nStartIndex={e == Te.k_EDownloadSection_Queued ? 1 : 0}
+						ref={this.m_rgelJumpBarSections[e]}
+						onItemClick={this.OnItemClick}
+						onItemFocus={(t) => this.OnItemFocus(e, t)}
+						bInGamepadUI={this.props.bInGamepadUI}
+					/>,
 				);
-				a += t.length;
+				n_length += t.length;
 			}
 		}
 		if (!window.nDownloadHeaderAppid) {
 			this.state.appidForceHeader;
 		}
-		if (!!e || !n || !n[0] || !n[0].appid) {
+		if (!!bOffline || !n || !n || !n[0] || !n || !n[0] || !n[0].appid) {
 			D.sc;
 		}
-		let s = a > 0;
+		let s = n_length > 0;
 		let o = {
 			focusable: !s,
 			autoFocus: !s,
 			noFocusRing: true,
 		};
-		return i.createElement(
-			T.Z,
-			{
-				ref: this.SetRoot,
-				className: (0, B.A)(
-					H.DownloadsPage,
-					this.props.bInGamepadUI && H.BasicUI,
-				),
-				...o,
-			},
-			i.createElement(
-				l.JY,
-				{
-					onDragStart: this.OnDragStart,
-					onDragEnd: this.OnDragEnd,
-					stylesInsertionPoint: this.state.elRoot,
-				},
-				i.createElement(
-					"div",
-					{
-						className: H.TopSection,
-					},
-					i.createElement(Ge, {
-						eSection: Te.k_EDownloadSection_Active,
-						storage: this.m_storage,
-						bFirstSection: n.length > 0,
-						bIsDroppable: this.IsSectionDroppable(Te.k_EDownloadSection_Active),
-						items: n,
-						nStartIndex: 0,
-						ref: this.m_rgelJumpBarSections[Te.k_EDownloadSection_Active],
-						onItemFocus: () =>
-							this.OnItemFocus(Te.k_EDownloadSection_Active, 0),
-						onItemClick: this.OnItemClick,
-						bInGamepadUI: this.props.bInGamepadUI,
-					}),
-					i.createElement(R.q, {
-						className: H.SettingsButton,
-					}),
-				),
-				i.createElement(K, null),
-				i.createElement("div", {
-					className: H.TopBar,
-				}),
-				i.createElement(
-					"div",
-					{
-						className: H.ItemListWrapper,
-					},
-					e &&
-						i.createElement(
-							"div",
-							{
-								className: H.OfflineWrapper,
-							},
-							i.createElement(P.t, null),
-						),
-					!e &&
-						this.state.elRoot &&
-						i.createElement(
-							"div",
-							{
-								className: H.ItemListScrollWrapper,
-							},
-							i.createElement(
-								"div",
-								{
-									className: H.ItemLists,
-									ref: this.m_elScrollableContainer,
-								},
-								r,
-							),
-						),
-					t,
-				),
-			),
+		return (
+			<T.Z
+				ref={this.SetRoot}
+				className={A_1(H.DownloadsPage, this.props.bInGamepadUI && H.BasicUI)}
+				{...o}
+			>
+				<l.JY
+					onDragStart={this.OnDragStart}
+					onDragEnd={this.OnDragEnd}
+					stylesInsertionPoint={this.state.elRoot}
+				>
+					<div className={H.TopSection}>
+						<Ge
+							eSection={Te.k_EDownloadSection_Active}
+							storage={this.m_storage}
+							bFirstSection={n.length > 0}
+							bIsDroppable={this.IsSectionDroppable(
+								Te.k_EDownloadSection_Active,
+							)}
+							items={n}
+							nStartIndex={0}
+							ref={this.m_rgelJumpBarSections[Te.k_EDownloadSection_Active]}
+							onItemFocus={() =>
+								this.OnItemFocus(Te.k_EDownloadSection_Active, 0)
+							}
+							onItemClick={this.OnItemClick}
+							bInGamepadUI={this.props.bInGamepadUI}
+						/>
+						<R.q className={H.SettingsButton} />
+					</div>
+					<K />
+					<div className={H.TopBar} />
+					<div className={H.ItemListWrapper}>
+						{bOffline && (
+							<div className={H.OfflineWrapper}>
+								<P.t />
+							</div>
+						)}
+						{!bOffline && this.state.elRoot && (
+							<div className={H.ItemListScrollWrapper}>
+								<div className={H.ItemLists} ref={this.m_elScrollableContainer}>
+									{r}
+								</div>
+							</div>
+						)}
+						{t}
+					</div>
+				</l.JY>
+			</T.Z>
 		);
 	}
 }
 export function lw(e) {
-	const t = (0, o.q3)(() => (0, m.qw)().BIsOfflineMode());
-	const r = (0, u.Qn)();
-	return i.createElement(Pe, {
-		bOffline: t,
-		bInGamepadUI: r,
-	});
+	const t = q3(() => qw().BIsOfflineMode());
+	const r = Qn();
+	return <Pe bOffline={t} bInGamepadUI={r} />;
 }
-(0, n.Cg)([b.oI], Pe.prototype, "SetRoot", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnDownloadItemsUpdate", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnIntersection", null);
-(0, n.Cg)([b.oI], Pe.prototype, "JumpToSection", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnDragStart", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnDragEnd", null);
-(0, n.Cg)([b.oI], Pe.prototype, "IsSectionDroppable", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnItemClick", null);
-(0, n.Cg)([b.oI], Pe.prototype, "OnItemFocus", null);
+Cg([b.oI], Pe.prototype, "SetRoot", null);
+Cg([b.oI], Pe.prototype, "OnDownloadItemsUpdate", null);
+Cg([b.oI], Pe.prototype, "OnIntersection", null);
+Cg([b.oI], Pe.prototype, "JumpToSection", null);
+Cg([b.oI], Pe.prototype, "OnDragStart", null);
+Cg([b.oI], Pe.prototype, "OnDragEnd", null);
+Cg([b.oI], Pe.prototype, "IsSectionDroppable", null);
+Cg([b.oI], Pe.prototype, "OnItemClick", null);
+Cg([b.oI], Pe.prototype, "OnItemFocus", null);

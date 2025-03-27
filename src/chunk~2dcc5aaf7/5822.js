@@ -1,21 +1,21 @@
-export var Ez;
-export var qE;
-var a = require(/*webcrack:missing*/ "./34629.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var c = require(/*webcrack:missing*/ "./10975.js");
-var m = require("./94361.js");
-var u = require("./33572.js");
-var d = require("./31144.js");
-var A = require("./46422.js");
-var p = require("./91703.js");
-(function (e) {
+import { Cg } from "./34629.js";
+import s, { Gn, fm } from "./89193.js";
+import { q3 } from "./90095.js";
+import l from "./63696.js";
+import c from "./10975.js";
+import m from "./94361.js";
+import { ch } from "./33572.js";
+import d from "./31144.js";
+import A from "./46422.js";
+import { K1 } from "./91703.js";
+export let Ez;
+export let qE;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Main = 1)] = "Main";
 	e[(e.QuickAccess = 2)] = "QuickAccess";
 })((Ez ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Notifications = 0)] = "Notifications";
 	e[(e.RemotePlayTogetherControls = 1)] = "RemotePlayTogetherControls";
 	e[(e.VoiceChat = 2)] = "VoiceChat";
@@ -34,13 +34,13 @@ export class QG {
 	m_MainMenuStore;
 	m_Instance;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_Instance = e;
 		this.m_MainMenuStore = new d.Pf(e);
 	}
 	Init() {
 		const e = [];
-		e.push((0, s.fm)(() => this.OnSideMenusChanged()));
+		e.push(fm(() => this.OnSideMenusChanged()));
 		e.push(this.m_MainMenuStore.Init());
 		if (this.m_Instance.IsVRWindow()) {
 			this.m_eQuickAccessTab = qE.Friends;
@@ -82,7 +82,7 @@ export class QG {
 	}
 	OpenQuickAccessMenu(e, t = true) {
 		if (this.m_eQuickAccessTab != e) {
-			m.y.ReportTrackedAction("/QuickAccessMenu/" + qE[e]);
+			m.y.ReportTrackedAction(`/QuickAccessMenu/${qE[e]}`);
 			this.m_eQuickAccessTab = e;
 		}
 		if (t) {
@@ -132,42 +132,37 @@ export class QG {
 	}
 }
 export function i4() {
-	const e = (0, u.ch)();
-	return (0, o.q3)(() => e.GetQuickAccessTab());
+	const e = ch();
+	return q3(() => e.GetQuickAccessTab());
 }
 export function uT(e, t = true) {
-	const r = (0, u.ch)();
+	const r = ch();
 	return l.useCallback(() => r.OpenQuickAccessMenu(e, t), [r, e, t]);
 }
 export function xv() {
-	return (0, u.ch)().MainMenuStore;
+	return ch().MainMenuStore;
 }
 export function EZ() {
-	const e = (0, u.ch)();
+	const e = ch();
 	l.useEffect(() => e.SetSuppressMenus(), [e]);
-	const t = (0, p.K1)();
+	const t = K1();
 	l.useEffect(() => {
 		t();
 	}, [t]);
 }
 export function QM() {
-	return (0, u.ch)().IsSideMenuVisible();
+	return ch().IsSideMenuVisible();
 }
 export function ED(e = true) {
-	const t = (0, u.ch)();
+	const t = ch();
 	l.useEffect(() => {
 		if (e) {
 			return t?.RequestExtendSideMenuVisibility();
 		}
 	}, [t, e]);
 }
-(0, a.Cg)([s.sH], QG.prototype, "m_eOpenSideMenu", undefined);
-(0, a.Cg)([s.sH], QG.prototype, "m_eLastRequestedSideMenu", undefined);
-(0, a.Cg)([s.sH], QG.prototype, "m_eQuickAccessTab", undefined);
-(0, a.Cg)(
-	[s.sH],
-	QG.prototype,
-	"m_cSideMenuExtendedVisibilityRequests",
-	undefined,
-);
-(0, a.Cg)([s.XI.bound], QG.prototype, "OpenQuickAccessMenu", null);
+Cg([s.sH], QG.prototype, "m_eOpenSideMenu", undefined);
+Cg([s.sH], QG.prototype, "m_eLastRequestedSideMenu", undefined);
+Cg([s.sH], QG.prototype, "m_eQuickAccessTab", undefined);
+Cg([s.sH], QG.prototype, "m_cSideMenuExtendedVisibilityRequests", undefined);
+Cg([s.XI.bound], QG.prototype, "OpenQuickAccessMenu", null);

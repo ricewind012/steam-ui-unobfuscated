@@ -1,24 +1,24 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./13869.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./77347.js");
-var l = require("./34766.js");
-var c = l;
-var m = require("./18052.js");
-var u = require(/*webcrack:missing*/ "./44846.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require("./31800.js");
-var p = require("./43802.js");
-var g = require("./43152.js");
-var h = require(/*webcrack:missing*/ "./90095.js");
-var C = require("./37619.js");
-var _ = require(/*webcrack:missing*/ "./20893.js");
-var f = require("./96680.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a, { pg } from "./13869.js";
+import { l6 } from "./52451.js";
+import { Av } from "./77347.js";
+import l from "./34766.js";
+import m from "./18052.js";
+import u from "./44846.js";
+import { Wh } from "./31800.js";
+import { E } from "./43802.js";
+import { u6 } from "./43152.js";
+import { q3 } from "./90095.js";
+import { Z } from "./37619.js";
+import _ from "./20893.js";
+import { $2 } from "./96680.js";
+const c = l;
 function b(e) {
-	const t = (0, o.Av)();
+	const t = Av();
 	const r =
-		(function (e) {
+		((e) => {
 			const t = n.useRef(e);
 			if (e != null) {
 				t.current = e;
@@ -47,16 +47,15 @@ function y(e) {
 	const { closeModal: t, ...r } = e;
 	const l = n.useRef(undefined);
 	const [m, y] = n.useState(false);
-	(0, A.Wh)(
+	Wh(
 		Localize("#Settings_Internet_Captive_Portal_Header_Title"),
 		"CaptivePortalDialog",
 	);
-	const S = (0, o.Av)();
+	const S = Av();
 	const w =
-		(0, p.E)(S).eConnectivityTestResult ==
-		u.ck.k_EConnectivityTestResult_Connected;
-	const B = (function () {
-		const e = (0, f.$2)();
+		E(S).eConnectivityTestResult == u.ck.k_EConnectivityTestResult_Connected;
+	const B = (() => {
+		const e = $2();
 		const t = n.useRef(undefined);
 		t.current ||= e.CreateBrowserView("CaptivePortal", {
 			strUserAgentOverride:
@@ -65,7 +64,7 @@ function y(e) {
 		n.useEffect(() => () => t.current.Destroy(), []);
 		return t.current;
 	})();
-	const v = (0, h.q3)(() => B.URL);
+	const v = q3(() => B.URL);
 	const I = n.useCallback((e) => {
 		if (e) {
 			y(e);
@@ -81,7 +80,7 @@ function y(e) {
 			y(false);
 		}
 	}, []);
-	(0, s.l6)(window, "focus", M);
+	l6(window, "focus", M);
 	n.useEffect(() => {
 		setTimeout(() => B.GetBrowser().SetFocus(true), 2000);
 	}, [B]);
@@ -95,8 +94,8 @@ function y(e) {
 	T.onFocusWithin = I;
 	T.onGamepadBlur = E;
 	T.focusable = true;
-	const R = (0, g.u6)();
-	(0, C.Z)(B.name, B.GetBrowser(), l, m);
+	const R = u6();
+	Z(B.name, B.GetBrowser(), l, m);
 	return n.createElement(
 		a.x_,
 		{
@@ -159,7 +158,7 @@ let S = false;
 export function Y(e, t) {
 	if (!S) {
 		S = true;
-		(0, a.pg)(
+		pg(
 			n.createElement(y, {
 				strManualCaptivePortalURL: t,
 			}),

@@ -1,29 +1,32 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./16251.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require("./34790.js");
-var o = s;
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./31084.js");
-var m = require(/*webcrack:missing*/ "./88750.js");
-var u = require("./97023.js");
-var d = require("./96593.js");
-var A = require("./55489.js");
-var p = require("./61175.js");
-var g = require("./10606.js");
-var h = require("./13869.js");
-var C = require("./64608.js");
-var _ = require("./51095.js");
-var _f = require(/*webcrack:missing*/ "./88696.js");
-var b = require("./76356.js");
-var y = require("./46422.js");
-require(/*webcrack:missing*/ "./43691.js");
+import n from "./63696.js";
+import i from "./16251.js";
+import a from "./85243.js";
+import s from "./34790.js";
+import c, { lX } from "./31084.js";
+import m from "./88750.js";
+import u from "./97023.js";
+import d from "./96593.js";
+import A, { Bx } from "./55489.js";
+import p from "./61175.js";
+import g from "./10606.js";
+import h, { mK } from "./13869.js";
+import C from "./64608.js";
+import { Yz } from "./51095.js";
+import _f from "./88696.js";
+import { MH } from "./76356.js";
+import y from "./46422.js";
+import "./43691.js";
+const o = s;
 function S(e, t) {
 	if (!t) {
 		return;
 	}
-	const r = (0, _.Yz)(JSON.stringify(t));
-	return `Apps\\${e}\\DefaultLaunchOption\\${(r < 0 ? 4294967295 + r + 1 : r).toString(16)}`;
+	const r = Yz(JSON.stringify(t));
+	return `Apps\\${e}\\DefaultLaunchOption\\${(r < 0
+		? 4294967295 + r + 1
+		: r
+	).toString(16)}`;
 }
 export async function lZ(e, t) {
 	const r = d.tw.GetAppOverviewByAppID(e.appid);
@@ -59,22 +62,16 @@ export async function lZ(e, t) {
 	const a = await v(e.appid, t);
 	if (a == -1 || e.alwaysShowDialog) {
 		if (p.n6.IsGamepadUIWindowActive()) {
-			(0, c.lX)(
-				n.createElement(B, {
-					...e,
-					launchOptions: t,
-				}),
+			lX(
+				<B {...e} launchOptions={t} />,
 				y.oy.ActiveWindowInstance?.BrowserWindow?.document.documentElement,
 				{
 					onCancel: e.onCancel,
 				},
 			);
 		} else {
-			(0, h.mK)(
-				n.createElement(M, {
-					...e,
-					launchOptions: t,
-				}),
+			mK(
+				<M {...e} launchOptions={t} />,
 				e.ownerWindow || document.defaultView,
 				{
 					strTitle: r.display_name,
@@ -90,58 +87,46 @@ export async function lZ(e, t) {
 	}
 }
 function B(e) {
-	const t = n.useRef(undefined);
+	const TRef = n.useRef(undefined);
 	const r = n.useCallback(() => {
-		t.current.Hide();
-	}, [t]);
-	const {
-		ready: i,
-		selection: s,
-		setSelection: o,
-		onPlay: c,
-		onCancel: u,
-	} = E(e, r);
-	const { launchOptions: p } = e;
-	(0, A.Bx)(a.I5.Opaque, "LaunchOptionsMenu");
-	if (!i) {
+		TRef.current.Hide();
+	}, [TRef]);
+	const { ready, selection, setSelection, onPlay, onCancel } = E(e, r);
+	const { launchOptions } = e;
+	Bx(a.I5.Opaque, "LaunchOptionsMenu");
+	if (!ready) {
 		return null;
 	}
-	const g = p.map((e) =>
-		n.createElement(
-			m.Vs,
-			{
-				key: "option-" + e.nIndex,
-				label: Localize(e.strDescription, e.strGameName),
-			},
-			n.createElement(
-				m.kt,
-				{
-					key: "option-forever",
-					disabled: false,
-					onSelected: () => c(e.nIndex, true),
-				},
-				Localize("#LaunchOptionsDialog_Forever"),
-			),
-			n.createElement(
-				m.kt,
-				{
-					key: "option-once",
-					disabled: false,
-					onSelected: () => c(e.nIndex, false),
-				},
-				Localize("#LaunchOptionsDialog_JustOnce"),
-			),
-		),
-	);
+	const g = launchOptions.map((e) => (
+		<m.Vs
+			key={`option-${e.nIndex}`}
+			label={Localize(e.strDescription, e.strGameName)}
+		>
+			<m.kt
+				key="option-forever"
+				disabled={false}
+				onSelected={() => onPlay(e.nIndex, true)}
+			>
+				{Localize("#LaunchOptionsDialog_Forever")}
+			</m.kt>
+			<m.kt
+				key="option-once"
+				disabled={false}
+				onSelected={() => onPlay(e.nIndex, false)}
+			>
+				{Localize("#LaunchOptionsDialog_JustOnce")}
+			</m.kt>
+		</m.Vs>
+	));
 	const h = d.tw.GetAppOverviewByAppID(e.appid);
-	return n.createElement(
-		m.tz,
-		{
-			refInstance: t,
-			label: Localize("#LaunchOptionsDialog_MakeSelection", h.display_name),
-			onCancel: u,
-		},
-		g,
+	return (
+		<m.tz
+			refInstance={TRef}
+			label={Localize("#LaunchOptionsDialog_MakeSelection", h.display_name)}
+			onCancel={onCancel}
+		>
+			{g}
+		</m.tz>
 	);
 }
 async function v(e, t) {
@@ -161,22 +146,22 @@ async function v(e, t) {
 }
 export function f(e, t) {
 	const r = n.useMemo(() => S(e, t), [e, t]);
-	const [i, a] = n.useState();
+	const [i, setI] = n.useState();
 	const s = n.useMemo(() => new _f.A(), []);
 	n.useEffect(() => {
 		(async () => {
-			a(t ? await v(e, t) : undefined);
+			setI(t ? await v(e, t) : undefined);
 		})();
 	}, [r, t, e, s]);
 	const o = n.useCallback(
 		(e) => {
-			a(e);
+			setI(e);
 			s.StoreString(r, e.toString());
 		},
 		[r, s],
 	);
 	const l = n.useCallback(() => {
-		a(-1);
+		setI(-1);
 		s.RemoveObject(r);
 	}, [r, s]);
 	return n.useMemo(
@@ -189,38 +174,38 @@ export function f(e, t) {
 	);
 }
 function E(e, t) {
-	const { appid: r, launchOptions: i } = e;
-	const a = e.continue;
-	const s = f(r, i);
-	const [o, l] = n.useState(0);
-	const [c, m] = n.useState(false);
-	const [u, d] = n.useState(false);
-	(0, b.MH)(e.gameActionID, {
+	const { appid, launchOptions } = e;
+	const e_continue = e.continue;
+	const s = f(appid, launchOptions);
+	const [o, setO] = n.useState(0);
+	const [c, setC] = n.useState(false);
+	const [u, setU] = n.useState(false);
+	MH(e.gameActionID, {
 		OnGameActionEnd: t,
 	});
 	n.useEffect(() => {
 		if (s.value !== undefined) {
 			if (!u) {
 				if (s.value == -1) {
-					l(0);
-				} else if (s.value >= i.length || s.value < 0) {
+					setO(0);
+				} else if (s.value >= launchOptions.length || s.value < 0) {
 					s.clear();
-					l(0);
-					m(true);
+					setO(0);
+					setC(true);
 				} else {
-					l(s.value);
-					m(true);
+					setO(s.value);
+					setC(true);
 				}
-				d(true);
+				setU(true);
 			}
 		}
-	}, [s, l, m, u, d, t, a, i]);
+	}, [s, setO, setC, u, setU, t, e_continue, launchOptions]);
 	return {
 		ready: u,
 		selection: o,
-		setSelection: l,
+		setSelection: setO,
 		rememberAnswer: c,
-		setRememberAnswer: m,
+		setRememberAnswer: setC,
 		onPlay: (r, n) => {
 			const i = r !== undefined ? r : o;
 			const a = n === undefined ? c : n;
@@ -242,123 +227,68 @@ function E(e, t) {
 }
 function M(e) {
 	const {
-		ready: t,
-		selection: r,
-		setSelection: i,
-		rememberAnswer: a,
-		setRememberAnswer: s,
-		onPlay: c,
-		onCancel: m,
+		ready,
+		selection,
+		setSelection,
+		rememberAnswer,
+		setRememberAnswer,
+		onPlay,
+		onCancel,
 	} = E(e, e.closeModal);
-	const { launchOptions: u } = e;
-	if (!t) {
+	const { launchOptions } = e;
+	if (!ready) {
 		return null;
 	}
 	const A = d.tw.GetAppOverviewByAppID(e.appid);
 	const p = e.launchOptions.map((e) => {
-		const t = () => i(e.nIndex);
+		const t = () => setSelection(e.nIndex);
 		const a = e.nIndex.toString();
-		return n.createElement(
-			"div",
-			{
-				className: o.ListItem,
-				key: a,
-				onClick: t,
-			},
-			n.createElement("input", {
-				type: "radio",
-				name: "LaunchOption",
-				id: a,
-				value: e.nIndex,
-				checked: e.nIndex == r,
-				onChange: t,
-			}),
-			n.createElement(
-				"label",
-				{
-					htmlFor: a,
-				},
-				Localize(e.strDescription, e.strGameName),
-			),
+		return (
+			<div className={o.ListItem} key={a} onClick={t}>
+				<input
+					type="radio"
+					name="LaunchOption"
+					id={a}
+					value={e.nIndex}
+					checked={e.nIndex == selection}
+					onChange={t}
+				/>
+				<label htmlFor={a}>{Localize(e.strDescription, e.strGameName)}</label>
+			</div>
 		);
 	});
-	return n.createElement(
-		g.x_,
-		{
-			onEscKeypress: e.onCancel,
-		},
-		n.createElement(
-			"div",
-			{
-				className: o.LaunchOptionDialog,
-			},
-			n.createElement(
-				C.JU,
-				{
-					className: o.AppNameHeader,
-				},
-				A.display_name,
-			),
-			n.createElement(
-				"div",
-				{
-					className: o.OptionList,
-				},
-				n.createElement(
-					C.JU,
-					{
-						className: o.ListHeader,
-					},
-					Localize("#LaunchOptionsDialog_SelectHeader", u.length),
-				),
-				n.createElement(
-					"div",
-					{
-						className: o.ListContainer,
-					},
-					p,
-				),
-				n.createElement(
-					"div",
-					{
-						className: o.CheckboxRow,
-					},
-					n.createElement(C.Yh, {
-						label: Localize("#LaunchOptionsDialog_Remember"),
-						checked: a,
-						onChange: s,
-					}),
-				),
-				n.createElement(
-					C.JU,
-					{
-						className: o.SeeProperties,
-					},
-					Localize("#LaunchOptionsDialog_SeeProperties"),
-				),
-			),
-			n.createElement(
-				"div",
-				{
-					className: o.ButtonContainer,
-				},
-				n.createElement(
-					"div",
-					{
-						className: o.PlayButton,
-						onClick: () => c(),
-					},
-					Localize("#GameAction_Play"),
-				),
-				n.createElement(
-					"div",
-					{
-						className: o.CancelButton,
-						onClick: m,
-					},
-					Localize("#GameAction_Cancel"),
-				),
-			),
-		),
+	return (
+		<g.x_ onEscKeypress={e.onCancel}>
+			<div className={o.LaunchOptionDialog}>
+				<C.JU className={o.AppNameHeader}>{A.display_name}</C.JU>
+				<div className={o.OptionList}>
+					<C.JU className={o.ListHeader}>
+						{Localize(
+							"#LaunchOptionsDialog_SelectHeader",
+							launchOptions.length,
+						)}
+					</C.JU>
+					<div className={o.ListContainer}>{p}</div>
+					<div className={o.CheckboxRow}>
+						<C.Yh
+							label={Localize("#LaunchOptionsDialog_Remember")}
+							checked={rememberAnswer}
+							onChange={setRememberAnswer}
+						/>
+					</div>
+					<C.JU className={o.SeeProperties}>
+						{Localize("#LaunchOptionsDialog_SeeProperties")}
+					</C.JU>
+				</div>
+				<div className={o.ButtonContainer}>
+					<div className={o.PlayButton} onClick={() => onPlay()}>
+						{Localize("#GameAction_Play")}
+					</div>
+					<div className={o.CancelButton} onClick={onCancel}>
+						{Localize("#GameAction_Cancel")}
+					</div>
+				</div>
+			</div>
+		</g.x_>
 	);
 }

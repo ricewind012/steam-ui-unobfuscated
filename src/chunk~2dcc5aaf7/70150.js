@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Toggle: "_3Sl0QHQ69uK7ZMQo5vBfrA",
 	Disabled: "M8qsAk8m30GwcGz7HCVnv",
 	ToggleRail: "_2Fw7gGOSCr7y9elv8iszxw",

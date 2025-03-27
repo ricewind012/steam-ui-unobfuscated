@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	nSubscribedWorkshopItemHeight: "80px",
 	nSubscribedWorkshopItemMarginBottom: "2px",

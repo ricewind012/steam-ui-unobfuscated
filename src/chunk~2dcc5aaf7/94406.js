@@ -1,36 +1,36 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./50376.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require("./3963.js");
-var m = require(/*webcrack:missing*/ "./8573.js");
-var u = require("./20414.js");
-var d = require("./48289.js");
-var A = require("./10606.js");
 import {
 	Localize,
 	LocalizeReact,
 	LocalizeRtime32ToShortDate,
 } from "../../actual_src/utils/localization.js";
-var g = require("./36464.js");
-var h = require("./68608.js");
-var C = require("./12975.js");
-var _ = require("./34792.js");
-var f = require("./13672.js");
-var b = require("./13869.js");
-var y = require("./87935.js");
-var S = require("./70239.js");
-var w = require("./97590.js");
-var B = w;
-var v = require(/*webcrack:missing*/ "./44846.js");
-var I = require(/*webcrack:missing*/ "./72476.js");
-var E = require("./46217.js");
 import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
-var T = require(/*webcrack:missing*/ "./69164.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var k = require(/*webcrack:missing*/ "./11131.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./50376.js";
+import s, { PA } from "./41230.js";
+import o from "./52451.js";
+import { A as A_1 } from "./90765.js";
+import c from "./3963.js";
+import m from "./8573.js";
+import u from "./20414.js";
+import d from "./48289.js";
+import A from "./10606.js";
+import g, { Cc } from "./36464.js";
+import h from "./68608.js";
+import C from "./12975.js";
+import _ from "./34792.js";
+import f from "./13672.js";
+import b, { pg } from "./13869.js";
+import y from "./87935.js";
+import S from "./70239.js";
+import w from "./97590.js";
+import v from "./44846.js";
+import I, { Qn } from "./72476.js";
+import E from "./46217.js";
+import T from "./69164.js";
+import k from "./11131.js";
+const B = w;
 export let Xn = class extends i.Component {
 	static contextType = k.gs;
 	constructor(e) {
@@ -54,162 +54,120 @@ export let Xn = class extends i.Component {
 	}
 	render() {
 		const {
-			upvotes: e,
-			upvoted_by_user: t,
-			upvoters: r,
-			fnOnRateUpClicked: n,
-			fnOnRateDownClicked: a,
-			fnOnAwardClicked: s,
-			nReactionCount: o,
-			comment_count: c,
-			fnMaximizeParent: m,
-			bIsVisible: u,
+			upvotes,
+			upvoted_by_user,
+			upvoters,
+			fnOnRateUpClicked,
+			fnOnRateDownClicked,
+			fnOnAwardClicked,
+			nReactionCount,
+			comment_count,
+			fnMaximizeParent,
+			bIsVisible,
 		} = this.props;
 		let A;
-		let C = e;
-		let f = r
+		let C = upvotes;
+		let f = upvoters
 			.map((e) => d.O$.GetFriendState(e))
-			.map((e) =>
-				i.createElement(h.A, {
-					key: "friend" + e.persona.m_steamid.ConvertTo64BitString(),
-					className: B.ActorName,
-					persona: e.persona,
-					strNickname: e.nickname,
-					bParenthesizeNicknames:
-						_.rV.communityPreferences.bParenthesizeNicknames,
-					onContextMenu: (t) => {
-						(0, g.Cc)(t, e, this.context);
-					},
-				}),
-			);
-		if (e == 1) {
-			if (t) {
+			.map((e) => (
+				<h.A
+					key={`friend${e.persona.m_steamid.ConvertTo64BitString()}`}
+					className={B.ActorName}
+					persona={e.persona}
+					strNickname={e.nickname}
+					bParenthesizeNicknames={
+						_.rV.communityPreferences.bParenthesizeNicknames
+					}
+					onContextMenu={(t) => {
+						Cc(t, e, this.context);
+					}}
+				/>
+			));
+		if (upvotes == 1) {
+			if (upvoted_by_user) {
 				A = (0, Localize)("#AppActivity_RatingDetails_User");
 			} else if (f.length > 0) {
 				A = LocalizeReact("#AppActivity_RatingDetails_1Other", f[0]);
 			}
-		} else if (e > 1) {
+		} else if (upvotes > 1) {
 			if (f.length != 0) {
-				A = t
-					? e == 2
-						? LocalizeReact("#AppActivity_RatingDetails_User_1Other", e, f[0])
+				A = upvoted_by_user
+					? upvotes == 2
+						? LocalizeReact(
+								"#AppActivity_RatingDetails_User_1Other",
+								upvotes,
+								f[0],
+							)
 						: LocalizeReact(
 								"#AppActivity_RatingDetails_User_2Others",
-								e,
+								upvotes,
 								f[0],
 								f[1],
 							)
-					: LocalizeReact("#AppActivity_RatingDetails_2Others", e, f[0], f[1]);
+					: LocalizeReact(
+							"#AppActivity_RatingDetails_2Others",
+							upvotes,
+							f[0],
+							f[1],
+						);
 			}
 		}
-		return i.createElement(
-			"div",
-			{
-				className: (0, l.A)(B.RatingBar, u && B.IsVisible),
-			},
-			i.createElement(
-				"div",
-				{
-					className: B.RatingDetails,
-				},
-				A,
-			),
-			o != null &&
-				s &&
-				i.createElement(
-					"div",
-					{
-						className: (0, l.A)(B.Reactions, B.CanClick),
-						onClick: s,
-					},
-					i.createElement(
-						"div",
-						{
-							className: B.ReactionCount,
-						},
-						o,
-					),
-					i.createElement(
-						"div",
-						{
-							className: B.ReactionIcon,
-						},
-						i.createElement(E.wA, {
-							className: B.ReactionSvg,
-						}),
-					),
-				),
-			i.createElement("div", {
-				className: B.ButtonSpacer,
-			}),
-			!v.ID(I.TS.LAUNCHER_TYPE) &&
-				i.createElement(N, {
-					count: c,
-					onClick: m,
-				}),
-			i.createElement("div", {
-				className: B.ButtonSpacer,
-			}),
-			i.createElement(
-				"div",
-				{
-					className: (0, l.A)(B.LikeButton, !t && B.CanClick),
-					onClick: this.OnRateClicked,
-				},
-				i.createElement(
-					"div",
-					{
-						className: B.LikeCount,
-					},
-					Number(C).toLocaleString(),
-				),
-				i.createElement("div", {
-					className: (0, l.A)(
-						B.BackgroundEffects,
-						this.state.bPlayParticle && B.UserRated,
-					),
-				}),
-				i.createElement(
-					"div",
-					{
-						className: B.LikeIcon,
-					},
-					i.createElement(E.tw, {
-						className: (0, l.A)(B.RatingIcon, t && B.UserRated),
-					}),
-				),
-			),
+		return (
+			<div className={A_1(B.RatingBar, bIsVisible && B.IsVisible)}>
+				<div className={B.RatingDetails}>{A}</div>
+				{nReactionCount != null && fnOnAwardClicked && (
+					<div
+						className={A_1(B.Reactions, B.CanClick)}
+						onClick={fnOnAwardClicked}
+					>
+						<div className={B.ReactionCount}>{nReactionCount}</div>
+						<div className={B.ReactionIcon}>
+							<E.wA className={B.ReactionSvg} />
+						</div>
+					</div>
+				)}
+				<div className={B.ButtonSpacer} />
+				{!v.ID(I.TS.LAUNCHER_TYPE) && (
+					<N count={comment_count} onClick={fnMaximizeParent} />
+				)}
+				<div className={B.ButtonSpacer} />
+				<div
+					className={A_1(B.LikeButton, !upvoted_by_user && B.CanClick)}
+					onClick={this.OnRateClicked}
+				>
+					<div className={B.LikeCount}>{Number(C).toLocaleString()}</div>
+					<div
+						className={A_1(
+							B.BackgroundEffects,
+							this.state.bPlayParticle && B.UserRated,
+						)}
+					/>
+					<div className={B.LikeIcon}>
+						<E.tw
+							className={A_1(B.RatingIcon, upvoted_by_user && B.UserRated)}
+						/>
+					</div>
+				</div>
+			</div>
 		);
 	}
 };
 function N(e) {
-	const { count: t, onClick: r } = e;
-	return i.createElement(
-		"div",
-		{
-			className: (0, l.A)(B.CommentButton, r && B.CanClick),
-			onClick: r,
-		},
-		i.createElement(
-			"div",
-			{
-				className: B.CommentCount,
-			},
-			Number(t).toLocaleString(),
-		),
-		i.createElement(
-			"div",
-			{
-				className: B.CommentIcon,
-			},
-			i.createElement(E._h, {
-				className: (0, l.A)(B.RatingIcon),
-			}),
-		),
+	const { count, onClick } = e;
+	return (
+		<div
+			className={A_1(B.CommentButton, onClick && B.CanClick)}
+			onClick={onClick}
+		>
+			<div className={B.CommentCount}>{Number(count).toLocaleString()}</div>
+			<div className={B.CommentIcon}>
+				<E._h className={A_1(B.RatingIcon)} />
+			</div>
+		</div>
 	);
 }
-(0, n.Cg)([o.oI], Xn.prototype, "OnRateClicked", null);
-Xn = (0, n.Cg)([s.PA], Xn);
+Cg([o.oI], Xn.prototype, "OnRateClicked", null);
+Xn = Cg([s.PA], Xn);
 let F = class extends i.Component {
 	static contextType = k.gs;
 	constructor(e) {
@@ -231,15 +189,15 @@ let F = class extends i.Component {
 		});
 	}
 	OnMaybeDeleteComment(e) {
-		(0, b.pg)(
-			i.createElement(A.o0, {
-				strTitle: (0, Localize)("#AppActivity_ConfirmDeleteCommentTitle"),
-				strDescription: (0, Localize)(
+		pg(
+			<A.o0
+				strTitle={(0, Localize)("#AppActivity_ConfirmDeleteCommentTitle")}
+				strDescription={(0, Localize)(
 					"#AppActivity_ConfirmDeleteCommentTitle_Desc",
-				),
-				onOK: this.OnDeleteComment,
-				onCancel: () => null,
-			}),
+				)}
+				onOK={this.OnDeleteComment}
+				onCancel={() => null}
+			/>,
 			GetOwningWindowForEvent(e),
 			{
 				strTitle: (0, Localize)("#AppActivity_ConfirmDeleteCommentTitle"),
@@ -247,132 +205,99 @@ let F = class extends i.Component {
 		);
 	}
 	render() {
-		const { comment: e, commentThread: t } = this.props;
-		let r = d.O$.GetFriendState(new m.b(e.steamid));
-		let n =
-			LocalizeRtime32ToShortDate(e.timestamp) +
-			" @ " +
-			LocalizeRTimeToHourAndMinutes(e.timestamp, {
-				bForce24HourClock: _.rV.friendSettings.b24HourClock,
-			});
-		let s = e.steamid == c.Nb.CMInterface.steamid.ConvertTo64BitString();
-		let o = e.upvotes > 0;
-		let u = e.upvoted_by_user;
-		return i.createElement(
-			T.Z,
-			{
-				className: B.Comment,
-				focusable: true,
-			},
-			i.createElement(g.fH, {
-				className: B.CommentAvatar,
-				friend: r,
-				size: "Small",
-				statusPosition: "right",
-				onClick: (t) =>
-					y.B7.NavigateToSteamURLInOwningWindow(t, "SteamIDPage", e.steamid),
-			}),
-			i.createElement(
-				"div",
-				{
-					className: B.HeaderandBody,
-				},
-				i.createElement(
-					"div",
-					{
-						className: B.CommentHeader,
-					},
-					i.createElement(
-						"div",
-						{
-							className: B.CommenterandTime,
-						},
-						i.createElement(h.A, {
-							className: B.ActorName,
-							persona: r.persona,
-							strNickname: r.nickname,
-							bParenthesizeNicknames:
-								_.rV.communityPreferences.bParenthesizeNicknames,
-							onContextMenu: (e) => {
-								(0, g.Cc)(e, r, this.context);
-							},
-							onClick: (t) =>
-								y.B7.NavigateToSteamURLInOwningWindow(
-									t,
-									"SteamIDPage",
-									e.steamid,
-								),
-						}),
-						i.createElement(
-							"div",
-							{
-								className: B.CommentTime,
-							},
-							n,
-						),
-					),
-				),
-				i.createElement(
-					"div",
-					{
-						className: B.CommentBody,
-					},
-					i.createElement(
-						"div",
-						{
-							className: B.CommentText,
-						},
-						c.Nb.FormatAndParseUserStatusBBCode(e.text),
-						i.createElement(
-							"div",
-							{
-								className: B.CommentControls,
-							},
-							i.createElement(
-								"div",
-								{
-									className: B.CommentRatingButton,
-									onClick: this.OnRateComment,
-								},
-								i.createElement(
-									"div",
-									{
-										className: (0, l.A)(B.CommentRating, o && B.HasRating),
-									},
-									i.createElement("div", {
-										className: (0, l.A)(
-											B.BackgroundEffects,
-											this.state.bPlayParticle && B.UserRated,
-										),
-									}),
-									o && e.upvotes + " ",
-									i.createElement(a.bfp, {
-										className: (0, l.A)(B.ThumbsUpComment, u && B.UserRated),
-									}),
-								),
-							),
-							s &&
-								i.createElement(
-									"div",
-									{
-										className: B.DeleteButton,
-										onClick: this.OnMaybeDeleteComment,
-									},
-									i.createElement(a._r0, {
-										className: B.DeleteUserNews,
-									}),
-								),
-						),
-					),
-				),
-			),
+		const { comment, commentThread } = this.props;
+		let r = d.O$.GetFriendState(new m.b(comment.steamid));
+		let n = `${LocalizeRtime32ToShortDate(
+			comment.timestamp,
+		)} @ ${LocalizeRTimeToHourAndMinutes(comment.timestamp, {
+			bForce24HourClock: _.rV.friendSettings.b24HourClock,
+		})}`;
+		let s = comment.steamid == c.Nb.CMInterface.steamid.ConvertTo64BitString();
+		let o = comment.upvotes > 0;
+		let e_upvoted_by_user = comment.upvoted_by_user;
+		return (
+			<T.Z className={B.Comment} focusable>
+				<g.fH
+					className={B.CommentAvatar}
+					friend={r}
+					size="Small"
+					statusPosition="right"
+					onClick={(t) =>
+						y.B7.NavigateToSteamURLInOwningWindow(
+							t,
+							"SteamIDPage",
+							comment.steamid,
+						)
+					}
+				/>
+				<div className={B.HeaderandBody}>
+					<div className={B.CommentHeader}>
+						<div className={B.CommenterandTime}>
+							<h.A
+								className={B.ActorName}
+								persona={r.persona}
+								strNickname={r.nickname}
+								bParenthesizeNicknames={
+									_.rV.communityPreferences.bParenthesizeNicknames
+								}
+								onContextMenu={(e) => {
+									Cc(e, r, this.context);
+								}}
+								onClick={(t) =>
+									y.B7.NavigateToSteamURLInOwningWindow(
+										t,
+										"SteamIDPage",
+										comment.steamid,
+									)
+								}
+							/>
+							<div className={B.CommentTime}>{n}</div>
+						</div>
+					</div>
+					<div className={B.CommentBody}>
+						<div className={B.CommentText}>
+							{c.Nb.FormatAndParseUserStatusBBCode(comment.text)}
+							<div className={B.CommentControls}>
+								<div
+									className={B.CommentRatingButton}
+									onClick={this.OnRateComment}
+								>
+									<div className={A_1(B.CommentRating, o && B.HasRating)}>
+										<div
+											className={A_1(
+												B.BackgroundEffects,
+												this.state.bPlayParticle && B.UserRated,
+											)}
+										/>
+										{o && `${comment.upvotes} `}
+										<a.bfp
+											className={A_1(
+												B.ThumbsUpComment,
+												e_upvoted_by_user && B.UserRated,
+											)}
+										/>
+									</div>
+								</div>
+								{s && (
+									<div
+										className={B.DeleteButton}
+										onClick={this.OnMaybeDeleteComment}
+									>
+										<a._r0 className={B.DeleteUserNews} />
+									</div>
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</T.Z>
 		);
 	}
 };
-(0, n.Cg)([o.oI], F.prototype, "OnDeleteComment", null);
-(0, n.Cg)([o.oI], F.prototype, "OnRateComment", null);
-(0, n.Cg)([o.oI], F.prototype, "OnMaybeDeleteComment", null);
-F = (0, n.Cg)([s.PA], F);
+Cg([o.oI], F.prototype, "OnDeleteComment", null);
+Cg([o.oI], F.prototype, "OnRateComment", null);
+Cg([o.oI], F.prototype, "OnMaybeDeleteComment", null);
+F = Cg([s.PA], F);
 export let _h = class extends i.Component {
 	constructor(e) {
 		super(e);
@@ -415,41 +340,37 @@ export let _h = class extends i.Component {
 	}
 	render() {
 		const {
-			commentThread: e,
-			publishedfileid: t,
-			bDefaultMinimized: r,
-			bMaxHeight: n,
-			bDontAutoMaximize: a,
-			bIsPopup: s,
-			bVisible: o,
+			commentThread,
+			publishedfileid,
+			bDefaultMinimized,
+			bMaxHeight,
+			bDontAutoMaximize,
+			bIsPopup,
+			bVisible,
 		} = this.props;
-		if (!e) {
+		if (!commentThread) {
 			return null;
 		}
-		if (e.m_threadInfo == null) {
-			return i.createElement(
-				"div",
-				{
-					className: B.CommentThread,
-				},
-				i.createElement("div", {
-					className: B.ThreadLoading,
-				}),
+		if (commentThread.m_threadInfo == null) {
+			return (
+				<div className={B.CommentThread}>
+					<div className={B.ThreadLoading} />
+				</div>
 			);
 		}
 		let c;
 		let m;
 		let u;
 		let d;
-		let A = e.m_threadInfo.total_count > 0;
-		let p = e ? e.m_threadInfo.upvotes : 0;
-		let g = !!e && e.m_threadInfo.user_upvoted;
-		let h = e ? e.GetUpVoters() : [];
+		let A = commentThread.m_threadInfo.total_count > 0;
+		let p = commentThread ? commentThread.m_threadInfo.upvotes : 0;
+		let g = !!commentThread && commentThread.m_threadInfo.user_upvoted;
+		let h = commentThread ? commentThread.GetUpVoters() : [];
 		let C = this.OnRateUpCommentThreadClicked;
 		let _ = this.OnRateDownCommentThreadClicked;
-		let b = e ? e.m_threadInfo.total_count : 0;
-		let y = o || g;
-		let w = S.B6.GetPublishedFile(t);
+		let b = commentThread ? commentThread.m_threadInfo.total_count : 0;
+		let y = bVisible || g;
+		let w = S.B6.GetPublishedFile(publishedfileid);
 		if (w) {
 			if (w.file) {
 				p = w.file.vote_data ? w.file.vote_data.votes_up : 0;
@@ -469,117 +390,109 @@ export let _h = class extends i.Component {
 			m = this.props.recommendation.recommendationid;
 			d = 1;
 		}
-		const v = this.state.bMinimized && (!A || a);
-		return i.createElement(
-			"div",
-			{
-				className: (0, l.A)(
+		const v = this.state.bMinimized && (!A || bDontAutoMaximize);
+		return (
+			<div
+				className={A_1(
 					B.CommentThread,
 					B.Shown,
 					!v &&
 						this.props.commentThread.m_rgComments.length > 0 &&
 						B.HasComments,
-				),
-			},
-			i.createElement(
-				"div",
-				{
-					className: (0, l.A)(
+				)}
+			>
+				<div
+					className={A_1(
 						v ? B.ActivityCommentThreadMinimized : B.ActivityCommentThread,
-						s ? B.IsPopup : null,
+						bIsPopup ? B.IsPopup : null,
 						v && y && B.IsVisible,
-					),
-				},
-				i.createElement(
-					"div",
-					{
-						className: (0, l.A)(B.RatingContainer, A && B.HasComments),
-					},
-					i.createElement(Xn, {
-						upvotes: p,
-						upvoted_by_user: g,
-						upvoters: h,
-						fnOnRateUpClicked: C,
-						fnOnRateDownClicked: _,
-						comment_count: b,
-						fnMaximizeParent: this.props.bIsPopup ? null : this.OnMaximize,
-						nReactionCount: c,
-						fnOnAwardClicked: this.ShowAwardModal,
-						bIsVisible: y,
-					}),
-				),
-				!v &&
-					i.createElement(O, {
-						commentThread: e,
-						bMaxHeight: n,
-					}),
-			),
-			this.state.bShowPointsModal &&
-				i.createElement(f.EX, {
-					bShowModal: this.state.bShowPointsModal,
-					targetType: d,
-					targetid: m,
-					ugcType: u,
-					onDismiss: this.HideAwardModal,
-				}),
+					)}
+				>
+					<div className={A_1(B.RatingContainer, A && B.HasComments)}>
+						<Xn
+							upvotes={p}
+							upvoted_by_user={g}
+							upvoters={h}
+							fnOnRateUpClicked={C}
+							fnOnRateDownClicked={_}
+							comment_count={b}
+							fnMaximizeParent={this.props.bIsPopup || this.OnMaximize}
+							nReactionCount={c}
+							fnOnAwardClicked={this.ShowAwardModal}
+							bIsVisible={y}
+						/>
+					</div>
+					{!v && <O commentThread={commentThread} bMaxHeight={bMaxHeight} />}
+				</div>
+				{this.state.bShowPointsModal && (
+					<f.EX
+						bShowModal={this.state.bShowPointsModal}
+						targetType={d}
+						targetid={m}
+						ugcType={u}
+						onDismiss={this.HideAwardModal}
+					/>
+				)}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([o.oI], _h.prototype, "OnRateUpCommentThreadClicked", null);
-(0, n.Cg)([o.oI], _h.prototype, "OnRateDownCommentThreadClicked", null);
-(0, n.Cg)([o.oI], _h.prototype, "OnRateUpPublishedFileClicked", null);
-(0, n.Cg)([o.oI], _h.prototype, "OnRateDownPublishedFileClicked", null);
-(0, n.Cg)([o.oI], _h.prototype, "OnMaximize", null);
-(0, n.Cg)([o.oI], _h.prototype, "OnMinimize", null);
-(0, n.Cg)([o.oI], _h.prototype, "ShowAwardModal", null);
-(0, n.Cg)([o.oI], _h.prototype, "HideAwardModal", null);
-_h = (0, n.Cg)([s.PA], _h);
-const O = (0, s.PA)(function (e) {
-	const { commentThread: t, bMaxHeight: r } = e;
-	const n = (0, I.Qn)();
-	let a = t.m_threadInfo.total_count > 0;
-	let s = t.m_threadInfo.total_count > t.m_rgComments.length;
-	let o = t.m_threadInfo.total_count - t.m_rgComments.length;
+Cg([o.oI], _h.prototype, "OnRateUpCommentThreadClicked", null);
+Cg([o.oI], _h.prototype, "OnRateDownCommentThreadClicked", null);
+Cg([o.oI], _h.prototype, "OnRateUpPublishedFileClicked", null);
+Cg([o.oI], _h.prototype, "OnRateDownPublishedFileClicked", null);
+Cg([o.oI], _h.prototype, "OnMaximize", null);
+Cg([o.oI], _h.prototype, "OnMinimize", null);
+Cg([o.oI], _h.prototype, "ShowAwardModal", null);
+Cg([o.oI], _h.prototype, "HideAwardModal", null);
+_h = Cg([s.PA], _h);
+const O = PA((e) => {
+	const { commentThread, bMaxHeight } = e;
+	const n = Qn();
+	let a = commentThread.m_threadInfo.total_count > 0;
+	let s =
+		commentThread.m_threadInfo.total_count > commentThread.m_rgComments.length;
+	let o =
+		commentThread.m_threadInfo.total_count - commentThread.m_rgComments.length;
 	const c = i.useCallback(() => {
-		t.FetchPastComments(10);
-	}, [t]);
+		commentThread.FetchPastComments(10);
+	}, [commentThread]);
 	const m = i.useCallback(
 		(e) => {
-			t.PostCommentToThread(e);
+			commentThread.PostCommentToThread(e);
 		},
-		[t],
+		[commentThread],
 	);
-	return i.createElement(
-		i.Fragment,
-		null,
-		s &&
-			i.createElement(
-				"div",
-				{
-					className: B.MakeCommentsVisible,
-					onClick: c,
-				},
-				(0, Localize)("#AppActivity_MakeCommentsVisible", o),
-			),
-		a &&
-			i.createElement(
-				"div",
-				{
-					className: (0, l.A)(B.CommentsTransitionGroup, r && B.NeedsMaxHeight),
-				},
-				t.m_rgComments.map((e) =>
-					i.createElement(F, {
-						key: "" + e.gidcomment,
-						comment: e,
-						commentThread: t,
-					}),
-				),
-			),
-		!n &&
-			i.createElement(C.K, {
-				className: B.AddReply,
-				OnPostClicked: m,
-				placeholder: (0, Localize)("#AppActivity_Comment_Reply"),
-			}),
+	return (
+		<>
+			{s && (
+				<div className={B.MakeCommentsVisible} onClick={c}>
+					{(0, Localize)("#AppActivity_MakeCommentsVisible", o)}
+				</div>
+			)}
+			{a && (
+				<div
+					className={A_1(
+						B.CommentsTransitionGroup,
+						bMaxHeight && B.NeedsMaxHeight,
+					)}
+				>
+					{commentThread.m_rgComments.map((e) => (
+						<F
+							key={`${e.gidcomment}`}
+							comment={e}
+							commentThread={commentThread}
+						/>
+					))}
+				</div>
+			)}
+			{!n && (
+				<C.K
+					className={B.AddReply}
+					OnPostClicked={m}
+					placeholder={(0, Localize)("#AppActivity_Comment_Reply")}
+				/>
+			)}
+		</>
 	);
 });

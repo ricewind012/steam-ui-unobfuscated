@@ -1,14 +1,14 @@
-var r = require(/*webcrack:missing*/ "./58663.js");
-var i = require("./48307.js");
-const s = r.Message;
-export class kK extends s {
+import r from "./58663.js";
+import i from "./48307.js";
+const r_Message = r.Message;
+export class kK extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!kK.prototype.v4) {
 			i.Sg(kK.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -52,7 +52,7 @@ export class kK extends s {
 		return i.zj(kK.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		kK.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -60,7 +60,7 @@ export class kK extends s {
 		i.i0(kK.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		kK.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -68,14 +68,14 @@ export class kK extends s {
 		return "CMsgIPAddress";
 	}
 }
-class a extends s {
+class a extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!a.prototype.dst_gcid_queue) {
 			i.Sg(a.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -119,7 +119,7 @@ class a extends s {
 		return i.zj(a.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		a.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -127,7 +127,7 @@ class a extends s {
 		i.i0(a.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		a.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -135,14 +135,14 @@ class a extends s {
 		return "CMsgGCRoutingProtoBufHeader";
 	}
 }
-export class LH extends s {
+export class LH extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!LH.prototype.steamid) {
 			i.Sg(LH.M());
 		}
-		s.initialize(this, e, 0, -1, [27, 41], null);
+		r_Message.initialize(this, e, 0, -1, [27, 41], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -365,7 +365,7 @@ export class LH extends s {
 		return i.zj(LH.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		LH.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -373,7 +373,7 @@ export class LH extends s {
 		i.i0(LH.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		LH.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -381,14 +381,14 @@ export class LH extends s {
 		return "CMsgProtoBufHeader";
 	}
 }
-export class gF extends s {
+export class gF extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!gF.prototype.size_unzipped) {
 			i.Sg(gF.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -432,7 +432,7 @@ export class gF extends s {
 		return i.zj(gF.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		gF.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -440,7 +440,7 @@ export class gF extends s {
 		i.i0(gF.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		gF.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -448,14 +448,14 @@ export class gF extends s {
 		return "CMsgMulti";
 	}
 }
-export class TT extends s {
+export class TT extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!TT.prototype.estate) {
 			i.Sg(TT.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -535,7 +535,7 @@ export class TT extends s {
 		return i.zj(TT.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		TT.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -543,7 +543,7 @@ export class TT extends s {
 		i.i0(TT.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		TT.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -551,14 +551,14 @@ export class TT extends s {
 		return "CMsgAuthTicket";
 	}
 }
-export class WV extends s {
+export class WV extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!WV.prototype.appid) {
 			i.Sg(WV.M());
 		}
-		s.initialize(this, e, 0, -1, [17], null);
+		r_Message.initialize(this, e, 0, -1, [17], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -670,7 +670,7 @@ export class WV extends s {
 		return i.zj(WV.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		WV.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -678,7 +678,7 @@ export class WV extends s {
 		i.i0(WV.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		WV.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -686,14 +686,14 @@ export class WV extends s {
 		return "CCDDBAppDetailCommon";
 	}
 }
-class d extends s {
+class d extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.clanid) {
 			i.Sg(d.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -777,7 +777,7 @@ class d extends s {
 		return i.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -785,7 +785,7 @@ class d extends s {
 		i.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -793,14 +793,14 @@ class d extends s {
 		return "CClanEventUserNewsTuple";
 	}
 }
-export class h2 extends s {
+export class h2 extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h2.prototype.rtime_before) {
 			i.Sg(h2.M());
 		}
-		s.initialize(this, e, 0, -1, [4], null);
+		r_Message.initialize(this, e, 0, -1, [4], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -855,7 +855,7 @@ export class h2 extends s {
 		return i.zj(h2.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		h2.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -863,7 +863,7 @@ export class h2 extends s {
 		i.i0(h2.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		h2.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -871,14 +871,14 @@ export class h2 extends s {
 		return "CClanMatchEventByRange";
 	}
 }
-export class ke extends s {
+export class ke extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!ke.prototype.packageid) {
 			i.Sg(ke.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -962,7 +962,7 @@ export class ke extends s {
 		return i.zj(ke.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -970,7 +970,7 @@ export class ke extends s {
 		i.i0(ke.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -978,14 +978,14 @@ export class ke extends s {
 		return "CPackageReservationStatus";
 	}
 }
-export class u2 extends s {
+export class u2 extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u2.prototype.content_descriptors_to_exclude) {
 			i.Sg(u2.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		r_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1025,7 +1025,7 @@ export class u2 extends s {
 		return i.zj(u2.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		u2.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1033,7 +1033,7 @@ export class u2 extends s {
 		i.i0(u2.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		u2.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1041,14 +1041,14 @@ export class u2 extends s {
 		return "UserContentDescriptorPreferences";
 	}
 }
-class f extends s {
+class f extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.content_descriptorid) {
 			i.Sg(f.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1092,7 +1092,7 @@ class f extends s {
 		return i.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1100,7 +1100,7 @@ class f extends s {
 		i.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

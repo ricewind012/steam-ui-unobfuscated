@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BannerContainer: "_29jK3MyNRDW7PAcrm59l_O",
 	BannerHeader: "_3yxJH3baj7mwTTYzBIyi_Z",

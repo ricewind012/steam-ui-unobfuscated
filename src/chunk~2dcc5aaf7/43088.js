@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Header1: "SPYFj8pCLpNmnuQJEDobC",
 	Header2: "QuKtTJ4LCPUlQeWYfLNyX",
 	Header3: "_3s7cUqglDds9wzcWb7OLz6",

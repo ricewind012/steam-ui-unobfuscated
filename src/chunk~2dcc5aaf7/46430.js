@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	GameLaunchingDialog: "_2KQRlxOL0nH2Mx4tAGxQQr",
 	Layout: "_1ONMa3won-P2Oau-Pa97x8",
 	LeftColumn: "A9SsSJPmvetUueLvpmCXH",

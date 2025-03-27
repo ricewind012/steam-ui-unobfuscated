@@ -278,24 +278,28 @@ export const Fj = {
 	},
 };
 export function yu(e, t, r) {
-	const n = Fj[r];
-	return !!n && !n.bDisableEnforceDimensions && e === n.width && t === n.height;
+	const Fj_r = Fj[r];
+	return (
+		!!Fj_r &&
+		!Fj_r.bDisableEnforceDimensions &&
+		e === Fj_r.width &&
+		t === Fj_r.height
+	);
 }
 export function s4(e, t, r) {
-	const n = Fj[r];
+	const Fj_r = Fj[r];
 	return (
-		!!n &&
-		(!!n.bDisableEnforceDimensions || (!(e < n.width) && !(t < n.height)))
+		!!Fj_r &&
+		(!!Fj_r.bDisableEnforceDimensions ||
+			(!(e < Fj_r.width) && !(t < Fj_r.height)))
 	);
 }
 export function XY(e) {
-	const t = Fj[e];
-	return t.rgAcceptableTypes.includes(6) || t.rgAcceptableTypes.includes(7);
+	const Fj_e = Fj[e];
+	return (
+		Fj_e.rgAcceptableTypes.includes(6) || Fj_e.rgAcceptableTypes.includes(7)
+	);
 }
 export function vz(e, t) {
-	return t.filter((t) =>
-		(function (e, t) {
-			return Fj[t].rgAcceptableTypes.includes(e);
-		})(e, t),
-	);
+	return t.filter((t) => ((e, t) => Fj[t].rgAcceptableTypes.includes(e))(e, t));
 }

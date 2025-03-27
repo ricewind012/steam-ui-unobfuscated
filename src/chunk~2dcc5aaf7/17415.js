@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./52451.js";
 export class x {
 	m_data = undefined;
 	m_nLastFetchTimeMS = 0;
@@ -8,7 +8,7 @@ export class x {
 	m_timeoutNextFetch;
 	m_params;
 	constructor(e) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_params = e;
 	}
 	GetStorage() {
@@ -93,8 +93,8 @@ export class x {
 		this.m_timeoutNextFetch = window.setTimeout(this.RefreshDataIfNeeded, e);
 	}
 }
-(0, n.Cg)([i.sH.ref], x.prototype, "m_data", undefined);
-(0, n.Cg)([a.oI], x.prototype, "RefreshDataIfNeeded", null);
+Cg([i.sH.ref], x.prototype, "m_data", undefined);
+Cg([a.oI], x.prototype, "RefreshDataIfNeeded", null);
 export class D extends x {
 	m_currentFetch;
 	m_fetch;

@@ -1,89 +1,73 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require("./10191.js");
-var o = s;
-var l = require("./35488.js");
-var c = require(/*webcrack:missing*/ "./41230.js");
-var m = require(/*webcrack:missing*/ "./90095.js");
-var u = require("./1965.js");
-var d = require("./28346.js");
-var A = require("./22091.js");
-var p = require("./45967.js");
-var g = require("./52192.js");
-var h = require("./85360.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require("./78057.js");
+import n from "./63696.js";
+import { A as A_1 } from "./90765.js";
+import s from "./10191.js";
+import l from "./35488.js";
+import c, { PA } from "./41230.js";
+import { q3 } from "./90095.js";
+import u from "./1965.js";
+import { zX } from "./28346.js";
+import A from "./22091.js";
+import p from "./45967.js";
+import { $c } from "./52192.js";
+import h, { st } from "./85360.js";
+import { Qn } from "./72476.js";
+import _, { T } from "./78057.js";
+const o = s;
 export function jt(e) {
-	const { overview: t } = e;
-	if ((0, _.T)(t.appid).bGamepadRequired && t.xbox_controller_support >= 1) {
-		return n.createElement(b, null);
-	} else if (t.vr_only) {
-		return n.createElement(y, null);
+	const { overview } = e;
+	if (
+		T(overview.appid).bGamepadRequired &&
+		overview.xbox_controller_support >= 1
+	) {
+		return <B />;
+	} else if (overview.vr_only) {
+		return <Y />;
 	} else {
 		return null;
 	}
 }
-function b(e) {
-	return n.createElement(
-		"div",
-		{
-			className: (0, i.A)(o.PurchaseNoticeContainer),
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, i.A)(o.PurchaseNoticeImageContainer),
-			},
-			n.createElement(l.Controller, {
-				type: "xbox",
-				className: (0, i.A)(o.PurchaseNoticeImage, o.Tilt),
-			}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: (0, i.A)(o.PurchaseNoticeLabel),
-			},
-			Localize("#AppDetails_Controller_ControllerRequired"),
-		),
+function B(e) {
+	return (
+		<div className={A_1(o.PurchaseNoticeContainer)}>
+			<div className={A_1(o.PurchaseNoticeImageContainer)}>
+				<l.Controller
+					type="xbox"
+					className={A_1(o.PurchaseNoticeImage, o.Tilt)}
+				/>
+			</div>
+			<div className={A_1(o.PurchaseNoticeLabel)}>
+				{Localize("#AppDetails_Controller_ControllerRequired")}
+			</div>
+		</div>
 	);
 }
-function y(e) {
-	return n.createElement(
-		"div",
-		{
-			className: (0, i.A)(o.PurchaseNoticeContainer),
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, i.A)(o.PurchaseNoticeImageContainer),
-			},
-			n.createElement(l.VROnlyIcon, {
-				className: (0, i.A)(o.PurchaseNoticeImage, o.VROnly),
-			}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: (0, i.A)(o.PurchaseNoticeLabel),
-			},
-			Localize("#AppDetails_Controller_VRRequired"),
-		),
+function Y(e) {
+	return (
+		<div className={A_1(o.PurchaseNoticeContainer)}>
+			<div className={A_1(o.PurchaseNoticeImageContainer)}>
+				<l.VROnlyIcon className={A_1(o.PurchaseNoticeImage, o.VROnly)} />
+			</div>
+			<div className={A_1(o.PurchaseNoticeLabel)}>
+				{Localize("#AppDetails_Controller_VRRequired")}
+			</div>
+		</div>
 	);
 }
-export const Ve = (0, c.PA)(function (e) {
-	const { details: t, overview: r } = e;
-	const s = (0, C.Qn)();
-	const c = (0, m.q3)(() => A.Fd.Get().GetControllers());
-	const _ = (0, m.q3)(() => A.Fd.Get().GetControllers()?.length > 0);
-	const f = c[0];
-	const b = (0, h.st)(r.appid, f?.nControllerIndex);
+export const Ve = PA((e) => {
+	const { details, overview } = e;
+	const s = Qn();
+	const c = q3(() => A.Fd.Get().GetControllers());
+	const _ = q3(() => A.Fd.Get().GetControllers()?.length > 0);
+	const [f] = c;
+	const b = st(overview.appid, f?.nControllerIndex);
 	if (
-		!t?.bStorePagePublished ||
-		r.BIsModOrShortcut() ||
-		r.BIsApplicationOrTool() ||
+		!details?.bStorePagePublished ||
+		overview.BIsModOrShortcut() ||
+		overview.BIsModOrShortcut() ||
+		overview.BIsApplicationOrTool() ||
+		overview.BIsModOrShortcut() ||
+		overview.BIsApplicationOrTool() ||
 		s
 	) {
 		return null;
@@ -91,28 +75,31 @@ export const Ve = (0, c.PA)(function (e) {
 	if (!_ && !p.qL?.HasVRHMDBeenSeen()) {
 		return null;
 	}
-	const y = r?.BHasStoreCategory(59);
+	const y = overview?.BHasStoreCategory(59);
 	const S =
 		y ||
-		(r.ps4_controller_support >= 1 && !f?.bBluetooth) ||
-		(r.ps4_controller_support == 2 && f.bBluetooth);
+		(overview.ps4_controller_support >= 1 && !f?.bBluetooth) ||
+		(overview.ps4_controller_support == 2 && f.bBluetooth);
 	const w =
 		y ||
-		(r.ps5_controller_support >= 1 && !f?.bBluetooth) ||
-		(r.ps5_controller_support == 2 && f.bBluetooth);
+		(overview.ps5_controller_support >= 1 && !f?.bBluetooth) ||
+		(overview.ps5_controller_support == 2 && f.bBluetooth);
 	let B = false;
 	let v = false;
-	const I = (0, g.$c)(f?.eControllerType);
+	const I = $c(f?.eControllerType);
 	switch (I) {
-		case 32:
-			B = r.xbox_controller_support >= 1;
+		case 32: {
+			B = overview.xbox_controller_support >= 1;
 			break;
-		case 34:
+		}
+		case 34: {
 			B = S;
 			break;
-		case 45:
+		}
+		case 45: {
 			B = w;
 			break;
+		}
 		case 30:
 		case 33:
 		case 35:
@@ -122,33 +109,38 @@ export const Ve = (0, c.PA)(function (e) {
 		case 39:
 		case 40:
 		case 41:
-		case 42:
+		case 42: {
 			v = true;
+		}
 	}
 	let E;
 	switch (I) {
-		case 32:
+		case 32: {
 			E = "#AppDetailsControllerSection_Title_Supported_Xbox";
 			break;
-		case 34:
+		}
+		case 34: {
 			E = "#AppDetailsControllerSection_Title_Supported_DualShock";
 			break;
-		case 45:
+		}
+		case 45: {
 			E = "#AppDetailsControllerSection_Title_Supported_Dualsense";
 			break;
-		default:
+		}
+		default: {
 			E = "#AppDetailsControllerSection_Title_Supported_Generic";
+		}
 	}
-	let M = r.xbox_controller_support == 1;
-	let T = !r.xbox_controller_support;
-	const R = r.vr_supported || r.vr_only;
+	let M = overview.xbox_controller_support == 1;
+	let T = !overview.xbox_controller_support;
+	const R = overview.vr_supported || overview.vr_only;
 	let k;
 	if (T) {
 		k = [
 			"#AppDetailsControllerSection_Title_Unsupported",
 			"#AppDetailsControllerSection_NoSupport",
 		];
-	} else if (t?.bControllerSurveyFilledOut || I == 32) {
+	} else if (details?.bControllerSurveyFilledOut || I == 32) {
 		if (y || (B && !b?.bConfigurationEnabled && !M)) {
 			k = [E, "#AppDetailsControllerSection_DevSupported"];
 		} else if (b?.bConfigurationEnabled && B) {
@@ -163,7 +155,7 @@ export const Ve = (0, c.PA)(function (e) {
 				"#AppDetailsControllerSection_SteamInputTranslation",
 			];
 			M = true;
-		} else if (T || B || v) {
+		} else if (T || B || B || v) {
 			if (!T && v) {
 				k = [
 					"#AppDetailsControllerSection_Title_Unknown_NoSteamInput",
@@ -190,118 +182,72 @@ export const Ve = (0, c.PA)(function (e) {
 		];
 		v = true;
 	}
-	return n.createElement(
-		u.n,
-		{
-			className: o.ControllerSection,
-			primaryAction: {
+	return (
+		<u.n
+			className={o.ControllerSection}
+			primaryAction={{
 				action: () => {
-					SteamClient.Apps.ShowControllerConfigurator(r.appid);
+					SteamClient.Apps.ShowControllerConfigurator(overview.appid);
 					if (s) {
 						h.v3.ClearEditingConfiguration();
 					}
 				},
 				label: Localize("#AppControllerConfiguration_Link"),
-			},
-			label: Localize(
-				(0, d.zX)(r, 3)
+			}}
+			label={Localize(
+				zX(overview, 3)
 					? "#AppDetails_SectionTitle_Hardware"
 					: "#AppDetails_SectionTitle_Controller",
-			),
-			rightColumnSection: true,
-			availableOffline: true,
-		},
-		n.createElement(
-			u.n.Body,
-			null,
-			T &&
-				!v &&
-				n.createElement("div", {
-					className: o.Stroke,
-				}),
-			n.createElement(
-				"div",
-				{
-					className: o.ControllerSectionBody,
-				},
-				n.createElement(
-					"div",
-					{
-						className: o.ControllerSectionRow,
-					},
-					n.createElement(l.ControllerType, {
-						className: (0, i.A)(o.ControllerStatusSVG, v && o.Unknown),
-						controllerType: f?.eControllerType ?? 32,
-						partial: M,
-					}),
-					n.createElement(
-						"div",
-						{
-							className: o.ControllerSectionColumn,
-						},
-						n.createElement(
-							"div",
-							{
-								className: o.ControllerSupportSectionHeader,
-							},
-							Localize(k[0]),
-						),
-						n.createElement(
-							"div",
-							{
-								className: o.ControllerSupportSectionDesc,
-							},
-							Localize(k[1]),
-						),
-					),
-				),
-				R &&
-					n.createElement("div", {
-						className: o.Separator,
-					}),
-				R &&
-					n.createElement(
-						"div",
-						{
-							className: o.ControllerSectionRow,
-						},
-						r.vr_only
-							? n.createElement(l.VROnlyIcon, {
-									className: o.ControllerStatusSVG,
-								})
-							: n.createElement(l.VRSupportedIcon, {
-									className: o.ControllerStatusSVG,
-								}),
-						n.createElement(
-							"div",
-							{
-								className: o.ControllerSectionColumn,
-							},
-							n.createElement(
-								"div",
-								{
-									className: o.ControllerSupportSectionHeader,
-								},
-								Localize(
-									r.vr_only
-										? "#AppDetailsControllerSection_Title_VR_Only"
-										: "#AppDetailsControllerSection_Title_VR_Supported",
-								),
-							),
-							n.createElement(
-								"div",
-								{
-									className: o.ControllerSupportSectionDesc,
-								},
-								Localize(
-									r.vr_only
-										? "#AppDetailsControllerSection_VR_Only"
-										: "#AppDetailsControllerSection_VR_Supported",
-								),
-							),
-						),
-					),
-			),
-		),
+			)}
+			rightColumnSection
+			availableOffline
+		>
+			<u.n.Body>
+				{T && !v && <div className={o.Stroke} />}
+				<div className={o.ControllerSectionBody}>
+					<div className={o.ControllerSectionRow}>
+						<l.ControllerType
+							className={A_1(o.ControllerStatusSVG, v && o.Unknown)}
+							controllerType={f?.eControllerType ?? 32}
+							partial={M}
+						/>
+						<div className={o.ControllerSectionColumn}>
+							<div className={o.ControllerSupportSectionHeader}>
+								{Localize(k[0])}
+							</div>
+							<div className={o.ControllerSupportSectionDesc}>
+								{Localize(k[1])}
+							</div>
+						</div>
+					</div>
+					{R && <div className={o.Separator} />}
+					{R && (
+						<div className={o.ControllerSectionRow}>
+							{overview.vr_only ? (
+								<l.VROnlyIcon className={o.ControllerStatusSVG} />
+							) : (
+								<l.VRSupportedIcon className={o.ControllerStatusSVG} />
+							)}
+							<div className={o.ControllerSectionColumn}>
+								<div className={o.ControllerSupportSectionHeader}>
+									{Localize(
+										overview.vr_only
+											? "#AppDetailsControllerSection_Title_VR_Only"
+											: "#AppDetailsControllerSection_Title_VR_Supported",
+									)}
+								</div>
+								<div className={o.ControllerSupportSectionDesc}>
+									{Localize(
+										overview.vr_only
+											? "#AppDetailsControllerSection_VR_Only"
+											: "#AppDetailsControllerSection_VR_Supported",
+									)}
+								</div>
+							</div>
+						</div>
+					)}
+				</div>
+			</u.n.Body>
+		</u.n>
 	);
 });

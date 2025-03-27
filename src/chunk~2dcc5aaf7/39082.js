@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./333.js");
 import { BlobToFile } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require("./88341.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { vz, s4, XY } from "./333.js";
+import l, { AS } from "./88341.js";
 class c {
 	dataUrl = undefined;
 	width = undefined;
@@ -16,17 +16,17 @@ class c {
 	uploadTime;
 	fileType = 0;
 	constructor(e, t, r, n, s, o) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.file = e;
 		this.fileType = l.i6.GetExtensionTypeFromURL(e.name);
 		this.language = t;
 		this.uploadTime = Date.now();
 		this.status = "pending";
 		if (r) {
-			const e = (0, a.vz)(this.fileType, r);
-			let t = (0, l.AS)(s, o, e, false);
+			const e = vz(this.fileType, r);
+			let t = AS(s, o, e, false);
 			if (t === undefined) {
-				t = (0, l.AS)(s, o, e, true);
+				t = AS(s, o, e, true);
 			}
 			this.type = t || r[0];
 		}
@@ -38,7 +38,7 @@ class c {
 		let n = 0;
 		let i = 0;
 		let s = false;
-		let c = !e || e.length === 0 || e.includes(this.type);
+		let c = !e || e.length === 0 || e.length === 0 || e.includes(this.type);
 		if (t) {
 			n = t.width;
 			i = t.height;
@@ -54,8 +54,7 @@ class c {
 		const m = this.width >= n && this.height >= i;
 		const u = s ? this.width === n && this.height === i : m;
 		const d = r && r != this.fileType;
-		const A =
-			!!e && !!(e.length > 0) && (0, a.vz)(this.fileType, e || []).length == 0;
+		const A = !!e && !!(e.length > 0) && vz(this.fileType, e || []).length == 0;
 		const g = Boolean(p(this.fileType));
 		let h = "";
 		let C = false;
@@ -89,12 +88,12 @@ class c {
 		};
 	}
 }
-(0, n.Cg)([i.sH], c.prototype, "dataUrl", undefined);
-(0, n.Cg)([i.sH], c.prototype, "width", undefined);
-(0, n.Cg)([i.sH], c.prototype, "height", undefined);
-(0, n.Cg)([i.sH], c.prototype, "type", undefined);
-(0, n.Cg)([i.sH], c.prototype, "status", undefined);
-(0, n.Cg)([i.sH], c.prototype, "message", undefined);
+Cg([i.sH], c.prototype, "dataUrl", undefined);
+Cg([i.sH], c.prototype, "width", undefined);
+Cg([i.sH], c.prototype, "height", undefined);
+Cg([i.sH], c.prototype, "type", undefined);
+Cg([i.sH], c.prototype, "status", undefined);
+Cg([i.sH], c.prototype, "message", undefined);
 export class _u extends c {
 	video;
 	constructor(e, t, r, n) {
@@ -102,7 +101,7 @@ export class _u extends c {
 		this.video = r;
 	}
 	BIsOriginalMinimumDimensions(e) {
-		return (0, a.s4)(this.video.videoWidth, this.video.videoHeight, e);
+		return s4(this.video.videoWidth, this.video.videoHeight, e);
 	}
 	GetResizeDimension() {}
 }
@@ -111,7 +110,7 @@ export class DA extends c {
 		super(e, t, r, URL.createObjectURL(e), 0, 0);
 	}
 	BIsOriginalMinimumDimensions(e) {
-		return (0, a.XY)(e);
+		return XY(e);
 	}
 	GetResizeDimension() {}
 }
@@ -132,7 +131,7 @@ export class i9 extends c {
 			d(e.name) ? r.videoWidth : r.width,
 			d(e.name) ? r.videoHeight : r.height,
 		);
-		(0, i.Gn)(this);
+		Gn(this);
 		this.media = r;
 		this.localizedImageGroupPrimaryImage = a;
 	}
@@ -169,10 +168,10 @@ export class i9 extends c {
 		});
 	}
 	BIsOriginalMinimumDimensions(e) {
-		return (0, a.s4)(this.media.width, this.media.height, e);
+		return s4(this.media.width, this.media.height, e);
 	}
 	GetResizeDimension() {
-		return (function (e) {
+		return ((e) => {
 			if (e === "background") {
 				return [
 					{
@@ -201,16 +200,17 @@ export class i9 extends c {
 					},
 				];
 			}
-			return;
 		})(this.type);
 	}
 }
 function p(e) {
 	switch (e) {
-		case 3:
+		case 3: {
 			return "image/png";
-		case 1:
+		}
+		case 1: {
 			return "image/jpeg";
+		}
 	}
 }
-(0, n.Cg)([i.sH], i9.prototype, "bCropped", undefined);
+Cg([i.sH], i9.prototype, "bCropped", undefined);

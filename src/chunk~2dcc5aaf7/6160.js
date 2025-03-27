@@ -1,24 +1,24 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./3142.js");
-var l = require("./51354.js");
-var c = require("./76356.js");
-var m = require("./61398.js");
-var u = require("./81884.js");
-var d = require("./47296.js");
-var A = require(/*webcrack:missing*/ "./79769.js");
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require("./46422.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import s from "./63696.js";
+import { _f } from "./3142.js";
+import l from "./51354.js";
+import c from "./76356.js";
+import { Fe } from "./61398.js";
+import { lZ } from "./81884.js";
+import d from "./47296.js";
+import { Jc } from "./79769.js";
+import p, { gc } from "./52451.js";
+import g from "./46422.js";
 export const ax = -1;
 class C {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_streamingAppid = null;
 	m_bLaunchOptionContinued = false;
-	m_launchStatus = (0, A.Jc)();
+	m_launchStatus = Jc();
 	m_eLaunchResult = d.l.k_ERemoteClientLaunchOK;
 	m_sLaunchResult = "";
 	m_bStreamingLaunchResultDialogVisible = false;
@@ -44,11 +44,11 @@ class C {
 		);
 	}
 	StreamingShowIntro(e, t) {
-		(0, o._f)(e, t);
+		_f(e, t);
 	}
 	StreamingShowLaunchOptions(e, t) {
 		this.m_bLaunchOptionContinued = false;
-		(0, u.lZ)(
+		lZ(
 			{
 				appid: e,
 				continue: (e) => {
@@ -74,7 +74,7 @@ class C {
 			(e, t, r) => SteamClient.Streaming.AcceptStreamingEULA(e, t, r),
 		);
 		r.Start();
-		(0, m.Fe)({
+		Fe({
 			appid: e,
 			eulaWorkflow: r,
 			onCancel: t,
@@ -87,11 +87,13 @@ class C {
 		this.m_sLaunchResult = t;
 		switch (e) {
 			case d.l.k_ERemoteClientLaunchOK:
-			case d.l.k_ERemoteClientLaunchCanceled:
+			case d.l.k_ERemoteClientLaunchCanceled: {
 				this.m_bStreamingLaunchResultDialogVisible = false;
 				break;
-			default:
+			}
+			default: {
 				this.m_bStreamingLaunchResultDialogVisible = true;
+			}
 		}
 		this.OnStreamingUIDone();
 	}
@@ -145,31 +147,26 @@ class C {
 		return this.m_bStreamingLaunchResultDialogVisible;
 	}
 }
-(0, n.Cg)([i.sH], C.prototype, "m_eLaunchResult", undefined);
-(0, n.Cg)([i.sH], C.prototype, "m_sLaunchResult", undefined);
-(0, n.Cg)(
-	[i.sH],
-	C.prototype,
-	"m_bStreamingLaunchResultDialogVisible",
-	undefined,
-);
-(0, n.Cg)([p.oI], C.prototype, "StreamingShowIntro", null);
-(0, n.Cg)([p.oI], C.prototype, "StreamingShowLaunchOptions", null);
-(0, n.Cg)([p.oI], C.prototype, "StreamingShowEula", null);
-(0, n.Cg)([i.XI.bound], C.prototype, "StreamingLaunchComplete", null);
-(0, n.Cg)([p.oI], C.prototype, "StreamingClientFinished", null);
-(0, n.Cg)([p.oI], C.prototype, "StreamingClientStarted", null);
-(0, n.Cg)([p.oI], C.prototype, "StreamingLaunchProgress", null);
+Cg([i.sH], C.prototype, "m_eLaunchResult", undefined);
+Cg([i.sH], C.prototype, "m_sLaunchResult", undefined);
+Cg([i.sH], C.prototype, "m_bStreamingLaunchResultDialogVisible", undefined);
+Cg([p.oI], C.prototype, "StreamingShowIntro", null);
+Cg([p.oI], C.prototype, "StreamingShowLaunchOptions", null);
+Cg([p.oI], C.prototype, "StreamingShowEula", null);
+Cg([i.XI.bound], C.prototype, "StreamingLaunchComplete", null);
+Cg([p.oI], C.prototype, "StreamingClientFinished", null);
+Cg([p.oI], C.prototype, "StreamingClientStarted", null);
+Cg([p.oI], C.prototype, "StreamingLaunchProgress", null);
 export const Gc = new C();
 export function R8() {
-	return (0, p.gc)(Gc.launchStatus);
+	return gc(Gc.launchStatus);
 }
 export function o6() {
-	return [(0, a.q3)(() => Gc.eLaunchResult), (0, a.q3)(() => Gc.sLaunchResult)];
+	return [q3(() => Gc.eLaunchResult), q3(() => Gc.sLaunchResult)];
 }
 export function wh() {
 	return [
-		(0, a.q3)(() => Gc.bStreamingLaunchResultDialogVisible),
+		q3(() => Gc.bStreamingLaunchResultDialogVisible),
 		s.useCallback(() => {
 			Gc.HideStreamingLaunchResultDialog();
 		}, []),

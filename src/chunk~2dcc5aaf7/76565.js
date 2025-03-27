@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PartnerEventFont: "LK4bXmKAknKopK864hJFM",
 	Clear: "_3UhsQfZfx8h_mvk1qQ2E7p",

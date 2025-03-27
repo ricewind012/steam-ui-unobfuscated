@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ContainerDiv: "_1L-aGBP6RWtt-qvCYtNeVh",
 	InlineGlyph: "rGUgui_Y9_BedjvaT1jF6",

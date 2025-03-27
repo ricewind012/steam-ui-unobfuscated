@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	OverlayClock: "jSQQl34mj8a4NOKubD6AT",
 	Flipped: "_2VPzG16_tU5bRYSIo0ShHP",
 	Tabs: "_1JTFbdOLNdh4RmamEfRS39",

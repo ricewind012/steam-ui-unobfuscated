@@ -1,24 +1,24 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./96593.js");
-var o = require("./78057.js");
-var l = require("./12767.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./49455.js");
-var d = require("./10606.js");
-var _A = require("./13869.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var h = require("./85965.js");
-var C = require("./23861.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./41230.js";
+import s, { Co } from "./96593.js";
+import o from "./78057.js";
+import l from "./12767.js";
+import c, { A as A_1 } from "./90765.js";
+import m from "./52451.js";
+import u, { w as w_1 } from "./49455.js";
+import d from "./10606.js";
+import { pg } from "./13869.js";
+import h from "./85965.js";
+import C from "./23861.js";
+import f from "./79614.js";
+import y, { $B } from "./87935.js";
+import S, { Xe } from "./36934.js";
+import w from "./80818.js";
 const _ = "/images/defaultappimage.png";
-var f = require("./79614.js");
-var b = f;
-var y = require("./87935.js");
-var S = require("./36934.js");
-var w = require("./80818.js");
+const b = f;
 export let z = class extends i.Component {
 	static defaultProps = {
 		allowCustomization: true,
@@ -31,17 +31,18 @@ export let z = class extends i.Component {
 		this.state = {
 			bIsLoaded: false,
 		};
-		(0, u.w)(
+		w_1(
 			e.rgSources || e.app || (e.eAssetType == 4 && e.appinfo),
 			"Either rgSources or app must be specified, or you must be asking for an icon and provide appinfo",
 		);
-		(0, u.w)(e.app || e.appid, "Either appid or app must be specified");
+		w_1(e.app || e.appid, "Either appid or app must be specified");
 	}
 	RegisterForAppDetails() {
 		this.UnregisterForAppDetails();
 		if (
 			!!this.props.app &&
 			(this.props.eAssetType == 3 ||
+				this.props.eAssetType == 1 ||
 				this.props.eAssetType == 1 ||
 				this.props.eAssetType == 2)
 		) {
@@ -58,13 +59,13 @@ export let z = class extends i.Component {
 		this.RegisterForAppDetails();
 	}
 	componentDidUpdate(e) {
-		(0, u.w)(
+		w_1(
 			this.props.rgSources ||
 				this.props.app ||
 				(this.props.eAssetType == 4 && this.props.appinfo),
 			"Either rgSources or app must be specified, or you must be asking for an icon and provide appinfo",
 		);
-		(0, u.w)(
+		w_1(
 			this.props.app || this.props.appid,
 			"Either appid or app must be specified",
 		);
@@ -84,7 +85,7 @@ export let z = class extends i.Component {
 	get is_custom_image() {
 		return (
 			this.m_refImage.current &&
-			(0, y.$B)(this.m_refImage.current.src, y.Uq.Library.CustomImages)
+			$B(this.m_refImage.current.src, y.Uq.Library.CustomImages)
 		);
 	}
 	get is_default_image() {
@@ -104,7 +105,7 @@ export let z = class extends i.Component {
 	}
 	OnIncrementalError(e, t, r) {
 		const n = this.props.appid ? this.props.appid : this.props.app.appid;
-		if ((0, y.$B)(t, y.Uq.Library.Assets)) {
+		if ($B(t, y.Uq.Library.Assets)) {
 			console.log("Reporting cache miss for", n, this.props.eAssetType, t);
 			SteamClient.Apps.ReportLibraryAssetCacheMiss(n, this.props.eAssetType);
 		}
@@ -130,9 +131,9 @@ export let z = class extends i.Component {
 	}
 	GetSourcesForAsset() {
 		switch (this.props.eAssetType) {
-			case 7:
+			case 7: {
 				if (this.props.app) {
-					(0, u.w)(
+					w_1(
 						this.props.app.BIsMusicAlbum(),
 						`Cannot get soundtrack album cover for appid ${this.props.app.appid}: non-album app type ${this.props.app.app_type}`,
 					);
@@ -145,9 +146,10 @@ export let z = class extends i.Component {
 					return e;
 				}
 				return [];
-			case 0:
+			}
+			case 0: {
 				if (this.props.app.app_type == 8192) {
-					(0, u.w)(
+					w_1(
 						!this.props.app.BIsModOrShortcut(),
 						"It doesn't make sense to have a shortcut/mod for a soundtrack. Unsure where to look for album cover art in this case.",
 					);
@@ -178,9 +180,11 @@ export let z = class extends i.Component {
 						_,
 					];
 				}
-			case 3:
+			}
+			case 3: {
 				return [...o.H.GetHeaderImages(this.props.app), h.A];
-			case 4:
+			}
+			case 4: {
 				let e = [];
 				if (this.props.app?.icon_hash) {
 					e.push(
@@ -210,18 +214,22 @@ export let z = class extends i.Component {
 					}
 				}
 				return [...e, C.A];
-			case 1:
-				const { rgHeroImages: t, bHasHeroImage: r } = o.H.GetHeroImages(
+			}
+			case 1: {
+				const { rgHeroImages, bHasHeroImage } = o.H.GetHeroImages(
 					this.props.app,
 				);
-				return [...t, _];
-			case 2:
-				const { rgLogoImages: n, logoPosition: i } = o.H.GetLogoImages(
+				return [...rgHeroImages, _];
+			}
+			case 2: {
+				const { rgLogoImages, logoPosition } = o.H.GetLogoImages(
 					this.props.app,
 				);
-				return n;
-			default:
-				(0, u.w)(false, "Need to pass manual source list for asset type");
+				return rgLogoImages;
+			}
+			default: {
+				w_1(false, "Need to pass manual source list for asset type");
+			}
 		}
 		return [];
 	}
@@ -253,11 +261,11 @@ export let z = class extends i.Component {
 			a = "jpg";
 		}
 		if (a != "jpg" && a != "png") {
-			(0, _A.pg)(
-				i.createElement(d.KG, {
-					strTitle: Localize("#CustomArt_ErrorTitle"),
-					strDescription: Localize("#CustomArt_BadFileType"),
-				}),
+			pg(
+				<d.KG
+					strTitle={Localize("#CustomArt_ErrorTitle")}
+					strDescription={Localize("#CustomArt_BadFileType")}
+				/>,
 				t,
 				{
 					strTitle: Localize("#CustomArt_ErrorTitle"),
@@ -283,11 +291,11 @@ export let z = class extends i.Component {
 				})
 				.catch((e) => {
 					console.log("Set artwork failed", e);
-					(0, _A.pg)(
-						i.createElement(d.KG, {
-							strTitle: Localize("#CustomArt_ErrorTitle"),
-							strDescription: Localize("#CustomArt_UnknownError"),
-						}),
+					pg(
+						<d.KG
+							strTitle={Localize("#CustomArt_ErrorTitle")}
+							strDescription={Localize("#CustomArt_UnknownError")}
+						/>,
 						t,
 						{
 							strTitle: Localize("#CustomArt_ErrorTitle"),
@@ -300,100 +308,90 @@ export let z = class extends i.Component {
 	}
 	render() {
 		let {
-			app: e,
-			appid: t,
-			appinfo: r,
-			className: n,
-			rgSources: a,
-			name: s,
-			eAssetType: o,
-			onIncrementalError: m,
-			suppressTransitions: u,
-			neverShowTitle: d,
-			bShortDisplay: A,
-			backgroundType: p,
-			imageClassName: g,
-			allowCustomization: h,
+			app,
+			appid,
+			appinfo,
+			className,
+			rgSources,
+			name,
+			eAssetType,
+			onIncrementalError,
+			suppressTransitions,
+			neverShowTitle,
+			bShortDisplay,
+			backgroundType,
+			imageClassName,
+			allowCustomization,
 			...C
 		} = this.props;
-		if (!a && (e || (r && o == 4))) {
-			a = this.GetSourcesForAsset();
+		if (!rgSources && (app || (appinfo && eAssetType == 4))) {
+			rgSources = this.GetSourcesForAsset();
 		}
 		const _ =
-			e?.optional_parent_app_id &&
-			e.app_type == 8 &&
-			o == 0 &&
+			app?.optional_parent_app_id &&
+			app.app_type == 8 &&
+			eAssetType == 0 &&
 			!this.is_custom_image &&
 			this.state.bIsLoaded;
-		const f = (0, c.A)(
+		const f = A_1(
 			b.Container,
-			p !== "transparent" && b.GreyBackground,
+			backgroundType !== "transparent" && b.GreyBackground,
 			{
-				[b.PortraitImage]: o == 0,
-				[b.LandscapeImage]: o == 3,
+				[b.PortraitImage]: eAssetType == 0,
+				[b.LandscapeImage]: eAssetType == 3,
 				[b.CustomImage]: this.is_custom_image,
 				[b.Short]: this.props.bShortDisplay,
 				[b.ShowDemoBanner]: _,
 			},
-			n,
+			className,
 		);
-		const y = e?.display_name || s;
+		const y = app?.display_name || name;
 		const S = y?.length > 25;
-		const B = h !== false && o != 4;
-		return i.createElement(
-			"div",
-			{
-				className: f,
-			},
-			B &&
-				i.createElement("input", {
-					type: "file",
-					accept: ".jpg,.jpeg,.png",
-					style: {
-						display: "none",
-					},
-					name: "fileupload",
-					ref: this.m_refFileInput,
-					onClick: this.OnFileInputClick,
-					onChange: this.OnFileInputChange,
-				}),
-			a?.length > 0 &&
-				i.createElement(l.c, {
-					...C,
-					ref: this.m_refImage,
-					className: (0, c.A)(
-						b.Image,
-						b.Visibility,
-						this.state.bIsLoaded ? b.Visible : b.Hidden,
-						this.props.suppressTransitions && b.NoTransitions,
-						g,
-					),
-					rgSources: a,
-					onIncrementalError: this.OnIncrementalError,
-					onLoad: this.OnImageLoaded,
-					onError: this.OnError,
-					alt: e && e.display_name,
-				}),
-			y &&
-				this.BDisplayTitle() &&
-				i.createElement(
-					"span",
-					{
-						className: (0, c.A)(b.Title, S && b.LongTitles),
-					},
-					y,
-				),
-			_ &&
-				i.createElement(w.Gl, {
-					className: b.DemoBanner,
-					overview: e,
-				}),
+		const B = allowCustomization !== false && eAssetType != 4;
+		return (
+			<div className={f}>
+				{B && (
+					<input
+						type="file"
+						accept=".jpg,.jpeg,.png"
+						style={{
+							display: "none",
+						}}
+						name="fileupload"
+						ref={this.m_refFileInput}
+						onClick={this.OnFileInputClick}
+						onChange={this.OnFileInputChange}
+					/>
+				)}
+				{rgSources?.length > 0 && (
+					<l.c
+						{...C}
+						ref={this.m_refImage}
+						className={A_1(
+							b.Image,
+							b.Visibility,
+							this.state.bIsLoaded ? b.Visible : b.Hidden,
+							this.props.suppressTransitions && b.NoTransitions,
+							imageClassName,
+						)}
+						rgSources={rgSources}
+						onIncrementalError={this.OnIncrementalError}
+						onLoad={this.OnImageLoaded}
+						onError={this.OnError}
+						alt={app && app.display_name}
+					/>
+				)}
+				{y && this.BDisplayTitle() && (
+					<span className={A_1(b.Title, S && b.LongTitles)}>{y}</span>
+				)}
+				{_ && <w.Gl className={b.DemoBanner} overview={app} />}
+			</div>
 		);
 	}
 };
 export function A(e, t) {
-	const r = (0, s.Co)(e);
-	const n = (0, S.Xe)(e);
+	const r = Co(e);
+	const n = Xe(e);
 	if (r) {
 		return {
 			app: r,
@@ -416,10 +414,10 @@ export function A(e, t) {
 		};
 	}
 }
-(0, n.Cg)([m.oI], z.prototype, "OnIncrementalError", null);
-(0, n.Cg)([m.oI], z.prototype, "OnImageLoaded", null);
-(0, n.Cg)([m.oI], z.prototype, "OnError", null);
-(0, n.Cg)([m.oI], z.prototype, "GetSourcesForAsset", null);
-(0, n.Cg)([m.oI], z.prototype, "OnChangeArtwork", null);
-(0, n.Cg)([m.oI], z.prototype, "OnFileInputChange", null);
-z = (0, n.Cg)([a.PA], z);
+Cg([m.oI], z.prototype, "OnIncrementalError", null);
+Cg([m.oI], z.prototype, "OnImageLoaded", null);
+Cg([m.oI], z.prototype, "OnError", null);
+Cg([m.oI], z.prototype, "GetSourcesForAsset", null);
+Cg([m.oI], z.prototype, "OnChangeArtwork", null);
+Cg([m.oI], z.prototype, "OnFileInputChange", null);
+z = Cg([a.PA], z);

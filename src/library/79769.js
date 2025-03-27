@@ -1,8 +1,8 @@
-export let lu = o.l;
-var r = require(/*webcrack:missing*/ "./34629.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var s = require("./93960.js");
-var o = require("./90039.js");
+import r, { Cg } from "./34629.js";
+import s from "./93960.js";
+import o from "./90039.js";
+export let lu = o.l;
 class a {
 	m_callbacks;
 	m_currentValue;
@@ -96,7 +96,7 @@ export class LU {
 		e?.();
 	}
 }
-(0, r.Cg)([s.o], LU.prototype, "ScheduledInternal", null);
+Cg([s.o], LU.prototype, "ScheduledInternal", null);
 export class Ji {
 	m_rgListeners = [];
 	AddEventListener(e, t, n) {
@@ -141,4 +141,4 @@ export class e0 {
 		return this.Unregister;
 	}
 }
-(0, r.Cg)([s.o], e0.prototype, "Unregister", null);
+Cg([s.o], e0.prototype, "Unregister", null);

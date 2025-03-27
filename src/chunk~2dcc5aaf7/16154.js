@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./12176.js");
+import n from "./83957.js";
+import a from "./12176.js";
+const i = n;
 export function H(e) {
 	if (i.isCancel(e)) {
 		return {
-			strErrorMsg: "Action Cancelled:" + e,
+			strErrorMsg: `Action Cancelled:${e}`,
 			errorCode: 52,
 		};
 	}
@@ -33,7 +33,7 @@ export function H(e) {
 		}
 		if ("success" in e.response.data) {
 			return {
-				strErrorMsg: "error code: " + e.response.data.success,
+				strErrorMsg: `error code: ${e.response.data.success}`,
 				errorCode: e.response.data.success,
 			};
 		}
@@ -58,7 +58,7 @@ export function H(e) {
 		}
 		if ("success" in e.data) {
 			return {
-				strErrorMsg: "error code: " + e.data.success,
+				strErrorMsg: `error code: ${e.data.success}`,
 				errorCode: e.data.success,
 			};
 		}
@@ -88,7 +88,7 @@ export function H(e) {
 		} else {
 			if (typeof e == "object" && e instanceof a.w) {
 				return {
-					strErrorMsg: "" + e.GetErrorMessage(),
+					strErrorMsg: `${e.GetErrorMessage()}`,
 					errorCode: e.GetEResult(),
 				};
 			}
@@ -97,12 +97,12 @@ export function H(e) {
 	}
 	if (typeof e == "object" && "status" in e) {
 		return {
-			strErrorMsg: "Unknown Error: " + e + "\nStatus Code:" + e.status,
+			strErrorMsg: `Unknown Error: ${e}\nStatus Code:${e.status}`,
 			errorCode: 2,
 		};
 	} else {
 		return {
-			strErrorMsg: "Unknown Error: " + e,
+			strErrorMsg: `Unknown Error: ${e}`,
 			errorCode: 2,
 		};
 	}

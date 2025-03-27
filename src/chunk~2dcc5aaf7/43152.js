@@ -1,17 +1,17 @@
-export let FN = g.FN;
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./33572.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./10975.js");
-var l = require(/*webcrack:missing*/ "./49455.js");
-var c = require(/*webcrack:missing*/ "./79769.js");
 import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
-var u = require(/*webcrack:missing*/ "./83599.js");
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require("./34776.js");
-var g = require(/*webcrack:missing*/ "./41537.js");
+import n, { Cg } from "./34629.js";
+import i, { D7 } from "./33572.js";
+import a, { Gn } from "./89193.js";
+import s from "./63696.js";
+import o from "./10975.js";
+import { w } from "./49455.js";
+import c, { Jc } from "./79769.js";
+import u from "./83599.js";
+import { gc, x2 } from "./52451.js";
+import A, { Pr } from "./72476.js";
+import p from "./34776.js";
+import g from "./41537.js";
+export let FN = g.FN;
 export const I7 = new u.wd("VirtualKeyboard").Debug;
 export class PE {
 	k_rgKeyboardLocations = A.TS.ON_DECK
@@ -27,8 +27,8 @@ export class PE {
 	k_nKeyboardWindowOffset = 10;
 	m_currentVirtualKeyboardRef = null;
 	m_lastActiveVirtualKeyboardRef = null;
-	m_bIsInlineVirtualKeyboardOpen = (0, c.Jc)(false);
-	m_bIsVirtualKeyboardModal = (0, c.Jc)(false);
+	m_bIsInlineVirtualKeyboardOpen = Jc(false);
+	m_bIsVirtualKeyboardModal = Jc(false);
 	m_OnActiveElementChanged = new c.lu();
 	m_OnActiveElementClicked = new c.lu();
 	m_bDismissOnEnter = false;
@@ -43,7 +43,7 @@ export class PE {
 	m_KeyboardOwners = new Set();
 	m_OnTextEntered = new c.lu();
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	Init(e, t) {
 		this.m_bUseVRKeyboard = e;
@@ -63,6 +63,7 @@ export class PE {
 			this.m_KeyboardOwners.size != 0 &&
 			(this.m_bIsInlineVirtualKeyboardOpen.Value != e ||
 				this.m_bUseVRKeyboard ||
+				this.m_bUseVRKeyboard ||
 				!e)
 		) {
 			if (!e) {
@@ -78,20 +79,20 @@ export class PE {
 			} else {
 				this.m_bIsInlineVirtualKeyboardOpen.Set(e);
 				if (this.m_ActiveElementProps) {
-					const { onKeyboardShow: e } = this.m_ActiveElementProps;
-					if (e != null) {
-						e();
+					const { onKeyboardShow } = this.m_ActiveElementProps;
+					if (onKeyboardShow != null) {
+						onKeyboardShow();
 					}
-					const { onKeyboardFullyVisible: t } = this.m_ActiveElementProps;
-					if (t != null) {
-						setTimeout(() => t(), 300);
+					const { onKeyboardFullyVisible } = this.m_ActiveElementProps;
+					if (onKeyboardFullyVisible != null) {
+						setTimeout(() => onKeyboardFullyVisible(), 300);
 					}
 				}
 			}
 		}
 	}
 	SetVirtualKeyboardDone() {
-		(0, l.w)(
+		w(
 			this.m_bUseVRKeyboard,
 			"We should only be showing the Done button on VR keyboards",
 		);
@@ -202,9 +203,12 @@ export class PE {
 		}
 	}
 	HandleNavOut(e) {
-		const { onKeyboardNavOut: t } = this.m_ActiveElementProps;
-		if (t != null) {
-			const e = typeof t == "function" ? t() : t;
+		const { onKeyboardNavOut } = this.m_ActiveElementProps;
+		if (onKeyboardNavOut != null) {
+			const e =
+				typeof onKeyboardNavOut == "function"
+					? onKeyboardNavOut()
+					: onKeyboardNavOut;
 			return !!e && (this.HandleVirtualKeyDown(e), true);
 		}
 		this.SetVirtualKeyboardHidden();
@@ -223,11 +227,8 @@ export class PE {
 			}
 			this.HandleVirtualKeyDown(e.charAt(0));
 		}
-		(0, l.w)(
-			t.charAt(0) == " ",
-			"Dead key characters should start with a space",
-		);
-		(0, l.w)(r.length == t.length, "Dead key composition length mismatch");
+		w(t.charAt(0) == " ", "Dead key characters should start with a space");
+		w(r.length == t.length, "Dead key composition length mismatch");
 		this.m_strDeadKeyPending = e;
 		this.m_strDeadKeyNext = t;
 		this.m_strDeadKeyCombined = r;
@@ -241,7 +242,7 @@ export class PE {
 		this.m_strDeadKeyCombined = null;
 	}
 	SendClientPasteCommand() {
-		const e = (0, A.Pr)() ? 102 : 103;
+		const e = Pr() ? 102 : 103;
 		SteamClient.Input.ControllerKeyboardSetKeyState(e, true);
 		SteamClient.Input.ControllerKeyboardSetKeyState(25, true);
 		SteamClient.Input.ControllerKeyboardSetKeyState(25, false);
@@ -349,29 +350,35 @@ export class PE {
 			let a = 0;
 			let s = 0;
 			switch (t) {
-				case "center-bottom":
+				case "center-bottom": {
 					a = r;
 					s = i;
 					break;
-				case "lower-left":
+				}
+				case "lower-left": {
 					a = 0;
 					s = i;
 					break;
-				case "upper-left":
+				}
+				case "upper-left": {
 					a = 0;
 					s = 0;
 					break;
-				case "center-top":
+				}
+				case "center-top": {
 					a = r;
 					s = 0;
 					break;
-				case "upper-right":
+				}
+				case "upper-right": {
 					a = n;
 					s = 0;
 					break;
-				case "lower-right":
+				}
+				case "lower-right": {
 					a = n;
 					s = i;
+				}
 			}
 			let o = {
 				top: s,
@@ -402,67 +409,81 @@ export class PE {
 }
 export function iv(e) {
 	switch (e) {
-		case "Backspace":
+		case "Backspace": {
 			e = "";
 			break;
-		case "Enter":
+		}
+		case "Enter": {
 			e = "";
 			break;
-		case "Tab":
+		}
+		case "Tab": {
 			e = "\t";
 			break;
-		case "ArrowLeft":
+		}
+		case "ArrowLeft": {
 			e = "";
 			break;
-		case "ArrowRight":
+		}
+		case "ArrowRight": {
 			e = "";
 			break;
-		case "ArrowUp":
+		}
+		case "ArrowUp": {
 			e = "";
 			break;
-		case "ArrowDown":
+		}
+		case "ArrowDown": {
 			e = "";
+		}
 	}
 	SteamClient.Input.ControllerKeyboardSendText(e);
 }
 export function _1(e) {
 	switch (e) {
-		case "Backspace":
+		case "Backspace": {
 			e = "\b";
 			break;
-		case "Enter":
+		}
+		case "Enter": {
 			e = "\n";
 			break;
-		case "Tab":
+		}
+		case "Tab": {
 			e = "\t";
 			break;
-		case "ArrowLeft":
+		}
+		case "ArrowLeft": {
 			e = "[D";
 			break;
-		case "ArrowRight":
+		}
+		case "ArrowRight": {
 			e = "[C";
 			break;
-		case "ArrowUp":
+		}
+		case "ArrowUp": {
 			e = "[A";
 			break;
-		case "ArrowDown":
+		}
+		case "ArrowDown": {
 			e = "[B";
+		}
 	}
 	if (e !== "") {
 		SteamClient.OpenVR.Keyboard.SendText(e);
 	}
 }
 export function u6() {
-	const e = (0, i.D7)();
-	return (0, d.gc)(e.IsShowingVirtualKeyboard);
+	const e = D7();
+	return gc(e.IsShowingVirtualKeyboard);
 }
 export function Nr() {
-	const e = (0, i.D7)();
-	return (0, d.gc)(e.IsVirtualKeyboardModal);
+	const e = D7();
+	return gc(e.IsVirtualKeyboardModal);
 }
 export function dv(e) {
-	const t = (0, i.D7)();
-	(0, d.x2)(t.IsShowingVirtualKeyboard, e);
+	const t = D7();
+	x2(t.IsShowingVirtualKeyboard, e);
 }
 export function a1(e, t) {
 	s.useEffect(() => {
@@ -471,15 +492,15 @@ export function a1(e, t) {
 	}, [e, t]);
 }
 export function jg(e) {
-	const t = (0, i.D7)();
+	const t = D7();
 	s.useEffect(() => {
 		if (e) {
 			return t.OnTextEntered.Register(e).Unregister;
 		}
 	}, [t, e]);
 }
-(0, n.Cg)([a.sH], PE.prototype, "m_strDeadKeyPending", undefined);
-(0, n.Cg)([a.sH], PE.prototype, "m_iKeyboardLocation", undefined);
+Cg([a.sH], PE.prototype, "m_strDeadKeyPending", undefined);
+Cg([a.sH], PE.prototype, "m_iKeyboardLocation", undefined);
 const v = "DEBUG_StickyKeyboard";
 export function f0() {
 	return false;

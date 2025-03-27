@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Login: "lat0M-V5X4uYd6Mpm1DJ1",
 	SideBySide: "ZHRZ8czyqs7NaNmv65ARI",
 	GuestContainer: "_3Sfbz5IM9d2jNMdOV2aFal",

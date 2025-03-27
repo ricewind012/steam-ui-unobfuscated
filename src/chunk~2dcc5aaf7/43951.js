@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./83231.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require("./44234.js");
-var l = require("./46162.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require("./97422.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var d = require("./52912.js");
-var A = require("./95773.js");
+import n, { Cg } from "./34629.js";
+import i from "./83231.js";
+import a from "./63696.js";
+import s, { Gn } from "./89193.js";
+import o from "./44234.js";
+import l from "./46162.js";
+import c from "./52451.js";
+import m, { tj } from "./97422.js";
+import d, { CO } from "./52912.js";
+import A from "./95773.js";
 export class DH {
 	m_mapHovers = new WeakMap();
 	GetHover(e) {
@@ -22,7 +22,7 @@ export class DH {
 }
 export class JD {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_OwningElement;
 	visible = undefined;
@@ -32,7 +32,7 @@ export class JD {
 	m_BlurHandler;
 	m_VisibilityHandler;
 }
-(0, n.Cg)([s.sH], JD.prototype, "visible", undefined);
+Cg([s.sH], JD.prototype, "visible", undefined);
 export class ol {
 	m_friend;
 	static m_embeddedElements = new l.MX("CFriendHoverContainer");
@@ -102,9 +102,9 @@ export class ol {
 			return;
 		}
 		this.friend.miniProfileData.EnsureCommunityDataLoaded();
-		let s = e.currentTarget;
-		let l = (0, d.CO)(e);
-		let c = this.GetInstance(s, true);
+		let e_currentTarget = e.currentTarget;
+		let l = CO(e);
+		let c = this.GetInstance(e_currentTarget, true);
 		c.context = t;
 		let m = false;
 		if (o.TS.IN_CLIENT) {
@@ -112,20 +112,22 @@ export class ol {
 			m = e.BUsePopups();
 		}
 		if (n && m) {
-			this.ShowPopup(s, c, l);
+			this.ShowPopup(e_currentTarget, c, l);
 		} else {
-			let e = a.createElement(i.Rg, {
-				hoverInstance: c,
-				target: s,
-				direction: r,
-				onNoSpace: () => {
-					if (m) {
-						this.ShowPopup(s, c, l);
-					}
-				},
-			});
+			let e = (
+				<i.Rg
+					hoverInstance={c}
+					target={e_currentTarget}
+					direction={r}
+					onNoSpace={() => {
+						if (m) {
+							this.ShowPopup(e_currentTarget, c, l);
+						}
+					}}
+				/>
+			);
 			ol.m_embeddedElements
-				.ShowElementDelayed(s.ownerDocument, 250, e, c)
+				.ShowElementDelayed(e_currentTarget.ownerDocument, 250, e, c)
 				.then(() => {
 					c.visible = true;
 				});
@@ -153,10 +155,10 @@ export class ol {
 				t.m_VisibilityHandler = null;
 			}
 			if (t.popupWindow && !t.popupWindow.BIsClosed()) {
-				let r = t.popupWindow;
+				let t_popupWindow = t.popupWindow;
 				let n = () => {
-					if (!r.BIsClosed()) {
-						r.Close();
+					if (!t_popupWindow.BIsClosed()) {
+						t_popupWindow.Close();
 					}
 				};
 				e.ownerDocument.defaultView.addEventListener("unload", n);
@@ -175,7 +177,7 @@ export class ol {
 		}
 	}
 	OnContextMenu(e, t) {
-		let r = (0, m.tj)((0, d.CO)(t), e, this.m_friend, t);
+		let r = tj(CO(t), e, this.m_friend, t);
 		this.Hide(t);
 		return r;
 	}
@@ -190,6 +192,6 @@ export class ol {
 		return this.m_friend.miniProfileData;
 	}
 }
-(0, n.Cg)([c.oI], ol.prototype, "Show", null);
-(0, n.Cg)([c.oI], ol.prototype, "Hide", null);
-(0, n.Cg)([c.oI], ol.prototype, "OnContextMenu", null);
+Cg([c.oI], ol.prototype, "Show", null);
+Cg([c.oI], ol.prototype, "Hide", null);
+Cg([c.oI], ol.prototype, "OnContextMenu", null);

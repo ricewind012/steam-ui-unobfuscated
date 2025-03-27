@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LoadingWrapper: "_2wAKy-0ZkO_vhbiQCP9MgE",
 	Static: "_1QfwpLmLTSuiIRLDzdY_7l",
 	none: "_1F0lzP-Krz_y5P9ewZEvBD",

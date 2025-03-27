@@ -1,64 +1,68 @@
-var r = require(/*webcrack:missing*/ "./58663.js");
+import r from "./58663.js";
 export const qM = r.BinaryReader.prototype;
 export const gp = r.BinaryWriter.prototype;
 export function w0(e) {
 	const t = {};
-	const { fields: n } = e;
-	for (const e in n) {
-		const r = n[e];
-		t[r.n] = r;
+	const { fields } = e;
+	for (const e in fields) {
+		const n_e = fields[e];
+		t[n_e.n] = n_e;
 	}
 	return t;
 }
 export function Uq(e, t) {
-	const { proto: n, fields: i } = e;
-	const s = new n();
+	const { proto, fields } = e;
+	const s = new proto();
 	if (t == null) {
 		return s;
 	}
-	for (const e in i) {
-		const { n, c: o, r: a, d: c, q: l } = i[e];
+	for (const e in fields) {
+		const { n, c: c_1, r: r_1, d: d_1, q } = fields[e];
 		if (!Object.prototype.hasOwnProperty.call(t, e)) {
 			continue;
 		}
-		const u = t[e];
-		if (o) {
-			if (a) {
+		const t_e = t[e];
+		if (c_1) {
+			if (r_1) {
 				r.Message.setRepeatedWrapperField(
 					s,
 					n,
-					Array.isArray(u) ? u.map((e) => o.fromObject(e)) : [],
+					Array.isArray(t_e) ? t_e.map((e) => c_1.fromObject(e)) : [],
 				);
 			} else {
-				r.Message.setWrapperField(s, n, o.fromObject(u));
+				r.Message.setWrapperField(s, n, c_1.fromObject(t_e));
 			}
 		} else {
-			r.Message.setField(s, n, u);
+			r.Message.setField(s, n, t_e);
 		}
 	}
 	return s;
 }
 export function BT(e, t, n) {
-	const { proto: i, fields: s } = e;
+	const { proto, fields } = e;
 	const o = {};
-	for (const e in s) {
-		const { n: i, c: a, r: c, d: l, q: u } = s[e];
-		if (a) {
-			if (c) {
+	for (const e in fields) {
+		const { n: n_1, c: c_1, r: r_1, d: d_1, q } = fields[e];
+		if (c_1) {
+			if (r_1) {
 				o[e] = r.Message.toObjectList(
-					r.Message.getRepeatedWrapperField(n, a, i),
-					a.toObject,
+					r.Message.getRepeatedWrapperField(n, c_1, n_1),
+					c_1.toObject,
 					t,
 				);
 			} else {
-				const s = r.Message.getWrapperField(n, a, i, u ? 1 : 0);
+				const s = r.Message.getWrapperField(n, c_1, n_1, q ? 1 : 0);
 				if (s) {
-					o[e] = a.toObject(t, s);
+					o[e] = c_1.toObject(t, s);
 				}
 			}
 		} else {
-			const t = r.Message.getFieldWithDefault(n, i, l !== undefined ? l : null);
-			if (t !== null || u) {
+			const t = r.Message.getFieldWithDefault(
+				n,
+				n_1,
+				d_1 !== undefined ? d_1 : null,
+			);
+			if (t !== null || q) {
 				o[e] = t;
 			}
 		}
@@ -72,26 +76,26 @@ export function zj(e, t, n) {
 	while (n.nextField() && !n.isEndGroup()) {
 		const i = e[n.getFieldNumber()];
 		if (i) {
-			const { n: e, c: s, r: o, d: a, q: c, br: l } = i;
-			if (s) {
-				const i = new s();
-				n.readMessage(i, s.deserializeBinaryFromReader);
-				if (o) {
-					r.Message.addToRepeatedWrapperField(t, e, i, s);
+			const { n: n_1, c: c_1, r: r_1, d: d_1, q, br } = i;
+			if (c_1) {
+				const i = new c_1();
+				n.readMessage(i, c_1.deserializeBinaryFromReader);
+				if (r_1) {
+					r.Message.addToRepeatedWrapperField(t, n_1, i, c_1);
 				} else {
-					r.Message.setWrapperField(t, e, i);
+					r.Message.setWrapperField(t, n_1, i);
 				}
-			} else if (l) {
-				const i = l.call(n);
-				if (o) {
-					r.Message.addToRepeatedField(t, e, i);
+			} else if (br) {
+				const i = br.call(n);
+				if (r_1) {
+					r.Message.addToRepeatedField(t, n_1, i);
 				} else {
-					r.Message.setField(t, e, i);
+					r.Message.setField(t, n_1, i);
 				}
 			} else {
 				console.assert(
-					!!l,
-					`Reader func not set for field number ${e} in class ${s}`,
+					!!br,
+					`Reader func not set for field number ${n_1} in class ${c_1}`,
 				);
 				n.skipField();
 			}
@@ -102,58 +106,58 @@ export function zj(e, t, n) {
 	return t;
 }
 export function i0(e, t, n) {
-	const { fields: i } = e;
-	for (const e in i) {
-		const { n: s, c: o, r: a, d: c, q: l, bw: u } = i[e];
-		if (o) {
-			if (a) {
-				const e = r.Message.getRepeatedWrapperField(t, o, s);
-				if ((e && e.length) || l) {
-					n.writeRepeatedMessage(s, e, o.serializeBinaryToWriter);
+	const { fields } = e;
+	for (const e in fields) {
+		const { n: n_1, c: c_1, r: r_1, d: d_1, q, bw } = fields[e];
+		if (c_1) {
+			if (r_1) {
+				const e = r.Message.getRepeatedWrapperField(t, c_1, n_1);
+				if ((e && e.length) || q) {
+					n.writeRepeatedMessage(n_1, e, c_1.serializeBinaryToWriter);
 				}
 			} else {
-				const e = r.Message.getWrapperField(t, o, s, l ? 1 : 0);
+				const e = r.Message.getWrapperField(t, c_1, n_1, q ? 1 : 0);
 				if (e) {
-					n.writeMessage(s, e, o.serializeBinaryToWriter);
+					n.writeMessage(n_1, e, c_1.serializeBinaryToWriter);
 				}
 			}
-		} else if (u) {
-			const e = r.Message.getField(t, s);
+		} else if (bw) {
+			const e = r.Message.getField(t, n_1);
 			if (e !== undefined) {
-				u.call(n, s, e);
+				bw.call(n, n_1, e);
 			}
 		} else {
 			console.assert(
-				!!u,
-				`Writer func not set for field number ${s} in class ${o}`,
+				!!bw,
+				`Writer func not set for field number ${n_1} in class ${c_1}`,
 			);
 		}
 	}
 }
 export function Sg(e) {
-	const t = e.proto;
+	const e_proto = e.proto;
 	for (const n in e.fields) {
 		const i = e.fields[n];
-		const { n: s, c: o, r: a, d: c, q: l } = i;
+		const { n: n_1, c: c_1, r: r_1, d: d_1, q } = i;
 		if (Object.prototype.hasOwnProperty.call(i, "d")) {
-			t.prototype[n] = d(r.Message.getFieldWithDefault, s, c);
+			e_proto.prototype[n] = d(r.Message.getFieldWithDefault, n_1, d_1);
 		} else {
-			t.prototype[n] = o
-				? a
-					? d(r.Message.getRepeatedWrapperField, o, s)
-					: h(o, s)
-				: d(r.Message.getField, s);
+			e_proto.prototype[n] = c_1
+				? r_1
+					? d(r.Message.getRepeatedWrapperField, c_1, n_1)
+					: h(c_1, n_1)
+				: d(r.Message.getField, n_1);
 		}
-		t.prototype[`set_${n}`] = p(
-			o
-				? a
+		e_proto.prototype[`set_${n}`] = p(
+			c_1
+				? r_1
 					? r.Message.setRepeatedWrapperField
 					: r.Message.setWrapperField
 				: r.Message.setField,
-			s,
+			n_1,
 		);
-		if (a) {
-			t.prototype[`add_${n}`] = g(s, o);
+		if (r_1) {
+			e_proto.prototype[`add_${n}`] = g(n_1, c_1);
 		}
 	}
 }

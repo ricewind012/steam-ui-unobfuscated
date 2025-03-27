@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	"error-shake-duration": "500ms",
 	SliderControlPanelGroup: "_198v6zB5mZ5FWG0wpQU_3m",

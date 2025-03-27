@@ -1,173 +1,157 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require("./18057.js");
-var o = require(/*webcrack:missing*/ "./88750.js");
-var l = require("./18869.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./51319.js");
-var u = m;
-var d = require("./40451.js");
-var A = require("./3475.js");
-var p = require("./5640.js");
-var g = require(/*webcrack:missing*/ "./83599.js");
-var h = require(/*webcrack:missing*/ "./15123.js");
-var C = require("./28934.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var f = require("./34792.js");
-var b = require("./10501.js");
-var y = require(/*webcrack:missing*/ "./88808.js");
+import n, { useEffect } from "./63696.js";
+import i, { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+import s, { Qt } from "./18057.js";
+import o from "./88750.js";
+import l, { tn } from "./18869.js";
+import m from "./51319.js";
+import d, { d as d_1 } from "./40451.js";
+import A from "./3475.js";
+import { l9 } from "./5640.js";
+import g from "./83599.js";
+import h, { h as h_1 } from "./15123.js";
+import { wT } from "./28934.js";
+import f, { VI } from "./34792.js";
+import b, { w as w_1 } from "./10501.js";
+import y from "./88808.js";
+const u = m;
 const S = new g.wd("Menus").Debug;
 function w(e) {
 	return e.filter((e) => !!e && e.visible !== false);
 }
 const B = (e) => {
 	const {
-		name: t,
-		route: r,
-		steamURL: i,
-		dialog: m,
-		onClick: g,
-		disabledClass: h,
-		disabled: f,
-		parentalFeature: b = A.uX,
-		newItem: y,
-		children: S,
+		name,
+		route,
+		steamURL,
+		dialog,
+		onClick,
+		disabledClass,
+		disabled,
+		parentalFeature = A.uX,
+		newItem,
+		children,
 	} = e;
-	const w = (0, l.tn)(r);
-	const B = (0, s.Qt)(i);
-	const v = (0, d.d)();
-	const I = (0, p.l9)(b);
+	const w = tn(route);
+	const B = Qt(steamURL);
+	const v = d_1();
+	const I = l9(parentalFeature);
 	const E = I != 0;
-	const T = (0, C.wT)();
-	const R = I != 2 || b !== A.JC;
-	let k = g;
-	if (r) {
+	const T = wT();
+	const R = I != 2 || parentalFeature !== A.JC;
+	let k = onClick;
+	if (route) {
 		k = w;
-	} else if (i) {
+	} else if (steamURL) {
 		k = B;
-	} else if (m) {
-		k = () => v(m, null);
+	} else if (dialog) {
+		k = () => v(dialog, null);
 	}
 	const D = n.useCallback(
 		(e) => {
 			const t = GetOwningWindowForEvent(e);
 			if (E && k) {
-				T(I, b ?? A.uX, () => k(t));
+				T(I, parentalFeature ?? A.uX, () => k(t));
 			} else {
 				k(t);
 			}
 		},
-		[T, I, E, b, k],
+		[T, I, E, parentalFeature, k],
 	);
-	if (!k && !f) {
-		return n.createElement("hr", {
-			className: (0, a.A)(u.MenuItem, u.Separator, (f || E) && h),
-		});
+	if (!k && !disabled) {
+		return (
+			<hr
+				className={A_1(
+					u.MenuItem,
+					u.Separator,
+					(disabled || E) && disabledClass,
+				)}
+			/>
+		);
 	}
-	const N = n.createElement(
-		n.Fragment,
-		null,
-		y && n.createElement(M, null),
-		S || (t[0] == "#" ? Localize(t) : t),
+	const N = (
+		<>
+			{newItem && <M />}
+			{children || (name[0] == "#" ? Localize(name) : name)}
+		</>
 	);
-	return n.createElement(
-		o.kt,
-		{
-			className: (0, a.A)(
+	return (
+		<o.kt
+			className={A_1(
 				u.MenuItem,
 				u.Item,
-				(f || E) && u.Disabled,
-				(f || E) && h,
-			),
-			onSelected: D,
-			disabled: f || (E && !R),
-		},
-		N,
+				(disabled || E) && u.Disabled,
+				(disabled || E) && disabledClass,
+			)}
+			onSelected={D}
+			disabled={disabled || (E && !R)}
+		>
+			{N}
+		</o.kt>
 	);
 };
-const v = n.createContext(true);
+const VContext = n.createContext(true);
 export function bI() {
-	return n.useContext(v);
+	return n.useContext(VContext);
 }
 const E = (e) => {
 	const {
-		className: t,
-		disabledItemClass: r,
-		menuItems: s,
-		children: l,
-		refContextMenu: c,
+		className,
+		disabledItemClass,
+		menuItems,
+		children,
+		refContextMenu,
 		...m
 	} = e;
-	const d = (0, i.q3)(() => c.current.visible);
-	return n.createElement(
-		v.Provider,
-		{
-			value: d,
-		},
-		n.createElement(
-			o.tz,
-			{
-				className: (0, a.A)(u.MenuPopup, t),
-				...m,
-			},
-			n.createElement(
-				_G,
-				{
-					disabledItemClass: r,
-					menuItems: s,
-				},
-				l,
-			),
-		),
+	const d = q3(() => refContextMenu.current.visible);
+	return (
+		<VContext.Provider value={d}>
+			<o.tz className={A_1(u.MenuPopup, className)} {...m}>
+				<_G disabledItemClass={disabledItemClass} menuItems={menuItems}>
+					{children}
+				</_G>
+			</o.tz>
+		</VContext.Provider>
 	);
 };
 function M() {
-	return n.createElement(
-		"span",
-		{
-			className: u.NewItemBug,
-		},
-		Localize("#NewItemBug"),
-	);
+	return <span className={u.NewItemBug}>{Localize("#NewItemBug")}</span>;
 }
 export const _G = (e) => {
-	const { disabledItemClass: t, menuItems: r, children: i } = e;
-	return n.createElement(
-		n.Fragment,
-		null,
-		w(r).map((e) =>
-			n.createElement(B, {
-				key: e.name,
-				disabledClass: t,
-				...e,
-			}),
-		),
-		i,
+	const { disabledItemClass, menuItems, children } = e;
+	return (
+		<>
+			{w(menuItems).map((e) => (
+				<B key={e.name} disabledClass={disabledItemClass} {...e} />
+			))}
+			{children}
+		</>
 	);
 };
 export const W1 = (e) => {
 	const {
-		title: t,
-		className: r,
-		popupClass: s,
-		buttonClass: o,
-		disabledClass: l,
-		disabledItemClass: c,
-		parentalFeature: m = A.uX,
-		bIsAnyMenuOpen: d,
-		bSuperNavBehavior: g,
-		menuContent: _,
-		menuOptions: y,
-		onClick: B,
-		onShow: v,
-		onHide: I,
-		refPopupMenu: M,
-		children: T,
+		title,
+		className,
+		popupClass,
+		buttonClass,
+		disabledClass,
+		disabledItemClass,
+		parentalFeature = A.uX,
+		bIsAnyMenuOpen,
+		bSuperNavBehavior,
+		menuContent,
+		menuOptions,
+		onClick,
+		onShow,
+		onHide,
+		refPopupMenu,
+		children,
 	} = e;
 	const R = w(e.menuItems ?? []);
-	const k = (0, b.w)();
-	const [D] = (0, f.VI)("small_mode");
+	const k = w_1();
+	const [D] = VI("small_mode");
 	const N = !k || D;
 	const F = N;
 	const G = n.useRef(undefined);
@@ -175,12 +159,12 @@ export const W1 = (e) => {
 	const P = n.useRef(false);
 	const L = n.useRef(undefined);
 	const z = n.useRef(undefined);
-	const x = (0, p.l9)(m);
+	const x = l9(parentalFeature);
 	const U = x != 0;
 	const W = n.useRef(false);
-	const V = (0, i.q3)(() => G.current?.visible);
-	const H = (0, h.h)();
-	const j = (0, C.wT)();
+	const V = q3(() => G.current?.visible);
+	const H = h_1();
+	const j = wT();
 	const q = () => {
 		W.current = true;
 		window.setTimeout(() => {
@@ -188,24 +172,24 @@ export const W1 = (e) => {
 			O.current = false;
 			P.current = false;
 		}, 250);
-		if (I) {
-			I();
+		if (onHide) {
+			onHide();
 		}
 		if (!F) {
 			G.current = undefined;
 		}
 	};
 	const Q = (e) => {
-		if (R?.length > 1 || _) {
+		if (R?.length > 1 || menuContent) {
 			if (!G.current) {
 				X(e.currentTarget);
 			}
 			G.current.Show();
-			if (v) {
-				v();
+			if (onShow) {
+				onShow();
 			}
-			if (M) {
-				M.current = G.current;
+			if (refPopupMenu) {
+				refPopupMenu.current = G.current;
 			}
 		}
 	};
@@ -220,29 +204,27 @@ export const W1 = (e) => {
 		}
 	};
 	const Y = (e) => {
-		S("OnMenuMouseEnter", t, V);
+		S("OnMenuMouseEnter", title, V);
 		P.current = true;
 	};
 	const K = (e) => {
-		S("OnMenuMouseLeave", t, V);
+		S("OnMenuMouseLeave", title, V);
 		P.current = false;
 		Z();
 	};
 	const X = (e) => {
-		if (e && !G.current && (R?.length > 1 || _)) {
+		if (e && !G.current && (R?.length > 1 || menuContent)) {
 			G.current = H.CreateContextMenuInstance(
-				n.createElement(
-					E,
-					{
-						refContextMenu: G,
-						className: s,
-						disabledItemClass: c,
-						menuItems: R,
-						onMouseEnter: Y,
-						onMouseLeave: g ? K : undefined,
-					},
-					_,
-				),
+				<E
+					refContextMenu={G}
+					className={popupClass}
+					disabledItemClass={disabledItemClass}
+					menuItems={R}
+					onMouseEnter={Y}
+					onMouseLeave={bSuperNavBehavior ? K : undefined}
+				>
+					{menuContent}
+				</E>,
 				e,
 				undefined,
 				undefined,
@@ -253,15 +235,15 @@ export const W1 = (e) => {
 					bDisableMouseOverlay: true,
 					bCreateHidden: F,
 					bRetainOnHide: F,
-					bNoFocusWhenShown: g,
-					title: t,
-					...y,
+					bNoFocusWhenShown: bSuperNavBehavior,
+					title: title,
+					...menuOptions,
 				},
 			);
 			G.current?.SetOnHideCallback(q);
 		}
 	};
-	(0, n.useEffect)(
+	useEffect(
 		() => () => {
 			if (G.current) {
 				H.ReleaseHiddenMenu(G.current);
@@ -269,82 +251,81 @@ export const W1 = (e) => {
 		},
 		[H],
 	);
-	return n.createElement(
-		"div",
-		{
-			className: (0, a.A)(
+	return (
+		<div
+			className={A_1(
 				u.MenuWrapper,
 				U && u.Disabled,
-				r,
-				U && l,
+				className,
+				U && disabledClass,
 				V && u.MenuOpen,
-			),
-			ref: (e) => {
+			)}
+			ref={(e) => {
 				if (e) {
 					z.current = e.ownerDocument.defaultView;
 				}
 				if (F) {
 					X(e);
 				}
-			},
-			onFocus: () => {},
-			onBlur: () => {},
-			onClick: g
-				? undefined
-				: (e) => {
+			}}
+			onFocus={() => {}}
+			onBlur={() => {}}
+			onClick={
+				bSuperNavBehavior ||
+				((e) => {
+					if (U) {
+						j(x, parentalFeature);
+					} else if (!G.current?.visible && !W.current) {
+						S("OnClick", title, V);
+						Q(e);
+					}
+				})
+			}
+			onMouseEnter={
+				U ||
+				((e) => {
+					if (bSuperNavBehavior || bIsAnyMenuOpen) {
+						S("OnButtonMouseEnter", title, V);
+						O.current = true;
+						Q(e);
+					}
+				})
+			}
+			onMouseLeave={
+				U ||
+				((e) => {
+					S("OnButtonMouseLeave", title, V);
+					if (bSuperNavBehavior) {
+						O.current = false;
+						Z();
+					}
+				})
+			}
+		>
+			<div
+				className={A_1(u.MenuButton, buttonClass)}
+				onClick={(e) => {
+					if (onClick) {
 						if (U) {
-							j(x, m);
-						} else if (!G.current?.visible && !W.current) {
-							S("OnClick", t, V);
-							Q(e);
-						}
-					},
-			onMouseEnter: U
-				? undefined
-				: (e) => {
-						if (g || d) {
-							S("OnButtonMouseEnter", t, V);
-							O.current = true;
-							Q(e);
-						}
-					},
-			onMouseLeave: U
-				? undefined
-				: (e) => {
-						S("OnButtonMouseLeave", t, V);
-						if (g) {
-							O.current = false;
-							Z();
-						}
-					},
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, a.A)(u.MenuButton, o),
-				onClick: (e) => {
-					if (B) {
-						if (U) {
-							if (x != 2 || m !== A.JC) {
-								j(x, m, () => B());
+							if (x != 2 || parentalFeature !== A.JC) {
+								j(x, parentalFeature, () => onClick());
 							}
 						} else {
-							B();
+							onClick();
 						}
 					}
-				},
-			},
-			T,
-		),
+				}}
+			>
+				{children}
+			</div>
+		</div>
 	);
 };
 export function fN(e) {
-	return n.createElement(
-		h.D,
-		{
-			bRegisterMenuManager: false,
-		},
-		n.createElement(y.k, null),
-		e.children,
+	return (
+		<h.D bRegisterMenuManager={false}>
+			<y.k />
+			{e.children}
+		</h.D>
 	);
 }

@@ -1,16 +1,16 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./41230.js");
-var l = require(/*webcrack:missing*/ "./79769.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./64608.js");
-var u = require(/*webcrack:missing*/ "./50376.js");
-var d = require("./21501.js");
-var A = d;
-var p = require(/*webcrack:missing*/ "./31958.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import s from "./52451.js";
+import o from "./41230.js";
+import l from "./79769.js";
+import m from "./64608.js";
+import u from "./50376.js";
+import d from "./21501.js";
+import { OQ } from "./31958.js";
+let n;
+const A = d;
+((e) => {
 	e.topleft = "topleft";
 	e.top = "top";
 	e.topright = "topright";
@@ -99,58 +99,66 @@ export let I = class extends a.Component {
 				this.m_fnMouseUp();
 			}
 			switch (t) {
-				case n.left:
+				case n.left: {
 					this.UpdateState({
 						curLeftPosPct: this.CalcLeftEdge(e.clientX),
 					});
 					break;
-				case n.right:
+				}
+				case n.right: {
 					this.UpdateState({
 						curRightPosPct: this.CalcRightEdge(e.clientX),
 					});
 					break;
-				case n.top:
+				}
+				case n.top: {
 					this.UpdateState({
 						curTopPosPct: this.CalcTopEdge(e.clientY),
 					});
 					break;
-				case n.bottom:
+				}
+				case n.bottom: {
 					this.UpdateState({
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
 					break;
-				case n.topleft:
+				}
+				case n.topleft: {
 					this.UpdateState({
 						curTopPosPct: this.CalcBottomEdge(e.clientY),
 						curLeftPosPct: this.CalcLeftEdge(e.clientX),
 					});
 					break;
-				case n.topright:
+				}
+				case n.topright: {
 					this.UpdateState({
 						curTopPosPct: this.CalcTopEdge(e.clientY),
 						curRightPosPct: this.CalcRightEdge(e.clientX),
 					});
 					break;
-				case n.bottomleft:
+				}
+				case n.bottomleft: {
 					this.UpdateState({
 						curLeftPosPct: this.CalcLeftEdge(e.clientX),
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
 					break;
-				case n.bottomright:
+				}
+				case n.bottomright: {
 					this.UpdateState({
 						curRightPosPct: this.CalcRightEdge(e.clientX),
 						curBottomPosPct: this.CalcBottomEdge(e.clientY),
 					});
 					break;
+				}
 				case n.middle: {
-					const t = (0, p.OQ)(
+					const t = OQ(
 						this.CalcLeftEdge(e.clientX),
 						0,
 						100 - this.state.curWidthPct,
 					);
 					const r = 100 - (t + this.state.curWidthPct);
-					const n = (0, p.OQ)(
+					const n = OQ(
 						this.CalcTopEdge(e.clientY),
 						0,
 						100 - this.state.curHeightPct,
@@ -187,12 +195,12 @@ export let I = class extends a.Component {
 			e.curRightPosPct !== undefined
 				? e.curRightPosPct
 				: this.state.curRightPosPct;
-		let a = (0, p.OQ)(
+		let a = OQ(
 			100 - i - n,
 			this.props.widthMinPct || 0,
 			this.props.widthMaxPct || 100,
 		);
-		let s = (0, p.OQ)(
+		let s = OQ(
 			100 - r - t,
 			this.props.heightMinPct || 0,
 			this.props.heightMaxPct || 100,
@@ -249,24 +257,16 @@ export let I = class extends a.Component {
 		);
 	}
 	CalcLeftEdge(e) {
-		return (0, p.OQ)(this.GetXPercent(e), 0, 100);
+		return OQ(this.GetXPercent(e), 0, 100);
 	}
 	CalcRightEdge(e) {
-		return (0, p.OQ)(
-			100 - (this.GetXPercent(e) + this.state.curWidthPct),
-			0,
-			100,
-		);
+		return OQ(100 - (this.GetXPercent(e) + this.state.curWidthPct), 0, 100);
 	}
 	CalcTopEdge(e) {
-		return (0, p.OQ)(this.GetYPercent(e), 0, 100);
+		return OQ(this.GetYPercent(e), 0, 100);
 	}
 	CalcBottomEdge(e) {
-		return (0, p.OQ)(
-			100 - (this.GetYPercent(e) + this.state.curHeightPct),
-			0,
-			100,
-		);
+		return OQ(100 - (this.GetYPercent(e) + this.state.curHeightPct), 0, 100);
 	}
 	OnMouseUp(e, t) {
 		this.setState({
@@ -330,181 +330,144 @@ export let I = class extends a.Component {
 	}
 	render() {
 		let e = {
-			left: this.state.curLeftPosPct + "%",
-			top: this.state.curTopPosPct + "%",
-			right: this.state.curRightPosPct + "%",
-			bottom: this.state.curBottomPosPct + "%",
+			left: `${this.state.curLeftPosPct}%`,
+			top: `${this.state.curTopPosPct}%`,
+			right: `${this.state.curRightPosPct}%`,
+			bottom: `${this.state.curBottomPosPct}%`,
 		};
-		let t = A.LinkRegionDragBox;
+		let A_LinkRegionDragBox = A.LinkRegionDragBox;
 		if (this.state.EdgeDown !== null) {
-			t += ` ${A.EdgeDown} ${A[this.state.EdgeDown]}`;
+			A_LinkRegionDragBox += ` ${A.EdgeDown} ${A[this.state.EdgeDown]}`;
 		}
-		return a.createElement(
-			"div",
-			{
-				className: t,
-				style: e,
-				ref: this.LinkRegionBoxRef,
-				draggable: false,
-			},
-			a.createElement(
-				"div",
-				{
-					className: A.LinkRegionGridBox,
-				},
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.TopLeft}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.topleft);
-					},
-					draggable: false,
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.Top}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.top);
-					},
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.TopRight}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.topright);
-					},
-					draggable: false,
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.Left}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.left);
-					},
-					draggable: false,
-				}),
-				a.createElement(
-					"div",
-					{
-						className: `${A.LinkRegionEdge} ${A.Middle}`,
-						onMouseDown: (e) => {
+		return (
+			<div
+				className={A_LinkRegionDragBox}
+				style={e}
+				ref={this.LinkRegionBoxRef}
+				draggable={false}
+			>
+				<div className={A.LinkRegionGridBox}>
+					<div
+						className={`${A.LinkRegionEdge} ${A.TopLeft}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.topleft);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.Top}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.top);
+						}}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.TopRight}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.topright);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.Left}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.left);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.Middle}`}
+						onMouseDown={(e) => {
 							this.OnMouseDown(e, n.middle);
-						},
-						draggable: false,
-					},
-					this.props.deleteFn &&
-						a.createElement(
-							"div",
-							{
-								className: A.LinkRegionDelete,
-								onClick: this.HandleDelete,
-							},
-							a.createElement(u.sED, null),
-						),
-					!this.props.bDisableLink &&
-						a.createElement(
-							"div",
-							{
-								className: A.LinkRegionSettings,
-								onClick: this.OnEditLink,
-							},
-							a.createElement(u.xv8, null),
-						),
-					a.createElement(
-						"div",
-						{
-							className: A.LinkText,
-						},
-						" ",
-						this.m_strDescription,
-						" ",
-					),
-				),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.Right}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.right);
-					},
-					draggable: false,
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.BottomLeft}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.bottomleft);
-					},
-					draggable: false,
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.Bottom}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.bottom);
-					},
-					draggable: false,
-				}),
-				a.createElement("div", {
-					className: `${A.LinkRegionEdge} ${A.BottomRight}`,
-					onMouseDown: (e) => {
-						this.OnMouseDown(e, n.bottomright);
-					},
-					draggable: false,
-				}),
-			),
-			this.state.bEditingLink &&
-				a.createElement(
-					"div",
-					{
-						className: A.LinkRegionInfo,
-					},
-					a.createElement(m.pd, {
-						className: A.LinkRegionInput,
-						type: "text",
-						name: "link_url",
-						value: this.state.text_link_url,
-						label: (0, Localize)("#SteamTV_LinkURL"),
-						placeholder: "https://www.example.com",
-						onChange: this.OnSetLinkURLChange,
-						mustBeURL: true,
-					}),
-					a.createElement(m.pd, {
-						className: A.LinkRegionInput,
-						type: "text",
-						name: "link_description",
-						value: this.state.text_link_description,
-						label: (0, Localize)("#SteamTV_LinkDescription"),
-						placeholder: (0, Localize)("#SteamTV_LinkDescription_Placeholder"),
-						onChange: this.OnSetLinkDescriptionChange,
-					}),
-					a.createElement(
-						"div",
-						{
-							className: A.LinkRegionButtonContainer,
-						},
-						a.createElement(
-							m.$n,
-							{
-								disabled: !this.state.valid_link,
-								onClick: this.OnSaveLink,
-							},
-							" ",
-							(0, Localize)("#Button_OK"),
-							" ",
-						),
-						a.createElement(
-							m.$n,
-							{
-								onClick: this.OnEditLink,
-							},
-							" ",
-							(0, Localize)("#Button_Cancel"),
-						),
-					),
-				),
+						}}
+						draggable={false}
+					>
+						{this.props.deleteFn && (
+							<div className={A.LinkRegionDelete} onClick={this.HandleDelete}>
+								<u.sED />
+							</div>
+						)}
+						{!this.props.bDisableLink && (
+							<div className={A.LinkRegionSettings} onClick={this.OnEditLink}>
+								<u.xv8 />
+							</div>
+						)}
+						<div className={A.LinkText}> {this.m_strDescription} </div>
+					</div>
+					<div
+						className={`${A.LinkRegionEdge} ${A.Right}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.right);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.BottomLeft}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.bottomleft);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.Bottom}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.bottom);
+						}}
+						draggable={false}
+					/>
+					<div
+						className={`${A.LinkRegionEdge} ${A.BottomRight}`}
+						onMouseDown={(e) => {
+							this.OnMouseDown(e, n.bottomright);
+						}}
+						draggable={false}
+					/>
+				</div>
+				{this.state.bEditingLink && (
+					<div className={A.LinkRegionInfo}>
+						<m.pd
+							className={A.LinkRegionInput}
+							type="text"
+							name="link_url"
+							value={this.state.text_link_url}
+							label={(0, Localize)("#SteamTV_LinkURL")}
+							placeholder="https://www.example.com"
+							onChange={this.OnSetLinkURLChange}
+							mustBeURL
+						/>
+						<m.pd
+							className={A.LinkRegionInput}
+							type="text"
+							name="link_description"
+							value={this.state.text_link_description}
+							label={(0, Localize)("#SteamTV_LinkDescription")}
+							placeholder={(0, Localize)(
+								"#SteamTV_LinkDescription_Placeholder",
+							)}
+							onChange={this.OnSetLinkDescriptionChange}
+						/>
+						<div className={A.LinkRegionButtonContainer}>
+							<m.$n disabled={!this.state.valid_link} onClick={this.OnSaveLink}>
+								{" "}
+								{(0, Localize)("#Button_OK")}{" "}
+							</m.$n>
+							<m.$n onClick={this.OnEditLink}>
+								{" "}
+								{(0, Localize)("#Button_Cancel")}
+							</m.$n>
+						</div>
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-(0, i.Cg)([s.oI], I.prototype, "LinkRegionBoxRef", null);
-(0, i.Cg)([s.oI], I.prototype, "OnMouseDown", null);
-(0, i.Cg)([s.oI], I.prototype, "OnMouseMove", null);
-(0, i.Cg)([s.oI], I.prototype, "OnMouseUp", null);
-(0, i.Cg)([s.oI], I.prototype, "HandleDelete", null);
-(0, i.Cg)([s.oI], I.prototype, "OnSetLinkURLChange", null);
-(0, i.Cg)([s.oI], I.prototype, "OnSetLinkDescriptionChange", null);
-(0, i.Cg)([s.oI], I.prototype, "OnSaveLink", null);
-(0, i.Cg)([s.oI], I.prototype, "OnEditLink", null);
-I = (0, i.Cg)([o.PA], I);
+Cg([s.oI], I.prototype, "LinkRegionBoxRef", null);
+Cg([s.oI], I.prototype, "OnMouseDown", null);
+Cg([s.oI], I.prototype, "OnMouseMove", null);
+Cg([s.oI], I.prototype, "OnMouseUp", null);
+Cg([s.oI], I.prototype, "HandleDelete", null);
+Cg([s.oI], I.prototype, "OnSetLinkURLChange", null);
+Cg([s.oI], I.prototype, "OnSetLinkDescriptionChange", null);
+Cg([s.oI], I.prototype, "OnSaveLink", null);
+Cg([s.oI], I.prototype, "OnEditLink", null);
+I = Cg([o.PA], I);

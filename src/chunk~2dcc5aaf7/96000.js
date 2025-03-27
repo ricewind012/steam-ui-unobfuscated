@@ -1,25 +1,25 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./37322.js");
-var s = require("./89748.js");
-var o = require("./96593.js");
-var l = require("./16139.js");
-var c = require("./81482.js");
-var m = require(/*webcrack:missing*/ "./88696.js");
-var u = require("./14629.js");
-var d = require("./48289.js");
-var A = require("./61175.js");
-var p = require("./74995.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
 import {
 	Localize,
 	LocalizeCalendarTimeLessGranular,
 } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require("./51095.js");
-var f = require("./64004.js");
-var b = require(/*webcrack:missing*/ "./83599.js");
-require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, EW, HO } from "./89193.js";
+import a from "./37322.js";
+import s, { qw } from "./89748.js";
+import o from "./96593.js";
+import l from "./16139.js";
+import c from "./81482.js";
+import m from "./88696.js";
+import u, { Pj } from "./14629.js";
+import d from "./48289.js";
+import A from "./61175.js";
+import p from "./74995.js";
+import { w as w_1 } from "./49455.js";
+import C from "./52451.js";
+import _ from "./51095.js";
+import f from "./64004.js";
+import b from "./83599.js";
+import "./72476.js";
 const y = new b.wd("CollectionStore");
 const S = new b.wd("CollectionStore_Compute");
 function w(e, t, r) {
@@ -34,7 +34,7 @@ class B {
 	m_setApps = new Set();
 	m_rgApps = [];
 	constructor(e, t) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_strId = e;
 		this.m_strName = t;
 	}
@@ -70,25 +70,28 @@ class B {
 		return this.allApps.filter((e) => md.BIsVisible(e));
 	}
 	GetAppCountWithToolsFilter(e) {
-		const t = e.hash;
-		if (!this.m_mapFilterToAppCounts.has(t)) {
+		const e_hash = e.hash;
+		if (!this.m_mapFilterToAppCounts.has(e_hash)) {
 			this.m_mapFilterToAppCounts.set(
-				t,
+				e_hash,
 				this.allApps.filter((t) =>
 					this.id == A8.Hidden
 						? !t.BIsAppBlocked()
 						: !!md.BIsVisible(t) &&
-							(!t || t.app_type != 4 || !!e.BIncludesTools()) &&
+							(!t ||
+								t.app_type != 4 ||
+								t.app_type != 4 ||
+								!!e.BIncludesTools()) &&
 							e.Matches(t),
 				).length,
 			);
 			S.Debug(
 				`Counting apps for ${this.displayName} (${this.id})`,
-				t,
-				this.m_mapFilterToAppCounts.get(t),
+				e_hash,
+				this.m_mapFilterToAppCounts.get(e_hash),
 			);
 		}
-		return this.m_mapFilterToAppCounts.get(t);
+		return this.m_mapFilterToAppCounts.get(e_hash);
 	}
 	ClearAppCounts() {
 		this.m_mapFilterToAppCounts.clear();
@@ -118,12 +121,12 @@ class B {
 		return false;
 	}
 }
-(0, n.Cg)([i.sH], B.prototype, "m_strName", undefined);
-(0, n.Cg)([i.sH], B.prototype, "m_setApps", undefined);
-(0, n.Cg)([i.sH], B.prototype, "m_rgApps", undefined);
-(0, n.Cg)(
+Cg([i.sH], B.prototype, "m_strName", undefined);
+Cg([i.sH], B.prototype, "m_setApps", undefined);
+Cg([i.sH], B.prototype, "m_rgApps", undefined);
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -131,9 +134,9 @@ class B {
 	"allApps",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -147,7 +150,7 @@ class v extends B {
 	m_setRemovedManually = undefined;
 	constructor(e, t) {
 		super(e, t);
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	get displayName() {
 		return this.m_strName;
@@ -157,7 +160,9 @@ class v extends B {
 	}
 	get allApps() {
 		S.Debug(
-			`Computing allApps for ${this.displayName} (${this.id}), ${this.bIsDynamic ? "dynamic" : "static"}`,
+			`Computing allApps for ${this.displayName} (${this.id}), ${
+				this.bIsDynamic ? "dynamic" : "static"
+			}`,
 		);
 		return Array.from(this.apps.values())
 			.map((e) => o.tw.GetAppOverviewByAppID(e))
@@ -189,7 +194,7 @@ class v extends B {
 			if (this.m_setApps.size > 0) {
 				y.Debug(
 					`Change detected for ${this.displayName} (${this.displayName} (${this.id}))`,
-					(0, i.HO)(this.m_setApps),
+					HO(this.m_setApps),
 					"=>",
 					r,
 				);
@@ -207,11 +212,13 @@ class v extends B {
 		}
 	}
 	BIncludesFriend(e) {
-		return (this.m_filter?.GetSelectedOptions(6) || []).indexOf(e) >= 0;
+		return (this.m_filter?.GetSelectedOptions(6) || []).includes(e);
 	}
 	get visibleApps() {
 		S.Debug(
-			`Computing visibleApps for ${this.displayName} (${this.id}), ${this.bIsDynamic ? "dynamic" : "static"}`,
+			`Computing visibleApps for ${this.displayName} (${this.id}), ${
+				this.bIsDynamic ? "dynamic" : "static"
+			}`,
 		);
 		return this.allApps.filter((e) =>
 			this.id == A8.Hidden ? !e.BIsAppBlocked() : md.BIsVisible(e),
@@ -324,25 +331,27 @@ class v extends B {
 		};
 	}
 	MergeFromStorageFormat(e) {
-		const { roamingData: t, localData: r } = e;
+		const { roamingData, localData } = e;
 		this.m_setAddedManually = new Set();
 		this.m_setRemovedManually = new Set();
 		if (md.BIsPartnerCollectionId(this.id)) {
 			this.m_filter = u.E6.ForPartner(this.id);
 		} else {
-			this.m_filter = t.filterSpec && u.E6.FromStorageFormat(t.filterSpec);
-			if (t.added) {
-				D(t.added, this.m_setAddedManually);
+			this.m_filter =
+				roamingData.filterSpec &&
+				u.E6.FromStorageFormat(roamingData.filterSpec);
+			if (roamingData.added) {
+				D(roamingData.added, this.m_setAddedManually);
 			}
-			if (r && r.added) {
-				D(r.added, this.m_setAddedManually);
+			if (localData && localData.added) {
+				D(localData.added, this.m_setAddedManually);
 			}
 			if (this.bIsDynamic) {
-				if (t.removed) {
-					D(t.removed, this.m_setRemovedManually);
+				if (roamingData.removed) {
+					D(roamingData.removed, this.m_setRemovedManually);
 				}
-				if (r && r.removed) {
-					D(r.removed, this.m_setRemovedManually);
+				if (localData && localData.removed) {
+					D(localData.removed, this.m_setRemovedManually);
 				}
 			}
 		}
@@ -356,10 +365,10 @@ class v extends B {
 	static NewCollection(e, t, r) {
 		const n = new v(
 			k(
-				(function () {
+				(() => {
 					const e = new Uint8Array(9);
 					window.crypto.getRandomValues(e);
-					return "uc-" + a.iI(e);
+					return `uc-${a.iI(e)}`;
 				})(),
 			),
 			e,
@@ -371,7 +380,7 @@ class v extends B {
 		return n;
 	}
 	static FromUserTag(e, t) {
-		const r = new v(k("from-tag-" + e), e);
+		const r = new v(k(`from-tag-${e}`), e);
 		r.m_filter = undefined;
 		r.m_setAddedManually = new Set(t.map((e) => e.appid));
 		r.m_setRemovedManually = new Set();
@@ -387,21 +396,21 @@ class v extends B {
 		return r;
 	}
 }
-(0, n.Cg)([i.sH], v.prototype, "m_filter", undefined);
-(0, n.Cg)([i.sH], v.prototype, "m_setAddedManually", undefined);
-(0, n.Cg)([i.sH], v.prototype, "m_setRemovedManually", undefined);
-(0, n.Cg)([i.XI.bound], v.prototype, "UpdateApps", null);
-(0, n.Cg)([i.XI.bound], v.prototype, "UpdateFriendOwnedGames", null);
-(0, n.Cg)([C.oI], v.prototype, "AddApps", null);
-(0, n.Cg)([C.oI], v.prototype, "RemoveApps", null);
-(0, n.Cg)([i.XI.bound], v.prototype, "FreezeToStatic", null);
-(0, n.Cg)([C.oI], v.prototype, "ToStorageFormat", null);
-(0, n.Cg)([C.oI], v.prototype, "MergeFromStorageFormat", null);
+Cg([i.sH], v.prototype, "m_filter", undefined);
+Cg([i.sH], v.prototype, "m_setAddedManually", undefined);
+Cg([i.sH], v.prototype, "m_setRemovedManually", undefined);
+Cg([i.XI.bound], v.prototype, "UpdateApps", null);
+Cg([i.XI.bound], v.prototype, "UpdateFriendOwnedGames", null);
+Cg([C.oI], v.prototype, "AddApps", null);
+Cg([C.oI], v.prototype, "RemoveApps", null);
+Cg([i.XI.bound], v.prototype, "FreezeToStatic", null);
+Cg([C.oI], v.prototype, "ToStorageFormat", null);
+Cg([C.oI], v.prototype, "MergeFromStorageFormat", null);
 const I = "collection-bootstrap-complete";
 const E = "user-collections";
 const M = "union-collections";
 export var A8;
-(function (e) {
+((e) => {
 	e.Favorites = "favorite";
 	e.Uncategorized = "uncategorized";
 	e.Hidden = "hidden";
@@ -436,12 +445,15 @@ const R = "favorite";
 function k(e) {
 	return e.replace(/[%/]/g, (e, t) => {
 		switch (e) {
-			case "%":
+			case "%": {
 				return "**";
-			case "/":
+			}
+			case "/": {
 				return "*+";
-			default:
+			}
+			default: {
 				return e;
+			}
 		}
 	});
 }
@@ -492,7 +504,7 @@ class F {
 	m_mapPartnerCollectionIdToName;
 	m_mapCollectionsFromStorage;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	async Register() {
 		c.s7.RegisterCustomConflictResolutionMethod(M, N);
@@ -503,7 +515,7 @@ class F {
 			deep: false,
 		});
 		for (let e of t) {
-			if (!e.startsWith(E + ".")) {
+			if (!e.startsWith(`${E}.`)) {
 				continue;
 			}
 			const t = k(e.slice(17));
@@ -546,7 +558,7 @@ class F {
 		this.InitPartnerCollectionNameMap();
 		this.m_shortcutCollectionInfo =
 			(await this.m_localStorage.GetObject(E)) || {};
-		this.m_cloudStorageMap = this.m_cloudStorage.GetMapForPrefix(E + ".");
+		this.m_cloudStorageMap = this.m_cloudStorage.GetMapForPrefix(`${E}.`);
 		this.m_cloudStorage.RegisterForChangeNotifications(
 			this.OnCloudStorageChanged,
 		);
@@ -698,7 +710,7 @@ class F {
 		return w(A8.MyGames, Localize("#GameList_View_All"), e);
 	}
 	BIncludeInFamilyGroupCollection(e) {
-		return (0, s.qw)().BIsFamilyGroupMember(e.owner_account_id);
+		return qw().BIsFamilyGroupMember(e.owner_account_id);
 	}
 	BIncludeInSharedLibraryCollection(e) {
 		return e.BIsOwnedByAnotherUser();
@@ -707,14 +719,14 @@ class F {
 		S.Debug("Computing sharedLibrariesCollections");
 		const e = [];
 		let t = [];
-		if ((0, s.qw)().BIsInFamilyGroup()) {
+		if (qw().BIsInFamilyGroup()) {
 			t = o.tw.allApps.filter((e) => this.BIncludeInFamilyGroupCollection(e));
 			e.push(
 				w(
 					A8.FamilyGroup,
 					Localize(
 						"#GameList_View_FamilyGroup",
-						(0, s.qw)().GetCurrentUser().strFamilyGroupName,
+						qw().GetCurrentUser().strFamilyGroupName,
 					),
 					t,
 				),
@@ -763,11 +775,11 @@ class F {
 		if (!o.tw.siteLicenseApps) {
 			return null;
 		}
-		const { strSiteName: e, rgApps: t } = o.tw.siteLicenseApps;
+		const { strSiteName, rgApps } = o.tw.siteLicenseApps;
 		return w(
 			A8.SiteLicense,
-			Localize("#GameList_View_GamesProvidedByNamedCafe", e),
-			t,
+			Localize("#GameList_View_GamesProvidedByNamedCafe", strSiteName),
+			rgApps,
 		);
 	}
 	get deckGamesCollection() {
@@ -870,8 +882,8 @@ class F {
 		const i = new Date();
 		i.setFullYear(i.getFullYear() - 10);
 		const a = i.getTime() / 1000;
-		for (let i = 0; i < t.length; i++) {
-			const s = t[i];
+
+		t.forEach((s, i) => {
 			const o =
 				s.rt_recent_activity_time < a
 					? Localize("#GameList_SectionHeader_NoRecentActivity")
@@ -883,7 +895,8 @@ class F {
 				r = o;
 				n = i;
 			}
-		}
+		});
+
 		if (r) {
 			e.push(w(`${A8.Recent}-${r}`, r, t.slice(n, t.length)));
 		}
@@ -993,6 +1006,7 @@ class F {
 			(e) =>
 				e.BHasStoreCategory(41) ||
 				e.BHasStoreCategory(42) ||
+				e.BHasStoreCategory(42) ||
 				e.BHasStoreCategory(43),
 		);
 		return w(A8.RemotePlay, this.SystemCollectionIdToName(A8.RemotePlay), e);
@@ -1000,23 +1014,23 @@ class F {
 	get remotePlayActiveCollection() {
 		S.Debug("Computing remotePlayActiveCollection");
 		const {
-			bStreaming: e,
-			bStreamingToPhone: t,
-			bStreamingToTablet: r,
-			bStreamingToTV: n,
+			bStreaming,
+			bStreamingToPhone,
+			bStreamingToTablet,
+			bStreamingToTV,
 		} = f.ut.GetStreamingFormFactors();
 		let i = o.tw.allApps.filter(
 			(i) =>
 				!!i.local_per_client_data?.installed &&
-				!!e &&
-				(!t || !!i.BHasStoreCategory(41)) &&
-				(!r || !!i.BHasStoreCategory(42)) &&
-				(!n || !!i.BHasStoreCategory(43)),
+				!!bStreaming &&
+				(!bStreamingToPhone || !!i.BHasStoreCategory(41)) &&
+				(!bStreamingToTablet || !!i.BHasStoreCategory(42)) &&
+				(!bStreamingToTV || !!i.BHasStoreCategory(43)),
 		);
 		return w(A8.RemotePlay, this.SystemCollectionIdToName(A8.RemotePlay), i);
 	}
 	SetGamepadCollectionFilter(e) {
-		if ((0, u.Pj)(e)) {
+		if (Pj(e)) {
 			A.n6.SelectGamepadCollectionsAppFilterOption(2, e, true);
 		}
 	}
@@ -1069,12 +1083,19 @@ class F {
 			} else if (
 				e == "recent-games" ||
 				e == "play-next" ||
+				e == "play-next" ||
 				e == "all-collections"
 			) {
 				return null;
 			} else {
 				return (
 					this.collectionsFromStorage.get(e) ||
+					this.collectionsFromStorage.get(k(e)) ||
+					this.collectionsFromStorage.get(k(e)) ||
+					this.recentAppCollectionMap.get(e) ||
+					this.collectionsFromStorage.get(k(e)) ||
+					this.recentAppCollectionMap.get(e) ||
+					this.appTypeCollectionMap.get(e) ||
 					this.collectionsFromStorage.get(k(e)) ||
 					this.recentAppCollectionMap.get(e) ||
 					this.appTypeCollectionMap.get(e) ||
@@ -1098,16 +1119,21 @@ class F {
 	}
 	GetCollectionForAppType(e) {
 		switch (e) {
-			case 1:
+			case 1: {
 				return this.appTypeCollectionMap.get(A8.AppType_Games);
-			case 8192:
+			}
+			case 8192: {
 				return this.appTypeCollectionMap.get(A8.AppType_Soundtracks);
-			case 2:
+			}
+			case 2: {
 				return this.appTypeCollectionMap.get(A8.AppType_Software);
-			case 2048:
+			}
+			case 2048: {
 				return this.appTypeCollectionMap.get(A8.AppType_Videos);
-			case 4:
+			}
+			case 4: {
 				return this.appTypeCollectionMap.get(A8.AppType_Tools);
+			}
 		}
 	}
 	GetCollectionListForAppID(e) {
@@ -1205,6 +1231,12 @@ class F {
 		return (
 			this.m_mapSystemCollectionIdToName.has(e) ||
 			e.startsWith(A8.Recent) ||
+			e.startsWith(A8.Recent) ||
+			e.startsWith(A8.AppType) ||
+			e.startsWith(A8.Recent) ||
+			e.startsWith(A8.AppType) ||
+			e.startsWith(A8.Shared) ||
+			e.startsWith(A8.Recent) ||
 			e.startsWith(A8.AppType) ||
 			e.startsWith(A8.Shared) ||
 			e == A8.SiteLicense
@@ -1298,10 +1330,7 @@ class F {
 		);
 	}
 	async DeleteCollection(e) {
-		(0, g.w)(
-			!this.BIsSystemCollectionId(e),
-			`Cannot delete system collection ${e}`,
-		);
+		w_1(!this.BIsSystemCollectionId(e), `Cannot delete system collection ${e}`);
 		if (this.GetCollection(e)) {
 			l.N.OnDeleteCollection(e);
 			delete this.m_shortcutCollectionInfo[e];
@@ -1320,14 +1349,14 @@ class F {
 		return this.m_localStorage.StoreObject(E, this.m_shortcutCollectionInfo);
 	}
 }
-(0, n.Cg)([i.XI.bound], F.prototype, "OnCloudStorageChanged", null);
-(0, n.Cg)([i.XI], F.prototype, "OnAppOverviewChange", null);
-(0, n.Cg)([i.XI.bound], F.prototype, "OnFriendOwnedAppsChanged", null);
-(0, n.Cg)([C.oI], F.prototype, "BootstrapFromUserTags", null);
-(0, n.Cg)([i.XI], F.prototype, "ImportUserTags", null);
-(0, n.Cg)(
+Cg([i.XI.bound], F.prototype, "OnCloudStorageChanged", null);
+Cg([i.XI], F.prototype, "OnAppOverviewChange", null);
+Cg([i.XI.bound], F.prototype, "OnFriendOwnedAppsChanged", null);
+Cg([C.oI], F.prototype, "BootstrapFromUserTags", null);
+Cg([i.XI], F.prototype, "ImportUserTags", null);
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1335,9 +1364,9 @@ class F {
 	"uncategorizedCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1345,9 +1374,9 @@ class F {
 	"myGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1355,9 +1384,9 @@ class F {
 	"allGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 			equals: i.m3.structural,
 		}),
@@ -1366,9 +1395,9 @@ class F {
 	"sharedLibrariesCollections",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1376,9 +1405,9 @@ class F {
 	"sharedLibrariesCollectionMap",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 			equals: i.m3.structural,
 		}),
@@ -1387,9 +1416,9 @@ class F {
 	"siteLicenseCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1397,9 +1426,9 @@ class F {
 	"deckGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1407,9 +1436,9 @@ class F {
 	"dtestGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1417,9 +1446,9 @@ class F {
 	"xboxControllerGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1427,9 +1456,9 @@ class F {
 	"ps4ControllerGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1437,9 +1466,9 @@ class F {
 	"ps5ControllerGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1447,9 +1476,9 @@ class F {
 	"deckDesktopApps",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1457,9 +1486,9 @@ class F {
 	"vrAppsCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1467,9 +1496,9 @@ class F {
 	"localGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1477,9 +1506,9 @@ class F {
 	"userCollections",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1487,9 +1516,9 @@ class F {
 	"recentAppCollections",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1497,9 +1526,9 @@ class F {
 	"recentAppCollectionMap",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1507,9 +1536,9 @@ class F {
 	"appTypeCollections",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1517,9 +1546,9 @@ class F {
 	"appTypeCollectionMap",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1527,9 +1556,9 @@ class F {
 	"allAppsCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1537,9 +1566,9 @@ class F {
 	"allRecentAppsCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1547,9 +1576,9 @@ class F {
 	"recentAppsCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1557,9 +1586,9 @@ class F {
 	"localPlayedGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1567,9 +1596,9 @@ class F {
 	"recentPurchasedGamesCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1577,9 +1606,9 @@ class F {
 	"remotePlayCollection",
 	null,
 );
-(0, n.Cg)(
+Cg(
 	[
-		(0, i.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -1587,28 +1616,28 @@ class F {
 	"remotePlayActiveCollection",
 	null,
 );
-(0, n.Cg)([C.oI], F.prototype, "SetGamepadCollectionFilter", null);
-(0, n.Cg)([C.oI], F.prototype, "GetCurrentGamepadFilter", null);
-(0, n.Cg)([C.oI], F.prototype, "GetCollection", null);
-(0, n.Cg)([C.oI], F.prototype, "GetCollectionIDByUserTag", null);
-(0, n.Cg)([C.oI], F.prototype, "GetCollectionForAppType", null);
-(0, n.Cg)([C.oI], F.prototype, "GetCollectionListForAppID", null);
-(0, n.Cg)([C.oI], F.prototype, "SetAppsAsFavorite", null);
-(0, n.Cg)([C.oI], F.prototype, "SetAppsAsHidden", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsFavorite", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsHidden", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsVisible", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsSystemCollectionId", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsPartnerCollectionId", null);
-(0, n.Cg)([C.oI], F.prototype, "SystemCollectionIdToName", null);
-(0, n.Cg)([C.oI], F.prototype, "PartnerCollectionIdToName", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsSystemCollectionName", null);
-(0, n.Cg)([C.oI], F.prototype, "BIsPartnerCollectionName", null);
-(0, n.Cg)([C.oI], F.prototype, "GetUserCollectionsByName", null);
-(0, n.Cg)([C.oI], F.prototype, "AddPartnerCollection", null);
-(0, n.Cg)([C.oI], F.prototype, "NewUnsavedCollection", null);
-(0, n.Cg)([C.oI], F.prototype, "SaveCollection", null);
-(0, n.Cg)([C.oI], F.prototype, "DeleteCollection", null);
-(0, n.Cg)([C.oI], F.prototype, "WriteLocalStorage", null);
+Cg([C.oI], F.prototype, "SetGamepadCollectionFilter", null);
+Cg([C.oI], F.prototype, "GetCurrentGamepadFilter", null);
+Cg([C.oI], F.prototype, "GetCollection", null);
+Cg([C.oI], F.prototype, "GetCollectionIDByUserTag", null);
+Cg([C.oI], F.prototype, "GetCollectionForAppType", null);
+Cg([C.oI], F.prototype, "GetCollectionListForAppID", null);
+Cg([C.oI], F.prototype, "SetAppsAsFavorite", null);
+Cg([C.oI], F.prototype, "SetAppsAsHidden", null);
+Cg([C.oI], F.prototype, "BIsFavorite", null);
+Cg([C.oI], F.prototype, "BIsHidden", null);
+Cg([C.oI], F.prototype, "BIsVisible", null);
+Cg([C.oI], F.prototype, "BIsSystemCollectionId", null);
+Cg([C.oI], F.prototype, "BIsPartnerCollectionId", null);
+Cg([C.oI], F.prototype, "SystemCollectionIdToName", null);
+Cg([C.oI], F.prototype, "PartnerCollectionIdToName", null);
+Cg([C.oI], F.prototype, "BIsSystemCollectionName", null);
+Cg([C.oI], F.prototype, "BIsPartnerCollectionName", null);
+Cg([C.oI], F.prototype, "GetUserCollectionsByName", null);
+Cg([C.oI], F.prototype, "AddPartnerCollection", null);
+Cg([C.oI], F.prototype, "NewUnsavedCollection", null);
+Cg([C.oI], F.prototype, "SaveCollection", null);
+Cg([C.oI], F.prototype, "DeleteCollection", null);
+Cg([C.oI], F.prototype, "WriteLocalStorage", null);
 export const md = new F();
 window.collectionStore = md;

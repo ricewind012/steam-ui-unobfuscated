@@ -1,21 +1,21 @@
-export var g_;
-export var HE;
-var a = require(/*webcrack:missing*/ "./34629.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require("./84629.js");
-var m = require("./94361.js");
-var u = require("./91720.js");
-var d = require("./22588.js");
-var A = require(/*webcrack:missing*/ "./31958.js");
-var p = require("./72061.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var h = require("./84921.js");
-var C = require("./34891.js");
-var _ = require("./61738.js");
-var f = require(/*webcrack:missing*/ "./90095.js");
-(function (e) {
+import a, { Cg } from "./34629.js";
+import s, { useEffect, useContext } from "./63696.js";
+import o from "./52451.js";
+import l, { Gn, mJ } from "./89193.js";
+import c, { q_ as q, ZI, tG } from "./84629.js";
+import m from "./94361.js";
+import u, { RV, Fc } from "./91720.js";
+import d from "./22588.js";
+import A from "./31958.js";
+import p, { Sb } from "./72061.js";
+import h from "./84921.js";
+import C from "./34891.js";
+import _ from "./61738.js";
+import { q3 } from "./90095.js";
+export let g_;
+export let HE;
+((e) => {
 	e.Overlay = "Overlay";
 	e.Clips = "Clips";
 	e.Background = "Background";
@@ -23,7 +23,7 @@ var f = require(/*webcrack:missing*/ "./90095.js");
 	e.ChatClip = "Chat";
 	e.Partner = "Partner";
 })((g_ ||= {}));
-(function (e) {
+((e) => {
 	e.Never = "Never";
 	e.Always = "Always";
 	e.Manual = "Manual";
@@ -44,8 +44,8 @@ class B {
 	m_nPendingSeekSec = -1;
 	m_playbackDefinition = null;
 	m_pendingStop = null;
-	m_durationMS = (0, p.Sb)(null);
-	m_lastRecordingGlobalMS = (0, p.Sb)(null);
+	m_durationMS = Sb(null);
+	m_lastRecordingGlobalMS = Sb(null);
 	m_bWasLiveEdge = false;
 	m_nGlobalTimelinePlaybackMS = null;
 	m_nGlobalTimelinePlaybackSec = null;
@@ -64,7 +64,7 @@ class B {
 	m_rgClipOffsets = [];
 	m_phasePreview = undefined;
 	constructor(e, t, r, n, i, a, s, o) {
-		(0, l.Gn)(this);
+		Gn(this);
 		this.m_fnGetManifest = t;
 		this.m_gameRecordingVideo = new h.si(true);
 		this.m_eGameRecordingMode = r;
@@ -81,7 +81,7 @@ class B {
 		}
 		this.m_fnRenderGlyph = a;
 		this.m_fnUnregisterAutorun.push(
-			(0, l.mJ)(
+			mJ(
 				() => ({
 					bIsAtEnd: this.m_gameRecordingVideo.IsAtEnd(),
 					bIsPaused: this.m_gameRecordingVideo.IsPaused(),
@@ -97,7 +97,7 @@ class B {
 			),
 		);
 		this.m_fnUnregisterAutorun.push(
-			(0, l.mJ)(
+			mJ(
 				() => this.m_gameRecordingVideo.GetPlaybackTime(),
 				(e) => {
 					if (
@@ -119,7 +119,7 @@ class B {
 			),
 		);
 		this.m_fnUnregisterAutorun.push(
-			(0, l.mJ)(
+			mJ(
 				() => ({
 					playback: this.m_gameRecordingVideo.GetPlaybackTime(),
 					bVideoPlaying: this.m_gameRecordingVideo.BVideoElementPlaying(),
@@ -157,7 +157,7 @@ class B {
 			),
 		);
 		this.m_fnUnregisterAutorun.push(
-			(0, l.mJ)(
+			mJ(
 				() => ({
 					globalPlaybackMS: this.m_nGlobalTimelinePlaybackMS,
 					bVideoPaused: this.m_gameRecordingVideo.IsPaused(),
@@ -200,22 +200,26 @@ class B {
 			),
 		);
 		this.m_fnUnregisterAutorun.push(
-			(0, l.mJ)(
+			mJ(
 				() => this.m_gameRecordingVideo.BSeekReadyToPlay(),
 				(e) => {
 					if (e) {
-						const e = `seeking_${this.GetManifestFromRecordingID(this.m_strRecordingID)}_${this.m_gameRecordingVideo.GetPlaybackTime().toFixed(3)}`;
+						const e = `seeking_${this.GetManifestFromRecordingID(
+							this.m_strRecordingID,
+						)}_${this.m_gameRecordingVideo.GetPlaybackTime().toFixed(3)}`;
 						try {
-							const t = `measure_${this.m_strRecordingID}_${this.m_gameRecordingVideo.GetPlaybackTime().toFixed(3)}`;
+							const t = `measure_${
+								this.m_strRecordingID
+							}_${this.m_gameRecordingVideo.GetPlaybackTime().toFixed(3)}`;
 							const r = performance.measure(t, e);
-							(0, c.q_)(
+							q(
 								`CGameRecordingVideo:: perf measure ${e} duration ${r.duration}`,
 							);
 							if (r) {
 								this.m_rgSeekPerf.push(r.duration);
 							}
 						} catch (t) {
-							(0, c.q_)(`CGameRecordingVideo:: cant measure ${e}, error: ${t}`);
+							q(`CGameRecordingVideo:: cant measure ${e}, error: ${t}`);
 						}
 					}
 				},
@@ -232,9 +236,9 @@ class B {
 	}
 	FireEvent(e, ...t) {
 		for (let r of this.m_rgListeners) {
-			let n = r[e];
-			if (n instanceof Function) {
-				n.apply(r, t);
+			let r_e = r[e];
+			if (r_e instanceof Function) {
+				r_e.apply(r, t);
 			}
 		}
 	}
@@ -266,7 +270,7 @@ class B {
 	OnInvalidateRecording(e, t) {
 		const r = this.m_fnGetManifest(t);
 		if (this.m_gameRecordingVideo.GetMPDURL() == r) {
-			(0, c.q_)(`Recording invalidated for ${t}. Reloading MPD`);
+			q(`Recording invalidated for ${t}. Reloading MPD`);
 			this.m_gameRecordingVideo.UpdateMPD();
 		}
 	}
@@ -275,7 +279,7 @@ class B {
 		this.m_lastRecordingGlobalMS = this.m_timelineLoader.GetEndOfRecordingsMS();
 		this.m_bWasLiveEdge = true;
 		this.TryPlayInitialTimelineVideo();
-		const e = (0, u.RV)(this.m_timelineLoader.GetGameID());
+		const e = RV(this.m_timelineLoader.GetGameID());
 		this.SetClipOffsets(e);
 	}
 	OnInvalidate(e) {
@@ -480,20 +484,24 @@ class B {
 		switch (this.m_eGameRecordingMode) {
 			case g_.Overlay:
 			case g_.Clips:
-			case g_.Background:
+			case g_.Background: {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	CanModeAddMarker() {
 		switch (this.m_eGameRecordingMode) {
 			case g_.Overlay:
 			case g_.Clips:
-			case g_.Background:
+			case g_.Background: {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	GetPlaybackStats() {
@@ -503,8 +511,7 @@ class B {
 		const e = this.m_rgSeekPerf.length;
 		const t = this.m_rgSeekPerf.reduce((e, t) => e + t) / e;
 		const r = Math.sqrt(
-			this.m_rgSeekPerf.map((e) => Math.pow(e - t, 2)).reduce((e, t) => e + t) /
-				e,
+			this.m_rgSeekPerf.map((e) => (e - t) ** 2).reduce((e, t) => e + t) / e,
 		);
 		const n = Math.max(...this.m_rgSeekPerf);
 		const i = Math.min(...this.m_rgSeekPerf);
@@ -606,7 +613,7 @@ class B {
 			this.m_lastRecordingGlobalMS
 		) {
 			const e = Math.max(0, this.m_lastRecordingGlobalMS.valMS - b - 1000);
-			return (0, p.Sb)(e);
+			return Sb(e);
 		}
 		return this.GetTotalMS();
 	}
@@ -616,16 +623,18 @@ class B {
 			this.m_lastRecordingGlobalMS
 		) {
 			const e = Math.max(0, this.m_lastRecordingGlobalMS.valMS - S);
-			return (0, p.Sb)(e);
+			return Sb(e);
 		}
-		return (0, p.Sb)(Math.max(0, this.GetTotalMS().valMS - 1));
+		return Sb(Math.max(0, this.GetTotalMS().valMS - 1));
 	}
 	GetTimelineAndOffsetRelativeToCurrentPlayback(e = 0) {
 		const t = this.GetCurrentPlaybackGlobalMS(e);
 		return (
 			t ||
-			((0, c.ZI)(
-				`failed to find offset for ${this.m_strRecordingID} at ${Math.floor(this.m_gameRecordingVideo.GetPlaybackTime() * 1000)} MS`,
+			(ZI(
+				`failed to find offset for ${this.m_strRecordingID} at ${Math.floor(
+					this.m_gameRecordingVideo.GetPlaybackTime() * 1000,
+				)} MS`,
 			),
 			null)
 		);
@@ -648,7 +657,7 @@ class B {
 				? this.GetLiveEdgeMS().valMS
 				: this.GetTotalMS().valMS;
 		const n = A.OQ(t.valMS + e, 0, r - 1000);
-		this.SetPlaytimeFromGlobalMS((0, p.Sb)(n));
+		this.SetPlaytimeFromGlobalMS(Sb(n));
 	}
 	ConvertGlobaOffsetToRecordingAndRelativeOffset(e) {
 		return this.m_timelineLoader.ConvertGlobaOffsetToRecordingAndRelativeOffset(
@@ -665,7 +674,7 @@ class B {
 			t = this.m_timelineLoader.GetNextRecording(this.m_strRecordingID);
 		} else {
 			const e = this.m_timelineLoader.GetClosestNextRecordingInGlobalTimeline(
-				(0, p.Sb)(this.m_nGlobalTimelinePlaybackMS),
+				Sb(this.m_nGlobalTimelinePlaybackMS),
 			);
 			t = e?.recording_id;
 		}
@@ -766,7 +775,7 @@ class B {
 		}
 	}
 	GetGlobalMSPlaytime() {
-		return (0, p.Sb)(this.m_nGlobalTimelinePlaybackMS);
+		return Sb(this.m_nGlobalTimelinePlaybackMS);
 	}
 	GetGlobalPlaytimeSec() {
 		return this.m_nGlobalTimelinePlaybackSec;
@@ -898,16 +907,16 @@ class B {
 		const n = this.m_timelineLoader.GetTimelineOffsetFromGlobal(e.valMS, 0);
 		if (n) {
 			const e = this.m_timelineLoader.GetGameID();
-			const { fnCreateUserTimelineMarkers: i } = (0, u.Fc)();
+			const { fnCreateUserTimelineMarkers } = Fc();
 			const a = this.m_timelineLoader.GetTimelineStartBeforeGlobalZeroMS(
 				n.strTimelineID,
 			);
 			m.y.ReportTrackedAction(t);
 			const s = "steam_marker";
-			const o = await i(e, this.GetClipID(), {
+			const o = await fnCreateUserTimelineMarkers(e, this.GetClipID(), {
 				timeline_id: n.strTimelineID,
 				entry_id: "",
-				time: "" + Math.floor(n.nTimelineOffsetMS.valMS + a),
+				time: `${Math.floor(n.nTimelineOffsetMS.valMS + a)}`,
 				type: 5,
 				marker_icon: s,
 				marker_priority: 0,
@@ -926,18 +935,18 @@ class B {
 		}
 	}
 	async RemoveUserMarker(e, t) {
-		const { fnRemoveUserTimelineMarker: r } = (0, u.Fc)();
+		const { fnRemoveUserTimelineMarker } = Fc();
 		const n = this.m_timelineLoader.GetGameID();
-		if ((await r(n, this.GetClipID(), e, t)) == 1) {
+		if ((await fnRemoveUserTimelineMarker(n, this.GetClipID(), e, t)) == 1) {
 			this.m_timelineLoader.RemoveUserMarker(e, t);
 			return true;
 		} else {
-			(0, c.tG)(`Failed to delete user marker for timeline ${e} entry ${t}`);
+			tG(`Failed to delete user marker for timeline ${e} entry ${t}`);
 			return false;
 		}
 	}
 	async UpdateUserMarker(e, t, r, n) {
-		const { fnUpdateUserTimelineMarkers: i } = (0, u.Fc)();
+		const { fnUpdateUserTimelineMarkers } = Fc();
 		const a = this.m_timelineLoader.GetGameID();
 		const s = {
 			timeline_id: e,
@@ -949,7 +958,7 @@ class B {
 			range_title: r,
 			marker_description: n,
 		};
-		if ((await i(a, this.GetClipID(), s)) == 1) {
+		if ((await fnUpdateUserTimelineMarkers(a, this.GetClipID(), s)) == 1) {
 			const i = {
 				strIcon: t.icon,
 				name: r,
@@ -1004,97 +1013,100 @@ class B {
 		}
 	}
 }
-(0, a.Cg)([l.sH], B.prototype, "m_bHidePlayer", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_strRecordingID", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_durationMS", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_lastRecordingGlobalMS", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_nGlobalTimelinePlaybackMS", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_nGlobalTimelinePlaybackSec", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_rgSeekPerf", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_eRecordingState", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_eRecordingSetting", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_bGamepadMode", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_bControlsVisible", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_fnRenderGlyph", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_previousHighlightEntry", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_nextHighlightEntry", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_displayHighlightEntry", undefined);
-(0, a.Cg)([l.sH], B.prototype, "m_nRelativeTimeForDisplay", undefined);
-(0, a.Cg)([l.sH.ref], B.prototype, "m_rgClipOffsets", undefined);
-(0, a.Cg)([l.sH.ref], B.prototype, "m_phasePreview", undefined);
-(0, a.Cg)([o.oI], B.prototype, "SetVideoElement", null);
-(0, a.Cg)([o.oI], B.prototype, "OnInvalidateRecording", null);
-(0, a.Cg)([l.XI], B.prototype, "OnLoaderInitialized", null);
-(0, a.Cg)([o.oI], B.prototype, "OnInvalidate", null);
-(0, a.Cg)([o.oI], B.prototype, "OnTimelineLoaded", null);
-(0, a.Cg)([o.oI], B.prototype, "GetLiveEdgeMS", null);
-(0, a.Cg)([o.oI], B.prototype, "StopPlayback", null);
-(0, a.Cg)([o.oI], B.prototype, "TogglePlayPause", null);
-(0, a.Cg)([l.XI], B.prototype, "UpdateGlobalPlayTime", null);
-const v = s.createContext({
+Cg([l.sH], B.prototype, "m_bHidePlayer", undefined);
+Cg([l.sH], B.prototype, "m_strRecordingID", undefined);
+Cg([l.sH], B.prototype, "m_durationMS", undefined);
+Cg([l.sH], B.prototype, "m_lastRecordingGlobalMS", undefined);
+Cg([l.sH], B.prototype, "m_nGlobalTimelinePlaybackMS", undefined);
+Cg([l.sH], B.prototype, "m_nGlobalTimelinePlaybackSec", undefined);
+Cg([l.sH], B.prototype, "m_rgSeekPerf", undefined);
+Cg([l.sH], B.prototype, "m_eRecordingState", undefined);
+Cg([l.sH], B.prototype, "m_eRecordingSetting", undefined);
+Cg([l.sH], B.prototype, "m_bGamepadMode", undefined);
+Cg([l.sH], B.prototype, "m_bControlsVisible", undefined);
+Cg([l.sH], B.prototype, "m_fnRenderGlyph", undefined);
+Cg([l.sH], B.prototype, "m_previousHighlightEntry", undefined);
+Cg([l.sH], B.prototype, "m_nextHighlightEntry", undefined);
+Cg([l.sH], B.prototype, "m_displayHighlightEntry", undefined);
+Cg([l.sH], B.prototype, "m_nRelativeTimeForDisplay", undefined);
+Cg([l.sH.ref], B.prototype, "m_rgClipOffsets", undefined);
+Cg([l.sH.ref], B.prototype, "m_phasePreview", undefined);
+Cg([o.oI], B.prototype, "SetVideoElement", null);
+Cg([o.oI], B.prototype, "OnInvalidateRecording", null);
+Cg([l.XI], B.prototype, "OnLoaderInitialized", null);
+Cg([o.oI], B.prototype, "OnInvalidate", null);
+Cg([o.oI], B.prototype, "OnTimelineLoaded", null);
+Cg([o.oI], B.prototype, "GetLiveEdgeMS", null);
+Cg([o.oI], B.prototype, "StopPlayback", null);
+Cg([o.oI], B.prototype, "TogglePlayPause", null);
+Cg([l.XI], B.prototype, "UpdateGlobalPlayTime", null);
+const VContext = s.createContext({
 	timelinePlaybackCoordinator: null,
 });
 export function Ni(e) {
 	const {
-		children: t,
-		mode: r,
-		fnGetManifest: n,
-		loader: i,
-		recordingState: a,
-		controlsVisible: o,
-		gamepadMode: l,
-		renderGlyph: c,
-		recordingSetting: m,
-		playbackDefinition: u,
-		clipSummaries: d,
+		children,
+		mode,
+		fnGetManifest,
+		loader,
+		recordingState,
+		controlsVisible,
+		gamepadMode,
+		renderGlyph,
+		recordingSetting,
+		playbackDefinition,
+		clipSummaries,
 	} = e;
-	const [A] = s.useState(() => new B(i, n, r, o, l, c, u, d));
-	(0, s.useEffect)(() => {
-		A.SetLoader(i);
-	}, [A, i]);
-	(0, s.useEffect)(() => {
-		A.SetRecordingState(a);
-	}, [A, a]);
-	(0, s.useEffect)(() => {
-		A.SetRecordingSetting(m);
-	}, [A, m]);
-	(0, s.useEffect)(() => {
-		A.SetGetManifest(n);
-	}, [A, n]);
-	(0, s.useEffect)(() => {
-		A.SetControlsVisible(o);
-	}, [A, o]);
-	(0, s.useEffect)(() => {
-		A.SetGamepadMode(l);
-	}, [A, l]);
-	(0, s.useEffect)(() => {
-		A.SetRenderGlyph(c);
-	}, [A, c]);
-	(0, s.useEffect)(() => {
-		A.SetClipOffsets(d);
-	}, [A, d]);
-	(0, s.useEffect)(() => () => A.dispose(), [A]);
+	const [A] = s.useState(
+		() =>
+			new B(
+				loader,
+				fnGetManifest,
+				mode,
+				controlsVisible,
+				gamepadMode,
+				renderGlyph,
+				playbackDefinition,
+				clipSummaries,
+			),
+	);
+	useEffect(() => {
+		A.SetLoader(loader);
+	}, [A, loader]);
+	useEffect(() => {
+		A.SetRecordingState(recordingState);
+	}, [A, recordingState]);
+	useEffect(() => {
+		A.SetRecordingSetting(recordingSetting);
+	}, [A, recordingSetting]);
+	useEffect(() => {
+		A.SetGetManifest(fnGetManifest);
+	}, [A, fnGetManifest]);
+	useEffect(() => {
+		A.SetControlsVisible(controlsVisible);
+	}, [A, controlsVisible]);
+	useEffect(() => {
+		A.SetGamepadMode(gamepadMode);
+	}, [A, gamepadMode]);
+	useEffect(() => {
+		A.SetRenderGlyph(renderGlyph);
+	}, [A, renderGlyph]);
+	useEffect(() => {
+		A.SetClipOffsets(clipSummaries);
+	}, [A, clipSummaries]);
+	useEffect(() => () => A.dispose(), [A]);
 	const p = s.useMemo(
 		() => ({
 			timelinePlaybackCoordinator: A,
 		}),
 		[A],
 	);
-	return s.createElement(
-		v.Provider,
-		{
-			value: p,
-		},
-		t,
-	);
+	return <VContext.Provider value={p}>{children}</VContext.Provider>;
 }
 export function aO() {
-	return (0, s.useContext)(v).timelinePlaybackCoordinator;
+	return useContext(VContext).timelinePlaybackCoordinator;
 }
 export function Bl() {
 	const e = aO();
-	return [
-		(0, f.q3)(() => e?.GetPhasePreview() || null),
-		(t) => e?.SetPhasePreview(t),
-	];
+	return [q3(() => e?.GetPhasePreview() || null), (t) => e?.SetPhasePreview(t)];
 }

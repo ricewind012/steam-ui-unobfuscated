@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./46162.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./31958.js");
-var u = require(/*webcrack:missing*/ "./90242.js");
-var d = require(/*webcrack:missing*/ "./49455.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s from "./46162.js";
+import { A as A_1 } from "./90765.js";
+import c, { XB } from "./52451.js";
+import m from "./31958.js";
+import u from "./90242.js";
+import d, { w } from "./49455.js";
 const A = new (require(/*webcrack:missing*/ "./83599.js").wd)("DragDrop").Debug;
 export function ck(e) {
 	return e.children;
@@ -25,43 +25,31 @@ export class AL extends i.Component {
 	render() {
 		let e = [];
 		e.push(
-			i.createElement(S, {
-				coordinator: this.m_coordinator,
-				key: "dropregion_top",
-				fnBAcceptDraggable: (e) => e.props.data != 0,
-				fnOnDrop: (e) => this.OnDrop(e.props.data, 0),
-			}),
+			<S
+				coordinator={this.m_coordinator}
+				key="dropregion_top"
+				fnBAcceptDraggable={(e) => e.props.data != 0}
+				fnOnDrop={(e) => this.OnDrop(e.props.data, 0)}
+			/>,
 		);
 		i.Children.forEach(this.props.children, (t, r) => {
-			const n = t.props.id || "__list_" + r;
+			const n = t.props.id || `__list_${r}`;
 			const a = r + 1;
 			e.push(
-				i.createElement(
-					sx,
-					{
-						coordinator: this.m_coordinator,
-						data: r,
-						key: n,
-					},
-					t,
-				),
+				<Sx coordinator={this.m_coordinator} data={r} key={n}>
+					{t}
+				</Sx>,
 			);
 			e.push(
-				i.createElement(S, {
-					coordinator: this.m_coordinator,
-					key: "dropregion_" + n,
-					fnBAcceptDraggable: (e) => e.props.data != a,
-					fnOnDrop: (e) => this.OnDrop(e.props.data, a),
-				}),
+				<S
+					coordinator={this.m_coordinator}
+					key={`dropregion_${n}`}
+					fnBAcceptDraggable={(e) => e.props.data != a}
+					fnOnDrop={(e) => this.OnDrop(e.props.data, a)}
+				/>,
 			);
 		});
-		return i.createElement(
-			"div",
-			{
-				className: "DialogReorderableList",
-			},
-			e,
-		);
+		return <div className="DialogReorderableList">{e}</div>;
 	}
 }
 function h(e, t, r, n) {
@@ -71,7 +59,7 @@ function h(e, t, r, n) {
 		return r && e >= r.left && e <= r.right && t >= r.top && t <= r.bottom;
 	}
 }
-(0, n.Cg)([c.oI], AL.prototype, "OnDrop", null);
+Cg([c.oI], AL.prototype, "OnDrop", null);
 export class np {
 	m_embeddedElement = new s.MX("DragGhosts");
 	m_rgDropRegions = [];
@@ -103,7 +91,7 @@ export class np {
 	}
 	ShowDragGhost() {
 		const e = this.m_activeDraggable.renderDragGhost();
-		const t = (0, l.A)(
+		const t = A_1(
 			e.props.className,
 			!!this.m_activeDropRegion && "DraggedOverActiveDrop",
 		);
@@ -127,7 +115,7 @@ export class np {
 	m_elCloneOriginal;
 	m_nodeCloneCopy;
 	MakeDragClone(e) {
-		(0, d.w)(
+		w(
 			!this.m_nodeCloneCopy && !this.m_elCloneOriginal,
 			"Drag already in progress",
 		);
@@ -260,11 +248,11 @@ export class np {
 		}
 	}
 }
-(0, n.Cg)([c.oI], np.prototype, "OnDragGhostRef", null);
-export class sx extends i.Component {
+Cg([c.oI], np.prototype, "OnDragGhostRef", null);
+export class Sx extends i.Component {
 	constructor(e) {
 		super(e);
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_DragInfo = {
 		bStarted: false,
@@ -292,7 +280,7 @@ export class sx extends i.Component {
 	}
 	ProcessDragMove(e) {
 		A("ProcessDragMove", e, this.props.data);
-		const [t, r] = (function (e) {
+		const [t, r] = ((e) => {
 			if ("touches" in e) {
 				let t = e;
 				return [t.touches[0].clientX, t.touches[0].clientY];
@@ -305,8 +293,8 @@ export class sx extends i.Component {
 			}
 			this.props.coordinator.OnDrag(this, t, r);
 		} else if (
-			Math.pow(t - (this.m_DragInfo.startClientX ?? 0), 2) +
-				Math.pow(r - (this.m_DragInfo.startClientY ?? 0), 2) >=
+			(t - (this.m_DragInfo.startClientX ?? 0)) ** 2 +
+				(r - (this.m_DragInfo.startClientY ?? 0)) ** 2 >=
 			25
 		) {
 			this.m_DragInfo.bStarted = true;
@@ -411,30 +399,30 @@ export class sx extends i.Component {
 	}
 	render() {
 		const {
-			coordinator: e,
-			data: t,
-			bEnableHTMLDrag: r,
-			strHTMLDragData: n,
-			fnOnDragStart: a,
-			fnOnDragEnd: s,
-			fnRenderDragGhost: o,
-			fnRenderDropGhost: c,
-			className: m,
-			strActiveClassName: u,
-			children: d,
+			coordinator,
+			data,
+			bEnableHTMLDrag,
+			strHTMLDragData,
+			fnOnDragStart,
+			fnOnDragEnd,
+			fnRenderDragGhost,
+			fnRenderDropGhost,
+			className,
+			strActiveClassName,
+			children,
 			...A
 		} = this.props;
 		let p = {};
-		let g = m || "DialogDraggable";
+		let g = className || "DialogDraggable";
 		if (this.m_DragInfo.bStarted) {
-			g = (0, l.A)(g, u || "DraggedOut");
-			if (r) {
+			g = A_1(g, strActiveClassName || "DraggedOut");
+			if (bEnableHTMLDrag) {
 				p = {
 					onDragEnd: this.OnHTMLDragEnd,
 				};
 			}
 		} else {
-			p = r
+			p = bEnableHTMLDrag
 				? {
 						onDragStart: this.OnHTMLDragStart,
 					}
@@ -443,38 +431,38 @@ export class sx extends i.Component {
 						onTouchStart: this.OnTouchStart,
 					};
 		}
-		return i.createElement(
-			"div",
-			{
-				ref: this.m_divRef,
-				className: g,
-				...p,
-				...A,
-				draggable: r,
-			},
-			d,
+		return (
+			<div
+				ref={this.m_divRef}
+				className={g}
+				{...p}
+				{...A}
+				draggable={bEnableHTMLDrag}
+			>
+				{children}
+			</div>
 		);
 	}
 	renderDropGhost() {
 		if (this.props.fnRenderDropGhost) {
 			return this.props.fnRenderDropGhost();
 		} else {
-			return i.createElement(f, {
-				elContent: this.GetClone(),
-			});
+			return <F elContent={this.GetClone()} />;
 		}
 	}
 	renderDragGhost() {
 		if (this.props.fnRenderDragGhost) {
 			return this.props.fnRenderDragGhost();
 		} else {
-			return i.createElement(_H, {
-				elContent: this.GetClone(),
-				offsetX: this.m_DragInfo.startOffsetX,
-				offsetY: this.m_DragInfo.startOffsetY,
-				width: this.m_DragInfo.startWidth,
-				height: this.m_DragInfo.startHeight,
-			});
+			return (
+				<_H
+					elContent={this.GetClone()}
+					offsetX={this.m_DragInfo.startOffsetX}
+					offsetY={this.m_DragInfo.startOffsetY}
+					width={this.m_DragInfo.startWidth}
+					height={this.m_DragInfo.startHeight}
+				/>
+			);
 		}
 	}
 	GetClone() {
@@ -493,29 +481,26 @@ export class sx extends i.Component {
 		return t;
 	}
 }
-(0, n.Cg)([c.oI], sx.prototype, "ProcessDragMove", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnMouseDown", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnMouseUp", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnTouchStart", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnTouchEnd", null);
-(0, n.Cg)([a.XI], sx.prototype, "ResetDragState", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnHTMLDragStart", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnHTMLDrag", null);
-(0, n.Cg)([c.oI], sx.prototype, "OnHTMLDragEnd", null);
-class f extends i.Component {
+Cg([c.oI], Sx.prototype, "ProcessDragMove", null);
+Cg([c.oI], Sx.prototype, "OnMouseDown", null);
+Cg([c.oI], Sx.prototype, "OnMouseUp", null);
+Cg([c.oI], Sx.prototype, "OnTouchStart", null);
+Cg([c.oI], Sx.prototype, "OnTouchEnd", null);
+Cg([a.XI], Sx.prototype, "ResetDragState", null);
+Cg([c.oI], Sx.prototype, "OnHTMLDragStart", null);
+Cg([c.oI], Sx.prototype, "OnHTMLDrag", null);
+Cg([c.oI], Sx.prototype, "OnHTMLDragEnd", null);
+class F extends i.Component {
 	OnRef(e) {
 		if (e && this.props.elContent) {
 			e.appendChild(this.props.elContent);
 		}
 	}
 	render() {
-		return i.createElement("div", {
-			className: "DialogDraggable_DropGhost",
-			ref: this.OnRef,
-		});
+		return <div className="DialogDraggable_DropGhost" ref={this.OnRef} />;
 	}
 }
-(0, n.Cg)([c.oI], f.prototype, "OnRef", null);
+Cg([c.oI], F.prototype, "OnRef", null);
 export class _H extends i.Component {
 	state = {
 		clientX: undefined,
@@ -539,9 +524,10 @@ export class _H extends i.Component {
 		if (
 			!this.state.bVisible ||
 			this.state.clientX === undefined ||
+			this.state.clientX === undefined ||
 			this.state.clientY === undefined
 		) {
-			return i.createElement("div", null);
+			return <div />;
 		}
 		let e = {
 			left: this.state.clientX - (this.props.offsetX || 0),
@@ -558,25 +544,23 @@ export class _H extends i.Component {
 			0,
 		);
 		let r = {
-			transform: `rotateX(${this.CalculateRotationDegrees((this.state.clientYDelta ?? 0) * -1)}deg) rotateY( ${this.CalculateRotationDegrees(this.state.clientXDelta)}deg)`,
+			transform: `rotateX(${this.CalculateRotationDegrees(
+				(this.state.clientYDelta ?? 0) * -1,
+			)}deg) rotateY( ${this.CalculateRotationDegrees(
+				this.state.clientXDelta,
+			)}deg)`,
 			transition: "transform .16s ease-out, filter .16s ease-out",
-			filter: "brightness(" + t + ")",
+			filter: `brightness(${t})`,
 		};
 		const n = this.props.className || "DialogDraggable_DragGhost";
-		return i.createElement(
-			"div",
-			{
-				className: n,
-				style: e,
-			},
-			i.createElement("div", {
-				ref: this.OnRef,
-				style: r,
-			}),
+		return (
+			<div className={n} style={e}>
+				<div ref={this.OnRef} style={r} />
+			</div>
 		);
 	}
 }
-(0, n.Cg)([c.oI], _H.prototype, "OnRef", null);
+Cg([c.oI], _H.prototype, "OnRef", null);
 export class cL extends i.Component {
 	m_divRef = i.createRef();
 	constructor(e) {
@@ -638,32 +622,32 @@ export class cL extends i.Component {
 	}
 	render() {
 		const {
-			coordinator: e,
-			fnBAcceptDraggable: t,
-			fnOnDrop: r,
-			fnOnDragEnter: n,
-			fnOnDragLeave: a,
-			className: s,
-			strActiveClassName: o,
-			children: m,
-			focusable: d,
-			containerRef: A,
+			coordinator,
+			fnBAcceptDraggable,
+			fnOnDrop,
+			fnOnDragEnter,
+			fnOnDragLeave,
+			className,
+			strActiveClassName,
+			children,
+			focusable,
+			containerRef,
 			...p
 		} = this.props;
-		const g = (0, l.A)(
-			s || "DialogDropRegion",
-			this.state.bDraggableActive && (o || "Active"),
+		const g = A_1(
+			className || "DialogDropRegion",
+			this.state.bDraggableActive && (strActiveClassName || "Active"),
 		);
-		return i.createElement(
-			u.ml,
-			{
-				ref: (0, c.XB)(A, this.m_divRef),
-				className: g,
-				...p,
-				focusable: d === undefined ? !!p.onClick : d,
-			},
-			this.state.dropGhost,
-			m,
+		return (
+			<u.ml
+				ref={XB(containerRef, this.m_divRef)}
+				className={g}
+				{...p}
+				focusable={focusable === undefined ? !!p.onClick : focusable}
+			>
+				{this.state.dropGhost}
+				{children}
+			</u.ml>
 		);
 	}
 }

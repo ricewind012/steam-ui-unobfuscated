@@ -1,8 +1,8 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-const i = (0, r.createContext)(undefined);
-export const Rh = i.Provider;
+import { createContext, useContext } from "./63696.js";
+const IContext = createContext(undefined);
+export const Rh = IContext.Provider;
 export function LH() {
-	const e = (0, r.useContext)(i);
+	const e = useContext(IContext);
 	if (!e) {
 		throw new Error("called useActiveAccount outside of ActiveAccountProvider");
 	}

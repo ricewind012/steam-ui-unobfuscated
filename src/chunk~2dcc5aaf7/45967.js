@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./81827.js");
-var l = require("./16251.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./92031.js");
-var d = require("./91369.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s, { q3 } from "./90095.js";
+import o from "./81827.js";
+import l from "./16251.js";
+import c from "./83599.js";
+import { xM, CH } from "./52451.js";
+import u from "./92031.js";
+import d from "./91369.js";
 export const fR = new c.wd("VR");
 class p {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_rgMutualCapabilities = undefined;
 	m_bHMDPresent = undefined;
@@ -84,6 +84,7 @@ class p {
 	get IsVRHMDPresent() {
 		return Boolean(
 			this.m_bSimulatingVROnDesktop ||
+				this.m_bHMDPresent ||
 				this.m_bHMDPresent ||
 				this.m_bHMDHardwareDetected,
 		);
@@ -184,14 +185,14 @@ class p {
 	}
 }
 export function HJ(e, t) {
-	const [r, n] = i.useState();
+	const [r, setR] = i.useState();
 	const a = i.useCallback(() => true, []);
-	const s = i.useRef();
-	s.current = t ?? a;
+	const SRef = i.useRef();
+	SRef.current = t ?? a;
 	i.useEffect(() => {
 		const t = () => {
-			const t = !!s.current && !!s.current();
-			E.SetInteractionAffordance(r, e, t);
+			const t = !!SRef.current && !!SRef.current();
+			qL.SetInteractionAffordance(r, e, t);
 			if (e == 2 && t) {
 				r?.ownerDocument.defaultView?.SteamClient?.OpenVR?.TriggerOverlayHapticEffect?.(
 					l.en.ButtonEnter,
@@ -200,8 +201,8 @@ export function HJ(e, t) {
 			}
 		};
 		const n = () => {
-			E.SetInteractionAffordance(r, e, false);
-			if (e == 2 && s.current && s.current()) {
+			qL.SetInteractionAffordance(r, e, false);
+			if (e == 2 && SRef.current && SRef.current()) {
 				r?.ownerDocument.defaultView?.SteamClient?.OpenVR?.TriggerOverlayHapticEffect?.(
 					l.en.ButtonLeave,
 					0,
@@ -213,47 +214,47 @@ export function HJ(e, t) {
 		return () => {
 			r?.removeEventListener("mouseenter", t);
 			r?.removeEventListener("mouseleave", n);
-			E.SetInteractionAffordance(r, e, false);
+			qL.SetInteractionAffordance(r, e, false);
 		};
 	}, [r, e]);
-	return n;
+	return setR;
 }
 export function gb() {
-	return (0, s.q3)(() => E.IsVRHMDPresent);
+	return q3(() => qL.IsVRHMDPresent);
 }
 export function FJ() {
-	return (0, s.q3)(() => E.IsSteamVRRunning);
+	return q3(() => qL.IsSteamVRRunning);
 }
 export function IF() {
-	return (0, s.q3)(() => E.IsVRHMDAwake);
+	return q3(() => qL.IsVRHMDAwake);
 }
 export function JP() {
-	return (0, s.q3)(() => E.VRKeyboardStatus);
+	return q3(() => qL.VRKeyboardStatus);
 }
 export function AP() {
-	E.Init();
+	qL.Init();
 }
 export function mJ() {
 	return {
-		...(0, s.q3)(() => E.error),
-		clearError: E.ClearError,
+		...q3(() => qL.error),
+		clearError: qL.ClearError,
 	};
 }
 function S(e, t, r) {
-	const n = i.useRef(undefined);
-	const a = (0, m.xM)();
-	const s = (0, m.CH)();
+	const NRef = i.useRef(undefined);
+	const a = xM();
+	const s = CH();
 	const o = i.useCallback(async () => {
 		if (!SteamClient) {
 			return;
 		}
-		const i = n.current;
+		const n_current = NRef.current;
 		try {
-			n.current = await r(e, t);
+			NRef.current = await r(e, t);
 		} catch (e) {
-			n.current = undefined;
+			NRef.current = undefined;
 		}
-		if (n.current !== i && !a()) {
+		if (NRef.current !== n_current && !a()) {
 			s();
 		}
 	}, [e, t, r, a, s]);
@@ -267,16 +268,16 @@ function S(e, t, r) {
 		o();
 		return () => r?.unregister && r.unregister();
 	}, [e, t, o]);
-	return n.current;
+	return NRef.current;
 }
 export function Fq(e) {
-	const t = i.useRef(false);
-	const r = (0, m.xM)();
-	const n = (0, m.CH)();
+	const TRef = i.useRef(false);
+	const r = xM();
+	const n = CH();
 	const a = i.useCallback(
 		(e) => {
-			if (!r() && t.current !== e) {
-				t.current = e;
+			if (!r() && TRef.current !== e) {
+				TRef.current = e;
 				n();
 			}
 		},
@@ -295,7 +296,7 @@ export function Fq(e) {
 		s();
 		return () => t?.unregister && t.unregister();
 	}, [e, s, a]);
-	return t.current;
+	return TRef.current;
 }
 export function dx(e, t) {
 	return S(e, t, (e, t) =>
@@ -308,28 +309,27 @@ export function Zy(e, t) {
 	);
 }
 export function ax(e) {
-	return (0, s.q3)(() => qL.BHasMutualCapability(e));
+	return q3(() => qL.BHasMutualCapability(e));
 }
-(0, n.Cg)([a.sH], p.prototype, "m_rgMutualCapabilities", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bHMDPresent", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bHMDHardwareDetected", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_strHMDName", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bIsVRRunning", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_error", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_eHMDActivityLevel", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bVRDeviceSeenRecently", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bIsKeyboardOpen", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_eKeyboardFlags", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_sInitialKeyboardText", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_unSceneAppID", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_bSimulatingVROnDesktop", undefined);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnVRHardwareDetected", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnVRModeChanged", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnStartupError", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnHMDActivityLevelChanged", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnSceneAppChanged", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnVRDeviceSeenRecentlyChanged", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "OnKeyboardStatus", null);
-(0, n.Cg)([a.XI.bound], p.prototype, "ClearError", null);
-const E = new p();
-export const qL = E;
+Cg([a.sH], p.prototype, "m_rgMutualCapabilities", undefined);
+Cg([a.sH], p.prototype, "m_bHMDPresent", undefined);
+Cg([a.sH], p.prototype, "m_bHMDHardwareDetected", undefined);
+Cg([a.sH], p.prototype, "m_strHMDName", undefined);
+Cg([a.sH], p.prototype, "m_bIsVRRunning", undefined);
+Cg([a.sH], p.prototype, "m_error", undefined);
+Cg([a.sH], p.prototype, "m_eHMDActivityLevel", undefined);
+Cg([a.sH], p.prototype, "m_bVRDeviceSeenRecently", undefined);
+Cg([a.sH], p.prototype, "m_bIsKeyboardOpen", undefined);
+Cg([a.sH], p.prototype, "m_eKeyboardFlags", undefined);
+Cg([a.sH], p.prototype, "m_sInitialKeyboardText", undefined);
+Cg([a.sH], p.prototype, "m_unSceneAppID", undefined);
+Cg([a.sH], p.prototype, "m_bSimulatingVROnDesktop", undefined);
+Cg([a.XI.bound], p.prototype, "OnVRHardwareDetected", null);
+Cg([a.XI.bound], p.prototype, "OnVRModeChanged", null);
+Cg([a.XI.bound], p.prototype, "OnStartupError", null);
+Cg([a.XI.bound], p.prototype, "OnHMDActivityLevelChanged", null);
+Cg([a.XI.bound], p.prototype, "OnSceneAppChanged", null);
+Cg([a.XI.bound], p.prototype, "OnVRDeviceSeenRecentlyChanged", null);
+Cg([a.XI.bound], p.prototype, "OnKeyboardStatus", null);
+Cg([a.XI.bound], p.prototype, "ClearError", null);
+export const qL = new p();

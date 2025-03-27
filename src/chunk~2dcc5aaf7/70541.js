@@ -1,18 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./83599.js");
-var s = require("./97838.js");
-var o = require(/*webcrack:missing*/ "./58663.js");
-var l = require(/*webcrack:missing*/ "./48307.js");
-const c = o.Message;
-class m extends c {
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./83599.js";
+import s from "./97838.js";
+import o from "./58663.js";
+import l from "./48307.js";
+import g from "./93960.js";
+const o_Message = o.Message;
+class m extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.main) {
 			l.Sg(m.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -58,7 +59,7 @@ class m extends c {
 		return l.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -66,7 +67,7 @@ class m extends c {
 		l.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -74,14 +75,14 @@ class m extends c {
 		return "CSteamVR_AudioSettings_Settings";
 	}
 }
-class u extends c {
+class u extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.available) {
 			l.Sg(u.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -130,7 +131,7 @@ class u extends c {
 		return l.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -138,7 +139,7 @@ class u extends c {
 		l.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -146,11 +147,11 @@ class u extends c {
 		return "CSteamVR_AudioSettings_Settings_Channel";
 	}
 }
-class d extends c {
+class d extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return d.toObject(e, this);
@@ -176,13 +177,13 @@ class d extends c {
 		return e;
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -190,14 +191,14 @@ class d extends c {
 		return "CSteamVR_AudioSettings_RegisterForSettings_Request";
 	}
 }
-class A extends c {
+class A extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.settings) {
 			l.Sg(A.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -235,7 +236,7 @@ class A extends c {
 		return l.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -243,7 +244,7 @@ class A extends c {
 		l.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -251,14 +252,14 @@ class A extends c {
 		return "CSteamVR_AudioSettings_ChangeSettings_Request";
 	}
 }
-class p extends c {
+class p extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.settings) {
 			l.Sg(p.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -296,7 +297,7 @@ class p extends c {
 		return l.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -304,7 +305,7 @@ class p extends c {
 		l.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -312,7 +313,6 @@ class p extends c {
 		return "CSteamVR_AudioSettings_SettingsChanged_Notification";
 	}
 }
-var g = require(/*webcrack:missing*/ "./93960.js");
 const h = new a.wd("VR");
 const C = {
 	available: false,
@@ -321,7 +321,7 @@ const C = {
 };
 class _ {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_MainVolume = C;
 	m_AudioMirrorVolume = C;
@@ -374,12 +374,12 @@ class _ {
 		s.N.BSendMsg(35, n);
 	}
 }
-(0, n.Cg)([i.sH], _.prototype, "m_MainVolume", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_AudioMirrorVolume", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_MicrophoneVolume", undefined);
-(0, n.Cg)([i.XI.bound], _.prototype, "OnSettingsChangedNotification", null);
-(0, n.Cg)([g.o], _.prototype, "SetMainVolumeSettings", null);
-(0, n.Cg)([g.o], _.prototype, "SetAudioMirrorVolumeSettings", null);
-(0, n.Cg)([g.o], _.prototype, "SetMicrophoneVolumeSettings", null);
+Cg([i.sH], _.prototype, "m_MainVolume", undefined);
+Cg([i.sH], _.prototype, "m_AudioMirrorVolume", undefined);
+Cg([i.sH], _.prototype, "m_MicrophoneVolume", undefined);
+Cg([i.XI.bound], _.prototype, "OnSettingsChangedNotification", null);
+Cg([g.o], _.prototype, "SetMainVolumeSettings", null);
+Cg([g.o], _.prototype, "SetAudioMirrorVolumeSettings", null);
+Cg([g.o], _.prototype, "SetMicrophoneVolumeSettings", null);
 export const t = new _();
 window.vrAudioSettingsStore = t;

@@ -1,23 +1,44 @@
+import { I } from "./53414.js";
+import n from "./49180.js";
+import i from "./92228.js";
+import { bf } from "./72476.js";
+import s from "./44234.js";
+import o, { Cg } from "./34629.js";
+import l from "./94195.js";
+import c from "./83957.js";
+import u from "./12176.js";
+import d from "./52451.js";
+import A, { Gn } from "./89193.js";
+import p from "./28987.js";
+import g from "./8573.js";
+import { w as w_1 } from "./49455.js";
+import _ from "./95773.js";
+import f, { DW } from "./52912.js";
+import b, {
+	Yg,
+	p5,
+	vT,
+	CN,
+	as,
+	nf,
+	cQ,
+	RM,
+	V8,
+	p as p_1,
+	wE,
+} from "./29971.js";
+import y from "./17385.js";
+import "./69930.js";
+import S from "./97422.js";
+import w from "./3756.js";
+import B from "./8653.js";
+import v from "./66146.js";
 export let _k = f._k;
 export let tj = S.tj;
-var I = require("./53414.js").I;
 export let sn = B.s;
 export let a$ = v.a$;
 export let dJ = w.d;
-var n = require("./49180.js");
-var i = require(/*webcrack:missing*/ "./92228.js");
-var a = require(/*webcrack:missing*/ "./72476.js");
-var s = require("./44234.js");
-var o = require(/*webcrack:missing*/ "./34629.js");
-var l = require(/*webcrack:missing*/ "./94195.js");
-var c = require(/*webcrack:missing*/ "./83957.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./12176.js");
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require(/*webcrack:missing*/ "./89193.js");
-var p = require(/*webcrack:missing*/ "./28987.js");
-var g = require(/*webcrack:missing*/ "./8573.js");
-var h = require(/*webcrack:missing*/ "./49455.js");
+const m = c;
 class C {
 	m_bLogonFailed = false;
 	m_bForcedDisconnect = false;
@@ -33,7 +54,7 @@ class C {
 	m_rgdtRecentFailures = [];
 	m_eWebLogonState = 0;
 	constructor(e, t) {
-		(0, A.Gn)(this);
+		Gn(this);
 		this.m_CMInterface = e;
 		this.m_eSteamRealm = t;
 		this.m_CMInterface.AddOnDisconnectCallback(this.OnCMDisconnected);
@@ -134,7 +155,15 @@ class C {
 	PerformWebLogOn(e) {
 		this.m_bConnectSucceeded = false;
 		this.m_eWebLogonState = this.m_bEverConnected ? 3 : 1;
-		if (!e || !e.steamid || !e.token || !e.account_name) {
+		if (
+			!e ||
+			!e.steamid ||
+			!e.steamid ||
+			!e.token ||
+			!e.steamid ||
+			!e.token ||
+			!e.account_name
+		) {
 			this.RetryLogin();
 			return;
 		}
@@ -150,15 +179,18 @@ class C {
 		t.Body().set_chat_mode(2);
 		t.Body().set_web_logon_nonce(e.token);
 		t.Hdr().set_steamid(e.steamid);
-		(function (e, t) {
+		((e, t) => {
 			switch (t) {
-				case p.TU.k_ESteamRealmChina:
+				case p.TU.k_ESteamRealmChina: {
 					e.Body().set_launcher_type(7);
 					break;
-				case p.TU.k_ESteamRealmGlobal:
+				}
+				case p.TU.k_ESteamRealmGlobal: {
 					break;
-				default:
-					(0, h.w)(false, "Unknown realm: " + t);
+				}
+				default: {
+					w_1(false, `Unknown realm: ${t}`);
+				}
 			}
 		})(t, this.m_eSteamRealm);
 		if (this.m_CMInterface.session.m_nSessionIDLast) {
@@ -185,7 +217,7 @@ class C {
 			this.m_CMInterface.ForceDisconnect();
 			return;
 		}
-		(0, h.w)(
+		w_1(
 			this.m_eWebLogonState != 11,
 			"RetryLogin called while request in flight",
 		);
@@ -196,9 +228,14 @@ class C {
 				method: "POST",
 			})
 				.then((e) => {
-					let t = e.data;
-					if (t.logged_in && t.steamid && t.token && t.account_name) {
-						let e = new g.b(t.steamid);
+					let e_data = e.data;
+					if (
+						e_data.logged_in &&
+						e_data.steamid &&
+						e_data.token &&
+						e_data.account_name
+					) {
+						let e = new g.b(e_data.steamid);
 						if (
 							this.m_bEverLoggedOn &&
 							this.m_CMInterface.steamid.GetAccountID() != e.GetAccountID()
@@ -206,7 +243,7 @@ class C {
 							this.m_eWebLogonState = 14;
 							this.m_CMInterface.ForceDisconnect();
 						} else {
-							this.PerformWebLogOn(t);
+							this.PerformWebLogOn(e_data);
 						}
 					} else {
 						this.m_eWebLogonState = 13;
@@ -248,18 +285,9 @@ class C {
 		}
 	}
 }
-(0, o.Cg)([A.sH], C.prototype, "m_eWebLogonState", undefined);
-(0, o.Cg)([d.oI], C.prototype, "OnCMDisconnected", null);
-(0, o.Cg)([d.oI], C.prototype, "OnCMLoggedOn", null);
-var _ = require("./95773.js");
-var f = require("./52912.js");
-var b = require("./29971.js");
-var y = require(/*webcrack:missing*/ "./17385.js");
-require("./69930.js");
-var S = require("./97422.js");
-var w = require("./3756.js");
-var B = require("./8653.js");
-var v = require("./66146.js");
+Cg([A.sH], C.prototype, "m_eWebLogonState", undefined);
+Cg([d.oI], C.prototype, "OnCMDisconnected", null);
+Cg([d.oI], C.prototype, "OnCMLoggedOn", null);
 export function bg() {
 	return _.xm?.FriendStore;
 }
@@ -273,21 +301,21 @@ export const x9 = (e) => {
 	let l = false;
 	const c = {
 		GetFriendsUIExportsVersion: () => n.r,
-		FriendsListRoot: (e) => (0, b.Yg)(r.FriendStore, r.ChatStore, e),
-		FriendsListQuickAccess: (e) => (0, b.p5)(r.FriendStore, r.ChatStore, e),
-		GroupsListRoot: (e) => (0, b.vT)(r.FriendStore, r.ChatStore, e),
-		FriendsListAndChatsRoot: (e) => (0, b.CN)(r.FriendStore, r.ChatStore, e),
-		TabSetRoot: (e) => (0, b.as)(e),
-		VoiceChatControlsRoot: (e) => (0, b.nf)(r.ChatStore, e),
-		VoiceChatHeaderRoot: (e) => (0, b.cQ)(r.ChatStore, e),
-		RemotePlayTogetherControlsRoot: (e) => (0, b.RM)(r.ChatStore, e),
+		FriendsListRoot: (e) => Yg(r.FriendStore, r.ChatStore, e),
+		FriendsListQuickAccess: (e) => p5(r.FriendStore, r.ChatStore, e),
+		GroupsListRoot: (e) => vT(r.FriendStore, r.ChatStore, e),
+		FriendsListAndChatsRoot: (e) => CN(r.FriendStore, r.ChatStore, e),
+		TabSetRoot: (e) => as(e),
+		VoiceChatControlsRoot: (e) => nf(r.ChatStore, e),
+		VoiceChatHeaderRoot: (e) => cQ(r.ChatStore, e),
+		RemotePlayTogetherControlsRoot: (e) => RM(r.ChatStore, e),
 		BShowRemotePlayQuickAccessControls: () =>
 			_.xm.RemotePlayStore.BShowQuickAccessControls(),
-		UnreadChatMessagesHeaderRoot: (e) => (0, b.V8)(r.ChatStore, e),
-		InvitesList: (e) => (0, b.p)(r.FriendStore, e),
+		UnreadChatMessagesHeaderRoot: (e) => V8(r.ChatStore, e),
+		InvitesList: (e) => p_1(r.FriendStore, e),
 		InstrumentWindow: (e) => {
 			f.ZM.InstrumentWindow(e);
-			(0, f.DW)(e, y.m);
+			DW(e, y.m);
 		},
 		GetCurrentUserStatusInterface: () => r.GetCurrentUserStatusInterface(),
 		GetVoiceInterface: () => r.GetVoiceInterface(),
@@ -299,7 +327,7 @@ export const x9 = (e) => {
 			_.xm.FriendStore.GetPersonaStatePreference(),
 	};
 	if (s.TS.IN_CLIENT) {
-		(0, a.bf)();
+		bf();
 		let e = {
 			message: "ChatJavascriptInitialized",
 			data: s.TS.BUILD_TIMESTAMP,
@@ -315,7 +343,7 @@ export const x9 = (e) => {
 	}
 	r.Init(t, l, o);
 	if (!l) {
-		(0, b.wE)(
+		wE(
 			r.FriendStore,
 			r.ChatStore,
 			document.getElementById("friendslist-container"),

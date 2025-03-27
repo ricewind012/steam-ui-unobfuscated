@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./3524.js");
-var _a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./11131.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var l = require(/*webcrack:missing*/ "./49455.js");
-var c = require(/*webcrack:missing*/ "./79769.js");
-var m = require(/*webcrack:missing*/ "./83599.js");
-var u = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i, { nN } from "./3524.js";
+import _a from "./63696.js";
+import { R7 } from "./11131.js";
+import { w } from "./49455.js";
+import c from "./79769.js";
+import m from "./83599.js";
+import u, { QS } from "./52451.js";
 const d = new m.wd("FocusNavigation").Debug;
 const A = (e, ...t) => {
 	const [r, ...n] = t;
@@ -25,7 +25,7 @@ class p {
 		return this.m_rgTrees.find((t) => t.browser == e);
 	}
 	RegisterNavTree(e, t, r) {
-		(0, l.w)(!this.FindTreeByName(e), `Duplicate focus nav tree ${e}`);
+		w(!this.FindTreeByName(e), `Duplicate focus nav tree ${e}`);
 		d(`Registering tree ${e}`);
 		const n = new c.e0();
 		const i = {
@@ -71,7 +71,9 @@ class p {
 		const r = this.FindTree(t);
 		A(
 			r?.browserContext,
-			`CBrowserViewWindowFocusCoordinator Focusing browser view in ${r?.name}, ${r ? "blurring main window" : "not changing main window focus"}`,
+			`CBrowserViewWindowFocusCoordinator Focusing browser view in ${
+				r?.name
+			}, ${r ? "blurring main window" : "not changing main window focus"}`,
 		);
 		if (r) {
 			r.browser = e;
@@ -83,7 +85,9 @@ class p {
 		const r = this.FindTree(t);
 		A(
 			r?.browserContext,
-			`CBrowserViewWindowFocusCoordinator Blurring browser view in ${r?.name}, ${r ? "giving main window focus" : "not changing main window focus"}`,
+			`CBrowserViewWindowFocusCoordinator Blurring browser view in ${
+				r?.name
+			}, ${r ? "giving main window focus" : "not changing main window focus"}`,
 		);
 		e.SetFocus(false);
 		if (r) {
@@ -100,7 +104,7 @@ class p {
 			);
 			t.browser.SetFocus(true);
 		} else {
-			(function (e) {
+			((e) => {
 				const t = e?.ownerWindow ?? window;
 				A(e, "Invoking SteamClient.Window.MarkLastFocused()");
 				t.SteamClient.Window.MarkLastFocused();
@@ -142,12 +146,12 @@ class p {
 		}
 	}
 }
-(0, n.Cg)([u.oI], p.prototype, "OnTreeActivated", null);
-(0, n.Cg)([u.oI], p.prototype, "OnTreeDeactivated", null);
+Cg([u.oI], p.prototype, "OnTreeActivated", null);
+Cg([u.oI], p.prototype, "OnTreeDeactivated", null);
 const g = new p();
 export function a() {
-	const e = (0, s.R7)();
-	return (0, u.QS)(
+	const e = R7();
+	return QS(
 		(t) => {
 			if (t) {
 				return g.RegisterNavTree(t.id, t, e);
@@ -161,27 +165,24 @@ export function Z(e, t, r, n) {
 		if (!n) {
 			return;
 		}
-		(0, l.w)(
-			r.current.BFocusWithin(),
-			"Nav system expected to match bFocused state",
-		);
+		w(r.current.BFocusWithin(), "Nav system expected to match bFocused state");
 		const e = r.current.NavTree();
 		g.SetBrowserViewFocus(t, e);
 		return () => g.SetBrowserViewBlurred(t, e);
 	}, [t, r, n]);
-	const { ownerWindow: o } = (0, s.R7)();
-	const c = (0, i.nN)();
+	const { ownerWindow } = R7();
+	const c = nN();
 	_a.useEffect(() => {
 		const r = (t) => {
 			if (t) {
-				c.OnActivateBrowserView(o, e);
+				c.OnActivateBrowserView(ownerWindow, e);
 			} else {
-				c.OnDeactivateBrowserView(o, e);
+				c.OnDeactivateBrowserView(ownerWindow, e);
 			}
 		};
 		t.on("focus-changed", r);
 		return () => t.off("focus-changed", r);
-	}, [t, e, c, o]);
+	}, [t, e, c, ownerWindow]);
 }
 function _(e) {
 	const t = e.ownerWindow ?? window;

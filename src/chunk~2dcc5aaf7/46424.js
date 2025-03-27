@@ -1,40 +1,40 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./96593.js");
-var o = require("./91486.js");
-var l = require("./13869.js");
-var c = require("./10606.js");
-var m = require("./64608.js");
-var u = require(/*webcrack:missing*/ "./41230.js");
-var d = require(/*webcrack:missing*/ "./90095.js");
-var A = require("./35062.js");
-var _p = A;
-var g = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var C = require("./87935.js");
-var _ = require("./5808.js");
-var f = require("./22639.js");
-var b = require("./32700.js");
-var y = require(/*webcrack:missing*/ "./11131.js");
-var S = require("./18869.js");
-var w = require("./90985.js");
-var B = require("./23783.js");
-var v = require(/*webcrack:missing*/ "./72476.js");
-var I = require(/*webcrack:missing*/ "./69164.js");
-var E = require("./96680.js");
-var M = require(/*webcrack:missing*/ "./88750.js");
-var T = require(/*webcrack:missing*/ "./31084.js");
-var R = require("./35488.js");
-var k = require("./18057.js");
-var D = require("./93681.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i, { useCallback } from "./63696.js";
+import a from "./52451.js";
+import s from "./96593.js";
+import o from "./91486.js";
+import l, { mK } from "./13869.js";
+import c from "./10606.js";
+import m from "./64608.js";
+import u, { PA } from "./41230.js";
+import { q3 } from "./90095.js";
+import A from "./35062.js";
+import g, { A as A_1 } from "./90765.js";
+import C from "./87935.js";
+import { aF, AH, jy } from "./5808.js";
+import f from "./22639.js";
+import b, { Np } from "./32700.js";
+import { R7 } from "./11131.js";
+import S, { br } from "./18869.js";
+import w from "./90985.js";
+import B from "./23783.js";
+import v, { Qn, rP } from "./72476.js";
+import I from "./69164.js";
+import E, { $2 } from "./96680.js";
+import M from "./88750.js";
+import { lX } from "./31084.js";
+import R from "./35488.js";
+import { Qt } from "./18057.js";
+import D from "./93681.js";
+const _p = A;
 class F extends i.Component {
 	TwoDigitDurationString(e) {
-		return ("0" + e).slice(-2);
+		return `0${e}`.slice(-2);
 	}
 	HoursMinuteSecondsDisplayString(e) {
 		let t = e;
@@ -44,147 +44,116 @@ class F extends i.Component {
 		t -= n * 60;
 		let i = t;
 		if (r > 0) {
-			return (
-				r +
-				":" +
-				this.TwoDigitDurationString(n) +
-				":" +
-				this.TwoDigitDurationString(i)
-			);
+			return `${r}:${this.TwoDigitDurationString(
+				n,
+			)}:${this.TwoDigitDurationString(i)}`;
 		} else {
-			return n + ":" + this.TwoDigitDurationString(i);
+			return `${n}:${this.TwoDigitDurationString(i)}`;
 		}
 	}
 	render() {
-		return i.createElement(
-			i.Fragment,
-			null,
-			this.HoursMinuteSecondsDisplayString(this.props.seconds),
-		);
+		return <>{this.HoursMinuteSecondsDisplayString(this.props.seconds)}</>;
 	}
 }
 let G = class extends i.Component {
 	render() {
 		const e = f.ET.GetSoundtrackDetails(this.props.appid).m_nTotalTrackCount;
 		if (e) {
-			return i.createElement(
-				i.Fragment,
-				null,
-				Localize("#AppDetails_Soundtrack_TrackCount", e),
-			);
+			return <>{Localize("#AppDetails_Soundtrack_TrackCount", e)}</>;
 		} else {
 			return null;
 		}
 	}
 };
-G = (0, n.Cg)([u.PA], G);
+G = Cg([u.PA], G);
 let O = class extends i.Component {
 	render() {
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(F, {
-				seconds: f.ET.GetSoundtrackDetails(this.props.appid)
-					.m_nTotalDurationSeconds,
-			}),
+		return (
+			<>
+				<F
+					seconds={
+						f.ET.GetSoundtrackDetails(this.props.appid).m_nTotalDurationSeconds
+					}
+				/>
+			</>
 		);
 	}
 };
-O = (0, n.Cg)([u.PA], O);
+O = Cg([u.PA], O);
 export let F9 = class extends i.Component {
 	render() {
 		let e = f.ET.GetSoundtrackDetails(this.props.appid).m_Metadata;
 		if (e && e.m_strArtist) {
-			return i.createElement(i.Fragment, null, e.m_strArtist);
+			return <>{e.m_strArtist}</>;
 		} else {
 			return null;
 		}
 	}
 };
-F9 = (0, n.Cg)([u.PA], F9);
-export let p = class extends i.Component {
+F9 = Cg([u.PA], F9);
+export let P = class extends i.Component {
 	render() {
 		if (f.ET.GetSoundtrackDetails(this.props.appid).m_nTotalTrackCount) {
-			return i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(G, {
-					appid: this.props.appid,
-				}),
-				" / ",
-				i.createElement(O, {
-					appid: this.props.appid,
-				}),
+			return (
+				<>
+					<G appid={this.props.appid} />
+					{" / "}
+					<O appid={this.props.appid} />
+				</>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-p = (0, n.Cg)([u.PA], p);
-export let j2 = class extends i.Component {
+P = Cg([u.PA], P);
+export let J2 = class extends i.Component {
 	render() {
 		const e = s.tw.GetAppOverviewByAppID(this.props.appid);
 		if (e) {
-			return i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(o.z, {
-					app: e,
-					eAssetType: 7,
-					className: this.props.className,
-				}),
+			return (
+				<>
+					<o.z app={e} eAssetType={7} className={this.props.className} />
+				</>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-j2 = (0, n.Cg)([u.PA], j2);
-const x = (e) => {
-	const { appid: t, track: r, trackNumber: n, independentTrackNumber: a } = e;
-	const s = (0, y.R7)();
-	let o = (0, d.q3)(() => w.l.playbackState);
+J2 = Cg([u.PA], J2);
+const X = (e) => {
+	const { appid, track, trackNumber, independentTrackNumber } = e;
+	const s = R7();
+	let o = q3(() => w.l.playbackState);
 	let l = false;
-	if (o?.uSoundtrackAppId == t && a - 1 == o?.nActiveTrack) {
+	if (
+		o?.uSoundtrackAppId == appid &&
+		independentTrackNumber - 1 == o?.nActiveTrack
+	) {
 		l = true;
 	}
-	return i.createElement(
-		I.Z,
-		{
-			key: r.displayName + n,
-			onActivate: () => (0, _.aF)(t, s.ownerWindow, a),
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, g.A)(_p.TrackListing, l && _p.Playing),
-				key: "track" + r.displayName,
-			},
-			i.createElement(
-				"div",
-				{
-					className: _p.TrackNumber,
-				},
-				n,
-				".",
-			),
-			i.createElement("div", {
-				className: _p.TrackName,
-				dangerouslySetInnerHTML: {
-					__html: r.displayName,
-				},
-			}),
-			i.createElement(
-				"div",
-				{
-					className: _p.TrackLength,
-				},
-				i.createElement(F, {
-					seconds: r.durationSeconds,
-				}),
-			),
-		),
+	return (
+		<I.Z
+			key={track.displayName + trackNumber}
+			onActivate={() => aF(appid, s.ownerWindow, independentTrackNumber)}
+		>
+			<div
+				className={A_1(_p.TrackListing, l && _p.Playing)}
+				key={`track${track.displayName}`}
+			>
+				<div className={_p.TrackNumber}>{trackNumber}.</div>
+				<div
+					className={_p.TrackName}
+					dangerouslySetInnerHTML={{
+						__html: track.displayName,
+					}}
+				/>
+				<div className={_p.TrackLength}>
+					<F seconds={track.durationSeconds} />
+				</div>
+			</div>
+		</I.Z>
 	);
 };
 let U = class extends i.Component {
@@ -199,318 +168,189 @@ let U = class extends i.Component {
 			let a = [];
 			e.trackInfo.forEach((e, t) => {
 				a.push(
-					i.createElement(x, {
-						key: e.displayName + t,
-						appid: this.props.appid,
-						track: e,
-						trackNumber: t,
-						independentTrackNumber: r,
-					}),
+					<X
+						key={e.displayName + t}
+						appid={this.props.appid}
+						track={e}
+						trackNumber={t}
+						independentTrackNumber={r}
+					/>,
 				);
 				r++;
 			});
 			t.push(
-				i.createElement(
-					i.Fragment,
-					{
-						key: "disc" + n,
-					},
-					i.createElement(
-						"div",
-						{
-							className: _p.Disc,
-						},
-						Localize("#AppDetails_Soundtrack_DiscNumber", n),
-					),
-					a,
-				),
+				<i.Fragment key={`disc${n}`}>
+					<div className={_p.Disc}>
+						{Localize("#AppDetails_Soundtrack_DiscNumber", n)}
+					</div>
+					{a}
+				</i.Fragment>,
 			);
 		});
-		return i.createElement(
-			I.Z,
-			{
-				className: _p.TrackListContainer,
-			},
-			t,
-		);
+		return <I.Z className={_p.TrackListContainer}>{t}</I.Z>;
 	}
 };
-U = (0, n.Cg)([u.PA], U);
-export const gR = (0, u.PA)(function (e) {
-	const { overview: t, details: r, appid: n } = e;
-	const a = (0, S.br)();
-	const l = s.tw.GetAppOverviewByAppID(t.optional_parent_app_id);
-	const c = l
-		? i.createElement(
-				"div",
-				{
-					className: _p.ParentAppName,
-					onClick: () => a.App(t.optional_parent_app_id),
-				},
-				i.createElement(o.z, {
-					app: l,
-					eAssetType: 4,
-					className: _p.ParentGameIcon,
-				}),
-				l.display_name,
-			)
-		: undefined;
-	const m = (0, E.$2)();
-	const u = (0, _.AH)(m, t, "selected");
-	const A = (0, v.Qn)();
-	const C = t.installed;
-	const f = (0, d.q3)(() => w.l.playbackState);
-	function b() {
-		return i.createElement(
-			"div",
-			{
-				className: _p.Header,
-			},
-			i.createElement(
-				"div",
-				{
-					className: _p.AlbumArtAndTitle,
-				},
-				i.createElement(j2, {
-					className: _p.AlbumArt,
-					appid: t.appid,
-				}),
-				i.createElement(
-					"div",
-					{
-						className: _p.TitleAndArtist,
-					},
-					i.createElement(
-						"div",
-						{
-							className: _p.AlbumName,
-						},
-						t.display_name,
-					),
-					i.createElement(
-						"div",
-						{
-							className: _p.ArtistName,
-						},
-						i.createElement(F9, {
-							appid: t.appid,
-						}),
-					),
-					i.createElement(
-						"div",
-						{
-							className: _p.StatsAndParent,
-						},
-						i.createElement(
-							"div",
-							{
-								className: _p.ParentGameLinkContainer,
-							},
-							i.createElement(
-								"div",
-								{
-									className: _p.ParentGameLink,
-								},
-								LocalizeReact("#AppDetails_Soundtrack_ParentAppLink"),
-							),
-							c,
-						),
-						i.createElement(
-							"div",
-							{
-								className: _p.AlbumStatsContainer,
-							},
-							LocalizeReact("#AppDetails_Soundtrack_TotalLength"),
-							i.createElement(
-								"div",
-								{
-									className: _p.AlbumStats,
-								},
-								i.createElement(p, {
-									appid: t.appid,
-								}),
-							),
-						),
-					),
-				),
-			),
+U = Cg([u.PA], U);
+export const gR = PA((e) => {
+	const { overview, details, appid } = e;
+	const a = br();
+	const l = s.tw.GetAppOverviewByAppID(overview.optional_parent_app_id);
+	const c = l ? (
+		<div
+			className={_p.ParentAppName}
+			onClick={() => a.App(overview.optional_parent_app_id)}
+		>
+			<o.z app={l} eAssetType={4} className={_p.ParentGameIcon} />
+			{l.display_name}
+		</div>
+	) : undefined;
+	const m = $2();
+	const u = AH(m, overview, "selected");
+	const A = Qn();
+	const t_installed = overview.installed;
+	const f = q3(() => w.l.playbackState);
+	function B_1() {
+		return (
+			<div className={_p.Header}>
+				<div className={_p.AlbumArtAndTitle}>
+					<J2 className={_p.AlbumArt} appid={overview.appid} />
+					<div className={_p.TitleAndArtist}>
+						<div className={_p.AlbumName}>{overview.display_name}</div>
+						<div className={_p.ArtistName}>
+							<F9 appid={overview.appid} />
+						</div>
+						<div className={_p.StatsAndParent}>
+							<div className={_p.ParentGameLinkContainer}>
+								<div className={_p.ParentGameLink}>
+									{LocalizeReact("#AppDetails_Soundtrack_ParentAppLink")}
+								</div>
+								{c}
+							</div>
+							<div className={_p.AlbumStatsContainer}>
+								{LocalizeReact("#AppDetails_Soundtrack_TotalLength")}
+								<div className={_p.AlbumStats}>
+									<P appid={overview.appid} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		);
 	}
-	return i.createElement(
-		"div",
-		{
-			className: (0, g.A)(_p.MainPanel, _p.SoundtrackPanel),
-		},
-		i.createElement(
-			"div",
-			{
-				className: _p.BackgroundContainer,
-			},
-			i.createElement(j2, {
-				className: _p.BackgroundBlurArt,
-				appid: t.appid,
-			}),
-		),
-		i.createElement(
-			"div",
-			{
-				className: _p.SoundtrackContainer,
-			},
-			i.createElement(
-				I.Z,
-				{
-					className: _p.Content,
-					"flow-children": "row",
-				},
-				A && i.createElement(b, null),
-				i.createElement(
-					"div",
-					{
-						className: _p.Columns,
-					},
-					i.createElement(
-						I.Z,
-						{
-							className: (0, g.A)(_p.LeftColumn, C && _p.WithControls),
-						},
-						!A && i.createElement(b, null),
-						A &&
-							i.createElement(V, {
-								appid: t.appid,
-								currentTrack: f?.nActiveTrack,
-							}),
-						i.createElement(H, {
-							primaryAction: u,
-							overview: t,
-							details: r,
-						}),
-					),
-					i.createElement(
-						I.Z,
-						{
-							className: (0, g.A)(_p.RightColumn, C && _p.WithControls),
-						},
-						i.createElement(U, {
-							appid: t.appid,
-						}),
-					),
-				),
-				!A &&
-					C &&
-					i.createElement(
-						"div",
-						{
-							className: _p.DesktopControls,
-						},
-						i.createElement(B.TF, {
-							appid: t.appid,
-							bFloatingControls: true,
-						}),
-						i.createElement(V, {
-							appid: t.appid,
-							currentTrack: f?.nActiveTrack,
-						}),
-					),
-			),
-		),
+	return (
+		<div className={A_1(_p.MainPanel, _p.SoundtrackPanel)}>
+			<div className={_p.BackgroundContainer}>
+				<J2 className={_p.BackgroundBlurArt} appid={overview.appid} />
+			</div>
+			<div className={_p.SoundtrackContainer}>
+				<I.Z className={_p.Content} flow-children="row">
+					{A && <B_1 />}
+					<div className={_p.Columns}>
+						<I.Z className={A_1(_p.LeftColumn, t_installed && _p.WithControls)}>
+							{!A && <B_1 />}
+							{A && <V appid={overview.appid} currentTrack={f?.nActiveTrack} />}
+							<H primaryAction={u} overview={overview} details={details} />
+						</I.Z>
+						<I.Z
+							className={A_1(_p.RightColumn, t_installed && _p.WithControls)}
+						>
+							<U appid={overview.appid} />
+						</I.Z>
+					</div>
+					{!A && t_installed && (
+						<div className={_p.DesktopControls}>
+							<B.TF appid={overview.appid} bFloatingControls />
+							<V appid={overview.appid} currentTrack={f?.nActiveTrack} />
+						</div>
+					)}
+				</I.Z>
+			</div>
+		</div>
 	);
 });
 function V(e) {
-	const { appid: t } = e;
-	const r = (0, d.q3)(() => f.ET.GetTrackDetails(t, e.currentTrack));
+	const { appid } = e;
+	const r = q3(() => f.ET.GetTrackDetails(appid, e.currentTrack));
 	const n = r?.displayName;
-	const a = (0, d.q3)(() => w.l.playbackState);
+	const a = q3(() => w.l.playbackState);
 	const s = !a || a.uSoundtrackAppId != e.appid;
-	const o = (0, g.A)(_p.CurrentTrackContainer, s && _p.PlayingOnCurrentAlbum);
-	return i.createElement(
-		"div",
-		{
-			className: o,
-		},
-		i.createElement(R.Music, null),
-		i.createElement(
-			"div",
-			{
-				className: _p.CurrentTrack,
-			},
-			i.createElement(
-				D.r,
-				null,
-				" ",
-				i.createElement("span", {
-					dangerouslySetInnerHTML: {
-						__html: n,
-					},
-				}),
-				" ",
-			),
-		),
+	const o = A_1(_p.CurrentTrackContainer, s && _p.PlayingOnCurrentAlbum);
+	return (
+		<div className={o}>
+			<R.Music />
+			<div className={_p.CurrentTrack}>
+				<D.r>
+					{" "}
+					<span
+						dangerouslySetInnerHTML={{
+							__html: n,
+						}}
+					/>{" "}
+				</D.r>
+			</div>
+		</div>
 	);
 }
 function H(e) {
-	const { primaryAction: t, overview: r, details: n } = e;
-	const a = r.installed;
-	const { ownerWindow: s } = (0, y.R7)();
-	const o = (0, v.Qn)();
-	const c = (0, v.rP)();
+	const { primaryAction, overview, details } = e;
+	const r_installed = overview.installed;
+	const { ownerWindow } = R7();
+	const o = Qn();
+	const c = rP();
 	const u = !v.TS.IN_GAMESCOPE && !c.IN_VR;
-	const A = (0, i.useCallback)(
+	const A = useCallback(
 		(e) => {
-			(0, _.jy)(e, r, "selected", 100, s)();
+			jy(e, overview, "selected", 100, ownerWindow)();
 		},
-		[r, s],
+		[overview, ownerWindow],
 	);
 	const g = [];
-	if (t == "PlayMusic") {
-		if (!a) {
+	if (primaryAction == "PlayMusic") {
+		if (!r_installed) {
 			g.push(
-				i.createElement(
-					m.jn,
-					{
-						key: "playAlbumAction",
-						className: _p.PlayButton,
-						onClick: () => (0, _.aF)(r.appid, s),
-					},
-					Localize("#AppDetails_Soundtrack_PlayAlbum"),
-				),
+				<m.jn
+					key="playAlbumAction"
+					className={_p.PlayButton}
+					onClick={() => aF(overview.appid, ownerWindow)}
+				>
+					{Localize("#AppDetails_Soundtrack_PlayAlbum")}
+				</m.jn>,
 			);
 		}
 		if (!o) {
 			g.push(
-				i.createElement(
-					m.$n,
-					{
-						key: "viewOnDiskAction",
-						className: _p.PlayButton,
-						onClick: () => A("BrowseLocalFiles"),
-					},
-					Localize("#AppDetails_Soundtrack_ViewOnDisk"),
-				),
+				<m.$n
+					key="viewOnDiskAction"
+					className={_p.PlayButton}
+					onClick={() => A("BrowseLocalFiles")}
+				>
+					{Localize("#AppDetails_Soundtrack_ViewOnDisk")}
+				</m.$n>,
 			);
 		}
-	} else if (t) {
+	} else if (primaryAction) {
 		const e =
-			t == "Install"
+			primaryAction == "Install"
 				? Localize("#AppDetails_Soundtrack_DownloadAlbum")
-				: (0, b.Np)(t);
+				: Np(primaryAction);
 		g.push(
-			i.createElement(
-				m.jn,
-				{
-					key: "action",
-					className: _p.PlayButton,
-					onClick: () => A(t),
-				},
-				e,
-			),
+			<m.jn
+				key="action"
+				className={_p.PlayButton}
+				onClick={() => A(primaryAction)}
+			>
+				{e}
+			</m.jn>,
 		);
 	}
-	const S = (0, d.q3)(
-		() => f.ET.GetSoundtrackDetails(r.appid).m_vecAdditionalImageAssetURLs,
+	const S = q3(
+		() =>
+			f.ET.GetSoundtrackDetails(overview.appid).m_vecAdditionalImageAssetURLs,
 	);
-	if (S && S.length > 0 && n) {
+	if (S && S.length > 0 && details) {
 		const e = (e) =>
-			(async function (e, t, r, n, a) {
+			(async (e, t, r, n, a) => {
 				let s;
 				let o;
 				let c = new Promise((e, t) => {
@@ -519,20 +359,18 @@ function H(e) {
 				});
 				try {
 					let m = await SteamClient.Apps.GetSoundtrackDetails(e.appid);
-					await (0, l.mK)(
-						i.createElement(
-							j,
-							{
-								details: n,
-								overview: e,
-								soundtrackDetailsObj: m,
-								window: a,
-								nMaxScreenPercentage: t,
-								onImageLoad: s,
-								onImageError: o,
-							},
-							r,
-						),
+					await mK(
+						<J
+							details={n}
+							overview={e}
+							soundtrackDetailsObj={m}
+							window={a}
+							nMaxScreenPercentage={t}
+							onImageLoad={s}
+							onImageError={o}
+						>
+							{r}
+						</J>,
 						a,
 						{
 							promiseRenderComplete: c,
@@ -542,126 +380,71 @@ function H(e) {
 					console.log(e);
 					console.error("ERROR DISPLAYING ARTWORK");
 				}
-			})(r, 0.8, null, n, GetOwningWindowForEvent(e));
+			})(overview, 0.8, null, details, GetOwningWindowForEvent(e));
 		g.push(
-			i.createElement(
-				m.$n,
-				{
-					key: "viewAdditionalArtwork",
-					className: _p.PlayButton,
-					onClick: e,
-				},
-				Localize("#AppDetails_Soundtrack_ViewAdditionalArtwork"),
-			),
+			<m.$n key="viewAdditionalArtwork" className={_p.PlayButton} onClick={e}>
+				{Localize("#AppDetails_Soundtrack_ViewAdditionalArtwork")}
+			</m.$n>,
 		);
 	}
-	const w = (0, k.Qt)("steam://store/" + r.appid);
-	const E = (0, k.Qt)(C.B7.BuildSteamURL("HelpAppPage", r.appid));
+	const w = Qt(`steam://store/${overview.appid}`);
+	const E = Qt(C.B7.BuildSteamURL("HelpAppPage", overview.appid));
 	const R = i.useCallback(
 		(e) => {
-			(0, T.lX)(
-				i.createElement(
-					M.tz,
-					null,
-					u &&
-						i.createElement(
-							M.kt,
-							{
-								key: "viewOnDiskAction",
-								onSelected: () => A("BrowseLocalFiles"),
-							},
-							" ",
-							Localize("#AppDetails_Soundtrack_ViewOnDisk"),
-							" ",
-						),
-					i.createElement(
-						M.kt,
-						{
-							key: "showInStoreAction",
-							onSelected: w,
-						},
-						" ",
-						Localize("#AppDetails_Soundtrack_ViewStorePage"),
-						" ",
-					),
-					i.createElement(
-						M.kt,
-						{
-							key: "showSupportAction",
-							onSelected: E,
-						},
-						" ",
-						Localize("#AppDetails_Soundtrack_Support"),
-						" ",
-					),
-				),
+			lX(
+				<M.tz>
+					{u && (
+						<M.kt
+							key="viewOnDiskAction"
+							onSelected={() => A("BrowseLocalFiles")}
+						>
+							{" "}
+							{Localize("#AppDetails_Soundtrack_ViewOnDisk")}{" "}
+						</M.kt>
+					)}
+					<M.kt key="showInStoreAction" onSelected={w}>
+						{" "}
+						{Localize("#AppDetails_Soundtrack_ViewStorePage")}{" "}
+					</M.kt>
+					<M.kt key="showSupportAction" onSelected={E}>
+						{" "}
+						{Localize("#AppDetails_Soundtrack_Support")}{" "}
+					</M.kt>
+				</M.tz>,
 				e,
 			);
 		},
 		[u, A, w, E],
 	);
-	return i.createElement(
-		I.Z,
-		null,
-		o &&
-			a &&
-			i.createElement(B.TF, {
-				appid: r.appid,
-			}),
-		g,
-		i.createElement("div", {
-			key: "spacerDiv",
-			className: _p.SoundtrackButtonDivider,
-		}),
-		a &&
-			o &&
-			i.createElement(
-				m.$n,
-				{
-					onClick: R,
-				},
-				" ",
-				Localize("#AppDetails_Soundtrack_SeeMore"),
-			),
-		!a &&
-			o &&
-			i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(
-					"a",
-					{
-						key: "showInStoreAction",
-						href: "steam://store/" + r.appid,
-					},
-					i.createElement(
-						m.$n,
-						{
-							key: "showInStoreAction",
-							className: _p.PlayButton,
-						},
-						Localize("#AppDetails_Soundtrack_ViewStorePage"),
-					),
-				),
-				i.createElement(
-					"a",
-					{
-						key: "showSupportAction",
-						href: C.B7.BuildSteamURL("HelpAppPage", r.appid),
-					},
-					i.createElement(
-						m.$n,
-						{
-							key: "showSupportAction",
-							className: _p.PlayButton,
-						},
-						Localize("#AppDetails_Soundtrack_Support"),
-					),
-				),
-			),
+	return (
+		<I.Z>
+			{o && r_installed && <B.TF appid={overview.appid} />}
+			{g}
+			<div key="spacerDiv" className={_p.SoundtrackButtonDivider} />
+			{r_installed && o && (
+				<m.$n onClick={R}> {Localize("#AppDetails_Soundtrack_SeeMore")}</m.$n>
+			)}
+			{!r_installed && o && (
+				<>
+					<a key="showInStoreAction" href={`steam://store/${overview.appid}`}>
+						<m.$n key="showInStoreAction" className={_p.PlayButton}>
+							{Localize("#AppDetails_Soundtrack_ViewStorePage")}
+						</m.$n>
+					</a>
+					<a
+						key="showSupportAction"
+						href={C.B7.BuildSteamURL("HelpAppPage", overview.appid)}
+					>
+						<m.$n key="showSupportAction" className={_p.PlayButton}>
+							{Localize("#AppDetails_Soundtrack_Support")}
+						</m.$n>
+					</a>
+				</>
+			)}
+		</I.Z>
 	);
 }
-class j extends i.Component {
+class J extends i.Component {
 	constructor(e) {
 		super(e);
 		this.state = {
@@ -693,80 +476,44 @@ class j extends i.Component {
 		const t =
 			this.props.window.screen.availWidth *
 			(this.props.nMaxScreenPercentage ? this.props.nMaxScreenPercentage : 0.8);
-		let r =
-			C.B7.GetCommunityImageURL() +
-			"images/apps/" +
-			this.props.overview.appid +
-			"/" +
+		let r = `${C.B7.GetCommunityImageURL()}images/apps/${
+			this.props.overview.appid
+		}/${
 			this.props.soundtrackDetailsObj.vecAdditionalImageAssetURLs[
 				this.state.visibleImageIndex
-			] +
-			".jpg";
-		return i.createElement(
-			c.x_,
-			{
-				onEscKeypress: this.OnCancel,
-				className: _p.AlbumArtworkModal,
-			},
-			i.createElement(
-				"div",
-				{
-					className: _p.ModalBox,
-				},
-				i.createElement(
-					"div",
-					{
-						className: _p.ArtworkModalContainer,
-					},
-					i.createElement(
-						"div",
-						{
-							className: _p.ArtworkContainer,
-						},
-						i.createElement("img", {
-							className: _p.ArtworkImage,
-							style: {
-								maxWidth: t,
-								maxHeight: e,
-							},
-							src: r,
-							onLoad: this.props.onImageLoad,
-							onError: this.props.onImageError,
-							onClick: this.OnNextAvailableImage,
-						}),
-					),
-					i.createElement(
-						"div",
-						{
-							className: _p.ArtworkModalDetails,
-						},
-						i.createElement(
-							"div",
-							{
-								className: _p.Header,
-							},
-							i.createElement(
-								m.jn,
-								{
-									className: _p.ModalArtCloseButton,
-									onClick: this.OnOK,
-								},
-								Localize("#Generic_Close"),
-							),
-						),
-						i.createElement(
-							"div",
-							{
-								className: _p.ChildrenContainer,
-							},
-							this.props.children,
-						),
-					),
-				),
-			),
+			]
+		}.jpg`;
+		return (
+			<c.x_ onEscKeypress={this.OnCancel} className={_p.AlbumArtworkModal}>
+				<div className={_p.ModalBox}>
+					<div className={_p.ArtworkModalContainer}>
+						<div className={_p.ArtworkContainer}>
+							<img
+								className={_p.ArtworkImage}
+								style={{
+									maxWidth: t,
+									maxHeight: e,
+								}}
+								src={r}
+								onLoad={this.props.onImageLoad}
+								onError={this.props.onImageError}
+								onClick={this.OnNextAvailableImage}
+							/>
+						</div>
+						<div className={_p.ArtworkModalDetails}>
+							<div className={_p.Header}>
+								<m.jn className={_p.ModalArtCloseButton} onClick={this.OnOK}>
+									{Localize("#Generic_Close")}
+								</m.jn>
+							</div>
+							<div className={_p.ChildrenContainer}>{this.props.children}</div>
+						</div>
+					</div>
+				</div>
+			</c.x_>
 		);
 	}
 }
-(0, n.Cg)([a.oI], j.prototype, "OnCancel", null);
-(0, n.Cg)([a.oI], j.prototype, "OnOK", null);
-(0, n.Cg)([a.oI], j.prototype, "OnNextAvailableImage", null);
+Cg([a.oI], J.prototype, "OnCancel", null);
+Cg([a.oI], J.prototype, "OnOK", null);
+Cg([a.oI], J.prototype, "OnNextAvailableImage", null);

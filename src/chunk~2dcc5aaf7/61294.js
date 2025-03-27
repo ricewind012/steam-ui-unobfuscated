@@ -1,26 +1,26 @@
-var n = require(/*webcrack:missing*/ "./41230.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./43014.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require("./64608.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require("./22091.js");
-var d = require("./83314.js");
-var A = require("./62486.js");
-var p = require("./85360.js");
-var g = require("./11625.js");
-var h = require("./52192.js");
-var C = require("./46422.js");
-var _ = require(/*webcrack:missing*/ "./85243.js");
-var f = require("./55489.js");
-var b = require("./57565.js");
-var y = require("./53622.js");
-var S = require("./31319.js");
-const w = a.createContext(null);
+import n, { PA } from "./41230.js";
+import i, { q3 } from "./90095.js";
+import a from "./63696.js";
+import s from "./43014.js";
+import o from "./69164.js";
+import l from "./64608.js";
+import { A as A_1 } from "./90765.js";
+import u from "./22091.js";
+import { dI } from "./83314.js";
+import A, { q8, bj, GW } from "./62486.js";
+import p from "./85360.js";
+import g from "./11625.js";
+import h, { JD, _H, nQ, yD } from "./52192.js";
+import C, { LC } from "./46422.js";
+import _ from "./85243.js";
+import { Bx } from "./55489.js";
+import b from "./57565.js";
+import y from "./53622.js";
+import { pw } from "./31319.js";
+const WContext = a.createContext(null);
 function B() {
-	const e = a.useContext(w);
+	const e = a.useContext(WContext);
 	if (e == null) {
 		throw new Error(
 			"useControllerLayoutContext cannot find ControllerLayoutContext!",
@@ -33,22 +33,22 @@ function v() {
 	p.v3.LoadChordConfig(e);
 }
 function I(e) {
-	const { activator: t } = e;
+	const { activator } = e;
 	let r = [];
-	t.bindings.forEach((e, t) => {
-		let n = (function (e, t) {
+	activator.bindings.forEach((e, t) => {
+		let n = ((e, t) => {
 			const r = B();
 			v();
 			const n = p.v3.ChordConfiguration?.sets[0];
-			const i = r.rgBindingOptions;
+			const r_rgBindingOptions = r.rgBindingOptions;
 			if (e.controller_action?.action !== undefined) {
-				return (0, h.JD)(
+				return JD(
 					e.controller_action,
 					p.v3.ChordConfiguration?.sets,
 					n?.layers,
 				);
 			}
-			let a = i?.find((t) => (0, A.q8)(e, t.data));
+			let a = r_rgBindingOptions?.find((t) => q8(e, t.data));
 			if (a) {
 				if (
 					e.key_binding_data?.friendly_name_utf8 &&
@@ -80,7 +80,7 @@ function I(e) {
 			if (r.length == 0) {
 				r.push(n);
 			} else {
-				r[0] += ", " + n;
+				r[0] += `, ${n}`;
 			}
 		}
 	});
@@ -88,8 +88,12 @@ function I(e) {
 		return null;
 	}
 	let n = "";
-	if (t.activation != 1 && t.activation != 2 && t.activation != 3) {
-		n = (0, A.bj)(A.VD[t.activation].id);
+	if (
+		activator.activation != 1 &&
+		activator.activation != 2 &&
+		activator.activation != 3
+	) {
+		n = bj(A.VD[activator.activation].id);
 	}
 	return a.createElement(
 		"div",
@@ -99,7 +103,7 @@ function I(e) {
 		a.createElement(
 			"div",
 			{
-				className: (0, c.A)(g.ActivatorText, g.ChordControlActivation),
+				className: A_1(g.ActivatorText, g.ChordControlActivation),
 			},
 			n,
 			" ",
@@ -107,7 +111,7 @@ function I(e) {
 		a.createElement(
 			"div",
 			{
-				className: (0, c.A)(g.ActivatorText, g.ChordControlBinding),
+				className: A_1(g.ActivatorText, g.ChordControlBinding),
 			},
 			r.map((e, t) =>
 				a.createElement(
@@ -122,15 +126,15 @@ function I(e) {
 	);
 }
 function E(e) {
-	const { input: t, eMode: r, eSource: n, showBindingName: i } = e;
+	const { input, eMode, eSource, showBindingName } = e;
 	v();
-	if (r == null) {
+	if (eMode == null) {
 		return null;
 	}
-	const o = (0, h._H)(t?.key);
-	let l = t?.activators;
-	if (t?.activators?.length > 1) {
-		l = t?.activators.slice(0, 1);
+	const o = _H(input?.key);
+	let l = input?.activators;
+	if (input?.activators?.length > 1) {
+		l = input?.activators.slice(0, 1);
 	}
 	const m = l.map((e, t) =>
 		a.createElement(I, {
@@ -144,13 +148,13 @@ function E(e) {
 		return a.createElement(
 			"div",
 			{
-				key: t.key,
-				className: (0, c.A)(g.ControllerInputDisplay, g.ChordInputDisplay),
+				key: input.key,
+				className: A_1(g.ControllerInputDisplay, g.ChordInputDisplay),
 			},
 			a.createElement(
 				"div",
 				{
-					className: (0, c.A)(g.ChordControlBinding),
+					className: A_1(g.ChordControlBinding),
 				},
 				a.createElement(y.W, {
 					button: s.g4.HomeMenu,
@@ -166,8 +170,8 @@ function E(e) {
 				a.createElement(h.VF, {
 					eControllerType: p.v3.ChordConfiguration?.controller_type,
 					eInput: o,
-					eMode: r,
-					eSource: n,
+					eMode: eMode,
+					eSource: eSource,
 					bPreview: true,
 				}),
 			),
@@ -176,23 +180,26 @@ function E(e) {
 				{
 					className: g.ChordControlContainer,
 				},
-				(i ?? true) && m,
+				(showBindingName ?? true) && m,
 			),
 		);
 	}
 }
-const M = (0, n.PA)(function (e) {
-	const { sourcesFilter: t } = e;
+const M = PA((e) => {
+	const { sourcesFilter } = e;
 	v();
 	const r = p.v3.ChordConfiguration?.sets[0];
-	const n = t == null ? r?.source_bindings : t(r?.source_bindings);
+	const n =
+		sourcesFilter == null
+			? r?.source_bindings
+			: sourcesFilter(r?.source_bindings);
 	const i = n[0]?.active_group ? n[0]?.active_group?.mode : undefined;
 	const o = i == 4 || i == 7;
 	const l = p.v3.ChordConfiguration?.controller_type;
 	let m = [];
 	n?.forEach((e) => {
 		let t = e?.active_group?.inputs.filter(
-			(e) => e.activators.length > 0 && (0, h.nQ)(l, e.key) && e.key != 68,
+			(e) => e.activators.length > 0 && nQ(l, e.key) && e.key != 68,
 		);
 		m = m.concat(t);
 	});
@@ -207,12 +214,12 @@ const M = (0, n.PA)(function (e) {
 				a.createElement(
 					"div",
 					{
-						className: (0, c.A)(g.ControllerInputDisplay),
+						className: A_1(g.ControllerInputDisplay),
 					},
 					a.createElement(
 						"div",
 						{
-							className: (0, c.A)(g.ChordControlBinding),
+							className: A_1(g.ChordControlBinding),
 						},
 						a.createElement(y.W, {
 							button: s.g4.HomeMenu,
@@ -240,7 +247,7 @@ const M = (0, n.PA)(function (e) {
 						a.createElement(
 							"div",
 							{
-								className: (0, c.A)(g.ActivatorText, g.ChordControlActivation),
+								className: A_1(g.ActivatorText, g.ChordControlActivation),
 							},
 							"",
 							" ",
@@ -248,7 +255,7 @@ const M = (0, n.PA)(function (e) {
 						a.createElement(
 							"div",
 							{
-								className: (0, c.A)(g.ActivatorText, g.ChordControlBinding),
+								className: A_1(g.ActivatorText, g.ChordControlBinding),
 							},
 							a.createElement(
 								"span",
@@ -257,7 +264,7 @@ const M = (0, n.PA)(function (e) {
 										maxWidth: "400px",
 									},
 								},
-								(0, A.GW)(A.k$[i].id),
+								GW(A.k$[i].id),
 							),
 						),
 					),
@@ -276,18 +283,18 @@ const M = (0, n.PA)(function (e) {
 	}
 });
 function T(e) {
-	const { controllerSource: t } = e;
+	const { controllerSource } = e;
 	return a.createElement(M, {
 		sourcesFilter: (e) => {
 			if (!e) {
 				return [];
 			}
-			return e.filter((e) => e.key == t).sort((e) => e.key);
+			return e.filter((e) => e.key == controllerSource).sort((e) => e.key);
 		},
 	});
 }
 function R(e) {
-	let t = (function (e) {
+	let t = ((e) => {
 		if (!e) {
 			return null;
 		}
@@ -586,14 +593,14 @@ const G = {
 };
 function O() {
 	v();
-	(0, S.pw)();
-	(0, C.LC)();
-	if (!(0, i.q3)(() => p.v3.ChordConfiguration)) {
+	pw();
+	LC();
+	if (!q3(() => p.v3.ChordConfiguration)) {
 		return null;
 	}
 	const e = C.oy.MostRecentlyActiveControllerIndex;
 	const t = u.Fd.Get().GetController(e);
-	const r = (0, d.dI)(undefined, undefined);
+	const r = dI(undefined, undefined);
 	const n = t && G[t.eControllerType];
 	const s = t && u.Fd.GetControllerTypeString(t.eControllerType);
 	return a.createElement(
@@ -605,12 +612,12 @@ function O() {
 		a.createElement(
 			o.Z,
 			{
-				className: (0, c.A)(g.ChordSummary),
+				className: A_1(g.ChordSummary),
 			},
 			a.createElement(
 				o.Z,
 				{
-					className: (0, c.A)(g.ControllerConfiguratorSummary, s),
+					className: A_1(g.ControllerConfiguratorSummary, s),
 					focusable: false,
 				},
 				a.createElement(
@@ -622,7 +629,7 @@ function O() {
 				),
 				n &&
 					a.createElement(
-						w.Provider,
+						WContext.Provider,
 						{
 							value: {
 								controller: t,
@@ -635,9 +642,9 @@ function O() {
 		),
 	);
 }
-export const Xw = (0, n.PA)(function (e) {
+export const Xw = PA((e) => {
 	const t = e.visible ? _.I5.Notification : null;
-	(0, f.Bx)(t, "ControllerChordSummary");
+	Bx(t, "ControllerChordSummary");
 	if (e.visible) {
 		return a.createElement(O, null);
 	} else {
@@ -645,19 +652,19 @@ export const Xw = (0, n.PA)(function (e) {
 	}
 });
 function L(e) {
-	const { input: t, eMode: r, eSource: n, separator: i } = e;
+	const { input, eMode, eSource, separator } = e;
 	v();
-	if (!t || !r) {
+	if (!input || !eMode) {
 		return null;
 	}
-	const o = (0, h._H)(t?.key);
+	const o = _H(input?.key);
 	return a.createElement(
 		a.Fragment,
 		null,
 		a.createElement(
 			"div",
 			{
-				className: (0, c.A)(
+				className: A_1(
 					g.ControllerInputDisplay,
 					g.ChordInputDisplay,
 					g.FieldInput,
@@ -666,7 +673,7 @@ function L(e) {
 			a.createElement(
 				"div",
 				{
-					className: (0, c.A)(g.ChordControlBinding),
+					className: A_1(g.ChordControlBinding),
 				},
 				a.createElement(y.W, {
 					button: s.g4.HomeMenu,
@@ -683,28 +690,28 @@ function L(e) {
 					className: g.ChordButton,
 					controllerType: p.v3.ChordConfiguration?.controller_type,
 					controllerModeInput: o,
-					controllerSource: n,
+					controllerSource: eSource,
 				}),
 			),
 		),
-		i && a.createElement("div", null, "/"),
+		separator && a.createElement("div", null, "/"),
 	);
 }
 function z(e) {
 	v();
-	const { actionSet: t, configLoaded: r } = (0, i.q3)(() => ({
+	const { actionSet, configLoaded } = q3(() => ({
 		actionSet: p.v3.ChordConfiguration?.sets[0],
 		configLoaded: p.v3.ChordConfiguration != null,
 	}));
-	const n = t?.source_bindings;
+	const n = actionSet?.source_bindings;
 	const a = C.oy.MostRecentlyActiveControllerIndex;
 	const s = u.Fd.Get().GetController(a);
-	const o = (0, d.dI)(undefined, undefined);
+	const o = dI(undefined, undefined);
 	let l = [];
 	n?.forEach((t) => {
 		t.active_group?.inputs?.forEach((r) => {
 			r?.activators?.forEach((n) => {
-				if (n?.bindings?.some((t) => (0, h.yD)(t, e))) {
+				if (n?.bindings?.some((t) => yD(t, e))) {
 					l.push({
 						input: r,
 						eMode: t?.active_group?.mode,
@@ -718,36 +725,32 @@ function z(e) {
 		rgMatchingChords: l,
 		rgFlatBindingOptions: o,
 		controller: s,
-		configLoaded: r,
+		configLoaded: configLoaded,
 	};
 }
 export function Gn(e) {
-	const { binding: t, onActivate: r } = e;
-	const {
-		rgMatchingChords: n,
-		rgFlatBindingOptions: i,
-		controller: s,
-		configLoaded: u,
-	} = z(t);
-	if (u) {
-		if (n.length == 0) {
+	const { binding, onActivate } = e;
+	const { rgMatchingChords, rgFlatBindingOptions, controller, configLoaded } =
+		z(binding);
+	if (configLoaded) {
+		if (rgMatchingChords.length == 0) {
 			return a.createElement(
 				"div",
 				{
 					className: g.LargeChordRow,
 				},
 				a.createElement(
-					w.Provider,
+					WContext.Provider,
 					{
 						value: {
-							controller: s,
-							rgBindingOptions: i,
+							controller: controller,
+							rgBindingOptions: rgFlatBindingOptions,
 						},
 					},
 					a.createElement(
 						l.$n,
 						{
-							onClick: r,
+							onClick: onActivate,
 							className: g.SettingsDialogButton,
 						},
 						Localize("#ControllerChordSummary_Unbound"),
@@ -759,25 +762,25 @@ export function Gn(e) {
 			return a.createElement(
 				o.Z,
 				{
-					className: (0, c.A)(g.LargeChordRow, g.NoButton),
-					onActivate: r,
+					className: A_1(g.LargeChordRow, g.NoButton),
+					onActivate: onActivate,
 					focusable: true,
 				},
 				a.createElement(
-					w.Provider,
+					WContext.Provider,
 					{
 						value: {
-							controller: s,
-							rgBindingOptions: i,
+							controller: controller,
+							rgBindingOptions: rgFlatBindingOptions,
 						},
 					},
-					n.map((e, t) =>
+					rgMatchingChords.map((e, t) =>
 						a.createElement(L, {
 							key: e.input.toString() + t,
 							input: e.input,
 							eMode: e.eMode,
 							eSource: e.eSource,
-							separator: t < n.length - 1,
+							separator: t < rgMatchingChords.length - 1,
 						}),
 					),
 				),
@@ -788,20 +791,16 @@ export function Gn(e) {
 	}
 }
 export function Lr(e) {
-	const { binding: t, fallbackTextToken: r } = e;
-	const {
-		rgMatchingChords: n,
-		rgFlatBindingOptions: i,
-		controller: o,
-		configLoaded: l,
-	} = z(t);
-	if (l && n.length != 0) {
+	const { binding, fallbackTextToken } = e;
+	const { rgMatchingChords, rgFlatBindingOptions, controller, configLoaded } =
+		z(binding);
+	if (configLoaded && rgMatchingChords.length != 0) {
 		return a.createElement(
 			"span",
 			{
 				className: g.InlineChordContainer,
 			},
-			n.map((e, t) =>
+			rgMatchingChords.map((e, t) =>
 				a.createElement(
 					"span",
 					{
@@ -810,7 +809,7 @@ export function Lr(e) {
 					a.createElement(
 						"div",
 						{
-							className: (0, c.A)(g.InlineChordControlBinding),
+							className: A_1(g.InlineChordControlBinding),
 						},
 						a.createElement(y.W, {
 							button: s.g4.HomeMenu,
@@ -826,15 +825,15 @@ export function Lr(e) {
 						a.createElement(h.UT, {
 							className: g.InlineChordButton,
 							controllerType: p.v3.ChordConfiguration?.controller_type,
-							controllerModeInput: (0, h._H)(e.input?.key),
+							controllerModeInput: _H(e.input?.key),
 							controllerSource: e.eSource,
 						}),
 					),
-					t < n.length - 1 && a.createElement("div", null, "/"),
+					t < rgMatchingChords.length - 1 && a.createElement("div", null, "/"),
 				),
 			),
 		);
 	} else {
-		return a.createElement("span", null, Localize(r));
+		return a.createElement("span", null, Localize(fallbackTextToken));
 	}
 }

@@ -1,7 +1,7 @@
-require("./83591.js");
-require("./5859.js");
-require("./58839.js");
-require(/*webcrack:missing*/ "./72476.js");
+import "./83591.js";
+import "./5859.js";
+import "./58839.js";
+import "./72476.js";
 export const Xh = {
 	include_assets: true,
 	include_release: true,

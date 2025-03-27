@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	animationDuration: "2000ms",
 	BannerVideoOverlay: "pV5fBzxs9g1gv7NhwtPdq",
 	PlayerHighlightBanner: "_3oCX4-nEGyWSMenKIpdZvR",

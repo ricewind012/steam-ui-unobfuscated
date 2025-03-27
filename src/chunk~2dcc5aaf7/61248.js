@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	NintendoSwitchLayoutToggle: "_3Q8Vc4HcvrUZVLqnC1hTXT",
 	NintendoSwitchLayoutToggleDesc: "_3J9OdCswxSe0Vguxo8A17n",

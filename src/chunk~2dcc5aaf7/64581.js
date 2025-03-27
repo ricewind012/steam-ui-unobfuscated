@@ -1,21 +1,21 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./28987.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require("./18057.js");
-var c = require("./8436.js");
-var m = c;
-var u = require("./46422.js");
-var d = require("./81338.js");
-var A = require(/*webcrack:missing*/ "./89193.js");
-var p = require("./51076.js");
-var g = require("./96680.js");
-var h = require("./37499.js");
-var C = require("./18052.js");
+import n, { Cg } from "./34629.js";
+import i from "./28987.js";
+import a from "./85243.js";
+import s from "./44846.js";
+import o from "./63696.js";
+import l from "./18057.js";
+import c from "./8436.js";
+import u from "./46422.js";
+import d from "./81338.js";
+import A, { Gn } from "./89193.js";
+import p, { OU } from "./51076.js";
+import { $2 } from "./96680.js";
+import h from "./37499.js";
+import C from "./18052.js";
+const m = c;
 export class X4 {
 	constructor() {
-		(0, A.Gn)(this);
+		Gn(this);
 	}
 	m_gidTransID = s.kF;
 	m_unAppID = null;
@@ -54,7 +54,7 @@ export class X4 {
 			}
 			{
 				const r = "steam://openexternalforpid/";
-				if (t.indexOf(r) != -1) {
+				if (t.includes(r)) {
 					const n = t.substring(r.length);
 					const i = n.indexOf("/");
 					if (i != -1) {
@@ -91,21 +91,21 @@ export class X4 {
 		}
 	}
 }
-(0, n.Cg)([A.sH], X4.prototype, "m_gidTransID", undefined);
+Cg([A.sH], X4.prototype, "m_gidTransID", undefined);
 export const UE = new X4();
 export function B8(e) {
-	if ((0, p.OU)(l.BV.GamepadUI.MicroTxnAuth())) {
-		return o.createElement(y, null);
+	if (OU(l.BV.GamepadUI.MicroTxnAuth())) {
+		return <Y />;
 	} else {
 		return null;
 	}
 }
-function y(e) {
-	let t = (0, g.$2)();
-	const r = o.useRef(undefined);
-	var n;
-	r.current ||= UE.CreateBrowser(t);
-	n = r.current;
+function Y(e) {
+	let t = $2();
+	const RRef = o.useRef(undefined);
+	let n;
+	RRef.current ||= UE.CreateBrowser(t);
+	n = RRef.current;
 	o.useEffect(
 		() => () => {
 			n?.Destroy();
@@ -114,15 +114,17 @@ function y(e) {
 		[n],
 	);
 	o.useEffect(() => {
-		let e = r.current;
-		h.Q.AddMtxBrowser(e);
-		return () => h.Q.RemoveMtxBrowser(e);
+		let r_current = RRef.current;
+		h.Q.AddMtxBrowser(r_current);
+		return () => h.Q.RemoveMtxBrowser(r_current);
 	}, []);
-	return o.createElement(d.G, {
-		browser: r.current,
-		external: true,
-		path: l.BV.GamepadUI.MicroTxnAuth(),
-		className: m.MicroTxnContainer,
-		allowUnderlay: t.WindowType == a.W7.MainGamepadUI,
-	});
+	return (
+		<d.G
+			browser={RRef.current}
+			external
+			path={l.BV.GamepadUI.MicroTxnAuth()}
+			className={m.MicroTxnContainer}
+			allowUnderlay={t.WindowType == a.W7.MainGamepadUI}
+		/>
+	);
 }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LoadingStatus: "_3rAIymq-pEYFB9bIdm-Aoz",
 	Spacer: "_2BHMsXqE0dNgan3E6jbLT_",
 	ExtraSpace: "_2ttiySe-mpZU_R7GT5W5UQ",

@@ -1,255 +1,196 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require("./55116.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require("./89748.js");
-var u = require("./32773.js");
-var d = u;
-var A = require("./87913.js");
-var p = require("./43152.js");
-var g = require(/*webcrack:missing*/ "./42318.js");
-var h = require(/*webcrack:missing*/ "./4690.js");
-var C = require("./77347.js");
-var _ = require("./94746.js");
-var f = require("./14982.js");
-var b = require(/*webcrack:missing*/ "./88696.js");
-var y = require("./57421.js");
-var S = require("./50350.js");
-const w = (e) =>
-	n.createElement(
-		"div",
-		{
-			className: d.FriendsChatsOffline,
-		},
-		n.createElement(
-			"div",
-			{
-				className: d.Title,
-			},
-			(0, Localize)("#FriendsList_SignedOut"),
-		),
-		n.createElement(
-			"div",
-			{
-				className: d.Details,
-			},
-			(0, Localize)("#FriendsList_SignedOut_Detail"),
-		),
-	);
-const B = (e) =>
-	n.createElement(
-		"div",
-		{
-			className: d.FriendsChatsOffline,
-		},
-		n.createElement(
-			"div",
-			{
-				className: d.Title,
-			},
-			(0, Localize)("#FriendsList_OfflineMode"),
-		),
-		n.createElement(
-			"div",
-			{
-				className: d.Details,
-			},
-			(0, Localize)("#FriendsList_OfflineMode_Detail"),
-		),
-	);
-const v = (0, i.PA)(function (e) {
-	const t = n.useRef(undefined);
+import n, { useState, useEffect, useCallback } from "./63696.js";
+import i, { PA } from "./41230.js";
+import a from "./55116.js";
+import s from "./69164.js";
+import l, { A as A_1 } from "./90765.js";
+import c, { DF, Z3, Sz } from "./52451.js";
+import m, { qw } from "./89748.js";
+import u from "./32773.js";
+import A from "./87913.js";
+import { u6 } from "./43152.js";
+import g from "./42318.js";
+import h from "./4690.js";
+import { N4, nM } from "./77347.js";
+import _ from "./94746.js";
+import f from "./14982.js";
+import b from "./88696.js";
+import { Vg } from "./57421.js";
+import { Cn } from "./50350.js";
+const d = u;
+const W = (e) => (
+	<div className={d.FriendsChatsOffline}>
+		<div className={d.Title}>{(0, Localize)("#FriendsList_SignedOut")}</div>
+		<div className={d.Details}>
+			{(0, Localize)("#FriendsList_SignedOut_Detail")}
+		</div>
+	</div>
+);
+const B = (e) => (
+	<div className={d.FriendsChatsOffline}>
+		<div className={d.Title}>{(0, Localize)("#FriendsList_OfflineMode")}</div>
+		<div className={d.Details}>
+			{(0, Localize)("#FriendsList_OfflineMode_Detail")}
+		</div>
+	</div>
+);
+const V = PA((e) => {
+	const TRef = n.useRef(undefined);
 	const r = A.LN.loaded;
 	const i = A.LN.signedOut;
-	const a = (0, m.qw)().BIsOfflineMode();
-	const o = (0, C.N4)();
-	const c = (0, C.nM)();
+	const a = qw().BIsOfflineMode();
+	const o = N4();
+	const c = nM();
 	if (e.bNoFallback && !r) {
 		return null;
 	} else {
-		return n.createElement(
-			s.Z,
-			{
-				noFocusRing: true,
-				className: (0, l.A)(
+		return (
+			<s.Z
+				noFocusRing
+				className={A_1(
 					e.className,
 					c && "ShowStaleWarning",
 					"friendsui-container",
-				),
-				ref: t,
-				scrollIntoViewType: h.Yo.NoTransform,
-			},
-			r && !i && !a && e.renderFunc && n.createElement(e.renderFunc, null),
-			i && !e.bNoFallback && n.createElement(w, null),
-			a && !e.bNoFallback && n.createElement(B, null),
-			!i && !a && !o && !e.bNoFallback && n.createElement(_.I, null),
+				)}
+				ref={TRef}
+				scrollIntoViewType={h.Yo.NoTransform}
+			>
+				{r && !i && !a && e.renderFunc && <e.renderFunc />}
+				{i && !e.bNoFallback && <W />}
+				{a && !e.bNoFallback && <B />}
+				{!i && !a && !o && !e.bNoFallback && <_.I />}
+			</s.Z>
 		);
 	}
 });
-export const p5 = (0, i.PA)(function (e) {
-	return n.createElement(
-		g.tH,
-		null,
-		n.createElement(v, {
-			className: d.FriendsList,
-			renderFunc: () =>
+export const p5 = PA((e) => (
+	<g.tH>
+		<V
+			className={d.FriendsList}
+			renderFunc={() =>
 				A.LN.RenderFriendsListComponent({
 					bQuickAccess: true,
-				}),
-		}),
-	);
-});
+				})
+			}
+		/>
+	</g.tH>
+));
 function E(e) {
-	const { visible: t } = e;
-	const r = (0, p.u6)();
-	const i = n.useCallback(() => t, [t]);
-	const a = n.useRef(undefined);
+	const { visible } = e;
+	const r = u6();
+	const i = n.useCallback(() => visible, [visible]);
+	const ARef = n.useRef(undefined);
 	let o = {
 		display: e.visible ? "block" : "none",
 	};
 	n.useEffect(() => {
-		if (t && !a.current?.BFocusWithin()) {
-			a.current?.TakeFocus();
+		if (visible && !ARef.current?.BFocusWithin()) {
+			ARef.current?.TakeFocus();
 		}
-	}, [t]);
-	const [c] = (0, y.Vg)();
-	const [m, u] = (0, S.Cn)(c);
+	}, [visible]);
+	const [c] = Vg();
+	const [m, u] = Cn(c);
 	const A = {
 		"--gamepad-page-gutter-width": `${u}px`,
 		...o,
 	};
-	return n.createElement(
-		s.Z,
-		{
-			navRef: a,
-			className: (0, l.A)(
-				d.FriendsChatsContainer,
-				r && "VirtualKeyboardVisible",
-			),
-			style: A,
-			"flow-children": "row",
-			fnCanTakeFocus: i,
-			navEntryPreferPosition: h.iU.PREFERRED_CHILD,
-		},
-		n.createElement(g.tH, null, e.children),
+	return (
+		<s.Z
+			navRef={ARef}
+			className={A_1(d.FriendsChatsContainer, r && "VirtualKeyboardVisible")}
+			style={A}
+			flow-children="row"
+			fnCanTakeFocus={i}
+			navEntryPreferPosition={h.iU.PREFERRED_CHILD}
+		>
+			<g.tH>{e.children}</g.tH>
+		</s.Z>
 	);
 }
-export const ZY = (0, i.PA)(function (e) {
+export const ZY = PA((e) => {
 	const t = n.useCallback(() => A.LN.RenderFriendsListAndChatsComponent(), []);
-	const r = (0, c.DF)(e.visible, 300000);
-	return n.createElement(
-		E,
-		{
-			visible: e.visible,
-		},
-		n.createElement(F, {
-			visible: e.visible,
-		}),
-		n.createElement(
-			a.g,
-			null,
-			r &&
-				n.createElement(v, {
-					className: d.FriendsChats,
-					renderFunc: t,
-				}),
-		),
+	const r = DF(e.visible, 300000);
+	return (
+		<E visible={e.visible}>
+			<F visible={e.visible} />
+			<a.g>{r && <V className={d.FriendsChats} renderFunc={t} />}</a.g>
+		</E>
 	);
 });
-export const Mu = (0, i.PA)(function (e) {
-	return n.createElement(v, {
-		className: d.RemotePlayTogetherControls,
-		renderFunc: () => A.LN.RenderRemotePlayTogetherControls(),
-	});
-});
-export const u2 = (0, i.PA)((e) =>
-	n.createElement(
-		"div",
-		{
-			className: d.InvitesListWrapper,
-		},
-		n.createElement(v, {
-			className: d.InvitesList,
-			renderFunc: () => A.LN.RenderInvitesList(),
-		}),
-	),
-);
-export const RA = (0, i.PA)(function (e) {
-	return n.createElement(v, {
-		className: d.FriendsVoiceList,
-		renderFunc: () => A.LN.RenderFriendsListVoiceControls(),
-	});
-});
-export const Cy = (0, i.PA)(function (e) {
-	return n.createElement(v, {
-		className: d.VoiceChatStatusHeader,
-		bNoFallback: true,
-		renderFunc: () => A.LN.RenderFriendsVoiceChatHeader(e),
-	});
-});
-export const Dx = (0, i.PA)(function (e) {
-	let { className: t, ...r } = e;
-	return n.createElement(v, {
-		className: t,
-		bNoFallback: true,
-		renderFunc: () => A.LN.RenderFriendsUnreadChatMessagesHeader(r),
-	});
+export const Mu = PA((e) => (
+	<V
+		className={d.RemotePlayTogetherControls}
+		renderFunc={() => A.LN.RenderRemotePlayTogetherControls()}
+	/>
+));
+export const u2 = PA((e) => (
+	<div className={d.InvitesListWrapper}>
+		<V className={d.InvitesList} renderFunc={() => A.LN.RenderInvitesList()} />
+	</div>
+));
+export const RA = PA((e) => (
+	<V
+		className={d.FriendsVoiceList}
+		renderFunc={() => A.LN.RenderFriendsListVoiceControls()}
+	/>
+));
+export const Cy = PA((e) => (
+	<V
+		className={d.VoiceChatStatusHeader}
+		bNoFallback
+		renderFunc={() => A.LN.RenderFriendsVoiceChatHeader(e)}
+	/>
+));
+export const Dx = PA((e) => {
+	let { className, ...r } = e;
+	return (
+		<V
+			className={className}
+			bNoFallback
+			renderFunc={() => A.LN.RenderFriendsUnreadChatMessagesHeader(r)}
+		/>
+	);
 });
 function F(e) {
-	const { visible: t } = e;
-	const [r, i] = (function (e) {
+	const { visible } = e;
+	const [r, i] = ((e) => {
 		const t = 1;
-		const [r, i] = (0, n.useState)(false);
-		(0, c.Z3)(() => i(true), 30000, []);
-		const [a, s] = (0, n.useState)(true);
-		(0, n.useEffect)(() => {
+		const [r, setR] = useState(false);
+		Z3(() => setR(true), 30000, []);
+		const [a, setA] = useState(true);
+		useEffect(() => {
 			const e = new b.A();
 			e.GetString(G).then((r) => {
 				const n = parseInt(r);
 				if (isNaN(n)) {
 					e.StoreString(G, "1");
-					s(false);
+					setA(false);
 				} else if (n < t) {
 					e.StoreString(G, (n + 1).toString());
-					s(false);
+					setA(false);
 				}
 			});
 		}, []);
-		const o = (0, n.useCallback)(() => {
-			s(true);
+		const o = useCallback(() => {
+			setA(true);
 			new b.A().StoreString(G, t.toString());
 		}, []);
-		const l = (0, c.Sz)(e);
-		(0, n.useEffect)(() => {
+		const l = Sz(e);
+		useEffect(() => {
 			if (l && !e) {
-				s(true);
+				setA(true);
 			}
 		}, [l, e]);
 		return [!a && !r, o];
-	})(t);
-	if (r && t) {
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(f.r9, {
-				className: d.StatusChangeHint,
-				hollowRadius: 15,
-			}),
-			n.createElement(
-				"div",
-				{
-					className: d.StatusChangeHintMessage,
-					onClick: i,
-				},
-				n.createElement(
-					f.kg,
-					null,
-					(0, Localize)("#FriendsList_StatusChange_Hint"),
-				),
-			),
+	})(visible);
+	if (r && visible) {
+		return (
+			<>
+				<f.r9 className={d.StatusChangeHint} hollowRadius={15} />
+				<div className={d.StatusChangeHintMessage} onClick={i}>
+					<f.kg>{(0, Localize)("#FriendsList_StatusChange_Hint")}</f.kg>
+				</div>
+			</>
 		);
 	} else {
 		return null;

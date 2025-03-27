@@ -1,4 +1,4 @@
-var n = null;
+let n = null;
 export function V(e) {
 	if (n) {
 		console.error("Attempt to set timeline marker hook a second time");

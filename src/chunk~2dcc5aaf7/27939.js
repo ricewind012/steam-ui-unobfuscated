@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BoxCarousel: "_3fiHsLeD_6rtm6bM9lHlVL",
 	ArrowWrapper: "_4GcCGeztccLxsh2R9oL_0",

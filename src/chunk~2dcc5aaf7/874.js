@@ -1,15 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49519.js");
-var a = require("./49171.js");
-var s = require("./13656.js");
-var o = require(/*webcrack:missing*/ "./11131.js");
-var l = require("./18869.js");
-var c = require("./58437.js");
-var m = require("./79112.js");
-var u = require("./37449.js");
-var d = require("./61175.js");
-var A = require("./96593.js");
-var p = require(/*webcrack:missing*/ "./10975.js");
+import n, { useMemo, useEffect } from "./63696.js";
+import i, { B6, W6 } from "./49519.js";
+import a from "./49171.js";
+import s, { Ki } from "./13656.js";
+import o, { R7 } from "./11131.js";
+import l, { tn } from "./18869.js";
+import c, { KV } from "./58437.js";
+import m from "./79112.js";
+import u from "./37449.js";
+import d from "./61175.js";
+import A from "./96593.js";
+import p from "./10975.js";
+import C, { $2 } from "./96680.js";
+import { d as d_1 } from "./40451.js";
 const g = {
 	AboutSteam: {
 		path: "open/about",
@@ -19,27 +21,25 @@ const g = {
 	},
 };
 function h() {
-	const { ownerWindow: e } = (0, o.R7)();
+	const { ownerWindow } = R7();
 	return n.useCallback(
 		(t, r) => {
-			const n = (function (e, t) {
-				let r = "steam://" + g[e].path;
+			const n = ((e, t) => {
+				let r = `steam://${g[e].path}`;
 				for (const e in t) {
-					r += "/" + t[e];
+					r += `/${t[e]}`;
 				}
 				return r;
 			})(t, r);
-			e.location.href = n;
+			ownerWindow.location.href = n;
 		},
-		[e],
+		[ownerWindow],
 	);
 }
-var C = require("./96680.js");
-var _ = require("./40451.js");
 export function b(e, t) {
-	const { history: r, navigateToRoute: n, type: a } = e;
-	const { beforeNavigate: o, afterNavigate: l, getAdditionalEntries: m } = t;
-	const g = n;
+	const { history, navigateToRoute, type } = e;
+	const { beforeNavigate, afterNavigate, getAdditionalEntries } = t;
+	const g = navigateToRoute;
 	const h = {
 		...e,
 		navigate: g,
@@ -47,12 +47,13 @@ export function b(e, t) {
 	delete h.navigateToRoute;
 	const C = {
 		Home: (e = {}, t = {}) => {
-			const { partnerEvent: n } = e;
-			let a = n ? (0, c.KV)(n.appid, n.gid) : {};
-			if ((0, i.B6)(r.location.pathname, u.B.Library.Home())) {
+			const { partnerEvent } = e;
+			let a = partnerEvent ? KV(partnerEvent.appid, partnerEvent.gid) : {};
+			if (B6(history.location.pathname, u.B.Library.Home())) {
 				a = {
-					...(r.location.state && typeof r.location.state == "object"
-						? r.location.state
+					...(history.location.state &&
+					typeof history.location.state == "object"
+						? history.location.state
 						: {}),
 					...a,
 				};
@@ -65,7 +66,7 @@ export function b(e, t) {
 			d.n6.SelectGameListView(1);
 		},
 		App: (e, t = {}, r = {}) => {
-			const { strCollectionId: n, gidPartnerEvent: i } = t;
+			const { strCollectionId, gidPartnerEvent } = t;
 			const s = A.tw.GetAppOverviewByAppID(e);
 			if (!s) {
 				return;
@@ -73,16 +74,16 @@ export function b(e, t) {
 			if (s.app_type == 256) {
 				return;
 			}
-			if (a === "gamepad" || a === "gamepadoverlay") {
+			if (type === "gamepad" || type === "gamepadoverlay") {
 				p.eZ.PlayNavSound(p.PN.IntoGameDetail);
 			}
 			let o = {
-				strCollectionId: n,
+				strCollectionId: strCollectionId,
 			};
-			if (i) {
+			if (gidPartnerEvent) {
 				o = {
 					...o,
-					...(0, c.KV)(e, i),
+					...KV(e, gidPartnerEvent),
 				};
 			}
 			g(u.B.Library.App.Root(e), {
@@ -99,22 +100,22 @@ export function b(e, t) {
 		AllCollections: (e) => g(u.B.Library.AllCollections(), e),
 		Collection: (e, t) => g(u.B.Library.Collection(e), t),
 		Downloads: (e) => g(u.B.Downloads(), e),
-		AppProperties: (0, s.Ki)(a, h),
+		AppProperties: Ki(type, h),
 		Console: (e) => g(u.B.Console(), e),
-		...(m ? m(h) : {}),
+		...(getAdditionalEntries ? getAdditionalEntries(h) : {}),
 	};
 	Object.keys(C).forEach((e) => {
-		const t = C[e];
-		var r;
-		if (typeof t == "function") {
-			r = t;
+		const C_e = C[e];
+		let r;
+		if (typeof C_e == "function") {
+			r = C_e;
 			C[e] = (...e) => {
-				if (o) {
-					o();
+				if (beforeNavigate) {
+					beforeNavigate();
 				}
 				r(...e);
-				if (l) {
-					l();
+				if (afterNavigate) {
+					afterNavigate();
 				}
 			};
 		}
@@ -122,35 +123,29 @@ export function b(e, t) {
 	return C;
 }
 export function x(e) {
-	const { buildNavigator: t, type: r, children: s } = e;
-	const c = (0, i.W6)();
-	const u = (0, l.tn)();
-	const { ownerWindow: d } = (0, o.R7)();
-	const A = (0, C.$2)();
+	const { buildNavigator, type, children } = e;
+	const c = W6();
+	const u = tn();
+	const { ownerWindow } = R7();
+	const A = $2();
 	const p = h();
-	const g = (0, _.d)();
-	const f = (0, n.useMemo)(
+	const g = d_1();
+	const f = useMemo(
 		() =>
-			t({
+			buildNavigator({
 				history: c,
 				navigateToRoute: u,
-				ownerWindow: d,
+				ownerWindow: ownerWindow,
 				instance: A,
-				type: r,
+				type: type,
 				runSteamProtocolAction: p,
 				openNamedDialog: g,
 			}),
-		[t, c, u, d, A, r, p, g],
+		[buildNavigator, c, u, ownerWindow, A, type, p, g],
 	);
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		a.z.SetNavigator(f);
 		A?.SetNavigator(f);
 	}, [f, A]);
-	return n.createElement(
-		m.O0,
-		{
-			value: f,
-		},
-		s,
-	);
+	return <m.O0 value={f}>{children}</m.O0>;
 }

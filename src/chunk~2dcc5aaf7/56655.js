@@ -1,24 +1,24 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require(/*webcrack:missing*/ "./50376.js");
-var s = require(/*webcrack:missing*/ "./64664.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./72476.js");
-export const nH = n.createContext({
+import n from "./63696.js";
+import { A as A_1 } from "./90765.js";
+import a from "./50376.js";
+import s from "./64664.js";
+import l, { Qn } from "./72476.js";
+export const NHContext = n.createContext({
 	bShowCompatInfo: false,
 });
-const m = () => n.useContext(nH);
+const m = () => n.useContext(NHContext);
 export function er() {
-	const { bShowCompatInfo: e } = m();
-	const t = (0, l.Qn)();
-	return e || (l.TS.ON_DECK && t);
+	const { bShowCompatInfo } = m();
+	const t = Qn();
+	return bShowCompatInfo || (l.TS.ON_DECK && t);
 }
 export const $o = (e) => {
 	const t = Wm(e.category);
 	return n.createElement(
 		"div",
 		{
-			className: (0, i.A)(s.SteamDeckCompatInfo, e.className),
+			className: A_1(s.SteamDeckCompatInfo, e.className),
 		},
 		n.createElement(a.lRD, null),
 		n.createElement(t, {

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	mentionDialogPosition: "_3isL0ZmZcmPqrXDdNiNSsm",
 	mentionDialog: "_1QU3cLCGXCmYTUvjYiqqz6",

@@ -1,26 +1,3 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./66146.js");
-var s = require("./3756.js");
-var o = require("./96127.js");
-var l = require("./8653.js");
-var c = require("./46970.js");
-var m = require("./52912.js");
-var u = require("./95773.js");
-var d = require("./15855.js");
-var A = require("./78060.js");
-var p = require("./97422.js");
-var g = require("./81386.js");
-var h = require("./53414.js");
-var C = require("./65726.js");
-var _ = require("./27847.js");
-var f = require(/*webcrack:missing*/ "./89193.js");
-var b = require(/*webcrack:missing*/ "./41230.js");
-var y = require(/*webcrack:missing*/ "./90095.js");
-var S = require(/*webcrack:missing*/ "./63696.js");
-var w = require(/*webcrack:missing*/ "./69164.js");
-var B = require("./62556.js");
-var v = require("./17231.js");
 import {
 	GetDistanceFromRect,
 	GetOwningWindowForEvent,
@@ -31,9 +8,76 @@ import {
 	LocalizePlural,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var M = require(/*webcrack:missing*/ "./52451.js");
-var T = require(/*webcrack:missing*/ "./11131.js");
-var R = require(/*webcrack:missing*/ "./17385.js");
+import { MoveElement } from "../../actual_src/utils/arrayutils.js";
+import { LocalizeCalendarTime } from "../../actual_src/utils/localization/datetime.js";
+import n, { Cg } from "./34629.js";
+import i, { Qn } from "./44234.js";
+import a from "./66146.js";
+import s from "./3756.js";
+import o from "./96127.js";
+import l from "./8653.js";
+import c from "./46970.js";
+import m, { CO, _k, PJ, wj } from "./52912.js";
+import u from "./95773.js";
+import d from "./15855.js";
+import A, { Ci, Ic } from "./78060.js";
+import p, { tj, HS, iS, Jw } from "./97422.js";
+import g, { f as f_1 } from "./81386.js";
+import h from "./53414.js";
+import C from "./65726.js";
+import _, { fM, Tz } from "./27847.js";
+import f, { Gn } from "./89193.js";
+import b, { PA } from "./41230.js";
+import y, { q3 } from "./90095.js";
+import S, { useEffect, useState } from "./63696.js";
+import w from "./69164.js";
+import B from "./62556.js";
+import v from "./17231.js";
+import M, { hL, Ue as Ue_1, D5 } from "./52451.js";
+import T, { R7 } from "./11131.js";
+import R, { u as u_1 } from "./17385.js";
+import P from "./92564.js";
+import L, { EP } from "./59704.js";
+import z from "./23038.js";
+import x, { lX } from "./31084.js";
+import U, { $b, Y8 } from "./88750.js";
+import W from "./50376.js";
+import V from "./35488.js";
+import H from "./29889.js";
+import { OQ } from "./31958.js";
+import { UA } from "./69649.js";
+import { T as T_1 } from "./92009.js";
+import "./13869.js";
+import Z, { a_ as a_1 } from "./64608.js";
+import X from "./26853.js";
+import J from "./83231.js";
+import $ from "./43951.js";
+import "./44313.js";
+import { rO } from "./88724.js";
+import se from "./27773.js";
+import oe from "./8573.js";
+import { Dn } from "./45328.js";
+import { w as w_1 } from "./49455.js";
+import me from "./68608.js";
+import { A as A_1 } from "./90765.js";
+import de from "./87949.js";
+import Ae from "./63958.js";
+import pe from "./54747.js";
+import ge from "./18644.js";
+import he from "./90242.js";
+import Ce from "./4690.js";
+import _e from "./61657.js";
+import fe from "./43014.js";
+import be from "./13743.js";
+import ye from "./70839.js";
+import Se from "./97764.js";
+import { Yj } from "./50979.js";
+import Ee from "./20590.js";
+import { H as H_1 } from "./80310.js";
+import { Pr, Qn } from "./72476.js";
+import { l as l_2 } from "./47742.js";
+import { Uy } from "./55571.js";
+import De from "./83665.js";
 let k = class extends S.Component {
 	m_rgFavoriteElementRefs = [];
 	constructor(e) {
@@ -81,7 +125,7 @@ let k = class extends S.Component {
 		return this.m_FriendRenderContext;
 	}
 };
-k = (0, n.Cg)([b.PA], k);
+k = Cg([b.PA], k);
 let D = class extends S.Component {
 	m_iActiveDragIndex = undefined;
 	m_ActiveDrag = undefined;
@@ -90,7 +134,7 @@ let D = class extends S.Component {
 	m_rgFavoriteElementRefs = [];
 	constructor(e) {
 		super(e);
-		(0, f.Gn)(this);
+		Gn(this);
 		this.state = {
 			bHintDismissed: m.ZM.UIDisplayPrefs.bFavoritesHintDismissed,
 		};
@@ -114,7 +158,9 @@ let D = class extends S.Component {
 			if (t) {
 				let e;
 				if (this.m_bGhostIsDupe) {
-					e = r.findIndex((e) => (0, g.f)(e, t));
+					e = r.findIndex((e) => {
+						return f_1(e, t);
+					});
 				}
 				if (
 					this.m_iActiveDragIndex === undefined ||
@@ -151,7 +197,7 @@ let D = class extends S.Component {
 					}
 					n = "cg" + e.chat.GetGroupID();
 				}
-				let i = this.m_bGhostIsDupe && !e.isActiveDrag && (0, g.f)(t, e);
+				let i = this.m_bGhostIsDupe && !e.isActiveDrag && f_1(t, e);
 				let a = e.isActiveDrag;
 				if (a) {
 					n += "dragGhost";
@@ -237,7 +283,10 @@ let D = class extends S.Component {
 		let t = m.ZM.DragDropManager.GetDragData();
 		if (
 			!!t &&
-			(t.type == "friend" || t.type == "chatroomgroup" || t.type == "clan")
+			(t.type == "friend" ||
+				t.type == "chatroomgroup" ||
+				t.type == "chatroomgroup" ||
+				t.type == "clan")
 		) {
 			t.is_favorite = true;
 			this.m_ActiveDragOut = this.FindItemFromDrag(t);
@@ -303,7 +352,7 @@ let D = class extends S.Component {
 	}
 	OnDragEnter(e, t) {
 		let r = this.FindItemFromDrag(e);
-		if (r && !(0, g.f)(this.m_ActiveDrag, r)) {
+		if (r && !f_1(this.m_ActiveDrag, r)) {
 			this.m_ActiveDrag = r;
 			this.m_bGhostIsDupe = this.props.FavoritesStore.BIsFavorited(r);
 		}
@@ -353,45 +402,45 @@ let D = class extends S.Component {
 		}
 	}
 };
-(0, n.Cg)([f.sH], D.prototype, "m_iActiveDragIndex", undefined);
-(0, n.Cg)([f.sH], D.prototype, "m_ActiveDrag", undefined);
-(0, n.Cg)([f.sH], D.prototype, "m_ActiveDragOut", undefined);
-(0, n.Cg)([M.oI], D.prototype, "DismissFavoritesHint", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDragStart", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDragEnd", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDragEnter", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDragOver", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDragLeave", null);
-(0, n.Cg)([M.oI], D.prototype, "OnDrop", null);
-D = (0, n.Cg)([b.PA], D);
+Cg([f.sH], D.prototype, "m_iActiveDragIndex", undefined);
+Cg([f.sH], D.prototype, "m_ActiveDrag", undefined);
+Cg([f.sH], D.prototype, "m_ActiveDragOut", undefined);
+Cg([M.oI], D.prototype, "DismissFavoritesHint", null);
+Cg([M.oI], D.prototype, "OnDragStart", null);
+Cg([M.oI], D.prototype, "OnDragEnd", null);
+Cg([M.oI], D.prototype, "OnDragEnter", null);
+Cg([M.oI], D.prototype, "OnDragOver", null);
+Cg([M.oI], D.prototype, "OnDragLeave", null);
+Cg([M.oI], D.prototype, "OnDrop", null);
+D = Cg([b.PA], D);
 class N extends S.Component {
 	onFavoriteElementClick(e) {
 		let t = this.props.favorite;
 		if (t.friend) {
-			this.props.favorite.friend.OpenChatDialog((0, m.CO)(e));
+			this.props.favorite.friend.OpenChatDialog(CO(e));
 		} else if (t.clan) {
-			t.clan.OpenChatDialog((0, m.CO)(e));
+			t.clan.OpenChatDialog(CO(e));
 		} else {
 			if (!t.chat) {
 				return;
 			}
-			u.xm.UIStore.ShowAndOrActivateChatRoomGroup((0, m.CO)(e), t.chat, true);
+			u.xm.UIStore.ShowAndOrActivateChatRoomGroup(CO(e), t.chat, true);
 		}
 		e.stopPropagation();
 	}
 	OnFavoriteElementContextMenu(e) {
 		let t = this.props.favorite;
 		if (t.friend) {
-			(0, p.tj)((0, m.CO)(e), this.props.friendRenderContext, t.friend, e);
+			tj(CO(e), this.props.friendRenderContext, t.friend, e);
 		} else if (t.clan) {
-			(0, _.fM)(e, t.clan, {
+			fM(e, t.clan, {
 				is_favorites: true,
 			});
 		} else {
 			if (!t.chat) {
 				return;
 			}
-			(0, _.Tz)(e, t.chat, {
+			Tz(e, t.chat, {
 				is_favorites: true,
 			});
 		}
@@ -460,16 +509,16 @@ class N extends S.Component {
 		}
 	}
 }
-(0, n.Cg)([M.oI], N.prototype, "onFavoriteElementClick", null);
-(0, n.Cg)([M.oI], N.prototype, "OnFavoriteElementContextMenu", null);
-let F = (0, b.PA)(function (e) {
-	let t = (0, i.Qn)();
+Cg([M.oI], N.prototype, "onFavoriteElementClick", null);
+Cg([M.oI], N.prototype, "OnFavoriteElementContextMenu", null);
+let F = PA(function (e) {
+	let t = Qn();
 	let r = e.friend;
 	let n = !t && u.xm.SettingsStore.FriendsSettings.bCompactQuickAccess;
 	let a = null;
-	const s = (0, T.R7)();
-	const o = (0, m._k)(s.ownerWindow);
-	const l = !(0, R.u)(o, R.m);
+	const s = R7();
+	const o = _k(s.ownerWindow);
+	const l = !u_1(o, R.m);
 	let c;
 	let d = u.xm.CMInterface.logged_on;
 	S.useEffect(() => {
@@ -528,7 +577,11 @@ let F = (0, b.PA)(function (e) {
 	let C = null;
 	let _ =
 		u.xm.SettingsStore.FriendsSettings.bAnimatedAvatars && r.persona.is_online;
-	if ((0, y.q3)(() => r.BLoadedEquippedItems())) {
+	if (
+		q3(() => {
+			return r.BLoadedEquippedItems();
+		})
+	) {
 		let e = r.GetEquippedProfileItems();
 		if (e) {
 			h = e.animated_avatar;
@@ -643,9 +696,9 @@ let G = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], G.prototype, "OnDragStart", null);
-(0, n.Cg)([M.oI], G.prototype, "OnDragEnd", null);
-G = (0, n.Cg)([b.PA], G);
+Cg([M.oI], G.prototype, "OnDragStart", null);
+Cg([M.oI], G.prototype, "OnDragEnd", null);
+G = Cg([b.PA], G);
 let O = class extends S.Component {
 	static contextType = i.QO;
 	OnDragStart(e) {
@@ -694,28 +747,10 @@ let O = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], O.prototype, "OnDragStart", null);
-(0, n.Cg)([M.oI], O.prototype, "OnDragEnd", null);
-O = (0, n.Cg)([b.PA], O);
-var P = require("./92564.js");
-var L = require("./59704.js");
-var z = require(/*webcrack:missing*/ "./23038.js");
-var x = require(/*webcrack:missing*/ "./31084.js");
-var U = require(/*webcrack:missing*/ "./88750.js");
-var W = require(/*webcrack:missing*/ "./50376.js");
-var V = require("./35488.js");
-var H = require("./29889.js");
-var j = require(/*webcrack:missing*/ "./31958.js");
-var q = require("./69649.js");
-var Q = require("./92009.js");
-require("./13869.js");
-var Z = require("./64608.js");
-import { MoveElement } from "../../actual_src/utils/arrayutils.js";
+Cg([M.oI], O.prototype, "OnDragStart", null);
+Cg([M.oI], O.prototype, "OnDragEnd", null);
+O = Cg([b.PA], O);
 const K = "DEBUG_LogCMTraffic";
-var X = require(/*webcrack:missing*/ "./26853.js");
-var J = require("./83231.js");
-var $ = require("./43951.js");
-require("./44313.js");
 S.Component;
 class ee extends S.Component {
 	m_rgSelectOptions = [
@@ -895,10 +930,10 @@ class ee extends S.Component {
 		);
 	}
 }
-(0, n.Cg)([M.oI], ee.prototype, "OnInputChanged", null);
-(0, n.Cg)([M.oI], ee.prototype, "OnToggled", null);
-(0, n.Cg)([M.oI], ee.prototype, "OnSelectDropDownChanged", null);
-(0, n.Cg)([M.oI], ee.prototype, "OnSubmit", null);
+Cg([M.oI], ee.prototype, "OnInputChanged", null);
+Cg([M.oI], ee.prototype, "OnToggled", null);
+Cg([M.oI], ee.prototype, "OnSelectDropDownChanged", null);
+Cg([M.oI], ee.prototype, "OnSubmit", null);
 class te extends S.Component {
 	rgDragDropOptions = [
 		S.createElement(
@@ -979,9 +1014,9 @@ class te extends S.Component {
 		);
 	}
 }
-(0, n.Cg)([M.oI], te.prototype, "OnSubmit", null);
-(0, n.Cg)([M.oI], te.prototype, "RefTest", null);
-(0, n.Cg)([M.oI], te.prototype, "OnListReordered", null);
+Cg([M.oI], te.prototype, "OnSubmit", null);
+Cg([M.oI], te.prototype, "RefTest", null);
+Cg([M.oI], te.prototype, "OnListReordered", null);
 class re extends S.Component {
 	m_iInterval;
 	constructor(e) {
@@ -992,9 +1027,11 @@ class re extends S.Component {
 	}
 	componentDidMount() {
 		this.m_iInterval = window.setInterval(() => {
-			this.setState((e) => ({
-				cSeconds: e.cSeconds + 1,
-			}));
+			this.setState((e) => {
+				return {
+					cSeconds: e.cSeconds + 1,
+				};
+			});
 		}, 1000);
 	}
 	componentWillUnmount() {
@@ -1018,7 +1055,7 @@ class ne extends S.Component {
 		this.forceUpdate();
 	}
 	OnStickyContextMenuToggle(e) {
-		(0, U.$b)(e);
+		$b(e);
 		this.forceUpdate();
 	}
 	render() {
@@ -1031,7 +1068,7 @@ class ne extends S.Component {
 				S.createElement(Z.RF, {
 					label: '"Sticky" Context Menus',
 					description: "Context menus will stay open to allow inspecting CSS",
-					checked: (0, U.Y8)(),
+					checked: Y8(),
 					onChange: this.OnStickyContextMenuToggle,
 				}),
 				S.createElement(Z.RF, {
@@ -1046,8 +1083,8 @@ class ne extends S.Component {
 		);
 	}
 }
-(0, n.Cg)([M.oI], ne.prototype, "OnCMToggled", null);
-(0, n.Cg)([M.oI], ne.prototype, "OnStickyContextMenuToggle", null);
+Cg([M.oI], ne.prototype, "OnCMToggled", null);
+Cg([M.oI], ne.prototype, "OnStickyContextMenuToggle", null);
 class ie extends S.Component {
 	m_SteamID;
 	constructor(e) {
@@ -1070,7 +1107,7 @@ class ie extends S.Component {
 			this.state.searchString == ""
 				? u.xm.FriendStore.self.steamid.GetAccountID()
 				: this.state.searchString;
-		let r = new $.ol(u.xm.FriendStore.GetPlayer(+e));
+		let r = new $.ol(u.xm.FriendStore.GetPlayer(Number(e)));
 		t.hover = r;
 		t.visible = true;
 		r.data_loader.EnsureCommunityDataLoaded();
@@ -1177,33 +1214,14 @@ class ie extends S.Component {
 					}),
 				),
 				S.createElement(bP, {
-					friend: u.xm.FriendStore.GetPlayer(+e),
+					friend: u.xm.FriendStore.GetPlayer(Number(e)),
 					context: null,
 				}),
 			),
 		);
 	}
 }
-(0, n.Cg)([M.oI], ie.prototype, "OnSearchInput", null);
-var ae = require("./88724.js");
-var se = require(/*webcrack:missing*/ "./27773.js");
-var oe = require(/*webcrack:missing*/ "./8573.js");
-var le = require(/*webcrack:missing*/ "./45328.js");
-var ce = require(/*webcrack:missing*/ "./49455.js");
-var me = require("./68608.js");
-var ue = require(/*webcrack:missing*/ "./90765.js");
-var de = require("./87949.js");
-var Ae = require("./63958.js");
-var pe = require("./54747.js");
-var ge = require("./18644.js");
-var he = require(/*webcrack:missing*/ "./90242.js");
-var Ce = require(/*webcrack:missing*/ "./4690.js");
-var _e = require(/*webcrack:missing*/ "./61657.js");
-var fe = require("./43014.js");
-var be = require("./13743.js");
-var ye = require("./70839.js");
-var Se = require("./97764.js");
-import { LocalizeCalendarTime } from "../../actual_src/utils/localization/datetime.js";
+Cg([M.oI], ie.prototype, "OnSearchInput", null);
 let Be = class extends S.Component {
 	render() {
 		const e = u.xm.ChatStore.GetRecentChats();
@@ -1246,7 +1264,7 @@ let Be = class extends S.Component {
 					return S.createElement(bP, {
 						friend: i,
 						key: r,
-						className: (0, ue.A)(
+						className: A_1(
 							Se.RecentChatElement,
 							n.unread_message_count > 0 && "unreadFriend",
 						),
@@ -1271,7 +1289,7 @@ let Be = class extends S.Component {
 							"div",
 							{
 								key: "FriendMessageCount",
-								className: (0, ue.A)(
+								className: A_1(
 									"FriendMessageCount",
 									n.HasUnreadMention && "HasUnreadMention",
 								),
@@ -1302,15 +1320,8 @@ let Be = class extends S.Component {
 		);
 	}
 };
-Be = (0, n.Cg)([b.PA], Be);
+Be = Cg([b.PA], Be);
 var ve;
-var Ie = require("./50979.js");
-var Ee = require(/*webcrack:missing*/ "./20590.js");
-var Me = require("./80310.js");
-var Te = require(/*webcrack:missing*/ "./72476.js");
-var Re = require(/*webcrack:missing*/ "./47742.js");
-var ke = require("./55571.js");
-var De = require("./83665.js");
 let Ne = class extends S.Component {
 	constructor(e) {
 		super(e);
@@ -1359,7 +1370,7 @@ let Ne = class extends S.Component {
 		);
 	}
 };
-Ne = (0, n.Cg)([b.PA], Ne);
+Ne = Cg([b.PA], Ne);
 let Fe = class extends S.Component {
 	render() {
 		let e = this.props.chats.GetActiveVoiceChat();
@@ -1425,7 +1436,7 @@ let Fe = class extends S.Component {
 		}
 	}
 };
-Fe = (0, n.Cg)([b.PA], Fe);
+Fe = Cg([b.PA], Fe);
 export let lg = class extends S.Component {
 	constructor(e) {
 		super(e);
@@ -1436,11 +1447,11 @@ export let lg = class extends S.Component {
 				this.props.chat.GetParentGroupID(),
 			);
 			if (t) {
-				u.xm.UIStore.ShowAndOrActivateChatRoomGroup((0, m.CO)(e), t, true);
+				u.xm.UIStore.ShowAndOrActivateChatRoomGroup(CO(e), t, true);
 				return;
 			}
 		}
-		u.xm.UIStore.ShowAndOrActivateChat((0, m.CO)(e), this.props.chat, true);
+		u.xm.UIStore.ShowAndOrActivateChat(CO(e), this.props.chat, true);
 	}
 	render() {
 		let e = u.xm.VoiceStore.GetPushToTalkEnabled();
@@ -1524,8 +1535,8 @@ export let lg = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], lg.prototype, "ActivateActiveVoiceChat", null);
-lg = (0, n.Cg)([b.PA], lg);
+Cg([M.oI], lg.prototype, "ActivateActiveVoiceChat", null);
+lg = Cg([b.PA], lg);
 export let f7 = class extends S.Component {
 	ToggleMicrophone(e) {
 		if (u.xm.VoiceStore.IsMicMuted() && u.xm.VoiceStore.IsOutputMuted()) {
@@ -1572,8 +1583,8 @@ export let f7 = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], f7.prototype, "ToggleMicrophone", null);
-f7 = (0, n.Cg)([b.PA], f7);
+Cg([M.oI], f7.prototype, "ToggleMicrophone", null);
+f7 = Cg([b.PA], f7);
 export let Ql = class extends S.Component {
 	ToggleVoiceOutput(e) {
 		if (u.xm.VoiceStore.IsOutputMuted() == u.xm.VoiceStore.IsMicMuted()) {
@@ -1615,8 +1626,8 @@ export let Ql = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], Ql.prototype, "ToggleVoiceOutput", null);
-Ql = (0, n.Cg)([b.PA], Ql);
+Cg([M.oI], Ql.prototype, "ToggleVoiceOutput", null);
+Ql = Cg([b.PA], Ql);
 let Le = class extends S.Component {
 	static contextType = i.QO;
 	EndVoiceChat(e) {
@@ -1642,8 +1653,8 @@ let Le = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], Le.prototype, "EndVoiceChat", null);
-Le = (0, n.Cg)([b.PA], Le);
+Cg([M.oI], Le.prototype, "EndVoiceChat", null);
+Le = Cg([b.PA], Le);
 class ze extends S.Component {
 	constructor(e) {
 		super(e);
@@ -1682,14 +1693,16 @@ const xe = (e) => {
 		},
 		[r, n],
 	);
-	(0, M.hL)(u.xm.UIStore.FriendsListSteamDeckActiveTabCallbackList(), a);
+	hL(u.xm.UIStore.FriendsListSteamDeckActiveTabCallbackList(), a);
 	const s = S.useCallback((e) => {
 		u.xm.UIStore.FriendsListSteamDeckActiveTab = e;
 	}, []);
 	const o = (e) => {
 		u.xm.UIStore.SelectFriendsListSteamDeckSiblingTab(e);
 	};
-	let l = (0, y.q3)(() => u.xm.FriendStore.GetPendingInviteCount());
+	let l = q3(() => {
+		return u.xm.FriendStore.GetPendingInviteCount();
+	});
 	const c = () => {
 		SteamClient.Messaging.PostMessage("FriendsUI", "NavigateToInvites", "{}");
 	};
@@ -1755,7 +1768,7 @@ const xe = (e) => {
 							{
 								onActivate: (e) => {
 									let t = GetOwningWindowForEvent(e);
-									(0, q.UA)((0, m._k)(t), t);
+									UA(_k(t), t);
 								},
 								onOKActionDescription: Localize("#Chat_CreateGroupChat"),
 								focusable: true,
@@ -1775,8 +1788,10 @@ const xe = (e) => {
 				S.createElement(
 					w.Z,
 					{
-						className: (0, ue.A)(Ae.TabBumper, Ae.Previous),
-						onActivate: () => o(-1),
+						className: A_1(Ae.TabBumper, Ae.Previous),
+						onActivate: () => {
+							return o(-1);
+						},
 						focusable: false,
 					},
 					S.createElement(be.$m, {
@@ -1784,8 +1799,8 @@ const xe = (e) => {
 						type: be.wt.Dark,
 					}),
 				),
-				e.rgTabs.map((e, r) =>
-					S.createElement(
+				e.rgTabs.map((e, r) => {
+					return S.createElement(
 						Ve,
 						{
 							key: r,
@@ -1793,17 +1808,21 @@ const xe = (e) => {
 							tab: e.eTab,
 							activeTab: t,
 							preferredFocus: e.eTab == t,
-							onFocus: () => s(e.eTab),
+							onFocus: () => {
+								return s(e.eTab);
+							},
 							fnSetActiveTab: s,
 						},
 						e.tabElement,
-					),
-				),
+					);
+				}),
 				S.createElement(
 					w.Z,
 					{
-						className: (0, ue.A)(Ae.TabBumper, Ae.Next),
-						onActivate: () => o(1),
+						className: A_1(Ae.TabBumper, Ae.Next),
+						onActivate: () => {
+							return o(1);
+						},
 						focusable: false,
 					},
 					S.createElement(be.$m, {
@@ -1822,33 +1841,35 @@ const xe = (e) => {
 const Ue = (e, t) => {
 	let r;
 	switch (e) {
-		case ye.Jw.Favorites:
+		case ye.Jw.Favorites: {
 			r = "FavoritesTabList";
 			break;
-		case ye.Jw.FriendsList:
+		}
+		case ye.Jw.FriendsList: {
 			r = "FriendsTabList";
 			break;
-		case ye.Jw.GroupChats:
+		}
+		case ye.Jw.GroupChats: {
 			r = "GroupsTabList";
 			break;
-		case ye.Jw.RecentMessages:
+		}
+		case ye.Jw.RecentMessages: {
 			r = "RecentMessagesTabList";
 			break;
-		default:
+		}
+		default: {
 			r = "TabList";
+		}
 	}
-	return (0, ue.A)(
-		r,
-		e < t ? "beforeActiveTab" : e == t ? "" : "afterActiveTab",
-	);
+	return A_1(r, e < t ? "beforeActiveTab" : e == t ? "" : "afterActiveTab");
 };
 function We(e) {
 	const { rgTabs: t, activeTab: r } = e;
 	const n = S.useRef(r);
-	const i = (0, Z.a_)().bQuickAccessMenu;
+	const i = a_1().bQuickAccessMenu;
 	const a = S.useRef();
 	const s = S.useRef();
-	(0, S.useEffect)(() => {
+	useEffect(() => {
 		if (n.current !== r && a.current?.BFocusWithin() && s.current) {
 			s.current.TakeFocus();
 		}
@@ -1857,8 +1878,10 @@ function We(e) {
 	return S.createElement(
 		w.Z,
 		{
-			className: (0, ue.A)("FriendsListTabPanelContainer", i && "QuickAccess"),
-			fnScrollIntoViewHandler: () => null,
+			className: A_1("FriendsListTabPanelContainer", i && "QuickAccess"),
+			fnScrollIntoViewHandler: () => {
+				return null;
+			},
 		},
 		t.map((e) => {
 			const t = e.eTab === r;
@@ -1887,21 +1910,23 @@ const Ve = S.forwardRef(function (e, t) {
 				i(r);
 			}
 		},
-		className: (0, ue.A)("FriendsListTab", s && "Active"),
+		className: A_1("FriendsListTab", s && "Active"),
 		...a,
 		ref: t,
 	});
 });
 const He = S.forwardRef(function (e, t) {
 	let { bActiveTab: r, className: n, navRef: i, children: a, ...s } = e;
-	const { refNav: o, bShouldMount: l } = (0, Me.H)(true, 300000);
-	const c = (0, M.Ue)(o, i);
+	const { refNav: o, bShouldMount: l } = H_1(true, 300000);
+	const c = Ue_1(o, i);
 	return S.createElement(
 		w.Z,
 		{
 			navRef: c,
-			className: (0, ue.A)(n, "FriendsListTabPanel", r && "Active"),
-			fnCanTakeFocus: () => r,
+			className: A_1(n, "FriendsListTabPanel", r && "Active"),
+			fnCanTakeFocus: () => {
+				return r;
+			},
 			...s,
 			ref: t,
 		},
@@ -1910,7 +1935,7 @@ const He = S.forwardRef(function (e, t) {
 });
 function je() {
 	let e = false;
-	let t = (0, y.q3)(() => {
+	let t = q3(() => {
 		let t = 0;
 		const r = u.xm.ChatStore.GetRecentChats();
 		for (const n of r) {
@@ -1934,10 +1959,7 @@ function je() {
 	return S.createElement(
 		"div",
 		{
-			className: (0, ue.A)(
-				Ae.RecentChatIcon,
-				r && Ae.NotificationUnreadMention,
-			),
+			className: A_1(Ae.RecentChatIcon, r && Ae.NotificationUnreadMention),
 		},
 		S.createElement(W.RO3, null),
 		t > 0 &&
@@ -2020,8 +2042,8 @@ export let l$ = class extends ze {
 		}
 		let n = false;
 		if (this.props.popup) {
-			let e = (0, m._k)(this.props.popup);
-			n = !(0, R.u)(e, R.m);
+			let e = _k(this.props.popup);
+			n = !u_1(e, R.m);
 		}
 		let i = false;
 		let a = 0;
@@ -2108,10 +2130,10 @@ export let l$ = class extends ze {
 			S.createElement(
 				"div",
 				{
-					className: (0, ue.A)(
+					className: A_1(
 						"friendListHeaderContainer",
 						"titleBarContainer",
-						(0, Te.Pr)() && "OSX",
+						Pr() && "OSX",
 					),
 				},
 				S.createElement("div", {
@@ -2126,12 +2148,12 @@ export let l$ = class extends ze {
 		);
 	}
 };
-(0, n.Cg)([M.oI], l$.prototype, "OnMessage", null);
-(0, n.Cg)([M.oI], l$.prototype, "OnSearchSelection", null);
-(0, n.Cg)([M.oI], l$.prototype, "StartSearchOnKeyPress", null);
-(0, n.Cg)([M.oI], l$.prototype, "SetInviteListVisibility", null);
-(0, n.Cg)([M.oI], l$.prototype, "ToggleViewingIncomingInvites", null);
-l$ = (0, n.Cg)([b.PA], l$);
+Cg([M.oI], l$.prototype, "OnMessage", null);
+Cg([M.oI], l$.prototype, "OnSearchSelection", null);
+Cg([M.oI], l$.prototype, "StartSearchOnKeyPress", null);
+Cg([M.oI], l$.prototype, "SetInviteListVisibility", null);
+Cg([M.oI], l$.prototype, "ToggleViewingIncomingInvites", null);
+l$ = Cg([b.PA], l$);
 export class hv extends S.Component {
 	m_friendsListRef = null;
 	constructor(e) {
@@ -2234,7 +2256,7 @@ export let i$ = class extends ze {
 					t,
 				);
 			if (r.length) {
-				r[0].OpenChatDialog((0, m.CO)(e));
+				r[0].OpenChatDialog(CO(e));
 			}
 		}
 		this.setState({
@@ -2269,17 +2291,17 @@ export let i$ = class extends ze {
 		if (u.xm.IsDesktopUIActive()) {
 			SteamClient.URL.ExecuteSteamURL("steam://open/settings/friends");
 		} else {
-			(0, Q.T)((0, m.CO)(e), e.currentTarget.ownerDocument.defaultView);
+			T_1(CO(e), e.currentTarget.ownerDocument.defaultView);
 		}
 	}
 	ToggleCollapseExpand(e) {
-		u.xm.UIStore.SetFriendsListCollapsed((0, m.CO)(e), !this.props.collapsed);
+		u.xm.UIStore.SetFriendsListCollapsed(CO(e), !this.props.collapsed);
 	}
 	OnDoFriendsListUpdate(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
 		let r = m.ZM.GetSecondsOutOfDate();
 		let n = (0, Hq)(r, true);
-		(0, A.Ci)(
+		Ci(
 			t,
 			Localize("#Friends_ConfirmUpdate_Title"),
 			Localize("#Friends_ConfirmUpdate_Body", n),
@@ -2423,8 +2445,8 @@ export let i$ = class extends ze {
 		}
 		let s = false;
 		if (this.props.popup) {
-			let e = (0, m._k)(this.props.popup);
-			s = !(0, R.u)(e, R.m);
+			let e = _k(this.props.popup);
+			s = !u_1(e, R.m);
 		}
 		let o = false;
 		let l = 0;
@@ -2471,10 +2493,10 @@ export let i$ = class extends ze {
 			S.createElement(
 				"div",
 				{
-					className: (0, ue.A)(
+					className: A_1(
 						"friendListHeaderContainer",
 						"titleBarContainer",
-						(0, Te.Pr)() && "OSX",
+						Pr() && "OSX",
 					),
 				},
 				this.props.popup &&
@@ -2549,11 +2571,12 @@ export let i$ = class extends ze {
 										classNames: "activevoice-anim",
 										timeout: 500,
 									},
-									(e) =>
-										S.createElement(Fe, {
+									(e) => {
+										return S.createElement(Fe, {
 											chats: this.props.chats,
 											containerRef: e,
-										}),
+										});
+									},
 								),
 						),
 						S.createElement(Je, {
@@ -2584,7 +2607,7 @@ export let i$ = class extends ze {
 											className: "tabLabel",
 											style: a,
 											ref: this.BindTabLabel,
-											onClick: r ? undefined : this.OnTabSearchClick,
+											onClick: r || this.OnTabSearchClick,
 										},
 										Localize("#tab_friends"),
 									),
@@ -2597,7 +2620,7 @@ export let i$ = class extends ze {
 											"div",
 											{
 												className: "TabSearchButton",
-												onClick: r ? null : this.OnTabSearchClick,
+												onClick: r || this.OnTabSearchClick,
 											},
 											S.createElement(
 												z.A,
@@ -2612,8 +2635,8 @@ export let i$ = class extends ze {
 															classNames: "tab-search-anim",
 															timeout: 500,
 														},
-														(e) =>
-															S.createElement(
+														(e) => {
+															return S.createElement(
 																"div",
 																{
 																	ref: e,
@@ -2656,7 +2679,8 @@ export let i$ = class extends ze {
 																		),
 																	),
 																),
-															),
+															);
+														},
 													),
 											),
 											S.createElement(
@@ -2757,25 +2781,25 @@ export let i$ = class extends ze {
 		);
 	}
 };
-(0, n.Cg)([M.oI], i$.prototype, "OnSearchInputRef", null);
-(0, n.Cg)([M.oI], i$.prototype, "StartSearchOnKeyPress", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnSearchInput", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnSearchSubmit", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnSearchSelection", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnSearchKeyDown", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnClearSearch", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnSettingsClick", null);
-(0, n.Cg)([M.oI], i$.prototype, "ToggleCollapseExpand", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnDoFriendsListUpdate", null);
-(0, n.Cg)([M.oI], i$.prototype, "BindTabLabel", null);
-(0, n.Cg)([M.oI], i$.prototype, "CollapseTabLabel", null);
-(0, n.Cg)([M.oI], i$.prototype, "OnTabSearchClick", null);
-(0, n.Cg)([M.oI], i$.prototype, "ToggleViewingIncomingInvites", null);
-(0, n.Cg)([M.oI], i$.prototype, "SignIn", null);
-i$ = (0, n.Cg)([b.PA], i$);
-const Ye = (0, b.PA)(function (e) {
+Cg([M.oI], i$.prototype, "OnSearchInputRef", null);
+Cg([M.oI], i$.prototype, "StartSearchOnKeyPress", null);
+Cg([M.oI], i$.prototype, "OnSearchInput", null);
+Cg([M.oI], i$.prototype, "OnSearchSubmit", null);
+Cg([M.oI], i$.prototype, "OnSearchSelection", null);
+Cg([M.oI], i$.prototype, "OnSearchKeyDown", null);
+Cg([M.oI], i$.prototype, "OnClearSearch", null);
+Cg([M.oI], i$.prototype, "OnSettingsClick", null);
+Cg([M.oI], i$.prototype, "ToggleCollapseExpand", null);
+Cg([M.oI], i$.prototype, "OnDoFriendsListUpdate", null);
+Cg([M.oI], i$.prototype, "BindTabLabel", null);
+Cg([M.oI], i$.prototype, "CollapseTabLabel", null);
+Cg([M.oI], i$.prototype, "OnTabSearchClick", null);
+Cg([M.oI], i$.prototype, "ToggleViewingIncomingInvites", null);
+Cg([M.oI], i$.prototype, "SignIn", null);
+i$ = Cg([b.PA], i$);
+const Ye = PA(function (e) {
 	const { fnToggleViewingIncomingInvites: t, bViewingIncomingInvites: r } = e;
-	const [n, i] = (0, S.useState)(false);
+	const [n, i] = useState(false);
 	if (n || r) {
 		u.xm.FriendStore.FriendGroupStore.incoming_invites_group.member_list;
 		u.xm.FriendStore.ClanStore.clan_invites;
@@ -2784,7 +2808,7 @@ const Ye = (0, b.PA)(function (e) {
 	const s = u.xm.FriendStore.GetFriendInviteCount();
 	let o = u.xm.FriendStore.GetOutgoingFriendRequestCount() > 0;
 	let l = s + a;
-	const c = s > 0 || a > 0 || o;
+	const c = s > 0 || a > 0 || a > 0 || o;
 	let m = "friendRequestButton";
 	if (r) {
 		m += " friendRequestViewActive";
@@ -2792,7 +2816,7 @@ const Ye = (0, b.PA)(function (e) {
 	if (o && l == 0) {
 		m += " friendRequestOutgoingOnly";
 	}
-	(0, S.useEffect)(() => {
+	useEffect(() => {
 		if (!c && r) {
 			t();
 		}
@@ -2804,8 +2828,12 @@ const Ye = (0, b.PA)(function (e) {
 				className: m,
 				onClick: t,
 				title: LocalizePlural("#Tooltip_FriendRequest", l),
-				onMouseEnter: () => i(true),
-				onMouseLeave: () => i(false),
+				onMouseEnter: () => {
+					return i(true);
+				},
+				onMouseLeave: () => {
+					return i(false);
+				},
 			},
 			S.createElement(W.Gv$, null),
 			l > 0 &&
@@ -2871,14 +2899,16 @@ let Xe = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], Xe.prototype, "OnSettingsZooClick", null);
-Xe = (0, n.Cg)([b.PA], Xe);
-const Je = (0, b.PA)((e) => {
+Cg([M.oI], Xe.prototype, "OnSettingsZooClick", null);
+Xe = Cg([b.PA], Xe);
+const Je = PA((e) => {
 	const { browserContext: t } = e;
 	const r = (function () {
-		const [e, t] = (0, S.useState)(false);
-		const r = (0, y.q3)(() => u.xm.FriendStore.self.persona.m_gameid);
-		(0, S.useEffect)(() => {
+		const [e, t] = useState(false);
+		const r = q3(() => {
+			return u.xm.FriendStore.self.persona.m_gameid;
+		});
+		useEffect(() => {
 			let e = true;
 			u.xm.RemotePlayStore.BCanCreateInviteForGame(r, false).then((r) => {
 				if (e) {
@@ -2891,8 +2921,8 @@ const Je = (0, b.PA)((e) => {
 		}, [r]);
 		return e;
 	})();
-	const [n, i] = (0, m.PJ)("bRemotePlayLinkHintDismissed");
-	const [a, s] = (0, Re.l)();
+	const [n, i] = PJ("bRemotePlayLinkHintDismissed");
+	const [a, s] = l_2();
 	if (!r) {
 		return null;
 	}
@@ -2906,7 +2936,9 @@ const Je = (0, b.PA)((e) => {
 			"div",
 			{
 				className: Ae.LinkRow,
-				onClick: () => SteamClient.Friends.ShowRemotePlayTogetherUI(),
+				onClick: () => {
+					return SteamClient.Friends.ShowRemotePlayTogetherUI();
+				},
 			},
 			S.createElement(
 				"div",
@@ -2952,7 +2984,9 @@ const Je = (0, b.PA)((e) => {
 					"div",
 					{
 						className: Ae.GotItButton,
-						onClick: () => i(true),
+						onClick: () => {
+							return i(true);
+						},
 					},
 					Localize("#Generic_Got_It"),
 				),
@@ -3001,35 +3035,43 @@ const Je = (0, b.PA)((e) => {
 			),
 	);
 });
-const $e = (0, b.PA)(function (e) {
+const $e = PA(function (e) {
 	const { currentUser: t, popup: r } = e;
-	const n = (0, Te.Qn)();
-	const i = (0, ke.Uy)(t.persona.m_unGamePlayedAppID);
-	(0, S.useEffect)(() => {
+	const n = Qn();
+	const i = Uy(t.persona.m_unGamePlayedAppID);
+	useEffect(() => {
 		t.LoadEquippedProfileItems();
 	});
-	const a = S.useCallback((e) => (0, p.HS)((0, m.CO)(e), e), []);
+	const a = S.useCallback((e) => {
+		return HS(CO(e), e);
+	}, []);
 	const s = S.useCallback(
 		(e) => {
 			let r = t.GetCommunityProfileURL();
-			(0, L.EP)(e, r);
+			EP(e, r);
 			e.stopPropagation();
 		},
 		[t],
 	);
-	let o = "currentUserContainer " + (0, ae.rO)(t.persona);
+	let o = "currentUserContainer " + rO(t.persona);
 	if (t.persona.m_ePersonaState == 2) {
 		o += " userDoNotDisturb";
 	}
 	let l = null;
 	if (u.xm.FriendStore.BIsInvisibleMode()) {
-		l = () => Localize("#PersonaStateInvisible");
+		l = () => {
+			return Localize("#PersonaStateInvisible");
+		};
 	}
 	let c = null;
 	if (t.persona.HasCurrentGameRichPresence()) {
-		c = () => t.persona.GetCurrentGameRichPresence();
+		c = () => {
+			return t.persona.GetCurrentGameRichPresence();
+		};
 	} else if (t.persona.m_broadcastAccountId) {
-		c = () => t.GetBroadcastDescription();
+		c = () => {
+			return t.GetBroadcastDescription();
+		};
 	}
 	let d =
 		t.persona.is_ingame &&
@@ -3046,8 +3088,8 @@ const $e = (0, b.PA)(function (e) {
 	}
 	let C = false;
 	if (r) {
-		let e = (0, m._k)(r);
-		C = !(0, R.u)(e, R.m);
+		let e = _k(r);
+		C = !u_1(e, R.m);
 	}
 	const _ = C ? "Medium" : "Infinite";
 	let f = S.createElement(
@@ -3161,7 +3203,7 @@ let et = class extends S.Component {
 	OnContextMenu(e) {
 		let t = this.props.searchString && this.props.searchString.length > 0;
 		if (!this.props.bViewingIncomingInvites && !t) {
-			(0, p.iS)((0, m.CO)(e), null, e);
+			iS(CO(e), null, e);
 		}
 	}
 	BindFriendsListContent(e) {
@@ -3194,7 +3236,7 @@ let et = class extends S.Component {
 		let r = e.currentTarget.ownerDocument.defaultView;
 		u.xm.FriendStore.ClanStore.RespondToClanInvite(t, true).then((e) => {
 			if (!e) {
-				(0, A.Ic)(
+				Ic(
 					r,
 					Localize("#Friend_AcceptClanInvite"),
 					Localize("#Friend_AcceptClanInvite_Error"),
@@ -3206,7 +3248,7 @@ let et = class extends S.Component {
 		let r = e.currentTarget.ownerDocument.defaultView;
 		u.xm.FriendStore.ClanStore.RespondToClanInvite(t, false).then((e) => {
 			if (!e) {
-				(0, A.Ic)(
+				Ic(
 					r,
 					Localize("#Friend_DeclineClanInvite"),
 					Localize("#Friend_DeclineClanInvite_Error"),
@@ -3402,26 +3444,26 @@ let et = class extends S.Component {
 					...s,
 				});
 			} else {
-				let t = this.props.friends.FriendGroupStore.user_groups.map((e) =>
-					S.createElement(at, {
+				let t = this.props.friends.FriendGroupStore.user_groups.map((e) => {
+					return S.createElement(at, {
 						group: e,
 						key: e.id,
 						groupDisplayPrefs:
 							this.props.friends.FriendGroupStore.groupDisplayPrefs,
 						bInOverlay: a,
 						...s,
-					}),
-				);
-				let r = this.props.friends.FriendGroupStore.default_groups.map((e) =>
-					S.createElement(at, {
+					});
+				});
+				let r = this.props.friends.FriendGroupStore.default_groups.map((e) => {
+					return S.createElement(at, {
 						group: e,
 						key: e.id,
 						groupDisplayPrefs:
 							this.props.friends.FriendGroupStore.groupDisplayPrefs,
 						bInOverlay: a,
 						...s,
-					}),
-				);
+					});
+				});
 				let n = false;
 				if (
 					this.props.chats.FriendChatStore.GetFriendsWithUnreadMessages(
@@ -3511,13 +3553,13 @@ let et = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], et.prototype, "OnContextMenu", null);
-(0, n.Cg)([M.oI], et.prototype, "BindFriendsListContent", null);
-(0, n.Cg)([M.oI], et.prototype, "OnFriendsListKeyDown", null);
-(0, n.Cg)([M.oI], et.prototype, "OnFriendsListScrollRef", null);
-(0, n.Cg)([M.oI], et.prototype, "ScrollToTop", null);
-(0, n.Cg)([M.oI], et.prototype, "OnScrollFriendsList", null);
-et = (0, n.Cg)([b.PA], et);
+Cg([M.oI], et.prototype, "OnContextMenu", null);
+Cg([M.oI], et.prototype, "BindFriendsListContent", null);
+Cg([M.oI], et.prototype, "OnFriendsListKeyDown", null);
+Cg([M.oI], et.prototype, "OnFriendsListScrollRef", null);
+Cg([M.oI], et.prototype, "ScrollToTop", null);
+Cg([M.oI], et.prototype, "OnScrollFriendsList", null);
+et = Cg([b.PA], et);
 class tt extends S.Component {
 	constructor(e) {
 		super(e);
@@ -3563,7 +3605,7 @@ let rt = class extends S.Component {
 		};
 	}
 	UpdateChatSectionSize() {
-		(0, ce.w)(this.m_elChatSection, "m_elChatRoomListContainer not set");
+		w_1(this.m_elChatSection, "m_elChatRoomListContainer not set");
 		if (this.m_bMouseOver) {
 			if (this.m_iTimeoutUpdateChatSectionSize) {
 				this.m_window.clearTimeout(this.m_iTimeoutUpdateChatSectionSize);
@@ -3591,7 +3633,7 @@ let rt = class extends S.Component {
 					this.m_animationChatSectionShrink = new H.w(
 						this,
 						{
-							nChatRoomListContainerHeight: (0, j.OQ)(
+							nChatRoomListContainerHeight: OQ(
 								this.state.nChatRoomListContainerHeight,
 								t,
 								e,
@@ -3696,7 +3738,7 @@ let rt = class extends S.Component {
 			a = i;
 		}
 		let s = i - a;
-		s = (0, j.OQ)(
+		s = OQ(
 			s,
 			this.m_elChatSection.minimumHeight,
 			this.m_elChatSection.maximumHeight,
@@ -3766,7 +3808,7 @@ let rt = class extends S.Component {
 		});
 	}
 	OnCreateChatRoom(e) {
-		(0, q.UA)((0, m.CO)(e), e.currentTarget.ownerDocument.defaultView);
+		UA(CO(e), e.currentTarget.ownerDocument.defaultView);
 	}
 	render() {
 		let e = {
@@ -3870,21 +3912,21 @@ let rt = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], rt.prototype, "UpdateChatSectionSize", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnChatSectionMutation", null);
-(0, n.Cg)([M.oI], rt.prototype, "BindChatRoomTitleContainer", null);
-(0, n.Cg)([M.oI], rt.prototype, "BindChatRoomListContainer", null);
-(0, n.Cg)([M.oI], rt.prototype, "BindChatSection", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnGrabberMouseDown", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnGrabberTouchStart", null);
-(0, n.Cg)([M.oI], rt.prototype, "HandleTouchMove", null);
-(0, n.Cg)([M.oI], rt.prototype, "HandleMouseMove", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnMouseEnter", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnMouseLeave", null);
-(0, n.Cg)([M.oI], rt.prototype, "ToggleChatsList", null);
-(0, n.Cg)([M.oI], rt.prototype, "UnregisterChatRoomListDragEvents", null);
-(0, n.Cg)([M.oI], rt.prototype, "OnCreateChatRoom", null);
-rt = ve = (0, n.Cg)([b.PA], rt);
+Cg([M.oI], rt.prototype, "UpdateChatSectionSize", null);
+Cg([M.oI], rt.prototype, "OnChatSectionMutation", null);
+Cg([M.oI], rt.prototype, "BindChatRoomTitleContainer", null);
+Cg([M.oI], rt.prototype, "BindChatRoomListContainer", null);
+Cg([M.oI], rt.prototype, "BindChatSection", null);
+Cg([M.oI], rt.prototype, "OnGrabberMouseDown", null);
+Cg([M.oI], rt.prototype, "OnGrabberTouchStart", null);
+Cg([M.oI], rt.prototype, "HandleTouchMove", null);
+Cg([M.oI], rt.prototype, "HandleMouseMove", null);
+Cg([M.oI], rt.prototype, "OnMouseEnter", null);
+Cg([M.oI], rt.prototype, "OnMouseLeave", null);
+Cg([M.oI], rt.prototype, "ToggleChatsList", null);
+Cg([M.oI], rt.prototype, "UnregisterChatRoomListDragEvents", null);
+Cg([M.oI], rt.prototype, "OnCreateChatRoom", null);
+rt = ve = Cg([b.PA], rt);
 class nt extends S.Component {
 	GetDragDropProps(e = true) {
 		let t = {
@@ -3918,7 +3960,7 @@ class nt extends S.Component {
 		}
 	}
 	OnDragEnter(e, t) {
-		(0, ce.w)(
+		w_1(
 			e && e.type == "friend",
 			"Invalid data type passed to FriendGroupDragDrop.OnDragEnter",
 		);
@@ -3928,6 +3970,9 @@ class nt extends S.Component {
 		let a = this.GetGroup();
 		if (
 			(!a ||
+				i == a ||
+				i == a ||
+				!this.GetGroup().HasMember(n.accountid) ||
 				i == a ||
 				!this.GetGroup().HasMember(n.accountid) ||
 				r.is_favorite ||
@@ -3952,7 +3997,7 @@ class nt extends S.Component {
 		}
 	}
 	OnDrop(e, t) {
-		(0, ce.w)(
+		w_1(
 			e && e.type == "friend",
 			"Invalid data type passed to FriendGroupDragDrop.OnDrop",
 		);
@@ -3972,26 +4017,26 @@ class nt extends S.Component {
 		}
 	}
 }
-(0, n.Cg)([M.oI], nt.prototype, "OnDragStart", null);
-(0, n.Cg)([M.oI], nt.prototype, "OnDragEnd", null);
-(0, n.Cg)([M.oI], nt.prototype, "OnDragEnter", null);
-(0, n.Cg)([M.oI], nt.prototype, "OnDragLeave", null);
-(0, n.Cg)([M.oI], nt.prototype, "OnDrop", null);
-const it = (0, b.PA)((e) => {
+Cg([M.oI], nt.prototype, "OnDragStart", null);
+Cg([M.oI], nt.prototype, "OnDragEnd", null);
+Cg([M.oI], nt.prototype, "OnDragEnter", null);
+Cg([M.oI], nt.prototype, "OnDragLeave", null);
+Cg([M.oI], nt.prototype, "OnDrop", null);
+const it = PA((e) => {
 	if (!u.xm.SettingsStore.FriendsSettings.bCategorizeInGameFriendsByGame) {
 		return null;
 	}
 	let t = u.xm.FriendStore.FriendGroupStore.game_groups;
-	let r = t.map((t) =>
-		S.createElement(lt, {
+	let r = t.map((t) => {
+		return S.createElement(lt, {
 			key: t.id,
 			group: t,
 			bSingletonGroup: false,
 			bOtherGroups: true,
 			groupDisplayPrefs: u.xm.FriendStore.FriendGroupStore.groupDisplayPrefs,
 			bInOverlay: e.bInOverlay,
-		}),
-	);
+		});
+	});
 	let n = u.xm.FriendStore.FriendGroupStore.singleton_game_group;
 	if (n) {
 		r.push(
@@ -4061,21 +4106,21 @@ let at = class extends nt {
 			this.props.group.modifiable ||
 			this.props.group.accepts_group_removals
 		) {
-			(0, p.iS)((0, m.CO)(e), this.props.group, e);
+			iS(CO(e), this.props.group, e);
 		}
 	}
 	OnFriendSelected(e) {
 		if (this.props.friendSelectAction) {
 			this.props.friendSelectAction(e);
 		} else {
-			e.OpenChatDialog((0, m.wj)(this.containerRef.current));
+			e.OpenChatDialog(wj(this.containerRef.current));
 			if (this.props.fnOnSearchSelection) {
 				this.props.fnOnSearchSelection();
 			}
 		}
 	}
 	OnAcceptInvite(e) {
-		(0, ce.w)(this.IsInviteGroup(), "accept invite on non-invite group");
+		w_1(this.IsInviteGroup(), "accept invite on non-invite group");
 		let t = this.m_actions.get(e.accountid);
 		if (t && t.action == "accept") {
 			this.m_actions.delete(e.accountid);
@@ -4087,7 +4132,7 @@ let at = class extends nt {
 		}
 	}
 	OnDeclineInvite(e) {
-		(0, ce.w)(this.IsInviteGroup(), "decline invite on non-invite group");
+		w_1(this.IsInviteGroup(), "decline invite on non-invite group");
 		let t = this.m_actions.get(e.accountid);
 		if (!t || (t.action != "decline" && t.action != "block")) {
 			this.m_actions.set(e.accountid, {
@@ -4099,7 +4144,7 @@ let at = class extends nt {
 		}
 	}
 	OnBlockInvite(e, t) {
-		(0, ce.w)(this.IsInviteGroup(), "block invite on non-invite group");
+		w_1(this.IsInviteGroup(), "block invite on non-invite group");
 		if (e) {
 			this.m_actions.set(t.accountid, {
 				friend: t,
@@ -4116,13 +4161,13 @@ let at = class extends nt {
 		let { eResult: r, eFriendRelationship: n } =
 			await u.xm.FriendStore.SendFriendInvite(t);
 		if (n != 3) {
-			(0, p.Jw)(e, r, n, t.display_name);
+			Jw(e, r, n, t.display_name);
 		}
 	}
 	DeclineInvite(e, t) {
 		u.xm.FriendStore.RemoveFriend(t).then((r) => {
 			if (r != 1) {
-				(0, A.Ic)(
+				Ic(
 					e,
 					Localize("#Friend_Menu_IgnoreIncomingInvite"),
 					Localize("#Friend_IgnoreIncomingInvite_Error", t.display_name),
@@ -4133,7 +4178,7 @@ let at = class extends nt {
 	BlockInvite(e, t) {
 		u.xm.FriendStore.BlockPlayer(t).then((r) => {
 			if (r != 5) {
-				(0, A.Ic)(
+				Ic(
 					e,
 					Localize("#Friend_Menu_BlockIncomingInvite"),
 					Localize("#Friend_BlockIncomingInvite_Error", t.display_name),
@@ -4142,7 +4187,7 @@ let at = class extends nt {
 		});
 	}
 	OnConfirmChanges(e) {
-		(0, ce.w)(this.IsInviteGroup(), "confirm changes on non-invite group");
+		w_1(this.IsInviteGroup(), "confirm changes on non-invite group");
 		let t = e.currentTarget.ownerDocument.defaultView;
 		this.m_actions.forEach((e) => {
 			if (e.action == "accept") {
@@ -4157,9 +4202,9 @@ let at = class extends nt {
 		});
 	}
 	OnIgnoreAllInvites(e) {
-		(0, ce.w)(this.IsInviteGroup(), "ignore all invites on non-invite group");
+		w_1(this.IsInviteGroup(), "ignore all invites on non-invite group");
 		let t = e.currentTarget.ownerDocument.defaultView;
-		(0, A.Ci)(
+		Ci(
 			t,
 			Localize("#FriendGroup_ConfirmAllIgnore_Title"),
 			Localize("#FriendGroup_ConfirmAllIgnore_Body"),
@@ -4174,7 +4219,7 @@ let at = class extends nt {
 			.catch(() => {});
 	}
 	OnCloseInvites() {
-		(0, ce.w)(this.IsInviteGroup(), "close invites on non-invite group");
+		w_1(this.IsInviteGroup(), "close invites on non-invite group");
 		this.props.onClose();
 	}
 	ToggleOfflineSortMethod() {
@@ -4306,8 +4351,8 @@ let at = class extends nt {
 							classNames: "friend-anim",
 							timeout: 320,
 						},
-						(r) =>
-							S.createElement(
+						(r) => {
+							return S.createElement(
 								"div",
 								{
 									ref: r,
@@ -4338,7 +4383,9 @@ let at = class extends nt {
 											"div",
 											{
 												className: "friendInviteButton acceptFriendInvite " + t,
-												onClick: () => this.OnAcceptInvite(e),
+												onClick: () => {
+													return this.OnAcceptInvite(e);
+												},
 												title: Localize("#FriendGroup_Tip_Accept"),
 											},
 											S.createElement(W.Jlk, null),
@@ -4348,7 +4395,9 @@ let at = class extends nt {
 											{
 												className:
 													"friendInviteButton declineFriendInvite " + s,
-												onClick: () => this.OnDeclineInvite(e),
+												onClick: () => {
+													return this.OnDeclineInvite(e);
+												},
 												title: Localize("#FriendGroup_Tip_Decline"),
 											},
 											S.createElement(W.sED, null),
@@ -4362,7 +4411,9 @@ let at = class extends nt {
 											className: "friendInviteBlockContainer",
 										},
 										S.createElement(Z.Yh, {
-											onChange: (t) => this.OnBlockInvite(t, e),
+											onChange: (t) => {
+												return this.OnBlockInvite(t, e);
+											},
 										}),
 										S.createElement(
 											"div",
@@ -4385,7 +4436,8 @@ let at = class extends nt {
 											),
 										),
 									),
-							),
+							);
+						},
 					),
 				);
 			}
@@ -4543,8 +4595,8 @@ let at = class extends nt {
 							classNames: "opacityfade-anim",
 							timeout: 320,
 						},
-						(e) =>
-							S.createElement(
+						(e) => {
+							return S.createElement(
 								"div",
 								{
 									className: "confirmInviteRequestContainer",
@@ -4592,7 +4644,8 @@ let at = class extends nt {
 										angle: -90,
 									}),
 								),
-							),
+							);
+						},
 					),
 			),
 			A &&
@@ -4603,7 +4656,7 @@ let at = class extends nt {
 	}
 };
 export function JG(e, t, r) {
-	return (0, x.lX)(
+	return lX(
 		S.createElement(ot, {
 			browserContext: e,
 			appid: t,
@@ -4612,17 +4665,17 @@ export function JG(e, t, r) {
 		r,
 	);
 }
-(0, n.Cg)([M.oI], at.prototype, "ToggleCollapsed", null);
-(0, n.Cg)([M.oI], at.prototype, "OnContextMenu", null);
-(0, n.Cg)([M.oI], at.prototype, "OnFriendSelected", null);
-(0, n.Cg)([M.oI], at.prototype, "OnAcceptInvite", null);
-(0, n.Cg)([M.oI], at.prototype, "OnDeclineInvite", null);
-(0, n.Cg)([M.oI], at.prototype, "OnBlockInvite", null);
-(0, n.Cg)([M.oI], at.prototype, "OnConfirmChanges", null);
-(0, n.Cg)([M.oI], at.prototype, "OnIgnoreAllInvites", null);
-(0, n.Cg)([M.oI], at.prototype, "OnCloseInvites", null);
-(0, n.Cg)([M.oI], at.prototype, "ToggleOfflineSortMethod", null);
-at = (0, n.Cg)([b.PA], at);
+Cg([M.oI], at.prototype, "ToggleCollapsed", null);
+Cg([M.oI], at.prototype, "OnContextMenu", null);
+Cg([M.oI], at.prototype, "OnFriendSelected", null);
+Cg([M.oI], at.prototype, "OnAcceptInvite", null);
+Cg([M.oI], at.prototype, "OnDeclineInvite", null);
+Cg([M.oI], at.prototype, "OnBlockInvite", null);
+Cg([M.oI], at.prototype, "OnConfirmChanges", null);
+Cg([M.oI], at.prototype, "OnIgnoreAllInvites", null);
+Cg([M.oI], at.prototype, "OnCloseInvites", null);
+Cg([M.oI], at.prototype, "ToggleOfflineSortMethod", null);
+at = Cg([b.PA], at);
 class ot extends S.PureComponent {
 	render() {
 		return S.createElement(
@@ -4691,7 +4744,7 @@ let lt = class extends nt {
 		let t = this.props.group.id;
 		if (t) {
 			if (u.xm.AppInfoStore.GetAppInfo(t).is_valid) {
-				JG((0, m.CO)(e), t, e);
+				JG(CO(e), t, e);
 			}
 		}
 	}
@@ -4787,8 +4840,8 @@ let lt = class extends nt {
 									classNames: "friend-anim",
 									timeout: 320,
 								},
-								(e) =>
-									S.createElement(
+								(e) => {
+									return S.createElement(
 										"div",
 										{
 											ref: e,
@@ -4819,7 +4872,8 @@ let lt = class extends nt {
 											},
 											Localize(c, a),
 										),
-									),
+									);
+								},
 							);
 						}
 					}
@@ -4839,8 +4893,8 @@ let lt = class extends nt {
 							classNames: "friend-anim",
 							timeout: 320,
 						},
-						(t) =>
-							S.createElement(bP, {
+						(t) => {
+							return S.createElement(bP, {
 								divRef: t,
 								friend: o,
 								key: o.accountid,
@@ -4851,7 +4905,8 @@ let lt = class extends nt {
 								bFriendsListEntry: true,
 								listStatusIndicatorLeft: l,
 								bInOverlay: this.props.bInOverlay,
-							}),
+							});
+						},
 					),
 				);
 				if (s) {
@@ -4885,7 +4940,7 @@ let lt = class extends nt {
 				);
 			} else {
 				a.onOptionsButton = () => {
-					let e = (0, le.Dn)(this.props.group.id, "friendcontextmenu");
+					let e = Dn(this.props.group.id, "friendcontextmenu");
 					u.xm.OpenURLInBrowser(e, R.m);
 				};
 				a.onOptionsActionDescription = Localize(
@@ -4954,12 +5009,12 @@ let lt = class extends nt {
 		);
 	}
 };
-(0, n.Cg)([M.oI], lt.prototype, "ToggleCollapsed", null);
-(0, n.Cg)([M.oI], lt.prototype, "OnShowHeaderContextMenu", null);
-lt = (0, n.Cg)([b.PA], lt);
+Cg([M.oI], lt.prototype, "ToggleCollapsed", null);
+Cg([M.oI], lt.prototype, "OnShowHeaderContextMenu", null);
+lt = Cg([b.PA], lt);
 let ct = class extends S.Component {
 	OnShowGameIconContextMenu(e) {
-		JG((0, m.CO)(e), this.props.appid, e);
+		JG(CO(e), this.props.appid, e);
 	}
 	render() {
 		let e =
@@ -5038,8 +5093,12 @@ export function Rg(e) {
 	const p = S.useCallback(() => {
 		c.HideByElement(l.current);
 	}, [c]);
-	(0, M.D5)(e.refHideHover, p);
-	S.useEffect(() => () => p(), [p]);
+	D5(e.refHideHover, p);
+	S.useEffect(() => {
+		return () => {
+			return p();
+		};
+	}, [p]);
 	let g = S.Children.only(r);
 	if (g) {
 		return S.cloneElement(g, {
@@ -5051,12 +5110,12 @@ export function Rg(e) {
 		return r;
 	}
 }
-(0, n.Cg)([M.oI], ct.prototype, "OnShowGameIconContextMenu", null);
-ct = (0, n.Cg)([b.PA], ct);
-export const bP = (0, b.PA)((e) => {
-	const t = (0, T.R7)();
-	const r = (0, m._k)(t.ownerWindow);
-	const n = !(0, R.u)(r, R.m);
+Cg([M.oI], ct.prototype, "OnShowGameIconContextMenu", null);
+ct = Cg([b.PA], ct);
+export const bP = PA((e) => {
+	const t = R7();
+	const r = _k(t.ownerWindow);
+	const n = !u_1(r, R.m);
 	return S.createElement(dt, {
 		bInOverlay: n,
 		...e,
@@ -5106,7 +5165,7 @@ let dt = class extends S.Component {
 			if (this.props.action) {
 				this.props.action(this.props.friend, t);
 			} else if (!this.props.noActions) {
-				this.props.friend.OpenChatDialog((0, m.CO)(t));
+				this.props.friend.OpenChatDialog(CO(t));
 			}
 		}
 	}
@@ -5140,7 +5199,7 @@ let dt = class extends S.Component {
 		m.ZM.DragDropManager.EndDrag();
 	}
 	OnShowContextMenu(e) {
-		let t = (0, p.tj)((0, m.CO)(e), this.props.context, this.props.friend, e);
+		let t = tj(CO(e), this.props.context, this.props.friend, e);
 		if (t) {
 			this.OnContextMenuShown(t);
 		}
@@ -5202,7 +5261,7 @@ let dt = class extends S.Component {
 		let z;
 		let x = {
 			...G,
-			className: "friend " + (0, ae.rO)(e.persona),
+			className: "friend " + rO(e.persona),
 		};
 		if (c) {
 			x.className += " " + c;
@@ -5225,8 +5284,8 @@ let dt = class extends S.Component {
 			}
 			if (a) {
 				P = O
-					? () =>
-							S.createElement(
+					? () => {
+							return S.createElement(
 								"a",
 								{
 									target: "_blank",
@@ -5234,8 +5293,11 @@ let dt = class extends S.Component {
 									href: n,
 								},
 								a,
-							)
-					: () => a;
+							);
+						}
+					: () => {
+							return a;
+						};
 			}
 			let s = "";
 			if (e) {
@@ -5375,10 +5437,11 @@ let dt = class extends S.Component {
 				) {
 					O = "noMutualFriends";
 				}
-				P = () =>
-					S.createElement(At, {
+				P = () => {
+					return S.createElement(At, {
 						friend: e,
 					});
+				};
 			}
 			let U = null;
 			if (T && T.GetLastMessage()) {
@@ -5392,18 +5455,23 @@ let dt = class extends S.Component {
 						onLoad: () => {},
 					},
 				);
-				U = () =>
-					S.createElement(
+				U = () => {
+					return S.createElement(
 						"div",
 						{
 							className: Ae.LastMessage,
 						},
-						`${(e && e.body) || (0, Ie.Yj)(T.GetLastMessage())}`,
+						`${(e && e.body) || Yj(T.GetLastMessage())}`,
 					);
+				};
 			} else if (e.persona.HasCurrentGameRichPresence()) {
-				U = () => e.persona.GetCurrentGameRichPresence();
+				U = () => {
+					return e.persona.GetCurrentGameRichPresence();
+				};
 			} else if (e.persona.m_broadcastAccountId) {
-				U = () => e.GetBroadcastDescription();
+				U = () => {
+					return e.GetBroadcastDescription();
+				};
 			}
 			const V = () => {
 				N.showOnDesktop = !N.showOnDesktop;
@@ -5439,7 +5507,7 @@ let dt = class extends S.Component {
 				k,
 				!B &&
 					S.createElement(me.D, {
-						className: (0, ue.A)("labelHolder", O),
+						className: A_1("labelHolder", O),
 						persona: e.persona,
 						eFriendRelationship: e.efriendrelationship,
 						bIsSelf: u.xm.FriendStore.self == e,
@@ -5456,9 +5524,7 @@ let dt = class extends S.Component {
 						bCompactView:
 							u.xm.SettingsStore.FriendsSettings.bCompactFriendsList,
 						onContextMenu:
-							this.context?.IN_GAMEPADUI || s || l
-								? undefined
-								: this.OnShowContextMenu,
+							this.context?.IN_GAMEPADUI || s || l || this.OnShowContextMenu,
 						bHasPartyBeacon: a !== undefined,
 					}),
 				d,
@@ -5480,19 +5546,19 @@ let dt = class extends S.Component {
 		return z;
 	}
 };
-(0, n.Cg)([M.oI], dt.prototype, "OnWaypointEnter", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnWaypointLeave", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnMouseEnter", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnMouseLeave", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnDoubleClick", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnClick", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnOKButton", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnDragStart", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnDragEnd", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnShowContextMenu", null);
-(0, n.Cg)([M.oI], dt.prototype, "OnContextMenuShown", null);
-dt = (0, n.Cg)([b.PA], dt);
-const At = (0, b.PA)(function (e) {
+Cg([M.oI], dt.prototype, "OnWaypointEnter", null);
+Cg([M.oI], dt.prototype, "OnWaypointLeave", null);
+Cg([M.oI], dt.prototype, "OnMouseEnter", null);
+Cg([M.oI], dt.prototype, "OnMouseLeave", null);
+Cg([M.oI], dt.prototype, "OnDoubleClick", null);
+Cg([M.oI], dt.prototype, "OnClick", null);
+Cg([M.oI], dt.prototype, "OnOKButton", null);
+Cg([M.oI], dt.prototype, "OnDragStart", null);
+Cg([M.oI], dt.prototype, "OnDragEnd", null);
+Cg([M.oI], dt.prototype, "OnShowContextMenu", null);
+Cg([M.oI], dt.prototype, "OnContextMenuShown", null);
+dt = Cg([b.PA], dt);
+const At = PA(function (e) {
 	const { friend: t } = e;
 	let r;
 	let n;
@@ -5500,7 +5566,7 @@ const At = (0, b.PA)(function (e) {
 		u.xm.FriendStore.FriendGroupStore.incoming_invites_group.map_steamid_to_mutual_friends.get(
 			t.steamid64,
 		);
-	(0, S.useEffect)(() => {
+	useEffect(() => {
 		if (i === undefined) {
 			u.xm.FriendStore.FriendGroupStore.EnsureMutualFriendsForIncomingInvites();
 		}
@@ -5526,9 +5592,11 @@ const At = (0, b.PA)(function (e) {
 		n,
 	);
 });
-const pt = (0, b.PA)((e) => {
+const pt = PA((e) => {
 	const { friend: t } = e;
-	const r = S.useCallback(() => t.LoadEquippedProfileItems(), [t]);
+	const r = S.useCallback(() => {
+		return t.LoadEquippedProfileItems();
+	}, [t]);
 	if (
 		!t.BLoadedEquippedItems() &&
 		t.persona.is_online &&
@@ -5620,7 +5688,7 @@ let gt = class extends S.Component {
 		);
 	}
 };
-gt = (0, n.Cg)([b.PA], gt);
+gt = Cg([b.PA], gt);
 export let gv = class extends S.Component {
 	render() {
 		const {
@@ -5639,12 +5707,7 @@ export let gv = class extends S.Component {
 			S.createElement(
 				"div",
 				{
-					className: (0, ue.A)(
-						"friend",
-						"FriendAvatar",
-						(0, ae.rO)(e.persona),
-						r,
-					),
+					className: A_1("friend", "FriendAvatar", rO(e.persona), r),
 				},
 				S.createElement(
 					v.i8,
@@ -5659,7 +5722,7 @@ export let gv = class extends S.Component {
 		);
 	}
 };
-gv = (0, n.Cg)([b.PA], gv);
+gv = Cg([b.PA], gv);
 let Ct = class extends S.Component {
 	render() {
 		let e;
@@ -5673,8 +5736,8 @@ let Ct = class extends S.Component {
 					classNames: "unread-messages-anim",
 					timeout: 320,
 				},
-				(e) =>
-					S.createElement(
+				(e) => {
+					return S.createElement(
 						"div",
 						{
 							ref: e,
@@ -5683,13 +5746,14 @@ let Ct = class extends S.Component {
 						},
 						t == 1 && Localize("#FriendGroup_UnreadMessagesViolator"),
 						t > 1 && Localize("#FriendGroup_UnreadMessagesViolatorPlural", t),
-					),
+					);
+				},
 			);
 		}
 		return S.createElement(z.A, null, e);
 	}
 };
-Ct = (0, n.Cg)([b.PA], Ct);
+Ct = Cg([b.PA], Ct);
 let _t = class extends S.Component {
 	constructor(e) {
 		super(e);
@@ -5710,47 +5774,48 @@ let _t = class extends S.Component {
 			return null;
 		}
 		let t = this.state.collapsed;
-		let r = t
-			? null
-			: e.map((e) => {
-					let t = e.unread_message_count;
-					let r = e.chat_partner;
-					let n = S.createElement(
-						"div",
-						{
-							className: "FriendMessageCount",
-						},
-						t,
-					);
-					return S.createElement(
-						De.M,
-						{
-							key: r.accountid,
-							classNames: "friend-anim",
-							timeout: 320,
-						},
-						(t) =>
-							S.createElement(
-								"div",
-								{
-									ref: t,
-									className: "unreadFriend",
+		let r =
+			t ||
+			e.map((e) => {
+				let t = e.unread_message_count;
+				let r = e.chat_partner;
+				let n = S.createElement(
+					"div",
+					{
+						className: "FriendMessageCount",
+					},
+					t,
+				);
+				return S.createElement(
+					De.M,
+					{
+						key: r.accountid,
+						classNames: "friend-anim",
+						timeout: 320,
+					},
+					(t) => {
+						return S.createElement(
+							"div",
+							{
+								ref: t,
+								className: "unreadFriend",
+							},
+							S.createElement(bP, {
+								friend: r,
+								key: r.accountid,
+								context: {
+									chat: e,
 								},
-								S.createElement(bP, {
-									friend: r,
-									key: r.accountid,
-									context: {
-										chat: e,
-									},
-									bFriendsListEntry: true,
-									listStatusIndicator: n,
-									bInOverlay:
-										this.props.browserContext.m_unAppID &&
-										this.props.browserContext.m_unAppID != 0,
-								}),
-							),
-					);
-				});
+								bFriendsListEntry: true,
+								listStatusIndicator: n,
+								bInOverlay:
+									this.props.browserContext.m_unAppID &&
+									this.props.browserContext.m_unAppID != 0,
+							}),
+						);
+					},
+				);
+			});
 		return S.createElement(
 			"div",
 			{
@@ -5785,5 +5850,5 @@ let _t = class extends S.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], _t.prototype, "OnHeaderClick", null);
-_t = (0, n.Cg)([b.PA], _t);
+Cg([M.oI], _t.prototype, "OnHeaderClick", null);
+_t = Cg([b.PA], _t);

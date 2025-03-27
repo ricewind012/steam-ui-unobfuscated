@@ -1,6 +1,6 @@
-var r = require(/*webcrack:missing*/ "./37976.js");
-var i = require("./44846.js");
-var s = require("./72476.js");
+import r from "./37976.js";
+import i from "./44846.js";
+import s from "./72476.js";
 export class b {
 	m_ulSteamID;
 	constructor(e = 0, t, n, i) {
@@ -37,38 +37,30 @@ export class b {
 	}
 	Render() {
 		switch (this.GetAccountType()) {
-			case 0:
-				return "[I:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 7:
-				return "[g:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 4:
-				return (
-					"[A:" +
-					this.GetUniverse() +
-					":" +
-					this.GetAccountID() +
-					":" +
-					this.GetInstance() +
-					"]"
-				);
-			case 3:
-				return "[G:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 2:
-				return (
-					"[M:" +
-					this.GetUniverse() +
-					":" +
-					this.GetAccountID() +
-					":" +
-					this.GetInstance() +
-					"]"
-				);
-			case 5:
-				return "[P:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			case 6:
-				return "[C:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
-			default:
-				return "[U:" + this.GetUniverse() + ":" + this.GetAccountID() + "]";
+			case 0: {
+				return `[I:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 7: {
+				return `[g:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 4: {
+				return `[A:${this.GetUniverse()}:${this.GetAccountID()}:${this.GetInstance()}]`;
+			}
+			case 3: {
+				return `[G:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 2: {
+				return `[M:${this.GetUniverse()}:${this.GetAccountID()}:${this.GetInstance()}]`;
+			}
+			case 5: {
+				return `[P:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			case 6: {
+				return `[C:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
+			default: {
+				return `[U:${this.GetUniverse()}:${this.GetAccountID()}]`;
+			}
 		}
 	}
 	static InitFromString(e) {
@@ -80,22 +72,30 @@ export class b {
 			let c = Number(s);
 			let l = o ? Number(o) : 1;
 			switch (r) {
-				case "I":
+				case "I": {
 					t.SetFromComponents(c, l, 0, a);
-				case "g":
+				}
+				case "g": {
 					t.SetFromComponents(c, 0, 7, a);
-				case "A":
+				}
+				case "A": {
 					t.SetFromComponents(c, l, 4, a);
-				case "G":
+				}
+				case "G": {
 					t.SetFromComponents(c, l, 3, a);
-				case "M":
+				}
+				case "M": {
 					t.SetFromComponents(c, l, 2, a);
-				case "P":
+				}
+				case "P": {
 					t.SetFromComponents(c, l, 5, a);
-				case "C":
+				}
+				case "C": {
 					t.SetFromComponents(c, l, 6, a);
-				case "U":
+				}
+				case "U": {
 					t.SetFromComponents(c, l, 1, a);
+				}
 			}
 		} catch (e) {}
 		return t;

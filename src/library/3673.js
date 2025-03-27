@@ -1,9 +1,9 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./49455.js");
-var s = require("./79769.js");
-var o = require("./52451.js");
-var a = require("./21440.js");
-var c = require("./91435.js");
+import r from "./63696.js";
+import i, { w } from "./49455.js";
+import s from "./79769.js";
+import { hL } from "./52451.js";
+import a from "./21440.js";
+import { yk } from "./91435.js";
 export class SZ {
 	m_bUsePopups = true;
 	m_bOnlyPopups = false;
@@ -41,7 +41,7 @@ export class SZ {
 		}
 	}
 	RegisterOverlay(e) {
-		(0, i.w)(
+		w(
 			this.m_cMountedOverlays == 0,
 			"Duplicate modal DialogOverlay; modals will appear in both",
 		);
@@ -55,7 +55,7 @@ export class SZ {
 	OnModalCountChanged(e) {
 		if (e == "show" && this.m_cMountedOverlays == 0) {
 			window.setTimeout(() => {
-				(0, i.w)(
+				w(
 					this.m_cMountedOverlays > 0,
 					"Modal was shown but ModalManager has no associated DialogOverlay",
 				);
@@ -89,7 +89,7 @@ export class SZ {
 		this.OnModalCountChanged("hide");
 	}
 	ShowModalInternal(e) {
-		(0, i.w)(
+		w(
 			!this.m_bOnlyPopups,
 			"Attempting to show modal in popup-only modal manager; will not display.",
 		);
@@ -107,7 +107,7 @@ export class SZ {
 		return n;
 	}
 	ShowPortalModal() {
-		(0, i.w)(
+		w(
 			!this.m_bOnlyPopups,
 			"Attempting to show modal in popup-only modal manager; will not display.",
 		);
@@ -210,7 +210,7 @@ export const BR = new (class {
 		return t;
 	}
 	RegisterModalManager(e, t) {
-		(0, i.w)(
+		w(
 			!this.m_mapModalManager.has(t) || t == window,
 			`Stomping CModalManager for ${t.document.title}!`,
 		);
@@ -232,14 +232,14 @@ export function tx(e) {
 	return BR.GetModalManager(e);
 }
 export function Ju(e = window) {
-	const t = (0, c.yk)() || tx(e);
-	const [n, i] = r.useState(t.modals.length > 0);
+	const t = yk() || tx(e);
+	const [n, setN] = r.useState(t.modals.length > 0);
 	const s = r.useCallback(
 		(e) => {
-			i(e > 0);
+			setN(e > 0);
 		},
-		[i],
+		[setN],
 	);
-	(0, o.hL)(t.ModalCountChangedCallbacks, s);
+	hL(t.ModalCountChangedCallbacks, s);
 	return n;
 }

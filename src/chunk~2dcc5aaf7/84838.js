@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./93960.js");
-var a = require(/*webcrack:missing*/ "./61657.js");
+import { Cg } from "./34629.js";
+import i from "./93960.js";
+import a from "./61657.js";
 export class K extends a.nh {
 	constructor(e) {
 		super();
@@ -19,5 +19,5 @@ export class K extends a.nh {
 		}
 	}
 }
-(0, n.Cg)([i.o], K.prototype, "OnTouchStart", null);
-(0, n.Cg)([i.o], K.prototype, "OnTouchEnd", null);
+Cg([i.o], K.prototype, "OnTouchStart", null);
+Cg([i.o], K.prototype, "OnTouchEnd", null);

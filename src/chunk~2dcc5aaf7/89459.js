@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./44846.js");
-var s = require("./95773.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
-var l = require(/*webcrack:missing*/ "./28987.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./44846.js";
+import s from "./95773.js";
+import o from "./72476.js";
+import l from "./28987.js";
 const c = {
 	"/me": {
 		strDescriptionToken: "#SlashCommandDescription_Me",
@@ -49,9 +49,9 @@ function u() {
 	if (m == null) {
 		m = {};
 		for (let e in c) {
-			let t = c[e];
-			if (o.TS.EREALM != l.TU.k_ESteamRealmChina || t.bAvailableInChina) {
-				m[e] = t;
+			let c_e = c[e];
+			if (o.TS.EREALM != l.TU.k_ESteamRealmChina || c_e.bAvailableInChina) {
+				m[e] = c_e;
 			}
 		}
 	}
@@ -63,19 +63,19 @@ export function MC() {
 export function K(e) {
 	return u()[e];
 }
-export var $F;
-export var oO;
-export var Bm;
-(function (e) {
+export let $F;
+export let oO;
+export let Bm;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Deleting = 1)] = "Deleting";
 	e[(e.Deleted = 2)] = "Deleted";
 })(($F ||= {}));
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Animating = 1)] = "Animating";
 })((oO ||= {}));
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Generic = 1)] = "Generic";
 	e[(e.NotFriends = 2)] = "NotFriends";
@@ -98,7 +98,7 @@ export class D8 {
 	m_mentions;
 	m_rgReactions = undefined;
 	constructor(e, t, r, n, a = [], s, o, l) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.unAccountID = e;
 		this.rtTimestamp = t;
 		this.unOrdinal = r || 0;
@@ -108,7 +108,7 @@ export class D8 {
 		} else {
 			this.strMessageInternal = n;
 		}
-		this.m_strSlashCommand = (function (e) {
+		this.m_strSlashCommand = ((e) => {
 			if (!e) {
 				return null;
 			}
@@ -118,7 +118,7 @@ export class D8 {
 				const e = n[t].unExpectedArguments;
 				if (
 					e === undefined ||
-					(typeof e == "number" ? e === r.length : e.indexOf(r.length) > -1)
+					(typeof e == "number" ? e === r.length : e.includes(r.length))
 				) {
 					return t;
 				}
@@ -139,7 +139,7 @@ export class D8 {
 	}
 	UniqueKey() {
 		if (this.unOrdinal) {
-			return this.rtTimestamp + "_" + this.unOrdinal;
+			return `${this.rtTimestamp}_${this.unOrdinal}`;
 		} else {
 			return this.rtTimestamp;
 		}
@@ -223,12 +223,12 @@ export class D8 {
 		return this.m_rgReactions;
 	}
 }
-(0, n.Cg)([i.sH], D8.prototype, "rtTimestamp", undefined);
-(0, n.Cg)([i.sH], D8.prototype, "unOrdinal", undefined);
-(0, n.Cg)([i.sH], D8.prototype, "eDeleteState", undefined);
-(0, n.Cg)([i.sH], D8.prototype, "eAnimationState", undefined);
-(0, n.Cg)([i.sH], D8.prototype, "strServerMsgAppCustomLocalized", undefined);
-(0, n.Cg)([i.sH], D8.prototype, "m_rgReactions", undefined);
+Cg([i.sH], D8.prototype, "rtTimestamp", undefined);
+Cg([i.sH], D8.prototype, "unOrdinal", undefined);
+Cg([i.sH], D8.prototype, "eDeleteState", undefined);
+Cg([i.sH], D8.prototype, "eAnimationState", undefined);
+Cg([i.sH], D8.prototype, "strServerMsgAppCustomLocalized", undefined);
+Cg([i.sH], D8.prototype, "m_rgReactions", undefined);
 export class Lx extends D8 {
 	eErrorSendingObservable = Bm.None;
 	strMessageObservable = undefined;
@@ -237,7 +237,7 @@ export class Lx extends D8 {
 	static sm_iLocalEchoID = 0;
 	constructor(e, t, r) {
 		super(e, t, -1, r);
-		(0, i.Gn)(this);
+		Gn(this);
 		this.strMessageObservable = this.HandleSpecialMessage(r);
 		this.m_iLocalEchoID = Lx.sm_iLocalEchoID++;
 	}
@@ -260,7 +260,7 @@ export class Lx extends D8 {
 		if (this.m_bServerAcknowledged) {
 			return super.UniqueKey();
 		} else {
-			return "localecho_" + this.m_iLocalEchoID;
+			return `localecho_${this.m_iLocalEchoID}`;
 		}
 	}
 	BHasServerAcknowledged() {
@@ -270,10 +270,10 @@ export class Lx extends D8 {
 		this.m_bServerAcknowledged = true;
 	}
 }
-(0, n.Cg)([i.sH], Lx.prototype, "eErrorSendingObservable", undefined);
-(0, n.Cg)([i.sH], Lx.prototype, "strMessageObservable", undefined);
-(0, n.Cg)([i.sH], Lx.prototype, "m_bServerAcknowledged", undefined);
-(0, n.Cg)([i.XI], Lx.prototype, "OnServerAcknowledged", null);
+Cg([i.sH], Lx.prototype, "eErrorSendingObservable", undefined);
+Cg([i.sH], Lx.prototype, "strMessageObservable", undefined);
+Cg([i.sH], Lx.prototype, "m_bServerAcknowledged", undefined);
+Cg([i.XI], Lx.prototype, "OnServerAcknowledged", null);
 export class $G extends D8 {
 	static m_nOrdinal = 0;
 	constructor(e, t, r) {
@@ -295,8 +295,9 @@ export function $T(e) {
 		case 4:
 		case 9:
 		case 10:
-		case 11:
+		case 11: {
 			return true;
+		}
 	}
 	return false;
 }
@@ -306,7 +307,7 @@ export class _ {
 	});
 	m_iIndexLastTimePassesGap = undefined;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.Clear();
 	}
 	get message_blocks() {
@@ -382,14 +383,14 @@ export class _ {
 		return r;
 	}
 }
-(0, n.Cg)([i.sH], _.prototype, "m_iIndexLastTimePassesGap", undefined);
-(0, n.Cg)([i.XI], _.prototype, "BuildMessageBlocks", null);
-(0, n.Cg)([i.XI], _.prototype, "AppendNewMessage", null);
-(0, n.Cg)([i.XI], _.prototype, "RemoveLocalMessage", null);
-(0, n.Cg)([i.XI], _.prototype, "RemoveOldestMessages", null);
+Cg([i.sH], _.prototype, "m_iIndexLastTimePassesGap", undefined);
+Cg([i.XI], _.prototype, "BuildMessageBlocks", null);
+Cg([i.XI], _.prototype, "AppendNewMessage", null);
+Cg([i.XI], _.prototype, "RemoveLocalMessage", null);
+Cg([i.XI], _.prototype, "RemoveOldestMessages", null);
 class w {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_rgMessages = [];
 	m_nextBlock = undefined;
@@ -508,6 +509,6 @@ class w {
 		return t !== -1 && (this.m_rgMessages.splice(t, 1), true);
 	}
 }
-(0, n.Cg)([i.sH.shallow], w.prototype, "m_rgMessages", undefined);
-(0, n.Cg)([i.sH.shallow], w.prototype, "m_nextBlock", undefined);
-(0, n.Cg)([i.XI], w.prototype, "CreateVirtualSplitOnTimestamp", null);
+Cg([i.sH.shallow], w.prototype, "m_rgMessages", undefined);
+Cg([i.sH.shallow], w.prototype, "m_nextBlock", undefined);
+Cg([i.XI], w.prototype, "CreateVirtualSplitOnTimestamp", null);

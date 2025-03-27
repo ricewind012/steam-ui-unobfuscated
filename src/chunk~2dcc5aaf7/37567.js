@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	AppPortraitHover: "_2sGn0cBsD44TjnUIh-lx9d",
 	CapsuleBackgroundContainer: "Yts2cS2BIbHJoh5UorpDq",
 	CapsuleBackground: "AcLtE9axR9tWhAVfDP9lv",

@@ -1,140 +1,126 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./31084.js");
-var c = require("./61510.js");
-var m = require("./22584.js");
-var u = require("./56840.js");
-var d = require("./94230.js");
-var A = d;
-var p = require(/*webcrack:missing*/ "./88750.js");
-var g = require("./64608.js");
-var h = require("./44164.js");
-var C = require("./15688.js");
-var _ = require("./4816.js");
-var f = require("./13352.js");
-var b = require("./87949.js");
-var y = require(/*webcrack:missing*/ "./50376.js");
-var S = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var B = require(/*webcrack:missing*/ "./52451.js");
-var v = require(/*webcrack:missing*/ "./72476.js");
-var _I = require("./89454.js");
-var E = _I;
-var M = require("./68430.js");
-var T = require("./18118.js");
-var R = require(/*webcrack:missing*/ "./98995.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./41230.js";
+import s, { q3 } from "./90095.js";
+import o from "./63696.js";
+import l, { lX } from "./31084.js";
+import c from "./61510.js";
+import m from "./22584.js";
+import u from "./56840.js";
+import d from "./94230.js";
+import p from "./88750.js";
+import g from "./64608.js";
+import h from "./44164.js";
+import C from "./15688.js";
+import _ from "./4816.js";
+import f from "./13352.js";
+import b from "./87949.js";
+import y from "./50376.js";
+import { A as A_1 } from "./90765.js";
+import B from "./52451.js";
+import v from "./72476.js";
+import _I from "./89454.js";
+import M from "./68430.js";
+import T from "./18118.js";
+import R from "./98995.js";
+const A = d;
+const E = _I;
 const k = new RegExp("ː([^ː]*)ː", "g");
 const D = new RegExp(
 	"^https?://(?:[^/?#]+?\\.)?(?:valvesoftware|steamcommunity|steampowered)\\.com(?:/?#|$)",
 	"i",
 );
 const N = (e) => {
-	const { userType: t, msg: r, presenterInfo: n } = e;
-	if (t === "presenter") {
-		return o.createElement(
-			"span",
-			null,
-			o.createElement(
-				f.fI,
-				{
-					name: n.name,
-					title: n.title,
-					photo: n.photo,
-					company: n.company,
-					bioString: n.bio,
-				},
-				o.createElement(
-					"a",
-					{
-						className: (0, S.A)(E.MessageName, E.MessagePresenter),
-						href: v.TS.COMMUNITY_BASE_URL + "profiles/" + r.steamid,
-						target: "_blank",
-						rel: "noopener noreferrer",
-					},
-					r.persona_name,
-				),
-			),
+	const { userType, msg, presenterInfo } = e;
+	if (userType === "presenter") {
+		return (
+			<span>
+				<f.fI
+					name={presenterInfo.name}
+					title={presenterInfo.title}
+					photo={presenterInfo.photo}
+					company={presenterInfo.company}
+					bioString={presenterInfo.bio}
+				>
+					<a
+						className={A_1(E.MessageName, E.MessagePresenter)}
+						href={`${v.TS.COMMUNITY_BASE_URL}profiles/${msg.steamid}`}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{msg.persona_name}
+					</a>
+				</f.fI>
+			</span>
 		);
 	}
 	{
 		let e = null;
-		if (t === "broadcaster") {
+		if (userType === "broadcaster") {
 			e = E.MessageBroadcaster;
-		} else if (t === "moderator") {
+		} else if (userType === "moderator") {
 			e = E.MessageModerator;
 		}
-		return o.createElement(
-			"span",
-			null,
-			o.createElement(
-				"a",
-				{
-					className: (0, S.A)(E.MessageName, e),
-					href: v.TS.COMMUNITY_BASE_URL + "profiles/" + r.steamid,
-					"data-miniprofile": "s" + r.steamid,
-					target: "_blank",
-					rel: "noopener noreferrer",
-				},
-				r.persona_name,
-			),
+		return (
+			<span>
+				<a
+					className={A_1(E.MessageName, e)}
+					href={`${v.TS.COMMUNITY_BASE_URL}profiles/${msg.steamid}`}
+					data-miniprofile={`s${msg.steamid}`}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{msg.persona_name}
+				</a>
+			</span>
 		);
 	}
 };
 const F = (e) => {
 	switch (e.userType) {
-		case "presenter":
-			return o.createElement(
-				R.Gq,
-				{
-					toolTipContent: (0, Localize)("#BroadcastChat_Role_Presenter_ttip"),
-				},
-				o.createElement(
-					"span",
-					{
-						className: E.RoleFlairContainer,
-					},
-					o.createElement(y.NCC, null),
-				),
+		case "presenter": {
+			return (
+				<R.Gq
+					toolTipContent={(0, Localize)("#BroadcastChat_Role_Presenter_ttip")}
+				>
+					<span className={E.RoleFlairContainer}>
+						<y.NCC />
+					</span>
+				</R.Gq>
 			);
-		case "moderator":
-			return o.createElement(
-				R.Gq,
-				{
-					toolTipContent: (0, Localize)("#BroadcastChat_Role_Moderatorr_ttip"),
-				},
-				o.createElement(
-					"span",
-					{
-						className: E.RoleFlairContainer,
-					},
-					o.createElement(y.$4X, null),
-				),
+		}
+		case "moderator": {
+			return (
+				<R.Gq
+					toolTipContent={(0, Localize)("#BroadcastChat_Role_Moderatorr_ttip")}
+				>
+					<span className={E.RoleFlairContainer}>
+						<y.$4X />
+					</span>
+				</R.Gq>
 			);
-		case "broadcaster":
-			return o.createElement(
-				R.Gq,
-				{
-					toolTipContent: (0, Localize)("#BroadcastChat_Role_Broadcaster_ttip"),
-				},
-				o.createElement(
-					"span",
-					{
-						className: E.RoleFlairContainer,
-					},
-					o.createElement(y.Gkr, null),
-				),
+		}
+		case "broadcaster": {
+			return (
+				<R.Gq
+					toolTipContent={(0, Localize)("#BroadcastChat_Role_Broadcaster_ttip")}
+				>
+					<span className={E.RoleFlairContainer}>
+						<y.Gkr />
+					</span>
+				</R.Gq>
 			);
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 };
 export let I = class extends o.Component {
 	constructor(e) {
 		super(e);
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_chat = null;
 	messagesContainer = o.createRef();
@@ -147,6 +133,7 @@ export let I = class extends o.Component {
 		}
 		if (
 			this.props.steamID !== e.steamID ||
+			this.props.broadcastID !== e.broadcastID ||
 			this.props.broadcastID !== e.broadcastID ||
 			this.props.broadcastChannelID !== e.broadcastChannelID
 		) {
@@ -189,14 +176,7 @@ export let I = class extends o.Component {
 		const i = [];
 		for (let e = 0; e < n.length; e += 1) {
 			if (e % 2 == 1) {
-				i.push(
-					o.createElement(h.nl, {
-						emoticonHoverStore: u.s,
-						key: e,
-						emoticon: n[e],
-						large: true,
-					}),
-				);
+				i.push(<h.nl emoticonHoverStore={u.s} key={e} emoticon={n[e]} large />);
 			} else {
 				i.push(n[e]);
 			}
@@ -230,115 +210,101 @@ export let I = class extends o.Component {
 		);
 		if ((v.iA && v.iA.is_support) || n || i) {
 			r.push(
-				o.createElement(
-					p.kt,
-					{
-						key: "remove",
-						onSelected: () =>
-							this.m_chat.RemoveUserMessagesServer(t.steamid, t.persona_name),
-					},
-					(0, Localize)("#BroadcastChat_RemoveMessages"),
-				),
-				o.createElement(
-					p.kt,
-					{
-						key: "updatebanh",
-						onSelected: () =>
-							this.m_chat.UpdateUserChatBan(
-								t.steamid,
-								1,
-								12,
-								false,
-								t.persona_name,
-							),
-					},
-					(0, Localize)("#BroadcastChat_half_Mute"),
-				),
-				o.createElement(
-					p.kt,
-					{
-						key: "updateband",
-						onSelected: () =>
-							this.m_chat.UpdateUserChatBan(
-								t.steamid,
-								1,
-								24,
-								false,
-								t.persona_name,
-							),
-					},
-					(0, Localize)("#BroadcastChat_day_Mute"),
-				),
-				o.createElement(
-					p.kt,
-					{
-						key: "updatebanw",
-						onSelected: () =>
-							this.m_chat.UpdateUserChatBan(
-								t.steamid,
-								1,
-								168,
-								false,
-								t.persona_name,
-							),
-					},
-					(0, Localize)("#BroadcastChat_week_Mute"),
-				),
-				o.createElement(
-					p.kt,
-					{
-						key: "updatebanp",
-						onSelected: () =>
-							this.m_chat.UpdateUserChatBan(
-								t.steamid,
-								1,
-								0,
-								true,
-								t.persona_name,
-							),
-					},
-					(0, Localize)("#BroadcastChat_perm_Mute"),
-				),
-				o.createElement(
-					p.kt,
-					{
-						key: "removeban",
-						onSelected: () =>
-							this.m_chat.UpdateUserChatBan(
-								t.steamid,
-								0,
-								0,
-								false,
-								t.persona_name,
-								true,
-							),
-					},
-					(0, Localize)("#BroadcastChat_Unmute"),
-				),
+				<p.kt
+					key="remove"
+					onSelected={() =>
+						this.m_chat.RemoveUserMessagesServer(t.steamid, t.persona_name)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_RemoveMessages")}
+				</p.kt>,
+				<p.kt
+					key="updatebanh"
+					onSelected={() =>
+						this.m_chat.UpdateUserChatBan(
+							t.steamid,
+							1,
+							12,
+							false,
+							t.persona_name,
+						)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_half_Mute")}
+				</p.kt>,
+				<p.kt
+					key="updateband"
+					onSelected={() =>
+						this.m_chat.UpdateUserChatBan(
+							t.steamid,
+							1,
+							24,
+							false,
+							t.persona_name,
+						)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_day_Mute")}
+				</p.kt>,
+				<p.kt
+					key="updatebanw"
+					onSelected={() =>
+						this.m_chat.UpdateUserChatBan(
+							t.steamid,
+							1,
+							168,
+							false,
+							t.persona_name,
+						)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_week_Mute")}
+				</p.kt>,
+				<p.kt
+					key="updatebanp"
+					onSelected={() =>
+						this.m_chat.UpdateUserChatBan(t.steamid, 1, 0, true, t.persona_name)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_perm_Mute")}
+				</p.kt>,
+				<p.kt
+					key="removeban"
+					onSelected={() =>
+						this.m_chat.UpdateUserChatBan(
+							t.steamid,
+							0,
+							0,
+							false,
+							t.persona_name,
+							true,
+						)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_Unmute")}
+				</p.kt>,
 			);
 		} else if (this.m_chat.IsUserMutedLocally(t.steamid)) {
 			r.push(
-				o.createElement(
-					p.kt,
-					{
-						key: "unmuteuser",
-						onSelected: () =>
-							this.m_chat.UnmuteUserForSession(t.steamid, t.persona_name),
-					},
-					(0, Localize)("#BroadcastChat_UnmuteLocal"),
-				),
+				<p.kt
+					key="unmuteuser"
+					onSelected={() =>
+						this.m_chat.UnmuteUserForSession(t.steamid, t.persona_name)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_UnmuteLocal")}
+				</p.kt>,
 			);
 		} else {
 			r.push(
-				o.createElement(
-					p.kt,
-					{
-						key: "muteuser",
-						onSelected: () =>
-							this.m_chat.MuteUserForSession(t.steamid, t.persona_name),
-					},
-					(0, Localize)("#BroadcastChat_MuteLocal"),
-				),
+				<p.kt
+					key="muteuser"
+					onSelected={() =>
+						this.m_chat.MuteUserForSession(t.steamid, t.persona_name)
+					}
+				>
+					{(0, Localize)("#BroadcastChat_MuteLocal")}
+				</p.kt>,
 			);
 		}
 		if (
@@ -348,60 +314,46 @@ export let I = class extends o.Component {
 		) {
 			if (this.m_chat.BIsUserBroadcastModerator(t.steamid)) {
 				r.push(
-					o.createElement(
-						p.kt,
-						{
-							key: "removemod",
-							onSelected: () =>
-								this.m_chat.UpdateBroadcastChatModerator(
-									t.steamid,
-									false,
-									t.persona_name,
-								),
-						},
-						(0, Localize)("#BroadcastChat_Remove_Moderator"),
-					),
+					<p.kt
+						key="removemod"
+						onSelected={() =>
+							this.m_chat.UpdateBroadcastChatModerator(
+								t.steamid,
+								false,
+								t.persona_name,
+							)
+						}
+					>
+						{(0, Localize)("#BroadcastChat_Remove_Moderator")}
+					</p.kt>,
 				);
 			} else {
 				r.push(
-					o.createElement(
-						p.kt,
-						{
-							key: "addmod",
-							onSelected: () =>
-								this.m_chat.UpdateBroadcastChatModerator(
-									t.steamid,
-									true,
-									t.persona_name,
-								),
-						},
-						(0, Localize)("#BroadcastChat_Add_Moderator"),
-					),
+					<p.kt
+						key="addmod"
+						onSelected={() =>
+							this.m_chat.UpdateBroadcastChatModerator(
+								t.steamid,
+								true,
+								t.persona_name,
+							)
+						}
+					>
+						{(0, Localize)("#BroadcastChat_Add_Moderator")}
+					</p.kt>,
 				);
 			}
 		}
 		if (r.length) {
-			return (0, l.lX)(
-				o.createElement(
-					p.tz,
-					null,
-					o.createElement(
-						"div",
-						{
-							className: E.SelectedUserNameCtn,
-						},
-						(0, Localize)("#BroadcastChat_User"),
-						o.createElement("br", null),
-						o.createElement(
-							"span",
-							{
-								className: E.SelectedUserName,
-							},
-							t.persona_name,
-						),
-					),
-					r,
-				),
+			return lX(
+				<p.tz>
+					<div className={E.SelectedUserNameCtn}>
+						{(0, Localize)("#BroadcastChat_User")}
+						<br />
+						<span className={E.SelectedUserName}>{t.persona_name}</span>
+					</div>
+					{r}
+				</p.tz>,
 				e,
 			);
 		} else {
@@ -428,7 +380,7 @@ export let I = class extends o.Component {
 		let n = r ? r.get(e.steamid) : undefined;
 		const i =
 			e.type === T.X8.Chat
-				? (function (e, t, r) {
+				? ((e, t, r) => {
 						if (r) {
 							return "presenter";
 						} else if (t.GetBroadcastSteamID() === e) {
@@ -440,318 +392,262 @@ export let I = class extends o.Component {
 						}
 					})(e.steamid, this.m_chat, n)
 				: "";
-		return o.createElement(
-			"div",
-			{
-				key: e.instance_id + "_" + e.client_ts + "_" + t,
-				className: this.GetTypeClassName(e),
-				onContextMenu: (t) => this.OnContextMenu(t, e),
-			},
-			e.type === T.X8.Chat &&
-				o.createElement(F, {
-					userType: i,
-				}),
-			e.flair &&
-				o.createElement(
-					"span",
-					{
-						className: E.FlairContainer,
-					},
-					this.AddLinksEmoticons(e.flair, false),
-				),
-			e.type === T.X8.Chat &&
-				o.createElement(N, {
-					userType: i,
-					msg: e,
-					presenterInfo: n,
-				}),
-			e.type === T.X8.Chat &&
-				this.m_chat.GetBroadcastSteamID() === e.steamid &&
-				o.createElement(
-					"span",
-					{
-						className: `${E.MessageNotification} ${E.MessageContents}`,
-					},
-					` (${(0, Localize)("#BroadcastChat_Broadcaster")})`,
-				),
-			e.type === T.X8.Chat &&
-				this.m_chat.m_mapChannelModeratorUsers.get(e.steamid) &&
-				o.createElement(
-					"span",
-					{
-						className: `${E.MessageNotification} ${E.MessageContents}`,
-					},
-					` (${(0, Localize)("#BroadcastChat_Moderator")})`,
-				),
-			o.createElement(
-				"span",
-				{
-					className: `${E.MessageContents} ${this.AddLinksEmoticons(e.msg, false).filter((e) => e && typeof e == "string").length ? "" : E.EmoticonsOnly}`,
-				},
-				e.type === T.X8.Chat ? " : " : "",
-				this.FormatMessage(e, this.m_chat.TextFilterStore),
-			),
+		return (
+			<div
+				key={`${e.instance_id}_${e.client_ts}_${t}`}
+				className={this.GetTypeClassName(e)}
+				onContextMenu={(t) => this.OnContextMenu(t, e)}
+			>
+				{e.type === T.X8.Chat && <F userType={i} />}
+				{e.flair && (
+					<span className={E.FlairContainer}>
+						{this.AddLinksEmoticons(e.flair, false)}
+					</span>
+				)}
+				{e.type === T.X8.Chat && <N userType={i} msg={e} presenterInfo={n} />}
+				{e.type === T.X8.Chat &&
+					this.m_chat.GetBroadcastSteamID() === e.steamid && (
+						<span className={`${E.MessageNotification} ${E.MessageContents}`}>
+							{` (${(0, Localize)("#BroadcastChat_Broadcaster")})`}
+						</span>
+					)}
+				{e.type === T.X8.Chat &&
+					this.m_chat.m_mapChannelModeratorUsers.get(e.steamid) && (
+						<span className={`${E.MessageNotification} ${E.MessageContents}`}>
+							{` (${(0, Localize)("#BroadcastChat_Moderator")})`}
+						</span>
+					)}
+				<span
+					className={`${E.MessageContents} ${
+						this.AddLinksEmoticons(e.msg, false).filter(
+							(e) => e && typeof e == "string",
+						).length
+							? ""
+							: E.EmoticonsOnly
+					}`}
+				>
+					{e.type === T.X8.Chat ? " : " : ""}
+					{this.FormatMessage(e, this.m_chat.TextFilterStore)}
+				</span>
+			</div>
 		);
 	}
 	render() {
-		const {
-			hidden: e,
-			bPartnerMemberOnlyChat: t,
-			bInvertLayout: r,
-		} = this.props;
+		const { hidden, bPartnerMemberOnlyChat, bInvertLayout } = this.props;
 		const n = this.m_chat ? this.m_chat.m_rgChatMessages : [];
-		const i = r ? n.reverse() : n;
+		const i = bInvertLayout ? n.reverse() : n;
 		const a = this.m_chat
 			? m.l.GetPresenterMapForBroadcasterSteamID(
 					this.m_chat.GetBroadcastSteamID(),
 				)
 			: undefined;
 		const s = this.m_chat ? this.m_chat.m_latestAnnouncement : null;
-		return o.createElement(
-			"div",
-			{
-				className: (0, S.A)(E.ChatPanel, "ChatPanel"),
-				style: e
-					? {
-							display: "none",
-						}
-					: undefined,
-			},
-			o.createElement(M.P, {
-				latestAnnouncement: s,
-			}),
-			r &&
-				!!this.m_chat &&
-				o.createElement(O, {
-					oChat: this.m_chat,
-					emoticonStore: this.props.emoticonStore,
-					bPartnerMemberOnlyChat: t,
-				}),
-			o.createElement(b.H, null),
-			o.createElement(
-				"div",
-				{
-					className: (0, S.A)(
+		return (
+			<div
+				className={A_1(E.ChatPanel, "ChatPanel")}
+				style={
+					hidden
+						? {
+								display: "none",
+							}
+						: undefined
+				}
+			>
+				<M.P latestAnnouncement={s} />
+				{bInvertLayout && !!this.m_chat && (
+					<O
+						oChat={this.m_chat}
+						emoticonStore={this.props.emoticonStore}
+						bPartnerMemberOnlyChat={bPartnerMemberOnlyChat}
+					/>
+				)}
+				<b.H />
+				<div
+					className={A_1(
 						`${E.ChatMessages} ${A.minHeightZero}`,
 						"ChatMessages",
-					),
-					onScroll: this.HandleScroll,
-					ref: this.messagesContainer,
-				},
-				i.map((e, t) => this.RenderUserChatLine(e, t, a)),
-			),
-			o.createElement(b.P, null),
-			!r &&
-				!!this.m_chat &&
-				o.createElement(O, {
-					oChat: this.m_chat,
-					emoticonStore: this.props.emoticonStore,
-					bPartnerMemberOnlyChat: t,
-				}),
+					)}
+					onScroll={this.HandleScroll}
+					ref={this.messagesContainer}
+				>
+					{i.map((e, t) => this.RenderUserChatLine(e, t, a))}
+				</div>
+				<b.P />
+				{!bInvertLayout && !!this.m_chat && (
+					<O
+						oChat={this.m_chat}
+						emoticonStore={this.props.emoticonStore}
+						bPartnerMemberOnlyChat={bPartnerMemberOnlyChat}
+					/>
+				)}
+			</div>
 		);
 	}
 };
 function O(e) {
-	const { oChat: t, emoticonStore: r, bPartnerMemberOnlyChat: n } = e;
-	if (!n || (v.iA?.logged_in && v.iA?.is_partner_member)) {
+	const { oChat, emoticonStore, bPartnerMemberOnlyChat } = e;
+	if (!bPartnerMemberOnlyChat || (v.iA?.logged_in && v.iA?.is_partner_member)) {
 		if (v.iA?.logged_in) {
-			return o.createElement(P, {
-				oChat: t,
-				emoticonStore: r,
-			});
+			return <P oChat={oChat} emoticonStore={emoticonStore} />;
 		} else {
 			return null;
 		}
 	} else {
-		return o.createElement(x, null);
+		return <X />;
 	}
 }
 function P(e) {
-	const { oChat: t, emoticonStore: r } = e;
-	const [n, i] = o.useState("");
-	const a = o.useRef();
-	const l = (0, s.q3)(() => t.m_bRateLimited);
+	const { oChat, emoticonStore } = e;
+	const [n, setN] = o.useState("");
+	const ARef = o.useRef();
+	const l = q3(() => oChat.m_bRateLimited);
 	const c = o.useCallback(
 		(e) => {
 			if (!e.shiftKey && e.charCode === 13) {
-				if (!t.m_bRateLimited) {
-					t.SendMessage(n);
-					i("");
+				if (!oChat.m_bRateLimited) {
+					oChat.SendMessage(n);
+					setN("");
 				}
 				e.preventDefault();
 			}
 		},
-		[t, n],
+		[oChat, n],
 	);
 	const m = o.useCallback(
 		(e, t = false) => {
-			i(`${n}ː${e}ː`);
-			if (a?.current) {
-				a.current.focus();
+			setN(`${n}ː${e}ː`);
+			if (ARef?.current) {
+				ARef.current.focus();
 			}
 		},
-		[n, a],
+		[n, ARef],
 	);
 	let d = l || n.trim().length == 0;
-	let p = (0, S.A)(A.chatSubmitButton, n.length == 0 && A.disabled);
-	return o.createElement(
-		"div",
-		{
-			className: (0, S.A)(E.ChatEntryCtn, "ChatEntryCtn"),
-		},
-		o.createElement(
-			"div",
-			{
-				className: (0, S.A)(E.ChatEntry, "ChatEntry"),
-			},
-			o.createElement(
-				"form",
-				{
-					className: `${A.chatEntryControls}`,
-				},
-				o.createElement("textarea", {
-					className: A.chatTextarea,
-					placeholder: (0, Localize)("#BroadcastChat_EnterResponse"),
-					onKeyPress: c,
-					onChange: (e) => i(e.target.value),
-					value: n,
-					ref: a,
-				}),
-				l &&
-					o.createElement(z, {
-						nSeconds: t.m_nRateLimitSeconds,
-						bRateLimited: t.m_bRateLimited,
-					}),
-				o.createElement(
-					"button",
-					{
-						className: p,
-						title: (0, Localize)("#ChatEntryButton_Submit"),
-						disabled: d,
-						onClick: () => {
-							t.SendMessage(n);
-							i("");
-						},
-					},
-					o.createElement(y.XTb, null),
-				),
-			),
-			o.createElement(
-				"div",
-				{
-					style: {
+	let p = A_1(A.chatSubmitButton, n.length == 0 && A.disabled);
+	return (
+		<div className={A_1(E.ChatEntryCtn, "ChatEntryCtn")}>
+			<div className={A_1(E.ChatEntry, "ChatEntry")}>
+				<form className={`${A.chatEntryControls}`}>
+					<textarea
+						className={A.chatTextarea}
+						placeholder={(0, Localize)("#BroadcastChat_EnterResponse")}
+						onKeyPress={c}
+						onChange={(e) => setN(e.target.value)}
+						value={n}
+						ref={ARef}
+					/>
+					{l && (
+						<Z
+							nSeconds={oChat.m_nRateLimitSeconds}
+							bRateLimited={oChat.m_bRateLimited}
+						/>
+					)}
+					<button
+						className={p}
+						title={(0, Localize)("#ChatEntryButton_Submit")}
+						disabled={d}
+						onClick={() => {
+							oChat.SendMessage(n);
+							setN("");
+						}}
+					>
+						<y.XTb />
+					</button>
+				</form>
+				<div
+					style={{
 						height: "50px",
-					},
-					className: `${A.chatEntryActionsContainer}`,
-				},
-				o.createElement(
-					"div",
-					{
-						className: A.chatEntryActionsGroup,
-					},
-					o.createElement(C.A, {
-						disabled: false,
-						OnEmoticonSelected: m,
-						rtLastAckedNewEmoticons: Number.MAX_VALUE,
-						emoticonStore: r,
-						emoticonHoverStore: u.s,
-					}),
-					o.createElement(L, {
-						...e,
-						textInputRef: a,
-					}),
-				),
-			),
-		),
+					}}
+					className={`${A.chatEntryActionsContainer}`}
+				>
+					<div className={A.chatEntryActionsGroup}>
+						<C.A
+							disabled={false}
+							OnEmoticonSelected={m}
+							rtLastAckedNewEmoticons={Number.MAX_VALUE}
+							emoticonStore={emoticonStore}
+							emoticonHoverStore={u.s}
+						/>
+						<L {...e} textInputRef={ARef} />
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 }
 function L(e) {
-	const { oChat: t, emoticonStore: r, textInputRef: n } = e;
+	const { oChat, emoticonStore, textInputRef } = e;
 	if (
-		t.m_strFlairGroupID &&
-		r.flair_list &&
-		r.GetFlairListByGroupID(t.m_strFlairGroupID)?.length
+		oChat.m_strFlairGroupID &&
+		emoticonStore.flair_list &&
+		emoticonStore.GetFlairListByGroupID(oChat.m_strFlairGroupID)?.length
 	) {
-		return o.createElement(C.A, {
-			disabled: false,
-			OnEmoticonSelected: (e) => {
-				t.UpdateChatMessageFlair(e);
-				if (n?.current) {
-					n.current.focus();
-				}
-			},
-			rtLastAckedNewEmoticons: Number.MAX_VALUE,
-			emoticonStore: r,
-			emoticonHoverStore: u.s,
-			strFlairGroupID: t.m_strFlairGroupID,
-			title: (0, Localize)("#ChatEntryButton_Flair"),
-			buttonIcon: o.createElement(y.P7r, null),
-		});
+		return (
+			<C.A
+				disabled={false}
+				OnEmoticonSelected={(e) => {
+					oChat.UpdateChatMessageFlair(e);
+					if (textInputRef?.current) {
+						textInputRef.current.focus();
+					}
+				}}
+				rtLastAckedNewEmoticons={Number.MAX_VALUE}
+				emoticonStore={emoticonStore}
+				emoticonHoverStore={u.s}
+				strFlairGroupID={oChat.m_strFlairGroupID}
+				title={(0, Localize)("#ChatEntryButton_Flair")}
+				buttonIcon={<y.P7r />}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
-(0, n.Cg)([i.sH], I.prototype, "m_chat", undefined);
-(0, n.Cg)([B.oI], I.prototype, "StartChat", null);
-(0, n.Cg)([B.oI], I.prototype, "HandleScroll", null);
-(0, n.Cg)([B.oI], I.prototype, "OnContextMenu", null);
-(0, n.Cg)([B.oI], I.prototype, "RenderUserChatLine", null);
-I = (0, n.Cg)([a.PA], I);
-class z extends o.Component {
+Cg([i.sH], I.prototype, "m_chat", undefined);
+Cg([B.oI], I.prototype, "StartChat", null);
+Cg([B.oI], I.prototype, "HandleScroll", null);
+Cg([B.oI], I.prototype, "OnContextMenu", null);
+Cg([B.oI], I.prototype, "RenderUserChatLine", null);
+I = Cg([a.PA], I);
+class Z extends o.Component {
 	render() {
-		return o.createElement(
-			"div",
-			{
-				className: E.TimedProgressBarContainer,
-			},
-			o.createElement(
-				"div",
-				{
-					className: E.wrapper,
-				},
-				o.createElement("div", {
-					className: `${E.spinner} ${E.pie}`,
-					style: {
-						animationDuration: `${this.props.nSeconds || 0}s`,
-					},
-				}),
-				o.createElement("div", {
-					className: `${E.filler} ${E.pie}`,
-					style: {
-						animationDuration: `${this.props.nSeconds || 0}s`,
-					},
-				}),
-				o.createElement("div", {
-					className: E.mask,
-					style: {
-						animationDuration: `${this.props.nSeconds || 0}s`,
-					},
-				}),
-			),
+		return (
+			<div className={E.TimedProgressBarContainer}>
+				<div className={E.wrapper}>
+					<div
+						className={`${E.spinner} ${E.pie}`}
+						style={{
+							animationDuration: `${this.props.nSeconds || 0}s`,
+						}}
+					/>
+					<div
+						className={`${E.filler} ${E.pie}`}
+						style={{
+							animationDuration: `${this.props.nSeconds || 0}s`,
+						}}
+					/>
+					<div
+						className={E.mask}
+						style={{
+							animationDuration: `${this.props.nSeconds || 0}s`,
+						}}
+					/>
+				</div>
+			</div>
 		);
 	}
 }
-function x(e) {
-	return o.createElement(
-		"div",
-		{
-			className: E.Description,
-		},
-		o.createElement(
-			"div",
-			{
-				className: E.LogInPrompt,
-			},
-			(0, Localize)("#Broadcast_PartnerChat_Login"),
-		),
-		!v.iA.logged_in &&
-			o.createElement(
-				g.$n,
-				{
-					onClick: _.vg,
-					className: (0, S.A)(E.SignInButton),
-				},
-				(0, Localize)("#Login_SignIn"),
-			),
+function X(e) {
+	return (
+		<div className={E.Description}>
+			<div className={E.LogInPrompt}>
+				{(0, Localize)("#Broadcast_PartnerChat_Login")}
+			</div>
+			{!v.iA.logged_in && (
+				<g.$n onClick={_.vg} className={A_1(E.SignInButton)}>
+					{(0, Localize)("#Login_SignIn")}
+				</g.$n>
+			)}
+		</div>
 	);
 }

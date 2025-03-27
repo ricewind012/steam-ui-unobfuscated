@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./8573.js");
-var s = require("./12956.js");
-var o = require("./13484.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./8573.js";
+import s from "./12956.js";
+import o from "./13484.js";
 class _l {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapBroadcasterSteamIDToEvents = new Map();
 	m_mapBroadcasterSteamIDData = new Map();
@@ -25,8 +25,7 @@ class _l {
 			if (n === null) {
 				break;
 			}
-			const i = n[1];
-			const s = n[2];
+			const [, i, s] = n;
 			const o = _l.GetBBCodeParam(i, "steamid");
 			const c = {
 				steamID: o ? new a.b(o) : undefined,
@@ -52,7 +51,7 @@ class _l {
 			if (n === null) {
 				break;
 			}
-			const i = n[1];
+			const [, i] = n;
 			r.add(Number(i));
 		}
 		return r;
@@ -170,5 +169,5 @@ class _l {
 		return this.m_mapBroadcasterSteamIDData.get(e)?.m_rgAppIDs;
 	}
 }
-(0, n.Cg)([i.sH], _l.prototype, "m_mapBroadcasterSteamIDData", undefined);
+Cg([i.sH], _l.prototype, "m_mapBroadcasterSteamIDData", undefined);
 export const l = new _l();

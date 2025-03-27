@@ -1,8 +1,8 @@
-var n = require("./52912.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./69164.js");
 import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
-export const T = i.forwardRef(function (e, t) {
+import n from "./52912.js";
+import i from "./63696.js";
+import a from "./69164.js";
+export const T = i.forwardRef((e, t) => {
 	const {
 		rgAcceptedTypes: r,
 		bAcceptsFiles: n,
@@ -20,14 +20,9 @@ export const T = i.forwardRef(function (e, t) {
 		fnDragOver: o,
 		fnDrop: l,
 	});
-	return i.createElement("div", {
-		...m,
-		...u,
-		className: "DropTarget " + m.className,
-		ref: t,
-	});
+	return <div {...m} {...u} className={`DropTarget ${m.className}`} ref={t} />;
 });
-export const D = i.forwardRef(function (e, t) {
+export const D = i.forwardRef((e, t) => {
 	const {
 		rgAcceptedTypes: r,
 		bAcceptsFiles: n,
@@ -45,12 +40,7 @@ export const D = i.forwardRef(function (e, t) {
 		fnDragOver: l,
 		fnDrop: m,
 	});
-	return i.createElement(a.Z, {
-		...u,
-		...d,
-		className: "DropTarget " + u.className,
-		ref: t,
-	});
+	return <a.Z {...u} {...d} className={`DropTarget ${u.className}`} ref={t} />;
 });
 function c(e) {
 	const {
@@ -84,8 +74,8 @@ function c(e) {
 				if (!u.current) {
 					d.current = [];
 					let i = n.ZM.DragDropManager.GetDragData();
-					let s = r && e.dataTransfer.types.indexOf("Files") != -1;
-					if ((i && t.indexOf(i.type) != -1) || s) {
+					let s = r && e.dataTransfer.types.includes("Files");
+					if ((i && t.includes(i.type)) || s) {
 						u.current = true;
 					} else if (
 						t.filter((t) => e.dataTransfer.types.includes(t)).length > 0
@@ -151,7 +141,7 @@ function c(e) {
 					e.preventDefault();
 					e.stopPropagation();
 					let i = n.ZM.DragDropManager.GetDragData();
-					if (i && t.indexOf(i.type) != -1) {
+					if (i && t.includes(i.type)) {
 						if (c) {
 							c(i, e);
 						}

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	MustUpdateClientModalContent: "_2o8VQZPxANAtb1F1_GgR-a",
 	Popup: "BLmZ1jM-sR7oKV7JtTEMy",

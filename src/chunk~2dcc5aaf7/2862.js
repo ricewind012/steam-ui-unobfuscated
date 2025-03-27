@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./93960.js");
-var a = require(/*webcrack:missing*/ "./61657.js");
+import { Cg } from "./34629.js";
+import i from "./93960.js";
+import a from "./61657.js";
 export class q extends a.nh {
 	m_nAccumulatedMouseMovement = 0;
 	m_bFirstMouseUpdate = true;
@@ -71,8 +71,8 @@ export class q extends a.nh {
 		}
 	}
 }
-(0, n.Cg)([i.o], q.prototype, "TranslateKey", null);
-(0, n.Cg)([i.o], q.prototype, "OnMouseDown", null);
-(0, n.Cg)([i.o], q.prototype, "OnMouseUp", null);
-(0, n.Cg)([i.o], q.prototype, "OnMouseMove", null);
-(0, n.Cg)([i.o], q.prototype, "Reset", null);
+Cg([i.o], q.prototype, "TranslateKey", null);
+Cg([i.o], q.prototype, "OnMouseDown", null);
+Cg([i.o], q.prototype, "OnMouseUp", null);
+Cg([i.o], q.prototype, "OnMouseMove", null);
+Cg([i.o], q.prototype, "Reset", null);

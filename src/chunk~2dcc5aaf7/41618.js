@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	PageIndicators: "_2Hdn3EbVe8U083rJ5AbPa6",
 	PageIndicator: "_4hJJRIcqpBPBsHzQYpd_6",
 	Active: "_2SNXulx2W3j5KZeUm8VpqJ",

@@ -1,29 +1,37 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require("./17231.js");
-var l = require("./68608.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-var m = require("./64608.js");
-var u = require("./10606.js");
-var d = require("./55116.js");
-var A = require(/*webcrack:missing*/ "./69164.js");
-var p = require("./21105.js");
-var g = require("./48289.js");
-var h = require("./34792.js");
-var _C = require("./37499.js");
-var _ = require("./46422.js");
-var f = require("./73399.js");
-var b = require("./1037.js");
-var y = b;
-var S = require("./99731.js");
-var w = require("./46285.js");
-var B = require(/*webcrack:missing*/ "./61657.js");
-var v = require("./13869.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var E = require("./93966.js");
-var M = require("./17754.js");
+import n from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a, { A as A_1 } from "./90765.js";
+import o from "./17231.js";
+import l from "./68608.js";
+import c from "./8573.js";
+import m from "./64608.js";
+import u from "./10606.js";
+import d from "./55116.js";
+import A from "./69164.js";
+import p from "./21105.js";
+import g, { OC, Lb } from "./48289.js";
+import h from "./34792.js";
+import _C, { r } from "./37499.js";
+import _, { RP, TP } from "./46422.js";
+import f from "./73399.js";
+import b from "./1037.js";
+import S from "./99731.js";
+import w from "./46285.js";
+import B from "./61657.js";
+import v, { pg } from "./13869.js";
+import E, { WE } from "./93966.js";
+import M, { wB, iT } from "./17754.js";
+import k, { oH } from "./33572.js";
+import D from "./92031.js";
+import N, { PR } from "./68292.js";
+import F from "./96593.js";
+import G from "./50376.js";
+import O from "./36934.js";
+import P from "./98829.js";
+import L from "./6263.js";
+const y = b;
 function T(e) {
 	return n.createElement(
 		u.EN,
@@ -44,10 +52,10 @@ function T(e) {
 }
 function R(e) {
 	const { url: t, onClose: r, appid: i } = e;
-	let [a, o] = (0, M.wB)(i, i, r);
-	let l = (0, M.iT)(o, r);
-	(0, E.WE)(l);
-	(function (e, t) {
+	let [a, o] = wB(i, i, r);
+	let l = iT(o, r);
+	WE(l);
+	((e, t) => {
 		const r = n.useCallback(
 			(r, n, i, a) => {
 				if (n == e && !i && a) {
@@ -61,7 +69,7 @@ function R(e) {
 			return () => e.unregister();
 		}, [r]);
 	})(i, r);
-	let [c, m] = (function (e) {
+	let [c, m] = ((e) => {
 		let [t, r] = n.useState(false);
 		let i = n.useCallback(
 			(t) => {
@@ -74,14 +82,14 @@ function R(e) {
 				r(true);
 				let i = () => e();
 				let a = () => r(false);
-				(function (e, t, r) {
+				((e, t, r) => {
 					let i = n.createElement(u.o0, {
 						strTitle: (0, Localize)("#Overlay_FriendInviteToGame_ReturnToGame"),
 						strDescription: (0, Localize)("#Overlay_Browser_ReturnToGame"),
 						onOK: t,
 						onCancel: r,
 					});
-					(0, v.pg)(i, e, {
+					pg(i, e, {
 						strTitle: (0, Localize)("#Overlay_FriendInviteToGame_ReturnToGame"),
 					});
 				})(GetOwningWindowForEvent(t), i, a);
@@ -123,18 +131,8 @@ function R(e) {
 		}),
 	);
 }
-var k = require("./33572.js");
-var D = require("./92031.js");
-var N = require("./68292.js");
-var F = require("./96593.js");
-var G = require(/*webcrack:missing*/ "./50376.js");
-var O = require("./36934.js");
-var P = require("./98829.js");
-var L = require("./6263.js");
 function z(e) {
-	let t = (0, i.q3)(() =>
-		g.O$.GetFriendState(new c.b(e.request.steamidTarget)),
-	);
+	let t = q3(() => g.O$.GetFriendState(new c.b(e.request.steamidTarget)));
 	return n.createElement(
 		u.EN,
 		{
@@ -228,7 +226,7 @@ function H(e) {
 		A.Z,
 		{
 			key: t.persona.GetAccountID(),
-			className: (0, a.A)(f.FriendSelector, u && f.Invited),
+			className: A_1(f.FriendSelector, u && f.Invited),
 			focusable: !u,
 			onActivate: () => {
 				i(t.persona.m_steamid);
@@ -288,7 +286,7 @@ function q(e) {
 					{
 						focusable: true,
 						onActivate: () => u(!m),
-						className: (0, a.A)(f.CollapsableFriendGroupRow, m && f.Collapsed),
+						className: A_1(f.CollapsableFriendGroupRow, m && f.Collapsed),
 					},
 					n.createElement(
 						"div",
@@ -316,13 +314,13 @@ function q(e) {
 							{
 								className: m ? "groupCount collapsed" : "groupCount",
 							},
-							" (" + i.length + ")",
+							` (${i.length})`,
 						),
 				),
 			n.createElement(
 				"div",
 				{
-					className: (0, a.A)(f.FriendContainer, m && f.Collapsed),
+					className: A_1(f.FriendContainer, m && f.Collapsed),
 				},
 				i.map((e, t) =>
 					n.createElement(H, {
@@ -340,8 +338,8 @@ function q(e) {
 	}
 }
 function Q(e) {
-	const t = (0, _.RP)();
-	const r = j((0, g.OC)());
+	const t = RP();
+	const r = j(OC());
 	let [i, a] = n.useState(r);
 	let [o, l] = n.useState(undefined);
 	let [c, h] = n.useState(false);
@@ -362,7 +360,7 @@ function Q(e) {
 		onSelectUser: w,
 		rgInvitedSteamIDs: b,
 	});
-	const v = (0, N.PR)();
+	const v = PR();
 	const E = v.ChatStore();
 	const M =
 		E.GetActiveVoiceChat() instanceof N.sn ? E.GetActiveVoiceChat() : undefined;
@@ -399,7 +397,7 @@ function Q(e) {
 	}
 	const G = F.tw.GetAppOverviewByAppID(t);
 	const P = O.Vw.GetAppInfo(t);
-	const L = (0, g.Lb)();
+	const L = Lb();
 	const z = r.filter((e) => e.persona.m_unGamePlayedAppID == t);
 	let x = n.createElement(q, {
 		bShowTitle: true,
@@ -479,8 +477,8 @@ function Q(e) {
 						clearTimeout(o);
 					}
 					let n = GetOwningWindowForEvent(e).setTimeout(() => {
-						let e = r.filter(
-							(e) => e.display_name.toLocaleLowerCase().indexOf(t) != -1,
+						let e = r.filter((e) =>
+							e.display_name.toLocaleLowerCase().includes(t),
 						);
 						a(e);
 					}, 200);
@@ -602,68 +600,77 @@ export function SG(e) {
 }
 export function jj(e) {
 	let { appid: t } = e;
-	let r = (0, k.oH)();
+	let r = oH();
 	if (
-		(0, i.q3)(() => _.oy.WindowStore.BHasOverlayWindowForApp(t)) &&
+		q3(() => _.oy.WindowStore.BHasOverlayWindowForApp(t)) &&
 		r &&
 		r.forcedAppID != t
 	) {
 		t = D.sc;
 	}
-	let a = (0, _C.r)(t);
-	(0, _.TP)(a.length != 0);
+	let a = r(t);
+	TP(a.length != 0);
 	if (a.length == 0) {
 		return null;
 	}
 	let s = a[0];
 	let o = null;
 	switch (s.strDialog) {
-		case "friendadd":
+		case "friendadd": {
 			o = n.createElement(eu, {
 				request: s,
 			});
 			break;
-		case "friendremove":
+		}
+		case "friendremove": {
 			o = n.createElement(Dy, {
 				request: s,
 			});
 			break;
-		case "friendrequestaccept":
+		}
+		case "friendrequestaccept": {
 			o = n.createElement(II, {
 				request: s,
 			});
 			break;
-		case "friendrequestignore":
+		}
+		case "friendrequestignore": {
 			o = n.createElement(C, {
 				request: s,
 			});
 			break;
-		case "lobbyinvite":
+		}
+		case "lobbyinvite": {
 			o = n.createElement(Id, {
 				request: s,
 			});
 			break;
-		case "remoteplaytogetherinvite":
+		}
+		case "remoteplaytogetherinvite": {
 			o = n.createElement(om, {
 				request: s,
 			});
 			break;
-		case "lobbyinviteconnectstring":
+		}
+		case "lobbyinviteconnectstring": {
 			o = n.createElement(fR, {
 				request: s,
 			});
 			break;
-		case "asyncnotificationsrequested":
+		}
+		case "asyncnotificationsrequested": {
 			o = n.createElement(fe, {
 				request: s,
 			});
 			break;
-		case "requestplaytime":
+		}
+		case "requestplaytime": {
 			o = n.createElement(SG, {
 				request: s,
 			});
 			break;
-		default:
+		}
+		default: {
 			if (s.bWebPage) {
 				let e = () => _C.Q.RemoveDialogRequest(s);
 				o = n.createElement(T, {
@@ -674,6 +681,7 @@ export function jj(e) {
 					onClose: e,
 				});
 			}
+		}
 	}
 	return o;
 }

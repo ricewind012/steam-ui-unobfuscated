@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BasicContextMenuModal: "uWT-cMCXkxiyxcSs9UA-0",
 	BasicContextMenuHeader: "_2pq9my4HQChCImf0dPb9Kd",

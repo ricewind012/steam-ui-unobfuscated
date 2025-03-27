@@ -1,15 +1,21 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./29516.js");
-var a = require("./92374.js");
-var s = require("./65528.js");
-const o = n.createContext({});
+import n, {
+	useContext,
+	useCallback,
+	useEffect,
+	useState,
+	useMemo,
+} from "./63696.js";
+import i, { eJ, qm } from "./29516.js";
+import a, { aO } from "./92374.js";
+import s from "./65528.js";
+const OContext = n.createContext({});
 export function p(e) {
-	const { children: t } = e;
-	const { selectedMarker: r } = (0, i.eJ)();
-	const l = (0, i.qm)();
-	const c = (0, a.aO)();
-	const m = (0, n.useContext)(o);
-	const u = (0, n.useCallback)(
+	const { children } = e;
+	const { selectedMarker } = eJ();
+	const l = qm();
+	const c = aO();
+	const m = useContext(OContext);
+	const u = useCallback(
 		(e) => {
 			const t = () => {
 				e.stopPropagation();
@@ -17,40 +23,45 @@ export function p(e) {
 			};
 			const n = e.ctrlKey || e.metaKey;
 			switch (e.key) {
-				case "Delete":
-					if (r?.strEntryID) {
-						const { strEntryID: e, strTimelineID: n } = r;
+				case "Delete": {
+					if (selectedMarker?.strEntryID) {
+						const { strEntryID, strTimelineID } = selectedMarker;
 						l();
-						c.RemoveUserMarker(n, e);
+						c.RemoveUserMarker(strTimelineID, strEntryID);
 						t();
 					}
 					break;
-				case " ":
+				}
+				case " ": {
 					c.TogglePlayPause();
 					t();
 					break;
-				case "Escape":
+				}
+				case "Escape": {
 					if (!s.y.IsItemOpen() && l) {
 						l();
 						t();
 					}
 					break;
-				case "ArrowLeft":
+				}
+				case "ArrowLeft": {
 					if (!s.y.IsItemOpen()) {
 						c.SeekDeltaMS((n ? 0.1 : 15) * -1000);
 						t();
 					}
 					break;
-				case "ArrowRight":
+				}
+				case "ArrowRight": {
 					if (!s.y.IsItemOpen()) {
 						c.SeekDeltaMS((n ? 0.1 : 15) * 1000);
 						t();
 					}
+				}
 			}
 		},
-		[l, r, c],
+		[l, selectedMarker, c],
 	);
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (!m.handles || m.handles.onKeyDown != u) {
 			const e = {
 				onKeyDown: u,
@@ -59,32 +70,26 @@ export function p(e) {
 			m.setHandles(e);
 		}
 	}, [m, u]);
-	return n.createElement(n.Fragment, null, t);
+	return <>{children}</>;
 }
 export function b(e) {
-	const { children: t, className: r } = e;
-	const [i, a] = (0, n.useState)(null);
-	const s = (0, n.useMemo)(
+	const { children, className } = e;
+	const [i, a] = useState(null);
+	const s = useMemo(
 		() => ({
 			handles: i,
 			setHandles: a,
 		}),
 		[i],
 	);
-	return n.createElement(
-		"div",
-		{
-			tabIndex: 0,
-			onKeyDown: (e) => i?.onKeyDown?.(e),
-			onKeyUp: (e) => i?.onKeyUp?.(e),
-			className: r,
-		},
-		n.createElement(
-			o.Provider,
-			{
-				value: s,
-			},
-			t,
-		),
+	return (
+		<div
+			tabIndex={0}
+			onKeyDown={(e) => i?.onKeyDown?.(e)}
+			onKeyUp={(e) => i?.onKeyUp?.(e)}
+			className={className}
+		>
+			<OContext.Provider value={s}>{children}</OContext.Provider>
+		</div>
 	);
 }

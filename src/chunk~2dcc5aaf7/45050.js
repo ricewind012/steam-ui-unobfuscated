@@ -1,5 +1,5 @@
-export var C;
-(function (e) {
+export let C;
+((e) => {
 	e[(e.Invalid = -1)] = "Invalid";
 	e[(e.Default = 0)] = "Default";
 	e[(e.Light = 1)] = "Light";

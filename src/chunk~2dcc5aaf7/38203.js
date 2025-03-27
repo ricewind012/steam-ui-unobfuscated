@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Positioner: "r5C4vqop5qm8LQK3X0ko3",
 	MouseWithin: "ew9abErxuaHlGCMzkyeWJ",
 	Highlight: "xk10sVHcF-iepUcNGM7xL",

@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-class s extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+class s extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!s.prototype.appid) {
 			i.Sg(s.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -52,7 +52,7 @@ class s extends a {
 		return i.zj(s.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -60,7 +60,7 @@ class s extends a {
 		i.i0(s.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -68,14 +68,14 @@ class s extends a {
 		return "ParentalApp";
 	}
 }
-export class lx extends a {
+export class lx extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!lx.prototype.allowed_time_windows) {
 			i.Sg(lx.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -119,7 +119,7 @@ export class lx extends a {
 		return i.zj(lx.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		lx.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -127,7 +127,7 @@ export class lx extends a {
 		i.i0(lx.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		lx.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -135,14 +135,14 @@ export class lx extends a {
 		return "ParentalPlaytimeDay";
 	}
 }
-class l extends a {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.apply_playtime_restrictions) {
 			i.Sg(l.M());
 		}
-		a.initialize(this, e, 0, -1, [15], null);
+		n_Message.initialize(this, e, 0, -1, [15], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -187,7 +187,7 @@ class l extends a {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -195,7 +195,7 @@ class l extends a {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -203,14 +203,14 @@ class l extends a {
 		return "ParentalPlaytimeRestrictions";
 	}
 }
-export class $A extends a {
+export class $A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!$A.prototype.restrictions) {
 			i.Sg($A.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -253,7 +253,7 @@ export class $A extends a {
 		return i.zj($A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		$A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -261,7 +261,7 @@ export class $A extends a {
 		i.i0($A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		$A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -269,14 +269,14 @@ export class $A extends a {
 		return "ParentalTemporaryPlaytimeRestrictions";
 	}
 }
-export class Zc extends a {
+export class Zc extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Zc.prototype.steamid) {
 			i.Sg(Zc.M());
 		}
-		a.initialize(this, e, 0, -1, [4, 5, 17, 18, 19], null);
+		n_Message.initialize(this, e, 0, -1, [4, 5, 17, 18, 19], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -414,7 +414,7 @@ export class Zc extends a {
 		return i.zj(Zc.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Zc.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -422,7 +422,7 @@ export class Zc extends a {
 		i.i0(Zc.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Zc.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -430,14 +430,14 @@ export class Zc extends a {
 		return "ParentalSettings";
 	}
 }
-export class Nh extends a {
+export class Nh extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Nh.prototype.requestid) {
 			i.Sg(Nh.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -511,7 +511,7 @@ export class Nh extends a {
 		return i.zj(Nh.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Nh.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -519,7 +519,7 @@ export class Nh extends a {
 		i.i0(Nh.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Nh.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -527,14 +527,14 @@ export class Nh extends a {
 		return "ParentalFeatureRequest";
 	}
 }
-export class kt extends a {
+export class kt extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!kt.prototype.requestid) {
 			i.Sg(kt.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -616,7 +616,7 @@ export class kt extends a {
 		return i.zj(kt.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		kt.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -624,7 +624,7 @@ export class kt extends a {
 		i.i0(kt.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		kt.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

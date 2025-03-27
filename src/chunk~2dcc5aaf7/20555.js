@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	PopupScreenshotModal: "yloqxGhIEzvGIwbQbo6KP",
 	PopupScreenshotContainer: "_1wwvw8QMJqug_-ioZdRJTC",
 	PopupScreenshot: "_31XZuVC3l846TjPDScscaS",

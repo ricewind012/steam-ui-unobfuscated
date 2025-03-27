@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ControllerName: "_2MK05kxvSRsh6p_vuDfE6m",
 	LargerImg: "_1yYAXFaOMamywnFX2tS3hq",

@@ -1,6 +1,6 @@
-var n = require("./31760.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require(/*webcrack:missing*/ "./82755.js");
+import n from "./31760.js";
+import i from "./12176.js";
+import a from "./82755.js";
 export class r extends n.p {
 	m_CMInterface;
 	Init(e) {
@@ -45,8 +45,8 @@ export class r extends n.p {
 					this.m_rgStickers = r.stickers.map((e) => e);
 				}
 				if (r.effects) {
-					this.m_rgEffects = r.effects.map(({ name: e, ...t }) => ({
-						name: e,
+					this.m_rgEffects = r.effects.map(({ name, ...t }) => ({
+						name: name,
 						...t,
 					}));
 				}

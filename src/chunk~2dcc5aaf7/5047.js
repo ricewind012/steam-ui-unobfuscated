@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./16154.js");
-var l = require(/*webcrack:missing*/ "./79769.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import { useState, useEffect } from "./63696.js";
+import { H } from "./16154.js";
+import l from "./79769.js";
+import c, { hL } from "./52451.js";
+import m from "./72476.js";
+const a = i;
 class u {
 	m_mapRegistrations = new Map();
 	m_mapLoadPromises = new Map();
@@ -29,8 +29,7 @@ class u {
 	async InternalLoadRegistration(e) {
 		let t = null;
 		try {
-			const r =
-				m.TS.STORE_BASE_URL + "saleaction/ajaxgetusergiveawayregistration";
+			const r = `${m.TS.STORE_BASE_URL}saleaction/ajaxgetusergiveawayregistration`;
 			const n = {
 				giveaway_name: e,
 				sessionid: m.TS.SESSIONID,
@@ -44,15 +43,12 @@ class u {
 				this.GetRegistrationChangeCallback(e).Dispatch(i?.data?.registration);
 				return i?.data?.registration;
 			}
-			t = (0, o.H)(i);
+			t = H(i);
 		} catch (e) {
-			t = (0, o.H)(e);
+			t = H(e);
 		}
 		console.error(
-			"CGiveawayRegistrationStore.InternalLoadRegistration failed: on giveawayName " +
-				e +
-				" error: " +
-				t?.strErrorMsg,
+			`CGiveawayRegistrationStore.InternalLoadRegistration failed: on giveawayName ${e} error: ${t?.strErrorMsg}`,
 			t,
 		);
 		return {
@@ -68,8 +64,7 @@ class u {
 	async InternalCreateRegistration(e) {
 		let t = null;
 		try {
-			const r =
-				m.TS.STORE_BASE_URL + "saleaction/ajaxupdateusergiveawayregistration";
+			const r = `${m.TS.STORE_BASE_URL}saleaction/ajaxupdateusergiveawayregistration`;
 			const n = {
 				giveaway_name: e,
 				sessionid: m.TS.SESSIONID,
@@ -83,15 +78,12 @@ class u {
 				this.GetRegistrationChangeCallback(e).Dispatch(i?.data?.registration);
 				return i?.data?.registration;
 			}
-			t = (0, o.H)(i);
+			t = H(i);
 		} catch (e) {
-			t = (0, o.H)(e);
+			t = H(e);
 		}
 		console.error(
-			"CGiveawayRegistrationStore.InternalCreateRegistration failed: on giveawayName " +
-				e +
-				" error: " +
-				t?.strErrorMsg,
+			`CGiveawayRegistrationStore.InternalCreateRegistration failed: on giveawayName ${e} error: ${t?.strErrorMsg}`,
 			t,
 		);
 		return {
@@ -113,13 +105,13 @@ class u {
 	Init() {}
 }
 export function h(e) {
-	const [t, r] = (0, s.useState)(u.Get().GetRegistration(e));
-	(0, s.useEffect)(() => {
+	const [t, setT] = useState(u.Get().GetRegistration(e));
+	useEffect(() => {
 		if (t === undefined) {
-			u.Get().LoadRegistration(e).then(r);
+			u.Get().LoadRegistration(e).then(setT);
 		}
 	}, [e, t]);
-	(0, c.hL)(u.Get().GetRegistrationChangeCallback(e), r);
+	hL(u.Get().GetRegistrationChangeCallback(e), setT);
 	return t;
 }
 export function Q() {
@@ -127,4 +119,4 @@ export function Q() {
 		fnCreateRegistration: u.Get().CreateRegistration,
 	};
 }
-(0, n.Cg)([c.oI], u.prototype, "CreateRegistration", null);
+Cg([c.oI], u.prototype, "CreateRegistration", null);

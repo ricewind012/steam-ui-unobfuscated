@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./72476.js");
+import n from "./72476.js";
 export const d = "fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb";
 export function t(e, t) {
 	let r = ".jpg";
@@ -11,12 +11,12 @@ export function t(e, t) {
 	}
 	let a = n.TS.AVATAR_BASE_URL;
 	if (!a) {
-		a = n.TS.MEDIA_CDN_COMMUNITY_URL + "images/avatars/";
-		a += e.substr(0, 2) + "/";
+		a = `${n.TS.MEDIA_CDN_COMMUNITY_URL}images/avatars/`;
+		a += `${e.substr(0, 2)}/`;
 	}
 	a += e;
 	if (t && t != "small") {
-		a += "_" + t;
+		a += `_${t}`;
 	}
 	a += r;
 	return a;

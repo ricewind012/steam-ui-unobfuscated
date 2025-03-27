@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	HardwareSurveyDialog: "_3v2Gg_GCpLHpHQDLFQ7cvI",
 	Desktop: "hYVp3sXyS0uYfJnzVoK-m",

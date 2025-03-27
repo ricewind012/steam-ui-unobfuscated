@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PagedSettingsDialog: "_33vqr13-jdnjTkKKTh414f",
 	PagedSettingsDialog_PageContent: "_3mgb-3_dHk3POEOVOh0Dvp",

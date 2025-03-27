@@ -113,8 +113,8 @@ export function bC(e, t, r = true) {
 	if (n.length > t) {
 		n = n.substring(0, t);
 		let e = n.replace(/^(.*([.!?])) .*$/, "$1");
-		let i = e.length;
-		if (i < t * 0.6 || i == t) {
+		let e_length = e.length;
+		if (e_length < t * 0.6 || e_length == t) {
 			e = n.replace(/ [^ ]*$/, "...");
 		}
 		n = r ? e.replace(/(\r\n|\n|\r)/gm, "") : e;

@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./46422.js");
-var a = require("./49171.js");
-const s = (0, n.createContext)(null);
+import { createContext, useContext } from "./63696.js";
+import i from "./46422.js";
+import a from "./49171.js";
+const SContext = createContext(null);
 export function br() {
-	const e = (0, n.useContext)(s) || l();
+	const e = useContext(SContext) || l();
 	if (!e) {
 		console.error("No navigator context found!");
 	}
@@ -16,4 +16,4 @@ export function lF() {
 	const e = l();
 	return e || (console.error("No global navigator context found!"), null);
 }
-export const O0 = s.Provider;
+export const O0 = SContext.Provider;

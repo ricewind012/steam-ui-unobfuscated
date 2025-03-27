@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Bar: "_1ZS_xta5HMXzR8JgxDH6n7",
 	SearchBar: "_2WgQEFvIzJw_SHNGbjtRFU",
 	ViewFiltersBar: "_36r2az6roul_Oej7D4BMI6",

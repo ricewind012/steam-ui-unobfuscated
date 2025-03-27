@@ -1,86 +1,71 @@
-var n = require("./18057.js");
-var i = require("./50350.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./10975.js");
-var o = require("./22047.js");
-var l = require("./13869.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./31319.js");
-var u = require("./89748.js");
-var d = require("./12491.js");
-var A = require(/*webcrack:missing*/ "./90765.js");
-var p = require(/*webcrack:missing*/ "./42318.js");
-var g = require("./78110.js");
-var h = require("./50876.js");
-var C = require("./24287.js");
-var _ = require("./67444.js");
-var f = _;
-var b = require("./44351.js");
-var y = require("./12316.js");
-var S = require(/*webcrack:missing*/ "./90242.js");
-var w = require("./1470.js");
+import n from "./18057.js";
+import i from "./50350.js";
+import a from "./63696.js";
+import s from "./10975.js";
+import o from "./22047.js";
+import l from "./13869.js";
+import m, { Xf } from "./31319.js";
+import u, { qw } from "./89748.js";
+import d from "./12491.js";
+import A, { A as A_1 } from "./90765.js";
+import { Nr } from "./42318.js";
+import g from "./78110.js";
+import { r4 } from "./50876.js";
+import C, { nT } from "./24287.js";
+import _ from "./67444.js";
+import b from "./44351.js";
+import y from "./12316.js";
+import S from "./90242.js";
+import w from "./1470.js";
+const f = _;
 function B() {
 	a.useEffect(() => {
 		s.eZ.PlayNavSound(s.PN.ShowModal);
-		return function () {
+		return () => {
 			s.eZ.PlayNavSound(s.PN.HideModal);
 		};
 	}, []);
 }
 export function wB() {
 	B();
-	let e = (0, h.r4)();
-	let t = (0, u.qw)().BHasCurrentUser();
-	(0, m.Xf)(t ? "show-icon" : "hidden", "Settings");
-	return a.createElement(
-		i.dj,
-		null,
-		a.createElement(o.q, {
-			title: Localize("#Settings_Title"),
-			pages: e,
-		}),
+	let e = r4();
+	let t = qw().BHasCurrentUser();
+	Xf(t ? "show-icon" : "hidden", "Settings");
+	return (
+		<i.dj>
+			<o.q title={Localize("#Settings_Title")} pages={e} />
+		</i.dj>
 	);
 }
-export function bB(e) {
+export function BB(e) {
 	const {
-		className: t,
-		closeModal: r,
-		initialRoute: i,
-		hideTopBar: s,
-		fnSetNavigateToPage: m,
+		className,
+		closeModal,
+		initialRoute,
+		hideTopBar,
+		fnSetNavigateToPage,
 	} = e;
 	B();
-	let u = (0, h.r4)();
-	return a.createElement(
-		l.x_,
-		{
-			onEscKeypress: r,
-			hideTopBar: s,
-		},
-		a.createElement(
-			n.Cc,
-			{
-				initialRoute: n.BV.Settings[i](),
-			},
-			false,
-			a.createElement(
-				d.hE,
-				{
-					closeModal: r,
-				},
-				a.createElement(o.q, {
-					title: Localize("#Settings_Title"),
-					pages: u,
-					className: (0, A.A)(f.SettingsModal, t),
-					fnSetNavigateToPage: m,
-				}),
-			),
-		),
+	let u = r4();
+	return (
+		<l.x_ onEscKeypress={closeModal} hideTopBar={hideTopBar}>
+			<n.Cc initialRoute={n.BV.Settings[i]()}>
+				<d.hE closeModal={closeModal}>
+					<o.q
+						title={Localize("#Settings_Title")}
+						pages={u}
+						className={A_1(f.SettingsModal, className)}
+						fnSetNavigateToPage={fnSetNavigateToPage}
+					/>
+				</d.hE>
+			</n.Cc>
+		</l.x_>
 	);
 }
-export const er = (0, p.Nr)(function () {
-	const [e, t] = (0, C.nT)();
-	const [r, n] = a.useState();
+export const er = Nr(() => {
+	const [e, t] = nT();
+	const [r, setR] = a.useState();
 	a.useEffect(() => {
 		C.Ti.SetPopup(r);
 	}, [r]);
@@ -88,82 +73,60 @@ export const er = (0, p.Nr)(function () {
 		t(false);
 	}, [t]);
 	if (e) {
-		return a.createElement(
-			g.w,
-			{
-				strTitle: Localize("#Settings_Title"),
-				onDismiss: i,
-				refPopup: n,
-				popupWidth: 850,
-				popupHeight: 722,
-				minWidth: 850,
-				minHeight: 722,
-				resizable: true,
-				modal: false,
-				titleBarClassName: f.SettingsTitleBar,
-			},
-			a.createElement(bB, {
-				initialRoute: C.Ti.sTargetPage,
-				fnSetNavigateToPage: C.Ti.SetNavigateToPage,
-				closeModal: i,
-				className: f.DesktopPopup,
-			}),
+		return (
+			<g.w
+				strTitle={Localize("#Settings_Title")}
+				onDismiss={i}
+				refPopup={setR}
+				popupWidth={850}
+				popupHeight={722}
+				minWidth={850}
+				minHeight={722}
+				resizable
+				modal={false}
+				titleBarClassName={f.SettingsTitleBar}
+			>
+				<BB
+					initialRoute={C.Ti.sTargetPage}
+					fnSetNavigateToPage={C.Ti.SetNavigateToPage}
+					closeModal={i}
+					className={f.DesktopPopup}
+				/>
+			</g.w>
 		);
 	} else {
 		return null;
 	}
 });
 export function CS(e) {
-	const { className: t } = e;
-	return a.createElement(b.$n, {
-		...e,
-		className: (0, A.A)(f.SettingsDialogButton, t),
-	});
+	const { className } = e;
+	return <b.$n {...e} className={A_1(f.SettingsDialogButton, className)} />;
 }
 export function WG(e) {
-	const { className: t } = e;
-	return a.createElement(y.xh, {
-		...e,
-		className: (0, A.A)(f.SettingsDialogButton, t),
-	});
+	const { className } = e;
+	return <y.xh {...e} className={A_1(f.SettingsDialogButton, className)} />;
 }
 export function sh(e) {
-	const { className: t, disableFade: r, ...n } = e;
-	return a.createElement(b.nB, {
-		...n,
-		className: (0, A.A)(t, !r && f.SettingsDialogBodyFade),
-	});
-}
-export function Pq(e) {
-	return a.createElement(
-		"div",
-		{
-			className: f.SettingsDialogBodyText,
-		},
-		e.children,
+	const { className, disableFade, ...n } = e;
+	return (
+		<b.nB
+			{...n}
+			className={A_1(className, !disableFade && f.SettingsDialogBodyFade)}
+		/>
 	);
 }
+export function Pq(e) {
+	return <div className={f.SettingsDialogBodyText}>{e.children}</div>;
+}
 export function Tv(e) {
-	return a.createElement("div", {
-		className: f.SettingsDialogDescriptionText,
-		...e,
-	});
+	return <div className={f.SettingsDialogDescriptionText} {...e} />;
 }
 export function tX(e) {
-	return a.createElement(b.iK, {
-		className: f.SettingsDialogSubHeader,
-		...e,
-	});
+	return <b.iK className={f.SettingsDialogSubHeader} {...e} />;
 }
 export function Oy(e) {
-	return a.createElement(S.Ii, {
-		...e,
-		className: (0, A.A)(f.SettingsLink, e.className),
-	});
+	return <S.Ii {...e} className={A_1(f.SettingsLink, e.className)} />;
 }
 export function oN(e) {
-	return a.createElement(w.E, {
-		as: WG,
-		...e,
-	});
+	return <w.E as={WG} {...e} />;
 }

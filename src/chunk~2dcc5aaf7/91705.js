@@ -1,6 +1,6 @@
-var n = require("./1252.js");
-var i = require("./87935.js");
-var a = require(/*webcrack:missing*/ "./72476.js");
+import n from "./1252.js";
+import i from "./87935.js";
+import a, { xv } from "./72476.js";
 const s = {
 	koreana: "korean",
 	schinese: "simplified chinese",
@@ -12,7 +12,7 @@ export async function uc(e, t, r) {
 	let o = i.B7.GetCommunityURL();
 	let l = s[a.TS.LANGUAGE] || a.TS.LANGUAGE;
 	const c = {
-		origin: (0, a.xv)(),
+		origin: xv(),
 		p: t,
 		rgSections: [2, 4, 3, 9],
 		filterLanguage: a.TS.LANGUAGE,
@@ -36,50 +36,70 @@ export async function uc(e, t, r) {
 export function lm(e) {
 	switch (e) {
 		case 0:
-		default:
+		default: {
 			return "Invalid";
-		case 1:
+		}
+		case 1: {
 			return "Screenshot";
-		case 2:
+		}
+		case 2: {
 			return "WorkshopAccount_Developer";
-		case 3:
+		}
+		case 3: {
 			return "WorkshopAccount_Public";
-		case 4:
+		}
+		case 4: {
 			return "PublishedFile_Developer";
-		case 5:
+		}
+		case 5: {
 			return "PublishedFile_Public";
-		case 6:
+		}
+		case 6: {
 			return "Test";
-		case 7:
+		}
+		case 7: {
 			return "ForumTopic";
-		case 8:
+		}
+		case 8: {
 			return "Recommendation";
-		case 9:
+		}
+		case 9: {
 			return "Video";
-		case 10:
+		}
+		case 10: {
 			return "Profile";
-		case 11:
+		}
+		case 11: {
 			return "NewsPost";
-		case 12:
+		}
+		case 12: {
 			return "Clan";
-		case 13:
+		}
+		case 13: {
 			return "ClanAnnouncement";
-		case 14:
+		}
+		case 14: {
 			return "ClanEvent";
-		case 15:
+		}
+		case 15: {
 			return "UserStatusPublished";
-		case 16:
+		}
+		case 16: {
 			return "UserReceivedNewGame";
-		case 17:
+		}
+		case 17: {
 			return "PublishedFile_Announcement";
-		case 18:
+		}
+		case 18: {
 			return "ModeratorMessage";
-		case 19:
+		}
+		case 19: {
 			return "ClanCuratedApp";
+		}
 	}
 }
-export var _Q;
-(function (e) {
+export let _Q;
+((e) => {
 	e[(e.Invalid = 0)] = "Invalid";
 	e[(e.FriendAdded = 1)] = "FriendAdded";
 	e[(e.AchievementUnlocked = 2)] = "AchievementUnlocked";

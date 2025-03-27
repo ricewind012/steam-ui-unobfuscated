@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
 import { FilterInPlace } from "../../actual_src/utils/arrayutils.js";
-var s = require("./81482.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require("./92031.js");
-var m = require(/*webcrack:missing*/ "./93960.js");
 import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
-var d = require(/*webcrack:missing*/ "./79769.js");
-var A = require(/*webcrack:missing*/ "./90095.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import s from "./81482.js";
+import o, { Gn, fm } from "./89193.js";
+import l from "./44846.js";
+import c from "./92031.js";
+import m from "./93960.js";
+import d from "./79769.js";
+import { q3 } from "./90095.js";
 const p = Seconds.PerHour * 3;
 const g = "GameReleased";
 const h = "GameReleased_Merge";
@@ -17,7 +17,7 @@ function C(e, t) {
 }
 class _ {
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 	m_cloudStorage;
 	m_hPrePurchasedAppChanges;
@@ -32,7 +32,7 @@ class _ {
 	}
 	async Init(e) {
 		this.m_cloudStorage = e;
-		this.m_hCloudAutorun = (0, o.fm)(this.ReadCloudData);
+		this.m_hCloudAutorun = fm(this.ReadCloudData);
 		this.m_hPrePurchasedAppChanges =
 			SteamClient.Apps.RegisterForPrePurchasedAppChanges(() =>
 				this.ScheduleUpdate(0),
@@ -99,7 +99,7 @@ class _ {
 		let t = this.m_bForceCloudUpdate;
 		this.m_bForceCloudUpdate = false;
 		if (
-			(function (e) {
+			((e) => {
 				let t = false;
 				let r = GetUnixTime() - p;
 				for (let n of e.apps) {
@@ -115,7 +115,7 @@ class _ {
 			t = true;
 		}
 		if (
-			(function (e, t) {
+			((e, t) => {
 				let r = false;
 				for (let n of t) {
 					if (!e.apps.find((e) => n.nAppID == e.appid)) {
@@ -138,6 +138,7 @@ class _ {
 						return (
 							e.state != l.lc.k_EAppReleaseState_Released ||
 							!e.bDismissed ||
+							!e.bDismissed ||
 							((r = true), false)
 						);
 					} else {
@@ -150,7 +151,7 @@ class _ {
 		) {
 			t = true;
 		}
-		let [r, n] = (function (e) {
+		let [r, n] = ((e) => {
 			let t = false;
 			let r = e.apps.find((e) => e.rtShown && !e.bDismissed);
 			if (!r) {
@@ -230,14 +231,14 @@ function f(e, t) {
 		t.strMethodId,
 	);
 }
-(0, n.Cg)([o.sH], _.prototype, "m_nShownAppID", undefined);
-(0, n.Cg)([m.o], _.prototype, "DismissShownApp", null);
-(0, n.Cg)([m.o], _.prototype, "ReadCloudData", null);
-(0, n.Cg)([m.o], _.prototype, "ScheduleUpdate", null);
-(0, n.Cg)([m.o], _.prototype, "Update", null);
+Cg([o.sH], _.prototype, "m_nShownAppID", undefined);
+Cg([m.o], _.prototype, "DismissShownApp", null);
+Cg([m.o], _.prototype, "ReadCloudData", null);
+Cg([m.o], _.prototype, "ScheduleUpdate", null);
+Cg([m.o], _.prototype, "Update", null);
 export const X$ = new _();
 export function i5() {
-	return (0, A.q3)(() => X$.GetShownAppID());
+	return q3(() => X$.GetShownAppID());
 }
 export function JV() {
 	return i.useCallback(() => X$.DismissShownApp(), []);

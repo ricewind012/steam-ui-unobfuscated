@@ -1,32 +1,20 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./1965.js");
-var a = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require("./79390.js");
-var l = o;
-var c = require("./18057.js");
+import n from "./63696.js";
+import i from "./1965.js";
+import a from "./64608.js";
+import o from "./79390.js";
+import { Qt } from "./18057.js";
+const l = o;
 export const t = () => {
-	const e = (0, c.Qt)("steam://open/goonline");
-	return n.createElement(
-		i.n,
-		{
-			className: l.OfflineSection,
-			availableOffline: true,
-		},
-		n.createElement(
-			i.n.Body,
-			{
-				className: l.OfflineSectionBody,
-			},
-			(0, Localize)("#AppDetails_InOfflineMode"),
-			n.createElement(
-				a.jn,
-				{
-					className: l.OfflineButton,
-					onClick: e,
-				},
-				(0, Localize)("#AppDetails_GoOnline"),
-			),
-		),
+	const e = Qt("steam://open/goonline");
+	return (
+		<i.n className={l.OfflineSection} availableOffline>
+			<i.n.Body className={l.OfflineSectionBody}>
+				{(0, Localize)("#AppDetails_InOfflineMode")}
+				<a.jn className={l.OfflineButton} onClick={e}>
+					{(0, Localize)("#AppDetails_GoOnline")}
+				</a.jn>
+			</i.n.Body>
+		</i.n>
 	);
 };

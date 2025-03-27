@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	VisualizerCenterXOffset: "125",
 	VisualizerCenterYOffset: "85",

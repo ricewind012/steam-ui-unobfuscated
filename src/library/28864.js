@@ -1,4 +1,4 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
+import r from "./63696.js";
 export function cZ(e, t) {
 	if (e != null) {
 		if (typeof e == "function") {
@@ -34,35 +34,35 @@ export function XB(...e) {
 	}
 }
 export function QS(e, t) {
-	const n = r.useRef();
+	const NRef = r.useRef();
 	return r.useCallback((t) => {
-		if (n.current) {
-			n.current();
+		if (NRef.current) {
+			NRef.current();
 		}
-		n.current = e(t);
+		NRef.current = e(t);
 	}, t);
 }
 export function RY(e) {
-	const t = r.useRef(null);
+	const TRef = r.useRef(null);
 	return {
-		refWithValue: t,
-		refForElement: Ue(e, t),
+		refWithValue: TRef,
+		refForElement: Ue(e, TRef),
 	};
 }
 export function D5(e, t) {
-	const n = r.useRef(false);
+	const NRef = r.useRef(false);
 	r.useLayoutEffect(
 		() => () => {
-			if (n.current) {
+			if (NRef.current) {
 				cZ(e, undefined);
 			}
 		},
 		[e],
 	);
 	r.useLayoutEffect(() => {
-		if (t || n.current) {
+		if (t || NRef.current) {
 			cZ(e, t);
-			n.current = !!t;
+			NRef.current = !!t;
 		}
 	}, [e, t]);
 }

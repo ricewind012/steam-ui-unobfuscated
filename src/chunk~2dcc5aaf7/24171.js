@@ -6,8 +6,8 @@ export const vV = {
 	bIsRecordingDesktop: false,
 	bBroadcastCapable: false,
 };
-export var i_;
-(function (e) {
+export let i_;
+((e) => {
 	e[(e.k_EPending = 0)] = "k_EPending";
 	e[(e.k_EAccepted = 1)] = "k_EAccepted";
 	e[(e.k_ERejected = 2)] = "k_ERejected";

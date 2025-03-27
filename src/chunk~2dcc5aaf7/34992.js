@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Picker: "tid_OE5NJWCCVJQP1PfRc",
 	Tabs: "_1yVkTX9Mo_7qb2sxWhM0Cr",

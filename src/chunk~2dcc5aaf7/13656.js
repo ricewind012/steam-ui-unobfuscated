@@ -1,58 +1,84 @@
-export let ho = D.h;
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./49519.js");
-var o = require("./96593.js");
-var l = require("./64608.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require("./34792.js");
-var u = require("./70239.js");
-var d = require("./78057.js");
 import {
 	Localize,
 	LocalizeReact,
 	LocalizeInlineReactWithFallback,
 	LocalizeRtime32ToShortDate,
 } from "../../actual_src/utils/localization.js";
-var p = require(/*webcrack:missing*/ "./44846.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require("./3651.js");
-var C = require("./51095.js");
-var _ = require("./91486.js");
-var f = require("./34428.js");
-var b = require("./46422.js");
-var y = require(/*webcrack:missing*/ "./26853.js");
-var S = require(/*webcrack:missing*/ "./98995.js");
-var w = require(/*webcrack:missing*/ "./90242.js");
-var B = require("./87935.js");
+
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var I = require("./49206.js");
-var E = require("./63259.js");
-var M = require("./18057.js");
-var T = require("./76356.js");
-var R = require("./73317.js");
-var k = require("./88769.js");
-var D = require("./44191.js");
-var N = require("./22047.js");
-var F = require(/*webcrack:missing*/ "./69164.js");
 import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
-var O = require("./12750.js");
-var P = require("./7552.js");
-var L = require("./81884.js");
-var z = require("./50350.js");
-var x = require("./79112.js");
-var U = require("./29670.js");
-var W = require("./78023.js");
-var V = W;
-var H = require("./22091.js");
-var j = require("./85360.js");
-var q = require("./69913.js");
-var Q = require("./51517.js");
-var Z = require("./55571.js");
-var Y = require("./96000.js");
-var K = require("./35488.js");
-var X = require("./71594.js");
+import n, { useState } from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a, { PA } from "./41230.js";
+import s, { g as g_1 } from "./49519.js";
+import o, { Co } from "./96593.js";
+import l from "./64608.js";
+import c, { A } from "./90765.js";
+import m, { VI, I5, e_ as e } from "./34792.js";
+import u, { DJ, EH as EH_2 } from "./70239.js";
+import d, { T as T_2 } from "./78057.js";
+import p, { ID } from "./44846.js";
+import g, { Qn, hf, uI, CI, td } from "./72476.js";
+import h from "./3651.js";
+import C, { lY } from "./51095.js";
+import _ from "./91486.js";
+import f, { dm } from "./34428.js";
+import b from "./46422.js";
+import y from "./26853.js";
+import S from "./98995.js";
+import w from "./90242.js";
+import B from "./87935.js";
+import I, { P as P_2 } from "./49206.js";
+import E, { vq } from "./63259.js";
+import M, { bG, KV } from "./18057.js";
+import T from "./76356.js";
+import R from "./73317.js";
+import k, { Cj } from "./88769.js";
+import D from "./44191.js";
+import N from "./22047.js";
+import F from "./69164.js";
+import O from "./12750.js";
+import P from "./7552.js";
+import L, { f as f_2 } from "./81884.js";
+import z from "./50350.js";
+import { br as br_2 } from "./79112.js";
+import { V as V_2 } from "./29670.js";
+import W from "./78023.js";
+import H, { tk } from "./22091.js";
+import j from "./85360.js";
+import q, { d3 } from "./69913.js";
+import { M as M_2 } from "./51517.js";
+import Z, { Uy, DT, h0, Pt, bD } from "./55571.js";
+import Y from "./96000.js";
+import K from "./35488.js";
+import X from "./71594.js";
+import { R7 } from "./11131.js";
+import oe from "./79671.js";
+import { gQ } from "./39002.js";
+import { w as w_2 } from "./49455.js";
+import me from "./78110.js";
+import ue, { Gn } from "./89193.js";
+import Ae, { BGameRecordingFeatureEnabled } from "./4069.js";
+import { Te as Te_2 } from "./55007.js";
+import ge from "./88750.js";
+import he, { lX } from "./31084.js";
+import { uD } from "./52451.js";
+import _e from "./10606.js";
+import fe from "./45309.js";
+import { gt as gt_2, KM } from "./48289.js";
+import ye from "./8573.js";
+import { qw } from "./89748.js";
+import we from "./24460.js";
+import Be from "./68608.js";
+import ve from "./57016.js";
+import { Wk } from "./50341.js";
+import { EH } from "./96555.js";
+import Me from "./67429.js";
+import Te, { Mm, lE, $k } from "./52808.js";
+import { br } from "./18869.js";
+import ke from "./37086.js";
+export let ho = D.h;
+const V = W;
 function J(e) {
 	const { overview: t, details: r } = e;
 	return n.createElement(
@@ -72,11 +98,11 @@ function J(e) {
 }
 function $(e) {
 	const { details: t } = e;
-	const r = (0, Z.Uy)(t.unAppID);
+	const r = Uy(t.unAppID);
 	const i = n.useMemo(() => t.vecDLC.map((e) => e.unAppID), [t]);
-	const { mutate: a, isPending: s, variables: o } = (0, Z.DT)();
+	const { mutate: a, isPending: s, variables: o } = DT();
 	const c = t.vecDLC.length > 0;
-	const m = (0, Z.h0)(i, r);
+	const m = h0(i, r);
 	if (r === undefined) {
 		return null;
 	} else {
@@ -108,7 +134,7 @@ function $(e) {
 function ee(e) {
 	const { details: t } = e;
 	const r = t.unAppID;
-	const a = (0, i.q3)(() => Y.md.BIsHidden(r));
+	const a = q3(() => Y.md.BIsHidden(r));
 	const s = n.useCallback((e) => Y.md.SetAppsAsHidden([r], e), [r]);
 	return n.createElement(l.y4, {
 		label: (0, Localize)("#AppProperties_Privacy_MarkAppHidden"),
@@ -121,11 +147,11 @@ function ee(e) {
 }
 function te(e) {
 	const { details: t } = e;
-	const r = (0, g.Qn)();
+	const r = Qn();
 	const i = n.useCallback(() => {
-		(0, q.d3)(t.unAppID);
+		d3(t.unAppID);
 	}, [t.unAppID]);
-	const [a, s, o] = (0, Q.M)({
+	const [a, s, o] = M_2({
 		bCloseOnOK: true,
 		onOK: i,
 		strTitle: (0, Localize)("#AppProperties_OverlayData"),
@@ -180,7 +206,7 @@ function re(e) {
 				n.createElement(
 					l.wl,
 					{
-						className: (0, c.A)(V.PrefDetailsToggle, a && V.Selected),
+						className: A(V.PrefDetailsToggle, a && V.Selected),
 						onClick: () => s(!a),
 					},
 					n.createElement(K.DoubleCarat, {
@@ -203,7 +229,7 @@ function re(e) {
 }
 function ne(e) {
 	const { details: t } = e;
-	const { data: r } = (0, Z.Pt)();
+	const { data: r } = Pt();
 	const i = n.useRef(undefined);
 	if (r === undefined) {
 		return null;
@@ -229,8 +255,8 @@ function ne(e) {
 }
 function ie(e) {
 	const { details: t, dlc: r } = e;
-	const i = (0, Z.Uy)(r.unAppID);
-	const { mutate: a, isPending: s, variables: o } = (0, Z.bD)(r.unAppID);
+	const i = Uy(r.unAppID);
+	const { mutate: a, isPending: s, variables: o } = bD(r.unAppID);
 	return n.createElement(
 		"div",
 		{
@@ -269,8 +295,8 @@ function ie(e) {
 }
 function ae(e) {
 	const { rgDLCAppIDs: t } = e;
-	const r = (0, Z.h0)(t, true);
-	const n = (0, Z.h0)(t, false);
+	const r = h0(t, true);
+	const n = h0(t, false);
 	if (r) {
 		return (0, Localize)("#AppProperties_Privacy_DLC_MarkedPrivate");
 	} else if (n) {
@@ -279,16 +305,10 @@ function ae(e) {
 		return (0, Localize)("#AppProperties_Privacy_DLC_Customized");
 	}
 }
-var se = require(/*webcrack:missing*/ "./11131.js");
-var oe = require(/*webcrack:missing*/ "./79671.js");
-var le = require("./39002.js");
-var ce = require(/*webcrack:missing*/ "./49455.js");
-var me = require("./78110.js");
-var ue = require(/*webcrack:missing*/ "./89193.js");
 const de = new (class {
 	mapDialogs = new ue.Es();
 	constructor() {
-		(0, ue.Gn)(this);
+		Gn(this);
 	}
 	ShowDialog(e, t) {
 		let r = this.mapDialogs.get(e);
@@ -316,28 +336,9 @@ const de = new (class {
 		return Array.from(this.mapDialogs.values());
 	}
 })();
-var Ae = require("./4069.js");
-var pe = require(/*webcrack:missing*/ "./55007.js");
-var ge = require(/*webcrack:missing*/ "./88750.js");
-var he = require(/*webcrack:missing*/ "./31084.js");
-var Ce = require(/*webcrack:missing*/ "./52451.js");
-var _e = require("./10606.js");
-var fe = require("./45309.js");
-var be = require("./48289.js");
-var ye = require(/*webcrack:missing*/ "./8573.js");
-var Se = require("./89748.js");
-var we = require("./24460.js");
-var Be = require("./68608.js");
-var ve = require("./57016.js");
-var Ie = require("./50341.js");
-var Ee = require("./96555.js");
-var Me = require("./67429.js");
-var Te = require("./52808.js");
-var Re = require("./18869.js");
-var ke = require("./37086.js");
 function De(e) {
-	const t = (0, Re.br)();
-	const [r] = (0, m.VI)("g_background_mode");
+	const t = br();
+	const [r] = VI("g_background_mode");
 	const i = n.createElement(Ae.ForegroundRecordingShortcut, {
 		fallbackTextToken:
 			"#AppProperties_GameRecording_GlobalStatus_ManualHotkeyFallback",
@@ -369,9 +370,9 @@ function De(e) {
 }
 function Ne(e) {
 	const { gameID: t, disabled: r = false } = e;
-	const { isError: i, isLoading: a, bEnabled: s } = (0, Te.Mm)(t);
-	const o = (0, Te.lE)();
-	const c = (0, Te.$k)(t);
+	const { isError: i, isLoading: a, bEnabled: s } = Mm(t);
+	const o = lE();
+	const c = $k(t);
 	const m = s && !r;
 	const u = [
 		{
@@ -416,7 +417,7 @@ function Ne(e) {
 }
 function Fe(e) {
 	const { gameID: t } = e;
-	const { isError: r, isLoading: i, bEnabled: a } = (0, Te.Mm)(t);
+	const { isError: r, isLoading: i, bEnabled: a } = Mm(t);
 	if (r || i) {
 		return null;
 	} else {
@@ -444,7 +445,7 @@ function Oe(e) {
 	});
 }
 function Pe(e) {
-	const [t] = (0, m.VI)("g_background_mode");
+	const [t] = VI("g_background_mode");
 	const r = {
 		1: Fe,
 		2: Ge,
@@ -467,8 +468,8 @@ function Le(e) {
 	);
 }
 export function eJ(e) {
-	const t = (0, i.q3)(() => de.GetDialogs());
-	if ((0, g.hf)()) {
+	const t = q3(() => de.GetDialogs());
+	if (hf()) {
 		return n.createElement(
 			n.Fragment,
 			null,
@@ -501,11 +502,11 @@ export function Ki(e, t) {
 }
 function Ue(e) {
 	const { appId: t } = e;
-	const r = (0, d.T)(t);
+	const r = T_2(t);
 	const i = o.tw.GetAppOverviewByAppID(t);
 	const a = O.yX.BAllowDeckCompatibilityFeedback(t);
-	(0, g.uI)();
-	const s = (0, g.Qn)();
+	uI();
+	const s = Qn();
 	if (!r) {
 		return n.createElement(
 			w.ml,
@@ -528,7 +529,7 @@ function Ue(e) {
 				appId: r.unAppID,
 			}),
 		});
-		if ((0, g.CI)()) {
+		if (CI()) {
 			l.push({
 				title: (0, Localize)("#AppProperties_CompatibilityPage"),
 				route: M.BV.AppProperties.Compatibility(),
@@ -546,7 +547,7 @@ function Ue(e) {
 				details: r,
 			}),
 		});
-		if ((0, Ae.BGameRecordingFeatureEnabled)()) {
+		if (BGameRecordingFeatureEnabled()) {
 			l.push({
 				title: (0, Localize)("#AppProperties_GameRecording"),
 				route: M.BV.AppProperties.GameRecording(),
@@ -566,7 +567,7 @@ function Ue(e) {
 				details: r,
 			}),
 		});
-		if ((0, g.CI)()) {
+		if (CI()) {
 			l.push({
 				title: (0, Localize)("#AppProperties_CompatibilityPage"),
 				route: M.BV.AppProperties.Compatibility(),
@@ -632,7 +633,7 @@ function Ue(e) {
 				}),
 			});
 		}
-		if ((0, Ae.BGameRecordingFeatureEnabled)()) {
+		if (BGameRecordingFeatureEnabled()) {
 			l.push({
 				title: (0, Localize)("#AppProperties_GameRecording"),
 				route: M.BV.AppProperties.GameRecording(),
@@ -664,7 +665,7 @@ function Ue(e) {
 		}
 	}
 	return n.createElement(N.q, {
-		className: (0, c.A)(V.AppProperties, s && V.GamepadUI),
+		className: A(V.AppProperties, s && V.GamepadUI),
 		title: i.display_name,
 		pages: l,
 		showTitle: true,
@@ -673,7 +674,7 @@ function Ue(e) {
 function We(e) {
 	const { closeModal: t, appId: r, ...i } = e;
 	const [a, s] = n.useState();
-	const l = (0, o.Co)(r);
+	const l = Co(r);
 	const c = (b.Y_[e.startingPage] || M.BV.AppProperties.General)(r);
 	if (l) {
 		return n.createElement(
@@ -710,8 +711,8 @@ function We(e) {
 	}
 }
 export function Z0() {
-	const { appId: e } = (function () {
-		const { appid: e } = (0, s.g)();
+	const { appId: e } = (() => {
+		const { appid: e } = g_1();
 		return {
 			appId: parseInt(e),
 		};
@@ -726,8 +727,8 @@ export function Z0() {
 }
 function He(e) {
 	const { details: t } = e;
-	const [r] = (0, m.VI)("enable_overlay");
-	const i = (0, g.Qn)();
+	const [r] = VI("enable_overlay");
+	const i = Qn();
 	return n.createElement(
 		l.nB,
 		null,
@@ -772,7 +773,7 @@ function He(e) {
 			n.createElement(
 				"div",
 				{
-					className: (0, c.A)(V.Detail),
+					className: A(V.Detail),
 				},
 				(0, Localize)("#AppProperties_LaunchOptionsDescription"),
 			),
@@ -793,9 +794,9 @@ function He(e) {
 }
 function je(e) {
 	const { steamid: t } = e;
-	const r = (0, be.gt)(t);
-	const i = (0, be.KM)(t);
-	const [a] = (0, m.I5)("bParenthesizeNicknames");
+	const r = gt_2(t);
+	const i = KM(t);
+	const [a] = I5("bParenthesizeNicknames");
 	return n.createElement(Be.A, {
 		persona: r,
 		strNickname: i,
@@ -806,7 +807,7 @@ function qe(e) {
 	const { details: t } = e;
 	const [r, i] = n.useState(false);
 	const a = t.strOwnerSteamID;
-	const s = (0, Se.qw)().GetCurrentUser().strSteamID != a && t.bIsSubscribedTo;
+	const s = qw().GetCurrentUser().strSteamID != a && t.bIsSubscribedTo;
 	const o = t.bIsExcludedFromSharing && !(t.eAppOwnershipFlags & 262144);
 	const l = !o && s && !t.bHasDifferentCopies;
 	const c = !o && s && t.bHasDifferentCopies;
@@ -853,14 +854,14 @@ function qe(e) {
 function Qe(e) {
 	const { details: t } = e;
 	const [r, i] = n.useState();
-	const a = (0, L.f)(t.unAppID, r);
-	const s = (0, g.hf)();
+	const a = f_2(t.unAppID, r);
+	const s = hf();
 	n.useEffect(() => {
 		SteamClient.Apps.GetLaunchOptionsForApp(t.unAppID).then((e) => {
 			i(e);
 		});
 	}, [t]);
-	if (!r || r.length < 2 || a.value === undefined) {
+	if (!r || r.length < 2 || r.length < 2 || a.value === undefined) {
 		return null;
 	}
 	let o = [
@@ -915,8 +916,8 @@ function Ze(e) {
 }
 function Ye(e) {
 	const { details: t } = e;
-	const r = (0, g.hf)();
-	const i = (0, Ee.EH)();
+	const r = hf();
+	const i = EH();
 	const a =
 		t.strResolutionOverride != "Default" && t.strResolutionOverride != "Native";
 	return n.createElement(
@@ -946,8 +947,8 @@ function Ye(e) {
 }
 function Ke(e) {
 	const { details: t } = e;
-	const [r] = (0, m.VI)("cloud_enabled");
-	const i = (0, x.br)();
+	const [r] = VI("cloud_enabled");
+	const i = br_2();
 	if (t.bCloudAvailable) {
 		return n.createElement(
 			"div",
@@ -964,7 +965,7 @@ function Ke(e) {
 			n.createElement(
 				"div",
 				{
-					className: (0, c.A)(V.Detail),
+					className: A(V.Detail),
 				},
 				(0, Localize)("#AppProperties_SteamCloudDescription"),
 			),
@@ -1001,7 +1002,7 @@ function Ke(e) {
 					n.createElement(
 						"div",
 						{
-							className: (0, c.A)(V.SteamCloudUsage, V.TopGapSmall),
+							className: A(V.SteamCloudUsage, V.TopGapSmall),
 						},
 						n.createElement(
 							"span",
@@ -1029,9 +1030,9 @@ function Ke(e) {
 		return null;
 	}
 }
-const Xe = (0, a.PA)((e) => {
+const Xe = PA((e) => {
 	const { details: t } = e;
-	const r = (0, i.q3)(() => m.rV.settings.bCompatEnabled);
+	const r = q3(() => m.rV.settings.bCompatEnabled);
 	const a = et(t.unAppID, r);
 	const s = r && !!t.strCompatToolName && t.nCompatToolPriority == 250;
 	const o = a.length ? a[0].strToolName : "";
@@ -1072,13 +1073,13 @@ const Xe = (0, a.PA)((e) => {
 			}),
 	);
 });
-const Je = (0, a.PA)((e) => {
+const Je = PA((e) => {
 	const { details: t } = e;
 	return null;
 });
-const $e = (0, a.PA)((e) => {
+const $e = PA((e) => {
 	const { details: t } = e;
-	const r = (0, i.q3)(() => m.rV.settings.bCompatEnabled);
+	const r = q3(() => m.rV.settings.bCompatEnabled);
 	et(t.unAppID, r);
 	return n.createElement(
 		l.nB,
@@ -1107,7 +1108,7 @@ function et(e, t) {
 }
 function tt(e) {
 	const { details: t } = e;
-	const [r] = (0, m.e_)("b24HourClock");
+	const [r] = e("b24HourClock");
 	return n.createElement(
 		l.nB,
 		null,
@@ -1156,12 +1157,12 @@ function tt(e) {
 	);
 }
 export function FO(e, t) {
-	(0, ce.w)(
+	w_2(
 		e != 0 || t != null,
 		"Can't use default setting when global default is null",
 	);
 	switch (e) {
-		case 0:
+		case 0: {
 			const e = n.createElement(
 				"span",
 				{
@@ -1171,16 +1172,20 @@ export function FO(e, t) {
 			);
 			const r = FO(t, null);
 			return LocalizeReact("#AppProperties_AutoUpdateUseDefault_Combine", e, r);
-		case 1:
+		}
+		case 1: {
 			return (0, Localize)("#AppProperties_AutoUpdateOnLaunch");
-		case 3:
+		}
+		case 3: {
 			return (0, Localize)("#AppProperties_AutoUpdateAlways");
-		case 2:
+		}
+		case 2: {
 			return (0, Localize)("#AppProperties_AutoUpdateHighPriority");
+		}
 	}
 }
 export function Qx() {
-	const [e] = (0, m.VI)("default_app_update_behavior");
+	const [e] = VI("default_app_update_behavior");
 	return [
 		{
 			value: 0,
@@ -1234,7 +1239,7 @@ function st(e) {
 	if (t.bHasAnyLocalContent) {
 		return n.createElement(l.Vb, {
 			label: (0, Localize)("#AppProperties_AutoUpdateSection"),
-			strClassName: (0, c.A)(V.BottomGap, V.FullWidth),
+			strClassName: A(V.BottomGap, V.FullWidth),
 			layout: "below",
 			disabled: t.bIsThirdPartyUpdater,
 			rgOptions: r,
@@ -1246,7 +1251,7 @@ function st(e) {
 }
 function ot(e) {
 	const { details: t } = e;
-	const [r] = (0, m.VI)("download_while_app_running");
+	const [r] = VI("download_while_app_running");
 	const i = (0, Localize)(
 		r
 			? "#AppProperties_BackgroundDownloadGlobal_Allow"
@@ -1292,7 +1297,7 @@ function ot(e) {
 			padding: "none",
 		}),
 		n.createElement(l.Vb, {
-			strClassName: (0, c.A)(V.BottomGapSmall, V.FullWidth),
+			strClassName: A(V.BottomGapSmall, V.FullWidth),
 			layout: "below",
 			disabled: t.bIsThirdPartyUpdater,
 			rgOptions: a,
@@ -1304,7 +1309,7 @@ function ot(e) {
 }
 function lt(e) {
 	const { details: t } = e;
-	const r = (0, g.Qn)();
+	const r = Qn();
 	const [a, s] = n.useState(T.I.GetVerifyAppAction(t.unAppID));
 	h = a;
 	const {
@@ -1312,7 +1317,7 @@ function lt(e) {
 		unProgress: u,
 		unFiles: d,
 		unAppID: p,
-	} = (0, i.q3)(() => ({
+	} = q3(() => ({
 		strTask: h ? h.m_strTask : "None",
 		unProgress: h ? h.m_numProgress : 0,
 		unFiles: h ? h.m_numFiles : 0,
@@ -1320,39 +1325,49 @@ function lt(e) {
 	}));
 	var h;
 	const C = R.fN.GetInstallFolder(t.iInstallFolder);
-	const _ = (0, k.Cj)(C);
+	const _ = Cj(C);
 	const b = o.tw.GetAppOverviewByAppID(t.unAppID);
 	const y =
 		b && b.app_type
-			? (function (e) {
+			? ((e) => {
 					switch (e) {
-						case 1:
+						case 1: {
 							return "game";
-						case 2:
+						}
+						case 2: {
 							return "software";
-						case 4:
+						}
+						case 4: {
 							return "tool";
-						case 8:
+						}
+						case 8: {
 							return "demo";
-						case 32:
+						}
+						case 32: {
 							return "dlc";
-						case 128:
+						}
+						case 128: {
 							return "driver";
-						case 256:
+						}
+						case 256: {
 							return "config";
-						case 2048:
+						}
+						case 2048: {
 							return "video";
-						case 8192:
+						}
+						case 8192: {
 							return "music";
-						case 65536:
+						}
+						case 65536: {
 							return "beta";
+						}
 					}
 					return "invalid";
 				})(b.app_type)
 			: "game";
 	const S =
 		p != 0 && p != t.unAppID
-			? "(" + o.tw.GetAppOverviewByAppID(p).display_name + ")"
+			? `(${o.tw.GetAppOverviewByAppID(p).display_name})`
 			: "";
 	return n.createElement(
 		l.nB,
@@ -1372,11 +1387,11 @@ function lt(e) {
 			n.createElement(
 				"div",
 				{
-					className: (0, c.A)(V.BlueHighlight, V.BrowseDiskSize),
+					className: A(V.BlueHighlight, V.BrowseDiskSize),
 				},
 				(0, Localize)(
 					"#AppProperties_LocalFilesSizeOnDrive",
-					(0, f.dm)(t.lDiskUsageBytes, 2),
+					dm(t.lDiskUsageBytes, 2),
 					_,
 				),
 			),
@@ -1384,7 +1399,7 @@ function lt(e) {
 				n.createElement(
 					l.$n,
 					{
-						className: (0, c.A)(V.SettingsDialogButton, V.BrowseDiskButton),
+						className: A(V.SettingsDialogButton, V.BrowseDiskButton),
 						onClick: () =>
 							SteamClient.System.OpenLocalDirectoryInSystemExplorer(
 								t.strInstallFolder,
@@ -1396,7 +1411,7 @@ function lt(e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, c.A)(V.SectionTopLine, V.NoPadding),
+				className: A(V.SectionTopLine, V.NoPadding),
 			},
 			!r &&
 				n.createElement(
@@ -1411,7 +1426,7 @@ function lt(e) {
 							n.createElement(
 								"div",
 								null,
-								(0, Localize)("#AppProperties_LocalFilesBackupLabel_" + y),
+								(0, Localize)(`#AppProperties_LocalFilesBackupLabel_${y}`),
 							),
 							!r &&
 								n.createElement(
@@ -1429,19 +1444,19 @@ function lt(e) {
 						),
 						bottomSeparator: "standard",
 						disabled: t.bIsThirdPartyUpdater,
-						onClick: (e) => (0, E.vq)([t.unAppID], GetOwningWindowForEvent(e)),
+						onClick: (e) => vq([t.unAppID], GetOwningWindowForEvent(e)),
 					},
-					(0, Localize)("#AppProperties_LocalFilesBackup_" + y),
+					(0, Localize)(`#AppProperties_LocalFilesBackup_${y}`),
 				),
 			t.bCanMoveInstallFolder &&
 				n.createElement(
 					l.xh,
 					{
 						className: V.SettingsDialogButton,
-						label: (0, Localize)("#AppProperties_LocalFilesMoveLabel_" + y),
+						label: (0, Localize)(`#AppProperties_LocalFilesMoveLabel_${y}`),
 						bottomSeparator: "standard",
 						disabled: t.bIsThirdPartyUpdater,
-						onClick: (e) => (0, I.P)([t.unAppID], GetOwningWindowForEvent(e)),
+						onClick: (e) => P_2([t.unAppID], GetOwningWindowForEvent(e)),
 					},
 					(0, Localize)("#AppProperties_LocalFilesMove"),
 				),
@@ -1458,7 +1473,7 @@ function lt(e) {
 							n.createElement(
 								"div",
 								null,
-								(0, Localize)("#AppProperties_LocalFilesVerifyLabel_" + y),
+								(0, Localize)(`#AppProperties_LocalFilesVerifyLabel_${y}`),
 							),
 							!r &&
 								n.createElement(
@@ -1476,11 +1491,11 @@ function lt(e) {
 						),
 						bottomSeparator: "standard",
 						disabled: t.bIsThirdPartyUpdater,
-						onClick: function () {
+						onClick() {
 							s(T.I.VerifyAppFiles(t.unAppID));
 						},
 					},
-					(0, Localize)("#AppProperties_LocalFilesVerify_" + y),
+					(0, Localize)(`#AppProperties_LocalFilesVerify_${y}`),
 				),
 		),
 		t.bIsThirdPartyUpdater &&
@@ -1502,7 +1517,7 @@ function lt(e) {
 						"div",
 						null,
 						" ",
-						(0, Localize)("#AppProperties_LocalFilesVerify_" + y),
+						(0, Localize)(`#AppProperties_LocalFilesVerify_${y}`),
 						" ",
 					),
 				m == "UpdatingAppInfo" &&
@@ -1556,7 +1571,7 @@ function lt(e) {
 }
 function ct(e) {
 	const { details: t } = e;
-	const r = (0, g.hf)();
+	const r = hf();
 	if (t.vecLanguages.length > 1 && g.TS.LAUNCHER_TYPE !== 7) {
 		const e = t.vecLanguages.map((e) => ({
 			label: mt(e.strShortName),
@@ -1585,11 +1600,11 @@ function mt(e) {
 }
 function ut(e) {
 	const { details: t } = e;
-	const r = (0, g.hf)();
+	const r = hf();
 	const [a, s] = n.useState("");
 	const [o, m] = n.useState(null);
-	const u = (0, i.q3)(() => t.vecBetas.find((e) => e.strName === o));
-	const d = (0, i.q3)(() => t.strSelectedBeta);
+	const u = q3(() => t.vecBetas.find((e) => e.strName === o));
+	const d = q3(() => t.strSelectedBeta);
 	const p = [
 		{
 			label: (0, Localize)("#AppProperties_Beta_SelectNoBeta"),
@@ -1599,6 +1614,7 @@ function ut(e) {
 			label: n.createElement(dt, {
 				beta: e,
 			}),
+
 			data: e.strName,
 		})),
 	];
@@ -1626,7 +1642,7 @@ function ut(e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, c.A)(V.TopGapLarge, V.BetaLabel),
+				className: A(V.TopGapLarge, V.BetaLabel),
 			},
 			(0, Localize)("#AppProperties_Beta_Private"),
 		),
@@ -1638,7 +1654,7 @@ function ut(e) {
 		n.createElement(
 			F.Z,
 			{
-				className: (0, c.A)(V.BetaAccessCodeRow, V.TopGapSmall),
+				className: A(V.BetaAccessCodeRow, V.TopGapSmall),
 				"flow-children": "row",
 			},
 			n.createElement(l.pd, {
@@ -1659,7 +1675,7 @@ function ut(e) {
 			n.createElement(
 				l.$n,
 				{
-					className: (0, c.A)(V.SettingsDialogButton, V.CheckButton),
+					className: A(V.SettingsDialogButton, V.CheckButton),
 					onClick: () => pt(t.unAppID, a, m),
 				},
 				(0, Localize)("#AppProperties_Beta_CheckCode"),
@@ -1688,7 +1704,7 @@ function ut(e) {
 					n.createElement(
 						l.$n,
 						{
-							className: (0, c.A)(
+							className: A(
 								V.SettingsDialogButton,
 								"Primary",
 								V.BetaOptIntoButton,
@@ -1723,7 +1739,7 @@ function dt(e) {
 function At(e) {
 	const { beta: t } = e;
 	let r;
-	r = (0, p.ID)(g.TS.LAUNCHER_TYPE)
+	r = ID(g.TS.LAUNCHER_TYPE)
 		? t.strDescription
 		: t.strName && t.strDescription
 			? `${t.strName} - ${t.strDescription}`
@@ -1738,13 +1754,13 @@ function pt(e, t, r) {
 }
 function gt(e) {
 	const { details: t } = e;
-	const [r] = (0, m.VI)("controller_generic_support");
-	const [a] = (0, m.VI)("controller_xbox_support");
-	const [s] = (0, m.VI)("controller_ps_support");
-	const [u] = (0, m.VI)("controller_switch_support");
+	const [r] = VI("controller_generic_support");
+	const [a] = VI("controller_xbox_support");
+	const [s] = VI("controller_ps_support");
+	const [u] = VI("controller_switch_support");
 	const d = o.tw.GetAppOverviewByAppID(e.details.unAppID);
-	let p = (0, i.q3)(() => t.eEnableThirdPartyControllerConfiguration);
-	let h = (0, i.q3)(() => {
+	let p = q3(() => t.eEnableThirdPartyControllerConfiguration);
+	let h = q3(() => {
 		let e = r ? 4 : 0;
 		e += a ? 2 : 0;
 		if (
@@ -1756,10 +1772,10 @@ function gt(e) {
 		e += u ? 8 : 0;
 		return e;
 	});
-	const C = (0, g.hf)();
-	const _ = (0, g.Qn)();
-	(0, x.br)();
-	const f = (0, H.tk)();
+	const C = hf();
+	const _ = Qn();
+	br_2();
+	const f = tk();
 	const y = [
 		{
 			data: 0,
@@ -1826,14 +1842,14 @@ function gt(e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, c.A)(V.TopGap, V.SteamInputStatus),
+				className: A(V.TopGap, V.SteamInputStatus),
 			},
 			(0, Localize)("#AppProperties_SteamInputStatus"),
 		),
 		n.createElement(
 			"div",
 			{
-				className: (0, c.A)(V.TopGapSmall, V.SteamInputStatusGrid),
+				className: A(V.TopGapSmall, V.SteamInputStatusGrid),
 			},
 			ht.map((e) =>
 				n.createElement(
@@ -1879,30 +1895,35 @@ function Ct(e) {
 	const i =
 		r.filter(
 			(e) =>
-				(function (e) {
+				((e) => {
 					switch (e) {
 						case 31:
 						case 32:
-						case 46:
+						case 46: {
 							return "Xbox";
+						}
 						case 33:
 						case 34:
 						case 45:
-						case 48:
+						case 48: {
 							return "PlayStation";
+						}
 						case 39:
 						case 40:
 						case 41:
 						case 38:
-						case 42:
+						case 42: {
 							return "NintendoSwitch";
+						}
 						case 2:
 						case 3:
 						case 4:
-						case 49:
+						case 49: {
 							return "Steam";
-						default:
+						}
+						default: {
 							return "Generic";
+						}
 					}
 				})(e.eControllerType) === t,
 		).length > 0;
@@ -1913,7 +1934,7 @@ function Ct(e) {
 			title: i ? (0, Localize)("#AppProperties_SteamInput_Connected") : null,
 		},
 		n.createElement("div", {
-			className: (0, c.A)({
+			className: A({
 				[V.ControllerPip]: true,
 				[V.ControllerConnected]: i,
 			}),
@@ -1984,10 +2005,10 @@ function ft(e) {
 			const t = r.toLocaleLowerCase();
 			e = e.filter((e) => e.strName.toLocaleLowerCase().includes(t));
 		}
-		(function (e, t, r) {
+		((e, t, r) => {
 			if (t === "install") {
 				e.sort(
-					(function (e) {
+					((e) => {
 						let t = Dt(true);
 						let r = e ? 1 : -1;
 						return (e, n) =>
@@ -1998,21 +2019,21 @@ function ft(e) {
 				e.sort(Dt(r));
 			} else if (t === "size") {
 				e.sort(
-					(function (e) {
+					((e) => {
 						let t = e ? 1 : -1;
 						return (e, r) => t * (r.lDiskUsageBytes - e.lDiskUsageBytes);
 					})(r),
 				);
 			} else if (t === "state") {
 				e.sort(
-					(function (e) {
+					((e) => {
 						let t = e ? 1 : -1;
-						return (e, r) => t * (0, C.lY)(e.strState, r.strState);
+						return (e, r) => t * lY(e.strState, r.strState);
 					})(r),
 				);
 			} else {
 				e.sort(
-					(function (e) {
+					((e) => {
 						let t = Dt(true);
 						let r = e ? 1 : -1;
 						return (e, n) =>
@@ -2051,7 +2072,7 @@ function ft(e) {
 				n.createElement(
 					"div",
 					{
-						className: (0, c.A)(V.Name, p && V.HideImages),
+						className: A(V.Name, p && V.HideImages),
 					},
 					!p &&
 						n.createElement(h.lx, {
@@ -2084,15 +2105,15 @@ function ft(e) {
 					S.he,
 					{
 						toolTipContent: (0, Localize)(
-							"#AppProperties_Dlc_State_" + e.strState,
+							`#AppProperties_Dlc_State_${e.strState}`,
 						),
 					},
-					e.lDiskUsageBytes ? (0, f.dm)(e.lDiskUsageBytes, 2) : "",
+					e.lDiskUsageBytes ? dm(e.lDiskUsageBytes, 2) : "",
 				),
 			),
 		),
 	);
-	const _ = (0, M.bG)("StoreDlcPage", t.unAppID);
+	const _ = bG("StoreDlcPage", t.unAppID);
 	return n.createElement(
 		l.nB,
 		{
@@ -2106,7 +2127,7 @@ function ft(e) {
 			n.createElement(
 				l.$n,
 				{
-					className: (0, c.A)(V.SettingsDialogButton, V.ViewMore),
+					className: A(V.SettingsDialogButton, V.ViewMore),
 					onClick: _,
 				},
 				(0, Localize)("#AppProperties_Dlc_ViewInStore"),
@@ -2251,7 +2272,7 @@ function yt(e) {
 }
 function St(e) {
 	const { appid: t, game_branch: r } = e;
-	const i = (0, u.DJ)(t, r);
+	const i = DJ(t, r);
 	const [a, s] = n.useState();
 	n.useEffect(() => {
 		if (i.isSuccess && i?.data) {
@@ -2263,17 +2284,17 @@ function St(e) {
 			);
 		}
 	}, [i]);
-	const o = (function (e) {
+	const o = ((e) => {
 		const t = b.oy.WindowStore.MainWindowInstance;
-		const r = (0, Ie.Wk)();
+		const r = Wk();
 		const i = e?.appid;
 		const a = e?.GID;
 		const s = e?.clanSteamID;
-		const o = (0, g.Qn)();
+		const o = Qn();
 		return n.useCallback(
 			(e) => {
 				if (i || a) {
-					const e = (0, M.KV)(i, a, s, {
+					const e = KV(i, a, s, {
 						require_tags: ["patchnotes", ...r],
 					});
 					if (o) {
@@ -2316,10 +2337,7 @@ function wt(e) {
 	return n.createElement(
 		"div",
 		{
-			className: (0, c.A)(
-				V.WorkshopItemAuthorSnapshot,
-				i && V.UsedAuthorSnapshot,
-			),
+			className: A(V.WorkshopItemAuthorSnapshot, i && V.UsedAuthorSnapshot),
 		},
 		r.game_branch_min?.length != 0 &&
 			n.createElement(St, {
@@ -2361,7 +2379,7 @@ function Bt(e) {
 			n.createElement(
 				"div",
 				{
-					className: (0, c.A)(
+					className: A(
 						V.WorkshopItemAuthorSnapshot,
 						r.details.manifestid == r.manifestid && V.UsedAuthorSnapshot,
 					),
@@ -2379,30 +2397,32 @@ function Bt(e) {
 function vt(e) {
 	const { item: t, sortBy: r } = e;
 	switch (r) {
-		case "subscribed":
+		case "subscribed": {
 			return n.createElement(
 				"div",
 				{
 					className: V.SortedColumn,
 				},
-				LocalizeRtime32ToShortDate(t.time_subscribed) +
-					" @ " +
-					LocalizeRTimeToHourAndMinutes(t.time_subscribed, {
-						bForce24HourClock: false,
-					}),
+				`${LocalizeRtime32ToShortDate(
+					t.time_subscribed,
+				)} @ ${LocalizeRTimeToHourAndMinutes(t.time_subscribed, {
+					bForce24HourClock: false,
+				})}`,
 			);
-		case "updated":
+		}
+		case "updated": {
 			return n.createElement(
 				"div",
 				{
 					className: V.SortedColumn,
 				},
-				LocalizeRtime32ToShortDate(t.time_updated) +
-					" @ " +
-					LocalizeRTimeToHourAndMinutes(t.time_updated, {
-						bForce24HourClock: false,
-					}),
+				`${LocalizeRtime32ToShortDate(
+					t.time_updated,
+				)} @ ${LocalizeRTimeToHourAndMinutes(t.time_updated, {
+					bForce24HourClock: false,
+				})}`,
 			);
+		}
 	}
 	let i = t.file_size ?? t.details?.file_size;
 	return n.createElement(
@@ -2411,7 +2431,7 @@ function vt(e) {
 			className: V.SortedColumn,
 		},
 		" ",
-		i ? (0, f.dm)(Number(i), 2) : "",
+		i ? dm(Number(i), 2) : "",
 	);
 }
 function It(e) {
@@ -2425,7 +2445,7 @@ function It(e) {
 		snapshot: m,
 		style: d,
 	} = e;
-	const p = (0, le.gQ)({
+	const p = gQ({
 		...o.draggableProps.style,
 		...d,
 	});
@@ -2438,7 +2458,7 @@ function It(e) {
 	return n.createElement(
 		F.Z,
 		{
-			className: (0, c.A)(
+			className: A(
 				V.WorkshopItemRow,
 				m.isDragging && V.IsDragging,
 				i && V.CanChangeLoadOrder,
@@ -2467,7 +2487,7 @@ function It(e) {
 						(0, Localize)("#AppProperties_Workshop_LoadOrder_MoveToBottom"),
 					),
 				);
-				(0, he.lX)(t, e);
+				lX(t, e);
 			},
 		},
 		n.createElement(
@@ -2502,7 +2522,7 @@ function It(e) {
 			{
 				className: V.LoadOrder,
 			},
-			r.load_order + 1 + ".",
+			`${r.load_order + 1}.`,
 		),
 		n.createElement(
 			"a",
@@ -2518,7 +2538,7 @@ function It(e) {
 					n.createElement(
 						S.he,
 						{
-							toolTipContent: r.details?.short_description + "...",
+							toolTipContent: `${r.details?.short_description}...`,
 						},
 						n.createElement("img", {
 							className: V.PreviewArt,
@@ -2538,7 +2558,7 @@ function It(e) {
 						n.createElement(
 							S.he,
 							{
-								toolTipContent: r.details?.short_description + "...",
+								toolTipContent: `${r.details?.short_description}...`,
 							},
 							r.details?.title,
 						),
@@ -2586,11 +2606,11 @@ function It(e) {
 		),
 	);
 }
-var Et;
+let Et;
 function Mt(e) {
 	const { appid: t, items: r, closeModal: i } = e;
-	const [a, s] = (0, n.useState)(Et.kInitial);
-	const [o, c] = (0, n.useState)(2);
+	const [a, s] = useState(Et.kInitial);
+	const [o, c] = useState(2);
 	const m = [
 		{
 			data: 2,
@@ -2613,7 +2633,7 @@ function Mt(e) {
 			label: n.createElement("div", null, (0, Localize)("#Privacy_Public")),
 		},
 	];
-	const d = (0, u.EH)(t);
+	const d = EH_2(t);
 	let p = null;
 	const g = (e) => e.length > 0 && e.length <= 255;
 	const h = async (e) => {
@@ -2630,7 +2650,7 @@ function Mt(e) {
 		}
 	};
 	switch (a) {
-		case Et.kInitial:
+		case Et.kInitial: {
 			p = n.createElement(_e.o0, {
 				strTitle: (0, Localize)("#Workshop_Subscriptions_SaveToCollection"),
 				strDescription: (0, Localize)(
@@ -2647,7 +2667,8 @@ function Mt(e) {
 				onCancel: i,
 			});
 			break;
-		case Et.kNewCollection:
+		}
+		case Et.kNewCollection: {
 			p = n.createElement(
 				fe.Qj,
 				{
@@ -2671,7 +2692,8 @@ function Mt(e) {
 				}),
 			);
 			break;
-		case Et.kExistingCollection:
+		}
+		case Et.kExistingCollection: {
 			p = n.createElement(
 				_e.eV,
 				{
@@ -2705,7 +2727,7 @@ function Mt(e) {
 							S.he,
 							{
 								key: e.publishedfileid,
-								toolTipContent: e.short_description + "...",
+								toolTipContent: `${e.short_description}...`,
 							},
 							n.createElement(
 								F.Z,
@@ -2745,7 +2767,8 @@ function Mt(e) {
 				),
 			);
 			break;
-		case Et.kError:
+		}
+		case Et.kError: {
 			p = n.createElement(_e.KG, {
 				strTitle: (0, Localize)("#Workshop_Subscriptions_SaveToCollection"),
 				strDescription: (0, Localize)(
@@ -2754,6 +2777,7 @@ function Mt(e) {
 				onCancel: i,
 				closeModal: i,
 			});
+		}
 	}
 	return n.createElement(
 		_e.EN,
@@ -2765,9 +2789,9 @@ function Mt(e) {
 }
 function Tt(e) {
 	const { appid: t, closeModal: r } = e;
-	const { ownerWindow: i } = (0, se.R7)();
-	const a = (0, u.EH)(t);
-	const s = (0, x.br)();
+	const { ownerWindow: i } = R7();
+	const a = EH_2(t);
+	const s = br_2();
 	const o = async (e, n) => {
 		await u.B6.SetSubscriptionsFromCollection(t, e, n);
 		r();
@@ -2906,15 +2930,15 @@ function Tt(e) {
 		),
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.kInitial = 0)] = "kInitial";
 	e[(e.kNewCollection = 1)] = "kNewCollection";
 	e[(e.kExistingCollection = 2)] = "kExistingCollection";
 	e[(e.kError = 3)] = "kError";
 })((Et ||= {}));
-const Rt = (0, a.PA)((e) => {
+const Rt = PA((e) => {
 	const { details: t } = e;
-	const r = (0, se.R7)();
+	const r = R7();
 	let i = u.B6.GetSubscribedItems(t.unAppID);
 	let a = i?.filter((e) => e.details?.file_type != 15);
 	const [s, o] = n.useState("");
@@ -2973,10 +2997,13 @@ const Rt = (0, a.PA)((e) => {
 				return false;
 			});
 		}
-		(function (e, t) {
+		((e, t) => {
 			let r = true;
 			if (
 				t === "loadorder" ||
+				t == "enabled" ||
+				t == "enabled" ||
+				t == "disabled" ||
 				t == "enabled" ||
 				t == "disabled" ||
 				t == "missing_dependencies"
@@ -2987,7 +3014,7 @@ const Rt = (0, a.PA)((e) => {
 					let n = r ? 1 : -1;
 					let i = e.details?.title ?? e.publishedfileid;
 					let a = t.details?.title ?? t.publishedfileid;
-					return n * (0, C.lY)(i, a);
+					return n * lY(i, a);
 				});
 			} else if (t === "subscribed") {
 				r = false;
@@ -3006,14 +3033,14 @@ const Rt = (0, a.PA)((e) => {
 							parseFloat(t.file_size ?? t.details?.file_size)),
 				);
 			} else {
-				(0, ce.w)(false, "Unknown WorkshopSortBy: ", t);
+				w_2(false, "Unknown WorkshopSortBy: ", t);
 			}
 		})(e, m);
 		return e;
 	}, [a, m, s]);
-	const f = (0, g.Qn)();
+	const f = Qn();
 	const b = s.length == 0 && m == "loadorder" && !f;
-	const y = (0, M.bG)("SteamWorkshopPage", t.unAppID);
+	const y = bG("SteamWorkshopPage", t.unAppID);
 	const S = n.useCallback(
 		(e, r) => {
 			if (e.destination) {
@@ -3035,8 +3062,8 @@ const Rt = (0, a.PA)((e) => {
 			SteamClient.Apps.SetWorkshopItemsDisabledLocally(t.unAppID, r, !e);
 		}
 	};
-	const [v, I, E] = (0, Ce.uD)();
-	const [T, R, k] = (0, Ce.uD)();
+	const [v, I, E] = uD();
+	const [T, R, k] = uD();
 	const D = [
 		{
 			data: "loadorder",
@@ -3080,7 +3107,7 @@ const Rt = (0, a.PA)((e) => {
 		},
 	];
 	const N = n.useRef(undefined);
-	const G = (0, pe.Te)({
+	const G = Te_2({
 		count: _.length,
 		getScrollElement: () => N.current,
 		getItemKey: n.useCallback((e) => _[e].publishedfileid, [_]),
@@ -3140,7 +3167,7 @@ const Rt = (0, a.PA)((e) => {
 			n.createElement(
 				l.$n,
 				{
-					className: (0, c.A)(V.SettingsDialogButton, V.ViewMore),
+					className: A(V.SettingsDialogButton, V.ViewMore),
 					onClick: y,
 				},
 				LocalizeReact("#AppProperties_Workshop_Visit", t.strDisplayName),
@@ -3198,7 +3225,7 @@ const Rt = (0, a.PA)((e) => {
 					n.createElement(
 						l.$n,
 						{
-							className: (0, c.A)(V.SettingsDialogButton, V.EnableAllBtn),
+							className: A(V.SettingsDialogButton, V.EnableAllBtn),
 							onClick: () => B(true),
 						},
 						(0, Localize)("#AppProperties_Workshop_EnableAll"),
@@ -3206,7 +3233,7 @@ const Rt = (0, a.PA)((e) => {
 					n.createElement(
 						l.$n,
 						{
-							className: (0, c.A)(V.SettingsDialogButton, V.DisableAllBtn),
+							className: A(V.SettingsDialogButton, V.DisableAllBtn),
 							onClick: () => B(false),
 						},
 						(0, Localize)("#AppProperties_Workshop_DisableAll"),
@@ -3223,7 +3250,7 @@ const Rt = (0, a.PA)((e) => {
 					n.createElement(
 						l.$n,
 						{
-							className: (0, c.A)(V.SettingsDialogButton, V.SaveCollectionBtn),
+							className: A(V.SettingsDialogButton, V.SaveCollectionBtn),
 							onClick: I,
 						},
 						(0, Localize)("#AppProperties_Workshop_SaveFilteredToCollection"),
@@ -3231,7 +3258,7 @@ const Rt = (0, a.PA)((e) => {
 					n.createElement(
 						l.$n,
 						{
-							className: (0, c.A)(V.SettingsDialogButton, V.ShowCollectionsBtn),
+							className: A(V.SettingsDialogButton, V.ShowCollectionsBtn),
 							onClick: R,
 						},
 						(0, Localize)("#AppProperties_Workshop_ShowCollectionPresets"),
@@ -3307,7 +3334,7 @@ const Rt = (0, a.PA)((e) => {
 						n.createElement(
 							F.Z,
 							{
-								className: (0, c.A)(
+								className: A(
 									V.WorkshopItemRowsScroll,
 									t.isDraggingOver && V.IsDraggingOver,
 								),
@@ -3359,14 +3386,14 @@ function kt(e) {
 }
 function Dt(e) {
 	let t = e ? 1 : -1;
-	return (e, r) => t * (0, C.lY)(e.strName, r.strName);
+	return (e, r) => t * lY(e.strName, r.strName);
 }
-const Nt = (0, a.PA)((e) => {
+const Nt = PA((e) => {
 	const { appId: t } = e;
-	const r = (0, g.Qn)();
+	const r = Qn();
 	const i = o.tw.GetAppOverviewByAppID(t);
 	const a = d.H.GetAppDetails(t);
-	const [s] = (0, m.VI)("enable_overlay");
+	const [s] = VI("enable_overlay");
 	const u =
 		a.strShortcutStartDir && a.strShortcutStartDir[0] == '"'
 			? a.strShortcutStartDir.slice(1, -1)
@@ -3390,7 +3417,7 @@ const Nt = (0, a.PA)((e) => {
 								rFilePatterns: ["*.tga", "*.png"],
 							},
 						];
-						if ((0, g.td)()) {
+						if (td()) {
 							e.push({
 								strFileTypeName: "Executables (*.exe)",
 								rFilePatterns: ["*.exe"],
@@ -3433,9 +3460,9 @@ const Nt = (0, a.PA)((e) => {
 			n.createElement(
 				l.$n,
 				{
-					className: (0, c.A)(V.SettingsDialogButton, V.ShortcutChange),
+					className: A(V.SettingsDialogButton, V.ShortcutChange),
 					onClick: () => {
-						(0, U.V)(a.strShortcutStartDir).then((e) => {
+						V_2(a.strShortcutStartDir).then((e) => {
 							if (e) {
 								SteamClient.Apps.SetShortcutExe(t, e);
 							}
@@ -3457,7 +3484,7 @@ const Nt = (0, a.PA)((e) => {
 			n.createElement(
 				l.$n,
 				{
-					className: (0, c.A)(V.SettingsDialogButton, V.ShortcutChange),
+					className: A(V.SettingsDialogButton, V.ShortcutChange),
 					onClick: () => {
 						SteamClient.System.OpenFileDialog({
 							strTitle: (0, Localize)(
@@ -3505,7 +3532,7 @@ const Nt = (0, a.PA)((e) => {
 		}),
 	);
 });
-const Ft = (0, a.PA)((e) => {
+const Ft = PA((e) => {
 	const { appId: t } = e;
 	const r = o.tw.GetAppOverviewByAppID(t);
 	let i = O.yX.GetDeckCompatibilityFeedback(t);
@@ -3578,10 +3605,7 @@ function Gt(e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, c.A)(
-					V.AsyncBackedInputChildren,
-					!!e.title && V.TopGameSmall,
-				),
+				className: A(V.AsyncBackedInputChildren, !!e.title && V.TopGameSmall),
 			},
 			n.createElement(l.pd, {
 				spellCheck: e.spellCheck,
@@ -3600,7 +3624,7 @@ function Gt(e) {
 function Ot(e) {
 	const { checked: t, onChange: r, className: i, disabled: a, label: s } = e;
 	return n.createElement(l.Yh, {
-		className: (0, c.A)(V.Checkbox, i, a && V.Disabled),
+		className: A(V.Checkbox, i, a && V.Disabled),
 		label: s,
 		checked: t,
 		onChange: r,

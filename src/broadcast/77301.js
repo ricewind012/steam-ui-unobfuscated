@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	StoreSaleWidgetContainer_mini: "nacWp0zfiXg_UWQW639_1",
 	Action: "_2Xpw9--lhL-kpt-lUannE1",
 	WishList: "_3mTSEg2yzb9H5zdRPv3SAA",

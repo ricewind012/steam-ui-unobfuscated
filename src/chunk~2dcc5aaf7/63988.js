@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PasswordPromptContent: "_2JbBHwUJYSUuVthPERnxnt",
 	DialogError: "_20iwB2p0XfnlY8n0rN6deA",

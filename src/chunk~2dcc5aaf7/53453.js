@@ -1,8 +1,8 @@
-var _n = require(/*webcrack:missing*/ "./83599.js");
-var i = require("./22091.js");
+import _n from "./83599.js";
+import i from "./22091.js";
 const a = new _n.wd("Haptics");
-export var n;
-(function (e) {
+export let n;
+((e) => {
 	e[(e.Tick = 1)] = "Tick";
 	e[(e.Click = 2)] = "Click";
 })((n ||= {}));

@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./10606.js");
-var a = require("./6472.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require(/*webcrack:missing*/ "./26853.js");
+import n, { useState } from "./63696.js";
+import i from "./10606.js";
+import a from "./6472.js";
+import o from "./26853.js";
 export function vs() {
-	const [e, t] = (0, n.useState)(false);
-	const [r, i] = (0, n.useState)(false);
-	const [a, s] = (0, n.useState)(false);
-	const [o, l] = (0, n.useState)(null);
-	const [c, m] = (0, n.useState)(null);
-	const [u, d] = (0, n.useState)(null);
-	const [A, p] = (0, n.useState)(null);
-	const [g, h] = (0, n.useState)(null);
+	const [e, setE] = useState(false);
+	const [r, setR] = useState(false);
+	const [a, setA] = useState(false);
+	const [o, setO] = useState(null);
+	const [c, setC] = useState(null);
+	const [u, setU] = useState(null);
+	const [A, setA_1] = useState(null);
+	const [g, setG] = useState(null);
 	return {
 		bLoading: e,
 		bError: r,
@@ -21,72 +21,76 @@ export function vs() {
 		elSuccess: A,
 		elError: u,
 		strThrobber: g,
-		fnSetLoading: t,
-		fnSetError: i,
-		fnSetSuccess: s,
-		fnSetStrError: l,
-		fnSetStrSuccess: m,
-		fnSetElSuccess: p,
-		fnSetElError: d,
-		fnSetThrobber: h,
+		fnSetLoading: setE,
+		fnSetError: setR,
+		fnSetSuccess: setA,
+		fnSetStrError: setO,
+		fnSetStrSuccess: setC,
+		fnSetElSuccess: setA_1,
+		fnSetElError: setU,
+		fnSetThrobber: setG,
 	};
 }
 export function Hh(e) {
-	const { strDialogTitle: t, state: r, closeModal: l, strThrobber: c } = e;
+	const { strDialogTitle, state, closeModal, strThrobber } = e;
 	const {
-		bLoading: m,
-		bError: u,
-		bSuccess: d,
-		strError: A,
-		strSuccess: p,
-		elSuccess: g,
-		elError: h,
-		strThrobber: C,
-	} = r;
-	if (u || A || h) {
-		return n.createElement(
-			i.o0,
-			{
-				strTitle: t,
-				bAlertDialog: true,
-				closeModal: l,
-				className: a.SucessErrorDialog,
-			},
-			Boolean(A) &&
-				n.createElement(
-					"div",
-					{
-						className: a.ErrorStylesWithIcon,
-					},
-					A || (0, Localize)("#Error_ErrorCommunicatingWithNetwork"),
-				),
-			Boolean(h) && h,
+		bLoading,
+		bError,
+		bSuccess,
+		strError,
+		strSuccess,
+		elSuccess,
+		elError,
+		strThrobber: strThrobber_1,
+	} = state;
+	if (bError || strError || strError || elError) {
+		return (
+			<i.o0
+				strTitle={strDialogTitle}
+				bAlertDialog
+				closeModal={closeModal}
+				className={a.SucessErrorDialog}
+			>
+				{Boolean(strError) && (
+					<div className={a.ErrorStylesWithIcon}>
+						{strError || (0, Localize)("#Error_ErrorCommunicatingWithNetwork")}
+					</div>
+				)}
+				{Boolean(elError) && elError}
+			</i.o0>
 		);
-	} else if (d || p || g) {
-		return n.createElement(
-			i.o0,
-			{
-				strTitle: t,
-				strDescription: p || (0, Localize)("#EventDisplay_Share_Success"),
-				bAlertDialog: true,
-				closeModal: l,
-				className: a.SucessErrorDialog,
-			},
-			n.createElement(n.Fragment, null, Boolean(g) && g),
+	} else if (bSuccess || strSuccess || strSuccess || elSuccess) {
+		return (
+			<i.o0
+				strTitle={strDialogTitle}
+				strDescription={
+					strSuccess || (0, Localize)("#EventDisplay_Share_Success")
+				}
+				bAlertDialog
+				closeModal={closeModal}
+				className={a.SucessErrorDialog}
+			>
+				<>{Boolean(elSuccess) && elSuccess}</>
+			</i.o0>
 		);
 	} else {
-		return n.createElement(
-			i.o0,
-			{
-				strTitle: t,
-				className: a.SucessErrorDialog,
-				closeModal: () => {},
-			},
-			n.createElement(o.t, {
-				string: c || C || (0, Localize)("#Loading"),
-				size: "medium",
-				position: "center",
-			}),
+		return (
+			<i.o0
+				strTitle={strDialogTitle}
+				className={a.SucessErrorDialog}
+				closeModal={() => {}}
+			>
+				<o.t
+					string={
+						strThrobber ||
+						strThrobber_1 ||
+						strThrobber_1 ||
+						(0, Localize)("#Loading")
+					}
+					size="medium"
+					position="center"
+				/>
+			</i.o0>
 		);
 	}
 }

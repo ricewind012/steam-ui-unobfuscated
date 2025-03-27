@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	JumpList: "tA5aHBrK38WOD1PAOJRUv",
 	JumpListRecentGameText: "ffh02JOzw97t8_oUDyi7T",
 	JumpListItemText: "_16CT94A4Q1AY8cbj1rtngA",

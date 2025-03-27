@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	General: "_38sRYifM5bHCBBAIeuABUx",
 	Avatar: "_2TJPfQdxYFN81vJw-YW9ok",
 	AvatarAndUser: "_3-e9k12ttwoC0nGNdXyJeV",

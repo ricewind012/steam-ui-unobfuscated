@@ -1,3 +1,16 @@
+import n from "./41480.js";
+import "./36437.js";
+import i from "./84252.js";
+import a from "./55116.js";
+import s from "./69164.js";
+import o from "./63696.js";
+import l, { Qn } from "./72476.js";
+import c from "./55993.js";
+import u from "./12774.js";
+import d from "./35376.js";
+import A from "./3673.js";
+import p from "./46701.js";
+import g from "./94790.js";
 export let Ju = A.Ju;
 export let BR = A.BR;
 export let EN = g.E;
@@ -14,51 +27,34 @@ export let o0 = u.o0;
 export let hM = n.hM;
 export let mt = n.mt;
 export let _Z = u._Z;
-var n = require("./41480.js");
-require(/*webcrack:missing*/ "./36437.js");
-var i = require(/*webcrack:missing*/ "./84252.js");
-var a = require("./55116.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require(/*webcrack:missing*/ "./55993.js");
 export function Qs(e) {
-	const { children: t, navID: r, closeModal: n } = e;
+	const { children, navID, closeModal } = e;
 	const m = o.createRef();
 	const u = (e) => {
 		e.stopPropagation();
 		e.preventDefault();
 		return true;
 	};
-	if ((0, l.Qn)() && !l.TS.IN_STEAMUI) {
-		return o.createElement(
-			i.B2,
-			{
-				navID: r,
-				navTreeRef: m,
-				onCancelButton: n,
-				className: c.GamepadOnlyModalWrapper,
-			},
-			o.createElement(
-				a.q,
-				null,
-				o.createElement(
-					s.Z,
-					{
-						className: c.GamepadOnlyPanelWrapper,
-						onGamepadDirection: u,
-						focusableIfNoChildren: true,
-					},
-					t,
-				),
-			),
+	if (Qn() && !l.TS.IN_STEAMUI) {
+		return (
+			<i.B2
+				navID={navID}
+				navTreeRef={m}
+				onCancelButton={closeModal}
+				className={c.GamepadOnlyModalWrapper}
+			>
+				<a.q>
+					<s.Z
+						className={c.GamepadOnlyPanelWrapper}
+						onGamepadDirection={u}
+						focusableIfNoChildren
+					>
+						{children}
+					</s.Z>
+				</a.q>
+			</i.B2>
 		);
 	} else {
-		return o.createElement(o.Fragment, null, t);
+		return <>{children}</>;
 	}
 }
-var u = require("./12774.js");
-var d = require("./35376.js");
-var A = require(/*webcrack:missing*/ "./3673.js");
-var p = require("./46701.js");
-var g = require("./94790.js");

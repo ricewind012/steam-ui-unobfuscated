@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DialogContainer: "_24vXJlAPvB3xAMn1D5WTgv",
 	DialogBody: "_1IQVrsAU8HHouq76rRhpXd",
 	Description: "NRmf9VZJFqsqGPzYTneLU",

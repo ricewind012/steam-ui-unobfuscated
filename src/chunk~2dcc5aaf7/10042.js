@@ -1,28 +1,51 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./64608.js");
-var a = require("./13869.js");
-var s = require("./10606.js");
-var o = require(/*webcrack:missing*/ "./26853.js");
-var l = require("./44234.js");
-var c = require("./3756.js");
-var m = require("./95773.js");
-var u = require("./52912.js");
-var d = require("./15855.js");
-var A = require(/*webcrack:missing*/ "./63696.js");
-var p = require(/*webcrack:missing*/ "./50376.js");
-var g = require(/*webcrack:missing*/ "./41230.js");
-var h = require("./96127.js");
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require("./98829.js");
-var f = require(/*webcrack:missing*/ "./52445.js");
-var b = require(/*webcrack:missing*/ "./97329.js");
-var y = require("./20475.js");
-var S = require("./6670.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var B = require(/*webcrack:missing*/ "./90765.js");
-var v = require(/*webcrack:missing*/ "./69164.js");
-var I = require(/*webcrack:missing*/ "./90242.js");
-var E = require("./55116.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./64608.js";
+import a, { pg } from "./13869.js";
+import s from "./10606.js";
+import o from "./26853.js";
+import l, { Qn } from "./44234.js";
+import c from "./3756.js";
+import m from "./95773.js";
+import u, { CO, _k } from "./52912.js";
+import d from "./15855.js";
+import A from "./63696.js";
+import p from "./50376.js";
+import g, { PA } from "./41230.js";
+import h from "./96127.js";
+import C from "./52451.js";
+import _ from "./98829.js";
+import f from "./52445.js";
+import b from "./97329.js";
+import y from "./20475.js";
+import S from "./6670.js";
+import B, { A as A_1 } from "./90765.js";
+import v from "./69164.js";
+import I from "./90242.js";
+import E from "./55116.js";
+import V from "./47036.js";
+import H from "./87949.js";
+import j from "./53414.js";
+import q from "./65726.js";
+import { q3 } from "./90095.js";
+import Z from "./23038.js";
+import Y from "./56654.js";
+import { w } from "./49455.js";
+import { OQ } from "./31958.js";
+import $ from "./1918.js";
+import ee, { nn } from "./92564.js";
+import te, { Nq } from "./14182.js";
+import re from "./39590.js";
+import { jv, E5 } from "./88620.js";
+import { hI } from "./43229.js";
+import { lV } from "./5222.js";
+import se from "./17385.js";
+import oe from "./58360.js";
+import ce from "./64587.js";
+import me from "./4690.js";
+import ue, { Qn } from "./72476.js";
+import de, { R7 } from "./11131.js";
 const M = (e) =>
 	l.TS.IN_CLIENT
 		? A.createElement(S.N, {
@@ -63,7 +86,7 @@ let T = class extends A.Component {
 		if (r && r.length) {
 			let t = this.GetMembersMatchingSearch(r);
 			if (t.length) {
-				t[0].OpenChatDialog((0, u.CO)(e));
+				t[0].OpenChatDialog(CO(e));
 			}
 		}
 		t.ClearMemberSearch();
@@ -115,9 +138,9 @@ let T = class extends A.Component {
 				A.createElement(
 					"div",
 					{
-						className:
-							"MemberListOption ToggleMemberListView" +
-							(r.length > 0 ? " SearchActive" : ""),
+						className: `MemberListOption ToggleMemberListView${
+							r.length > 0 ? " SearchActive" : ""
+						}`,
 						onClick: this.OnMemberListToggleViewClick,
 						title: i,
 					},
@@ -197,14 +220,14 @@ let T = class extends A.Component {
 		);
 	}
 };
-(0, n.Cg)([C.oI], T.prototype, "OnMemberListToggleViewClick", null);
-(0, n.Cg)([C.oI], T.prototype, "OnSearchInput", null);
-(0, n.Cg)([C.oI], T.prototype, "OnSearchSubmit", null);
-(0, n.Cg)([C.oI], T.prototype, "OnSearchKeyDown", null);
-(0, n.Cg)([C.oI], T.prototype, "OnClearSearch", null);
-(0, n.Cg)([C.oI], T.prototype, "OnSearchFocus", null);
-(0, n.Cg)([C.oI], T.prototype, "OnSearchBlur", null);
-T = (0, n.Cg)([g.PA], T);
+Cg([C.oI], T.prototype, "OnMemberListToggleViewClick", null);
+Cg([C.oI], T.prototype, "OnSearchInput", null);
+Cg([C.oI], T.prototype, "OnSearchSubmit", null);
+Cg([C.oI], T.prototype, "OnSearchKeyDown", null);
+Cg([C.oI], T.prototype, "OnClearSearch", null);
+Cg([C.oI], T.prototype, "OnSearchFocus", null);
+Cg([C.oI], T.prototype, "OnSearchBlur", null);
+T = Cg([g.PA], T);
 let R = class extends A.Component {
 	m_renderContext;
 	GetFriendRenderContext() {
@@ -232,7 +255,7 @@ let R = class extends A.Component {
 		if (r && r.length) {
 			let t = this.GetMembersMatchingSearch(r);
 			if (t.length) {
-				t[0].OpenChatDialog((0, u.CO)(e));
+				t[0].OpenChatDialog(CO(e));
 			}
 		}
 		t.ClearMemberSearch();
@@ -266,9 +289,10 @@ let R = class extends A.Component {
 		}
 		const n = (e) => ({
 			onActivate: (t) => {
-				e.OpenChatDialog((0, u.CO)(t));
+				e.OpenChatDialog(CO(t));
 				this.props.onAction();
 			},
+
 			onOKActionDescription: (0, Localize)("#Friend_Menu_SendMessage"),
 		});
 		return A.createElement(
@@ -378,13 +402,13 @@ function D(e) {
 		return 36;
 	}
 }
-(0, n.Cg)([C.oI], R.prototype, "OnSearchInput", null);
-(0, n.Cg)([C.oI], R.prototype, "OnSearchSubmit", null);
-(0, n.Cg)([C.oI], R.prototype, "OnSearchKeyDown", null);
-(0, n.Cg)([C.oI], R.prototype, "OnClearSearch", null);
-(0, n.Cg)([C.oI], R.prototype, "OnSearchFocus", null);
-(0, n.Cg)([C.oI], R.prototype, "OnSearchBlur", null);
-R = (0, n.Cg)([g.PA], R);
+Cg([C.oI], R.prototype, "OnSearchInput", null);
+Cg([C.oI], R.prototype, "OnSearchSubmit", null);
+Cg([C.oI], R.prototype, "OnSearchKeyDown", null);
+Cg([C.oI], R.prototype, "OnClearSearch", null);
+Cg([C.oI], R.prototype, "OnSearchFocus", null);
+Cg([C.oI], R.prototype, "OnSearchBlur", null);
+R = Cg([g.PA], R);
 let N = class extends A.Component {
 	render() {
 		const { groupView: e } = this.props;
@@ -404,7 +428,7 @@ let N = class extends A.Component {
 		);
 	}
 };
-N = (0, n.Cg)([g.PA], N);
+N = Cg([g.PA], N);
 let F = class extends A.Component {
 	static contextType = l.QO;
 	render() {
@@ -448,8 +472,8 @@ let F = class extends A.Component {
 			.SetViewExtents(e.visibleStartIndex, e.visibleStopIndex);
 	}
 };
-(0, n.Cg)([C.oI], F.prototype, "OnItemsRendered", null);
-F = (0, n.Cg)([g.PA], F);
+Cg([C.oI], F.prototype, "OnItemsRendered", null);
+F = Cg([g.PA], F);
 let G = class extends A.Component {
 	static contextType = l.QO;
 	render() {
@@ -485,7 +509,7 @@ let G = class extends A.Component {
 		);
 	}
 };
-G = (0, n.Cg)([g.PA], G);
+G = Cg([g.PA], G);
 class O extends A.Component {
 	render() {
 		const {
@@ -523,7 +547,7 @@ const P = ({
 	context: a,
 	fnGetPanelProps: s,
 }) => {
-	let o = (0, l.Qn)();
+	let o = Qn();
 	let c = s ? s(t) : {};
 	return A.createElement(
 		v.Z,
@@ -635,7 +659,7 @@ let z = class extends A.Component {
 		return A.createElement(
 			"div",
 			{
-				className: (0, B.A)(
+				className: A_1(
 					!c && "CompactFriendsList",
 					"chatRoomMembers",
 					"groupMemberList",
@@ -681,8 +705,8 @@ let z = class extends A.Component {
 		);
 	}
 };
-(0, n.Cg)([C.oI], z.prototype, "OnMemberListChanged", null);
-z = (0, n.Cg)([g.PA], z);
+Cg([C.oI], z.prototype, "OnMemberListChanged", null);
+z = Cg([g.PA], z);
 class x extends A.PureComponent {
 	render() {
 		const {
@@ -696,7 +720,7 @@ class x extends A.PureComponent {
 		return A.createElement(
 			"div",
 			{
-				className: (0, B.A)("groupName", e && "Collapsed"),
+				className: A_1("groupName", e && "Collapsed"),
 				onClick: () => t && r(),
 				style: n,
 			},
@@ -749,7 +773,7 @@ class x extends A.PureComponent {
 }
 let U = class extends A.Component {
 	OnFriendSelected(e, t) {
-		this.props.friend.OpenChatDialog((0, u.CO)(t));
+		this.props.friend.OpenChatDialog(CO(t));
 		this.props.groupView.ClearMemberSearch();
 	}
 	render() {
@@ -766,15 +790,18 @@ let U = class extends A.Component {
 		let c = s.GetMemberRank(e.accountid);
 		let m = e.efriendrelationship;
 		switch (c) {
-			default:
+			default: {
 				break;
-			case 30:
+			}
+			case 30: {
 				a = "Moderator";
 				break;
-			case 40:
+			}
+			case 40: {
 				a = "Officer";
 				break;
-			case 50:
+			}
+			case 50: {
 				a = "Owner";
 				if (!s.BIsClanChatRoom()) {
 					i.push(
@@ -782,13 +809,15 @@ let U = class extends A.Component {
 							"div",
 							{
 								key: "rankIcon",
-								className:
-									"rankIcon rankOwner" + (e.is_friend ? " isFriend" : ""),
+								className: `rankIcon rankOwner${
+									e.is_friend ? " isFriend" : ""
+								}`,
 							},
 							A.createElement(p.OeC, null),
 						),
 					);
 				}
+			}
 		}
 		if (s.BIsClanChatRoom()) {
 			if (c >= 40) {
@@ -800,9 +829,7 @@ let U = class extends A.Component {
 							className: "rankIcon rankOwner",
 						},
 						A.createElement("img", {
-							src:
-								l.TS.COMMUNITY_CDN_URL +
-								"public/images/skin_1/comment_modindicator_officer.png",
+							src: `${l.TS.COMMUNITY_CDN_URL}public/images/skin_1/comment_modindicator_officer.png`,
 						}),
 					),
 				);
@@ -815,9 +842,7 @@ let U = class extends A.Component {
 							className: "rankIcon rankOwner",
 						},
 						A.createElement("img", {
-							src:
-								l.TS.COMMUNITY_CDN_URL +
-								"public/images/skin_1/comment_modindicator_moderator.png",
+							src: `${l.TS.COMMUNITY_CDN_URL}public/images/skin_1/comment_modindicator_moderator.png`,
 						}),
 					),
 				);
@@ -825,7 +850,7 @@ let U = class extends A.Component {
 		}
 		switch (m) {
 			case 3:
-			case 6:
+			case 6: {
 				i.push(
 					A.createElement(
 						"div",
@@ -837,7 +862,8 @@ let U = class extends A.Component {
 					),
 				);
 				break;
-			case 2:
+			}
+			case 2: {
 				i.push(
 					A.createElement(
 						"div",
@@ -850,6 +876,7 @@ let U = class extends A.Component {
 						}),
 					),
 				);
+			}
 		}
 		if (s.GetMemberPartyBeacon(e.accountid)) {
 			i.push(
@@ -887,8 +914,8 @@ let U = class extends A.Component {
 		}
 	}
 };
-(0, n.Cg)([C.oI], U.prototype, "OnFriendSelected", null);
-U = (0, n.Cg)([g.PA], U);
+Cg([C.oI], U.prototype, "OnFriendSelected", null);
+U = Cg([g.PA], U);
 class W extends A.Component {
 	m_memoizedIndices = {};
 	m_ref = A.createRef();
@@ -1083,32 +1110,9 @@ class W extends A.Component {
 		}
 	}
 }
-(0, n.Cg)([C.oI], W.prototype, "ItemKey", null);
-(0, n.Cg)([C.oI], W.prototype, "CalculateItemHeight", null);
-var V = require("./47036.js");
-var H = require("./87949.js");
-var j = require("./53414.js");
-var q = require("./65726.js");
-var Q = require(/*webcrack:missing*/ "./90095.js");
-var Z = require(/*webcrack:missing*/ "./23038.js");
-var Y = require("./56654.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var X = require(/*webcrack:missing*/ "./49455.js");
-var J = require(/*webcrack:missing*/ "./31958.js");
-var $ = require("./1918.js");
-var ee = require("./92564.js");
-var te = require("./14182.js");
-var re = require("./39590.js");
-var ne = require("./88620.js");
-var ie = require("./43229.js");
-var ae = require("./5222.js");
-var se = require(/*webcrack:missing*/ "./17385.js");
-var oe = require("./58360.js");
-var le = oe;
-var ce = require("./64587.js");
-var me = require(/*webcrack:missing*/ "./4690.js");
-var ue = require(/*webcrack:missing*/ "./72476.js");
-var de = require(/*webcrack:missing*/ "./11131.js");
+Cg([C.oI], W.prototype, "ItemKey", null);
+Cg([C.oI], W.prototype, "CalculateItemHeight", null);
+const le = oe;
 const Ae = A.lazy(() => require.e(7653).then(require.bind(require, 53694)));
 const pe = 10000;
 const ge = 60000;
@@ -1133,7 +1137,7 @@ export let vY = class extends A.Component {
 		}
 	}
 	OnDragEnter(e, t) {
-		(0, X.w)(
+		w(
 			(e && e.type == "friend") || t,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDragEnter",
 		);
@@ -1161,7 +1165,7 @@ export let vY = class extends A.Component {
 		e.dataTransfer.dropEffect = "move";
 	}
 	OnDrop(e, t) {
-		(0, X.w)(
+		w(
 			(e && e.type == "friend") || t.dataTransfer.files.length != 0,
 			"Invalid data type passed to ChatRoomGroupDialog.OnDrop",
 		);
@@ -1177,13 +1181,13 @@ export let vY = class extends A.Component {
 				u.ZM.DragDropManager.SetDropConsumed();
 				let e = t.currentTarget.ownerDocument.defaultView;
 				if (r.sourceContext.group != this.props.groupView.GetGroup()) {
-					(0, ee.nn)(
+					nn(
 						{
 							invitee: r.friend,
 							chatview: null,
 							invitedto: this.props.groupView.GetGroup(),
 						},
-						(0, u.CO)(t),
+						CO(t),
 						e,
 					);
 				}
@@ -1303,7 +1307,7 @@ export let vY = class extends A.Component {
 			if (this.m_elMainContent) {
 				const { clientWidth: t, clientHeight: r } = this.m_elMainContent;
 				const i = (9 / 16) * t + 50;
-				const a = (0, J.OQ)(e, 1, (i / r) * 100);
+				const a = OQ(e, 1, (i / r) * 100);
 				n.height = `${a}%`;
 			}
 		} else {
@@ -1344,7 +1348,7 @@ export let vY = class extends A.Component {
 		const i = n ? t.top : t.left;
 		const a = n ? e.clientY : e.clientX;
 		const s = n ? r.height : r.width;
-		const o = (0, J.OQ)(((a - i) / s) * 100, 1, 100);
+		const o = OQ(((a - i) / s) * 100, 1, 100);
 		const l = n
 			? "nWatchPartyBroadcastHeightPercentage"
 			: "nWatchPartyBroadcastWidthPercentage";
@@ -1396,7 +1400,7 @@ export let vY = class extends A.Component {
 		if (m.xm.VoiceStore.IsVoiceActiveForGroup(t.GetGroupID())) {
 			m.xm.VoiceStore.OnUserEndVoiceChat();
 		} else if (r.BIsVoiceAllowed()) {
-			(0, a.pg)(
+			pg(
 				A.createElement(_1, {
 					groupView: e,
 				}),
@@ -1431,10 +1435,7 @@ export let vY = class extends A.Component {
 				A.createElement(
 					"div",
 					{
-						className: (0, B.A)(
-							"InnerChatTab",
-							!e.m_bShowGlobalChat && "Active",
-						),
+						className: A_1("InnerChatTab", !e.m_bShowGlobalChat && "Active"),
 						onClick: () => e.SetGlobalBroadcastChatShown(false),
 					},
 					A.createElement(q.RB, {
@@ -1458,10 +1459,7 @@ export let vY = class extends A.Component {
 					A.createElement(
 						"div",
 						{
-							className: (0, B.A)(
-								"InnerChatTab",
-								e.m_bShowGlobalChat && "Active",
-							),
+							className: A_1("InnerChatTab", e.m_bShowGlobalChat && "Active"),
 							onClick: () => e.SetGlobalBroadcastChatShown(true),
 						},
 						A.createElement(p.qzq, null),
@@ -1533,9 +1531,12 @@ export let vY = class extends A.Component {
 					A.createElement("div", {
 						key: "ChatPosToggle",
 						onClick: this.ToggleVerticalBroadcastChat,
-						title: `${C ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
-						className:
-							"BroadcastChatPositionToggle " + (C ? "right" : "bottom"),
+						title: `${
+							C
+								? (0, Localize)("#Broadcast_View_Stack_H")
+								: (0, Localize)("#Broadcast_View_Stack_V")
+						}`,
+						className: `BroadcastChatPositionToggle ${C ? "right" : "bottom"}`,
 					}),
 				],
 				style: r,
@@ -1548,8 +1549,7 @@ export let vY = class extends A.Component {
 				n,
 				!_ &&
 					A.createElement("div", {
-						className:
-							"BroadcastChatDivider " + (C ? "vertical" : "horizontal"),
+						className: `BroadcastChatDivider ${C ? "vertical" : "horizontal"}`,
 						onMouseDown: this.OnGrabberMouseDown,
 					}),
 				_ &&
@@ -1681,7 +1681,7 @@ export let vY = class extends A.Component {
 			});
 			k = A.createElement(A.Fragment, null, r);
 		}
-		let N = "chatStack " + (C ? "displayRow" : "displayColumn");
+		let N = `chatStack ${C ? "displayRow" : "displayColumn"}`;
 		if (c) {
 			N += " GlobalChatVisible";
 		}
@@ -1741,7 +1741,9 @@ export let vY = class extends A.Component {
 							A.createElement(
 								"div",
 								{
-									className: `ChatRoomGroup_Main_Content ${C ? "Vertical" : "Horizontal"} ${_ ? "chatHidden" : ""}`,
+									className: `ChatRoomGroup_Main_Content ${
+										C ? "Vertical" : "Horizontal"
+									} ${_ ? "chatHidden" : ""}`,
 								},
 								h,
 								(!t.m_bChatHidden || !t.isBroadcastShown) &&
@@ -1829,9 +1831,12 @@ export let vY = class extends A.Component {
 					A.createElement("div", {
 						key: "ChatPosToggle",
 						onClick: this.ToggleVerticalBroadcastChat,
-						title: `${C ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
-						className:
-							"BroadcastChatPositionToggle " + (C ? "right" : "bottom"),
+						title: `${
+							C
+								? (0, Localize)("#Broadcast_View_Stack_H")
+								: (0, Localize)("#Broadcast_View_Stack_V")
+						}`,
+						className: `BroadcastChatPositionToggle ${C ? "right" : "bottom"}`,
 					}),
 				],
 				style: r,
@@ -1844,8 +1849,7 @@ export let vY = class extends A.Component {
 				n,
 				!_ &&
 					A.createElement("div", {
-						className:
-							"BroadcastChatDivider " + (C ? "vertical" : "horizontal"),
+						className: `BroadcastChatDivider ${C ? "vertical" : "horizontal"}`,
 						onMouseDown: this.OnGrabberMouseDown,
 					}),
 				_ &&
@@ -1934,9 +1938,9 @@ export let vY = class extends A.Component {
 					A.createElement(
 						"div",
 						{
-							className:
-								"ChatRoomGroupDialog_history " +
-								(i.GetVoiceAllowed() ? "voiceRoom" : ""),
+							className: `ChatRoomGroupDialog_history ${
+								i.GetVoiceAllowed() ? "voiceRoom" : ""
+							}`,
 						},
 						m.xm.UIStore.show_winter_sale_ui &&
 							!m.xm.SettingsStore.FriendsSettings.bDisableRoomEffects &&
@@ -1973,7 +1977,7 @@ export let vY = class extends A.Component {
 			});
 			T = A.createElement(A.Fragment, null, r);
 		}
-		let k = "chatStack " + (C ? "displayRow" : "displayColumn");
+		let k = `chatStack ${C ? "displayRow" : "displayColumn"}`;
 		if (c) {
 			k += " GlobalChatVisible";
 		}
@@ -2042,7 +2046,9 @@ export let vY = class extends A.Component {
 								A.createElement(
 									v.Z,
 									{
-										className: `ChatRoomGroup_Main_Content ${C ? "Vertical" : "Horizontal"} ${_ ? "chatHidden" : ""}`,
+										className: `ChatRoomGroup_Main_Content ${
+											C ? "Vertical" : "Horizontal"
+										} ${_ ? "chatHidden" : ""}`,
 										"flow-children": "row",
 									},
 									h,
@@ -2094,24 +2100,24 @@ export let vY = class extends A.Component {
 		);
 	}
 };
-(0, n.Cg)([C.oI], vY.prototype, "OnDragEnter", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnDragLeave", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnDragOver", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnDrop", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnHTMLKeyEvent", null);
-(0, n.Cg)([C.oI], vY.prototype, "ShouldShowVerticalBroadcastChat", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnLayoutChange", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnGrabberMouseDown", null);
-(0, n.Cg)([C.oI], vY.prototype, "HandleMouseMove", null);
-(0, n.Cg)([C.oI], vY.prototype, "UnregisterDragEvents", null);
-(0, n.Cg)([C.oI], vY.prototype, "OnLocalStreamChange", null);
-(0, n.Cg)([C.oI], vY.prototype, "HideChat", null);
-(0, n.Cg)([C.oI], vY.prototype, "ShowChat", null);
-(0, n.Cg)([C.oI], vY.prototype, "ToggleVerticalBroadcastChat", null);
-(0, n.Cg)([C.oI], vY.prototype, "SetMainContentRef", null);
-(0, n.Cg)([C.oI], vY.prototype, "ToggleShowBothChats", null);
-(0, n.Cg)([C.oI], vY.prototype, "ToggleVoiceChat", null);
-vY = (0, n.Cg)([g.PA], vY);
+Cg([C.oI], vY.prototype, "OnDragEnter", null);
+Cg([C.oI], vY.prototype, "OnDragLeave", null);
+Cg([C.oI], vY.prototype, "OnDragOver", null);
+Cg([C.oI], vY.prototype, "OnDrop", null);
+Cg([C.oI], vY.prototype, "OnHTMLKeyEvent", null);
+Cg([C.oI], vY.prototype, "ShouldShowVerticalBroadcastChat", null);
+Cg([C.oI], vY.prototype, "OnLayoutChange", null);
+Cg([C.oI], vY.prototype, "OnGrabberMouseDown", null);
+Cg([C.oI], vY.prototype, "HandleMouseMove", null);
+Cg([C.oI], vY.prototype, "UnregisterDragEvents", null);
+Cg([C.oI], vY.prototype, "OnLocalStreamChange", null);
+Cg([C.oI], vY.prototype, "HideChat", null);
+Cg([C.oI], vY.prototype, "ShowChat", null);
+Cg([C.oI], vY.prototype, "ToggleVerticalBroadcastChat", null);
+Cg([C.oI], vY.prototype, "SetMainContentRef", null);
+Cg([C.oI], vY.prototype, "ToggleShowBothChats", null);
+Cg([C.oI], vY.prototype, "ToggleVoiceChat", null);
+vY = Cg([g.PA], vY);
 const Ce = (e) => {
 	let { groupView: t, className: r, ...n } = e;
 	A.useEffect(() => {
@@ -2184,7 +2190,7 @@ export const LC = (e) => {
 	};
 	if (l) {
 		C.onOptionsButton = (t) => {
-			(0, te.Nq)(GetOwningWindowForEvent(t), r, false);
+			Nq(GetOwningWindowForEvent(t), r, false);
 			e.closeModal();
 		};
 		C.onOptionsActionDescription = (0, Localize)("#Chat_AddTextChat");
@@ -2192,7 +2198,7 @@ export const LC = (e) => {
 	return A.createElement(
 		s.eV,
 		{
-			className: (0, B.A)(le.ManageTextChannelsModal, "friendsui-container"),
+			className: A_1(le.ManageTextChannelsModal, "friendsui-container"),
 			...n,
 			onOK: h,
 		},
@@ -2223,12 +2229,12 @@ export const _1 = (e) => {
 	let { groupView: t, ...r } = e;
 	let n = t.GetGroup();
 	let a = t.GetGroup().voiceRoomList;
-	let o = (0, ue.Qn)();
+	let o = Qn();
 	let [l, c] = A.useState(t.GetActiveChatView().chat);
 	let u = a.filter((e) => e.voice_active_member_list.member_count != 0);
 	let d = a.filter((e) => e.voice_active_member_list.member_count == 0);
 	const g = m.xm.ChatStore.GetActiveVoiceChat() != null;
-	const h = (0, Q.q3)(() => m.xm.ChatStore.VoiceChat.GetActiveVoiceChatID());
+	const h = q3(() => m.xm.ChatStore.VoiceChat.GetActiveVoiceChatID());
 	const C = () => {
 		if (h != l.GetRoomID()) {
 			t.ClosePopoverChat();
@@ -2242,7 +2248,7 @@ export const _1 = (e) => {
 		const i = h == l.GetRoomID();
 		const a = (t) => {
 			e.closeModal();
-			(0, ne.jv)(se.m, t.currentTarget.ownerDocument.defaultView, n, r, false);
+			jv(se.m, t.currentTarget.ownerDocument.defaultView, n, r, false);
 		};
 		let s;
 		if (g && !i) {
@@ -2255,7 +2261,7 @@ export const _1 = (e) => {
 				key: r.unique_id,
 				context: se.m,
 				chatRoom: r,
-				fnOKButton: i ? undefined : C,
+				fnOKButton: i || C,
 				fnSecondaryButton: i
 					? () => m.xm.ChatStore.VoiceChat.OnUserEndVoiceChat()
 					: undefined,
@@ -2329,7 +2335,7 @@ export const _1 = (e) => {
 	return A.createElement(
 		s.eV,
 		{
-			className: (0, B.A)(le.ManageVoiceChannelsModal, "friendsui-container"),
+			className: A_1(le.ManageVoiceChannelsModal, "friendsui-container"),
 			...r,
 			onOK: C,
 		},
@@ -2388,9 +2394,9 @@ export const _1 = (e) => {
 		),
 	);
 };
-const be = (0, g.PA)((e) => {
+const be = PA((e) => {
 	let { groupView: t } = e;
-	const r = (0, de.R7)();
+	const r = R7();
 	let n = 0;
 	let i = false;
 	for (let e of t.GetGroup().voiceRoomList) {
@@ -2419,7 +2425,7 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (e) => {
-					(0, a.pg)(
+					pg(
 						A.createElement(Ce, {
 							groupView: t,
 						}),
@@ -2435,7 +2441,7 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (e) => {
-					(0, a.pg)(
+					pg(
 						A.createElement(LC, {
 							groupView: t,
 						}),
@@ -2466,7 +2472,7 @@ const be = (0, g.PA)((e) => {
 				focusable: true,
 				className: i && le.currentUserInVoiceChannel,
 				onActivate: () => {
-					(0, a.pg)(
+					pg(
 						A.createElement(_1, {
 							groupView: t,
 						}),
@@ -2500,8 +2506,8 @@ const be = (0, g.PA)((e) => {
 				focusable: true,
 				onActivate: (t) => {
 					let r = GetOwningWindowForEvent(t);
-					let n = (0, u._k)(r);
-					(0, ne.E5)(n, r, e.groupView.GetGroup());
+					let n = _k(r);
+					E5(n, r, e.groupView.GetGroup());
 				},
 				onOKActionDescription: (0, Localize)(
 					"#Chat_Actions_InviteFriendtoGroupChat",
@@ -2514,7 +2520,7 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (t) => {
-					(0, ae.lV)(GetOwningWindowForEvent(t), e.groupView);
+					lV(GetOwningWindowForEvent(t), e.groupView);
 				},
 				onOKActionDescription: (0, Localize)("#NotificationSettings_Title"),
 			},
@@ -2525,7 +2531,7 @@ const be = (0, g.PA)((e) => {
 			{
 				focusable: true,
 				onActivate: (t) => {
-					(0, ie.hI)(GetOwningWindowForEvent(t), e.groupView);
+					hI(GetOwningWindowForEvent(t), e.groupView);
 				},
 				onOKActionDescription: (0, Localize)("#GroupSettings"),
 			},

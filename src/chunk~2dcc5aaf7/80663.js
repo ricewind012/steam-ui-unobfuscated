@@ -1,9 +1,28 @@
+import { CountMatches } from "../../actual_src/utils/arrayutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./89459.js";
+import s from "./95773.js";
+import o, { Gn, h5 } from "./89193.js";
+import u from "./48301.js";
+import d from "./58215.js";
+import A from "./60857.js";
+import p from "./66146.js";
+import g from "./8653.js";
+import h from "./12176.js";
+import C from "./8573.js";
+import { Dp } from "./736.js";
+import f, { f5 } from "./36383.js";
+import b from "./77644.js";
+import y from "./54946.js";
+import S from "./48332.js";
+import { w as w_1 } from "./49455.js";
+import k from "./38849.js";
+import D from "./79769.js";
+import "./16761.js";
 export let CF = k.CF;
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./89459.js");
-var s = require("./95773.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
 class l {
 	bCollapsed = false;
 	nDefaultWidth;
@@ -30,7 +49,7 @@ class m {
 		});
 	}
 	GetKey(e, t) {
-		return t + "_" + e;
+		return `${t}_${e}`;
 	}
 	EvictOldestIfNecessary() {
 		if (this.m_mapEmbed.size > 100) {
@@ -89,18 +108,6 @@ class m {
 		this.SaveEmbedData(e, t, i);
 	}
 }
-var u = require("./48301.js");
-var d = require("./58215.js");
-var A = require("./60857.js");
-var p = require("./66146.js");
-var g = require("./8653.js");
-var h = require(/*webcrack:missing*/ "./12176.js");
-var C = require(/*webcrack:missing*/ "./8573.js");
-var _ = require(/*webcrack:missing*/ "./736.js");
-var f = require("./36383.js");
-var b = require("./77644.js");
-var y = require("./54946.js");
-var S = require("./48332.js");
 class w extends S.s {
 	m_CMInterface;
 	async InitCM(e, t) {
@@ -133,9 +140,6 @@ class w extends S.s {
 		}
 	}
 }
-import { CountMatches } from "../../actual_src/utils/arrayutils.js";
-var v = require(/*webcrack:missing*/ "./49455.js");
-import { Localize } from "../../actual_src/utils/localization.js";
 function E(e, t) {
 	if (!e || !t) {
 		return [];
@@ -156,14 +160,13 @@ async function M(e, t) {
 	await new Promise((e) => setTimeout(e, r));
 	return e();
 }
-import { Seconds } from "../../actual_src/utils/time.js";
 class R {
 	static strSettingsStorageKey = "RecentChats.HiddenItems";
 	m_storage;
 	m_settings;
 	m_bReady = false;
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		this.m_storage = e;
@@ -252,10 +255,7 @@ class R {
 		return this.m_settings.bHasEverHiddenGroup;
 	}
 }
-(0, n.Cg)([o.sH], R.prototype, "m_bReady", undefined);
-var k = require("./38849.js");
-var D = require(/*webcrack:missing*/ "./79769.js");
-require("./16761.js");
+Cg([o.sH], R.prototype, "m_bReady", undefined);
 export class fl {
 	m_FriendStore;
 	m_CMInterface;
@@ -283,7 +283,7 @@ export class fl {
 	m_bReadyToRender = false;
 	m_fnOnReadyToRender;
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_FriendStore = e;
 	}
 	Init(e, t) {
@@ -354,9 +354,7 @@ export class fl {
 						}
 						if (
 							e.mention_accountids() &&
-							e
-								.mention_accountids()
-								.indexOf(this.m_FriendStore.self.accountid) !== -1
+							e.mention_accountids().includes(this.m_FriendStore.self.accountid)
 						) {
 							i.mention_user = true;
 						}
@@ -428,7 +426,7 @@ export class fl {
 				let n = e.Body().member();
 				if (
 					i.TS.IN_CLIENT &&
-					(0, _.Dp)("WebChat.OnGroupChatUserStateChange") &&
+					Dp("WebChat.OnGroupChatUserStateChange") &&
 					s.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 				) {
 					SteamClient.WebChat.OnGroupChatUserStateChange(t, n.accountid(), r);
@@ -459,7 +457,7 @@ export class fl {
 				let n = t.user_action();
 				if (
 					i.TS.IN_CLIENT &&
-					(0, _.Dp)("WebChat.OnGroupChatUserStateChange") &&
+					Dp("WebChat.OnGroupChatUserStateChange") &&
 					s.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 				) {
 					SteamClient.WebChat.OnGroupChatUserStateChange(r, i.iA.accountid, n);
@@ -504,22 +502,21 @@ export class fl {
 					case 7:
 					case 0: {
 						let e = this.GetChatRoomGroup(r);
-						(0, v.w)(
-							e,
-							"Got state change for ChatRoomGroup we don't know about",
-						);
+						w_1(e, "Got state change for ChatRoomGroup we don't know about");
 						if (e) {
 							e.UpdateUserState(t.user_chat_group_state());
 						}
 						break;
 					}
-					case 4:
+					case 4: {
 						break;
-					default:
-						(0, v.w)(
+					}
+					default: {
+						w_1(
 							false,
-							`Don't know how to handle state change of type ${(0, f.f5)(n)} `,
+							`Don't know how to handle state change of type ${f5(n)} `,
 						);
+					}
 				}
 				return 1;
 			},
@@ -550,25 +547,26 @@ export class fl {
 			f.I0.NotifyMessageReactionHandler,
 			(e) => {
 				const {
-					chat_group_id: t,
-					chat_id: r,
-					server_timestamp: n,
-					ordinal: i,
-					is_add: a,
-					reactor: o,
-					reaction: l,
-					reaction_type: c,
+					chat_group_id,
+					chat_id,
+					server_timestamp,
+					ordinal,
+					is_add,
+					reactor,
+					reaction,
+					reaction_type,
 				} = e.Body().toObject();
-				const m = this.GetChatRoomGroup(t);
+				const m = this.GetChatRoomGroup(chat_group_id);
 				if (m) {
-					const e = m.GetChatRoom(r);
+					const e = m.GetChatRoom(chat_id);
 					if (e) {
 						const t = e.chat_messages.find(
-							(e) => e.rtTimestamp === n && e.unOrdinal === i,
+							(e) =>
+								e.rtTimestamp === server_timestamp && e.unOrdinal === ordinal,
 						);
 						if (t) {
-							const r = t.reactions.find((e) => e.strReaction === l);
-							const n = a ? 1 : -1;
+							const r = t.reactions.find((e) => e.strReaction === reaction);
+							const n = is_add ? 1 : -1;
 							if (n === -1 && !r) {
 								console.error(
 									"ChatRoomClientService.NotifyMessageReaction: Got reaction removal notifiaction but no matching reaction was found.",
@@ -576,12 +574,22 @@ export class fl {
 								return 1;
 							}
 							let i = !!r && r.bUserReacted;
-							if (o === s.xm.FriendStore.self.steamid64) {
-								i = a;
+							if (reactor === s.xm.FriendStore.self.steamid64) {
+								i = is_add;
 							}
-							t.UpdateReaction(c, l, r ? r.cReactors + n : n, i);
-							const m = new C.b(o);
-							e.UpdateMessageReactionReactors(t, l, m.GetAccountID(), a);
+							t.UpdateReaction(
+								reaction_type,
+								reaction,
+								r ? r.cReactors + n : n,
+								i,
+							);
+							const m = new C.b(reactor);
+							e.UpdateMessageReactionReactors(
+								t,
+								reaction,
+								m.GetAccountID(),
+								is_add,
+							);
 						}
 					}
 				}
@@ -593,7 +601,7 @@ export class fl {
 			(e) => {
 				M(
 					() =>
-						(0, o.h5)(() => {
+						h5(() => {
 							for (let t of e.Body().chat_group_ids()) {
 								let e = this.m_mapChatGroups.get(t);
 								if (e) {
@@ -649,7 +657,7 @@ export class fl {
 		f.xP
 			.GetMyChatRoomGroups(this.m_CMInterface.GetServiceTransport(), t)
 			.then((t) => {
-				(0, o.h5)(() => {
+				h5(() => {
 					if (t.GetEResult() != 1) {
 						e = true;
 					}
@@ -822,15 +830,17 @@ export class fl {
 	GetTextFilterStatus() {
 		let e = this.m_TextFilterStore.TextFilterPreferences;
 		switch (e.eTextFilterSetting) {
-			case 0:
+			case 0: {
 				return (0, Localize)("#TextFilterStatus_SteamLabOptedOut");
-			case 1:
+			}
+			case 1: {
 				if (e.bIgnoreFriends) {
 					return (0, Localize)("#TextFilterStatus_Enabled_IgnoreFriends");
 				} else {
 					return (0, Localize)("#TextFilterStatus_Enabled");
 				}
-			case 2:
+			}
+			case 2: {
 				if (e.bIgnoreFriends) {
 					return (0, Localize)(
 						"#TextFilterStatus_EnabledAllowProfanity_IgnoreFriends",
@@ -838,16 +848,17 @@ export class fl {
 				} else {
 					return (0, Localize)("#TextFilterStatus_EnabledAllowProfanity");
 				}
-			case 3:
+			}
+			case 3: {
 				return (0, Localize)("#TextFilterStatus_Disabled");
-			default:
+			}
+			default: {
 				return "";
+			}
 		}
 	}
 	GetTextFilterSettingsURL() {
-		return (
-			i.TS.STORE_BASE_URL + "account/preferences#CommunityContentPreferences"
-		);
+		return `${i.TS.STORE_BASE_URL}account/preferences#CommunityContentPreferences`;
 	}
 	get ChatRoomGroupDisplayPrefs() {
 		return this.m_ChatRoomGroupDisplayPrefs;
@@ -949,8 +960,8 @@ export class fl {
 		return E(this.m_mapChatGroups, (e) => e.BIsCurrentUserAMember());
 	}
 	FindChatRoomGroupsMatchingSearch(e) {
-		return this.currentChatRoomGroups.filter(
-			(t) => t.name.toLocaleLowerCase().indexOf(e) !== -1,
+		return this.currentChatRoomGroups.filter((t) =>
+			t.name.toLocaleLowerCase().includes(e),
 		);
 	}
 	get ClanChatRooms() {
@@ -978,7 +989,7 @@ export class fl {
 	DecRefActiveChatRoomGroup(e) {
 		let t = this.m_mapActiveChatGroupsToRefCount.get(e);
 		let r = t !== undefined && t > 0;
-		(0, v.w)(
+		w_1(
 			r,
 			"Attempting to DecRef a Chat Group that has no existing references. Doing nothing.",
 		);
@@ -1028,7 +1039,7 @@ export class fl {
 			let t = [];
 			let r = h.w.Init(f.Jw);
 			this.m_mapActiveChatGroupsToRefCount.forEach((e, n) => {
-				(0, v.w)(
+				w_1(
 					e > 0,
 					"SendActiveChatRoomGroupsToServer found invalid ref count for chat group.",
 				);
@@ -1079,7 +1090,7 @@ export class fl {
 				.then(
 					(e) => {
 						let r = false;
-						(0, o.h5)(() => {
+						h5(() => {
 							if (e.GetEResult() == 1) {
 								for (let n of e.Body().chat_states()) {
 									let e = this.m_mapChatGroups.get(
@@ -1088,10 +1099,7 @@ export class fl {
 									if (e) {
 										try {
 											e.UpdateGroupState(n);
-											if (
-												e.BIsClanChatRoom() &&
-												t.indexOf(e.GetClanID()) === -1
-											) {
+											if (e.BIsClanChatRoom() && !t.includes(e.GetClanID())) {
 												t.push(e.GetClanID());
 											}
 										} catch (t) {
@@ -1121,14 +1129,14 @@ export class fl {
 		});
 	}
 	CreateChatRoomGroup(e, t, r, n = {}) {
-		const { unBroadcastAccountId: i } = n;
+		const { unBroadcastAccountId } = n;
 		let a = h.w.Init(f.SZ);
 		a.Body().set_name(t);
 		for (let e of r) {
 			a.Body().add_steamid_invitees(e);
 		}
-		if (i) {
-			a.Body().set_watching_broadcast_accountid(i);
+		if (unBroadcastAccountId) {
+			a.Body().set_watching_broadcast_accountid(unBroadcastAccountId);
 		}
 		return f.xP
 			.CreateChatRoomGroup(this.m_CMInterface.GetServiceTransport(), a)
@@ -1189,7 +1197,7 @@ export class fl {
 			}
 		}
 		let r = this;
-		this.m_mapActiveChatGroupsToRefCount.forEach(function (t, n) {
+		this.m_mapActiveChatGroupsToRefCount.forEach((t, n) => {
 			r.m_mapChatGroups.get(n).GetChatRoomsWithUnreadPriorityMessages(e);
 		});
 		return e;
@@ -1238,11 +1246,11 @@ function F(e) {
 function G(e) {
 	return e.time_last_activity;
 }
-(0, n.Cg)([o.sH], fl.prototype, "m_bReceivedChatGroupList", undefined);
-(0, n.Cg)([s.Nw], fl.prototype, "JoinAndShowChatRoomGroup", null);
-(0, n.Cg)([o.XI], fl.prototype, "AddCreatedChatRoomGroup", null);
-(0, n.Cg)([o.XI], fl.prototype, "AddKnownChatRoomGroup", null);
-(0, n.Cg)([o.XI], fl.prototype, "AddJoinedChatRoomGroup", null);
-(0, n.Cg)([o.XI], fl.prototype, "RemoveChatRoomGroup", null);
-(0, n.Cg)([o.EW], fl.prototype, "currentChatRoomGroups", null);
-(0, n.Cg)([o.EW], fl.prototype, "ClanChatRooms", null);
+Cg([o.sH], fl.prototype, "m_bReceivedChatGroupList", undefined);
+Cg([s.Nw], fl.prototype, "JoinAndShowChatRoomGroup", null);
+Cg([o.XI], fl.prototype, "AddCreatedChatRoomGroup", null);
+Cg([o.XI], fl.prototype, "AddKnownChatRoomGroup", null);
+Cg([o.XI], fl.prototype, "AddJoinedChatRoomGroup", null);
+Cg([o.XI], fl.prototype, "RemoveChatRoomGroup", null);
+Cg([o.EW], fl.prototype, "currentChatRoomGroups", null);
+Cg([o.EW], fl.prototype, "ClanChatRooms", null);

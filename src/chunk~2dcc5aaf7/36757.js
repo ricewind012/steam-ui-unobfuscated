@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	MandatoryUpdateTakeoverContent: "PZjfG1aHBWIB-NAnFgBQW",
 	Container: "roh9K-ElQ0M5exWxYbC7E",

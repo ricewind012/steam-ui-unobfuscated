@@ -5,7 +5,7 @@ const s = /^.*youtube.*\/embed\/(.{11}).*/;
 const o = /^.*[?&]t=([^&]+)(?:&|$)/;
 const l = /^(?:(?:([\d]+)h)?(?:([\d]+)m)?(?:([\d]+)s)?|([\d]+))$/;
 function c(e) {
-	const t = e?.length < n ? undefined : i.exec(e) || a.exec(e) || s.exec(e);
+	const t = e?.length < n || i.exec(e) || a.exec(e) || s.exec(e);
 	return t?.[1];
 }
 export function N8(e) {
@@ -33,7 +33,7 @@ export function XU(e) {
 	if (!t) {
 		return;
 	}
-	const r = (function (e) {
+	const r = ((e) => {
 		const t = o.exec(e);
 		return t?.[1];
 	})(e);

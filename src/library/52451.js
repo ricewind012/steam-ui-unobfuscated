@@ -1,3 +1,9 @@
+import r from "./42898.js";
+import i, { Ue as Ue_1 } from "./28864.js";
+import s, { BL, wY as wY_1 } from "./99251.js";
+import o, { useState, useCallback, useEffect } from "./63696.js";
+import l from "./62272.js";
+import u from "./93960.js";
 export let DF = r.DF;
 export let uH = r.uH;
 export let eV = r.eV;
@@ -42,48 +48,42 @@ export let oI = u.o;
 export let XB = i.XB;
 export let Fd = s.Fd;
 export let md = s.md;
-var r = require("./42898.js");
-var i = require("./28864.js");
-var s = require("./99251.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
 export function hd() {
-	const [e, t] = (0, o.useState)(false);
-	const n = (0, s.BL)((0, o.useCallback)((e) => t(e.isIntersecting), []));
-	const { style: r, ref: a } = (function () {
-		const [e, t] = (0, o.useState)(null);
-		const [n, r] = (0, o.useState)(null);
-		(0, o.useEffect)(() => {
+	const [e, setE] = useState(false);
+	const n = BL(useCallback((e) => setE(e.isIntersecting), []));
+	const { style, ref } = (() => {
+		const [e, setE_1] = useState(null);
+		const [n, setN] = useState(null);
+		useEffect(() => {
 			if (e) {
-				r(window.getComputedStyle(e));
+				setN(window.getComputedStyle(e));
 			}
 		}, [e]);
 		return {
 			style: n,
-			ref: t,
+			ref: setE_1,
 		};
 	})();
-	const c = (0, i.Ue)(n, a);
-	const l = !r || r.visibility !== "hidden";
+	const c = Ue_1(n, ref);
+	const l = !style || style.visibility !== "hidden";
 	return {
 		bVisible: e && l,
 		ref: c,
 	};
 }
 export function X() {
-	const [e, t] = o.useState(0);
+	const [e, setE] = o.useState(0);
 	const n = o.useCallback(
 		(n) => {
 			const r = n.target.clientHeight;
 			if (r > e) {
-				t(r);
+				setE(r);
 			}
 		},
 		[e],
 	);
 	return {
-		strMinHeightStyle: e + "px",
-		refForResizeObserver: (0, s.wY)(n),
+		strMinHeightStyle: `${e}px`,
+		refForResizeObserver: wY_1(n),
 	};
 }
-var l = require("./62272.js");
-var u = require("./93960.js");

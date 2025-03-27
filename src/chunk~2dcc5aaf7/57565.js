@@ -1,25 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./6831.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./90765.js");
+import n from "./63696.js";
+import i from "./6831.js";
+import { A } from "./90765.js";
+const a = i;
 export function H(e) {
-	const { onClick: t } = e;
+	const { onClick } = e;
 	const r = n.useCallback(
 		(e) => e.currentTarget == e.target && (e.preventDefault(), true),
 		[],
 	);
 	const i = n.useCallback(
 		(e) => {
-			if (r(e) && t) {
-				t(e);
+			if (r(e) && onClick) {
+				onClick(e);
 			}
 		},
-		[t, r],
+		[onClick, r],
 	);
 	let o = e.visible ?? true;
 	let l = e.appearance == "darkblur" || e.appearance == "blur";
 	let c = e.appearance != "transparent" && e.appearance != "blur";
-	let m = (0, s.A)(
+	let m = A(
 		a.BackgroundGlass,
 		o && a.Visible,
 		l && a.Blur,
@@ -28,15 +28,9 @@ export function H(e) {
 	let u = {
 		zIndex: e.zIndex ?? null,
 	};
-	return n.createElement(
-		"div",
-		{
-			className: m,
-			style: u,
-			onClick: i,
-			onMouseDown: r,
-			onTouchStart: r,
-		},
-		e.children,
+	return (
+		<div className={m} style={u} onClick={i} onMouseDown={r} onTouchStart={r}>
+			{e.children}
+		</div>
 	);
 }

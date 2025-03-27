@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	UploadPreviewContainer: "CCBFyy2uP4GNSQGfe2T1L",
 	SVGIcon_Video: "_2Fs53eUCdV8xsO83Jc40DH",
 	UploadPreview: "_1cXUbzBtV9qFc_63x_j2F2",

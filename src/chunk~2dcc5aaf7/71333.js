@@ -1,34 +1,34 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require("./1965.js");
-var l = require("./93050.js");
-var c = require("./82325.js");
-var m = require("./63032.js");
-var u = require("./27325.js");
-var d = require("./31993.js");
-var A = require("./87935.js");
-var p = require(/*webcrack:missing*/ "./44846.js");
-var g = require(/*webcrack:missing*/ "./88750.js");
-var _h = require("./17815.js");
-var C = require("./56726.js");
-var _ = require("./13869.js");
-var f = require(/*webcrack:missing*/ "./50376.js");
-var b = require(/*webcrack:missing*/ "./26853.js");
-var y = require(/*webcrack:missing*/ "./49455.js");
-var S = require(/*webcrack:missing*/ "./90765.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var v = require("./80254.js");
-var I = require(/*webcrack:missing*/ "./52451.js");
-var E = require(/*webcrack:missing*/ "./72476.js");
-var M = require("./97561.js");
-var T = require(/*webcrack:missing*/ "./69164.js");
-var R = require("./69196.js");
-var k = R;
-var D = require("./83779.js");
-var N = D;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s from "./41230.js";
+import o from "./1965.js";
+import l from "./93050.js";
+import c from "./82325.js";
+import m from "./63032.js";
+import u from "./27325.js";
+import d from "./31993.js";
+import A from "./87935.js";
+import p, { ID } from "./44846.js";
+import g from "./88750.js";
+import _h from "./17815.js";
+import C from "./56726.js";
+import { mK } from "./13869.js";
+import f from "./50376.js";
+import b from "./26853.js";
+import { w } from "./49455.js";
+import S, { A as A_1 } from "./90765.js";
+import { l as l_1 } from "./80254.js";
+import I from "./52451.js";
+import E from "./72476.js";
+import M from "./97561.js";
+import T from "./69164.js";
+import R from "./69196.js";
+import D from "./83779.js";
+const k = R;
+const N = D;
 const F = i.lazy(() =>
 	require
 		.e(9129)
@@ -43,7 +43,7 @@ export let h = class extends i.Component {
 	unAppID = undefined;
 	constructor(e) {
 		super(e);
-		(0, a.Gn)(this);
+		Gn(this);
 		this.storedSettings = null;
 		this.unAppID = e.details.unAppID;
 	}
@@ -78,7 +78,7 @@ export let h = class extends i.Component {
 		}
 	}
 	get GetStorageKey() {
-		return "library.review." + this.props.overview.appid;
+		return `library.review.${this.props.overview.appid}`;
 	}
 	NavigateToReviewPage(e) {
 		GetOwningWindowForEvent(e).location.href = A.B7.BuildSteamURL(
@@ -107,7 +107,7 @@ export let h = class extends i.Component {
 		}
 	}
 	RenderContextMenu() {
-		(0, y.w)(
+		w(
 			this.storedSettings !== null,
 			"Illegal state, stored settings must be nonnull",
 		);
@@ -115,21 +115,15 @@ export let h = class extends i.Component {
 			return null;
 		}
 		const e = this.BRevisableReview;
-		i.createElement(
-			g.kt,
-			{
-				onSelected: this.IgnoreStaleReview,
-			},
-			(0, Localize)("#AppDetails_Review_Ignore_Stale_Reviews"),
+		<g.kt onSelected={this.IgnoreStaleReview}>
+			{(0, Localize)("#AppDetails_Review_Ignore_Stale_Reviews")}
+		</g.kt>;
+		const t = (
+			<g.kt onSelected={this.UnignoreStaleReview}>
+				{(0, Localize)("#AppDetails_Review_Unignore_Stale_Reviews")}
+			</g.kt>
 		);
-		const t = i.createElement(
-			g.kt,
-			{
-				onSelected: this.UnignoreStaleReview,
-			},
-			(0, Localize)("#AppDetails_Review_Unignore_Stale_Reviews"),
-		);
-		return i.createElement(g.tz, null, null, e ? null : t);
+		return <g.tz>{e || t}</g.tz>;
 	}
 	BReviewedBeforePlayingMuch() {
 		return (
@@ -156,41 +150,44 @@ export let h = class extends i.Component {
 	}
 	ShowWriteRevewDialog(e, t) {
 		switch (t) {
-			case M._g.Up:
+			case M._g.Up: {
 				SteamClient.Stats.RecordActivationEvent(
 					"AppDetailsReviewSection",
 					"PositiveClicked",
 				);
 				break;
-			case M._g.Down:
+			}
+			case M._g.Down: {
 				SteamClient.Stats.RecordActivationEvent(
 					"AppDetailsReviewSection",
 					"NegativeClicked",
 				);
 				break;
-			case M._g.Neutral:
+			}
+			case M._g.Neutral: {
 				SteamClient.Stats.RecordActivationEvent(
 					"AppDetailsReviewSection",
 					"NeutralClicked",
 				);
+			}
 		}
 		const r = (0, Localize)("#WriteReview_Dialog_Title");
-		(0, _.mK)(
-			i.createElement(M.jB, {
-				ownerWindow: GetOwningWindowForEvent(e),
-				steamID: this.props.details.strOwnerSteamID,
-				appid: this.props.overview.appid,
-				nPlaytime: this.props.overview.minutes_playtime_forever,
-				eReviewVote: t,
-				onSuccess: (e) => {
+		mK(
+			<M.jB
+				ownerWindow={GetOwningWindowForEvent(e)}
+				steamID={this.props.details.strOwnerSteamID}
+				appid={this.props.overview.appid}
+				nPlaytime={this.props.overview.minutes_playtime_forever}
+				eReviewVote={t}
+				onSuccess={(e) => {
 					SteamClient.Stats.RecordActivationEvent(
 						"AppDetailsReviewSection",
 						e ? "PositiveReviewPosted" : "NegativeReviewPosted",
 					);
 					d.x.GetReview(this.props.overview.appid, true);
-				},
-				closeModal: this.OnCancelPostReview,
-			}),
+				}}
+				closeModal={this.OnCancelPostReview}
+			/>,
 			GetOwningWindowForEvent(e),
 			{
 				strTitle: r,
@@ -203,23 +200,23 @@ export let h = class extends i.Component {
 			"EditClicked",
 		);
 		const t = (0, Localize)("#WriteReview_Dialog_Title");
-		(0, _.mK)(
-			i.createElement(M.jB, {
-				ownerWindow: GetOwningWindowForEvent(e),
-				steamID: this.props.details.strOwnerSteamID,
-				appid: this.props.overview.appid,
-				nPlaytime: this.props.overview.minutes_playtime_forever,
-				prevReview: this.ReviewDetails,
-				eReviewVote: this.ReviewDetails.voted_up ? M._g.Up : M._g.Down,
-				onSuccess: (e) => {
+		mK(
+			<M.jB
+				ownerWindow={GetOwningWindowForEvent(e)}
+				steamID={this.props.details.strOwnerSteamID}
+				appid={this.props.overview.appid}
+				nPlaytime={this.props.overview.minutes_playtime_forever}
+				prevReview={this.ReviewDetails}
+				eReviewVote={this.ReviewDetails.voted_up ? M._g.Up : M._g.Down}
+				onSuccess={(e) => {
 					SteamClient.Stats.RecordActivationEvent(
 						"AppDetailsReviewSection",
 						e ? "PositiveReviewPosted" : "NegativeReviewPosted",
 					);
 					d.x.GetReview(this.props.overview.appid, true);
-				},
-				closeModal: this.OnCancelPostReview,
-			}),
+				}}
+				closeModal={this.OnCancelPostReview}
+			/>,
 			GetOwningWindowForEvent(e),
 			{
 				strTitle: t,
@@ -245,329 +242,212 @@ export let h = class extends i.Component {
 			console.debug(
 				"skipped review render, waiting for roaming storage to initialize",
 			);
-			return i.createElement(
-				"div",
-				{
-					className: k.section,
-				},
-				i.createElement(l.w, {
-					label: (0, Localize)("#AppDetails_Review_YourReview"),
-				}),
-				i.createElement(b.t, {
-					size: "xlarge",
-					position: "center",
-				}),
+			return (
+				<div className={k.section}>
+					<l.w label={(0, Localize)("#AppDetails_Review_YourReview")} />
+					<b.t size="xlarge" position="center" />
+				</div>
 			);
 		}
 		let e;
 		let t;
 		let r;
 		let n = this.props.overview.BIsApplicationOrTool();
-		let a = (0, v.l)(this.props.details.nPlaytimeForever);
+		let a = l_1(this.props.details.nPlaytimeForever);
 		let s = n
 			? (0, Localize)("#AppDetails_Review_PlayedForTime_Software", a)
 			: (0, Localize)("#AppDetails_Review_PlayedForTime", a);
 		if (this.ReviewDetails) {
 			if (this.BRevisableReview) {
-				let e = (0, v.l)(
+				let e = l_1(
 					this.props.details.nPlaytimeForever -
 						this.ReviewDetails.playtime_at_review,
 				);
 				let t = n
 					? (0, Localize)("#AppDetails_Review_AdditionalPlaytime_Software", e)
 					: (0, Localize)("#AppDetails_Review_AdditionalPlaytime", e);
-				r = i.createElement(
-					"div",
-					{
-						className: N.ReviewReminderBox,
-					},
-					i.createElement(
-						"div",
-						{
-							className: N.ReviewReminderBoxContent,
-						},
-						i.createElement(
-							"div",
-							{
-								className: N.AdditionalPlaytimeReminder,
-							},
-							t,
-						),
-						i.createElement(
-							"div",
-							{
-								className: N.ChangedYourMind,
-							},
-							(0, Localize)("#AppDetails_Review_ChangedYourMind"),
-						),
-						i.createElement(
-							C.eJ,
-							{
-								className: N.EditMyReview,
-								onClick: this.ShowEditRevewDialog,
-							},
-							(0, Localize)("#AppDetails_Review_ViewOrEdit"),
-						),
-					),
-					i.createElement(f.X, {
-						className: N.ExitButton,
-						onClick: this.IgnoreStaleReview,
-					}),
+				r = (
+					<div className={N.ReviewReminderBox}>
+						<div className={N.ReviewReminderBoxContent}>
+							<div className={N.AdditionalPlaytimeReminder}>{t}</div>
+							<div className={N.ChangedYourMind}>
+								{(0, Localize)("#AppDetails_Review_ChangedYourMind")}
+							</div>
+							<C.eJ
+								className={N.EditMyReview}
+								onClick={this.ShowEditRevewDialog}
+							>
+								{(0, Localize)("#AppDetails_Review_ViewOrEdit")}
+							</C.eJ>
+						</div>
+						<f.X className={N.ExitButton} onClick={this.IgnoreStaleReview} />
+					</div>
 				);
 			} else {
 				r = null;
 			}
-			let a = (0, v.l)(this.ReviewDetails.playtime_at_review);
+			let a = l_1(this.ReviewDetails.playtime_at_review);
 			let s = n
 				? (0, Localize)("#AppDetails_Review_PlaytimeAtReview_Software", a)
 				: (0, Localize)("#AppDetails_Review_PlaytimeAtReview", a);
-			t = i.createElement(
-				o.n.Highlight,
-				{
-					className: N.ReviewMetadata,
-					onClick: this.ShowEditRevewDialog,
-				},
-				this.ReviewDetails.voted_up
-					? i.createElement(f.twC, {
-							className: (0, S.A)(
+			t = (
+				<o.n.Highlight
+					className={N.ReviewMetadata}
+					onClick={this.ShowEditRevewDialog}
+				>
+					{this.ReviewDetails.voted_up ? (
+						<f.twC
+							className={A_1(
 								N.ReviewIcon,
 								N.ReviewIconThumbsUp,
 								N.ReviewIconThumbsUpColor,
-							),
-						})
-					: i.createElement(
-							"div",
-							{
-								className: (0, S.A)(N.ReviewIcon, N.ReviewIconThumbsDownBox),
-							},
-							i.createElement(f.twC, {
-								className: (0, S.A)(
+							)}
+						/>
+					) : (
+						<div className={A_1(N.ReviewIcon, N.ReviewIconThumbsDownBox)}>
+							<f.twC
+								className={A_1(
 									N.ReviewIconThumbsDown,
 									N.ThumbsDown,
 									N.ReviewIconThumbsDownColor,
-								),
-							}),
-						),
-				i.createElement(
-					"div",
-					{
-						className: N.ReviewDescription,
-					},
-					i.createElement(
-						"div",
-						{
-							className: N.ReviewDescriptionRecommended,
-						},
-						this.ReviewDetails.voted_up
-							? (0, Localize)("#AppDetails_Review_Recommended")
-							: (0, Localize)("#AppDetails_Review_NotRecommended"),
-					),
-					i.createElement(
-						"div",
-						{
-							className: N.PlayedForTime,
-						},
-						s,
-					),
-				),
+								)}
+							/>
+						</div>
+					)}
+					<div className={N.ReviewDescription}>
+						<div className={N.ReviewDescriptionRecommended}>
+							{this.ReviewDetails.voted_up
+								? (0, Localize)("#AppDetails_Review_Recommended")
+								: (0, Localize)("#AppDetails_Review_NotRecommended")}
+						</div>
+						<div className={N.PlayedForTime}>{s}</div>
+					</div>
+				</o.n.Highlight>
 			);
 			let l = null;
 			if (this.ReviewDetails.reactions.length) {
-				l = i.createElement(F, {
-					reactions: this.ReviewDetails.reactions,
-				});
+				l = <F reactions={this.ReviewDetails.reactions} />;
 			}
-			const m = !(0, p.ID)(E.TS.LAUNCHER_TYPE);
+			const m = !ID(E.TS.LAUNCHER_TYPE);
 			const u = new c.T({
 				text: this.ReviewDetails.review,
 			});
-			e = i.createElement(
-				"div",
-				{
-					className: N.ReviewPresentGroup,
-				},
-				r,
-				i.createElement(
-					_h.S,
-					{
-						pxOverflowHeight: 200,
-						classNameWhenHidden: N.ReviewText,
-						classNameWhenExpanded: (0, S.A)(N.ReviewText, N.ReviewTextExpanded),
-					},
-					i.createElement(
-						"div",
-						{
-							className: N.ReviewTextContainer,
-						},
-						" ",
-						u.render(),
-					),
-				),
-				i.createElement(
-					"div",
-					null,
-					i.createElement(
-						"div",
-						{
-							className: N.CommentsGroup,
-							onClick: this.NavigateToReviewPage,
-						},
-						i.createElement(
-							"div",
-							{
-								className: N.CommentsContainer,
-							},
-							i.createElement(f.bfp, {
-								className: N.UpVotesIcon,
-							}),
-							i.createElement(
-								"div",
-								{
-									className: N.CommentsLabel,
-								},
-								(0, Localize)("#AppDetails_Review_UpVotes"),
-							),
-							i.createElement(
-								"div",
-								{
-									className: N.CommentCount,
-								},
-								this.ReviewDetails.votes_up,
-							),
-						),
-						!p.ID(E.TS.LAUNCHER_TYPE) &&
-							i.createElement(
-								"div",
-								{
-									className: N.CommentsContainer,
-								},
-								i.createElement(f._h6, {
-									className: N.CommentIcon,
-								}),
-								i.createElement(
-									"div",
-									{
-										className: N.CommentsLabel,
-									},
-									(0, Localize)("#AppDetails_Review_Comments"),
-								),
-								i.createElement(
-									"div",
-									{
-										className: N.CommentCount,
-									},
-									this.ReviewDetails.comment_count,
-								),
-							),
-					),
-				),
-				l,
-				i.createElement(
-					"div",
-					{
-						className: N.ButtonsGroup,
-					},
-					!this.context?.IN_GAMEPADUI &&
-						i.createElement(
-							C.Po,
-							{
-								onClick: this.ShowEditRevewDialog,
-							},
-							(0, Localize)("#AppDetails_Review_ViewOrEdit"),
-						),
-					m &&
-						i.createElement(
-							C.TD,
-							{
-								onClick: this.NavigateToCommunityRecommendations,
-							},
-							(0, Localize)("#AppDetails_Review_ViewAll"),
-						),
-				),
+			e = (
+				<div className={N.ReviewPresentGroup}>
+					{r}
+					<_h.S
+						pxOverflowHeight={200}
+						classNameWhenHidden={N.ReviewText}
+						classNameWhenExpanded={A_1(N.ReviewText, N.ReviewTextExpanded)}
+					>
+						<div className={N.ReviewTextContainer}> {u.render()}</div>
+					</_h.S>
+					<div>
+						<div
+							className={N.CommentsGroup}
+							onClick={this.NavigateToReviewPage}
+						>
+							<div className={N.CommentsContainer}>
+								<f.bfp className={N.UpVotesIcon} />
+								<div className={N.CommentsLabel}>
+									{(0, Localize)("#AppDetails_Review_UpVotes")}
+								</div>
+								<div className={N.CommentCount}>
+									{this.ReviewDetails.votes_up}
+								</div>
+							</div>
+							{!p.ID(E.TS.LAUNCHER_TYPE) && (
+								<div className={N.CommentsContainer}>
+									<f._h6 className={N.CommentIcon} />
+									<div className={N.CommentsLabel}>
+										{(0, Localize)("#AppDetails_Review_Comments")}
+									</div>
+									<div className={N.CommentCount}>
+										{this.ReviewDetails.comment_count}
+									</div>
+								</div>
+							)}
+						</div>
+					</div>
+					{l}
+					<div className={N.ButtonsGroup}>
+						{!this.context?.IN_GAMEPADUI && (
+							<C.Po onClick={this.ShowEditRevewDialog}>
+								{(0, Localize)("#AppDetails_Review_ViewOrEdit")}
+							</C.Po>
+						)}
+						{m && (
+							<C.TD onClick={this.NavigateToCommunityRecommendations}>
+								{(0, Localize)("#AppDetails_Review_ViewAll")}
+							</C.TD>
+						)}
+					</div>
+				</div>
 			);
 		} else {
 			t = null;
-			const r = i.createElement(
-				C.TD,
-				{
-					onClick: this.NavigateToCommunityRecommendations,
-				},
-				(0, Localize)("#AppDetails_Review_ViewAll"),
+			const r = (
+				<C.TD onClick={this.NavigateToCommunityRecommendations}>
+					{(0, Localize)("#AppDetails_Review_ViewAll")}
+				</C.TD>
 			);
-			e = i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(
-					"div",
-					{
-						className: N.WriteReview,
-					},
-					i.createElement(
-						"div",
-						{
-							className: N.PlayedForTime,
-						},
-						s,
-					),
-					!this.context?.IN_GAMEPADUI &&
-						i.createElement(
-							"div",
-							{
-								className: (0, S.A)(N.VoteUpDownContainer),
-							},
-							i.createElement(
-								C.Xs,
-								{
-									onClick: (e) => this.ShowWriteRevewDialog(e, M._g.Neutral),
-								},
-								(0, Localize)(
-									"#AppDetails_Review_WriteReview",
-									this.props.overview.display_name,
-								),
-							),
-						),
-				),
-				this.context?.IN_GAMEPADUI &&
-					i.createElement(
-						T.Z,
-						{
-							"flow-children": "row",
-							style: {
+			e = (
+				<>
+					<div className={N.WriteReview}>
+						<div className={N.PlayedForTime}>{s}</div>
+						{!this.context?.IN_GAMEPADUI && (
+							<div className={A_1(N.VoteUpDownContainer)}>
+								<C.Xs
+									onClick={(e) => this.ShowWriteRevewDialog(e, M._g.Neutral)}
+								>
+									{(0, Localize)(
+										"#AppDetails_Review_WriteReview",
+										this.props.overview.display_name,
+									)}
+								</C.Xs>
+							</div>
+						)}
+					</div>
+					{this.context?.IN_GAMEPADUI && (
+						<T.Z
+							flow-children="row"
+							style={{
 								display: "flex",
 								flexDirection: "row",
 								gap: "8px",
-							},
-						},
-						false,
-						r,
-					),
-				!this.context?.IN_GAMEPADUI && r,
+							}}
+						>
+							{r}
+						</T.Z>
+					)}
+					{!this.context?.IN_GAMEPADUI && r}
+				</>
 			);
 		}
-		return i.createElement(
-			o.n,
-			{
-				feature: 3,
-				className: N.Container,
-				label: (0, Localize)("#AppDetails_Review_YourReview"),
-				highlight: t,
-				rightColumnSection: true,
-			},
-			i.createElement(o.n.Body, null, e),
+		return (
+			<o.n
+				feature={3}
+				className={N.Container}
+				label={(0, Localize)("#AppDetails_Review_YourReview")}
+				highlight={t}
+				rightColumnSection
+			>
+				<o.n.Body>{e}</o.n.Body>
+			</o.n>
 		);
 	}
 };
-(0, n.Cg)([a.sH], h.prototype, "storedSettings", undefined);
-(0, n.Cg)([a.sH], h.prototype, "unAppID", undefined);
-(0, n.Cg)([a.EW], h.prototype, "ReviewDetails", null);
-(0, n.Cg)([I.oI], h.prototype, "FetchRoamingStorageState", null);
-(0, n.Cg)([I.oI], h.prototype, "NavigateToReviewPage", null);
-(0, n.Cg)([I.oI], h.prototype, "NavigateToCommunityRecommendations", null);
-(0, n.Cg)([I.oI], h.prototype, "IgnoreStaleReview", null);
-(0, n.Cg)([I.oI], h.prototype, "UnignoreStaleReview", null);
-(0, n.Cg)([I.oI], h.prototype, "StoreSettings", null);
-(0, n.Cg)([I.oI], h.prototype, "RenderContextMenu", null);
-(0, n.Cg)([I.oI], h.prototype, "ShowWriteRevewDialog", null);
-(0, n.Cg)([I.oI], h.prototype, "ShowEditRevewDialog", null);
-(0, n.Cg)([I.oI], h.prototype, "OnCancelPostReview", null);
-h = (0, n.Cg)([s.PA], h);
+Cg([a.sH], h.prototype, "storedSettings", undefined);
+Cg([a.sH], h.prototype, "unAppID", undefined);
+Cg([a.EW], h.prototype, "ReviewDetails", null);
+Cg([I.oI], h.prototype, "FetchRoamingStorageState", null);
+Cg([I.oI], h.prototype, "NavigateToReviewPage", null);
+Cg([I.oI], h.prototype, "NavigateToCommunityRecommendations", null);
+Cg([I.oI], h.prototype, "IgnoreStaleReview", null);
+Cg([I.oI], h.prototype, "UnignoreStaleReview", null);
+Cg([I.oI], h.prototype, "StoreSettings", null);
+Cg([I.oI], h.prototype, "RenderContextMenu", null);
+Cg([I.oI], h.prototype, "ShowWriteRevewDialog", null);
+Cg([I.oI], h.prototype, "ShowEditRevewDialog", null);
+Cg([I.oI], h.prototype, "OnCancelPostReview", null);
+h = Cg([s.PA], h);

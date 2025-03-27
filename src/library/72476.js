@@ -1,3 +1,9 @@
+import r from "./63696.js";
+import i from "./28987.js";
+import s, { w } from "./49455.js";
+import o from "./43691.js";
+import { OO } from "./67784.js";
+import c from "./9731.js";
 export let iA = o.iA;
 export let bf = c.bf;
 export let UF = o.UF;
@@ -6,42 +12,30 @@ export let TS = o.TS;
 export let GP = o.GP;
 export let Fd = c.Fd;
 export let Bu = c.Bu;
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./28987.js");
-var s = require("./49455.js");
-var o = require("./43691.js");
-var a = require("./67784.js");
-var c = require("./9731.js");
-export const QO = r.createContext({});
+export const QOContext = r.createContext({});
 export const rP = (e) => {
-	const t = r.useContext(QO);
-	(0, s.w)(
+	const t = r.useContext(QOContext);
+	w(
 		e?.bSuppressAssert || t.IN_GAMEPADUI !== undefined,
 		"Trying to use ConfigContext without a provider!  Add ConfigContextRoot to application.",
 	);
 	return t;
 };
 export function ss(e) {
-	const { IN_GAMEPADUI: t, IN_DESKTOPUI: n, IN_VR: i, children: s } = e;
+	const { IN_GAMEPADUI, IN_DESKTOPUI, IN_VR, children } = e;
 	const c = rP({
 		bSuppressAssert: true,
 	});
-	const m = (0, a.OO)()?.startsWith("Gamepad VR");
+	const m = OO()?.startsWith("Gamepad VR");
 	const d = r.useMemo(
 		() => ({
-			IN_GAMEPADUI: t ?? c?.IN_GAMEPADUI ?? o.TS.IN_GAMEPADUI,
-			IN_DESKTOPUI: n ?? c?.IN_DESKTOPUI ?? false,
-			IN_VR: i ?? c?.IN_VR ?? m,
+			IN_GAMEPADUI: IN_GAMEPADUI ?? c?.IN_GAMEPADUI ?? o.TS.IN_GAMEPADUI,
+			IN_DESKTOPUI: IN_DESKTOPUI ?? c?.IN_DESKTOPUI ?? false,
+			IN_VR: IN_VR ?? c?.IN_VR ?? m,
 		}),
-		[c, t, n, i, m],
+		[c, IN_GAMEPADUI, IN_DESKTOPUI, IN_VR, m],
 	);
-	return r.createElement(
-		QO.Provider,
-		{
-			value: d,
-		},
-		s,
-	);
+	return <QOContext.Provider value={d}>{children}</QOContext.Provider>;
 }
 export function Qn(e) {
 	const t = rP(e);
@@ -97,7 +91,12 @@ export function On(e, t) {
 }
 export const NQ = "unknown";
 export function xv() {
-	if (!window || !window.location || !window.location.href) {
+	if (
+		!window ||
+		!window.location ||
+		!window.location ||
+		!window.location.href
+	) {
 		console.warn("Unable to determine base url!");
 		return NQ;
 	}

@@ -1,14 +1,14 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require("./16154.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require(/*webcrack:missing*/ "./63696.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var d = require(/*webcrack:missing*/ "./49810.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a from "./83957.js";
+import o, { h5, Gn } from "./89193.js";
+import l, { H } from "./16154.js";
+import c from "./72476.js";
+import m, { useState, useEffect } from "./63696.js";
+import d from "./49810.js";
+let n;
+const s = a;
+((e) => {
 	e[(e.AnyController = 0)] = "AnyController";
 	e[(e.XboxController = 1)] = "XboxController";
 	e[(e.Ps3Controller = 2)] = "Ps3Controller";
@@ -163,6 +163,9 @@ export class Fm {
 		return (
 			this.m_primaryLanguage == null ||
 			this.m_primaryLanguage <= -1 ||
+			this.m_primaryLanguage <= -1 ||
+			this.m_primaryLanguage >= 31 ||
+			this.m_primaryLanguage <= -1 ||
 			this.m_primaryLanguage >= 31 ||
 			e.some(
 				(e) => this.m_primaryLanguage === e || this.m_secondaryLanguages.has(e),
@@ -194,19 +197,19 @@ export class Fm {
 	async InternalLoad() {
 		let e = window.localStorage.getItem(p) || "0";
 		let t = {
-			v: e == "0" ? undefined : e,
-			id: "" + c.iA.accountid,
-			cc: "" + c.TS.COUNTRY,
+			v: e == "0" || e,
+			id: `${c.iA.accountid}`,
+			cc: `${c.TS.COUNTRY}`,
 			origin: self.origin,
 		};
-		let r = c.TS.STORE_BASE_URL + "dynamicstore/userdata/";
+		let r = `${c.TS.STORE_BASE_URL}dynamicstore/userdata/`;
 		try {
 			let e = await s.get(r, {
 				params: t,
 				withCredentials: true,
 			});
 			if (e && e.status == 200) {
-				(0, o.h5)(() => {
+				h5(() => {
 					this.m_bIsLoaded = true;
 					if (e.data.rgCurators) {
 						this.m_setCuratorsFollowed = new Set();
@@ -313,26 +316,27 @@ export class Fm {
 					}
 					if (e.data.rgHardwareUsed) {
 						for (const t of e.data.rgHardwareUsed) {
-							const e = A[t];
-							if (e) {
-								this.m_rgHardwareUsed.add(e);
+							const A_t = A[t];
+							if (A_t) {
+								this.m_rgHardwareUsed.add(A_t);
 							}
 						}
 					}
 				});
 			}
 		} catch (e) {
-			let t = (0, l.H)(e);
+			let t = H(e);
 			console.error("CDynamicStore.InternalLoad", t.strErrorMsg, t);
 		}
 		return this;
 	}
 	async UpdateFollowOrIgnoreCurator(e, t, r) {
-		let n =
-			c.TS.STORE_BASE_URL + "curators/" + (t ? "ajaxfollow/" : "ajaxignore/");
+		let n = `${c.TS.STORE_BASE_URL}curators/${
+			t ? "ajaxfollow/" : "ajaxignore/"
+		}`;
 		const i = e.GetAccountID();
 		const a = new FormData();
-		a.append("clanid", "" + i);
+		a.append("clanid", `${i}`);
 		a.append("sessionid", c.TS.SESSIONID);
 		a.append(t ? "follow" : "ignore", r ? "1" : "0");
 		let o = await s.post(n, a, {
@@ -350,20 +354,20 @@ export class Fm {
 		return o.data;
 	}
 	async UpdateAppIgnore(e, t, r, n = 0) {
-		let i = c.TS.STORE_BASE_URL + "recommended/ignorerecommendation";
+		let i = `${c.TS.STORE_BASE_URL}recommended/ignorerecommendation`;
 		const a = new FormData();
 		a.append("sessionid", c.TS.SESSIONID);
-		a.append("appid", "" + e);
+		a.append("appid", `${e}`);
 		a.append("remove", t ? "0" : "1");
 		a.append("snr", r);
-		a.append("ignore_reason", "" + n);
+		a.append("ignore_reason", `${n}`);
 		try {
 			this.m_bAjaxInFlight = true;
 			let r = await s.post(i, a, {
 				withCredentials: true,
 			});
 			if (r && r.status == 200) {
-				(0, o.h5)(() => {
+				h5(() => {
 					this.InvalidateCache();
 					if (t) {
 						this.m_mapIgnoredApps.set(e, n);
@@ -375,7 +379,7 @@ export class Fm {
 			this.m_bAjaxInFlight = false;
 			return r.data;
 		} catch (e) {
-			let t = (0, l.H)(e);
+			let t = H(e);
 			console.error("UpdateAppIgnore", t.strErrorMsg, t);
 		}
 		this.m_bAjaxInFlight = false;
@@ -384,12 +388,11 @@ export class Fm {
 		};
 	}
 	async UpdateGameWishlist(e, t, r, n) {
-		let i =
-			c.TS.STORE_BASE_URL +
-			"api/" +
-			(t ? "addtowishlist" : "removefromwishlist");
+		let i = `${c.TS.STORE_BASE_URL}api/${
+			t ? "addtowishlist" : "removefromwishlist"
+		}`;
 		const a = new FormData();
-		a.append("appid", "" + e);
+		a.append("appid", `${e}`);
 		a.append("sessionid", c.TS.SESSIONID);
 		if (r) {
 			a.append("snr", r);
@@ -456,7 +459,7 @@ export class Fm {
 		if (a) {
 			l.append("bundleid", a.toString());
 		} else {
-			l.append("subid", "" + t);
+			l.append("subid", `${t}`);
 		}
 		if (i) {
 			l.append("snr", i);
@@ -488,9 +491,9 @@ export class Fm {
 		try {
 			const t = new FormData();
 			t.append("sessionid", c.TS.SESSIONID);
-			t.append("appid", "" + e);
+			t.append("appid", `${e}`);
 			t.append("cc", c.TS.COUNTRY);
-			let r = c.TS.STORE_BASE_URL + "actions/addappformastersubscription";
+			let r = `${c.TS.STORE_BASE_URL}actions/addappformastersubscription`;
 			let n = await s.post(r, t, {
 				withCredentials: true,
 			});
@@ -504,7 +507,7 @@ export class Fm {
 			}
 			this.m_setOwnedApps.add(Number(e));
 		} catch (e) {
-			let t = (0, l.H)(e);
+			let t = H(e);
 			console.log("AddLicense request failed:", t.strErrorMsg, t);
 			return 2;
 		}
@@ -512,9 +515,9 @@ export class Fm {
 	}
 	async UpdateFollowingApp(e, t) {
 		try {
-			const r = c.TS.STORE_BASE_URL + "explore/followgame";
+			const r = `${c.TS.STORE_BASE_URL}explore/followgame`;
 			const n = new FormData();
-			n.append("appid", "" + e);
+			n.append("appid", `${e}`);
 			n.append("sessionid", c.TS.SESSIONID);
 			if (!t) {
 				n.append("unfollow", "1");
@@ -563,16 +566,16 @@ export class Fm {
 		return Fm.s_globalSingletonStore;
 	}
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 }
 export function L2() {
-	const [e, t] = (0, m.useState)(!Fm.Get().BIsLoaded());
-	(0, m.useEffect)(() => {
+	const [e, setE] = useState(!Fm.Get().BIsLoaded());
+	useEffect(() => {
 		if (e) {
 			Fm.Get()
 				.HintLoad()
-				.finally(() => t(!Fm.Get().BIsLoaded()));
+				.finally(() => setE(!Fm.Get().BIsLoaded()));
 		}
 	}, [e]);
 	return [e, Fm.Get()];
@@ -581,26 +584,26 @@ export function Lg(e) {
 	const [t, r] = L2();
 	return !t && r.BOwnsApp(e);
 }
-(0, i.Cg)([o.sH], Fm.prototype, "m_setWishList", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setOwnedPackages", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setOwnedApps", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setFollowedApps", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setExcludedTagsIds", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setExcludedContentDescriptors", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setRecommendedApps", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_mapIgnoredApps", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_mapIgnoredPackages", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setCuratorsFollowed", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setCuratorsIgnored", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_bShowFilteredUserReviewScores", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_primaryLanguage", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_secondaryLanguages", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_rgRecommendedTags", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_mapRecommendingCuratorsForApp", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setPackagesInCart", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_setAppsInCart", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_nCartLineItemCount", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_rgHardwareUsed", undefined);
-(0, i.Cg)([o.sH], Fm.prototype, "m_bAjaxInFlight", undefined);
-(0, i.Cg)([o.EW], Fm.prototype, "ExcludedContentDescriptor", null);
-(0, i.Cg)([o.XI], Fm.prototype, "UpdateAppIgnore", null);
+Cg([o.sH], Fm.prototype, "m_setWishList", undefined);
+Cg([o.sH], Fm.prototype, "m_setOwnedPackages", undefined);
+Cg([o.sH], Fm.prototype, "m_setOwnedApps", undefined);
+Cg([o.sH], Fm.prototype, "m_setFollowedApps", undefined);
+Cg([o.sH], Fm.prototype, "m_setExcludedTagsIds", undefined);
+Cg([o.sH], Fm.prototype, "m_setExcludedContentDescriptors", undefined);
+Cg([o.sH], Fm.prototype, "m_setRecommendedApps", undefined);
+Cg([o.sH], Fm.prototype, "m_mapIgnoredApps", undefined);
+Cg([o.sH], Fm.prototype, "m_mapIgnoredPackages", undefined);
+Cg([o.sH], Fm.prototype, "m_setCuratorsFollowed", undefined);
+Cg([o.sH], Fm.prototype, "m_setCuratorsIgnored", undefined);
+Cg([o.sH], Fm.prototype, "m_bShowFilteredUserReviewScores", undefined);
+Cg([o.sH], Fm.prototype, "m_primaryLanguage", undefined);
+Cg([o.sH], Fm.prototype, "m_secondaryLanguages", undefined);
+Cg([o.sH], Fm.prototype, "m_rgRecommendedTags", undefined);
+Cg([o.sH], Fm.prototype, "m_mapRecommendingCuratorsForApp", undefined);
+Cg([o.sH], Fm.prototype, "m_setPackagesInCart", undefined);
+Cg([o.sH], Fm.prototype, "m_setAppsInCart", undefined);
+Cg([o.sH], Fm.prototype, "m_nCartLineItemCount", undefined);
+Cg([o.sH], Fm.prototype, "m_rgHardwareUsed", undefined);
+Cg([o.sH], Fm.prototype, "m_bAjaxInFlight", undefined);
+Cg([o.EW], Fm.prototype, "ExcludedContentDescriptor", null);
+Cg([o.XI], Fm.prototype, "UpdateAppIgnore", null);

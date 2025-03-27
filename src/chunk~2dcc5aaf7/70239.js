@@ -1,27 +1,27 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./20414.js");
-var a = require("./96538.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./12176.js");
-var c = require("./34043.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./34792.js");
-var d = require("./39002.js");
-var A = require(/*webcrack:missing*/ "./61416.js");
 import { Seconds } from "../../actual_src/utils/time.js";
-var g = require(/*webcrack:missing*/ "./43691.js");
-var h = require(/*webcrack:missing*/ "./75144.js");
-var C = require(/*webcrack:missing*/ "./46382.js");
-var _ = require("./32493.js");
+import n, { Cg } from "./34629.js";
+import i, { GU } from "./20414.js";
+import a from "./96538.js";
+import s, { Gn } from "./89193.js";
+import o, { q3 } from "./90095.js";
+import l from "./12176.js";
+import c from "./34043.js";
+import m from "./52451.js";
+import u from "./34792.js";
+import { Yb } from "./39002.js";
+import { I } from "./61416.js";
+import g from "./43691.js";
+import h from "./75144.js";
+import { KV } from "./46382.js";
+import _ from "./32493.js";
 function f(e) {
 	return `publishedfiledetails_${e}`;
 }
 export function Kp(e, t) {
-	return (0, A.I)({
+	return I({
 		queryKey: [f(t)],
 		queryFn: async () =>
-			await (async function (e, t) {
+			await (async (e, t) => {
 				let r = l.w.Init(c.TA);
 				r.Body().set_publishedfileids([t]);
 				r.Body().set_appid(e);
@@ -41,10 +41,10 @@ function y(e) {
 	return `usercollections_${e}`;
 }
 export function EH(e) {
-	return (0, A.I)({
+	return I({
 		queryKey: [y(e)],
 		queryFn: async () =>
-			await (async function (e) {
+			await (async (e) => {
 				let t = l.w.Init(c.NZ);
 				t.Body().set_steamid(g.iA.steamid);
 				t.Body().set_type("myfiles");
@@ -70,7 +70,7 @@ const w = "workshop_hidden_items";
 const B = "workshop_trendy_items";
 class v {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_hRegisterForWorkshopChanges = SteamClient.Apps?.RegisterForWorkshopChanges(
@@ -127,7 +127,7 @@ class v {
 	}
 	ReorderSubscribedItems(e, t, r) {
 		let n = this.GetSubscribedItems(e);
-		n = (0, d.Yb)(n, t, r);
+		n = Yb(n, t, r);
 		this.m_mapWorkshopItemsSubscribed.set(e, n);
 		for (let e = 0; e < n.length; ++e) {
 			n[e].load_order = e;
@@ -258,7 +258,9 @@ class v {
 			);
 			if (a.GetEResult() != 1) {
 				console.warn(
-					`Error when calling PublishedFileService.QueryFiles: EResult=${a.GetEResult()}, Msg=${a.Hdr().error_message()}`,
+					`Error when calling PublishedFileService.QueryFiles: EResult=${a.GetEResult()}, Msg=${a
+						.Hdr()
+						.error_message()}`,
 				);
 				break;
 			}
@@ -287,7 +289,9 @@ class v {
 					);
 					if (n.GetEResult() != 1) {
 						console.warn(
-							`Error when calling PublishedFileService.AreFilesInSubscriptionList: EResult=${n.GetEResult()}, Msg=${n.Hdr().error_message()}`,
+							`Error when calling PublishedFileService.AreFilesInSubscriptionList: EResult=${n.GetEResult()}, Msg=${n
+								.Hdr()
+								.error_message()}`,
 						);
 						break;
 					}
@@ -479,7 +483,7 @@ class v {
 		) {
 			return 1;
 		}
-		let n = await (0, i.GU)(e, t);
+		let n = await GU(e, t);
 		if (t == i.bJ.Down) {
 			if (r.user_vote_summary.vote_for) {
 				r.file.vote_data.votes_up--;
@@ -547,40 +551,35 @@ class v {
 		).GetEResult();
 	}
 }
-(0, n.Cg)([s.sH.shallow], v.prototype, "m_mapWorkshopItemsTrendy", undefined);
-(0, n.Cg)(
-	[s.sH.shallow],
-	v.prototype,
-	"m_mapWorkshopItemsSubscribed",
-	undefined,
-);
-(0, n.Cg)(
+Cg([s.sH.shallow], v.prototype, "m_mapWorkshopItemsTrendy", undefined);
+Cg([s.sH.shallow], v.prototype, "m_mapWorkshopItemsSubscribed", undefined);
+Cg(
 	[s.sH.shallow],
 	v.prototype,
 	"m_mapWorkshopItemsSubscriptionCount",
 	undefined,
 );
-(0, n.Cg)([s.sH], v.prototype, "m_mapWorkshopItemsDownloaded", undefined);
-(0, n.Cg)([s.sH], v.prototype, "m_mapWorkshopItemsDownloading", undefined);
-(0, n.Cg)([s.sH], v.prototype, "m_mapPublishedFiles", undefined);
-(0, n.Cg)([m.oI], v.prototype, "onWorkshopChanges", null);
-(0, n.Cg)([m.oI], v.prototype, "onWorkshopItemInstalled", null);
-(0, n.Cg)([s.XI], v.prototype, "ReorderSubscribedItems", null);
-(0, n.Cg)([s.XI], v.prototype, "ReorderSubscribedItemsByDependencies", null);
-(0, n.Cg)([m.oI], v.prototype, "onWorkshopDownload", null);
+Cg([s.sH], v.prototype, "m_mapWorkshopItemsDownloaded", undefined);
+Cg([s.sH], v.prototype, "m_mapWorkshopItemsDownloading", undefined);
+Cg([s.sH], v.prototype, "m_mapPublishedFiles", undefined);
+Cg([m.oI], v.prototype, "onWorkshopChanges", null);
+Cg([m.oI], v.prototype, "onWorkshopItemInstalled", null);
+Cg([s.XI], v.prototype, "ReorderSubscribedItems", null);
+Cg([s.XI], v.prototype, "ReorderSubscribedItemsByDependencies", null);
+Cg([m.oI], v.prototype, "onWorkshopDownload", null);
 export const B6 = new v();
 export function ZG(e) {
-	return (0, o.q3)(() => (e ? B6.GetNumSubscribedItems(e) : 0));
+	return q3(() => (e ? B6.GetNumSubscribedItems(e) : 0));
 }
 export function $L(e) {
-	return (0, o.q3)(() => (e ? B6.GetTrendyWorkshopItems(e) : []));
+	return q3(() => (e ? B6.GetTrendyWorkshopItems(e) : []));
 }
 export function C6(e) {
-	return (0, o.q3)(() => (e ? B6.GetPublishedFile(e) : null));
+	return q3(() => (e ? B6.GetPublishedFile(e) : null));
 }
 export function DJ(e, t) {
-	const r = (0, C.KV)();
-	return (0, A.I)({
+	const r = KV();
+	return I({
 		queryKey: ["patchnotes", e, t],
 		queryFn: async () => {
 			const n = l.w.Init(_.b1);

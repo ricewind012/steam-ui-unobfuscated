@@ -1,148 +1,105 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require("./24496.js");
-var o = require("./34428.js");
-var l = require(/*webcrack:missing*/ "./42318.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import s, { Dt, fu, vM } from "./24496.js";
+import { dm } from "./34428.js";
+import l from "./42318.js";
 require(/*webcrack:missing*/ "./58663.js").Message;
 export function r() {
-	const [e, t] = (0, s.Dt)();
+	const [e, t] = Dt();
 	if (!e.bSupported) {
 		return null;
 	}
 	const r = e.bRunning
 		? Localize("#Settings_System_TrimAll_Running")
 		: Localize("#Settings_System_TrimAll_Run");
-	return n.createElement(
-		i.xh,
-		{
-			disabled: e.bRunning,
-			label: Localize("#Settings_System_TrimAll_Label"),
-			description: Localize("#Settings_System_TrimAll_Description"),
-			onClick: () => t(),
-		},
-		r,
+	return (
+		<i.xh
+			disabled={e.bRunning}
+			label={Localize("#Settings_System_TrimAll_Label")}
+			description={Localize("#Settings_System_TrimAll_Description")}
+			onClick={() => t()}
+		>
+			{r}
+		</i.xh>
 	);
 }
-function m(e) {
-	const { drive: t } = e;
-	const r = (0, s.fu)(t.id);
+function M(e) {
+	const { drive } = e;
+	const r = fu(drive.id);
 	let a = "";
-	if (t.is_ejectable) {
+	if (drive.is_ejectable) {
 		a += " eject";
 	}
-	return n.createElement(
-		l.tH,
-		null,
-		n.createElement(i.T8, {
-			name: "",
-			value: "",
-		}),
-		n.createElement(i.T8, {
-			name: "id",
-			value: t.id.toString(),
-		}),
-		n.createElement(i.T8, {
-			name: "sModel",
-			value: t.model,
-		}),
-		n.createElement(i.T8, {
-			name: "sVendor",
-			value: t.vendor,
-		}),
-		n.createElement(i.T8, {
-			name: "sSerial",
-			value: t.serial,
-		}),
-		n.createElement(i.T8, {
-			name: "nSizeBytes",
-			value: (0, o.dm)(Number(t.size_bytes), 1),
-		}),
-		n.createElement(i.T8, {
-			name: "sFeatures",
-			value: a,
-		}),
-		r.map((e) =>
-			n.createElement(u, {
-				key: e.id,
-				blockDevice: e,
-			}),
-		),
+	return (
+		<l.tH>
+			<i.T8 name="" value="" />
+			<i.T8 name="id" value={drive.id.toString()} />
+			<i.T8 name="sModel" value={drive.model} />
+			<i.T8 name="sVendor" value={drive.vendor} />
+			<i.T8 name="sSerial" value={drive.serial} />
+			<i.T8 name="nSizeBytes" value={dm(Number(drive.size_bytes), 1)} />
+			<i.T8 name="sFeatures" value={a} />
+			{r.map((e) => (
+				<U key={e.id} blockDevice={e} />
+			))}
+		</l.tH>
 	);
 }
-function u(e) {
-	const { blockDevice: t } = e;
+function U(e) {
+	const { blockDevice } = e;
 	let r = "";
-	if (t.is_formattable) {
+	if (blockDevice.is_formattable) {
 		r += " format";
 	}
-	if (t.is_read_only) {
+	if (blockDevice.is_read_only) {
 		r += " ro";
 	}
-	if (t.is_root_device) {
+	if (blockDevice.is_root_device) {
 		r += " rootdevice";
 	}
-	return n.createElement(
-		l.tH,
-		null,
-		n.createElement(i.T8, {
-			name: "--> id",
-			value: t.id.toString(),
-		}),
-		n.createElement(i.T8, {
-			name: "    sPath",
-			value: t.path,
-		}),
-		n.createElement(i.T8, {
-			name: "    sFriendlyPath",
-			value: t.friendly_path,
-		}),
-		n.createElement(i.T8, {
-			name: "    rMountPath",
-			value: t.mount_paths.join(),
-		}),
-		n.createElement(i.T8, {
-			name: "    sLabel",
-			value: t.label,
-		}),
-		n.createElement(i.T8, {
-			name: "    nSizeBytes",
-			value: (0, o.dm)(Number(t.size_bytes), 1),
-		}),
-		n.createElement(i.T8, {
-			name: "    sFeatures",
-			value: r,
-		}),
-		n.createElement(i.T8, {
-			name: "    eContentType",
-			value:
-				((s = t.content_type),
-				"unknown EStorageBlockContentType ( " + s + " )"),
-		}),
-		n.createElement(i.T8, {
-			name: "    eFileSystemType ",
-			value:
-				((a = t.filesystem_type),
-				"unknown EStorageBlockFileSystemType ( " + a + " )"),
-		}),
+	return (
+		<l.tH>
+			<i.T8 name="--> id" value={blockDevice.id.toString()} />
+			<i.T8 name="    sPath" value={blockDevice.path} />
+			<i.T8 name="    sFriendlyPath" value={blockDevice.friendly_path} />
+			<i.T8 name="    rMountPath" value={blockDevice.mount_paths.join()} />
+			<i.T8 name="    sLabel" value={blockDevice.label} />
+			<i.T8
+				name="    nSizeBytes"
+				value={dm(Number(blockDevice.size_bytes), 1)}
+			/>
+			<i.T8 name="    sFeatures" value={r} />
+			<i.T8
+				name="    eContentType"
+				value={
+					((s = blockDevice.content_type),
+					`unknown EStorageBlockContentType ( ${s} )`)
+				}
+			/>
+			<i.T8
+				name="    eFileSystemType "
+				value={
+					((a = blockDevice.filesystem_type),
+					`unknown EStorageBlockFileSystemType ( ${a} )`)
+				}
+			/>
+		</l.tH>
 	);
 	var a;
 	var s;
 }
 export function q(e) {
-	const t = (0, s.vM)();
+	const t = vM();
 	if (t.isSuccess) {
-		return n.createElement(
-			n.Fragment,
-			null,
-			t.data.drives.map((e) =>
-				n.createElement(m, {
-					key: e.id,
-					drive: e,
-				}),
-			),
+		return (
+			<>
+				{t.data.drives.map((e) => (
+					<M key={e.id} drive={e} />
+				))}
+			</>
 		);
 	} else {
-		return n.createElement("div", null, "Error fetching data");
+		return <div>Error fetching data</div>;
 	}
 }

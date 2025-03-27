@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./52451.js";
+import s from "./79769.js";
 export class m extends i.Component {
 	m_elCanvas;
 	m_Context;
@@ -25,6 +25,7 @@ export class m extends i.Component {
 		if (
 			this.props.elementRef == null ||
 			this.m_elCanvas == null ||
+			this.m_elCanvas == null ||
 			this.m_bSetupComplete
 		) {
 			return;
@@ -42,7 +43,7 @@ export class m extends i.Component {
 		this.m_elCanvas.width = n;
 		this.m_elCanvas.height = i;
 		if (this.props.blurAmount > 0) {
-			this.m_Context.filter = "blur(" + this.props.blurAmount + "px)";
+			this.m_Context.filter = `blur(${this.props.blurAmount}px)`;
 		}
 		let a = () => {
 			this.m_Context.drawImage(t, 0, 0, n * e[0], i * e[1]);
@@ -54,14 +55,16 @@ export class m extends i.Component {
 		this.m_bSetupComplete = true;
 	}
 	render() {
-		return i.createElement("canvas", {
-			id: this.props.id,
-			className: this.props.className,
-			ref: this.BindCanvasRef,
-			width: this.props.width,
-			height: this.props.height,
-		});
+		return (
+			<canvas
+				id={this.props.id}
+				className={this.props.className}
+				ref={this.BindCanvasRef}
+				width={this.props.width}
+				height={this.props.height}
+			/>
+		);
 	}
 }
-(0, n.Cg)([a.oI], m.prototype, "BindCanvasRef", null);
-(0, n.Cg)([a.oI], m.prototype, "updateCanvas", null);
+Cg([a.oI], m.prototype, "BindCanvasRef", null);
+Cg([a.oI], m.prototype, "updateCanvas", null);

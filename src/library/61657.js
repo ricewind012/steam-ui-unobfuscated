@@ -1,7 +1,7 @@
-var r;
-export var pR;
-export var Vz;
-var o = require("./90039.js");
+import o from "./90039.js";
+let r;
+export let pR;
+export let Vz;
 class a {
 	m_ActiveInputId;
 	m_ActiveInputTimeout;
@@ -39,7 +39,7 @@ class a {
 		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Horizontal = 1)] = "Horizontal";
 	e[(e.Vertical = 2)] = "Vertical";
@@ -96,7 +96,7 @@ class c {
 		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.INVALID = 0)] = "INVALID";
 	e[(e.OK = 1)] = "OK";
 	e[(e.CANCEL = 2)] = "CANCEL";
@@ -127,7 +127,7 @@ class c {
 	e[(e.STEAM_GUIDE = 27)] = "STEAM_GUIDE";
 	e[(e.STEAM_QUICK_MENU = 28)] = "STEAM_QUICK_MENU";
 })((pR ||= {}));
-(function (e) {
+((e) => {
 	e[(e.UNKNOWN = 0)] = "UNKNOWN";
 	e[(e.GAMEPAD = 1)] = "GAMEPAD";
 	e[(e.KEYBOARD_SIMULATOR = 2)] = "KEYBOARD_SIMULATOR";

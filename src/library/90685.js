@@ -1,29 +1,29 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./736.js");
-var s = require("./52451.js");
+import r from "./63696.js";
+import i, { Fj } from "./736.js";
+import s, { l6, Qi, DF } from "./52451.js";
 export function GD(e) {
-	const [t, n] = r.useState(false);
+	const [t, setT] = r.useState(false);
 	const o = r.useCallback(() => {
-		if ((0, i.Fj)(e, "Window.IsWindowMaximized")) {
+		if (Fj(e, "Window.IsWindowMaximized")) {
 			e.SteamClient.Window.IsWindowMaximized().then((e) => {
-				n(e);
+				setT(e);
 			});
 		} else if (e?.screen) {
-			n(
+			setT(
 				e.screen.availWidth == e.innerWidth &&
 					e.screen.availHeight == e.innerHeight,
 			);
 		}
 	}, [e]);
 	r.useEffect(o, [o, e]);
-	(0, s.l6)(e, "resize", o);
-	(0, s.Qi)(e, ["window_moved"], o);
+	l6(e, "resize", o);
+	Qi(e, ["window_moved"], o);
 	return t;
 }
 export function jt(e, t = 100) {
-	const [n, i] = r.useState(false);
-	const o = r.useCallback(() => i(true), [i]);
-	const a = r.useCallback(() => i(false), [i]);
+	const [n, setN] = r.useState(false);
+	const o = r.useCallback(() => setN(true), [setN]);
+	const a = r.useCallback(() => setN(false), [setN]);
 	r.useEffect(
 		() =>
 			e
@@ -36,12 +36,12 @@ export function jt(e, t = 100) {
 				: undefined,
 		[e, o, a],
 	);
-	return (0, s.DF)(n, t);
+	return DF(n, t);
 }
 export function nA(e) {
-	const [t, n] = r.useState(false);
-	const i = r.useCallback(() => n(true), [n]);
-	const s = r.useCallback(() => n(false), [n]);
+	const [t, setT] = r.useState(false);
+	const i = r.useCallback(() => setT(true), [setT]);
+	const s = r.useCallback(() => setT(false), [setT]);
 	r.useEffect(
 		() =>
 			e
@@ -57,11 +57,11 @@ export function nA(e) {
 	return t;
 }
 export function SO(e) {
-	const [t, n] = r.useState(0);
+	const [t, setT] = r.useState(0);
 	const i = r.useCallback(() => {
-		n(e.innerWidth);
+		setT(e.innerWidth);
 	}, [e]);
 	r.useEffect(i, [i, e]);
-	(0, s.l6)(e, "resize", i);
+	l6(e, "resize", i);
 	return t;
 }

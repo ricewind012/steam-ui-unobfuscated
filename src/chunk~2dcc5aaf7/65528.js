@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./52451.js");
-var a = require("./3499.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require("./60917.js");
+import { Cg } from "./34629.js";
+import i from "./52451.js";
+import { Kr } from "./3499.js";
+import s, { Gn } from "./89193.js";
+import o from "./60917.js";
 class l {
 	m_CMInterface;
 	m_bOpenedItem = false;
 	m_mapShortcutOverrides = new Map();
 	m_mapShortcutNames = new Map();
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		this.m_CMInterface = e;
@@ -22,9 +22,9 @@ class l {
 	}
 	OnScreenshotNotification(e) {
 		if (e.strOperation != "started") {
-			if (e.strOperation != "written");
-			else {
-				const t = (0, a.Kr)(e.details);
+			if (e.strOperation != "written") {
+			} else {
+				const t = Kr(e.details);
 				o.Tu.DoScreenshotNotification(t, "#MediaPage_TakeScreenshot");
 			}
 		} else {
@@ -50,9 +50,9 @@ class l {
 		return this.m_mapShortcutNames.get(e);
 	}
 }
-(0, n.Cg)([s.sH], l.prototype, "m_mapShortcutOverrides", undefined);
-(0, n.Cg)([s.sH], l.prototype, "m_mapShortcutNames", undefined);
-(0, n.Cg)([i.oI], l.prototype, "OnScreenshotNotification", null);
-(0, n.Cg)([i.oI], l.prototype, "SetOpenedItem", null);
+Cg([s.sH], l.prototype, "m_mapShortcutOverrides", undefined);
+Cg([s.sH], l.prototype, "m_mapShortcutNames", undefined);
+Cg([i.oI], l.prototype, "OnScreenshotNotification", null);
+Cg([i.oI], l.prototype, "SetOpenedItem", null);
 export const y = new l();
 window.screenshotStore = y;

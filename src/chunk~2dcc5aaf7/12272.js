@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Opaque: "_354c6HW22zdvPnA_WxQUty",
 	MouseCapturePanel: "_1iR8Qz4sV2_qq32KWP6gwS",

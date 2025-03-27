@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	narrowWidth: "500px",
 	carouselNavButton: "_13rGo4vexAbY9-CP7FsLOg",

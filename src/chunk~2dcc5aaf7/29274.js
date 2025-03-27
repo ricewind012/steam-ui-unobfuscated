@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	CloudConflictModalContent: "_3Ps1lrmF9DEtl8yxP0uGBq",
 	Popup: "_2NgsfzeX0bCqF-QY15gcIq",

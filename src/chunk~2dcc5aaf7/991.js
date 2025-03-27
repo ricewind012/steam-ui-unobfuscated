@@ -2,6 +2,51 @@ export function f(e) {
 	return (
 		e === "game" ||
 		e === "dlc" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "demo" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "demo" ||
+		e === "hardware" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "demo" ||
+		e === "hardware" ||
+		e === "mod" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "demo" ||
+		e === "hardware" ||
+		e === "mod" ||
+		e == "video" ||
+		e === "dlc" ||
+		e === "software" ||
+		e === "music" ||
+		e === "application" ||
+		e === "demo" ||
+		e === "hardware" ||
+		e === "mod" ||
+		e == "video" ||
+		e === "beta" ||
+		e === "dlc" ||
 		e === "software" ||
 		e === "music" ||
 		e === "application" ||

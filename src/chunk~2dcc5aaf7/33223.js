@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./28987.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require("./16154.js");
-var c = require(/*webcrack:missing*/ "./93960.js");
-var m = require(/*webcrack:missing*/ "./79769.js");
 import { BlobToFile } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require("./88341.js");
-var g = require("./39082.js");
-var h = require("./71472.js");
+import n, { Cg } from "./34629.js";
+import i from "./28987.js";
+import a from "./83957.js";
+import o, { Gn } from "./89193.js";
+import l, { H } from "./16154.js";
+import c from "./93960.js";
+import m, { RR } from "./79769.js";
+import A from "./72476.js";
+import p from "./88341.js";
+import g from "./39082.js";
+import h, { j, P } from "./71472.js";
+const s = a;
 export class V {
 	m_filesToUpload = o.sH.array();
 	m_filesCompleted = [];
@@ -20,7 +20,7 @@ export class V {
 	m_lastError = undefined;
 	m_fnSetImageURL = null;
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_clanSteamID = e;
 	}
 	GetClanSteamID() {
@@ -30,7 +30,7 @@ export class V {
 		this.m_fnSetImageURL = e;
 	}
 	async AddImage(e, t = 0, r, n) {
-		const i = (0, h.j)(e.name, t);
+		const i = j(e.name, t);
 		return this.AddImageForLanguage(e, i, r, n);
 	}
 	async AddImageForLanguage(e, t, r, n) {
@@ -128,7 +128,7 @@ export class V {
 		);
 	}
 	BIsFileCompleted(e) {
-		return this.m_filesCompleted.indexOf(e) != -1;
+		return this.m_filesCompleted.includes(e);
 	}
 	async UploadAllImages(e, t, r, n, i) {
 		const a = {};
@@ -158,29 +158,29 @@ export class V {
 				}
 			}
 		}
-		const s = await (0, m.RR)(a);
+		const s = await RR(a);
 		Object.keys(s).forEach((r) => {
-			const n = s[r];
+			const s_r = s[r];
 			const i = this.m_filesToUpload.find(
 				(e) => `${e.uploadTime}/${e.file.name}` === r,
 			);
 			if (i) {
-				if (n.success !== 1) {
+				if (s_r.success !== 1) {
 					i.status = "failed";
-					i.message = n.message;
+					i.message = s_r.message;
 				} else {
 					i.status = "success";
 					if (this.m_fnSetImageURL) {
-						if (n.origimagehash) {
-							const r = (0, h.P)(n.language, t, e);
-							p.pU.AddLocalizeImageUploaded(n.origimagehash, r);
+						if (s_r.origimagehash) {
+							const r = P(s_r.language, t, e);
+							p.pU.AddLocalizeImageUploaded(s_r.origimagehash, r);
 						} else {
 							const r = p.pU.GetClanImageByImageHash(
 								this.m_clanSteamID,
-								n.image_hash,
+								s_r.image_hash,
 							);
 							if (r) {
-								const n = (0, h.P)(i.language, t, e);
+								const n = P(i.language, t, e);
 								this.m_fnSetImageURL(i.type, r, n);
 							}
 						}
@@ -205,45 +205,46 @@ export class V {
 	}
 	async UploadFile(e) {
 		const {
-			uploadFile: t,
-			filename: r,
-			artworkType: n,
-			resizeRequests: i,
-			primaryLocalizeImage: a,
-			lang: o,
-			width: c,
-			height: m,
+			uploadFile,
+			filename,
+			artworkType,
+			resizeRequests,
+			primaryLocalizeImage,
+			lang,
+			width,
+			height,
 		} = e;
 		let u = null;
 		const d = new FormData();
-		d.append("clanimage", t, r);
+		d.append("clanimage", uploadFile, filename);
 		d.append("sessionid", A.TS.SESSIONID);
-		if (n) {
-			d.append("arttype", n);
+		if (artworkType) {
+			d.append("arttype", artworkType);
 		}
-		if (i && i.length > 0) {
-			d.append("resize", i.map((e) => e.width + "x" + e.height).join(","));
+		if (resizeRequests && resizeRequests.length > 0) {
+			d.append(
+				"resize",
+				resizeRequests.map((e) => `${e.width}x${e.height}`).join(","),
+			);
 		}
 		let p = "/uploadimage/";
-		if (a) {
+		if (primaryLocalizeImage) {
 			p = "/ajaxuploadlocalizedimage/";
-			d.append("origimagehash", a.image_hash);
-			d.append("thumbhash", a.thumbnail_hash);
-			d.append("extension", "" + a.file_type);
-			d.append("language", "" + o);
+			d.append("origimagehash", primaryLocalizeImage.image_hash);
+			d.append("thumbhash", primaryLocalizeImage.thumbnail_hash);
+			d.append("extension", `${primaryLocalizeImage.file_type}`);
+			d.append("language", `${lang}`);
 		}
-		const g = r.split(".").pop().toLocaleLowerCase();
+		const g = filename.split(".").pop().toLocaleLowerCase();
 		if (g == "webm" || g == "mp4") {
-			d.append("video_width", "" + c);
-			d.append("video_height", "" + m);
+			d.append("video_width", `${width}`);
+			d.append("video_height", `${height}`);
 		}
 		const h = s.CancelToken.source();
 		this.m_allCancelTokens.push(h);
-		let C =
-			A.TS.COMMUNITY_BASE_URL +
-			"/gid/" +
-			this.m_clanSteamID.ConvertTo64BitString() +
-			p;
+		let C = `${
+			A.TS.COMMUNITY_BASE_URL
+		}/gid/${this.m_clanSteamID.ConvertTo64BitString()}${p}`;
 		let _ = {
 			cancelToken: h.token,
 			withCredentials: true,
@@ -253,30 +254,28 @@ export class V {
 		};
 		try {
 			u = await s.post(C, d, _);
-			this.m_filesCompleted.push(t);
+			this.m_filesCompleted.push(uploadFile);
 		} catch (e) {
 			this.m_lastError = {
-				file: t,
+				file: uploadFile,
 				status: e.response ? e.response.status : 500,
-				message: (0, l.H)(e).strErrorMsg,
+				message: H(e).strErrorMsg,
 			};
 			u = e.response;
 		}
-		if (!a) {
+		if (!primaryLocalizeImage) {
 			await this.handleUploadRefresh(h);
 		}
 		return u.data;
 	}
 	static async SendResizeRequest(e, t, r, n, i) {
-		let a =
-			A.TS.COMMUNITY_BASE_URL +
-			"/gid/" +
-			t.ConvertTo64BitString() +
-			"/resizeimage/";
+		let a = `${
+			A.TS.COMMUNITY_BASE_URL
+		}/gid/${t.ConvertTo64BitString()}/resizeimage/`;
 		let o = new FormData();
 		o.append("imagehash", r);
 		o.append("extension", n);
-		o.append("resize", i.map((e) => e.width + "x" + e.height).join(","));
+		o.append("resize", i.map((e) => `${e.width}x${e.height}`).join(","));
 		o.append("sessionid", A.TS.SESSIONID);
 		return (
 			await s.post(a, o, {
@@ -285,11 +284,11 @@ export class V {
 		).data.count;
 	}
 }
-(0, n.Cg)([o.sH], V.prototype, "m_filesToUpload", undefined);
-(0, n.Cg)([o.sH], V.prototype, "m_filesCompleted", undefined);
-(0, n.Cg)([o.sH], V.prototype, "m_lastError", undefined);
-(0, n.Cg)([c.o], V.prototype, "AddImage", null);
-(0, n.Cg)([c.o], V.prototype, "AddExistingClanImage", null);
-(0, n.Cg)([c.o], V.prototype, "DeleteUploadImageByIndex", null);
-(0, n.Cg)([c.o], V.prototype, "DeleteUploadImage", null);
-(0, n.Cg)([c.o], V.prototype, "ClearImages", null);
+Cg([o.sH], V.prototype, "m_filesToUpload", undefined);
+Cg([o.sH], V.prototype, "m_filesCompleted", undefined);
+Cg([o.sH], V.prototype, "m_lastError", undefined);
+Cg([c.o], V.prototype, "AddImage", null);
+Cg([c.o], V.prototype, "AddExistingClanImage", null);
+Cg([c.o], V.prototype, "DeleteUploadImageByIndex", null);
+Cg([c.o], V.prototype, "DeleteUploadImage", null);
+Cg([c.o], V.prototype, "ClearImages", null);

@@ -1,10 +1,10 @@
-export var bJ;
-var i = require(/*webcrack:missing*/ "./72476.js");
-var a = require("./1252.js");
-var s = require("./87935.js");
-var o = require(/*webcrack:missing*/ "./12176.js");
-var l = require("./34043.js");
-var c = require("./70239.js");
+import i from "./72476.js";
+import a from "./1252.js";
+import s from "./87935.js";
+import o from "./12176.js";
+import l from "./34043.js";
+import c from "./70239.js";
+export let bJ;
 export async function GU(e, t) {
 	let r = "";
 	if (t == bJ.Up) {
@@ -30,7 +30,7 @@ export async function GU(e, t) {
 	}
 	return c.success;
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Up = 1)] = "Up";
 	e[(e.Down = 2)] = "Down";
@@ -45,14 +45,14 @@ export async function dK(e, t) {
 	const a = new Map();
 	for (let e of i.Body().summaries()) {
 		let t = e.toObject();
-		let r = bJ.None;
+		let bJ_None = bJ.None;
 		if (t.vote_for) {
-			r = bJ.Up;
+			bJ_None = bJ.Up;
 		} else if (t.vote_against) {
-			r = bJ.Down;
+			bJ_None = bJ.Down;
 		}
 		a.set(t.publishedfileid, {
-			vote: r,
+			vote: bJ_None,
 			bReported: t.reported,
 		});
 	}

@@ -1,46 +1,55 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require("./76587.js");
-var o = require("./12307.js");
-var l = require("./44717.js");
-var c = require("./84056.js");
-var m = require("./64608.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-var _d = require("./85360.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var p = require("./45309.js");
-var g = require("./62486.js");
-var h = require("./13869.js");
-var C = require(/*webcrack:missing*/ "./4690.js");
-var _ = require("./35488.js");
 import {
 	GetOwningWindowForEvent,
 	GetTotalZoom,
 } from "../../actual_src/utils/domutils.js";
-var b = require("./93966.js");
-var y = require("./52192.js");
+import n from "./63696.js";
+import i, { PA } from "./41230.js";
+import a, { A } from "./90765.js";
+import s from "./76587.js";
+import o from "./12307.js";
+import l, { CM } from "./44717.js";
+import c from "./84056.js";
+import m from "./64608.js";
+import u from "./69164.js";
+import _d from "./85360.js";
+import p from "./45309.js";
+import g, { ND, U$ } from "./62486.js";
+import h, { pg } from "./13869.js";
+import C from "./4690.js";
+import _ from "./35488.js";
+import b, { yq } from "./93966.js";
+import y, { sn, RF, P4, Xt, Po, M8 } from "./52192.js";
+import { W_1 as w_1 } from "./23101.js";
+import { G4 } from "./60221.js";
+import N, { Xg, uC, MZ, WP } from "./61017.js";
+import G from "./44846.js";
+import j from "./50350.js";
+import q, { oH } from "./33572.js";
+import Q from "./46422.js";
+import Z, { wY, Ue } from "./52451.js";
+import Y from "./34792.js";
+import { $2 } from "./96680.js";
 function S(e) {
 	const t = _d.v3.CurrentEditedBinding;
 	const r =
 		t?.controller_action?.action == 37 ||
+		t?.controller_action?.action == 38 ||
 		t?.controller_action?.action == 38 ||
 		t?.controller_action?.action == 39;
 	return {
 		tab: {
 			id: "Camera",
 			title: "#ControllerConfigurator_ChooseBinding_CameraAngleAction",
-			content: n.createElement(E, {
-				appid: e,
-			}),
+			content: <E appid={e} />,
 		},
 		bHasBinding: r,
 	};
 }
-function w(e) {
-	const { existingBinding: t, onResult: r, ...i } = e;
-	const [a, s] = n.useState(e.existingBinding?.delay_duration ?? 33);
-	const [o, l] = n.useState(
+function W_1(e) {
+	const { existingBinding, onResult, ...i } = e;
+	const [a, setA] = n.useState(e.existingBinding?.delay_duration ?? 33);
+	const [o, setO] = n.useState(
 		e.existingBinding?.camera_horizon_reset_angle ?? 90,
 	);
 	const c = a > 2 ? (1000 / a).toFixed(0) : (500).toFixed(0);
@@ -52,251 +61,230 @@ function w(e) {
 		o,
 	);
 	const d =
-		r == null
-			? undefined
-			: () => {
-					r({
-						camera_dip_angle: 180,
-						delay_duration: a,
-						camera_horizon_reset_angle: o,
-					});
-					e.closeModal();
-				};
-	return n.createElement(
-		p.X_,
-		{
-			...i,
-			onCommitResult: d,
-			onCancel: e.closeModal,
-		},
-		n.createElement(m.d3, {
-			label: (0, Localize)("#ControllerBinding_CameraHorizonReset_DelayMS"),
-			value: a,
-			onChange: s,
-			layout: "inline",
-			min: 0,
-			max: 100,
-			showValue: true,
-			step: 1,
-			resetValue: 33,
-			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
-			editableValue: true,
-			bottomSeparator: "none",
-		}),
-		n.createElement(m.d3, {
-			label: (0, Localize)("#ControllerBinding_CameraHorizonReset_ResetAngles"),
-			value: o,
-			onChange: l,
-			layout: "inline",
-			min: 45,
-			max: 135,
-			showValue: true,
-			step: 1,
-			resetValue: 90,
-			renderValue: (e) => e + (0, Localize)("#Unit_Degree_Symbol"),
-			editableValue: true,
-			bottomSeparator: "none",
-		}),
-		n.createElement(m.D0, {
-			label: u,
-			bottomSeparator: "none",
-		}),
+		onResult == null ||
+		(() => {
+			onResult({
+				camera_dip_angle: 180,
+				delay_duration: a,
+				camera_horizon_reset_angle: o,
+			});
+			e.closeModal();
+		});
+	return (
+		<p.X_ {...i} onCommitResult={d} onCancel={e.closeModal}>
+			<m.d3
+				label={(0, Localize)("#ControllerBinding_CameraHorizonReset_DelayMS")}
+				value={a}
+				onChange={setA}
+				layout="inline"
+				min={0}
+				max={100}
+				showValue
+				step={1}
+				resetValue={33}
+				renderValue={(e) => e + (0, Localize)("#Unit_Milliseconds")}
+				editableValue
+				bottomSeparator="none"
+			/>
+			<m.d3
+				label={(0, Localize)(
+					"#ControllerBinding_CameraHorizonReset_ResetAngles",
+				)}
+				value={o}
+				onChange={setO}
+				layout="inline"
+				min={45}
+				max={135}
+				showValue
+				step={1}
+				resetValue={90}
+				renderValue={(e) => e + (0, Localize)("#Unit_Degree_Symbol")}
+				editableValue
+				bottomSeparator="none"
+			/>
+			<m.D0 label={u} bottomSeparator="none" />
+		</p.X_>
 	);
 }
 function B(e) {
-	const { existingBinding: t, onResult: r, ...i } = e;
-	const [a, s] = n.useState(e.existingBinding?.spin_duration ?? 250);
-	const [o, l] = n.useState(e.existingBinding?.spin_by_amount ?? 360);
+	const { existingBinding, onResult, ...i } = e;
+	const [a, setA] = n.useState(e.existingBinding?.spin_duration ?? 250);
+	const [o, setO] = n.useState(e.existingBinding?.spin_by_amount ?? 360);
 	const c =
-		r == null
-			? undefined
-			: () => {
-					r({
-						spin_duration: a,
-						spin_by_amount: o,
-					});
-					e.closeModal();
-				};
-	return n.createElement(
-		p.X_,
-		{
-			title: (0, Localize)(
+		onResult == null ||
+		(() => {
+			onResult({
+				spin_duration: a,
+				spin_by_amount: o,
+			});
+			e.closeModal();
+		});
+	return (
+		<p.X_
+			title={(0, Localize)(
 				"#ControllerBinding_DotsPer360CalibrationSpin_Title",
 				o,
-			),
-			description: (0, Localize)(
+			)}
+			description={(0, Localize)(
 				"#ControllerBinding_DotsPer360CalibrationSpin_Desc",
 				o,
-			),
-			...i,
-			onCommitResult: c,
-			onCancel: e.closeModal,
-		},
-		n.createElement(m.d3, {
-			label: (0, Localize)(
-				"#ControllerBinding_DotsPer360CalibrationSpin_SpinDuration",
-			),
-			value: a,
-			onChange: s,
-			layout: "inline",
-			min: 0,
-			max: 1000,
-			showValue: true,
-			step: 1,
-			resetValue: 250,
-			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
-			editableValue: true,
-			bottomSeparator: "none",
-		}),
-		n.createElement(m.d3, {
-			label: (0, Localize)(
-				"#ControllerBinding_DotsPer360CalibrationSpin_SpinAngle",
-			),
-			value: o,
-			onChange: l,
-			layout: "inline",
-			min: -360,
-			max: 360,
-			showValue: true,
-			step: 1,
-			resetValue: 360,
-			renderValue: (e) => e + (0, Localize)("#Unit_Degree_Symbol"),
-			editableValue: true,
-			bottomSeparator: "none",
-		}),
+			)}
+			{...i}
+			onCommitResult={c}
+			onCancel={e.closeModal}
+		>
+			<m.d3
+				label={(0, Localize)(
+					"#ControllerBinding_DotsPer360CalibrationSpin_SpinDuration",
+				)}
+				value={a}
+				onChange={setA}
+				layout="inline"
+				min={0}
+				max={1000}
+				showValue
+				step={1}
+				resetValue={250}
+				renderValue={(e) => e + (0, Localize)("#Unit_Milliseconds")}
+				editableValue
+				bottomSeparator="none"
+			/>
+			<m.d3
+				label={(0, Localize)(
+					"#ControllerBinding_DotsPer360CalibrationSpin_SpinAngle",
+				)}
+				value={o}
+				onChange={setO}
+				layout="inline"
+				min={-360}
+				max={360}
+				showValue
+				step={1}
+				resetValue={360}
+				renderValue={(e) => e + (0, Localize)("#Unit_Degree_Symbol")}
+				editableValue
+				bottomSeparator="none"
+			/>
+		</p.X_>
 	);
 }
 const v = [3, 12, 1, 2, 13, 4];
 function _I(e) {
-	const { existingBinding: t, onResult: r, ...i } = e;
-	const [a, s] = n.useState(e.existingBinding?.source_of_direction ?? 3);
-	const [o, l] = n.useState(e.existingBinding?.turn_duration ?? 75);
-	const [c, u] = n.useState(
+	const { existingBinding, onResult, ...i } = e;
+	const [a, setA] = n.useState(e.existingBinding?.source_of_direction ?? 3);
+	const [o, setO] = n.useState(e.existingBinding?.turn_duration ?? 75);
+	const [c, setC] = n.useState(
 		e.existingBinding?.use_last_direction_if_deadzoned ?? false,
 	);
 	const h = _d.v3.EditingConfiguration?.controller_type;
 	const C = v
-		.filter((e) => (0, y.sn)(h, e))
+		.filter((e) => sn(h, e))
 		.map((e) => ({
-			label: (0, g.ND)(g.Dd[e].id),
+			label: ND(g.Dd[e].id),
 			data: e,
 		}));
 	const _ =
-		r == null
-			? undefined
-			: () => {
-					r({
-						source_of_direction: a,
-						turn_duration: o,
-						use_last_direction_if_deadzoned: c,
-					});
-					e.closeModal();
-				};
-	return n.createElement(
-		p.X_,
-		{
-			...i,
-			onCommitResult: _,
-			onCancel: e.closeModal,
-		},
-		n.createElement(m.m, {
-			layout: "inline",
-			label: (0, Localize)(
-				"#ControllerBinding_CameraTurnToFaceDirection_SourceOfDirection",
-			),
-			selectedOption: a,
-			onChange: function (e) {
-				s(e.data);
-			},
-			rgOptions: C,
-		}),
-		n.createElement(m.y4, {
-			label: (0, Localize)(
-				"#ControllerBinding_CameraTurnToFaceDirection_UseLastDirectionIfDeadzoned",
-			),
-			checked: c,
-			onChange: u,
-		}),
-		n.createElement(m.d3, {
-			label: (0, Localize)(
-				"#ControllerBinding_CameraTurnToFaceDirection_TurnDuration",
-			),
-			value: o,
-			onChange: l,
-			layout: "inline",
-			min: 0,
-			max: 1000,
-			showValue: true,
-			step: 1,
-			resetValue: 75,
-			renderValue: (e) => e + (0, Localize)("#Unit_Milliseconds"),
-			editableValue: true,
-			bottomSeparator: "none",
-		}),
+		onResult == null ||
+		(() => {
+			onResult({
+				source_of_direction: a,
+				turn_duration: o,
+				use_last_direction_if_deadzoned: c,
+			});
+			e.closeModal();
+		});
+	return (
+		<p.X_ {...i} onCommitResult={_} onCancel={e.closeModal}>
+			<m.m
+				layout="inline"
+				label={(0, Localize)(
+					"#ControllerBinding_CameraTurnToFaceDirection_SourceOfDirection",
+				)}
+				selectedOption={a}
+				onChange={(e) => {
+					setA(e.data);
+				}}
+				rgOptions={C}
+			/>
+			<m.y4
+				label={(0, Localize)(
+					"#ControllerBinding_CameraTurnToFaceDirection_UseLastDirectionIfDeadzoned",
+				)}
+				checked={c}
+				onChange={setC}
+			/>
+			<m.d3
+				label={(0, Localize)(
+					"#ControllerBinding_CameraTurnToFaceDirection_TurnDuration",
+				)}
+				value={o}
+				onChange={setO}
+				layout="inline"
+				min={0}
+				max={1000}
+				showValue
+				step={1}
+				resetValue={75}
+				renderValue={(e) => e + (0, Localize)("#Unit_Milliseconds")}
+				editableValue
+				bottomSeparator="none"
+			/>
+		</p.X_>
 	);
 }
-const E = (0, i.PA)(function (e) {
-	const { appid: t } = e;
+const E = PA((e) => {
+	const { appid } = e;
 	let r = [];
-	const i = (0, b.yq)();
+	const i = yq();
 	const o = _d.v3?.CurrentEditedBinding?.controller_action?.action == 37;
 	r.push(
-		n.createElement(
-			u.Z,
-			{
-				key: "camera_horizon_reset",
-				onActivate: (e) => {
-					(function (e, t, r) {
-						(0, h.pg)(
-							n.createElement(w, {
-								title: (0, Localize)(
-									"#ControllerBinding_CameraHorizonReset_Title",
-								),
-								description: (0, Localize)(
-									"#ControllerBinding_CameraHorizonReset_Desc",
-								),
-								onResult: (t) => {
-									const n = {
-										type: c.N.k_EControllerBindingType_ControllerAction,
-										controller_action: {
-											action: 37,
-											camera_horizon_reset: t,
-										},
-									};
-									let i = _d.v3.ActiveInputBinding;
-									if (n != null) {
-										i.new_binding = n;
-									}
-									_d.v3.SetControllerInputBinding(e, i);
-									_d.v3.SaveEditingConfiguration(e);
-									_d.v3.EnsureEditingConfiguration();
-									r();
-								},
-								existingBinding:
-									_d.v3.CurrentEditedBinding?.controller_action
-										?.camera_horizon_reset,
-							}),
-							t,
-						);
-					})(t, GetOwningWindowForEvent(e), i);
-				},
-				className: (0, a.A)(s.CameraAngleKey, o && s.SelectedBinding),
-			},
-			n.createElement(
-				u.Z,
-				{
-					className: (0, a.A)(s.CameraResetIcon),
-				},
-				n.createElement(_.CameraResetIcon, null),
-			),
-			n.createElement(
-				"div",
-				{
-					className: (0, a.A)(s.KeyboardKeyLabel),
-				},
-				(0, Localize)("#ControllerBinding_CameraHorizonReset"),
-			),
-		),
+		<u.Z
+			key="camera_horizon_reset"
+			onActivate={(e) => {
+				((e, t, r) => {
+					pg(
+						<W_1
+							title={(0, Localize)(
+								"#ControllerBinding_CameraHorizonReset_Title",
+							)}
+							description={(0, Localize)(
+								"#ControllerBinding_CameraHorizonReset_Desc",
+							)}
+							onResult={(t) => {
+								const n = {
+									type: c.N.k_EControllerBindingType_ControllerAction,
+									controller_action: {
+										action: 37,
+										camera_horizon_reset: t,
+									},
+								};
+								let i = _d.v3.ActiveInputBinding;
+								if (n != null) {
+									i.new_binding = n;
+								}
+								_d.v3.SetControllerInputBinding(e, i);
+								_d.v3.SaveEditingConfiguration(e);
+								_d.v3.EnsureEditingConfiguration();
+								r();
+							}}
+							existingBinding={
+								_d.v3.CurrentEditedBinding?.controller_action
+									?.camera_horizon_reset
+							}
+						/>,
+						t,
+					);
+				})(appid, GetOwningWindowForEvent(e), i);
+			}}
+			className={A(s.CameraAngleKey, o && s.SelectedBinding)}
+		>
+			<u.Z className={A(s.CameraResetIcon)}>
+				<_.CameraResetIcon />
+			</u.Z>
+			<div className={A(s.KeyboardKeyLabel)}>
+				{(0, Localize)("#ControllerBinding_CameraHorizonReset")}
+			</div>
+		</u.Z>,
 	);
 	const l = _d.v3?.CurrentEditedBinding?.controller_action?.action == 38;
 	const m = l
@@ -304,56 +292,47 @@ const E = (0, i.PA)(function (e) {
 				?.dots_per_360_calibration_spin?.spin_by_amount
 		: 360;
 	r.push(
-		n.createElement(
-			u.Z,
-			{
-				key: "dots_per_360_calibration_spin",
-				onActivate: (e) => {
-					(function (e, t, r) {
-						(0, h.pg)(
-							n.createElement(B, {
-								onResult: (t) => {
-									const n = {
-										type: c.N.k_EControllerBindingType_ControllerAction,
-										controller_action: {
-											action: 38,
-											dots_per_360_calibration_spin: t,
-										},
-									};
-									let i = _d.v3.ActiveInputBinding;
-									if (n != null) {
-										i.new_binding = n;
-									}
-									_d.v3.SetControllerInputBinding(e, i);
-									_d.v3.SaveEditingConfiguration(e);
-									_d.v3.EnsureEditingConfiguration();
-									r();
-								},
-								existingBinding:
-									_d.v3.CurrentEditedBinding?.controller_action
-										?.dots_per_360_calibration_spin,
-							}),
-							t,
-						);
-					})(t, GetOwningWindowForEvent(e), i);
-				},
-				className: (0, a.A)(s.CameraAngleKey, l && s.SelectedBinding),
-			},
-			n.createElement(
-				u.Z,
-				{
-					className: (0, a.A)(s.TurnCameraIcon),
-				},
-				n.createElement(_.TurnCameraIcon, null),
-			),
-			n.createElement(
-				"div",
-				{
-					className: (0, a.A)(s.KeyboardKeyLabel),
-				},
-				(0, Localize)("#ControllerBinding_DotsPer360CalibrationSpin", m),
-			),
-		),
+		<u.Z
+			key="dots_per_360_calibration_spin"
+			onActivate={(e) => {
+				((e, t, r) => {
+					pg(
+						<B
+							onResult={(t) => {
+								const n = {
+									type: c.N.k_EControllerBindingType_ControllerAction,
+									controller_action: {
+										action: 38,
+										dots_per_360_calibration_spin: t,
+									},
+								};
+								let i = _d.v3.ActiveInputBinding;
+								if (n != null) {
+									i.new_binding = n;
+								}
+								_d.v3.SetControllerInputBinding(e, i);
+								_d.v3.SaveEditingConfiguration(e);
+								_d.v3.EnsureEditingConfiguration();
+								r();
+							}}
+							existingBinding={
+								_d.v3.CurrentEditedBinding?.controller_action
+									?.dots_per_360_calibration_spin
+							}
+						/>,
+						t,
+					);
+				})(appid, GetOwningWindowForEvent(e), i);
+			}}
+			className={A(s.CameraAngleKey, l && s.SelectedBinding)}
+		>
+			<u.Z className={A(s.TurnCameraIcon)}>
+				<_.TurnCameraIcon />
+			</u.Z>
+			<div className={A(s.KeyboardKeyLabel)}>
+				{(0, Localize)("#ControllerBinding_DotsPer360CalibrationSpin", m)}
+			</div>
+		</u.Z>,
 	);
 	const p = _d.v3?.CurrentEditedBinding?.controller_action?.action == 39;
 	const g = p
@@ -362,126 +341,101 @@ const E = (0, i.PA)(function (e) {
 		: 3;
 	const S = g != 4;
 	r.push(
-		n.createElement(
-			u.Z,
-			{
-				key: "turn_to_face_direction",
-				onActivate: (e) => {
-					(function (e, t, r) {
-						(0, h.pg)(
-							n.createElement(_I, {
-								title: (0, Localize)(
-									"#ControllerBinding_CameraTurnToFaceDirection_Title",
-								),
-								description: (0, Localize)(
-									"#ControllerBinding_CameraTurnToFaceDirection_Desc",
-								),
-								onResult: (t) => {
-									const n = {
-										type: c.N.k_EControllerBindingType_ControllerAction,
-										controller_action: {
-											action: 39,
-											turn_to_face_direction: t,
-										},
-									};
-									let i = _d.v3.ActiveInputBinding;
-									if (n != null) {
-										i.new_binding = n;
-									}
-									_d.v3.SetControllerInputBinding(e, i);
-									_d.v3.SaveEditingConfiguration(e);
-									_d.v3.EnsureEditingConfiguration();
-									r();
-								},
-								existingBinding:
-									_d.v3.CurrentEditedBinding?.controller_action
-										?.turn_to_face_direction,
-							}),
-							t,
-						);
-					})(t, GetOwningWindowForEvent(e), i);
-				},
-				className: (0, a.A)(s.CameraAngleKey, p && s.SelectedBinding),
-			},
-			S &&
-				n.createElement(
-					n.Fragment,
-					null,
-					n.createElement(
-						"div",
-						{
-							className: s.InputGlyph,
-						},
-						n.createElement(y.VF, {
-							eControllerType: _d.v3.EditingConfiguration?.controller_type,
-							eInput: 7,
-							eMode: _d.v3.ActiveInputBinding?.source_mode,
-							eSource: g,
-						}),
-					),
-					"+",
-				),
-			n.createElement(
-				"div",
-				{
-					className: s.InputGlyph,
-				},
-				n.createElement(y.VF, {
-					eControllerType: _d.v3.EditingConfiguration?.controller_type,
-					eInput: _d.v3.ActiveInputBinding?.input_key,
-					eMode: _d.v3.ActiveInputBinding?.source_mode,
-					eSource: _d.v3.ActiveInputBinding?.source_binding_key,
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: (0, a.A)(s.KeyboardKeyLabel),
-				},
-				(0, Localize)("#ControllerBinding_CameraTurnToFaceDirection"),
-			),
-		),
+		<u.Z
+			key="turn_to_face_direction"
+			onActivate={(e) => {
+				((e, t, r) => {
+					pg(
+						<_I
+							title={(0, Localize)(
+								"#ControllerBinding_CameraTurnToFaceDirection_Title",
+							)}
+							description={(0, Localize)(
+								"#ControllerBinding_CameraTurnToFaceDirection_Desc",
+							)}
+							onResult={(t) => {
+								const n = {
+									type: c.N.k_EControllerBindingType_ControllerAction,
+									controller_action: {
+										action: 39,
+										turn_to_face_direction: t,
+									},
+								};
+								let i = _d.v3.ActiveInputBinding;
+								if (n != null) {
+									i.new_binding = n;
+								}
+								_d.v3.SetControllerInputBinding(e, i);
+								_d.v3.SaveEditingConfiguration(e);
+								_d.v3.EnsureEditingConfiguration();
+								r();
+							}}
+							existingBinding={
+								_d.v3.CurrentEditedBinding?.controller_action
+									?.turn_to_face_direction
+							}
+						/>,
+						t,
+					);
+				})(appid, GetOwningWindowForEvent(e), i);
+			}}
+			className={A(s.CameraAngleKey, p && s.SelectedBinding)}
+		>
+			{S && (
+				<>
+					<div className={s.InputGlyph}>
+						<y.VF
+							eControllerType={_d.v3.EditingConfiguration?.controller_type}
+							eInput={7}
+							eMode={_d.v3.ActiveInputBinding?.source_mode}
+							eSource={g}
+						/>
+					</div>
+					+
+				</>
+			)}
+			<div className={s.InputGlyph}>
+				<y.VF
+					eControllerType={_d.v3.EditingConfiguration?.controller_type}
+					eInput={_d.v3.ActiveInputBinding?.input_key}
+					eMode={_d.v3.ActiveInputBinding?.source_mode}
+					eSource={_d.v3.ActiveInputBinding?.source_binding_key}
+				/>
+			</div>
+			<div className={A(s.KeyboardKeyLabel)}>
+				{(0, Localize)("#ControllerBinding_CameraTurnToFaceDirection")}
+			</div>
+		</u.Z>,
 	);
 	const v = (0, Localize)(
 		"#ControllerBinding_DotsPer360CalibrationSpin_Desc2",
 	).split("\n");
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(d, {
-			label: (0, Localize)(
-				"#ControllerConfigurator_ChooseBinding_Prompt_CameraAngleAction",
-			),
-		}),
-		n.createElement(
-			u.Z,
-			{
-				className: (0, a.A)(s.CameraAnglesActionPageContainer),
-				"flow-children": "row",
-			},
-			n.createElement(
-				u.Z,
-				{
-					"flow-children": "column",
-					className: (0, a.A)(s.GamepadKeyColumn, s.MouseMovementContainer),
-					navEntryPreferPosition: C.iU.MAINTAIN_Y,
-				},
-				r,
-			),
-			n.createElement(
-				u.Z,
-				null,
-				" ",
-				(0, Localize)(
-					"#ControllerConfigurator_ChooseBinding_CameraAngleAction_Desc",
-				),
-				" ",
-			),
-			n.createElement(u.Z, null, " ", v, " "),
-		),
+	return (
+		<>
+			<D_1
+				label={(0, Localize)(
+					"#ControllerConfigurator_ChooseBinding_Prompt_CameraAngleAction",
+				)}
+			/>
+			<u.Z className={A(s.CameraAnglesActionPageContainer)} flow-children="row">
+				<u.Z
+					flow-children="column"
+					className={A(s.GamepadKeyColumn, s.MouseMovementContainer)}
+					navEntryPreferPosition={C.iU.MAINTAIN_Y}
+				>
+					{r}
+				</u.Z>
+				<u.Z>
+					{" "}
+					{(0, Localize)(
+						"#ControllerConfigurator_ChooseBinding_CameraAngleAction_Desc",
+					)}{" "}
+				</u.Z>
+				<u.Z> {v} </u.Z>
+			</u.Z>
+		</>
 	);
 });
-var M = require("./23101.js");
 function T(e) {
 	const t = _d.v3.CurrentEditedBinding;
 	const r = t?.game_action !== undefined;
@@ -489,77 +443,66 @@ function T(e) {
 		tab: {
 			id: "GameActions",
 			title: "#ControllerConfigurator_ChooseBinding_GameActions",
-			content: n.createElement(k, {
-				appid: e,
-			}),
+			content: <K_1 appid={e} />,
 		},
 		bHasBinding: r,
 	};
 }
 function R(e) {
-	const {
-		gameAction: t,
-		bIsExistingBinding: r,
-		fnSetBinding: i,
-		source: o,
-	} = e;
-	const l = t.display_name;
-	const c = (0, M.w)(l, 128, {
+	const { gameAction, bIsExistingBinding, fnSetBinding, source } = e;
+	const t_display_name = gameAction.display_name;
+	const c = w_1(t_display_name, 128, {
 		maxLines: 2,
 		fontFamily: "Motiva Sans",
 		startingSizePx: 14,
 		minSizePx: 10,
 	});
-	const m = l
+	const m = t_display_name
 		? {
 				fontSize: c,
 			}
 		: {};
-	return n.createElement(
-		u.Z,
-		{
-			key: t.key,
-			onActivate: i,
-			className: (0, a.A)(s.GamepadKey, r && s.SelectedBinding),
-		},
-		o &&
-			n.createElement(y.UT, {
-				className: s.SectionGlyph,
-				controllerType: 31,
-				controllerSource: o,
-				controllerModeInput: 15,
-			}),
-		n.createElement(
-			"div",
-			{
-				style: m,
-				className: (0, a.A)(s.KeyboardKeyLabel),
-			},
-			t.display_name,
-		),
+	return (
+		<u.Z
+			key={gameAction.key}
+			onActivate={fnSetBinding}
+			className={A(s.GamepadKey, bIsExistingBinding && s.SelectedBinding)}
+		>
+			{source && (
+				<y.UT
+					className={s.SectionGlyph}
+					controllerType={31}
+					controllerSource={source}
+					controllerModeInput={15}
+				/>
+			)}
+			<div style={m} className={A(s.KeyboardKeyLabel)}>
+				{gameAction.display_name}
+			</div>
+		</u.Z>
 	);
 }
-const k = (0, i.PA)(function (e) {
-	const { appid: t } = e;
+const K_1 = PA((e) => {
+	const { appid } = e;
 	const r = _d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const i = _d.v3.ControllerConfiguratorLayerSetIndex;
 	const o = _d.v3.EditingConfiguration?.sets[r];
-	const l = o == null ? undefined : o.layers[i];
-	const m = (0, g.U$)(o, 1);
-	const p = [...(0, g.U$)(o, 2), ...m];
-	const h = (0, g.U$)(l, 1);
-	const C = [...(0, g.U$)(l, 2), ...h];
-	const _ = (0, b.yq)();
+	const l = o == null || o.layers[i];
+	const m = U$(o, 1);
+	const p = [...U$(o, 2), ...m];
+	const h = U$(l, 1);
+	const C = [...U$(l, 2), ...h];
+	const _ = yq();
 	let f = [];
 	p.forEach((e) => {
 		const r = _d.v3?.CurrentEditedBinding?.game_action?.action_key == e.key;
 		const i = m.find((t) => t.key == e.key) ? 6 : undefined;
 		f.push(
-			n.createElement(R, {
-				key: e.key,
-				gameAction: e,
-				bIsExistingBinding: r,
-				fnSetBinding: () => {
+			<R
+				key={e.key}
+				gameAction={e}
+				bIsExistingBinding={r}
+				fnSetBinding={() => {
 					const r = {
 						type: c.N.k_EControllerBindingType_GameAction,
 						game_action: {
@@ -571,24 +514,24 @@ const k = (0, i.PA)(function (e) {
 					if (r != null) {
 						n.new_binding = r;
 					}
-					_d.v3.SetControllerInputBinding(t, n);
-					_d.v3.SaveEditingConfiguration(t);
+					_d.v3.SetControllerInputBinding(appid, n);
+					_d.v3.SaveEditingConfiguration(appid);
 					_d.v3.EnsureEditingConfiguration();
 					_();
-				},
-				source: i,
-			}),
+				}}
+				source={i}
+			/>,
 		);
 	});
 	C.forEach((e) => {
 		const r = _d.v3?.CurrentEditedBinding?.game_action?.action_key == e.key;
 		const i = h.find((t) => t.key == e.key) ? 6 : undefined;
 		f.push(
-			n.createElement(R, {
-				key: e.key,
-				gameAction: e,
-				bIsExistingBinding: r,
-				fnSetBinding: () => {
+			<R
+				key={e.key}
+				gameAction={e}
+				bIsExistingBinding={r}
+				fnSetBinding={() => {
 					const r = {
 						type: c.N.k_EControllerBindingType_GameAction,
 						game_action: {
@@ -600,44 +543,37 @@ const k = (0, i.PA)(function (e) {
 					if (r != null) {
 						n.new_binding = r;
 					}
-					_d.v3.SetControllerInputBinding(t, n);
-					_d.v3.SaveEditingConfiguration(t);
+					_d.v3.SetControllerInputBinding(appid, n);
+					_d.v3.SaveEditingConfiguration(appid);
 					_d.v3.EnsureEditingConfiguration();
 					_();
-				},
-				source: i,
-			}),
+				}}
+				source={i}
+			/>,
 		);
 	});
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(d, {
-			label: (0, Localize)(
-				"#ControllerConfigurator_ChooseBinding_Prompt_GameAction",
-			),
-		}),
-		n.createElement(
-			u.Z,
-			{
-				className: (0, a.A)(s.GamepadGridContainer),
-				"flow-children": "grid",
-			},
-			f,
-		),
+	return (
+		<>
+			<D_1
+				label={(0, Localize)(
+					"#ControllerConfigurator_ChooseBinding_Prompt_GameAction",
+				)}
+			/>
+			<u.Z className={A(s.GamepadGridContainer)} flow-children="grid">
+				{f}
+			</u.Z>
+		</>
 	);
 });
-var D = require("./60221.js");
-var N = require("./61017.js");
 function F(e) {
-	const { actionSetOptions: t, dropdownLabel: r, onResult: i, ...a } = e;
-	const [s, o] = n.useState(t[0]);
-	const [l, c] = n.useState(true);
-	const [u, d] = n.useState(true);
-	const g = t.map((e) =>
+	const { actionSetOptions, dropdownLabel, onResult, ...a } = e;
+	const [s, setS] = n.useState(actionSetOptions[0]);
+	const [l, setL] = n.useState(true);
+	const [u, setU] = n.useState(true);
+	const g = actionSetOptions.map((e) =>
 		typeof e == "number"
 			? {
-					label: (0, y.RF)(e),
+					label: RF(e),
 					data: e,
 				}
 			: {
@@ -646,56 +582,52 @@ function F(e) {
 				},
 	);
 	const h =
-		i == null
-			? undefined
-			: () => {
-					const e = {
-						display: l,
-						beep: u,
-					};
-					if (typeof s == "number") {
-						e.preset_type = s;
-					} else {
-						e.action_set_key = s.key;
-					}
-					i(e);
-				};
-	return n.createElement(
-		p.X_,
-		{
-			...a,
-			onCommitResult: h,
-		},
-		n.createElement(m.Vb, {
-			autoFocus: true,
-			label: r,
-			rgOptions: g,
-			selectedOption: s,
-			onChange: (e) => o(e.data),
-		}),
-		n.createElement(m.y4, {
-			label: (0, Localize)(
-				"#ControllerBinding_ControllerActionModal_ActionSetDialog_DisplayName",
-			),
-			checked: l,
-			onChange: c,
-		}),
-		n.createElement(m.y4, {
-			label: (0, Localize)(
-				"#ControllerBinding_ControllerActionModal_ActionSetDialog_Beep",
-			),
-			checked: u,
-			onChange: d,
-		}),
+		onResult == null ||
+		(() => {
+			const e = {
+				display: l,
+				beep: u,
+			};
+			if (typeof s == "number") {
+				e.preset_type = s;
+			} else {
+				e.action_set_key = s.key;
+			}
+			onResult(e);
+		});
+	return (
+		<p.X_ {...a} onCommitResult={h}>
+			<m.Vb
+				autoFocus
+				label={dropdownLabel}
+				rgOptions={g}
+				selectedOption={s}
+				onChange={(e) => setS(e.data)}
+			/>
+			<m.y4
+				label={(0, Localize)(
+					"#ControllerBinding_ControllerActionModal_ActionSetDialog_DisplayName",
+				)}
+				checked={l}
+				onChange={setL}
+			/>
+			<m.y4
+				label={(0, Localize)(
+					"#ControllerBinding_ControllerActionModal_ActionSetDialog_Beep",
+				)}
+				checked={u}
+				onChange={setU}
+			/>
+		</p.X_>
 	);
 }
-var G = require(/*webcrack:missing*/ "./44846.js");
 function O(e, t) {
 	const r = _d.v3.CurrentEditedBinding;
 	const i = r?.controller_action?.action;
 	let a = r?.controller_action !== undefined && i != 43;
 	if (a) {
-		const e = i == 0 || i == 25 || i == 26 || i == 27;
+		const e =
+			i == 0 || i == 25 || i == 25 || i == 26 || i == 25 || i == 26 || i == 27;
 		a = (t && e) || (!t && !e);
 	}
 	return {
@@ -704,60 +636,53 @@ function O(e, t) {
 			title: t
 				? "#ControllerConfigurator_ChooseBinding_ActionSet"
 				: "#ControllerConfigurator_ChooseBinding_ControllerAction",
-			content: n.createElement(H, {
-				appid: e,
-				bActionSets: t,
-			}),
+			content: <H appid={e} bActionSets={t} />,
 		},
 		bHasBinding: a,
 	};
 }
 function P(e) {
-	const { existingBinding: t, onResult: r, ...i } = e;
-	const [a, s] = n.useState(e.existingBinding?.player_number ?? 1);
+	const { existingBinding, onResult, ...i } = e;
+	const [a, setA] = n.useState(e.existingBinding?.player_number ?? 1);
 	const o =
-		r == null
-			? undefined
-			: () => {
-					r({
-						player_number: a,
-					});
-					e.closeModal();
-				};
-	return n.createElement(
-		p.X_,
-		{
-			...i,
-			onCommitResult: o,
-		},
-		n.createElement(m.Vb, {
-			label: (0, Localize)(
-				"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
-			),
-			rgOptions: [
-				{
-					data: 1,
-					label: "1",
-				},
-				{
-					data: 2,
-					label: "2",
-				},
-				{
-					data: 3,
-					label: "3",
-				},
-				{
-					data: 4,
-					label: "4",
-				},
-			],
-			onChange: (e) => s(e.data),
-			selectedOption: a,
-			strDefaultLabel: (0, Localize)(
-				"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
-			),
-		}),
+		onResult == null ||
+		(() => {
+			onResult({
+				player_number: a,
+			});
+			e.closeModal();
+		});
+	return (
+		<p.X_ {...i} onCommitResult={o}>
+			<m.Vb
+				label={(0, Localize)(
+					"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
+				)}
+				rgOptions={[
+					{
+						data: 1,
+						label: "1",
+					},
+					{
+						data: 2,
+						label: "2",
+					},
+					{
+						data: 3,
+						label: "3",
+					},
+					{
+						data: 4,
+						label: "4",
+					},
+				]}
+				onChange={(e) => setA(e.data)}
+				selectedOption={a}
+				strDefaultLabel={(0, Localize)(
+					"#ControllerBinding_ControllerActionModal_ChangePlayerNumber",
+				)}
+			/>
+		</p.X_>
 	);
 }
 const L = [
@@ -913,324 +838,290 @@ const U = [
 	],
 ];
 function W(e) {
-	const { data: t } = e;
+	const { data } = e;
 	const r = _d.v3.StableAppId;
-	const i = t?.actionKey >= 0 ? g.$$[t.actionKey] : undefined;
-	const o = i?.id ?? g.bu.find((e) => e.key == t.keyboardKey)?.id;
+	const i = data?.actionKey >= 0 ? g.$$[data.actionKey] : undefined;
+	const o = i?.id ?? g.bu.find((e) => e.key == data.keyboardKey)?.id;
 	const l =
-		t.height !== undefined
+		data.height !== undefined
 			? {
-					width: t.width,
+					width: data.width,
 				}
 			: {
-					width: t.width,
-					height: t.height,
+					width: data.width,
+					height: data.height,
 				};
 	const m =
-		t?.actionKey >= 0 &&
-		_d.v3?.CurrentEditedBinding?.controller_action?.action == t.actionKey;
+		data?.actionKey >= 0 &&
+		_d.v3?.CurrentEditedBinding?.controller_action?.action == data.actionKey;
 	const p =
-		t?.keyboardKey >= 0 &&
-		_d.v3?.CurrentEditedBinding?.keyboard_key?.key == t.keyboardKey;
+		data?.keyboardKey >= 0 &&
+		_d.v3?.CurrentEditedBinding?.keyboard_key?.key == data.keyboardKey;
 	const C = m || p;
-	const _ = (0, b.yq)();
-	const S = !(0, y.P4)(_d.v3.EditingConfiguration) && (i?.set || i?.baseSet);
+	const _ = yq();
+	const S = !P4(_d.v3.EditingConfiguration) && (i?.set || i?.baseSet);
 	const w = (0, Localize)(o);
-	const B = (0, M.w)(w, t.width * 0.8, {
+	const B = w_1(w, data.width * 0.8, {
 		maxLines: 2,
 		fontFamily: "Motiva Sans",
 		startingSizePx: 14,
 		minSizePx: 9,
 	});
-	return n.createElement(
-		u.Z,
-		{
-			onActivate: S
-				? null
-				: (e) => {
-						let i = GetOwningWindowForEvent(e);
-						if (t?.actionKey >= 0) {
-							(function (e, t, r, i) {
-								let a = g.$$[t];
-								if (a?.set) {
-									const s = _d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
-									const o = _d.v3.ControllerConfiguratorLayerSetIndex;
-									const l = _d.v3.EditingConfiguration?.sets[s];
-									if (l != null) {
-										l.layers[o];
-									}
-									const m = [];
-									const u = a.baseSet == null;
-									if (u) {
-										m.push(...(l?.layers ?? []));
-									} else {
-										const e = _d.v3.EditingConfiguration?.sets;
-										m.push(...(e?.filter((e) => e.key != l.key) ?? []));
-										m.push(...(g.TK.map((e) => e.key) ?? []));
-									}
-									const p = (r) => {
-										const n = {
-											type: c.N.k_EControllerBindingType_ControllerAction,
-											controller_action: {
-												action: t,
-												action_set: r,
-											},
-										};
-										let a = _d.v3.ActiveInputBinding;
-										if (n != null) {
-											a.new_binding = n;
-										}
-										_d.v3.SetControllerInputBinding(e, a);
-										_d.v3.SaveEditingConfiguration(e);
-										_d.v3.EnsureEditingConfiguration();
-										i();
-									};
-									(0, h.pg)(
-										n.createElement(F, {
-											title: (0, Localize)(a.id),
-											description: (0, Localize)(
-												u
-													? "#ControllerBinding_ControllerActionModal_ActionSetLayerDesc"
-													: "#ControllerBinding_ControllerActionModal_ActionSetDesc",
-											),
-											dropdownLabel: (0, Localize)(
-												u
-													? "#ControllerBinding_ControllerActionModal_ActionSetDialog_Layer"
-													: "#ControllerBinding_ControllerActionModal_ActionSetDialog_Set",
-											),
-											actionSetOptions: m,
-											onResult: p,
-										}),
-										r,
-									);
-								} else if (a?.playerNumber) {
-									const s = (r) => {
-										const n = {
-											type: c.N.k_EControllerBindingType_ControllerAction,
-											controller_action: {
-												action: t,
-												change_player_number: r,
-											},
-										};
-										let a = _d.v3.ActiveInputBinding;
-										if (n != null) {
-											a.new_binding = n;
-										}
-										_d.v3.SetControllerInputBinding(e, a);
-										_d.v3.SaveEditingConfiguration(e);
-										_d.v3.EnsureEditingConfiguration();
-										i();
-									};
-									(0, h.pg)(
-										n.createElement(P, {
-											title: (0, Localize)(a.id),
-											description: (0, Localize)(
-												"#ControllerBinding_ControllerActionModal_ChangePlayerNumberDesc",
-											),
-											onResult: s,
-										}),
-										r,
-									);
+	return (
+		<u.Z
+			onActivate={
+				S ||
+				((e) => {
+					let i = GetOwningWindowForEvent(e);
+					if (data?.actionKey >= 0) {
+						((e, t, r, i) => {
+							let a = g.$$[t];
+							if (a?.set) {
+								const s = _d.v3.ControllerConfiguratorBaseSetIndex ?? 0;
+								const o = _d.v3.ControllerConfiguratorLayerSetIndex;
+								const l = _d.v3.EditingConfiguration?.sets[s];
+								if (l != null) {
+									l.layers[o];
+								}
+								const m = [];
+								const u = a.baseSet == null;
+								if (u) {
+									m.push(...(l?.layers ?? []));
 								} else {
-									const r = {
+									const e = _d.v3.EditingConfiguration?.sets;
+									m.push(...(e?.filter((e) => e.key != l.key) ?? []));
+									m.push(...(g.TK.map((e) => e.key) ?? []));
+								}
+								const p = (r) => {
+									const n = {
 										type: c.N.k_EControllerBindingType_ControllerAction,
 										controller_action: {
 											action: t,
+											action_set: r,
 										},
 									};
-									let n = _d.v3.ActiveInputBinding;
-									if (r != null) {
-										n.new_binding = r;
+									let a = _d.v3.ActiveInputBinding;
+									if (n != null) {
+										a.new_binding = n;
 									}
-									_d.v3.SetControllerInputBinding(e, n);
+									_d.v3.SetControllerInputBinding(e, a);
 									_d.v3.SaveEditingConfiguration(e);
 									_d.v3.EnsureEditingConfiguration();
 									i();
+								};
+								pg(
+									<F
+										title={(0, Localize)(a.id)}
+										description={(0, Localize)(
+											u
+												? "#ControllerBinding_ControllerActionModal_ActionSetLayerDesc"
+												: "#ControllerBinding_ControllerActionModal_ActionSetDesc",
+										)}
+										dropdownLabel={(0, Localize)(
+											u
+												? "#ControllerBinding_ControllerActionModal_ActionSetDialog_Layer"
+												: "#ControllerBinding_ControllerActionModal_ActionSetDialog_Set",
+										)}
+										actionSetOptions={m}
+										onResult={p}
+									/>,
+									r,
+								);
+							} else if (a?.playerNumber) {
+								const s = (r) => {
+									const n = {
+										type: c.N.k_EControllerBindingType_ControllerAction,
+										controller_action: {
+											action: t,
+											change_player_number: r,
+										},
+									};
+									let a = _d.v3.ActiveInputBinding;
+									if (n != null) {
+										a.new_binding = n;
+									}
+									_d.v3.SetControllerInputBinding(e, a);
+									_d.v3.SaveEditingConfiguration(e);
+									_d.v3.EnsureEditingConfiguration();
+									i();
+								};
+								pg(
+									<P
+										title={(0, Localize)(a.id)}
+										description={(0, Localize)(
+											"#ControllerBinding_ControllerActionModal_ChangePlayerNumberDesc",
+										)}
+										onResult={s}
+									/>,
+									r,
+								);
+							} else {
+								const r = {
+									type: c.N.k_EControllerBindingType_ControllerAction,
+									controller_action: {
+										action: t,
+									},
+								};
+								let n = _d.v3.ActiveInputBinding;
+								if (r != null) {
+									n.new_binding = r;
 								}
-							})(r, t.actionKey, i, _);
-						} else if (t?.keyboardKey >= 0) {
-							(0, N.Xg)(r, t.keyboardKey);
-							_();
-						}
-					},
-			focusable: !S,
-			className: (0, a.A)(
+								_d.v3.SetControllerInputBinding(e, n);
+								_d.v3.SaveEditingConfiguration(e);
+								_d.v3.EnsureEditingConfiguration();
+								i();
+							}
+						})(r, data.actionKey, i, _);
+					} else if (data?.keyboardKey >= 0) {
+						Xg(r, data.keyboardKey);
+						_();
+					}
+				})
+			}
+			focusable={!S}
+			className={A(
 				s.ControllerActionKey,
-				t.additionalStyle,
+				data.additionalStyle,
 				C && s.SelectedBinding,
 				S && s.Disabled,
-			),
-			style: l,
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, a.A)(s.KeyboardKeyLabel),
-				style: {
+			)}
+			style={l}
+		>
+			<div
+				className={A(s.KeyboardKeyLabel)}
+				style={{
 					fontSize: B,
-				},
-			},
-			w,
-		),
+				}}
+			>
+				{w}
+			</div>
+		</u.Z>
 	);
 }
 function V(e, t) {
 	return t.map((t, r) => {
 		const i = t
 			.filter((t) => !t.requiredAppID || t.requiredAppID.includes(e))
-			.map((e) =>
-				n.createElement(W, {
-					data: e,
-					key: e.actionKey ?? e.keyboardKey,
-				}),
-			);
-		return n.createElement(
-			u.Z,
-			{
-				"flow-children": "row",
-				className: (0, a.A)(s.GamepadKeyRow),
-				key: r,
-				navEntryPreferPosition: C.iU.MAINTAIN_X,
-			},
-			i,
+			.map((e) => <W data={e} key={e.actionKey ?? e.keyboardKey} />);
+		return (
+			<u.Z
+				flow-children="row"
+				className={A(s.GamepadKeyRow)}
+				key={r}
+				navEntryPreferPosition={C.iU.MAINTAIN_X}
+			>
+				{i}
+			</u.Z>
 		);
 	});
 }
-const H = (0, i.PA)(function (e) {
+const H = PA((e) => {
 	if (e.bActionSets) {
-		const t = (0, y.P4)(_d.v3.EditingConfiguration);
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(d, {
-				label: (0, Localize)(
-					"#ControllerConfigurator_ChooseBinding_Prompt_ActionSet",
-				),
-			}),
-			n.createElement(
-				"div",
-				{
-					className: (0, a.A)(
+		const t = P4(_d.v3.EditingConfiguration);
+		return (
+			<>
+				<D_1
+					label={(0, Localize)(
+						"#ControllerConfigurator_ChooseBinding_Prompt_ActionSet",
+					)}
+				/>
+				<div
+					className={A(
 						s.ControllerActionSetBindingsLabel,
 						t && s.HasActionSets,
-					),
-				},
-				(0, Localize)("#ControllerBinding_ControllerActions_SetBindings"),
-			),
-			n.createElement(
-				u.Z,
-				{
-					className: (0, a.A)(s.ControllerActionPageContainer),
-					"flow-children": "grid",
-				},
-				V(e.appid, z),
-			),
-			n.createElement(
-				u.Z,
-				{
-					className: (0, a.A)(s.ControllerActionPageContainer),
-					"flow-children": "grid",
-				},
-				V(e.appid, x),
-			),
-			n.createElement(
-				u.Z,
-				{
-					className: (0, a.A)(s.ControllerActionPageContainer),
-					"flow-children": "grid",
-				},
-				V(e.appid, U),
-			),
+					)}
+				>
+					{(0, Localize)("#ControllerBinding_ControllerActions_SetBindings")}
+				</div>
+				<u.Z
+					className={A(s.ControllerActionPageContainer)}
+					flow-children="grid"
+				>
+					{V(e.appid, z)}
+				</u.Z>
+				<u.Z
+					className={A(s.ControllerActionPageContainer)}
+					flow-children="grid"
+				>
+					{V(e.appid, x)}
+				</u.Z>
+				<u.Z
+					className={A(s.ControllerActionPageContainer)}
+					flow-children="grid"
+				>
+					{V(e.appid, U)}
+				</u.Z>
+			</>
 		);
 	}
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(d, {
-			label: (0, Localize)(
-				"#ControllerConfigurator_ChooseBinding_Prompt_System",
-			),
-		}),
-		n.createElement(
-			u.Z,
-			{
-				className: (0, a.A)(s.ControllerActionPageContainer),
-				"flow-children": "grid",
-			},
-			V(e.appid, L),
-		),
+	return (
+		<>
+			<D_1
+				label={(0, Localize)(
+					"#ControllerConfigurator_ChooseBinding_Prompt_System",
+				)}
+			/>
+			<u.Z className={A(s.ControllerActionPageContainer)} flow-children="grid">
+				{V(e.appid, L)}
+			</u.Z>
+		</>
 	);
 });
-var j = require("./50350.js");
-var q = require("./33572.js");
-var Q = require("./46422.js");
-var Z = require(/*webcrack:missing*/ "./52451.js");
-var Y = require("./34792.js");
-var K = require("./96680.js");
-export function d(e) {
+export function D_1(e) {
 	const t = g.Dd[_d.v3.ActiveInputBinding?.source_binding_key]?.id;
-	const r = (0, g.ND)(t) ?? (0, y.Xt)(t);
+	const r = ND(t) ?? Xt(t);
 	const i = _d.v3.ActiveInputBinding?.source_binding_key != 5;
 	const o =
 		e.label ?? (0, Localize)("#ControllerConfigurator_ChooseBinding_Prompt");
-	return n.createElement(
-		"div",
-		{
-			className: (0, a.A)(s.ChooseBindingLabel),
-		},
-		o,
-		i &&
-			n.createElement(
-				"div",
-				{
-					className: s.GroupText,
-				},
-				r,
-				" → ",
-			),
-		n.createElement(
-			"div",
-			{
-				className: s.InputGlyph,
-			},
-			n.createElement(y.VF, {
-				eControllerType: _d.v3.EditingConfiguration?.controller_type,
-				eInput: _d.v3.ActiveInputBinding?.input_key,
-				eMode: _d.v3.ActiveInputBinding?.source_mode,
-				eSource: _d.v3.ActiveInputBinding?.source_binding_key,
-			}),
-		),
+	return (
+		<div className={A(s.ChooseBindingLabel)}>
+			{o}
+			{i && (
+				<div className={s.GroupText}>
+					{r}
+					{" → "}
+				</div>
+			)}
+			<div className={s.InputGlyph}>
+				<y.VF
+					eControllerType={_d.v3.EditingConfiguration?.controller_type}
+					eInput={_d.v3.ActiveInputBinding?.input_key}
+					eMode={_d.v3.ActiveInputBinding?.source_mode}
+					eSource={_d.v3.ActiveInputBinding?.source_binding_key}
+				/>
+			</div>
+		</div>
 	);
 }
-export const I = (0, i.PA)(function (e) {
-	const { appid: t } = e;
-	const r = (0, q.oH)();
-	const i = n.useRef(null);
-	const m = (0, K.$2)();
-	const [u, A] = n.useState(
+export const I = PA((e) => {
+	const { appid } = e;
+	const r = oH();
+	const IRef = n.useRef(null);
+	const m = $2();
+	const [u, setU] = n.useState(
 		m.BrowserWindow.innerWidth * Y.rV.settings?.flCurrentDisplayScaleFactor,
 	);
 	const p = n.useCallback(() => {
-		if (i.current) {
-			const e = GetTotalZoom(i.current);
+		if (IRef.current) {
+			const e = GetTotalZoom(IRef.current);
 			const t = Y.rV.settings?.flCurrentDisplayScaleFactor;
-			A(t * e * i.current.ownerDocument.defaultView.innerWidth);
+			setU(t * e * IRef.current.ownerDocument.defaultView.innerWidth);
 		}
 	}, []);
 	n.useEffect(() => p(), [p]);
-	const g = (0, Z.wY)(p);
-	const h = (0, Z.Ue)(g, i);
+	const g = wY(p);
+	const h = Ue(g, IRef);
 	const C = _d.v3?.CurrentEditedBinding;
-	const _ = (function (e, t, r) {
-		const n = (0, y.Po)();
+	const _ = ((e, t, r) => {
+		const n = Po();
 		const i = t > 1400;
 		let a = [
 			n && T(e),
-			(0, D.G4)(e),
-			(0, l.CM)(e),
-			!i && (0, N.uC)(e),
-			!i && (0, N.MZ)(e),
-			i && (0, N.WP)(e),
+			G4(e),
+			CM(e),
+			!i && uC(e),
+			!i && MZ(e),
+			i && WP(e),
 			O(e, true),
 			O(e, false),
 			S(e),
@@ -1239,31 +1130,38 @@ export const I = (0, i.PA)(function (e) {
 		let s = _d.v3.ChooseBindingTab;
 		if (!s && r) {
 			switch (r.type) {
-				case c.N.k_EControllerBindingType_None:
+				case c.N.k_EControllerBindingType_None: {
 					break;
-				case c.N.k_EControllerBindingType_Key:
+				}
+				case c.N.k_EControllerBindingType_Key: {
 					s = "Keyboard";
 					if (r.keyboard_key.key >= 70) {
 						s = "NumPad";
 					}
 					break;
+				}
 				case c.N.k_EControllerBindingType_MouseButton:
-				case c.N.k_EControllerBindingType_Mousewheel:
+				case c.N.k_EControllerBindingType_Mousewheel: {
 					s = "Mouse";
 					break;
-				case c.N.k_EControllerBindingType_Gamepad:
+				}
+				case c.N.k_EControllerBindingType_Gamepad: {
 					s = "GamePad";
 					break;
-				case c.N.k_EControllerBindingType_Modeshift:
+				}
+				case c.N.k_EControllerBindingType_Modeshift: {
 					s = "Action Set";
 					break;
-				case c.N.k_EControllerBindingType_GameAction:
+				}
+				case c.N.k_EControllerBindingType_GameAction: {
 					s = "GameActions";
 					break;
-				case c.N.k_EControllerBindingType_ControllerAction:
+				}
+				case c.N.k_EControllerBindingType_ControllerAction: {
 					s = "Controller Action";
 					if (
 						r.controller_action.camera_horizon_reset != null ||
+						r.controller_action.dots_per_360_calibration_spin != null ||
 						r.controller_action.dots_per_360_calibration_spin != null ||
 						r.controller_action.turn_to_face_direction != null
 					) {
@@ -1280,49 +1178,48 @@ export const I = (0, i.PA)(function (e) {
 					} else if (r.controller_action.action == 43) {
 						s = undefined;
 					}
+				}
 			}
 		}
-		s ||= n ? "GameActions" : (0, y.M8)(e) ? "Gamepad" : "Keyboard";
+		s ||= n ? "GameActions" : M8(e) ? "Gamepad" : "Keyboard";
 		return {
 			rgTabs: a.map((e) => e.tab),
 			strSelectedTabId: s,
 		};
-	})(t, u, C);
-	const [b, w] = n.useState(_.strSelectedTabId);
+	})(appid, u, C);
+	const [b, setB] = n.useState(_.strSelectedTabId);
 	if (!_.rgTabs.some((e) => e?.id == b)) {
-		w(_.rgTabs[0].id);
+		setB(_.rgTabs[0].id);
 	}
-	return n.createElement(
-		j.Sw,
-		{
-			ref: h,
-			background: "dialog",
-			scrollable: false,
-			dialogContentPadding: "none",
-			headerVisibility: "default",
-			contentMaxWidth: "full-width",
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, a.A)(
+	return (
+		<j.Sw
+			ref={h}
+			background="dialog"
+			scrollable={false}
+			dialogContentPadding="none"
+			headerVisibility="default"
+			contentMaxWidth="full-width"
+		>
+			<div
+				className={setU(
 					s.ChooseBindingContainer,
 					r.mode == q._5.ControllerConfigurator &&
 						Q.oy.ShouldZoomStandaloneConfigurator &&
 						s.StandaloneConfigurator,
-				),
-			},
-			n.createElement(o.xC, {
-				canBeHeaderBackground: "always",
-				tabs: _.rgTabs,
-				activeTab: b,
-				autoFocusContents: true,
-				onShowTab: (e) => {
-					_d.v3.SetChooseBindingTab(e);
-					w(e);
-				},
-				cancelSkipTabHeader: true,
-			}),
-		),
+				)}
+			>
+				<o.xC
+					canBeHeaderBackground="always"
+					tabs={_.rgTabs}
+					activeTab={b}
+					autoFocusContents
+					onShowTab={(e) => {
+						_d.v3.SetChooseBindingTab(e);
+						setB(e);
+					}}
+					cancelSkipTabHeader
+				/>
+			</div>
+		</j.Sw>
 	);
 });

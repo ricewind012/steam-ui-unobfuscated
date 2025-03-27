@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	GrantAwardModal: "_2ilpH-HpvuSm6s5MWX5bA-",
 	Header: "_2_vbZB-J_M1GH9js-PXnEj",

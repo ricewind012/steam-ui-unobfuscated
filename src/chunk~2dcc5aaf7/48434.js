@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Description: "nT2-ejiOBLusz1lB5d_ER",
 	Description2: "l13W0Cw2hE6P_5RJqm3m6",
 	DMCA: "_30pLWqmaLvwI2XVsQNg1cs",

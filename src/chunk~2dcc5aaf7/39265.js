@@ -1,41 +1,86 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./78325.js");
-var s = require("./64608.js");
-var o = require("./35488.js");
-var l = require("./37909.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require("./33512.js");
-var u = require(/*webcrack:missing*/ "./41230.js");
-var d = require(/*webcrack:missing*/ "./90095.js");
-var A = require(/*webcrack:missing*/ "./31084.js");
-var p = require(/*webcrack:missing*/ "./69164.js");
-var _g = require(/*webcrack:missing*/ "./61657.js");
-var h = require(/*webcrack:missing*/ "./90242.js");
-var C = require(/*webcrack:missing*/ "./3524.js");
-var _ = require(/*webcrack:missing*/ "./84252.js");
-var f = require(/*webcrack:missing*/ "./88750.js");
-var b = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var S = require(/*webcrack:missing*/ "./52451.js");
-var w = require("./81994.js");
-var B = require("./77347.js");
-var v = require("./31319.js");
-var I = require("./42982.js");
-var E = require(/*webcrack:missing*/ "./23038.js");
-var M = require(/*webcrack:missing*/ "./58254.js");
-var T = require(/*webcrack:missing*/ "./4690.js");
-var R = require("./35194.js");
+import n, { Cg } from "./34629.js";
+import i, { useState, useRef, useEffect, useCallback } from "./63696.js";
+import a from "./78325.js";
+import s from "./64608.js";
+import o from "./35488.js";
+import l from "./37909.js";
+import c, { rP, Qn, Pr } from "./72476.js";
+import m, { m as m_1 } from "./33512.js";
+import u from "./41230.js";
+import d, { q3 } from "./90095.js";
+import A, { lX } from "./31084.js";
+import p from "./69164.js";
+import _g from "./61657.js";
+import h from "./90242.js";
+import C from "./3524.js";
+import _ from "./84252.js";
+import f from "./88750.js";
+import b, { A as A_1 } from "./90765.js";
+import S, { gc, $$, xM, cZ } from "./52451.js";
+import w from "./81994.js";
+import B, { tI, yL, ED, f_ as f_1, mR, N4, Av, jh } from "./77347.js";
+import v, { Xf } from "./31319.js";
+import I from "./42982.js";
+import E from "./23038.js";
+import M from "./58254.js";
+import T from "./4690.js";
+import R from "./35194.js";
+import F from "./52847.js";
+import G from "./81969.js";
+import z from "./76662.js";
+import x from "./22222.js";
+import U from "./44846.js";
+import { y6, kE } from "./89600.js";
+import V from "./46422.js";
+import H, { U as U_1 } from "./27238.js";
+import j from "./55025.js";
+import Z, { V as V_1 } from "./43802.js";
+import Y from "./93681.js";
+import { _ as __1 } from "./67338.js";
+import { Y as Y_1 } from "./28916.js";
+import { B as B_1 } from "./45011.js";
+import { uX } from "./54644.js";
+import { R7 } from "./11131.js";
+import ae from "./5482.js";
+import se, { Qt } from "./18057.js";
+import oe from "./95311.js";
+import { zy } from "./49519.js";
+import ce from "./56970.js";
+import { Di } from "./13925.js";
+import { ez } from "./31800.js";
+import de from "./92228.js";
+import { e1, H as H_1, JP } from "./28036.js";
+import pe from "./21616.js";
+import he from "./66947.js";
+import _e from "./37198.js";
+import fe from "./90869.js";
+import be from "./26853.js";
+import ye, { N_ as N_1, tP } from "./89791.js";
+import Se from "./87935.js";
+import { tn } from "./18869.js";
+import Be from "./93025.js";
+import { $2 } from "./96680.js";
+import { D7 } from "./33572.js";
+import Ze from "./30449.js";
+import Ye, { k1 } from "./13688.js";
+import { q as q_2 } from "./29285.js";
+import Xe from "./6496.js";
+import { tH, tG, q_ as q_2 } from "./87232.js";
+import $e from "./50376.js";
+import et from "./50350.js";
+import tt, { Xy } from "./22969.js";
+import rt from "./83665.js";
 function k(e) {
-	let t = (0, S.gc)(R.o.CurrentLanguage);
-	let r = (0, S.gc)(R.o.AvailableLanguages);
-	let n = (function (e, t) {
+	let t = gc(R.o.CurrentLanguage);
+	let r = gc(R.o.AvailableLanguages);
+	let n = ((e, t) => {
 		const [r, n] = i.useState(0);
-		(0, S.$$)(
+		$$(
 			() => {
 				n(e ? r + 1 : 0);
 			},
@@ -47,9 +92,9 @@ function k(e) {
 		} else {
 			return null;
 		}
-	})((0, S.gc)(R.o.WelcomeText), 5000);
-	let a = (function (e, t, r) {
-		return i.useCallback(
+	})(gc(R.o.WelcomeText), 5000);
+	let a = ((e, t, r) =>
+		i.useCallback(
 			(n) => {
 				let i = null;
 				if (e != n.strShortName) {
@@ -63,8 +108,7 @@ function k(e) {
 				}
 			},
 			[e, t, r],
-		);
-	})(t, e.onContinue, e.onLocalizationChanged);
+		))(t, e.onContinue, e.onLocalizationChanged);
 	let s = {
 		enter: I.Enter,
 		enterActive: I.EnterActive,
@@ -72,7 +116,7 @@ function k(e) {
 		exitActive: I.ExitActive,
 		exitDone: I.ExitDone,
 	};
-	let o = (0, b.A)(I.LanguageScreen, e.animate && I.Animate);
+	let o = A_1(I.LanguageScreen, e.animate && I.Animate);
 	const l = i.useRef(null);
 	return i.createElement(
 		p.Z,
@@ -98,7 +142,7 @@ function k(e) {
 					M.A,
 					{
 						nodeRef: l,
-						key: n.strSelect + " " + n.strWelcome,
+						key: `${n.strSelect} ${n.strWelcome}`,
 						classNames: s,
 						in: true,
 						timeout: 2000,
@@ -172,11 +216,9 @@ function N(e) {
 		e.language.strLocalizedName,
 	);
 }
-var F = require("./52847.js");
-var G = require("./81969.js");
 function O(e) {
-	let t = (0, S.gc)(R.o.CurrentTimeZoneID);
-	let r = (0, S.gc)(R.o.AvailableTimeZones);
+	let t = gc(R.o.CurrentTimeZoneID);
+	let r = gc(R.o.AvailableTimeZones);
 	let n = e.onContinue;
 	let a = i.useCallback(
 		(e) => {
@@ -184,7 +226,7 @@ function O(e) {
 		},
 		[n],
 	);
-	let s = (0, b.A)(F.TimezoneScreen, e.animate && F.Animate);
+	let s = A_1(F.TimezoneScreen, e.animate && F.Animate);
 	return i.createElement(
 		p.Z,
 		{
@@ -257,13 +299,6 @@ function L(e) {
 		),
 	);
 }
-var z = require("./76662.js");
-var x = require("./22222.js");
-var U = require(/*webcrack:missing*/ "./44846.js");
-var W = require("./89600.js");
-var V = require("./46422.js");
-var H = require("./27238.js");
-var j = require("./55025.js");
 function q(e) {
 	let {
 		leftIcons: t,
@@ -282,13 +317,13 @@ function q(e) {
 			noFocusRing: true,
 			focusable: !s,
 			...o,
-			className: (0, b.A)(j.OOBEButton, s && j.Disabled),
+			className: A_1(j.OOBEButton, s && j.Disabled),
 		},
 		t &&
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(j.Icons, j.Left),
+					className: A_1(j.Icons, j.Left),
 				},
 				t,
 			),
@@ -304,7 +339,7 @@ function q(e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(j.Icons, j.Left),
+					className: A_1(j.Icons, j.Left),
 				},
 				r,
 			),
@@ -330,7 +365,7 @@ function Q(e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(j.Icons, j.Left),
+					className: A_1(j.Icons, j.Left),
 				},
 				t,
 			),
@@ -346,15 +381,8 @@ function Q(e) {
 		}),
 	);
 }
-var Z = require("./43802.js");
-var Y = require("./93681.js");
-var K = require("./67338.js");
-var X = require("./28916.js");
-var J = require("./45011.js");
-var $ = require(/*webcrack:missing*/ "./54644.js");
-var ee = require(/*webcrack:missing*/ "./11131.js");
 function te(e) {
-	(0, B.tI)();
+	tI();
 	i.useEffect(() => {
 		const e = B.OQ.Get().connectivityTestState;
 		if (
@@ -365,9 +393,9 @@ function te(e) {
 			B.OQ.Get().RecheckConnectivity();
 		}
 	}, []);
-	const t = (0, B.yL)();
-	const r = (0, B.ED)();
-	const n = (function (e, t) {
+	const t = yL();
+	const r = ED();
+	const n = ((e, t) => {
 		const [r, n] = i.useState(!V.oy.BIsInOOBE || !e);
 		i.useEffect(() => {
 			if (!r && !e) {
@@ -376,9 +404,9 @@ function te(e) {
 		}, [r, e]);
 		return r && t;
 	})(t, r);
-	const a = (0, W.y6)();
+	const a = y6();
 	const s = i.useRef(undefined);
-	(function (e, t) {
+	((e, t) => {
 		i.useEffect(() => {
 			let t = e.current;
 			if (t.BFocusWithin()) {
@@ -400,8 +428,8 @@ function te(e) {
 		}, [e, t.length]);
 	})(s, a);
 	const l = m.b.GetLoginUsers().length != 0 && !V.oy.BIsInOOBE;
-	const c = (0, b.A)(z.NetworkScreen, e.animate && z.Animate);
-	const u = (0, ee.R7)();
+	const c = A_1(z.NetworkScreen, e.animate && z.Animate);
+	const u = R7();
 	return i.createElement(
 		p.Z,
 		{
@@ -470,7 +498,7 @@ function te(e) {
 						i.createElement(
 							q,
 							{
-								onActivate: () => (0, Z.V)(),
+								onActivate: () => V_1(),
 							},
 							(0, Localize)("#Settings_Internet_Custom_Network_Button"),
 						),
@@ -491,7 +519,7 @@ function te(e) {
 					i.createElement(
 						q,
 						{
-							onActivate: () => (0, J.B)(u.ownerWindow),
+							onActivate: () => B_1(u.ownerWindow),
 							rightIcons: i.createElement(o.Carat, {
 								direction: "right",
 							}),
@@ -504,8 +532,8 @@ function te(e) {
 	);
 }
 function re(e) {
-	const t = (0, B.f_)();
-	const r = (0, B.mR)();
+	const t = f_1();
+	const r = mR();
 	if (t) {
 		return i.createElement(
 			"div",
@@ -533,7 +561,7 @@ function re(e) {
 					i.createElement(
 						s.$n,
 						{
-							onClick: (e) => (0, X.Y)((0, $.uX)(e)),
+							onClick: (e) => Y_1(uX(e)),
 						},
 						(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button"),
 					),
@@ -544,7 +572,7 @@ function re(e) {
 	}
 }
 function ne(e) {
-	const t = (0, B.yL)();
+	const t = yL();
 	return i.createElement(Q, {
 		value: t,
 		onChange: (e) => B.OQ.Get().SetWifiEnabled(e),
@@ -553,11 +581,11 @@ function ne(e) {
 }
 function ie(e) {
 	const { accessPoint: t, canContinue: r, onContinue: n } = e;
-	(0, K._)(t);
+	__1(t);
 	const a = t.type == x.WO.Wireless;
 	const s = t.isConnected;
-	const l = (0, B.N4)();
-	const c = (0, B.Av)();
+	const l = N4();
+	const c = Av();
 	const m = s && l;
 	const u =
 		s &&
@@ -565,18 +593,18 @@ function ie(e) {
 		c.eConnectivityTestResult != U.ck.k_EConnectivityTestResult_Unknown;
 	const d = t.showAsLocked;
 	const A = t.displayName;
-	const p = (0, W.kE)(t) || (t.isConnected && c.bChecking);
+	const p = kE(t) || (t.isConnected && c.bChecking);
 	const g = i.useCallback(() => {
-		(0, H.U)(t);
+		U_1(t);
 	}, [t]);
-	const h = (0, S.xM)();
+	const h = xM();
 	const C = i.useCallback(() => {
 		if (t.isConnected && B.OQ.Get().hasInternetConnection && !h() && n) {
 			n();
 		}
 	}, [t, n, h]);
 	const _ = i.useCallback(() => {
-		(0, Z.V)(
+		V_1(
 			{
 				accessPoint: t,
 			},
@@ -633,28 +661,8 @@ function ie(e) {
 		i.createElement(Y.r, null, A),
 	);
 }
-var ae = require("./5482.js");
-var se = require("./18057.js");
-var oe = require("./95311.js");
-var le = require(/*webcrack:missing*/ "./49519.js");
-var ce = require("./56970.js");
-var me = require("./13925.js");
-var ue = require("./31800.js");
-var de = require(/*webcrack:missing*/ "./92228.js");
-var Ae = require("./28036.js");
-var pe = require("./21616.js");
-var ge = pe;
-var he = require("./66947.js");
-var Ce = he;
-var _e = require("./37198.js");
-var fe = require("./90869.js");
-var be = require(/*webcrack:missing*/ "./26853.js");
-var ye = require("./89791.js");
-var Se = require("./87935.js");
-var we = require("./18869.js");
-var Be = require("./93025.js");
-var ve = require("./96680.js");
-var Ie = require("./33572.js");
+const ge = pe;
+const Ce = he;
 function Ee(e) {
 	const {
 		transport: t,
@@ -669,7 +677,7 @@ function Ee(e) {
 		bQRCodeOnly: u,
 	} = e;
 	const d = ye.sW;
-	const A = (0, ye.N_)({
+	const A = N_1({
 		transport: t,
 		platform: n,
 		onSuccess: r,
@@ -677,8 +685,8 @@ function Ee(e) {
 		onDeviceDetails: d,
 		onGetMachineAuth: (e) => SteamClient.Auth.GetSteamGuardData(e),
 	});
-	const p = (0, ve.$2)();
-	const g = (0, Ie.D7)();
+	const p = $2();
+	const g = D7();
 	i.useEffect(() => () => g?.SetVirtualKeyboardHidden(), [p, g]);
 	const h = (t) => {
 		A.onQRStatusChange?.(t);
@@ -745,12 +753,13 @@ function Ee(e) {
 	}
 	const C = A.password.eStatus;
 	switch (C) {
-		case 13:
+		case 13: {
 			return i.createElement(Ne, null);
+		}
 		case 5:
 		case 11:
 		case 3:
-		case 10:
+		case 10: {
 			const e = C === 5 || C === 11;
 			return i.createElement(Pe, {
 				type: e ? "mobile" : "email",
@@ -760,26 +769,30 @@ function Ee(e) {
 				accountName: A.password.strAccountName,
 				onBack: A.password.goBack,
 			});
+		}
 		case 6:
-		case 4:
+		case 4: {
 			const t = C === 6;
 			return i.createElement(ze, {
 				type: t ? "mobile" : "email",
 				accountName: A.password.strAccountName,
 				onUseCodeOverride: A.password.useCodeOverride,
 			});
-		case 16:
+		}
+		case 16: {
 			return i.createElement(Oe, {
 				reset: A.password.reset,
 			});
-		case 15:
+		}
+		case 15: {
 			return i.createElement(Ge, {
 				reset: A.password.reset,
 				failure: A.password.eFailureState,
 				onRequestOffline: A.onTryOffline,
 				errorReference: A.password.strErrorReference,
 			});
-		case 14:
+		}
+		case 14: {
 			return i.createElement(
 				Ue,
 				{
@@ -787,7 +800,8 @@ function Ee(e) {
 				},
 				o(),
 			);
-		default:
+		}
+		default: {
 			console.error(`Unknown Phase: ${C}`);
 			return i.createElement(Ge, {
 				reset: A.password.reset,
@@ -795,6 +809,7 @@ function Ee(e) {
 				onRequestOffline: A.onTryOffline,
 				errorReference: A.password.strErrorReference,
 			});
+		}
 	}
 }
 function Me(e) {
@@ -820,16 +835,16 @@ function Te(e) {
 	let h = i.useRef(undefined);
 	let C = i.useRef(undefined);
 	let _ = o.length != 0 && c.length != 0;
-	const [f, b] = (0, i.useState)(false);
-	const S = (function () {
-		const e = (0, i.useRef)(true);
-		(0, i.useEffect)(
+	const [f, b] = useState(false);
+	const S = (() => {
+		const e = useRef(true);
+		useEffect(
 			() => () => {
 				e.current = false;
 			},
 			[e],
 		);
-		return (0, i.useCallback)(() => e.current, [e]);
+		return useCallback(() => e.current, [e]);
 	})();
 	const w =
 		r === 2 && !f
@@ -957,7 +972,7 @@ function ke(e) {
 		platform: a,
 		refreshInfo: o,
 	} = e;
-	const l = (0, we.tn)(se.BV.GamepadUI.CreateAccount());
+	const l = tn(se.BV.GamepadUI.CreateAccount());
 	return i.createElement(
 		"div",
 		{
@@ -966,7 +981,7 @@ function ke(e) {
 		i.createElement(
 			p.Z,
 			{
-				className: (0, b.A)(ge.QRCodeContainer, ge.QRSection, ge.ShowQR),
+				className: A_1(ge.QRCodeContainer, ge.QRSection, ge.ShowQR),
 			},
 			i.createElement(
 				"div",
@@ -1032,7 +1047,7 @@ function Ne() {
 			ye.wt,
 			{
 				alignItems: "center",
-				className: (0, b.A)(
+				className: A_1(
 					ge.WaitingForTokenContainer,
 					c.TS.IN_CLIENT && ge.Client,
 				),
@@ -1043,7 +1058,7 @@ function Ne() {
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(ge.Description),
+					className: A_1(ge.Description),
 				},
 				(0, Localize)(
 					c.TS.IN_CLIENT
@@ -1072,7 +1087,7 @@ function Fe(e) {
 }
 function Ge(e) {
 	const { reset: t, failure: r, onRequestOffline: n, errorReference: a } = e;
-	const { title: o, description: l } = (0, ye.tP)(r);
+	const { title: o, description: l } = tP(r);
 	const m = c.TS.IN_CLIENT && r == fe.eF.Network;
 	return i.createElement(
 		Ue,
@@ -1155,15 +1170,15 @@ function Pe(e) {
 		associatedLabel: s,
 		onBack: o,
 	} = e;
-	const [l, c] = (0, i.useState)([]);
-	const [m, u] = (0, i.useState)(false);
-	const [d, A] = (0, i.useState)(false);
-	const [g, h] = (0, i.useState)(false);
+	const [l, c] = useState([]);
+	const [m, u] = useState(false);
+	const [d, A] = useState(false);
+	const [g, h] = useState(false);
 	const C = t === "mobile";
 	const _ = l.join("");
-	(0, ve.$2)();
-	const f = (0, Ie.D7)();
-	const b = (0, Ae.e1)(_, g);
+	$2();
+	const f = D7();
+	const b = e1(_, g);
 	const S = (e) => {
 		f?.SetVirtualKeyboardHidden();
 		A(true);
@@ -1239,7 +1254,7 @@ function Pe(e) {
 								}
 								c(e);
 								const t = e.join("");
-								if ((0, Ae.e1)(t, g)) {
+								if (e1(t, g)) {
 									S(t);
 								}
 							},
@@ -1351,11 +1366,11 @@ function ze(e) {
 function xe(e) {
 	const { onChange: t, backupCode: r, ...n } = e;
 	return i.createElement(Be.a, {
-		length: (0, Ae.H)(r),
+		length: H_1(r),
 		backupCode: r,
 		onChange: (e) => {
 			const n = (e = e.map((e) => e.toUpperCase())).join("").trim();
-			if ((0, Ae.JP)(n, r)) {
+			if (JP(n, r)) {
 				t(e);
 			}
 		},
@@ -1385,7 +1400,7 @@ function Ue(e) {
 	return i.createElement(
 		ye.wt,
 		{
-			className: (0, b.A)(ge.LoginContainer, ge.Login, Ce.Login),
+			className: A_1(ge.LoginContainer, ge.Login, Ce.Login),
 		},
 		i.createElement(
 			"div",
@@ -1504,10 +1519,8 @@ function qe(e) {
 }
 function Qe(e) {
 	const { children: t, align: r, inline: n } = e;
-	const a = (0, b.A)(ge.TextLink, r === "center" && ge.TextAlignCenter);
-	const s = (0, se.Qt)(
-		Se.B7.ResolveURL("urlName" in e ? e.urlName : undefined),
-	);
+	const a = A_1(ge.TextLink, r === "center" && ge.TextAlignCenter);
+	const s = Qt(Se.B7.ResolveURL("urlName" in e ? e.urlName : undefined));
 	if ("urlName" in e) {
 		return i.createElement(
 			h.Ii,
@@ -1528,18 +1541,9 @@ function Qe(e) {
 		);
 	}
 }
-var Ze = require("./30449.js");
-var Ye = require("./13688.js");
-var Ke = require(/*webcrack:missing*/ "./29285.js");
-var Xe = require("./6496.js");
-var Je = require("./87232.js");
-var $e = require(/*webcrack:missing*/ "./50376.js");
-var et = require("./50350.js");
-var tt = require("./22969.js");
-var rt = require("./83665.js");
 const nt = (e) => {
 	const { className: t, children: r } = e;
-	const n = (0, b.A)(l.LoginBackground, t);
+	const n = A_1(l.LoginBackground, t);
 	return i.createElement(
 		"div",
 		{
@@ -1600,14 +1604,14 @@ function at(e) {
 		),
 	);
 }
-var st;
-var ot;
-(function (e) {
+let st;
+let ot;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Forward = 1)] = "Forward";
 	e[(e.Backward = 2)] = "Backward";
 })((st ||= {}));
-(function (e) {
+((e) => {
 	e[(e.LanguageScreen = 0)] = "LanguageScreen";
 	e[(e.TimezoneScreen = 1)] = "TimezoneScreen";
 	e[(e.NetworkSetupScreen = 2)] = "NetworkSetupScreen";
@@ -1686,17 +1690,19 @@ let mt = class extends i.PureComponent {
 	}
 	OnContinue() {
 		switch (this.state.mode) {
-			case ot.LanguageScreen:
+			case ot.LanguageScreen: {
 				this.NavigateToMode(ot.TimezoneScreen);
 				break;
-			case ot.TimezoneScreen:
+			}
+			case ot.TimezoneScreen: {
 				if (c.TS.ON_STEAMOS) {
 					this.NavigateToMode(ot.NetworkSetupScreen);
 				} else {
 					this.NavigateToMode(ot.UpdateScreen);
 				}
 				break;
-			case ot.NetworkSetupScreen:
+			}
+			case ot.NetworkSetupScreen: {
 				if (this.BUserCanProceedFromInternet()) {
 					this.setState({
 						bOfflineMode: false,
@@ -1704,18 +1710,20 @@ let mt = class extends i.PureComponent {
 					if (V.oy.BIsInOOBE) {
 						this.NavigateToMode(ot.UpdateScreen);
 					} else {
-						(0, Je.tH)("OOBE: Skipping update screen since we are not in OOBE");
+						tH("OOBE: Skipping update screen since we are not in OOBE");
 						this.ProceedToSignIn();
 					}
 				}
 				break;
-			case ot.UpdateScreen:
+			}
+			case ot.UpdateScreen: {
 				if (this.state.bChangedLocalization) {
 					SteamClient.User.StartRestart(false);
 					return;
 				}
 				this.ProceedToSignIn();
 				this.modeHistory = [];
+			}
 		}
 	}
 	BUserCanProceedFromInternet() {
@@ -1764,7 +1772,7 @@ let mt = class extends i.PureComponent {
 		});
 	}
 	OnCachedUserRemoved() {
-		(0, Je.tG)(`Cached user removed, now have ${m.b.GetLoginUsers().length}`);
+		tG(`Cached user removed, now have ${m.b.GetLoginUsers().length}`);
 		if (!m.b.GetLoginUsers().length) {
 			this.NavigateToMode(ot.SignInPanel);
 		}
@@ -1774,21 +1782,23 @@ let mt = class extends i.PureComponent {
 		let e = null;
 		let t = this.m_eNavigationDirection == st.None;
 		switch (this.state.mode) {
-			case ot.LanguageScreen:
+			case ot.LanguageScreen: {
 				e = i.createElement(k, {
 					onContinue: this.OnContinue,
 					onLocalizationChanged: this.OnLocalizationChanged,
 					animate: t,
 				});
 				break;
-			case ot.TimezoneScreen:
+			}
+			case ot.TimezoneScreen: {
 				e = i.createElement(O, {
 					onContinue: this.OnContinue,
 					onBack: this.OnGoBack,
 					animate: t,
 				});
 				break;
-			case ot.NetworkSetupScreen:
+			}
+			case ot.NetworkSetupScreen: {
 				e = i.createElement(te, {
 					canContinue: this.BUserCanProceedFromInternet(),
 					onContinue: this.OnContinue,
@@ -1797,12 +1807,14 @@ let mt = class extends i.PureComponent {
 					animate: t,
 				});
 				break;
-			case ot.UpdateScreen:
+			}
+			case ot.UpdateScreen: {
 				e = i.createElement(wt, {
 					onContinue: this.OnContinue,
 					onRestart: this.OnRestart,
 					onGoBack: this.OnGoBack,
 				});
+			}
 		}
 		if (e) {
 			const t = parseInt(l.OobeSlideDuration) * 2;
@@ -1817,7 +1829,7 @@ let mt = class extends i.PureComponent {
 				exitActive: l.ExitActive,
 				exitDone: l.ExitDone,
 			};
-			let n = (0, b.A)(
+			let n = A_1(
 				l.OutOfBoxTransitionGroup,
 				this.m_eNavigationDirection == st.Backward && l.Backward,
 				this.m_eNavigationDirection == st.Forward && l.Forward,
@@ -1860,7 +1872,7 @@ let mt = class extends i.PureComponent {
 			);
 		}
 		switch (this.state.mode) {
-			case ot.CachedUsersPanel:
+			case ot.CachedUsersPanel: {
 				return i.createElement(
 					nt,
 					null,
@@ -1880,30 +1892,41 @@ let mt = class extends i.PureComponent {
 								},
 								(0, Localize)(
 									"#Login_LastError",
-									(function (e) {
+									((e) => {
 										switch (e) {
-											case 3:
+											case 3: {
 												return (0, Localize)("#Login_NoConnection");
-											case 5:
+											}
+											case 5: {
 												return (0, Localize)("#Login_PasswordMismatch");
-											case 88:
+											}
+											case 88: {
 												return (0, Localize)("#Login_TwoFactorMismatch");
-											case 71:
+											}
+											case 71: {
 												return (0, Localize)("#Login_SteamGuardExpired");
-											case 65:
+											}
+											case 65: {
 												return (0, Localize)("#Login_SteamGuardMismatch");
-											case 84:
+											}
+											case 84: {
 												return (0, Localize)("#Login_RateLimitExceeded");
-											case 20:
+											}
+											case 20: {
 												return (0, Localize)("#Login_ServiceUnavailable");
-											case 72:
+											}
+											case 72: {
 												return (0, Localize)("#Login_LoginRestrictionFailed");
-											case 6:
+											}
+											case 6: {
 												return (0, Localize)("#Login_LoggedInElsewhere");
-											case 126:
+											}
+											case 126: {
 												return (0, Localize)("#Login_CachedCredentialInvalid");
-											case 130:
+											}
+											case 130: {
 												return (0, Localize)("#Login_OfflineAppCacheInvalid");
+											}
 										}
 										return String(e);
 									})(m.b.loginResult),
@@ -1919,7 +1942,7 @@ let mt = class extends i.PureComponent {
 								this.NavigateToMode(ot.PromptForPinPanel);
 							},
 							onRemoveUser: (e, t, r) =>
-								(0, A.lX)(
+								lX(
 									i.createElement(at, {
 										accountName: e,
 										avatarUrl: r,
@@ -1931,13 +1954,15 @@ let mt = class extends i.PureComponent {
 						}),
 					),
 				);
-			case ot.SignInPanel:
+			}
+			case ot.SignInPanel: {
 				return i.createElement(ft, {
 					navRef: this.m_navRef,
 					isReauthentication: this.props.isReauthentication,
 					onGoBack: this.OnGoBack,
 				});
-			case ot.PromptForPinPanel:
+			}
+			case ot.PromptForPinPanel: {
 				return i.createElement(
 					nt,
 					null,
@@ -1954,8 +1979,9 @@ let mt = class extends i.PureComponent {
 						bOfflineMode: this.state.bOfflineMode,
 					}),
 				);
+			}
 		}
-		(0, Je.tG)("Missing login state");
+		tG("Missing login state");
 		return null;
 	}
 	render() {
@@ -1970,12 +1996,12 @@ let mt = class extends i.PureComponent {
 	}
 };
 export function gN(e) {
-	const [t, r] = (0, i.useState)("");
-	const [n, a] = (0, i.useState)("");
-	const [u, d] = (0, i.useState)(false);
-	const [A, g] = (0, i.useState)(0);
-	(0, S.$$)(() => d(false), Math.min(10000, 2 ** A * 50), [A], u);
-	const C = (0, c.rP)();
+	const [t, r] = useState("");
+	const [n, a] = useState("");
+	const [u, d] = useState(false);
+	const [A, g] = useState(0);
+	$$(() => d(false), Math.min(10000, 2 ** A * 50), [A], u);
+	const C = rP();
 	const _ = m.b.GetLoginUsers().find((t) => t.accountName === e.strAccountName);
 	if (_ === null) {
 		return null;
@@ -2117,32 +2143,33 @@ export function gN(e) {
 	);
 }
 async function dt(e, t, r, n) {
-	(0, Je.q_)("Awaiting cached signin");
+	q_2("Awaiting cached signin");
 	if ((await SteamClient.Auth.StartSignInFromCache(e, t)).result == 1) {
-		(0, Je.q_)("Successful cached signin");
+		q_2("Successful cached signin");
 		await n?.();
 	} else {
-		(0, Je.q_)(`Cached signin for ${e} failed, no cached creds?`);
+		q_2(`Cached signin for ${e} failed, no cached creds?`);
 		r(e);
 	}
 }
-(0, n.Cg)([S.oI], mt.prototype, "OnLocalizationChanged", null);
-(0, n.Cg)([S.oI], mt.prototype, "OnRestart", null);
-(0, n.Cg)([S.oI], mt.prototype, "OnContinue", null);
-(0, n.Cg)([S.oI], mt.prototype, "ProceedToSignIn", null);
-(0, n.Cg)([S.oI], mt.prototype, "OnGoBack", null);
-(0, n.Cg)([S.oI], mt.prototype, "OnContinueOffline", null);
-(0, n.Cg)([S.oI], mt.prototype, "OnCachedUserRemoved", null);
-mt = (0, n.Cg)([u.PA], mt);
-const At = i.forwardRef(function (e, t) {
+Cg([S.oI], mt.prototype, "OnLocalizationChanged", null);
+Cg([S.oI], mt.prototype, "OnRestart", null);
+Cg([S.oI], mt.prototype, "OnContinue", null);
+Cg([S.oI], mt.prototype, "ProceedToSignIn", null);
+Cg([S.oI], mt.prototype, "OnGoBack", null);
+Cg([S.oI], mt.prototype, "OnContinueOffline", null);
+Cg([S.oI], mt.prototype, "OnCachedUserRemoved", null);
+mt = Cg([u.PA], mt);
+const At = i.forwardRef((e, t) => {
 	const { bFaceLocked: r, children: n, onClosed: s } = e;
-	const o = (0, ve.$2)();
+	const o = $2();
 	const l = i.useCallback(
 		(e) => {
 			switch (e) {
 				case 2:
-				case 3:
+				case 3: {
 					s?.();
+				}
 			}
 		},
 		[s],
@@ -2190,10 +2217,10 @@ const At = i.forwardRef(function (e, t) {
 					z_meters: 0.05,
 				},
 			};
-	const { element: m, methods: u } = (0, tt.Xy)(tt.b7.LoginQRCode, c, {
+	const { element: m, methods: u } = Xy(tt.b7.LoginQRCode, c, {
 		onStateChange: l,
 	});
-	i.useLayoutEffect(() => (0, S.cZ)(t, m), [t, m]);
+	i.useLayoutEffect(() => cZ(t, m), [t, m]);
 	if (m) {
 		return i.createElement(
 			C.b5,
@@ -2243,7 +2270,7 @@ function gt() {
 }
 export function vX(e) {
 	const { bShowHeader: t = true, nUserCountLimit: r } = e;
-	let n = (0, d.q3)(() => {
+	let n = q3(() => {
 		let t = m.b.GetLoginUsers();
 		if (r) {
 			t = t.slice(0, r);
@@ -2255,9 +2282,9 @@ export function vX(e) {
 			o =
 				t.rememberPassword && !t.hasPin
 					? () => {
-							var r;
+							let r;
 							r = t.accountName;
-							(0, Je.tG)(`Signing in ${r} using cached credentials`);
+							tG(`Signing in ${r} using cached credentials`);
 							dt(
 								r,
 								e.bOfflineMode,
@@ -2305,7 +2332,7 @@ export function vX(e) {
 			return i.createElement(
 				p.Z,
 				{
-					className: (0, b.A)(l.LoginCachedAvatar, n && l.Highlight),
+					className: A_1(l.LoginCachedAvatar, n && l.Highlight),
 					key: r,
 					noFocusRing: true,
 					onActivate: o,
@@ -2344,7 +2371,7 @@ export function vX(e) {
 			i.createElement(
 				p.Z,
 				{
-					className: (0, b.A)(l.NewLogin),
+					className: A_1(l.NewLogin),
 					key: "new_login",
 					noFocusRing: true,
 					onActivate: () => e.onShowSignInForAccount(""),
@@ -2391,7 +2418,7 @@ export function vX(e) {
 		i.createElement(
 			p.Z,
 			{
-				className: (0, b.A)(l.CachedUserList, r && n.length > r && l.LongList),
+				className: A_1(l.CachedUserList, r && n.length > r && l.LongList),
 			},
 			n,
 		),
@@ -2403,13 +2430,15 @@ function Ct(e) {
 	switch (t) {
 		case ot.LanguageScreen:
 		case ot.NetworkSetupScreen:
-		case ot.UpdateScreen:
+		case ot.UpdateScreen: {
 			r = true;
 			break;
-		default:
+		}
+		default: {
 			r = false;
+		}
 	}
-	(0, ue.ez)(r, "LoginPanelLoginForm");
+	ez(r, "LoginPanelLoginForm");
 	return null;
 }
 function _t(e) {
@@ -2422,7 +2451,7 @@ function ft(e) {
 	let [a, s] = i.useState(null);
 	const [o, m] = i.useState(false);
 	const [u, d] = i.useState(false);
-	const A = (0, c.rP)().IN_VR;
+	const A = rP().IN_VR;
 	let g = new de.ij();
 	let h = g.GetServiceTransport();
 	i.useEffect(() => {
@@ -2461,9 +2490,7 @@ function ft(e) {
 			autoFocus: true,
 			transport: h,
 			onSuccess: (e) => {
-				(0, Je.tG)(
-					"received authentication token, using it to sign in to Steam",
-				);
+				tG("received authentication token, using it to sign in to Steam");
 				_(null);
 				SteamClient.Auth.SetLoginToken(
 					e.strRefreshToken,
@@ -2471,7 +2498,7 @@ function ft(e) {
 				).then((e) => {
 					const t = e.result;
 					const r = e.message;
-					(0, Je.tG)(`client login returned ${t} (${r})`);
+					tG(`client login returned ${t} (${r})`);
 					_(t);
 					if (t != 1) {
 						b(f + 1);
@@ -2535,11 +2562,11 @@ function ft(e) {
 }
 export function Qk(e) {
 	const { loginState: t } = e;
-	const r = (0, d.q3)(() => m.b.loginPercentage);
+	const r = q3(() => m.b.loginPercentage);
 	const n = i.useRef(0);
-	const a = (0, d.q3)(() => m.b.currentUser);
-	const s = !(0, c.Qn)() && !!a && !(0, Ke.q)();
-	const o = (0, c.Pr)();
+	const a = q3(() => m.b.currentUser);
+	const s = !Qn() && !!a && !q_2();
+	const o = Pr();
 	i.useEffect(() => {
 		if (r == 0) {
 			n.current = 0;
@@ -2550,23 +2577,27 @@ export function Qk(e) {
 	let u = "";
 	let A = false;
 	switch (t) {
-		case 4:
+		case 4: {
 			u = (0, Localize)("#Login_WaitingForNetwork");
 			break;
-		case 5:
+		}
+		case 5: {
 			u = (0, Localize)("#Login_WaitingForServer");
 			break;
-		case 6:
+		}
+		case 6: {
 			u = (0, Localize)("#Login_LoadingLibrary");
 			A = n.current > 5;
 			break;
-		case 8:
+		}
+		case 8: {
 			u = (0, Localize)("#Login_ShuttingDown");
+		}
 	}
 	return i.createElement(
 		p.Z,
 		{
-			className: (0, b.A)(l.LoginStatusContainer, o && l.OSX),
+			className: A_1(l.LoginStatusContainer, o && l.OSX),
 			onOKButton: () => true,
 			onOKActionDescription: null,
 			onCancelButton: () => true,
@@ -2581,14 +2612,14 @@ export function Qk(e) {
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(l.LoginStatus),
+					className: A_1(l.LoginStatus),
 				},
 				u,
 			),
 			i.createElement(
 				"div",
 				{
-					className: (0, b.A)(l.Progress, A && r > 0 && l.Visible),
+					className: A_1(l.Progress, A && r > 0 && l.Visible),
 				},
 				i.createElement(Ze.z2, {
 					nProgress: r * 100,
@@ -2622,8 +2653,8 @@ export function Qk(e) {
 }
 export function g(e) {
 	const t = "https://s.team/join";
-	const r = (0, Ye.k1)();
-	(0, v.Xf)("hidden", "CreateAccount");
+	const r = k1();
+	Xf("hidden", "CreateAccount");
 	return i.createElement(
 		et.Jr,
 		{
@@ -2698,35 +2729,35 @@ export function g(e) {
 	);
 }
 export function GW() {
-	const e = (0, le.zy)();
+	const e = zy();
 	const t = e.state?.bReauthentication;
-	const r = (0, m.m)();
-	const n = (0, B.jh)();
-	const a = (function (e) {
+	const r = m_1();
+	const n = jh();
+	const a = ((e) => {
 		const t = e == 1 || e == 2;
 		i.useEffect(() => {
 			if (t) {
 				R.o.Init();
 			}
 		}, [t]);
-		let r = (0, S.gc)(R.o.CurrentLanguage);
-		let n = (0, S.gc)(R.o.AvailableLanguages);
-		let a = (0, S.gc)(R.o.WelcomeText);
+		let r = gc(R.o.CurrentLanguage);
+		let n = gc(R.o.AvailableLanguages);
+		let a = gc(R.o.WelcomeText);
 		const s = r.length != 0 && n?.length != 0 && a?.length != 0;
-		let o = (0, S.gc)(R.o.CurrentTimeZoneID);
-		let l = (0, S.gc)(R.o.AvailableTimeZones);
+		let o = gc(R.o.CurrentTimeZoneID);
+		let l = gc(R.o.AvailableTimeZones);
 		const c = o.length != 0 && l?.length != 0;
 		return {
 			bNeedOOBEData: t,
 			bHaveOOBEData: s && c,
 		};
 	})(r);
-	(0, v.Xf)("hidden", "LoginPanel");
+	Xf("hidden", "LoginPanel");
 	i.useEffect(() => {
 		let e = ce.yE.GetSettings();
 		if (e.bLockOnLogin && !e.bUserForgotPin) {
 			if (!ce.yE.BConsumeLockTicket()) {
-				(0, me.Di)({
+				Di({
 					preventCancel: true,
 					preventSteamButtons: true,
 					onSuccess: () => {
@@ -2749,16 +2780,18 @@ export function GW() {
 	switch (r) {
 		case 1:
 		case 3:
-		case 2:
+		case 2: {
 			return i.createElement(mt, {
 				isReauthentication: t,
 				loginState: r,
 				oobeData: a,
 			});
-		default:
+		}
+		default: {
 			return i.createElement(Qk, {
 				loginState: r,
 			});
+		}
 	}
 }
 function wt(e) {
@@ -2773,16 +2806,19 @@ function wt(e) {
 			}
 			let i;
 			switch (n) {
-				case 6:
+				case 6: {
 					i = () => SteamClient.User.StartRestart(false);
 					break;
-				case 7:
+				}
+				case 7: {
 					i = () => SteamClient.System.RestartPC();
 					break;
-				default:
+				}
+				default: {
 					i = e.onContinue;
+				}
 			}
-			(function (e) {
+			((e) => {
 				R.o.SetOOBEComplete();
 				if (V.oy.IsDeckFactoryImage()) {
 					SteamClient.System.RestartPC();
@@ -2793,7 +2829,7 @@ function wt(e) {
 		},
 		[e.onContinue, t],
 	);
-	const n = (0, we.tn)(se.BV.GamepadUI.Setup());
+	const n = tn(se.BV.GamepadUI.Setup());
 	return i.createElement(oe.zQ, {
 		onUpdateComplete: r,
 		onShowHelp: n,

@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./87232.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import { tG } from "./87232.js";
 class o {
 	m_hLoginStateChange = null;
 	m_strAccountName = "";
@@ -12,7 +12,7 @@ class o {
 	m_vecLoginUsers = [];
 	m_bSecureComputer = true;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	async Init() {
 		this.m_hLoginStateChange = SteamClient.User?.RegisterForLoginStateChange(
@@ -63,7 +63,7 @@ class o {
 		return this.m_vecLoginUsers.length >= 5;
 	}
 	OnLoginStateChange(e, t, r, n, i, a) {
-		(0, s.tG)("OnLoginStateChange", e, t, r, n, i);
+		tG("OnLoginStateChange", e, t, r, n, i);
 		this.m_strAccountName = e;
 		this.m_eLoginState = t;
 		this.m_eLoginResult = r;
@@ -85,15 +85,15 @@ class o {
 	}
 }
 export function m() {
-	return (0, a.q3)(() => b.loginState);
+	return q3(() => b.loginState);
 }
-(0, n.Cg)([i.sH], o.prototype, "m_strAccountName", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_eLoginState", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_eLoginResult", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_nLoginPercentage", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_strEmailDomain", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_vecLoginUsers", undefined);
-(0, n.Cg)([i.sH], o.prototype, "m_bSecureComputer", undefined);
-(0, n.Cg)([i.XI.bound], o.prototype, "OnLoginStateChange", null);
+Cg([i.sH], o.prototype, "m_strAccountName", undefined);
+Cg([i.sH], o.prototype, "m_eLoginState", undefined);
+Cg([i.sH], o.prototype, "m_eLoginResult", undefined);
+Cg([i.sH], o.prototype, "m_nLoginPercentage", undefined);
+Cg([i.sH], o.prototype, "m_strEmailDomain", undefined);
+Cg([i.sH], o.prototype, "m_vecLoginUsers", undefined);
+Cg([i.sH], o.prototype, "m_bSecureComputer", undefined);
+Cg([i.XI.bound], o.prototype, "OnLoginStateChange", null);
 export const b = new o();
 window.loginStore = b;

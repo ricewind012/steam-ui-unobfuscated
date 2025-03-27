@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	GameInfoBody: "sK60OHvu2jKIA7ubfLbzt",
 	ResultItemHeight: "_4GrggCZJr1ZXw3AdL8RZk",

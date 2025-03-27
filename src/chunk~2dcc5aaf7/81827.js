@@ -1,6 +1,6 @@
-export var V;
-var i;
-(function (e) {
+export let V;
+let i;
+((e) => {
 	e[(e.k_EVRError_None = 0)] = "k_EVRError_None";
 	e[(e.k_EVRError_VRSkipParam = 1)] = "k_EVRError_VRSkipParam";
 	e[(e.k_EVRError_ComponentNotInstalled = 2)] =
@@ -10,7 +10,7 @@ var i;
 	e[(e.k_EVRError_HmdError = 5)] = "k_EVRError_HmdError";
 	e[(e.k_EVRError_PathChanged = 6)] = "k_EVRError_PathChanged";
 })((V ||= {}));
-(function (e) {
+((e) => {
 	e[(e.VRInitError_None = 0)] = "VRInitError_None";
 	e[(e.VRInitError_Unknown = 1)] = "VRInitError_Unknown";
 	e[(e.VRInitError_Init_InstallationNotFound = 100)] =

@@ -1,20 +1,21 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./42085.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require("./66186.js");
-var o = require("./83571.js");
-var l = require("./20189.js");
-var c = l;
-var m = require("./35488.js");
-var u = require("./64608.js");
-var d = require("./87546.js");
-var A = require("./10606.js");
-var p = require(/*webcrack:missing*/ "./42318.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require("./28351.js");
-var C = require(/*webcrack:missing*/ "./89193.js");
-var _ = require("./97838.js");
-var f = require("./56060.js");
+import n from "./63696.js";
+import i from "./42085.js";
+import s, { xu } from "./66186.js";
+import o, { H$ } from "./83571.js";
+import l from "./20189.js";
+import m from "./35488.js";
+import u from "./64608.js";
+import d, { Qc, Ab, FA } from "./87546.js";
+import A from "./10606.js";
+import p from "./42318.js";
+import g from "./72476.js";
+import h from "./28351.js";
+import { lB } from "./89193.js";
+import _ from "./97838.js";
+import f from "./56060.js";
+import S from "./34792.js";
+const c = l;
 function b(e, t, r) {
 	let n = new f.OK();
 	n.set_section(e);
@@ -30,7 +31,7 @@ class y {
 	}
 	RegisterBoolSetting(e, t, r, n, i) {
 		this.m_rDisposers.push(
-			(0, C.lB)(e, t, (e) => {
+			lB(e, t, (e) => {
 				const t = i(e.newValue);
 				if (t != i(e.oldValue)) {
 					b(r, n, (e) => e.set_bool(t));
@@ -40,7 +41,7 @@ class y {
 	}
 	RegisterIntSetting(e, t, r, n, i) {
 		this.m_rDisposers.push(
-			(0, C.lB)(e, t, (e) => {
+			lB(e, t, (e) => {
 				const t = i(e.newValue);
 				if (t != i(e.oldValue)) {
 					b(r, n, (e) => e.set_int(t));
@@ -50,7 +51,7 @@ class y {
 	}
 	RegisterFloatSetting(e, t, r, n, i) {
 		this.m_rDisposers.push(
-			(0, C.lB)(e, t, (e) => {
+			lB(e, t, (e) => {
 				const t = i(e.newValue);
 				if (t != i(e.oldValue)) {
 					b(r, n, (e) => e.set_float(t));
@@ -60,7 +61,7 @@ class y {
 	}
 	RegisterStringSetting(e, t, r, n, i) {
 		this.m_rDisposers.push(
-			(0, C.lB)(e, t, (e) => {
+			lB(e, t, (e) => {
 				const t = i(e.newValue);
 				if (t != i(e.oldValue)) {
 					b(r, n, (e) => e.set_string(t));
@@ -69,65 +70,107 @@ class y {
 		);
 	}
 }
-var S = require("./34792.js");
-function w() {
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(i.kn, null, n.createElement(o.OV, null)),
-		n.createElement(i.kn, null, n.createElement(o.gv, null)),
+function W() {
+	return (
+		<>
+			<i.kn>
+				<o.OV />
+			</i.kn>
+			<i.kn>
+				<o.gv />
+			</i.kn>
+		</>
 	);
 }
 function B() {
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(i.kn, null, n.createElement(o.g9, null)),
-		n.createElement(i.kn, null, n.createElement(o.TM, null)),
+	return (
+		<>
+			<i.kn>
+				<o.g9 />
+			</i.kn>
+			<i.kn>
+				<o.TM />
+			</i.kn>
+		</>
 	);
 }
-function v(e) {
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			i.aU,
-			null,
-			n.createElement(i.kn, null, n.createElement(o.jw, null)),
-			n.createElement(i.kn, null, n.createElement(o.mR, null)),
-			n.createElement(i.kn, null, n.createElement(o.Mq, null)),
-			n.createElement(i.kn, null, n.createElement(o.Cx, null)),
-			n.createElement(i.kn, null, n.createElement(o.by, null)),
-			n.createElement(i.kn, null, n.createElement(o.k4, null)),
-			n.createElement(i.kn, null, n.createElement(o.zl, null)),
-			n.createElement(i.kn, null, n.createElement(o.bh, null)),
-			n.createElement(i.kn, null, n.createElement(o.fn, null)),
-			n.createElement(i.kn, null, n.createElement(o.HK, null)),
-			n.createElement(i.kn, null, n.createElement(o.ZH, null)),
-			n.createElement(i.kn, null, n.createElement(h.n1, null)),
-			n.createElement(i.kn, null, n.createElement(h.BF, null)),
-			n.createElement(i.kn, null, n.createElement(o.PK, null)),
-			n.createElement(i.kn, null, n.createElement(o.mL, null)),
-			n.createElement(i.kn, null, n.createElement(o.aL, null)),
-			n.createElement(i.kn, null, n.createElement(o.nf, null)),
-			n.createElement(i.kn, null, n.createElement(o.ph, null)),
-			n.createElement(i.kn, null, n.createElement(o.CZ, null)),
-			n.createElement(i.kn, null, n.createElement(o.du, null)),
-			n.createElement(i.kn, null, n.createElement(o.V, null)),
-			false,
-			n.createElement(
-				i.kn,
-				null,
-				n.createElement(o.DJ, {
-					bottomSeparator: "none",
-				}),
-			),
-		),
+function V(e) {
+	return (
+		<>
+			<i.aU>
+				<i.kn>
+					<o.jw />
+				</i.kn>
+				<i.kn>
+					<o.mR />
+				</i.kn>
+				<i.kn>
+					<o.Mq />
+				</i.kn>
+				<i.kn>
+					<o.Cx />
+				</i.kn>
+				<i.kn>
+					<o.by />
+				</i.kn>
+				<i.kn>
+					<o.k4 />
+				</i.kn>
+				<i.kn>
+					<o.zl />
+				</i.kn>
+				<i.kn>
+					<o.bh />
+				</i.kn>
+				<i.kn>
+					<o.fn />
+				</i.kn>
+				<i.kn>
+					<o.HK />
+				</i.kn>
+				<i.kn>
+					<o.ZH />
+				</i.kn>
+				<i.kn>
+					<h.n1 />
+				</i.kn>
+				<i.kn>
+					<h.BF />
+				</i.kn>
+				<i.kn>
+					<o.PK />
+				</i.kn>
+				<i.kn>
+					<o.mL />
+				</i.kn>
+				<i.kn>
+					<o.aL />
+				</i.kn>
+				<i.kn>
+					<o.nf />
+				</i.kn>
+				<i.kn>
+					<o.ph />
+				</i.kn>
+				<i.kn>
+					<o.CZ />
+				</i.kn>
+				<i.kn>
+					<o.du />
+				</i.kn>
+				<i.kn>
+					<o.V />
+				</i.kn>
+				<i.kn>
+					<o.DJ bottomSeparator="none" />
+				</i.kn>
+			</i.aU>
+		</>
 	);
 }
 function I(e) {
-	const t = (0, d.Qc)();
-	const r = (0, d.Ab)();
+	const t = Qc();
+	const r = Ab();
 	let i = "?";
 	let s = "?";
 	if (isFinite(t.nSecondsRemaining) && t.nSecondsRemaining >= 0) {
@@ -140,71 +183,50 @@ function I(e) {
 	}
 	let l = "";
 	switch (t.eBatteryState) {
-		case 1:
+		case 1: {
 			l =
 				r < d.Go.High
 					? Localize("#QuickAccess_Tab_Perf_CalculatingBatteryLife")
 					: Localize("#QuickAccess_Tab_Perf_ProjectedBatteryLife");
 			break;
-		case 2:
+		}
+		case 2: {
 			l =
 				r < d.Go.High
 					? Localize("#QuickAccess_Tab_Perf_CalculatingChargingTime")
 					: Localize("#QuickAccess_Tab_Perf_ProjectedChargingTime");
 			break;
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
-	return n.createElement(
-		"div",
-		{
-			className: c.BatteryDetailsLabels,
-		},
-		n.createElement(
-			"div",
-			{
-				className: c.BatteryProjectedValue,
-			},
-			o,
-		),
-		n.createElement(
-			"div",
-			{
-				className: c.BatteryProjectedLabel,
-			},
-			l,
-		),
+	return (
+		<div className={c.BatteryDetailsLabels}>
+			<div className={c.BatteryProjectedValue}>{o}</div>
+			<div className={c.BatteryProjectedLabel}>{l}</div>
+		</div>
 	);
 }
 export function z5(e) {
-	const { onOK: t } = e;
+	const { onOK } = e;
 	const r = Localize("#QuickAccess_Tab_Perf_ConnectedSlowDetailsTitle");
 	const i = Localize("#QuickAccess_Tab_Perf_ConnectedSlowDetails");
-	return n.createElement(A.o0, {
-		bAlertDialog: true,
-		strTitle: r,
-		strDescription: i,
-		onOK: t,
-	});
+	return <A.o0 bAlertDialog strTitle={r} strDescription={i} onOK={onOK} />;
 }
 export function f0(e) {
-	const { onOK: t } = e;
+	const { onOK } = e;
 	const r = Localize("#QuickAccess_Tab_Perf_BatteryFullDetailsTitle");
 	const i = Localize("#QuickAccess_Tab_Perf_BatteryFullDetails");
-	return n.createElement(A.o0, {
-		bAlertDialog: true,
-		strTitle: r,
-		strDescription: i,
-		onOK: t,
-	});
+	return <A.o0 bAlertDialog strTitle={r} strDescription={i} onOK={onOK} />;
 }
 function T(e) {
-	const t = (0, d.Qc)();
-	const r = (0, d.FA)();
+	const t = Qc();
+	const r = FA();
 	if (!t.bHasBattery) {
 		return null;
 	}
-	let s = Math.min(Math.round(t.flLevel * 100), 99) + "%";
+	let s = `${Math.min(Math.round(t.flLevel * 100), 99)}%`;
 	if (r) {
 		s = Localize("#QuickAccess_Tab_Perf_BatteryFull");
 	}
@@ -214,70 +236,43 @@ function T(e) {
 	} else if (r) {
 		o = () => d.Zw.Get().ShowBatteryFullDetails();
 	}
-	return n.createElement(
-		i.kn,
-		null,
-		n.createElement(
-			u.D0,
-			{
-				focusable: true,
-				childrenLayout: "below",
-				onClick: o,
-			},
-			n.createElement(
-				"div",
-				{
-					className: c.BatterySectionContainer,
-				},
-				n.createElement(
-					"div",
-					{
-						className: c.BatteryIcon,
-					},
-					n.createElement(m.BatteryLarge, {
-						acState: t.eACState,
-						batteryLevel: t.flLevel,
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: c.BatteryPercentageLabel,
-					},
-					s,
-				),
-				n.createElement(I, null),
-			),
-		),
+	return (
+		<i.kn>
+			<u.D0 focusable childrenLayout="below" onClick={o}>
+				<div className={c.BatterySectionContainer}>
+					<div className={c.BatteryIcon}>
+						<m.BatteryLarge acState={t.eACState} batteryLevel={t.flLevel} />
+					</div>
+					<div className={c.BatteryPercentageLabel}>{s}</div>
+					<I />
+				</div>
+			</u.D0>
+		</i.kn>
 	);
 }
 function R() {
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			p.tH,
-			null,
-			n.createElement(
-				i.aU,
-				null,
-				n.createElement(T, null),
-				n.createElement(B, null),
-			),
-		),
+	return (
+		<>
+			<p.tH>
+				<i.aU>
+					<T />
+					<B />
+				</i.aU>
+			</p.tH>
+		</>
 	);
 }
-function k() {
-	const [e] = (0, s.xu)();
-	const t = (0, o.H$)(e);
-	(function (e) {
-		const t = n.useRef(null);
+function K() {
+	const [e] = xu();
+	const t = H$(e);
+	((e) => {
+		const TRef = n.useRef(null);
 		n.useEffect(() => {
-			t.current = new y();
+			TRef.current = new y();
 			const r = SteamClient?.OpenVR?.RegisterForVRModeChange((r) => {
-				t.current.Reset();
+				TRef.current.Reset();
 				if (r) {
-					e(t.current);
+					e(TRef.current);
 				}
 			});
 			return r.unregister;
@@ -291,34 +286,26 @@ function k() {
 			(e) => e,
 		);
 	});
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			p.tH,
-			null,
-			n.createElement(
-				i.aU,
-				null,
-				n.createElement(T, null),
-				n.createElement(w, null),
-				n.createElement(
-					i.kn,
-					null,
-					n.createElement(o.PZ, {
-						bottomSeparator: t ? "thick" : "none",
-					}),
-				),
-				!t && n.createElement(o.qC, null),
-			),
-			t && n.createElement(v, null),
-		),
+	return (
+		<>
+			<p.tH>
+				<i.aU>
+					<T />
+					<W />
+					<i.kn>
+						<o.PZ bottomSeparator={t ? "thick" : "none"} />
+					</i.kn>
+					{!t && <o.qC />}
+				</i.aU>
+				{t && <V />}
+			</p.tH>
+		</>
 	);
 }
 export function Bi() {
 	if (g.TS.ON_DECK) {
-		return n.createElement(k, null);
+		return <K />;
 	} else {
-		return n.createElement(R, null);
+		return <R />;
 	}
 }

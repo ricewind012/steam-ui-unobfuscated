@@ -1,22 +1,26 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
 const a = "primary";
 const s = "featured";
 const o = "default_featured";
-export var mY;
+export let mY;
 export function PH(e) {
 	switch (e) {
-		case a:
+		case a: {
 			return mY.k_ePrimary;
-		case s:
+		}
+		case s: {
 			return mY.k_eFeatured;
-		case o:
+		}
+		case o: {
 			return mY.k_eDefaultFeatured;
-		default:
+		}
+		default: {
 			return mY.k_eGeneral;
+		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.k_ePrimary = 3)] = "k_ePrimary";
 	e[(e.k_eFeatured = 2)] = "k_eFeatured";
 	e[(e.k_eDefaultFeatured = 1)] = "k_eDefaultFeatured";
@@ -24,7 +28,7 @@ export function PH(e) {
 })((mY ||= {}));
 export class TT {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	accountid;
 	steamid;
@@ -46,7 +50,7 @@ export class TT {
 	default_selection_priority = mY.k_eGeneral;
 	current_selection_priority = mY.k_eGeneral;
 }
-(0, n.Cg)([i.sH], TT.prototype, "title", undefined);
-(0, n.Cg)([i.sH], TT.prototype, "viewer_count", undefined);
-(0, n.Cg)([i.sH], TT.prototype, "gamedata_subtitle", undefined);
-(0, n.Cg)([i.sH], TT.prototype, "current_selection_priority", undefined);
+Cg([i.sH], TT.prototype, "title", undefined);
+Cg([i.sH], TT.prototype, "viewer_count", undefined);
+Cg([i.sH], TT.prototype, "gamedata_subtitle", undefined);
+Cg([i.sH], TT.prototype, "current_selection_priority", undefined);

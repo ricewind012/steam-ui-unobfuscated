@@ -1,6 +1,6 @@
-var n = require("./10927.js");
-var i = require("./30496.js");
-var a = require("./96593.js");
+import n from "./10927.js";
+import i, { E1 } from "./30496.js";
+import a from "./96593.js";
 function s(e, t) {
 	return t.minutes_playtime_forever - e.minutes_playtime_forever;
 }
@@ -38,7 +38,7 @@ function m(e, t) {
 	}
 }
 function u(e, t) {
-	return (0, i.E1)(t.appid).length - (0, i.E1)(e.appid).length;
+	return E1(t.appid).length - E1(e.appid).length;
 }
 function d(e, t) {
 	let r = n.y.GetAchievementProgress(e.appid);
@@ -65,32 +65,41 @@ export function g(e) {
 	let t;
 	if (e != 1) {
 		switch (e) {
-			case 4:
+			case 4: {
 				t = s;
 				break;
-			case 5:
+			}
+			case 5: {
 				t = o;
 				break;
-			case 9:
+			}
+			case 9: {
 				t = l;
 				break;
-			case 6:
+			}
+			case 6: {
 				t = c;
 				break;
-			case 8:
+			}
+			case 8: {
 				t = m;
 				break;
-			case 10:
+			}
+			case 10: {
 				t = u;
 				break;
-			case 2:
+			}
+			case 2: {
 				t = d;
 				break;
-			case 11:
+			}
+			case 11: {
 				t = A;
 				break;
-			case 7:
+			}
+			case 7: {
 				t = p;
+			}
 		}
 	}
 	return (e, r) => (t && t(e, r)) || a.tw.CompareSortAs(e, r);

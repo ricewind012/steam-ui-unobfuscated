@@ -1,25 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require("./96593.js");
-var l = require("./10606.js");
-var c = require(/*webcrack:missing*/ "./69164.js");
-var m = require("./13869.js");
-var u = require(/*webcrack:missing*/ "./26853.js");
 import {
 	Localize,
 	LocalizeCalendarTime,
 } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require("./35488.js");
-var g = require(/*webcrack:missing*/ "./90765.js");
-var h = require("./29274.js");
-var C = h;
-var _ = require("./55489.js");
-var f = require("./51297.js");
-var b = require("./34792.js");
-var y = require("./61175.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./85243.js";
+import s from "./44846.js";
+import o from "./96593.js";
+import l from "./10606.js";
+import c from "./69164.js";
+import m, { pg } from "./13869.js";
+import u from "./26853.js";
+import A, { vJ } from "./52451.js";
+import p from "./35488.js";
+import g, { A as A_1 } from "./90765.js";
+import h from "./29274.js";
+import _, { Bx } from "./55489.js";
+import f from "./51297.js";
+import b, { e_ as e } from "./34792.js";
+import y from "./61175.js";
+const C = h;
 function S(e) {
 	if (e) {
 		return {};
@@ -34,7 +34,7 @@ export function TE(e, t) {
 	console.log("showing cloud conflict dialog", e.appid);
 	let r = y.n6.IsGamepadUIWindowActive();
 	if (r) {
-		(0, m.pg)(
+		pg(
 			n.createElement(B, {
 				...e,
 			}),
@@ -44,7 +44,7 @@ export function TE(e, t) {
 			},
 		);
 	} else {
-		(0, m.pg)(
+		pg(
 			n.createElement(v, {
 				...e,
 				classAddition: C.Popup,
@@ -59,7 +59,7 @@ export function TE(e, t) {
 	}
 }
 function B(e) {
-	(0, _.Bx)(a.I5.Opaque, "CloudConflictDialogGamepad");
+	Bx(a.I5.Opaque, "CloudConflictDialogGamepad");
 	return E(e);
 }
 function v(e) {
@@ -78,7 +78,7 @@ function I(e) {
 	}
 }
 function E(e) {
-	const [t] = (0, b.e_)("b24HourClock");
+	const [t] = e("b24HourClock");
 	const r = o.tw.GetAppOverviewByAppID(e.appid);
 	const a = e.appid == s.rm;
 	const c = a
@@ -100,7 +100,7 @@ function E(e) {
 	const f = e.bOnAppLaunch
 		? Localize("#CloudConflict_AppLaunch_Footer_Note")
 		: Localize("#CloudConflict_Footer_Note");
-	const y = (0, A.vJ)(
+	const y = vJ(
 		() => SteamClient.Apps.GetConflictingFileTimestamps(e.appid),
 		[e.appid],
 	);
@@ -118,9 +118,10 @@ function E(e) {
 		(e) => {
 			switch (e) {
 				case 0:
-				default:
+				default: {
 					break;
-				case 1:
+				}
+				case 1: {
 					B(e);
 					E(
 						n.createElement(
@@ -132,7 +133,8 @@ function E(e) {
 						),
 					);
 					break;
-				case 2:
+				}
+				case 2: {
 					B(e);
 					E(
 						n.createElement(
@@ -143,6 +145,7 @@ function E(e) {
 							Localize("#CloudConflict_KeepRemote_Description"),
 						),
 					);
+				}
 			}
 		},
 		[1, 2, 0],
@@ -191,7 +194,7 @@ function E(e) {
 					},
 				},
 				n.createElement("div", {
-					className: (0, g.A)(C.RadioButton),
+					className: A_1(C.RadioButton),
 				}),
 				n.createElement(p.CloudSync, {
 					className: C.ConflictChoiceIcon,
@@ -227,7 +230,7 @@ function E(e) {
 					},
 				},
 				n.createElement("div", {
-					className: (0, g.A)(C.RadioButton),
+					className: A_1(C.RadioButton),
 				}),
 				n.createElement(p.HardDrive, {
 					className: C.ConflictChoiceIcon,
@@ -266,19 +269,22 @@ function E(e) {
 				n.createElement(
 					i.jn,
 					{
-						className: (0, g.A)(C.ContinueButton, w === 0 && "Disabled"),
+						className: A_1(C.ContinueButton, w === 0 && "Disabled"),
 						onClick: () => {
 							((t) => {
 								switch (t) {
 									case 0:
-									default:
+									default: {
 										S(e.onCancel)();
 										break;
-									case 1:
+									}
+									case 1: {
 										S(e.keepLocal)();
 										break;
-									case 2:
+									}
+									case 2: {
 										S(e.keepRemote)();
+									}
 								}
 							})(w);
 						},
@@ -300,7 +306,7 @@ function E(e) {
 		l.eV,
 		{
 			onCancel: S(e.onCancel),
-			className: (0, g.A)(C.CloudConflictModalContent, e.classAddition),
+			className: A_1(C.CloudConflictModalContent, e.classAddition),
 			bOKDisabled: true,
 		},
 		n.createElement(
@@ -340,7 +346,7 @@ export function zI(e, t) {
 	console.log("showing cloud sync failed dialog", e.appid);
 	let r = y.n6.IsGamepadUIWindowActive();
 	if (r) {
-		(0, m.pg)(
+		pg(
 			n.createElement(T, {
 				...e,
 			}),
@@ -348,7 +354,7 @@ export function zI(e, t) {
 			S(r),
 		);
 	} else {
-		(0, m.pg)(
+		pg(
 			n.createElement(R, {
 				...e,
 				bDisableBackgroundDismiss: true,
@@ -359,7 +365,7 @@ export function zI(e, t) {
 	}
 }
 function T(e) {
-	(0, _.Bx)(a.I5.Opaque, "CloudSyncFailedDialogGamepad");
+	Bx(a.I5.Opaque, "CloudSyncFailedDialogGamepad");
 	return k(e);
 }
 function R(e) {
@@ -445,7 +451,7 @@ export function aj(e, t) {
 	console.log("showing cloud pending operations dialog", e.appid);
 	let r = y.n6.IsGamepadUIWindowActive();
 	if (r) {
-		(0, m.pg)(
+		pg(
 			n.createElement(N, {
 				...e,
 			}),
@@ -454,7 +460,7 @@ export function aj(e, t) {
 		);
 	} else {
 		e.bDisableBackgroundDismiss = true;
-		(0, m.pg)(
+		pg(
 			n.createElement(F, {
 				...e,
 			}),
@@ -464,15 +470,15 @@ export function aj(e, t) {
 	}
 }
 function N(e) {
-	(0, _.Bx)(a.I5.Opaque, "CloudPendingOperationsDialogGamepad");
+	Bx(a.I5.Opaque, "CloudPendingOperationsDialogGamepad");
 	return G(e);
 }
 function F(e) {
 	return G(e);
 }
 function G(e) {
-	const [t] = (0, b.e_)("b24HourClock");
-	const r = (0, A.vJ)(
+	const [t] = e("b24HourClock");
+	const r = vJ(
 		() => SteamClient.Apps.GetCloudPendingRemoteOperations(e.appid),
 		[e.appid],
 	);
@@ -512,35 +518,44 @@ function G(e) {
 			bForce24HourClock: t,
 		});
 		switch (l) {
-			case 0:
+			case 0: {
 				h = Localize("#CloudPendingOps_Operation_None");
 				break;
-			case 1:
+			}
+			case 1: {
 				h = Localize("#CloudPendingOps_Operation_AppRunning");
 				break;
-			case 2:
+			}
+			case 2: {
 				h = Localize("#CloudPendingOps_Operation_Uploading");
 				break;
-			case 3:
+			}
+			case 3: {
 				h = Localize("#CloudPendingOps_Operation_UploadNotStarted");
 				break;
-			case 4:
+			}
+			case 4: {
 				h = Localize("#CloudPendingOps_Operation_AppSuspended");
+			}
 		}
 		let y = "#CloudPendingOps_Warning";
 		switch (A) {
-			case s.zm.k_EGamingDeviceType_SteamDeck:
+			case s.zm.k_EGamingDeviceType_SteamDeck: {
 				y = "#CloudPendingOps_Warning_SteamDeck";
 				break;
-			case s.zm.k_EGamingDeviceType_StandardPC:
+			}
+			case s.zm.k_EGamingDeviceType_StandardPC: {
 				y = "#CloudPendingOps_Warning_PC";
 				break;
+			}
 			case s.zm.k_EGamingDeviceType_Handheld:
-			case s.zm.k_EGamingDeviceType_Phone:
+			case s.zm.k_EGamingDeviceType_Phone: {
 				y = "#CloudPendingOps_Warning_Mobile";
 				break;
-			case s.zm.k_EGamingDeviceType_Tesla:
+			}
+			case s.zm.k_EGamingDeviceType_Tesla: {
 				y = "#CloudPendingOps_Warning_Tesla";
+			}
 		}
 		m = e.customDescriptionText
 			? Localize(e.customDescriptionText)
@@ -607,14 +622,14 @@ function O(e) {
 	return n.createElement(
 		"div",
 		{
-			className: (0, g.A)(C.DialogChoiceRow, e.bSelected && C.Active),
+			className: A_1(C.DialogChoiceRow, e.bSelected && C.Active),
 		},
 		n.createElement(
 			i.$n,
 			{
 				autoFocus: e.autoFocus,
 				onClick: e.onChoose,
-				className: (0, g.A)(C.DialogChoiceButton, e.bSelected && C.Active),
+				className: A_1(C.DialogChoiceButton, e.bSelected && C.Active),
 			},
 			e.buttonText,
 			e.children,

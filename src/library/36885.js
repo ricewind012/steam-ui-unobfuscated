@@ -1,5 +1,5 @@
-var r = require("./24546.js");
-var i = require("./43691.js");
+import r from "./24546.js";
+import i from "./43691.js";
 export function mJ() {
 	return `${i.TS.CLAN_CDN_ASSET_URL}images/`;
 }

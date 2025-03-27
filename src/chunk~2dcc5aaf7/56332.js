@@ -1,19 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90765.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, {
+	useState,
+	useRef,
+	useMemo,
+	useCallback,
+	useEffect,
+} from "./63696.js";
+import i, { A } from "./90765.js";
 export function m(e, t, r) {
-	const [i, s] = (0, n.useState)(null);
-	const o = (0, n.useRef)(0);
-	const l = (0, n.useRef)(null);
-	const c = (0, n.useRef)(null);
-	const m = (0, n.useRef)(null);
-	const u = (0, n.useMemo)(() => t.map((e) => e.id), [t]);
-	const d = (0, n.useCallback)(() => {
-		window.cancelAnimationFrame(l.current);
-		l.current = null;
-		c.current.removeEventListener("mousemove", m.current);
+	const [i, setI] = useState(null);
+	const ORef = useRef(0);
+	const LRef = useRef(null);
+	const CRef = useRef(null);
+	const MRef = useRef(null);
+	const u = useMemo(() => t.map((e) => e.id), [t]);
+	const d = useCallback(() => {
+		window.cancelAnimationFrame(LRef.current);
+		LRef.current = null;
+		CRef.current.removeEventListener("mousemove", MRef.current);
 	}, []);
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		let t = {};
 		let r = 0;
 		e.forEach((e) => {
@@ -30,72 +36,68 @@ export function m(e, t, r) {
 				};
 			}
 		});
-		o.current = r;
-		s(t);
+		ORef.current = r;
+		setI(t);
 	}, [u, e]);
-	(0, n.useEffect)(
+	useEffect(
 		() => () => {
-			if (l.current) {
-				window.cancelAnimationFrame(l.current);
+			if (LRef.current) {
+				window.cancelAnimationFrame(LRef.current);
 			}
-			if (c.current) {
-				c.current.removeEventListener("mousemove", m.current);
-				c.current.removeEventListener("mouseup", d);
+			if (CRef.current) {
+				CRef.current.removeEventListener("mousemove", MRef.current);
+				CRef.current.removeEventListener("mouseup", d);
 			}
 		},
 		[d],
 	);
 	const A = (e, t) => {
-		l.current ||= c.current.requestAnimationFrame(() =>
+		LRef.current ||= CRef.current.requestAnimationFrame(() =>
 			((e, t) => {
-				window.cancelAnimationFrame(l.current);
-				l.current = null;
-				const {
-					flexRatio: n,
-					minFlexRatio: a,
-					maxFlexRatio: c,
-					dependentColumnKeys: m,
-				} = i[t];
-				const u = r.current.getBoundingClientRect().width / o.current;
+				window.cancelAnimationFrame(LRef.current);
+				LRef.current = null;
+				const { flexRatio, minFlexRatio, maxFlexRatio, dependentColumnKeys } =
+					i[t];
+				const u = r.current.getBoundingClientRect().width / ORef.current;
 				let d = e.movementX / u;
-				const A = n + d;
+				const A = flexRatio + d;
 				let p = A;
-				if (A < a) {
-					p = a;
-					d = a - n;
-				} else if (A > c) {
-					p = c;
-					d = c - n;
+				if (A < minFlexRatio) {
+					p = minFlexRatio;
+					d = minFlexRatio - flexRatio;
+				} else if (A > maxFlexRatio) {
+					p = maxFlexRatio;
+					d = maxFlexRatio - flexRatio;
 				}
 				const g = {
 					...i,
 				};
-				const h = d / m.length;
-				m.forEach((e) => {
+				const h = d / dependentColumnKeys.length;
+				dependentColumnKeys.forEach((e) => {
 					const t = g[e].flexRatio - h;
 					g[e].flexRatio = t;
 				});
 				g[t].flexRatio = p;
-				s(g);
+				setI(g);
 			})(e, t),
 		);
 	};
 	return {
 		columnWidths: i,
 		OnMouseDown: (e, t) => {
-			c.current = GetOwningWindowForEvent(e);
-			m.current = (e) => {
+			CRef.current = GetOwningWindowForEvent(e);
+			MRef.current = (e) => {
 				A(e, t);
 			};
-			c.current.addEventListener("mousemove", m.current);
-			c.current.addEventListener("mouseup", d, {
+			CRef.current.addEventListener("mousemove", MRef.current);
+			CRef.current.addEventListener("mouseup", d, {
 				once: true,
 			});
 		},
 	};
 }
 export function j(e, t, r, n) {
-	e.className = (0, i.A)(e.className, r.className, r.isSorted && t);
+	e.className = A(e.className, r.className, r.isSorted && t);
 	e.style.minWidth = r.minWidth;
 	e.style.maxWidth = r.maxWidth;
 	if (r.canResize && n) {

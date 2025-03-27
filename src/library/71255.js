@@ -1,4 +1,8 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
+import r, { Cg } from "./34629.js";
+import s from "./93960.js";
+import o, { _f, qf, aF } from "./13099.js";
+import u from "./83599.js";
+import m from "./4690.js";
 function i(e, t, n) {
 	if (e == null || isNaN(e)) {
 		return e;
@@ -6,8 +10,6 @@ function i(e, t, n) {
 		return Math.max(t, Math.min(n, e));
 	}
 }
-var s = require("./93960.js");
-var o = require("./13099.js");
 class a {
 	m_options;
 	m_msStart;
@@ -27,13 +29,12 @@ class a {
 		this.m_msStart = performance.now();
 		this.m_msEnd = this.m_msStart + this.m_options.msDuration;
 		switch (this.m_options.timing) {
-			case "linear":
-				e = function (e) {
-					return e;
-				};
+			case "linear": {
+				e = (e) => e;
 				break;
-			case "cubic-in-out":
-				e = function (e) {
+			}
+			case "cubic-in-out": {
+				e = (e) => {
 					if (e < 0.5) {
 						return e * 4 * e * e;
 					} else {
@@ -41,10 +42,10 @@ class a {
 					}
 				};
 				break;
-			default:
-				e = function (e) {
-					return 0.5 - Math.cos(e * Math.PI) / 2;
-				};
+			}
+			default: {
+				e = (e) => 0.5 - Math.cos(e * Math.PI) / 2;
+			}
 		}
 		this.m_bActive = true;
 		this.m_fnBoundAnimationFunc = this.OnInterval.bind(this, e);
@@ -130,16 +131,14 @@ class l extends a {
 		}
 	}
 }
-var u = require("./83599.js");
-var m = require("./4690.js");
 const d = new u.wd("ScrollSnap").Debug;
 let h = false;
 const p = 1.4;
 let g;
 const f = 500;
 export function ZQ(e, t) {
-	const n = e.Element;
-	if (!n) {
+	const e_Element = e.Element;
+	if (!e_Element) {
 		return;
 	}
 	let r = [e];
@@ -163,10 +162,14 @@ export function ZQ(e, t) {
 				continue;
 			}
 		}
-		const a = i.m_element;
-		const c = o == m.Yo.NoTransform || o == m.Yo.NoTransformSparseContent || !s;
+		const i_m_element = i.m_element;
+		const c =
+			o == m.Yo.NoTransform ||
+			o == m.Yo.NoTransformSparseContent ||
+			o == m.Yo.NoTransformSparseContent ||
+			!s;
 		if (t) {
-			const t = c ? QE(a) : a.getBoundingClientRect();
+			const t = c ? QE(i_m_element) : i_m_element.getBoundingClientRect();
 			let r = false;
 			const i = Math.max((t.bottom - t.top) * p, 40);
 			if (
@@ -184,17 +187,17 @@ export function ZQ(e, t) {
 				s = "auto";
 			}
 			if (c) {
-				Pl(n, a, s);
+				Pl(e_Element, i_m_element, s);
 			} else {
-				a.scrollIntoView({
+				i_m_element.scrollIntoView({
 					behavior: s,
 					block: "nearest",
 				});
 			}
 		} else if (c) {
-			Pl(n, a, "auto");
+			Pl(e_Element, i_m_element, "auto");
 		} else {
-			a?.scrollIntoView({
+			i_m_element?.scrollIntoView({
 				behavior: "auto",
 				block: "nearest",
 				inline: "nearest",
@@ -233,9 +236,9 @@ export function QE(e) {
 		r = r.offsetParent;
 	}
 	for (r = e?.parentElement; r; ) {
-		const { scrollTop: e, scrollLeft: i } = k(r);
-		t -= e;
-		n -= i;
+		const { scrollTop, scrollLeft } = k(r);
+		t -= scrollTop;
+		n -= scrollLeft;
 		if ("ownerDocument" in r) {
 			if (window.getComputedStyle(r).position === "fixed") {
 				break;
@@ -299,7 +302,7 @@ function M(e) {
 	};
 }
 function S(e, t) {
-	let n = (function (e) {
+	let n = ((e) => {
 		let t;
 		t =
 			"ownerDocument" in e
@@ -334,8 +337,8 @@ export function Pl(e, t, n, r, s) {
 	let l = QE(t);
 	let u = s ?? Number.MAX_VALUE;
 	while (c) {
-		let e = (0, o._f)(c);
-		e ||= (0, o.qf)(c);
+		let e = _f(c);
+		e ||= qf(c);
 		let t = M(c);
 		let n = S(e, QE(e));
 		let m = L(e);
@@ -347,12 +350,14 @@ export function Pl(e, t, n, r, s) {
 		d(
 			"Checking scroll div",
 			e,
-			`scroll y:${m.scrollTop} of ${m.MaxScrollTop()}, x:${m.scrollLeft} of ${m.MaxScrollLeft()}, adjusted =>`,
+			`scroll y:${m.scrollTop} of ${m.MaxScrollTop()}, x:${
+				m.scrollLeft
+			} of ${m.MaxScrollLeft()}, adjusted =>`,
 			n,
 			"target => ",
 			l,
 		);
-		if ((!r || r == "y") && !!(0, o.aF)(e, "y")) {
+		if ((!r || r == "y") && !!aF(e, "y")) {
 			h.top = C(l, n, t, "y");
 			h.top = i(h.top, -m.scrollTop, m.MaxScrollTop() - m.scrollTop);
 			if (s) {
@@ -361,7 +366,7 @@ export function Pl(e, t, n, r, s) {
 			}
 			d(`- checked y: ${h.top}`);
 		}
-		if ((!r || r == "x") && !!(0, o.aF)(e, "x")) {
+		if ((!r || r == "x") && !!aF(e, "x")) {
 			h.left = C(l, n, t, "x");
 			h.left = i(h.left, -m.scrollLeft, m.MaxScrollLeft() - m.scrollLeft);
 			if (s) {
@@ -551,7 +556,7 @@ class B {
 		return this.scrollWidth - this.clientWidth;
 	}
 }
-(0, r.Cg)([s.o], B.prototype, "ResetScrollState", null);
+Cg([s.o], B.prototype, "ResetScrollState", null);
 const x = new WeakMap();
 function L(e) {
 	let t = x.get(e);

@@ -1,8 +1,8 @@
-export var bK;
-var i = require("./5859.js");
-var a = require("./78771.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-(function (e) {
+import i from "./5859.js";
+import a from "./78771.js";
+export let bK;
+((e) => {
 	e[(e.k_eLibrary = 1)] = "k_eLibrary";
 	e[(e.k_eWishlist = 2)] = "k_eWishlist";
 	e[(e.k_eFollowing = 4)] = "k_eFollowing";

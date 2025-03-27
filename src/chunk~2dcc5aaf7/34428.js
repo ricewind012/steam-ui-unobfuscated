@@ -42,11 +42,9 @@ export function dm(e, t, r, i) {
 	} else {
 		m = e;
 	}
-	const d =
-		"#" +
-		u +
-		(a.bValueIsInBytes ? "bytes" : "bits") +
-		(a.bValueIsRate ? "_PerSecond" : "");
+	const d = `#${u}${a.bValueIsInBytes ? "bytes" : "bits"}${
+		a.bValueIsRate ? "_PerSecond" : ""
+	}`;
 	return (0, Localize)(
 		d,
 		m.toLocaleString(LocalizationManager.GetPreferredLocales(), {
@@ -65,6 +63,6 @@ export function Dq(e, t = 0) {
 	if (e) {
 		return e.toLocaleString(LocalizationManager.GetPreferredLocales(), r);
 	} else {
-		return "" + e;
+		return `${e}`;
 	}
 }

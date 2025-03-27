@@ -1,5 +1,5 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49455.js");
+import n from "./63696.js";
+import i, { w } from "./49455.js";
 export class mX extends n.Component {
 	GetArgument(e, t = false) {
 		if (!e || (t && this.props.args[e] === undefined)) {
@@ -44,7 +44,7 @@ function o(e, t, r = 0) {
 		if (e > 0) {
 			t.tag = t.text.substr(0, e);
 			let r = t.text.substr(e);
-			t.args = (function (e) {
+			t.args = ((e) => {
 				if (!e || e.length < 1) {
 					return {};
 				}
@@ -58,58 +58,61 @@ function o(e, t, r = 0) {
 				}
 				let o = false;
 				for (s++; s < e.length; s++) {
-					let l = e[s];
+					let e_s = e[s];
 					let c = true;
 					let m = false;
 					switch (a) {
-						case 0:
-							if (l == "=") {
+						case 0: {
+							if (e_s == "=") {
 								return {};
 							}
-							if (l == " ") {
+							if (e_s == " ") {
 								continue;
 							}
 							a = 1;
 							break;
-						case 1:
-							if ((l == "=" || l == " ") && !o) {
-								a = l == " " ? 0 : 2;
+						}
+						case 1: {
+							if ((e_s == "=" || e_s == " ") && !o) {
+								a = e_s == " " ? 0 : 2;
 								c = false;
 							}
 							break;
-						case 2:
-							if (l == " ") {
+						}
+						case 2: {
+							if (e_s == " ") {
 								a = 0;
 								c = false;
 								m = true;
-							} else if (l == '"') {
+							} else if (e_s == '"') {
 								a = 4;
 								c = false;
 							} else {
 								a = 3;
 							}
 							break;
+						}
 						case 3:
-						case 4:
-							if ((l == " " && a != 4 && !o) || (l == '"' && a == 4 && !o)) {
+						case 4: {
+							if (
+								(e_s == " " && a != 4 && !o) ||
+								(e_s == '"' && a == 4 && !o)
+							) {
 								a = 0;
 								c = false;
 								m = true;
 							}
+						}
 					}
 					if (c) {
-						if (l != "\\" || o) {
+						if (e_s != "\\" || o) {
 							o = false;
 							if (a == 1) {
-								r += l;
+								r += e_s;
 							} else if (a == 3 || a == 4) {
-								n += l;
+								n += e_s;
 							} else {
-								(0, i.w)(
-									false,
-									"Not expecting to accumulate buffer in state %u",
-									a,
-								);
+								w(false, "Not expecting to accumulate buffer in state %u", a);
 							}
 						} else {
 							o = true;
@@ -141,10 +144,10 @@ export function Hd(e) {
 	let r = new p();
 	let n = false;
 	let i = false;
-	for (let a = 0; a < e.length; a++) {
-		let s = e[a];
+
+	for (let s of e) {
 		switch (r.type) {
-			case 0:
+			case 0: {
 				if (s == "[") {
 					r.type = 2;
 					i = true;
@@ -157,8 +160,9 @@ export function Hd(e) {
 					}
 				}
 				break;
+			}
 			case 2:
-			case 3:
+			case 3: {
 				if (s == "/" && i) {
 					r.type = 3;
 					r.text = "";
@@ -187,7 +191,8 @@ export function Hd(e) {
 					i = true;
 				}
 				break;
-			case 1:
+			}
+			case 1: {
 				if (s != "[" || n) {
 					if (s == "\\") {
 						if (n) {
@@ -202,8 +207,10 @@ export function Hd(e) {
 					r = o(t, r, 2);
 					i = true;
 				}
+			}
 		}
 	}
+
 	if (r.type != 0) {
 		if (r.type == 2 || r.type == 3) {
 			r.ConvertMalformedNodeToText();
@@ -263,15 +270,13 @@ class u {
 		if (e.length) {
 			if (t) {
 				this.m_rctElements.push(
-					n.createElement(
-						"span",
-						{
-							"data-copytext": "",
-							"data-copystyle": "merge-adjacent",
-							"bbcode-text": e,
-						},
-						e,
-					),
+					<span
+						data-copytext=""
+						data-copystyle="merge-adjacent"
+						bbcode-text={e}
+					>
+						{e}
+					</span>,
 				);
 			} else {
 				this.m_rctElements.push(e);
@@ -299,15 +304,9 @@ export class OJ extends u {
 		}
 		if (t) {
 			this.m_rctElements.push(
-				n.createElement(
-					"span",
-					{
-						"data-copytext": "",
-						"data-copystyle": "merge-adjacent",
-						"bbcode-text": e,
-					},
-					...a,
-				),
+				<span data-copytext="" data-copystyle="merge-adjacent" bbcode-text={e}>
+					{...a}
+				</span>,
 			);
 		} else {
 			this.m_rctElements.push(e);
@@ -322,10 +321,12 @@ export class o0 extends c {
 	}
 	ParseBBCode(e, t) {
 		if (e.startsWith("[pre]")) {
-			return n.createElement(this.dictComponents().pre, null, Yj(e));
+			const Component = this.dictComponents().pre;
+			return <Component>{Yj(e)}</Component>;
 		}
 		if (e.startsWith("[code]")) {
-			return n.createElement(this.dictComponents().code, null, Yj(e));
+			const Component = this.dictComponents().code;
+			return <Component>{Yj(e)}</Component>;
 		}
 		let r = Hd(e);
 		return this.Parse_BuildReactComponents(r, t);
@@ -353,7 +354,7 @@ export class o0 extends c {
 						a.hasOwnProperty(o.node.tag) &&
 						a[o.node.tag]
 					) {
-						const l = a[o.node.tag];
+						const L = a[o.node.tag];
 						const c = r.map((e) => e.node.tag);
 						const m = {
 							context: t,
@@ -362,15 +363,15 @@ export class o0 extends c {
 							args: o.node.args,
 							key: `${e.tag}_${s}`,
 						};
-						const u = n.createElement(l, m, ...i.GetElements(e));
+						const u = <L {...m}>{...i.GetElements(e)}</L>;
 						i = o.accumulator;
 						i.AppendNode(u, e);
 					} else if (o) {
-						let r = o.accumulator;
-						r.AppendText("[" + o.node.text + "]", false, t);
-						i.GetElements(e).forEach((e) => r.AppendNode(e));
-						r.AppendText("[/" + e.text + "]", false, t);
-						i = r;
+						let o_accumulator = o.accumulator;
+						o_accumulator.AppendText(`[${o.node.text}]`, false, t);
+						i.GetElements(e).forEach((e) => o_accumulator.AppendNode(e));
+						o_accumulator.AppendText(`[/${e.text}]`, false, t);
+						i = o_accumulator;
 					}
 				}
 			});
@@ -378,14 +379,14 @@ export class o0 extends c {
 
 		) {
 			let e = r.pop();
-			let n = e.accumulator;
-			n.AppendText("[" + e.node.text + "]", false, t);
-			i.GetElements().forEach((e) => n.AppendNode(e));
-			i = n;
+			let e_accumulator = e.accumulator;
+			e_accumulator.AppendText(`[${e.node.text}]`, false, t);
+			i.GetElements().forEach((e) => e_accumulator.AppendNode(e));
+			i = e_accumulator;
 		}
 		let s = i.GetElements();
 		if (s.length > 1) {
-			return n.createElement(n.Fragment, null, ...s);
+			return <>{...s}</>;
 		} else if (s.length == 1) {
 			return s[0];
 		} else {
@@ -400,9 +401,9 @@ class p {
 	args;
 	ConvertMalformedNodeToText() {
 		if (this.type == 3) {
-			this.text = "[/" + this.text;
+			this.text = `[/${this.text}`;
 		} else if (this.type == 2) {
-			this.text = "[" + this.text;
+			this.text = `[${this.text}`;
 		}
 		this.type = 1;
 	}

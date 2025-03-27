@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./26667.js");
-var i = require(/*webcrack:missing*/ "./3715.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require(/*webcrack:missing*/ "./46382.js");
-var o = require("./89610.js");
-var l = require("./81383.js");
-require("./54946.js");
-require(/*webcrack:missing*/ "./72476.js");
-var c = require("./3475.js");
-require(/*webcrack:missing*/ "./8573.js");
-require(/*webcrack:missing*/ "./63696.js");
+import n, { n as n_1 } from "./26667.js";
+import i, { jE } from "./3715.js";
+import a from "./12176.js";
+import s, { KV } from "./46382.js";
+import o from "./89610.js";
+import l from "./81383.js";
+import "./54946.js";
+import "./72476.js";
+import c from "./3475.js";
+import "./8573.js";
+import "./63696.js";
 function m(e) {
 	return ["parentalsettings", e];
 }
@@ -66,22 +66,22 @@ export function EC(e, t, r) {
 	if (t == c.JC) {
 		return true;
 	}
-	const n = e.enabled_features;
-	return !n || (n & (1 << t)) == 0;
+	const e_enabled_features = e.enabled_features;
+	return !e_enabled_features || (e_enabled_features & (1 << t)) == 0;
 }
 export async function PG(e, t, r, n = {}) {
 	const i = a.w.Init(o.U0);
 	i.Body().set_steamid(t);
 	i.Body().set_settings(l.Zc.fromObject(r));
-	const { password: s, new_password: c, sessionid: m } = n;
-	if (s) {
-		i.Body().set_password(s);
+	const { password, new_password, sessionid } = n;
+	if (password) {
+		i.Body().set_password(password);
 	}
-	if (c) {
-		i.Body().set_new_password(s);
+	if (new_password) {
+		i.Body().set_new_password(password);
 	}
-	if (m) {
-		i.Body().set_sessionid(m);
+	if (sessionid) {
+		i.Body().set_sessionid(sessionid);
 	}
 	const u = await o.JL.SetParentalSettings(e, i);
 	if (u.GetEResult() != 1) {
@@ -91,9 +91,9 @@ export async function PG(e, t, r, n = {}) {
 	}
 }
 export function At(e) {
-	const t = (0, s.KV)();
-	const r = (0, i.jE)();
-	return (0, n.n)({
+	const t = KV();
+	const r = jE();
+	return n_1({
 		mutationFn: async (r) => await PG(t, e, r),
 		onSuccess: (t, n) => {
 			r.setQueryData(m(e), {
@@ -104,8 +104,8 @@ export function At(e) {
 	});
 }
 export function gB(e, t, r, i) {
-	const l = (0, s.KV)();
-	return (0, n.n)({
+	const l = KV();
+	return n_1({
 		mutationFn: async () => {
 			if (t !== c.JC && t !== c.uX) {
 				const r = a.w.Init(o.p2);
@@ -125,8 +125,8 @@ export function gB(e, t, r, i) {
 	});
 }
 export function hn(e, t, r, i) {
-	const c = (0, s.KV)();
-	return (0, n.n)({
+	const c = KV();
+	return n_1({
 		mutationFn: async () => {
 			const r = a.w.Init(o.hW);
 			r.Body().set_steamid(e);

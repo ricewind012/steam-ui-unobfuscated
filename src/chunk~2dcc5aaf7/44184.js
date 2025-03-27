@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DynamicLinkBox: "_1IGURymjmwZOxJLS-9BWKA",
 	DynamicLink_Preview: "_3ZK9RP26kmOzqRdQKxWxsM",
 	DynamicLink_Author: "_3z0n0rpIPJRdV1QY5n0KaR",

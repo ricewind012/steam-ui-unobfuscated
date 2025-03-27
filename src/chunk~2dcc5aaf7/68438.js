@@ -1,20 +1,18 @@
-var n = require("./91720.js");
-var i = require("./44926.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./11131.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
+import n, { Lc } from "./91720.js";
+import i from "./44926.js";
+import a from "./63696.js";
+import s, { R7 } from "./11131.js";
+import o, { ob } from "./52451.js";
 let l = 0;
 async function c(e, t, r) {
-	const n = (function (e) {
-		return (e + l++).replace(/[:\.,]?/g, "_");
-	})(e);
+	const n = ((e) => (e + l++).replace(/[:\.,]?/g, "_"))(e);
 	return new Promise((i, a) => {
 		t.ownerWindow.SteamClient.Browser.SetPendingFilePath(n, e).then((e) => {
 			const s = r?.ownerDocument ?? t.ownerWindow.document;
 			if (e && s) {
 				const e = s.createElement("input");
 				e.setAttribute("type", "file");
-				e.setAttribute("accept", ".valvefile" + n);
+				e.setAttribute("accept", `.valvefile${n}`);
 				e.style.display = "none";
 				e.addEventListener("change", () => {
 					i(e.files[0]);
@@ -34,18 +32,18 @@ async function c(e, t, r) {
 	});
 }
 export function Dp(e, t) {
-	const { promise: r, reset: n } = (0, o.ob)();
-	const i = (0, s.R7)();
+	const { promise, reset } = ob();
+	const i = R7();
 	a.useEffect(() => {
-		const { resolve: r } = n();
+		const { resolve } = reset();
 		e.then((e) => {
 			if (e) {
-				c(e, i, t).then((e) => r(e));
+				c(e, i, t).then((e) => resolve(e));
 			}
 		});
-	}, [e, n, i, t]);
+	}, [e, reset, i, t]);
 	return {
-		filePromise: r,
+		filePromise: promise,
 	};
 }
 function u(e, t, r, n) {
@@ -80,7 +78,7 @@ export function Mk(e) {
 	return (d[d.length - 1].bitrate_kbps * 1024 * e) / 8;
 }
 export function Q1(e, t = {}) {
-	const { browserContext: r, strFilePath: n, settings: i = {} } = t;
+	const { browserContext, strFilePath, settings = {} } = t;
 	return async (t) => {
 		const a = await e.create(true);
 		if (a.result != 1) {
@@ -88,18 +86,18 @@ export function Q1(e, t = {}) {
 				eResult: a.result,
 			};
 		}
-		const s = await Fo(a.clipSummary, r, t, n, i);
+		const s = await Fo(a.clipSummary, browserContext, t, strFilePath, settings);
 		e.cleanup();
 		return s;
 	};
 }
 export async function Fo(e, t, r, a, s, o) {
-	const { fnExportClip: l } = (0, n.Lc)();
-	const m = e.clip_id;
+	const { fnExportClip } = Lc();
+	const e_clip_id = e.clip_id;
 	let u;
 	if (r) {
 		const e = (e) => {
-			if (m == e.Body().clip_id()) {
+			if (e_clip_id == e.Body().clip_id()) {
 				r(e.Body().progress() * 100);
 			}
 			return 1;
@@ -108,7 +106,7 @@ export async function Fo(e, t, r, a, s, o) {
 	}
 	try {
 		const e = a ?? (await SteamClient.System.CreateTempPath("mp4"));
-		const r = await l(m, e, s, o);
+		const r = await fnExportClip(e_clip_id, e, s, o);
 		if (u) {
 			u();
 		}
@@ -133,7 +131,7 @@ export async function Fo(e, t, r, a, s, o) {
 	}
 }
 export function aQ(e, t) {
-	const r = (0, s.R7)();
+	const r = R7();
 	const n = e.nEstimatedBitrateKbps ?? 12000;
 	const i = B(e.nClipLengthSeconds, t, n);
 	if (i) {

@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./86454.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./52451.js";
+import s from "./86454.js";
 export class K extends i.Component {
 	state = {
 		bRenderChildren: false,
@@ -39,39 +39,33 @@ export class K extends i.Component {
 		}
 	}
 	render() {
-		const {
-			placeholderWidth: e,
-			placeholderHeight: t,
-			onRender: r,
-			style: n,
-			mode: a,
-			...o
-		} = this.props;
+		const { placeholderWidth, placeholderHeight, onRender, style, mode, ...o } =
+			this.props;
 		const l = this.state.bRenderChildren;
-		let c = n;
+		let c = style;
 		if (!l) {
-			const r = this.state.nPrevRenderWidth || e;
-			const i = this.state.nPrevRenderHeight || t;
+			const r = this.state.nPrevRenderWidth || placeholderWidth;
+			const i = this.state.nPrevRenderHeight || placeholderHeight;
 			if (i !== undefined || r !== undefined) {
 				c = {
-					...n,
+					...style,
 					minHeight: i,
 					minWidth: r,
 				};
 			}
 		}
 		const m = this.BLoadAndUnload() ? "repeated" : "once";
-		return i.createElement(
-			s.J,
-			{
-				ref: this.m_refContainer,
-				style: c,
-				...o,
-				onVisibilityChange: this.OnVisibilityChange,
-				trigger: m,
-			},
-			l && this.props.children,
+		return (
+			<s.J
+				ref={this.m_refContainer}
+				style={c}
+				{...o}
+				onVisibilityChange={this.OnVisibilityChange}
+				trigger={m}
+			>
+				{l && this.props.children}
+			</s.J>
 		);
 	}
 }
-(0, n.Cg)([a.oI], K.prototype, "OnVisibilityChange", null);
+Cg([a.oI], K.prototype, "OnVisibilityChange", null);

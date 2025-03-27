@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./28864.js");
-var a = require("./18914.js");
-var s = require(/*webcrack:missing*/ "./72476.js");
-var o = require(/*webcrack:missing*/ "./11131.js");
-var l = require("./96680.js");
-var c = require(/*webcrack:missing*/ "./3524.js");
+import n from "./63696.js";
+import { Ue } from "./28864.js";
+import a from "./18914.js";
+import s from "./72476.js";
+import o from "./11131.js";
+import l from "./96680.js";
+import c from "./3524.js";
 export function O(e) {
-	const { instance: t, ownerWindow: r, children: m } = e;
-	const u = t.IsVRWindow();
-	n.useEffect(() => t.Init(), [t]);
+	const { instance, ownerWindow, children } = e;
+	const u = instance.IsVRWindow();
+	n.useEffect(() => instance.Init(), [instance]);
 	const d = n.useMemo(
 		() => ({
 			IN_GAMEPADUI: true,
@@ -18,42 +18,28 @@ export function O(e) {
 		[u],
 	);
 	n.useEffect(() => {
-		if (r) {
-			r.ConfigContext = d;
+		if (ownerWindow) {
+			ownerWindow.ConfigContext = d;
 		}
-	}, [r, d]);
-	const A = n.useRef(undefined);
-	const p = (0, i.Ue)(A, e.refFocusNavContext);
-	n.useEffect(() => t.InitFocusNavContext(A.current), [t]);
-	return n.createElement(
-		a.RT,
-		null,
-		n.createElement(
-			s.ss,
-			{
-				...d,
-			},
-			n.createElement(
-				o.kc,
-				{
-					ownerWindow: r,
-				},
-				n.createElement(
-					l.ER,
-					{
-						instance: t,
-					},
-					n.createElement(
-						c.b5,
-						{
-							ownerWindow: r,
-							refFocusNavContext: p,
-							suppressGamepadInput: u,
-						},
-						m,
-					),
-				),
-			),
-		),
+	}, [ownerWindow, d]);
+	const ARef = n.useRef(undefined);
+	const p = Ue(ARef, e.refFocusNavContext);
+	n.useEffect(() => instance.InitFocusNavContext(ARef.current), [instance]);
+	return (
+		<a.RT>
+			<s.ss {...d}>
+				<o.kc ownerWindow={ownerWindow}>
+					<l.ER instance={instance}>
+						<c.b5
+							ownerWindow={ownerWindow}
+							refFocusNavContext={p}
+							suppressGamepadInput={u}
+						>
+							{children}
+						</c.b5>
+					</l.ER>
+				</o.kc>
+			</s.ss>
+		</a.RT>
 	);
 }

@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./52451.js");
-var a = require(/*webcrack:missing*/ "./49455.js");
+import n, { Cg } from "./34629.js";
+import i from "./52451.js";
+import a, { w } from "./49455.js";
 class s {
 	m_uiMode;
 	m_mapModeToCallbacks = new Map();
@@ -10,7 +10,7 @@ class s {
 		return Promise.resolve();
 	}
 	RegisteredCallbackKey(e, t) {
-		return t + ":" + e;
+		return `${t}:${e}`;
 	}
 	RegisterForRunSteamURL(e, t, r) {
 		if (typeof e != "number") {
@@ -38,7 +38,7 @@ class s {
 	RegisterForUIMode(e, t, r) {
 		if (this.m_mapModeToCallbacks.has(e)) {
 			const n = this.RegisteredCallbackKey(t, e);
-			(0, a.w)(
+			w(
 				!this.m_mapRegisteredCallbacks.has(n),
 				`Reregistering callback for ${t} in mode ${e}`,
 			);
@@ -66,7 +66,7 @@ class s {
 		}
 	}
 }
-(0, n.Cg)([i.oI], s.prototype, "OnUIModeChanged", null);
+Cg([i.oI], s.prototype, "OnUIModeChanged", null);
 export const Dt = new s();
 export function zK(e, t) {
 	const r = {

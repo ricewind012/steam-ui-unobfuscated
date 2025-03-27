@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./12251.js");
-const o = n.Message;
-export class fx extends o {
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+const n_Message = n.Message;
+export class fx extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!fx.prototype.language) {
 			i.Sg(fx.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -56,7 +56,7 @@ export class fx extends o {
 		return i.zj(fx.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		fx.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -64,7 +64,7 @@ export class fx extends o {
 		i.i0(fx.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		fx.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -72,14 +72,14 @@ export class fx extends o {
 		return "CSteamEngine_UpdateTextFilterDictionary_Notification";
 	}
 }
-export class i6 extends o {
+export class i6 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!i6.prototype.language) {
 			i.Sg(i6.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -125,7 +125,7 @@ export class i6 extends o {
 		return i.zj(i6.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		i6.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -133,7 +133,7 @@ export class i6 extends o {
 		i.i0(i6.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		i6.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -141,14 +141,14 @@ export class i6 extends o {
 		return "CSteamEngine_GetTextFilterDictionary_Request";
 	}
 }
-class m extends o {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.dictionary) {
 			i.Sg(m.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -187,7 +187,7 @@ class m extends o {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -195,7 +195,7 @@ class m extends o {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -203,14 +203,14 @@ class m extends o {
 		return "CSteamEngine_GetTextFilterDictionary_Response";
 	}
 }
-class u extends o {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.language) {
 			i.Sg(u.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -256,7 +256,7 @@ class u extends o {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -264,7 +264,7 @@ class u extends o {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -272,14 +272,14 @@ class u extends o {
 		return "CSteamEngine_TextFilterDictionaryChanged_Notification";
 	}
 }
-class d extends o {
+class d extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.pid) {
 			i.Sg(d.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -318,7 +318,7 @@ class d extends o {
 		return i.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -326,7 +326,7 @@ class d extends o {
 		i.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -334,14 +334,14 @@ class d extends o {
 		return "CSteamEngine_GetGameIDForPID_Request";
 	}
 }
-class A extends o {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.gameid) {
 			i.Sg(A.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -380,7 +380,7 @@ class A extends o {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -388,7 +388,7 @@ class A extends o {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -396,14 +396,14 @@ class A extends o {
 		return "CSteamEngine_GetGameIDForPID_Response";
 	}
 }
-class p extends o {
+class p extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.gameid) {
 			i.Sg(p.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -449,7 +449,7 @@ class p extends o {
 		return i.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -457,7 +457,7 @@ class p extends o {
 		i.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -465,14 +465,14 @@ class p extends o {
 		return "CSteamEngine_SetOverlayEscapeKeyHandling_Notification";
 	}
 }
-export class s4 extends o {
+export class s4 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!s4.prototype.search_term) {
 			i.Sg(s4.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -516,7 +516,7 @@ export class s4 extends o {
 		return i.zj(s4.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s4.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -524,7 +524,7 @@ export class s4 extends o {
 		i.i0(s4.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		s4.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -532,14 +532,14 @@ export class s4 extends o {
 		return "CSteamEngine_SearchAppDataCacheByStoreKeywords_Request";
 	}
 }
-class h extends o {
+class h extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.appids) {
 			i.Sg(h.M());
 		}
-		o.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -581,7 +581,7 @@ class h extends o {
 		return i.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -589,7 +589,7 @@ class h extends o {
 		i.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -597,14 +597,14 @@ class h extends o {
 		return "CSteamEngine_SearchAppDataCacheByStoreKeywords_Response";
 	}
 }
-export var UP;
-(function (e) {
+export let UP;
+((e) => {
 	e.UpdateTextFilterDictionaryHandler = {
 		name: "SteamEngine.UpdateTextFilterDictionary#1",
 		request: fx,
 	};
-	e.RegisterForUpdateTextFilterDictionary = function (t, r) {
-		if ((r = r || (0, s.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForUpdateTextFilterDictionary = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -616,14 +616,14 @@ export var UP;
 			);
 		}
 	};
-	e.UpdateTextFilterDictionary = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.UpdateTextFilterDictionary = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.UpdateTextFilterDictionary#1",
-				(0, a.I8)(fx, e),
+				I8(fx, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -631,14 +631,14 @@ export var UP;
 			);
 		}
 	};
-	e.SendMsgUpdateTextFilterDictionary = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgUpdateTextFilterDictionary = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.UpdateTextFilterDictionary#1",
-				(0, a.I8)(fx, e),
+				I8(fx, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -651,48 +651,38 @@ export var UP;
 		request: i6,
 		response: m,
 	};
-	e.GetTextFilterDictionary = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetTextFilterDictionary = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"SteamEngine.GetTextFilterDictionary#1",
-				(0, a.I8)(i6, e),
-				m,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 2,
-				},
-			);
+			return t.SendMsg("SteamEngine.GetTextFilterDictionary#1", I8(i6, e), m, {
+				ePrivilege: 1,
+				eClientExecutionSite: 2,
+			});
 		}
 	};
-	e.SendMsgGetTextFilterDictionary = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetTextFilterDictionary = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg(
-				"SteamEngine.GetTextFilterDictionary#1",
-				(0, a.I8)(i6, e),
-				m,
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 2,
-				},
-			);
+			return t.SendMsg("SteamEngine.GetTextFilterDictionary#1", I8(i6, e), m, {
+				ePrivilege: 1,
+				eClientExecutionSite: 2,
+			});
 		}
 	};
 	e.NotifyTextFilterDictionaryChangedHandler = {
 		name: "SteamEngine.NotifyTextFilterDictionaryChanged#1",
 		request: u,
 	};
-	e.RegisterForNotifyTextFilterDictionaryChanged = function (t, r) {
-		if ((r = r || (0, s.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyTextFilterDictionaryChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -704,14 +694,14 @@ export var UP;
 			);
 		}
 	};
-	e.NotifyTextFilterDictionaryChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.NotifyTextFilterDictionaryChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.NotifyTextFilterDictionaryChanged#1",
-				(0, a.I8)(u, e),
+				I8(u, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -719,14 +709,14 @@ export var UP;
 			);
 		}
 	};
-	e.SendMsgNotifyTextFilterDictionaryChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyTextFilterDictionaryChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.NotifyTextFilterDictionaryChanged#1",
-				(0, a.I8)(u, e),
+				I8(u, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -739,27 +729,27 @@ export var UP;
 		request: d,
 		response: A,
 	};
-	e.GetGameIDForPID = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetGameIDForPID = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SteamEngine.GetGameIDForPID#1", (0, a.I8)(d, e), A, {
+			return t.SendMsg("SteamEngine.GetGameIDForPID#1", I8(d, e), A, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
 		}
 	};
-	e.SendMsgGetGameIDForPID = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetGameIDForPID = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("SteamEngine.GetGameIDForPID#1", (0, a.I8)(d, e), A, {
+			return t.SendMsg("SteamEngine.GetGameIDForPID#1", I8(d, e), A, {
 				ePrivilege: 1,
 				eClientExecutionSite: 2,
 			});
@@ -769,8 +759,8 @@ export var UP;
 		name: "SteamEngine.SetOverlayEscapeKeyHandling#1",
 		request: p,
 	};
-	e.RegisterForSetOverlayEscapeKeyHandling = function (t, r) {
-		if ((r = r || (0, s.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForSetOverlayEscapeKeyHandling = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -782,14 +772,14 @@ export var UP;
 			);
 		}
 	};
-	e.SetOverlayEscapeKeyHandling = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SetOverlayEscapeKeyHandling = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.SetOverlayEscapeKeyHandling#1",
-				(0, a.I8)(p, e),
+				I8(p, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -797,14 +787,14 @@ export var UP;
 			);
 		}
 	};
-	e.SendMsgSetOverlayEscapeKeyHandling = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSetOverlayEscapeKeyHandling = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamEngine.SetOverlayEscapeKeyHandling#1",
-				(0, a.I8)(p, e),
+				I8(p, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -817,8 +807,8 @@ export var UP;
 		request: s4,
 		response: h,
 	};
-	e.SearchAppDataCacheByStoreKeywords = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SearchAppDataCacheByStoreKeywords = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -826,7 +816,7 @@ export var UP;
 		} else {
 			return t.SendMsg(
 				"SteamEngine.SearchAppDataCacheByStoreKeywords#1",
-				(0, a.I8)(s4, e),
+				I8(s4, e),
 				h,
 				{
 					ePrivilege: 1,
@@ -835,8 +825,8 @@ export var UP;
 			);
 		}
 	};
-	e.SendMsgSearchAppDataCacheByStoreKeywords = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSearchAppDataCacheByStoreKeywords = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -844,7 +834,7 @@ export var UP;
 		} else {
 			return t.SendMsg(
 				"SteamEngine.SearchAppDataCacheByStoreKeywords#1",
-				(0, a.I8)(s4, e),
+				I8(s4, e),
 				h,
 				{
 					ePrivilege: 1,

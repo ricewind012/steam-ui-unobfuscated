@@ -1,167 +1,125 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./736.js");
-var s = require("./50376.js");
-var o = require("./90765.js");
-var a = require("./90685.js");
-var _c = require("./72476.js");
-function l(e) {
-	const { popup: t, onMaximize: n, bOSX: c } = e;
-	const l = (0, a.GD)(t);
+import r from "./63696.js";
+import i, { Fj } from "./736.js";
+import s from "./50376.js";
+import o, { A } from "./90765.js";
+import a, { GD, jt } from "./90685.js";
+import { Pr } from "./72476.js";
+function L(e) {
+	const { popup, onMaximize, bOSX } = e;
+	const l = GD(popup);
 	const u = r.useCallback(() => {
-		if (n) {
-			n();
-		} else if ((0, i.Fj)(t, "Window.ToggleMaximize")) {
-			t.SteamClient.Window.ToggleMaximize();
+		if (onMaximize) {
+			onMaximize();
+		} else if (Fj(popup, "Window.ToggleMaximize")) {
+			popup.SteamClient.Window.ToggleMaximize();
 		}
-	}, [t, n]);
-	return r.createElement(
-		g,
-		{
-			className: (0, o.A)(
+	}, [popup, onMaximize]);
+	return (
+		<G
+			className={A(
 				l ? "restoreButton" : "maximizeButton",
 				"windowControlButton",
-			),
-			onClick: u,
-		},
-		!c && (l ? r.createElement(s.ZWw, null) : r.createElement(s.hz4, null)),
+			)}
+			onClick={u}
+		>
+			{!bOSX && (l ? <s.ZWw /> : <s.hz4 />)}
+		</G>
 	);
 }
-function u(e) {
-	const { popup: t, onMinimize: n, bOSX: i } = e;
+function U(e) {
+	const { popup, onMinimize, bOSX } = e;
 	const o = r.useCallback(() => {
-		t.SteamClient.Window.Minimize();
-	}, [t]);
-	return r.createElement(
-		g,
-		{
-			className: "minimizeButton windowControlButton",
-			onClick: n ?? o,
-		},
-		!i && r.createElement(s.Xjb, null),
+		popup.SteamClient.Window.Minimize();
+	}, [popup]);
+	return (
+		<G className="minimizeButton windowControlButton" onClick={onMinimize ?? o}>
+			{!bOSX && <s.Xjb />}
+		</G>
 	);
 }
-function m(e) {
-	const { popup: t, onClose: n, bOSX: o } = e;
+function M(e) {
+	const { popup, onClose, bOSX } = e;
 	const a = r.useCallback(() => {
-		if (t) {
-			if ((0, i.Fj)(t, "Window.Close")) {
-				t.SteamClient.Window.Close();
+		if (popup) {
+			if (Fj(popup, "Window.Close")) {
+				popup.SteamClient.Window.Close();
 			} else {
-				t.close();
+				popup.close();
 			}
 		}
-	}, [t]);
-	return r.createElement(
-		g,
-		{
-			className: "closeButton windowControlButton",
-			onClick: n ?? a,
-		},
-		!o && r.createElement(s.sED, null),
+	}, [popup]);
+	return (
+		<G className="closeButton windowControlButton" onClick={onClose ?? a}>
+			{!bOSX && <s.sED />}
+		</G>
 	);
 }
-export function g(e) {
-	const { className: t, onClick: n, children: i } = e;
+export function G(e) {
+	const { className, onClick, children } = e;
 	const s = r.useCallback(
 		(e) => {
-			if (n) {
+			if (onClick) {
 				e.stopPropagation();
-				n(e);
+				onClick(e);
 			}
 		},
-		[n],
+		[onClick],
 	);
-	return r.createElement(
-		"div",
-		{
-			className: (0, o.A)("title-area-icon", t),
-			onClick: s,
-		},
-		r.createElement(
-			"div",
-			{
-				className: "title-area-icon-inner",
-			},
-			i,
-		),
+	return (
+		<div className={A("title-area-icon", className)} onClick={s}>
+			<div className="title-area-icon-inner">{children}</div>
+		</div>
 	);
 }
 export function c(e) {
 	const {
-		className: t,
-		style: n,
-		hideActions: i,
-		hideClose: s,
-		hideMin: d,
-		hideMax: h,
-		bOSX: p = (0, _c.Pr)(),
-		bForceWindowFocused: g,
-		onMinimize: f,
-		onMaximize: _,
-		onClose: w,
-		extraActions: b,
-		popup: C,
-		children: v,
+		className,
+		style,
+		hideActions,
+		hideClose,
+		hideMin,
+		hideMax,
+		bOSX = Pr(),
+		bForceWindowFocused,
+		onMinimize,
+		onMaximize,
+		onClose,
+		extraActions,
+		popup,
+		children,
 	} = e;
-	const M = (0, a.jt)(C);
-	return r.createElement(
-		"div",
-		{
-			className: (0, o.A)(
+	const M = jt(popup);
+	return (
+		<div
+			className={A(
 				"TitleBar",
 				"title-area",
-				p && "OSX",
-				(M || g) && "WindowFocus",
-				t,
-			),
-			style: n,
-		},
-		r.createElement("div", {
-			className: "title-area-highlight",
-		}),
-		r.createElement(
-			"div",
-			{
-				className: "title-area-children",
-			},
-			v,
-		),
-		!i &&
-			r.createElement(
-				r.Fragment,
-				null,
-				b &&
-					r.createElement(
-						"div",
-						{
-							className: "title-bar-actions extra-actions",
-						},
-						b,
-					),
-				r.createElement(
-					"div",
-					{
-						className: "title-bar-actions window-controls",
-					},
-					!s &&
-						r.createElement(m, {
-							popup: C,
-							onClose: w,
-							bOSX: p,
-						}),
-					!h &&
-						r.createElement(l, {
-							popup: C,
-							onMaximize: _,
-							bOSX: p,
-						}),
-					!d &&
-						r.createElement(u, {
-							popup: C,
-							onMinimize: f,
-							bOSX: p,
-						}),
-				),
-			),
+				bOSX && "OSX",
+				(M || bForceWindowFocused) && "WindowFocus",
+				className,
+			)}
+			style={style}
+		>
+			<div className="title-area-highlight" />
+			<div className="title-area-children">{children}</div>
+			{!hideActions && (
+				<>
+					{extraActions && (
+						<div className="title-bar-actions extra-actions">
+							{extraActions}
+						</div>
+					)}
+					<div className="title-bar-actions window-controls">
+						{!hideClose && <M popup={popup} onClose={onClose} bOSX={bOSX} />}
+						{!hideMax && (
+							<L popup={popup} onMaximize={onMaximize} bOSX={bOSX} />
+						)}
+						{!hideMin && (
+							<U popup={popup} onMinimize={onMinimize} bOSX={bOSX} />
+						)}
+					</div>
+				</>
+			)}
+		</div>
 	);
 }

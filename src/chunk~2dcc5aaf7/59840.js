@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	AboutSteamDialog: "FFIKUQ7BGKw6vO1voazlr",
 	DialogBodyLabel: "_2yhBdvNsgdBGL_UjfmTDGH",
 	DialogBodyText: "_32eeZuly3nnz3cMXdSgyj9",

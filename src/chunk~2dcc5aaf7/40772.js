@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./44846.js");
-var s = require(/*webcrack:missing*/ "./28987.js");
 import {
 	CLocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./53807.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i, { forwardRef, useMemo } from "./63696.js";
+import a, { ww, Lg } from "./44846.js";
+import s from "./28987.js";
+import { ZF } from "./53807.js";
+import c, { xv, Y2 } from "./72476.js";
+import m from "./52451.js";
 class u {
 	m_bUserHasVolumePreference = false;
 	m_flVolumePreference = 0;
@@ -31,148 +31,140 @@ class u {
 		return u.s_Singleton;
 	}
 }
-(0, n.Cg)([m.oI], u.prototype, "BUserHasVolumePreference", null);
-(0, n.Cg)([m.oI], u.prototype, "SetVolumePreference", null);
-export const L = (0, i.forwardRef)(function (e, t) {
-	const { video: r, bAutoPlay: n, bControls: a, bLoop: s, bMuted: o } = e;
-	const m = (0, i.useMemo)(
+Cg([m.oI], u.prototype, "BUserHasVolumePreference", null);
+Cg([m.oI], u.prototype, "SetVolumePreference", null);
+export const L = forwardRef((props, ref) => {
+	const { video, bAutoPlay, bControls, bLoop, bMuted } = props;
+	const m = useMemo(
 		() =>
 			Boolean(
-				r.rgVideoTracks?.some(
+				video.rgVideoTracks?.some(
 					(e) => e.sKind == "subtitles" || e.sKind == "captions",
 				),
 			),
-		[r.rgVideoTracks],
+		[video.rgVideoTracks],
 	);
-	const [d, h] = i.useState(false);
-	if (!r.rgVideoSources || !r.rgVideoSources.length) {
+	const [d, setD] = i.useState(false);
+	if (!video.rgVideoSources || !video.rgVideoSources.length) {
 		return null;
 	}
-	const C = (function (e) {
-		return (
-			!!(0, l.ZF)(e.sPoster) &&
-			(!e.rgVideoSources ||
-				!e.rgVideoSources.some((e) => !(0, l.ZF)(e.sURL))) &&
-			(!e.rgVideoTracks || !e.rgVideoTracks.some((e) => !(0, l.ZF)(e.sURL)))
-		);
-	})(r);
+	const C = ((e) =>
+		!!ZF(e.sPoster) &&
+		(!e.rgVideoSources || !e.rgVideoSources.some((e) => !ZF(e.sURL))) &&
+		(!e.rgVideoTracks || !e.rgVideoTracks.some((e) => !ZF(e.sURL))))(video);
 	let _;
 	if (!C || (m && c.TS.WEB_UNIVERSE == "public")) {
 		_ = "anonymous";
 	}
-	const f = o || (n && u.Get().BVolumePreferenceMuted());
-	const b = r.sPoster ? A(r.sPoster) : "";
-	return i.createElement(
-		"video",
-		{
-			width: "100%",
-			height: "auto",
-			autoPlay: n,
-			muted: f,
-			playsInline: true,
-			controls: a,
-			poster: b,
-			loop: s,
-			crossOrigin: _,
-			onVolumeChange: (e) => {
-				const t = e.target;
-				const r = t.muted ? 0 : t.volume;
+	const f = bMuted || (bAutoPlay && u.Get().BVolumePreferenceMuted());
+	const b = video.sPoster ? A(video.sPoster) : "";
+	return (
+		<video
+			width="100%"
+			height="auto"
+			autoPlay={bAutoPlay}
+			muted={f}
+			playsInline
+			controls={bControls}
+			poster={b}
+			loop={bLoop}
+			crossOrigin={_}
+			onVolumeChange={(e) => {
+				const e_target = e.target;
+				const r = e_target.muted ? 0 : e_target.volume;
 				if (d) {
 					u.Get().SetVolumePreference(r);
 				}
-			},
-			onPlay: (e) => {
-				const t = e.target;
-				const r = t.currentTime == 0;
+			}}
+			onPlay={(e) => {
+				const e_target = e.target;
+				const r = e_target.currentTime == 0;
 				const i = u.Get().BUserHasVolumePreference();
-				h(true);
+				setD(true);
 				if (r) {
-					if (i || n) {
+					if (i || bAutoPlay) {
 						if (i) {
-							t.volume = u.Get().GetVolumePreference();
-							t.muted = u.Get().BVolumePreferenceMuted();
+							e_target.volume = u.Get().GetVolumePreference();
+							e_target.muted = u.Get().BVolumePreferenceMuted();
 						}
 					} else {
-						const e = t.muted ? 0 : t.volume;
+						const e = e_target.muted ? 0 : e_target.volume;
 						u.Get().SetVolumePreference(e);
 					}
 				}
-			},
-			ref: t,
-		},
-		i.createElement(p, {
-			rgVideoSources: r.rgVideoSources,
-		}),
-		i.createElement(g, {
-			rgVideoTracks: r.rgVideoTracks,
-		}),
+			}}
+			ref={ref}
+		>
+			<P rgVideoSources={video.rgVideoSources} />
+			<G rgVideoTracks={video.rgVideoTracks} />
+		</video>
 	);
 });
 function A(e) {
 	try {
 		const t = new URL(e);
-		t.search = (t.search ? t.search + "&" : "?") + "origin=" + (0, c.xv)();
+		t.search = `${t.search ? `${t.search}&` : "?"}origin=${xv()}`;
 		return t.toString();
 	} catch {
 		return e;
 	}
 }
-function p(e) {
-	const { rgVideoSources: t } = e;
-	return t
+function P(e) {
+	const { rgVideoSources } = e;
+	return rgVideoSources
 		.filter((e) => Boolean(e.sURL))
-		.map((e) =>
-			i.createElement("source", {
-				key: e.sURL,
-				src: A(e.sURL),
-				type: e.sFormat,
-			}),
-		);
+		.map((e) => <source key={e.sURL} src={A(e.sURL)} type={e.sFormat} />);
 }
-function g(e) {
-	const { rgVideoTracks: t } = e;
-	if (t) {
-		return t.map((e, r) =>
-			i.createElement(h, {
-				key: r,
-				track: e,
-				rgVideoTracks: t,
-			}),
-		);
+function G(e) {
+	const { rgVideoTracks } = e;
+	if (rgVideoTracks) {
+		return rgVideoTracks.map((e, r) => (
+			<H key={r} track={e} rgVideoTracks={rgVideoTracks} />
+		));
 	} else {
 		return null;
 	}
 }
-function h(e) {
-	const { track: t, rgVideoTracks: r } = e;
-	let n = t.eLanguage;
-	if ((0, c.Y2)()) {
+function H(e) {
+	const { track, rgVideoTracks } = e;
+	let t_eLanguage = track.eLanguage;
+	if (Y2()) {
 		if (
-			CLocalizationManager.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmChina)
+			CLocalizationManager.IsELanguageValidInRealm(
+				t_eLanguage,
+				s.TU.k_ESteamRealmChina,
+			)
 		) {
-			n = CLocalizationManager.GetELanguageFallback(n);
+			t_eLanguage = CLocalizationManager.GetELanguageFallback(t_eLanguage);
 		} else {
-			if (n !== 6) {
+			if (t_eLanguage !== 6) {
 				return null;
 			}
 			if (
-				r.find(
-					(e) => CLocalizationManager.GetELanguageFallback(e.eLanguage) === n,
+				rgVideoTracks.find(
+					(e) =>
+						CLocalizationManager.GetELanguageFallback(e.eLanguage) ===
+						t_eLanguage,
 				)
 			) {
 				return null;
 			}
 		}
 	} else if (
-		!CLocalizationManager.IsELanguageValidInRealm(n, s.TU.k_ESteamRealmGlobal)
+		!CLocalizationManager.IsELanguageValidInRealm(
+			t_eLanguage,
+			s.TU.k_ESteamRealmGlobal,
+		)
 	) {
 		return null;
 	}
-	return i.createElement("track", {
-		src: A(t.sURL),
-		kind: t.sKind,
-		default: t.bDefault,
-		srcLang: (0, a.ww)(n),
-		label: (0, Localize)("#language_selection_" + (0, a.Lg)(n)),
-	});
+	return (
+		<track
+			src={A(track.sURL)}
+			kind={track.sKind}
+			default={track.bDefault}
+			srcLang={ww(t_eLanguage)}
+			label={(0, Localize)(`#language_selection_${Lg(t_eLanguage)}`)}
+		/>
+	);
 }

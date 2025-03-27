@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ProgressCtn: "_3ed1Al-hFnjq4HQeLo6cIT",
 	ProgressDot: "_2R187sMx7MTX5XQ2KN3Xnx",

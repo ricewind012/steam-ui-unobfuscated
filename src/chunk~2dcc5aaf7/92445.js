@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	AddNonSteamGameDialog: "_1tQy-wDVMFDobGfNObgSHR",
 	AddNonSteamGameDialogContent: "zhaKeChn9HPNSMtk0ami_",
 	DialogHeader: "tNxx1aWqxj_f-V3j864Rg",

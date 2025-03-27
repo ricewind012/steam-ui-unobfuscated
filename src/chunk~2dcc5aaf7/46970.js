@@ -1,21 +1,21 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
 import {
 	FindAndRemove,
 	CountMatches,
 } from "../../actual_src/utils/arrayutils.js";
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require(/*webcrack:missing*/ "./8573.js");
-var o = require(/*webcrack:missing*/ "./82755.js");
-var l = require("./54946.js");
-var c = require("./95773.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require("./96127.js");
-var A = require("./26052.js");
-var p = require("./21866.js");
+import n, { Cg } from "./34629.js";
+import a from "./12176.js";
+import s from "./8573.js";
+import o from "./82755.js";
+import l from "./54946.js";
+import c from "./95773.js";
+import m, { Gn, h5 } from "./89193.js";
+import d from "./96127.js";
+import A from "./26052.js";
+import p from "./21866.js";
 export const o_ = -6;
-export var oy;
-(function (e) {
+export let oy;
+((e) => {
 	e[(e.eOnlineOnly = 0)] = "eOnlineOnly";
 	e[(e.eOnlineOnlyNotInGame = 1)] = "eOnlineOnlyNotInGame";
 	e[(e.eOfflineOnly = 2)] = "eOfflineOnly";
@@ -31,7 +31,7 @@ export class uZ {
 	m_rgAccountIDMembers = m.sH.array();
 	m_setMembers = new Set();
 	constructor(e) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_strName = e;
 	}
 	get name() {
@@ -141,24 +141,24 @@ export class uZ {
 		return this.m_rgAccountIDMembers;
 	}
 }
-(0, n.Cg)([m.sH], uZ.prototype, "m_strName", undefined);
-(0, n.Cg)([m.sH], uZ.prototype, "m_bCollapsed", undefined);
-(0, n.Cg)([m.EW], uZ.prototype, "member_count", null);
-(0, n.Cg)([m.EW], uZ.prototype, "unfiltered_count", null);
-(0, n.Cg)([m.EW], uZ.prototype, "member_counts", null);
-(0, n.Cg)([m.XI], uZ.prototype, "SetOnHeaderClick", null);
-(0, n.Cg)([m.XI], uZ.prototype, "Clear", null);
-(0, n.Cg)([m.XI], uZ.prototype, "AddMember", null);
-(0, n.Cg)([m.XI], uZ.prototype, "RemoveMember", null);
-(0, n.Cg)([m.EW], uZ.prototype, "member_list", null);
-(0, n.Cg)([m.EW], uZ.prototype, "member_list_unsorted", null);
+Cg([m.sH], uZ.prototype, "m_strName", undefined);
+Cg([m.sH], uZ.prototype, "m_bCollapsed", undefined);
+Cg([m.EW], uZ.prototype, "member_count", null);
+Cg([m.EW], uZ.prototype, "unfiltered_count", null);
+Cg([m.EW], uZ.prototype, "member_counts", null);
+Cg([m.XI], uZ.prototype, "SetOnHeaderClick", null);
+Cg([m.XI], uZ.prototype, "Clear", null);
+Cg([m.XI], uZ.prototype, "AddMember", null);
+Cg([m.XI], uZ.prototype, "RemoveMember", null);
+Cg([m.EW], uZ.prototype, "member_list", null);
+Cg([m.EW], uZ.prototype, "member_list_unsorted", null);
 class _ extends uZ {
 	m_iGroupID;
 	m_bModifiable = false;
 	m_bAcceptsGroupRemovals = false;
 	constructor(e, t = -1, r = false, n = false) {
 		super(e);
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_iGroupID = t;
 		this.m_bModifiable = r;
 		this.m_bAcceptsGroupRemovals = n;
@@ -167,7 +167,7 @@ class _ extends uZ {
 		return this.m_iGroupID;
 	}
 	get unique_id() {
-		return "" + this.m_iGroupID;
+		return `${this.m_iGroupID}`;
 	}
 	get modifiable() {
 		return this.m_bModifiable;
@@ -192,7 +192,7 @@ class _ extends uZ {
 		return t;
 	}
 }
-(0, n.Cg)([m.EW], _.prototype, "GetRawMemberList", null);
+Cg([m.EW], _.prototype, "GetRawMemberList", null);
 class f extends _ {
 	get display_type() {
 		if (c.xm.SettingsStore.FriendsSettings.bHideOfflineFriendsInTagGroups) {
@@ -276,13 +276,13 @@ class B extends _ {
 class v extends _ {
 	constructor(e) {
 		super("", e, false, false);
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	get is_initialized() {
 		return this.id != 0 && c.xm.AppInfoStore.GetAppInfo(this.id).is_initialized;
 	}
 	get unique_id() {
-		return "game_" + this.id;
+		return `game_${this.id}`;
 	}
 	get name() {
 		if (!this.is_initialized || this.id < 0) {
@@ -331,7 +331,7 @@ class v extends _ {
 		return e;
 	}
 }
-(0, n.Cg)([m.$Z], v.prototype, "member_list", null);
+Cg([m.$Z], v.prototype, "member_list", null);
 const I = {
 	groups: {
 		offline: true,
@@ -341,7 +341,7 @@ const I = {
 const E = "FriendGroupCollapse";
 class M {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	m_mapCollapsePrefs = m.sH.map();
 	Init() {
@@ -376,8 +376,8 @@ class M {
 		});
 	}
 }
-(0, n.Cg)([m.XI], M.prototype, "SetUserGroupCollapsed", null);
-(0, n.Cg)([m.XI], M.prototype, "ToggleUserGroupCollapsed", null);
+Cg([m.XI], M.prototype, "SetUserGroupCollapsed", null);
+Cg([m.XI], M.prototype, "ToggleUserGroupCollapsed", null);
 export class Oz {
 	m_FriendStore;
 	m_CMInterface;
@@ -395,7 +395,7 @@ export class Oz {
 	);
 	m_groupOutgoingInvites = new S((0, Localize)("#FriendGroup_Outgoing"), -6);
 	constructor(e) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_FriendStore = e;
 		this.m_groupOfflineFriends.m_eDisplayType = oy.eOfflineOnly;
 	}
@@ -540,7 +540,7 @@ export class Oz {
 				: r != 0
 					? this.m_mapGameGroups.get(r)
 					: null;
-		if ((!n || !i || t != r) && (!i || !i.HasMember(e))) {
+		if ((!n || !i || !i || t != r) && (!i || !i.HasMember(e))) {
 			if (n && n.HasMember(e)) {
 				n.RemoveMember(e);
 				if (n.unfiltered_count == 0 || n == this.m_nonSteamGameGroup) {
@@ -591,7 +591,7 @@ export class Oz {
 		}
 		let t = 0;
 		for (let r of this.m_groupIncomingInvites.member_list) {
-			t ^= e("" + r.accountid);
+			t ^= e(`${r.accountid}`);
 		}
 		if (this.m_groupIncomingInvites.GetMutualFriendsCacheHash() == t) {
 			return;
@@ -632,7 +632,7 @@ export class Oz {
 				.SendMsgAndAwaitResponse(r, o.P8)
 				.then((r) => {
 					if (r.Body().eresult() == 1) {
-						(0, m.h5)(() => {
+						h5(() => {
 							let n = r.Body().groupid();
 							let i = new f(e, r.Body().groupid(), true);
 							if (t) {
@@ -773,15 +773,15 @@ export class Oz {
 		);
 	}
 }
-(0, n.Cg)([m.EW], Oz.prototype, "friend_groups", null);
-(0, n.Cg)([m.EW], Oz.prototype, "user_groups", null);
-(0, n.Cg)([m.EW], Oz.prototype, "game_groups", null);
-(0, n.Cg)([m.EW], Oz.prototype, "singleton_game_group", null);
-(0, n.Cg)([m.EW], Oz.prototype, "default_groups", null);
-(0, n.Cg)([m.EW], Oz.prototype, "games_with_friends_playing", null);
-(0, n.Cg)([m.XI], Oz.prototype, "OnFullFriendsListUpdateComplete", null);
-(0, n.Cg)([m.XI], Oz.prototype, "OnPersonaStateCacheReset", null);
-(0, n.Cg)([m.XI], Oz.prototype, "HandleGroupRemoval", null);
-(0, n.Cg)([m.EW], Oz.prototype, "categorized_friend_set", null);
-(0, n.Cg)([m.XI], Oz.prototype, "RecvCategoriesList", null);
-(0, n.Cg)([m.XI], Oz.prototype, "TransferFriendFromToGroup", null);
+Cg([m.EW], Oz.prototype, "friend_groups", null);
+Cg([m.EW], Oz.prototype, "user_groups", null);
+Cg([m.EW], Oz.prototype, "game_groups", null);
+Cg([m.EW], Oz.prototype, "singleton_game_group", null);
+Cg([m.EW], Oz.prototype, "default_groups", null);
+Cg([m.EW], Oz.prototype, "games_with_friends_playing", null);
+Cg([m.XI], Oz.prototype, "OnFullFriendsListUpdateComplete", null);
+Cg([m.XI], Oz.prototype, "OnPersonaStateCacheReset", null);
+Cg([m.XI], Oz.prototype, "HandleGroupRemoval", null);
+Cg([m.EW], Oz.prototype, "categorized_friend_set", null);
+Cg([m.XI], Oz.prototype, "RecvCategoriesList", null);
+Cg([m.XI], Oz.prototype, "TransferFriendFromToGroup", null);

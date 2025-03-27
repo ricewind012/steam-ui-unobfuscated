@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90242.js");
-var _a = require(/*webcrack:missing*/ "./69164.js");
-var s = require("./89791.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require("./29937.js");
-var c = l;
+import n, { useEffect, useRef } from "./63696.js";
+import i from "./90242.js";
+import _a from "./69164.js";
+import s from "./89791.js";
+import { A } from "./90765.js";
+import l from "./29937.js";
+const c = l;
 export function a(e) {
 	const {
 		length: t,
@@ -18,12 +18,12 @@ export function a(e) {
 		backupCode: g,
 		allowCharacter: h,
 	} = e;
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (d) {
 			y();
 		}
 	}, []);
-	const C = (0, n.useRef)([]);
+	const C = useRef([]);
 	const _ = () => l(C.current.map((e) => e.value));
 	const f = (e) => {
 		const t = e.target.value;
@@ -65,6 +65,9 @@ export function a(e) {
 		} else if (
 			e.key === "ArrowLeft" ||
 			e.key === "ArrowRight" ||
+			e.key === "ArrowRight" ||
+			e.key === "ArrowUp" ||
+			e.key === "ArrowRight" ||
 			e.key === "ArrowUp" ||
 			e.key === "ArrowDown"
 		) {
@@ -97,46 +100,41 @@ export function a(e) {
 	const B = [];
 	for (let e = 0; e < t; e++) {
 		B.push(
-			n.createElement(i.BA, {
-				noFocusRing: true,
-				type: "text",
-				maxLength: 1,
-				key: e,
-				ref: (t) => (C.current[e] = t),
-				onChange: f,
-				onFocus: b,
-				onClick: (e) => e.stopPropagation(),
-				onKeyDown: S,
-				onPaste: w,
-				value: r[e] ? r[e][0] : "",
-				autoComplete: "none",
-				autoFocus: e === 0 && d,
-				disabled: A || p,
-				className: c.Input,
-			}),
+			<i.BA
+				noFocusRing
+				type="text"
+				maxLength={1}
+				key={e}
+				ref={(t) => (C.current[e] = t)}
+				onChange={f}
+				onFocus={b}
+				onClick={(e) => e.stopPropagation()}
+				onKeyDown={S}
+				onPaste={w}
+				value={r[e] ? r[e][0] : ""}
+				autoComplete="none"
+				autoFocus={e === 0 && d}
+				disabled={A || p}
+				className={c.Input}
+			/>,
 		);
 	}
-	return n.createElement(
-		_a.Z,
-		{
-			className: (0, o.A)(
+	return (
+		<_a.Z
+			className={A(
 				c.SegmentedCharacterInput,
 				u === "danger" && c.Danger,
 				A && c.Disabled,
 				g && c.BackupCode,
-			),
-			onClick: y,
-		},
-		p &&
-			n.createElement(
-				"div",
-				{
-					className: c.Loading,
-				},
-				n.createElement(s.kt, {
-					size: "small",
-				}),
-			),
-		B,
+			)}
+			onClick={y}
+		>
+			{p && (
+				<div className={c.Loading}>
+					<s.kt size="small" />
+				</div>
+			)}
+			{B}
+		</_a.Z>
 	);
 }

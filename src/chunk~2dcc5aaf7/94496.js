@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./9252.js");
-var o = require(/*webcrack:missing*/ "./83599.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import { a5 } from "./9252.js";
+import o from "./83599.js";
+import l from "./52451.js";
 const c = new o.wd("OSWindows").Debug;
 class m {
 	m_unFocusedAppID = 0;
@@ -26,7 +26,7 @@ class m {
 		m_flDPI: 0,
 	};
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	Init() {
 		SteamClient.System.UI.RegisterForFocusChangeEvents(this.OnFocusChangeEvent);
@@ -88,22 +88,22 @@ class m {
 			};
 			let t = this.m_defaultMonitor;
 			let r = `Default Monitor dimensions [usableWidth=${t.m_usable.m_nWidth}][usableHeight=${t.m_usable.m_nHeight}][fullWidth=${t.m_full.m_nWidth}][fullHeight=${t.m_full.m_nHeight}][horizontalScale=${e.flHorizontalScale}][verticalScale=${e.flVerticalScale}]`;
-			(0, s.a5)(r);
+			a5(r);
 			c(r);
 		});
 	}
 }
-(0, n.Cg)([i.sH], m.prototype, "m_unFocusedAppID", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_nFocusedWindowID", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_unFocusedOverlayAppID", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_unFocusedOverlayPID", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_defaultMonitor", undefined);
-(0, n.Cg)([i.XI.bound], m.prototype, "OnFocusChangeEvent", null);
-(0, n.Cg)([i.XI.bound], m.prototype, "OnOverlayGameWindowFocusChanged", null);
-(0, n.Cg)([l.oI], m.prototype, "OnMessage", null);
-(0, n.Cg)([l.oI], m.prototype, "QueryDefaultMonitorDimensions", null);
+Cg([i.sH], m.prototype, "m_unFocusedAppID", undefined);
+Cg([i.sH], m.prototype, "m_nFocusedWindowID", undefined);
+Cg([i.sH], m.prototype, "m_unFocusedOverlayAppID", undefined);
+Cg([i.sH], m.prototype, "m_unFocusedOverlayPID", undefined);
+Cg([i.sH], m.prototype, "m_defaultMonitor", undefined);
+Cg([i.XI.bound], m.prototype, "OnFocusChangeEvent", null);
+Cg([i.XI.bound], m.prototype, "OnOverlayGameWindowFocusChanged", null);
+Cg([l.oI], m.prototype, "OnMessage", null);
+Cg([l.oI], m.prototype, "QueryDefaultMonitorDimensions", null);
 export const iP = new m();
 export function b_() {
-	return (0, a.q3)(() => iP.GetFocusedOverlayAppID());
+	return q3(() => iP.GetFocusedOverlayAppID());
 }
 window.FocusedAppWindowStore = iP;

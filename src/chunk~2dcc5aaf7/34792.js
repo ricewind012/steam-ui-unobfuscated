@@ -1,28 +1,33 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./88696.js");
-var l = require("./4563.js");
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require("./54946.js");
-var u = require("./46948.js");
-var d = require("./88475.js");
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./79769.js");
-var g = require(/*webcrack:missing*/ "./81255.js");
-var h = require("./51297.js");
-var C = require(/*webcrack:missing*/ "./58663.js");
-var _ = require(/*webcrack:missing*/ "./48307.js");
-const f = C.Message;
-class b extends f {
+import n, { Cg } from "./34629.js";
+import i, { useEffect, useCallback } from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s, { q3 } from "./90095.js";
+import o from "./88696.js";
+import l from "./4563.js";
+import c from "./12176.js";
+import m from "./54946.js";
+import u from "./46948.js";
+import d from "./88475.js";
+import A from "./52451.js";
+import { Jc } from "./79769.js";
+import { s as s_1 } from "./81255.js";
+import h from "./51297.js";
+import C from "./58663.js";
+import _ from "./48307.js";
+import S from "./46422.js";
+import w from "./59401.js";
+import B from "./75144.js";
+import { j$, JM, cr } from "./63937.js";
+import I from "./14628.js";
+const C_Message = C.Message;
+class b extends C_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.key_code) {
 			_.Sg(b.M());
 		}
-		f.initialize(this, e, 0, -1, undefined, null);
+		C_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -86,7 +91,7 @@ class b extends f {
 		return _.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new C.BinaryWriter();
+		const e = new C.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -94,7 +99,7 @@ class b extends f {
 		_.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new C.BinaryWriter();
+		const e = new C.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -102,14 +107,14 @@ class b extends f {
 		return "CMsgHotkey";
 	}
 }
-class y extends f {
+class y extends C_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.no_save_personal_info) {
 			_.Sg(y.M());
 		}
-		f.initialize(this, e, 0, -1, undefined, null);
+		C_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1054,7 +1059,7 @@ class y extends f {
 		return _.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new C.BinaryWriter();
+		const e = new C.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1062,7 +1067,7 @@ class y extends f {
 		_.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new C.BinaryWriter();
+		const e = new C.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1070,28 +1075,23 @@ class y extends f {
 		return "CMsgClientSettings";
 	}
 }
-var S = require("./46422.js");
-var w = require("./59401.js");
-var B = require(/*webcrack:missing*/ "./75144.js");
-var v = require("./63937.js");
-var I = require(/*webcrack:missing*/ "./14628.js");
 const E = "CachedCommunityPreferences";
 const M = "CachedStorePreferences";
 const T = "CachedBatteryPreferences";
 const R = "CachedNotificationPreferences";
 export function t0() {
-	return (0, s.q3)(() => rV.settings);
+	return q3(() => rV.settings);
 }
 export function Tr() {
-	return (0, s.q3)(() => rV.communityPreferences);
+	return q3(() => rV.communityPreferences);
 }
 export function Hg() {
-	return (0, s.q3)(() => rV.notificationPreferences);
+	return q3(() => rV.notificationPreferences);
 }
 export function vL() {
-	const e = (0, s.q3)(() => rV.BIsConnectedToSteam());
-	const t = (0, s.q3)(() => rV.familySettings);
-	(0, i.useEffect)(() => {
+	const e = q3(() => rV.BIsConnectedToSteam());
+	const t = q3(() => rV.familySettings);
+	useEffect(() => {
 		if (t.bIsDeviceAuthorizedForFamilySharing === undefined) {
 			SteamClient.Settings.RequestDeviceAuthInfo();
 		}
@@ -1109,8 +1109,8 @@ class G {
 	m_StorePreferences = undefined;
 	m_FriendSettings = l.u();
 	m_Settings = undefined;
-	m_strTimeZoneID = (0, p.Jc)("");
-	m_BatteryPreferences = (0, p.Jc)({
+	m_strTimeZoneID = Jc("");
+	m_BatteryPreferences = Jc({
 		bShowBatteryPercentage: false,
 	});
 	m_MonitorInfo = undefined;
@@ -1120,7 +1120,7 @@ class G {
 	m_NotificationSettings = undefined;
 	m_bSteamIsInTournamentMode = false;
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		let e = new m.B4();
 		this.m_CommunityPreferences = {
 			bParenthesizeNicknames: e.parenthesize_nicknames(),
@@ -1245,13 +1245,13 @@ class G {
 			(e) => {
 				const t = B.L;
 				t.invalidateQueries({
-					queryKey: (0, v.j$)(I.iA.steamid),
+					queryKey: j$(I.iA.steamid),
 				});
 				t.invalidateQueries({
-					queryKey: (0, v.JM)(e.Body().family_groupid()),
+					queryKey: JM(e.Body().family_groupid()),
 				});
 				t.invalidateQueries({
-					queryKey: (0, v.cr)(e.Body().family_groupid()),
+					queryKey: cr(e.Body().family_groupid()),
 				});
 				return 1;
 			},
@@ -1260,7 +1260,7 @@ class G {
 			w.j7.NotifyInviteStatusHandler,
 			(e) => {
 				B.L.invalidateQueries({
-					queryKey: (0, v.j$)(I.iA.steamid),
+					queryKey: j$(I.iA.steamid),
 				});
 				return 1;
 			},
@@ -1540,56 +1540,46 @@ class G {
 		this.m_localStorage.StoreObject(R, this.m_NotificationSettings);
 	}
 }
-(0, n.Cg)([a.sH.shallow], G.prototype, "m_CommunityPreferences", undefined);
-(0, n.Cg)([a.sH.shallow], G.prototype, "m_StorePreferences", undefined);
-(0, n.Cg)([a.sH.shallow], G.prototype, "m_FriendSettings", undefined);
-(0, n.Cg)([a.sH.shallow], G.prototype, "m_Settings", undefined);
-(0, n.Cg)([a.sH.shallow], G.prototype, "m_MonitorInfo", undefined);
-(0, n.Cg)([a.sH], G.prototype, "m_bWindowed", undefined);
-(0, n.Cg)([a.sH], G.prototype, "m_ClientSettings", undefined);
-(0, n.Cg)([a.sH], G.prototype, "m_setDeferredSettings", undefined);
-(0, n.Cg)([a.sH], G.prototype, "m_NotificationSettings", undefined);
-(0, n.Cg)([a.sH], G.prototype, "m_bSteamIsInTournamentMode", undefined);
-(0, n.Cg)([A.oI], G.prototype, "OnPostMessage", null);
-(0, n.Cg)([a.XI], G.prototype, "UpdateCommunityPreferences", null);
-(0, n.Cg)(
-	[(0, g.s)(250)],
-	G.prototype,
-	"SendCommunityPreferencesToServer",
-	null,
-);
-(0, n.Cg)(
-	[(0, g.s)(250)],
-	G.prototype,
-	"SendNotificationPreferencesToServer",
-	null,
-);
-(0, n.Cg)([a.XI], G.prototype, "UpdateFriendSettings", null);
-(0, n.Cg)([A.oI], G.prototype, "OnClientSettingsChange", null);
-(0, n.Cg)([A.oI], G.prototype, "OnClientSettingsMsgChange", null);
-(0, n.Cg)([A.oI], G.prototype, "OnTimeZoneChange", null);
-(0, n.Cg)([A.oI], G.prototype, "GetBatteryPreferences", null);
-(0, n.Cg)([A.oI], G.prototype, "SetBatteryPreferences", null);
-(0, n.Cg)([A.oI], G.prototype, "OnClientFriendsSettingsChange", null);
-(0, n.Cg)([A.oI], G.prototype, "RefreshMonitorInfo", null);
-(0, n.Cg)([A.oI], G.prototype, "SetPreferredMonitor", null);
-(0, n.Cg)([A.oI], G.prototype, "SetWindowedMode", null);
-(0, n.Cg)([a.XI], G.prototype, "MergeCommunityPreferences", null);
-(0, n.Cg)([a.XI], G.prototype, "MergeStorePreferences", null);
-(0, n.Cg)([a.XI], G.prototype, "MergeNotificationPreferences", null);
+Cg([a.sH.shallow], G.prototype, "m_CommunityPreferences", undefined);
+Cg([a.sH.shallow], G.prototype, "m_StorePreferences", undefined);
+Cg([a.sH.shallow], G.prototype, "m_FriendSettings", undefined);
+Cg([a.sH.shallow], G.prototype, "m_Settings", undefined);
+Cg([a.sH.shallow], G.prototype, "m_MonitorInfo", undefined);
+Cg([a.sH], G.prototype, "m_bWindowed", undefined);
+Cg([a.sH], G.prototype, "m_ClientSettings", undefined);
+Cg([a.sH], G.prototype, "m_setDeferredSettings", undefined);
+Cg([a.sH], G.prototype, "m_NotificationSettings", undefined);
+Cg([a.sH], G.prototype, "m_bSteamIsInTournamentMode", undefined);
+Cg([A.oI], G.prototype, "OnPostMessage", null);
+Cg([a.XI], G.prototype, "UpdateCommunityPreferences", null);
+Cg([s_1(250)], G.prototype, "SendCommunityPreferencesToServer", null);
+Cg([s_1(250)], G.prototype, "SendNotificationPreferencesToServer", null);
+Cg([a.XI], G.prototype, "UpdateFriendSettings", null);
+Cg([A.oI], G.prototype, "OnClientSettingsChange", null);
+Cg([A.oI], G.prototype, "OnClientSettingsMsgChange", null);
+Cg([A.oI], G.prototype, "OnTimeZoneChange", null);
+Cg([A.oI], G.prototype, "GetBatteryPreferences", null);
+Cg([A.oI], G.prototype, "SetBatteryPreferences", null);
+Cg([A.oI], G.prototype, "OnClientFriendsSettingsChange", null);
+Cg([A.oI], G.prototype, "RefreshMonitorInfo", null);
+Cg([A.oI], G.prototype, "SetPreferredMonitor", null);
+Cg([A.oI], G.prototype, "SetWindowedMode", null);
+Cg([a.XI], G.prototype, "MergeCommunityPreferences", null);
+Cg([a.XI], G.prototype, "MergeStorePreferences", null);
+Cg([a.XI], G.prototype, "MergeNotificationPreferences", null);
 export const rV = new G();
 export function VI(e) {
 	return [
-		(0, s.q3)(() => rV.clientSettings[e]),
-		(0, i.useCallback)((t) => qt(e, t), [e]),
-		(0, s.q3)(() => rV.IsDeferred(e)),
-		(0, i.useCallback)(() => {
+		q3(() => rV.clientSettings[e]),
+		useCallback((t) => qt(e, t), [e]),
+		q3(() => rV.IsDeferred(e)),
+		useCallback(() => {
 			rV.SetDeferred(e);
 		}, [e]),
 	];
 }
 export function hX(e) {
-	return [(0, s.q3)(() => rV.clientSettings[e])];
+	return [q3(() => rV.clientSettings[e])];
 }
 export function qt(e, t) {
 	const r = new C.BinaryWriter();
@@ -1601,17 +1591,14 @@ export function qt(e, t) {
 	return SteamClient.Settings.SetSetting(i);
 }
 export function e_(e) {
-	const t = (0, i.useCallback)((t) => rV.UpdateFriendSetting(e, t), [e]);
-	return (0, s.q3)(() => [rV.friendSettings[e], t]);
+	const t = useCallback((t) => rV.UpdateFriendSetting(e, t), [e]);
+	return q3(() => [rV.friendSettings[e], t]);
 }
 export function I5(e) {
-	const t = (0, i.useCallback)((t) => rV.UpdateCommunityPreference(e, t), [e]);
-	return (0, s.q3)(() => [rV.communityPreferences[e], t]);
+	const t = useCallback((t) => rV.UpdateCommunityPreference(e, t), [e]);
+	return q3(() => [rV.communityPreferences[e], t]);
 }
 export function sE(e, t) {
-	return (0, i.useCallback)(
-		() => rV.ToggleNotificationPreference(e, t),
-		[e, t],
-	);
+	return useCallback(() => rV.ToggleNotificationPreference(e, t), [e, t]);
 }
 window.settingsStore = rV;

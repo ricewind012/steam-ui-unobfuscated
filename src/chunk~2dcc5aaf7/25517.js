@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ArtworkModal: "_36VpVPlpKPUM0pVoKojRbG",
 	ModalArtCloseButton: "OuOr8hoXOK5yhrOQjB52I",

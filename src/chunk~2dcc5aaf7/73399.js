@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	FriendInviteOverlayDialog: "_1EZ0UEmDBwvbnExphoyjh4",
 	FriendOverlayDialogUser: "_3s3J6ZTRCedO7pUaMvYxsC",

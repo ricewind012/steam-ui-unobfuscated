@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	NotConnectedLabel: "_2Am4u_w_1WdQyBogiGGEbz",
 	ForceIndentField: "_1iN7h3b3S_oqNPAs7eyf8c",

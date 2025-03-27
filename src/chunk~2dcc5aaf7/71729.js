@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	listDeckGridRowHeight: "150px",
 	listTallGridRowHeight: "182px",

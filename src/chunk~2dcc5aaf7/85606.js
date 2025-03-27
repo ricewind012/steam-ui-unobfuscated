@@ -1,7 +1,7 @@
-var n = require("./80222.js");
-var i = require(/*webcrack:missing*/ "./72476.js");
-var a = require(/*webcrack:missing*/ "./28987.js");
-var s = require("./64880.js");
+import n from "./80222.js";
+import i from "./72476.js";
+import a from "./28987.js";
+import s from "./64880.js";
 export function rV(e, t) {
 	e.Body().set_context(hS(t));
 }

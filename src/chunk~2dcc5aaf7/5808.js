@@ -1,15 +1,62 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require("./32700.js");
-require("./18057.js");
-var s = require("./18869.js");
-var o = require("./63947.js");
-var l = require("./81371.js");
-var c = require("./22091.js");
-var m = require("./78057.js");
-var u = require("./96593.js");
-var d = require(/*webcrack:missing*/ "./63696.js");
-var A = require(/*webcrack:missing*/ "./79769.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./44846.js";
+import a, { Np } from "./32700.js";
+import "./18057.js";
+import s, { br } from "./18869.js";
+import o, { F as F_1 } from "./63947.js";
+import l, { J as J_1 } from "./81371.js";
+import c from "./22091.js";
+import m, { T as T_1 } from "./78057.js";
+import u from "./96593.js";
+import d, { useState, useEffect } from "./63696.js";
+import A from "./79769.js";
+import _ from "./96000.js";
+import f from "./76356.js";
+import b from "./10294.js";
+import y from "./47979.js";
+import S from "./5640.js";
+import w from "./92749.js";
+import B, { TP, gk } from "./46422.js";
+import v from "./41230.js";
+import I, { q3 } from "./90095.js";
+import E, { W6 } from "./49519.js";
+import { Pt, DT } from "./55571.js";
+import T from "./92031.js";
+import R from "./45967.js";
+import k from "./88750.js";
+import D from "./24892.js";
+import F from "./46217.js";
+import G from "./35488.js";
+import O from "./10606.js";
+import { pg } from "./13869.js";
+import L from "./50376.js";
+import { w as w_1 } from "./49455.js";
+import { A as A_1 } from "./90765.js";
+import V from "./52451.js";
+import H, { Qn, CI } from "./72476.js";
+import { $2 } from "./96680.js";
+import { vq } from "./63259.js";
+import { J as J_1 } from "./9600.js";
+import { y as y_3 } from "./76414.js";
+import { oy } from "./31706.js";
+import { Uo } from "./19731.js";
+import X from "./80100.js";
+import { kU, EK, ZW } from "./89748.js";
+import { KV } from "./46382.js";
+import { E as E_2 } from "./55037.js";
+import { At, TW, Bf } from "./24274.js";
+import { gt, KM as KM_2 } from "./48289.js";
+import ie from "./8573.js";
+import { I5 } from "./34792.js";
+import se from "./68608.js";
+import { Id } from "./77347.js";
+import le from "./91369.js";
+import { y as y_1 } from "./19056.js";
 class p {
 	m_mapLastConVarValues = new Map();
 	m_mapConVarCallbacks = new Map();
@@ -53,8 +100,8 @@ class p {
 	}
 }
 function g(e, t, r) {
-	const [n, i] = (0, d.useState)(() => p.Get().GetLastConVarValue(e, t, r));
-	(0, d.useEffect)(() => p.Get().RegisterForConVar(e, (e) => i(t(e))), [e, t]);
+	const [n, i] = useState(() => p.Get().GetLastConVarValue(e, t, r));
+	useEffect(() => p.Get().RegisterForConVar(e, (e) => i(t(e))), [e, t]);
 	return n;
 }
 function h(e) {
@@ -63,55 +110,8 @@ function h(e) {
 function C(e) {
 	return !!h(e);
 }
-var _ = require("./96000.js");
-var f = require("./76356.js");
-var b = require("./10294.js");
-var y = require("./47979.js");
-var S = require("./5640.js");
-var w = require("./92749.js");
-var B = require("./46422.js");
-var v = require(/*webcrack:missing*/ "./41230.js");
-var I = require(/*webcrack:missing*/ "./90095.js");
-var E = require(/*webcrack:missing*/ "./49519.js");
-var M = require("./55571.js");
-var T = require("./92031.js");
-var R = require("./45967.js");
-var k = require(/*webcrack:missing*/ "./88750.js");
-var D = require(/*webcrack:missing*/ "./24892.js");
-var N = D;
-var F = require("./46217.js");
-var G = require("./35488.js");
-var O = require("./10606.js");
-var P = require("./13869.js");
-var L = require(/*webcrack:missing*/ "./50376.js");
-var z = require(/*webcrack:missing*/ "./49455.js");
-var x = require(/*webcrack:missing*/ "./90765.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-var V = require(/*webcrack:missing*/ "./52451.js");
-var H = require(/*webcrack:missing*/ "./72476.js");
-var j = require("./96680.js");
-var q = require("./63259.js");
-var Q = require("./9600.js");
-var Z = require("./76414.js");
-var Y = require("./31706.js");
-var K = require("./19731.js");
-var X = require("./80100.js");
-var J = X;
-var $ = require("./89748.js");
-var ee = require(/*webcrack:missing*/ "./46382.js");
-var te = require(/*webcrack:missing*/ "./55037.js");
-var re = require("./24274.js");
-var ne = require("./48289.js");
-var ie = require(/*webcrack:missing*/ "./8573.js");
-var ae = require("./34792.js");
-var se = require("./68608.js");
-var oe = require("./77347.js");
-var le = require("./91369.js");
-var ce = require("./19056.js");
+const N = D;
+const J = X;
 export function AH(e, t, r) {
 	if (t.BIsAppBlocked()) {
 		return null;
@@ -123,67 +123,85 @@ export function AH(e, t, r) {
 	if (t.BIsPerClientDataLocal(n)) {
 		switch (n.display_status) {
 			case 32:
-			case 33:
+			case 33: {
 				return "Uninstall";
+			}
 			case 8:
 			case 11:
 			case 34:
-			case 35:
+			case 35: {
 				switch (t.app_type) {
-					case 8192:
+					case 8192: {
 						return "PlayMusic";
+					}
 					case 1:
 					case 1073741824:
 					case 2048:
 					case 8:
-					case 65536:
+					case 65536: {
 						return "Play";
-					default:
+					}
+					default: {
 						return "Launch";
+					}
 				}
-			case 28:
+			}
+			case 28: {
 				if (t.installed) {
 					return "Play";
 				} else {
 					return "Install";
 				}
-			case 1:
+			}
+			case 1: {
 				return "Cancel";
-			case 4:
+			}
+			case 4: {
 				return ue(e, t);
+			}
 			case 7:
-			case 6:
+			case 6: {
 				return "Pause";
+			}
 			case 22:
 			case 38:
 			case 18:
-			case 39:
+			case 39: {
 				return "Resume";
+			}
 			case 23:
-			case 24:
+			case 24: {
 				return "Download";
+			}
 			case 19:
-			case 20:
+			case 20: {
 				return "Update";
-			case 9:
+			}
+			case 9: {
 				return "Install";
-			case 10:
+			}
+			case 10: {
 				return "PreLoad";
-			case 29:
+			}
+			case 29: {
 				return "BorrowApp";
+			}
 			case 31:
 			case 27:
 			case 30:
-			case 17:
+			case 17: {
 				return "PurchaseApp";
-			default:
+			}
+			default: {
 				return null;
+			}
 		}
 	} else {
 		switch (n.display_status) {
 			case 32:
-			case 33:
+			case 33: {
 				return "Uninstall";
+			}
 			case 11:
 			case 34:
 			case 35:
@@ -194,16 +212,19 @@ export function AH(e, t, r) {
 			case 23:
 			case 24:
 			case 19:
-			case 20:
+			case 20: {
 				return "Stream";
-			case 1:
+			}
+			case 1: {
 				return "Cancel";
-			case 4:
+			}
+			case 4: {
 				if (n.streaming_to_local_client) {
 					return ue(e, t);
 				} else {
 					return "Connect";
 				}
+			}
 			case 7:
 			case 6:
 			case 29:
@@ -220,18 +241,22 @@ export function AH(e, t, r) {
 			case 13:
 			case 14:
 			case 16:
-			default:
+			default: {
 				return null;
+			}
 			case 9:
-			case 28:
+			case 28: {
 				return "Install";
-			case 10:
+			}
+			case 10: {
 				return "PreLoad";
+			}
 			case 31:
 			case 27:
 			case 30:
-			case 17:
+			case 17: {
 				return "PurchaseApp";
+			}
 		}
 	}
 }
@@ -254,51 +279,65 @@ export function Kw(e, t) {
 	if (e.BIsPerClientDataLocal(r)) {
 		switch (r.display_status) {
 			case 3:
-			case 13:
+			case 13: {
 				return "Install";
-			case 2:
+			}
+			case 2: {
 				return "Uninstall";
-			case 36:
+			}
+			case 36: {
 				return "Terminating";
+			}
 			case 5:
-			case 8:
+			case 8: {
 				return null;
-			case 25:
+			}
+			case 25: {
 				return "Download";
-			case 21:
+			}
+			case 21: {
 				return "Update";
-			case 37:
+			}
+			case 37: {
 				return "Play";
+			}
 			case 12:
-			case 14:
+			case 14: {
 				return "Install";
+			}
 			case 16:
-			case 26:
+			case 26: {
 				switch (e.app_type) {
 					case 1:
 					case 1073741824:
 					case 8192:
 					case 2048:
 					case 8:
-					case 65536:
+					case 65536: {
 						return "Play";
-					default:
+					}
+					default: {
 						return "Launch";
+					}
 				}
-			default:
+			}
+			default: {
 				return null;
+			}
 		}
 	} else {
 		switch (r.display_status) {
 			case 3:
 			case 13:
 			case 12:
-			case 14:
+			case 14: {
 				return "Install";
+			}
 			case 5:
 			case 8:
-			default:
+			default: {
 				return null;
+			}
 			case 7:
 			case 6:
 			case 10:
@@ -307,8 +346,9 @@ export function Kw(e, t) {
 			case 25:
 			case 21:
 			case 16:
-			case 26:
+			case 26: {
 				return "Stream";
+			}
 		}
 	}
 }
@@ -321,21 +361,24 @@ function Ae(e, t) {
 		return [];
 	}
 	switch (e.app_type) {
-		case 8192:
+		case 8192: {
 			if (r.installed) {
 				return ["Uninstall"];
 			} else {
 				return [];
 			}
-		case 2048:
+		}
+		case 2048: {
 			return [];
-		case 1073741824:
+		}
+		case 1073741824: {
 			return ["RemoveShortcut", "CreateDesktopShortcut"];
+		}
 		case 1:
 		case 2:
 		case 4:
 		case 8:
-		case 65536:
+		case 65536: {
 			switch (r.display_status) {
 				case 11:
 				case 7:
@@ -362,26 +405,30 @@ function Ae(e, t) {
 				case 17:
 				case 37:
 				case 34:
-				case 35:
+				case 35: {
 					return ["CreateDesktopShortcut", "BackUpFiles", "Uninstall"];
+				}
 				case 32:
 				case 28:
 				case 27:
-				case 33:
+				case 33: {
 					if (r.installed) {
 						return ["Uninstall"];
 					} else {
 						return [];
 					}
+				}
 				case 9:
 				case 10:
 				case 26:
 				case 30:
 				case 12:
 				case 13:
-				case 14:
+				case 14: {
 					return [];
+				}
 			}
+		}
 	}
 	return [];
 }
@@ -396,11 +443,11 @@ function pe(e) {
 	}, 500);
 }
 export function aF(e, t, r) {
-	t.location.href = `steam://musicplayer/playappalbum/${e}${r && "/" + r}`;
+	t.location.href = `steam://musicplayer/playappalbum/${e}${r && `/${r}`}`;
 }
 export function _D(e, t, r, n) {
 	let i = n ?? window;
-	(0, P.pg)(
+	pg(
 		d.createElement(Ce, {
 			gameid: e,
 			appid: t,
@@ -414,7 +461,7 @@ export function _D(e, t, r, n) {
 }
 function Ce(e) {
 	const { gameid: t, fnAccepted: r, closeModal: n } = e;
-	(0, B.TP)(true);
+	TP(true);
 	return d.createElement(O.o0, {
 		className: J.ExitGameDialog,
 		strTitle: Localize("#GameAction_ConfirmExitGameTitle"),
@@ -434,7 +481,7 @@ function Ce(e) {
 }
 export function a_(e, t, r) {
 	let n = r ?? window;
-	(0, P.pg)(
+	pg(
 		d.createElement(fe, {
 			gameid: e,
 			fnAccepted: t,
@@ -447,7 +494,7 @@ export function a_(e, t, r) {
 }
 function fe(e) {
 	const { gameid: t, fnAccepted: r, closeModal: n } = e;
-	(0, B.TP)(true);
+	TP(true);
 	return d.createElement(O.o0, {
 		strTitle: Localize("#GameAction_ConfirmStopStreamingTitle"),
 		onOK: () => {
@@ -463,20 +510,20 @@ export function jy(e, t, r, n, i) {
 	const a = t.GetPerClientData(r);
 	switch (e) {
 		case "Play":
-		case "Launch":
-			(0, z.w)(
+		case "Launch": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () =>
-				(function (e, t, r, n) {
+				((e, t, r, n) => {
 					if (!m.H.BHasRecentlyLaunched(e.appid)) {
 						if (
 							B.oy.IsGamepadUIWindowActive() &&
 							H.TS.ON_DECK &&
 							e.app_type == 2048
 						) {
-							(0, l.J)();
+							J_1();
 						} else {
 							m.H.MarkAppAsRecentlyLaunched(e.appid);
 							SteamClient.Apps.RunGame(e.GetGameID(), "", -1, n);
@@ -484,20 +531,24 @@ export function jy(e, t, r, n, i) {
 						}
 					}
 				})(t, 0, 0, n);
+		}
 		case "Connect":
-		case "Stream":
+		case "Stream": {
 			return () => SteamClient.Apps.StreamGame(t.appid, a.clientid, -1);
-		case "Cancel":
-			(0, z.w)(
+		}
+		case "Cancel": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => SteamClient.Apps.CancelLaunch(t.GetGameID());
-		case "Stop":
+		}
+		case "Stop": {
 			return () => _D(t.GetGameID(), t.appid, undefined, i);
-		case "ResumeGameInProgress":
+		}
+		case "ResumeGameInProgress": {
 			return () =>
-				(function (e, t) {
+				((e, t) => {
 					const r = B.oy.WindowStore.GetWindowInstanceFromWindow(t);
 					const n = R.qL.CurrentSceneAppID;
 					if (r?.IsVRWindowInGamescope()) {
@@ -506,7 +557,7 @@ export function jy(e, t, r, n, i) {
 						} else {
 							try {
 								le.p.SteamVR.ShowGame({
-									overlay_key: "valve.steam.desktopgame." + e?.appid,
+									overlay_key: `valve.steam.desktopgame.${e?.appid}`,
 								});
 							} catch (e) {}
 						}
@@ -522,68 +573,82 @@ export function jy(e, t, r, n, i) {
 						SteamClient.Apps.RaiseWindowForGame(e.gameid);
 					}
 				})(t, i);
-		case "Pause":
-			(0, z.w)(
+		}
+		case "Pause": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => SteamClient.Downloads.EnableAllDownloads(false);
+		}
 		case "Download":
 		case "Resume":
-		case "Update":
-			(0, z.w)(
+		case "Update": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => SteamClient.Downloads.ResumeAppUpdate(t.appid);
+		}
 		case "PreLoad":
-		case "Install":
+		case "Install": {
 			if (t.BIsPerClientDataLocal(a)) {
 				return () => f.I.InstallApp(t.appid);
 			} else {
 				return () => SteamClient.Apps.StreamGame(t.appid, a.clientid, -1);
 			}
-		case "Uninstall":
-			(0, z.w)(
+		}
+		case "Uninstall": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
-			return () => (0, K.Uo)([t.appid], i, false);
-		case "RemoveShortcut":
-			(0, z.w)(
+			return () => Uo([t.appid], i, false);
+		}
+		case "RemoveShortcut": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
 			return () => pe(t.appid);
-		case "BorrowApp":
-			(0, z.w)(
+		}
+		case "BorrowApp": {
+			w_1(
 				t.BIsPerClientDataLocal(a),
 				"Local-only app action for non-local client data",
 			);
-			return () => (0, Q.J)(t.gameid, i);
-		case "PurchaseApp":
+			return () => J_1(t.gameid, i);
+		}
+		case "PurchaseApp": {
 			return () => SteamClient.Apps.ShowStore(t.appid);
-		case "GameProperties":
+		}
+		case "GameProperties": {
 			return () => SteamClient.Apps.OpenAppSettingsDialog(t.appid, "");
-		case "CreateDesktopShortcut":
+		}
+		case "CreateDesktopShortcut": {
 			return () =>
 				SteamClient.Apps.CreateDesktopShortcutForApp(t.appid).catch((e) =>
 					console.error("CreateDesktopShortcutForApp failed:", e),
 				);
-		case "BrowseLocalFiles":
+		}
+		case "BrowseLocalFiles": {
 			return () =>
-				(function (e) {
+				((e) => {
 					const t = m.H.GetAppDetails(e);
 					SteamClient.System.OpenLocalDirectoryInSystemExplorer(
 						t.strInstallFolder,
 					);
 				})(t.appid);
-		case "PlayMusic":
+		}
+		case "PlayMusic": {
 			return () => aF(t.appid, i);
-		case "BackUpFiles":
-			return () => (0, q.vq)([t.appid], i);
-		default:
+		}
+		case "BackUpFiles": {
+			return () => vq([t.appid], i);
+		}
+		default: {
 			return null;
+		}
 	}
 }
 export function k2(e) {
@@ -591,19 +656,23 @@ export function k2(e) {
 		case "Play":
 		case "PlayMusic":
 		case "Launch":
-		case "ResumeGameInProgress":
+		case "ResumeGameInProgress": {
 			return true;
-		default:
+		}
+		default: {
 			return false;
+		}
 	}
 }
 export function KM(e) {
 	switch (e) {
 		case "Stream":
-		case "Connect":
+		case "Connect": {
 			return true;
-		default:
+		}
+		default: {
 			return false;
+		}
 	}
 }
 export function WB(e) {
@@ -619,24 +688,31 @@ export function WB(e) {
 	}
 	switch (e) {
 		case "Cancel":
-		case "Stop":
+		case "Stop": {
 			return d.createElement(F.bm, null);
-		case "Pause":
+		}
+		case "Pause": {
 			return d.createElement(F.vR, null);
+		}
 		case "Download":
 		case "Resume":
 		case "PreLoad":
-		case "Install":
+		case "Install": {
 			return d.createElement(F.f5, null);
-		case "Update":
+		}
+		case "Update": {
 			return d.createElement(F.UT, null);
+		}
 		case "Uninstall":
-		case "RemoveShortcut":
+		case "RemoveShortcut": {
 			return d.createElement(F.lM, null);
-		case "PurchaseApp":
+		}
+		case "PurchaseApp": {
 			return d.createElement(F.qz, null);
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }
 export function Co(e, t) {
@@ -646,30 +722,35 @@ export function Co(e, t) {
 		case "Launch":
 		case "Stream":
 		case "Connect":
-		case "ResumeGameInProgress":
+		case "ResumeGameInProgress": {
 			r = t.Play;
 			break;
+		}
 		case "Cancel":
-		case "Stop":
+		case "Stop": {
 			r = t.Stop;
 			break;
-		case "Pause":
+		}
+		case "Pause": {
 			r = t.Pause;
 			break;
+		}
 		case "Download":
 		case "Resume":
 		case "PreLoad":
-		case "Install":
+		case "Install": {
 			r = t.Download;
 			break;
-		case "Update":
+		}
+		case "Update": {
 			r = t.Update;
+		}
 	}
 	return r;
 }
 export function uU(e) {
-	const t = (0, s.br)();
-	const r = (0, j.$2)();
+	const t = br();
+	const r = $2();
 	return d.createElement(Ie, {
 		navigator: t,
 		instance: r,
@@ -718,14 +799,14 @@ let Ie = class extends d.Component {
 		_.md.SetAppsAsHidden(e, false);
 	}
 	AddToNewCollection(e, t) {
-		(0, Y.oy)(GetOwningWindowForEvent(e), t, "context-menu");
+		oy(GetOwningWindowForEvent(e), t, "context-menu");
 	}
 	ShowCDKeys(e) {
 		if (this.props.bInGamepadUI) {
-			(0, o.F)(GetOwningWindowForEvent(e), this.props.overview);
+			F_1(GetOwningWindowForEvent(e), this.props.overview);
 		} else {
 			GetOwningWindowForEvent(e).location.href =
-				"steam://cdkeys/" + this.props.overview.appid;
+				`steam://cdkeys/${this.props.overview.appid}`;
 		}
 	}
 	ShowControllerConfig() {
@@ -741,6 +822,7 @@ let Ie = class extends d.Component {
 			if (
 				!n.bAllowsDragAndDrop ||
 				_.md.BIsSystemCollectionId(n.id) ||
+				_.md.BIsSystemCollectionId(n.id) ||
 				_.md.BIsPartnerCollectionId(n.id)
 			) {
 				continue;
@@ -753,7 +835,7 @@ let Ie = class extends d.Component {
 					d.createElement(
 						k.kt,
 						{
-							key: "remove-from-" + n.id,
+							key: `remove-from-${n.id}`,
 							onSelected: () => i.RemoveApps(e),
 							className: N.UpperCase,
 						},
@@ -765,7 +847,7 @@ let Ie = class extends d.Component {
 				d.createElement(
 					k.kt,
 					{
-						key: "add-to-" + n.id,
+						key: `add-to-${n.id}`,
 						disabled: !s,
 						onSelected: () => i.AddApps(e),
 						className: N.UpperCase,
@@ -818,11 +900,11 @@ let Ie = class extends d.Component {
 				d.createElement(
 					k.kt,
 					{
-						className: (0, x.A)(n, J.ContextMenuAction),
+						className: A_1(n, J.ContextMenuAction),
 						onSelected: i,
 					},
 					WB(r),
-					(0, a.Np)(r, 1),
+					Np(r, 1),
 				)
 			);
 		}
@@ -861,7 +943,7 @@ let Ie = class extends d.Component {
 				},
 			},
 			WB(c),
-			(0, a.Np)(c, e.length),
+			Np(c, e.length),
 		);
 	}
 	GetOnSelectFunctionForAppActions(e, t, r) {
@@ -871,31 +953,34 @@ let Ie = class extends d.Component {
 			};
 		} else {
 			return (r) => {
-				let n = (function (e, t, r, n) {
-					(0, z.w)(
+				let n = ((e, t, r, n) => {
+					w_1(
 						r == "local",
 						"Bulk management actions currently only supported on local clients",
 					);
-					const i = t
-						.filter((t) => Ae(t, r).indexOf(e) != -1)
-						.map((e) => e.appid);
+					const i = t.filter((t) => Ae(t, r).includes(e)).map((e) => e.appid);
 					switch (e) {
-						case "Uninstall":
-							return () => (0, K.Uo)(i, n, false);
-						case "BackUpFiles":
-							return () => (0, q.vq)(i, n);
-						case "RemoveShortcut":
+						case "Uninstall": {
+							return () => Uo(i, n, false);
+						}
+						case "BackUpFiles": {
+							return () => vq(i, n);
+						}
+						case "RemoveShortcut": {
 							return () => i.forEach((e) => pe(e));
-						case "CreateDesktopShortcut":
+						}
+						case "CreateDesktopShortcut": {
 							return () =>
 								i.forEach((e) =>
 									SteamClient.Apps.CreateDesktopShortcutForApp(e).catch((e) =>
 										console.error("CreateDesktopShortcutForApp failed:", e),
 									),
 								);
-						default:
+						}
+						default: {
 							console.error("Unsupported bulk operation", e);
 							return () => {};
+						}
 					}
 				})(e, t, "local", GetOwningWindowForEvent(r));
 				n();
@@ -916,7 +1001,7 @@ let Ie = class extends d.Component {
 		const u =
 			e.length == 1
 				? Ae(e[0], t)
-				: (function (e, t) {
+				: ((e, t) => {
 						let r = new Set();
 						for (const n of e) {
 							for (const e of Ae(n, t)) {
@@ -949,7 +1034,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => this.RemoveFromHidden(o),
 					},
-					(0, a.Np)("RemoveFromHidden", e.length),
+					Np("RemoveFromHidden", e.length),
 				),
 			A &&
 				d.createElement(
@@ -962,7 +1047,7 @@ let Ie = class extends d.Component {
 							t,
 						),
 					},
-					(0, a.Np)(
+					Np(
 						H.TS.IN_CHROMEOS
 							? "CreateLauncherShortcut"
 							: "CreateDesktopShortcut",
@@ -977,7 +1062,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => S.jR.SetAppBlockedState(i, false),
 					},
-					(0, a.Np)("AddToFamilyGames", e.length),
+					Np("AddToFamilyGames", e.length),
 				),
 			S.jR.isEnabled &&
 				!S.jR.isParentalLocked &&
@@ -987,7 +1072,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => S.jR.SetAppBlockedState(s, true),
 					},
-					(0, a.Np)("RemoveFromFamilyGames", e.length),
+					Np("RemoveFromFamilyGames", e.length),
 				),
 			n &&
 				n.bShowCDKeyInMenus &&
@@ -1024,7 +1109,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: this.props.onChangeArtwork,
 					},
-					(0, a.Np)(
+					Np(
 						this.props.hasCustomArtwork
 							? "ClearCustomArtwork"
 							: "SetCustomArtwork",
@@ -1051,7 +1136,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => this.AddToHidden(l),
 					},
-					(0, a.Np)("AddToHidden", e.length),
+					Np("AddToHidden", e.length),
 				),
 			d.createElement(De, {
 				rgApps: e,
@@ -1071,7 +1156,7 @@ let Ie = class extends d.Component {
 							t,
 						),
 					},
-					(0, a.Np)("RemoveShortcut", e.length),
+					Np("RemoveShortcut", e.length),
 				),
 			g &&
 				d.createElement(
@@ -1084,7 +1169,7 @@ let Ie = class extends d.Component {
 							t,
 						),
 					},
-					(0, a.Np)("Uninstall", e.length),
+					Np("Uninstall", e.length),
 				),
 			h &&
 				d.createElement(
@@ -1097,7 +1182,7 @@ let Ie = class extends d.Component {
 							t,
 						),
 					},
-					(0, a.Np)("BackUpFiles", e.length),
+					Np("BackUpFiles", e.length),
 				),
 		);
 	}
@@ -1122,7 +1207,7 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => this.RemoveFromFavorites(r),
 					},
-					(0, a.Np)("RemoveFromFavorites", e.length),
+					Np("RemoveFromFavorites", e.length),
 				),
 			n.length > 0 &&
 				d.createElement(
@@ -1130,13 +1215,13 @@ let Ie = class extends d.Component {
 					{
 						onSelected: () => this.AddToFavorites(n),
 					},
-					(0, a.Np)("AddToFavorites", e.length),
+					Np("AddToFavorites", e.length),
 				),
 			i.length > 0 &&
 				d.createElement(
 					k.Vs,
 					{
-						label: (0, a.Np)("AddToCollection", e.length),
+						label: Np("AddToCollection", e.length),
 					},
 					i,
 				),
@@ -1144,7 +1229,7 @@ let Ie = class extends d.Component {
 				d.createElement(
 					k.Vs,
 					{
-						label: (0, a.Np)("RemoveFromCollection", e.length),
+						label: Np("RemoveFromCollection", e.length),
 					},
 					s,
 				),
@@ -1192,17 +1277,17 @@ function Ee(e, t, r) {
 }
 function Me(e) {
 	const { familyGroupId: t, rgApps: r, settings: n } = e;
-	const i = (0, ee.KV)();
+	const i = KV();
 	const a = ie.b.InitFromAccountID(Number(n.settings.steamid));
 	const s = a.ConvertTo64BitString();
-	const o = (0, ne.gt)(a);
-	const l = (0, ne.KM)(a);
-	const [c] = (0, ae.I5)("bParenthesizeNicknames");
-	const m = (0, re.At)(s);
+	const o = gt(a);
+	const l = KM_2(a);
+	const [c] = I5("bParenthesizeNicknames");
+	const m = At(s);
 	const u = r.filter((e) => n.mapAppsAllowed.get(e.appid));
 	const A = r.filter((e) => !n.mapAppsAllowed.get(e.appid));
 	const p = d.useCallback(async () => {
-		const e = await (0, re.TW)(i, s);
+		const e = await TW(i, s);
 		Ee(
 			e.settings,
 			true,
@@ -1211,7 +1296,7 @@ function Me(e) {
 		m.mutate(e.settings);
 	}, [m, r, i, s]);
 	const g = d.useCallback(async () => {
-		const e = await (0, re.TW)(i, s);
+		const e = await TW(i, s);
 		Ee(
 			e.settings,
 			false,
@@ -1274,11 +1359,11 @@ function Me(e) {
 }
 function Te(e) {
 	const { familyGroupId: t, rgApps: r, rgChildrenSteamID: n } = e;
-	const i = (function (e) {
-		const t = (0, ee.KV)();
-		return (0, te.E)({
+	const i = ((e) => {
+		const t = KV();
+		return E_2({
 			queries: e.map((e) =>
-				(0, re.Bf)(t, e, {
+				Bf(t, e, {
 					staleTime: 60000,
 				}),
 			),
@@ -1312,7 +1397,7 @@ function Te(e) {
 function Re(e) {
 	const { familyGroupId: t, rgApps: r } = e;
 	const n =
-		(0, $.kU)()
+		kU()
 			.filter((e) => e.role == 2)
 			.map((e) => ie.b.InitFromAccountID(e.accountid).ConvertTo64BitString()) ||
 		[];
@@ -1328,9 +1413,9 @@ function Re(e) {
 }
 function ke(e) {
 	const { rgApps: t } = e;
-	const r = (0, oe.Id)();
-	const n = (0, $.EK)();
-	const i = (0, $.ZW)();
+	const r = Id();
+	const n = EK();
+	const i = ZW();
 	if (r && n && i == 1) {
 		return d.createElement(Re, {
 			familyGroupId: n,
@@ -1343,11 +1428,11 @@ function ke(e) {
 function De(e) {
 	const { rgApps: t } = e;
 	const r = d.useMemo(() => t.map((e) => e.appid), [t]);
-	const { data: n } = (0, M.Pt)();
-	const i = (0, E.W6)();
+	const { data: n } = Pt();
+	const i = W6();
 	const s = n?.size === 0;
 	const o = r.every((e) => n?.has(e));
-	const l = (0, M.DT)();
+	const l = DT();
 	const c = d.useCallback(async () => {
 		const e = await Promise.all(r.map((e) => m.H.RequestAppDetails(e)));
 		const t = [...r].concat(...e.map((e) => e.vecDLC.map((e) => e.unAppID)));
@@ -1376,11 +1461,11 @@ function De(e) {
 		return d.createElement(
 			k.kt,
 			{
-				onSelected: u ? undefined : c,
+				onSelected: u || c,
 				disabled: u,
 			},
-			(0, a.Np)(o ? "UnmarkAsPrivate" : "MarkAsPrivate", t.length),
-			u && " " + Localize("#GameAction_MarkAsPrivate_NoShortcuts"),
+			Np(o ? "UnmarkAsPrivate" : "MarkAsPrivate", t.length),
+			u && ` ${Localize("#GameAction_MarkAsPrivate_NoShortcuts")}`,
 		);
 	} else {
 		return null;
@@ -1388,8 +1473,8 @@ function De(e) {
 }
 function Ne(e) {
 	const { app: t } = e;
-	const r = (0, m.T)(t.appid);
-	const n = (0, Z.y)(t.appid);
+	const r = T_1(t.appid);
+	const n = y_3(t.appid);
 	const i = g("@bShowUninstalledDemosInLibrary", C, false);
 	let a = false;
 	if (r) {
@@ -1412,34 +1497,34 @@ function Ne(e) {
 		return null;
 	}
 }
-(0, n.Cg)([V.oI], Ie.prototype, "GetTargetApps", null);
-(0, n.Cg)([V.oI], Ie.prototype, "AddToFavorites", null);
-(0, n.Cg)([V.oI], Ie.prototype, "RemoveFromFavorites", null);
-(0, n.Cg)([V.oI], Ie.prototype, "AddToHidden", null);
-(0, n.Cg)([V.oI], Ie.prototype, "RemoveFromHidden", null);
-(0, n.Cg)([V.oI], Ie.prototype, "AddToNewCollection", null);
-(0, n.Cg)([V.oI], Ie.prototype, "ShowCDKeys", null);
-(0, n.Cg)([V.oI], Ie.prototype, "ShowControllerConfig", null);
-(0, n.Cg)([V.oI], Ie.prototype, "DismissFromPlayNext", null);
-(0, n.Cg)([V.oI], Ie.prototype, "GetPrimaryActionMenuItem", null);
-Ie = (0, n.Cg)([v.PA], Ie);
+Cg([V.oI], Ie.prototype, "GetTargetApps", null);
+Cg([V.oI], Ie.prototype, "AddToFavorites", null);
+Cg([V.oI], Ie.prototype, "RemoveFromFavorites", null);
+Cg([V.oI], Ie.prototype, "AddToHidden", null);
+Cg([V.oI], Ie.prototype, "RemoveFromHidden", null);
+Cg([V.oI], Ie.prototype, "AddToNewCollection", null);
+Cg([V.oI], Ie.prototype, "ShowCDKeys", null);
+Cg([V.oI], Ie.prototype, "ShowControllerConfig", null);
+Cg([V.oI], Ie.prototype, "DismissFromPlayNext", null);
+Cg([V.oI], Ie.prototype, "GetPrimaryActionMenuItem", null);
+Ie = Cg([v.PA], Ie);
 export function zq() {
 	return {
 		bFitToWindow: true,
-		strClassName: (0, x.A)(N.contextMenu, J.LibraryContextMenu),
+		strClassName: A_1(N.contextMenu, J.LibraryContextMenu),
 	};
 }
 function Ge(e) {
 	const { rgApps: t } = e;
-	const r = (0, I.q3)(() => c.Fd.Get().GetControllers());
-	const n = (0, H.Qn)();
-	const [i] = (0, B.gk)();
+	const r = q3(() => c.Fd.Get().GetControllers());
+	const n = Qn();
+	const [i] = gk();
 	const a = t.filter((e) => e.appid != null).map((e) => e.appid);
-	const s = (0, ce.y)(a);
+	const s = y_1(a);
 	if (!n || !i) {
 		return null;
 	}
-	const o = (0, H.CI)();
+	const o = CI();
 	const l = r.length > 0;
 	if (o || l) {
 		return d.createElement(

@@ -1,21 +1,22 @@
-var n = require(/*webcrack:missing*/ "./46382.js");
-var i = require(/*webcrack:missing*/ "./3715.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
+import n, { KV } from "./46382.js";
+import i, { jE } from "./3715.js";
+import a from "./63696.js";
+import l from "./12176.js";
+import c from "./65850.js";
+import m from "./80222.js";
+import u from "./11682.js";
+import A, { zj, HJ, RH } from "./41240.js";
+import p from "./28987.js";
+import "./64880.js";
+import C, { vB } from "./90076.js";
 function s(e, t) {
 	return e.split(t);
 }
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-var l = require(/*webcrack:missing*/ "./12176.js");
-var c = require("./65850.js");
-var m = require("./80222.js");
-var u = require(/*webcrack:missing*/ "./11682.js");
-var d = u;
-var A = require("./41240.js");
-var p = require(/*webcrack:missing*/ "./28987.js");
-require("./64880.js");
+const d = u;
 function g(e, t) {
 	t.Body().set_context(
-		(function (e) {
+		((e) => {
 			const t = new m.TS();
 			if (!e.bUsePartnerAPI) {
 				t.set_country_code(e.country);
@@ -55,17 +56,17 @@ function h(e, t, r, n) {
 				n.add(r);
 			});
 			if (d.include_included_items) {
-				const { include_included_items: e, ...t } = d;
+				const { include_included_items, ...t } = d;
 				d.included_item_data_request = t;
 			}
 			const p = l.w.Init(m.eE);
 			let h;
 			g(t, p);
-			(function (e, t) {
+			((e, t) => {
 				e.Body().set_data_request(m.gn.fromObject(t));
 			})(p, d);
 			i.forEach((e) => {
-				const t = (0, A.zj)(e);
+				const t = zj(e);
 				if (t) {
 					p.Body().add_ids(m.O4.fromObject(t));
 				}
@@ -81,10 +82,10 @@ function h(e, t, r, n) {
 			h.Body()
 				.store_items()
 				.forEach((e) => {
-					C.set((0, A.HJ)(e.item_type(), e.id()), e);
+					C.set(HJ(e.item_type(), e.id()), e);
 				});
 			if (n) {
-				(function (e, t, r, n) {
+				((e, t, r, n) => {
 					e.forEach((e, i) => {
 						const a = r.get(i);
 						AssertMsg(a, `Missing request data for ${i}`);
@@ -116,7 +117,7 @@ function h(e, t, r, n) {
 					return r.toObject();
 				} else {
 					return {
-						...(0, A.RH)(t),
+						...RH(t),
 						success: 2,
 					};
 				}
@@ -129,44 +130,43 @@ function h(e, t, r, n) {
 		},
 	);
 }
-var C = require("./90076.js");
-const _ = a.createContext({});
+const _Context = a.createContext({});
 export function eG() {
-	return a.useContext(_).dataLoader;
+	return a.useContext(_Context).dataLoader;
 }
 export function V3(e) {
 	const {
-		context: t,
-		msDelayBatch: r,
-		serviceTransportOverride: s,
-		legacyCacheStoreItemData: o,
-		children: l,
+		context,
+		msDelayBatch,
+		serviceTransportOverride,
+		legacyCacheStoreItemData,
+		children,
 	} = e;
-	const c = (0, n.KV)();
-	const m = (0, i.jE)();
+	const c = KV();
+	const m = jE();
 	const u = a.useCallback(
 		(e, t) => {
-			(0, C.vB)(m, e.toObject(), t);
-			if (o) {
-				o(e, t);
+			vB(m, e.toObject(), t);
+			if (legacyCacheStoreItemData) {
+				legacyCacheStoreItemData(e, t);
 			}
 		},
-		[m, o],
+		[m, legacyCacheStoreItemData],
 	);
-	const d = s || c;
-	const { country: A, language: p, realm: g, bUsePartnerAPI: f } = t;
+	const d = serviceTransportOverride || c;
+	const { country, language, realm, bUsePartnerAPI } = context;
 	const b = a.useMemo(
 		() => ({
-			country: A,
-			language: p,
-			realm: g,
-			bUsePartnerAPI: f,
+			country: country,
+			language: language,
+			realm: realm,
+			bUsePartnerAPI: bUsePartnerAPI,
 		}),
-		[A, p, g, f],
+		[country, language, realm, bUsePartnerAPI],
 	);
 	const y = a.useMemo(() => {
-		const e = r
-			? (function (e) {
+		const e = msDelayBatch
+			? ((e) => {
 					let t = 0;
 					return (r) => {
 						let n;
@@ -179,7 +179,7 @@ export function V3(e) {
 							r();
 						}, n);
 					};
-				})(r)
+				})(msDelayBatch)
 			: undefined;
 		return h(
 			d,
@@ -190,7 +190,7 @@ export function V3(e) {
 			},
 			u,
 		);
-	}, [d, u, b, r]);
+	}, [d, u, b, msDelayBatch]);
 	const S = a.useMemo(
 		() => ({
 			dataLoader: y,
@@ -199,11 +199,5 @@ export function V3(e) {
 		}),
 		[y, b, u],
 	);
-	return a.createElement(
-		_.Provider,
-		{
-			value: S,
-		},
-		l,
-	);
+	return <_Context.Provider value={S}>{children}</_Context.Provider>;
 }

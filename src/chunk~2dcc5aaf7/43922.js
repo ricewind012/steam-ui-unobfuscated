@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	"duration-app-launch": "800ms",
 	PagedSettingsDialog: "_2sssIwe0duyIrFvat2oXzH",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	"gamepad-header-height": "40px",
 	Profile: "_1O7J00TSitZuhJeErzoVGD",

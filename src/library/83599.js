@@ -1,9 +1,9 @@
-export var $b;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var s = require("./93960.js");
-var o = require("./73870.js");
-var a = require("./79769.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import s from "./93960.js";
+import o from "./73870.js";
+import a from "./79769.js";
+export let $b;
+((e) => {
 	e[(e.Debug = 0)] = "Debug";
 	e[(e.Info = 1)] = "Info";
 	e[(e.Warning = 2)] = "Warning";
@@ -45,16 +45,16 @@ export class wd {
 		let i = this.m_sName;
 		const s = this.m_fnIdGenerator?.() ?? null;
 		if (s != null) {
-			i += " (" + s + ")";
+			i += ` (${s})`;
 		}
 		u(e, n, fi.Get().IncludeBacktraceInLog, i, this.m_sName, ...t);
 	}
 }
-(0, i.Cg)([s.o], wd.prototype, "Debug", null);
-(0, i.Cg)([s.o], wd.prototype, "Info", null);
-(0, i.Cg)([s.o], wd.prototype, "Warning", null);
-(0, i.Cg)([s.o], wd.prototype, "Error", null);
-(0, i.Cg)([s.o], wd.prototype, "Assert", null);
+Cg([s.o], wd.prototype, "Debug", null);
+Cg([s.o], wd.prototype, "Info", null);
+Cg([s.o], wd.prototype, "Warning", null);
+Cg([s.o], wd.prototype, "Error", null);
+Cg([s.o], wd.prototype, "Assert", null);
 export class fi {
 	static k_EnabledLogNames_StorageKey = "EnabledWebLogs";
 	static k_IncludeBacktraceInLog_StorageKey = "IncludeBacktraceInLog";
@@ -167,7 +167,7 @@ export class fi {
 	}
 }
 function u(e, t, n, i, s, ...o) {
-	const a = (function (e) {
+	const a = ((e) => {
 		let t = 0;
 		for (let n = 0; n < e.length; n++) {
 			t = e.charCodeAt(n) + ((t << 5) - t);
@@ -182,29 +182,32 @@ function u(e, t, n, i, s, ...o) {
 	var l;
 	let u = i;
 	if (n) {
-		u =
-			(function (e) {
-				switch (e) {
-					case $b.Debug:
-						return String.fromCodePoint(128027);
-					case $b.Info:
-						return String.fromCodePoint(8505);
-					case $b.Warning:
-						return String.fromCodePoint(9888);
-					case $b.Error:
-						return String.fromCodePoint(128165);
+		u = `${((e) => {
+			switch (e) {
+				case $b.Debug: {
+					return String.fromCodePoint(128027);
 				}
-			})(e) +
-			" " +
-			u;
+				case $b.Info: {
+					return String.fromCodePoint(8505);
+				}
+				case $b.Warning: {
+					return String.fromCodePoint(9888);
+				}
+				case $b.Error: {
+					return String.fromCodePoint(128165);
+				}
+			}
+		})(e)} ${u}`;
 	}
 	const m = o.length >= 1 && typeof o[0] == "string" && o[0].includes("%c");
 	const d = m && o.shift();
 	let h;
 	h = t
 		? [
-				`%c${u}%c:${m ? " %c" + d : ""}`,
-				`color: ${c ? "black" : "white"}; background: rgb(${a.join(",")}); padding: 0 1ch; border-radius: 3px;`,
+				`%c${u}%c:${m ? ` %c${d}` : ""}`,
+				`color: ${c ? "black" : "white"}; background: rgb(${a.join(
+					",",
+				)}); padding: 0 1ch; border-radius: 3px;`,
 				"color: transparent; margin-right: -1ch",
 				...(m ? [""] : []),
 				...o,
@@ -217,18 +220,21 @@ function u(e, t, n, i, s, ...o) {
 	} else {
 		switch (e) {
 			case $b.Debug:
-			case $b.Info:
+			case $b.Info: {
 				console.log(...h);
 				break;
-			case $b.Warning:
+			}
+			case $b.Warning: {
 				console.warn(...h);
 				break;
-			case $b.Error:
+			}
+			case $b.Error: {
 				if (console.clogerror) {
 					console.clogerror(3, ...h);
 				} else {
 					console.error(...h);
 				}
+			}
 		}
 	}
 }

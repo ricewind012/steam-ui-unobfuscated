@@ -1,126 +1,83 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require("./44234.js");
-var o = require("./66146.js");
-var l = require("./52912.js");
-var c = require("./95773.js");
-var m = require("./14182.js");
-var u = require("./88620.js");
-var d = require("./78060.js");
-var A = require("./98829.js");
-var p = require("./13869.js");
-var g = require(/*webcrack:missing*/ "./69164.js");
-var h = require(/*webcrack:missing*/ "./89193.js");
-var C = require(/*webcrack:missing*/ "./41230.js");
-var _ = require(/*webcrack:missing*/ "./63696.js");
-var f = require("./64608.js");
-var b = require(/*webcrack:missing*/ "./50376.js");
-var y = require(/*webcrack:missing*/ "./26853.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var v = require(/*webcrack:missing*/ "./52451.js");
-var I = require("./24761.js");
-var E = require("./59704.js");
-var M = require(/*webcrack:missing*/ "./8573.js");
-var T = require(/*webcrack:missing*/ "./49455.js");
-var R = require("./72945.js");
-var k = R;
-var D = require(/*webcrack:missing*/ "./90765.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s from "./44234.js";
+import o from "./66146.js";
+import l, { h8, CO } from "./52912.js";
+import c from "./95773.js";
+import m from "./14182.js";
+import u from "./88620.js";
+import d, { Ci, Nw, Ic, hr } from "./78060.js";
+import A from "./98829.js";
+import p, { HT } from "./13869.js";
+import g from "./69164.js";
+import h, { Gn } from "./89193.js";
+import C from "./41230.js";
+import _, { useState } from "./63696.js";
+import f from "./64608.js";
+import b from "./50376.js";
+import y from "./26853.js";
+import v from "./52451.js";
+import { u as u_1 } from "./24761.js";
+import E from "./59704.js";
+import M from "./8573.js";
+import { w } from "./49455.js";
+import R from "./72945.js";
+import { A as A_1 } from "./90765.js";
+import G from "./86360.js";
+import z from "./36308.js";
+import U from "./72476.js";
+const a = i;
+const k = R;
 function N(e) {
-	const {
-		title: t,
-		pages: r,
-		children: n,
-		initialActivePage: i,
-		renderNavFooter: a,
-	} = e;
-	const [s, o] = (0, _.useState)(i || r[0]);
-	return _.createElement(
-		g.Z,
-		{
-			className: k.Container,
-			"flow-children": "row",
-		},
-		_.createElement(
-			g.Z,
-			{
-				className: k.Nav,
-				"flow-children": "column",
-			},
-			_.createElement(
-				"span",
-				{
-					className: k.NavTitle,
-				},
-				t,
-			),
-			_.createElement(
-				g.Z,
-				{
-					className: k.NavItems,
-					"flow-children": "column",
-				},
-				r.map((e) =>
-					_.createElement(
-						F,
-						{
-							key: e,
-							active: e === s,
-							onClick: () => o(e),
-						},
-						e,
-					),
-				),
-			),
-			a && a(),
-		),
-		_.createElement(
-			"div",
-			{
-				className: k.Content,
-			},
-			n(s),
-		),
+	const { title, pages, children, initialActivePage, renderNavFooter } = e;
+	const [s, setS] = useState(initialActivePage || pages[0]);
+	return (
+		<g.Z className={k.Container} flow-children="row">
+			<g.Z className={k.Nav} flow-children="column">
+				<span className={k.NavTitle}>{title}</span>
+				<g.Z className={k.NavItems} flow-children="column">
+					{pages.map((e) => (
+						<F key={e} active={e === s} onClick={() => setS(e)}>
+							{e}
+						</F>
+					))}
+				</g.Z>
+				{renderNavFooter && renderNavFooter()}
+			</g.Z>
+			<div className={k.Content}>{children(s)}</div>
+		</g.Z>
 	);
 }
 const F = (e) => {
-	const { active: t, onClick: r, ...n } = e;
-	return _.createElement(g.Z, {
-		...n,
-		focusable: true,
-		onActivate: r,
-		className: (0, D.A)(k.NavItem, t && k.Active),
-	});
+	const { active, onClick, ...n } = e;
+	return (
+		<g.Z
+			{...n}
+			focusable
+			onActivate={onClick}
+			className={A_1(k.NavItem, active && k.Active)}
+		/>
+	);
 };
-var G = require("./86360.js");
-var O = G;
+const O = G;
 const P = (e) => {
-	const { className: t, ...r } = e;
-	return _.createElement("div", {
-		className: (0, D.A)(O.DialogTitle, t),
-		...r,
-	});
+	const { className, ...r } = e;
+	return <div className={A_1(O.DialogTitle, className)} {...r} />;
 };
 const L = (e) => {
-	const { className: t, ...r } = e;
-	return _.createElement("div", {
-		className: (0, D.A)(O.DialogContent, t),
-		...r,
-	});
+	const { className, ...r } = e;
+	return <div className={A_1(O.DialogContent, className)} {...r} />;
 };
-var z = require("./36308.js");
-var x = z;
-var U = require(/*webcrack:missing*/ "./72476.js");
+const x = z;
 export function hI(e, t) {
-	(0, p.HT)(
-		_.createElement(V, {
-			groupView: t,
-		}),
+	HT(
+		<V groupView={t} />,
 		e,
 		"ChatRoomGroupSettings",
 		{
@@ -128,7 +85,7 @@ export function hI(e, t) {
 			popupWidth: 842,
 			popupHeight: 600,
 		},
-		(0, l.h8)(e),
+		h8(e),
 		{
 			nDragAreaHeight: 32,
 		},
@@ -147,7 +104,7 @@ let V = class extends _.Component {
 	};
 	constructor(e) {
 		super(e);
-		(0, h.Gn)(this);
+		Gn(this);
 		this.state = {
 			strRoomName: this.props.groupView.GetGroup().name,
 		};
@@ -160,14 +117,14 @@ let V = class extends _.Component {
 	}
 	OnLeave(e) {
 		let t = GetOwningWindowForEvent(e);
-		let r = (0, l.CO)(e);
+		let r = CO(e);
 		let n = this.props.groupView.GetGroup();
 		let i = n.BIsClanChatRoom()
 			? "#Chat_Actions_LeaveChatRoomGroup_ClanConfirm"
 			: n.BIsAccountIDOwner(c.xm.CMInterface.steamid.GetAccountID())
 				? "#Chat_Actions_OwnerLeaveChatRoomGroup_Confirm"
 				: "#Chat_Actions_LeaveChatRoomGroup_Confirm";
-		(0, d.Ci)(
+		Ci(
 			t,
 			(0, Localize)("#GroupSettings_Leave_Section"),
 			(0, Localize)(i, n.name),
@@ -187,74 +144,42 @@ let V = class extends _.Component {
 			return [
 				{
 					title: (0, Localize)("#GroupSettings_General_Section"),
-					render: () =>
-						_.createElement(q, {
-							group: e,
-						}),
+					render: () => <Q_1 group={e} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_InvitedUsers_Section"),
-					render: () =>
-						_.createElement(te, {
-							group: e,
-							invitedUsers: this.m_invitedUsers,
-						}),
+					render: () => <Te group={e} invitedUsers={this.m_invitedUsers} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Bans_Section"),
-					render: () =>
-						_.createElement(re, {
-							group: e,
-							bans: this.m_bans,
-						}),
+					render: () => <Re group={e} bans={this.m_bans} />,
 				},
 			];
 		} else {
 			return [
 				{
 					title: (0, Localize)("#GroupSettings_General_Section"),
-					render: () =>
-						_.createElement(q, {
-							group: e,
-						}),
+					render: () => <Q_1 group={e} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Channels_Section"),
-					render: () =>
-						_.createElement(Y, {
-							groupView: this.props.groupView,
-						}),
+					render: () => <Y groupView={this.props.groupView} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Permissions_Section"),
-					render: () =>
-						_.createElement(X, {
-							group: e,
-						}),
+					render: () => <X group={e} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Invite_Section"),
-					render: () =>
-						_.createElement(ee, {
-							group: e,
-							inviteLinks: this.m_inviteLinks,
-						}),
+					render: () => <Ee group={e} inviteLinks={this.m_inviteLinks} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_InvitedUsers_Section"),
-					render: () =>
-						_.createElement(te, {
-							group: e,
-							invitedUsers: this.m_invitedUsers,
-						}),
+					render: () => <Te group={e} invitedUsers={this.m_invitedUsers} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Bans_Section"),
-					render: () =>
-						_.createElement(re, {
-							group: e,
-							bans: this.m_bans,
-						}),
+					render: () => <Re group={e} bans={this.m_bans} />,
 				},
 			];
 		}
@@ -265,42 +190,26 @@ let V = class extends _.Component {
 			return [
 				{
 					title: (0, Localize)("#GroupSettings_Save_Section"),
-					render: () =>
-						_.createElement(j, {
-							group: e,
-						}),
+					render: () => <J_1 group={e} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Leave_Section"),
-					render: () =>
-						_.createElement(Q, {
-							group: e,
-						}),
+					render: () => <Q group={e} />,
 				},
 			];
 		} else {
 			return [
 				{
 					title: (0, Localize)("#GroupSettings_Save_Section"),
-					render: () =>
-						_.createElement(j, {
-							group: e,
-						}),
+					render: () => <J_1 group={e} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Invite_Section"),
-					render: () =>
-						_.createElement(ee, {
-							group: e,
-							inviteLinks: this.m_inviteLinks,
-						}),
+					render: () => <Ee group={e} inviteLinks={this.m_inviteLinks} />,
 				},
 				{
 					title: (0, Localize)("#GroupSettings_Leave_Section"),
-					render: () =>
-						_.createElement(Q, {
-							group: e,
-						}),
+					render: () => <Q group={e} />,
 				},
 			];
 		}
@@ -314,63 +223,52 @@ let V = class extends _.Component {
 	}
 	render() {
 		let e = this.GetPageList();
-		const { groupView: t } = this.props;
-		const r = t.GetGroup();
+		const { groupView } = this.props;
+		const r = groupView.GetGroup();
 		const n = `${r.unique_id}_${r.IsNamedGroupChat()}`;
-		return _.createElement(
-			p.x_,
-			{
-				onEscKeypress: this.DismissDialog,
-			},
-			_.createElement(
-				N,
-				{
-					title: (0, Localize)("#GroupSettings"),
-					pages: e.map(({ title: e }) => e),
-					renderNavFooter: () =>
-						_.createElement(H, {
-							onActivate: this.OnLeave,
-						}),
-					key: n,
-				},
-				(t) => {
-					const r = e.find((e) => e.title === t);
-					const n = r ? r.render() : null;
-					return _.createElement(
-						L,
-						{
-							style: {
-								flexDirection: "column",
-							},
-							key: t,
-						},
-						n,
-					);
-				},
-			),
+		return (
+			<p.x_ onEscKeypress={this.DismissDialog}>
+				<N
+					title={(0, Localize)("#GroupSettings")}
+					pages={e.map(({ title }) => title)}
+					renderNavFooter={() => <H onActivate={this.OnLeave} />}
+					key={n}
+				>
+					{(t) => {
+						const r = e.find((e) => e.title === t);
+						const n = r ? r.render() : null;
+						return (
+							<L
+								style={{
+									flexDirection: "column",
+								}}
+								key={t}
+							>
+								{n}
+							</L>
+						);
+					}}
+				</N>
+			</p.x_>
 		);
 	}
 };
-(0, n.Cg)([h.sH], V.prototype, "m_inviteLinks", undefined);
-(0, n.Cg)([h.sH], V.prototype, "m_invitedUsers", undefined);
-(0, n.Cg)([v.oI], V.prototype, "DismissDialog", null);
-(0, n.Cg)([v.oI], V.prototype, "CloseDialog", null);
-(0, n.Cg)([v.oI], V.prototype, "OnLeave", null);
-V = (0, n.Cg)([C.PA], V);
-const H = (e) =>
-	_.createElement(
-		g.Z,
-		{
-			className: x.LeaveButton,
-			...e,
-		},
-		_.createElement(b.Gq2, null),
-		(0, Localize)("#GroupSettings_Leave_Section"),
-	);
-let j = class extends _.Component {
+Cg([h.sH], V.prototype, "m_inviteLinks", undefined);
+Cg([h.sH], V.prototype, "m_invitedUsers", undefined);
+Cg([v.oI], V.prototype, "DismissDialog", null);
+Cg([v.oI], V.prototype, "CloseDialog", null);
+Cg([v.oI], V.prototype, "OnLeave", null);
+V = Cg([C.PA], V);
+const H = (e) => (
+	<g.Z className={x.LeaveButton} {...e}>
+		<b.Gq2 />
+		{(0, Localize)("#GroupSettings_Leave_Section")}
+	</g.Z>
+);
+let J_1 = class extends _.Component {
 	constructor(e) {
 		super(e);
-		(0, h.Gn)(this);
+		Gn(this);
 	}
 	m_refInput;
 	m_bSaving = false;
@@ -399,90 +297,53 @@ let j = class extends _.Component {
 	render() {
 		let e = this.m_bSaving;
 		let t = this.m_strError;
-		return _.createElement(
-			f.lV,
-			{
-				className: "DialogBody",
-				onSubmit: this.SaveGroup,
-			},
-			_.createElement(
-				f.a3,
-				null,
-				(0, Localize)("#GroupSettings_Save_Desc"),
-				_.createElement(
-					"div",
-					null,
-					_.createElement(
-						"ul",
-						null,
-						_.createElement(
-							"li",
-							null,
-							(0, Localize)("#GroupSettings_Save_Feature_1"),
-						),
-						_.createElement(
-							"li",
-							null,
-							(0, Localize)("#GroupSettings_Save_Feature_2"),
-						),
-						_.createElement(
-							"li",
-							null,
-							(0, Localize)("#GroupSettings_Save_Feature_3"),
-						),
-						_.createElement(
-							"li",
-							null,
-							(0, Localize)("#GroupSettings_Save_Feature_4"),
-						),
-					),
-				),
-			),
-			_.createElement(f.pd, {
-				ref: this.BindInputRef,
-				autoFocus: true,
-				label: (0, Localize)("#GroupSettings_Save_NameGroup"),
-				disabled: e,
-			}),
-			!e &&
-				_.createElement(
-					_.Fragment,
-					null,
-					t.length > 0 &&
-						_.createElement(
-							"div",
-							{
-								className: "ErrorWhileSaving",
-							},
-							t,
-						),
-					_.createElement(
-						f.jn,
-						{
-							className: "_FixedHeight",
-						},
-						(0, Localize)("#GroupSettings_Save_Section"),
-					),
-				),
-			e && _.createElement(y.t, null),
+		return (
+			<f.lV className="DialogBody" onSubmit={this.SaveGroup}>
+				<f.a3>
+					{(0, Localize)("#GroupSettings_Save_Desc")}
+					<div>
+						<ul>
+							<li>{(0, Localize)("#GroupSettings_Save_Feature_1")}</li>
+							<li>{(0, Localize)("#GroupSettings_Save_Feature_2")}</li>
+							<li>{(0, Localize)("#GroupSettings_Save_Feature_3")}</li>
+							<li>{(0, Localize)("#GroupSettings_Save_Feature_4")}</li>
+						</ul>
+					</div>
+				</f.a3>
+				<f.pd
+					ref={this.BindInputRef}
+					autoFocus
+					label={(0, Localize)("#GroupSettings_Save_NameGroup")}
+					disabled={e}
+				/>
+				{!e && (
+					<>
+						{t.length > 0 && <div className="ErrorWhileSaving">{t}</div>}
+						<f.jn className="_FixedHeight">
+							{(0, Localize)("#GroupSettings_Save_Section")}
+						</f.jn>
+					</>
+				)}
+				{e && <y.t />}
+			</f.lV>
 		);
 	}
 };
-(0, n.Cg)([h.sH], j.prototype, "m_bSaving", undefined);
-(0, n.Cg)([h.sH], j.prototype, "m_strError", undefined);
-(0, n.Cg)([v.oI], j.prototype, "BindInputRef", null);
-(0, n.Cg)([v.oI], j.prototype, "AnimateUpgrade_In", null);
-(0, n.Cg)([v.oI], j.prototype, "AnimateUpgrade_Out", null);
-(0, n.Cg)([v.oI], j.prototype, "SaveGroup", null);
-j = (0, n.Cg)([C.PA], j);
-let q = class extends _.Component {
+Cg([h.sH], J_1.prototype, "m_bSaving", undefined);
+Cg([h.sH], J_1.prototype, "m_strError", undefined);
+Cg([v.oI], J_1.prototype, "BindInputRef", null);
+Cg([v.oI], J_1.prototype, "AnimateUpgrade_In", null);
+Cg([v.oI], J_1.prototype, "AnimateUpgrade_Out", null);
+Cg([v.oI], J_1.prototype, "SaveGroup", null);
+J_1 = Cg([C.PA], J_1);
+let Q_1 = class extends _.Component {
 	static contextType = U.QO;
 	m_strRoomName = undefined;
 	m_strTagLine = undefined;
 	m_fileInput;
 	constructor(e) {
 		super(e);
-		(0, h.Gn)(this);
+		Gn(this);
 		this.m_strRoomName = this.props.group.IsNamedGroupChat()
 			? this.props.group.name
 			: "";
@@ -495,26 +356,33 @@ let q = class extends _.Component {
 	AvatarUploadEResultToString(e) {
 		let t = "#Chat_Settings_Error_Unknown";
 		switch (e) {
-			case 21:
+			case 21: {
 				t = "#Chat_Settings_Error_NotLoggedOn";
 				break;
-			case 112:
+			}
+			case 112: {
 				t = "#Chat_Settings_Error_LimitedUser";
 				break;
-			case 15:
+			}
+			case 15: {
 				t = "#Chat_Settings_Error_AccessDenied";
 				break;
-			case 2:
+			}
+			case 2: {
 				t = "#Chat_Settings_Error_FailedToUpload";
 				break;
-			case 25:
+			}
+			case 25: {
 				t = "#Chat_Settings_Error_FileTooLarge";
 				break;
-			case 8:
+			}
+			case 8: {
 				t = "#Chat_Settings_Error_InvalidImage";
 				break;
-			case 37:
+			}
+			case 37: {
 				t = "#Chat_Settings_Error_ServerError";
+			}
 		}
 		return (0, Localize)(t);
 	}
@@ -523,11 +391,13 @@ let q = class extends _.Component {
 		switch (e) {
 			case 10:
 			case 8:
-			case 32:
+			case 32: {
 				t = "#Chat_Settings_Error_ServerError";
 				break;
-			case 15:
+			}
+			case 15: {
 				t = "#Chat_Settings_Error_NotAdmin";
+			}
 		}
 		return (0, Localize)(t);
 	}
@@ -538,7 +408,7 @@ let q = class extends _.Component {
 		let n = new FormData();
 		n.set("sessionid", s.TS.SESSIONID);
 		n.set("avatar", t);
-		a.post(s.TS.CHAT_BASE_URL + "chat/avatarfileupload/", n, {
+		a.post(`${s.TS.CHAT_BASE_URL}chat/avatarfileupload/`, n, {
 			headers: {
 				"content-type": "multipart/form-data",
 			},
@@ -547,13 +417,13 @@ let q = class extends _.Component {
 				if (e.data.success == 1) {
 					r.SetChatRoomGroupAvatar(e.data.sha).catch((e) => {
 						let t = this.SetChatRoomGroupAvatarEResultToString(e);
-						(0, d.Nw)((0, Localize)("#Generic_Error"), t);
+						Nw((0, Localize)("#Generic_Error"), t);
 					});
 				}
 			})
 			.catch((e) => {
 				let t = this.AvatarUploadEResultToString(e.response.data.success);
-				(0, d.Nw)((0, Localize)("#Generic_Error"), t);
+				Nw((0, Localize)("#Generic_Error"), t);
 				console.log(e.response);
 			});
 	}
@@ -611,158 +481,119 @@ let q = class extends _.Component {
 		this.OnNameBlur();
 	}
 	render() {
-		const { group: e } = this.props;
-		const t = e.BCanAdminGroup();
+		const { group } = this.props;
+		const t = group.BCanAdminGroup();
 		let r;
-		if (e.BIsClanChatRoom()) {
-			r = _.createElement("div", null);
-		} else if (e.GetOwnerAccountID() == null) {
-			r = _.createElement(
-				"div",
-				null,
-				" ",
-				(0, Localize)("#Chat_Settings_No_Owner"),
-				" ",
-			);
+		if (group.BIsClanChatRoom()) {
+			r = <div />;
+		} else if (group.GetOwnerAccountID() == null) {
+			r = <div> {(0, Localize)("#Chat_Settings_No_Owner")} </div>;
 		} else {
-			let t = c.xm.FriendStore.GetPlayer(e.GetOwnerAccountID());
-			r = _.createElement(
-				g.Z,
-				{
-					focusable: false,
-					fnCanTakeFocus: () => false,
-				},
-				_.createElement(
-					f.JU,
-					null,
-					" ",
-					(0, Localize)("#Chat_Settings_General_Owner"),
-				),
-				_.createElement(A.bP, {
-					className: "groupOwnerFriend",
-					friend: t,
-					context: null,
-				}),
+			let t = c.xm.FriendStore.GetPlayer(group.GetOwnerAccountID());
+			r = (
+				<g.Z focusable={false} fnCanTakeFocus={() => false}>
+					<f.JU> {(0, Localize)("#Chat_Settings_General_Owner")}</f.JU>
+					<A.bP className="groupOwnerFriend" friend={t} context={null} />
+				</g.Z>
 			);
 		}
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement(P, null, (0, Localize)("#GroupSettings_General_Section")),
-			!t && _.createElement(ne, null),
-			_.createElement(
-				f.lV,
-				{
-					onSubmit: this.OnSubmitSent,
-					className: (0, D.A)("DialogBody", x.General),
-				},
-				_.createElement(
-					f.dR,
-					null,
-					_.createElement(
-						"div",
-						{
-							className: x.AvatarAndUser,
-						},
-						_.createElement(
-							f.JU,
-							null,
-							(0, Localize)("#Chat_Settings_General_Icon"),
-						),
-						_.createElement("img", {
-							className: (0, D.A)(x.Avatar, "no-drag"),
-							src: e.hasIcon
-								? e.avatar_url_full
-								: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
-						}),
-						!e.hasIcon &&
-							_.createElement(
-								"div",
-								{
-									className: x.NoIconLabel,
-								},
-								(0, Localize)("#Chat_Settings_General_NoIcon"),
-							),
-						_.createElement("input", {
-							type: "file",
-							style: {
-								display: "none",
-							},
-							name: "fileupload",
-							accept: ".png, .jpg, .jpeg, .gif",
-							ref: this.bindFileUploadControl,
-							onChange: this.OnFileChange,
-						}),
-						!this.context?.IN_GAMEPADUI &&
-							_.createElement(
-								f.$n,
-								{
-									onClick: this.OnAvatarChange,
-									disabled: !t,
-								},
-								(0, Localize)(
-									e.hasIcon
-										? "#Chat_Settings_General_ChangeIcon"
-										: "#Chat_Settings_General_AddIcon",
-								),
-							),
-					),
-					_.createElement(
-						"div",
-						{
-							className: "GeneralChatSettings",
-						},
-						_.createElement(f.pd, {
-							autoComplete: "off",
-							id: "b1",
-							className: "groupChatName",
-							label: (0, Localize)("#Chat_Settings_General_Chat_Name"),
-							type: "text",
-							value: this.m_strRoomName,
-							onChange: this.OnNameChange,
-							onBlur: this.OnNameBlur,
-							autoFocus: true,
-							disabled: !t,
-						}),
-						_.createElement("input", {
-							type: "submit",
-							style: {
-								display: "none",
-							},
-						}),
-						_.createElement(f.pd, {
-							autoComplete: "off",
-							id: "b2",
-							className: "groupChatTag",
-							label: (0, Localize)("#Chat_Settings_General_Tagline"),
-							type: "text",
-							value: this.m_strTagLine,
-							onChange: this.OnTagLineChange,
-							onBlur: this.OnTagLineBlur,
-							disabled: !t,
-						}),
-						r,
-					),
-				),
-			),
+		return (
+			<>
+				<P>{(0, Localize)("#GroupSettings_General_Section")}</P>
+				{!t && <Ne />}
+				<f.lV
+					onSubmit={this.OnSubmitSent}
+					className={A_1("DialogBody", x.General)}
+				>
+					<f.dR>
+						<div className={x.AvatarAndUser}>
+							<f.JU>{(0, Localize)("#Chat_Settings_General_Icon")}</f.JU>
+							<img
+								className={A_1(x.Avatar, "no-drag")}
+								src={
+									group.hasIcon
+										? group.avatar_url_full
+										: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+								}
+							/>
+							{!group.hasIcon && (
+								<div className={x.NoIconLabel}>
+									{(0, Localize)("#Chat_Settings_General_NoIcon")}
+								</div>
+							)}
+							<input
+								type="file"
+								style={{
+									display: "none",
+								}}
+								name="fileupload"
+								accept=".png, .jpg, .jpeg, .gif"
+								ref={this.bindFileUploadControl}
+								onChange={this.OnFileChange}
+							/>
+							{!this.context?.IN_GAMEPADUI && (
+								<f.$n onClick={this.OnAvatarChange} disabled={!t}>
+									{(0, Localize)(
+										group.hasIcon
+											? "#Chat_Settings_General_ChangeIcon"
+											: "#Chat_Settings_General_AddIcon",
+									)}
+								</f.$n>
+							)}
+						</div>
+						<div className="GeneralChatSettings">
+							<f.pd
+								autoComplete="off"
+								id="b1"
+								className="groupChatName"
+								label={(0, Localize)("#Chat_Settings_General_Chat_Name")}
+								type="text"
+								value={this.m_strRoomName}
+								onChange={this.OnNameChange}
+								onBlur={this.OnNameBlur}
+								autoFocus
+								disabled={!t}
+							/>
+							<input
+								type="submit"
+								style={{
+									display: "none",
+								}}
+							/>
+							<f.pd
+								autoComplete="off"
+								id="b2"
+								className="groupChatTag"
+								label={(0, Localize)("#Chat_Settings_General_Tagline")}
+								type="text"
+								value={this.m_strTagLine}
+								onChange={this.OnTagLineChange}
+								onBlur={this.OnTagLineBlur}
+								disabled={!t}
+							/>
+							{r}
+						</div>
+					</f.dR>
+				</f.lV>
+			</>
 		);
 	}
 };
-(0, n.Cg)([h.sH], q.prototype, "m_strRoomName", undefined);
-(0, n.Cg)([h.sH], q.prototype, "m_strTagLine", undefined);
-(0, n.Cg)([v.oI], q.prototype, "OnFileChange", null);
-(0, n.Cg)([v.oI], q.prototype, "bindFileUploadControl", null);
-(0, n.Cg)([v.oI], q.prototype, "OnNameChange", null);
-(0, n.Cg)([v.oI], q.prototype, "OnAvatarChange", null);
-(0, n.Cg)([v.oI], q.prototype, "OnTagLineChange", null);
-(0, n.Cg)([v.oI], q.prototype, "OnNameBlur", null);
-(0, n.Cg)([v.oI], q.prototype, "OnTagLineBlur", null);
-(0, n.Cg)([v.oI], q.prototype, "OnSubmitSent", null);
-q = (0, n.Cg)([C.PA], q);
+Cg([h.sH], Q_1.prototype, "m_strRoomName", undefined);
+Cg([h.sH], Q_1.prototype, "m_strTagLine", undefined);
+Cg([v.oI], Q_1.prototype, "OnFileChange", null);
+Cg([v.oI], Q_1.prototype, "bindFileUploadControl", null);
+Cg([v.oI], Q_1.prototype, "OnNameChange", null);
+Cg([v.oI], Q_1.prototype, "OnAvatarChange", null);
+Cg([v.oI], Q_1.prototype, "OnTagLineChange", null);
+Cg([v.oI], Q_1.prototype, "OnNameBlur", null);
+Cg([v.oI], Q_1.prototype, "OnTagLineBlur", null);
+Cg([v.oI], Q_1.prototype, "OnSubmitSent", null);
+Q_1 = Cg([C.PA], Q_1);
 let Q = class extends _.Component {
 	OnLeave(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
-		let r = (0, l.CO)(e);
+		let r = CO(e);
 		let n = this.props.group.BIsClanChatRoom()
 			? "#Chat_Actions_LeaveChatRoomGroup_ClanConfirm"
 			: this.props.group.BIsAccountIDOwner(
@@ -770,7 +601,7 @@ let Q = class extends _.Component {
 				  )
 				? "#Chat_Actions_OwnerLeaveChatRoomGroup_Confirm"
 				: "#Chat_Actions_LeaveChatRoomGroup_Confirm";
-		(0, d.Ci)(
+		Ci(
 			t,
 			(0, Localize)("#GroupSettings_Leave_Section"),
 			(0, Localize)(n, this.props.group.name),
@@ -782,26 +613,22 @@ let Q = class extends _.Component {
 			.catch(() => {});
 	}
 	render() {
-		return _.createElement(
-			"div",
-			null,
-			(0, Localize)("#GroupSettings_Leave_Confirm"),
-			_.createElement(
-				f.$n,
-				{
-					onClick: this.OnLeave,
-				},
-				(0, Localize)("#GroupSettings_Leave_Button"),
-			),
+		return (
+			<div>
+				{(0, Localize)("#GroupSettings_Leave_Confirm")}
+				<f.$n onClick={this.OnLeave}>
+					{(0, Localize)("#GroupSettings_Leave_Button")}
+				</f.$n>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([v.oI], Q.prototype, "OnLeave", null);
-Q = (0, n.Cg)([C.PA], Q);
+Cg([v.oI], Q.prototype, "OnLeave", null);
+Q = Cg([C.PA], Q);
 let Z = class extends _.Component {
 	render() {
 		let e = this.props.roomList.indexOf(this.props.room);
-		(0, T.w)(e !== -1, "Couldn't find CChatRoom inside of its list?");
+		w(e !== -1, "Couldn't find CChatRoom inside of its list?");
 		let t = e - 1;
 		let r = () => {
 			this.props.room
@@ -837,68 +664,58 @@ let Z = class extends _.Component {
 		if (r === undefined && i === undefined) {
 			return null;
 		} else {
-			return _.createElement(
-				"div",
-				{
-					className: "rolePriorityContainer",
-				},
-				_.createElement(
-					"div",
-					{
-						className:
-							"rolePriorityButton roleUp" +
-							(r === undefined ? " Disabled" : ""),
-						onClick: r,
-					},
-					_.createElement(b.V5W, {
-						angle: 0,
-					}),
-				),
-				_.createElement(
-					"div",
-					{
-						className:
-							"rolePriorityButton roleDown" +
-							(i === undefined ? " Disabled" : ""),
-						onClick: i,
-					},
-					_.createElement(b.V5W, {
-						angle: 180,
-					}),
-				),
+			return (
+				<div className="rolePriorityContainer">
+					<div
+						className={`rolePriorityButton roleUp${
+							r === undefined ? " Disabled" : ""
+						}`}
+						onClick={r}
+					>
+						<b.V5W angle={0} />
+					</div>
+					<div
+						className={`rolePriorityButton roleDown${
+							i === undefined ? " Disabled" : ""
+						}`}
+						onClick={i}
+					>
+						<b.V5W angle={180} />
+					</div>
+				</div>
 			);
 		}
 	}
 };
-Z = (0, n.Cg)([C.PA], Z);
+Z = Cg([C.PA], Z);
 let Y = class extends _.Component {
 	OnCreateNewTextChannel(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
-		(0, p.HT)(
-			_.createElement(m.Ey, {
-				ownerWin: t,
-				groupView: this.props.groupView,
-				bVoiceChannel: false,
-				bJoinChannel: false,
-			}),
+		HT(
+			<m.Ey
+				ownerWin={t}
+				groupView={this.props.groupView}
+				bVoiceChannel={false}
+				bJoinChannel={false}
+			/>,
 			t,
 		);
 	}
 	OnCreateNewVoiceChannel(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
-		(0, p.HT)(
-			_.createElement(m.Ey, {
-				ownerWin: t,
-				groupView: this.props.groupView,
-				bVoiceChannel: true,
-				bJoinChannel: false,
-			}),
+		HT(
+			<m.Ey
+				ownerWin={t}
+				groupView={this.props.groupView}
+				bVoiceChannel
+				bJoinChannel={false}
+			/>,
 			t,
 		);
 	}
 	OnDeleteChannel(e, t) {
 		let r = e.currentTarget.ownerDocument.defaultView;
-		(0, d.Ci)(
+		Ci(
 			r,
 			(0, Localize)("#GroupSettings_Channels_DeleteChannel"),
 			(0, Localize)("#GroupSettings_Channels_DeleteConfirm"),
@@ -914,155 +731,104 @@ let Y = class extends _.Component {
 			.catch(() => {});
 	}
 	render() {
-		const { groupView: e } = this.props;
-		let t = e.GetGroup().BCanAdminChannel();
-		const r = e.GetGroup().textRoomList;
-		const n = e.GetGroup().voiceRoomList;
-		let i = (e, i, a) =>
-			_.createElement(
-				"div",
-				{
-					key: e.GetRoomID(),
-					className: "ChatGroupSettingsChannels_Row",
-				},
-				_.createElement(
-					"div",
-					{
-						className: "_DialogRow _DialogRowBackground",
-					},
-					_.createElement(
-						"div",
-						{
-							className: "_DialogRowLabel",
-						},
-						a ? _.createElement(b.mrd, null) : _.createElement(b.tcj, null),
-						_.createElement(
-							"div",
-							{
-								className: e.IsDefaultRoomForGroup() ? "HomeChannel" : "",
-								style: {
-									alignSelf: "center",
-								},
-							},
-							e.BIsDefaultRoom()
+		const { groupView } = this.props;
+		let t = groupView.GetGroup().BCanAdminChannel();
+		const r = groupView.GetGroup().textRoomList;
+		const n = groupView.GetGroup().voiceRoomList;
+		let i = (e, i, a) => (
+			<div key={e.GetRoomID()} className="ChatGroupSettingsChannels_Row">
+				<div className="_DialogRow _DialogRowBackground">
+					<div className="_DialogRowLabel">
+						{a ? <b.mrd /> : <b.tcj />}
+						<div
+							className={e.IsDefaultRoomForGroup() ? "HomeChannel" : ""}
+							style={{
+								alignSelf: "center",
+							}}
+						>
+							{e.BIsDefaultRoom()
 								? (0, Localize)("#Chat_DefaultChannelName")
-								: e.name,
-						),
-					),
-					e.IsDefaultRoomForGroup() &&
-						_.createElement(
-							"div",
-							{
-								className: "_DialogRowSecondaryLabel",
-							},
-							(0, Localize)("#GroupSettings_Channels_HomeChannelDeleteLabel"),
-						),
-					!e.IsDefaultRoomForGroup() &&
-						t &&
-						_.createElement(
-							"div",
-							{
-								className: "ChannelDeleteButton",
-								onClick: (t) => this.OnDeleteChannel(t, e),
-							},
-							(0, Localize)("#GroupSettings_Channels_Delete"),
-						),
-				),
-				_.createElement(Z, {
-					room: e,
-					roomList: a ? n : r,
-					enabled: t,
-				}),
-			);
+								: e.name}
+						</div>
+					</div>
+					{e.IsDefaultRoomForGroup() && (
+						<div className="_DialogRowSecondaryLabel">
+							{(0, Localize)("#GroupSettings_Channels_HomeChannelDeleteLabel")}
+						</div>
+					)}
+					{!e.IsDefaultRoomForGroup() && t && (
+						<div
+							className="ChannelDeleteButton"
+							onClick={(t) => this.OnDeleteChannel(t, e)}
+						>
+							{(0, Localize)("#GroupSettings_Channels_Delete")}
+						</div>
+					)}
+				</div>
+				<Z room={e} roomList={a ? n : r} enabled={t} />
+			</div>
+		);
 		let a = r.map((e) => i(e, 0, false));
 		let s = n.map((e) => i(e, 0, true));
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement(
-				P,
-				null,
-				(0, Localize)("#GroupSettings_Channels_Section"),
-			),
-			!t && _.createElement(ne, null),
-			_.createElement(
-				f.lV,
-				{
-					className: "DialogBody",
-				},
-				_.createElement(
-					f.dR,
-					{
-						className: x.ChannelsButtons,
-					},
-					_.createElement(
-						f.$n,
-						{
-							className: "DialogButtonTall",
-							svgicon: b.tcj,
-							onClick: this.OnCreateNewTextChannel,
-							disabled: !t,
-						},
-						" ",
-						(0, Localize)("#GroupSettings_Channels_CreateText"),
-						" ",
-					),
-					_.createElement(
-						f.$n,
-						{
-							className: "DialogButtonTall",
-							svgicon: () => b.mrd({}),
-							onClick: this.OnCreateNewVoiceChannel,
-							disabled: !t,
-						},
-						" ",
-						(0, Localize)("#GroupSettings_Channels_CreateVoice"),
-						" ",
-					),
-				),
-				_.createElement(
-					f.xz,
-					null,
-					a.length != 0 &&
-						_.createElement(
-							"div",
-							{
-								className: "displayColumn flexShrinkNone",
-								style: {
+		return (
+			<>
+				<P>{(0, Localize)("#GroupSettings_Channels_Section")}</P>
+				{!t && <Ne />}
+				<f.lV className="DialogBody">
+					<f.dR className={x.ChannelsButtons}>
+						<f.$n
+							className="DialogButtonTall"
+							svgicon={b.tcj}
+							onClick={this.OnCreateNewTextChannel}
+							disabled={!t}
+						>
+							{" "}
+							{(0, Localize)("#GroupSettings_Channels_CreateText")}{" "}
+						</f.$n>
+						<f.$n
+							className="DialogButtonTall"
+							svgicon={() => b.mrd({})}
+							onClick={this.OnCreateNewVoiceChannel}
+							disabled={!t}
+						>
+							{" "}
+							{(0, Localize)("#GroupSettings_Channels_CreateVoice")}{" "}
+						</f.$n>
+					</f.dR>
+					<f.xz>
+						{a.length != 0 && (
+							<div
+								className="displayColumn flexShrinkNone"
+								style={{
 									marginBottom: "32px",
-								},
-							},
-							_.createElement(
-								f.JU,
-								null,
-								(0, Localize)("#GroupSettings_Channels_TextChannels"),
-							),
-							_.createElement(f._E, null),
-							a,
-						),
-					s.length != 0 &&
-						_.createElement(
-							"div",
-							{
-								className: "displayColumn flexShrinkNone",
-							},
-							_.createElement(
-								f.JU,
-								null,
-								(0, Localize)("#GroupSettings_Channels_VoiceChannels"),
-							),
-							_.createElement(f._E, null),
-							s,
-						),
-				),
-			),
+								}}
+							>
+								<f.JU>
+									{(0, Localize)("#GroupSettings_Channels_TextChannels")}
+								</f.JU>
+								<f._E />
+								{a}
+							</div>
+						)}
+						{s.length != 0 && (
+							<div className="displayColumn flexShrinkNone">
+								<f.JU>
+									{(0, Localize)("#GroupSettings_Channels_VoiceChannels")}
+								</f.JU>
+								<f._E />
+								{s}
+							</div>
+						)}
+					</f.xz>
+				</f.lV>
+			</>
 		);
 	}
 };
-(0, n.Cg)([v.oI], Y.prototype, "OnCreateNewTextChannel", null);
-(0, n.Cg)([v.oI], Y.prototype, "OnCreateNewVoiceChannel", null);
-(0, n.Cg)([v.oI], Y.prototype, "OnDeleteChannel", null);
-Y = (0, n.Cg)([C.PA], Y);
+Cg([v.oI], Y.prototype, "OnCreateNewTextChannel", null);
+Cg([v.oI], Y.prototype, "OnCreateNewVoiceChannel", null);
+Cg([v.oI], Y.prototype, "OnDeleteChannel", null);
+Y = Cg([C.PA], Y);
 class K extends _.Component {
 	m_refInput;
 	state = {
@@ -1073,7 +839,7 @@ class K extends _.Component {
 		if (e && e.length != 0) {
 			this.props.closeModal();
 			this.props.group.CreateRole(e).catch(() => {
-				(0, d.Ic)(
+				Ic(
 					this.props.ownerWin,
 					(0, Localize)("#Generic_Error"),
 					(0, Localize)("#GroupSettings_CreateRole_GenericError"),
@@ -1089,61 +855,40 @@ class K extends _.Component {
 	}
 	render() {
 		let e = this.state.strRoleName.length > 0;
-		return _.createElement(
-			p.x_,
-			{
-				onEscKeypress: this.props.closeModal,
-			},
-			_.createElement(
-				f.U9,
-				{
-					classNameContent: "CreateChatChannelDialog",
-					onSubmit: this.OnSubmit,
-				},
-				_.createElement(
-					f.Y9,
-					null,
-					(0, Localize)("#GroupSettings_CreateRole_Title"),
-				),
-				_.createElement(
-					f.nB,
-					null,
-					_.createElement(f.pd, {
-						ref: (e) => {
-							this.m_refInput = e;
-						},
-						autoFocus: true,
-						label: (0, Localize)("#GroupSettings_CreateRole_Description"),
-						value: this.state.strRoleName,
-						onChange: this.HandleTextEntry,
-					}),
-				),
-				_.createElement(
-					f.wi,
-					null,
-					_.createElement(f.CB, {
-						onCancel: this.props.closeModal,
-						bOKDisabled: !e,
-					}),
-				),
-			),
+		return (
+			<p.x_ onEscKeypress={this.props.closeModal}>
+				<f.U9
+					classNameContent="CreateChatChannelDialog"
+					onSubmit={this.OnSubmit}
+				>
+					<f.Y9>{(0, Localize)("#GroupSettings_CreateRole_Title")}</f.Y9>
+					<f.nB>
+						<f.pd
+							ref={(e) => {
+								this.m_refInput = e;
+							}}
+							autoFocus
+							label={(0, Localize)("#GroupSettings_CreateRole_Description")}
+							value={this.state.strRoleName}
+							onChange={this.HandleTextEntry}
+						/>
+					</f.nB>
+					<f.wi>
+						<f.CB onCancel={this.props.closeModal} bOKDisabled={!e} />
+					</f.wi>
+				</f.U9>
+			</p.x_>
 		);
 	}
 }
-(0, n.Cg)([v.oI], K.prototype, "OnSubmit", null);
-(0, n.Cg)([v.oI], K.prototype, "HandleTextEntry", null);
+Cg([v.oI], K.prototype, "OnSubmit", null);
+Cg([v.oI], K.prototype, "HandleTextEntry", null);
 let X = class extends _.Component {
 	state = {};
 	m_topRef = _.createRef();
 	OnCreateRole(e) {
 		let t = e.currentTarget.ownerDocument.defaultView;
-		(0, p.HT)(
-			_.createElement(K, {
-				ownerWin: t,
-				group: this.props.group,
-			}),
-			t,
-		);
+		HT(<K ownerWin={t} group={this.props.group} />, t);
 	}
 	BCanLocalUserEditRole(e) {
 		return this.props.group.BCanIModifyRole(e);
@@ -1198,39 +943,38 @@ let X = class extends _.Component {
 		}
 	}
 	render() {
-		const { group: e } = this.props;
-		const { editRoleID: t } = this.state;
-		const r = e.BIsAccountIDOwner(c.xm.CMInterface.steamid.GetAccountID());
-		let n = e.BIsClanChatRoom();
-		if (t) {
-			return _.createElement(
-				"div",
-				{
-					ref: this.m_topRef,
-				},
-				_.createElement($, {
-					group: e,
-					roleID: t,
-					onRequestClose: () =>
-						this.setState({
-							editRoleID: undefined,
-						}),
-				}),
+		const { group } = this.props;
+		const { editRoleID } = this.state;
+		const r = group.BIsAccountIDOwner(c.xm.CMInterface.steamid.GetAccountID());
+		let n = group.BIsClanChatRoom();
+		if (editRoleID) {
+			return (
+				<div ref={this.m_topRef}>
+					<$
+						group={group}
+						roleID={editRoleID}
+						onRequestClose={() =>
+							this.setState({
+								editRoleID: undefined,
+							})
+						}
+					/>
+				</div>
 			);
 		}
-		let i = e.DefaultRoleID();
-		let a = e
+		let i = group.DefaultRoleID();
+		let a = group
 			.GetRoles()
 			.slice()
 			.sort((e, t) =>
 				e.role_id == i ? 1 : t.role_id == i ? -1 : e.ordinal - t.ordinal,
 			);
-		let o = e.GetHighestRankRoleIDForPermission(
+		let o = group.GetHighestRankRoleIDForPermission(
 			c.xm.FriendStore.self.accountid,
 			8,
 		);
-		let l = o ? e.GetRoleOrdinal(o) : Number.MAX_VALUE - 1;
-		let m = e.BIsAccountIDOwner(c.xm.FriendStore.self.accountid);
+		let l = o ? group.GetRoleOrdinal(o) : Number.MAX_VALUE - 1;
+		let m = group.BIsAccountIDOwner(c.xm.FriendStore.self.accountid);
 		let u = false;
 		let d = this.BCanLocalUserAssignRole();
 		let A = a.map((t, r) => {
@@ -1245,215 +989,154 @@ let X = class extends _.Component {
 				s = true;
 				d = false;
 				A = false;
-			} else if (e.BMemberHasRole(c.xm.FriendStore.self.accountid, t.role_id)) {
+			} else if (
+				group.BMemberHasRole(c.xm.FriendStore.self.accountid, t.role_id)
+			) {
 				s = true;
 			}
-			return _.createElement(
-				"div",
-				{
-					className: "roleRow",
-					key: t.role_id,
-				},
-				_.createElement(
-					f.$n,
-					{
-						className: "roleButton" + (s && !m ? " currentUserRole" : ""),
-						onClick: (e) => {
+			return (
+				<div className="roleRow" key={t.role_id}>
+					<f.$n
+						className={`roleButton${s && !m ? " currentUserRole" : ""}`}
+						onClick={(e) => {
 							this.EditRole(t.role_id);
-						},
-					},
-					_.createElement(b.X4B, null),
-					(0, Localize)(t.name),
-					_.createElement(
-						"span",
-						{
-							className: "roleSubtitle",
-						},
-						o ? (0, Localize)("#Generic_Edit") : (0, Localize)("#Generic_View"),
-					),
-				),
-				!n &&
-					u &&
-					a.length > 2 &&
-					(d || A) &&
-					_.createElement(
-						"div",
-						{
-							className: "rolePriorityContainer",
-						},
-						_.createElement(
-							"div",
-							{
-								className: "rolePriorityButton roleUp" + (d ? "" : " Disabled"),
-								onClick: (e) => {
+						}}
+					>
+						<b.X4B />
+						{(0, Localize)(t.name)}
+						<span className="roleSubtitle">
+							{o
+								? (0, Localize)("#Generic_Edit")
+								: (0, Localize)("#Generic_View")}
+						</span>
+					</f.$n>
+					{!n && u && a.length > 2 && (d || A) && (
+						<div className="rolePriorityContainer">
+							<div
+								className={`rolePriorityButton roleUp${d ? "" : " Disabled"}`}
+								onClick={(e) => {
 									this.MoveRoleUp(t.role_id);
 									e.stopPropagation();
-								},
-							},
-							_.createElement(b.V5W, {
-								angle: 0,
-							}),
-						),
-						_.createElement(
-							"div",
-							{
-								className:
-									"rolePriorityButton roleDown" + (A ? "" : " Disabled"),
-								onClick: (e) => {
+								}}
+							>
+								<b.V5W angle={0} />
+							</div>
+							<div
+								className={`rolePriorityButton roleDown${A ? "" : " Disabled"}`}
+								onClick={(e) => {
 									this.MoveRoleDown(t.role_id);
 									e.stopPropagation();
-								},
-							},
-							_.createElement(b.V5W, {
-								angle: 180,
-							}),
-						),
-					),
+								}}
+							>
+								<b.V5W angle={180} />
+							</div>
+						</div>
+					)}
+				</div>
 			);
 		});
 		let p = (0, Localize)("#ChatRoomRole_Description_NoEdit");
 		if (n) {
-			let t = M.b.InitFromClanID(e.GetClanID());
-			let r = `${s.TS.COMMUNITY_BASE_URL}gid/${t.ConvertTo64BitString()}/membersManage`;
+			let t = M.b.InitFromClanID(group.GetClanID());
+			let r = `${
+				s.TS.COMMUNITY_BASE_URL
+			}gid/${t.ConvertTo64BitString()}/membersManage`;
 			p = LocalizeReact(
 				"#ChatRoomRole_Description_Clan",
-				_.createElement(
-					E.uU,
-					{
-						href: r,
-					},
-					(0, Localize)("#ChatRoomRole_Description_ClanLink"),
-				),
+				<E.uU href={r}>
+					{(0, Localize)("#ChatRoomRole_Description_ClanLink")}
+				</E.uU>,
 			);
 		} else if (u && !m) {
 			p = (0, Localize)("#ChatRoomRole_Description");
 		} else if (d || m) {
 			p = (0, Localize)("#ChatRoomRole_Description_NoEditCanAssign");
 		}
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement("div", {
-				ref: this.m_topRef,
-			}),
-			_.createElement(
-				P,
-				null,
-				(0, Localize)("#GroupSettings_Permissions_Section"),
-			),
-			!r &&
-				!u &&
-				_.createElement(
-					ne,
-					null,
-					(0, Localize)("#Chat_Settings_Permission_Denied_Permissions"),
-				),
-			_.createElement(
-				"div",
-				{
-					className: "roleList",
-				},
-				_.createElement(
-					f.a3,
-					{
-						className: x.PermissionsDescription,
-					},
-					p,
-				),
-				_.createElement(
-					"div",
-					{
-						className: x.RoleNameHeader,
-					},
-					_.createElement(
-						f.JU,
-						null,
-						(0, Localize)("#GroupSettings_Permissions_RolesTitle"),
-						" ",
-					),
-					!m &&
-						_.createElement(
-							f.JU,
-							{
-								className: "meKey",
-							},
-							_.createElement(b.X4B, null),
-							(0, Localize)("#GroupSettings_meKey_Desc"),
-						),
-					m &&
-						_.createElement(
-							f.JU,
-							{
-								className: "meKey",
-							},
-							_.createElement(b.OeC, null),
-							(0, Localize)("#GroupSettings_meKey_Desc_Owner"),
-						),
-				),
-				_.createElement(
-					f.lV,
-					{
-						className: "DialogBody",
-					},
-					_.createElement(
-						f.$n,
-						{
-							disabled: true,
-							className: "roleButton owner",
-							svgicon: b.OeC,
-							onClick: () => {},
-						},
-						(0, Localize)("#ChatRoomRole_Owner"),
-						_.createElement(
-							"span",
-							{
-								className: "roleSubtitle",
-							},
-							(0, Localize)("#ChatRoomRole_OwnerSubtitle"),
-						),
-					),
-					A,
-				),
-				!n &&
-					_.createElement(
-						f.jn,
-						{
-							className: "createNewRoleButton",
-							svgicon: () =>
+		return (
+			<>
+				<div ref={this.m_topRef} />
+				<P>{(0, Localize)("#GroupSettings_Permissions_Section")}</P>
+				{!r && !u && (
+					<Ne>
+						{(0, Localize)("#Chat_Settings_Permission_Denied_Permissions")}
+					</Ne>
+				)}
+				<div className="roleList">
+					<f.a3 className={x.PermissionsDescription}>{p}</f.a3>
+					<div className={x.RoleNameHeader}>
+						<f.JU>
+							{(0, Localize)("#GroupSettings_Permissions_RolesTitle")}{" "}
+						</f.JU>
+						{!m && (
+							<f.JU className="meKey">
+								<b.X4B />
+								{(0, Localize)("#GroupSettings_meKey_Desc")}
+							</f.JU>
+						)}
+						{m && (
+							<f.JU className="meKey">
+								<b.OeC />
+								{(0, Localize)("#GroupSettings_meKey_Desc_Owner")}
+							</f.JU>
+						)}
+					</div>
+					<f.lV className="DialogBody">
+						<f.$n
+							disabled
+							className="roleButton owner"
+							svgicon={b.OeC}
+							onClick={() => {}}
+						>
+							{(0, Localize)("#ChatRoomRole_Owner")}
+							<span className="roleSubtitle">
+								{(0, Localize)("#ChatRoomRole_OwnerSubtitle")}
+							</span>
+						</f.$n>
+						{A}
+					</f.lV>
+					{!n && (
+						<f.jn
+							className="createNewRoleButton"
+							svgicon={() =>
 								b.f5w({
 									minus: false,
 									nocircle: false,
-								}),
-							onClick: this.OnCreateRole,
-							disabled: !e.BCanICreateRoles(),
-						},
-						(0, Localize)("#GroupSettings_Permissions_CreateNew"),
-					),
-			),
+								})
+							}
+							onClick={this.OnCreateRole}
+							disabled={!group.BCanICreateRoles()}
+						>
+							{(0, Localize)("#GroupSettings_Permissions_CreateNew")}
+						</f.jn>
+					)}
+				</div>
+			</>
 		);
 	}
 };
-(0, n.Cg)([v.oI], X.prototype, "OnCreateRole", null);
-(0, n.Cg)([v.oI], X.prototype, "EditRole", null);
-(0, n.Cg)([v.oI], X.prototype, "OnSettingToggled", null);
-(0, n.Cg)([v.oI], X.prototype, "MoveRoleUp", null);
-(0, n.Cg)([v.oI], X.prototype, "MoveRoleDown", null);
-X = (0, n.Cg)([C.PA], X);
+Cg([v.oI], X.prototype, "OnCreateRole", null);
+Cg([v.oI], X.prototype, "EditRole", null);
+Cg([v.oI], X.prototype, "OnSettingToggled", null);
+Cg([v.oI], X.prototype, "MoveRoleUp", null);
+Cg([v.oI], X.prototype, "MoveRoleDown", null);
+X = Cg([C.PA], X);
 const J = (e) => {
-	const { eAction: t, strLabel: r, disabled: n, group: i, roleID: a } = e;
-	const s = i.GetRoleActions(a);
-	const o = s && s.BCanPerformAction(t);
-	const [l, c] = _.useState(0);
-	return _.createElement(f.P8, {
-		onChange: (e) => {
-			i.SetRoleAction(a, t, e);
-			c(l + 1);
-		},
-		label: r,
-		value: o,
-		disabled: n,
-		className: x.PermissionToggle,
-	});
+	const { eAction, strLabel, disabled, group, roleID } = e;
+	const s = group.GetRoleActions(roleID);
+	const o = s && s.BCanPerformAction(eAction);
+	const [l, setL] = _.useState(0);
+	return (
+		<f.P8
+			onChange={(e) => {
+				group.SetRoleAction(roleID, eAction, e);
+				setL(l + 1);
+			}}
+			label={strLabel}
+			value={o}
+			disabled={disabled}
+			className={x.PermissionToggle}
+		/>
+	);
 };
 let $ = class extends _.Component {
 	constructor(e) {
@@ -1475,11 +1158,11 @@ let $ = class extends _.Component {
 		}
 	}
 	RenameRole() {
-		const { roleID: e } = this.props;
+		const { roleID } = this.props;
 		const t = this.state.editRoleName;
-		this.props.group.RenameRole(e, t).catch(() => {
+		this.props.group.RenameRole(roleID, t).catch(() => {
 			this.setState({
-				editRoleName: this.props.group.GetRoleName(e),
+				editRoleName: this.props.group.GetRoleName(roleID),
 			});
 		});
 	}
@@ -1489,17 +1172,17 @@ let $ = class extends _.Component {
 			return;
 		}
 		let n = this.props.group.GetRoleName(t);
-		let i = _.createElement(
-			"div",
-			{
-				style: {
+		let i = (
+			<div
+				style={{
 					marginTop: "8px",
 					color: "white",
-				},
-			},
-			n,
+				}}
+			>
+				{n}
+			</div>
 		);
-		(0, d.Ci)(
+		Ci(
 			r,
 			(0, Localize)("#GroupSettings_Permissions_ConfirmDeleteTitle"),
 			(0, Localize)("#GroupSettings_Permissions_ConfirmDelete"),
@@ -1512,7 +1195,7 @@ let $ = class extends _.Component {
 			.then(() => this.props.onRequestClose())
 			.catch((e) => {
 				if (e != null) {
-					(0, d.Ic)(
+					Ic(
 						r,
 						(0, Localize)("#Generic_Error"),
 						(0, Localize)("#GroupSettings_DeleteRole_GenericError"),
@@ -1521,233 +1204,188 @@ let $ = class extends _.Component {
 			});
 	}
 	render() {
-		const { group: e, roleID: t, onRequestClose: r } = this.props;
-		if (!e.GetRoleActions(t)) {
+		const { group, roleID, onRequestClose } = this.props;
+		if (!group.GetRoleActions(roleID)) {
 			return null;
 		}
-		let n = e.BIsClanChatRoom();
-		let i = t == e.DefaultRoleID();
+		let n = group.BIsClanChatRoom();
+		let i = roleID == group.DefaultRoleID();
 		let a =
 			i && !n ? (0, Localize)("#ChatRoomRole_Member") : this.state.editRoleName;
-		let s = e.BCanIModifyRole(t);
+		let s = group.BCanIModifyRole(roleID);
 		const o = {
 			disabled: !s,
-			group: e,
-			roleID: t,
+			group: group,
+			roleID: roleID,
 		};
 		const l =
-			n || !s
-				? _.createElement(
-						"div",
-						{
-							className: (0, D.A)(x.RoleNameHeader, x.FixedRoleName),
-						},
-						(0, Localize)(a),
-					)
-				: _.createElement(
-						"div",
-						{
-							className: x.RoleNameHeader,
-						},
-						_.createElement(f.pd, {
-							autoComplete: "off",
-							id: "b1",
-							className: "editRoleName",
-							label: (0, Localize)("#GroupSettings_Permissions_RoleName"),
-							type: "text",
-							value: a,
-							disabled: i || !s,
-							onChange: this.OnEditRoleNameChange,
-							onBlur: this.OnEditRoleNameBlur,
-						}),
-					);
-		return _.createElement(
-			f.lV,
-			{
-				onSubmit: this.OnEditRoleNameBlur,
-				className: x.PermissionsEdit,
-			},
-			_.createElement(
-				"div",
-				{
-					className: x.Back,
-					onClick: () => r(),
-				},
-				_.createElement(b.aeP, null),
-				(0, Localize)("#GroupSettings_Permissions_BackButton"),
-			),
-			!s &&
-				_.createElement(
-					ne,
-					null,
-					(0, Localize)("#Chat_Settings_Permission_Denied"),
-				),
-			l,
-			_.createElement(
-				f.nB,
-				null,
-				_.createElement(
-					"div",
-					{
-						className: (0, D.A)("SettingsGroup", x.PermissionsGroup),
-					},
-					_.createElement(
-						f.JU,
-						{
-							className: "PermissionsSectionHeader",
-						},
-						(0, Localize)("#GroupSettings_Permissions_Heading_General"),
-					),
-					_.createElement(J, {
-						...o,
-						eAction: 6,
-						strLabel: (0, Localize)("#GroupSettings_Permissions_Chat"),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 10,
-						strLabel: (0, Localize)("#GroupSettings_Permissions_MentionAll"),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 11,
-						strLabel: (0, Localize)(
-							"#GroupSettings_Permissions_SetWatchingBroadcast",
-						),
-					}),
-				),
-				_.createElement(
-					"div",
-					{
-						className: (0, D.A)("SettingsGroup", x.PermissionsGroup),
-					},
-					_.createElement(
-						f.JU,
-						{
-							className: "PermissionsSectionHeader",
-						},
-						(0, Localize)("#GroupSettings_Permissions_Heading_MembersAndRoles"),
-					),
-					_.createElement(J, {
-						...o,
-						eAction: 2,
-						strLabel: (0, Localize)("#GroupSettings_Permissions_Kick"),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 3,
-						strLabel: (0, Localize)("#GroupSettings_Permissions_Ban"),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 4,
-						strLabel: (0, Localize)("#GroupSettings_Permissions_Invite"),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 8,
-						strLabel: (0, Localize)(
-							"#GroupSettings_Permissions_ChangeGroupRoles",
-						),
-						disabled: o.disabled || i,
-					}),
-					!n &&
-						_.createElement(J, {
-							...o,
-							eAction: 9,
-							strLabel: (0, Localize)(
-								"#GroupSettings_Permissions_ChangeUserRoles",
-							),
-							disabled: o.disabled || i,
-						}),
-				),
-				_.createElement(
-					"div",
-					{
-						className: (0, D.A)("SettingsGroup", x.PermissionsGroup),
-					},
-					_.createElement(
-						f.JU,
-						{
-							className: "PermissionsSectionHeader",
-						},
-						(0, Localize)("#GroupSettings_Permissions_Heading_RoomManagement"),
-					),
-					_.createElement(J, {
-						...o,
-						eAction: 5,
-						strLabel: (0, Localize)(
-							"#GroupSettings_Permissions_ChangeTaglineAvatarName",
-						),
-					}),
-					_.createElement(J, {
-						...o,
-						eAction: 1,
-						strLabel: (0, Localize)(
-							"#GroupSettings_Permissions_CreateRenameDeleteChannel",
-						),
-					}),
-				),
-			),
-			_.createElement(
-				f.wi,
-				null,
-				!n &&
-					!i &&
-					s &&
-					_.createElement(
-						f.$n,
-						{
-							className: "deleteButton",
-							onClick: (e) => {
-								this.DeleteRole(e, t);
-							},
-						},
-						(0, Localize)("#GroupSettings_Permissions_DeleteRoleButton"),
-					),
-			),
+			n || !s ? (
+				<div className={A_1(x.RoleNameHeader, x.FixedRoleName)}>
+					{(0, Localize)(a)}
+				</div>
+			) : (
+				<div className={x.RoleNameHeader}>
+					<f.pd
+						autoComplete="off"
+						id="b1"
+						className="editRoleName"
+						label={(0, Localize)("#GroupSettings_Permissions_RoleName")}
+						type="text"
+						value={a}
+						disabled={i || !s}
+						onChange={this.OnEditRoleNameChange}
+						onBlur={this.OnEditRoleNameBlur}
+					/>
+				</div>
+			);
+		return (
+			<f.lV onSubmit={this.OnEditRoleNameBlur} className={x.PermissionsEdit}>
+				<div className={x.Back} onClick={() => onRequestClose()}>
+					<b.aeP />
+					{(0, Localize)("#GroupSettings_Permissions_BackButton")}
+				</div>
+				{!s && <Ne>{(0, Localize)("#Chat_Settings_Permission_Denied")}</Ne>}
+				{l}
+				<f.nB>
+					<div className={A_1("SettingsGroup", x.PermissionsGroup)}>
+						<f.JU className="PermissionsSectionHeader">
+							{(0, Localize)("#GroupSettings_Permissions_Heading_General")}
+						</f.JU>
+						<J
+							{...o}
+							eAction={6}
+							strLabel={(0, Localize)("#GroupSettings_Permissions_Chat")}
+						/>
+						<J
+							{...o}
+							eAction={10}
+							strLabel={(0, Localize)("#GroupSettings_Permissions_MentionAll")}
+						/>
+						<J
+							{...o}
+							eAction={11}
+							strLabel={(0, Localize)(
+								"#GroupSettings_Permissions_SetWatchingBroadcast",
+							)}
+						/>
+					</div>
+					<div className={A_1("SettingsGroup", x.PermissionsGroup)}>
+						<f.JU className="PermissionsSectionHeader">
+							{(0, Localize)(
+								"#GroupSettings_Permissions_Heading_MembersAndRoles",
+							)}
+						</f.JU>
+						<J
+							{...o}
+							eAction={2}
+							strLabel={(0, Localize)("#GroupSettings_Permissions_Kick")}
+						/>
+						<J
+							{...o}
+							eAction={3}
+							strLabel={(0, Localize)("#GroupSettings_Permissions_Ban")}
+						/>
+						<J
+							{...o}
+							eAction={4}
+							strLabel={(0, Localize)("#GroupSettings_Permissions_Invite")}
+						/>
+						<J
+							{...o}
+							eAction={8}
+							strLabel={(0, Localize)(
+								"#GroupSettings_Permissions_ChangeGroupRoles",
+							)}
+							disabled={o.disabled || i}
+						/>
+						{!n && (
+							<J
+								{...o}
+								eAction={9}
+								strLabel={(0, Localize)(
+									"#GroupSettings_Permissions_ChangeUserRoles",
+								)}
+								disabled={o.disabled || i}
+							/>
+						)}
+					</div>
+					<div className={A_1("SettingsGroup", x.PermissionsGroup)}>
+						<f.JU className="PermissionsSectionHeader">
+							{(0, Localize)(
+								"#GroupSettings_Permissions_Heading_RoomManagement",
+							)}
+						</f.JU>
+						<J
+							{...o}
+							eAction={5}
+							strLabel={(0, Localize)(
+								"#GroupSettings_Permissions_ChangeTaglineAvatarName",
+							)}
+						/>
+						<J
+							{...o}
+							eAction={1}
+							strLabel={(0, Localize)(
+								"#GroupSettings_Permissions_CreateRenameDeleteChannel",
+							)}
+						/>
+					</div>
+				</f.nB>
+				<f.wi>
+					{!n && !i && s && (
+						<f.$n
+							className="deleteButton"
+							onClick={(e) => {
+								this.DeleteRole(e, roleID);
+							}}
+						>
+							{(0, Localize)("#GroupSettings_Permissions_DeleteRoleButton")}
+						</f.$n>
+					)}
+				</f.wi>
+			</f.lV>
 		);
 	}
 };
-(0, n.Cg)([v.oI], $.prototype, "OnEditRoleNameChange", null);
-(0, n.Cg)([v.oI], $.prototype, "OnEditRoleNameBlur", null);
-(0, n.Cg)([v.oI], $.prototype, "RenameRole", null);
-(0, n.Cg)([v.oI], $.prototype, "DeleteRole", null);
-$ = (0, n.Cg)([C.PA], $);
-let ee = class extends _.Component {
+Cg([v.oI], $.prototype, "OnEditRoleNameChange", null);
+Cg([v.oI], $.prototype, "OnEditRoleNameBlur", null);
+Cg([v.oI], $.prototype, "RenameRole", null);
+Cg([v.oI], $.prototype, "DeleteRole", null);
+$ = Cg([C.PA], $);
+let Ee = class extends _.Component {
 	componentDidMount() {
-		const { group: e, inviteLinks: t } = this.props;
-		if (t.loadingState == "loaded") {
+		const { group, inviteLinks } = this.props;
+		if (inviteLinks.loadingState == "loaded") {
 			return;
 		}
-		if (e.BCanInvite() && t.loadingState == "pending") {
-			e.GetInviteLinksForGroup().then((e) => {
+		if (group.BCanInvite() && inviteLinks.loadingState == "pending") {
+			group.GetInviteLinksForGroup().then((e) => {
 				setTimeout(() => {
 					if (e.loadingState == "loaded") {
-						t.rgInviteLinks = e.rgInviteLinks.sort(
+						inviteLinks.rgInviteLinks = e.rgInviteLinks.sort(
 							(e, t) => e.time_expires() - t.time_expires(),
 						);
 					}
-					t.loadingState = e.loadingState;
+					inviteLinks.loadingState = e.loadingState;
 				}, 500);
 			});
 		} else {
-			t.loadingState = "denied";
+			inviteLinks.loadingState = "denied";
 		}
 	}
 	OnDeleteLink(e) {
 		let t = this.props.inviteLinks;
-		let r = _.createElement(
-			"div",
-			{
-				style: {
+		let r = (
+			<div
+				style={{
 					marginTop: "5px",
 					color: "#dee2e5",
-				},
-			},
-			(0, I.u)(e.invite_code()),
+				}}
+			>
+				{u_1(e.invite_code())}
+			</div>
 		);
-		(0, d.hr)(
+		hr(
 			(0, Localize)("#GroupSettings_Invite_ConfirmDeleteTitle"),
 			(0, Localize)("#GroupSettings_Invite_ConfirmDelete"),
 			(0, Localize)("#GroupSettings_Invite_ConfirmDeleteButton"),
@@ -1757,7 +1395,7 @@ let ee = class extends _.Component {
 		)
 			.then(() => {
 				this.props.group.DeleteInviteLink(e.invite_code()).then((r) => {
-					(0, T.w)(
+					w(
 						t.loadingState == "loaded",
 						"somehow got a valid link to delete without links being loaded",
 					);
@@ -1789,155 +1427,91 @@ let ee = class extends _.Component {
 		e.target.select();
 	}
 	render() {
-		const { inviteLinks: e, group: t } = this.props;
+		const { inviteLinks, group } = this.props;
 		let r;
-		const n = t.BCanInvite();
-		if (e.loadingState == "pending") {
-			r = _.createElement("div", null, _.createElement(y.t, null));
-		} else if (e.loadingState == "denied") {
-			r = _.createElement(
-				"div",
-				null,
-				(0, Localize)("#GroupSettings_Invite_Denied"),
+		const n = group.BCanInvite();
+		if (inviteLinks.loadingState == "pending") {
+			r = (
+				<div>
+					<y.t />
+				</div>
 			);
-		} else if (e.loadingState == "failed") {
-			r = _.createElement(
-				"div",
-				null,
-				(0, Localize)("#GroupSettings_Invite_Failed"),
-			);
-		} else if (e.loadingState == "loaded") {
+		} else if (inviteLinks.loadingState == "denied") {
+			r = <div>{(0, Localize)("#GroupSettings_Invite_Denied")}</div>;
+		} else if (inviteLinks.loadingState == "failed") {
+			r = <div>{(0, Localize)("#GroupSettings_Invite_Failed")}</div>;
+		} else if (inviteLinks.loadingState == "loaded") {
 			let t = [];
-			t = e.rgInviteLinks.map((e) =>
-				_.createElement(
-					"tr",
-					{
-						key: e.invite_code(),
-					},
-					_.createElement(
-						"td",
-						null,
-						" ",
-						_.createElement(f.pd, {
-							className: "inviteURLLink",
-							value: (0, I.u)(e.invite_code()),
-							readOnly: true,
-							onClick: this.HandleFocus,
-							onFocus: this.HandleFocus,
-						}),
-						" ",
-					),
-					_.createElement(
-						"td",
-						{
-							className: "dateCell allCaps",
-						},
-						" ",
-						this.FormatExpires(e.time_expires()),
-						" ",
-					),
-					_.createElement(
-						"td",
-						{
-							className: "buttonCell",
-						},
-						_.createElement(
-							f.$n,
-							{
-								onClick: (t) => this.OnDeleteLink(e),
-								disabled: !n,
-							},
-							(0, Localize)("#GroupSettings_Invite_Delete"),
-						),
-					),
-				),
-			);
+			t = inviteLinks.rgInviteLinks.map((e) => (
+				<tr key={e.invite_code()}>
+					<td>
+						{" "}
+						<f.pd
+							className="inviteURLLink"
+							value={u_1(e.invite_code())}
+							readOnly
+							onClick={this.HandleFocus}
+							onFocus={this.HandleFocus}
+						/>{" "}
+					</td>
+					<td className="dateCell allCaps">
+						{" "}
+						{this.FormatExpires(e.time_expires())}{" "}
+					</td>
+					<td className="buttonCell">
+						<f.$n onClick={(t) => this.OnDeleteLink(e)} disabled={!n}>
+							{(0, Localize)("#GroupSettings_Invite_Delete")}
+						</f.$n>
+					</td>
+				</tr>
+			));
 			r =
-				t.length == 0
-					? _.createElement(
-							"div",
-							null,
-							(0, Localize)("#GroupSettings_Invite_NoInvites"),
-						)
-					: _.createElement(
-							"table",
-							{
-								className: "DialogSpanningTable InviteLinksTable",
-							},
-							_.createElement(
-								"thead",
-								null,
-								_.createElement(
-									"tr",
-									null,
-									_.createElement(
-										"th",
-										{
-											className: "inviteCodeColumn",
-										},
-										" ",
-										(0, Localize)("#GroupSettings_Invite_Code"),
-										" ",
-									),
-									_.createElement(
-										"th",
-										{
-											className: "dateColumn",
-										},
-										" ",
-										(0, Localize)("#GroupSettings_Invite_Expiration"),
-										" ",
-									),
-									_.createElement(
-										"th",
-										{
-											className: "buttonColumn",
-										},
-										" ",
-									),
-								),
-							),
-							_.createElement("tbody", null, t),
-						);
+				t.length == 0 ? (
+					<div>{(0, Localize)("#GroupSettings_Invite_NoInvites")}</div>
+				) : (
+					<table className="DialogSpanningTable InviteLinksTable">
+						<thead>
+							<tr>
+								<th className="inviteCodeColumn">
+									{" "}
+									{(0, Localize)("#GroupSettings_Invite_Code")}{" "}
+								</th>
+								<th className="dateColumn">
+									{" "}
+									{(0, Localize)("#GroupSettings_Invite_Expiration")}{" "}
+								</th>
+								<th className="buttonColumn"> </th>
+							</tr>
+						</thead>
+						<tbody>{t}</tbody>
+					</table>
+				);
 		}
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement(P, null, (0, Localize)("#GroupSettings_Invite_Section")),
-			!n && _.createElement(ne, null),
-			_.createElement(
-				f.lV,
-				{
-					className: "DialogBody",
-				},
-				n &&
-					_.createElement(
-						"div",
-						{
-							className: "inviteLinkContainer",
-						},
-						_.createElement(u.Rf, {
-							chat: t.GetDefaultChatRoom(),
-							disabled: !n,
-						}),
-					),
-				n &&
-					_.createElement(
-						"div",
-						{
-							className: "OrSeparator",
-						},
-						_.createElement(f._E, null),
-					),
-				r,
-			),
+		return (
+			<>
+				<P>{(0, Localize)("#GroupSettings_Invite_Section")}</P>
+				{!n && <Ne />}
+				<f.lV className="DialogBody">
+					{n && (
+						<div className="inviteLinkContainer">
+							<u.Rf chat={group.GetDefaultChatRoom()} disabled={!n} />
+						</div>
+					)}
+					{n && (
+						<div className="OrSeparator">
+							<f._E />
+						</div>
+					)}
+					{r}
+				</f.lV>
+			</>
 		);
 	}
 };
-(0, n.Cg)([v.oI], ee.prototype, "OnDeleteLink", null);
-(0, n.Cg)([v.oI], ee.prototype, "HandleFocus", null);
-ee = (0, n.Cg)([C.PA], ee);
-let te = class extends _.Component {
+Cg([v.oI], Ee.prototype, "OnDeleteLink", null);
+Cg([v.oI], Ee.prototype, "HandleFocus", null);
+Ee = Cg([C.PA], Ee);
+let Te = class extends _.Component {
 	static contextType = U.QO;
 	componentDidMount() {
 		let e = this.props.invitedUsers;
@@ -1961,13 +1535,10 @@ let te = class extends _.Component {
 	RevokeInvite(e, t) {
 		let r = c.xm.FriendStore.GetPlayer(t);
 		let n = e.currentTarget.ownerDocument.defaultView;
-		let i = _.createElement(A.bP, {
-			className: "friend",
-			friend: r,
-			context: null,
-			disableContextMenu: true,
-		});
-		(0, d.Ci)(
+		let i = (
+			<A.bP className="friend" friend={r} context={null} disableContextMenu />
+		);
+		Ci(
 			n,
 			(0, Localize)("#GroupSettings_InvitedUsers_RevokeTitle"),
 			(0, Localize)("#GroupSettings_InvitedUsers_RevokeBody"),
@@ -1986,7 +1557,7 @@ let te = class extends _.Component {
 						);
 					})
 					.catch((e) => {
-						(0, d.Ic)(
+						Ic(
 							n,
 							(0, Localize)("#Generic_Error"),
 							(0, Localize)("#GroupSettings_InvitedUsers_RevokeGenericError"),
@@ -2005,17 +1576,18 @@ let te = class extends _.Component {
 		});
 	}
 	RenderContent() {
-		const { invitedUsers: e, group: t } = this.props;
-		const r = t.BCanInvite();
-		if (e.loadingState == "loaded") {
-			if (!e.rgInvitedUsers || e.rgInvitedUsers.length == 0) {
-				return _.createElement(
-					f.lV,
-					null,
-					(0, Localize)("#GroupSettings_InvitedUsers_Noone"),
+		const { invitedUsers, group } = this.props;
+		const r = group.BCanInvite();
+		if (invitedUsers.loadingState == "loaded") {
+			if (
+				!invitedUsers.rgInvitedUsers ||
+				invitedUsers.rgInvitedUsers.length == 0
+			) {
+				return (
+					<f.lV>{(0, Localize)("#GroupSettings_InvitedUsers_Noone")}</f.lV>
 				);
 			}
-			let t = e.rgInvitedUsers.map((e) => {
+			let t = invitedUsers.rgInvitedUsers.map((e) => {
 				let t = {
 					friend: c.xm.FriendStore.GetPlayer(e.accountid()),
 					bHideGameName: true,
@@ -2023,131 +1595,75 @@ let te = class extends _.Component {
 					noActions: this.context?.IN_GAMEPADUI,
 					context: null,
 				};
-				return _.createElement(
-					"tr",
-					{
-						className: "hoverRow",
-						key: e.accountid(),
-					},
-					_.createElement(
-						"td",
-						{
-							className: "friendCell",
-						},
-						" ",
-						_.createElement(A.bP, {
-							...t,
-						}),
-						" ",
-					),
-					_.createElement(
-						"td",
-						{
-							className: "dateCell",
-						},
-						" ",
-						this.FormatDate(e.time_invited()),
-						" ",
-					),
-					_.createElement(
-						"td",
-						{
-							className: "buttonCell",
-						},
-						_.createElement(
-							f.$n,
-							{
-								onClick: (t) => this.RevokeInvite(t, e.accountid()),
-								disabled: !r,
-							},
-							(0, Localize)("#GroupSettings_InvitedUsers_RevokeInvite"),
-						),
-					),
+				return (
+					<tr className="hoverRow" key={e.accountid()}>
+						<td className="friendCell">
+							{" "}
+							<A.bP {...t} />{" "}
+						</td>
+						<td className="dateCell"> {this.FormatDate(e.time_invited())} </td>
+						<td className="buttonCell">
+							<f.$n
+								onClick={(t) => this.RevokeInvite(t, e.accountid())}
+								disabled={!r}
+							>
+								{(0, Localize)("#GroupSettings_InvitedUsers_RevokeInvite")}
+							</f.$n>
+						</td>
+					</tr>
 				);
 			});
-			return _.createElement(
-				f.lV,
-				{
-					className: "DialogBody",
-				},
-				_.createElement(
-					g.Z,
-					{
-						"flow-children": "grid",
-					},
-					_.createElement(
-						"table",
-						{
-							className: "DialogSpanningTable InvitedUsersTable",
-						},
-						_.createElement(
-							"thead",
-							null,
-							_.createElement(
-								"tr",
-								{
-									className: "headerRow",
-								},
-								_.createElement(
-									"th",
-									{
-										className: "friendColumn",
-									},
-									(0, Localize)("#GroupSettings_InvitedUsers_InvitedHeader"),
-									" ",
-								),
-								_.createElement(
-									"th",
-									{
-										className: "dateColumn",
-									},
-									" ",
-									(0, Localize)("#GroupSettings_InvitedUsers_InvitedDate"),
-									" ",
-								),
-								_.createElement(
-									"th",
-									{
-										className: "buttonColumn",
-									},
-									" ",
-								),
-							),
-						),
-						_.createElement("tbody", null, t),
-					),
-				),
+			return (
+				<f.lV className="DialogBody">
+					<g.Z flow-children="grid">
+						<table className="DialogSpanningTable InvitedUsersTable">
+							<thead>
+								<tr className="headerRow">
+									<th className="friendColumn">
+										{(0, Localize)(
+											"#GroupSettings_InvitedUsers_InvitedHeader",
+										)}{" "}
+									</th>
+									<th className="dateColumn">
+										{" "}
+										{(0, Localize)(
+											"#GroupSettings_InvitedUsers_InvitedDate",
+										)}{" "}
+									</th>
+									<th className="buttonColumn"> </th>
+								</tr>
+							</thead>
+							<tbody>{t}</tbody>
+						</table>
+					</g.Z>
+				</f.lV>
 			);
 		}
-		return _.createElement(
-			f.lV,
-			null,
-			e.loadingState == "pending"
-				? _.createElement(y.t, {
-						size: "medium",
-					})
-				: (0, Localize)("#GroupSettings_InvitedUsers_Failed"),
+		return (
+			<f.lV>
+				{invitedUsers.loadingState == "pending" ? (
+					<y.t size="medium" />
+				) : (
+					(0, Localize)("#GroupSettings_InvitedUsers_Failed")
+				)}
+			</f.lV>
 		);
 	}
 	render() {
-		const { group: e } = this.props;
-		const t = e.BCanInvite();
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement(
-				P,
-				null,
-				(0, Localize)("#GroupSettings_InvitedUsers_Section"),
-			),
-			!t && _.createElement(ne, null),
-			this.RenderContent(),
+		const { group } = this.props;
+		const t = group.BCanInvite();
+		return (
+			<>
+				<P>{(0, Localize)("#GroupSettings_InvitedUsers_Section")}</P>
+				{!t && <Ne />}
+				{this.RenderContent()}
+			</>
 		);
 	}
 };
-(0, n.Cg)([v.oI], te.prototype, "RevokeInvite", null);
-te = (0, n.Cg)([C.PA], te);
-let re = class extends _.Component {
+Cg([v.oI], Te.prototype, "RevokeInvite", null);
+Te = Cg([C.PA], Te);
+let Re = class extends _.Component {
 	static contextType = U.QO;
 	componentDidMount() {
 		let e = this.props.group;
@@ -2164,13 +1680,10 @@ let re = class extends _.Component {
 	OnClickUnban(e, t) {
 		let r = c.xm.FriendStore.GetPlayer(t);
 		let n = e.currentTarget.ownerDocument.defaultView;
-		let i = _.createElement(A.bP, {
-			className: "friend",
-			friend: r,
-			context: null,
-			disableContextMenu: true,
-		});
-		(0, d.Ci)(
+		let i = (
+			<A.bP className="friend" friend={r} context={null} disableContextMenu />
+		);
+		Ci(
 			n,
 			(0, Localize)("#GroupSettings_Bans_UnbanTitle"),
 			(0, Localize)("#GroupSettings_Bans_UnbanBody", r.display_name),
@@ -2189,7 +1702,7 @@ let re = class extends _.Component {
 						);
 					})
 					.catch((e) => {
-						(0, d.Ic)(
+						Ic(
 							n,
 							(0, Localize)("#Generic_Error"),
 							(0, Localize)("#GroupSettings_Bans_UnbanGenericError"),
@@ -2208,152 +1721,85 @@ let re = class extends _.Component {
 		});
 	}
 	RenderContent() {
-		const { bans: e } = this.props;
+		const { bans } = this.props;
 		let t;
-		if (e.loadingState == "loaded") {
-			if (e.rgBans.length == 0) {
-				return _.createElement(
-					f.lV,
-					null,
-					(0, Localize)("#GroupSettings_Bans_NoOneBanned"),
-				);
+		if (bans.loadingState == "loaded") {
+			if (bans.rgBans.length == 0) {
+				return <f.lV>{(0, Localize)("#GroupSettings_Bans_NoOneBanned")}</f.lV>;
 			} else {
-				t = e.rgBans.map((e) => {
+				t = bans.rgBans.map((e) => {
 					let t = {
 						friend: c.xm.FriendStore.GetPlayer(e.accountid()),
 						noActions: this.context?.IN_GAMEPADUI,
 						context: null,
 					};
-					return _.createElement(
-						"tr",
-						{
-							className: "hoverRow",
-							key: e.accountid(),
-						},
-						_.createElement(
-							"td",
-							{
-								className: "friendCell",
-							},
-							" ",
-							_.createElement(A.bP, {
-								...t,
-							}),
-							" ",
-						),
-						_.createElement(
-							"td",
-							{
-								className: "dateCell",
-							},
-							" ",
-							this.FormatDate(e.time_banned()),
-							" ",
-						),
-						_.createElement(
-							"td",
-							{
-								className: "buttonCell",
-							},
-							" ",
-							_.createElement(
-								f.$n,
-								{
-									onClick: (t) => this.OnClickUnban(t, e.accountid()),
-								},
-								(0, Localize)("#GroupSettings_Bans_RevokeBan"),
-							),
-						),
+					return (
+						<tr className="hoverRow" key={e.accountid()}>
+							<td className="friendCell">
+								{" "}
+								<A.bP {...t} />{" "}
+							</td>
+							<td className="dateCell"> {this.FormatDate(e.time_banned())} </td>
+							<td className="buttonCell">
+								{" "}
+								<f.$n onClick={(t) => this.OnClickUnban(t, e.accountid())}>
+									{(0, Localize)("#GroupSettings_Bans_RevokeBan")}
+								</f.$n>
+							</td>
+						</tr>
 					);
 				});
-				return _.createElement(
-					f.lV,
-					{
-						className: "DialogBody",
-					},
-					_.createElement(
-						"table",
-						{
-							className: "DialogSpanningTable BannedUsersTable",
-						},
-						_.createElement(
-							"thead",
-							null,
-							_.createElement(
-								"tr",
-								{
-									className: "headerRow",
-								},
-								_.createElement(
-									"th",
-									{
-										className: "friendColumn",
-									},
-									(0, Localize)("#GroupSettings_Bans_InvitedHeader"),
-									" ",
-								),
-								_.createElement(
-									"th",
-									{
-										className: "dateColumn",
-									},
-									" ",
-									(0, Localize)("#GroupSettings_Bans_BannedDate"),
-									" ",
-								),
-								_.createElement(
-									"th",
-									{
-										className: "buttonColumn",
-									},
-									" ",
-								),
-							),
-						),
-						_.createElement("tbody", null, t),
-					),
+				return (
+					<f.lV className="DialogBody">
+						<table className="DialogSpanningTable BannedUsersTable">
+							<thead>
+								<tr className="headerRow">
+									<th className="friendColumn">
+										{(0, Localize)("#GroupSettings_Bans_InvitedHeader")}{" "}
+									</th>
+									<th className="dateColumn">
+										{" "}
+										{(0, Localize)("#GroupSettings_Bans_BannedDate")}{" "}
+									</th>
+									<th className="buttonColumn"> </th>
+								</tr>
+							</thead>
+							<tbody>{t}</tbody>
+						</table>
+					</f.lV>
 				);
 			}
 		}
 		{
 			let t;
 			t =
-				e.loadingState == "pending"
-					? _.createElement(y.t, {
-							size: "medium",
-						})
-					: e.loadingState == "denied"
-						? (0, Localize)("#GroupSettings_Bans_AccessDenied")
-						: (0, Localize)("#GroupSettings_Bans_Failed");
-			return _.createElement(
-				f.lV,
-				{
-					className: "DialogBody",
-				},
-				t,
-			);
+				bans.loadingState == "pending" ? (
+					<y.t size="medium" />
+				) : bans.loadingState == "denied" ? (
+					(0, Localize)("#GroupSettings_Bans_AccessDenied")
+				) : (
+					(0, Localize)("#GroupSettings_Bans_Failed")
+				);
+			return <f.lV className="DialogBody">{t}</f.lV>;
 		}
 	}
 	render() {
-		const { group: e } = this.props;
-		const t = e.BCanBan();
-		return _.createElement(
-			_.Fragment,
-			null,
-			_.createElement(P, null, (0, Localize)("#GroupSettings_Bans_Section")),
-			!t && _.createElement(ne, null),
-			this.RenderContent(),
+		const { group } = this.props;
+		const t = group.BCanBan();
+		return (
+			<>
+				<P>{(0, Localize)("#GroupSettings_Bans_Section")}</P>
+				{!t && <Ne />}
+				{this.RenderContent()}
+			</>
 		);
 	}
 };
-(0, n.Cg)([v.oI], re.prototype, "OnClickUnban", null);
-re = (0, n.Cg)([C.PA], re);
-const ne = (e) =>
-	_.createElement(
-		"div",
-		{
-			className: x.Notification,
-		},
-		_.createElement(b.c_I, null),
-		e.children || (0, Localize)("#Chat_Settings_Permission_Denied"),
-	);
+Cg([v.oI], Re.prototype, "OnClickUnban", null);
+Re = Cg([C.PA], Re);
+const Ne = (e) => (
+	<div className={x.Notification}>
+		<b.c_I />
+		{e.children || (0, Localize)("#Chat_Settings_Permission_Denied")}
+	</div>
+);

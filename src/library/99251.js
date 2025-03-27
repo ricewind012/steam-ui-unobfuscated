@@ -1,9 +1,9 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./49455.js");
-var s = require("./42898.js");
-var o = require("./28864.js");
+import r from "./63696.js";
+import { w } from "./49455.js";
+import { CH } from "./42898.js";
+import { QS } from "./28864.js";
 function a(e, t) {
-	return (0, o.QS)(
+	return QS(
 		(n) => {
 			if (!n) {
 				return;
@@ -24,7 +24,7 @@ export function wY(e) {
 			(e, t) =>
 				e.ResizeObserver
 					? new e.ResizeObserver(t)
-					: ((0, i.w)(false, "ResizeObserver is not available"),
+					: (w(false, "ResizeObserver is not available"),
 						{
 							observe: () => {},
 							unobserve: () => {},
@@ -41,7 +41,7 @@ export function BL(e, t) {
 	);
 }
 export function p1() {
-	return wY((0, s.CH)());
+	return wY(CH());
 }
 export function Fd(e, ...t) {
 	const n = new e.ownerDocument.defaultView.ResizeObserver(...t);

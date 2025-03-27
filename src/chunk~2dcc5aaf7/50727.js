@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ControllerConfiguratorBackgroundContainer: "_3NbB0u_Osw6rCPmOlHzLdF",
 	ControllerConfiguratorGamepadPage: "_1P8ycqpH6O8KTYk4as8V2O",

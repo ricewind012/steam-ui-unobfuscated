@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./87935.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./87935.js";
 class s {
 	displayName;
 	durationSeconds;
@@ -21,7 +21,7 @@ class c {
 	constructor(e, t) {
 		this.m_nAppID = e;
 		if (t) {
-			const r = a.B7.GetCommunityImageURL() + "images/apps/" + e + "/";
+			const r = `${a.B7.GetCommunityImageURL()}images/apps/${e}/`;
 			this.m_nTotalTrackCount = t.tracks.length;
 			this.m_nTotalDurationSeconds = t.tracks.reduce(
 				(e, t) => e + t.durationSeconds,
@@ -30,7 +30,7 @@ class c {
 			this.m_Metadata = new l();
 			this.m_Metadata.m_strArtist = t.metadata.artist;
 			this.m_vecAdditionalImageAssetURLs = t.vecAdditionalImageAssetURLs.map(
-				(e) => r + e + ".jpg",
+				(e) => `${r + e}.jpg`,
 			);
 			this.m_DiscInfo = this.ConvertLinearTrackListIntoStructuredDiscs(t);
 		}
@@ -54,7 +54,7 @@ class c {
 }
 class m {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapSoundtrackDetailsData = new Map();
 	GetSoundtrackDetails(e) {
@@ -86,5 +86,5 @@ class m {
 		return r;
 	}
 }
-(0, n.Cg)([i.sH.shallow], m.prototype, "m_mapSoundtrackDetailsData", undefined);
+Cg([i.sH.shallow], m.prototype, "m_mapSoundtrackDetailsData", undefined);
 export const ET = new m();

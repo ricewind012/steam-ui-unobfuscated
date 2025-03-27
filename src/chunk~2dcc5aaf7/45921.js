@@ -1,78 +1,78 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var a = require(/*webcrack:missing*/ "./85243.js");
-var s = require("./12031.js");
-var o = s;
-var l = require("./67686.js");
-var c = require("./35425.js");
-var m = require(/*webcrack:missing*/ "./90765.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require("./35488.js");
-var A = require("./31800.js");
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require(/*webcrack:missing*/ "./31958.js");
-var h = require("./23829.js");
-var C = require("./70541.js");
-var _ = require("./17034.js");
-var f = require("./96680.js");
-var b = require("./91369.js");
-var y = require("./43397.js");
-var S = require("./22969.js");
-var w = require(/*webcrack:missing*/ "./84252.js");
-var B = require(/*webcrack:missing*/ "./3524.js");
-require("./46422.js");
-var v = require("./55116.js");
-var I = require("./33572.js");
-var E = require("./60115.js");
-var M = require(/*webcrack:missing*/ "./11131.js");
-var T = require("./91486.js");
-var R = require("./96593.js");
-var k = require(/*webcrack:missing*/ "./10975.js");
-var D = require(/*webcrack:missing*/ "./90095.js");
-var N = require(/*webcrack:missing*/ "./41230.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var G = require("./64608.js");
-var O = require("./38542.js");
-var P = require("./93681.js");
-var L = require(/*webcrack:missing*/ "./83599.js");
-var z = require("./91745.js");
-var x = require("./6023.js");
-var U = require("./45967.js");
-var W = require("./64004.js");
-require(/*webcrack:missing*/ "./43691.js");
+import n from "./63696.js";
+import i from "./78325.js";
+import a from "./85243.js";
+import s from "./12031.js";
+import l, { WR } from "./67686.js";
+import c from "./35425.js";
+import m, { A as A_1 } from "./90765.js";
+import u from "./69164.js";
+import d from "./35488.js";
+import A from "./31800.js";
+import p, { wY, Ue, uN, aA, OP, cZ, xA, D5 } from "./52451.js";
+import g, { bT } from "./31958.js";
+import h, { GU } from "./23829.js";
+import C from "./70541.js";
+import _ from "./17034.js";
+import f, { $2 } from "./96680.js";
+import b from "./91369.js";
+import y, { i_ as i_1 } from "./43397.js";
+import S, { V5, Xy } from "./22969.js";
+import w from "./84252.js";
+import B from "./3524.js";
+import "./46422.js";
+import v from "./55116.js";
+import I, { K1 } from "./33572.js";
+import E, { on } from "./60115.js";
+import M from "./11131.js";
+import T from "./91486.js";
+import R from "./96593.js";
+import k from "./10975.js";
+import { q3 } from "./90095.js";
+import { PA } from "./41230.js";
+import G from "./64608.js";
+import { e0, ey, oH } from "./38542.js";
+import P from "./93681.js";
+import L from "./83599.js";
+import z, { Dw } from "./91745.js";
+import x from "./6023.js";
+import { ax } from "./45967.js";
+import W, { dN } from "./64004.js";
+import "./43691.js";
+const o = s;
 const V = Number.parseInt(o["vr-dashboard-bar-width"]);
 const H = Number.parseInt(o["vr-dashboard-bar-height"]);
-const j = (0, y.i_)(
+const j = i_1(
 	o["vrgamepadui-dashboard-bar-side-button-click-animation-duration"],
 );
 const q = new L.wd("VR");
-export const dn = n.forwardRef(function (e, t) {
-	const { active: r, tooltip: i, onActivate: a, ...s } = e;
-	const [l, c] = n.useState(0);
-	const d = n.useRef(undefined);
-	const A = n.useRef(undefined);
-	const h = e.onActivate != null || e.focusable;
+export const Dn = n.forwardRef((props, ref) => {
+	const { active, tooltip, onActivate, ...s } = props;
+	const [l, setL] = n.useState(0);
+	const DRef = n.useRef(undefined);
+	const ARef = n.useRef(undefined);
+	const h = props.onActivate != null || props.focusable;
 	const C = n.useCallback(() => {
-		window.clearTimeout(A.current);
-		d.current?.classList.remove(o.ClickAnimation);
+		window.clearTimeout(ARef.current);
+		DRef.current?.classList.remove(o.ClickAnimation);
 	}, []);
 	const _ = n.useCallback(
 		(e) => {
 			C();
 			if (h) {
-				d.current?.classList.add(o.ClickAnimation);
-				A.current = window.setTimeout(C, j);
-				if (a) {
-					a(e);
+				DRef.current?.classList.add(o.ClickAnimation);
+				ARef.current = window.setTimeout(C, j);
+				if (onActivate) {
+					onActivate(e);
 				}
 			}
 		},
-		[C, h, a],
+		[C, h, onActivate],
 	);
 	const f = n.useCallback((e) => {
 		const t = e.contentBoxSize[0]?.inlineSize ?? 1;
 		const r = e.contentBoxSize[0]?.blockSize ?? 1;
-		c(t / r);
+		setL(t / r);
 	}, []);
 	const b = n.useCallback(
 		(e) => {
@@ -80,102 +80,78 @@ export const dn = n.forwardRef(function (e, t) {
 		},
 		[C],
 	);
-	const y = (0, p.wY)(f);
-	const w = (0, g.bT)(l, 1, 1.5, 0, 1);
-	const B = (0, S.V5)(i);
-	const v = (0, p.Ue)(B, t, d);
-	return n.createElement(
-		u.Z,
-		{
-			...s,
-			className: (0, m.A)(
+	const y = wY(f);
+	const w = bT(l, 1, 1.5, 0, 1);
+	const B = V5(tooltip);
+	const v = Ue(B, ref, DRef);
+	return (
+		<u.Z
+			{...s}
+			className={A_1(
 				"VRDashboardBarItem",
 				o.Item,
 				h && o.Clickable,
-				r && o.Active,
+				active && o.Active,
 				s.className,
-			),
-			style: {
+			)}
+			style={{
 				...s.style,
 				"--bar-item-padding-pct": w.toString(),
-			},
-			focusable: h,
-			ref: v,
-			onPointerDown: b,
-			onClick: _,
-		},
-		n.createElement(
-			"div",
-			{
-				className: o.Highlight,
-			},
-			n.createElement(
-				"div",
-				{
-					className: o.Inner,
-					ref: y,
-				},
-				s.children,
-			),
-		),
+			}}
+			focusable={h}
+			ref={v}
+			onPointerDown={b}
+			onClick={_}
+		>
+			<div className={o.Highlight}>
+				<div className={o.Inner} ref={y}>
+					{s.children}
+				</div>
+			</div>
+		</u.Z>
 	);
 });
-const Z = n.memo(function (e) {
-	const t = n.useRef(undefined);
-	const r = n.useRef(undefined);
-	const i = (0, I.K1)();
-	const a = (0, E.on)();
-	return n.createElement(
-		w.B2,
-		{
-			ref: t,
-			navID: "VRDashboardBarContainer",
-			navTreeRef: r,
-			className: o.DashboardBar,
-			onCancelButton: i,
-			onGlobalButtonDown: a,
-		},
-		n.createElement(
-			v.g,
-			null,
-			n.createElement(
-				"div",
-				{
-					className: (0, m.A)(o.SideSection, o.Left),
-				},
-				n.createElement(ge, null),
-			),
-			n.createElement(K, null),
-			n.createElement(
-				"div",
-				{
-					className: (0, m.A)(o.SideSection, o.Right),
-				},
-				n.createElement(A.rz, null),
-			),
-		),
+const Z = n.memo((e) => {
+	const TRef = n.useRef(undefined);
+	const RRef = n.useRef(undefined);
+	const i = K1();
+	const a = on();
+	return (
+		<w.B2
+			ref={TRef}
+			navID="VRDashboardBarContainer"
+			navTreeRef={RRef}
+			className={o.DashboardBar}
+			onCancelButton={i}
+			onGlobalButtonDown={a}
+		>
+			<v.g>
+				<div className={A_1(o.SideSection, o.Left)}>
+					<Ge />
+				</div>
+				<K />
+				<div className={A_1(o.SideSection, o.Right)}>
+					<A.rz />
+				</div>
+			</v.g>
+		</w.B2>
 	);
 });
 export function ML() {
-	const e = (0, h.GU)(_.UQ);
+	const e = GU(_.UQ);
 	const t = e?.tabs ?? [];
 	const r = t.find(
 		(t) => t.tab_id == e?.vr_settings_tab_id && t.tab_id != null,
 	)?.tab_id;
 	const i = e?.vr_steam_tab_id ?? t.find((e) => e?.icon?.enum == 1)?.tab_id;
-	const { rgTabsToShow: a, unTabToGoToOnParentTabClick: s } = (function (
-		e,
-		t,
-		r,
-		i,
-	) {
+	const { rgTabsToShow, unTabToGoToOnParentTabClick } = ((e, t, r, i) => {
 		i = i ?? [];
 		let a = (e = e ?? []).filter((e) => !i.includes(e.tab_id));
-		const s = n.useRef(undefined);
-		const o = s.current != null && e.find((e) => e.tab_id == s.current);
+		const SRef = n.useRef(undefined);
+		const o = SRef.current != null && e.find((e) => e.tab_id == SRef.current);
 		for (const e of [r, ...i]) {
 			if ((e == t || !o) && e != null) {
-				s.current = e;
+				SRef.current = e;
 				break;
 			}
 		}
@@ -183,26 +159,27 @@ export function ML() {
 		if (l >= 0 && o) {
 			a[l] = {
 				...a[l],
-				tab_id: s.current,
+				tab_id: SRef.current,
 			};
 		}
 		return {
 			rgTabsToShow: a,
-			unTabToGoToOnParentTabClick: s.current,
+			unTabToGoToOnParentTabClick: SRef.current,
 		};
 	})(t, e?.selected_tab_id, i, [r]);
 	return {
 		tabsProto: e,
-		rgTabsToShow: a,
-		bShowVRSettingsAsActiveInMainMenu: s == r && s != null,
+		rgTabsToShow: rgTabsToShow,
+		bShowVRSettingsAsActiveInMainMenu:
+			unTabToGoToOnParentTabClick == r && unTabToGoToOnParentTabClick != null,
 	};
 }
 function K(e) {
-	const t = (0, f.$2)();
-	const { tabsProto: r, rgTabsToShow: i } = ML();
-	const a = i.filter((e) => e.visible_in_dashboard_bar);
-	const [s, l, c] = (0, p.uN)(r?.selected_tab_id, () => {}, 1000);
-	const [d] = (0, z.Dw)(21);
+	const t = $2();
+	const { tabsProto, rgTabsToShow } = ML();
+	const a = rgTabsToShow.filter((e) => e.visible_in_dashboard_bar);
+	const [s, l, c] = uN(tabsProto?.selected_tab_id, () => {}, 1000);
+	const [d] = Dw(21);
 	const A = (a.length == 0 && t?.IsVRSimulatedOnDesktopWindow()) || d;
 	const g = !a.find((e) => e.icon?.enum === 1);
 	const h = n.useCallback(
@@ -215,11 +192,7 @@ function K(e) {
 		},
 		[l, c],
 	);
-	const {
-		bScrolledToBeginning: C,
-		bScrolledToEnd: _,
-		ref: y,
-	} = (0, p.aA)("horizontal");
+	const { bScrolledToBeginning, bScrolledToEnd, ref } = aA("horizontal");
 	const S = n.useMemo(() => new Map(), []);
 	n.useLayoutEffect(() => {
 		const e = S.get(s)?.current;
@@ -228,328 +201,328 @@ function K(e) {
 			behavior: "smooth",
 		});
 	}, [s, S]);
-	return n.createElement(
-		u.Z,
-		{
-			className: (0, m.A)(o.DockItems, !C && o.FadeLeft, !_ && o.FadeRight),
-			ref: y,
-		},
-		a.map((e) => {
-			return n.createElement($, {
-				tab: e,
-				selected: s == e.tab_id,
-				onActivate: () => h(e.tab_id),
-				key: e.tab_id,
-				ref: ((t = e.tab_id), S.has(t) || S.set(t, n.createRef()), S.get(t)),
-			});
-			var t;
-		}),
-		A &&
-			n.createElement(ee, {
-				showSteam: g,
-				showMany: d,
-			}),
-		n.createElement(Ae, null),
+	return (
+		<u.Z
+			className={A_1(
+				o.DockItems,
+				!bScrolledToBeginning && o.FadeLeft,
+				!bScrolledToEnd && o.FadeRight,
+			)}
+			ref={ref}
+		>
+			{a.map((e) => {
+				return (
+					<$
+						tab={e}
+						selected={s == e.tab_id}
+						onActivate={() => h(e.tab_id)}
+						key={e.tab_id}
+						ref={
+							((t = e.tab_id), S.has(t) || S.set(t, n.createRef()), S.get(t))
+						}
+					/>
+				);
+				var t;
+			})}
+			{A && <Ee showSteam={g} showMany={d} />}
+			<Ae />
+		</u.Z>
 	);
 }
 function X(e) {
 	switch (e.iconEnum) {
 		case 0:
-		default:
-			return n.createElement(d.Question, null);
-		case 1:
-			return n.createElement(d.SteamLogo, {
-				className: o.SteamSVG,
-			});
-		case 2:
-			return n.createElement(d.Display, null);
-		case 3:
-			return n.createElement(d.Settings, null);
-		case 4:
-			return n.createElement(d.InGameVR, null);
-		case 5:
-			return n.createElement(ue, null);
+		default: {
+			return <d.Question />;
+		}
+		case 1: {
+			return <d.SteamLogo className={o.SteamSVG} />;
+		}
+		case 2: {
+			return <d.Display />;
+		}
+		case 3: {
+			return <d.Settings />;
+		}
+		case 4: {
+			return <d.InGameVR />;
+		}
+		case 5: {
+			return <Ue />;
+		}
 	}
 }
 function J(e) {
-	const [t, r] = n.useState(false);
-	const [i, a] = n.useState(false);
-	const [s, l] = n.useState(new Date().getTime());
-	const [c, u] = n.useState(false);
-	const d = (0, D.q3)(() =>
+	const [t, setT] = n.useState(false);
+	const [i, setI] = n.useState(false);
+	const [s, setS] = n.useState(new Date().getTime());
+	const [c, setC] = n.useState(false);
+	const d = q3(() =>
 		e.icon?.appid ? R.tw.GetAppOverviewByAppID(e.icon.appid) : undefined,
 	);
 	const A = e.icon?.overlay;
 	const p = n.useCallback(
 		(e) => {
-			if (e == A + ".thumb") {
-				l((e) => e + 1);
+			if (e == `${A}.thumb`) {
+				setS((e) => e + 1);
 			}
 		},
 		[A],
 	);
-	(0, O.e0)(p);
+	e0(p);
 	if (e.icon?.hwnd && !t) {
-		return n.createElement(
-			"div",
-			{
-				className: (0, m.A)(o.Icon, o.HwndIcon),
-			},
-			n.createElement(de, {
-				hwnd: e.icon.hwnd,
-				onError: () => r(true),
-			}),
+		return (
+			<div className={A_1(o.Icon, o.HwndIcon)}>
+				<De hwnd={e.icon.hwnd} onError={() => setT(true)} />
+			</div>
 		);
 	} else if (A && !i) {
-		return n.createElement(
-			"div",
-			{
-				className: (0, m.A)(o.Icon, o.OverlayIcon),
-			},
-			n.createElement("img", {
-				src: `https://steamloopback.host/overlays/thumbnail?key=${A}&cachebust=${s}`,
-				onError: () => a(true),
-			}),
+		return (
+			<div className={A_1(o.Icon, o.OverlayIcon)}>
+				<img
+					src={`https://steamloopback.host/overlays/thumbnail?key=${A}&cachebust=${s}`}
+					onError={() => setI(true)}
+				/>
+			</div>
 		);
 	} else if (e.icon?.appid && !c) {
-		return n.createElement(
-			"div",
-			{
-				className: (0, m.A)(o.Icon, o.AppIcon),
-			},
-			n.createElement(T.z, {
-				app: d,
-				eAssetType: 4,
-				onError: () => u(true),
-				neverShowTitle: true,
-				allowCustomization: false,
-			}),
+		return (
+			<div className={A_1(o.Icon, o.AppIcon)}>
+				<T.z
+					app={d}
+					eAssetType={4}
+					onError={() => setC(true)}
+					neverShowTitle
+					allowCustomization={false}
+				/>
+			</div>
 		);
 	} else {
-		return n.createElement(
-			"div",
-			{
-				className: (0, m.A)(o.Icon, o.EnumIcon),
-			},
-			n.createElement(X, {
-				iconEnum: e.icon?.enum,
-			}),
+		return (
+			<div className={A_1(o.Icon, o.EnumIcon)}>
+				<X iconEnum={e.icon?.enum} />
+			</div>
 		);
 	}
 }
-const $ = n.forwardRef(function (e, t) {
-	const { tab: r, onActivate: i, selected: a } = e;
-	const s = (0, S.V5)(r.display_name);
-	const l = (0, p.Ue)(s, t);
+const $ = n.forwardRef((props, ref) => {
+	const { tab, onActivate, selected } = props;
+	const s = V5(tab.display_name);
+	const l = Ue(s, ref);
 	const c = n.useCallback(() => true, []);
-	return n.createElement(
-		u.Z,
-		{
-			ref: l,
-			onActivate: i,
-			fnScrollIntoViewHandler: c,
-			focusable: true,
-			className: (0, m.A)(o.DockItem, a && o.Selected),
-		},
-		n.createElement(J, {
-			icon: r.icon,
-		}),
+	return (
+		<u.Z
+			ref={l}
+			onActivate={onActivate}
+			fnScrollIntoViewHandler={c}
+			focusable
+			className={A_1(o.DockItem, selected && o.Selected)}
+		>
+			<J icon={tab.icon} />
+		</u.Z>
 	);
 });
-function ee(e) {
+function Ee(e) {
 	const t = [];
 	const r = e.showMany ? 4 : 1;
 	for (let e = 0; e < r; e++) {
 		t.push(
-			n.createElement($, {
-				key: "desktop" + e,
-				tab: {
+			<$
+				key={`desktop${e}`}
+				tab={{
 					tab_id: 1010 + e,
 					display_name: r > 1 ? `Fake Desktop ${e + 1}` : "Fake Desktop",
 					icon: {
 						enum: 2,
 					},
 					visible_in_dashboard_bar: true,
-				},
-			}),
+				}}
+			/>,
 		);
 	}
 	const i = [];
 	const a = e.showMany ? 2 : 0;
 	for (let e = 0; e < a; e++) {
 		i.push(
-			n.createElement($, {
-				key: "window" + e,
-				tab: {
+			<$
+				key={`window${e}`}
+				tab={{
 					tab_id: 1010 + e,
 					display_name: r > 1 ? `Fake Window ${e + 1}` : "Fake Window",
 					icon: {
 						enum: 5,
 					},
 					visible_in_dashboard_bar: true,
-				},
-			}),
+				}}
+			/>,
 		);
 	}
-	return n.createElement(
-		n.Fragment,
-		null,
-		e.showSteam &&
-			n.createElement($, {
-				selected: true,
-				tab: {
-					tab_id: 1000,
-					display_name: "Fake Steam",
-					icon: {
-						enum: 1,
-					},
-					visible_in_dashboard_bar: true,
-				},
-			}),
-		t,
-		i,
+	return (
+		<>
+			{e.showSteam && (
+				<$
+					selected
+					tab={{
+						tab_id: 1000,
+						display_name: "Fake Steam",
+						icon: {
+							enum: 1,
+						},
+						visible_in_dashboard_bar: true,
+					}}
+				/>
+			)}
+			{t}
+			{i}
+		</>
 	);
 }
-function te(e) {
+function Te(e) {
 	switch (e.icon?.enum) {
 		case 0:
-		default:
-			return n.createElement(d.Question, null);
-		case 10:
-			return n.createElement(d.Exit, null);
-		case 11:
-			return n.createElement(d.Power, null);
-		case 1:
-			return n.createElement(d.FeatureVisible, null);
-		case 2:
-			return n.createElement(d.FeatureHidden, null);
-		case 3:
-			return n.createElement(d.Recenter, null);
-		case 12:
-			return n.createElement(d.Playspace, null);
-		case 13:
-			return n.createElement(d.FloorHeight, null);
+		default: {
+			return <d.Question />;
+		}
+		case 10: {
+			return <d.Exit />;
+		}
+		case 11: {
+			return <d.Power />;
+		}
+		case 1: {
+			return <d.FeatureVisible />;
+		}
+		case 2: {
+			return <d.FeatureHidden />;
+		}
+		case 3: {
+			return <d.Recenter />;
+		}
+		case 12: {
+			return <d.Playspace />;
+		}
+		case 13: {
+			return <d.FloorHeight />;
+		}
 	}
 }
-function re(e) {
-	const { action: t, location: r, onActivate: i } = e;
-	const a = t?.invocation;
-	const s = t?.action_id;
-	const o = n.useRef(undefined);
-	o.current = i;
-	const l = (0, f.$2)();
+function Re(e) {
+	const { action, location, onActivate } = e;
+	const a = action?.invocation;
+	const s = action?.action_id;
+	const ORef = n.useRef(undefined);
+	ORef.current = onActivate;
+	const l = $2();
 	const c = l?.IsVRSimulatedOnDesktopWindow();
-	const [m, u, d] = (0, p.uN)(t?.active, () => {}, 1000);
+	const [m, u, d] = uN(action?.active, () => {}, 1000);
 	const A = n.useCallback(() => {
 		const e = (e) => {
-			if (!(e instanceof x.xn) || e.error?.error != 4 || !c) {
+			if (
+				!(e instanceof x.xn) ||
+				e.error?.error != 4 ||
+				e.error?.error != 4 ||
+				!c
+			) {
 				d();
 				throw e;
 			}
 		};
 		switch (a) {
-			case 3:
+			case 3: {
 				break;
-			case 1:
-				if (o.current) {
-					o.current();
+			}
+			case 1: {
+				if (ORef.current) {
+					ORef.current();
 				}
 				b.p.SteamVR.DashboardActionInvoked({
 					action_id: s,
 				}).catch(e);
 				break;
-			case 2:
+			}
+			case 2: {
 				const t = !m;
 				u(t);
-				if (o.current) {
-					o.current(t);
+				if (ORef.current) {
+					ORef.current(t);
 				}
 				b.p.SteamVR.DashboardActionInvoked({
 					action_id: s,
 					toggle_value: t,
 				}).catch(e);
+			}
 		}
 		k.eZ.PlayNavSound(k.PN.BasicNav);
 	}, [a, m, u, d, s, c]);
-	let g = t.icon;
-	if (a == 2 && m && t.icon_active != null) {
-		g = t.icon_active;
+	let t_icon = action.icon;
+	if (a == 2 && m && action.icon_active != null) {
+		t_icon = action.icon_active;
 	}
 	if (
-		(r == "bar" && !t?.visible_in_dashboard_bar) ||
-		(r == "menu" && !t?.visible_in_menu)
+		(location == "bar" && !action?.visible_in_dashboard_bar) ||
+		(location == "menu" && !action?.visible_in_menu)
 	) {
 		return null;
 	}
-	if (t?.enabled === false) {
+	if (action?.enabled === false) {
 		return null;
 	}
 	if (a == 3) {
-		if (t.special_invocation === 1) {
-			if (r == "bar") {
-				return n.createElement(ie, null);
+		if (action.special_invocation === 1) {
+			if (location == "bar") {
+				return <Ie />;
 			} else {
 				return null;
 			}
 		} else {
 			console.warn(
 				"Unknown or unimplemented special invocation for dashboard action:",
-				t.special_invocation,
-				t,
+				action.special_invocation,
+				action,
 			);
 			return null;
 		}
 	}
-	switch (r) {
-		case "bar":
-			return n.createElement(
-				dn,
-				{
-					onActivate: A,
-					active: m,
-					tooltip: t?.display_name,
-				},
-				n.createElement(te, {
-					icon: g,
-				}),
+	switch (location) {
+		case "bar": {
+			return (
+				<Dn onActivate={A} active={m} tooltip={action?.display_name}>
+					<Te icon={t_icon} />
+				</Dn>
 			);
-		case "menu":
-			return n.createElement(se, {
-				active: m,
-				key: t.action_id,
-				icon: n.createElement(te, {
-					icon: g,
-				}),
-				label: t.display_name,
-				onActivate: A,
-				bottomSeparator: "none",
-			});
+		}
+		case "menu": {
+			return (
+				<Se
+					active={m}
+					key={action.action_id}
+					icon={<Te icon={t_icon} />}
+					label={action.display_name}
+					onActivate={A}
+					bottomSeparator="none"
+				/>
+			);
+		}
 	}
 }
-function ne(e) {
-	const { onActivate: t, children: r } = e;
-	return n.createElement(
-		u.Z,
-		{
-			onActivate: t,
-			focusable: true,
-			className: (0, m.A)(o.ClickableSliderIcon, !!t && o.Clickable),
-		},
-		r,
+function Ne(e) {
+	const { onActivate, children } = e;
+	return (
+		<u.Z
+			onActivate={onActivate}
+			focusable
+			className={A_1(o.ClickableSliderIcon, !!onActivate && o.Clickable)}
+		>
+			{children}
+		</u.Z>
 	);
 }
-const ie = (0, N.PA)(function (e) {
-	const t = (0, f.$2)();
+const Ie = PA((e) => {
+	const t = $2();
 	const r = t?.IsVRSimulatedOnDesktopWindow();
-	const [i, a] = (0, p.uN)(C.t.m_MainVolume, C.t.SetMainVolumeSettings);
-	const [s, l] = (0, p.uN)(
-		C.t.m_AudioMirrorVolume,
-		C.t.SetAudioMirrorVolumeSettings,
-	);
-	const [c, u] = (0, p.uN)(
-		C.t.m_MicrophoneVolume,
-		C.t.SetMicrophoneVolumeSettings,
-	);
+	const [i, a] = uN(C.t.m_MainVolume, C.t.SetMainVolumeSettings);
+	const [s, l] = uN(C.t.m_AudioMirrorVolume, C.t.SetAudioMirrorVolumeSettings);
+	const [c, u] = uN(C.t.m_MicrophoneVolume, C.t.SetMicrophoneVolumeSettings);
 	const A = i?.muted ? 0 : (i?.volume ?? 0);
 	const g = s?.muted ? 0 : (s?.volume ?? 0);
 	const h = c?.muted ? 0 : (c?.volume ?? 0);
@@ -561,279 +534,268 @@ const ie = (0, N.PA)(function (e) {
 	}
 	let S;
 	S = y ? "microphone" : b ? "audiomirror" : "main";
-	return n.createElement(
-		XO,
-		{
-			popupContents: n.createElement(
-				"div",
-				{
-					className: (0, m.A)(o.DashboardBarPopupContents, o.VolumePopup),
-				},
-				_ &&
-					n.createElement(G.d3, {
-						label: (0, Localize)("#Audio_VRHeadset_Volume"),
-						value: A,
-						onChange: (e) =>
-							a({
-								...i,
-								muted: false,
-								volume: e,
-							}),
-						min: 0,
-						max: 1,
-						step: 0,
-						childrenContainerWidth: "max",
-						layout: "below",
-						bottomSeparator: S == "main" ? "none" : "standard",
-						icon: n.createElement(
-							ne,
-							{
-								onActivate: () =>
-									a({
-										...i,
-										muted: !i.muted,
-									}),
-							},
-							n.createElement(d.AudioVolumeIcon, {
-								flVolume: A,
-							}),
-						),
-					}),
-				b &&
-					n.createElement(G.d3, {
-						label: (0, Localize)("#Audio_VRAudioMirror_Volume"),
-						value: g,
-						onChange: (e) =>
-							l({
-								...s,
-								muted: false,
-								volume: e,
-							}),
-						min: 0,
-						max: 1,
-						step: 0,
-						childrenContainerWidth: "max",
-						layout: "below",
-						padding: "standard",
-						bottomSeparator: S == "audiomirror" ? "none" : "standard",
-						icon: n.createElement(
-							ne,
-							{
-								onActivate: () =>
-									l({
-										...s,
-										muted: !s.muted,
-									}),
-							},
-							n.createElement(d.AudioVolumeIcon, {
-								flVolume: g,
-							}),
-						),
-					}),
-				y &&
-					n.createElement(G.d3, {
-						label: (0, Localize)("#Audio_VRMicrophone_Volume"),
-						value: h,
-						onChange: (e) =>
-							u({
-								...c,
-								muted: false,
-								volume: e,
-							}),
-						min: 0,
-						max: 1,
-						step: 0,
-						childrenContainerWidth: "max",
-						layout: "below",
-						padding: "standard",
-						bottomSeparator: S == "microphone" ? "none" : "standard",
-						icon: n.createElement(
-							ne,
-							{
-								onActivate: () =>
-									u({
-										...c,
-										muted: !c.muted,
-									}),
-							},
-							n.createElement(d.Microphone, {
-								off: h == 0,
-							}),
-						),
-					}),
-			),
-			tooltip: (0, Localize)("#Audio_Volume"),
-		},
-		n.createElement(d.AudioVolumeIcon, {
-			flVolume: A,
-		}),
+	return (
+		<XO
+			popupContents={
+				<div className={A_1(o.DashboardBarPopupContents, o.VolumePopup)}>
+					{_ && (
+						<G.d3
+							label={(0, Localize)("#Audio_VRHeadset_Volume")}
+							value={A}
+							onChange={(e) =>
+								a({
+									...i,
+									muted: false,
+									volume: e,
+								})
+							}
+							min={0}
+							max={1}
+							step={0}
+							childrenContainerWidth="max"
+							layout="below"
+							bottomSeparator={S == "main" ? "none" : "standard"}
+							icon={
+								<Ne
+									onActivate={() =>
+										a({
+											...i,
+											muted: !i.muted,
+										})
+									}
+								>
+									<d.AudioVolumeIcon flVolume={A} />
+								</Ne>
+							}
+						/>
+					)}
+					{b && (
+						<G.d3
+							label={(0, Localize)("#Audio_VRAudioMirror_Volume")}
+							value={g}
+							onChange={(e) =>
+								l({
+									...s,
+									muted: false,
+									volume: e,
+								})
+							}
+							min={0}
+							max={1}
+							step={0}
+							childrenContainerWidth="max"
+							layout="below"
+							padding="standard"
+							bottomSeparator={S == "audiomirror" ? "none" : "standard"}
+							icon={
+								<Ne
+									onActivate={() =>
+										l({
+											...s,
+											muted: !s.muted,
+										})
+									}
+								>
+									<d.AudioVolumeIcon flVolume={g} />
+								</Ne>
+							}
+						/>
+					)}
+					{y && (
+						<G.d3
+							label={(0, Localize)("#Audio_VRMicrophone_Volume")}
+							value={h}
+							onChange={(e) =>
+								u({
+									...c,
+									muted: false,
+									volume: e,
+								})
+							}
+							min={0}
+							max={1}
+							step={0}
+							childrenContainerWidth="max"
+							layout="below"
+							padding="standard"
+							bottomSeparator={S == "microphone" ? "none" : "standard"}
+							icon={
+								<Ne
+									onActivate={() =>
+										u({
+											...c,
+											muted: !c.muted,
+										})
+									}
+								>
+									<d.Microphone off={h == 0} />
+								</Ne>
+							}
+						/>
+					)}
+				</div>
+			}
+			tooltip={(0, Localize)("#Audio_Volume")}
+		>
+			<d.AudioVolumeIcon flVolume={A} />
+		</XO>
 	);
 });
-function ae(e) {
-	const { bScrolledToBeginning: t, bScrolledToEnd: r, ref: i } = (0, p.aA)();
-	return n.createElement(
-		"div",
-		{
-			className: (0, m.A)(
+function Ae_1(e) {
+	const { bScrolledToBeginning, bScrolledToEnd, ref } = aA();
+	return (
+		<div
+			className={A_1(
 				o.DashboardBarPopupContents,
 				o.DashboardBarPopupList,
-				!t && o.FadeTop,
-				!r && o.FadeBottom,
-			),
-		},
-		n.createElement(
-			u.Z,
-			{
-				className: (0, m.A)(o.DashboardBarPopupListScrollPanel),
-				ref: i,
-			},
-			e.children,
-		),
+				!bScrolledToBeginning && o.FadeTop,
+				!bScrolledToEnd && o.FadeBottom,
+			)}
+		>
+			<u.Z className={A_1(o.DashboardBarPopupListScrollPanel)} ref={ref}>
+				{e.children}
+			</u.Z>
+		</div>
 	);
 }
-function se(e) {
-	const { active: t, ...r } = e;
+function Se(e) {
+	const { active, ...r } = e;
 	const i = !!e.onActivate;
-	const [a, s] = (0, p.OP)();
-	return n.createElement(G.D0, {
-		...s,
-		...r,
-		label: n.createElement(
-			P.r,
-			{
-				delay: 0,
-				play: a,
-				resetOnPause: true,
-			},
-			e.label,
-		),
-		className: (0, m.A)(
-			o.DashboardBarPopupListItem,
-			i && o.Clickable,
-			t && o.Active,
-		),
-	});
+	const [a, s] = OP();
+	return (
+		<G.D0
+			{...s}
+			{...r}
+			label={
+				<P.r delay={0} play={a} resetOnPause>
+					{e.label}
+				</P.r>
+			}
+			className={A_1(
+				o.DashboardBarPopupListItem,
+				i && o.Clickable,
+				active && o.Active,
+			)}
+		/>
+	);
 }
-const oe = (0, N.PA)(function (e) {
-	const { closeMenu: t } = e;
-	const { rgTabsToShow: r, tabsProto: i } = ML();
-	const a = r.filter((e) => e.visible_in_dashboard_menu);
+const Oe = PA((e) => {
+	const { closeMenu } = e;
+	const { rgTabsToShow, tabsProto } = ML();
+	const a = rgTabsToShow.filter((e) => e.visible_in_dashboard_menu);
 	const s = n.useCallback(
 		(e) => {
 			k.eZ.PlayNavSound(k.PN.PagedNavigation);
 			b.p.SteamVR.DashboardTabClicked({
 				tab_id: e,
 			});
-			t?.();
+			closeMenu?.();
 		},
-		[t],
+		[closeMenu],
 	);
-	return n.createElement(
-		n.Fragment,
-		null,
-		a.map((e, t, r) =>
-			n.createElement(se, {
-				key: e.tab_id,
-				icon: n.createElement(J, {
-					icon: e.icon,
-				}),
-				label: e.display_name,
-				onActivate: () => s(e.tab_id),
-				active: e.tab_id === i.selected_tab_id,
-				bottomSeparator: t == r.length - 1 ? "standard" : "none",
-			}),
-		),
+	return (
+		<>
+			{a.map((e, t, r) => (
+				<Se
+					key={e.tab_id}
+					icon={<J icon={e.icon} />}
+					label={e.display_name}
+					onActivate={() => s(e.tab_id)}
+					active={e.tab_id === tabsProto.selected_tab_id}
+					bottomSeparator={t == r.length - 1 ? "standard" : "none"}
+				/>
+			))}
+		</>
 	);
 });
-function le(e) {
-	(0, W.dN)();
+function Le(e) {
+	dN();
 	return null;
 }
-function ce(e) {
-	const { onClick: t } = e;
-	const r = (0, O.ey)();
+function Ce_1(e) {
+	const { onClick } = e;
+	const r = ey();
 	const i = n.useCallback(() => {
 		r();
-		t?.();
-	}, [r, t]);
-	return n.createElement(se, {
-		icon: n.createElement(d.Exit, null),
-		label: (0, Localize)("#ExitVR"),
-		onActivate: i,
-		bottomSeparator: "none",
-	});
+		onClick?.();
+	}, [r, onClick]);
+	return (
+		<Se
+			icon={<d.Exit />}
+			label={(0, Localize)("#ExitVR")}
+			onActivate={i}
+			bottomSeparator="none"
+		/>
+	);
 }
-const me = (0, N.PA)(function (e) {
+const Me = PA((e) => {
 	const t = pe();
-	(0, U.ax)(5);
-	const r = n.useRef(undefined);
-	return n.createElement(
-		XO,
-		{
-			popupContents: n.createElement(
-				ae,
-				null,
-				e.menuTabs &&
-					n.createElement(oe, {
-						closeMenu: () => r.current?.closePopup(),
-					}),
-				e.directVRStreamingOption &&
-					n.createElement(le, {
-						onClick: () => r.current?.closePopup(),
-					}),
-				t
-					.filter((t) => t.parent_menu_action_id === e.menuActionID)
-					.map((e) =>
-						n.createElement(re, {
-							key: e.action_id,
-							action: e,
-							location: "menu",
-							onActivate: () => {
-								if (e.invocation == 1) {
-									r.current?.closePopup();
-								}
-							},
-						}),
-					),
-				e.powerOptions &&
-					n.createElement(ce, {
-						onClick: () => r.current?.closePopup(),
-					}),
-				e.powerOptions && false,
-			),
-			tooltip: e.tooltip,
-			refFunctions: r,
-		},
-		e.icon,
+	ax(5);
+	const RRef = n.useRef(undefined);
+	return (
+		<XO
+			popupContents={
+				<Ae_1>
+					{e.menuTabs && <Oe closeMenu={() => RRef.current?.closePopup()} />}
+					{e.directVRStreamingOption && (
+						<Le onClick={() => RRef.current?.closePopup()} />
+					)}
+					{t
+						.filter((t) => t.parent_menu_action_id === e.menuActionID)
+						.map((e) => (
+							<Re
+								key={e.action_id}
+								action={e}
+								location="menu"
+								onActivate={() => {
+									if (e.invocation == 1) {
+										RRef.current?.closePopup();
+									}
+								}}
+							/>
+						))}
+					{e.powerOptions && (
+						<Ce_1 onClick={() => RRef.current?.closePopup()} />
+					)}
+					{e.powerOptions && false}
+				</Ae_1>
+			}
+			tooltip={e.tooltip}
+			refFunctions={RRef}
+		>
+			{e.icon}
+		</XO>
 	);
 });
-function ue(e) {
-	return n.createElement(d.SingleWindowToggle, null);
+function Ue(e) {
+	return <d.SingleWindowToggle />;
 }
-function de(e) {
-	const { hwnd: t, onError: r } = e;
-	const [i, a] = n.useState(false);
+function De(e) {
+	const { hwnd, onError } = e;
+	const [i, setI] = n.useState(false);
 	if (i) {
-		return n.createElement(ue, null);
+		return <Ue />;
 	} else {
-		return n.createElement("img", {
-			src: `https://steamloopback.host/windows/icon?handle=${t}`,
-			onError: () => a(true),
-		});
+		return (
+			<img
+				src={`https://steamloopback.host/windows/icon?handle=${hwnd}`}
+				onError={() => setI(true)}
+			/>
+		);
 	}
 }
-const Ae = (0, N.PA)(function (e) {
-	const t = n.useRef(undefined);
+const Ae = PA((e) => {
+	const TRef = n.useRef(undefined);
 	const r = n.useCallback((e) => {
 		b.p.SteamVR.DashboardDesktopWindowClicked({
 			window_id: e?.window_id,
 		})
-			.then(() => t.current?.closePopup())
+			.then(() => TRef.current?.closePopup())
 			.catch((e) => q.Error("Failed to open VR desktop window:", e));
 	}, []);
-	const i = (function () {
-		const e = (0, f.$2)();
-		const t = (0, h.GU)(_.J$) ?? {};
+	const i = (() => {
+		const e = $2();
+		const t = GU(_.J$) ?? {};
 		const r = t?.windows ?? [];
 		if (r.length == 0 && e?.IsVRSimulatedOnDesktopWindow()) {
 			const e = [
@@ -859,42 +821,38 @@ const Ae = (0, N.PA)(function (e) {
 	if (i.length == 0) {
 		return null;
 	} else {
-		return n.createElement(
-			XO,
-			{
-				className: o.AddWindowButton,
-				refFunctions: t,
-				popupContents: n.createElement(
-					ae,
-					null,
-					i.map((e, t) =>
-						n.createElement(se, {
-							key: e.window_id,
-							icon: n.createElement(
-								"div",
-								{
-									className: (0, m.A)(o.Icon, o.HwndIcon),
-								},
-								n.createElement(de, {
-									hwnd: e.hwnd,
-								}),
-							),
-							label: e.title,
-							onActivate: () => r(e),
-							bottomSeparator: t < i.length - 1 ? "standard" : "none",
-						}),
-					),
-				),
-				tooltip: (0, Localize)("#VRDashboard_AddDesktopWindow"),
-			},
-			n.createElement(d.Add, null),
+		return (
+			<XO
+				className={o.AddWindowButton}
+				refFunctions={TRef}
+				popupContents={
+					<Ae_1>
+						{i.map((e, t) => (
+							<Se
+								key={e.window_id}
+								icon={
+									<div className={A_1(o.Icon, o.HwndIcon)}>
+										<De hwnd={e.hwnd} />
+									</div>
+								}
+								label={e.title}
+								onActivate={() => r(e)}
+								bottomSeparator={t < i.length - 1 ? "standard" : "none"}
+							/>
+						))}
+					</Ae_1>
+				}
+				tooltip={(0, Localize)("#VRDashboard_AddDesktopWindow")}
+			>
+				<d.Add />
+			</XO>
 		);
 	}
 });
 function pe() {
-	const e = (0, h.GU)(_.$1);
+	const e = GU(_.$1);
 	const t = e?.actions ?? [];
-	const r = (0, f.$2)();
+	const r = $2();
 	if (e == null && r?.IsVRSimulatedOnDesktopWindow()) {
 		t.push({
 			action_id: -1100,
@@ -934,67 +892,54 @@ function pe() {
 	}
 	return t;
 }
-function ge(e) {
+function Ge(e) {
 	const t = pe();
 	let r = [];
 	r.push(
-		n.createElement(me, {
-			key: "mainmenu",
-			tooltip: (0, Localize)("#OptionsMenuVR"),
-			directVRStreamingOption: true,
-			powerOptions: true,
-			menuActionID: undefined,
-			icon: n.createElement(d.Rows, null),
-			menuTabs: true,
-		}),
+		<Me
+			key="mainmenu"
+			tooltip={(0, Localize)("#OptionsMenuVR")}
+			directVRStreamingOption
+			powerOptions
+			menuActionID={undefined}
+			icon={<d.Rows />}
+			menuTabs
+		/>,
 	);
 	for (const e of t) {
 		if (e.is_menu) {
 			r.push(
-				n.createElement(me, {
-					key: e.action_id,
-					tooltip: e.display_name,
-					menuActionID: e.action_id,
-					icon: n.createElement(te, {
-						icon: e.icon,
-					}),
-				}),
+				<Me
+					key={e.action_id}
+					tooltip={e.display_name}
+					menuActionID={e.action_id}
+					icon={<Te icon={e.icon} />}
+				/>,
 			);
 		} else {
-			r.push(
-				n.createElement(re, {
-					action: e,
-					key: e.action_id,
-					location: "bar",
-				}),
-			);
+			r.push(<Re action={e} key={e.action_id} location="bar" />);
 		}
 	}
-	return n.createElement(
-		"div",
-		{
-			className: o.SideSectionInner,
-		},
-		r,
-	);
+	return <div className={o.SideSectionInner}>{r}</div>;
 }
-const he = n.forwardRef(function (e, t) {
-	const { children: r, elemButton: a, onClosed: s } = e;
+const He = n.forwardRef((props, ref) => {
+	const { children, elemButton, onClosed } = props;
 	const o = n.useCallback(
 		(e) => {
 			switch (e) {
 				case 2:
-				case 3:
-					s?.();
+				case 3: {
+					onClosed?.();
+				}
 			}
 		},
-		[s],
+		[onClosed],
 	);
-	const l = M.Of?.GetPopupForWindow(a?.ownerDocument?.defaultView);
+	const l = M.Of?.GetPopupForWindow(elemButton?.ownerDocument?.defaultView);
 	const c = l?.params?.strVROverlayKey;
 	const m = n.useMemo(
 		() =>
-			(function (e) {
+			((e) => {
 				if (e?.getBoundingClientRect == null) {
 					return;
 				}
@@ -1004,10 +949,10 @@ const he = n.forwardRef(function (e, t) {
 						2 -
 					1
 				);
-			})(a) ?? 0,
-		[a],
+			})(elemButton) ?? 0,
+		[elemButton],
 	);
-	const { element: u, methods: d } = (0, S.Xy)(
+	const { element, methods } = Xy(
 		S.b7.DashboardBarPopup,
 		{
 			parent_overlay_key: c,
@@ -1030,33 +975,25 @@ const he = n.forwardRef(function (e, t) {
 			onStateChange: o,
 		},
 	);
-	const A = d.close;
+	const d_close = methods.close;
 	const g = n.useCallback(
 		(e) => {
 			if (!e) {
-				A();
+				d_close();
 			}
 		},
-		[A],
+		[d_close],
 	);
-	(0, O.oH)(u?.ownerDocument?.defaultView, g);
-	n.useLayoutEffect(() => (0, p.cZ)(t, u), [t, u]);
-	if (u) {
-		return n.createElement(
-			B.b5,
-			{
-				ownerWindow: u.ownerDocument.defaultView,
-			},
-			i.createPortal(
-				n.createElement(
-					w.B2,
-					{
-						navID: "VRDashboardBarPopup",
-					},
-					r,
-				),
-				u,
-			),
+	oH(element?.ownerDocument?.defaultView, g);
+	n.useLayoutEffect(() => cZ(ref, element), [ref, element]);
+	if (element) {
+		return (
+			<B.b5 ownerWindow={element.ownerDocument.defaultView}>
+				{i.createPortal(
+					<w.B2 navID="VRDashboardBarPopup">{children}</w.B2>,
+					element,
+				)}
+			</B.b5>
 		);
 	} else {
 		return null;
@@ -1064,52 +1001,52 @@ const he = n.forwardRef(function (e, t) {
 });
 const Ce = 4000;
 export function XO(e) {
-	const { popupContents: t, refFunctions: r, ...i } = e;
+	const { popupContents, refFunctions, ...i } = e;
 	n.useRef(undefined).current = e;
-	const [a, s] = n.useState(false);
-	const [o, l] = n.useState();
-	const c = n.useRef(undefined);
-	const m = n.useRef(false);
-	const u = n.useRef(false);
-	const d = n.useRef(true);
+	const [a, setA] = n.useState(false);
+	const [o, setO] = n.useState();
+	const CRef = n.useRef(undefined);
+	const MRef = n.useRef(false);
+	const URef = n.useRef(false);
+	const DRef = n.useRef(true);
 	n.useEffect(() => {
-		if (d.current) {
-			d.current = false;
+		if (DRef.current) {
+			DRef.current = false;
 		} else {
 			k.eZ.PlayNavSound(a ? k.PN.OpenSideMenu : k.PN.CloseSideMenu);
 		}
 	}, [a]);
-	const A = n.useCallback(() => s(true), []);
-	const g = n.useCallback(() => s(false), []);
-	const h = n.useCallback(() => s((e) => !e), []);
+	const A = n.useCallback(() => setA(true), []);
+	const g = n.useCallback(() => setA(false), []);
+	const h = n.useCallback(() => setA((e) => !e), []);
 	const C = n.useCallback(() => {
-		window.clearTimeout(c.current);
-		c.current = undefined;
+		window.clearTimeout(CRef.current);
+		CRef.current = undefined;
 	}, []);
 	const _ = n.useCallback(() => {
-		if (c.current == null) {
-			c.current = window.setTimeout(g, Ce);
+		if (CRef.current == null) {
+			CRef.current = window.setTimeout(g, Ce);
 		}
 	}, [g]);
 	const f = n.useCallback(() => {
-		if (m.current || u.current) {
+		if (MRef.current || URef.current) {
 			C();
 		} else {
 			_();
 		}
 	}, [C, _]);
 	const b = n.useCallback(() => {
-		m.current = true;
+		MRef.current = true;
 		f();
 	}, [f]);
 	const y = n.useCallback(() => {
-		m.current = false;
+		MRef.current = false;
 		f();
 	}, [f]);
 	const S = n.useCallback(
 		(e) => {
 			e.target.setPointerCapture?.(e.pointerId);
-			u.current = true;
+			URef.current = true;
 			f();
 		},
 		[f],
@@ -1117,21 +1054,21 @@ export function XO(e) {
 	const w = n.useCallback(
 		(e) => {
 			e.target.releasePointerCapture?.(e.pointerId);
-			u.current = false;
+			URef.current = false;
 			f();
 		},
 		[f],
 	);
-	n.useEffect(() => () => window.clearTimeout(c.current), []);
-	const B = [(0, p.xA)("mouseenter", b), (0, p.xA)("mouseleave", y)];
+	n.useEffect(() => () => window.clearTimeout(CRef.current), []);
+	const B = [xA("mouseenter", b), xA("mouseleave", y)];
 	const v = [
-		(0, p.xA)("mouseenter", b),
-		(0, p.xA)("mouseleave", y),
-		(0, p.xA)("pointerdown", S),
-		(0, p.xA)("pointerup", w),
+		xA("mouseenter", b),
+		xA("mouseleave", y),
+		xA("pointerdown", S),
+		xA("pointerup", w),
 	];
-	const I = (0, p.Ue)(l, ...B);
-	const E = (0, p.Ue)(...v);
+	const I = Ue(setO, ...B);
+	const E = Ue(...v);
 	const M = n.useMemo(
 		() => ({
 			openPopup: A,
@@ -1139,32 +1076,20 @@ export function XO(e) {
 		}),
 		[A, g],
 	);
-	(0, p.D5)(r, M);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(dn, {
-			...i,
-			ref: I,
-			active: a,
-			onActivate: h,
-			focusable: true,
-		}),
-		a &&
-			o != null &&
-			n.createElement(
-				he,
-				{
-					ref: E,
-					elemButton: o,
-					onClosed: g,
-				},
-				t,
-			),
+	D5(refFunctions, M);
+	return (
+		<>
+			<Dn {...i} ref={I} active={a} onActivate={h} focusable />
+			{a && o != null && (
+				<He ref={E} elemButton={o} onClosed={g}>
+					{popupContents}
+				</He>
+			)}
+		</>
 	);
 }
 export function iG(e) {
-	const { popup: t, element: r } = (0, l.WR)("VRDashboardBar", {
+	const { popup, element } = WR("VRDashboardBar", {
 		browserType: a.W.EBrowserType_OpenVROverlay,
 		eCreationFlags: 0,
 		strVROverlayKey: c.rn,
@@ -1177,18 +1102,9 @@ export function iG(e) {
 		},
 		replace_existing_popup: true,
 	});
-	if (r) {
-		return n.createElement(
-			B.b5,
-			{
-				ownerWindow: t,
-			},
-			i.createPortal(
-				n.createElement(Z, {
-					...e,
-				}),
-				r,
-			),
+	if (element) {
+		return (
+			<B.b5 ownerWindow={popup}>{i.createPortal(<Z {...e} />, element)}</B.b5>
 		);
 	} else {
 		return null;

@@ -1,13 +1,47 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./46422.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./28987.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./96593.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
+import n, { Cg } from "./34629.js";
+import i, { useEffect } from "./63696.js";
+import a from "./46422.js";
+import s, { Gn } from "./89193.js";
+import o from "./28987.js";
+import l from "./44846.js";
+import c from "./83599.js";
+import m from "./52451.js";
+import u, { TL } from "./72476.js";
+import d from "./96593.js";
+import p from "./97023.js";
+import { TE, zI, aj } from "./13200.js";
+import { Fe, rg } from "./61398.js";
+import { lZ } from "./81884.js";
+import { vE, fP, cd } from "./10481.js";
+import { J as J_1 } from "./9600.js";
+import b, { J as J_1 } from "./81371.js";
+import y from "./78057.js";
+import S from "./51354.js";
+import B from "./61277.js";
+import v, { g7 } from "./22091.js";
+import _I from "./64608.js";
+import E from "./85243.js";
+import M from "./10606.js";
+import { pg } from "./13869.js";
+import R from "./35488.js";
+import { A as A_2 } from "./90765.js";
+import D from "./81332.js";
+import F, { Bx } from "./55489.js";
+import G from "./61175.js";
+import x from "./34792.js";
+import { V5 } from "./19037.js";
+import W from "./45967.js";
+import { _N } from "./6263.js";
+import H, { F as F_2 } from "./63947.js";
+import j from "./49171.js";
+import q from "./18057.js";
+import Q, { hH } from "./96555.js";
+import J from "./73317.js";
+import { Uo, XK } from "./19731.js";
+import { q3 } from "./90095.js";
+import { e } from "./87197.js";
 class A {
 	m_nNextListener = 1;
 	m_listeners = {};
@@ -25,28 +59,7 @@ class A {
 		}
 	}
 }
-var p = require("./97023.js");
-var g = require("./13200.js");
-var h = require("./61398.js");
-var C = require("./81884.js");
-var _ = require("./10481.js");
-var f = require("./9600.js");
-var b = require("./81371.js");
-var y = require("./78057.js");
-var S = require("./51354.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var B = require("./61277.js");
-var v = require("./22091.js");
-var _I = require("./64608.js");
-var E = require(/*webcrack:missing*/ "./85243.js");
-var M = require("./10606.js");
-var T = require("./13869.js");
-var R = require("./35488.js");
-var k = require(/*webcrack:missing*/ "./90765.js");
-var D = require("./81332.js");
-var N = D;
-var F = require("./55489.js");
-var G = require("./61175.js");
+const N = D;
 function O(e) {
 	if (e) {
 		return {};
@@ -58,79 +71,55 @@ function O(e) {
 	}
 }
 function P(e) {
-	(0, F.Bx)(E.I5.Opaque, "MustUpdateClientDialogGamepad");
+	Bx(E.I5.Opaque, "MustUpdateClientDialogGamepad");
 	return z(e);
 }
 function L(e) {
 	return z(e);
 }
 function z(e) {
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		SteamClient.Updates.CheckForUpdates();
 	}, []);
-	return i.createElement(
-		M.eV,
-		{
-			className: (0, k.A)(N.MustUpdateClientModalContent, e.classAddition),
-		},
-		i.createElement(
-			_I.Y9,
-			{
-				style: {
+	return (
+		<M.eV className={A_2(N.MustUpdateClientModalContent, e.classAddition)}>
+			<_I.Y9
+				style={{
 					display: "flex",
 					flexDirection: "row",
 					alignItems: "center",
 					gap: "12px",
-				},
-			},
-			i.createElement(R.ExclamationPoint, {
-				className: N.TitleWarningIcon,
-			}),
-			i.createElement(
-				"span",
-				null,
-				(0, Localize)("#AppLaunch_MustUpdateClient_Header"),
-			),
-		),
-		i.createElement(
-			_I.nB,
-			null,
-			i.createElement(
-				_I.a3,
-				null,
-				(0, Localize)("#AppLaunch_MustUpdateClient_Description"),
-			),
-			i.createElement(
-				_I.wi,
-				null,
-				i.createElement(_I.CB, {
-					strOKText: (0, Localize)("#ClientUpdate_ApplyUpdate_Button"),
-					onOK: () => {
-						e.closeModal();
-						SteamClient.User.StartRestart(false);
-					},
-					onCancel: e.closeModal,
-				}),
-			),
-		),
+				}}
+			>
+				<R.ExclamationPoint className={N.TitleWarningIcon} />
+				<span>{(0, Localize)("#AppLaunch_MustUpdateClient_Header")}</span>
+			</_I.Y9>
+			<_I.nB>
+				<_I.a3>
+					{(0, Localize)("#AppLaunch_MustUpdateClient_Description")}
+				</_I.a3>
+				<_I.wi>
+					<_I.CB
+						strOKText={(0, Localize)("#ClientUpdate_ApplyUpdate_Button")}
+						onOK={() => {
+							e.closeModal();
+							SteamClient.User.StartRestart(false);
+						}}
+						onCancel={e.closeModal}
+					/>
+				</_I.wi>
+			</_I.nB>
+		</M.eV>
 	);
 }
-var x = require("./34792.js");
-var U = require("./19037.js");
-var W = require("./45967.js");
-var V = require("./6263.js");
-var H = require("./63947.js");
-var j = require("./49171.js");
-var q = require("./18057.js");
-var Q = require("./96555.js");
 const Z = new c.wd("LaunchGameAction");
 async function Y(e, t, r, n, i) {
 	const s = await y.H.RequestAppDetails(e);
 	const o = v.Fd.Get().GetControllers();
 	const l = d.tw.GetAppOverviewByAppID(e);
-	const c = (0, v.g7)(l, s);
+	const c = g7(l, s);
 	if (!u.TS.ON_DECK) {
-		await (async function (e, t, r, n, i) {
+		await (async (e, t, r, n, i) => {
 			if (e.vr_supported || !W.qL.IsSteamVRRunning) {
 				return;
 			}
@@ -230,12 +219,12 @@ async function Y(e, t, r, n, i) {
 		});
 	}
 	if (
-		!(function (e, t, r) {
+		!((e, t, r) => {
 			if (a.oy.IsGamepadUIWindowActive()) {
 				return false;
 			}
 			if (B.z.BHasVisibleInterstitials) {
-				(0, U.V5)(e, t, r);
+				V5(e, t, r);
 			} else {
 				t();
 			}
@@ -262,7 +251,7 @@ async function Y(e, t, r, n, i) {
 		}
 		if (
 			!B.z.BHasVisibleInterstitials &&
-			(0, u.TL)() &&
+			TL() &&
 			v.Fd.Get().BHasExternalGamepadConnected()
 		) {
 			B.z.AddInterstitialToQueue({
@@ -288,7 +277,7 @@ async function Y(e, t, r, n, i) {
 			!W.qL.IsSteamVRRunning
 		) {
 			const t = await Q.fQ.Get().GetState();
-			const i = (0, Q.hH)(t);
+			const i = hH(t);
 			if (i?.is_hdr_output_active ?? false) {
 				B.z.AddInterstitialToQueue({
 					eInterstitial: B.H.k_eHDRRequiresUserAction,
@@ -361,7 +350,7 @@ class X extends K {
 		this.m_nGameActionID = e;
 		this.m_gameid = t;
 		I.AddActiveLaunch(t, e);
-		if (n == 500 || n == 403 || n == 404) {
+		if (n == 500 || n == 403 || n == 403 || n == 404) {
 			I.ShowGameLaunchingDialog(t, true);
 		}
 		super.OnGameActionStart(e, t, r, n);
@@ -407,18 +396,20 @@ class X extends K {
 		switch (r) {
 			case "DownloadingDepots":
 			case "DownloadingWorkshop":
-			case "DelayLaunch":
+			case "DelayLaunch": {
 				this.m_timerID =
 					this.m_timerID || window.setInterval(this.OnTimerTick, 250);
 				break;
-			default:
+			}
+			default: {
 				this.StopTimer();
+			}
 		}
 	}
 	ShowCloudIssueDialog(e, t, r, n, i) {
 		i ||= window;
 		if (t === "cloudconflict") {
-			(0, g.TE)(
+			TE(
 				{
 					bOnAppLaunch: true,
 					appid: e,
@@ -431,7 +422,7 @@ class X extends K {
 			);
 			return;
 		} else if (t === "syncfailed") {
-			(0, g.zI)(
+			zI(
 				{
 					appid: e,
 					onCancel: r,
@@ -442,7 +433,7 @@ class X extends K {
 			);
 			return;
 		} else if (t === "pendingcloudsessions") {
-			(0, g.aj)(
+			aj(
 				{
 					appid: e,
 					onCancel: r,
@@ -458,49 +449,42 @@ class X extends K {
 		}
 	}
 	ShowBorrowDialog(e, t) {
-		(0, f.J)(e, t);
+		J_1(e, t);
 	}
 	ShowAppLaunchErrorDialogInternal(e, t, r) {
 		const n = d.tw.GetAppOverviewByGameID(e);
-		let s = (0, Localize)("#Steam_AppUpdateError_" + t);
+		let s = (0, Localize)(`#Steam_AppUpdateError_${t}`);
 		let o = (0, Localize)("#AppLaunchError_Text", s);
 		if (r?.length > 0) {
 			o = (0, Localize)("#AppLaunchError_Text_Long", s, r);
 		}
 		switch (t) {
-			case 5:
+			case 5: {
 				if (r == "FamilySharing") {
 					this.ShowBorrowDialog(e, a.oy.ActiveWindowInstance?.BrowserWindow);
 					return;
 				}
 				break;
-			case 29:
+			}
+			case 29: {
 				if (d.tw.GetAppOverviewByAppID(Number(e)).app_type == 2048) {
-					(0, b.J)(a.oy.ActiveWindowInstance?.BrowserWindow);
+					J_1(a.oy.ActiveWindowInstance?.BrowserWindow);
 					return;
 				}
 				break;
-			case 18:
+			}
+			case 18: {
 				SteamClient.Installs.OpenInstallWizard([Number(e)]);
 				return;
-			case 47:
-				(function (e) {
+			}
+			case 47: {
+				((e) => {
 					let t = G.n6.IsGamepadUIWindowActive();
 					if (t) {
-						(0, T.pg)(
-							i.createElement(P, {
-								...e,
-							}),
-							e.ownerWindow || window,
-							O(t),
-						);
+						pg(<P {...e} />, e.ownerWindow || window, O(t));
 					} else {
-						(0, T.pg)(
-							i.createElement(L, {
-								...e,
-								bDisableBackgroundDismiss: true,
-								classAddition: N.Popup,
-							}),
+						pg(
+							<L {...e} bDisableBackgroundDismiss classAddition={N.Popup} />,
 							e.ownerWindow || window,
 							{
 								...O(t),
@@ -512,51 +496,64 @@ class X extends K {
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
 				});
 				return;
-			case 48:
-				(0, _.vE)(a.oy.ActiveWindowInstance?.BrowserWindow, r);
+			}
+			case 48: {
+				vE(a.oy.ActiveWindowInstance?.BrowserWindow, r);
 				return;
-			case 30:
+			}
+			case 30: {
 				o = (0, Localize)("#AppLaunchError_RequiresNTFS");
 				break;
-			case 41:
+			}
+			case 41: {
 				o = (0, Localize)("#AppLaunchError_Requires64BitOS");
 				break;
-			case 44:
+			}
+			case 44: {
 				o = (0, Localize)("#AppLaunchError_SiteLicenseLocked");
 				break;
-			case 26:
+			}
+			case 26: {
 				o = (0, Localize)("#AppLaunchError_RegionRestricted");
 				break;
-			case 45:
+			}
+			case 45: {
 				o =
 					r == "Windows"
 						? (0, Localize)("#AppLaunchError_ParentalControlBlocked_Platform")
 						: (0, Localize)("#AppLaunchError_ParentalControlBlocked");
 				break;
-			case 12:
+			}
+			case 12: {
 				o = (0, Localize)("#AppLaunchError_NotEnoughDiskSpace", r);
 				break;
-			case 43:
+			}
+			case 43: {
 				o = (0, Localize)("#AppLaunchError_NotEnoughDiskQuota", r);
 				break;
-			case 17:
+			}
+			case 17: {
 				o = (0, Localize)("#AppLaunchError_GameDependency", r);
 				break;
-			case 35:
+			}
+			case 35: {
 				o = (0, Localize)("#AppLaunchError_KickSessions", r);
 				break;
-			case 46:
+			}
+			case 46: {
 				o =
 					r == "macOS"
 						? (0, Localize)("#AppLaunchError_CreateProcess_macOS")
 						: (0, Localize)("#AppLaunchError_CreateProcess", r);
 				break;
-			case 56:
-				(0, V._N)(a.oy.ActiveWindowInstance?.BrowserWindow, r);
+			}
+			case 56: {
+				_N(a.oy.ActiveWindowInstance?.BrowserWindow, r);
 				return;
+			}
 		}
 		const l = a.oy.ActiveWindowInstance?.BrowserWindow;
-		(0, _.fP)(o, n?.display_name, l);
+		fP(o, n?.display_name, l);
 	}
 	async OnGameActionUserRequest(e, t, r, n) {
 		const i = d.tw.GetAppOverviewByGameID(e);
@@ -574,22 +571,23 @@ class X extends K {
 			a.oy.SetRunningApp(s);
 		};
 		switch (r) {
-			case "ShowEula":
+			case "ShowEula": {
 				const t = () => SteamClient.Apps.CancelGameAction(this.m_nGameActionID);
 				const u = () => m(r);
 				const d = (e, t, r) => SteamClient.Apps.MarkEulaAccepted(e, t, r);
 				const A = new S.b(s, u, t, d);
 				A.Start();
-				(0, h.Fe)({
+				Fe({
 					appid: parseInt(e),
 					eulaWorkflow: A,
 					onCancel: c,
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
 				});
 				return;
-			case "ShowLaunchOption":
+			}
+			case "ShowLaunchOption": {
 				SteamClient.Apps.GetLaunchOptionsForApp(s).then((e) => {
-					(0, C.lZ)(
+					lZ(
 						{
 							appid: s,
 							gameActionID: this.m_nGameActionID,
@@ -608,12 +606,13 @@ class X extends K {
 					);
 				});
 				return;
+			}
 			case "ShowVROculusOnly":
 				{
 					let e = parseInt(n)
 						? "#Steam_OculusOnlyGameWarning_Desc"
 						: "#Steam_IncorrectVRSDKWarning_Desc";
-					(0, h.rg)({
+					rg({
 						strTitle: (0, Localize)("#Steam_OculusOnlyGameWarning_Title"),
 						strDescription: (0, Localize)(e, i.display_name),
 						strOKButtonText: (0, Localize)("#Button_OK"),
@@ -623,11 +622,12 @@ class X extends K {
 					});
 				}
 				return;
-			case "CreatingProcess":
+			case "CreatingProcess": {
 				m(r);
 				return;
-			case "RunningInstallScript":
-				(0, h.rg)({
+			}
+			case "RunningInstallScript": {
+				rg({
 					strTitle: (0, Localize)("#LaunchApp_InstallScript_Failed_Title"),
 					strDescription: (0, Localize)("#LaunchApp_InstallScript_Failed_Text"),
 					strOKButtonText: (0, Localize)(
@@ -638,8 +638,9 @@ class X extends K {
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
 				});
 				return;
-			case "KickingOtherSession":
-				(0, h.rg)({
+			}
+			case "KickingOtherSession": {
+				rg({
 					strTitle: (0, Localize)("#LaunchApp_OtherSessionPlaying_Title"),
 					strDescription: (0, Localize)(
 						"#LaunchApp_OtherSessionPlaying_Text",
@@ -652,11 +653,13 @@ class X extends K {
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
 				});
 				return;
-			case "ShowInterstitials":
+			}
+			case "ShowInterstitials": {
 				const p = a.oy.ActiveWindowInstance?.IsVRWindow();
 				Y(s, this.m_nGameActionID, () => m(r), c, p);
 				return;
-			case "SynchronizingControllerConfig":
+			}
+			case "SynchronizingControllerConfig": {
 				this.ShowCloudIssueDialog(
 					l.rm,
 					n,
@@ -665,7 +668,8 @@ class X extends K {
 					a.oy.ActiveWindowInstance?.BrowserWindow,
 				);
 				return;
-			case "SynchronizingCloud":
+			}
+			case "SynchronizingCloud": {
 				this.ShowCloudIssueDialog(
 					s,
 					n,
@@ -674,6 +678,7 @@ class X extends K {
 					a.oy.ActiveWindowInstance?.BrowserWindow,
 				);
 				return;
+			}
 			case "ShowDurationControl":
 				{
 					let e = {
@@ -687,9 +692,9 @@ class X extends K {
 					I.SetActiveDurationControlHandler(e);
 				}
 				return;
-			case "ProcessingShaderCache":
+			case "ProcessingShaderCache": {
 				if (!a.oy.ActiveWindowInstance.IsGamepadUIWindow()) {
-					(0, _.cd)(
+					cd(
 						this.m_nGameActionID,
 						parseInt(this.m_gameid),
 						r,
@@ -697,13 +702,15 @@ class X extends K {
 					);
 				}
 				return;
-			case "ShowCDKey":
-				(0, H.F)(a.oy.ActiveWindowInstance?.BrowserWindow, i, true, (e) => {
+			}
+			case "ShowCDKey": {
+				F_2(a.oy.ActiveWindowInstance?.BrowserWindow, i, true, (e) => {
 					m(e ? "DontShowAgain" : "");
 				});
 				return;
-			case "ShowGameArgs":
-				(0, h.rg)({
+			}
+			case "ShowGameArgs": {
+				rg({
 					strTitle: (0, Localize)("#LaunchApp_ShowGameArgs_Title"),
 					strDescription: (0, Localize)(
 						"#LaunchApp_ShowGameArgs_Text",
@@ -716,16 +723,14 @@ class X extends K {
 					ownerWindow: a.oy.ActiveWindowInstance?.BrowserWindow,
 				});
 				return;
-			default:
+			}
+			default: {
 				Z.Warning("unhandled game action.  To force continue:");
 				Z.Warning(
-					"SteamClient.Apps.ContinueGameAction( " +
-						this.m_nGameActionID +
-						", '" +
-						r +
-						"' );",
+					`SteamClient.Apps.ContinueGameAction( ${this.m_nGameActionID}, '${r}' );`,
 				);
 				console.error(`unhandled game action: ${r}`);
+			}
 		}
 		SteamClient.Apps.ContinueGameAction(this.m_nGameActionID, r);
 	}
@@ -774,18 +779,13 @@ class X extends K {
 		return this.m_gameid;
 	}
 }
-(0, n.Cg)([m.oI], X.prototype, "OnGetGameActionDetails", null);
-(0, n.Cg)([m.oI], X.prototype, "OnTimerTick", null);
-var J = require("./73317.js");
-var $ = require("./19731.js");
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var te = require(/*webcrack:missing*/ "./90095.js");
-var re = require(/*webcrack:missing*/ "./87197.js");
+Cg([m.oI], X.prototype, "OnGetGameActionDetails", null);
+Cg([m.oI], X.prototype, "OnTimerTick", null);
 const ne = new c.wd("GameActions");
 export const dv = 0;
 class ae {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_clientHandles = new o.hw();
 	m_mapGameActions = new Map();
@@ -838,10 +838,10 @@ class ae {
 		);
 	}
 	OnShowConfirmUninstall(e, t) {
-		(0, $.Uo)(e, window, t);
+		Uo(e, window, t);
 	}
 	OnShowFailedUninstall(e, t) {
-		(0, $.XK)(e, t);
+		XK(e, t);
 	}
 	SetShowDurationControlDialogCallback(e) {
 		this.m_fnShowDurationControlDialog = e;
@@ -875,6 +875,9 @@ class ae {
 			const t = d.tw.GetAppOverviewByAppID(e);
 			return (
 				!t ||
+				t.steam_deck_compat_category === 2 ||
+				t.steam_deck_compat_category === 2 ||
+				t.steam_deck_compat_category === 1 ||
 				t.steam_deck_compat_category === 2 ||
 				t.steam_deck_compat_category === 1 ||
 				t.steam_deck_compat_category === 0
@@ -964,9 +967,10 @@ class ae {
 			this.m_fnShowDurationControlDialog(t);
 			return;
 		}
-		if (e.strActionName != "LaunchApp");
-		else if (
+		if (e.strActionName != "LaunchApp") {
+		} else if (
 			e.strTaskName == "SynchronizingCloud" ||
+			a.oy.IsGamepadUIWindowActive() ||
 			a.oy.IsGamepadUIWindowActive() ||
 			a.oy.IsDesktopUIWindowActive()
 		) {
@@ -1130,23 +1134,23 @@ class ae {
 		r?.UnregisterListener(t);
 	}
 }
-(0, n.Cg)([s.sH], ae.prototype, "m_mapActiveLaunches", undefined);
-(0, n.Cg)([s.sH], ae.prototype, "m_rgShowLaunchingDialog", undefined);
-(0, n.Cg)([s.sH], ae.prototype, "m_activeDurationControlHandler", undefined);
-(0, n.Cg)([s.sH], ae.prototype, "m_InstallManager", undefined);
-(0, n.Cg)([s.sH], ae.prototype, "m_eulaWorkflow", undefined);
-(0, n.Cg)([m.oI], ae.prototype, "OnShowInstallWizard", null);
-(0, n.Cg)([s.XI], ae.prototype, "ResetInstallState", null);
-(0, n.Cg)([m.oI], ae.prototype, "OnGameActionStart", null);
-(0, n.Cg)([s.XI.bound], ae.prototype, "OnGameActionEnd", null);
-(0, n.Cg)([m.oI], ae.prototype, "OnGameActionTaskChange", null);
-(0, n.Cg)([m.oI], ae.prototype, "OnGameActionUserRequest", null);
-(0, n.Cg)([m.oI], ae.prototype, "OnGameActionShowError", null);
-(0, n.Cg)([m.oI], ae.prototype, "OnGameActionShowUI", null);
-(0, n.Cg)([m.oI], ae.prototype, "CancelAllGameActions", null);
+Cg([s.sH], ae.prototype, "m_mapActiveLaunches", undefined);
+Cg([s.sH], ae.prototype, "m_rgShowLaunchingDialog", undefined);
+Cg([s.sH], ae.prototype, "m_activeDurationControlHandler", undefined);
+Cg([s.sH], ae.prototype, "m_InstallManager", undefined);
+Cg([s.sH], ae.prototype, "m_eulaWorkflow", undefined);
+Cg([m.oI], ae.prototype, "OnShowInstallWizard", null);
+Cg([s.XI], ae.prototype, "ResetInstallState", null);
+Cg([m.oI], ae.prototype, "OnGameActionStart", null);
+Cg([s.XI.bound], ae.prototype, "OnGameActionEnd", null);
+Cg([m.oI], ae.prototype, "OnGameActionTaskChange", null);
+Cg([m.oI], ae.prototype, "OnGameActionUserRequest", null);
+Cg([m.oI], ae.prototype, "OnGameActionShowError", null);
+Cg([m.oI], ae.prototype, "OnGameActionShowUI", null);
+Cg([m.oI], ae.prototype, "CancelAllGameActions", null);
 export const I = new ae();
 export function MH(e, t) {
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		if (typeof e == "number") {
 			const r = I.RegisterGameActionListener(e, {
 				OnGameActionEnd: t.OnGameActionEnd,
@@ -1159,7 +1163,7 @@ export function MH(e, t) {
 class le extends A {
 	constructor() {
 		super();
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_numFiles = 0;
 	m_numProgress = 0;
@@ -1210,22 +1214,22 @@ class le extends A {
 		}
 	}
 }
-(0, n.Cg)([s.sH], le.prototype, "m_numFiles", undefined);
-(0, n.Cg)([s.sH], le.prototype, "m_numProgress", undefined);
-(0, n.Cg)([s.sH], le.prototype, "m_strTask", undefined);
-(0, n.Cg)([s.sH], le.prototype, "m_unAppID", undefined);
-(0, n.Cg)([m.oI], le.prototype, "onTimerTick", null);
-(0, n.Cg)([m.oI], le.prototype, "onGetGameActionDetails", null);
-(0, n.Cg)([s.XI.bound], le.prototype, "OnGameActionEnd", null);
-(0, n.Cg)([s.XI.bound], le.prototype, "OnGameActionTaskChange", null);
-(0, n.Cg)([s.XI.bound], le.prototype, "OnGameActionUserRequest", null);
-(0, n.Cg)([s.XI.bound], le.prototype, "OnGameActionShowError", null);
-(0, n.Cg)([s.XI.bound], le.prototype, "OnGameActionShowUI", null);
-(0, n.Cg)([m.oI], le.prototype, "Cancel", null);
+Cg([s.sH], le.prototype, "m_numFiles", undefined);
+Cg([s.sH], le.prototype, "m_numProgress", undefined);
+Cg([s.sH], le.prototype, "m_strTask", undefined);
+Cg([s.sH], le.prototype, "m_unAppID", undefined);
+Cg([m.oI], le.prototype, "onTimerTick", null);
+Cg([m.oI], le.prototype, "onGetGameActionDetails", null);
+Cg([s.XI.bound], le.prototype, "OnGameActionEnd", null);
+Cg([s.XI.bound], le.prototype, "OnGameActionTaskChange", null);
+Cg([s.XI.bound], le.prototype, "OnGameActionUserRequest", null);
+Cg([s.XI.bound], le.prototype, "OnGameActionShowError", null);
+Cg([s.XI.bound], le.prototype, "OnGameActionShowUI", null);
+Cg([m.oI], le.prototype, "Cancel", null);
 class ce extends A {
 	constructor() {
 		super();
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_nGameActionID = 0;
 	StartFromInProgress(e) {
@@ -1266,17 +1270,17 @@ class ce extends A {
 	}
 }
 export function _U() {
-	return (0, te.q3)(() => I.GetShowGameLaunchingDialogList().slice());
+	return q3(() => I.GetShowGameLaunchingDialogList().slice());
 }
 export function Dk() {
-	return (0, te.q3)(() => I.GetActiveDurationControlHandler());
+	return q3(() => I.GetActiveDurationControlHandler());
 }
 export function WJ(e, t = 100) {
 	const [r, n] = i.useState(ae.GetEmptyAction(dv, "", ""));
 	const a = i.useRef(undefined);
 	a.current = r;
 	const s = i.useCallback((e) => {
-		if (!(0, re.e)(a.current, e)) {
+		if (!e(a.current, e)) {
 			n(e);
 		}
 	}, []);
@@ -1294,9 +1298,9 @@ export function WJ(e, t = 100) {
 	}, [e, t, s]);
 	return r;
 }
-(0, n.Cg)([s.XI.bound], ce.prototype, "OnGameActionEnd", null);
-(0, n.Cg)([s.XI.bound], ce.prototype, "OnGameActionTaskChange", null);
-(0, n.Cg)([s.XI.bound], ce.prototype, "OnGameActionUserRequest", null);
-(0, n.Cg)([s.XI.bound], ce.prototype, "OnGameActionShowError", null);
-(0, n.Cg)([m.oI], ce.prototype, "Cancel", null);
-(0, n.Cg)([m.oI], ce.prototype, "ConfirmContinue", null);
+Cg([s.XI.bound], ce.prototype, "OnGameActionEnd", null);
+Cg([s.XI.bound], ce.prototype, "OnGameActionTaskChange", null);
+Cg([s.XI.bound], ce.prototype, "OnGameActionUserRequest", null);
+Cg([s.XI.bound], ce.prototype, "OnGameActionShowError", null);
+Cg([m.oI], ce.prototype, "Cancel", null);
+Cg([m.oI], ce.prototype, "ConfirmContinue", null);

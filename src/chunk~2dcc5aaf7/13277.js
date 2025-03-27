@@ -1,74 +1,46 @@
-var _n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./5640.js");
-var s = require("./28934.js");
-var o = require("./57530.js");
-var l = o;
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require("./41480.js");
-var u = require(/*webcrack:missing*/ "./98995.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./69164.js");
-var p = require(/*webcrack:missing*/ "./50376.js");
-var g = require("./37086.js");
-function h(e) {
-	const { fnClose: t, onSetKey: r, strTitle: a } = e;
-	const [s, o] = (0, _n.useState)(e.currentKey);
-	const m = _n.useRef(undefined);
-	return _n.createElement(
-		"div",
-		{
-			className: l.KeyCaptureModal,
-		},
-		_n.createElement(
-			"div",
-			{
-				className: l.KeyCaptureHeader,
-			},
-			_n.createElement(
-				"div",
-				{
-					className: l.Header,
-				},
-				Localize("#Hotkey_Modal_Header"),
-			),
-			_n.createElement(
-				"div",
-				{
-					className: l.Subhead,
-				},
-				Localize("#Hotkey_Modal_Subhead"),
-			),
-		),
-		_n.createElement(
-			"div",
-			{
-				className: l.KeyCaptureCenter,
-			},
-			_n.createElement(
-				"div",
-				{
-					className: l.Explainer,
-				},
-				a ?? "",
-			),
-			_n.createElement(
-				"div",
-				{
-					className: l.KeyCaptureContainer,
-				},
-				_n.createElement(i.pd, {
-					focusOnMount: true,
-					spellCheck: false,
-					ref: m,
-					className: (0, c.A)(l.KeyCapture, e.disabled && l.Disabled),
-					onKeyDown: e.disabled
-						? undefined
-						: (e) => {
+import _n, { useState } from "./63696.js";
+import i from "./64608.js";
+import a, { l9 } from "./5640.js";
+import s, { wT } from "./28934.js";
+import o from "./57530.js";
+import { A as A_1 } from "./90765.js";
+import m from "./41480.js";
+import u from "./98995.js";
+import A from "./69164.js";
+import p from "./50376.js";
+import g from "./37086.js";
+import f from "./57257.js";
+import { Qn } from "./72476.js";
+const l = o;
+function H(e) {
+	const { fnClose, onSetKey, strTitle } = e;
+	const [s, setS] = useState(e.currentKey);
+	const MRef = _n.useRef(undefined);
+	return (
+		<div className={l.KeyCaptureModal}>
+			<div className={l.KeyCaptureHeader}>
+				<div className={l.Header}>{Localize("#Hotkey_Modal_Header")}</div>
+				<div className={l.Subhead}>{Localize("#Hotkey_Modal_Subhead")}</div>
+			</div>
+			<div className={l.KeyCaptureCenter}>
+				<div className={l.Explainer}>{strTitle ?? ""}</div>
+				<div className={l.KeyCaptureContainer}>
+					<i.pd
+						focusOnMount
+						spellCheck={false}
+						ref={MRef}
+						className={A_1(l.KeyCapture, e.disabled && l.Disabled)}
+						onKeyDown={
+							e.disabled ||
+							((e) => {
 								e.stopPropagation();
 								e.preventDefault();
 								if (
 									e.key == "Shift" ||
+									e.key == "Control" ||
+									e.key == "Control" ||
+									e.key == "Alt" ||
 									e.key == "Control" ||
 									e.key == "Alt" ||
 									e.key == "Meta"
@@ -85,17 +57,16 @@ function h(e) {
 								};
 								SteamClient.Settings.RenderHotkey(t).then((e) => {
 									t.display_name = e;
-									o(t);
+									setS(t);
 								});
-							},
-					value: s?.display_name ?? "",
-				}),
-				_n.createElement(
-					A.Z,
-					{
-						className: l.UnbindButton,
-						onActivate: () => {
-							o({
+							})
+						}
+						value={s?.display_name ?? ""}
+					/>
+					<A.Z
+						className={l.UnbindButton}
+						onActivate={() => {
+							setS({
 								shift_key: false,
 								alt_key: false,
 								ctrl_key: false,
@@ -103,101 +74,80 @@ function h(e) {
 								key_code: 0,
 								display_name: "None",
 							});
-							m.current?.Focus();
-						},
-					},
-					_n.createElement(
-						u.he,
-						{
-							toolTipContent: Localize("#Hotkey_Modal_Unbind"),
-						},
-						_n.createElement(p.sED, {
-							color: "#8b929a",
-						}),
-					),
-				),
-			),
-		),
-		_n.createElement(
-			"div",
-			{
-				className: l.KeyCaptureBottomRow,
-			},
-			_n.createElement(
-				i.$n,
-				{
-					onClick: () => {
-						r(s);
-						t();
-					},
-				},
-				Localize("#Button_Confirm"),
-			),
-			_n.createElement(
-				i.$n,
-				{
-					onClick: t,
-				},
-				Localize("#Button_Cancel"),
-			),
-		),
+							MRef.current?.Focus();
+						}}
+					>
+						<u.he toolTipContent={Localize("#Hotkey_Modal_Unbind")}>
+							<p.sED color="#8b929a" />
+						</u.he>
+					</A.Z>
+				</div>
+			</div>
+			<div className={l.KeyCaptureBottomRow}>
+				<i.$n
+					onClick={() => {
+						onSetKey(s);
+						fnClose();
+					}}
+				>
+					{Localize("#Button_Confirm")}
+				</i.$n>
+				<i.$n onClick={fnClose}>{Localize("#Button_Cancel")}</i.$n>
+			</div>
+		</div>
 	);
 }
 function C(e) {
-	const [t, r] = (0, _n.useState)(false);
+	const [t, setT] = useState(false);
 	const i = e.currentKey.key_code
 		? e.currentKey.display_name
 		: Localize("#Settings_Hotkey_Button_NotBound");
-	return _n.createElement(
-		_n.Fragment,
-		null,
-		_n.createElement(
-			g.CS,
-			{
-				onClick: () => r(true),
-				className: (0, c.A)(l.KeyCapture, e.disabled && l.Disabled),
-			},
-			i,
-		),
-		_n.createElement(
-			m.mt,
-			{
-				active: t,
-				onDismiss: () => {
-					r(false);
-				},
-			},
-			_n.createElement(h, {
-				...e,
-				strTitle: e.strModalTitle,
-				fnClose: () => {
-					r(false);
-				},
-			}),
-		),
+	return (
+		<>
+			<g.CS
+				onClick={() => setT(true)}
+				className={A_1(l.KeyCapture, e.disabled && l.Disabled)}
+			>
+				{i}
+			</g.CS>
+			<m.mt
+				active={t}
+				onDismiss={() => {
+					setT(false);
+				}}
+			>
+				<H
+					{...e}
+					strTitle={e.strModalTitle}
+					fnClose={() => {
+						setT(false);
+					}}
+				/>
+			</m.mt>
+		</>
 	);
 }
 function _(e) {
-	const { current: t, onKeyChange: r, onButtonChange: a, disabled: s } = e;
-	const [o, m] = _n.useState();
-	const [u, d] = _n.useState(false);
+	const { current, onKeyChange, onButtonChange, disabled } = e;
+	const [o, setO] = _n.useState();
+	const [u, setU] = _n.useState(false);
 	const A = _n.useCallback(
 		(e) => {
-			r(e.keyCode);
-			d(false);
+			onKeyChange(e.keyCode);
+			setU(false);
 			e.preventDefault();
 			e.stopPropagation();
 		},
-		[r],
+		[onKeyChange],
 	);
 	const p = _n.useCallback(
 		(e) => {
-			a(e.button);
-			d(false);
+			onButtonChange(e.button);
+			setU(false);
 			e.preventDefault();
 			e.stopPropagation();
 		},
-		[a],
+		[onButtonChange],
 	);
 	const g = _n.useCallback(
 		(e) => {
@@ -221,82 +171,81 @@ function _(e) {
 				: () => {},
 		[u, o, A, p, g],
 	);
-	return _n.createElement(
-		i.$n,
-		{
-			ref: m,
-			disabled: s,
-			className: (0, c.A)(u && l.Capturing),
-			onClick: () => {
-				d(true);
+	return (
+		<i.$n
+			ref={setO}
+			disabled={disabled}
+			className={A_1(u && l.Capturing)}
+			onClick={() => {
+				setU(true);
 				o.focus();
-			},
-		},
-		t,
+			}}
+		>
+			{current}
+		</i.$n>
 	);
 }
-var f = require("./57257.js");
-var b = f;
-var y = require(/*webcrack:missing*/ "./72476.js");
+const b = f;
 export function j(e) {
-	const {
-		feature: t,
-		className: r,
-		disabled: o,
-		currentKey: l,
-		onSetKey: m,
-		strTitle: u,
-		...d
-	} = e;
-	const A = (0, a.l9)(t);
+	const { feature, className, disabled, currentKey, onSetKey, strTitle, ...d } =
+		e;
+	const A = l9(feature);
 	const p = A !== 0;
-	const g = (0, s.wT)();
-	const h = (0, y.Qn)();
-	return _n.createElement(
-		i.D0,
-		{
-			...d,
-			disabled: p || o,
-			focusable: !h || p,
-			className: (0, c.A)(b.ParentalKeyCaptureField, r, (p || o) && b.Disabled),
-			onActivate: p && !o ? () => g(A, t) : undefined,
-		},
-		_n.createElement(C, {
-			disabled: p || o,
-			currentKey: l,
-			onSetKey: m,
-			strModalTitle: u,
-		}),
+	const g = wT();
+	const h = Qn();
+	return (
+		<i.D0
+			{...d}
+			disabled={p || disabled}
+			focusable={!h || p}
+			className={A_1(
+				b.ParentalKeyCaptureField,
+				className,
+				(p || disabled) && b.Disabled,
+			)}
+			onActivate={p && !disabled ? () => g(A, feature) : undefined}
+		>
+			<C
+				disabled={p || disabled}
+				currentKey={currentKey}
+				onSetKey={onSetKey}
+				strModalTitle={strTitle}
+			/>
+		</i.D0>
 	);
 }
 export function n(e) {
 	const {
-		feature: t,
-		className: r,
-		disabled: o,
-		children: l,
-		current: m,
-		onKeyChange: u,
-		onButtonChange: d,
+		feature,
+		className,
+		disabled,
+		children,
+		current,
+		onKeyChange,
+		onButtonChange,
 		...A
 	} = e;
-	const p = (0, a.l9)(t);
+	const p = l9(feature);
 	const g = p !== 0;
-	const h = (0, s.wT)();
-	return _n.createElement(
-		i.D0,
-		{
-			...A,
-			disabled: g || o,
-			className: (0, c.A)(b.ParentalKeyCaptureField, r, (g || o) && b.Disabled),
-			onActivate: g && !o ? () => h(p, t) : undefined,
-		},
-		_n.createElement(_, {
-			disabled: g || o,
-			current: m,
-			onKeyChange: u,
-			onButtonChange: d,
-		}),
-		l,
+	const h = wT();
+	return (
+		<i.D0
+			{...A}
+			disabled={g || disabled}
+			className={A_1(
+				b.ParentalKeyCaptureField,
+				className,
+				(g || disabled) && b.Disabled,
+			)}
+			onActivate={g && !disabled ? () => h(p, feature) : undefined}
+		>
+			<_
+				disabled={g || disabled}
+				current={current}
+				onKeyChange={onKeyChange}
+				onButtonChange={onButtonChange}
+			/>
+			{children}
+		</i.D0>
 	);
 }

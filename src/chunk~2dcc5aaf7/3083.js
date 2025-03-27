@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	WhitelistNumber: "IY3dF3eWXX1OmE8oYcQKp",
 	WhitelistCtn: "_1UhmxrINvvaNnHzhCPoill",
 	WhitelistRow: "_28TC1EYm0jlWPjyk89xXCL",

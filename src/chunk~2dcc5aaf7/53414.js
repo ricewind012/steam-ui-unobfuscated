@@ -1,222 +1,161 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./58360.js");
-var a = i;
-var s = require("./52912.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var l = require("./95773.js");
-var c = require("./27847.js");
-var m = require("./43229.js");
-var u = require("./5222.js");
-var d = require("./78060.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require(/*webcrack:missing*/ "./63696.js");
-var g = require(/*webcrack:missing*/ "./50376.js");
 import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require("./51095.js");
-var f = require("./88620.js");
-var b = require("./23024.js");
-var y = require("./27337.js");
-var S = require(/*webcrack:missing*/ "./90765.js");
-var w = require(/*webcrack:missing*/ "./8573.js");
-var B = require(/*webcrack:missing*/ "./88750.js");
-var v = require(/*webcrack:missing*/ "./31084.js");
-var _I = require(/*webcrack:missing*/ "./69164.js");
-var E = require("./13869.js");
-var M = require("./10042.js");
-var T = require("./59704.js");
-var R = require("./82594.js");
+import n, { Cg } from "./34629.js";
+import i from "./58360.js";
+import s, { CO, _k } from "./52912.js";
+import l from "./95773.js";
+import c, { Tz } from "./27847.js";
+import { hI } from "./43229.js";
+import { lV } from "./5222.js";
+import { Ci, WQ } from "./78060.js";
+import A, { PA } from "./41230.js";
+import p from "./63696.js";
+import g from "./50376.js";
+import C from "./52451.js";
+import _, { g as g_1 } from "./51095.js";
+import { E5 } from "./88620.js";
+import b from "./23024.js";
+import y from "./27337.js";
+import { A as A_1 } from "./90765.js";
+import w from "./8573.js";
+import B from "./88750.js";
+import { lX } from "./31084.js";
+import _I from "./69164.js";
+import { pg } from "./13869.js";
+import M from "./10042.js";
+import T from "./59704.js";
+import { t7 } from "./82594.js";
+const a = i;
 const k = ["148618792083695825", "76561197960266962"];
 export let z7 = class extends p.Component {
 	InviteFriend(e) {
-		(0, f.E5)(
-			(0, s.CO)(e),
-			GetOwningWindowForEvent(e),
-			this.props.groupView.GetGroup(),
-		);
+		E5(CO(e), GetOwningWindowForEvent(e), this.props.groupView.GetGroup());
 	}
 	OpenSettings(e) {
-		(0, m.hI)(GetOwningWindowForEvent(e), this.props.groupView);
+		hI(GetOwningWindowForEvent(e), this.props.groupView);
 	}
 	OpenNotificationPreferences(e) {
-		(0, u.lV)(GetOwningWindowForEvent(e), this.props.groupView);
+		lV(GetOwningWindowForEvent(e), this.props.groupView);
 	}
 	OnContextMenu(e) {
-		(0, c.Tz)(e, this.props.groupView.GetGroup(), {
+		Tz(e, this.props.groupView.GetGroup(), {
 			is_chat_window: true,
 		});
 	}
 	render() {
 		let e = this.props.groupView;
 		let t = e.GetGroup();
-		let r = t.name;
-		let n = t.tagline;
+
+		let { name, tagline } = t;
+
 		let i = false;
 		if (t.readyToRender) {
 			i = t.BCanInvite();
 		}
 		const a = e.GetGroup().watching_broadcast_steamid;
-		return p.createElement(
-			"div",
-			{
-				className: "chatRoomHeader",
-			},
-			p.createElement(
-				_I.Z,
-				{
-					"flow-children": "row",
-					className: "chatRoomGroupHeader" + (a ? " notifyBroadcast" : ""),
-					onContextMenu: this.OnContextMenu,
-					onMenuButton: this.OnContextMenu,
-				},
-				p.createElement(I, {
-					group: t,
-				}),
-				p.createElement(
-					"div",
-					{
-						className: "chatRoomGroupHeaderNameandTag",
-					},
-					p.createElement(
-						"div",
-						{
-							className: "chatRoomGroupHeaderName",
-						},
-						r,
-					),
-					p.createElement(N, {
-						strTagline: n,
-					}),
-				),
-				p.createElement("div", {
-					className: "chatRoomGroupSpacer",
-				}),
-				t.readyToRender &&
-					p.createElement(
-						p.Fragment,
-						null,
-						a &&
-							p.createElement(G, {
-								groupView: e,
-							}),
-						p.createElement(
-							"div",
-							{
-								className: "chatRoomGroupControls",
-							},
-							p.createElement(
-								"div",
-								{
-									className: "chatRoomOptions",
-								},
-								p.createElement(
-									_I.Z,
-									{
-										className: "chatRoomButton ManageNotifications",
-										onActivate: this.OpenNotificationPreferences,
-										title: Localize("#Tooltip_NotificationSettings"),
-									},
-									p.createElement(g.IrQ, null),
-								),
-								i &&
-									p.createElement(
-										_I.Z,
-										{
-											className: "chatRoomButton InviteToGroupChat",
-											onActivate: this.InviteFriend,
-											title: Localize("#Tooltip_InviteToGroup"),
-										},
-										p.createElement(g.MxO, null),
-									),
-								!i &&
-									p.createElement(
-										"div",
-										{
-											className: "chatRoomButton InviteToGroupChat Disabled",
-											onClick: (e) => {},
-											title: Localize("#Tooltip_InviteToGroup_Denied"),
-										},
-										p.createElement(g.MxO, null),
-									),
-								p.createElement(
-									_I.Z,
-									{
-										className: "chatRoomButton GroupChatSettings",
-										onActivate: this.OpenSettings,
-										title: Localize("#Tooltip_GroupChatSettings"),
-									},
-									p.createElement(g.m59, null),
-								),
-							),
-							p.createElement(
-								"div",
-								{
-									className: "chatRoomGroupStats",
-								},
-								p.createElement(L, {
-									groupView: e,
-								}),
-								p.createElement(x, {
-									groupView: e,
-								}),
-								p.createElement(z, {
-									groupView: e,
-								}),
-							),
-						),
-					),
-			),
+		return (
+			<div className="chatRoomHeader">
+				<_I.Z
+					flow-children="row"
+					className={`chatRoomGroupHeader${a ? " notifyBroadcast" : ""}`}
+					onContextMenu={this.OnContextMenu}
+					onMenuButton={this.OnContextMenu}
+				>
+					<I group={t} />
+					<div className="chatRoomGroupHeaderNameandTag">
+						<div className="chatRoomGroupHeaderName">{name}</div>
+						<N strTagline={tagline} />
+					</div>
+					<div className="chatRoomGroupSpacer" />
+					{t.readyToRender && (
+						<>
+							{a && <G groupView={e} />}
+							<div className="chatRoomGroupControls">
+								<div className="chatRoomOptions">
+									<_I.Z
+										className="chatRoomButton ManageNotifications"
+										onActivate={this.OpenNotificationPreferences}
+										title={Localize("#Tooltip_NotificationSettings")}
+									>
+										<g.IrQ />
+									</_I.Z>
+									{i && (
+										<_I.Z
+											className="chatRoomButton InviteToGroupChat"
+											onActivate={this.InviteFriend}
+											title={Localize("#Tooltip_InviteToGroup")}
+										>
+											<g.MxO />
+										</_I.Z>
+									)}
+									{!i && (
+										<div
+											className="chatRoomButton InviteToGroupChat Disabled"
+											onClick={(e) => {}}
+											title={Localize("#Tooltip_InviteToGroup_Denied")}
+										>
+											<g.MxO />
+										</div>
+									)}
+									<_I.Z
+										className="chatRoomButton GroupChatSettings"
+										onActivate={this.OpenSettings}
+										title={Localize("#Tooltip_GroupChatSettings")}
+									>
+										<g.m59 />
+									</_I.Z>
+								</div>
+								<div className="chatRoomGroupStats">
+									<L groupView={e} />
+									<X groupView={e} />
+									<Z groupView={e} />
+								</div>
+							</div>
+						</>
+					)}
+				</_I.Z>
+			</div>
 		);
 	}
 };
 function N(e) {
-	const { strTagline: t } = e;
-	const r = t.toLowerCase();
+	const { strTagline } = e;
+	const r = strTagline.toLowerCase();
 	if (
 		(!r.startsWith("https://") && !r.startsWith("http://")) ||
-		t.includes(" ")
+		strTagline.includes(" ")
 	) {
-		return p.createElement(
-			"div",
-			{
-				className: "chatRoomGroupHeaderTagline",
-			},
-			e.strTagline,
-		);
+		return <div className="chatRoomGroupHeaderTagline">{e.strTagline}</div>;
 	} else {
-		return p.createElement(
-			T.uU,
-			{
-				href: t,
-				className: "chatRoomGroupHeaderTagline",
-				bUseLinkFilter: true,
-			},
-			t,
+		return (
+			<T.uU
+				href={strTagline}
+				className="chatRoomGroupHeaderTagline"
+				bUseLinkFilter
+			>
+				{strTagline}
+			</T.uU>
 		);
 	}
 }
-(0, n.Cg)([C.oI], z7.prototype, "InviteFriend", null);
-(0, n.Cg)([C.oI], z7.prototype, "OpenSettings", null);
-(0, n.Cg)([C.oI], z7.prototype, "OpenNotificationPreferences", null);
-(0, n.Cg)([C.oI], z7.prototype, "OnContextMenu", null);
-z7 = (0, n.Cg)([A.PA], z7);
+Cg([C.oI], z7.prototype, "InviteFriend", null);
+Cg([C.oI], z7.prototype, "OpenSettings", null);
+Cg([C.oI], z7.prototype, "OpenNotificationPreferences", null);
+Cg([C.oI], z7.prototype, "OnContextMenu", null);
+z7 = Cg([A.PA], z7);
 export let wu = class extends p.Component {
 	fnShowTextChannelsDialog(e) {
-		(0, E.pg)(
-			p.createElement(M.LC, {
-				groupView: this.props.groupView,
-			}),
-			GetOwningWindowForEvent(e),
-		);
+		pg(<M.LC groupView={this.props.groupView} />, GetOwningWindowForEvent(e));
 	}
 	render() {
 		let e = this.props.groupView;
 		let t = e.GetGroup();
-		let r = t.name;
-		let n = t.tagline;
+
+		let { name, tagline } = t;
+
 		let i = false;
 		if (t.readyToRender) {
 			i = t.BCanInvite();
@@ -227,91 +166,53 @@ export let wu = class extends p.Component {
 		if (s) {
 			o = Localize("#GroupSettings_Channels_VoiceQuickChatRoom", o);
 		}
-		return p.createElement(
-			"div",
-			{
-				className: "chatRoomHeader",
-			},
-			p.createElement(
-				_I.Z,
-				{
-					focusable: false,
-					fnCanTakeFocus: () => true,
-					"flow-children": "row",
-					className: "chatRoomGroupHeader" + (a ? " notifyBroadcast" : ""),
-				},
-				p.createElement(I, {
-					group: t,
-				}),
-				p.createElement(
-					"div",
-					{
-						className: "chatRoomGroupHeaderNameandTag",
-					},
-					p.createElement(
-						"div",
-						{
-							className: "chatRoomGroupHeaderName",
-						},
-						r,
-						p.createElement(N, {
-							strTagline: n,
-						}),
-					),
-					p.createElement(
-						_I.Z,
-						{
-							className: "chatRoomGroupActiveChat " + (s ? "voiceRoom" : ""),
-							focusable: true,
-							fnCanTakeFocus: () => true,
-							onActivate: this.fnShowTextChannelsDialog,
-							onOKActionDescription: Localize(
+		return (
+			<div className="chatRoomHeader">
+				<_I.Z
+					focusable={false}
+					fnCanTakeFocus={() => true}
+					flow-children="row"
+					className={`chatRoomGroupHeader${a ? " notifyBroadcast" : ""}`}
+				>
+					<I group={t} />
+					<div className="chatRoomGroupHeaderNameandTag">
+						<div className="chatRoomGroupHeaderName">
+							{name}
+							<N strTagline={tagline} />
+						</div>
+						<_I.Z
+							className={`chatRoomGroupActiveChat ${s ? "voiceRoom" : ""}`}
+							focusable
+							fnCanTakeFocus={() => true}
+							onActivate={this.fnShowTextChannelsDialog}
+							onOKActionDescription={Localize(
 								"#GroupSettings_Channels_TextChannels",
-							),
-						},
-						p.createElement(g.tcj, null),
-						o,
-					),
-				),
-				p.createElement("div", {
-					className: "chatRoomGroupSpacer",
-				}),
-				t.readyToRender &&
-					p.createElement(
-						p.Fragment,
-						null,
-						a &&
-							p.createElement(G, {
-								groupView: e,
-							}),
-						p.createElement(
-							"div",
-							{
-								className: "chatRoomGroupControls",
-							},
-							p.createElement(
-								"div",
-								{
-									className: "chatRoomGroupStats",
-								},
-								p.createElement(L, {
-									groupView: e,
-								}),
-								p.createElement(x, {
-									groupView: e,
-								}),
-								p.createElement(z, {
-									groupView: e,
-								}),
-							),
-						),
-					),
-			),
+							)}
+						>
+							<g.tcj />
+							{o}
+						</_I.Z>
+					</div>
+					<div className="chatRoomGroupSpacer" />
+					{t.readyToRender && (
+						<>
+							{a && <G groupView={e} />}
+							<div className="chatRoomGroupControls">
+								<div className="chatRoomGroupStats">
+									<L groupView={e} />
+									<X groupView={e} />
+									<Z groupView={e} />
+								</div>
+							</div>
+						</>
+					)}
+				</_I.Z>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([C.oI], wu.prototype, "fnShowTextChannelsDialog", null);
-wu = (0, n.Cg)([A.PA], wu);
+Cg([C.oI], wu.prototype, "fnShowTextChannelsDialog", null);
+wu = Cg([A.PA], wu);
 let G = class extends p.Component {
 	constructor(e) {
 		super(e);
@@ -333,7 +234,7 @@ let G = class extends p.Component {
 			return;
 		}
 		const r = GetOwningWindowForEvent(e);
-		(0, d.Ci)(
+		Ci(
 			r,
 			Localize("#Broadcast_EndWatchParty"),
 			Localize("#Broadcast_EndWatchPartyPrompt"),
@@ -355,16 +256,18 @@ let G = class extends p.Component {
 		const n = this.props.groupView;
 		const i = n.GetGroup();
 		const a = this.GetBroadcastID(this.props.groupView);
-		const s = n.isBroadcastShown;
-		if (k.indexOf(a) >= 0) {
-			return p.createElement(O, {
-				groupView: n,
-				onClick: this.OnToggleBroadcast,
-				onRemoveBroadcast: this.OnRemoveBroadcast,
-				watchingBroadcast: s,
-			});
+		const n_isBroadcastShown = n.isBroadcastShown;
+		if (k.includes(a)) {
+			return (
+				<O
+					groupView={n}
+					onClick={this.OnToggleBroadcast}
+					onRemoveBroadcast={this.OnRemoveBroadcast}
+					watchingBroadcast={n_isBroadcastShown}
+				/>
+			);
 		}
-		if (s) {
+		if (n_isBroadcastShown) {
 			return null;
 		}
 		let o = new w.b(a);
@@ -375,215 +278,147 @@ let G = class extends p.Component {
 				l.xm.FriendStore.GetPlayer(o.GetAccountID()).display_name,
 			);
 		}
-		return p.createElement(
-			"div",
-			{
-				className: "broadcastInfoContainer",
-				onClick: this.OnToggleBroadcast,
-			},
-			p.createElement(
-				"div",
-				{
-					className: "broadcastDetails",
-				},
-				p.createElement(
-					"div",
-					{
-						className: "nowWatching",
-					},
-					Localize("#Broadcast_NowWatching"),
-				),
-				p.createElement(
-					"div",
-					{
-						className: "gameTitle",
-					},
-					e,
-				),
-				p.createElement(
-					"div",
-					{
-						className: "broadcastTitle",
-					},
-					c,
-				),
-			),
-			p.createElement(
-				"div",
-				{
-					className: "thumbnail",
-				},
-				t &&
-					p.createElement(y.y, {
-						className: "thumbnailImg",
-						src: t,
-						duration: 2500,
-					}),
-			),
-			i.BCanIAssociateBroadcast() &&
-				p.createElement(
-					"div",
-					{
-						className: "actions",
-						onClick: this.OnRemoveBroadcast,
-					},
-					p.createElement(g.X, null),
-				),
+		return (
+			<div className="broadcastInfoContainer" onClick={this.OnToggleBroadcast}>
+				<div className="broadcastDetails">
+					<div className="nowWatching">
+						{Localize("#Broadcast_NowWatching")}
+					</div>
+					<div className="gameTitle">{e}</div>
+					<div className="broadcastTitle">{c}</div>
+				</div>
+				<div className="thumbnail">
+					{t && <y.y className="thumbnailImg" src={t} duration={2500} />}
+				</div>
+				{i.BCanIAssociateBroadcast() && (
+					<div className="actions" onClick={this.OnRemoveBroadcast}>
+						<g.X />
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([C.oI], G.prototype, "OnRemoveBroadcast", null);
-(0, n.Cg)([C.oI], G.prototype, "OnToggleBroadcast", null);
-G = (0, n.Cg)([A.PA], G);
+Cg([C.oI], G.prototype, "OnRemoveBroadcast", null);
+Cg([C.oI], G.prototype, "OnToggleBroadcast", null);
+G = Cg([A.PA], G);
 class O extends p.Component {
 	OnContextMenu(e) {
 		if (this.props.groupView.GetGroup().BCanIAssociateBroadcast()) {
-			(function (e, t) {
-				(0, v.lX)(
-					p.createElement(P, {
-						onRemoveBroadcast: t,
-					}),
-					e,
-				);
+			((e, t) => {
+				lX(<P onRemoveBroadcast={t} />, e);
 			})(e, this.props.onRemoveBroadcast);
 		}
 	}
 	render() {
 		let e = this.props.watchingBroadcast;
-		let t = (0, S.A)(a.YuleLog, e && a.Watching);
-		return p.createElement("div", {
-			className: t,
-			onClick: this.props.onClick,
-			onContextMenu: this.OnContextMenu,
-		});
+		let t = A_1(a.YuleLog, e && a.Watching);
+		return (
+			<div
+				className={t}
+				onClick={this.props.onClick}
+				onContextMenu={this.OnContextMenu}
+			/>
+		);
 	}
 }
-(0, n.Cg)([C.oI], O.prototype, "OnContextMenu", null);
+Cg([C.oI], O.prototype, "OnContextMenu", null);
 class P extends p.Component {
 	render() {
-		return p.createElement(
-			B.tz,
-			{
-				className: "chatRoomListItemContextMenu",
-			},
-			p.createElement(
-				B.kt,
-				{
-					key: "removebroadcast",
-					onSelected: this.props.onRemoveBroadcast,
-				},
-				Localize("#Chat_Actions_RemoveRoom_Action"),
-			),
+		return (
+			<B.tz className="chatRoomListItemContextMenu">
+				<B.kt key="removebroadcast" onSelected={this.props.onRemoveBroadcast}>
+					{Localize("#Chat_Actions_RemoveRoom_Action")}
+				</B.kt>
+			</B.tz>
 		);
 	}
 }
-let L = (0, A.PA)((e) => {
-	const { groupView: t } = e;
-	return p.createElement(
-		"div",
-		{
-			className: "statMemberStat statMembersTotal",
-		},
-		p.createElement("div", {
-			className: "statCircle",
-		}),
-		LocalizePlural("#Chat_Members", t.GetMemberCountTotal()),
+let L = PA((e) => {
+	const { groupView } = e;
+	return (
+		<div className="statMemberStat statMembersTotal">
+			<div className="statCircle" />
+			{LocalizePlural("#Chat_Members", groupView.GetMemberCountTotal())}
+		</div>
 	);
 });
-let z = (0, A.PA)((e) => {
-	const { groupView: t } = e;
-	let r = t.GetMemberCountInGame();
+let Z = PA((e) => {
+	const { groupView } = e;
+	let r = groupView.GetMemberCountInGame();
 	if (r == 0) {
 		return null;
 	} else {
-		return p.createElement(
-			"div",
-			{
-				className: "statMemberStat statMembersInGame",
-				title: LocalizePlural("#Chat_Members_InGame_Tooltip", r),
-			},
-			p.createElement("div", {
-				className: "statCircle",
-			}),
-			r,
+		return (
+			<div
+				className="statMemberStat statMembersInGame"
+				title={LocalizePlural("#Chat_Members_InGame_Tooltip", r)}
+			>
+				<div className="statCircle" />
+				{r}
+			</div>
 		);
 	}
 });
-let x = (0, A.PA)((e) => {
-	const { groupView: t } = e;
-	let r = t.GetMemberCountOnline();
+let X = PA((e) => {
+	const { groupView } = e;
+	let r = groupView.GetMemberCountOnline();
 	if (r == 0) {
 		return null;
 	} else {
-		return p.createElement(
-			"div",
-			{
-				className: "statMemberStat statMembersOnline",
-				title: LocalizePlural("#Chat_Members_Online_Tooltip", r),
-			},
-			p.createElement("div", {
-				className: "statCircle",
-			}),
-			r,
+		return (
+			<div
+				className="statMemberStat statMembersOnline"
+				title={LocalizePlural("#Chat_Members_Online_Tooltip", r)}
+			>
+				<div className="statCircle" />
+				{r}
+			</div>
 		);
 	}
 });
 function U(e) {
-	const { appID: t } = e;
-	const [r] = (0, R.t7)(t, {
+	const { appID } = e;
+	const [r] = t7(appID, {
 		include_assets_without_overrides: true,
 	});
 	const n = r?.GetAssetsWithoutOverrides()?.GetHeaderURL();
 	if (n) {
-		return p.createElement(
-			"div",
-			{
-				className: "ChatRoomGroupOGGAvatar Large",
-			},
-			p.createElement("img", {
-				className: "OGGAvatar",
-				src: n,
-			}),
+		return (
+			<div className="ChatRoomGroupOGGAvatar Large">
+				<img className="OGGAvatar" src={n} />
+			</div>
 		);
 	} else {
-		return p.createElement("div", {
-			className: "ChatRoomGroupOGGAvatar Large",
-		});
+		return <div className="ChatRoomGroupOGGAvatar Large" />;
 	}
 }
-export let _O = (0, A.PA)((e) => {
-	let t = e.size;
+export let _O = PA((e) => {
+	let e_size = e.size;
 	if (
-		(t == "large" || t == "medium") &&
+		(e_size == "large" || e_size == "medium") &&
 		e.clan.BIsOGG() &&
 		e.clan.GetOGGAppID()
 	) {
-		return p.createElement(U, {
-			appID: e.clan.GetOGGAppID(),
-		});
+		return <U appID={e.clan.GetOGGAppID()} />;
 	}
 	let r = "";
-	if (t == "micro") {
+	if (e_size == "micro") {
 		r = "Micro";
-	} else if (t == "smallish") {
+	} else if (e_size == "smallish") {
 		r = "Small Smallish";
-	} else if (t == "smaller") {
+	} else if (e_size == "smaller") {
 		r = "Smaller";
-	} else if (t == "small") {
+	} else if (e_size == "small") {
 		r = "Small";
-	} else if (t == "large") {
+	} else if (e_size == "large") {
 		r = "Large";
 	}
-	let n = t == "large" ? e.clan.avatar_url_full : e.clan.avatar_url_medium;
-	return p.createElement(
-		"div",
-		{
-			className: "ChatRoomGroupAvatar " + r,
-		},
-		p.createElement("img", {
-			className: "ChatRoomGroupAvatar_Avatar",
-			src: n,
-		}),
+	let n = e_size == "large" ? e.clan.avatar_url_full : e.clan.avatar_url_medium;
+	return (
+		<div className={`ChatRoomGroupAvatar ${r}`}>
+			<img className="ChatRoomGroupAvatar_Avatar" src={n} />
+		</div>
 	);
 });
 export let I = class extends p.Component {
@@ -603,10 +438,7 @@ export let I = class extends p.Component {
 			} else if (this.props.large) {
 				r = "large";
 			}
-			return p.createElement(_O, {
-				clan: t,
-				size: r,
-			});
+			return <_O clan={t} size={r} />;
 		}
 		let t = "";
 		if (this.props.micro) {
@@ -621,47 +453,39 @@ export let I = class extends p.Component {
 			t = "Large";
 		}
 		if (e && !e.IsNamedGroupChat()) {
-			let r = e.members_to_highlight;
-			let n = r.members;
-			let i = r.remaining_count;
-			if (n.length) {
-				let e = n.length + (i ? 1 : 0);
-				return p.createElement(
-					"div",
-					{
-						className: "ChatRoomMultiFriendAvatar With" + e + "Items " + t,
-					},
-					n.map((e, t) =>
-						p.createElement("img", {
-							src: this.props.large
-								? e.persona.avatar_url_medium
-								: e.persona.avatar_url,
-							key: t,
-							className: "MultiAvatar Index" + t,
-						}),
-					),
-					i > 0 &&
-						p.createElement(
-							"div",
-							{
-								className: "ChatRoomMultiFriendMore MultiAvatar Index3",
-							},
-							"+",
-							i,
-						),
+			let e_members_to_highlight = e.members_to_highlight;
+
+			let { members, remaining_count } = e_members_to_highlight;
+
+			if (members.length) {
+				let e = members.length + (remaining_count ? 1 : 0);
+				return (
+					<div className={`ChatRoomMultiFriendAvatar With${e}Items ${t}`}>
+						{members.map((e, t) => (
+							<img
+								src={
+									this.props.large
+										? e.persona.avatar_url_medium
+										: e.persona.avatar_url
+								}
+								key={t}
+								className={`MultiAvatar Index${t}`}
+							/>
+						))}
+						{remaining_count > 0 && (
+							<div className="ChatRoomMultiFriendMore MultiAvatar Index3">
+								+{remaining_count}
+							</div>
+						)}
+					</div>
 				);
 			}
 		}
 		if (e && e.hasIcon) {
-			return p.createElement(
-				"div",
-				{
-					className: "ChatRoomGroupAvatar HasAvatar " + t,
-				},
-				p.createElement("img", {
-					className: "ChatRoomGroupAvatar_Avatar",
-					src: e.avatar_url_full,
-				}),
+			return (
+				<div className={`ChatRoomGroupAvatar HasAvatar ${t}`}>
+					<img className="ChatRoomGroupAvatar_Avatar" src={e.avatar_url_full} />
+				</div>
 			);
 		}
 		{
@@ -671,36 +495,28 @@ export let I = class extends p.Component {
 			} else if (this.props.name) {
 				r = this.props.name;
 			}
-			let n = (0, _.g)(r);
-			let i = "ChatRoomGroupAvatar " + t;
+			let n = g_1(r);
+			let i = `ChatRoomGroupAvatar ${t}`;
 			if (_.tV(n)) {
 				i += " EmojiInitials";
 			}
-			return p.createElement(
-				"div",
-				{
-					className: i,
-				},
-				p.createElement(
-					"div",
-					{
-						className: "ChatRoomGroupAvatar_initials",
-					},
-					n,
-				),
+			return (
+				<div className={i}>
+					<div className="ChatRoomGroupAvatar_initials">{n}</div>
+				</div>
 			);
 		}
 	}
 };
 export async function qj(e, t) {
-	let r = (0, s._k)(e);
+	let r = _k(e);
 	let n = t.BIsClanChatRoom()
 		? "#Chat_Actions_LeaveChatRoomGroup_ClanConfirm"
 		: t.BIsAccountIDOwner(l.xm.CMInterface.steamid.GetAccountID())
 			? "#Chat_Actions_OwnerLeaveChatRoomGroup_Confirm"
 			: "#Chat_Actions_LeaveChatRoomGroup_Confirm";
 	if (
-		await (0, d.WQ)(
+		await WQ(
 			e,
 			Localize("#Chat_Actions_LeaveChatRoomGroup"),
 			Localize(n, t.name),
@@ -710,4 +526,4 @@ export async function qj(e, t) {
 		t.LeaveChatRoomGroup(r);
 	}
 }
-I = (0, n.Cg)([A.PA], I);
+I = Cg([A.PA], I);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_1rdB72srqUsfYI63F3UmGn",
 	DropTarget: "_3m8OWhk-mDnSSyNNCpYjJa",
 	Message: "oYmrg9XTjJb3y4bAgWbnE",

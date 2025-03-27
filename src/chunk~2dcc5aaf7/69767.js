@@ -1,21 +1,21 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./32179.js");
-var a = require("./87935.js");
-var s = require("./34891.js");
-var o = require("./46422.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
-var c = require("./34792.js");
-var m = require("./51517.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./61416.js");
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require("./78057.js");
+import n from "./63696.js";
+import i from "./32179.js";
+import a from "./87935.js";
+import s, { wF } from "./34891.js";
+import o from "./46422.js";
+import l, { q3 } from "./90095.js";
+import { VI } from "./34792.js";
+import { M } from "./51517.js";
+import { I } from "./61416.js";
+import A from "./72476.js";
+import { T } from "./78057.js";
 export function Y5(e) {
-	const t = (0, l.q3)(() => o.oy.RunningApps);
-	const r = (0, s.wF)(e);
+	const t = q3(() => o.oy.RunningApps);
+	const r = wF(e);
 	let n = false;
 	for (const r of t) {
 		if (e == r.GetGameID()) {
@@ -42,15 +42,19 @@ export function XP(e, t) {
 	};
 }
 export function Nd(e, t) {
-	const r = (0, p.T)(e);
+	const r = T(e);
 	const n = r?.libraryAssets?.strTimeLineMarker;
-	const i = (0, d.I)({
+	const i = I({
 		queryKey: [e, n],
 		enabled: !!n,
 		queryFn: async () => {
 			const t = new Map();
 			try {
-				const r = `https://steamloopback.host${a.B7.BuildCachedLibraryAssetURL(e, n, 0)}`;
+				const r = `https://steamloopback.host${a.B7.BuildCachedLibraryAssetURL(
+					e,
+					n,
+					0,
+				)}`;
 				let i = await fetch(r);
 				console.log(`Issued fetch to ${r}; response_ok is ${i.ok}`);
 				if (i.status == 404) {
@@ -79,9 +83,9 @@ export function Nd(e, t) {
 	return i.data?.get(t);
 }
 export function nH() {
-	const [e, t] = n.useState();
+	const [e, setE] = n.useState();
 	const r = n.useCallback((e) => {
-		t(e);
+		setE(e);
 	}, []);
 	n.useEffect(() => {
 		const e = SteamClient.Broadcast.RegisterForBroadcastStatus(r);
@@ -147,21 +151,21 @@ export function YH(e, t, r) {
 	}
 }
 export function d5(e) {
-	const [t, r] = (0, c.VI)("enable_gpu_accelerated_webviews");
-	const [i, a] = (0, c.VI)("enable_hardware_video_decoding");
+	const [t, r] = VI("enable_gpu_accelerated_webviews");
+	const [i, a] = VI("enable_hardware_video_decoding");
 	const s = n.useCallback(() => {
 		r(true);
 		a(true);
 		SteamClient.User.StartRestart(false);
 	}, [r, a]);
-	return (0, m.M)({
+	return M({
 		bCloseOnOK: true,
 		onOK: s,
 		strTitle: (0, Localize)("#TurnOnGPUAccel_Title"),
 		strDescription: LocalizeInlineReactWithFallback(
 			"#TurnOnGPUAccel_Description",
-			n.createElement("p", null),
-			n.createElement("p", null),
+			<p />,
+			<p />,
 		),
 		strOKButtonText: (0, Localize)("#TurnOnGPUAccel_AcceptAndRestart"),
 		className: e,

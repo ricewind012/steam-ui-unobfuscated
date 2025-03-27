@@ -1,37 +1,27 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./31084.js");
-var s = require("./21937.js");
-var o = require("./11131.js");
-var a = require("./52451.js");
-const c = r.createContext(null);
+import r from "./63696.js";
+import i from "./31084.js";
+import s from "./21937.js";
+import { R7 } from "./11131.js";
+import { cZ } from "./52451.js";
+const CContext = r.createContext(null);
 export function D(e) {
-	const {
-		refContextMenuManager: t,
-		bRegisterMenuManager: n = true,
-		children: l,
-	} = e;
-	const u = (0, o.R7)();
+	const { refContextMenuManager, bRegisterMenuManager = true, children } = e;
+	const u = R7();
 	const m = u?.ownerWindow || window;
 	const d = r.useRef();
 	d.current ||= new s.z();
 	r.useLayoutEffect(() => {
-		if (n) {
+		if (bRegisterMenuManager) {
 			i.XX.SetMenuManager(m, d.current);
 			return () => i.XX.SetMenuManager(m, undefined);
 		}
-	}, [m, n]);
+	}, [m, bRegisterMenuManager]);
 	r.useLayoutEffect(() => {
-		(0, a.cZ)(t, d.current);
-		return () => (0, a.cZ)(t, undefined);
-	}, [t]);
-	return r.createElement(
-		c.Provider,
-		{
-			value: d.current,
-		},
-		l,
-	);
+		cZ(refContextMenuManager, d.current);
+		return () => cZ(refContextMenuManager, undefined);
+	}, [refContextMenuManager]);
+	return <CContext.Provider value={d.current}>{children}</CContext.Provider>;
 }
 export function h() {
-	return r.useContext(c);
+	return r.useContext(CContext);
 }

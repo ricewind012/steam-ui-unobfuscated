@@ -1,20 +1,18 @@
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var i = require(/*webcrack:missing*/ "./63696.js");
+import i from "./63696.js";
 export class R8 {
 	reactNodes = [];
 	AppendText(e, t = false) {
 		if (e.length) {
 			if (t) {
 				this.reactNodes.push(
-					i.createElement(
-						"span",
-						{
-							"data-copytext": "",
-							"data-copystyle": "merge-adjacent",
-							"bbcode-text": e,
-						},
-						e,
-					),
+					<span
+						data-copytext=""
+						data-copystyle="merge-adjacent"
+						bbcode-text={e}
+					>
+						{e}
+					</span>,
 				);
 			} else {
 				this.reactNodes.push(e);

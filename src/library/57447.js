@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	TextToolTip: "_2FxbHJzYoH024ko7zqcJOf",
 	ToolTipCustom: "_3XGRklQrZMakU2xaYB0cLD",
 	ToolTipTitle: "_1LhVfNukndDa_XWzq0vdg1",

@@ -1,36 +1,52 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./43691.js");
-var a = require("./83247.js");
-var s = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import i from "./43691.js";
+import a from "./83247.js";
+import s, { Y2 } from "./72476.js";
+import { A as A_1 } from "./90765.js";
+import { dd } from "./91720.js";
+import { xz, In, N$ } from "./76835.js";
+import { aO } from "./92374.js";
+import b from "./67429.js";
+import { T as T_1 } from "./54362.js";
+import S from "./25554.js";
 const o = "steam_";
-var l;
+let l;
 function c(e) {
 	switch (e) {
 		default:
-		case l.White:
+		case l.White: {
 			return "#DCDEDF";
-		case l.Red:
+		}
+		case l.Red: {
 			return "#FB7C7C";
-		case l.Orange:
+		}
+		case l.Orange: {
 			return "#FBB17C";
-		case l.Yellow:
+		}
+		case l.Yellow: {
 			return "#FBDF7C";
-		case l.Green:
+		}
+		case l.Green: {
 			return "#9DFB7C";
-		case l.Blue:
+		}
+		case l.Blue: {
 			return "#7CD5FB";
-		case l.Purple:
+		}
+		case l.Purple: {
 			return "#A57CFB";
-		case l.Brown:
+		}
+		case l.Brown: {
 			return "#C18C5B";
-		case l.Gray:
+		}
+		case l.Gray: {
 			return "#B8BCBF";
+		}
 	}
 }
 function m(e) {
 	return Object.keys(e).filter((e) => !Number.isNaN(e));
 }
-(function (e) {
+((e) => {
 	e[(e.White = 0)] = "White";
 	e[(e.Red = 1)] = "Red";
 	e[(e.Orange = 2)] = "Orange";
@@ -99,7 +115,7 @@ class d {
 		this.AddMarker("combat", a.t4, l.Gray);
 		this.AddMarker("chest", a.k8, l.Gray);
 		this.AddMarker("view", a.Ss, l.Gray);
-		if ((0, s.Y2)()) {
+		if (Y2()) {
 			this.AddMarker("death", a.X, l.Gray);
 		} else {
 			this.AddMarker("death", a.lQ, l.Gray);
@@ -158,83 +174,62 @@ function p() {
 function g(e) {
 	return e && e.toLowerCase().startsWith(o);
 }
-var h = require(/*webcrack:missing*/ "./90765.js");
-var C = require("./91720.js");
-var _ = require("./76835.js");
-var f = require("./92374.js");
-var b = require("./67429.js");
-var y = require("./54362.js");
-var S = require("./25554.js");
 export function Wo(e) {
 	let {
-		entry: t,
-		strMarkerIcon: r,
-		onClick: i,
-		onMouseEnter: a,
-		onMouseLeave: s,
-		onContextMenu: o,
-		classNames: l,
-		style: c,
-		faded: m,
-		bSelectedMarker: u,
+		entry,
+		strMarkerIcon,
+		onClick,
+		onMouseEnter,
+		onMouseLeave,
+		onContextMenu,
+		classNames,
+		style,
+		faded,
+		bSelectedMarker,
 	} = e;
-	return n.createElement(
-		"div",
-		{
-			style: c ?? {},
-			className: (0, h.A)(l, {
+	return (
+		<div
+			style={style ?? {}}
+			className={A_1(classNames, {
 				[S.HighlightIcon]: true,
-				[S.Selected]: u,
-				[S.Faded]: m,
-			}),
-			onClick: (e) => {
-				if (i) {
-					i(e);
+				[S.Selected]: bSelectedMarker,
+				[S.Faded]: faded,
+			})}
+			onClick={(e) => {
+				if (onClick) {
+					onClick(e);
 				}
-			},
-			onContextMenu: o,
-			onMouseEnter: a,
-			onMouseLeave: s,
-		},
-		n.createElement(Zo, {
-			entry: t,
-			strMarkerIcon: r,
-		}),
+			}}
+			onContextMenu={onContextMenu}
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
+		>
+			<Zo entry={entry} strMarkerIcon={strMarkerIcon} />
+		</div>
 	);
 }
 export function Zo(e) {
-	let { entry: t, strMarkerIcon: r } = e;
-	const i = (0, f.aO)().GetGameID();
-	if ((0, _.xz)(t)) {
-		return n.createElement(v, {
-			achievementEntry: t,
-			strGameID: i,
-		});
-	} else if ((0, _.In)(t)) {
-		return n.createElement(M, null);
-	} else if (g(r)) {
-		return n.createElement(I, {
-			entry: t,
-			strMarkerIcon: r,
-		});
+	let { entry, strMarkerIcon } = e;
+	const i = aO().GetGameID();
+	if (xz(entry)) {
+		return <V achievementEntry={entry} strGameID={i} />;
+	} else if (In(entry)) {
+		return <M />;
+	} else if (g(strMarkerIcon)) {
+		return <I entry={entry} strMarkerIcon={strMarkerIcon} />;
 	} else {
-		return n.createElement(T, {
-			strMarkerIcon: r,
-			strGameID: i,
-		});
+		return <T strMarkerIcon={strMarkerIcon} strGameID={i} />;
 	}
 }
-function v(e) {
-	const { achievementEntry: t, strGameID: r } = e;
-	const i = new b.VS(r);
-	const s = (0, C.dd)(i.GetAppID(), t.achievement_name);
+function V(e) {
+	const { achievementEntry, strGameID } = e;
+	const i = new b.VS(strGameID);
+	const s = dd(i.GetAppID(), achievementEntry.achievement_name);
 	let o;
 	let m;
 	if (s) {
 		o = "white";
-		m = n.createElement("img", {
-			src: s.iconURL,
-		});
+		m = <img src={s.iconURL} />;
 	} else {
 		const e = {
 			func: a.Oi,
@@ -243,129 +238,106 @@ function v(e) {
 		o = c(e.color);
 		m = e.func({});
 	}
-	return n.createElement(
-		"div",
-		{
-			className: S.Marker,
-			style: {
+	return (
+		<div
+			className={S.Marker}
+			style={{
 				color: o,
-			},
-		},
-		m,
+			}}
+		>
+			{m}
+		</div>
 	);
 }
 function I(e) {
-	const { entry: t, strMarkerIcon: r } = e;
+	const { entry, strMarkerIcon } = e;
 	let i;
 	let s;
-	if ((0, _.N$)(t)) {
+	if (N$(entry)) {
 		i = {
 			func: a.pH,
 			color: l.Blue,
 		};
 		s = S.CustomMarker;
 	} else {
-		i = A(r);
+		i = A(strMarkerIcon);
 	}
 	const o = c(i.color);
-	return n.createElement(
-		k,
-		{
-			color: o,
-		},
-		n.createElement(
-			"div",
-			{
-				className: s,
-			},
-			i.func({}),
-		),
+	return (
+		<K color={o}>
+			<div className={s}>{i.func({})}</div>
+		</K>
 	);
 }
 function E(e) {
-	const { icon: t, className: r } = e;
-	return A(t).func({
-		className: r,
+	const { icon, className } = e;
+	return A(icon).func({
+		className: className,
 	});
 }
 function M(e) {
 	const t = A("steam_invalid");
 	const r = c(t.color);
-	return n.createElement(
-		k,
-		{
-			color: r,
-		},
-		n.createElement("div", null, t.func({})),
+	return (
+		<K color={r}>
+			<div>{t.func({})}</div>
+		</K>
 	);
 }
 function T(e) {
-	const { strMarkerIcon: t, strGameID: r } = e;
-	return n.createElement(
-		k,
-		null,
-		n.createElement(XR, {
-			icon: t,
-			gameID: r,
-		}),
+	const { strMarkerIcon, strGameID } = e;
+	return (
+		<K>
+			<XR icon={strMarkerIcon} gameID={strGameID} />
+		</K>
 	);
 }
 export function XR(e) {
-	const { icon: t, gameID: r, className: i } = e;
-	const a = new b.VS(r).GetAppID();
-	const s = (0, y.T)(a, t);
-	if (g(t)) {
-		return n.createElement(E, {
-			...e,
-		});
+	const { icon, gameID, className } = e;
+	const a = new b.VS(gameID).GetAppID();
+	const s = T_1(a, icon);
+	if (g(icon)) {
+		return <E {...e} />;
 	}
 	if (s === null) {
 		return null;
 	}
 	if (s === undefined) {
 		const e = p();
-		return n.createElement(
-			"div",
-			{
-				className: i,
-			},
-			e.func({}),
-		);
+		return <div className={className}>{e.func({})}</div>;
 	}
 	let o = "";
 	o = typeof s != "string" ? new XMLSerializer().serializeToString(s) : s;
-	return n.createElement(
-		"svg",
-		{
-			xmlns: "http://www.w3.org/2000/svg",
-			viewBox: "0 0 36 36",
-			className: (0, h.A)(i, S.GameMarkerSVG),
-		},
-		n.createElement("g", {
-			dangerouslySetInnerHTML: {
-				__html: o,
-			},
-		}),
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 36 36"
+			className={A_1(className, S.GameMarkerSVG)}
+		>
+			<g
+				dangerouslySetInnerHTML={{
+					__html: o,
+				}}
+			/>
+		</svg>
 	);
 }
-function k(e) {
-	const { children: t, color: r } = e;
-	return n.createElement(
-		"div",
-		{
-			className: S.MarkerCtn,
-		},
-		n.createElement(
-			"div",
-			{
-				className: S.Marker,
-				style: r
-					? {
-							color: r,
-						}
-					: null,
-			},
-			t,
-		),
+function K(e) {
+	const { children, color } = e;
+	return (
+		<div className={S.MarkerCtn}>
+			<div
+				className={S.Marker}
+				style={
+					color
+						? {
+								color: color,
+							}
+						: null
+				}
+			>
+				{children}
+			</div>
+		</div>
 	);
 }

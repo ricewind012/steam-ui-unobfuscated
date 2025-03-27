@@ -1,45 +1,45 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./10606.js");
-var a = require("./1615.js");
-var s = require("./64608.js");
-var o = require("./30449.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require("./13869.js");
-var m = require(/*webcrack:missing*/ "./11131.js");
-var u = require("./34461.js");
+import n from "./63696.js";
+import i from "./10606.js";
+import a from "./1615.js";
+import s from "./64608.js";
+import o from "./30449.js";
+import c, { pg } from "./13869.js";
+import m, { R7 } from "./11131.js";
+import u, { yZ } from "./34461.js";
 const d = 1.5;
 const A = 300;
 export function e() {
-	const [e, t] = n.useState();
-	const [r, a] = n.useState();
-	const [s, o] = n.useState(false);
-	const [l, c] = n.useState();
-	const m = (0, u.yZ)();
+	const [e, setE] = n.useState();
+	const [r, setR] = n.useState();
+	const [s, setS] = n.useState(false);
+	const [l, setL] = n.useState();
+	const m = yZ();
 	const p = n.useCallback(
 		async (e, r, n) => {
-			t(0);
-			a(undefined);
-			c(r);
+			setE(0);
+			setR(undefined);
+			setL(r);
 			let i = false;
 			let s = 0;
 			const l = setTimeout(() => {
 				if (A / 1000 / ((s > 0 ? s : 1) / 100) > d) {
 					if (!i) {
 						i = true;
-						o(true);
+						setS(true);
 					}
 				}
 			}, A);
 			const u = await e((e) => {
 				((e) => {
-					t(e);
+					setE(e);
 					s = e;
 				})(e);
 			});
 			clearTimeout(l);
 			if (i || u.eResult != 1) {
-				a(u);
-				o(false);
+				setR(u);
+				setS(false);
 			} else {
 				m(n, u.strTitle);
 			}
@@ -48,142 +48,73 @@ export function e() {
 	);
 	const _ = s || r !== undefined;
 	const f = () => {
-		a(undefined);
+		setR(undefined);
 	};
 	const b = r?.strTitle ?? l;
 	return {
 		onShowProgressBar: p,
-		progressElement: n.createElement(
-			i.mt,
-			{
-				active: _,
-				onDismiss: r ? f : undefined,
-			},
-			s &&
-				n.createElement(g, {
-					progress: e,
-					title: b,
-				}),
-			r?.eResult == 1 &&
-				n.createElement(C, {
-					title: b,
-					onClose: f,
-					alternateActionText: r.strAlternateAction,
-					onAlternateAction: r.fnAlternateAction,
-				}),
-			r &&
-				r.eResult != 1 &&
-				n.createElement(h, {
-					title: b,
-					result: r.eResult,
-					error: r.strError,
-					onClose: f,
-				}),
+		progressElement: (
+			<i.mt active={_} onDismiss={r ? f : undefined}>
+				{s && <G progress={e} title={b} />}
+				{r?.eResult == 1 && (
+					<C
+						title={b}
+						onClose={f}
+						alternateActionText={r.strAlternateAction}
+						onAlternateAction={r.fnAlternateAction}
+					/>
+				)}
+				{r && r.eResult != 1 && (
+					<H title={b} result={r.eResult} error={r.strError} onClose={f} />
+				)}
+			</i.mt>
 		),
 	};
 }
-function g(e) {
-	const { progress: t, title: r } = e;
-	return n.createElement(
-		"div",
-		{
-			className: a.ClipProgressDialog,
-		},
-		n.createElement(
-			"div",
-			{
-				className: a.Title,
-			},
-			r,
-		),
-		n.createElement(o.z2, {
-			nProgress: t,
-		}),
+function G(e) {
+	const { progress, title } = e;
+	return (
+		<div className={a.ClipProgressDialog}>
+			<div className={a.Title}>{title}</div>
+			<o.z2 nProgress={progress} />
+		</div>
 	);
 }
-function h(e) {
-	const { title: t, result: r, error: i, onClose: o } = e;
-	const c = i ?? `${Localize("#ExportClip_Error")} (${r})`;
-	return n.createElement(
-		"div",
-		{
-			className: a.ClipProgressDialog,
-		},
-		n.createElement(
-			"div",
-			{
-				className: a.Title,
-			},
-			t,
-		),
-		n.createElement(
-			"div",
-			{
-				className: a.Error,
-			},
-			c,
-		),
-		n.createElement(
-			s.$n,
-			{
-				onClick: o,
-			},
-			Localize("#Button_Close"),
-		),
+function H(e) {
+	const { title, result, error, onClose } = e;
+	const c = error ?? `${Localize("#ExportClip_Error")} (${result})`;
+	return (
+		<div className={a.ClipProgressDialog}>
+			<div className={a.Title}>{title}</div>
+			<div className={a.Error}>{c}</div>
+			<s.$n onClick={onClose}>{Localize("#Button_Close")}</s.$n>
+		</div>
 	);
 }
 function C(e) {
-	const {
-		onClose: t,
-		title: r,
-		alternateActionText: i,
-		onAlternateAction: o,
-	} = e;
-	return n.createElement(
-		"div",
-		{
-			className: a.ClipProgressDialog,
-		},
-		n.createElement(
-			"div",
-			{
-				className: a.Title,
-			},
-			r,
-		),
-		n.createElement(
-			"div",
-			{
-				className: a.ButtonRow,
-			},
-			i &&
-				n.createElement(
-					s.jn,
-					{
-						onClick: o,
-					},
-					i,
-				),
-			n.createElement(
-				s.$n,
-				{
-					onClick: t,
-				},
-				Localize("#Button_Close"),
-			),
-		),
+	const { onClose, title, alternateActionText, onAlternateAction } = e;
+	return (
+		<div className={a.ClipProgressDialog}>
+			<div className={a.Title}>{title}</div>
+			<div className={a.ButtonRow}>
+				{alternateActionText && (
+					<s.jn onClick={onAlternateAction}>{alternateActionText}</s.jn>
+				)}
+				<s.$n onClick={onClose}>{Localize("#Button_Close")}</s.$n>
+			</div>
+		</div>
 	);
 }
 export function J() {
-	const e = (0, m.R7)();
+	const e = R7();
 	return (t, r) => {
-		(0, c.pg)(
-			n.createElement(i.o0, {
-				className: a.ErrorDialog,
-				strTitle: t,
-				strDescription: r,
-				bAlertDialog: true,
-			}),
+		pg(
+			<i.o0
+				className={a.ErrorDialog}
+				strTitle={t}
+				strDescription={r}
+				bAlertDialog
+			/>,
 			e.ownerWindow,
 		);
 	};

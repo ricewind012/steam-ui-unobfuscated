@@ -1,26 +1,27 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./46422.js");
-var a = require(/*webcrack:missing*/ "./37976.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require("./36934.js");
-var m = require("./74995.js");
-var u = require(/*webcrack:missing*/ "./49455.js");
 import {
 	LocalizeCalendarYear,
 	Localize,
 	LocalizeCalendarTimeLessGranular,
 	LocalizationManager,
 } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./83599.js");
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require("./5640.js");
-var h = require("./34792.js");
-var C = require("./87935.js");
-var _ = require("./96000.js");
-var f = require("./95877.js");
-var b = require("./91789.js");
+
+import n, { Cg } from "./34629.js";
+import i from "./46422.js";
+import a from "./37976.js";
+import s, { Gn, EW } from "./89193.js";
+import o, { q3 } from "./90095.js";
+import l, { ak } from "./44846.js";
+import c from "./36934.js";
+import m from "./74995.js";
+import { w } from "./49455.js";
+import A from "./83599.js";
+import p from "./52451.js";
+import g from "./5640.js";
+import h from "./34792.js";
+import C from "./87935.js";
+import _ from "./96000.js";
+import { YI } from "./95877.js";
+import b from "./91789.js";
 const y = new A.wd("AppStore");
 const S = {
 	appid: {},
@@ -266,6 +267,7 @@ class B {
 		return (
 			this.display_status == 13 ||
 			this.display_status == 10 ||
+			this.display_status == 10 ||
 			this.display_status == 16
 		);
 	}
@@ -390,7 +392,7 @@ class B {
 		return this.vr_supported;
 	}
 	BIsSteamVR() {
-		return (0, l.ak)(this.appid);
+		return ak(this.appid);
 	}
 	get review_score() {
 		if (h.rV.storePreferences.eReviewScorePreference == 1) {
@@ -409,30 +411,34 @@ class B {
 	GetPerClientData(e) {
 		let t;
 		switch (e) {
-			case "local":
+			case "local": {
 				t = this.local_per_client_data;
 				break;
-			case "mostavailable":
+			}
+			case "mostavailable": {
 				t = this.most_available_per_client_data;
 				break;
-			default:
+			}
+			default: {
 				t = this.selected_per_client_data;
+			}
 		}
 		return t;
 	}
 	InitFromProto(e) {
 		for (let t in S) {
 			const r = t;
-			const n = S[r];
-			if (n.fnCustomSetter) {
-				n.fnCustomSetter(this, e);
+			const S_r = S[r];
+			if (S_r.fnCustomSetter) {
+				S_r.fnCustomSetter(this, e);
 			} else {
-				const t = e[r]() ?? n.default;
+				const t = e[r]() ?? S_r.default;
 				this[r] = t;
 			}
 		}
 		this.canonicalAppType =
 			this.app_type == 1073741824 ||
+			this.app_type == 65536 ||
 			this.app_type == 65536 ||
 			this.app_type == 8
 				? 1
@@ -517,12 +523,12 @@ class B {
 	BHasObservableChange(e) {
 		for (let t in S) {
 			const r = t;
-			const n = S[r];
-			if (n.observable) {
+			const S_r = S[r];
+			if (S_r.observable) {
 				let i = false;
 				const a = this[r];
-				const s = e[r]() ?? n.default;
-				i = n.fnCustomComparator ? !n.fnCustomComparator(this, e) : a != s;
+				const s = e[r]() ?? S_r.default;
+				i = S_r.fnCustomComparator ? !S_r.fnCustomComparator(this, e) : a != s;
 				if (i) {
 					this.LOG_CHANGE(`Observable ${t} changed`, a, s, this, e.toObject());
 					return true;
@@ -534,12 +540,12 @@ class B {
 	BHasNonObservableChange(e) {
 		for (let t in S) {
 			const r = t;
-			const n = S[r];
-			if (!n.observable) {
+			const S_r = S[r];
+			if (!S_r.observable) {
 				let i = false;
 				const a = this[r];
-				const s = e[r]() ?? n.default;
-				i = n.fnCustomComparator ? !n.fnCustomComparator(this, e) : a != s;
+				const s = e[r]() ?? S_r.default;
+				i = S_r.fnCustomComparator ? !S_r.fnCustomComparator(this, e) : a != s;
 				if (i) {
 					this.LOG_CHANGE(
 						`Non-observable ${t} changed`,
@@ -555,11 +561,11 @@ class B {
 		return false;
 	}
 }
-(0, n.Cg)([p.oI], B.prototype, "BHasStoreTag", null);
+Cg([p.oI], B.prototype, "BHasStoreTag", null);
 export class fd extends B {
 	constructor() {
 		super();
-		(0, s.Gn)(this, {
+		Gn(this, {
 			InitFromProto: s.XI,
 			mru_index: s.sH,
 			rt_recent_activity_time: s.sH,
@@ -578,7 +584,7 @@ export class fd extends B {
 }
 class I {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_mapApps = new Map();
 	m_bIsInitialized = false;
@@ -592,7 +598,7 @@ class I {
 		this.m_collator = new Intl.Collator(
 			LocalizationManager.GetPreferredLocales(),
 		);
-		let t = (0, f.YI)(e, new b.A());
+		let t = YI(e, new b.A());
 		await new Promise((e, t) => {
 			let r = e;
 			SteamClient.Apps.RegisterForAppOverviewChanges((e) => {
@@ -618,7 +624,7 @@ class I {
 		let o = new Set();
 		let l = false;
 		y.Debug(
-			(r ? "Full" : "Partial") + " update of",
+			`${r ? "Full" : "Partial"} update of`,
 			n.length,
 			t.update_complete() ? "complete" : "in progress",
 			e.byteLength,
@@ -640,7 +646,7 @@ class I {
 				y.Debug(`No changes for ${e.appid()}`);
 				continue;
 			}
-			const c = i || !t || !t.BHasObservables();
+			const c = i || !t || !t || !t.BHasObservables();
 			if (c) {
 				if (!r) {
 					y.Debug(`Replacing IAppOverview for ${e.appid()}`);
@@ -659,7 +665,24 @@ class I {
 			s.push(t);
 			let m = t.local_per_client_data?.display_status;
 			if (m != n) {
-				if (m == 4 || m == 1 || m == 2 || n == 4 || n == 1 || n == 2) {
+				if (
+					m == 4 ||
+					m == 1 ||
+					m == 1 ||
+					m == 2 ||
+					m == 1 ||
+					m == 2 ||
+					n == 4 ||
+					m == 1 ||
+					m == 2 ||
+					n == 4 ||
+					n == 1 ||
+					m == 1 ||
+					m == 2 ||
+					n == 4 ||
+					n == 1 ||
+					n == 2
+				) {
 					l = true;
 				}
 			}
@@ -709,8 +732,8 @@ class I {
 	GetTopStoreTags(e) {
 		const t = e && e.toLocaleLowerCase();
 		const r = [];
-		this.m_mapStoreTagLocalization.forEach(({ name: e }, n) => {
-			if (!!e && (!t || !!e.toLowerCase().includes(t))) {
+		this.m_mapStoreTagLocalization.forEach(({ name }, n) => {
+			if (!!name && (!t || !!name.toLowerCase().includes(t))) {
 				r.push(n);
 			}
 		});
@@ -728,7 +751,7 @@ class I {
 			this.m_cm.BIsConnected()
 		) {
 			this.m_msTagMapLoaded = performance.now();
-			(0, f.YI)(this.m_cm, new b.A()).then(
+			YI(this.m_cm, new b.A()).then(
 				(e) => (this.m_mapStoreTagLocalization = e),
 			);
 		}
@@ -750,10 +773,7 @@ class I {
 		for (const r of this.allApps) {
 			if (r.site_license_site_name) {
 				if (e != r.site_license_site_name) {
-					(0, u.w)(
-						!e,
-						"Found two site servers: " + e + " != " + r.site_license_site_name,
-					);
+					w(!e, `Found two site servers: ${e} != ${r.site_license_site_name}`);
 					if (e) {
 						continue;
 					}
@@ -773,16 +793,11 @@ class I {
 	}
 	GetIconURLForApp(e) {
 		if (e.icon_hash) {
-			return (
-				C.B7.GetCommunityImageURL() +
-				"images/apps/" +
-				e.appid +
-				"/" +
-				e.icon_hash +
-				".jpg"
-			);
+			return `${C.B7.GetCommunityImageURL()}images/apps/${e.appid}/${
+				e.icon_hash
+			}.jpg`;
 		} else if (e.icon_data) {
-			return "data:image/" + e.icon_data_format + ";base64," + e.icon_data;
+			return `data:image/${e.icon_data_format};base64,${e.icon_data}`;
 		} else if (e.app_type == 8192 && e.album_cover_hash) {
 			return this.GetAlbumCoverURLForApp(e);
 		} else if (e.BIsModOrShortcut() && e.icon_data === undefined) {
@@ -793,24 +808,24 @@ class I {
 		}
 	}
 	GetVerticalCapsuleURLForApp(e) {
-		const t = e.appid;
+		const e_appid = e.appid;
 		if (e.library_capsule_filename) {
 			return C.B7.BuildLibraryAssetURL(
-				t,
+				e_appid,
 				e.library_capsule_filename,
 				e.rt_store_asset_mtime,
 			);
 		} else {
 			return C.B7.BuildLibraryAssetURL(
-				t,
+				e_appid,
 				"library_600x900.jpg",
 				e.rt_store_asset_mtime,
 			);
 		}
 	}
 	GetPregeneratedVerticalCapsuleForApp(e) {
-		const t = e.appid;
-		return `${C.B7.GetStoreAppImageURL()}/${t}/portrait.png?v=2`;
+		const e_appid = e.appid;
+		return `${C.B7.GetStoreAppImageURL()}/${e_appid}/portrait.png?v=2`;
 	}
 	GetCachedAlbumCoverURL(e) {
 		if (e.album_cover_hash) {
@@ -825,14 +840,9 @@ class I {
 	}
 	GetAlbumCoverURLForApp(e) {
 		if (e.album_cover_hash) {
-			return (
-				C.B7.GetCommunityImageURL() +
-				"images/apps/" +
-				e.appid +
-				"/" +
-				e.album_cover_hash +
-				".jpg"
-			);
+			return `${C.B7.GetCommunityImageURL()}images/apps/${e.appid}/${
+				e.album_cover_hash
+			}.jpg`;
 		} else {
 			return null;
 		}
@@ -876,24 +886,22 @@ class I {
 	}
 	GetStorePageURLForApp(e) {
 		if (e.BIsApplicationOrTool()) {
-			return (
-				C.B7.GetStoreURL() +
-				"search/?term=" +
-				encodeURIComponent(e.display_name)
-			);
+			return `${C.B7.GetStoreURL()}search/?term=${encodeURIComponent(
+				e.display_name,
+			)}`;
 		} else if (e.BIsModOrShortcut()) {
 			return null;
 		} else {
-			return C.B7.GetStoreURL() + "app/" + e.appid;
+			return `${C.B7.GetStoreURL()}app/${e.appid}`;
 		}
 	}
 }
-(0, n.Cg)([s.sH.shallow], I.prototype, "m_mapApps", undefined);
-(0, n.Cg)([s.XI.bound], I.prototype, "UpdateAppOverview", null);
-(0, n.Cg)([p.oI], I.prototype, "CompareSortAs", null);
-(0, n.Cg)(
+Cg([s.sH.shallow], I.prototype, "m_mapApps", undefined);
+Cg([s.XI.bound], I.prototype, "UpdateAppOverview", null);
+Cg([p.oI], I.prototype, "CompareSortAs", null);
+Cg(
 	[
-		(0, s.EW)({
+		EW({
 			keepAlive: true,
 		}),
 	],
@@ -901,10 +909,10 @@ class I {
 	"allApps",
 	null,
 );
-(0, n.Cg)([p.oI], I.prototype, "GetLocalizationForStoreTag", null);
-(0, n.Cg)(
+Cg([p.oI], I.prototype, "GetLocalizationForStoreTag", null);
+Cg(
 	[
-		(0, s.EW)({
+		EW({
 			keepAlive: true,
 			equals: s.m3.structural,
 		}),
@@ -915,16 +923,16 @@ class I {
 );
 export const tw = new I();
 export function Co(e) {
-	return (0, o.q3)(() => (e ? tw.GetAppOverviewByAppID(e) : null));
+	return q3(() => (e ? tw.GetAppOverviewByAppID(e) : null));
 }
 export function li(e) {
-	return (0, o.q3)(() => e.map((e) => tw.GetAppOverviewByAppID(e)));
+	return q3(() => e.map((e) => tw.GetAppOverviewByAppID(e)));
 }
 export function _R(e) {
-	return (0, o.q3)(() => (e ? tw.GetAppOverviewByGameID(e) : null));
+	return q3(() => (e ? tw.GetAppOverviewByGameID(e) : null));
 }
 export function mM(e) {
-	return (0, o.q3)(() => e && e.BIsOwned());
+	return q3(() => e && e.BIsOwned());
 }
 window.appStore = tw;
 window.appInfoStore = c.Vw;

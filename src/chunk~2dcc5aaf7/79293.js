@@ -1,211 +1,174 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./64608.js");
-require("./13869.js");
-var s = require("./91745.js");
-var o = require("./61175.js");
-var l = require(/*webcrack:missing*/ "./41230.js");
-var c = require("./74827.js");
-var m = require("./92749.js");
-var u = require("./44313.js");
-var d = require("./13200.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var p = require("./60917.js");
-var g = require(/*webcrack:missing*/ "./69164.js");
-var h = require("./27954.js");
+import n, { Cg } from "./34629.js";
+import i, { useState } from "./63696.js";
+import a from "./64608.js";
+import "./13869.js";
+import s from "./91745.js";
+import o from "./61175.js";
+import l, { PA } from "./41230.js";
+import c from "./74827.js";
+import m from "./92749.js";
+import u from "./44313.js";
+import { TE } from "./13200.js";
+import p from "./60917.js";
+import g from "./69164.js";
+import { A } from "./27954.js";
 export function h3(e) {
 	0;
 }
 const _ = (e) => {
 	const t = s.hG.GetToggleSetting(e.eToggle);
-	return i.createElement(a.RF, {
-		key: t.strLabel,
-		label: t.strLabel,
-		description: t.strDescription,
-		checked: t.currentValue,
-		onChange: (t) => s.hG.SetToggle(e.eToggle, t),
-	});
-};
-class f extends i.Component {
-	render() {
-		const e = s.hG.GetTogglesForPanel(null).map(([e, t]) =>
-			i.createElement(_, {
-				key: e,
-				eToggle: e,
-			}),
-		);
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(
-				a.nB,
-				null,
-				e,
-				i.createElement(
-					a.Xp,
-					null,
-					i.createElement(
-						a.$n,
-						{
-							onClick: () => (0, h.A)(true),
-						},
-						"React Query Devtools",
-					),
-				),
-			),
-		);
-	}
-}
-class b extends i.Component {
-	render() {
-		const e = s.hG.GetTogglesForPanel(4).map(([e, t]) =>
-			i.createElement(_, {
-				key: e,
-				eToggle: e,
-			}),
-		);
-		return i.createElement(i.Fragment, null, i.createElement(a.nB, null, e));
-	}
-}
-const y = (0, l.PA)(() => {
-	const [e, t] = (0, i.useState)("");
-	const r = s.hG.GetTogglesForPanel(0).map(([e, t]) =>
-		i.createElement(_, {
-			key: e,
-			eToggle: e,
-		}),
+	return (
+		<a.RF
+			key={t.strLabel}
+			label={t.strLabel}
+			description={t.strDescription}
+			checked={t.currentValue}
+			onChange={(t) => s.hG.SetToggle(e.eToggle, t)}
+		/>
 	);
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			a.nB,
-			null,
-			e &&
-				i.createElement(
-					"div",
-					{
-						style: {
+};
+class F extends i.Component {
+	render() {
+		const e = s.hG
+			.GetTogglesForPanel(null)
+			.map(([e, t]) => <_ key={e} eToggle={e} />);
+		return (
+			<>
+				<a.nB>
+					{e}
+					<a.Xp>
+						<a.$n onClick={() => A(true)}>React Query Devtools</a.$n>
+					</a.Xp>
+				</a.nB>
+			</>
+		);
+	}
+}
+class B extends i.Component {
+	render() {
+		const e = s.hG
+			.GetTogglesForPanel(4)
+			.map(([e, t]) => <_ key={e} eToggle={e} />);
+		return (
+			<>
+				<a.nB>{e}</a.nB>
+			</>
+		);
+	}
+}
+const Y = PA(() => {
+	const [e, setE] = useState("");
+	const r = s.hG
+		.GetTogglesForPanel(0)
+		.map(([e, t]) => <_ key={e} eToggle={e} />);
+	return (
+		<>
+			<a.nB>
+				{e && (
+					<div
+						style={{
 							color: "red",
-						},
-					},
-					e,
-				),
-			i.createElement(a.iK, null, "Game Summary:"),
-			i.createElement(
-				a.a3,
-				{
-					style: {
+						}}
+					>
+						{e}
+					</div>
+				)}
+				<a.iK>Game Summary:</a.iK>
+				<a.a3
+					style={{
 						margin: "8px 0px",
-					},
-				},
-				"Controls for any game",
-			),
-			i.createElement(
-				a.dR,
-				{
-					style: {
+					}}
+				>
+					Controls for any game
+				</a.a3>
+				<a.dR
+					style={{
 						width: "100%",
-					},
-				},
-				i.createElement(
-					a.$n,
-					{
-						onClick: () => {
-							t("");
+					}}
+				>
+					<a.$n
+						onClick={() => {
+							setE("");
 							let e = o.n6.currentGameListSelection.nAppId;
 							if (e != 0) {
 								if (!c.Ri.BSimulateSummaryFakeAchievement(e)) {
-									t(
+									setE(
 										"Failed to add a new achievement (most likely at 12 or no achievements for this game)",
 									);
 								}
 							} else {
-								t("Select an app details page");
+								setE("Select an app details page");
 							}
-						},
-					},
-					"Add Achievement",
-				),
-				i.createElement(
-					a.$n,
-					{
-						onClick: () => {
-							t("");
+						}}
+					>
+						Add Achievement
+					</a.$n>
+					<a.$n
+						onClick={() => {
+							setE("");
 							let e = o.n6.currentGameListSelection.nAppId;
 							if (e != 0) {
 								c.Ri.SimulateSummaryForceNewDay(e);
 							} else {
-								t("Select an app details page");
+								setE("Select an app details page");
 							}
-						},
-					},
-					"Force New Day",
-				),
-			),
-			i.createElement(
-				a.dR,
-				{
-					style: {
+						}}
+					>
+						Force New Day
+					</a.$n>
+				</a.dR>
+				<a.dR
+					style={{
 						width: "100%",
-					},
-				},
-				i.createElement(
-					a.$n,
-					{
-						onClick: () => {
-							t("");
+					}}
+				>
+					<a.$n
+						onClick={() => {
+							setE("");
 							let e = o.n6.currentGameListSelection.nAppId;
 							if (e != 0) {
 								c.Ri.SimulateSummaryClear(e);
 							} else {
-								t("Select an app details page");
+								setE("Select an app details page");
 							}
-						},
-					},
-					"Clear Game Summary",
-				),
-			),
-			i.createElement(a._E, {
-				style: {
-					margin: "10px 0px",
-				},
-			}),
-			i.createElement(
-				a.a3,
-				{
-					style: {
+						}}
+					>
+						Clear Game Summary
+					</a.$n>
+				</a.dR>
+				<a._E
+					style={{
+						margin: "10px 0px",
+					}}
+				/>
+				<a.a3
+					style={{
 						margin: "8px 0px",
-					},
-				},
-				"Game specific controls",
-			),
-			i.createElement(
-				a.dR,
-				{
-					style: {
+					}}
+				>
+					Game specific controls
+				</a.a3>
+				<a.dR
+					style={{
 						width: "100%",
-					},
-				},
-				i.createElement(
-					a.$n,
-					{
-						onClick: () => {
-							t("");
+					}}
+				>
+					<a.$n
+						onClick={() => {
+							setE("");
 							if (o.n6.currentGameListSelection.nAppId == 440) {
 								c.Ri.SimulatePressSummary();
 							} else {
-								t("Navigate to Team Fortress 2 first");
+								setE("Navigate to Team Fortress 2 first");
 							}
-						},
-					},
-					"Team Fortress 2",
-				),
-				i.createElement(
-					a.$n,
-					{
-						onClick: (e) =>
-							(0, d.TE)(
+						}}
+					>
+						Team Fortress 2
+					</a.$n>
+					<a.$n
+						onClick={(e) =>
+							TE(
 								{
 									bOnAppLaunch: false,
 									appid: 440,
@@ -217,153 +180,129 @@ const y = (0, l.PA)(() => {
 									customDescriptionText: "#ControllerCloudConflict_Description",
 								},
 								GetOwningWindowForEvent(e),
-							),
-					},
-					"Show Cloud Conflict Dialog",
-				),
-			),
-			i.createElement(
-				a.iK,
-				{
-					style: {
+							)
+						}
+					>
+						Show Cloud Conflict Dialog
+					</a.$n>
+				</a.dR>
+				<a.iK
+					style={{
 						margin: "20px 0px 0px 0px",
-					},
-				},
-				"New DLC:",
-			),
-			r,
-		),
+					}}
+				>
+					New DLC:
+				</a.iK>
+				{r}
+			</a.nB>
+		</>
 	);
 });
 let S = class extends i.Component {
 	render() {
-		const e = s.hG.GetTogglesForPanel(2).map(([e, t]) =>
-			i.createElement(_, {
-				key: e,
-				eToggle: e,
-			}),
-		);
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(
-				a.nB,
-				null,
-				i.createElement(
-					a.a3,
-					{
-						style: {
+		const e = s.hG
+			.GetTogglesForPanel(2)
+			.map(([e, t]) => <_ key={e} eToggle={e} />);
+		return (
+			<>
+				<a.nB>
+					<a.a3
+						style={{
 							marginTop: "12px",
-						},
-					},
-					"These controls affect the ",
-					i.createElement("b", null, "Play Next"),
-					" Suggestions shelf.",
-				),
-				i.createElement(
-					a.$n,
-					{
-						style: {
+						}}
+					>
+						{"These controls affect the "}
+						<b>Play Next</b>
+						{" Suggestions shelf."}
+					</a.a3>
+					<a.$n
+						style={{
 							marginBottom: "20px",
-						},
-						onClick: m.x3.DebugClearCache,
-					},
-					"Clear PlayNextStore Cache",
-				),
-				e,
-			),
+						}}
+						onClick={m.x3.DebugClearCache}
+					>
+						Clear PlayNextStore Cache
+					</a.$n>
+					{e}
+				</a.nB>
+			</>
 		);
 	}
 };
-S = (0, n.Cg)([l.PA], S);
-let w = class extends i.Component {
+S = Cg([l.PA], S);
+let W = class extends i.Component {
 	onSendTestNotifications = () => p.Tu.Dev_SendTestNotifications();
 	onRefreshNotifications = () => p.$Z.RefreshNotifications();
 	render() {
-		const e = s.hG.GetTogglesForPanel(3).map(([e, t]) =>
-			i.createElement(_, {
-				key: e,
-				eToggle: e,
-			}),
-		);
+		const e = s.hG
+			.GetTogglesForPanel(3)
+			.map(([e, t]) => <_ key={e} eToggle={e} />);
 		let t = [];
 		const r = p.Tu.GetNotificationTargets();
 		for (const e in r) {
 			const n = parseInt(e);
 			if (r[n].strTest) {
 				t.push(
-					i.createElement(
-						a.$n,
-						{
-							style: {
-								display: "inline-flex",
-								width: "180px",
-								margin: "0px 10px 10px 0px",
-								justifyContent: "center",
-								whiteSpace: "nowrap",
-								textOverflow: "ellipsis",
-							},
-							onClick: r[n].fnTest,
-						},
-						r[n].strTest,
-					),
+					<a.$n
+						style={{
+							display: "inline-flex",
+							width: "180px",
+							margin: "0px 10px 10px 0px",
+							justifyContent: "center",
+							whiteSpace: "nowrap",
+							textOverflow: "ellipsis",
+						}}
+						onClick={r[n].fnTest}
+					>
+						{r[n].strTest}
+					</a.$n>,
 				);
 			}
 		}
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(
-				a.nB,
-				null,
-				i.createElement(
-					a.$n,
-					{
-						style: {
+		return (
+			<>
+				<a.nB>
+					<a.$n
+						style={{
 							marginBottom: "20px",
-						},
-						onClick: this.onSendTestNotifications,
-					},
-					"Send Multiple Test Notifications",
-				),
-				i.createElement(
-					a.$n,
-					{
-						style: {
+						}}
+						onClick={this.onSendTestNotifications}
+					>
+						Send Multiple Test Notifications
+					</a.$n>
+					<a.$n
+						style={{
 							marginBottom: "20px",
-						},
-						onClick: this.onRefreshNotifications,
-					},
-					"Refresh from Server",
-				),
-				e,
-				i.createElement(
-					g.Z,
-					{
-						style: {
+						}}
+						onClick={this.onRefreshNotifications}
+					>
+						Refresh from Server
+					</a.$n>
+					{e}
+					<g.Z
+						style={{
 							paddingTop: "20px",
-						},
-					},
-					i.createElement(
-						g.Z,
-						{
-							style: {
+						}}
+					>
+						<g.Z
+							style={{
 								display: "flex",
 								flexDirection: "row",
 								paddingBottom: "10px",
-							},
-						},
-						"Send Test Notification",
-					),
-					...t,
-				),
-			),
+							}}
+						>
+							Send Test Notification
+						</g.Z>
+						{...t}
+					</g.Z>
+				</a.nB>
+			</>
 		);
 	}
 };
-export var PQ;
-w = (0, n.Cg)([l.PA], w);
-(function (e) {
+export let PQ;
+W = Cg([l.PA], W);
+((e) => {
 	e.DeveloperOptions = "DeveloperOptions";
 	e.VRDeveloperOptions = "VRDeveloperOptions";
 	e.AppSpotlight = "AppSpotlight";
@@ -375,32 +314,32 @@ export const yQ = [
 	{
 		title: "Developer Options",
 		identifier: PQ.DeveloperOptions,
-		content: i.createElement(f, null),
+		content: <F />,
 	},
 	{
 		title: "VR Developer Options",
 		identifier: PQ.VRDeveloperOptions,
-		content: i.createElement(b, null),
+		content: <B />,
 	},
 	{
 		title: "Log Settings",
 		identifier: "LogSettings",
-		content: i.createElement(u.e, null),
+		content: <u.e />,
 	},
 	{
 		title: "App Spotlight",
 		identifier: PQ.AppSpotlight,
-		content: i.createElement(y, null),
+		content: <Y />,
 	},
 	{
 		title: "Play Next",
 		identifier: PQ.PlayNext,
-		content: i.createElement(S, null),
+		content: <S />,
 	},
 	{
 		title: "Notifications",
 		identifier: PQ.Notifications,
-		content: i.createElement(w, null),
+		content: <W />,
 	},
 ];
 i.Component;

@@ -1,148 +1,132 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./4452.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
-var l = require(/*webcrack:missing*/ "./61050.js");
-var c = require(/*webcrack:missing*/ "./3524.js");
-var m = require(/*webcrack:missing*/ "./35560.js");
-var u = require(/*webcrack:missing*/ "./28869.js");
-var d = require("./18402.js");
-var A = d;
-var p = require(/*webcrack:missing*/ "./28864.js");
-var _g = require(/*webcrack:missing*/ "./84252.js");
+import n, { useEffect } from "./63696.js";
+import i from "./4452.js";
+import s from "./83599.js";
+import o, { Qn } from "./72476.js";
+import l from "./61050.js";
+import c, { bJ } from "./3524.js";
+import m, { QI } from "./35560.js";
+import u from "./28869.js";
+import d from "./18402.js";
+import p, { D5 } from "./28864.js";
+import { qR } from "./84252.js";
+const a = i;
+const A = d;
 const h = new s.wd("FocusNavigation").Debug;
-export function q(e) {
-	const { children: t, ...r } = e;
-	const [i, a] = n.useState({
+export function Q(e) {
+	const { children, ...r } = e;
+	const [i, setI] = n.useState({
 		bFocusWithin: false,
 		navTarget: null,
 		prevTarget: null,
 	});
-	const s = n.useRef(null);
+	const SRef = n.useRef(null);
 	const o = n.useMemo(
 		() => ({
 			OnBlur: (e, t, r) => {
-				a({
+				setI({
 					bFocusWithin: false,
 					navTarget: null,
 					prevTarget: null,
 				});
 			},
+
 			OnFocus: (e, t, r) => {
-				a({
+				setI({
 					bFocusWithin: true,
 					navTarget: t,
 					prevTarget: null,
 				});
 			},
+
 			OnFocusChange: (e, t, r) => {
-				a({
+				setI({
 					bFocusWithin: true,
 					navTarget: r,
 					prevTarget: t,
 				});
 			},
+
 			OnForceMeasureFocusRing: () => {
-				s.current?.MeasureElementAndUpdate();
+				SRef.current?.MeasureElementAndUpdate();
 			},
 		}),
-		[a],
+		[setI],
 	);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(_, {
-			...r,
-			...i,
-			refMeasure: s,
-		}),
-		n.createElement(
-			u.sQ.Provider,
-			{
-				value: o,
-			},
-			t,
-		),
+	return (
+		<>
+			<_ {...r} {...i} refMeasure={SRef} />
+			<u.sQ.Provider value={o}>{children}</u.sQ.Provider>
+		</>
 	);
 }
 function _(e) {
-	const {
-		rootClassName: t,
-		className: r,
-		bFocusWithin: i,
-		navTarget: s,
-		refMeasure: l,
-	} = e;
-	const [u, d] = n.useState(null);
-	const p = (0, m.QI)();
-	const g = (0, o.Qn)();
-	const h = (0, c.bJ)(false);
+	const { rootClassName, className, bFocusWithin, navTarget, refMeasure } = e;
+	const [u, setU] = n.useState(null);
+	const p = QI();
+	const g = Qn();
+	const h = bJ(false);
 	if (g || h) {
-		return n.createElement(
-			"div",
-			{
-				className: a(A.FocusRingRoot, t),
-				ref: d,
-			},
-			n.createElement(f, {
-				refMeasure: l,
-				className: a(r, p && A.DebugFocusRing),
-				bFocusWithin: i && (h || p),
-				navTarget: s,
-				elContainer: u,
-				bDebug: p,
-			}),
+		return (
+			<div className={a(A.FocusRingRoot, rootClassName)} ref={setU}>
+				<F
+					refMeasure={refMeasure}
+					className={a(className, p && A.DebugFocusRing)}
+					bFocusWithin={bFocusWithin && (h || p)}
+					navTarget={navTarget}
+					elContainer={u}
+					bDebug={p}
+				/>
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
-function f(e) {
+function F(e) {
 	const {
-		className: t,
-		bFocusWithin: r,
-		navTarget: i,
-		elContainer: s,
-		bDebug: o,
-		refMeasure: l,
+		className,
+		bFocusWithin,
+		navTarget,
+		elContainer,
+		bDebug,
+		refMeasure,
 	} = e;
-	const [c, m] = n.useState(null);
-	const [u, d] = n.useReducer((e) => e + 1, 0);
-	const [C, _] = n.useReducer((e) => e + 1, 0);
-	(0, p.D5)(
-		l,
+	const [c, setC] = n.useState(null);
+	const [uState, dDispatch] = n.useReducer((e) => e + 1, 0);
+	const [CState, _Dispatch] = n.useReducer((e) => e + 1, 0);
+	D5(
+		refMeasure,
 		n.useMemo(
 			() => ({
-				MeasureElementAndUpdate: _,
+				MeasureElementAndUpdate: _Dispatch,
 			}),
 			[],
 		),
 	);
-	const { bActiveTree: f, bDisableFocusClasses: b } = (0, _g.qR)();
-	const S = f && !b;
-	const w = (function (e, t) {
-		const [r, i] = n.useState(false);
-		(0, n.useEffect)(() => {
+	const { bActiveTree, bDisableFocusClasses } = qR();
+	const S = bActiveTree && !bDisableFocusClasses;
+	const w = ((e, t) => {
+		const [r, setR] = n.useState(false);
+		useEffect(() => {
 			if (e && t) {
 				let e = t.GetBoundingRect();
-				let r = t.Element;
-				const n = r.ownerDocument.defaultView;
+				let t_Element = t.Element;
+				const n = t_Element.ownerDocument.defaultView;
 				const a = (t) =>
 					n.getComputedStyle(t).display == "none" ||
 					(e?.width == 0 && e.height == 0 && e.x == 0 && e.y == 0);
-				while (a(r) && r?.parentElement) {
-					r = r.parentElement;
-					e = r.getBoundingClientRect();
+				while (a(t_Element) && t_Element?.parentElement) {
+					t_Element = t_Element.parentElement;
+					e = t_Element.getBoundingClientRect();
 				}
-				let s = t.Element != r;
-				i((e) => {
+				let s = t.Element != t_Element;
+				setR((e) => {
 					if (s && s != e) {
 						h(
 							"Focused on hidden item: ",
 							t.Element,
 							". Closest visible ancestor: ",
-							r,
+							t_Element,
 						);
 					}
 					return s;
@@ -150,21 +134,29 @@ function f(e) {
 			}
 		}, [e, t]);
 		return r;
-	})(o, i);
+	})(bDebug, navTarget);
 	const B = n.useCallback(() => {
-		if (!i || !i.BWantsFocusRing() || !s || !S) {
-			m(null);
+		if (
+			!navTarget ||
+			!navTarget.BWantsFocusRing() ||
+			!navTarget.BWantsFocusRing() ||
+			!elContainer ||
+			!navTarget.BWantsFocusRing() ||
+			!elContainer ||
+			!S
+		) {
+			setC(null);
 			return;
 		}
-		let e = i.GetBoundingRect();
-		const t = s.getBoundingClientRect();
+		let e = navTarget.GetBoundingRect();
+		const t = elContainer.getBoundingClientRect();
 		const r = {
 			left: e.x - t.x,
 			top: e.y - t.y,
 			height: e.height,
 			width: e.width,
 		};
-		m((e) =>
+		setC((e) =>
 			e &&
 			r.left == e.left &&
 			r.top == e.top &&
@@ -173,14 +165,14 @@ function f(e) {
 				? e
 				: r,
 		);
-	}, [i, s, S]);
+	}, [navTarget, elContainer, S]);
 	n.useLayoutEffect(() => B(), [B]);
 	n.useLayoutEffect(() => {
-		d();
-	}, [i]);
-	let v = r;
-	if (i && s) {
-		if (!i.BWantsFocusRing()) {
+		dDispatch();
+	}, [navTarget]);
+	let v = bFocusWithin;
+	if (navTarget && elContainer) {
+		if (!navTarget.BWantsFocusRing()) {
 			v = false;
 		}
 	}
@@ -198,42 +190,35 @@ function f(e) {
 		};
 		r();
 		return () => cancelAnimationFrame(t);
-	}, [v, B, c, C]);
+	}, [v, B, c, CState]);
 	if (v && c) {
-		return n.createElement(y, {
-			...c,
-			key: u,
-			className: a(t, w && A.FocusRingOnHiddenItem),
-			target: i,
-		});
+		return (
+			<Y
+				{...c}
+				key={uState}
+				className={a(className, w && A.FocusRingOnHiddenItem)}
+				target={navTarget}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
 export function g(e) {
-	const { children: t } = e;
-	if ((0, m.QI)()) {
-		return n.createElement(q, null, t);
+	const { children } = e;
+	if (QI()) {
+		return <Q>{children}</Q>;
 	} else {
-		return n.createElement(
-			u.sQ.Provider,
-			{
-				value: l.CZ,
-			},
-			t,
-		);
+		return <u.sQ.Provider value={l.CZ}>{children}</u.sQ.Provider>;
 	}
 }
-function y(e) {
-	const { className: t, left: r, top: i, height: s, width: o, target: l } = e;
+function Y(e) {
+	const { className, left, top, height, width, target } = e;
 	const c = {
-		left: (r ?? 0) - 0 + "px",
-		top: (i ?? 0) - 0 + "px",
-		height: s + "px",
-		width: o + "px",
+		left: `${(left ?? 0) - 0}px`,
+		top: `${(top ?? 0) - 0}px`,
+		height: `${height}px`,
+		width: `${width}px`,
 	};
-	return n.createElement("div", {
-		className: a(A.FocusRing, t),
-		style: c,
-	});
+	return <div className={a(A.FocusRing, className)} style={c} />;
 }

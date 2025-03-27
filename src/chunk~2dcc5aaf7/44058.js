@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./16154.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
-var l = require("./20711.js");
+import n from "./83957.js";
+import { sH } from "./89193.js";
+import s, { H } from "./16154.js";
+import o from "./72476.js";
+import l from "./20711.js";
+const i = n;
 export class K {
 	static s_VODStore;
 	m_mapAppToVOD = new Map();
@@ -14,7 +14,7 @@ export class K {
 		if (this.m_mapAppToVOD.has(e)) {
 			return this.m_mapAppToVOD.get(e);
 		}
-		const r = o.TS.STORE_BASE_URL + "video/details/" + e + "/0";
+		const r = `${o.TS.STORE_BASE_URL}video/details/${e}/0`;
 		const n = {};
 		try {
 			let s = await i.get(r, {
@@ -31,7 +31,7 @@ export class K {
 				s.data &&
 				(s.data.success == 1 || s.data.success == "ready")
 			) {
-				let t = (0, a.sH)({
+				let t = sH({
 					appid: e,
 					video_url: s.data.video_url,
 					bookmark: s.data.bookmark,
@@ -45,9 +45,9 @@ export class K {
 				return t;
 			}
 		} catch (e) {
-			let t = (0, s.H)(e);
+			let t = H(e);
 			console.error(
-				"CVideoOnDemandStore:LoadVODForAppID: Failed " + t.strErrorMsg,
+				`CVideoOnDemandStore:LoadVODForAppID: Failed ${t.strErrorMsg}`,
 				t,
 			);
 		}

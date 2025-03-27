@@ -1,35 +1,63 @@
-var n = require(/*webcrack:missing*/ "./41230.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./69137.js");
-var s = require(/*webcrack:missing*/ "./90242.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require(/*webcrack:missing*/ "./4690.js");
-require("./93023.js");
-var c = require("./56655.js");
-var m = require(/*webcrack:missing*/ "./45328.js");
-var u = require(/*webcrack:missing*/ "./36885.js");
-require("./78771.js");
-var d = require("./5859.js");
-var A = require("./58839.js");
-var p = require("./82594.js");
-var g = require("./68994.js");
-var h = g;
-var C = require("./72054.js");
-var _ = require("./60762.js");
-var f = require("./36723.js");
-var b = require(/*webcrack:missing*/ "./83957.js");
-var y = b;
-var S = require("./55667.js");
-var w = require("./83591.js");
-var B = require("./991.js");
-var v = require(/*webcrack:missing*/ "./92059.js");
-var I = require("./59750.js");
-var E = require(/*webcrack:missing*/ "./99251.js");
-var M = require(/*webcrack:missing*/ "./28864.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizePlural,
+	CLocLanguageArray,
+} from "../../actual_src/utils/localization.js";
+
+import { FailAssertion } from "../../actual_src/utils/assert.js";
+import n, { PA } from "./41230.js";
+import i, { useEffect, useRef, useMemo, useState } from "./63696.js";
+import a, { tB } from "./69137.js";
+import s from "./90242.js";
+import o from "./69164.js";
+import l from "./4690.js";
+import "./93023.js";
+import c from "./56655.js";
+import m, { wJ, L3 } from "./45328.js";
+import u, { mJ } from "./36885.js";
+import "./78771.js";
+import d from "./5859.js";
+import A, { SW } from "./58839.js";
+import p, { G6, t7, mZ } from "./82594.js";
+import g from "./68994.js";
+import C from "./72054.js";
+import _ from "./60762.js";
+import f from "./36723.js";
+import b from "./83957.js";
+import S from "./55667.js";
+import w from "./83591.js";
+import B, { f as f_1 } from "./991.js";
+import v, { ru, n9 } from "./92059.js";
+import I, { b as b_1 } from "./59750.js";
+import E, { BL } from "./99251.js";
+import M, { Ue } from "./28864.js";
+import N from "./97510.js";
+import F, { w as w_1 } from "./49455.js";
+import P, { NT } from "./53807.js";
+import z from "./30697.js";
+import x from "./25752.js";
+import U from "./58084.js";
+import W from "./23337.js";
+import V from "./47628.js";
+import { A as A_1 } from "./90765.js";
+import Z, { Qn } from "./72476.js";
+import Y from "./95929.js";
+import X from "./26853.js";
+import J from "./34036.js";
+import $ from "./74905.js";
+import ee from "./6561.js";
+import "./15612.js";
+import "./11735.js";
+import { Ae } from "./67784.js";
+const h = g;
+const y = b;
 function T(e) {
 	const { appID: t, feature: r, depth: n, children: a } = e;
-	const s = (0, v.ru)(r, n);
-	const o = (0, I.b)();
+	const s = ru(r, n);
+	const o = b_1();
 	const [l, c] = i.useState(undefined);
 	const m = i.useCallback(
 		(e) => {
@@ -46,14 +74,14 @@ function T(e) {
 		},
 		[t, s],
 	);
-	(0, i.useEffect)(() => {
+	useEffect(() => {
 		if (l) {
 			o.AddImpression(l.appID, l.snr);
 		}
 	}, [o, l]);
-	const u = (0, E.BL)(m);
+	const u = BL(m);
 	const d = t && (!l || (l.appID != t && l.snr != s));
-	const A = (0, M.Ue)(a.ref, d ? u : undefined);
+	const A = Ue(a.ref, d ? u : undefined);
 	return i.cloneElement(a, {
 		ref: A,
 	});
@@ -63,7 +91,7 @@ function R(e) {
 		return "bundle";
 	} else if (e == "sub") {
 		return "sub";
-	} else if ((0, B.f)(e)) {
+	} else if (f_1(e)) {
 		return "app";
 	} else {
 		return null;
@@ -93,21 +121,11 @@ const k = (e) => {
 class D {
 	static instance_count = 0;
 }
-var N = require("./97510.js");
-var F = require(/*webcrack:missing*/ "./49455.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizePlural,
-	CLocLanguageArray,
-} from "../../actual_src/utils/localization.js";
-var P = require(/*webcrack:missing*/ "./53807.js");
 function L(e, t, r, n, i, a) {
 	if (!r) {
 		return;
 	}
-	var s;
+	let s;
 	if (
 		!((s = e.GetStoreItemType()) == 2
 			? "bundle"
@@ -117,35 +135,29 @@ function L(e, t, r, n, i, a) {
 					? "app"
 					: null)
 	) {
-		(0, F.w)(
+		w_1(
 			false,
-			"StoreItemWidgetSalePageAction: unexpected type: " + e.GetStoreItemType(),
+			`StoreItemWidgetSalePageAction: unexpected type: ${e.GetStoreItemType()}`,
 		);
 		return;
 	}
-	const o = (0, m.wJ)(`${e.GetStorePageURL(n)}${i ? `?${i}` : ""}`, t);
+	const o = wJ(`${e.GetStorePageURL(n)}${i ? `?${i}` : ""}`, t);
 	return {
 		onClick: (e) => {
 			let t = GetOwningWindowForEvent(e) || window;
 			if (a) {
 				a(undefined);
 			} else if (!o.startsWith("steam://")) {
-				t.location.href = (0, P.NT)(o);
+				t.location.href = NT(o);
 			}
 		},
 		onOKActionDescription: (0, Localize)("#Sale_Gamepad_Action_Select"),
 	};
 }
-var z = require("./30697.js");
-var x = require("./25752.js");
-var U = require("./58084.js");
-var W = require("./23337.js");
-var V = require("./47628.js");
-var H = V;
-var j = require(/*webcrack:missing*/ "./90765.js");
+const H = V;
 function q(e) {
 	const { info: t, bPreferLibrary: r } = e;
-	const [n] = (0, p.G6)(t.id, (0, A.SW)(t.type), {
+	const [n] = G6(t.id, SW(t.type), {
 		include_assets: true,
 	});
 	const [a, s] = i.useState(0);
@@ -167,7 +179,7 @@ function q(e) {
 		return i.createElement(
 			"div",
 			{
-				className: (0, j.A)(
+				className: A_1(
 					H.HeroCapsuleImageContainer,
 					"HeroCapsuleImageContainer",
 				),
@@ -183,7 +195,7 @@ function q(e) {
 		return i.createElement(
 			"div",
 			{
-				className: (0, j.A)(
+				className: A_1(
 					H.LibraryFallbackAssetImageContainer,
 					H.VerticalCapsule,
 					r ? H.ForceLibrarySizing : "",
@@ -247,37 +259,30 @@ function Q(e, t) {
 	}
 	return r.filter((e) => !!e);
 }
-var Z = require(/*webcrack:missing*/ "./72476.js");
-var Y = require("./95929.js");
 function K(e) {
 	const { bAllowOutsideOfDeck: t } = e;
-	if (!(0, Z.Qn)() && !t) {
+	if (!Qn() && !t) {
 		return null;
 	}
 	let r = "unknown";
 	switch (e.eDeckCompatibilityCategory) {
-		case 3:
+		case 3: {
 			r = "verified";
 			break;
-		case 2:
+		}
+		case 2: {
 			r = "playable";
 			break;
-		case 1:
+		}
+		case 1: {
 			r = "unsupported";
+		}
 	}
 	return i.createElement("div", {
-		className: (0, j.A)(Y.CompatIcon, "ds_steam_deck_compat", r, e.className),
+		className: A_1(Y.CompatIcon, "ds_steam_deck_compat", r, e.className),
 	});
 }
-var X = require(/*webcrack:missing*/ "./26853.js");
-var J = require("./34036.js");
-var $ = require("./74905.js");
-var ee = require("./6561.js");
-require("./15612.js");
-require("./11735.js");
-import { FailAssertion } from "../../actual_src/utils/assert.js";
-var re = require(/*webcrack:missing*/ "./67784.js");
-export const pb = (0, n.PA)((e) => {
+export const pb = PA((e) => {
 	const {
 		bIsHovered: t,
 		setIsHovered: r,
@@ -286,8 +291,8 @@ export const pb = (0, n.PA)((e) => {
 		displayInfo: d,
 		purchaseInfo: g,
 		artworkInfo: b,
-	} = (function (e, t) {
-		const r = (0, i.useRef)(y.CancelToken.source());
+	} = ((e, t) => {
+		const r = useRef(y.CancelToken.source());
 		const { id: n, type: a } = e;
 		const s = t
 			? {
@@ -295,20 +300,20 @@ export const pb = (0, n.PA)((e) => {
 					...t,
 				}
 			: S.Xh;
-		const o = (0, i.useMemo)(
+		const o = useMemo(
 			() => ({
 				id: n,
 				type: a,
 			}),
 			[n, a],
 		);
-		const [l] = (0, p.G6)(o.id, (0, A.SW)(o.type), s);
-		const [c, m] = (0, i.useState)({
+		const [l] = G6(o.id, SW(o.type), s);
+		const [c, m] = useState({
 			id: n,
 			type: a,
 		});
-		const [u] = (0, p.G6)(c?.id, (0, A.SW)(c?.type), s);
-		const d = (0, i.useMemo)(
+		const [u] = G6(c?.id, SW(c?.type), s);
+		const d = useMemo(
 			() =>
 				u?.GetIncludedAppIDs()?.length > 1 &&
 				u?.GetAssets().GetMainCapsuleURL() == null &&
@@ -320,20 +325,20 @@ export const pb = (0, n.PA)((e) => {
 					: c,
 			[c, u],
 		);
-		const [g] = (0, p.t7)(d?.id, s);
-		const h = (0, i.useMemo)(
+		const [g] = t7(d?.id, s);
+		const h = useMemo(
 			() => ({
 				id: u?.GetParentAppID() != u?.GetID() ? u?.GetParentAppID() : undefined,
 				type: "game",
 			}),
 			[u],
 		);
-		const [C] = (0, p.t7)(h.id, s);
-		const [_] = (0, i.useState)(++D.instance_count);
-		const [f, b] = (0, i.useState)(false);
-		const [B, v] = (0, i.useState)(R(a));
-		const [I, E] = (0, i.useState)(n);
-		(0, i.useEffect)(() => {
+		const [C] = t7(h.id, s);
+		const [_] = useState(++D.instance_count);
+		const [f, b] = useState(false);
+		const [B, v] = useState(R(a));
+		const [I, E] = useState(n);
+		useEffect(() => {
 			w.Fm.Get().HintLoad();
 			if (
 				l?.GetStoreItemType() == 1 &&
@@ -351,7 +356,7 @@ export const pb = (0, n.PA)((e) => {
 				E(e);
 			}
 		}, [c.id, c.type, l]);
-		(0, i.useEffect)(
+		useEffect(
 			() => () => r?.current.cancel("StoreSalePreviewWidget: unmounting"),
 			[],
 		);
@@ -384,12 +389,12 @@ export const pb = (0, n.PA)((e) => {
 		fnOnClickOverride: V,
 		bIsMarketingMessage: q,
 	} = e;
-	const Q = (0, v.n9)();
+	const Q = n9();
 	const Y = i.useMemo(() => n?.GetIncludedAppIDsOrSelf(), [n]);
-	const X = (0, i.useRef)(null);
-	const [$, ee] = (0, i.useState)(false);
-	const te = (0, Z.Qn)();
-	(0, i.useEffect)(() => {
+	const X = useRef(null);
+	const [$, ee] = useState(false);
+	const te = Qn();
+	useEffect(() => {
 		if (X.current) {
 			ee(X.current.offsetWidth < 370);
 		}
@@ -405,14 +410,14 @@ export const pb = (0, n.PA)((e) => {
 			? (0, Localize)("#Sale_BundleSave_WithDiscount", ne, ie)
 			: (0, Localize)("#Sale_BundleSave", ie);
 	}
-	const le = (0, m.L3)(Q);
-	const ce = (0, a.tB)(n.GetStorePageURL(I));
+	const le = L3(Q);
+	const ce = tB(n.GetStorePageURL(I));
 	const me = Boolean(!F && ie > 0);
 	const ue = n.BHasTags() ? n.GetTagIDs() : u?.BHasTags() ? u.GetTagIDs() : [];
 	const de = n.GetStoreItemType() == 0;
-	const Ae = (0, m.wJ)(ce, Q);
-	const pe = (0, re.Ae)();
-	const ge = te || n.BIsReleased() || n.BIsPrePurchase();
+	const Ae = wJ(ce, Q);
+	const pe = Ae();
+	const ge = te || n.BIsReleased() || n.BIsReleased() || n.BIsPrePurchase();
 	return i.createElement(
 		k,
 		{
@@ -421,7 +426,7 @@ export const pb = (0, n.PA)((e) => {
 		i.createElement(
 			o.Z,
 			{
-				className: (0, j.A)({
+				className: A_1({
 					[H.StoreSaleWidgetOuterContainer]: true,
 					[H.AllowTwoLineHeader]: G,
 				}),
@@ -430,13 +435,13 @@ export const pb = (0, n.PA)((e) => {
 				"flow-children": "grid",
 				navEntryPreferPosition: l.iU.PREFERRED_CHILD,
 				autoFocus: W,
-				navKey: "preview_widget_" + n.GetID(),
+				navKey: `preview_widget_${n.GetID()}`,
 			},
 			i.createElement(
 				s.ml,
 				{
 					onClick: q ? V : null,
-					className: (0, j.A)(
+					className: A_1(
 						H.StoreSaleWidgetContainer,
 						H.SaleItemDefaultCapsuleDisplay,
 						q ? H.MarketingMessage : "",
@@ -447,13 +452,13 @@ export const pb = (0, n.PA)((e) => {
 				i.createElement(
 					"div",
 					{
-						className: (0, j.A)(H.StoreSaleWidgetHalfLeft),
+						className: A_1(H.StoreSaleWidgetHalfLeft),
 					},
 					i.createElement(
 						"a",
 						{
-							href: V ? undefined : Ae,
-							target: Z.TS.IN_CLIENT || V ? undefined : "_blank",
+							href: V || Ae,
+							target: Z.TS.IN_CLIENT || V || "_blank",
 							onClick: V,
 						},
 						i.createElement(
@@ -482,12 +487,12 @@ export const pb = (0, n.PA)((e) => {
 				i.createElement(
 					"div",
 					{
-						className: (0, j.A)(H.StoreSaleWidgetRight, me ? H.Bundle : ""),
+						className: A_1(H.StoreSaleWidgetRight, me ? H.Bundle : ""),
 					},
 					Boolean(de && !V) &&
 						i.createElement(J.EP, {
 							appID: d.id,
-							classOverride: (0, j.A)(h.WishlistButtonNotTop, "WishlistButton"),
+							classOverride: A_1(h.WishlistButtonNotTop, "WishlistButton"),
 							snr: le,
 						}),
 					i.createElement(
@@ -498,14 +503,14 @@ export const pb = (0, n.PA)((e) => {
 						i.createElement(
 							"a",
 							{
-								href: V ? undefined : Ae,
-								target: Z.TS.IN_CLIENT ? undefined : "_blank",
+								href: V || Ae,
+								target: Z.TS.IN_CLIENT || "_blank",
 								onClick: V,
 							},
 							i.createElement(
 								"div",
 								{
-									className: (0, j.A)(
+									className: A_1(
 										H.StoreSaleWidgetTitle,
 										"StoreSaleWidgetTitle",
 									),
@@ -527,7 +532,7 @@ export const pb = (0, n.PA)((e) => {
 								},
 								ue.map((e) =>
 									i.createElement(z.p, {
-										key: "tag_" + e,
+										key: `tag_${e}`,
 										tagid: e,
 										className: H.AppTag,
 									}),
@@ -577,12 +582,12 @@ export const pb = (0, n.PA)((e) => {
 						i.createElement(
 							"div",
 							{
-								className: (0, j.A)(
+								className: A_1(
 									H.StoreSaleWidgetShortDesc,
 									"StoreSaleWidgetShortDesc",
 								),
 							},
-							Boolean(se.startsWith("#") && se.indexOf(" ") == -1)
+							Boolean(se.startsWith("#") && !se.includes(" "))
 								? i.createElement(
 										"span",
 										{
@@ -657,7 +662,7 @@ export const pb = (0, n.PA)((e) => {
 const ie = 6;
 function ae(e) {
 	const { info: t } = e;
-	const [r] = (0, p.G6)(t.id, (0, A.SW)(t.type), {});
+	const [r] = G6(t.id, SW(t.type), {});
 	const [n, a] = i.useState(null);
 	i.useEffect(() => {
 		if (r) {
@@ -708,7 +713,7 @@ function ae(e) {
 }
 function se(e) {
 	const { info: t } = e;
-	const [r] = (0, p.mZ)(t.id, (0, A.SW)(t.type), {
+	const [r] = mZ(t.id, SW(t.type), {
 		include_assets: true,
 	});
 	const n = r?.GetAssets().GetSmallCapsuleURL();
@@ -729,35 +734,39 @@ function se(e) {
 }
 function oe(e) {
 	const { info: t, imageType: r } = e;
-	const [n] = (0, p.G6)(t.id, (0, A.SW)(t.type), {
+	const [n] = G6(t.id, SW(t.type), {
 		include_assets: true,
 	});
 	let a;
 	if (
 		n &&
 		n.GetIncludedAppIDs().length == 1 &&
-		!(function (e, t) {
+		!((e, t) => {
 			const r = e?.GetAssets();
 			if (!r) {
 				return false;
 			}
 			switch (t) {
-				case "header":
+				case "header": {
 					return !!r.GetHeaderURL();
-				case "main":
+				}
+				case "main": {
 					return !!r.GetMainCapsuleURL();
-				case "library":
+				}
+				case "library": {
 					return !!r.GetHeroCapsuleURL() || !!r.GetLibraryCapsuleURL();
-				default:
+				}
+				default: {
 					FailAssertion(t, `Unhandled imageType: ${t}`);
 					return false;
+				}
 			}
 		})(n, r) &&
 		[1, 2].includes(n.GetStoreItemType())
 	) {
 		a = n.GetIncludedAppIDs()[0];
 	}
-	const [s] = (0, p.t7)(a, {
+	const [s] = t7(a, {
 		include_assets: true,
 	});
 	const o = s?.BIsVisible() ? s : n;
@@ -789,19 +798,19 @@ function oe(e) {
 	return i.createElement(
 		"div",
 		{
-			className: (0, j.A)(u, "CapsuleImageCtn"),
+			className: A_1(u, "CapsuleImageCtn"),
 		},
 		i.createElement(W.o, {
 			lazyLoad: true,
 			srcs: m,
-			className: (0, j.A)(H.CapsuleImage),
+			className: A_1(H.CapsuleImage),
 			width: l,
 			height: c,
 			alt: o.GetName(),
 		}),
 	);
 }
-(0, n.PA)((e) => {
+PA((e) => {
 	const t = CLocLanguageArray.GetWithFallback(
 		e.link.localized_link_capsule,
 		e.language,
@@ -821,7 +830,7 @@ function oe(e) {
 			Boolean(e.link.localized_link_capsule) &&
 				i.createElement(ee.o, {
 					className: H.LinkCapsuleImage,
-					src: `${(0, u.mJ)()}${e.clanAccountID}/${t}`,
+					src: `${mJ()}${e.clanAccountID}/${t}`,
 				}),
 			Boolean(e.link.materialized_link_capsule) &&
 				i.createElement("img", {

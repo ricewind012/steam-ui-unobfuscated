@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./61657.js");
-var a = require(/*webcrack:missing*/ "./31958.js");
-var s = require("./48289.js");
-var o = require(/*webcrack:missing*/ "./90242.js");
-var l = require("./7558.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
 import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
+import n from "./63696.js";
+import i from "./61657.js";
+import a, { OQ } from "./31958.js";
+import s from "./48289.js";
+import o, { b$ } from "./90242.js";
+import l from "./7558.js";
+import c from "./83599.js";
 const u = new c.wd("AppGridFastScroll").Debug;
-var d;
+let d;
 function A(e) {
 	const t = e[0].toLowerCase();
 	if (t < "a") {
@@ -77,7 +77,7 @@ function g(e, t, r) {
 	let c;
 	do {
 		l = c;
-		c = (0, a.OQ)((c ?? o) - r, -1, 100);
+		c = OQ((c ?? o) - r, -1, 100);
 		if (l == c) {
 			break;
 		}
@@ -114,7 +114,7 @@ function h(e, t, r) {
 	let h;
 	do {
 		g = h;
-		h = (0, a.OQ)((h ?? d) - r, 0, c);
+		h = OQ((h ?? d) - r, 0, c);
 		if (g == h) {
 			break;
 		}
@@ -134,43 +134,49 @@ function h(e, t, r) {
 	};
 }
 export function J(e, t, r) {
-	const s = n.useRef(undefined);
-	const c = n.useRef(undefined);
-	const m = n.useRef(new Map());
-	const [A, C] = n.useState("");
-	const _ = n.useRef((0, o.b$)());
+	const SRef = n.useRef(undefined);
+	const CRef = n.useRef(undefined);
+	const MRef = n.useRef(new Map());
+	const [A, setA] = n.useState("");
+	const _Ref = n.useRef(b$());
 	n.useEffect(() => {
-		s.current = undefined;
-		c.current = undefined;
+		SRef.current = undefined;
+		CRef.current = undefined;
 	}, [t]);
 	const f = n.useCallback((t, r) => e[t].children[r], [e]);
 	const b = n.useCallback(() => {
-		const t = s.current;
-		const r = c.current;
-		const n = m.current.get(t + "_" + r);
+		const s_current = SRef.current;
+		const c_current = CRef.current;
+		const n = MRef.current.get(`${s_current}_${c_current}`);
 		if (n) {
-			u("Focusing", t, r, e[t].children[r].display_name, n);
+			u("Focusing", s_current, c_current, e[t].children[r].display_name, n);
 			n.TakeFocus();
 		} else {
-			u(t, r, "not ready for focus yet");
+			u(s_current, c_current, "not ready for focus yet");
 		}
 	}, [e]);
 	const y = n.useCallback((e) => {
 		if (!e) {
-			s.current = undefined;
-			c.current = undefined;
+			SRef.current = undefined;
+			CRef.current = undefined;
 		}
 	}, []);
-	const S = n.useRef(undefined);
-	const w = n.useCallback(() => S.current !== undefined, []);
+	const SRef_1 = n.useRef(undefined);
+	const w = n.useCallback(() => SRef_1.current !== undefined, []);
 	const B = n.useCallback(
 		(e, t, r) => {
 			if (r) {
-				m.current.set(e + "_" + t, r);
+				MRef.current.set(`${e}_${t}`, r);
 			} else {
-				m.current.delete(e + "_" + t);
+				MRef.current.delete(`${e}_${t}`);
 			}
-			if (!w() && e == s.current && t == c.current && !!r && !r.BHasFocus()) {
+			if (
+				!w() &&
+				e == SRef.current &&
+				t == CRef.current &&
+				!!r &&
+				!r.BHasFocus()
+			) {
 				u("Bound focused item, taking focus", e, t, r);
 				b();
 			}
@@ -182,23 +188,23 @@ export function J(e, t, r) {
 			if (w()) {
 				return true;
 			}
-			u("Focus placeholder", _.current.current);
-			_.current.current?.TakeFocus();
-			t = (0, a.OQ)(t, 0, e.length);
-			const o = e[t];
-			n = (0, a.OQ)(n, 0, o.children.length - 1);
-			let m = o.refSection.current.offsetTop;
-			const d = Math.floor(n / o.refItemsPerRow.current);
-			m += d * (o.childHeight + o.nGridRowGap);
+			u("Focus placeholder", _Ref.current.current);
+			_Ref.current.current?.TakeFocus();
+			t = OQ(t, 0, e.length);
+			const e_t = e[t];
+			n = OQ(n, 0, e_t.children.length - 1);
+			let m = e_t.refSection.current.offsetTop;
+			const d = Math.floor(n / e_t.refItemsPerRow.current);
+			m += d * (e_t.childHeight + e_t.nGridRowGap);
 			const A = window.getComputedStyle(r);
 			const p = parseInt(A.getPropertyValue("scroll-padding-top")) || 0;
 			m = m - p + 8;
 			return new Promise((e, a) => {
 				const o = () => {
-					s.current = t;
-					c.current = n;
+					SRef.current = t;
+					CRef.current = n;
 					u("Scrolled to", r.scrollTop);
-					S.current = undefined;
+					SRef_1.current = undefined;
 					e();
 				};
 				if (i) {
@@ -214,14 +220,14 @@ export function J(e, t, r) {
 						timing: "cubic-in-out",
 						onComplete: o,
 					};
-					S.current = new l.JV(
+					SRef_1.current = new l.JV(
 						r,
 						{
 							scrollTop: m,
 						},
 						e,
 					);
-					S.current.Start();
+					SRef_1.current.Start();
 				}
 			});
 		},
@@ -247,7 +253,7 @@ export function J(e, t, r) {
 					}
 					a = h;
 				}
-				const s = a(e[0], c.current, r);
+				const s = a(e[0], CRef.current, r);
 				if (s.bFinished) {
 					return true;
 				}
@@ -255,9 +261,9 @@ export function J(e, t, r) {
 				i = 0;
 				o = s.nextTargetName;
 			} else if (e.length > 1) {
-				const t = (0, a.OQ)(s.current + r, 0, e.length - 1);
-				u("Move from", s.current, "to", t);
-				if (s.current == t) {
+				const t = OQ(SRef.current + r, 0, e.length - 1);
+				u("Move from", SRef.current, "to", t);
+				if (SRef.current == t) {
 					return true;
 				}
 				i = t;
@@ -265,7 +271,7 @@ export function J(e, t, r) {
 				o = e[t].subSectionName;
 			}
 			u("Scroll to", n, f(0, n).display_name);
-			C(o);
+			setA(o);
 			return v(i, n);
 		},
 		[w, f, v, e, t],
@@ -277,14 +283,14 @@ export function J(e, t, r) {
 			}
 			const n = p(e[0], 0, d.Down, undefined, r);
 			if (!n.bFinished) {
-				C(n.nextTargetName);
+				setA(n.nextTargetName);
 				const e = v(0, n.nextItem, true);
 				return (
 					e !== false &&
 					(e !== true &&
 						e.then(() => {
 							b();
-							C("");
+							setA("");
 						}),
 					true)
 				);
@@ -293,12 +299,12 @@ export function J(e, t, r) {
 		},
 		[t, e, v, b],
 	);
-	const M = n.useRef(0);
+	const MRef_1 = n.useRef(0);
 	return {
 		onItemFocused: (e, t) => {
 			u("Focused", e, t, f(e, t).display_name);
-			s.current = e;
-			c.current = t;
+			SRef.current = e;
+			CRef.current = t;
 		},
 		onGamepadButtonDown: n.useCallback(
 			(e) => {
@@ -306,7 +312,11 @@ export function J(e, t, r) {
 					e.detail.button == i.pR.TRIGGER_LEFT ||
 					e.detail.button == i.pR.TRIGGER_RIGHT
 				) {
-					u(s.current, c.current, f(s.current, c.current)?.display_name);
+					u(
+						SRef.current,
+						CRef.current,
+						f(SRef.current, CRef.current)?.display_name,
+					);
 					const t = e.detail.button == i.pR.TRIGGER_RIGHT ? d.Down : d.Up;
 					const r = I(t);
 					return (
@@ -317,7 +327,7 @@ export function J(e, t, r) {
 							r.then(() => {
 								u("Fast scroll complete, taking focus");
 								b();
-								C("");
+								setA("");
 							}),
 						true)
 					);
@@ -325,7 +335,7 @@ export function J(e, t, r) {
 				if (
 					(e.detail.button == i.pR.DIR_UP ||
 						e.detail.button == i.pR.DIR_DOWN) &&
-					(e.detail.is_repeat && M.current++, M.current >= 5)
+					(e.detail.is_repeat && MRef_1.current++, MRef_1.current >= 5)
 				) {
 					let t;
 					if (e.detail.button == i.pR.DIR_DOWN) {
@@ -342,11 +352,11 @@ export function J(e, t, r) {
 						e.preventDefault(),
 						r !== true &&
 							r.then(() => {
-								u("Fast scroll complete, repeats", M.current);
-								if (M.current < 5) {
+								u("Fast scroll complete, repeats", MRef_1.current);
+								if (MRef_1.current < 5) {
 									u("Fast scroll complete, taking focus");
 									b();
-									C("");
+									setA("");
 								}
 							}),
 						true)
@@ -358,20 +368,20 @@ export function J(e, t, r) {
 		),
 		onGamepadButtonUp: n.useCallback(
 			(e) => {
-				u(e.detail.button, M.current);
+				u(e.detail.button, MRef_1.current);
 				if (
 					e.detail.button == i.pR.DIR_UP ||
 					e.detail.button == i.pR.DIR_DOWN
 				) {
-					if (M.current > 4) {
+					if (MRef_1.current > 4) {
 						u("Exiting fast scroll");
-						if (S.current === undefined) {
+						if (SRef_1.current === undefined) {
 							b();
 						}
-						C("");
+						setA("");
 					}
 				}
-				M.current = 0;
+				MRef_1.current = 0;
 			},
 			[b],
 		),
@@ -379,11 +389,11 @@ export function J(e, t, r) {
 		scrollIntoViewHandler: w,
 		strFastScrollTo: A,
 		bindNavRef: B,
-		navRefPlaceholder: _,
+		navRefPlaceholder: _Ref,
 		FastScrollTo: E,
 	};
 }
-(function (e) {
+((e) => {
 	e[(e.Up = -1)] = "Up";
 	e[(e.Down = 1)] = "Down";
 })((d ||= {}));

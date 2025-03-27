@@ -1,4 +1,4 @@
-var r = require("./43691.js");
+import r from "./43691.js";
 export function YJ(e) {
 	return e;
 }

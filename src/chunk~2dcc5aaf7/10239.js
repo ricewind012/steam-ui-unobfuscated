@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Container: "_1NEW93fLyOOBWroEFft2VT",
 	FullscreenEnterStart: "_3mGgscFNkCEdYJzVWwRCNa",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ControlsAndVolume: "gjP9WbEr6MS7VnS1zdyvb",
 	Row: "HqwlEGHhcQCe1_0utna2Z",

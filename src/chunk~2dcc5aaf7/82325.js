@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./8090.js");
-var a = require("./1521.js");
-var s = require("./16117.js");
-var o = require(/*webcrack:missing*/ "./43691.js");
+import n from "./63696.js";
+import i from "./8090.js";
+import a from "./1521.js";
+import s from "./16117.js";
+import o from "./43691.js";
 export class T extends n.Component {
 	parser;
 	constructor(e) {

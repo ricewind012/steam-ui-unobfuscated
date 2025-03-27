@@ -1,48 +1,73 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./32700.js");
-var a = require("./18057.js");
-var s = require("./6232.js");
-var o = require("./46422.js");
-var l = require("./77347.js");
-var c = require("./24496.js");
-var m = require("./89411.js");
-var u = require("./81661.js");
-var d = require("./97893.js");
-var A = require("./48289.js");
-var p = require("./74416.js");
-var g = require("./5640.js");
-var h = require("./34792.js");
-var C = require("./89748.js");
-var _ = require("./96593.js");
-var f = require("./91486.js");
-var b = require(/*webcrack:missing*/ "./90095.js");
-var y = require(/*webcrack:missing*/ "./41230.js");
-var S = require(/*webcrack:missing*/ "./49519.js");
-var w = require(/*webcrack:missing*/ "./69164.js");
-var B = require(/*webcrack:missing*/ "./4690.js");
-var v = require("./88724.js");
-var I = require("./17231.js");
-var E = require("./35488.js");
-var M = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizeDateHumanReadable,
 } from "../../actual_src/utils/localization.js";
-var R = require(/*webcrack:missing*/ "./31958.js");
-var k = require(/*webcrack:missing*/ "./52451.js");
-var D = require("./51076.js");
-var N = require("./6242.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var G = require("./61651.js");
-var O = G;
-var P = require(/*webcrack:missing*/ "./90242.js");
-var L = require("./31319.js");
-var z = require("./75248.js");
-var x = require("./91703.js");
-var U = require("./33572.js");
-var W = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import i, { Qf } from "./32700.js";
+import a, { bG } from "./18057.js";
+import s, { $ as $_1, S as S_1 } from "./6232.js";
+import o, { Eb } from "./46422.js";
+import l, { $ as $_1, db } from "./77347.js";
+import c, { gf } from "./24496.js";
+import m, { C2 } from "./89411.js";
+import u from "./81661.js";
+import d, { zM, B7, MD } from "./97893.js";
+import A, { LK } from "./48289.js";
+import p, { Tr } from "./74416.js";
+import g, { Wf, oA, Wp } from "./5640.js";
+import h, { e_ as e } from "./34792.js";
+import { Wx, qw } from "./89748.js";
+import { Co } from "./96593.js";
+import f from "./91486.js";
+import { q3 } from "./90095.js";
+import { PA } from "./41230.js";
+import S, { W6, B6, W5 } from "./49519.js";
+import w from "./69164.js";
+import B from "./4690.js";
+import { rO } from "./88724.js";
+import I from "./17231.js";
+import E from "./35488.js";
+import { A as A_2 } from "./90765.js";
+import { OQ } from "./31958.js";
+import { gc, hL, Ue as Ue_2, xx, ML } from "./52451.js";
+import { OU } from "./51076.js";
+import { x as x_2 } from "./6242.js";
+import G from "./61651.js";
+import P from "./90242.js";
+import { dM } from "./31319.js";
+import z from "./75248.js";
+import x, { K1 } from "./91703.js";
+import U, { we, oH } from "./33572.js";
+import { rP } from "./72476.js";
+import j from "./99731.js";
+import q from "./23741.js";
+import { Qc, FA } from "./87546.js";
+import { o2, wm } from "./87913.js";
+import J from "./42318.js";
+import $, { P7 } from "./27710.js";
+import ee, { uT } from "./5822.js";
+import { k1 } from "./13688.js";
+import { tn } from "./18869.js";
+import ne from "./98393.js";
+import ae from "./61657.js";
+import { HJ, Fq, dx, Zy } from "./45967.js";
+import oe from "./10975.js";
+import { j as j_2 } from "./53379.js";
+import me from "./30557.js";
+import de from "./12031.js";
+import { Xm } from "./60917.js";
+import ge from "./16251.js";
+import he from "./45921.js";
+import { l8 } from "./79476.js";
+import { $2 } from "./96680.js";
+import { VA, fK } from "./10294.js";
+import { bg } from "./68292.js";
+import ye from "./72858.js";
+import Se, { I as I_2 } from "./91325.js";
+const O = G;
 function V(e) {
-	let t = (0, L.dM)();
+	let t = dM();
 	if (e.forceExpanded) {
 		t = "show-expanded";
 	}
@@ -50,9 +75,9 @@ function V(e) {
 	const i = r != null;
 	const s = t == "show-expanded";
 	const o = t != "hidden" && !i;
-	const l = (0, D.OU)(a.BV.GamepadUI.AppRunning());
-	const c = (0, x.K1)();
-	const m = (0, U.we)();
+	const l = OU(a.BV.GamepadUI.AppRunning());
+	const c = K1();
+	const m = we();
 	const u = n.useCallback(
 		(e) => {
 			m.SetUniversalSearchFocused(e);
@@ -62,11 +87,11 @@ function V(e) {
 		},
 		[m, c],
 	);
-	const d = (0, W.rP)();
+	const d = rP();
 	if (l && m.GetForceHeaderAfterResume()) {
 		return null;
 	}
-	const A = (0, M.A)(
+	const A = A_2(
 		O.SearchAndTitleContainer,
 		i && O.ShowingTitle,
 		o && O.ShowingSearch,
@@ -97,19 +122,19 @@ function V(e) {
 }
 function H(e) {
 	const [t, r] = n.useState(false);
-	const i = (0, D.OU)(a.BV.GamepadUI.Search.Root());
-	let s = (0, k.gc)(z.U.GetSearchText());
+	const i = OU(a.BV.GamepadUI.Search.Root());
+	let s = gc(z.U.GetSearchText());
 	if (!i) {
 		s = "";
 	}
 	const o = n.useRef(undefined);
-	const l = (0, M.A)(O.SearchBox, O.Visible);
-	const c = (0, U.we)();
-	const m = (function () {
-		let e = (0, S.W6)();
+	const l = A_2(O.SearchBox, O.Visible);
+	const c = we();
+	const m = (() => {
+		let e = W6();
 		return n.useCallback(() => {
 			if (
-				!(0, S.B6)(e.location.pathname, {
+				!B6(e.location.pathname, {
 					path: a.BV.GamepadUI.Search.Root(),
 				})
 			) {
@@ -126,16 +151,16 @@ function H(e) {
 		[d],
 	);
 	var d;
-	(function (e, t, r) {
+	((e, t, r) => {
 		let i = n.useCallback(() => {
 			t();
 			r.current.focus();
 			r.current.click();
 		}, [t, r]);
-		(0, k.hL)(e.m_ActivateSearchBoxCallbackList, i);
+		hL(e.m_ActivateSearchBoxCallbackList, i);
 	})(c, m, o);
 	const A = s.length > 0;
-	const p = t || A || i;
+	const p = t || A || A || i;
 	const g = n.useCallback(() => {
 		c.OnAcceptSearchText();
 		return "VKClose";
@@ -144,16 +169,16 @@ function H(e) {
 		n.Fragment,
 		null,
 		n.createElement("div", {
-			className: (0, M.A)(O.SearchFieldBackground, p && O.WhiteBackground),
+			className: A_2(O.SearchFieldBackground, p && O.WhiteBackground),
 		}),
 		n.createElement(E.Search, {
-			className: (0, M.A)(O.SearchIconLeft, p && O.WhiteBackground),
+			className: A_2(O.SearchIconLeft, p && O.WhiteBackground),
 			width: "24px",
 			height: "24px",
 		}),
 		n.createElement(P.BA, {
 			ref: o,
-			className: (0, M.A)(l, p && O.WhiteBackground),
+			className: A_2(l, p && O.WhiteBackground),
 			type: "search",
 			focusable: true,
 			noFocusRing: true,
@@ -170,32 +195,30 @@ function H(e) {
 			placeholder: (0, Localize)("#SearchPlaceholder"),
 		}),
 		n.createElement(E.Search, {
-			className: (0, M.A)(O.SearchIconRight, p && O.WhiteBackground),
+			className: A_2(O.SearchIconRight, p && O.WhiteBackground),
 			width: "24px",
 			height: "24px",
 		}),
 	);
 }
-var j = require("./99731.js");
-var q = require("./23741.js");
-var Q = q;
+const Q = q;
 function Z() {
-	const e = (0, U.we)();
-	const { browser: t } = (0, b.q3)(() => e.GetCurrentBrowserAndBackstack());
+	const e = we();
+	const { browser: t } = q3(() => e.GetCurrentBrowserAndBackstack());
 	return t != null;
 }
 function Y(e) {
-	const t = (0, U.we)();
+	const t = we();
 	const {
 		browser: r,
 		bExternal: i,
 		bCanEditURL: a,
-	} = (0, b.q3)(() => t.GetCurrentBrowserAndBackstack());
+	} = q3(() => t.GetCurrentBrowserAndBackstack());
 	if (r) {
 		return n.createElement(
 			w.Z,
 			{
-				className: (0, M.A)(Q.HeaderBrowser),
+				className: A_2(Q.HeaderBrowser),
 			},
 			n.createElement(j.hf, {
 				browser: r,
@@ -207,19 +230,7 @@ function Y(e) {
 		return null;
 	}
 }
-var K = require("./87546.js");
-var X = require("./87913.js");
-var J = require(/*webcrack:missing*/ "./42318.js");
-var $ = require("./27710.js");
-var ee = require("./5822.js");
-var te = require("./13688.js");
-var re = require("./18869.js");
-var ne = require("./98393.js");
-var ie = ne;
-var ae = require(/*webcrack:missing*/ "./61657.js");
-var se = require("./45967.js");
-var oe = require(/*webcrack:missing*/ "./10975.js");
-var le = require("./53379.js");
+const ie = ne;
 function ce(e) {
 	const { className: t } = e;
 	const r = n.useCallback((e) => {
@@ -228,23 +239,23 @@ function ce(e) {
 		e.preventDefault();
 		e.stopPropagation();
 	}, []);
-	const i = (0, se.HJ)(2);
+	const i = HJ(2);
 	const a = {
 		onClick: r,
 	};
-	const s = (0, le.j)(a);
-	const l = (0, k.Ue)(i, s);
+	const s = j_2(a);
+	const l = Ue_2(i, s);
 	return n.createElement(
 		"div",
 		{
-			className: (0, M.A)(t, ie.BackContainer),
+			className: A_2(t, ie.BackContainer),
 			ref: l,
 			onMouseDown: (e) => e.preventDefault(),
 			...a,
 		},
 		n.createElement(E.Arrow, {
 			direction: "left",
-			className: (0, M.A)(ie.ArrowBack),
+			className: A_2(ie.ArrowBack),
 		}),
 		n.createElement(
 			"span",
@@ -255,19 +266,8 @@ function ce(e) {
 		),
 	);
 }
-var me = require("./30557.js");
-var ue = me;
-var de = require("./12031.js");
-var Ae = de;
-var pe = require("./60917.js");
-var ge = require("./16251.js");
-var he = require("./45921.js");
-var Ce = require("./79476.js");
-var _e = require("./96680.js");
-var fe = require("./10294.js");
-var be = require("./68292.js");
-var ye = require("./72858.js");
-var Se = require("./91325.js");
+const ue = me;
+const Ae = de;
 Number.parseInt(ue["gamepad-header-height"]);
 export function j1() {
 	const [e, t] = n.useState(new Date());
@@ -287,7 +287,7 @@ export function j1() {
 }
 export function hj() {
 	const e = j1();
-	const [t] = (0, h.e_)("b24HourClock");
+	const [t] = e("b24HourClock");
 	let r = {
 		hour: "numeric",
 		minute: "2-digit",
@@ -311,7 +311,7 @@ function ve(e) {
 		{
 			...r,
 			style: {
-				display: i ? undefined : "none",
+				display: i || "none",
 			},
 			focusable: i,
 		},
@@ -332,7 +332,7 @@ function Ie(e) {
 			{
 				noFocusRing: true,
 				...r,
-				className: (0, M.A)(ue.HeaderItem, i && ue.Clickable, e.className),
+				className: A_2(ue.HeaderItem, i && ue.Clickable, e.className),
 			},
 			e.children,
 		);
@@ -340,45 +340,53 @@ function Ie(e) {
 }
 const Ee = (e) =>
 	n.createElement(E.FamilySharing, {
-		className: (0, M.A)(ue.FamilyView, e.bLocked && ue.Locked),
+		className: A_2(ue.FamilyView, e.bLocked && ue.Locked),
 	});
 const Me = (e) =>
 	n.createElement(E.Lock, {
 		locked: e.bLocked,
-		className: (0, M.A)(ue.KioskMode, e.bLocked && ue.Locked),
+		className: A_2(ue.KioskMode, e.bLocked && ue.Locked),
 	});
 const Te = (e) => {
 	const { icon: t, strength: r } = e;
 	switch (t) {
-		case 2:
+		case 2: {
 			return n.createElement(E.WirelessConnectingActive, null);
-		case 6:
+		}
+		case 6: {
 			return n.createElement(E.WirelessNetwork, {
 				strength: r,
 			});
-		case 4:
+		}
+		case 4: {
 			return n.createElement(E.WirelessNetworkWarning, {
 				strength: r,
 			});
-		case 7:
+		}
+		case 7: {
 			return n.createElement(E.WirelessDisabled, null);
-		case 1:
+		}
+		case 1: {
 			return n.createElement(E.WirelessOfflineMode, null);
-		case 5:
+		}
+		case 5: {
 			return n.createElement(E.WiredNetwork, null);
-		case 3:
+		}
+		case 3: {
 			return n.createElement(E.WiredNetworkWarning, null);
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 };
 function Re() {
-	const e = (0, g.Wf)();
-	const t = (0, g.oA)();
-	const r = (0, g.Wp)();
+	const e = Wf();
+	const t = oA();
+	const r = Wp();
 	const i = r ? 1 : 2;
-	const o = (0, _e.$2)();
-	const l = (0, a.bG)("FamilyManagement");
+	const o = $2();
+	const l = bG("FamilyManagement");
 	const c = (0, Localize)(t ? "#FamilyView_Unlock" : "#FamilyView_Lock");
 	if (e) {
 		return n.createElement(
@@ -388,9 +396,9 @@ function Re() {
 				onActivate: r
 					? () => {
 							if (t) {
-								(0, s.$)(o?.BrowserWindow ?? window, i);
+								$_1(o?.BrowserWindow ?? window, i);
 							} else {
-								(0, s.S)(o?.BrowserWindow ?? window, i);
+								S_1(o?.BrowserWindow ?? window, i);
 							}
 						}
 					: l,
@@ -405,9 +413,9 @@ function Re() {
 	}
 }
 function ke() {
-	const e = (0, fe.VA)();
-	const t = (0, fe.fK)();
-	const r = (0, _e.$2)();
+	const e = VA();
+	const t = fK();
+	const r = $2();
 	const i = t
 		? (0, Localize)("#KioskMode_Unlock_Tooltip")
 		: (0, Localize)("#KioskMode_Lock_Tooltip");
@@ -418,9 +426,9 @@ function ke() {
 				className: ue.FamilyViewIcon,
 				onActivate: () => {
 					if (t) {
-						(0, s.$)(r?.BrowserWindow ?? window, 4);
+						$_1(r?.BrowserWindow ?? window, 4);
 					} else {
-						(0, s.S)(r?.BrowserWindow ?? window, 4);
+						S_1(r?.BrowserWindow ?? window, 4);
 					}
 				},
 				vrTooltip: i,
@@ -443,7 +451,7 @@ function De(e) {
 				popupContents: n.createElement(
 					"div",
 					{
-						className: (0, M.A)(
+						className: A_2(
 							Ae.DashboardBarPopupContents,
 							Ae.QuickAccess,
 							t.vrPopupSize == "full-height" && Ae.FullHeight,
@@ -476,21 +484,23 @@ function Ne() {
 	return n.createElement(ye.GamepadUIRecordingState, null);
 }
 function Fe() {
-	const e = (0, o.Eb)();
-	const t = (0, te.k1)();
-	const { icon: r, strength: i, ssid: a } = (0, l.$)();
+	const e = Eb();
+	const t = k1();
+	const { icon: r, strength: i, ssid: a } = $_1();
 	if (n.useContext(rt).bVRDashboardBar) {
 		switch (r) {
 			case 1:
 			case 4:
-			case 3:
+			case 3: {
 				break;
+			}
 			case 2:
 			case 6:
 			case 7:
 			case 5:
-			case 0:
+			case 0: {
 				return null;
+			}
 		}
 	}
 	if (r == 0) {
@@ -500,7 +510,7 @@ function Fe() {
 			Ie,
 			{
 				className: ue.WirelessIcon,
-				onActivate: e ? undefined : () => t.Settings("Internet"),
+				onActivate: e || (() => t.Settings("Internet")),
 				onOKActionDescription: (0, Localize)("#HeaderActions_Network"),
 				vrTooltip: a,
 			},
@@ -512,7 +522,7 @@ function Fe() {
 	}
 }
 function Ge() {
-	const [e, t, r] = (0, Se.I)();
+	const [e, t, r] = I_2();
 	if (e) {
 		return n.createElement(
 			Ie,
@@ -530,8 +540,8 @@ function Ge() {
 	}
 }
 function Oe(e) {
-	const t = (0, l.db)();
-	const r = (0, te.k1)();
+	const t = db();
+	const r = k1();
 	const i = n.useCallback(() => {
 		r.Settings("Internet");
 	}, [r]);
@@ -551,11 +561,11 @@ function Oe(e) {
 }
 const Pe = () =>
 	n.createElement(E.Download, {
-		className: (0, M.A)(ue.Download),
+		className: A_2(ue.Download),
 	});
 const Le = () => {
 	const [e, t] = n.useState();
-	const r = (0, d.zM)();
+	const r = zM();
 	const i = r?.update_appid;
 	n.useEffect(() => {
 		if (!i) {
@@ -564,13 +574,13 @@ const Le = () => {
 		const e = window.setTimeout(() => t(i), 10);
 		return () => window.clearTimeout(e);
 	}, [i]);
-	const s = (0, _.Co)(i);
-	const o = (0, re.tn)(a.BV.Downloads());
-	const l = (0, d.B7)();
+	const s = Co(i);
+	const o = tn(a.BV.Downloads());
+	const l = B7();
 	if (!s) {
 		return null;
 	}
-	const c = (0, d.MD)(r);
+	const c = MD(r);
 	const m = e != i;
 	return n.createElement(
 		Ie,
@@ -582,10 +592,7 @@ const Le = () => {
 		n.createElement(
 			"div",
 			{
-				className: (0, M.A)(
-					ue.HeaderDownloadContainer,
-					!m && ue.NewAppDownloading,
-				),
+				className: A_2(ue.HeaderDownloadContainer, !m && ue.NewAppDownloading),
 			},
 			n.createElement(Pe, null),
 			n.createElement(
@@ -607,7 +614,7 @@ const Le = () => {
 					n.createElement("div", {
 						className: ue.HeaderDownloadProgressBar,
 						style: {
-							width: c + "%",
+							width: `${c}%`,
 						},
 					}),
 				),
@@ -616,8 +623,8 @@ const Le = () => {
 	);
 };
 function ze(e) {
-	const t = (0, m.C2)();
-	const r = (0, $.P7)();
+	const t = C2();
+	const r = P7();
 	if (t || r) {
 		return n.createElement(
 			Ie,
@@ -634,7 +641,7 @@ function ze(e) {
 }
 function xe(e) {
 	const t = n.useContext(rt);
-	const r = (0, M.A)(
+	const r = A_2(
 		ue.HeaderItem,
 		ue.VoiceChatStatus,
 		t.bVRDashboardBar && "VRDashboardBar",
@@ -655,7 +662,7 @@ function xe(e) {
 function Ue(e) {
 	const { qamTabs: t, onClick: r } = e;
 	const i = n.useContext(rt);
-	const a = (0, M.A)(
+	const a = A_2(
 		ue.HeaderItem,
 		ue.Clickable,
 		ue.VoiceChatStatus,
@@ -673,7 +680,7 @@ function Ue(e) {
 	);
 }
 function We(e) {
-	const t = (0, M.A)(ue.HeaderItem, ue.UnreadChatMessages);
+	const t = A_2(ue.HeaderItem, ue.UnreadChatMessages);
 	return n.createElement(
 		ve,
 		{
@@ -688,7 +695,7 @@ function We(e) {
 	);
 }
 function Ve(e) {
-	if ((0, c.gf)()) {
+	if (gf()) {
 		return n.createElement(
 			Ie,
 			{
@@ -702,21 +709,21 @@ function Ve(e) {
 	}
 }
 function He(e) {
-	const t = (0, k.gc)(h.rV.GetBatteryPreferences());
-	const r = (0, W.rP)();
+	const t = gc(h.rV.GetBatteryPreferences());
+	const r = rP();
 	if (!e.state.bHasBattery) {
 		return null;
 	}
 	const i = e.sayFull ?? e.state.eBatteryState == 3;
 	const a = isFinite(e.state.flLevel)
-		? Math.min(Math.round(e.state.flLevel * 100), 99) + "%"
+		? `${Math.min(Math.round(e.state.flLevel * 100), 99)}%`
 		: "";
 	const s = e.allowPercent && t.bShowBatteryPercentage;
 	const o = r.IN_VR;
 	return n.createElement(
 		Ie,
 		{
-			className: (0, M.A)(ue.BatteryIcon, o && ue.VR),
+			className: A_2(ue.BatteryIcon, o && ue.VR),
 			onActivate: e.onClick,
 			vrTooltip: a,
 		},
@@ -756,9 +763,9 @@ function He(e) {
 	);
 }
 export function ZN(e) {
-	const t = (0, K.Qc)();
-	const r = (0, K.FA)();
-	if ((0, W.rP)().IN_VR) {
+	const t = Qc();
+	const r = FA();
+	if (rP().IN_VR) {
 		return null;
 	} else {
 		return n.createElement(He, {
@@ -770,16 +777,16 @@ export function ZN(e) {
 	}
 }
 function qe(e) {
-	const t = (0, se.Fq)(e.devicePath);
-	const r = (0, se.dx)(e.devicePath, ge.fD.DeviceProvidesBatteryStatus_Bool);
-	const i = (0, se.Zy)(e.devicePath, ge.fD.DeviceBatteryPercentage_Float);
-	const a = (0, k.xx)(i, 0.02);
-	const s = (0, se.dx)(e.devicePath, ge.fD.DeviceIsCharging_Bool);
+	const t = Fq(e.devicePath);
+	const r = dx(e.devicePath, ge.fD.DeviceProvidesBatteryStatus_Bool);
+	const i = Zy(e.devicePath, ge.fD.DeviceBatteryPercentage_Float);
+	const a = xx(i, 0.02);
+	const s = dx(e.devicePath, ge.fD.DeviceIsCharging_Bool);
 	const o = a == 1;
-	const l = (0, _e.$2)();
+	const l = $2();
 	const c = l?.IsVRSimulatedOnDesktopWindow() && (!t || !r);
 	const m = e.devicePath == "/user/hand/left";
-	if ((!t || !r || i == null) && !c) {
+	if ((!t || !r || !r || i == null) && !c) {
 		return null;
 	}
 	const u = c
@@ -807,8 +814,8 @@ function qe(e) {
 	});
 }
 function Qe(e) {
-	const t = (0, ee.uT)(ee.qE.Perf);
-	const r = (0, W.rP)();
+	const t = uT(ee.qE.Perf);
+	const r = rP();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -853,7 +860,7 @@ function Qe(e) {
 	);
 }
 function Ze(e) {
-	if ((0, pe.Xm)()) {
+	if (Xm()) {
 		return n.createElement(
 			Ie,
 			{
@@ -868,7 +875,7 @@ function Ze(e) {
 }
 function Ye(e) {
 	const { qamTabs: t } = e;
-	const r = (0, pe.Xm)();
+	const r = Xm();
 	const i = t.find((e) => e.key == ee.qE.Notifications);
 	return n.createElement(
 		De,
@@ -882,7 +889,7 @@ function Ye(e) {
 }
 function Ke() {
 	const e = hj();
-	const t = (function () {
+	const t = (() => {
 		const e = j1();
 		return LocalizeDateHumanReadable(e.valueOf() / 1000, true, false);
 	})();
@@ -890,15 +897,15 @@ function Ke() {
 	return n.createElement(
 		Ie,
 		{
-			className: (0, M.A)(ue.Clock, r.bVRDashboardBar && ue.DashboardBar),
+			className: A_2(ue.Clock, r.bVRDashboardBar && ue.DashboardBar),
 			vrTooltip: t,
 		},
 		e,
 	);
 }
 function Xe() {
-	const e = (0, b.q3)(() => h.rV.settings?.bIsSteamSideload);
-	const t = (0, te.k1)();
+	const e = q3(() => h.rV.settings?.bIsSteamSideload);
+	const t = k1();
 	if (e) {
 		return n.createElement(
 			Ie,
@@ -912,24 +919,24 @@ function Xe() {
 		return null;
 	}
 }
-const Je = (0, y.PA)(function (e) {
+const Je = PA((e) => {
 	let t = null;
-	const r = (0, C.Wx)();
-	const i = (0, C.qw)().GetServicesInitialized();
-	const a = (0, A.LK)();
+	const r = Wx();
+	const i = qw().GetServicesInitialized();
+	const a = LK();
 	if (r && i) {
-		t = (0, be.bg)().self;
+		t = bg().self;
 	}
-	let s = (0, p.Tr)();
-	const o = (0, b.q3)(() => (0, C.qw)().BHasActiveSupportAlerts());
-	const l = (0, X.o2)();
-	const c = (0, X.wm)();
+	let s = Tr();
+	const o = q3(() => qw().BHasActiveSupportAlerts());
+	const l = o2();
+	const c = wm();
 	if (!t) {
 		return null;
 	}
 	let m = s?.animated_avatar;
 	let u = s?.avatar_frame;
-	let d = (0, v.rO)(t?.persona);
+	let d = rO(t?.persona);
 	let g = {};
 	if (c && l != 1) {
 		let e = 100;
@@ -937,7 +944,7 @@ const Je = (0, y.PA)(function (e) {
 		let r = Math.min(l * t, 1);
 		let n = Math.max(0, e * r);
 		n = Math.round(n * 10) / 10;
-		g.height = n + "%";
+		g.height = `${n}%`;
 		g.top = "auto";
 		d += " InVoiceChat";
 		if (n > 1) {
@@ -963,7 +970,7 @@ const Je = (0, y.PA)(function (e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, M.A)(ue.CurrentUserAvatar, d),
+				className: A_2(ue.CurrentUserAvatar, d),
 			},
 			m &&
 				n.createElement(I.xz, {
@@ -1019,12 +1026,12 @@ const tt = [
 const rt = n.createContext({
 	bVRDashboardBar: false,
 });
-export const YF = n.memo(function (e) {
-	(0, i.Qf)();
-	const t = (0, b.q3)(() => (0, C.qw)().BHasActiveSupportAlerts());
-	const r = (0, C.Wx)();
-	const a = (0, b.q3)(() => o.oy.GetShowingLockScreen());
-	const s = (0, te.k1)();
+export const YF = n.memo((e) => {
+	Qf();
+	const t = q3(() => qw().BHasActiveSupportAlerts());
+	const r = Wx();
+	const a = q3(() => o.oy.GetShowingLockScreen());
+	const s = k1();
 	const l = Z();
 	return n.createElement(
 		st,
@@ -1061,15 +1068,15 @@ export const YF = n.memo(function (e) {
 			),
 	);
 });
-export const rz = n.memo(function (e) {
-	(0, i.Qf)();
-	const t = (0, U.oH)();
-	const r = (0, C.Wx)();
-	const a = (0, b.q3)(() => o.oy.GetShowingLockScreen());
+export const rz = n.memo((e) => {
+	Qf();
+	const t = oH();
+	const r = Wx();
+	const a = q3(() => o.oy.GetShowingLockScreen());
 	const s = t.mode == U._5.ControllerConfigurator && t.forcedAppID != 0;
-	const l = (0, te.k1)();
-	const c = (0, ee.uT)(ee.qE.VoiceChat);
-	const m = (0, Ce.l8)();
+	const l = k1();
+	const c = uT(ee.qE.VoiceChat);
+	const m = l8();
 	const u = m
 		.filter((e) => e.key != ee.qE.Notifications && e.key != ee.qE.VoiceChat)
 		.map((e) =>
@@ -1138,19 +1145,19 @@ export const rz = n.memo(function (e) {
 		),
 	);
 });
-export const Y9 = n.memo(function (e) {
+export const Y9 = n.memo((e) => {
 	let t = e.quickAccessHeader;
-	(0, i.Qf)();
-	const r = (0, U.oH)();
-	const a = (0, C.Wx)();
-	const s = (0, b.q3)(() => o.oy.GetShowingLockScreen());
+	Qf();
+	const r = oH();
+	const a = Wx();
+	const s = q3(() => o.oy.GetShowingLockScreen());
 	const l = r.mode == U._5.ControllerConfigurator && r.forcedAppID != 0;
-	const c = (0, te.k1)();
-	const m = (0, ee.uT)(ee.qE.VoiceChat);
-	const u = (0, ee.uT)(ee.qE.Notifications);
+	const c = k1();
+	const m = uT(ee.qE.VoiceChat);
+	const u = uT(ee.qE.Notifications);
 	const d = Z();
-	const A = (0, U.we)();
-	if ((0, b.q3)(() => (t ? e.visible : A.BShowHeader()))) {
+	const A = we();
+	if (q3(() => (t ? e.visible : A.BShowHeader()))) {
 		return n.createElement(
 			st,
 			{
@@ -1238,12 +1245,12 @@ export const Y9 = n.memo(function (e) {
 });
 function st(e) {
 	const { quickAccessHeader: t, children: r } = e;
-	const i = (0, U.we)();
-	(function (e) {
-		const t = (0, N.x)(e.m_Opacity, "useMinimumOpacitiesForLocation");
-		const r = (0, N.x)(e.m_BackgroundOpacity, "useMinimumOpacitiesForLocation");
-		const i = (0, D.OU)($e);
-		const a = (0, D.OU)(et);
+	const i = we();
+	((e) => {
+		const t = x_2(e.m_Opacity, "useMinimumOpacitiesForLocation");
+		const r = x_2(e.m_BackgroundOpacity, "useMinimumOpacitiesForLocation");
+		const i = OU($e);
+		const a = OU(et);
 		n.useEffect(() => {
 			const e = i ? 0 : 1;
 			t.Set(e);
@@ -1251,9 +1258,9 @@ function st(e) {
 			r.Set(n);
 		}, [i, a, t, r]);
 	})(i);
-	const a = (0, N.x)(i.m_Opacity, "header gamepad focus");
-	const s = (0, N.x)(i.m_BackgroundOpacity, "header gamepad focus");
-	const l = (0, b.q3)(() => o.oy.GetShowingLockScreen());
+	const a = x_2(i.m_Opacity, "header gamepad focus");
+	const s = x_2(i.m_BackgroundOpacity, "header gamepad focus");
+	const l = q3(() => o.oy.GetShowingLockScreen());
 	const c = n.useCallback(
 		(e) => {
 			if (e) {
@@ -1266,29 +1273,27 @@ function st(e) {
 		},
 		[a, s],
 	);
-	const m = (0, N.x)(i.m_Opacity, "header gamepad hover");
-	let u = (function (e) {
-		return (0, k.gc)(e.m_Opacity.SubscribableValue);
-	})(i);
-	let d = (function () {
-		const e = (0, U.we)();
-		return (0, k.gc)(e.m_BackgroundOpacity.SubscribableValue);
+	const m = x_2(i.m_Opacity, "header gamepad hover");
+	let u = ((e) => gc(e.m_Opacity.SubscribableValue))(i);
+	let d = (() => {
+		const e = we();
+		return gc(e.m_BackgroundOpacity.SubscribableValue);
 	})();
 	if (t || l) {
 		u = 1;
 		d = 0;
 	}
-	if ((0, W.rP)().IN_VR) {
+	if (rP().IN_VR) {
 		u = 1;
 		d = 1;
 	}
-	if ((0, b.q3)(() => i.m_nNumTabbedPagesActingAsHeaderBackground) > 0) {
+	if (q3(() => i.m_nNumTabbedPagesActingAsHeaderBackground) > 0) {
 		d = 0;
 	}
-	const A = (0, S.W5)($e);
-	const p = (0, D.OU)(tt);
+	const A = W5($e);
+	const p = OU(tt);
 	const g = UU();
-	const h = (0, b.q3)(() => i.GetFlexGrowPriority());
+	const h = q3(() => i.GetFlexGrowPriority());
 	return n.createElement(
 		w.Z,
 		{
@@ -1296,7 +1301,7 @@ function st(e) {
 			"flow-children": "row",
 			id: "header",
 			navEntryPreferPosition: B.iU.PREFERRED_CHILD,
-			className: (0, M.A)(
+			className: A_2(
 				ue.Header,
 				"GamepadMode",
 				g && ue.SuppressInteraction,
@@ -1317,39 +1322,39 @@ function st(e) {
 	);
 }
 export function UU() {
-	const e = (0, U.we)();
-	const t = (0, k.gc)(e.m_bSuppressInteraction.SubscribableValue);
-	return !(0, W.rP)().IN_VR && t;
+	const e = we();
+	const t = gc(e.m_bSuppressInteraction.SubscribableValue);
+	return !rP().IN_VR && t;
 }
 export function ez(e, t) {
-	const r = (0, U.we)();
-	const i = (0, N.x)(r.m_bSuppressInteraction, t);
+	const r = we();
+	const i = x_2(r.m_bSuppressInteraction, t);
 	n.useEffect(() => {
 		i.Set(e);
 	}, [e, i]);
 }
 export function iN() {
-	const e = (0, U.we)();
-	const t = (0, k.gc)(e.m_TitleText.SubscribableValue);
+	const e = we();
+	const t = gc(e.m_TitleText.SubscribableValue);
 	return t || null;
 }
 export function Wh(e, t) {
-	const r = (0, U.we)();
-	const i = (0, N.x)(r.m_TitleText, t);
+	const r = we();
+	const i = x_2(r.m_TitleText, t);
 	n.useEffect(() => {
 		i.Set(e);
 	}, [e, i]);
 }
 export function Mi(e, t) {
-	const r = (0, U.we)();
-	const i = (0, N.x)(r.m_Opacity, t);
+	const r = we();
+	const i = x_2(r.m_Opacity, t);
 	n.useEffect(() => {
 		i.Set(e);
 	}, [e, i]);
 }
 export function c2(e, t) {
-	const r = (0, U.we)();
-	const i = (0, N.x)(r.m_BackgroundOpacity, t);
+	const r = we();
+	const i = x_2(r.m_BackgroundOpacity, t);
 	n.useEffect(() => {
 		i.Set(e);
 	}, [e, i]);
@@ -1359,14 +1364,14 @@ export function iW(e = true, t) {
 	c2(e ? 1 : 0, t);
 }
 export function Tc(e, t, r = true) {
-	const i = (function (e, t = true) {
-		const r = (0, U.we)();
-		const i = (0, N.x)(r.m_Opacity);
-		const a = (0, N.x)(r.m_BackgroundOpacity);
+	const i = ((e, t = true) => {
+		const r = we();
+		const i = x_2(r.m_Opacity);
+		const a = x_2(r.m_BackgroundOpacity);
 		return n.useCallback(
 			(r) => {
 				if (t) {
-					const t = (0, R.OQ)(r / e, 0, 1);
+					const t = OQ(r / e, 0, 1);
 					i.Set(1);
 					a.Set(t);
 				} else {
@@ -1382,5 +1387,5 @@ export function Tc(e, t, r = true) {
 		i(t);
 	}, [i, e]);
 	n.useEffect(a, [a]);
-	(0, k.ML)(e, "scroll", a);
+	ML(e, "scroll", a);
 }

@@ -1,67 +1,51 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./13869.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require(/*webcrack:missing*/ "./72476.js");
-var o = require("./89791.js");
-var l = require("./31222.js");
-var c = require("./90869.js");
-require("./10606.js");
-function m(e) {
-	return n.createElement(
-		i.x_,
-		{
-			onEscKeypress: e.closeModal,
-			bDisableBackgroundDismiss: true,
-		},
-		n.createElement(d, {
-			redirectURL: e.redirectURL,
-			guestOption: e.guestOption,
-		}),
+import n, { useState } from "./63696.js";
+import i, { pg } from "./13869.js";
+import s from "./72476.js";
+import o from "./89791.js";
+import l from "./31222.js";
+import c from "./90869.js";
+import "./10606.js";
+function M(e) {
+	return (
+		<i.x_ onEscKeypress={e.closeModal} bDisableBackgroundDismiss>
+			<D redirectURL={e.redirectURL} guestOption={e.guestOption} />
+		</i.x_>
 	);
 }
 export function vg() {
-	(0, i.pg)(
-		n.createElement(m, {
-			ownerWin: window,
-			redirectURL: window.location.href,
-		}),
-		window,
-		{
-			strTitle: Localize("#Login_SignInTitle"),
-		},
-	);
+	pg(<M ownerWin={window} redirectURL={window.location.href} />, window, {
+		strTitle: Localize("#Login_SignInTitle"),
+	});
 }
-function d(e) {
-	const { redirectURL: t, guestOption: r } = e;
-	const [i] = (0, n.useState)(
+function D(e) {
+	const { redirectURL, guestOption } = e;
+	const [i] = useState(
 		new l.D(s.TS.WEBAPI_BASE_URL).GetAnonymousServiceTransport(),
 	);
-	const [a, m] = (0, n.useState)(false);
-	return n.createElement(
-		"div",
-		null,
-		a
-			? n.createElement(o.Fn, null)
-			: n.createElement(
-					o.YN,
-					{
-						autoFocus: true,
-						transport: i,
-						platform: 2,
-						onComplete: (e) => {
-							if (e == c.wI.k_PrimaryDomainFail) {
-								m(true);
-							} else {
-								window.location.assign(t);
-							}
-						},
-						redirectUrl: t,
-						theme: "modal",
-					},
-					r &&
-						n.createElement(o.Mk, {
-							redirectURL: t,
-						}),
-				),
+	const [a, setA] = useState(false);
+	return (
+		<div>
+			{a ? (
+				<o.Fn />
+			) : (
+				<o.YN
+					autoFocus
+					transport={i}
+					platform={2}
+					onComplete={(e) => {
+						if (e == c.wI.k_PrimaryDomainFail) {
+							setA(true);
+						} else {
+							window.location.assign(redirectURL);
+						}
+					}}
+					redirectUrl={redirectURL}
+					theme="modal"
+				>
+					{guestOption && <o.Mk redirectURL={redirectURL} />}
+				</o.YN>
+			)}
+		</div>
 	);
 }

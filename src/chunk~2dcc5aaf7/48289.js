@@ -1,18 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./96127.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require(/*webcrack:missing*/ "./82755.js");
-var o = require("./54946.js");
-var l = require(/*webcrack:missing*/ "./16583.js");
-var c = require(/*webcrack:missing*/ "./88696.js");
-var m = require("./89748.js");
-var u = require(/*webcrack:missing*/ "./89193.js");
-var d = require(/*webcrack:missing*/ "./90095.js");
-var A = require(/*webcrack:missing*/ "./61416.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require(/*webcrack:missing*/ "./736.js");
-var h = require("./17415.js");
-var C = require(/*webcrack:missing*/ "./52451.js");
+import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./96127.js";
+import a from "./12176.js";
+import s from "./82755.js";
+import o from "./54946.js";
+import { w as w_1 } from "./16583.js";
+import c from "./88696.js";
+import { qw } from "./89748.js";
+import u, { Gn, z7 } from "./89193.js";
+import { q3 } from "./90095.js";
+import A, { I } from "./61416.js";
+import p from "./8573.js";
+import { Dp } from "./736.js";
+import h from "./17415.js";
+import C from "./52451.js";
+import { lY } from "./51095.js";
+import y from "./63696.js";
+import S from "./96000.js";
 class _ {
 	m_dataMap;
 	m_timeoutTocSave;
@@ -88,7 +92,7 @@ class _ {
 		let t = {
 			...this.m_params,
 		};
-		t.strStorageKey = this.m_params.strStorageKey + "_" + JSON.stringify(e);
+		t.strStorageKey = `${this.m_params.strStorageKey}_${JSON.stringify(e)}`;
 		t.onUpdate = (t) => {
 			this.OnUpdate(e, t);
 		};
@@ -99,22 +103,18 @@ class _ {
 		return r;
 	}
 }
-(0, n.Cg)([C.oI], _.prototype, "Init", null);
-(0, n.Cg)([C.oI], _.prototype, "Get", null);
-(0, n.Cg)([C.oI], _.prototype, "OnUpdate", null);
-var f = require("./51095.js");
-import { Seconds } from "../../actual_src/utils/time.js";
-var y = require(/*webcrack:missing*/ "./63696.js");
-var S = require("./96000.js");
+Cg([C.oI], _.prototype, "Init", null);
+Cg([C.oI], _.prototype, "Get", null);
+Cg([C.oI], _.prototype, "OnUpdate", null);
 const w = Seconds.PerDay * 1000;
 const B = Seconds.PerMinute * 1000;
 const v = Seconds.PerMinute * 1000;
 export function Sw() {
-	return (0, d.q3)(() => O$.allFriends);
+	return q3(() => O$.allFriends);
 }
 export function oH() {
 	const e = Sw();
-	return (0, d.q3)(() => ({
+	return q3(() => ({
 		rgInGame: e.filter((e) => e.persona.is_ingame),
 		rgOnline: e.filter((e) => e.persona.is_online && !e.persona.is_ingame),
 	}));
@@ -123,46 +123,44 @@ export function OC() {
 	return Sw().filter((e) => e.persona.is_online);
 }
 export function uU(e) {
-	return (0, d.q3)(() =>
+	return q3(() =>
 		e !== undefined
 			? O$.GetCountFriendsInGame(e)
 			: O$.GetCountFriendsPlayingGames(),
 	);
 }
 export function Lb() {
-	return (0, d.q3)(() =>
-		O$.favoriteFriends.filter((e) => e.persona.m_bInitialized),
-	);
+	return q3(() => O$.favoriteFriends.filter((e) => e.persona.m_bInitialized));
 }
 export function Uu() {
-	return (0, d.q3)(() =>
+	return q3(() =>
 		O$.allFriends.filter(
 			(e) => e.persona.is_ingame && e.persona.m_strGameExtraInfo,
 		),
 	).sort((e, t) =>
-		(0, f.lY)(e.persona.GetCurrentGameName(), t.persona.GetCurrentGameName()),
+		lY(e.persona.GetCurrentGameName(), t.persona.GetCurrentGameName()),
 	);
 }
 export function bV(e) {
-	return (0, d.q3)(() => O$.GetFriendState(e).display_name);
+	return q3(() => O$.GetFriendState(e).display_name);
 }
 export function KM(e) {
-	return (0, d.q3)(() => O$.GetFriendState(e).nickname);
+	return q3(() => O$.GetFriendState(e).nickname);
 }
 export function tG(e) {
-	return (0, d.q3)(() => e && O$.GetFriendState(e));
+	return q3(() => e && O$.GetFriendState(e));
 }
 function G(e, t) {
-	return (0, d.q3)(() => e && O$.GetFriendState(e)?.persona[t]);
+	return q3(() => e && O$.GetFriendState(e)?.persona[t]);
 }
 export function Sv(e) {
 	return G(e, "avatar_url");
 }
 export function gt(e) {
-	return (0, d.q3)(() => e && O$.GetFriendState(e)?.persona);
+	return q3(() => e && O$.GetFriendState(e)?.persona);
 }
 export function TT(e) {
-	return (0, d.q3)(() => !!e && !!O$.GetFriendState(e));
+	return q3(() => !!e && !!O$.GetFriendState(e));
 }
 export function wI() {
 	return gt(O$.currentUserSteamID);
@@ -177,17 +175,17 @@ export function Sk() {
 	return Bh("avatar_url");
 }
 export function OU(e) {
-	const [t, r] = y.useState(false);
-	const [n, i] = y.useState("");
+	const [t, setT] = y.useState(false);
+	const [n, setN] = y.useState("");
 	const a = y.useCallback(
 		(e) => {
 			console.debug(`MultiplayerSessionShareURLChanged: '${e}'`);
 			if (e && !t) {
-				r(true);
+				setT(true);
 			}
-			i(e);
+			setN(e);
 		},
-		[i, r],
+		[setN, setT],
 	);
 	y.useEffect(
 		() =>
@@ -202,11 +200,11 @@ export function OU(e) {
 	}
 }
 export function LK() {
-	const e = (0, d.q3)(() => (0, m.qw)().GetServicesInitialized());
-	return (0, A.I)({
+	const e = q3(() => qw().GetServicesInitialized());
+	return I({
 		queryKey: ["FriendsStore", "CurrentUserCachedAvatarURL"],
 		queryFn: async () =>
-			(0, g.Dp)("WebChat.GetLocalAvatarBase64")
+			Dp("WebChat.GetLocalAvatarBase64")
 				? await SteamClient.WebChat.GetLocalAvatarBase64()
 				: null,
 		enabled: e,
@@ -232,7 +230,7 @@ class j {
 }
 class q {
 	constructor() {
-		(0, u.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_FriendsUIFriendStore;
@@ -274,7 +272,7 @@ class q {
 				const r = new s.IC();
 				r.set_friendid(t.steamid);
 				r.set_player_name(t.persona_name);
-				r.set_avatar_hash((0, l.w)(t.avatar_hash));
+				r.set_avatar_hash(w_1(t.avatar_hash));
 				const n = new i.$c(e, r, 18);
 				n.nickname = t.nickname;
 				this.m_mapPlayerCache.set(e, n);
@@ -283,8 +281,8 @@ class q {
 	}
 	BShouldCachePlayer(e) {
 		return (
-			((0, m.qw)().BIsInFamilyGroup() &&
-				(0, m.qw)()
+			(qw().BIsInFamilyGroup() &&
+				qw()
 					.GetCurrentUser()
 					.rgFamilyGroupMembers.filter(
 						(t) => t.accountid == e.steamid.GetAccountID(),
@@ -305,8 +303,8 @@ class q {
 		}
 	}
 	OnConnectedToSteam() {
-		if ((0, m.qw)().BIsInFamilyGroup()) {
-			for (let e of (0, m.qw)().GetCurrentUser().rgFamilyGroupMembers) {
+		if (qw().BIsInFamilyGroup()) {
+			for (let e of qw().GetCurrentUser().rgFamilyGroupMembers) {
 				this.GetFriendState(e.accountid);
 			}
 		}
@@ -349,12 +347,15 @@ class q {
 	IsLibraryAccessDenied(e) {
 		switch (this.m_mapOwnedGamesCacheErrors.get(e)) {
 			case undefined:
-			case 1:
+			case 1: {
 				return false;
-			case 15:
+			}
+			case 15: {
 				return true;
-			default:
+			}
+			default: {
 				return this.GetOwnedGames(e).entries.length == 0;
+			}
 		}
 	}
 	GetOwnedGames(e) {
@@ -398,15 +399,15 @@ class q {
 	}
 	async LoadPersonaState(e) {
 		const t = this.GetFriendState(e);
-		await (0, u.z7)(() => t.persona.m_bInitialized);
+		await z7(() => t.persona.m_bInitialized);
 		return t.persona;
 	}
 }
-(0, n.Cg)([u.sH], q.prototype, "m_mapOwnedGamesCacheErrors", undefined);
-(0, n.Cg)([u.sH], q.prototype, "m_mapPlayerCache", undefined);
-(0, n.Cg)([C.oI], q.prototype, "OnPersonaStateChanged", null);
-(0, n.Cg)([C.oI], q.prototype, "OnConnectedToSteam", null);
-(0, n.Cg)([C.oI], q.prototype, "FetchOwnedGames", null);
-(0, n.Cg)([C.oI], q.prototype, "LoadPersonaState", null);
+Cg([u.sH], q.prototype, "m_mapOwnedGamesCacheErrors", undefined);
+Cg([u.sH], q.prototype, "m_mapPlayerCache", undefined);
+Cg([C.oI], q.prototype, "OnPersonaStateChanged", null);
+Cg([C.oI], q.prototype, "OnConnectedToSteam", null);
+Cg([C.oI], q.prototype, "FetchOwnedGames", null);
+Cg([C.oI], q.prototype, "LoadPersonaState", null);
 export const O$ = new q();
 window.friendStore = O$;

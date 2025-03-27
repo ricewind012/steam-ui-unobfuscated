@@ -1,65 +1,65 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./3475.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require("./18057.js");
-var c = require("./6232.js");
-var m = require("./46422.js");
-var u = require(/*webcrack:missing*/ "./49519.js");
-var d = require("./87935.js");
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./49455.js");
-var g = require("./64004.js");
-var h = require("./49171.js");
-var C = require("./10294.js");
-var _ = require("./96593.js");
-var f = require("./81383.js");
-var b = require("./24274.js");
-var y = require("./89748.js");
-var S = require("./73259.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, mJ } from "./89193.js";
+import a from "./3475.js";
+import s from "./44846.js";
+import { q3 } from "./90095.js";
+import l from "./18057.js";
+import { $ } from "./6232.js";
+import m from "./46422.js";
+import { B6 } from "./49519.js";
+import d from "./87935.js";
+import A from "./52451.js";
+import { w } from "./49455.js";
+import g from "./64004.js";
+import h from "./49171.js";
+import C from "./10294.js";
+import _ from "./96593.js";
+import f from "./81383.js";
+import { PG } from "./24274.js";
+import { qw } from "./89748.js";
+import S from "./73259.js";
 export function Wf() {
-	return (0, o.q3)(() => jR.isEnabled);
+	return q3(() => jR.isEnabled);
 }
 export function mV() {
-	return (0, o.q3)(() => jR.wasEverEnabled);
+	return q3(() => jR.wasEverEnabled);
 }
 export function oA() {
-	return (0, o.q3)(() => jR.isParentalLocked);
+	return q3(() => jR.isParentalLocked);
 }
 export function hb(e) {
-	return (0, o.q3)(() => jR.BIsFeatureBlocked(e));
+	return q3(() => jR.BIsFeatureBlocked(e));
 }
 export function e8(e, t) {
-	return (0, o.q3)(() => jR.GetRouteFeature(e, t));
+	return q3(() => jR.GetRouteFeature(e, t));
 }
 export function yp(e, t) {
-	return (0, o.q3)(() => jR.BIsRouteBlocked(e, t));
+	return q3(() => jR.BIsRouteBlocked(e, t));
 }
 export function sO(e) {
-	return (0, o.q3)(() => jR.BIsURLBlocked(e));
+	return q3(() => jR.BIsURLBlocked(e));
 }
 export function Wp() {
-	return (0, o.q3)(() => jR.hasPassword);
+	return q3(() => jR.hasPassword);
 }
 export function l9(e) {
-	return (0, o.q3)(() => jR.GetFeatureBlockReason(e));
+	return q3(() => jR.GetFeatureBlockReason(e));
 }
 export function Is(e, t) {
-	return (0, o.q3)(() => jR.GetRouteBlockReason(e, t));
+	return q3(() => jR.GetRouteBlockReason(e, t));
 }
 export function OJ(e) {
-	return (0, o.q3)(() => jR.GetURLBlockedReason(e));
+	return q3(() => jR.GetURLBlockedReason(e));
 }
 export function dF() {
-	return (0, o.q3)(() => jR.temporaryEnabledFeaturesExpiration);
+	return q3(() => jR.temporaryEnabledFeaturesExpiration);
 }
 export function L2() {
-	return (0, o.q3)(() => jR.settings);
+	return q3(() => jR.settings);
 }
 class O {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_ParentalSettings = {
 		is_enabled: false,
@@ -101,22 +101,22 @@ class O {
 				r = null;
 			});
 		});
-		(0, i.mJ)(
+		mJ(
 			() => this.isParentalLocked,
 			() => this.EnsureCurrentRouteAllowed(),
 		);
-		(0, i.mJ)(
+		mJ(
 			() => this.isRemotePlayLocked,
 			() => this.EnsureCurrentRouteAllowed(),
 		);
-		(0, i.mJ)(
+		mJ(
 			() => this.isKioskModeLocked,
 			() => this.EnsureCurrentRouteAllowed(),
 		);
 		SteamClient.UI.RegisterForUIModeChanged((e) => {
 			this.EnsureCurrentRouteAllowed();
 		});
-		(0, i.mJ)(
+		mJ(
 			() => [this.hasAnyLocks, h.z.m_history],
 			() => {
 				if (this.hasAnyLocks) {
@@ -129,14 +129,17 @@ class O {
 	}
 	HandleBlockAction(e, t) {
 		switch (t) {
-			case "POP":
+			case "POP": {
 				h.z.m_history.goBack();
 				break;
-			case "PUSH":
+			}
+			case "PUSH": {
 				h.z.m_history.push(e);
 				break;
-			case "REPLACE":
+			}
+			case "REPLACE": {
 				h.z.m_history.replace(e);
+			}
 		}
 	}
 	CheckRouteAndShowUnlock(e, t) {
@@ -145,7 +148,7 @@ class O {
 			const n = m.oy.ActiveWindowInstance?.BrowserWindow ?? window;
 			const i = this.GetRouteFeature(e.pathname, e);
 			console.warn(e.pathname, "blocked by parental controls feature", i);
-			(0, c.$)(n, r, i, () => {
+			$(n, r, i, () => {
 				this.HandleBlockAction(e, t);
 			});
 			return false;
@@ -204,7 +207,10 @@ class O {
 	}
 	get hasAnyLocks() {
 		return (
-			this.isParentalLocked || this.isRemotePlayLocked || this.isKioskModeLocked
+			this.isParentalLocked ||
+			this.isRemotePlayLocked ||
+			this.isRemotePlayLocked ||
+			this.isKioskModeLocked
 		);
 	}
 	get hasPassword() {
@@ -254,19 +260,19 @@ class O {
 			return false;
 		}
 		return (
-			[s.w1, s.g5, s.lm, s.JP, s.wK].indexOf(e) === -1 &&
+			![s.w1, s.g5, s.lm, s.JP, s.wK].includes(e) &&
 			(this.m_mapAppsBlocked.get(e) ?? true)
 		);
 	}
 	GetRouteFeature(e, t) {
 		for (let r of this.m_RoutesByLength) {
-			const n = (0, u.B6)(e, r);
+			const n = B6(e, r);
 			if (n) {
 				const e = this.m_mapRouteToFeature.get(r);
 				if (typeof e == "boolean" || typeof e == "number") {
 					return e;
 				} else {
-					(0, p.w)(typeof e == "function", "Invalid type in route table");
+					w(typeof e == "function", "Invalid type in route table");
 					return e(t, n);
 				}
 			}
@@ -353,25 +359,25 @@ class O {
 			}
 		}
 		try {
-			await (0, b.PG)(
+			await PG(
 				this.m_CMInterface.GetServiceTransport(),
 				this.m_CMInterface.steamid.ConvertTo64BitString(),
 				r,
 				{
 					password: this.m_ParentalState.strPlaintextPassword,
-					sessionid: (0, y.qw)().GetCurrentUser()?.strClientInstanceID,
+					sessionid: qw().GetCurrentUser()?.strClientInstanceID,
 				},
 			);
 		} catch {}
 	}
 }
-(0, n.Cg)([i.sH], O.prototype, "m_ParentalSettings", undefined);
-(0, n.Cg)([i.sH], O.prototype, "m_mapAppsBlocked", undefined);
-(0, n.Cg)([i.sH], O.prototype, "m_ParentalState", undefined);
-(0, n.Cg)([i.XI], O.prototype, "UpdateParentalState", null);
-(0, n.Cg)([A.oI], O.prototype, "CheckURLRoute", null);
-(0, n.Cg)([A.oI], O.prototype, "CheckAppIDRoute", null);
-(0, n.Cg)([A.oI], O.prototype, "CheckBrowserRoute", null);
-(0, n.Cg)([A.oI], O.prototype, "CheckKioskModeLocked", null);
-(0, n.Cg)([i.XI], O.prototype, "SetAppBlockedState", null);
+Cg([i.sH], O.prototype, "m_ParentalSettings", undefined);
+Cg([i.sH], O.prototype, "m_mapAppsBlocked", undefined);
+Cg([i.sH], O.prototype, "m_ParentalState", undefined);
+Cg([i.XI], O.prototype, "UpdateParentalState", null);
+Cg([A.oI], O.prototype, "CheckURLRoute", null);
+Cg([A.oI], O.prototype, "CheckAppIDRoute", null);
+Cg([A.oI], O.prototype, "CheckBrowserRoute", null);
+Cg([A.oI], O.prototype, "CheckKioskModeLocked", null);
+Cg([i.XI], O.prototype, "SetAppBlockedState", null);
 export const jR = new O();

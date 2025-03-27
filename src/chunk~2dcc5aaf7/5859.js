@@ -1,14 +1,3 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./31222.js");
-var o = require("./65850.js");
-var l = require("./80222.js");
-var c = require(/*webcrack:missing*/ "./49455.js");
-var m = require("./16154.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./85606.js");
-var _A = require("./58839.js");
 import {
 	LocalizeRtime32ToShortDate,
 	Localize,
@@ -18,23 +7,42 @@ import {
 	LocalizeQuarterOfYear,
 	LocalizeCalendarYear,
 } from "../../actual_src/utils/localization/datetime.js";
+import n, { Cg } from "./34629.js";
+import i, { HO } from "./89193.js";
+import a from "./12176.js";
+import s from "./31222.js";
+import o from "./65850.js";
+import l from "./80222.js";
+import c, { w as w_1 } from "./49455.js";
+import m, { H } from "./16154.js";
+import u from "./72476.js";
+import d, { hS, rV, Bn } from "./85606.js";
+import { Rz } from "./58839.js";
+import w from "./93960.js";
 function h(e) {
-	return (function (e, t, r, n) {
+	return ((e, t, r, n) => {
 		switch (e) {
-			case "date_full":
+			case "date_full": {
 				return LocalizeRtime32ToShortDate(t);
-			case "date_month":
+			}
+			case "date_month": {
 				return LocalizeCalendarMonthAndYear(new Date(t * 1000));
-			case "date_quarter":
+			}
+			case "date_quarter": {
 				return LocalizeQuarterOfYear(new Date(t * 1000), n);
-			case "date_year":
+			}
+			case "date_year": {
 				return LocalizeCalendarYear(new Date(t * 1000));
-			case "text_comingsoon":
+			}
+			case "text_comingsoon": {
 				return r || (0, Localize)("#Store_ComingSoon_ComingSoon");
-			case "text_tba":
+			}
+			case "text_tba": {
 				return r || (0, Localize)("#Store_ComingSoon_TBA");
-			default:
+			}
+			default: {
 				return "";
+			}
 		}
 	})(
 		e.coming_soon_display,
@@ -195,9 +203,9 @@ class C {
 	}
 	BCheckDataRequestIncluded(e) {
 		if (u.TS.WEB_UNIVERSE == "dev" || u.TS.WEB_UNIVERSE == "beta") {
-			(0, c.w)(
+			w_1(
 				this.BContainDataRequest(e),
-				`Requested data without for ${(0, _A.Rz)(this.m_eItemType)} @ ${this.m_unID}`,
+				`Requested data without for ${Rz(this.m_eItemType)} @ ${this.m_unID}`,
 				e,
 				this.m_DataRequested,
 			);
@@ -210,7 +218,7 @@ class C {
 		return this.m_unID;
 	}
 	GetUniqueID() {
-		return this.m_eItemType + "_" + this.m_unID;
+		return `${this.m_eItemType}_${this.m_unID}`;
 	}
 	BIsVisible() {
 		return this.m_bVisible;
@@ -220,11 +228,9 @@ class C {
 	}
 	GetStorePageURL(e = false) {
 		if (e && this.HasDemoStandaloneStorePage()) {
-			return (
-				u.TS.STORE_BASE_URL +
-				"app/" +
+			return `${u.TS.STORE_BASE_URL}app/${
 				this.GetDemoStandaloneStorePageAppIDs()[0]
-			);
+			}`;
 		} else {
 			return u.TS.STORE_BASE_URL + this.m_strStoreURLPath;
 		}
@@ -244,16 +250,14 @@ class C {
 	}
 	GetCommunityPageURL() {
 		if (this.GetAppID()) {
-			return u.TS.COMMUNITY_BASE_URL + "app/" + this.GetAppID();
+			return `${u.TS.COMMUNITY_BASE_URL}app/${this.GetAppID()}`;
 		} else {
 			return null;
 		}
 	}
 	GetCommunityDiscussionForumsURL() {
 		if (this.GetAppID()) {
-			return (
-				u.TS.COMMUNITY_BASE_URL + "app/" + this.GetAppID() + "/discussions/"
-			);
+			return `${u.TS.COMMUNITY_BASE_URL}app/${this.GetAppID()}/discussions/`;
 		} else {
 			return null;
 		}
@@ -362,6 +366,7 @@ class C {
 	BHasStoreCategory(e) {
 		return Boolean(
 			this.GetStoreCategories_SupportedPlayers().find((t) => e === t) ||
+				this.GetStoreCategories_Features().find((t) => e === t) ||
 				this.GetStoreCategories_Features().find((t) => e === t) ||
 				this.GetStoreCategories_Controller().find((t) => e === t),
 		);
@@ -651,7 +656,9 @@ class C {
 		});
 		return (
 			this.m_rgSupportedLanguages?.some(
-				(t) => t.elanguage == e && (t.supported || t.subtitles || t.full_audio),
+				(t) =>
+					t.elanguage == e &&
+					(t.supported || t.subtitles || t.subtitles || t.full_audio),
 			) || false
 		);
 	}
@@ -661,7 +668,9 @@ class C {
 		});
 		return (
 			this.m_rgSupportedLanguages
-				?.filter((e) => e.supported || e.subtitles || e.full_audio)
+				?.filter(
+					(e) => e.supported || e.subtitles || e.subtitles || e.full_audio,
+				)
 				.map((e) => e.elanguage) || []
 		);
 	}
@@ -782,8 +791,12 @@ class f {
 			}
 		}
 		if (e.community_icon()) {
-			this.m_strCommunityIcon = `${u.TS.MEDIA_CDN_COMMUNITY_URL}images/apps/${t}/${e.community_icon()}.jpg`;
-			this.m_strCommunityIcon_Full = `${u.TS.MEDIA_CDN_COMMUNITY_URL}images/apps/${t}/${e.community_icon()}_full.jpg`;
+			this.m_strCommunityIcon = `${
+				u.TS.MEDIA_CDN_COMMUNITY_URL
+			}images/apps/${t}/${e.community_icon()}.jpg`;
+			this.m_strCommunityIcon_Full = `${
+				u.TS.MEDIA_CDN_COMMUNITY_URL
+			}images/apps/${t}/${e.community_icon()}_full.jpg`;
 		}
 	}
 	GetMainCapsuleURL() {
@@ -820,11 +833,10 @@ class f {
 		return this.m_strLibraryHeroURL_2x;
 	}
 	ConstructAssetURL(e, t) {
-		return (
-			u.TS.BASE_URL_SHARED_CDN +
-			"/store_item_assets/" +
-			e.replace("${FILENAME}", t)
-		);
+		return `${u.TS.BASE_URL_SHARED_CDN}/store_item_assets/${e.replace(
+			"${FILENAME}",
+			t,
+		)}`;
 	}
 	GetCommunityIconURL() {
 		return this.m_strCommunityIcon;
@@ -941,16 +953,16 @@ class y {
 		return r;
 	}
 	ConstructScreenshotURL(e, t) {
-		return (
-			u.TS.BASE_URL_SHARED_CDN +
-			"/store_item_assets/" +
-			e.replace("${FILENAME}", t)
-		);
+		return `${u.TS.BASE_URL_SHARED_CDN}/store_item_assets/${e.replace(
+			"${FILENAME}",
+			t,
+		)}`;
 	}
 	ConstructAssetURL(e, t) {
-		return (
-			u.TS.VIDEO_CDN_URL + "/store_trailers/" + e.replace("${FILENAME}", t)
-		);
+		return `${u.TS.VIDEO_CDN_URL}/store_trailers/${e.replace(
+			"${FILENAME}",
+			t,
+		)}`;
 	}
 }
 class S {
@@ -967,14 +979,16 @@ class S {
 				e = n[t].ordinal() < i[r].ordinal();
 			}
 			if (e) {
-				const e =
-					u.TS.BASE_URL_SHARED_CDN + "/store_item_assets/" + n[t].filename();
+				const e = `${u.TS.BASE_URL_SHARED_CDN}/store_item_assets/${n[
+					t
+				].filename()}`;
 				this.m_rgAllScreenshots.push(e);
 				this.m_rgOnlyAllAgesScreenshots.push(e);
 				t += 1;
 			} else {
-				const e =
-					u.TS.BASE_URL_SHARED_CDN + "/store_item_assets/" + i[r].filename();
+				const e = `${u.TS.BASE_URL_SHARED_CDN}/store_item_assets/${i[
+					r
+				].filename()}`;
 				this.m_rgAllScreenshots.push(e);
 				r += 1;
 			}
@@ -987,7 +1001,6 @@ class S {
 		return this.m_rgOnlyAllAgesScreenshots;
 	}
 }
-var w = require(/*webcrack:missing*/ "./93960.js");
 function B(e, t) {
 	if (!e) {
 		return t;
@@ -1081,7 +1094,7 @@ export class A {
 	}
 	static Initialize(e, t) {
 		const r = A.Get();
-		(0, c.w)(
+		w_1(
 			!r.m_bInitialized,
 			"CStoreItemCache was already initialized; initialize it only once.",
 		);
@@ -1292,10 +1305,7 @@ export class A {
 		}
 	}
 	async QueueStoreItemRequest(e, t, r) {
-		(0, c.w)(
-			A.ValidateDataRequest(r),
-			"Invalid Data Request: " + JSON.stringify(r),
-		);
+		w_1(A.ValidateDataRequest(r), `Invalid Data Request: ${JSON.stringify(r)}`);
 		if (typeof e == "string") {
 			e = parseInt(e);
 		}
@@ -1306,7 +1316,7 @@ export class A {
 			return this.k_AlreadyResolvedBusy;
 		}
 		if (!e) {
-			(0, c.w)(!e, `unexpected id ${e} of zero or undefined for type ${t}`);
+			w_1(!e, `unexpected id ${e} of zero or undefined for type ${t}`);
 			return this.k_AlreadyResolvedInvalid;
 		}
 		const n = this.GetPreviousSupersetLoadPromise(e, t, r);
@@ -1324,26 +1334,33 @@ export class A {
 		}
 		this.m_setPendingDataRequest = B(this.m_setPendingDataRequest, r);
 		switch (t) {
-			case 0:
+			case 0: {
 				this.m_setPendingAppInfo.add(e);
 				break;
-			case 2:
+			}
+			case 2: {
 				this.m_setPendingBundleInfo.add(e);
 				break;
-			case 1:
+			}
+			case 1: {
 				this.m_setPendingPackageInfo.add(e);
 				break;
-			case 4:
+			}
+			case 4: {
 				this.m_setPendingTagInfo.add(e);
 				break;
-			case 5:
+			}
+			case 5: {
 				this.m_setPendingCreatorInfo.add(e);
 				break;
-			case 6:
+			}
+			case 6: {
 				this.m_setPendingHubCategoryInfo.add(e);
 				break;
-			default:
-				(0, c.w)(false, `Unexpected Type ${t}`);
+			}
+			default: {
+				w_1(false, `Unexpected Type ${t}`);
+			}
 		}
 		const i = this.m_PendingInfoPromise;
 		if (
@@ -1398,23 +1415,29 @@ export class A {
 		}
 		let n = null;
 		switch (t) {
-			case 0:
+			case 0: {
 				n = this.m_mapAppsInFlight.get(e);
 				break;
-			case 1:
+			}
+			case 1: {
 				n = this.m_mapPackageInFlight.get(e);
 				break;
-			case 2:
+			}
+			case 2: {
 				n = this.m_mapBundleInFlight.get(e);
 				break;
-			case 4:
+			}
+			case 4: {
 				n = this.m_mapTagsInFlight.get(e);
 				break;
-			case 5:
+			}
+			case 5: {
 				n = this.m_mapCreatorsInFlight.get(e);
 				break;
-			case 6:
+			}
+			case 6: {
 				n = this.m_mapHubCategoriesInFlight.get(e);
+			}
 		}
 		if (n && C.BDataRequestContainsOtherDataRequest(n.dataRequest, r)) {
 			return n.promise;
@@ -1672,14 +1695,14 @@ export class A {
 					const e = a.w.Init(o.St);
 					e.Body().set_include_unpublished(false);
 					const n = e.Body().request(true);
-					n.set_context((0, d.hS)(this.m_bUsePartnerAPI));
+					n.set_context(hS(this.m_bUsePartnerAPI));
 					n.set_data_request(l.gn.fromObject(t));
 					n.set_ids(r);
 					s.push(o.BT.GetItems(this.GetServiceTransport(), e));
 				} else {
 					const e = a.w.Init(l.eE);
-					(0, d.rV)(e, this.m_bUsePartnerAPI);
-					(0, d.Bn)(e, t);
+					rV(e, this.m_bUsePartnerAPI);
+					Bn(e, t);
 					e.Body().set_ids(r);
 					s.push(l.$4.GetItems(this.GetServiceTransport(), e));
 				}
@@ -1703,74 +1726,80 @@ export class A {
 									);
 								}
 								switch (s) {
-									case 0:
+									case 0: {
 										this.m_setUnavailableApps.add(n);
 										this.m_mapApps.delete(n);
 										break;
-									case 1:
+									}
+									case 1: {
 										this.m_setUnavailablePackages.add(n);
 										this.m_mapPackages.delete(n);
 										break;
-									case 2:
+									}
+									case 2: {
 										this.m_setUnavailableBundles.add(n);
 										this.m_mapBundles.delete(n);
 										break;
-									case 4:
+									}
+									case 4: {
 										this.m_setUnavailableTags.add(n);
 										this.m_mapTags.delete(n);
 										break;
-									case 5:
+									}
+									case 5: {
 										this.m_setUnavailableCreators.add(n);
 										this.m_mapCreators.delete(n);
 										break;
-									case 6:
+									}
+									case 6: {
 										this.m_setUnavailableHubCategories.add(n);
 										this.m_mapHubCategories.delete(n);
 										break;
-									default:
+									}
+									default: {
 										console.error(
-											"CStoreItemCache.InternalHandleLoadStoreItems unexpected item_type in response " +
-												s +
-												" " +
-												n,
+											`CStoreItemCache.InternalHandleLoadStoreItems unexpected item_type in response ${s} ${n}`,
 										);
+									}
 								}
 								if (r.unvailable_for_country_restriction()) {
 									switch (s) {
-										case 0:
+										case 0: {
 											this.m_setUnavailableDueToCountryRestrictionApps.add(n);
 											break;
-										case 1:
+										}
+										case 1: {
 											this.m_setUnavailableDueToCountryRestrictionPackages.add(
 												n,
 											);
 											break;
-										case 2:
+										}
+										case 2: {
 											this.m_setUnavailableDueToCountryRestrictionBundles.add(
 												n,
 											);
 											break;
+										}
 										case 4:
 										case 5:
-										case 6:
+										case 6: {
 											console.error(
-												"CStoreItemCache::InternalHandleLoadStoreItems - tags, creators or categories don't have country restrictions. eResult: " +
-													a.GetEResult() +
-													" message: " +
-													a.Hdr().error_message(),
-												(0, i.HO)(e),
+												`CStoreItemCache::InternalHandleLoadStoreItems - tags, creators or categories don't have country restrictions. eResult: ${a.GetEResult()} message: ${a
+													.Hdr()
+													.error_message()}`,
+												HO(e),
 											);
+										}
 									}
 								}
 							}
 						});
 				} else {
 					console.warn(
-						"CStoreItemCache::InternalHandleLoadStoreItems failed with eResult: " +
-							a.GetEResult() +
-							" message: " +
-							a.Hdr().error_message(),
-						(0, i.HO)(e),
+						`CStoreItemCache::InternalHandleLoadStoreItems failed with eResult: ${a.GetEResult()} message: ${a
+							.Hdr()
+							.error_message()}`,
+						HO(e),
 					);
 					if (a.Hdr().transport_error() == 1 || u.TS.FROM_WEB) {
 						this.MarkStoreItemIDUnavailable(n[s]);
@@ -1781,10 +1810,9 @@ export class A {
 				}
 			});
 		} catch (e) {
-			const t = (0, m.H)(e);
+			const t = H(e);
 			console.error(
-				"CStoreItemCache::InternalHandleLoadStoreItems failed: " +
-					t.strErrorMsg,
+				`CStoreItemCache::InternalHandleLoadStoreItems failed: ${t.strErrorMsg}`,
 				t,
 			);
 			n.forEach((e) => this.MarkStoreItemIDUnavailable(e));
@@ -1795,26 +1823,33 @@ export class A {
 	GetMapForType(e) {
 		let t;
 		switch (e) {
-			case 0:
+			case 0: {
 				t = this.m_mapApps;
 				break;
-			case 2:
+			}
+			case 2: {
 				t = this.m_mapBundles;
 				break;
-			case 1:
+			}
+			case 1: {
 				t = this.m_mapPackages;
 				break;
-			case 4:
+			}
+			case 4: {
 				t = this.m_mapTags;
 				break;
-			case 5:
+			}
+			case 5: {
 				t = this.m_mapCreators;
 				break;
-			case 6:
+			}
+			case 6: {
 				t = this.m_mapHubCategories;
 				break;
-			default:
+			}
+			default: {
 				console.error("Invalid map type requested", e);
+			}
 		}
 		return t;
 	}
@@ -1878,21 +1913,28 @@ export class A {
 	}
 	BIsStoreItemMissing(e, t) {
 		switch (t) {
-			case 0:
+			case 0: {
 				return this.BIsAppMissing(e);
-			case 1:
+			}
+			case 1: {
 				return this.BIsPackageMissing(e);
-			case 2:
+			}
+			case 2: {
 				return this.BIsBundleMissing(e);
-			case 4:
+			}
+			case 4: {
 				return this.BIsTagMissing(e);
-			case 5:
+			}
+			case 5: {
 				return this.BIsCreatorMissing(e);
-			case 6:
+			}
+			case 6: {
 				return this.BIsHubCategoryMissing(e);
-			default:
+			}
+			default: {
 				console.error("BStoreItemMissing invalid type", t);
 				return true;
+			}
 		}
 	}
 	BIsAppMissing(e) {
@@ -1915,23 +1957,28 @@ export class A {
 	}
 	BIsStoreItemUnavailableDueToCountryRestriction(e, t) {
 		switch (t) {
-			case 0:
+			case 0: {
 				return this.BIsAppUnavailableDueToCountryRestriction(e);
-			case 1:
+			}
+			case 1: {
 				return this.BIsPackageUnavailableDueToCountryRestriction(e);
-			case 2:
+			}
+			case 2: {
 				return this.BIsBundleUnavailableDueToCountryRestriction(e);
+			}
 			case 4:
 			case 5:
-			case 6:
+			case 6: {
 				console.error(
 					"BIsStoreItemUnavailableDueToCountryRestriction - tags, creators or categories don't have country restrictions. type: ",
 					t,
 				);
 				return true;
-			default:
+			}
+			default: {
 				console.error("BStoreItemMissing invalid type", t);
 				return true;
+			}
 		}
 	}
 	BIsAppUnavailableDueToCountryRestriction(e) {
@@ -1954,27 +2001,34 @@ export class A {
 		const r = e.item_type();
 		let n = null;
 		switch (r) {
-			case 0:
+			case 0: {
 				n = this.m_mapApps;
 				break;
-			case 1:
+			}
+			case 1: {
 				n = this.m_mapPackages;
 				break;
-			case 2:
+			}
+			case 2: {
 				n = this.m_mapBundles;
 				break;
-			case 4:
+			}
+			case 4: {
 				n = this.m_mapTags;
 				break;
-			case 5:
+			}
+			case 5: {
 				n = this.m_mapCreators;
 				break;
-			case 6:
+			}
+			case 6: {
 				n = this.m_mapHubCategories;
 				break;
-			default:
+			}
+			default: {
 				console.error(`Invalid item type: ${r}`);
 				return null;
+			}
 		}
 		let i = n.get(e.id());
 		if (i) {
@@ -1994,4 +2048,4 @@ export class A {
 		return i;
 	}
 }
-(0, n.Cg)([w.o], A.prototype, "ReadItem", null);
+Cg([w.o], A.prototype, "ReadItem", null);

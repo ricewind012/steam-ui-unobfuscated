@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BackContainer: "_2B4W7ZfP6kaCdn-CqcBVlF",
 	BackButton: "_2AbcGNjsP9DQ2UmbC33VLY",

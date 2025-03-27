@@ -1,22 +1,24 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
 import {
 	ArrayWithoutElement,
 	CountMatches,
 } from "../../actual_src/utils/arrayutils.js";
-var a = require(/*webcrack:missing*/ "./37976.js");
-var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require("./80663.js");
-var l = require("./3756.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./12176.js");
-var _A = require("./36383.js");
-var p = require("./96127.js");
-var g = require("./95773.js");
-var h = require(/*webcrack:missing*/ "./16583.js");
-var C = require("./44234.js");
-var _ = require(/*webcrack:missing*/ "./49455.js");
+import n, { Cg } from "./34629.js";
+import a from "./37976.js";
+import s from "./83599.js";
+import o from "./80663.js";
+import l from "./3756.js";
+import c from "./8573.js";
+import m, { Gn, fm, z7 } from "./89193.js";
+import d from "./12176.js";
+import _A from "./36383.js";
+import p from "./96127.js";
+import g from "./95773.js";
+import { Kx, w as w_2 } from "./16583.js";
+import C from "./44234.js";
+import { w as w_2 } from "./49455.js";
+import b, { js } from "./50979.js";
+import y from "./5128.js";
 class f {
 	static sm_ulNextViewID = 1;
 	m_ulChatRoomGroupID;
@@ -40,10 +42,10 @@ class f {
 	m_setQueuedPersonaUnsubscriptions = new Set();
 	m_nPersonaSubscriptionTimer;
 	constructor(e) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_ulChatRoomGroupID = e;
 		this.m_nClientChangenumber = 0;
-		this.m_ulViewID = "" + f.sm_ulNextViewID++;
+		this.m_ulViewID = `${f.sm_ulNextViewID++}`;
 	}
 	GetViewID() {
 		return this.m_ulViewID;
@@ -313,7 +315,7 @@ class f {
 						);
 					}
 					let i = this.m_mapPersonaStates.get(r.accountid());
-					(0, _.w)(i, "Missing persona in member matches");
+					w_2(i, "Missing persona in member matches");
 					if (!i) {
 						continue;
 					}
@@ -331,23 +333,21 @@ class f {
 		return Array.from(this.m_mapPersonaStates.values());
 	}
 }
-(0, n.Cg)([m.sH], f.prototype, "m_iStartIndex", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_iEndIndex", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_nLastServerChangenumber", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_iLastServerStartIndex", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_iLastServerEndIndex", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_cMemberSummaryTotal", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_cMemberSummaryOnline", undefined);
-(0, n.Cg)([m.sH], f.prototype, "m_cMemberSummaryInGame", undefined);
-(0, n.Cg)([m.XI], f.prototype, "ApplyUpdates", null);
-(0, n.Cg)([m.XI], f.prototype, "OnServerUpdate", null);
-var b = require("./50979.js");
-var y = require("./5128.js");
+Cg([m.sH], f.prototype, "m_iStartIndex", undefined);
+Cg([m.sH], f.prototype, "m_iEndIndex", undefined);
+Cg([m.sH], f.prototype, "m_nLastServerChangenumber", undefined);
+Cg([m.sH], f.prototype, "m_iLastServerStartIndex", undefined);
+Cg([m.sH], f.prototype, "m_iLastServerEndIndex", undefined);
+Cg([m.sH], f.prototype, "m_cMemberSummaryTotal", undefined);
+Cg([m.sH], f.prototype, "m_cMemberSummaryOnline", undefined);
+Cg([m.sH], f.prototype, "m_cMemberSummaryInGame", undefined);
+Cg([m.XI], f.prototype, "ApplyUpdates", null);
+Cg([m.XI], f.prototype, "OnServerUpdate", null);
 class S {
 	m_rank = undefined;
 	m_role_ids = undefined;
 	constructor(e = 20, t) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_rank = e;
 		this.m_role_ids = t;
 	}
@@ -355,8 +355,8 @@ class S {
 		return this.m_role_ids.findIndex((t) => t == e) != -1;
 	}
 }
-(0, n.Cg)([m.sH], S.prototype, "m_rank", undefined);
-(0, n.Cg)([m.sH], S.prototype, "m_role_ids", undefined);
+Cg([m.sH], S.prototype, "m_rank", undefined);
+Cg([m.sH], S.prototype, "m_role_ids", undefined);
 class w {
 	m_roleActions = new _A.JN();
 	constructor(e) {
@@ -364,61 +364,82 @@ class w {
 	}
 	BCanPerformAction(e) {
 		switch (e) {
-			case 1:
+			case 1: {
 				return this.m_roleActions.can_create_rename_delete_channel();
-			case 2:
+			}
+			case 2: {
 				return this.m_roleActions.can_kick();
-			case 3:
+			}
+			case 3: {
 				return this.m_roleActions.can_ban();
-			case 4:
+			}
+			case 4: {
 				return this.m_roleActions.can_invite();
-			case 5:
+			}
+			case 5: {
 				return this.m_roleActions.can_change_tagline_avatar_name();
-			case 6:
+			}
+			case 6: {
 				return this.m_roleActions.can_chat();
-			case 8:
+			}
+			case 8: {
 				return this.m_roleActions.can_change_group_roles();
-			case 9:
+			}
+			case 9: {
 				return this.m_roleActions.can_change_user_roles();
-			case 10:
+			}
+			case 10: {
 				return this.m_roleActions.can_mention_all();
-			case 11:
+			}
+			case 11: {
 				return this.m_roleActions.can_set_watching_broadcast();
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	SetCanPerformAction(e, t) {
 		switch (e) {
-			case 1:
+			case 1: {
 				this.m_roleActions.set_can_create_rename_delete_channel(t);
 				break;
-			case 2:
+			}
+			case 2: {
 				this.m_roleActions.set_can_kick(t);
 				break;
-			case 3:
+			}
+			case 3: {
 				this.m_roleActions.set_can_ban(t);
 				break;
-			case 4:
+			}
+			case 4: {
 				this.m_roleActions.set_can_invite(t);
 				break;
-			case 5:
+			}
+			case 5: {
 				this.m_roleActions.set_can_change_tagline_avatar_name(t);
 				break;
-			case 6:
+			}
+			case 6: {
 				this.m_roleActions.set_can_chat(t);
 				break;
-			case 8:
+			}
+			case 8: {
 				this.m_roleActions.set_can_change_group_roles(t);
 				break;
-			case 9:
+			}
+			case 9: {
 				this.m_roleActions.set_can_change_user_roles(t);
 				break;
-			case 10:
+			}
+			case 10: {
 				this.m_roleActions.set_can_mention_all(t);
 				break;
-			case 11:
+			}
+			case 11: {
 				this.m_roleActions.set_can_set_watching_broadcast(t);
+			}
 		}
 	}
 	toString() {
@@ -488,7 +509,7 @@ export class a$ {
 	m_cMemberSummaryCount = 0;
 	m_bMemberListVirtualized = false;
 	constructor(e, t) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_chatStore = e;
 		this.m_ulGroupID = t;
 	}
@@ -542,7 +563,7 @@ export class a$ {
 				}
 			}
 			switch (t.length) {
-				case 1:
+				case 1: {
 					if (e.remaining_count > 0) {
 						return (0, Localize)(
 							"#ChatRoom_OneFriendPlusMore",
@@ -552,7 +573,8 @@ export class a$ {
 					} else {
 						return (0, Localize)("#ChatRoom_OneFriend", t[0].display_name);
 					}
-				case 2:
+				}
+				case 2: {
 					if (e.remaining_count > 0) {
 						return (0, Localize)(
 							"#ChatRoom_TwoPlusMore",
@@ -567,16 +589,19 @@ export class a$ {
 							t[1].display_name,
 						);
 					}
-				case 3:
+				}
+				case 3: {
 					return (0, Localize)(
 						"#ChatRoom_ThreeFriends",
 						t[0].display_name,
 						t[1].display_name,
 						t[2].display_name,
 					);
-				default:
-					(0, _.w)(false, `unexpected number of friends: ${t.length}`);
+				}
+				default: {
+					w_2(false, `unexpected number of friends: ${t.length}`);
 					return "";
+				}
 			}
 		}
 	}
@@ -615,19 +640,14 @@ export class a$ {
 				return e.icon_url;
 			}
 		}
-		return (function (e, t) {
+		return ((e, t) => {
 			t = t <= 32 ? 32 : t <= 64 ? 64 : 256;
 			let r = C.TS.AVATAR_BASE_URL;
-			r ||=
-				C.TS.MEDIA_CDN_COMMUNITY_URL +
-				"images/chaticons/" +
-				e.substr(0, 2) +
-				"/" +
-				e.substr(2, 2) +
-				"/" +
-				e.substr(4, 2) +
-				"/";
-			r += e + "_" + t + ".jpg";
+			r ||= `${C.TS.MEDIA_CDN_COMMUNITY_URL}images/chaticons/${e.substr(
+				0,
+				2,
+			)}/${e.substr(2, 2)}/${e.substr(4, 2)}/`;
+			r += `${e}_${t}.jpg`;
 			return r;
 		})(this.m_strAvatarSHA, e);
 	}
@@ -664,7 +684,7 @@ export class a$ {
 		return this.m_groupMembers;
 	}
 	get unique_id() {
-		return "cg" + this.m_ulGroupID;
+		return `cg${this.m_ulGroupID}`;
 	}
 	get timeJoined() {
 		return this.m_rtTimeJoined;
@@ -762,6 +782,7 @@ export class a$ {
 					: t.has_any_unread_messages) &&
 				(t.BIsDefaultRoom() ||
 					t.time_last_ack >= this.m_rtLastAck ||
+					t.time_last_ack >= this.m_rtLastAck ||
 					t.time_last_mention > this.m_rtLastAck)
 			) {
 				return true;
@@ -779,7 +800,7 @@ export class a$ {
 		return false;
 	}
 	GetChatRoomsWithUnreadPriorityMessages(e) {
-		this.m_mapRooms.forEach(function (t) {
+		this.m_mapRooms.forEach((t) => {
 			if (t.has_unread_priority_messages) {
 				e.push(t);
 			}
@@ -846,7 +867,7 @@ export class a$ {
 		}
 	}
 	IsInRoom(e) {
-		(0, _.w)(this.m_bFullStateLoaded, "Group state not fully loaded");
+		w_2(this.m_bFullStateLoaded, "Group state not fully loaded");
 		return this.m_groupMembers.HasMember(e);
 	}
 	BRoomContainsJustTheseFriendsAndSelf(e) {
@@ -858,7 +879,7 @@ export class a$ {
 		}
 		let t = true;
 		for (let r of e) {
-			if (this.m_rgGroupMembersSummary.indexOf(r) < 0) {
+			if (!this.m_rgGroupMembersSummary.includes(r)) {
 				t = false;
 				break;
 			}
@@ -871,14 +892,11 @@ export class a$ {
 		);
 	}
 	ChangeMemberRank(e, t) {
-		(0, _.w)(
-			this.m_groupMembers.HasMember(e),
-			"ChangeMemberRank: missing member",
-		);
+		w_2(this.m_groupMembers.HasMember(e), "ChangeMemberRank: missing member");
 		this.m_groupMembers.GetExtra(e).m_rank = t;
 	}
 	GetMemberRank(e) {
-		(0, _.w)(this.m_groupMembers.HasMember(e), "GetMemberRank: missing member");
+		w_2(this.m_groupMembers.HasMember(e), "GetMemberRank: missing member");
 		let t = this.m_groupMembers.GetExtra(e);
 		if (t && t.m_rank != 0) {
 			return t.m_rank;
@@ -897,12 +915,10 @@ export class a$ {
 		}
 	}
 	GetMemberPartyBeacon(e) {
-		return this.m_rgPartyBeacons.find(function (t) {
-			return t.account_id == e;
-		});
+		return this.m_rgPartyBeacons.find((t) => t.account_id == e);
 	}
 	ChangeMemberRoles(e, t) {
-		(0, _.w)(this.m_groupMembers.HasMember(e), "GetMemberRank: missing member");
+		w_2(this.m_groupMembers.HasMember(e), "GetMemberRank: missing member");
 		let r = this.m_groupMembers.GetExtra(e);
 		if (r) {
 			r.m_role_ids = t;
@@ -913,22 +929,30 @@ export class a$ {
 			return "";
 		}
 		switch (this.GetMemberRank(e)) {
-			case 50:
+			case 50: {
 				return (0, Localize)("#Chat_rank_owner");
-			case 40:
+			}
+			case 40: {
 				return (0, Localize)("#Chat_rank_officer");
-			case 30:
+			}
+			case 30: {
 				return (0, Localize)("#Chat_rank_moderator");
-			case 20:
+			}
+			case 20: {
 				return (0, Localize)("#Chat_rank_member");
-			case 15:
+			}
+			case 15: {
 				return (0, Localize)("#Chat_rank_guest");
-			case 10:
+			}
+			case 10: {
 				return (0, Localize)("#Chat_rank_viewer");
-			case 0:
+			}
+			case 0: {
 				return "";
-			default:
+			}
+			default: {
 				return (0, Localize)("#Chat_rank_unknown");
+			}
 		}
 	}
 	GetMemberRankStringUnlocalized(e) {
@@ -936,22 +960,30 @@ export class a$ {
 			return "";
 		}
 		switch (this.GetMemberRank(e)) {
-			case 50:
+			case 50: {
 				return "Owner";
-			case 40:
+			}
+			case 40: {
 				return "Officer";
-			case 30:
+			}
+			case 30: {
 				return "Moderator";
-			case 20:
+			}
+			case 20: {
 				return "Member";
-			case 15:
+			}
+			case 15: {
 				return "Guest";
-			case 10:
+			}
+			case 10: {
 				return "Viewer";
-			case 0:
+			}
+			case 0: {
 				return "DefaultRank";
-			default:
+			}
+			default: {
 				return (0, Localize)("UnknownRank");
+			}
 		}
 	}
 	GetMember(e) {
@@ -961,7 +993,7 @@ export class a$ {
 		this.m_bFullStateLoaded;
 	}
 	SetInitialGroupState(e) {
-		(0, _.w)(
+		w_2(
 			e.chat_group_id() == this.m_ulGroupID,
 			"Chat group id doesn't match header",
 		);
@@ -971,7 +1003,7 @@ export class a$ {
 	UpdateGroupStateFromSummary(e) {
 		this.m_strTagLine = e.chat_group_tagline();
 		if (e.chat_group_avatar_sha() != null) {
-			this.m_strAvatarSHA = (0, h.Kx)(e.chat_group_avatar_sha());
+			this.m_strAvatarSHA = Kx(e.chat_group_avatar_sha());
 		}
 		this.m_strAvatarUGCURL = e.avatar_ugc_url() || "";
 		this.m_unWatchingBroadcastAccountID = e.watching_broadcast_accountid();
@@ -1028,7 +1060,7 @@ export class a$ {
 		}
 	}
 	UpdateGroupState(e) {
-		(0, _.w)(
+		w_2(
 			e.header_state().chat_group_id() == this.m_ulGroupID,
 			"Chat group id doesn't match header",
 		);
@@ -1084,14 +1116,14 @@ export class a$ {
 			g.xm.GroupMemberStore.OnMemberAdded(this.m_ulGroupID, r);
 			if (
 				this.m_rgGroupMembersSummary.length < 10 &&
-				this.m_rgGroupMembersSummary.indexOf(r) == -1
+				!this.m_rgGroupMembersSummary.includes(r)
 			) {
 				this.m_rgGroupMembersSummary = [...this.m_rgGroupMembersSummary, r];
 			}
-		} else if (t == 2 || t == 3 || t == 10) {
+		} else if (t == 2 || t == 3 || t == 3 || t == 10) {
 			this.m_groupMembers.RemoveMember(r);
 			g.xm.GroupMemberStore.OnMemberRemoved(this.m_ulGroupID, r);
-			if (this.m_rgGroupMembersSummary.indexOf(r) !== -1) {
+			if (this.m_rgGroupMembersSummary.includes(r)) {
 				this.m_rgGroupMembersSummary = ArrayWithoutElement(
 					this.m_rgGroupMembersSummary,
 					r,
@@ -1134,13 +1166,13 @@ export class a$ {
 		this.m_bUnreadIndicatorMuted = e.unread_indicator_muted();
 	}
 	UpdateChatRoomHeaderState(e) {
-		(0, _.w)(
+		w_2(
 			e.chat_group_id() == this.m_ulGroupID,
 			"Chat group id doesn't match header",
 		);
 		this.m_strTagLine = e.tagline();
 		if (e.avatar_sha() != null) {
-			this.m_strAvatarSHA = (0, h.Kx)(e.avatar_sha());
+			this.m_strAvatarSHA = Kx(e.avatar_sha());
 		}
 		this.m_strAvatarUGCURL = e.avatar_ugc_url() || "";
 		this.m_unWatchingBroadcastAccountID = e.watching_broadcast_accountid();
@@ -1520,7 +1552,7 @@ export class a$ {
 		}
 		let t = d.w.Init(_A.mV);
 		t.Body().set_chat_group_id(this.m_ulGroupID);
-		t.Body().set_avatar_sha((0, h.w)(e));
+		t.Body().set_avatar_sha(w_2(e));
 		return _A.xP
 			.SetChatRoomGroupAvatar(
 				this.m_chatStore.CMInterface.GetServiceTransport(),
@@ -1625,7 +1657,7 @@ export class a$ {
 			.then((e) => {
 				let t = e.GetEResult();
 				if (t != 1 && t != 29) {
-					(0, _.w)(false, `Failed to change ban state ${t}`);
+					w_2(false, `Failed to change ban state ${t}`);
 					throw t;
 				}
 			});
@@ -1641,7 +1673,7 @@ export class a$ {
 			.then((e) => {
 				let t = e.GetEResult();
 				if (t != 1) {
-					(0, _.w)(false, `Failed to change muteexpiration ${t}`);
+					w_2(false, `Failed to change muteexpiration ${t}`);
 					throw t;
 				}
 			});
@@ -1689,8 +1721,8 @@ export class a$ {
 			.CreateChatRoom(this.m_chatStore.CMInterface.GetServiceTransport(), r)
 			.then((e) => {
 				let t = e.Body().chat_room().chat_id();
-				if (e.GetEResult() != 1 || t == "" || t == "0") {
-					(0, _.w)(false, "Failed to create chat room");
+				if (e.GetEResult() != 1 || t == "" || t == "" || t == "0") {
+					w_2(false, "Failed to create chat room");
 					throw new Error("Failed to create chat room");
 				}
 				return this.AddCreatedRoom(t, e.Body().chat_room());
@@ -1733,7 +1765,7 @@ export class a$ {
 			.RenameChatRoom(this.m_chatStore.CMInterface.GetServiceTransport(), i)
 			.then((e) => {
 				if (e.GetEResult() != 1) {
-					(0, _.w)(false, "Failed to change room name");
+					w_2(false, "Failed to change room name");
 					r.ChangeNameWhileWaitingForRenameRequest(n);
 				}
 			});
@@ -1747,7 +1779,7 @@ export class a$ {
 			.ReorderChatRoom(this.m_chatStore.CMInterface.GetServiceTransport(), r)
 			.then((e) => {
 				if (e.GetEResult() != 1) {
-					(0, _.w)(false, "Failed to reorder room");
+					w_2(false, "Failed to reorder room");
 				}
 			});
 	}
@@ -1761,7 +1793,7 @@ export class a$ {
 				if (t.GetEResult() == 1) {
 					this.RemoveRoom(e);
 				} else {
-					(0, _.w)(false, "Failed to delete chat room");
+					w_2(false, "Failed to delete chat room");
 				}
 			});
 	}
@@ -2041,58 +2073,58 @@ export class a$ {
 		return n;
 	}
 	BNameMatchesSearch(e) {
-		return this.name.toLocaleLowerCase().indexOf(e) != -1;
+		return this.name.toLocaleLowerCase().includes(e);
 	}
 }
-(0, n.Cg)([m.sH], a$.prototype, "m_rtTimeJoined", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_rtLastAck", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_unOwnerAccountID", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_bFullStateLoaded", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_strName", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_strTagLine", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_strAvatarSHA", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_strAvatarUGCURL", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_unWatchingBroadcastAccountID", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_strWatchingBroadcastChannelID", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_rgPartyBeacons", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_eUserDesktopNotificationLevel", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_eUserMobileNotificationLevel", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_bUnreadIndicatorMuted", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_roles", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_rgGroupMembersSummary", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_cMemberSummaryCount", undefined);
-(0, n.Cg)([m.sH], a$.prototype, "m_bMemberListVirtualized", undefined);
-(0, n.Cg)([m.EW], a$.prototype, "name", null);
-(0, n.Cg)([m.EW], a$.prototype, "hasAvatarSHA", null);
-(0, n.Cg)([m.EW], a$.prototype, "hasIcon", null);
-(0, n.Cg)([m.EW], a$.prototype, "avatar_url_small", null);
-(0, n.Cg)([m.EW], a$.prototype, "avatar_url_medium", null);
-(0, n.Cg)([m.EW], a$.prototype, "avatar_url_full", null);
-(0, n.Cg)([m.EW], a$.prototype, "chatRoomList", null);
-(0, n.Cg)([m.EW], a$.prototype, "textRoomList", null);
-(0, n.Cg)([m.EW], a$.prototype, "voiceRoomList", null);
-(0, n.Cg)([m.EW], a$.prototype, "hasVoiceRoom", null);
-(0, n.Cg)([m.EW], a$.prototype, "hasUnreadChatMessage", null);
-(0, n.Cg)([m.EW], a$.prototype, "HasUnreadMention", null);
-(0, n.Cg)([m.EW], a$.prototype, "time_last_activity", null);
-(0, n.Cg)([m.EW], a$.prototype, "room_with_last_message", null);
-(0, n.Cg)([m.XI], a$.prototype, "ChangeMemberRank", null);
-(0, n.Cg)([m.XI], a$.prototype, "ChangeMemberRoles", null);
-(0, n.Cg)([m.XI], a$.prototype, "SetInitialGroupState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UpdateGroupStateFromSummary", null);
-(0, n.Cg)([m.XI], a$.prototype, "SetNameCheckingForAppLocalization", null);
-(0, n.Cg)([m.XI], a$.prototype, "UpdateGroupState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UnloadActiveGroupState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UnloadGroupState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UnloadAndResetGroupState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UpdateChatRoomState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UpdateUserState", null);
-(0, n.Cg)([m.XI], a$.prototype, "UpdateChatRoomHeaderState", null);
-(0, n.Cg)([m.XI], a$.prototype, "OnActivate", null);
-(0, n.Cg)([m.EW], a$.prototype, "members_to_highlight_name", null);
-(0, n.Cg)([m.EW], a$.prototype, "members_to_highlight", null);
-(0, n.Cg)([m.XI], a$.prototype, "AddCreatedRoom", null);
-(0, n.Cg)([m.XI], a$.prototype, "RemoveRoom", null);
+Cg([m.sH], a$.prototype, "m_rtTimeJoined", undefined);
+Cg([m.sH], a$.prototype, "m_rtLastAck", undefined);
+Cg([m.sH], a$.prototype, "m_unOwnerAccountID", undefined);
+Cg([m.sH], a$.prototype, "m_bFullStateLoaded", undefined);
+Cg([m.sH], a$.prototype, "m_strName", undefined);
+Cg([m.sH], a$.prototype, "m_strTagLine", undefined);
+Cg([m.sH], a$.prototype, "m_strAvatarSHA", undefined);
+Cg([m.sH], a$.prototype, "m_strAvatarUGCURL", undefined);
+Cg([m.sH], a$.prototype, "m_unWatchingBroadcastAccountID", undefined);
+Cg([m.sH], a$.prototype, "m_strWatchingBroadcastChannelID", undefined);
+Cg([m.sH], a$.prototype, "m_rgPartyBeacons", undefined);
+Cg([m.sH], a$.prototype, "m_eUserDesktopNotificationLevel", undefined);
+Cg([m.sH], a$.prototype, "m_eUserMobileNotificationLevel", undefined);
+Cg([m.sH], a$.prototype, "m_bUnreadIndicatorMuted", undefined);
+Cg([m.sH], a$.prototype, "m_roles", undefined);
+Cg([m.sH], a$.prototype, "m_rgGroupMembersSummary", undefined);
+Cg([m.sH], a$.prototype, "m_cMemberSummaryCount", undefined);
+Cg([m.sH], a$.prototype, "m_bMemberListVirtualized", undefined);
+Cg([m.EW], a$.prototype, "name", null);
+Cg([m.EW], a$.prototype, "hasAvatarSHA", null);
+Cg([m.EW], a$.prototype, "hasIcon", null);
+Cg([m.EW], a$.prototype, "avatar_url_small", null);
+Cg([m.EW], a$.prototype, "avatar_url_medium", null);
+Cg([m.EW], a$.prototype, "avatar_url_full", null);
+Cg([m.EW], a$.prototype, "chatRoomList", null);
+Cg([m.EW], a$.prototype, "textRoomList", null);
+Cg([m.EW], a$.prototype, "voiceRoomList", null);
+Cg([m.EW], a$.prototype, "hasVoiceRoom", null);
+Cg([m.EW], a$.prototype, "hasUnreadChatMessage", null);
+Cg([m.EW], a$.prototype, "HasUnreadMention", null);
+Cg([m.EW], a$.prototype, "time_last_activity", null);
+Cg([m.EW], a$.prototype, "room_with_last_message", null);
+Cg([m.XI], a$.prototype, "ChangeMemberRank", null);
+Cg([m.XI], a$.prototype, "ChangeMemberRoles", null);
+Cg([m.XI], a$.prototype, "SetInitialGroupState", null);
+Cg([m.XI], a$.prototype, "UpdateGroupStateFromSummary", null);
+Cg([m.XI], a$.prototype, "SetNameCheckingForAppLocalization", null);
+Cg([m.XI], a$.prototype, "UpdateGroupState", null);
+Cg([m.XI], a$.prototype, "UnloadActiveGroupState", null);
+Cg([m.XI], a$.prototype, "UnloadGroupState", null);
+Cg([m.XI], a$.prototype, "UnloadAndResetGroupState", null);
+Cg([m.XI], a$.prototype, "UpdateChatRoomState", null);
+Cg([m.XI], a$.prototype, "UpdateUserState", null);
+Cg([m.XI], a$.prototype, "UpdateChatRoomHeaderState", null);
+Cg([m.XI], a$.prototype, "OnActivate", null);
+Cg([m.EW], a$.prototype, "members_to_highlight_name", null);
+Cg([m.EW], a$.prototype, "members_to_highlight", null);
+Cg([m.XI], a$.prototype, "AddCreatedRoom", null);
+Cg([m.XI], a$.prototype, "RemoveRoom", null);
 export class $C extends y.Q {
 	LOG = new s.wd("ChatRoomGroup", () => this.GetUniqueID()).Debug;
 	m_group;
@@ -2118,18 +2150,18 @@ export class $C extends y.Q {
 	m_VirtualizedMemberList;
 	constructor(e, t) {
 		super();
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_tabset = e;
 		this.m_group = t;
 		if (this.m_group.BIsValid()) {
 			this.SelectChat(this.m_group.GetDefaultChatID());
 		}
-		this.m_disposeChatRooms = (0, m.fm)(() => {
+		this.m_disposeChatRooms = fm(() => {
 			let e = this.m_group.chatRoomList;
 			if (
 				this.m_selectedChatView &&
 				e.length &&
-				e.indexOf(this.m_selectedChatView.chat) < 0
+				!e.includes(this.m_selectedChatView.chat)
 			) {
 				this.SelectChat(this.m_group.GetDefaultChatID());
 			}
@@ -2257,7 +2289,7 @@ export class $C extends y.Q {
 				if (this.m_disposeActiveVoice) {
 					this.m_disposeActiveVoice();
 				}
-				this.m_disposeActiveVoice = (0, m.z7)(
+				this.m_disposeActiveVoice = z7(
 					() => !t.BVoiceActive(),
 					() => {
 						if (this.m_popoverChatView && this.m_popoverChatView.chat == t) {
@@ -2499,8 +2531,8 @@ export class $C extends y.Q {
 				? this.GetVirtualizedMemberListView().GetAllKnownPersonas()
 				: this.m_group.memberList.member_list_unsorted;
 			for (let a of i) {
-				let i = (0, b.js)(a.player_name_normalized);
-				let s = i + "#" + a.accountid.toString(36);
+				let i = js(a.player_name_normalized);
+				let s = `${i}#${a.accountid.toString(36)}`;
 				if (s.startsWith(l)) {
 					let o;
 					let c = s.length === l.length;
@@ -2513,7 +2545,8 @@ export class $C extends y.Q {
 						e.length - t - 1 >= s.length &&
 						e.substr(t + 1, s.length).toLocaleLowerCase() === s
 					) {
-						m = c = true;
+						m = true;
+						c = true;
 						o = s.length;
 					}
 					if (
@@ -2534,11 +2567,18 @@ export class $C extends y.Q {
 			let u;
 			let d = false;
 			if (this.m_group.BCanIMentionAll()) {
-				d = l == "online" || l == "online#0" || l == "all" || l == "all#0";
+				d =
+					l == "online" ||
+					l == "online#0" ||
+					l == "online#0" ||
+					l == "all" ||
+					l == "online#0" ||
+					l == "all" ||
+					l == "all#0";
 			}
 			if (d && (n === undefined || n <= l.length)) {
 				let e = l;
-				if (l.indexOf("#") !== -1) {
+				if (l.includes("#")) {
 					e = l.substr(0, l.indexOf("#"));
 				}
 				c = e;
@@ -2548,14 +2588,14 @@ export class $C extends y.Q {
 					c = "here";
 				}
 			} else if (r && n !== undefined) {
-				c = "" + r.accountid;
+				c = `${r.accountid}`;
 				m = r.persona.m_strPlayerName;
 				u = n;
 			}
 			if (m && u !== undefined) {
 				let r = e.substr(0, t);
 				let n = e.substr(t + 1 + u);
-				let i = `[mention=${c}]@${(0, b.js)(m)}[/mention]`;
+				let i = `[mention=${c}]@${js(m)}[/mention]`;
 				a = (e = r + i + n).indexOf("@", r.length + i.length);
 			}
 			t = a;
@@ -2563,50 +2603,50 @@ export class $C extends y.Q {
 		return e;
 	}
 }
-(0, n.Cg)([m.sH], $C.prototype, "m_selectedChatView", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_popoverChatView", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bShowSettingsDialog", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_ulRenameChatRoomID", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bShowBroadcast", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bShowVerticalBroadcastChat", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_strLocalBroadcastId", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bChatHidden", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bShowGlobalChat", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bMemberSearchActive", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_strMemberSearchString", undefined);
-(0, n.Cg)([m.sH.ref], $C.prototype, "m_rgSearchResults", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bSearchError", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bMemberListCollapsedOverride", undefined);
-(0, n.Cg)([m.sH], $C.prototype, "m_bChannelListCollapsedOverride", undefined);
-(0, n.Cg)([m.XI], $C.prototype, "ShowBroadcast", null);
-(0, n.Cg)([m.XI.bound], $C.prototype, "HideBroadcast", null);
-(0, n.Cg)([m.XI.bound], $C.prototype, "SetVerticalBroadcastChat", null);
-(0, n.Cg)([m.XI], $C.prototype, "ToggleTheaterModeBroadcastChat", null);
-(0, n.Cg)([m.XI], $C.prototype, "SetChatHidden", null);
-(0, n.Cg)([m.XI], $C.prototype, "SetGlobalBroadcastChatShown", null);
-(0, n.Cg)([m.XI], $C.prototype, "SetLocalBroadcastId", null);
-(0, n.Cg)([m.XI], $C.prototype, "SetMemberListCollapsed", null);
-(0, n.Cg)([m.XI], $C.prototype, "SetChannelListCollapsed", null);
-(0, n.Cg)([m.XI], $C.prototype, "ClosePopoverChat", null);
-(0, n.Cg)([m.XI], $C.prototype, "SelectChat", null);
-(0, n.Cg)([m.XI], $C.prototype, "SelectNextChannel", null);
-(0, n.Cg)([m.XI], $C.prototype, "SelectPreviousChannel", null);
-(0, n.Cg)([m.XI], $C.prototype, "StartRoomRename", null);
-(0, n.Cg)([m.XI], $C.prototype, "EndRoomRename", null);
-(0, n.Cg)([m.XI], $C.prototype, "OnTabClosed", null);
-(0, n.Cg)([m.XI], $C.prototype, "UpdateMemberSearch", null);
-(0, n.Cg)([m.XI], $C.prototype, "ClearMemberSearch", null);
-(0, n.Cg)([m.EW], $C.prototype, "isMemberListExpanded", null);
-(0, n.Cg)([m.EW], $C.prototype, "isChannelListCollapsed", null);
+Cg([m.sH], $C.prototype, "m_selectedChatView", undefined);
+Cg([m.sH], $C.prototype, "m_popoverChatView", undefined);
+Cg([m.sH], $C.prototype, "m_bShowSettingsDialog", undefined);
+Cg([m.sH], $C.prototype, "m_ulRenameChatRoomID", undefined);
+Cg([m.sH], $C.prototype, "m_bShowBroadcast", undefined);
+Cg([m.sH], $C.prototype, "m_bShowVerticalBroadcastChat", undefined);
+Cg([m.sH], $C.prototype, "m_strLocalBroadcastId", undefined);
+Cg([m.sH], $C.prototype, "m_bChatHidden", undefined);
+Cg([m.sH], $C.prototype, "m_bShowGlobalChat", undefined);
+Cg([m.sH], $C.prototype, "m_bMemberSearchActive", undefined);
+Cg([m.sH], $C.prototype, "m_strMemberSearchString", undefined);
+Cg([m.sH.ref], $C.prototype, "m_rgSearchResults", undefined);
+Cg([m.sH], $C.prototype, "m_bSearchError", undefined);
+Cg([m.sH], $C.prototype, "m_bMemberListCollapsedOverride", undefined);
+Cg([m.sH], $C.prototype, "m_bChannelListCollapsedOverride", undefined);
+Cg([m.XI], $C.prototype, "ShowBroadcast", null);
+Cg([m.XI.bound], $C.prototype, "HideBroadcast", null);
+Cg([m.XI.bound], $C.prototype, "SetVerticalBroadcastChat", null);
+Cg([m.XI], $C.prototype, "ToggleTheaterModeBroadcastChat", null);
+Cg([m.XI], $C.prototype, "SetChatHidden", null);
+Cg([m.XI], $C.prototype, "SetGlobalBroadcastChatShown", null);
+Cg([m.XI], $C.prototype, "SetLocalBroadcastId", null);
+Cg([m.XI], $C.prototype, "SetMemberListCollapsed", null);
+Cg([m.XI], $C.prototype, "SetChannelListCollapsed", null);
+Cg([m.XI], $C.prototype, "ClosePopoverChat", null);
+Cg([m.XI], $C.prototype, "SelectChat", null);
+Cg([m.XI], $C.prototype, "SelectNextChannel", null);
+Cg([m.XI], $C.prototype, "SelectPreviousChannel", null);
+Cg([m.XI], $C.prototype, "StartRoomRename", null);
+Cg([m.XI], $C.prototype, "EndRoomRename", null);
+Cg([m.XI], $C.prototype, "OnTabClosed", null);
+Cg([m.XI], $C.prototype, "UpdateMemberSearch", null);
+Cg([m.XI], $C.prototype, "ClearMemberSearch", null);
+Cg([m.EW], $C.prototype, "isMemberListExpanded", null);
+Cg([m.EW], $C.prototype, "isChannelListCollapsed", null);
 export class L2 {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	loadingState = "pending";
 	rgBans = undefined;
 }
-(0, n.Cg)([m.sH], L2.prototype, "loadingState", undefined);
-(0, n.Cg)([m.sH], L2.prototype, "rgBans", undefined);
+Cg([m.sH], L2.prototype, "loadingState", undefined);
+Cg([m.sH], L2.prototype, "rgBans", undefined);
 const E = {
 	bMemberListCollapsed: undefined,
 	bChannelListCollapsed: undefined,
@@ -2614,7 +2654,7 @@ const E = {
 const M = "ChatRoomGroupDisplayPrefs";
 export class A {
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	m_SettingsStore;
 	m_mapDisplayPrefs = m.sH.map();
@@ -2668,12 +2708,12 @@ export class A {
 		);
 	}
 }
-(0, n.Cg)([m.XI], A.prototype, "SetChatRoomDisplayPref", null);
+Cg([m.XI], A.prototype, "SetChatRoomDisplayPref", null);
 class R {
 	m_mapAccountToExtra = m.sH.map();
 	m_bMemberDataVirtualized = false;
 	constructor() {
-		(0, m.Gn)(this);
+		Gn(this);
 	}
 	GetCurrentMemberSet() {
 		let e = new Set();
@@ -2730,7 +2770,7 @@ class R {
 		return e;
 	}
 	get member_list_unsorted() {
-		(0, _.w)(
+		w_2(
 			!this.m_bMemberDataVirtualized,
 			"Shouldn't be accessing member_list when virtualized",
 		);
@@ -2743,10 +2783,10 @@ class R {
 		return e;
 	}
 }
-(0, n.Cg)([m.EW], R.prototype, "unfiltered_count", null);
-(0, n.Cg)([m.EW], R.prototype, "member_counts", null);
-(0, n.Cg)([m.XI], R.prototype, "Clear", null);
-(0, n.Cg)([m.XI], R.prototype, "AddMember", null);
-(0, n.Cg)([m.XI], R.prototype, "RemoveMember", null);
-(0, n.Cg)([m.EW], R.prototype, "member_list", null);
-(0, n.Cg)([m.EW], R.prototype, "member_list_unsorted", null);
+Cg([m.EW], R.prototype, "unfiltered_count", null);
+Cg([m.EW], R.prototype, "member_counts", null);
+Cg([m.XI], R.prototype, "Clear", null);
+Cg([m.XI], R.prototype, "AddMember", null);
+Cg([m.XI], R.prototype, "RemoveMember", null);
+Cg([m.EW], R.prototype, "member_list", null);
+Cg([m.EW], R.prototype, "member_list_unsorted", null);

@@ -1,10 +1,11 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./44164.js");
-var a = require("./98592.js");
-var s = require("./13144.js");
-var o = s;
-var l = require(/*webcrack:missing*/ "./90765.js");
-class c extends a.A {
+import n from "./63696.js";
+import i from "./44164.js";
+import a from "./98592.js";
+import s from "./13144.js";
+import { A as A_1 } from "./90765.js";
+const o = s;
+
+export class A extends a.A {
 	performSearch(e) {
 		return this.props.emoticonStore.SearchEmoticons(e, 10, false);
 	}
@@ -15,25 +16,17 @@ class c extends a.A {
 		return e.name;
 	}
 	renderMatch(e) {
-		return n.createElement(
-			"div",
-			{
-				className: (0, l.A)(o.EmoticonSuggestion, e.recent ? "Recent" : ""),
-			},
-			n.createElement(
-				"div",
-				{
-					className: o.Emoticon,
-				},
-				n.createElement(i.nl, {
-					emoticon: e.name,
-					emoticonHoverStore: this.props.emoticonHoverStore,
-				}),
-				e.new && n.createElement(i.iD, null),
-			),
-			":",
-			e.name,
-			":",
+		return (
+			<div className={A_1(o.EmoticonSuggestion, e.recent ? "Recent" : "")}>
+				<div className={o.Emoticon}>
+					<i.nl
+						emoticon={e.name}
+						emoticonHoverStore={this.props.emoticonHoverStore}
+					/>
+					{e.new && <i.iD />}
+				</div>
+				:{e.name}:
+			</div>
 		);
 	}
 	renderNoMatchMessage() {
@@ -49,4 +42,3 @@ class c extends a.A {
 		return Number.MAX_VALUE;
 	}
 }
-export const A = c;

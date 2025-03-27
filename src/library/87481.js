@@ -1,6 +1,6 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./83599.js");
-var s = require("./20893.js");
+import r from "./63696.js";
+import i from "./83599.js";
+import s, { nt, SZ, VX, hr, f, Ro, cR, u8, tV, W1 } from "./20893.js";
 const o = new i.wd("GamepadEvents").Debug;
 export function Ui(
 	e,
@@ -19,38 +19,38 @@ export function Ui(
 	],
 ) {
 	r.useEffect(() => {
-		let n = t.current;
+		let t_current = t.current;
 		const r = [];
-		if (n) {
+		if (t_current) {
 			if (e.onButtonDown) {
-				r.push((0, s.nt)(n, e.onButtonDown));
+				r.push(nt(t_current, e.onButtonDown));
 			}
 			if (e.onButtonUp) {
-				r.push((0, s.SZ)(n, e.onButtonUp));
+				r.push(SZ(t_current, e.onButtonUp));
 			}
 			if (e.onOKButton) {
-				r.push((0, s.VX)(n, e.onOKButton));
+				r.push(VX(t_current, e.onOKButton));
 			}
 			if (e.onCancelButton) {
-				r.push((0, s.hr)(n, e.onCancelButton));
+				r.push(hr(t_current, e.onCancelButton));
 			}
 			if (e.onSecondaryButton) {
-				r.push((0, s.f)(n, e.onSecondaryButton));
+				r.push(f(t_current, e.onSecondaryButton));
 			}
 			if (e.onOptionsButton) {
-				r.push((0, s.Ro)(n, e.onOptionsButton));
+				r.push(Ro(t_current, e.onOptionsButton));
 			}
 			if (e.onMenuButton) {
-				r.push((0, s.cR)(n, e.onMenuButton));
+				r.push(cR(t_current, e.onMenuButton));
 			}
 			if (e.onGamepadDirection) {
-				r.push((0, s.u8)(n, e.onGamepadDirection));
+				r.push(u8(t_current, e.onGamepadDirection));
 			}
 			if (e.onGamepadFocus) {
-				r.push((0, s.tV)(n, e.onGamepadFocus));
+				r.push(tV(t_current, e.onGamepadFocus));
 			}
 			if (e.onGamepadBlur) {
-				r.push((0, s.W1)(n, e.onGamepadBlur));
+				r.push(W1(t_current, e.onGamepadBlur));
 			}
 		}
 		return () => r.forEach((e) => e());
@@ -61,17 +61,17 @@ function c(e) {
 	return false;
 }
 export function KF(e, t, n) {
-	const { onButtonDown: i, ...s } = e;
+	const { onButtonDown, ...s } = e;
 	const l = r.useCallback(
 		(e) => {
-			if (i) {
-				i(e);
+			if (onButtonDown) {
+				onButtonDown(e);
 			}
 			o(
 				"Gamepad Event fired:",
 				e.detail.button,
 				", handled:",
-				i != null,
+				onButtonDown != null,
 				", propagation stopped:",
 				e.cancelBubble,
 			);
@@ -79,7 +79,7 @@ export function KF(e, t, n) {
 				n.OnRootButtonDown(e);
 			}
 		},
-		[i, n],
+		[onButtonDown, n],
 	);
 	Ui(s, t);
 	Ui(

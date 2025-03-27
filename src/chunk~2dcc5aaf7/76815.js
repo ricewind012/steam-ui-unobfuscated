@@ -1,26 +1,37 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./3756.js");
-var s = require("./66146.js");
-var o = require("./8653.js");
-var l = require("./95773.js");
-var c = require("./52912.js");
-var m = require("./70839.js");
-var u = require("./53414.js");
-var d = require("./27847.js");
-var A = require("./97422.js");
-var p = require(/*webcrack:missing*/ "./89193.js");
-var g = require(/*webcrack:missing*/ "./41230.js");
-var h = require(/*webcrack:missing*/ "./63696.js");
-var C = require(/*webcrack:missing*/ "./23038.js");
-var _ = require("./21866.js");
-var f = require(/*webcrack:missing*/ "./31084.js");
-var b = require(/*webcrack:missing*/ "./69164.js");
-var y = require(/*webcrack:missing*/ "./88750.js");
-var S = require("./64608.js");
-var w = require(/*webcrack:missing*/ "./42318.js");
-var B = require(/*webcrack:missing*/ "./52451.js");
-var v = require("./7558.js");
+import { MoveElement } from "../../actual_src/utils/arrayutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./3756.js";
+import s from "./66146.js";
+import o from "./8653.js";
+import l from "./95773.js";
+import c, { CO, _k, h8 } from "./52912.js";
+import m from "./70839.js";
+import u from "./53414.js";
+import d, { Tz } from "./27847.js";
+import A, { tj } from "./97422.js";
+import p, { Gn } from "./89193.js";
+import g from "./41230.js";
+import h from "./63696.js";
+import C from "./23038.js";
+import _ from "./21866.js";
+import { lX } from "./31084.js";
+import b from "./69164.js";
+import y from "./88750.js";
+import S from "./64608.js";
+import w from "./42318.js";
+import B, { XB } from "./52451.js";
+import v from "./7558.js";
+import E, { HT } from "./13869.js";
+import M from "./50376.js";
+import T from "./27773.js";
+import { A as A_1 } from "./90765.js";
+import N from "./51079.js";
+import G from "./98829.js";
+import O, { Pr } from "./72476.js";
+import P, { u as u_1 } from "./17385.js";
+import L from "./83665.js";
 class I extends h.Component {
 	m_elScroll;
 	m_animation;
@@ -163,46 +174,33 @@ class I extends h.Component {
 	render() {
 		let e = "auto";
 		if (this.state.nCalculatedHeightPx) {
-			e = this.state.nCalculatedHeightPx + "px";
+			e = `${this.state.nCalculatedHeightPx}px`;
 		}
-		return h.createElement(
-			"div",
-			{
-				onWheel: this.OnWheel,
-				className: "HorizontalMiniSlider",
-				style: {
+		return (
+			<div
+				onWheel={this.OnWheel}
+				className="HorizontalMiniSlider"
+				style={{
 					height: e,
-				},
-			},
-			h.createElement(
-				"div",
-				{
-					className: "HorizontalMiniSliderScroll " + this.props.className,
-					onScroll: this.CheckScrollPosition,
-					ref: this.OnRef,
-				},
-				this.props.children,
-			),
+				}}
+			>
+				<div
+					className={`HorizontalMiniSliderScroll ${this.props.className}`}
+					onScroll={this.CheckScrollPosition}
+					ref={this.OnRef}
+				>
+					{this.props.children}
+				</div>
+			</div>
 		);
 	}
 }
-(0, n.Cg)([B.oI], I.prototype, "OnRef", null);
-(0, n.Cg)([B.oI], I.prototype, "CheckScrollPosition", null);
-(0, n.Cg)([B.oI], I.prototype, "OnSlideLeftClick", null);
-(0, n.Cg)([B.oI], I.prototype, "OnSlideRightClick", null);
-(0, n.Cg)([B.oI], I.prototype, "OnWheel", null);
-var E = require("./13869.js");
-var M = require(/*webcrack:missing*/ "./50376.js");
-var T = require(/*webcrack:missing*/ "./27773.js");
-import { MoveElement } from "../../actual_src/utils/arrayutils.js";
-var k = require(/*webcrack:missing*/ "./90765.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var N = require("./51079.js");
-var F = N;
-var G = require("./98829.js");
-var O = require(/*webcrack:missing*/ "./72476.js");
-var P = require(/*webcrack:missing*/ "./17385.js");
-var L = require("./83665.js");
+Cg([B.oI], I.prototype, "OnRef", null);
+Cg([B.oI], I.prototype, "CheckScrollPosition", null);
+Cg([B.oI], I.prototype, "OnSlideLeftClick", null);
+Cg([B.oI], I.prototype, "OnSlideRightClick", null);
+Cg([B.oI], I.prototype, "OnWheel", null);
+const F = N;
 export let dH = class extends h.Component {
 	static contextType = O.QO;
 	m_mapTabs = new Map();
@@ -218,7 +216,7 @@ export let dH = class extends h.Component {
 	m_tabDrag = undefined;
 	constructor(e) {
 		super(e);
-		(0, p.Gn)(this);
+		Gn(this);
 		this.state = {
 			iDragIndex: 0,
 			windowWidth: 0,
@@ -294,14 +292,14 @@ export let dH = class extends h.Component {
 		if (!t) {
 			return;
 		}
-		let r = t.offsetLeft;
+		let t_offsetLeft = t.offsetLeft;
 		let n = t.offsetLeft + t.offsetWidth;
 		let i = Math.ceil(this.m_elScroll.scrollLeft + this.m_elScroll.clientWidth);
-		if (r < i && n > i) {
+		if (t_offsetLeft < i && n > i) {
 			let e = n - Math.floor(this.m_elScroll.clientWidth) + 40;
 			this.SetScrollLeft(e);
-		} else if (r < this.m_elScroll.scrollLeft + 40 || n > i) {
-			let e = r;
+		} else if (t_offsetLeft < this.m_elScroll.scrollLeft + 40 || n > i) {
+			let e = t_offsetLeft;
 			if (e != 0) {
 				e -= 40;
 			}
@@ -329,7 +327,7 @@ export let dH = class extends h.Component {
 	}
 	UpdateDragOffset(e) {
 		let t;
-		let r = e.clientX;
+		let e_clientX = e.clientX;
 		for (t = 0; t < this.m_rgOrderedRenderedTabs.length; t++) {
 			let e = this.m_rgOrderedRenderedTabs[t];
 			let n = this.m_mapTabs.get(e.GetUniqueID());
@@ -337,10 +335,10 @@ export let dH = class extends h.Component {
 			if (
 				n &&
 				i &&
-				r - i.left < i.width &&
+				e_clientX - i.left < i.width &&
 				(this.m_nInitialTabDragOffset < 0 &&
-					(this.m_nInitialTabDragOffset = r - i.left),
-				r - this.m_nInitialTabDragOffset < i.left + i.width / 2)
+					(this.m_nInitialTabDragOffset = e_clientX - i.left),
+				e_clientX - this.m_nInitialTabDragOffset < i.left + i.width / 2)
 			) {
 				break;
 			}
@@ -382,7 +380,7 @@ export let dH = class extends h.Component {
 	}
 	ShowFriendsList(e) {
 		l.xm.UIStore.SetTheaterMode(false);
-		l.xm.UIStore.SetFriendsListCollapsed((0, c.CO)(e), false);
+		l.xm.UIStore.SetFriendsListCollapsed(CO(e), false);
 	}
 	StartTopbarEventListener() {
 		this.m_elchatTabDiv.ownerDocument.defaultView.addEventListener(
@@ -391,14 +389,14 @@ export let dH = class extends h.Component {
 		);
 	}
 	OnTopbarHovered(e) {
-		let t = e.clientY;
+		let e_clientY = e.clientY;
 		if (!l.xm.UIStore.GetTheaterMode()) {
 			this.m_elchatTabDiv.ownerDocument.defaultView.removeEventListener(
 				"mousemove",
 				this.OnTopbarHovered,
 			);
 		}
-		if (t > this.m_nTheaterTopHoverHeight) {
+		if (e_clientY > this.m_nTheaterTopHoverHeight) {
 			if (this.state.bTheaterModeTopHovered) {
 				this.setState({
 					bTheaterModeTopHovered: false,
@@ -418,18 +416,12 @@ export let dH = class extends h.Component {
 				(e.currentTarget.offsetTop + e.currentTarget.clientHeight) +
 				16 >
 			e.currentTarget.ownerDocument.defaultView.innerHeight;
-		(0, f.lX)(
-			h.createElement(x, {
-				tabSet: this.props.tabSet,
-			}),
-			e.currentTarget,
-			{
-				bOverlapHorizontal: true,
-				bPreferPopLeft: false,
-				bPreferPopTop: false,
-				bForcePopup: t,
-			},
-		);
+		lX(<X tabSet={this.props.tabSet} />, e.currentTarget, {
+			bOverlapHorizontal: true,
+			bPreferPopLeft: false,
+			bPreferPopTop: false,
+			bForcePopup: t,
+		});
 	}
 	UpdateWindowIcon() {
 		try {
@@ -513,17 +505,14 @@ export let dH = class extends h.Component {
 		if (this.state.bTheaterModeTopHovered) {
 			u += " TheaterTopHovered";
 		}
-		if ((0, O.Pr)()) {
+		if (Pr()) {
 			u += " OSX";
 		}
 		if (this.props.ResponsiveWindowState) {
-			m = h.createElement(
-				"div",
-				{
-					className: "ChatTabsBackButton",
-					onClick: this.OnBackClick,
-				},
-				"<<",
+			m = (
+				<div className="ChatTabsBackButton" onClick={this.OnBackClick}>
+					{"<<"}
+				</div>
 			);
 		}
 		if (a) {
@@ -533,9 +522,9 @@ export let dH = class extends h.Component {
 		let A = false;
 		let p = true;
 		if (this.props.popup) {
-			d = (0, c._k)(this.props.popup);
+			d = _k(this.props.popup);
 			p = l.xm.UIStore.BIsFriendsListSingleWindow(d);
-			A = !(0, P.u)(d, P.m);
+			A = !u_1(d, P.m);
 		}
 		if (e && this.m_elchatTabDiv) {
 			this.StartTopbarEventListener();
@@ -546,141 +535,114 @@ export let dH = class extends h.Component {
 					this.m_elchatTabDiv.clientWidth) ||
 			false;
 		const _ = A;
-		return h.createElement(
-			b.Z,
-			{
-				"flow-children": "row",
-				className: (0, k.A)(
+		return (
+			<b.Z
+				flow-children="row"
+				className={A_1(
 					u,
 					this.props.showOpenFriendsList && "friendsListCollapsed",
-				),
-				onDragStart: this.OnDragStart,
-				ref: this.OnChatTabContianerRef,
-			},
-			this.props.popup &&
-				h.createElement(T.c, {
-					hideMin: _,
-					hideMax: _,
-					popup: this.props.popup,
-					className: "chatTitleBar",
-				}),
-			m,
-			((e && p) || this.props.showOpenFriendsList) &&
-				h.createElement(
-					"div",
-					{
-						className: "chatTabOpenFriendsList",
-						onClick: this.ShowFriendsList,
-					},
-					h.createElement(M.YJl, null),
-					(0, Localize)("#FriendsList_ExpandButton"),
-				),
-			this.props.tabSet.tabCount > 0 &&
-				h.createElement(
-					"div",
-					{
-						className: (0, k.A)(
+				)}
+				onDragStart={this.OnDragStart}
+				ref={this.OnChatTabContianerRef}
+			>
+				{this.props.popup && (
+					<T.c
+						hideMin={_}
+						hideMax={_}
+						popup={this.props.popup}
+						className="chatTitleBar"
+					/>
+				)}
+				{m}
+				{((e && p) || this.props.showOpenFriendsList) && (
+					<div
+						className="chatTabOpenFriendsList"
+						onClick={this.ShowFriendsList}
+					>
+						<M.YJl />
+						{(0, Localize)("#FriendsList_ExpandButton")}
+					</div>
+				)}
+				{this.props.tabSet.tabCount > 0 && (
+					<div
+						className={A_1(
 							"chatTabSetContainer",
 							this.context?.IN_GAMEPADUI && "gamepadui",
 							i.TS.IN_CLIENT && "inclient",
-						),
-					},
-					h.createElement(
-						I,
-						{
-							className: "chatTabList",
-							ref: this.OnScrollRef,
-						},
-						h.createElement(
-							C.A,
-							{
-								className: F.ChatTabTransitionGroup,
-							},
-							r.map((e, t) => {
-								let r = this.props.activeTab == e;
-								let n = (t) => this.OnTabRef(e.GetUniqueID(), t);
-								let i = {
-									enter: F.ChatTabTransition_Enter,
-									enterActive: F.ChatTabTransition_EnterActive,
-									exit: F.ChatTabTransition_Exit,
-									exitActive: F.ChatTabTransition_ExitActive,
-								};
-								return h.createElement(
-									L.M,
-									{
-										classNames: i,
-										key: e.GetUniqueID(),
-										timeout: 350,
-									},
-									(t) =>
-										h.createElement(sU, {
-											tab: e,
-											active: r,
-											selectTab: this.SelectTab,
-											ref: n,
-											containerRef: t,
-											fnOnDragEnd: this.OnDragEnd,
-										}),
-								);
-							}),
-						),
-					),
-					g &&
-						!this.context?.IN_GAMEPADUI &&
-						h.createElement(
-							"div",
-							{
-								className: "chatTabSelector" + (o ? " UnreadMessages" : ""),
-								onClick: this.OnTabSelectorClick,
-							},
-							h.createElement(M.GB9, null),
-							o &&
-								h.createElement("div", {
-									className: "ChatUnreadMessageIndicator",
-								}),
-						),
-				),
-			h.createElement("div", {
-				className: "dropTargetBox",
-			}),
-			e &&
-				h.createElement(
-					"div",
-					{
-						className:
-							"theaterModeHoverSpace" + (o ? " hasUnreadMessages" : ""),
-					},
-					o &&
-						h.createElement(
-							"div",
-							{
-								className: "ChatUnreadMessageIndicator",
-							},
-							h.createElement("div", {
-								className: "chatUnreadCircle",
-							}),
-						),
-				),
+						)}
+					>
+						<I className="chatTabList" ref={this.OnScrollRef}>
+							<C.A className={F.ChatTabTransitionGroup}>
+								{r.map((e, t) => {
+									let r = this.props.activeTab == e;
+									let n = (t) => this.OnTabRef(e.GetUniqueID(), t);
+									let i = {
+										enter: F.ChatTabTransition_Enter,
+										enterActive: F.ChatTabTransition_EnterActive,
+										exit: F.ChatTabTransition_Exit,
+										exitActive: F.ChatTabTransition_ExitActive,
+									};
+									return (
+										<L.M classNames={i} key={e.GetUniqueID()} timeout={350}>
+											{(t) => (
+												<SU
+													tab={e}
+													active={r}
+													selectTab={this.SelectTab}
+													ref={n}
+													containerRef={t}
+													fnOnDragEnd={this.OnDragEnd}
+												/>
+											)}
+										</L.M>
+									);
+								})}
+							</C.A>
+						</I>
+						{g && !this.context?.IN_GAMEPADUI && (
+							<div
+								className={`chatTabSelector${o ? " UnreadMessages" : ""}`}
+								onClick={this.OnTabSelectorClick}
+							>
+								<M.GB9 />
+								{o && <div className="ChatUnreadMessageIndicator" />}
+							</div>
+						)}
+					</div>
+				)}
+				<div className="dropTargetBox" />
+				{e && (
+					<div
+						className={`theaterModeHoverSpace${o ? " hasUnreadMessages" : ""}`}
+					>
+						{o && (
+							<div className="ChatUnreadMessageIndicator">
+								<div className="chatUnreadCircle" />
+							</div>
+						)}
+					</div>
+				)}
+			</b.Z>
 		);
 	}
 };
-(0, n.Cg)([p.sH], dH.prototype, "m_nTheaterTopHoverHeight", undefined);
-(0, n.Cg)([p.sH], dH.prototype, "m_tabDrag", undefined);
-(0, n.Cg)([B.oI], dH.prototype, "OnWindowResizeEvent", null);
-(0, n.Cg)([B.oI], dH.prototype, "HandleDropComplete", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnTabRef", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnScrollRef", null);
-(0, n.Cg)([B.oI], dH.prototype, "SelectTab", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnDragStart", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnChatTabContianerRef", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnDragEnd", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnBackClick", null);
-(0, n.Cg)([B.oI], dH.prototype, "ShowFriendsList", null);
-(0, n.Cg)([B.oI], dH.prototype, "StartTopbarEventListener", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnTopbarHovered", null);
-(0, n.Cg)([B.oI], dH.prototype, "OnTabSelectorClick", null);
-dH = (0, n.Cg)([g.PA], dH);
-let x = class extends h.Component {
+Cg([p.sH], dH.prototype, "m_nTheaterTopHoverHeight", undefined);
+Cg([p.sH], dH.prototype, "m_tabDrag", undefined);
+Cg([B.oI], dH.prototype, "OnWindowResizeEvent", null);
+Cg([B.oI], dH.prototype, "HandleDropComplete", null);
+Cg([B.oI], dH.prototype, "OnTabRef", null);
+Cg([B.oI], dH.prototype, "OnScrollRef", null);
+Cg([B.oI], dH.prototype, "SelectTab", null);
+Cg([B.oI], dH.prototype, "OnDragStart", null);
+Cg([B.oI], dH.prototype, "OnChatTabContianerRef", null);
+Cg([B.oI], dH.prototype, "OnDragEnd", null);
+Cg([B.oI], dH.prototype, "OnBackClick", null);
+Cg([B.oI], dH.prototype, "ShowFriendsList", null);
+Cg([B.oI], dH.prototype, "StartTopbarEventListener", null);
+Cg([B.oI], dH.prototype, "OnTopbarHovered", null);
+Cg([B.oI], dH.prototype, "OnTabSelectorClick", null);
+dH = Cg([g.PA], dH);
+let X = class extends h.Component {
 	SelectTab(e) {
 		this.props.tabSet.ActivateTab(e);
 	}
@@ -688,38 +650,35 @@ let x = class extends h.Component {
 		let e = [];
 		let t = this.props.tabSet.tabs;
 		for (let r of t) {
-			let t = h.createElement(sU, {
-				tab: r,
-				active: true,
-				selectTab: this.SelectTab,
-				fnOnDragEnd: null,
-				bDisableContextMenu: true,
-			});
+			let t = (
+				<SU
+					tab={r}
+					active
+					selectTab={this.SelectTab}
+					fnOnDragEnd={null}
+					bDisableContextMenu
+				/>
+			);
 			e.push(
-				h.createElement(
-					y.kt,
-					{
-						key: r.GetUniqueID(),
-						className: "ChatTabContextMenuItem",
-						onSelected: null,
-					},
-					t,
-				),
+				<y.kt
+					key={r.GetUniqueID()}
+					className="ChatTabContextMenuItem"
+					onSelected={null}
+				>
+					{t}
+				</y.kt>,
 			);
 		}
-		return h.createElement(
-			y.tz,
-			{
-				className:
-					"ChatTabs ChatTabsContextMenu compactView CompactFriendsList",
-			},
-			e,
+		return (
+			<y.tz className="ChatTabs ChatTabsContextMenu compactView CompactFriendsList">
+				{e}
+			</y.tz>
 		);
 	}
 };
-(0, n.Cg)([B.oI], x.prototype, "SelectTab", null);
-x = (0, n.Cg)([g.PA], x);
-export let sU = class extends h.Component {
+Cg([B.oI], X.prototype, "SelectTab", null);
+X = Cg([g.PA], X);
+export let SU = class extends h.Component {
 	static contextType = O.QO;
 	m_elChatTab;
 	m_bMiddleMouseDown = false;
@@ -776,7 +735,7 @@ export let sU = class extends h.Component {
 					};
 					this.props.fnOnDragEnd();
 					if (n) {
-						let t = (0, c.CO)(e);
+						let t = CO(e);
 						e.currentTarget.ownerDocument.defaultView.SteamClient.Window.GetMousePositionDetails().then(
 							(e) => {
 								if (e) {
@@ -787,7 +746,7 @@ export let sU = class extends h.Component {
 							},
 						);
 					} else {
-						l.xm.UIStore.MoveTabToNewPopup((0, c.CO)(e), r.tab, i);
+						l.xm.UIStore.MoveTabToNewPopup(CO(e), r.tab, i);
 					}
 				}
 			}
@@ -807,7 +766,7 @@ export let sU = class extends h.Component {
 	}
 	OnMouseUp(e) {
 		if (e.button == 1 && this.m_bMiddleMouseDown) {
-			l.xm.UIStore.CloseTab((0, c.CO)(e), this.props.tab);
+			l.xm.UIStore.CloseTab(CO(e), this.props.tab);
 			e.preventDefault();
 			this.m_bMiddleMouseDown = false;
 		}
@@ -819,7 +778,7 @@ export let sU = class extends h.Component {
 		e.stopPropagation();
 	}
 	OnCloseClick(e) {
-		l.xm.UIStore.CloseTab((0, c.CO)(e), this.props.tab);
+		l.xm.UIStore.CloseTab(CO(e), this.props.tab);
 		e.stopPropagation();
 	}
 	OnContextMenu(e) {
@@ -830,14 +789,14 @@ export let sU = class extends h.Component {
 		if (t.IsChatRoom()) {
 			if (t instanceof s.$C) {
 				let r = t;
-				(0, d.Tz)(e, r.GetGroup(), {
+				Tz(e, r.GetGroup(), {
 					tab: t,
 				});
 			}
 		} else {
 			let t = this.props.tab.GetChatView();
-			(0, A.tj)(
-				(0, c.CO)(e),
+			tj(
+				CO(e),
 				{
 					tab: this.props.tab,
 				},
@@ -862,181 +821,164 @@ export let sU = class extends h.Component {
 		let a = l.xm.ChatStore.VoiceChat.IsMicMuted();
 		let s = this.props.tab;
 		let o = s.IsVoiceActive();
-		let c = (0, k.A)(
+		let c = A_1(
 			F.ChatTab,
 			"no-drag",
 			this.props.active && F.Active,
 			o && F.VoiceActive,
 			o && a && F.MicMuted,
 		);
-		return h.createElement(
-			b.Z,
-			{
-				className: c,
-				ref: (0, B.XB)(this.BindChatTab, this.props.containerRef),
-				focusable: this.props.selectTab != null,
-				draggable: true,
-				onSecondaryButton: this.OnCloseClick,
-				onSecondaryActionDescription: (0, Localize)(
+		return (
+			<b.Z
+				className={c}
+				ref={XB(this.BindChatTab, this.props.containerRef)}
+				focusable={this.props.selectTab != null}
+				draggable
+				onSecondaryButton={this.OnCloseClick}
+				onSecondaryActionDescription={(0, Localize)(
 					"#Chat_CloseTabAction_SteamDeck",
-				),
-				onOKButton: this.OnOKButton,
-				onMenuButton: this.OnContextMenu,
-				onMouseDown: this.OnMouseDown,
-				onMouseUp: this.OnMouseUp,
-				onMouseLeave: this.OnMouseLeave,
-				onDragStart: this.OnDragStart,
-				onDragEnd: this.OnDragEnd,
-				onContextMenu: this.OnContextMenu,
-				onOKActionDescription: null,
-				onMenuActionDescription: (0, Localize)("#Chat_Tab_ContextMenu"),
-			},
-			h.createElement(
-				V,
-				{
-					tab: this.props.tab,
-					active: this.props.active,
-				},
-				h.createElement(
-					"div",
-					{
-						className: F.ChatTabRow,
-					},
-					s.IsVoiceActive() &&
-						h.createElement(
-							"div",
-							{
-								className: F.MicStatus,
-								title: a
-									? (0, Localize)("#Tooltip_MicStatus_Muted")
-									: (0, Localize)("#Tooltip_MicStatus_Active"),
-							},
-							this.context?.IN_GAMEPADUI
-								? i
-									? h.createElement(M.t$Q, null)
-									: h.createElement(M.mrd, null)
-								: h.createElement(M.EQ9, {
-										off: a,
-									}),
-						),
-					h.createElement(
-						w.tH,
-						null,
-						h.createElement(j, {
-							tab: this.props.tab,
-						}),
-					),
-					h.createElement(
-						w.tH,
-						null,
-						this.context?.IN_GAMEPADUI &&
-							(function (e) {
-								if (!e) {
-									return null;
+				)}
+				onOKButton={this.OnOKButton}
+				onMenuButton={this.OnContextMenu}
+				onMouseDown={this.OnMouseDown}
+				onMouseUp={this.OnMouseUp}
+				onMouseLeave={this.OnMouseLeave}
+				onDragStart={this.OnDragStart}
+				onDragEnd={this.OnDragEnd}
+				onContextMenu={this.OnContextMenu}
+				onOKActionDescription={null}
+				onMenuActionDescription={(0, Localize)("#Chat_Tab_ContextMenu")}
+			>
+				<V tab={this.props.tab} active={this.props.active}>
+					<div className={F.ChatTabRow}>
+						{s.IsVoiceActive() && (
+							<div
+								className={F.MicStatus}
+								title={
+									a
+										? (0, Localize)("#Tooltip_MicStatus_Muted")
+										: (0, Localize)("#Tooltip_MicStatus_Active")
 								}
-								let t = e.chat.accountid_partner;
-								let r =
-									l.xm.VoiceStore.BSelfHasAcceptedOrInitiatedOneOnOneChat(t);
-								let n =
-									l.xm.VoiceStore.BPartnerHasAcceptedOrInitiatedOneOnOneChat(t);
-								if (!n && !r) {
-									return null;
-								}
-								let i = "";
-								let a = l.xm.VoiceStore.BSelfHadPreviouslyJoinedOneOnOneChat(t);
-								let s = e.chat.chat_partner;
-								let o = l.xm.CMInterface.steamid.GetAccountID();
-								let c = false;
-								let m = false;
-								let u = false;
-								if (
-									l.xm.VoiceStore.GetActiveOneOnOneVoiceChatAccountID() == t
-								) {
-									c =
-										l.xm.VoiceStore.HasBeenAttemptingOverTwoSeconds() ||
-										l.xm.VoiceStore.IsAttemptingReconnect();
-									m =
-										!l.xm.VoiceStore.BIsAccountFullyConnectedToActiveVoiceChat(
-											o,
-										) || l.xm.VoiceStore.IsAttemptingReconnect();
-									u =
-										!l.xm.VoiceStore.BIsAccountFullyConnectedToActiveVoiceChat(
+							>
+								{this.context?.IN_GAMEPADUI ? (
+									i ? (
+										<M.t$Q />
+									) : (
+										<M.mrd />
+									)
+								) : (
+									<M.EQ9 off={a} />
+								)}
+							</div>
+						)}
+						<w.tH>
+							<J tab={this.props.tab} />
+						</w.tH>
+						<w.tH>
+							{this.context?.IN_GAMEPADUI &&
+								((e) => {
+									if (!e) {
+										return null;
+									}
+									let t = e.chat.accountid_partner;
+									let r =
+										l.xm.VoiceStore.BSelfHasAcceptedOrInitiatedOneOnOneChat(t);
+									let n =
+										l.xm.VoiceStore.BPartnerHasAcceptedOrInitiatedOneOnOneChat(
 											t,
 										);
-								}
-								i =
-									r && !n
-										? (0, Localize)(
-												"#Voice_WaitingForFriendToJoin",
-												s.display_name,
-											)
-										: n && !r
-											? a
-												? (0, Localize)(
-														"#Voice_ChannelRejoinAvailable",
-														s.display_name,
-													)
-												: (0, Localize)(
-														"#Voice_ChannelAvailable",
-														s.display_name,
-													)
-											: m
-												? c
-													? (0, Localize)("#VoiceChatConnecting")
-													: ""
-												: !m && u
+									if (!n && !r) {
+										return null;
+									}
+									let i = "";
+									let a =
+										l.xm.VoiceStore.BSelfHadPreviouslyJoinedOneOnOneChat(t);
+									let s = e.chat.chat_partner;
+									let o = l.xm.CMInterface.steamid.GetAccountID();
+									let c = false;
+									let m = false;
+									let u = false;
+									if (
+										l.xm.VoiceStore.GetActiveOneOnOneVoiceChatAccountID() == t
+									) {
+										c =
+											l.xm.VoiceStore.HasBeenAttemptingOverTwoSeconds() ||
+											l.xm.VoiceStore.IsAttemptingReconnect();
+										m =
+											!l.xm.VoiceStore.BIsAccountFullyConnectedToActiveVoiceChat(
+												o,
+											) || l.xm.VoiceStore.IsAttemptingReconnect();
+										u =
+											!l.xm.VoiceStore.BIsAccountFullyConnectedToActiveVoiceChat(
+												t,
+											);
+									}
+									i =
+										r && !n
+											? (0, Localize)(
+													"#Voice_WaitingForFriendToJoin",
+													s.display_name,
+												)
+											: n && !r
+												? a
 													? (0, Localize)(
-															"#VoiceChatParterConnecting",
+															"#Voice_ChannelRejoinAvailable",
 															s.display_name,
 														)
 													: (0, Localize)(
-															"#Voice_ChannelActive",
+															"#Voice_ChannelAvailable",
 															s.display_name,
-														);
-								return h.createElement(
-									"div",
-									{
-										className: F.VoiceStatusMessage,
-									},
-									i,
-								);
-							})(e),
-					),
-					h.createElement(W, {
-						onClick: this.OnCloseClick,
-						onMouseDown: this.OnCloseMouseDown,
-					}),
-					h.createElement(H, {
-						tab: this.props.tab,
-					}),
-				),
-			),
+														)
+												: m
+													? c
+														? (0, Localize)("#VoiceChatConnecting")
+														: ""
+													: !m && u
+														? (0, Localize)(
+																"#VoiceChatParterConnecting",
+																s.display_name,
+															)
+														: (0, Localize)(
+																"#Voice_ChannelActive",
+																s.display_name,
+															);
+									return <div className={F.VoiceStatusMessage}>{i}</div>;
+								})(e)}
+						</w.tH>
+						<W
+							onClick={this.OnCloseClick}
+							onMouseDown={this.OnCloseMouseDown}
+						/>
+						<H tab={this.props.tab} />
+					</div>
+				</V>
+			</b.Z>
 		);
 	}
 };
 function W(e) {
-	return h.createElement(
-		"div",
-		{
-			title: (0, Localize)("#Chat_CloseTooltip"),
-			className: F.CloseButton,
-			onClick: e.onClick,
-			onMouseDown: e.onMouseDown,
-		},
-		h.createElement(M.sED, null),
+	return (
+		<div
+			title={(0, Localize)("#Chat_CloseTooltip")}
+			className={F.CloseButton}
+			onClick={e.onClick}
+			onMouseDown={e.onMouseDown}
+		>
+			<M.sED />
+		</div>
 	);
 }
-(0, n.Cg)([B.oI], sU.prototype, "BindChatTab", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnDragStart", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnDragEnd", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnMouseDown", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnOKButton", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnMouseUp", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnMouseLeave", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnCloseMouseDown", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnCloseClick", null);
-(0, n.Cg)([B.oI], sU.prototype, "OnContextMenu", null);
-sU = (0, n.Cg)([g.PA], sU);
+Cg([B.oI], SU.prototype, "BindChatTab", null);
+Cg([B.oI], SU.prototype, "OnDragStart", null);
+Cg([B.oI], SU.prototype, "OnDragEnd", null);
+Cg([B.oI], SU.prototype, "OnMouseDown", null);
+Cg([B.oI], SU.prototype, "OnOKButton", null);
+Cg([B.oI], SU.prototype, "OnMouseUp", null);
+Cg([B.oI], SU.prototype, "OnMouseLeave", null);
+Cg([B.oI], SU.prototype, "OnCloseMouseDown", null);
+Cg([B.oI], SU.prototype, "OnCloseClick", null);
+Cg([B.oI], SU.prototype, "OnContextMenu", null);
+SU = Cg([g.PA], SU);
 class V extends h.Component {
 	m_refHideHover = h.createRef();
 	componentDidUpdate(e) {
@@ -1049,17 +991,17 @@ class V extends h.Component {
 		let t = e.tab.GetChatView();
 		if (t && t.chat instanceof o.s) {
 			let r = t.chat.chat_partner;
-			return h.createElement(
-				G.Rg,
-				{
-					key: r.accountid,
-					refHideHover: this.m_refHideHover,
-					friend: r,
-					context: {},
-					disableContextMenu: true,
-					direction: "bottom",
-				},
-				e.children,
+			return (
+				<G.Rg
+					key={r.accountid}
+					refHideHover={this.m_refHideHover}
+					friend={r}
+					context={{}}
+					disableContextMenu
+					direction="bottom"
+				>
+					{e.children}
+				</G.Rg>
 			);
 		}
 		return e.children;
@@ -1067,27 +1009,23 @@ class V extends h.Component {
 }
 let H = class extends h.Component {
 	render() {
-		const { tab: e } = this.props;
-		if (e.IsChatRoom() && e instanceof s.$C) {
-			if (!e.GetGroup().hasUnreadChatMessage) {
+		const { tab } = this.props;
+		if (tab.IsChatRoom() && tab instanceof s.$C) {
+			if (!tab.GetGroup().hasUnreadChatMessage) {
 				return null;
 			}
-		} else if (!e.GetUnreadMessageCount()) {
+		} else if (!tab.GetUnreadMessageCount()) {
 			return null;
 		}
-		return h.createElement(
-			"div",
-			{
-				className: F.UnreadGlow,
-			},
-			h.createElement("div", {
-				className: F.UnreadCircle,
-			}),
+		return (
+			<div className={F.UnreadGlow}>
+				<div className={F.UnreadCircle} />
+			</div>
 		);
 	}
 };
-H = (0, n.Cg)([g.PA], H);
-let j = class extends h.Component {
+H = Cg([g.PA], H);
+let J = class extends h.Component {
 	static contextType = O.QO;
 	render() {
 		let e = this.props.tab.GetChatView();
@@ -1095,81 +1033,49 @@ let j = class extends h.Component {
 			let t = e.chat.chat_partner;
 			let r = t.persona.is_ingame || this.context?.IN_GAMEPADUI;
 			let n = this.context?.IN_GAMEPADUI ? "Medium" : "X-Small";
-			return h.createElement(
-				"div",
-				{
-					className: F.ChatTabContent_Friend,
-				},
-				h.createElement(G.bP, {
-					friend: e.chat.chat_partner,
-					noActions: true,
-					context: {
-						chat: e.chat,
-					},
-					bHideGameName: !r,
-					bHideEnhancedRichPresenceLabel: !this.context?.IN_GAMEPADUI,
-					bHidePersona: !r,
-					bHideSnooze: false,
-					avatarSize: n,
-				}),
-				this.context?.IN_GAMEPADUI &&
-					!t.is_friend &&
-					h.createElement(
-						"div",
-						{
-							className: F.IsNotFriendLabel,
-						},
-						(0, Localize)("#Friend_Menu_NotAFriendLabel"),
-						" ",
-					),
+			return (
+				<div className={F.ChatTabContent_Friend}>
+					<G.bP
+						friend={e.chat.chat_partner}
+						noActions
+						context={{
+							chat: e.chat,
+						}}
+						bHideGameName={!r}
+						bHideEnhancedRichPresenceLabel={!this.context?.IN_GAMEPADUI}
+						bHidePersona={!r}
+						bHideSnooze={false}
+						avatarSize={n}
+					/>
+					{this.context?.IN_GAMEPADUI && !t.is_friend && (
+						<div className={F.IsNotFriendLabel}>
+							{(0, Localize)("#Friend_Menu_NotAFriendLabel")}{" "}
+						</div>
+					)}
+				</div>
 			);
 		}
 		if (e && e.chat instanceof a.d) {
 			let e = this.props.tab.GetGroup();
 			let t = true;
-			return h.createElement(
-				"div",
-				{
-					className: F.ChatTabContent_ChatRoom,
-				},
-				h.createElement(u.I, {
-					group: e,
-					smaller: t,
-					smallish: !t,
-				}),
-				h.createElement(
-					"div",
-					{
-						className: F.ChatTabContent_ChatRoomName,
-					},
-					this.props.tab.GetTabName(),
-				),
+			return (
+				<div className={F.ChatTabContent_ChatRoom}>
+					<u.I group={e} smaller={t} smallish={!t} />
+					<div className={F.ChatTabContent_ChatRoomName}>
+						{this.props.tab.GetTabName()}
+					</div>
+				</div>
 			);
 		}
 		if (this.props.tab.IsBroadcast()) {
 			let e = this.props.tab.GetTabName();
-			return h.createElement(
-				"div",
-				{
-					className: F.ChatTabContent_ChatRoom,
-				},
-				h.createElement(
-					"div",
-					{
-						className: "ChatRoomGroupAvatar HasAvatar Smaller",
-					},
-					h.createElement("img", {
-						className: "ChatRoomGroupAvatar_Avatar",
-						src: _.td.tabIcon,
-					}),
-				),
-				h.createElement(
-					"div",
-					{
-						className: F.ChatTabContent_ChatRoomName,
-					},
-					e,
-				),
+			return (
+				<div className={F.ChatTabContent_ChatRoom}>
+					<div className="ChatRoomGroupAvatar HasAvatar Smaller">
+						<img className="ChatRoomGroupAvatar_Avatar" src={_.td.tabIcon} />
+					</div>
+					<div className={F.ChatTabContent_ChatRoomName}>{e}</div>
+				</div>
 			);
 		}
 		return null;
@@ -1178,8 +1084,8 @@ let j = class extends h.Component {
 export function XX(e) {
 	if (!c.ZM.UIDisplayPrefs.bDontShowVoiceAlert) {
 		if (e) {
-			(0, E.HT)(
-				h.createElement(Q, null),
+			HT(
+				<Q />,
 				e,
 				"ActiveVoiceAlert",
 				{
@@ -1187,12 +1093,12 @@ export function XX(e) {
 					popupWidth: 650,
 					popupHeight: 340,
 				},
-				(0, c.h8)(e),
+				h8(e),
 			);
 		}
 	}
 }
-j = (0, n.Cg)([g.PA], j);
+J = Cg([g.PA], J);
 let Q = class extends h.Component {
 	m_strChannelName;
 	constructor(e) {
@@ -1225,94 +1131,55 @@ let Q = class extends h.Component {
 		});
 	}
 	render() {
-		return h.createElement(
-			E.x_,
-			{
-				onEscKeypress: this.DismissDialog,
-			},
-			h.createElement(
-				S.U9,
-				{
-					classNameContent: "CloseActiveVoiceWindowConfirmation",
-					onSubmit: this.OnSubmit,
-				},
-				h.createElement(
-					S.Y9,
-					null,
-					h.createElement(
-						"div",
-						null,
-						(0, Localize)("#Chat_StillInVoiceDialog_Title"),
-					),
-				),
-				h.createElement(
-					S.nB,
-					null,
-					h.createElement(
-						"div",
-						{
-							className: "activeVoiceDetails",
-						},
-						(0, Localize)("#Chat_StillInVoiceDialog_Desc1"),
-					),
-					h.createElement(
-						"div",
-						{
-							className: "activeVoiceDetails",
-						},
-						(0, Localize)("#Chat_StillInVoiceDialog_Desc2"),
-					),
-					h.createElement(
-						"div",
-						{
-							className: "voiceControlsExample",
-						},
-						h.createElement(G.lg, {
-							name: this.state.strChatName,
-							chat: l.xm.ChatStore.GetActiveVoiceChat(),
-							nostatus: true,
-						}),
-						h.createElement("div", {
-							className: "circleHighlight voiceExit",
-						}),
-					),
-					false,
-				),
-				h.createElement(
-					S.wi,
-					null,
-					h.createElement(
-						"div",
-						{
-							className: "_DialogColLayout",
-						},
-						h.createElement(
-							S.jn,
-							{
-								onClick: this.OnSubmit,
-							},
-							(0, Localize)("#Chat_StillInVoiceDialog_KeepChatting"),
-						),
-					),
-					h.createElement(
-						"div",
-						{
-							className: "dontShowConfirmation",
-							onClick: this.OnDialogChecked,
-						},
-						h.createElement(S.Yh, {
-							checked: this.state.bDontShowChecked,
-							onChange: this.OnDialogChecked,
-						}),
-						(0, Localize)("#Dialog_DontShowMeAgain"),
-					),
-				),
-			),
+		return (
+			<E.x_ onEscKeypress={this.DismissDialog}>
+				<S.U9
+					classNameContent="CloseActiveVoiceWindowConfirmation"
+					onSubmit={this.OnSubmit}
+				>
+					<S.Y9>
+						<div>{(0, Localize)("#Chat_StillInVoiceDialog_Title")}</div>
+					</S.Y9>
+					<S.nB>
+						<div className="activeVoiceDetails">
+							{(0, Localize)("#Chat_StillInVoiceDialog_Desc1")}
+						</div>
+						<div className="activeVoiceDetails">
+							{(0, Localize)("#Chat_StillInVoiceDialog_Desc2")}
+						</div>
+						<div className="voiceControlsExample">
+							<G.lg
+								name={this.state.strChatName}
+								chat={l.xm.ChatStore.GetActiveVoiceChat()}
+								nostatus
+							/>
+							<div className="circleHighlight voiceExit" />
+						</div>
+					</S.nB>
+					<S.wi>
+						<div className="_DialogColLayout">
+							<S.jn onClick={this.OnSubmit}>
+								{(0, Localize)("#Chat_StillInVoiceDialog_KeepChatting")}
+							</S.jn>
+						</div>
+						<div
+							className="dontShowConfirmation"
+							onClick={this.OnDialogChecked}
+						>
+							<S.Yh
+								checked={this.state.bDontShowChecked}
+								onChange={this.OnDialogChecked}
+							/>
+							{(0, Localize)("#Dialog_DontShowMeAgain")}
+						</div>
+					</S.wi>
+				</S.U9>
+			</E.x_>
 		);
 	}
 };
-(0, n.Cg)([B.oI], Q.prototype, "DismissDialog", null);
-(0, n.Cg)([B.oI], Q.prototype, "OnSubmit", null);
-(0, n.Cg)([B.oI], Q.prototype, "OnDialogChecked", null);
-(0, n.Cg)([B.oI], Q.prototype, "OnManualVoiceChatExit", null);
-Q = (0, n.Cg)([g.PA], Q);
+Cg([B.oI], Q.prototype, "DismissDialog", null);
+Cg([B.oI], Q.prototype, "OnSubmit", null);
+Cg([B.oI], Q.prototype, "OnDialogChecked", null);
+Cg([B.oI], Q.prototype, "OnManualVoiceChatExit", null);
+Q = Cg([g.PA], Q);

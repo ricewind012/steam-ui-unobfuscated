@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SetupHelp: "_3E4bwCRpSzKt7_NFOhAH09",
 	Content: "_2JdnJ10vlwhpJ9oogYd-dZ",
 	slideInAnimation: "_3LkQq8EAL3EJzuVVu46-Vl",

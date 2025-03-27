@@ -1,18 +1,18 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./67338.js");
-var l = require("./63367.js");
-var c = require("./51297.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require(/*webcrack:missing*/ "./43691.js");
+import { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import { _ } from "./67338.js";
+import l from "./63367.js";
+import c from "./51297.js";
+import { CI } from "./72476.js";
+import u from "./43691.js";
 export function Pb() {
-	return u.TS.ON_STEAMOS || (0, m.CI)();
+	return u.TS.ON_STEAMOS || CI();
 }
 class A {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_bIsVisible = false;
 	m_state = {
@@ -47,7 +47,7 @@ class A {
 			this.m_state.eResult = e.result;
 			if (this.m_state.eResult == 1) {
 				const t = c.tm.deserializeBinary(e.reply).toObject();
-				const r = await fetch("/systemreports/" + t.report_id);
+				const r = await fetch(`/systemreports/${t.report_id}`);
 				if (r.ok) {
 					const e = await r.text();
 					this.m_state.sReportId = t.report_id;
@@ -78,21 +78,21 @@ class A {
 		return (await SteamClient.System.Report.SaveToDesktop(e)).result;
 	}
 }
-(0, n.Cg)([a.sH], A.prototype, "m_bIsVisible", undefined);
-(0, n.Cg)([a.sH], A.prototype, "m_state", undefined);
-(0, n.Cg)([a.XI], A.prototype, "Reset", null);
+Cg([a.sH], A.prototype, "m_bIsVisible", undefined);
+Cg([a.sH], A.prototype, "m_state", undefined);
+Cg([a.XI], A.prototype, "Reset", null);
 export const Ty = new A();
 export function $8() {
 	return [
-		(0, s.q3)(() => Ty.bVisible),
+		q3(() => Ty.bVisible),
 		i.useCallback(() => {
 			Ty.Hide();
 		}, []),
 	];
 }
 export function cp() {
-	const e = (0, s.q3)(() => Ty.state);
-	(0, o._)(e);
+	const e = q3(() => Ty.state);
+	_(e);
 	return e;
 }
 window.SystemReportStore = Ty;

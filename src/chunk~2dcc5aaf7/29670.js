@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./42318.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require("./63367.js");
-var o = require("./10606.js");
-var l = require("./64608.js");
-var c = require("./92445.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./11131.js");
-var d = require("./35488.js");
-var A = require(/*webcrack:missing*/ "./26853.js");
-var _p = require(/*webcrack:missing*/ "./90765.js");
-var g = require("./18869.js");
-var h = require(/*webcrack:missing*/ "./43691.js");
+import n from "./63696.js";
+import i, { Nr } from "./42318.js";
+import s from "./63367.js";
+import o from "./10606.js";
+import l from "./64608.js";
+import c from "./92445.js";
+import u, { R7 } from "./11131.js";
+import d from "./35488.js";
+import A from "./26853.js";
+import { A as A_1 } from "./90765.js";
+import { br } from "./18869.js";
+import h from "./43691.js";
+const m = c;
 export function V(e) {
 	const t = e && e[0] == '"' ? e.slice(1, -1) : e || "";
 	return SteamClient.System.OpenFileDialog({
@@ -22,7 +22,7 @@ export function V(e) {
 }
 function _() {
 	switch (h.TS.PLATFORM) {
-		case "windows":
+		case "windows": {
 			return [
 				{
 					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_Windows"),
@@ -34,7 +34,8 @@ function _() {
 					rFilePatterns: ["*.*"],
 				},
 			];
-		case "macos":
+		}
+		case "macos": {
 			return [
 				{
 					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_MacOS"),
@@ -46,7 +47,8 @@ function _() {
 					rFilePatterns: ["*"],
 				},
 			];
-		case "linux":
+		}
+		case "linux": {
 			return [
 				{
 					strFileTypeName: Localize("#AddNonSteam_Filter_Exe_Linux"),
@@ -58,69 +60,65 @@ function _() {
 					rFilePatterns: ["*"],
 				},
 			];
-		default:
+		}
+		default: {
 			return [
 				{
 					strFileTypeName: Localize("#AddNonSteam_Filter_All"),
 					rFilePatterns: ["*"],
 				},
 			];
+		}
 	}
 }
-export const p = (0, i.Nr)(function () {
-	const [e, t] = n.useState(false);
-	const [r, i] = n.useState();
+export const p = Nr(() => {
+	const [e, setE] = n.useState(false);
+	const [r, setR] = n.useState();
 	n.useEffect(
 		() =>
 			s.Dt.RegisterForRunSteamURL(7, "open/addnonsteamgame", (e, r) => {
-				t(true);
+				setE(true);
 			}).unregister,
 		[],
 	);
 	const c = n.useCallback(() => {
-		t(false);
-	}, [t]);
+		setE(false);
+	}, [setE]);
 	if (!e) {
 		return null;
 	}
 	const u = Localize("#AddNonSteam_Title");
-	return n.createElement(
-		o.hM,
-		{
-			strTitle: u,
-			onDismiss: c,
-			resizable: true,
-			popupWidth: 700,
-			popupHeight: 650,
-			minWidth: 600,
-			minHeight: 400,
-			refPopup: i,
-			className: m.AddNonSteamGameDialog,
-		},
-		n.createElement(
-			l.Y9,
-			{
-				className: m.DialogHeader,
-			},
-			u,
-		),
-		n.createElement(y, null),
+	return (
+		<o.hM
+			strTitle={u}
+			onDismiss={c}
+			resizable
+			popupWidth={700}
+			popupHeight={650}
+			minWidth={600}
+			minHeight={400}
+			refPopup={setR}
+			className={m.AddNonSteamGameDialog}
+		>
+			<l.Y9 className={m.DialogHeader}>{u}</l.Y9>
+			<Y />
+		</o.hM>
 	);
 });
-var b;
-function y(e) {
-	const [t, r] = n.useState();
-	const i = (0, u.R7)();
-	const [s, o] = n.useState(b.Name);
-	const [c, d] = n.useState("");
-	const A = (0, g.br)();
+let b;
+function Y(e) {
+	const [t, setT] = n.useState();
+	const i = R7();
+	const [s, setS] = n.useState(b.Name);
+	const [c, setC] = n.useState("");
+	const A = br();
 	n.useEffect(() => {
-		SteamClient.Apps?.ScanForInstalledNonSteamApps().then(r);
-	}, [r]);
-	const [h, _] = n.useState(new Set());
+		SteamClient.Apps?.ScanForInstalledNonSteamApps().then(setT);
+	}, [setT]);
+	const [h, setH] = n.useState(new Set());
 	const f = (e, t, r) => {
 		if (t) {
-			if (!h.has(e.strCmdline) && (h.add(e.strCmdline), _(new Set(h)), r)) {
+			if (!h.has(e.strCmdline) && (h.add(e.strCmdline), setH(new Set(h)), r)) {
 				const t = i.ownerWindow.document.getElementById(e.strCmdline);
 				if (t) {
 					t.scrollIntoView({
@@ -130,7 +128,7 @@ function y(e) {
 				}
 			}
 		} else if (h.delete(e.strCmdline)) {
-			_(new Set(h));
+			setH(new Set(h));
 		}
 	};
 	const y = () => {
@@ -161,17 +159,21 @@ function y(e) {
 	let v;
 	let I;
 	switch (s) {
-		case b.Name:
+		case b.Name: {
 			v = "up";
 			break;
-		case b.NameReverse:
+		}
+		case b.NameReverse: {
 			v = "down";
 			break;
-		case b.Path:
+		}
+		case b.Path: {
 			I = "up";
 			break;
-		case b.PathReverse:
+		}
+		case b.PathReverse: {
 			I = "down";
+		}
 	}
 	let E = [];
 	const M = c.toLocaleLowerCase();
@@ -179,120 +181,88 @@ function y(e) {
 		if (
 			!(c.length > 0) ||
 			!!e.strAppName.toLocaleLowerCase().includes(M) ||
+			!!e.strAppName.toLocaleLowerCase().includes(M) ||
 			!!e.strExePath.toLocaleLowerCase().includes(M)
 		) {
 			E.push(e);
 		}
 	}
 	E.sort((e, t) =>
-		(function (e, t, r) {
+		((e, t, r) => {
 			switch (e) {
-				case b.Name:
+				case b.Name: {
 					return t.strAppName.localeCompare(r.strAppName);
-				case b.NameReverse:
+				}
+				case b.NameReverse: {
 					return r.strAppName.localeCompare(t.strAppName);
-				case b.Path:
+				}
+				case b.Path: {
 					return t.strExePath.localeCompare(r.strExePath);
-				case b.PathReverse:
+				}
+				case b.PathReverse: {
 					return r.strExePath.localeCompare(t.strExePath);
+				}
 			}
 			return 0;
 		})(s, e, t),
 	);
-	return n.createElement(
-		l.lV,
-		{
-			onSubmit: y,
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, _p.A)(m.AddNonSteamGameDialogContent, m.Desktop),
-			},
-			n.createElement(
-				l.a3,
-				{
-					className: m.DialogBodyText,
-				},
-				Localize("#AddNonSteam_Desc"),
-			),
-			n.createElement(l.pd, {
-				onChange: (e) => d(e.currentTarget.value),
-				placeholder: Localize("#AddNonSteam_Filter_Placeholder"),
-				bShowClearAction: true,
-				value: c,
-			}),
-			n.createElement(
-				"div",
-				{
-					className: m.Header,
-				},
-				n.createElement("div", {
-					className: m.Checkbox,
-				}),
-				n.createElement("div", {
-					className: m.Icon,
-				}),
-				n.createElement(
-					"div",
-					{
-						className: m.AppName,
-						onClick: () => {
+	return (
+		<l.lV onSubmit={y}>
+			<div className={A_1(m.AddNonSteamGameDialogContent, m.Desktop)}>
+				<l.a3 className={m.DialogBodyText}>
+					{Localize("#AddNonSteam_Desc")}
+				</l.a3>
+				<l.pd
+					onChange={(e) => setC(e.currentTarget.value)}
+					placeholder={Localize("#AddNonSteam_Filter_Placeholder")}
+					bShowClearAction
+					value={c}
+				/>
+				<div className={m.Header}>
+					<div className={m.Checkbox} />
+					<div className={m.Icon} />
+					<div
+						className={m.AppName}
+						onClick={() => {
 							if (s == b.Name) {
-								o(b.NameReverse);
+								setS(b.NameReverse);
 							} else {
-								o(b.Name);
+								setS(b.Name);
 							}
-						},
-					},
-					Localize("#AddNonSteam_Program"),
-					n.createElement(w, {
-						dir: v,
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: m.ExePath,
-						onClick: () => {
+						}}
+					>
+						{Localize("#AddNonSteam_Program")}
+						<W dir={v} />
+					</div>
+					<div
+						className={m.ExePath}
+						onClick={() => {
 							if (s == b.Path) {
-								o(b.PathReverse);
+								setS(b.PathReverse);
 							} else {
-								o(b.Path);
+								setS(b.Path);
 							}
-						},
-					},
-					Localize("#AddNonSteam_Location"),
-					n.createElement(w, {
-						dir: I,
-					}),
-				),
-			),
-			n.createElement(
-				"div",
-				{
-					className: m.GameList,
-				},
-				!t && n.createElement(S, null),
-				E?.map((e) =>
-					n.createElement(B, {
-						key: e.strCmdline,
-						app: e,
-						bIsSelected: h.has(e.strCmdline),
-						setSelected: (t) => f(e, t),
-					}),
-				),
-			),
-			n.createElement(
-				"div",
-				{
-					className: m.Footer,
-				},
-				n.createElement(
-					l.$n,
-					{
-						onClick: async () => {
-							d("");
+						}}
+					>
+						{Localize("#AddNonSteam_Location")}
+						<W dir={I} />
+					</div>
+				</div>
+				<div className={m.GameList}>
+					{!t && <S />}
+					{E?.map((e) => (
+						<B
+							key={e.strCmdline}
+							app={e}
+							bIsSelected={h.has(e.strCmdline)}
+							setSelected={(t) => f(e, t)}
+						/>
+					))}
+				</div>
+				<div className={m.Footer}>
+					<l.$n
+						onClick={async () => {
+							setC("");
 							const e = await V();
 							if (!e) {
 								return;
@@ -306,116 +276,73 @@ function y(e) {
 									console.error("Failed to get shortcut data for app", e);
 									return;
 								}
-								r([...t, n]);
+								setT([...t, n]);
 								f(n, true, true);
 							}
-						},
-						disabled: t === undefined,
-						className: m.BrowseButton,
-					},
-					Localize("#AddNonSteam_Browse"),
-				),
-				n.createElement("div", {
-					className: m.Spacer,
-				}),
-				n.createElement(
-					l.jn,
-					{
-						disabled: h.size == 0,
-						onClick: y,
-					},
-					Localize("#AddNonSteam_AddSelected"),
-				),
-				n.createElement(
-					l.$n,
-					{
-						onClick: i.ownerWindow.close,
-					},
-					Localize("#Button_Cancel"),
-				),
-			),
-		),
+						}}
+						disabled={t === undefined}
+						className={m.BrowseButton}
+					>
+						{Localize("#AddNonSteam_Browse")}
+					</l.$n>
+					<div className={m.Spacer} />
+					<l.jn disabled={h.size == 0} onClick={y}>
+						{Localize("#AddNonSteam_AddSelected")}
+					</l.jn>
+					<l.$n onClick={i.ownerWindow.close}>
+						{Localize("#Button_Cancel")}
+					</l.$n>
+				</div>
+			</div>
+		</l.lV>
 	);
 }
 function S(e) {
-	return n.createElement(
-		"div",
-		{
-			className: m.LoadingContainer,
-		},
-		n.createElement(
-			"div",
-			null,
-			n.createElement(A.t, {
-				size: "medium",
-				position: "center",
-				string: Localize("#AddNonSteam_Loading"),
-			}),
-		),
+	return (
+		<div className={m.LoadingContainer}>
+			<div>
+				<A.t
+					size="medium"
+					position="center"
+					string={Localize("#AddNonSteam_Loading")}
+				/>
+			</div>
+		</div>
 	);
 }
-function w(e) {
+function W(e) {
 	if (e.dir) {
-		return n.createElement(
-			"div",
-			{
-				className: m.SortArrowContainer,
-			},
-			n.createElement(d.Carat, {
-				className: m.Arrow,
-				direction: e.dir,
-			}),
+		return (
+			<div className={m.SortArrowContainer}>
+				<d.Carat className={m.Arrow} direction={e.dir} />
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
 function B(e) {
-	const { app: t, bIsSelected: r, setSelected: i } = e;
-	return n.createElement(
-		"div",
-		{
-			className: m.GameRow,
-			id: t.strCmdline,
-			onClick: () => i(!r),
-		},
-		n.createElement(
-			"div",
-			{
-				className: m.Checkbox,
-			},
-			n.createElement(l.Yh, {
-				checked: r,
-				onChange: i,
-			}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: m.IconContainer,
-			},
-			!!t.strIconDataBase64 &&
-				n.createElement("img", {
-					src: "data:image/png;base64, " + t.strIconDataBase64,
-				}),
-		),
-		n.createElement(
-			"div",
-			{
-				className: m.AppName,
-			},
-			t.strAppName,
-		),
-		n.createElement(
-			"div",
-			{
-				className: m.ExePath,
-			},
-			t.strCmdline,
-		),
+	const { app, bIsSelected, setSelected } = e;
+	return (
+		<div
+			className={m.GameRow}
+			id={app.strCmdline}
+			onClick={() => setSelected(!bIsSelected)}
+		>
+			<div className={m.Checkbox}>
+				<l.Yh checked={bIsSelected} onChange={setSelected} />
+			</div>
+			<div className={m.IconContainer}>
+				{!!app.strIconDataBase64 && (
+					<img src={`data:image/png;base64, ${app.strIconDataBase64}`} />
+				)}
+			</div>
+			<div className={m.AppName}>{app.strAppName}</div>
+			<div className={m.ExePath}>{app.strCmdline}</div>
+		</div>
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.Name = 0)] = "Name";
 	e[(e.NameReverse = 1)] = "NameReverse";
 	e[(e.Path = 2)] = "Path";

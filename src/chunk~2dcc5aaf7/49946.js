@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "mKmrOjr9bGjKAolgp9NoD",
 	VoteContainer: "_3Kelh1-_v6xHfRjF68n7NB",
 	DiscussContainer: "_16xC0mtOWoLbvSQbmo_ycv",

@@ -1,13 +1,13 @@
-export var Go;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./60917.js");
-var l = require("./93440.js");
-var c = require("./13869.js");
-var m = require("./63312.js");
-var u = require("./27325.js");
-(function (e) {
+import { Cg } from "./34629.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./60917.js";
+import { gL } from "./93440.js";
+import { pg } from "./13869.js";
+import { z5, f0 } from "./63312.js";
+import u, { C6 } from "./27325.js";
+export let Go;
+((e) => {
 	e[(e.Low = 0)] = "Low";
 	e[(e.Medium = 1)] = "Medium";
 	e[(e.High = 2)] = "High";
@@ -52,7 +52,7 @@ export class Zw {
 		return this.m_bSayFull;
 	}
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		SteamClient.System.RegisterForBatteryStateChanges(
 			this.OnBatteryStateChanged,
 		);
@@ -63,8 +63,8 @@ export class Zw {
 			const e = () => {
 				this.m_bShowingConnectedSlowDetails = false;
 			};
-			(0, c.pg)(
-				(0, m.z5)({
+			pg(
+				z5({
 					onOK: e,
 				}),
 				window,
@@ -72,7 +72,7 @@ export class Zw {
 		}
 	}
 	ShowBatteryFullDetails() {
-		(0, c.pg)((0, m.f0)({}), window);
+		pg(f0({}), window);
 	}
 	OnBatteryStateChanged(e) {
 		const t = this.m_eACState;
@@ -95,10 +95,10 @@ export class Zw {
 			if (this.m_nBatteryTimeConfidenceTimeoutID != null) {
 				window.clearTimeout(this.m_nBatteryTimeConfidenceTimeoutID);
 			}
-			const t = (0, u.C6)(10, u.Nf.Seconds, u.Nf.Millis);
+			const t = C6(10, u.Nf.Seconds, u.Nf.Millis);
 			this.m_nBatteryTimeConfidenceTimeoutID = window.setTimeout(() => {
 				this.m_eBatteryTimeConfidence = Go.Medium;
-				const e = (0, u.C6)(1, u.Nf.Minutes, u.Nf.Millis);
+				const e = C6(1, u.Nf.Minutes, u.Nf.Millis);
 				this.m_nBatteryTimeConfidenceTimeoutID = window.setTimeout(() => {
 					this.m_eBatteryTimeConfidence = Go.High;
 					this.m_nBatteryTimeConfidenceTimeoutID = null;
@@ -112,7 +112,7 @@ export class Zw {
 				this.m_nSayFullTimeoutID = null;
 			}
 		} else if (r == 3) {
-			const e = (0, u.C6)(5, u.Nf.Seconds, u.Nf.Millis);
+			const e = C6(5, u.Nf.Seconds, u.Nf.Millis);
 			this.m_nSayFullTimeoutID = window.setTimeout(() => {
 				this.m_bSayFull = false;
 				this.m_nSayFullTimeoutID = null;
@@ -120,26 +120,26 @@ export class Zw {
 		}
 		if (e.bShutdownRequested && !this.m_bShuttingDown) {
 			this.m_bShuttingDown = true;
-			(0, l.gL)();
+			gL();
 		}
 	}
 }
 export function Qc() {
-	return (0, s.q3)(() => Zw.Get().batteryState);
+	return q3(() => Zw.Get().batteryState);
 }
 export function Ab() {
-	return (0, s.q3)(() => Zw.Get().eBatteryTimeConfidence);
+	return q3(() => Zw.Get().eBatteryTimeConfidence);
 }
 export function FA() {
-	return (0, s.q3)(() => Zw.Get().bSayFull);
+	return q3(() => Zw.Get().bSayFull);
 }
-(0, i.Cg)([a.sH], Zw.prototype, "m_bHasBattery", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_eACState", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_eBatteryState", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_flBatteryLevel", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_nBatterySecondsRemaining", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_bShutdownRequested", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_bNotificationToastEnabled", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_eBatteryTimeConfidence", undefined);
-(0, i.Cg)([a.sH], Zw.prototype, "m_bSayFull", undefined);
-(0, i.Cg)([a.XI.bound], Zw.prototype, "OnBatteryStateChanged", null);
+Cg([a.sH], Zw.prototype, "m_bHasBattery", undefined);
+Cg([a.sH], Zw.prototype, "m_eACState", undefined);
+Cg([a.sH], Zw.prototype, "m_eBatteryState", undefined);
+Cg([a.sH], Zw.prototype, "m_flBatteryLevel", undefined);
+Cg([a.sH], Zw.prototype, "m_nBatterySecondsRemaining", undefined);
+Cg([a.sH], Zw.prototype, "m_bShutdownRequested", undefined);
+Cg([a.sH], Zw.prototype, "m_bNotificationToastEnabled", undefined);
+Cg([a.sH], Zw.prototype, "m_eBatteryTimeConfidence", undefined);
+Cg([a.sH], Zw.prototype, "m_bSayFull", undefined);
+Cg([a.XI.bound], Zw.prototype, "OnBatteryStateChanged", null);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	narrowWidth: "500px",
 	EulaIntro: "_3q_Ir9vDx5xeUcjwJEW8_k",

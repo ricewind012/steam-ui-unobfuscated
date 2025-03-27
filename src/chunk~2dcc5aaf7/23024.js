@@ -1,9 +1,26 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require("./21866.js");
-var l = require("./18118.js");
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
+import {
+	Localize,
+	LocaleToELanguage,
+} from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn, sH, h5 } from "./89193.js";
+import o from "./21866.js";
+import l from "./18118.js";
+import { Mc, aM } from "./59715.js";
+import A from "./61738.js";
+import p from "./31958.js";
+import g from "./72476.js";
+import h from "./93960.js";
+import C from "./99167.js";
+import _ from "./79769.js";
+import y, { w as w_1 } from "./49455.js";
+import w, { H } from "./16154.js";
+import B from "./44058.js";
+import v from "./20711.js";
+import { Dp } from "./736.js";
+const a = i;
 function c(e, t, r) {
 	return [e, t, r];
 }
@@ -50,12 +67,12 @@ class u extends l.J8 {
 		if (typeof e != "object" || !Array.isArray(e)) {
 			throw new m("expected array");
 		}
-		let n = e.length;
-		for (let i = 0; i < n; ++i) {
+		let e_length = e.length;
+		for (let i = 0; i < e_length; ++i) {
 			try {
 				r.push(t(e[i]));
 			} catch (e) {
-				e.message += "\n...while parsing array element " + i;
+				e.message += `\n...while parsing array element ${i}`;
 				throw e;
 			}
 		}
@@ -70,7 +87,7 @@ class u extends l.J8 {
 			try {
 				r.set(n, t(e[n]));
 			} catch (e) {
-				e.message += "\n...while parsing dictionary element " + n;
+				e.message += `\n...while parsing dictionary element ${n}`;
 				throw e;
 			}
 		}
@@ -194,13 +211,6 @@ class u extends l.J8 {
 	}
 	UpdateSoundtrack(e, t) {}
 }
-var d = require("./59715.js");
-var A = require("./61738.js");
-var p = require(/*webcrack:missing*/ "./31958.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require(/*webcrack:missing*/ "./93960.js");
-var C = require("./99167.js");
-var _ = require(/*webcrack:missing*/ "./79769.js");
 class f {
 	m_elVideo = null;
 	m_peerConnection = null;
@@ -215,7 +225,7 @@ class f {
 	m_schCaptureDisplayStatsTrigger = new _.LU();
 	m_stats = new C._L();
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_elVideo = e;
 	}
 	async PlayMPD(e) {}
@@ -236,10 +246,10 @@ class f {
 		let s = {
 			iceServers: [
 				{
-					urls: ["stun:" + n],
+					urls: [`stun:${n}`],
 				},
 				{
-					urls: ["turn:" + n],
+					urls: [`turn:${n}`],
 					username: t,
 					credential: r,
 				},
@@ -250,8 +260,7 @@ class f {
 		this.m_peerConnection.oniceconnectionstatechange = ((e) => {
 			if (this.m_peerConnection) {
 				console.log(
-					"BroadcastWebRTC: ICE connection state changed to " +
-						this.m_peerConnection.iceConnectionState,
+					`BroadcastWebRTC: ICE connection state changed to ${this.m_peerConnection.iceConnectionState}`,
 				);
 				if (this.m_peerConnection.iceConnectionState === "failed") {
 					this.OnWebRTCConnectionFailed();
@@ -272,16 +281,17 @@ class f {
 				t.append("candidate", e.candidate.candidate);
 				a.post(`${g.TS.CHAT_BASE_URL}broadcast/addbroadcastwebrtccandidate`, t)
 					.then((e) => {
-						const t = e.data;
-						if (!t.success || t.success != 1) {
+						const e_data = e.data;
+						if (!e_data.success || e_data.success != 1) {
 							console.log(
-								"Failed to add a WebRTC session ICE candidate: " +
-									String(t.success),
+								`Failed to add a WebRTC session ICE candidate: ${String(
+									e_data.success,
+								)}`,
 							);
 						}
 					})
 					.catch((e) =>
-						console.log("Failed to add a WebRTC session ICE candidate" + e),
+						console.log(`Failed to add a WebRTC session ICE candidate${e}`),
 					);
 			}
 		}).bind(this);
@@ -309,13 +319,13 @@ class f {
 					await a
 						.post(`${g.TS.CHAT_BASE_URL}broadcast/setbroadcastwebrtcanswer`, e)
 						.then((e) => {
-							const t = e.data;
-							if (!t.success || t.success != 1) {
-								throw new Error(String(t.success));
+							const e_data = e.data;
+							if (!e_data.success || e_data.success != 1) {
+								throw new Error(String(e_data.success));
 							}
 						});
 				} catch (e) {
-					console.log("Failed to set the WebRTC session answer: " + e);
+					console.log(`Failed to set the WebRTC session answer: ${e}`);
 					this.OnWebRTCConnectionRetry();
 					return;
 				}
@@ -335,13 +345,15 @@ class f {
 			await a
 				.post(`${g.TS.CHAT_BASE_URL}broadcast/getbroadcastwebrtccandidates`, e)
 				.then((e) => {
-					const t = e.data;
-					const r = t.data;
-					if (!t.success || t.success != 1) {
-						throw new Error(String(t.success));
+					const e_data = e.data;
+					const e_data_data = e_data.data;
+					if (!e_data.success || e_data.success != 1) {
+						throw new Error(String(e_data.success));
 					}
-					if (r.candidate_generation > this.m_nHostCandidateGeneration) {
-						r.candidates.forEach((e) => {
+					if (
+						e_data_data.candidate_generation > this.m_nHostCandidateGeneration
+					) {
+						e_data_data.candidates.forEach((e) => {
 							const t = new RTCIceCandidate({
 								sdpMid: e.sdp_mid,
 								sdpMLineIndex: e.sdp_mline_index,
@@ -351,13 +363,13 @@ class f {
 								.addIceCandidate(t)
 								.catch((e) => console.error(e));
 						});
-						this.m_nHostCandidateGeneration = r.candidate_generation;
+						this.m_nHostCandidateGeneration = e_data_data.candidate_generation;
 					} else if (this.m_nHostCandidateGeneration > 0) {
 						this.m_nCandidateUpdateIntervalMS *= 2;
 					}
 				});
 		} catch (e) {
-			console.log("Failed to get WebRTC session ICE candidates" + e);
+			console.log(`Failed to get WebRTC session ICE candidates${e}`);
 			this.OnWebRTCConnectionRetry();
 			return;
 		}
@@ -515,24 +527,14 @@ class f {
 		return false;
 	}
 }
-(0, n.Cg)([h.o], f.prototype, "PlayWebRTC", null);
-(0, n.Cg)([s.XI.bound], f.prototype, "CaptureStatsForDisplay", null);
-(0, n.Cg)([h.o], f.prototype, "OnVideoPause", null);
-(0, n.Cg)([h.o], f.prototype, "OnVideoResize", null);
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-var y = require(/*webcrack:missing*/ "./49455.js");
-import {
-	Localize,
-	LocaleToELanguage,
-} from "../../actual_src/utils/localization.js";
-var w = require("./16154.js");
-var B = require("./44058.js");
-var v = require("./20711.js");
-var I = require(/*webcrack:missing*/ "./736.js");
+Cg([h.o], f.prototype, "PlayWebRTC", null);
+Cg([s.XI.bound], f.prototype, "CaptureStatsForDisplay", null);
+Cg([h.o], f.prototype, "OnVideoPause", null);
+Cg([h.o], f.prototype, "OnVideoResize", null);
 export const fO = 7;
-export var fK;
-export var a0;
-(function (e) {
+export let fK;
+export let a0;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Unlocking = 1)] = "Unlocking";
 	e[(e.Loading = 2)] = "Loading";
@@ -558,10 +560,10 @@ class R {
 		}
 	}
 	BCanUnlockH264() {
-		if ((0, I.Dp)("RemotePlay.UnlockH264")) {
+		if (Dp("RemotePlay.UnlockH264")) {
 			console.log("Client supports direct H.264 unlock");
 			return true;
-		} else if ((0, I.Dp)("BrowserView.PostMessageToParent")) {
+		} else if (Dp("BrowserView.PostMessageToParent")) {
 			console.log("Client supports browserview H.264 unlock");
 			return true;
 		} else {
@@ -570,10 +572,10 @@ class R {
 		}
 	}
 	RequestUnlockH264() {
-		if ((0, I.Dp)("RemotePlay.UnlockH264")) {
+		if (Dp("RemotePlay.UnlockH264")) {
 			console.log("Requesting direct H.264 unlock");
 			SteamClient.RemotePlay.UnlockH264();
-		} else if ((0, I.Dp)("BrowserView.PostMessageToParent")) {
+		} else if (Dp("BrowserView.PostMessageToParent")) {
 			console.log("Requesting browserview unlock");
 			SteamClient.BrowserView.PostMessageToParent(
 				"UnlockH264Request",
@@ -587,7 +589,7 @@ class R {
 		if (this.m_broadcast.m_eWatchState != fK.Unlocking) {
 			return;
 		}
-		if ((0, d.Mc)() || (0, d.aM)()) {
+		if (Mc() || aM()) {
 			console.log("Unlocking H.264 successful");
 			this.m_broadcast.SetState(fK.None, "");
 			this.m_video.Restart();
@@ -608,7 +610,7 @@ class R {
 }
 class k {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_steamIDBroadcast = "";
 	m_ulBroadcastID = "";
@@ -629,15 +631,15 @@ class k {
 		}
 	}
 }
-(0, n.Cg)([s.sH], k.prototype, "m_ulBroadcastID", undefined);
-(0, n.Cg)([s.sH], k.prototype, "m_eWatchState", undefined);
-(0, n.Cg)([s.sH], k.prototype, "m_strStateDescription", undefined);
-(0, n.Cg)([s.XI], k.prototype, "SetState", null);
+Cg([s.sH], k.prototype, "m_ulBroadcastID", undefined);
+Cg([s.sH], k.prototype, "m_eWatchState", undefined);
+Cg([s.sH], k.prototype, "m_strStateDescription", undefined);
+Cg([s.XI], k.prototype, "SetState", null);
 class D {
 	m_steamIDBroadcast = "";
 	m_bInitialized = false;
 	m_strTitle = "";
-	m_strAppId = "" + fO;
+	m_strAppId = `${fO}`;
 	m_nAppID = fO;
 	m_strAppTitle = "";
 	m_strThumbnailUrl = "";
@@ -646,21 +648,21 @@ class D {
 	m_schUpdateTimeout = new _.LU();
 	m_nRefCount = 0;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_steamIDBroadcast = e;
 	}
 }
-(0, n.Cg)([s.sH], D.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_strTitle", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_strAppId", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_nAppID", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_strAppTitle", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_strThumbnailUrl", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_nViewerCount", undefined);
-(0, n.Cg)([s.sH], D.prototype, "m_bIsOnline", undefined);
+Cg([s.sH], D.prototype, "m_bInitialized", undefined);
+Cg([s.sH], D.prototype, "m_strTitle", undefined);
+Cg([s.sH], D.prototype, "m_strAppId", undefined);
+Cg([s.sH], D.prototype, "m_nAppID", undefined);
+Cg([s.sH], D.prototype, "m_strAppTitle", undefined);
+Cg([s.sH], D.prototype, "m_strThumbnailUrl", undefined);
+Cg([s.sH], D.prototype, "m_nViewerCount", undefined);
+Cg([s.sH], D.prototype, "m_bIsOnline", undefined);
 class N {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_eWatchState = fK.None;
 	m_strStateDescription = "";
@@ -673,9 +675,9 @@ class N {
 		}
 	}
 }
-(0, n.Cg)([s.sH], N.prototype, "m_eWatchState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_strStateDescription", undefined);
-(0, n.Cg)([s.XI], N.prototype, "SetState", null);
+Cg([s.sH], N.prototype, "m_eWatchState", undefined);
+Cg([s.sH], N.prototype, "m_strStateDescription", undefined);
+Cg([s.XI], N.prototype, "SetState", null);
 class F extends N {
 	m_clipID;
 	m_data;
@@ -697,7 +699,7 @@ class O {
 	m_schSaveSettings = new _.LU();
 	m_broadcastInfos = {};
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.LoadBroadcastSettings();
 	}
 	GetBroadcastState(e) {
@@ -754,12 +756,12 @@ class O {
 	}
 	CreateBroadcastVideo(e, t, r, n) {
 		let i = this.GetOrCreateBroadcast(t);
-		let { nVolume: a, bMuted: s } = this.m_broadcastSettings;
-		let o = new P(e, a, s, r);
+		let { nVolume, bMuted } = this.m_broadcastSettings;
+		let o = new P(e, nVolume, bMuted, r);
 		o.SetBroadcastSteamID(t);
 		i.m_rgVideos.push(o);
 		i.m_bWebRTC = n;
-		if (!(0, d.Mc)() && !(0, d.aM)()) {
+		if (!Mc() && !aM()) {
 			new R().UnlockH264(i, o);
 			return o;
 		}
@@ -767,11 +769,11 @@ class O {
 	}
 	CreateClipVideo(e, t, r) {
 		let n = this.GetOrCreateClip(t);
-		let { nVolume: i, bMuted: a } = this.m_broadcastSettings;
-		let s = new P(e, i, a, r);
+		let { nVolume, bMuted } = this.m_broadcastSettings;
+		let s = new P(e, nVolume, bMuted, r);
 		s.SetBroadcastClipID(t);
 		n.m_rgVideos.push(s);
-		if (!(0, d.Mc)() && !(0, d.aM)()) {
+		if (!Mc() && !aM()) {
 			new R().UnlockH264(n, s);
 			return s;
 		}
@@ -779,11 +781,11 @@ class O {
 	}
 	CreateVODVideo(e, t, r) {
 		let n = this.GetOrCreateVOD(t);
-		let { nVolume: i, bMuted: a } = this.m_broadcastSettings;
-		let s = new P(e, i, a, r);
+		let { nVolume, bMuted } = this.m_broadcastSettings;
+		let s = new P(e, nVolume, bMuted, r);
 		s.SetBroadcastAppIDVOD(t);
 		n.m_rgVideos.push(s);
-		if (!(0, d.Mc)() && !(0, d.aM)()) {
+		if (!Mc() && !aM()) {
 			new R().UnlockH264(n, s);
 			return s;
 		}
@@ -857,7 +859,7 @@ class O {
 		e.Stop();
 		if (r) {
 			if (r.m_ulBroadcastID) {
-				(async function (e, t, r) {
+				(async (e, t, r) => {
 					if (!t) {
 						return;
 					}
@@ -866,7 +868,7 @@ class O {
 					n.append("broadcastid", t);
 					n.append("viewertoken", r);
 					try {
-						await a.post(g.TS.CHAT_BASE_URL + "broadcast/stopwatching", n);
+						await a.post(`${g.TS.CHAT_BASE_URL}broadcast/stopwatching`, n);
 					} catch {}
 				})(t, r.m_ulBroadcastID, this.m_broadcastSettings.ulViewerToken);
 			}
@@ -890,13 +892,12 @@ class O {
 			return new D("");
 		}
 		if (!this.m_broadcastInfos[e]) {
-			const t = (0, s.sH)(new D(e));
+			const t = sH(new D(e));
 			this.m_broadcastInfos[e] = t;
 		}
 		return this.m_broadcastInfos[e];
 	}
 	GetOrCreateBroadcast(e) {
-		let t = this.m_mapBroadcasts.get(e);
 		return (
 			t ||
 			((t = new k()),
@@ -923,7 +924,6 @@ class O {
 		}
 	}
 	GetOrCreateClip(e) {
-		let t = this.m_mapClips.get(e);
 		return (
 			t ||
 			((t = new F()),
@@ -934,7 +934,6 @@ class O {
 		);
 	}
 	GetOrCreateVOD(e) {
-		let t = this.m_mapVODs.get(e);
 		return (
 			t ||
 			((t = new G()),
@@ -969,27 +968,38 @@ class O {
 					params: n,
 				},
 			);
-			if (!t || !t.data || !t.data.success || t.data.success != 1) {
+			if (
+				!t ||
+				!t.data ||
+				!t.data ||
+				!t.data.success ||
+				!t.data ||
+				!t.data.success ||
+				t.data.success != 1
+			) {
 				e.m_bInitialized = true;
 				return;
 			}
-			const r = t.data;
-			(0, s.h5)(() => {
+			const t_data = t.data;
+			h5(() => {
 				e.m_bInitialized = true;
-				e.m_strTitle = r.title;
-				e.m_strAppId = r.appid;
-				e.m_nAppID = Number.parseInt(r.appid);
-				e.m_strAppTitle = r.app_title;
-				e.m_strThumbnailUrl = r.thumbnail_url;
-				e.m_nViewerCount = r.viewer_count;
-				e.m_bIsOnline = r.is_online;
+				e.m_strTitle = t_data.title;
+				e.m_strAppId = t_data.appid;
+				e.m_nAppID = Number.parseInt(t_data.appid);
+				e.m_strAppTitle = t_data.app_title;
+				e.m_strThumbnailUrl = t_data.thumbnail_url;
+				e.m_nViewerCount = t_data.viewer_count;
+				e.m_bIsOnline = t_data.is_online;
 				if (!e.m_strTitle && o.td) {
 					e.m_strTitle = o.td.name;
 					e.m_strAppTitle = o.td.appName || o.td.name;
 				}
-				const t = r.update_interval;
-				if (t && typeof t == "number") {
-					e.m_schUpdateTimeout.Schedule(t * 1000, () =>
+				const t_data_update_interval = t_data.update_interval;
+				if (
+					t_data_update_interval &&
+					typeof t_data_update_interval == "number"
+				) {
+					e.m_schUpdateTimeout.Schedule(t_data_update_interval * 1000, () =>
 						this.LoadBroadcastInfo(e),
 					);
 				}
@@ -1015,30 +1025,30 @@ class O {
 		};
 		let i = null;
 		try {
-			i = await a.get(g.TS.CHAT_BASE_URL + "broadcast/getbroadcastmpd/", {
+			i = await a.get(`${g.TS.CHAT_BASE_URL}broadcast/getbroadcastmpd/`, {
 				params: n,
 				withCredentials: true,
 			});
 		} catch (e) {
-			let t = (0, w.H)(e);
-			console.error("Failed to get broadcast manifest!" + t.strErrorMsg, t);
+			let t = H(e);
+			console.error(`Failed to get broadcast manifest!${t.strErrorMsg}`, t);
 		}
 		if (!i || i.status != 200) {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 			return;
 		}
-		let s = i.data;
-		if (s.viewertoken) {
-			this.SetViewerToken(s.viewertoken);
+		let i_data = i.data;
+		if (i_data.viewertoken) {
+			this.SetViewerToken(i_data.viewertoken);
 		}
-		let o = s.success;
-		if (o == "ready") {
+		let i_data_success = i_data.success;
+		if (i_data_success == "ready") {
 			e.SetState(fK.Ready);
-			e.m_ulBroadcastID = s.broadcastid;
+			e.m_ulBroadcastID = i_data.broadcastid;
 			e.m_ulViewerToken = this.m_broadcastSettings.ulViewerToken;
-			e.m_strCDNAuthUrlParameters = s.cdn_auth_url_parameters;
-			e.m_bWebRTC = s.is_webrtc;
-			e.m_data = s;
+			e.m_strCDNAuthUrlParameters = i_data.cdn_auth_url_parameters;
+			e.m_bWebRTC = i_data.is_webrtc;
+			e.m_data = i_data;
 			this.LoadBroadcast(e);
 			setTimeout(() => {
 				e.m_schHeartbeatTimeout.Schedule(
@@ -1046,7 +1056,7 @@ class O {
 					() => this.HeartbeatBroadcast(e),
 				);
 			}, Math.random() * 30000);
-		} else if (o == "waiting") {
+		} else if (i_data_success == "waiting") {
 			e.SetState(
 				fK.Loading,
 				(0, Localize)("#BroadcastWatch_WaitingForResponse"),
@@ -1056,36 +1066,36 @@ class O {
 				e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
 				return;
 			}
-			let i = n > 30000 ? s.retry : 5000;
+			let i = n > 30000 ? i_data.retry : 5000;
 			e.m_schManifestTimeout.Schedule(i, () =>
 				this.GetBroadcastManifest(e, t, r),
 			);
-		} else if (o == "waiting_for_start") {
+		} else if (i_data_success == "waiting_for_start") {
 			e.SetState(fK.Loading, (0, Localize)("#BroadcastWatch_WaitingForStart"));
-			e.m_schManifestTimeout.Schedule(s.retry, () =>
+			e.m_schManifestTimeout.Schedule(i_data.retry, () =>
 				this.GetBroadcastManifest(e, t, r),
 			);
-		} else if (o == "waiting_for_reconnect") {
+		} else if (i_data_success == "waiting_for_reconnect") {
 			e.SetState(
 				fK.Loading,
 				(0, Localize)("#BroadcastWatch_WaitingForReconnect"),
 			);
-			e.m_schManifestTimeout.Schedule(s.retry, () =>
+			e.m_schManifestTimeout.Schedule(i_data.retry, () =>
 				this.GetBroadcastManifest(e, t, r),
 			);
-		} else if (o == "end") {
+		} else if (i_data_success == "end") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
-		} else if (o == "too_many_broadcasts") {
+		} else if (i_data_success == "too_many_broadcasts") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_TooManyBroadcasts"));
-		} else if (o == "system_not_supported") {
+		} else if (i_data_success == "system_not_supported") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_SystemNotSupported"));
-		} else if (o == "user_restricted") {
+		} else if (i_data_success == "user_restricted") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_UserRestricted"));
-		} else if (o == "poor_upload_quality") {
+		} else if (i_data_success == "poor_upload_quality") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_PoorUploadQuality"));
-		} else if (o == "request_failed") {
+		} else if (i_data_success == "request_failed") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
-		} else if (o == "too_many_viewers") {
+		} else if (i_data_success == "too_many_viewers") {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_TooManyViewers"));
 		} else {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_NotAvailable"));
@@ -1100,7 +1110,7 @@ class O {
 		};
 		let n = null;
 		try {
-			n = await a.get(g.TS.CHAT_BASE_URL + "broadcast/getclipdetails", {
+			n = await a.get(`${g.TS.CHAT_BASE_URL}broadcast/getclipdetails`, {
 				params: r,
 				withCredentials: true,
 			});
@@ -1112,10 +1122,10 @@ class O {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
 			return;
 		}
-		let i = n.data;
-		if (i.success == 1) {
+		let n_data = n.data;
+		if (n_data.success == 1) {
 			e.SetState(fK.Ready);
-			e.m_data = i;
+			e.m_data = n_data;
 			this.LoadClip(e);
 		} else {
 			e.SetState(fK.Error, (0, Localize)("#BroadcastWatch_RequestFailed"));
@@ -1137,7 +1147,7 @@ class O {
 		t.append("steamid", e.m_steamIDBroadcast);
 		t.append("broadcastid", e.m_ulBroadcastID);
 		t.append("viewertoken", this.m_broadcastSettings.ulViewerToken);
-		a.post(g.TS.CHAT_BASE_URL + "broadcast/heartbeat/", t);
+		a.post(`${g.TS.CHAT_BASE_URL}broadcast/heartbeat/`, t);
 		e.m_schHeartbeatTimeout.Schedule(e.m_data.heartbeat_interval * 1000, () =>
 			this.HeartbeatBroadcast(e),
 		);
@@ -1235,8 +1245,8 @@ class O {
 		}
 	}
 }
-(0, n.Cg)([s.sH], O.prototype, "m_mapBroadcasts", undefined);
-(function (e) {
+Cg([s.sH], O.prototype, "m_mapBroadcasts", undefined);
+((e) => {
 	e[(e.Timeline = 1)] = "Timeline";
 	e[(e.Minimap = 2)] = "Minimap";
 })((a0 ||= {}));
@@ -1270,7 +1280,7 @@ class P {
 	m_fnOnVideoEnd;
 	m_videoEndingTimer;
 	constructor(e, t, r, n) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_elVideo = e;
 		this.m_nVolume = t;
 		this.m_bMuted = r;
@@ -1367,12 +1377,12 @@ class P {
 		return this.m_elVideo.textTracks;
 	}
 	GetSubtitles() {
-		for (let e = 0; e < this.m_elVideo.textTracks.length; e++) {
-			const t = this.m_elVideo.textTracks[e];
+		for (const t of this.m_elVideo.textTracks) {
 			if (t.mode === "showing") {
 				return t;
 			}
 		}
+
 		return null;
 	}
 	SetSubtitles(e) {
@@ -1392,7 +1402,7 @@ class P {
 		this.m_fnOnVideoEnd = e;
 	}
 	InitPlayer() {
-		(0, y.w)(!this.m_player, "Initialized twice?");
+		w_1(!this.m_player, "Initialized twice?");
 		this.m_listeners.AddEventListener(
 			this.m_elVideo,
 			"playing",
@@ -1462,7 +1472,7 @@ class P {
 	StartBroadcast(e) {
 		this.InitPlayer();
 		if (e.m_data.url) {
-			this.m_player = new A.Zn(this.m_elVideo, !(0, d.Mc)() && (0, d.aM)());
+			this.m_player = new A.Zn(this.m_elVideo, !Mc() && aM());
 			this.m_player.PlayMPD(
 				e.m_data.url,
 				e.m_strCDNAuthUrlParameters,
@@ -1509,7 +1519,7 @@ class P {
 	}
 	StartVOD(e) {
 		this.InitPlayer();
-		let t = new A.Zn(this.m_elVideo, !(0, d.Mc)() && (0, d.aM)());
+		let t = new A.Zn(this.m_elVideo, !Mc() && aM());
 		this.m_player = t;
 		if (g.iA.logged_in && e.m_nAppIDVOD) {
 			t.SetBookmarkAdapter(new v.M(e.m_nAppIDVOD));
@@ -1655,34 +1665,36 @@ class P {
 		this.m_bMuted = this.m_player.IsMuted();
 	}
 	OnGameDataUpdate(e) {
-		let t = e.detail;
-		if (!t || typeof t.gamedata != "object") {
+		let e_detail = e.detail;
+		if (!e_detail || typeof e_detail.gamedata != "object") {
 			return;
 		}
 		if (
 			!this.m_gameDataParser ||
-			this.m_gameDataParser.GetAppID() != t.gamedata.__appid
+			this.m_gameDataParser.GetAppID() != e_detail.gamedata.__appid
 		) {
-			this.m_gameDataParser = new u(t.gamedata.__appid);
+			this.m_gameDataParser = new u(e_detail.gamedata.__appid);
 		}
 		const r = this.m_player.GetLiveContentStartTime().getTime();
-		if ("timelinemarkers" in t.gamedata) {
+		if ("timelinemarkers" in e_detail.gamedata) {
 			const e = this.m_gameDataParser.UpdateMarkers(
-				t.gamedata.__timelinemarkers,
+				e_detail.gamedata.__timelinemarkers,
 				r,
 			);
 			if (e) {
 				this.m_rgMarkers.replace(e.rgMarkers || []);
 				this.m_rgSegments.replace(e.rgSegments || []);
 			}
-			const n = this.m_gameDataParser.UpdateRegions(t.gamedata.__regions);
+			const n = this.m_gameDataParser.UpdateRegions(
+				e_detail.gamedata.__regions,
+			);
 			if (n) {
 				this.m_rgRegions.replace(n);
 			}
-		} else if ("soundtrack" in t.gamedata) {
+		} else if ("soundtrack" in e_detail.gamedata) {
 			this.m_gameDataParser.UpdateSoundtrack(
 				this.m_steamIDBroadcast,
-				t.gamedata.soundtrack,
+				e_detail.gamedata.soundtrack,
 			);
 		}
 	}
@@ -1755,31 +1767,31 @@ class P {
 		return this.m_rgSegments.length > 0;
 	}
 }
-(0, n.Cg)([s.sH], P.prototype, "m_player", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bPaused", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_nPlaybackTime", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bBuffering", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bOnLiveEdge", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_nVolume", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bMuted", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bUserInputNeeded", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_bIsReplay", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_nTimelineDuration", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_nVideoStartPos", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_nVideoEndPos", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_editorStartTime", undefined);
-(0, n.Cg)([s.sH], P.prototype, "m_editorEndTime", undefined);
-(0, n.Cg)([s.XI.bound], P.prototype, "StartBroadcast", null);
-(0, n.Cg)([s.XI.bound], P.prototype, "StartClip", null);
-(0, n.Cg)([s.XI.bound], P.prototype, "StartVOD", null);
-(0, n.Cg)([h.o], P.prototype, "OnVideoPlaying", null);
-(0, n.Cg)([h.o], P.prototype, "OnVideoPause", null);
-(0, n.Cg)([s.XI.bound], P.prototype, "OnVideoTimeUpdate", null);
-(0, n.Cg)([h.o], P.prototype, "OnVolumeUpdated", null);
-(0, n.Cg)([s.XI.bound], P.prototype, "OnGameDataUpdate", null);
-(0, n.Cg)([h.o], P.prototype, "OnDownloadFailed", null);
-(0, n.Cg)([h.o], P.prototype, "OnWebRTCRetry", null);
-(0, n.Cg)([h.o], P.prototype, "OnWebRTCFailed", null);
-(0, n.Cg)([h.o], P.prototype, "OnUserInputNeeded", null);
+Cg([s.sH], P.prototype, "m_player", undefined);
+Cg([s.sH], P.prototype, "m_bPaused", undefined);
+Cg([s.sH], P.prototype, "m_nPlaybackTime", undefined);
+Cg([s.sH], P.prototype, "m_bBuffering", undefined);
+Cg([s.sH], P.prototype, "m_bOnLiveEdge", undefined);
+Cg([s.sH], P.prototype, "m_nVolume", undefined);
+Cg([s.sH], P.prototype, "m_bMuted", undefined);
+Cg([s.sH], P.prototype, "m_bUserInputNeeded", undefined);
+Cg([s.sH], P.prototype, "m_bIsReplay", undefined);
+Cg([s.sH], P.prototype, "m_nTimelineDuration", undefined);
+Cg([s.sH], P.prototype, "m_nVideoStartPos", undefined);
+Cg([s.sH], P.prototype, "m_nVideoEndPos", undefined);
+Cg([s.sH], P.prototype, "m_editorStartTime", undefined);
+Cg([s.sH], P.prototype, "m_editorEndTime", undefined);
+Cg([s.XI.bound], P.prototype, "StartBroadcast", null);
+Cg([s.XI.bound], P.prototype, "StartClip", null);
+Cg([s.XI.bound], P.prototype, "StartVOD", null);
+Cg([h.o], P.prototype, "OnVideoPlaying", null);
+Cg([h.o], P.prototype, "OnVideoPause", null);
+Cg([s.XI.bound], P.prototype, "OnVideoTimeUpdate", null);
+Cg([h.o], P.prototype, "OnVolumeUpdated", null);
+Cg([s.XI.bound], P.prototype, "OnGameDataUpdate", null);
+Cg([h.o], P.prototype, "OnDownloadFailed", null);
+Cg([h.o], P.prototype, "OnWebRTCRetry", null);
+Cg([h.o], P.prototype, "OnWebRTCFailed", null);
+Cg([h.o], P.prototype, "OnUserInputNeeded", null);
 export const BroadcastWatchStore = new O();
 window.uiBroadcastWatchStore = BroadcastWatchStore;

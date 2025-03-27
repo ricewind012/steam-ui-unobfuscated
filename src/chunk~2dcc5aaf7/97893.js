@@ -1,12 +1,20 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./32493.js");
-var o = require("./96593.js");
-var l = require("./5640.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./51095.js");
-var u = require(/*webcrack:missing*/ "./44846.js");
+import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s from "./32493.js";
+import o from "./96593.js";
+import l from "./5640.js";
+import { lY } from "./51095.js";
+import u from "./44846.js";
+import p from "./12176.js";
+import g from "./79769.js";
+import h from "./52698.js";
+import C from "./83599.js";
+import { KV } from "./46382.js";
+import { I } from "./61416.js";
+import { OQ } from "./31958.js";
 const d = {
 	paused: false,
 	update_appid: 0,
@@ -56,23 +64,15 @@ const d = {
 		},
 	],
 };
-import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
-var p = require(/*webcrack:missing*/ "./12176.js");
-var g = require(/*webcrack:missing*/ "./79769.js");
-var h = require("./52698.js");
-var C = require(/*webcrack:missing*/ "./83599.js");
-var _ = require(/*webcrack:missing*/ "./46382.js");
-var f = require(/*webcrack:missing*/ "./61416.js");
-var b = require(/*webcrack:missing*/ "./31958.js");
 const y = new C.wd("DownloadsStore").Debug;
 export function zM() {
-	return (0, a.q3)(() => hj.DownloadOverview);
+	return q3(() => hj.DownloadOverview);
 }
 function w(e, t) {
 	if (t == 0) {
 		return 0;
 	} else {
-		return (0, b.OQ)(Math.trunc((e * 100) / t), e > 0 ? 1 : 0, 100);
+		return OQ(Math.trunc((e * 100) / t), e > 0 ? 1 : 0, 100);
 	}
 }
 export function vO(e) {
@@ -128,19 +128,19 @@ export function eC(e) {
 }
 export function B7() {
 	const e = zM().update_state;
-	const t = (0, a.q3)(() => hj.QueuedTransfers);
-	const r = (0, a.q3)(() => hj.CompletedTransfers);
-	const n = t.length;
-	const i = r.length;
-	const s = n + i;
+	const t = q3(() => hj.QueuedTransfers);
+	const r = q3(() => hj.CompletedTransfers);
+	const t_length = t.length;
+	const r_length = r.length;
+	const s = t_length + r_length;
 	if (e == "Downloading") {
-		return Localize("#BottomBar_Downloading_Progress", i + 1, s);
+		return Localize("#BottomBar_Downloading_Progress", r_length + 1, s);
 	} else {
-		return Localize("#Downloads_State_" + e);
+		return Localize(`#Downloads_State_${e}`);
 	}
 }
 export function JS() {
-	return (0, a.q3)(() =>
+	return q3(() =>
 		hj.RecentlyCompleted.filter((e) => {
 			const t = o.tw.GetAppOverviewByAppID(e.appid);
 			return t && t.local_per_client_data?.installed;
@@ -153,7 +153,7 @@ export class Um {
 	peakDiskBytesPerSecond = 0;
 	totalBytes = 0;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 		for (let e = 0; e < 130; e++) {
 			this.historyItems.push({
 				appid: 0,
@@ -165,10 +165,10 @@ export class Um {
 		}
 	}
 }
-(0, n.Cg)([i.sH.shallow], Um.prototype, "historyItems", undefined);
-(0, n.Cg)([i.sH], Um.prototype, "peakNetworkBytesPerSecond", undefined);
-(0, n.Cg)([i.sH], Um.prototype, "peakDiskBytesPerSecond", undefined);
-(0, n.Cg)([i.sH], Um.prototype, "totalBytes", undefined);
+Cg([i.sH.shallow], Um.prototype, "historyItems", undefined);
+Cg([i.sH], Um.prototype, "peakNetworkBytesPerSecond", undefined);
+Cg([i.sH], Um.prototype, "peakDiskBytesPerSecond", undefined);
+Cg([i.sH], Um.prototype, "totalBytes", undefined);
 const P = "DownloadsStoreRecentlyCompleted";
 class L {
 	m_DownloadOverview = d;
@@ -180,7 +180,7 @@ class L {
 	m_fnCallbackOnDownloadItemsUpdate = new g.lu();
 	m_cmInterface = null;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_MachineStorage.GetObject(P).then((e) => {
 			if (e && e.version == 2) {
 				this.m_rgRecentlyCompleted = e.data || [];
@@ -269,7 +269,7 @@ class L {
 		const n = t.map((e) => e.appid);
 		const i = r.filter((e) => !n.includes(e));
 		const a = n.filter((e) => !r.includes(e));
-		if (e || a.length || i.length) {
+		if (e || a.length || a.length || i.length) {
 			this.m_DownloadItems = t;
 			e = true;
 		} else {
@@ -300,14 +300,9 @@ class L {
 	}
 	get report() {
 		this.m_DownloadItems.forEach((e) => {
-			y("item: " + e.appid);
+			y(`item: ${e.appid}`);
 		});
-		return (
-			"num downloads: " +
-			this.m_DownloadItems.length +
-			" paused: " +
-			this.m_DownloadOverview.paused
-		);
+		return `num downloads: ${this.m_DownloadItems.length} paused: ${this.m_DownloadOverview.paused}`;
 	}
 	GetDownloadItemForAppId(e) {
 		return this.m_DownloadItems.find((t) => t.appid == e);
@@ -341,7 +336,7 @@ class L {
 		e.sort((e, t) => {
 			const r = o.tw.GetAppOverviewByAppID(e.appid);
 			const n = o.tw.GetAppOverviewByAppID(t.appid);
-			return (0, m.lY)(r.sort_as, n.sort_as);
+			return lY(r.sort_as, n.sort_as);
 		});
 		return e;
 	}
@@ -358,7 +353,7 @@ class L {
 			if (e.completed_time == t.completed_time) {
 				const r = o.tw.GetAppOverviewByAppID(e.appid);
 				const n = o.tw.GetAppOverviewByAppID(t.appid);
-				return (0, m.lY)(r.sort_as, n.sort_as);
+				return lY(r.sort_as, n.sort_as);
 			}
 			return t.completed_time - e.completed_time;
 		});
@@ -384,15 +379,15 @@ class L {
 	}
 }
 export function dZ(e) {
-	const { appid: t, buildid: r, target_buildid: n } = e;
-	const i = (0, _.KV)();
-	return (0, f.I)({
-		queryKey: ["patchnotes", t, r, n],
+	const { appid, buildid, target_buildid } = e;
+	const i = KV();
+	return I({
+		queryKey: ["patchnotes", appid, buildid, target_buildid],
 		queryFn: async () => {
 			const e = p.w.Init(s.b1);
 			const n = e.Body().add_requests();
-			n.set_appid(t);
-			n.set_start_build_id(r + 1);
+			n.set_appid(appid);
+			n.set_start_build_id(buildid + 1);
 			e.Body().set_count(100);
 			const a = await s.oH.GetPartnerEventsByBuildIDRange(i, e);
 			if (a.GetEResult() == 1) {
@@ -403,15 +398,17 @@ export function dZ(e) {
 			}
 			throw a.GetErrorMessage();
 		},
-		enabled: Boolean(t && r && n && n > r),
+		enabled: Boolean(
+			appid && buildid && target_buildid && target_buildid > buildid,
+		),
 	});
 }
-(0, n.Cg)([i.sH], L.prototype, "m_DownloadOverview", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_DownloadHistory", undefined);
-(0, n.Cg)([i.sH], L.prototype, "m_DownloadItems", undefined);
-(0, n.Cg)([i.sH.shallow], L.prototype, "m_rgRecentlyCompleted", undefined);
-(0, n.Cg)([i.XI.bound], L.prototype, "OnDownloadOverview", null);
-(0, n.Cg)([i.XI], L.prototype, "UpdateRecentlyCompleted", null);
-(0, n.Cg)([i.XI.bound], L.prototype, "OnDownloadItems", null);
+Cg([i.sH], L.prototype, "m_DownloadOverview", undefined);
+Cg([i.sH], L.prototype, "m_DownloadHistory", undefined);
+Cg([i.sH], L.prototype, "m_DownloadItems", undefined);
+Cg([i.sH.shallow], L.prototype, "m_rgRecentlyCompleted", undefined);
+Cg([i.XI.bound], L.prototype, "OnDownloadOverview", null);
+Cg([i.XI], L.prototype, "UpdateRecentlyCompleted", null);
+Cg([i.XI.bound], L.prototype, "OnDownloadItems", null);
 export const hj = new L();
 window.downloadsStore = hj;

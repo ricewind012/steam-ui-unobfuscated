@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83599.js");
-var a = require(/*webcrack:missing*/ "./8573.js");
-var s = require(/*webcrack:missing*/ "./43691.js");
-var o = require("./48289.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
+import n, { Cg } from "./34629.js";
+import i from "./83599.js";
+import a from "./8573.js";
+import s from "./43691.js";
+import o from "./48289.js";
+import l, { Gn } from "./89193.js";
 new i.wd("ServerBrowserStore");
 class c {
 	name;
@@ -43,7 +43,7 @@ class m {
 	m_eConnectAttemptStatus = undefined;
 	m_bInitialPingAttempt = true;
 	constructor(e, t) {
-		(0, l.Gn)(this);
+		Gn(this);
 		this.m_dialogID = e;
 		this.m_pid = t;
 	}
@@ -91,6 +91,9 @@ class m {
 		this.m_gameInfo = e;
 		if (
 			this.m_gameServerItem.ip != e.ip ||
+			this.m_gameServerItem.port != e.port ||
+			this.m_gameServerItem.port != e.port ||
+			this.m_gameServerItem.queryPort != e.queryPort ||
 			this.m_gameServerItem.port != e.port ||
 			this.m_gameServerItem.queryPort != e.queryPort ||
 			this.m_gameServerItem.appid != e.appid
@@ -147,13 +150,16 @@ class m {
 				this.m_gameServerItem.players < this.m_gameServerItem.maxPlayers
 			) {
 				switch (this.m_autoRetry) {
-					case "None":
+					case "None": {
 						break;
-					case "AutoRetryAlert":
+					}
+					case "AutoRetryAlert": {
 						this.m_window?.SteamClient.Window.BringToFront();
 						break;
-					case "AutoRetryJoin":
+					}
+					case "AutoRetryJoin": {
 						this.Connect(true);
+					}
 				}
 			}
 		} else if (
@@ -183,7 +189,7 @@ class m {
 			this.m_playerListPending = [];
 		} else if (e.bSuccess) {
 			this.m_playerListPending.push(e);
-			console.log("player" + e.playerName);
+			console.log(`player${e.playerName}`);
 		}
 	}
 	async Connect(e) {
@@ -262,27 +268,27 @@ class m {
 		return this.m_hQueryServer !== undefined;
 	}
 }
-(0, n.Cg)([l.sH], m.prototype, "m_gameInfo", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_gameServerItem", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_playerList", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_hQueryServer", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_autoRetry", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_strPassword", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_eConnectAttemptStatus", undefined);
-(0, n.Cg)([l.sH], m.prototype, "m_bInitialPingAttempt", undefined);
-(0, n.Cg)([l.XI], m.prototype, "InitForUser", null);
-(0, n.Cg)([l.XI], m.prototype, "InitForServer", null);
-(0, n.Cg)([l.XI.bound], m.prototype, "OnFriendGamePlayed", null);
-(0, n.Cg)([l.XI], m.prototype, "PingServer", null);
-(0, n.Cg)([l.XI], m.prototype, "RequestPlayerList", null);
-(0, n.Cg)([l.XI.bound], m.prototype, "OnServerInfo", null);
-(0, n.Cg)([l.XI.bound], m.prototype, "OnPlayerDetails", null);
-(0, n.Cg)([l.EW], m.prototype, "bPingInProgress", null);
+Cg([l.sH], m.prototype, "m_gameInfo", undefined);
+Cg([l.sH], m.prototype, "m_gameServerItem", undefined);
+Cg([l.sH], m.prototype, "m_playerList", undefined);
+Cg([l.sH], m.prototype, "m_hQueryServer", undefined);
+Cg([l.sH], m.prototype, "m_autoRetry", undefined);
+Cg([l.sH], m.prototype, "m_strPassword", undefined);
+Cg([l.sH], m.prototype, "m_eConnectAttemptStatus", undefined);
+Cg([l.sH], m.prototype, "m_bInitialPingAttempt", undefined);
+Cg([l.XI], m.prototype, "InitForUser", null);
+Cg([l.XI], m.prototype, "InitForServer", null);
+Cg([l.XI.bound], m.prototype, "OnFriendGamePlayed", null);
+Cg([l.XI], m.prototype, "PingServer", null);
+Cg([l.XI], m.prototype, "RequestPlayerList", null);
+Cg([l.XI.bound], m.prototype, "OnServerInfo", null);
+Cg([l.XI.bound], m.prototype, "OnPlayerDetails", null);
+Cg([l.EW], m.prototype, "bPingInProgress", null);
 class u {
 	m_mapGameInfoDialogs = new l.Es();
 	m_listPendingPromise = [];
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 	}
 	Init(e) {
 		SteamClient.ServerBrowser.RegisterForGameInfoDialogs(
@@ -303,12 +309,12 @@ class u {
 		});
 		const t = this.m_listPendingPromise;
 		this.m_listPendingPromise = [];
-		for (let { dialogID: e, resolve: r, reject: n } of t) {
-			const t = this.m_mapGameInfoDialogs.get(e);
+		for (let { dialogID, resolve, reject } of t) {
+			const t = this.m_mapGameInfoDialogs.get(dialogID);
 			if (t) {
-				r(t);
+				resolve(t);
 			} else {
-				n("Failed");
+				reject("Failed");
 			}
 		}
 	}
@@ -317,29 +323,19 @@ class u {
 		this.ConnectToFriendsGame(r.persona, t);
 	}
 	ConnectToFriendsGame(e, t) {
-		let r = (function (e, t, r, n, i) {
+		let r = ((e, t, r, n, i) => {
 			let o;
 			let l = a.b.InitFromAccountID(e);
 			if (i != null) {
-				o = "steam://joinlobby/" + t + "/" + i + "/" + l.ConvertTo64BitString();
+				o = `steam://joinlobby/${t}/${i}/${l.ConvertTo64BitString()}`;
 			} else if (n) {
 				o = s.TS.IN_MOBILE
-					? "https://s.team/remoteplay/connect/" +
-						l.ConvertTo64BitString() +
-						"?appid=" +
-						t +
-						"&" +
-						n
-					: "steam://remoteplay/connect/" +
-						l.ConvertTo64BitString() +
-						"?appid=" +
-						t +
-						"&" +
-						n;
+					? `https://s.team/remoteplay/connect/${l.ConvertTo64BitString()}?appid=${t}&${n}`
+					: `steam://remoteplay/connect/${l.ConvertTo64BitString()}?appid=${t}&${n}`;
 			} else {
-				o = "steam://rungame/" + t + "/" + l.ConvertTo64BitString();
+				o = `steam://rungame/${t}/${l.ConvertTo64BitString()}`;
 				if (r !== undefined) {
-					o += "/" + encodeURIComponent(r);
+					o += `/${encodeURIComponent(r)}`;
 				}
 			}
 			return o;
@@ -365,23 +361,27 @@ class u {
 		}
 	}
 	ShowServerGameInfoDialog(e) {
-		const t = e.ip;
-		const r = e.port;
-		const n = e.queryPort;
+		const { ip, port, queryPort } = e;
+
 		const i = e.appid ?? 0;
 		let a = Array.from(this.m_mapGameInfoDialogs.values()).find(
 			(e) =>
 				!e.steamid &&
-				e.gameServerItem.ip == t &&
-				e.gameServerItem.port == r &&
-				e.gameServerItem.queryPort == n,
+				e.gameServerItem.ip == ip &&
+				e.gameServerItem.port == port &&
+				e.gameServerItem.queryPort == queryPort,
 		);
 		if (a) {
 			a.BringToFront();
 			return Promise.resolve(a);
 		} else {
 			return new Promise((e, a) =>
-				SteamClient.ServerBrowser.CreateServerGameInfoDialog(t, r, n, i)
+				SteamClient.ServerBrowser.CreateServerGameInfoDialog(
+					ip,
+					port,
+					queryPort,
+					i,
+				)
 					.then((t) =>
 						this.m_listPendingPromise.push({
 							dialogID: t,
@@ -404,9 +404,9 @@ class u {
 		return [...this.m_mapGameInfoDialogs.values()].filter((t) => t.pid == e);
 	}
 }
-(0, n.Cg)([l.XI.bound], u.prototype, "OnGameInfoDialogs", null);
-(0, n.Cg)([l.XI], u.prototype, "ShowUserGameInfoDialog", null);
-(0, n.Cg)([l.XI], u.prototype, "ShowServerGameInfoDialog", null);
-(0, n.Cg)([l.XI], u.prototype, "CloseGameInfoDialog", null);
+Cg([l.XI.bound], u.prototype, "OnGameInfoDialogs", null);
+Cg([l.XI], u.prototype, "ShowUserGameInfoDialog", null);
+Cg([l.XI], u.prototype, "ShowServerGameInfoDialog", null);
+Cg([l.XI], u.prototype, "CloseGameInfoDialog", null);
 export const Xw = new u();
 window.serverBrowserStore = Xw;

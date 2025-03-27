@@ -1,4 +1,5 @@
-var n = require(/*webcrack:missing*/ "./88696.js");
+import n from "./88696.js";
+import a from "./45050.js";
 let i = [
 	{
 		key: "😀",
@@ -6857,7 +6858,6 @@ let i = [
 		nNumTints: 0,
 	},
 ];
-var a = require("./45050.js");
 const s = "emoji_storage";
 export const _ = new (class {
 	m_LocalStorage;
@@ -6907,12 +6907,12 @@ export const _ = new (class {
 	}
 	LogCacheToConsole() {
 		let e = "EmojiStore recent emoji:";
-		this.m_recentEmoji.forEach((t) => (e += " " + t));
+		this.m_recentEmoji.forEach((t) => (e += ` ${t}`));
 		console.log(e);
 		e = "EmojiStore tints:";
 		for (let t in this.m_emojiTints) {
 			if (this.m_emojiTints[t] !== undefined && this.m_emojiTints[t] !== null) {
-				e += " " + t + ": " + this.m_emojiTints[t];
+				e += ` ${t}: ${this.m_emojiTints[t]}`;
 			}
 		}
 		console.log(e);

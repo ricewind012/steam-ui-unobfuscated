@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./52698.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require("./89748.js");
+import { Cg } from "./34629.js";
+import i from "./52698.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./52451.js";
+import { qw } from "./89748.js";
 const c = "LockScreenSettings";
 const m = {
 	version: 1,
@@ -17,7 +17,7 @@ const m = {
 };
 class u {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_MachineStorage;
 	m_Settings = undefined;
@@ -41,13 +41,14 @@ class u {
 		if (
 			!e ||
 			!this.IsLockScreenActive() ||
+			!this.IsLockScreenActive() ||
 			!this.m_ActiveLockScreenProps.preventCancel
 		) {
 			this.m_ActiveLockScreenProps = e;
 		}
 	}
 	GetActiveLockScreenProps() {
-		if (this.BResettingPIN() && !(0, l.qw)().BHasCurrentUser()) {
+		if (this.BResettingPIN() && !qw().BHasCurrentUser()) {
 			return null;
 		} else {
 			return this.m_ActiveLockScreenProps;
@@ -70,7 +71,7 @@ class u {
 		return this.m_Settings.bUserForgotPin;
 	}
 	BShowResetPINModal() {
-		return (0, l.qw)().BHasCurrentUser() && this.m_Settings.bShowResetPinModal;
+		return qw().BHasCurrentUser() && this.m_Settings.bShowResetPinModal;
 	}
 	SetHasShownResetPINModal() {
 		this.SetSettings({
@@ -118,12 +119,12 @@ class u {
 		}
 	}
 }
-(0, n.Cg)([a.sH.ref], u.prototype, "m_Settings", undefined);
-(0, n.Cg)([a.sH.ref], u.prototype, "m_ActiveLockScreenProps", undefined);
-(0, n.Cg)([o.oI], u.prototype, "SetSettings", null);
-(0, n.Cg)([o.oI], u.prototype, "SetActiveLockScreenProps", null);
+Cg([a.sH.ref], u.prototype, "m_Settings", undefined);
+Cg([a.sH.ref], u.prototype, "m_ActiveLockScreenProps", undefined);
+Cg([o.oI], u.prototype, "SetSettings", null);
+Cg([o.oI], u.prototype, "SetActiveLockScreenProps", null);
 export const yE = new u();
 export function PA() {
-	return [(0, s.q3)(() => yE.GetSettings()), yE.SetSettings];
+	return [q3(() => yE.GetSettings()), yE.SetSettings];
 }
 window.securitystore = yE;

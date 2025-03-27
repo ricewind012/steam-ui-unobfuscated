@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./96593.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require("./30449.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require("./78057.js");
-var c = require("./80254.js");
-var m = require("./91486.js");
-var u = require(/*webcrack:missing*/ "./50376.js");
-var d = require("./64608.js");
-var A = require("./87935.js");
-var p = require("./89748.js");
-var g = require(/*webcrack:missing*/ "./69164.js");
-var h = require("./18057.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require("./83097.js");
+import n from "./63696.js";
+import i, { Co } from "./96593.js";
+import a, { A as A_2 } from "./90765.js";
+import s from "./30449.js";
+import l, { T } from "./78057.js";
+import c, { l as l_2 } from "./80254.js";
+import m, { A as A_2 } from "./91486.js";
+import u from "./50376.js";
+import d from "./64608.js";
+import A from "./87935.js";
+import { iZ } from "./89748.js";
+import g from "./69164.js";
+import { Qt } from "./18057.js";
+import { hf } from "./72476.js";
+import _ from "./83097.js";
 export function c$(e) {
 	const {
 		appid: t,
@@ -24,19 +24,19 @@ export function c$(e) {
 		autoFocus: u,
 		...f
 	} = e;
-	const y = (0, m.A)(t);
-	const S = (0, p.iZ)().strSteamID;
-	const w = (0, i.Co)(t);
+	const y = A_2(t);
+	const S = iZ().strSteamID;
+	const w = Co(t);
 	const B = w && w.BHasStoreCategory(25);
-	const v = (0, h.Qt)(A.B7.ResolveURL("GlobalLeaderboardsPage", t));
-	const I = (0, h.Qt)(
-		A.B7.ResolveURL("UserLeaderboardsPage", S, t) + "/?tab=leaderboards",
+	const v = Qt(A.B7.ResolveURL("GlobalLeaderboardsPage", t));
+	const I = Qt(
+		`${A.B7.ResolveURL("UserLeaderboardsPage", S, t)}/?tab=leaderboards`,
 	);
-	const E = (0, C.hf)();
+	const E = hf();
 	return n.createElement(
 		"div",
 		{
-			className: (0, a.A)(_.Container, s && _.PinnedView, c),
+			className: A_2(_.Container, s && _.PinnedView, c),
 		},
 		r &&
 			!E &&
@@ -119,7 +119,7 @@ export function c$(e) {
 }
 function b(e) {
 	const { appid: t } = e;
-	if (!(0, l.T)(t)) {
+	if (!T(t)) {
 		return null;
 	}
 	const { achievements: r, playtime: i } = e;
@@ -151,7 +151,7 @@ function S(e) {
 	return n.createElement(
 		"div",
 		{
-			className: (0, a.A)(_.Stat, s),
+			className: A_2(_.Stat, s),
 		},
 		i,
 		n.createElement(
@@ -228,7 +228,7 @@ function I(e) {
 	if (t) {
 		return n.createElement(S, {
 			label: (0, Localize)("#Achievements_HeaderStats_Playtime_Label"),
-			value: (0, c.l)(t, "#Playtime_"),
+			value: l_2(t, "#Playtime_"),
 		});
 	} else {
 		return null;
@@ -239,7 +239,7 @@ function E(e) {
 	if (t) {
 		return n.createElement(S, {
 			label: (0, Localize)("#Achievements_HeaderStats_PlaytimeRecent_Label"),
-			value: (0, c.l)(t, "#Playtime_"),
+			value: l_2(t, "#Playtime_"),
 		});
 	} else {
 		return null;
@@ -258,7 +258,7 @@ export function zp(e) {
 	return n.createElement(
 		g.Z,
 		{
-			className: (0, a.A)(_.AchievementSearchHeader, t && _.PinnedView, c),
+			className: A_2(_.AchievementSearchHeader, t && _.PinnedView, c),
 			...m,
 			"flow-children": "row",
 		},
@@ -298,6 +298,7 @@ export function V3(e) {
 	const a = n.useCallback(
 		(e) =>
 			t.length == 0 ||
+			e.strName.toLocaleLowerCase().includes(t) ||
 			e.strName.toLocaleLowerCase().includes(t) ||
 			e.strDescription.toLocaleLowerCase().includes(t),
 		[t],

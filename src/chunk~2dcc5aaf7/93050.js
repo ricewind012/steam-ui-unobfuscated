@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./50376.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./31084.js");
-var o = require("./15334.js");
-var l = o;
-var c = require("./19944.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require(/*webcrack:missing*/ "./98995.js");
+import n, { useRef } from "./63696.js";
+import i from "./50376.js";
+import { A } from "./90765.js";
+import { lX } from "./31084.js";
+import o from "./15334.js";
+import c from "./19944.js";
+import m, { Qn } from "./72476.js";
+import u from "./98995.js";
+const l = o;
 export function w(e) {
 	const {
 		className: t,
@@ -17,55 +17,31 @@ export function w(e) {
 		renderContextMenu: p,
 		...g
 	} = e;
-	const h = (0, m.Qn)();
-	const C = (0, n.useRef)(undefined);
-	let _ = (0, a.A)(l.SectionHeader, !d && l.PadLeft, t);
-	const f = typeof o == "string" ? n.createElement(u.zQ, null, o) : o;
-	return n.createElement(
-		"div",
-		{
-			className: _,
-			...g,
-		},
-		n.createElement(
-			"div",
-			{
-				className: l.Label,
-				onClick: () =>
+	const h = Qn();
+	const C = useRef(undefined);
+	let _ = A(l.SectionHeader, !d && l.PadLeft, t);
+	const f = typeof o == "string" ? <u.zQ>{o}</u.zQ> : o;
+	return (
+		<div className={_} {...g}>
+			<div
+				className={l.Label}
+				onClick={() =>
 					p &&
-					(0, s.lX)(p(), C.current, {
+					lX(p(), C.current, {
 						bOverlapHorizontal: true,
-					}),
-				ref: C,
-			},
-			typeof r == "string"
-				? n.createElement(
-						"div",
-						{
-							className: l.LabelText,
-						},
-						r,
-					)
-				: r,
-			o &&
-				!h &&
-				n.createElement(c.m, {
-					direction: "right",
-					nBodyAlignment: 0,
-					content: f,
-				}),
-			p &&
-				n.createElement(
-					"div",
-					{
-						className: l.Arrow,
-					},
-					n.createElement(i.GB9, null),
-				),
-		),
-		A &&
-			n.createElement("div", {
-				className: l.SectionRule,
-			}),
+					})
+				}
+				ref={C}
+			>
+				{typeof r == "string" ? <div className={l.LabelText}>{r}</div> : r}
+				{o && !h && <c.m direction="right" nBodyAlignment={0} content={f} />}
+				{p && (
+					<div className={l.Arrow}>
+						<i.GB9 />
+					</div>
+				)}
+			</div>
+			{A && <div className={l.SectionRule} />}
+		</div>
 	);
 }

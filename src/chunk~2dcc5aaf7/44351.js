@@ -1,69 +1,52 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./90242.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require(/*webcrack:missing*/ "./50376.js");
-var l = require("./43397.js");
-var c = require(/*webcrack:missing*/ "./93960.js");
-var m = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require("./27793.js");
-var A = require("./7514.js");
-var p = require("./26970.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./90242.js";
+import s from "./69164.js";
+import o from "./50376.js";
+import l, { Ri } from "./43397.js";
+import c from "./93960.js";
+import m, { A as A_1 } from "./90765.js";
+import d from "./27793.js";
+import A, { Zt, a_ as a_1 } from "./7514.js";
+import p from "./26970.js";
 function g(e) {
-	return i.forwardRef(function (t, r) {
-		return i.createElement(s.Z, {
-			...t,
-			className: (0, m.A)(e, t.className),
-			ref: r,
-		});
-	});
+	return i.forwardRef((t, r) => (
+		<s.Z {...t} className={A_1(e, t.className)} ref={r} />
+	));
 }
-export let Y9 = (0, l.Ri)("DialogHeader");
-export let iK = (0, l.Ri)("DialogSubHeader");
-export let tX = (0, l.Ri)("SettingsDialogSubHeader");
-export let wi = (0, l.Ri)("DialogFooter");
-export let JU = (0, l.Ri)("DialogLabel _DialogLayout");
-export let a3 = (0, l.Ri)("DialogBodyText");
-export let nB = (0, l.Ri)("DialogBody");
+export let Y9 = Ri("DialogHeader");
+export let iK = Ri("DialogSubHeader");
+export let tX = Ri("SettingsDialogSubHeader");
+export let wi = Ri("DialogFooter");
+export let JU = Ri("DialogLabel _DialogLayout");
+export let a3 = Ri("DialogBodyText");
+export let nB = Ri("DialogBody");
 export let f3 = g("DialogBody");
-export let xz = (0, l.Ri)("DialogInnerBody");
-export let G5 = (0, l.Ri)("DialogControlsSection");
-export let lr = (0, l.Ri)("DialogControlsSectionHeader");
-export let dR = g("DialogTwoColLayout _DialogColLayout");
+export let xz = Ri("DialogInnerBody");
+export let G5 = Ri("DialogControlsSection");
+export let lr = Ri("DialogControlsSectionHeader");
+export let DR = g("DialogTwoColLayout _DialogColLayout");
 export let Xp = g("DialogThreeColLayout _DialogColLayout");
 g("DialogTwoThirdColLayout _DialogColLayout");
-export let VP = (0, l.Ri)("DialogColumn _DialogLayout");
+export let VP = Ri("DialogColumn _DialogLayout");
 export function UC(e) {
-	const t = (0, A.Zt)("Content", k);
-	return i.createElement(t, {
-		...e,
-	});
+	const T = Zt("Content", k);
+	return <T {...e} />;
 }
 function k(e) {
-	let { children: t, bCenterVertically: r, refElem: n, ...a } = e;
-	let s =
-		"DialogContent _DialogLayout" + (e.className ? " " + e.className : "");
-	if (r) {
+	let { children, bCenterVertically, refElem, ...a } = e;
+	let s = `DialogContent _DialogLayout${e.className ? ` ${e.className}` : ""}`;
+	if (bCenterVertically) {
 		s += " _DialogCenterVertically";
 	}
-	return i.createElement(
-		"div",
-		{
-			...a,
-			ref: n,
-			className: s,
-		},
-		i.createElement(
-			"div",
-			{
-				className: "DialogContent_InnerWidth",
-			},
-			t,
-		),
+	return (
+		<div {...a} ref={refElem} className={s}>
+			<div className="DialogContent_InnerWidth">{children}</div>
+		</div>
 	);
 }
-export class lV extends i.Component {
+export class LV extends i.Component {
 	OnSubmit(e) {
 		e.preventDefault();
 		if (this.props.onSubmit) {
@@ -71,54 +54,37 @@ export class lV extends i.Component {
 		}
 	}
 	render() {
-		return i.createElement("form", {
-			...this.props,
-			onSubmit: this.OnSubmit,
-		});
+		return <form {...this.props} onSubmit={this.OnSubmit} />;
 	}
 }
 export function U9(e) {
-	const { classNameContent: t, bCenterVertically: r, ...n } = e;
-	return i.createElement(
-		UC,
-		{
-			className: t,
-			bCenterVertically: r,
-		},
-		i.createElement(lV, {
-			...n,
-		}),
+	const { classNameContent, bCenterVertically, ...n } = e;
+	return (
+		<UC className={classNameContent} bCenterVertically={bCenterVertically}>
+			<LV {...n} />
+		</UC>
 	);
 }
 export function mq(e) {
-	const { label: t, tooltip: r, className: n, children: a } = e;
-	return i.createElement(
-		"label",
-		{
-			className: (0, m.A)("DialogInputLabelGroup", "_DialogLayout", n),
-		},
-		t &&
-			i.createElement(
-				JU,
-				null,
-				t,
-				" ",
-				r &&
-					i.createElement(d.o, {
-						tooltip: r,
-					}),
-				" ",
-			),
-		a,
+	const { label, tooltip, className, children } = e;
+	return (
+		<label className={A_1("DialogInputLabelGroup", "_DialogLayout", className)}>
+			{label && (
+				<JU>
+					{label} {tooltip && <d.o tooltip={tooltip} />}{" "}
+				</JU>
+			)}
+			{children}
+		</label>
 	);
 }
-(0, n.Cg)([c.o], lV.prototype, "OnSubmit", null);
-const G = i.forwardRef(function (e, t) {
-	const r = (0, A.a_)();
-	const { svgicon: n, ...s } = e;
-	const o = (0, m.A)(
-		e.className,
-		n !== undefined && "hasSVGIcon",
+Cg([c.o], LV.prototype, "OnSubmit", null);
+const G = i.forwardRef((props, ref) => {
+	const r = a_1();
+	const { svgicon, ...s } = props;
+	const o = A_1(
+		props.className,
+		svgicon !== undefined && "hasSVGIcon",
 		s.disabled && "Disabled",
 		r.strButtonClassName,
 	);
@@ -130,199 +96,152 @@ const G = i.forwardRef(function (e, t) {
 			};
 		}
 	};
-	return i.createElement(
-		a.fu,
-		{
-			ref: t,
-			onOKActionDescription: s.disabled ? null : undefined,
-			noFocusRing: !!r.strButtonClassName,
-			...s,
-			className: o,
-			disabled: false,
-			onClick: l(s.onClick),
-			onPointerDown: l(s.onPointerDown),
-			onPointerUp: l(s.onPointerUp),
-			onPointerCancel: l(s.onPointerCancel),
-			onMouseDown: l(s.onMouseDown),
-			onMouseUp: l(s.onMouseUp),
-			onTouchStart: l(s.onTouchStart),
-			onTouchEnd: l(s.onTouchEnd),
-			onTouchCancel: l(s.onTouchCancel),
-			onSubmit: l(s.onSubmit),
-		},
-		n && n(),
-		e.children,
+	return (
+		<a.fu
+			ref={ref}
+			onOKActionDescription={s.disabled || undefined}
+			noFocusRing={!!r.strButtonClassName}
+			{...s}
+			className={o}
+			disabled={false}
+			onClick={l(s.onClick)}
+			onPointerDown={l(s.onPointerDown)}
+			onPointerUp={l(s.onPointerUp)}
+			onPointerCancel={l(s.onPointerCancel)}
+			onMouseDown={l(s.onMouseDown)}
+			onMouseUp={l(s.onMouseUp)}
+			onTouchStart={l(s.onTouchStart)}
+			onTouchEnd={l(s.onTouchEnd)}
+			onTouchCancel={l(s.onTouchCancel)}
+			onSubmit={l(s.onSubmit)}
+		>
+			{svgicon && svgicon()}
+			{props.children}
+		</a.fu>
 	);
 });
-export const jn = i.forwardRef(function (e, t) {
-	return i.createElement(G, {
-		preferredFocus: true,
-		type: e.onClick ? "button" : "submit",
-		...e,
-		ref: t,
-		className: (0, m.A)(
-			e.className,
-			"DialogButton",
-			"_DialogLayout",
-			"Primary",
-		),
-	});
-});
-export const $n = i.forwardRef(function (e, t) {
-	return i.createElement(G, {
-		type: "button",
-		...e,
-		ref: t,
-		className: (0, m.A)(
-			e.className,
+export const Jn = i.forwardRef((props, ref) => (
+	<G
+		preferredFocus
+		type={props.onClick ? "button" : "submit"}
+		{...props}
+		ref={ref}
+		className={A_1(props.className, "DialogButton", "_DialogLayout", "Primary")}
+	/>
+));
+export const $n = i.forwardRef((props, ref) => (
+	<G
+		type="button"
+		{...props}
+		ref={ref}
+		className={A_1(
+			props.className,
 			"DialogButton",
 			"_DialogLayout",
 			"Secondary",
-		),
-	});
-});
-export const cK = i.forwardRef(function (e, t) {
-	return i.createElement(G, {
-		type: "button",
-		...e,
-		ref: t,
-		className: (0, m.A)(
-			e.className,
+		)}
+	/>
+));
+export const cK = i.forwardRef((props, ref) => (
+	<G
+		type="button"
+		{...props}
+		ref={ref}
+		className={A_1(
+			props.className,
 			"DialogButton",
 			"_DialogLayout",
 			"EmptyButton",
-		),
-	});
-});
-export const wl = i.forwardRef(function (e, t) {
-	return i.createElement(G, {
-		type: "button",
-		...e,
-		ref: t,
-		className: (0, m.A)(e.className, "DialogButton _DialogLayout Small"),
-	});
-});
-export const QW = i.forwardRef(function (e, t) {
-	return i.createElement(G, {
-		type: "button",
-		...e,
-		ref: t,
-		className: (0, m.A)(e.className, "TextButton"),
-	});
-});
+		)}
+	/>
+));
+export const wl = i.forwardRef((props, ref) => (
+	<G
+		type="button"
+		{...props}
+		ref={ref}
+		className={A_1(props.className, "DialogButton _DialogLayout Small")}
+	/>
+));
+export const QW = i.forwardRef((props, ref) => (
+	<G
+		type="button"
+		{...props}
+		ref={ref}
+		className={A_1(props.className, "TextButton")}
+	/>
+));
 export function _E(e) {
-	let t = "DialogHBar" + (e.className ? " " + e.className : "");
-	return i.createElement("div", {
-		...e,
-		className: t,
-	});
+	let t = `DialogHBar${e.className ? ` ${e.className}` : ""}`;
+	return <div {...e} className={t} />;
 }
 export function CB(e) {
-	return i.createElement(
-		dR,
-		{
-			className: e.className,
-		},
-		i.createElement(
-			jn,
-			{
-				onClick: e.onOK,
-				disabled: e.bOKDisabled,
-				autoFocus: e.focusButton == "primary",
-			},
-			e.strOKText || (0, Localize)("#Button_Confirm"),
-			" ",
-		),
-		i.createElement(
-			$n,
-			{
-				onClick: e.onCancel,
-				disabled: e.bCancelDisabled,
-				autoFocus: e.focusButton == "secondary",
-			},
-			e.strCancelText || (0, Localize)("#Button_Cancel"),
-		),
+	return (
+		<DR className={e.className}>
+			<Jn
+				onClick={e.onOK}
+				disabled={e.bOKDisabled}
+				autoFocus={e.focusButton == "primary"}
+			>
+				{e.strOKText || (0, Localize)("#Button_Confirm")}{" "}
+			</Jn>
+			<$n
+				onClick={e.onCancel}
+				disabled={e.bCancelDisabled}
+				autoFocus={e.focusButton == "secondary"}
+			>
+				{e.strCancelText || (0, Localize)("#Button_Cancel")}
+			</$n>
+		</DR>
 	);
 }
 export function VQ(e) {
-	const t = e.bOKDisabled ? $n : jn;
-	const r = e.bOKDisabled ? jn : $n;
-	return i.createElement(
-		Xp,
-		null,
-		i.createElement(
-			t,
-			{
-				onClick: e.onOK,
-				disabled: e.bOKDisabled,
-			},
-			e.strOKText || (0, Localize)("#Button_Confirm"),
-			" ",
-		),
-		i.createElement(
-			r,
-			{
-				onClick: e.onUpdate,
-				disabled: e.bUpdateDisabled,
-			},
-			e.strUpdateText || (0, Localize)("#Button_Update"),
-			" ",
-		),
-		i.createElement(
-			$n,
-			{
-				onClick: e.onCancel,
-				disabled: e.bCancelDisabled,
-			},
-			e.strCancelText || (0, Localize)("#Button_Cancel"),
-		),
+	const T = e.bOKDisabled ? $n : Jn;
+	const R = e.bOKDisabled ? Jn : $n;
+	return (
+		<Xp>
+			<T onClick={e.onOK} disabled={e.bOKDisabled}>
+				{e.strOKText || (0, Localize)("#Button_Confirm")}{" "}
+			</T>
+			<R onClick={e.onUpdate} disabled={e.bUpdateDisabled}>
+				{e.strUpdateText || (0, Localize)("#Button_Update")}{" "}
+			</R>
+			<$n onClick={e.onCancel} disabled={e.bCancelDisabled}>
+				{e.strCancelText || (0, Localize)("#Button_Cancel")}
+			</$n>
+		</Xp>
 	);
 }
 export function xv(e) {
 	const {
-		onPrimary: t,
-		onSecondary: r,
-		onCancel: n,
-		bDisableSecondary: a,
-		strPrimaryButtonText: s,
-		strSecondaryButtonText: o,
-		strCancelButtonText: l,
-		className: c,
-		classNamePrimary: d,
+		onPrimary,
+		onSecondary,
+		onCancel,
+		bDisableSecondary,
+		strPrimaryButtonText,
+		strSecondaryButtonText,
+		strCancelButtonText,
+		className,
+		classNamePrimary,
 	} = e;
-	return i.createElement(
-		"div",
-		{
-			className: c,
-		},
-		i.createElement(
-			jn,
-			{
-				onClick: t,
-				className: (0, m.A)("Stacked", d),
-				autoFocus: true,
-			},
-			s,
-		),
-		i.createElement(
-			dR,
-			null,
-			i.createElement(
-				$n,
-				{
-					onClick: n,
-				},
-				l || (0, Localize)("#Button_Cancel"),
-			),
-			i.createElement(
-				$n,
-				{
-					onClick: r,
-					disabled: a,
-				},
-				o,
-			),
-		),
+	return (
+		<div className={className}>
+			<Jn
+				onClick={onPrimary}
+				className={A_1("Stacked", classNamePrimary)}
+				autoFocus
+			>
+				{strPrimaryButtonText}
+			</Jn>
+			<DR>
+				<$n onClick={onCancel}>
+					{strCancelButtonText || (0, Localize)("#Button_Cancel")}
+				</$n>
+				<$n onClick={onSecondary} disabled={bDisableSecondary}>
+					{strSecondaryButtonText}
+				</$n>
+			</DR>
+		</div>
 	);
 }
 export class pF extends i.Component {
@@ -357,6 +276,27 @@ export class pF extends i.Component {
 		return (
 			e.label != this.props.label ||
 			e.description != this.props.description ||
+			e.description != this.props.description ||
+			e.onChange != this.props.onChange ||
+			e.description != this.props.description ||
+			e.onChange != this.props.onChange ||
+			e.controlled != this.props.controlled ||
+			e.description != this.props.description ||
+			e.onChange != this.props.onChange ||
+			e.controlled != this.props.controlled ||
+			e.disabled != this.props.disabled ||
+			e.description != this.props.description ||
+			e.onChange != this.props.onChange ||
+			e.controlled != this.props.controlled ||
+			e.disabled != this.props.disabled ||
+			t.disabled != this.state.disabled ||
+			e.description != this.props.description ||
+			e.onChange != this.props.onChange ||
+			e.controlled != this.props.controlled ||
+			e.disabled != this.props.disabled ||
+			t.disabled != this.state.disabled ||
+			e.checked != this.checked ||
+			e.description != this.props.description ||
 			e.onChange != this.props.onChange ||
 			e.controlled != this.props.controlled ||
 			e.disabled != this.props.disabled ||
@@ -374,23 +314,23 @@ export class pF extends i.Component {
 	}
 	GetPanelElementProps() {
 		const {
-			onChange: e,
-			checked: t,
-			label: r,
-			description: n,
-			tabIndex: i,
-			disabled: a,
-			className: s,
-			tooltip: o,
-			color: l,
-			highlightColor: c,
-			bottomSeparator: m,
-			controlled: u,
+			onChange,
+			checked,
+			label,
+			description,
+			tabIndex,
+			disabled,
+			className,
+			tooltip,
+			color,
+			highlightColor,
+			bottomSeparator,
+			controlled,
 			...d
 		} = this.props;
 		return {
 			...d,
-			tabIndex: i || 0,
+			tabIndex: tabIndex || 0,
 			onActivate: this.Toggle,
 			onKeyDown: this.KeyDown,
 		};
@@ -425,71 +365,54 @@ export class pF extends i.Component {
 		}
 	}
 }
-(0, n.Cg)([c.o], pF.prototype, "Toggle", null);
-(0, n.Cg)([c.o], pF.prototype, "KeyDown", null);
-(0, n.Cg)([c.o], pF.prototype, "SetChecked", null);
+Cg([c.o], pF.prototype, "Toggle", null);
+Cg([c.o], pF.prototype, "KeyDown", null);
+Cg([c.o], pF.prototype, "SetChecked", null);
 export class Yh extends pF {
 	render() {
-		let e = "DialogCheckbox" + (this.checked ? " Active" : "");
+		let e = `DialogCheckbox${this.checked ? " Active" : ""}`;
 		if (this.state.disabled == 1) {
 			e += " Disabled";
 		}
 		if (this.props.label) {
-			return i.createElement(
-				s.Z,
-				{
-					className:
-						"DialogCheckbox_Container _DialogLayout " +
-						(this.props.className ? this.props.className : "") +
-						(this.state.disabled ? " Disabled" : ""),
-					...this.GetPanelElementProps(),
-				},
-				i.createElement(
-					"div",
-					{
-						className: e,
-					},
-					i.createElement(o.X4B, {
-						color: this.props.color,
-						highlightColor: this.props.highlightColor,
-					}),
-				),
-				i.createElement(
-					"div",
-					{
-						className: "DialogToggle_Label",
-					},
-					typeof this.props.label == "string" &&
-						i.createElement("span", null, this.props.label),
-					typeof this.props.label != "string" && this.props.label,
-					this.props.tooltip &&
-						i.createElement(d.o, {
-							tooltip: this.props.tooltip,
-						}),
-				),
-				i.createElement("div", {
-					style: {
-						clear: "left",
-					},
-				}),
-				this.props.description &&
-					i.createElement(
-						"div",
-						{
-							className: "DialogToggle_Description",
-						},
-						this.props.description,
-					),
-				this.props.children,
+			return (
+				<s.Z
+					className={`DialogCheckbox_Container _DialogLayout ${
+						this.props.className ? this.props.className : ""
+					}${this.state.disabled ? " Disabled" : ""}`}
+					{...this.GetPanelElementProps()}
+				>
+					<div className={e}>
+						<o.X4B
+							color={this.props.color}
+							highlightColor={this.props.highlightColor}
+						/>
+					</div>
+					<div className="DialogToggle_Label">
+						{typeof this.props.label == "string" && (
+							<span>{this.props.label}</span>
+						)}
+						{typeof this.props.label != "string" && this.props.label}
+						{this.props.tooltip && <d.o tooltip={this.props.tooltip} />}
+					</div>
+					<div
+						style={{
+							clear: "left",
+						}}
+					/>
+					{this.props.description && (
+						<div className="DialogToggle_Description">
+							{this.props.description}
+						</div>
+					)}
+					{this.props.children}
+				</s.Z>
 			);
 		} else {
-			return i.createElement(
-				s.Z,
-				{
-					className: e,
-					...this.GetPanelElementProps(),
-				},
-				i.createElement(o.X4B, null),
+			return (
+				<s.Z className={e} {...this.GetPanelElementProps()}>
+					<o.X4B />
+				</s.Z>
 			);
 		}
 	}
@@ -500,59 +423,36 @@ export class Od extends pF {
 		if (this.state.disabled == 1) {
 			e += " Disabled";
 		}
-		return i.createElement(
-			s.Z,
-			{
-				className: (0, m.A)(
+		return (
+			<s.Z
+				className={A_1(
 					"DialogRoundCheckboxField_Container",
 					this.props.className,
 					this.props.label ? "WithLabel" : "",
 					e,
-				),
-				...this.GetPanelElementProps(),
-			},
-			i.createElement(
-				"div",
-				{
-					className: "DialogRoundCheckboxField",
-				},
-				i.createElement(
-					"div",
-					{
-						className: "DialogRoundCheckboxField_Control" + e,
-					},
-					i.createElement(
-						"div",
-						{
-							className: "DialogRoundCheckboxField_OuterCircle",
-						},
-						i.createElement("div", {
-							className: "DialogRoundCheckboxField_InnerCircle",
-						}),
-					),
-				),
-			),
-			this.props.label &&
-				i.createElement(
-					"div",
-					{
-						className: "DialogToggle_Label",
-					},
-					i.createElement("span", null, this.props.label),
-					this.props.tooltip &&
-						i.createElement(d.o, {
-							tooltip: this.props.tooltip,
-						}),
-				),
+				)}
+				{...this.GetPanelElementProps()}
+			>
+				<div className="DialogRoundCheckboxField">
+					<div className={`DialogRoundCheckboxField_Control${e}`}>
+						<div className="DialogRoundCheckboxField_OuterCircle">
+							<div className="DialogRoundCheckboxField_InnerCircle" />
+						</div>
+					</div>
+				</div>
+				{this.props.label && (
+					<div className="DialogToggle_Label">
+						<span>{this.props.label}</span>
+						{this.props.tooltip && <d.o tooltip={this.props.tooltip} />}
+					</div>
+				)}
+			</s.Z>
 		);
 	}
 }
-export const RF = i.forwardRef(function (e, t) {
-	const r = (0, A.Zt)("ToggleField", Y);
-	return i.createElement(r, {
-		ref: t,
-		...e,
-	});
+export const RF = i.forwardRef((props, ref) => {
+	const R = Zt("ToggleField", Y);
+	return <R ref={ref} {...props} />;
 });
 class Y extends pF {
 	OnOffKeyDown(e) {
@@ -573,90 +473,60 @@ class Y extends pF {
 		}
 	}
 	render() {
-		let e =
-			"DialogToggleField _DialogInputContainer _DialogLayout " +
-			(this.props.className ? this.props.className : "");
+		let e = `DialogToggleField _DialogInputContainer _DialogLayout ${
+			this.props.className ? this.props.className : ""
+		}`;
 		if (this.props.disabled) {
 			e += " Disabled";
 		}
-		return i.createElement(
-			"div",
-			{
-				className: e,
-				tabIndex: this.props.tabIndex || 0,
-				onKeyDown: this.OnOffKeyDown,
-			},
-			i.createElement(
-				"div",
-				{
-					className: "displayColumn alignSelfCenter",
-				},
-				i.createElement(
-					"div",
-					{
-						className: "DialogToggle_Label",
-					},
-					i.createElement("span", null, this.props.label),
-					this.props.tooltip &&
-						i.createElement(d.o, {
-							tooltip: this.props.tooltip,
-						}),
-				),
-				this.props.description &&
-					i.createElement(
-						"div",
-						{
-							className: "DialogToggle_Description",
-						},
-						this.props.description,
-					),
-				this.props.children,
-			),
-			this.props.useToggleRail
-				? i.createElement(
-						"div",
-						{
-							className: "DialogToggleField_NewUIContainer",
-						},
-						i.createElement(p._H, {
-							onChange: this.OnNewUIToggle,
-							value: this.checked,
-						}),
-					)
-				: i.createElement(
-						"div",
-						{
-							className: "DialogToggleField_Control",
-							onClick: this.Toggle,
-						},
-						i.createElement(
-							s.Z,
-							{
-								className: "DialogToggleField_OptionPanel",
-								onOKButton: this.Toggle,
-							},
-							i.createElement(
-								"div",
-								{
-									className:
-										"DialogToggleField_Option Off" +
-										(this.checked ? "" : " Active"),
-								},
-								(0, Localize)("#Dialog_Off"),
-							),
-							i.createElement(
-								"div",
-								{
-									className:
-										"DialogToggleField_Option On" +
-										(this.checked ? " Active" : ""),
-								},
-								(0, Localize)("#Dialog_On"),
-							),
-						),
-					),
+		return (
+			<div
+				className={e}
+				tabIndex={this.props.tabIndex || 0}
+				onKeyDown={this.OnOffKeyDown}
+			>
+				<div className="displayColumn alignSelfCenter">
+					<div className="DialogToggle_Label">
+						<span>{this.props.label}</span>
+						{this.props.tooltip && <d.o tooltip={this.props.tooltip} />}
+					</div>
+					{this.props.description && (
+						<div className="DialogToggle_Description">
+							{this.props.description}
+						</div>
+					)}
+					{this.props.children}
+				</div>
+				{this.props.useToggleRail ? (
+					<div className="DialogToggleField_NewUIContainer">
+						<p._H onChange={this.OnNewUIToggle} value={this.checked} />
+					</div>
+				) : (
+					<div className="DialogToggleField_Control" onClick={this.Toggle}>
+						<s.Z
+							className="DialogToggleField_OptionPanel"
+							onOKButton={this.Toggle}
+						>
+							<div
+								className={`DialogToggleField_Option Off${
+									this.checked ? "" : " Active"
+								}`}
+							>
+								{(0, Localize)("#Dialog_Off")}
+							</div>
+							<div
+								className={`DialogToggleField_Option On${
+									this.checked ? " Active" : ""
+								}`}
+							>
+								{(0, Localize)("#Dialog_On")}
+							</div>
+						</s.Z>
+					</div>
+				)}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([c.o], Y.prototype, "OnOffKeyDown", null);
-(0, n.Cg)([c.o], Y.prototype, "OnNewUIToggle", null);
+Cg([c.o], Y.prototype, "OnOffKeyDown", null);
+Cg([c.o], Y.prototype, "OnNewUIToggle", null);

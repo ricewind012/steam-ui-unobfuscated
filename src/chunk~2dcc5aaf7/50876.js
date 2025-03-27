@@ -1,13 +1,3 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./18057.js");
-var a = require("./70519.js");
-var s = require("./46422.js");
-var o = require("./89411.js");
-var l = require("./34792.js");
-var c = require("./67863.js");
-var m = require("./64608.js");
-var u = require("./35488.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizeReact,
@@ -15,25 +5,161 @@ import {
 	BLocStringExists,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var p = require("./83184.js");
+
 import {
 	GetOwningWindowForEvent,
 	GetOwningWindowForElement,
 } from "../../actual_src/utils/domutils.js";
-var h = require("./3475.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
-var _ = require("./57472.js");
-var f = require("./48331.js");
-var b = f;
-var y = require("./1470.js");
-var S = require("./5640.js");
-var w = require("./28934.js");
-var B = require(/*webcrack:missing*/ "./69164.js");
+import { CC } from "../../actual_src/utils/localization/datetime.js";
+import n from "./63696.js";
+import i, { Qt as Qt_1, bG } from "./18057.js";
+import a from "./70519.js";
+import s, { gk, FA, oM, LC } from "./46422.js";
+import o, { C2 } from "./89411.js";
+import l, { VI, t0, hX, Tr as Tr_2, e_ as e, I5, sE, Hg } from "./34792.js";
+import c from "./67863.js";
+import m from "./64608.js";
+import u from "./35488.js";
+import d, { A } from "./90765.js";
+import p, { U as U_2 } from "./83184.js";
+import h from "./3475.js";
+import C, {
+	hf,
+	uI,
+	Y2,
+	Qn as Qn_2,
+	TL,
+	CI,
+	rP,
+	td,
+	Pr as Pr_2,
+} from "./72476.js";
+import _ from "./57472.js";
+import f from "./48331.js";
+import y from "./1470.js";
+import S, { l9, hb as hb_2 } from "./5640.js";
+import w, { wT } from "./28934.js";
+import B from "./69164.js";
+import I, { IU, qw, ZW, iZ } from "./89748.js";
+import E from "./37086.js";
+import T, { q3 } from "./90095.js";
+import R from "./83247.js";
+import k from "./74362.js";
+import D, { xU, In as In_2, fW } from "./51943.js";
+import N, { vJ, uN, Sz, uD, gc, _g } from "./52451.js";
+import F, { li as li_2 } from "./96593.js";
+import "./91040.js";
+import G from "./91486.js";
+import O from "./91957.js";
+import { sr as sr_2, Pi as Pi_2, d$, cg, KO, Iz } from "./25467.js";
+import V from "./28020.js";
+import j from "./66943.js";
+import Q from "./85182.js";
+import Z, { Cg } from "./34629.js";
+import K, { pg } from "./13869.js";
+import X from "./10606.js";
+import J, { CN, gU, nR } from "./66186.js";
+import $ from "./4406.js";
+import ee from "./61277.js";
+import te, { Gn as Gn_2, XI } from "./89193.js";
+import re from "./51297.js";
+import ae from "./83571.js";
+import se from "./8326.js";
+import { tn as tn_2, br as br_2 } from "./18869.js";
+import { $ as $_2 } from "./27756.js";
+import { R7 } from "./11131.js";
+import me from "./2306.js";
+import ue from "./13897.js";
+import he from "./28351.js";
+import Ce, { vB, DP } from "./17386.js";
+import { PA } from "./41230.js";
+import Pe, { _x, Ru, TD, T0, yc, Wy, MC, MH, zg, xs, Xs } from "./34819.js";
+import ze from "./38660.js";
+import { l5, hb } from "./96555.js";
+import We from "./11714.js";
+import lt from "./68120.js";
+import ct from "./22136.js";
+import ut, { ak, sf } from "./44846.js";
+import { T2 } from "./12491.js";
+import { M as M_2 } from "./51517.js";
+import pt from "./75961.js";
+import Ct from "./96000.js";
+import _t from "./26853.js";
+import { Qx, R9, BN, FO } from "./13656.js";
+import { T as T_3 } from "./78057.js";
+import xt from "./24460.js";
+import Ut from "./34776.js";
+import Wt from "./96670.js";
+import Vt from "./81969.js";
+import Qt, { W6 } from "./49519.js";
+import Zt from "./50376.js";
+import Yt, { Ss, M3 } from "./57016.js";
+import Kt from "./3015.js";
+import ir from "./57421.js";
+import ar from "./22091.js";
+import sr from "./53453.js";
+import { N4, Id } from "./77347.js";
+import lr, { FN } from "./43152.js";
+import cr from "./87935.js";
+import mr, { TR, Tr as Tr_2, sf as sf_2, oS, dT } from "./74416.js";
+import ur from "./37141.js";
+import { G$, zK } from "./42983.js";
+import Sr from "./2053.js";
+import Br from "./11471.js";
+import Ir from "./75085.js";
+import Er from "./81994.js";
+import { pw } from "./31319.js";
+import kr from "./39940.js";
+import { K as K_2 } from "./46085.js";
+import Vr from "./89600.js";
+import Hr from "./65424.js";
+import { dm } from "./34428.js";
+import Qr, { F2, TN, d0, dN } from "./64004.js";
+import Zr from "./48969.js";
+import { VB, rg } from "./3142.js";
+import Kr from "./26328.js";
+import nn, { oE } from "./91209.js";
+import { kN } from "./13925.js";
+import sn, { PA as PA_2 } from "./56970.js";
+import cn from "./93023.js";
+import mn from "./17231.js";
+import un from "./68608.js";
+import dn from "./88724.js";
+import An from "./8573.js";
+import pn from "./66531.js";
+import Bn from "./4690.js";
+import vn from "./11666.js";
+import En from "./94692.js";
+import xn, { LK } from "./48289.js";
+import Un from "./63713.js";
+import Wn from "./3289.js";
+import Yn from "./10064.js";
+import { Dp, Fj } from "./736.js";
+import { W6 as W6_2 } from "./69913.js";
+import { f as f_2 } from "./63538.js";
+import $n from "./79671.js";
+import { gQ } from "./39002.js";
+import ti from "./13277.js";
+import ri from "./52733.js";
+import { T as T_1 } from "./59718.js";
+import { Dy } from "./88750.js";
+import wi from "./89373.js";
+import { $2 } from "./96680.js";
+import ki from "./87913.js";
+import Di from "./49180.js";
+import Ni from "./30449.js";
+import Fi from "./10024.js";
+import ta from "./5072.js";
+import "./41480.js";
+import { I as I_2 } from "./61416.js";
+import na from "./75144.js";
+import ma, { BGameRecordingFeatureEnabled } from "./4069.js";
+const b = f;
 function v(e) {
 	const { feature: t, disabled: r, ...i } = e;
-	const a = (0, S.l9)(t);
+	const a = l9(t);
 	const s = a !== 0;
-	const o = (0, w.wT)();
+	const o = wT();
 	return n.createElement(
 		B.Z,
 		{
@@ -45,23 +171,21 @@ function v(e) {
 		}),
 	);
 }
-var I = require("./89748.js");
-var E = require("./37086.js");
 function M() {
-	const e = (0, C.hf)();
-	const t = (0, C.uI)();
-	const r = (0, C.Y2)();
-	const a = (0, I.IU)();
-	const [s, o] = (0, l.VI)("library_display_size");
-	const c = (0, i.Qt)("steam://open/addnonsteamgame");
-	const f = (0, i.bG)("StoreFrontPage");
+	const e = hf();
+	const t = uI();
+	const r = Y2();
+	const a = IU();
+	const [s, o] = VI("library_display_size");
+	const c = Qt_1("steam://open/addnonsteamgame");
+	const f = bG("StoreFrontPage");
 	const S = (e) => {
-		(0, p.U)(GetOwningWindowForEvent(e));
+		U_2(GetOwningWindowForEvent(e));
 	};
 	return n.createElement(
 		E.sh,
 		{
-			className: (0, d.A)(b.NoScroll, b.LibrarySettings),
+			className: A(b.NoScroll, b.LibrarySettings),
 		},
 		e &&
 			n.createElement(
@@ -224,18 +348,9 @@ function M() {
 			),
 	);
 }
-var T = require(/*webcrack:missing*/ "./90095.js");
-var R = require("./83247.js");
-var k = require("./74362.js");
-var D = require("./51943.js");
-var N = require(/*webcrack:missing*/ "./52451.js");
-var F = require("./96593.js");
-require("./91040.js");
-var G = require("./91486.js");
-var O = require("./91957.js");
 function P(e) {
 	const t = k.T4.Output;
-	if ((0, D.xU)(t).length == 0) {
+	if (xU(t).length == 0) {
 		return n.createElement(m.D0, {
 			disabled: true,
 			icon: n.createElement(u.VolumeMuted, null),
@@ -258,7 +373,7 @@ function P(e) {
 }
 function L(e) {
 	const t = k.T4.Input;
-	if ((0, D.xU)(t).length == 0) {
+	if (xU(t).length == 0) {
 		return n.createElement(m.D0, {
 			disabled: true,
 			icon: n.createElement(u.VolumeMuted, null),
@@ -292,7 +407,7 @@ function z(e) {
 	);
 }
 function x(e) {
-	if ((0, D.In)()) {
+	if (In_2()) {
 		return n.createElement(
 			n.Fragment,
 			null,
@@ -305,9 +420,9 @@ function x(e) {
 	}
 }
 function U(e) {
-	(0, D.fW)();
-	const [t] = (0, s.gk)();
-	(0, C.Qn)();
+	fW();
+	const [t] = gk();
+	Qn_2();
 	return n.createElement(
 		m.nB,
 		null,
@@ -316,17 +431,14 @@ function U(e) {
 		false,
 	);
 }
-var W = require("./25467.js");
-var V = require("./28020.js");
-var H = V;
-var j = require("./66943.js");
+const H = V;
 function q(e) {
-	(0, W.sr)();
-	const t = (0, W.Pi)();
-	const [r] = (0, W.d$)();
-	const [i] = (0, W.cg)();
-	const { rPairedDevices: a, rAvailableDevices: s } = (0, W.KO)(i);
-	const o = (function (e, t) {
+	sr_2();
+	const t = Pi_2();
+	const [r] = d$();
+	const [i] = cg();
+	const { rPairedDevices: a, rAvailableDevices: s } = KO(i);
+	const o = ((e, t) => {
 		if (e.length > 0) {
 			return (0, Localize)("#QuickAccess_Tab_Bluetooth_Available_To_Pair");
 		} else if (t) {
@@ -385,8 +497,6 @@ function q(e) {
 			),
 	);
 }
-var Q = require("./85182.js");
-var Z = require(/*webcrack:missing*/ "./34629.js");
 class Y {
 	static s_Singleton = null;
 	static Get() {
@@ -414,14 +524,7 @@ class Y {
 		SteamClient.System.Devkit.SetPairing(e);
 	}
 }
-(0, Z.Cg)([N.oI], Y.prototype, "OnPairingPrompt", null);
-var K = require("./13869.js");
-var X = require("./10606.js");
-var J = require("./66186.js");
-var $ = require("./4406.js");
-var ee = require("./61277.js");
-var te = require(/*webcrack:missing*/ "./89193.js");
-var re = require("./51297.js");
+Cg([N.oI], Y.prototype, "OnPairingPrompt", null);
 class ne {
 	static s_Singleton = null;
 	static Get() {
@@ -436,7 +539,7 @@ class ne {
 		return this.m_msgState;
 	}
 	constructor() {
-		(0, te.Gn)(this);
+		Gn_2(this);
 		SteamClient.System.AudioDevices?.RegisterForStateChanges(
 			this.OnStateChanged,
 		);
@@ -467,25 +570,18 @@ function ie() {
 		(0, Localize)("#Settings_Developer_SpeakerTest_Start"),
 	);
 }
-(0, Z.Cg)([te.sH], ne.prototype, "m_msgState", undefined);
-(0, Z.Cg)([te.XI.bound], ne.prototype, "OnStateChanged", null);
-(0, Z.Cg)([N.oI], ne.prototype, "SetCounter", null);
-(0, Z.Cg)([N.oI], ne.prototype, "RunSpeakerTest", null);
-var ae = require("./83571.js");
-var se = require("./8326.js");
-var oe = require("./18869.js");
-var le = require("./27756.js");
-var ce = require(/*webcrack:missing*/ "./11131.js");
-var me = require("./2306.js");
-var ue = require("./13897.js");
+Cg([te.sH], ne.prototype, "m_msgState", undefined);
+Cg([te.XI.bound], ne.prototype, "OnStateChanged", null);
+Cg([N.oI], ne.prototype, "SetCounter", null);
+Cg([N.oI], ne.prototype, "RunSpeakerTest", null);
 function de() {
-	const e = (0, ce.R7)();
+	const e = R7();
 	return [
-		(0, N.vJ)(() => SteamClient.Settings.GetGlobalCompatTools(), []),
+		vJ(() => SteamClient.Settings.GetGlobalCompatTools(), []),
 		n.useCallback(
 			(t) => {
 				SteamClient.Settings.SpecifyGlobalCompatTool(t);
-				(0, le.$)({
+				$_2({
 					strDescription: (0, Localize)("#Settings_SteamPlay_NeedsRestart"),
 					strOKButtonText: (0, Localize)("#Settings_SteamPlay_Restart"),
 					strCancelButtonText: (0, Localize)(
@@ -500,7 +596,7 @@ function de() {
 	];
 }
 function Ae(e) {
-	const t = (0, l.t0)();
+	const t = t0();
 	const r = t.bCompatEnabled;
 	const i = t.bCompatEnabledForOtherTitles;
 	const [a, s] = n.useState(i);
@@ -531,7 +627,7 @@ function Ae(e) {
 	});
 }
 function pe(e) {
-	const t = (0, l.t0)().strCompatTool;
+	const t = t0().strCompatTool;
 	const [r, i] = de();
 	const a =
 		r?.map((e) => ({
@@ -570,10 +666,8 @@ function ge(e) {
 		n.createElement(pe, null),
 	);
 }
-var he = require("./28351.js");
-var Ce = require("./17386.js");
 function _e() {
-	const [e, t] = (0, J.CN)();
+	const [e, t] = CN();
 	return n.createElement(me.C, {
 		feature: 7,
 		label: (0, Localize)("#Settings_Tracing"),
@@ -586,7 +680,7 @@ function _e() {
 	});
 }
 function fe() {
-	const [e, t] = (0, J.gU)();
+	const [e, t] = gU();
 	return n.createElement(me.C, {
 		feature: 7,
 		label: (0, Localize)("#Settings_Profiling"),
@@ -599,7 +693,7 @@ function fe() {
 	});
 }
 function be(e) {
-	if ((0, C.TL)()) {
+	if (TL()) {
 		return n.createElement(
 			m.G5,
 			null,
@@ -614,7 +708,7 @@ function be(e) {
 function ye(e) {
 	const [t, r] = n.useState(false);
 	const i = n.useCallback((e) => {
-		(0, K.pg)(
+		pg(
 			n.createElement(X.o0, {
 				strTitle: (0, Localize)("#Settings_System_Devkit_Pairing_Confirmation"),
 				strDescription: e,
@@ -649,7 +743,7 @@ function ye(e) {
 	);
 }
 function Se(e) {
-	if ((0, C.TL)()) {
+	if (TL()) {
 		return n.createElement(
 			m.G5,
 			null,
@@ -661,7 +755,7 @@ function Se(e) {
 	}
 }
 function we() {
-	const [e, t] = (0, l.VI)("steam_input_configurator_error_msg_enable");
+	const [e, t] = VI("steam_input_configurator_error_msg_enable");
 	return n.createElement(me.C, {
 		feature: 7,
 		label: (0, Localize)("#Settings_Developer_SteamInputDev"),
@@ -689,7 +783,7 @@ function ve() {
 	});
 }
 function Ie() {
-	const [e, t] = (0, s.FA)();
+	const [e, t] = FA();
 	return n.createElement(me.C, {
 		feature: 7,
 		label: (0, Localize)("#Settings_Developer_ShowAdvancedOSBranches"),
@@ -698,15 +792,15 @@ function Ie() {
 	});
 }
 function Ee() {
-	const [e, t] = (0, l.VI)("override_browser_composer_mode");
-	if ((0, C.CI)()) {
+	const [e, t] = VI("override_browser_composer_mode");
+	if (CI()) {
 		return n.createElement(me.C, {
 			feature: 7,
 			label: (0, Localize)("#Settings_Developer_ForceSystemComposer"),
 			checked: e == 1,
 			onChange: (e) => {
 				t(e ? 1 : 0);
-				(0, K.pg)(
+				pg(
 					n.createElement(X.o0, {
 						strTitle: (0, Localize)("#Modal_ConfirmSteamRestart_Title"),
 						strOKButtonText: (0, Localize)(
@@ -749,7 +843,7 @@ function Te(e) {
 	);
 }
 function Re(e) {
-	let t = (0, oe.tn)(i.BV.Console());
+	let t = tn_2(i.BV.Console());
 	return n.createElement(
 		E.oN,
 		{
@@ -764,7 +858,7 @@ function ke(e) {
 	return null;
 }
 function De(e) {
-	if ((0, C.TL)()) {
+	if (TL()) {
 		return n.createElement(
 			m.G5,
 			null,
@@ -782,8 +876,8 @@ function De(e) {
 	}
 }
 function Ne(e) {
-	const t = (0, C.TL)() || false;
-	const r = (0, C.Qn)() || false;
+	const t = TL() || false;
+	const r = Qn_2() || false;
 	return n.createElement(
 		m.G5,
 		null,
@@ -836,7 +930,7 @@ function Ne(e) {
 	);
 }
 function Fe(e) {
-	if ((0, C.CI)()) {
+	if (CI()) {
 		return n.createElement(
 			m.G5,
 			null,
@@ -869,17 +963,12 @@ function Ge(e) {
 		n.createElement(Be, null),
 	);
 }
-var Oe = require(/*webcrack:missing*/ "./41230.js");
-var Pe = require("./34819.js");
 const Le =
 	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAALCAYAAAC3SYXQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpCRjAzN0Y1RDU5ODhFQzExOTg2MEQwRjhBQkYyQ0M4OCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRUYzRjlBMzg4NUYxMUVDQkU3RUFCNjgyMTIyOUFGNSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRUYzRjlBMjg4NUYxMUVDQkU3RUFCNjgyMTIyOUFGNSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDMDAzN0Y1RDU5ODhFQzExOTg2MEQwRjhBQkYyQ0M4OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCRDAzN0Y1RDU5ODhFQzExOTg2MEQwRjhBQkYyQ0M4OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Phx76n8AAAFNSURBVHja7JjdksMgCIXB66SvvJMnPxv8yRJWpV50a3fkoojB7xCHmEyZiEAN2/aduAQAgTnG+7alcZnLXubluowlX4wz5xP44rfH48YuWntD45pX/KgttZ4xznntZd6yb5w/5gfqGKsxVFzG1ts86nXXhHx01ng2kjtTfvAxejthxtbbPHLKmI3PnTWejeTOkx88CPI+MuOK5fc8cCo+JQMc9fmJZ3QuvmX7T1KNn+J0+lqv67Za7+AH9xhRO3CLKx5azMYfwI+7aBsq6zRbrMFvvl4a9/EuvvsNAM4bAv6Jo8Jvz8gdmtdc8dR8fWAartJpNlmNXxilZuVn4wf3TZIXe8K2gFvx0/H1yZEaoWjYXE+nt6Z2D/PxMfJhsey/2WqA1QCrAVYDvFqEj0GRr6Fs+ROsde1gxuuUo3hVm48x3VFhdL/tn7dvAQYA7D+tEgev8ZYAAAAASUVORK5CYII=";
-var ze = require("./38660.js");
-var xe = ze;
-var Ue = require("./96555.js");
-var We = require("./11714.js");
+const xe = ze;
 const Ve = 1000;
 function He() {
-	const e = (0, Pe._x)();
+	const e = _x();
 	return n.createElement(me.C, {
 		feature: 7,
 		checked: e,
@@ -889,8 +978,8 @@ function He() {
 	});
 }
 function je(e) {
-	const [t, r] = (0, Pe.Ru)();
-	const [i, a] = (0, N.uN)(t, r, Ve);
+	const [t, r] = Ru();
+	const [i, a] = uN(t, r, Ve);
 	const s = n.useMemo(
 		() => [
 			{
@@ -920,7 +1009,7 @@ function je(e) {
 	});
 }
 function qe() {
-	const e = (0, Pe.TD)();
+	const e = TD();
 	return n.createElement(O.V, {
 		feature: 7,
 		layout: "inline",
@@ -933,7 +1022,7 @@ function qe() {
 	});
 }
 function Qe() {
-	const e = (0, Pe.T0)();
+	const e = T0();
 	return n.createElement(O.V, {
 		feature: 7,
 		layout: "inline",
@@ -946,7 +1035,7 @@ function Qe() {
 	});
 }
 function Ze() {
-	const [e, t] = (0, Pe.yc)();
+	const [e, t] = yc();
 	return (
 		e &&
 		n.createElement(O.V, {
@@ -962,8 +1051,8 @@ function Ze() {
 	);
 }
 function Ye() {
-	const [e, t, r] = (0, Pe.Wy)();
-	const i = (0, l.t0)().vecNightModeScheduledHours.map((e) => ({
+	const [e, t, r] = Wy();
+	const i = t0().vecNightModeScheduledHours.map((e) => ({
 		data: e.nHour,
 		label: e.strDisplay,
 	}));
@@ -1018,7 +1107,7 @@ function Ye() {
 	);
 }
 function Ke() {
-	const e = (0, Pe.MC)();
+	const e = MC();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -1089,7 +1178,7 @@ function Ke() {
 	);
 }
 function Xe() {
-	const [e, t, r] = (0, Pe.MH)();
+	const [e, t, r] = MH();
 	if (e) {
 		return n.createElement(me.C, {
 			feature: 7,
@@ -1102,9 +1191,9 @@ function Xe() {
 	}
 }
 function Je(e) {
-	const [t, r, i] = (0, J.nR)();
-	const [a, s] = (0, N.uN)(r, i);
-	const o = (0, Ue.l5)();
+	const [t, r, i] = nR();
+	const [a, s] = uN(r, i);
+	const o = l5();
 	if (t && o) {
 		return n.createElement(O.V, {
 			feature: 7,
@@ -1121,9 +1210,9 @@ function Je(e) {
 	}
 }
 function $e(e) {
-	const [t, r] = (0, s.gk)();
-	(0, C.Qn)();
-	const [i, a] = (0, Pe.zg)();
+	const [t, r] = gk();
+	Qn_2();
+	const [i, a] = zg();
 	return n.createElement(
 		m.G5,
 		null,
@@ -1148,8 +1237,8 @@ function $e(e) {
 	);
 }
 function et() {
-	const e = (0, Ce.vB)();
-	if ((0, Ce.DP)()) {
+	const e = vB();
+	if (DP()) {
 		return n.createElement(
 			m.G5,
 			null,
@@ -1176,8 +1265,8 @@ function et() {
 		return null;
 	}
 }
-const tt = (0, Oe.PA)(() => {
-	const e = !(0, C.rP)().IN_VR;
+const tt = PA(() => {
+	const e = !rP().IN_VR;
 	n.useEffect(() => {
 		if (e) {
 			l.rV.RefreshMonitorInfo();
@@ -1196,7 +1285,7 @@ const tt = (0, Oe.PA)(() => {
 	t?.monitors?.forEach((e, t) => {
 		r.push({
 			data: t + 1,
-			label: e.monitor_display_name + " " + (t + 1),
+			label: `${e.monitor_display_name} ${t + 1}`,
 		});
 	});
 	const i =
@@ -1255,8 +1344,8 @@ function rt() {
 	}
 }
 function nt() {
-	const e = (0, T.q3)(() => l.rV.WindowedMode);
-	if ((0, C.rP)().IN_VR) {
+	const e = q3(() => l.rV.WindowedMode);
+	if (rP().IN_VR) {
 		return null;
 	} else {
 		return n.createElement(
@@ -1274,9 +1363,9 @@ function nt() {
 	}
 }
 function it() {
-	const e = (0, oe.tn)(i.BV.GamepadUI.ColorSettings(), {});
-	const [t, r, a] = (0, Pe.xs)();
-	const [s, o, l, c] = (0, Pe.Xs)();
+	const e = tn_2(i.BV.GamepadUI.ColorSettings(), {});
+	const [t, r, a] = xs();
+	const [s, o, l, c] = Xs();
 	return (
 		(t || s) &&
 		n.createElement(
@@ -1314,9 +1403,9 @@ function at(e) {
 	);
 }
 function st(e) {
-	const t = (0, Ue.hb)();
-	const [r, i] = (0, s.gk)();
-	(0, C.Qn)();
+	const t = hb();
+	const [r, i] = gk();
+	Qn_2();
 	return n.createElement(
 		m.nB,
 		null,
@@ -1330,7 +1419,7 @@ function st(e) {
 			),
 		false,
 		n.createElement(et, null),
-		(0, C.td)() && n.createElement(tt, null),
+		td() && n.createElement(tt, null),
 		!C.TS.IN_GAMESCOPE && n.createElement(nt, null),
 		t && n.createElement(Ke, null),
 		t && n.createElement(at, null),
@@ -1355,13 +1444,7 @@ function ot(e) {
 		return null;
 	}
 }
-var lt = require(/*webcrack:missing*/ "./68120.js");
-var ct = require("./22136.js");
-var mt = ct;
-var ut = require(/*webcrack:missing*/ "./44846.js");
-var dt = require("./12491.js");
-var At = require("./51517.js");
-var pt = require("./75961.js");
+const mt = ct;
 function gt(e) {
 	const {
 		feature: t,
@@ -1374,10 +1457,10 @@ function gt(e) {
 		indentLevel: c,
 		...u
 	} = e;
-	const d = (0, C.Qn)();
-	const A = (0, S.l9)(t);
+	const d = Qn_2();
+	const A = l9(t);
 	const p = A !== 0;
-	const g = (0, w.wT)();
+	const g = wT();
 	return n.createElement(
 		m.D0,
 		{
@@ -1398,10 +1481,10 @@ function gt(e) {
 }
 function ht(e) {
 	const { feature: t, focusable: r, disabled: i, children: a, ...s } = e;
-	const o = (0, C.Qn)();
-	const l = (0, S.l9)(t);
+	const o = Qn_2();
+	const l = l9(t);
 	const c = l !== 0;
-	const u = (0, w.wT)();
+	const u = wT();
 	return n.createElement(
 		m.D0,
 		{
@@ -1413,10 +1496,6 @@ function ht(e) {
 		a,
 	);
 }
-var Ct = require("./96000.js");
-var _t = require(/*webcrack:missing*/ "./26853.js");
-var ft = require("./13656.js");
-var bt = require("./78057.js");
 function yt(e) {
 	const { rgAppIDs: t } = e;
 	const [r, i] = n.useState("");
@@ -1426,8 +1505,8 @@ function yt(e) {
 		t.forEach((e) => a.add(e));
 		o([...a]);
 	}, [t, a]);
-	const l = (function (e, t) {
-		return n.useMemo(() => {
+	const l = ((e, t) =>
+		n.useMemo(() => {
 			const r = (t ?? "").trim().toLocaleLowerCase();
 			return e
 				.filter(
@@ -1436,8 +1515,7 @@ function yt(e) {
 						(r.length == 0 || e.display_name.toLocaleLowerCase().includes(r)),
 				)
 				.sort((e, t) => e.display_name.localeCompare(t.display_name));
-		}, [e, t]);
-	})((0, F.li)(s), r);
+		}, [e, t]))(li_2(s), r);
 	return n.createElement(
 		"div",
 		{
@@ -1476,11 +1554,11 @@ function yt(e) {
 }
 function St(e) {
 	const { style: t, app: r, last: i } = e;
-	const a = (0, bt.T)(r.appid);
-	(0, ft.Qx)();
-	const s = (0, ft.R9)(a?.eAutoUpdateValue, true);
-	const o = (0, ft.BN)();
-	const l = (0, oe.br)();
+	const a = T_3(r.appid);
+	Qx();
+	const s = R9(a?.eAutoUpdateValue, true);
+	const o = BN();
+	const l = br_2();
 	if (a) {
 		return n.createElement(
 			"div",
@@ -1501,7 +1579,7 @@ function St(e) {
 				n.createElement(
 					"a",
 					{
-						className: (0, d.A)(mt.AppName, mt.AppLink),
+						className: A(mt.AppName, mt.AppLink),
 						onClick: () => l.App(r.appid),
 					},
 					r.display_name,
@@ -1535,12 +1613,12 @@ function St(e) {
 }
 function wt(e) {
 	const { rgAppIDs: t, closeModal: r } = e;
-	const [i] = (0, l.VI)("default_app_update_behavior");
-	const a = (0, ft.FO)(i, null);
+	const [i] = VI("default_app_update_behavior");
+	const a = FO(i, null);
 	return n.createElement(
 		m.nB,
 		{
-			className: (0, d.A)(mt.NoScroll, mt.AppUpdateOverrideManagement),
+			className: A(mt.NoScroll, mt.AppUpdateOverrideManagement),
 		},
 		n.createElement(
 			m.Y9,
@@ -1595,7 +1673,7 @@ const Bt = (e) => {
 	);
 };
 function vt() {
-	const [e] = (0, l.VI)("default_app_update_behavior");
+	const [e] = VI("default_app_update_behavior");
 	const [t, r] = n.useState(undefined);
 	n.useEffect(
 		() =>
@@ -1607,7 +1685,7 @@ function vt() {
 	return t;
 }
 const It = () => {
-	const e = (0, l.t0)().vecValidDownloadRegions.map((e) => ({
+	const e = t0().vecValidDownloadRegions.map((e) => ({
 		data: e.nRegionID,
 		label: e.strRegionName,
 	}));
@@ -1615,7 +1693,7 @@ const It = () => {
 		label: (0, Localize)("#DownloadSettings_SelectRegion"),
 		onChange: (e, t) => {
 			const r = GetOwningWindowForElement(t.element);
-			(0, le.$)({
+			$_2({
 				ownerWindow: r,
 				strCancelButtonText: (0, Localize)("#Settings_RestartLater_ButtonText"),
 			});
@@ -1626,14 +1704,14 @@ const It = () => {
 	});
 };
 const Et = () => {
-	const [e, t] = (0, l.VI)("download_throttle_rate");
-	const [r] = (0, l.VI)("download_rate_bits_per_s");
+	const [e, t] = VI("download_throttle_rate");
+	const [r] = VI("download_rate_bits_per_s");
 	const [i, a] = n.useState(e.toString());
 	const [s, o] = n.useState(Number(i) > 0);
 	const c = r ? 1 : 8;
-	const u = (0, N.Sz)(c);
+	const u = Sz(c);
 	const p = Number(i);
-	const g = (0, te.XI)((e) => {
+	const g = XI((e) => {
 		if (!isNaN(Number(e.target.value))) {
 			a(e.target.value);
 		}
@@ -1692,16 +1770,16 @@ const Et = () => {
 					),
 				}),
 				n.createElement(m.Nu, {
-					className: (0, d.A)(mt.Indent, mt.MinHeight),
+					className: A(mt.Indent, mt.MinHeight),
 				}),
 			),
 	);
 };
 const Mt = () => {
-	const e = (0, l.t0)();
-	const [t] = (0, l.VI)("restrict_auto_updates");
-	const [r, i] = (0, l.VI)("restrict_auto_updates_start");
-	const [a, s] = (0, l.VI)("restrict_auto_updates_end");
+	const e = t0();
+	const [t] = VI("restrict_auto_updates");
+	const [r, i] = VI("restrict_auto_updates_start");
+	const [a, s] = VI("restrict_auto_updates_end");
 	const o = e.vecValidAutoUpdateRestrictHours.map((e) => ({
 		data: e.nHour,
 		label: e.strDisplay,
@@ -1760,7 +1838,7 @@ const Mt = () => {
 					),
 				),
 				n.createElement(m.Nu, {
-					className: (0, d.A)(mt.Indent, mt.MinHeight),
+					className: A(mt.Indent, mt.MinHeight),
 				}),
 			),
 	);
@@ -1791,17 +1869,17 @@ const kt = (e) =>
 		setting: "download_rate_bits_per_s",
 	});
 const Dt = () => {
-	const [e, t] = (0, l.VI)("default_app_update_behavior");
+	const [e, t] = VI("default_app_update_behavior");
 	const r = vt();
 	const i = [
 		...Ct.md.GetCollection(Ct.A8.LocalPlayed).visibleApps,
 		...Ct.md.GetCollection(Ct.A8.Recent).visibleApps,
-	].filter((e) => !(0, ut.ak)(e.appid))[0];
+	].filter((e) => !ak(e.appid))[0];
 	const a = !!i;
 	const s = a
 		? () => SteamClient.Apps.OpenAppSettingsDialog(i.appid, "updates")
 		: undefined;
-	const [o, c, u] = (0, N.uD)(false);
+	const [o, c, u] = uD(false);
 	const p = [
 		{
 			label: (0, Localize)(
@@ -1894,14 +1972,14 @@ const Dt = () => {
 					),
 			),
 			n.createElement(m.Nu, {
-				className: (0, d.A)(mt.MinHeight),
+				className: A(mt.MinHeight),
 			}),
 			g && n.createElement(Mt, null),
 		),
 	);
 };
 const Nt = () => {
-	const [e, t] = (0, l.VI)("download_peer_content");
+	const [e, t] = VI("download_peer_content");
 	const r = e != 0;
 	const i = [
 		{
@@ -1952,8 +2030,8 @@ const Nt = () => {
 	);
 };
 const Ft = () => {
-	const e = (0, dt.T2)();
-	const [t, r, i] = (0, At.M)({
+	const e = T2();
+	const [t, r, i] = M_2({
 		className: mt.ConfirmCacheClearDialog,
 		bCloseOnOK: true,
 		onOK: () => {
@@ -1980,8 +2058,8 @@ const Ft = () => {
 	);
 };
 const Gt = () => {
-	const [e] = (0, l.VI)("enable_shader_precache");
-	const [t] = (0, l.hX)("shader_precached_size");
+	const [e] = VI("enable_shader_precache");
+	const [t] = hX("shader_precached_size");
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -2008,7 +2086,7 @@ const Gt = () => {
 	);
 };
 function Ot(e) {
-	const t = (0, C.hf)();
+	const t = hf();
 	return n.createElement(
 		E.sh,
 		{
@@ -2033,7 +2111,7 @@ const Pt = () =>
 		setting: "cloud_enabled",
 	});
 const Lt = () => {
-	const e = (0, C.Y2)();
+	const e = Y2();
 	return n.createElement(_.G, {
 		feature: h.uX,
 		label: (0, Localize)("#CloudSettings_ShowScreenshotManager"),
@@ -2052,14 +2130,10 @@ function zt(e) {
 		n.createElement(Lt, null),
 	);
 }
-var xt = require("./24460.js");
-var Ut = require("./34776.js");
-var Wt = require("./96670.js");
-var Vt = require("./81969.js");
 function Ht(e) {
-	const t = (0, ce.R7)();
-	const r = (0, N.vJ)(() => SteamClient.Settings.GetCurrentLanguage(), []);
-	const i = (0, N.vJ)(() => SteamClient.Settings.GetAvailableLanguages(), []);
+	const t = R7();
+	const r = vJ(() => SteamClient.Settings.GetCurrentLanguage(), []);
+	const i = vJ(() => SteamClient.Settings.GetAvailableLanguages(), []);
 	const a =
 		i?.map((e) => {
 			return {
@@ -2071,10 +2145,10 @@ function Ht(e) {
 			var t;
 		}) ?? [];
 	const s = n.useRef(undefined);
-	const o = (0, T.q3)(() => l.rV.IsDeferred("Language"));
+	const o = q3(() => l.rV.IsDeferred("Language"));
 	const c = n.useCallback((e) => {
 		SteamClient.Settings.SetCurrentLanguage(e);
-		Ut.O.AddValidKeyboardLayoutByLanguage((0, ut.sf)(e));
+		Ut.O.AddValidKeyboardLayoutByLanguage(sf(e));
 	}, []);
 	const m = n.useCallback(
 		(e) => {
@@ -2086,7 +2160,7 @@ function Ht(e) {
 	const u = n.useCallback(
 		(e) => {
 			if (e != r) {
-				(0, le.$)({
+				$_2({
 					strDescription: (0, Localize)("#Settings_Language_NeedsRestart"),
 					fnOnOK: () => c(e),
 					strCancelButtonText: (0, Localize)(
@@ -2118,8 +2192,8 @@ function Ht(e) {
 	});
 }
 function jt(e) {
-	const t = (0, C.rP)();
-	const r = (0, N.gc)(l.rV.GetBatteryPreferences());
+	const t = rP();
+	const r = gc(l.rV.GetBatteryPreferences());
 	return (
 		!t.IN_VR &&
 		n.createElement(me.C, {
@@ -2149,12 +2223,8 @@ function qt(e) {
 		n.createElement(Vt.tm, null),
 	);
 }
-var Qt = require(/*webcrack:missing*/ "./49519.js");
-var Zt = require(/*webcrack:missing*/ "./50376.js");
-var Yt = require("./57016.js");
-var Kt = require("./3015.js");
-var Xt = Kt;
-const Jt = (0, Oe.PA)((e) => {
+const Xt = Kt;
+const Jt = PA((e) => {
 	const { appid: t } = e;
 	const r = F.tw.GetAppOverviewByAppID(t);
 	return n.createElement(
@@ -2237,8 +2307,8 @@ const er = (e) => {
 	);
 };
 const tr = () => {
-	const e = (0, T.q3)(() => Ct.md.GetCollection(Ct.A8.Hidden).allApps);
-	const t = (0, Qt.W6)();
+	const e = q3(() => Ct.md.GetCollection(Ct.A8.Hidden).allApps);
+	const t = W6();
 	const r = n.useCallback(() => {
 		t.push(i.BV.Library.Collection(Ct.A8.Hidden));
 	}, [t]);
@@ -2261,14 +2331,14 @@ const tr = () => {
 };
 const rr = (e) => {
 	const { rgApps: t, strHeader: r } = e;
-	const i = (0, T.q3)(() => t.filter((e) => !S.jR.BIsAppBlocked(e)));
+	const i = q3(() => t.filter((e) => !S.jR.BIsAppBlocked(e)));
 	if (i.length == 0) {
 		return null;
 	} else {
 		return n.createElement(
 			"div",
 			{
-				className: (0, d.A)(Xt.AppPrioritySection, Xt.ShowLess),
+				className: A(Xt.AppPrioritySection, Xt.ShowLess),
 			},
 			n.createElement(
 				"div",
@@ -2293,15 +2363,15 @@ const rr = (e) => {
 	}
 };
 const nr = () => {
-	let e = (0, Yt.Ss)();
-	let t = (0, Yt.M3)();
+	let e = Ss();
+	let t = M3();
 	n.useEffect(() => {
 		Yt.dm.FetchUpdatedEventAppPrioritiesForUser();
 	}, []);
 	return n.createElement(
 		m.nB,
 		{
-			className: (0, d.A)(Xt.HomeSettings),
+			className: A(Xt.HomeSettings),
 		},
 		n.createElement(_.G, {
 			feature: h.uX,
@@ -2333,20 +2403,11 @@ const nr = () => {
 		}),
 	);
 };
-var ir = require("./57421.js");
-var ar = require("./22091.js");
-var sr = require("./53453.js");
-var or = require("./77347.js");
-var lr = require("./43152.js");
-var cr = require("./87935.js");
-var mr = require("./74416.js");
-var ur = require("./37141.js");
-var dr = ur;
-var Ar = require("./42983.js");
+const dr = ur;
 function pr(e) {
 	const t = n.useCallback((e) => {}, []);
 	const r = n.useCallback(() => {}, []);
-	const i = (0, lr.FN)({
+	const i = FN({
 		onTextEntered: t,
 		onKeyboardNavOut: r,
 	});
@@ -2361,7 +2422,7 @@ function pr(e) {
 	);
 }
 function gr(e) {
-	const t = (0, i.Qt)(cr.B7.ResolveURL("PointsShop") + "c/keyboard");
+	const t = Qt_1(`${cr.B7.ResolveURL("PointsShop")}c/keyboard`);
 	return n.createElement(
 		E.oN,
 		{
@@ -2375,9 +2436,9 @@ function gr(e) {
 	);
 }
 function hr(e) {
-	const t = (0, T.q3)(() => Ut.O.HapticPreset);
-	const r = (0, T.q3)(() => Ut.O.HapticSettings);
-	const i = (0, s.oM)() || t == Ut.X.Custom;
+	const t = q3(() => Ut.O.HapticPreset);
+	const r = q3(() => Ut.O.HapticSettings);
+	const i = oM() || t == Ut.X.Custom;
 	const a = [
 		{
 			data: Ut.X.Off,
@@ -2479,8 +2540,8 @@ function hr(e) {
 }
 function Cr(e) {
 	const t = C.TS.ON_DECK;
-	const r = (0, T.q3)(() => Ut.O.InitialLocationDesktop);
-	const i = (0, T.q3)(() => Ut.O.InitialLocationOverlay);
+	const r = q3(() => Ut.O.InitialLocationDesktop);
+	const i = q3(() => Ut.O.InitialLocationOverlay);
 	const a = [
 		{
 			data: "center-bottom",
@@ -2531,14 +2592,14 @@ function _r(e) {
 		mr.iG.ForceRefreshEquippedItems();
 	}, []);
 	let t = n.useRef(undefined);
-	const r = (0, T.q3)(() => ar.Fd.Get().GetControllers()).find(
+	const r = q3(() => ar.Fd.Get().GetControllers()).find(
 		(e) => e.eControllerType == 4,
 	);
-	const i = (0, mr.TR)(r?.strSerialNumber);
-	const a = (0, I.qw)().BIsOfflineMode();
-	const s = (0, or.N4)();
-	const o = (0, mr.Tr)();
-	const l = (0, mr.sf)();
+	const i = TR(r?.strSerialNumber);
+	const a = qw().BIsOfflineMode();
+	const s = N4();
+	const o = Tr_2();
+	const l = sf_2();
 	let c = [
 		{
 			label: (0, Localize)("#Settings_Keyboard_DefaultTheme"),
@@ -2589,7 +2650,7 @@ function _r(e) {
 					i = e.data;
 					mr.iG.EquipKeyboardSkin(i).then((e) => {
 						if (e != 1) {
-							(0, K.pg)(
+							pg(
 								n.createElement(X.KG, {
 									strDescription: (0, Localize)(
 										"#Settings_Keyboard_SetThemeError_Body",
@@ -2612,9 +2673,9 @@ function _r(e) {
 	);
 }
 function fr(e) {
-	const t = (0, C.rP)();
-	let r = (0, T.q3)(() => Ut.O.TrackpadTypingTriggerAsClick);
-	let i = (0, T.q3)(() => Ut.O.TrackPadTypingInputScale);
+	const t = rP();
+	let r = q3(() => Ut.O.TrackpadTypingTriggerAsClick);
+	let i = q3(() => Ut.O.TrackPadTypingInputScale);
 	return (
 		!t.IN_VR &&
 		n.createElement(
@@ -2652,14 +2713,14 @@ function fr(e) {
 				step: 0.25,
 				showValue: true,
 				notchCount: 5,
-				renderValue: (e) => e + "x",
+				renderValue: (e) => `${e}x`,
 			}),
 		)
 	);
 }
 function br(e) {
-	const t = (0, T.q3)(() => Ut.O.GetKeyboardLayoutSettings().currentLayout);
-	const r = (0, T.q3)(() => (0, Ar.G$)());
+	const t = q3(() => Ut.O.GetKeyboardLayoutSettings().currentLayout);
+	const r = q3(() => G$());
 	const i = n.useCallback((e) => {
 		Ut.O.SetKeyboardLayout(e);
 	}, []);
@@ -2682,7 +2743,7 @@ function br(e) {
 							},
 						}),
 					),
-				onClick: (e) => (0, Ar.zK)(GetOwningWindowForEvent(e)),
+				onClick: (e) => zK(GetOwningWindowForEvent(e)),
 				bottomSeparator: "none",
 			},
 			(0, Localize)("#Settings_Keyboard_ActiveKeyboards_Edit"),
@@ -2715,27 +2776,20 @@ function yr(e) {
 		n.createElement(fr, null),
 	);
 }
-var Sr = require("./2053.js");
-var wr = Sr;
-var Br = require("./11471.js");
-var vr = Br;
-var Ir = require("./75085.js");
-var Er = require("./81994.js");
-var Mr = require("./31319.js");
+const wr = Sr;
+const vr = Br;
 const Tr =
 	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZEAAAD6CAYAAABgZXp6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABOoSURBVHgB7d1djBXlHcfxZ1svuDAulzaxsNwWeYvBSF0CJhhpIAFsUxUuBNua4g1L2gu5KII30MSGJW0k0abgBaSYWCGRYKJJJRCMLy0gmpi0CS/lXvHKvSDp/M4yehjmnJn5zzNzZub5fprNLnRh1yWZ3/n//8/LmBu//4pzbsIBAFDEzNjEDxwAAEaECADAjBABAJgRIgAAM0IEAGBGiAAAzAgRAIAZIQIAMCNEAABmhAgAwIwQAQCYESIAADNCBABgRogAAMwIEQCAGSECADAjRAAAZoQIAMCMEAEAmBEiAAAzQgQAYEaIAADMCBEAgBkhAgAwI0QAAGaECADAjBABAJgRIgAAM0IEAGBGiAAAzAgRAIAZIQIAMCNEAABmhAgAwIwQAQCYESIAADNCBABgRogAAMwIEQCAGSECADAjRAAAZoQIAMCMEAEAmBEiAAAzQgQAYEaIAADMCBEAgBkhAgAwI0QAAGaECADAjBABAJgRIgAAM0IEAGBGiAAAzAgRAIAZIQIAMCNEAABmhAgAwOweBwRm7vh90du4W7pooZs/78e9X0/cfq/fF/069vXNm9HbN3d8fPX6/9y16zd67/V7Fy9/4YAQESLoNAXD0kUPuiVRYCg0Vk/+9I6AyCff51+8/HkvVD4496G7FIXKB+fOO6Drxtz4/Vei9xMO6AgFhd5WTa7ovR8VVSwKlhOn3nVnokChWkHnzIxNECLoBIXFs5t/6Tau+1mv+mii2SrlvHvj2JtUKegGQgRtpuDYsO4Jt3Xz040NjkEUKNOHXncnoypFHwOtRIigjTauW+t2bP/NSFtVPh05dpzqBO1EiKAtVGlMbX++Fx5tqzryUkWyZ/8rvUABWoEQQdOFEB5JhAlagxBBk23d/JR76cXfGZbkdoPCZNOWbazqQnNFIcKOdTSOZh3/fOctd/jV6WADRPTffuHs+8H/HNBsVCJoDLWr9rz4+17rCndSVXLw0Ou9FV1AY9DOQlOo+uAVdzat4Nr2whTLgtEMtLPQBNP7Xu61rwiQbArbC2ff622sBJrgh27OvVPR+7kOqJlCQ+GhXebIb86cObd35o+7jz79l/t2ZsYBI3FrbJp2FkZCr6jfPno4mGW7VVFb67H1P6e9hdGgnYVR0L4PVSAESHlxNdeV3ftoH0IEtdLqqwP79jr4EwfJFKvaMALMRFCbI68eZPluhdauecyNRf/jDC7UJpqJECKonNpWp9861js4EdVSW4sgQW0IEVRNAaJWyyPLH3KoB0GC2hAiqNqH77/Tu54W9SJIUAtCBFXSDER9eowGQYLKRSHC6ixUQquw2FU9ejoFmVVbqBIhAu8UIHp4oRkO7HuZfSSoDDvW4ZVWYGknOpz7+uY37uLlz2+/fdH79dc3b97xOdrjoTfNjZYuWljZ+WH6ustWPs7OdvjFKb7wKb7/IuSd6AqKI8f+7k6cetedOfehK0pBsiqqGtSC8h0oCpBlK9f0vkfAC0IEvig4FCChnsSr4fWRY8fdySg8fD2kV02u6N3uqDdf9D3qKHnAC0IEvug49xB3oyswpnb9odL70ONjTXwF9M5du7ncCn5wACN80CvlEANk+tBrbsHi5ZUGiKgNtWDxw72Hv48qJ+R76+EflQhK8f0quQ3qqD4G8fXzVvtNR8gDpVCJoKzQXtXG93eMIkD6v75We5Wx+vbwHiiLSgRmamPpXvRQNOkCKN1qqIpEq7msWPaL0hiso4wrn30cTBWiFpaWx1oeuFq5Fu8FmT/vgTv+zktRRaF9JJZZh48gOXHqtNu05TkHmEQhco8DDLQrPaQ21sYtWwsHiFpGavcpPLL2zsRLhLW3JO/XUSWxacu2UjMS3dWu75PztWBFJYLCQhum79n/itu7/0+5P19tvjKzIn0tBUreMFEI6N/DiiE7zKJKhFN8UVhIZzHpQZ633aPQ0JEvGlir1WSln62Oj1GrK0+QxJ9j/TfR962v9eV//uuAQm6NTVOJoBA9cDQLCYX2Z+R5kKtlpWpgUNtKMw/9PZp/xOJzs4ZVLKpKVAllUWhdOPueufqJ96IAhTATQVEhnc6bt6U0LEDUKlIIXLp9AGP6n1/Y26ypSiIZAvHPOytINB/RcSbWtpa+ro7uH9XSZbQXlQhyowq526BDJ1VxTO3aXegQRv1dCo20s7LyHlWiELG2tZiNoDA2G6II9elDkacKie+PTwaIjkPRw7joKb76eqomFBhJmkPlWcqr04OtFD7cO4KiCBHkFtL5WAqRLFPbn7+r/aS2085dL5U640oVR1pFkGdjp9pRZb42l4mhKEIEuajFEsqSXlUEWVVE3Hrqp3ZQkaXAw+jvSlYkmr1kXTms2Yg2EFqpEgn5PhgUR4ggl5DuS+9fQTVIMkD06t/3PR2qSJKbALXJM4vlMqx+IZ7IDDtCBJn0qjukXnmeuULy56E5SBVnUCUrmzz/FmV3n3MwI4ogRJAptGHrpYwTctOW4la1NFaBkAyFDeueGPpnFGZlAk17ThiwIy9CBJlCamVJ1jHrGxKr1PSQr/Ik3GRA6byrLHlacsNkBRUQI0QwVGitLA2msySX2lZ9eGHy79e/Sdbwu+wNiD7vdUe3ESIYKrS2xtXrNzI/J3kuVtkLorKoykmGwnhGiJStjGhpIS9CBEOF1tbIU4kkq4A8f6as5NeoY7n1qskVDshCiGCo1ZOPupBwy9/3qESQByGCgULbeKYAsWwWLHPse17JyqOOsNPsh42HyEKIYKAlJa5dbSMdWZLn4Zxc+VR1ayntzKxrGbMbH9+TwlG75IFhCBEMtDqgnrg2C+bd65Ecvld9MGXyQZ5nkO8r2EJ7IYHiCBEMNDFvngtB0TbWycSO9qrbfsl9Onn2gPgKkaWECDIQIkg128oI4wGi62+L7Ku4mHLBVFXnTaXt08k6YTjrtsQiGK4jCyGCVKEEiOYgRXd3a7lt8kGu86aqmI0kD3rMc8Kwz3+7UE5uhh0hglQhrMqxrsaSg4lbBlW55bnvowjdV5LcOZ7nvvUNnmc08+c94IBBCBGkCmGgWuYqWAVQ8rpatX50A6EPGqYf2Lf3rq+ZZ/if52ytot8LMAghglRdb2PkXc47jKqY5N+htlbZIFH1oWt3kzS7yfNnfVeR7BXBMIQIUnU5RHzdQKjZSNpQXkFy5bOPC/8M9bCejgJIbbHkgzvv7KaK622Zi2AYQgRB8X0DoR7syWtsRQ9eBYkCIWuFk/5/3Vh45bNPUld5KUDyhF5VVxgTIhhmzI3ffyV6P+GABB3ApwdTl44F3/rCjkoukNKGw8OvHhzY+lF4KXD621/6XM0bhj2k8waIWKqfPLQSzffVv+iImbEJQgSZ9GDSK2Q9KNv8qrTqh6F+Nppl+PgZzVZMO3Jd1SuqZKpoZYnaf2UWIaDDohChnYVMevWsls2CxQ/3HsJVX8JUhTLLefPS14h/RmWG9jqCZcHi5bkDRKFVVYAAWahEYBI/uNLuG2+iqtpYQ79m1AbUkSV5dn0rdFQpaf9Jkd3zaoldOPt+pf8GcTgCd6GdBR/0sFSgNDVMRt3T14Ne+240/9DH+jlpZZcOctR7VXbXctyomEbts6qPJiFEMBAhAp+aOIjXA3DZyjWl7xxvoiPRID95OGMVCBEMxEwEPulMJ73i9zEX8EVtrK4FiKqZt48eriVApIsBDH8IEXgX9/cVJqvXP5l7QOyblsdmHVbYNvEKsKrvMOlXxx3yaC9CBJXSQ3zTlm29QFGw1FWd1LEaq246kFFDdM6yQpPc44Aa6KEeD7eLrFqy6tK+BlUfeXa+V4VKBMNQiaB2qkj0kI+rE989dx+HKzaBQkPhoZ3oo7wcipkIhqESwcjE1cnO8d2948uLLBPWg+3EqdO9WwbPnDvvvup7tWxdLtsEGpo/G1Vqmnk05VbBLgQyqkOIYOQUCKpI9Ja1TFjBoXs82jwwj4My3jMyP3rTbYRN3bhJJYJh2CeCRorvFo+rE23Ia8qyYatRzzastMKua6vc4AmbDdEGepWutlWbZZ3y22TarNn2nz8qQoigC+K20OxxIrOtFx273oQ2jL43nbCbdk9IW4zN/ZEDUkUhwkwErbUhenWvmwAHzRHU+opvMRxFG0z7Od4++rdWH59PBYIsLPFFa5089W5vqbAG8mn08NaAXktk636Yz24MfK/1twJevX7dAcMQImi1eJlw1nldWkKsMFFrqUrxsSQH9u11XfABA3VkIETQCcnzugZVJ1rtdSBqgVVBw3MdS9K21VfDaLYEDMNgHZ0VX5yVtudEe010W6MPXRieD8JQHUNxFDy6LG51LVv5+F1trqnogT/l4aGv4bmqjy4GSBuvQUb9CBF0nloyGsAng0RVSpl9G10Zng8yqiP80S6ECIbSK2ztstaGvzbrP0U4Nnd83FRBdG14PsgZKhHkwEwEQ+lB+9W1L3sf6xW9ZglvHHvTtZWG6v1tLB1zrmF83o2Jbd55XgRX4iIXZiLIoods3BtX/1/3emuprKqTNrZxtPGwPzAUkhty3BKo0NDGRl1L2/UAEeYhyIsQQaZkb7x/E5/aOnXd9e2DQjG5bDVrSa7+/64OzwcZtEQaSCJEkGlY+0oP2Lg6UZuoDdVJMhSHhYiG5wrKrg7P06iVxam9yIsQQab+ltYgeshq3hC3upq84e5aYpVWWnsqlOF5GqoQFEGIIBfNEvJSq0sPYAWKWl1NexWfHKJrLpKkEOzSzvMi2rxwAvUjRJCLKpGiR6srPNo+iA+Nbo7kOlwUQYggt+lDrzmrJg3ilyT2vPDQ/J6WcANFECLI7eChv5a+6Kl/ED+q6mT15Io7fp0WIvPnPeBCw0AdFoQIctOAvUw10q9/mbDCpC6zd7c/esfvpR3vEeI8ZM/+VxxQFCGCQnxUI0naBV7XBj4FV/JrnUwJEW2sDImqEAbqsCBEUIjPaiSm1VFpD23fra74aPh+WjCQbGepCglhV3o/qhBYESIorIpqZMf2X9/1e3rox8uEyz7U430fSclDGaVNO/B9oApBGYQICquiGkl79a8qQfOK2UH8J+ZBfBwgyT+r/4ZkFRLPakKy9YUdDrAiRGCizYc+l8YOOpZdX+fi5S96AVN0mXB846DOvUoGiL73tA2UoQWIdqezIgtlcBQ8zFQ9pLWIytDx42nVQVoloc9TtaLBuD5Wi03BofnKkkU/iQLh6dQ2mD437ZKquH0WCv28lq1cwz4Z2M2MTRAiKEUtJp+v3nXCrq6zTdIDXsewl70cS6GjOUjag1O3FIa0Kmtq1+5ovsXmQpTAfSIoa+eul7wO2fUQ10GOSXro61WzdRWRvkc9NNMqEFHbK6QA0c+AAIEPP3Rz7tXylLkOMPh2ZsZ99Om/vVYjjyx/KOqzjqWeHKz+vVYSqU2lOUra4Yn9FB77p//snvnVbwf2/hUgyaW/XaafyYrH13tfYYcA3Rqbpp0FL5LXzvqgwXdW5bFqckWvgpiY98B3gaLVY1ev3+jdEa6h/DChBYjQxoI3zETgix7gGn6XnVkk6UDAvVGQ+H7VHK/cCum2QtFqrLS9MYAJIQKfNPzWclrfu73Vv9er57TjSSy0qizEo+njuRJtLHjDYB0+6SG1rYKNa3rYnzh6uPSNifGS5NCuu5V4WTMBAt+oROCdZgxqFVVFD0S1uS5F846sa3vjGwo1Own1pkJZvf5JNhXCP9pZqEoVg/ZBtLdEr7DjpbuqMvQ2u3orrIMU0zBIR2UIEVRJZ16Fdphh02h1W9rxLoAXzERQJR3sl9VuQnUIENSBEEGlNm15LnOvBvwjQFAXQgSV0sY/rQqiIqkPAYI6ESKoXBwkXHxUPQIEdePsLNTmxO3NgiEvta2SVmH9cfovDqjNrbFpQgS1ivcqECT+aHnz2l88447/46QDahWFCO0s1E7tlkFHsqOY+CgTNhJiVAgRjIQG7QRJObojnpsJMWqECEZGDz9dh2u9aCpU8QVbvi8EAyzYsY5GCPVk3aKGXe8L1I4d62gKPRx1tzpVSbqs632BUaESQeOoGgnxuPZBtDR6ZxQghAcah0oETRTPSkJv26g60xHum7ZsI0DQWFQiaLytm5/q3VESSmWi8FBbj2W7aDyOgkebdD1MCA+0DiGCNlKY6J6Srux6JzzQWoQI2kwViSoThUnbqhPNOI4cO967cZC9HmgtQgRdsWHdWrcxemtyoCg4Tpw63VttRdWBTiBE0EWrJlf0AmXpogdH2vJShaH732dD4zyXc6F7CBF03dzx+9ySRQu/CxRVKUujX/umwFClodBQWBAaCAIhglApSOZHgaJQUdDMvh/vfSz9H0u8T6P/vd7iauPa9RsOCA4hAgAwY8c6AKAMQgQAYEaIAADMCBEAgBkhAgAwI0QAAGaECADAjBABAJgRIgAAM0IEAGBGiAAAzAgRAIAZIQIAMCNEAABmhAgAwIwQAQCYESIAADNCBABgRogAAMwIEQCAGSECADAjRAAAZoQIAMCMEAEAmBEiAAAzQgQAYEaIAADMCBEAgBkhAgAwI0QAAGaECADAjBABAJgRIgAAM0IEAGBGiAAAzAgRAIAZIQIAMCNEAABmhAgAwIwQAQCYESIAADNCBABgRogAAMwIEQCAGSECADAjRAAAZoQIAMCMEAEAmBEiAAAzQgQAYEaIAADMCBEAgBkhAgAwI0QAAGaECADAjBABAJgRIgAAM0IEAGD2f/42wYhZiC21AAAAAElFTkSuQmCC";
-var Rr;
-var kr = require("./39940.js");
-var Dr = require("./46085.js");
+let Rr;
 function Nr(e) {
 	if (e.startsWith("https://")) {
 		return e;
 	} else {
-		return C.TS.MEDIA_CDN_COMMUNITY_URL + "images/" + e;
+		return `${C.TS.MEDIA_CDN_COMMUNITY_URL}images/${e}`;
 	}
 }
 function Fr(e) {
-	const t = (0, i.Qt)(cr.B7.ResolveURL("PointsShop") + "c/startupmovie");
+	const t = Qt_1(`${cr.B7.ResolveURL("PointsShop")}c/startupmovie`);
 	return n.createElement(
 		E.oN,
 		{
@@ -2755,8 +2809,8 @@ function Gr(e) {
 		onCancel: a,
 		onVideoComplete: o,
 	} = e;
-	(0, s.LC)();
-	(0, Mr.pw)();
+	LC();
+	pw();
 	return n.createElement(
 		X.EN,
 		{
@@ -2835,8 +2889,8 @@ function Pr(e) {
 		bFullscreenVideo: r,
 		strMovieUrl: i,
 		strThumbnailUrl: a,
-	} = (0, Dr.K)();
-	const s = (0, S.hb)(7);
+	} = K_2();
+	const s = hb_2(7);
 	if (t) {
 		return null;
 	} else {
@@ -2844,11 +2898,11 @@ function Pr(e) {
 			strImageURL: a,
 			strMovieURL: i,
 			focusable: !s,
-			onActivate: s
-				? undefined
-				: () => {
-						mr.iG.SetStartupMovie(null);
-					},
+			onActivate:
+				s ||
+				(() => {
+					mr.iG.SetStartupMovie(null);
+				}),
 			bFullscreenVideo: r,
 		});
 	}
@@ -2916,11 +2970,11 @@ function zr(e) {
 	);
 }
 function xr(e) {
-	const t = (0, mr.oS)();
-	const [r] = (0, l.VI)("startup_movie_local_path");
-	const [i, a] = (0, l.VI)("startup_movie_shuffle");
-	const [s, o] = (0, l.VI)("startup_movie_used_for_resume");
-	const c = (0, T.q3)(() => mr.iG.GetStartupMovies());
+	const t = oS();
+	const [r] = VI("startup_movie_local_path");
+	const [i, a] = VI("startup_movie_shuffle");
+	const [s, o] = VI("startup_movie_used_for_resume");
+	const c = q3(() => mr.iG.GetStartupMovies());
 	const p = n.useCallback(
 		(e) =>
 			e.communityitemid.length != 0
@@ -2943,7 +2997,7 @@ function xr(e) {
 		(e) => {
 			o(e);
 			if (e) {
-				(0, mr.dT)();
+				dT();
 			}
 		},
 		[o],
@@ -2951,7 +3005,7 @@ function xr(e) {
 	const f = n.useCallback(
 		(e) => {
 			a(e);
-			(0, mr.dT)();
+			dT();
 		},
 		[a],
 	);
@@ -3000,7 +3054,7 @@ function xr(e) {
 					),
 				}),
 				icon: n.createElement(u.Checkmark, {
-					className: (0, d.A)(vr.Checkmark, b && vr.Selected),
+					className: A(vr.Checkmark, b && vr.Selected),
 				}),
 			},
 			n.createElement(Pr, {
@@ -3017,7 +3071,7 @@ function xr(e) {
 						description: h(e),
 					}),
 					icon: n.createElement(u.Checkmark, {
-						className: (0, d.A)(vr.Checkmark, p(e) && vr.Selected),
+						className: A(vr.Checkmark, p(e) && vr.Selected),
 					}),
 				},
 				n.createElement(Lr, {
@@ -3042,7 +3096,7 @@ function xr(e) {
 						description: h(e),
 					}),
 					icon: n.createElement(u.Checkmark, {
-						className: (0, d.A)(vr.Checkmark, p(e) && vr.Selected),
+						className: A(vr.Checkmark, p(e) && vr.Selected),
 					}),
 				},
 				n.createElement(Lr, {
@@ -3070,19 +3124,12 @@ function Ur(e) {
 function Wr(e) {
 	return n.createElement(m.nB, null, n.createElement(Ur, null));
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.StartupAnimation = 1)] = "StartupAnimation";
 	e[(e.LoadingSpinner = 2)] = "LoadingSpinner";
 })((Rr ||= {}));
-var Vr = require("./89600.js");
-var Hr = require("./65424.js");
-var jr = Hr;
-var qr = require("./34428.js");
-var Qr = require("./64004.js");
-var Zr = require("./48969.js");
-var Yr = require("./3142.js");
-var Kr = require("./26328.js");
+const jr = Hr;
 function Xr(e) {
 	if (e.enable_performance_overlay()) {
 		return 2;
@@ -3093,13 +3140,14 @@ function Xr(e) {
 	}
 }
 function Jr(e) {
-	(0, Qr.F2)();
-	const [t, r] = (0, Qr.TN)();
+	F2();
+	const [t, r] = TN();
 	const i = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((e) => ({
 		label:
 			e == 0
 				? (0, Localize)("#Settings_RemotePlay_SoftwareEncodingThreads_Auto")
 				: e.toString(),
+
 		data: e,
 	}));
 	return n.createElement(
@@ -3187,9 +3235,9 @@ function $r(e, t) {
 	t.set_decoder_limit(e.decoder_limit());
 }
 function en(e) {
-	const t = (0, Qr.F2)();
-	(0, C.hf)();
-	const [r, i] = (0, Qr.d0)();
+	const t = F2();
+	hf();
+	const [r, i] = d0();
 	const a = [
 		{
 			label: (0, Localize)("#Settings_RemotePlay_VideoQualityFast"),
@@ -3211,15 +3259,14 @@ function en(e) {
 	) {
 		s.push({
 			label: (0, Localize)(
-				"#Settings_RemotePlay_AudioChannels_AutoDetect" +
-					t.nDefaultAudioChannels,
+				`#Settings_RemotePlay_AudioChannels_AutoDetect${t.nDefaultAudioChannels}`,
 			),
 			data: 0,
 		});
 	}
 	[2, 4, 6].forEach((e) => {
 		s.push({
-			label: (0, Localize)("#Settings_RemotePlay_AudioChannels_" + e),
+			label: (0, Localize)(`#Settings_RemotePlay_AudioChannels_${e}`),
 			data: e,
 		});
 	});
@@ -3298,7 +3345,7 @@ function en(e) {
 				? (0, Localize)("#Settings_RemotePlay_Bandwidth_Auto")
 				: e == 0
 					? (0, Localize)("#Settings_RemotePlay_Bandwidth_Unlimited")
-					: (0, qr.dm)(e * 1000, {
+					: dm(e * 1000, {
 							bUseBinary1K: false,
 							bValueIsRate: true,
 							bValueIsInBytes: false,
@@ -3310,7 +3357,7 @@ function en(e) {
 	});
 	const d = [0, 3000, 4975, 5000, 5975, 6000, 9000, 12000, 14400, 24000].map(
 		(e) => ({
-			label: (0, Localize)("#Settings_RemotePlay_Framerate_" + e),
+			label: (0, Localize)(`#Settings_RemotePlay_Framerate_${e}`),
 			data: e,
 		}),
 	);
@@ -3352,10 +3399,9 @@ function en(e) {
 			data: "7680x4320",
 		},
 	];
-	let g =
-		(r.desired_resolution_x() ?? 0).toString() +
-		"x" +
-		(r.desired_resolution_y() ?? 0).toString();
+	let g = `${(r.desired_resolution_x() ?? 0).toString()}x${(
+		r.desired_resolution_y() ?? 0
+	).toString()}`;
 	return n.createElement(
 		"div",
 		{
@@ -3477,19 +3523,22 @@ function en(e) {
 			rgOptions: c,
 			selectedOption: Xr(r),
 			onChange: (e) => {
-				(function (e, t) {
+				((e, t) => {
 					switch (t) {
-						case 2:
+						case 2: {
 							e.set_enable_performance_icons(true);
 							e.set_enable_performance_overlay(true);
 							break;
-						case 1:
+						}
+						case 1: {
 							e.set_enable_performance_icons(true);
 							e.set_enable_performance_overlay(false);
 							break;
-						default:
+						}
+						default: {
 							e.set_enable_performance_icons(false);
 							e.set_enable_performance_overlay(false);
+						}
 					}
 				})(r, e.data);
 				i(r);
@@ -3586,8 +3635,8 @@ function tn(e) {
 	}
 }
 function rn(e) {
-	const t = (0, Qr.F2)();
-	const r = (0, Qr.dN)();
+	const t = F2();
+	const r = dN();
 	const a = n.useRef(undefined);
 	const s = [
 		{
@@ -3620,7 +3669,7 @@ function rn(e) {
 		},
 		[t],
 	);
-	const l = (0, i.Qt)(C.TS.HELP_BASE_URL + "faqs/view/0689-74B8-92AC-10F2");
+	const l = Qt_1(`${C.TS.HELP_BASE_URL}faqs/view/0689-74B8-92AC-10F2`);
 	const c = t.bRemotePlayDisabledBySystemPolicy;
 	let d;
 	d = t.bRemotePlayDisabledBySystemPolicy
@@ -3689,7 +3738,7 @@ function rn(e) {
 									{
 										className: tn(e),
 									},
-									(0, Localize)("#Settings_RemotePlay_Status_" + e.status),
+									(0, Localize)(`#Settings_RemotePlay_Status_${e.status}`),
 								),
 							),
 						),
@@ -3717,7 +3766,7 @@ function rn(e) {
 								as: E.CS,
 								onClick: (e) => {
 									const t = GetOwningWindowForEvent(e);
-									(0, Yr.VB)(t);
+									VB(t);
 								},
 							},
 							(0, Localize)("#Settings_RemotePlay_Unpair"),
@@ -3729,7 +3778,7 @@ function rn(e) {
 								as: E.CS,
 								onClick: (e) => {
 									const t = GetOwningWindowForEvent(e);
-									(0, Yr.rg)(t);
+									rg(t);
 								},
 							},
 							(0, Localize)("#Settings_RemotePlay_SetPIN"),
@@ -3836,16 +3885,13 @@ function rn(e) {
 		),
 	);
 }
-var nn = require("./91209.js");
-var an = require("./13925.js");
-var sn = require("./56970.js");
 function on(e, t) {
-	(0, an.kN)({
+	kN({
 		allowAnyPIN: true,
 		strPromptOverride: "#LockScreen_NewPINPrompt",
 		hideForgotPIN: true,
 		onSuccess: (r) => {
-			(0, an.kN)({
+			kN({
 				allowAnyPIN: true,
 				strPromptOverride: "#LockScreen_NewPINPrompt2",
 				hideForgotPIN: true,
@@ -3854,7 +3900,7 @@ function on(e, t) {
 						t({
 							...e,
 							strPIN: i,
-							strOwnerAccountName: (0, I.qw)().GetCurrentUser().strAccountName,
+							strOwnerAccountName: qw().GetCurrentUser().strAccountName,
 						});
 					} else {
 						let e = n.createElement(X.o0, {
@@ -3862,7 +3908,7 @@ function on(e, t) {
 							strDescription: (0, Localize)("#LockScreen_PINSetMismatch_Body"),
 							bAlertDialog: true,
 						});
-						(0, K.pg)(e, window, {
+						pg(e, window, {
 							strTitle: (0, Localize)("#LockScreen_PINSetMismatch_Title"),
 						});
 					}
@@ -3872,9 +3918,9 @@ function on(e, t) {
 	});
 }
 function ln(e) {
-	let [t, r] = (0, sn.PA)();
+	let [t, r] = PA_2();
 	const [i, a] = n.useState(false);
-	(function (e) {
+	((e) => {
 		let t = n.useRef(false);
 		t.current = e;
 		n.useEffect(
@@ -3891,7 +3937,7 @@ function ln(e) {
 			if (i) {
 				r(e);
 			} else {
-				(0, an.kN)({
+				kN({
 					onSuccess: () => {
 						r(e);
 						a(true);
@@ -3961,8 +4007,8 @@ function ln(e) {
 							{
 								feature: 7,
 								onClick: () =>
-									(function (e, t) {
-										(0, an.kN)({
+									((e, t) => {
+										kN({
 											onSuccess: () => {
 												on(e, t);
 											},
@@ -3977,13 +4023,7 @@ function ln(e) {
 		),
 	);
 }
-var cn = require("./93023.js");
-var mn = require("./17231.js");
-var un = require("./68608.js");
-var dn = require("./88724.js");
-var An = require(/*webcrack:missing*/ "./8573.js");
-var pn = require("./66531.js");
-var gn = pn;
+const gn = pn;
 const hn = (e) => {
 	const { bParenthesizeNicknames: t } = e;
 	const r = new dn.Z(new An.b());
@@ -3993,7 +4033,7 @@ const hn = (e) => {
 	return n.createElement(
 		"div",
 		{
-			className: (0, d.A)(gn.FakeFriend, "online"),
+			className: A(gn.FakeFriend, "online"),
 		},
 		n.createElement(mn.i8, {
 			persona: r,
@@ -4010,7 +4050,7 @@ const hn = (e) => {
 	);
 };
 const Cn = () => {
-	const e = (0, l.Tr)();
+	const e = Tr_2();
 	const t = n.createElement(
 		"div",
 		null,
@@ -4039,7 +4079,7 @@ const Cn = () => {
 };
 const _n = (e) => {
 	const { settingName: t, label: r, description: i, onChange: a } = e;
-	const [s, o] = (0, l.e_)(t);
+	const [s, o] = e(t);
 	const c = n.useCallback(
 		(e) => {
 			o(e);
@@ -4058,19 +4098,22 @@ const _n = (e) => {
 	});
 };
 function fn(e) {
-	const t = (0, C.Y2)();
-	const r = (0, i.bG)("TextFilterSettings");
-	const [a] = (0, l.I5)("eTextFilterSetting");
+	const t = Y2();
+	const r = bG("TextFilterSettings");
+	const [a] = I5("eTextFilterSetting");
 	let s = "";
 	switch (a) {
-		case 1:
+		case 1: {
 			s = (0, Localize)("#ChatFilterType_Enabled");
 			break;
-		case 2:
+		}
+		case 2: {
 			s = (0, Localize)("#ChatFilterType_AllowProfanity");
 			break;
-		case 3:
+		}
+		case 3: {
 			s = (0, Localize)("#ChatFilterType_Disabled");
+		}
 	}
 	if (t) {
 		return null;
@@ -4087,9 +4130,9 @@ function fn(e) {
 		);
 	}
 }
-var bn;
+let bn;
 function yn(e) {
-	const [t, r] = (0, l.e_)("nChatFontSize");
+	const [t, r] = e("nChatFontSize");
 	return n.createElement(
 		m.G5,
 		null,
@@ -4126,7 +4169,7 @@ function yn(e) {
 	);
 }
 function Sn(e) {
-	const [t] = (0, l.e_)("bSingleWindowMode");
+	const [t] = e("bSingleWindowMode");
 	return n.createElement(me.C, {
 		feature: 4,
 		label: (0, Localize)("#FriendSettings_DockChats"),
@@ -4142,13 +4185,13 @@ function Sn(e) {
 		},
 	});
 }
-(function (e) {
+((e) => {
 	e[(e.k_EChatFontSizeSmall = 1)] = "k_EChatFontSizeSmall";
 	e[(e.k_EChatFontSizeDefault = 2)] = "k_EChatFontSizeDefault";
 	e[(e.k_EChatFontSizeLarge = 3)] = "k_EChatFontSizeLarge";
 })((bn ||= {}));
 const wn = (e) => {
-	const t = (0, C.uI)();
+	const t = uI();
 	return n.createElement(
 		E.sh,
 		null,
@@ -4226,22 +4269,19 @@ const wn = (e) => {
 		n.createElement(yn, null),
 	);
 };
-var Bn = require(/*webcrack:missing*/ "./4690.js");
-var vn = require("./11666.js");
-var In = vn;
-var En = require("./94692.js");
-var Mn = En;
+const In = vn;
+const Mn = En;
 function Tn(e) {
 	const { feature: t, className: r, disabled: i, ...a } = e;
-	const s = (0, S.l9)(t);
+	const s = l9(t);
 	const o = s !== 0;
-	const l = (0, w.wT)();
+	const l = wT();
 	return n.createElement(
 		m.Yh,
 		{
 			...a,
 			focusable: !o,
-			className: (0, d.A)(Mn.ParentalButton, r, o && Mn.Blocked),
+			className: A(Mn.ParentalButton, r, o && Mn.Blocked),
 			disabled: o || i,
 		},
 		n.createElement(B.Z, {
@@ -4252,10 +4292,10 @@ function Tn(e) {
 }
 const Rn = (e) => {
 	const { settingNotify: t, settingSound: r, description: i } = e;
-	const [a, s] = (0, l.e_)(t);
-	const [o, c] = (0, l.e_)(r);
-	const [u] = (0, l.VI)("disable_all_toasts");
-	const [d] = (0, l.VI)("play_sound_on_toast");
+	const [a, s] = e(t);
+	const [o, c] = e(r);
+	const [u] = VI("disable_all_toasts");
+	const [d] = VI("play_sound_on_toast");
 	const p = !d || u;
 	return n.createElement(
 		m.D0,
@@ -4286,7 +4326,7 @@ const Rn = (e) => {
 	);
 };
 function kn(e) {
-	const [t, r] = (0, l.e_)("nChatFlashMode");
+	const [t, r] = e("nChatFlashMode");
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -4322,28 +4362,25 @@ function kn(e) {
 		),
 	);
 }
-const Dn = (0, Oe.PA)((e) => {
+const Dn = PA((e) => {
 	const { preferenceSetting: t } = e;
 	const [r, i] = n.useState(false);
 	const a = (t.notification_targets & 1) == 1;
 	const s = (t.notification_targets & 2) == 2;
 	const o = (t.notification_targets & 8) == 8;
-	const c = (0, l.sE)(t.notification_type, 1);
-	const p = (0, l.sE)(t.notification_type, 8);
-	const g = (0, l.sE)(t.notification_type, 2);
+	const c = sE(t.notification_type, 1);
+	const p = sE(t.notification_type, 8);
+	const g = sE(t.notification_type, 2);
 	_ = t.notification_type;
-	const C = BLocStringExists("#SteamNotificationTypeDesc_" + _)
-		? (0, Localize)("#SteamNotificationTypeDesc_" + _)
+	const C = BLocStringExists(`#SteamNotificationTypeDesc_${_}`)
+		? (0, Localize)(`#SteamNotificationTypeDesc_${_}`)
 		: null;
 	var _;
 	if (C) {
 		return n.createElement(
 			"div",
 			{
-				className: (0, d.A)(
-					In.NotificationGroup,
-					r && In.NotificationGroupExpanded,
-				),
+				className: A(In.NotificationGroup, r && In.NotificationGroupExpanded),
 			},
 			n.createElement(
 				B.Z,
@@ -4370,7 +4407,7 @@ const Dn = (0, Oe.PA)((e) => {
 				n.createElement(
 					m.wl,
 					{
-						className: (0, d.A)({
+						className: A({
 							[In.PrefDetailsToggle]: true,
 							[In.Selected]: r,
 						}),
@@ -4409,9 +4446,9 @@ const Dn = (0, Oe.PA)((e) => {
 	}
 });
 function Nn(e) {
-	const [t, r] = (0, l.VI)("disable_all_toasts");
-	const [i, a] = (0, l.VI)("disable_toasts_in_game");
-	const s = (0, C.hf)();
+	const [t, r] = VI("disable_all_toasts");
+	const [i, a] = VI("disable_toasts_in_game");
+	const s = hf();
 	const o = JSON.stringify([t, i]);
 	const c = (e) =>
 		e == "[false,false]"
@@ -4462,8 +4499,8 @@ function Nn(e) {
 		}),
 	);
 }
-var Fn;
-(function (e) {
+let Fn;
+((e) => {
 	e[(e.k_ESectionInvalid = 0)] = "k_ESectionInvalid";
 	e[(e.k_ESectionDefault = 1)] = "k_ESectionDefault";
 	e[(e.k_ESectionFamily = 2)] = "k_ESectionFamily";
@@ -4575,11 +4612,11 @@ function On(e) {
 }
 function Pn(e) {
 	const { section: t, children: r } = e;
-	if (!BLocStringExists("#SteamNotificationSection_" + t)) {
-		console.error("No localization for notification list section " + t);
+	if (!BLocStringExists(`#SteamNotificationSection_${t}`)) {
+		console.error(`No localization for notification list section ${t}`);
 		return null;
 	}
-	const i = (0, Localize)("#SteamNotificationSection_" + t);
+	const i = (0, Localize)(`#SteamNotificationSection_${t}`);
 	return n.createElement(
 		"div",
 		{
@@ -4590,8 +4627,8 @@ function Pn(e) {
 	);
 }
 function Ln(e) {
-	const t = (0, l.Hg)();
-	const r = (0, I.ZW)();
+	const t = Hg();
+	const r = ZW();
 	let i = [];
 	for (const e of t) {
 		const t = On(e.notification_type);
@@ -4615,23 +4652,23 @@ function Ln(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		i.map((e, t) =>
-			e.length == 0
-				? null
-				: n.createElement(
-						Pn,
-						{
-							key: t,
-							section: t,
-						},
-						e,
-					),
+		i.map(
+			(e, t) =>
+				e.length == 0 ||
+				n.createElement(
+					Pn,
+					{
+						key: t,
+						section: t,
+					},
+					e,
+				),
 		),
 	);
 }
 const zn = () => {
-	const [e] = (0, l.VI)("disable_all_toasts");
-	const [t] = (0, l.VI)("disable_toasts_in_game");
+	const [e] = VI("disable_all_toasts");
+	const [t] = VI("disable_toasts_in_game");
 	return n.createElement(
 		E.sh,
 		null,
@@ -4730,17 +4767,12 @@ const zn = () => {
 		),
 	);
 };
-var xn = require("./48289.js");
-var Un = require("./63713.js");
-var Wn = require("./3289.js");
 function Vn(e) {
-	const t = (0, mr.Tr)();
-	const r = (0, T.q3)(() =>
-		xn.O$.GetFriendState(new An.b(xn.O$.currentUserSteamID)),
-	);
-	const a = (0, or.Id)();
-	const s = (0, xn.LK)();
-	const o = (0, i.Qt)(cr.B7.ResolveURL("SteamIDMyProfile"));
+	const t = Tr_2();
+	const r = q3(() => xn.O$.GetFriendState(new An.b(xn.O$.currentUserSteamID)));
+	const a = Id();
+	const s = LK();
+	const o = Qt_1(cr.B7.ResolveURL("SteamIDMyProfile"));
 	n.useEffect(() => {
 		mr.iG.ForceRefreshEquippedItems();
 	}, []);
@@ -4787,9 +4819,9 @@ function Vn(e) {
 	);
 }
 function Hn() {
-	const e = (0, I.iZ)();
+	const e = iZ();
 	const t = new An.b(e.strSteamID);
-	const r = (0, i.Qt)(cr.B7.ResolveURL("CommunityAddFriends"));
+	const r = Qt_1(cr.B7.ResolveURL("CommunityAddFriends"));
 	const a = n.createElement(
 		n.Fragment,
 		null,
@@ -4821,10 +4853,8 @@ function Hn() {
 }
 function jn(e) {
 	const { accountSettings: t } = e;
-	const r = (0, I.iZ)();
-	const a = (0, i.Qt)(
-		cr.B7.ResolveURL("HelpChangeEmail", r.strClientInstanceID),
-	);
+	const r = iZ();
+	const a = Qt_1(cr.B7.ResolveURL("HelpChangeEmail", r.strClientInstanceID));
 	const s = n.createElement(
 		n.Fragment,
 		null,
@@ -4856,7 +4886,7 @@ function jn(e) {
 }
 function qn(e) {
 	const { accountSettings: t } = e;
-	const r = (0, i.Qt)(cr.B7.ResolveURL("HelpVacBans"));
+	const r = Qt_1(cr.B7.ResolveURL("HelpVacBans"));
 	const a = (0, Localize)(
 		t.bHasAnyVACBans
 			? "#Settings_Account_VAC_HasBans"
@@ -4896,7 +4926,7 @@ function qn(e) {
 	);
 }
 function Qn(e) {
-	const t = (function () {
+	const t = (() => {
 		let [e, t] = n.useState(null);
 		n.useEffect(() => {
 			let e = true;
@@ -4928,15 +4958,7 @@ function Qn(e) {
 		return null;
 	}
 }
-var Zn;
-var Yn = require("./10064.js");
-var Kn = require(/*webcrack:missing*/ "./736.js");
-var Xn = require("./69913.js");
-var Jn = require("./63538.js");
-var $n = require(/*webcrack:missing*/ "./79671.js");
-var ei = require("./39002.js");
-var ti = require("./13277.js");
-var ri = require("./52733.js");
+let Zn;
 function ni() {
 	return n.useMemo(
 		() => [
@@ -4965,9 +4987,9 @@ function ni() {
 	);
 }
 function ii(e) {
-	const [t, r] = (0, l.VI)("overlay_key");
-	(0, C.Y2)();
-	const i = (0, C.Pr)();
+	const [t, r] = VI("overlay_key");
+	Y2();
+	const i = Pr_2();
 	const a = ni();
 	const [s, o] = n.useState(false);
 	const c = n.useCallback(() => {
@@ -5058,10 +5080,10 @@ function ii(e) {
 	);
 }
 function ai(e) {
-	const [t, r, i] = (0, At.M)({
+	const [t, r, i] = M_2({
 		bCloseOnOK: true,
 		onOK: () => {
-			if ((0, Kn.Dp)("Browser.ClearAllBrowsingData")) {
+			if (Dp("Browser.ClearAllBrowsingData")) {
 				SteamClient.Browser.ClearAllBrowsingData();
 			}
 		},
@@ -5099,9 +5121,9 @@ function ai(e) {
 }
 function si(e) {
 	const t = C.TS.IN_GAMESCOPE;
-	const [r, i] = (0, l.VI)("screenshots_path");
-	const [a, s] = (0, l.VI)("screenshot_key");
-	const [o] = (0, l.VI)("save_uncompressed_screenshots");
+	const [r, i] = VI("screenshots_path");
+	const [a, s] = VI("screenshot_key");
+	const [o] = VI("save_uncompressed_screenshots");
 	const c = n.useCallback(
 		(e) => {
 			s(e);
@@ -5111,7 +5133,7 @@ function si(e) {
 	const m = n.useCallback(
 		(e) => {
 			let t = GetOwningWindowForEvent(e) ?? window;
-			if (!(0, Kn.Fj)(t, "System.OpenFileDialog")) {
+			if (!Fj(t, "System.OpenFileDialog")) {
 				t = window;
 			}
 			t.SteamClient.System.OpenFileDialog({
@@ -5197,7 +5219,7 @@ function si(e) {
 }
 function oi(e) {
 	const t = C.TS.IN_GAMESCOPE;
-	const [r] = (0, l.hX)("default_ping_rate");
+	const [r] = hX("default_ping_rate");
 	const i = [
 		{
 			label: (0, Localize)("#ServerPing_Auto", r),
@@ -5274,7 +5296,7 @@ function oi(e) {
 	);
 }
 function li(e) {
-	const { rTabs: t, setTabVisibility: r, moveTab: i } = (0, Xn.W6)();
+	const { rTabs: t, setTabVisibility: r, moveTab: i } = W6_2();
 	const a = n.useCallback(
 		(e, t) => {
 			i(e.draggableId, e.destination.index);
@@ -5326,12 +5348,12 @@ function ci(e) {
 					...t.draggableProps,
 					...t.dragHandleProps,
 					ref: t.innerRef,
-					style: (0, ei.gQ)(t.draggableProps.style),
+					style: gQ(t.draggableProps.style),
 				},
 				n.createElement(me.C, {
 					feature: h.uX,
 					className: ri.OverlayTabSetting,
-					label: (0, Localize)((0, Jn.f)(e.window)?.tooltipToken),
+					label: (0, Localize)(f_2(e.window)?.tooltipToken),
 					controlled: true,
 					icon: n.createElement(u.Rows, null),
 					checked: e.visible,
@@ -5350,25 +5372,23 @@ function mi(e) {
 		n.createElement(oi, null),
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.k_EAllowShareIP_Invalid = -1)] = "k_EAllowShareIP_Invalid";
 	e[(e.k_EAllowShareIP_Default = 0)] = "k_EAllowShareIP_Default";
 	e[(e.k_EAllowShareIP_Never = 1)] = "k_EAllowShareIP_Never";
 	e[(e.k_EAllowShareIP_FriendsOnly = 2)] = "k_EAllowShareIP_FriendsOnly";
 	e[(e.k_EAllowShareIP_Anyone = 3)] = "k_EAllowShareIP_Anyone";
 })((Zn ||= {}));
-var ui = require("./59718.js");
-var di = require(/*webcrack:missing*/ "./88750.js");
 function Ai(e) {
 	const { option: t, flags: r, onChange: i } = e;
-	const a = (0, ui.T)().get(t);
+	const a = T_1().get(t);
 	const s = !!(r & a.flags);
-	if ((0, C.Y2)() && a.bHideInChina) {
+	if (Y2() && a.bHideInChina) {
 		return null;
 	} else {
 		return n.createElement(me.C, {
 			feature: h.uX,
-			label: (0, Localize)("#TaskbarOption_" + t),
+			label: (0, Localize)(`#TaskbarOption_${t}`),
 			controlled: true,
 			checked: s,
 			onChange: (e) => {
@@ -5393,7 +5413,7 @@ function pi(e) {
 	);
 }
 function gi(e) {
-	const [t, r] = (0, l.VI)("jumplist_flags");
+	const [t, r] = VI("jumplist_flags");
 	const i = n.useCallback(
 		(e, n) => {
 			let i = t;
@@ -5448,9 +5468,9 @@ function gi(e) {
 	);
 }
 function hi(e) {
-	const t = (0, i.Qt)(cr.B7.ResolveURL("SteamClientBetaBugReports"));
-	const r = (0, C.hf)();
-	if (!(0, nn.oE)()) {
+	const t = Qt_1(cr.B7.ResolveURL("SteamClientBetaBugReports"));
+	const r = hf();
+	if (!oE()) {
 		return null;
 	}
 	const a = n.createElement(
@@ -5479,8 +5499,8 @@ function hi(e) {
 	});
 }
 function Ci(e) {
-	const [t, r, i] = (0, di.Dy)();
-	if ((0, C.CI)() && t) {
+	const [t, r, i] = Dy();
+	if (CI() && t) {
 		return n.createElement(me.C, {
 			feature: 7,
 			label: (0, Localize)("#Settings_Interface_EnableContextMenuBlurDelay"),
@@ -5493,10 +5513,10 @@ function Ci(e) {
 }
 function _i(e) {
 	const [t, r] = n.useState(false);
-	const i = (0, C.td)();
-	const a = (0, C.Y2)();
-	const s = (0, C.hf)();
-	const [o] = (0, l.VI)("enable_gpu_accelerated_webviews");
+	const i = td();
+	const a = Y2();
+	const s = hf();
+	const [o] = VI("enable_gpu_accelerated_webviews");
 	const c = n.useCallback(() => {
 		r(true);
 	}, []);
@@ -5636,9 +5656,9 @@ function _i(e) {
 }
 const fi = 1000;
 function bi() {
-	const [e, t] = (0, l.VI)("music_volume");
-	const r = (0, N._g)(50);
-	const [i, a] = (0, N.uN)(e, (e) => r(() => t(e)), fi);
+	const [e, t] = VI("music_volume");
+	const r = _g(50);
+	const [i, a] = uN(e, (e) => r(() => t(e)), fi);
 	return n.createElement(O.V, {
 		feature: h.uX,
 		min: 0,
@@ -5688,8 +5708,7 @@ function Si() {
 		n.createElement(yi, null),
 	);
 }
-var wi = require("./89373.js");
-var Bi = wi;
+const Bi = wi;
 const vi = new Map([
 	[1080, 1920],
 	[720, 1280],
@@ -5698,8 +5717,8 @@ const vi = new Map([
 ]);
 function Ii(e) {
 	const { broadcastStatus: t } = e;
-	const r = (0, I.iZ)();
-	const a = (0, i.Qt)();
+	const r = iZ();
+	const a = Qt_1();
 	return n.createElement(
 		E.WG,
 		{
@@ -5726,13 +5745,15 @@ function Ei(e) {
 	const { broadcastStatus: t } = e;
 	let r = "#BroadcastError_DisabledUser";
 	switch (t.eBroadcastReady) {
-		case 20:
+		case 20: {
 			r = t.bCompatibilityMode
 				? "#BroadcastError_ServiceUnavailable_CompatEnabled"
 				: "#BroadcastError_ServiceUnavailable";
 			break;
-		case 80:
+		}
+		case 80: {
 			r = "#BroadcastError_DisabledOverlay";
+		}
 	}
 	return n.createElement(
 		m.a3,
@@ -5757,8 +5778,8 @@ function Ei(e) {
 }
 function Mi(e) {
 	const t = ni();
-	const [r] = (0, l.VI)("broadcast_permissions");
-	const [a, s] = (0, l.VI)("broadcast_output_width");
+	const [r] = VI("broadcast_permissions");
+	const [a, s] = VI("broadcast_output_width");
 	const [o, c] = n.useState();
 	const m = n.useCallback((e) => {
 		c(e);
@@ -5818,7 +5839,7 @@ function Mi(e) {
 		},
 	];
 	const h = r == 0;
-	const f = (0, i.Qt)(C.TS.HELP_BASE_URL + "faqs/view/548F-BC55-89EB-1BC8");
+	const f = Qt_1(`${C.TS.HELP_BASE_URL}faqs/view/548F-BC55-89EB-1BC8`);
 	if (o) {
 		return n.createElement(
 			E.sh,
@@ -5920,18 +5941,13 @@ function Mi(e) {
 		return null;
 	}
 }
-var Ti;
-var Ri = require("./96680.js");
-var ki = require("./87913.js");
-var Di = require("./49180.js");
-var Ni = require("./30449.js");
-var Fi = require("./10024.js");
-var Gi = Fi;
+let Ti;
+const Gi = Fi;
 function Oi(e) {
 	const { voiceStore: t } = e;
-	(0, C.hf)();
-	const r = (0, T.q3)(() => t.IsLocalMicTestActive());
-	const i = (0, T.q3)(() => ki.LN.GetCurrentUserVoiceLevel());
+	hf();
+	const r = q3(() => t.IsLocalMicTestActive());
+	const i = q3(() => ki.LN.GetCurrentUserVoiceLevel());
 	let a = Math.min(i * 3.2, 1);
 	let s = Math.max(0, a * 100);
 	s = r ? Math.round(s * 10) / 10 : 0;
@@ -5976,6 +5992,7 @@ function Pi(e) {
 			].concat(
 				t.map((e) => ({
 					data: e.deviceId,
+
 					label:
 						e.deviceId == "communications"
 							? (0, Localize)("#Voice_DefaultCommunicationsDefault")
@@ -5999,7 +6016,7 @@ function Pi(e) {
 }
 function Li(e) {
 	const { voiceStore: t, rgDevices: r } = e;
-	const i = (0, T.q3)(() => t.GetSelectedMic());
+	const i = q3(() => t.GetSelectedMic());
 	const a = r.filter((e) => e.kind == "audioinput" && e.deviceId != "default");
 	return n.createElement(Pi, {
 		label: (0, Localize)("#VoiceDevice"),
@@ -6011,7 +6028,7 @@ function Li(e) {
 }
 function zi(e) {
 	const { voiceStore: t, rgDevices: r } = e;
-	const i = (0, T.q3)(() => t.GetSelectedOutputDevice());
+	const i = q3(() => t.GetSelectedOutputDevice());
 	const a = r.filter((e) => e.kind == "audiooutput" && e.deviceId != "default");
 	return n.createElement(Pi, {
 		label: (0, Localize)("#VoiceOutputDevice"),
@@ -6061,7 +6078,7 @@ function Ui(e) {
 	const { voiceStore: t, label: r, description: i, gain: a, setGain: s } = e;
 	const o = t.GetMaxInputOutputGain();
 	const l = t.ConvertGainValueToSliderValue(a, o);
-	const [c, m] = (0, N.uN)(l, (e) => s(t.ConvertSliderToGainValue(e, o)));
+	const [c, m] = uN(l, (e) => s(t.ConvertSliderToGainValue(e, o)));
 	return n.createElement(O.V, {
 		feature: 7,
 		label: r,
@@ -6074,7 +6091,7 @@ function Ui(e) {
 }
 function Wi(e) {
 	const { voiceStore: t } = e;
-	const r = (0, T.q3)(() => t.GetVoiceInputGain());
+	const r = q3(() => t.GetVoiceInputGain());
 	const i = t.SetVoiceInputGain;
 	return n.createElement(Ui, {
 		voiceStore: t,
@@ -6086,7 +6103,7 @@ function Wi(e) {
 }
 function Vi(e) {
 	const { voiceStore: t } = e;
-	const r = (0, T.q3)(() => t.GetVoiceOutputGain());
+	const r = q3(() => t.GetVoiceOutputGain());
 	const i = t.SetVoiceOutputGain;
 	return n.createElement(Ui, {
 		voiceStore: t,
@@ -6140,13 +6157,13 @@ function Hi(e) {
 			),
 		),
 		n.createElement(m.Nu, {
-			className: (0, d.A)(Gi.TopMargin),
+			className: A(Gi.TopMargin),
 		}),
 	);
 }
 function ji(e) {
 	const { voiceStore: t, eTransmissionType: r } = e;
-	const i = (0, T.q3)(() => t.GetPushToTalkHotKeyDisplayString());
+	const i = q3(() => t.GetPushToTalkHotKeyDisplayString());
 	const a = r == Ti.k_EOpenMic;
 	let s = "#VoiceMuteToggleAssigned";
 	if (r == Ti.k_EPushToTalk) {
@@ -6188,7 +6205,7 @@ function ji(e) {
 }
 function qi(e) {
 	const { voiceStore: t } = e;
-	const r = (0, T.q3)(() => t.GetPushToTalkOrMuteSoundsEnabled());
+	const r = q3(() => t.GetPushToTalkOrMuteSoundsEnabled());
 	return n.createElement(me.C, {
 		feature: 7,
 		label: (0, Localize)("#VoicePushToSomethingSoundOption"),
@@ -6198,8 +6215,8 @@ function qi(e) {
 }
 function Qi(e) {
 	const { voiceStore: t } = e;
-	const r = (0, T.q3)(() => t.GetPushToTalkEnabled());
-	const i = (0, T.q3)(() => t.GetPushToMuteEnabled());
+	const r = q3(() => t.GetPushToTalkEnabled());
+	const i = q3(() => t.GetPushToMuteEnabled());
 	const a = r ? Ti.k_EPushToTalk : i ? Ti.k_EPushToMute : Ti.k_EOpenMic;
 	return n.createElement(
 		n.Fragment,
@@ -6219,7 +6236,7 @@ function Qi(e) {
 }
 function Zi(e) {
 	const { voiceStore: t } = e;
-	const r = (0, T.q3)(() => t.GetUseNoiseGateLevel());
+	const r = q3(() => t.GetUseNoiseGateLevel());
 	const i = r === Di.H.k_ENoiseGateLevel_Low ? Di.H.k_ENoiseGateLevel_Off : r;
 	return n.createElement(
 		m.G5,
@@ -6274,7 +6291,7 @@ function Zi(e) {
 function Yi(e) {
 	const { voiceStore: t } = e;
 	const r = n.useRef(undefined);
-	const [i, a, s] = (0, T.q3)(() => [
+	const [i, a, s] = q3(() => [
 		t.GetUseEchoCancellation(),
 		t.GetUseNoiseCancellation(),
 		t.GetUseAutoGainControl(),
@@ -6383,8 +6400,8 @@ function Ki(e) {
 	);
 }
 function Xi(e) {
-	const [t, r] = (0, l.VI)("voice_mic_input_gain");
-	const [i, a] = (0, N.uN)(t * 100, (e) => r(e / 100));
+	const [t, r] = VI("voice_mic_input_gain");
+	const [i, a] = uN(t * 100, (e) => r(e / 100));
 	return n.createElement(O.V, {
 		feature: 7,
 		label: (0, Localize)("#VoiceInputGain"),
@@ -6397,8 +6414,8 @@ function Xi(e) {
 	});
 }
 function Ji(e) {
-	const [t, r] = (0, l.VI)("voice_speaker_output_gain");
-	const [i, a] = (0, N.uN)(t * 100, (e) => {
+	const [t, r] = VI("voice_speaker_output_gain");
+	const [i, a] = uN(t * 100, (e) => {
 		console.log(e);
 		r(e / 100);
 	});
@@ -6416,8 +6433,8 @@ function Ji(e) {
 function $i(e) {
 	const [t, r] = n.useState(0);
 	const [i, a] = n.useState(false);
-	const [s] = (0, l.VI)("voice_mic_device_name");
-	const o = (0, C.hf)();
+	const [s] = VI("voice_mic_device_name");
+	const o = hf();
 	n.useEffect(() => {
 		SteamClient.Settings.RegisterForMicVolumeUpdates(r);
 	}, [r]);
@@ -6426,8 +6443,8 @@ function $i(e) {
 		SteamClient.Settings.SetMicTestMode(e);
 	}, []);
 	const u = ki.LN.GetVoiceInterface();
-	const d = (0, T.q3)(() => u.GetPushToTalkEnabled());
-	const p = (0, T.q3)(() => u.GetPushToMuteEnabled());
+	const d = q3(() => u.GetPushToTalkEnabled());
+	const p = q3(() => u.GetPushToMuteEnabled());
 	const g = d ? Ti.k_EPushToTalk : p ? Ti.k_EPushToMute : Ti.k_EOpenMic;
 	const [h, _] = n.useState(false);
 	const f = h
@@ -6508,22 +6525,15 @@ function $i(e) {
 			),
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.k_EOpenMic = 0)] = "k_EOpenMic";
 	e[(e.k_EPushToTalk = 1)] = "k_EPushToTalk";
 	e[(e.k_EPushToMute = 2)] = "k_EPushToMute";
 })((Ti ||= {}));
-import { CC } from "../../actual_src/utils/localization/datetime.js";
-var ta = require("./5072.js");
-require("./41480.js");
-var ra = require(/*webcrack:missing*/ "./61416.js");
-var na = require(/*webcrack:missing*/ "./75144.js");
 const ia = ["account_settings"];
 function aa(e) {
-	const t = (0, I.iZ)();
-	const r = (0, i.Qt)(
-		cr.B7.ResolveURL("HelpChangePassword", t.strClientInstanceID),
-	);
+	const t = iZ();
+	const r = Qt_1(cr.B7.ResolveURL("HelpChangePassword", t.strClientInstanceID));
 	const a = n.createElement(
 		n.Fragment,
 		null,
@@ -6564,13 +6574,15 @@ function sa(e) {
 		(0, Localize)("#Settings_Account_SteamGuard_LearnMore"),
 	);
 	switch (t.eSteamGuardState) {
-		case 1:
+		case 1: {
 			r = (0, Localize)("#Settings_Account_Security_Status_State_0");
 			break;
-		case 2:
+		}
+		case 2: {
 			r = (0, Localize)("#Settings_Account_Security_Status_State_2");
 			break;
-		case 3:
+		}
+		case 3: {
 			i = ta.Enabled;
 			r = t.rtSteamGuardEnableTime
 				? (0, Localize)(
@@ -6579,11 +6591,14 @@ function sa(e) {
 					)
 				: (0, Localize)("#Settings_Account_Security_Status_State_1");
 			break;
-		case 4:
+		}
+		case 4: {
 			r = (0, Localize)("#Settings_Account_Security_Status_State_4");
 			break;
-		default:
+		}
+		default: {
 			r = (0, Localize)("#Settings_Account_Security_Status_State_3");
+		}
 	}
 	if (t.bHasTwoFactor) {
 		i = ta.EnabledTwoFactor;
@@ -6606,7 +6621,7 @@ function sa(e) {
 				className: ta.Status,
 			},
 			n.createElement(Zt.iSZ, {
-				className: (0, d.A)(ta.SteamGuardIcon, i),
+				className: A(ta.SteamGuardIcon, i),
 			}),
 			n.createElement("span", null, r),
 		),
@@ -6615,7 +6630,7 @@ function sa(e) {
 }
 function oa(e) {
 	const { accountSettings: t } = e;
-	const r = (0, i.Qt)(cr.B7.ResolveURL("ManageSteamGuard"));
+	const r = Qt_1(cr.B7.ResolveURL("ManageSteamGuard"));
 	return n.createElement(
 		E.oN,
 		{
@@ -6631,7 +6646,7 @@ function oa(e) {
 }
 function la(e) {
 	const { accountSettings: t } = e;
-	const r = (0, i.Qt)(cr.B7.ResolveURL("ManageSteamGuard"));
+	const r = Qt_1(cr.B7.ResolveURL("ManageSteamGuard"));
 	if (t.eSteamGuardState != 3) {
 		return null;
 	} else {
@@ -6663,7 +6678,7 @@ function la(e) {
 	}
 }
 function ca(e) {
-	const t = (0, ra.I)({
+	const t = I_2({
 		queryKey: ia,
 		queryFn: async () => await SteamClient.Settings.GetAccountSettings(),
 	}).data;
@@ -6709,7 +6724,6 @@ function ca(e) {
 		return null;
 	}
 }
-var ma = require("./4069.js");
 const ua = n.lazy(() => require.e(7462).then(require.bind(require, 4069)));
 export const Bv = {
 	network: "Internet",
@@ -6871,13 +6885,13 @@ const Ca = [
 	"GameRecording",
 ];
 function _a() {
-	const [e] = (0, s.gk)();
+	const [e] = gk();
 	const t = C.TS.DEV_MODE;
 	return e || t;
 }
 export function lA() {
 	const e = _a();
-	return !!(0, T.q3)(() => l.rV.settings?.bIsValveEmail) && e;
+	return !!q3(() => l.rV.settings?.bIsValveEmail) && e;
 }
 function ba(e) {
 	return n.createElement(
@@ -6889,11 +6903,11 @@ function ba(e) {
 	);
 }
 export function r4() {
-	const e = (function () {
-		const e = (0, C.Qn)();
-		const t = (0, C.uI)();
-		const r = (0, Ri.$2)();
-		const n = (0, C.rP)().IN_VR;
+	const e = (() => {
+		const e = Qn_2();
+		const t = uI();
+		const r = $2();
+		const n = rP().IN_VR;
 		if (r?.IsDesktopOverlayWindow()) {
 			return Ca;
 		} else if (t && e) {
@@ -6906,17 +6920,17 @@ export function r4() {
 			return ha;
 		}
 	})();
-	const t = (0, T.q3)(() => (0, I.qw)().GetServicesInitialized());
-	const r = (0, W.Iz)();
+	const t = q3(() => qw().GetServicesInitialized());
+	const r = Iz();
 	const l = _a();
 	const d = lA();
-	const p = (0, o.C2)();
+	const p = C2();
 	const g = C.TS.ON_DECK && (C.TS.DECK_DISPLAY_MODE || C.TS.IN_GAMESCOPE);
-	const h = (0, C.Qn)();
-	const _ = (0, C.Y2)();
+	const h = Qn_2();
+	const _ = Y2();
 	const f = s.oy.MainRunningAppID;
 	const [b, y] = n.useState(false);
-	const S = (0, C.rP)().IN_VR;
+	const S = rP().IN_VR;
 	n.useEffect(() => {
 		if (f > 0) {
 			SteamClient.Settings.GetAppUsesP2PVoice(f ?? 0).then((e) => y(e));
@@ -6931,6 +6945,7 @@ export function r4() {
 				route: i.BV.Settings.General(),
 				content: n.createElement(qt, null),
 			},
+
 			System: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_System"),
@@ -6940,6 +6955,7 @@ export function r4() {
 				route: i.BV.Settings.System(),
 				content: n.createElement(nn.Xl, null),
 			},
+
 			Security: {
 				visible: t && g,
 				title: (0, Localize)("#Settings_Page_Security"),
@@ -6949,6 +6965,7 @@ export function r4() {
 				route: i.BV.Settings.Security(),
 				content: n.createElement(ln, null),
 			},
+
 			Internet: {
 				visible: true,
 				title: (0, Localize)("#Settings_Page_Internet"),
@@ -6956,6 +6973,7 @@ export function r4() {
 				route: i.BV.Settings.Internet(),
 				content: n.createElement(Vr.KM, null),
 			},
+
 			Notifications: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Notifications"),
@@ -6963,6 +6981,7 @@ export function r4() {
 				route: i.BV.Settings.Notifications(),
 				content: n.createElement(zn, null),
 			},
+
 			Display: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Display"),
@@ -6970,6 +6989,7 @@ export function r4() {
 				route: i.BV.Settings.Display(),
 				content: n.createElement(st, null),
 			},
+
 			Audio: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Audio"),
@@ -6977,6 +6997,7 @@ export function r4() {
 				route: i.BV.Settings.Audio(),
 				content: n.createElement(U, null),
 			},
+
 			Bluetooth: {
 				visible: r,
 				title: (0, Localize)("#Settings_Page_Bluetooth"),
@@ -6984,6 +7005,7 @@ export function r4() {
 				route: i.BV.Settings.Bluetooth(),
 				content: n.createElement(q, null),
 			},
+
 			Controller: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Controller"),
@@ -6991,6 +7013,7 @@ export function r4() {
 				route: i.BV.Settings.Controller(),
 				content: n.createElement(Q.yk, null),
 			},
+
 			Keyboard: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Keyboard"),
@@ -6998,6 +7021,7 @@ export function r4() {
 				route: i.BV.Settings.Keyboard(),
 				content: n.createElement(yr, null),
 			},
+
 			Customization: {
 				visible: t && !S,
 				title: (0, Localize)("#Settings_Page_Customization"),
@@ -7005,6 +7029,7 @@ export function r4() {
 				route: i.BV.Settings.Customization(),
 				content: n.createElement(Wr, null),
 			},
+
 			Friends: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Friends"),
@@ -7012,6 +7037,7 @@ export function r4() {
 				route: i.BV.Settings.Friends(),
 				content: n.createElement(wn, null),
 			},
+
 			Downloads: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Downloads"),
@@ -7019,6 +7045,7 @@ export function r4() {
 				route: i.BV.Settings.Downloads(),
 				content: n.createElement(Ot, null),
 			},
+
 			Cloud: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Cloud"),
@@ -7026,6 +7053,7 @@ export function r4() {
 				route: i.BV.Settings.Cloud(),
 				content: n.createElement(zt, null),
 			},
+
 			Family: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Family"),
@@ -7033,6 +7061,7 @@ export function r4() {
 				route: i.BV.Settings.Family(),
 				content: n.createElement(xt.Ci, null),
 			},
+
 			RemotePlay: {
 				visible: t && !_,
 				title: (0, Localize)("#Settings_Page_RemotePlay"),
@@ -7040,6 +7069,7 @@ export function r4() {
 				route: i.BV.Settings.RemotePlay(),
 				content: n.createElement(rn, null),
 			},
+
 			Storage: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Storage"),
@@ -7049,6 +7079,7 @@ export function r4() {
 					bInPagedSettingsDialog: true,
 				}),
 			},
+
 			Home: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Home"),
@@ -7056,6 +7087,7 @@ export function r4() {
 				route: i.BV.Settings.Home(),
 				content: n.createElement(nr, null),
 			},
+
 			Library: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Library"),
@@ -7063,6 +7095,7 @@ export function r4() {
 				route: i.BV.Settings.Library(),
 				content: n.createElement(M, null),
 			},
+
 			Developer: {
 				visible: l && t,
 				title: (0, Localize)("#Settings_Page_Developer"),
@@ -7070,6 +7103,7 @@ export function r4() {
 				route: i.BV.Settings.Developer(),
 				content: n.createElement(Ge, null),
 			},
+
 			Internal: {
 				visible: d && t,
 				title: (0, Localize)("#Settings_Page_Internal"),
@@ -7077,6 +7111,7 @@ export function r4() {
 				route: i.BV.Settings.Internal(),
 				content: d ? n.createElement(ir.BY, null) : null,
 			},
+
 			Account: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Account"),
@@ -7084,6 +7119,7 @@ export function r4() {
 				route: i.BV.Settings.Account(),
 				content: n.createElement(Qn, null),
 			},
+
 			InGame: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_InGame"),
@@ -7091,13 +7127,15 @@ export function r4() {
 				route: i.BV.Settings.InGame(),
 				content: n.createElement(mi, null),
 			},
+
 			Compatibility: {
-				visible: t && (0, C.CI)(),
+				visible: t && CI(),
 				title: (0, Localize)("#Settings_Page_Compatibility"),
 				icon: n.createElement(u.SteamLogo, null),
 				route: i.BV.Settings.Compatibility(),
 				content: n.createElement(ge, null),
 			},
+
 			Interface: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Interface"),
@@ -7105,6 +7143,7 @@ export function r4() {
 				route: i.BV.Settings.Interface(),
 				content: n.createElement(_i, null),
 			},
+
 			Music: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Music"),
@@ -7112,6 +7151,7 @@ export function r4() {
 				route: i.BV.Settings.Music(),
 				content: n.createElement(Si, null),
 			},
+
 			Broadcast: {
 				visible: t && !_,
 				title: (0, Localize)("#Settings_Page_Broadcast"),
@@ -7119,6 +7159,7 @@ export function r4() {
 				route: i.BV.Settings.Broadcast(),
 				content: n.createElement(Mi, null),
 			},
+
 			Voice: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Voice"),
@@ -7126,6 +7167,7 @@ export function r4() {
 				route: i.BV.Settings.Voice(),
 				content: n.createElement(Ki, null),
 			},
+
 			InGameVoice: {
 				visible: t && (h || b),
 				title: (0, Localize)("#Settings_Page_InGameVoice"),
@@ -7133,6 +7175,7 @@ export function r4() {
 				route: i.BV.Settings.InGameVoice(),
 				content: n.createElement($i, null),
 			},
+
 			DesktopSecurity: {
 				visible: t,
 				title: (0, Localize)("#Settings_Page_Security"),
@@ -7140,8 +7183,9 @@ export function r4() {
 				route: i.BV.Settings.Security(),
 				content: n.createElement(ca, null),
 			},
+
 			GameRecording: {
-				visible: t && !_ && (0, ma.BGameRecordingFeatureEnabled)(),
+				visible: t && !_ && BGameRecordingFeatureEnabled(),
 				title: (0, Localize)("#Settings_Page_GameRecording"),
 				icon: n.createElement(R.vN, null),
 				route: i.BV.Settings.GameRecording(),
@@ -7154,8 +7198,8 @@ export function r4() {
 	);
 	return n.useMemo(() => {
 		const t = [];
-		for (let r = 0; r < e.length; r++) {
-			const n = e[r];
+
+		e.forEach((n, r) => {
 			if (n === m.I0) {
 				if (r !== 0 && r !== e.length - 1 && e[r + 1] !== m.I0) {
 					t.push(m.I0);
@@ -7166,7 +7210,8 @@ export function r4() {
 					t.push(e);
 				}
 			}
-		}
+		});
+
 		return t;
 	}, [e, w]);
 }

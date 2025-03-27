@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SSADialog: "_2Slie_zaUzw6eMUGbS2lDP",
 	ButtonBar: "_3UiYUZCo8cl3Ju8Dgu3TqB",
 	SSABrowser: "HeNqiu2N6vrPePF-eOGU-",

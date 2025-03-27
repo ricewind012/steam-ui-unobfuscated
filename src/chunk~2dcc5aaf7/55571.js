@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./12176.js");
-var i = require("./25399.js");
-var a = require(/*webcrack:missing*/ "./61416.js");
-var s = require(/*webcrack:missing*/ "./3715.js");
-var o = require(/*webcrack:missing*/ "./26667.js");
-var l = require(/*webcrack:missing*/ "./46382.js");
-var c = require(/*webcrack:missing*/ "./43691.js");
+import n from "./12176.js";
+import i from "./25399.js";
+import a, { I } from "./61416.js";
+import s, { jE } from "./3715.js";
+import { n as n_1 } from "./26667.js";
+import { KV } from "./46382.js";
+import c from "./43691.js";
 export function Pt() {
-	const e = (0, l.KV)();
-	return (0, a.I)({
+	const e = KV();
+	return I({
 		queryKey: ["AccountPrivateApps"],
 		queryFn: async () => {
 			const t = n.w.Init(i.Fn);
@@ -18,12 +18,12 @@ export function Pt() {
 	});
 }
 export function Uy(e) {
-	const { data: t } = Pt();
-	return !!c.iA.accountid && !!e && (t ? t.has(e) : undefined);
+	const { data } = Pt();
+	return !!c.iA.accountid && !!e && (data ? data.has(e) : undefined);
 }
 export function h0(e, t = true) {
-	const { data: r } = Pt();
-	return !!e && (r ? !e.some((e) => r.has(e) != t) : undefined);
+	const { data } = Pt();
+	return !!e && (data ? !e.some((e) => data.has(e) != t) : undefined);
 }
 function A(e) {
 	e.invalidateQueries({
@@ -34,9 +34,9 @@ export function JT(e, t) {
 	e.setQueryData(["AccountPrivateApps"], () => new Set(t));
 }
 export function bD(e) {
-	const t = (0, l.KV)();
-	const r = (0, s.jE)();
-	return (0, o.n)({
+	const t = KV();
+	const r = jE();
+	return n_1({
 		mutationFn: async (r) => C(t, [e], r),
 		onSuccess: (t, n) => _(r, [e], n),
 		onError() {
@@ -45,16 +45,16 @@ export function bD(e) {
 	});
 }
 export function DT() {
-	const e = (0, l.KV)();
-	const t = (0, s.jE)();
-	return (0, o.n)({
+	const e = KV();
+	const t = jE();
+	return n_1({
 		mutationFn: async (t) => {
-			const { rgAppIDs: r, bPrivate: n } = t;
-			return C(e, r, n);
+			const { rgAppIDs, bPrivate } = t;
+			return C(e, rgAppIDs, bPrivate);
 		},
 		onSuccess: (e, r) => {
-			const { rgAppIDs: n, bPrivate: i } = r;
-			_(t, n, i);
+			const { rgAppIDs, bPrivate } = r;
+			_(t, rgAppIDs, bPrivate);
 		},
 		onError() {
 			A(t);

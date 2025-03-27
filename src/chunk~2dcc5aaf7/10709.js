@@ -1,127 +1,116 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./49519.js");
-var s = require("./18057.js");
-var o = require("./50350.js");
-var l = require("./78057.js");
-var c = require("./3200.js");
-var m = require("./60155.js");
-var u = require("./9808.js");
-var d = require(/*webcrack:missing*/ "./69164.js");
-var A = require("./96593.js");
-var p = require("./91486.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var h = require("./32179.js");
-var C = require("./48289.js");
-var _ = require(/*webcrack:missing*/ "./90095.js");
-var f = require("./12307.js");
-var b = require("./17231.js");
-var y = require("./64608.js");
-var S = require(/*webcrack:missing*/ "./8573.js");
-var w = require("./87935.js");
-var B = require("./21105.js");
-var v = require("./81994.js");
-var I = require("./57665.js");
-var E = require(/*webcrack:missing*/ "./4690.js");
-var M = require("./32084.js");
-var T = require(/*webcrack:missing*/ "./72476.js");
-var R = require(/*webcrack:missing*/ "./79671.js");
-var k = require("./35488.js");
-var D = require(/*webcrack:missing*/ "./90765.js");
-var N = require(/*webcrack:missing*/ "./11131.js");
-var F = require(/*webcrack:missing*/ "./88696.js");
-var G = require(/*webcrack:missing*/ "./89193.js");
-var O = require(/*webcrack:missing*/ "./88750.js");
-var P = require(/*webcrack:missing*/ "./31084.js");
-var L = require("./39002.js");
-var z = require("./93966.js");
-var x = require(/*webcrack:missing*/ "./55007.js");
 import { _f } from "../../actual_src/utils/domutils.js";
-var W = require("./19579.js");
-var V = require("./31800.js");
-var H = require("./15918.js");
+import n, { Cg } from "./34629.js";
+import i, {
+	useRef,
+	useMemo,
+	useState,
+	useCallback,
+	cloneElement,
+	useEffect,
+} from "./63696.js";
+import a, { W6 } from "./49519.js";
+import s from "./18057.js";
+import o from "./50350.js";
+import l, { T as T_1 } from "./78057.js";
+import c from "./3200.js";
+import m, { V3 } from "./60155.js";
+import u, { _h } from "./9808.js";
+import d from "./69164.js";
+import A, { Co, mM } from "./96593.js";
+import p from "./91486.js";
+import h, { ex, kn, hj, Hc, w$ } from "./32179.js";
+import C, { Sk, Sv, bV } from "./48289.js";
+import _, { q3 } from "./90095.js";
+import f from "./12307.js";
+import b from "./17231.js";
+import y from "./64608.js";
+import S from "./8573.js";
+import w from "./87935.js";
+import B from "./21105.js";
+import v from "./81994.js";
+import I, { Qv } from "./57665.js";
+import E from "./4690.js";
+import M, { j } from "./32084.js";
+import T, { hf, Qn } from "./72476.js";
+import R from "./79671.js";
+import k from "./35488.js";
+import { A as A_1 } from "./90765.js";
+import N, { R7 } from "./11131.js";
+import F from "./88696.js";
+import G, { Gn } from "./89193.js";
+import O from "./88750.js";
+import { lX } from "./31084.js";
+import { Yb, gQ } from "./39002.js";
+import z, { yq } from "./93966.js";
+import { Te } from "./55007.js";
+import W from "./19579.js";
+import { Tc } from "./31800.js";
+import H, { Nd } from "./15918.js";
 export function wi(e) {
-	const { bShowGameInfoInHeader: t, appid: r } = e;
-	const n = (0, i.useRef)(undefined);
-	const c = (0, M.j)(n, W.headerPadding);
-	const m = (0, l.T)(r);
-	(0, V.Tc)(n, 250);
-	return i.createElement(
-		o.Jr,
-		{
-			headerVisibility: "default",
-			padForHeader: false,
-			padForFooter: false,
-			minimumOpacity: 0,
-			scrollable: false,
-			flexed: true,
-		},
-		i.createElement(
-			B.MS,
-			{
-				className: W.Page,
-				ref: n,
-				scrollPaddingTop: 0,
-				scrollIntoViewType: E.Yo.NoTransform,
-			},
-			i.createElement(ae, {
-				appid: r,
-			}),
-			i.createElement(
-				d.Z,
-				{
-					"flow-children": "column",
-					className: W.Container,
-				},
-				i.createElement(
-					a.dO,
-					null,
-					i.createElement(
-						a.qh,
-						{
-							path: s.BV.Library.App.Achievements.My.Root(),
-						},
-						i.createElement(Rp, {
-							bShowGameInfoInHeader: t,
-							appid: r,
-							scrollTabsTop: c,
-							autoFocus: true,
-						}),
-					),
-					i.createElement(
-						a.qh,
-						{
-							path: s.BV.Library.App.Achievements.Friend.Root(),
-						},
-						({ match: e }) =>
-							i.createElement($, {
-								bShowGameInfoInHeader: t,
-								appid: r,
-								accountid: parseInt(e.params.accountid),
-								scrollTabsTop: c,
-								details: m,
-							}),
-					),
-				),
-			),
-		),
+	const { bShowGameInfoInHeader, appid } = e;
+	const NRef = useRef(undefined);
+	const c = j(NRef, W.headerPadding);
+	const m = T_1(appid);
+	Tc(NRef, 250);
+	return (
+		<o.Jr
+			headerVisibility="default"
+			padForHeader={false}
+			padForFooter={false}
+			minimumOpacity={0}
+			scrollable={false}
+			flexed
+		>
+			<B.MS
+				className={W.Page}
+				ref={NRef}
+				scrollPaddingTop={0}
+				scrollIntoViewType={E.Yo.NoTransform}
+			>
+				<Ae appid={appid} />
+				<d.Z flow-children="column" className={W.Container}>
+					<a.dO>
+						<a.qh path={s.BV.Library.App.Achievements.My.Root()}>
+							<Rp
+								bShowGameInfoInHeader={bShowGameInfoInHeader}
+								appid={appid}
+								scrollTabsTop={c}
+								autoFocus
+							/>
+						</a.qh>
+						<a.qh path={s.BV.Library.App.Achievements.Friend.Root()}>
+							{({ match }) => (
+								<$
+									bShowGameInfoInHeader={bShowGameInfoInHeader}
+									appid={appid}
+									accountid={parseInt(match.params.accountid)}
+									scrollTabsTop={c}
+									details={m}
+								/>
+							)}
+						</a.qh>
+					</a.dO>
+				</d.Z>
+			</B.MS>
+		</o.Jr>
 	);
 }
 function q(e) {
-	const t = (0, h.ex)(e);
-	return (0, i.useMemo)(() => {
+	const t = ex(e);
+	return useMemo(() => {
 		if (!t.data) {
 			return {
 				loading: t.loading,
 				error: t.error,
 			};
 		}
-		const { achieved: e, unachieved: r, hidden: n } = t.data;
-		const i = Object.keys(e).map((t) => e[t]);
-		const a = Object.keys(r).map((e) => r[e]);
+		const { achieved, unachieved, hidden } = t.data;
+		const i = Object.keys(achieved).map((t) => achieved[t]);
+		const a = Object.keys(unachieved).map((e) => unachieved[e]);
 		const s = i.sort((e, t) => t.rtUnlocked - e.rtUnlocked);
 		const o = a.sort((e, t) => t.flAchieved - e.flAchieved);
-		const l = Object.keys(n).length;
+		const l = Object.keys(hidden).length;
 		return {
 			data: {
 				rgAchieved: s,
@@ -135,124 +124,118 @@ function q(e) {
 }
 export function Rp(e) {
 	const {
-		appid: t,
-		bShowGameInfoInHeader: r,
-		bPinnedView: n,
-		bShowInProgress: a,
-		scrollTabsTop: s,
-		autoFocus: o,
-		strDefaultTab: l,
-		onSetTab: c,
+		appid,
+		bShowGameInfoInHeader,
+		bPinnedView,
+		bShowInProgress,
+		scrollTabsTop,
+		autoFocus,
+		strDefaultTab,
+		onSetTab,
 	} = e;
-	const u = (0, i.useRef)(undefined);
-	const { data: p, loading: h, error: C } = q(t);
-	const _ = (0, A.Co)(t);
-	const [b, y] = (0, i.useState)(l || "achievements");
-	const S = p?.rgUnachieved;
-	const w = p?.cHidden;
-	const [B, v] = (0, i.useState)(0);
-	const I = (0, i.useCallback)(() => v(0), []);
-	const E = !(0, T.hf)();
+	const URef = useRef(undefined);
+	const { data, loading, error } = q(appid);
+	const _ = Co(appid);
+	const [b, setB] = useState(strDefaultTab || "achievements");
+	const S = data?.rgUnachieved;
+	const w = data?.cHidden;
+	const [B, setB_1] = useState(0);
+	const I = useCallback(() => setB_1(0), []);
+	const E = !hf();
 	const M = i.useCallback(
 		(e) => {
-			y(e);
-			if (c) {
-				c(e);
+			setB(e);
+			if (onSetTab) {
+				onSetTab(e);
 			}
 		},
-		[c],
+		[onSetTab],
 	);
-	if (h) {
-		return i.createElement(me, null);
+	if (loading) {
+		return <Me />;
 	}
-	if (C) {
-		return i.createElement(ue, {
-			error: C,
-		});
+	if (error) {
+		return <Ue error={error} />;
 	}
-	const { cEarned: R, cTotal: k } = p;
-	const N = R == k && k > 0;
+	const { cEarned, cTotal } = data;
+	const N = cEarned == cTotal && cTotal > 0;
 	let F = [
 		{
 			id: "inprogress",
 			title: Localize("#Achievements_Tab_InProgress"),
-			content: i.createElement(Y, {
-				appid: t,
-				bPinnedView: n,
-			}),
+			content: <Y appid={appid} bPinnedView={bPinnedView} />,
 		},
 		{
 			id: "achievements",
 			title: Localize("#Achievements_Tab_MyAchievements"),
-			content: i.createElement(J, {
-				appid: t,
-				accountIDToCompare: B,
-				onChangeAccountIDToCompare: v,
-				bPinnedView: n,
-			}),
+			content: (
+				<J
+					appid={appid}
+					accountIDToCompare={B}
+					onChangeAccountIDToCompare={setB_1}
+					bPinnedView={bPinnedView}
+				/>
+			),
 		},
 		{
 			id: "global",
 			title: Localize("#Achievements_Tab_GlobalAchievements"),
-			content: i.createElement(ne, {
-				appid: t,
-			}),
+			content: <Ne appid={appid} />,
 		},
 	];
-	if (!a || S?.length + w == 0) {
+	if (!bShowInProgress || S?.length + w == 0) {
 		F = F.slice(1);
 	}
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			d.Z,
-			{
-				scrollIntoViewWhenChildFocused: true,
-				className: (0, D.A)(
+	return (
+		<>
+			<d.Z
+				scrollIntoViewWhenChildFocused
+				className={A_1(
 					W.HeaderContainer,
-					n && W.PinnedView,
+					bPinnedView && W.PinnedView,
 					N && W.PerfectGame,
-				),
-			},
-			i.createElement(m.c$, {
-				bShowGameInfoInHeader: r,
-				bPinnedInOverlayView: n,
-				appid: t,
-				achievements: {
-					cEarned: R,
-					cTotal: k,
-				},
-				playtime:
-					E && _
-						? {
-								minutesForever: _.minutes_playtime_forever,
-								minutesInLastTwoWeeks: _.minutes_playtime_last_two_weeks,
-							}
-						: undefined,
-				autoFocus: o,
-			}),
-		),
-		i.createElement(
-			d.Z,
-			{
-				ref: u,
-				className: (0, D.A)(W.AchievementTabs, n && W.PinnedView),
-				onSecondaryButton: B ? I : undefined,
-				onSecondaryActionDescription: B
-					? Localize("#Achievements_ComparisonLabel_Clear")
-					: undefined,
-			},
-			i.createElement(f.xC, {
-				canBeHeaderBackground: "on-outer-scroll",
-				autoFocusContents: false,
-				activeTab: b,
-				onShowTab: M,
-				onFocusWithin: (e) => e && s && s(u.current),
-				bPinnedInOverlayView: n,
-				tabs: F,
-			}),
-		),
+				)}
+			>
+				<m.c$
+					bShowGameInfoInHeader={bShowGameInfoInHeader}
+					bPinnedInOverlayView={bPinnedView}
+					appid={appid}
+					achievements={{
+						cEarned: cEarned,
+						cTotal: cTotal,
+					}}
+					playtime={
+						E && _
+							? {
+									minutesForever: _.minutes_playtime_forever,
+									minutesInLastTwoWeeks: _.minutes_playtime_last_two_weeks,
+								}
+							: undefined
+					}
+					autoFocus={autoFocus}
+				/>
+			</d.Z>
+			<d.Z
+				ref={URef}
+				className={A_1(W.AchievementTabs, bPinnedView && W.PinnedView)}
+				onSecondaryButton={B ? I : undefined}
+				onSecondaryActionDescription={
+					B ? Localize("#Achievements_ComparisonLabel_Clear") : undefined
+				}
+			>
+				<f.xC
+					canBeHeaderBackground="on-outer-scroll"
+					autoFocusContents={false}
+					activeTab={b}
+					onShowTab={M}
+					onFocusWithin={(e) =>
+						e && scrollTabsTop && scrollTabsTop(URef.current)
+					}
+					bPinnedInOverlayView={bPinnedView}
+					tabs={F}
+				/>
+			</d.Z>
+		</>
 	);
 }
 class Z {
@@ -260,7 +243,7 @@ class Z {
 	m_storage;
 	m_rgAchievements = [];
 	constructor(e) {
-		(0, G.Gn)(this);
+		Gn(this);
 		this.m_appid = e;
 		this.m_storage = new F.A();
 		this.m_storage.GetObject(this.GetKey()).then((e) => {
@@ -281,18 +264,18 @@ class Z {
 	}
 }
 function Y(e) {
-	const { appid: t, bPinnedView: r } = e;
-	const n = (0, N.R7)();
-	const { data: a, loading: s, error: o } = q(t);
-	const { rgUnachieved: l, cHidden: d } = a;
-	const A = (function (e) {
-		const t = i.useRef(undefined);
-		t.current ||= new Z(e);
-		return t.current;
-	})(t);
-	const p = (0, _.q3)(() => A.GetSortedAchievements());
-	const h = (0, T.Qn)();
-	const [C, f, b] = (0, m.V3)(l);
+	const { appid, bPinnedView } = e;
+	const n = R7();
+	const { data, loading, error } = q(appid);
+	const { rgUnachieved, cHidden } = data;
+	const A = ((e) => {
+		const TRef = i.useRef(undefined);
+		TRef.current ||= new Z(e);
+		return TRef.current;
+	})(appid);
+	const p = q3(() => A.GetSortedAchievements());
+	const h = Qn();
+	const [C, f, b] = V3(rgUnachieved);
 	let y = i.useMemo(() => {
 		const e = b.slice();
 		e.sort((e, t) => {
@@ -315,9 +298,7 @@ function Y(e) {
 			if (!e.destination) {
 				return;
 			}
-			let r = (0, L.Yb)(y, e.source.index, e.destination.index).map(
-				(e) => e.strID,
-			);
+			let r = Yb(y, e.source.index, e.destination.index).map((e) => e.strID);
 			A.SetSortedAchievements(r);
 		},
 		[A, y],
@@ -339,62 +320,47 @@ function Y(e) {
 				t.push(o.strID);
 				A.SetSortedAchievements(t);
 			};
-			const d = (0, L.gQ)({
+			const d = gQ({
 				...e.draggableProps.style,
 				...n,
 			});
-			return i.createElement(
-				"div",
-				{
-					className: (0, D.A)(
+			return (
+				<div
+					className={A_1(
 						W.SortableUserAchievement,
 						t.isDragging && W.IsDragging,
-					),
-					ref: e.innerRef,
-					...e.draggableProps,
-					...e.dragHandleProps,
-					style: d,
-				},
-				i.createElement(
-					"div",
-					{
-						className: W.SortableUserAchievementInner,
-					},
-					i.createElement(c.fm, {
-						title: o.strName,
-						description: o.strDescription,
-						percentGlobalUnlocked: o.flAchieved,
-						unlockDate: o.rtUnlocked,
-						imgUrl: o.strImage,
-						progress: (0, u._h)(o),
-						glow: (0, I.Qv)(o.bAchieved, o.flAchieved),
-						onContextMenu: (e) => {
-							let t = i.createElement(
-								O.tz,
-								null,
-								i.createElement(
-									O.kt,
-									{
-										onSelected: l,
-									},
-									Localize("#Achievements_Sort_MoveToTop"),
-								),
-								i.createElement(
-									O.kt,
-									{
-										onSelected: m,
-									},
-									Localize("#Achievements_Sort_MoveToBottom"),
-								),
-							);
-							(0, P.lX)(t, e);
-						},
-					}),
-					!h &&
-						i.createElement(k.Rows, {
-							className: W.DragHandle,
-						}),
-				),
+					)}
+					ref={e.innerRef}
+					{...e.draggableProps}
+					{...e.dragHandleProps}
+					style={d}
+				>
+					<div className={W.SortableUserAchievementInner}>
+						<c.fm
+							title={o.strName}
+							description={o.strDescription}
+							percentGlobalUnlocked={o.flAchieved}
+							unlockDate={o.rtUnlocked}
+							imgUrl={o.strImage}
+							progress={_h(o)}
+							glow={Qv(o.bAchieved, o.flAchieved)}
+							onContextMenu={(e) => {
+								let t = (
+									<O.tz>
+										<O.kt onSelected={l}>
+											{Localize("#Achievements_Sort_MoveToTop")}
+										</O.kt>
+										<O.kt onSelected={m}>
+											{Localize("#Achievements_Sort_MoveToBottom")}
+										</O.kt>
+									</O.tz>
+								);
+								lX(t, e);
+							}}
+						/>
+						{!h && <k.Rows className={W.DragHandle} />}
+					</div>
+				</div>
 			);
 		},
 		[h, A, y],
@@ -407,172 +373,144 @@ function Y(e) {
 		}
 		return e;
 	}, [n]);
-	const E = i.createElement(
-		"div",
-		{
-			className: W.Label,
-		},
-		Localize("#Achievements_Tab_InProgress"),
+	const E = (
+		<div className={W.Label}>{Localize("#Achievements_Tab_InProgress")}</div>
 	);
-	const M = i.createElement(m.zp, {
-		className: W.MyAchievementsHeader,
-		strFilter: C,
-		onChangeFilter: f,
-		leftContent: E,
-	});
-	const F = i.useRef(undefined);
+	const M = (
+		<m.zp
+			className={W.MyAchievementsHeader}
+			strFilter={C}
+			onChangeFilter={f}
+			leftContent={E}
+		/>
+	);
+	const FRef = i.useRef(undefined);
 	const G = i.useCallback((e) => {
-		F.current = e ? (0, _f)(e) : null;
+		FRef.current = e ? (0, _f)(e) : null;
 	}, []);
-	const z = (0, x.Te)({
+	const z = Te({
 		count: y.length,
-		getScrollElement: () => F.current,
+		getScrollElement: () => FRef.current,
 		estimateSize: i.useCallback(
 			(e) => parseInt(W.nAchievementHeight) + parseInt(W.nAchievementGap),
 			[],
 		),
 		overscan: 5,
 	});
-	if (s) {
-		return i.createElement(me, null);
-	} else if (o) {
-		return i.createElement(ue, {
-			error: o,
-		});
+	if (loading) {
+		return <Me />;
+	} else if (error) {
+		return <Ue error={error} />;
 	} else {
-		return i.createElement(
-			oe,
-			{
-				bPinnedView: r,
-			},
-			M,
-			i.createElement("div", {
-				ref: G,
-			}),
-			i.createElement(
-				R.JY,
-				{
-					onDragEnd: S,
-					stylesInsertionPoint: n?.ownerWindow?.document?.head,
-				},
-				i.createElement(
-					R.gL,
-					{
-						droppableId: "droppable",
-						renderClone: B,
-						getContainerForClone: v,
-						mode: "virtual",
-					},
-					(e, t) =>
-						i.createElement(
-							"div",
-							{
-								className: (0, D.A)(
+		return (
+			<Oe bPinnedView={bPinnedView}>
+				{M}
+				<div ref={G} />
+				<R.JY
+					onDragEnd={S}
+					stylesInsertionPoint={n?.ownerWindow?.document?.head}
+				>
+					<R.gL
+						droppableId="droppable"
+						renderClone={B}
+						getContainerForClone={v}
+						mode="virtual"
+					>
+						{(e, t) => (
+							<div
+								className={A_1(
 									W.SortableAchievementsList,
 									t.isDraggingOver && W.IsDraggingOver,
-								),
-								style: {
+								)}
+								style={{
 									height: z.getTotalSize(),
 									width: "100%",
 									position: "relative",
-								},
-								...e.droppableProps,
-								ref: e.innerRef,
-							},
-							z.getVirtualItems().map((e) => {
-								const t = {
-									position: "absolute",
-									top: e.start,
-									left: 0,
-									width: "100%",
-									height: e.size,
-								};
-								const r = y[e.index];
-								return i.createElement(
-									R.sx,
-									{
-										key: r.strID,
-										draggableId: r.strID,
-										index: e.index,
-									},
-									(e, r, n) => w(e, r, n, t),
-								);
-							}),
-						),
-				),
-			),
-			i.createElement(se, {
-				count: d,
-			}),
+								}}
+								{...e.droppableProps}
+								ref={e.innerRef}
+							>
+								{z.getVirtualItems().map((e) => {
+									const t = {
+										position: "absolute",
+										top: e.start,
+										left: 0,
+										width: "100%",
+										height: e.size,
+									};
+									const r = y[e.index];
+									return (
+										<R.sx key={r.strID} draggableId={r.strID} index={e.index}>
+											{(e, r, n) => w(e, r, n, t)}
+										</R.sx>
+									);
+								})}
+							</div>
+						)}
+					</R.gL>
+				</R.JY>
+				<Se count={cHidden} />
+			</Oe>
 		);
 	}
 }
 function K(e) {
-	const {
-		achievement: t,
-		accountIDToCompare: r,
-		friendAchievements: n,
-		...a
-	} = e;
-	const s = (0, C.Sk)();
-	const o = (0, C.Sv)(r);
-	if (r) {
-		return i.createElement(c.ui, {
-			key: t.strID,
-			...a,
-			title: t.strName,
-			description: t.strDescription,
-			imgUrl: t.strImage,
-			percentGlobalUnlocked: t.flAchieved,
-			primaryAchiever: {
-				avatarURL: s,
-				unlockDate: t.rtUnlocked,
-				progress: (0, u._h)(t),
-			},
-			secondaryAchiever: n
-				? {
-						avatarURL: o,
-						unlockDate: n[t.strID]?.rtUnlocked,
-						progress: (0, u._h)(n[t.strID]),
-					}
-				: undefined,
-		});
+	const { achievement, accountIDToCompare, friendAchievements, ...a } = e;
+	const s = Sk();
+	const o = Sv(accountIDToCompare);
+	if (accountIDToCompare) {
+		return (
+			<c.ui
+				key={achievement.strID}
+				{...a}
+				title={achievement.strName}
+				description={achievement.strDescription}
+				imgUrl={achievement.strImage}
+				percentGlobalUnlocked={achievement.flAchieved}
+				primaryAchiever={{
+					avatarURL: s,
+					unlockDate: achievement.rtUnlocked,
+					progress: _h(achievement),
+				}}
+				secondaryAchiever={
+					friendAchievements
+						? {
+								avatarURL: o,
+								unlockDate: friendAchievements[achievement.strID]?.rtUnlocked,
+								progress: _h(friendAchievements[achievement.strID]),
+							}
+						: undefined
+				}
+			/>
+		);
 	} else {
-		return i.createElement(le, {
-			key: t.strID,
-			...a,
-			achievement: t,
-		});
+		return <Le key={achievement.strID} {...a} achievement={achievement} />;
 	}
 }
 function X(e) {
-	const { rgAchieved: t, rgUnachieved: r, fnRenderAchievement: n } = e;
+	const { rgAchieved, rgUnachieved, fnRenderAchievement } = e;
 	const a = i.useMemo(() => {
 		const e = [];
 		e.push(
-			...t.map((e) => ({
+			...rgAchieved.map((e) => ({
 				type: "item",
-				data: n(e),
+				data: fnRenderAchievement(e),
 			})),
 		);
-		if (r.length > 0) {
+		if (rgUnachieved.length > 0) {
 			e.push({
 				type: "title",
-				data: i.createElement(
-					c.YG,
-					null,
-					Localize("#Achievements_LockedList_Title"),
-				),
+				data: <c.YG>{Localize("#Achievements_LockedList_Title")}</c.YG>,
 			});
 		}
 		e.push(
-			...r.map((e) => ({
+			...rgUnachieved.map((e) => ({
 				type: "item",
-				data: n(e),
+				data: fnRenderAchievement(e),
 			})),
 		);
 		return e;
-	}, [t, r, n]);
+	}, [rgAchieved, rgUnachieved, fnRenderAchievement]);
 	const s = i.useCallback(
 		(e) => {
 			let t;
@@ -590,67 +528,63 @@ function X(e) {
 		},
 		[a],
 	);
-	const o = i.useRef(undefined);
+	const ORef = i.useRef(undefined);
 	const l = i.useCallback((e) => {
-		o.current = e ? (0, _f)(e) : null;
+		ORef.current = e ? (0, _f)(e) : null;
 	}, []);
-	const m = (0, x.Te)({
+	const m = Te({
 		count: a.length,
-		getScrollElement: () => o.current,
+		getScrollElement: () => ORef.current,
 		estimateSize: s,
 		overscan: 5,
 	});
-	return i.createElement(
-		"div",
-		{
-			className: W.ListWrapper,
-			ref: l,
-			style: {
+	return (
+		<div
+			className={W.ListWrapper}
+			ref={l}
+			style={{
 				height: m.getTotalSize(),
 				width: "100%",
 				position: "relative",
-			},
-		},
-		m.getVirtualItems().map((e) => {
-			const t = {
-				position: "absolute",
-				top: e.start,
-				left: 0,
-				width: "100%",
-				height: e.size - parseInt(W.nAchievementGap),
-			};
-			return (0, i.cloneElement)(a[e.index].data, {
-				style: t,
-				key: e.key,
-			});
-		}),
+			}}
+		>
+			{m.getVirtualItems().map((e) => {
+				const t = {
+					position: "absolute",
+					top: e.start,
+					left: 0,
+					width: "100%",
+					height: e.size - parseInt(W.nAchievementGap),
+				};
+				return cloneElement(a[e.index].data, {
+					style: t,
+					key: e.key,
+				});
+			})}
+		</div>
 	);
 }
 function J(e) {
-	const {
-		appid: t,
-		accountIDToCompare: r,
-		onChangeAccountIDToCompare: n,
-		bPinnedView: a,
-	} = e;
-	const { data: s, loading: o, error: l } = q(t);
-	const { rgAchieved: c, rgUnachieved: u, cHidden: d } = s;
-	const { achievements: A, rgOptions: p } = (function (e, t) {
-		const { data: r } = (0, h.kn)(e, t);
-		const { data: n } = (0, H.Nd)(e, {
+	const { appid, accountIDToCompare, onChangeAccountIDToCompare, bPinnedView } =
+		e;
+	const { data, loading, error } = q(appid);
+	const { rgAchieved, rgUnachieved, cHidden } = data;
+	const { achievements, rgOptions } = ((e, t) => {
+		const { data: data_1 } = kn(e, t);
+		const { data: data_2 } = Nd(e, {
 			staleTime: 3600000,
 		});
-		const a = (0, _.q3)(() => {
-			if (!n) {
+		const a = q3(() => {
+			if (!data_2) {
 				return [];
 			}
 			const e = [
-				...n.in_game,
-				...n.played_ever,
-				...n.played_recently,
-				...n.owns,
+				...data_2.in_game,
+				...data_2.played_ever,
+				...data_2.played_recently,
+				...data_2.owns,
 			]
-				.map(({ steamid: e }) => new S.b(e).GetAccountID())
+				.map(({ steamid }) => new S.b(steamid).GetAccountID())
 				.map((e) => ({
 					data: e,
 					label: C.O$.GetFriendState(e).display_name,
@@ -665,584 +599,481 @@ function J(e) {
 			return e;
 		});
 		return {
-			achievements: (0, i.useMemo)(
+			achievements: useMemo(
 				() =>
-					r
+					data_1
 						? {
-								...r.achieved,
-								...r.unachieved,
+								...data_1.achieved,
+								...data_1.unachieved,
 							}
 						: null,
-				[r],
+				[data_1],
 			),
 			rgOptions: a,
 		};
-	})(t, r);
-	const [f, b, w, B] = (0, m.V3)(c);
-	const v = i.useMemo(() => u.filter((e) => B(e)), [u, B]);
-	const I =
-		p &&
-		p.length != 0 &&
-		i.createElement(
-			"div",
-			{
-				className: W.CompareButtonContainer,
-			},
-			i.createElement(y.ZU, {
-				strDefaultLabel: Localize("#Achievements_ComparisonLabel_NotComparing"),
-				selectedOption: r,
-				rgOptions: p,
-				onChange: (e) => n(e.data),
-				renderButtonValue: () =>
-					r
+	})(appid, accountIDToCompare);
+	const [f, b, w, B] = V3(rgAchieved);
+	const v = i.useMemo(
+		() => rgUnachieved.filter((e) => B(e)),
+		[rgUnachieved, B],
+	);
+	const I = rgOptions && rgOptions.length != 0 && (
+		<div className={W.CompareButtonContainer}>
+			<y.ZU
+				strDefaultLabel={Localize("#Achievements_ComparisonLabel_NotComparing")}
+				selectedOption={accountIDToCompare}
+				rgOptions={rgOptions}
+				onChange={(e) => onChangeAccountIDToCompare(e.data)}
+				renderButtonValue={() =>
+					accountIDToCompare
 						? Localize(
 								"#Achievements_ComparisonLabel_Comparing",
-								C.O$.GetFriendState(r).display_name,
+								C.O$.GetFriendState(accountIDToCompare).display_name,
 							)
-						: Localize("#Achievements_ComparisonLabel_NotComparing"),
-			}),
-		);
-	const E = i.createElement(m.zp, {
-		className: W.MyAchievementsHeader,
-		bPinnedView: a,
-		onChangeFilter: b,
-		strFilter: f,
-		rightContent: I,
-	});
-	const M = i.useCallback(
-		(e) =>
-			i.createElement(K, {
-				achievement: e,
-				accountIDToCompare: r,
-				friendAchievements: A,
-			}),
-		[r, A],
+						: Localize("#Achievements_ComparisonLabel_NotComparing")
+				}
+			/>
+		</div>
 	);
-	const T = c.length > 0 || u.length > 0;
-	if (o) {
-		return i.createElement(me, null);
-	} else if (l) {
-		return i.createElement(ue, {
-			error: l,
-		});
+	const E = (
+		<m.zp
+			className={W.MyAchievementsHeader}
+			bPinnedView={bPinnedView}
+			onChangeFilter={b}
+			strFilter={f}
+			rightContent={I}
+		/>
+	);
+	const M = i.useCallback(
+		(e) => (
+			<K
+				achievement={e}
+				accountIDToCompare={accountIDToCompare}
+				friendAchievements={achievements}
+			/>
+		),
+		[accountIDToCompare, achievements],
+	);
+	const T = rgAchieved.length > 0 || rgUnachieved.length > 0;
+	if (loading) {
+		return <Me />;
+	} else if (error) {
+		return <Ue error={error} />;
 	} else {
-		return i.createElement(
-			oe,
-			{
-				bPinnedView: a,
-			},
-			T && E,
-			i.createElement(X, {
-				rgAchieved: w,
-				rgUnachieved: v,
-				fnRenderAchievement: M,
-			}),
-			i.createElement(se, {
-				count: d,
-			}),
+		return (
+			<Oe bPinnedView={bPinnedView}>
+				{T && E}
+				<X rgAchieved={w} rgUnachieved={v} fnRenderAchievement={M} />
+				<Se count={cHidden} />
+			</Oe>
 		);
 	}
 }
 function $(e) {
-	const t = (0, A.Co)(e.appid);
-	if ((0, A.mM)(t)) {
-		return i.createElement(ee, {
-			...e,
-		});
+	const t = Co(e.appid);
+	if (mM(t)) {
+		return <Ee {...e} />;
 	} else {
-		return i.createElement(te, {
-			...e,
-		});
+		return <Te {...e} />;
 	}
 }
-function ee(e) {
-	const {
-		appid: t,
-		bShowGameInfoInHeader: r,
-		accountid: n,
-		scrollTabsTop: a,
-	} = e;
-	const { data: s, loading: o, error: l } = (0, h.hj)(t, n);
-	const [c, u] = (0, i.useMemo)(
+function Ee(e) {
+	const { appid, bShowGameInfoInHeader, accountid, scrollTabsTop } = e;
+	const { data, loading, error } = hj(appid, accountid);
+	const [c, u] = useMemo(
 		() =>
-			s
+			data
 				? [
-						Object.keys(s.achieved)
-							.map((e) => s.achieved[e])
+						Object.keys(data.achieved)
+							.map((e) => data.achieved[e])
 							.sort((e, t) => t.rtUnlocked - e.rtUnlocked),
-						Object.keys(s.unachieved)
-							.map((e) => s.unachieved[e])
+						Object.keys(data.unachieved)
+							.map((e) => data.unachieved[e])
 							.sort((e, t) => t.flGlobalAchieved - e.flGlobalAchieved),
 					]
 				: [],
-		[s],
+		[data],
 	);
-	const A = (0, C.bV)(n);
-	const p = (0, C.Sv)(n);
-	const _ = (0, i.useRef)(undefined);
-	const [y, S] = (0, i.useState)("achievements");
-	const [w, B] = (0, i.useState)(true);
-	if (o || !A) {
-		return i.createElement(me, null);
+	const A = bV(accountid);
+	const p = Sv(accountid);
+	const _Ref = useRef(undefined);
+	const [y, setY] = useState("achievements");
+	const [w, setW] = useState(true);
+	if (loading || !A) {
+		return <Me />;
 	}
-	if (l) {
-		return i.createElement(ue, {
-			error: l,
-		});
+	if (error) {
+		return <Ue error={error} />;
 	}
-	const v = Object.keys(s.hiddenAchieved).length;
-	const I = Object.keys(s.hiddenUnachieved).length;
+	const v = Object.keys(data.hiddenAchieved).length;
+	const I = Object.keys(data.hiddenUnachieved).length;
 	const E = c.length + u.length + v + I;
 	const M = c.length + v;
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			d.Z,
-			{
-				scrollIntoViewWhenChildFocused: true,
-				className: W.HeaderContainer,
-			},
-			i.createElement(m.c$, {
-				bShowGameInfoInHeader: r,
-				bPinnedInOverlayView: false,
-				appid: t,
-				achievements: {
-					cTotal: E,
-					cEarned: M,
-				},
-				subtitle: i.createElement(ce, {
-					name: A,
-					avatarURL: p,
-				}),
-				autoFocus: true,
-			}),
-		),
-		i.createElement(
-			"div",
-			{
-				ref: _,
-				className: W.AchievementTabs,
-			},
-			i.createElement(f.xC, {
-				canBeHeaderBackground: "on-outer-scroll",
-				autoFocusContents: false,
-				activeTab: y,
-				onShowTab: S,
-				onFocusWithin: (e) => {
-					if (e && a) {
-						a(_.current);
-					}
-				},
-				tabs: [
-					{
-						id: "achievements",
-						title: Localize("#Achievements_Tab_FriendAchievements"),
-						renderTabAddon: () =>
-							i.createElement(b.Ul, {
-								statusPosition: "none",
-								strAvatarURL: p,
-								size: "X-Small",
-							}),
-						tabAddonPosition: "left",
-						content: i.createElement(re, {
-							appid: t,
-							accountid: n,
-							comparison: w,
-							onComparisonChange: B,
-						}),
-					},
-					{
-						id: "global",
-						title: Localize("#Achievements_Tab_GlobalAchievements"),
-						content: i.createElement(ie, {
-							appid: t,
-							accountid: n,
-						}),
-					},
-				],
-			}),
-		),
+	return (
+		<>
+			<d.Z scrollIntoViewWhenChildFocused className={W.HeaderContainer}>
+				<m.c$
+					bShowGameInfoInHeader={bShowGameInfoInHeader}
+					bPinnedInOverlayView={false}
+					appid={appid}
+					achievements={{
+						cTotal: E,
+						cEarned: M,
+					}}
+					subtitle={<Ce name={A} avatarURL={p} />}
+					autoFocus
+				/>
+			</d.Z>
+			<div ref={_Ref} className={W.AchievementTabs}>
+				<f.xC
+					canBeHeaderBackground="on-outer-scroll"
+					autoFocusContents={false}
+					activeTab={y}
+					onShowTab={setY}
+					onFocusWithin={(e) => {
+						if (e && scrollTabsTop) {
+							scrollTabsTop(_Ref.current);
+						}
+					}}
+					tabs={[
+						{
+							id: "achievements",
+							title: Localize("#Achievements_Tab_FriendAchievements"),
+							renderTabAddon: () => (
+								<b.Ul statusPosition="none" strAvatarURL={p} size="X-Small" />
+							),
+							tabAddonPosition: "left",
+							content: (
+								<Re
+									appid={appid}
+									accountid={accountid}
+									comparison={w}
+									onComparisonChange={setW}
+								/>
+							),
+						},
+						{
+							id: "global",
+							title: Localize("#Achievements_Tab_GlobalAchievements"),
+							content: <Ie appid={appid} accountid={accountid} />,
+						},
+					]}
+				/>
+			</div>
+		</>
 	);
 }
-function te(e) {
-	const { appid: t, accountid: r } = e;
-	const n = (0, a.W6)();
-	(0, i.useEffect)(() => {
+function Te(e) {
+	const { appid, accountid } = e;
+	const n = W6();
+	useEffect(() => {
 		const e = w.B7.BuildSteamURL(
 			"UserAchievementsPage",
-			S.b.InitFromAccountID(r).ConvertTo64BitString(),
-			t,
+			S.b.InitFromAccountID(accountid).ConvertTo64BitString(),
+			appid,
 		);
 		n.replace(s.BV.GamepadUI.SteamWeb(), {
 			url: e,
 		});
-	}, [n, t, r]);
+	}, [n, appid, accountid]);
 	return null;
 }
-function re(e) {
-	const { appid: t, accountid: r, comparison: n, onComparisonChange: a } = e;
-	const { data: s, loading: o, error: l } = (0, h.hj)(t, r);
-	const d = (0, C.Sv)(r);
-	const p = (0, C.Sk)();
-	const [_, f] = (0, i.useMemo)(() => {
-		if (!s) {
+function Re(e) {
+	const { appid, accountid, comparison, onComparisonChange } = e;
+	const { data, loading, error } = hj(appid, accountid);
+	const d = Sv(accountid);
+	const p = Sk();
+	const [_, f] = useMemo(() => {
+		if (!data) {
 			return [[], []];
 		}
 		const e = {
-			...s.achieved,
-			...s.hiddenAchieved,
+			...data.achieved,
+			...data.hiddenAchieved,
 		};
 		return [
 			Object.keys(e)
 				.map((t) => e[t])
 				.sort((e, t) => t.rtUnlocked - e.rtUnlocked),
-			Object.keys(s.unachieved)
-				.map((e) => s.unachieved[e])
+			Object.keys(data.unachieved)
+				.map((e) => data.unachieved[e])
 				.sort((e, t) => t.rtUnlocked - e.rtUnlocked),
 		];
-	}, [s]);
-	const b = (0, A.mM)((0, A.Co)(t));
-	const S = Object.keys(s.hiddenUnachieved).length;
-	const [w, B, v, I] = (0, m.V3)(_);
+	}, [data]);
+	const b = mM(Co(appid));
+	const S = Object.keys(data.hiddenUnachieved).length;
+	const [w, B, v, I] = V3(_);
 	const E = i.useMemo(() => f.filter((e) => I(e)), [f, I]);
-	const M =
-		b &&
-		i.createElement(
-			"div",
-			{
-				className: W.ToggleContainer,
-			},
-			i.createElement(
-				"div",
-				{
-					className: W.Label,
-				},
-				Localize("#Achievements_ComparisonToggle_Label"),
-			),
-			i.createElement(y.Hk, {
-				value: n,
-				onChange: a,
-			}),
-		);
-	const T = i.createElement(m.zp, {
-		className: W.MyAchievementsHeader,
-		strFilter: w,
-		onChangeFilter: B,
-		rightContent: M,
-	});
+	const M = b && (
+		<div className={W.ToggleContainer}>
+			<div className={W.Label}>
+				{Localize("#Achievements_ComparisonToggle_Label")}
+			</div>
+			<y.Hk value={comparison} onChange={onComparisonChange} />
+		</div>
+	);
+	const T = (
+		<m.zp
+			className={W.MyAchievementsHeader}
+			strFilter={w}
+			onChangeFilter={B}
+			rightContent={M}
+		/>
+	);
 	const R = i.useCallback(
-		(e) =>
-			i.createElement(c.ui, {
-				key: e.strID,
-				title: e.strName,
-				description: e.strDescription,
-				imgUrl: e.strImage,
-				hidden: !!s.hiddenAchieved[e.strID],
-				percentGlobalUnlocked: e.flGlobalAchieved,
-				primaryAchiever: {
+		(e) => (
+			<c.ui
+				key={e.strID}
+				title={e.strName}
+				description={e.strDescription}
+				imgUrl={e.strImage}
+				hidden={!!data.hiddenAchieved[e.strID]}
+				percentGlobalUnlocked={e.flGlobalAchieved}
+				primaryAchiever={{
 					avatarURL: d,
 					unlockDate: e.rtUnlocked,
-					progress: (0, u._h)(e),
-				},
-				secondaryAchiever: n
-					? {
-							avatarURL: p,
-							unlockDate: e.rtCurrentUserUnlock,
-							progress: (0, u._h)({
-								...e,
-								flCurrentProgress: e.flCurrentUserCurrentProgress,
-							}),
-						}
-					: undefined,
-			}),
-		[s, n, d, p],
+					progress: _h(e),
+				}}
+				secondaryAchiever={
+					comparison
+						? {
+								avatarURL: p,
+								unlockDate: e.rtCurrentUserUnlock,
+								progress: _h({
+									...e,
+									flCurrentProgress: e.flCurrentUserCurrentProgress,
+								}),
+							}
+						: undefined
+				}
+			/>
+		),
+		[data, comparison, d, p],
 	);
-	if (o) {
-		return i.createElement(me, null);
-	} else if (l) {
-		return i.createElement(ue, {
-			error: l,
-		});
+	if (loading) {
+		return <Me />;
+	} else if (error) {
+		return <Ue error={error} />;
 	} else {
-		return i.createElement(
-			oe,
-			null,
-			T,
-			i.createElement(X, {
-				rgAchieved: v,
-				rgUnachieved: E,
-				fnRenderAchievement: R,
-			}),
-			i.createElement(se, {
-				count: S,
-			}),
+		return (
+			<Oe>
+				{T}
+				<X rgAchieved={v} rgUnachieved={E} fnRenderAchievement={R} />
+				<Se count={S} />
+			</Oe>
 		);
 	}
 }
-function ne(e) {
-	const { appid: t } = e;
-	const {
-		data: r,
-		loading: n,
-		error: a,
-	} = (function (e) {
-		const t = (0, h.ex)(e);
-		const r = (0, h.Hc)(e);
-		return (0, i.useMemo)(() => {
-			const { data: e, loading: n, error: i } = t;
-			const { data: a, loading: s, error: o } = r;
-			if (n || s) {
+function Ne(e) {
+	const { appid } = e;
+	const { data, loading, error } = ((e) => {
+		const t = ex(e);
+		const r = Hc(e);
+		return useMemo(() => {
+			const { data: data_1, loading: loading_1, error: error_1 } = t;
+			const { data: data_2, loading: loading_2, error: error_2 } = r;
+			if (loading_1 || loading_2) {
 				return {
 					loading: true,
 				};
 			}
-			if (i || o) {
+			if (error_1 || error_2) {
 				return {
-					error: i || o,
+					error: error_1 || error_2,
 				};
 			}
 			const l = {
-				...e.achieved,
-				...e.unachieved,
-				...e.hidden,
+				...data_1.achieved,
+				...data_1.unachieved,
+				...data_1.hidden,
 			};
 			return {
 				data: Object.keys(l)
-					.sort((e, t) => a[t] - a[e])
+					.sort((e, t) => data_2[t] - data_2[e])
 					.map((e) => l[e]),
 			};
 		}, [t, r]);
-	})(t);
-	const s = (0, C.Sk)();
-	if (n || !s) {
-		return i.createElement(me, null);
-	} else if (a) {
-		return i.createElement(ue, {
-			error: a,
-		});
+	})(appid);
+	const s = Sk();
+	if (loading || !s) {
+		return <Me />;
+	} else if (error) {
+		return <Ue error={error} />;
 	} else {
-		return i.createElement(c.Wh, {
-			avatarURL: s,
-			achievements: r.map((e) => ({
-				id: e.strID,
-				strName: e.strName,
-				strDescription: e.strDescription,
-				imgUrl: e.strImage,
-				percentGlobalUnlocked: e.flAchieved,
-				unlocked: e.bAchieved,
-				hidden: e.bHidden && !e.bAchieved,
-			})),
-		});
+		return (
+			<c.Wh
+				avatarURL={s}
+				achievements={data.map((e) => ({
+					id: e.strID,
+					strName: e.strName,
+					strDescription: e.strDescription,
+					imgUrl: e.strImage,
+					percentGlobalUnlocked: e.flAchieved,
+					unlocked: e.bAchieved,
+					hidden: e.bHidden && !e.bAchieved,
+				}))}
+			/>
+		);
 	}
 }
-function ie(e) {
-	const { appid: t, accountid: r } = e;
-	const {
-		data: n,
-		loading: a,
-		error: s,
-	} = (function (e, t) {
-		const r = (0, h.hj)(e, t);
-		const n = (0, h.Hc)(e);
-		return (0, i.useMemo)(() => {
-			const { data: e, loading: t, error: i } = r;
-			const { data: a, loading: s, error: o } = n;
-			if (t || s) {
+function Ie(e) {
+	const { appid, accountid } = e;
+	const { data, loading, error } = ((e, t) => {
+		const r = hj(e, t);
+		const n = Hc(e);
+		return useMemo(() => {
+			const { data: data_1, loading: loading_1, error: error_1 } = r;
+			const { data: data_2, loading: loading_2, error: error_2 } = n;
+			if (loading_1 || loading_2) {
 				return {
 					loading: true,
 				};
 			}
-			if (i || o) {
+			if (error_1 || error_2) {
 				return {
-					error: i || o,
+					error: error_1 || error_2,
 				};
 			}
 			const l = {
-				...e.achieved,
-				...e.unachieved,
-				...e.hiddenAchieved,
-				...e.hiddenUnachieved,
+				...data_1.achieved,
+				...data_1.unachieved,
+				...data_1.hiddenAchieved,
+				...data_1.hiddenUnachieved,
 			};
 			return {
 				data: Object.keys(l)
-					.sort((e, t) => a[t] - a[e])
+					.sort((e, t) => data_2[t] - data_2[e])
 					.map((t) => ({
 						...l[t],
-						flAchieved: a[t],
-						bHidden: !!e.hiddenAchieved[t] || !!e.hiddenUnachieved[t],
+						flAchieved: data_2[t],
+						bHidden: !!data_1.hiddenAchieved[t] || !!data_1.hiddenUnachieved[t],
 					})),
 			};
 		}, [r, n]);
-	})(t, r);
-	const o = (0, C.Sv)(r);
-	if (a) {
-		return i.createElement(me, null);
-	} else if (s) {
-		return i.createElement(ue, {
-			error: s,
-		});
+	})(appid, accountid);
+	const o = Sv(accountid);
+	if (loading) {
+		return <Me />;
+	} else if (error) {
+		return <Ue error={error} />;
 	} else {
-		return i.createElement(c.Wh, {
-			avatarURL: o,
-			achievements: n.map((e) => ({
-				id: e.strID,
-				strName: e.strName,
-				strDescription: e.strDescription,
-				imgUrl: e.strImage,
-				percentGlobalUnlocked: e.flAchieved,
-				unlocked: e.bAchieved,
-				hidden: e.bHidden,
-			})),
-		});
-	}
-}
-function ae(e) {
-	const { appid: t } = e;
-	const r = (0, A.Co)(t);
-	if (!r) {
-		return null;
-	}
-	const { rgHeroImages: n, bHasHeroImage: a } = l.H.GetHeroImages(r);
-	return i.createElement(
-		"div",
-		{
-			className: W.Background,
-		},
-		i.createElement("div", {
-			className: W.Blur,
-		}),
-		a &&
-			i.createElement(p.z, {
-				className: W.HeaderImage,
-				eAssetType: 1,
-				appid: t,
-				rgSources: n,
-				neverShowTitle: true,
-			}),
-		!a &&
-			i.createElement(p.z, {
-				className: W.HeaderImage,
-				eAssetType: 3,
-				app: r,
-				bShortDisplay: true,
-				neverShowTitle: true,
-			}),
-	);
-}
-function se(e) {
-	const { count: t } = e;
-	if (t === 0) {
-		return null;
-	} else {
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(
-				c.YG,
-				{
-					style: {
-						paddingTop: 0,
-					},
-				},
-				Localize("#Achievements_HiddenList_Title"),
-			),
-			i.createElement(c.Eu, {
-				count: t,
-			}),
+		return (
+			<c.Wh
+				avatarURL={o}
+				achievements={data.map((e) => ({
+					id: e.strID,
+					strName: e.strName,
+					strDescription: e.strDescription,
+					imgUrl: e.strImage,
+					percentGlobalUnlocked: e.flAchieved,
+					unlocked: e.bAchieved,
+					hidden: e.bHidden,
+				}))}
+			/>
 		);
 	}
 }
-(0, n.Cg)([G.sH], Z.prototype, "m_rgAchievements", undefined);
-(0, n.Cg)([G.XI], Z.prototype, "SetSortedAchievements", null);
-const oe = (e) => {
-	const { bPinnedView: t, ...r } = e;
-	return i.createElement(c.Om, {
-		...r,
-		className: (0, D.A)(W.List, t && W.PinnedView),
-	});
+function Ae(e) {
+	const { appid } = e;
+	const r = Co(appid);
+	if (!r) {
+		return null;
+	}
+	const { rgHeroImages, bHasHeroImage } = l.H.GetHeroImages(r);
+	return (
+		<div className={W.Background}>
+			<div className={W.Blur} />
+			{bHasHeroImage && (
+				<p.z
+					className={W.HeaderImage}
+					eAssetType={1}
+					appid={appid}
+					rgSources={rgHeroImages}
+					neverShowTitle
+				/>
+			)}
+			{!bHasHeroImage && (
+				<p.z
+					className={W.HeaderImage}
+					eAssetType={3}
+					app={r}
+					bShortDisplay
+					neverShowTitle
+				/>
+			)}
+		</div>
+	);
+}
+function Se(e) {
+	const { count } = e;
+	if (count === 0) {
+		return null;
+	} else {
+		return (
+			<>
+				<c.YG
+					style={{
+						paddingTop: 0,
+					}}
+				>
+					{Localize("#Achievements_HiddenList_Title")}
+				</c.YG>
+				<c.Eu count={count} />
+			</>
+		);
+	}
+}
+Cg([G.sH], Z.prototype, "m_rgAchievements", undefined);
+Cg([G.XI], Z.prototype, "SetSortedAchievements", null);
+const Oe = (e) => {
+	const { bPinnedView, ...r } = e;
+	return <c.Om {...r} className={A_1(W.List, bPinnedView && W.PinnedView)} />;
 };
-function le(e) {
-	const { achievement: t, ...r } = e;
-	return i.createElement(c.fm, {
-		title: t.strName,
-		description: t.strDescription,
-		percentGlobalUnlocked: t.flAchieved,
-		unlockDate: t.rtUnlocked,
-		imgUrl: t.strImage,
-		progress: (0, u._h)(t),
-		glow: (0, I.Qv)(t.bAchieved, t.flAchieved),
-		...r,
-	});
-}
-function ce(e) {
-	const { name: t, avatarURL: r } = e;
-	return i.createElement(
-		"div",
-		{
-			className: W.UserContext,
-		},
-		i.createElement(b.Ul, {
-			statusPosition: "none",
-			strAvatarURL: r,
-			size: "Small",
-		}),
-		i.createElement(
-			"div",
-			{
-				className: W.Text,
-			},
-			Localize("#Achievements_FriendsAchievements", t),
-		),
+function Le(e) {
+	const { achievement, ...r } = e;
+	return (
+		<c.fm
+			title={achievement.strName}
+			description={achievement.strDescription}
+			percentGlobalUnlocked={achievement.flAchieved}
+			unlockDate={achievement.rtUnlocked}
+			imgUrl={achievement.strImage}
+			progress={_h(achievement)}
+			glow={Qv(achievement.bAchieved, achievement.flAchieved)}
+			{...r}
+		/>
 	);
 }
-function me() {
-	return i.createElement(
-		"div",
-		{
-			className: W.LoadingContainer,
-		},
-		i.createElement(v.j, {
-			className: W.Throbber,
-			showFooter: true,
-		}),
+function Ce(e) {
+	const { name, avatarURL } = e;
+	return (
+		<div className={W.UserContext}>
+			<b.Ul statusPosition="none" strAvatarURL={avatarURL} size="Small" />
+			<div className={W.Text}>
+				{Localize("#Achievements_FriendsAchievements", name)}
+			</div>
+		</div>
 	);
 }
-function ue(e) {
-	const t = (0, h.w$)();
-	const r = (0, z.yq)();
-	return i.createElement(
-		"div",
-		{
-			className: W.ErrorContainer,
-		},
-		i.createElement(
-			"div",
-			{
-				className: W.ErrorTitle,
-			},
-			Localize("#Achievements_FailedToLoad_Title"),
-		),
-		i.createElement(
-			d.Z,
-			{
-				"flow-children": "row",
-				className: W.ErrorButtons,
-			},
-			i.createElement(
-				y.$n,
-				{
-					onClick: t,
-				},
-				Localize("#Button_Retry"),
-			),
-			i.createElement(
-				y.$n,
-				{
-					onClick: r,
-				},
-				Localize("#ActionButtonLabelBack"),
-			),
-		),
+function Me() {
+	return (
+		<div className={W.LoadingContainer}>
+			<v.j className={W.Throbber} showFooter />
+		</div>
+	);
+}
+function Ue(e) {
+	const t = w$();
+	const r = yq();
+	return (
+		<div className={W.ErrorContainer}>
+			<div className={W.ErrorTitle}>
+				{Localize("#Achievements_FailedToLoad_Title")}
+			</div>
+			<d.Z flow-children="row" className={W.ErrorButtons}>
+				<y.$n onClick={t}>{Localize("#Button_Retry")}</y.$n>
+				<y.$n onClick={r}>{Localize("#ActionButtonLabelBack")}</y.$n>
+			</d.Z>
+		</div>
 	);
 }

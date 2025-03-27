@@ -1,48 +1,48 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./95979.js");
-var s = require("./34428.js");
 import { Localize } from "../../actual_src/utils/localization.js";
 import { P0 } from "../../actual_src/utils/localization/datetime.js";
-var c = require("./22091.js");
-var m = require("./95311.js");
-var u = require("./4406.js");
-var d = require("./34792.js");
-var A = require(/*webcrack:missing*/ "./85243.js");
-var p = require("./46422.js");
-var g = require("./10606.js");
-var h = require("./13869.js");
-var C = require("./27756.js");
-var _ = require(/*webcrack:missing*/ "./52451.js");
-var f = require("./35488.js");
-var b = require(/*webcrack:missing*/ "./72476.js");
-var y = require("./93440.js");
-var S = require("./89411.js");
-var w = require("./81969.js");
-var B = require("./50341.js");
-var v = require("./34789.js");
-var I = v;
-var E = require("./46375.js");
-var M = require("./87935.js");
-var T = require("./18057.js");
-var R = require(/*webcrack:missing*/ "./11131.js");
-var k = require("./81247.js");
-var D = require(/*webcrack:missing*/ "./90095.js");
-var N = require(/*webcrack:missing*/ "./26853.js");
-var F = require("./63367.js");
-var G = require(/*webcrack:missing*/ "./42318.js");
-var O = require("./78110.js");
-var P = require("./95572.js");
-var L = require("./83571.js");
-var z = require("./28351.js");
-var x = require("./13897.js");
-var U = require("./37086.js");
-var W = require("./2306.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a, { Ll } from "./95979.js";
+import s, { dm } from "./34428.js";
+import c from "./22091.js";
+import m from "./95311.js";
+import u from "./4406.js";
+import d, { e_ as e } from "./34792.js";
+import A from "./85243.js";
+import p, { gk, FA } from "./46422.js";
+import g from "./10606.js";
+import h, { pg } from "./13869.js";
+import C, { $ as $_2 } from "./27756.js";
+import _, { gc, vJ } from "./52451.js";
+import f from "./35488.js";
+import b, { CI, uI, hf } from "./72476.js";
+import y, { KS } from "./93440.js";
+import S, { Tt, j9, Qc, KZ, NZ, hi, Bv } from "./89411.js";
+import w, { cZ } from "./81969.js";
+import B, { jz, Ls } from "./50341.js";
+import v from "./34789.js";
+import E from "./46375.js";
+import M from "./87935.js";
+import { Qt, jb } from "./18057.js";
+import { R7 } from "./11131.js";
+import k from "./81247.js";
+import D, { q3 } from "./90095.js";
+import N from "./26853.js";
+import F from "./63367.js";
+import G, { Nr } from "./42318.js";
+import O from "./78110.js";
+import P from "./95572.js";
+import L from "./83571.js";
+import z from "./28351.js";
+import x from "./13897.js";
+import U from "./37086.js";
+import W from "./2306.js";
+const I = v;
 function V() {
-	const [e, t] = (0, p.gk)();
-	const r = (function () {
-		const e = (0, D.q3)(() => d.rV.settings?.bIsValveEmail);
-		return b.TS.ON_DECK || e || b.TS.DEV_MODE;
+	const [e, t] = gk();
+	const r = (() => {
+		const e = q3(() => d.rV.settings?.bIsValveEmail);
+		return b.TS.ON_DECK || e || e || b.TS.DEV_MODE;
 	})();
 	return n.createElement(
 		n.Fragment,
@@ -73,7 +73,7 @@ export function hd() {
 }
 function j(e) {
 	if (b.TS.ON_DECK) {
-		const t = () => (0, h.pg)(n.createElement(le, null), window);
+		const t = () => pg(n.createElement(le, null), window);
 		return n.createElement(
 			U.oN,
 			{
@@ -90,7 +90,7 @@ function j(e) {
 	});
 }
 export function jI() {
-	const e = (0, a.Ll)();
+	const e = Ll();
 	if (e) {
 		return n.createElement(Q, {
 			systemInfo: e,
@@ -101,32 +101,34 @@ export function jI() {
 }
 function Q(e) {
 	const { systemInfo: t } = e;
-	const r = (0, R.R7)();
-	const [a] = (0, d.e_)("b24HourClock");
-	const m = (0, _.gc)(d.rV.CurrentTimeZoneID);
-	const u = (0, _.vJ)(() => SteamClient.Settings.GetAvailableTimeZones(), []);
+	const r = R7();
+	const [a] = e("b24HourClock");
+	const m = gc(d.rV.CurrentTimeZoneID);
+	const u = vJ(() => SteamClient.Settings.GetAvailableTimeZones(), []);
 	const A = u?.find((e) => e.timezoneID == m);
-	const p = A ? (0, w.cZ)(A) : "";
+	const p = A ? cZ(A) : "";
 	const g = t.nSteamVersion > 0 ? t.nSteamVersion.toString() : "local";
 	const C = parseInt(1741736707);
 	const f = C && (0, P0)(C, a, p);
-	const y = t.nCPUHz / 1000 / 1000 / 1000 + " GHz";
-	const S = (0, s.dm)(t.nSystemRAMSizeMB * 1024 * 1024);
-	const B = (0, s.dm)(t.nVideoRAMSizeMB * 1024 * 1024);
+	const y = `${t.nCPUHz / 1000 / 1000 / 1000} GHz`;
+	const S = dm(t.nSystemRAMSizeMB * 1024 * 1024);
+	const B = dm(t.nVideoRAMSizeMB * 1024 * 1024);
 	let v = c.Fd.Get()
 		.GetControllers()
 		.find((e) => e.eControllerType == 4);
 	const I = t.sSteamBuildDate;
-	const k = (0, b.CI)() ? " GMT+0000" : " GMT-0800";
+	const k = CI() ? " GMT+0000" : " GMT-0800";
 	const D = Date.parse(I + k) / 1000;
 	const N = D ? (0, P0)(D, a, p) : I;
 	const F = v?.strFirmwareBuildTime;
-	const G = Math.floor(Date.parse(F + " GMT+0000") / 1000);
+	const G = Math.floor(Date.parse(`${F} GMT+0000`) / 1000);
 	const O = G ? (0, P0)(G, a, p) : F;
-	const P = (0, T.Qt)(
-		`${M.B7.ResolveURL("StoreAccount")}steamdeckcomponents/?serialnumber=${v?.strSerialNumber}&componentcode=${v?.strChipID}`,
+	const P = Qt(
+		`${M.B7.ResolveURL("StoreAccount")}steamdeckcomponents/?serialnumber=${
+			v?.strSerialNumber
+		}&componentcode=${v?.strChipID}`,
 	);
-	const L = (0, b.CI)();
+	const L = CI();
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -213,8 +215,7 @@ function Q(e) {
 			n.createElement(
 				i.xh,
 				{
-					onClick: () =>
-						(0, h.pg)(n.createElement(oe, null), r.ownerWindow ?? window),
+					onClick: () => pg(n.createElement(oe, null), r.ownerWindow ?? window),
 					bottomSeparator: "standard",
 				},
 				(0, Localize)("#ThirdPartyLicenses_Link"),
@@ -275,17 +276,17 @@ function Q(e) {
 }
 const Z = new RegExp(/steam\s*(pal|deck)|Local/i);
 export function oE() {
-	return (0, D.q3)(() => d.rV.settings?.bChangeBetaEnabled);
+	return q3(() => d.rV.settings?.bChangeBetaEnabled);
 }
 function K(e) {
-	const t = (0, S.Tt)();
-	const [r] = (0, p.gk)();
-	const [i] = (0, p.FA)();
+	const t = Tt();
+	const [r] = gk();
+	const [i] = FA();
 	const a = (r && i) || e.bForceAdvanced;
-	(0, S.j9)();
-	(0, S.Qc)();
-	let s = (0, S.KZ)();
-	let l = (0, S.NZ)();
+	j9();
+	Qc();
+	let s = KZ();
+	let l = NZ();
 	const c = n.useCallback(
 		(e) =>
 			e.eBranch == 0 && l.eBranch == 0
@@ -306,12 +307,12 @@ function K(e) {
 	s.sort();
 	const u = [];
 	for (const e of s) {
-		const t = (0, S.hi)(e);
+		const t = hi(e);
 		if (!t) {
 			continue;
 		}
-		const r = (0, S.Bv)(e);
-		if (e == m || !r || a) {
+		const r = Bv(e);
+		if (e == m || !r || !r || a) {
 			u.push({
 				label: t,
 				data: e,
@@ -331,10 +332,10 @@ function K(e) {
 	}
 }
 function X(e) {
-	const t = (0, S.Tt)();
-	const r = (0, R.R7)();
+	const t = Tt();
+	const r = R7();
 	const a = n.useCallback(() => {
-		(0, C.$)({
+		$_2({
 			strDescription: (0, Localize)("#Settings_BetaReset_Restart"),
 			fnOnOK: () =>
 				(async () => {
@@ -358,14 +359,14 @@ function X(e) {
 }
 export function lm(e) {
 	const { label: t, description: r, contextMenuPositionOptions: i } = e;
-	const a = (0, b.uI)();
+	const a = uI();
 	const s = (0, Localize)("#Settings_Beta_None");
 	const l = d.rV.settings.nSelectedBetaID ?? A.E8;
 	const c = n.useRef(undefined);
-	const m = (0, R.R7)();
+	const m = R7();
 	const u = [];
 	const p = d.rV.settings.vecAvailableClientBetas ?? [];
-	if (p.length == 0 || l == A.E8 || !a) {
+	if (p.length == 0 || l == A.E8 || l == A.E8 || !a) {
 		u.push({
 			label: s,
 			data: A.E8.toString(),
@@ -374,12 +375,9 @@ export function lm(e) {
 	u.push(
 		...p
 			.filter((e) =>
-				(function (e) {
-					return (
-						!e.strName.toLowerCase().includes("legacy") &&
-						(!b.TS.ON_DECK || Z.test(e.strName))
-					);
-				})(e),
+				((e) =>
+					!e.strName.toLowerCase().includes("legacy") &&
+					(!b.TS.ON_DECK || Z.test(e.strName)))(e),
 			)
 			.map((e) => ({
 				label: e.strName,
@@ -397,7 +395,7 @@ export function lm(e) {
 			if (a && e == A.E8) {
 				window.setTimeout(() => g(), 0);
 			} else if (e != l) {
-				(0, C.$)({
+				$_2({
 					strDescription: (0, Localize)("#Settings_Beta_NeedsRestart"),
 					fnOnOK: () => h(e),
 					fnOnCancel: g,
@@ -427,13 +425,14 @@ function $(e) {
 }
 function ee(e) {
 	const { channels: t, currentChannel: r } = e;
-	const i = (0, R.R7)();
+	const i = R7();
 	const a = n.useRef(undefined);
 	const s = t.map((e) => ({
 		label: n.createElement($, {
 			name: e.label,
 			description: e.description,
 		}),
+
 		data: e.eChannel,
 	}));
 	const l = n.useCallback(() => {
@@ -451,7 +450,7 @@ function ee(e) {
 	const m = n.useCallback(
 		(e) => {
 			if (e != r?.eChannel) {
-				(0, C.$)({
+				$_2({
 					strDescription: (0, Localize)("#Settings_UpdateChannel_Restart"),
 					fnOnOK: () => c(e),
 					fnOnCancel: l,
@@ -496,12 +495,12 @@ function te(e) {
 	);
 }
 function re(e) {
-	const t = (0, D.q3)(() => p.oy.ForceBetaSectionVisible);
+	const t = q3(() => p.oy.ForceBetaSectionVisible);
 	const r = oE();
-	const a = (0, D.q3)(() => d.rV.settings?.bIsSteamSideload);
-	const [s] = (0, p.FA)();
-	const l = (0, B.jz)();
-	const c = (0, B.Ls)();
+	const a = q3(() => d.rV.settings?.bIsSteamSideload);
+	const [s] = FA();
+	const l = jz();
+	const c = Ls();
 	let m = c && !s;
 	let u = a && !t;
 	if (u) {
@@ -551,8 +550,8 @@ function ne() {
 function ie(e) {
 	const t = b.TS.ON_DECK;
 	const r = ne();
-	const a = (0, b.CI)();
-	if (t || r || a) {
+	const a = CI();
+	if (t || r || r || a) {
 		return n.createElement(
 			i.G5,
 			null,
@@ -627,10 +626,10 @@ function se(e) {
 	);
 }
 function oe(e) {
-	const t = (0, _.vJ)(() => import("/licenses.js"), [], null);
-	const r = (0, b.hf)();
+	const t = vJ(() => import("/licenses.js"), [], null);
+	const r = hf();
 	const a = "https://steamdeck-packages.steamos.cloud/archlinux-mirror/sources";
-	const s = (0, T.jb)(a);
+	const s = jb(a);
 	let l = t?.default ?? [];
 	l = l.filter((e) => e.name != "@steam/shared");
 	l.sort((e, t) => (e.name == t.name ? 0 : e.name < t.name ? -1 : 1));
@@ -682,8 +681,8 @@ function le(e) {
 		if (e.length > 0) {
 			SteamClient.Settings.SetHostname(e);
 			a.Z4.UpdateSystemInfo();
-			if ((0, b.CI)()) {
-				(0, y.KS)();
+			if (CI()) {
+				KS();
 			}
 		}
 	};
@@ -781,7 +780,7 @@ function ce(e) {
 function me(e) {
 	const { strName: t, onClose: r } = e;
 	const [i, a] = n.useState();
-	const s = (0, R.R7)().ownerWindow;
+	const s = R7().ownerWindow;
 	const l = n.useCallback(() => {
 		s.navigator.clipboard.writeText(i);
 	}, [s, i]);
@@ -818,7 +817,7 @@ function me(e) {
 		),
 	);
 }
-export const kz = (0, G.Nr)(function (e) {
+export const kz = Nr((e) => {
 	const { uiMode: t } = e;
 	const [r, i] = n.useState(false);
 	const [a, s] = n.useState();
@@ -858,8 +857,8 @@ export const kz = (0, G.Nr)(function (e) {
 	);
 });
 function de() {
-	const e = (function () {
-		const e = (0, R.R7)().ownerWindow;
+	const e = (() => {
+		const e = R7().ownerWindow;
 		return n.useCallback(() => {
 			e.location.href = "steam://open/runtimeinfo";
 		}, [e]);

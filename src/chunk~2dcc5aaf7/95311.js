@@ -1,18 +1,41 @@
-var n = require("./58437.js");
-var i = require("./30449.js");
-var a = require("./81994.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./97659.js");
-var l = require("./64608.js");
-var c = require("./35488.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
 import {
 	Localize,
 	Hq,
 	LocalizeCalendarTime,
 } from "../../actual_src/utils/localization.js";
-var d = require("./18869.js");
-var A = require("./18057.js");
+import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
+import n, { KV } from "./58437.js";
+import i from "./30449.js";
+import a from "./81994.js";
+import s from "./63696.js";
+import o from "./97659.js";
+import l from "./64608.js";
+import c from "./35488.js";
+import m from "./69164.js";
+import d, { tn } from "./18869.js";
+import A from "./18057.js";
+import { gk } from "./46422.js";
+import { C9 } from "./66186.js";
+import f, { Qc } from "./87546.js";
+import b, { wN, Tt, _S, RP, mt } from "./89411.js";
+import y from "./97893.js";
+import S from "./57016.js";
+import { e_ as e } from "./34792.js";
+import { W6, zy } from "./49519.js";
+import { sf } from "./44846.js";
+import { Yj, zV } from "./72388.js";
+import { lb } from "./34875.js";
+import M from "./42318.js";
+import T from "./8953.js";
+import R from "./10606.js";
+import { A as A_2 } from "./90765.js";
+import { dm } from "./34428.js";
+import F from "./43691.js";
+import { ko } from "./34819.js";
+import { cM, Wk } from "./50341.js";
+import { x5 } from "./95979.js";
+import L from "./97342.js";
+import z from "./8573.js";
 function p(e) {
 	return s.createElement(
 		m.Z,
@@ -65,7 +88,7 @@ function g(e) {
 	let r = (0, Localize)("#Settings_Updates_Error_FailedToDownload");
 	let n = (0, Localize)("#TryAgain");
 	let i = (0, Localize)("#Help");
-	let a = (0, d.tn)(A.BV.GamepadUI.Setup());
+	let a = tn(A.BV.GamepadUI.Setup());
 	return s.createElement(p, {
 		icon: t,
 		text: r,
@@ -80,7 +103,7 @@ function h(e) {
 	let r = (0, Localize)("#Settings_Updates_Error_DiskFull");
 	let n = (0, Localize)("#TryAgain");
 	let i = (0, Localize)("#Help");
-	let a = (0, d.tn)(A.BV.GamepadUI.Setup());
+	let a = tn(A.BV.GamepadUI.Setup());
 	return s.createElement(p, {
 		icon: t,
 		text: r,
@@ -90,29 +113,6 @@ function h(e) {
 		onCancel: a,
 	});
 }
-var C = require("./46422.js");
-var _ = require("./66186.js");
-var f = require("./87546.js");
-var b = require("./89411.js");
-var y = require("./97893.js");
-var S = require("./57016.js");
-var w = require("./34792.js");
-var B = require(/*webcrack:missing*/ "./49519.js");
-var v = require(/*webcrack:missing*/ "./44846.js");
-var I = require("./72388.js");
-var E = require("./34875.js");
-var M = require(/*webcrack:missing*/ "./42318.js");
-var T = require("./8953.js");
-var R = require("./10606.js");
-var k = require(/*webcrack:missing*/ "./90765.js");
-import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
-var N = require("./34428.js");
-var F = require(/*webcrack:missing*/ "./43691.js");
-var G = require("./34819.js");
-var O = require("./50341.js");
-var P = require("./95979.js");
-var L = require("./97342.js");
-var z = require(/*webcrack:missing*/ "./8573.js");
 export function _o(e) {
 	const { onOK: t, onCancel: r, sOverrideAutoMessage: n } = e;
 	let i = null;
@@ -171,14 +171,17 @@ export function D8(e) {
 export function b4(e) {
 	let t = e.strMsg;
 	switch (e.eResult) {
-		case 124:
+		case 124: {
 			t = (0, Localize)("#Settings_Updates_UpdateError_InsufficientBattery");
 			break;
-		case 125:
+		}
+		case 125: {
 			t = (0, Localize)("#Settings_Updates_UpdateError_ChargerRequired");
 			break;
-		default:
+		}
+		default: {
 			t = (0, Localize)("#Settings_Updates_UpdateError_Generic");
+		}
 	}
 	return s.createElement(R.KG, {
 		strTitle: (0, Localize)("#Settings_Updates_UpdateErrorTitle"),
@@ -188,7 +191,7 @@ export function b4(e) {
 }
 function V(e) {
 	const { className: t, short: r } = e;
-	const n = (0, b.wN)();
+	const n = wN();
 	let i = "";
 	if (n) {
 		i =
@@ -202,14 +205,14 @@ function V(e) {
 	return s.createElement(
 		"div",
 		{
-			className: (0, k.A)(t, L.TimeRemaining),
+			className: A_2(t, L.TimeRemaining),
 		},
 		i,
 	);
 }
 function H(e) {
 	const { label: t } = e;
-	const r = (0, b.Tt)();
+	const r = Tt();
 	const n = r.m_updateState;
 	const i = n?.progress?.stage_progress;
 	const a = r.GetUpdateSize();
@@ -217,8 +220,8 @@ function H(e) {
 		return null;
 	}
 	const o = a * i ?? null;
-	const l = a ? (0, N.dm)(a, 0) : "? MB";
-	const c = o ? (0, N.dm)(o, 0) : "? MB";
+	const l = a ? dm(a, 0) : "? MB";
+	const c = o ? dm(o, 0) : "? MB";
 	return s.createElement(
 		"div",
 		{
@@ -265,8 +268,8 @@ function j(e) {
 	);
 }
 function q(e) {
-	const t = (0, b.Tt)();
-	const r = (0, b._S)();
+	const t = Tt();
+	const r = _S();
 	const n = r != null && r < 4;
 	const i = n
 		? (0, Localize)("#Settings_Updates_NoUpdatesAvailable")
@@ -290,7 +293,7 @@ function Q(e) {
 	);
 }
 function Z(e) {
-	const t = (0, b.Tt)();
+	const t = Tt();
 	const r = (0, Localize)("#Settings_Updates_UpdateApply");
 	const n = t.GetAvailableTypes();
 	return s.createElement(
@@ -302,7 +305,7 @@ function Z(e) {
 	);
 }
 function Y(e) {
-	const t = (0, b.Tt)();
+	const t = Tt();
 	const r = t.GetProgressPercent() ?? 0;
 	const n = `${(0, Localize)("#Settings_Updates_UpdateApplying")} ${r}%`;
 	return s.createElement(
@@ -366,10 +369,10 @@ function J(e) {
 }
 const $ = (e) => {
 	const { event: t } = e;
-	const r = (0, v.sf)(F.TS.LANGUAGE);
-	const n = (0, I.Yj)(t.GetDescriptionWithFallback(r), ["img"]) || "";
-	const i = (0, I.zV)(n, ["h1", "h2", "h3", "h4", "h5", "url"]) || "";
-	const [a] = (0, w.e_)("b24HourClock");
+	const r = sf(F.TS.LANGUAGE);
+	const n = Yj(t.GetDescriptionWithFallback(r), ["img"]) || "";
+	const i = zV(n, ["h1", "h2", "h3", "h4", "h5", "url"]) || "";
+	const [a] = e("b24HourClock");
 	const o = re(t);
 	return s.createElement(
 		m.Z,
@@ -418,9 +421,9 @@ const $ = (e) => {
 	);
 };
 function ee() {
-	const e = (0, O.cM)();
-	const t = (0, O.Wk)();
-	const r = (function (e) {
+	const e = cM();
+	const t = Wk();
+	const r = ((e) => {
 		if (F.TS.ON_DECK) {
 			return 1675200;
 		} else if (e) {
@@ -429,11 +432,11 @@ function ee() {
 			return 593110;
 		}
 	})(e);
-	return (0, E.lb)(r, t);
+	return lb(r, t);
 }
 function te() {
-	const e = (0, b.Tt)();
-	const [t] = (0, C.gk)();
+	const e = Tt();
+	const [t] = gk();
 	const r = ee();
 	const n = e.m_updateState?.update_check_results;
 	if (!n) {
@@ -444,7 +447,7 @@ function te() {
 	for (const e of n) {
 		if (e.available && ((i = true), t)) {
 			const t = (0, Localize)("#Settings_System_Update_Available");
-			let r = (0, b.RP)(e.type);
+			let r = RP(e.type);
 			if (e.version) {
 				r += ` ${e.version.trim()}`;
 			}
@@ -469,15 +472,15 @@ function te() {
 	);
 }
 function re(e) {
-	const t = (0, B.W6)();
-	const { state: r } = (0, B.zy)();
-	const i = (0, O.Wk)();
+	const t = W6();
+	const { state: r } = zy();
+	const i = Wk();
 	const a = e?.appid;
 	const o = e?.GID;
 	const l = e?.clanSteamID;
 	return s.useCallback(() => {
 		if (a || o) {
-			const e = (0, n.KV)(a, o, l, {
+			const e = KV(a, o, l, {
 				require_tags: ["patchnotes", ...i],
 			});
 			t.replace({
@@ -491,7 +494,7 @@ function re(e) {
 	}, [a, o, l, t, i, r]);
 }
 export function km(e) {
-	const t = (0, b.Tt)();
+	const t = Tt();
 	const r = ee();
 	const n = {};
 	n.onOptionsButton = re(r);
@@ -509,9 +512,9 @@ export function km(e) {
 	};
 	const o = t.m_updateState.state;
 	const m = a[o];
-	const d = (0, b.mt)(o);
+	const d = mt(o);
 	let A = null;
-	const p = (0, b._S)();
+	const p = _S();
 	if (p != null && !d) {
 		const e = (0, Hq)(p, {
 			eSuffix: ETimeSinceSuffix.Ago,
@@ -544,7 +547,7 @@ export function km(e) {
 	);
 }
 function ie(e) {
-	if ((0, f.Qc)().flLevel < 0.3) {
+	if (Qc().flLevel < 0.3) {
 		return s.createElement(
 			"div",
 			{
@@ -568,7 +571,7 @@ function ie(e) {
 function ae(e) {
 	e.updateInfo.progress.stage_progress;
 	e.updateInfo.progress.stage_size_bytes;
-	const [t, r] = (0, _.C9)();
+	const [t, r] = C9();
 	if (e.updateInfo.state != 5 || t < 8192) {
 		return null;
 	} else {
@@ -577,16 +580,16 @@ function ae(e) {
 			{
 				className: L.ProgressStatus,
 			},
-			(0, N.dm)(t) + "/s",
+			`${dm(t)}/s`,
 		);
 	}
 }
 export function zQ(e) {
-	const t = (0, b.Tt)();
+	const t = Tt();
 	const r = t.m_updateState;
 	const n = r.state;
 	const [o, l] = s.useState(null);
-	(0, G.ko)();
+	ko();
 	s.useEffect(() => {
 		let r = true;
 		t.EnsureOOOBEUpdateApplying().then((n) => {
@@ -601,20 +604,25 @@ export function zQ(e) {
 	}, [t, e, l]);
 	let c = null;
 	switch (n) {
-		case 3:
+		case 3: {
 			c = (0, Localize)("#Settings_Updates_Checking");
 			break;
-		case 4:
+		}
+		case 4: {
 			c = (0, Localize)("#Settings_Updates_UpdateStartingDownloadOOBE");
 			break;
-		case 5:
+		}
+		case 5: {
 			c = (0, Localize)("#Settings_Updates_UpdateApplyingOOBE");
 			break;
-		case 2:
+		}
+		case 2: {
 			return null;
+		}
 		case 6:
-		case 7:
+		case 7: {
 			c = (0, Localize)("#Settings_Updates_Restarting");
+		}
 	}
 	if ((o != null && o != 2) || n == 0) {
 		if (o == 54) {
@@ -690,7 +698,7 @@ export function zQ(e) {
 	}
 }
 export function aY(e) {
-	if ((0, P.x5)()) {
+	if (x5()) {
 		return s.createElement(
 			m.Z,
 			{

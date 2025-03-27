@@ -1,25 +1,25 @@
-var r = require("./42898.js");
-var i = require("./28864.js");
-var s = require(/*webcrack:missing*/ "./4452.js");
-var o = s;
-var a = require(/*webcrack:missing*/ "./63696.js");
-var c = require("./10975.js");
 import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
-var u = require("./3524.js");
-var m = require("./87481.js");
-var d = require("./20893.js");
-var h = require("./61050.js");
-var p = require("./79734.js");
-var g = require("./41537.js");
-var f = require("./84252.js");
-export const TJ = a.createContext(null);
+import r, { CH, hL } from "./42898.js";
+import i, { cZ, Ue } from "./28864.js";
+import s from "./4452.js";
+import a, { useContext } from "./63696.js";
+import c from "./10975.js";
+import u, { bJ } from "./3524.js";
+import m, { Ui } from "./87481.js";
+import d, { Y3 } from "./20893.js";
+import h from "./61050.js";
+import p, { O } from "./79734.js";
+import g, { Cz } from "./41537.js";
+import f, { qR } from "./84252.js";
+const o = s;
+export const TJContext = a.createContext(null);
 export const sQ = a.createContext(h.CZ);
 export function qp(e) {
-	const { navRef: t, ...n } = e;
+	const { navRef, ...n } = e;
 	const r = a.useRef(null);
-	const s = (0, a.useContext)(TJ);
-	const o = (0, a.useContext)(sQ);
-	const c = (function (e, t) {
+	const s = useContext(TJContext);
+	const o = useContext(sQ);
+	const c = ((e, t) => {
 		let n = a.useRef(null);
 		if (!!e && (!n.current || n.current.m_Parent != e)) {
 			n.current = e.Tree.CreateNode(e, t);
@@ -41,11 +41,11 @@ export function qp(e) {
 		};
 	}, [s, c, r]);
 	a.useLayoutEffect(() => {
-		if (c && t) {
-			(0, i.cZ)(t, c.CreateHandle());
-			return () => (0, i.cZ)(t, null);
+		if (c && navRef) {
+			cZ(navRef, c.CreateHandle());
+			return () => cZ(navRef, null);
 		}
-	}, [c, t]);
+	}, [c, navRef]);
 	return {
 		ref: r,
 		node: c,
@@ -53,162 +53,165 @@ export function qp(e) {
 }
 export function C7(e) {
 	const {
-		onButtonDown: t,
-		onButtonUp: n,
-		onOKButton: r,
-		onCancelButton: i,
-		onSecondaryButton: s,
-		onOptionsButton: o,
-		onGamepadDirection: a,
-		onGamepadFocus: c,
-		onGamepadBlur: l,
-		onMenuButton: u,
-		onOKActionDescription: m,
-		onCancelActionDescription: h,
-		onSecondaryActionDescription: p,
-		onOptionsActionDescription: g,
-		onMenuActionDescription: f,
-		actionDescriptionMap: _,
+		onButtonDown,
+		onButtonUp,
+		onOKButton,
+		onCancelButton,
+		onSecondaryButton,
+		onOptionsButton,
+		onGamepadDirection,
+		onGamepadFocus,
+		onGamepadBlur,
+		onMenuButton,
+		onOKActionDescription,
+		onCancelActionDescription,
+		onSecondaryActionDescription,
+		onOptionsActionDescription,
+		onMenuActionDescription,
+		actionDescriptionMap,
 		...w
 	} = e;
 	const b = {};
-	if (t !== undefined) {
-		b.onButtonDown = t;
+	if (onButtonDown !== undefined) {
+		b.onButtonDown = onButtonDown;
 	}
-	if (n !== undefined) {
-		b.onButtonUp = n;
+	if (onButtonUp !== undefined) {
+		b.onButtonUp = onButtonUp;
 	}
-	if (r !== undefined) {
-		b.onOKButton = r;
+	if (onOKButton !== undefined) {
+		b.onOKButton = onOKButton;
 	}
-	if (i !== undefined) {
-		b.onCancelButton = i;
+	if (onCancelButton !== undefined) {
+		b.onCancelButton = onCancelButton;
 	}
-	if (s !== undefined) {
-		b.onSecondaryButton = s;
+	if (onSecondaryButton !== undefined) {
+		b.onSecondaryButton = onSecondaryButton;
 	}
-	if (o !== undefined) {
-		b.onOptionsButton = o;
+	if (onOptionsButton !== undefined) {
+		b.onOptionsButton = onOptionsButton;
 	}
-	if (u !== undefined) {
-		b.onMenuButton = u;
+	if (onMenuButton !== undefined) {
+		b.onMenuButton = onMenuButton;
 	}
-	if (a !== undefined) {
-		b.onGamepadDirection = a;
+	if (onGamepadDirection !== undefined) {
+		b.onGamepadDirection = onGamepadDirection;
 	}
-	if (c !== undefined) {
-		b.onGamepadFocus = c;
+	if (onGamepadFocus !== undefined) {
+		b.onGamepadFocus = onGamepadFocus;
 	}
-	if (l !== undefined) {
-		b.onGamepadBlur = l;
+	if (onGamepadBlur !== undefined) {
+		b.onGamepadBlur = onGamepadBlur;
 	}
 	return {
 		gamepadEvents: b,
-		actionDescriptions: (0, d.Y3)({
-			onOKActionDescription: m,
-			onCancelActionDescription: h,
-			onSecondaryActionDescription: p,
-			onOptionsActionDescription: g,
-			onMenuActionDescription: f,
-			actionDescriptionMap: _,
+		actionDescriptions: Y3({
+			onOKActionDescription: onOKActionDescription,
+			onCancelActionDescription: onCancelActionDescription,
+			onSecondaryActionDescription: onSecondaryActionDescription,
+			onOptionsActionDescription: onOptionsActionDescription,
+			onMenuActionDescription: onMenuActionDescription,
+			actionDescriptionMap: actionDescriptionMap,
 		}),
 		props: w,
 	};
 }
 export function sl(e) {
 	const {
-		autoFocus: t,
-		preferredFocus: n,
-		disableNavSounds: r,
-		fnCanTakeFocus: i,
-		childFocusDisabled: s,
-		retainFocus: o,
-		onFocusWithin: a,
-		navKey: c,
-		noFocusRing: l,
-		focusable: u,
-		focusableIfNoChildren: m,
-		navRef: d,
-		actionDescriptionMap: h,
-		onMoveUp: p,
-		onMoveRight: g,
-		onMoveDown: f,
-		onMoveLeft: _,
-		navEntryPreferPosition: w,
-		scrollIntoViewWhenChildFocused: b,
-		fnScrollIntoViewHandler: v,
-		scrollIntoViewType: M,
-		resetNavOnEntry: S,
+		autoFocus,
+		preferredFocus,
+		disableNavSounds,
+		fnCanTakeFocus,
+		childFocusDisabled,
+		retainFocus,
+		onFocusWithin,
+		navKey,
+		noFocusRing,
+		focusable,
+		focusableIfNoChildren,
+		navRef,
+		actionDescriptionMap,
+		onMoveUp,
+		onMoveRight,
+		onMoveDown,
+		onMoveLeft,
+		navEntryPreferPosition,
+		scrollIntoViewWhenChildFocused,
+		fnScrollIntoViewHandler,
+		scrollIntoViewType,
+		resetNavOnEntry,
 		...y
 	} = e;
-	const { gamepadEvents: E, actionDescriptions: B, props: x } = C7(y);
+	const { gamepadEvents, actionDescriptions, props } = C7(y);
 	return {
-		elemProps: x,
+		elemProps: props,
 		navOptions: {
-			autoFocus: t,
-			preferredFocus: n,
-			disableNavSounds: r,
-			fnCanTakeFocus: i,
-			childFocusDisabled: s,
-			retainFocus: o,
-			onFocusWithin: a,
-			navKey: c,
-			noFocusRing: l,
-			focusable: u,
-			focusableIfNoChildren: m,
-			navRef: d,
-			onMoveUp: p,
-			onMoveRight: g,
-			onMoveDown: f,
-			onMoveLeft: _,
-			navEntryPreferPosition: w,
-			scrollIntoViewWhenChildFocused: b,
-			fnScrollIntoViewHandler: v,
-			scrollIntoViewType: M,
-			resetNavOnEntry: S,
+			autoFocus: autoFocus,
+			preferredFocus: preferredFocus,
+			disableNavSounds: disableNavSounds,
+			fnCanTakeFocus: fnCanTakeFocus,
+			childFocusDisabled: childFocusDisabled,
+			retainFocus: retainFocus,
+			onFocusWithin: onFocusWithin,
+			navKey: navKey,
+			noFocusRing: noFocusRing,
+			focusable: focusable,
+			focusableIfNoChildren: focusableIfNoChildren,
+			navRef: navRef,
+			onMoveUp: onMoveUp,
+			onMoveRight: onMoveRight,
+			onMoveDown: onMoveDown,
+			onMoveLeft: onMoveLeft,
+			navEntryPreferPosition: navEntryPreferPosition,
+			scrollIntoViewWhenChildFocused: scrollIntoViewWhenChildFocused,
+			fnScrollIntoViewHandler: fnScrollIntoViewHandler,
+			scrollIntoViewType: scrollIntoViewType,
+			resetNavOnEntry: resetNavOnEntry,
 			actionDescriptionMap: {
-				...h,
-				...B,
+				...actionDescriptionMap,
+				...actionDescriptions,
 			},
 		},
-		gamepadEvents: E,
+		gamepadEvents: gamepadEvents,
 	};
 }
 function M(e) {
-	return function (t) {
+	return (t) => {
 		const {
-			focusClassName: n,
-			focusWithinClassName: i,
-			bFocusableByDefault: s,
-			className: c,
-			divRef: l,
-			node: m,
-			tabIndex: d,
-			children: h,
+			focusClassName,
+			focusWithinClassName,
+			bFocusableByDefault,
+			className,
+			divRef,
+			node,
+			tabIndex,
+			children,
 			...p
 		} = t;
-		const g = (0, r.CH)();
-		const _ = (0, u.bJ)();
-		const w = m.BHasFocus() && _;
-		const b = m.BFocusWithin() && _;
-		const {
-			bActiveTree: C,
-			bActiveTreeWithinContext: v,
-			bDisableFocusClasses: M,
-		} = (0, f.qR)();
-		(0, r.hL)(m.FocusCallbackList, g);
-		(0, r.hL)(m.FocusWithinCallbackList, g);
-		const S = C && !M;
-		const y = !v && (d !== undefined || s);
+		const g = CH();
+		const _ = bJ();
+		const w = node.BHasFocus() && _;
+		const b = node.BFocusWithin() && _;
+		const { bActiveTree, bActiveTreeWithinContext, bDisableFocusClasses } =
+			qR();
+		hL(node.FocusCallbackList, g);
+		hL(node.FocusWithinCallbackList, g);
+		const S = bActiveTree && !bDisableFocusClasses;
+		const y =
+			!bActiveTreeWithinContext &&
+			(tabIndex !== undefined || bFocusableByDefault);
 		return a.createElement(
 			e,
 			{
 				...p,
-				className: o(c, w && S && n, b && S && i),
-				tabIndex: y ? -1 : d,
-				ref: l,
+				className: o(
+					className,
+					w && S && focusClassName,
+					b && S && focusWithinClassName,
+				),
+				tabIndex: y ? -1 : tabIndex,
+				ref: divRef,
 			},
-			h,
+			children,
 		);
 	};
 }
@@ -225,36 +228,44 @@ export const Mg = E.Provider;
 function x(e, t, n, r, s) {
 	const {
 		elemProps: { focusClassName: c, children: l, "flow-children": u, ...d },
-		navOptions: h,
-		gamepadEvents: g,
+		navOptions,
+		gamepadEvents,
 	} = sl(n);
 	const {
-		bFocusableByDefault: f = true,
-		bActivateByDefault: w = false,
-		bDOMElementFocusByDefault: C = f,
+		bFocusableByDefault = true,
+		bActivateByDefault = false,
+		bDOMElementFocusByDefault = bFocusableByDefault,
 	} = s || {};
-	if (h.focusable === undefined && !d.disabled && f) {
-		h.focusable = true;
+	if (
+		navOptions.focusable === undefined &&
+		!d.disabled &&
+		bFocusableByDefault
+	) {
+		navOptions.focusable = true;
 	}
-	const M = (0, p.O)(u);
-	const { ref: S, node: B } = qp({
+	const M = O(u);
+	const { ref, node } = qp({
 		layout: M,
-		...h,
+		...navOptions,
 	});
-	if (!g.onOKButton) {
-		if (("onClick" in d && d.onClick) || (w && (w === true || w(d)))) {
-			g.onOKButton = y;
+	if (!gamepadEvents.onOKButton) {
+		if (
+			("onClick" in d && d.onClick) ||
+			(bActivateByDefault &&
+				(bActivateByDefault === true || bActivateByDefault(d)))
+		) {
+			gamepadEvents.onOKButton = y;
 		}
 	}
-	if (h.focusable && !C) {
+	if (navOptions.focusable && !bDOMElementFocusByDefault) {
 		d.tabIndex = d.tabIndex || 0;
-	} else if (!h.focusable && C) {
+	} else if (!navOptions.focusable && bDOMElementFocusByDefault) {
 		d.tabIndex = d.tabIndex ?? -1;
 	}
-	(0, m.Ui)(g, S);
-	const x = (0, i.Ue)(r, S);
-	const L = (0, a.useContext)(E)?.Component;
-	if (!B) {
+	Ui(gamepadEvents, ref);
+	const x = Ue(r, ref);
+	const L = useContext(E)?.Component;
+	if (!node) {
 		return a.createElement(
 			e,
 			{
@@ -268,16 +279,16 @@ function x(e, t, n, r, s) {
 	const k = {
 		...d,
 		divRef: x,
-		node: B,
+		node: node,
 		focusClassName: o(c, "gpfocus"),
 		focusWithinClassName: "gpfocuswithin",
-		bFocusableByDefault: C,
+		bFocusableByDefault: bDOMElementFocusByDefault,
 		className: o(d.className, "Focusable"),
 	};
 	return a.createElement(
-		TJ.Provider,
+		TJContext.Provider,
 		{
-			value: B,
+			value: node,
 		},
 		L
 			? a.createElement(
@@ -293,42 +304,40 @@ function x(e, t, n, r, s) {
 }
 export function HR(e, t) {
 	const n = M(e);
-	return a.forwardRef(function (r, i) {
-		return x(e, n, r, i, t);
-	});
+	return a.forwardRef((r, i) => x(e, n, r, i, t));
 }
 export function v0(e) {
 	const t = M(e);
-	return a.forwardRef(function (n, r) {
+	return a.forwardRef((n, r) => {
 		const {
-			virtualKeyboardProps: s,
+			virtualKeyboardProps,
 			props: { refKeyboardHandle: o, ...a },
-		} = (function (e) {
+		} = ((e) => {
 			const {
-				onEnterKeyPress: t,
-				strEnterKeyLabel: n,
-				onKeyboardNavOut: r,
-				onKeyboardShow: i,
-				onKeyboardFullyVisible: s,
-				onTextEntered: o,
-				BIsElementValidForInput: a,
+				onEnterKeyPress,
+				strEnterKeyLabel,
+				onKeyboardNavOut,
+				onKeyboardShow,
+				onKeyboardFullyVisible,
+				onTextEntered,
+				BIsElementValidForInput,
 				...c
 			} = e;
 			return {
 				virtualKeyboardProps: {
-					onEnterKeyPress: t,
-					strEnterKeyLabel: n,
-					onKeyboardNavOut: r,
-					onKeyboardShow: i,
-					onKeyboardFullyVisible: s,
-					onTextEntered: o,
-					BIsElementValidForInput: a,
+					onEnterKeyPress: onEnterKeyPress,
+					strEnterKeyLabel: strEnterKeyLabel,
+					onKeyboardNavOut: onKeyboardNavOut,
+					onKeyboardShow: onKeyboardShow,
+					onKeyboardFullyVisible: onKeyboardFullyVisible,
+					onTextEntered: onTextEntered,
+					BIsElementValidForInput: BIsElementValidForInput,
 				},
 				props: c,
 			};
 		})(n);
-		const c = (0, g.Cz)(s, o);
-		const l = (0, i.Ue)(r, c);
+		const c = Cz(virtualKeyboardProps, o);
+		const l = Ue(r, c);
 		return x(e, t, a, l);
 	});
 }

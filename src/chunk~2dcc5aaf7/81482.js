@@ -1,19 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./37976.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./12368.js");
-var o = require(/*webcrack:missing*/ "./12176.js");
-var l = require(/*webcrack:missing*/ "./58663.js");
-var c = require(/*webcrack:missing*/ "./48307.js");
-const m = l.Message;
-class u extends m {
+import n, { Cg } from "./34629.js";
+import i from "./37976.js";
+import a, { Gn, HO, mJ, EW } from "./89193.js";
+import s from "./12368.js";
+import o, { I8 } from "./12176.js";
+import l from "./58663.js";
+import c from "./48307.js";
+import { w as w_1 } from "./49455.js";
+import S from "./52451.js";
+import w from "./72476.js";
+import B from "./79769.js";
+const l_Message = l.Message;
+class u extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.key) {
 			c.Sg(u.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -72,7 +76,7 @@ class u extends m {
 		return c.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -80,7 +84,7 @@ class u extends m {
 		c.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -88,14 +92,14 @@ class u extends m {
 		return "CCloudConfigStore_Entry";
 	}
 }
-class d extends m {
+class d extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.enamespace) {
 			c.Sg(d.M());
 		}
-		m.initialize(this, e, 0, -1, [3], null);
+		l_Message.initialize(this, e, 0, -1, [3], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -150,7 +154,7 @@ class d extends m {
 		return c.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -158,7 +162,7 @@ class d extends m {
 		c.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -166,14 +170,14 @@ class d extends m {
 		return "CCloudConfigStore_NamespaceData";
 	}
 }
-class A extends m {
+class A extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.enamespace) {
 			c.Sg(A.M());
 		}
-		m.initialize(this, e, 0, -1, undefined, null);
+		l_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -217,7 +221,7 @@ class A extends m {
 		return c.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -225,7 +229,7 @@ class A extends m {
 		c.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -233,14 +237,14 @@ class A extends m {
 		return "CCloudConfigStore_NamespaceVersion";
 	}
 }
-class p extends m {
+class p extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.versions) {
 			c.Sg(p.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -280,7 +284,7 @@ class p extends m {
 		return c.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -288,7 +292,7 @@ class p extends m {
 		c.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -296,14 +300,14 @@ class p extends m {
 		return "CCloudConfigStore_Download_Request";
 	}
 }
-class g extends m {
+class g extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.data) {
 			c.Sg(g.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -343,7 +347,7 @@ class g extends m {
 		return c.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -351,7 +355,7 @@ class g extends m {
 		c.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -359,14 +363,14 @@ class g extends m {
 		return "CCloudConfigStore_Download_Response";
 	}
 }
-class h extends m {
+class h extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.data) {
 			c.Sg(h.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -406,7 +410,7 @@ class h extends m {
 		return c.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -414,7 +418,7 @@ class h extends m {
 		c.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -422,14 +426,14 @@ class h extends m {
 		return "CCloudConfigStore_Upload_Request";
 	}
 }
-class C extends m {
+class C extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.versions) {
 			c.Sg(C.M());
 		}
-		m.initialize(this, e, 0, -1, [1], null);
+		l_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -469,7 +473,7 @@ class C extends m {
 		return c.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -477,7 +481,7 @@ class C extends m {
 		c.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -485,14 +489,14 @@ class C extends m {
 		return "CCloudConfigStore_Upload_Response";
 	}
 }
-class _ extends m {
+class _ extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.versions) {
 			c.Sg(_.M());
 		}
-		m.initialize(this, e, 0, -1, [2], null);
+		l_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -532,7 +536,7 @@ class _ extends m {
 		return c.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -540,7 +544,7 @@ class _ extends m {
 		c.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new l.BinaryWriter();
+		const e = new l.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -548,31 +552,25 @@ class _ extends m {
 		return "CCloudConfigStore_Change_Notification";
 	}
 }
-var f;
-var b;
-(function (e) {
-	e.Download = function (e, t) {
-		return e.SendMsg("CloudConfigStore.Download#1", (0, o.I8)(p, t), g, {
+let f;
+let b;
+((e) => {
+	e.Download = (e, t) =>
+		e.SendMsg("CloudConfigStore.Download#1", I8(p, t), g, {
 			bConstMethod: true,
 			ePrivilege: 1,
 		});
-	};
-	e.Upload = function (e, t) {
-		return e.SendMsg("CloudConfigStore.Upload#1", (0, o.I8)(h, t), C, {
+	e.Upload = (e, t) =>
+		e.SendMsg("CloudConfigStore.Upload#1", I8(h, t), C, {
 			ePrivilege: 1,
 		});
-	};
 })((f ||= {}));
-(function (e) {
+((e) => {
 	e.NotifyChangeHandler = {
 		name: "CloudConfigStoreClient.NotifyChange#1",
 		request: _,
 	};
 })((b ||= {}));
-var y = require(/*webcrack:missing*/ "./49455.js");
-var S = require(/*webcrack:missing*/ "./52451.js");
-var w = require(/*webcrack:missing*/ "./72476.js");
-var B = require(/*webcrack:missing*/ "./79769.js");
 const v = new (require(/*webcrack:missing*/ "./83599.js").wd)("CloudStorage");
 const I = "cloud-storage-namespaces";
 const E = "cloud-storage-namespace-";
@@ -595,8 +593,8 @@ export class HB {
 	constructor(e, t, r, n, i, a, s) {
 		this.key = e;
 		this.timestamp = t;
-		(0, y.w)(r != !!n, "Should only set bIsDeleted true XOR strValue.");
-		(0, y.w)(
+		w_1(r != !!n, "Should only set bIsDeleted true XOR strValue.");
+		w_1(
 			(i == x2.CustomMethod) == !!a,
 			"Must include a resolution method ID if and only if selecting EConflictResolutionMethod.CustomMethod.",
 		);
@@ -658,7 +656,7 @@ export class HB {
 }
 class N {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_nLatestEntryTimestamp = 0;
@@ -723,7 +721,7 @@ class N {
 		return this.m_mapChangeCallbacks.get(e).Register(t);
 	}
 	RegisterCustomConflictResolutionMethod(e, t) {
-		(0, y.w)(
+		w_1(
 			!this.m_mapCustomConflictResolutionMethods.has(e),
 			`Duplicate registration of conflict resolution method '${e}'.`,
 		);
@@ -823,7 +821,7 @@ class N {
 		}
 		return x(
 			T(e),
-			Array.from(this.m_mapStorage.get(e)).map(([e, t]) => [e, (0, a.HO)(t)]),
+			Array.from(this.m_mapStorage.get(e)).map(([e, t]) => [e, HO(t)]),
 			3145728,
 		);
 	}
@@ -857,7 +855,7 @@ class N {
 			SteamClient.Stats.RecordActivationEvent("CloudStorage.Upload", "write");
 			SteamClient.Stats.RecordActivationEvent(
 				"CloudStorage.Upload",
-				"prefix-" + t.key.slice(0, 12),
+				`prefix-${t.key.slice(0, 12)}`,
 			);
 			this.ScheduleUpload();
 		} else {
@@ -904,27 +902,30 @@ class N {
 	ScheduleDownload(e) {
 		let t = null;
 		switch (e) {
-			case "immediate":
+			case "immediate": {
 				t = 0;
 				this.m_bUseLongerBackoffDelay = false;
 				window.clearTimeout(this.m_downloadTimer);
 				this.m_downloadTimer = null;
 				break;
-			case "not-urgent":
+			}
+			case "not-urgent": {
 				if (this.m_downloadTimer) {
 					return;
 				}
 				t = k + Math.random() * 3000000;
 				break;
-			case "backoff":
+			}
+			case "backoff": {
 				const e = Math.max(0, this.m_nRequestFailures - 1);
-				const r = Math.pow(4, e);
+				const r = 4 ** e;
 				t =
 					(this.m_bUseLongerBackoffDelay ? 600000 : 5000) *
 					r *
 					(0.5 + Math.random());
 				window.clearTimeout(this.m_downloadTimer);
 				this.m_downloadTimer = null;
+			}
 		}
 		if (this.m_CMInterface.BConnectedToServer()) {
 			this.m_downloadTimer = window.setTimeout(this.DownloadFromServer, t);
@@ -933,10 +934,7 @@ class N {
 	ScheduleUpload(e) {
 		if (this.m_nLastSuccessfulSyncTime && !this.m_uploadTimer) {
 			if (this.m_nRequestFailures > 0) {
-				e =
-					Math.pow(4, this.m_nRequestFailures - 1) *
-					5000 *
-					(0.5 + Math.random());
+				e = 4 ** (this.m_nRequestFailures - 1) * 5000 * (0.5 + Math.random());
 			}
 			if (e === undefined) {
 				e = 2000;
@@ -1050,17 +1048,20 @@ class N {
 	}
 	GetConflictResolver(e, t) {
 		switch (e) {
-			case x2.InitializationOnly:
+			case x2.InitializationOnly: {
 				return () => null;
-			case x2.CustomMethod:
+			}
+			case x2.CustomMethod: {
 				const e = t && this.m_mapCustomConflictResolutionMethods.get(t);
 				if (e) {
 					return e;
 				}
 				console.error(`Missing conflict resolution method ID='${t}'`);
+			}
 			case x2.LastWriteWins:
-			default:
+			default: {
 				return (e, t) => (e.timestamp > t.timestamp ? e : null);
+			}
 		}
 	}
 	async UploadToServer() {
@@ -1142,22 +1143,22 @@ class N {
 		return e;
 	}
 }
-export var Jq;
+export let Jq;
 export var x2;
-(0, n.Cg)([a.XI], N.prototype, "Init", null);
-(0, n.Cg)([S.oI], N.prototype, "OnConnect", null);
-(0, n.Cg)([S.oI], N.prototype, "OnChangeNotification", null);
-(0, n.Cg)([S.oI], N.prototype, "ScheduleDownload", null);
-(0, n.Cg)([S.oI], N.prototype, "DownloadFromServer", null);
-(0, n.Cg)([S.oI], N.prototype, "GetConflictResolver", null);
-(0, n.Cg)([S.oI], N.prototype, "UploadToServer", null);
-(function (e) {
+Cg([a.XI], N.prototype, "Init", null);
+Cg([S.oI], N.prototype, "OnConnect", null);
+Cg([S.oI], N.prototype, "OnChangeNotification", null);
+Cg([S.oI], N.prototype, "ScheduleDownload", null);
+Cg([S.oI], N.prototype, "DownloadFromServer", null);
+Cg([S.oI], N.prototype, "GetConflictResolver", null);
+Cg([S.oI], N.prototype, "UploadToServer", null);
+((e) => {
 	e[(e.k_EUserConfigStoreNamespaceInvalid = 0)] =
 		"k_EUserConfigStoreNamespaceInvalid";
 	e[(e.k_EUserConfigStoreNamespaceLibrary = 1)] =
 		"k_EUserConfigStoreNamespaceLibrary";
 })((Jq ||= {}));
-(function (e) {
+((e) => {
 	e.LastWriteWins = "last-write";
 	e.CustomMethod = "custom";
 	e.InitializationOnly = "initial";
@@ -1166,7 +1167,7 @@ class O {
 	m_strKeyPrefix;
 	m_cloudStorage;
 	constructor(e, t) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_cloudStorage = e;
 		this.m_strKeyPrefix = t;
 	}
@@ -1179,7 +1180,7 @@ class O {
 		return e;
 	}
 	OnChange(e) {
-		(0, a.mJ)(
+		mJ(
 			() => this.mapInternal,
 			(t) => e(),
 		);
@@ -1243,9 +1244,9 @@ class O {
 		return this.entries();
 	}
 }
-(0, n.Cg)(
+Cg(
 	[
-		(0, a.EW)({
+		EW({
 			keepAlive: true,
 			equals: a.m3.structural,
 		}),
@@ -1254,7 +1255,7 @@ class O {
 	"mapInternal",
 	null,
 );
-(0, n.Cg)([a.XI], O.prototype, "clear", null);
+Cg([a.XI], O.prototype, "clear", null);
 export class s7 extends s.P {
 	static s_internalState = new N();
 	m_eNamespace;

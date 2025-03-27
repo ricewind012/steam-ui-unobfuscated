@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	EmoticonBow: "_2LlztGU9T4SNsTD6znahfe",
 	EmoticonBow_st0: "Fw2WGmXjh2zUxYfuy3xDn",

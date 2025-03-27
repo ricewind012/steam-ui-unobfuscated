@@ -756,15 +756,15 @@ class SteamAudioBinauralProcessor extends AudioWorkletProcessor {
 			console.log("not 1-1");
 			return false;
 		}
-		const r = e[0];
-		const o = t[0];
-		const s = r.length;
-		const n = o.length;
-		if (n != 2) {
-			console.log("not stereo out", n);
+		const [r] = e;
+		const [o] = t;
+		const r_length = r.length;
+		const o_length = o.length;
+		if (o_length != 2) {
+			console.log("not stereo out", o_length);
 			return false;
 		}
-		this.init(r[0].length, s, n);
+		this.init(r[0].length, r_length, o_length);
 		for (let e = 0; e < o.length; ++e) {
 			for (let t = 0; t < o[e].length; ++t) {
 				o[e][t] = 0;

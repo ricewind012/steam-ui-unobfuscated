@@ -1,13 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./83957.js");
-var o = s;
-var l = require(/*webcrack:missing*/ "./83599.js");
-const c =
-	require.p + "noisegate-audio-worklet.js?contenthash=e6e508d0677b0dce3e6d";
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./52451.js";
+import s from "./83957.js";
+import l from "./83599.js";
+import "./72476.js";
+const o = s;
+const c = `${require.p}noisegate-audio-worklet.js?contenthash=e6e508d0677b0dce3e6d`;
 require.p;
-require(/*webcrack:missing*/ "./72476.js");
 const m = new l.wd("AudioPlaybackManager");
 export class u {
 	m_Context;
@@ -21,7 +20,7 @@ export class u {
 	m_MediaStreamAudioElem = undefined;
 	static sm_instance = null;
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 		_u3.sm_instance = this;
 	}
 	static Get() {
@@ -56,10 +55,7 @@ export class u {
 					);
 				} catch (e) {
 					m.Error(
-						"Failed setting audio output device to " +
-							this.m_voiceStore.GetSelectedOutputDevice() +
-							": " +
-							e,
+						`Failed setting audio output device to ${this.m_voiceStore.GetSelectedOutputDevice()}: ${e}`,
 					);
 				}
 			}
@@ -71,7 +67,7 @@ export class u {
 		return this.PlayAudioURLWithRepeats(e);
 	}
 	PlayAudioURLWithRepeats(e, t = 0) {
-		m.Debug("web audio playback requested: " + e);
+		m.Debug(`web audio playback requested: ${e}`);
 		this.CreateContextIfNeeded();
 		let r = new d(this, e, t);
 		this.m_mapPlaybackObjs.set(r, true);
@@ -96,10 +92,11 @@ export class u {
 		if (this.m_Context == null) {
 			m.Debug("new context");
 			let t = window;
-			let r = t.AudioContext || t.webkitAudioContext || false;
+			let r =
+				t.AudioContext || t.webkitAudioContext || t.webkitAudioContext || false;
 			this.m_Context = new r();
 			this.m_Context.onstatechange = this.OnAudioContextStateChange;
-			m.Debug("sample rate " + this.m_Context.sampleRate);
+			m.Debug(`sample rate ${this.m_Context.sampleRate}`);
 			this.m_nLastObservedSampleRate = this.m_Context.sampleRate;
 			let n = this.m_Context;
 			if (n.audioWorklet != null) {
@@ -160,14 +157,14 @@ export class u {
 	}
 	OnAudioContextStateChange() {
 		if (this.m_Context != null) {
-			m.Debug("web audio context state changed: " + this.m_Context.state);
+			m.Debug(`web audio context state changed: ${this.m_Context.state}`);
 		}
 	}
 }
-(0, n.Cg)([i.sH], u.prototype, "m_nLastObservedSampleRate", undefined);
-(0, n.Cg)([i.sH], u.prototype, "m_bSupportsAudioWorkletProcessors", undefined);
-(0, n.Cg)([a.oI], u.prototype, "DelayedCleanupContextIfInactive", null);
-(0, n.Cg)([i.XI.bound], u.prototype, "OnAudioContextStateChange", null);
+Cg([i.sH], u.prototype, "m_nLastObservedSampleRate", undefined);
+Cg([i.sH], u.prototype, "m_bSupportsAudioWorkletProcessors", undefined);
+Cg([a.oI], u.prototype, "DelayedCleanupContextIfInactive", null);
+Cg([i.XI.bound], u.prototype, "OnAudioContextStateChange", null);
 class d {
 	m_Manager;
 	m_URL;
@@ -177,7 +174,7 @@ class d {
 	m_Cancelled = false;
 	m_cbPlaybackFinished = null;
 	constructor(e, t, r) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_Manager = e;
 		this.m_URL = t;
 		this.m_RepeatCount = r;
@@ -251,5 +248,5 @@ class d {
 		this.m_cbPlaybackFinished = e;
 	}
 }
-(0, n.Cg)([i.XI.bound], d.prototype, "OnFailure", null);
-(0, n.Cg)([i.XI.bound], d.prototype, "OnPlaybackEnded", null);
+Cg([i.XI.bound], d.prototype, "OnFailure", null);
+Cg([i.XI.bound], d.prototype, "OnPlaybackEnded", null);

@@ -1,16 +1,16 @@
-export var dI;
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./43014.js");
-var s = require("./35488.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require("./34776.js");
-var c = require(/*webcrack:missing*/ "./90095.js");
-var m = require("./13869.js");
-var u = require("./10606.js");
-var d = require("./64608.js");
-var A = require("./21105.js");
-var p = require("./34665.js");
-(function (e) {
+import i from "./63696.js";
+import a from "./43014.js";
+import s from "./35488.js";
+import l from "./34776.js";
+import { q3 } from "./90095.js";
+import { pg } from "./13869.js";
+import u from "./10606.js";
+import d from "./64608.js";
+import A from "./21105.js";
+import p, { wt } from "./34665.js";
+export let dI;
+((e) => {
 	e[(e.Character = 0)] = "Character";
 	e[(e.Enter = 1)] = "Enter";
 	e[(e.Half = 2)] = "Half";
@@ -5351,23 +5351,25 @@ export const zB = {
 };
 export function r_() {
 	const e = l.O.GetKeyboardLayoutSettings();
-	for (let t = 0; t < y.length; ++t) {
-		let r = y[t];
+
+	for (let r of y) {
 		if (e.currentLayout == r.layout) {
 			return r;
 		}
 	}
+
 	return y[0];
 }
 function B() {
 	const e = p.aJ.HasIBusBinding();
-	return y.filter((t) => e || !(0, p.wt)(t.layout));
+	return y.filter((t) => e || !wt(t.layout));
 }
 export function G$() {
 	const e = l.O.GetKeyboardLayoutSettings();
 	return B().filter(
 		(t) =>
 			e.currentLayout == t.layout ||
+			e.selectedLayouts.length == 0 ||
 			e.selectedLayouts.length == 0 ||
 			!!e.selectedLayouts.includes(t.layout),
 	);
@@ -5384,57 +5386,49 @@ export function gM(e) {
 	}
 }
 function E(e) {
-	const t = (0, c.q3)(() => l.O.GetKeyboardLayoutSettings());
-	let [r, n] = i.useState(new Map());
+	const t = q3(() => l.O.GetKeyboardLayoutSettings());
+	let [r, setR] = i.useState(new Map());
 	i.useEffect(() => {
 		let e = new Map();
 		t.selectedLayouts.forEach((t) => e.set(t, true));
-		n(e);
-	}, [t.selectedLayouts, n]);
+		setR(e);
+	}, [t.selectedLayouts, setR]);
 	const a = () => {
 		let e = Array.from(r.keys());
 		l.O.SetValidKeyboardLayouts(e);
 	};
-	return i.createElement(
-		u.eV,
-		{
-			onOK: a,
-			onCancel: a,
-			...e,
-		},
-		i.createElement(
-			d.UC,
-			null,
-			i.createElement(d.Y9, null, (0, Localize)("#KeyboardLayout_Select")),
-			i.createElement(
-				A.MS,
-				{
-					scrollDirection: "y",
-					scrollPaddingTop: 10,
-					scrollPaddingBottom: 10,
-				},
-				B().map((e) =>
-					i.createElement(d.RF, {
-						key: e.layout,
-						label: (0, Localize)(e.locToken),
-						checked: r.has(e.layout),
-						onChange: (t) => {
-							if (t) {
-								r.set(e.layout, true);
-							} else {
-								r.delete(e.layout);
-							}
-							n(r);
-						},
-					}),
-				),
-			),
-		),
+	return (
+		<u.eV onOK={a} onCancel={a} {...e}>
+			<d.UC>
+				<d.Y9>{(0, Localize)("#KeyboardLayout_Select")}</d.Y9>
+				<A.MS
+					scrollDirection="y"
+					scrollPaddingTop={10}
+					scrollPaddingBottom={10}
+				>
+					{B().map((e) => (
+						<d.RF
+							key={e.layout}
+							label={(0, Localize)(e.locToken)}
+							checked={r.has(e.layout)}
+							onChange={(t) => {
+								if (t) {
+									r.set(e.layout, true);
+								} else {
+									r.delete(e.layout);
+								}
+								setR(r);
+							}}
+						/>
+					))}
+				</A.MS>
+			</d.UC>
+		</u.eV>
 	);
 }
 export function zK(e) {
-	(0, m.pg)(i.createElement(E, null), e);
+	pg(<E />, e);
 }
 export function ek() {
-	return (0, c.q3)(() => (0, p.wt)(r_()?.layout));
+	return q3(() => wt(r_()?.layout));
 }

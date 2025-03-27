@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./72476.js");
-var i = require("./93023.js");
-var a = require(/*webcrack:missing*/ "./49455.js");
+import n from "./72476.js";
+import { t } from "./93023.js";
+import { w } from "./49455.js";
 export const sc = 0;
 const o = "061818254b2c99ac49e6626adb128ed1282a392f";
 export const IU = 120;
@@ -43,16 +43,9 @@ export class by {
 	}
 	BuildAppURL(e, t) {
 		if (e) {
-			return (
-				n.TS.MEDIA_CDN_COMMUNITY_URL +
-				"images/apps/" +
-				this.appid +
-				"/" +
-				e +
-				".jpg"
-			);
+			return `${n.TS.MEDIA_CDN_COMMUNITY_URL}images/apps/${this.appid}/${e}.jpg`;
 		} else {
-			return (0, i.t)(t);
+			return t(t);
 		}
 	}
 	DeserializeFromMessage(e) {
@@ -83,7 +76,7 @@ export class by {
 		} catch {}
 	}
 	SerializeToCacheObject() {
-		(0, a.w)(
+		w(
 			this.m_bInitialized,
 			"Attempting to serialize an uninitialized AppInfo object for caching!",
 		);

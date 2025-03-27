@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s, { Gn, h5 } from "./89193.js";
+import o from "./72476.js";
+const a = i;
 class l {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_mapYouTubeVideo = new Map();
 	m_mapSharedFile = new Map();
@@ -30,14 +30,14 @@ class l {
 		};
 		let l = null;
 		l = await a.get(
-			o.TS.STORE_BASE_URL + "/events/ajaxgetdynamiceventmetadata",
+			`${o.TS.STORE_BASE_URL}/events/ajaxgetdynamiceventmetadata`,
 			{
 				params: i,
 				cancelToken: t.token,
 			},
 		);
 		if (l && l.data && l.data.youtube) {
-			(0, s.h5)(() => {
+			h5(() => {
 				l.data.youtube.forEach((e, t) => {
 					this.m_mapYouTubeVideo.set(e.videoid, e);
 					r.push(e);
@@ -67,14 +67,14 @@ class l {
 		};
 		let l = null;
 		l = await a.get(
-			o.TS.STORE_BASE_URL + "/events/ajaxgetdynamiceventmetadata",
+			`${o.TS.STORE_BASE_URL}/events/ajaxgetdynamiceventmetadata`,
 			{
 				params: i,
 				cancelToken: t.token,
 			},
 		);
 		if (l && l.data && l.data.sharedfiles) {
-			(0, s.h5)(() => {
+			h5(() => {
 				l.data.sharedfiles.forEach((e, t) => {
 					this.m_mapSharedFile.set(e.sharedfileid, e);
 					r.push(e);
@@ -84,6 +84,6 @@ class l {
 		return r;
 	}
 }
-(0, n.Cg)([s.sH], l.prototype, "m_mapYouTubeVideo", undefined);
-(0, n.Cg)([s.sH], l.prototype, "m_mapSharedFile", undefined);
+Cg([s.sH], l.prototype, "m_mapYouTubeVideo", undefined);
+Cg([s.sH], l.prototype, "m_mapSharedFile", undefined);
 export const R = new l();

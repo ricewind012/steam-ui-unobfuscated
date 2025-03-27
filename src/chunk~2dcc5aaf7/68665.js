@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./69164.js");
-var a = require("./72655.js");
-var s = require("./96127.js");
-var o = require("./95773.js");
-var l = require("./98829.js");
-var c = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./50376.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require("./21105.js");
-var p = require("./55116.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require(/*webcrack:missing*/ "./52451.js");
-var C = require(/*webcrack:missing*/ "./4690.js");
-var _ = require("./2353.js");
+import n, { useState, useMemo, useCallback } from "./63696.js";
+import i from "./69164.js";
+import a from "./72655.js";
+import s from "./96127.js";
+import o from "./95773.js";
+import l from "./98829.js";
+import c from "./64608.js";
+import u from "./50376.js";
+import { A as A_1 } from "./90765.js";
+import A from "./21105.js";
+import p from "./55116.js";
+import g, { Qn } from "./72476.js";
+import { X, Ue } from "./52451.js";
+import C from "./4690.js";
+import { U } from "./2353.js";
 export const r = (e) => {
 	const {
 		label: t,
@@ -25,9 +25,9 @@ export const r = (e) => {
 		bDropInvite: w,
 		renderChosenFriend: B,
 	} = e;
-	const v = (0, g.Qn)();
-	const [I, E] = (0, n.useState)("");
-	const [M, T] = (0, n.useState)(null);
+	const v = Qn();
+	const [I, E] = useState("");
+	const [M, T] = useState(null);
 	const R = (t) => {
 		if (e.onFriendPicked) {
 			e.onFriendPicked(t);
@@ -48,7 +48,7 @@ export const r = (e) => {
 			}
 		}
 	};
-	const D = (0, n.useMemo)(() => {
+	const D = useMemo(() => {
 		const e = o.xm.FriendStore.all_friends.filter(
 			(e) => (!y || !y(e)) && !f.some((t) => t.accountid === e.accountid),
 		);
@@ -69,7 +69,7 @@ export const r = (e) => {
 		}
 		return e;
 	}, [y, r, f]);
-	const N = (0, n.useMemo)(() => {
+	const N = useMemo(() => {
 		const e = I && I.trim().toLocaleLowerCase();
 		const t = [];
 		for (let r = 0; r < D.length && t.length < 500; r++) {
@@ -83,7 +83,7 @@ export const r = (e) => {
 	n.useEffect(() => {
 		T(N.length > 0 && I.length > 0 ? N[0] : null);
 	}, [N]);
-	const F = (0, n.useCallback)(
+	const F = useCallback(
 		(e) => {
 			if (e && !v) {
 				e.scrollIntoView({
@@ -102,7 +102,7 @@ export const r = (e) => {
 	};
 	const O = f.length > 0;
 	const [P, L] = n.useState(false);
-	const z = (0, d.A)(
+	const z = A_1(
 		"FriendPicker",
 		O && "FriendPicker_FriendsChosen",
 		P && "FriendPicker_Focus",
@@ -118,7 +118,7 @@ export const r = (e) => {
 	const W = n.useRef();
 	const V = N.map((e, t) => {
 		const r = !v && e == M;
-		const a = (0, d.A)("FriendPicker_SuggestedFriend", r && "Focus");
+		const a = A_1("FriendPicker_SuggestedFriend", r && "Focus");
 		return n.createElement(
 			i.Z,
 			{
@@ -146,9 +146,9 @@ export const r = (e) => {
 			behavior: "auto",
 		});
 	}, [N]);
-	const j = (0, _.U)();
-	const { strMinHeightStyle: q, refForResizeObserver: Q } = (0, h.X)();
-	const Z = (0, h.Ue)(H, j.refForScrollable);
+	const j = U();
+	const { strMinHeightStyle: q, refForResizeObserver: Q } = X();
+	const Z = Ue(H, j.refForScrollable);
 	return n.createElement(
 		i.Z,
 		{
@@ -177,6 +177,9 @@ export const r = (e) => {
 					} else if (
 						!v &&
 						(e.keyCode == 38 ||
+							e.keyCode == 40 ||
+							e.keyCode == 40 ||
+							e.keyCode == 34 ||
 							e.keyCode == 40 ||
 							e.keyCode == 34 ||
 							e.keyCode == 33) &&
@@ -226,7 +229,7 @@ export const r = (e) => {
 			{
 				className: "FriendPickerFriendList",
 				style: {
-					minHeight: v ? undefined : q,
+					minHeight: v || q,
 				},
 				ref: Q,
 			},
@@ -239,7 +242,7 @@ export const r = (e) => {
 					ref: Z,
 					onGamepadDirection: (e) => e.detail.is_repeat,
 					onScroll: j.fnOnScroll,
-					className: (0, d.A)(
+					className: A_1(
 						"FriendPickerScrollPanel",
 						j.strClassNamesForScrollable,
 					),

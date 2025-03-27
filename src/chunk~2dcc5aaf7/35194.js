@@ -1,8 +1,8 @@
 import { MoveElement } from "../../actual_src/utils/arrayutils.js";
-var i = require("./32700.js");
-var a = require(/*webcrack:missing*/ "./79769.js");
-var s = require("./33512.js");
-var _o = require("./34792.js");
+import { VD, CI, uV } from "./32700.js";
+import a, { Jc } from "./79769.js";
+import s from "./33512.js";
+import { qt } from "./34792.js";
 function l(e) {
 	let t = e.Steam_Language_Selection_Label ?? "Select a language";
 	return {
@@ -11,14 +11,14 @@ function l(e) {
 	};
 }
 export const o = new (class {
-	m_strCurrentLanguage = (0, a.Jc)("");
-	m_rgLanguages = (0, a.Jc)([]);
-	m_rgWelcomeText = (0, a.Jc)([]);
-	m_strCurrentTimeZoneID = (0, a.Jc)("");
-	m_rgTimeZones = (0, a.Jc)([]);
-	m_bTestModeEnabled = (0, a.Jc)(false);
-	m_eRebootToFactoryTestImageResult = (0, a.Jc)(null);
-	m_bTestOOBESetupInProgress = (0, a.Jc)(false);
+	m_strCurrentLanguage = Jc("");
+	m_rgLanguages = Jc([]);
+	m_rgWelcomeText = Jc([]);
+	m_strCurrentTimeZoneID = Jc("");
+	m_rgTimeZones = Jc([]);
+	m_bTestModeEnabled = Jc(false);
+	m_eRebootToFactoryTestImageResult = Jc(null);
+	m_bTestOOBESetupInProgress = Jc(false);
 	async Init() {
 		this.LoadLanguageScreenData();
 		this.LoadTimezoneData();
@@ -31,8 +31,8 @@ export const o = new (class {
 		if (r > 0) {
 			MoveElement(t, r, 0);
 		}
-		let a = await Promise.all(t.map((e) => (0, i.VD)(e.strShortName)));
-		let s = await Promise.all(t.map((e) => (0, i.CI)(e.strShortName)));
+		let a = await Promise.all(t.map((e) => VD(e.strShortName)));
+		let s = await Promise.all(t.map((e) => CI(e.strShortName)));
 		let o = a.map(l);
 		for (let e = 0; e < t.length; e++) {
 			let r = `Language_${t[e].strShortName}`;
@@ -58,7 +58,7 @@ export const o = new (class {
 	}
 	async SetCurrentLanguage(e) {
 		SteamClient.Settings.SetCurrentLanguage(e.strShortName);
-		await (0, i.uV)(e.strShortName);
+		await uV(e.strShortName);
 		this.m_strCurrentLanguage.Set(e.strShortName);
 	}
 	get AvailableLanguages() {
@@ -96,7 +96,7 @@ export const o = new (class {
 		this.m_eRebootToFactoryTestImageResult.Set(t.result);
 		if (t.result == 1) {
 			this.SetTestModeEnabled(true);
-			(0, _o.qt)("force_oobe", false);
+			qt("force_oobe", false);
 			if (e) {
 				await s.b.RemoveAllUsers();
 			}

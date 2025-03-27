@@ -1,47 +1,47 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./3475.js");
 import {
 	Localize,
 	LocalizationManager,
 } from "../../actual_src/utils/localization.js";
-var o = require("./22091.js");
-var l = require("./34792.js");
-var c = require("./35488.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require("./61248.js");
-var d = u;
-var A = require(/*webcrack:missing*/ "./69164.js");
-var p = require("./46422.js");
-var g = require(/*webcrack:missing*/ "./41230.js");
-var h = require(/*webcrack:missing*/ "./49519.js");
-var C = require("./18057.js");
-var _ = require("./85399.js");
-var f = require("./52192.js");
-var b = require(/*webcrack:missing*/ "./61657.js");
-var y = require(/*webcrack:missing*/ "./10975.js");
-var S = require(/*webcrack:missing*/ "./44846.js");
-var w = require(/*webcrack:missing*/ "./52451.js");
-var B = require("./10606.js");
-var v = require("./57472.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var E = require("./78110.js");
-var M = require(/*webcrack:missing*/ "./42318.js");
-var T = require(/*webcrack:missing*/ "./88750.js");
-var R = require(/*webcrack:missing*/ "./31084.js");
-var k = require("./85360.js");
-var D = require("./37086.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./3475.js";
+import o, { wy, Sz, q_ as q, Id, Lb } from "./22091.js";
+import l, { VI } from "./34792.js";
+import c from "./35488.js";
+import m, { Qn, Y2 } from "./72476.js";
+import u from "./61248.js";
+import A from "./69164.js";
+import p from "./46422.js";
+import g, { PA } from "./41230.js";
+import { W6 } from "./49519.js";
+import C, { jb } from "./18057.js";
+import _ from "./85399.js";
+import f, { zE } from "./52192.js";
+import b from "./61657.js";
+import y from "./10975.js";
+import S from "./44846.js";
+import w, { L$ } from "./52451.js";
+import B from "./10606.js";
+import v from "./57472.js";
+import E from "./78110.js";
+import M, { Nr } from "./42318.js";
+import T from "./88750.js";
+import R, { lX } from "./31084.js";
+import k from "./85360.js";
+import D from "./37086.js";
+const d = u;
 function N(e) {
-	const t = (0, h.W6)();
+	const t = W6();
 	const r = p.oy.MainRunningApp != null;
-	const a = (0, o.wy)(r);
-	const l = (0, o.Sz)();
+	const a = wy(r);
+	const l = Sz();
 	let u = p.oy.ActiveControllerIndex;
 	if (u < 0 && a.length > 0) {
 		u = a[0].nControllerIndex;
 	}
-	const [d, g] = n.useState(u);
-	const [f, w] = n.useState(false);
+	const [d, setD] = n.useState(u);
+	const [f, setF] = n.useState(false);
 	const B = n.useCallback(
 		(e) => {
 			let t;
@@ -57,21 +57,21 @@ function N(e) {
 				const e = a.findIndex((e) => e.nControllerIndex == d);
 				const r = e + t;
 				if (r >= 0 && r < a.length) {
-					g(a[r].nControllerIndex);
+					setD(a[r].nControllerIndex);
 					y.eZ.PlayNavSound(y.PN.ChangeTabs);
 				} else if (r == a.length && l.length > 0) {
-					g(-1);
+					setD(-1);
 					y.eZ.PlayNavSound(y.PN.ChangeTabs);
 				} else {
 					y.eZ.PlayNavSound(y.PN.FailedNav);
 				}
 			} else {
-				const e = (0, o.q_)(d) + t;
+				const e = q(d) + t;
 				if (e >= 0 && e < l.length) {
-					g((0, o.Id)(e));
+					setD(Id(e));
 					y.eZ.PlayNavSound(y.PN.ChangeTabs);
 				} else if (e == -1 && a.length > 0) {
-					g(a[a.length - 1].nControllerIndex);
+					setD(a[a.length - 1].nControllerIndex);
 					y.eZ.PlayNavSound(y.PN.ChangeTabs);
 				} else {
 					y.eZ.PlayNavSound(y.PN.FailedNav);
@@ -86,31 +86,29 @@ function N(e) {
 		if (d >= 0) {
 			if (!v) {
 				if (a.length > 0) {
-					g(a[0].nControllerIndex);
+					setD(a[0].nControllerIndex);
 				} else if (l.length > 0) {
-					g(-1);
+					setD(-1);
 				}
 			}
-		} else if ((0, o.q_)(d) >= l.length) {
+		} else if (q(d) >= l.length) {
 			if (a.length > 0) {
-				g(a[0].nControllerIndex);
+				setD(a[0].nControllerIndex);
 			} else if (l.length > 0) {
-				g(-1);
+				setD(-1);
 			}
 		}
 	}, [d, v, a, l]);
-	const I = (0, m.Qn)();
+	const I = Qn();
 	if (a.length == 0 && l.length == 0) {
-		return n.createElement(
-			i.G5,
-			null,
-			n.createElement(i.D0, {
-				disabled: true,
-				icon: n.createElement(c.ControllerStatus, {
-					none: true,
-				}),
-				label: (0, Localize)("#Settings_Controller_NoControllers"),
-			}),
+		return (
+			<i.G5>
+				<i.D0
+					disabled
+					icon={<c.ControllerStatus none />}
+					label={(0, Localize)("#Settings_Controller_NoControllers")}
+				/>
+			</i.G5>
 		);
 	}
 	const E = a.length + l.length > 1;
@@ -119,8 +117,8 @@ function N(e) {
 	const R = d >= 0;
 	let k = "";
 	if (d < 0) {
-		if ((0, o.q_)(d) < l.length) {
-			k = l[(0, o.q_)(d)].strName;
+		if (q(d) < l.length) {
+			k = l[q(d)].strName;
 		}
 	}
 	if (k.length == 0) {
@@ -134,85 +132,68 @@ function N(e) {
 			SteamClient.Apps.ShowControllerConfigurator(S.mZ);
 		}
 	};
-	return n.createElement(
-		i.G5,
-		null,
-		E &&
-			n.createElement(_.bV, {
-				selectedControllerIndex: d,
-				onControllerSelected: g,
-				showGlyphs: f,
-				wrapAround: false,
-				showUnboundControllers: true,
-			}),
-		n.createElement(
-			A.Z,
-			{
-				onFocusWithin: w,
-				onButtonDown: B,
-				retainFocus: true,
-			},
-			d >= 0 &&
-				n.createElement(
-					n.Fragment,
-					null,
-					n.createElement(H, {
-						controllerIndex: d,
-					}),
-					n.createElement(oH, {
-						controllerIndex: d,
-					}),
-					n.createElement(IC, {
-						controllerIndex: d,
-					}),
-					n.createElement(G, {
-						controllerIndex: d,
-					}),
-					n.createElement(O, {
-						controllerIndex: d,
-					}),
-				),
-			M &&
-				!T &&
-				n.createElement(
-					D.WG,
-					{
-						label: k,
-						onClick: () => N(C.BV.GamepadUI.ControllerDeviceBindInput(d)),
-						bottomSeparator: "standard",
-					},
-					(0, Localize)("#Settings_Controller_BindInput_Click"),
-				),
-			T &&
-				n.createElement(
-					D.WG,
-					{
-						label: (0, Localize)("#Settings_Controller_TestInput"),
-						onClick: () => N(C.BV.GamepadUI.ControllerDeviceTestInput(d)),
-						bottomSeparator: "standard",
-					},
-					(0, Localize)("#Settings_Controller_TestInput_Click"),
-				),
-			R &&
-				n.createElement(
-					D.WG,
-					{
-						label: (0, Localize)("#Settings_Controller_Calibration"),
-						onClick: () =>
-							N(C.BV.GamepadUI.ControllerDeviceCalibration.Root(d)),
-						bottomSeparator: "standard",
-					},
-					(0, Localize)("#Settings_Controller_Calibration_Click"),
-				),
-		),
+	return (
+		<i.G5>
+			{E && (
+				<_.bV
+					selectedControllerIndex={d}
+					onControllerSelected={setD}
+					showGlyphs={f}
+					wrapAround={false}
+					showUnboundControllers
+				/>
+			)}
+			<A.Z onFocusWithin={setF} onButtonDown={B} retainFocus>
+				{d >= 0 && (
+					<>
+						<H controllerIndex={d} />
+						<OH controllerIndex={d} />
+						<IC controllerIndex={d} />
+						<G controllerIndex={d} />
+						<O controllerIndex={d} />
+					</>
+				)}
+				{M && !T && (
+					<D.WG
+						label={k}
+						onClick={() => N(C.BV.GamepadUI.ControllerDeviceBindInput(d))}
+						bottomSeparator="standard"
+					>
+						{(0, Localize)("#Settings_Controller_BindInput_Click")}
+					</D.WG>
+				)}
+				{T && (
+					<D.WG
+						label={(0, Localize)("#Settings_Controller_TestInput")}
+						onClick={() => N(C.BV.GamepadUI.ControllerDeviceTestInput(d))}
+						bottomSeparator="standard"
+					>
+						{(0, Localize)("#Settings_Controller_TestInput_Click")}
+					</D.WG>
+				)}
+				{R && (
+					<D.WG
+						label={(0, Localize)("#Settings_Controller_Calibration")}
+						onClick={() =>
+							N(C.BV.GamepadUI.ControllerDeviceCalibration.Root(d))
+						}
+						bottomSeparator="standard"
+					>
+						{(0, Localize)("#Settings_Controller_Calibration_Click")}
+					</D.WG>
+				)}
+			</A.Z>
+		</i.G5>
 	);
 }
 function F(e) {
-	return n.createElement(v.G, {
-		feature: a.uX,
-		label: (0, Localize)("#Settings_Controller_GuideButtonFocus"),
-		setting: "controller_guide_button_focus_steam",
-	});
+	return (
+		<v.G
+			feature={a.uX}
+			label={(0, Localize)("#Settings_Controller_GuideButtonFocus")}
+			setting="controller_guide_button_focus_steam"
+		/>
+	);
 }
 function G(e) {
 	const t =
@@ -224,43 +205,57 @@ function G(e) {
 	if (t == null) {
 		return null;
 	}
-	const r = t.bNintendoLayout;
+
+	const { bNintendoLayout, bUseReversedLayout } = t;
+
 	const a = t.eControllerType == 39 || t.eControllerType == 40;
 	const l =
 		t.eControllerType == 33 ||
 		t.eControllerType == 34 ||
+		t.eControllerType == 34 ||
+		t.eControllerType == 45 ||
+		t.eControllerType == 34 ||
+		t.eControllerType == 45 ||
+		t.eControllerType == 48 ||
+		t.eControllerType == 34 ||
 		t.eControllerType == 45 ||
 		t.eControllerType == 48 ||
 		t.eControllerType == 47;
-	const m = t.bUseReversedLayout;
-	let u = a
-		? m
-			? n.createElement(c.Layout_BA_Nintendo_JoyCon, null)
-			: n.createElement(c.Layout_AB_Nintendo_JoyCon, null)
-		: r
-			? m
-				? n.createElement(c.Layout_BA_Nintendo, null)
-				: n.createElement(c.Layout_AB_Nintendo, null)
-			: l
-				? m
-					? n.createElement(c.Layout_BA_PlayStation, null)
-					: n.createElement(c.Layout_AB_Playstation, null)
-				: m
-					? n.createElement(c.Layout_BA, null)
-					: n.createElement(c.Layout_AB, null);
-	return n.createElement(
-		"div",
-		{
-			className: d.NintendoSwitchLayoutToggle,
-		},
-		n.createElement(i.y4, {
-			label: (0, Localize)("#Settings_Controller_SwitchLayout"),
-			checked: m,
-			icon: u,
-			onChange: (e) =>
-				SteamClient.Settings.SetUseNintendoButtonLayout(t.nControllerIndex, e),
-			description: (0, Localize)("#Settings_Controller_SwitchLayoutDesc"),
-		}),
+	let u = a ? (
+		bUseReversedLayout ? (
+			<c.Layout_BA_Nintendo_JoyCon />
+		) : (
+			<c.Layout_AB_Nintendo_JoyCon />
+		)
+	) : bNintendoLayout ? (
+		bUseReversedLayout ? (
+			<c.Layout_BA_Nintendo />
+		) : (
+			<c.Layout_AB_Nintendo />
+		)
+	) : l ? (
+		bUseReversedLayout ? (
+			<c.Layout_BA_PlayStation />
+		) : (
+			<c.Layout_AB_Playstation />
+		)
+	) : bUseReversedLayout ? (
+		<c.Layout_BA />
+	) : (
+		<c.Layout_AB />
+	);
+	return (
+		<div className={d.NintendoSwitchLayoutToggle}>
+			<i.y4
+				label={(0, Localize)("#Settings_Controller_SwitchLayout")}
+				checked={bUseReversedLayout}
+				icon={u}
+				onChange={(e) =>
+					SteamClient.Settings.SetUseNintendoButtonLayout(t.nControllerIndex, e)
+				}
+				description={(0, Localize)("#Settings_Controller_SwitchLayoutDesc")}
+			/>
+		</div>
 	);
 }
 function O(e) {
@@ -276,106 +271,108 @@ function O(e) {
 	if (t.eControllerType == 39 || t.eControllerType == 40) {
 		return null;
 	}
-	const r = t.bUseUniversalFaceButtonGlyphs;
-	return n.createElement(i.y4, {
-		label: (0, Localize)("#Settings_Controller_UniversalGlyphs"),
-		checked: r,
-		icon: n.createElement(c.UniversalGlyphs, null),
-		onChange: (e) =>
-			SteamClient.Settings.SetUseUniversalFaceButtonGlyphs(
-				t.nControllerIndex,
-				e,
-			),
-		description: (0, Localize)("#Settings_Controller_UniversalGlyphsDesc"),
-	});
+	const t_bUseUniversalFaceButtonGlyphs = t.bUseUniversalFaceButtonGlyphs;
+	return (
+		<i.y4
+			label={(0, Localize)("#Settings_Controller_UniversalGlyphs")}
+			checked={t_bUseUniversalFaceButtonGlyphs}
+			icon={<c.UniversalGlyphs />}
+			onChange={(e) =>
+				SteamClient.Settings.SetUseUniversalFaceButtonGlyphs(
+					t.nControllerIndex,
+					e,
+				)
+			}
+			description={(0, Localize)("#Settings_Controller_UniversalGlyphsDesc")}
+		/>
+	);
 }
 function P(e) {
-	const { label: t, controllerType: r, children: a } = e;
+	const { label, controllerType, children } = e;
 	const s = {
 		4: "controller_generic_support",
 		2: "controller_xbox_support",
 		8: "controller_switch_support",
 	};
-	const [o, c] = (0, l.VI)(s[r]);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(i.y4, {
-			label: t,
-			checked: o,
-			onChange: (e) => {
-				c(e);
-				k.v3.ClearSelectedConfigCache();
-				return;
-			},
-		}),
-		o && a,
+	const [o, c] = VI(s[r]);
+	return (
+		<>
+			<i.y4
+				label={label}
+				checked={o}
+				onChange={(e) => {
+					c(e);
+					k.v3.ClearSelectedConfigCache();
+				}}
+			/>
+			{o && children}
+		</>
 	);
 }
 function L() {
-	if ((0, m.Y2)()) {
+	if (Y2()) {
 		return null;
 	} else {
-		return n.createElement(v.G, {
-			feature: a.uX,
-			label: (0, Localize)("#Settings_Controller_TurnOffOnExit"),
-			setting: "turn_off_controller_on_exit",
-		});
+		return (
+			<v.G
+				feature={a.uX}
+				label={(0, Localize)("#Settings_Controller_TurnOffOnExit")}
+				setting="turn_off_controller_on_exit"
+			/>
+		);
 	}
 }
-function z() {
-	return n.createElement(v.G, {
-		feature: a.uX,
-		label: (0, Localize)("#Settings_Controller_ChordConfigEnable"),
-		setting: "controller_enable_chord",
-	});
+function Z_1() {
+	return (
+		<v.G
+			feature={a.uX}
+			label={(0, Localize)("#Settings_Controller_ChordConfigEnable")}
+			setting="controller_enable_chord"
+		/>
+	);
 }
-const x = (0, g.PA)(function () {
+const X = PA(() => {
 	const e = o.Fd.Get().GetSteamControllerDonglePresent();
-	const [t, r] = n.useState(false);
-	const [i, a] = n.useState(false);
-	const [l, c] = n.useState(false);
+	const [t, setT] = n.useState(false);
+	const [i, setI] = n.useState(false);
+	const [l, setL] = n.useState(false);
 	n.useEffect(() => {
 		o.Fd.Get().ClearSteamControllerDongleState();
 	}, []);
 	const m = n.useCallback(() => {
 		SteamClient.Input.SetSteamControllerDonglePairingMode(false, !l);
-		a(true);
+		setI(true);
 	}, [l]);
-	const {
-		bTimerCompleted: u,
-		fnStopTimer: d,
-		fnRestartTimer: A,
-	} = (0, w.L$)(60000, m, false);
+	const { bTimerCompleted, fnStopTimer, fnRestartTimer } = L$(60000, m, false);
 	n.useEffect(() => () => m(), [m]);
 	if (e) {
-		return n.createElement(
-			D.WG,
-			{
-				label: (0, Localize)("#Settings_Controller_SCPairing"),
-				onClick: () => {
+		return (
+			<D.WG
+				label={(0, Localize)("#Settings_Controller_SCPairing")}
+				onClick={() => {
 					SteamClient.Input.SetSteamControllerDonglePairingMode(!t, false);
-					r(!t);
+					setT(!t);
 					if (t) {
-						c(true);
-						d();
+						setL(true);
+						fnStopTimer();
 					} else if (!t && !i) {
-						A();
+						fnRestartTimer();
 					}
-				},
-			},
-			(0, Localize)(
-				t
-					? "#Settings_Controller_SCPairing_Accept"
-					: "#Settings_Controller_SCPairing_Enabled",
-			),
+				}}
+			>
+				{(0, Localize)(
+					t
+						? "#Settings_Controller_SCPairing_Accept"
+						: "#Settings_Controller_SCPairing_Enabled",
+				)}
+			</D.WG>
 		);
 	} else {
 		return null;
 	}
 });
 function U(e) {
-	const [t, r] = (0, l.VI)("controller_ps_support");
+	const [t, r] = VI("controller_ps_support");
 	const a = [
 		{
 			label: (0, Localize)("#ControllerSettings_PSSupport_Disabled"),
@@ -393,50 +390,54 @@ function U(e) {
 	if (a.length == 0) {
 		return null;
 	} else {
-		return n.createElement(i.Vb, {
-			label: (0, Localize)("#ControllerSettings_PSSupport"),
-			rgOptions: a,
-			selectedOption: t,
-			contextMenuPositionOptions: {
-				bMatchWidth: false,
-			},
-			onChange: (e) => {
-				t = e.data;
-				r(t);
-				k.v3.ClearSelectedConfigCache();
-				return;
-				var t;
-			},
-		});
+		return (
+			<i.Vb
+				label={(0, Localize)("#ControllerSettings_PSSupport")}
+				rgOptions={a}
+				selectedOption={t}
+				contextMenuPositionOptions={{
+					bMatchWidth: false,
+				}}
+				onChange={(e) => {
+					t = e.data;
+					r(t);
+					k.v3.ClearSelectedConfigCache();
+					return;
+					var t;
+				}}
+			/>
+		);
 	}
 }
 function W(e) {
 	if (m.TS.ON_DECK) {
-		return n.createElement(n.Fragment, null, n.createElement(x, null));
+		return (
+			<>
+				<X />
+			</>
+		);
 	} else {
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(P, {
-				label: (0, Localize)("#Settings_Controller_XboxSupport"),
-				controllerType: 2,
-			}),
-			n.createElement(U, null),
-			n.createElement(
-				P,
-				{
-					label: (0, Localize)("#Settings_Controller_SwitchSupport"),
-					controllerType: 8,
-				},
-				n.createElement(AR, null),
-			),
-			n.createElement(P, {
-				label: (0, Localize)("#Settings_Controller_GenericGamepadSupport"),
-				controllerType: 4,
-			}),
-			n.createElement(L, null),
-			n.createElement(z, null),
-			n.createElement(x, null),
+		return (
+			<>
+				<P
+					label={(0, Localize)("#Settings_Controller_XboxSupport")}
+					controllerType={2}
+				/>
+				<U />
+				<P
+					label={(0, Localize)("#Settings_Controller_SwitchSupport")}
+					controllerType={8}
+				>
+					<AR />
+				</P>
+				<P
+					label={(0, Localize)("#Settings_Controller_GenericGamepadSupport")}
+					controllerType={4}
+				/>
+				<L />
+				<Z_1 />
+				<X />
+			</>
 		);
 	}
 }
@@ -448,7 +449,7 @@ function H(e) {
 			: o.Fd.Get()
 					.GetControllers()
 					.find((t) => t.nControllerIndex == e.controllerIndex);
-	const r = n.useRef(undefined);
+	const RRef = n.useRef(undefined);
 	function a(e) {
 		const t = e;
 		const r = t?.startsWith("#");
@@ -457,7 +458,7 @@ function H(e) {
 			return n;
 		}
 		{
-			const r = "#" + t;
+			const r = `#${t}`;
 			const n = LocalizationManager.LocalizeString(r, true);
 			if (n !== undefined) {
 				return n;
@@ -466,79 +467,76 @@ function H(e) {
 			}
 		}
 	}
-	const [l, c] = n.useState(a(t?.strName));
-	const [m, u] = n.useState(t?.nControllerIndex ?? -1);
+	const [l, setL] = n.useState(a(t?.strName));
+	const [m, setM] = n.useState(t?.nControllerIndex ?? -1);
 	n.useEffect(() => {
 		if (m == t?.nControllerIndex) {
 			SteamClient.Input.SetControllerName(m, l);
 		}
 	}, [l, t?.nControllerIndex, m]);
 	n.useEffect(() => {
-		u(e.controllerIndex ?? -1);
+		setM(e.controllerIndex ?? -1);
 	}, [e.controllerIndex]);
 	n.useEffect(() => {
 		if (m != t?.nControllerIndex) {
-			c(a(t?.strName));
+			setL(a(t?.strName));
 		}
 	}, [m, t?.strName, t?.nControllerIndex]);
 	const A = n.useCallback(() => {
 		if (l !== t?.strName) {
 			SteamClient.Input.SetControllerName(e.controllerIndex, l);
-			r.current?.HideVirtualKeyboard();
+			RRef.current?.HideVirtualKeyboard();
 		}
-	}, [l, t, e.controllerIndex, r]);
+	}, [l, t, e.controllerIndex, RRef]);
 	const g = n.useCallback((e) => {
 		if (e.key == "Enter") {
-			r.current?.HideVirtualKeyboard();
+			RRef.current?.HideVirtualKeyboard();
 		}
 		if (e.key == "Escape") {
-			r.current?.HideVirtualKeyboard();
+			RRef.current?.HideVirtualKeyboard();
 		}
 	}, []);
 	if (t == null) {
 		return null;
 	} else {
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(
-				i.D0,
-				{
-					label: (0, Localize)(
+		return (
+			<>
+				<i.D0
+					label={(0, Localize)(
 						"#QuickAccess_Tab_ControllerSettings_Section_Controller_Personalized_Name",
-					),
-					onOKActionDescription: (0, Localize)(
+					)}
+					onOKActionDescription={(0, Localize)(
 						"#Settings_Controller_Config_Edit_Name",
-					),
-					onSecondaryActionDescription: (0, Localize)(
+					)}
+					onSecondaryActionDescription={(0, Localize)(
 						"#ControllerConfigurator_ActionButtonLabel_ResetToDefault",
-					),
-					onSecondaryButton: () => {
+					)}
+					onSecondaryButton={() => {
 						SteamClient.Input.SetControllerName(e.controllerIndex, V);
-						u(-1);
-						return;
-					},
-					onSubmit: () => A(),
-				},
-				n.createElement(i.pd, {
-					refKeyboardHandle: r,
-					style: {
-						width: 300,
-					},
-					placeholder: l,
-					value: l,
-					className: d.EditableInput,
-					onChange: (e) => {
-						c(e.target.value);
-					},
-					onKeyDown: g,
-					onSubmit: () => A(),
-				}),
-			),
+						setM(-1);
+					}}
+					onSubmit={() => A()}
+				>
+					<i.pd
+						refKeyboardHandle={RRef}
+						style={{
+							width: 300,
+						}}
+						placeholder={l}
+						value={l}
+						className={d.EditableInput}
+						onChange={(e) => {
+							setL(e.target.value);
+						}}
+						onKeyDown={g}
+						onSubmit={() => A()}
+					/>
+				</i.D0>
+			</>
 		);
 	}
 }
-export const oH = (0, g.PA)(function (e) {
+export const OH = PA((e) => {
 	const t =
 		e.controllerIndex == null
 			? p.oy.MostRecentlyActiveController
@@ -548,21 +546,26 @@ export const oH = (0, g.PA)(function (e) {
 	if (t == null) {
 		return null;
 	} else {
-		return n.createElement(i.y4, {
-			label: (0, Localize)(
-				"#QuickAccess_Tab_ControllerSettings_Section_Device_Rumble",
-			),
-			checked: t.eRumblePreference == 1,
-			onChange: (e) =>
-				SteamClient.Input.SetControllerRumbleSetting(t.nControllerIndex, e),
-			icon: n.createElement(c.ControllerType, {
-				controllerType: t.eControllerType,
-				className: d.Rumble,
-			}),
-		});
+		return (
+			<i.y4
+				label={(0, Localize)(
+					"#QuickAccess_Tab_ControllerSettings_Section_Device_Rumble",
+				)}
+				checked={t.eRumblePreference == 1}
+				onChange={(e) =>
+					SteamClient.Input.SetControllerRumbleSetting(t.nControllerIndex, e)
+				}
+				icon={
+					<c.ControllerType
+						controllerType={t.eControllerType}
+						className={d.Rumble}
+					/>
+				}
+			/>
+		);
 	}
 });
-export const IC = (0, g.PA)(function (e) {
+export const IC = PA((e) => {
 	const t =
 		e.controllerIndex == null
 			? p.oy.MostRecentlyActiveController
@@ -572,44 +575,45 @@ export const IC = (0, g.PA)(function (e) {
 	if (t == null || (t.unCapabilities & 8192) == 0) {
 		return null;
 	} else {
-		return n.createElement(i.y4, {
-			label: (0, Localize)(
-				"#QuickAccess_Tab_ControllerSettings_Section_Device_Haptics",
-			),
-			checked: t.bHaptics,
-			onChange: (e) =>
-				SteamClient.Input.SetControllerHapticSetting(t.nControllerIndex, e),
-			icon: n.createElement(c.Haptics, null),
-		});
+		return (
+			<i.y4
+				label={(0, Localize)(
+					"#QuickAccess_Tab_ControllerSettings_Section_Device_Haptics",
+				)}
+				checked={t.bHaptics}
+				onChange={(e) =>
+					SteamClient.Input.SetControllerHapticSetting(t.nControllerIndex, e)
+				}
+				icon={<c.Haptics />}
+			/>
+		);
 	}
 });
-export const AR = (0, g.PA)(function (e) {
-	const [t, r] = (0, l.VI)("controller_combine_nintendo_joycons");
+export const AR = PA((e) => {
+	const [t, r] = VI("controller_combine_nintendo_joycons");
 	const a =
 		e.controllerIndex == null
 			? p.oy.MostRecentlyActiveController
 			: o.Fd.Get()
 					.GetControllers()
 					.find((t) => t.nControllerIndex == e.controllerIndex);
-	if (a != null && (0, f.zE)(a.eControllerType) && t != null) {
-		return n.createElement(i.y4, {
-			label: (0, Localize)(
-				"#QuickAccess_Tab_ControllerSettings_Section_CombinedJoycon",
-			),
-			checked: t,
-			onChange: (e) => r(e),
-			icon:
-				e.bShowIcon &&
-				n.createElement(c.ControllerType, {
-					controllerType: t ? 41 : 39,
-				}),
-		});
+	if (a != null && zE(a.eControllerType) && t != null) {
+		return (
+			<i.y4
+				label={(0, Localize)(
+					"#QuickAccess_Tab_ControllerSettings_Section_CombinedJoycon",
+				)}
+				checked={t}
+				onChange={(e) => r(e)}
+				icon={e.bShowIcon && <c.ControllerType controllerType={t ? 41 : 39} />}
+			/>
+		);
 	} else {
 		return null;
 	}
 });
 function Z(e) {
-	const [t, r] = (0, l.VI)("controller_power_off_timeout");
+	const [t, r] = VI("controller_power_off_timeout");
 	const a = [
 		{
 			label: (0, Localize)("#ControllerSettings_TurnOffTimeout_Never"),
@@ -643,146 +647,112 @@ function Z(e) {
 	if (a.length == 0) {
 		return null;
 	} else {
-		return n.createElement(i.Vb, {
-			label: (0, Localize)("#ControllerSettings_TurnOffTimeout"),
-			rgOptions: a,
-			selectedOption: t,
-			onChange: (e) => r(e.data),
-		});
+		return (
+			<i.Vb
+				label={(0, Localize)("#ControllerSettings_TurnOffTimeout")}
+				rgOptions={a}
+				selectedOption={t}
+				onChange={(e) => r(e.data)}
+			/>
+		);
 	}
 }
 export function yk() {
-	const e = (0, h.W6)();
-	const t = (0, m.Qn)();
+	const e = W6();
+	const t = Qn();
 	const r = (e, t) => {
 		const r = o.Fd.Get().GetControllers() ?? [];
-		(0, R.lX)(
-			n.createElement(
-				T.tz,
-				null,
-				r.length > 0 &&
-					n.createElement(
-						T.kt,
-						{
-							key: "ClearSelectedControllerConfig",
-							onSelected: () =>
-								((e) => {
-									r.forEach((t) =>
-										SteamClient.Input.ClearSelectedConfigForApp(
-											e,
-											t.nControllerIndex,
-										),
-									);
-								})(e),
-						},
-						(0, Localize)("#GameAction_ResetSelectedControllerConfig"),
-					),
-			),
+		lX(
+			<T.tz>
+				{r.length > 0 && (
+					<T.kt
+						key="ClearSelectedControllerConfig"
+						onSelected={() =>
+							((e) => {
+								r.forEach((t) =>
+									SteamClient.Input.ClearSelectedConfigForApp(
+										e,
+										t.nControllerIndex,
+									),
+								);
+							})(e)
+						}
+					>
+						{(0, Localize)("#GameAction_ResetSelectedControllerConfig")}
+					</T.kt>
+				)}
+			</T.tz>,
 			t,
 		);
 	};
-	let a = n.useRef(undefined);
-	return n.createElement(
-		D.sh,
-		null,
-		n.createElement(N, null),
-		n.createElement(
-			i.G5,
-			null,
-			n.createElement(
-				D.tX,
-				null,
-				(0, Localize)("#Settings_ExternalController_Settings"),
-			),
-			!m.TS.ON_DECK && n.createElement(F, null),
-			n.createElement(AR, null),
-			n.createElement(W, null),
-			n.createElement(Z, null),
-			n.createElement(K, null),
-		),
-		n.createElement(
-			i.G5,
-			null,
-			n.createElement(
-				D.tX,
-				null,
-				(0, Localize)("#Settings_Controller_BaseConfigurations"),
-			),
-			n.createElement(
-				i.D0,
-				{
-					label: (0, Localize)("#Settings_Controller_DesktopConfig"),
-					childrenContainerWidth: "min",
-					ref: a,
-				},
-				n.createElement(
-					A.Z,
-					{
-						className: d.BuiltInLayoutButtons,
-					},
-					n.createElement(
-						D.CS,
-						{
-							onClick: () => {
+	let ARef = n.useRef(undefined);
+	return (
+		<D.sh>
+			<N />
+			<i.G5>
+				<D.tX>{(0, Localize)("#Settings_ExternalController_Settings")}</D.tX>
+				{!m.TS.ON_DECK && <F />}
+				<AR />
+				<W />
+				<Z />
+				<K />
+			</i.G5>
+			<i.G5>
+				<D.tX>{(0, Localize)("#Settings_Controller_BaseConfigurations")}</D.tX>
+				<i.D0
+					label={(0, Localize)("#Settings_Controller_DesktopConfig")}
+					childrenContainerWidth="min"
+					ref={ARef}
+				>
+					<A.Z className={d.BuiltInLayoutButtons}>
+						<D.CS
+							onClick={() => {
 								if (t) {
 									e.push(C.BV.GamepadUI.ControllerConfigurator.Main(S.IV));
 								} else {
 									SteamClient.Apps.ShowControllerConfigurator(S.IV);
 								}
-							},
-						},
-						(0, Localize)("#Settings_Controller_Config_Edit"),
-					),
-					n.createElement(
-						i.$n,
-						{
-							className: d.BuiltInLayoutButton,
-							onClick: (e) => r(S.IV, e),
-						},
-						n.createElement(c.Settings, null),
-					),
-				),
-			),
-			!m.TS.ON_DECK &&
-				n.createElement(
-					i.D0,
-					{
-						label: (0, Localize)("#Settings_Controller_ChordConfig"),
-						childrenContainerWidth: "min",
-						ref: a,
-					},
-					n.createElement(
-						A.Z,
-						{
-							className: d.BuiltInLayoutButtons,
-						},
-						n.createElement(
-							D.CS,
-							{
-								onClick: () => {
+							}}
+						>
+							{(0, Localize)("#Settings_Controller_Config_Edit")}
+						</D.CS>
+						<i.$n className={d.BuiltInLayoutButton} onClick={(e) => r(S.IV, e)}>
+							<c.Settings />
+						</i.$n>
+					</A.Z>
+				</i.D0>
+				{!m.TS.ON_DECK && (
+					<i.D0
+						label={(0, Localize)("#Settings_Controller_ChordConfig")}
+						childrenContainerWidth="min"
+						ref={ARef}
+					>
+						<A.Z className={d.BuiltInLayoutButtons}>
+							<D.CS
+								onClick={() => {
 									if (t) {
 										e.push(C.BV.GamepadUI.ControllerConfigurator.Main(S.qh));
 									} else {
 										SteamClient.Apps.ShowControllerConfigurator(S.qh);
 									}
-								},
-							},
-							(0, Localize)("#Settings_Controller_Config_Edit"),
-						),
-						n.createElement(
-							i.$n,
-							{
-								className: d.BuiltInLayoutButton,
-								onClick: (e) => r(S.qh, e),
-							},
-							n.createElement(c.Settings, null),
-						),
-					),
-				),
-		),
+								}}
+							>
+								{(0, Localize)("#Settings_Controller_Config_Edit")}
+							</D.CS>
+							<i.$n
+								className={d.BuiltInLayoutButton}
+								onClick={(e) => r(S.qh, e)}
+							>
+								<c.Settings />
+							</i.$n>
+						</A.Z>
+					</i.D0>
+				)}
+			</i.G5>
+		</D.sh>
 	);
 }
-const K = (0, g.PA)(function () {
+const K = PA(() => {
 	let e;
 	let t;
 	let r = false;
@@ -794,40 +764,44 @@ const K = (0, g.PA)(function () {
 		return null;
 	}
 	switch (i) {
-		case "Installed":
+		case "Installed": {
 			t = (e) => {
 				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(false, t);
 			};
 			e = (0, Localize)("#SettingsController_XBoxDriverUninstall");
 			break;
-		case "OutOfDate":
+		}
+		case "OutOfDate": {
 			t = (e) => {
 				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(true, t);
 			};
 			e = (0, Localize)("#SettingsController_XBoxDriverUpdate");
 			break;
-		case "PendingReboot":
+		}
+		case "PendingReboot": {
 			r = true;
 			e = (0, Localize)("#SettingsController_XBoxDriverRebootPending");
 			break;
-		default:
+		}
+		default: {
 			t = (e) => {
 				const t = GetOwningWindowForEvent(e);
 				o.Fd.Get().SetXboxDriverInstallState(true, t);
 			};
 			e = (0, Localize)("#SettingsController_XBoxDriverInstall");
+		}
 	}
-	return n.createElement(
-		D.oN,
-		{
-			feature: 7,
-			label: (0, Localize)("#SettingsController_XBoxDriver"),
-			onClick: t,
-			disabled: r,
-		},
-		e,
+	return (
+		<D.oN
+			feature={7}
+			label={(0, Localize)("#SettingsController_XBoxDriver")}
+			onClick={t}
+			disabled={r}
+		>
+			{e}
+		</D.oN>
 	);
 });
 export function wY(e) {
@@ -837,7 +811,7 @@ export function wY(e) {
 		: "#SettingsController_XboxDriverUninstall_Title";
 	let i = false;
 	switch (e.result.nResult) {
-		case 0:
+		case 0: {
 			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_Success"
@@ -845,90 +819,94 @@ export function wY(e) {
 			);
 			i = true;
 			break;
-		case -1:
+		}
+		case -1: {
 			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_ServiceFailure"
 					: "#SettingsController_XboxDriverUninstall_ServiceFailure",
 			);
 			break;
-		case 6:
+		}
+		case 6: {
 			t = (0, Localize)(
 				"#SettingsController_XboxDriverInstall_ErrorPendingReboot",
 			);
 			i = true;
 			break;
-		default:
+		}
+		default: {
 			t = (0, Localize)(
 				e.bInstall
 					? "#SettingsController_XboxDriverInstall_Failure"
 					: "#SettingsController_XboxDriverUninstall_Failure",
 				e.result.nResult,
 			);
+		}
 	}
 	if (i) {
-		return n.createElement(B.o0, {
-			strTitle: (0, Localize)(r),
-			strDescription: t,
-			onOK: () => {
-				SteamClient.System.RestartPC();
-			},
-			strOKButtonText: (0, Localize)(
-				"#SettingsController_XboxDriverRestart_Now",
-			),
-			strCancelButtonText: (0, Localize)(
-				"#SettingsController_XboxDriverRestart_Later",
-			),
-		});
+		return (
+			<B.o0
+				strTitle={(0, Localize)(r)}
+				strDescription={t}
+				onOK={() => {
+					SteamClient.System.RestartPC();
+				}}
+				strOKButtonText={(0, Localize)(
+					"#SettingsController_XboxDriverRestart_Now",
+				)}
+				strCancelButtonText={(0, Localize)(
+					"#SettingsController_XboxDriverRestart_Later",
+				)}
+			/>
+		);
 	} else {
-		return n.createElement(B.o0, {
-			strTitle: (0, Localize)(r),
-			strDescription: t,
-			bAlertDialog: true,
-		});
+		return <B.o0 strTitle={(0, Localize)(r)} strDescription={t} bAlertDialog />;
 	}
 }
-export const wK = (0, M.Nr)(function () {
-	const [e, t] = (0, o.Lb)();
-	const [r, i] = n.useState();
-	const a = (0, C.jb)("https://rd.playstation.com/controller/fwupdater/");
+export const wK = Nr(() => {
+	const [e, t] = Lb();
+	const [r, setR] = n.useState();
+	const a = jb("https://rd.playstation.com/controller/fwupdater/");
 	if (!e) {
 		return null;
 	}
-	return n.createElement(
-		E.w,
-		{
-			strName: "DualSenseUpdateNotice",
-			strTitle: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Title"),
-			onDismiss: t,
-			popupWidth: 480,
-			popupHeight: 240,
-			resizable: true,
-			refPopup: i,
-			modal: false,
-		},
-		n.createElement(B.o0, {
-			strTitle: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Title"),
-			strDescription: (0, Localize)(
-				"#Steam_DualSense_FirmwareUpdate_Text",
-				o.Fd.Get().DualSenseUpdateProduct,
-			),
-			strOKButtonText: (0, Localize)("#Steam_DualSense_FirmwareUpdate_Update"),
-			onOK: () => {
-				a();
-				t();
-			},
-			strMiddleButtonText: (0, Localize)(
-				"#Steam_DualSense_FirmwareUpdate_Ignore",
-			),
-			onMiddleButton: () => {
-				SteamClient.Input.SetDualSenseUpdateNotification(false);
-				t();
-			},
-			strCancelButtonText: (0, Localize)(
-				"#Steam_DualSense_FirmwareUpdate_Remind",
-			),
-			onCancel: t,
-		}),
+	return (
+		<E.w
+			strName="DualSenseUpdateNotice"
+			strTitle={(0, Localize)("#Steam_DualSense_FirmwareUpdate_Title")}
+			onDismiss={t}
+			popupWidth={480}
+			popupHeight={240}
+			resizable
+			refPopup={setR}
+			modal={false}
+		>
+			<B.o0
+				strTitle={(0, Localize)("#Steam_DualSense_FirmwareUpdate_Title")}
+				strDescription={(0, Localize)(
+					"#Steam_DualSense_FirmwareUpdate_Text",
+					o.Fd.Get().DualSenseUpdateProduct,
+				)}
+				strOKButtonText={(0, Localize)(
+					"#Steam_DualSense_FirmwareUpdate_Update",
+				)}
+				onOK={() => {
+					a();
+					t();
+				}}
+				strMiddleButtonText={(0, Localize)(
+					"#Steam_DualSense_FirmwareUpdate_Ignore",
+				)}
+				onMiddleButton={() => {
+					SteamClient.Input.SetDualSenseUpdateNotification(false);
+					t();
+				}}
+				strCancelButtonText={(0, Localize)(
+					"#Steam_DualSense_FirmwareUpdate_Remind",
+				)}
+				onCancel={t}
+			/>
+		</E.w>
 	);
 });

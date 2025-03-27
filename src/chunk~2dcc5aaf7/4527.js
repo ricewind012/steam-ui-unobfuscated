@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	TopCapsule: "NZMJ6g2iVnFsOOp-lDmIP",
 	NoArt: "_1amMH3zqcKV3WYkLKNId8R",

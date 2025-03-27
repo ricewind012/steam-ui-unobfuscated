@@ -1,61 +1,64 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./22222.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require("./64608.js");
-var l = require("./13869.js");
-var c = require("./10606.js");
-var m = require(/*webcrack:missing*/ "./90765.js");
 import { Localize, Hq } from "../../actual_src/utils/localization.js";
-var d = require("./35488.js");
-var A = require("./77347.js");
-var p = require("./89748.js");
-var g = require("./16204.js");
-var h = g;
-var C = require("./43802.js");
-var _ = require("./27238.js");
-var f = require("./28916.js");
-var b = require("./45011.js");
-var y = require("./46422.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
-var B = require(/*webcrack:missing*/ "./11131.js");
+import n from "./63696.js";
+import i from "./22222.js";
+import a, { q3 } from "./90095.js";
+import s from "./44846.js";
+import o from "./64608.js";
+import l, { mK } from "./13869.js";
+import c from "./10606.js";
+import m, { A as A_1 } from "./90765.js";
+import d from "./35488.js";
+import A, { Ev, yL, ED, tI, yt, db, gb, Av, qm, dw } from "./77347.js";
+import p, { qw } from "./89748.js";
+import g from "./16204.js";
+import { V } from "./43802.js";
+import { U } from "./27238.js";
+import { Y } from "./28916.js";
+import { B as B_1 } from "./45011.js";
+import y from "./46422.js";
+import B, { R7 } from "./11131.js";
+const h = g;
 function v(e) {
 	switch (e.state) {
 		case i.$J.Failed:
 		case i.$J.Disconnecting:
 		case i.$J.Connecting:
 		case i.$J.Connected:
-		case i.$J.Retrying:
+		case i.$J.Retrying: {
 			return true;
+		}
 		case i.$J.NotPresent:
-		case i.$J.Disconnected:
+		case i.$J.Disconnected: {
 			return false;
+		}
 	}
 }
 export function kE(e) {
 	return (
 		e.state == i.$J.Connecting ||
 		e.state == i.$J.Disconnecting ||
+		e.state == i.$J.Disconnecting ||
 		e.state == i.$J.Retrying
 	);
 }
 function E(e) {
-	const { accessPoint: t } = e;
+	const { accessPoint } = e;
 	const r = n.useCallback(() => {
-		(0, _.U)(t);
-	}, [t]);
-	const a = t.type == i.WO.Wireless;
-	const s = t.isConnected;
-	const l = t.showAsLocked;
-	const c = t.displayName;
-	const A = kE(t);
-	const p = (function (e) {
+		U(accessPoint);
+	}, [accessPoint]);
+	const a = accessPoint.type == i.WO.Wireless;
+
+	const { isConnected, showAsLocked, displayName } = accessPoint;
+
+	const A = kE(accessPoint);
+	const p = ((e) => {
 		const t = n.useCallback(() => {
-			(0, _.U)(e);
+			U(e);
 		}, [e]);
 		const r = n.useCallback(() => {
-			(0, C.V)({
+			V({
 				accessPoint: e,
 			});
 		}, [e]);
@@ -73,68 +76,64 @@ function E(e) {
 		}
 		i.onMenuButton = t;
 		return i;
-	})(t);
-	if (t) {
-		return n.createElement(
-			o.D0,
-			{
-				...p,
-				onActivate: r,
-				navKey: t.key,
-				icon: A
-					? n.createElement(d.Spinner, null)
-					: s
-						? n.createElement(d.Checkmark, {
-								className: h.Checkmark,
-							})
-						: null,
-				label: c,
-				childrenLayout: "inline",
-			},
-			l &&
-				n.createElement(d.Lock, {
-					locked: true,
-					className: (0, m.A)(h.LockIcon, h.LargerIcon),
-				}),
-			a
-				? n.createElement(d.WirelessNetwork, {
-						className: h.LargerIcon,
-						strength: t?.wirelessAPInfo?.estrength,
-					})
-				: n.createElement(d.WiredNetwork, {
-						className: h.LargerIcon,
-					}),
+	})(accessPoint);
+	if (accessPoint) {
+		return (
+			<o.D0
+				{...p}
+				onActivate={r}
+				navKey={accessPoint.key}
+				icon={
+					A ? (
+						<d.Spinner />
+					) : isConnected ? (
+						<d.Checkmark className={h.Checkmark} />
+					) : null
+				}
+				label={displayName}
+				childrenLayout="inline"
+			>
+				{showAsLocked && (
+					<d.Lock locked className={A_1(h.LockIcon, h.LargerIcon)} />
+				)}
+				{a ? (
+					<d.WirelessNetwork
+						className={h.LargerIcon}
+						strength={accessPoint?.wirelessAPInfo?.estrength}
+					/>
+				) : (
+					<d.WiredNetwork className={h.LargerIcon} />
+				)}
+			</o.D0>
 		);
 	} else {
 		return null;
 	}
 }
 export function y6() {
-	const e = n.useRef(new Map());
-	const t = (0, a.q3)(() => [...A.OQ.Get().userVisibleAccessPoints]).map(
-		(t) => {
-			if (!e.current.has(t.key)) {
-				e.current.set(t.key, t.wirelessAPInfo?.strength_raw ?? 0);
-			}
-			return {
-				accessPoint: t,
-				initialRawSignalStrength: e.current.get(t.key),
-			};
-		},
-	);
+	const ERef = n.useRef(new Map());
+	const t = q3(() => [...A.OQ.Get().userVisibleAccessPoints]).map((t) => {
+		if (!ERef.current.has(t.key)) {
+			ERef.current.set(t.key, t.wirelessAPInfo?.strength_raw ?? 0);
+		}
+		return {
+			accessPoint: t,
+			initialRawSignalStrength: ERef.current.get(t.key),
+		};
+	});
 	t.sort((e, t) => {
-		let r = (function (e, t) {
-			const r = e.isConnected;
-			if (r == t.isConnected) {
+		let r = ((e, t) => {
+			const e_isConnected = e.isConnected;
+			if (e_isConnected == t.isConnected) {
 				return 0;
-			} else if (r) {
+			} else if (e_isConnected) {
 				return -1;
 			} else {
 				return 1;
 			}
 		})(e.accessPoint, t.accessPoint);
 		if (r == 0) {
-			r = (function (e, t) {
+			r = ((e, t) => {
 				if (e.type == i.WO.Wired && t.type != i.WO.Wired) {
 					return -1;
 				} else if (
@@ -162,114 +161,81 @@ export function y6() {
 	return t.map((e) => e.accessPoint);
 }
 export function KM(e) {
-	const t = (0, A.Ev)();
+	const t = Ev();
 	const r = y6();
-	const i = (0, A.yL)();
-	const s = (0, A.ED)();
-	(0, A.tI)();
-	const [l, c, m] = (0, a.q3)(() => [
+	const i = yL();
+	const s = ED();
+	tI();
+	const [l, c, m] = q3(() => [
 		r.filter((e) => v(e)),
 		r.filter((e) => !v(e) && false),
 		r.filter((e) => !v(e) && true),
 	]);
 	const d = i && s;
-	return n.createElement(
-		o.f3,
-		null,
-		n.createElement(D, null),
-		n.createElement(N, null),
-		n.createElement(k, null),
-		!t &&
-			n.createElement(
-				o.G5,
-				null,
-				n.createElement(
-					o.lr,
-					null,
-					(0, Localize)("#Settings_Internet_Active_Networks"),
-				),
-				l.map((e) =>
-					n.createElement(E, {
-						key: e.key,
-						accessPoint: e,
-					}),
-				),
-			),
-		t &&
-			n.createElement(
-				n.Fragment,
-				null,
-				n.createElement(
-					o.G5,
-					null,
-					n.createElement(o.y4, {
-						checked: i,
-						onChange: (e) => A.OQ.Get().SetWifiEnabled(e),
-						label: (0, Localize)("#Settings_Internet_Wifi_Enabled"),
-					}),
-					l.map((e) =>
-						n.createElement(E, {
-							key: e.key,
-							accessPoint: e,
-						}),
-					),
-				),
-				c.length > 0 &&
-					n.createElement(
-						o.G5,
-						null,
-						n.createElement(
-							o.lr,
-							null,
-							(0, Localize)("#Settings_Internet_Known_Networks"),
-						),
-						c.map((e) =>
-							n.createElement(E, {
-								key: e.key,
-								accessPoint: e,
-							}),
-						),
-					),
-				n.createElement(
-					o.G5,
-					null,
-					n.createElement(
-						o.lr,
-						null,
-						(0, Localize)("#Settings_Internet_Networks_Found"),
-					),
-					m.map((e) =>
-						n.createElement(E, {
-							key: e.key,
-							accessPoint: e,
-						}),
-					),
-					m.length == 0 &&
-						n.createElement(o.D0, {
-							disabled: true,
-							bottomSeparator: d ? "standard" : "none",
-							label: (0, Localize)(
-								"#Settings_Internet_No_Other_Networks_Found",
-							),
-						}),
-					d &&
-						n.createElement(o.D0, {
-							label: (0, Localize)("#Settings_Internet_Custom_Network_Button"),
-							onActivate: () => (0, C.V)(),
-						}),
-				),
-			),
-		n.createElement(
-			o.G5,
-			null,
-			n.createElement(
-				o.lr,
-				null,
-				(0, Localize)("#Settings_Internet_Advanced_Settings"),
-			),
-			n.createElement(F, null),
-			n.createElement(G, null),
-		),
+	return (
+		<o.f3>
+			<D />
+			<N />
+			<K />
+			{!t && (
+				<o.G5>
+					<o.lr>{(0, Localize)("#Settings_Internet_Active_Networks")}</o.lr>
+					{l.map((e) => (
+						<E key={e.key} accessPoint={e} />
+					))}
+				</o.G5>
+			)}
+			{t && (
+				<>
+					<o.G5>
+						<o.y4
+							checked={i}
+							onChange={(e) => A.OQ.Get().SetWifiEnabled(e)}
+							label={(0, Localize)("#Settings_Internet_Wifi_Enabled")}
+						/>
+						{l.map((e) => (
+							<E key={e.key} accessPoint={e} />
+						))}
+					</o.G5>
+					{c.length > 0 && (
+						<o.G5>
+							<o.lr>{(0, Localize)("#Settings_Internet_Known_Networks")}</o.lr>
+							{c.map((e) => (
+								<E key={e.key} accessPoint={e} />
+							))}
+						</o.G5>
+					)}
+					<o.G5>
+						<o.lr>{(0, Localize)("#Settings_Internet_Networks_Found")}</o.lr>
+						{m.map((e) => (
+							<E key={e.key} accessPoint={e} />
+						))}
+						{m.length == 0 && (
+							<o.D0
+								disabled
+								bottomSeparator={d ? "standard" : "none"}
+								label={(0, Localize)(
+									"#Settings_Internet_No_Other_Networks_Found",
+								)}
+							/>
+						)}
+						{d && (
+							<o.D0
+								label={(0, Localize)(
+									"#Settings_Internet_Custom_Network_Button",
+								)}
+								onActivate={() => V()}
+							/>
+						)}
+					</o.G5>
+				</>
+			)}
+			<o.G5>
+				<o.lr>{(0, Localize)("#Settings_Internet_Advanced_Settings")}</o.lr>
+				<F />
+				<G />
+			</o.G5>
+		</o.f3>
 	);
 }
 export function $I(e, t) {
@@ -277,12 +243,12 @@ export function $I(e, t) {
 	let i = (0, Localize)("#UserManagement_GoOnline_Desc");
 	let a = GetOwningWindowForEvent(e);
 	if (t) {
-		return (0, l.mK)(
-			n.createElement(c.o0, {
-				strTitle: r,
-				strDescription: i,
-				onOK: () => SteamClient.User.GoOnline(),
-			}),
+		return mK(
+			<c.o0
+				strTitle={r}
+				strDescription={i}
+				onOK={() => SteamClient.User.GoOnline()}
+			/>,
 			a,
 			{
 				strTitle: r,
@@ -290,11 +256,11 @@ export function $I(e, t) {
 			},
 		);
 	} else {
-		return (0, l.mK)(
-			n.createElement(c.KG, {
-				strTitle: r,
-				strDescription: (0, Localize)("#UserManagement_GoOnline_NoNetwork"),
-			}),
+		return mK(
+			<c.KG
+				strTitle={r}
+				strDescription={(0, Localize)("#UserManagement_GoOnline_NoNetwork")}
+			/>,
 			a,
 			{
 				strTitle: r,
@@ -303,28 +269,28 @@ export function $I(e, t) {
 		);
 	}
 }
-function k(e) {
-	const t = (0, a.q3)(() => (0, p.qw)().GetServicesInitialized());
-	const r = (0, A.yt)();
-	const i = (0, p.qw)().BIsOfflineMode();
+function K(e) {
+	const t = q3(() => qw().GetServicesInitialized());
+	const r = yt();
+	const i = qw().BIsOfflineMode();
 	const s = n.useCallback(
 		(e) => {
 			if (i) {
 				$I(e, r);
 			} else if (r) {
-				(function (e) {
+				((e) => {
 					const t = y.oy.MainRunningApp != null;
 					let r = GetOwningWindowForEvent(e);
 					if (t) {
 						let e = (0, Localize)("#GoOffline");
 						let t = (0, Localize)("#UserManagement_OfflineMode_MustCloseGames");
-						return (0, l.mK)(
-							n.createElement(c.o0, {
-								strTitle: e,
-								strDescription: t,
-								strCancelButtonText: "",
-								bAlertDialog: true,
-							}),
+						return mK(
+							<c.o0
+								strTitle={e}
+								strDescription={t}
+								strCancelButtonText=""
+								bAlertDialog
+							/>,
 							r,
 							{
 								strTitle: e,
@@ -335,12 +301,12 @@ function k(e) {
 					{
 						let e = (0, Localize)("#GoOffline");
 						let t = (0, Localize)("#UserManagement_OfflineMode_Desc");
-						(0, l.mK)(
-							n.createElement(c.o0, {
-								strTitle: e,
-								strDescription: t,
-								onOK: () => SteamClient.User.GoOffline(),
-							}),
+						mK(
+							<c.o0
+								strTitle={e}
+								strDescription={t}
+								onOK={() => SteamClient.User.GoOffline()}
+							/>,
 							r,
 							{
 								strTitle: e,
@@ -356,42 +322,30 @@ function k(e) {
 	if (!t) {
 		return null;
 	}
-	const m = r ? null : (0, Localize)("#UserManagement_OfflineMode_NoNetwork");
-	return n.createElement(
-		o.G5,
-		null,
-		n.createElement(
-			o.D0,
-			{
-				icon: i
-					? n.createElement(d.Caution, {
-							className: h.OfflineMode,
-						})
-					: undefined,
-				label: (0, Localize)(
+	const m = r || (0, Localize)("#UserManagement_OfflineMode_NoNetwork");
+	return (
+		<o.G5>
+			<o.D0
+				icon={i ? <d.Caution className={h.OfflineMode} /> : undefined}
+				label={(0, Localize)(
 					i
 						? "#Settings_Internet_In_Offline_Mode"
 						: "#Settings_Internet_Go_Offline",
-				),
-				description: m,
-				bottomSeparator: "none",
-				childrenContainerWidth: "min",
-			},
-			n.createElement(
-				o.$n,
-				{
-					onClick: s,
-					focusable: r,
-					disabled: !r,
-				},
-				(0, Localize)(i ? "#GoOnline" : "#GoOffline"),
-			),
-		),
+				)}
+				description={m}
+				bottomSeparator="none"
+				childrenContainerWidth="min"
+			>
+				<o.$n onClick={s} focusable={r} disabled={!r}>
+					{(0, Localize)(i ? "#GoOnline" : "#GoOffline")}
+				</o.$n>
+			</o.D0>
+		</o.G5>
 	);
 }
 function D(e) {
-	const t = (0, A.db)();
-	const r = (0, A.gb)();
+	const t = db();
+	const r = gb();
 	if (!t) {
 		return null;
 	}
@@ -408,23 +362,21 @@ function D(e) {
 	} else {
 		i = (0, Localize)("#Settings_Internet_Connected_To_Internet_But_Not_Steam");
 	}
-	return n.createElement(
-		o.G5,
-		null,
-		n.createElement(o.D0, {
-			icon: n.createElement(d.Caution, {
-				className: h.NetworkWarning,
-			}),
-			className: h.NetworkConnectivityWarningField,
-			label: i,
-			bottomSeparator: "none",
-			childrenContainerWidth: "min",
-		}),
+	return (
+		<o.G5>
+			<o.D0
+				icon={<d.Caution className={h.NetworkWarning} />}
+				className={h.NetworkConnectivityWarningField}
+				label={i}
+				bottomSeparator="none"
+				childrenContainerWidth="min"
+			/>
+		</o.G5>
 	);
 }
 function N(e) {
-	const t = (0, A.Av)().eConnectivityTestResult;
-	if (!(0, a.q3)(() => (0, p.qw)().GetServicesInitialized())) {
+	const t = Av().eConnectivityTestResult;
+	if (!q3(() => qw().GetServicesInitialized())) {
 		return null;
 	}
 	let r = null;
@@ -432,91 +384,90 @@ function N(e) {
 	switch (t) {
 		default:
 		case s.ck.k_EConnectivityTestResult_Unknown:
-		case s.ck.k_EConnectivityTestResult_Connected:
+		case s.ck.k_EConnectivityTestResult_Connected: {
 			break;
-		case s.ck.k_EConnectivityTestResult_CaptivePortal:
+		}
+		case s.ck.k_EConnectivityTestResult_CaptivePortal: {
 			r = (0, Localize)("#Settings_Internet_Captive_Portal_Detected");
-			i = n.createElement(
-				o.$n,
-				{
-					onClick: (e) => (0, f.Y)(GetOwningWindowForEvent(e)),
-				},
-				(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button"),
+			i = (
+				<o.$n onClick={(e) => Y(GetOwningWindowForEvent(e))}>
+					{(0, Localize)("#Settings_Internet_Captive_Portal_Login_Button")}
+				</o.$n>
 			);
 			break;
+		}
 		case s.ck.k_EConnectivityTestResult_TimedOut:
-		case s.ck.k_EConnectivityTestResult_Failed:
+		case s.ck.k_EConnectivityTestResult_Failed: {
 			r = (0, Localize)(
 				"#Settings_Internet_Connected_To_Network_But_Not_Internet",
 			);
 			break;
-		case s.ck.k_EConnectivityTestResult_NoLAN:
+		}
+		case s.ck.k_EConnectivityTestResult_NoLAN: {
 			r = (0, Localize)("#Settings_Internet_Not_Connected_To_Network");
+		}
 		case s.ck.k_EConnectivityTestResult_WifiDisabled:
 	}
 	if (r) {
-		return n.createElement(
-			o.G5,
-			null,
-			n.createElement(
-				o.D0,
-				{
-					icon: n.createElement(d.Caution, {
-						className: h.NetworkWarning,
-					}),
-					className: h.NetworkConnectivityWarningField,
-					label: r,
-					bottomSeparator: "none",
-					childrenContainerWidth: "min",
-				},
-				i,
-			),
+		return (
+			<o.G5>
+				<o.D0
+					icon={<d.Caution className={h.NetworkWarning} />}
+					className={h.NetworkConnectivityWarningField}
+					label={r}
+					bottomSeparator="none"
+					childrenContainerWidth="min"
+				>
+					{i}
+				</o.D0>
+			</o.G5>
 		);
 	} else {
 		return null;
 	}
 }
 function F(e) {
-	const t = (0, A.qm)();
+	const t = qm();
 	const r =
 		t.proxy_mode != i.Xu.k_EHTTPProxyMode_Invalid
-			? (0, A.dw)(t.proxy_mode)
+			? dw(t.proxy_mode)
 			: (0, Localize)("#Settings_Internet_ConfigureProxy");
-	const a = (0, B.R7)();
-	return n.createElement(
-		o.xh,
-		{
-			label: (0, Localize)("#Settings_Internet_HTTPProxy"),
-			onClick: () => (0, b.B)(a.ownerWindow),
-		},
-		r,
+	const a = R7();
+	return (
+		<o.xh
+			label={(0, Localize)("#Settings_Internet_HTTPProxy")}
+			onClick={() => B_1(a.ownerWindow)}
+		>
+			{r}
+		</o.xh>
 	);
 }
 function G(e) {
-	return n.createElement(
-		o.xh,
-		{
-			label: (0, Localize)("#Settings_Internet_WebBrowserDataDelete"),
-			onClick: (e) =>
-				(function (e) {
+	return (
+		<o.xh
+			label={(0, Localize)("#Settings_Internet_WebBrowserDataDelete")}
+			onClick={(e) =>
+				((e) => {
 					let t = (0, Localize)("#Settings_Internet_WebBrowserDataDelete");
-					return (0, l.mK)(
-						n.createElement(c.o0, {
-							strTitle: t,
-							strDescription: (0, Localize)(
+					return mK(
+						<c.o0
+							strTitle={t}
+							strDescription={(0, Localize)(
 								"#Settings_Internet_WebBrowserDataDelete_Desc",
-							),
-							onOK: () => SteamClient.Browser.ClearAllBrowsingData(),
-						}),
+							)}
+							onOK={() => SteamClient.Browser.ClearAllBrowsingData()}
+						/>,
 						GetOwningWindowForEvent(e),
 						{
 							strTitle: t,
 							bForcePopOut: true,
 						},
 					);
-				})(e),
-			bottomSeparator: "none",
-		},
-		(0, Localize)("#Settings_Internet_WebBrowserDataDeleteButton"),
+				})(e)
+			}
+			bottomSeparator="none"
+		>
+			{(0, Localize)("#Settings_Internet_WebBrowserDataDeleteButton")}
+		</o.xh>
 	);
 }

@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./61416.js");
-var o = require(/*webcrack:missing*/ "./75144.js");
-var l = require("./56365.js");
-var c = require("./96555.js");
+import { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./52451.js";
+import { I } from "./61416.js";
+import o from "./75144.js";
+import l from "./56365.js";
+import { l5 } from "./96555.js";
 const m = "GamescopeService";
 const u = "State";
 function d() {
@@ -52,7 +52,7 @@ export function ZN(e) {
 		}
 		return e.Body().toObject().state;
 	}, []);
-	return (0, s.I)({
+	return I({
 		queryKey: d(),
 		queryFn: t,
 		select: e,
@@ -82,7 +82,7 @@ export function rO(e) {
 			}
 		};
 	}, [e]);
-	const t = (0, c.l5)();
+	const t = l5();
 	i.useEffect(() => {
 		YS.SetForceSuppressBlur(t);
 	}, [t]);
@@ -143,5 +143,5 @@ export function OV() {
 	});
 	return e.isSuccess && e.data;
 }
-(0, n.Cg)([a.oI], A.prototype, "OnStateChanged", null);
+Cg([a.oI], A.prototype, "OnStateChanged", null);
 export const YS = new A();

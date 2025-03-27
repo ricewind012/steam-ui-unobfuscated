@@ -1,10 +1,10 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./45328.js");
-require("./72476.js");
-var s = require("./92059.js");
+import r from "./63696.js";
+import i from "./45328.js";
+import "./72476.js";
+import s, { n9 } from "./92059.js";
 export function A(e) {
-	const { children: t, ...n } = e;
-	const o = (0, s.n9)();
+	const { children, ...n } = e;
+	const o = n9();
 	const a = r.useMemo(
 		() => ({
 			...i.Ay.GetDefaultParams(),
@@ -13,11 +13,5 @@ export function A(e) {
 		}),
 		[o, n.domain, n.controller, n.method, n.submethod, n.feature, n.depth],
 	);
-	return r.createElement(
-		s.nn,
-		{
-			...a,
-		},
-		t,
-	);
+	return <s.nn {...a}>{children}</s.nn>;
 }

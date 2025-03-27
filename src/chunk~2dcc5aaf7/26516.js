@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	animationDuration: "2000ms",
 	RelativeTimeContainer: "UqMNRsT0TZjlt-9HTNH--",
 	RelativeTime: "_3waN_JrfZ-gXKzfJxcuQcf",

@@ -1,23 +1,13 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./48045.js");
-var a = i;
-export const H = () =>
-	n.createElement(
-		"div",
-		{
-			className: a.FriendsListInsetShadowCtn,
-		},
-		n.createElement("div", {
-			className: a.FriendListInsetShadowTop,
-		}),
-	);
-export const P = () =>
-	n.createElement(
-		"div",
-		{
-			className: a.FriendsListInsetShadowCtn,
-		},
-		n.createElement("div", {
-			className: a.FriendListInsetShadowBottom,
-		}),
-	);
+import n from "./63696.js";
+import i from "./48045.js";
+const a = i;
+export const H = () => (
+	<div className={a.FriendsListInsetShadowCtn}>
+		<div className={a.FriendListInsetShadowTop} />
+	</div>
+);
+export const P = () => (
+	<div className={a.FriendsListInsetShadowCtn}>
+		<div className={a.FriendListInsetShadowBottom} />
+	</div>
+);

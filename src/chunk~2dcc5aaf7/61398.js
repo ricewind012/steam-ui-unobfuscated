@@ -1,14 +1,25 @@
-var n = require(/*webcrack:missing*/ "./85243.js");
-var i = require("./55489.js");
-var a = require("./96593.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./16117.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require("./8090.js");
-var m = require("./1521.js");
-var u = require(/*webcrack:missing*/ "./43691.js");
-function d(e) {
-	const { text: t, language: r } = e;
+import { Localize } from "../../actual_src/utils/localization.js";
+import n from "./85243.js";
+import i, { Bx } from "./55489.js";
+import a from "./96593.js";
+import s from "./63696.js";
+import o from "./16117.js";
+import l, { sf } from "./44846.js";
+import c from "./8090.js";
+import m from "./1521.js";
+import u from "./43691.js";
+import p from "./69164.js";
+import g from "./72655.js";
+import h from "./64608.js";
+import C from "./10606.js";
+import _, { pg } from "./13869.js";
+import f from "./26853.js";
+import { A as A_1 } from "./90765.js";
+import { CH, hL } from "./52451.js";
+import { hf } from "./72476.js";
+import B from "./70446.js";
+function D_1(e) {
+	const { text, language } = e;
 	const n = s.useMemo(
 		() =>
 			new Map([
@@ -24,306 +35,220 @@ function d(e) {
 		[],
 	);
 	const i = s.useCallback((e) => new m.OJ(new m.R8(), 0), []);
-	const a = s.useRef();
-	a.current ||= new c.B(n, i, u.TS.LANGUAGE);
-	const d = a.current;
-	if (r) {
-		d.UpdateOverrideLanguage((0, l.sf)(r));
+	const ARef = s.useRef();
+	ARef.current ||= new c.B(n, i, u.TS.LANGUAGE);
+	const a_current = ARef.current;
+	if (language) {
+		a_current.UpdateOverrideLanguage(sf(language));
 	}
-	return d.ParseBBCode(t, {});
+	return a_current.ParseBBCode(text, {});
 }
 function A(e) {
 	const t = e.children?.toString();
 	if (t) {
-		return s.createElement("img", {
-			src: t,
-		});
+		return <img src={t} />;
 	} else {
 		return null;
 	}
 }
-var p = require(/*webcrack:missing*/ "./69164.js");
-var g = require("./72655.js");
-var h = require("./64608.js");
-var C = require("./10606.js");
-var _ = require("./13869.js");
-var f = require(/*webcrack:missing*/ "./26853.js");
-var b = require(/*webcrack:missing*/ "./90765.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var S = require(/*webcrack:missing*/ "./52451.js");
-var w = require(/*webcrack:missing*/ "./72476.js");
-var B = require("./70446.js");
-var v = B;
+const v = B;
 export function Fe(e) {
-	(0, _.pg)(
-		s.createElement(u_, {
-			...e,
-		}),
-		e.ownerWindow || window,
-		{},
-	);
+	pg(<U {...e} />, e.ownerWindow || window, {});
 }
-export function u_(e) {
+export function U(e) {
 	const t = () => {
 		e.onCancel();
 		if (e.closeModal) {
 			e.closeModal();
 		}
 	};
-	return s.createElement(
-		_.x_,
-		{
-			bGamepadUIScrollWithin: true,
-			onEscKeypress: t,
-			padding: "none",
-		},
-		s.createElement(
-			h.U9,
-			{
-				classNameContent: (0, b.A)("GenericConfirmDialog", v.EulaModalDialog),
-			},
-			s.createElement(h.Y9, null, (0, Localize)("#EulaDialog_Header")),
-			s.createElement(
-				h.nB,
-				null,
-				s.createElement(M, {
-					...e,
-					onCancel: t,
-				}),
-			),
-		),
+	return (
+		<_.x_ bGamepadUIScrollWithin onEscKeypress={t} padding="none">
+			<h.U9 classNameContent={A_1("GenericConfirmDialog", v.EulaModalDialog)}>
+				<h.Y9>{(0, Localize)("#EulaDialog_Header")}</h.Y9>
+				<h.nB>
+					<M {...e} onCancel={t} />
+				</h.nB>
+			</h.U9>
+		</_.x_>
 	);
 }
 function M(e) {
-	const { appid: t, eulaWorkflow: r, onCancel: n, closeModal: i } = e;
-	const o = r.useEulaApprovalState();
-	const l = s.useRef(o.cancelFn);
-	l.current = o.cancelFn;
+	const { appid, eulaWorkflow, onCancel, closeModal } = e;
+	const o = eulaWorkflow.useEulaApprovalState();
+	const LRef = s.useRef(o.cancelFn);
+	LRef.current = o.cancelFn;
 	s.useEffect(
 		() => () => {
-			if (l.current) {
-				l.current();
+			if (LRef.current) {
+				LRef.current();
 			}
 		},
 		[],
 	);
 	let c = (0, Localize)(
 		"#Installer_Eula",
-		a.tw.GetAppOverviewByAppID(t)?.display_name,
+		a.tw.GetAppOverviewByAppID(appid)?.display_name,
 	);
 	const m = () => {
 		if (o.cancelFn) {
 			o.cancelFn();
 		}
-		if (n) {
-			n();
+		if (onCancel) {
+			onCancel();
 		}
 	};
-	const u = s.useRef(undefined);
+	const URef = s.useRef(undefined);
 	s.useLayoutEffect(() => {
-		if (o.bDone && i) {
-			i();
+		if (o.bDone && closeModal) {
+			closeModal();
 		}
-	}, [o.bDone, i]);
+	}, [o.bDone, closeModal]);
 	if (o.bDone) {
 		return null;
 	}
-	const d = r.GetEULALoader();
-	return s.createElement(
-		p.Z,
-		{
-			className: v.EulaDialogContent,
-			onCancel: m,
-		},
-		s.createElement(
-			h.a3,
-			null,
-			s.createElement(
-				"div",
-				{
-					className: v.EulaIntro,
-				},
-				c,
-			),
-		),
-		d &&
-			s.createElement(T, {
-				loader: d,
-				onCancel: () => {
-					u.current?.TakeFocus();
-				},
-			}),
-		s.createElement(
-			h.wi,
-			null,
-			s.createElement(
-				p.Z,
-				{
-					navRef: u,
-				},
-				s.createElement(h.CB, {
-					focusButton: "secondary",
-					onCancel: m,
-					onOK: o.continueFn,
-					strOKText: (0, Localize)("#Installer_EulaAccept"),
-				}),
-			),
-		),
+	const d = eulaWorkflow.GetEULALoader();
+	return (
+		<p.Z className={v.EulaDialogContent} onCancel={m}>
+			<h.a3>
+				<div className={v.EulaIntro}>{c}</div>
+			</h.a3>
+			{d && (
+				<T
+					loader={d}
+					onCancel={() => {
+						URef.current?.TakeFocus();
+					}}
+				/>
+			)}
+			<h.wi>
+				<p.Z navRef={URef}>
+					<h.CB
+						focusButton="secondary"
+						onCancel={m}
+						onOK={o.continueFn}
+						strOKText={(0, Localize)("#Installer_EulaAccept")}
+					/>
+				</p.Z>
+			</h.wi>
+		</p.Z>
 	);
 }
 function T(e) {
-	const { loader: t, onCancel: r } = e;
-	const [n, i] = s.useState(t.GetLanguage());
-	const a = t.GetEULAData();
-	const o = (0, S.CH)();
-	(0, S.hL)(t.GetOnReadyCallbacks(), o);
+	const { loader, onCancel } = e;
+	const [n, setN] = s.useState(loader.GetLanguage());
+	const a = loader.GetEULAData();
+	const o = CH();
+	hL(loader.GetOnReadyCallbacks(), o);
 	s.useEffect(() => {
-		t.SetLanguage(n);
-		t.LoadEULA();
-	}, [t, n]);
-	if (t.BHadError()) {
-		return s.createElement(R, {
-			loader: t,
-		});
+		loader.SetLanguage(n);
+		loader.LoadEULA();
+	}, [loader, n]);
+	if (loader.BHadError()) {
+		return <R loader={loader} />;
 	} else if (a) {
-		return s.createElement(k, {
-			StoreData: a,
-			setLanguage: i,
-			onCancel: r,
-		});
+		return <K StoreData={a} setLanguage={setN} onCancel={onCancel} />;
 	} else {
-		return s.createElement(
-			"div",
-			{
-				className: v.EULAThrobber,
-			},
-			s.createElement(f.t, {
-				position: "center",
-			}),
+		return (
+			<div className={v.EULAThrobber}>
+				<f.t position="center" />
+			</div>
 		);
 	}
 }
 function R(e) {
-	const { loader: t } = e;
-	const r = s.useCallback(() => t.Retry(), [t]);
-	return s.createElement(
-		p.Z,
-		{
-			className: v.EULAError,
-		},
-		s.createElement(p.Z, null, (0, Localize)("#Installer_EulaError")),
-		s.createElement(
-			p.Z,
-			null,
-			s.createElement(
-				h.$n,
-				{
-					onClick: r,
-					autoFocus: true,
-				},
-				(0, Localize)("#Button_Retry"),
-			),
-		),
+	const { loader } = e;
+	const r = s.useCallback(() => loader.Retry(), [loader]);
+	return (
+		<p.Z className={v.EULAError}>
+			<p.Z>{(0, Localize)("#Installer_EulaError")}</p.Z>
+			<p.Z>
+				<h.$n onClick={r} autoFocus>
+					{(0, Localize)("#Button_Retry")}
+				</h.$n>
+			</p.Z>
+		</p.Z>
 	);
 }
-function k(e) {
-	const { StoreData: t, setLanguage: r, onCancel: n } = e;
-	return s.createElement(
-		s.Fragment,
-		null,
-		s.createElement(D, {
-			eulaLanguage: t.eulaLang,
-			rgLanguages: t.rgLanguages,
-			setLanguage: r,
-		}),
-		s.createElement(
-			g.f7,
-			{
-				className: (0, b.A)(v.EULAScrolling),
-				noFocusRing: false,
-				scrollBehavior: "smooth",
-				scrollStepPercent: 60,
-				onCancelButton: n,
-			},
-			s.createElement(
-				p.Z,
-				{
-					focusableIfNoChildren: true,
-					noFocusRing: true,
-					className: v.EULAContent,
-				},
-				s.createElement(d, {
-					text: t.content,
-				}),
-			),
-		),
+function K(e) {
+	const { StoreData, setLanguage, onCancel } = e;
+	return (
+		<>
+			<D
+				eulaLanguage={StoreData.eulaLang}
+				rgLanguages={StoreData.rgLanguages}
+				setLanguage={setLanguage}
+			/>
+			<g.f7
+				className={A_1(v.EULAScrolling)}
+				noFocusRing={false}
+				scrollBehavior="smooth"
+				scrollStepPercent={60}
+				onCancelButton={onCancel}
+			>
+				<p.Z focusableIfNoChildren noFocusRing className={v.EULAContent}>
+					<D_1 text={StoreData.content} />
+				</p.Z>
+			</g.f7>
+		</>
 	);
 }
 function D(e) {
-	const { rgLanguages: t, eulaLanguage: r, setLanguage: n } = e;
-	const i = (0, w.hf)();
+	const { rgLanguages, eulaLanguage, setLanguage } = e;
+	const i = hf();
 	const a = s.useMemo(
 		() =>
-			t?.map((e) => ({
+			rgLanguages?.map((e) => ({
 				data: e,
 				label: (0, Localize)(`#language_selection_${e}`),
 			})),
-		[t],
+		[rgLanguages],
 	);
-	const o = s.useCallback((e) => n(e.data), [n]);
-	if (!t || t.length < 2) {
+	const o = s.useCallback((e) => setLanguage(e.data), [setLanguage]);
+	if (!rgLanguages || rgLanguages.length < 2) {
 		return null;
 	} else {
-		return s.createElement(
-			"div",
-			{
-				className: v.LanguageFieldContainer,
-			},
-			s.createElement(h.Vb, {
-				layout: "inline",
-				bottomSeparator: "none",
-				label: (0, Localize)("#EulaDialog_Language"),
-				rgOptions: a,
-				selectedOption: r,
-				onChange: o,
-				contextMenuPositionOptions: {
-					bMatchWidth: !i,
-				},
-			}),
+		return (
+			<div className={v.LanguageFieldContainer}>
+				<h.Vb
+					layout="inline"
+					bottomSeparator="none"
+					label={(0, Localize)("#EulaDialog_Language")}
+					rgOptions={a}
+					selectedOption={eulaLanguage}
+					onChange={o}
+					contextMenuPositionOptions={{
+						bMatchWidth: !i,
+					}}
+				/>
+			</div>
 		);
 	}
 }
 function N(e) {
-	(0, i.Bx)(n.I5.Opaque, "OpaqueGenericConfirmDialog");
-	return s.createElement(C.o0, {
-		...e,
-	});
+	Bx(n.I5.Opaque, "OpaqueGenericConfirmDialog");
+	return <C.o0 {...e} />;
 }
 export function rg(e) {
-	const {
-		strTitle: t,
-		strDescription: r,
-		strOKButtonText: n,
-		onOK: i,
-		onCancel: a,
-	} = e;
-	const o = s.createElement(
-		"span",
-		{
-			style: {
+	const { strTitle, strDescription, strOKButtonText, onOK, onCancel } = e;
+	const o = (
+		<span
+			style={{
 				whiteSpace: "pre-line",
-			},
-		},
-		" ",
-		r,
-		" ",
+			}}
+		>
+			{" "}
+			{strDescription}{" "}
+		</span>
 	);
-	const l = s.createElement(N, {
-		strTitle: t,
-		strDescription: o,
-		onOK: i,
-		onCancel: a,
-		strOKButtonText: n,
-	});
-	(0, _.pg)(l, e.ownerWindow || window, {});
+	const l = (
+		<N
+			strTitle={strTitle}
+			strDescription={o}
+			onOK={onOK}
+			onCancel={onCancel}
+			strOKButtonText={strOKButtonText}
+		/>
+	);
+	pg(l, e.ownerWindow || window, {});
 }

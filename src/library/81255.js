@@ -1,23 +1,23 @@
 export function s(e, t = true) {
-	return function (n, r, i) {
-		const s = i.value;
+	return (n, r, i) => {
+		const i_value = i.value;
 		i.value = function (...n) {
-			let i = this[r + "_DebounceProperties"];
+			let i = this[`${r}_DebounceProperties`];
 			if (i === undefined) {
-				i = this[r + "_DebounceProperties"] = {
+				i = this[`${r}_DebounceProperties`] = {
 					hTimer: undefined,
 					nPending: 0,
 				};
 			}
 			if (i.hTimer === undefined) {
 				if (t) {
-					s.apply(this, n);
+					i_value.apply(this, n);
 				} else {
 					i.nPending += 1;
 				}
 				i.hTimer = window.setInterval(() => {
 					if (i.nPending > 0) {
-						s.apply(this, n);
+						i_value.apply(this, n);
 						i.nPending = 0;
 					} else {
 						window.clearInterval(i.hTimer);

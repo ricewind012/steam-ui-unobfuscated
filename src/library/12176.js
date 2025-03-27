@@ -1,8 +1,8 @@
-var r = require(/*webcrack:missing*/ "./58663.js");
-require("./1691.js");
-var i = require("./29218.js");
-var s = require("./16583.js");
-require("./36229.js");
+import r from "./58663.js";
+import "./1691.js";
+import i from "./29218.js";
+import s from "./16583.js";
+import "./36229.js";
 export class lI {
 	static sm_ErrorReportingStore;
 	static InstallErrorReportingStore(e) {
@@ -91,10 +91,10 @@ export class lI {
 			);
 		} catch (e) {
 			this.m_bValid = false;
-			const t = lI.sm_ErrorReportingStore;
+			const lI_sm_ErrorReportingStore = lI.sm_ErrorReportingStore;
 			const n = `Exception parsing protobuf message body of type ${this.m_eMsg}.  Definitions may be out of sync with server version.`;
-			if (t) {
-				t.ReportError(new Error(n), {
+			if (lI_sm_ErrorReportingStore) {
+				lI_sm_ErrorReportingStore.ReportError(new Error(n), {
 					bIncludeMessageInIdentifier: true,
 				});
 			}

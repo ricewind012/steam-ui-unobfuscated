@@ -1,10 +1,10 @@
-var r = require("./12368.js");
-var i = require("./49455.js");
-var s = require("./59139.js");
+import r from "./12368.js";
+import { w } from "./49455.js";
+import s from "./59139.js";
 export class A extends r.P {
 	async GetString(e) {
 		try {
-			(0, i.w)(
+			w(
 				s.W.BHasUser(),
 				`Attempted to fetch key ${e} from user local config before a user was logged in`,
 			);
@@ -14,7 +14,7 @@ export class A extends r.P {
 		}
 	}
 	async StoreString(e, t) {
-		(0, i.w)(
+		w(
 			s.W.BHasUser(),
 			`Attempted to write key ${e} user local config before a user was logged in`,
 		);
@@ -22,7 +22,7 @@ export class A extends r.P {
 	}
 	async RemoveObject(e) {
 		try {
-			(0, i.w)(
+			w(
 				s.W.BHasUser(),
 				`Attempted to remove key ${e} user local config before a user was logged in`,
 			);

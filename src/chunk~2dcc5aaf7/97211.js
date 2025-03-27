@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_2sYIghGVXJr6tsQVvcryy8",
 	HoverOverlay: "_2zGph-MSF37bUmk_Qlu_XG",
 	Selected: "sXMOsx8OIRalBMxO9yFY5",

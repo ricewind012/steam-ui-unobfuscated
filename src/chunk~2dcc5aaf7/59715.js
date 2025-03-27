@@ -9,13 +9,13 @@ export function ap(e) {
 	let n = Math.floor(e) % 60;
 	let i = n.toString();
 	if (n < 10) {
-		i = "0" + i;
+		i = `0${i}`;
 	}
 	let a = r.toString();
 	if (r < 10 && t > 0) {
-		a = "0" + a;
+		a = `0${a}`;
 	}
-	return (t > 0 ? t + ":" : "") + a + ":" + i;
+	return `${(t > 0 ? `${t}:` : "") + a}:${i}`;
 }
 export function Mc() {
 	let e = false;

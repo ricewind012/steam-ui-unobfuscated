@@ -1,61 +1,40 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./12774.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./78110.js");
 import { Localize } from "../../actual_src/utils/localization.js";
+import n from "./63696.js";
+import i from "./12774.js";
+import a, { uD } from "./52451.js";
+import s from "./78110.js";
 export function Q(e) {
-	const {
-		active: t,
-		onOK: r,
-		closeModal: a,
-		bCloseOnOK: l,
-		children: c,
-		...m
-	} = e;
-	if (!t) {
+	const { active, onOK, closeModal, bCloseOnOK, children, ...m } = e;
+	if (!active) {
 		return null;
 	}
 	const u =
 		(typeof m.strTitle == "string" && m.strTitle) ||
 		(0, Localize)("#Steam_Platform");
-	return n.createElement(
-		s.w,
-		{
-			onlyPopoutIfNeeded: true,
-			popupHeight: 340,
-			popupWidth: 640,
-			strTitle: u,
-		},
-		n.createElement(
-			i.o0,
-			{
-				...m,
-				onCancel: a,
-				onOK: () => {
-					r();
-					if (l) {
-						a();
+	return (
+		<s.w onlyPopoutIfNeeded popupHeight={340} popupWidth={640} strTitle={u}>
+			<i.o0
+				{...m}
+				onCancel={closeModal}
+				onOK={() => {
+					onOK();
+					if (bCloseOnOK) {
+						closeModal();
 					}
-				},
-			},
-			c,
-		),
+				}}
+			>
+				{children}
+			</i.o0>
+		</s.w>
 	);
 }
 export function M(e) {
-	const { bCloseOnOK: t = true, children: r, ...i } = e;
-	const [s, o, c] = (0, a.uD)();
+	const { bCloseOnOK = true, children, ...i } = e;
+	const [s, o, c] = uD();
 	return [
-		n.createElement(
-			Q,
-			{
-				active: s,
-				bCloseOnOK: t,
-				closeModal: c,
-				...i,
-			},
-			r,
-		),
+		<Q active={s} bCloseOnOK={bCloseOnOK} closeModal={c} {...i}>
+			{children}
+		</Q>,
 		o,
 		c,
 	];

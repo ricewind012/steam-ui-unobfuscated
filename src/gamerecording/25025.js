@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ClipDetails: "_1fyr-hKRG1lR-7oPJ_rqmG",
 	VideoContainer: "_1Ml8-TqxakKRFRAYwvdq4Y",
 	ClipPreview: "_3vpFgujAo8vFRf6bAtHCEO",

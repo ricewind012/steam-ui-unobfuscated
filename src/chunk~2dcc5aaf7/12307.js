@@ -1,33 +1,35 @@
-var n = require("./43520.js");
-var i = require("./53622.js");
-var a = require("./5640.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require("./35488.js");
-var c = require(/*webcrack:missing*/ "./49519.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require("./21105.js");
-var d = require(/*webcrack:missing*/ "./61657.js");
-var A = require(/*webcrack:missing*/ "./4690.js");
-var p = require(/*webcrack:missing*/ "./71255.js");
-var g = require(/*webcrack:missing*/ "./15181.js");
-var h = require(/*webcrack:missing*/ "./10975.js");
-var C = require("./94361.js");
-var _ = require("./43014.js");
-var f = require("./22004.js");
-var b = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var S = require(/*webcrack:missing*/ "./52451.js");
-var w = require("./62645.js");
+import n from "./43520.js";
+import i from "./53622.js";
+import a from "./5640.js";
+import s, { PA } from "./41230.js";
+import o from "./63696.js";
+import l from "./35488.js";
+import c, { W5, W6, B6 } from "./49519.js";
+import m from "./69164.js";
+import u from "./21105.js";
+import d from "./61657.js";
+import A from "./4690.js";
+import p, { Pl } from "./71255.js";
+import g from "./15181.js";
+import h from "./10975.js";
+import C from "./94361.js";
+import _ from "./43014.js";
+import f, { K$, Qh } from "./22004.js";
+import { A as A_1 } from "./90765.js";
+import { Pt, Ue } from "./52451.js";
+import w from "./62645.js";
+import { rP } from "./72476.js";
+import I, { K9 } from "./33000.js";
+import E, { Mi } from "./31800.js";
+import M, { X2 } from "./31319.js";
+import T, { we } from "./33572.js";
 var B = w;
-var v = require(/*webcrack:missing*/ "./72476.js");
-var I = require("./33000.js");
-var E = require("./31800.js");
-var M = require("./31319.js");
-var T = require("./33572.js");
-export const xC = (0, s.PA)(function (e) {
-	const { tabs: t, ...r } = e;
-	const n = t.filter((e) => !e?.feature || !a.jR.BIsFeatureBlocked(e.feature));
+export const xC = PA(function (e) {
+	const { tabs, ...r } = e;
+	const n = tabs.filter((e) => {
+		return !e?.feature || !a.jR.BIsFeatureBlocked(e.feature);
+	});
 	return o.createElement(k, {
 		tabs: n,
 		...r,
@@ -35,28 +37,30 @@ export const xC = (0, s.PA)(function (e) {
 });
 function k(e) {
 	const {
-		activeTab: t,
-		autoFocusContents: r,
-		cancelSkipTabHeader: n,
-		tabs: i,
-		onShowTab: a,
-		onCancelFromTabHeader: s,
-		onFocusWithin: c,
-		canBeHeaderBackground: u,
-		wrapAround: d,
-		bPinnedInOverlayView: A,
-		eSortBy: p,
-		showSortingContextMenu: g,
-		showFilterDialogForCollection: h,
+		activeTab,
+		autoFocusContents,
+		cancelSkipTabHeader,
+		tabs,
+		onShowTab,
+		onCancelFromTabHeader,
+		onFocusWithin,
+		canBeHeaderBackground,
+		wrapAround,
+		bPinnedInOverlayView,
+		eSortBy,
+		showSortingContextMenu,
+		showFilterDialogForCollection,
 	} = e;
-	let C = t;
-	let _ = i.find((e) => e.id == C);
+	let C = activeTab;
+	let _ = tabs.find((e) => {
+		return e.id == C;
+	});
 	if (!_) {
-		_ = i[0];
+		_ = tabs[0];
 		C = _?.id;
 	}
 	let [y, w] = o.useState(false);
-	let { navRefContent: R, navRefContainer: k } = (function (e) {
+	let { navRefContent, navRefContainer } = (function (e) {
 		const t = o.useRef(undefined);
 		const r = o.useRef(undefined);
 		const n = o.useRef(e);
@@ -67,14 +71,14 @@ function k(e) {
 			r.current = e;
 		}, []);
 		o.useEffect(() => {
-			const e = r.current;
-			if (e) {
+			const r_current = r.current;
+			if (r_current) {
 				a.current = t.current.BFocusWithin();
-				return e
+				return r_current
 					.Node()
 					.Tree.WindowContext.FocusChangedCallbacks.Register((r, s, o) => {
 						if (i.current == n.current) {
-							e.SaveState(n.current);
+							r_current.SaveState(n.current);
 							a.current = t.current?.BFocusWithin();
 						}
 					}).Unregister;
@@ -95,7 +99,9 @@ function k(e) {
 					i.current = e;
 				}
 			}, 10);
-			return () => window.clearTimeout(n);
+			return () => {
+				return window.clearTimeout(n);
+			};
 		}, [e, i]);
 		return {
 			navRefContent: s,
@@ -104,19 +110,19 @@ function k(e) {
 	})(C);
 	const D = o.useRef(undefined);
 	let [N, G] = o.useState(false);
-	const O = d ?? true;
-	const z = P(i, t, O, a);
+	const O = wrapAround ?? true;
+	const z = P(tabs, activeTab, O, onShowTab);
 	let x = o.useCallback(() => {
 		D?.current.TakeFocus();
 	}, [D]);
 	let U = o.useCallback(
 		(e) => {
 			w(e);
-			if (c) {
-				c(e);
+			if (onFocusWithin) {
+				onFocusWithin(e);
 			}
 		},
-		[c],
+		[onFocusWithin],
 	);
 	const W = (function (e, t, r) {
 		const n = o.useRef(undefined);
@@ -138,7 +144,7 @@ function k(e) {
 		}, []);
 		const l = (function () {
 			const e = o.useRef(false);
-			const t = (0, T.we)();
+			const t = we();
 			const r = o.useRef(undefined);
 			r.current = t;
 			const n = o.useCallback(() => {
@@ -163,10 +169,14 @@ function k(e) {
 				},
 				[n, i],
 			);
-			o.useEffect(() => () => i(), [i]);
+			o.useEffect(() => {
+				return () => {
+					return i();
+				};
+			}, [i]);
 			return a;
 		})();
-		const c = (0, M.X2)();
+		const c = X2();
 		const m = o.useCallback(
 			(t) => {
 				let o = false;
@@ -188,13 +198,15 @@ function k(e) {
 			},
 			[e, c, s, l, r],
 		);
-		o.useEffect(() => m(), [m]);
+		o.useEffect(() => {
+			return m();
+		}, [m]);
 		const u = o.useCallback(() => {
 			m(true);
 		}, [m]);
-		const d = (0, S.Pt)(u);
+		const d = Pt(u);
 		o.useLayoutEffect(s);
-		(0, E.Mi)(1, "useGamepadTabbedPageBecomesHeaderBackground");
+		Mi(1, "useGamepadTabbedPageBecomesHeaderBackground");
 		const A = o.useCallback(
 			(e) => {
 				a.current = e;
@@ -202,20 +214,25 @@ function k(e) {
 			},
 			[m],
 		);
-		return (0, S.Ue)(A, d);
-	})(u, e.onIsHeaderBackgroundChange, N);
-	const V = (0, v.rP)().IN_VR && (g || h);
-	const H = (0, I.K9)(V ? p : undefined);
+		return Ue(A, d);
+	})(canBeHeaderBackground, e.onIsHeaderBackgroundChange, N);
+	const V =
+		rP().IN_VR && (showSortingContextMenu || showFilterDialogForCollection);
+	const H = K9(V ? eSortBy : undefined);
 	const j = (function (e, t) {
 		let r = o.useRef("");
 		let n = o.useRef(f.fz.None);
 		if (r.current == t) {
 			return n.current;
 		}
-		let i = e.findIndex((e) => e.id == t);
+		let i = e.findIndex((e) => {
+			return e.id == t;
+		});
 		let a = i;
 		if (r.current.length > 0) {
-			a = e.findIndex((e) => r.current == e.id);
+			a = e.findIndex((e) => {
+				return r.current == e.id;
+			});
 		}
 		let s = f.fz.None;
 		if (a < i) {
@@ -226,25 +243,21 @@ function k(e) {
 		r.current = t;
 		n.current = s;
 		return s;
-	})(i, _.id);
-	const q = (0, f.K$)(B, j);
-	const Q = (0, b.A)(
-		B.TabHeaderRowWrapper,
-		!y && B.Pinned,
-		N && B.ScrolledDown,
-	);
+	})(tabs, _.id);
+	const q = K$(B, j);
+	const Q = A_1(B.TabHeaderRowWrapper, !y && B.Pinned, N && B.ScrolledDown);
 	return o.createElement(
 		m.Z,
 		{
-			navRef: k,
+			navRef: navRefContainer,
 			ref: W,
-			className: (0, b.A)(
+			className: A_1(
 				B.GamepadTabbedPage,
-				A && B.OverlayPinnedView,
-				u && B.CanBeHeaderBackground,
+				bPinnedInOverlayView && B.OverlayPinnedView,
+				canBeHeaderBackground && B.CanBeHeaderBackground,
 			),
 			onFocusWithin: U,
-			onCancelButton: s && s,
+			onCancelButton: onCancelFromTabHeader && onCancelFromTabHeader,
 		},
 		o.createElement(
 			"div",
@@ -252,9 +265,9 @@ function k(e) {
 				className: Q,
 			},
 			o.createElement(JZ, {
-				tabs: i,
+				tabs: tabs,
 				activeTab: _.id,
-				onShowTab: a,
+				onShowTab: onShowTab,
 				navRef: D,
 				showGlyphs: y,
 				wrapAround: O,
@@ -264,16 +277,16 @@ function k(e) {
 			m.Z,
 			{
 				onButtonDown: z,
-				navRef: R,
-				className: (0, b.A)(B.TabContents, N && B.Floating),
-				autoFocus: r,
-				onCancelButton: !n && x,
+				navRef: navRefContent,
+				className: A_1(B.TabContents, N && B.Floating),
+				autoFocus: autoFocusContents,
+				onCancelButton: !cancelSkipTabHeader && x,
 			},
 			o.createElement(
 				f.FF,
 				{
 					childrenKey: _.id,
-					childrenClasses: (0, f.Qh)(B, B.ContentTransition),
+					childrenClasses: Qh(B, B.ContentTransition),
 					directionClass: q,
 				},
 				o.createElement(F, {
@@ -287,23 +300,23 @@ function k(e) {
 					{
 						className: B.SortAndFilterContainer,
 					},
-					g &&
+					showSortingContextMenu &&
 						o.createElement(
 							m.Z,
 							{
 								className: B.SortAndFilterButton,
-								onClick: g,
+								onClick: showSortingContextMenu,
 								focusable: false,
 							},
 							o.createElement(l.SortByGeneric, null),
 							H,
 						),
-					h &&
+					showFilterDialogForCollection &&
 						o.createElement(
 							m.Z,
 							{
 								className: B.SortAndFilterButton,
-								onClick: h,
+								onClick: showFilterDialogForCollection,
 								focusable: false,
 							},
 							o.createElement(l.Filter, null),
@@ -313,12 +326,14 @@ function k(e) {
 		),
 	);
 }
-export const Q7 = o.createContext(null);
+export const Q7Context = o.createContext(null);
 const N = o.createContext(null);
 function F(e) {
-	let { page: t, scrolledDown: r } = e;
+	let { page, scrolledDown } = e;
 	let [i, a] = o.useState(null);
-	let s = o.useCallback((e) => a(e), []);
+	let s = o.useCallback((e) => {
+		return a(e);
+	}, []);
 	let l = (function (e) {
 		let t = o.useCallback(
 			(t) => {
@@ -328,7 +343,7 @@ function F(e) {
 			[e],
 		);
 		return t;
-	})(r);
+	})(scrolledDown);
 	let c = (function (e) {
 		let t = o.useCallback(
 			(t) => {
@@ -353,12 +368,12 @@ function F(e) {
 		o.createElement(
 			u.i6,
 			{
-				name: `ScrollingTab${t.id}`,
+				name: `ScrollingTab${page.id}`,
 				scrollDirection: "y",
 				ref: s,
 				msScrollRestoreDelay: 1,
-				className: (0, b.A)(B.TabContentsScroll, "_TabContentsScroll"),
-				style: t.scrollStyle,
+				className: A_1(B.TabContentsScroll, "_TabContentsScroll"),
+				style: page.scrollStyle,
 				onMoveUp: c,
 				onScroll: l,
 			},
@@ -369,48 +384,49 @@ function F(e) {
 						horizontal: parseInt(B.contentPadding),
 					},
 				},
-				t && t.content,
+				page && page.content,
 			),
 		),
 	);
 }
 function G(e) {
-	const { elScroll: t, children: r } = e;
+	const { elScroll, children } = e;
 	const [n, i] = o.useState(undefined);
 	const [a, s] = o.useState(undefined);
-	const l = o.useMemo(
-		() => ({
+	const l = o.useMemo(() => {
+		return {
 			paddingRight: n,
 			paddingLeft: a,
-		}),
-		[n, a],
-	);
+		};
+	}, [n, a]);
 	o.useLayoutEffect(() => {
-		if (t) {
-			const e = window.getComputedStyle(t);
+		if (elScroll) {
+			const e = window.getComputedStyle(elScroll);
 			i(e?.paddingRight);
 			s(e?.paddingLeft);
 		} else {
 			i(undefined);
 			s(undefined);
 		}
-	}, [t]);
+	}, [elScroll]);
 	return o.createElement(
-		Q7.Provider,
+		Q7Context.Provider,
 		{
-			value: t,
+			value: elScroll,
 		},
 		o.createElement(
 			N.Provider,
 			{
 				value: l,
 			},
-			r,
+			children,
 		),
 	);
 }
 function O(e, t, r, n, i, a) {
-	const s = t.findIndex((e) => e.id == r);
+	const s = t.findIndex((e) => {
+		return e.id == r;
+	});
 	const o = n ? (s + e + t.length) % t.length : s + e;
 	if (o >= 0 && o < t.length) {
 		i(t[o].id);
@@ -425,11 +441,13 @@ function P(e, t, r, n) {
 	return o.useCallback(
 		(i) => {
 			switch (i.detail.button) {
-				case d.pR.BUMPER_LEFT:
+				case d.pR.BUMPER_LEFT: {
 					O(-1, e, t, r, n, i);
 					break;
-				case d.pR.BUMPER_RIGHT:
+				}
+				case d.pR.BUMPER_RIGHT: {
 					O(1, e, t, r, n, i);
+				}
 			}
 		},
 		[e, t, r, n],
@@ -437,41 +455,41 @@ function P(e, t, r, n) {
 }
 export function JZ(e) {
 	const {
-		navRef: t,
-		activeTab: r,
-		tabs: n,
-		onShowTab: i,
-		showGlyphs: a,
-		bleedGlyphs: s,
-		wrapAround: l,
-		className: c,
+		navRef,
+		activeTab,
+		tabs,
+		onShowTab,
+		showGlyphs,
+		bleedGlyphs,
+		wrapAround,
+		className,
 	} = e;
 	const [m, d] = o.useState(false);
-	const h = (0, v.rP)();
+	const h = rP();
 	const C = !h.IN_VR;
-	const f = h.IN_VR;
+	const h_IN_VR = h.IN_VR;
 	let y = false;
-	if (h.IN_GAMEPADUI && n.length > 1) {
-		y = !!h.IN_VR || m || a;
+	if (h.IN_GAMEPADUI && tabs.length > 1) {
+		y = !!h.IN_VR || m || m || showGlyphs;
 	}
 	const w = o.useRef(undefined);
 	const I = o.useRef(undefined);
-	const E = n.map((e) =>
-		o.createElement(U, {
+	const E = tabs.map((e) => {
+		return o.createElement(U, {
 			key: e.id,
 			tab: e,
-			active: e.id == r,
-			ref: e.id == r ? w : null,
-			onShowTab: i,
-		}),
-	);
+			active: e.id == activeTab,
+			ref: e.id == activeTab ? w : null,
+			onShowTab: onShowTab,
+		});
+	});
 	const M = o.useRef(true);
 	o.useEffect(() => {
-		(0, p.Pl)(w.current, w.current, M.current ? "auto" : "smooth", "x");
+		Pl(w.current, w.current, M.current ? "auto" : "smooth", "x");
 		M.current = false;
-	}, [w, I, r]);
-	const T = l ?? true;
-	const { fnSwitchLeft: R, fnSwitchRight: k } = (function (e, t, r, n) {
+	}, [w, I, activeTab]);
+	const T = wrapAround ?? true;
+	const { fnSwitchLeft, fnSwitchRight } = (function (e, t, r, n) {
 		return {
 			fnSwitchLeft: o.useCallback(
 				(i) => {
@@ -486,33 +504,33 @@ export function JZ(e) {
 				[e, t, r, n],
 			),
 		};
-	})(n, r, T, i);
-	const D = P(n, r, T, i);
-	const N = o.useRef(r);
+	})(tabs, activeTab, T, onShowTab);
+	const D = P(tabs, activeTab, T, onShowTab);
+	const N = o.useRef(activeTab);
 	o.useEffect(() => {
-		if (N.current != r) {
+		if (N.current != activeTab) {
 			if (m) {
 				I.current?.TakeFocus();
 			}
-			N.current = r;
+			N.current = activeTab;
 		}
-	}, [m, I, r]);
-	const F = (0, S.Ue)(I, t);
+	}, [m, I, activeTab]);
+	const F = Ue(I, navRef);
 	const G = T ? g.C3 : {};
 	return o.createElement(
 		"div",
 		{
-			className: (0, b.A)(B.TabRow, c, s && B.BleedGlyphs),
+			className: A_1(B.TabRow, className, bleedGlyphs && B.BleedGlyphs),
 		},
 		C &&
 			o.createElement(z, {
 				button: _.g4.LeftBumper,
 				visible: y,
 			}),
-		f &&
+		h_IN_VR &&
 			o.createElement(x, {
 				direction: "left",
-				onClick: R,
+				onClick: fnSwitchLeft,
 			}),
 		o.createElement(
 			"div",
@@ -547,15 +565,15 @@ export function JZ(e) {
 				button: _.g4.RightBumper,
 				visible: y,
 			}),
-		f &&
+		h_IN_VR &&
 			o.createElement(x, {
 				direction: "right",
-				onClick: k,
+				onClick: fnSwitchRight,
 			}),
 	);
 }
 function z(e) {
-	const t = (0, b.A)(B.Glyphs, e.visible && B.Show);
+	const t = A_1(B.Glyphs, e.visible && B.Show);
 	return o.createElement(
 		"div",
 		{
@@ -570,8 +588,10 @@ function x(e) {
 	return o.createElement(
 		m.Z,
 		{
-			className: (0, b.A)(B.Arrows),
-			onClick: (t) => e.onClick(t.nativeEvent),
+			className: A_1(B.Arrows),
+			onClick: (t) => {
+				return e.onClick(t.nativeEvent);
+			},
 			focusable: false,
 		},
 		o.createElement(l.Chevron, {
@@ -589,24 +609,24 @@ const U = o.forwardRef(function (e, t) {
 			renderTabAddon: s,
 			tabAddonPosition: l = "right",
 		},
-		active: c,
-		onShowTab: u,
+		active,
+		onShowTab,
 	} = e;
 	let d = () => {
-		if (!c) {
+		if (!active) {
 			h.eZ.PlayNavSound(h.PN.ChangeTabs);
 			e.onShowTab(r);
 		}
 	};
 	const A = s
 		? s({
-				active: c,
+				active: active,
 			})
 		: null;
 	const p = l === "right";
-	let g = (0, b.A)(
+	let g = A_1(
 		B.Tab,
-		c && B.Selected,
+		active && B.Selected,
 		A && B.HasAddon,
 		p ? B.RightAddon : B.LeftAddon,
 	);
@@ -618,7 +638,7 @@ const U = o.forwardRef(function (e, t) {
 			onActivate: d,
 			onFocus: d,
 			noFocusRing: true,
-			preferredFocus: c,
+			preferredFocus: active,
 			...a,
 		},
 		i &&
@@ -655,58 +675,58 @@ function V() {
 	});
 }
 export function Lv(e) {
-	const { children: t, style: r = {}, ...n } = e;
+	const { children, style = {}, ...n } = e;
 	const i = o.useContext(N);
 	if (i && i.paddingRight && i.paddingLeft) {
-		const { paddingRight: e, paddingLeft: t } = i;
-		r.marginLeft = "-" + t;
-		r.marginRight = "-" + e;
+		const { paddingRight, paddingLeft } = i;
+		style.marginLeft = "-" + paddingLeft;
+		style.marginRight = "-" + paddingRight;
 	}
 	return o.createElement(
 		"div",
 		{
-			style: r,
+			style: style,
 			...n,
 		},
-		t,
+		children,
 	);
 }
 export function ch(e, t = {}) {
-	const { strTabParam: r = "id", context: n } = t;
-	const i = (0, c.W5)(e());
-	const a = (0, c.W6)();
+	const { strTabParam = "id", context } = t;
+	const i = W5(e());
+	const a = W6();
 	return {
 		strActiveTab: i && i.params[r],
 		onShowTab: o.useCallback(
 			(t) => {
-				const i = e(t, n);
+				const i = e(t, context);
 				a.replace(i, a.location.state);
-				const s = (0, c.B6)(i, {
+				const s = B6(i, {
 					path: e(),
 				});
 				if (s) {
-					const e = s.path.replace(`:${r}`, t);
+					const e = s.path.replace(`:${strTabParam}`, t);
 					C.y.ReportRouteMatch(e);
 				}
 			},
-			[a, e, r, n],
+			[a, e, strTabParam, context],
 		),
 	};
 }
 Lv.Unbleed = function (e) {
-	const { children: t, style: r = {}, ...n } = e;
+	const { children, style = {}, ...n } = e;
 	const i = o.useContext(N);
 	if (i && i.paddingRight && i.paddingLeft) {
-		const { paddingRight: e, paddingLeft: t } = i;
-		r.paddingLeft = t;
-		r.paddingRight = e;
+		const { paddingRight, paddingLeft } = i;
+		style.paddingLeft = paddingLeft;
+		style.paddingRight = paddingRight;
 	}
 	return o.createElement(
 		"div",
 		{
-			style: r,
+			style: style,
 			...n,
 		},
-		t,
+		children,
 	);
 };

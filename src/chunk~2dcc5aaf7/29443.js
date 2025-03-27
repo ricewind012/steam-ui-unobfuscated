@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	TimelineContextMenuItem: "_1_VGcqhwscnT-kPnPb2c22",
 	MenuItem: "_1wPm9-zsQlqLzb92eR77lC",
 	AddUserMarker: "_3VSFddY_9-Sh1I3ByUwmD4",

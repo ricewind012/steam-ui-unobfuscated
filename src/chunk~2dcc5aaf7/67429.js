@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./37976.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require("./92031.js");
-var s = require(/*webcrack:missing*/ "./49455.js");
+import n from "./37976.js";
+import i from "./44846.js";
+import a from "./92031.js";
+import { w } from "./49455.js";
 export class VS {
 	m_ulGameID;
 	constructor(e, t, r) {
@@ -46,17 +46,22 @@ export class VS {
 	}
 	BIsValid() {
 		switch (this.GetType()) {
-			case i.Rh.k_EGameIDTypeApp:
+			case i.Rh.k_EGameIDTypeApp: {
 				return this.GetAppID() !== a.sc;
-			case i.Rh.k_EGameIDTypeGameMod:
+			}
+			case i.Rh.k_EGameIDTypeGameMod: {
 				return this.GetAppID() !== a.sc && this.GetModID() & 2147483648;
-			case i.Rh.k_EGameIDTypeShortcut:
+			}
+			case i.Rh.k_EGameIDTypeShortcut: {
 				return (this.GetModID() & 2147483648) != 0;
-			case i.Rh.k_EGameIDTypeP2P:
+			}
+			case i.Rh.k_EGameIDTypeP2P: {
 				return this.GetAppID() === a.sc && this.GetModID() & 2147483648;
-			default:
-				(0, s.w)(false, `Unknown GameID type: ${this.GetType()}`);
+			}
+			default: {
+				w(false, `Unknown GameID type: ${this.GetType()}`);
 				return false;
+			}
 		}
 	}
 	static InitFromAppID(e) {

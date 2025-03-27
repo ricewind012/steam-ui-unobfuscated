@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./36383.js");
-var s = require(/*webcrack:missing*/ "./12176.js");
-var o = require(/*webcrack:missing*/ "./8573.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require("./95773.js");
-var m = require("./24761.js");
 import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./36383.js";
+import s from "./12176.js";
+import o from "./8573.js";
+import l from "./44846.js";
+import c from "./95773.js";
+import m from "./24761.js";
 class d extends m.w {
 	constructor(e) {
 		super(e);
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	BIsExpired() {
 		return c.xm.GetServerRTime32() >= this.m_rtTimeExpires;
@@ -42,7 +42,7 @@ class d extends m.w {
 		this.m_bReady = true;
 	}
 }
-(0, n.Cg)([i.XI], d.prototype, "InitFromInviteLinkInfo", null);
+Cg([i.XI], d.prototype, "InitFromInviteLinkInfo", null);
 export class oX {
 	m_ChatStore;
 	m_mapInviteByCode = new Map();

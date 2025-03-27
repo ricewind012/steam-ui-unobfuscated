@@ -1,8 +1,8 @@
-var r = require("./61657.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var s = require("./20893.js");
-var o = require("./54102.js");
-var a = require("./4690.js");
+import r from "./61657.js";
+import s from "./20893.js";
+import o, { Ze, LU } from "./54102.js";
+import a from "./4690.js";
 export class kI {
 	m_node;
 	m_History;
@@ -48,10 +48,10 @@ export class kI {
 		return !!this.m_StateHistory && this.m_StateHistory.RestoreState(e, t);
 	}
 	GetFocusSnapshot() {
-		return (0, o.Ze)(this.m_node);
+		return Ze(this.m_node);
 	}
 	RestoreFocusSnapshot(e, t = 0) {
-		return (0, o.LU)(this.m_node, e, t);
+		return LU(this.m_node, e, t);
 	}
 	NavTree() {
 		return this.m_node.Tree;
@@ -87,8 +87,8 @@ export function ix(e, t, n) {
 	}
 }
 export function _V(e, t, n) {
-	const r = t[e];
-	const i = (function (e, t) {
+	const t_e = t[e];
+	const i = ((e, t) => {
 		if (e == "x") {
 			return {
 				min: t.x,
@@ -101,10 +101,10 @@ export function _V(e, t, n) {
 			};
 		}
 	})(e, n);
-	if (r < i.min) {
-		return i.min - r;
-	} else if (r > i.max) {
-		return r - i.max;
+	if (t_e < i.min) {
+		return i.min - t_e;
+	} else if (t_e > i.max) {
+		return t_e - i.max;
 	} else {
 		return 0;
 	}
@@ -129,18 +129,22 @@ export function ko(e) {
 	const n = t.getComputedStyle(e);
 	if (n.display == "flex") {
 		switch (n.flexDirection) {
-			case "row":
+			case "row": {
 				if (n.flexWrap == "wrap") {
 					return a.xj.GRID;
 				} else {
 					return a.xj.ROW;
 				}
-			case "row-reverse":
+			}
+			case "row-reverse": {
 				return a.xj.ROW_REVERSE;
-			case "column":
+			}
+			case "column": {
 				return a.xj.COLUMN;
-			case "column-reverse":
+			}
+			case "column-reverse": {
 				return a.xj.COLUMN_REVERSE;
+			}
 		}
 	} else {
 		if (n.display == "grid") {
@@ -164,12 +168,15 @@ export function ko(e) {
 export function G4(e) {
 	switch (e) {
 		case r.pR.DIR_UP:
-		case r.pR.DIR_DOWN:
+		case r.pR.DIR_DOWN: {
 			return "y";
+		}
 		case r.pR.DIR_LEFT:
-		case r.pR.DIR_RIGHT:
+		case r.pR.DIR_RIGHT: {
 			return "x";
-		default:
+		}
+		default: {
 			return;
+		}
 	}
 }

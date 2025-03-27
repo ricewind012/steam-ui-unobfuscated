@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	DurationControlInit: "_3ulv46oASrWhwbfPdZ_CMN",
 	DurationControlStartupContents: "_3rpIP9q79mL4BvKXCv0hYp",

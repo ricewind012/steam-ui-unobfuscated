@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./74110.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, sH } from "./89193.js";
+import a from "./12176.js";
+import s from "./74110.js";
 class o {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_mapRecommendationDetailsByApp = new Map();
@@ -36,7 +36,7 @@ class o {
 		let n = null;
 		let a = r.ConvertTo64BitString();
 		if (!this.m_mapRecommendationDetailsByApp.has(e)) {
-			let t = (0, i.sH)(new Map(), {
+			let t = sH(new Map(), {
 				deep: false,
 			});
 			this.m_mapRecommendationDetailsByApp.set(e, t);
@@ -61,11 +61,6 @@ class o {
 		return this.m_mapRecommendationDetailsByApp.get(e)?.get(r);
 	}
 }
-(0, n.Cg)(
-	[i.sH.shallow],
-	o.prototype,
-	"m_mapRecommendationDetailsByApp",
-	undefined,
-);
+Cg([i.sH.shallow], o.prototype, "m_mapRecommendationDetailsByApp", undefined);
 export const x = new o();
 window.appReviewStore = x;

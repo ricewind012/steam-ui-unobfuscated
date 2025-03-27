@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./72476.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
+import n, { Cg } from "./34629.js";
+import i from "./72476.js";
+import a, { Gn } from "./89193.js";
 const s = 604800;
 export class p {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_bEmoticonListRequested = false;
 	m_bInitialized = false;
@@ -21,16 +21,16 @@ export class p {
 	m_stickerTrackerCallback = null;
 	static GetEmoticonURL(e, t) {
 		if (t) {
-			return i.TS.COMMUNITY_CDN_URL + "economy/emoticonlarge/" + e;
+			return `${i.TS.COMMUNITY_CDN_URL}economy/emoticonlarge/${e}`;
 		} else {
-			return i.TS.COMMUNITY_CDN_URL + "economy/emoticon/" + e;
+			return `${i.TS.COMMUNITY_CDN_URL}economy/emoticon/${e}`;
 		}
 	}
 	static GetEmoticonReplaceRegex() {
 		return p.sm_EmoticonRegex;
 	}
 	static BEmoticonFilterMatch(e, t) {
-		return `:${e.name_normalized || e.name}:`.indexOf(t.toLowerCase()) !== -1;
+		return `:${e.name_normalized || e.name}:`.includes(t.toLowerCase());
 	}
 	static FilterEmoticons(e, t) {
 		if (t && t !== ":") {
@@ -40,7 +40,7 @@ export class p {
 		}
 	}
 	static BStickerFilterMatch(e, t) {
-		return e.name.toLowerCase().indexOf(t.toLowerCase()) > -1;
+		return e.name.toLowerCase().includes(t.toLowerCase());
 	}
 	static FilterStickers(e, t) {
 		if (t) {
@@ -56,9 +56,9 @@ export class p {
 		this.UpdateEmoticonList();
 		e = e.toLocaleLowerCase();
 		let i = this.recent_emoticons.filter((t) => !e || n(t).startsWith(e));
-		let a = this.recent_emoticons.filter((t) => !r && n(t).indexOf(e) !== -1);
+		let a = this.recent_emoticons.filter((t) => !r && n(t).includes(e));
 		let s = this.m_rgEmoticons.filter((t) => !e || n(t).startsWith(e));
-		let o = this.m_rgEmoticons.filter((t) => !r && n(t).indexOf(e) !== -1);
+		let o = this.m_rgEmoticons.filter((t) => !r && n(t).includes(e));
 		let l = new Set();
 		let c = [];
 		function m(e, r, i) {
@@ -203,7 +203,7 @@ export class p {
 		if (this.m_stickerTrackerCallback) {
 			this.m_stickerTrackerCallback(e, t);
 		}
-		const r = this.m_rgStickers.find(({ name: t }) => t === e);
+		const r = this.m_rgStickers.find(({ name }) => name === e);
 		r.last_used = t;
 		r.use_count += 1;
 		delete r.time_received;
@@ -224,7 +224,8 @@ export class p {
 	BuildRecentList(e) {
 		const t = this.GetServerTime() - s;
 		const r = e.filter(
-			({ last_used: e, time_received: r }) => e || (r && r > t),
+			({ last_used, time_received }) =>
+				last_used || (time_received && time_received > t),
 		);
 		r.sort(
 			(e, t) =>
@@ -239,11 +240,11 @@ export class p {
 		this.m_rtMostRecentEmoticon = undefined;
 		let t = this.GetServerTime() - s;
 		for (let r of e) {
-			let e = r.name;
-			if (e.startsWith("^")) {
+			let r_name = r.name;
+			if (r_name.startsWith("^")) {
 				this.m_rgFlairs.push({
-					name: e.match(new RegExp(/:(.*):/))[1],
-					flairGroupID: e.match(new RegExp(/\^(.*)\^/))[1],
+					name: r_name.match(new RegExp(/:(.*):/))[1],
+					flairGroupID: r_name.match(new RegExp(/\^(.*)\^/))[1],
 				});
 			} else {
 				if (!r.last_used && r.time_received > t) {
@@ -263,7 +264,7 @@ export class p {
 		this.m_bEmoticonListRequested = false;
 	}
 }
-(0, n.Cg)([a.sH], p.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_rtMostRecentEmoticon", undefined);
-(0, n.Cg)([a.sH], p.prototype, "m_rtLastStickerOrEffect", undefined);
-(0, n.Cg)([a.XI], p.prototype, "TrackEmoticonUsage", null);
+Cg([a.sH], p.prototype, "m_bInitialized", undefined);
+Cg([a.sH], p.prototype, "m_rtMostRecentEmoticon", undefined);
+Cg([a.sH], p.prototype, "m_rtLastStickerOrEffect", undefined);
+Cg([a.XI], p.prototype, "TrackEmoticonUsage", null);

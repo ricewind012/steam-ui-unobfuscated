@@ -1,85 +1,119 @@
-export var g4;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./61657.js");
-var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
+import { Cg } from "./34629.js";
+import a from "./61657.js";
+import s from "./83599.js";
+import o from "./52451.js";
+export let g4;
 export function ck(e) {
 	switch (e) {
-		case g4.A:
+		case g4.A: {
 			return a.pR.OK;
-		case g4.B:
+		}
+		case g4.B: {
 			return a.pR.CANCEL;
-		case g4.X:
+		}
+		case g4.X: {
 			return a.pR.SECONDARY;
-		case g4.Y:
+		}
+		case g4.Y: {
 			return a.pR.OPTIONS;
-		case g4.Left:
+		}
+		case g4.Left: {
 			return a.pR.DIR_LEFT;
-		case g4.Right:
+		}
+		case g4.Right: {
 			return a.pR.DIR_RIGHT;
-		case g4.Up:
+		}
+		case g4.Up: {
 			return a.pR.DIR_UP;
-		case g4.Down:
+		}
+		case g4.Down: {
 			return a.pR.DIR_DOWN;
-		case g4.HomeMenu:
+		}
+		case g4.HomeMenu: {
 			return a.pR.STEAM_GUIDE;
-		case g4.QuickMenu:
+		}
+		case g4.QuickMenu: {
 			return a.pR.STEAM_QUICK_MENU;
-		case g4.Select:
+		}
+		case g4.Select: {
 			return a.pR.SELECT;
-		case g4.Start:
+		}
+		case g4.Start: {
 			return a.pR.START;
-		case g4.LeftBumper:
+		}
+		case g4.LeftBumper: {
 			return a.pR.BUMPER_LEFT;
-		case g4.RightBumper:
+		}
+		case g4.RightBumper: {
 			return a.pR.BUMPER_RIGHT;
-		case g4.LeftTrigger:
+		}
+		case g4.LeftTrigger: {
 			return a.pR.TRIGGER_LEFT;
-		case g4.RightTrigger:
+		}
+		case g4.RightTrigger: {
 			return a.pR.TRIGGER_RIGHT;
-		default:
+		}
+		default: {
 			return a.pR.INVALID;
+		}
 	}
 }
 export function sr(e) {
 	switch (e) {
-		case a.pR.OK:
+		case a.pR.OK: {
 			return g4.A;
-		case a.pR.CANCEL:
+		}
+		case a.pR.CANCEL: {
 			return g4.B;
-		case a.pR.SECONDARY:
+		}
+		case a.pR.SECONDARY: {
 			return g4.X;
-		case a.pR.OPTIONS:
+		}
+		case a.pR.OPTIONS: {
 			return g4.Y;
-		case a.pR.DIR_LEFT:
+		}
+		case a.pR.DIR_LEFT: {
 			return g4.Left;
-		case a.pR.DIR_RIGHT:
+		}
+		case a.pR.DIR_RIGHT: {
 			return g4.Right;
-		case a.pR.DIR_UP:
+		}
+		case a.pR.DIR_UP: {
 			return g4.Up;
-		case a.pR.DIR_DOWN:
+		}
+		case a.pR.DIR_DOWN: {
 			return g4.Down;
-		case a.pR.STEAM_GUIDE:
+		}
+		case a.pR.STEAM_GUIDE: {
 			return g4.HomeMenu;
-		case a.pR.STEAM_QUICK_MENU:
+		}
+		case a.pR.STEAM_QUICK_MENU: {
 			return g4.QuickMenu;
-		case a.pR.SELECT:
+		}
+		case a.pR.SELECT: {
 			return g4.Select;
-		case a.pR.START:
+		}
+		case a.pR.START: {
 			return g4.Start;
-		case a.pR.BUMPER_LEFT:
+		}
+		case a.pR.BUMPER_LEFT: {
 			return g4.LeftBumper;
-		case a.pR.BUMPER_RIGHT:
+		}
+		case a.pR.BUMPER_RIGHT: {
 			return g4.RightBumper;
-		case a.pR.TRIGGER_LEFT:
+		}
+		case a.pR.TRIGGER_LEFT: {
 			return g4.LeftTrigger;
-		case a.pR.TRIGGER_RIGHT:
+		}
+		case a.pR.TRIGGER_RIGHT: {
 			return g4.RightTrigger;
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.A = 0)] = "A";
 	e[(e.B = 1)] = "B";
 	e[(e.X = 2)] = "X";
@@ -243,5 +277,5 @@ export class Ww {
 		};
 	}
 }
-(0, i.Cg)([o.oI], Ww.prototype, "OnFocusNavigationChanged", null);
-(0, i.Cg)([o.oI], Ww.prototype, "SetActionDescriptionsFromMap", null);
+Cg([o.oI], Ww.prototype, "OnFocusNavigationChanged", null);
+Cg([o.oI], Ww.prototype, "SetActionDescriptionsFromMap", null);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ConfiguratorInterstitialContainer: "_3FS5uBh6SB9gq4vjbnKa4G",
 	modalAppear: "_399EabsI_mckaV3HMHEZGo",

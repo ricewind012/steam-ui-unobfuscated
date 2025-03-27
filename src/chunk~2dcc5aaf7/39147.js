@@ -1,27 +1,27 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./64608.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require("./96593.js");
-var l = require("./78057.js");
-var c = require("./97893.js");
-var m = require("./34792.js");
-var u = require("./5640.js");
-var d = require("./34428.js");
 import {
 	LocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var p = require(/*webcrack:missing*/ "./90765.js");
-var g = require("./35488.js");
-var h = require("./91486.js");
-var C = require(/*webcrack:missing*/ "./98995.js");
-var _ = require("./47060.js");
-var f = require("./92031.js");
-var b = require(/*webcrack:missing*/ "./72476.js");
-var y = require(/*webcrack:missing*/ "./93960.js");
-var S = require("./25527.js");
-var w = S;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./64608.js";
+import s from "./41230.js";
+import o, { Co } from "./96593.js";
+import l from "./78057.js";
+import c, { zM } from "./97893.js";
+import m from "./34792.js";
+import u, { oA } from "./5640.js";
+import d, { dm } from "./34428.js";
+import { A } from "./90765.js";
+import g from "./35488.js";
+import h from "./91486.js";
+import C from "./98995.js";
+import _ from "./47060.js";
+import f from "./92031.js";
+import b, { Qn } from "./72476.js";
+import y from "./93960.js";
+import S from "./25527.js";
+const w = S;
 const B = false;
 const v = (e) => {
 	const {
@@ -30,7 +30,7 @@ const v = (e) => {
 		network_bytes_per_second: n,
 		disc_bytes_per_second: a,
 	} = e.sample;
-	const s = (0, o.Co)(t);
+	const s = Co(t);
 	const l = new Date(r * 1000);
 	return i.createElement(
 		C.t1,
@@ -130,7 +130,7 @@ let I = class extends i.Component {
 								i.createElement("rect", {
 									x: B,
 									y: 100 - f,
-									className: (0, p.A)(
+									className: A(
 										w.GraphBar,
 										g ? w.GraphBarUpload : w.GraphBarDownload,
 									),
@@ -159,10 +159,10 @@ let I = class extends i.Component {
 				l = B;
 				if (y > 0) {
 					if (o) {
-						s += "M0,101L" + y + ",101";
+						s += `M0,101L${y},101`;
 						o = false;
 					}
-					s += "L" + y + "," + S;
+					s += `L${y},${S}`;
 				}
 				m = h;
 			}
@@ -206,7 +206,7 @@ let I = class extends i.Component {
 	}
 };
 export function mr(e) {
-	const t = (0, c.zM)();
+	const t = zM();
 	return i.createElement(
 		"div",
 		{
@@ -233,7 +233,7 @@ export function mr(e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, p.A)(w.Stat, w.CurrentNetworkUsage),
+						className: A(w.Stat, w.CurrentNetworkUsage),
 					},
 					i.createElement(
 						"div",
@@ -260,7 +260,7 @@ export function mr(e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, p.A)(w.Stat, w.CurrentNetworkUsage),
+						className: A(w.Stat, w.CurrentNetworkUsage),
 					},
 					i.createElement(
 						"div",
@@ -283,7 +283,7 @@ export function mr(e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, p.A)(w.Stat, w.DiskUsage),
+						className: A(w.Stat, w.DiskUsage),
 					},
 					i.createElement(
 						"div",
@@ -307,7 +307,7 @@ function M(e) {
 		i.createElement(
 			"div",
 			{
-				className: (0, p.A)(w.LegendBox, t),
+				className: A(w.LegendBox, t),
 			},
 			n,
 		),
@@ -322,14 +322,14 @@ function M(e) {
 }
 export function ZC(e) {
 	const [t] = m.rV.GetClientSetting("download_rate_bits_per_s");
-	return (0, d.dm)(e * (t ? 8 : 1), {
+	return dm(e * (t ? 8 : 1), {
 		nDigitsAfterDecimal: 1,
 		bUseBinary1K: false,
 		bValueIsInBytes: !t,
 		bValueIsRate: true,
 	});
 }
-I = (0, n.Cg)([s.PA], I);
+I = Cg([s.PA], I);
 let R = class extends i.Component {
 	m_hAppDetails = null;
 	constructor(e) {
@@ -373,7 +373,7 @@ let R = class extends i.Component {
 			return i.createElement(
 				"div",
 				{
-					className: (0, p.A)(w.HeroAndLogo, !s && w.NoHeroImage),
+					className: A(w.HeroAndLogo, !s && w.NoHeroImage),
 					...r,
 				},
 				i.createElement(
@@ -420,7 +420,7 @@ let R = class extends i.Component {
 						backgroundType: "transparent",
 						onError: this.OnLogoFailed,
 					}),
-				(this.state.bLogoFailed || !s || !(c.length > 0)) &&
+				(this.state.bLogoFailed || !s || !s || !(c.length > 0)) &&
 					i.createElement(
 						"div",
 						{
@@ -433,7 +433,7 @@ let R = class extends i.Component {
 		return i.createElement(
 			"div",
 			{
-				className: (0, p.A)(w.HeroAndLogo, w.Empty),
+				className: A(w.HeroAndLogo, w.Empty),
 			},
 			i.createElement("div", {
 				className: w.HeroGradient,
@@ -443,15 +443,15 @@ let R = class extends i.Component {
 };
 export function q(e) {
 	const { className: t } = e;
-	const r = (0, b.Qn)();
-	const n = (0, u.oA)();
+	const r = Qn();
+	const n = oA();
 	if (r) {
 		return null;
 	} else {
 		return i.createElement(
 			C.he,
 			{
-				className: (0, p.A)(w.SettingsButton, t),
+				className: A(w.SettingsButton, t),
 				toolTipContent: !n && (0, Localize)("#Downloads_OpenSettings_Tooltip"),
 			},
 			i.createElement(
@@ -475,12 +475,12 @@ export function b4(e) {
 		children: s,
 		...o
 	} = e;
-	const l = (0, c.zM)();
-	const m = n || l.update_appid || r;
+	const l = zM();
+	const m = n || l.update_appid || l.update_appid || r;
 	return i.createElement(
 		"div",
 		{
-			className: (0, p.A)(w.GraphAndStats, t),
+			className: A(w.GraphAndStats, t),
 			...o,
 		},
 		i.createElement(R, {
@@ -491,5 +491,5 @@ export function b4(e) {
 		s,
 	);
 }
-(0, n.Cg)([y.o], R.prototype, "OnLogoFailed", null);
-R = (0, n.Cg)([s.PA], R);
+Cg([y.o], R.prototype, "OnLogoFailed", null);
+R = Cg([s.PA], R);

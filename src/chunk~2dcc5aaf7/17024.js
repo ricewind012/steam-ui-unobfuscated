@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DurationControlDialogBackground: "_2iwqVpQXBItwCt8sApOlhe",
 	DurationControlDialog: "_3iEiQjj2barYc2JzKEFNoD",
 	TimerContainer: "_2j4TNEcMJPqdWqwXKDKtbw",

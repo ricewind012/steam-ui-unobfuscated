@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	DropDownLabelContainer: "uujQHHS-7y4IW6qfxHpe2",
 	DropDownLabelIconContainer: "_3H05CHzkfz75-vnlsMa-p5",

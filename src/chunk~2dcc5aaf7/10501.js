@@ -1,21 +1,67 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./85243.js");
-var a = require("./34792.js");
-var s = require("./46422.js");
-var o = require("./96680.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require("./18914.js");
-var m = require("./33572.js");
-var _u = require(/*webcrack:missing*/ "./78325.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require(/*webcrack:missing*/ "./43691.js");
-var g = require("./72636.js");
-var h = require("./60353.js");
-var C = require("./18057.js");
+import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n from "./63696.js";
+import i from "./85243.js";
+import a, { VI } from "./34792.js";
+import s from "./46422.js";
+import o, { $2 } from "./96680.js";
+import l from "./44846.js";
+import c from "./18914.js";
+import m from "./33572.js";
+import _u from "./78325.js";
+import A, { CI } from "./72476.js";
+import p from "./43691.js";
+import g from "./72636.js";
+import h, { _Y, nB, yu } from "./60353.js";
+import C, { CQ } from "./18057.js";
+import b from "./85175.js";
+import y from "./26326.js";
+import S, { yq, c4 } from "./11131.js";
+import _w from "./67808.js";
+import B from "./42318.js";
+import v from "./91435.js";
+import E from "./40361.js";
+import M from "./51582.js";
+import R, { fm } from "./89193.js";
+import D from "./75085.js";
+import N, { qw, Wx, gK } from "./89748.js";
+import { j as j_1 } from "./46085.js";
+import { q3 } from "./90095.js";
+import O, { h3, Cb } from "./63439.js";
+import { Z3 } from "./42898.js";
+import j from "./32661.js";
+import q, { T as T_1 } from "./78057.js";
+import { Co, mM } from "./96593.js";
+import Z from "./98659.js";
+import K, { PA } from "./41230.js";
+import { wI } from "./48289.js";
+import J from "./98995.js";
+import $ from "./75001.js";
+import { A as A_1 } from "./90765.js";
+import te from "./35488.js";
+import re from "./3475.js";
+import { rO } from "./88724.js";
+import { AH, Kw, jy } from "./5808.js";
+import se from "./64608.js";
+import { Bb, Np } from "./32700.js";
+import le from "./97893.js";
+import { ZC } from "./39147.js";
+import ge from "./32411.js";
+import fe from "./16251.js";
+import { oH } from "./38542.js";
+import ye from "./17016.js";
+import Se from "./22969.js";
+import we from "./45921.js";
+import Be from "./26893.js";
+import ve from "./16403.js";
+import Ie from "./10975.js";
+import Ee from "./80467.js";
+import Te from "./61657.js";
+import { E4 } from "./8326.js";
 function _(e) {
-	const { cm: t, instance: r } = e;
-	const { appid: a, strAppName: o } = r.params;
+	const { cm, instance } = e;
+	const { appid, strAppName } = instance.params;
 	let _ = i.W.EBrowserType_DirectHWND_Borderless;
 	let f = {
 		width: 1280,
@@ -23,7 +69,7 @@ function _(e) {
 		left: 0,
 		top: 0,
 	};
-	if (!p.TS.ON_DECK || !(0, A.CI)()) {
+	if (!p.TS.ON_DECK || !CI()) {
 		f.left = h.Mb;
 		f.top = h.Mb;
 		_ = i.W.EBrowserType_DirectHWND;
@@ -35,72 +81,55 @@ function _(e) {
 			s.oy.SetConfiguratorWidth(e.outerWidth);
 		},
 	};
-	const { popup: y, element: S } = (0, h._Y)(
+	const { popup, element } = _Y(
 		"SP Controller Configurator",
-		r,
+		instance,
 		h.Uv.GamepadUI,
 		{
-			title: Localize("#SP_WindowTitle_Configurator", o),
+			title: Localize("#SP_WindowTitle_Configurator", strAppName),
 			dimensions: f,
 			replace_existing_popup: false,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			browserType: _,
 			strUserAgent: e.instance.params.strUserAgentIdentifier,
 		},
 		b,
 	);
 	n.useEffect(() => {
-		y?.SteamClient.Window.SetMinSize(800, 650);
-	}, [y]);
+		popup?.SteamClient.Window.SetMinSize(800, 650);
+	}, [popup]);
 	const w = n.useMemo(
 		() =>
-			a == l.mZ
+			appid == l.mZ
 				? [
 						C.BV.GamepadUI.ControllerConfigurator.Standalone(),
 						s.oy.StandaloneConfiguratorURL,
 					]
 				: [
 						C.BV.GamepadUI.ControllerConfigurator.Standalone(),
-						C.BV.GamepadUI.ControllerConfigurator.Main(a),
+						C.BV.GamepadUI.ControllerConfigurator.Main(appid),
 					],
-		[a],
+		[appid],
 	);
-	if (S) {
+	if (element) {
 		return _u.createPortal(
-			n.createElement(
-				g.O,
-				{
-					ownerWindow: y,
-					instance: e.instance,
-				},
-				n.createElement(
-					C.NM,
-					{
-						initialEntries: w,
-						initialIndex: 1,
-					},
-					n.createElement(c.Is, {
-						cm: t,
-						mode: m._5.ControllerConfigurator,
-						forcedAppID: a,
-					}),
-				),
-			),
-			S,
+			<g.O ownerWindow={popup} instance={e.instance}>
+				<C.NM initialEntries={w} initialIndex={1}>
+					<c.Is
+						cm={cm}
+						mode={m._5.ControllerConfigurator}
+						forcedAppID={appid}
+					/>
+				</C.NM>
+			</g.O>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-var b = require("./85175.js");
-var y = require("./26326.js");
-var S = require(/*webcrack:missing*/ "./11131.js");
-var _w = require(/*webcrack:missing*/ "./67808.js");
-var B = require(/*webcrack:missing*/ "./42318.js");
-var v = require(/*webcrack:missing*/ "./91435.js");
 function I(e) {
-	const { cm: t, instance: r } = e;
+	const { cm, instance } = e;
 	i.W.EBrowserType_DirectHWND_Borderless;
 	let a = {
 		width: 705,
@@ -109,25 +138,25 @@ function I(e) {
 		top: h.Mb,
 	};
 	let l = Localize("#SignIn_Title");
-	let c = n.useRef(false);
+	let CRef = n.useRef(false);
 	const m = p.TS.SILENT_STARTUP;
 	const g = S.Wf.ApplyBrowserScaleToDimensions | (m ? S.Wf.Hidden : 0);
-	const { popup: C, element: _ } = (0, h._Y)(
+	const { popup, element } = _Y(
 		"SP DesktopLoginWindow",
-		r,
+		instance,
 		h.Uv.DesktopUI,
 		{
 			title: l,
 			dimensions: a,
 			replace_existing_popup: false,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			eCreationFlags: g,
 			strUserAgent: e.instance.params.strUserAgentIdentifier,
 		},
 		{
 			onClose: (e, t) => {
 				const r = !S.Of.BShuttingDown();
-				if (!c.current && r) {
+				if (!CRef.current && r) {
 					SteamClient.User?.StartShutdown(true);
 				}
 			},
@@ -137,106 +166,66 @@ function I(e) {
 		s.oy.MainInstanceUIMode != 4,
 		"DesktopUI windows should only ever be present when the main instance's UI mode is desktop",
 	);
-	if (_ && s.oy.MainInstanceUIMode != 4) {
+	if (element && s.oy.MainInstanceUIMode != 4) {
 		return _u.createPortal(
-			n.createElement(
-				A.ss,
-				{
-					IN_DESKTOPUI: true,
-					IN_GAMEPADUI: false,
-					IN_VR: false,
-				},
-				n.createElement(
-					_w.p,
-					{
-						body_class: h.a$,
-					},
-					n.createElement(
-						S.kc,
-						{
-							ownerWindow: C,
-						},
-						n.createElement(
-							o.ER,
-							{
-								instance: r,
-							},
-							n.createElement(
-								v.EO,
-								null,
-								n.createElement(
-									B.tH,
-									null,
-									n.createElement(
-										b.FQ,
-										{
-											webNavigationsUseSteamURL: true,
-										},
-										n.createElement(y.FullLogin, {
-											cm: t,
-											popup: C,
-											includeTitleBar: true,
-											bHiddenWindow: m,
-											onLoginComplete: () => {
-												c.current = true;
-											},
-										}),
-									),
-								),
-							),
-						),
-					),
-				),
-			),
-			_,
+			<A.ss IN_DESKTOPUI IN_GAMEPADUI={false} IN_VR={false}>
+				<_w.p body_class={h.a$}>
+					<S.kc ownerWindow={popup}>
+						<o.ER instance={instance}>
+							<v.EO>
+								<B.tH>
+									<b.FQ webNavigationsUseSteamURL>
+										<y.FullLogin
+											cm={cm}
+											popup={popup}
+											includeTitleBar
+											bHiddenWindow={m}
+											onLoginComplete={() => {
+												CRef.current = true;
+											}}
+										/>
+									</b.FQ>
+								</B.tH>
+							</v.EO>
+						</o.ER>
+					</S.kc>
+				</_w.p>
+			</A.ss>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-var E = require("./40361.js");
-var M = require("./51582.js");
-const T = n.memo(function (e) {
-	const { children: t } = e;
+const T = n.memo((e) => {
+	const { children } = e;
 	const r = n.useContext(o.mA).params;
 	let i = r.browserInfo.m_unAppID;
 	let a = r.browserInfo.m_unPID;
 	const s = n.useMemo(() => [C.BV.GamepadUI.AppRunning()], []);
-	return n.createElement(
-		C.m_,
-		{
-			appid: i,
-			pid: a,
-			initialEntries: s,
-			initialIndex: 0,
-		},
-		t,
+	return (
+		<C.m_ appid={i} pid={a} initialEntries={s} initialIndex={0}>
+			{children}
+		</C.m_>
 	);
 });
-var R = require(/*webcrack:missing*/ "./89193.js");
-function k(e) {
-	const { cm: t, instance: r } = e;
-	const a = r.params;
+function K_1(e) {
+	const { cm, instance } = e;
+	const r_params = instance.params;
 	const s = i.W.EBrowserType_OffScreen;
 	const l = {
-		width: a.nScreenWidth,
-		height: a.nScreenHeight,
+		width: r_params.nScreenWidth,
+		height: r_params.nScreenHeight,
 		left: 0,
 		top: 0,
 	};
-	const c = r.params.browserInfo;
-	const { popup: m, element: d } = (0, h._Y)(
+	const c = instance.params.browserInfo;
+	const { popup, element } = _Y(
 		"overlay",
-		r,
+		instance,
 		h.Uv.DesktopUI,
 		{
-			title:
-				"SP Overlay: " +
-				c.m_unPID +
-				"/" +
-				+c.m_nBrowserID +
-				"/" +
-				+c.m_eBrowserType,
+			title: `SP Overlay: ${c.m_unPID}/${+c.m_nBrowserID}/${+c.m_eBrowserType}`,
 			dimensions: l,
 			replace_existing_popup: false,
 			target_browser: c,
@@ -255,94 +244,69 @@ function k(e) {
 		[],
 	);
 	n.useEffect(() => {
-		if (m) {
-			m.ConfigContext = p;
+		if (popup) {
+			popup.ConfigContext = p;
 		}
-	}, [m, p]);
-	const [g, C] = n.useState(a.nScreenWidth);
-	const [_, f] = n.useState(a.nScreenHeight);
+	}, [popup, p]);
+	const [g, setG] = n.useState(r_params.nScreenWidth);
+	const [_, set] = n.useState(r_params.nScreenHeight);
 	n.useEffect(
 		() =>
-			(0, R.fm)(() => {
-				m?.SteamClient.Window.ResizeTo(a.nScreenWidth, a.nScreenHeight, true);
-				C(a.nScreenWidth);
-				f(a.nScreenHeight);
+			fm(() => {
+				popup?.SteamClient.Window.ResizeTo(
+					r_params.nScreenWidth,
+					r_params.nScreenHeight,
+					true,
+				);
+				setG(r_params.nScreenWidth);
+				set(r_params.nScreenHeight);
 			}),
-		[m, a],
+		[popup, r_params],
 	);
-	if (d) {
+	if (element) {
 		return _u.createPortal(
-			n.createElement(
-				A.ss,
-				{
-					...p,
-				},
-				n.createElement(
-					_w.p,
-					{
-						body_class: h.a$,
-					},
-					n.createElement(
-						o.ER,
-						{
-							instance: r,
-						},
-						n.createElement(
-							T,
-							null,
-							n.createElement(
-								S.kc,
-								{
-									ownerWindow: m,
-								},
-								n.createElement(
-									B.tH,
-									null,
-									n.createElement(
-										E.zA,
-										null,
-										n.createElement(M.$i, {
-											gameid: a.gameid,
-											width: g,
-											height: _,
-										}),
-									),
-								),
-							),
-						),
-					),
-				),
-			),
-			d,
+			<A.ss {...p}>
+				<_w.p body_class={h.a$}>
+					<o.ER instance={instance}>
+						<T>
+							<S.kc ownerWindow={popup}>
+								<B.tH>
+									<E.zA>
+										<M.$i gameid={r_params.gameid} width={g} height={_} />
+									</E.zA>
+								</B.tH>
+							</S.kc>
+						</T>
+					</o.ER>
+				</_w.p>
+			</A.ss>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-var D = require("./75085.js");
-var N = require("./89748.js");
-var F = require("./46085.js");
-var G = require(/*webcrack:missing*/ "./90095.js");
-var O = require(/*webcrack:missing*/ "./63439.js");
-var P = require(/*webcrack:missing*/ "./42898.js");
 function L(e) {
-	const t = (0, G.q3)(() => (0, N.qw)().LoginState);
-	const r = (0, G.q3)(() => e.BIsGamepadApplicationUIInitialized());
-	const [i, a] = n.useState(false);
+	const t = q3(() => qw().LoginState);
+	const r = q3(() => e.BIsGamepadApplicationUIInitialized());
+	const [i, setI] = n.useState(false);
 	n.useEffect(() => {
 		if (r) {
 			switch (t) {
 				case 0:
-				case 8:
+				case 8: {
 					break;
-				case 7:
+				}
+				case 7: {
 					e.Navigate(C.BV.Library.Home(), true);
 					break;
-				default:
+				}
+				default: {
 					if (!i) {
 						e.Navigate(C.BV.GamepadUI.Login(), true);
-						a(true);
+						setI(true);
 					}
+				}
 			}
 		}
 	}, [e, r, t, i]);
@@ -358,29 +322,26 @@ function U() {
 	sessionStorage.setItem(x, "true");
 }
 function W(e) {
-	const { cm: t, instance: r } = e;
-	const o = (0, N.Wx)();
-	const l = (0, G.q3)(() => s.oy.RemainInBigPictureModeOnClose);
-	const {
-		strMovieUrl: _,
-		bFullscreenVideo: f,
-		bIsLoadingMovie: b,
-		bIsExpectedToLoad: y,
-	} = (0, F.j)();
-	const [w, B] = n.useState(
-		(sessionStorage.getItem(x) !== "true" || !p.TS.ON_DECK) && y,
+	const { cm, instance } = e;
+	const o = Wx();
+	const l = q3(() => s.oy.RemainInBigPictureModeOnClose);
+	const { strMovieUrl, bFullscreenVideo, bIsLoadingMovie, bIsExpectedToLoad } =
+		j_1();
+	const [w, setW] = n.useState(
+		(sessionStorage.getItem(x) !== "true" || !p.TS.ON_DECK) &&
+			bIsExpectedToLoad,
 	);
-	const v = n.useCallback(() => B(false), []);
-	(0, P.Z3)(v, 30000, []);
+	const v = n.useCallback(() => setW(false), []);
+	Z3(v, 30000, []);
 	let I = i.W.EBrowserType_DirectHWND_Borderless;
 	let E = z;
-	if (!p.TS.ON_DECK || !(0, A.CI)()) {
+	if (!p.TS.ON_DECK || !CI()) {
 		E.left = h.Mb;
 		E.top = h.Mb;
 		I = i.W.EBrowserType_DirectHWND;
 	}
 	let M = h.Ij | S.Wf.Composited | S.Wf.TransparentParentWindow;
-	const T = (0, G.q3)(
+	const T = q3(
 		() => (a.rV.WindowedMode || p.TS.DECK_DISPLAY_MODE) && !p.TS.IN_GAMESCOPE,
 	);
 	if (!T) {
@@ -392,11 +353,11 @@ function W(e) {
 		M &= ~S.Wf.Resizable;
 		M |= S.Wf.IgnoreSavedSize;
 	}
-	const R = (0, h.nB)(r);
+	const R = nB(instance);
 	const k = p.TS.DECK_DISPLAY_MODE
 		? "Window_GamepadUIDeckDisplay"
 		: "Window_GamepadUI";
-	const W = (0, O.h3)(k);
+	const W = h3(k);
 	const V = {
 		onResize: (e, t) => {
 			s.oy.SetConfiguratorWidth(e.outerWidth);
@@ -407,16 +368,16 @@ function W(e) {
 			}
 		},
 	};
-	const H = (0, O.Cb)(T ? W : null, V);
-	const { popup: j, element: q } = (0, h._Y)(
+	const H = Cb(T ? W : null, V);
+	const { popup, element } = _Y(
 		"SP BPM",
-		r,
+		instance,
 		h.Uv.GamepadUI,
 		{
 			title: Localize("#SP_WindowTitle_BigPicture"),
 			dimensions: E,
 			replace_existing_popup: false,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			browserType: I,
 			eCreationFlags: M,
 			strUserAgent: e.instance.params.strUserAgentIdentifier,
@@ -426,51 +387,42 @@ function W(e) {
 		H,
 	);
 	n.useEffect(() => {
-		if (j) {
+		if (popup) {
 			let e = !o;
-			if (j.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed) {
-				j.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed(e);
+			if (popup.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed) {
+				popup.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed(e);
 			}
-			j.SteamClient.Browser.NotifyUserActivation();
+			popup.SteamClient.Browser.NotifyUserActivation();
 		}
-	}, [o, j, j?.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed]);
-	L(r);
-	(0, h.yu)(r, T);
-	if (q) {
-		if (w && b) {
+	}, [o, popup, popup?.SteamClient.Browser.SetShouldExitSteamOnBrowserClosed]);
+	L(instance);
+	yu(instance, T);
+	if (element) {
+		if (w && bIsLoadingMovie) {
 			return null;
 		} else {
 			return _u.createPortal(
-				n.createElement(
-					g.O,
-					{
-						ownerWindow: j,
-						instance: e.instance,
-					},
-					n.createElement(
-						C.Kw,
-						{
-							basename: (0, C.CQ)(),
-						},
-						w &&
-							_ &&
-							n.createElement(D.K, {
-								bPlayingMovie: w,
-								strOverrideStartupMovie: _,
-								bFullscreenVideo: f,
-								onVideoComplete: v,
-								onVideoError: v,
-								onVideoPlay: U,
-							}),
-						n.createElement(c.Is, {
-							cm: t,
-							mode: m._5.Full,
-							bPlayingStartupMovie: w,
-							fnCancelStartupMove: v,
-						}),
-					),
-				),
-				q,
+				<g.O ownerWindow={popup} instance={e.instance}>
+					<C.Kw basename={CQ()}>
+						{w && strMovieUrl && (
+							<D.K
+								bPlayingMovie={w}
+								strOverrideStartupMovie={strMovieUrl}
+								bFullscreenVideo={bFullscreenVideo}
+								onVideoComplete={v}
+								onVideoError={v}
+								onVideoPlay={U}
+							/>
+						)}
+						<c.Is
+							cm={cm}
+							mode={m._5.Full}
+							bPlayingStartupMovie={w}
+							fnCancelStartupMove={v}
+						/>
+					</C.Kw>
+				</g.O>,
+				element,
 			);
 		}
 	} else {
@@ -478,28 +430,22 @@ function W(e) {
 	}
 }
 function V(e) {
-	const { cm: t, instance: r } = e;
-	const a = r.params;
+	const { cm, instance } = e;
+	const r_params = instance.params;
 	let s = i.W.EBrowserType_OffScreen;
 	let o = {
-		width: a.nScreenWidth,
-		height: a.nScreenHeight,
+		width: r_params.nScreenWidth,
+		height: r_params.nScreenHeight,
 		left: 0,
 		top: 0,
 	};
-	const l = r.params.browserInfo;
-	const { popup: d, element: A } = (0, h._Y)(
+	const l = instance.params.browserInfo;
+	const { popup, element } = _Y(
 		"overlay",
-		r,
+		instance,
 		h.Uv.GamepadUI,
 		{
-			title:
-				"SP Overlay: " +
-				l.m_unPID +
-				"/" +
-				+l.m_nBrowserID +
-				"/" +
-				+l.m_eBrowserType,
+			title: `SP Overlay: ${l.m_unPID}/${+l.m_nBrowserID}/${+l.m_eBrowserType}`,
 			dimensions: o,
 			replace_existing_popup: false,
 			target_browser: l,
@@ -511,252 +457,184 @@ function V(e) {
 	);
 	n.useEffect(
 		() =>
-			(0, R.fm)(() => {
-				d?.SteamClient.Window.ResizeTo(a.nScreenWidth, a.nScreenHeight, true);
+			fm(() => {
+				popup?.SteamClient.Window.ResizeTo(
+					r_params.nScreenWidth,
+					r_params.nScreenHeight,
+					true,
+				);
 			}),
-		[d, a],
+		[popup, r_params],
 	);
-	if (A) {
+	if (element) {
 		return _u.createPortal(
-			n.createElement(
-				g.O,
-				{
-					ownerWindow: d,
-					instance: r,
-				},
-				n.createElement(
-					T,
-					null,
-					n.createElement(c.Is, {
-						cm: t,
-						mode: m._5.Overlay,
-						forcedAppID: a.appid,
-					}),
-				),
-			),
-			A,
+			<g.O ownerWindow={popup} instance={instance}>
+				<T>
+					<c.Is cm={cm} mode={m._5.Overlay} forcedAppID={r_params.appid} />
+				</T>
+			</g.O>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
 function H(e) {
-	const { cm: t, instance: r } = e;
-	const { initialX: a, initialY: s } = r.params;
-	const { popup: o, element: l } = (0, h._Y)("SP Keyboard", r, h.Uv.GamepadUI, {
+	const { cm, instance } = e;
+	const { initialX, initialY } = instance.params;
+	const { popup, element } = _Y("SP Keyboard", instance, h.Uv.GamepadUI, {
 		title: Localize("#SP_WindowTitle_Keyboard"),
 		dimensions: {
 			width: 1280,
 			height: 360,
-			left: a,
-			top: s,
+			left: initialX,
+			top: initialY,
 		},
 		replace_existing_popup: false,
-		target_browser: r.params.browserInfo,
-		eCreationFlags: S.Wf.Composited | S.Wf.NoMinimize | (0, S.yq)(S.Dr.Overlay),
+		target_browser: instance.params.browserInfo,
+		eCreationFlags: S.Wf.Composited | S.Wf.NoMinimize | yq(S.Dr.Overlay),
 		browserType: p.TS.DEV_MODE
 			? i.W.EBrowserType_DirectHWND
 			: i.W.EBrowserType_DirectHWND_Borderless,
 		strUserAgent: e.instance.params.strUserAgentIdentifier,
 	});
-	if (l) {
+	if (element) {
 		return _u.createPortal(
-			n.createElement(
-				g.O,
-				{
-					ownerWindow: o,
-					instance: e.instance,
-				},
-				n.createElement(c.Is, {
-					cm: t,
-					mode: m._5.StandaloneKeyboard,
-				}),
-			),
-			l,
+			<g.O ownerWindow={popup} instance={e.instance}>
+				<c.Is cm={cm} mode={m._5.StandaloneKeyboard} />
+			</g.O>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-var j = require("./32661.js");
-var q = require("./78057.js");
-var Q = require("./96593.js");
-var Z = require("./98659.js");
-var Y = Z;
-var K = require(/*webcrack:missing*/ "./41230.js");
-var X = require("./48289.js");
-var J = require(/*webcrack:missing*/ "./98995.js");
-var $ = require("./75001.js");
-var ee = require(/*webcrack:missing*/ "./90765.js");
-var te = require("./35488.js");
-var re = require("./3475.js");
-var ne = require("./88724.js");
-var ie = require("./5808.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var se = require("./64608.js");
-var oe = require("./32700.js");
-var le = require("./97893.js");
-var ce = require("./39147.js");
-const me = (0, K.PA)(function (e) {
-	const { appid: t } = e;
-	(0, q.T)(t);
-	const r = (0, Q.Co)(t);
-	const i = (0, Q.mM)(r);
-	const a = (0, o.$2)();
-	if (!t) {
+const Y = Z;
+const Me_1 = PA((e) => {
+	const { appid } = e;
+	T_1(appid);
+	const r = Co(appid);
+	const i = mM(r);
+	const a = $2();
+	if (!appid) {
 		return null;
 	}
 	if (!r) {
-		return n.createElement(
-			"div",
-			null,
-			Localize("#GameLauncher_UnknownAppID", t.toString()),
+		return (
+			<div>{Localize("#GameLauncher_UnknownAppID", appid.toString())}</div>
 		);
 	}
-	const s = (0, ie.AH)(a, r, "mostavailable");
-	(0, ie.Kw)(r, "mostavailable");
-	let l = (0, oe.Bb)(r.display_status, true);
+	const s = AH(a, r, "mostavailable");
+	Kw(r, "mostavailable");
+	let l = Bb(r.display_status, true);
 	switch (r.display_status) {
 		case 6:
 		case 7: {
 			const e = le.hj.DownloadOverview.update_network_bytes_per_second;
-			let t = (r.status_percentage || 0) + "%";
+			let t = `${r.status_percentage || 0}%`;
 			if (e) {
-				t = t + " (" + (0, ce.ZC)(e) + ")";
+				t = `${t} (${ZC(e)})`;
 			}
-			l += " - " + t;
+			l += ` - ${t}`;
 		}
 	}
-	return n.createElement(
-		"div",
-		{
-			className: Y.AppStatus,
-		},
-		n.createElement(
-			"div",
-			{
-				className: Y.AppName,
-			},
-			r.display_name,
-		),
-		!i &&
-			n.createElement(
-				"div",
-				{
-					className: Y.Error,
-				},
-				Localize("#GameLauncher_AccountDoesNotOwnGame"),
-			),
-		n.createElement(
-			"div",
-			{
-				className: Y.DisplayStatus,
-			},
-			l,
-		),
-		i &&
-			s &&
-			n.createElement(
-				se.jn,
-				{
-					onClick: (e) => {
+	return (
+		<div className={Y.AppStatus}>
+			<div className={Y.AppName}>{r.display_name}</div>
+			{!i && (
+				<div className={Y.Error}>
+					{Localize("#GameLauncher_AccountDoesNotOwnGame")}
+				</div>
+			)}
+			<div className={Y.DisplayStatus}>{l}</div>
+			{i && s && (
+				<se.jn
+					onClick={(e) => {
 						const t = GetOwningWindowForEvent(e);
-						(0, ie.jy)(s, r, "mostavailable", 100, t)();
+						jy(s, r, "mostavailable", 100, t)();
 						if (s != "Play") {
 							e.stopPropagation();
 							e.preventDefault();
 						}
-					},
-				},
-				(0, oe.Np)(s, 1),
-			),
+					}}
+				>
+					{Np(s, 1)}
+				</se.jn>
+			)}
+		</div>
 	);
 });
-const ue = (e) =>
-	n.createElement($._G, {
-		menuItems: [
+const Ue = (e) => (
+	<$._G
+		menuItems={[
 			{
 				name: "#Menu_Logout",
 				steamURL: "steam://signout",
 			},
-		],
-	});
-const de = (0, K.PA)(function () {
-	const e = (0, X.wI)();
-	const [t, r] = n.useState(false);
-	const [i] = (0, G.q3)(() => [(0, N.qw)().GetCurrentUser().strAccountName]);
-	return n.createElement(
-		J.he,
-		{
-			toolTipContent: "#ViewAccountDropdown",
-			direction: "bottom",
-			bDisabled: t,
-		},
-		n.createElement(
-			$.W1,
-			{
-				title: Localize("#ViewAccountDropdown"),
-				menuItems: [],
-				menuContent: n.createElement(ue, null),
-				parentalFeature: re.uX,
-				popupClass: (0, ee.A)(Y.AccountMenuPopup, (0, ne.rO)(e)),
-				onShow: () => r(true),
-				onHide: () => r(false),
-			},
-			n.createElement(
-				"div",
-				{
-					className: (0, ee.A)(Y.AccountMenu, (0, ne.rO)(e)),
-				},
-				n.createElement(
-					"div",
-					{
-						className: Y.PersonaName,
-					},
-					i,
-				),
-				n.createElement(te.Chevron, {
-					className: Y.Chevron,
-					direction: "down",
-				}),
-			),
-		),
+		]}
+	/>
+);
+const De = PA(() => {
+	const e = wI();
+	const [t, setT] = n.useState(false);
+	const [i] = q3(() => [qw().GetCurrentUser().strAccountName]);
+	return (
+		<J.he
+			toolTipContent="#ViewAccountDropdown"
+			direction="bottom"
+			bDisabled={t}
+		>
+			<$.W1
+				title={Localize("#ViewAccountDropdown")}
+				menuItems={[]}
+				menuContent={<Ue />}
+				parentalFeature={re.uX}
+				popupClass={A_1(Y.AccountMenuPopup, rO(e))}
+				onShow={() => setT(true)}
+				onHide={() => setT(false)}
+			>
+				<div className={A_1(Y.AccountMenu, rO(e))}>
+					<div className={Y.PersonaName}>{i}</div>
+					<te.Chevron className={Y.Chevron} direction="down" />
+				</div>
+			</$.W1>
+		</J.he>
 	);
 });
 function Ae(e) {
-	const t = (0, N.gK)();
-	const [r, i] = n.useState(false);
-	const a = (function () {
-		const [e, t] = n.useState();
+	const t = gK();
+	const [r, setR] = n.useState(false);
+	const a = (() => {
+		const [e, setE] = n.useState();
 		n.useEffect(() => {
-			SteamClient.SteamChina.GetCustomLauncherAppID().then((e) => t(e));
+			SteamClient.SteamChina.GetCustomLauncherAppID().then((e) => setE(e));
 		}, []);
 		return e;
 	})();
 	n.useEffect(() => {
 		(async () => {
 			console.time("SteamApp Init");
-			await (0, N.qw)().WaitForServicesInitialized();
+			await qw().WaitForServicesInitialized();
 			console.timeEnd("SteamApp Init");
-			i(true);
+			setR(true);
 		})();
 	}, []);
 	if (t && r) {
-		return n.createElement(
-			n.Fragment,
-			null,
-			n.createElement(B.tH, null, n.createElement(j.j, null)),
-			n.createElement(de, null),
-			n.createElement(me, {
-				appid: a,
-			}),
+		return (
+			<>
+				<B.tH>
+					<j.j />
+				</B.tH>
+				<De />
+				<Me_1 appid={a} />
+			</>
 		);
 	} else {
 		return null;
 	}
 }
-function pe(e) {
-	const { cm: t, instance: r } = e;
+function Pe(e) {
+	const { cm, instance } = e;
 	let a = {
 		width: 640,
 		height: 480,
@@ -765,16 +643,16 @@ function pe(e) {
 	};
 	let s = Localize("#GameLauncher_Title");
 	let l = S.Wf.ApplyBrowserScaleToDimensions;
-	const { popup: c, element: m } = (0, h._Y)(
+	const { popup, element } = _Y(
 		"SteamChinaReviewLauncherWindow",
-		r,
+		instance,
 		h.Uv.DesktopUI,
 		{
 			title: s,
 			dimensions: a,
 			browserType: i.W.EBrowserType_DirectHWND,
 			replace_existing_popup: false,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			eCreationFlags: l,
 			strUserAgent: e.instance.params.strUserAgentIdentifier,
 		},
@@ -795,60 +673,33 @@ function pe(e) {
 		[],
 	);
 	n.useEffect(() => {
-		if (c) {
-			c.ConfigContext = p;
+		if (popup) {
+			popup.ConfigContext = p;
 		}
-	}, [c, p]);
-	if (m) {
+	}, [popup, p]);
+	if (element) {
 		return _u.createPortal(
-			n.createElement(
-				A.ss,
-				{
-					...p,
-				},
-				n.createElement(
-					_w.p,
-					{
-						body_class: h.a$,
-					},
-					n.createElement(
-						S.kc,
-						{
-							ownerWindow: c,
-						},
-						n.createElement(
-							o.ER,
-							{
-								instance: r,
-							},
-							n.createElement(
-								v.EO,
-								null,
-								n.createElement(
-									B.tH,
-									null,
-									n.createElement(
-										b.FQ,
-										{
-											webNavigationsUseSteamURL: true,
-										},
-										n.createElement(Ae, {
-											cm: t,
-										}),
-									),
-								),
-							),
-						),
-					),
-				),
-			),
-			m,
+			<A.ss {...p}>
+				<_w.p body_class={h.a$}>
+					<S.kc ownerWindow={popup}>
+						<o.ER instance={instance}>
+							<v.EO>
+								<B.tH>
+									<b.FQ webNavigationsUseSteamURL>
+										<Ae cm={cm} />
+									</b.FQ>
+								</B.tH>
+							</v.EO>
+						</o.ER>
+					</S.kc>
+				</_w.p>
+			</A.ss>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-var ge = require("./32411.js");
 const he = {
 	width: 1280,
 	height: 800,
@@ -862,17 +713,17 @@ const Ce = {
 	top: h.Mb,
 };
 function _e(e) {
-	const { cm: t, instance: r, bSmallMode: a } = e;
+	const { cm, instance, bSmallMode } = e;
 	let l = i.W.EBrowserType_DirectHWND_Borderless;
 	let c = Localize(
 		e.bSmallMode ? "#WindowName_SteamDesktopMini" : "#WindowName_SteamDesktop",
 	);
-	let m = a ? Ce : he;
+	let m = bSmallMode ? Ce : he;
 	const g = e.bSmallMode ? 230 : 1010;
 	const _ = e.bSmallMode ? 100 : 600;
 	const y = e.bSmallMode ? "Window_SteamDesktopMini" : "Window_SteamDesktop";
-	const v = (0, O.h3)(y);
-	const I = (0, h.nB)(r);
+	const v = h3(y);
+	const I = nB(instance);
 	const E = h.Ij | S.Wf.Composited | (p.TS.SILENT_STARTUP ? S.Wf.Hidden : 0);
 	const M = v;
 	const T = n.useMemo(
@@ -882,22 +733,16 @@ function _e(e) {
 			minWidth: g,
 			minHeight: _,
 			replace_existing_popup: false,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			browserType: l,
 			eCreationFlags: E,
-			strUserAgent: r.params.strUserAgentIdentifier,
+			strUserAgent: instance.params.strUserAgentIdentifier,
 			bHideOnClose: true,
 			bNoFocusOnShow: !I,
 		}),
-		[r, l, E, m, c, g, _, I],
+		[instance, l, E, m, c, g, _, I],
 	);
-	const { popup: R, element: k } = (0, h._Y)(
-		"SP Desktop",
-		r,
-		h.Uv.DesktopUI,
-		T,
-		M,
-	);
+	const { popup, element } = _Y("SP Desktop", instance, h.Uv.DesktopUI, T, M);
 	const D = n.useMemo(
 		() => ({
 			IN_GAMEPADUI: false,
@@ -907,117 +752,82 @@ function _e(e) {
 		[],
 	);
 	n.useEffect(() => {
-		if (R) {
-			R.ConfigContext = D;
+		if (popup) {
+			popup.ConfigContext = D;
 		}
-	}, [R, D]);
-	const N = n.useRef(a);
+	}, [popup, D]);
+	const NRef = n.useRef(bSmallMode);
 	n.useEffect(() => {
-		if (R && a !== N.current) {
+		if (popup && bSmallMode !== NRef.current) {
 			const e = (e) => {
 				if (e.data == "window_moved" || e.data == "window_restored") {
 					setTimeout(() => {
-						R.SteamClient.Window.ShowWindow();
+						popup.SteamClient.Window.ShowWindow();
 					}, 250);
 				}
 			};
-			R.addEventListener("message", e);
+			popup.addEventListener("message", e);
 			const t = v.updateParamsBeforeShow(T);
 			if (t.strRestoreDetails) {
-				R.SteamClient.Window.HideWindow();
-				R.SteamClient.Window.RestoreWindowSizeAndPosition(t.strRestoreDetails);
-				R.SteamClient.Window.SetMinSize(g, _);
+				popup.SteamClient.Window.HideWindow();
+				popup.SteamClient.Window.RestoreWindowSizeAndPosition(
+					t.strRestoreDetails,
+				);
+				popup.SteamClient.Window.SetMinSize(g, _);
 			} else {
-				R.SteamClient.Window.SetMinSize(g, _);
-				R.SteamClient.Window.ResizeTo(m.width, m.height, false);
+				popup.SteamClient.Window.SetMinSize(g, _);
+				popup.SteamClient.Window.ResizeTo(m.width, m.height, false);
 			}
-			N.current = a;
+			NRef.current = bSmallMode;
 			return () => {
-				R?.removeEventListener("message", e);
+				popup?.removeEventListener("message", e);
 			};
 		}
 		return () => {};
-	}, [a, T, v, R, m, g, _]);
-	(0, h.yu)(r);
+	}, [bSmallMode, T, v, popup, m, g, _]);
+	yu(instance);
 	AssertMsg(
 		s.oy.MainInstanceUIMode != 4,
 		"DesktopUI windows should only ever be present when the main instance's UI mode is desktop",
 	);
-	if (k && s.oy.MainInstanceUIMode != 4) {
+	if (element && s.oy.MainInstanceUIMode != 4) {
 		return _u.createPortal(
-			n.createElement(
-				A.ss,
-				{
-					...D,
-				},
-				n.createElement(
-					_w.p,
-					{
-						body_class: h.a$,
-					},
-					n.createElement(
-						C.Gl,
-						{
-							initialPath: C.BV.Init(),
-						},
-						n.createElement(
-							S.kc,
-							{
-								ownerWindow: R,
-							},
-							n.createElement(
-								o.ER,
-								{
-									instance: r,
-								},
-								n.createElement(
-									B.tH,
-									null,
-									n.createElement(
-										b.FQ,
-										null,
-										n.createElement(ge.Ay, {
-											cm: t,
-											bSmallMode: e.bSmallMode,
-										}),
-									),
-								),
-							),
-						),
-					),
-				),
-			),
-			k,
+			<A.ss {...D}>
+				<_w.p body_class={h.a$}>
+					<C.Gl initialPath={C.BV.Init()}>
+						<S.kc ownerWindow={popup}>
+							<o.ER instance={instance}>
+								<B.tH>
+									<b.FQ>
+										<ge.Ay cm={cm} bSmallMode={e.bSmallMode} />
+									</b.FQ>
+								</B.tH>
+							</o.ER>
+						</S.kc>
+					</C.Gl>
+				</_w.p>
+			</A.ss>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-var fe = require("./16251.js");
-var be = require("./38542.js");
-var ye = require("./17016.js");
-var Se = require("./22969.js");
-var we = require("./45921.js");
-var Be = require("./26893.js");
-var ve = require("./16403.js");
-var Ie = require(/*webcrack:missing*/ "./10975.js");
-var Ee = require("./80467.js");
-var Me = Ee;
-var Te = require(/*webcrack:missing*/ "./61657.js");
+const Me = Ee;
 function Re(e) {
-	const { cm: t, instance: r } = e;
+	const { cm, instance } = e;
 	const a = n.useCallback((e, t) => {
 		Se.fR.Info("Main popup created.");
 	}, []);
 	const o = n.useCallback((e, t) => {
 		Se.fR.Info("Main popup closed.");
 	}, []);
-	const { popup: l, element: d } = (0, h._Y)(
+	const { popup, element } = _Y(
 		"VR",
-		r,
+		instance,
 		h.Uv.GamepadUI,
 		{
-			strVROverlayKey: r.GetMainVROverlayKey(),
+			strVROverlayKey: instance.GetMainVROverlayKey(),
 			title: "SteamVR",
 			body_class: Me.PopupBody,
 			dimensions: {
@@ -1027,7 +837,7 @@ function Re(e) {
 				top: 0,
 			},
 			replace_existing_popup: true,
-			target_browser: r.params.browserInfo,
+			target_browser: instance.params.browserInfo,
 			browserType: i.W.EBrowserType_OpenVROverlay_Dashboard,
 			eCreationFlags: 0,
 			strUserAgent: e.instance.params.strUserAgentIdentifier,
@@ -1037,8 +847,8 @@ function Re(e) {
 			onClose: o,
 		},
 	);
-	const A = n.useRef(undefined);
-	(function (e, t, r) {
+	const ARef = n.useRef(undefined);
+	((e, t, r) => {
 		n.useEffect(() => {
 			if (!e) {
 				return;
@@ -1067,135 +877,98 @@ function Re(e) {
 				a?.Unregister();
 			};
 		}, [e, t, r]);
-	})(l, A, r);
-	(0, be.oH)(l, (e) =>
+	})(popup, ARef, instance);
+	oH(popup, (e) =>
 		Se.fR.Debug(
-			`Overlay for VRWindow ${l.name} visibility=${e ? "true" : "false"}`,
+			`Overlay for VRWindow ${popup.name} visibility=${e ? "true" : "false"}`,
 		),
 	);
 	const p = n.useMemo(() => [C.BV.Library.Home()], []);
-	L(r);
-	if (d) {
-		return n.createElement(
-			n.Fragment,
-			null,
-			_u.createPortal(
-				n.createElement(
-					g.O,
-					{
-						ownerWindow: l,
-						instance: e.instance,
-						refFocusNavContext: A,
-					},
-					n.createElement(
-						C.NM,
-						{
-							initialEntries: p,
-							initialIndex: 0,
-						},
-						n.createElement(
-							ve.Bi,
-							null,
-							n.createElement(
-								c.Is,
-								{
-									cm: t,
-									mode: m._5.Full,
-									bPlayingStartupMovie: false,
-								},
-								n.createElement(B.tH, null, n.createElement(ye.r, null)),
-								n.createElement(B.tH, null, n.createElement(we.iG, null)),
-								n.createElement(B.tH, null, n.createElement(Be.z, null)),
-								n.createElement(B.tH, null, n.createElement(Be.ny, null)),
-							),
-						),
-					),
-				),
-				d,
-			),
+	L(instance);
+	if (element) {
+		return (
+			<>
+				{_u.createPortal(
+					<g.O
+						ownerWindow={popup}
+						instance={e.instance}
+						refFocusNavContext={ARef}
+					>
+						<C.NM initialEntries={p} initialIndex={0}>
+							<ve.Bi>
+								<c.Is cm={cm} mode={m._5.Full} bPlayingStartupMovie={false}>
+									<B.tH>
+										<ye.r />
+									</B.tH>
+									<B.tH>
+										<we.iG />
+									</B.tH>
+									<B.tH>
+										<Be.z />
+									</B.tH>
+									<B.tH>
+										<Be.ny />
+									</B.tH>
+								</c.Is>
+							</ve.Bi>
+						</C.NM>
+					</g.O>,
+					element,
+				)}
+			</>
 		);
 	} else {
 		return null;
 	}
 }
-var ke = require("./8326.js");
 export function u(e) {
-	const { cm: t } = e;
-	const r = (0, G.q3)(() => s.oy.WindowStore.SteamUIWindows);
-	const [i] = (0, a.VI)("small_mode");
-	(0, ke.E4)(1920, 1080);
+	const { cm } = e;
+	const r = q3(() => s.oy.WindowStore.SteamUIWindows);
+	const [i] = VI("small_mode");
+	E4(1920, 1080);
 	return r.map((e) => {
 		const r = e.params.browserInfo;
 		if (e.IsMainGamepadUIWindow()) {
-			return n.createElement(W, {
-				key: "Main",
-				cm: t,
-				instance: e,
-			});
+			return <W key="Main" cm={cm} instance={e} />;
 		} else if (e.IsGamepadUIOverlayWindow()) {
-			return n.createElement(V, {
-				key: `overlay_${r.m_unPID}`,
-				cm: t,
-				instance: e,
-			});
+			return <V key={`overlay_${r.m_unPID}`} cm={cm} instance={e} />;
 		} else if (e.IsStandaloneKeyboardWindow()) {
-			return n.createElement(H, {
-				key: "keyboard",
-				cm: t,
-				instance: e,
-			});
+			return <H key="keyboard" cm={cm} instance={e} />;
 		} else if (e.IsControllerConfiguratorWindow()) {
-			return n.createElement(_, {
-				key: "controllerconfigurator",
-				cm: t,
-				instance: e,
-			});
+			return <_ key="controllerconfigurator" cm={cm} instance={e} />;
 		} else if (e.IsVRWindow()) {
-			return n.createElement(Re, {
-				key: "vr" + (e.params.bSimulateOnDesktop ? "-desktop" : ""),
-				cm: t,
-				instance: e,
-			});
+			return (
+				<Re
+					key={`vr${e.params.bSimulateOnDesktop ? "-desktop" : ""}`}
+					cm={cm}
+					instance={e}
+				/>
+			);
 		} else if (e.IsMainDesktopWindow()) {
-			return n.createElement(_e, {
-				key: "SteamDesktop",
-				cm: t,
-				instance: e,
-				bSmallMode: i,
-			});
+			return <_e key="SteamDesktop" cm={cm} instance={e} bSmallMode={i} />;
 		} else if (e.IsDesktopOverlayWindow()) {
-			return n.createElement(k, {
-				key: `overlay_${r.m_unPID}`,
-				cm: t,
-				instance: e,
-			});
+			return <K_1 key={`overlay_${r.m_unPID}`} cm={cm} instance={e} />;
 		} else if (e.IsDesktopLoginWindow()) {
-			return n.createElement(I, {
-				key: "DesktopLogin",
-				cm: t,
-				instance: e,
-			});
+			return <I key="DesktopLogin" cm={cm} instance={e} />;
 		} else if (e.IsSteamChinaReviewLauncher()) {
-			return n.createElement(pe, {
-				key: "SteamChinaReviewLauncher",
-				cm: t,
-				instance: e,
-			});
+			return <Pe key="SteamChinaReviewLauncher" cm={cm} instance={e} />;
 		} else {
 			return null;
 		}
 	});
 }
 export function w() {
-	const e = (function () {
-		switch ((0, o.$2)().WindowType) {
+	const e = (() => {
+		switch ($2().WindowType) {
 			case i.W7.OverlayGamepadUI:
-			case i.W7.OverlayDesktopUI:
+			case i.W7.OverlayDesktopUI: {
 				return false;
-			default:
+			}
+			default: {
 				return true;
+			}
 		}
 	})();
-	const t = (0, S.c4)().bUnderlaySupported;
+	const t = c4().bUnderlaySupported;
 	return e && t;
 }

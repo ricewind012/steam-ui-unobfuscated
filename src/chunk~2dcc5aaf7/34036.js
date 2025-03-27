@@ -1,47 +1,47 @@
-var n = require(/*webcrack:missing*/ "./89193.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./78325.js");
-var o = require(/*webcrack:missing*/ "./92251.js");
-var l = require("./93023.js");
-var c = require(/*webcrack:missing*/ "./45328.js");
-var m = require("./78771.js");
-var u = require("./823.js");
-var d = require("./83591.js");
-var A = require("./5859.js");
-var p = require("./58839.js");
-var g = require("./82594.js");
-var h = require("./7552.js");
-var C = require(/*webcrack:missing*/ "./42318.js");
-var _ = require("./59959.js");
-var f = require("./72054.js");
-var b = require("./60762.js");
-var y = require("./97510.js");
-var S = require("./30697.js");
-var w = require("./25752.js");
-var B = require("./58084.js");
-var v = require(/*webcrack:missing*/ "./50376.js");
-var I = require(/*webcrack:missing*/ "./98995.js");
-var E = require(/*webcrack:missing*/ "./49455.js");
-var M = require(/*webcrack:missing*/ "./79769.js");
-var T = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var k = require(/*webcrack:missing*/ "./52451.js");
-var D = require(/*webcrack:missing*/ "./72476.js");
-var N = require("./7081.js");
-var F = require("./68994.js");
-var G = F;
-var O = require("./4816.js");
-var P = require("./47628.js");
-var L = P;
-var z = require("./39039.js");
-var x = require(/*webcrack:missing*/ "./92059.js");
-var U = require("./83665.js");
+import n, { HO } from "./89193.js";
+import i, { PA } from "./41230.js";
+import a, { useRef, useState, useCallback, useEffect } from "./63696.js";
+import s from "./78325.js";
+import o from "./92251.js";
+import l, { t } from "./93023.js";
+import c, { L3, wJ } from "./45328.js";
+import m, { TB } from "./78771.js";
+import u, { FV } from "./823.js";
+import d from "./83591.js";
+import A from "./5859.js";
+import p, { SW } from "./58839.js";
+import g, { G6, t7 } from "./82594.js";
+import h from "./7552.js";
+import C from "./42318.js";
+import _ from "./59959.js";
+import f from "./72054.js";
+import b from "./60762.js";
+import y from "./97510.js";
+import S from "./30697.js";
+import w from "./25752.js";
+import B from "./58084.js";
+import v from "./50376.js";
+import I from "./98995.js";
+import E, { w as w_2 } from "./49455.js";
+import M from "./79769.js";
+import { A as A_2 } from "./90765.js";
+import { CH, XB } from "./52451.js";
+import D, { Qn } from "./72476.js";
+import N from "./7081.js";
+import F from "./68994.js";
+import { vg } from "./4816.js";
+import P from "./47628.js";
+import { m as m_2 } from "./39039.js";
+import { n9 } from "./92059.js";
+import U from "./83665.js";
+const G = F;
+const L = P;
 const W = "DEBUG_UseNewGameHover";
 function V() {
 	return window.sessionStorage?.getItem(W) || "default";
 }
-window.SetHoverPresentation = function (e) {
+window.SetHoverPresentation = (e) => {
 	window.sessionStorage.setItem(W, e);
 };
 const H = 5500;
@@ -71,7 +71,7 @@ function Q(e, t, r) {
 						className: G.FullDivImage,
 						loading: "lazy",
 						src: e,
-						alt: "screenshot " + (t + 1),
+						alt: `screenshot ${t + 1}`,
 					}),
 					nDurationMs: j,
 				});
@@ -101,24 +101,24 @@ function Q(e, t, r) {
 	} else if (D.TS.WEB_UNIVERSE == "dev" || D.TS.WEB_UNIVERSE == "beta") {
 		console.error(
 			"DEV ONLY OUTPUT: GameHoverImages for id/type no images: (might be not age safe screenshots)",
-			(0, n.HO)(e),
+			HO(e),
 		);
 	}
 }
 function Z(e) {
 	const { info: t } = e;
-	const r = (0, a.useRef)({
+	const r = useRef({
 		include_assets: true,
 		include_trailers: true,
 		include_screenshots: true,
 	});
-	const [n, i] = (0, g.G6)(t.id, (0, p.SW)(t.type), r.current);
-	const s = (0, a.useRef)(n);
-	const [o, l] = (0, a.useState)([]);
-	const c = (0, a.useRef)(0);
-	const m = (0, k.CH)();
+	const [n, i] = G6(t.id, SW(t.type), r.current);
+	const s = useRef(n);
+	const [o, l] = useState([]);
+	const c = useRef(0);
+	const m = CH();
 	const [u] = a.useState(new M.LU());
-	const d = (0, a.useCallback)(
+	const d = useCallback(
 		(e = false) => {
 			if (e) {
 				c.current = 0;
@@ -137,7 +137,7 @@ function Z(e) {
 		},
 		[o, u, m],
 	);
-	(0, a.useEffect)(() => {
+	useEffect(() => {
 		if (!n || (o && o.length != 0 && s.current === n)) {
 			if (i == 2 && o.length == 0) {
 				l([
@@ -158,9 +158,9 @@ function Z(e) {
 		} else {
 			s.current = n;
 			if (n.GetStoreItemType() == 2 || n.GetStoreItemType() == 1) {
-				(0, E.w)(
+				w_2(
 					n.GetIncludedAppIDs().length > 0,
-					"expected included apps " + n.GetID() + " " + n.GetStoreItemType(),
+					`expected included apps ${n.GetID()} ${n.GetStoreItemType()}`,
 				);
 				A.A.Get()
 					.QueueMultipleAppRequests(n.GetIncludedAppIDs(), {
@@ -175,7 +175,7 @@ function Z(e) {
 				A.A.Get()
 					.QueueAppRequest(n.GetParentAppID(), r.current)
 					.then(() =>
-						(function (e, t, r, n) {
+						((e, t, r, n) => {
 							const i = [];
 							const s = A.A.Get().GetApp(t);
 							if (s.GetMicroTrailer()) {
@@ -197,7 +197,7 @@ function Z(e) {
 										className: G.FullDivImage,
 										loading: "lazy",
 										src: e,
-										alt: "screenshot " + (t + 1),
+										alt: `screenshot ${t + 1}`,
 									}),
 									nDurationMs: j,
 								});
@@ -212,7 +212,7 @@ function Z(e) {
 												className: G.FullDivImage,
 												loading: "lazy",
 												src: e,
-												alt: "screenshot " + (t + 1),
+												alt: `screenshot ${t + 1}`,
 											}),
 											nDurationMs: j,
 										});
@@ -248,8 +248,8 @@ function Z(e) {
 			a.createElement(
 				"div",
 				{
-					key: "e-" + r + "-" + t.id + "_" + t.type,
-					className: (0, T.A)(G.FullDivImage, r != c.current && G.Transparent),
+					key: `e-${r}-${t.id}_${t.type}`,
+					className: A_2(G.FullDivImage, r != c.current && G.Transparent),
 				},
 				e.rctImage,
 			),
@@ -270,7 +270,7 @@ function Y(e) {
 			},
 			t.map((e) =>
 				a.createElement(S.p, {
-					key: "tag_" + e,
+					key: `tag_${e}`,
 					tagid: e,
 					className: G.Tag,
 				}),
@@ -280,7 +280,7 @@ function Y(e) {
 }
 export function Jz(e) {
 	const { appInfo: t, bTruncateTotalReviews: r, bShowTooltip: n } = e;
-	const [i] = (0, g.G6)(t?.id, (0, p.SW)(t?.type), {
+	const [i] = G6(t?.id, SW(t?.type), {
 		include_reviews: true,
 	});
 	if (!i) {
@@ -303,7 +303,7 @@ export function Jz(e) {
 	const c = a.createElement(
 		"div",
 		{
-			className: (0, T.A)(G.ReviewScoreValue, o),
+			className: A_2(G.ReviewScoreValue, o),
 		},
 		a.createElement(
 			"div",
@@ -318,7 +318,7 @@ export function Jz(e) {
 				className: G.ReviewScoreCount,
 			},
 			r
-				? "(" + s.review_count.toLocaleString() + ")"
+				? `(${s.review_count.toLocaleString()})`
 				: (0, Localize)(
 						"#GameHover_UserReviewCount",
 						s.review_count.toLocaleString(),
@@ -339,24 +339,28 @@ export function Jz(e) {
 		m = "#ReviewScore_PercentPositive_bundle";
 	} else if (i.GetStoreItemType() === 0) {
 		switch (i.GetAppType()) {
-			case 6:
+			case 6: {
 				m = "#ReviewScore_PercentPositive_software";
 				break;
-			case 7:
+			}
+			case 7: {
 				m = "#ReviewScore_PercentPositive_video";
 				break;
-			case 10:
+			}
+			case 10: {
 				m = "#ReviewScore_PercentPositive_hardware";
 				break;
-			case 8:
+			}
+			case 8: {
 				m = "#ReviewScore_PercentPositive_series";
+			}
 		}
 	}
 	return a.createElement(
 		w.q,
 		{
 			url: l,
-			className: (0, T.A)(G.ReviewScore, "ReviewScore"),
+			className: A_2(G.ReviewScore, "ReviewScore"),
 		},
 		n && s.percent_positive != null && s.review_count != null && Boolean(m)
 			? a.createElement(
@@ -374,19 +378,19 @@ export function Jz(e) {
 			: c,
 	);
 }
-export const EP = (0, i.PA)((e) => {
+export const EP = PA((e) => {
 	const { appID: t, snr: r, classOverride: n } = e;
-	const [i] = (0, g.t7)(t, {});
-	const [s, o] = (0, a.useState)(() =>
+	const [i] = t7(t, {});
+	const [s, o] = useState(() =>
 		!i || (i?.GetAppType() != 1 && i?.GetAppType() != 12)
 			? t
 			: i.GetParentAppID() || t,
 	);
 	const l = s && d.Fm.Get().BIsGameWishlisted(s);
 	const c = s && d.Fm.Get().BOwnsApp(s);
-	const [m, u] = (0, a.useState)(false);
-	const A = (0, z.m)("GameHoverWishlistButton");
-	(0, a.useEffect)(() => {
+	const [m, u] = useState(false);
+	const A = m_2("GameHoverWishlistButton");
+	useEffect(() => {
 		if (i?.GetAppType() == 1 || i?.GetAppType() == 12) {
 			o(i.GetParentAppID() || t);
 		}
@@ -397,7 +401,7 @@ export const EP = (0, i.PA)((e) => {
 	return a.createElement(
 		"div",
 		{
-			className: (0, T.A)(G.WishlistButton, n),
+			className: A_2(G.WishlistButton, n),
 			onClick: async (e) => {
 				e.preventDefault();
 				e.stopPropagation();
@@ -408,7 +412,7 @@ export const EP = (0, i.PA)((e) => {
 						u(false);
 					}
 				} else {
-					(0, O.vg)();
+					vg();
 				}
 			},
 		},
@@ -416,7 +420,7 @@ export const EP = (0, i.PA)((e) => {
 		a.createElement(
 			"div",
 			{
-				className: (0, T.A)(G.WishlistButtonText, m && G.WishlistLoadingText),
+				className: A_2(G.WishlistButtonText, m && G.WishlistLoadingText),
 			},
 			(0, Localize)(l ? "#Sale_RemoveFromWishlist" : "#Sale_AddToWishlist"),
 		),
@@ -424,8 +428,8 @@ export const EP = (0, i.PA)((e) => {
 });
 const J = (e) => {
 	const { nCreatorAccountID: t } = e;
-	const [r, n] = (0, m.TB)(t);
-	const i = (0, u.FV)(t);
+	const [r, n] = TB(t);
+	const i = FV(t);
 	return a.createElement(
 		"div",
 		{
@@ -437,7 +441,7 @@ const J = (e) => {
 				href: i?.GetCreatorHomeURL("developer"),
 			},
 			a.createElement("img", {
-				src: r ? (0, l.t)(null, "medium") : n.avatar_medium_url,
+				src: r ? t(null, "medium") : n.avatar_medium_url,
 			}),
 		),
 		a.createElement(_.of, {
@@ -445,7 +449,7 @@ const J = (e) => {
 		}),
 	);
 };
-const $ = (0, i.PA)((e) => {
+const $ = PA((e) => {
 	const {
 		info: t,
 		displayInfo: r,
@@ -460,15 +464,15 @@ const $ = (0, i.PA)((e) => {
 		nCreatorAccountID: d,
 		bPreventNavigation: A,
 	} = e;
-	const [C, _] = (0, a.useState)(false);
-	const [f, S] = (0, a.useState)("");
-	const [w] = (0, g.G6)(t.id, (0, p.SW)(t.type), {
+	const [C, _] = useState(false);
+	const [f, S] = useState("");
+	const [w] = G6(t.id, SW(t.type), {
 		include_release: true,
 		include_platforms: true,
 		include_reviews: true,
 		include_tag_count: 20,
 	});
-	const [v] = (0, g.G6)(r.id, (0, p.SW)(r.type), {
+	const [v] = G6(r.id, SW(r.type), {
 		include_assets: true,
 	});
 	const I = !u && !o && !s;
@@ -488,8 +492,8 @@ const $ = (0, i.PA)((e) => {
 		a.createElement(
 			"a",
 			{
-				href: A ? null : i,
-				target: D.TS.IN_CLIENT ? undefined : "_blank",
+				href: A || i,
+				target: D.TS.IN_CLIENT || "_blank",
 				className: G.Midline,
 			},
 			Boolean(v) &&
@@ -501,7 +505,7 @@ const $ = (0, i.PA)((e) => {
 					a.createElement(
 						"div",
 						{
-							className: (0, T.A)(G.CapsuleImageCtn, G.WithCornerShine),
+							className: A_2(G.CapsuleImageCtn, G.WithCornerShine),
 						},
 						a.createElement("img", {
 							loading: "lazy",
@@ -536,8 +540,8 @@ const $ = (0, i.PA)((e) => {
 				a.createElement(
 					"a",
 					{
-						href: A ? null : i,
-						target: D.TS.IN_CLIENT ? undefined : "_blank",
+						href: A || i,
+						target: D.TS.IN_CLIENT || "_blank",
 					},
 					a.createElement(
 						"div",
@@ -597,7 +601,7 @@ const $ = (0, i.PA)((e) => {
 		),
 	);
 });
-const ee = (0, i.PA)((e) => {
+const ee = PA((e) => {
 	a.useEffect(() => {
 		d.Fm.Get().HintLoad();
 	}, []);
@@ -616,7 +620,7 @@ const ee = (0, i.PA)((e) => {
 	return a.createElement(
 		"div",
 		{
-			className: (0, T.A)(
+			className: A_2(
 				G.GameHoverCapsuleCtn,
 				L.InGameHover,
 				i && G.UseHidingBottomHalf,
@@ -626,8 +630,8 @@ const ee = (0, i.PA)((e) => {
 		a.createElement(
 			"a",
 			{
-				href: l ? null : n,
-				target: D.TS.IN_CLIENT ? undefined : "_blank",
+				href: l || n,
+				target: D.TS.IN_CLIENT || "_blank",
 				className: G.TrailerAnchorStoreLink,
 			},
 			Boolean(o && !s && !l) &&
@@ -662,10 +666,10 @@ export function Qf(e) {
 		bShowWishlistButton: h = true,
 		...C
 	} = e;
-	const [_] = (0, g.G6)(t.id, (0, p.SW)(t.type), {});
-	const f = (0, x.n9)();
-	const b = (0, c.L3)(f);
-	const y = (0, D.Qn)();
+	const [_] = G6(t.id, SW(t.type), {});
+	const f = n9();
+	const b = L3(f);
+	const y = Qn();
 	if (!_ && !r) {
 		return null;
 	}
@@ -683,10 +687,7 @@ export function Qf(e) {
 		};
 	}
 	const w = V() == "hiding";
-	const B =
-		n || !_
-			? null
-			: (0, c.wJ)(`${_?.GetStorePageURL(o)}${u ? `?${u}` : ""}`, f);
+	const B = n || !_ || wJ(`${_?.GetStorePageURL(o)}${u ? `?${u}` : ""}`, f);
 	const v = a.createElement(ee, {
 		info: t,
 		displayInfo: S,
@@ -737,7 +738,7 @@ function ne(e) {
 				a.createElement(
 					"div",
 					{
-						ref: (0, k.XB)(e, n),
+						ref: XB(e, n),
 						className: G.HoverContentTransition,
 						tabIndex: -1,
 					},
@@ -756,7 +757,7 @@ function ie(e) {
 		className: o,
 		...l
 	} = e;
-	const c = (0, D.Qn)();
+	const c = Qn();
 	const [m, u] = a.useState(!c);
 	const [d, A] = a.useState(false);
 	const [p, g] = a.useState(undefined);
@@ -786,7 +787,7 @@ function ie(e) {
 		"div",
 		{
 			"data-key": "hover div",
-			className: (0, T.A)(G.ItemHoverSource, i && G.Selectable, o),
+			className: A_2(G.ItemHoverSource, i && G.Selectable, o),
 			...l,
 			onMouseEnter: h,
 			onMouseLeave: _,
@@ -843,7 +844,7 @@ function ae(e) {
 		window.addEventListener("scroll", r);
 		return () => window.removeEventListener("scroll", r);
 	}, [l, n?.ownerDocument.defaultView]);
-	if (!n || !o || !l) {
+	if (!n || !o || !o || !l) {
 		return null;
 	}
 	const m = n.clientWidth < 200 ? "8px" : "10px";
@@ -855,7 +856,7 @@ function ae(e) {
 			zIndex: 98,
 			width: n.clientWidth * 1.15,
 			fontSize: m,
-			minHeight: V() == "hiding" ? undefined : 300,
+			minHeight: V() == "hiding" || 300,
 			height: V() == "hiding" ? n.clientWidth * 1.15 * (125 / 184) : undefined,
 			...t?.style,
 		},

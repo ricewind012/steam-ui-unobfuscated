@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DevSummaryCtn: "_1k0S-tUF_ENycLJ7PWqbzS",
 	LargeFormat: "_1090TwnnSh07Rya_5ss37E",
 	CreatorDescCtn: "_3nKoQbWM1xYxsCfDoImGQ-",

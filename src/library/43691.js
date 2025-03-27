@@ -1,4 +1,4 @@
-var r = require("./9731.js");
+import { KC } from "./9731.js";
 export const TS = {
 	EUNIVERSE: 0,
 	WEB_UNIVERSE: "",
@@ -49,7 +49,7 @@ export const TS = {
 	FROM_WEB: false,
 	WEBSITE_ID: "Unknown",
 	get SESSIONID() {
-		return (0, r.KC)();
+		return KC();
 	},
 	FRIENDSUI_BETA: false,
 	STEAM_TV: false,

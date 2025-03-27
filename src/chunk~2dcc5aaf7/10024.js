@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	HotKeyField: "_3eLbXb4F8AwFlPPDSw2Cu8",
 	ClearButton: "_39w8YN-miSnC_rTm45E7nl",
 	Advanced: "_2aT8z7eJsccEAqH0KJyXL7",

@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./63696.js");
+import n from "./83957.js";
+import a from "./63696.js";
+const i = n;
 export function m(e) {
-	const t = a.useRef(i.CancelToken.source());
+	const TRef = a.useRef(i.CancelToken.source());
 	a.useEffect(() => {
-		const r = t.current;
-		return () => r.cancel(e ? `${e}: unmounting` : "unmounting");
+		const t_current = TRef.current;
+		return () => t_current.cancel(e ? `${e}: unmounting` : "unmounting");
 	}, [e]);
-	return t.current;
+	return TRef.current;
 }

@@ -1,9 +1,23 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-function i(e) {
-	const [t, n] = (0, r.useState)(true);
-	(0, r.useEffect)(() => {
-		(0, r.startTransition)(() => {
-			n(true);
+import r, { useState, useEffect, startTransition } from "./63696.js";
+import s, { R7 } from "./11131.js";
+import o from "./42318.js";
+import a from "./78325.js";
+import c, { OJ } from "./63439.js";
+import l from "./88750.js";
+import u from "./91435.js";
+import m from "./27773.js";
+import d from "./72476.js";
+import _, { A } from "./90765.js";
+import { CH, QS, hL } from "./52451.js";
+import b from "./21440.js";
+import C from "./3673.js";
+import v from "./55993.js";
+import M from "./98995.js";
+function I(e) {
+	const [t, setT] = useState(true);
+	useEffect(() => {
+		startTransition(() => {
+			setT(true);
 		});
 	}, []);
 	if (t) {
@@ -12,37 +26,29 @@ function i(e) {
 		return e.fallback ?? null;
 	}
 }
-var s = require("./11131.js");
-var o = require("./42318.js");
-var a = require(/*webcrack:missing*/ "./78325.js");
-var c = require("./63439.js");
-var l = require("./88750.js");
-var u = require("./91435.js");
-var m = require("./27773.js");
-var d = require("./72476.js");
-function h(e) {
-	const { Modal: t } = e;
-	const { name: n, modalProps: i, options: o } = t;
-	const h = (0, s.R7)().ownerWindow;
-	const { popup: p, element: g } = (0, c.OJ)(
-		n,
+function H(e) {
+	const { Modal } = e;
+	const { name, modalProps, options } = Modal;
+	const h = R7().ownerWindow;
+	const { popup, element } = OJ(
+		name,
 		{
-			title: i.strTitle,
-			html_class:
-				"client_chat_frame fullheight ModalDialogPopup LegacyPopup " +
-				(i.className || ""),
+			title: modalProps.strTitle,
+			html_class: `client_chat_frame fullheight ModalDialogPopup LegacyPopup ${
+				modalProps.className || ""
+			}`,
 			body_class: "fullheight ModalDialogBody",
 			popup_class: "fullheight popup_chat_frame",
 			owner_window: undefined,
 			replace_existing_popup: true,
-			target_browser: i.browserContext,
+			target_browser: modalProps.browserContext,
 			availscreenwidth: h.screen.availWidth,
 			availscreenheight: h.screen.availHeight,
-			bModal: i.bHideMainWindowForPopouts,
+			bModal: modalProps.bHideMainWindowForPopouts,
 		},
 		{
 			updateParamsBeforeShow: (e) =>
-				(function (e, t, n, r) {
+				((e, t, n, r) => {
 					let i;
 					let s;
 					let o;
@@ -51,10 +57,10 @@ function h(e) {
 					if (d.TS.IN_CLIENT && r?.SteamClient?.Browser?.GetBrowserID) {
 						o = r.SteamClient.Browser.GetBrowserID();
 					} else {
-						let e = r.screen;
-						i = (e.availWidth - a) / 2;
-						s = (e.availHeight - c) / 2;
-						let t = e;
+						let r_screen = r.screen;
+						i = (r_screen.availWidth - a) / 2;
+						s = (r_screen.availHeight - c) / 2;
+						let t = r_screen;
 						if (t.availLeft !== undefined && t.availTop !== undefined) {
 							i += t.availLeft;
 							s += t.availTop;
@@ -71,126 +77,102 @@ function h(e) {
 						center_on_window: n.bCenterOnWindow ? r : undefined,
 						window_opener_id: o,
 					};
-				})(e, i, o, h),
-			onClose: () => i.fnOnClose && i.fnOnClose(),
+				})(e, modalProps, options, h),
+			onClose: () => modalProps.fnOnClose && modalProps.fnOnClose(),
 		},
 	);
-	const f = o?.bHideActions;
+	const f = options?.bHideActions;
 	const _ =
-		typeof o?.nDragAreaHeight == "number"
+		typeof options?.nDragAreaHeight == "number"
 			? {
-					height: o.nDragAreaHeight,
+					height: options.nDragAreaHeight,
 				}
 			: undefined;
-	if (g) {
+	if (element) {
 		return a.createPortal(
-			r.createElement(
-				s.kc,
-				{
-					ownerWindow: p,
-				},
-				r.createElement(
-					"div",
-					{
-						className: "PopupFullWindow",
-						onContextMenu: l.aE,
-					},
-					r.createElement(m.c, {
-						hideMin: true,
-						hideMax: true,
-						popup: p,
-						hideActions: f,
-						style: _,
-					}),
-					r.createElement(
-						u.EO,
-						{
-							browserInfo: i.browserContext,
-							bCenterPopupsOnWindow: o.bCenterOnWindow,
-						},
-						t.element,
-					),
-				),
-			),
-			g,
+			<s.kc ownerWindow={popup}>
+				<div className="PopupFullWindow" onContextMenu={l.aE}>
+					<m.c hideMin hideMax popup={popup} hideActions={f} style={_} />
+					<u.EO
+						browserInfo={modalProps.browserContext}
+						bCenterPopupsOnWindow={options.bCenterOnWindow}
+					>
+						{Modal.element}
+					</u.EO>
+				</div>
+			</s.kc>,
+			element,
 		);
 	} else {
 		return null;
 	}
 }
-function p(e) {
-	const { ModalManager: t } = e;
-	const [n, i] = r.useState(undefined);
-	const [s, o] = r.useState(true);
-	const a = r.useRef(0);
+function P(e) {
+	const { ModalManager } = e;
+	const [n, setN] = r.useState(undefined);
+	const [s, setS] = r.useState(true);
+	const ARef = r.useRef(0);
 	const c = r.useCallback(() => {
 		r.startTransition(() => {
-			o(true);
+			setS(true);
 		});
 	}, []);
-	r.useEffect(() => t.RegisterMeasureModalCallback(c).Unregister, [t, c]);
+	r.useEffect(
+		() => ModalManager.RegisterMeasureModalCallback(c).Unregister,
+		[ModalManager, c],
+	);
 	r.useLayoutEffect(() => {
 		if (!n) {
 			r.startTransition(() => {
-				i(t.TakeMeasureModalRequest());
-				o(false);
+				setN(ModalManager.TakeMeasureModalRequest());
+				setS(false);
 			});
 		}
-	}, [t, n, s]);
+	}, [ModalManager, n, s]);
 	const l = r.useCallback((e) => {
-		a.current++;
+		ARef.current++;
 		r.startTransition(() => {
-			i((t) => (t === e ? undefined : t));
+			setN((t) => t === e || t);
 		});
 	}, []);
 	if (n) {
-		return r.createElement(g, {
-			key: a.current,
-			onMeasureComplete: l,
-			request: n,
-		});
+		return <G key={ARef.current} onMeasureComplete={l} request={n} />;
 	} else {
 		return null;
 	}
 }
-function g(e) {
-	const [t, n] = r.useState();
-	const i = (0, s.R7)().ownerWindow;
+function G(e) {
+	const [t, setT] = r.useState();
+	const i = R7().ownerWindow;
 	r.useLayoutEffect(() => {
 		const e = i.document.body;
 		const t = i.document.createElement("div");
 		t.style.position = "absolute";
 		t.style.visibility = "hidden";
 		e.appendChild(t);
-		n(t);
+		setT(t);
 		return () => {
 			e.removeChild(t);
 		};
 	}, [i]);
 	if (t) {
-		return a.createPortal(
-			r.createElement(f, {
-				...e,
-				elContainer: t,
-			}),
-			t,
-		);
+		return a.createPortal(<F {...e} elContainer={t} />, t);
 	} else {
 		return null;
 	}
 }
-function f(e) {
-	const { elContainer: t, onMeasureComplete: n, request: i } = e;
+function F(e) {
+	const { elContainer, onMeasureComplete, request } = e;
 	r.useEffect(() => {
 		let e = false;
 		const r = (t) => {
 			if (!e) {
-				i.fnResults(t);
-				n(i);
+				request.fnResults(t);
+				onMeasureComplete(request);
 				e = true;
 			}
 		};
-		(async function (e, t) {
+		(async (e, t) => {
 			if (t) {
 				await t;
 			}
@@ -205,17 +187,11 @@ function f(e) {
 				height: i,
 				width: s,
 			};
-		})(t, i.promiseContentReady).then(r);
+		})(elContainer, request.promiseContentReady).then(r);
 		return () => r(undefined);
-	}, [t, n, i]);
-	return r.createElement(o.tH, null, i.rctToMeasure);
+	}, [elContainer, onMeasureComplete, request]);
+	return <o.tH>{request.rctToMeasure}</o.tH>;
 }
-var _ = require("./90765.js");
-var w = require("./52451.js");
-var b = require("./21440.js");
-var C = require("./3673.js");
-var v = require("./55993.js");
-var M = require("./98995.js");
 function S(e) {
 	r.useEffect(() => {
 		if (e) {
@@ -226,21 +202,22 @@ function S(e) {
 }
 export function L(e) {
 	let {
-		ModalManager: t,
-		bRegisterModalManager: n = true,
-		DialogWrapper: o,
-		rctActiveContextMenus: a,
-		bUseDialogElement: c = true,
-		style: l,
+		ModalManager,
+		bRegisterModalManager = true,
+		DialogWrapper,
+		rctActiveContextMenus,
+		bUseDialogElement = true,
+		style,
 		...u
 	} = e;
-	const m = t.modals;
-	const d = m && !!m.length;
-	const h = t.active_modal;
+
+	const { modals, active_modal } = ModalManager;
+
+	const d = modals && !!modals.length;
 	S(d);
-	(function (e) {
-		const t = (0, s.R7)().ownerWindow;
-		const n = (0, w.CH)();
+	((e) => {
+		const t = R7().ownerWindow;
+		const n = CH();
 		const i = r.useCallback(() => {
 			if (t?.SteamClient?.Window) {
 				t.SteamClient.Window.BringToFront();
@@ -248,9 +225,9 @@ export function L(e) {
 		}, [t]);
 		r.useEffect(() => e.RegisterOverlay(n), [e, n]);
 		r.useEffect(() => e.RegisterOnModalShownCallback(i).Unregister, [e, i]);
-	})(t);
-	const g = (function (e, t) {
-		return (0, w.QS)(
+	})(ModalManager);
+	const g = ((e, t) =>
+		QS(
 			(n) => {
 				if (!n || !t) {
 					return;
@@ -259,178 +236,135 @@ export function L(e) {
 				return C.BR.RegisterModalManager(e, r);
 			},
 			[e],
-		);
-	})(t, n);
+		))(ModalManager, bRegisterModalManager);
 	let f = null;
-	let v = !c;
-	if (m && m.length) {
-		f = m.map((e) => {
-			const t = e == h;
+	let v = !bUseDialogElement;
+	if (modals && modals.length) {
+		f = modals.map((e) => {
+			const t = e == active_modal;
 			const n = {
 				key: e.key,
 				active: t,
-				rctActiveContextMenus: t && c ? a : undefined,
+				rctActiveContextMenus:
+					t && bUseDialogElement ? rctActiveContextMenus : undefined,
 			};
 			if (e instanceof b._F) {
-				return r.createElement(B, {
-					...n,
-					modal: e,
-					Component: o ?? x,
-				});
+				return <B {...n} modal={e} Component={DialogWrapper ?? x} />;
 			} else if (e instanceof b.$9) {
-				return r.createElement(E, {
-					...n,
-					modal: e,
-					bUseDialogElement: c,
-				});
+				return <E {...n} modal={e} bUseDialogElement={bUseDialogElement} />;
 			} else {
 				return undefined;
 			}
 		});
 	} else {
 		v = true;
-		l = {
-			...l,
+		style = {
+			...style,
 			display: "none",
 		};
 	}
-	return r.createElement(
-		r.Fragment,
-		null,
-		r.createElement(
-			i,
-			null,
-			r.createElement(
-				"div",
-				{
-					...u,
-					style: l,
-					ref: g,
-					className: (0, _.A)(u.className, "FullModalOverlay"),
-				},
-				r.createElement("div", {
-					className: "ModalOverlayContent ModalOverlayBackground",
-				}),
-				f,
-			),
-			v && a,
-		),
-		r.createElement(p, {
-			ModalManager: t,
-		}),
-		r.createElement(k, {
-			ModalManager: t,
-		}),
+	return (
+		<>
+			<I>
+				<div
+					{...u}
+					style={style}
+					ref={g}
+					className={A(u.className, "FullModalOverlay")}
+				>
+					<div className="ModalOverlayContent ModalOverlayBackground" />
+					{f}
+				</div>
+				{v && rctActiveContextMenus}
+			</I>
+			<P ModalManager={ModalManager} />
+			<K ModalManager={ModalManager} />
+		</>
 	);
 }
 function E(e) {
-	const {
-		modal: t,
-		rctActiveContextMenus: n,
-		active: i,
-		bUseDialogElement: s,
-	} = e;
+	const { modal, rctActiveContextMenus, active, bUseDialogElement } = e;
 	r.useEffect(() => {
-		if (i) {
-			t.SetActive(i);
+		if (active) {
+			modal.SetActive(active);
 			return () => {
-				t.SetActive(false);
+				modal.SetActive(false);
 			};
 		}
-	}, [t, i]);
-	const a = r.createElement(
-		o.tH,
-		null,
-		r.createElement("div", {
-			className: (0, _.A)("ModalOverlayContent", i ? "active" : "inactive"),
-			ref: t.RefModalElement,
-		}),
-		n,
+	}, [modal, active]);
+	const a = (
+		<o.tH>
+			<div
+				className={A("ModalOverlayContent", active ? "active" : "inactive")}
+				ref={modal.RefModalElement}
+			/>
+			{rctActiveContextMenus}
+		</o.tH>
 	);
-	if (s) {
-		return r.createElement(
-			_L,
-			{
-				active: i,
-			},
-			a,
-		);
+	if (bUseDialogElement) {
+		return <_L active={active}>{a}</_L>;
 	} else {
 		return a;
 	}
 }
 function B(e) {
-	const { modal: t, active: n, rctActiveContextMenus: i, Component: s } = e;
-	const a = (0, w.CH)();
-	(0, w.hL)(t.ModalUpdatedCallback, a);
-	return r.createElement(
-		o.tH,
-		null,
-		r.createElement(
-			s,
-			{
-				className: (0, _.A)("ModalOverlayContent", n ? "active" : "inactive"),
-				active: n,
-				modalKey: t.key,
-			},
-			i,
-			t.element,
-		),
+	const { modal, active, rctActiveContextMenus, Component } = e;
+	const a = CH();
+	hL(modal.ModalUpdatedCallback, a);
+	return (
+		<o.tH>
+			<Component
+				className={A("ModalOverlayContent", active ? "active" : "inactive")}
+				active={active}
+				modalKey={modal.key}
+			>
+				{rctActiveContextMenus}
+				{modal.element}
+			</Component>
+		</o.tH>
 	);
 }
 function x(e) {
-	const { className: t, active: n, children: i } = e;
-	return r.createElement(
-		_L,
-		{
-			active: n,
-		},
-		r.createElement(
-			M.C$,
-			null,
-			r.createElement(
-				"div",
-				{
-					className: t,
-					tabIndex: -1,
-				},
-				i,
-			),
-		),
+	const { className, active, children } = e;
+	return (
+		<_L active={active}>
+			<M.C$>
+				<div className={className} tabIndex={-1}>
+					{children}
+				</div>
+			</M.C$>
+		</_L>
 	);
 }
 function _L(e) {
-	const { active: t, children: n } = e;
-	const i = r.useRef(null);
+	const { active, children } = e;
+	const IRef = r.useRef(null);
 	r.useEffect(() => {
-		const e = i.current;
-		if (t && e) {
-			e.showModal();
-			return () => e.close();
+		const i_current = IRef.current;
+		if (active && i_current) {
+			i_current.showModal();
+			return () => i_current.close();
 		}
-	}, [t]);
-	return r.createElement(
-		"dialog",
-		{
-			ref: i,
-			className: v.ModalDialog,
-			onCancel: (e) => e.preventDefault(),
-		},
-		e.children,
+	}, [active]);
+	return (
+		<dialog
+			ref={IRef}
+			className={v.ModalDialog}
+			onCancel={(e) => e.preventDefault()}
+		>
+			{e.children}
+		</dialog>
 	);
 }
-function k(e) {
-	const { ModalManager: t } = e;
-	const n = (0, w.CH)();
-	(0, w.hL)(t.LegacyPopupModalCountChangedCallbacks, n);
-	return r.createElement(
-		r.Fragment,
-		null,
-		t.legacy_popup_modals.map((e) =>
-			r.createElement(h, {
-				key: e.key,
-				Modal: e,
-			}),
-		),
+function K(e) {
+	const { ModalManager } = e;
+	const n = CH();
+	hL(ModalManager.LegacyPopupModalCountChangedCallbacks, n);
+	return (
+		<>
+			{ModalManager.legacy_popup_modals.map((e) => (
+				<H key={e.key} Modal={e} />
+			))}
+		</>
 	);
 }

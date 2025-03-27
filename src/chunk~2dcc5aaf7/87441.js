@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Loading: "_24C5lxFpKz_kHyuT-8GJKK",
 	LoadingSpinnerAmin: "_15h2OLuARlaaeboZ5TbsTx",
 	Small: "_2FPxEVbkMdVDAw1TLfl_B5",

@@ -1,269 +1,219 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require(/*webcrack:missing*/ "./44846.js");
-var l = require("./88724.js");
-var c = require("./62556.js");
-var m = require("./93610.js");
-var u = require(/*webcrack:missing*/ "./50376.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
-var _A = require("./66418.js");
-var p = _A;
-var g = require(/*webcrack:missing*/ "./72476.js");
-function h(e) {
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			"span",
-			{
-				className: p.partyBeaconJoin,
-			},
-			(0, Localize)("#User_WantsToPlay"),
-		),
-		"\xA0–\xA0",
-		e.persona.GetCurrentGameName(),
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { PA } from "./41230.js";
+import o, { aP, S$, ID } from "./44846.js";
+import { rO } from "./88724.js";
+import c from "./62556.js";
+import m from "./93610.js";
+import u from "./50376.js";
+import { A as A_1 } from "./90765.js";
+import _A from "./66418.js";
+import g from "./72476.js";
+const p = _A;
+function H(e) {
+	return (
+		<>
+			<span className={p.partyBeaconJoin}>
+				{(0, Localize)("#User_WantsToPlay")}
+			</span>
+			{"\xA0–\xA0"}
+			{e.persona.GetCurrentGameName()}
+		</>
 	);
 }
 export let D = class extends i.Component {
 	render() {
 		const {
-			className: e,
-			onContextMenu: t,
-			persona: r,
-			eFriendRelationship: n,
-			bIsSelf: a,
-			bParenthesizeNicknames: A,
-			strNickname: C,
-			bCompactView: _,
-			bHideGameName: f,
-			bHideEnhancedRichPresenceLabel: b,
-			bHideSnooze: y,
-			bHideStatus: S,
-			renderStatus: w,
-			renderRichPresence: B,
-			bHidePersona: v,
-			bDNDSet: I,
-			bHasPartyBeacon: E,
-			bHasGamePrivacy: M,
-			bNoMask: T,
+			className,
+			onContextMenu,
+			persona,
+			eFriendRelationship,
+			bIsSelf,
+			bParenthesizeNicknames,
+			strNickname,
+			bCompactView,
+			bHideGameName,
+			bHideEnhancedRichPresenceLabel,
+			bHideSnooze,
+			bHideStatus,
+			renderStatus,
+			renderRichPresence,
+			bHidePersona,
+			bDNDSet,
+			bHasPartyBeacon,
+			bHasGamePrivacy,
+			bNoMask,
 			...R
 		} = this.props;
 		let k = null;
 		let D = null;
 		let N = null;
 		let F = [
-			e,
+			className,
 			p.personaNameAndStatusLabel,
-			(0, l.rO)(r),
-			_ && p.compactView,
-			T && p.NoMask,
+			rO(persona),
+			bCompactView && p.compactView,
+			bNoMask && p.NoMask,
 		];
-		if (E || r.has_public_party_beacon) {
-			D = i.createElement(h, {
-				persona: r,
-			});
-		} else if ((0, o.aP)(n)) {
+		if (bHasPartyBeacon || persona.has_public_party_beacon) {
+			D = <H persona={persona} />;
+		} else if (aP(eFriendRelationship)) {
 			D = (0, Localize)("#PersonaStateBlocked");
 			F.push(p.blocked);
-		} else if (r.is_ingame) {
+		} else if (persona.is_ingame) {
 			D =
-				!r.is_in_nonsteam_game || a || (0, o.S$)(n)
-					? r.GetCurrentGameName()
+				!persona.is_in_nonsteam_game ||
+				bIsSelf ||
+				bIsSelf ||
+				S$(eFriendRelationship)
+					? persona.GetCurrentGameName()
 					: (0, Localize)("#PersonaStateInNonSteamGame");
-			if (a || v) {
-				if (a && r.is_awayOrSnooze) {
+			if (bIsSelf || bHidePersona) {
+				if (bIsSelf && persona.is_awayOrSnooze) {
 					N = (0, Localize)("#PersonaStateAway");
 				}
 			} else {
-				N = r.GetCurrentGameRichPresence();
+				N = persona.GetCurrentGameRichPresence();
 			}
-		} else if (r.m_broadcastAccountId) {
+		} else if (persona.m_broadcastAccountId) {
 			D = (0, Localize)("#PersonaStateWatchingBroadcast");
 		}
-		D ||= r.GetLocalizedOnlineStatus();
-		if (w) {
-			D = w();
+		D ||= persona.GetLocalizedOnlineStatus();
+		if (renderStatus) {
+			D = renderStatus();
 		}
-		let G = !v && !y;
-		if (y === false) {
+		let G = !bHidePersona && !bHideSnooze;
+		if (bHideSnooze === false) {
 			G = true;
 		}
-		if (r.is_awayOrSnooze && G) {
-			k = i.createElement(c.p, {
-				persona: r,
-			});
+		if (persona.is_awayOrSnooze && G) {
+			k = <c.p persona={persona} />;
 		}
 		let O = null;
-		if (t) {
-			O = i.createElement(
-				"div",
-				{
-					className: "ContextMenuButton",
-					onClick: t,
-				},
-				i.createElement(u.GB9, null),
+		if (onContextMenu) {
+			O = (
+				<div className="ContextMenuButton" onClick={onContextMenu}>
+					<u.GB9 />
+				</div>
 			);
 		} else {
 			F.push(p.noContextMenu);
 		}
-		if (v) {
+		if (bHidePersona) {
 			F.push(p.hidePersona);
 		}
-		if (B) {
-			N = B();
+		if (renderRichPresence) {
+			N = renderRichPresence();
 		}
-		if (!!f || !N) {
+		if (!!bHideGameName || !N) {
 			F.push(p.twoLine);
 		}
-		const P = !r.is_ingame && !S;
-		const L = !b && N;
-		const z = D && (!f || !L);
-		const x = (0, o.ID)(g.TS.LAUNCHER_TYPE);
-		let U = C && !A;
-		let W = U ? C : r.m_strPlayerName;
-		let V = !v && (z || P) && L;
-		return i.createElement(
-			"div",
-			{
-				...R,
-				className: (0, d.A)(...F),
-				onContextMenu: t,
-			},
-			i.createElement(
-				"div",
-				{
-					className: (0, d.A)(p.statusAndName, V && p.threeLines),
-				},
-				i.createElement(
-					"div",
-					{
-						className: p.playerName,
-					},
-					W || "\xA0",
-					A &&
-						C &&
-						i.createElement(
-							"span",
-							{
-								className: p.playerNickname,
-							},
-							"(",
-							C,
-							")",
-						),
-				),
-				I &&
-					i.createElement(
-						"div",
-						{
-							className: p.DNDContainer,
-							title: (0, Localize)("#User_ToggleDoNotDisturb"),
-						},
-						i.createElement(u.Aj0, null),
-					),
-				U &&
-					i.createElement(
-						"span",
-						{
-							className: p.playerNicknameBracket,
-							title: (0, Localize)("#isNickname"),
-						},
-						" *",
-					),
-				i.createElement(m.X, {
-					persona: r,
-				}),
-				k,
-				(r.m_bPlayerNamePending || r.m_bAvatarPending) &&
-					x &&
-					i.createElement(
-						"div",
-						{
-							className: p.PendingPersona,
-							title: (0, Localize)("#SteamChina_PendingPersonaName"),
-						},
-						i.createElement(u.zD7, null),
-					),
-				O,
-			),
-			!v &&
-				i.createElement(
-					"div",
-					{
-						className: p.richPresenceContainer,
-					},
-					(z || P) &&
-						i.createElement(
-							"div",
-							{
-								className: (0, d.A)(
+		const P = !persona.is_ingame && !bHideStatus;
+		const L = !bHideEnhancedRichPresenceLabel && N;
+		const z = D && (!bHideGameName || !L);
+		const x = ID(g.TS.LAUNCHER_TYPE);
+		let U = strNickname && !bParenthesizeNicknames;
+		let W = U ? strNickname : persona.m_strPlayerName;
+		let V = !bHidePersona && (z || P) && L;
+		return (
+			<div {...R} className={A_1(...F)} onContextMenu={onContextMenu}>
+				<div className={A_1(p.statusAndName, V && p.threeLines)}>
+					<div className={p.playerName}>
+						{W || "\xA0"}
+						{bParenthesizeNicknames && strNickname && (
+							<span className={p.playerNickname}>({strNickname})</span>
+						)}
+					</div>
+					{bDNDSet && (
+						<div
+							className={p.DNDContainer}
+							title={(0, Localize)("#User_ToggleDoNotDisturb")}
+						>
+							<u.Aj0 />
+						</div>
+					)}
+					{U && (
+						<span
+							className={p.playerNicknameBracket}
+							title={(0, Localize)("#isNickname")}
+						>
+							{" *"}
+						</span>
+					)}
+					<m.X persona={persona} />
+					{k}
+					{(persona.m_bPlayerNamePending || persona.m_bAvatarPending) && x && (
+						<div
+							className={p.PendingPersona}
+							title={(0, Localize)("#SteamChina_PendingPersonaName")}
+						>
+							<u.zD7 />
+						</div>
+					)}
+					{O}
+				</div>
+				{!bHidePersona && (
+					<div className={p.richPresenceContainer}>
+						{(z || P) && (
+							<div
+								className={A_1(
 									p.gameName,
 									V && p.threeLines,
 									p.richPresenceLabel,
 									"no-drag",
-								),
-							},
-							M &&
-								i.createElement(
-									"div",
-									{
-										className: p.gameIsPrivateIcon,
-										title: (0, Localize)("#User_GameInfoHidden"),
-									},
-									i.createElement(u.jZl, null),
-								),
-							D,
-						),
-					L &&
-						i.createElement(
-							"div",
-							{
-								className: (0, d.A)(p.richPresenceLabel, "no-drag"),
-							},
-							N,
-							" ",
-						),
-				),
+								)}
+							>
+								{bHasGamePrivacy && (
+									<div
+										className={p.gameIsPrivateIcon}
+										title={(0, Localize)("#User_GameInfoHidden")}
+									>
+										<u.jZl />
+									</div>
+								)}
+								{D}
+							</div>
+						)}
+						{L && (
+							<div className={A_1(p.richPresenceLabel, "no-drag")}>{N} </div>
+						)}
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-D = (0, n.Cg)([a.PA], D);
-export const A = (0, a.PA)((e) => {
+D = Cg([a.PA], D);
+export const A = PA((e) => {
 	const {
-		persona: t,
-		bParenthesizeNicknames: r,
-		strNickname: n,
-		bIgnorePersonaStatus: a,
-		bDisableColoring: s,
-		className: o,
+		persona,
+		bParenthesizeNicknames,
+		strNickname,
+		bIgnorePersonaStatus,
+		bDisableColoring,
+		className,
 		...c
 	} = e;
-	let m = n && !r ? n : t.m_strPlayerName;
-	return i.createElement(
-		"span",
-		{
-			...c,
-			className: (0, d.A)(o, s && p.DisableColoring, !a && (0, l.rO)(t)),
-		},
-		i.createElement(
-			"span",
-			{
-				className: p.playerName,
-			},
-			m || "\xA0",
-			r &&
-				n &&
-				i.createElement(
-					"span",
-					{
-						className: p.playerNickname,
-					},
-					"(",
-					n,
-					")",
-				),
-		),
+	let m =
+		strNickname && !bParenthesizeNicknames
+			? strNickname
+			: persona.m_strPlayerName;
+	return (
+		<span
+			{...c}
+			className={A_1(
+				className,
+				bDisableColoring && p.DisableColoring,
+				!bIgnorePersonaStatus && rO(persona),
+			)}
+		>
+			<span className={p.playerName}>
+				{m || "\xA0"}
+				{bParenthesizeNicknames && strNickname && (
+					<span className={p.playerNickname}>({strNickname})</span>
+				)}
+			</span>
+		</span>
 	);
 });

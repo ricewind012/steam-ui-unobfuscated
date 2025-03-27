@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	strStreamIconCapsuleArtHeight: "90px",
 	strStreamIconScreenshotArtHeight: "90px",
 	bordered_container: "_3zXpFCyX2IiaD-MNF5KJFf",

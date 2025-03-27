@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./88696.js");
-var s = require(/*webcrack:missing*/ "./12176.js");
-var o = require("./54946.js");
 import { Seconds, Sleep } from "../../actual_src/utils/time.js";
-var c = require("./91745.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
-var u = require("./96000.js");
-var d = require("./96593.js");
-var A = require("./46422.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
-var g = require("./89748.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./88696.js";
+import s from "./12176.js";
+import o from "./54946.js";
+import c from "./91745.js";
+import m from "./72476.js";
+import u from "./96000.js";
+import d from "./96593.js";
+import A from "./46422.js";
+import p, { q3 } from "./90095.js";
+import { qw } from "./89748.js";
 const h = "playnextstore_storage";
 export function K_() {
-	return (0, p.q3)(() => x3.GetSuggestionsToShow().apps);
+	return q3(() => x3.GetSuggestionsToShow().apps);
 }
 class _ {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_LocalStorage;
@@ -99,10 +99,10 @@ class _ {
 		});
 	}
 	async MaybeUpdatePlayNextAsync() {
-		if ((0, g.qw)().BIsOfflineMode()) {
+		if (qw().BIsOfflineMode()) {
 			return;
 		}
-		const e = Seconds.PerDay;
+		const Seconds_PerDay = Seconds.PerDay;
 		const t = Seconds.PerHour * 1000;
 		if (this.m_bPlayNextRequestInFlight) {
 			return;
@@ -118,7 +118,7 @@ class _ {
 		if (
 			this.m_cachedPlayNext &&
 			d == this.m_nIgnoredChecksum &&
-			Date.now() / 1000 - this.m_nLastFetchTime < e
+			Date.now() / 1000 - this.m_nLastFetchTime < Seconds_PerDay
 		) {
 			return;
 		}
@@ -143,7 +143,7 @@ class _ {
 		}
 		if (h.GetEResult() == 1) {
 			this.m_cachedPlayNext = h.Body().toObject();
-			this.m_nNextAllowableRetry = Date.now() + e * 1000;
+			this.m_nNextAllowableRetry = Date.now() + Seconds_PerDay * 1000;
 			this.m_nLastFetchTime = Date.now() / 1000;
 			this.m_bFresh = true;
 			this.SaveCacheToLocalStorage();
@@ -158,26 +158,26 @@ class _ {
 	}
 	GetSuggestionsToShow(e) {
 		const t = this.GetPlayNext();
-		let r = t.appids;
+		let t_appids = t.appids;
 		if (!e) {
 			const e = Date.now() / 1000 - Seconds.PerWeek * 2;
-			r = r.filter((t) => {
+			t_appids = t_appids.filter((t) => {
 				const r = d.tw.GetAppOverviewByAppID(t);
 				return r && u.md.BIsVisible(r) && r.GetLastTimePlayed() < e;
 			});
 		}
 		return {
-			apps: r,
+			apps: t_appids,
 			bLoading: t.bLoadInFlight,
 			bFresh: t.bFresh,
 		};
 	}
 }
-(0, n.Cg)([i.sH], _.prototype, "m_cachedPlayNext", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_bPlayNextRequestInFlight", undefined);
-(0, n.Cg)([i.XI.bound], _.prototype, "DebugClearCache", null);
-(0, n.Cg)([i.XI.bound], _.prototype, "AddIgnoredApp", null);
-(0, n.Cg)([i.XI.bound], _.prototype, "ClearIgnoredApps", null);
-(0, n.Cg)([i.XI.bound], _.prototype, "RemoveIgnoredApp", null);
+Cg([i.sH], _.prototype, "m_cachedPlayNext", undefined);
+Cg([i.sH], _.prototype, "m_bPlayNextRequestInFlight", undefined);
+Cg([i.XI.bound], _.prototype, "DebugClearCache", null);
+Cg([i.XI.bound], _.prototype, "AddIgnoredApp", null);
+Cg([i.XI.bound], _.prototype, "ClearIgnoredApps", null);
+Cg([i.XI.bound], _.prototype, "RemoveIgnoredApp", null);
 export const x3 = new _();
 window.playNextStore = x3;

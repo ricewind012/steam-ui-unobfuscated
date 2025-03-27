@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./44926.js");
-var a = require(/*webcrack:missing*/ "./30329.js");
-var s = require(/*webcrack:missing*/ "./3715.js");
-var o = require(/*webcrack:missing*/ "./61416.js");
 import { IsDateSameDay } from "../../actual_src/utils/time.js";
 import { LocalizationManager } from "../../actual_src/utils/localization.js";
-var m = require("./25633.js");
+import n, { useEffect, useMemo } from "./63696.js";
+import i from "./44926.js";
+import a, { q } from "./30329.js";
+import { jE } from "./3715.js";
+import { I } from "./61416.js";
+import { B1 } from "./25633.js";
 const u = 20;
 const d = "PhaseList";
 export function nY(e = {}) {
-	(function () {
-		const e = (0, s.jE)();
-		(0, n.useEffect)(() => {
+	(() => {
+		const e = jE();
+		useEffect(() => {
 			const t = () => {
 				e.invalidateQueries({
 					queryKey: [d],
@@ -28,7 +28,7 @@ export function nY(e = {}) {
 			};
 		}, [e]);
 	})();
-	const t = (function (e) {
+	const t = ((e) => {
 		const t = e.tags || {};
 		return {
 			filter_gameid: e.gameid,
@@ -40,7 +40,7 @@ export function nY(e = {}) {
 			filter_phase_id: e.phaseID,
 		};
 	})(e);
-	return (0, a.q)({
+	return q({
 		queryKey: [d, "Query", t],
 		queryFn: async (r) => {
 			const n = (
@@ -56,7 +56,7 @@ export function nY(e = {}) {
 				const t = e.strSearch.toLowerCase();
 				for (const e of n.phases) {
 					for (const r of e.tags) {
-						r.bFilterMatch = r.name.toLowerCase().indexOf(t) > -1;
+						r.bFilterMatch = r.name.toLowerCase().includes(t);
 					}
 				}
 			}
@@ -70,7 +70,7 @@ export function nY(e = {}) {
 	});
 }
 export function sn(e) {
-	return (0, o.I)({
+	return I({
 		queryKey: [d, "GetTags", e],
 		queryFn: async () => {
 			const t = (
@@ -80,8 +80,8 @@ export function sn(e) {
 			)
 				.Body()
 				.toObject().tags;
-			const { rgIconGroups: r } = g(t);
-			return r.sort((e, t) => t[0].priority - e[0].priority);
+			const { rgIconGroups } = g(t);
+			return rgIconGroups.sort((e, t) => t[0].priority - e[0].priority);
 		},
 	});
 }
@@ -94,7 +94,7 @@ function g(e) {
 	const r = [];
 	const n = [];
 	for (const e of Object.values(t)) {
-		const t = e.some(({ icon: e }) => !!e);
+		const t = e.some(({ icon }) => !!icon);
 		e.sort((e, t) => t.priority - e.priority);
 		if (t) {
 			r.push(e);
@@ -108,16 +108,16 @@ function g(e) {
 	};
 }
 export function g7(e, t) {
-	return (0, n.useMemo)(
+	return useMemo(
 		() =>
-			(function (e = [], t = []) {
-				const { rgIconGroups: r, rgTextOnlyTags: n } = g(e);
+			((e = [], t = []) => {
+				const { rgIconGroups, rgTextOnlyTags } = g(e);
 				const i = [
 					...t.map((e) => ({
 						type: "attribute",
 						attribute: e,
 					})),
-					...r.map((e) => ({
+					...rgIconGroups.map((e) => ({
 						type: "tags",
 						tags: e,
 					})),
@@ -127,7 +127,7 @@ export function g7(e, t) {
 				i.sort((e, t) => a(t) - a(e));
 				return {
 					rgMetadata: i,
-					rgDemoted: n,
+					rgDemoted: rgTextOnlyTags,
 				};
 			})(e, t),
 		[e, t],
@@ -145,7 +145,7 @@ export function Hy(e) {
 		const e = {
 			day: "numeric",
 			month: "short",
-			year: n ? undefined : "numeric",
+			year: n || "numeric",
 		};
 		i = r.toLocaleDateString(LocalizationManager.GetPreferredLocales(), e);
 	}
@@ -162,7 +162,7 @@ export function Hy(e) {
 export function DV(e, t, r, n) {
 	const i = r + 1;
 	const a = i + n - 2;
-	return (0, m.B1)(
+	return B1(
 		e,
 		undefined,
 		undefined,

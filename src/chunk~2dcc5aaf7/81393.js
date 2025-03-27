@@ -1,61 +1,62 @@
-var n = require("./64591.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./58254.js");
-var l = require("./22588.js");
-var c = require("./92374.js");
-var m = require("./84921.js");
+import n from "./64591.js";
+import i, { useState, useEffect } from "./63696.js";
+import a, { A as A_1 } from "./90765.js";
+import s, { Ue } from "./52451.js";
+import o from "./58254.js";
+import l, { Ni, Fc } from "./22588.js";
+import c, { aO } from "./92374.js";
+import m, { xE } from "./84921.js";
 export function z(e) {
-	let { clipID: t, playClip: r } = e;
-	return i.createElement(A, {
-		play: r,
-		renderVideo: (e, r, n) =>
-			i.createElement(g, {
-				ref: e,
-				clipID: t,
-				onReady: r,
-				hidden: n,
-			}),
-	});
+	let { clipID, playClip } = e;
+	return (
+		<A
+			play={playClip}
+			renderVideo={(e, r, n) => (
+				<G_1 ref={e} clipID={clipID} onReady={r} hidden={n} />
+			)}
+		/>
+	);
 }
 export function G(e) {
-	let { gameID: t, timelineID: r, startMS: n, durationMS: a, play: s } = e;
-	return i.createElement(A, {
-		play: s,
-		renderVideo: (e, s, o) =>
-			i.createElement(h, {
-				ref: e,
-				gameID: t,
-				timelineID: r,
-				startMS: n,
-				durationMS: a,
-				onReady: s,
-				hidden: o,
-			}),
-	});
+	let { gameID, timelineID, startMS, durationMS, play } = e;
+	return (
+		<A
+			play={play}
+			renderVideo={(e, s, o) => (
+				<H
+					ref={e}
+					gameID={gameID}
+					timelineID={timelineID}
+					startMS={startMS}
+					durationMS={durationMS}
+					onReady={s}
+					hidden={o}
+				/>
+			)}
+		/>
+	);
 }
 function A(e) {
-	let { renderVideo: t, play: r } = e;
-	const [n, a] = (0, i.useState)(false);
-	const s = i.useRef();
+	let { renderVideo, play } = e;
+	const [n, setN] = useState(false);
+	const SRef = i.useRef();
 	let l = null;
 	if (n) {
-		l = i.createElement(
-			o.A,
-			{
-				nodeRef: s,
-				in: r,
-				timeout: 200,
-				classNames: p,
-				mountOnEnter: true,
-				unmountOnExit: true,
-				appear: true,
-			},
-			t(s, undefined, false),
+		l = (
+			<o.A
+				nodeRef={SRef}
+				in={play}
+				timeout={200}
+				classNames={p}
+				mountOnEnter
+				unmountOnExit
+				appear
+			>
+				{renderVideo(SRef, undefined, false)}
+			</o.A>
 		);
-	} else if (r) {
-		l = t(s, () => a(true), true);
+	} else if (play) {
+		l = renderVideo(SRef, () => setN(true), true);
 	}
 	return l;
 }
@@ -70,56 +71,48 @@ const p = {
 	exitActive: n.ExitActive,
 	exitDone: n.ExitDone,
 };
-const g = i.forwardRef(function (e, t) {
-	const { clipID: r, ...n } = e;
-	const { loader: a, fnGetManifest: s } = (0, l.Ni)(r);
-	return i.createElement(
-		c.Ni,
-		{
-			loader: a,
-			fnGetManifest: s,
-			mode: c.g_.Clips,
-		},
-		i.createElement(C, {
-			ref: t,
-			...n,
-		}),
+const G_1 = i.forwardRef((props, ref) => {
+	const { clipID, ...n } = props;
+	const { loader, fnGetManifest } = Ni(clipID);
+	return (
+		<c.Ni loader={loader} fnGetManifest={fnGetManifest} mode={c.g_.Clips}>
+			<C ref={ref} {...n} />
+		</c.Ni>
 	);
 });
-const h = i.forwardRef(function (e, t) {
-	const { gameID: r, timelineID: n, startMS: a, durationMS: s, ...o } = e;
-	const { loader: m, fnGetManifest: u } = (0, l.Fc)(r);
+const H = i.forwardRef((props, ref) => {
+	const { gameID, timelineID, startMS, durationMS, ...o } = props;
+	const { loader, fnGetManifest } = Fc(gameID);
 	let d = {
-		m_strTimelineID: n,
-		m_nTimelineStartMS: a,
-		m_nDurationMS: s,
+		m_strTimelineID: timelineID,
+		m_nTimelineStartMS: startMS,
+		m_nDurationMS: durationMS,
 	};
-	return i.createElement(
-		c.Ni,
-		{
-			loader: m,
-			fnGetManifest: u,
-			mode: c.g_.Clips,
-			playbackDefinition: d,
-		},
-		i.createElement(C, {
-			ref: t,
-			...o,
-		}),
+	return (
+		<c.Ni
+			loader={loader}
+			fnGetManifest={fnGetManifest}
+			mode={c.g_.Clips}
+			playbackDefinition={d}
+		>
+			<C ref={ref} {...o} />
+		</c.Ni>
 	);
 });
-const C = i.forwardRef(function (e, t) {
-	const { onReady: r, hidden: o } = e;
-	const l = (0, c.aO)();
-	const u = (0, m.xE)(l.StopPlayback, l.SetVideoElement);
-	const d = (0, s.Ue)(t, u);
-	(0, i.useEffect)(() => l.GetGameRecordingVideo().SetMute(true), [l]);
-	return i.createElement("video", {
-		ref: d,
-		className: (0, a.A)(n.ClipVideo, o && n.Hidden),
-		autoPlay: true,
-		playsInline: true,
-		muted: true,
-		onLoadedData: r,
-	});
+const C = i.forwardRef((props, ref) => {
+	const { onReady, hidden } = props;
+	const l = aO();
+	const u = xE(l.StopPlayback, l.SetVideoElement);
+	const d = Ue(ref, u);
+	useEffect(() => l.GetGameRecordingVideo().SetMute(true), [l]);
+	return (
+		<video
+			ref={d}
+			className={A_1(n.ClipVideo, hidden && n.Hidden)}
+			autoPlay
+			playsInline
+			muted
+			onLoadedData={onReady}
+		/>
+	);
 });

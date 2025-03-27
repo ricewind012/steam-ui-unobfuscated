@@ -1,34 +1,34 @@
-var n = require(/*webcrack:missing*/ "./85243.js");
-var i = require("./38542.js");
-var a = require("./96680.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./35425.js");
-var l = require(/*webcrack:missing*/ "./31084.js");
-var c = require(/*webcrack:missing*/ "./63439.js");
-var m = require("./45967.js");
-var u = require("./80467.js");
-var d = u;
-var A = require(/*webcrack:missing*/ "./90765.js");
+import n from "./85243.js";
+import i, { oH } from "./38542.js";
+import a, { $2 } from "./96680.js";
+import s from "./63696.js";
+import o from "./35425.js";
+import l from "./31084.js";
+import { OJ } from "./63439.js";
+import m from "./45967.js";
+import u from "./80467.js";
+import A, { A as A_1 } from "./90765.js";
+const d = u;
 export function WR(e, t, r, n) {
-	const o = (0, a.$2)();
-	const u = o.BrowserWindow;
+	const o = $2();
+	const o_BrowserWindow = o.BrowserWindow;
 	t = sB(o, e, t, r, false);
 	e = Bj(o, e);
-	const { popup: d, element: A } = (0, c.OJ)(e, t, n);
+	const { popup, element } = OJ(e, t, n);
 	s.useEffect(() => {
-		if (d) {
-			return l.XX.RegisterChildWindow(u, d);
+		if (popup) {
+			return l.XX.RegisterChildWindow(o_BrowserWindow, popup);
 		}
-	}, [d, u]);
-	(0, i.oH)(d, (e) =>
+	}, [popup, o_BrowserWindow]);
+	oH(popup, (e) =>
 		m.fR.Debug(
-			`Overlay for VRPopup ${d.name} visibility=${e ? "true" : "false"}`,
+			`Overlay for VRPopup ${popup.name} visibility=${e ? "true" : "false"}`,
 		),
 	);
-	z8(o, d);
+	z8(o, popup);
 	return {
-		popup: d,
-		element: A,
+		popup: popup,
+		element: element,
 	};
 }
 const g = new Set();
@@ -63,22 +63,26 @@ export function sB(e, t, r, i, a) {
 				top: 50,
 			};
 			switch (r.strVROverlayKey) {
-				case e.GetMainVROverlayKey():
+				case e.GetMainVROverlayKey(): {
 					t.left = 800;
 					t.top = 290;
 					break;
-				case o.rn:
+				}
+				case o.rn: {
 					t.top = 140;
 					break;
-				case o.T3:
+				}
+				case o.T3: {
 					t.left = 800;
 					t.top = 1090;
 					break;
-				case o.A0:
+				}
+				case o.A0: {
 					t.left = 1300;
 					t.top = 140;
 					break;
-				default:
+				}
+				default: {
 					const n = r.strVROverlayKey.split(".") ?? [];
 					let i = Number.parseInt(n[n.length - 1]);
 					i = Number.isInteger(i) ? i - 1 : 0;
@@ -91,11 +95,12 @@ export function sB(e, t, r, i, a) {
 					} else if (r.strVROverlayKey.startsWith(o.r)) {
 						t.top = 290;
 					}
+				}
 			}
 			r = {
 				...r,
 				browserType: n.W.EBrowserType_DirectHWND,
-				title: r.title + " (Desktop Preview)",
+				title: `${r.title} (Desktop Preview)`,
 				dimensions: {
 					...r?.dimensions,
 					...t,
@@ -117,12 +122,7 @@ export function sB(e, t, r, i, a) {
 		if (!i?.bSuppressGamepadUIStyles) {
 			r = {
 				...r,
-				body_class: (0, A.A)(
-					r.body_class,
-					d.PopupBody,
-					"GamepadMode",
-					"BasicUI",
-				),
+				body_class: A_1(r.body_class, d.PopupBody, "GamepadMode", "BasicUI"),
 			};
 		}
 	}
@@ -130,7 +130,7 @@ export function sB(e, t, r, i, a) {
 }
 export function Bj(e, t) {
 	if (e.IsVRWindow() && e.params.bSimulateOnDesktop) {
-		return t + "-Desktop";
+		return `${t}-Desktop`;
 	} else {
 		return t;
 	}

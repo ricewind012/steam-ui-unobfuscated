@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	NewEmoticonIndicator: "_3O2gRFANfKKg3mYONXvlcL",
 	NewEmoticonCircle: "JRMFrrhowzfdWhJcPIMB1",
 	EmoticonSelector: "_1_1QI6qRSlB5SDDnagoV5j",

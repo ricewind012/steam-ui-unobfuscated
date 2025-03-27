@@ -1,13 +1,40 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./24171.js");
-var o = require(/*webcrack:missing*/ "./12176.js");
-var l = require(/*webcrack:missing*/ "./8573.js");
-var c = require("./38870.js");
+import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a, { Gn, fm, z7 } from "./89193.js";
+import s from "./24171.js";
+import o from "./12176.js";
+import l from "./8573.js";
+import c from "./38870.js";
+import d from "./80663.js";
+import A from "./38849.js";
+import p from "./8974.js";
+import h from "./96127.js";
+import C from "./20475.js";
+import _ from "./89610.js";
+import f from "./44846.js";
+import b from "./3475.js";
+import y from "./81383.js";
+import w from "./97023.js";
+import B from "./47296.js";
+import { Dp } from "./736.js";
+import I from "./52451.js";
+import M from "./83599.js";
+import T, { u as u_1 } from "./17385.js";
+import N from "./4563.js";
+import F from "./54946.js";
+import G from "./46948.js";
+import { w as w_1 } from "./49455.js";
+import U from "./70839.js";
+import V from "./95377.js";
+import H from "./36934.js";
+import j from "./66146.js";
+import q from "./15498.js";
+import { b as b_1 } from "./86172.js";
+import { q3 } from "./90095.js";
 class _m {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_status = s.vV;
@@ -38,7 +65,7 @@ class _m {
 		});
 	}
 	MakeKey(e, t) {
-		return e + "_" + t;
+		return `${e}_${t}`;
 	}
 	get status() {
 		return this.m_status;
@@ -137,17 +164,17 @@ class _m {
 		return r.details;
 	}
 }
-(0, n.Cg)([a.sH], _m.prototype, "m_status", undefined);
-(0, n.Cg)([a.sH], _m.prototype, "m_mapPendingRequests", undefined);
-(0, n.Cg)([a.EW], _m.prototype, "status", null);
-(0, n.Cg)([a.EW], _m.prototype, "is_broadcasting", null);
-(0, n.Cg)([a.EW], _m.prototype, "broadcastid", null);
-(0, n.Cg)([a.EW], _m.prototype, "is_broadcast_capable", null);
-(0, n.Cg)([a.XI.bound], _m.prototype, "OnBroadcastStatus", null);
-(0, n.Cg)([a.XI.bound], _m.prototype, "OnViewerRequest", null);
-(0, n.Cg)([a.XI], _m.prototype, "ApproveViewerRequest", null);
-(0, n.Cg)([a.XI], _m.prototype, "RejectViewerRequest", null);
-(0, n.Cg)([a.XI], _m.prototype, "InviteToWatch", null);
+Cg([a.sH], _m.prototype, "m_status", undefined);
+Cg([a.sH], _m.prototype, "m_mapPendingRequests", undefined);
+Cg([a.EW], _m.prototype, "status", null);
+Cg([a.EW], _m.prototype, "is_broadcasting", null);
+Cg([a.EW], _m.prototype, "broadcastid", null);
+Cg([a.EW], _m.prototype, "is_broadcast_capable", null);
+Cg([a.XI.bound], _m.prototype, "OnBroadcastStatus", null);
+Cg([a.XI.bound], _m.prototype, "OnViewerRequest", null);
+Cg([a.XI], _m.prototype, "ApproveViewerRequest", null);
+Cg([a.XI], _m.prototype, "RejectViewerRequest", null);
+Cg([a.XI], _m.prototype, "InviteToWatch", null);
 class u {
 	m_bExpired = false;
 	m_strThumbnail = "";
@@ -169,7 +196,7 @@ class u {
 		return this.m_bExpired;
 	}
 	constructor(e, t, r) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_strBroadcastID = e;
 		this.m_strBroadcasterID = t;
 		this.m_ServiceTransport = r;
@@ -227,12 +254,9 @@ class u {
 		}
 	}
 }
-(0, n.Cg)([a.sH], u.prototype, "m_bExpired", undefined);
-(0, n.Cg)([a.sH], u.prototype, "m_strThumbnail", undefined);
-(0, n.Cg)([a.sH], u.prototype, "m_nThumbnailCount", undefined);
-var d = require("./80663.js");
-var A = require("./38849.js");
-var p = require("./8974.js");
+Cg([a.sH], u.prototype, "m_bExpired", undefined);
+Cg([a.sH], u.prototype, "m_strThumbnail", undefined);
+Cg([a.sH], u.prototype, "m_nThumbnailCount", undefined);
 class g {
 	m_CMInterface;
 	m_strTradeOfferToken;
@@ -261,15 +285,13 @@ class g {
 	}
 	GetConstructedTradeOfferURL() {
 		let e = this.m_CMInterface.steamid.GetAccountID();
-		return `${i.TS.COMMUNITY_BASE_URL}tradeoffer/new/?partner=${e}&token=${encodeURIComponent(this.m_strTradeOfferToken)}`;
+		return `${
+			i.TS.COMMUNITY_BASE_URL
+		}tradeoffer/new/?partner=${e}&token=${encodeURIComponent(
+			this.m_strTradeOfferToken,
+		)}`;
 	}
 }
-var h = require("./96127.js");
-var C = require("./20475.js");
-var _ = require("./89610.js");
-var f = require(/*webcrack:missing*/ "./44846.js");
-var b = require("./3475.js");
-var y = require("./81383.js");
 class S {
 	m_ParentalSettings = {
 		is_enabled: false,
@@ -277,7 +299,7 @@ class S {
 	m_ParentalState = b.KL;
 	m_CMInterface;
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	SetLockState(e) {
 		this.m_ParentalState.locked = e;
@@ -359,7 +381,7 @@ class S {
 			return false;
 		}
 		return (
-			[f.w1, f.g5, f.lm, f.JP, f.wK].indexOf(e) === -1 &&
+			![f.w1, f.g5, f.lm, f.JP, f.wK].includes(e) &&
 			(this.m_ParentalSettings.applist_custom.find((t) => t.appid == e)
 				? !this.m_ParentalSettings.applist_custom.find((e) => e.appid)
 						.is_allowed
@@ -380,11 +402,11 @@ class S {
 		if (!t || !t[2]) {
 			return Promise.resolve(false);
 		}
-		let r = t[2];
+		let [, , r] = t;
 		let n = r.split("||");
 		r = n.length == 2 ? n[1] : n[0];
 		let a = o.w.Init(_.R2);
-		a.Body().set_unlock_token(e + "||" + r);
+		a.Body().set_unlock_token(`${e}||${r}`);
 		return new Promise((e, t) => {
 			_.JL.ValidateToken(this.m_CMInterface.GetServiceTransport(), a).then(
 				(t) => {
@@ -421,9 +443,10 @@ class S {
 				_.JL.ValidatePassword(this.m_CMInterface.GetServiceTransport(), t).then(
 					(t) => {
 						if (t.GetEResult() == 1) {
-							let e = Date.now().toString() + "||" + t.Body().token();
-							document.cookie =
-								"steamparental=" + encodeURIComponent(e) + "; path=/";
+							let e = `${Date.now().toString()}||${t.Body().token()}`;
+							document.cookie = `steamparental=${encodeURIComponent(
+								e,
+							)}; path=/`;
 						}
 						e(t.GetEResult());
 					},
@@ -432,23 +455,16 @@ class S {
 		}
 	}
 }
-(0, n.Cg)([a.sH], S.prototype, "m_ParentalSettings", undefined);
-(0, n.Cg)([a.sH], S.prototype, "m_ParentalState", undefined);
-(0, n.Cg)([a.XI], S.prototype, "UpdateParentalState", null);
-(0, n.Cg)([a.EW], S.prototype, "isEnabled", null);
-(0, n.Cg)([a.EW], S.prototype, "isLocked", null);
-(0, n.Cg)([a.EW], S.prototype, "locked", null);
-var w = require("./97023.js");
-var B = require("./47296.js");
-var v = require(/*webcrack:missing*/ "./736.js");
-var I = require(/*webcrack:missing*/ "./52451.js");
-import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
-var M = require(/*webcrack:missing*/ "./83599.js");
-var T = require(/*webcrack:missing*/ "./17385.js");
+Cg([a.sH], S.prototype, "m_ParentalSettings", undefined);
+Cg([a.sH], S.prototype, "m_ParentalState", undefined);
+Cg([a.XI], S.prototype, "UpdateParentalState", null);
+Cg([a.EW], S.prototype, "isEnabled", null);
+Cg([a.EW], S.prototype, "isLocked", null);
+Cg([a.EW], S.prototype, "locked", null);
 const R = new M.wd("FriendsUI/RemotePlay");
 class k {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_canCreateInviteForGame = a.sH.map();
 	m_nonGuestSessions = a.sH.map();
@@ -545,7 +561,7 @@ class k {
 				this.HandleRemoteClientStopped,
 			);
 		}
-		(0, a.fm)(() => {
+		fm(() => {
 			const e = xm.FriendStore.self?.persona?.m_gameid;
 			if (e != null) {
 				if (!this.m_canCreateInviteForGame.has(e)) {
@@ -558,15 +574,15 @@ class k {
 	}
 	async BCanCreateInviteForGame(e, t) {
 		return (
-			!!(0, v.Dp)("RemotePlay.BCanCreateInviteForGame") &&
+			!!Dp("RemotePlay.BCanCreateInviteForGame") &&
 			SteamClient.RemotePlay.BCanCreateInviteForGame(e, t)
 		);
 	}
 	async BCanAcceptInviteForGame(e, t) {
-		if ((0, v.Dp)("RemotePlay.BCanAcceptInviteForGame")) {
+		if (Dp("RemotePlay.BCanAcceptInviteForGame")) {
 			return SteamClient.RemotePlay.BCanAcceptInviteForGame(e, t);
 		} else {
-			return !i.TS.COUNTRY || t.indexOf(i.TS.COUNTRY) === -1;
+			return !i.TS.COUNTRY || !t.includes(i.TS.COUNTRY);
 		}
 	}
 	BCanCreateInviteForCurrentGame() {
@@ -715,7 +731,7 @@ class k {
 			R.Error(`Failed to create guest invite: ${i}`);
 			return i;
 		} else {
-			await (0, a.z7)(() => {
+			await z7(() => {
 				const e = this.m_guestSessions.get(n);
 				return e && !!e.strConnectUrl;
 			});
@@ -790,7 +806,7 @@ class k {
 			return false;
 		}
 		let e = false;
-		this.m_guestSessions.forEach(({ bSession: t }) => (e = e || t));
+		this.m_guestSessions.forEach(({ bSession }) => (e = e || bSession));
 		return e;
 	}
 	BHasPlayer() {
@@ -798,8 +814,8 @@ class k {
 			return false;
 		}
 		let e = false;
-		this.m_nonGuestSessions.forEach(({ bSession: t }) => (e = e || t));
-		this.m_guestSessions.forEach(({ bSession: t }) => (e = e || t));
+		this.m_nonGuestSessions.forEach(({ bSession }) => (e = e || bSession));
+		this.m_guestSessions.forEach(({ bSession }) => (e = e || bSession));
 		return e;
 	}
 	BHasJoinedPlayer() {
@@ -882,7 +898,7 @@ class k {
 		if (this.GetSessionForPlayer(e)) {
 			this.ClearSessionForPlayer(e);
 			xm.AudioPlaybackManager.PlayAudioURL(
-				i.TS.COMMUNITY_CDN_URL + "public/sounds/webui/steam_rpt_leave.m4a",
+				`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_rpt_leave.m4a`,
 			);
 		}
 		this.ClearControllerSlotsWithPlayer(e);
@@ -911,7 +927,7 @@ class k {
 			}
 			if (n !== xm.FriendStore.self.accountid) {
 				xm.AudioPlaybackManager.PlayAudioURL(
-					i.TS.COMMUNITY_CDN_URL + "public/sounds/webui/steam_rpt_join.m4a",
+					`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_rpt_join.m4a`,
 				);
 			}
 		}
@@ -920,14 +936,17 @@ class k {
 		let r = this.GetSessionForPlayer(e);
 		if (r !== undefined) {
 			switch (t) {
-				case w.YI.k_EClientUsedInputTypeKeyboard:
+				case w.YI.k_EClientUsedInputTypeKeyboard: {
 					r.nKeyboardUsedTime = Date.now();
 					break;
-				case w.YI.k_EClientUsedInputTypeMouse:
+				}
+				case w.YI.k_EClientUsedInputTypeMouse: {
 					r.nMouseUsedTime = Date.now();
 					break;
-				case w.YI.k_EClientUsedInputTypeController:
+				}
+				case w.YI.k_EClientUsedInputTypeController: {
 					r.nControllerUsedTime = Date.now();
+				}
 			}
 		}
 	}
@@ -996,8 +1015,9 @@ class k {
 	}
 	CloseRemotePlayTogetherDialogs() {
 		R.Debug(
-			"CloseRemotePlayTogetherDialogs. Have any dialog close handles? " +
-				(this.m_rgDialogCloseHandles.length > 0 ? "Yes" : "No"),
+			`CloseRemotePlayTogetherDialogs. Have any dialog close handles? ${
+				this.m_rgDialogCloseHandles.length > 0 ? "Yes" : "No"
+			}`,
 		);
 		if (this.m_rgDialogCloseHandles.length > 0) {
 			const e = this.m_rgDialogCloseHandles;
@@ -1063,12 +1083,12 @@ class k {
 	}
 	DialogClosed(e, t) {
 		this.m_rgDialogCloseHandles = this.m_rgDialogCloseHandles.filter(
-			([r, n, i]) => !(0, T.u)(r, e) || i != t,
+			([r, n, i]) => !u_1(r, e) || i != t,
 		);
 	}
 	BDialogOpenInContext(e, t) {
 		return this.m_rgDialogCloseHandles.some(
-			([r, n, i]) => (0, T.u)(r, e) && (t == null || i == t),
+			([r, n, i]) => u_1(r, e) && (t == null || i == t),
 		);
 	}
 	get dialog_context() {
@@ -1098,33 +1118,29 @@ class k {
 function D(e, t) {
 	return e?.steamid === t?.steamid && e?.guestid === t?.guestid;
 }
-(0, n.Cg)([a.sH], k.prototype, "m_controllerSlotPlayers", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_bIsShowingPlaceholder", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_unGuestLinkCopied", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_nGameVolume", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_bAllowDesktopStream", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_nHostStreamingQualityOverride", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_nClientStreamingQuality", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_nClientStreamingBitrate", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_bIsHost", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_sessionHost", undefined);
-(0, n.Cg)([a.sH], k.prototype, "m_strGameID", undefined);
-(0, n.Cg)([a.XI], k.prototype, "Init", null);
-(0, n.Cg)([a.EW], k.prototype, "player_props_count", null);
-(0, n.Cg)([a.EW], k.prototype, "bIsShowingPlaceholder", null);
-(0, n.Cg)([a.XI], k.prototype, "SessionStopped", null);
-(0, n.Cg)([a.XI], k.prototype, "SessionJoined", null);
-(0, n.Cg)([a.XI], k.prototype, "PlayerInputSettingsChanged", null);
-(0, n.Cg)([I.oI], k.prototype, "HandleLaunchResult", null);
-(0, n.Cg)([I.oI], k.prototype, "OnNetworkUtilizationUpdate", null);
-(0, n.Cg)([I.oI], k.prototype, "HandleGroupDisbanded", null);
-(0, n.Cg)([a.XI], k.prototype, "Reset", null);
-(0, n.Cg)([I.oI], k.prototype, "HandleRemoteClientStopped", null);
-(0, n.Cg)([I.oI], k.prototype, "SetClientStreamingQuality", null);
-var N = require("./4563.js");
-var F = require("./54946.js");
-var G = require("./46948.js");
-var O = require(/*webcrack:missing*/ "./49455.js");
+Cg([a.sH], k.prototype, "m_controllerSlotPlayers", undefined);
+Cg([a.sH], k.prototype, "m_bIsShowingPlaceholder", undefined);
+Cg([a.sH], k.prototype, "m_unGuestLinkCopied", undefined);
+Cg([a.sH], k.prototype, "m_nGameVolume", undefined);
+Cg([a.sH], k.prototype, "m_bAllowDesktopStream", undefined);
+Cg([a.sH], k.prototype, "m_nHostStreamingQualityOverride", undefined);
+Cg([a.sH], k.prototype, "m_nClientStreamingQuality", undefined);
+Cg([a.sH], k.prototype, "m_nClientStreamingBitrate", undefined);
+Cg([a.sH], k.prototype, "m_bIsHost", undefined);
+Cg([a.sH], k.prototype, "m_sessionHost", undefined);
+Cg([a.sH], k.prototype, "m_strGameID", undefined);
+Cg([a.XI], k.prototype, "Init", null);
+Cg([a.EW], k.prototype, "player_props_count", null);
+Cg([a.EW], k.prototype, "bIsShowingPlaceholder", null);
+Cg([a.XI], k.prototype, "SessionStopped", null);
+Cg([a.XI], k.prototype, "SessionJoined", null);
+Cg([a.XI], k.prototype, "PlayerInputSettingsChanged", null);
+Cg([I.oI], k.prototype, "HandleLaunchResult", null);
+Cg([I.oI], k.prototype, "OnNetworkUtilizationUpdate", null);
+Cg([I.oI], k.prototype, "HandleGroupDisbanded", null);
+Cg([a.XI], k.prototype, "Reset", null);
+Cg([I.oI], k.prototype, "HandleRemoteClientStopped", null);
+Cg([I.oI], k.prototype, "SetClientStreamingQuality", null);
 class P {
 	m_bReady = false;
 	m_FriendsSettings = undefined;
@@ -1139,7 +1155,7 @@ class P {
 	m_bFriendSettingsReady = false;
 	m_Storage;
 	constructor(e) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_Storage = e;
 		if (i.TS.IN_CLIENT) {
 			this.m_iFriendSettingsStore = new z(
@@ -1249,7 +1265,7 @@ class P {
 	}
 	GetAccountSpecificLocalStorageKey(e) {
 		if (this.m_CM && this.m_CM.steamid && this.m_CM.steamid.BIsValid()) {
-			return e + "_" + this.m_CM.steamid.GetAccountID();
+			return `${e}_${this.m_CM.steamid.GetAccountID()}`;
 		} else {
 			return null;
 		}
@@ -1357,7 +1373,7 @@ class P {
 	}
 	SetCommunityPreferences(e) {
 		this.m_CommunityPreferences = e;
-		if ((0, v.Dp)("Messaging.PostMessage")) {
+		if (Dp("Messaging.PostMessage")) {
 			SteamClient.Messaging.PostMessage(
 				"Settings",
 				"CommunityPreferences",
@@ -1436,14 +1452,14 @@ class P {
 		t.set_animated_avatars(r.bAnimatedAvatars);
 	}
 }
-(0, n.Cg)([a.sH], P.prototype, "m_bReady", undefined);
-(0, n.Cg)([a.sH], P.prototype, "m_FriendsSettings", undefined);
-(0, n.Cg)([a.sH], P.prototype, "m_CommunityPreferences", undefined);
-(0, n.Cg)([a.sH], P.prototype, "m_StorePreferences", undefined);
-(0, n.Cg)([a.sH], P.prototype, "m_bSteamIsInTournamentMode", undefined);
-(0, n.Cg)([a.XI], P.prototype, "BUpdateFriendsSettings", null);
-(0, n.Cg)([a.XI], P.prototype, "UpdateCommunityPreferences", null);
-(0, n.Cg)([a.XI], P.prototype, "SetCommunityPreferences", null);
+Cg([a.sH], P.prototype, "m_bReady", undefined);
+Cg([a.sH], P.prototype, "m_FriendsSettings", undefined);
+Cg([a.sH], P.prototype, "m_CommunityPreferences", undefined);
+Cg([a.sH], P.prototype, "m_StorePreferences", undefined);
+Cg([a.sH], P.prototype, "m_bSteamIsInTournamentMode", undefined);
+Cg([a.XI], P.prototype, "BUpdateFriendsSettings", null);
+Cg([a.XI], P.prototype, "UpdateCommunityPreferences", null);
+Cg([a.XI], P.prototype, "SetCommunityPreferences", null);
 class L {
 	m_SettingsStore;
 	m_fnFriendSettingsChanged;
@@ -1470,7 +1486,7 @@ class z extends L {
 				);
 				this.m_bClientInitComplete = true;
 			} else {
-				(0, O.w)(false, "Can't initialize settings from client");
+				w_1(false, "Can't initialize settings from client");
 			}
 		}
 	}
@@ -1527,10 +1543,9 @@ class x extends L {
 		);
 	}
 }
-var U = require("./70839.js");
 class W {
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_PrivacySettings = {
@@ -1568,19 +1583,13 @@ class W {
 		Object.assign(this.m_PrivacySettings, e.toObject());
 	}
 }
-(0, n.Cg)([a.sH], W.prototype, "m_PrivacySettings", undefined);
-var V = require("./95377.js");
-var H = require("./36934.js");
-var j = require("./66146.js");
-var q = require("./15498.js");
-var Q = require("./86172.js");
-var Z = require(/*webcrack:missing*/ "./90095.js");
+Cg([a.sH], W.prototype, "m_PrivacySettings", undefined);
 function Y(e, t) {
 	return function (...t) {
 		if (xm.ready_to_render) {
 			e.apply(this, t);
 		} else {
-			(0, a.z7)(
+			z7(
 				() => xm.ready_to_render,
 				() => {
 					e.apply(this, t);
@@ -1627,8 +1636,8 @@ export class m {
 	m_exportsCurrentUserStatus;
 	m_exportsVoiceInterface = null;
 	constructor(e, t = {}) {
-		(0, a.Gn)(this);
-		(0, O.w)(!xm, "FriendsUIApp already initialized");
+		Gn(this);
+		w_1(!xm, "FriendsUIApp already initialized");
 		xm = this;
 		window.g_FriendsUIApp = this;
 		this.m_Storage = e;
@@ -1730,7 +1739,7 @@ export class m {
 			],
 			...r,
 		];
-		(0, Q.b)("FriendsUI ReadyToRender", n).then(
+		b_1("FriendsUI ReadyToRender", n).then(
 			() => {
 				console.log("Ready To Render promises succeeded");
 				this.SetReadyToRender();
@@ -1805,7 +1814,9 @@ export class m {
 		if (
 			!this.m_bReadyToRender &&
 			(console.log(
-				`FriendsUI ready to render after ${performance.now() - m.sm_msStartup}ms`,
+				`FriendsUI ready to render after ${
+					performance.now() - m.sm_msStartup
+				}ms`,
 			),
 			(this.m_bReadyToRender = true),
 			await this.OnReadyToRender(),
@@ -1831,7 +1842,7 @@ export class m {
 		return this.m_BrowserContextDefaultTarget;
 	}
 	SetDefaultPopupContext(e) {
-		console.log("Set default popup context: " + e.m_unPID);
+		console.log(`Set default popup context: ${e.m_unPID}`);
 		this.m_BrowserContextDefaultTarget = e;
 	}
 	CreateNewTabFromUniqueID(e, t, r, n) {
@@ -1868,7 +1879,7 @@ export class m {
 		return new Promise((e, t) => {
 			this.m_CMInterface.RunWhenLoggedOn(async () => {
 				try {
-					await (0, a.z7)(
+					await z7(
 						() => this.m_CMInterface.BPerformedInitialClockAdjustment(),
 						{
 							timeout: 1000,
@@ -1897,7 +1908,7 @@ export class m {
 	GetLocalMidnightInRTime32(e) {
 		if (m.sm_tzOffset === undefined) {
 			m.sm_tzOffset = new Date().getTimezoneOffset() * 60;
-			(0, O.w)(
+			w_1(
 				m.sm_tzOffset || m.sm_tzOffset === 0,
 				`Computed invalid timezone offset ${m.sm_tzOffset}`,
 			);
@@ -1913,7 +1924,7 @@ export class m {
 		this.m_FriendStore.EnsureFriendsListLoaded();
 	}
 	BIsValidBrowserContext(e) {
-		return (0, T.u)(e, T.m);
+		return u_1(e, T.m);
 	}
 	ShowCloseActiveVoiceConfirmation(e, t) {}
 	UpdatePersonaState(e) {}
@@ -1953,7 +1964,7 @@ export class m {
 }
 export let xm;
 export function TN() {
-	return (0, Z.q3)(() => xm.FriendStore.self?.persona?.m_gameid ?? "0") != "0";
+	return q3(() => xm.FriendStore.self?.persona?.m_gameid ?? "0") != "0";
 }
-(0, n.Cg)([a.sH], m.prototype, "m_bReadyToRender", undefined);
-(0, n.Cg)([a.EW], m.prototype, "ready_to_render", null);
+Cg([a.sH], m.prototype, "m_bReadyToRender", undefined);
+Cg([a.EW], m.prototype, "ready_to_render", null);

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ShareScreenshotDialog: "_3VEppdkXPehWVeTfx69Umz",
 	CaptionTextArea: "qFjVwKFidyZdbmIhaENhV",
 	RadioButtonGroup: "_1BSXpAMT-4rVQY0bODPkns",

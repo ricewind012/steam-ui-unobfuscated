@@ -1,67 +1,91 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./31084.js");
-var a = require(/*webcrack:missing*/ "./98995.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require("./71729.js");
-var l = require("./41596.js");
-var c = require(/*webcrack:missing*/ "./50376.js");
-var m = require(/*webcrack:missing*/ "./55007.js");
-var u = require("./64608.js");
 import {
 	Localize,
 	LocalizePlural,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var A = require("./51095.js");
-var p = require(/*webcrack:missing*/ "./69164.js");
-var g = require(/*webcrack:missing*/ "./4690.js");
-var h = require(/*webcrack:missing*/ "./88750.js");
-var C = require("./36934.js");
-var _ = require("./91720.js");
-var f = require("./34428.js");
-var b = require("./3499.js");
-var y = require("./34792.js");
-var S = require("./18869.js");
-var w = require(/*webcrack:missing*/ "./90242.js");
-var B = require("./34461.js");
-var v = require("./39730.js");
-var I = require("./35488.js");
-var E = require("./68438.js");
-var M = require("./26094.js");
-var T = require("./10905.js");
-var R = require("./25633.js");
-var k = require(/*webcrack:missing*/ "./736.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var N = require("./83247.js");
-var F = require("./1385.js");
-var G = require(/*webcrack:missing*/ "./11131.js");
-var O = require(/*webcrack:missing*/ "./72476.js");
-var P = require("./27541.js");
-var L = require("./661.js");
-var z = require("./3874.js");
+import n, {
+	useMemo,
+	useState,
+	useEffect,
+	useRef,
+	useCallback,
+	forwardRef,
+} from "./63696.js";
+import i, { lX } from "./31084.js";
+import a from "./98995.js";
+import s, { A as A_1 } from "./90765.js";
+import o from "./71729.js";
+import l from "./41596.js";
+import c from "./50376.js";
+import m, { Te as Te_1 } from "./55007.js";
+import u from "./64608.js";
+import A, { lY } from "./51095.js";
+import p from "./69164.js";
+import g from "./4690.js";
+import h from "./88750.js";
+import C, { gx } from "./36934.js";
+import _, { Gb, XA, f5 } from "./91720.js";
+import f, { dm } from "./34428.js";
+import b, { Ab, NN, Re as Re_1 } from "./3499.js";
+import y, { VI } from "./34792.js";
+import S, { br } from "./18869.js";
+import w from "./90242.js";
+import B, { yZ } from "./34461.js";
+import v, { kM } from "./39730.js";
+import I from "./35488.js";
+import E, { Q1 } from "./68438.js";
+import M, { Ct, jE } from "./26094.js";
+import T, { gO } from "./10905.js";
+import R, { e3 } from "./25633.js";
+import k, { Fj } from "./736.js";
+import N from "./83247.js";
+import F, { OF } from "./1385.js";
+import { R7 } from "./11131.js";
+import { Y2, hf, TL, Qn } from "./72476.js";
+import P, { z as z_1 } from "./27541.js";
+import L, { f as f_1 } from "./661.js";
+import z from "./3874.js";
+import V from "./93214.js";
+import K from "./67429.js";
+import X from "./96593.js";
+import { l5 } from "./96555.js";
+import $ from "./32676.js";
+import { SK, wY } from "./52451.js";
+import { pg } from "./13869.js";
+import re from "./10606.js";
+import ne from "./43014.js";
+import ie from "./53622.js";
+import { $2 } from "./96680.js";
+import { u6 } from "./43152.js";
+import { Nm } from "./14629.js";
+import { $P } from "./2773.js";
+import ce from "./49508.js";
+import me from "./18057.js";
+import ue, { W5, W6 } from "./49519.js";
+import { BGameRecordingFeatureEnabled } from "./4069.js";
 function x(e) {
-	const { items: t, summoningElement: r, showConfirmation: i } = e;
-	const a = (function (e, t) {
-		const {
-			copyToClipboard: r,
-			saveToFile: i,
-			uploadScreenshots: a,
-		} = (function (e, t) {
-			const { ownerWindow: r } = (0, G.R7)();
+	const { items, summoningElement, showConfirmation } = e;
+	const a = ((e, t) => {
+		const { copyToClipboard, saveToFile, uploadScreenshots } = ((e, t) => {
+			const { ownerWindow } = R7();
 			const n = async (t) => {
 				const r = [];
 				for (const n of e) {
 					switch (n.type) {
-						case "screenshot":
+						case "screenshot": {
 							r.push(await W(n, t));
 							break;
-						case "clip":
+						}
+						case "clip": {
 							r.push(await U(n, t));
 							break;
-						default:
+						}
+						default: {
 							console.error(
 								`Cannot convert media type "${n.type}" into file path.`,
 							);
+						}
 					}
 				}
 				return r;
@@ -73,8 +97,8 @@ function x(e) {
 			};
 			const a = async (e) => {
 				const t = GetOwningWindowForEvent(e) ?? window;
-				const r = await (async function (e) {
-					if (!(0, k.Fj)(e, "System.OpenFileDialog")) {
+				const r = await (async (e) => {
+					if (!Fj(e, "System.OpenFileDialog")) {
 						e = window;
 					}
 					return e.SteamClient.System.OpenFileDialog({
@@ -93,7 +117,7 @@ function x(e) {
 						),
 						false),
 				);
-				(0, F.OF)(n, r);
+				OF(n, ownerWindow);
 			};
 			return {
 				copyToClipboard: i,
@@ -101,18 +125,14 @@ function x(e) {
 				uploadScreenshots: s,
 			};
 		})(e, t);
-		const {
-			bAllScreenshots: s,
-			bAllClips: o,
-			bMixture: l,
-		} = (0, n.useMemo)(() => {
+		const { bAllScreenshots, bAllClips, bMixture } = useMemo(() => {
 			let t = true;
 			let r = true;
-			e.forEach(({ type: e }) => {
-				if (e === "clip") {
+			e.forEach(({ type }) => {
+				if (type === "clip") {
 					t = false;
 				}
-				if (e === "screenshot") {
+				if (type === "screenshot") {
 					r = false;
 				}
 			});
@@ -122,41 +142,41 @@ function x(e) {
 				bMixture: !r && !t,
 			};
 		}, [e]);
-		const m = (0, O.Y2)();
+		const m = Y2();
 		return [
-			s &&
+			bAllScreenshots &&
 				!m && {
 					key: "upload",
-					onSelected: a,
+					onSelected: uploadScreenshots,
 					icon: n.createElement(I.Globe, null),
 					label: Localize("#ShareSheet_ShareOnSteam"),
 				},
 			{
 				key: "clipboard",
-				onSelected: r,
+				onSelected: copyToClipboard,
 				icon: n.createElement(I.Copy, null),
 				label: Localize("#MediaManager_MultiSelect_CopyToClipboard"),
 			},
-			o && {
+			bAllClips && {
 				key: "export",
-				onSelected: i,
+				onSelected: saveToFile,
 				icon: n.createElement(I.Video, null),
 				label: Localize("#MediaManager_MultiSelect_Save"),
 			},
-			s && {
+			bAllScreenshots && {
 				key: "export",
-				onSelected: i,
+				onSelected: saveToFile,
 				icon: n.createElement(N.pw, null),
 				label: Localize("#MediaManager_MultiSelect_Save_Screenshots"),
 			},
-			l && {
+			bMixture && {
 				key: "export",
-				onSelected: i,
+				onSelected: saveToFile,
 				icon: n.createElement(c.dI9, null),
 				label: Localize("#MediaManager_MultiSelect_Save_Mixture"),
 			},
 		].filter(Boolean);
-	})(t, i);
+	})(items, showConfirmation);
 	return n.createElement(
 		v.zu,
 		{
@@ -164,7 +184,7 @@ function x(e) {
 				strMessage: Localize("#ShareMultipleToChatNotSupported"),
 				bHeader: true,
 			},
-			summoningElement: r,
+			summoningElement: summoningElement,
 		},
 		n.createElement(v.t$, {
 			options: a,
@@ -174,9 +194,9 @@ function x(e) {
 async function U(e, t) {
 	let r;
 	if (t) {
-		r = `${t}/${e.summary.name ? (0, v.kM)(e.summary.name) : e.id}.mp4`;
+		r = `${t}/${e.summary.name ? kM(e.summary.name) : e.id}.mp4`;
 	}
-	const n = (0, E.Q1)((0, R.e3)(e.summary.clip_id), {
+	const n = Q1(e3(e.summary.clip_id), {
 		strFilePath: r,
 	});
 	const i = await n((e) => console.warn(e));
@@ -192,7 +212,7 @@ async function W(e, t) {
 		if (!t) {
 			return r;
 		}
-		const n = `${t}/${(0, T.gO)(r)}`;
+		const n = `${t}/${gO(r)}`;
 		SteamClient.System.CopyFile(r, n);
 		return n;
 	}
@@ -204,33 +224,34 @@ async function W(e, t) {
 		const n = e.remote.filename.slice(t + 1);
 		r = await SteamClient.System.CreateTempPath(n);
 	}
-	if (await (0, M.Ct)(e, r)) {
+	if (await Ct(e, r)) {
 		return r;
 	} else {
 		return null;
 	}
 }
-var V = require("./93214.js");
 function H(e) {
-	const { disabled: t, rgSelected: r, onShareFinished: a } = e;
-	const s = r.some((e) => e?.type === "recording");
-	const o = (function () {
-		const e = (0, B.yZ)();
-		const t = (0, P.z)();
-		const r = (0, M.jE)();
-		const a = (0, L.f)();
+	const { disabled, rgSelected, onShareFinished } = e;
+	const s = rgSelected.some((e) => e?.type === "recording");
+	const o = (() => {
+		const e = yZ();
+		const t = z_1();
+		const r = jE();
+		const a = f_1();
 		return n.useCallback(
 			(s, o) => {
-				const l = s.currentTarget;
+				const s_currentTarget = s.currentTarget;
 				if (o.length === 1) {
 					switch (o[0].type) {
-						case "clip":
-							return t((0, R.e3)(o[0].id), l);
-						case "screenshot":
-							return r(o[0], l);
+						case "clip": {
+							return t(e3(o[0].id), s_currentTarget);
+						}
+						case "screenshot": {
+							return r(o[0], s_currentTarget);
+						}
 					}
 				}
-				(0, i.lX)(
+				lX(
 					n.createElement(
 						z.IP,
 						{
@@ -244,12 +265,12 @@ function H(e) {
 							n.createElement(x, {
 								key: Date.now(),
 								items: o,
-								summoningElement: l,
+								summoningElement: s_currentTarget,
 								showConfirmation: e,
 							}),
 						),
 					),
-					l,
+					s_currentTarget,
 					{
 						bOverlapHorizontal: true,
 					},
@@ -263,8 +284,8 @@ function H(e) {
 		null,
 		n.createElement(K0, {
 			icon: "upload",
-			disabled: t || s,
-			onClick: (e) => o(e, r),
+			disabled: disabled || s,
+			onClick: (e) => o(e, rgSelected),
 			title: Localize(
 				s
 					? "#MediaManager_RecordingShareNotSupported"
@@ -274,37 +295,40 @@ function H(e) {
 	);
 }
 function j(e) {
-	const { rgSelected: t, fnDismiss: r, onDeleteFinished: i } = e;
-	const { fnDeleteClip: a } = (0, _.Gb)();
-	const { mutate: o } = (0, b.Ab)();
-	const l = (0, y.VI)("g_background_mode")[0] === 1;
-	const c = (0, S.br)();
+	const { rgSelected, fnDismiss, onDeleteFinished } = e;
+	const { fnDeleteClip } = Gb();
+	const { mutate } = Ab();
+	const l = VI("g_background_mode")[0] === 1;
+	const c = br();
 	const m = () => c.Settings("GameRecording");
 	let u = 0;
 	let A = false;
 	let g = false;
 	let h = false;
-	t.forEach((e) => {
+	rgSelected.forEach((e) => {
 		switch (e.type) {
-			case "screenshot":
+			case "screenshot": {
 				u += Number(e.local?.strSize ?? 0);
 				break;
-			case "clip":
+			}
+			case "clip": {
 				A = true;
-				const t = (0, _.XA)(e.id);
+				const t = XA(e.id);
 				if (t) {
 					u += Number(t.file_size);
 				}
 				break;
-			case "recording":
+			}
+			case "recording": {
 				g = true;
 				h = h || e.summary.is_active;
+			}
 		}
 	});
 	const C = n.createElement(
 		q,
 		null,
-		LocalizePlural("#MediaManager_DeleteDialog_Explainer", t.length),
+		LocalizePlural("#MediaManager_DeleteDialog_Explainer", rgSelected.length),
 	);
 	let B = n.createElement(
 		n.Fragment,
@@ -319,7 +343,7 @@ function j(e) {
 					tone: "muted",
 				},
 				" ",
-				Localize("#MediaManager_DeleteDialog_SizeInfo", (0, f.dm)(u)),
+				Localize("#MediaManager_DeleteDialog_SizeInfo", dm(u)),
 			),
 	);
 	if (h) {
@@ -369,14 +393,14 @@ function j(e) {
 	return n.createElement(
 		p.Z,
 		{
-			className: (0, s.A)(V.MultiSelectActionDialogContainer, V.DeleteDialog),
+			className: A_1(V.MultiSelectActionDialogContainer, V.DeleteDialog),
 			autoFocus: true,
 			retainFocus: true,
 			onMoveLeft: v,
 			onMoveRight: v,
 			onMoveUp: v,
 			onMoveDown: v,
-			onCancel: r,
+			onCancel: fnDismiss,
 		},
 		n.createElement("div", {
 			className: V.DialogCarrot,
@@ -392,7 +416,7 @@ function j(e) {
 					className: V.Title,
 				},
 				" ",
-				LocalizePlural("#MediaManager_DeleteDialog_Title", t.length),
+				LocalizePlural("#MediaManager_DeleteDialog_Title", rgSelected.length),
 			),
 			B,
 			n.createElement(
@@ -407,26 +431,29 @@ function j(e) {
 						onClick: async () => {
 							let e = [];
 							let n = [];
-							t.forEach((t) => {
+							rgSelected.forEach((t) => {
 								switch (t.type) {
-									case "screenshot":
+									case "screenshot": {
 										n.push(t);
 										break;
-									case "clip":
-										a(t.id);
+									}
+									case "clip": {
+										fnDeleteClip(t.id);
 										break;
-									case "recording":
+									}
+									case "recording": {
 										e.push(t.summary.game_id);
+									}
 								}
 							});
-							o({
+							mutate({
 								screenshots: n,
 								location: "all",
 							});
-							(0, _.f5)(e);
-							r();
-							if (i) {
-								i();
+							f5(e);
+							fnDismiss();
+							if (onDeleteFinished) {
+								onDeleteFinished();
 							}
 						},
 						disabled: h,
@@ -437,7 +464,7 @@ function j(e) {
 					$n,
 					{
 						className: V.CancelButton,
-						onClick: r,
+						onClick: fnDismiss,
 					},
 					Localize("#MediaManager_DeleteDialog_Cancel"),
 				),
@@ -446,31 +473,31 @@ function j(e) {
 	);
 }
 function q(e) {
-	const { children: t, error: r } = e;
+	const { children, error } = e;
 	return n.createElement(
 		"div",
 		{
-			className: (0, s.A)(V.ExplainerText, r && V.Error),
+			className: A_1(V.ExplainerText, error && V.Error),
 		},
-		t,
+		children,
 	);
 }
 function Q(e) {
-	const { children: t, tone: r } = e;
+	const { children, tone } = e;
 	return n.createElement(
 		"div",
 		{
-			className: (0, s.A)(
+			className: A_1(
 				V.ExplainerSubtext,
-				r === "muted" && V.Muted,
-				r === "warning" && V.Warning,
+				tone === "muted" && V.Muted,
+				tone === "warning" && V.Warning,
 			),
 		},
-		t,
+		children,
 	);
 }
 function Z(e) {
-	const { disabled: t } = e;
+	const { disabled } = e;
 	const [r, i] = n.useState(false);
 	return n.createElement(
 		Y,
@@ -482,7 +509,7 @@ function Z(e) {
 			}),
 		n.createElement(K0, {
 			icon: "trashcan",
-			disabled: t,
+			disabled: disabled,
 			onClick: () => i(!r),
 			title: Localize("#MediaManager_Delete"),
 		}),
@@ -494,23 +521,6 @@ function Y(e) {
 		...e,
 	});
 }
-var K = require("./67429.js");
-var X = require("./96593.js");
-var J = require("./96555.js");
-var $ = require("./32676.js");
-var ee = require(/*webcrack:missing*/ "./52451.js");
-var te = require("./13869.js");
-var re = require("./10606.js");
-var ne = require("./43014.js");
-var ie = require("./53622.js");
-var ae = require("./96680.js");
-var se = require("./43152.js");
-var oe = require("./14629.js");
-var le = require("./2773.js");
-var ce = require("./49508.js");
-var me = require("./18057.js");
-var ue = require(/*webcrack:missing*/ "./49519.js");
-var de = require("./4069.js");
 const Ae = Number.parseInt(l.itemBorderWidth);
 const pe = Number.parseInt(o.listGutterWidth);
 const ge = Number.parseInt(o.minItemWidth);
@@ -525,14 +535,14 @@ function fe(e) {
 	);
 }
 export function Kz(e) {
-	const { children: t, className: r } = e;
+	const { children, className } = e;
 	return n.createElement(
 		"div",
 		{
-			className: r,
+			className: className,
 			style: ye(e),
 		},
-		t,
+		children,
 	);
 }
 function ye(e) {
@@ -558,22 +568,22 @@ const Se = {
 	lg: 24,
 };
 export function f0(e) {
-	const [t, r] = (0, n.useState)({});
-	const [i, a] = (0, n.useState)();
+	const [t, r] = useState({});
+	const [i, a] = useState();
 	const s = n.useCallback(() => r({}), []);
 	return {
 		selected: t,
 		setSelected: r,
-		onSelect: ({ handle: n, index: s, bShiftKey: o, bCtrlKey: l }) => {
-			if (o || l) {
-				if (o) {
-					const n = l
+		onSelect: ({ handle, index, bShiftKey, bCtrlKey }) => {
+			if (bShiftKey || bCtrlKey) {
+				if (bShiftKey) {
+					const n = bCtrlKey
 						? {
 								...t,
 							}
 						: {};
-					const a = Math.min(s, i);
-					const o = Math.max(s, i);
+					const a = Math.min(index, i);
+					const o = Math.max(index, i);
 					for (let t = a; t <= o; t++) {
 						n[e[t].id] = true;
 					}
@@ -588,13 +598,13 @@ export function f0(e) {
 						e[n] = true;
 					}
 					r(e);
-					a(s);
+					a(index);
 				}
 			} else {
 				r({
-					[n]: true,
+					[handle]: true,
 				});
-				a(s);
+				a(index);
 			}
 		},
 		onSelectAll: () =>
@@ -609,60 +619,60 @@ export function f0(e) {
 }
 export function Pc(e) {
 	const {
-		sortedItems: t,
-		numTotal: r,
-		selected: a,
-		onDeselectAll: l,
-		onSelectAll: c,
-		bLoadingInitialData: m,
-		bFetchingNextPage: u,
-		bHasNextPage: A,
-		onRequestLoad: g,
-		renderItem: h,
-		className: C,
-		selectModeActive: _,
-		numFiltered: f,
-		onSelectModeActiveChange: y,
-		filter: S,
-		onFilterChange: w,
-		nInitialScroll: B,
-		childFocusDisabled: v,
+		sortedItems,
+		numTotal,
+		selected,
+		onDeselectAll,
+		onSelectAll,
+		bLoadingInitialData,
+		bFetchingNextPage,
+		bHasNextPage,
+		onRequestLoad,
+		renderItem,
+		className,
+		selectModeActive,
+		numFiltered,
+		onSelectModeActiveChange,
+		filter,
+		onFilterChange,
+		nInitialScroll,
+		childFocusDisabled,
 	} = e;
-	const I = t.length > 0;
-	const E = fe(S);
-	const M = (0, b.NN)(S.listSource);
-	const T = S.phaseID;
-	const [R, k] = (0, n.useState)({
+	const I = sortedItems.length > 0;
+	const E = fe(filter);
+	const M = NN(filter.listSource);
+	const S_phaseID = filter.phaseID;
+	const [R, k] = useState({
 		gameid: M,
-		phaseID: T,
+		phaseID: S_phaseID,
 	});
-	(0, n.useEffect)(
+	useEffect(
 		() =>
 			k({
 				gameid: M,
-				phaseID: T,
+				phaseID: S_phaseID,
 			}),
-		[M, T],
+		[M, S_phaseID],
 	);
-	let D = m;
-	const N = (0, O.hf)();
-	const F = (0, G.R7)();
+	let D = bLoadingInitialData;
+	const N = hf();
+	const F = R7();
 	const P = (e) =>
-		w({
-			...S,
+		onFilterChange({
+			...filter,
 			mediaType: e,
 		});
-	const L = (0, ee.SK)(2000, [t]);
-	if (m && t.length > 0 && L) {
+	const L = SK(2000, [sortedItems]);
+	if (bLoadingInitialData && sortedItems.length > 0 && L) {
 		D = false;
 	}
 	const z = N ? _e : 0;
-	const { itemSizeInfo: x, refForResizeObserver: U } = (function () {
-		const e = (0, J.l5)();
-		const t = (0, O.hf)();
-		const r = !(0, O.TL)() || e || t ? ge : he;
-		const i = (0, O.TL)() && !e ? 1.6 : 16 / 9;
-		const [a, s] = (0, n.useState)({
+	const { itemSizeInfo, refForResizeObserver } = (() => {
+		const e = l5();
+		const t = hf();
+		const r = !TL() || e || e || t ? ge : he;
+		const i = TL() && !e ? 1.6 : 16 / 9;
+		const [a, s] = useState({
 			itemsPerRow: 3,
 			width: r,
 			height: r / i,
@@ -680,14 +690,14 @@ export function Pc(e) {
 			},
 			[s, r, i],
 		);
-		const l = (0, ee.wY)(o);
+		const l = wY(o);
 		return {
 			itemSizeInfo: a,
 			refForResizeObserver: l,
 		};
 	})();
 	const W =
-		(0, O.Y2)() || !(0, de.BGameRecordingFeatureEnabled)()
+		Y2() || !BGameRecordingFeatureEnabled()
 			? "#MediaManager_Dialog_Header_China"
 			: "#MediaManager_Dialog_Header";
 	const V =
@@ -708,34 +718,34 @@ export function Pc(e) {
 				Localize(W),
 			),
 			n.createElement(ve, {
-				sortedItems: t,
-				selected: a,
-				filter: S,
-				onFilterChange: w,
-				selectModeActive: _,
-				onSelectModeActiveChange: y,
-				onDeselectAll: l,
-				onSelectAll: c,
+				sortedItems: sortedItems,
+				selected: selected,
+				filter: filter,
+				onFilterChange: onFilterChange,
+				selectModeActive: selectModeActive,
+				onSelectModeActiveChange: onSelectModeActiveChange,
+				onDeselectAll: onDeselectAll,
+				onSelectAll: onSelectAll,
 				phaseFilter: R,
 				onPhaseFilterChange: k,
 			}),
 		);
 	const H =
-		S.listSource.type === b.sF.listSource.type
+		filter.listSource.type === b.sF.listSource.type
 			? "#MediaManager_AppFilter_Footer"
 			: "#MediaManager_AppFilterChange_Footer";
 	return n.createElement(
 		p.Z,
 		{
-			className: (0, s.A)(o.TopList, C),
+			className: A_1(o.TopList, className),
 			"flow-children": "column",
-			childFocusDisabled: v,
-			ref: U,
+			childFocusDisabled: childFocusDisabled,
+			ref: refForResizeObserver,
 			onOptionsButton: () => {
-				(0, te.pg)(
+				pg(
 					n.createElement(Te, {
 						mediaTypeProps: {
-							value: S.mediaType,
+							value: filter.mediaType,
 							onChange: P,
 						},
 					}),
@@ -745,12 +755,12 @@ export function Pc(e) {
 			},
 			onOptionsActionDescription: Localize("#MediaManager_FilterModal_Footer"),
 			onSecondaryButton: (e) => {
-				(0, i.lX)(
+				lX(
 					n.createElement(Fe, {
-						value: S.listSource,
+						value: filter.listSource,
 						onChange: (e) =>
-							w({
-								...S,
+							onFilterChange({
+								...filter,
 								listSource: e,
 							}),
 					}),
@@ -761,9 +771,9 @@ export function Pc(e) {
 			retainFocus: !N,
 		},
 		n.createElement(
-			Pe.Provider,
+			PeContext.Provider,
 			{
-				value: x,
+				value: itemSizeInfo,
 			},
 			V,
 			n.createElement(
@@ -778,8 +788,8 @@ export function Pc(e) {
 						n.Fragment,
 						null,
 						n.createElement(it, {
-							numFiltered: f,
-							filter: S,
+							numFiltered: numFiltered,
+							filter: filter,
 							haveContent: !D && I,
 						}),
 						!D &&
@@ -797,15 +807,15 @@ export function Pc(e) {
 						!D &&
 							I &&
 							n.createElement(xe, {
-								items: t,
-								selected: a,
-								onRequestLoad: g,
-								numTotal: r,
-								renderItem: h,
-								nInitialScroll: B,
-								bLoadingInitialData: m,
-								bFetchingNextPage: u,
-								bHasNextPage: A,
+								items: sortedItems,
+								selected: selected,
+								onRequestLoad: onRequestLoad,
+								numTotal: numTotal,
+								renderItem: renderItem,
+								nInitialScroll: nInitialScroll,
+								bLoadingInitialData: bLoadingInitialData,
+								bFetchingNextPage: bFetchingNextPage,
+								bHasNextPage: bHasNextPage,
 								topPadding: z,
 							}),
 						D &&
@@ -858,20 +868,20 @@ function ve(e) {
 }
 function Ie(e) {
 	const {
-		filter: t,
-		selectModeActive: r,
-		selected: i,
-		sortedItems: a,
-		onSelectModeActiveChange: s,
-		onSelectAll: o,
-		onDeselectAll: l,
-		onFilterChange: c,
+		filter,
+		selectModeActive,
+		selected,
+		sortedItems,
+		onSelectModeActiveChange,
+		onSelectAll,
+		onDeselectAll,
+		onFilterChange,
 	} = e;
-	const m = Object.keys(i);
-	const u = m.length;
-	const A = !r || m.length === 0;
-	const p = m.map((e) => a.find((t) => t.id === e)).filter(Boolean);
-	const g = (0, de.BGameRecordingFeatureEnabled)();
+	const m = Object.keys(selected);
+	const m_length = m.length;
+	const A = !selectModeActive || m.length === 0;
+	const p = m.map((e) => sortedItems.find((t) => t.id === e)).filter(Boolean);
+	const g = BGameRecordingFeatureEnabled();
 	return n.createElement(fC, {
 		...e,
 		left: n.createElement(
@@ -879,22 +889,22 @@ function Ie(e) {
 			null,
 			g &&
 				n.createElement(Re, {
-					value: t.mediaType,
+					value: filter.mediaType,
 					onChange: (e) =>
-						c({
-							...t,
+						onFilterChange({
+							...filter,
 							mediaType: e,
 						}),
 				}),
-			t.listSource.type === "phase" &&
+			filter.listSource.type === "phase" &&
 				n.createElement(Ee, {
-					phase: t.listSource.phase,
+					phase: filter.listSource.phase,
 					onRemove: () =>
-						c({
-							...t,
+						onFilterChange({
+							...filter,
 							listSource: {
 								type: "app",
-								gameid: t.listSource.phase.game_id,
+								gameid: filter.listSource.phase.game_id,
 							},
 						}),
 				}),
@@ -905,38 +915,38 @@ function Ie(e) {
 			n.createElement(H, {
 				rgSelected: p,
 				disabled: A,
-				onShareFinished: () => s(false),
+				onShareFinished: () => onSelectModeActiveChange(false),
 			}),
 			n.createElement(Z, {
 				rgSelected: p,
 				disabled: A,
-				onDeleteFinished: () => s(false),
+				onDeleteFinished: () => onSelectModeActiveChange(false),
 			}),
-			r &&
-				u < 1 &&
+			selectModeActive &&
+				m_length < 1 &&
 				n.createElement(
 					$n,
 					{
-						onClick: o,
+						onClick: onSelectAll,
 					},
 					Localize("#ScreenshotUploader_SelectAll"),
 				),
-			r &&
-				u >= 1 &&
+			selectModeActive &&
+				m_length >= 1 &&
 				n.createElement(
 					$n,
 					{
-						onClick: l,
+						onClick: onDeselectAll,
 					},
 					Localize("#ScreenshotUploader_DeselectAll"),
 				),
 			n.createElement(
 				$n,
 				{
-					onClick: () => s(!r),
+					onClick: () => onSelectModeActiveChange(!selectModeActive),
 				},
 				Localize(
-					r
+					selectModeActive
 						? "#MediaManager_UploadDialog_Cancel"
 						: "#MediaManager_EnterSelectMode",
 				),
@@ -945,8 +955,8 @@ function Ie(e) {
 	});
 }
 function Ee(e) {
-	const { phase: t, onRemove: r } = e;
-	const { strDateTime: i } = (0, le.$P)(t);
+	const { phase, onRemove } = e;
+	const { strDateTime } = $P(phase);
 	return n.createElement(
 		o6,
 		null,
@@ -955,12 +965,12 @@ function Ee(e) {
 			{
 				className: o.PhaseFilterTag,
 			},
-			i,
+			strDateTime,
 			n.createElement(
 				"div",
 				{
 					className: o.Close,
-					onClick: r,
+					onClick: onRemove,
 				},
 				n.createElement(I.Close, null),
 			),
@@ -968,17 +978,15 @@ function Ee(e) {
 	);
 }
 export function fC(e) {
-	const { left: t, right: r, filter: i, onFilterChange: a } = e;
-	const s = (0, S.br)();
-	const l = (0, de.BGameRecordingFeatureEnabled)();
+	const { left, right, filter, onFilterChange } = e;
+	const s = br();
+	const l = BGameRecordingFeatureEnabled();
 	const c =
-		l && !(0, O.Y2)()
-			? () => s.Settings("GameRecording")
-			: () => s.Settings("InGame");
-	const m = !!(0, ue.W5)({
+		l && !Y2() ? () => s.Settings("GameRecording") : () => s.Settings("InGame");
+	const m = !!W5({
 		path: me.BV.Media.Grid(),
 	});
-	const u = (0, ue.W6)();
+	const u = W6();
 	const A = l;
 	return n.createElement(
 		p.Z,
@@ -1007,21 +1015,21 @@ export function fC(e) {
 					active: !m,
 				}),
 			n.createElement(De, {
-				value: i.listSource,
+				value: filter.listSource,
 				onChange: (e) =>
-					a({
-						...i,
+					onFilterChange({
+						...filter,
 						listSource: e,
 					}),
 			}),
-			t,
+			left,
 		),
 		n.createElement(
 			"div",
 			{
 				className: o.TopListButtonGroup,
 			},
-			r,
+			right,
 			n.createElement(K0, {
 				icon: "gear",
 				onClick: c,
@@ -1031,15 +1039,15 @@ export function fC(e) {
 	);
 }
 function Te(e) {
-	const { mediaTypeProps: t, closeModal: r } = e;
+	const { mediaTypeProps, closeModal } = e;
 	return n.createElement(
 		re.o0,
 		{
 			strTitle: Localize("#MediaManager_FilterModal_Title"),
 			bAlertDialog: true,
 			onOK: () => {
-				if (r) {
-					r();
+				if (closeModal) {
+					closeModal();
 				}
 			},
 		},
@@ -1047,13 +1055,13 @@ function Te(e) {
 			p.Z,
 			null,
 			n.createElement(Re, {
-				...t,
+				...mediaTypeProps,
 			}),
 		),
 	);
 }
 function Re(e) {
-	const { value: t, onChange: r } = e;
+	const { value, onChange } = e;
 	const i = [
 		{
 			data: "all",
@@ -1082,14 +1090,14 @@ function Re(e) {
 			label: Localize("#MediaManager_MediaType_Screenshot"),
 		},
 	];
-	const s = (0, O.Y2)() ? a : i;
-	const o = s.find((e) => e.data == t) || s[0];
+	const s = Y2() ? a : i;
+	const o = s.find((e) => e.data == value) || s[0];
 	const [l, c] = n.useState(o.data);
 	const m = (e) => {
 		c(e);
-		r(e);
+		onChange(e);
 	};
-	if ((0, O.Qn)()) {
+	if (Qn()) {
 		return n.createElement(
 			"div",
 			null,
@@ -1121,14 +1129,14 @@ function Re(e) {
 		return n.createElement(G3, {
 			options: s,
 			value: o,
-			onChange: (e) => r(e.data),
+			onChange: (e) => onChange(e.data),
 			renderLabel: (e) => e?.label,
 			grow: true,
 		});
 	}
 }
 function ke(e) {
-	const t = (0, b.Re)();
+	const t = Re_1();
 	const r = [];
 	t.forEach((e, t) => {
 		const n = new K.VS(t);
@@ -1136,8 +1144,8 @@ function ke(e) {
 			r.push(n?.GetInternalAppID() ?? 0);
 		}
 	});
-	const i = (0, C.gx)(r);
-	const { rgOptions: a, selectedOption: s } = (0, n.useMemo)(() => {
+	const i = gx(r);
+	const { rgOptions, selectedOption } = useMemo(() => {
 		let r = 0;
 		let n = [];
 		t?.forEach((e, t) => {
@@ -1146,7 +1154,7 @@ function ke(e) {
 				a = Localize("#ScreenshotManager_UnknownApp", r++);
 			}
 			let s =
-				(function (e, t) {
+				((e, t) => {
 					const r = new K.VS(t);
 					const n = e.find((e) => e.appid == r.GetInternalAppID())?.name;
 					const i = X.tw.GetAppOverviewByGameID(
@@ -1162,7 +1170,7 @@ function ke(e) {
 				label: s,
 			});
 		});
-		n?.sort((e, t) => (0, A.lY)(e.label || "", t.label || ""));
+		n?.sort((e, t) => lY(e.label || "", t.label || ""));
 		const a = [
 			{
 				data: {
@@ -1172,7 +1180,7 @@ function ke(e) {
 			},
 			...n,
 		];
-		const s = (0, b.NN)(e);
+		const s = NN(e);
 		const o = s
 			? n.find((e) => e.data?.gameid == s)?.label
 			: Localize("#MediaManager_AllApps_Dropdown");
@@ -1185,17 +1193,17 @@ function ke(e) {
 		};
 	}, [t, i, e]);
 	return {
-		rgOptions: a,
-		selectedOption: s,
+		rgOptions: rgOptions,
+		selectedOption: selectedOption,
 	};
 }
 function De(e) {
-	const { value: t, onChange: r } = e;
-	const { rgOptions: i, selectedOption: a } = ke(t);
+	const { value, onChange } = e;
+	const { rgOptions, selectedOption } = ke(value);
 	return n.createElement(G3, {
-		options: i,
-		value: a,
-		onChange: (e) => r(e.data),
+		options: rgOptions,
+		value: selectedOption,
+		onChange: (e) => onChange(e.data),
 		renderLabel: (e) => e?.label,
 		searchFilter: Ne,
 		grow: true,
@@ -1208,22 +1216,23 @@ function Ne(e, t) {
 	const r = e
 		.map((e) => ({
 			value: e,
-			score: (0, oe.Nm)(t.toLocaleLowerCase(), [
-				(e.label || "").toLocaleLowerCase(),
-			]),
+
+			score: Nm(t.toLocaleLowerCase(), [(e.label || "").toLocaleLowerCase()]),
 		}))
-		.filter(({ score: e, value: t }) => t.data.type !== "recents" && e > 0.25);
+		.filter(
+			({ score, value }) => value.data.type !== "recents" && score > 0.25,
+		);
 	r.sort((e, t) => t.score - e.score);
-	return r.map(({ value: e }) => e);
+	return r.map(({ value }) => value);
 }
 function Fe(e) {
-	const { value: t, onChange: r } = e;
-	const [i, a] = (0, n.useState)("");
-	const { rgOptions: l, selectedOption: c } = ke(t);
+	const { value, onChange } = e;
+	const [i, a] = useState("");
+	const { rgOptions, selectedOption } = ke(value);
 	const m = n.useRef(undefined);
-	const u = (0, ae.$2)();
-	const A = (0, se.u6)();
-	const p = (0, n.useMemo)(() => Ne(l, i), [l, i]);
+	const u = $2();
+	const A = u6();
+	const p = useMemo(() => Ne(rgOptions, i), [rgOptions, i]);
 	n.useEffect(
 		() => () => u.VirtualKeyboardManager.SetVirtualKeyboardHidden(),
 		[u],
@@ -1242,15 +1251,15 @@ function Fe(e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, s.A)(o.NoMatches, p.length == 0 && o.Visible),
+				className: A_1(o.NoMatches, p.length == 0 && o.Visible),
 			},
 			Localize("#ClipMananger_Search_NoMatches"),
 		),
 		n.createElement(Ge, {
 			onChange: a,
 			onEnter: () => {
-				if (r) {
-					r(p[0].data);
+				if (onChange) {
+					onChange(p[0].data);
 				}
 				u.VirtualKeyboardManager.SetVirtualKeyboardHidden();
 				m.current.Hide();
@@ -1262,10 +1271,10 @@ function Fe(e) {
 				h.kt,
 				{
 					key: t,
-					onSelected: r ? () => r(e.data) : undefined,
+					onSelected: onChange ? () => onChange(e.data) : undefined,
 					preferredFocus: t == 0,
 					className: o.Option,
-					selected: c.label == e.label,
+					selected: selectedOption.label == e.label,
 				},
 				((e, t) =>
 					n.createElement(
@@ -1282,7 +1291,7 @@ function Fe(e) {
 						),
 						n.createElement(ie.W, {
 							button: ne.g4.RightTrigger,
-							className: (0, s.A)(o.SelectItemGlyph, t && o.Visible),
+							className: A_1(o.SelectItemGlyph, t && o.Visible),
 						}),
 					))(e, t == 0 && A),
 			),
@@ -1290,7 +1299,7 @@ function Fe(e) {
 	);
 }
 function Ge(e) {
-	const { value: t, onChange: r, onEnter: i } = e;
+	const { value, onChange, onEnter } = e;
 	return n.createElement(
 		p.Z,
 		{
@@ -1303,9 +1312,9 @@ function Ge(e) {
 			},
 			n.createElement(u.pd, {
 				spellCheck: false,
-				onChange: (e) => r(e.target.value),
-				onEnterKeyPress: i,
-				value: t,
+				onChange: (e) => onChange(e.target.value),
+				onEnterKeyPress: onEnter,
+				value: value,
 				className: o.Input,
 				placeholder: Localize("#ClipMananger_Search_Placeholder"),
 				bShowClearAction: true,
@@ -1314,25 +1323,25 @@ function Ge(e) {
 	);
 }
 function Oe(e) {
-	const { topPadding: t } = e;
-	const [r] = (0, n.useState)(() => new Array(200).fill(0));
-	const { itemsPerRow: i } = Le();
+	const { topPadding } = e;
+	const [r] = useState(() => new Array(200).fill(0));
+	const { itemsPerRow } = Le();
 	const a = {
-		"--stickyHeaderHeight": `${NB(t)}px`,
+		"--stickyHeaderHeight": `${NB(topPadding)}px`,
 	};
 	const l = {
-		"--itemsPerRow": i,
+		"--itemsPerRow": itemsPerRow,
 	};
 	return n.createElement(
 		"div",
 		{
-			className: (0, s.A)(o.ScreenshotList, o.Loading),
+			className: A_1(o.ScreenshotList, o.Loading),
 			style: a,
 		},
 		n.createElement(
 			"div",
 			{
-				className: (0, s.A)(o.ScreenshotListInner, o.Loading),
+				className: A_1(o.ScreenshotListInner, o.Loading),
 				style: l,
 			},
 			r.map((e, t) =>
@@ -1343,10 +1352,10 @@ function Oe(e) {
 		),
 	);
 }
-const Pe = n.createContext({});
-const Le = () => n.useContext(Pe);
+const PeContext = n.createContext({});
+const Le = () => n.useContext(PeContext);
 export function NB(e) {
-	if ((0, ae.$2)().IsDesktopOverlayWindow()) {
+	if ($2().IsDesktopOverlayWindow()) {
 		return e - 34 + Ce;
 	} else {
 		return e + Ce;
@@ -1354,30 +1363,30 @@ export function NB(e) {
 }
 function xe(e) {
 	const {
-		items: t,
-		selected: r,
-		onRequestLoad: i,
-		numTotal: a,
-		bLoadingInitialData: s,
-		bFetchingNextPage: l,
-		bHasNextPage: c,
-		renderItem: u,
-		nInitialScroll: d,
-		topPadding: A,
+		items,
+		selected,
+		onRequestLoad,
+		numTotal,
+		bLoadingInitialData,
+		bFetchingNextPage,
+		bHasNextPage,
+		renderItem,
+		nInitialScroll,
+		topPadding,
 	} = e;
-	const { itemsPerRow: h } = Le();
-	const C = (0, n.useMemo)(() => {
+	const { itemsPerRow } = Le();
+	const C = useMemo(() => {
 		const e = [];
-		const r = t.length > 0 ? t[t.length - 1] : 0;
+		const r = items.length > 0 ? items[items.length - 1] : 0;
 		let n = {
 			items: [],
 		};
-		for (let i = 0; i < t.length; i++) {
-			n.items.push(t[i]);
-			if (t[i] === r) {
+		for (let i = 0; i < items.length; i++) {
+			n.items.push(items[i]);
+			if (items[i] === r) {
 				n.bRequestLoad = true;
 			}
-			if ((i + 1) % h == 0) {
+			if ((i + 1) % itemsPerRow == 0) {
 				e.push(n);
 				n = {
 					items: [],
@@ -1388,22 +1397,22 @@ function xe(e) {
 			e.push(n);
 		}
 		return e;
-	}, [t, h]);
-	const _ = (0, n.useRef)(undefined);
-	const f = (0, O.hf)();
-	const [b, y] = n.useState(t.length);
+	}, [items, itemsPerRow]);
+	const _ = useRef(undefined);
+	const f = hf();
+	const [b, y] = n.useState(items.length);
 	const S = n.useRef(null);
 	n.useEffect(() => {
-		if (!f && t.length != b) {
-			y(t.length);
+		if (!f && items.length != b) {
+			y(items.length);
 			S.current?.TakeFocus();
 		}
-	}, [b, t.length, f]);
-	const w = c ? Math.ceil(a / h) : C.length;
-	const B = NB(A);
+	}, [b, items.length, f]);
+	const w = bHasNextPage ? Math.ceil(numTotal / itemsPerRow) : C.length;
+	const B = NB(topPadding);
 	const v = Le();
-	const I = (0, n.useCallback)(() => v.height + Ce, [v.height]);
-	const E = (0, m.Te)({
+	const I = useCallback(() => v.height + Ce, [v.height]);
+	const E = Te_1({
 		count: w,
 		getScrollElement: () => _.current,
 		estimateSize: I,
@@ -1411,8 +1420,8 @@ function xe(e) {
 		paddingStart: f ? B : 0,
 	});
 	const M = E.getVirtualItems();
-	const T = c && !s && !l;
-	(0, n.useEffect)(() => {
+	const T = bHasNextPage && !bLoadingInitialData && !bFetchingNextPage;
+	useEffect(() => {
 		const e = M[M.length - 1];
 		const t = M.some((e) => C[e.index]?.bRequestLoad);
 		if (!e) {
@@ -1420,18 +1429,18 @@ function xe(e) {
 		}
 		const r = e.index >= C.length - 1;
 		if ((t || r) && T) {
-			i();
+			onRequestLoad();
 			E.measure();
 		}
-	}, [E, M, C, C.length, T, i]);
-	(0, n.useEffect)(() => {
+	}, [E, M, C, C.length, T, onRequestLoad]);
+	useEffect(() => {
 		E.measure();
 	}, [v.width, E]);
-	(0, n.useEffect)(() => {
-		if (d) {
-			E.scrollToIndex(Math.floor(d / h));
+	useEffect(() => {
+		if (nInitialScroll) {
+			E.scrollToIndex(Math.floor(nInitialScroll / itemsPerRow));
 		}
-	}, [d, E, h]);
+	}, [nInitialScroll, E, itemsPerRow]);
 	return n.useMemo(() => {
 		const e = {
 			"--listTotalHeight": `${E.getTotalSize()}px`,
@@ -1464,44 +1473,51 @@ function xe(e) {
 							navEntryPreferPosition: g.iU.MAINTAIN_X,
 							className: o.ScreenshotListItemRow,
 							style: {
-								height: e.size - Ce + "px",
+								height: `${e.size - Ce}px`,
 								transform: `translateY(${e.start}px)`,
-								"--itemsPerRow": h,
-								marginLeft: (t ? 2 : 0) + "px",
-								marginRight: (t ? 2 : 0) + "px",
+								"--itemsPerRow": itemsPerRow,
+								marginLeft: `${t ? 2 : 0}px`,
+								marginRight: `${t ? 2 : 0}px`,
 							},
 						},
 						t
 							? n.createElement(We, null)
 							: n.createElement(Ue, {
 									row: C[e.index],
-									selected: r,
+									selected: selected,
 									rows: C,
-									renderItem: u,
-									bLoadingInitialData: s,
-									bFetchingNextPage: l,
+									renderItem: renderItem,
+									bLoadingInitialData: bLoadingInitialData,
+									bFetchingNextPage: bFetchingNextPage,
 								}),
 					);
 				}),
 			),
 		);
-	}, [f, l, s, h, B, _, u, C, r, E, M]);
+	}, [
+		f,
+		bFetchingNextPage,
+		bLoadingInitialData,
+		itemsPerRow,
+		B,
+		_,
+		renderItem,
+		C,
+		selected,
+		E,
+		M,
+	]);
 }
 function Ue(e) {
-	const {
-		row: t,
-		selected: r,
-		renderItem: i,
-		bLoadingInitialData: a,
-		bFetchingNextPage: s,
-	} = e;
-	const o = a || s;
-	const { itemsPerRow: l } = Le();
+	const { row, selected, renderItem, bLoadingInitialData, bFetchingNextPage } =
+		e;
+	const o = bLoadingInitialData || bFetchingNextPage;
+	const { itemsPerRow } = Le();
 	let c;
-	if (t.items.length < l) {
+	if (row.items.length < itemsPerRow) {
 		if (o) {
 			c = [];
-			for (let e = 0; e < l - t.items.length; e++) {
+			for (let e = 0; e < itemsPerRow - row.items.length; e++) {
 				c.push(
 					n.createElement(Ve, {
 						key: e,
@@ -1511,7 +1527,7 @@ function Ue(e) {
 		} else {
 			c = n.createElement("div", {
 				style: {
-					flex: l - t.items.length,
+					flex: itemsPerRow - row.items.length,
 					border: "2px solid transparent",
 				},
 			});
@@ -1520,14 +1536,14 @@ function Ue(e) {
 	return n.createElement(
 		n.Fragment,
 		null,
-		t.items.map((e) => i(e, r[e.id], l !== 1)),
+		row.items.map((e) => renderItem(e, selected[e.id], itemsPerRow !== 1)),
 		c,
 	);
 }
 function We() {
-	const { itemsPerRow: e } = Le();
+	const { itemsPerRow } = Le();
 	const t = [];
-	for (let r = 0; r < e; r++) {
+	for (let r = 0; r < itemsPerRow; r++) {
 		t.push(
 			n.createElement(Ve, {
 				key: r,
@@ -1554,31 +1570,31 @@ function Ve() {
 export function O0(e) {
 	return n.createElement(p.Z, {
 		focusable: true,
-		className: (0, s.A)(e.className, o.Skeleton),
+		className: A_1(e.className, o.Skeleton),
 		onCancel: e.fnResetSelection,
 		style: e.style,
 	});
 }
 export function G3(e) {
 	const {
-		value: t,
-		options: r,
-		onChange: i,
-		renderLabel: a,
-		className: l,
-		disabled: m,
-		searchFilter: u,
+		value,
+		options,
+		onChange,
+		renderLabel,
+		className,
+		disabled,
+		searchFilter,
 		...d
 	} = e;
-	const { ref: A, show: p } = K3(e);
-	const g = a(t) ?? n.createElement("span", null, "\xA0");
+	const { ref, show } = K3(e);
+	const g = renderLabel(value) ?? n.createElement("span", null, "\xA0");
 	return n.createElement(
 		o6,
 		{
-			onClick: m ? undefined : p,
-			ref: A,
-			className: (0, s.A)(l, o.Combobox),
-			disabled: m,
+			onClick: disabled || show,
+			ref: ref,
+			className: A_1(className, o.Combobox),
+			disabled: disabled,
 			...d,
 		},
 		n.createElement(
@@ -1594,7 +1610,7 @@ export function G3(e) {
 	);
 }
 export function K3(e) {
-	const t = (0, n.useRef)(undefined);
+	const t = useRef(undefined);
 	return {
 		ref: t,
 		show: () => {
@@ -1604,7 +1620,7 @@ export function K3(e) {
 				bFitToWindow: true,
 				strClassName: o.ComboboxSelectorContextMenu,
 			};
-			const a = (0, i.lX)(
+			const a = lX(
 				n.createElement(Qe, {
 					...e,
 					onChange: (t) => {
@@ -1621,11 +1637,14 @@ export function K3(e) {
 	};
 }
 function Qe(e) {
-	const { options: t, onChange: r, renderLabel: i, searchFilter: a } = e;
-	const [s, l] = (0, n.useState)("");
-	const c = !!a;
-	const m = (0, n.useMemo)(() => (a ? a(t, s) : t), [t, a, s]);
-	if ((0, O.Qn)()) {
+	const { options, onChange, renderLabel, searchFilter } = e;
+	const [s, l] = useState("");
+	const c = !!searchFilter;
+	const m = useMemo(
+		() => (searchFilter ? searchFilter(options, s) : options),
+		[options, searchFilter, s],
+	);
+	if (Qn()) {
 		return n.createElement(
 			h.tz,
 			null,
@@ -1647,10 +1666,10 @@ function Qe(e) {
 					h.kt,
 					{
 						key: t,
-						onSelected: () => r(e),
+						onSelected: () => onChange(e),
 						className: o.Option,
 					},
-					i(e),
+					renderLabel(e),
 				),
 			),
 		);
@@ -1673,10 +1692,10 @@ function Qe(e) {
 						h.kt,
 						{
 							key: t,
-							onSelected: () => r(e),
+							onSelected: () => onChange(e),
 							className: o.Option,
 						},
-						i(e),
+						renderLabel(e),
 					),
 				),
 			),
@@ -1692,14 +1711,14 @@ function Qe(e) {
 	}
 }
 export function EY(e) {
-	const { truncate: t, link: r, className: i, color: a, ...l } = e;
-	const c = (0, s.A)(
+	const { truncate, link, className, color, ...l } = e;
+	const c = A_1(
 		o.Text,
-		t && o.Truncate,
-		r && o.Link,
-		i,
-		a === "warning" && o.Warning,
-		a === "secondary" && o.Secondary,
+		truncate && o.Truncate,
+		link && o.Link,
+		className,
+		color === "warning" && o.Warning,
+		color === "secondary" && o.Secondary,
 	);
 	return n.createElement("span", {
 		className: c,
@@ -1707,7 +1726,7 @@ export function EY(e) {
 	});
 }
 const Ye = {
-	grid: function (e) {
+	grid(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1756,7 +1775,7 @@ const Ye = {
 			}),
 		);
 	},
-	folder: function (e) {
+	folder(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1779,7 +1798,7 @@ const Ye = {
 			}),
 		);
 	},
-	stackedrectangles: function (e) {
+	stackedrectangles(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1801,7 +1820,7 @@ const Ye = {
 		);
 	},
 	gear: c.wB_,
-	trashcan: function (e) {
+	trashcan(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1818,7 +1837,7 @@ const Ye = {
 			}),
 		);
 	},
-	hyperlink: function (e) {
+	hyperlink(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1836,7 +1855,7 @@ const Ye = {
 		);
 	},
 	upload: nr,
-	list: function (e) {
+	list(e) {
 		return n.createElement(
 			"svg",
 			{
@@ -1855,22 +1874,22 @@ const Ye = {
 	},
 };
 export function K0(e) {
-	const { icon: t, title: r, active: i, className: l, ...c } = e;
-	const m = Ye[t];
+	const { icon, title, active, className, ...c } = e;
+	const Ye_t = Ye[t];
 	return n.createElement(
 		a.he,
 		{
-			toolTipContent: r,
+			toolTipContent: title,
 		},
 		n.createElement(
 			o6,
 			{
 				square: true,
 				...c,
-				className: (0, s.A)(l, o.IconButton, i && o.Active),
+				className: A_1(className, o.IconButton, active && o.Active),
 			},
-			n.createElement(m, {
-				className: (0, s.A)(o.IconButtonIcon),
+			n.createElement(Ye_t, {
+				className: A_1(o.IconButtonIcon),
 			}),
 		),
 	);
@@ -1884,30 +1903,30 @@ const Je = {
 	primary: o.Primary,
 	secondary: o.Secondary,
 };
-export const o6 = (0, n.forwardRef)(function (e, t) {
+export const o6 = forwardRef((e, t) => {
 	const {
-		grow: r,
-		square: i,
-		disabled: a,
-		className: l,
-		variant: c = "secondary",
-		onClick: m,
+		grow,
+		square,
+		disabled,
+		className,
+		variant = "secondary",
+		onClick,
 		...u
 	} = e;
-	const d = (0, s.A)(
+	const d = A_1(
 		o.ButtonBox,
-		!!m && o.Interactable,
-		r && o.Grow,
-		i && o.Square,
-		a && o.Disabled,
+		!!onClick && o.Interactable,
+		grow && o.Grow,
+		square && o.Square,
+		disabled && o.Disabled,
 		Je[c],
-		l,
+		className,
 	);
 	return n.createElement(p.Z, {
 		noFocusRing: true,
 		ref: t,
 		className: d,
-		onActivate: a ? undefined : m,
+		onActivate: disabled || onClick,
 		...u,
 	});
 });
@@ -1960,15 +1979,15 @@ export function AI(e) {
 	return Localize(rt[e]);
 }
 function it(e) {
-	const { numFiltered: t, filter: r, haveContent: i } = e;
-	const a = (0, O.Qn)();
-	const l = fe(r);
-	if (!a || t == 0 || l) {
+	const { numFiltered, filter, haveContent } = e;
+	const a = Qn();
+	const l = fe(filter);
+	if (!a || numFiltered == 0 || numFiltered == 0 || l) {
 		return null;
 	}
-	const c = r.listSource.type !== b.sF.listSource.type;
-	const m = r.mediaType !== b.sF.mediaType;
-	const u = !i;
+	const c = filter.listSource.type !== b.sF.listSource.type;
+	const m = filter.mediaType !== b.sF.mediaType;
+	const u = !haveContent;
 	return n.createElement(
 		p.Z,
 		{
@@ -1984,11 +2003,11 @@ function it(e) {
 			{
 				className: o.FilterText,
 			},
-			Localize("#MediaManager_FilterText", t),
+			Localize("#MediaManager_FilterText", numFiltered),
 			c &&
 				n.createElement(ie.W, {
 					button: ne.g4.X,
-					className: (0, s.A)(o.FilterButton, m && o.MultipleGlyphs),
+					className: A_1(o.FilterButton, m && o.MultipleGlyphs),
 				}),
 			c && m && "/",
 			m &&

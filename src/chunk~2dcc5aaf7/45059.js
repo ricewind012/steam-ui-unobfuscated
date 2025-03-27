@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	TitleBar: "KP71O20zFXDPkRko_NlMm",
 	PlayersDialog: "u-Qbw_um9KIbq019Iid1E",

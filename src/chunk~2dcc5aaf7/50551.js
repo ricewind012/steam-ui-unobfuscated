@@ -1,18 +1,18 @@
-export var ki;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./64608.js");
-var o = require("./44234.js");
-var l = require(/*webcrack:missing*/ "./41230.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require("./88724.js");
-var d = require("./17231.js");
-var A = require("./68608.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require("./52912.js");
-var h = require("./95773.js");
-var C = require("./59704.js");
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import s from "./64608.js";
+import o from "./44234.js";
+import l from "./41230.js";
+import c from "./52451.js";
+import u from "./88724.js";
+import d from "./17231.js";
+import A from "./68608.js";
+import p from "./8573.js";
+import g from "./52912.js";
+import h from "./95773.js";
+import C from "./59704.js";
+export let ki;
 export class jr extends a.Component {
 	m_bSettingsChanged = false;
 	m_bCommunityPreferencesChanged = false;
@@ -29,17 +29,16 @@ export class jr extends a.Component {
 	}
 	componentDidUpdate(e) {
 		let t = {};
-		const { friendsSettingsInitial: r, communityPreferencesInitial: n } =
-			this.props;
-		for (let n of Object.keys(r)) {
-			if (r[n] != e.friendsSettingsInitial[n]) {
-				t[n] = r[n];
+		const { friendsSettingsInitial, communityPreferencesInitial } = this.props;
+		for (let n of Object.keys(friendsSettingsInitial)) {
+			if (friendsSettingsInitial[n] != e.friendsSettingsInitial[n]) {
+				t[n] = friendsSettingsInitial[n];
 			}
 		}
 		let i = {};
-		for (let t of Object.keys(n)) {
-			if (n[t] != e.communityPreferencesInitial[t]) {
-				i[t] = n[t];
+		for (let t of Object.keys(communityPreferencesInitial)) {
+			if (communityPreferencesInitial[t] != e.communityPreferencesInitial[t]) {
+				i[t] = communityPreferencesInitial[t];
 			}
 		}
 		if (Object.keys(t).length) {
@@ -106,96 +105,74 @@ export class jr extends a.Component {
 		this.m_bCommunityPreferencesChanged = true;
 	}
 	FriendsSettingsToggleRow(e) {
-		return a.createElement(s.RF, {
-			key: e.strName,
-			onChange: (t) => {
-				this.OnSettingToggled(e.strName, t);
-			},
-			label: e.strLabel,
-			checked: !!this.state.friendSettings[e.strName],
-			description: e.strDesc ? e.strDesc : "",
-		});
+		return (
+			<s.RF
+				key={e.strName}
+				onChange={(t) => {
+					this.OnSettingToggled(e.strName, t);
+				}}
+				label={e.strLabel}
+				checked={!!this.state.friendSettings[e.strName]}
+				description={e.strDesc ? e.strDesc : ""}
+			/>
+		);
 	}
 	FriendsSettingsCheckbox(e) {
-		return a.createElement(s.Yh, {
-			key: e.strName,
-			onChange: (t) => {
-				this.OnSettingToggled(e.strName, t);
-			},
-			checked: !!this.state.friendSettings[e.strName],
-		});
+		return (
+			<s.Yh
+				key={e.strName}
+				onChange={(t) => {
+					this.OnSettingToggled(e.strName, t);
+				}}
+				checked={!!this.state.friendSettings[e.strName]}
+			/>
+		);
 	}
 	FriendsSettingsCommunityPreferenceToggleRow(e) {
-		return a.createElement(
-			s.RF,
-			{
-				key: "CommunityPreference" + e.strName,
-				onChange: (t) => {
+		return (
+			<s.RF
+				key={`CommunityPreference${e.strName}`}
+				onChange={(t) => {
 					this.OnCommunityPreferenceToggled(e.strName, t);
-				},
-				label: e.strLabel,
-				checked: !!this.state.communityPreferences[e.strName],
-				description: e.strDesc ? e.strDesc : "",
-			},
-			e.children,
+				}}
+				label={e.strLabel}
+				checked={!!this.state.communityPreferences[e.strName]}
+				description={e.strDesc ? e.strDesc : ""}
+			>
+				{e.children}
+			</s.RF>
 		);
 	}
 	SettingLink(e) {
-		return a.createElement(
-			"div",
-			{
-				className: "_DialogInputContainer _DialogLayout",
-			},
-			a.createElement(
-				"div",
-				{
-					className: "displayColumn alignSelfCenter",
-				},
-				a.createElement(
-					"div",
-					{
-						className: "DialogToggle_Label",
-					},
-					a.createElement(
-						C.uU,
-						{
-							href: e.strLink,
-						},
-						e.strLabel,
-					),
-				),
-				e.strDesc &&
-					a.createElement(
-						"div",
-						{
-							className: "DialogToggle_Description",
-						},
-						e.strDesc,
-					),
-				this.props.children,
-			),
+		return (
+			<div className="_DialogInputContainer _DialogLayout">
+				<div className="displayColumn alignSelfCenter">
+					<div className="DialogToggle_Label">
+						<C.uU href={e.strLink}>{e.strLabel}</C.uU>
+					</div>
+					{e.strDesc && (
+						<div className="DialogToggle_Description">{e.strDesc}</div>
+					)}
+					{this.props.children}
+				</div>
+			</div>
 		);
 	}
 }
-(0, i.Cg)([c.oI], jr.prototype, "OnSubmit", null);
-(0, i.Cg)([c.oI], jr.prototype, "HandleRadioChange", null);
-(0, i.Cg)([c.oI], jr.prototype, "OnSettingToggled", null);
-(0, i.Cg)([c.oI], jr.prototype, "OnCommunityPreferenceToggled", null);
-(0, i.Cg)([c.oI], jr.prototype, "FriendsSettingsToggleRow", null);
-(0, i.Cg)([c.oI], jr.prototype, "FriendsSettingsCheckbox", null);
-(0, i.Cg)(
-	[c.oI],
-	jr.prototype,
-	"FriendsSettingsCommunityPreferenceToggleRow",
-	null,
-);
-(0, i.Cg)([c.oI], jr.prototype, "SettingLink", null);
-(function (e) {
+Cg([c.oI], jr.prototype, "OnSubmit", null);
+Cg([c.oI], jr.prototype, "HandleRadioChange", null);
+Cg([c.oI], jr.prototype, "OnSettingToggled", null);
+Cg([c.oI], jr.prototype, "OnCommunityPreferenceToggled", null);
+Cg([c.oI], jr.prototype, "FriendsSettingsToggleRow", null);
+Cg([c.oI], jr.prototype, "FriendsSettingsCheckbox", null);
+Cg([c.oI], jr.prototype, "FriendsSettingsCommunityPreferenceToggleRow", null);
+Cg([c.oI], jr.prototype, "SettingLink", null);
+((e) => {
 	e[(e.k_EChatFontSizeSmall = 1)] = "k_EChatFontSizeSmall";
 	e[(e.k_EChatFontSizeDefault = 2)] = "k_EChatFontSizeDefault";
 	e[(e.k_EChatFontSizeLarge = 3)] = "k_EChatFontSizeLarge";
 })((ki ||= {}));
-class f extends a.Component {
+class F extends a.Component {
 	render() {
 		let e = this.props.bParenthesizeNicknames;
 		let t = Localize("#FriendSettings_ExampleFriend");
@@ -204,25 +181,19 @@ class f extends a.Component {
 		n.m_strPlayerName = t;
 		n.m_ePersonaState = 1;
 		n.m_strAvatarHash = u.dV;
-		return a.createElement(
-			"div",
-			{
-				className: "friend online friendSettingsFakeFriend",
-			},
-			a.createElement(d.i8, {
-				className: "fakeFriendAvatar",
-				persona: n,
-				statusPosition: "right",
-			}),
-			a.createElement(A.D, {
-				className: "labelHolder",
-				persona: n,
-				eFriendRelationship: 3,
-				bIsSelf: false,
-				strNickname: r,
-				bParenthesizeNicknames: e,
-				bCompactView: false,
-			}),
+		return (
+			<div className="friend online friendSettingsFakeFriend">
+				<d.i8 className="fakeFriendAvatar" persona={n} statusPosition="right" />
+				<A.D
+					className="labelHolder"
+					persona={n}
+					eFriendRelationship={3}
+					bIsSelf={false}
+					strNickname={r}
+					bParenthesizeNicknames={e}
+					bCompactView={false}
+				/>
+			</div>
 		);
 	}
 }
@@ -240,200 +211,166 @@ export let vQ = class extends jr {
 		this.m_bSettingsChanged = true;
 	}
 	render() {
-		let e = this.FriendsSettingsToggleRow;
+		let E = this.FriendsSettingsToggleRow;
 		let t = this.state.friendSettings.nChatFontSize;
-		return a.createElement(
-			s.lV,
-			{
-				className: "DialogBody",
-				onSubmit: this.OnSubmit,
-			},
-			a.createElement(
-				"div",
-				{
-					className: "SettingsGroup",
-				},
-				a.createElement(e, {
-					strName: "bCompactFriendsList",
-					strLabel: Localize("#FriendSettings_CompactFriendsAndChat"),
-				}),
-				a.createElement(e, {
-					strName: "bCompactQuickAccess",
-					strLabel: Localize("#FriendSettings_CompactQuickAccess"),
-				}),
-				a.createElement(
-					s.JU,
-					{
-						className: "friendSettingsSubheader",
-					},
-					Localize("#FriendSettings_ChatFontSize"),
-				),
-				a.createElement(
-					s.Xp,
-					{
-						className: "FriendsSettingsChatFontSizeSection_ButtonRow",
-					},
-					a.createElement(
-						s.$n,
-						{
-							className:
-								"smallFontSetting " +
-								(t == ki.k_EChatFontSizeSmall ? "Primary" : "Off"),
-							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeSmall),
-						},
-						Localize("#FriendSetting_ChatFontSmall"),
-					),
-					a.createElement(
-						s.$n,
-						{
-							className:
-								"defaultFontSetting " +
-								(t == ki.k_EChatFontSizeDefault ? "Primary" : "Off"),
-							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeDefault),
-						},
-						Localize("#FriendSetting_ChatFontDefault"),
-					),
-					a.createElement(
-						s.$n,
-						{
-							className:
-								"largeFontSetting " +
-								(t == ki.k_EChatFontSizeLarge ? "Primary" : "Off"),
-							onClick: () => this.SetChatFontSize(ki.k_EChatFontSizeLarge),
-						},
-						Localize("#FriendSetting_ChatFontLarge"),
-					),
-				),
-			),
-			!this.props.bSubmitImmediate &&
-				a.createElement(s.CB, {
-					onCancel: this.props.onCancel,
-				}),
+		return (
+			<s.lV className="DialogBody" onSubmit={this.OnSubmit}>
+				<div className="SettingsGroup">
+					<E
+						strName="bCompactFriendsList"
+						strLabel={Localize("#FriendSettings_CompactFriendsAndChat")}
+					/>
+					<E
+						strName="bCompactQuickAccess"
+						strLabel={Localize("#FriendSettings_CompactQuickAccess")}
+					/>
+					<s.JU className="friendSettingsSubheader">
+						{Localize("#FriendSettings_ChatFontSize")}
+					</s.JU>
+					<s.Xp className="FriendsSettingsChatFontSizeSection_ButtonRow">
+						<s.$n
+							className={`smallFontSetting ${
+								t == ki.k_EChatFontSizeSmall ? "Primary" : "Off"
+							}`}
+							onClick={() => this.SetChatFontSize(ki.k_EChatFontSizeSmall)}
+						>
+							{Localize("#FriendSetting_ChatFontSmall")}
+						</s.$n>
+						<s.$n
+							className={`defaultFontSetting ${
+								t == ki.k_EChatFontSizeDefault ? "Primary" : "Off"
+							}`}
+							onClick={() => this.SetChatFontSize(ki.k_EChatFontSizeDefault)}
+						>
+							{Localize("#FriendSetting_ChatFontDefault")}
+						</s.$n>
+						<s.$n
+							className={`largeFontSetting ${
+								t == ki.k_EChatFontSizeLarge ? "Primary" : "Off"
+							}`}
+							onClick={() => this.SetChatFontSize(ki.k_EChatFontSizeLarge)}
+						>
+							{Localize("#FriendSetting_ChatFontLarge")}
+						</s.$n>
+					</s.Xp>
+				</div>
+				{!this.props.bSubmitImmediate && (
+					<s.CB onCancel={this.props.onCancel} />
+				)}
+			</s.lV>
 		);
 	}
 };
-(0, i.Cg)([c.oI], vQ.prototype, "SetChatFontSize", null);
-vQ = (0, i.Cg)([l.PA], vQ);
+Cg([c.oI], vQ.prototype, "SetChatFontSize", null);
+vQ = Cg([l.PA], vQ);
 export let IW = class extends jr {
 	render() {
-		let e = this.FriendsSettingsToggleRow;
+		let E = this.FriendsSettingsToggleRow;
 		let t = o.TS.IN_CLIENT
 			? "#FriendSettings_RememberOpenChats_DescClient"
 			: "#FriendSettings_RememberOpenChats_Desc";
-		let r = this.SettingLink;
-		return a.createElement(
-			s.lV,
-			{
-				className: "DialogBody",
-				onSubmit: this.OnSubmit,
-			},
-			a.createElement(
-				"div",
-				{
-					className: "SettingsGroup",
-				},
-				this.props.bShowPopupOpts &&
-					a.createElement(
-						a.Fragment,
-						null,
-						a.createElement(s.RF, {
-							onChange: (e) => g.ZM.ToggleSingleWindowMode(e),
-							label: Localize("#FriendSettings_DockChats"),
-							checked: h.xm.SettingsStore.BSingleWindowModeEnabled(),
-						}),
-						a.createElement(e, {
-							strName: "bAlwaysNewChatWindow",
-							strLabel: Localize("#FriendSettings_AlwaysNewChatWindow"),
-						}),
-					),
-				a.createElement(e, {
-					strName: "bDisableEmbedInlining",
-					strLabel: Localize("#FriendSettings_DisableEmbedInlining"),
-				}),
-				a.createElement(e, {
-					strName: "bRememberOpenChats",
-					strLabel: Localize("#FriendSettings_RememberOpenChats"),
-					strDesc: Localize(t),
-				}),
-				a.createElement(e, {
-					strName: "b24HourClock",
-					strLabel: Localize("#FriendSettings_AlwaysUse24HourClock"),
-				}),
-				a.createElement(e, {
-					strName: "bDisableSpellcheck",
-					strLabel: Localize("#FriendSettings_DisableSpellcheck"),
-				}),
-				h.xm.UIStore.show_winter_sale_ui &&
-					a.createElement(e, {
-						strName: "bDisableRoomEffects",
-						strLabel: Localize("#FriendSettings_DisableRoomEffects"),
-					}),
-				a.createElement(r, {
-					strLabel: Localize("#TextFilterStatus_ChangeSettings"),
-					strLink: h.xm.ChatStore.GetTextFilterSettingsURL(),
-					strDesc: h.xm.ChatStore.GetTextFilterStatus(),
-				}),
-			),
+		let R = this.SettingLink;
+		return (
+			<s.lV className="DialogBody" onSubmit={this.OnSubmit}>
+				<div className="SettingsGroup">
+					{this.props.bShowPopupOpts && (
+						<>
+							<s.RF
+								onChange={(e) => g.ZM.ToggleSingleWindowMode(e)}
+								label={Localize("#FriendSettings_DockChats")}
+								checked={h.xm.SettingsStore.BSingleWindowModeEnabled()}
+							/>
+							<E
+								strName="bAlwaysNewChatWindow"
+								strLabel={Localize("#FriendSettings_AlwaysNewChatWindow")}
+							/>
+						</>
+					)}
+					<E
+						strName="bDisableEmbedInlining"
+						strLabel={Localize("#FriendSettings_DisableEmbedInlining")}
+					/>
+					<E
+						strName="bRememberOpenChats"
+						strLabel={Localize("#FriendSettings_RememberOpenChats")}
+						strDesc={Localize(t)}
+					/>
+					<E
+						strName="b24HourClock"
+						strLabel={Localize("#FriendSettings_AlwaysUse24HourClock")}
+					/>
+					<E
+						strName="bDisableSpellcheck"
+						strLabel={Localize("#FriendSettings_DisableSpellcheck")}
+					/>
+					{h.xm.UIStore.show_winter_sale_ui && (
+						<E
+							strName="bDisableRoomEffects"
+							strLabel={Localize("#FriendSettings_DisableRoomEffects")}
+						/>
+					)}
+					<R
+						strLabel={Localize("#TextFilterStatus_ChangeSettings")}
+						strLink={h.xm.ChatStore.GetTextFilterSettingsURL()}
+						strDesc={h.xm.ChatStore.GetTextFilterStatus()}
+					/>
+				</div>
+			</s.lV>
 		);
 	}
 };
-IW = (0, i.Cg)([l.PA], IW);
+IW = Cg([l.PA], IW);
 export let dG = class extends jr {
 	constructor(e) {
 		super(e);
 	}
 	render() {
-		let e = this.FriendsSettingsToggleRow;
-		let t = this.FriendsSettingsCommunityPreferenceToggleRow;
-		return a.createElement(
-			s.lV,
-			{
-				className: "DialogBody",
-				onSubmit: this.OnSubmit,
-			},
-			a.createElement(
-				"div",
-				{
-					className: "SettingsGroup",
-				},
-				a.createElement(
-					t,
-					{
-						strName: "bParenthesizeNicknames",
-						strLabel: Localize("#FriendSettings_ParenthesizeNicknames"),
-					},
-					a.createElement(f, {
-						bParenthesizeNicknames:
-							this.state.communityPreferences.bParenthesizeNicknames,
-					}),
-				),
-				a.createElement(e, {
-					strName: "bCategorizeInGameFriendsByGame",
-					strLabel: Localize("#FriendSettings_CategorizeInGameFriendsByGame"),
-				}),
-				a.createElement(e, {
-					strName: "bHideOfflineFriendsInTagGroups",
-					strLabel: Localize("#FriendSettings_HideOfflineFriendsInCategories"),
-				}),
-				a.createElement(e, {
-					strName: "bHideCategorizedFriends",
-					strLabel: Localize("#FriendSettings_HideCategorizedFriends"),
-				}),
-				a.createElement(e, {
-					strName: "bForceAlphabeticFriendSorting",
-					strLabel: Localize("#FriendSettings_SortFriendsByStatus"),
-				}),
-				this.props.bDoNotDisturbSupported &&
-					a.createElement(e, {
-						strName: "bSignIntoFriends",
-						strLabel: Localize("#FriendSettings_SignInToFriends"),
-					}),
-				a.createElement(e, {
-					strName: "bAnimatedAvatars",
-					strLabel: Localize("#FriendSettings_AnimatedAvatars"),
-				}),
-			),
+		let E = this.FriendsSettingsToggleRow;
+		let T = this.FriendsSettingsCommunityPreferenceToggleRow;
+		return (
+			<s.lV className="DialogBody" onSubmit={this.OnSubmit}>
+				<div className="SettingsGroup">
+					<T
+						strName="bParenthesizeNicknames"
+						strLabel={Localize("#FriendSettings_ParenthesizeNicknames")}
+					>
+						<F
+							bParenthesizeNicknames={
+								this.state.communityPreferences.bParenthesizeNicknames
+							}
+						/>
+					</T>
+					<E
+						strName="bCategorizeInGameFriendsByGame"
+						strLabel={Localize("#FriendSettings_CategorizeInGameFriendsByGame")}
+					/>
+					<E
+						strName="bHideOfflineFriendsInTagGroups"
+						strLabel={Localize(
+							"#FriendSettings_HideOfflineFriendsInCategories",
+						)}
+					/>
+					<E
+						strName="bHideCategorizedFriends"
+						strLabel={Localize("#FriendSettings_HideCategorizedFriends")}
+					/>
+					<E
+						strName="bForceAlphabeticFriendSorting"
+						strLabel={Localize("#FriendSettings_SortFriendsByStatus")}
+					/>
+					{this.props.bDoNotDisturbSupported && (
+						<E
+							strName="bSignIntoFriends"
+							strLabel={Localize("#FriendSettings_SignInToFriends")}
+						/>
+					)}
+					<E
+						strName="bAnimatedAvatars"
+						strLabel={Localize("#FriendSettings_AnimatedAvatars")}
+					/>
+				</div>
+			</s.lV>
 		);
 	}
 };
-dG = (0, i.Cg)([l.PA], dG);
+dG = Cg([l.PA], dG);

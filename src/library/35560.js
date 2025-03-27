@@ -1,22 +1,16 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./42898.js");
-const s = r.createContext(undefined);
+import r from "./63696.js";
+import { gc } from "./42898.js";
+const SContext = r.createContext(undefined);
 export function VQ(e) {
-	const { controller: t } = e;
+	const { controller } = e;
 	r.useEffect(() => {
-		t.Init();
-	}, [t]);
-	return r.createElement(
-		s.Provider,
-		{
-			value: t,
-		},
-		e.children,
-	);
+		controller.Init();
+	}, [controller]);
+	return <SContext.Provider value={controller}>{e.children}</SContext.Provider>;
 }
 export function Vu() {
-	return r.useContext(s);
+	return r.useContext(SContext);
 }
 export function QI() {
-	return (0, i.gc)(Vu()?.GetShowDebugFocusRing()) ?? false;
+	return gc(Vu()?.GetShowDebugFocusRing()) ?? false;
 }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	VisualizerContainer: "_1NQE1-ibtygU1rBEK8V6xN",
 	FlexRow: "UvVhr5Tn9K-mRlSrIbou8",

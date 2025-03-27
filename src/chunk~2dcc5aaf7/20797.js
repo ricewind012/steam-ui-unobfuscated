@@ -1,167 +1,160 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./5808.js");
-var o = require(/*webcrack:missing*/ "./31084.js");
-var l = require(/*webcrack:missing*/ "./88750.js");
-var c = require(/*webcrack:missing*/ "./90242.js");
-var m = require(/*webcrack:missing*/ "./26853.js");
-var u = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./72476.js");
-var g = require("./44658.js");
-var h = g;
-var C = require("./78057.js");
-var _ = require("./32700.js");
-var f = require("./46217.js");
-var b = require(/*webcrack:missing*/ "./69164.js");
-var y = require(/*webcrack:missing*/ "./10975.js");
-var S = require("./64608.js");
-var w = require("./67512.js");
-var B = w;
-var v = require("./35376.js");
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i, { forwardRef, useState, useEffect, useCallback } from "./63696.js";
+import a from "./41230.js";
+import s, { AH, jy, Kw, k2, KM, WB } from "./5808.js";
+import o, { lX } from "./31084.js";
+import l from "./88750.js";
+import c from "./90242.js";
+import m from "./26853.js";
+import u, { A as A_1 } from "./90765.js";
+import A, { Z3 } from "./52451.js";
+import p, { Qn } from "./72476.js";
+import g from "./44658.js";
+import C from "./78057.js";
+import _, { Np } from "./32700.js";
+import f from "./46217.js";
+import b from "./69164.js";
+import y from "./10975.js";
+import S from "./64608.js";
+import w from "./67512.js";
+import v from "./35376.js";
+import E, { pg } from "./13869.js";
+import M from "./46422.js";
+import T from "./14982.js";
+import R from "./88696.js";
+import k from "./76356.js";
+import D from "./35488.js";
+import F, { br } from "./18869.js";
+import G, { $2 } from "./96680.js";
+import O, { VA } from "./10294.js";
+import P from "./37086.js";
+import L from "./44351.js";
+import z from "./41480.js";
+import x from "./55717.js";
+import U from "./5482.js";
+import W from "./14628.js";
+import { jb } from "./18057.js";
+import Y from "./98995.js";
+import K from "./50376.js";
+const h = g;
+const B = w;
 function I(e) {
 	const {
-		strTitle: t,
-		strDescription: r,
-		onPrimary: n,
-		onSecondary: a,
-		onCancel: s,
-		closeModal: o,
-		bDisableSecondary: l,
-		strPrimaryButtonText: c,
-		strSecondaryButtonText: m,
-		strCancelButtonText: d,
-		bPrimaryRequiresConfirm: A = false,
-		strPrimaryConfirmText: p,
-		className: g,
+		strTitle,
+		strDescription,
+		onPrimary,
+		onSecondary,
+		onCancel,
+		closeModal,
+		bDisableSecondary,
+		strPrimaryButtonText,
+		strSecondaryButtonText,
+		strCancelButtonText,
+		bPrimaryRequiresConfirm = false,
+		strPrimaryConfirmText,
+		className,
 	} = e;
-	const [h, C] = i.useState(false);
+	const [h, setH] = i.useState(false);
 	const _ = i.useCallback(() => {
-		if (o) {
-			o();
+		if (closeModal) {
+			closeModal();
 		}
-	}, [o]);
+	}, [closeModal]);
 	const f = i.useCallback(() => {
-		a();
+		onSecondary();
 		_();
-	}, [a, _]);
+	}, [onSecondary, _]);
 	const b = i.useCallback(() => {
-		if (s) {
-			s();
+		if (onCancel) {
+			onCancel();
 		}
 		_();
-	}, [s, _]);
+	}, [onCancel, _]);
 	const y = i.useCallback(() => {
-		if (!A || h) {
-			n();
+		if (!bPrimaryRequiresConfirm || h) {
+			onPrimary();
 			_();
 		} else {
-			C(true);
+			setH(true);
 		}
-	}, [n, _, A, h]);
-	const w = (0, u.A)(B.StackedThreeButtonDialog, g);
-	const I = (0, u.A)(B.PrimaryButton, h && B.RequestConfirm);
-	const E = h && p ? p : c;
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			v.e,
-			{
-				closeModal: o,
-				className: w,
-			},
-			i.createElement(S.Y9, null, t),
-			i.createElement(
-				S.f3,
-				{
-					onCancelButton: b,
-				},
-				r,
-			),
-			i.createElement(
-				S.wi,
-				null,
-				i.createElement(
-					"div",
-					{
-						className: B.ButtonContainer,
-					},
-					i.createElement(S.xv, {
-						className: B.StackedButtons,
-						strPrimaryButtonText: E,
-						onPrimary: y,
-						classNamePrimary: I,
-						strSecondaryButtonText: m,
-						onSecondary: f,
-						bDisableSecondary: l,
-						strCancelButtonText: d,
-						onCancel: b,
-					}),
-				),
-			),
-		),
+	}, [onPrimary, _, bPrimaryRequiresConfirm, h]);
+	const w = A_1(B.StackedThreeButtonDialog, className);
+	const I = A_1(B.PrimaryButton, h && B.RequestConfirm);
+	const E =
+		h && strPrimaryConfirmText ? strPrimaryConfirmText : strPrimaryButtonText;
+	return (
+		<>
+			<v.e closeModal={closeModal} className={w}>
+				<S.Y9>{strTitle}</S.Y9>
+				<S.f3 onCancelButton={b}>{strDescription}</S.f3>
+				<S.wi>
+					<div className={B.ButtonContainer}>
+						<S.xv
+							className={B.StackedButtons}
+							strPrimaryButtonText={E}
+							onPrimary={y}
+							classNamePrimary={I}
+							strSecondaryButtonText={strSecondaryButtonText}
+							onSecondary={f}
+							bDisableSecondary={bDisableSecondary}
+							strCancelButtonText={strCancelButtonText}
+							onCancel={b}
+						/>
+					</div>
+				</S.wi>
+			</v.e>
+		</>
 	);
 }
-var E = require("./13869.js");
-var M = require("./46422.js");
-var T = require("./14982.js");
-var R = require(/*webcrack:missing*/ "./88696.js");
-var k = require("./76356.js");
-var D = require("./35488.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var F = require("./18869.js");
-var G = require("./96680.js");
-var O = require("./10294.js");
-var P = require("./37086.js");
-var L = require("./44351.js");
-var z = require("./41480.js");
-var x = require("./55717.js");
-var U = require("./5482.js");
-var W = require(/*webcrack:missing*/ "./14628.js");
-var V = require("./18057.js");
 function H(e) {
 	switch (e) {
-		case "phone":
+		case "phone": {
 			return Localize("#RemotePlay_Explainer_Description_Phone");
-		case "tablet":
+		}
+		case "tablet": {
 			return Localize("#RemotePlay_Explainer_Description_Tablet");
-		case "tv":
+		}
+		case "tv": {
 			return Localize("#RemotePlay_Explainer_Description_TV");
-		default:
+		}
+		default: {
 			console.warn(`Unknown remote play anywhere support cateogry "${e}"`);
 			return "";
+		}
 	}
 }
-function j(e) {
-	const { overview: t, onDismiss: r, ...n } = e;
-	const a = (0, V.jb)();
-	const s = W.TS.STORE_BASE_URL + "mobile";
-	const o = zZ(t);
+function J(e) {
+	const { overview, onDismiss, ...n } = e;
+	const a = jb();
+	const s = `${W.TS.STORE_BASE_URL}mobile`;
+	const o = zZ(overview);
 	let l = "";
 	if (!o.length) {
 		o.push("phone");
 	}
 	switch (o.length) {
-		case 0:
+		case 0: {
 			console.error(
-				`Request to show remote play explainer dialog for app (${t.appid}) that does not support remote play`,
+				`Request to show remote play explainer dialog for app (${overview.appid}) that does not support remote play`,
 			);
 			return null;
-		case 1:
+		}
+		case 1: {
 			l = H(o[0]);
 			break;
-		case 2:
+		}
+		case 2: {
 			const [e, r] = o;
 			l = Localize("#RemotePlay_Explainer_Description_Two", H(e), H(r));
 			break;
-		default:
+		}
+		default: {
 			if (o.length > 3) {
 				console.error(
 					"Did not expect more than 3 remote play categories. Only know how to display 3 at a time.",
@@ -169,209 +162,169 @@ function j(e) {
 			}
 			const [n, i, a] = o;
 			l = Localize("#RemotePlay_Explainer_Description_Three", H(n), H(i), H(a));
+		}
 	}
-	const c = Localize("#RemotePlay_Explainer_Description", t.display_name, l);
+	const c = Localize(
+		"#RemotePlay_Explainer_Description",
+		overview.display_name,
+		l,
+	);
 	const m = () => a(`${s}#steam_link_section`);
-	return i.createElement(
-		z.mt,
-		{
-			...n,
-			onDismiss: r,
-		},
-		i.createElement(
-			P.sh,
-			null,
-			i.createElement(L.Y9, null, Localize("#RemotePlay_Explainer_Title")),
-			i.createElement("div", null, c),
-			i.createElement(
-				"div",
-				{
-					className: x.InsetContainer,
-				},
-				i.createElement(
-					"div",
-					null,
-					i.createElement(
-						"b",
-						null,
-						Localize("#RemotePlay_Explainer_HowWorks_Title"),
-					),
-				),
-				i.createElement(
-					"div",
-					null,
-					LocalizeInlineReactWithFallback(
-						"#RemotePlay_Explainer_HowWorks_1",
-						i.createElement("b", null),
-						i.createElement(P.Oy, {
-							onClick: m,
-						}),
-					),
-				),
-				i.createElement(
-					"div",
-					null,
-					LocalizeInlineReactWithFallback(
-						"#RemotePlay_Explainer_HowWorks_2",
-						i.createElement("b", null),
-						i.createElement(P.Oy, {
-							onClick: m,
-						}),
-					),
-				),
-				i.createElement(
-					"div",
-					null,
-					LocalizeInlineReactWithFallback(
-						"#RemotePlay_Explainer_HowWorks_3",
-						i.createElement("b", null),
-					),
-				),
-				i.createElement(
-					"div",
-					{
-						className: x.LinksContainer,
-					},
-					i.createElement(
-						U.rg,
-						{
-							className: x.QR,
-						},
-						s,
-					),
-					i.createElement(
-						"div",
-						{
-							className: x.Right,
-						},
-						i.createElement(
-							"b",
-							null,
-							Localize("#RemotePlay_Explainer_GetApp"),
-						),
-						i.createElement(
-							"div",
-							null,
-							LocalizeReact(
-								"#RemotePlay_Explainer_GetApp_Desc",
-								i.createElement(P.Oy, null, s),
-							),
-						),
-						i.createElement(
-							"div",
-							{
-								className: x.AppStoreContainer,
-							},
-							i.createElement(q, null),
-							i.createElement(Q, null),
-						),
-					),
-				),
-			),
-			i.createElement(
-				L.wi,
-				null,
-				i.createElement(L.CB, {
-					onCancel: r,
-					strCancelText: Localize("#Button_Close"),
-					onOK: () => {
-						a(`${W.TS.STORE_BASE_URL}remoteplay#anywhere`);
-						r();
-					},
-					strOKText: Localize("#RemotePlay_LearnMore_Button"),
-				}),
-			),
-		),
+	return (
+		<z.mt {...n} onDismiss={onDismiss}>
+			<P.sh>
+				<L.Y9>{Localize("#RemotePlay_Explainer_Title")}</L.Y9>
+				<div>{c}</div>
+				<div className={x.InsetContainer}>
+					<div>
+						<b>{Localize("#RemotePlay_Explainer_HowWorks_Title")}</b>
+					</div>
+					<div>
+						{LocalizeInlineReactWithFallback(
+							"#RemotePlay_Explainer_HowWorks_1",
+							<b />,
+							<P.Oy onClick={m} />,
+						)}
+					</div>
+					<div>
+						{LocalizeInlineReactWithFallback(
+							"#RemotePlay_Explainer_HowWorks_2",
+							<b />,
+							<P.Oy onClick={m} />,
+						)}
+					</div>
+					<div>
+						{LocalizeInlineReactWithFallback(
+							"#RemotePlay_Explainer_HowWorks_3",
+							<b />,
+						)}
+					</div>
+					<div className={x.LinksContainer}>
+						<U.rg className={x.QR}>{s}</U.rg>
+						<div className={x.Right}>
+							<b>{Localize("#RemotePlay_Explainer_GetApp")}</b>
+							<div>
+								{LocalizeReact(
+									"#RemotePlay_Explainer_GetApp_Desc",
+									<P.Oy>{s}</P.Oy>,
+								)}
+							</div>
+							<div className={x.AppStoreContainer}>
+								<Q_1 />
+								<Q />
+							</div>
+						</div>
+					</div>
+				</div>
+				<L.wi>
+					<L.CB
+						onCancel={onDismiss}
+						strCancelText={Localize("#Button_Close")}
+						onOK={() => {
+							a(`${W.TS.STORE_BASE_URL}remoteplay#anywhere`);
+							onDismiss();
+						}}
+						strOKText={Localize("#RemotePlay_LearnMore_Button")}
+					/>
+				</L.wi>
+			</P.sh>
+		</z.mt>
 	);
 }
-function q() {
-	return i.createElement(Z, {
-		imgURL: `${W.TS.STORE_CDN_URL}public/images/mobile/localizedimages/appleappstore/apple_store_${W.TS.LANGUAGE}.png`,
-		href: "https://itunes.apple.com/app/steam-link/id1246969117",
-	});
+function Q_1() {
+	return (
+		<Z
+			imgURL={`${W.TS.STORE_CDN_URL}public/images/mobile/localizedimages/appleappstore/apple_store_${W.TS.LANGUAGE}.png`}
+			href="https://itunes.apple.com/app/steam-link/id1246969117"
+		/>
+	);
 }
 function Q() {
-	return i.createElement(Z, {
-		imgURL: `${W.TS.STORE_CDN_URL}public/images/mobile/localizedimages/googleplaystore/google_play_store_${W.TS.LANGUAGE}.png`,
-		href: "https://play.google.com/store/apps/details?id=com.valvesoftware.steamlink",
-		className: x.Google,
-	});
+	return (
+		<Z
+			imgURL={`${W.TS.STORE_CDN_URL}public/images/mobile/localizedimages/googleplaystore/google_play_store_${W.TS.LANGUAGE}.png`}
+			href="https://play.google.com/store/apps/details?id=com.valvesoftware.steamlink"
+			className={x.Google}
+		/>
+	);
 }
 function Z(e) {
-	const { imgURL: t, href: r, className: n } = e;
-	const a = (0, V.jb)();
-	return i.createElement("img", {
-		className: (0, u.A)(n, x.AppStoreLink),
-		onClick: () => a(r),
-		src: t,
-	});
+	const { imgURL, href, className } = e;
+	const a = jb();
+	return (
+		<img
+			className={A_1(className, x.AppStoreLink)}
+			onClick={() => a(href)}
+			src={imgURL}
+		/>
+	);
 }
-var Y = require(/*webcrack:missing*/ "./98995.js");
-var K = require(/*webcrack:missing*/ "./50376.js");
-export const aV = (0, i.forwardRef)(function (e, t) {
-	const r = (0, F.br)();
-	const n = (0, G.$2)();
-	return i.createElement($, {
-		...e,
-		navigator: r,
-		instance: n,
-		ref: t,
-	});
+export const aV = forwardRef((props, ref) => {
+	const r = br();
+	const n = $2();
+	return <$ {...props} navigator={r} instance={n} ref={ref} />;
 });
 export function Iy(e) {
 	const {
-		launchApp: t,
-		otherRunningGames: r,
-		fnLaunchBoth: n,
-		fnKillAndLaunch: a,
-		fnCancelLaunch: s,
-		closeModal: o,
+		launchApp,
+		otherRunningGames,
+		fnLaunchBoth,
+		fnKillAndLaunch,
+		fnCancelLaunch,
+		closeModal,
 	} = e;
-	const l = r[0].display_name;
-	const c = t.display_name;
-	const m = r.length;
-	const u = (0, O.VA)();
+	const l = otherRunningGames[0].display_name;
+	const t_display_name = launchApp.display_name;
+	const r_length = otherRunningGames.length;
+	const u = VA();
 	const A =
-		m > 1
+		r_length > 1
 			? Localize("#GameAction_Launch_Multiple_Description_Multiple")
 			: Localize("#GameAction_Launch_Multiple_Description", l);
 	const p =
-		m > 1
-			? Localize("#GameAction_Launch_Multiple_CloseAndLaunch_Multiple", c)
-			: Localize("#GameAction_Launch_Multiple_CloseAndLaunch", l, c);
-	const g = i.createElement(
-		"div",
-		{
-			className: h.SaveWarning,
-		},
-		Localize("#GameAction_Launch_Multiple_Warning"),
+		r_length > 1
+			? Localize(
+					"#GameAction_Launch_Multiple_CloseAndLaunch_Multiple",
+					t_display_name,
+				)
+			: Localize(
+					"#GameAction_Launch_Multiple_CloseAndLaunch",
+					l,
+					t_display_name,
+				);
+	const g = (
+		<div className={h.SaveWarning}>
+			{Localize("#GameAction_Launch_Multiple_Warning")}
+		</div>
 	);
-	return i.createElement(I, {
-		className: h.LaunchMultipleAppsDialog,
-		strTitle: Localize("#GameAction_Launch_Multiple_Title", c),
-		strDescription: i.createElement(
-			i.Fragment,
-			null,
-			A,
-			i.createElement("br", null),
-			g,
-		),
-		strPrimaryButtonText: p,
-		onPrimary: a,
-		bPrimaryRequiresConfirm: true,
-		strPrimaryConfirmText: Localize(
-			"#GameAction_Launch_Multiple_CloseAndLaunch_Confirm",
-		),
-		strSecondaryButtonText: Localize(
-			"#GameAction_Launch_Multiple_LaunchSimultaneous",
-			c,
-		),
-		onSecondary: n,
-		bDisableSecondary: u,
-		strCancelButtonText: Localize("#GameAction_Launch_Multiple_Cancel"),
-		onCancel: s,
-		closeModal: o,
-	});
+	return (
+		<I
+			className={h.LaunchMultipleAppsDialog}
+			strTitle={Localize("#GameAction_Launch_Multiple_Title", t_display_name)}
+			strDescription={
+				<>
+					{A}
+					<br />
+					{g}
+				</>
+			}
+			strPrimaryButtonText={p}
+			onPrimary={fnKillAndLaunch}
+			bPrimaryRequiresConfirm
+			strPrimaryConfirmText={Localize(
+				"#GameAction_Launch_Multiple_CloseAndLaunch_Confirm",
+			)}
+			strSecondaryButtonText={Localize(
+				"#GameAction_Launch_Multiple_LaunchSimultaneous",
+				t_display_name,
+			)}
+			onSecondary={fnLaunchBoth}
+			bDisableSecondary={u}
+			strCancelButtonText={Localize("#GameAction_Launch_Multiple_Cancel")}
+			onCancel={fnCancelLaunch}
+			closeModal={closeModal}
+		/>
+	);
 }
 let $ = class extends i.Component {
 	static contextType = p.QO;
@@ -388,8 +341,8 @@ let $ = class extends i.Component {
 		}
 	}
 	OnClick(e, t) {
-		const r = (0, s.AH)(this.props.instance, this.props.overview, "selected");
-		const n = (0, s.jy)(r, this.props.overview, "selected", 100, e);
+		const r = AH(this.props.instance, this.props.overview, "selected");
+		const n = jy(r, this.props.overview, "selected", 100, e);
 		if (n) {
 			let t = true;
 			let a = false;
@@ -398,17 +351,18 @@ let $ = class extends i.Component {
 					case "Play":
 					case "Launch":
 					case "Connect":
-					case "Stream":
+					case "Stream": {
 						a = true;
+					}
 				}
 				if (r == "Play" || r == "Launch") {
 					const r = M.oy.RunningApps.filter(
 						(e) =>
 							(e.app_type & 1) != 0 && e.appid != this.props.overview.appid,
 					);
-					const s = r.length;
+					const r_length = r.length;
 					const o = (this.props.overview.app_type & 1) != 0;
-					if (s > 0 && o && p.TS.ON_DECK) {
+					if (r_length > 0 && o && p.TS.ON_DECK) {
 						t = false;
 						const s = () => {
 							for (const e of r) {
@@ -416,14 +370,16 @@ let $ = class extends i.Component {
 							}
 							this.PerformAppAction(n, a);
 						};
-						const o = i.createElement(Iy, {
-							launchApp: this.props.overview,
-							otherRunningGames: r,
-							fnKillAndLaunch: s,
-							fnLaunchBoth: () => this.PerformAppAction(n, a),
-							fnCancelLaunch: () => {},
-						});
-						(0, E.pg)(o, e, {});
+						const o = (
+							<Iy
+								launchApp={this.props.overview}
+								otherRunningGames={r}
+								fnKillAndLaunch={s}
+								fnLaunchBoth={() => this.PerformAppAction(n, a)}
+								fnCancelLaunch={() => {}}
+							/>
+						);
+						pg(o, e, {});
 					}
 				}
 			}
@@ -449,17 +405,17 @@ let $ = class extends i.Component {
 		}
 	}
 	ShowStreamingMenu(e) {
-		(0, o.lX)(
-			i.createElement(te, {
-				overview: this.props.overview,
-				onStreamingTargetSelected: (e, t) => {
+		lX(
+			<Te
+				overview={this.props.overview}
+				onStreamingTargetSelected={(e, t) => {
 					SteamClient.Apps.SetStreamingClientForApp(
 						this.props.overview.appid,
 						e.clientid,
 					);
-				},
-				onShowRemotePlayInfo: this.ShowRemotePlayInfo,
-			}),
+				}}
+				onShowRemotePlayInfo={this.ShowRemotePlayInfo}
+			/>,
 			this.m_elActionButtonRef.current,
 			{
 				bOverlapHorizontal: true,
@@ -483,35 +439,37 @@ let $ = class extends i.Component {
 			return null;
 		}
 		const {
-			overview: e,
-			buttonStyle: t,
-			className: r,
-			bShowStreamingSelector: n,
-			strGameActionDetailsOverride: a,
-			bFakeActions: o,
-			bNavigateToApp: l,
-			onFocus: A,
-			navigator: p,
-			instance: g,
+			overview,
+			buttonStyle,
+			className,
+			bShowStreamingSelector,
+			strGameActionDetailsOverride,
+			bFakeActions,
+			bNavigateToApp,
+			onFocus,
+			navigator,
+			instance,
 			...f
 		} = this.props;
-		const y = t == "long";
-		let S = (0, s.AH)(this.props.instance, e, "selected");
-		let w = (0, s.Kw)(e, "selected");
+		const y = buttonStyle == "long";
+		let S = AH(this.props.instance, overview, "selected");
+		let w = Kw(overview, "selected");
 		let B = !S && !w;
-		const v = n && (e.per_client_data.length > 1 || ie(this.props.overview));
-		if (C.H.BHasRecentlyLaunched(e.appid)) {
+		const v =
+			bShowStreamingSelector &&
+			(overview.per_client_data.length > 1 || ie(this.props.overview));
+		if (C.H.BHasRecentlyLaunched(overview.appid)) {
 			S = null;
 			w = "Launching";
 			B = true;
 		}
 		let I = "";
 		if (S || w) {
-			I = (0, _.Np)(S ?? w);
+			I = Np(S ?? w);
 		}
 		const E = this.context?.IN_GAMEPADUI && S == "ResumeGameInProgress";
 		const M = (e) => {
-			const t = (0, s.jy)(
+			const t = jy(
 				"Stop",
 				this.props.overview,
 				"selected",
@@ -523,222 +481,197 @@ let $ = class extends i.Component {
 			}
 		};
 		const T = S ?? w;
-		const R = (0, s.k2)(T) || (0, s.KM)(T);
+		const R = k2(T) || KM(T);
 		const F =
 			this.context?.IN_GAMEPADUI &&
 			R &&
-			k.I.GetActiveLaunches().get(e.appid.toString());
-		const G = S == "Play" || S == "Launch" || S == "Stream" || S == "Connect";
+			k.I.GetActiveLaunches().get(overview.appid.toString());
+		const G =
+			S == "Play" ||
+			S == "Launch" ||
+			S == "Launch" ||
+			S == "Stream" ||
+			S == "Launch" ||
+			S == "Stream" ||
+			S == "Connect";
 		const O = (e) => this.OnClick(GetOwningWindowForEvent(e), e);
-		const P = i.createElement(
-			b.Z,
-			{
-				className: (0, u.A)(
-					r,
+		const P = (
+			<b.Z
+				className={A_1(
+					className,
 					y && h.LongButton,
 					h.PlayButtonContainer,
 					!S && h.Disabled,
 					G && h.Green,
 					v && h.ShowingStreaming,
-				),
-				...f,
-			},
-			i.createElement(
-				c.ml,
-				{
-					noFocusRing: true,
-					autoFocus: this.context?.IN_GAMEPADUI,
-					className: (0, u.A)(h.PlayButton, h.ButtonChild, !T && h.NoAction),
-					ref: this.m_elActionButtonRef,
-					onMouseUp: o ? O : undefined,
-					onClick: o ? undefined : O,
-					onFocus: A,
-				},
-				F && i.createElement(D.Spinner, null),
-				!F && T && (0, s.WB)(T),
-				I.length > 0 &&
-					i.createElement(
-						"div",
-						{
-							className: (0, u.A)(h.ButtonText, B && h.ButtonThrobberPadding),
-						},
-						I,
-					),
-				B &&
-					i.createElement(
-						"div",
-						{
-							className: h.ThrobberContainer,
-						},
-						i.createElement(m.t, {
-							className: h.Throbber,
-							position: "center",
-							size: "small",
-						}),
-					),
-			),
-			E &&
-				i.createElement(
-					b.Z,
-					{
-						focusable: true,
-						className: h.ShutdownAppButton,
-						onActivate: (e) => M(e),
-						noFocusRing: true,
-					},
-					(0, s.WB)("Stop"),
-				),
-			v &&
-				i.createElement(ee, {
-					overview: e,
-					onMouseUp: o ? this.ShowStreamingMenu : undefined,
-					onClick: o ? undefined : this.ShowStreamingMenu,
-				}),
-			i.createElement(j, {
-				overview: this.props.overview,
-				active: this.state.bShowRemotePlayExplainer,
-				onDismiss: this.HideRemotePlayInfo,
-			}),
+				)}
+				{...f}
+			>
+				<c.ml
+					noFocusRing
+					autoFocus={this.context?.IN_GAMEPADUI}
+					className={A_1(h.PlayButton, h.ButtonChild, !T && h.NoAction)}
+					ref={this.m_elActionButtonRef}
+					onMouseUp={bFakeActions ? O : undefined}
+					onClick={bFakeActions || O}
+					onFocus={onFocus}
+				>
+					{F && <D.Spinner />}
+					{!F && T && WB(T)}
+					{I.length > 0 && (
+						<div className={A_1(h.ButtonText, B && h.ButtonThrobberPadding)}>
+							{I}
+						</div>
+					)}
+					{B && (
+						<div className={h.ThrobberContainer}>
+							<m.t className={h.Throbber} position="center" size="small" />
+						</div>
+					)}
+				</c.ml>
+				{E && (
+					<b.Z
+						focusable
+						className={h.ShutdownAppButton}
+						onActivate={(e) => M(e)}
+						noFocusRing
+					>
+						{WB("Stop")}
+					</b.Z>
+				)}
+				{v && (
+					<Ee
+						overview={overview}
+						onMouseUp={bFakeActions ? this.ShowStreamingMenu : undefined}
+						onClick={bFakeActions || this.ShowStreamingMenu}
+					/>
+				)}
+				<J
+					overview={this.props.overview}
+					active={this.state.bShowRemotePlayExplainer}
+					onDismiss={this.HideRemotePlayInfo}
+				/>
+			</b.Z>
 		);
 		if (S === "Stream") {
 			const e = this.props.overview.selected_per_client_data.client_name;
 			if (e) {
 				const t = Localize("#StreamingClient_StreamFrom", e);
-				return i.createElement(
-					Y.Gq,
-					{
-						toolTipContent: t,
-					},
-					P,
-				);
+				return <Y.Gq toolTipContent={t}>{P}</Y.Gq>;
 			}
 		}
 		return P;
 	}
 };
-function ee(e) {
-	const { onMouseUp: t, onClick: r, overview: n } = e;
-	const [a, o] = (function (e) {
+function Ee(e) {
+	const { onMouseUp, onClick, overview } = e;
+	const [a, o] = ((e) => {
 		const t = 3;
-		const [r, n] = (0, i.useState)(false);
-		(0, A.Z3)(() => n(true), 30000, []);
-		const [a, o] = (0, i.useState)(true);
-		const l = (0, p.Qn)();
-		const c = (0, G.$2)();
-		(0, i.useEffect)(() => {
+		const [r, setR] = useState(false);
+		Z3(() => setR(true), 30000, []);
+		const [a, setA] = useState(true);
+		const l = Qn();
+		const c = $2();
+		useEffect(() => {
 			if (!e) {
 				return;
 			}
-			const r = (0, s.AH)(c, e, "selected");
+			const r = AH(c, e, "selected");
 			if (l && r === "Install" && e.per_client_data.length > 1) {
 				const e = new R.A();
 				e.GetString(le).then((r) => {
 					const n = parseInt(r);
 					if (isNaN(n)) {
 						e.StoreString(le, "1");
-						o(false);
+						setA(false);
 					} else if (n < t) {
 						e.StoreString(le, (n + 1).toString());
-						o(false);
+						setA(false);
 					}
 				});
 			}
 		}, [c, e, l]);
-		const m = (0, i.useCallback)(() => {
-			o(true);
+		const m = useCallback(() => {
+			setA(true);
 			new R.A().StoreString(le, t.toString());
 		}, []);
 		const u = k.I.GetActiveLaunches().has(e?.appid?.toString());
 		return [!a && !r && !u, m];
-	})(n);
+	})(overview);
 	const l = (e) => {
 		if (a) {
 			o();
 		}
-		if (r) {
-			r(e);
+		if (onClick) {
+			onClick(e);
 		}
 	};
-	return i.createElement(
-		c.ml,
-		{
-			noFocusRing: true,
-			className: (0, u.A)(h.StreamingSelector, h.ButtonChild),
-			onMouseUp: (e) => {
+	return (
+		<c.ml
+			noFocusRing
+			className={A_1(h.StreamingSelector, h.ButtonChild)}
+			onMouseUp={(e) => {
 				if (a) {
 					o();
 				}
-				if (t) {
-					t(e);
+				if (onMouseUp) {
+					onMouseUp(e);
 				}
-			},
-			onClick: l,
-		},
-		i.createElement(f.V5, null),
-		a &&
-			i.createElement(T.r9, {
-				className: h.StreamingCallout,
-				pulseMagnitude: 2,
-				bobberMagnitude: 1.3,
-			}),
-		a &&
-			i.createElement(
-				"div",
-				{
-					className: h.StreamingCalloutMessageContainer,
-					onClick: l,
-				},
-				i.createElement(
-					T.kg,
-					{
-						className: h.StreamingCalloutMessage,
-					},
-					Localize("#RemotePlay_Tip_Callout"),
-				),
-			),
+			}}
+			onClick={l}
+		>
+			<f.V5 />
+			{a && (
+				<T.r9
+					className={h.StreamingCallout}
+					pulseMagnitude={2}
+					bobberMagnitude={1.3}
+				/>
+			)}
+			{a && (
+				<div className={h.StreamingCalloutMessageContainer} onClick={l}>
+					<T.kg className={h.StreamingCalloutMessage}>
+						{Localize("#RemotePlay_Tip_Callout")}
+					</T.kg>
+				</div>
+			)}
+		</c.ml>
 	);
 }
-function te(e) {
-	const {
-		overview: t,
-		onStreamingTargetSelected: r,
-		onShowRemotePlayInfo: n,
-	} = e;
-	const a = !(0, p.Qn)() && ie(t);
-	return i.createElement(
-		l.tz,
-		null,
-		t.per_client_data.map((n) =>
-			i.createElement(se, {
-				appid: t.appid,
-				key: n.clientid,
-				client: n,
-				isLocalClient: t.BIsPerClientDataLocal(n),
-				onSelected: (e) => r(n, e),
-				selected:
-					t.selected_clientid == n.clientid ||
-					(e.overview.BIsSelectedClientLocal() && n.clientid == "0"),
-			}),
-		),
-		a &&
-			i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(l.K5, null),
-				i.createElement(ne, {
-					overview: t,
-					onSelected: n,
-				}),
-			),
+function Te(e) {
+	const { overview, onStreamingTargetSelected, onShowRemotePlayInfo } = e;
+	const a = !Qn() && ie(overview);
+	return (
+		<l.tz>
+			{overview.per_client_data.map((n) => (
+				<Se
+					appid={overview.appid}
+					key={n.clientid}
+					client={n}
+					isLocalClient={overview.BIsPerClientDataLocal(n)}
+					onSelected={(e) => onStreamingTargetSelected(n, e)}
+					selected={
+						overview.selected_clientid == n.clientid ||
+						(e.overview.BIsSelectedClientLocal() && n.clientid == "0")
+					}
+				/>
+			))}
+			{a && (
+				<>
+					<l.K5 />
+					<Ne overview={overview} onSelected={onShowRemotePlayInfo} />
+				</>
+			)}
+		</l.tz>
 	);
 }
-(0, n.Cg)([A.oI], $.prototype, "PerformAppAction", null);
-(0, n.Cg)([A.oI], $.prototype, "OnClick", null);
-(0, n.Cg)([A.oI], $.prototype, "FocusActionButton", null);
-(0, n.Cg)([A.oI], $.prototype, "ShowStreamingMenu", null);
-(0, n.Cg)([A.oI], $.prototype, "ShowRemotePlayInfo", null);
-(0, n.Cg)([A.oI], $.prototype, "HideRemotePlayInfo", null);
-$ = (0, n.Cg)([a.PA], $);
+Cg([A.oI], $.prototype, "PerformAppAction", null);
+Cg([A.oI], $.prototype, "OnClick", null);
+Cg([A.oI], $.prototype, "FocusActionButton", null);
+Cg([A.oI], $.prototype, "ShowStreamingMenu", null);
+Cg([A.oI], $.prototype, "ShowRemotePlayInfo", null);
+Cg([A.oI], $.prototype, "HideRemotePlayInfo", null);
+$ = Cg([a.PA], $);
 const re = {
 	generic: [
 		"#StreamingClient_AnotherDevice",
@@ -755,9 +688,9 @@ const re = {
 		"#StreamingClient_LinkDesc_Specific_Mobile",
 	],
 };
-function ne(e) {
-	const { overview: t, onSelected: r } = e;
-	const n = zZ(t);
+function Ne(e) {
+	const { overview, onSelected } = e;
+	const n = zZ(overview);
 	if (!n.length) {
 		return null;
 	}
@@ -770,23 +703,13 @@ function ne(e) {
 	const [s, o] = re[a];
 	const l = Localize(s);
 	const c = Localize(o);
-	return i.createElement(
-		oe,
-		{
-			onSelected: r,
-		},
-		i.createElement(
-			"div",
-			null,
-			i.createElement("div", null, l),
-			i.createElement(
-				"div",
-				{
-					className: h.RemotePlayAnywhereDescription,
-				},
-				c,
-			),
-		),
+	return (
+		<Oe onSelected={onSelected}>
+			<div>
+				<div>{l}</div>
+				<div className={h.RemotePlayAnywhereDescription}>{c}</div>
+			</div>
+		</Oe>
 	);
 }
 function ie(e) {
@@ -796,48 +719,33 @@ export function zZ(e) {
 	const t = [];
 	for (const r of e.store_category) {
 		switch (r) {
-			case 41:
+			case 41: {
 				t.push("phone");
 				break;
-			case 42:
+			}
+			case 42: {
 				t.push("tablet");
+			}
 		}
 	}
 	return t;
 }
-function se(e) {
-	const { client: t, isLocalClient: r, onSelected: n, selected: a } = e;
-	let s = Localize("#StreamingClient_StreamFrom", t.client_name);
-	if (r) {
+function Se(e) {
+	const { client, isLocalClient, onSelected, selected } = e;
+	let s = Localize("#StreamingClient_StreamFrom", client.client_name);
+	if (isLocalClient) {
 		s = p.TS.ON_DECK
 			? Localize("#StreamingClient_ThisDeck")
 			: Localize("#StreamingClient_ThisComputer");
 	}
-	return i.createElement(
-		oe,
-		{
-			onSelected: n,
-		},
-		i.createElement(
-			"span",
-			{
-				className: h.CheckContainer,
-			},
-			a && i.createElement(K.X4B, null),
-		),
-		i.createElement(
-			"span",
-			{
-				className: h.StreamingTargetLabel,
-			},
-			s,
-		),
+	return (
+		<Oe onSelected={onSelected}>
+			<span className={h.CheckContainer}>{selected && <K.X4B />}</span>
+			<span className={h.StreamingTargetLabel}>{s}</span>
+		</Oe>
 	);
 }
-function oe(e) {
-	return i.createElement(l.kt, {
-		...e,
-		className: h.StreamingContextMenuItem,
-	});
+function Oe(e) {
+	return <l.kt {...e} className={h.StreamingContextMenuItem} />;
 }
 const le = "TimesSeenStreamingCallout";

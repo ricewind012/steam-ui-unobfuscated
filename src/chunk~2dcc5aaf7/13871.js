@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	MainContent: "e1c49PLIdHdWNkuaJF_-S",
 	AppDropdownCtn: "_3tYf27y9PFgk-RmckGMnn0",
 	SettingIcon: "_15fS6-1pHKd0yqK8LPen44",

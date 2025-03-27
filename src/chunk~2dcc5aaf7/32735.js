@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	FriendsSection: "qGJMO0uQwngYsOvMwgGWa",
 	FriendsOverflow: "_2Pe0MXMGg27aY9edPtTIC7",

@@ -1,38 +1,40 @@
-var r = require("./28864.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./78325.js");
-var o = require("./15123.js");
-var a = require("./88808.js");
-var c = require("./42318.js");
-var l = require("./36437.js");
-var u = require("./3673.js");
-const m = i.createContext({});
-export const EO = i.memo(function (e) {
+import { D5 } from "./28864.js";
+import i from "./63696.js";
+import s from "./78325.js";
+import o from "./15123.js";
+import a from "./88808.js";
+import c from "./42318.js";
+import l from "./36437.js";
+import u from "./3673.js";
+const MContext = i.createContext({});
+export const EO = i.memo((e) => {
 	const {
-		children: t,
-		bRenderOverlayAtRoot: n,
-		refModalManager: d,
-		DialogWrapper: h,
-		bUseDialogElement: p = true,
-		ContextMenuComponent: g = a.k,
-		refContextMenuManager: f,
-		browserInfo: _,
-		bUsePopups: w,
-		bOnlyPopups: b,
-		bCenterPopupsOnWindow: C,
-		bRegisterManagersWithWindow: v = true,
+		children,
+		bRenderOverlayAtRoot,
+		refModalManager,
+		DialogWrapper,
+		bUseDialogElement = true,
+		ContextMenuComponent = a.k,
+		refContextMenuManager,
+		browserInfo,
+		bUsePopups,
+		bOnlyPopups,
+		bCenterPopupsOnWindow,
+		bRegisterManagersWithWindow = true,
 		...M
 	} = e;
 	const S = i.useRef();
 	S.current ||= new u.SZ();
-	let y = i.createElement(l.L, {
-		...M,
-		DialogWrapper: h,
-		ModalManager: S.current,
-		bUseDialogElement: p,
-		bRegisterModalManager: v,
-		rctActiveContextMenus: i.createElement(g, null),
-	});
+	let y = (
+		<l.L
+			{...M}
+			DialogWrapper={DialogWrapper}
+			ModalManager={S.current}
+			bUseDialogElement={bUseDialogElement}
+			bRegisterModalManager={bRegisterManagersWithWindow}
+			rctActiveContextMenus={<ContextMenuComponent />}
+		/>
+	);
 	if (
 		e.bRenderOverlayAtRoot &&
 		typeof document != "undefined" &&
@@ -40,45 +42,41 @@ export const EO = i.memo(function (e) {
 	) {
 		y = s.createPortal(y, document.body);
 	}
-	(0, r.D5)(d, S.current);
-	if (w !== undefined) {
-		S.current?.SetUsePopups(w);
+	D5(refModalManager, S.current);
+	if (bUsePopups !== undefined) {
+		S.current?.SetUsePopups(bUsePopups);
 	}
-	if (C !== undefined) {
-		S.current?.SetCenterPopupsOnWindow(C);
+	if (bCenterPopupsOnWindow !== undefined) {
+		S.current?.SetCenterPopupsOnWindow(bCenterPopupsOnWindow);
 	}
-	if (b !== undefined) {
-		S.current?.SetOnlyPopups(b);
+	if (bOnlyPopups !== undefined) {
+		S.current?.SetOnlyPopups(bOnlyPopups);
 	}
-	S.current.SetBrowserInfo(_);
+	S.current.SetBrowserInfo(browserInfo);
 	const E = i.useMemo(
 		() => ({
 			ModalManager: S.current,
-			DialogWrapper: h,
+			DialogWrapper: DialogWrapper,
 		}),
-		[h],
+		[DialogWrapper],
 	);
-	return i.createElement(
-		m.Provider,
-		{
-			value: E,
-		},
-		i.createElement(
-			o.D,
-			{
-				refContextMenuManager: f,
-				bRegisterMenuManager: v,
-			},
-			i.createElement(c.tH, null, y),
-			e.children,
-		),
+	return (
+		<MContext.Provider value={E}>
+			<o.D
+				refContextMenuManager={refContextMenuManager}
+				bRegisterMenuManager={bRegisterManagersWithWindow}
+			>
+				<c.tH>{y}</c.tH>
+				{e.children}
+			</o.D>
+		</MContext.Provider>
 	);
 });
 export function yk() {
-	return i.useContext(m).ModalManager;
+	return i.useContext(MContext).ModalManager;
 }
 export function oJ() {
-	return i.useContext(m).DialogWrapper;
+	return i.useContext(MContext).DialogWrapper;
 }
 export function uH(e) {
 	const t = yk();

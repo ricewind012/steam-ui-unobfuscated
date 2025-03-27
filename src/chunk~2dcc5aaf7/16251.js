@@ -1,10 +1,10 @@
-export var fD;
-export var Tv;
-export var en;
-export var QR;
-export var JR;
-export var e6;
-(function (e) {
+export let fD;
+export let Tv;
+export let en;
+export let QR;
+export let JR;
+export let e6;
+((e) => {
 	e[(e.Invalid = 0)] = "Invalid";
 	e[(e.TrackingSystemName_String = 1000)] = "TrackingSystemName_String";
 	e[(e.ModelNumber_String = 1001)] = "ModelNumber_String";
@@ -277,7 +277,7 @@ export var e6;
 	e[(e.VendorSpecific_Reserved_End = 10999)] = "VendorSpecific_Reserved_End";
 	e[(e.TrackedDeviceProperty_Max = 1000000)] = "TrackedDeviceProperty_Max";
 })((fD ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EButton_System = 0)] = "k_EButton_System";
 	e[(e.k_EButton_ApplicationMenu = 1)] = "k_EButton_ApplicationMenu";
 	e[(e.k_EButton_Grip = 2)] = "k_EButton_Grip";
@@ -303,7 +303,7 @@ export var e6;
 	e[(e.k_EButton_Reserved1 = 51)] = "k_EButton_Reserved1";
 	e[(e.k_EButton_Max = 64)] = "k_EButton_Max";
 })((Tv ||= {}));
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.ButtonEnter = 1)] = "ButtonEnter";
 	e[(e.ButtonLeave = 2)] = "ButtonLeave";
@@ -311,13 +311,13 @@ export var e6;
 	e[(e.Sliding = 4)] = "Sliding";
 	e[(e.SlidingEdge = 5)] = "SlidingEdge";
 })((en ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Minimal = 1)] = "Minimal";
 	e[(e.Modal = 2)] = "Modal";
 	e[(e.ShowArrowKeys = 4)] = "ShowArrowKeys";
 	e[(e.HideDoneKey = 8)] = "HideDoneKey";
 })((QR ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Unknown = -1)] = "Unknown";
 	e[(e.Idle = 0)] = "Idle";
 	e[(e.UserInteraction = 1)] = "UserInteraction";
@@ -325,7 +325,7 @@ export var e6;
 	e[(e.Standby = 3)] = "Standby";
 	e[(e.Idle_Timeout = 4)] = "Idle_Timeout";
 })((JR ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Notification_Shown = 600)] = "Notification_Shown";
 	e[(e.Notification_Hidden = 601)] = "Notification_Hidden";
 	e[(e.Notification_BeginInteraction = 602)] = "Notification_BeginInteraction";

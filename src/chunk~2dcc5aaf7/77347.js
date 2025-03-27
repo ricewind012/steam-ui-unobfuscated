@@ -1,22 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require("./22222.js");
-var o = require(/*webcrack:missing*/ "./44846.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./93960.js");
-require("./67338.js");
-var m = require("./43397.js");
-var u = require(/*webcrack:missing*/ "./63696.js");
-var d = require("./51297.js");
-var A = require(/*webcrack:missing*/ "./83599.js");
-var p = require(/*webcrack:missing*/ "./42898.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var C = require("./89748.js");
-var _ = require("./46422.js");
-var f = require("./71033.js");
-var b = require("./38542.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s from "./22222.js";
+import o from "./44846.js";
+import c from "./93960.js";
+import "./67338.js";
+import m from "./43397.js";
+import u from "./63696.js";
+import d from "./51297.js";
+import A from "./83599.js";
+import { $$, DF } from "./42898.js";
+import g from "./72476.js";
+import { qw } from "./89748.js";
+import _ from "./46422.js";
+import { GP } from "./71033.js";
+import { ld } from "./38542.js";
 const y = new A.wd("SystemNetworkStore");
 function S(e) {
 	const t = e.split(".");
@@ -65,7 +65,7 @@ class B {
 	}
 	static KeyForAccessPointId(e, t) {
 		if (t) {
-			return e.toString() + ":" + t.toString();
+			return `${e.toString()}:${t.toString()}`;
 		} else {
 			return e.toString();
 		}
@@ -95,21 +95,25 @@ class B {
 	}
 	get displayName() {
 		switch (this.type) {
-			case s.WO.Wired:
+			case s.WO.Wired: {
 				return (
 					this.m_DeviceInfo.wired?.friendly_name ??
 					Localize("#Internet_Network_Type_Wired")
 				);
-			case s.WO.Wireless:
+			}
+			case s.WO.Wireless: {
 				return (
 					this.wirelessAPInfo?.ssid ??
 					Localize("#Internet_Network_Type_Wireless")
 				);
-			case s.WO.Virtual:
+			}
+			case s.WO.Virtual: {
 				return Localize("#Internet_Network_Type_Virtual");
+			}
 			case s.WO.Unknown:
-			default:
+			default: {
 				return Localize("#Internet_Network_Type_Unknown");
+			}
 		}
 	}
 	get type() {
@@ -158,14 +162,16 @@ class B {
 		}
 		switch (this.state) {
 			case s.$J.Failed:
-			case s.$J.Disconnected:
+			case s.$J.Disconnected: {
 				return true;
+			}
 			case s.$J.NotPresent:
 			case s.$J.Disconnecting:
 			case s.$J.Connecting:
 			case s.$J.Connected:
-			case s.$J.Retrying:
+			case s.$J.Retrying: {
 				return false;
+			}
 		}
 	}
 	get isDisconnectable() {
@@ -178,10 +184,12 @@ class B {
 			case s.$J.Disconnected:
 			case s.$J.Disconnecting:
 			case s.$J.Connecting:
-			case s.$J.Retrying:
+			case s.$J.Retrying: {
 				return false;
-			case s.$J.Connected:
+			}
+			case s.$J.Connected: {
 				return true;
+			}
 		}
 	}
 	get isForgettable() {
@@ -232,7 +240,7 @@ class B {
 		);
 	}
 	constructor(e, t) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_DeviceWapId = t;
 		this.SetDeviceInfo(e);
 	}
@@ -254,8 +262,8 @@ class B {
 		this.m_NoLongerPresent = true;
 	}
 }
-(0, n.Cg)([i.sH.ref], B.prototype, "m_DeviceInfo", undefined);
-(0, n.Cg)([i.sH], B.prototype, "m_NoLongerPresent", undefined);
+Cg([i.sH.ref], B.prototype, "m_DeviceInfo", undefined);
+Cg([i.sH], B.prototype, "m_NoLongerPresent", undefined);
 export class OQ {
 	static s_Singleton = null;
 	m_cm = null;
@@ -305,7 +313,7 @@ export class OQ {
 		}
 	}
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	get networkManagementAvailable() {
 		return g.TS.ON_STEAMOS;
@@ -360,7 +368,7 @@ export class OQ {
 	async SetProxyInfo(e) {
 		if (sr(e)) {
 			if (
-				(function (e, t) {
+				((e, t) => {
 					if (e == null || t == null) {
 						return e == t;
 					}
@@ -485,8 +493,8 @@ export class OQ {
 		return r.result == 1;
 	}
 	SetDeviceInfo(e, t) {
-		const r = e.id;
-		const n = B.KeyForAccessPointId(r, t);
+		const e_id = e.id;
+		const n = B.KeyForAccessPointId(e_id, t);
 		if (this.m_mapNetworkAccessPoints.has(n)) {
 			this.m_mapNetworkAccessPoints.get(n).SetDeviceInfo(e);
 		} else {
@@ -497,19 +505,19 @@ export class OQ {
 		const t = d.co.deserializeBinary(e).toObject();
 		const r = new Set();
 		let n = null;
-		const i = t.devices;
-		for (const e of i) {
-			const t = e.id;
+		const t_devices = t.devices;
+		for (const e of t_devices) {
+			const e_id = e.id;
 			if (e.etype == s.WO.Wireless) {
 				n = e;
 				for (const n of e.wireless?.aps ?? []) {
-					const i = n.id;
-					const a = B.KeyForAccessPointId(t, i);
+					const n_id = n.id;
+					const a = B.KeyForAccessPointId(e_id, n_id);
 					r.add(a);
-					this.SetDeviceInfo(e, i);
+					this.SetDeviceInfo(e, n_id);
 				}
 			} else {
-				const n = B.KeyForAccessPointId(t);
+				const n = B.KeyForAccessPointId(e_id);
 				r.add(n);
 				this.SetDeviceInfo(e);
 			}
@@ -578,117 +586,137 @@ export function td(e) {
 		case s.Df.Wpa2:
 		case s.Df.Wpa3:
 		case s.Df.Unsupported:
-		default:
+		default: {
 			return false;
+		}
 		case s.Df.WpaEnterprise:
-		case s.Df.Wpa2Enterprise:
+		case s.Df.Wpa2Enterprise: {
 			return true;
+		}
 	}
 }
 export function Op(e) {
 	switch (e) {
 		case s.Df.None:
 		case s.Df.Unsupported:
-		default:
+		default: {
 			return false;
+		}
 		case s.Df.StaticWep:
 		case s.Df.DynamicWep:
 		case s.Df.Wpa:
 		case s.Df.WpaEnterprise:
 		case s.Df.Wpa2:
 		case s.Df.Wpa2Enterprise:
-		case s.Df.Wpa3:
+		case s.Df.Wpa3: {
 			return true;
+		}
 	}
 }
 export function Jg(e) {
 	switch (e) {
-		case s.Df.None:
+		case s.Df.None: {
 			return Localize("#Wireless_Security_Type_None");
-		case s.Df.StaticWep:
+		}
+		case s.Df.StaticWep: {
 			return Localize("#Wireless_Security_Type_Static_WEP");
-		case s.Df.DynamicWep:
+		}
+		case s.Df.DynamicWep: {
 			return Localize("#Wireless_Security_Type_Dynamic_WEP");
-		case s.Df.Wpa:
+		}
+		case s.Df.Wpa: {
 			return Localize("#Wireless_Security_Type_WPA");
-		case s.Df.WpaEnterprise:
+		}
+		case s.Df.WpaEnterprise: {
 			return Localize("#Wireless_Security_Type_WPA_Enterprise");
-		case s.Df.Wpa2:
+		}
+		case s.Df.Wpa2: {
 			return Localize("#Wireless_Security_Type_WPA2");
-		case s.Df.Wpa2Enterprise:
+		}
+		case s.Df.Wpa2Enterprise: {
 			return Localize("#Wireless_Security_Type_WPA2_Enterprise");
-		case s.Df.Wpa3:
+		}
+		case s.Df.Wpa3: {
 			return Localize("#Wireless_Security_Type_WPA3");
-		case s.Df.Unsupported:
+		}
+		case s.Df.Unsupported: {
 			return Localize("#Wireless_Security_Type_Unsupported");
-		default:
+		}
+		default: {
 			return Localize("#Wireless_Security_Type_Unknown");
+		}
 	}
 }
 export function dw(e) {
 	switch (e) {
 		case s.Xu.k_EHTTPProxyMode_Invalid:
-		default:
+		default: {
 			return Localize("#Settings_Internet_InvalidProxy");
-		case s.Xu.k_EHTTPProxyMode_None:
+		}
+		case s.Xu.k_EHTTPProxyMode_None: {
 			return Localize("#Settings_Internet_NoProxy");
-		case s.Xu.k_EHTTPProxyMode_Manual:
+		}
+		case s.Xu.k_EHTTPProxyMode_Manual: {
 			return Localize("#Settings_Internet_ManualProxy");
-		case s.Xu.k_EHTTPProxyMode_Automatic:
+		}
+		case s.Xu.k_EHTTPProxyMode_Automatic: {
 			return Localize("#Settings_Internet_AutomaticProxy");
+		}
 	}
 }
 export function yL() {
-	return (0, a.q3)(() => OQ.Get().isWifiEnabled);
+	return q3(() => OQ.Get().isWifiEnabled);
 }
 export function yt() {
-	return (0, a.q3)(() => OQ.Get().hasNetworkConnection);
+	return q3(() => OQ.Get().hasNetworkConnection);
 }
 export function Id() {
-	return (0, a.q3)(() => OQ.Get().hasSteamConnection);
+	return q3(() => OQ.Get().hasSteamConnection);
 }
 export function If() {
-	const [e, t] = u.useState(0);
-	const r = u.useRef(undefined);
+	const [e, setE] = u.useState(0);
+	const RRef = u.useRef(undefined);
 	const n = Id();
 	u.useEffect(() => {
-		if (r.current !== undefined && n) {
-			t((e) => e + 1);
+		if (RRef.current !== undefined && n) {
+			setE((e) => e + 1);
 		}
-		r.current = n;
+		RRef.current = n;
 	}, [n]);
 	return e;
 }
 export function nM() {
-	return (0, a.q3)(() => OQ.Get().isConnectingToNetwork);
+	return q3(() => OQ.Get().isConnectingToNetwork);
 }
 export function N4() {
-	return (0, a.q3)(() => OQ.Get().hasInternetConnection);
+	return q3(() => OQ.Get().hasInternetConnection);
 }
 export function jh() {
-	return (0, a.q3)(() => OQ.Get().isAwaitingInitialNetworkState);
+	return q3(() => OQ.Get().isAwaitingInitialNetworkState);
 }
 export function tI() {
 	const e = OQ.Get();
-	(0, b.ld)(() => {
+	ld(() => {
 		e?.StartScanningForNetworks();
 		return () => e?.StopScanningForNetworks();
 	}, [e]);
 }
 export function Av() {
-	return (0, a.q3)(() => OQ.Get().connectivityTestState);
+	return q3(() => OQ.Get().connectivityTestState);
 }
 export function qk(e) {
 	switch (e) {
 		case o.ck.k_EConnectivityTestResult_Unknown:
-		case o.ck.k_EConnectivityTestResult_Connected:
+		case o.ck.k_EConnectivityTestResult_Connected: {
 			return false;
+		}
 		case o.ck.k_EConnectivityTestResult_CaptivePortal:
 		case o.ck.k_EConnectivityTestResult_TimedOut:
 		case o.ck.k_EConnectivityTestResult_Failed:
 		case o.ck.k_EConnectivityTestResult_WifiDisabled:
-		case o.ck.k_EConnectivityTestResult_NoLAN:
+		case o.ck.k_EConnectivityTestResult_NoLAN: {
 			return true;
+		}
 	}
 }
 export function f_() {
@@ -699,7 +727,7 @@ export function f_() {
 	return t && !e && !r;
 }
 export function ED() {
-	return (0, a.q3)(() => OQ.Get().hasWirelessDevice);
+	return q3(() => OQ.Get().hasWirelessDevice);
 }
 export function mR() {
 	return (
@@ -707,19 +735,21 @@ export function mR() {
 	);
 }
 export function rw() {
-	return (0, a.q3)(() => OQ.Get().supportedWirelessSecurityFlags);
+	return q3(() => OQ.Get().supportedWirelessSecurityFlags);
 }
 export function qm() {
-	return (0, a.q3)(() => OQ.Get().proxyInfo);
+	return q3(() => OQ.Get().proxyInfo);
 }
 export function sr(e) {
 	switch (e.proxy_mode) {
 		case s.Xu.k_EHTTPProxyMode_Invalid:
-		default:
+		default: {
 			return false;
-		case s.Xu.k_EHTTPProxyMode_None:
+		}
+		case s.Xu.k_EHTTPProxyMode_None: {
 			return true;
-		case s.Xu.k_EHTTPProxyMode_Manual:
+		}
+		case s.Xu.k_EHTTPProxyMode_Manual: {
 			return (
 				e.port &&
 				e.port > 0 &&
@@ -727,19 +757,21 @@ export function sr(e) {
 				e.address &&
 				e.address.length > 0
 			);
-		case s.Xu.k_EHTTPProxyMode_Automatic:
+		}
+		case s.Xu.k_EHTTPProxyMode_Automatic: {
 			return true;
+		}
 	}
 }
 export function Ev() {
 	return OQ.Get().networkManagementAvailable;
 }
 export function db() {
-	const e = (0, C.qw)().BIsOfflineMode();
+	const e = qw().BIsOfflineMode();
 	const t = Av().eConnectivityTestResult;
 	const r = Id();
-	const n = (0, a.q3)(() => OQ.Get().rtReconnectThrottleStart);
-	const i = (0, a.q3)(() => OQ.Get().rtReconnectThrottleExpiration);
+	const n = q3(() => OQ.Get().rtReconnectThrottleStart);
+	const i = q3(() => OQ.Get().rtReconnectThrottleExpiration);
 	if (t != o.ck.k_EConnectivityTestResult_Connected) {
 		return false;
 	}
@@ -752,12 +784,12 @@ export function db() {
 	return !(i - n < 5);
 }
 export function gb() {
-	const e = (0, a.q3)(() => OQ.Get().rtReconnectThrottleExpiration);
-	const [t, r] = u.useState(0);
-	(0, p.$$)(() => {
+	const e = q3(() => OQ.Get().rtReconnectThrottleExpiration);
+	const [t, setT] = u.useState(0);
+	$$(() => {
 		const t = e;
 		const n = GetUnixTime();
-		r(t - n);
+		setT(t - n);
 	}, 500);
 	if (e == null || isNaN(t)) {
 		return null;
@@ -767,14 +799,14 @@ export function gb() {
 }
 export function $() {
 	const e = yt();
-	const t = (0, f.GP)(10);
+	const t = GP(10);
 	const r = nM();
-	const n = (function () {
+	const n = (() => {
 		const e = nM();
-		return (0, p.DF)(e, 3000);
+		return DF(e, 3000);
 	})();
 	const i = yL();
-	const l = (0, a.q3)(() => {
+	const l = q3(() => {
 		for (const e of OQ.Get().accessPoints) {
 			if (e.isDefaultRoute) {
 				return e;
@@ -783,19 +815,21 @@ export function $() {
 		return null;
 	});
 	const c = f_();
-	const m = (0, C.qw)().BIsOfflineMode();
+	const m = qw().BIsOfflineMode();
 	const u = Av().eConnectivityTestResult;
 	const d =
 		c ||
-		(function (e) {
+		((e) => {
 			switch (e) {
 				case o.ck.k_EConnectivityTestResult_CaptivePortal:
 				case o.ck.k_EConnectivityTestResult_TimedOut:
 				case o.ck.k_EConnectivityTestResult_Failed:
-				case o.ck.k_EConnectivityTestResult_NoLAN:
+				case o.ck.k_EConnectivityTestResult_NoLAN: {
 					return true;
-				default:
+				}
+				default: {
 					return false;
+				}
 			}
 		})(u);
 	const A = !l || l.type !== s.WO.Wireless;
@@ -861,12 +895,12 @@ export function $() {
 		};
 	}
 }
-(0, n.Cg)([i.sH], OQ.prototype, "m_bIsConnectedToANetwork", undefined);
-(0, n.Cg)([i.sH], OQ.prototype, "m_bIsConnectingToANetwork", undefined);
-(0, n.Cg)([i.sH], OQ.prototype, "m_bIsAwaitingInitialNetworkState", undefined);
-(0, n.Cg)([i.sH], OQ.prototype, "m_bWifiEnabled", undefined);
-(0, n.Cg)([i.sH.ref], OQ.prototype, "m_WirelessDevice", undefined);
-(0, n.Cg)([i.sH.ref], OQ.prototype, "m_connectivityTestState", undefined);
-(0, n.Cg)([i.sH.ref], OQ.prototype, "m_proxyInfo", undefined);
-(0, n.Cg)([i.XI.bound], OQ.prototype, "OnNetworkDevicesChanged", null);
-(0, n.Cg)([c.o], OQ.prototype, "OnConnectivityTestStateChanged", null);
+Cg([i.sH], OQ.prototype, "m_bIsConnectedToANetwork", undefined);
+Cg([i.sH], OQ.prototype, "m_bIsConnectingToANetwork", undefined);
+Cg([i.sH], OQ.prototype, "m_bIsAwaitingInitialNetworkState", undefined);
+Cg([i.sH], OQ.prototype, "m_bWifiEnabled", undefined);
+Cg([i.sH.ref], OQ.prototype, "m_WirelessDevice", undefined);
+Cg([i.sH.ref], OQ.prototype, "m_connectivityTestState", undefined);
+Cg([i.sH.ref], OQ.prototype, "m_proxyInfo", undefined);
+Cg([i.XI.bound], OQ.prototype, "OnNetworkDevicesChanged", null);
+Cg([c.o], OQ.prototype, "OnConnectivityTestStateChanged", null);

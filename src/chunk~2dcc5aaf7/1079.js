@@ -1,13 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./5859.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./8573.js");
-var c = require("./23024.js");
-var m = require("./12956.js");
-var u = require("./31760.js");
-var d = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./5859.js";
+import a from "./83957.js";
+import o, { Gn, h5 } from "./89193.js";
+import l from "./8573.js";
+import c from "./23024.js";
+import m from "./12956.js";
+import u from "./31760.js";
+import d, { Tc } from "./72476.js";
+import p, { H } from "./16154.js";
+import g, { PH } from "./72261.js";
+const s = a;
 class A extends u.p {
 	constructor() {
 		super();
@@ -21,19 +23,19 @@ class A extends u.p {
 	async RequestEmoticonListInternal() {
 		let e = [];
 		try {
-			let t = await s.get(d.TS.CHAT_BASE_URL + "actions/EmoticonData", {
+			let t = await s.get(`${d.TS.CHAT_BASE_URL}actions/EmoticonData`, {
 				withCredentials: true,
 			});
 			if (t.data.emoticons) {
 				for (let r of t.data.emoticons) {
-					let t = r.name;
-					if (t.startsWith("^")) {
+					let r_name = r.name;
+					if (r_name.startsWith("^")) {
 						e.push({
-							name: t,
+							name: r_name,
 						});
 					} else {
 						let n = {
-							name: t.substr(1, t.length - 2),
+							name: r_name.substr(1, r_name.length - 2),
 						};
 						let i = n.name.toLowerCase();
 						if (i != n.name) {
@@ -62,14 +64,12 @@ class A extends u.p {
 	}
 }
 new A();
-var p = require("./16154.js");
-var g = require("./72261.js");
 export function fn(e) {
 	return Boolean(e && e.thumbnail_http_address);
 }
 export class j {
 	constructor() {
-		(0, o.Gn)(this);
+		Gn(this);
 	}
 	static s_GlobalStore;
 	m_inFlightRequests = new Map();
@@ -165,9 +165,9 @@ export class j {
 	GetBroadcastURL(e) {
 		let t = null;
 		t = e.steamid ? new l.b(e.steamid) : l.b.InitFromAccountID(e.accountid);
-		return (
-			d.TS.COMMUNITY_BASE_URL + "broadcast/watch/" + t.ConvertTo64BitString()
-		);
+		return `${
+			d.TS.COMMUNITY_BASE_URL
+		}broadcast/watch/${t.ConvertTo64BitString()}`;
 	}
 	BIsAppStreaming(e) {
 		let t = false;
@@ -204,26 +204,23 @@ export class j {
 	}
 	async LoadBIsEmbeddedBroadcastHidden(e) {
 		if (this.m_bUserPreferenceHideBroadcastByDefault === undefined) {
-			let t = (0, d.Tc)("broadcastuser", "application_config");
+			let t = Tc("broadcastuser", "application_config");
 			if (!t) {
 				try {
-					let r =
-						d.TS.STORE_BASE_URL + "broadcast/ajaxgetuserbroadcastpreferences";
+					let r = `${d.TS.STORE_BASE_URL}broadcast/ajaxgetuserbroadcastpreferences`;
 					let n = await s.get(r, {
 						params: {},
 						cancelToken: e.token,
 					});
 					t = n.data;
 				} catch (e) {
-					console.log(
-						"LoadBIsEmbeddedBroadcastHidden: " + (0, p.H)(e).strErrorMsg,
-					);
+					console.log(`LoadBIsEmbeddedBroadcastHidden: ${H(e).strErrorMsg}`);
 					t = {
 						bHideStoreBroadcast: false,
 					};
 				}
 			}
-			(0, o.h5)(() => {
+			h5(() => {
 				this.m_bUserPreferenceHideBroadcastByDefault = t.bHideStoreBroadcast;
 				this.m_bCollapsed = t.bHideStoreBroadcast;
 			});
@@ -261,16 +258,16 @@ export class j {
 		};
 		try {
 			t = await s.get(
-				d.TS.STORE_BASE_URL + "broadcast/ajaxgetstreamersforpreview",
+				`${d.TS.STORE_BASE_URL}broadcast/ajaxgetstreamersforpreview`,
 				{
 					params: r,
 				},
 			);
 			return this.HandleHintLoadBroadcastResponse(e, t.data);
 		} catch (e) {
-			let t = (0, p.H)(e);
+			let t = H(e);
 			console.error(
-				"HintLoadEmbeddablePreviewStreams hit error loading: " + t.strErrorMsg,
+				`HintLoadEmbeddablePreviewStreams hit error loading: ${t.strErrorMsg}`,
 				t,
 			);
 		}
@@ -298,23 +295,23 @@ export class j {
 		);
 	}
 	async InternalHintLoadEmbeddableStreams(e, t) {
-		let r = (0, d.Tc)("broadcast_available_for_page", "application_config");
+		let r = Tc("broadcast_available_for_page", "application_config");
 		if (this.ValidateBroadcastPageStreamers(r)) {
 			return this.HandleHintLoadBroadcastResponse(e, r);
 		}
 		try {
 			let r = null;
 			r = await s.get(
-				d.TS.STORE_BASE_URL + "broadcast/ajaxgetstreamersforpage",
+				`${d.TS.STORE_BASE_URL}broadcast/ajaxgetstreamersforpage`,
 				{
 					params: t,
 				},
 			);
 			return this.HandleHintLoadBroadcastResponse(e, r.data);
 		} catch (e) {
-			let t = (0, p.H)(e);
+			let t = H(e);
 			console.error(
-				"HintLoadEmbeddableStreams hit error loading: " + t.strErrorMsg,
+				`HintLoadEmbeddableStreams hit error loading: ${t.strErrorMsg}`,
 				t,
 			);
 		}
@@ -343,7 +340,7 @@ export class j {
 			this.m_pageChatStatus = t.broadcast_chat_visibility;
 		}
 		const r = new Array();
-		(0, o.h5)(() => {
+		h5(() => {
 			t.filtered.forEach((e) => {
 				if (!e.steamid) {
 					const t = l.b.InitFromAccountID(e.accountid);
@@ -352,7 +349,7 @@ export class j {
 				const t = c.BroadcastWatchStore.GetOrCreateBroadcastInfo(e.steamid);
 				const n = e.appid ? Number(e.appid) : c.fO;
 				t.m_nAppID = n;
-				t.m_strAppId = "" + n;
+				t.m_strAppId = `${n}`;
 				if (e.current_selection_priority === undefined) {
 					e.current_selection_priority = e.default_selection_priority;
 				}
@@ -368,8 +365,7 @@ export class j {
 			if (e) {
 				if (d.TS.WEB_UNIVERSE == "dev") {
 					console.log(
-						"CBroadcastEmbeddableStore initialized after caller using callback to " +
-							e.name,
+						`CBroadcastEmbeddableStore initialized after caller using callback to ${e.name}`,
 					);
 				}
 				e.fnCallback();
@@ -388,7 +384,7 @@ export class j {
 		const n = Array.from(e.jsondata.broadcast_priority ?? []);
 		const i = new Map();
 		for (let e = 0; e < r.length && !(e >= n.length); e++) {
-			i.set(r[e], (0, g.PH)(n[e]));
+			i.set(r[e], PH(n[e]));
 		}
 		t.forEach((e) => {
 			const t = Number(e.accountid);
@@ -466,7 +462,7 @@ export class j {
 		this.GetStreamsLookupKeyFromDef(e);
 		let r = null;
 		try {
-			const e = d.TS.STORE_BASE_URL + "broadcast/ajaxcheckbroadcast";
+			const e = `${d.TS.STORE_BASE_URL}broadcast/ajaxcheckbroadcast`;
 			let n = {
 				broadcastaccountid: t.accountid,
 				viewer_token: c.BroadcastWatchStore.GetViewerToken(),
@@ -477,8 +473,8 @@ export class j {
 			});
 			return r.data;
 		} catch (e) {
-			let t = (0, p.H)(e);
-			console.error("Broadcast.AttemptToPlayStream: " + t.strErrorMsg, t);
+			let t = H(e);
+			console.error(`Broadcast.AttemptToPlayStream: ${t.strErrorMsg}`, t);
 		}
 		return null;
 	}
@@ -558,23 +554,18 @@ export function MU(e) {
 export async function U7(e, t, r) {
 	if (e > 0 && e != 7 && r) {
 		let n = new URLSearchParams();
-		n.append("page_action", "" + t);
+		n.append("page_action", `${t}`);
 		n.append("snr", r);
-		s.post(d.TS.STORE_BASE_URL + "ajaxreportproductaction/" + e + "/", n);
+		s.post(`${d.TS.STORE_BASE_URL}ajaxreportproductaction/${e}/`, n);
 	}
 }
-(0, n.Cg)([o.sH], j.prototype, "m_lookupStreams", undefined);
-(0, n.Cg)([o.sH], j.prototype, "m_playReadyStream", undefined);
-(0, n.Cg)([o.sH], j.prototype, "m_pageChatStatus", undefined);
-(0, n.Cg)([o.sH], j.prototype, "m_streamChatStatus", undefined);
-(0, n.Cg)([o.sH], j.prototype, "m_bUserChatExpanded", undefined);
-(0, n.Cg)(
-	[o.sH],
-	j.prototype,
-	"m_bUserPreferenceHideBroadcastByDefault",
-	undefined,
-);
-(0, n.Cg)([o.sH], j.prototype, "m_bCollapsed", undefined);
-(0, n.Cg)([o.XI], j.prototype, "HintLoadEmbeddablePreviewStreams", null);
-(0, n.Cg)([o.XI], j.prototype, "AttemptToPlayStream", null);
+Cg([o.sH], j.prototype, "m_lookupStreams", undefined);
+Cg([o.sH], j.prototype, "m_playReadyStream", undefined);
+Cg([o.sH], j.prototype, "m_pageChatStatus", undefined);
+Cg([o.sH], j.prototype, "m_streamChatStatus", undefined);
+Cg([o.sH], j.prototype, "m_bUserChatExpanded", undefined);
+Cg([o.sH], j.prototype, "m_bUserPreferenceHideBroadcastByDefault", undefined);
+Cg([o.sH], j.prototype, "m_bCollapsed", undefined);
+Cg([o.XI], j.prototype, "HintLoadEmbeddablePreviewStreams", null);
+Cg([o.XI], j.prototype, "AttemptToPlayStream", null);
 export const MX = new A();

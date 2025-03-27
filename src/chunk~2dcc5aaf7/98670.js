@@ -25,13 +25,14 @@ export function JS(e) {
 		case 31:
 		case 32:
 		case 1:
-		case 34:
+		case 34: {
 			return true;
+		}
 	}
 	return false;
 }
 export function rG(e) {
-	let t = "#PartnerEvent_" + e;
+	let t = `#PartnerEvent_${e}`;
 	let r = Localize(t);
 	if (r != t) {
 		return r;

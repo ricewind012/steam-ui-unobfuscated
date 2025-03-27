@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ScrollMask: "sfthxkhui6WSgvnbllI_n",
 	HideMask: "_am34kq9jxK04S1gNQieI",

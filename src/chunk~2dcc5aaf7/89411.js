@@ -1,20 +1,20 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./51297.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
 import { GetUnixTime, Sleep } from "../../actual_src/utils/time.js";
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require("./95979.js");
-var m = require("./13869.js");
-var u = require("./95311.js");
-var d = require(/*webcrack:missing*/ "./90095.js");
 import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./51297.js";
+import s, { $$ } from "./52451.js";
+import l, { Gn } from "./89193.js";
+import c from "./95979.js";
+import { pg } from "./13869.js";
+import { _o, D8, b4 } from "./95311.js";
+import { q3 } from "./90095.js";
 export function Yk() {
 	return true;
 }
 class g {
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 	}
 	m_updateState = {
 		state: 0,
@@ -161,10 +161,10 @@ class g {
 				const r = c.Z4.systemInfo.sBIOSVersion.trim();
 				console.log(`Applying BIOS update. Current version: ${r}`);
 				const n = this.GetCheckResult(i)?.auto_message;
-				if (r == "F7A0100" || r == "F7A0101" || n != null) {
+				if (r == "F7A0100" || r == "F7A0101" || r == "F7A0101" || n != null) {
 					console.log("Current BIOS updater requires technical screen warning");
-					await (0, m.pg)(
-						(0, u._o)({
+					await pg(
+						_o({
 							onOK: () => {
 								this.ApplyUpdate(e, t, true);
 							},
@@ -181,8 +181,8 @@ class g {
 					console.log(
 						"Current BIOS updater does not require sideways screen warning",
 					);
-					await (0, m.pg)(
-						(0, u.D8)({
+					await pg(
+						D8({
 							onOK: () => {
 								this.ApplyUpdate(e, t, true);
 							},
@@ -200,18 +200,19 @@ class g {
 		const i = await SteamClient.Updates?.ApplyUpdates(
 			n.serializeBase64String(),
 		);
-		let s = i.result;
-		let o = i.message;
-		if (s == 1) {
-			s = this.GetMostSpecificApplyResult();
-			o = null;
+
+		let { result, message } = i;
+
+		if (result == 1) {
+			result = this.GetMostSpecificApplyResult();
+			message = null;
 		}
-		if (s != 1) {
-			console.error("Updater apply error: " + s + ": " + o);
+		if (result != 1) {
+			console.error(`Updater apply error: ${result}: ${message}`);
 			if (t) {
 				await t({
-					eResult: s,
-					strMsg: o,
+					eResult: result,
+					strMsg: message,
 				});
 			}
 		}
@@ -281,8 +282,8 @@ class g {
 		return this.m_spoofer != null;
 	}
 }
-(0, n.Cg)([l.sH], g.prototype, "m_updateState", undefined);
-(0, n.Cg)([l.XI], g.prototype, "SetUpdateState", null);
+Cg([l.sH], g.prototype, "m_updateState", undefined);
+Cg([l.XI], g.prototype, "SetUpdateState", null);
 class h {
 	static s_Singleton = null;
 	m_currentOSBranch = undefined;
@@ -296,7 +297,7 @@ class h {
 	}
 	m_updater = new g();
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 		if (SteamClient.Updates?.RegisterForUpdateStateChanges) {
 			SteamClient.Updates.RegisterForUpdateStateChanges(
 				this.OnUpdateStateChanged,
@@ -346,33 +347,43 @@ class h {
 }
 export function hi(e) {
 	switch (e.eBranch) {
-		case 1:
+		case 1: {
 			return (0, Localize)("#Settings_OSBranch_Release");
-		case 2:
+		}
+		case 2: {
 			return (0, Localize)("#Settings_OSBranch_ReleaseCandidate");
-		case 3:
+		}
+		case 3: {
 			return (0, Localize)("#Settings_OSBranch_Beta");
-		case 4:
+		}
+		case 4: {
 			return (0, Localize)("#Settings_OSBranch_BetaCandidate");
-		case 5:
+		}
+		case 5: {
 			return (0, Localize)("#Settings_OSBranch_Preview");
-		case 6:
+		}
+		case 6: {
 			return (0, Localize)("#Settings_OSBranch_PreviewCandidate");
-		case 7:
+		}
+		case 7: {
 			return (0, Localize)("#Settings_OSBranch_Main");
-		case 0:
+		}
+		case 0: {
 			return e.sRawName;
-		default:
+		}
+		default: {
 			console.warn("Invalid OS branch type");
 			return null;
+		}
 	}
 }
 export function Bv(e) {
 	switch (e.eBranch) {
 		case 1:
 		case 3:
-		case 5:
+		case 5: {
 			return false;
+		}
 	}
 	return true;
 }
@@ -380,29 +391,36 @@ export function mt(e) {
 	switch (e) {
 		case 2:
 		case 3:
-		case 0:
+		case 0: {
 			return false;
-		default:
+		}
+		default: {
 			return true;
+		}
 	}
 }
 export function RP(e) {
 	switch (e) {
-		case 3:
+		case 3: {
 			return (0, Localize)("#Settings_Updates_BIOSUpdaterName");
-		case 1:
+		}
+		case 1: {
 			return (0, Localize)("#Settings_Updates_ClientUpdaterName");
-		case 2:
+		}
+		case 2: {
 			return (0, Localize)("#Settings_Updates_OSUpdaterName");
-		case 5:
+		}
+		case 5: {
 			return (0, Localize)("#Settings_Updates_TestUpdaterName");
-		default:
+		}
+		default: {
 			return (0, Localize)("#Settings_Updates_UnknownUpdaterName");
+		}
 	}
 }
 export function Tt() {
 	const e = h.Get().m_updater;
-	(0, d.q3)(() => e.m_updateState);
+	q3(() => e.m_updateState);
 	return e;
 }
 export function C2() {
@@ -411,13 +429,13 @@ export function C2() {
 export function wN() {
 	const e = Tt().m_updateState;
 	const t = e.progress?.rtime_estimated_completion;
-	const [r, n] = i.useState(0);
-	(0, s.$$)(() => {
+	const [r, setR] = i.useState(0);
+	$$(() => {
 		const t = e.progress?.rtime_estimated_completion;
 		const r = GetUnixTime();
-		n(t - r);
+		setR(t - r);
 	}, 500);
-	if (t == null || r > 172800 || isNaN(r)) {
+	if (t == null || r > 172800 || r > 172800 || isNaN(r)) {
 		return null;
 	}
 	let a = r < 0 ? 1 : r;
@@ -427,15 +445,15 @@ export function wN() {
 export function _S() {
 	const e = Tt();
 	const t = e.GetLastCheckTime();
-	const [r, n] = i.useState(t ? GetUnixTime() - t : null);
-	(0, s.$$)(() => {
+	const [r, setR] = i.useState(t ? GetUnixTime() - t : null);
+	$$(() => {
 		const t = e.GetLastCheckTime();
-		n(t ? GetUnixTime() - t : null);
+		setR(t ? GetUnixTime() - t : null);
 	}, 100);
 	return r;
 }
 export function KZ() {
-	return (0, d.q3)(() => h.Get().osBranches);
+	return q3(() => h.Get().osBranches);
 }
 export function j9() {
 	i.useEffect(() => {
@@ -443,7 +461,7 @@ export function j9() {
 	}, []);
 }
 export function NZ() {
-	return (0, d.q3)(() => h.Get().currentOSBranch);
+	return q3(() => h.Get().currentOSBranch);
 }
 export function Qc() {
 	i.useEffect(() => {
@@ -451,11 +469,11 @@ export function Qc() {
 	}, []);
 }
 export async function ib(e) {
-	await (0, m.pg)((0, u.b4)(e), window);
+	await pg(b4(e), window);
 }
-(0, n.Cg)([l.sH], h.prototype, "m_currentOSBranch", undefined);
-(0, n.Cg)([l.sH], h.prototype, "m_rgOSBranches", undefined);
-(0, n.Cg)([l.XI.bound], h.prototype, "OnUpdateStateChanged", null);
+Cg([l.sH], h.prototype, "m_currentOSBranch", undefined);
+Cg([l.sH], h.prototype, "m_rgOSBranches", undefined);
+Cg([l.XI.bound], h.prototype, "OnUpdateStateChanged", null);
 class R {
 	m_updater;
 	constructor(e) {

@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./78325.js");
-var l = require(/*webcrack:missing*/ "./28864.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import s, { useContext, createContext } from "./63696.js";
+import { createPortal } from "./78325.js";
+import { QS } from "./28864.js";
 export function D(e) {
-	const t = (0, s.useContext)(A);
+	const t = useContext(AContext);
 	if ("name" in e) {
 		return s.createElement(m, {
 			...e,
@@ -19,18 +19,18 @@ export function D(e) {
 	}
 }
 function m(e) {
-	const { manager: t, name: r, ...n } = e;
-	const i = (0, l.QS)((e) => t.Register(r, e), [r, t]);
+	const { manager, name, ...n } = e;
+	const i = QS((e) => manager.Register(name, e), [name, manager]);
 	return s.createElement("div", {
 		ref: i,
 		...n,
 	});
 }
 function u(e) {
-	const { manager: t, target: r, children: n } = e;
-	const i = (0, a.q3)(() => t.GetSlot(r));
+	const { manager, target, children } = e;
+	const i = q3(() => manager.GetSlot(target));
 	if (i) {
-		return (0, o.createPortal)(n, i);
+		return createPortal(children, i);
 	} else {
 		return null;
 	}
@@ -38,7 +38,7 @@ function u(e) {
 class d {
 	m_slots = {};
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	Register(e, t) {
 		this.m_slots[e] = t;
@@ -50,5 +50,5 @@ class d {
 		return this.m_slots[e];
 	}
 }
-(0, n.Cg)([i.sH], d.prototype, "m_slots", undefined);
-const A = (0, s.createContext)(new d());
+Cg([i.sH], d.prototype, "m_slots", undefined);
+const AContext = createContext(new d());

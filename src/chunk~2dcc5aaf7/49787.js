@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Bold: "_3cln317VYhwhE1fSeMCG48",
 	Italic: "_3TPGDj4kc0QGKvO8FJmGz8",
 	Paragraph: "_3lnqGBzYap-Z2T81XBiBUU",

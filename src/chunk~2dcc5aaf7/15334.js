@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SectionHeader: "_1Q2q_tQ9_Eq8YdEHNAHS3F",
 	PadLeft: "_3jY6xWI4URhFyYsanh9VKL",

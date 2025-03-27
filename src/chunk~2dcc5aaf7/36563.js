@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./81255.js");
-var l = require("./3299.js");
-var c = l;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./41230.js";
+import s, { Fd } from "./52451.js";
+import o, { s as s_1 } from "./81255.js";
+import l from "./3299.js";
+const c = l;
 export let S = class extends i.Component {
 	m_elContainer;
 	m_elItem;
@@ -13,7 +13,7 @@ export let S = class extends i.Component {
 		this.m_elContainer = e;
 		if (e) {
 			this.m_resizeObserver?.disconnect();
-			this.m_resizeObserver = (0, s.Fd)(e, this.OnResize);
+			this.m_resizeObserver = Fd(e, this.OnResize);
 		}
 	}
 	BindItem(e) {
@@ -33,95 +33,84 @@ export let S = class extends i.Component {
 	}
 	render() {
 		const {
-			keyExtractor: e,
-			itemRenderer: t,
-			remainderRenderer: r,
-			items: n,
-			totalItemOverride: a,
-			justifyContent: s,
+			keyExtractor,
+			itemRenderer,
+			remainderRenderer,
+			items,
+			totalItemOverride,
+			justifyContent,
 			...o
 		} = this.props;
 		let l = [];
-		if (n.length == 0) {
-			if (!(a > 0)) {
+		if (items.length == 0) {
+			if (!(totalItemOverride > 0)) {
 				return null;
 			}
 			l.push(
-				i.createElement(
-					"div",
-					{
-						className: c.ItemWrapper,
-						key: "remaining",
-					},
-					r(a),
-				),
+				<div className={c.ItemWrapper} key="remaining">
+					{remainderRenderer(totalItemOverride)}
+				</div>,
 			);
 		} else {
-			let s = Math.min(1, n.length);
-			let o = a || n.length;
+			let s = Math.min(1, items.length);
+			let o = totalItemOverride || items.length;
 			if (this.m_elContainer && this.m_elItem && this.m_elItem.offsetWidth) {
 				let e = this.m_elContainer.clientWidth;
 				let t = this.m_elItem.offsetWidth;
-				let i = r ? 1 : 0;
-				s = Math.min(n.length, Math.floor(e / t) - i);
+				let i = remainderRenderer ? 1 : 0;
+				s = Math.min(items.length, Math.floor(e / t) - i);
 				if (i && o - s == 1) {
-					s = n.length;
+					s = items.length;
 				}
 			}
 			for (let r = 0; r < s; r++) {
-				let a = n[r];
+				let n_r = items[r];
 				l.push(
-					i.createElement(
-						"div",
-						{
-							className: c.ItemWrapper,
-							key: e(a),
-							ref: r == 0 ? this.BindItem : undefined,
-							onLoad: r == 0 ? this.OnItemLoad : undefined,
-						},
-						t(a),
-					),
+					<div
+						className={c.ItemWrapper}
+						key={keyExtractor(n_r)}
+						ref={r == 0 ? this.BindItem : undefined}
+						onLoad={r == 0 ? this.OnItemLoad : undefined}
+					>
+						{itemRenderer(n_r)}
+					</div>,
 				);
 			}
-			if (r && s < o && this.m_elItem && this.m_elItem.offsetWidth) {
-				let e = s < n.length ? n[s] : undefined;
+			if (
+				remainderRenderer &&
+				s < o &&
+				this.m_elItem &&
+				this.m_elItem.offsetWidth
+			) {
+				let e = s < items.length ? items[s] : undefined;
 				l.push(
-					i.createElement(
-						"div",
-						{
-							className: c.ItemWrapper,
-							key: "remaining",
-						},
-						r(o - s, e),
-					),
+					<div className={c.ItemWrapper} key="remaining">
+						{remainderRenderer(o - s, e)}
+					</div>,
 				);
 			}
 		}
 		if (l.length > 0) {
-			return i.createElement(
-				"div",
-				{
-					...o,
-				},
-				i.createElement(
-					"div",
-					{
-						className: c.InnerContainer,
-						style: {
-							justifyContent: s,
-						},
-						ref: this.BindContainer,
-					},
-					l,
-				),
+			return (
+				<div {...o}>
+					<div
+						className={c.InnerContainer}
+						style={{
+							justifyContent: justifyContent,
+						}}
+						ref={this.BindContainer}
+					>
+						{l}
+					</div>
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-(0, n.Cg)([s.oI], S.prototype, "BindContainer", null);
-(0, n.Cg)([s.oI], S.prototype, "BindItem", null);
-(0, n.Cg)([s.oI], S.prototype, "OnItemLoad", null);
-(0, n.Cg)([s.oI, (0, o.s)(100)], S.prototype, "OnResize", null);
-S = (0, n.Cg)([a.PA], S);
+Cg([s.oI], S.prototype, "BindContainer", null);
+Cg([s.oI], S.prototype, "BindItem", null);
+Cg([s.oI], S.prototype, "OnItemLoad", null);
+Cg([s.oI, s_1(100)], S.prototype, "OnResize", null);
+S = Cg([a.PA], S);

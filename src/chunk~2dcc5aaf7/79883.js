@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./79769.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./79769.js";
 export class H {
 	m_nWebPageRequestID = 0;
 	m_nActiveWebpageRequestID = 0;
 	m_rgWebPageRequests = [];
 	m_cbWebPageRequestsChanged = new a.lu();
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	AddWebPageRequest(e, t) {
 		let r = {
@@ -48,7 +48,7 @@ export class H {
 		);
 	}
 	ReorderWebPageRequest(e, t) {
-		this.m_rgWebPageRequests = (function (e, t, r) {
+		this.m_rgWebPageRequests = ((e, t, r) => {
 			const n = Array.from(e);
 			const [i] = n.splice(t, 1);
 			n.splice(r, 0, i);
@@ -80,10 +80,10 @@ export class H {
 		this.m_nActiveWebpageRequestID = e;
 	}
 }
-(0, n.Cg)([i.sH], H.prototype, "m_nActiveWebpageRequestID", undefined);
-(0, n.Cg)([i.XI], H.prototype, "AddWebPageRequest", null);
-(0, n.Cg)([i.XI], H.prototype, "RemoveWebPageRequest", null);
-(0, n.Cg)([i.XI], H.prototype, "UpdateWebPageRequest", null);
-(0, n.Cg)([i.XI], H.prototype, "ReorderWebPageRequest", null);
-(0, n.Cg)([i.XI], H.prototype, "RemoveAllRequests", null);
-(0, n.Cg)([i.XI], H.prototype, "Set", null);
+Cg([i.sH], H.prototype, "m_nActiveWebpageRequestID", undefined);
+Cg([i.XI], H.prototype, "AddWebPageRequest", null);
+Cg([i.XI], H.prototype, "RemoveWebPageRequest", null);
+Cg([i.XI], H.prototype, "UpdateWebPageRequest", null);
+Cg([i.XI], H.prototype, "ReorderWebPageRequest", null);
+Cg([i.XI], H.prototype, "RemoveAllRequests", null);
+Cg([i.XI], H.prototype, "Set", null);

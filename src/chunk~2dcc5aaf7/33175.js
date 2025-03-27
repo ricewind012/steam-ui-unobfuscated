@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Icon: "_2V2sHETNfa62yMoDwSF3_t",
 	IconGlow: "_3s4Rq3jnntBVP7HbJj1RMQ",

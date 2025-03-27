@@ -1,14 +1,15 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./61657.js");
-var s = require("./34742.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var a = require("./93960.js");
-var c = require("./90039.js");
-var l = require("./83599.js");
-var u = require("./87197.js");
-var m = require("./20893.js");
-var d = require("./61050.js");
 import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
+import r, { Cg } from "./34629.js";
+import i from "./61657.js";
+import s from "./34742.js";
+import a from "./93960.js";
+import c from "./90039.js";
+import l from "./83599.js";
+import u, { e } from "./87197.js";
+import m, { u8 } from "./20893.js";
+import d, { G4, ko, UR, xb, ix, _V } from "./61050.js";
+import { QE, Pl, ZQ } from "./71255.js";
 function p(e, t, n) {
 	const r = [];
 	const [i, s] = e.GetChildren();
@@ -32,8 +33,8 @@ function p(e, t, n) {
 		}
 	}
 	const l = n || c;
-	for (let e = 0; e < i.length; e++) {
-		const n = i[e];
+
+	for (const n of i) {
 		if (n == o) {
 			continue;
 		}
@@ -45,6 +46,7 @@ function p(e, t, n) {
 			});
 		}
 	}
+
 	let u;
 	r.sort(f);
 	for (const e of r) {
@@ -66,15 +68,18 @@ function p(e, t, n) {
 }
 function g(e, t, n, r) {
 	switch (e.GetFocusable()) {
-		case "none":
+		case "none": {
 			return;
-		case "children":
+		}
+		case "children": {
 			return p(e, t.overlap || n, r);
-		case "self":
+		}
+		case "self": {
 			return {
 				child: e,
 				visibility: t,
 			};
+		}
 	}
 }
 function f(e, t) {
@@ -96,12 +101,15 @@ function _(e, t, n) {
 	const r = e.Element?.getBoundingClientRect();
 	const i = e.GetFocusable();
 	let s;
-	if (i == "none" || !r || !t) {
+	if (i == "none" || !r || !r || !t) {
 		return null;
 	}
 	if (i == "self") {
 		if (
 			r.top < t.top ||
+			r.right > t.right ||
+			r.right > t.right ||
+			r.bottom > t.bottom ||
 			r.right > t.right ||
 			r.bottom > t.bottom ||
 			r.left < t.left
@@ -184,13 +192,12 @@ function _(e, t, n) {
 		distance: s,
 	};
 }
-var w = require("./71255.js");
 const b = new l.wd("FocusNavigationMovement").Debug;
-export var xj;
-export var iU;
-export var Yo;
-export var $C;
-(function (e) {
+export let xj;
+export let iU;
+export let Yo;
+export let $C;
+((e) => {
 	e[(e.NONE = 0)] = "NONE";
 	e[(e.COLUMN = 1)] = "COLUMN";
 	e[(e.ROW = 2)] = "ROW";
@@ -199,19 +206,19 @@ export var $C;
 	e[(e.GRID = 5)] = "GRID";
 	e[(e.GEOMETRIC = 6)] = "GEOMETRIC";
 })((xj ||= {}));
-(function (e) {
+((e) => {
 	e[(e.FIRST = 0)] = "FIRST";
 	e[(e.LAST = 1)] = "LAST";
 	e[(e.MAINTAIN_X = 2)] = "MAINTAIN_X";
 	e[(e.MAINTAIN_Y = 3)] = "MAINTAIN_Y";
 	e[(e.PREFERRED_CHILD = 4)] = "PREFERRED_CHILD";
 })((iU ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Standard = 0)] = "Standard";
 	e[(e.NoTransform = 1)] = "NoTransform";
 	e[(e.NoTransformSparseContent = 2)] = "NoTransformSparseContent";
 })((Yo ||= {}));
-(function (e) {
+((e) => {
 	e[(e.INVALID = 0)] = "INVALID";
 	e[(e.FORWARD = 1)] = "FORWARD";
 	e[(e.BACKWARD = 2)] = "BACKWARD";
@@ -265,7 +272,7 @@ export class Bp {
 		return this.m_Parent;
 	}
 	SetProperties(e) {
-		const t = !(0, u.e)(
+		const t = !e(
 			this.m_Properties?.actionDescriptionMap,
 			e?.actionDescriptionMap,
 		);
@@ -392,7 +399,7 @@ export class Bp {
 				this.EnsureChildrenSorted();
 				e = this.m_rgChildren.findIndex((e) => e.BWantsAutoFocus());
 			}
-			if (this.m_Properties?.autoFocus || n || e !== -1) {
+			if (this.m_Properties?.autoFocus || n || n || e !== -1) {
 				this.SetActiveChild(e);
 				if (!this.m_Parent || this.m_Parent.m_element) {
 					if (t) {
@@ -428,7 +435,11 @@ export class Bp {
 		const e = this.Tree.DeferredFocus.BIsQueuedFocusNode(this);
 		if (this.m_bFocused || e) {
 			b(
-				`The focused node is unmounting, ${this.m_RetainFocusParent ? "will transfer to retain focus ancestor" : "will blur"}.`,
+				`The focused node is unmounting, ${
+					this.m_RetainFocusParent
+						? "will transfer to retain focus ancestor"
+						: "will blur"
+				}.`,
 			);
 			if (e) {
 				this.Tree.DeferredFocus.RequestFocus(null);
@@ -452,17 +463,28 @@ export class Bp {
 			this.m_element &&
 			(this.m_rgChildren.length >= 2 ||
 				this.m_Properties?.layout != xj.NONE ||
+				this.m_Properties?.layout != xj.NONE ||
+				this.m_Properties.onMoveUp ||
+				this.m_Properties?.layout != xj.NONE ||
+				this.m_Properties.onMoveUp ||
+				this.m_Properties.onMoveRight ||
+				this.m_Properties?.layout != xj.NONE ||
+				this.m_Properties.onMoveUp ||
+				this.m_Properties.onMoveRight ||
+				this.m_Properties.onMoveDown ||
+				this.m_Properties?.layout != xj.NONE ||
 				this.m_Properties.onMoveUp ||
 				this.m_Properties.onMoveRight ||
 				this.m_Properties.onMoveDown ||
 				this.m_Properties.onMoveLeft)
 		) {
 			this.m_rgNavigationHandlers.push(
-				(0, m.u8)(this.m_element, this.OnNavigationEvent),
+				u8(this.m_element, this.OnNavigationEvent),
 			);
 		}
 		if (
 			this.m_Properties?.focusable ||
+			this.m_Properties?.focusableIfNoChildren ||
 			this.m_Properties?.focusableIfNoChildren ||
 			this.m_rgChildren.length == 0
 		) {
@@ -624,12 +646,15 @@ export class Bp {
 	}
 	FindFocusableNode(e, t) {
 		switch (this.GetFocusable()) {
-			case "none":
+			case "none": {
 				return null;
-			case "self":
+			}
+			case "self": {
 				return this;
-			case "children":
+			}
+			case "children": {
 				return this.FindFocusableDescendant(e, t);
+			}
 		}
 	}
 	BChildTakeFocus(e, t) {
@@ -653,7 +678,7 @@ export class Bp {
 		return this.InternalFocusDescendant(t, e);
 	}
 	FindFocusableDescendant(e, t) {
-		const n = (0, d.G4)(e);
+		const n = G4(e);
 		const { focusableIfNoChildren: r, childFocusDisabled: i } =
 			this.m_Properties ?? {};
 		if (i) {
@@ -673,12 +698,18 @@ export class Bp {
 				c =
 					c >= this.m_rgChildren.length ||
 					e == xj.ROW_REVERSE ||
+					e == xj.ROW_REVERSE ||
+					e == xj.COLUMN_REVERSE ||
+					e == xj.ROW_REVERSE ||
 					e == xj.COLUMN_REVERSE ||
 					i == iU.LAST
 						? this.m_rgChildren.length - 1
 						: 0;
 			}
-			if ((i == iU.MAINTAIN_X || i == iU.MAINTAIN_Y || t) && n) {
+			if (
+				(i == iU.MAINTAIN_X || i == iU.MAINTAIN_Y || i == iU.MAINTAIN_Y || t) &&
+				n
+			) {
 				let r;
 				let o;
 				if (i == iU.MAINTAIN_X) {
@@ -692,7 +723,9 @@ export class Bp {
 						this.m_Tree.GetLastFocusedNode()?.GetBoundingRect();
 				}
 				b(
-					`Taking focus while preserving ${i && iU[i]} preserved: ${r} movement: ${n}, node:`,
+					`Taking focus while preserving ${
+						i && iU[i]
+					} preserved: ${r} movement: ${n}, node:`,
 					o || t,
 				);
 				const c = this.ComputeRelativeDirection(e, xj.GRID);
@@ -735,7 +768,9 @@ export class Bp {
 			bottom: t.innerHeight,
 		});
 		b(
-			`Focusing visible child, best child match is ${n?.child?.Element?.className} - ${JSON.stringify(n?.visibility)}`,
+			`Focusing visible child, best child match is ${
+				n?.child?.Element?.className
+			} - ${JSON.stringify(n?.visibility)}`,
 		);
 		return !!n && n.child.BTakeFocus(e);
 	}
@@ -746,7 +781,7 @@ export class Bp {
 		if (this.m_rgChildren.length < 2) {
 			return xj.NONE;
 		}
-		return (0, d.ko)(this.m_element);
+		return ko(this.m_element);
 	}
 	OnNavigationEvent(e) {
 		const t = e.detail.button;
@@ -761,30 +796,34 @@ export class Bp {
 		} = this.m_Properties ?? {};
 		let a = false;
 		switch (t) {
-			case i.pR.DIR_UP:
+			case i.pR.DIR_UP: {
 				if (n) {
 					a = n(e.detail, this);
 				}
 				break;
-			case i.pR.DIR_RIGHT:
+			}
+			case i.pR.DIR_RIGHT: {
 				if (r) {
 					a = r(e.detail, this);
 				}
 				break;
-			case i.pR.DIR_DOWN:
+			}
+			case i.pR.DIR_DOWN: {
 				if (s) {
 					a = s(e.detail, this);
 				}
 				break;
-			case i.pR.DIR_LEFT:
+			}
+			case i.pR.DIR_LEFT: {
 				if (o) {
 					a = o(e.detail, this);
 				}
+			}
 		}
 		return a;
 	}
 	InternalFocusDescendant(e, t, n) {
-		return !!e && (this.m_Tree.TransferFocus(t, e, (0, d.G4)(n)), true);
+		return !!e && (this.m_Tree.TransferFocus(t, e, G4(n)), true);
 	}
 	BTryInternalNavigation(e, t) {
 		const n = this.GetLayout();
@@ -812,13 +851,13 @@ export class Bp {
 			r = this.FindNextFocusableChildInDirection(t, s, e);
 		}
 		if (r) {
-			const n = (0, d.G4)(e);
+			const n = G4(e);
 			if (this.GetScrollIntoViewType() == Yo.NoTransformSparseContent) {
 				const e = r.Element?.ownerDocument.defaultView;
 				if (e) {
 					const i =
 						(n == "y" ? e.innerHeight : e.innerWidth) / (t ? 4.5 : 3.33);
-					const s = (0, w.QE)(r.Element);
+					const s = QE(r.Element);
 					if (
 						(s.top > e.innerHeight && s.bottom > e.innerHeight + i) ||
 						(s.bottom < 0 && s.top < -i) ||
@@ -826,7 +865,7 @@ export class Bp {
 						(s.right < 0 && s.left < -i)
 					) {
 						b(`Element too far away, scrolling ${i} on ${n} axis `);
-						(0, w.Pl)(r.Element, r.Element, "smooth", n, i);
+						Pl(r.Element, r.Element, "smooth", n, i);
 						return true;
 					}
 				}
@@ -852,62 +891,75 @@ export class Bp {
 		let n = t == xj.ROW_REVERSE || t == xj.COLUMN_REVERSE;
 		switch (t) {
 			case xj.ROW:
-			case xj.ROW_REVERSE:
+			case xj.ROW_REVERSE: {
 				switch (e) {
-					case i.pR.DIR_LEFT:
+					case i.pR.DIR_LEFT: {
 						if (n) {
 							return $C.FORWARD;
 						} else {
 							return $C.BACKWARD;
 						}
-					case i.pR.DIR_RIGHT:
+					}
+					case i.pR.DIR_RIGHT: {
 						if (n) {
 							return $C.BACKWARD;
 						} else {
 							return $C.FORWARD;
 						}
-					default:
+					}
+					default: {
 						return $C.INVALID;
+					}
 				}
+			}
 			case xj.COLUMN:
-			case xj.COLUMN_REVERSE:
+			case xj.COLUMN_REVERSE: {
 				switch (e) {
-					case i.pR.DIR_UP:
+					case i.pR.DIR_UP: {
 						if (n) {
 							return $C.FORWARD;
 						} else {
 							return $C.BACKWARD;
 						}
-					case i.pR.DIR_DOWN:
+					}
+					case i.pR.DIR_DOWN: {
 						if (n) {
 							return $C.BACKWARD;
 						} else {
 							return $C.FORWARD;
 						}
-					default:
+					}
+					default: {
 						return $C.INVALID;
+					}
 				}
-			case xj.GRID:
+			}
+			case xj.GRID: {
 				switch (e) {
 					case i.pR.DIR_LEFT:
-					case i.pR.DIR_UP:
+					case i.pR.DIR_UP: {
 						if (n) {
 							return $C.FORWARD;
 						} else {
 							return $C.BACKWARD;
 						}
+					}
 					case i.pR.DIR_RIGHT:
-					case i.pR.DIR_DOWN:
+					case i.pR.DIR_DOWN: {
 						if (n) {
 							return $C.BACKWARD;
 						} else {
 							return $C.FORWARD;
 						}
-					default:
+					}
+					default: {
 						return $C.INVALID;
+					}
 				}
-			default:
+			}
+			default: {
 				return $C.INVALID;
+			}
 		}
 	}
 	AdvanceIndex(e, t) {
@@ -961,7 +1013,7 @@ export class Bp {
 				const e = this.ScanChildren(
 					this.AdvanceIndex(r, t),
 					t,
-					(e) => !(0, d.UR)("y", a, e.GetBoundingRect()),
+					(e) => !UR("y", a, e.GetBoundingRect()),
 				);
 				if (e != -1) {
 					const r = this.m_rgChildren[e].GetBoundingRect();
@@ -987,7 +1039,7 @@ export class Bp {
 				i += r
 			) {
 				const e = this.m_rgChildren[i];
-				if (!(0, d.UR)("y", a, e.GetBoundingRect())) {
+				if (!UR("y", a, e.GetBoundingRect())) {
 					return null;
 				}
 				let t = e.FindFocusableNode(n);
@@ -1006,16 +1058,16 @@ export class Bp {
 		if (!r) {
 			return null;
 		}
-		const c = (0, d.xb)(r);
+		const c = xb(r);
 		this.ScanChildren(i, t, (t) => {
 			const n = t.GetBoundingRect();
 			return (
 				!!n &&
-				((!!o && !(0, d.UR)(s.xr[e], o, n)) ||
+				((!!o && !UR(s.xr[e], o, n)) ||
 					(a.push({
 						child: t,
-						overlap: (0, d.ix)(e, r, n),
-						dist: (0, d._V)(e, c, n),
+						overlap: ix(e, r, n),
+						dist: _V(e, c, n),
 					}),
 					false))
 			);
@@ -1089,10 +1141,10 @@ export class Bp {
 				`Didn't move focus to element as tree ${this.m_Tree.id} is not active focus tree`,
 			);
 		}
-		(0, w.ZQ)(this, t);
+		ZQ(this, t);
 		this.m_Tree.OnChildActivated(e);
 	}
 }
-(0, r.Cg)([a.o], Bp.prototype, "OnDOMFocus", null);
-(0, r.Cg)([a.o], Bp.prototype, "OnDOMBlur", null);
-(0, r.Cg)([a.o], Bp.prototype, "OnNavigationEvent", null);
+Cg([a.o], Bp.prototype, "OnDOMFocus", null);
+Cg([a.o], Bp.prototype, "OnDOMBlur", null);
+Cg([a.o], Bp.prototype, "OnNavigationEvent", null);

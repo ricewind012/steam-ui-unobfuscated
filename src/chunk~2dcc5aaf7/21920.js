@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
+import n from "./63696.js";
 export function _o(e, t) {
 	e = Math.round(e);
 	t = Math.round(t);
@@ -9,31 +9,24 @@ export function _o(e, t) {
 		let r = "";
 		let n = "";
 		if (e) {
-			r = "imw=" + e;
+			r = `imw=${e}`;
 		}
 		if (t) {
-			n = "imh=" + t;
+			n = `imh=${t}`;
 		}
 		return `?${r}&${n}&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false`;
 	}
 }
 export function Dp(e) {
-	const {
-		width: t,
-		height: r,
-		orig_width: a,
-		orig_height: s,
-		src: o,
-		...l
-	} = e;
+	const { width, height, orig_width, orig_height, src, ...l } = e;
 	let c;
-	let m = o + _o(t, r);
+	let m = src + _o(width, height);
 	let u = 6;
-	if (t && a) {
-		u = Math.min(u, Math.ceil(a / t));
+	if (width && orig_width) {
+		u = Math.min(u, Math.ceil(orig_width / width));
 	}
-	if (r && s) {
-		u = Math.min(u, Math.ceil(s / r));
+	if (height && orig_height) {
+		u = Math.min(u, Math.ceil(orig_height / height));
 	}
 	if (u) {
 		for (let e of [2, 4, 6]) {
@@ -45,14 +38,10 @@ export function Dp(e) {
 			} else {
 				c = "";
 			}
-			c += `${o}${_o(t && t * e, r && r * e)} ${e}x`;
+			c += `${src}${_o(width && width * e, height && height * e)} ${e}x`;
 		}
 	}
-	return n.createElement("img", {
-		...l,
-		src: m,
-		srcSet: c,
-	});
+	return <img {...l} src={m} srcSet={c} />;
 }
 export function yh(e) {
 	if (e.indexOf("?") > 0) {

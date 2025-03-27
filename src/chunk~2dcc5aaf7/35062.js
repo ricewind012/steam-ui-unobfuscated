@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SoundtrackPanel: "_23zCI_59RJTWRvY-_YCFb9",
 	BackgroundContainer: "_26bNl_GrQVxUbLj1KjGJQN",

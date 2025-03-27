@@ -1,91 +1,82 @@
-var _r = require("./28864.js");
-var i = require(/*webcrack:missing*/ "./4452.js");
-var s = i;
-var o = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./28869.js");
-var c = require("./4690.js");
-var l = require("./79734.js");
-var u = require("./3524.js");
-var m = require("./87481.js");
-const d = o.createContext({
+import { Ue } from "./28864.js";
+import i from "./4452.js";
+import o, { useContext } from "./63696.js";
+import a, { sl, qp } from "./28869.js";
+import c from "./4690.js";
+import { O } from "./79734.js";
+import { bJ } from "./3524.js";
+import { Ui } from "./87481.js";
+const s = i;
+const DContext = o.createContext({
 	Component: a.D0,
 });
 export function r(e) {
-	const { Component: t, children: n } = e;
+	const { Component, children } = e;
 	const r = o.useMemo(
 		() => ({
-			Component: t,
+			Component: Component,
 		}),
-		[t],
+		[Component],
 	);
-	return o.createElement(
-		d.Provider,
-		{
-			value: r,
-		},
-		n,
-	);
+	return <DContext.Provider value={r}>{children}</DContext.Provider>;
 }
-export const Z = o.forwardRef(function (e, t) {
+export const Z = o.forwardRef((e, t) => {
 	const {
 		"flow-children": n,
-		onActivate: i,
-		onCancel: h,
-		focusClassName: p,
-		focusWithinClassName: g,
+		onActivate,
+		onCancel,
+		focusClassName,
+		focusWithinClassName,
 		...f
 	} = e;
-	const { elemProps: _, navOptions: w, gamepadEvents: b } = (0, a.sl)(f);
+	const { elemProps, navOptions, gamepadEvents } = sl(f);
 	let C = {};
-	const v = (0, l.O)(n);
+	const v = O(n);
 	if (v != c.xj.NONE) {
 		C.layout = v;
 	}
-	if (i) {
-		_.onClick = _.onClick || i;
-		b.onOKButton = b.onOKButton || i;
+	if (onActivate) {
+		elemProps.onClick = elemProps.onClick || onActivate;
+		gamepadEvents.onOKButton = gamepadEvents.onOKButton || onActivate;
 	}
 	if (
-		b.onOKButton &&
-		w.focusable === undefined &&
-		w.focusableIfNoChildren === undefined
+		gamepadEvents.onOKButton &&
+		navOptions.focusable === undefined &&
+		navOptions.focusableIfNoChildren === undefined
 	) {
-		w.focusable = true;
+		navOptions.focusable = true;
 	}
-	if (h) {
-		b.onCancelButton = b.onCancelButton || h;
+	if (onCancel) {
+		gamepadEvents.onCancelButton = gamepadEvents.onCancelButton || onCancel;
 	}
-	const { ref: M, node: S } = (0, a.qp)({
+	const { ref, node } = qp({
 		...C,
-		...w,
+		...navOptions,
 	});
-	const y = (0, u.bJ)();
-	_.className = s(_.className, "Panel", y && "Focusable");
-	(0, m.Ui)(b, M);
-	const E = (0, _r.Ue)(M, t);
+	const y = bJ();
+	elemProps.className = s(elemProps.className, "Panel", y && "Focusable");
+	Ui(gamepadEvents, ref);
+	const E = Ue(ref, t);
 	if (
-		(!!w.focusable || !!w.focusableIfNoChildren) &&
-		(!S || !S.Tree.BUseVirtualFocus())
+		(!!navOptions.focusable || !!navOptions.focusableIfNoChildren) &&
+		(!node || !node.Tree.BUseVirtualFocus())
 	) {
-		_.tabIndex = _.tabIndex || 0;
+		elemProps.tabIndex = elemProps.tabIndex || 0;
 	}
-	const B = (0, o.useContext)(d).Component;
-	return o.createElement(
-		a.TJ.Provider,
-		{
-			value: S,
-		},
-		S
-			? o.createElement(B, {
-					..._,
-					divRef: E,
-					node: S,
-					focusClassName: s(p, "gpfocus"),
-					focusWithinClassName: s(g, "gpfocuswithin"),
-				})
-			: o.createElement("div", {
-					..._,
-					ref: E,
-				}),
+	const B = useContext(DContext).Component;
+	return (
+		<a.TJ.Provider value={node}>
+			{node ? (
+				<B
+					{...elemProps}
+					divRef={E}
+					node={node}
+					focusClassName={s(focusClassName, "gpfocus")}
+					focusWithinClassName={s(focusWithinClassName, "gpfocuswithin")}
+				/>
+			) : (
+				<div {...elemProps} ref={E} />
+			)}
+		</a.TJ.Provider>
 	);
 });

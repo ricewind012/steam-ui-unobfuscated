@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./12251.js");
-const o = n.Message;
-class l extends o {
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+const n_Message = n.Message;
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.make) {
 			i.Sg(l.M());
 		}
-		o.initialize(this, e, 0, -1, [4, 5], null);
+		n_Message.initialize(this, e, 0, -1, [4, 5], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -90,7 +90,7 @@ class l extends o {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -98,7 +98,7 @@ class l extends o {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -106,14 +106,14 @@ class l extends o {
 		return "CMsgDisplayInfo";
 	}
 }
-class c extends o {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.is_service_available) {
 			i.Sg(c.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -201,7 +201,7 @@ class c extends o {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -209,7 +209,7 @@ class c extends o {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -217,11 +217,11 @@ class c extends o {
 		return "CMsgGamescopeState";
 	}
 }
-class m extends o {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return m.toObject(e, this);
@@ -247,13 +247,13 @@ class m extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -261,14 +261,14 @@ class m extends o {
 		return "CGamescope_GetState_Request";
 	}
 }
-class u extends o {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.state) {
 			i.Sg(u.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -306,7 +306,7 @@ class u extends o {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -314,7 +314,7 @@ class u extends o {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -322,11 +322,11 @@ class u extends o {
 		return "CGamescope_GetState_Response";
 	}
 }
-class d extends o {
+class d extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return d.toObject(e, this);
@@ -352,13 +352,13 @@ class d extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -366,14 +366,14 @@ class d extends o {
 		return "CGamescope_StateChanged_Notification";
 	}
 }
-class A extends o {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.mode) {
 			i.Sg(A.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -422,7 +422,7 @@ class A extends o {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -430,7 +430,7 @@ class A extends o {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -438,11 +438,11 @@ class A extends o {
 		return "CGamescope_SetBlurParams_Request";
 	}
 }
-class p extends o {
+class p extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return p.toObject(e, this);
@@ -468,13 +468,13 @@ class p extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -482,11 +482,11 @@ class p extends o {
 		return "CGamescope_SetBlurParams_Response";
 	}
 }
-class g extends o {
+class g extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return g.toObject(e, this);
@@ -512,13 +512,13 @@ class g extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -526,11 +526,11 @@ class g extends o {
 		return "CGamescope_ReArmMuraCalibration_Request";
 	}
 }
-class h extends o {
+class h extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		o.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return h.toObject(e, this);
@@ -556,13 +556,13 @@ class h extends o {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -570,34 +570,34 @@ class h extends o {
 		return "CGamescope_ReArmMuraCalibration_Response";
 	}
 }
-export var MX;
-(function (e) {
+export let MX;
+((e) => {
 	e.GetStateHandler = {
 		name: "Gamescope.GetState#1",
 		request: m,
 		response: u,
 	};
-	e.GetState = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.GetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.GetState#1", (0, a.I8)(m, e), u, {
+			return t.SendMsg("Gamescope.GetState#1", I8(m, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgGetState = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgGetState = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.GetState#1", (0, a.I8)(m, e), u, {
+			return t.SendMsg("Gamescope.GetState#1", I8(m, e), u, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -607,8 +607,8 @@ export var MX;
 		name: "Gamescope.NotifyStateChanged#1",
 		request: d,
 	};
-	e.RegisterForNotifyStateChanged = function (t, r) {
-		if ((r = r || (0, s.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -620,34 +620,26 @@ export var MX;
 			);
 		}
 	};
-	e.NotifyStateChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.NotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
-			return t.SendNotification(
-				"Gamescope.NotifyStateChanged#1",
-				(0, a.I8)(d, e),
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendNotification("Gamescope.NotifyStateChanged#1", I8(d, e), {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
-	e.SendMsgNotifyStateChanged = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
-			return t.SendNotification(
-				"Gamescope.NotifyStateChanged#1",
-				(0, a.I8)(d, e),
-				{
-					ePrivilege: 1,
-					eClientExecutionSite: 1,
-				},
-			);
+			return t.SendNotification("Gamescope.NotifyStateChanged#1", I8(d, e), {
+				ePrivilege: 1,
+				eClientExecutionSite: 1,
+			});
 		}
 	};
 	e.SetBlurParamsHandler = {
@@ -655,27 +647,27 @@ export var MX;
 		request: A,
 		response: p,
 	};
-	e.SetBlurParams = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SetBlurParams = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.SetBlurParams#1", (0, a.I8)(A, e), p, {
+			return t.SendMsg("Gamescope.SetBlurParams#1", I8(A, e), p, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgSetBlurParams = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgSetBlurParams = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.SetBlurParams#1", (0, a.I8)(A, e), p, {
+			return t.SendMsg("Gamescope.SetBlurParams#1", I8(A, e), p, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
@@ -686,27 +678,27 @@ export var MX;
 		request: g,
 		response: h,
 	};
-	e.ReArmMuraCalibration = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.ReArmMuraCalibration = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.ReArmMuraCalibration#1", (0, a.I8)(g, e), h, {
+			return t.SendMsg("Gamescope.ReArmMuraCalibration#1", I8(g, e), h, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgReArmMuraCalibration = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgReArmMuraCalibration = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("Gamescope.ReArmMuraCalibration#1", (0, a.I8)(g, e), h, {
+			return t.SendMsg("Gamescope.ReArmMuraCalibration#1", I8(g, e), h, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});

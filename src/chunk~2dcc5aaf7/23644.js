@@ -1,3 +1,3 @@
-module.exports = {
+export default {
 	MainPanelAppRunning: "_3x-njxNYzQDOM6auXJBR2W",
 };

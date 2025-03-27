@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./36383.js");
-var o = require("./50979.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require(/*webcrack:missing*/ "./83599.js");
-var u = require("./16761.js");
-require("./80663.js");
-var _d = require("./46970.js");
-var A = require("./95773.js");
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require("./89459.js");
-var h = require("./24761.js");
-var C = require(/*webcrack:missing*/ "./81255.js");
-var _ = require(/*webcrack:missing*/ "./49455.js");
-var f = require("./60857.js");
-var b = require(/*webcrack:missing*/ "./736.js");
-var y = require(/*webcrack:missing*/ "./79769.js");
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./12176.js";
+import s from "./36383.js";
+import o, { Hd } from "./50979.js";
+import l, { Gn, z7 } from "./89193.js";
+import m from "./83599.js";
+import u from "./16761.js";
+import "./80663.js";
+import _d from "./46970.js";
+import A from "./95773.js";
+import p from "./52451.js";
+import g, { $T } from "./89459.js";
+import { u as u_1 } from "./24761.js";
+import { s as s_1 } from "./81255.js";
+import { w } from "./49455.js";
+import f from "./60857.js";
+import { Dp } from "./736.js";
+import y from "./79769.js";
 export class d extends u.o {
 	LOG = new m.wd("ChatRoom", () => this.unique_id).Debug;
 	m_group;
@@ -39,7 +39,7 @@ export class d extends u.o {
 	m_NewChatMsgAddedCallbacks = new y.lu();
 	constructor(e, t, r, n) {
 		super(e.FriendStore, e, e.CMInterface);
-		(0, l.Gn)(this);
+		Gn(this);
 		this.m_group = t;
 		this.m_ulGroupID = t.GetGroupID();
 		this.m_ulChatID = r;
@@ -55,17 +55,20 @@ export class d extends u.o {
 	}
 	get unread_message_count() {
 		switch (this.GetPlatformNotificationLevel()) {
-			case 4:
+			case 4: {
 				return this.m_cUnreadChatMessages;
+			}
 			case 3:
-			case 2:
+			case 2: {
 				if (this.has_unread_mention) {
 					return 1;
 				} else {
 					return 0;
 				}
-			default:
+			}
+			default: {
 				return 0;
+			}
 		}
 	}
 	get time_last_activity() {
@@ -76,18 +79,22 @@ export class d extends u.o {
 			t = Math.max(r, t);
 		}
 		switch (e) {
-			case 4:
+			case 4: {
 				t = Math.max(this.time_last_message || 0, t);
 				break;
+			}
 			case 3:
-			case 2:
+			case 2: {
 				t = Math.max(this.time_last_mention || 0, t);
 				break;
+			}
 			case 1:
-			case 0:
+			case 0: {
 				break;
-			default:
-				(0, _.w)(false, `unhandled EChatRoomNotificationLevel: ${e}`);
+			}
+			default: {
+				w(false, `unhandled EChatRoomNotificationLevel: ${e}`);
+			}
 		}
 		return t;
 	}
@@ -140,34 +147,36 @@ export class d extends u.o {
 		let t = e.Body().messages();
 		let r = [];
 		if (m.fi.Get().IsDebugLogEnabled("ChatRoom")) {
-			let e = t[0];
+			let [e] = t;
 			let r = t[t.length - 1];
 			this.LOG(
-				`received ${t.length} messages in range ${r.server_timestamp()}:${r.ordinal()} to ${e.server_timestamp()}:${e.ordinal()}`,
+				`received ${
+					t.length
+				} messages in range ${r.server_timestamp()}:${r.ordinal()} to ${e.server_timestamp()}:${e.ordinal()}`,
 			);
 		}
 		for (let e = t.length - 1; e >= 0; e--) {
 			let n;
 			let i;
-			let a = t[e];
-			let s = a.server_message().message() || 0;
+			let t_e = t[e];
+			let s = t_e.server_message().message() || 0;
 			if (s != 0) {
-				s = a.server_message().message();
-				n = a.server_message().string_param();
-				i = a.server_message().accountid_param();
-				if (!(0, g.$T)(s)) {
+				s = t_e.server_message().message();
+				n = t_e.server_message().string_param();
+				i = t_e.server_message().accountid_param();
+				if (!$T(s)) {
 					this.LOG(`unrenderable message ${s}`);
 					continue;
 				}
-			} else if (!a.message() || a.message().trim().length == 0) {
+			} else if (!t_e.message() || t_e.message().trim().length == 0) {
 				continue;
 			}
 			let o = new g.D8(
-				a.sender(),
-				a.server_timestamp(),
-				a.ordinal() || 0,
-				a.message(),
-				a.reactions().map((e) => ({
+				t_e.sender(),
+				t_e.server_timestamp(),
+				t_e.ordinal() || 0,
+				t_e.message(),
+				t_e.reactions().map((e) => ({
 					eReactionType: e.reaction_type(),
 					strReaction: e.reaction(),
 					cReactors: e.num_reactors(),
@@ -177,7 +186,7 @@ export class d extends u.o {
 				n,
 				i,
 			);
-			if (a.deleted()) {
+			if (t_e.deleted()) {
 				o.eDeleteState = g.$F.Deleted;
 			}
 			r.push(o);
@@ -190,7 +199,7 @@ export class d extends u.o {
 	OnNewChatMsgAdded(e, t, r, n) {
 		if (
 			i.TS.IN_CLIENT &&
-			(0, b.Dp)("WebChat.OnNewGroupChatMsgAdded") &&
+			Dp("WebChat.OnNewGroupChatMsgAdded") &&
 			A.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 		) {
 			SteamClient.WebChat.OnNewGroupChatMsgAdded(
@@ -267,7 +276,7 @@ export class d extends u.o {
 		}
 	}
 	UpdateChatState(e) {
-		(0, _.w)(this.m_ulChatID == e.chat_id(), "State for different chat room");
+		w(this.m_ulChatID == e.chat_id(), "State for different chat room");
 		this.m_strName = e.chat_name();
 		this.m_bVoiceAllowed = e.voice_allowed();
 		let t = false;
@@ -298,13 +307,11 @@ export class d extends u.o {
 		if (this.BVoiceActive()) {
 			if (t) {
 				A.xm.AudioPlaybackManager.PlayAudioURL(
-					i.TS.COMMUNITY_CDN_URL +
-						"public/sounds/webui/steam_voice_channel_enter.m4a?v=1",
+					`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_voice_channel_enter.m4a?v=1`,
 				);
 			} else if (r) {
 				A.xm.AudioPlaybackManager.PlayAudioURL(
-					i.TS.COMMUNITY_CDN_URL +
-						"public/sounds/webui/steam_voice_channel_exit.m4a?v=1",
+					`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_voice_channel_exit.m4a?v=1`,
 				);
 			}
 		}
@@ -379,7 +386,7 @@ export class d extends u.o {
 		return this.m_bIsDefaultForGroup;
 	}
 	get unique_id() {
-		return "cr" + this.m_ulChatID;
+		return `cr${this.m_ulChatID}`;
 	}
 	GetVoiceAllowed() {
 		return this.m_bVoiceAllowed;
@@ -589,7 +596,10 @@ export class d extends u.o {
 	}
 	BShouldTrackUnreadMessages() {
 		return (
-			this.m_bIsDefaultForGroup || !this.m_bVoiceAllowed || this.BVoiceActive()
+			this.m_bIsDefaultForGroup ||
+			!this.m_bVoiceAllowed ||
+			!this.m_bVoiceAllowed ||
+			this.BVoiceActive()
 		);
 	}
 	BShouldSilentlyAddMessage(e) {
@@ -598,15 +608,14 @@ export class d extends u.o {
 	PlayChatRoomNotificationSound() {
 		if (!A.xm.FriendStore.GetUserDoNotDisturb()) {
 			A.xm.AudioPlaybackManager.PlayAudioURL(
-				i.TS.COMMUNITY_CDN_URL +
-					"public/sounds/webui/steam_chatroom_notification.m4a?v=1",
+				`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_chatroom_notification.m4a?v=1`,
 			);
 		}
 	}
 	PlayAtMentionSound() {
 		if (!A.xm.FriendStore.GetUserDoNotDisturb()) {
 			A.xm.AudioPlaybackManager.PlayAudioURL(
-				i.TS.COMMUNITY_CDN_URL + "public/sounds/webui/steam_at_mention.m4a?v=1",
+				`${i.TS.COMMUNITY_CDN_URL}public/sounds/webui/steam_at_mention.m4a?v=1`,
 			);
 		}
 	}
@@ -617,29 +626,36 @@ export class d extends u.o {
 				if (
 					e.Mentions.mention_all ||
 					e.Mentions.mention_here ||
+					e.Mentions.mention_here ||
 					e.Mentions.mention_user
 				) {
 					this.m_rtLastMention = e.rtTimestamp;
 				}
 				switch (this.GetPlatformNotificationLevel()) {
-					case 1:
+					case 1: {
 						i = false;
 						break;
-					case 2:
+					}
+					case 2: {
 						i = e.Mentions.mention_user;
 						break;
-					case 3:
+					}
+					case 3: {
 						i =
 							e.Mentions.mention_user ||
 							e.Mentions.mention_here ||
+							e.Mentions.mention_here ||
 							e.Mentions.mention_all;
 						break;
-					default:
+					}
+					default: {
 						i = true;
+					}
 				}
 				if (i && !A.xm.FriendStore.GetUserDoNotDisturb()) {
 					let i =
 						e.Mentions.mention_all ||
+						e.Mentions.mention_here ||
 						e.Mentions.mention_here ||
 						e.Mentions.mention_user;
 					if (A.xm.BPlayChatRoomNotificationSound() && i) {
@@ -658,11 +674,11 @@ export class d extends u.o {
 							let a = {
 								title: this.m_bIsDefaultForGroup
 									? this.GetGroup().name
-									: this.GetGroup().name + " | " + this.name,
+									: `${this.GetGroup().name} | ${this.name}`,
 								body: `${t.display_name}: "${r}"`,
 								icon: t.persona.avatar_url_medium,
 								rawbody: r,
-								tag: "groupmsg_" + (i ? "mention_" : "") + t.accountid,
+								tag: `groupmsg_${i ? "mention_" : ""}${t.accountid}`,
 								steamid: t.persona.m_steamid.ConvertTo64BitString(),
 								chatroomgroupid: this.GetParentGroupID(),
 								chatroomid: this.GetRoomID(),
@@ -682,7 +698,7 @@ export class d extends u.o {
 								}
 							}
 						};
-						(0, l.z7)(() => t.is_ready, a, {
+						z7(() => t.is_ready, a, {
 							timeout: 1000,
 						});
 					}
@@ -724,7 +740,7 @@ export class d extends u.o {
 			.CreateInviteLink(this.m_ChatStore.CMInterface.GetServiceTransport(), t)
 			.then((e) => {
 				let t = e.Body().invite_code();
-				let r = (0, h.u)(t);
+				let r = u_1(t);
 				let n = e.Body().seconds_valid();
 				if (n != 0) {
 					n += Math.floor(Date.now() / 1000);
@@ -791,7 +807,7 @@ export class d extends u.o {
 		} else {
 			e.strServerMsgAppCustomLocalized = e.strMessage;
 		}
-		let i = (0, o.Hd)(e.strServerMsgAppCustomLocalized);
+		let i = Hd(e.strServerMsgAppCustomLocalized);
 		let a = null;
 		let s = "";
 		let l = false;
@@ -800,7 +816,7 @@ export class d extends u.o {
 				if (e.type == 2) {
 					if (e.tag != "mention") {
 						if (e.tag != "spoiler") {
-							console.log("bbcode tag '" + e.tag + "' not allowed!");
+							console.log(`bbcode tag '${e.tag}' not allowed!`);
 							l = true;
 						}
 					} else if (e.args) {
@@ -828,25 +844,20 @@ export class d extends u.o {
 		return s;
 	}
 }
-(0, n.Cg)([l.sH], d.prototype, "m_strName", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_unSortOrder", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_lastChatLink", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_rtLastMention", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_eDesktopNotificationLevel", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_eMobileNotificationLevel", undefined);
-(0, n.Cg)([l.sH], d.prototype, "m_bUnreadIndicatorMuted", undefined);
-(0, n.Cg)([l.XI], d.prototype, "UpdateUserState", null);
-(0, n.Cg)([l.XI], d.prototype, "UpdateChatState", null);
-(0, n.Cg)([l.EW], d.prototype, "name", null);
-(0, n.Cg)([p.oI], d.prototype, "StartVoiceChat", null);
-(0, n.Cg)([l.XI], d.prototype, "UpdateMessageReactionReactors", null);
-(0, n.Cg)(
-	[p.oI, (0, C.s)(100)],
-	d.prototype,
-	"PlayChatRoomNotificationSound",
-	null,
-);
-(0, n.Cg)([p.oI, (0, C.s)(100)], d.prototype, "PlayAtMentionSound", null);
-(0, n.Cg)([l.XI], d.prototype, "CreateInviteLink", null);
-(0, n.Cg)([l.$Z], d.prototype, "OnActivate", null);
-(0, n.Cg)([l.XI], d.prototype, "ChangeNameWhileWaitingForRenameRequest", null);
+Cg([l.sH], d.prototype, "m_strName", undefined);
+Cg([l.sH], d.prototype, "m_unSortOrder", undefined);
+Cg([l.sH], d.prototype, "m_lastChatLink", undefined);
+Cg([l.sH], d.prototype, "m_rtLastMention", undefined);
+Cg([l.sH], d.prototype, "m_eDesktopNotificationLevel", undefined);
+Cg([l.sH], d.prototype, "m_eMobileNotificationLevel", undefined);
+Cg([l.sH], d.prototype, "m_bUnreadIndicatorMuted", undefined);
+Cg([l.XI], d.prototype, "UpdateUserState", null);
+Cg([l.XI], d.prototype, "UpdateChatState", null);
+Cg([l.EW], d.prototype, "name", null);
+Cg([p.oI], d.prototype, "StartVoiceChat", null);
+Cg([l.XI], d.prototype, "UpdateMessageReactionReactors", null);
+Cg([p.oI, s_1(100)], d.prototype, "PlayChatRoomNotificationSound", null);
+Cg([p.oI, s_1(100)], d.prototype, "PlayAtMentionSound", null);
+Cg([l.XI], d.prototype, "CreateInviteLink", null);
+Cg([l.$Z], d.prototype, "OnActivate", null);
+Cg([l.XI], d.prototype, "ChangeNameWhileWaitingForRenameRequest", null);

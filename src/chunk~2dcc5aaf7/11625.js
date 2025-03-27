@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ControlsListSection: "nnOTTmLAJXKRiD2yyn3Zy",
 	Title: "_12TaaD8c9mqsb61o6m6nr1",
 	StandardControl: "pywHIi8MBtTWNlCbZ_7Qx",

@@ -1,51 +1,44 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require("./20189.js");
-var s = a;
-var o = require("./64608.js");
-var l = require("./35488.js");
-var c = require("./43397.js");
+import n from "./63696.js";
+import i, { PA } from "./41230.js";
+import a from "./20189.js";
+import o from "./64608.js";
+import l from "./35488.js";
+import { Ri } from "./43397.js";
+const s = a;
 export function aU(e) {
-	const { title: t, children: r } = e;
-	return n.createElement(
-		"div",
-		{
-			className: s.PanelSection,
-		},
-		t &&
-			n.createElement(
-				"div",
-				{
-					className: s.PanelSectionTitle,
-				},
-				n.createElement(
-					"div",
-					{
-						className: s.Text,
-					},
-					t,
-				),
-				e.spinner && n.createElement(l.Spinner, null),
-			),
-		r,
+	const { title, children } = e;
+	return (
+		<div className={s.PanelSection}>
+			{title && (
+				<div className={s.PanelSectionTitle}>
+					<div className={s.Text}>{title}</div>
+					{e.spinner && <l.Spinner />}
+				</div>
+			)}
+			{children}
+		</div>
 	);
 }
-(0, i.PA)((e) => {
-	const { checked: t, onChange: r, icon: i, children: a } = e;
-	return n.createElement(o.y4, {
-		label: a,
-		onChange: r,
-		checked: t instanceof Function ? t() : t,
-		padding: "compact",
-		icon: i,
-	});
+PA((e) => {
+	const { checked, onChange, icon, children } = e;
+	return (
+		<o.y4
+			label={children}
+			onChange={onChange}
+			checked={checked instanceof Function ? checked() : checked}
+			padding="compact"
+			icon={icon}
+		/>
+	);
 });
-(0, i.PA)((e) => {
-	const t = e.value;
-	return n.createElement(o.d3, {
-		layout: "inline",
-		...e,
-		value: t instanceof Function ? t() : t,
-	});
+PA((e) => {
+	const e_value = e.value;
+	return (
+		<o.d3
+			layout="inline"
+			{...e}
+			value={e_value instanceof Function ? e_value() : e_value}
+		/>
+	);
 });
-export const kn = (0, c.Ri)(s.PanelSectionRow);
+export const kn = Ri(s.PanelSectionRow);

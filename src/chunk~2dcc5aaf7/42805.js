@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./7470.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./41230.js");
-var l = require("./29547.js");
-var c = require("./91486.js");
-var m = require("./96593.js");
-var u = require("./96000.js");
-var d = require("./52958.js");
-var A = require("./47979.js");
-var p = require("./54043.js");
-var g = require(/*webcrack:missing*/ "./90765.js");
-var h = require(/*webcrack:missing*/ "./52451.js");
-var C = require("./60461.js");
-var _ = C;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./7470.js";
+import s, { Gn } from "./89193.js";
+import o from "./41230.js";
+import l from "./29547.js";
+import c from "./91486.js";
+import m from "./96593.js";
+import u from "./96000.js";
+import d from "./52958.js";
+import A from "./47979.js";
+import p from "./54043.js";
+import { A as A_1 } from "./90765.js";
+import h from "./52451.js";
+import C from "./60461.js";
+const _ = C;
 export let Bj = class extends i.Component {
 	constructor(e) {
 		super(e);
-		(0, s.Gn)(this);
+		Gn(this);
 		this.appId = this.props.appid;
 		this.strCollectionId = this.props.strCollectionId;
 		this.includeMultiSelect = this.props.includeMultiSelect;
@@ -59,33 +59,33 @@ export let Bj = class extends i.Component {
 	renderDragGhost() {
 		const e = this.draggedAppIds.slice(0, 12);
 		const t = document.createElement("div");
-		const r = i.createElement(b, {
-			rgAppIds: e,
-		});
+		const r = <B rgAppIds={e} />;
 		a.H(t).render(r);
 		const n = 80 + (e.length - 1) * 22;
-		return i.createElement(p._H, {
-			elContent: t,
-			className: _.GhostContainer,
-			offsetX: n / 2,
-			width: n,
-			offsetY: 40,
-			height: 120,
-		});
+		return (
+			<p._H
+				elContent={t}
+				className={_.GhostContainer}
+				offsetX={n / 2}
+				width={n}
+				offsetY={40}
+				height={120}
+			/>
+		);
 	}
 	render() {
 		const {
-			appid: e,
-			strCollectionId: t,
-			includeMultiSelect: r,
-			className: n,
-			children: a,
+			appid,
+			strCollectionId,
+			includeMultiSelect,
+			className,
+			children,
 			...s
 		} = this.props;
 		const o = d._.GetDragData("apps");
 		const c = new l.q(this.props.appid, this.props.strCollectionId);
 		const u = o && o.some((e) => e.key == c.key);
-		const A = (function (e) {
+		const A = ((e) => {
 			const t = new Map();
 			t.set("text/appids", e.map((e) => e.toString()).join(" "));
 			const r = [];
@@ -111,64 +111,60 @@ export let Bj = class extends i.Component {
 			}
 			return t;
 		})(this.draggedAppIds);
-		return i.createElement(
-			p.sx,
-			{
-				coordinator: d._.GetCoordinator(),
-				data: this.draggedAppIds,
-				bEnableHTMLDrag: true,
-				strHTMLDragData: A,
-				fnOnDragStart: this.OnDragStart,
-				fnOnDragEnd: this.OnDragEnd,
-				fnRenderDragGhost: this.renderDragGhost,
-				fnRenderDropGhost: () => null,
-				className: (0, g.A)(n, _.Draggable, u && _.Active),
-				...s,
-			},
-			a,
+		return (
+			<p.sx
+				coordinator={d._.GetCoordinator()}
+				data={this.draggedAppIds}
+				bEnableHTMLDrag
+				strHTMLDragData={A}
+				fnOnDragStart={this.OnDragStart}
+				fnOnDragEnd={this.OnDragEnd}
+				fnRenderDragGhost={this.renderDragGhost}
+				fnRenderDropGhost={() => null}
+				className={A_1(className, _.Draggable, u && _.Active)}
+				{...s}
+			>
+				{children}
+			</p.sx>
 		);
 	}
 };
-(0, n.Cg)([s.sH], Bj.prototype, "appId", undefined);
-(0, n.Cg)([s.sH], Bj.prototype, "strCollectionId", undefined);
-(0, n.Cg)([s.sH], Bj.prototype, "includeMultiSelect", undefined);
-(0, n.Cg)([s.EW], Bj.prototype, "draggedApps", null);
-(0, n.Cg)([s.EW], Bj.prototype, "draggedAppIds", null);
-(0, n.Cg)([h.oI], Bj.prototype, "OnDragStart", null);
-(0, n.Cg)([h.oI], Bj.prototype, "OnDragEnd", null);
-(0, n.Cg)([h.oI], Bj.prototype, "renderDragGhost", null);
-Bj = (0, n.Cg)([o.PA], Bj);
-class b extends i.Component {
+Cg([s.sH], Bj.prototype, "appId", undefined);
+Cg([s.sH], Bj.prototype, "strCollectionId", undefined);
+Cg([s.sH], Bj.prototype, "includeMultiSelect", undefined);
+Cg([s.EW], Bj.prototype, "draggedApps", null);
+Cg([s.EW], Bj.prototype, "draggedAppIds", null);
+Cg([h.oI], Bj.prototype, "OnDragStart", null);
+Cg([h.oI], Bj.prototype, "OnDragEnd", null);
+Cg([h.oI], Bj.prototype, "renderDragGhost", null);
+Bj = Cg([o.PA], Bj);
+class B extends i.Component {
 	render() {
 		this.props.rgAppIds.reverse();
-		return i.createElement(
-			"div",
-			{
-				className: _.Ghost,
-			},
-			this.props.rgAppIds.map((e) =>
-				i.createElement(
-					"div",
-					{
-						key: e,
-						style: {
-							marginTop: "-" + this.props.rgAppIds.indexOf(e) * 6 + "px",
-						},
-						className: (0, g.A)(
+		return (
+			<div className={_.Ghost}>
+				{this.props.rgAppIds.map((e) => (
+					<div
+						key={e}
+						style={{
+							marginTop: `-${this.props.rgAppIds.indexOf(e) * 6}px`,
+						}}
+						className={A_1(
 							_.GhostImageBox,
 							this.props.rgAppIds.indexOf(e) == this.props.rgAppIds.length - 1
 								? _.First
 								: "",
-						),
-					},
-					i.createElement(c.z, {
-						key: e,
-						className: _.Image,
-						app: m.tw.GetAppOverviewByAppID(e),
-						eAssetType: 0,
-					}),
-				),
-			),
+						)}
+					>
+						<c.z
+							key={e}
+							className={_.Image}
+							app={m.tw.GetAppOverviewByAppID(e)}
+							eAssetType={0}
+						/>
+					</div>
+				))}
+			</div>
 		);
 	}
 }
@@ -187,54 +183,58 @@ export let _k = class extends i.Component {
 	}
 	render() {
 		const {
-			strTargetId: e,
-			fnBCanAcceptApps: t,
-			fnOnDroppedApps: r,
-			strEligibleClassName: n,
-			strTargetedClassName: a,
-			fnOnTargetEntered: s,
-			fnOnTargetLeft: o,
-			className: l,
-			children: c,
+			strTargetId,
+			fnBCanAcceptApps,
+			fnOnDroppedApps,
+			strEligibleClassName,
+			strTargetedClassName,
+			fnOnTargetEntered,
+			fnOnTargetLeft,
+			className,
+			children,
 			...m
 		} = this.props;
-		const u = t && ((e) => t(e.props.data));
-		const A = (0, g.A)(l, d._.BIsDropTarget(e) && a);
-		return i.createElement(
-			p.cL,
-			{
-				coordinator: d._.GetCoordinator(),
-				fnBAcceptDraggable: u,
-				fnOnDrop: (e) => r(e.props.data),
-				fnOnDragEnter: (t) => this.OnDragIn(t, e),
-				fnOnDragLeave: (t) => this.OnDragOut(t, e),
-				className: A,
-				strActiveClassName: n,
-				...m,
-			},
-			c,
+		const u = fnBCanAcceptApps && ((e) => fnBCanAcceptApps(e.props.data));
+		const A = A_1(
+			className,
+			d._.BIsDropTarget(strTargetId) && strTargetedClassName,
+		);
+		return (
+			<p.cL
+				coordinator={d._.GetCoordinator()}
+				fnBAcceptDraggable={u}
+				fnOnDrop={(e) => fnOnDroppedApps(e.props.data)}
+				fnOnDragEnter={(t) => this.OnDragIn(t, strTargetId)}
+				fnOnDragLeave={(t) => this.OnDragOut(t, strTargetId)}
+				className={A}
+				strActiveClassName={strEligibleClassName}
+				{...m}
+			>
+				{children}
+			</p.cL>
 		);
 	}
 };
-(0, n.Cg)([h.oI], _k.prototype, "OnDragIn", null);
-(0, n.Cg)([h.oI], _k.prototype, "OnDragOut", null);
-_k = (0, n.Cg)([o.PA], _k);
+Cg([h.oI], _k.prototype, "OnDragIn", null);
+Cg([h.oI], _k.prototype, "OnDragOut", null);
+_k = Cg([o.PA], _k);
 export let wf = class extends i.Component {
 	render() {
-		const { strCollectionId: e, ...t } = this.props;
-		const r = e && u.md.GetCollection(e);
+		const { strCollectionId, ...t } = this.props;
+		const r = strCollectionId && u.md.GetCollection(strCollectionId);
 		const n = r && r.bAllowsDragAndDrop && r.AsDragDropCollection();
-		return i.createElement(
-			_k,
-			{
-				strTargetId: e,
-				fnBCanAcceptApps: (e) => n && e.some((e) => !n.apps.has(e)),
-				fnOnDroppedApps: (e) =>
-					n && n.AddApps(e.map((e) => m.tw.GetAppOverviewByAppID(e))),
-				...t,
-			},
-			this.props.children,
+		return (
+			<_k
+				strTargetId={strCollectionId}
+				fnBCanAcceptApps={(e) => n && e.some((e) => !n.apps.has(e))}
+				fnOnDroppedApps={(e) =>
+					n && n.AddApps(e.map((e) => m.tw.GetAppOverviewByAppID(e)))
+				}
+				{...t}
+			>
+				{this.props.children}
+			</_k>
 		);
 	}
 };
-wf = (0, n.Cg)([o.PA], wf);
+wf = Cg([o.PA], wf);

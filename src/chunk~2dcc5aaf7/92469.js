@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SteamAwardContainer: "_3n6v2rFCMX3yWMfZrlCn6g",
 	InLibraryView: "pqLczqVU9TDbWz5pl3Dhl",
 	SVGIcon_DialogCheck: "_3ccByQfkFeqPu_u0ZEuu2b",

@@ -1,10 +1,10 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./49810.js");
-var s = require("./14628.js");
-const o = r.createContext({});
+import r from "./63696.js";
+import i from "./49810.js";
+import s from "./14628.js";
+const OContext = r.createContext({});
 r.createContext(undefined);
 export function nn(e) {
-	const { children: t, ...n } = e;
+	const { children, ...n } = e;
 	const i = n9();
 	const s = r.useMemo(
 		() => ({
@@ -13,16 +13,10 @@ export function nn(e) {
 		}),
 		[i, n.domain, n.controller, n.method, n.submethod, n.feature, n.depth],
 	);
-	return r.createElement(
-		o.Provider,
-		{
-			value: s,
-		},
-		t,
-	);
+	return <OContext.Provider value={s}>{children}</OContext.Provider>;
 }
 export function n9() {
-	return r.useContext(o);
+	return r.useContext(OContext);
 }
 export function pn(e, t, n) {
 	return {
@@ -62,10 +56,7 @@ export function bV(e, t, n, r) {
 	return i.A.AddNavParamToURL(t, s);
 }
 export function Fh(e) {
-	const { href: t, ...n } = e;
-	const i = aL(t);
-	return r.createElement("a", {
-		...n,
-		href: i,
-	});
+	const { href, ...n } = e;
+	const i = aL(href);
+	return <a {...n} href={i} />;
 }

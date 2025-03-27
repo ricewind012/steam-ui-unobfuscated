@@ -1,23 +1,52 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./88244.js");
-var o = require(/*webcrack:missing*/ "./42318.js");
-var l = require("./56262.js");
-var c = require("./2326.js");
-var m = require("./80478.js");
-var u = require("./91486.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var p = require("./1965.js");
-var g = require("./46424.js");
-var h = require("./18057.js");
-var C = require("./18869.js");
-var _ = require("./84697.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { PA } from "./41230.js";
+import s from "./88244.js";
+import o from "./42318.js";
+import l from "./56262.js";
+import c from "./2326.js";
+import m from "./80478.js";
+import u from "./91486.js";
+import { A } from "./90765.js";
+import p from "./1965.js";
+import g from "./46424.js";
+import h, { jb, Qt } from "./18057.js";
+import C, { br } from "./18869.js";
+import _ from "./84697.js";
+import w from "./3651.js";
+import B from "./57665.js";
+import v from "./15448.js";
+import I from "./22165.js";
+import E from "./57150.js";
+import M from "./71333.js";
+import T from "./52470.js";
+import R from "./81452.js";
+import k from "./77163.js";
+import D from "./38857.js";
+import N from "./17914.js";
+import O from "./91152.js";
+import P from "./80629.js";
+import z from "./50376.js";
+import U from "./41092.js";
+import V from "./87935.js";
+import H from "./56726.js";
+import Q from "./71769.js";
+import Z from "./72476.js";
+import Y, { ID } from "./44846.js";
+import K from "./52451.js";
+import X from "./20590.js";
+import J from "./81863.js";
+import $ from "./78057.js";
+import ee from "./22091.js";
+import te from "./69359.js";
+import ne from "./9066.js";
+import { qw } from "./89748.js";
+import ae from "./53074.js";
 var f = _;
-const b = (0, a.PA)(function (e) {
-	const { details: t, overview: r } = e;
-	if (t.vecMusicAlbums.length || t.strManualURL) {
+const b = PA(function (e) {
+	const { details, overview } = e;
+	if (details.vecMusicAlbums.length || details.strManualURL) {
 		return i.createElement(
 			p.n,
 			{
@@ -29,16 +58,16 @@ const b = (0, a.PA)(function (e) {
 			i.createElement(
 				p.n.Body,
 				null,
-				t.vecMusicAlbums.map((e) =>
-					i.createElement(y, {
+				details.vecMusicAlbums.map((e) => {
+					return i.createElement(y, {
 						content: e,
 						key: "key" + e.unAppID,
-					}),
-				),
-				t.strManualURL &&
+					});
+				}),
+				details.strManualURL &&
 					i.createElement(S, {
-						overview: r,
-						details: t,
+						overview: overview,
+						details: details,
 					}),
 			),
 		);
@@ -47,19 +76,21 @@ const b = (0, a.PA)(function (e) {
 	}
 });
 function y(e) {
-	const { content: t } = e;
-	const r = (0, C.br)();
+	const { content } = e;
+	const r = br();
 	return i.createElement(
 		"div",
 		{
-			className: (0, d.A)(f.AdditionalItem, f.Soundtracks),
-			onClick: () => r.App(t.unAppID),
-			key: "key" + t.unAppID,
+			className: A(f.AdditionalItem, f.Soundtracks),
+			onClick: () => {
+				return r.App(content.unAppID);
+			},
+			key: "key" + content.unAppID,
 		},
 		i.createElement(g.j2, {
 			key: "image",
 			className: f.Image,
-			appid: t.unAppID,
+			appid: content.unAppID,
 		}),
 		i.createElement(
 			"div",
@@ -73,7 +104,7 @@ function y(e) {
 					key: "title",
 					className: f.Title,
 				},
-				t.strName,
+				content.strName,
 			),
 			i.createElement(
 				"div",
@@ -82,7 +113,7 @@ function y(e) {
 					className: f.Artist,
 				},
 				i.createElement(g.F9, {
-					appid: t.unAppID,
+					appid: content.unAppID,
 				}),
 			),
 			i.createElement(
@@ -92,19 +123,19 @@ function y(e) {
 					className: f.TracksDetails,
 				},
 				i.createElement(g.p, {
-					appid: t.unAppID,
+					appid: content.unAppID,
 				}),
 			),
 		),
 	);
 }
 function S(e) {
-	const { overview: t, details: r } = e;
-	const n = (0, h.jb)(r.strManualURL);
+	const { overview, details } = e;
+	const n = jb(details.strManualURL);
 	return i.createElement(
 		"div",
 		{
-			className: (0, d.A)(f.AdditionalItem, f.Manual),
+			className: A(f.AdditionalItem, f.Manual),
 			onClick: n,
 		},
 		i.createElement(
@@ -114,7 +145,7 @@ function S(e) {
 			},
 			i.createElement(u.z, {
 				className: f.AssetImage,
-				app: t,
+				app: overview,
 				eAssetType: 3,
 			}),
 		),
@@ -127,17 +158,6 @@ function S(e) {
 		),
 	);
 }
-var w = require("./3651.js");
-var B = require("./57665.js");
-var v = require("./15448.js");
-var I = require("./22165.js");
-var E = require("./57150.js");
-var M = require("./71333.js");
-var T = require("./52470.js");
-var R = require("./81452.js");
-var k = require("./77163.js");
-var D = require("./38857.js");
-var N = require("./17914.js");
 var F = N;
 class G extends i.Component {
 	render() {
@@ -160,10 +180,7 @@ class G extends i.Component {
 		);
 	}
 }
-var O = require("./91152.js");
-var P = require("./80629.js");
 var L = P;
-var z = require(/*webcrack:missing*/ "./50376.js");
 class x extends i.Component {
 	render() {
 		return i.createElement(
@@ -217,19 +234,16 @@ class x extends i.Component {
 		);
 	}
 }
-var U = require("./41092.js");
 var W = U;
-var V = require("./87935.js");
-var H = require("./56726.js");
 const j = (e) => {
 	let [t, r] = i.useState(false);
-	let n = e.details;
-	let a = V.B7.GetStoreURL() + "app/" + n?.unMasterSubAppID;
-	let s = (0, h.Qt)(a);
-	if (!n.unMasterSubAppID) {
+	let e_details = e.details;
+	let a = V.B7.GetStoreURL() + "app/" + e_details?.unMasterSubAppID;
+	let s = Qt(a);
+	if (!e_details.unMasterSubAppID) {
 		return null;
 	}
-	let o = n.strMasterSubIncludedWith;
+	let e_details_strMasterSubIncludedWith = e_details.strMasterSubIncludedWith;
 	let l = {};
 	if (!t) {
 		l.display = "none";
@@ -251,8 +265,10 @@ const j = (e) => {
 				},
 				i.createElement("img", {
 					className: W.IncludedBanner,
-					src: o,
-					onLoad: () => r(true),
+					src: e_details_strMasterSubIncludedWith,
+					onLoad: () => {
+						return r(true);
+					},
 				}),
 			),
 			i.createElement(
@@ -266,19 +282,7 @@ const j = (e) => {
 	);
 };
 var q;
-var Q = require("./71769.js");
-var Z = require(/*webcrack:missing*/ "./72476.js");
-var Y = require(/*webcrack:missing*/ "./44846.js");
-var K = require(/*webcrack:missing*/ "./52451.js");
-var X = require(/*webcrack:missing*/ "./20590.js");
-var J = require("./81863.js");
-var $ = require("./78057.js");
-var ee = require("./22091.js");
-var te = require("./69359.js");
 var re = te;
-var ne = require("./9066.js");
-var ie = require("./89748.js");
-var ae = require("./53074.js");
 export let N_ = class extends i.Component {
 	static {
 		q = this;
@@ -353,7 +357,7 @@ export let N_ = class extends i.Component {
 	}
 	m_setSectionsMemo;
 	GetSections(e, t) {
-		const r = (0, Y.ID)(Z.TS.LAUNCHER_TYPE);
+		const r = ID(Z.TS.LAUNCHER_TYPE);
 		const n = [
 			"info",
 			"spotlightdemo",
@@ -393,13 +397,15 @@ export let N_ = class extends i.Component {
 			a = i;
 		}
 		if (r) {
-			a = a.filter((e) => !["community"].includes(e));
+			a = a.filter((e) => {
+				return !["community"].includes(e);
+			});
 		}
 		const s = new Set(a);
 		if ($.H.BIsWorkshopVisible(t)) {
 			s.add("workshop");
 		}
-		if ((0, ie.qw)().BIsOfflineMode()) {
+		if (qw().BIsOfflineMode()) {
 			s.add("offline");
 		}
 		if (ee.Fd.Get().GetControllers().length > 0) {
@@ -424,7 +430,7 @@ export let N_ = class extends i.Component {
 		return i.createElement(
 			"div",
 			{
-				className: (0, d.A)(re.Container, re.Glassy),
+				className: A(re.Container, re.Glassy),
 			},
 			i.createElement(
 				"div",
@@ -454,58 +460,58 @@ export let N_ = class extends i.Component {
 		);
 	}
 };
-(0, n.Cg)([K.oI], N_.prototype, "OnHeaderWaypointLeave", null);
-(0, n.Cg)([K.oI], N_.prototype, "OnHeaderWaypointEnter", null);
-(0, n.Cg)([K.oI], N_.prototype, "onGameInfoToggle", null);
-(0, n.Cg)([K.oI], N_.prototype, "RegisterSection", null);
-(0, n.Cg)([K.oI], N_.prototype, "SeekToSection", null);
-N_ = q = (0, n.Cg)([a.PA], N_);
-export const AC = i.createContext(function (e) {
+Cg([K.oI], N_.prototype, "OnHeaderWaypointLeave", null);
+Cg([K.oI], N_.prototype, "OnHeaderWaypointEnter", null);
+Cg([K.oI], N_.prototype, "onGameInfoToggle", null);
+Cg([K.oI], N_.prototype, "RegisterSection", null);
+Cg([K.oI], N_.prototype, "SeekToSection", null);
+N_ = q = Cg([a.PA], N_);
+export const ACContext = i.createContext(function (e) {
 	const {
-		parentComponent: t,
-		setSections: r,
-		concise: n,
-		overview: a,
-		details: u,
-		onGameInfoToggle: A,
-		bStickyHeader: p,
-		bFastRender: g,
-		bShowGameInfo: h,
-		bSuppressTransition: C,
-		bShowingLaunchDetails: _,
+		parentComponent,
+		setSections,
+		concise,
+		overview,
+		details,
+		onGameInfoToggle,
+		bStickyHeader,
+		bFastRender,
+		bShowGameInfo,
+		bSuppressTransition,
+		bShowingLaunchDetails,
 	} = e;
-	const f = $.H.BIsWorkshopVisible(u);
+	const f = $.H.BIsWorkshopVisible(details);
 	return i.createElement(
 		i.Fragment,
 		null,
 		i.createElement(l.XC, {
-			key: a.appid,
-			className: p && re.HidePlayBar,
+			key: overview.appid,
+			className: bStickyHeader && re.HidePlayBar,
 			bInPage: true,
-			details: u,
-			overview: a,
-			stickyheader: p,
-			onGameInfoToggle: A,
-			onSeek: t.SeekToSection,
-			bShowInfoExpanded: h,
-			bShowingLaunchDetails: _,
+			details: details,
+			overview: overview,
+			stickyheader: bStickyHeader,
+			onGameInfoToggle: onGameInfoToggle,
+			onSeek: parentComponent.SeekToSection,
+			bShowInfoExpanded: bShowGameInfo,
+			bShowingLaunchDetails: bShowingLaunchDetails,
 		}),
-		a.is_invalid_os_type && i.createElement(x, null),
-		r.has("info") &&
+		overview.is_invalid_os_type && i.createElement(x, null),
+		setSections.has("info") &&
 			i.createElement(v.b, {
-				concise: n,
-				overview: a,
-				details: u,
-				expand: h,
-				suppressTransition: C,
+				concise: concise,
+				overview: overview,
+				details: details,
+				expand: bShowGameInfo,
+				suppressTransition: bSuppressTransition,
 			}),
 		i.createElement(T.Qd, {
-			overview: a,
-			details: u,
+			overview: overview,
+			details: details,
 			workshopVisible: f,
-			marketPresence: $.H.BHasMarketPresence(u),
+			marketPresence: $.H.BHasMarketPresence(details),
 		}),
-		!g &&
+		!bFastRender &&
 			i.createElement(
 				"div",
 				{
@@ -514,35 +520,35 @@ export const AC = i.createContext(function (e) {
 				i.createElement(
 					"div",
 					{
-						className: (0, d.A)(
+						className: onGameInfoToggle(
 							re.Spotlights,
 							s.o.rightPanelWidth >= parseInt(re.SpotlightBreakToLeftColumn) &&
 								re.SpotlightLeftColumn,
 						),
 					},
-					r.has("timedtrialbanner") &&
+					setSections.has("timedtrialbanner") &&
 						i.createElement(J.P, {
-							overview: a,
-							details: u,
+							overview: overview,
+							details: details,
 						}),
-					r.has("spotlightdlc") &&
+					setSections.has("spotlightdlc") &&
 						i.createElement(D.Pp, {
-							details: u,
+							details: details,
 						}),
-					r.has("spotlightreview") &&
+					setSections.has("spotlightreview") &&
 						i.createElement(D.Cz, {
-							parent: u,
-							overview: a,
-							onSeek: t.SeekToSection,
+							parent: details,
+							overview: overview,
+							onSeek: parentComponent.SeekToSection,
 						}),
-					r.has("postgamesummary") &&
+					setSections.has("postgamesummary") &&
 						i.createElement(ae.T, {
-							details: u,
+							details: details,
 						}),
-					r.has("spotlightdemo") &&
+					setSections.has("spotlightdemo") &&
 						i.createElement(D.Be, {
-							overview: a,
-							details: u,
+							overview: overview,
+							details: details,
 						}),
 				),
 				i.createElement(
@@ -550,24 +556,24 @@ export const AC = i.createContext(function (e) {
 					{
 						className: re.RightColumn,
 					},
-					r.has("controller") &&
+					setSections.has("controller") &&
 						i.createElement(
 							o.tH,
 							null,
 							i.createElement(Q.Ve, {
-								details: u,
-								overview: a,
+								details: details,
+								overview: overview,
 							}),
 						),
-					r.has("mastersubincluded") &&
+					setSections.has("mastersubincluded") &&
 						i.createElement(
 							o.tH,
 							null,
 							i.createElement(j, {
-								details: u,
+								details: details,
 							}),
 						),
-					r.has("friends") &&
+					setSections.has("friends") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -575,14 +581,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "friends",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(c.yj, {
-									details: u,
+									details: details,
 								}),
 							),
 						),
-					r.has("additionalcontent") &&
+					setSections.has("additionalcontent") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -590,15 +596,15 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "additionalcontent",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(b, {
-									overview: a,
-									details: u,
+									overview: overview,
+									details: details,
 								}),
 							),
 						),
-					r.has("achievements") &&
+					setSections.has("achievements") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -606,14 +612,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "achievements",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(B.tm, {
-									details: u,
+									details: details,
 								}),
 							),
 						),
-					r.has("notes") &&
+					setSections.has("notes") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -621,15 +627,15 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "notes",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(ne.E, {
-									overview: a,
-									details: u,
+									overview: overview,
+									details: details,
 								}),
 							),
 						),
-					r.has("cards") &&
+					setSections.has("cards") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -637,14 +643,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "cards",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(I.LB, {
-									details: u,
+									details: details,
 								}),
 							),
 						),
-					r.has("dlc") &&
+					setSections.has("dlc") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -652,14 +658,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "dlc",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(w.Kf, {
-									details: u,
+									details: details,
 								}),
 							),
 						),
-					r.has("workshop") &&
+					setSections.has("workshop") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -667,14 +673,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "workshop",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(R.y, {
-									details: u,
+									details: details,
 								}),
 							),
 						),
-					r.has("screenshots") &&
+					setSections.has("screenshots") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -682,29 +688,31 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "screenshots",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(E.E, {
-									overview: a,
-									details: u,
+									overview: overview,
+									details: details,
 								}),
 							),
 						),
-					r.has("review") &&
+					setSections.has("review") &&
 						i.createElement(
 							o.tH,
 							{
-								fallback: () => null,
+								fallback: () => {
+									return null;
+								},
 							},
 							i.createElement(
 								UL,
 								{
 									name: "review",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(M.h, {
-									details: u,
-									overview: a,
+									details: details,
+									overview: overview,
 								}),
 							),
 						),
@@ -714,12 +722,12 @@ export const AC = i.createContext(function (e) {
 					{
 						className: re.LeftColumn,
 					},
-					r.has("nonsteam") &&
+					setSections.has("nonsteam") &&
 						i.createElement(G, {
-							overview: a,
+							overview: overview,
 						}),
-					r.has("offline") && i.createElement(O.t, null),
-					r.has("activityrollup") &&
+					setSections.has("offline") && i.createElement(O.t, null),
+					setSections.has("activityrollup") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -727,14 +735,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "activityrollup",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(m.M, {
-									appid: a.appid,
+									appid: overview.appid,
 								}),
 							),
 						),
-					r.has("activity") &&
+					setSections.has("activity") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -742,14 +750,14 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "activity",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(m.W, {
-									appid: a.appid,
+									appid: overview.appid,
 								}),
 							),
 						),
-					r.has("community") &&
+					setSections.has("community") &&
 						i.createElement(
 							o.tH,
 							null,
@@ -757,10 +765,10 @@ export const AC = i.createContext(function (e) {
 								UL,
 								{
 									name: "community",
-									parent: t,
+									parent: parentComponent,
 								},
 								i.createElement(k.w, {
-									appid: a.appid,
+									appid: overview.appid,
 								}),
 							),
 						),
@@ -769,7 +777,7 @@ export const AC = i.createContext(function (e) {
 	);
 });
 function le(e) {
-	const t = i.useContext(AC);
+	const t = i.useContext(ACContext);
 	return i.createElement(t, {
 		...e,
 	});

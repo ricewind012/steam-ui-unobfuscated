@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	TimelineAndControls: "_2G2FIPyhka7tjBlsXqvWD3",
 	PlayerAndTimeline: "_3dKsXj_Ka7VMoXWPwlKrxc",
 	VideoPlayerContainer: "isyHTP860Su66qLXg8c4A",

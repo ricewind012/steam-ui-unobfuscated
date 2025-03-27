@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Login: "_1sc-BFvGe6huemAE5yVozQ",
 	FormContainer: "_3R49HZAhzqgqpY30mybZMT",

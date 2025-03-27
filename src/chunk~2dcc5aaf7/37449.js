@@ -33,7 +33,9 @@ export const B = {
 			},
 		},
 		AppInCollection: (e, t) =>
-			`${a}/collection/${e ? encodeURIComponent(e) : ":collectionid"}/${t ?? ":appid"}`,
+			`${a}/collection/${e ? encodeURIComponent(e) : ":collectionid"}/${
+				t ?? ":appid"
+			}`,
 		Collection: (e) =>
 			`${a}/collection/${e ? encodeURIComponent(e) : ":collectionid"}`,
 		AllCollections: () => `${a}/collections`,
@@ -135,7 +137,12 @@ export const B = {
 			VirtualMenus: (e) => `${u(e)}/virtualmenus`,
 			ChooseBinding: (e) => `${u(e)}/choosebinding`,
 			ModeSettings: (e, t, r, n, i, a, s, o) =>
-				`${u(e)}/modesettings/${((e, t, r, n, i, a, s) => `${t ?? ":strBaseActionSetKey"}/${r ?? ":strLayerActionSetKey"}/${n ?? ":eControllerSource"}/${e ?? ":modeKey"}/${i ?? ":modeId"}/${a ?? ":index"}/${s ?? ":modeshift"}`)(t, r, n, i, a, s, o)}`,
+				`${u(e)}/modesettings/${((e, t, r, n, i, a, s) =>
+					`${t ?? ":strBaseActionSetKey"}/${r ?? ":strLayerActionSetKey"}/${
+						n ?? ":eControllerSource"
+					}/${e ?? ":modeKey"}/${i ?? ":modeId"}/${a ?? ":index"}/${
+						s ?? ":modeshift"
+					}`)(t, r, n, i, a, s, o)}`,
 			MousePosition: (e) => `${u(e)}/mouseposition`,
 			ChooseConfiguration: {
 				Root: (e) => `${u(e)}/chooseconfiguration`,

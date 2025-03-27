@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./79769.js");
-var i = require("./64880.js");
-var a = require("./85606.js");
-var s = require(/*webcrack:missing*/ "./12176.js");
-var o = require("./5640.js");
-var l = require("./96593.js");
-var c = require("./5859.js");
-var m = require("./34792.js");
+import n, { Jc } from "./79769.js";
+import i from "./64880.js";
+import { rV, Bn, hc } from "./85606.js";
+import s from "./12176.js";
+import o from "./5640.js";
+import l from "./96593.js";
+import c from "./5859.js";
+import m from "./34792.js";
 export const U = new (class {
 	m_cm;
-	m_strSearchText = (0, n.Jc)("");
+	m_strSearchText = Jc("");
 	async Init(e) {
 		this.m_cm = e;
 	}
@@ -30,8 +30,8 @@ export const U = new (class {
 		}
 		{
 			let r = s.w.Init(i.pI);
-			(0, a.rV)(r);
-			(0, a.Bn)(r, {
+			rV(r);
+			Bn(r, {
 				include_basic_info: true,
 				include_assets: true,
 				include_platforms: true,
@@ -43,7 +43,7 @@ export const U = new (class {
 				},
 				content_descriptors_excluded: m.rV.excludedStoreContentDescriptors,
 			};
-			(0, a.hc)(r, n);
+			hc(r, n);
 			r.Body().set_query_name("SearchStore.FetchSearchSuggestions");
 			r.Body().set_search_term(e);
 			r.Body().set_max_results(t);

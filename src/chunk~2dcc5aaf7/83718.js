@@ -1,21 +1,21 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require("./96680.js");
-var o = require(/*webcrack:missing*/ "./11131.js");
-var l = require(/*webcrack:missing*/ "./63439.js");
-var c = require(/*webcrack:missing*/ "./42318.js");
-var m = require(/*webcrack:missing*/ "./91435.js");
-var u = require(/*webcrack:missing*/ "./27773.js");
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require("./22176.js");
-var p = A;
-var g = require("./35488.js");
-var h = require(/*webcrack:missing*/ "./98995.js");
-var C = require("./19696.js");
-var _ = require("./23600.js");
-var f = require("./32411.js");
-export const bj = n.createContext({
+import n from "./63696.js";
+import i from "./78325.js";
+import a, { A as A_1 } from "./90765.js";
+import s, { $2 } from "./96680.js";
+import o from "./11131.js";
+import l, { h3, OJ } from "./63439.js";
+import c, { Nr } from "./42318.js";
+import m from "./91435.js";
+import u from "./27773.js";
+import { Ue, cZ, wY } from "./52451.js";
+import A from "./22176.js";
+import g from "./35488.js";
+import h from "./98995.js";
+import C from "./19696.js";
+import _ from "./23600.js";
+import f from "./32411.js";
+const p = A;
+export const BjContext = n.createContext({
 	width: undefined,
 	height: undefined,
 });
@@ -38,107 +38,91 @@ export function aS(e, t, r, i) {
 }
 function S(e) {
 	const {
-		bPinned: t,
-		bShowPinnedView: r,
-		onTogglePin: i,
-		onPinnedOpacity: s,
-		bFlipped: o,
-		onToggleFlip: l,
-		extraTitleBarActions: c,
+		bPinned,
+		bShowPinnedView,
+		onTogglePin,
+		onPinnedOpacity,
+		bFlipped,
+		onToggleFlip,
+		extraTitleBarActions,
 	} = e;
-	return n.createElement(
-		n.Fragment,
-		null,
-		i &&
-			n.createElement(
-				u.g,
-				{
-					className: (0, a.A)(p.PinWindowButton, t && p.Pinned),
-					onClick: i,
-				},
-				n.createElement(
-					h.he,
-					{
-						className: p.WindowButtonTooltip,
-						toolTipContent: "#UserGameNotes_PinWindow",
-						direction: "top",
-					},
-					n.createElement(g.Pin, null),
-				),
-			),
-		i &&
-			t &&
-			!r &&
-			n.createElement(
-				u.g,
-				{
-					className: p.OpacityButton,
-					onClick: s,
-				},
-				n.createElement(
-					h.he,
-					{
-						className: p.WindowButtonTooltip,
-						toolTipContent: "#UserGameNotes_WindowOpacity",
-						direction: "top",
-					},
-					n.createElement(g.Opacity, null),
-				),
-			),
-		l &&
-			n.createElement(
-				u.g,
-				{
-					className: (0, a.A)(p.FlipWindowButton, o && p.Flipped),
-					onClick: l,
-				},
-				n.createElement(
-					h.he,
-					{
-						className: p.WindowButtonTooltip,
-						toolTipContent: "#UserGameNotes_FlipWindow",
-						direction: "top",
-					},
-					n.createElement(g.Chevron, {
-						className: (0, a.A)(o && p.Flipped),
-					}),
-				),
-			),
-		c,
+	return (
+		<>
+			{onTogglePin && (
+				<u.g
+					className={A_1(p.PinWindowButton, bPinned && p.Pinned)}
+					onClick={onTogglePin}
+				>
+					<h.he
+						className={p.WindowButtonTooltip}
+						toolTipContent="#UserGameNotes_PinWindow"
+						direction="top"
+					>
+						<g.Pin />
+					</h.he>
+				</u.g>
+			)}
+			{onTogglePin && bPinned && !bShowPinnedView && (
+				<u.g className={p.OpacityButton} onClick={onPinnedOpacity}>
+					<h.he
+						className={p.WindowButtonTooltip}
+						toolTipContent="#UserGameNotes_WindowOpacity"
+						direction="top"
+					>
+						<g.Opacity />
+					</h.he>
+				</u.g>
+			)}
+			{onToggleFlip && (
+				<u.g
+					className={A_1(p.FlipWindowButton, bFlipped && p.Flipped)}
+					onClick={onToggleFlip}
+				>
+					<h.he
+						className={p.WindowButtonTooltip}
+						toolTipContent="#UserGameNotes_FlipWindow"
+						direction="top"
+					>
+						<g.Chevron className={A_1(bFlipped && p.Flipped)} />
+					</h.he>
+				</u.g>
+			)}
+			{extraTitleBarActions}
+		</>
 	);
 }
-export const rG = (0, c.Nr)(function (e) {
+export const rG = Nr((e) => {
 	const {
-		strName: t,
-		strTitle: r,
-		updateParamsBeforeShow: c,
-		onMinimize: A,
-		onMaximize: g,
-		onClose: h,
-		children: y,
-		refPopup: w,
-		bForceWindowFocused: B,
-		bUseSavedDimensions: v,
-		title: I,
-		eCreationFlags: E,
-		bFitToContent: M,
-		className: T = "",
-		titleBarClassName: R,
-		refPinnedPopup: k,
-		bPinned: D,
-		bShowPinnedView: N,
-		bFlipped: F,
-		bShowMin: G,
-		bShowMax: O,
-		bHideResizeGrip: P,
-		bHideWindowControls: L,
+		strName,
+		strTitle,
+		updateParamsBeforeShow,
+		onMinimize,
+		onMaximize,
+		onClose,
+		children,
+		refPopup,
+		bForceWindowFocused,
+		bUseSavedDimensions,
+		title,
+		eCreationFlags,
+		bFitToContent,
+		className = "",
+		titleBarClassName,
+		refPinnedPopup,
+		bPinned,
+		bShowPinnedView,
+		bFlipped,
+		bShowMin,
+		bShowMax,
+		bHideResizeGrip,
+		bHideWindowControls,
 	} = e;
-	const z = (0, s.$2)();
-	const x = `OverlayPopup_${t}`;
-	const U = (0, l.h3)(x);
-	const W = v ? U : {};
-	W.onClose = h;
-	const V = v ? U?.onResize : null;
+	const z = $2();
+	const x = `OverlayPopup_${strName}`;
+	const U = h3(x);
+	const W = bUseSavedDimensions ? U : {};
+	W.onClose = onClose;
+	const V = bUseSavedDimensions ? U?.onResize : null;
 	const H = n.useCallback(
 		(e, t) => {
 			if (V) {
@@ -153,133 +137,112 @@ export const rG = (0, c.Nr)(function (e) {
 		[V],
 	);
 	W.onResize = H;
-	const j = v ? U?.updateParamsBeforeShow : null;
+	const j = bUseSavedDimensions ? U?.updateParamsBeforeShow : null;
 	const q = n.useCallback(
 		(e) => {
 			if (j) {
 				e = j(e);
 			}
-			return (e = c(e));
+			return (e = updateParamsBeforeShow(e));
 		},
-		[c, j],
+		[updateParamsBeforeShow, j],
 	);
 	W.updateParamsBeforeShow = q;
-	const Q = (t ? `${t}_` : "") + n.useId();
-	const { popup: Z, element: Y } = (0, l.OJ)(
+	const Q = (strName ? `${strName}_` : "") + n.useId();
+	const { popup, element } = OJ(
 		Q,
 		{
-			title: r || "",
-			html_class: "fullheight ModalDialogPopup " + T,
-			body_class: "fullheight ModalDialogBody " + p.OverlayPopupBody,
+			title: strTitle || "",
+			html_class: `fullheight ModalDialogPopup ${className}`,
+			body_class: `fullheight ModalDialogBody ${p.OverlayPopupBody}`,
 			popup_class: "fullheight",
 			replace_existing_popup: false,
 			target_browser: z.params.browserInfo,
-			eCreationFlags: E ?? o.Wf.Resizable,
-			bPinned: D,
+			eCreationFlags: eCreationFlags ?? o.Wf.Resizable,
+			bPinned: bPinned,
 		},
 		W,
 	);
-	const { width: K, height: X } = n.useContext(bj);
+	const { width, height } = n.useContext(BjContext);
 	n.useEffect(() => {
-		Z?.SteamClient.Window.GetWindowDimensions().then((e) => {
-			const r = e.x > K || e.y > X;
-			if (Z && r) {
-				console.warn(t, "fully offscreen, moving back to center");
-				Z.SteamClient.Window.MoveTo(
-					Math.ceil(Math.max(0, K / 2 - e.width / 2)),
-					Math.ceil(Math.max(0, X / 2 - e.height / 2)),
+		popup?.SteamClient.Window.GetWindowDimensions().then((e) => {
+			const r = e.x > width || e.y > height;
+			if (popup && r) {
+				console.warn(strName, "fully offscreen, moving back to center");
+				popup.SteamClient.Window.MoveTo(
+					Math.ceil(Math.max(0, width / 2 - e.width / 2)),
+					Math.ceil(Math.max(0, height / 2 - e.height / 2)),
 				);
 			}
 		});
-	}, [t, Z, K, X]);
-	let J = (0, d.Ue)(w, k);
+	}, [strName, popup, width, height]);
+	let J = Ue(refPopup, refPinnedPopup);
 	n.useEffect(() => {
-		(0, d.cZ)(J, Z);
-		return () => (0, d.cZ)(J, null);
-	}, [Z, J]);
+		cZ(J, popup);
+		return () => cZ(J, null);
+	}, [popup, J]);
 	const $ = n.useCallback(
 		(e) => {
-			Z?.SteamClient.Window.ResizeTo(
+			popup?.SteamClient.Window.ResizeTo(
 				Math.ceil(e.borderBoxSize[0].inlineSize),
 				Math.ceil(e.borderBoxSize[0].blockSize),
 				true,
 			);
 		},
-		[Z],
+		[popup],
 	);
-	const ee = (0, d.wY)($);
-	if (!Y) {
+	const ee = wY($);
+	if (!element) {
 		return null;
 	}
-	const te = !M && !P;
-	const re = n.createElement(S, {
-		...e,
-	});
+	const te = !bFitToContent && !bHideResizeGrip;
+	const re = <S {...e} />;
 	return i.createPortal(
-		n.createElement(
-			o.kc,
-			{
-				ownerWindow: Z,
-			},
-			n.createElement(
-				_.w,
-				{
-					bForceWindowFocused: B,
-				},
-				n.createElement(
-					"div",
-					{
-						className: (0, a.A)(
-							p.OverlayPopup,
-							"PopupFullWindow",
-							te && p.Resizable,
-							M && p.FitToContent,
-							N && p.PinnedView,
-							t,
-							F && p.Flipped,
-						),
-						ref: M ? ee : undefined,
-					},
-					!L &&
-						n.createElement(
-							"div",
-							{
-								className: (0, a.A)(p.WindowControls, F && p.Flipped),
-							},
-							n.createElement(f.sl, null),
-							n.createElement(
-								u.c,
-								{
-									popup: Z,
-									className: R,
-									bForceWindowFocused: B,
-									hideMin: !G,
-									hideMax: !O,
-									hideClose: !h || N,
-									onMinimize: A,
-									onMaximize: g,
-									onClose: h,
-									extraActions: re,
-								},
-								I,
-							),
-						),
-					n.createElement(
-						m.EO,
-						{
-							bCenterPopupsOnWindow: true,
-							browserInfo: z.params.browserInfo,
-						},
-						y,
-					),
-				),
-				te &&
-					n.createElement(C.Z, {
-						className: (0, a.A)(p.ResizeGrip, N && p.PinnedView),
-						popup: Z,
-					}),
-			),
-		),
-		Y,
+		<o.kc ownerWindow={popup}>
+			<_.w bForceWindowFocused={bForceWindowFocused}>
+				<div
+					className={A_1(
+						p.OverlayPopup,
+						"PopupFullWindow",
+						te && p.Resizable,
+						bFitToContent && p.FitToContent,
+						bShowPinnedView && p.PinnedView,
+						strName,
+						bFlipped && p.Flipped,
+					)}
+					ref={bFitToContent ? ee : undefined}
+				>
+					{!bHideWindowControls && (
+						<div className={A_1(p.WindowControls, bFlipped && p.Flipped)}>
+							<f.sl />
+							<u.c
+								popup={popup}
+								className={titleBarClassName}
+								bForceWindowFocused={bForceWindowFocused}
+								hideMin={!bShowMin}
+								hideMax={!bShowMax}
+								hideClose={!onClose || bShowPinnedView}
+								onMinimize={onMinimize}
+								onMaximize={onMaximize}
+								onClose={onClose}
+								extraActions={re}
+							>
+								{title}
+							</u.c>
+						</div>
+					)}
+					<m.EO bCenterPopupsOnWindow browserInfo={z.params.browserInfo}>
+						{children}
+					</m.EO>
+				</div>
+				{te && (
+					<C.Z
+						className={A_1(p.ResizeGrip, bShowPinnedView && p.PinnedView)}
+						popup={popup}
+					/>
+				)}
+			</_.w>
+		</o.kc>,
+		element,
 	);
 });

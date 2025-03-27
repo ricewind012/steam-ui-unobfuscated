@@ -1,43 +1,87 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./95773.js");
-var s = require("./52912.js");
-var o = require("./70839.js");
-var l = require("./15855.js");
-var c = require("./92564.js");
-var m = require("./54747.js");
-var u = require(/*webcrack:missing*/ "./63696.js");
-var d = require(/*webcrack:missing*/ "./41230.js");
 import {
 	CopyTextToClipboard,
 	GetOwningWindowForEvent,
 } from "../../actual_src/utils/domutils.js";
-var _p = require(/*webcrack:missing*/ "./83957.js");
-var g = _p;
-var h = require(/*webcrack:missing*/ "./89193.js");
-var C = require("./93023.js");
-var _ = require(/*webcrack:missing*/ "./8573.js");
-var f = require(/*webcrack:missing*/ "./49455.js");
-var b = require("./16154.js");
-var y = require(/*webcrack:missing*/ "./72476.js");
+import {
+	Localize,
+	LocalizePlural,
+} from "../../actual_src/utils/localization.js";
+import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./95773.js";
+import s, { _k } from "./52912.js";
+import o from "./70839.js";
+import l from "./15855.js";
+import c from "./92564.js";
+import m from "./54747.js";
+import u, { useState, useEffect } from "./63696.js";
+import d, { PA } from "./41230.js";
+import _p from "./83957.js";
+import h, { Gn, fm } from "./89193.js";
+import C, { t } from "./93023.js";
+import _ from "./8573.js";
+import f, { w as w_2 } from "./49455.js";
+import b, { H as H_2 } from "./16154.js";
+import y, { Qn, Pr } from "./72476.js";
+import v, { bs, l6, o4 } from "./52451.js";
+import I from "./64608.js";
+import M from "./7822.js";
+import R from "./50376.js";
+import k from "./90242.js";
+import { WQ, Ic } from "./78060.js";
+import { tj, Jw } from "./97422.js";
+import P from "./10606.js";
+import L from "./26853.js";
+import z from "./69164.js";
+import x from "./98829.js";
+import { lY } from "./51095.js";
+import W, { pg } from "./13869.js";
+import { EP } from "./59704.js";
+import H from "./46649.js";
+import ne from "./64587.js";
+import { q3 } from "./90095.js";
+import { A } from "./90765.js";
+import oe from "./66146.js";
+import le from "./8653.js";
+import ce from "./29502.js";
+import ue from "./3756.js";
+import de from "./53414.js";
+import Ae from "./70479.js";
+import he from "./7470.js";
+import Ce from "./23038.js";
+import _e from "./85243.js";
+import fe from "./28987.js";
+import be from "./46382.js";
+import ye from "./73870.js";
+import Se, { R7 } from "./11131.js";
+import we from "./67808.js";
+import Be from "./88750.js";
+import _ve from "./42318.js";
+import Ie from "./91435.js";
+import Ee from "./27773.js";
+import Me from "./19696.js";
+import { OQ } from "./31958.js";
+import Re from "./75144.js";
+import ke from "./17656.js";
+import Ne from "./83857.js";
+import Fe from "./83665.js";
+const g = _p;
 class S {
 	constructor() {
-		(0, h.Gn)(this);
+		Gn(this);
 	}
 	m_mapProfiles = new Map();
 	m_mapProfilesLoading = new Map();
 	async LoadProfiles(e, t) {
-		(0, f.w)(
-			e.length <= 500,
-			"Check LoadProfiles, requesting too many steam IDs",
-		);
+		w_2(e.length <= 500, "Check LoadProfiles, requesting too many steam IDs");
 		let r = e.filter(
 			(e) => !this.m_mapProfiles.has(e) && !this.m_mapProfilesLoading.has(e),
 		);
 		if (r.length == 0) {
 			return this.m_mapProfilesLoading.get(e[0]);
 		}
-		let n = y.TS.COMMUNITY_BASE_URL + "actions/ajaxresolveusers";
+		let n = `${y.TS.COMMUNITY_BASE_URL}actions/ajaxresolveusers`;
 		let i = g.get(n, {
 			params: {
 				steamids: r.join(","),
@@ -50,9 +94,9 @@ class S {
 		if (a.data && a.status == 200) {
 			a.data.forEach((e) => {
 				e.avatar_hash = e.avatar_url;
-				e.avatar_url_medium = (0, C.t)(e.avatar_url, "medium");
-				e.avatar_url_full = (0, C.t)(e.avatar_url, "full");
-				e.avatar_url = (0, C.t)(e.avatar_url);
+				e.avatar_url_medium = t(e.avatar_url, "medium");
+				e.avatar_url_full = t(e.avatar_url, "full");
+				e.avatar_url = t(e.avatar_url);
 				this.m_mapProfiles.set(e.steamid, e);
 				this.m_mapProfilesLoading.delete(e.steamid);
 			});
@@ -86,9 +130,9 @@ class S {
 	GetProfileURLBySteamID(e) {
 		const t = this.GetProfileBySteamID(e);
 		if (t && t.profile_url) {
-			return y.TS.COMMUNITY_BASE_URL + "id/" + t.profile_url;
+			return `${y.TS.COMMUNITY_BASE_URL}id/${t.profile_url}`;
 		} else {
-			return y.TS.COMMUNITY_BASE_URL + "profiles/" + e.ConvertTo64BitString();
+			return `${y.TS.COMMUNITY_BASE_URL}profiles/${e.ConvertTo64BitString()}`;
 		}
 	}
 	GetPersonaNameBySteamID(e) {
@@ -100,26 +144,25 @@ class S {
 		}
 	}
 }
-(0, n.Cg)([h.sH], S.prototype, "m_mapProfiles", undefined);
+Cg([h.sH], S.prototype, "m_mapProfiles", undefined);
 const w = new S();
 function B(e) {
-	return (function (e) {
+	return ((e) => {
 		const t = u.useMemo(
 			() => (e ? (typeof e == "string" ? new _.b(e) : e) : null),
 			[e],
 		);
-		const [r, n] = (0, u.useState)(!!t && !w.BHasProfileBySteamID(t));
-		(0, u.useEffect)(() => {
+		const [r, n] = useState(!!t && !w.BHasProfileBySteamID(t));
+		useEffect(() => {
 			const e = g.CancelToken.source();
 			if (t && !w.BHasProfileBySteamID(t)) {
 				w.LoadProfiles([t.ConvertTo64BitString()])
 					.catch((e) => {
-						const r = (0, b.H)(e);
+						const r = H_2(e);
 						console.error(
-							"useUserProfile failed to load profile for " +
-								t.ConvertTo64BitString() +
-								": " +
-								r.strErrorMsg,
+							`useUserProfile failed to load profile for ${t.ConvertTo64BitString()}: ${
+								r.strErrorMsg
+							}`,
 							r,
 						);
 					})
@@ -134,16 +177,7 @@ function B(e) {
 		return [r, !!t && w.GetProfileBySteamID(t)];
 	})(u.useMemo(() => (e ? _.b.InitFromAccountID(e) : null), [e]));
 }
-var v = require(/*webcrack:missing*/ "./52451.js");
-var I = require("./64608.js");
-import {
-	Localize,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
-var M = require("./7822.js");
-var T = M;
-var R = require(/*webcrack:missing*/ "./50376.js");
-var k = require(/*webcrack:missing*/ "./90242.js");
+const T = M;
 class D extends u.Component {
 	state = {
 		invite_token: "",
@@ -152,7 +186,7 @@ class D extends u.Component {
 		invite_copied: false,
 	};
 	async componentDidMount() {
-		const e = await g.get(y.TS.COMMUNITY_BASE_URL + "invites/ajaxgetall", {
+		const e = await g.get(`${y.TS.COMMUNITY_BASE_URL}invites/ajaxgetall`, {
 			params: {
 				sessionid: y.TS.SESSIONID,
 			},
@@ -175,7 +209,7 @@ class D extends u.Component {
 		e.append("sessionid", y.TS.SESSIONID);
 		e.append("steamid_user", y.iA.steamid);
 		e.append("duration", (2592000).toString());
-		const t = await g.post(y.TS.COMMUNITY_BASE_URL + "invites/ajaxcreate", e);
+		const t = await g.post(`${y.TS.COMMUNITY_BASE_URL}invites/ajaxcreate`, e);
 		if (t && t.data && t.data.invite) {
 			this.setState({
 				invite_token: t.data.invite.invite_token,
@@ -216,7 +250,7 @@ class D extends u.Component {
 		t.append("accept_invite", "0");
 		try {
 			const e = await g.post(
-				y.TS.COMMUNITY_BASE_URL + "actions/AddFriendAjax",
+				`${y.TS.COMMUNITY_BASE_URL}actions/AddFriendAjax`,
 				t,
 			);
 			return e && e.data && e.data.success == 1;
@@ -236,14 +270,14 @@ class D extends u.Component {
 	}
 	OnSearchSubmit() {
 		window.open(
-			y.TS.COMMUNITY_BASE_URL +
-				"search/users/#text=" +
-				encodeURIComponent(this.state.input_search),
+			`${y.TS.COMMUNITY_BASE_URL}search/users/#text=${encodeURIComponent(
+				this.state.input_search,
+			)}`,
 			"_self",
 		);
 	}
 	render() {
-		const e = y.iA.short_url + "/" + this.state.invite_token;
+		const e = `${y.iA.short_url}/${this.state.invite_token}`;
 		return u.createElement(
 			"div",
 			null,
@@ -420,12 +454,12 @@ class D extends u.Component {
 		);
 	}
 }
-(0, n.Cg)([v.oI], D.prototype, "OnCreateInviteLink", null);
-(0, n.Cg)([v.oI], D.prototype, "OnCopy", null);
-(0, n.Cg)([v.oI], D.prototype, "OnAddFriend", null);
-(0, n.Cg)([v.oI], D.prototype, "OnSearchChange", null);
-(0, n.Cg)([v.oI], D.prototype, "OnSearchKeyDown", null);
-(0, n.Cg)([v.oI], D.prototype, "OnSearchSubmit", null);
+Cg([v.oI], D.prototype, "OnCreateInviteLink", null);
+Cg([v.oI], D.prototype, "OnCopy", null);
+Cg([v.oI], D.prototype, "OnAddFriend", null);
+Cg([v.oI], D.prototype, "OnSearchChange", null);
+Cg([v.oI], D.prototype, "OnSearchKeyDown", null);
+Cg([v.oI], D.prototype, "OnSearchSubmit", null);
 class N extends u.Component {
 	state = {
 		input_friend_code: "",
@@ -526,12 +560,12 @@ class N extends u.Component {
 		);
 	}
 }
-(0, n.Cg)([v.oI], N.prototype, "OnFriendCodeChange", null);
-(0, n.Cg)([v.oI], N.prototype, "LoadProfile", null);
-(0, n.Cg)([v.oI], N.prototype, "OnActionClick", null);
+Cg([v.oI], N.prototype, "OnFriendCodeChange", null);
+Cg([v.oI], N.prototype, "LoadProfile", null);
+Cg([v.oI], N.prototype, "OnActionClick", null);
 const F = (e) => {
 	const { searchResult: t, invite_status: r, bShowStatus: n, children: i } = e;
-	const a = (0, y.Qn)();
+	const a = Qn();
 	if (Boolean(t)) {
 		return u.createElement(
 			"div",
@@ -576,8 +610,8 @@ const F = (e) => {
 						u.createElement(
 							k.Ii,
 							{
-								target: a ? undefined : "_blank",
-								href: y.TS.COMMUNITY_BASE_URL + "profiles/" + t.steamid,
+								target: a || "_blank",
+								href: `${y.TS.COMMUNITY_BASE_URL}profiles/${t.steamid}`,
 							},
 							(0, Localize)("#ManageFriends_ProfileLink"),
 						),
@@ -589,7 +623,9 @@ const F = (e) => {
 							},
 							t.real_name,
 							u.createElement("br", null),
-							`${t.city}${t.city ? "," : ""} ${t.state}${t.state ? "," : ""} ${t.country}`,
+							`${t.city}${t.city ? "," : ""} ${t.state}${t.state ? "," : ""} ${
+								t.country
+							}`,
 						),
 					),
 				),
@@ -613,12 +649,8 @@ const F = (e) => {
 						u.createElement(
 							k.Ii,
 							{
-								target: a ? undefined : "_blank",
-								href:
-									y.TS.COMMUNITY_BASE_URL +
-									"profiles/" +
-									t.steamid +
-									"/friendscommon",
+								target: a || "_blank",
+								href: `${y.TS.COMMUNITY_BASE_URL}profiles/${t.steamid}/friendscommon`,
 							},
 							t.friends_in_common === 1
 								? (0, Localize)(
@@ -655,18 +687,8 @@ const F = (e) => {
 		return null;
 	}
 };
-var G = require("./78060.js");
-var O = require("./97422.js");
-var P = require("./10606.js");
-var L = require(/*webcrack:missing*/ "./26853.js");
-var z = require(/*webcrack:missing*/ "./69164.js");
-var x = require("./98829.js");
-var U = require("./51095.js");
-var W = require("./13869.js");
-var V = require("./59704.js");
-var H = require("./46649.js");
 function j(e, t, r, n) {
-	(0, O.tj)(
+	tj(
 		e,
 		{
 			friendGroup: t,
@@ -716,7 +738,7 @@ const Y = (e) => {
 	const a = u.useCallback(
 		(e, t) => {
 			let r = t.GetCommunityProfileURL();
-			(0, V.EP)(GetOwningWindowForEvent(e), r);
+			EP(GetOwningWindowForEvent(e), r);
 			n();
 		},
 		[n],
@@ -751,14 +773,14 @@ const Y = (e) => {
 		u.createElement(I.nB, null, s),
 	);
 };
-const K = (0, d.PA)((e) => {
+const K = PA((e) => {
 	const { friendStore: t, context: r, friends: n } = e;
 	const i = u.useCallback(
 		(e, t) => {
 			const r = n.map_steamid_to_mutual_friends.get(e.steamid64)?.size || 0;
 			return (
 				(n.map_steamid_to_mutual_friends.get(t.steamid64)?.size || 0) - r ||
-				(0, U.lY)(e.display_name, t.display_name)
+				lY(e.display_name, t.display_name)
 			);
 		},
 		[n],
@@ -770,7 +792,7 @@ const K = (0, d.PA)((e) => {
 		.slice()
 		.sort(i)
 		.map((e, i) => {
-			(0, f.w)(
+			w_2(
 				e.efriendrelationship == 2,
 				"Incorrect friend type in IncomingInvites",
 			);
@@ -781,9 +803,9 @@ const K = (0, d.PA)((e) => {
 							"#Friend_Invites_ViewMutual",
 						),
 						onOptionsButton: (e) => {
-							(async function (e, t, r) {
+							(async (e, t, r) => {
 								const n = GetOwningWindowForEvent(r);
-								(0, W.pg)(
+								pg(
 									u.createElement(Y, {
 										friendStore: e,
 										setMutualFriends: t,
@@ -811,10 +833,10 @@ const K = (0, d.PA)((e) => {
 					I.$n,
 					{
 						onClick: (r) =>
-							(async function (e, t, r) {
+							(async (e, t, r) => {
 								const n = GetOwningWindowForEvent(r);
 								if (
-									!(await (0, G.WQ)(
+									!(await WQ(
 										n,
 										(0, Localize)("#Friend_Menu_BlockAllCommunication"),
 										(0, Localize)("#Friend_Block_Confirm", t.display_name),
@@ -824,7 +846,7 @@ const K = (0, d.PA)((e) => {
 									return;
 								}
 								if ((await e.BlockPlayer(t)) != 5) {
-									(0, G.Ic)(
+									Ic(
 										n,
 										(0, Localize)("#Friend_Menu_BlockIncomingInvite"),
 										(0, Localize)(
@@ -841,12 +863,12 @@ const K = (0, d.PA)((e) => {
 					I.$n,
 					{
 						onClick: (r) =>
-							(async function (e, t, r) {
+							(async (e, t, r) => {
 								let { eResult: n, eFriendRelationship: i } =
 									await e.SendFriendInvite(t);
 								if (i != 3) {
 									const e = GetOwningWindowForEvent(r);
-									(0, O.Jw)(e, n, i, t.display_name);
+									Jw(e, n, i, t.display_name);
 								}
 							})(t, e, r),
 					},
@@ -856,10 +878,10 @@ const K = (0, d.PA)((e) => {
 					I.$n,
 					{
 						onClick: (r) =>
-							(async function (e, t, r) {
+							(async (e, t, r) => {
 								if (!(await q(e, t))) {
 									const e = GetOwningWindowForEvent(r);
-									(0, G.Ic)(
+									Ic(
 										e,
 										(0, Localize)("#Friend_Menu_IgnoreIncomingInvite"),
 										(0, Localize)(
@@ -894,10 +916,10 @@ const K = (0, d.PA)((e) => {
 					I.$n,
 					{
 						onClick: (e) =>
-							(async function (e, t, r) {
+							(async (e, t, r) => {
 								const n = GetOwningWindowForEvent(r);
 								if (
-									!(await (0, G.WQ)(
+									!(await WQ(
 										n,
 										(0, Localize)("#Friend_Invites_IgnoreAllTitle"),
 										(0, Localize)(
@@ -917,7 +939,7 @@ const K = (0, d.PA)((e) => {
 									}
 								});
 								if (a > 0) {
-									(0, G.Ic)(
+									Ic(
 										n,
 										(0, Localize)("#Error_Generic"),
 										LocalizePlural("#Friend_Invites_FailedToDecline", a),
@@ -931,16 +953,13 @@ const K = (0, d.PA)((e) => {
 		a,
 	);
 });
-const X = (0, d.PA)((e) => {
+const X = PA((e) => {
 	const { friendStore: t, context: r, friends: n } = e;
 	if (n.member_count == 0) {
 		return null;
 	}
 	const i = n.member_list.map((e, i) => {
-		(0, f.w)(
-			e.efriendrelationship == 4,
-			"Incorrect friend type in OutgoingInvites",
-		);
+		w_2(e.efriendrelationship == 4, "Incorrect friend type in OutgoingInvites");
 		return u.createElement(
 			z.Z,
 			{
@@ -957,10 +976,10 @@ const X = (0, d.PA)((e) => {
 				I.$n,
 				{
 					onClick: (r) =>
-						(async function (e, t, r) {
+						(async (e, t, r) => {
 							const n = GetOwningWindowForEvent(r);
 							if (
-								!(await (0, G.WQ)(
+								!(await WQ(
 									n,
 									(0, Localize)("#Friend_Invites_CancelInvite"),
 									(0, Localize)(
@@ -974,7 +993,7 @@ const X = (0, d.PA)((e) => {
 							}
 							const i = await e.RemoveFriend(t);
 							if (i == 3 || i == 6) {
-								(0, G.Ic)(
+								Ic(
 									n,
 									(0, Localize)("#Friend_Menu_CancelInvitation"),
 									(0, Localize)(
@@ -1043,7 +1062,7 @@ const $ = (e) => {
 			e.preventDefault();
 			const i = parseInt(r.current?.value);
 			if (i) {
-				(0, W.pg)(
+				pg(
 					u.createElement(ee, {
 						friendStore: t,
 						accountID: i,
@@ -1098,7 +1117,7 @@ const $ = (e) => {
 		),
 	);
 };
-const ee = (0, d.PA)((e) => {
+const ee = PA((e) => {
 	const { friendStore: t, accountID: r, ownerWindow: n, closeModal: i } = e;
 	const [a, s] = B(r);
 	const o = u.useCallback(async () => {
@@ -1106,20 +1125,20 @@ const ee = (0, d.PA)((e) => {
 			await t.SendFriendInviteBySteamID(_.b.InitFromAccountID(r));
 		if (e == 1) {
 			if (a == 4) {
-				(0, G.Ic)(
+				Ic(
 					n,
 					(0, Localize)("#Friend_Menu_AddToFriendsList"),
 					(0, Localize)("#Friend_InviteSent"),
 				);
 			} else if (a == 3) {
-				(0, G.Ic)(
+				Ic(
 					n,
 					(0, Localize)("#Friend_Menu_AddToFriendsList"),
 					(0, Localize)("#Friend_MutualInviteSent", s.persona_name),
 				);
 			}
 		} else {
-			(0, O.Jw)(n, e, a, s.persona_name);
+			Jw(n, e, a, s.persona_name);
 		}
 		i();
 	}, [r, s, i, n, t]);
@@ -1183,7 +1202,7 @@ const te = (e) => {
 		}),
 	);
 };
-const re = (0, d.PA)((e) => {
+const re = PA((e) => {
 	const { friends: t, browserContext: r } = e;
 	const n = u.useRef();
 	const i = t.FriendGroupStore.incoming_invites_group;
@@ -1215,16 +1234,9 @@ const re = (0, d.PA)((e) => {
 		}),
 	);
 });
-var ne = require("./64587.js");
-var ie = require(/*webcrack:missing*/ "./90095.js");
-var ae = require(/*webcrack:missing*/ "./90765.js");
-import { Seconds } from "../../actual_src/utils/time.js";
-var oe = require("./66146.js");
-var le = require("./8653.js");
-var ce = require("./29502.js");
 function me(e) {
 	let { chats: t, onActivate: r, ...n } = e;
-	let i = (0, ie.q3)(() => {
+	let i = q3(() => {
 		let e = 0;
 		let t = a.xm.GetServerRTime32() - Seconds.PerWeek * 2;
 		const r = a.xm.ChatStore.GetRecentChats();
@@ -1250,7 +1262,7 @@ function me(e) {
 	return u.createElement(
 		z.Z,
 		{
-			className: (0, ae.A)(
+			className: A(
 				ce.NotificationUnreadMentionContainer,
 				i > 0 && ce.HasMessages,
 			),
@@ -1272,24 +1284,21 @@ function me(e) {
 		),
 	);
 }
-var ue = require("./3756.js");
-var de = require("./53414.js");
-var Ae = require("./70479.js");
 function pe(e) {
 	let { chats: t, className: r, ...n } = e;
-	let i = (0, ie.q3)(() => t.GetActiveVoiceChat());
+	let i = q3(() => t.GetActiveVoiceChat());
 	const s = i instanceof le.s ? i : undefined;
 	const o = s?.GetMember(s.accountid_partner);
 	const l = i instanceof ue.d ? i : undefined;
-	const c = (0, ie.q3)(
+	const c = q3(
 		() => t.VoiceChat.IsMicMuted() || t.VoiceChat.GetVoiceInputGain() == 0,
 	);
-	const m = (0, ie.q3)(
+	const m = q3(
 		() => t.VoiceChat.IsOutputMuted() || t.VoiceChat.GetVoiceOutputGain() == 0,
 	);
-	const d = (0, ie.q3)(() => t.FriendChatStore.GetAllChats());
+	const d = q3(() => t.FriendChatStore.GetAllChats());
 	let A = false;
-	const p = (0, ie.q3)(() =>
+	const p = q3(() =>
 		d.filter((e) => {
 			let t = a.xm.VoiceStore.BPartnerHasRequestedAndIsInOneOnOneChat(
 				e.accountid_partner,
@@ -1311,7 +1320,7 @@ function pe(e) {
 	const g = s != null;
 	const h = l != null;
 	const C = p.length != 0;
-	const _ = (0, ae.A)(
+	const _ = A(
 		r,
 		Ae.VoiceChatHeader,
 		i && Ae.ActiveCall,
@@ -1445,13 +1454,16 @@ class ge extends u.Component {
 	render() {
 		let e = "";
 		switch (this.state.error) {
-			case 1:
+			case 1: {
 				break;
-			case 25:
+			}
+			case 25: {
 				e = (0, Localize)("#FamilyView_TooManyAttempts");
 				break;
-			default:
+			}
+			default: {
 				e = (0, Localize)("#FamilyView_BadPIN");
+			}
 		}
 		return u.createElement(
 			"div",
@@ -1502,30 +1514,12 @@ class ge extends u.Component {
 		);
 	}
 }
-(0, n.Cg)([v.oI], ge.prototype, "BindTextInput", null);
-(0, n.Cg)([v.oI], ge.prototype, "OnPINInput", null);
-(0, n.Cg)([v.oI], ge.prototype, "onOK", null);
-var he = require(/*webcrack:missing*/ "./7470.js");
-var Ce = require(/*webcrack:missing*/ "./23038.js");
-var _e = require(/*webcrack:missing*/ "./85243.js");
-var fe = require(/*webcrack:missing*/ "./28987.js");
-var be = require(/*webcrack:missing*/ "./46382.js");
-var ye = require(/*webcrack:missing*/ "./73870.js");
-var Se = require(/*webcrack:missing*/ "./11131.js");
-var we = require(/*webcrack:missing*/ "./67808.js");
-var Be = require(/*webcrack:missing*/ "./88750.js");
-var _ve = require(/*webcrack:missing*/ "./42318.js");
-var Ie = require(/*webcrack:missing*/ "./91435.js");
-var Ee = require(/*webcrack:missing*/ "./27773.js");
-var Me = require("./19696.js");
-var Te = require(/*webcrack:missing*/ "./31958.js");
-var Re = require(/*webcrack:missing*/ "./75144.js");
-var ke = require("./17656.js");
-var De = ke;
-var Ne = require("./83857.js");
-var Fe = require("./83665.js");
+Cg([v.oI], ge.prototype, "BindTextInput", null);
+Cg([v.oI], ge.prototype, "OnPINInput", null);
+Cg([v.oI], ge.prototype, "onOK", null);
+const De = ke;
 function Ge() {
-	const e = (0, s._k)((0, Se.R7)().ownerWindow);
+	const e = _k(R7().ownerWindow);
 	if (e.m_eUIMode === undefined) {
 		return {
 			...e,
@@ -1537,7 +1531,7 @@ function Ge() {
 }
 export function wE(e, t, r) {
 	const n = window;
-	const i = (0, s._k)(n);
+	const i = _k(n);
 	he.H(r).render(
 		u.createElement(
 			Ze,
@@ -1555,7 +1549,7 @@ export function wE(e, t, r) {
 	);
 }
 export function p5(e, t, r) {
-	const n = (0, ie.q3)(() => a.xm.ready_to_render);
+	const n = q3(() => a.xm.ready_to_render);
 	const i = Ge();
 	return u.createElement(
 		y.ss,
@@ -1579,7 +1573,7 @@ export function p5(e, t, r) {
 	);
 }
 export function p(e, t) {
-	const r = (0, ie.q3)(() => a.xm.ready_to_render);
+	const r = q3(() => a.xm.ready_to_render);
 	const n = Ge();
 	return u.createElement(
 		y.ss,
@@ -1600,7 +1594,7 @@ export function p(e, t) {
 	);
 }
 export function Yg(e, t, r) {
-	const n = (0, ie.q3)(() => a.xm.ready_to_render);
+	const n = q3(() => a.xm.ready_to_render);
 	const i = Ge();
 	return u.createElement(
 		y.ss,
@@ -1624,7 +1618,7 @@ export function Yg(e, t, r) {
 	);
 }
 export function vT(e, t, r) {
-	const n = (0, ie.q3)(() => a.xm.ready_to_render);
+	const n = q3(() => a.xm.ready_to_render);
 	return u.createElement(
 		y.ss,
 		{
@@ -1639,7 +1633,7 @@ export function vT(e, t, r) {
 	);
 }
 export function CN(e, t, r) {
-	const n = (0, ie.q3)(() => a.xm.ready_to_render);
+	const n = q3(() => a.xm.ready_to_render);
 	const i = Ge();
 	return u.createElement(
 		y.ss,
@@ -1729,16 +1723,16 @@ function Ze(e) {
 	const { ownerWindow: t, children: r } = e;
 	t.document;
 	const n = u.useCallback(() => a.xm?.CMInterface, []);
-	const i = (0, v.bs)(u.useCallback(() => new ye.A(), []));
-	(0, v.l6)(window, "dragover", Qe);
-	(0, v.l6)(window, "dragenter", Qe);
-	(0, v.l6)(window, "drop", Qe);
+	const i = bs(u.useCallback(() => new ye.A(), []));
+	l6(window, "dragover", Qe);
+	l6(window, "dragenter", Qe);
+	l6(window, "drop", Qe);
 	const s = u.useCallback((e) => {
 		if (e === "visible") {
 			a.xm.OnWindowBecameVisible();
 		}
 	}, []);
-	(0, v.o4)(t.document, s);
+	o4(t.document, s);
 	return u.createElement(
 		Re.s,
 		null,
@@ -1773,7 +1767,7 @@ function Ze(e) {
 function Ye() {
 	return u.createElement(_ve.wC, null, u.createElement(Ne.L, null));
 }
-const Ke = (0, d.PA)(function (e) {
+const Ke = PA((e) => {
 	const { browserContext: t, friends: r, chats: n, elTarget: i } = e;
 	const [o] = u.useState(() => new s.kP(i.ownerDocument.defaultView));
 	let l = null;
@@ -1824,7 +1818,7 @@ function Xe(e) {
 	return u.createElement(
 		"div",
 		{
-			className: (0, ae.A)(s, r),
+			className: A(s, r),
 			onTransitionEnd: a,
 		},
 		u.createElement(
@@ -1857,11 +1851,9 @@ class Je extends Se.K9 {
 			let e = a.xm.UIStore.GetPerContextChatData(
 				this.m_rgParams.target_browser,
 			).screen_info;
-			return (
-				"Overlay_" +
-				(e && e.width && e.height ? e.width + "x" + e.height + "_" : "") +
-				this.m_strSavedDimensionsKey
-			);
+			return `Overlay_${
+				e && e.width && e.height ? `${e.width}x${e.height}_` : ""
+			}${this.m_strSavedDimensionsKey}`;
 		}
 		return this.m_strSavedDimensionsKey;
 	}
@@ -1877,7 +1869,7 @@ export class ve extends Je {
 	m_reactRoot;
 	constructor(e, t, r, n, i) {
 		let a = Se.Wf.Resizable;
-		if (n && !(0, y.Pr)()) {
+		if (n && !Pr()) {
 			a |= Se.Wf.Minimized;
 		}
 		let o = 300;
@@ -1995,7 +1987,7 @@ let nt = class extends u.Component {
 	m_lastFocusElement = null;
 	constructor(e) {
 		super(e);
-		(0, h.Gn)(this);
+		Gn(this);
 		this.m_browserContext =
 			this.props.popup && this.props.popup.browser_info
 				? this.props.popup.browser_info
@@ -2022,7 +2014,7 @@ let nt = class extends u.Component {
 	BindWindowHandlers() {
 		const e = this.props.container;
 		const t = this.props.tabset;
-		this.m_popupActionDisposer = (0, h.fm)(() => {
+		this.m_popupActionDisposer = fm(() => {
 			if (!i.TS.IN_CLIENT) {
 				let t =
 					a.xm.ChatStore.FriendChatStore.GetUnfilteredFriendsWithUnreadMessages();
@@ -2051,8 +2043,9 @@ let nt = class extends u.Component {
 				t.GetTitle()
 			) {
 				if (i.TS.IN_CLIENT) {
-					e.title =
-						(0, Localize)("#WindowTitle_FriendsList") + " - " + t.GetTitle();
+					e.title = `${(0, Localize)(
+						"#WindowTitle_FriendsList",
+					)} - ${t.GetTitle()}`;
 				} else {
 					e.title = t.GetTitle();
 				}
@@ -2093,11 +2086,13 @@ let nt = class extends u.Component {
 	OnFocusIn(e) {
 		let t = false;
 		switch (e.target.tagName) {
-			case "TEXTAREA":
+			case "TEXTAREA": {
 				t = true;
 				break;
-			case "INPUT":
+			}
+			case "INPUT": {
 				t = e.target.type == "text";
+			}
 		}
 		if (t) {
 			e.currentTarget.ownerDocument.defaultView.SteamClient.OpenVR.ShowKeyboard();
@@ -2153,8 +2148,8 @@ let nt = class extends u.Component {
 	}
 	SetFriendsListSingleWindowWidth(e) {
 		let t = (this.props.popup ? this.props.popup.window : window).innerWidth;
-		let r = (0, Te.OQ)(t - 400, 200, 440);
-		e = (0, Te.OQ)(e, 200, r);
+		let r = OQ(t - 400, 200, 440);
+		e = OQ(e, 200, r);
 		s.ZM.SetUIDisplayPref("nFriendsListSingleWindowWidthPx", e);
 	}
 	UnregisterFriendsListDragEvents(e) {
@@ -2196,7 +2191,7 @@ let nt = class extends u.Component {
 			}
 			g += " singlewindow";
 			h = u.createElement("div", {
-				className: "singleWindowDivider" + (m ? " friendsListCollapsed" : ""),
+				className: `singleWindowDivider${m ? " friendsListCollapsed" : ""}`,
 				onMouseDown: this.OnGrabberMouseDown,
 				onTouchStart: this.OnGrabberTouchStart,
 			});
@@ -2227,7 +2222,7 @@ let nt = class extends u.Component {
 					transition: "width 0.32s ease-in-out, opacity 0.32s ease-in-out",
 				}
 			: {
-					width: s.ZM.UIDisplayPrefs.nFriendsListSingleWindowWidthPx + "px",
+					width: `${s.ZM.UIDisplayPrefs.nFriendsListSingleWindowWidthPx}px`,
 				};
 		if (a.xm.SettingsStore.IsSteamInTournamentMode()) {
 			return u.createElement(
@@ -2296,9 +2291,9 @@ let nt = class extends u.Component {
 									u.createElement(
 										l.D,
 										{
-											className:
-												"friendsListContainer fullheight " +
-												(m ? "collapsed" : ""),
+											className: `friendsListContainer fullheight ${
+												m ? "collapsed" : ""
+											}`,
 											style: t ? _ : null,
 											ref: this.BindFriendsListContainer,
 											rgAcceptedTypes: [],
@@ -2319,9 +2314,7 @@ let nt = class extends u.Component {
 										tabs: this.props.tabset,
 										popup: C,
 										ref: this.m_refChatDialog,
-										ResponsiveWindowState: e
-											? null
-											: this.m_ResponsiveWindowState,
+										ResponsiveWindowState: e || this.m_ResponsiveWindowState,
 										showOpenFriendsList: d && m,
 									}),
 								this.props.popup &&
@@ -2339,18 +2332,18 @@ let nt = class extends u.Component {
 		}
 	}
 };
-(0, n.Cg)([h.sH], nt.prototype, "m_nWindowTitleUnreadCycleCount", undefined);
-(0, n.Cg)([v.oI], nt.prototype, "OnCopy", null);
-(0, n.Cg)([v.oI], nt.prototype, "OnFocusIn", null);
-(0, n.Cg)([v.oI], nt.prototype, "OnFocusOut", null);
-(0, n.Cg)([v.oI], nt.prototype, "OnTextInputClick", null);
-(0, n.Cg)([v.oI], nt.prototype, "BindFriendsListContainer", null);
-(0, n.Cg)([v.oI], nt.prototype, "OnGrabberMouseDown", null);
-(0, n.Cg)([v.oI], nt.prototype, "OnGrabberTouchStart", null);
-(0, n.Cg)([v.oI], nt.prototype, "HandleTouchMove", null);
-(0, n.Cg)([v.oI], nt.prototype, "HandleMouseMove", null);
-(0, n.Cg)([v.oI], nt.prototype, "UnregisterFriendsListDragEvents", null);
-nt = (0, n.Cg)([d.PA], nt);
+Cg([h.sH], nt.prototype, "m_nWindowTitleUnreadCycleCount", undefined);
+Cg([v.oI], nt.prototype, "OnCopy", null);
+Cg([v.oI], nt.prototype, "OnFocusIn", null);
+Cg([v.oI], nt.prototype, "OnFocusOut", null);
+Cg([v.oI], nt.prototype, "OnTextInputClick", null);
+Cg([v.oI], nt.prototype, "BindFriendsListContainer", null);
+Cg([v.oI], nt.prototype, "OnGrabberMouseDown", null);
+Cg([v.oI], nt.prototype, "OnGrabberTouchStart", null);
+Cg([v.oI], nt.prototype, "HandleTouchMove", null);
+Cg([v.oI], nt.prototype, "HandleMouseMove", null);
+Cg([v.oI], nt.prototype, "UnregisterFriendsListDragEvents", null);
+nt = Cg([d.PA], nt);
 let it = class extends u.Component {
 	render() {
 		let e = this.props.friends.self;
@@ -2366,7 +2359,7 @@ let it = class extends u.Component {
 					href: `${i.TS.STORE_BASE_URL}`,
 				},
 				u.createElement("div", {
-					className: (0, ae.A)(
+					className: A(
 						De.SteamPageHeaderShortLogo,
 						i.TS.EREALM == fe.TU.k_ESteamRealmChina
 							? De.LogoChina
@@ -2404,7 +2397,7 @@ function at(e) {
 		e.text,
 	);
 }
-it = (0, n.Cg)([d.PA], it);
+it = Cg([d.PA], it);
 export class IO extends Je {
 	m_tabSet;
 	m_chats;
@@ -2433,7 +2426,7 @@ export class IO extends Je {
 			Object.assign(o.dimensions, a);
 			o.bIgnoreSavedDimensions = true;
 		}
-		super("chat_" + t, r.GetTabSetIdentifier(), o, true);
+		super(`chat_${t}`, r.GetTabSetIdentifier(), o, true);
 		this.m_tabSet = r;
 		this.m_chats = n;
 	}
@@ -2447,7 +2440,7 @@ export class IO extends Je {
 		this.m_tabSet.OnWindowFocus();
 	}
 	BindWindowHandlers() {
-		this.m_popupActionDisposer ||= (0, h.fm)(this.SetTitle);
+		this.m_popupActionDisposer ||= fm(this.SetTitle);
 	}
 	UnbindWindowHandlers() {
 		if (this.m_popupActionDisposer) {
@@ -2499,7 +2492,7 @@ export class IO extends Je {
 		);
 	}
 }
-(0, n.Cg)([v.oI], IO.prototype, "SetTitle", null);
+Cg([v.oI], IO.prototype, "SetTitle", null);
 let ot = class extends u.Component {
 	render() {
 		let e = this.props.popup.window;
@@ -2547,7 +2540,7 @@ let ot = class extends u.Component {
 		);
 	}
 };
-ot = (0, n.Cg)([d.PA], ot);
+ot = Cg([d.PA], ot);
 let lt = class extends u.Component {
 	OnKeyDown(e) {
 		e.preventDefault();
@@ -2593,8 +2586,8 @@ let lt = class extends u.Component {
 		}
 	}
 };
-(0, n.Cg)([v.oI], lt.prototype, "OnKeyDown", null);
-lt = (0, n.Cg)([d.PA], lt);
+Cg([v.oI], lt.prototype, "OnKeyDown", null);
+lt = Cg([d.PA], lt);
 let ct = class extends u.Component {
 	m_iIntervalDelayedStartup;
 	m_iIntervalUpdateReconnectStatus;
@@ -2662,7 +2655,7 @@ let ct = class extends u.Component {
 	}
 	render() {
 		let e = s.ZM.WebLogonManager;
-		(0, f.w)(e, "No WebLogonManager in WebConnectionTroubleOverlay");
+		w_2(e, "No WebLogonManager in WebConnectionTroubleOverlay");
 		if (!e) {
 			return null;
 		}
@@ -2680,48 +2673,59 @@ let ct = class extends u.Component {
 				if (
 					a.xm.ready_to_render ||
 					this.state.bShowStartupDelayMessage ||
+					this.state.bShowStartupDelayMessage ||
 					!e.BIsInInitialConnect()
 				) {
 					switch (r) {
 						case 1:
-						case 3:
+						case 3: {
 							i = (0, Localize)("#ConnectionTrouble_Connecting");
 							l = true;
 							break;
+						}
 						case 5:
-						case 7:
+						case 7: {
 							i = (0, Localize)("#ConnectionTrouble_LoggingIn");
 							l = true;
 							break;
-						case 11:
+						}
+						case 11: {
 							i = (0, Localize)("#ConnectionTrouble_RetrievingLogin");
 							l = true;
 							break;
+						}
 						case 2:
 						case 4:
-						case 12:
+						case 12: {
 							i = (0, Localize)("#ConnectionTrouble_FailedToConnect");
 							break;
+						}
 						case 8:
-						case 6:
+						case 6: {
 							i = (0, Localize)("#ConnectionTrouble_FailedToLogIn");
 							break;
-						case 10:
+						}
+						case 10: {
 							i = (0, Localize)("#ConnectionTrouble_DisconnectedFinal");
 							break;
-						case 13:
+						}
+						case 13: {
 							i = (0, Localize)("#ConnectionTrouble_LoginLost");
 							o = true;
 							break;
-						case 14:
+						}
+						case 14: {
 							i = (0, Localize)("#ConnectionTrouble_LoginChanged");
 							o = true;
 							break;
-						case 15:
+						}
+						case 15: {
 							i = (0, Localize)("#ConnectionTrouble_LoggedOnElsewhere");
 							break;
-						default:
-							(0, f.w)(false, `No message for trouble state ${r}`);
+						}
+						default: {
+							w_2(false, `No message for trouble state ${r}`);
+						}
 					}
 				} else {
 					s = "InitialConnect";
@@ -2756,12 +2760,12 @@ let ct = class extends u.Component {
 							"div",
 							{
 								ref: t,
-								className:
-									"ConnectionTrouble WebConnectionTrouble" +
-									(a.xm.ready_to_render ? "" : " NotReadyToRender"),
+								className: `ConnectionTrouble WebConnectionTrouble${
+									a.xm.ready_to_render ? "" : " NotReadyToRender"
+								}`,
 							},
 							u.createElement("div", {
-								className: "" + s,
+								className: `${s}`,
 							}),
 							u.createElement(
 								"div",
@@ -2771,7 +2775,7 @@ let ct = class extends u.Component {
 								u.createElement(
 									"div",
 									{
-										className: "ConnectionTroubleMessage " + s,
+										className: `ConnectionTroubleMessage ${s}`,
 									},
 									u.createElement(
 										"div",
@@ -2781,8 +2785,9 @@ let ct = class extends u.Component {
 										u.createElement(
 											"div",
 											{
-												className:
-													"connectionThrobber" + (l ? " showThrobber" : ""),
+												className: `connectionThrobber${
+													l ? " showThrobber" : ""
+												}`,
 											},
 											l &&
 												u.createElement(L.t, {
@@ -2867,7 +2872,7 @@ let ct = class extends u.Component {
 		return u.createElement(Ce.A, null, t);
 	}
 };
-(0, n.Cg)([v.oI], ct.prototype, "IntervalUpdateReconnectWaitStatus", null);
-(0, n.Cg)([v.oI], ct.prototype, "OnReconnectNowClick", null);
-(0, n.Cg)([v.oI], ct.prototype, "OnLoginClick", null);
-ct = (0, n.Cg)([d.PA], ct);
+Cg([v.oI], ct.prototype, "IntervalUpdateReconnectWaitStatus", null);
+Cg([v.oI], ct.prototype, "OnReconnectNowClick", null);
+Cg([v.oI], ct.prototype, "OnLoginClick", null);
+ct = Cg([d.PA], ct);

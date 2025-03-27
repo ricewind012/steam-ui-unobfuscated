@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	CheckForUpdatesDialog: "_34HrKSyNGUN_xbEp8M8PXC",
 	DialogHeader: "_8ymvV75NFYfOQbLk71eq8",
 	DialogBodyText: "_3IDmWVh5uL8BtVYHQn5IvV",

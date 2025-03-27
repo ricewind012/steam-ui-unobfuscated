@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	OverflowBox: "_17qc0iT2Uzbk8umX0qMOMJ",
 	OverflowBoxContent: "_3C0istohNAM4_kDuBULbcw",
 	ExplicitlyCollapsed: "_2oYuVdGpIvkDJAe30SkYV6",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	AppGameInfoContainer: "_25oBZpa3dUcMw8QAsa2u67",
 	BoxArtExpanded: "_13F8dwlPc1dbqs96Z9n7dY",

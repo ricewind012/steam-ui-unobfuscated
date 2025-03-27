@@ -1,20 +1,20 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./57931.js");
-var a = require("./58839.js");
-var s = require("./82594.js");
-var o = require(/*webcrack:missing*/ "./98995.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./15612.js");
-var u = require("./59265.js");
-var d = u;
-var A = require(/*webcrack:missing*/ "./67784.js");
+import n, { useRef } from "./63696.js";
+import { o as o_1 } from "./57931.js";
+import { SW } from "./58839.js";
+import { G6 } from "./82594.js";
+import o from "./98995.js";
+import { A as A_1 } from "./90765.js";
+import m from "./15612.js";
+import u from "./59265.js";
+import A, { $W } from "./67784.js";
+const d = u;
 export function j(e) {
-	const { info: t, className: r } = e;
-	const u = (0, n.useRef)({
+	const { info, className } = e;
+	const URef = useRef({
 		include_release: true,
 	});
-	const [p] = (0, s.G6)(t?.id, (0, a.SW)(t?.type), u.current);
+	const [p] = G6(info?.id, SW(info?.type), URef.current);
 	const g = p?.BHasDemo();
 	const h = g || p?.GetAppType() === 1;
 	const C = h
@@ -22,29 +22,24 @@ export function j(e) {
 		: g
 			? Localize("#Sale_CannotInstallDemo_ttip", p?.GetName())
 			: Localize("#Loading");
-	if (!(0, A.$W)()) {
+	if (!$W()) {
 		if (!h && g && p?.BIsFree()) {
-			return n.createElement(m.h, {
-				info: t,
-				className: r,
-			});
+			return <m.h info={info} className={className} />;
 		} else {
-			return n.createElement(
-				o.he,
-				{
-					toolTipContent: C,
-					onClick: (e) => {
+			return (
+				<o.he
+					toolTipContent={C}
+					onClick={(e) => {
 						e.preventDefault();
 						e.stopPropagation();
 						if (h) {
-							(0, i.o)(
-								p?.GetAppType() === 1 ? p.GetAppID() : p.GetDemoAppIDs()[0],
-							);
+							o_1(p?.GetAppType() === 1 ? p.GetAppID() : p.GetDemoAppIDs()[0]);
 						}
-					},
-					className: (0, l.A)(r, d.DemoButton, !h && d.DisabledButton),
-				},
-				h ? Localize("#Sale_InstallDemo") : Localize("#Sale_DemoNotFound"),
+					}}
+					className={A_1(className, d.DemoButton, !h && d.DisabledButton)}
+				>
+					{h ? Localize("#Sale_InstallDemo") : Localize("#Sale_DemoNotFound")}
+				</o.he>
 			);
 		}
 	}

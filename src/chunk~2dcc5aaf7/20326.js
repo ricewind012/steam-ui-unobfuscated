@@ -1,18 +1,18 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./71162.js");
-var a = i;
-var s = require("./19840.js");
+import n from "./63696.js";
+import i from "./71162.js";
+import s, { M } from "./19840.js";
+const a = i;
 export function Vs() {
-	return (0, s.M)("DebugPointer_Enabled", false);
+	return M("DebugPointer_Enabled", false);
 }
 export function Lb() {
-	return (0, s.M)("DebugPointer_Size", 12);
+	return M("DebugPointer_Size", 12);
 }
 export function Hy() {
-	return (0, s.M)("DebugPointer_Opacity_Hovering", 1);
+	return M("DebugPointer_Opacity_Hovering", 1);
 }
 export function y_() {
-	return (0, s.M)("DebugPointer_Opacity_NotHovering", 0.5);
+	return M("DebugPointer_Opacity_NotHovering", 0.5);
 }
 export function UV(e) {
 	const [t] = Vs();
@@ -55,18 +55,20 @@ export function UV(e) {
 	}, [t, r, i, s, e]);
 }
 export function Zi(e) {
-	const t = (function () {
-		const [e, t] = n.useState(undefined);
+	const t = (() => {
+		const [e, setE] = n.useState(undefined);
 		const r = n.useCallback((e) => {
-			t(e?.ownerDocument.defaultView);
+			setE(e?.ownerDocument.defaultView);
 		}, []);
 		UV(e);
 		return r;
 	})();
-	return n.createElement("div", {
-		ref: t,
-		style: {
-			display: "none",
-		},
-	});
+	return (
+		<div
+			ref={t}
+			style={{
+				display: "none",
+			}}
+		/>
+	);
 }

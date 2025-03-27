@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./72476.js");
+import n, { Tc } from "./72476.js";
 export class f {
 	m_HomeView;
 	BHasHomeView() {
@@ -21,11 +21,11 @@ export class f {
 		if (n.TS.WEB_UNIVERSE === "dev") {
 			window.g_HomeViewStore = this;
 		}
-		const e = (0, n.Tc)("home_view_setting", "application_config");
+		const e = Tc("home_view_setting", "application_config");
 		if (this.ValidateHomeViewData(e)) {
 			this.SetHomeViewSetting(e);
 		}
-		const t = (0, n.Tc)("home_view_setting_override", "application_config");
+		const t = Tc("home_view_setting_override", "application_config");
 		if (this.ValidateHomeViewDataOverride(t)) {
 			this.SetHomeViewSettingOverride(t);
 		}

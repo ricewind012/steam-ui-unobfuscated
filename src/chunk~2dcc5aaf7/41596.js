@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	itemBorderWidth: "2px",
 	ListItemAndGlowContainer: "_1BT6V_k_VEeJFBEtcQ6Jzp",

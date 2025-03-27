@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Spinner: "_3m_2lh1eA4HcHpt48En7kr",
 	SpinnerSpokeFade: "_2Wg5df41BfHnoLgawx_2pb",
 	WirelessConnectingActive: "cop8-_JMlxROh84HxKn1k",

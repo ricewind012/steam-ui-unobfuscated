@@ -1,60 +1,47 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./23038.js");
-var a = require(/*webcrack:missing*/ "./58254.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
+import n from "./63696.js";
+import i from "./23038.js";
+import a from "./58254.js";
+import { A } from "./90765.js";
 const o = 500;
 export class H extends n.Component {
 	render() {
 		let {
-			keyExtractor: e,
-			style: t,
-			duration: r = o,
-			className: l,
-			children: c,
-			childRef: m,
+			keyExtractor,
+			style,
+			duration = o,
+			className,
+			children,
+			childRef,
 			...u
 		} = this.props;
 		const d = {
-			...(t || {}),
-			transitionDuration: r / 1000 + "s",
+			...(style || {}),
+			transitionDuration: `${duration / 1000}s`,
 		};
-		return n.createElement(
-			i.A,
-			{
-				...u,
-				className: (0, s.A)("crossfade", l),
-			},
-			n.createElement(
-				a.A,
-				{
-					nodeRef: m,
-					classNames: "crossfade-anim",
-					timeout: r,
-					key: e(),
-					style: d,
-				},
-				c,
-			),
+		return (
+			<i.A {...u} className={A("crossfade", className)}>
+				<a.A
+					nodeRef={childRef}
+					classNames="crossfade-anim"
+					timeout={duration}
+					key={keyExtractor()}
+					style={d}
+				>
+					{children}
+				</a.A>
+			</i.A>
 		);
 	}
 }
 export function y(e) {
-	const { src: t, ...r } = e;
+	const { src, ...r } = e;
 	const i = {
-		backgroundImage: `url(${t})`,
+		backgroundImage: `url(${src})`,
 	};
-	const a = n.useRef(null);
-	return n.createElement(
-		H,
-		{
-			style: i,
-			keyExtractor: () => t,
-			childRef: a,
-			...r,
-		},
-		n.createElement("div", {
-			ref: a,
-			className: "crossfade-img",
-		}),
+	const ARef = n.useRef(null);
+	return (
+		<H style={i} keyExtractor={() => src} childRef={ARef} {...r}>
+			<div ref={ARef} className="crossfade-img" />
+		</H>
 	);
 }

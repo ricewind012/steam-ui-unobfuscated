@@ -1,26 +1,26 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./79769.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./90095.js");
-var m = require("./13869.js");
-var u = require("./85182.js");
-var d = require("./34792.js");
-var A = require(/*webcrack:missing*/ "./58663.js");
-var p = require(/*webcrack:missing*/ "./48307.js");
-var g = require(/*webcrack:missing*/ "./12176.js");
-var h = require("./12251.js");
-const C = A.Message;
-class _ extends C {
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { _g, hL } from "./52451.js";
+import s, { Gn } from "./89193.js";
+import o from "./79769.js";
+import c, { q3 } from "./90095.js";
+import { pg } from "./13869.js";
+import { wY } from "./85182.js";
+import d from "./34792.js";
+import A from "./58663.js";
+import p from "./48307.js";
+import { I8 } from "./12176.js";
+import { OI } from "./12251.js";
+const A_Message = A.Message;
+class _ extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.controller_index) {
 			p.Sg(_.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -234,7 +234,7 @@ class _ extends C {
 		return p.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -242,7 +242,7 @@ class _ extends C {
 		p.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -250,14 +250,14 @@ class _ extends C {
 		return "CSteamInputService_ControllerButtonStateChanged_Notification";
 	}
 }
-class f extends C {
+class f extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.x) {
 			p.Sg(f.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -301,7 +301,7 @@ class f extends C {
 		return p.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -309,7 +309,7 @@ class f extends C {
 		p.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -317,14 +317,14 @@ class f extends C {
 		return "ControllerVector2";
 	}
 }
-class b extends C {
+class b extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.x) {
 			p.Sg(b.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -373,7 +373,7 @@ class b extends C {
 		return p.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -381,7 +381,7 @@ class b extends C {
 		p.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -389,14 +389,14 @@ class b extends C {
 		return "ControllerVector3";
 	}
 }
-class y extends C {
+class y extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.w) {
 			p.Sg(y.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -450,7 +450,7 @@ class y extends C {
 		return p.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -458,7 +458,7 @@ class y extends C {
 		p.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -466,14 +466,14 @@ class y extends C {
 		return "ControllerQuaternion";
 	}
 }
-class S extends C {
+class S extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S.prototype.pitch) {
 			p.Sg(S.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -522,7 +522,7 @@ class S extends C {
 		return p.zj(S.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -530,7 +530,7 @@ class S extends C {
 		p.i0(S.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -538,14 +538,14 @@ class S extends C {
 		return "ControllerGyroEulerAngles";
 	}
 }
-class w extends C {
+class w extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!w.prototype.controller_index) {
 			p.Sg(w.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -624,7 +624,7 @@ class w extends C {
 		return p.zj(w.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -632,7 +632,7 @@ class w extends C {
 		p.i0(w.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		w.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -640,14 +640,14 @@ class w extends C {
 		return "CSteamInputService_ControllerAxesStateChange_Notification";
 	}
 }
-class B extends C {
+class B extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!B.prototype.controller_index) {
 			p.Sg(B.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -709,7 +709,7 @@ class B extends C {
 		return p.zj(B.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -717,7 +717,7 @@ class B extends C {
 		p.i0(B.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -725,14 +725,14 @@ class B extends C {
 		return "CSteamInputService_GyroQuaternionChanged_Notification";
 	}
 }
-class v extends C {
+class v extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!v.prototype.controller_index) {
 			p.Sg(v.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -784,7 +784,7 @@ class v extends C {
 		return p.zj(v.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -792,7 +792,7 @@ class v extends C {
 		p.i0(v.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -800,14 +800,14 @@ class v extends C {
 		return "CSteamInputService_GyroSpeedChanged_Notification";
 	}
 }
-class I extends C {
+class I extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!I.prototype.controller_index) {
 			p.Sg(I.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -859,7 +859,7 @@ class I extends C {
 		return p.zj(I.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -867,7 +867,7 @@ class I extends C {
 		p.i0(I.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -875,14 +875,14 @@ class I extends C {
 		return "CSteamInputService_GyroAccelerometerChanged_Notification";
 	}
 }
-class E extends C {
+class E extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!E.prototype.controller_index) {
 			p.Sg(E.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -941,7 +941,7 @@ class E extends C {
 		return p.zj(E.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -949,7 +949,7 @@ class E extends C {
 		p.i0(E.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		E.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -957,14 +957,14 @@ class E extends C {
 		return "CSteamInputService_GyroCalibration_Notification";
 	}
 }
-class M extends C {
+class M extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!M.prototype.controller_index) {
 			p.Sg(M.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1008,7 +1008,7 @@ class M extends C {
 		return p.zj(M.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1016,7 +1016,7 @@ class M extends C {
 		p.i0(M.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		M.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1024,11 +1024,11 @@ class M extends C {
 		return "CSteamInputService_ControllerStateFlow_Request";
 	}
 }
-class T extends C {
+class T extends A_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		C.initialize(this, e, 0, -1, undefined, null);
+		A_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return T.toObject(e, this);
@@ -1054,13 +1054,13 @@ class T extends C {
 		return e;
 	}
 	serializeBinary() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new A.BinaryWriter();
+		const e = new A.BinaryWriter();
 		T.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1068,14 +1068,14 @@ class T extends C {
 		return "CSteamInputService_ControllerStateFlow_Response";
 	}
 }
-var R;
-(function (e) {
+let R;
+((e) => {
 	e.NotifyButtonStateChangedHandler = {
 		name: "SteamInputManager.NotifyButtonStateChanged#1",
 		request: _,
 	};
-	e.RegisterForNotifyButtonStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyButtonStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1087,14 +1087,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyButtonStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyButtonStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyButtonStateChanged#1",
-				(0, g.I8)(_, e),
+				I8(_, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1102,14 +1102,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyButtonStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyButtonStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyButtonStateChanged#1",
-				(0, g.I8)(_, e),
+				I8(_, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1121,8 +1121,8 @@ var R;
 		name: "SteamInputManager.NotifyAxesStateChanged#1",
 		request: w,
 	};
-	e.RegisterForNotifyAxesStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyAxesStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1134,14 +1134,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyAxesStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyAxesStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyAxesStateChanged#1",
-				(0, g.I8)(w, e),
+				I8(w, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1149,14 +1149,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyAxesStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyAxesStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyAxesStateChanged#1",
-				(0, g.I8)(w, e),
+				I8(w, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1168,8 +1168,8 @@ var R;
 		name: "SteamInputManager.NotifyGyroQuaternionStateChanged#1",
 		request: B,
 	};
-	e.RegisterForNotifyGyroQuaternionStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyGyroQuaternionStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1181,14 +1181,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyGyroQuaternionStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyGyroQuaternionStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroQuaternionStateChanged#1",
-				(0, g.I8)(B, e),
+				I8(B, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1196,14 +1196,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyGyroQuaternionStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyGyroQuaternionStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroQuaternionStateChanged#1",
-				(0, g.I8)(B, e),
+				I8(B, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1215,8 +1215,8 @@ var R;
 		name: "SteamInputManager.NotifyGyroSpeedStateChanged#1",
 		request: v,
 	};
-	e.RegisterForNotifyGyroSpeedStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyGyroSpeedStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1228,14 +1228,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyGyroSpeedStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyGyroSpeedStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroSpeedStateChanged#1",
-				(0, g.I8)(v, e),
+				I8(v, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1243,14 +1243,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyGyroSpeedStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyGyroSpeedStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroSpeedStateChanged#1",
-				(0, g.I8)(v, e),
+				I8(v, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1262,8 +1262,8 @@ var R;
 		name: "SteamInputManager.NotifyGyroAccelerometerStateChanged#1",
 		request: I,
 	};
-	e.RegisterForNotifyGyroAccelerometerStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyGyroAccelerometerStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1275,14 +1275,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyGyroAccelerometerStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyGyroAccelerometerStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroAccelerometerStateChanged#1",
-				(0, g.I8)(I, e),
+				I8(I, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1290,14 +1290,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyGyroAccelerometerStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyGyroAccelerometerStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroAccelerometerStateChanged#1",
-				(0, g.I8)(I, e),
+				I8(I, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1309,8 +1309,8 @@ var R;
 		name: "SteamInputManager.NotifyGyroCalibrationStateChanged#1",
 		request: E,
 	};
-	e.RegisterForNotifyGyroCalibrationStateChanged = function (t, r) {
-		if ((r = r || (0, h.OI)().GetDefaultHandlerRegistry()) == null) {
+	e.RegisterForNotifyGyroCalibrationStateChanged = (t, r) => {
+		if ((r = r || OI().GetDefaultHandlerRegistry()) == null) {
 			console.error(
 				"Transport Error: no default registry is available for request",
 			);
@@ -1322,14 +1322,14 @@ var R;
 			);
 		}
 	};
-	e.NotifyGyroCalibrationStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.NotifyGyroCalibrationStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroCalibrationStateChanged#1",
-				(0, g.I8)(E, e),
+				I8(E, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1337,14 +1337,14 @@ var R;
 			);
 		}
 	};
-	e.SendMsgNotifyGyroCalibrationStateChanged = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgNotifyGyroCalibrationStateChanged = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			console.error("Transport Error: no transport is available for request");
 			return false;
 		} else {
 			return t.SendNotification(
 				"SteamInputManager.NotifyGyroCalibrationStateChanged#1",
-				(0, g.I8)(E, e),
+				I8(E, e),
 				{
 					ePrivilege: 1,
 					eClientExecutionSite: 2,
@@ -1357,8 +1357,8 @@ var R;
 		request: M,
 		response: T,
 	};
-	e.StartControllerStateFlow = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.StartControllerStateFlow = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1366,7 +1366,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"SteamInputManager.StartControllerStateFlow#1",
-				(0, g.I8)(M, e),
+				I8(M, e),
 				T,
 				{
 					ePrivilege: 1,
@@ -1375,8 +1375,8 @@ var R;
 			);
 		}
 	};
-	e.SendMsgStartControllerStateFlow = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgStartControllerStateFlow = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1384,7 +1384,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"SteamInputManager.StartControllerStateFlow#1",
-				(0, g.I8)(M, e),
+				I8(M, e),
 				T,
 				{
 					ePrivilege: 1,
@@ -1398,8 +1398,8 @@ var R;
 		request: M,
 		response: T,
 	};
-	e.EndControllerStateFlow = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.EndControllerStateFlow = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1407,7 +1407,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"SteamInputManager.EndControllerStateFlow#1",
-				(0, g.I8)(M, e),
+				I8(M, e),
 				T,
 				{
 					ePrivilege: 1,
@@ -1416,8 +1416,8 @@ var R;
 			);
 		}
 	};
-	e.SendMsgEndControllerStateFlow = function (e, t) {
-		if ((t = t || (0, h.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgEndControllerStateFlow = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
@@ -1425,7 +1425,7 @@ var R;
 		} else {
 			return t.SendMsg(
 				"SteamInputManager.EndControllerStateFlow#1",
-				(0, g.I8)(M, e),
+				I8(M, e),
 				T,
 				{
 					ePrivilege: 1,
@@ -1588,7 +1588,7 @@ class N {
 		CalibrationProgress: 0,
 	};
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_controllerButtonState.nControllerIndex = e;
 		this.m_controllerGyroState.nControllerIndex = e;
 		this.m_controllerAxesState.nControllerIndex = e;
@@ -1597,12 +1597,12 @@ class N {
 		this.m_controllerGyroCalibrationState.nControllerIndex = e;
 	}
 }
-(0, n.Cg)([s.sH], N.prototype, "m_controllerButtonState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_controllerGyroState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_controllerAxesState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_controllerGyroSpeedState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_controllerGyroAccelerometerState", undefined);
-(0, n.Cg)([s.sH], N.prototype, "m_controllerGyroCalibrationState", undefined);
+Cg([s.sH], N.prototype, "m_controllerButtonState", undefined);
+Cg([s.sH], N.prototype, "m_controllerGyroState", undefined);
+Cg([s.sH], N.prototype, "m_controllerAxesState", undefined);
+Cg([s.sH], N.prototype, "m_controllerGyroSpeedState", undefined);
+Cg([s.sH], N.prototype, "m_controllerGyroAccelerometerState", undefined);
+Cg([s.sH], N.prototype, "m_controllerGyroCalibrationState", undefined);
 export class Fd {
 	static s_ControllerStore = null;
 	m_unboundControllerList = [];
@@ -1619,7 +1619,7 @@ export class Fd {
 	m_strDualSenseUpdateProduct = null;
 	m_controllerFeedStates = [];
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 		SteamClient.Input.RegisterForUnboundControllerListChanges(
 			this.OnUnboundControllerListChanged,
 		);
@@ -1672,12 +1672,12 @@ export class Fd {
 	GetControllerTypeStringByIndex(e) {
 		if (this.m_controllerList.length > 0) {
 			if (!e) {
-				return Localize("#" + D[this.m_controllerList[0].eControllerType]);
+				return Localize(`#${D[this.m_controllerList[0].eControllerType]}`);
 			}
 			let t;
 			this.m_controllerList.forEach((r) => {
 				if (r.nControllerIndex == e) {
-					t = Localize("#" + D[r.eControllerType]);
+					t = Localize(`#${D[r.eControllerType]}`);
 				}
 			});
 			return t;
@@ -2027,8 +2027,8 @@ export class Fd {
 		let r;
 		await SteamClient.Input?.SetXboxDriverInstallState(e).then((e) => (r = e));
 		this.m_strXboxInstallState = r?.strState;
-		(0, m.pg)(
-			(0, u.wY)({
+		pg(
+			wY({
 				bInstall: e,
 				result: r,
 			}),
@@ -2047,42 +2047,53 @@ export class Fd {
 		switch (e) {
 			case 31:
 			case 32:
-			case 46:
+			case 46: {
 				return "Xbox";
+			}
 			case 33:
 			case 34:
 			case 45:
-			case 48:
+			case 48: {
 				return "PlayStation";
+			}
 			case 39:
 			case 40:
 			case 41:
 			case 38:
-			case 42:
+			case 42: {
 				return "NintendoSwitch";
+			}
 			case 2:
 			case 3:
 			case 4:
-			case 49:
+			case 49: {
 				return "Steam";
-			default:
+			}
+			default: {
 				return "Generic";
+			}
 		}
 	}
 	BControllerInMask(e, t) {
 		switch (e) {
-			case "Xbox":
+			case "Xbox": {
 				return (t & 2) != 0;
-			case "PlayStation":
+			}
+			case "PlayStation": {
 				return (t & 1) != 0;
-			case "NintendoSwitch":
+			}
+			case "NintendoSwitch": {
 				return (t & 8) != 0;
-			case "Generic":
+			}
+			case "Generic": {
 				return (t & 4) != 0;
-			case "Steam":
+			}
+			case "Steam": {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	BSteamInputEnabledForAnyConnectedController(e, t) {
@@ -2138,50 +2149,51 @@ export class Fd {
 	BPSControllerSupportMismatch(e, t) {
 		return this.m_controllerList.some((r) => {
 			switch (r.eControllerType) {
-				case 34:
+				case 34: {
 					return (
 						(!t && !!r.bBluetooth && !e.BHasStoreCategory(55)) ||
 						!e.BHasStoreCategory(55)
 					);
+				}
 				case 45:
-				case 48:
+				case 48: {
 					return (
 						(!t && !!r.bBluetooth && !e.BHasStoreCategory(58)) ||
 						!e.BHasStoreCategory(57)
 					);
-				default:
+				}
+				default: {
 					return false;
+				}
 			}
 		});
 	}
 }
 export function A9() {
-	const e = (0, a._g)(50);
+	const e = _g(50);
 	const [t, r] = i.useState(() => Fd.Get().ControllerSupportFlowState);
-	(0, a.hL)(Fd.Get().ControllerDeviceSupportStateCallback, (t) =>
-		e(() => r(t)),
-	);
+	hL(Fd.Get().ControllerDeviceSupportStateCallback, (t) => e(() => r(t)));
 	return t;
 }
 export function tk() {
-	return (0, c.q3)(() => Fd.Get().GetControllers());
+	return q3(() => Fd.Get().GetControllers());
 }
 export function _Y() {
-	return (0, c.q3)(() => Fd.Get().GetControllers()?.length > 0);
+	return q3(() => Fd.Get().GetControllers()?.length > 0);
 }
 export function as(e) {
-	return (0, c.q3)(() => Fd.Get().GetController(e));
+	return q3(() => Fd.Get().GetController(e));
 }
 export function kS(e) {
 	t = (t) => (t.vecMacAddrs?.indexOf(e) ?? -1) >= 0;
-	return (0, c.q3)(() => Fd.Get().GetControllers().find(t));
+	return q3(() => Fd.Get().GetControllers().find(t));
 	var t;
 }
 export function wy(e) {
-	return (0, c.q3)(() => Fd.Get().GetControllersSorted(e));
+	return q3(() => Fd.Get().GetControllersSorted(e));
 }
 export function Sz() {
-	return (0, c.q3)(() => Fd.Get().GetUnboundControllers());
+	return q3(() => Fd.Get().GetUnboundControllers());
 }
 export function q_(e) {
 	return -e - 1;
@@ -2191,14 +2203,14 @@ export function Id(e) {
 }
 export function Lb() {
 	return [
-		(0, c.q3)(() => Fd.Get().bDualSenseUpdateNoticeVisible),
+		q3(() => Fd.Get().bDualSenseUpdateNoticeVisible),
 		i.useCallback(() => {
 			Fd.Get().HideDualSenseUpdateNotice();
 		}, []),
 	];
 }
 export function RS() {
-	return (0, c.q3)(() => Fd.Get().BHasPSController());
+	return q3(() => Fd.Get().BHasPSController());
 }
 export function g7(e, t) {
 	const [r] = d.rV.GetClientSetting("controller_generic_support");
@@ -2228,7 +2240,7 @@ function Q(e, t, r) {
 			R.EndControllerStateFlow(r);
 		};
 	}, [e, t]);
-	return (0, c.q3)(() => r(e));
+	return q3(() => r(e));
 }
 export function Rh(e) {
 	return Q(
@@ -2259,30 +2271,25 @@ export function nF(e) {
 		(e) => Fd.Get().ControllerFeedStates()[e].m_controllerGyroCalibrationState,
 	);
 }
-(0, n.Cg)([s.sH], Fd.prototype, "m_unboundControllerList", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_controllerList", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_controllerSupportState", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_controllerDeviceState", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_GyroCalibrationActive", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_steamControllerDonglePresent", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_strXboxInstallState", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_bDualSenseUpdateNoticeVisible", undefined);
-(0, n.Cg)([s.sH], Fd.prototype, "m_controllerFeedStates", undefined);
-(0, n.Cg)([a.oI], Fd.prototype, "OnUnboundControllerListChanged", null);
-(0, n.Cg)([a.oI], Fd.prototype, "OnControllerListChanged", null);
-(0, n.Cg)([a.oI], Fd.prototype, "OnControllerBatteryChange", null);
-(0, n.Cg)([a.oI], Fd.prototype, "ProcessSupportFlowUpdates", null);
-(0, n.Cg)([a.oI], Fd.prototype, "fnUpdateControllerState", null);
-(0, n.Cg)([s.XI.bound], Fd.prototype, "fnOnRawButtonStateChanged", null);
-(0, n.Cg)([s.XI.bound], Fd.prototype, "fnOnAxesStateChanged", null);
-(0, n.Cg)([s.XI.bound], Fd.prototype, "fnOnGyroQuaternionStateChanged", null);
-(0, n.Cg)([s.XI.bound], Fd.prototype, "fnOnGyroSpeedStateChanged", null);
-(0, n.Cg)(
-	[s.XI.bound],
-	Fd.prototype,
-	"fnOnGyroAccelerometerStateChanged",
-	null,
-);
-(0, n.Cg)([s.XI.bound], Fd.prototype, "fnOnGyroCalibrationStateChanged", null);
-(0, n.Cg)([a.oI], Fd.prototype, "fnGyroCalibrationDone", null);
-(0, n.Cg)([a.oI], Fd.prototype, "ShowDualSenseUpdateNotice", null);
+Cg([s.sH], Fd.prototype, "m_unboundControllerList", undefined);
+Cg([s.sH], Fd.prototype, "m_controllerList", undefined);
+Cg([s.sH], Fd.prototype, "m_controllerSupportState", undefined);
+Cg([s.sH], Fd.prototype, "m_controllerDeviceState", undefined);
+Cg([s.sH], Fd.prototype, "m_GyroCalibrationActive", undefined);
+Cg([s.sH], Fd.prototype, "m_steamControllerDonglePresent", undefined);
+Cg([s.sH], Fd.prototype, "m_strXboxInstallState", undefined);
+Cg([s.sH], Fd.prototype, "m_bDualSenseUpdateNoticeVisible", undefined);
+Cg([s.sH], Fd.prototype, "m_controllerFeedStates", undefined);
+Cg([a.oI], Fd.prototype, "OnUnboundControllerListChanged", null);
+Cg([a.oI], Fd.prototype, "OnControllerListChanged", null);
+Cg([a.oI], Fd.prototype, "OnControllerBatteryChange", null);
+Cg([a.oI], Fd.prototype, "ProcessSupportFlowUpdates", null);
+Cg([a.oI], Fd.prototype, "fnUpdateControllerState", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnRawButtonStateChanged", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnAxesStateChanged", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnGyroQuaternionStateChanged", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnGyroSpeedStateChanged", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnGyroAccelerometerStateChanged", null);
+Cg([s.XI.bound], Fd.prototype, "fnOnGyroCalibrationStateChanged", null);
+Cg([a.oI], Fd.prototype, "fnGyroCalibrationDone", null);
+Cg([a.oI], Fd.prototype, "ShowDualSenseUpdateNotice", null);

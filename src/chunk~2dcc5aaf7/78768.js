@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	BitrateSetting: "_28O-89T_2XqgGWkPWEVu1S",
 	BitrateButton: "_28RIt9NO4opxOwGCgtx5Ot",

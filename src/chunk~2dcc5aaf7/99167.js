@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./8573.js");
-var l = require("./59715.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require(/*webcrack:missing*/ "./79769.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require("./34428.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./83957.js";
+import o from "./8573.js";
+import { ap, q_ as q } from "./59715.js";
+import c from "./72476.js";
+import m from "./79769.js";
+import { dm } from "./34428.js";
+const s = a;
 const A = 1000000;
 class p {
 	steamid;
@@ -91,10 +91,10 @@ export class _L {
 	m_nTimeToFirstFrameMS = -1;
 	m_fpsMonitor = new b();
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	GetBytesReceivedToDisplay() {
-		return (0, d.dm)(this.m_allTimeSnapshot.m_nBytesReceived, 1);
+		return dm(this.m_allTimeSnapshot.m_nBytesReceived, 1);
 	}
 	GetBufferingResolutionToDisplay() {
 		return this.m_strBufferingVideoResolution;
@@ -106,11 +106,7 @@ export class _L {
 		return this.m_strHtmlVideoDisplay;
 	}
 	GetDroppedFramesToDisplay() {
-		return (
-			this.m_allTimeSnapshot.m_nFramesDropped +
-			"/" +
-			this.m_allTimeSnapshot.m_nFramesDecoded
-		);
+		return `${this.m_allTimeSnapshot.m_nFramesDropped}/${this.m_allTimeSnapshot.m_nFramesDecoded}`;
 	}
 	GetStalledEventsToDisplay() {
 		return String(this.m_allTimeSnapshot.m_nStallEvents);
@@ -134,84 +130,68 @@ export class _L {
 	}
 	GetBufferedVideoSegmentForDisplay(e) {
 		if (this.m_videoBufferedRanges && e < this.m_videoBufferedRanges.length) {
-			return (
-				(0, l.ap)(this.m_videoBufferedRanges.start(e)) +
-				" - " +
-				(0, l.ap)(this.m_videoBufferedRanges.end(e))
-			);
+			return `${ap(this.m_videoBufferedRanges.start(e))} - ${ap(
+				this.m_videoBufferedRanges.end(e),
+			)}`;
 		} else {
 			return (0, Localize)("#DASHPlayerStats_VideoNoRangeInformation");
 		}
 	}
 	GetBufferedAudioSegmentForDisplay(e) {
 		if (this.m_audioBufferedRanges && e < this.m_audioBufferedRanges.length) {
-			return (
-				(0, l.ap)(this.m_audioBufferedRanges.start(e)) +
-				" - " +
-				(0, l.ap)(this.m_audioBufferedRanges.end(e))
-			);
+			return `${ap(this.m_audioBufferedRanges.start(e))} - ${ap(
+				this.m_audioBufferedRanges.end(e),
+			)}`;
 		} else {
 			return (0, Localize)("#DASHPlayerStats_AudioNoRangeInformation");
 		}
 	}
 	GetBandwidthStatsToDisplay() {
 		if (this.m_rgSnapShots.length < 2) {
-			return (
-				(this.m_allTimeSnapshot.m_nBandwidthMin / A).toFixed(3) +
-				" / " +
-				(this.m_allTimeSnapshot.m_nBandwidthMax / A).toFixed(3) +
-				" / " +
-				(this.m_allTimeSnapshot.GetAverageBandwidth() / A).toFixed(3)
-			);
+			return `${(this.m_allTimeSnapshot.m_nBandwidthMin / A).toFixed(3)} / ${(
+				this.m_allTimeSnapshot.m_nBandwidthMax / A
+			).toFixed(3)} / ${(
+				this.m_allTimeSnapshot.GetAverageBandwidth() / A
+			).toFixed(3)}`;
 		}
 		{
 			let e = this.m_rgSnapShots[this.m_rgSnapShots.length - 2];
 			let t = this.m_rgSnapShots[this.m_rgSnapShots.length - 1];
-			return (
-				(
-					(t.m_nBandwidthMin == 0
-						? e.m_nBandwidthMin
-						: Math.min(e.m_nBandwidthMin, t.m_nBandwidthMin)) / A
-				).toFixed(3) +
-				" / " +
-				(Math.max(e.m_nBandwidthMax, t.m_nBandwidthMax) / A).toFixed(3) +
-				" / " +
-				(e.GetAverageBandwidthFromTwo(t) / A).toFixed(3)
-			);
+			return `${(
+				(t.m_nBandwidthMin == 0
+					? e.m_nBandwidthMin
+					: Math.min(e.m_nBandwidthMin, t.m_nBandwidthMin)) / A
+			).toFixed(3)} / ${(
+				Math.max(e.m_nBandwidthMax, t.m_nBandwidthMax) / A
+			).toFixed(3)} / ${(e.GetAverageBandwidthFromTwo(t) / A).toFixed(3)}`;
 		}
 	}
 	GetDownloadTimeStatsToDisplay() {
 		if (this.m_rgSnapShots.length < 2) {
-			return (
-				(this.m_allTimeSnapshot.m_nSegmentDownloadTimeMinMS / 1000).toFixed(3) +
-				" / " +
-				(this.m_allTimeSnapshot.m_nSegmentDownloadTimeMaxMS / 1000).toFixed(3) +
-				" / " +
-				(this.m_allTimeSnapshot.GetAverageDownloadTime() / 1000).toFixed(3)
-			);
+			return `${(
+				this.m_allTimeSnapshot.m_nSegmentDownloadTimeMinMS / 1000
+			).toFixed(3)} / ${(
+				this.m_allTimeSnapshot.m_nSegmentDownloadTimeMaxMS / 1000
+			).toFixed(3)} / ${(
+				this.m_allTimeSnapshot.GetAverageDownloadTime() / 1000
+			).toFixed(3)}`;
 		}
 		{
 			let e = this.m_rgSnapShots[this.m_rgSnapShots.length - 2];
 			let t = this.m_rgSnapShots[this.m_rgSnapShots.length - 1];
-			return (
-				(
-					(t.m_nSegmentDownloadTimeMinMS == 0
-						? e.m_nSegmentDownloadTimeMinMS
-						: Math.min(
-								e.m_nSegmentDownloadTimeMinMS,
-								t.m_nSegmentDownloadTimeMinMS,
-							)) / 1000
-				).toFixed(3) +
-				" / " +
-				(
-					Math.max(
-						e.m_nSegmentDownloadTimeMaxMS,
-						t.m_nSegmentDownloadTimeMaxMS,
-					) / 1000
-				).toFixed(3) +
-				" / " +
-				(e.GetAverageDownloadTimeFromTwo(t) / 1000).toFixed(3)
-			);
+			return `${(
+				(t.m_nSegmentDownloadTimeMinMS == 0
+					? e.m_nSegmentDownloadTimeMinMS
+					: Math.min(
+							e.m_nSegmentDownloadTimeMinMS,
+							t.m_nSegmentDownloadTimeMinMS,
+						)) / 1000
+			).toFixed(3)} / ${(
+				Math.max(e.m_nSegmentDownloadTimeMaxMS, t.m_nSegmentDownloadTimeMaxMS) /
+				1000
+			).toFixed(3)} / ${(e.GetAverageDownloadTimeFromTwo(t) / 1000).toFixed(
+				3,
+			)}`;
 		}
 	}
 	BHasFrameInformation() {
@@ -237,7 +217,7 @@ export class _L {
 	}
 	GetVideoDownloadProgressToDisplay() {
 		if (this.m_nVideoDownloadProgress) {
-			return String(Math.round(this.m_nVideoDownloadProgress * 100)) + "%";
+			return `${String(Math.round(this.m_nVideoDownloadProgress * 100))}%`;
 		} else {
 			return "100%";
 		}
@@ -260,7 +240,7 @@ export class _L {
 		}
 	}
 	GetPlaybackRateForDisplay() {
-		return this.m_nPlaybackRate.toFixed(1) + "x";
+		return `${this.m_nPlaybackRate.toFixed(1)}x`;
 	}
 	GetFPSMonitor() {
 		return this.m_fpsMonitor;
@@ -268,11 +248,11 @@ export class _L {
 	SetHTMLVideoPlayerDisplay(e, t, r, n) {
 		if (this.m_htmlVideoResolution != n) {
 			this.m_htmlVideoResolution = n;
-			this.m_strHtmlVideoDisplay = r + "x" + n;
+			this.m_strHtmlVideoDisplay = `${r}x${n}`;
 		}
 		if (this.m_nPlaybackVideoResolution != t) {
 			this.m_nPlaybackVideoResolution = t;
-			this.m_strPlaybackVideoResolution = e + "x" + t;
+			this.m_strPlaybackVideoResolution = `${e}x${t}`;
 		}
 	}
 	SetVideoPlaybackResolution(e, t, r) {
@@ -282,7 +262,7 @@ export class _L {
 				this.m_rgSnapShots.length - 1
 			].m_nInitialVideoResolution = t;
 		}
-		this.m_strBufferingVideoResolution = e + "x" + t + "@" + r;
+		this.m_strBufferingVideoResolution = `${e}x${t}@${r}`;
 		this.m_videoResolution = t;
 		this.m_frameRate = r;
 	}
@@ -361,7 +341,7 @@ export class _L {
 		}
 		let r = this.FindBehindSegmentLoader(e, t);
 		if (!r) {
-			(0, l.q_)("DASHStats: Did not find any audio or video loaders");
+			q("DASHStats: Did not find any audio or video loaders");
 			return;
 		}
 		this.m_allTimeSnapshot.m_nStallEvents += 1;
@@ -385,21 +365,21 @@ export class _L {
 		let a = 0;
 		for (let e = i.length - 1; e >= 0 && a < 3; --e) {
 			++a;
-			n["segment" + a + "_bytes"] = i[e].cubData;
-			n["segment" + a + "_time"] = Math.round(i[e].nDownloadMS) / 1000;
+			n[`segment${a}_bytes`] = i[e].cubData;
+			n[`segment${a}_time`] = Math.round(i[e].nDownloadMS) / 1000;
 		}
 		this.SendReportToServer(n, this.m_strStalledLink);
 	}
 	FindBehindSegmentLoader(e, t) {
 		let r = false;
 		let n = false;
-		let i = t.currentTime;
+		let t_currentTime = t.currentTime;
 		let a = null;
 		let s = null;
 		for (let t of e) {
 			s = t.ContainsAudio() ? t : s;
 			a = t.ContainsVideo() ? t : s;
-			if (t.BHasEnoughBuffered(i)) {
+			if (t.BHasEnoughBuffered(t_currentTime)) {
 				n = n || t.ContainsAudio();
 				r = r || t.ContainsVideo();
 			}
@@ -420,7 +400,7 @@ export class _L {
 				r = n.totalVideoFrames;
 				t = n.droppedVideoFrames;
 			} catch (e) {
-				(0, l.q_)(
+				q(
 					"Browser does not support HTMLVideoElement.getVideoPlaybackQuality()",
 					e.message,
 				);
@@ -525,9 +505,9 @@ export class _L {
 		n.append("l", r.searchParams.get("l"));
 		n.append("e", r.searchParams.get("e"));
 		n.append("h", r.searchParams.get("h"));
-		(0, l.q_)("CDASHStats Sending Report to Server", e);
+		q("CDASHStats Sending Report to Server", e);
 		s.post(t, n).catch((e) => {
-			(0, l.q_)("Failed to upload stats: ", e);
+			q("Failed to upload stats: ", e);
 		});
 	}
 	CreateNewEmptySnapshot(e) {
@@ -553,27 +533,27 @@ export class _L {
 		e.broadcast_origin = this.m_strBroadcastOrigin;
 	}
 }
-(0, n.Cg)([i.sH], _L.prototype, "m_allTimeSnapshot", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_strBufferingVideoResolution", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_strPlaybackVideoResolution", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_strHtmlVideoDisplay", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nBandwidthRequired", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nCurBandwidthVideo", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nAudioBufferedMS", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nVideoBufferedMS", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nActiveDownloads", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nVideoDownloadProgress", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_videoBufferedRanges", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_audioBufferedRanges", undefined);
-(0, n.Cg)([i.sH], _L.prototype, "m_nPlaybackRate", undefined);
-(0, n.Cg)([i.XI], _L.prototype, "SetVideoPlaybackResolution", null);
-(0, n.Cg)([i.XI], _L.prototype, "SetRepresentation", null);
-(0, n.Cg)([i.XI], _L.prototype, "SetCurrentVideoBandwidth", null);
-(0, n.Cg)([i.XI], _L.prototype, "CaptureFrequentlyUpdatingInformation", null);
-(0, n.Cg)([i.XI], _L.prototype, "LogDownload", null);
-(0, n.Cg)([i.XI], _L.prototype, "LogSegmentDownloadFailure", null);
-(0, n.Cg)([i.XI], _L.prototype, "LogFrameInfo", null);
-(0, n.Cg)([i.XI], _L.prototype, "LogBufferDuration", null);
+Cg([i.sH], _L.prototype, "m_allTimeSnapshot", undefined);
+Cg([i.sH], _L.prototype, "m_strBufferingVideoResolution", undefined);
+Cg([i.sH], _L.prototype, "m_strPlaybackVideoResolution", undefined);
+Cg([i.sH], _L.prototype, "m_strHtmlVideoDisplay", undefined);
+Cg([i.sH], _L.prototype, "m_nBandwidthRequired", undefined);
+Cg([i.sH], _L.prototype, "m_nCurBandwidthVideo", undefined);
+Cg([i.sH], _L.prototype, "m_nAudioBufferedMS", undefined);
+Cg([i.sH], _L.prototype, "m_nVideoBufferedMS", undefined);
+Cg([i.sH], _L.prototype, "m_nActiveDownloads", undefined);
+Cg([i.sH], _L.prototype, "m_nVideoDownloadProgress", undefined);
+Cg([i.sH], _L.prototype, "m_videoBufferedRanges", undefined);
+Cg([i.sH], _L.prototype, "m_audioBufferedRanges", undefined);
+Cg([i.sH], _L.prototype, "m_nPlaybackRate", undefined);
+Cg([i.XI], _L.prototype, "SetVideoPlaybackResolution", null);
+Cg([i.XI], _L.prototype, "SetRepresentation", null);
+Cg([i.XI], _L.prototype, "SetCurrentVideoBandwidth", null);
+Cg([i.XI], _L.prototype, "CaptureFrequentlyUpdatingInformation", null);
+Cg([i.XI], _L.prototype, "LogDownload", null);
+Cg([i.XI], _L.prototype, "LogSegmentDownloadFailure", null);
+Cg([i.XI], _L.prototype, "LogFrameInfo", null);
+Cg([i.XI], _L.prototype, "LogBufferDuration", null);
 class _ {
 	m_timeMS = Date.now();
 	m_nBytesReceived = 0;
@@ -591,7 +571,7 @@ class _ {
 	m_nFramesDecoded = 0;
 	m_nFramesDropped = 0;
 	constructor(e) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_nInitialVideoResolution = e;
 	}
 	GetAverageBandwidth() {
@@ -638,16 +618,16 @@ class _ {
 		this.m_nEntries += 1;
 	}
 }
-(0, n.Cg)([i.sH], _.prototype, "m_nBytesReceived", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nFailedSegments", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nStallEvents", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nSegmentDownloadTimeMaxMS", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nSegmentDownloadTimeMinMS", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nBandwidthMin", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nBandwidthMax", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nFramesDecoded", undefined);
-(0, n.Cg)([i.sH], _.prototype, "m_nFramesDropped", undefined);
-(0, n.Cg)([i.XI], _.prototype, "SegmentReceived", null);
+Cg([i.sH], _.prototype, "m_nBytesReceived", undefined);
+Cg([i.sH], _.prototype, "m_nFailedSegments", undefined);
+Cg([i.sH], _.prototype, "m_nStallEvents", undefined);
+Cg([i.sH], _.prototype, "m_nSegmentDownloadTimeMaxMS", undefined);
+Cg([i.sH], _.prototype, "m_nSegmentDownloadTimeMinMS", undefined);
+Cg([i.sH], _.prototype, "m_nBandwidthMin", undefined);
+Cg([i.sH], _.prototype, "m_nBandwidthMax", undefined);
+Cg([i.sH], _.prototype, "m_nFramesDecoded", undefined);
+Cg([i.sH], _.prototype, "m_nFramesDropped", undefined);
+Cg([i.XI], _.prototype, "SegmentReceived", null);
 class f {
 	bDropReading;
 	nTotalDecodedFrames;
@@ -658,7 +638,7 @@ class f {
 }
 class b {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	k_nTestFrequencyMS = 1000;
 	k_nSlidingWindow = 6;
@@ -739,6 +719,6 @@ class b {
 		this.m_rgResultsWindow.push(r);
 	}
 }
-(0, n.Cg)([i.sH], b.prototype, "m_bDroppingFrameDetected", undefined);
-(0, n.Cg)([i.sH], b.prototype, "m_nCurrentFPS", undefined);
-(0, n.Cg)([i.XI.bound], b.prototype, "TakeReading", null);
+Cg([i.sH], b.prototype, "m_bDroppingFrameDetected", undefined);
+Cg([i.sH], b.prototype, "m_nCurrentFPS", undefined);
+Cg([i.XI.bound], b.prototype, "TakeReading", null);

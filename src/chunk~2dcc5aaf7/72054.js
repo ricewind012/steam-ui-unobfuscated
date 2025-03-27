@@ -1,38 +1,31 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./58839.js");
-var a = require("./82594.js");
-var s = require("./47628.js");
-var o = s;
-var l = require(/*webcrack:missing*/ "./72476.js");
-export function m(e) {
-	const { appInfo: t } = e;
-	const r = (0, n.useRef)({
+import n, { useRef } from "./63696.js";
+import { SW } from "./58839.js";
+import { G6 } from "./82594.js";
+import s from "./47628.js";
+import l from "./72476.js";
+const o = s;
+export function M(e) {
+	const { appInfo } = e;
+	const RRef = useRef({
 		include_trailers: true,
 	});
-	const [s] = (0, a.G6)(t?.id, (0, i.SW)(t?.type), r.current);
+	const [s] = G6(appInfo?.id, SW(appInfo?.type), RRef.current);
 	if (!s) {
 		return null;
 	}
 	const _m = s.GetMicroTrailer();
 	if (_m) {
-		return n.createElement(
-			"video",
-			{
-				className: o.CapsuleMicroTrailer,
-				loop: true,
-				muted: true,
-				autoPlay: true,
-				key: "mtv-" + _m.strMP4URL,
-			},
-			n.createElement("source", {
-				src: _m.strWebMURL,
-				type: "video/webm",
-			}),
-			!l.TS.IN_CLIENT &&
-				n.createElement("source", {
-					src: _m.strMP4URL,
-					type: "video/mp4",
-				}),
+		return (
+			<video
+				className={o.CapsuleMicroTrailer}
+				loop
+				muted
+				autoPlay
+				key={`mtv-${_m.strMP4URL}`}
+			>
+				<source src={_m.strWebMURL} type="video/webm" />
+				{!l.TS.IN_CLIENT && <source src={_m.strMP4URL} type="video/mp4" />}
+			</video>
 		);
 	} else if (
 		!s.GetParentAppID() ||
@@ -40,11 +33,13 @@ export function m(e) {
 	) {
 		return null;
 	} else {
-		return n.createElement(m, {
-			appInfo: {
-				id: s.GetParentAppID(),
-				type: "game",
-			},
-		});
+		return (
+			<M
+				appInfo={{
+					id: s.GetParentAppID(),
+					type: "game",
+				}}
+			/>
+		);
 	}
 }

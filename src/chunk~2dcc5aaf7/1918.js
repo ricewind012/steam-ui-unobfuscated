@@ -1,13 +1,16 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./51095.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require("./87071.js");
-var l = o;
-var c = require(/*webcrack:missing*/ "./72476.js");
-var m = require(/*webcrack:missing*/ "./31958.js");
+import { ShuffleArray } from "../../actual_src/utils/arrayutils.js";
+import n, { Cg } from "./34629.js";
+import i, { useRef, useState } from "./63696.js";
+import a from "./51095.js";
+import s from "./41230.js";
+import o from "./87071.js";
+import c from "./72476.js";
+import m, { Tg, Fu, OQ } from "./31958.js";
+import f from "./67060.js";
+import { A as A_1 } from "./90765.js";
+const l = o;
 function u(e, t, r) {
-	return c.TS.COMMUNITY_CDN_ASSET_URL + e + "/roomeffects/" + t + "/" + r;
+	return `${c.TS.COMMUNITY_CDN_ASSET_URL + e}/roomeffects/${t}/${r}`;
 }
 class d extends i.Component {
 	m_strSaleId;
@@ -20,28 +23,28 @@ class d extends i.Component {
 	}
 }
 function A(e, t) {
-	(function (e) {
-		const t = (0, i.useRef)({
+	((e) => {
+		const TRef = useRef({
 			bSet: false,
 		});
-		if (!t.current.bSet) {
-			t.current = {
+		if (!TRef.current.bSet) {
+			TRef.current = {
 				bSet: true,
 				value: e(),
 			};
 		}
-		t.current.value;
+		TRef.current.value;
 	})(() => setTimeout(e, t));
 }
-const p = ({ msDelay: e, children: t }) =>
-	(function (e) {
-		const [t, r] = (0, i.useState)(false);
-		A(() => r(true), e);
+const P = ({ msDelay, children }) =>
+	((e) => {
+		const [t, setT] = useState(false);
+		A(() => setT(true), e);
 		return t;
-	})(e)
-		? i.createElement(i.Fragment, null, t)
-		: null;
-class g extends i.Component {
+	})(msDelay) ? (
+		<>{children}</>
+	) : null;
+class G extends i.Component {
 	m_refContainer = i.createRef();
 	m_rgFireworks = [];
 	m_nCurrentDelay = 0;
@@ -72,8 +75,8 @@ class g extends i.Component {
 		this.AddCluster(e);
 	}
 	TestRender(e) {
-		(0, m.Tg)(0, 70);
-		(0, m.Tg)(0, 70);
+		Tg(0, 70);
+		Tg(0, 70);
 		for (let t = 0; t < 1; t++) {
 			this.m_rgFireworks.push({
 				x: "20%",
@@ -104,14 +107,14 @@ class g extends i.Component {
 	}
 	CalcHueRotation() {
 		if (this.props.sale == "lny2020") {
-			return 360 + (0, m.Tg)(-30, 10);
+			return 360 + Tg(-30, 10);
 		} else {
-			return (0, m.Tg)(0, 360);
+			return Tg(0, 360);
 		}
 	}
 	AddCluster(e) {
-		let t = (0, m.Tg)(-5, 50);
-		let r = (0, m.Tg)(-10, 50);
+		let t = Tg(-5, 50);
+		let r = Tg(-10, 50);
 		let n = this.CalcHueRotation();
 		this.m_rgFireworks.push({
 			x: `${t}%`,
@@ -145,8 +148,8 @@ class g extends i.Component {
 		}
 	}
 	RenderLong(e) {
-		const t = (0, m.Tg)(20, 60);
-		const r = (0, m.Tg)(-5, 50);
+		const t = Tg(20, 60);
+		const r = Tg(-5, 50);
 		const n = this.CalcHueRotation();
 		this.m_rgFireworks.push({
 			x: `${t}%`,
@@ -162,11 +165,12 @@ class g extends i.Component {
 			return;
 		}
 		let e = this.m_refContainer.current;
-		let t = e.offsetWidth;
-		let r = e.offsetHeight;
-		let n = (0, m.Fu)(t, 400, 1080, 0.5, 2);
-		n = (0, m.OQ)(n, 0.5, 2);
-		console.log(t, r, n);
+
+		let { offsetWidth, offsetHeight } = e;
+
+		let n = Fu(offsetWidth, 400, 1080, 0.5, 2);
+		n = OQ(n, 0.5, 2);
+		console.log(offsetWidth, offsetHeight, n);
 		this.CreateFireworks(n);
 		this.setState({
 			bReady: true,
@@ -183,88 +187,69 @@ class g extends i.Component {
 					filter: `hue-rotate(${t.nHueRotation}deg)`,
 				};
 				e.push(
-					i.createElement(t.burst, {
-						key: n,
-						style: a,
-						msDelay: t.nDelay,
-						scale: t.flScale,
-						sale: this.props.sale,
-					}),
+					<t.burst
+						key={n}
+						style={a}
+						msDelay={t.nDelay}
+						scale={t.flScale}
+						sale={this.props.sale}
+					/>,
 				);
 			});
 		}
-		return i.createElement(
-			"div",
-			{
-				ref: this.m_refContainer,
-				className: l.FireworkContainer,
-			},
-			e,
+		return (
+			<div ref={this.m_refContainer} className={l.FireworkContainer}>
+				{e}
+			</div>
 		);
 	}
 }
 function h(e) {
 	const t = u(e.sale, "fireworks", "long_sheet.png");
-	let r = e.style;
-	r.backgroundImage = `url(${t})`;
-	r.width = 256;
-	r.height = 256;
-	r.animation = `${l.fireworkLongX} 0.2s steps(9) 10, ${l.fireworkLongY} 2.0s steps(10) forwards`;
-	r.transformOrigin = "0 0";
-	r.transform = `scale( ${e.scale} )`;
-	return i.createElement(
-		p,
-		{
-			msDelay: e.msDelay,
-		},
-		i.createElement("div", {
-			style: e.style,
-			className: l.FireworkPNG,
-		}),
+	let e_style = e.style;
+	e_style.backgroundImage = `url(${t})`;
+	e_style.width = 256;
+	e_style.height = 256;
+	e_style.animation = `${l.fireworkLongX} 0.2s steps(9) 10, ${l.fireworkLongY} 2.0s steps(10) forwards`;
+	e_style.transformOrigin = "0 0";
+	e_style.transform = `scale( ${e.scale} )`;
+	return (
+		<P msDelay={e.msDelay}>
+			<div style={e.style} className={l.FireworkPNG} />
+		</P>
 	);
 }
 function C(e) {
 	const t = u(e.sale, "fireworks", "big_sheet.png");
-	let r = e.style;
-	r.backgroundImage = `url(${t})`;
-	r.width = 256;
-	r.height = 256;
-	r.animation = `${l.fireworkBigX} 0.2s steps(9) 4, ${l.fireworkBigY} 0.8s steps(4) forwards`;
-	r.transformOrigin = "0 0";
-	r.transform = `scale( ${e.scale} )`;
-	return i.createElement(
-		p,
-		{
-			msDelay: e.msDelay,
-		},
-		i.createElement("div", {
-			style: e.style,
-			className: l.FireworkPNG,
-		}),
+	let e_style = e.style;
+	e_style.backgroundImage = `url(${t})`;
+	e_style.width = 256;
+	e_style.height = 256;
+	e_style.animation = `${l.fireworkBigX} 0.2s steps(9) 4, ${l.fireworkBigY} 0.8s steps(4) forwards`;
+	e_style.transformOrigin = "0 0";
+	e_style.transform = `scale( ${e.scale} )`;
+	return (
+		<P msDelay={e.msDelay}>
+			<div style={e.style} className={l.FireworkPNG} />
+		</P>
 	);
 }
 function _(e) {
 	const t = u(e.sale, "fireworks", "small_sheet.png");
-	let r = e.style;
-	r.backgroundImage = `url(${t})`;
-	r.width = 256;
-	r.height = 256;
-	r.animation = `${l.fireworkSmallX} 0.15s steps(10) 6, ${l.fireworkSmallY} 0.9s steps(6) forwards`;
-	r.transformOrigin = "0 0";
-	r.transform = `scale( ${e.scale / 2} )`;
-	return i.createElement(
-		p,
-		{
-			msDelay: e.msDelay,
-		},
-		i.createElement("div", {
-			style: e.style,
-			className: l.FireworkPNG,
-		}),
+	let e_style = e.style;
+	e_style.backgroundImage = `url(${t})`;
+	e_style.width = 256;
+	e_style.height = 256;
+	e_style.animation = `${l.fireworkSmallX} 0.15s steps(10) 6, ${l.fireworkSmallY} 0.9s steps(6) forwards`;
+	e_style.transformOrigin = "0 0";
+	e_style.transform = `scale( ${e.scale / 2} )`;
+	return (
+		<P msDelay={e.msDelay}>
+			<div style={e.style} className={l.FireworkPNG} />
+		</P>
 	);
 }
-var f = require("./67060.js");
-class b extends d {
+class B_1 extends d {
 	m_x;
 	m_y;
 	m_nRotate;
@@ -274,8 +259,8 @@ class b extends d {
 	static sm_nUnique = 0;
 	constructor(e) {
 		super(e);
-		this.m_x = m.Tg(0, 70) + "%";
-		this.m_y = m.Tg(0, 70) + "%";
+		this.m_x = `${m.Tg(0, 70)}%`;
+		this.m_y = `${m.Tg(0, 70)}%`;
 		this.m_nRotate = Math.floor(Math.random() * 90) - 45;
 		this.m_splatRots = [
 			Math.random() * 360,
@@ -283,16 +268,13 @@ class b extends d {
 			Math.random() * 360,
 		];
 		this.m_nPathAnimation = m.Tg(1, 6);
-		this.m_nKeyID = b.sm_nUnique++;
+		this.m_nKeyID = B_1.sm_nUnique++;
 		this.m_strSaleId = "winter2019";
 	}
 	fragment(e, ...t) {
 		let r = t.map((e) => l[e]);
 		r.push(l.snowball_fragment);
-		return i.createElement("img", {
-			src: this.getAsset(e),
-			className: r.join(" "),
-		});
+		return <img src={this.getAsset(e)} className={r.join(" ")} />;
 	}
 	Snowball(e, t, ...r) {
 		let n = e < 0 ? l.SnowballImageCW : l.SnowballImageCCW;
@@ -301,54 +283,48 @@ class b extends d {
 		}
 		let a = r.map((e) => l[e]);
 		a.push(l.snowball_fragment);
-		return i.createElement(
-			"div",
-			{
-				style: {
+		return (
+			<div
+				style={{
 					display: "inline-block",
-				},
-				className: a.join(" "),
-			},
-			i.createElement("img", {
-				style: {
-					transform: "rotation( 360deg )",
-				},
-				className: `${l.SnowballImage} ${n}`,
-				src: this.getAsset(t),
-			}),
+				}}
+				className={a.join(" ")}
+			>
+				<img
+					style={{
+						transform: "rotation( 360deg )",
+					}}
+					className={`${l.SnowballImage} ${n}`}
+					src={this.getAsset(t)}
+				/>
+			</div>
 		);
 	}
 	residue() {
-		return i.createElement(
-			i.Fragment,
-			null,
-			i.createElement(
-				"div",
-				{
-					style: {
+		return (
+			<>
+				<div
+					style={{
 						transform: `rotate(${this.m_splatRots[0]}deg)`,
-					},
-				},
-				this.fragment("splat1.png", "snowball-residue"),
-			),
-			i.createElement(
-				"div",
-				{
-					style: {
+					}}
+				>
+					{this.fragment("splat1.png", "snowball-residue")}
+				</div>
+				<div
+					style={{
 						transform: `rotate(${this.m_splatRots[1]}deg)`,
-					},
-				},
-				this.fragment("splat2.png", "snowball-residue"),
-			),
-			i.createElement(
-				"div",
-				{
-					style: {
+					}}
+				>
+					{this.fragment("splat2.png", "snowball-residue")}
+				</div>
+				<div
+					style={{
 						transform: `rotate(${this.m_splatRots[2]}deg)`,
-					},
-				},
-				this.fragment("splat3.png", "snowball-residue"),
-			),
+					}}
+				>
+					{this.fragment("splat3.png", "snowball-residue")}
+				</div>
+			</>
 		);
 	}
 	render() {
@@ -356,81 +332,80 @@ class b extends d {
 		let t = {
 			animationName: l[e],
 		};
-		return i.createElement(
-			i.Fragment,
-			{
-				key: `${this.m_nKeyID}`,
-			},
-			i.createElement(
-				"div",
-				{
-					className: l["snowball-path"],
-					style: t,
-				},
-				i.createElement(
-					"div",
-					{
-						className: l["snowball-container"],
-						style: {
+		return (
+			<i.Fragment key={`${this.m_nKeyID}`}>
+				<div className={l["snowball-path"]} style={t}>
+					<div
+						className={l["snowball-container"]}
+						style={{
 							left: this.m_x,
 							top: this.m_y,
 							transform: `rotate( ${this.m_nRotate}deg )`,
-						},
-					},
-					this.Snowball(this.m_nRotate, "snowball.png", "snowball"),
-					this.fragment("slide-out-tl.png", "slide-out-tl"),
-					this.fragment("slide-out-tr.png", "slide-out-tr"),
-					this.fragment("slide-out-bottom.png", "slide-out-bottom"),
-					this.residue(),
-					this.fragment("snowball_1.png", "snowball-chunk", "snowball-chunk-1"),
-					this.fragment("snowball_2.png", "snowball-chunk", "snowball-chunk-2"),
-					this.fragment("snowball_3.png", "snowball-chunk", "snowball-chunk-3"),
-					this.fragment("snowball_4.png", "snowball-chunk", "snowball-chunk-4"),
-				),
-			),
+						}}
+					>
+						{this.Snowball(this.m_nRotate, "snowball.png", "snowball")}
+						{this.fragment("slide-out-tl.png", "slide-out-tl")}
+						{this.fragment("slide-out-tr.png", "slide-out-tr")}
+						{this.fragment("slide-out-bottom.png", "slide-out-bottom")}
+						{this.residue()}
+						{this.fragment(
+							"snowball_1.png",
+							"snowball-chunk",
+							"snowball-chunk-1",
+						)}
+						{this.fragment(
+							"snowball_2.png",
+							"snowball-chunk",
+							"snowball-chunk-2",
+						)}
+						{this.fragment(
+							"snowball_3.png",
+							"snowball-chunk",
+							"snowball-chunk-3",
+						)}
+						{this.fragment(
+							"snowball_4.png",
+							"snowball-chunk",
+							"snowball-chunk-4",
+						)}
+					</div>
+				</div>
+			</i.Fragment>
 		);
 	}
 }
-import { ShuffleArray } from "../../actual_src/utils/arrayutils.js";
 function S(e) {
-	const t = e.data;
-	const r = u(e.sale, e.effect.name, `${t.strImage}.png`);
+	const e_data = e.data;
+	const r = u(e.sale, e.effect.name, `${e_data.strImage}.png`);
 	let n = null;
-	if (t.SOverlay) {
-		const r = t.SOverlay
-			? u(e.sale, e.effect.name, `${t.SOverlay.strImage}.png`)
+	if (e_data.SOverlay) {
+		const r = e_data.SOverlay
+			? u(e.sale, e.effect.name, `${e_data.SOverlay.strImage}.png`)
 			: null;
 		const a = {
-			animationDuration: `${t.SOverlay.nDuration}s`,
+			animationDuration: `${e_data.SOverlay.nDuration}s`,
 		};
-		n = i.createElement("img", {
-			src: r,
-			className: l[t.SOverlay.strClass],
-			style: a,
-		});
+		n = <img src={r} className={l[e_data.SOverlay.strClass]} style={a} />;
 	}
 	let a = {
-		animationDuration: `${t.nDuration}s`,
-		animationName: l[t.strAnimation],
-		marginLeft: `${t.nOffset}%`,
+		animationDuration: `${e_data.nDuration}s`,
+		animationName: l[e_data.strAnimation],
+		marginLeft: `${e_data.nOffset}%`,
 	};
-	return i.createElement(
-		"div",
-		{
-			style: a,
-			className: l.balloons,
-		},
-		i.createElement("img", {
-			src: r,
-			style: {
-				maxWidth: "100%",
-				position: "absolute",
-			},
-		}),
-		n,
+	return (
+		<div style={a} className={l.balloons}>
+			<img
+				src={r}
+				style={{
+					maxWidth: "100%",
+					position: "absolute",
+				}}
+			/>
+			{n}
+		</div>
 	);
 }
-class w extends d {
+class W extends d {
 	m_rgBalloons = [];
 	m_rgImages;
 	m_nNextImage = 0;
@@ -494,7 +469,7 @@ class w extends d {
 		};
 		if (this.props.sale == "lny2020") {
 			n.SOverlay = {
-				strImage: r + "-glow",
+				strImage: `${r}-glow`,
 				strClass: "lantern_glow",
 				nDuration: 1 + Math.random() * 4,
 			};
@@ -502,21 +477,20 @@ class w extends d {
 		return n;
 	}
 	render() {
-		return i.createElement(
-			i.Fragment,
-			null,
-			this.m_rgBalloons.map((e, t) =>
-				i.createElement(S, {
-					key: `${t}`,
-					data: e,
-					effect: this.props.effect,
-					sale: this.m_strSaleId,
-				}),
-			),
+		return (
+			<>
+				{this.m_rgBalloons.map((e, t) => (
+					<S
+						key={`${t}`}
+						data={e}
+						effect={this.props.effect}
+						sale={this.m_strSaleId}
+					/>
+				))}
+			</>
 		);
 	}
 }
-var _B = require(/*webcrack:missing*/ "./90765.js");
 class v {
 	m_seed;
 	constructor(e) {
@@ -530,33 +504,31 @@ class v {
 function I(e) {
 	const t = new v(e);
 	let r = t.next() * 0.8 + 0.5;
-	const n = (t.next() + e) * 10 + 10 + "px";
+	const n = `${(t.next() + e) * 10 + 10}px`;
 	const a = {
 		opacity: r,
 		width: n,
 		height: n,
-		margin: t.next() * 30 + 15 + "px",
+		margin: `${t.next() * 30 + 15}px`,
 		filter: `hue-rotate(${t.next() * 90 - 30}deg) saturate(100%)`,
 	};
 	const s = 1 + Math.floor(t.next() * 5);
 	const o = `${c.TS.COMMUNITY_CDN_ASSET_URL}winter2019/roomeffects/96px/flake_${s}.png`;
-	return i.createElement("img", {
-		style: a,
-		src: o,
-	});
+	return <img style={a} src={o} />;
 }
 const E = parseInt(l.balloonsDurationMaxMs);
 const M = parseInt(l.snowballDurationMs);
 function T(e, t) {
 	return () => {
-		const r =
-			c.TS.COMMUNITY_CDN_ASSET_URL + t + "/roomeffects/96px/" + e + ".png";
-		return i.createElement("img", {
-			style: {
-				width: "100%",
-			},
-			src: r,
-		});
+		const r = `${c.TS.COMMUNITY_CDN_ASSET_URL + t}/roomeffects/96px/${e}.png`;
+		return (
+			<img
+				style={{
+					width: "100%",
+				}}
+				src={r}
+			/>
+		);
 	};
 }
 function R(e, t, r, n) {
@@ -564,8 +536,8 @@ function R(e, t, r, n) {
 		timeout: r,
 		renderButton: T(e, t),
 		renderEffectIcon: T(e, t),
-		buttonToken: "#ChatEntryButton_Send" + a.Xw(e),
-		locToken: "#ChatRoom_RoomEffect" + a.Xw(e),
+		buttonToken: `#ChatEntryButton_Send${a.Xw(e)}`,
+		locToken: `#ChatRoom_RoomEffect${a.Xw(e)}`,
 		render: n,
 	};
 }
@@ -573,92 +545,53 @@ function k(e, t, r) {
 	return R(e, "winter2019", t, r);
 }
 export const B = {
-	lny2020_lanterns: R("lny2020_lanterns", "lny2020", E, (e) =>
-		i.createElement(w, {
-			effect: e,
-			sale: "lny2020",
-		}),
-	),
-	lny2020_firework: R("lny2020_firework", "lny2020", 7000, () =>
-		i.createElement(g, {
-			sale: "lny2020",
-		}),
-	),
-	lny2020_confetti: R("lny2020_confetti", "lny2020", f.nT, () =>
-		i.createElement(f.NW, {
-			eType: f.O4.LNY2020,
-		}),
-	),
-	snowball: k("snowball", M, (e) =>
-		i.createElement(b, {
-			effect: e,
-			sale: "winter2019",
-		}),
-	),
-	balloons: k("balloons", E, (e) =>
-		i.createElement(w, {
-			effect: e,
-			sale: "winter2019",
-		}),
-	),
-	confetti: k("confetti", f.nT, () =>
-		i.createElement(f.NW, {
-			eType: f.O4.Default,
-		}),
-	),
-	goldfetti: k("goldfetti", f.nT, () =>
-		i.createElement(f.NW, {
-			eType: f.O4.Gold,
-		}),
-	),
-	firework: k("firework", 7000, () =>
-		i.createElement(g, {
-			sale: "winter2019",
-		}),
-	),
-	snow: k("snow", 10000, function (e) {
+	lny2020_lanterns: R("lny2020_lanterns", "lny2020", E, (e) => (
+		<W effect={e} sale="lny2020" />
+	)),
+	lny2020_firework: R("lny2020_firework", "lny2020", 7000, () => (
+		<G sale="lny2020" />
+	)),
+	lny2020_confetti: R("lny2020_confetti", "lny2020", f.nT, () => (
+		<f.NW eType={f.O4.LNY2020} />
+	)),
+	snowball: k("snowball", M, (e) => <B_1 effect={e} sale="winter2019" />),
+	balloons: k("balloons", E, (e) => <W effect={e} sale="winter2019" />),
+	confetti: k("confetti", f.nT, () => <f.NW eType={f.O4.Default} />),
+	goldfetti: k("goldfetti", f.nT, () => <f.NW eType={f.O4.Gold} />),
+	firework: k("firework", 7000, () => <G sale="winter2019" />),
+	snow: k("snow", 10000, (e) => {
 		const t = [];
 		const r = new v(e.timestamp);
 		for (let n = 0; n < 150; n++) {
 			const a = r.next();
 			const s = {
-				left: r.next() * 100 + "%",
-				animationDuration: (1 - a) * 3 + 4 + "s",
+				left: `${r.next() * 100}%`,
+				animationDuration: `${(1 - a) * 3 + 4}s`,
 				animationDelay: `${a + r.next() * 4}s`,
 			};
 			t.push(
-				i.createElement(
-					"div",
-					{
-						key: e.timestamp + "_" + n,
-						style: s,
-						className: (0, _B.A)(l.Snowflake, l["Snowflake-" + (n % 20)]),
-					},
-					I(a),
-					I(a + 1),
-				),
+				<div
+					key={`${e.timestamp}_${n}`}
+					style={s}
+					className={A_1(l.Snowflake, l[`Snowflake-${n % 20}`])}
+				>
+					{I(a)}
+					{I(a + 1)}
+				</div>,
 			);
 		}
-		return i.createElement(i.Fragment, null, " ", t, " ");
+		return <> {t} </>;
 	}),
 };
 export let Y = class extends i.Component {
 	render() {
-		return i.createElement(
-			"div",
-			{
-				className: l["animation-container"],
-			},
-			this.props.effectManager.m_rgRunningEffects.map((e) =>
-				i.createElement(
-					i.Fragment,
-					{
-						key: e.timestamp,
-					},
-					e.render(),
-				),
-			),
+		return (
+			<div className={l["animation-container"]}>
+				{this.props.effectManager.m_rgRunningEffects.map((e) => (
+					<i.Fragment key={e.timestamp}>{e.render()}</i.Fragment>
+				))}
+			</div>
 		);
 	}
 };
-Y = (0, n.Cg)([s.PA], Y);
+Y = Cg([s.PA], Y);

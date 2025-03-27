@@ -1,30 +1,30 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./90242.js");
-var s = require("./69164.js");
-var o = require("./4690.js");
-var a = require("./15181.js");
-var c = require(/*webcrack:missing*/ "./41230.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var u = require("./31084.js");
-var m = require("./736.js");
-var d = require("./32263.js");
-var h = require("./50376.js");
-var p = require("./90765.js");
-var g = require("./81255.js");
 import {
 	BIsParentOrSelf,
 	ClientRectToScreenCoords,
 	GetOwningWindowForEvent,
 } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var w = require("./52451.js");
-var b = require("./72476.js");
-var C = require("./24892.js");
-var v = C;
-export const P = l.createContext(null);
+import r, { Cg } from "./34629.js";
+import i, { b$ } from "./90242.js";
+import s from "./69164.js";
+import o from "./4690.js";
+import a from "./15181.js";
+import c from "./41230.js";
+import l from "./63696.js";
+import u, { lX } from "./31084.js";
+import m, { Fj } from "./736.js";
+import d from "./32263.js";
+import h from "./50376.js";
+import p, { A as A_1 } from "./90765.js";
+import g, { s as s_1 } from "./81255.js";
+import w, { cZ } from "./52451.js";
+import b, { Qn } from "./72476.js";
+import C from "./24892.js";
+const v = C;
+export const PContext = l.createContext(null);
 export let tz = class extends l.Component {
-	static contextType = P;
-	m_navRef = (0, i.b$)();
+	static contextType = PContext;
+	m_navRef = b$();
 	m_divRef = l.createRef();
 	get instance() {
 		return this.context.instance;
@@ -32,7 +32,7 @@ export let tz = class extends l.Component {
 	componentDidMount() {
 		this.instance.SetLabel(this.props.label);
 		this.m_navRef.current?.TakeFocus();
-		(0, w.cZ)(this.props.refInstance, this.instance);
+		cZ(this.props.refInstance, this.instance);
 	}
 	componentDidUpdate(e) {
 		if (e.label !== this.props.label && this.context) {
@@ -52,40 +52,40 @@ export let tz = class extends l.Component {
 	}
 	render() {
 		let {
-			children: e,
-			className: t,
-			label: n,
-			onCancel: r,
-			cancelText: i,
-			refInstance: c,
-			bForceDesktopPresentation: u,
-			footer: m,
+			children,
+			className,
+			label,
+			onCancel,
+			cancelText,
+			refInstance,
+			bForceDesktopPresentation,
+			footer,
 			...d
 		} = this.props;
 		const h = this.context.styles ?? v;
-		let g = i ?? "#Button_Cancel";
-		if (this.context.presentation != 1 || u) {
+		let g = cancelText ?? "#Button_Cancel";
+		if (this.context.presentation != 1 || bForceDesktopPresentation) {
 			return l.createElement(
 				"div",
 				{
 					...d,
 					ref: this.m_divRef,
-					className: (0, p.A)(
+					className: A_1(
 						{
 							[h.contextMenuContents]: true,
 							[h.hasSubMenu]: this.instance.BIsSubMenuVisible(),
-							[h.ForceDesktop]: u,
+							[h.ForceDesktop]: bForceDesktopPresentation,
 						},
-						t,
+						className,
 					),
 				},
-				e,
+				children,
 			);
 		}
 		{
 			const n = () => {
-				if (r) {
-					r();
+				if (onCancel) {
+					onCancel();
 				}
 				this.instance.Hide();
 			};
@@ -93,12 +93,12 @@ export let tz = class extends l.Component {
 				s.Z,
 				{
 					...d,
-					className: (0, p.A)(
+					className: A_1(
 						h.contextMenuContents,
 						{
 							[h.hasSubMenu]: this.instance.BIsSubMenuVisible(),
 						},
-						t,
+						className,
 					),
 					"flow-children": "column",
 					onMoveLeft: this.HideIfSubmenu,
@@ -111,7 +111,7 @@ export let tz = class extends l.Component {
 					ref: this.m_divRef,
 					...a._k,
 				},
-				e,
+				children,
 				!this.instance.BIsSubMenu() &&
 					l.createElement(
 						l.Fragment,
@@ -125,7 +125,7 @@ export let tz = class extends l.Component {
 							},
 							Localize(g),
 						),
-						m,
+						footer,
 					),
 				this.instance.BIsSubMenuVisible() &&
 					l.createElement("div", {
@@ -136,11 +136,11 @@ export let tz = class extends l.Component {
 		}
 	}
 };
-(0, r.Cg)([w.oI], tz.prototype, "HideIfSubmenu", null);
-(0, r.Cg)([w.oI], tz.prototype, "HideMenu", null);
-tz = (0, r.Cg)([c.PA], tz);
+Cg([w.oI], tz.prototype, "HideIfSubmenu", null);
+Cg([w.oI], tz.prototype, "HideMenu", null);
+tz = Cg([c.PA], tz);
 export class kt extends l.PureComponent {
-	static contextType = P;
+	static contextType = PContext;
 	m_ref = l.createRef();
 	m_refDiv = l.createRef();
 	get element() {
@@ -184,12 +184,7 @@ export class kt extends l.PureComponent {
 		}
 	}
 	render() {
-		const {
-			onSelected: e,
-			bInteractableItem: t,
-			onMoveRight: n,
-			...r
-		} = this.props;
+		const { onSelected, bInteractableItem, onMoveRight, ...r } = this.props;
 		const i = this.context?.styles ?? v;
 		if (this.context.presentation == 1) {
 			return l.createElement(
@@ -201,7 +196,7 @@ export class kt extends l.PureComponent {
 					navRef: this.m_ref,
 					onMouseEnter: this.OnMouseEnter,
 					...r,
-					className: (0, p.A)(
+					className: A_1(
 						this.props.className,
 						i.contextMenuItem,
 						"contextMenuItem",
@@ -212,10 +207,10 @@ export class kt extends l.PureComponent {
 						this.props.tone == "destructive" && i.Destructive,
 					),
 					focusClassName: i.Focused,
-					onClick: this.props.disabled ? undefined : this.OnClick,
+					onClick: this.props.disabled || this.OnClick,
 					focusable: !this.props.disabled,
 					onOKButton: this.OnOKButton,
-					onMoveRight: n,
+					onMoveRight: onMoveRight,
 					unselectable: this.props.unselectable,
 				},
 				this.props.children,
@@ -236,29 +231,29 @@ export class kt extends l.PureComponent {
 		}
 	}
 }
-(0, r.Cg)([w.oI], kt.prototype, "OnClick", null);
-(0, r.Cg)([w.oI], kt.prototype, "OnOKButton", null);
-(0, r.Cg)([w.oI], kt.prototype, "OnMouseEnter", null);
-(0, r.Cg)([w.oI], kt.prototype, "Focus", null);
+Cg([w.oI], kt.prototype, "OnClick", null);
+Cg([w.oI], kt.prototype, "OnOKButton", null);
+Cg([w.oI], kt.prototype, "OnMouseEnter", null);
+Cg([w.oI], kt.prototype, "Focus", null);
 export class IK extends l.PureComponent {
 	render() {
-		const { bChecked: e, children: t, className: n, ...r } = this.props;
+		const { bChecked, children, className, ...r } = this.props;
 		return l.createElement(
 			kt,
 			{
 				...r,
-				className: (0, p.A)(n, e && "menuChecked"),
+				className: A_1(className, bChecked && "menuChecked"),
 			},
 			l.createElement("div", {
 				className: "contextMenuCheckMark",
 			}),
-			t,
+			children,
 		);
 	}
 }
 export class Fd extends l.PureComponent {
 	render() {
-		const { icon: e, children: t, ...n } = this.props;
+		const { icon, children, ...n } = this.props;
 		return l.createElement(
 			kt,
 			{
@@ -269,27 +264,27 @@ export class Fd extends l.PureComponent {
 				{
 					className: v.IconContainer,
 				},
-				e,
+				icon,
 			),
-			t,
+			children,
 		);
 	}
 }
 export function K5(e) {
-	const t = l.useContext(P).styles ?? v;
+	const t = l.useContext(PContext).styles ?? v;
 	return l.createElement("div", {
 		className: t.ContextMenuSeparator,
 	});
 }
 export const Vs = (e) => {
-	const t = (0, b.Qn)();
+	const t = Qn();
 	return l.createElement(k, {
 		...e,
 		bInGamepadUI: t,
 	});
 };
 class k extends l.PureComponent {
-	static contextType = P;
+	static contextType = PContext;
 	m_refItem = l.createRef();
 	constructor(e) {
 		super(e);
@@ -352,14 +347,8 @@ class k extends l.PureComponent {
 		}
 	}
 	render() {
-		let {
-			label: e,
-			selectedWithin: t,
-			children: n,
-			className: r,
-			bInGamepadUI: i,
-			...s
-		} = this.props;
+		let { label, selectedWithin, children, className, bInGamepadUI, ...s } =
+			this.props;
 		const o = this.context.styles ?? v;
 		return l.createElement(
 			kt,
@@ -367,8 +356,8 @@ class k extends l.PureComponent {
 				...s,
 				ref: this.m_refItem,
 				onClick: this.OnClick,
-				selected: t && !this.state.bActive,
-				className: (0, p.A)(r, o.SubMenu, this.state.bActive && o.active),
+				selected: selectedWithin && !this.state.bActive,
+				className: A_1(className, o.SubMenu, this.state.bActive && o.active),
 				onMouseEnter: this.OnMouseEnter,
 				bInteractableItem: true,
 				onMoveRight: () => this.ShowSubMenu(),
@@ -378,7 +367,7 @@ class k extends l.PureComponent {
 				{
 					className: o.Label,
 				},
-				e,
+				label,
 			),
 			l.createElement(
 				"div",
@@ -390,12 +379,12 @@ class k extends l.PureComponent {
 		);
 	}
 }
-(0, r.Cg)([w.oI], k.prototype, "OnSubMenuMouseEnter", null);
-(0, r.Cg)([w.oI], k.prototype, "OnSubMenuHidden", null);
-(0, r.Cg)([w.oI], k.prototype, "ShowSubMenu", null);
-(0, r.Cg)([w.oI], k.prototype, "RenderSubMenu", null);
-(0, r.Cg)([w.oI], k.prototype, "OnMouseEnter", null);
-(0, r.Cg)([w.oI], k.prototype, "OnClick", null);
+Cg([w.oI], k.prototype, "OnSubMenuMouseEnter", null);
+Cg([w.oI], k.prototype, "OnSubMenuHidden", null);
+Cg([w.oI], k.prototype, "ShowSubMenu", null);
+Cg([w.oI], k.prototype, "RenderSubMenu", null);
+Cg([w.oI], k.prototype, "OnMouseEnter", null);
+Cg([w.oI], k.prototype, "OnClick", null);
 export let ai = class extends l.Component {
 	m_elMenu = undefined;
 	m_cReenteranceGuard = 1;
@@ -533,8 +522,9 @@ export let ai = class extends l.Component {
 		let a = this.props.clientY;
 		let c = 0;
 		let l = 0;
-		let u = s.innerWidth;
-		let m = s.innerHeight;
+
+		let { innerWidth, innerHeight } = s;
+
 		let d = 1;
 		let h = r?.getBoundingClientRect();
 		if (i) {
@@ -547,31 +537,37 @@ export let ai = class extends l.Component {
 				d = t.targetMonitor.flMonitorScale;
 				c = t.targetMonitor.nScreenLeft;
 				l = t.targetMonitor.nScreenTop;
-				u = t.targetMonitor.nScreenWidth;
-				m = t.targetMonitor.nScreenHeight;
+				innerWidth = t.targetMonitor.nScreenWidth;
+				innerHeight = t.targetMonitor.nScreenHeight;
 			} else {
-				let e = s.screen;
+				let s_screen = s.screen;
 				let t = 0;
 				let n = 0;
-				if (e.availLeft) {
-					t = e.availLeft;
+				if (s_screen.availLeft) {
+					t = s_screen.availLeft;
 				}
-				if (e.availTop) {
-					n = e.availTop;
+				if (s_screen.availTop) {
+					n = s_screen.availTop;
 				}
 				c = t;
 				l = n;
-				u = e.availWidth;
-				m = e.availHeight;
+				innerWidth = s_screen.availWidth;
+				innerHeight = s_screen.availHeight;
 			}
 		}
 		if (t.bOverlapHorizontal || t.bOverlapVertical) {
-			o = a = undefined;
+			o = undefined;
+			a = undefined;
 		}
 		let p = n.getBoundingClientRect();
 		if (t.flGamepadScale && t.flGamepadScale > 0) {
-			const e = t.flGamepadScale;
-			p = new DOMRect(p.x * e, p.y * e, p.width * e, p.height * e);
+			const t_flGamepadScale = t.flGamepadScale;
+			p = new DOMRect(
+				p.x * t_flGamepadScale,
+				p.y * t_flGamepadScale,
+				p.width * t_flGamepadScale,
+				p.height * t_flGamepadScale,
+			);
 		}
 		let g = {
 			menuLeft: undefined,
@@ -584,41 +580,41 @@ export let ai = class extends l.Component {
 		};
 		let _ = o ?? h.left;
 		let w = o ?? h.right;
-		let b = p.width;
+		let p_width = p.width;
 		if (t.bMatchWidth) {
-			b = w - _;
-			g.menuWidth = b;
+			p_width = w - _;
+			g.menuWidth = p_width;
 		}
 		if (t.bGrowToElementWidth) {
-			g.menuMinWidth = Math.max(b, w - _);
+			g.menuMinWidth = Math.max(p_width, w - _);
 		}
-		let C = (t.bOverlapHorizontal ? w : _) - c - b;
+		let C = (t.bOverlapHorizontal ? w : _) - c - p_width;
 		let v = C > 0;
-		let M = c + u - (t.bOverlapHorizontal ? _ : w) - b;
+		let M = c + innerWidth - (t.bOverlapHorizontal ? _ : w) - p_width;
 		let S = M > 0;
 		let y = (t.bPreferPopLeft || !S) && v;
 		if (!v && !S) {
 			y = v > S;
 			if (t.bFitToWindow) {
-				b += (y ? C : M) - 8;
-				g.menuWidth = b;
+				p_width += (y ? C : M) - 8;
+				g.menuWidth = p_width;
 			}
 		}
 		if (y) {
-			g.menuRight = u - (t.bOverlapHorizontal ? w : _);
+			g.menuRight = innerWidth - (t.bOverlapHorizontal ? w : _);
 		} else {
 			g.menuLeft = t.bOverlapHorizontal ? _ : w;
 		}
 		let E = a ?? h.top;
 		let B = a ?? h.bottom;
-		let x = n.scrollHeight;
+		let n_scrollHeight = n.scrollHeight;
 		if (t.bMatchHeight) {
-			x = B - E;
-			g.menuHeight = x;
+			n_scrollHeight = B - E;
+			g.menuHeight = n_scrollHeight;
 		}
-		let L = (t.bOverlapVertical ? B : E) - l - x;
+		let L = (t.bOverlapVertical ? B : E) - l - n_scrollHeight;
 		let k = L > 0;
-		let R = l + m - (t.bOverlapVertical ? E : B) - x;
+		let R = l + innerHeight - (t.bOverlapVertical ? E : B) - n_scrollHeight;
 		let I = R > 0;
 		let T = (t.bPreferPopTop || !I) && k && !t.bDisablePopTop;
 		if (!k && !I) {
@@ -636,16 +632,16 @@ export let ai = class extends l.Component {
 			}
 			if (t.bFitToWindow) {
 				if (e) {
-					x = Math.min(x, m - 8);
+					n_scrollHeight = Math.min(n_scrollHeight, innerHeight - 8);
 				} else {
-					x += T ? L : R;
+					n_scrollHeight += T ? L : R;
 				}
-				g.menuHeight = x - 8;
+				g.menuHeight = n_scrollHeight - 8;
 			}
 		}
 		if (g.menuBottom === undefined && g.menuTop === undefined) {
 			if (T) {
-				g.menuBottom = m - (t.bOverlapVertical ? B : E);
+				g.menuBottom = innerHeight - (t.bOverlapVertical ? B : E);
 			} else {
 				g.menuTop = t.bOverlapVertical ? E : B;
 			}
@@ -654,11 +650,11 @@ export let ai = class extends l.Component {
 			g.menuHeight ||= p.height;
 			g.menuWidth ||= p.width;
 			if (g.menuBottom && !g.menuTop) {
-				g.menuTop = m - g.menuBottom - g.menuHeight;
+				g.menuTop = innerHeight - g.menuBottom - g.menuHeight;
 				g.menuBottom = undefined;
 			}
 			if (g.menuRight && !g.menuLeft) {
-				g.menuLeft = u - g.menuRight - g.menuWidth;
+				g.menuLeft = innerWidth - g.menuRight - g.menuWidth;
 				g.menuRight = undefined;
 			}
 		} else if (s.getComputedStyle(n).position != "fixed") {
@@ -679,6 +675,21 @@ export let ai = class extends l.Component {
 		if (
 			e ||
 			g.menuLeft !== this.state.menuLeft ||
+			g.menuLeft !== this.state.menuLeft ||
+			g.menuRight !== this.state.menuRight ||
+			g.menuLeft !== this.state.menuLeft ||
+			g.menuRight !== this.state.menuRight ||
+			g.menuTop !== this.state.menuTop ||
+			g.menuLeft !== this.state.menuLeft ||
+			g.menuRight !== this.state.menuRight ||
+			g.menuTop !== this.state.menuTop ||
+			g.menuBottom !== this.state.menuBottom ||
+			g.menuLeft !== this.state.menuLeft ||
+			g.menuRight !== this.state.menuRight ||
+			g.menuTop !== this.state.menuTop ||
+			g.menuBottom !== this.state.menuBottom ||
+			g.menuWidth !== this.state.menuWidth ||
+			g.menuLeft !== this.state.menuLeft ||
 			g.menuRight !== this.state.menuRight ||
 			g.menuTop !== this.state.menuTop ||
 			g.menuBottom !== this.state.menuBottom ||
@@ -691,6 +702,9 @@ export let ai = class extends l.Component {
 	PositionPopupWindow() {
 		if (
 			this.state.menuLeft === undefined ||
+			this.state.menuTop === undefined ||
+			this.state.menuTop === undefined ||
+			this.state.menuWidth === undefined ||
 			this.state.menuTop === undefined ||
 			this.state.menuWidth === undefined ||
 			this.state.menuHeight === undefined
@@ -781,7 +795,7 @@ export let ai = class extends l.Component {
 		) {
 			t += " visible";
 		}
-		t += " " + v.ContextMenuPosition;
+		t += ` ${v.ContextMenuPosition}`;
 		return l.createElement(
 			"div",
 			{
@@ -806,18 +820,18 @@ export function aE(e) {
 	let n = GetOwningWindowForEvent(e);
 	let r = n.getSelection();
 	let i = r && r.rangeCount > 0 && r.toString().length > 0;
-	let s = e.target;
+
+	let { target, clientY, clientX } = e;
+
 	let o = false;
-	const a = e.clientY;
-	const c = e.clientX;
-	if (s && "tagName" in s) {
-		if (s.tagName == "INPUT" || s.tagName == "TEXTAREA") {
+	if (target && "tagName" in target) {
+		if (target.tagName == "INPUT" || target.tagName == "TEXTAREA") {
 			o = true;
 		}
 	}
-	if (b.TS.IN_CLIENT && o && (0, m.Fj)(n, "Browser.GetSpellingSuggestions")) {
+	if (b.TS.IN_CLIENT && o && Fj(n, "Browser.GetSpellingSuggestions")) {
 		let [e, ...r] = n.SteamClient.Browser.GetSpellingSuggestions();
-		let i = s;
+		let i = target;
 		if (i) {
 			r.forEach((e, r) => {
 				t.push(
@@ -827,13 +841,13 @@ export function aE(e) {
 							key: `spelling_${r}_${e}`,
 							onSelected: () => {
 								i.setRangeText(e);
-								(function (e, t) {
+								((e, t) => {
 									let n = t.createEvent("HTMLEvents");
 									n.initEvent("change", true, false);
 									e.dispatchEvent(n);
 								})(i, n.document);
 								i.setSelectionRange(i.selectionEnd, i.selectionEnd);
-								s.focus();
+								target.focus();
 							},
 							className: v.NoSeparation,
 						},
@@ -842,7 +856,7 @@ export function aE(e) {
 				);
 			});
 		}
-		if (e && (0, m.Fj)(n, "Browser.AddWordToDictionary")) {
+		if (e && Fj(n, "Browser.AddWordToDictionary")) {
 			const r = 30;
 			e = e.trim();
 			t.push(
@@ -854,7 +868,7 @@ export function aE(e) {
 					},
 					Localize(
 						"#ContextMenu_AddToDictionary",
-						e.length < r ? e : e.substring(0, r) + "...",
+						e.length < r ? e : `${e.substring(0, r)}...`,
 					),
 				),
 			);
@@ -889,14 +903,14 @@ export function aE(e) {
 			),
 		);
 	}
-	if (b.TS.IN_CLIENT && o && (0, m.Fj)(n, "Browser.Paste")) {
+	if (b.TS.IN_CLIENT && o && Fj(n, "Browser.Paste")) {
 		t.push(
 			l.createElement(
 				kt,
 				{
 					key: "paste",
 					onSelected: () => {
-						s.focus();
+						target.focus();
 						n.SteamClient.Browser.Paste();
 					},
 					className: v.NoSeparation,
@@ -907,14 +921,14 @@ export function aE(e) {
 	}
 	if (b.TS.IN_CLIENT && b.TS.DEV_MODE) {
 		const e = [];
-		if ((0, m.Fj)(n, "Browser.OpenDevTools")) {
+		if (Fj(n, "Browser.OpenDevTools")) {
 			e.push(
 				l.createElement(
 					kt,
 					{
 						key: "opendevtools",
 						onSelected: () => {
-							s.focus();
+							target.focus();
 							n.SteamClient.Browser.OpenDevTools();
 						},
 					},
@@ -922,15 +936,15 @@ export function aE(e) {
 				),
 			);
 		}
-		if ((0, m.Fj)(n, "Browser.InspectElement")) {
+		if (Fj(n, "Browser.InspectElement")) {
 			e.push(
 				l.createElement(
 					kt,
 					{
 						key: "inspectelement",
 						onSelected: () => {
-							s.focus();
-							n.SteamClient.Browser.InspectElement(a, c);
+							target.focus();
+							n.SteamClient.Browser.InspectElement(clientY, clientX);
 						},
 						className: v.NoSeparation,
 					},
@@ -948,7 +962,7 @@ export function aE(e) {
 		}
 	}
 	if (t.length) {
-		(0, u.lX)(l.createElement(tz, null, t), e, {
+		lX(l.createElement(tz, null, t), e, {
 			bRootContextMenu: true,
 		});
 	} else {
@@ -959,12 +973,12 @@ export function aE(e) {
 		e.stopPropagation();
 	}
 }
-(0, r.Cg)([w.oI], ai.prototype, "BindMenuElement", null);
-(0, r.Cg)([w.oI, (0, g.s)(100)], ai.prototype, "OnMenuMutation", null);
-(0, r.Cg)([w.oI], ai.prototype, "OnWindowResize", null);
-(0, r.Cg)([w.oI], ai.prototype, "OnBlur", null);
-(0, r.Cg)([w.oI], ai.prototype, "OnKeyDown", null);
-ai = (0, r.Cg)([c.PA], ai);
+Cg([w.oI], ai.prototype, "BindMenuElement", null);
+Cg([w.oI, s_1(100)], ai.prototype, "OnMenuMutation", null);
+Cg([w.oI], ai.prototype, "OnWindowResize", null);
+Cg([w.oI], ai.prototype, "OnBlur", null);
+Cg([w.oI], ai.prototype, "OnKeyDown", null);
+ai = Cg([c.PA], ai);
 const D = "EnableContextMenuBlurDelay3";
 function F() {
 	return (window.localStorage && window.localStorage.getItem(D)) === "true";

@@ -1,76 +1,80 @@
-var n = require("./18057.js");
-var i = require("./99731.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./49519.js");
-var l = require("./18052.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./51076.js");
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require("./64581.js");
-var p = require("./8436.js");
-var g = p;
-var h = require("./93966.js");
-var C = require("./33572.js");
-var _ = require("./96680.js");
-var f = require(/*webcrack:missing*/ "./42318.js");
+import n from "./18057.js";
+import i from "./99731.js";
+import a, { q3 } from "./90095.js";
+import s from "./63696.js";
+import { W6, B6 } from "./49519.js";
+import l from "./18052.js";
+import c from "./83599.js";
+import { Sz } from "./52451.js";
+import u, { OU } from "./51076.js";
+import d from "./72476.js";
+import A from "./64581.js";
+import p from "./8436.js";
+import { WE } from "./93966.js";
+import { we } from "./33572.js";
+import _, { $2 } from "./96680.js";
+import f, { Nr } from "./42318.js";
+const g = p;
 const b = new c.wd("BrowserBackstack").Debug;
 export function N() {
-	return s.createElement(
-		f.tH,
-		null,
-		s.createElement(S, null),
-		s.createElement(w, null),
-		s.createElement(A.B8, null),
+	return (
+		<f.tH>
+			<S />
+			<W />
+			<A.B8 />
+		</f.tH>
 	);
 }
 function S() {
-	const e = (0, _.$2)();
-	if ((0, u.OU)(n.BV.GamepadUI.SteamWeb())) {
-		return s.createElement(G, {
-			browser: e.GetStoreBrowser(),
-			path: n.BV.GamepadUI.SteamWeb(),
-			className: g.MainBrowserContainer,
-			hideForModals: true,
-			allowUnderlay: true,
-		});
+	const e = $2();
+	if (OU(n.BV.GamepadUI.SteamWeb())) {
+		return (
+			<G
+				browser={e.GetStoreBrowser()}
+				path={n.BV.GamepadUI.SteamWeb()}
+				className={g.MainBrowserContainer}
+				hideForModals
+				allowUnderlay
+			/>
+		);
 	} else {
 		return null;
 	}
 }
-function w() {
-	const e = (0, _.$2)();
-	const t = (0, u.OU)(n.BV.GamepadUI.ExternalWeb());
-	const r = s.useRef(undefined);
-	if (t || r.current) {
-		r.current ||= e.CreateBrowserView("ExternalWeb", {
+function W() {
+	const e = $2();
+	const t = OU(n.BV.GamepadUI.ExternalWeb());
+	const RRef = s.useRef(undefined);
+	if (t || RRef.current) {
+		RRef.current ||= e.CreateBrowserView("ExternalWeb", {
 			strInitialURL: l.p,
 		});
-		return s.createElement(G, {
-			browser: r.current,
-			external: true,
-			path: n.BV.GamepadUI.ExternalWeb(),
-			className: g.ExternalBrowserContainer,
-			hideForModals: true,
-			allowUnderlay: true,
-		});
+		return (
+			<G
+				browser={RRef.current}
+				external
+				path={n.BV.GamepadUI.ExternalWeb()}
+				className={g.ExternalBrowserContainer}
+				hideForModals
+				allowUnderlay
+			/>
+		);
 	} else {
 		return null;
 	}
 }
-export const G = (0, f.Nr)(function (e) {
-	const { browser: t, path: r, external: n, bCanChangeURL: c, ...A } = e;
-	const p = (0, u.OU)(r);
-	const g = (function (e, t, r) {
-		const n = (0, o.W6)();
-		const i = (0, a.q3)(() => e.History);
-		const c = (0, a.q3)(() => e.BIsLoadingURL());
+export const G = Nr((e) => {
+	const { browser, path, external, bCanChangeURL, ...A } = e;
+	const p = OU(path);
+	const g = ((e, t, r) => {
+		const n = W6();
+		const i = q3(() => e.History);
+		const c = q3(() => e.BIsLoadingURL());
 		const u = n.location.state?.initialIndex;
-		const A = (0, m.Sz)(u);
+		const A = Sz(u);
 		const p = u !== A;
 		s.useEffect(() => {
-			const t = (0, o.B6)(n.location.pathname, r);
+			const t = B6(n.location.pathname, r);
 			if (!t || !i) {
 				return;
 			}
@@ -108,7 +112,7 @@ export const G = (0, f.Nr)(function (e) {
 				? i.index < n.location.state.initialIndex
 				: i.index <= n.location.state.initialIndex;
 			const a = i.entries[i.index - 1]?.url === l.p;
-			if (t || r || a) {
+			if (t || r || r || a) {
 				b(`Browser "${e.name}" and router back()`);
 				n.goBack();
 			} else {
@@ -117,31 +121,35 @@ export const G = (0, f.Nr)(function (e) {
 			e.GetBrowser().GoBack();
 			return true;
 		}, [i, n, e, c]);
-	})(t, p, r);
-	(0, h.WE)(p ? g : null);
-	const _ = (0, C.we)();
+	})(browser, p, path);
+	WE(p ? g : null);
+	const _ = we();
 	s.useEffect(() => {
-		t?.SetGoBackOverride(g);
-		return () => t?.SetGoBackOverride(undefined);
-	}, [t, g]);
+		browser?.SetGoBackOverride(g);
+		return () => browser?.SetGoBackOverride(undefined);
+	}, [browser, g]);
 	s.useEffect(
 		() =>
 			p
-				? (_.SetCurrentBrowserAndBackstack(t, n, c),
+				? (_.SetCurrentBrowserAndBackstack(browser, external, bCanChangeURL),
 					() => {
-						if (t.name === _.GetCurrentBrowserAndBackstack().browser.name) {
+						if (
+							browser.name === _.GetCurrentBrowserAndBackstack().browser.name
+						) {
 							_.SetCurrentBrowserAndBackstack(null, false, false);
 						}
 					})
 				: () => {},
-		[p, n, c, t, _],
+		[p, external, bCanChangeURL, browser, _],
 	);
-	return s.createElement(i.DS, {
-		browser: t,
-		external: n,
-		bCanChangeURL: c,
-		...A,
-		visible: p,
-		autoFocus: true,
-	});
+	return (
+		<i.DS
+			browser={browser}
+			external={external}
+			bCanChangeURL={bCanChangeURL}
+			{...A}
+			visible={p}
+			autoFocus
+		/>
+	);
 });

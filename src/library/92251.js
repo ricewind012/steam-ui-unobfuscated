@@ -1,10 +1,10 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./90765.js");
-var a = require("./52451.js");
-var c = require("./24793.js");
-var l = c;
+import r, { Cg } from "./34629.js";
+import i from "./41230.js";
+import s from "./63696.js";
+import o, { A } from "./90765.js";
+import a from "./52451.js";
+import c from "./24793.js";
+const l = c;
 export let g = class extends s.Component {
 	m_elHover;
 	m_bNoSpace = false;
@@ -29,19 +29,19 @@ export let g = class extends s.Component {
 	}
 	render() {
 		const {
-			target: e,
-			visibilityObserver: t,
-			className: n,
-			style: r,
-			bEnablePointerEvents: i,
-			direction: a,
-			nBodyAlignment: c,
-			nBodyDistance: u,
-			nAllowOffscreenPx: m,
-			nMaxLateralMoveOnScreen: d,
-			children: h,
-			onNoSpace: p,
-			bTopmost: g,
+			target,
+			visibilityObserver,
+			className,
+			style,
+			bEnablePointerEvents,
+			direction,
+			nBodyAlignment,
+			nBodyDistance,
+			nAllowOffscreenPx,
+			nMaxLateralMoveOnScreen,
+			children,
+			onNoSpace,
+			bTopmost,
 			...f
 		} = this.props;
 		let _ = Object.assign(
@@ -49,30 +49,26 @@ export let g = class extends s.Component {
 				left: this.state.x,
 				top: this.state.y,
 			},
-			r,
+			style,
 		);
-		let w = !t || t.visible;
-		return s.createElement(
-			"div",
-			{
-				className: (0, o.A)(l.HoverPositionOuter, g && l.HoverAboveModal),
-			},
-			s.createElement(
-				"div",
-				{
-					...f,
-					className: (0, o.A)(
+		let w = !visibilityObserver || visibilityObserver.visible;
+		return (
+			<div className={A(l.HoverPositionOuter, bTopmost && l.HoverAboveModal)}>
+				<div
+					{...f}
+					className={A(
 						l.HoverPosition,
 						w && this.state.hoverPositionReady && l.Ready,
 						this.m_bNoSpace && l.NoSpace,
-						i && l.EnablePointerEvents,
-						n,
-					),
-					style: _,
-					ref: this.bindHover,
-				},
-				h,
-			),
+						bEnablePointerEvents && l.EnablePointerEvents,
+						className,
+					)}
+					style={_}
+					ref={this.bindHover}
+				>
+					{children}
+				</div>
+			</div>
 		);
 	}
 	positionHover() {
@@ -114,47 +110,64 @@ export let g = class extends s.Component {
 			o.setAttribute("style", "display: none;");
 		}
 		let {
-			nBodyDistance: u = 8,
-			direction: d = "right",
-			nBodyAlignment: h = 0.5,
+			nBodyDistance = 8,
+			direction = "right",
+			nBodyAlignment = 0.5,
 		} = this.props;
-		let {
-			nLeft: p,
-			nTop: g,
-			nOverflow: f,
-			nLateralOverflow: _,
-		} = m(d, h, u, a, c, n.innerWidth, n.innerHeight);
-		if (f > (this.props.nAllowOffscreenPx ?? 10) && !l) {
-			const t = (function (e) {
+		let { nLeft, nTop, nOverflow, nLateralOverflow } = m(
+			direction,
+			nBodyAlignment,
+			nBodyDistance,
+			a,
+			c,
+			n.innerWidth,
+			n.innerHeight,
+		);
+		if (nOverflow > (this.props.nAllowOffscreenPx ?? 10) && !l) {
+			const t = ((e) => {
 				switch (e) {
-					case "right":
+					case "right": {
 						return "left";
-					case "left":
+					}
+					case "left": {
 						return "right";
-					case "bottom":
+					}
+					case "bottom": {
 						return "top";
-					case "top":
+					}
+					case "top": {
 						return "bottom";
-					case "overlay":
+					}
+					case "overlay": {
 						return "overlay";
-					case "overlay-center":
+					}
+					case "overlay-center": {
 						return "overlay-center";
+					}
 				}
 			})(this.props.direction ?? "right");
 			const {
-				nLeft: r,
-				nTop: i,
-				nOverflow: s,
-				nLateralOverflow: o,
-			} = m(t, h, u, a, c, n.innerWidth, n.innerHeight);
-			if (s < f) {
-				d = t;
-				p = r;
-				g = i;
-				f = s;
-				_ = o;
+				nLeft: nLeft_1,
+				nTop: nTop_1,
+				nOverflow: nOverflow_1,
+				nLateralOverflow: nLateralOverflow_1,
+			} = m(
+				t,
+				nBodyAlignment,
+				nBodyDistance,
+				a,
+				c,
+				n.innerWidth,
+				n.innerHeight,
+			);
+			if (nOverflow_1 < nOverflow) {
+				direction = t;
+				nLeft = nLeft_1;
+				nTop = nTop_1;
+				nOverflow = nOverflow_1;
+				nLateralOverflow = nLateralOverflow_1;
 			}
-			if (f > (this.props.nAllowOffscreenPx ?? 10)) {
+			if (nOverflow > (this.props.nAllowOffscreenPx ?? 10)) {
 				console.log(
 					"Not showing hover because it didn't fit in the main or alt direction",
 				);
@@ -167,7 +180,7 @@ export let g = class extends s.Component {
 			}
 		}
 		if (this.props.nMaxLateralMoveOnScreen !== 0 && !l) {
-			[g, p] = (function (e, t, n, r, i) {
+			[nTop, nLeft] = ((e, t, n, r, i) => {
 				let s = Math.max(t[0], t[1]);
 				if (e !== undefined) {
 					s = Math.min(e, s);
@@ -180,33 +193,43 @@ export let g = class extends s.Component {
 					i += o;
 				}
 				return [r, i];
-			})(this.props.nMaxLateralMoveOnScreen, _, d ?? "right", g, p);
+			})(
+				this.props.nMaxLateralMoveOnScreen,
+				nLateralOverflow,
+				direction ?? "right",
+				nTop,
+				nLeft,
+			);
 		}
 		let w = null;
-		switch (d) {
-			case "left":
+		switch (direction) {
+			case "left": {
 				w = i;
 				break;
-			case "right":
+			}
+			case "right": {
 				w = r;
 				break;
-			case "top":
+			}
+			case "top": {
 				w = o;
 				break;
-			case "bottom":
+			}
+			case "bottom": {
 				w = s;
+			}
 		}
 		if (w) {
 			w.setAttribute("style", "");
 		}
-		if (p != this.state.x) {
+		if (nLeft != this.state.x) {
 			this.setState({
-				x: p,
+				x: nLeft,
 			});
 		}
-		if (g != this.state.y) {
+		if (nTop != this.state.y) {
 			this.setState({
-				y: g,
+				y: nTop,
 			});
 		}
 		if (!this.state.hoverPositionReady) {
@@ -224,41 +247,47 @@ function m(e, t, n, r, i, s, o) {
 	let m;
 	let h;
 	switch (e) {
-		case "right":
+		case "right": {
 			l = r.right + n;
 			u = d(r.top, r.height, i.height, t);
 			m = Math.max(0, l + i.width - a);
 			h = [Math.max(0, 0 - u), Math.max(0, u + i.height - c)];
 			break;
-		case "left":
+		}
+		case "left": {
 			l = r.left - n - i.width;
 			u = d(r.top, r.height, i.height, t);
 			m = Math.max(0, 0 - l);
 			h = [Math.max(0, 0 - u), Math.max(0, u + i.height - c)];
 			break;
-		case "bottom":
+		}
+		case "bottom": {
 			l = d(r.left, r.width, i.width, t);
 			u = r.bottom + n;
 			m = Math.max(0, u + i.height - c);
 			h = [Math.max(0, 0 - l), Math.max(0, l + i.width - a)];
 			break;
-		case "top":
+		}
+		case "top": {
 			l = d(r.left, r.width, i.width, t);
 			u = r.top - n - i.height;
 			m = Math.max(0, 0 - u);
 			h = [Math.max(0, 0 - l), Math.max(0, l + i.width - a)];
 			break;
-		case "overlay":
+		}
+		case "overlay": {
 			l = r.left;
 			u = r.top;
 			m = 0;
 			h = [0, 0];
 			break;
-		case "overlay-center":
+		}
+		case "overlay-center": {
 			l = r.left + r.width * 0.5 - i.width * 0.5;
 			u = r.top + r.height * 0.5 - i.height * 0.5;
 			m = 0;
 			h = [0, 0];
+		}
 	}
 	return {
 		nLeft: l,
@@ -270,5 +299,5 @@ function m(e, t, n, r, i, s, o) {
 function d(e, t, n, r) {
 	return Math.max(0, Math.min(1, r)) * (t - n) + e;
 }
-(0, r.Cg)([a.oI], g.prototype, "bindHover", null);
-g = (0, r.Cg)([i.PA], g);
+Cg([a.oI], g.prototype, "bindHover", null);
+g = Cg([i.PA], g);

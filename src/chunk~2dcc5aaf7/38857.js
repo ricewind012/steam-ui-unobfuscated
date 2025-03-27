@@ -1,76 +1,69 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./50376.js");
-var l = require("./35488.js");
-var c = require("./3443.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require("./74827.js");
-var A = require("./12750.js");
-var p = require("./31993.js");
-var g = require("./63032.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require("./52470.js");
-var f = require("./91486.js");
-var b = require("./97561.js");
-var y = require("./13869.js");
 import { Seconds } from "../../actual_src/utils/time.js";
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var B = require(/*webcrack:missing*/ "./72476.js");
-var v = require("./82594.js");
-var I = require("./5859.js");
-var E = require("./85965.js");
-var M = require("./13656.js");
-var T = require(/*webcrack:missing*/ "./98995.js");
-var R = require("./18869.js");
-var k = require("./89748.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import s, { PA } from "./41230.js";
+import o from "./50376.js";
+import l from "./35488.js";
+import c from "./3443.js";
+import { A as A_1 } from "./90765.js";
+import d, { BI } from "./74827.js";
+import A from "./12750.js";
+import p from "./31993.js";
+import g from "./63032.js";
+import C from "./52451.js";
+import _ from "./52470.js";
+import f from "./91486.js";
+import b, { pH } from "./97561.js";
+import { mK } from "./13869.js";
+import B from "./72476.js";
+import { t7 } from "./82594.js";
+import I from "./5859.js";
+import E from "./85965.js";
+import M from "./13656.js";
+import T from "./98995.js";
+import { br } from "./18869.js";
+import { qw } from "./89748.js";
+const m = c;
 export function Pp(e) {
-	let { details: t } = e;
-	let r = t.unAppID;
-	let n = (0, R.br)();
-	let a = i.useCallback(() => n.AppProperties(r, M.ho.Dlc), [n, r]);
+	let { details } = e;
+	let t_unAppID = details.unAppID;
+	let n = br();
+	let a = i.useCallback(
+		() => n.AppProperties(t_unAppID, M.ho.Dlc),
+		[n, t_unAppID],
+	);
 	let s = i.useCallback(
 		(e) => {
-			d.Ri.StopShowingNewDLC(r);
+			d.Ri.StopShowingNewDLC(t_unAppID);
 			e.preventDefault();
 			e.stopPropagation();
 		},
-		[r],
+		[t_unAppID],
 	);
-	let c = (0, d.BI)(r);
+	let c = BI(t_unAppID);
 	if (c && c.length != 0) {
-		return i.createElement(
-			"div",
-			{
-				className: m.SpotlightDLCOuter,
-				onClick: a,
-			},
-			i.createElement(
-				"div",
-				{
-					className: m.SpotlightDLC,
-				},
-				i.createElement(l.Information, {
-					className: m.Icon,
-				}),
-				i.createElement(
-					"div",
-					null,
-					Localize("#AppDetails_DLCSpotlight_Summary", t.strDisplayName),
-				),
-				i.createElement(
-					T.he,
-					{
-						toolTipContent: Localize("#AppDetails_WorkshopFeaturedHideItem"),
-						className: m.HideButton,
-						onClick: s,
-					},
-					i.createElement(o.sED, null),
-				),
-			),
+		return (
+			<div className={m.SpotlightDLCOuter} onClick={a}>
+				<div className={m.SpotlightDLC}>
+					<l.Information className={m.Icon} />
+					<div>
+						{Localize(
+							"#AppDetails_DLCSpotlight_Summary",
+							details.strDisplayName,
+						)}
+					</div>
+					<T.he
+						toolTipContent={Localize("#AppDetails_WorkshopFeaturedHideItem")}
+						className={m.HideButton}
+						onClick={s}
+					>
+						<o.sED />
+					</T.he>
+				</div>
+			</div>
 		);
 	} else {
 		return null;
@@ -79,7 +72,7 @@ export function Pp(e) {
 export let Cz = class extends i.Component {
 	constructor(e) {
 		super(e);
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	static contextType = B.QO;
 	m_ReviewDetails = undefined;
@@ -92,7 +85,7 @@ export let Cz = class extends i.Component {
 		this.m_bReviewLoaded = true;
 	}
 	get GetPerAppStorageKey() {
-		return "spotlight.review." + this.props.overview.appid;
+		return `spotlight.review.${this.props.overview.appid}`;
 	}
 	async FetchRoamingStorageState() {
 		const e = {
@@ -151,17 +144,17 @@ export let Cz = class extends i.Component {
 				this.m_ReviewDetails.playtime_at_review;
 		}
 		const n = Localize("#WriteReview_Dialog_Title");
-		(0, y.mK)(
-			i.createElement(b.jB, {
-				ownerWindow: GetOwningWindowForEvent(e),
-				steamID: this.props.parent.strOwnerSteamID,
-				appid: this.props.overview.appid,
-				nPlaytime: r,
-				eReviewVote: t,
-				onSuccess: this.OnPostReview,
-				closeModal: this.OnCancelPostReview,
-				prevReview: this.m_ReviewDetails,
-			}),
+		mK(
+			<b.jB
+				ownerWindow={GetOwningWindowForEvent(e)}
+				steamID={this.props.parent.strOwnerSteamID}
+				appid={this.props.overview.appid}
+				nPlaytime={r}
+				eReviewVote={t}
+				onSuccess={this.OnPostReview}
+				closeModal={this.OnCancelPostReview}
+				prevReview={this.m_ReviewDetails}
+			/>,
 			GetOwningWindowForEvent(e),
 			{
 				strTitle: n,
@@ -237,7 +230,7 @@ export let Cz = class extends i.Component {
 		if (this.context?.IN_GAMEPADUI) {
 			return null;
 		}
-		if ((0, k.qw)().BIsOfflineMode()) {
+		if (qw().BIsOfflineMode()) {
 			return null;
 		}
 		if (!this.BPlayedGameRecently()) {
@@ -262,7 +255,7 @@ export let Cz = class extends i.Component {
 			if (t < 360) {
 				return null;
 			}
-			e = (0, b.pH)(
+			e = pH(
 				this.props.parent.unAppID,
 				m.RatingContainer,
 				t,
@@ -286,7 +279,7 @@ export let Cz = class extends i.Component {
 			) {
 				return null;
 			}
-			e = (0, b.pH)(
+			e = pH(
 				this.props.parent.unAppID,
 				m.RatingContainer,
 				this.props.overview.minutes_playtime_forever,
@@ -298,105 +291,58 @@ export let Cz = class extends i.Component {
 			);
 		}
 		if (e) {
-			return i.createElement(
-				"div",
-				{
-					className: m.ReviewContainerOuter,
-				},
-				i.createElement(
-					"div",
-					{
-						className: m.ReviewContainer,
-					},
-					i.createElement(
-						"div",
-						{
-							className: m.Inner,
-						},
-						e,
-					),
-				),
+			return (
+				<div className={m.ReviewContainerOuter}>
+					<div className={m.ReviewContainer}>
+						<div className={m.Inner}>{e}</div>
+					</div>
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-(0, n.Cg)([a.sH], Cz.prototype, "m_ReviewDetails", undefined);
-(0, n.Cg)([a.sH], Cz.prototype, "storedSettingsPerApp", undefined);
-(0, n.Cg)([a.sH], Cz.prototype, "m_bReviewLoaded", undefined);
-(0, n.Cg)([C.oI], Cz.prototype, "FetchRoamingStorageState", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnVoteUp", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnVoteDown", null);
-(0, n.Cg)([C.oI], Cz.prototype, "ShowWriteReviewDialog", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnPostReview", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnCancelPostReview", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnFinish", null);
-(0, n.Cg)([C.oI], Cz.prototype, "OnClose", null);
-(0, n.Cg)([C.oI], Cz.prototype, "StoreSettings", null);
-Cz = (0, n.Cg)([s.PA], Cz);
-export const Be = (0, s.PA)((e) => {
+Cg([a.sH], Cz.prototype, "m_ReviewDetails", undefined);
+Cg([a.sH], Cz.prototype, "storedSettingsPerApp", undefined);
+Cg([a.sH], Cz.prototype, "m_bReviewLoaded", undefined);
+Cg([C.oI], Cz.prototype, "FetchRoamingStorageState", null);
+Cg([C.oI], Cz.prototype, "OnVoteUp", null);
+Cg([C.oI], Cz.prototype, "OnVoteDown", null);
+Cg([C.oI], Cz.prototype, "ShowWriteReviewDialog", null);
+Cg([C.oI], Cz.prototype, "OnPostReview", null);
+Cg([C.oI], Cz.prototype, "OnCancelPostReview", null);
+Cg([C.oI], Cz.prototype, "OnFinish", null);
+Cg([C.oI], Cz.prototype, "OnClose", null);
+Cg([C.oI], Cz.prototype, "StoreSettings", null);
+Cz = Cg([s.PA], Cz);
+export const Be = PA((e) => {
 	const t = e.overview.optional_parent_app_id;
-	const [r] = (0, v.t7)(t, I.A.k_DataRequest_Assets);
+	const [r] = t7(t, I.A.k_DataRequest_Assets);
 	if (!t || !r) {
 		return null;
 	}
 	const n = [r.GetAssets().GetHeaderURL(), E.A];
-	return i.createElement(
-		"div",
-		{
-			className: m.AppDetailsSpotlightDemoWrapper,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, u.A)(m.AppDetailsSpotlight, m.AppDetailsSpotlightDemo),
-			},
-			i.createElement(
-				"div",
-				{
-					className: m.Header,
-				},
-				i.createElement(f.z, {
-					className: m.HeaderArt,
-					eAssetType: 3,
-					appid: t,
-					rgSources: n,
-				}),
-			),
-			i.createElement(
-				"div",
-				{
-					className: m.Info,
-				},
-				i.createElement(
-					"div",
-					{
-						className: m.Intro,
-					},
-					Localize("#Demo_SpotlightIntro"),
-				),
-				i.createElement(
-					"div",
-					{
-						className: m.Title,
-					},
-					r.GetName(),
-				),
-				i.createElement(
-					"div",
-					{
-						className: m.Buttons,
-					},
-					i.createElement(_.Kd, {
-						innerClassName: m.SpotlightButton,
-						position: undefined,
-						label: Localize("#Demo_VisitStorePage"),
-						link: "StoreAppPage",
-						appid: t,
-					}),
-				),
-			),
-		),
+	return (
+		<div className={m.AppDetailsSpotlightDemoWrapper}>
+			<div className={A_1(m.AppDetailsSpotlight, m.AppDetailsSpotlightDemo)}>
+				<div className={m.Header}>
+					<f.z className={m.HeaderArt} eAssetType={3} appid={t} rgSources={n} />
+				</div>
+				<div className={m.Info}>
+					<div className={m.Intro}>{Localize("#Demo_SpotlightIntro")}</div>
+					<div className={m.Title}>{r.GetName()}</div>
+					<div className={m.Buttons}>
+						<_.Kd
+							innerClassName={m.SpotlightButton}
+							position={undefined}
+							label={Localize("#Demo_VisitStorePage")}
+							link="StoreAppPage"
+							appid={t}
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 });

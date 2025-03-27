@@ -1,6 +1,6 @@
-var r = require("./72476.js");
+import r from "./72476.js";
+import { TL } from "./36885.js";
 import("../../actual_src/utils/localization.js");
-var i = require("./36885.js");
 export function wm(e) {
 	if (e === undefined) {
 		console.error("Cannot GetHostname on empty URL");
@@ -27,7 +27,7 @@ export function Qz(e) {
 export function IT(e) {
 	let t = document.createElement("a");
 	t.href = e;
-	if (t.hostname.indexOf("xn--") >= 0) {
+	if (t.hostname.includes("xn--")) {
 		return t.href;
 	} else {
 		return e;
@@ -37,7 +37,7 @@ export function L$(e) {
 	if (e) {
 		if (r.TS.EUNIVERSE == 1) {
 			if (e.substring(0, 5) == "http:") {
-				e = "https:" + e.substring(5);
+				e = `https:${e.substring(5)}`;
 			}
 			e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e = (e =
 				e.replace(
@@ -57,7 +57,7 @@ export function L$(e) {
 				r.TS.MEDIA_CDN_URL,
 			)).replace(/https:\/\/cdn.dota2.com\//g, r.TS.MEDIA_CDN_URL)).replace(
 				/https:\/\/storefront.steampowered.com\/v\/gfx\//g,
-				r.TS.MEDIA_CDN_URL + "steam/",
+				`${r.TS.MEDIA_CDN_URL}steam/`,
 			)).replace(
 				/https:\/\/clan.akamai.steamstatic.com\//g,
 				r.TS.CLAN_CDN_ASSET_URL,
@@ -88,7 +88,7 @@ export function L$(e) {
 			/{MEDIA_CDN_COMMUNITY_URL}/g,
 			r.TS.MEDIA_CDN_COMMUNITY_URL,
 		)).replace(/{COMMUNITY_CDN_URL}/g, r.TS.COMMUNITY_CDN_URL);
-		return (e = (0, i.TL)(e));
+		return (e = TL(e));
 	} else {
 		return e;
 	}
@@ -98,31 +98,29 @@ export function ZF(e) {
 		return true;
 	}
 	const t = wm(e).toLocaleLowerCase();
-	return (
-		[
-			wm(r.TS.COMMUNITY_CDN_URL).toLocaleLowerCase(),
-			wm(r.TS.MEDIA_CDN_URL).toLocaleLowerCase(),
-			wm(r.TS.MEDIA_CDN_COMMUNITY_URL).toLocaleLowerCase(),
-			wm(r.TS.STORE_CDN_URL).toLocaleLowerCase(),
-			wm(r.TS.BASE_URL_SHARED_CDN).toLocaleLowerCase(),
-			wm(r.TS.CLAN_CDN_ASSET_URL).toLocaleLowerCase(),
-			wm(r.TS.VIDEO_CDN_URL).toLocaleLowerCase(),
-			"support.steampowered.com",
-			"steamcdn-a.akamaihd.net",
-			"cdn.cloudflare.steamstatic.com",
-			"cdn.fastly.steamstatic.com",
-			"cdn.akamai.steamstatic.com",
-		].indexOf(t) >= 0
-	);
+	return [
+		wm(r.TS.COMMUNITY_CDN_URL).toLocaleLowerCase(),
+		wm(r.TS.MEDIA_CDN_URL).toLocaleLowerCase(),
+		wm(r.TS.MEDIA_CDN_COMMUNITY_URL).toLocaleLowerCase(),
+		wm(r.TS.STORE_CDN_URL).toLocaleLowerCase(),
+		wm(r.TS.BASE_URL_SHARED_CDN).toLocaleLowerCase(),
+		wm(r.TS.CLAN_CDN_ASSET_URL).toLocaleLowerCase(),
+		wm(r.TS.VIDEO_CDN_URL).toLocaleLowerCase(),
+		"support.steampowered.com",
+		"steamcdn-a.akamaihd.net",
+		"cdn.cloudflare.steamstatic.com",
+		"cdn.fastly.steamstatic.com",
+		"cdn.akamai.steamstatic.com",
+	].includes(t);
 }
 export function k2(e) {
 	if (
 		r.TS.SNR &&
 		r.TS.SNR.length > 0 &&
 		e &&
-		e.toLocaleLowerCase().indexOf("snr=") == -1
+		!e.toLocaleLowerCase().includes("snr=")
 	) {
-		return e + (e.indexOf("?") >= 0 ? "&" : "?") + "snr=" + r.TS.SNR;
+		return `${e + (e.includes("?") ? "&" : "?")}snr=${r.TS.SNR}`;
 	} else {
 		return e;
 	}

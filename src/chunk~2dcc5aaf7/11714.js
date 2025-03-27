@@ -1,126 +1,119 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./34792.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
+import n, { useState, useEffect } from "./63696.js";
+import i, { VI } from "./34792.js";
+import a, { uN } from "./52451.js";
+import o from "./91957.js";
 function s(e, t) {
-	const [r, i] = (0, n.useState)(e);
-	const [a, s] = (0, n.useState)(e);
-	(0, n.useEffect)(() => {
+	const [r, setR] = useState(e);
+	const [a, setA] = useState(e);
+	useEffect(() => {
 		if (t < 1) {
-			s(r);
+			setA(r);
 			return () => {};
 		}
-		const e = setTimeout(() => s(r), t);
+		const e = setTimeout(() => setA(r), t);
 		return () => clearTimeout(e);
 	}, [r, t]);
-	return [r, a, i];
+	return [r, a, setR];
 }
-var o = require("./91957.js");
 export function Pl(e) {
 	const {
-		setting: t,
-		onChange: r,
-		onChangeComplete: l,
-		visible: c = true,
-		nDebounceMs: m,
-		feature: u,
+		setting,
+		onChange,
+		onChangeComplete,
+		visible = true,
+		nDebounceMs,
+		feature,
 		...d
 	} = e;
-	const [A, p] = (0, i.VI)(t);
-	const g = m > 0;
-	const [h, C, _] = s(A, m);
-	const [f, b] = (0, a.uN)(A, _);
+	const [A, p] = VI(setting);
+	const g = nDebounceMs > 0;
+	const [h, C, _] = s(A, nDebounceMs);
+	const [f, b] = uN(A, _);
 	const [y, S] = g ? [f, b] : [A, p];
 	const w = n.useCallback(
 		(e, t) => {
 			S(e);
-			if (r) {
-				r(e, t);
+			if (onChange) {
+				onChange(e, t);
 			}
 		},
-		[r, S],
+		[onChange, S],
 	);
 	const B = n.useCallback(
 		(e, t) => {
 			p(e);
 			S(e);
-			if (l) {
-				l(e, t);
+			if (onChangeComplete) {
+				onChangeComplete(e, t);
 			}
 		},
-		[l, S, p],
+		[onChangeComplete, S, p],
 	);
 	n.useEffect(() => {
 		if (g && C != A) {
 			p(C);
 		}
 	}, [C]);
-	if (c) {
-		return n.createElement(o.V, {
-			feature: u,
-			value: y,
-			onChange: w,
-			onChangeComplete: B,
-			...d,
-		});
+	if (visible) {
+		return (
+			<o.V
+				feature={feature}
+				value={y}
+				onChange={w}
+				onChangeComplete={B}
+				{...d}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
 export function Lh(e) {
-	const { info: t, ...r } = e;
-	return n.createElement(Pl, {
-		visible: t.visible,
-		min: t.min,
-		max: t.max,
-		...r,
-	});
+	const { info, ...r } = e;
+	return <Pl visible={info.visible} min={info.min} max={info.max} {...r} />;
 }
 export function Ax(e) {
 	const {
-		setting: t,
-		onChange: r,
-		onChangeComplete: l,
-		visible: c = true,
-		nDebounceMs: m,
-		feature: u,
-		valueDisabled: d = null,
+		setting,
+		onChange,
+		onChangeComplete,
+		visible = true,
+		nDebounceMs,
+		feature,
+		valueDisabled = null,
 		...A
 	} = e;
-	const [p, g] = (0, i.VI)(t);
-	const h = m > 0;
-	const [C, _, f] = s(p, m);
-	const [b, y] = (0, a.uN)(p, f);
+	const [p, g] = VI(setting);
+	const h = nDebounceMs > 0;
+	const [C, _, f] = s(p, nDebounceMs);
+	const [b, y] = uN(p, f);
 	const [S, w] = h ? [b, y] : [p, g];
 	const B = n.useCallback(
 		(e, t) => {
 			w(e);
-			if (r) {
-				r(e, t);
+			if (onChange) {
+				onChange(e, t);
 			}
 		},
-		[r, w],
+		[onChange, w],
 	);
 	const v = n.useCallback(
 		(e, t) => {
 			g(e);
 			w(e);
-			if (l) {
-				l(e, t);
+			if (onChangeComplete) {
+				onChangeComplete(e, t);
 			}
 		},
-		[l, w, g],
+		[onChangeComplete, w, g],
 	);
 	n.useEffect(() => {
 		if (h && _ != p) {
 			g(_);
 		}
 	}, [_]);
-	const I = e.disabled && d != null ? d : S;
-	return n.createElement(o.k, {
-		feature: u,
-		value: I,
-		onChange: B,
-		onChangeComplete: v,
-		...A,
-	});
+	const I = e.disabled && valueDisabled != null ? valueDisabled : S;
+	return (
+		<o.k feature={feature} value={I} onChange={B} onChangeComplete={v} {...A} />
+	);
 }

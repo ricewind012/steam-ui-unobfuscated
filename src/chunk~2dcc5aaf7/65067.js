@@ -1,275 +1,185 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./69164.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
 import { LocalizePlural } from "../../actual_src/utils/localization.js";
 import {
 	LocalizeRTimeToHourAndMinutes,
 	LocalizeRtime32ToShorterDate,
 } from "../../actual_src/utils/localization/datetime.js";
 import { IsDateSameDay } from "../../actual_src/utils/time.js";
-var c = require("./75883.js");
-var m = c;
-var u = require(/*webcrack:missing*/ "./50376.js");
+import n from "./63696.js";
+import i from "./69164.js";
+import a, { A as A_1 } from "./90765.js";
+import c from "./75883.js";
+import u from "./50376.js";
+const m = c;
 const d = true;
 function A(e) {
-	let { onActivate: t, icon: r, body: s, eUIMode: o, classNames: l } = e;
-	let c = t;
-	let u = m.PinnedTemplate;
-	if (o == 7) {
-		u = m.PinnedTemplateDesktop;
-	} else if (o == 3) {
-		u = m.PinnedTemplateWeb;
+	let { onActivate, icon, body, eUIMode, classNames } = e;
+	let c = onActivate;
+	let m_PinnedTemplate = m.PinnedTemplate;
+	if (eUIMode == 7) {
+		m_PinnedTemplate = m.PinnedTemplateDesktop;
+	} else if (eUIMode == 3) {
+		m_PinnedTemplate = m.PinnedTemplateWeb;
 	}
-	u = (0, a.A)(u, l);
-	return n.createElement(
-		i.Z,
-		{
-			className: u,
-			onActivate: c,
-		},
-		n.createElement(
-			"div",
-			{
-				className: m.Content,
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.PinnedBody,
-				},
-				n.createElement(
-					"span",
-					{
-						className: m.Icon,
-					},
-					r,
-				),
-				s,
-			),
-		),
+	m_PinnedTemplate = A_1(m_PinnedTemplate, classNames);
+	return (
+		<i.Z className={m_PinnedTemplate} onActivate={c}>
+			<div className={m.Content}>
+				<div className={m.PinnedBody}>
+					<span className={m.Icon}>{icon}</span>
+					{body}
+				</div>
+			</div>
+		</i.Z>
 	);
 }
 export function OK(e) {
 	const {
-		count: t,
-		icon: r,
-		onActivate: i,
-		strLocToken: a,
-		bAlwaysShow: o,
-		eUIMode: l,
-		classNames: c,
-		visible: m,
+		count,
+		icon,
+		onActivate,
+		strLocToken,
+		bAlwaysShow,
+		eUIMode,
+		classNames,
+		visible,
 	} = e;
-	if (!t && !o) {
+	if (!count && !bAlwaysShow) {
 		return null;
 	}
-	const u = LocalizePlural(a, t);
-	return n.createElement(A, {
-		icon: r,
-		body: u,
-		onActivate: i,
-		eUIMode: l,
-		classNames: c,
-		visible: m,
-	});
+	const u = LocalizePlural(strLocToken, count);
+	return (
+		<A
+			icon={icon}
+			body={u}
+			onActivate={onActivate}
+			eUIMode={eUIMode}
+			classNames={classNames}
+			visible={visible}
+		/>
+	);
 }
-var g;
+let g;
 export function FG(e) {
-	let {
-		nUnread: t,
-		location: r,
-		eUIMode: s,
-		bLoading: o,
-		footer: l,
-		bNewIndicator: c,
-	} = e;
-	const [u, d] = n.useState(o ? g.loadingActive : g.none);
-	const [A, p] = n.useState(undefined);
+	let { nUnread, location, eUIMode, bLoading, footer, bNewIndicator } = e;
+	const [u, setU] = n.useState(bLoading ? g.loadingActive : g.none);
+	const [A, setA] = n.useState(undefined);
 	n.useEffect(() => {
-		if (u != g.loadingActive || o) {
-			if (u == g.loadingComplete && o) {
-				d(g.loadingActive);
+		if (u != g.loadingActive || bLoading) {
+			if (u == g.loadingComplete && bLoading) {
+				setU(g.loadingActive);
 			}
 		} else {
-			d(g.loadingComplete);
+			setU(g.loadingComplete);
 		}
-	}, [u, o]);
+	}, [u, bLoading]);
 	n.useEffect(() => {
 		let e =
 			parseInt(m.loadinganimationiterationcount) *
 			parseInt(m.loadinganimationduration) *
 			1000;
-		const t = window.setTimeout(() => d(g.none), e);
+		const t = window.setTimeout(() => setU(g.none), e);
 		return () => window.clearTimeout(t);
 	}, []);
 	n.useEffect(() => {
-		if (t && t > 0 && A !== m.Unread && r != 2 && r != 1) {
-			p(m.Unread);
-		} else if (!t && A == m.Unread) {
-			p(m.MarkedRead);
+		if (
+			nUnread &&
+			nUnread > 0 &&
+			A !== m.Unread &&
+			location != 2 &&
+			location != 1
+		) {
+			setA(m.Unread);
+		} else if (!nUnread && A == m.Unread) {
+			setA(m.MarkedRead);
 		}
-	}, [t, r, A]);
-	let h = e.onActivate;
-	h ||= () => console.log("Missing activate function");
+	}, [nUnread, location, A]);
+	let e_onActivate = e.onActivate;
+	e_onActivate ||= () => console.log("Missing activate function");
 	if (u == g.loadingActive) {
-		h = undefined;
+		e_onActivate = undefined;
 	}
-	let _ = m.StandardTemplate;
-	if (r == 4) {
-		_ = m.AllNotificationsTemplate;
-	} else if (r == 2) {
-		_ = m.DesktopToastTemplate;
-	} else if (s == 7 || s == 3) {
-		_ = m.StandardTemplateDesktop;
+	let m_StandardTemplate = m.StandardTemplate;
+	if (location == 4) {
+		m_StandardTemplate = m.AllNotificationsTemplate;
+	} else if (location == 2) {
+		m_StandardTemplate = m.DesktopToastTemplate;
+	} else if (eUIMode == 7 || eUIMode == 3) {
+		m_StandardTemplate = m.StandardTemplateDesktop;
 	}
 	let f = null;
-	if (u != g.none && r != 2 && r != 1) {
+	if (u != g.none && location != 2 && location != 1) {
 		let e = u == g.loadingComplete ? m.Hide : null;
-		f = n.createElement(
-			"div",
-			{
-				className: (0, a.A)(m.LoadingTemplate, e),
-			},
-			n.createElement("div", {
-				className: (0, a.A)(m.StandardLogoDimensions, m.ShimmerLogo),
-			}),
-			n.createElement(
-				"div",
-				{
-					className: m.Content,
-				},
-				n.createElement("div", {
-					className: (0, a.A)(m.Header, m.ShimmerHeader),
-				}),
-				n.createElement("div", {
-					className: (0, a.A)(m.Body, m.ShimmerBody),
-				}),
-			),
+		f = (
+			<div className={A_1(m.LoadingTemplate, e)}>
+				<div className={A_1(m.StandardLogoDimensions, m.ShimmerLogo)} />
+				<div className={m.Content}>
+					<div className={A_1(m.Header, m.ShimmerHeader)} />
+					<div className={A_1(m.Body, m.ShimmerBody)} />
+				</div>
+			</div>
 		);
 	}
-	return n.createElement(
-		i.Z,
-		{
-			onActivate: h,
-			className: m.StandardTemplateContainer,
-			onOptionsButton: e.onOptionsButton,
-			onOptionsActionDescription: e.onOptionsButtonDesc,
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, a.A)(_, A),
-			},
-			n.createElement(
-				"div",
-				{
-					className: m.StandardLogoDimensions,
-				},
-				e.logo,
-			),
-			e.personaStatus &&
-				n.createElement("div", {
-					className: (0, a.A)(m.AvatarStatus, e.personaStatus),
-				}),
-			n.createElement(
-				"div",
-				{
-					className: m.Content,
-				},
-				e.children,
-			),
-			f,
-			c &&
-				n.createElement(C, {
-					location: r,
-				}),
-		),
-		l || null,
+	return (
+		<i.Z
+			onActivate={e_onActivate}
+			className={m.StandardTemplateContainer}
+			onOptionsButton={e.onOptionsButton}
+			onOptionsActionDescription={e.onOptionsButtonDesc}
+		>
+			<div className={A_1(m_StandardTemplate, A)}>
+				<div className={m.StandardLogoDimensions}>{e.logo}</div>
+				{e.personaStatus && (
+					<div className={A_1(m.AvatarStatus, e.personaStatus)} />
+				)}
+				<div className={m.Content}>{e.children}</div>
+				{f}
+				{bNewIndicator && <C location={location} />}
+			</div>
+			{footer || null}
+		</i.Z>
 	);
 }
 function C(e) {
-	const { location: t } = e;
-	if (d && t == 3) {
-		return n.createElement(
-			"div",
-			{
-				className: m.NewIndicator,
-			},
-			n.createElement(u.jlt, null),
+	const { location } = e;
+	if (d && location == 3) {
+		return (
+			<div className={m.NewIndicator}>
+				<u.jlt />
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
 export function OJ(e) {
-	let {
-		icon: t,
-		title: r,
-		timestamp: i,
-		location: a,
-		fnRenderTimestamp: s,
-	} = e;
-	const o = !!i && (a == 3 || a == 4);
+	let { icon, title, timestamp, location, fnRenderTimestamp } = e;
+	const o = !!timestamp && (location == 3 || location == 4);
 	let l;
-	l = a == 4 ? w : (s ?? B);
-	return n.createElement(
-		"div",
-		{
-			className: m.Header,
-		},
-		n.createElement(VJ, {
-			icon: t,
-		}),
-		!!r &&
-			n.createElement(OO, {
-				title: r,
-			}),
-		o &&
-			l({
-				timestamp: i,
-			}),
+	l = location == 4 ? w : (fnRenderTimestamp ?? B);
+	return (
+		<div className={m.Header}>
+			<VJ icon={icon} />
+			{!!title && <OO title={title} />}
+			{o &&
+				l({
+					timestamp: timestamp,
+				})}
+		</div>
 	);
 }
 export function VJ(e) {
-	return n.createElement(
-		"div",
-		{
-			className: m.Icon,
-		},
-		e.icon,
-	);
+	return <div className={m.Icon}>{e.icon}</div>;
 }
 export function OO(e) {
-	return n.createElement(
-		"div",
-		{
-			className: m.Title,
-		},
-		e.title,
-	);
+	return <div className={m.Title}>{e.title}</div>;
 }
 export function NF(e) {
-	let t = (0, a.A)(
-		m.StandardNotificationDescription,
-		e.multiline && m.Multiline,
-	);
-	return n.createElement(
-		"div",
-		{
-			className: t,
-		},
-		e.children,
-	);
+	let t = A_1(m.StandardNotificationDescription, e.multiline && m.Multiline);
+	return <div className={t}>{e.children}</div>;
 }
 export function C0(e) {
-	let t = (0, a.A)(m.StandardNotificationSubText, e.multiline && m.Multiline);
-	return n.createElement(
-		"div",
-		{
-			className: t,
-		},
-		e.children,
-	);
+	let t = A_1(m.StandardNotificationSubText, e.multiline && m.Multiline);
+	return <div className={t}>{e.children}</div>;
 }
 function w(e) {
 	if (e.timestamp === undefined) {
@@ -279,16 +189,14 @@ function w(e) {
 	let r = new Date(e.timestamp * 1000);
 	let i = LocalizeRTimeToHourAndMinutes(e.timestamp);
 	if (!IsDateSameDay(t, r)) {
-		i =
-			LocalizeRtime32ToShorterDate(e.timestamp, false, false, false) + " " + i;
+		i = `${LocalizeRtime32ToShorterDate(
+			e.timestamp,
+			false,
+			false,
+			false,
+		)} ${i}`;
 	}
-	return n.createElement(
-		"div",
-		{
-			className: m.Timestamp,
-		},
-		i,
-	);
+	return <div className={m.Timestamp}>{i}</div>;
 }
 function B(e) {
 	if (e.timestamp === undefined) {
@@ -299,62 +207,29 @@ function B(e) {
 	let i = IsDateSameDay(t, r)
 		? LocalizeRTimeToHourAndMinutes(e.timestamp)
 		: LocalizeRtime32ToShorterDate(e.timestamp, false, false, false);
-	return n.createElement(
-		"div",
-		{
-			className: m.Timestamp,
-		},
-		i,
-	);
+	return <div className={m.Timestamp}>{i}</div>;
 }
 export function PT(e) {
-	const { text: t } = e;
-	return n.createElement(
-		"div",
-		{
-			className: m.BottomBar,
-		},
-		t,
-	);
+	const { text } = e;
+	return <div className={m.BottomBar}>{text}</div>;
 }
 export function ll(e) {
-	let { playerName: t, nickName: r, parenthesizeNickNames: i, state: s } = e;
-	let o = !!r;
-	let l = o && !i;
-	let c = l ? r : t;
-	let u = s == "ingame" ? m.IngameTitle : m.OnlineTitle;
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			"span",
-			{
-				className: (0, a.A)(u),
-			},
-			c,
-		),
-		i &&
-			o &&
-			n.createElement(
-				"span",
-				{
-					className: (0, a.A)(m.PlayerNickName, m.FullName),
-				},
-				"(",
-				r,
-				")",
-			),
-		l &&
-			n.createElement(
-				"span",
-				{
-					className: m.PlayerNickName,
-				},
-				" *",
-			),
+	let { playerName, nickName, parenthesizeNickNames, state } = e;
+	let o = !!nickName;
+	let l = o && !parenthesizeNickNames;
+	let c = l ? nickName : playerName;
+	let u = state == "ingame" ? m.IngameTitle : m.OnlineTitle;
+	return (
+		<>
+			<span className={A_1(u)}>{c}</span>
+			{parenthesizeNickNames && o && (
+				<span className={A_1(m.PlayerNickName, m.FullName)}>({nickName})</span>
+			)}
+			{l && <span className={m.PlayerNickName}>{" *"}</span>}
+		</>
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.none = 0)] = "none";
 	e[(e.loadingActive = 1)] = "loadingActive";
 	e[(e.loadingComplete = 2)] = "loadingComplete";

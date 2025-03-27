@@ -1,18 +1,20 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./31222.js");
-var o = require(/*webcrack:missing*/ "./58663.js");
-var l = require(/*webcrack:missing*/ "./48307.js");
-const c = o.Message;
-class m extends c {
+import n from "./83957.js";
+import a, { I8 } from "./12176.js";
+import s from "./31222.js";
+import o from "./58663.js";
+import l from "./48307.js";
+import { H } from "./16154.js";
+import w, { yK } from "./72476.js";
+const i = n;
+const o_Message = o.Message;
+class m extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.video_id) {
 			l.Sg(m.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -56,7 +58,7 @@ class m extends c {
 		return l.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -64,7 +66,7 @@ class m extends c {
 		l.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -72,14 +74,14 @@ class m extends c {
 		return "CVideo_ClientGetVideoURL_Request";
 	}
 }
-class u extends c {
+class u extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.video_id) {
 			l.Sg(u.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -123,7 +125,7 @@ class u extends c {
 		return l.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -131,7 +133,7 @@ class u extends c {
 		l.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -139,14 +141,14 @@ class u extends c {
 		return "CVideo_ClientGetVideoURL_Response";
 	}
 }
-class d extends c {
+class d extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.encryption_key) {
 			l.Sg(d.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -185,7 +187,7 @@ class d extends c {
 		return l.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -193,7 +195,7 @@ class d extends c {
 		l.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -201,14 +203,14 @@ class d extends c {
 		return "CVideo_UnlockedH264_Notification";
 	}
 }
-class A extends c {
+class A extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.app_id) {
 			l.Sg(A.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -252,7 +254,7 @@ class A extends c {
 		return l.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -260,7 +262,7 @@ class A extends c {
 		l.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -268,14 +270,14 @@ class A extends c {
 		return "CFovasVideo_ClientGetOPFSettings_Request";
 	}
 }
-class p extends c {
+class p extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.app_id) {
 			l.Sg(p.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -319,7 +321,7 @@ class p extends c {
 		return l.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -327,7 +329,7 @@ class p extends c {
 		l.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -335,14 +337,14 @@ class p extends c {
 		return "CFovasVideo_ClientGetOPFSettings_Response";
 	}
 }
-class g extends c {
+class g extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.app_id) {
 			l.Sg(g.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		o_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -418,7 +420,7 @@ class g extends c {
 		return l.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -426,7 +428,7 @@ class g extends c {
 		l.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -434,14 +436,14 @@ class g extends c {
 		return "VideoBookmark";
 	}
 }
-class h extends c {
+class h extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.bookmarks) {
 			l.Sg(h.M());
 		}
-		c.initialize(this, e, 0, -1, [1], null);
+		o_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -481,7 +483,7 @@ class h extends c {
 		return l.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -489,7 +491,7 @@ class h extends c {
 		l.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -497,14 +499,14 @@ class h extends c {
 		return "CVideo_SetVideoBookmark_Notification";
 	}
 }
-class C extends c {
+class C extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.appids) {
 			l.Sg(C.M());
 		}
-		c.initialize(this, e, 0, -1, [1], null);
+		o_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -551,7 +553,7 @@ class C extends c {
 		return l.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -559,7 +561,7 @@ class C extends c {
 		l.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -567,14 +569,14 @@ class C extends c {
 		return "CVideo_GetVideoBookmarks_Request";
 	}
 }
-class _ extends c {
+class _ extends o_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.bookmarks) {
 			l.Sg(_.M());
 		}
-		c.initialize(this, e, 0, -1, [1], null);
+		o_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -614,7 +616,7 @@ class _ extends c {
 		return l.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -622,7 +624,7 @@ class _ extends c {
 		l.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -630,41 +632,35 @@ class _ extends c {
 		return "CVideo_GetVideoBookmarks_Response";
 	}
 }
-var f;
-var b;
-var y;
-(function (e) {
-	e.ClientGetVideoURL = function (e, t) {
-		return e.SendMsg("Video.ClientGetVideoURL#1", (0, a.I8)(m, t), u, {
+let f;
+let b;
+let y;
+((e) => {
+	e.ClientGetVideoURL = (e, t) =>
+		e.SendMsg("Video.ClientGetVideoURL#1", I8(m, t), u, {
 			ePrivilege: 1,
 		});
-	};
-	e.SetVideoBookmark = function (e, t) {
-		return e.SendNotification("Video.SetVideoBookmark#1", (0, a.I8)(h, t), {
+	e.SetVideoBookmark = (e, t) =>
+		e.SendNotification("Video.SetVideoBookmark#1", I8(h, t), {
 			ePrivilege: 1,
 		});
-	};
-	e.GetVideoBookmarks = function (e, t) {
-		return e.SendMsg("Video.GetVideoBookmarks#1", (0, a.I8)(C, t), _, {
+	e.GetVideoBookmarks = (e, t) =>
+		e.SendMsg("Video.GetVideoBookmarks#1", I8(C, t), _, {
 			ePrivilege: 1,
 		});
-	};
 })((f ||= {}));
-(function (e) {
+((e) => {
 	e.NotifyUnlockedH264Handler = {
 		name: "VideoClient.NotifyUnlockedH264#1",
 		request: d,
 	};
 })((b ||= {}));
-(function (e) {
-	e.ClientGetOPFSettings = function (e, t) {
-		return e.SendMsg("FovasVideo.ClientGetOPFSettings#1", (0, a.I8)(A, t), p, {
+((e) => {
+	e.ClientGetOPFSettings = (e, t) =>
+		e.SendMsg("FovasVideo.ClientGetOPFSettings#1", I8(A, t), p, {
 			ePrivilege: 1,
 		});
-	};
 })((y ||= {}));
-var S = require("./16154.js");
-var w = require(/*webcrack:missing*/ "./72476.js");
 export class t {
 	static s_VODStore;
 	m_LoadingOAuth = null;
@@ -762,9 +758,9 @@ export class t {
 	}
 	async LoadWatchVideoOAuthToken() {
 		const e =
-			(0, w.yK)() == "community"
-				? w.TS.COMMUNITY_BASE_URL + "actions/ajaxgetwatchvodtoken"
-				: w.TS.STORE_BASE_URL + "actions/ajaxgetwatchvodtoken";
+			yK() == "community"
+				? `${w.TS.COMMUNITY_BASE_URL}actions/ajaxgetwatchvodtoken`
+				: `${w.TS.STORE_BASE_URL}actions/ajaxgetwatchvodtoken`;
 		const t = {};
 		try {
 			let r = await i.get(e, {
@@ -785,9 +781,9 @@ export class t {
 				return this.m_transport;
 			}
 		} catch (e) {
-			let t = (0, S.H)(e);
+			let t = H(e);
 			console.error(
-				"CVideoBookmarkStore:LoadWatchVideoOAuthToken: Failed " + t.strErrorMsg,
+				`CVideoBookmarkStore:LoadWatchVideoOAuthToken: Failed ${t.strErrorMsg}`,
 				t,
 			);
 		}

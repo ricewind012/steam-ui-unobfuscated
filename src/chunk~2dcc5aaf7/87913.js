@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./68292.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var s = require("./18057.js");
-var o = require("./13688.js");
-var l = require("./79112.js");
-var c = require("./3963.js");
-var m = require("./60917.js");
-var u = require("./46422.js");
-var d = require("./63367.js");
-var A = require(/*webcrack:missing*/ "./89193.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
-var g = require(/*webcrack:missing*/ "./63696.js");
 import {
 	CLocalizationManager,
 	LoadLocalizationStrings,
 	LocalizationManager,
 } from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require(/*webcrack:missing*/ "./43691.js");
+import n, { Cg } from "./34629.js";
+import i, { PR, bg, x9 } from "./68292.js";
+import s from "./18057.js";
+import { dq } from "./13688.js";
+import { lF } from "./79112.js";
+import c from "./3963.js";
+import m from "./60917.js";
+import u from "./46422.js";
+import d, { zK } from "./63367.js";
+import A, { Gn, z7 } from "./89193.js";
+import { q3 } from "./90095.js";
+import { useEffect } from "./63696.js";
+import C from "./52451.js";
+import _ from "./43691.js";
 class f {
 	m_bStartupFinished = false;
 	m_bFriendsUIReady = false;
@@ -28,7 +28,7 @@ class f {
 	m_currentUserVoiceLevel = 0;
 	m_promiseLoadLoc;
 	constructor() {
-		(0, A.Gn)(this);
+		Gn(this);
 	}
 	Init() {
 		window.addEventListener("message", this.OnMessage);
@@ -59,9 +59,10 @@ class f {
 	OnMessage(e) {
 		if (typeof e.data == "object" && e.data.message != null) {
 			switch (e.data.message) {
-				case "ChatJavascriptInitialized":
+				case "ChatJavascriptInitialized": {
 					break;
-				case "FriendsUIReady":
+				}
+				case "FriendsUIReady": {
 					this.m_bFriendsUIReady = true;
 					if (this.m_friendsUIFunctions.SetEmoticonTrackerCallback) {
 						this.m_friendsUIFunctions.SetEmoticonTrackerCallback(
@@ -86,26 +87,28 @@ class f {
 							);
 						}
 					}
-					(0, i.PR)().RegisterForSteamURLs((e, t) =>
+					PR().RegisterForSteamURLs((e, t) =>
 						d.Dt.RegisterForRunSteamURL([7, 4], e, (r, n) => {
-							t(n, ...(0, d.zK)(e, n).rgParts);
+							t(n, ...zK(e, n).rgParts);
 						}),
 					);
 					if (this.m_eDesiredPersonaState != null) {
 						console.log(
-							"FriendsUI is now ready, processing pended desired persona state " +
-								this.m_eDesiredPersonaState,
+							`FriendsUI is now ready, processing pended desired persona state ${this.m_eDesiredPersonaState}`,
 						);
 						this.SetDesiredPersonaState(this.m_eDesiredPersonaState);
 					}
 					break;
-				case "SignInRequest":
+				}
+				case "SignInRequest": {
 					this.SetDesiredPersonaState(
 						this.m_friendsUIFunctions.GetPreferredPersonaState(),
 					);
 					break;
-				case "CloseSideMenus":
+				}
+				case "CloseSideMenus": {
 					u.oy.CloseSideMenus();
+				}
 			}
 		}
 	}
@@ -149,19 +152,20 @@ class f {
 				case "ChatTabActivated":
 					{
 						const e = u.oy.ActiveWindowInstance;
-						const t = e.Navigator;
-						if ((0, o.dq)(t)) {
-							t.Chat();
+						const e_Navigator = e.Navigator;
+						if (dq(e_Navigator)) {
+							e_Navigator.Chat();
 							e.MenuStore?.CloseSideMenus();
 						}
 					}
 					break;
-				case "AcceptedGameInvite":
+				case "AcceptedGameInvite": {
 					u.oy.NavigateToRunningApp();
 					u.oy.WindowStore.OverlayWindows.forEach((e) =>
 						e.NavigateToRunningApp(),
 					);
 					break;
+				}
 				case "AcceptedRemotePlayInvite":
 					{
 						let e = JSON.parse(r).id;
@@ -169,8 +173,8 @@ class f {
 					}
 					break;
 				case "NavigateToInvites": {
-					const e = (0, l.lF)();
-					if ((0, o.dq)(e)) {
+					const e = lF();
+					if (dq(e)) {
 						e.Invites();
 					}
 				}
@@ -183,22 +187,22 @@ class f {
 		}
 	}
 	ShowFriendChatDialog(e, t) {
-		const r = e.Navigator;
-		if ((0, o.dq)(r)) {
-			r.Chat();
+		const e_Navigator = e.Navigator;
+		if (dq(e_Navigator)) {
+			e_Navigator.Chat();
 			e.MenuStore?.CloseSideMenus();
 		}
-		let n = (0, i.bg)().GetFriend(t.GetAccountID());
+		let n = bg().GetFriend(t.GetAccountID());
 		n?.OpenChatDialog(e.params.browserInfo);
 	}
 	ShowChatRoomGroupDialog(e, t, r) {
 		const n = u.oy.ActiveWindowInstance;
-		const a = n.Navigator;
-		if ((0, o.dq)(a)) {
-			a.Chat();
+		const n_Navigator = n.Navigator;
+		if (dq(n_Navigator)) {
+			n_Navigator.Chat();
 			n.MenuStore?.CloseSideMenus();
 		}
-		(0, i.PR)().ShowChatRoomGroupDialog(e, t, r);
+		PR().ShowChatRoomGroupDialog(e, t, r);
 	}
 	ShowInvitesDialog(e) {
 		e.Navigate(s.BV.GamepadUI.Invites());
@@ -208,17 +212,21 @@ class f {
 		let t = this.GetCurrentUserStatusInterface();
 		if (t) {
 			switch (e) {
-				case 1:
+				case 1: {
 					t.SetUserOnline();
 					break;
-				case 3:
+				}
+				case 3: {
 					t.SetUserAway();
 					break;
-				case 7:
+				}
+				case 7: {
 					t.SetUserInvisible();
 					break;
-				case 0:
+				}
+				case 0: {
 					t.SetUserOffline();
+				}
 			}
 		} else {
 			this.m_eDesiredPersonaState = e;
@@ -234,7 +242,7 @@ class f {
 		this.CreateChatApp();
 	}
 	async AwaitStartupFinished() {
-		await (0, A.z7)(() => this.m_bStartupFinished, {
+		await z7(() => this.m_bStartupFinished, {
 			timeout: 10000,
 		});
 		AssertMsg(this.m_bStartupFinished, "FriendsUI startup not complete!");
@@ -253,7 +261,7 @@ class f {
 	}
 	async CreateChatApp() {
 		await this.m_promiseLoadLoc;
-		this.m_friendsUIFunctions = (0, i.x9)(true);
+		this.m_friendsUIFunctions = x9(true);
 		this.m_friendsUIFunctions.InstrumentWindow(document.defaultView);
 		this.m_bStartupFinished = true;
 	}
@@ -316,28 +324,28 @@ class f {
 	}
 }
 export function _h() {
-	return (0, p.q3)(() => LN.BShowRemotePlayQuickAccessControls());
+	return q3(() => LN.BShowRemotePlayQuickAccessControls());
 }
 export function wm() {
-	return (0, p.q3)(() => {
+	return q3(() => {
 		let e = LN.GetVoiceChatStatus();
 		return e?.bVoiceChatActive === true;
 	});
 }
 export function cO() {
-	return (0, p.q3)(() => LN.BHasPendingOneOnOneVoiceChatRequests());
+	return q3(() => LN.BHasPendingOneOnOneVoiceChatRequests());
 }
 export function o2() {
-	return (0, p.q3)(() => LN.GetCurrentUserVoiceLevel());
+	return q3(() => LN.GetCurrentUserVoiceLevel());
 }
 export function PG(e) {
-	(0, g.useEffect)(() => {
+	useEffect(() => {
 		if (!e) {
 			return;
 		}
 		const t = new AbortController();
-		(async function () {
-			const r = (0, A.z7)(() => LN.loaded);
+		(async () => {
+			const r = z7(() => LN.loaded);
 			t.signal.onabort = () => r.cancel();
 			await r;
 			LN.InstrumentWindow(e);
@@ -345,16 +353,16 @@ export function PG(e) {
 		return () => t.abort();
 	}, [e]);
 }
-(0, n.Cg)([A.sH], f.prototype, "m_bStartupFinished", undefined);
-(0, n.Cg)([A.sH], f.prototype, "m_bFriendsUIReady", undefined);
-(0, n.Cg)([A.sH], f.prototype, "m_voiceChatStatus", undefined);
-(0, n.Cg)([A.sH], f.prototype, "m_currentUserVoiceLevel", undefined);
-(0, n.Cg)([A.XI.bound], f.prototype, "OnMessage", null);
-(0, n.Cg)([C.oI], f.prototype, "TrackEmoticonUsage", null);
-(0, n.Cg)([C.oI], f.prototype, "TrackStickerUsage", null);
-(0, n.Cg)([C.oI], f.prototype, "OnPendingOneOnOneVoiceChatRequests", null);
-(0, n.Cg)([C.oI], f.prototype, "OnCurrentUserVoiceLevelChanged", null);
-(0, n.Cg)([C.oI], f.prototype, "HandleFriendsUIMessages", null);
-(0, n.Cg)([C.oI], f.prototype, "OnStartupFinished", null);
-(0, n.Cg)([C.oI], f.prototype, "OnVoiceChatStatusChanged", null);
+Cg([A.sH], f.prototype, "m_bStartupFinished", undefined);
+Cg([A.sH], f.prototype, "m_bFriendsUIReady", undefined);
+Cg([A.sH], f.prototype, "m_voiceChatStatus", undefined);
+Cg([A.sH], f.prototype, "m_currentUserVoiceLevel", undefined);
+Cg([A.XI.bound], f.prototype, "OnMessage", null);
+Cg([C.oI], f.prototype, "TrackEmoticonUsage", null);
+Cg([C.oI], f.prototype, "TrackStickerUsage", null);
+Cg([C.oI], f.prototype, "OnPendingOneOnOneVoiceChatRequests", null);
+Cg([C.oI], f.prototype, "OnCurrentUserVoiceLevelChanged", null);
+Cg([C.oI], f.prototype, "HandleFriendsUIMessages", null);
+Cg([C.oI], f.prototype, "OnStartupFinished", null);
+Cg([C.oI], f.prototype, "OnVoiceChatStatusChanged", null);
 export const LN = new f();

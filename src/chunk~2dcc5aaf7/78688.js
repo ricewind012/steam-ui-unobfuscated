@@ -1,31 +1,33 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./78325.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require(/*webcrack:missing*/ "./31958.js");
-var l = require(/*webcrack:missing*/ "./81255.js");
-var c = require(/*webcrack:missing*/ "./68120.js");
-var m = require(/*webcrack:missing*/ "./61657.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require("./7558.js");
-var A = require(/*webcrack:missing*/ "./90242.js");
-var p = require(/*webcrack:missing*/ "./83599.js");
-var g = require("./51076.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./78325.js";
+import s, { Fd } from "./52451.js";
+import o, { OQ } from "./31958.js";
+import l, { s as s_1 } from "./81255.js";
+import c from "./68120.js";
+import m from "./61657.js";
+import u from "./69164.js";
+import d from "./7558.js";
+import { b$ } from "./90242.js";
+import p from "./83599.js";
+import g, { SP } from "./51076.js";
+import h, { Qn } from "./72476.js";
 const C = new p.wd("VirtualizedBoxCarousel").Debug;
-export const X = i.forwardRef(function (e, t) {
-	const { name: r, initialColumn: n } = e;
-	const [a, s] = (0, g.SP)("VBC_" + r, n || 0);
-	const o = (0, h.Qn)();
-	return i.createElement(f, {
-		...e,
-		ref: t,
-		focusedColumn: a,
-		setFocusedColumn: s,
-		autoHeight: !o,
-	});
+export const X = i.forwardRef((props, ref) => {
+	const { name, initialColumn } = props;
+	const [a, s] = SP(`VBC_${name}`, initialColumn || 0);
+	const o = Qn();
+	return (
+		<F
+			{...props}
+			ref={ref}
+			focusedColumn={a}
+			setFocusedColumn={s}
+			autoHeight={!o}
+		/>
+	);
 });
-class f extends i.PureComponent {
+class F extends i.PureComponent {
 	static defaultProps = {
 		nIndexLeftmost: 0,
 		scrollDuration: 100,
@@ -163,8 +165,8 @@ class f extends i.PureComponent {
 		this.UpdateScrollArrows();
 	}
 	GetCellColumnWidth(e) {
-		let { fnGetColumnWidth: t } = this.props;
-		let r = t(e.index) + this.props.nItemMarginX;
+		let { fnGetColumnWidth } = this.props;
+		let r = fnGetColumnWidth(e.index) + this.props.nItemMarginX;
 		if (e.index == this.props.nNumItems - 1) {
 			r += this.state.nRightPadding;
 		}
@@ -183,33 +185,33 @@ class f extends i.PureComponent {
 	}
 	CellRenderer(e) {
 		const {
-			fnGetColumnWidth: t,
-			fnGetId: r,
-			fnItemRenderer: n,
-			nItemHeight: a,
-			autoFocus: s,
+			fnGetColumnWidth,
+			fnGetId,
+			fnItemRenderer,
+			nItemHeight,
+			autoFocus,
 		} = this.props;
-		const { key: o, columnIndex: l, style: c } = e;
-		const m = t(l);
-		const d = parseInt(c.left.toString());
-		const p = r(l);
+		const { key, columnIndex, style } = e;
+		const m = fnGetColumnWidth(columnIndex);
+		const d = parseInt(style.left.toString());
+		const p = fnGetId(columnIndex);
 		const g = !this.m_mapRefs.has(p);
-		const h = this.m_mapRefs.get(p) || (0, A.b$)();
+		const h = this.m_mapRefs.get(p) || b$();
 		this.m_mapRefs.set(p, h);
-		return i.createElement(
-			u.Z,
-			{
-				key: o,
-				navKey: o,
-				navRef: h,
-				focusable: false,
-				onGamepadDirection: this.OnGamepadDirection,
-				autoFocus: s && l == this.props.focusedColumn && g,
-				"data-id": p,
-				onFocus: (e) => this.OnItemFocused(e, l),
-				style: c,
-			},
-			n(l, m, a, d),
+		return (
+			<u.Z
+				key={key}
+				navKey={key}
+				navRef={h}
+				focusable={false}
+				onGamepadDirection={this.OnGamepadDirection}
+				autoFocus={autoFocus && columnIndex == this.props.focusedColumn && g}
+				data-id={p}
+				onFocus={(e) => this.OnItemFocused(e, columnIndex)}
+				style={style}
+			>
+				{fnItemRenderer(columnIndex, m, nItemHeight, d)}
+			</u.Z>
 		);
 	}
 	OnSectionRendered(e) {
@@ -298,10 +300,7 @@ class f extends i.PureComponent {
 	}
 	componentDidMount() {
 		if (this.m_refContainer.current) {
-			this.m_resizeObserver = (0, s.Fd)(
-				this.m_refContainer.current,
-				this.OnResize,
-			);
+			this.m_resizeObserver = Fd(this.m_refContainer.current, this.OnResize);
 			C(
 				"componentDidMount Setting width to",
 				this.m_refContainer.current.clientWidth,
@@ -332,7 +331,7 @@ class f extends i.PureComponent {
 	}
 	ScrollLeft(e) {
 		const t = this.m_iEnd - this.m_iStart;
-		const r = (0, o.OQ)(
+		const r = OQ(
 			this.props.focusedColumn - t,
 			this.props.nIndexLeftmost,
 			this.props.nNumItems - 1,
@@ -342,7 +341,7 @@ class f extends i.PureComponent {
 	}
 	ScrollRight(e) {
 		const t = this.m_iEnd - this.m_iStart;
-		const r = (0, o.OQ)(
+		const r = OQ(
 			this.props.focusedColumn + t,
 			this.props.nIndexLeftmost,
 			this.props.nNumItems - 1,
@@ -443,102 +442,117 @@ class f extends i.PureComponent {
 	OnGamepadButtonDown(e) {
 		C("OnGamepadButtonDown", e.detail);
 		switch (e.detail.button) {
-			case m.pR.BUMPER_LEFT:
+			case m.pR.BUMPER_LEFT: {
 				return !!this.props.enableBumperPaging && this.ScrollLeft(e);
-			case m.pR.BUMPER_RIGHT:
+			}
+			case m.pR.BUMPER_RIGHT: {
 				return !!this.props.enableBumperPaging && this.ScrollRight(e);
+			}
 		}
 		return false;
 	}
 	OnGamepadDirection(e) {
 		C("OnGamepadDirection", e.detail);
 		switch (e.detail.button) {
-			case m.pR.DIR_LEFT:
+			case m.pR.DIR_LEFT: {
 				return this.MoveLeft(e);
-			case m.pR.DIR_RIGHT:
+			}
+			case m.pR.DIR_RIGHT: {
 				return this.MoveRight(e);
+			}
 		}
 		return false;
 	}
 	render() {
 		const {
-			className: e,
-			nNumItems: t,
-			nIndexLeftmost: r,
-			nHeight: n,
-			nItemHeight: a,
-			overscan: s = 3,
-			scrollToAlignment: o,
-			focusedColumn: l,
-			autoHeight: m,
+			className,
+			nNumItems,
+			nIndexLeftmost,
+			nHeight,
+			nItemHeight,
+			overscan = 3,
+			scrollToAlignment,
+			focusedColumn,
+			autoHeight,
 		} = this.props;
 		const d = this.state.nContainerWidth;
-		C("Inner render", this.props.name, this.props.nNumItems, d, r, l);
-		return i.createElement(
-			u.Z,
-			{
-				ref: this.m_refContainer,
-				"flow-children": "row",
-				onButtonDown: this.OnGamepadButtonDown,
-				focusable: false,
-			},
-			d &&
-				i.createElement(c.xA, {
-					ref: this.BindGridObject,
-					containerProps: {
-						ref: this.m_refGridContainer,
-					},
-					className: e,
-					cellRenderer: this.CellRenderer,
-					onScroll: this.OnScroll,
-					onSectionRendered: this.OnSectionRendered,
-					columnCount: t,
-					columnWidth: this.GetCellColumnWidth,
-					overscanColumnCount: s,
-					overscanIndicesGetter: ({
-						cellCount: e,
-						overscanCellsCount: t,
-						startIndex: r,
-						stopIndex: n,
-					}) => ({
-						overscanStartIndex: Math.max(0, r - t),
-						overscanStopIndex: Math.min(e - 1, n + t),
-					}),
-					rowCount: 1,
-					rowHeight: a,
-					height: n,
-					width: d,
-					containerStyle: {
-						overflow: "visible",
-					},
-					scrollToAlignment: this.alignment,
-					scrollToColumn: l,
-					tabIndex: null,
-					autoHeight: m,
-				}),
+		C(
+			"Inner render",
+			this.props.name,
+			this.props.nNumItems,
+			d,
+			nIndexLeftmost,
+			focusedColumn,
+		);
+		return (
+			<u.Z
+				ref={this.m_refContainer}
+				flow-children="row"
+				onButtonDown={this.OnGamepadButtonDown}
+				focusable={false}
+			>
+				{d && (
+					<c.xA
+						ref={this.BindGridObject}
+						containerProps={{
+							ref: this.m_refGridContainer,
+						}}
+						className={className}
+						cellRenderer={this.CellRenderer}
+						onScroll={this.OnScroll}
+						onSectionRendered={this.OnSectionRendered}
+						columnCount={nNumItems}
+						columnWidth={this.GetCellColumnWidth}
+						overscanColumnCount={overscan}
+						overscanIndicesGetter={({
+							cellCount,
+							overscanCellsCount,
+							startIndex,
+							stopIndex,
+						}) => ({
+							overscanStartIndex: Math.max(0, startIndex - overscanCellsCount),
+							overscanStopIndex: Math.min(
+								cellCount - 1,
+								stopIndex + overscanCellsCount,
+							),
+						})}
+						rowCount={1}
+						rowHeight={nItemHeight}
+						height={nHeight}
+						width={d}
+						containerStyle={{
+							overflow: "visible",
+						}}
+						scrollToAlignment={this.alignment}
+						scrollToColumn={focusedColumn}
+						tabIndex={null}
+						autoHeight={autoHeight}
+					/>
+				)}
+			</u.Z>
 		);
 	}
 }
-(0, n.Cg)([s.oI], f.prototype, "RestoreScrollPosition", null);
-(0, n.Cg)([s.oI], f.prototype, "OnAnimationScrollComplete", null);
-(0, n.Cg)([s.oI], f.prototype, "OnTouchStart", null);
-(0, n.Cg)([s.oI], f.prototype, "OnTouchEnd", null);
-(0, n.Cg)([s.oI], f.prototype, "OnTouchMove", null);
-(0, n.Cg)([s.oI], f.prototype, "OnMouseDown", null);
-(0, n.Cg)([s.oI], f.prototype, "OnMouseUp", null);
-(0, n.Cg)([s.oI, (0, l.s)(250)], f.prototype, "SnapBackToFirstElement", null);
-(0, n.Cg)([s.oI], f.prototype, "OnScroll", null);
-(0, n.Cg)([s.oI], f.prototype, "GetCellColumnWidth", null);
-(0, n.Cg)([s.oI], f.prototype, "OnItemFocused", null);
-(0, n.Cg)([s.oI], f.prototype, "CellRenderer", null);
-(0, n.Cg)([s.oI], f.prototype, "OnSectionRendered", null);
-(0, n.Cg)([s.oI, (0, l.s)(250)], f.prototype, "UpdateScrollArrows", null);
-(0, n.Cg)([s.oI], f.prototype, "BindGridObject", null);
-(0, n.Cg)([s.oI], f.prototype, "OnResize", null);
-(0, n.Cg)([s.oI], f.prototype, "ScrollLeft", null);
-(0, n.Cg)([s.oI], f.prototype, "ScrollRight", null);
-(0, n.Cg)([s.oI], f.prototype, "ScrollToFirstChild", null);
-(0, n.Cg)([s.oI], f.prototype, "MoveLeft", null);
-(0, n.Cg)([s.oI], f.prototype, "MoveRight", null);
-(0, n.Cg)([s.oI], f.prototype, "OnGamepadButtonDown", null);
-(0, n.Cg)([s.oI], f.prototype, "OnGamepadDirection", null);
+Cg([s.oI], F.prototype, "RestoreScrollPosition", null);
+Cg([s.oI], F.prototype, "OnAnimationScrollComplete", null);
+Cg([s.oI], F.prototype, "OnTouchStart", null);
+Cg([s.oI], F.prototype, "OnTouchEnd", null);
+Cg([s.oI], F.prototype, "OnTouchMove", null);
+Cg([s.oI], F.prototype, "OnMouseDown", null);
+Cg([s.oI], F.prototype, "OnMouseUp", null);
+Cg([s.oI, s_1(250)], F.prototype, "SnapBackToFirstElement", null);
+Cg([s.oI], F.prototype, "OnScroll", null);
+Cg([s.oI], F.prototype, "GetCellColumnWidth", null);
+Cg([s.oI], F.prototype, "OnItemFocused", null);
+Cg([s.oI], F.prototype, "CellRenderer", null);
+Cg([s.oI], F.prototype, "OnSectionRendered", null);
+Cg([s.oI, s_1(250)], F.prototype, "UpdateScrollArrows", null);
+Cg([s.oI], F.prototype, "BindGridObject", null);
+Cg([s.oI], F.prototype, "OnResize", null);
+Cg([s.oI], F.prototype, "ScrollLeft", null);
+Cg([s.oI], F.prototype, "ScrollRight", null);
+Cg([s.oI], F.prototype, "ScrollToFirstChild", null);
+Cg([s.oI], F.prototype, "MoveLeft", null);
+Cg([s.oI], F.prototype, "MoveRight", null);
+Cg([s.oI], F.prototype, "OnGamepadButtonDown", null);
+Cg([s.oI], F.prototype, "OnGamepadDirection", null);

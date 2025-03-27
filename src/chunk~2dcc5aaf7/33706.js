@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./61416.js");
-var o = require(/*webcrack:missing*/ "./75144.js");
-var l = require("./90389.js");
-var c = require("./34792.js");
+import { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./52451.js";
+import { I as I_1 } from "./61416.js";
+import o from "./75144.js";
+import l from "./90389.js";
+import { VI } from "./34792.js";
 const m = "SteamOSService";
 const u = "State";
 function d() {
@@ -39,7 +39,7 @@ function g(e) {
 		}
 		return e.Body().toObject().state;
 	}, []);
-	return (0, s.I)({
+	return I_1({
 		queryKey: d(),
 		queryFn: t,
 		staleTime: Infinity,
@@ -71,7 +71,7 @@ export function Vu() {
 }
 export function lm() {
 	const e = Vu();
-	const [t] = (0, c.VI)("steamos_tdp_limit_enabled");
+	const [t] = VI("steamos_tdp_limit_enabled");
 	const r = g((r) => ({
 		visible: t && e,
 		min: r.tdp_limit_min,
@@ -109,7 +109,7 @@ function I(e) {
 		}
 		return e.Body().toObject().state;
 	}, []);
-	return (0, s.I)({
+	return I_1({
 		queryKey: A(),
 		queryFn: t,
 		staleTime: Infinity,
@@ -141,7 +141,7 @@ export function AJ() {
 	}
 }
 export function BN(e) {
-	const t = (function (e) {
+	const t = ((e) => {
 		const t = I((t) => t.plugins?.find((t) => t.etype == e));
 		return t.isSuccess && t.data;
 	})(e);
@@ -160,6 +160,6 @@ export function BN(e) {
 		setEnabled: r,
 	};
 }
-(0, n.Cg)([a.oI], p.prototype, "OnStateChanged", null);
-(0, n.Cg)([a.oI], p.prototype, "OnTelemetryStateChanged", null);
+Cg([a.oI], p.prototype, "OnStateChanged", null);
+Cg([a.oI], p.prototype, "OnTelemetryStateChanged", null);
 export const qF = new p();

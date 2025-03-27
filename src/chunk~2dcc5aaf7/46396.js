@@ -1,291 +1,258 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49519.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./78567.js");
-var o = s;
-var l = require("./62486.js");
-var c = require("./85360.js");
-var m = require("./52192.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require("./22091.js");
-var p = require("./18057.js");
-var g = require("./64608.js");
-var h = require("./19037.js");
-var C = require("./15917.js");
-var _ = require("./43152.js");
-var f = require("./83314.js");
-var b = require("./99452.js");
-var y = require("./50350.js");
-var S = require(/*webcrack:missing*/ "./42318.js");
-var w = require(/*webcrack:missing*/ "./90765.js");
-var B = require(/*webcrack:missing*/ "./10975.js");
-var v = require("./22047.js");
-var I = require(/*webcrack:missing*/ "./4690.js");
-var E = require("./10606.js");
-var M = require(/*webcrack:missing*/ "./52451.js");
-var T = require("./70078.js");
-var R = T;
-var k = require("./78787.js");
+import n from "./63696.js";
+import i, { g as g_1, W6, zy, B6 } from "./49519.js";
+import a, { PA } from "./41230.js";
+import s from "./78567.js";
+import l, { ix, ND, GW } from "./62486.js";
+import c, { Ij } from "./85360.js";
+import m, { Kw, kF, Xt } from "./52192.js";
+import u from "./69164.js";
+import A, { as } from "./22091.js";
+import p from "./18057.js";
+import g from "./64608.js";
+import h from "./19037.js";
+import C from "./15917.js";
+import _, { u6 } from "./43152.js";
+import f from "./83314.js";
+import b from "./99452.js";
+import y from "./50350.js";
+import S from "./42318.js";
+import w, { A as A_1 } from "./90765.js";
+import B from "./10975.js";
+import v from "./22047.js";
+import I from "./4690.js";
+import E from "./10606.js";
+import M, { uD } from "./52451.js";
+import T from "./70078.js";
+import k, { ej, E0, UP } from "./78787.js";
+import F from "./94790.js";
+import G from "./35376.js";
+const o = s;
+const R = T;
 function D(e) {
 	const {
-		appid: t,
-		baseActionSet: r,
-		layerActionSet: i,
-		eControllerSource: a,
-		modeId: s,
-		mode_shift: o,
-		buttonBehaviourSetting: m,
-		buttonMaskSetting: u,
+		appid,
+		baseActionSet,
+		layerActionSet,
+		eControllerSource,
+		modeId,
+		mode_shift,
+		buttonBehaviourSetting,
+		buttonMaskSetting,
 	} = e;
-	const p = (0, l.ix)(m.id);
-	const [h, C, _] = (0, M.uD)();
-	const f = BigInt(u.long_value) != k.Dk;
+	const p = ix(buttonBehaviourSetting.id);
+	const [h, C, _] = uD();
+	const f = BigInt(buttonMaskSetting.long_value) != k.Dk;
 	let b;
-	if (m) {
-		switch (m.int_value) {
-			case 0:
-				b = (0, l.ix)("GyroConfigurationModeSetting_Off_Description");
+	if (buttonBehaviourSetting) {
+		switch (buttonBehaviourSetting.int_value) {
+			case 0: {
+				b = ix("GyroConfigurationModeSetting_Off_Description");
 				break;
-			case 1:
-				b = (0, l.ix)("GyroConfigurationModeSetting_On_Description");
+			}
+			case 1: {
+				b = ix("GyroConfigurationModeSetting_On_Description");
 				break;
-			case 2:
-				b = (0, l.ix)("GyroConfigurationModeSetting_Toggle_Description");
+			}
+			case 2: {
+				b = ix("GyroConfigurationModeSetting_Toggle_Description");
+			}
 		}
-		b +=
-			" " +
-			Localize("#ControllerBinding_GyroConfigurationModeSetting_NoteCarefully");
+		b += ` ${Localize(
+			"#ControllerBinding_GyroConfigurationModeSetting_NoteCarefully",
+		)}`;
 	} else {
-		b = (0, l.ix)(u.id + "_Description");
+		b = ix(`${buttonMaskSetting.id}_Description`);
 	}
 	n.useEffect(
 		() => () => {
 			if (h) {
-				c.v3.SaveEditingConfiguration(t);
+				c.v3.SaveEditingConfiguration(appid);
 			}
 		},
-		[t, h],
+		[appid, h],
 	);
 	const y = n.useCallback(
 		(e) => {
 			const n = {
-				action_set_key: r?.key,
-				action_set_layer_key: i?.key,
-				source_binding_key: a,
-				modeid: s,
-				mode_shift: o,
+				action_set_key: baseActionSet?.key,
+				action_set_layer_key: layerActionSet?.key,
+				source_binding_key: eControllerSource,
+				modeid: modeId,
+				mode_shift: mode_shift,
 				new_setting: {
 					key: 157,
 					long_value: e.toString(),
 				},
 			};
-			c.v3.SetControllerSourceMode(t, n);
+			c.v3.SetControllerSourceMode(appid, n);
 		},
-		[t, r, i, a, s, o],
+		[
+			appid,
+			baseActionSet,
+			layerActionSet,
+			eControllerSource,
+			modeId,
+			mode_shift,
+		],
 	);
 	const S = c.v3.EditingConfigurationControllerIndex;
-	const B = (0, A.as)(S);
+	const B = as(S);
 	if (!B) {
 		return null;
 	}
-	const v = (0, k.ej)(B);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			g.xh,
-			{
-				key: m.id,
-				label: Localize(p),
-				onClick: () => {
+	const v = ej(B);
+	return (
+		<>
+			<g.xh
+				key={buttonBehaviourSetting.id}
+				label={Localize(p)}
+				onClick={() => {
 					C();
-				},
-				layout: m.layout,
-				bottomSeparator: "none",
-				childrenContainerWidth: "fixed",
-				fieldClassName: (0, w.A)(R.SettingField, R.SettingMaxWidth),
-			},
-			n.createElement(k.ZZ, {
-				nButtonMaskValue: BigInt(u?.long_value ?? 0),
-				nAvailableButtonsMask: v,
-				controllerDetailItem: B,
-			}),
-		),
-		n.createElement(
-			E.EN,
-			{
-				key: m.id + 1,
-				active: h,
-			},
-			n.createElement(
-				E.eV,
-				{
-					bAllowFullSize: true,
-					className: (0, w.A)(R.ButtonPickerDialog),
-					onCancel: _,
-				},
-				n.createElement(
-					g.Y9,
-					null,
-					p || n.createElement(n.Fragment, null, "\xA0"),
-				),
-				n.createElement(NO, {
-					key: 69,
-					baseActionSet: c.v3.BaseActionSet,
-					layerActionSet: c.v3.LayerActionSet,
-					eControllerSource: 10,
-					mapKey: 69,
-					localizationOverride: (0, l.ix)("GyroEnableButtonBehavior"),
-					disabled: !f,
-					showDesc: false,
-					showOptionsDescs: true,
-				}),
-				n.createElement(
-					g.f3,
-					{
-						onCancelButton: _,
-					},
-					n.createElement(k.lP, {
-						eControllerSource: a,
-						controllerDetailItem: B,
-						nSelectedButtonMaskValue: BigInt(u?.long_value ?? 0),
-						nAvailableButtonsMask: v,
-						onSetButtonMaskSetting: y,
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: (0, w.A)(R.DialogBodyText, R.Center),
-					},
-					b,
-				),
-			),
-		),
+				}}
+				layout={buttonBehaviourSetting.layout}
+				bottomSeparator="none"
+				childrenContainerWidth="fixed"
+				fieldClassName={A_1(R.SettingField, R.SettingMaxWidth)}
+			>
+				<k.ZZ
+					nButtonMaskValue={BigInt(buttonMaskSetting?.long_value ?? 0)}
+					nAvailableButtonsMask={v}
+					controllerDetailItem={B}
+				/>
+			</g.xh>
+			<E.EN key={buttonBehaviourSetting.id + 1} active={h}>
+				<E.eV bAllowFullSize className={A_1(R.ButtonPickerDialog)} onCancel={_}>
+					<g.Y9>{p || <>{"\xA0"}</>}</g.Y9>
+					<NO
+						key={69}
+						baseActionSet={c.v3.BaseActionSet}
+						layerActionSet={c.v3.LayerActionSet}
+						eControllerSource={10}
+						mapKey={69}
+						localizationOverride={ix("GyroEnableButtonBehavior")}
+						disabled={!f}
+						showDesc={false}
+						showOptionsDescs
+					/>
+					<g.f3 onCancelButton={_}>
+						<k.lP
+							eControllerSource={eControllerSource}
+							controllerDetailItem={B}
+							nSelectedButtonMaskValue={BigInt(
+								buttonMaskSetting?.long_value ?? 0,
+							)}
+							nAvailableButtonsMask={v}
+							onSetButtonMaskSetting={y}
+						/>
+					</g.f3>
+					<div className={A_1(R.DialogBodyText, R.Center)}>{b}</div>
+				</E.eV>
+			</E.EN>
+		</>
 	);
 }
 function N(e) {
 	const {
-		appid: t,
-		baseActionSet: r,
-		layerActionSet: i,
-		eControllerSource: a,
-		modeId: s,
-		mode_shift: o,
-		buttonMaskSetting: m,
+		appid,
+		baseActionSet,
+		layerActionSet,
+		eControllerSource,
+		modeId,
+		mode_shift,
+		buttonMaskSetting,
 	} = e;
-	const u = (0, l.ix)(m.id);
-	const [p, h, C] = (0, M.uD)();
-	const _ = (0, l.ix)(m.id + "_Description");
+	const u = ix(buttonMaskSetting.id);
+	const [p, h, C] = uD();
+	const _ = ix(`${buttonMaskSetting.id}_Description`);
 	n.useEffect(
 		() => () => {
 			if (p) {
-				c.v3.SaveEditingConfiguration(t);
+				c.v3.SaveEditingConfiguration(appid);
 			}
 		},
-		[t, p],
+		[appid, p],
 	);
 	const f = n.useCallback(
 		(e) => {
 			const n = {
-				action_set_key: r?.key,
-				action_set_layer_key: i?.key,
-				source_binding_key: a,
-				modeid: s,
-				mode_shift: o,
+				action_set_key: baseActionSet?.key,
+				action_set_layer_key: layerActionSet?.key,
+				source_binding_key: eControllerSource,
+				modeid: modeId,
+				mode_shift: mode_shift,
 				new_setting: {
 					key: 157,
 					long_value: e.toString(),
 				},
 			};
-			c.v3.SetControllerSourceMode(t, n);
+			c.v3.SetControllerSourceMode(appid, n);
 		},
-		[t, r, i, a, s, o],
+		[
+			appid,
+			baseActionSet,
+			layerActionSet,
+			eControllerSource,
+			modeId,
+			mode_shift,
+		],
 	);
 	const b = c.v3.EditingConfigurationControllerIndex;
-	const y = (0, A.as)(b);
+	const y = as(b);
 	if (!y) {
 		return null;
 	}
-	const S = (0, k.ej)(y);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			g.xh,
-			{
-				key: m.id,
-				label: Localize(u),
-				onClick: () => {
+	const S = ej(y);
+	return (
+		<>
+			<g.xh
+				key={buttonMaskSetting.id}
+				label={Localize(u)}
+				onClick={() => {
 					h();
-				},
-				layout: m.layout,
-				bottomSeparator: "none",
-				childrenContainerWidth: "fixed",
-				fieldClassName: (0, w.A)(R.SettingField, R.SettingMaxWidth),
-			},
-			n.createElement(k.ZZ, {
-				nButtonMaskValue: BigInt(m?.long_value ?? 0),
-				nAvailableButtonsMask: S,
-				controllerDetailItem: y,
-			}),
-		),
-		n.createElement(
-			E.EN,
-			{
-				key: m.id + 1,
-				active: p,
-			},
-			n.createElement(
-				E.eV,
-				{
-					bAllowFullSize: true,
-					className: (0, w.A)(R.ButtonPickerDialog),
-					onCancel: C,
-				},
-				n.createElement(
-					g.Y9,
-					null,
-					u || n.createElement(n.Fragment, null, "\xA0"),
-				),
-				n.createElement(NO, {
-					key: 69,
-					baseActionSet: c.v3.BaseActionSet,
-					layerActionSet: c.v3.LayerActionSet,
-					eControllerSource: 10,
-					mapKey: 69,
-					localizationOverride: (0, l.ix)("GyroEnableButtonBehavior"),
-					disabled: false,
-					showDesc: false,
-					showOptionsDescs: true,
-				}),
-				n.createElement(
-					g.f3,
-					{
-						onCancelButton: C,
-					},
-					n.createElement(k.lP, {
-						eControllerSource: a,
-						controllerDetailItem: y,
-						nSelectedButtonMaskValue: BigInt(m?.long_value ?? 0),
-						nAvailableButtonsMask: S,
-						onSetButtonMaskSetting: f,
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: (0, w.A)(R.DialogBodyText, R.Center),
-					},
-					_,
-				),
-			),
-		),
+				}}
+				layout={buttonMaskSetting.layout}
+				bottomSeparator="none"
+				childrenContainerWidth="fixed"
+				fieldClassName={A_1(R.SettingField, R.SettingMaxWidth)}
+			>
+				<k.ZZ
+					nButtonMaskValue={BigInt(buttonMaskSetting?.long_value ?? 0)}
+					nAvailableButtonsMask={S}
+					controllerDetailItem={y}
+				/>
+			</g.xh>
+			<E.EN key={buttonMaskSetting.id + 1} active={p}>
+				<E.eV bAllowFullSize className={A_1(R.ButtonPickerDialog)} onCancel={C}>
+					<g.Y9>{u || <>{"\xA0"}</>}</g.Y9>
+					<NO
+						key={69}
+						baseActionSet={c.v3.BaseActionSet}
+						layerActionSet={c.v3.LayerActionSet}
+						eControllerSource={10}
+						mapKey={69}
+						localizationOverride={ix("GyroEnableButtonBehavior")}
+						disabled={false}
+						showDesc={false}
+						showOptionsDescs
+					/>
+					<g.f3 onCancelButton={C}>
+						<k.lP
+							eControllerSource={eControllerSource}
+							controllerDetailItem={y}
+							nSelectedButtonMaskValue={BigInt(
+								buttonMaskSetting?.long_value ?? 0,
+							)}
+							nAvailableButtonsMask={S}
+							onSetButtonMaskSetting={f}
+						/>
+					</g.f3>
+					<div className={A_1(R.DialogBodyText, R.Center)}>{_}</div>
+				</E.eV>
+			</E.EN>
+		</>
 	);
 }
-var F = require("./94790.js");
-var G = require("./35376.js");
 const O = new Map([
 	[0, k.fK.k_eGamepadButtonBitMask_RightTriggerFullPull],
 	[1, k.fK.k_eGamepadButtonBitMask_LeftTriggerFullPull],
@@ -320,19 +287,19 @@ const O = new Map([
 ]);
 function P(e) {
 	const {
-		appid: t,
-		baseActionSet: r,
-		layerActionSet: i,
-		controllerDetails: a,
-		eControllerSource: s,
-		modeId: l,
+		appid,
+		baseActionSet,
+		layerActionSet,
+		controllerDetails,
+		eControllerSource,
+		modeId,
 	} = e;
-	const [m, u, A] = (0, M.uD)();
+	const [m, u, A] = uD();
 	let p = [];
 	c.v3.EditingConfiguration?.modes?.find((e) => {
 		if (e?.mode_shift_buttons?.length > 0) {
 			const t = e.reference_modeid ?? e.modeid;
-			if (l == t) {
+			if (modeId == t) {
 				p = e.mode_shift_buttons;
 				return true;
 			}
@@ -341,15 +308,15 @@ function P(e) {
 	});
 	const h = p.reduce((e, t) => {
 		const r = O.get(t);
-		return e | (0, k.E0)(r);
+		return e | E0(r);
 	}, BigInt(0));
 	n.useEffect(
 		() => () => {
 			if (m) {
-				c.v3.SaveEditingConfiguration(t);
+				c.v3.SaveEditingConfiguration(appid);
 			}
 		},
-		[t, m],
+		[appid, m],
 	);
 	const C = n.useCallback(
 		(e) => {
@@ -357,101 +324,81 @@ function P(e) {
 			const a = Array.from(O.entries());
 			for (let t = 0; t < a.length; t++) {
 				const [r, i] = a[t];
-				if ((0, k.UP)(e, i)) {
+				if (UP(e, i)) {
 					n.push(r);
 				}
 			}
 			let o = {
-				action_set_key: r.key,
-				action_set_layer_key: i?.key,
-				source: s,
-				modeid: l,
+				action_set_key: baseActionSet.key,
+				action_set_layer_key: layerActionSet?.key,
+				source: eControllerSource,
+				modeid: modeId,
 				mode_shift_buttons_digital_io: n,
 			};
-			c.v3.SetControllerModeShiftBinding(t, o);
+			c.v3.SetControllerModeShiftBinding(appid, o);
 		},
-		[t, r, i, s, l],
+		[appid, baseActionSet, layerActionSet, eControllerSource, modeId],
 	);
-	const _ = (0, k.ej)(a);
-	const f = (function () {
+	const _ = ej(controllerDetails);
+	const f = (() => {
 		let e = BigInt(0);
 		O.forEach((t, r) => {
-			e |= (0, k.E0)(t);
+			e |= E0(t);
 		});
 		return e;
 	})();
 	const b = _ & f;
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(
-			g.xh,
-			{
-				key: "MultButtonContents",
-				label: Localize("#ControllerBinding_ModeShiftDropDown"),
-				onClick: () => {
+	return (
+		<>
+			<g.xh
+				key="MultButtonContents"
+				label={Localize("#ControllerBinding_ModeShiftDropDown")}
+				onClick={() => {
 					u();
-				},
-				layout: "inline",
-				bottomSeparator: "none",
-				childrenContainerWidth: "fixed",
-				fieldClassName: (0, w.A)(o.SettingField, o.SettingMaxWidth),
-			},
-			n.createElement(k.ZZ, {
-				nButtonMaskValue: h,
-				nAvailableButtonsMask: b,
-				controllerDetailItem: a,
-			}),
-		),
-		n.createElement(
-			F.E,
-			{
-				key: "MultButtonContentsPopupModal",
-				active: m,
-			},
-			n.createElement(
-				G.e,
-				{
-					bAllowFullSize: true,
-					className: (0, w.A)(o.ButtonPickerDialog),
-					onCancel: A,
-				},
-				n.createElement(
-					g.Y9,
-					null,
-					Localize("#ControllerBinding_ModeShiftDropDown") ||
-						n.createElement(n.Fragment, null, "\xA0"),
-				),
-				n.createElement(
-					g.f3,
-					{
-						onCancelButton: A,
-					},
-					n.createElement(k.lP, {
-						eControllerSource: s,
-						controllerDetailItem: a,
-						nSelectedButtonMaskValue: h,
-						nAvailableButtonsMask: b,
-						onSetButtonMaskSetting: C,
-					}),
-				),
-			),
-		),
+				}}
+				layout="inline"
+				bottomSeparator="none"
+				childrenContainerWidth="fixed"
+				fieldClassName={A_1(o.SettingField, o.SettingMaxWidth)}
+			>
+				<k.ZZ
+					nButtonMaskValue={h}
+					nAvailableButtonsMask={b}
+					controllerDetailItem={controllerDetails}
+				/>
+			</g.xh>
+			<F.E key="MultButtonContentsPopupModal" active={m}>
+				<G.e bAllowFullSize className={A_1(o.ButtonPickerDialog)} onCancel={A}>
+					<g.Y9>
+						{Localize("#ControllerBinding_ModeShiftDropDown") || <>{"\xA0"}</>}
+					</g.Y9>
+					<g.f3 onCancelButton={A}>
+						<k.lP
+							eControllerSource={eControllerSource}
+							controllerDetailItem={controllerDetails}
+							nSelectedButtonMaskValue={h}
+							nAvailableButtonsMask={b}
+							onSetButtonMaskSetting={C}
+						/>
+					</g.f3>
+				</G.e>
+			</F.E>
+		</>
 	);
 }
-export const g8 = (0, a.PA)(function (e) {
-	const { appid: t } = e;
+export const g8 = PA((e) => {
+	const { appid } = e;
 	const r = c.v3.EditingConfigurationAppId;
 	const {
-		modeKey: a,
-		strBaseActionSetKey: s,
-		strLayerActionSetKey: u,
-		eControllerSource: g,
-		modeId: f,
-		index: S,
-		modeshift: w,
-	} = (function (e) {
-		const t = (0, i.g)();
+		modeKey,
+		strBaseActionSetKey,
+		strLayerActionSetKey,
+		eControllerSource,
+		modeId,
+		index,
+		modeshift,
+	} = ((e) => {
+		const t = g_1();
 		return {
 			modeKey: parseInt(t?.modeKey),
 			strBaseActionSetKey:
@@ -464,40 +411,61 @@ export const g8 = (0, a.PA)(function (e) {
 		};
 	})();
 	const B = A.Fd.Get().GetController(c.v3.EditingConfigurationControllerIndex);
-	const { eControllerType: I } = B;
-	const E = c.v3.EditingConfiguration?.sets?.find((e) => e.key == s);
-	const M = E?.layers.find((e) => e.key == u);
-	let T = (0, m.Kw)(f);
+	const { eControllerType } = B;
+	const E = c.v3.EditingConfiguration?.sets?.find(
+		(e) => e.key == strBaseActionSetKey,
+	);
+	const M = E?.layers.find((e) => e.key == strLayerActionSetKey);
+	let T = Kw(modeId);
 	T ||=
-		M?.source_bindings?.find((e) => e.key == g)?.active_group ??
-		E?.source_bindings?.find((e) => e.key == g)?.active_group;
+		M?.source_bindings?.find((e) => e.key == eControllerSource)?.active_group ??
+		E?.source_bindings?.find((e) => e.key == eControllerSource)?.active_group;
 	const R = c.v3.EditIdx;
-	const k = (0, i.W6)();
+	const k = W6();
 	n.useEffect(() => {
-		if (I === undefined) {
-			k.replace(p.BV.GamepadUI.ControllerConfigurator.Main(t));
+		if (eControllerType === undefined) {
+			k.replace(p.BV.GamepadUI.ControllerConfigurator.Main(appid));
 		}
-	}, [I, t, k]);
+	}, [eControllerType, appid, k]);
 	n.useEffect(() => {
 		if (r == -1) {
-			c.v3.EnsureEditingConfiguration(t);
+			c.v3.EnsureEditingConfiguration(appid);
 		}
-	}, [r, t]);
+	}, [r, appid]);
 	n.useEffect(() => {
 		const e = T ? T.mode : undefined;
 		const t = T ? T.settings : undefined;
 		const r = e ? l.jg[e] : undefined;
-		c.v3.SetEditedGroupSettings(s, u, t, r, g, I);
-	}, [R, T, a, s, u, g, I, f, r]);
-	const F = (0, c.Ij)({
-		baseActionSetKey: s,
-		layerActionSetKey: u ?? "",
-		eControllerSource: g,
+		c.v3.SetEditedGroupSettings(
+			strBaseActionSetKey,
+			strLayerActionSetKey,
+			t,
+			r,
+			eControllerSource,
+			eControllerType,
+		);
+	}, [
+		R,
+		T,
+		modeKey,
+		strBaseActionSetKey,
+		strLayerActionSetKey,
+		eControllerSource,
+		eControllerType,
+		modeId,
+		r,
+	]);
+	const F = Ij({
+		baseActionSetKey: strBaseActionSetKey,
+		layerActionSetKey: strLayerActionSetKey ?? "",
+		eControllerSource: eControllerSource,
 	});
 	const G = c.v3.CurrentEditedGroupSettings.get(F);
 	const O = n.useMemo(() => {
-		const e = c.v3.EditingConfiguration?.sets?.find((e) => e.key == s);
-		const r = e?.layers?.find((e) => e.key == u);
+		const e = c.v3.EditingConfiguration?.sets?.find(
+			(e) => e.key == strBaseActionSetKey,
+		);
+		const r = e?.layers?.find((e) => e.key == strLayerActionSetKey);
 		const i = (e) => {
 			const t = G?.find((t) => t.key == e);
 			if (t) {
@@ -510,17 +478,17 @@ export const g8 = (0, a.PA)(function (e) {
 			Commands: [],
 		};
 		o.General = [
-			w
-				? n.createElement(P, {
-						key: "ModeShiftButtonSelector",
-						appid: t,
-						baseActionSet: e,
-						layerActionSet: r,
-						modeId: f,
-						controllerDetails: B,
-						eControllerSource: g,
-					})
-				: null,
+			modeshift ? (
+				<P
+					key="ModeShiftButtonSelector"
+					appid={appid}
+					baseActionSet={e}
+					layerActionSet={r}
+					modeId={modeId}
+					controllerDetails={B}
+					eControllerSource={eControllerSource}
+				/>
+			) : null,
 		];
 		G?.slice()
 			?.sort((e, t) => i(e.key) - i(t.key))
@@ -531,61 +499,58 @@ export const g8 = (0, a.PA)(function (e) {
 					if (i.visualizerType == "GyroButtonPicker") {
 						const i = G.find((e) => e.key == 69);
 						const o = G.find((e) => e.key == 157);
-						s = n.createElement(D, {
-							key: a,
-							appid: t,
-							baseActionSet: e,
-							layerActionSet: r,
-							modeId: f,
-							mode_shift: w,
-							eControllerSource: g,
-							buttonBehaviourSetting: i,
-							buttonMaskSetting: o,
-						});
+						s = (
+							<D
+								key={a}
+								appid={appid}
+								baseActionSet={e}
+								layerActionSet={r}
+								modeId={modeId}
+								mode_shift={modeshift}
+								eControllerSource={eControllerSource}
+								buttonBehaviourSetting={i}
+								buttonMaskSetting={o}
+							/>
+						);
 					} else if (i.visualizerType == "TouchMenuActivatorButtonPicker") {
 						const i = G.find((e) => e.key == 157);
-						s = n.createElement(N, {
-							key: a,
-							appid: t,
-							baseActionSet: e,
-							layerActionSet: r,
-							modeId: f,
-							mode_shift: w,
-							eControllerSource: g,
-							buttonMaskSetting: i,
-						});
+						s = (
+							<N
+								key={a}
+								appid={appid}
+								baseActionSet={e}
+								layerActionSet={r}
+								modeId={modeId}
+								mode_shift={modeshift}
+								eControllerSource={eControllerSource}
+								buttonMaskSetting={i}
+							/>
+						);
 					} else if (i.visualizerType == "Deadzones_Default") {
-						s = n.createElement(C.NQ, {
-							key: a,
-							appid: t,
-							mode: "default",
-						});
+						s = <C.NQ key={a} appid={appid} mode="default" />;
 					} else if (i.visualizerType == "Deadzones_Custom") {
-						s = n.createElement(C.NQ, {
-							key: a,
-							appid: t,
-							mode: "custom",
-						});
+						s = <C.NQ key={a} appid={appid} mode="custom" />;
 					} else {
 						console.error(
-							"Configurator Mode Setting specifying an invalid visualizerType: " +
-								i.visualizerType,
+							`Configurator Mode Setting specifying an invalid visualizerType: ${i.visualizerType}`,
 						);
 					}
 				} else {
 					const t = !i.sectionContainsViz && !i.hiddenByViz;
-					s = n.createElement(NO, {
-						key: a,
-						baseActionSet: e,
-						layerActionSet: r,
-						eControllerSource: g,
-						mapKey: i.key,
-						showDesc: i.showDesc,
-						showOptionsDescs: i.showOptionsDescs,
-						bottomSeparator: t ? "standard" : "none",
-						modeid: f,
-						layout: i.layout,
-					});
+					s = (
+						<NO
+							key={a}
+							baseActionSet={e}
+							layerActionSet={r}
+							eControllerSource={eControllerSource}
+							mapKey={i.key}
+							showDesc={i.showDesc}
+							showOptionsDescs={i.showOptionsDescs}
+							bottomSeparator={t ? "standard" : "none"}
+							modeid={modeId}
+							layout={i.layout}
+						/>
+					);
 				}
 				const l = i.sectionId ? i.sectionId : "General";
 				o[l] ||= [];
@@ -593,12 +558,12 @@ export const g8 = (0, a.PA)(function (e) {
 			});
 		if (l.G9.includes(c.v3.CurrentEditedGroup?.mode)) {
 			o.Commands.push(
-				n.createElement(b.WJ, {
-					key: f,
-					appid: t,
-					modeid: f,
-					econtrollersource: g,
-				}),
+				<b.WJ
+					key={modeId}
+					appid={appid}
+					modeid={modeId}
+					econtrollersource={eControllerSource}
+				/>,
 			);
 		}
 		for (const e in o) {
@@ -608,24 +573,18 @@ export const g8 = (0, a.PA)(function (e) {
 		}
 		let m = [];
 		Object.keys(o).forEach((e, r) => {
-			let i = n.createElement(
-				"div",
-				{
-					key: r,
-				},
-				o[e],
-			);
+			let i = <div key={r}>{o[e]}</div>;
 			m.push({
-				title: Localize("#ControllerConfigurator_Setting_Section_" + e),
+				title: Localize(`#ControllerConfigurator_Setting_Section_${e}`),
 				route: p.BV.GamepadUI.ControllerConfigurator.ModeSettings(
-					t,
-					a,
-					s,
-					u,
-					g,
-					f,
+					appid,
+					modeKey,
+					strBaseActionSetKey,
+					strLayerActionSetKey,
+					eControllerSource,
+					modeId,
 					r,
-					w,
+					modeshift,
 				),
 				content: i,
 				hideTitle: false,
@@ -633,11 +592,21 @@ export const g8 = (0, a.PA)(function (e) {
 			});
 		});
 		return m;
-	}, [t, a, B, g, G, s, u, f, w]);
-	const L = (0, _.u6)();
-	const x = (0, m.kF)(T?.mode) && !L;
+	}, [
+		appid,
+		modeKey,
+		B,
+		eControllerSource,
+		G,
+		strBaseActionSetKey,
+		strLayerActionSetKey,
+		modeId,
+		modeshift,
+	]);
+	const L = u6();
+	const x = kF(T?.mode) && !L;
 	let U;
-	if ((0, m.kF)(T?.mode)) {
+	if (kF(T?.mode)) {
 		const e = O.map((e) => ({
 			title: e.title,
 			route: e.route,
@@ -645,91 +614,61 @@ export const g8 = (0, a.PA)(function (e) {
 			content: e.content,
 			hideTitle: true,
 		}));
-		U = n.createElement(v.q, {
-			title: "Unused",
-			bNoHeaderPadding: true,
-			topControls: n.createElement(z, {
-				modeKey: a,
-				modeId: f,
-			}),
-			pages: e,
-			disablePageListScrolling: true,
-			bottomControls:
-				x &&
-				n.createElement(
-					"div",
-					{
-						className: o.VirtualMenuPreviewContainer,
-					},
-					n.createElement(b.Jc, {
-						appid: t,
-						mode: (0, m.Kw)(f),
-					}),
-				),
-		});
+		U = (
+			<v.q
+				title="Unused"
+				bNoHeaderPadding
+				topControls={<Z modeKey={modeKey} modeId={modeId} />}
+				pages={e}
+				disablePageListScrolling
+				bottomControls={
+					x && (
+						<div className={o.VirtualMenuPreviewContainer}>
+							<b.Jc appid={appid} mode={Kw(modeId)} />
+						</div>
+					)
+				}
+			/>
+		);
 	} else {
-		U = n.createElement(j, {
-			topControls: n.createElement(z, {
-				modeKey: a,
-				modeId: f,
-			}),
-			pages: O,
-			bottomControls:
-				x &&
-				n.createElement(
-					"div",
-					{
-						className: o.VirtualMenuPreviewContainer,
-					},
-					n.createElement(b.Jc, {
-						appid: t,
-						mode: (0, m.Kw)(f),
-					}),
-				),
-		});
+		U = (
+			<J
+				topControls={<Z modeKey={modeKey} modeId={modeId} />}
+				pages={O}
+				bottomControls={
+					x && (
+						<div className={o.VirtualMenuPreviewContainer}>
+							<b.Jc appid={appid} mode={Kw(modeId)} />
+						</div>
+					)
+				}
+			/>
+		);
 	}
-	return n.createElement(
-		y.dj,
-		{
-			onMouseDown: (e) => e.preventDefault(),
-		},
-		U,
-		n.createElement(h.LP, {
-			appid: t,
-		}),
+	return (
+		<y.dj onMouseDown={(e) => e.preventDefault()}>
+			{U}
+			<h.LP appid={appid} />
+		</y.dj>
 	);
 });
-const z = (0, a.PA)(function (e) {
-	const { modeKey: t, modeId: r } = e;
-	const i = (0, m.Kw)(r);
+const Z = PA((e) => {
+	const { modeKey, modeId } = e;
+	const i = Kw(modeId);
 	const a = l.Dd[i?.source]?.id;
 	const s = l.k$[t]?.id;
-	let c = (0, l.ND)(a);
+	let c = ND(a);
 	if (c == a) {
-		c = (0, m.Xt)(a);
+		c = Xt(a);
 	}
-	const u = (0, l.GW)(s);
+	const u = GW(s);
 	const A = Localize("#ControllerConfigurator_SourceMode_Group_Settings", u);
 	const p = i?.friendlyname != null && i.friendlyname.length > 0;
-	return n.createElement(
-		"div",
-		{
-			className: o.SettingsHeaderContainer,
-		},
-		n.createElement(
-			"div",
-			{
-				className: o.SettingsSource,
-			},
-			p ? i.friendlyname : c,
-		),
-		n.createElement(
-			"div",
-			{
-				className: o.SettingsMode,
-			},
-			A,
-		),
+	return (
+		<div className={o.SettingsHeaderContainer}>
+			<div className={o.SettingsSource}>{p ? i.friendlyname : c}</div>
+			<div className={o.SettingsMode}>{A}</div>
+		</div>
 	);
 });
 export function qb(e, t, r, n, i, a, s, o) {
@@ -747,141 +686,142 @@ export function qb(e, t, r, n, i, a, s, o) {
 	);
 	t.push(m);
 }
-export const Hx = (0, a.PA)(function (e) {
+export const Hx = PA((e) => {
 	const {
-		baseActionSet: t,
-		layerActionSet: r,
-		group: i,
-		eControllerSource: a,
-		eControllerType: s,
-		disabled: o,
+		baseActionSet,
+		layerActionSet,
+		group,
+		eControllerSource,
+		eControllerType,
+		disabled,
 		...m
 	} = e;
 	n.useEffect(() => {
-		const e = i ? l.jg[i.mode] : undefined;
-		c.v3.SetEditedGroupSettings(t?.key, r?.key, i.settings, e, a, s);
-	}, [t, r, i, a, s]);
-	return n.createElement(NO, {
-		baseActionSet: t,
-		layerActionSet: r,
-		eControllerSource: a,
-		bottomSeparator: "standard",
-		modeid: i.modeid,
-		looseSetting: true,
-		disabled: o,
-		...m,
-	});
+		const e = group ? l.jg[group.mode] : undefined;
+		c.v3.SetEditedGroupSettings(
+			baseActionSet?.key,
+			layerActionSet?.key,
+			group.settings,
+			e,
+			eControllerSource,
+			eControllerType,
+		);
+	}, [
+		baseActionSet,
+		layerActionSet,
+		group,
+		eControllerSource,
+		eControllerType,
+	]);
+	return (
+		<NO
+			baseActionSet={baseActionSet}
+			layerActionSet={layerActionSet}
+			eControllerSource={eControllerSource}
+			bottomSeparator="standard"
+			modeid={group.modeid}
+			looseSetting
+			disabled={disabled}
+			{...m}
+		/>
+	);
 });
-export const NO = (0, a.PA)(function (e) {
+export const NO = PA((e) => {
 	const {
-		baseActionSet: t,
-		layerActionSet: r,
-		eControllerSource: i,
-		mapKey: a,
-		bottomSeparator: s,
-		localizationOverride: o,
-		showDesc: l,
-		showOptionsDescs: m,
-		modeid: u,
-		looseSetting: d,
-		layout: A,
+		baseActionSet,
+		layerActionSet,
+		eControllerSource,
+		mapKey,
+		bottomSeparator,
+		localizationOverride,
+		showDesc,
+		showOptionsDescs,
+		modeid,
+		looseSetting,
+		layout,
 	} = e;
 	const p = c.v3.CurrentEditedGroupSettings.get(
-		(0, c.Ij)({
-			baseActionSetKey: t?.key,
-			layerActionSetKey: r?.key,
-			eControllerSource: i,
+		Ij({
+			baseActionSetKey: baseActionSet?.key,
+			layerActionSetKey: layerActionSet?.key,
+			eControllerSource: eControllerSource,
 		}),
 	);
-	const g = p?.find((e) => e.key == a);
+	const g = p?.find((e) => e.key == mapKey);
 	const h = c.v3.StableAppId;
 	if (g == null) {
 		return null;
 	} else {
-		return n.createElement(f.Qr, {
-			setting: g,
-			onChange: (e) => {
-				const n = {
-					action_set_key: t?.key,
-					action_set_layer_key: r?.key,
-					source_binding_key: i,
-					modeid: u,
-					mode_shift: c.v3.CurrentEditedGroup?.mode_shift,
-					new_setting: {
-						key: g.key,
-						int_value: Math.trunc(e),
-					},
-				};
-				c.v3.SetControllerSourceMode(h, n);
-			},
-			indent: 1,
-			bottomSeparator: "none",
-			localizationOverride: o,
-			showDesc: l,
-			showOptionsDescs: m,
-			looseSetting: d,
-			layout: A,
-		});
+		return (
+			<f.Qr
+				setting={g}
+				onChange={(e) => {
+					const n = {
+						action_set_key: baseActionSet?.key,
+						action_set_layer_key: layerActionSet?.key,
+						source_binding_key: eControllerSource,
+						modeid: modeid,
+						mode_shift: c.v3.CurrentEditedGroup?.mode_shift,
+						new_setting: {
+							key: g.key,
+							int_value: Math.trunc(e),
+						},
+					};
+					c.v3.SetControllerSourceMode(h, n);
+				}}
+				indent={1}
+				bottomSeparator="none"
+				localizationOverride={localizationOverride}
+				showDesc={showDesc}
+				showOptionsDescs={showOptionsDescs}
+				looseSetting={looseSetting}
+				layout={layout}
+			/>
+		);
 	}
 });
 function V(e) {
-	const { title: t, icon: r, active: i, navRef: a, ...s } = e;
-	return n.createElement(
-		u.Z,
-		{
-			preferredFocus: i,
-			navRef: i ? e.navRef : null,
-			noFocusRing: true,
-			onActivate: s.onClick,
-			onFocus: s.onClick,
-			...s,
-		},
-		r &&
-			n.createElement(
-				"div",
-				{
-					className: o.PageListItem_Icon,
-				},
-				r,
-			),
-		n.createElement(
-			"div",
-			{
-				className: o.PageListItem_Title,
-			},
-			t,
-		),
+	const { title, icon, active, navRef, ...s } = e;
+	return (
+		<u.Z
+			preferredFocus={active}
+			navRef={active ? e.navRef : null}
+			noFocusRing
+			onActivate={s.onClick}
+			onFocus={s.onClick}
+			{...s}
+		>
+			{icon && <div className={o.PageListItem_Icon}>{icon}</div>}
+			<div className={o.PageListItem_Title}>{title}</div>
+		</u.Z>
 	);
 }
-const H = n.forwardRef(function (e, t) {
-	const r = (0, i.W6)();
-	return n.createElement(
-		u.Z,
-		{
-			ref: t,
-			navRef: e.navRef,
-			className: (0, w.A)(e.activePage.pageClassName, o.PageContainer),
-			onFocusWithin: (t) => {
+const H = n.forwardRef((props, ref) => {
+	const r = W6();
+	return (
+		<u.Z
+			ref={ref}
+			navRef={props.navRef}
+			className={A_1(props.activePage.pageClassName, o.PageContainer)}
+			onFocusWithin={(t) => {
 				if (t) {
-					r.replace(e.activePage.route);
+					r.replace(props.activePage.route);
 				}
-			},
-			navEntryPreferPosition: I.iU.MAINTAIN_Y,
-		},
-		e.activePage.header,
-		!e.hideTitle && n.createElement(g.Y9, null, e.activePage.title),
-		n.createElement(
-			S.tH,
-			{
-				errorKey: e.activePage.title,
-			},
-			e.activePage.content != null && n.cloneElement(e.activePage.content),
-		),
+			}}
+			navEntryPreferPosition={I.iU.MAINTAIN_Y}
+		>
+			{props.activePage.header}
+			{!props.hideTitle && <g.Y9>{props.activePage.title}</g.Y9>}
+			<S.tH errorKey={props.activePage.title}>
+				{props.activePage.content != null &&
+					n.cloneElement(props.activePage.content)}
+			</S.tH>
+		</u.Z>
 	);
 });
-function j(e) {
-	const t = (0, i.zy)();
-	const r = (0, i.W6)();
+function J(e) {
+	const t = zy();
+	const r = W6();
 	const a = n.useMemo(
 		() =>
 			e.pages.map((e) => {
@@ -893,29 +833,26 @@ function j(e) {
 			}),
 		[e.pages],
 	);
-	const s = a.find(({ route: e }) => (0, i.B6)(t.pathname, e)) || a[0];
+	const s = a.find(({ route }) => B6(t.pathname, route)) || a[0];
 	a.findIndex((e) => e == s);
 	const l = n.useCallback(() => s.leftColumnNavRef.current.TakeFocus(), [s]);
 	const c = n.useMemo(
 		() =>
-			a.map((e, t) =>
-				n.createElement(
-					u.Z,
-					{
-						key: t,
-						navRef: e.rightColumnNavRef,
-						navEntryPreferPosition: I.iU.MAINTAIN_Y,
-					},
-					" ",
-					n.createElement(H, {
-						key: e.identifier,
-						hideTitle: false,
-						activePage: e,
-						ref: e.htmlRef,
-					}),
-					" ",
-				),
-			),
+			a.map((e, t) => (
+				<u.Z
+					key={t}
+					navRef={e.rightColumnNavRef}
+					navEntryPreferPosition={I.iU.MAINTAIN_Y}
+				>
+					{" "}
+					<H
+						key={e.identifier}
+						hideTitle={false}
+						activePage={e}
+						ref={e.htmlRef}
+					/>{" "}
+				</u.Z>
+			)),
 		[a],
 	);
 	const m = n.useMemo(
@@ -926,62 +863,52 @@ function j(e) {
 				}
 				const l = e == s;
 				const c = e.title && e.title.length > 0 ? e.title : t.toString();
-				return n.createElement(V, {
-					key: c,
-					onClick: () => {
-						B.eZ.PlayNavSound(B.PN.PagedNavigation);
-						if (!(0, i.B6)(e.route, s.route)) {
-							r.replace(e.route);
-						}
-						a[t].rightColumnNavRef?.current.TakeFocus();
-					},
-					onFocus: () => {
-						if (!(0, i.B6)(e.route, s.route) && s.htmlRef.current) {
-							e.htmlRef.current?.scrollIntoView({
-								block: "center",
-							});
-							r.replace(e.route);
-						}
-					},
-					title: e?.title,
-					icon: e?.icon,
-					active: l,
-					className: (0, w.A)(o.PageListItem, l && o.Active),
-					navRef: e.leftColumnNavRef,
-				});
+				return (
+					<V
+						key={c}
+						onClick={() => {
+							B.eZ.PlayNavSound(B.PN.PagedNavigation);
+							if (!B6(e.route, s.route)) {
+								r.replace(e.route);
+							}
+							a[t].rightColumnNavRef?.current.TakeFocus();
+						}}
+						onFocus={() => {
+							if (!B6(e.route, s.route) && s.htmlRef.current) {
+								e.htmlRef.current?.scrollIntoView({
+									block: "center",
+								});
+								r.replace(e.route);
+							}
+						}}
+						title={e?.title}
+						icon={e?.icon}
+						active={l}
+						className={A_1(o.PageListItem, l && o.Active)}
+						navRef={e.leftColumnNavRef}
+					/>
+				);
 			}),
 		[a, s, r],
 	);
-	return n.createElement(
-		"div",
-		{
-			className: (0, w.A)(o.PagedSettingsDialog, e.className),
-		},
-		n.createElement(
-			u.Z,
-			{
-				className: (0, w.A)(o.PageListColumn),
-				onMoveRight: () => s?.rightColumnNavRef?.current.TakeFocus(),
-			},
-			e.topControls && n.createElement("div", null, e.topControls),
-			n.createElement(
-				"div",
-				{
-					className: o.PageList,
-				},
-				m,
-			),
-			e.bottomControls && n.createElement("div", null, e.bottomControls),
-		),
-		n.createElement(
-			u.Z,
-			{
-				className: o.RightColumnContainer,
-				onCancelButton: l,
-				onMoveLeft: l,
-				autoFocus: true,
-			},
-			c,
-		),
+	return (
+		<div className={A_1(o.PagedSettingsDialog, e.className)}>
+			<u.Z
+				className={A_1(o.PageListColumn)}
+				onMoveRight={() => s?.rightColumnNavRef?.current.TakeFocus()}
+			>
+				{e.topControls && <div>{e.topControls}</div>}
+				<div className={o.PageList}>{m}</div>
+				{e.bottomControls && <div>{e.bottomControls}</div>}
+			</u.Z>
+			<u.Z
+				className={o.RightColumnContainer}
+				onCancelButton={l}
+				onMoveLeft={l}
+				autoFocus
+			>
+				{c}
+			</u.Z>
+		</div>
 	);
 }

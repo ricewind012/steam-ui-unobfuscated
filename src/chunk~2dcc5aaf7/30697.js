@@ -1,26 +1,23 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require("./95877.js");
-var s = require("./47628.js");
-var o = s;
-var l = require("./25752.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
+import n from "./63696.js";
+import { ww, sf } from "./44846.js";
+import { MB } from "./95877.js";
+import s from "./47628.js";
+import l from "./25752.js";
+import { A } from "./90765.js";
+import m from "./72476.js";
+const o = s;
 import("../../actual_src/utils/localization.js");
-var m = require(/*webcrack:missing*/ "./72476.js");
 export function p(e) {
-	const { tagid: t, className: r } = e;
-	const s = (0, a.MB)(t);
+	const { tagid, className } = e;
+	const s = MB(tagid);
 	if (!s) {
 		return null;
 	}
-	const u = (0, i.ww)((0, i.sf)(m.TS.LANGUAGE));
+	const u = ww(sf(m.TS.LANGUAGE));
 	const d = `${m.TS.STORE_BASE_URL}tags/${u}/${s?.name}`;
-	return n.createElement(
-		l.q,
-		{
-			url: d,
-			className: (0, c.A)(o.Tag, "WidgetTag", r),
-		},
-		s.name,
+	return (
+		<l.q url={d} className={A(o.Tag, "WidgetTag", className)}>
+			{s.name}
+		</l.q>
 	);
 }

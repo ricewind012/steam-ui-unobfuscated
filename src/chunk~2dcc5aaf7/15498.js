@@ -1,15 +1,18 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-const s = n.Message;
-class o extends s {
+import n from "./58663.js";
+import i from "./48307.js";
+import a, { I8 } from "./12176.js";
+import g from "./63696.js";
+import h from "./79769.js";
+import { hL } from "./52451.js";
+const n_Message = n.Message;
+class o extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!o.prototype.version) {
 			i.Sg(o.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -75,7 +78,7 @@ class o extends s {
 		return i.zj(o.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		o.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -83,7 +86,7 @@ class o extends s {
 		i.i0(o.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		o.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -91,14 +94,14 @@ class o extends s {
 		return "CAccountPrivacyCookiePreferences";
 	}
 }
-class l extends s {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.recentapps) {
 			i.Sg(l.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -137,7 +140,7 @@ class l extends s {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -145,7 +148,7 @@ class l extends s {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -153,14 +156,14 @@ class l extends s {
 		return "CAccountPrivacyCookiePreferences_ContentCustomization";
 	}
 }
-class c extends s {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.product_impressions_tracking) {
 			i.Sg(c.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -199,7 +202,7 @@ class c extends s {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -207,7 +210,7 @@ class c extends s {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -215,14 +218,14 @@ class c extends s {
 		return "CAccountPrivacyCookiePreferences_ValveAnalytics";
 	}
 }
-class m extends s {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.google_analytics) {
 			i.Sg(m.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -261,7 +264,7 @@ class m extends s {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -269,7 +272,7 @@ class m extends s {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -277,14 +280,14 @@ class m extends s {
 		return "CAccountPrivacyCookiePreferences_ThirdPartyAnalytics";
 	}
 }
-class u extends s {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.youtube) {
 			i.Sg(u.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -338,7 +341,7 @@ class u extends s {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -346,7 +349,7 @@ class u extends s {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -354,11 +357,11 @@ class u extends s {
 		return "CAccountPrivacyCookiePreferences_ThirdPartyContent";
 	}
 }
-class d extends s {
+class d extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return d.toObject(e, this);
@@ -384,13 +387,13 @@ class d extends s {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -398,14 +401,14 @@ class d extends s {
 		return "CAccountPrivacy_GetCookiePreferences_Request";
 	}
 }
-class A extends s {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.preferences) {
 			i.Sg(A.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -443,7 +446,7 @@ class A extends s {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -451,7 +454,7 @@ class A extends s {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -459,22 +462,13 @@ class A extends s {
 		return "CAccountPrivacy_GetCookiePreferences_Response";
 	}
 }
-var p;
-(function (e) {
-	e.GetCookiePreferences = function (e, t) {
-		return e.SendMsg(
-			"AccountPrivacy.GetCookiePreferences#1",
-			(0, a.I8)(d, t),
-			A,
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
+let p;
+((e) => {
+	e.GetCookiePreferences = (e, t) =>
+		e.SendMsg("AccountPrivacy.GetCookiePreferences#1", I8(d, t), A, {
+			ePrivilege: 1,
+		});
 })((p ||= {}));
-var g = require(/*webcrack:missing*/ "./63696.js");
-var h = require(/*webcrack:missing*/ "./79769.js");
-var C = require(/*webcrack:missing*/ "./52451.js");
 export class _ {
 	m_cm;
 	m_CookiePreferences;
@@ -493,21 +487,28 @@ export class _ {
 	CheckThirdPartyCookiePreference(e, t) {
 		switch (e.preference_state) {
 			case 0:
-			case 1:
+			case 1: {
 				return true;
-			case 2:
+			}
+			case 2: {
 				return false;
-			default:
+			}
+			default: {
 				switch (t) {
-					case "youtube":
+					case "youtube": {
 						return e.third_party_content?.youtube;
-					case "vimeo":
+					}
+					case "vimeo": {
 						return e.third_party_content?.vimeo;
-					case "sketchfab":
+					}
+					case "sketchfab": {
 						return e.third_party_content?.sketchfab;
-					case "generic":
+					}
+					case "generic": {
 						return false;
+					}
 				}
+			}
 		}
 	}
 	async LoadCookiePreferences() {
@@ -533,6 +534,6 @@ export class _ {
 }
 export function k(e) {
 	let [t, r] = g.useState(e.GetCookiePreferences());
-	(0, C.hL)(e.PreferencesChangedCallbacks, r);
+	hL(e.PreferencesChangedCallbacks, r);
 	return t;
 }

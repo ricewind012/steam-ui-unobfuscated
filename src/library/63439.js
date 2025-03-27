@@ -1,10 +1,10 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./11131.js");
-var s = require("./67808.js");
-var o = require("./44846.js");
-var a = require("./90765.js");
-var c = require("./24295.js");
-var l = require("./36229.js");
+import r from "./63696.js";
+import i from "./11131.js";
+import s, { W } from "./67808.js";
+import o from "./44846.js";
+import a, { A } from "./90765.js";
+import c, { LH } from "./24295.js";
+import l from "./36229.js";
 export function Cb(e, t) {
 	const n = r.useCallback(
 		(n, r) => {
@@ -96,44 +96,42 @@ export function Cb(e, t) {
 	};
 }
 export function OJ(e, t, n) {
-	const i = r.useRef(undefined);
-	const [c, l] = r.useState(undefined);
-	const u = (0, s.W)();
-	i.current ||= new d(
+	const IRef = r.useRef(undefined);
+	const [c, setC] = r.useState(undefined);
+	const u = W();
+	IRef.current ||= new d(
 		e,
-		(function (e, t) {
-			return {
-				...e,
-				body_class: (0, a.A)(e.body_class, t.body_class),
-			};
-		})(t, u),
-		l,
+		((e, t) => ({
+			...e,
+			body_class: A(e.body_class, t.body_class),
+		}))(t, u),
+		setC,
 	);
-	i.current.m_callbacks = n;
+	IRef.current.m_callbacks = n;
 	r.useEffect(() => {
-		if (!i.current?.params.bNoInitialShow) {
-			let e = i.current?.params.bNoFocusOnShow
+		if (!IRef.current?.params.bNoInitialShow) {
+			let e = IRef.current?.params.bNoFocusOnShow
 				? o.iE.k_EWindowBringToFrontWithoutForcingOS
 				: o.iE.k_EWindowBringToFrontAndForceOS;
-			i.current?.Show(e);
+			IRef.current?.Show(e);
 		}
 		return () => {
-			i.current.m_callbacks = undefined;
-			if (i.current.window?.SteamClient.Window.SetHideOnClose) {
-				i.current.window?.SteamClient.Window.SetHideOnClose(false);
+			IRef.current.m_callbacks = undefined;
+			if (IRef.current.window?.SteamClient.Window.SetHideOnClose) {
+				IRef.current.window?.SteamClient.Window.SetHideOnClose(false);
 			}
-			i.current.Close();
+			IRef.current.Close();
 		};
 	}, []);
 	r.useEffect(() => {
-		if (i.current.window?.SteamClient.Window.SetHideOnClose) {
-			i.current.window?.SteamClient.Window.SetHideOnClose(!!t.bHideOnClose);
+		if (IRef.current.window?.SteamClient.Window.SetHideOnClose) {
+			IRef.current.window?.SteamClient.Window.SetHideOnClose(!!t.bHideOnClose);
 		}
 	}, [t.bHideOnClose]);
 	return {
-		popup: i.current.window,
+		popup: IRef.current.window,
 		element: c,
-		popupObj: i.current,
+		popupObj: IRef.current,
 	};
 }
 class d extends i.Ad {
@@ -178,12 +176,12 @@ class d extends i.Ad {
 	}
 }
 export function h3(e) {
-	let t = (0, c.LH)();
+	let t = LH();
 	r.useEffect(() => {
 		let e = new l.b2(t);
 		i.Of.SetCurrentLoggedInAccountID(e.GetAccountID());
 	}, [t]);
-	const n = r.useRef();
+	const NRef = r.useRef();
 	const s = r.useCallback(
 		(t) => {
 			if (t.bIgnoreSavedDimensions || t.strRestoreDetails) {
@@ -199,13 +197,13 @@ export function h3(e) {
 	);
 	const o = r.useCallback(
 		(t, r, s) => {
-			if (n.current) {
+			if (NRef.current) {
 				t.setTimeout(() => {
 					t.SteamClient.Window.GetWindowRestoreDetails().then((r) => {
-						let o = n.current != r;
+						let o = NRef.current != r;
 						if (t && r && (o || s)) {
 							i.Of.SetRestoreDetails(e, r, false);
-							n.current = r;
+							NRef.current = r;
 						}
 					});
 				}, 30);
@@ -216,7 +214,7 @@ export function h3(e) {
 	const a = r.useCallback(
 		(e, t) => {
 			e.SteamClient.Window.GetWindowRestoreDetails().then((r) => {
-				n.current = r;
+				NRef.current = r;
 				o(e, t, true);
 			});
 		},

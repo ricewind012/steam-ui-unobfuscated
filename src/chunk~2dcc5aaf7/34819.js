@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
-var o = require("./51297.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require(/*webcrack:missing*/ "./90095.js");
-require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { gc, _g } from "./52451.js";
+import s, { Jc } from "./79769.js";
+import o from "./51297.js";
+import l, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import "./72476.js";
 export class mG {
 	static s_Singleton = null;
 	static Get() {
@@ -17,14 +17,14 @@ export class mG {
 	}
 	m_msgSettings = {};
 	m_nIdleSuspendSupressRefCount = 0;
-	m_bAirplaneMode = (0, s.Jc)(false);
-	m_flDisplayBrightness = (0, s.Jc)(1);
-	m_bNightModeAdvancedView = (0, s.Jc)(false);
+	m_bAirplaneMode = Jc(false);
+	m_flDisplayBrightness = Jc(1);
+	m_bNightModeAdvancedView = Jc(false);
 	get msgSettings() {
 		return this.m_msgSettings;
 	}
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 		if (SteamClient.System) {
 			SteamClient.System.RegisterForSettingsChanges(this.OnSettingsChanged);
 			SteamClient.System.RegisterForAirplaneModeChanges(
@@ -181,38 +181,34 @@ export class mG {
 }
 export function yw() {
 	return [
-		(0, c.q3)(() => mG.Get().msgSettings.is_wifi_powersave_enabled ?? true),
+		q3(() => mG.Get().msgSettings.is_wifi_powersave_enabled ?? true),
 		mG.Get().SetWifiPowersaveEnabled,
 	];
 }
 export function zx() {
 	return [
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.is_display_brightness_available ?? true,
-		),
-		(0, a.gc)(mG.Get().DisplayBrightness),
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.display_brightness_overdrive_hdr_split ?? 0,
-		),
+		q3(() => mG.Get().msgSettings?.is_display_brightness_available ?? true),
+		gc(mG.Get().DisplayBrightness),
+		q3(() => mG.Get().msgSettings?.display_brightness_overdrive_hdr_split ?? 0),
 		mG.Get().SetDisplayBrightness,
 	];
 }
 export function IV(e, t = 50) {
-	const { secAC: r, secBattery: n } = (0, c.q3)(() => ({
+	const { secAC, secBattery } = q3(() => ({
 		secAC: mG.Get().msgSettings.idle_backlight_dim_ac_seconds,
 		secBattery: mG.Get().msgSettings.idle_backlight_dim_battery_seconds,
 	}));
-	const i = e ? r : n;
-	const s = (0, a._g)(t);
+	const i = e ? secAC : secBattery;
+	const s = _g(t);
 	return [i, (t) => s(() => mG.Get().SetIdleBacklightDimSeconds(e, t))];
 }
 export function $y(e, t = 50) {
-	const { secAC: r, secBattery: n } = (0, c.q3)(() => ({
+	const { secAC, secBattery } = q3(() => ({
 		secAC: mG.Get().msgSettings.idle_suspend_ac_seconds,
 		secBattery: mG.Get().msgSettings.idle_suspend_battery_seconds,
 	}));
-	const i = e ? r : n;
-	const s = (0, a._g)(t);
+	const i = e ? secAC : secBattery;
+	const s = _g(t);
 	return [i, (t) => s(() => mG.Get().SetIdleSuspendSeconds(e, t))];
 }
 export function ko() {
@@ -224,101 +220,87 @@ export function ko() {
 	}, []);
 }
 export function _3() {
-	return (0, a.gc)(mG.Get().AirplaneModeEnabled);
+	return gc(mG.Get().AirplaneModeEnabled);
 }
 export function MC() {
-	return (0, a.gc)(mG.Get().NightModeAdvancedView);
+	return gc(mG.Get().NightModeAdvancedView);
 }
 export function _x() {
-	return (0, c.q3)(() => mG.Get().msgSettings.display_nightmode_enabled);
+	return q3(() => mG.Get().msgSettings.display_nightmode_enabled);
 }
 export function Ru() {
 	return [
-		(0, c.q3)(() => mG.Get().msgSettings.display_nightmode_tintstrength),
+		q3(() => mG.Get().msgSettings.display_nightmode_tintstrength),
 		mG.Get().SetNightModeTintStrength,
 	];
 }
 export function TD() {
-	return (0, c.q3)(() => mG.Get().msgSettings.display_nightmode_maxhue);
+	return q3(() => mG.Get().msgSettings.display_nightmode_maxhue);
 }
 export function T0() {
-	return (0, c.q3)(() => mG.Get().msgSettings.display_nightmode_maxsat);
+	return q3(() => mG.Get().msgSettings.display_nightmode_maxsat);
 }
 export function yc() {
 	return [
-		(0, c.q3)(
+		q3(
 			() =>
 				!mG.Get().msgSettings?.is_display_colormanagement_available ?? false,
 		),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_nightmode_blend ?? 0),
+		q3(() => mG.Get().msgSettings?.display_nightmode_blend ?? 0),
 	];
 }
 export function MK() {
 	return [
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.is_adaptive_brightness_available ?? false,
-		),
-		(0, c.q3)(
-			() => mG.Get().msgSettings.display_adaptive_brightness_enabled ?? false,
-		),
+		q3(() => mG.Get().msgSettings?.is_adaptive_brightness_available ?? false),
+		q3(() => mG.Get().msgSettings.display_adaptive_brightness_enabled ?? false),
 	];
 }
 export function xs() {
 	return [
-		(0, c.q3)(
+		q3(
 			() => mG.Get().msgSettings?.is_display_colormanagement_available ?? false,
 		),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_colorgamut_labelset ?? 0),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_colorgamut ?? 0),
+		q3(() => mG.Get().msgSettings?.display_colorgamut_labelset ?? 0),
+		q3(() => mG.Get().msgSettings?.display_colorgamut ?? 0),
 		(e) => mG.Get().SetDisplayColorGamut(e),
 	];
 }
 export function Xs() {
 	return [
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.is_display_colortemp_available ?? false,
-		),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_colortemp ?? 0),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_colortemp_default ?? 6500),
+		q3(() => mG.Get().msgSettings?.is_display_colortemp_available ?? false),
+		q3(() => mG.Get().msgSettings?.display_colortemp ?? 0),
+		q3(() => mG.Get().msgSettings?.display_colortemp_default ?? 6500),
 		(e) => mG.Get().SetDisplayColorTemp(e),
 	];
 }
 export function MH() {
 	return [
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.is_display_colortemp_available ?? false,
-		),
-		(0, c.q3)(() => mG.Get().msgSettings?.display_colortemp_enabled ?? true),
+		q3(() => mG.Get().msgSettings?.is_display_colortemp_available ?? false),
+		q3(() => mG.Get().msgSettings?.display_colortemp_enabled ?? true),
 		(e) => mG.Get().SetDisplayColorTempEnabled(e),
 	];
 }
 export function Wy() {
 	return [
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.display_nightmode_schedule_enabled ?? false,
-		),
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.display_nightmode_schedule_starttime ?? 0,
-		),
-		(0, c.q3)(
-			() => mG.Get().msgSettings?.display_nightmode_schedule_endtime ?? 0,
-		),
+		q3(() => mG.Get().msgSettings?.display_nightmode_schedule_enabled ?? false),
+		q3(() => mG.Get().msgSettings?.display_nightmode_schedule_starttime ?? 0),
+		q3(() => mG.Get().msgSettings?.display_nightmode_schedule_endtime ?? 0),
 	];
 }
 export function zg() {
 	return [
-		(0, c.q3)(() => mG.Get().msgSettings?.display_diagnostics_enabled ?? false),
+		q3(() => mG.Get().msgSettings?.display_diagnostics_enabled ?? false),
 		(e) => mG.Get().SetDisplayDiagnosticsEnabled(e),
 	];
 }
 export function rw() {
 	return [
-		(0, c.q3)(() => mG.Get().msgSettings?.is_fan_control_available ?? false),
-		(0, c.q3)(() => mG.Get().msgSettings?.fan_control_mode ?? 0) == 2,
+		q3(() => mG.Get().msgSettings?.is_fan_control_available ?? false),
+		q3(() => mG.Get().msgSettings?.fan_control_mode ?? 0) == 2,
 		(e) => mG.Get().SetFanControlEnabled(e),
 	];
 }
-(0, n.Cg)([l.sH], mG.prototype, "m_msgSettings", undefined);
-(0, n.Cg)([l.XI.bound], mG.prototype, "OnSettingsChanged", null);
-(0, n.Cg)([a.oI], mG.prototype, "OnAirplaneModeChanged", null);
-(0, n.Cg)([a.oI], mG.prototype, "OnDisplayBrightnessChanged", null);
+Cg([l.sH], mG.prototype, "m_msgSettings", undefined);
+Cg([l.XI.bound], mG.prototype, "OnSettingsChanged", null);
+Cg([a.oI], mG.prototype, "OnAirplaneModeChanged", null);
+Cg([a.oI], mG.prototype, "OnDisplayBrightnessChanged", null);

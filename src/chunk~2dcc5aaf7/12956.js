@@ -1,13 +1,13 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./42689.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./63696.js");
-require("./39039.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./42689.js";
+import o from "./63696.js";
+import "./39039.js";
+import l, { Y2 } from "./72476.js";
+const s = a;
 class c {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	bOpenEventLandingPage = false;
 	bIncludeFeaturedAsGameSource = true;
@@ -16,10 +16,10 @@ class c {
 		return false;
 	}
 	get bIsFollowingEnabled() {
-		return !(0, l.Y2)();
+		return !Y2();
 	}
 	get bIsCuratorsEnabled() {
-		return !(0, l.Y2)();
+		return !Y2();
 	}
 	get bIncludeCurators() {
 		return true;
@@ -54,15 +54,14 @@ class c {
 			let r = /^\d+$/.test(e) ? s.unix(Number.parseInt(e)) : s(e);
 			this.nOverrideDateNow = Math.floor(r.unix());
 			console.log(
-				"CEventCalendarDevFeatures overriding partner event time: " +
-					this.nOverrideDateNow +
-					" " +
-					r.format(),
+				`CEventCalendarDevFeatures overriding partner event time: ${
+					this.nOverrideDateNow
+				} ${r.format()}`,
 			);
 		}
 	}
 }
-(0, n.Cg)([i.sH], c.prototype, "nOverrideDateNow", undefined);
+Cg([i.sH], c.prototype, "nOverrideDateNow", undefined);
 export const HD = new c();
 window.g_EventCalendarDevFeatures = HD;
 const u = new Date();

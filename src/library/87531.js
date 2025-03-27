@@ -1,8 +1,8 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
 import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
-require("./88750.js");
-var o = require("./44846.js");
+import r, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import "./88750.js";
+import o from "./44846.js";
 class a {
 	static s_nNextKeyValue = 1;
 	m_nKey = null;
@@ -22,7 +22,7 @@ class a {
 	m_timerHideSubMenu = 0;
 	m_fnOnHideCallback;
 	constructor(e, t) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_ContextMenuManager = e;
 		this.m_rctElement = t;
 	}
@@ -234,8 +234,8 @@ class a {
 		this.m_rctLabel = e;
 	}
 }
-(0, r.Cg)([i.sH], a.prototype, "m_bVisible", undefined);
-(0, r.Cg)([i.sH.ref], a.prototype, "m_rctLabel", undefined);
+Cg([i.sH], a.prototype, "m_bVisible", undefined);
+Cg([i.sH.ref], a.prototype, "m_rctLabel", undefined);
 export class HP extends a {
 	constructor(e, t, n, r, i, s) {
 		super(e, t);

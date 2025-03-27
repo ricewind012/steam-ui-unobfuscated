@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	AppDetailsButton: "_3Cdin80d-hVsakHUZboheb",
 	Center: "_2bJqZ-CdH4oxe-VpUp0yvW",

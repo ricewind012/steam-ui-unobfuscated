@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	StartupMoviesSelectionDesc: "gfecKnVp4trVQnkKqQago",
 	StartupMovieOption: "_2DoZZSAfKoPnLVbPf7Mfwb",
 	PreviewImage: "_2CzDTL8RFIe2eFykDXr3z8",

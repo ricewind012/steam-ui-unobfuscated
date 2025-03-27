@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./18057.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./5640.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
+import { Cg } from "./34629.js";
+import i from "./18057.js";
+import a from "./52451.js";
+import { q3 } from "./90095.js";
+import o from "./5640.js";
+import l, { Gn } from "./89193.js";
 class c {
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 	}
 	m_bVisible = false;
 	m_sTargetPage = null;
@@ -42,14 +42,14 @@ class c {
 		this.m_fnNavigateToPage = e;
 	}
 }
-(0, n.Cg)([l.sH], c.prototype, "m_bVisible", undefined);
-(0, n.Cg)([l.sH], c.prototype, "m_sTargetPage", undefined);
-(0, n.Cg)([l.XI.bound], c.prototype, "SetVisibleAndNavigate", null);
-(0, n.Cg)([a.oI], c.prototype, "SetPopup", null);
-(0, n.Cg)([a.oI], c.prototype, "SetNavigateToPage", null);
+Cg([l.sH], c.prototype, "m_bVisible", undefined);
+Cg([l.sH], c.prototype, "m_sTargetPage", undefined);
+Cg([l.XI.bound], c.prototype, "SetVisibleAndNavigate", null);
+Cg([a.oI], c.prototype, "SetPopup", null);
+Cg([a.oI], c.prototype, "SetNavigateToPage", null);
 export const Ti = new c();
 export function nT() {
-	return [(0, s.q3)(() => Ti.bVisible), Ti.SetVisibleAndNavigate];
+	return [q3(() => Ti.bVisible), Ti.SetVisibleAndNavigate];
 }
 export function Sj(e) {
 	Ti.SetVisibleAndNavigate(true, e);

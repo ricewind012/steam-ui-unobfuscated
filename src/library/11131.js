@@ -1,74 +1,80 @@
-export var Wf;
-export var Dr;
-var s = require(/*webcrack:missing*/ "./34629.js");
-var o = require("./44846.js");
-var a = require("./85243.js");
-var c = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./63696.js");
-var u = require("./17385.js");
-var m = require("./736.js");
-var d = require("./49455.js");
-var h = require("./81255.js");
 import {
 	GetStyleSheetLinks,
 	AddStylesheetsToDocument,
 	AddMissingStylesheetsToWindow,
 } from "../../actual_src/utils/domutils.js";
+
 import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
-var f = require("./52451.js");
-var _ = require("./72476.js");
-var w = require("./93960.js");
-var b = require("./62130.js");
+import s, { Cg } from "./34629.js";
+import o from "./44846.js";
+import a, { BK } from "./85243.js";
+import c, { Gn } from "./89193.js";
+import l from "./63696.js";
+import u from "./17385.js";
+import m, { Fj } from "./736.js";
+import d, { w as w_1 } from "./49455.js";
+import h, { s as s_1 } from "./81255.js";
+import { Qi, vJ } from "./52451.js";
+import _, { td } from "./72476.js";
+import w from "./93960.js";
+import b from "./62130.js";
+export let Wf;
+export let Dr;
 function C() {
-	if ((0, _.td)()) {
+	if (td()) {
 		return Wf.Composited;
 	} else {
 		return Wf.None;
 	}
 }
 export function yq(e) {
-	let t = Wf.None;
+	let Wf_None = Wf.None;
 	switch (e) {
-		case Dr.Overlay:
-			t |= Wf.AlwaysOnTop;
-			t |= Wf.NoTaskbarIcon;
-			t |= Wf.NotFocusable;
-			t |= Wf.TransparentParentWindow;
-			return t;
-		case Dr.Notification:
-			t |= yq(Dr.Overlay);
-			t |= Wf.NoWindowShadow;
-			t |= Wf.NoRoundedCorners;
-			t |= Wf.OverrideRedirect;
-			return t;
-		case Dr.Tooltip:
-			t |= yq(Dr.Overlay);
-			t |= Wf.NoRoundedCorners;
-			t |= Wf.NoWindowShadow;
-			t |= Wf.TooltipHint;
-			t |= C();
-			return t;
-		case Dr.PopupContextMenu:
-			t |= Wf.NoTaskbarIcon;
-			t |= Wf.NoRoundedCorners;
-			t |= Wf.NoWindowShadow;
-			t |= Wf.PopUpMenuHint;
-			t |= Wf.TransparentParentWindow;
-			t |= C();
-			return t;
-		case Dr.StandaloneContextMenu:
-			t = Wf.NoTaskbarIcon;
-			t |= Wf.NoRoundedCorners;
-			t |= Wf.NoWindowShadow;
-			t |= Wf.OverrideRedirect;
-			t |= Wf.TransparentParentWindow;
-			t |= C();
-			return t;
+		case Dr.Overlay: {
+			Wf_None |= Wf.AlwaysOnTop;
+			Wf_None |= Wf.NoTaskbarIcon;
+			Wf_None |= Wf.NotFocusable;
+			Wf_None |= Wf.TransparentParentWindow;
+			return Wf_None;
+		}
+		case Dr.Notification: {
+			Wf_None |= yq(Dr.Overlay);
+			Wf_None |= Wf.NoWindowShadow;
+			Wf_None |= Wf.NoRoundedCorners;
+			Wf_None |= Wf.OverrideRedirect;
+			return Wf_None;
+		}
+		case Dr.Tooltip: {
+			Wf_None |= yq(Dr.Overlay);
+			Wf_None |= Wf.NoRoundedCorners;
+			Wf_None |= Wf.NoWindowShadow;
+			Wf_None |= Wf.TooltipHint;
+			Wf_None |= C();
+			return Wf_None;
+		}
+		case Dr.PopupContextMenu: {
+			Wf_None |= Wf.NoTaskbarIcon;
+			Wf_None |= Wf.NoRoundedCorners;
+			Wf_None |= Wf.NoWindowShadow;
+			Wf_None |= Wf.PopUpMenuHint;
+			Wf_None |= Wf.TransparentParentWindow;
+			Wf_None |= C();
+			return Wf_None;
+		}
+		case Dr.StandaloneContextMenu: {
+			Wf_None = Wf.NoTaskbarIcon;
+			Wf_None |= Wf.NoRoundedCorners;
+			Wf_None |= Wf.NoWindowShadow;
+			Wf_None |= Wf.OverrideRedirect;
+			Wf_None |= Wf.TransparentParentWindow;
+			Wf_None |= C();
+			return Wf_None;
+		}
 	}
 }
 export function k5() {
-	const { ownerWindow: e } = R7();
-	const t = Of.GetPopupForWindow(e);
+	const { ownerWindow } = R7();
+	const t = Of.GetPopupForWindow(ownerWindow);
 	return t?.browser_info || u.m;
 }
 export function c4() {
@@ -79,19 +85,19 @@ export function c4() {
 	);
 	const [n, r] = l.useState(0);
 	const i = l.useCallback(() => r((e) => e + 1), [r]);
-	(0, f.Qi)(e.ownerWindow, ["window_details_changed"], i);
+	Qi(e.ownerWindow, ["window_details_changed"], i);
 	const s = {
 		bGPUEnabled: true,
 		bUnderlaySupported: true,
 	};
-	const o = (0, f.vJ)(t, [t, n], s);
+	const o = vJ(t, [t, n], s);
 	if (o !== undefined) {
 		return o;
 	} else {
 		return s;
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Minimized = 1)] = "Minimized";
 	e[(e.Hidden = 2)] = "Hidden";
@@ -118,32 +124,26 @@ export function c4() {
 	e[(e.TransparentParentWindow = 4194304)] = "TransparentParentWindow";
 	e[(e.DisableDPIScale = 8388608)] = "DisableDPIScale";
 })((Wf ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Overlay = 0)] = "Overlay";
 	e[(e.Notification = 1)] = "Notification";
 	e[(e.Tooltip = 2)] = "Tooltip";
 	e[(e.PopupContextMenu = 3)] = "PopupContextMenu";
 	e[(e.StandaloneContextMenu = 4)] = "StandaloneContextMenu";
 })((Dr ||= {}));
-export const gs = l.createContext({
+export const GsContext = l.createContext({
 	ownerWindow: window,
 });
-export const R7 = () => l.useContext(gs);
+export const R7 = () => l.useContext(GsContext);
 export function kc(e) {
-	const { ownerWindow: t, children: n } = e;
+	const { ownerWindow, children } = e;
 	const r = l.useMemo(
 		() => ({
-			ownerWindow: t,
+			ownerWindow: ownerWindow,
 		}),
-		[t],
+		[ownerWindow],
 	);
-	return l.createElement(
-		gs.Provider,
-		{
-			value: r,
-		},
-		n,
-	);
+	return <GsContext.Provider value={r}>{children}</GsContext.Provider>;
 }
 export class Ad {
 	m_strName;
@@ -157,22 +157,22 @@ export class Ad {
 	m_onCreateRender = null;
 	m_bFocused = false;
 	constructor(e, t) {
-		(0, c.Gn)(this);
-		(0, d.w)(
+		Gn(this);
+		w_1(
 			e,
 			"Name is required.  This is an internal name, different from title.",
 		);
 		this.m_strName = e;
-		const { title: n, eCreationFlags: i, ...s } = t;
+		const { title, eCreationFlags, ...s } = t;
 		this.m_rgParams = {
 			...s,
-			eCreationFlags: i ?? 0,
+			eCreationFlags: eCreationFlags ?? 0,
 		};
 		if (this.m_rgParams.target_browser) {
-			this.m_strName += "_uid" + this.m_rgParams.target_browser.m_unPID;
+			this.m_strName += `_uid${this.m_rgParams.target_browser.m_unPID}`;
 		}
 		this.m_bCreateHidden = !!(this.m_rgParams.eCreationFlags & Wf.Hidden);
-		this.m_strTitle = n;
+		this.m_strTitle = title;
 	}
 	UpdateParamsBeforeShow(e) {
 		return e;
@@ -290,7 +290,7 @@ export class Ad {
 	}
 	RenderInternal(e, t, n) {
 		if (this.m_bCreated) {
-			if (this.browser_info && (0, a.BK)(this.browser_info.m_eBrowserType)) {
+			if (this.browser_info && BK(this.browser_info.m_eBrowserType)) {
 				t.ownerDocument.body.className += " VR";
 			}
 			this.Render(e, t);
@@ -365,7 +365,7 @@ export class Ad {
 	}
 	Close() {
 		if (this.m_popup) {
-			if ((0, m.Fj)(this.m_popup.window, "Window.Close")) {
+			if (Fj(this.m_popup.window, "Window.Close")) {
 				this.m_popup.window.SteamClient.Window.Close();
 			} else {
 				this.m_popup.window.close();
@@ -410,7 +410,7 @@ export class Ad {
 	}
 	GetWindowRestoreDetails() {
 		if (
-			(0, m.Fj)(this.m_popup, "Window.GetWindowRestoreDetails") &&
+			Fj(this.m_popup, "Window.GetWindowRestoreDetails") &&
 			!this.m_popup.closed
 		) {
 			return this.m_popup.SteamClient.Window.GetWindowRestoreDetails();
@@ -419,20 +419,14 @@ export class Ad {
 		}
 	}
 	IsMinimized() {
-		if (
-			(0, m.Fj)(this.m_popup, "Window.IsWindowMinimized") &&
-			!this.m_popup.closed
-		) {
+		if (Fj(this.m_popup, "Window.IsWindowMinimized") && !this.m_popup.closed) {
 			return this.m_popup.SteamClient.Window.IsWindowMinimized();
 		} else {
 			return Promise.resolve(false);
 		}
 	}
 	IsMaximized() {
-		if (
-			(0, m.Fj)(this.m_popup, "Window.IsWindowMaximized") &&
-			!this.m_popup.closed
-		) {
+		if (Fj(this.m_popup, "Window.IsWindowMaximized") && !this.m_popup.closed) {
 			return this.m_popup.SteamClient.Window.IsWindowMaximized();
 		} else {
 			return Promise.resolve(false);
@@ -455,15 +449,15 @@ export class Ad {
 	OnFocus() {}
 	OnBlur() {}
 }
-(0, s.Cg)([c.sH], Ad.prototype, "m_bFocused", undefined);
-(0, s.Cg)([w.o], Ad.prototype, "OnMessage", null);
-(0, s.Cg)([w.o], Ad.prototype, "RenderInternal", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnCreateInternal", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnResizeEvent", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnBeforeUnloadEvent", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnUnload", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnFocusInternal", null);
-(0, s.Cg)([w.o], Ad.prototype, "OnBlurInternal", null);
+Cg([c.sH], Ad.prototype, "m_bFocused", undefined);
+Cg([w.o], Ad.prototype, "OnMessage", null);
+Cg([w.o], Ad.prototype, "RenderInternal", null);
+Cg([w.o], Ad.prototype, "OnCreateInternal", null);
+Cg([w.o], Ad.prototype, "OnResizeEvent", null);
+Cg([w.o], Ad.prototype, "OnBeforeUnloadEvent", null);
+Cg([w.o], Ad.prototype, "OnUnload", null);
+Cg([w.o], Ad.prototype, "OnFocusInternal", null);
+Cg([w.o], Ad.prototype, "OnBlurInternal", null);
 export class K9 extends Ad {
 	m_strSavedDimensionsKey;
 	m_strInitialSavedDimensionsKey;
@@ -487,6 +481,7 @@ export class K9 extends Ad {
 	UpdateParamsBeforeShow(e) {
 		if (
 			!this.m_strSavedDimensionsKey ||
+			e.bIgnoreSavedDimensions ||
 			e.bIgnoreSavedDimensions ||
 			e.strRestoreDetails
 		) {
@@ -545,7 +540,7 @@ export class K9 extends Ad {
 		this.m_rgParams.strRestoreDetails = e;
 	}
 }
-(0, s.Cg)([w.o], K9.prototype, "QueryAndStoreWindowPosition", null);
+Cg([w.o], K9.prototype, "QueryAndStoreWindowPosition", null);
 class k {
 	m_bShuttingDown = false;
 	m_mapPopups = c.sH.map([], {
@@ -598,7 +593,7 @@ class k {
 				this.m_mapPopups.clear();
 			});
 			let e = document.querySelector("head");
-			(0, d.w)(e, "Couldn't find head element");
+			w_1(e, "Couldn't find head element");
 			if (e) {
 				this.m_DynamicCSSObserver = new MutationObserver(() => {
 					const e = GetStyleSheetLinks();
@@ -683,68 +678,67 @@ class k {
 		let n = t.dimensions || {};
 		let r = n.width || 300;
 		let i = n.height || 300;
-		let s = t.title;
-		let o = "width=" + r + ",height=" + i;
+		let t_title = t.title;
+		let o = `width=${r},height=${i}`;
 		if (n.left !== undefined) {
-			o += ",left=" + n.left;
+			o += `,left=${n.left}`;
 		}
 		if (n.top !== undefined) {
-			o += ",top=" + n.top;
+			o += `,top=${n.top}`;
 		}
 		o += ",resizeable,status=0,toolbar=0,menubar=0,location=0";
 		let a = "about:blank";
 		let c = [];
-		c.push("createflags=" + t.eCreationFlags);
+		c.push(`createflags=${t.eCreationFlags}`);
 		if (t.minWidth) {
-			c.push("minwidth=" + t.minWidth);
+			c.push(`minwidth=${t.minWidth}`);
 		}
 		if (t.minHeight) {
-			c.push("minheight=" + t.minHeight);
+			c.push(`minheight=${t.minHeight}`);
 		}
 		if (t.maxWidth && t.maxWidth != Infinity) {
-			c.push("maxwidth=" + t.maxWidth);
+			c.push(`maxwidth=${t.maxWidth}`);
 		}
 		if (t.maxHeight && t.maxHeight != Infinity) {
-			c.push("maxheight=" + t.maxHeight);
+			c.push(`maxheight=${t.maxHeight}`);
 		}
 		if (t.target_browser) {
-			c.push("pid=" + t.target_browser.m_unPID);
-			c.push("browser=" + t.target_browser.m_nBrowserID);
+			c.push(`pid=${t.target_browser.m_unPID}`);
+			c.push(`browser=${t.target_browser.m_nBrowserID}`);
 			if (t.target_browser.m_eBrowserType) {
-				c.push("browserType=" + t.target_browser.m_eBrowserType);
+				c.push(`browserType=${t.target_browser.m_eBrowserType}`);
 			} else if (t.browserType) {
-				c.push("browserType=" + t.browserType);
+				c.push(`browserType=${t.browserType}`);
 			}
 			if (t.availscreenwidth && t.availscreenheight) {
-				c.push("screenavailwidth=" + t.availscreenwidth);
-				c.push("screenavailheight=" + t.availscreenheight);
+				c.push(`screenavailwidth=${t.availscreenwidth}`);
+				c.push(`screenavailheight=${t.availscreenheight}`);
 			}
 		} else if (t.browserType) {
-			c.push("browserType=" + t.browserType);
+			c.push(`browserType=${t.browserType}`);
 		}
 		if (t.strVROverlayKey) {
-			c.push("vrOverlayKey=" + t.strVROverlayKey);
+			c.push(`vrOverlayKey=${t.strVROverlayKey}`);
 		}
 		if (t.strRestoreDetails) {
-			c.push("restoredetails=" + t.strRestoreDetails);
+			c.push(`restoredetails=${t.strRestoreDetails}`);
 		}
 		if (t.window_opener_id) {
-			c.push("openerid=" + t.window_opener_id);
+			c.push(`openerid=${t.window_opener_id}`);
 		}
 		if (t.parent_container_popup_id) {
-			c.push("parentcontainerpopupid=" + t.parent_container_popup_id);
+			c.push(`parentcontainerpopupid=${t.parent_container_popup_id}`);
 		}
 		if (t.center_on_window && n.left === undefined && n.top === undefined) {
 			c.push(
-				"centerOnBrowserID=" +
-					t.center_on_window.SteamClient.Browser.GetBrowserID(),
+				`centerOnBrowserID=${t.center_on_window.SteamClient.Browser.GetBrowserID()}`,
 			);
 		}
 		if (t.strUserAgent) {
-			c.push("useragent=" + t.strUserAgent);
+			c.push(`useragent=${t.strUserAgent}`);
 		}
 		if (t.hwndParent) {
-			c.push("hwndParent=" + t.hwndParent);
+			c.push(`hwndParent=${t.hwndParent}`);
 		}
 		if (t.bPinned) {
 			c.push("pinned=true");
@@ -753,7 +747,7 @@ class k {
 			c.push("modal=true");
 		}
 		if (c) {
-			a += "?" + c.join("&");
+			a += `?${c.join("&")}`;
 		}
 		let l = (t.owner_window || window).open(a, e, o);
 		if (!l) {
@@ -776,7 +770,7 @@ class k {
 		}
 		let h = `<!DOCTYPE html><html ${u}><head><title></title></head><body ${m}><div id="popup_target" ${d}></div></body></html>`;
 		l.document.write(h);
-		l.document.title = s;
+		l.document.title = t_title;
 		AddMissingStylesheetsToWindow(l, GetStyleSheetLinks());
 		return {
 			popup: l,
@@ -787,7 +781,7 @@ class k {
 		return this.m_bShuttingDown;
 	}
 	GetLocalStorageKey() {
-		return "PopupSavedDimensions_" + this.m_unCurrentAccountID;
+		return `PopupSavedDimensions_${this.m_unCurrentAccountID}`;
 	}
 	LoadSavedDimensionStore() {
 		if (!this.m_unCurrentAccountID) {
@@ -876,11 +870,6 @@ class k {
 		}
 	}
 }
-(0, s.Cg)(
-	[w.o, (0, h.s)(100)],
-	k.prototype,
-	"DebouncedSaveSavedDimensionStore",
-	null,
-);
+Cg([w.o, s_1(100)], k.prototype, "DebouncedSaveSavedDimensionStore", null);
 export const Of = new k();
 window.g_PopupManager = Of;

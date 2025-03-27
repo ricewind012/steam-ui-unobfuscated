@@ -1,56 +1,50 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./28869.js");
+import r from "./63696.js";
+import i, { HR, v0 } from "./28869.js";
 export function b$() {
 	return r.createRef();
 }
-export const ml = (0, i.HR)("div", {
+export const ml = HR("div", {
 	bDOMElementFocusByDefault: false,
 });
-export const fu = (0, i.HR)("button", {
+export const fu = HR("button", {
 	bActivateByDefault: (e) => e.type === "submit",
 });
-export const Ii = (0, i.HR)("a", {
+export const Ii = HR("a", {
 	bActivateByDefault: true,
 });
-export const BA = (0, i.v0)("input");
-export const dO = (0, i.v0)("textarea");
-export const EI = (0, i.HR)("img", {
+export const BA = v0("input");
+export const dO = v0("textarea");
+export const EI = HR("img", {
 	bDOMElementFocusByDefault: false,
 });
-(0, i.HR)("label", {
+HR("label", {
 	bActivateByDefault: true,
 	bDOMElementFocusByDefault: false,
 });
-(0, i.HR)("section", {
+HR("section", {
 	bFocusableByDefault: false,
 });
-(0, i.HR)("form", {
+HR("form", {
 	bFocusableByDefault: false,
 });
 export function lv(e) {
-	const { Component: t, children: n } = e;
+	const { Component, children } = e;
 	const s = r.useMemo(
 		() => ({
-			Component: t,
+			Component: Component,
 		}),
-		[t],
+		[Component],
 	);
-	return r.createElement(
-		i.Mg,
-		{
-			value: s,
-		},
-		n,
-	);
+	return <i.Mg value={s}>{children}</i.Mg>;
 }
 export function O7(e, t, n = false) {
 	r.useEffect(() => {
-		const r = e.current;
-		if (r) {
+		const e_current = e.current;
+		if (e_current) {
 			if (t) {
-				r.Activate(n);
+				e_current.Activate(n);
 			} else {
-				r.Deactivate();
+				e_current.Deactivate();
 			}
 		}
 	}, [t, n, e]);

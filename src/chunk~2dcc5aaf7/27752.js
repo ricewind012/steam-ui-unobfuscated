@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	KeyboardKey: "_2KhPXikozxMpbIRo_6jPxW",
 	Touched: "_3UFQq1GinEyksceos-TETi",
 	shine: "_30kej5Y4mVa6vI2_8_w22G",

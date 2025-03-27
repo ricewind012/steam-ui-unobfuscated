@@ -1,39 +1,39 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./50376.js");
-var s = require(/*webcrack:missing*/ "./44846.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require("./64608.js");
-var c = require("./31993.js");
-var m = require(/*webcrack:missing*/ "./12176.js");
-var u = require("./10606.js");
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./72476.js");
-var g = require("./36934.js");
-var h = require("./96593.js");
-var C = require(/*webcrack:missing*/ "./83957.js");
-var _ = C;
-var f = require(/*webcrack:missing*/ "./90765.js");
-export var _g;
-export var qR;
-var S = require("./87935.js");
-var w = require("./74110.js");
-var B = require(/*webcrack:missing*/ "./98995.js");
-var v = require("./79918.js");
-var I = v;
-var E = require("./46217.js");
-var M = require(/*webcrack:missing*/ "./69164.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-(function (e) {
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./50376.js";
+import s from "./44846.js";
+import o, { Gn } from "./89193.js";
+import l from "./64608.js";
+import c from "./31993.js";
+import m from "./12176.js";
+import u from "./10606.js";
+import A from "./52451.js";
+import p, { Y2, Qn } from "./72476.js";
+import g from "./36934.js";
+import h from "./96593.js";
+import C from "./83957.js";
+import { A as A_1 } from "./90765.js";
+import S from "./87935.js";
+import w from "./74110.js";
+import B from "./98995.js";
+import v from "./79918.js";
+import E from "./46217.js";
+import M from "./69164.js";
+const _ = C;
+export let _g;
+export let qR;
+const I = v;
+((e) => {
 	e[(e.Neutral = 0)] = "Neutral";
 	e[(e.Up = 1)] = "Up";
 	e[(e.Down = 2)] = "Down";
 })((_g ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Default = 0)] = "Default";
 	e[(e.ReviseQuery = 1)] = "ReviseQuery";
 	e[(e.ReviseEdit = 2)] = "ReviseEdit";
@@ -54,7 +54,7 @@ export class jB extends i.Component {
 	];
 	constructor(e) {
 		super(e);
-		(0, o.Gn)(this);
+		Gn(this);
 		if (e.prevReview) {
 			this.state = {
 				bShowForm: true,
@@ -107,7 +107,7 @@ export class jB extends i.Component {
 				}
 				this.CloseDialog(true);
 			} else {
-				let e = p.TS.STORE_BASE_URL + "friends/recommendgame";
+				let e = `${p.TS.STORE_BASE_URL}friends/recommendgame`;
 				let t = new FormData();
 				t.append("appid", this.props.appid.toString());
 				t.append("comment", this.m_textInput.current.value);
@@ -119,7 +119,7 @@ export class jB extends i.Component {
 					String(this.state.bReceivedCompensation),
 				);
 				t.append("steamworksappid", String(this.props.appid));
-				t.append("hide_in_steam_china", String(!(0, p.Y2)()));
+				t.append("hide_in_steam_china", String(!Y2()));
 				_.post(e, t, {
 					withCredentials: true,
 				})
@@ -204,199 +204,120 @@ export class jB extends i.Component {
 		});
 	}
 	GetOptions() {
-		return i.createElement(
-			"div",
-			{
-				className: I.OptionsContainer,
-			},
-			i.createElement(
-				"div",
-				{
-					className: I.LeftContainer,
-				},
-				i.createElement(
-					"button",
-					{
-						className: I.OptionButton,
-						onClick: this.OnSupportClick,
-					},
-					i.createElement(a.ypD, {
-						className: I.OptionSvg,
-					}),
-					i.createElement(
-						"div",
-						{
-							className: I.ButtonText,
-						},
-						" ",
-						Localize("#WriteReview_Dialog_GetSupport_Btn"),
-						" ",
-					),
-				),
-				i.createElement(
-					"div",
-					{
-						className: I.OptionDesc,
-					},
-					Localize("#WriteReview_Dialog_GetSupport_Desc"),
-				),
-			),
-			i.createElement(
-				"div",
-				{
-					className: I.RightContainer,
-				},
-				i.createElement(
-					"button",
-					{
-						className: I.OptionButton,
-						onClick: this.OnAddReview,
-					},
-					i.createElement(a.CE1, {
-						className: I.OptionSvg,
-					}),
-					i.createElement(
-						"div",
-						{
-							className: I.ButtonText,
-						},
-						" ",
-						Localize("#WriteReview_Dialog_AddReview_Btn"),
-						" ",
-					),
-				),
-				i.createElement(
-					"div",
-					{
-						className: I.OptionDesc,
-					},
-					Localize("#WriteReview_Dialog_AddReview_Desc"),
-				),
-			),
+		return (
+			<div className={I.OptionsContainer}>
+				<div className={I.LeftContainer}>
+					<button className={I.OptionButton} onClick={this.OnSupportClick}>
+						<a.ypD className={I.OptionSvg} />
+						<div className={I.ButtonText}>
+							{" "}
+							{Localize("#WriteReview_Dialog_GetSupport_Btn")}{" "}
+						</div>
+					</button>
+					<div className={I.OptionDesc}>
+						{Localize("#WriteReview_Dialog_GetSupport_Desc")}
+					</div>
+				</div>
+				<div className={I.RightContainer}>
+					<button className={I.OptionButton} onClick={this.OnAddReview}>
+						<a.CE1 className={I.OptionSvg} />
+						<div className={I.ButtonText}>
+							{" "}
+							{Localize("#WriteReview_Dialog_AddReview_Btn")}{" "}
+						</div>
+					</button>
+					<div className={I.OptionDesc}>
+						{Localize("#WriteReview_Dialog_AddReview_Desc")}
+					</div>
+				</div>
+			</div>
 		);
 	}
 	GetLanguageOptionList() {
 		let e;
 		(p.TS.SUPPORTED_LANGUAGES || []).forEach((t) => {
-			e.push(
-				i.createElement(
-					"option",
-					{
-						value: t.value,
-					},
-					t.localizedName,
-				),
-			);
+			e.push(<option value={t.value}>{t.localizedName}</option>);
 		});
 		return e;
 	}
 	GetReviewForm() {
-		let e = p.TS.CHAT_BASE_URL + "comment/recommendation/formattinghelp";
+		let e = `${p.TS.CHAT_BASE_URL}comment/recommendation/formattinghelp`;
 		if (p.TS.IN_CLIENT) {
-			e = "steam://openurl_external/" + e;
+			e = `steam://openurl_external/${e}`;
 		}
-		return i.createElement(
-			"div",
-			{
-				className: I.FormContainer,
-			},
-			i.createElement(
-				"div",
-				{
-					className: I.DescribeGame,
-				},
-				LocalizeReact(
-					"#WriteReview_Dialog_ReviewInstructions",
-					i.createElement(
-						"a",
-						{
-							href: "https://support.steampowered.com/kb_article.php?ref=4045-USHJ-3810",
-						},
-						Localize("#WriteReview_Dialog_ReviewInstructions_Link"),
-					),
-				),
-				(0, p.Y2)() &&
-					i.createElement(
-						"div",
-						{
-							className: I.SteamChinaDisclaimer,
-						},
-						Localize("#WriteReview_Dialog_SteamChinaDisclaimer"),
-					),
-			),
-			i.createElement("textarea", {
-				className: I.ReviewTextArea,
-				ref: this.m_textInput,
-				defaultValue: this.props.prevReview ? this.props.prevReview.review : "",
-			}),
-			i.createElement(
-				"a",
-				{
-					className: I.WebLink,
-					href: e,
-				},
-				Localize("#WriteReview_Dialog_FormattingHelp"),
-			),
-			i.createElement(
-				"div",
-				{
-					className: I.ReviewSettingsContainer,
-				},
-				i.createElement(
-					"div",
-					{
-						className: I.ReviewSettingsRow,
-					},
-					i.createElement(
-						"span",
-						null,
-						Localize("#WriteReview_Dialog_Visibility"),
-					),
-					i.createElement(l.m, {
-						strClassName: I.VisibilityMenu,
-						rgOptions: this.m_rgVisibilityOptions,
-						selectedOption: this.state.bIsPublic,
-						onChange: this.OnSelectVisibility,
-					}),
-					i.createElement(
-						"div",
-						{
-							className: I.ReviewSettingsChecks,
-						},
-						!s.ID(p.TS.LAUNCHER_TYPE) &&
-							i.createElement(l.Yh, {
-								key: "allow_comments",
-								checked: this.state.bAllowComments,
-								onChange: (e) =>
-									this.setState({
-										bAllowComments: e,
-									}),
-								className: I.CommentCheckbox,
-								label: Localize("#WriteReview_Dialog_AllowComments"),
-							}),
-						i.createElement(
-							B.he,
-							{
-								toolTipContent: Localize(
+		return (
+			<div className={I.FormContainer}>
+				<div className={I.DescribeGame}>
+					{LocalizeReact(
+						"#WriteReview_Dialog_ReviewInstructions",
+						<a href="https://support.steampowered.com/kb_article.php?ref=4045-USHJ-3810">
+							{Localize("#WriteReview_Dialog_ReviewInstructions_Link")}
+						</a>,
+					)}
+					{Y2() && (
+						<div className={I.SteamChinaDisclaimer}>
+							{Localize("#WriteReview_Dialog_SteamChinaDisclaimer")}
+						</div>
+					)}
+				</div>
+				<textarea
+					className={I.ReviewTextArea}
+					ref={this.m_textInput}
+					defaultValue={
+						this.props.prevReview ? this.props.prevReview.review : ""
+					}
+				/>
+				<a className={I.WebLink} href={e}>
+					{Localize("#WriteReview_Dialog_FormattingHelp")}
+				</a>
+				<div className={I.ReviewSettingsContainer}>
+					<div className={I.ReviewSettingsRow}>
+						<span>{Localize("#WriteReview_Dialog_Visibility")}</span>
+						<l.m
+							strClassName={I.VisibilityMenu}
+							rgOptions={this.m_rgVisibilityOptions}
+							selectedOption={this.state.bIsPublic}
+							onChange={this.OnSelectVisibility}
+						/>
+						<div className={I.ReviewSettingsChecks}>
+							{!s.ID(p.TS.LAUNCHER_TYPE) && (
+								<l.Yh
+									key="allow_comments"
+									checked={this.state.bAllowComments}
+									onChange={(e) =>
+										this.setState({
+											bAllowComments: e,
+										})
+									}
+									className={I.CommentCheckbox}
+									label={Localize("#WriteReview_Dialog_AllowComments")}
+								/>
+							)}
+							<B.he
+								toolTipContent={Localize(
 									"#WriteReview_Dialog_FreeDisclaimer_Tooltip",
-								),
-								bTopmost: true,
-							},
-							i.createElement(l.Yh, {
-								key: "received_compensation",
-								checked: this.state.bReceivedCompensation,
-								onChange: (e) =>
-									this.setState({
-										bReceivedCompensation: e,
-									}),
-								className: I.FreeCheckbox,
-								label: Localize("#WriteReview_Dialog_FreeDisclaimer"),
-								tooltip: Localize("#WriteReview_Dialog_FreeDisclaimer_Tooltip"),
-							}),
-						),
-					),
-				),
-			),
+								)}
+								bTopmost
+							>
+								<l.Yh
+									key="received_compensation"
+									checked={this.state.bReceivedCompensation}
+									onChange={(e) =>
+										this.setState({
+											bReceivedCompensation: e,
+										})
+									}
+									className={I.FreeCheckbox}
+									label={Localize("#WriteReview_Dialog_FreeDisclaimer")}
+									tooltip={Localize(
+										"#WriteReview_Dialog_FreeDisclaimer_Tooltip",
+									)}
+								/>
+							</B.he>
+						</div>
+					</div>
+				</div>
+			</div>
 		);
 	}
 	render() {
@@ -410,13 +331,7 @@ export class jB extends i.Component {
 			t = this.GetReviewForm();
 		}
 		if (this.state.strError) {
-			r = i.createElement(
-				"div",
-				{
-					className: I.Error,
-				},
-				this.state.strError,
-			);
+			r = <div className={I.Error}>{this.state.strError}</div>;
 		}
 		let n = pH(
 			this.props.appid,
@@ -429,59 +344,44 @@ export class jB extends i.Component {
 			null,
 			this.props.prevReview ? qR.ReviseEdit : qR.Default,
 		);
-		return i.createElement(
-			u.o0,
-			{
-				strTitle: Localize("#WriteReview_Dialog_Title"),
-				strOKButtonText: this.props.prevReview
-					? Localize("#WriteReview_Dialog_ReviseReview")
-					: Localize("#WriteReview_Dialog_PostReview"),
-				strCancelButtonText: Localize("#Button_Close"),
-				onOK: this.PostReview,
-				bAllowFullSize: true,
-				bDisableBackgroundDismiss: true,
-				onCancel: this.CloseDialog,
-				bOKDisabled: !this.state.bShowForm || this.state.bRequestInProgress,
-			},
-			i.createElement(
-				"div",
-				{
-					className: I.WriteReviewContainer,
-				},
-				i.createElement(
-					"div",
-					{
-						className: I.Header,
-					},
-					this.m_appinfo.name,
-				),
-				n,
-				e,
-				r,
-				t,
-			),
+		return (
+			<u.o0
+				strTitle={Localize("#WriteReview_Dialog_Title")}
+				strOKButtonText={
+					this.props.prevReview
+						? Localize("#WriteReview_Dialog_ReviseReview")
+						: Localize("#WriteReview_Dialog_PostReview")
+				}
+				strCancelButtonText={Localize("#Button_Close")}
+				onOK={this.PostReview}
+				bAllowFullSize
+				bDisableBackgroundDismiss
+				onCancel={this.CloseDialog}
+				bOKDisabled={!this.state.bShowForm || this.state.bRequestInProgress}
+			>
+				<div className={I.WriteReviewContainer}>
+					<div className={I.Header}>{this.m_appinfo.name}</div>
+					{n}
+					{e}
+					{r}
+					{t}
+				</div>
+			</u.o0>
 		);
 	}
 }
-(0, n.Cg)([o.sH], jB.prototype, "m_appinfo", undefined);
-(0, n.Cg)([A.oI], jB.prototype, "PostReview", null);
-(0, n.Cg)([A.oI], jB.prototype, "CloseDialog", null);
-(0, n.Cg)([A.oI], jB.prototype, "OnVoteUp", null);
-(0, n.Cg)([A.oI], jB.prototype, "OnVoteDown", null);
-(0, n.Cg)([A.oI], jB.prototype, "OnSupportClick", null);
-(0, n.Cg)([A.oI], jB.prototype, "OnAddReview", null);
-(0, n.Cg)([A.oI], jB.prototype, "OnSelectVisibility", null);
-const k = (e) =>
-	(0, p.Qn)()
-		? i.createElement(l.$n, {
-				...e,
-			})
-		: i.createElement("button", {
-				...e,
-			});
+Cg([o.sH], jB.prototype, "m_appinfo", undefined);
+Cg([A.oI], jB.prototype, "PostReview", null);
+Cg([A.oI], jB.prototype, "CloseDialog", null);
+Cg([A.oI], jB.prototype, "OnVoteUp", null);
+Cg([A.oI], jB.prototype, "OnVoteDown", null);
+Cg([A.oI], jB.prototype, "OnSupportClick", null);
+Cg([A.oI], jB.prototype, "OnAddReview", null);
+Cg([A.oI], jB.prototype, "OnSelectVisibility", null);
+const K = (e) => (Qn() ? <l.$n {...e} /> : <button {...e} />);
 export function pH(e, t, r, n, a, s, o, l, c) {
 	let m = h.tw.GetAppOverviewByAppID(e).BIsApplicationOrTool();
-	let u = (function (e) {
+	let u = ((e) => {
 		if (e >= 120) {
 			const t = Math.floor(e / 60);
 			return Localize("#Played_Hours", t);
@@ -501,72 +401,43 @@ export function pH(e, t, r, n, a, s, o, l, c) {
 		A = Localize("#WriteReview_Dialog_Playtime_Revise", u);
 	}
 	let g = c != qR.ReviseQuery ? I.ReviewThumbButton : I.CompactThumbButton;
-	return i.createElement(
-		"div",
-		{
-			className: (0, f.A)(I.RatingContainer, t),
-		},
-		i.createElement(
-			"div",
-			{
-				className: I.LeftContainer,
-			},
-			i.createElement(
-				"div",
-				{
-					className: I.Playtime,
-				},
-				A,
-			),
-			i.createElement(
-				"div",
-				{
-					className: I.RecommendGame,
-				},
-				p,
-			),
-		),
-		i.createElement(
-			M.Z,
-			{
-				className: I.RightContainer,
-			},
-			i.createElement(
-				k,
-				{
-					className: (0, f.A)(g, n && I.Selected),
-					title: Localize("#ChatEntryButton_Submit"),
-					onClick: a,
-				},
-				c != qR.ReviseQuery &&
-					i.createElement(E.tw, {
-						className: (0, f.A)(I.ThumbIcon, n && I.Selected, I.Up),
-					}),
-				i.createElement("span", null, Localize("#WriteReview_Dialog_Yes")),
-			),
-			i.createElement(
-				k,
-				{
-					className: (0, f.A)(g, s && I.Selected),
-					title: Localize("#WriteReview_Dialog_No"),
-					onClick: o,
-				},
-				c != qR.ReviseQuery &&
-					i.createElement(E.Su, {
-						className: (0, f.A)(I.ThumbIcon, s && I.Selected, I.Down),
-					}),
-				i.createElement("span", null, Localize("#WriteReview_Dialog_No")),
-			),
-			l &&
-				i.createElement(
-					k,
-					{
-						className: (0, f.A)(g, I.NoIcon),
-						title: Localize("#WriteReview_Dialog_Delay"),
-						onClick: l,
-					},
-					i.createElement("span", null, Localize("#WriteReview_Dialog_Delay")),
-				),
-		),
+	return (
+		<div className={A_1(I.RatingContainer, t)}>
+			<div className={I.LeftContainer}>
+				<div className={I.Playtime}>{A}</div>
+				<div className={I.RecommendGame}>{p}</div>
+			</div>
+			<M.Z className={I.RightContainer}>
+				<K
+					className={A_1(g, n && I.Selected)}
+					title={Localize("#ChatEntryButton_Submit")}
+					onClick={a}
+				>
+					{c != qR.ReviseQuery && (
+						<E.tw className={A_1(I.ThumbIcon, n && I.Selected, I.Up)} />
+					)}
+					<span>{Localize("#WriteReview_Dialog_Yes")}</span>
+				</K>
+				<K
+					className={A_1(g, s && I.Selected)}
+					title={Localize("#WriteReview_Dialog_No")}
+					onClick={o}
+				>
+					{c != qR.ReviseQuery && (
+						<E.Su className={A_1(I.ThumbIcon, s && I.Selected, I.Down)} />
+					)}
+					<span>{Localize("#WriteReview_Dialog_No")}</span>
+				</K>
+				{l && (
+					<K
+						className={A_1(g, I.NoIcon)}
+						title={Localize("#WriteReview_Dialog_Delay")}
+						onClick={l}
+					>
+						<span>{Localize("#WriteReview_Dialog_Delay")}</span>
+					</K>
+				)}
+			</M.Z>
+		</div>
 	);
 }

@@ -1,149 +1,137 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./50376.js");
-var a = require("./35488.js");
-var s = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import i from "./50376.js";
+import a from "./35488.js";
+import { Qn } from "./72476.js";
 export function wB() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Settings, null);
+	if (Qn()) {
+		return <a.Settings />;
 	} else {
-		return n.createElement(i.wB_, null);
+		return <i.wB_ />;
 	}
 }
 export function B1(e) {
 	const t = e.filled ?? true;
-	if ((0, s.Qn)()) {
+	if (Qn()) {
 		if (t) {
-			return n.createElement(a.Heart, null);
+			return <a.Heart />;
 		} else {
-			return n.createElement(a.HeartEmpty, null);
+			return <a.HeartEmpty />;
 		}
 	} else {
-		return n.createElement(i.B1N, null);
+		return <i.B1N />;
 	}
 }
 export function V5() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Carat, {
-			direction: "down",
-		});
+	if (Qn()) {
+		return <a.Carat direction="down" />;
 	} else {
-		return n.createElement(i.V5W, {
-			angle: 180,
-		});
+		return <i.V5W angle={180} />;
 	}
 }
 export function c_(e) {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Lock, null);
+	if (Qn()) {
+		return <a.Lock />;
 	} else {
-		return n.createElement(i.c_I, null);
+		return <i.c_I />;
 	}
 }
 export function f5() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Download, null);
+	if (Qn()) {
+		return <a.Download />;
 	} else {
-		return n.createElement(i.f5X, null);
+		return <i.f5X />;
 	}
 }
 export function jG() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Play, null);
+	if (Qn()) {
+		return <a.Play />;
 	} else {
-		return n.createElement(i.jGG, null);
+		return <i.jGG />;
 	}
 }
 export function wA(e) {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Achievement, null);
+	if (Qn()) {
+		return <a.Achievement />;
 	} else {
-		return n.createElement(i.f2R, null);
+		return <i.f2R />;
 	}
 }
 export function tw(e) {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.ThumbsUp, null);
+	if (Qn()) {
+		return <a.ThumbsUp />;
 	} else {
-		return n.createElement(i.bfp, {
-			className: e.className,
-		});
+		return <i.bfp className={e.className} />;
 	}
 }
 export function Su(e) {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.ThumbsDown, null);
+	if (Qn()) {
+		return <a.ThumbsDown />;
 	} else {
-		return n.createElement(i.bfp, {
-			className: e.className,
-		});
+		return <i.bfp className={e.className} />;
 	}
 }
 export function _h(e) {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.CommentThread, {
-			className: e.className,
-		});
+	if (Qn()) {
+		return <a.CommentThread className={e.className} />;
 	} else {
-		return n.createElement(i._h6, {
-			className: e.className,
-		});
+		return <i._h6 className={e.className} />;
 	}
 }
 export function vR() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Pause, null);
+	if (Qn()) {
+		return <a.Pause />;
 	} else {
-		return n.createElement(i.vRz, null);
+		return <i.vRz />;
 	}
 }
 export function UT() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Update, null);
+	if (Qn()) {
+		return <a.Update />;
 	} else {
-		return n.createElement(i.UTF, null);
+		return <i.UTF />;
 	}
 }
 export function qz() {
-	return n.createElement(a.Globe, null);
+	return <a.Globe />;
 }
 export function bm() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Close, null);
+	if (Qn()) {
+		return <a.Close />;
 	} else {
-		return n.createElement(i.sED, null);
+		return <i.sED />;
 	}
 }
 export function lM() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Trash, null);
+	if (Qn()) {
+		return <a.Trash />;
 	} else {
-		return n.createElement(i.lMJ, null);
+		return <i.lMJ />;
 	}
 }
 export function Qi() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Dynamic, null);
+	if (Qn()) {
+		return <a.Dynamic />;
 	} else {
-		return n.createElement(i.U_V, null);
+		return <i.U_V />;
 	}
 }
 export function OM() {
-	return n.createElement(a.Add, null);
+	return <a.Add />;
 }
 export function ff() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Edit, null);
+	if (Qn()) {
+		return <a.Edit />;
 	} else {
-		return n.createElement(i.ffu, null);
+		return <i.ffu />;
 	}
 }
 export function rf() {
-	return n.createElement(i.rfv, null);
+	return <i.rfv />;
 }
 export function nl() {
-	if ((0, s.Qn)()) {
-		return n.createElement(a.Emoticon, null);
+	if (Qn()) {
+		return <a.Emoticon />;
 	} else {
-		return n.createElement(i.jZW, null);
+		return <i.jZW />;
 	}
 }

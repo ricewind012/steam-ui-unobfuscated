@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	InsetContainer: "_2SwH92Kuhm2Kw8_VHMFHcy",
 	LinksContainer: "_2nfA6g3AeXaUBZ2fDMSBPA",
 	QR: "UTetJckMNtrxwllPEi_zN",

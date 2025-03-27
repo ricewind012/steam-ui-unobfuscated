@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ProgressBar: "_3szjUMH5QeRwtXAsLRcWt9",
 	AnimateProgress: "_3DjdoQj5NoknowwV5t5JPN",
 	loadingBarAnim: "_2SA1xV5w3BGirkDWosGYoX",

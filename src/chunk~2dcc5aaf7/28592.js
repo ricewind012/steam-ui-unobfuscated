@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./96680.js");
-var a = require("./91190.js");
-const s = n.lazy(() => require.e(7462).then(require.bind(require, 32676)));
+import n from "./63696.js";
+import { $2 } from "./96680.js";
+import a from "./91190.js";
+const S = n.lazy(() => require.e(7462).then(require.bind(require, 32676)));
 export function xj(e) {
-	let t = (0, i.$2)();
+	let t = $2();
 	return n.useCallback(() => {
 		if (e) {
 			t.BrowserWindow.location.href = e;
@@ -11,37 +11,23 @@ export function xj(e) {
 	}, [t, e]);
 }
 export function MN(e) {
-	const { fnDismiss: t, ...r } = e;
-	return n.createElement(
-		m,
-		null,
-		n.createElement(s, {
-			...r,
-		}),
+	const { fnDismiss, ...r } = e;
+	return (
+		<M>
+			<S {...r} />
+		</M>
 	);
 }
 export function YW(e) {
-	const { fnDismiss: t, ...r } = e;
-	return n.createElement(
-		m,
-		null,
-		n.createElement(
-			"div",
-			{
-				className: a.OverlayContainer,
-			},
-			n.createElement(s, {
-				...r,
-			}),
-		),
+	const { fnDismiss, ...r } = e;
+	return (
+		<M>
+			<div className={a.OverlayContainer}>
+				<S {...r} />
+			</div>
+		</M>
 	);
 }
-function m(e) {
-	return n.createElement(
-		"div",
-		{
-			className: a.SpacingContainer,
-		},
-		e.children,
-	);
+function M(e) {
+	return <div className={a.SpacingContainer}>{e.children}</div>;
 }

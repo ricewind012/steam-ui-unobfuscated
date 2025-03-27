@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_1cT7GBHGrVg5PeSksupE80",
 	TopSection: "_1NGpWfLRAtxiyA4Zcxl0ZD",
 	BottomSection: "_1k3I98ngWahQhymEKL6vxb",

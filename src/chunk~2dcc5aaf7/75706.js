@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	VirtualMenus: "_3wfyycWnQ5rT7HsO2nwbRa",
 	VirtualMenuListButtons: "_3PU_1Ghgnbo_3T5Okb3k0V",

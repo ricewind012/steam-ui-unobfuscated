@@ -46,10 +46,10 @@ export function OO() {
 }
 function p(e, t) {
 	return (
-		!!window.location.href.match("[?&]" + t + "=") ||
+		!!window.location.href.match(`[?&]${t}=`) ||
 		(typeof navigator != "undefined" &&
 			!!navigator.userAgent &&
-			navigator.userAgent.toLowerCase().indexOf(e.toLowerCase()) != -1)
+			navigator.userAgent.toLowerCase().includes(e.toLowerCase()))
 	);
 }
 function g() {
@@ -58,6 +58,7 @@ function g() {
 	i = o || p("Valve Steam Client", "force_client_view");
 	c =
 		p("iphone", "force_ios_view") ||
+		p("ipad", "force_ios_view") ||
 		p("ipad", "force_ios_view") ||
 		p("ipod", "force_ios_view") ||
 		(p("macintosh", "force_ios_view") && p("safari", "force_ios_view"));

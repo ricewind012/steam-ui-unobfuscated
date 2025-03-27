@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./11131.js");
-var a = require(/*webcrack:missing*/ "./49455.js");
+import n from "./63696.js";
+import { R7 } from "./11131.js";
+import { w } from "./49455.js";
 const s = {
 	AboutSteam: {
 		strURL: "steam://open/about",
@@ -31,19 +31,19 @@ const s = {
 	},
 };
 export function d() {
-	const { ownerWindow: e } = (0, i.R7)();
+	const { ownerWindow } = R7();
 	return n.useCallback(
 		(t, ...r) => {
 			if (!t) {
 				return null;
 			}
-			const n = s[t];
-			(0, a.w)(
-				!("strURL" in n) || !("openHandler" in n),
-				"Can't have both url opener and delegate opener for dialog " + t,
+			const s_t = s[t];
+			w(
+				!("strURL" in s_t) || !("openHandler" in s_t),
+				`Can't have both url opener and delegate opener for dialog ${t}`,
 			);
-			if ("strURL" in n) {
-				const t = (function (e, t) {
+			if ("strURL" in s_t) {
+				const t = ((e, t) => {
 					if (!t) {
 						return e;
 					}
@@ -52,7 +52,7 @@ export function d() {
 						if (e && typeof e == "object") {
 							if (n === t.length - 1) {
 								const t = new URLSearchParams(e);
-								r += "/?" + t.toString();
+								r += `/?${t.toString()}`;
 							} else {
 								console.error(
 									"ParameterizeURL got object param for non-last param",
@@ -60,17 +60,17 @@ export function d() {
 								);
 							}
 						} else if (e !== undefined) {
-							r += "/" + e;
+							r += `/${e}`;
 						}
 					});
 					return r;
-				})(n.strURL, r);
-				e.location.href = t;
+				})(s_t.strURL, r);
+				ownerWindow.location.href = t;
 			} else {
-				n.openHandler(r);
+				s_t.openHandler(r);
 			}
 		},
-		[e],
+		[ownerWindow],
 	);
 }
 Object.keys(s);

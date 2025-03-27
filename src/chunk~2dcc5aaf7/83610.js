@@ -1,120 +1,95 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./52850.js");
-var a = require(/*webcrack:missing*/ "./26853.js");
-var s = require("./39039.js");
-var o = require("./16154.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./34428.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./4042.js");
-var _A = require("./44184.js");
-var p = _A;
+import n, { useState, useEffect } from "./63696.js";
+import i from "./52850.js";
+import a from "./26853.js";
+import { m as m_1 } from "./39039.js";
+import o, { H } from "./16154.js";
+import { A as A_1 } from "./90765.js";
+import m, { Dq } from "./34428.js";
+import u from "./72476.js";
+import d, { o as o_1 } from "./4042.js";
+import _A from "./44184.js";
+const p = _A;
 export function A(e) {
 	const {
-		videoID: t,
-		bShowVideoImmediately: r,
-		bAutoPlay: A,
-		nStartSeconds: g,
-		classNameSize: h,
-		classNameAlign: C,
+		videoID,
+		bShowVideoImmediately,
+		bAutoPlay,
+		nStartSeconds,
+		classNameSize,
+		classNameAlign,
 	} = e;
-	const [_, f] = (0, n.useState)(!r);
-	const [b, y] = (0, n.useState)(false);
-	const S = (0, s.m)("YouTubeInlineSnippet");
-	const [w, B] = (0, n.useState)({
+	const [_, set] = useState(!bShowVideoImmediately);
+	const [b, setB] = useState(false);
+	const S = m_1("YouTubeInlineSnippet");
+	const [w, setW] = useState({
 		title: Localize("#Loading"),
 		description: "",
-		videoid: t,
+		videoid: videoID,
 		views: "0",
 	});
-	(0, n.useEffect)(() => {
+	useEffect(() => {
 		if (_) {
-			i.R.LoadYouTubeDynamicData([t], S)
+			i.R.LoadYouTubeDynamicData([videoID], S)
 				.then((e) => {
 					if (!S.token.reason && e.length > 0) {
-						B(e[0]);
-						y(true);
+						setW(e[0]);
+						setB(true);
 					}
 				})
 				.catch((e) =>
-					console.error("YouTubeInlineSnippet: " + (0, o.H)(e).strErrorMsg),
+					console.error(`YouTubeInlineSnippet: ${H(e).strErrorMsg}`),
 				);
 		}
-	}, [_, S, t]);
+	}, [_, S, videoID]);
 	const v = false;
 	n.useEffect(() => {
-		if (r) {
-			(0, d.o)(() => {});
+		if (bShowVideoImmediately) {
+			o_1(() => {});
 		}
-	}, [r, v]);
+	}, [bShowVideoImmediately, v]);
 	if (_) {
-		const e = w.title;
-		const r = w.views;
-		const i = w.description;
-		return n.createElement(
-			"div",
-			{
-				className: p.DynamicLinkBox,
-				onClick: () => f(false),
-			},
-			n.createElement("img", {
-				className: p.DynamicLink_Preview,
-				src: "https://img.youtube.com/vi/" + t + "/0.jpg",
-			}),
-			n.createElement(
-				"div",
-				{
-					className: p.DynamicLink_Content,
-				},
-				n.createElement(
-					"div",
-					{
-						className: p.DynamicLink_Name,
-					},
-					Localize("#EventEditor_YouTubeVideoTitle", e),
-				),
-				n.createElement(
-					"div",
-					{
-						className: p.DynamicLink_YoutubeViews,
-					},
-					Localize("#EventEditor_YouTubeVideoViews", (0, m.Dq)(Number(r))),
-				),
-				n.createElement(
-					"div",
-					{
-						className: p.Dynamiclink_Content,
-					},
-					b && i,
-					!b &&
-						n.createElement(a.t, {
-							size: "medium",
-						}),
-				),
-			),
+		const { title, views, description } = w;
+
+		return (
+			<div className={p.DynamicLinkBox} onClick={() => set(false)}>
+				<img
+					className={p.DynamicLink_Preview}
+					src={`https://img.youtube.com/vi/${videoID}/0.jpg`}
+				/>
+				<div className={p.DynamicLink_Content}>
+					<div className={p.DynamicLink_Name}>
+						{Localize("#EventEditor_YouTubeVideoTitle", title)}
+					</div>
+					<div className={p.DynamicLink_YoutubeViews}>
+						{Localize("#EventEditor_YouTubeVideoViews", Dq(Number(views)))}
+					</div>
+					<div className={p.Dynamiclink_Content}>
+						{b && description}
+						{!b && <a.t size="medium" />}
+					</div>
+				</div>
+			</div>
 		);
 	}
-	return n.createElement(
-		"div",
-		{
-			className: (0, l.A)(p.PreviewYouTubeVideo, h, C),
-			id: t,
-		},
-		n.createElement("img", {
-			className: p.PlaceholderImg,
-			src:
-				u.TS.COMMUNITY_CDN_URL +
-				"public/shared/images/responsive/youtube_16x9_placeholder.gif",
-		}),
-		n.createElement(d.N, {
-			video: t,
-			autoplay: A ?? false,
-			startSeconds: g,
-			controls: true,
-			playsInline: true,
-			autopause: true,
-			showFullscreenBtn: true,
-		}),
+	return (
+		<div
+			className={A_1(p.PreviewYouTubeVideo, classNameSize, classNameAlign)}
+			id={videoID}
+		>
+			<img
+				className={p.PlaceholderImg}
+				src={`${u.TS.COMMUNITY_CDN_URL}public/shared/images/responsive/youtube_16x9_placeholder.gif`}
+			/>
+			<d.N
+				video={videoID}
+				autoplay={bAutoPlay ?? false}
+				startSeconds={nStartSeconds}
+				controls
+				playsInline
+				autopause
+				showFullscreenBtn
+			/>
+		</div>
 	);
 }

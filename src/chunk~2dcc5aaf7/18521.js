@@ -1,22 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require("./96593.js");
-var s = require("./96000.js");
-var o = require("./16139.js");
-var l = require("./61175.js");
-var c = require("./14629.js");
-var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require(/*webcrack:missing*/ "./41230.js");
-var d = require(/*webcrack:missing*/ "./63696.js");
-var A = require("./64608.js");
-var p = require("./10606.js");
-var g = require("./13869.js");
-var h = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var _ = require(/*webcrack:missing*/ "./52451.js");
-var f = require(/*webcrack:missing*/ "./72476.js");
-var b = require("./39859.js");
-var y = b;
+import n, { Cg } from "./34629.js";
+import i, { DO, ID } from "./44846.js";
+import a from "./96593.js";
+import s from "./96000.js";
+import o from "./16139.js";
+import l from "./61175.js";
+import c from "./14629.js";
+import { mJ } from "./89193.js";
+import u from "./41230.js";
+import d from "./63696.js";
+import A from "./64608.js";
+import p from "./10606.js";
+import { mK } from "./13869.js";
+import { A as A_1 } from "./90765.js";
+import _ from "./52451.js";
+import f from "./72476.js";
+import b from "./39859.js";
+const y = b;
 const S = "ea_dialog_seen";
 export function jv() {
 	return a.tw.allApps.some(c.EF);
@@ -42,7 +42,7 @@ let I = class extends d.Component {
 		}
 	}
 	render() {
-		const { bHasPolitelyDeclined: e } = this.state;
+		const { bHasPolitelyDeclined } = this.state;
 		const t = !!s.md.GetCollection("partner-ea-access");
 		const r = o.N.showcases.some(
 			(e) => e.strCollectionId == "partner-ea-access",
@@ -52,78 +52,44 @@ let I = class extends d.Component {
 			l.n6.selectedGameListView == 1 &&
 			(!l.n6.bIsGameListGroupedByCollection || l.n6.bIsGameListSortedByRecent);
 		let i = null;
-		if (!e) {
+		if (!bHasPolitelyDeclined) {
 			if (t) {
 				if (!r) {
-					i = d.createElement(
-						d.Fragment,
-						null,
-						d.createElement(
-							"div",
-							{
-								className: y.Description,
-							},
-							(0, Localize)("#WhatsNew_EAAccessCollection_Description_2"),
-						),
-						d.createElement(
-							"div",
-							{
-								className: y.ButtonRow,
-							},
-							d.createElement(
-								"div",
-								{
-									className: (0, h.A)(y.Button, y.PrimaryButton),
-									onClick: v,
-								},
-								(0, Localize)("#WhatsNew_EAAccessCollection_AddShelf_Button"),
-							),
-							d.createElement(
-								"div",
-								{
-									className: y.Button,
-									onClick: this.DeclinePolitely,
-								},
-								(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button"),
-							),
-						),
+					i = (
+						<>
+							<div className={y.Description}>
+								{(0, Localize)("#WhatsNew_EAAccessCollection_Description_2")}
+							</div>
+							<div className={y.ButtonRow}>
+								<div className={A_1(y.Button, y.PrimaryButton)} onClick={v}>
+									{(0, Localize)(
+										"#WhatsNew_EAAccessCollection_AddShelf_Button",
+									)}
+								</div>
+								<div className={y.Button} onClick={this.DeclinePolitely}>
+									{(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button")}
+								</div>
+							</div>
+						</>
 					);
 				}
 			} else {
-				i = d.createElement(
-					d.Fragment,
-					null,
-					d.createElement(
-						"div",
-						{
-							className: y.Description,
-						},
-						(0, Localize)("#WhatsNew_EAAccessCollection_Description_1"),
-					),
-					d.createElement(
-						"div",
-						{
-							className: y.ButtonRow,
-						},
-						d.createElement(
-							"div",
-							{
-								className: (0, h.A)(y.Button, y.PrimaryButton),
-								onClick: kx,
-							},
-							(0, Localize)(
-								"#WhatsNew_EAAccessCollection_AddCollection_Button",
-							),
-						),
-						d.createElement(
-							"div",
-							{
-								className: y.Button,
-								onClick: this.DeclinePolitely,
-							},
-							(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button"),
-						),
-					),
+				i = (
+					<>
+						<div className={y.Description}>
+							{(0, Localize)("#WhatsNew_EAAccessCollection_Description_1")}
+						</div>
+						<div className={y.ButtonRow}>
+							<div className={A_1(y.Button, y.PrimaryButton)} onClick={kx}>
+								{(0, Localize)(
+									"#WhatsNew_EAAccessCollection_AddCollection_Button",
+								)}
+							</div>
+							<div className={y.Button} onClick={this.DeclinePolitely}>
+								{(0, Localize)("#WhatsNew_EAAccessCollection_Cancel_Button")}
+							</div>
+						</div>
+					</>
 				);
 			}
 		}
@@ -134,120 +100,71 @@ let I = class extends d.Component {
 					l.n6.SetGameListGroupedByCollection(true);
 					l.n6.SetGameListSortedByRecent(false);
 				};
-				i = d.createElement(
-					d.Fragment,
-					null,
-					d.createElement(
-						"div",
-						{
-							className: y.Description,
-						},
-						(0, Localize)("#FilterEdit_CollectionsHiddenPrompt"),
-					),
-					d.createElement(
-						"div",
-						{
-							className: y.ButtonRow,
-						},
-						d.createElement(
-							"div",
-							{
-								className: (0, h.A)(y.Button, y.PrimaryButton),
-								onClick: e,
-							},
-							(0, Localize)("#FilterEdit_AcceptGameListViewChange"),
-						),
-						d.createElement(
-							"div",
-							{
-								className: y.Button,
-								onClick: this.Close,
-							},
-							(0, Localize)("#FilterEdit_RejectGameListViewChange"),
-						),
-					),
+				i = (
+					<>
+						<div className={y.Description}>
+							{(0, Localize)("#FilterEdit_CollectionsHiddenPrompt")}
+						</div>
+						<div className={y.ButtonRow}>
+							<div className={A_1(y.Button, y.PrimaryButton)} onClick={e}>
+								{(0, Localize)("#FilterEdit_AcceptGameListViewChange")}
+							</div>
+							<div className={y.Button} onClick={this.Close}>
+								{(0, Localize)("#FilterEdit_RejectGameListViewChange")}
+							</div>
+						</div>
+					</>
 				);
 			} else {
 				const t = (0, Localize)(
-					e
+					bHasPolitelyDeclined
 						? "#WhatsNew_EAAccessCollection_Description_Declined"
 						: "#WhatsNew_EAAccessCollection_Description_3",
 				);
-				i = d.createElement(
-					d.Fragment,
-					null,
-					d.createElement(
-						"div",
-						{
-							className: y.Description,
-						},
-						t,
-					),
-					d.createElement(
-						"div",
-						{
-							className: y.Button,
-							onClick: this.Close,
-						},
-						(0, Localize)("#Button_Close"),
-					),
+				i = (
+					<>
+						<div className={y.Description}>{t}</div>
+						<div className={y.Button} onClick={this.Close}>
+							{(0, Localize)("#Button_Close")}
+						</div>
+					</>
 				);
 			}
 		}
-		return d.createElement(
-			p.x_,
-			{
-				onEscKeypress: this.Close,
-			},
-			d.createElement(
-				"div",
-				{
-					className: y.DialogContainer,
-				},
-				d.createElement(
-					A.Y9,
-					null,
-					" ",
-					(0, Localize)("#WhatsNew_EAAccessCollection_Title"),
-					" ",
-				),
-				d.createElement(
-					A.nB,
-					null,
-					d.createElement(
-						A.a3,
-						{
-							className: y.DialogBody,
-						},
-						i,
-					),
-				),
-			),
+		return (
+			<p.x_ onEscKeypress={this.Close}>
+				<div className={y.DialogContainer}>
+					<A.Y9> {(0, Localize)("#WhatsNew_EAAccessCollection_Title")} </A.Y9>
+					<A.nB>
+						<A.a3 className={y.DialogBody}>{i}</A.a3>
+					</A.nB>
+				</div>
+			</p.x_>
 		);
 	}
 };
-(0, n.Cg)([_.oI], I.prototype, "DeclinePolitely", null);
-(0, n.Cg)([_.oI], I.prototype, "Close", null);
-I = (0, n.Cg)([u.PA], I);
+Cg([_.oI], I.prototype, "DeclinePolitely", null);
+Cg([_.oI], I.prototype, "Close", null);
+I = Cg([u.PA], I);
 export const Cf = new (class {
 	async Init(e) {
 		if ((await e.GetString(S)) === "true") {
 			return;
 		}
-		if ((0, i.DO)(f.TS.LAUNCHER_TYPE)) {
+		if (DO(f.TS.LAUNCHER_TYPE)) {
 			return;
 		}
 		const t = await SteamClient.UI.GetUIMode();
 		if (t != 1 && t != 4) {
-			if (!(0, i.ID)(f.TS.LAUNCHER_TYPE)) {
-				(0, m.mJ)(jv, (t) => t && this.ShowPrompt(e), {
+			if (!ID(f.TS.LAUNCHER_TYPE)) {
+				mJ(jv, (t) => t && this.ShowPrompt(e), {
 					fireImmediately: true,
 				});
 			}
 		}
 	}
 	ShowPrompt(e) {
-		(0, g.mK)(d.createElement(I, null), window, {
+		mK(<I />, window, {
 			strTitle: (0, Localize)("#WhatsNew_EAAccessCollection_Title"),
 		});
 		e.StoreString(S, "true");

@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./93960.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import s from "./93960.js";
+import o from "./72476.js";
 export function y9() {
-	return (0, a.q3)(() => {
+	return q3(() => {
 		dn.consoleSpew.length;
 		return dn.consoleSpew;
 	});
@@ -14,7 +14,7 @@ export function o4() {
 }
 class m {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_listenHandle = undefined;
 	m_rgConsoleSpew = [];
@@ -58,6 +58,7 @@ class m {
 		let i = n.map((e) => ({
 			line: this.m_nLineCounter++,
 			time: r,
+
 			spew: e
 				? [
 						{
@@ -81,8 +82,8 @@ class m {
 		return this.m_rgCommandHistory;
 	}
 }
-(0, n.Cg)([i.sH.shallow], m.prototype, "m_rgConsoleSpew", undefined);
-(0, n.Cg)([s.o], m.prototype, "OnSteamConsoleSpew", null);
-(0, n.Cg)([i.XI], m.prototype, "AddSpewLine", null);
+Cg([i.sH.shallow], m.prototype, "m_rgConsoleSpew", undefined);
+Cg([s.o], m.prototype, "OnSteamConsoleSpew", null);
+Cg([i.XI], m.prototype, "AddSpewLine", null);
 export const dn = new m();
 window.consoleStore = dn;

@@ -1,19 +1,18 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var a = require("./83013.js");
-var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./41230.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require("./85360.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-var d = require("./22091.js");
-var A = require("./62486.js");
-var p = require(/*webcrack:missing*/ "./61657.js");
-var g = require("./86196.js");
-var h = require("./75121.js");
-var C = require(/*webcrack:missing*/ "./47742.js");
-const _ = a.VisualizerColorInnerDZ;
+import n from "./63696.js";
+import i from "./78325.js";
+import a from "./83013.js";
+import s from "./64608.js";
+import o, { A as A_1 } from "./90765.js";
+import l, { PA } from "./41230.js";
+import m, { Ij } from "./85360.js";
+import u from "./69164.js";
+import d from "./22091.js";
+import A, { ui } from "./62486.js";
+import p from "./61657.js";
+import g from "./86196.js";
+import h from "./75121.js";
+import C, { l as l_1 } from "./47742.js";
 const f = a.VisualizerColorOuterDZ;
 const b = a.VisualizerColorActiveArea;
 const y = [
@@ -52,8 +51,8 @@ const y = [
 	},
 	{
 		id: "DeadZoneInner",
-		color: _,
-		fill: _,
+		color: VisualizerColorInnerDZ,
+		fill: VisualizerColorInnerDZ,
 		strokeWidth: 3,
 		showInKey: true,
 		style: a.VizElement,
@@ -62,7 +61,7 @@ const y = [
 		showInDefault: true,
 	},
 ];
-export const ZX = function (e) {
+export const ZX = (e) => {
 	const { startX: t, startY: r, endX: i, endY: a, width: s, data: o } = e;
 	return n.createElement(
 		n.Fragment,
@@ -85,7 +84,7 @@ export const ZX = function (e) {
 		),
 	);
 };
-export const zL = function (e) {
+export const zL = (e) => {
 	const { centerX: t, centerY: r, radius: i, showCenter: s, data: l } = e;
 	const c = isNaN(t) ? 0 : t;
 	const m = isNaN(r) ? 0 : r;
@@ -97,7 +96,7 @@ export const zL = function (e) {
 				"svg",
 				{
 					xmlns: "http://www.w3.org/2000/svg",
-					className: (0, o.A)(l.style, a.SphereClip),
+					className: A_1(l.style, a.SphereClip),
 				},
 				n.createElement("circle", {
 					cx: c,
@@ -112,7 +111,7 @@ export const zL = function (e) {
 			"svg",
 			{
 				xmlns: "http://www.w3.org/2000/svg",
-				className: (0, o.A)(l.style, a.SphereClip),
+				className: A_1(l.style, a.SphereClip),
 			},
 			n.createElement("circle", {
 				cx: c,
@@ -125,7 +124,7 @@ export const zL = function (e) {
 		),
 	);
 };
-const B = function (e) {
+const B = (e) => {
 	const { centerX: t, centerY: r, radius: i, data: a } = e;
 	return n.createElement(
 		n.Fragment,
@@ -148,7 +147,7 @@ const B = function (e) {
 		),
 	);
 };
-const v = function (e) {
+const v = (e) => {
 	const {
 		centerX: t,
 		centerY: r,
@@ -158,18 +157,18 @@ const v = function (e) {
 		clipSphere: c,
 	} = e;
 	const m = l - i;
-	let u = "M " + (t - l) + "," + (r - i);
-	u += " h " + m;
-	u += " v -" + m;
-	u += " h " + i * 2;
-	u += " v " + m;
-	u += " h " + m;
-	u += " v " + i * 2;
-	u += " h -" + m;
-	u += " v " + m;
-	u += " h -" + i * 2;
-	u += " v -" + m;
-	u += " h -" + m;
+	let u = `M ${t - l},${r - i}`;
+	u += ` h ${m}`;
+	u += ` v -${m}`;
+	u += ` h ${i * 2}`;
+	u += ` v ${m}`;
+	u += ` h ${m}`;
+	u += ` v ${i * 2}`;
+	u += ` h -${m}`;
+	u += ` v ${m}`;
+	u += ` h -${i * 2}`;
+	u += ` v -${m}`;
+	u += ` h -${m}`;
 	u += " Z";
 	return n.createElement(
 		n.Fragment,
@@ -178,7 +177,7 @@ const v = function (e) {
 			"svg",
 			{
 				xmlns: "http://www.w3.org/2000/svg",
-				className: (0, o.A)(s.style, c && a.SphereClip),
+				className: A_1(s.style, c && a.SphereClip),
 			},
 			n.createElement("path", {
 				d: u,
@@ -189,7 +188,7 @@ const v = function (e) {
 		),
 	);
 };
-const I = function (e) {
+const I = (e) => {
 	const { data: t } = e;
 	return n.createElement(
 		u.Z,
@@ -207,11 +206,11 @@ const I = function (e) {
 			{
 				className: a.KeyLabel,
 			},
-			Localize("#ControllerVisualization_Joystick_Deadzone_Value_" + t.id),
+			Localize(`#ControllerVisualization_Joystick_Deadzone_Value_${t.id}`),
 		),
 	);
 };
-export const iL = function (e) {
+export const iL = (e) => {
 	const {
 		centerX: t,
 		centerY: r,
@@ -239,13 +238,13 @@ export const iL = function (e) {
 		showCenter: true,
 	});
 };
-const M = function (e) {
+const M = (e) => {
 	const { centerX: t, centerY: r, LiveX: i, LiveY: s, maxRadius: l } = e;
-	const [c, m] = (0, C.l)();
+	const [c, m] = l_1();
 	if (i == 0 && s == 0) {
 		return null;
 	}
-	const u = "M" + (t + "," + r) + ", " + (t + i * l + "," + (r + s * l));
+	const u = `M${t},${r}, ${t + i * l},${r + s * l}`;
 	const d = a.VisualizerLiveOutputColor;
 	return n.createElement(
 		n.Fragment,
@@ -254,7 +253,7 @@ const M = function (e) {
 			"svg",
 			{
 				xmlns: "http://www.w3.org/2000/svg",
-				className: (0, o.A)(a.LiveResultArrow),
+				className: A_1(a.LiveResultArrow),
 			},
 			n.createElement(
 				"defs",
@@ -286,7 +285,7 @@ const M = function (e) {
 		),
 	);
 };
-export const NQ = (0, l.PA)(function (e) {
+export const NQ = PA((e) => {
 	const { appid: t, mode: r } = e;
 	const {
 		baseActionSet: l,
@@ -296,7 +295,7 @@ export const NQ = (0, l.PA)(function (e) {
 	} = m.v3.CurrentEditedGroupSettingsData;
 	const { mode_shift: S } = m.v3.CurrentEditedGroup;
 	const T = m.v3.CurrentEditedGroupSettings.get(
-		(0, m.Ij)({
+		Ij({
 			baseActionSetKey: l?.key,
 			layerActionSetKey: C?.key,
 			eControllerSource: _,
@@ -309,7 +308,7 @@ export const NQ = (0, l.PA)(function (e) {
 	const F = parseInt(a.VisualizerCenterYOffset, 0);
 	const G = T?.find((e) => e.key == 14);
 	const O = !R && T?.find((e) => e.key == 127)?.int_value == 1;
-	const P = _ == 3 || _ == 18 || _ == 1;
+	const P = _ == 3 || _ == 18 || _ == 18 || _ == 1;
 	const L = T?.find((e) => e.key == 12)?.int_max;
 	const [z, x] = n.useState(false);
 	const U = n.useCallback(() => {
@@ -393,7 +392,7 @@ export const NQ = (0, l.PA)(function (e) {
 			i = _ == 12 ? t?.nRStickDeadzone : t?.nLStickDeadzone;
 			if (i == -1) {
 				i =
-					(0, A.ui)(t.eControllerType, t?.unVendorID, t?.unProductID) /
+					ui(t.eControllerType, t?.unVendorID, t?.unProductID) /
 					(L - a?.int_min);
 			}
 		} else if (a) {
@@ -569,7 +568,7 @@ export const NQ = (0, l.PA)(function (e) {
 								},
 								Localize("#ControllerVisualization_Joystick_Deadzone_Value"),
 							),
-							Math.round(q * 100) + "%",
+							`${Math.round(q * 100)}%`,
 						),
 						n.createElement(
 							"div",
@@ -583,7 +582,7 @@ export const NQ = (0, l.PA)(function (e) {
 								},
 								Localize("#ControllerVisualization_Joystick_Deadzone_Output"),
 							),
-							Math.round(Q * 100) + "%",
+							`${Math.round(Q * 100)}%`,
 						),
 					),
 			),
@@ -593,7 +592,7 @@ export const NQ = (0, l.PA)(function (e) {
 					className: a.VisualizationMainContainer,
 				},
 				n.createElement("img", {
-					className: (0, o.A)(a.BGImage, P ? a.Left : a.Right),
+					className: A_1(a.BGImage, P ? a.Left : a.Right),
 					src: P ? g.A : h.A,
 				}),
 				Z,
@@ -620,7 +619,7 @@ export const NQ = (0, l.PA)(function (e) {
 		n.createElement(
 			"div",
 			{
-				className: (0, o.A)(a.FlexRow, a.KeyContainer),
+				className: A_1(a.FlexRow, a.KeyContainer),
 			},
 			ee,
 		),

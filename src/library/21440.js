@@ -1,11 +1,11 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./93960.js");
-var s = require("./79769.js");
+import r, { Cg } from "./34629.js";
+import i from "./93960.js";
+import s from "./79769.js";
 class o {
 	key;
 	static sm_lastKey = 0;
 	constructor() {
-		this.key = "Modal_" + o.sm_lastKey++;
+		this.key = `Modal_${o.sm_lastKey++}`;
 	}
 }
 export class _F extends o {
@@ -41,7 +41,7 @@ export class $9 extends o {
 		this.m_OnActiveModalCallbacks.Dispatch(e);
 	}
 }
-(0, r.Cg)([i.o], $9.prototype, "RefModalElement", null);
+Cg([i.o], $9.prototype, "RefModalElement", null);
 export class IA extends _F {
 	m_strName;
 	m_modalProps;

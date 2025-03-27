@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./43397.js");
-var l = require("./74362.js");
-var c = require(/*webcrack:missing*/ "./79769.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require("./36813.js");
-require(/*webcrack:missing*/ "./43691.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o, { qo } from "./43397.js";
+import l from "./74362.js";
+import c from "./79769.js";
+import { _g } from "./52451.js";
+import d from "./36813.js";
+import "./43691.js";
 const A = "Raven/Raven2/FireFlight/Renoir Audio Processor";
 const p = "ACP/ACP3X/ACP6x Audio Coprocessor";
 class g {
@@ -42,7 +42,7 @@ class g {
 		return this.m_bHasInput;
 	}
 	constructor(e) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_id = e.id;
 		this.m_sName = e.sName;
 		this.m_bHasOutput = e.bHasOutput;
@@ -53,20 +53,24 @@ class g {
 	BOnboardAudio() {
 		switch (this.m_sName) {
 			case A:
-			case p:
+			case p: {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	GetName(e) {
 		let t = "";
 		switch (e) {
-			case l.T4.Input:
+			case l.T4.Input: {
 				t = g.s_mapInputNames.get(this.m_sName);
 				break;
-			case l.T4.Output:
+			}
+			case l.T4.Output: {
 				t = g.s_mapOutputNames.get(this.m_sName);
+			}
 		}
 		if (t) {
 			return (0, Localize)(t);
@@ -79,12 +83,15 @@ class g {
 	}
 	HasDirection(e) {
 		switch (e) {
-			case l.T4.Input:
+			case l.T4.Input: {
 				return this.m_bHasInput;
-			case l.T4.Output:
+			}
+			case l.T4.Output: {
 				return this.m_bHasOutput;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
 	setDeviceVolume(e, t) {
@@ -103,7 +110,7 @@ class g {
 		this.m_VolumeChangedSubscribable.Dispatch();
 	}
 }
-(0, n.Cg)([a.sH], g.prototype, "m_rtLastUpdate", undefined);
+Cg([a.sH], g.prototype, "m_rtLastUpdate", undefined);
 class h {
 	id;
 	strName;
@@ -113,7 +120,7 @@ class h {
 	m_volumeChangedCallbacks = new c.lu();
 	m_rtLastUpdate = undefined;
 	constructor(e, t, r, n, i) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.id = e;
 		this.strName = t;
 		this.pid = n;
@@ -133,7 +140,7 @@ class h {
 		this.m_volumeChangedCallbacks.Dispatch();
 	}
 }
-(0, n.Cg)([a.sH], h.prototype, "m_rtLastUpdate", undefined);
+Cg([a.sH], h.prototype, "m_rtLastUpdate", undefined);
 class C {
 	m_bAvailable = false;
 	m_activeOutputDeviceId = l.vn;
@@ -146,7 +153,7 @@ class C {
 	m_VolumePressedSubscribable = new c.lu();
 	m_nSuppressVolumeOverlayRefCount = 0;
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_bAvailable = SteamClient.System.Audio != null;
 		if (this.m_bAvailable) {
 			SteamClient.System.Audio.RegisterForServiceConnectionStateChanges(
@@ -191,7 +198,7 @@ class C {
 		let t = Array.from(this.m_mapAudioDevices.values());
 		if (e != null) {
 			t = t.filter((t) =>
-				(function (e, t) {
+				((e, t) => {
 					if (!e.HasDirection(t)) {
 						return false;
 					}
@@ -219,7 +226,7 @@ class C {
 				})(t, e),
 			);
 		}
-		t.sort((t, r) => (0, o.qo)(t.GetName(e), r.GetName(e)));
+		t.sort((t, r) => qo(t.GetName(e), r.GetName(e)));
 		return t;
 	}
 	getDevice(e) {
@@ -227,24 +234,30 @@ class C {
 	}
 	getActiveDeviceId(e) {
 		switch (e) {
-			case l.T4.Input:
+			case l.T4.Input: {
 				return this.m_activeInputDeviceId;
-			case l.T4.Output:
+			}
+			case l.T4.Output: {
 				return this.m_activeOutputDeviceId;
-			default:
+			}
+			default: {
 				console.error("Invaid direction");
 				return l.vn;
+			}
 		}
 	}
 	getOverrideDeviceId(e) {
 		switch (e) {
-			case l.T4.Input:
+			case l.T4.Input: {
 				return this.m_overrideInputDeviceId;
-			case l.T4.Output:
+			}
+			case l.T4.Output: {
 				return this.m_overrideOutputDeviceId;
-			default:
+			}
+			default: {
 				console.error("Invaid direction");
 				return l.vn;
+			}
 		}
 	}
 	OnAudioDeviceAdded(e) {
@@ -295,7 +308,7 @@ class C {
 		}
 		let e = Array.from(this.m_mapAudioApps.values());
 		e = e.filter((e) => Boolean(e.gameid));
-		e.sort((e, t) => (0, o.qo)(e.strName, t.strName));
+		e.sort((e, t) => qo(e.strName, t.strName));
 		return e;
 	}
 	GetApp(e) {
@@ -321,37 +334,37 @@ class C {
 		this.GetApp(e)?.OnVolumeUpdated(t);
 	}
 }
-(0, n.Cg)([a.sH], C.prototype, "m_bAvailable", undefined);
-(0, n.Cg)([a.sH], C.prototype, "m_activeOutputDeviceId", undefined);
-(0, n.Cg)([a.sH], C.prototype, "m_activeInputDeviceId", undefined);
-(0, n.Cg)([a.sH], C.prototype, "m_overrideOutputDeviceId", undefined);
-(0, n.Cg)([a.sH], C.prototype, "m_overrideInputDeviceId", undefined);
-(0, n.Cg)([a.sH], C.prototype, "m_nSuppressVolumeOverlayRefCount", undefined);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAudioDeviceAdded", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAudioDeviceRemoved", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAudioDeviceVolumeChanged", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnVolumeButtonPressed", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnServiceConnectionStateChanged", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAppAdded", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAppRemoved", null);
-(0, n.Cg)([a.XI.bound], C.prototype, "OnAppVolumeChanged", null);
+Cg([a.sH], C.prototype, "m_bAvailable", undefined);
+Cg([a.sH], C.prototype, "m_activeOutputDeviceId", undefined);
+Cg([a.sH], C.prototype, "m_activeInputDeviceId", undefined);
+Cg([a.sH], C.prototype, "m_overrideOutputDeviceId", undefined);
+Cg([a.sH], C.prototype, "m_overrideInputDeviceId", undefined);
+Cg([a.sH], C.prototype, "m_nSuppressVolumeOverlayRefCount", undefined);
+Cg([a.XI.bound], C.prototype, "OnAudioDeviceAdded", null);
+Cg([a.XI.bound], C.prototype, "OnAudioDeviceRemoved", null);
+Cg([a.XI.bound], C.prototype, "OnAudioDeviceVolumeChanged", null);
+Cg([a.XI.bound], C.prototype, "OnVolumeButtonPressed", null);
+Cg([a.XI.bound], C.prototype, "OnServiceConnectionStateChanged", null);
+Cg([a.XI.bound], C.prototype, "OnAppAdded", null);
+Cg([a.XI.bound], C.prototype, "OnAppRemoved", null);
+Cg([a.XI.bound], C.prototype, "OnAppVolumeChanged", null);
 export const F5 = new C();
 export function In() {
-	return (0, s.q3)(() => F5.bAvailable);
+	return q3(() => F5.bAvailable);
 }
 export function xU(e = null) {
-	return (0, s.q3)(() => F5.getDevices(e));
+	return q3(() => F5.getDevices(e));
 }
 function y(e) {
 	const t = F5.getDevice(e);
-	(0, s.q3)(() => t?.m_rtLastUpdate);
+	q3(() => t?.m_rtLastUpdate);
 	return t;
 }
 export function hn(e) {
-	return (0, s.q3)(() => F5.getActiveDeviceId(e));
+	return q3(() => F5.getActiveDeviceId(e));
 }
 export function tQ(e) {
-	return (0, s.q3)(() => F5.getOverrideDeviceId(e));
+	return q3(() => F5.getOverrideDeviceId(e));
 }
 export function ml(e) {
 	return y(hn(e));
@@ -360,7 +373,7 @@ export function _t(e, t) {
 	const r = y(e);
 	const n = t == l.T4.Output ? l.z1.AllOutput : l.z1.Input;
 	const i = r?.getDeviceVolume(n);
-	const a = (0, m._g)(50);
+	const a = _g(50);
 	return {
 		flVolume: i,
 		setVolume: (e) => a(() => r?.setDeviceVolume(n, e)),
@@ -378,5 +391,5 @@ export function fW() {
 	}, []);
 }
 export function aO() {
-	return (0, s.q3)(() => F5.m_nSuppressVolumeOverlayRefCount) > 0;
+	return q3(() => F5.m_nSuppressVolumeOverlayRefCount) > 0;
 }

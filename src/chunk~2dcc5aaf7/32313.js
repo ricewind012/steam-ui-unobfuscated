@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	BroadcastStatusWidth: "200px",
 	BroadcastStatusHeight: "48px",
 	BroadcastStatusBody: "_3t4AGpHmFth4qnMdNTgSXR",

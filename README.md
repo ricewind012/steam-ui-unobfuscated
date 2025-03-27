@@ -25,4 +25,4 @@ Note that this is not actually tested or whatever, it's only a huge guesswork.
 
 ## Credits
 
-Most of the job of unpacking was done by [webcrack](https://github.com/j4k0xb/webcrack) and translation to JSX (except "chunk~2dcc5aaf7.js", since it errors out after some time (?)) by [wakaru](https://github.com/pionxzh/wakaru).
+Unpacking was done by [webcrack](https://github.com/j4k0xb/webcrack) and unminifying by [wakaru](https://github.com/pionxzh/wakaru).

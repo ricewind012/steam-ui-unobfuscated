@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DateAndTime: "_2V6GLdiU4guy4ND3n4Usgg",
 	DateAndTimeInline: "HZ6b2d4r4EFnT_1BeU5vo",
 	At: "Fn5EUtWkwSAw_gbbiySKN",

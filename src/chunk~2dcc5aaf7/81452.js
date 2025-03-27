@@ -1,230 +1,147 @@
-var n = require("./18057.js");
-var i = require("./78057.js");
-var a = require("./70239.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./69164.js");
-var c = require(/*webcrack:missing*/ "./50376.js");
-var m = require(/*webcrack:missing*/ "./98995.js");
 import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require("./56726.js");
-var p = require("./1965.js");
-var g = require("./99360.js");
-var h = g;
-export const y = (0, s.PA)(function (e) {
-	const { details: t } = e;
-	const r = t.unAppID;
-	const n = (0, a.$L)(r);
-	if (!i.H.BIsWorkshopVisible(t)) {
+import n, { bG } from "./18057.js";
+import i from "./78057.js";
+import a, { $L, ZG } from "./70239.js";
+import s, { PA } from "./41230.js";
+import o from "./63696.js";
+import l from "./69164.js";
+import c from "./50376.js";
+import m from "./98995.js";
+import { Qn } from "./72476.js";
+import A from "./56726.js";
+import p from "./1965.js";
+import g from "./99360.js";
+const h = g;
+export const y = PA((e) => {
+	const { details } = e;
+	const t_unAppID = details.unAppID;
+	const n = $L(t_unAppID);
+	if (!i.H.BIsWorkshopVisible(details)) {
 		return null;
 	}
 	const s = n.length > 0 && n[0];
-	let l =
-		s &&
-		o.createElement(_, {
-			item: s,
-			appid: r,
-			title: t.strDisplayName,
-			previewUrl: s.preview_url ? s.preview_url : t.strStoreHeaderImage,
-		});
-	return o.createElement(
-		p.n,
-		{
-			feature: 2,
-			className: h.WorkshopSection,
-			label: (0, Localize)("#AppDetails_SectionTitle_Workshop"),
-			highlight: l,
-			rightColumnSection: true,
-		},
-		o.createElement(
-			p.n.Body,
-			{
-				className: h.WorkshopContainer,
-			},
-			!s &&
-				o.createElement(b, {
-					appid: r,
-				}),
-			o.createElement(f, {
-				appid: r,
-			}),
-		),
+	let l = s && (
+		<_
+			item={s}
+			appid={t_unAppID}
+			title={details.strDisplayName}
+			previewUrl={s.preview_url ? s.preview_url : details.strStoreHeaderImage}
+		/>
+	);
+	return (
+		<p.n
+			feature={2}
+			className={h.WorkshopSection}
+			label={(0, Localize)("#AppDetails_SectionTitle_Workshop")}
+			highlight={l}
+			rightColumnSection
+		>
+			<p.n.Body className={h.WorkshopContainer}>
+				{!s && <B appid={t_unAppID} />}
+				<F appid={t_unAppID} />
+			</p.n.Body>
+		</p.n>
 	);
 });
 function _(e) {
 	const {
-		appid: t,
-		title: r,
-		previewUrl: i,
+		appid,
+		title,
+		previewUrl,
 		item: { title: s, short_description: A, publishedfileid: g },
 	} = e;
-	const C = (0, d.Qn)();
+	const C = Qn();
 	const _ = () => {
-		let e = a.B6.GetTrendyWorkshopItems(t);
+		let e = a.B6.GetTrendyWorkshopItems(appid);
 		if (e.length != 0) {
-			a.B6.HideWorkshopItem(t, e[0].publishedfileid);
+			a.B6.HideWorkshopItem(appid, e[0].publishedfileid);
 		}
 	};
-	const f = (0, n.bG)("CommunityFilePage", g);
-	return o.createElement(
-		l.Z,
-		{
-			onOKButton: f,
-			onOKActionDescription: (0, Localize)("#AppDetails_ViewItemInWorkshop"),
-			onSecondaryButton: _,
-			onSecondaryActionDescription: (0, Localize)(
+	const f = bG("CommunityFilePage", g);
+	return (
+		<l.Z
+			onOKButton={f}
+			onOKActionDescription={(0, Localize)("#AppDetails_ViewItemInWorkshop")}
+			onSecondaryButton={_}
+			onSecondaryActionDescription={(0, Localize)(
 				"#AppDetails_WorkshopFeaturedHideItem",
-			),
-		},
-		o.createElement(
-			p.n.Highlight,
-			{
-				className: h.WorkshopHightlight,
-			},
-			o.createElement(
-				"div",
-				{
-					className: h.WorkshopHeader,
-				},
-				o.createElement(
-					"div",
-					{
-						className: h.FeaturedItem,
-					},
-					o.createElement("img", {
-						className: h.FeaturedItemImage,
-						onClick: f,
-						src: i,
-					}),
-					o.createElement(
-						"div",
-						{
-							className: h.FeaturedItemDetailsContainer,
-						},
-						o.createElement(
-							"div",
-							{
-								className: h.FeaturedItemHeader,
-							},
-							(0, Localize)("#AppDetails_WorkshopFeaturedHeader", r),
-						),
-						o.createElement(
-							"div",
-							{
-								className: h.FeaturedItemName,
-								onClick: f,
-							},
-							s,
-						),
-						o.createElement(
-							"div",
-							{
-								className: h.FeaturedItemDesc,
-							},
-							A,
-						),
-						!C &&
-							o.createElement(
-								"div",
-								{
-									className: h.FeaturedLinks,
-								},
-								o.createElement(
-									"div",
-									{
-										className: h.FeaturedItemLink,
-										onClick: f,
-									},
-									(0, Localize)("#AppDetails_WorkshopFeaturedMoreInfo"),
-								),
-							),
-						o.createElement(
-							m.he,
-							{
-								toolTipContent: (0, Localize)(
+			)}
+		>
+			<p.n.Highlight className={h.WorkshopHightlight}>
+				<div className={h.WorkshopHeader}>
+					<div className={h.FeaturedItem}>
+						<img className={h.FeaturedItemImage} onClick={f} src={previewUrl} />
+						<div className={h.FeaturedItemDetailsContainer}>
+							<div className={h.FeaturedItemHeader}>
+								{(0, Localize)("#AppDetails_WorkshopFeaturedHeader", title)}
+							</div>
+							<div className={h.FeaturedItemName} onClick={f}>
+								{s}
+							</div>
+							<div className={h.FeaturedItemDesc}>{A}</div>
+							{!C && (
+								<div className={h.FeaturedLinks}>
+									<div className={h.FeaturedItemLink} onClick={f}>
+										{(0, Localize)("#AppDetails_WorkshopFeaturedMoreInfo")}
+									</div>
+								</div>
+							)}
+							<m.he
+								toolTipContent={(0, Localize)(
 									"#AppDetails_WorkshopFeaturedHideItem",
-								),
-								className: h.FeaturedItemHideButton,
-								onClick: _,
-							},
-							o.createElement(c.sED, null),
-						),
-					),
-				),
-			),
-		),
+								)}
+								className={h.FeaturedItemHideButton}
+								onClick={_}
+							>
+								<c.sED />
+							</m.he>
+						</div>
+					</div>
+				</div>
+			</p.n.Highlight>
+		</l.Z>
 	);
 }
-function f(e) {
-	const { appid: t } = e;
-	const r = (0, n.bG)("SteamWorkshopPage", t);
-	const i = (0, n.bG)("SteamWorkshopSubscriptions", t);
-	if ((0, d.Qn)()) {
-		return o.createElement(
-			l.Z,
-			{
-				"flow-children": "row",
-				style: {
+function F(e) {
+	const { appid } = e;
+	const r = bG("SteamWorkshopPage", appid);
+	const i = bG("SteamWorkshopSubscriptions", appid);
+	if (Qn()) {
+		return (
+			<l.Z
+				flow-children="row"
+				style={{
 					display: "flex",
 					flexDirection: "row",
 					gap: "8px",
-				},
-			},
-			o.createElement(
-				A.TD,
-				{
-					onClick: i,
-				},
-				(0, Localize)("#AppDetails_ViewSubscribedItems"),
-			),
-			o.createElement(
-				A.TD,
-				{
-					onClick: r,
-				},
-				(0, Localize)("#AppDetails_WorkshopVisit"),
-			),
+				}}
+			>
+				<A.TD onClick={i}>
+					{(0, Localize)("#AppDetails_ViewSubscribedItems")}
+				</A.TD>
+				<A.TD onClick={r}>{(0, Localize)("#AppDetails_WorkshopVisit")}</A.TD>
+			</l.Z>
 		);
 	} else {
-		return o.createElement(
-			"div",
-			{
-				className: h.ButtonContainer,
-			},
-			o.createElement(
-				A.Po,
-				{
-					className: h.SpacedButton,
-					onClick: i,
-				},
-				(0, Localize)("#AppDetails_ViewSubscribedItems"),
-			),
-			o.createElement(
-				A.TD,
-				{
-					onClick: r,
-				},
-				(0, Localize)("#AppDetails_WorkshopVisit"),
-			),
+		return (
+			<div className={h.ButtonContainer}>
+				<A.Po className={h.SpacedButton} onClick={i}>
+					{(0, Localize)("#AppDetails_ViewSubscribedItems")}
+				</A.Po>
+				<A.TD onClick={r}>{(0, Localize)("#AppDetails_WorkshopVisit")}</A.TD>
+			</div>
 		);
 	}
 }
-function b(e) {
-	const { appid: t } = e;
-	const r = (0, a.ZG)(t);
+function B(e) {
+	const { appid } = e;
+	const r = ZG(appid);
 	const n =
 		r === 0
 			? (0, Localize)("#AppDetails_WorkshopSubCount_None")
 			: LocalizePlural("#AppDetails_WorkshopSubCount", r);
-	return o.createElement(
-		"div",
-		{
-			className: h.SubscribedItemsMessage,
-		},
-		n,
-	);
+	return <div className={h.SubscribedItemsMessage}>{n}</div>;
 }

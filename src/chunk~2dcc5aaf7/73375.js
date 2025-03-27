@@ -1,12 +1,19 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./37790.js");
-var a = require(/*webcrack:missing*/ "./34629.js");
 import {
 	AddMissingStylesheetsToWindow,
 	GetStyleSheetLinks,
 } from "../../actual_src/utils/domutils.js";
-var o = require(/*webcrack:missing*/ "./93960.js");
-var l = require(/*webcrack:missing*/ "./62130.js");
+import n from "./63696.js";
+import i from "./37790.js";
+import a, { Cg } from "./34629.js";
+import o from "./93960.js";
+import l from "./62130.js";
+import m from "./7558.js";
+import u, { p1, Ue } from "./52451.js";
+import d, { R7 } from "./11131.js";
+import A, { UV } from "./20326.js";
+import p, { Dp } from "./736.js";
+import g, { Hn } from "./72476.js";
+import { GD } from "./90685.js";
 class c {
 	m_viewWindow;
 	m_rootElement;
@@ -17,31 +24,30 @@ class c {
 	m_DynamicCSSObserver;
 	constructor() {}
 	CreateView(e, t, r) {
-		const { name: n, strVROverlayKey: i, eCreationFlags: a } = t;
+		const { name, strVROverlayKey, eCreationFlags } = t;
 		if (this.m_browserView) {
 			this.DestroyView();
 		}
 		let o = r?.ownerWindow?.SteamClient.Browser.GetBrowserID();
 		let m = "BrowserViewPopup";
-		if (n?.length > 0) {
-			m = n;
+		if (name?.length > 0) {
+			m = name;
 		}
 		if (o) {
-			m += "_uid" + o;
+			m += `_uid${o}`;
 		}
 		m = c.GetUniqueBrowserViewName(m);
 		const u = {
 			parentPopupBrowserID: o,
-			strVROverlayKey: i,
+			strVROverlayKey: strVROverlayKey,
 		};
-		let { strCreateURL: d, browserView: A } =
-			SteamClient.BrowserView.CreatePopup(u);
-		A.SetName(m);
-		if (a) {
-			d += "&createflags=" + a;
+		let { strCreateURL, browserView } = SteamClient.BrowserView.CreatePopup(u);
+		browserView.SetName(m);
+		if (eCreationFlags) {
+			strCreateURL += `&createflags=${eCreationFlags}`;
 		}
 		let p = window.open(
-			d,
+			strCreateURL,
 			m,
 			"top=0,left=0,width=540,height=700,resizable=yes,status=0,toolbar=0,menubar=0,location=0",
 		);
@@ -59,7 +65,7 @@ class c {
 		p.addEventListener("unload", this.OnUnload);
 		this.m_viewWindow = p;
 		this.m_rootElement = g;
-		this.m_browserView = A;
+		this.m_browserView = browserView;
 		this.m_browserViewName = m;
 		AddMissingStylesheetsToWindow(this.m_viewWindow, GetStyleSheetLinks());
 		this.m_renderWhenReady = new l.Q(p.document, g);
@@ -100,22 +106,15 @@ class c {
 		window.setTimeout(() => c.m_setActiveBrowserViewNames.delete(e), 100);
 	}
 }
-(0, a.Cg)([o.o], c.prototype, "OnUnload", null);
-var m = require("./7558.js");
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require(/*webcrack:missing*/ "./11131.js");
-var A = require("./20326.js");
-var p = require(/*webcrack:missing*/ "./736.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require(/*webcrack:missing*/ "./90685.js");
+Cg([o.o], c.prototype, "OnUnload", null);
 export function sd(e, t) {
-	const r = (function (e) {
-		const t = (0, d.R7)();
-		const [r, i] = n.useState(null);
+	const r = ((e) => {
+		const t = R7();
+		const [r, setR] = n.useState(null);
 		const a = e?.name;
 		n.useEffect(() => {
 			let r = new c();
-			r.CreateView(() => i(r), e, t);
+			r.CreateView(() => setR(r), e, t);
 			return () => r.DestroyView();
 		}, [t, a]);
 		return r;
@@ -127,7 +126,7 @@ export function sd(e, t) {
 		const t = r.GetRenderElement().ownerDocument.defaultView;
 		e(new i.Q(t));
 	}, [r, e]);
-	(0, A.UV)(r?.GetViewWindow());
+	UV(r?.GetViewWindow());
 	return r;
 }
 function _(e) {
@@ -136,25 +135,25 @@ function _(e) {
 		e.current = null;
 	}
 }
-export const m4 = n.memo(function (e) {
-	const { browser: t, visible: r, animateIn: i, underlay: a = false, ...s } = e;
-	const [o, l] = n.useState();
-	const c = r && o === "visible";
-	const A = (0, d.R7)();
-	const C = (0, h.GD)(A.ownerWindow);
-	const [f, y] = n.useState(false);
-	let S = (0, u.p1)();
-	let w = (function (e, t, r, i, a) {
-		let s = n.useRef(null);
-		let o = n.useRef(false);
-		let l = n.useRef({
+export const m4 = n.memo((e) => {
+	const { browser, visible, animateIn, underlay = false, ...s } = e;
+	const [o, setO] = n.useState();
+	const c = visible && o === "visible";
+	const A = R7();
+	const C = GD(A.ownerWindow);
+	const [f, setF] = n.useState(false);
+	let S = p1();
+	let w = ((e, t, r, i, a) => {
+		let SRef = n.useRef(null);
+		let ORef = n.useRef(false);
+		let LRef = n.useRef({
 			x: undefined,
 			y: undefined,
 			height: undefined,
 			width: undefined,
 		});
-		let c = n.useRef(null);
-		u = c;
+		let CRef = n.useRef(null);
+		u = CRef;
 		n.useEffect(
 			() => () => {
 				_(u);
@@ -162,27 +161,33 @@ export const m4 = n.memo(function (e) {
 			[u],
 		);
 		n.useLayoutEffect(() => {
-			if (!s.current || !e) {
+			if (!SRef.current || !e) {
 				return;
 			}
-			let r = s.current.getBoundingClientRect();
+			let r = SRef.current.getBoundingClientRect();
 			let n = {
 				x: r.left,
 				y: r.top,
 				width: r.right - r.left,
 				height: r.bottom - r.top,
 			};
-			let a = l.current;
+			let l_current = LRef.current;
 			if (
-				n.x != a.x ||
-				n.y != a.y ||
-				n.width != a.width ||
-				n.height != a.height ||
-				o.current != t
+				n.x != l_current.x ||
+				n.y != l_current.y ||
+				n.y != l_current.y ||
+				n.width != l_current.width ||
+				n.y != l_current.y ||
+				n.width != l_current.width ||
+				n.height != l_current.height ||
+				n.y != l_current.y ||
+				n.width != l_current.width ||
+				n.height != l_current.height ||
+				ORef.current != t
 			) {
-				l.current = n;
-				o.current = t;
-				_(c);
+				LRef.current = n;
+				ORef.current = t;
+				_(CRef);
 				if (t && i) {
 					let t = {
 						...n,
@@ -194,10 +199,10 @@ export const m4 = n.memo(function (e) {
 					};
 					let a = {
 						msDuration: i.nDuration,
-						onComplete: () => _(c),
+						onComplete: () => _(CRef),
 					};
 					let s = new m.Q8(window, a, r);
-					c.current = s;
+					CRef.current = s;
 					s.Start();
 				}
 				e.SetBounds(n.x, n.y, n.width, n.height);
@@ -213,22 +218,23 @@ export const m4 = n.memo(function (e) {
 				return () => e.SetVisible(false);
 			}
 		}, [t, r, e, A]);
-		return s;
-	})(t, c, C, i, a);
-	(function (e) {
+		return SRef;
+	})(browser, c, C, animateIn, underlay);
+	((e) => {
 		const t = n.useCallback(
 			(t, r, n) => {
 				switch (t) {
-					case "UnlockH264Request":
-						if ((0, p.Dp)("RemotePlay.UnlockH264")) {
+					case "UnlockH264Request": {
+						if (Dp("RemotePlay.UnlockH264")) {
 							console.log(
 								`Request received to unlock H.264: reason: ${r} url: strUrl: ${n}`,
 							);
 							window.SteamClient.RemotePlay.UnlockH264();
 						}
 						break;
-					case "RequestSupportSystemReport":
-						if ((0, p.Dp)("User.RequestSupportSystemReport")) {
+					}
+					case "RequestSupportSystemReport": {
+						if (Dp("User.RequestSupportSystemReport")) {
 							window.SteamClient.User.RequestSupportSystemReport(n).then(
 								(t) => {
 									let r = JSON.stringify(t);
@@ -242,6 +248,7 @@ export const m4 = n.memo(function (e) {
 							let r = JSON.stringify(t);
 							e.PostMessage("SupportSystemReport", r);
 						}
+					}
 				}
 			},
 			[e],
@@ -250,45 +257,53 @@ export const m4 = n.memo(function (e) {
 			() => (e ? (e.on("message", t), () => e.off("message", t)) : () => {}),
 			[e, t],
 		);
-	})(t);
-	const B = n.useCallback((e) => y(e), [y]);
+	})(browser);
+	const B = n.useCallback((e) => setF(e), [setF]);
 	n.useEffect(
 		() =>
-			t ? (t.on("full-screen", B), () => t.off("full-screen", B)) : () => {},
-		[t, B],
+			browser
+				? (browser.on("full-screen", B), () => browser.off("full-screen", B))
+				: () => {},
+		[browser, B],
 	);
 	n.useEffect(() => {
-		const e = w.current;
-		if (e) {
+		const w_current = w.current;
+		if (w_current) {
 			const t = () => {
-				l(e.ownerDocument.visibilityState);
+				setO(w_current.ownerDocument.visibilityState);
 			};
 			t();
-			e.ownerDocument.addEventListener("visibilitychange", t);
-			return () => e.ownerDocument.removeEventListener("visibilitychange", t);
+			w_current.ownerDocument.addEventListener("visibilitychange", t);
+			return () =>
+				w_current.ownerDocument.removeEventListener("visibilitychange", t);
 		}
 		return () => {};
 	}, [w]);
 	let v = {};
-	if (!r) {
+	if (!visible) {
 		v.display = "none";
 	}
 	if (f) {
 		v.position = "fixed";
-		v.top = v.right = v.bottom = v.left = 0;
-		if ((0, g.Hn)()) {
+		v.top = 0;
+		v.right = 0;
+		v.bottom = 0;
+		v.left = 0;
+		if (Hn()) {
 			v.bottom = 3;
 		}
 	}
-	let I = (0, u.Ue)(S, w);
-	return n.createElement("div", {
-		ref: I,
-		...s,
-		style: {
-			...v,
-			...s.style,
-		},
-	});
+	let I = Ue(S, w);
+	return (
+		<div
+			ref={I}
+			{...s}
+			style={{
+				...v,
+				...s.style,
+			}}
+		/>
+	);
 });
 export function Fx(e, t) {
 	return n.useCallback(() => {

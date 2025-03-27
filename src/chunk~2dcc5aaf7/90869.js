@@ -1,33 +1,33 @@
-export var eF;
-export var wI;
-var a = require(/*webcrack:missing*/ "./34629.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./83957.js");
-var l = o;
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require(/*webcrack:missing*/ "./93960.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./36523.js");
-var A = require(/*webcrack:missing*/ "./37322.js");
-var p = require("./87232.js");
+import a, { Cg } from "./34629.js";
+import s, { Gn } from "./89193.js";
+import o from "./83957.js";
+import c from "./12176.js";
+import m from "./93960.js";
+import u from "./72476.js";
+import d from "./36523.js";
+import A from "./37322.js";
+import { ZI } from "./87232.js";
+export let eF;
+export let wI;
+const l = o;
 export function FU(e) {
 	const {
-		shared_secret: t,
-		identity_secret: r,
-		secret_1: n,
-		status: i,
-		uri: a,
-		server_time: s,
+		shared_secret,
+		identity_secret,
+		secret_1,
+		status,
+		uri,
+		server_time,
 		...o
 	} = e;
 	return {
-		shared_secret: A.iI(t),
-		identity_secret: A.iI(r),
-		secret_1: A.iI(n),
+		shared_secret: A.iI(shared_secret),
+		identity_secret: A.iI(identity_secret),
+		secret_1: A.iI(secret_1),
 		...o,
 	};
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Generic = 1)] = "Generic";
 	e[(e.Expired = 2)] = "Expired";
@@ -36,7 +36,7 @@ export function FU(e) {
 	e[(e.RateLimitExceeded = 5)] = "RateLimitExceeded";
 	e[(e.AnonymousLogin = 6)] = "AnonymousLogin";
 })((eF ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_Success = 0)] = "k_Success";
 	e[(e.k_PrimaryDomainFail = 1)] = "k_PrimaryDomainFail";
 	e[(e.k_SecondaryDomainFail = 2)] = "k_SecondaryDomainFail";
@@ -56,7 +56,7 @@ export class gf {
 	m_strExtendedErrorMessage = "";
 	m_onDeviceDetailsCallback;
 	constructor(e, t, r, n) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_transport = e;
 		this.m_onCompleteCallback = t;
 		this.m_onDeviceDetailsCallback = r;
@@ -93,9 +93,7 @@ export class gf {
 			if (r !== 1) {
 				if (r === 2) {
 					const e = t.Hdr().transport_error();
-					(0, p.ZI)(
-						`Failed to poll auth session. Result ${r}. Transport Error: ${e}`,
-					);
+					ZI(`Failed to poll auth session. Result ${r}. Transport Error: ${e}`);
 					if (e === 2 || e === 3) {
 						this.m_transport.MakeReady();
 						window.setTimeout(this.PollForUpdate, this.m_msPollInterval);
@@ -120,7 +118,7 @@ export class gf {
 						});
 						return r;
 					}
-					(0, p.ZI)(`Failed to poll auth session. Result: ${r}`);
+					ZI(`Failed to poll auth session. Result: ${r}`);
 					this.m_eFailureState = eF.Generic;
 				}
 				this.m_onCompleteCallback({
@@ -129,30 +127,30 @@ export class gf {
 				return r;
 			}
 			const {
-				new_challenge_url: i,
-				new_client_id: a,
-				refresh_token: s,
-				access_token: o,
-				account_name: l,
-				had_remote_interaction: m,
-				new_guard_data: u,
+				new_challenge_url,
+				new_client_id,
+				refresh_token,
+				access_token,
+				account_name,
+				had_remote_interaction,
+				new_guard_data,
 			} = t.Body().toObject();
-			this.m_bRemoteInteraction = !!m;
-			if (s) {
+			this.m_bRemoteInteraction = !!had_remote_interaction;
+			if (refresh_token) {
 				this.m_onCompleteCallback({
 					bSuccess: true,
-					strRefreshToken: s,
-					strAccessToken: o,
-					strAccountName: l,
-					strNewGuardData: u,
+					strRefreshToken: refresh_token,
+					strAccessToken: access_token,
+					strAccountName: account_name,
+					strNewGuardData: new_guard_data,
 				});
 				return r;
 			} else {
-				if (i) {
-					this.m_strChallengeURL = i;
+				if (new_challenge_url) {
+					this.m_strChallengeURL = new_challenge_url;
 				}
-				if (a) {
-					this.m_strClientID = a;
+				if (new_client_id) {
+					this.m_strClientID = new_client_id;
 				}
 				this.m_activeTimerID = window.setTimeout(
 					this.PollForUpdate,
@@ -161,7 +159,7 @@ export class gf {
 				return r;
 			}
 		} catch (e) {
-			(0, p.ZI)(`Failed to poll auth session. ${e}`);
+			ZI(`Failed to poll auth session. ${e}`);
 			this.m_eFailureState = eF.Generic;
 			this.m_onCompleteCallback({
 				bSuccess: false,
@@ -204,20 +202,23 @@ export function yp(e) {
 		})
 		.then(
 			(e) => {
-				const { data: t } = e;
+				const { data } = e;
 				if (
-					!t ||
-					!t.transfer_info ||
-					!t.steamID ||
-					!Array.isArray(t.transfer_info)
+					!data ||
+					!data.transfer_info ||
+					!data.transfer_info ||
+					!data.steamID ||
+					!data.transfer_info ||
+					!data.steamID ||
+					!Array.isArray(data.transfer_info)
 				) {
-					(0, p.ZI)("Result of finalizelogin does not match expectations!");
+					ZI("Result of finalizelogin does not match expectations!");
 					return wI.k_PrimaryDomainFail;
 				}
-				const { transfer_info: r, steamID: n, primary_domain: a } = t;
+				const { transfer_info, steamID, primary_domain } = data;
 				return Promise.all(
-					r.map(({ url: e, params: t }) =>
-						(async function (e, t) {
+					transfer_info.map(({ url, params }) =>
+						(async (e, t) => {
 							const r = new URL(e);
 							let n = true;
 							try {
@@ -228,56 +229,56 @@ export function yp(e) {
 									timeout: 10000,
 								});
 								if (a.status !== 200) {
-									(0, p.ZI)(
+									ZI(
 										`Transfer login to ${r.host} failed with status code: ${a.status}`,
 									);
 									n = false;
 								} else if (a.data.result !== 1) {
-									(0, p.ZI)(
+									ZI(
 										`Transfer login to ${r.host} failed with result: ${a.data.result}`,
 									);
 									n = false;
 								}
 							} catch (e) {
-								(0, p.ZI)(`Transfer login to ${r.host} failed: "${e}"`);
+								ZI(`Transfer login to ${r.host} failed: "${e}"`);
 								n = false;
 							}
 							return {
 								bSuccess: n,
 								domain: r.host,
 							};
-						})(e, {
-							...t,
-							steamID: n,
+						})(url, {
+							...params,
+							steamID: steamID,
 						}),
 					),
 				).then(
 					(e) =>
-						(function (e, t) {
-							let r = wI.k_Success;
+						((e, t) => {
+							let wI_k_Success = wI.k_Success;
 							e.forEach((e) => {
 								if (!e.bSuccess) {
 									if (t && e.domain.toLowerCase() === t.toLowerCase()) {
-										r = wI.k_PrimaryDomainFail;
-									} else if (r == wI.k_Success) {
-										r = wI.k_SecondaryDomainFail;
+										wI_k_Success = wI.k_PrimaryDomainFail;
+									} else if (wI_k_Success == wI.k_Success) {
+										wI_k_Success = wI.k_SecondaryDomainFail;
 									}
 								}
 							});
-							return r;
-						})(e, a),
+							return wI_k_Success;
+						})(e, primary_domain),
 					() => wI.k_SecondaryDomainFail,
 				);
 			},
 			() => {
-				(0, p.ZI)("Failed to finalize login. Initial call failed.");
+				ZI("Failed to finalize login. Initial call failed.");
 				return wI.k_PrimaryDomainFail;
 			},
 		);
 }
-(0, a.Cg)([s.sH], gf.prototype, "m_strChallengeURL", undefined);
-(0, a.Cg)([s.sH], gf.prototype, "m_bRemoteInteraction", undefined);
-(0, a.Cg)([s.sH], gf.prototype, "m_eFailureState", undefined);
-(0, a.Cg)([s.sH], gf.prototype, "m_strExtendedErrorMessage", undefined);
-(0, a.Cg)([m.o], gf.prototype, "PollForUpdate", null);
-(0, a.Cg)([m.o], gf.prototype, "SetTokenToRevoke", null);
+Cg([s.sH], gf.prototype, "m_strChallengeURL", undefined);
+Cg([s.sH], gf.prototype, "m_bRemoteInteraction", undefined);
+Cg([s.sH], gf.prototype, "m_eFailureState", undefined);
+Cg([s.sH], gf.prototype, "m_strExtendedErrorMessage", undefined);
+Cg([m.o], gf.prototype, "PollForUpdate", null);
+Cg([m.o], gf.prototype, "SetTokenToRevoke", null);

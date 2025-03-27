@@ -1,21 +1,28 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./83957.js");
-var o = s;
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./13484.js");
-var m = require("./69740.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn, fm, h5 } from "./89193.js";
+import { q3 } from "./90095.js";
+import s from "./83957.js";
+import l from "./72476.js";
+import c from "./13484.js";
+import m from "./69740.js";
+import d from "./13665.js";
+import A from "./96593.js";
+import p from "./96000.js";
+import g from "./79769.js";
+import h from "./10812.js";
+import C from "./12176.js";
+import _ from "./52451.js";
+import f from "./61175.js";
+import b from "./34792.js";
+import y from "./77347.js";
+const o = s;
 class u extends c.ZQ {
 	async DeleteOldAnnouncement(e, t) {
 		let r = new URLSearchParams();
 		r.append("sessionid", l.TS.SESSIONID);
-		let n =
-			l.TS.COMMUNITY_BASE_URL +
-			"/gid/" +
-			e.ConvertTo64BitString() +
-			"/announcements/ajaxdeleteannouncement/" +
-			t;
+		let n = `${
+			l.TS.COMMUNITY_BASE_URL
+		}/gid/${e.ConvertTo64BitString()}/announcements/ajaxdeleteannouncement/${t}`;
 		let i = await o.post(n, r);
 		if (i.data.success != 1) {
 			throw i.data;
@@ -32,36 +39,26 @@ class u extends c.ZQ {
 		return u.sm_Instance;
 	}
 }
-var d = require("./13665.js");
-var A = require("./96593.js");
-var p = require("./96000.js");
-var g = require(/*webcrack:missing*/ "./79769.js");
-var h = require("./10812.js");
-var C = require(/*webcrack:missing*/ "./12176.js");
-var _ = require(/*webcrack:missing*/ "./52451.js");
-var f = require("./61175.js");
-var b = require("./34792.js");
-var y = require("./77347.js");
 export const IB = new u();
 window.partnerEventStore = IB;
 const w = 43200000;
 const B = [10000, 60000, 600000, 3600000, 7200000];
 export function yX() {
-	return (0, a.q3)(() => dm.GetWhatsNewEvents());
+	return q3(() => dm.GetWhatsNewEvents());
 }
 export function Ss() {
-	return (0, a.q3)(() =>
+	return q3(() =>
 		dm.GetAppsShowingLess().filter((e) => A.tw.GetAppOverviewByAppID(e)),
 	);
 }
 export function M3() {
-	return (0, a.q3)(() =>
+	return q3(() =>
 		dm.GetAppsShowingMore().filter((e) => A.tw.GetAppOverviewByAppID(e)),
 	);
 }
 class M {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_iGetBestEventsForUserErrorBackoff = 0;
@@ -87,16 +84,16 @@ class M {
 	async Init(e) {
 		this.m_CMInterface = e;
 		this.m_nEventsReturnedLastTime = window.localStorage.getItem(
-			"EventsLastFetch_" + this.m_CMInterface.steamid.GetAccountID(),
+			`EventsLastFetch_${this.m_CMInterface.steamid.GetAccountID()}`,
 		);
 		let t = window.localStorage.getItem(
-			"EventsHiddenLocally_" + this.m_CMInterface.steamid.GetAccountID(),
+			`EventsHiddenLocally_${this.m_CMInterface.steamid.GetAccountID()}`,
 		);
 		let r = JSON.parse(t);
 		if (r != null && r.length) {
 			this.m_rgEventsHiddenLocally = r;
 		}
-		(0, i.fm)(() => {
+		fm(() => {
 			if (
 				!this.m_bConnectedToSteam &&
 				y.OQ.Get().hasSteamConnection &&
@@ -176,6 +173,9 @@ class M {
 			(e) =>
 				e.appid == f.B6 ||
 				e.appid == f.aF ||
+				e.appid == f.aF ||
+				e.appid == f.gV ||
+				e.appid == f.aF ||
 				e.appid == f.gV ||
 				p.md.BIsVisible(e.appid),
 		);
@@ -184,6 +184,9 @@ class M {
 		return this.m_vecHomeBestEventsForUser.filter(
 			(e) =>
 				e.appid == f.B6 ||
+				e.appid == f.aF ||
+				e.appid == f.aF ||
+				e.appid == f.gV ||
 				e.appid == f.aF ||
 				e.appid == f.gV ||
 				p.md.BIsVisible(e.appid),
@@ -238,7 +241,7 @@ class M {
 			e,
 		);
 		if (t.GetEResult() == 1) {
-			(0, i.h5)(() => {
+			h5(() => {
 				this.m_vecAppsShowingMore = [];
 				this.m_vecAppsShowingLess = [];
 				for (let e of t.Body().priorities()) {
@@ -273,7 +276,7 @@ class M {
 			this.m_CMInterface.GetServiceTransport(),
 			t,
 		);
-		return (0, i.h5)(() => {
+		return h5(() => {
 			this.UpdateBestEventsForCurrentUser();
 			if (this.m_TimeoutJustChangedPriority) {
 				clearTimeout(this.m_TimeoutJustChangedPriority);
@@ -297,7 +300,7 @@ class M {
 			this.m_CMInterface.GetServiceTransport(),
 			t,
 		);
-		return (0, i.h5)(() => {
+		return h5(() => {
 			this.UpdateBestEventsForCurrentUser();
 			if (this.m_TimeoutJustChangedPriority) {
 				clearTimeout(this.m_TimeoutJustChangedPriority);
@@ -315,13 +318,13 @@ class M {
 		});
 	}
 	AddToDoNotShowList(e) {
-		if (this.m_rgEventsHiddenLocally.indexOf(e) != -1) {
+		if (this.m_rgEventsHiddenLocally.includes(e)) {
 			return;
 		}
 		this.m_rgEventsHiddenLocally.push(e);
 		let t = JSON.stringify(this.m_rgEventsHiddenLocally);
 		window.localStorage.setItem(
-			"EventsHiddenLocally_" + this.m_CMInterface.steamid.GetAccountID(),
+			`EventsHiddenLocally_${this.m_CMInterface.steamid.GetAccountID()}`,
 			t,
 		);
 	}
@@ -330,7 +333,7 @@ class M {
 			this.m_rgEventsHiddenLocally = [];
 			let e = JSON.stringify(this.m_rgEventsHiddenLocally);
 			window.localStorage.setItem(
-				"EventsHiddenLocally_" + this.m_CMInterface.steamid.GetAccountID(),
+				`EventsHiddenLocally_${this.m_CMInterface.steamid.GetAccountID()}`,
 				e,
 			);
 			this.UpdateBestEventsForCurrentUser();
@@ -366,22 +369,22 @@ class M {
 		let e = b.rV.clientSettings.library_whats_new_show_only_product_updates;
 		IB.GetBestEventsForCurrentUser(0, e)
 			.then((e) => {
-				(0, i.h5)(() => {
+				h5(() => {
 					this.m_vecHomeBestEventsForUser = [];
 					e.forEach((e) => {
-						let t = e.event;
-						if (this.m_rgEventsHiddenLocally.indexOf(t.GID) === -1) {
-							if (A.tw.GetAppOverviewByAppID(t.appid)) {
+						let e_event = e.event;
+						if (!this.m_rgEventsHiddenLocally.includes(e_event.GID)) {
+							if (A.tw.GetAppOverviewByAppID(e_event.appid)) {
 								if (e.bPossibleTakeOver) {
-									this.m_vecHomeTakeOverEventsForUser.push(t);
+									this.m_vecHomeTakeOverEventsForUser.push(e_event);
 								} else {
-									this.m_vecHomeBestEventsForUser.push(t);
+									this.m_vecHomeBestEventsForUser.push(e_event);
 								}
 							}
-							this.m_mapAppEventPriorities.set(t.appid, e.nAppPriority);
+							this.m_mapAppEventPriorities.set(e_event.appid, e.nAppPriority);
 						}
 						window.localStorage.setItem(
-							"EventsLastFetch_" + this.m_CMInterface.steamid.GetAccountID(),
+							`EventsLastFetch_${this.m_CMInterface.steamid.GetAccountID()}`,
 							this.GetLibraryHomeBestEventsForUser().length +
 								this.GetTakeOverEvents().length,
 						);
@@ -397,12 +400,11 @@ class M {
 				this.m_bEventsLoaded = true;
 				if (e.response !== undefined && e.response.data !== undefined) {
 					console.log(
-						"Error calling GetBestEventsForCurrentUser: " +
-							e.response.data.err_msg,
+						`Error calling GetBestEventsForCurrentUser: ${e.response.data.err_msg}`,
 					);
 				} else {
 					console.log(
-						"Error calling GetBestEventsForCurrentUser Generic: " + e,
+						`Error calling GetBestEventsForCurrentUser Generic: ${e}`,
 					);
 				}
 				let t = B[this.m_iGetBestEventsForUserErrorBackoff];
@@ -410,32 +412,27 @@ class M {
 					this.m_iGetBestEventsForUserErrorBackoff + 1,
 					B.length - 1,
 				);
-				console.log("Will retry GetBestEventsForCurrentUser in " + t + "ms");
+				console.log(`Will retry GetBestEventsForCurrentUser in ${t}ms`);
 				this.m_schScheduledUpdateBestEventsForUser.Schedule(t, () =>
 					this.UpdateBestEventsForCurrentUser(),
 				);
 			});
 	}
 }
-(0, n.Cg)([i.sH.shallow], M.prototype, "m_vecHomeBestEventsForUser", undefined);
-(0, n.Cg)(
-	[i.sH.shallow],
-	M.prototype,
-	"m_vecHomeTakeOverEventsForUser",
-	undefined,
-);
-(0, n.Cg)([i.sH.shallow], M.prototype, "m_vecAppsShowingMore", undefined);
-(0, n.Cg)([i.sH.shallow], M.prototype, "m_vecAppsShowingLess", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_bNoMoreOrLessDataFetched", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_mapAppEventPriorities", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_bEventsLoaded", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_bInitialLoadPending", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_nEventsReturnedLastTime", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_nAppIDJustChangedPriority", undefined);
-(0, n.Cg)([i.sH], M.prototype, "m_bLastPriorityChangeWasLower", undefined);
-(0, n.Cg)([_.oI], M.prototype, "ImageFailureCallback", null);
-(0, n.Cg)([_.oI], M.prototype, "FilterImageURLsForKnownFailures", null);
-(0, n.Cg)([i.XI.bound], M.prototype, "ClearJustChangedPriority", null);
-(0, n.Cg)([i.XI], M.prototype, "ClearJustChangedAppPriority", null);
+Cg([i.sH.shallow], M.prototype, "m_vecHomeBestEventsForUser", undefined);
+Cg([i.sH.shallow], M.prototype, "m_vecHomeTakeOverEventsForUser", undefined);
+Cg([i.sH.shallow], M.prototype, "m_vecAppsShowingMore", undefined);
+Cg([i.sH.shallow], M.prototype, "m_vecAppsShowingLess", undefined);
+Cg([i.sH], M.prototype, "m_bNoMoreOrLessDataFetched", undefined);
+Cg([i.sH], M.prototype, "m_mapAppEventPriorities", undefined);
+Cg([i.sH], M.prototype, "m_bEventsLoaded", undefined);
+Cg([i.sH], M.prototype, "m_bInitialLoadPending", undefined);
+Cg([i.sH], M.prototype, "m_nEventsReturnedLastTime", undefined);
+Cg([i.sH], M.prototype, "m_nAppIDJustChangedPriority", undefined);
+Cg([i.sH], M.prototype, "m_bLastPriorityChangeWasLower", undefined);
+Cg([_.oI], M.prototype, "ImageFailureCallback", null);
+Cg([_.oI], M.prototype, "FilterImageURLsForKnownFailures", null);
+Cg([i.XI.bound], M.prototype, "ClearJustChangedPriority", null);
+Cg([i.XI], M.prototype, "ClearJustChangedAppPriority", null);
 export const dm = new M();
 window.libraryEventStore = dm;

@@ -1,32 +1,32 @@
-var n = require(/*webcrack:missing*/ "./41230.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./57931.js");
-var s = require("./83591.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require("./47628.js");
-var m = c;
-export const E = (0, n.PA)((e) => {
-	const { appid: t, bIsMuted: r } = e;
-	const n = s.Fm.Get().BOwnsApp(t);
-	const c = (0, o.A)(
+import n, { PA } from "./41230.js";
+import i from "./63696.js";
+import { o as o_1 } from "./57931.js";
+import s from "./83591.js";
+import o, { A } from "./90765.js";
+import c from "./47628.js";
+const m = c;
+export const E = PA((e) => {
+	const { appid, bIsMuted } = e;
+	const n = s.Fm.Get().BOwnsApp(appid);
+	const c = A(
 		m.CapsuleBottomBar,
-		r && m.Muted,
+		bIsMuted && m.Muted,
 		n ? m.PlayNowButton : m.AddToLibraryButton,
 	);
-	return i.createElement(
-		"div",
-		{
-			onClick: (e) => {
+	return (
+		<div
+			onClick={(e) => {
 				e.preventDefault();
 				if (n) {
-					(0, a.o)(t);
+					o_1(appid);
 				} else {
-					s.Fm.Get().AddLicenseForFreeGame(t);
+					s.Fm.Get().AddLicenseForFreeGame(appid);
 				}
-			},
-			className: c,
-		},
-		Localize(n ? "#Sale_PlayNow" : "#Sale_AddToLibrary"),
+			}}
+			className={c}
+		>
+			{Localize(n ? "#Sale_PlayNow" : "#Sale_AddToLibrary")}
+		</div>
 	);
 });

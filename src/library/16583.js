@@ -91,10 +91,11 @@ const i = [
 ];
 export function Kx(e) {
 	let t = "";
-	for (let n = 0; n < e.length; n++) {
-		const r = e[n];
+
+	for (const r of e) {
 		t += i[r >>> 4] + i[r & 15];
 	}
+
 	return t;
 }
 export function w(e) {

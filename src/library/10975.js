@@ -1,6 +1,6 @@
-export var PN;
-var i = require("./79769.js");
-(function (e) {
+import i from "./79769.js";
+export let PN;
+((e) => {
 	e[(e.LaunchGame = 0)] = "LaunchGame";
 	e[(e.FriendMessage = 1)] = "FriendMessage";
 	e[(e.ChatMention = 2)] = "ChatMention";

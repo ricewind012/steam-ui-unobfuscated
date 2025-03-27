@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	"vrgamepadui-floating-side-panel-width": "300px",
 	"vrgamepadui-floating-side-panel-height": "600px",

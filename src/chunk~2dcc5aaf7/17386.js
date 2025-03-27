@@ -1,31 +1,31 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./34792.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require("./9282.js");
-var c = l;
-var m = require(/*webcrack:missing*/ "./73870.js");
-var u = require("./64608.js");
-var d = require("./10606.js");
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var p = require(/*webcrack:missing*/ "./52451.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require("./96555.js");
-var C = require("./91957.js");
-var _ = require("./2306.js");
+import n, { Cg } from "./34629.js";
+import i from "./34792.js";
+import a, { Gn, fm } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./63696.js";
+import l from "./9282.js";
+import m from "./73870.js";
+import u from "./64608.js";
+import d from "./10606.js";
+import p from "./52451.js";
+import g, { Pr } from "./72476.js";
+import h, { l5 } from "./96555.js";
+import C from "./91957.js";
+import _ from "./2306.js";
+const c = l;
 export function DP() {
-	const e = (0, h.l5)();
+	const e = l5();
 	const [t] = lJ();
-	return !(0, g.Pr)() && (e || t);
+	return !Pr() && (e || t);
 }
 function b(e = false) {
-	const t = (0, h.l5)();
-	const r = e ? null : (0, Localize)("#Settings_Display_ExternalDisplay");
-	let n = (0, s.q3)(() => i.rV.settings?.strDisplayName);
+	const t = l5();
+	const r = e || (0, Localize)("#Settings_Display_ExternalDisplay");
+	let n = q3(() => i.rV.settings?.strDisplayName);
 	if (n == null || n.length == 0) {
 		n = r;
 	}
@@ -55,10 +55,10 @@ export function vB() {
 	}
 }
 export function XD(e) {
-	const t = (0, s.q3)(() => i.rV.settings?.flCurrentUnderscanLevel ?? 0);
-	const r = (0, s.q3)(() => i.rV.settings?.bUnderscanEnabled);
-	const [n, a] = o.useState(t);
-	o.useEffect(() => a(t), [t]);
+	const t = q3(() => i.rV.settings?.flCurrentUnderscanLevel ?? 0);
+	const r = q3(() => i.rV.settings?.bUnderscanEnabled);
+	const [n, setN] = o.useState(t);
+	o.useEffect(() => setN(t), [t]);
 	const l = (e) => 1 - (e - 0) + 0;
 	const c = l(0);
 	const m = [
@@ -75,57 +75,61 @@ export function XD(e) {
 		return null;
 	}
 	const u = l(n);
-	return o.createElement(C.V, {
-		feature: 7,
-		disabled: !r,
-		layout: "below",
-		value: u,
-		min: 0,
-		max: 1,
-		step: 0.04,
-		resetValue: c,
-		onChange: (e, t) => {
-			const r = l(e);
-			if (t == 2 || t == 4) {
-				SteamClient.System.Display.SetUnderscanLevel(r);
-			}
-			a(r);
-		},
-		onChangeComplete: (e, t) => {
-			const r = l(e);
-			if (t != 2 && t != 4) {
-				SteamClient.System.Display.SetUnderscanLevel(r);
-			}
-		},
-		notchCount: 2,
-		notchLabels: m,
-		notchTicksVisible: false,
-	});
+	return (
+		<C.V
+			feature={7}
+			disabled={!r}
+			layout="below"
+			value={u}
+			min={0}
+			max={1}
+			step={0.04}
+			resetValue={c}
+			onChange={(e, t) => {
+				const r = l(e);
+				if (t == 2 || t == 4) {
+					SteamClient.System.Display.SetUnderscanLevel(r);
+				}
+				setN(r);
+			}}
+			onChangeComplete={(e, t) => {
+				const r = l(e);
+				if (t != 2 && t != 4) {
+					SteamClient.System.Display.SetUnderscanLevel(r);
+				}
+			}}
+			notchCount={2}
+			notchLabels={m}
+			notchTicksVisible={false}
+		/>
+	);
 }
 export function VJ(e) {
-	const t = !(0, s.q3)(() => i.rV.settings?.bUnderscanEnabled);
-	let r = e.bottomSeparator;
-	if (r == "auto") {
-		r = t ? "standard" : "none";
+	const t = !q3(() => i.rV.settings?.bUnderscanEnabled);
+	let e_bottomSeparator = e.bottomSeparator;
+	if (e_bottomSeparator == "auto") {
+		e_bottomSeparator = t ? "standard" : "none";
 	}
-	return o.createElement(_.C, {
-		feature: 7,
-		label: (0, Localize)("#Settings_Display_Underscan_Auto"),
-		checked: t,
-		onChange: (e) => {
-			SteamClient.System.Display.EnableUnderscan(!e);
-		},
-		bottomSeparator: r,
-	});
+	return (
+		<_.C
+			feature={7}
+			label={(0, Localize)("#Settings_Display_Underscan_Auto")}
+			checked={t}
+			onChange={(e) => {
+				SteamClient.System.Display.EnableUnderscan(!e);
+			}}
+			bottomSeparator={e_bottomSeparator}
+		/>
+	);
 }
-export function dy(e) {
-	const t = (0, s.q3)(() => i.rV.settings?.bDisplayIsUsingAutoScale);
-	const r = (0, s.q3)(() => i.rV.settings?.flCurrentDisplayScaleFactor ?? 1.5);
-	const [n, a] = o.useState(r);
-	o.useEffect(() => a(r), [r]);
-	const l = (0, s.q3)(() => i.rV.settings?.flAutoDisplayScaleFactor);
-	const c = (0, s.q3)(() => i.rV.settings?.flMinDisplayScaleFactor ?? 0.5);
-	const m = (0, s.q3)(() => i.rV.settings?.flMaxDisplayScaleFactor ?? 2.5);
+export function Dy(e) {
+	const t = q3(() => i.rV.settings?.bDisplayIsUsingAutoScale);
+	const r = q3(() => i.rV.settings?.flCurrentDisplayScaleFactor ?? 1.5);
+	const [n, setN] = o.useState(r);
+	o.useEffect(() => setN(r), [r]);
+	const l = q3(() => i.rV.settings?.flAutoDisplayScaleFactor);
+	const c = q3(() => i.rV.settings?.flMinDisplayScaleFactor ?? 0.5);
+	const m = q3(() => i.rV.settings?.flMaxDisplayScaleFactor ?? 2.5);
 	const u = (m - c) / 10;
 	const d = [
 		{
@@ -144,33 +148,35 @@ export function dy(e) {
 	if (t) {
 		return null;
 	} else {
-		return o.createElement(C.V, {
-			feature: 7,
-			layout: "below",
-			value: n,
-			min: c,
-			max: m,
-			step: u,
-			resetValue: l,
-			onChange: (e, t) => {
-				if (t == 2 || t == 4) {
-					SteamClient.Window.SetManualDisplayScaleFactor(e);
-				}
-				a(e);
-			},
-			onChangeComplete: (e, t) => {
-				if (t != 2 && t != 4) {
-					SteamClient.Window.SetManualDisplayScaleFactor(e);
-				}
-			},
-			notchCount: 2,
-			notchLabels: d,
-			notchTicksVisible: false,
-		});
+		return (
+			<C.V
+				feature={7}
+				layout="below"
+				value={n}
+				min={c}
+				max={m}
+				step={u}
+				resetValue={l}
+				onChange={(e, t) => {
+					if (t == 2 || t == 4) {
+						SteamClient.Window.SetManualDisplayScaleFactor(e);
+					}
+					setN(e);
+				}}
+				onChangeComplete={(e, t) => {
+					if (t != 2 && t != 4) {
+						SteamClient.Window.SetManualDisplayScaleFactor(e);
+					}
+				}}
+				notchCount={2}
+				notchLabels={d}
+				notchTicksVisible={false}
+			/>
+		);
 	}
 }
 export function Eh(e) {
-	const t = (0, s.q3)(() => i.rV.settings?.bDisplayIsUsingAutoScale);
+	const t = q3(() => i.rV.settings?.bDisplayIsUsingAutoScale);
 	const r = t === undefined;
 	const n = e.concise
 		? (0, Localize)(
@@ -179,20 +185,22 @@ export function Eh(e) {
 		: (0, Localize)(
 				"#Settings_Display_DisplayScaling_Automatically_Scale_UI_Verbose",
 			);
-	let a = e.bottomSeparator;
-	if (a == "auto") {
-		a = t ? "standard" : "none";
+	let e_bottomSeparator = e.bottomSeparator;
+	if (e_bottomSeparator == "auto") {
+		e_bottomSeparator = t ? "standard" : "none";
 	}
-	return o.createElement(_.C, {
-		feature: 7,
-		disabled: r,
-		label: n,
-		checked: t,
-		onChange: (e) => {
-			SteamClient.Window.SetAutoDisplayScale(e);
-		},
-		bottomSeparator: a,
-	});
+	return (
+		<_.C
+			feature={7}
+			disabled={r}
+			label={n}
+			checked={t}
+			onChange={(e) => {
+				SteamClient.Window.SetAutoDisplayScale(e);
+			}}
+			bottomSeparator={e_bottomSeparator}
+		/>
+	);
 }
 export function Rw(e) {
 	const t = b(true);
@@ -203,8 +211,8 @@ export function Rw(e) {
 					t,
 				)
 			: (0, Localize)("#Settings_Display_DisplayScaling_ChooseScaling");
-	const n = (0, s.q3)(() => i.rV.settings?.bDisplayIsUsingAutoScale);
-	const a = (0, s.q3)(() => !i.rV.settings?.bUnderscanEnabled);
+	const n = q3(() => i.rV.settings?.bDisplayIsUsingAutoScale);
+	const a = q3(() => !i.rV.settings?.bUnderscanEnabled);
 	const l = !n || !a;
 	const m = o.useMemo(() => i.rV.settings?.flCurrentDisplayScaleFactor, []);
 	const p = o.useMemo(() => i.rV.settings?.bDisplayIsUsingAutoScale, []);
@@ -225,57 +233,29 @@ export function Rw(e) {
 		}
 		return true;
 	};
-	return o.createElement(
-		d.eV,
-		{
-			closeModal: C,
-			onCancel: C,
-			className: c.Dialog,
-		},
-		o.createElement(u.Y9, null, r),
-		o.createElement(
-			u.nB,
-			null,
-			o.createElement(Eh, {
-				bottomSeparator: "auto",
-			}),
-			o.createElement(dy, null),
-			l &&
-				o.createElement("div", {
-					className: c.SectionSeparator,
-				}),
-			o.createElement(VJ, {
-				bottomSeparator: "auto",
-			}),
-			o.createElement(XD, null),
-			o.createElement(
-				"div",
-				{
-					className: c.YouCanChangeThisLater,
-				},
-				o.createElement(
-					"span",
-					null,
-					LocalizeReact(
-						"#Settings_Display_DisplayScaling_YouCanChangeThisIn_Section",
-						o.createElement("strong", null, (0, Localize)("#MainTabsSettings")),
-						o.createElement(
-							"strong",
-							null,
-							(0, Localize)("#Settings_Page_Display"),
-						),
-					),
-				),
-			),
-		),
-		o.createElement(
-			u.wi,
-			null,
-			o.createElement(u.CB, {
-				onOK: e.closeModal,
-				onCancel: C,
-			}),
-		),
+	return (
+		<d.eV closeModal={C} onCancel={C} className={c.Dialog}>
+			<u.Y9>{r}</u.Y9>
+			<u.nB>
+				<Eh bottomSeparator="auto" />
+				<Dy />
+				{l && <div className={c.SectionSeparator} />}
+				<VJ bottomSeparator="auto" />
+				<XD />
+				<div className={c.YouCanChangeThisLater}>
+					<span>
+						{LocalizeReact(
+							"#Settings_Display_DisplayScaling_YouCanChangeThisIn_Section",
+							<strong>{(0, Localize)("#MainTabsSettings")}</strong>,
+							<strong>{(0, Localize)("#Settings_Page_Display")}</strong>,
+						)}
+					</span>
+				</div>
+			</u.nB>
+			<u.wi>
+				<u.CB onOK={e.closeModal} onCancel={C} />
+			</u.wi>
+		</d.eV>
 	);
 }
 class E {
@@ -291,9 +271,9 @@ class E {
 		return E.s_Singleton;
 	}
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_DisplayScalingDevSettings = new m.A();
-		this.Load().then(() => (0, a.fm)(this.Save));
+		this.Load().then(() => fm(this.Save));
 	}
 	async Load() {
 		this.m_bAllowInternalDisplayScaling =
@@ -310,7 +290,7 @@ class E {
 }
 export function lJ() {
 	return [
-		(0, s.q3)(() => E.Get().m_bAllowInternalDisplayScaling),
+		q3(() => E.Get().m_bAllowInternalDisplayScaling),
 		(e) => {
 			E.Get().m_bAllowInternalDisplayScaling = e;
 		},
@@ -318,11 +298,13 @@ export function lJ() {
 }
 export function RP(e) {
 	const [t, r] = lJ();
-	return o.createElement(u.y4, {
-		label: (0, Localize)("#Settings_Display_AllowInternalScaling"),
-		checked: t,
-		onChange: r,
-	});
+	return (
+		<u.y4
+			label={(0, Localize)("#Settings_Display_AllowInternalScaling")}
+			checked={t}
+			onChange={r}
+		/>
+	);
 }
-(0, n.Cg)([a.sH], E.prototype, "m_bAllowInternalDisplayScaling", undefined);
-(0, n.Cg)([p.oI], E.prototype, "Save", null);
+Cg([a.sH], E.prototype, "m_bAllowInternalDisplayScaling", undefined);
+Cg([p.oI], E.prototype, "Save", null);

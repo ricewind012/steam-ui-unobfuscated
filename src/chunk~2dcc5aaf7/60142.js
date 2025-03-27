@@ -1,33 +1,34 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./64608.js");
-var o = require("./50532.js");
-var l = o;
-var c = require("./10606.js");
-var m = require("./13869.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require(/*webcrack:missing*/ "./90765.js");
-var g = require("./23042.js");
-var h = g;
-var C = require(/*webcrack:missing*/ "./26853.js");
-var _ = require(/*webcrack:missing*/ "./89193.js");
-var f = require("./12750.js");
-var b = require(/*webcrack:missing*/ "./69164.js");
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import s from "./64608.js";
+import o from "./50532.js";
+import c from "./10606.js";
+import { pg } from "./13869.js";
+import d from "./52451.js";
+import A from "./41230.js";
+import { A as A_1 } from "./90765.js";
+import g from "./23042.js";
+import C from "./26853.js";
+import _, { Gn } from "./89193.js";
+import f from "./12750.js";
+import b from "./69164.js";
+import M from "./35488.js";
+let n;
+const l = o;
+const h = g;
 class y {
 	constructor() {
-		(0, _.Gn)(this);
+		Gn(this);
 	}
 	strCaption = "";
 	ePrivacy = 8;
 	bSpoiler = false;
 }
-(0, i.Cg)([_.sH], y.prototype, "strCaption", undefined);
-(0, i.Cg)([_.sH], y.prototype, "ePrivacy", undefined);
-(0, i.Cg)([_.sH], y.prototype, "bSpoiler", undefined);
-(function (e) {
+Cg([_.sH], y.prototype, "strCaption", undefined);
+Cg([_.sH], y.prototype, "ePrivacy", undefined);
+Cg([_.sH], y.prototype, "bSpoiler", undefined);
+((e) => {
 	e[(e.Invalid = 0)] = "Invalid";
 	e[(e.Confirmation = 1)] = "Confirmation";
 	e[(e.Uploading = 2)] = "Uploading";
@@ -46,7 +47,7 @@ class S extends a.Component {
 		this.setState({
 			eStep: n.Uploading,
 		});
-		let e = await (async function (e, t) {
+		let e = await (async (e, t) => {
 			await SteamClient.Apps.SetLocalScreenshotCaption(
 				e.strGameID,
 				e.hHandle,
@@ -88,37 +89,30 @@ class S extends a.Component {
 	render() {
 		let e = this.props.screenshot;
 		let t = this.state.eStep;
-		return a.createElement(
-			"div",
-			{
-				className: h.ShareScreenshotDialog,
-			},
-			t == n.Confirmation &&
-				a.createElement(w, {
-					screenshot: e,
-					metadata: this.m_metadata,
-					onOK: this.OnUploadConfirmed,
-					onCancel: this.OnCancel,
-				}),
-			t == n.Uploading &&
-				a.createElement(v, {
-					screenshot: e,
-					onCancel: this.OnCancel,
-				}),
-			t == n.Error &&
-				a.createElement(I, {
-					error: this.state.strError,
-					onCancel: this.OnCancel,
-				}),
+		return (
+			<div className={h.ShareScreenshotDialog}>
+				{t == n.Confirmation && (
+					<W
+						screenshot={e}
+						metadata={this.m_metadata}
+						onOK={this.OnUploadConfirmed}
+						onCancel={this.OnCancel}
+					/>
+				)}
+				{t == n.Uploading && <V screenshot={e} onCancel={this.OnCancel} />}
+				{t == n.Error && (
+					<I error={this.state.strError} onCancel={this.OnCancel} />
+				)}
+			</div>
 		);
 	}
 }
-(0, i.Cg)([d.oI], S.prototype, "OnUploadConfirmed", null);
-(0, i.Cg)([d.oI], S.prototype, "OnCancel", null);
-let w = class extends a.Component {
+Cg([d.oI], S.prototype, "OnUploadConfirmed", null);
+Cg([d.oI], S.prototype, "OnCancel", null);
+let W = class extends a.Component {
 	constructor(e) {
 		super(e);
-		(0, _.Gn)(this);
+		Gn(this);
 	}
 	m_preUploadDetails = undefined;
 	m_refTextArea = a.createRef();
@@ -149,9 +143,9 @@ let w = class extends a.Component {
 	}
 	render() {
 		let e = this.props.metadata;
-		let t = e.strCaption;
-		let r = e.ePrivacy;
-		let n = e.bSpoiler;
+
+		let { strCaption, ePrivacy, bSpoiler } = e;
+
 		let i = "";
 		if (this.m_preUploadDetails) {
 			let e = this.m_preUploadDetails;
@@ -162,202 +156,138 @@ let w = class extends a.Component {
 				e.strCloudTotal,
 			);
 		}
-		return a.createElement(
-			a.Fragment,
-			null,
-			a.createElement(
-				s.a3,
-				null,
-				a.createElement(
-					"div",
-					null,
-					(0, Localize)("#ShareUploadScreenshot_Description"),
-				),
-				a.createElement(
-					"div",
-					{
-						className: h.CaptionHeader,
-					},
-					(0, Localize)("#ShareUploadScreenshot_CaptionHeader"),
-				),
-				a.createElement(
-					b.Z,
-					{
-						focusable: true,
-						onActivate: () => {
+		return (
+			<>
+				<s.a3>
+					<div>{(0, Localize)("#ShareUploadScreenshot_Description")}</div>
+					<div className={h.CaptionHeader}>
+						{(0, Localize)("#ShareUploadScreenshot_CaptionHeader")}
+					</div>
+					<b.Z
+						focusable
+						onActivate={() => {
 							if (this.m_refTextArea) {
 								this.m_refTextArea.current?.focus();
 							}
-						},
-					},
-					a.createElement(s.Cl, {
-						ref: this.m_refTextArea,
-						className: h.CaptionTextArea,
-						nMinHeight: 40,
-						value: t,
-						onChange: this.OnCaptionChange,
-						placeholder: (0, Localize)("#ShareUploadScreenshot_AddCaption"),
-						autoFocus: true,
-					}),
-				),
-				a.createElement(
-					s.JU,
-					{
-						className: h.VisibilityHeader,
-					},
-					(0, Localize)("Visibility"),
-				),
-				a.createElement(
-					s.Xp,
-					{
-						className: h.RadioButtonGroup,
-					},
-					a.createElement(B, {
-						text: (0, Localize)("#Privacy_Public"),
-						value: 8,
-						current: r,
-						onClick: this.OnPrivacyChange,
-					}),
-					a.createElement(B, {
-						text: (0, Localize)("#Privacy_FriendsOnly"),
-						value: 4,
-						current: r,
-						onClick: this.OnPrivacyChange,
-					}),
-					a.createElement(B, {
-						text: (0, Localize)("#Privacy_Private"),
-						value: 2,
-						current: r,
-						onClick: this.OnPrivacyChange,
-					}),
-				),
-				a.createElement(s.RF, {
-					className: h.Spoiler,
-					label: (0, Localize)("#ShareUploadScreenshot_TagSpoiler"),
-					onChange: this.OnSpoilerChange,
-					checked: n,
-				}),
-				a.createElement(
-					"div",
-					{
-						className: h.CloudStorageMessage,
-					},
-					i,
-					"\xA0",
-				),
-			),
-			a.createElement(
-				s.wi,
-				null,
-				a.createElement(s.CB, {
-					onOK: this.props.onOK,
-					strOKText: (0, Localize)("#Generic_Upload"),
-					onCancel: this.props.onCancel,
-				}),
-			),
+						}}
+					>
+						<s.Cl
+							ref={this.m_refTextArea}
+							className={h.CaptionTextArea}
+							nMinHeight={40}
+							value={strCaption}
+							onChange={this.OnCaptionChange}
+							placeholder={(0, Localize)("#ShareUploadScreenshot_AddCaption")}
+							autoFocus
+						/>
+					</b.Z>
+					<s.JU className={h.VisibilityHeader}>
+						{(0, Localize)("Visibility")}
+					</s.JU>
+					<s.Xp className={h.RadioButtonGroup}>
+						<B
+							text={(0, Localize)("#Privacy_Public")}
+							value={8}
+							current={ePrivacy}
+							onClick={this.OnPrivacyChange}
+						/>
+						<B
+							text={(0, Localize)("#Privacy_FriendsOnly")}
+							value={4}
+							current={ePrivacy}
+							onClick={this.OnPrivacyChange}
+						/>
+						<B
+							text={(0, Localize)("#Privacy_Private")}
+							value={2}
+							current={ePrivacy}
+							onClick={this.OnPrivacyChange}
+						/>
+					</s.Xp>
+					<s.RF
+						className={h.Spoiler}
+						label={(0, Localize)("#ShareUploadScreenshot_TagSpoiler")}
+						onChange={this.OnSpoilerChange}
+						checked={bSpoiler}
+					/>
+					<div className={h.CloudStorageMessage}>
+						{i}
+						{"\xA0"}
+					</div>
+				</s.a3>
+				<s.wi>
+					<s.CB
+						onOK={this.props.onOK}
+						strOKText={(0, Localize)("#Generic_Upload")}
+						onCancel={this.props.onCancel}
+					/>
+				</s.wi>
+			</>
 		);
 	}
 };
 function B(e) {
 	let t = e.value == e.current ? "Primary" : "";
-	return a.createElement(
-		s.$n,
-		{
-			className: t,
-			value: e.value,
-			onClick: e.onClick,
-		},
-		e.text,
+	return (
+		<s.$n className={t} value={e.value} onClick={e.onClick}>
+			{e.text}
+		</s.$n>
 	);
 }
-(0, i.Cg)([_.sH], w.prototype, "m_preUploadDetails", undefined);
-(0, i.Cg)([d.oI], w.prototype, "OnCaptionChange", null);
-(0, i.Cg)([d.oI], w.prototype, "OnPrivacyChange", null);
-(0, i.Cg)([d.oI], w.prototype, "OnSpoilerChange", null);
-w = (0, i.Cg)([A.PA], w);
-let v = class extends a.Component {
+Cg([_.sH], W.prototype, "m_preUploadDetails", undefined);
+Cg([d.oI], W.prototype, "OnCaptionChange", null);
+Cg([d.oI], W.prototype, "OnPrivacyChange", null);
+Cg([d.oI], W.prototype, "OnSpoilerChange", null);
+W = Cg([A.PA], W);
+let V = class extends a.Component {
 	render() {
 		let e = (0, Localize)("#ShareUploadScreenshot_Uploading");
-		return a.createElement(
-			a.Fragment,
-			null,
-			a.createElement(
-				s.a3,
-				{
-					className: h.MinDialogSize,
-				},
-				a.createElement(
-					"div",
-					{
-						className: h.UploadingText,
-					},
-					e,
-				),
-			),
-			a.createElement(
-				s.wi,
-				null,
-				a.createElement(C.t, {
-					size: "medium",
-					position: "center",
-				}),
-			),
+		return (
+			<>
+				<s.a3 className={h.MinDialogSize}>
+					<div className={h.UploadingText}>{e}</div>
+				</s.a3>
+				<s.wi>
+					<C.t size="medium" position="center" />
+				</s.wi>
+			</>
 		);
 	}
 };
 function I(e) {
-	let t = e.error;
-	return a.createElement(
-		a.Fragment,
-		null,
-		a.createElement(s.a3, null, a.createElement("div", null, t)),
-		a.createElement(
-			s.wi,
-			null,
-			a.createElement(
-				s.jn,
-				{
-					onClick: e.onCancel,
-				},
-				(0, Localize)("#Button_Close"),
-			),
-		),
+	let e_error = e.error;
+	return (
+		<>
+			<s.a3>
+				<div>{e_error}</div>
+			</s.a3>
+			<s.wi>
+				<s.jn onClick={e.onCancel}>{(0, Localize)("#Button_Close")}</s.jn>
+			</s.wi>
+		</>
 	);
 }
-v = (0, i.Cg)([A.PA], v);
-var E;
-var M = require("./35488.js");
-export function li(e) {
-	let { className: t, ...r } = e;
-	let n = (0, p.A)(l.ShareIcon, t);
-	return a.createElement(M.Share, {
-		className: n,
-		...r,
-	});
+V = Cg([A.PA], V);
+let E;
+export function Li(e) {
+	let { className, ...r } = e;
+	let n = A_1(l.ShareIcon, className);
+	return <M.Share className={n} {...r} />;
 }
 export function wD(e) {
-	let { className: t, ...r } = e;
-	let n = (0, p.A)(l.ShareButton, t);
-	return a.createElement(
-		"div",
-		{
-			className: n,
-			...r,
-		},
-		a.createElement(li, null),
-		a.createElement("span", null, (0, Localize)("#Generic_Share")),
+	let { className, ...r } = e;
+	let n = A_1(l.ShareButton, className);
+	return (
+		<div className={n} {...r}>
+			<Li />
+			<span>{(0, Localize)("#Generic_Share")}</span>
+		</div>
 	);
 }
 export function bK(e, t) {
-	(0, m.pg)(
-		a.createElement(D, {
-			screenshot: e,
-		}),
-		t,
-		{
-			strTitle: D.Title(),
-		},
-	);
+	pg(<D screenshot={e} />, t, {
+		strTitle: D.Title(),
+	});
 }
 let D = (E = class extends a.Component {
 	static Title() {
@@ -370,29 +300,17 @@ let D = (E = class extends a.Component {
 	}
 	render() {
 		let e = this.props.screenshot;
-		return a.createElement(
-			c.eV,
-			{
-				onOK: null,
-				onCancel: this.OnCancel,
-			},
-			a.createElement(
-				"div",
-				{
-					className: l.UninstallDialog,
-				},
-				a.createElement(s.Y9, null, E.Title()),
-				a.createElement(
-					s.nB,
-					null,
-					a.createElement(S, {
-						screenshot: e,
-						onCancel: this.OnCancel,
-					}),
-				),
-			),
+		return (
+			<c.eV onOK={null} onCancel={this.OnCancel}>
+				<div className={l.UninstallDialog}>
+					<s.Y9>{E.Title()}</s.Y9>
+					<s.nB>
+						<S screenshot={e} onCancel={this.OnCancel} />
+					</s.nB>
+				</div>
+			</c.eV>
 		);
 	}
 });
-(0, i.Cg)([d.oI], D.prototype, "OnCancel", null);
-D = E = (0, i.Cg)([A.PA], D);
+Cg([d.oI], D.prototype, "OnCancel", null);
+D = E = Cg([A.PA], D);

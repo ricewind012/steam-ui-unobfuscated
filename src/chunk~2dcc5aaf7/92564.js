@@ -1,102 +1,75 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./3756.js");
-var s = require("./66146.js");
-var o = require("./96127.js");
-var l = require("./8653.js");
-var c = require("./95773.js");
-var m = require("./52912.js");
-var u = require("./15855.js");
-var d = require(/*webcrack:missing*/ "./63696.js");
-var A = require("./83665.js");
-var p = require("./7308.js");
-var g = p;
-const h = ({ message: e, name: t, renderImage: r, ...n }) =>
-	d.createElement(
-		A.M,
-		{
-			key: "inviteDrop",
-			classNames: {
-				...g,
-			},
-			timeout: 300,
-			...n,
-		},
-		(n) =>
-			d.createElement(
-				"div",
-				{
-					ref: n,
-					className: g.ChatModalCover,
-				},
-				d.createElement(
-					"div",
-					{
-						className: g.InviteDropContainer,
-					},
-					d.createElement(
-						"span",
-						{
-							className: g.InviteDropImage,
-						},
-						r(),
-					),
-					d.createElement(
-						"span",
-						{
-							className: g.InviteDropName,
-						},
-						t,
-					),
-					d.createElement(
-						"span",
-						{
-							className: g.InviteDropMessage,
-						},
-						e,
-					),
-					d.createElement("span", {
-						className: g.InviteDropBackground,
-					}),
-				),
-			),
-	);
-var C = require("./53414.js");
-var _ = require("./88620.js");
-var f = require("./69649.js");
-var b = require("./78060.js");
-var y = require("./59704.js");
-var S = require(/*webcrack:missing*/ "./41230.js");
-var w = require(/*webcrack:missing*/ "./90242.js");
-var B = require("./17231.js");
-var v = require("./66408.js");
-var I = require("./64608.js");
-var E = require(/*webcrack:missing*/ "./42318.js");
-var M = require("./13869.js");
-var T = require(/*webcrack:missing*/ "./50376.js");
-var R = require(/*webcrack:missing*/ "./49455.js");
-var k = require(/*webcrack:missing*/ "./90765.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var F = require(/*webcrack:missing*/ "./52451.js");
-var G = require(/*webcrack:missing*/ "./69164.js");
-var O = require("./10042.js");
-var P = require("./76815.js");
-var L = require("./47036.js");
-var z = require("./97422.js");
-var x = require("./87949.js");
-var U = require(/*webcrack:missing*/ "./23038.js");
-var W = require(/*webcrack:missing*/ "./8573.js");
-var V = require(/*webcrack:missing*/ "./31958.js");
-var H = require("./39590.js");
-var j = require("./50551.js");
-var q = require("./1918.js");
-var Q = require(/*webcrack:missing*/ "./45328.js");
-var Z = require(/*webcrack:missing*/ "./4690.js");
-var Y = require(/*webcrack:missing*/ "./11131.js");
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./3756.js";
+import s from "./66146.js";
+import o from "./96127.js";
+import l from "./8653.js";
+import c from "./95773.js";
+import m, { CO, h8 } from "./52912.js";
+import u from "./15855.js";
+import d from "./63696.js";
+import A from "./83665.js";
+import p from "./7308.js";
+import C from "./53414.js";
+import _, { jv, E5 } from "./88620.js";
+import f, { UA, eJ } from "./69649.js";
+import b, { Ic } from "./78060.js";
+import y, { EP } from "./59704.js";
+import S from "./41230.js";
+import w from "./90242.js";
+import B from "./17231.js";
+import { JO } from "./66408.js";
+import I from "./64608.js";
+import E from "./42318.js";
+import M, { HT } from "./13869.js";
+import T from "./50376.js";
+import { w as w_1 } from "./49455.js";
+import { A as A_1 } from "./90765.js";
+import F from "./52451.js";
+import G from "./69164.js";
+import O from "./10042.js";
+import P from "./76815.js";
+import L from "./47036.js";
+import { Jw } from "./97422.js";
+import x from "./87949.js";
+import U from "./23038.js";
+import W from "./8573.js";
+import { OQ } from "./31958.js";
+import H from "./39590.js";
+import j from "./50551.js";
+import q from "./1918.js";
+import { Dn } from "./45328.js";
+import Z from "./4690.js";
+import Y from "./11131.js";
+import re from "./98829.js";
+import { T as T_1 } from "./92009.js";
+const g = p;
+const H_1 = ({ message, name, renderImage, ...n }) => (
+	<A.M
+		key="inviteDrop"
+		classNames={{
+			...g,
+		}}
+		timeout={300}
+		{...n}
+	>
+		{(n) => (
+			<div ref={n} className={g.ChatModalCover}>
+				<div className={g.InviteDropContainer}>
+					<span className={g.InviteDropImage}>{renderImage()}</span>
+					<span className={g.InviteDropName}>{name}</span>
+					<span className={g.InviteDropMessage}>{message}</span>
+					<span className={g.InviteDropBackground} />
+				</div>
+			</div>
+		)}
+	</A.M>
+);
 const K = d.lazy(() => require.e(7653).then(require.bind(require, 72993)));
 let X = class extends d.Component {
 	static contextType = i.QO;
@@ -121,15 +94,18 @@ let X = class extends d.Component {
 	}
 	OnDragEnter(e, t) {
 		if (e) {
-			(0, R.w)(
+			w_1(
 				e.type == "friend" ||
+					e.type == "chatroomgroup" ||
+					e.type == "chatroomgroup" ||
+					e.type == "clan" ||
 					e.type == "chatroomgroup" ||
 					e.type == "clan" ||
 					e.type == "html",
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
 		} else {
-			(0, R.w)(t, "Invalid data type passed to FriendChatDialog.OnDrop");
+			w_1(t, "Invalid data type passed to FriendChatDialog.OnDrop");
 		}
 		if (!e) {
 			return true;
@@ -167,6 +143,7 @@ let X = class extends d.Component {
 		if (
 			this.state.dropToInviteFriend ||
 			this.state.dropGroupToInviteFriend ||
+			this.state.dropGroupToInviteFriend ||
 			this.state.dropClanToInvite
 		) {
 			this.m_fnUnregisterDropComplete.Unregister();
@@ -183,15 +160,18 @@ let X = class extends d.Component {
 	}
 	OnDrop(e, t) {
 		if (e) {
-			(0, R.w)(
+			w_1(
 				e.type == "friend" ||
+					e.type == "chatroomgroup" ||
+					e.type == "chatroomgroup" ||
+					e.type == "clan" ||
 					e.type == "chatroomgroup" ||
 					e.type == "clan" ||
 					e.type == "html",
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
 		} else {
-			(0, R.w)(
+			w_1(
 				t.dataTransfer.files.length != 0,
 				"Invalid data type passed to FriendChatDialog.OnDrop",
 			);
@@ -222,7 +202,7 @@ let X = class extends d.Component {
 						chatview: r,
 						invitedto: i,
 					},
-					(0, m.CO)(t),
+					CO(t),
 					n,
 				);
 			} else if (s || o) {
@@ -243,7 +223,7 @@ let X = class extends d.Component {
 						invitee: i,
 						invitedto: s,
 					},
-					(0, m.CO)(t),
+					CO(t),
 					n,
 				);
 			} else if (l && l.has("text/plain")) {
@@ -281,21 +261,23 @@ let X = class extends d.Component {
 			};
 		}
 		const {
-			nWatchPartyBroadcastHeightPercentage: t,
-			nWatchPartyBroadcastWidthPercentage: r,
+			nWatchPartyBroadcastHeightPercentage,
+			nWatchPartyBroadcastWidthPercentage,
 		} = m.ZM.UIDisplayPrefs;
 		const n = {};
 		if (e) {
-			const e = t || 66;
+			const e = nWatchPartyBroadcastHeightPercentage || 66;
 			n.height = `${e}%`;
 			if (this.m_elMainContent) {
-				const { clientWidth: t, clientHeight: r } = this.m_elMainContent;
-				const i = (9 / 16) * t + 50;
-				const a = (0, V.OQ)(e, 1, (i / r) * 100);
+				const { clientWidth, clientHeight } = this.m_elMainContent;
+				const i = (9 / 16) * clientWidth + 50;
+				const a = OQ(e, 1, (i / clientHeight) * 100);
 				n.height = `${a}%`;
 			}
 		} else {
-			n.width = r ? `${r}%` : "66%";
+			n.width = nWatchPartyBroadcastWidthPercentage
+				? `${nWatchPartyBroadcastWidthPercentage}%`
+				: "66%";
 			n.overflowY = "auto";
 		}
 		return n;
@@ -329,7 +311,7 @@ let X = class extends d.Component {
 		const i = n ? t.top : t.left;
 		const a = n ? e.clientY : e.clientX;
 		const s = n ? r.height : r.width;
-		const o = (0, V.OQ)(((a - i) / s) * 100, 1, 100);
+		const o = OQ(((a - i) / s) * 100, 1, 100);
 		const l = n
 			? "nWatchPartyBroadcastHeightPercentage"
 			: "nWatchPartyBroadcastWidthPercentage";
@@ -399,26 +381,20 @@ let X = class extends d.Component {
 		return e;
 	}
 	RenderInnerChatTabs() {
-		return d.createElement(
-			"div",
-			{
-				className: "ChatBodyControls",
-			},
-			d.createElement(
-				"div",
-				{
-					className: "Close",
-					onClick: this.HideChat,
-					title: (0, Localize)("#Broadcast_View_HideChat"),
-				},
-				d.createElement(T.K7s, {
-					showChat: false,
-				}),
-			),
-			d.createElement(nK, {
-				chatView: this.props.chatView,
-				additionalClasses: "broadcastVisible",
-			}),
+		return (
+			<div className="ChatBodyControls">
+				<div
+					className="Close"
+					onClick={this.HideChat}
+					title={(0, Localize)("#Broadcast_View_HideChat")}
+				>
+					<T.K7s showChat={false} />
+				</div>
+				<NK
+					chatView={this.props.chatView}
+					additionalClasses="broadcastVisible"
+				/>
+			</div>
 		);
 	}
 	render() {
@@ -432,23 +408,24 @@ let X = class extends d.Component {
 		let r = this.props.chatView.BVoiceActive();
 		let n = c.xm.UIStore.IsFriendBroadcastVisible(this.m_friendSteamId);
 		let i = e.GetShowNonFriendWarning();
-		const {
-			dropToInviteFriend: a,
-			dropGroupToInviteFriend: s,
-			dropClanToInvite: o,
-		} = this.state;
+		const { dropToInviteFriend, dropGroupToInviteFriend, dropClanToInvite } =
+			this.state;
 		let l;
-		if (a) {
-			l = d.createElement(J3, {
-				chatView: this.props.chatView,
-				friend: this.state.dropToInviteFriend,
-			});
-		} else if (s || o) {
-			l = d.createElement(C1, {
-				chatView: this.props.chatView,
-				group: this.state.dropGroupToInviteFriend,
-				clan: this.state.dropClanToInvite,
-			});
+		if (dropToInviteFriend) {
+			l = (
+				<J3
+					chatView={this.props.chatView}
+					friend={this.state.dropToInviteFriend}
+				/>
+			);
+		} else if (dropGroupToInviteFriend || dropClanToInvite) {
+			l = (
+				<C1
+					chatView={this.props.chatView}
+					group={this.state.dropGroupToInviteFriend}
+					clan={this.state.dropClanToInvite}
+				/>
+			);
 		}
 		let m = false;
 		let p = null;
@@ -456,43 +433,44 @@ let X = class extends d.Component {
 		let h = this.m_bChatHidden;
 		if (n) {
 			const t = this.CalculateBroadcastSectionStyles(g);
-			p = d.createElement(
-				d.Suspense,
-				{
-					fallback: null,
-				},
-				d.createElement(ee, {
-					ref: this.m_refBroadcastContainer,
-					steamID: W.b
-						.InitFromAccountID(e.accountid_partner)
-						.ConvertTo64BitString(),
-					localSteamID: this.m_strLocalBroadcastId,
-					watchLocation: 12,
-					bWebRTC: true,
-					onRequestClose: this.HideBroadcast,
-					actions: [
-						d.createElement("div", {
-							key: "ChatPosToggle",
-							onClick: this.ToggleVerticalBroadcastChat,
-							title: `${g ? (0, Localize)("#Broadcast_View_Stack_H") : (0, Localize)("#Broadcast_View_Stack_V")}`,
-							className:
-								"BroadcastChatPositionToggle " + (g ? "right" : "bottom"),
-						}),
-					],
-					style: t,
-					onTheaterMode: this.ToggleTheaterModeBroadcastChat,
-				}),
-				!h &&
-					d.createElement("div", {
-						className:
-							"BroadcastChatDivider " + (g ? "vertical" : "horizontal"),
-						onMouseDown: this.OnGrabberMouseDown,
-					}),
-				h &&
-					d.createElement(Ko, {
-						onClick: this.ShowChat,
-						edge: g ? "bottom" : "right",
-					}),
+			p = (
+				<d.Suspense fallback={null}>
+					<Ee
+						ref={this.m_refBroadcastContainer}
+						steamID={W.b
+							.InitFromAccountID(e.accountid_partner)
+							.ConvertTo64BitString()}
+						localSteamID={this.m_strLocalBroadcastId}
+						watchLocation={12}
+						bWebRTC
+						onRequestClose={this.HideBroadcast}
+						actions={[
+							<div
+								key="ChatPosToggle"
+								onClick={this.ToggleVerticalBroadcastChat}
+								title={`${
+									g
+										? (0, Localize)("#Broadcast_View_Stack_H")
+										: (0, Localize)("#Broadcast_View_Stack_V")
+								}`}
+								className={`BroadcastChatPositionToggle ${
+									g ? "right" : "bottom"
+								}`}
+							/>,
+						]}
+						style={t}
+						onTheaterMode={this.ToggleTheaterModeBroadcastChat}
+					/>
+					{!h && (
+						<div
+							className={`BroadcastChatDivider ${
+								g ? "vertical" : "horizontal"
+							}`}
+							onMouseDown={this.OnGrabberMouseDown}
+						/>
+					)}
+					{h && <Ko onClick={this.ShowChat} edge={g ? "bottom" : "right"} />}
+				</d.Suspense>
 			);
 			m = true;
 		} else {
@@ -502,7 +480,7 @@ let X = class extends d.Component {
 		if (!this.props.isActive) {
 			C.display = "none";
 		}
-		const _ = (0, k.A)(
+		const _ = A_1(
 			"chatWindow",
 			"MultiUserChat",
 			r && "VoiceActive",
@@ -512,96 +490,77 @@ let X = class extends d.Component {
 			c.xm.SettingsStore.FriendsSettings.bCompactFriendsList && "compactView",
 			m && "broadcastVisible",
 		);
-		const f = (0, k.A)("chatBody", (a || s || o) && "chatRoomActiveDrop");
-		const b =
-			this.m_bChatHidden && n
-				? null
-				: d.createElement(Y.gs.Consumer, null, (t) =>
-						d.createElement(L.o, {
-							key: e.unique_id,
-							chatView: this.props.chatView,
-							isActive: this.props.isActive,
-							disabled: false,
-							ownerWindow: t.ownerWindow,
-						}),
-					);
-		let y = d.createElement(
-			u.T,
-			{
-				style: C,
-				className: "chatHistoryAndMembers",
-				...this.GetChatBodyDragDropProps(),
-			},
-			d.createElement(U.A, null, l),
-			d.createElement(
-				"div",
-				{
-					className: "displayColumn fullWidth",
-				},
-				d.createElement(
-					G.Z,
-					{
-						className: "displayRow minHeightZero",
-						"flow-children": "row",
-						navEntryPreferPosition: Z.iU.PREFERRED_CHILD,
-					},
-					i &&
-						d.createElement(SU, {
-							chatView: this.props.chatView,
-							friend: e.chat_partner,
-						}),
-					d.createElement(
-						"div",
-						{
-							className: "ChatRoomGroupDialog_history",
-						},
-						c.xm.UIStore.show_winter_sale_ui &&
-							!c.xm.SettingsStore.FriendsSettings.bDisableRoomEffects &&
-							d.createElement(q.Y, {
-								effectManager: e.RoomEffectManager(),
-							}),
-						d.createElement(H.D, {
-							chatView: this.props.chatView,
-							isActive: this.props.isActive,
-							speakerLabelWidth: this.state.speakerLabelWidth,
-							blockInteraction: i,
-						}),
-					),
-					!n &&
-						!this.context?.IN_GAMEPADUI &&
-						d.createElement(nK, {
-							chatView: this.props.chatView,
-							additionalClasses: undefined,
-						}),
-					this.context?.IN_GAMEPADUI &&
-						d.createElement(
-							G.Z,
-							{
-								className: "RightSideButtonContainer",
-								"flow-children": "column",
-							},
-							d.createElement(QH, {
-								chatView: this.props.chatView,
-								bSteamDeck: true,
-							}),
-							!e.chat_partner.is_friend &&
-								d.createElement(J, {
-									friend: e.chat_partner,
-								}),
-							d.createElement(nK, {
-								chatView: this.props.chatView,
-								additionalClasses: undefined,
-							}),
-						),
-					d.createElement("div", {
-						className: "dropTargetBox",
-					}),
-				),
-				b,
-			),
+		const f = A_1(
+			"chatBody",
+			(dropToInviteFriend ||
+				dropGroupToInviteFriend ||
+				dropGroupToInviteFriend ||
+				dropClanToInvite) &&
+				"chatRoomActiveDrop",
 		);
-		let S =
-			"chatStack " + (g ? "displayRow" : "displayColumn") + " GroupChatVisible";
+		const b =
+			this.m_bChatHidden && n ? null : (
+				<Y.gs.Consumer>
+					{(t) => (
+						<L.o
+							key={e.unique_id}
+							chatView={this.props.chatView}
+							isActive={this.props.isActive}
+							disabled={false}
+							ownerWindow={t.ownerWindow}
+						/>
+					)}
+				</Y.gs.Consumer>
+			);
+		let y = (
+			<u.T
+				style={C}
+				className="chatHistoryAndMembers"
+				{...this.GetChatBodyDragDropProps()}
+			>
+				<U.A>{l}</U.A>
+				<div className="displayColumn fullWidth">
+					<G.Z
+						className="displayRow minHeightZero"
+						flow-children="row"
+						navEntryPreferPosition={Z.iU.PREFERRED_CHILD}
+					>
+						{i && <SU chatView={this.props.chatView} friend={e.chat_partner} />}
+						<div className="ChatRoomGroupDialog_history">
+							{c.xm.UIStore.show_winter_sale_ui &&
+								!c.xm.SettingsStore.FriendsSettings.bDisableRoomEffects && (
+									<q.Y effectManager={e.RoomEffectManager()} />
+								)}
+							<H.D
+								chatView={this.props.chatView}
+								isActive={this.props.isActive}
+								speakerLabelWidth={this.state.speakerLabelWidth}
+								blockInteraction={i}
+							/>
+						</div>
+						{!n && !this.context?.IN_GAMEPADUI && (
+							<NK
+								chatView={this.props.chatView}
+								additionalClasses={undefined}
+							/>
+						)}
+						{this.context?.IN_GAMEPADUI && (
+							<G.Z className="RightSideButtonContainer" flow-children="column">
+								<QH chatView={this.props.chatView} bSteamDeck />
+								{!e.chat_partner.is_friend && <J friend={e.chat_partner} />}
+								<NK
+									chatView={this.props.chatView}
+									additionalClasses={undefined}
+								/>
+							</G.Z>
+						)}
+						<div className="dropTargetBox" />
+					</G.Z>
+					{b}
+				</div>
+			</u.T>
+		);
+		let S = `chatStack ${g ? "displayRow" : "displayColumn"} GroupChatVisible`;
 		let w = {};
 		if (r) {
 			w.onSecondaryButton = () => e.ToggleVoiceChat();
@@ -609,152 +568,123 @@ let X = class extends d.Component {
 				"#Friend_Menu_StopVoiceChat",
 			);
 		}
-		return d.createElement(
-			u.D,
-			{
-				fnCanTakeFocus: () => this.props.isActive,
-				"data-activechat": this.props.isActive,
-				style: C,
-				className: _,
-				...this.GetTitleBarDragDropProps(),
-				...w,
-			},
-			d.createElement("div", {
-				className: "chatHeader",
-			}),
-			this.props.isActive &&
-				d.createElement($, {
-					chatView: this.props.chatView,
-					onNameWidthChanged: this.OnNameWidthChanged,
-				}),
-			d.createElement(
-				U.A,
-				null,
-				(r || t) &&
-					!this.context?.IN_GAMEPADUI &&
-					d.createElement(
-						A.M,
-						{
-							key: "OneOnOneVoiceHeader",
-							classNames: "OneOnOneVoice-anim",
-							timeout: 300,
-						},
-						(e) =>
-							d.createElement(
-								"div",
-								{
-									ref: e,
-								},
-								d.createElement(QH, {
-									chatView: this.props.chatView,
-								}),
-							),
-					),
-			),
-			d.createElement(
-				"div",
-				{
-					className: "ChatRoomGroupDialog_contents",
-				},
-				d.createElement(
-					"div",
-					{
-						className: "ChatRoomGroup_MainAndChatEntry displayColumn",
-						ref: this.SetMainContentRef,
-					},
-					d.createElement(
-						"div",
-						{
-							className: "ChatRoomGroup_Main_ContentAndMembers displayRow",
-						},
-						d.createElement(
-							"div",
-							{
-								className: `ChatRoomGroup_Main_Content ${g ? "Vertical" : "Horizontal"} ${h ? "chatHidden" : ""}`,
-							},
-							p,
-							(!this.m_bChatHidden || !n) &&
-								d.createElement(
-									"div",
-									{
-										className: f,
-									},
-									this.context?.IN_GAMEPADUI && d.createElement(x.H, null),
-									n && this.RenderInnerChatTabs(),
-									d.createElement(
-										"div",
-										{
-											className: S,
-										},
-										y,
-									),
-								),
-						),
-					),
-				),
-			),
+		return (
+			<u.D
+				fnCanTakeFocus={() => this.props.isActive}
+				data-activechat={this.props.isActive}
+				style={C}
+				className={_}
+				{...this.GetTitleBarDragDropProps()}
+				{...w}
+			>
+				<div className="chatHeader" />
+				{this.props.isActive && (
+					<$
+						chatView={this.props.chatView}
+						onNameWidthChanged={this.OnNameWidthChanged}
+					/>
+				)}
+				<U.A>
+					{(r || t) && !this.context?.IN_GAMEPADUI && (
+						<A.M
+							key="OneOnOneVoiceHeader"
+							classNames="OneOnOneVoice-anim"
+							timeout={300}
+						>
+							{(e) => (
+								<div ref={e}>
+									<QH chatView={this.props.chatView} />
+								</div>
+							)}
+						</A.M>
+					)}
+				</U.A>
+				<div className="ChatRoomGroupDialog_contents">
+					<div
+						className="ChatRoomGroup_MainAndChatEntry displayColumn"
+						ref={this.SetMainContentRef}
+					>
+						<div className="ChatRoomGroup_Main_ContentAndMembers displayRow">
+							<div
+								className={`ChatRoomGroup_Main_Content ${
+									g ? "Vertical" : "Horizontal"
+								} ${h ? "chatHidden" : ""}`}
+							>
+								{p}
+								{(!this.m_bChatHidden || !n) && (
+									<div className={f}>
+										{this.context?.IN_GAMEPADUI && <x.H />}
+										{n && this.RenderInnerChatTabs()}
+										<div className={S}>{y}</div>
+									</div>
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</u.D>
 		);
 	}
 };
 function J(e) {
-	let { friend: t } = e;
+	let { friend } = e;
 	const r = d.useCallback(
 		(e) => {
 			let r = GetOwningWindowForEvent(e);
-			c.xm.FriendStore.SendFriendInvite(t).then((e) => {
-				let { eResult: n, eFriendRelationship: i } = e;
-				if (i == 4) {
-					(0, b.Ic)(
+			c.xm.FriendStore.SendFriendInvite(friend).then((e) => {
+				let { eResult, eFriendRelationship } = e;
+				if (eFriendRelationship == 4) {
+					Ic(
 						r,
 						(0, Localize)("#Friend_Menu_AddToFriendsList"),
 						(0, Localize)("#Friend_InviteSent"),
 					);
-				} else if (i == 3) {
-					(0, b.Ic)(
+				} else if (eFriendRelationship == 3) {
+					Ic(
 						r,
 						(0, Localize)("#Friend_Menu_AddToFriendsList"),
-						(0, Localize)("#Friend_MutualInviteSent", t.display_name),
+						(0, Localize)("#Friend_MutualInviteSent", friend.display_name),
 					);
 				} else {
-					(0, z.Jw)(r, n, i, t.display_name);
+					Jw(r, eResult, eFriendRelationship, friend.display_name);
 				}
 			});
 		},
-		[t],
+		[friend],
 	);
-	return d.createElement(
-		G.Z,
-		{
-			focusable: true,
-			className: "AddFriendButton",
-			onActivate: r,
-			onOKActionDescription: (0, Localize)("#Friend_Menu_AddToFriendsList"),
-		},
-		d.createElement(T.sdo, null),
+	return (
+		<G.Z
+			focusable
+			className="AddFriendButton"
+			onActivate={r}
+			onOKActionDescription={(0, Localize)("#Friend_Menu_AddToFriendsList")}
+		>
+			<T.sdo />
+		</G.Z>
 	);
 }
-(0, n.Cg)([F.oI], X.prototype, "OnDragEnter", null);
-(0, n.Cg)([F.oI], X.prototype, "OnDragLeave", null);
-(0, n.Cg)([F.oI], X.prototype, "OnDragOver", null);
-(0, n.Cg)([F.oI], X.prototype, "OnDrop", null);
-(0, n.Cg)([F.oI], X.prototype, "OnDropComplete", null);
-(0, n.Cg)([F.oI], X.prototype, "OnNameWidthChanged", null);
-(0, n.Cg)([F.oI], X.prototype, "ShouldShowVerticalBroadcastChat", null);
-(0, n.Cg)([F.oI], X.prototype, "OnLayoutChange", null);
-(0, n.Cg)([F.oI], X.prototype, "OnGrabberMouseDown", null);
-(0, n.Cg)([F.oI], X.prototype, "HandleMouseMove", null);
-(0, n.Cg)([F.oI], X.prototype, "UnregisterDragEvents", null);
-(0, n.Cg)([F.oI], X.prototype, "HideChat", null);
-(0, n.Cg)([F.oI], X.prototype, "ShowChat", null);
-(0, n.Cg)([F.oI], X.prototype, "SetChatHidden", null);
-(0, n.Cg)([F.oI], X.prototype, "ShowBroadcast", null);
-(0, n.Cg)([F.oI], X.prototype, "HideBroadcast", null);
-(0, n.Cg)([F.oI], X.prototype, "ToggleVerticalBroadcastChat", null);
-(0, n.Cg)([F.oI], X.prototype, "ToggleTheaterModeBroadcastChat", null);
-(0, n.Cg)([F.oI], X.prototype, "SetVerticalBroadcastChat", null);
-(0, n.Cg)([F.oI], X.prototype, "SetLocalBroadcastId", null);
-(0, n.Cg)([F.oI], X.prototype, "SetMainContentRef", null);
-X = (0, n.Cg)([S.PA], X);
+Cg([F.oI], X.prototype, "OnDragEnter", null);
+Cg([F.oI], X.prototype, "OnDragLeave", null);
+Cg([F.oI], X.prototype, "OnDragOver", null);
+Cg([F.oI], X.prototype, "OnDrop", null);
+Cg([F.oI], X.prototype, "OnDropComplete", null);
+Cg([F.oI], X.prototype, "OnNameWidthChanged", null);
+Cg([F.oI], X.prototype, "ShouldShowVerticalBroadcastChat", null);
+Cg([F.oI], X.prototype, "OnLayoutChange", null);
+Cg([F.oI], X.prototype, "OnGrabberMouseDown", null);
+Cg([F.oI], X.prototype, "HandleMouseMove", null);
+Cg([F.oI], X.prototype, "UnregisterDragEvents", null);
+Cg([F.oI], X.prototype, "HideChat", null);
+Cg([F.oI], X.prototype, "ShowChat", null);
+Cg([F.oI], X.prototype, "SetChatHidden", null);
+Cg([F.oI], X.prototype, "ShowBroadcast", null);
+Cg([F.oI], X.prototype, "HideBroadcast", null);
+Cg([F.oI], X.prototype, "ToggleVerticalBroadcastChat", null);
+Cg([F.oI], X.prototype, "ToggleTheaterModeBroadcastChat", null);
+Cg([F.oI], X.prototype, "SetVerticalBroadcastChat", null);
+Cg([F.oI], X.prototype, "SetLocalBroadcastId", null);
+Cg([F.oI], X.prototype, "SetMainContentRef", null);
+X = Cg([S.PA], X);
 let $ = class extends d.Component {
 	SpeakerLabel(e) {
 		if (e) {
@@ -771,86 +701,67 @@ let $ = class extends d.Component {
 			r += " largeChatFont";
 		}
 		if (e.chat_partner.is_ready && e.self.is_ready) {
-			return d.createElement(
-				"div",
-				{
-					className: r,
-					ref: this.SpeakerLabel,
-				},
-				d.createElement(
-					"div",
-					{
-						className: "nameWidthLabel",
-					},
-					e.self.display_name + ":",
-				),
-				d.createElement(
-					"div",
-					{
-						className: "nameWidthLabel",
-					},
-					e.chat_partner.display_name + ":",
-				),
+			return (
+				<div className={r} ref={this.SpeakerLabel}>
+					<div className="nameWidthLabel">{`${e.self.display_name}:`}</div>
+					<div className="nameWidthLabel">
+						{`${e.chat_partner.display_name}:`}
+					</div>
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-(0, n.Cg)([F.oI], $.prototype, "SpeakerLabel", null);
-$ = (0, n.Cg)([S.PA], $);
-const ee = d.forwardRef(function (
-	{
-		steamID: e,
-		localSteamID: t,
-		watchLocation: r,
-		bWebRTC: n,
-		style: i,
-		onRequestClose: a,
-		actions: s,
-		onTheaterMode: o,
-	},
-	l,
-) {
-	const c = t || e;
-	return d.createElement(
-		"div",
+Cg([F.oI], $.prototype, "SpeakerLabel", null);
+$ = Cg([S.PA], $);
+const Ee = d.forwardRef(
+	(
 		{
-			ref: l,
-			style: {
-				display: "flex",
-				flexDirection: "column",
-				...i,
-			},
+			steamID,
+			localSteamID,
+			watchLocation,
+			bWebRTC,
+			style,
+			onRequestClose,
+			actions,
+			onTheaterMode,
 		},
-		d.createElement(
-			"div",
-			{
-				className: "BroadcastSection",
-			},
-			d.createElement(K, {
-				key: c,
-				steamIDBroadcast: c,
-				watchLocation: r,
-				bWebRTC: n,
-				onRequestClose: a,
-				actions: s,
-				onTheaterMode: o,
-				onOpenLinkInNewWindow: y.EP,
-			}),
-			d.createElement("div", {
-				className: "videoContainerSizer",
-			}),
-		),
-		d.createElement(te, {
-			steamID: e,
-		}),
-	);
-});
-let te = class extends d.Component {
+		l,
+	) => {
+		const c = localSteamID || steamID;
+		return (
+			<div
+				ref={l}
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					...style,
+				}}
+			>
+				<div className="BroadcastSection">
+					<K
+						key={c}
+						steamIDBroadcast={c}
+						watchLocation={watchLocation}
+						bWebRTC={bWebRTC}
+						onRequestClose={onRequestClose}
+						actions={actions}
+						onTheaterMode={onTheaterMode}
+						onOpenLinkInNewWindow={y.EP}
+					/>
+					<div className="videoContainerSizer" />
+				</div>
+				<Te steamID={steamID} />
+			</div>
+		);
+	},
+);
+let Te = class extends d.Component {
 	OnClick(e, t) {
-		let r = (0, Q.Dn)(t, "friendbroadcast");
-		(0, y.EP)(e, r);
+		let r = Dn(t, "friendbroadcast");
+		EP(e, r);
 		e.stopPropagation();
 	}
 	render() {
@@ -860,42 +771,28 @@ let te = class extends d.Component {
 		let n = t.persona.GetCurrentGameName();
 		let i = t.persona.m_unGamePlayedAppID;
 		if (n || r) {
-			return d.createElement(
-				"div",
-				{
-					className: "FriendChatBroadcastDetails",
-				},
-				d.createElement(
-					"div",
-					{
-						className: "FriendChatBroadcastDetails_PlayingText",
-					},
-					(0, Localize)("#broadcastDetails_Playing"),
-				),
-				r &&
-					d.createElement("img", {
-						className: "FriendChatBroadcastDetails_Icon",
-						src: r,
-					}),
-				d.createElement(
-					"div",
-					{
-						className: "FriendChatBroadcastDetails_GameName",
-						onClick: (e) => this.OnClick(e, i),
-					},
-					n,
-				),
+			return (
+				<div className="FriendChatBroadcastDetails">
+					<div className="FriendChatBroadcastDetails_PlayingText">
+						{(0, Localize)("#broadcastDetails_Playing")}
+					</div>
+					{r && <img className="FriendChatBroadcastDetails_Icon" src={r} />}
+					<div
+						className="FriendChatBroadcastDetails_GameName"
+						onClick={(e) => this.OnClick(e, i)}
+					>
+						{n}
+					</div>
+				</div>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-(0, n.Cg)([F.oI], te.prototype, "OnClick", null);
-te = (0, n.Cg)([S.PA], te);
-var re = require("./98829.js");
-var ne = require("./92009.js");
-const ie = d.lazy(() => require.e(7653).then(require.bind(require, 31711)));
+Cg([F.oI], Te.prototype, "OnClick", null);
+Te = Cg([S.PA], Te);
+const Ie = d.lazy(() => require.e(7653).then(require.bind(require, 31711)));
 export let yA = class extends d.Component {
 	m_refChatTabs;
 	m_keyEventListener = "keydown";
@@ -933,7 +830,7 @@ export let yA = class extends d.Component {
 		if (r.rangeCount == 0) {
 			return;
 		}
-		let n = (0, v.JO)(r.getRangeAt(0));
+		let n = JO(r.getRangeAt(0));
 		if (n !== undefined) {
 			if (t.navigator.platform == "Win32") {
 				n = n.replace(/\n/g, "\r\n");
@@ -946,9 +843,12 @@ export let yA = class extends d.Component {
 		this.m_refChatTabs = e;
 	}
 	OnDragEnter(e) {
-		(0, R.w)(
+		w_1(
 			e &&
 				(e.type == "chattab" ||
+					e.type == "friend" ||
+					e.type == "friend" ||
+					e.type == "chatroomgroup" ||
 					e.type == "friend" ||
 					e.type == "chatroomgroup" ||
 					e.type == "html"),
@@ -978,9 +878,12 @@ export let yA = class extends d.Component {
 		}
 	}
 	OnDrop(e, t) {
-		(0, R.w)(
+		w_1(
 			e &&
 				(e.type == "chattab" ||
+					e.type == "friend" ||
+					e.type == "friend" ||
+					e.type == "chatroomgroup" ||
 					e.type == "friend" ||
 					e.type == "chatroomgroup" ||
 					e.type == "html"),
@@ -1008,11 +911,11 @@ export let yA = class extends d.Component {
 			});
 		} else if (e.type == "friend") {
 			m.ZM.DragDropManager.SetDropConsumed();
-			e.friend.OpenChatDialog((0, m.CO)(t));
+			e.friend.OpenChatDialog(CO(t));
 		} else if (e.type == "chatroomgroup") {
 			m.ZM.DragDropManager.SetDropConsumed();
 			let r = e;
-			c.xm.UIStore.ShowAndOrActivateChatRoomGroup((0, m.CO)(t), r.group, true);
+			c.xm.UIStore.ShowAndOrActivateChatRoomGroup(CO(t), r.group, true);
 		} else if (e.type == "html" && e.mapData.has("text/plain")) {
 			this.props.tabs.activeTab
 				.GetChatView()
@@ -1041,11 +944,19 @@ export let yA = class extends d.Component {
 		if (!t) {
 			return;
 		}
-		if (e.ctrlKey || e.altKey || e.metaKey || e.key.length > 1) {
+		if (
+			e.ctrlKey ||
+			e.altKey ||
+			e.altKey ||
+			e.metaKey ||
+			e.altKey ||
+			e.metaKey ||
+			e.key.length > 1
+		) {
 			return;
 		}
-		let r = e.target;
-		let n = r && r.tagName ? r.tagName.toLowerCase() : "";
+		let e_target = e.target;
+		let n = e_target && e_target.tagName ? e_target.tagName.toLowerCase() : "";
 		if (n != "input" && n != "select" && n != "textarea") {
 			t.GetChatView().FocusTextInput();
 		}
@@ -1057,7 +968,7 @@ export let yA = class extends d.Component {
 			e = t;
 		}
 		let r = this.props.tabs.tabs.slice();
-		if (t && r.indexOf(t) == -1) {
+		if (t && !r.includes(t)) {
 			r.push(t);
 		}
 		r.sort((e, t) => (e.GetUniqueID() < t.GetUniqueID() ? 1 : -1));
@@ -1065,84 +976,62 @@ export let yA = class extends d.Component {
 			let r = null;
 			let n = t instanceof s.$C && t;
 			let i = t.IsBroadcast();
-			r = n
-				? d.createElement(O.vY, {
-						groupView: n,
-						isActive: t == e,
-						popup: this.props.popup,
-					})
-				: i
-					? d.createElement(ie, {
-							broadcastView: t,
-							isActive: t == e,
-							popup: this.props.popup,
-						})
-					: d.createElement(X, {
-							chatView: t.GetChatView(),
-							isActive: t == e,
-						});
-			return d.createElement(
-				E.tH,
-				{
-					key: t.GetUniqueID(),
-				},
-				d.createElement(
-					d.Suspense,
-					{
-						fallback: null,
-					},
-					r,
-				),
+			r = n ? (
+				<O.vY groupView={n} isActive={t == e} popup={this.props.popup} />
+			) : i ? (
+				<Ie broadcastView={t} isActive={t == e} popup={this.props.popup} />
+			) : (
+				<X chatView={t.GetChatView()} isActive={t == e} />
+			);
+			return (
+				<E.tH key={t.GetUniqueID()}>
+					<d.Suspense fallback={null}>{r}</d.Suspense>
+				</E.tH>
 			);
 		});
-		return d.createElement(
-			u.D,
-			{
-				className: "multiChatDialog",
-				rgAcceptedTypes: ["chattab", "friend", "chatroomgroup", "text/plain"],
-				fnDragEnter: this.OnDragEnter,
-				fnDragOver: this.OnDragOver,
-				fnDragLeave: this.OnDragLeave,
-				fnDrop: this.OnDrop,
-				onKeyDown: this.OnKeyDown,
-				onCopy: this.OnCopy,
-			},
-			d.createElement(P.dH, {
-				tabSet: this.props.tabs,
-				popup: this.props.popup,
-				activeTab: e,
-				ref: this.OnChatTabRef,
-				ResponsiveWindowState: this.props.ResponsiveWindowState,
-				showOpenFriendsList: this.props.showOpenFriendsList,
-			}),
-			d.createElement(
-				G.Z,
-				{
-					className: "chatDialogs",
-					onMoveUp: () => this.m_refChatTabs.FocusActiveTab(),
-				},
-				n.length == 0 &&
-					d.createElement(
-						"div",
-						{
-							className: "emptyChatDialogs",
-						},
-						(0, Localize)("#Chat_EmptyDialogsWindowMsg"),
-					),
-				n,
-			),
+		return (
+			<u.D
+				className="multiChatDialog"
+				rgAcceptedTypes={["chattab", "friend", "chatroomgroup", "text/plain"]}
+				fnDragEnter={this.OnDragEnter}
+				fnDragOver={this.OnDragOver}
+				fnDragLeave={this.OnDragLeave}
+				fnDrop={this.OnDrop}
+				onKeyDown={this.OnKeyDown}
+				onCopy={this.OnCopy}
+			>
+				<P.dH
+					tabSet={this.props.tabs}
+					popup={this.props.popup}
+					activeTab={e}
+					ref={this.OnChatTabRef}
+					ResponsiveWindowState={this.props.ResponsiveWindowState}
+					showOpenFriendsList={this.props.showOpenFriendsList}
+				/>
+				<G.Z
+					className="chatDialogs"
+					onMoveUp={() => this.m_refChatTabs.FocusActiveTab()}
+				>
+					{n.length == 0 && (
+						<div className="emptyChatDialogs">
+							{(0, Localize)("#Chat_EmptyDialogsWindowMsg")}
+						</div>
+					)}
+					{n}
+				</G.Z>
+			</u.D>
 		);
 	}
 };
-(0, n.Cg)([F.oI], yA.prototype, "OnCopy", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnChatTabRef", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnDragEnter", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnDragLeave", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnDragOver", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnDrop", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnHTMLKeyEvent", null);
-(0, n.Cg)([F.oI], yA.prototype, "OnKeyDown", null);
-yA = (0, n.Cg)([S.PA], yA);
+Cg([F.oI], yA.prototype, "OnCopy", null);
+Cg([F.oI], yA.prototype, "OnChatTabRef", null);
+Cg([F.oI], yA.prototype, "OnDragEnter", null);
+Cg([F.oI], yA.prototype, "OnDragLeave", null);
+Cg([F.oI], yA.prototype, "OnDragOver", null);
+Cg([F.oI], yA.prototype, "OnDrop", null);
+Cg([F.oI], yA.prototype, "OnHTMLKeyEvent", null);
+Cg([F.oI], yA.prototype, "OnKeyDown", null);
+yA = Cg([S.PA], yA);
 export let ft = class extends d.Component {
 	m_refChatTabs;
 	constructor(e) {
@@ -1158,7 +1047,7 @@ export let ft = class extends d.Component {
 			e = t;
 		}
 		let r = this.props.tabs.tabs.slice();
-		if (t && r.indexOf(t) == -1) {
+		if (t && !r.includes(t)) {
 			r.push(t);
 		}
 		r.sort((e, t) => (e.GetUniqueID() < t.GetUniqueID() ? 1 : -1));
@@ -1166,69 +1055,41 @@ export let ft = class extends d.Component {
 			let r = null;
 			let n = t instanceof s.$C && t;
 			let i = t.IsBroadcast();
-			r = n
-				? d.createElement(O.vY, {
-						groupView: n,
-						isActive: t == e,
-						popup: this.props.popup,
-						bSteamDeck: true,
-					})
-				: i
-					? d.createElement(ie, {
-							broadcastView: t,
-							isActive: t == e,
-							popup: this.props.popup,
-						})
-					: d.createElement(X, {
-							chatView: t.GetChatView(),
-							isActive: t == e,
-						});
-			return d.createElement(
-				E.tH,
-				{
-					key: t.GetUniqueID(),
-				},
-				d.createElement(
-					d.Suspense,
-					{
-						fallback: null,
-					},
-					r,
-				),
+			r = n ? (
+				<O.vY
+					groupView={n}
+					isActive={t == e}
+					popup={this.props.popup}
+					bSteamDeck
+				/>
+			) : i ? (
+				<Ie broadcastView={t} isActive={t == e} popup={this.props.popup} />
+			) : (
+				<X chatView={t.GetChatView()} isActive={t == e} />
+			);
+			return (
+				<E.tH key={t.GetUniqueID()}>
+					<d.Suspense fallback={null}>{r}</d.Suspense>
+				</E.tH>
 			);
 		});
-		return d.createElement(
-			G.Z,
-			{
-				className: "multiChatDialog GamepadMode",
-			},
-			e &&
-				e.IsFriendChat() &&
-				d.createElement(P.sU, {
-					tab: e,
-					active: true,
-					selectTab: () => {},
-				}),
-			d.createElement(
-				G.Z,
-				{
-					className: "chatDialogs",
-				},
-				n.length == 0 &&
-					d.createElement(
-						"div",
-						{
-							className: "emptyChatDialogs",
-						},
-						(0, Localize)("#Chat_EmptyDialogsWindowGamePadUIMsg"),
-					),
-				n,
-			),
+		return (
+			<G.Z className="multiChatDialog GamepadMode">
+				{e && e.IsFriendChat() && <P.sU tab={e} active selectTab={() => {}} />}
+				<G.Z className="chatDialogs">
+					{n.length == 0 && (
+						<div className="emptyChatDialogs">
+							{(0, Localize)("#Chat_EmptyDialogsWindowGamePadUIMsg")}
+						</div>
+					)}
+					{n}
+				</G.Z>
+			</G.Z>
 		);
 	}
 };
-(0, n.Cg)([F.oI], ft.prototype, "OnChatTabRef", null);
-ft = (0, n.Cg)([S.PA], ft);
+Cg([F.oI], ft.prototype, "OnChatTabRef", null);
+ft = Cg([S.PA], ft);
 export let QH = class extends d.Component {
 	constructor(e) {
 		super(e);
@@ -1267,11 +1128,7 @@ export let QH = class extends d.Component {
 		if (c.xm.IsDesktopUIActive()) {
 			SteamClient.URL.ExecuteSteamURL("steam://open/settings/voice");
 		} else {
-			(0, ne.T)(
-				(0, m.CO)(e),
-				e.currentTarget.ownerDocument.defaultView,
-				"voice",
-			);
+			T_1(CO(e), e.currentTarget.ownerDocument.defaultView, "voice");
 		}
 	}
 	render() {
@@ -1305,56 +1162,40 @@ export let QH = class extends d.Component {
 			g = !c.xm.VoiceStore.BIsAccountFullyConnectedToActiveVoiceChat(n);
 		}
 		e =
-			t || a
-				? d.createElement(
-						A.M,
-						{
-							key: r,
-							classNames: "friend-anim",
-							timeout: 320,
-						},
-						(e) =>
-							d.createElement(re.bP, {
-								divRef: e,
-								friend: i,
-								key: r,
-								showVoiceLevel: true,
-								context: {
-									chat: this.props.chatView.chat,
-								},
-								listStatusIndicator: d.createElement("div", {
-									className: "connectionSpinner",
-								}),
-							}),
-					)
-				: d.createElement(
-						A.M,
-						{
-							key: r,
-							classNames: "friend-anim",
-							timeout: 320,
-						},
-						(e) =>
-							d.createElement(
-								"div",
-								{
-									ref: e,
-									className: "friend emptyFriend",
-									onClick: !a && this.InitiateVoiceChat,
-								},
-								d.createElement(
-									"div",
-									{
-										className: "avatarHolder",
-									},
-									d.createElement("img", {
-										className: "avatar",
-										src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA",
-										draggable: false,
-									}),
-								),
-							),
-					);
+			t || a ? (
+				<A.M key={r} classNames="friend-anim" timeout={320}>
+					{(e) => (
+						<re.bP
+							divRef={e}
+							friend={i}
+							key={r}
+							showVoiceLevel
+							context={{
+								chat: this.props.chatView.chat,
+							}}
+							listStatusIndicator={<div className="connectionSpinner" />}
+						/>
+					)}
+				</A.M>
+			) : (
+				<A.M key={r} classNames="friend-anim" timeout={320}>
+					{(e) => (
+						<div
+							ref={e}
+							className="friend emptyFriend"
+							onClick={!a && this.InitiateVoiceChat}
+						>
+							<div className="avatarHolder">
+								<img
+									className="avatar"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA"
+									draggable={false}
+								/>
+							</div>
+						</div>
+					)}
+				</A.M>
+			);
 		let h;
 		let C = [];
 		if (t) {
@@ -1362,91 +1203,69 @@ export let QH = class extends d.Component {
 		}
 		if (l || m) {
 			C.push(
-				d.createElement(
-					A.M,
-					{
-						key: n,
-						classNames: "friend-anim",
-						timeout: 320,
-					},
-					(e) =>
-						d.createElement(re.bP, {
-							friend: o,
-							key: n,
-							showVoiceLevel: true,
-							context: {
+				<A.M key={n} classNames="friend-anim" timeout={320}>
+					{(e) => (
+						<re.bP
+							friend={o}
+							key={n}
+							showVoiceLevel
+							context={{
 								chat: this.props.chatView.chat,
-							},
-							listStatusIndicator: d.createElement("div", {
-								className: "connectionSpinner",
-							}),
-						}),
-				),
+							}}
+							listStatusIndicator={<div className="connectionSpinner" />}
+						/>
+					)}
+				</A.M>,
 			);
 		} else {
 			C.push(
-				d.createElement(
-					A.M,
-					{
-						key: n,
-						classNames: "friend-anim",
-						timeout: 320,
-					},
-					(e) =>
-						d.createElement(
-							"div",
-							{
-								className: "friend emptyFriend",
-								onClick: a ? this.VoidOnClick : this.InitiateVoiceChat,
-							},
-							d.createElement(
-								"div",
-								{
-									className: "avatarHolder ",
-								},
-								d.createElement("img", {
-									className: "avatar",
-									src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA",
-									draggable: false,
-								}),
-							),
-						),
-				),
+				<A.M key={n} classNames="friend-anim" timeout={320}>
+					{(e) => (
+						<div
+							className="friend emptyFriend"
+							onClick={a ? this.VoidOnClick : this.InitiateVoiceChat}
+						>
+							<div className="avatarHolder ">
+								<img
+									className="avatar"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA"
+									draggable={false}
+								/>
+							</div>
+						</div>
+					)}
+				</A.M>,
 			);
 		}
 		if (!t) {
 			C.push(e);
 		}
 		h =
-			a && l
-				? d.createElement(
-						w.fu,
-						{
-							className: "inviteButton inviteButtonJoinVoice",
-							onClick: this.EndVoiceChat,
-							onOKActionDescription: (0, Localize)("#Voice_StopTalking"),
-						},
-						(0, Localize)("#Voice_StopTalking"),
-					)
-				: a && !l
-					? d.createElement(
-							w.fu,
-							{
-								className: "inviteButton inviteButtonJoinVoice",
-								onClick: this.EndVoiceChat,
-								onOKActionDescription: (0, Localize)("#Voice_EndVoice"),
-							},
-							(0, Localize)("#Voice_EndVoice"),
-						)
-					: d.createElement(
-							w.fu,
-							{
-								className: "inviteButton inviteButtonJoinVoice",
-								onClick: this.InitiateVoiceChat,
-								onOKActionDescription: (0, Localize)("#Voice_StartTalking"),
-							},
-							(0, Localize)("#Voice_StartTalking"),
-						);
+			a && l ? (
+				<w.fu
+					className="inviteButton inviteButtonJoinVoice"
+					onClick={this.EndVoiceChat}
+					onOKActionDescription={(0, Localize)("#Voice_StopTalking")}
+				>
+					{(0, Localize)("#Voice_StopTalking")}
+				</w.fu>
+			) : a && !l ? (
+				<w.fu
+					className="inviteButton inviteButtonJoinVoice"
+					onClick={this.EndVoiceChat}
+					onOKActionDescription={(0, Localize)("#Voice_EndVoice")}
+				>
+					{(0, Localize)("#Voice_EndVoice")}
+				</w.fu>
+			) : (
+				<w.fu
+					className="inviteButton inviteButtonJoinVoice"
+					onClick={this.InitiateVoiceChat}
+					onOKActionDescription={(0, Localize)("#Voice_StartTalking")}
+				>
+					{(0, Localize)("#Voice_StartTalking")}
+				</w.fu>
+			);
 		let _ = "";
 		let f = "OneOnOneVoiceRoomControls";
 		let b = false;
@@ -1462,101 +1281,80 @@ export let QH = class extends d.Component {
 			}
 			f += " WaitingForYou";
 		} else {
-			_ = p
-				? u
-					? d.createElement(
-							"a",
-							{
-								title: (0, Localize)("#VoiceChatConnectingHelp"),
-								className: "connectionStatus",
-								target: "_blank",
-								href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
-							},
-							(0, Localize)("#VoiceChatConnecting"),
-						)
-					: ""
-				: !p && g
-					? d.createElement(
-							"a",
-							{
-								title: (0, Localize)("#VoiceChatConnectingHelp"),
-								className: "connectionStatus",
-								target: "_blank",
-								href: "https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114",
-							},
-							(0, Localize)("#VoiceChatParterConnecting", o.display_name),
-						)
-					: (0, Localize)("#Voice_ChannelActive", o.display_name);
+			_ = p ? (
+				u ? (
+					<a
+						title={(0, Localize)("#VoiceChatConnectingHelp")}
+						className="connectionStatus"
+						target="_blank"
+						href="https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114"
+					>
+						{(0, Localize)("#VoiceChatConnecting")}
+					</a>
+				) : (
+					""
+				)
+			) : !p && g ? (
+				<a
+					title={(0, Localize)("#VoiceChatConnectingHelp")}
+					className="connectionStatus"
+					target="_blank"
+					href="https://support.steampowered.com/kb_article.php?ref=2598-RTZB-6114"
+				>
+					{(0, Localize)("#VoiceChatParterConnecting", o.display_name)}
+				</a>
+			) : (
+				(0, Localize)("#Voice_ChannelActive", o.display_name)
+			);
 			f += " OneOnOneVoiceActive";
 			b = true;
 		}
-		let y = d.createElement(
-			"div",
-			{
-				className: "OneOnOneVoiceStatusLabel",
-			},
-			_,
-		);
+		let y = <div className="OneOnOneVoiceStatusLabel">{_}</div>;
 		let S = a
 			? (0, Localize)("#Voice_EndVoice")
 			: (0, Localize)("#Voice_Decline");
-		return d.createElement(
-			G.Z,
-			{
-				className: f,
-				"flow-children": "row",
-				focusable: false,
-			},
-			d.createElement(
-				"div",
-				{
-					className: "VoiceToggleIconCtn friendSettingsButton no-drag",
-					onClick: this.OnSettingsClick,
-					title: (0, Localize)("#Tooltip_VoiceSettings"),
-				},
-				d.createElement(T.wB_, null),
-			),
-			d.createElement(
-				"div",
-				{
-					className: "OneOnOneVoiceMembers",
-				},
-				h,
-				!b &&
-					!a &&
-					d.createElement(
-						w.fu,
-						{
-							className: "inviteButton inviteButtonDeclineVoice",
-							onClick: this.OnCloseClick,
-							onOKActionDescription: S,
-						},
-						S,
-					),
-				d.createElement(
-					G.Z,
-					{
-						fnCanTakeFocus: () => false,
-						style: {
+		return (
+			<G.Z className={f} flow-children="row" focusable={false}>
+				<div
+					className="VoiceToggleIconCtn friendSettingsButton no-drag"
+					onClick={this.OnSettingsClick}
+					title={(0, Localize)("#Tooltip_VoiceSettings")}
+				>
+					<T.wB_ />
+				</div>
+				<div className="OneOnOneVoiceMembers">
+					{h}
+					{!b && !a && (
+						<w.fu
+							className="inviteButton inviteButtonDeclineVoice"
+							onClick={this.OnCloseClick}
+							onOKActionDescription={S}
+						>
+							{S}
+						</w.fu>
+					)}
+					<G.Z
+						fnCanTakeFocus={() => false}
+						style={{
 							display: "flex",
-						},
-					},
-					C,
-				),
-				y,
-			),
-			!b &&
-				d.createElement(
-					G.Z,
-					{
-						className: "OneOnOneVoiceClose",
-						focusable: true,
-						onActivate: this.OnCloseClick,
-						onOKActionDescription: S,
-						title: S,
-					},
-					d.createElement(T.sED, null),
-				),
+						}}
+					>
+						{C}
+					</G.Z>
+					{y}
+				</div>
+				{!b && (
+					<G.Z
+						className="OneOnOneVoiceClose"
+						focusable
+						onActivate={this.OnCloseClick}
+						onOKActionDescription={S}
+						title={S}
+					>
+						<T.sED />
+					</G.Z>
+				)}
+			</G.Z>
 		);
 	}
 	renderSteamDeck() {
@@ -1572,35 +1370,27 @@ export let QH = class extends d.Component {
 			onSecondaryActionDescription: null,
 		};
 		if (t && n) {
-			s = d.createElement(T.ETd, null);
+			s = <T.ETd />;
 			o.onActivate = this.EndVoiceChat;
 			o.onOKActionDescription = (0, Localize)("#Voice_StopTalking");
 		} else if (t && !n) {
-			s = d.createElement(T.ETd, null);
+			s = <T.ETd />;
 			o.onActivate = this.EndVoiceChat;
 			o.onOKActionDescription = (0, Localize)("#Voice_EndVoice");
 		} else if (n && !t && r) {
-			s = d.createElement(T.fpT, null);
+			s = <T.fpT />;
 			o.onActivate = this.InitiateVoiceChat;
 			o.onOKActionDescription = (0, Localize)("#Voice_StartTalking");
 			o.onSecondaryButton = this.RejectVoiceChatRequest;
 			o.onSecondaryActionDescription = (0, Localize)("#Voice_DeclineVoiceChat");
 		} else if (n) {
-			s = d.createElement(
-				"div",
-				{
-					className: "WaitingForYouFirstTime",
-				},
-				d.createElement(T.BeN, null),
-				d.createElement(
-					"div",
-					{
-						className: "Sonar",
-					},
-					d.createElement("div", {
-						className: "SonarCircle",
-					}),
-				),
+			s = (
+				<div className="WaitingForYouFirstTime">
+					<T.BeN />
+					<div className="Sonar">
+						<div className="SonarCircle" />
+					</div>
+				</div>
 			);
 			o.onActivate = this.InitiateVoiceChat;
 			o.onOKActionDescription = (0, Localize)("#Voice_StartTalking");
@@ -1611,18 +1401,14 @@ export let QH = class extends d.Component {
 				return null;
 			}
 			a += " NotInVoiceChat";
-			s = d.createElement(T.mrd, null);
+			s = <T.mrd />;
 			o.onActivate = this.InitiateVoiceChat;
 			o.onOKActionDescription = (0, Localize)("#Voice_StartChat");
 		}
-		return d.createElement(
-			G.Z,
-			{
-				className: a,
-				focusable: true,
-				...o,
-			},
-			s,
+		return (
+			<G.Z className={a} focusable {...o}>
+				{s}
+			</G.Z>
 		);
 	}
 };
@@ -1634,8 +1420,11 @@ export function nn(e, t, r) {
 		n = 300;
 	} else if (e.invitedto instanceof s.a$) {
 		n = 340;
-		let t = e.invitedto;
-		if (!t.BCanInvite() && !t.BHasMember(e.invitee.accountid)) {
+		let e_invitedto = e.invitedto;
+		if (
+			!e_invitedto.BCanInvite() &&
+			!e_invitedto.BHasMember(e.invitee.accountid)
+		) {
 			l = false;
 		}
 	} else if (e.invitedto instanceof a.d) {
@@ -1647,10 +1436,8 @@ export function nn(e, t, r) {
 		}
 	}
 	if (l) {
-		(0, M.HT)(
-			d.createElement(ce, {
-				...e,
-			}),
+		HT(
+			<Ce {...e} />,
 			r,
 			"InviteDialog",
 			{
@@ -1660,24 +1447,24 @@ export function nn(e, t, r) {
 				popupWidth: 650,
 				popupHeight: n,
 			},
-			(0, m.h8)(r),
+			h8(r),
 		);
 	} else {
-		(0, b.Ic)(
+		Ic(
 			r,
 			(0, Localize)("#Chat_Actions_DropGroupInvite_Denied"),
 			(0, Localize)("#Chat_Actions_DropGroupInvite_Denied_Description"),
 		);
 	}
 }
-(0, n.Cg)([F.oI], QH.prototype, "InitiateVoiceChat", null);
-(0, n.Cg)([F.oI], QH.prototype, "VoidOnClick", null);
-(0, n.Cg)([F.oI], QH.prototype, "EndVoiceChat", null);
-(0, n.Cg)([F.oI], QH.prototype, "OnCloseClick", null);
-(0, n.Cg)([F.oI], QH.prototype, "RejectVoiceChatRequest", null);
-(0, n.Cg)([F.oI], QH.prototype, "OnSettingsClick", null);
-QH = (0, n.Cg)([S.PA], QH);
-let ce = class extends d.Component {
+Cg([F.oI], QH.prototype, "InitiateVoiceChat", null);
+Cg([F.oI], QH.prototype, "VoidOnClick", null);
+Cg([F.oI], QH.prototype, "EndVoiceChat", null);
+Cg([F.oI], QH.prototype, "OnCloseClick", null);
+Cg([F.oI], QH.prototype, "RejectVoiceChatRequest", null);
+Cg([F.oI], QH.prototype, "OnSettingsClick", null);
+QH = Cg([S.PA], QH);
+let Ce = class extends d.Component {
 	constructor(e) {
 		super(e);
 	}
@@ -1691,17 +1478,11 @@ let ce = class extends d.Component {
 		let r = e.currentTarget.ownerDocument.defaultView;
 		t.push(this.invitee.accountid);
 		if (this.props.invitedto instanceof o.$c) {
-			(0, f.UA)((0, m.CO)(e), r, this.props.chatview, true, t);
+			UA(CO(e), r, this.props.chatview, true, t);
 		} else if (this.props.invitedto instanceof s.a$) {
-			(0, _.jv)((0, m.CO)(e), r, this.props.invitedto, undefined, true, t);
+			jv(CO(e), r, this.props.invitedto, undefined, true, t);
 		} else if (this.props.invitedto instanceof a.d) {
-			(0, _.E5)(
-				(0, m.CO)(e),
-				r,
-				this.props.invitedto.GetGroup(),
-				this.props.invitedto,
-				t,
-			);
+			E5(CO(e), r, this.props.invitedto.GetGroup(), this.props.invitedto, t);
 		}
 		this.props.closeModal();
 	}
@@ -1715,7 +1496,7 @@ let ce = class extends d.Component {
 			let e = [];
 			e.push(this.invitedToPlayer.persona.m_steamid.ConvertTo64BitString());
 			e.push(this.invitee.persona.m_steamid.ConvertTo64BitString());
-			(0, f.eJ)(t, this.props.chatview, e);
+			eJ(t, this.props.chatview, e);
 		} else if (this.props.invitedto instanceof s.a$) {
 			this.invitedToGroup = this.props.invitedto;
 			this.invitedToGroup.InviteFriend(this.invitee.accountid);
@@ -1754,227 +1535,141 @@ let ce = class extends d.Component {
 				!!t.BIsClanChatRoom() &&
 				c.xm.FriendStore.ClanStore.GetClan(t.GetClanID()).BIsOGG();
 			m = t.name;
-			u = d.createElement(C.I, {
-				group: t,
-				name: t.name,
-			});
+			u = <C.I group={t} name={t.name} />;
 			p = t.BIsUserGroupMember(n);
 		} else if (e) {
 			A = "#Chat_Actions_DropGroupInvite_1v2_Confirm";
 			m = e.display_name;
-			u = d.createElement(
-				"div",
-				{
-					className: "displayRow",
-				},
-				d.createElement(
-					"div",
-					{
-						className: "dropGroupInviteDialog_Friend",
-					},
-					d.createElement("img", {
-						src: i.persona.avatar_url_medium,
-					}),
-				),
-				d.createElement(
-					"div",
-					{
-						className: "dropGroupInviteDialog_Friend",
-					},
-					d.createElement("img", {
-						src: e.persona.avatar_url_medium,
-					}),
-				),
+			u = (
+				<div className="displayRow">
+					<div className="dropGroupInviteDialog_Friend">
+						<img src={i.persona.avatar_url_medium} />
+					</div>
+					<div className="dropGroupInviteDialog_Friend">
+						<img src={e.persona.avatar_url_medium} />
+					</div>
+				</div>
 			);
 		} else if (r) {
 			A = "#Chat_Actions_DropVoiceInvite_Confirm";
 			m = r.name;
-			u = d.createElement(
-				"div",
-				{
-					className: "displayRow",
-				},
-				d.createElement(T.mrd, null),
+			u = (
+				<div className="displayRow">
+					<T.mrd />
+				</div>
 			);
 		}
-		return d.createElement(
-			M.x_,
-			{
-				onEscKeypress: this.Cancel,
-			},
-			d.createElement(
-				I.U9,
-				{
-					classNameContent: "GenericConfirmDialog",
-					onSubmit: this.OnInviteClicked,
-					bCenterVertically: true,
-				},
-				d.createElement(
-					I.Y9,
-					null,
-					r
-						? (0, Localize)("#Chat_Actions_InviteFriend_VoiceChat")
-						: (0, Localize)("#Chat_Actions_DropGroupInvite_Title"),
-				),
-				d.createElement(
-					I.nB,
-					null,
-					d.createElement(
-						"div",
-						{
-							className:
-								"dropGroupInviteDialog displayColumn" +
-								(t || r ? " groupInviteHeight" : ""),
-						},
-						d.createElement(
-							"span",
-							{
-								className: "dropGroupInviteDialog_Desc",
-							},
-							LocalizeReact(
-								A,
-								d.createElement(
-									"span",
-									{
-										className: "highlight",
-									},
-									n.display_name,
-								),
-								d.createElement(
-									"span",
-									{
-										className: "highlight",
-									},
-									m,
-								),
-								e &&
-									d.createElement(
-										"span",
-										{
-											className: "highlight",
-										},
-										(0, Localize)("#Chat_You"),
+		return (
+			<M.x_ onEscKeypress={this.Cancel}>
+				<I.U9
+					classNameContent="GenericConfirmDialog"
+					onSubmit={this.OnInviteClicked}
+					bCenterVertically
+				>
+					<I.Y9>
+						{r
+							? (0, Localize)("#Chat_Actions_InviteFriend_VoiceChat")
+							: (0, Localize)("#Chat_Actions_DropGroupInvite_Title")}
+					</I.Y9>
+					<I.nB>
+						<div
+							className={`dropGroupInviteDialog displayColumn${
+								t || r ? " groupInviteHeight" : ""
+							}`}
+						>
+							<span className="dropGroupInviteDialog_Desc">
+								{LocalizeReact(
+									A,
+									<span className="highlight">{n.display_name}</span>,
+									<span className="highlight">{m}</span>,
+									e && (
+										<span className="highlight">
+											{(0, Localize)("#Chat_You")}
+										</span>
 									),
-							),
-						),
-						d.createElement(
-							"div",
-							{
-								className:
-									"dropGroupInviteDialog_Graphic" + (l ? " isOGGGroup" : ""),
-							},
-							d.createElement(
-								"div",
-								{
-									className: "dropGroupInviteDialog_Friend",
-								},
-								d.createElement("img", {
-									src: n.persona.avatar_url_medium,
-								}),
-							),
-							d.createElement(
-								"div",
-								{
-									className: "movingArrow",
-								},
-								d.createElement(T.i3G, {
-									angle: 90,
-								}),
-							),
-							u,
-							d.createElement(
-								"div",
-								{
-									className: "addMoreFriendsButton",
-									onClick: this.AddMoreFriends,
-								},
-								d.createElement(
-									"div",
-									null,
-									(0, Localize)("#Chat_Actions_AddMoreFriends"),
-								),
-								d.createElement("div", {
-									className: "ExpandArrow",
-								}),
-							),
-						),
-					),
-				),
-				d.createElement(
-					I.wi,
-					null,
-					d.createElement(
-						I.dR,
-						null,
-						d.createElement(
-							I.jn,
-							{
-								autoFocus: true,
-								onClick: this.OnInviteClicked,
-							},
-							p
-								? (0, Localize)("#Chat_SendLink")
-								: (0, Localize)("#Chat_Invite"),
-							" ",
-						),
-						d.createElement(
-							I.$n,
-							{
-								onClick: this.Cancel,
-							},
-							(0, Localize)("#Button_Cancel"),
-						),
-					),
-				),
-			),
+								)}
+							</span>
+							<div
+								className={`dropGroupInviteDialog_Graphic${
+									l ? " isOGGGroup" : ""
+								}`}
+							>
+								<div className="dropGroupInviteDialog_Friend">
+									<img src={n.persona.avatar_url_medium} />
+								</div>
+								<div className="movingArrow">
+									<T.i3G angle={90} />
+								</div>
+								{u}
+								<div
+									className="addMoreFriendsButton"
+									onClick={this.AddMoreFriends}
+								>
+									<div>{(0, Localize)("#Chat_Actions_AddMoreFriends")}</div>
+									<div className="ExpandArrow" />
+								</div>
+							</div>
+						</div>
+					</I.nB>
+					<I.wi>
+						<I.dR>
+							<I.jn autoFocus onClick={this.OnInviteClicked}>
+								{p
+									? (0, Localize)("#Chat_SendLink")
+									: (0, Localize)("#Chat_Invite")}{" "}
+							</I.jn>
+							<I.$n onClick={this.Cancel}>
+								{(0, Localize)("#Button_Cancel")}
+							</I.$n>
+						</I.dR>
+					</I.wi>
+				</I.U9>
+			</M.x_>
 		);
 	}
 };
-(0, n.Cg)([F.oI], ce.prototype, "AddMoreFriends", null);
-(0, n.Cg)([F.oI], ce.prototype, "Cancel", null);
-(0, n.Cg)([F.oI], ce.prototype, "OnInviteClicked", null);
-ce = (0, n.Cg)([S.PA], ce);
-export let nK = class extends d.Component {
+Cg([F.oI], Ce.prototype, "AddMoreFriends", null);
+Cg([F.oI], Ce.prototype, "Cancel", null);
+Cg([F.oI], Ce.prototype, "OnInviteClicked", null);
+Ce = Cg([S.PA], Ce);
+export let NK = class extends d.Component {
 	AddFriendClick(e) {
-		this.ContinueCreateChat((0, m.CO)(e), GetOwningWindowForEvent(e));
+		this.ContinueCreateChat(CO(e), GetOwningWindowForEvent(e));
 	}
 	ContinueCreateChat(e, t) {
-		(0, f.UA)(e, t, this.props.chatView, true);
+		UA(e, t, this.props.chatView, true);
 	}
 	render() {
 		this.props.chatView.chat.chat_partner;
 		let e = "inviteAnotherFriendButton";
 		if (this.props.additionalClasses) {
-			e += " " + this.props.additionalClasses;
+			e += ` ${this.props.additionalClasses}`;
 		}
-		return d.createElement(
-			G.Z,
-			{
-				title: (0, Localize)("#Chat_AddFriend_Hint"),
-				className: e,
-				onActivate: this.AddFriendClick,
-				onOKActionDescription: (0, Localize)(
+		return (
+			<G.Z
+				title={(0, Localize)("#Chat_AddFriend_Hint")}
+				className={e}
+				onActivate={this.AddFriendClick}
+				onOKActionDescription={(0, Localize)(
 					"#Chat_CreateChatRoom_InviteFriendsToChat",
-				),
-			},
-			d.createElement(T.MxO, null),
+				)}
+			>
+				<T.MxO />
+			</G.Z>
 		);
 	}
 };
-(0, n.Cg)([F.oI], nK.prototype, "AddFriendClick", null);
-nK = (0, n.Cg)([S.PA], nK);
-export const Ko = ({ onClick: e, edge: t }) =>
-	d.createElement(
-		"div",
-		{
-			className: (0, k.A)("BroadcastChatExpander", t),
-			onClick: e,
-			title: (0, Localize)("#Broadcast_View_ShowChat"),
-		},
-		d.createElement(T.K7s, {
-			showChat: true,
-		}),
-	);
+Cg([F.oI], NK.prototype, "AddFriendClick", null);
+NK = Cg([S.PA], NK);
+export const Ko = ({ onClick, edge }) => (
+	<div
+		className={A_1("BroadcastChatExpander", edge)}
+		onClick={onClick}
+		title={(0, Localize)("#Broadcast_View_ShowChat")}
+	>
+		<T.K7s showChat />
+	</div>
+);
 export let n$ = class extends d.Component {
 	OnTextChannelCloseClick(e) {
 		this.props.groupView.ClosePopoverChat();
@@ -1987,75 +1682,41 @@ export let n$ = class extends d.Component {
 	render() {
 		let e = this.props.groupView.GetPopoverChatView();
 		if (e) {
-			return d.createElement(
-				A.M,
-				{
-					key: "quickChat",
-					classNames: "chatWindow-anim",
-					timeout: 320,
-				},
-				(t) =>
-					d.createElement(
-						"div",
-						{
-							ref: t,
-							className: "VoiceRoomChatHistory",
-						},
-						d.createElement(
-							"div",
-							{
-								className: "VoiceRoomChatWindow",
-							},
-							d.createElement(
-								"div",
-								{
-									className: "VoiceRoomChatTitle",
-								},
-								d.createElement(
-									"div",
-									{
-										className: "VoiceRoomTitleLabels",
-									},
-									d.createElement(
-										"div",
-										{
-											className: "VoiceChatTextChannelName",
-										},
-										(0, Localize)("#Chat_Scratch_Pad"),
-									),
-								),
-								d.createElement(
-									"div",
-									{
-										className: "MinimizeTextChat",
-										onClick: this.OnTextChannelCloseClick,
-									},
-									d.createElement(T.sED, null),
-								),
-							),
-							d.createElement(
-								"div",
-								{
-									className: "VoiceChatTextChannelDesc",
-								},
-								(0, Localize)("#Chat_Scratch_Pad_Desc"),
-							),
-							d.createElement(H.D, {
-								chatView: e,
-								isActive: true,
-								ref: this.OnChatHistoryRef,
-							}),
-						),
-					),
+			return (
+				<A.M key="quickChat" classNames="chatWindow-anim" timeout={320}>
+					{(t) => (
+						<div ref={t} className="VoiceRoomChatHistory">
+							<div className="VoiceRoomChatWindow">
+								<div className="VoiceRoomChatTitle">
+									<div className="VoiceRoomTitleLabels">
+										<div className="VoiceChatTextChannelName">
+											{(0, Localize)("#Chat_Scratch_Pad")}
+										</div>
+									</div>
+									<div
+										className="MinimizeTextChat"
+										onClick={this.OnTextChannelCloseClick}
+									>
+										<T.sED />
+									</div>
+								</div>
+								<div className="VoiceChatTextChannelDesc">
+									{(0, Localize)("#Chat_Scratch_Pad_Desc")}
+								</div>
+								<H.D chatView={e} isActive ref={this.OnChatHistoryRef} />
+							</div>
+						</div>
+					)}
+				</A.M>
 			);
 		} else {
 			return null;
 		}
 	}
 };
-(0, n.Cg)([F.oI], n$.prototype, "OnTextChannelCloseClick", null);
-(0, n.Cg)([F.oI], n$.prototype, "OnChatHistoryRef", null);
-n$ = (0, n.Cg)([S.PA], n$);
+Cg([F.oI], n$.prototype, "OnTextChannelCloseClick", null);
+Cg([F.oI], n$.prototype, "OnChatHistoryRef", null);
+n$ = Cg([S.PA], n$);
 export let SU = class extends d.Component {
 	constructor(e) {
 		super(e);
@@ -2068,128 +1729,85 @@ export let SU = class extends d.Component {
 		c.xm.FriendStore.SetApprovedNonFriendMessages(this.props.friend.accountid);
 	}
 	render() {
-		return d.createElement(
-			"div",
-			{
-				className: "NotAFriendMessage",
-			},
-			d.createElement(
-				"div",
-				{
-					className: "NotAFriendBody",
-				},
-				d.createElement(
-					"div",
-					{
-						className: "Exclamation",
-					},
-					d.createElement(T.eTF, null),
-				),
-				d.createElement(
-					"div",
-					{
-						className: "Explanation",
-					},
-					d.createElement(
-						"div",
-						{
-							className: "ExplanationHeader",
-						},
-						(0, Localize)("#DirectMessageFromNonFriend"),
-					),
-					d.createElement(
-						"div",
-						{
-							className: "ExplanationBody",
-						},
-						(0, Localize)("#DirectMessageFromNonFriendNote"),
-					),
-					d.createElement(
-						y.uU,
-						{
-							href: "https://support.steampowered.com/kb_article.php?ref=1266-OAFV-8478",
-							className: "ExplanationMoreInfo",
-						},
-						(0, Localize)("#Generic_More_Info"),
-					),
-				),
-				d.createElement(
-					"div",
-					{
-						className: "Buttons",
-					},
-					d.createElement(
-						"button",
-						{
-							className: "NotAFriendActionButton",
-							onClick: this.OnBlock,
-						},
-						(0, Localize)("#NonFriendAction_Block"),
-					),
-					d.createElement(
-						"button",
-						{
-							className: "NotAFriendActionButton",
-							onClick: this.OnAllow,
-						},
-						(0, Localize)("#NonFriendAction_Allow"),
-					),
-				),
-			),
+		return (
+			<div className="NotAFriendMessage">
+				<div className="NotAFriendBody">
+					<div className="Exclamation">
+						<T.eTF />
+					</div>
+					<div className="Explanation">
+						<div className="ExplanationHeader">
+							{(0, Localize)("#DirectMessageFromNonFriend")}
+						</div>
+						<div className="ExplanationBody">
+							{(0, Localize)("#DirectMessageFromNonFriendNote")}
+						</div>
+						<y.uU
+							href="https://support.steampowered.com/kb_article.php?ref=1266-OAFV-8478"
+							className="ExplanationMoreInfo"
+						>
+							{(0, Localize)("#Generic_More_Info")}
+						</y.uU>
+					</div>
+					<div className="Buttons">
+						<button className="NotAFriendActionButton" onClick={this.OnBlock}>
+							{(0, Localize)("#NonFriendAction_Block")}
+						</button>
+						<button className="NotAFriendActionButton" onClick={this.OnAllow}>
+							{(0, Localize)("#NonFriendAction_Allow")}
+						</button>
+					</div>
+				</div>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([F.oI], SU.prototype, "OnBlock", null);
-(0, n.Cg)([F.oI], SU.prototype, "OnAllow", null);
-SU = (0, n.Cg)([S.PA], SU);
+Cg([F.oI], SU.prototype, "OnBlock", null);
+Cg([F.oI], SU.prototype, "OnAllow", null);
+SU = Cg([S.PA], SU);
 export let J3 = class extends d.Component {
 	render() {
-		const { chatView: e, friend: t, ...r } = this.props;
-		const n = e.chat instanceof a.d;
-		return d.createElement(h, {
-			message: n
-				? (0, Localize)("#Chat_DropToInviteGroup")
-				: (0, Localize)("#Chat_DropToInvite"),
-			name: t.display_name,
-			renderImage: () =>
-				d.createElement(B.i8, {
-					size: "Large",
-					persona: t.persona,
-				}),
-			...r,
-		});
+		const { chatView, friend, ...r } = this.props;
+		const n = chatView.chat instanceof a.d;
+		return (
+			<H_1
+				message={
+					n
+						? (0, Localize)("#Chat_DropToInviteGroup")
+						: (0, Localize)("#Chat_DropToInvite")
+				}
+				name={friend.display_name}
+				renderImage={() => <B.i8 size="Large" persona={friend.persona} />}
+				{...r}
+			/>
+		);
 	}
 };
-J3 = (0, n.Cg)([S.PA], J3);
+J3 = Cg([S.PA], J3);
 export let C1 = class extends d.Component {
 	render() {
-		const { chatView: e, group: t, clan: r, ...n } = this.props;
-		if (!t && !r) {
-			(0, R.w)(
+		const { chatView, group, clan, ...n } = this.props;
+		if (!group && !clan) {
+			w_1(
 				false,
 				"Either a group or clan must be passed to DropGroupToInviteFriendMessage.",
 			);
 			return null;
 		}
-		const i = (t || r).name;
-		return d.createElement(h, {
-			message: (0, Localize)("#Chat_DropGroupToInviteFriend"),
-			name: i,
-			renderImage: () =>
-				r
-					? d.createElement(C._O, {
-							clan: r,
-							size: "large",
-						})
-					: d.createElement(C.I, {
-							group: t,
-							large: true,
-						}),
-			...n,
-		});
+		const i = (group || clan).name;
+		return (
+			<H_1
+				message={(0, Localize)("#Chat_DropGroupToInviteFriend")}
+				name={i}
+				renderImage={() =>
+					clan ? <C._O clan={clan} size="large" /> : <C.I group={group} large />
+				}
+				{...n}
+			/>
+		);
 	}
 };
-C1 = (0, n.Cg)([S.PA], C1);
+C1 = Cg([S.PA], C1);
 export let ln = class extends d.Component {
 	render() {
 		let e = false;
@@ -2200,14 +1818,13 @@ export let ln = class extends d.Component {
 		if (t.is_friend_typing) {
 			e = true;
 		}
-		return d.createElement(
-			"div",
-			{
-				className:
-					"FriendChatTypingNotification" + (e ? " FriendIsTyping" : ""),
-			},
-			(0, Localize)("#Friend_Chat_Typing", t.chat_partner.display_name),
+		return (
+			<div
+				className={`FriendChatTypingNotification${e ? " FriendIsTyping" : ""}`}
+			>
+				{(0, Localize)("#Friend_Chat_Typing", t.chat_partner.display_name)}
+			</div>
 		);
 	}
 };
-ln = (0, n.Cg)([S.PA], ln);
+ln = Cg([S.PA], ln);

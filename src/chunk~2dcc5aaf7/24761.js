@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./44846.js");
-var s = require("./44234.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./44846.js";
+import s from "./44234.js";
 export class w {
 	m_strInviteCode;
 	m_bReady = false;
@@ -13,7 +13,7 @@ export class w {
 	m_bIsBanned;
 	m_rtKickExpires;
 	constructor(e) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_strInviteCode = e;
 	}
 	BIsReady() {
@@ -77,6 +77,6 @@ export function u(e) {
 		return `${s.TS.COMMUNITY_BASE_URL}chat/invite/${e}`;
 	}
 }
-(0, n.Cg)([i.sH], w.prototype, "m_bReady", undefined);
-(0, n.Cg)([i.XI], w.prototype, "InitInvalid", null);
-(0, n.Cg)([i.XI], w.prototype, "InitDirectInvite", null);
+Cg([i.sH], w.prototype, "m_bReady", undefined);
+Cg([i.XI], w.prototype, "InitInvalid", null);
+Cg([i.XI], w.prototype, "InitDirectInvite", null);

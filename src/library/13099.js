@@ -17,6 +17,7 @@ export function _f(e, t) {
 				if (
 					e.overflowX == "scroll" ||
 					e.overflowX == "auto" ||
+					e.overflowX == "auto" ||
 					e.position == "fixed"
 				) {
 					break;
@@ -26,6 +27,7 @@ export function _f(e, t) {
 				const e = window.getComputedStyle(n);
 				if (
 					e.overflowY == "scroll" ||
+					e.overflowY == "auto" ||
 					e.overflowY == "auto" ||
 					e.position == "fixed"
 				) {

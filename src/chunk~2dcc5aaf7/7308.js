@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	InviteDropMessage: "_240xakF0P6VQe4Qd843wIw",
 	InviteDropImage: "_3Z_AX1_BgHE0otB0eSOd-P",
 	InviteDropName: "_2Zv5cfCFGysTDocUJaIMZm",

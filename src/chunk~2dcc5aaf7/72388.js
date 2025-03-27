@@ -79,10 +79,10 @@ function o(e) {
 	}
 }
 export function Yj(e, t = null, r = " ") {
-	const n = new RegExp("\\[(" + o(t) + ")\\b[^\\]]*\\].*?\\[/\\1\\]", "gi");
+	const n = new RegExp(`\\[(${o(t)})\\b[^\\]]*\\].*?\\[/\\1\\]`, "gi");
 	return e.replace(n, r);
 }
 export function zV(e, t = null, r = "") {
-	const n = "\\[\\/?(?:" + o(t) + "){1,}.*?]";
+	const n = `\\[\\/?(?:${o(t)}){1,}.*?]`;
 	return e.replace(new RegExp(n, "gi"), r);
 }

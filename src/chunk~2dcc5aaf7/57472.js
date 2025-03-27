@@ -1,107 +1,110 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./34792.js");
-var a = require("./27756.js");
-var s = require(/*webcrack:missing*/ "./11131.js");
-var o = require("./96670.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require("./2306.js");
-function m(e) {
+import n from "./63696.js";
+import i, { VI } from "./34792.js";
+import a, { $ } from "./27756.js";
+import s, { R7 } from "./11131.js";
+import o from "./96670.js";
+import c from "./2306.js";
+function M(e) {
 	const {
-		bRequiresRestart: t,
-		visible: r = true,
-		deferred: i = false,
-		fnOnSetDeferred: m,
-		checked: u,
-		onChange: d,
-		label: A,
-		onClick: p,
-		feature: g,
+		bRequiresRestart,
+		visible = true,
+		deferred = false,
+		fnOnSetDeferred,
+		checked,
+		onChange,
+		label,
+		onClick,
+		feature,
 		...h
 	} = e;
-	const C = (0, s.R7)();
+	const C = R7();
 	const _ = n.useCallback(
 		(e) => {
-			if (d) {
-				d(e);
+			if (onChange) {
+				onChange(e);
 			}
 		},
-		[d],
+		[onChange],
 	);
 	const f = n.useCallback(
 		(e) => {
-			(0, a.$)({
+			$({
 				fnOnOK: () => _(e),
 				strCancelButtonText: Localize("#Settings_RestartLater_ButtonText"),
 				fnOnCancel: () => {
 					_(e);
-					if (m) {
-						m();
+					if (fnOnSetDeferred) {
+						fnOnSetDeferred();
 					}
 				},
 				ownerWindow: C.ownerWindow,
 			});
 		},
-		[_, m, C.ownerWindow],
+		[_, fnOnSetDeferred, C.ownerWindow],
 	);
-	if (u !== undefined && r) {
-		return n.createElement(c.C, {
-			feature: g,
-			label: n.createElement(o.S, {
-				deferred: i,
-				label: A,
-			}),
-			checked: u,
-			onChange: t ? f : _,
-			onClick: p,
-			...h,
-		});
+	if (checked !== undefined && visible) {
+		return (
+			<c.C
+				feature={feature}
+				label={<o.S deferred={deferred} label={label} />}
+				checked={checked}
+				onChange={bRequiresRestart ? f : _}
+				onClick={onClick}
+				{...h}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
 export function G(e) {
 	const {
-		setting: t,
-		invert: r = false,
-		onChange: a,
-		feature: s,
-		displayOffIfDisabled: o,
-		disabled: l,
+		setting,
+		invert = false,
+		onChange,
+		feature,
+		displayOffIfDisabled,
+		disabled,
 		...c
 	} = e;
-	const [u, d, A, p] = (0, i.VI)(t);
+	const [u, d, A, p] = VI(setting);
 	const g = n.useCallback(
 		(e) => {
-			const t = r ? !e : e;
+			const t = invert ? !e : e;
 			d(t);
-			if (a) {
-				a(t);
+			if (onChange) {
+				onChange(t);
 			}
 		},
-		[a, d, r],
+		[onChange, d, invert],
 	);
 	if (u === undefined) {
 		return null;
 	}
-	const h = (!l || !o) && u;
-	const C = r ? !h : h;
-	return n.createElement(m, {
-		...c,
-		feature: s,
-		checked: C,
-		deferred: A,
-		disabled: l,
-		fnOnSetDeferred: p,
-		onChange: g,
-		controlled: true,
-	});
+	const h = (!disabled || !displayOffIfDisabled) && u;
+	const C = invert ? !h : h;
+	return (
+		<M
+			{...c}
+			feature={feature}
+			checked={C}
+			deferred={A}
+			disabled={disabled}
+			fnOnSetDeferred={p}
+			onChange={g}
+			controlled
+		/>
+	);
 }
 export function y(e) {
-	const { params: t, ...r } = e;
-	return n.createElement(m, {
-		visible: t.bAvailable,
-		checked: t.bEnabled,
-		onChange: t.setEnabled,
-		...r,
-	});
+	const { params, ...r } = e;
+	return (
+		<M
+			visible={params.bAvailable}
+			checked={params.bEnabled}
+			onChange={params.setEnabled}
+			{...r}
+		/>
+	);
 }

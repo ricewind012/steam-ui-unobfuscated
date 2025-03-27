@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	NetworkScreen: "_1s2Cmj4iHG6xMsut9oBq8S",
 	LeftColumn: "_1ENpcDCmUJX6M6nTen5Eda",

@@ -1,66 +1,44 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require("./44010.js");
-var l = o;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./41230.js";
+import { A } from "./90765.js";
+import o from "./44010.js";
+const l = o;
 export let p = class extends i.Component {
 	static get hoverClass() {
 		return l.hoverParent;
 	}
 	render() {
-		const {
-			persona: e,
-			animating: t,
-			className: r,
-			size: n,
-			dim: a,
-			...o
-		} = this.props;
+		const { persona, animating, className, size, dim, ...o } = this.props;
 		let c = "";
-		if (n == "medium") {
+		if (size == "medium") {
 			c = l.Medium;
-		} else if (n == "large") {
+		} else if (size == "large") {
 			c = l.Large;
 		}
-		return i.createElement(
-			"div",
-			{
-				className: (0, s.A)(
+		return (
+			<div
+				className={A(
 					l.SnoozeContainer,
-					e.online_state,
-					r,
-					t && l.animating,
+					persona.online_state,
+					className,
+					animating && l.animating,
 					c,
-					a && l.Dim,
-				),
-				...o,
-			},
-			i.createElement(
-				"div",
-				{
-					"data-text": "Z",
-					className: (0, s.A)(l.SnoozeZ, l.Z1),
-				},
-				"Z",
-			),
-			i.createElement(
-				"div",
-				{
-					"data-text": "Z",
-					className: (0, s.A)(l.SnoozeZ, l.Z2),
-				},
-				"Z",
-			),
-			i.createElement(
-				"div",
-				{
-					"data-text": "Z",
-					className: (0, s.A)(l.SnoozeZ, l.Z3),
-				},
-				"Z",
-			),
+					dim && l.Dim,
+				)}
+				{...o}
+			>
+				<div data-text="Z" className={A(l.SnoozeZ, l.Z1)}>
+					Z
+				</div>
+				<div data-text="Z" className={A(l.SnoozeZ, l.Z2)}>
+					Z
+				</div>
+				<div data-text="Z" className={A(l.SnoozeZ, l.Z3)}>
+					Z
+				</div>
+			</div>
 		);
 	}
 };
-p = (0, n.Cg)([a.PA], p);
+p = Cg([a.PA], p);

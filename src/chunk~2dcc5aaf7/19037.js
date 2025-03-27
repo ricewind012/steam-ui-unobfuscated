@@ -1,22 +1,35 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./69018.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./90095.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-var m = require("./10606.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
-require("./49220.js");
-var d = require(/*webcrack:missing*/ "./61657.js");
-var A = require("./96593.js");
-var p = require("./61277.js");
-var g = require("./43014.js");
-var h = require("./13743.js");
-var C = require("./52192.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./69018.js";
+import s, { A as A_1 } from "./90765.js";
+import o, { Z3 } from "./52451.js";
+import l, { q3 } from "./90095.js";
+import m from "./10606.js";
+import u from "./69164.js";
+import "./49220.js";
+import d from "./61657.js";
+import A from "./96593.js";
+import p from "./61277.js";
+import g from "./43014.js";
+import h from "./13743.js";
+import C from "./52192.js";
+import z, { rP, hf } from "./72476.js";
+import x from "./22091.js";
+import U from "./85360.js";
+import W from "./35488.js";
+import V from "./46422.js";
+import H from "./53622.js";
+import j, { pg } from "./13869.js";
+import q, { R7 } from "./11131.js";
+import Q, { bJ } from "./3524.js";
+import Z from "./38964.js";
+import Y from "./37790.js";
+import K from "./79769.js";
+import X from "./85399.js";
 const _ = "/images/config1.png";
 const f = "/images/interstitial_controller_config.png";
 const b =
@@ -50,277 +63,169 @@ const G = "/images/interstitial_controller_osk.png";
 const O = "/images/magnify.png";
 const P = "/images/interstitial_controller_magnify.png";
 const L = "/images/osk2.png";
-var z = require(/*webcrack:missing*/ "./72476.js");
-var x = require("./22091.js");
-var U = require("./85360.js");
-var W = require("./35488.js");
-var V = require("./46422.js");
-var H = require("./53622.js");
-var j = require("./13869.js");
-var q = require(/*webcrack:missing*/ "./11131.js");
-var Q = require(/*webcrack:missing*/ "./3524.js");
-var Z = require("./38964.js");
-var Y = require("./37790.js");
-var K = require(/*webcrack:missing*/ "./79769.js");
-var X = require("./85399.js");
 function J() {
-	return n.createElement(
-		"span",
-		null,
-		x.Fd.Get().GetControllerTypeStringByIndex(
-			U.v3.EditingConfigurationControllerIndex,
-		) ?? Localize("#controller_unspecified"),
+	return (
+		<span>
+			{x.Fd.Get().GetControllerTypeStringByIndex(
+				U.v3.EditingConfigurationControllerIndex,
+			) ?? Localize("#controller_unspecified")}
+		</span>
 	);
 }
 function $(e) {
-	return (0, l.q3)(() => {
+	return q3(() => {
 		let t = [];
 		p.z.GetVisibleInterstitials?.forEach((r) => {
-			const i = r.m_eInterstitial;
+			const r_m_eInterstitial = r.m_eInterstitial;
 			const o = (e) => {
 				t.push({
-					eInterstitial: i,
+					eInterstitial: r_m_eInterstitial,
 					...e,
 				});
 			};
 			if (r.m_eInterstitial == p.H.k_eIntro) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabelWithSpace,
-									},
-									z.TS.ON_DECK
+							<u.Z>
+								<div className={a.DescLabelWithSpace}>
+									{z.TS.ON_DECK
 										? LocalizeInlineReactWithFallback(
 												"#ControllerConfigurator_Interstitial_Intro_DescA1",
-												n.createElement(J, null),
-												n.createElement("span", {
-													className: a.Highlight,
-												}),
+												<J />,
+												<span className={a.Highlight} />,
 											)
 										: LocalizeInlineReactWithFallback(
 												"#ControllerConfigurator_Interstitial_Intro_DescA1_NonDeck",
-												n.createElement(J, null),
-												n.createElement("span", {
-													className: a.Highlight,
-												}),
-											),
-								),
-								n.createElement(
-									"div",
-									{
-										className: (0, s.A)(a.DescLabel, a.DescLabel2),
-									},
-									LocalizeInlineReactWithFallback(
+												<J />,
+												<span className={a.Highlight} />,
+											)}
+								</div>
+								<div className={A_1(a.DescLabel, a.DescLabel2)}>
+									{LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_Intro_DescA2",
-										n.createElement("span", {
-											className: a.Highlight,
-										}),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageRow,
-									},
-									n.createElement("img", {
-										className: (0, s.A)(a.DescImage, a.IntroImage1A),
-										src: z.TS.ON_DECK ? _ : f,
-									}),
-								),
-							),
+										<span className={a.Highlight} />,
+									)}
+								</div>
+								<div className={a.InterstitialImageRow}>
+									<img
+										className={A_1(a.DescImage, a.IntroImage1A)}
+										src={z.TS.ON_DECK ? _ : f}
+									/>
+								</div>
+							</u.Z>,
 						);
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize("#ControllerConfigurator_Interstitial_Intro_DescB1"),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageColumnButtons,
-										},
-										n.createElement("img", {
-											className: (0, s.A)(
-												a.DescImage,
-												a.InterstitialGlyphButton,
-											),
-											src: v,
-										}),
-										n.createElement("img", {
-											className: (0, s.A)(
-												a.DescImage,
-												a.InterstitialGlyphButton,
-											),
-											src: B,
-										}),
-										n.createElement("img", {
-											className: (0, s.A)(
-												a.DescImage,
-												a.InterstitialGlyphButton,
-											),
-											src: M,
-										}),
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
+										"#ControllerConfigurator_Interstitial_Intro_DescB1",
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<div className={a.InterstitialImageColumnButtons}>
+										<img
+											className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+											src={v}
+										/>
+										<img
+											className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+											src={B}
+										/>
+										<img
+											className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+											src={M}
+										/>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_PhysicalInputs",
-											),
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageColumnButtons,
-										},
-										n.createElement("img", {
-											className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-											src: k,
-										}),
-										n.createElement("img", {
-											className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-											src: k,
-										}),
-										n.createElement("img", {
-											className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-											src: k,
-										}),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageColumnButtons,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.ControlLabel,
-											},
-											Localize("#ControllerConfigurator_Interstitial_Command1"),
-										),
-										n.createElement(
-											"span",
-											{
-												className: a.ControlLabel,
-											},
-											Localize("#ControllerConfigurator_Interstitial_Command2"),
-										),
-										n.createElement(
-											"span",
-											{
-												className: a.ControlLabel,
-											},
-											Localize("#ControllerConfigurator_Interstitial_Command3"),
-										),
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize("#ControllerConfigurator_Interstitial_Commands"),
-										),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize("#ControllerConfigurator_Interstitial_Intro_DescB2"),
-								),
-							),
+											)}
+										</span>
+									</div>
+									<div className={a.InterstitialImageColumnButtons}>
+										<img
+											className={A_1(a.DescImage, a.InterstitialArrow)}
+											src={k}
+										/>
+										<img
+											className={A_1(a.DescImage, a.InterstitialArrow)}
+											src={k}
+										/>
+										<img
+											className={A_1(a.DescImage, a.InterstitialArrow)}
+											src={k}
+										/>
+									</div>
+									<div className={a.InterstitialImageColumnButtons}>
+										<span className={a.ControlLabel}>
+											{Localize(
+												"#ControllerConfigurator_Interstitial_Command1",
+											)}
+										</span>
+										<span className={a.ControlLabel}>
+											{Localize(
+												"#ControllerConfigurator_Interstitial_Command2",
+											)}
+										</span>
+										<span className={a.ControlLabel}>
+											{Localize(
+												"#ControllerConfigurator_Interstitial_Command3",
+											)}
+										</span>
+										<span className={a.Highlight}>
+											{Localize(
+												"#ControllerConfigurator_Interstitial_Commands",
+											)}
+										</span>
+									</div>
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
+										"#ControllerConfigurator_Interstitial_Intro_DescB2",
+									)}
+								</div>
+							</u.Z>,
 						);
 						if (z.TS.ON_DECK) {
 							t.push(
-								n.createElement(
-									u.Z,
-									null,
-									n.createElement(
-										"div",
-										{
-											className: a.DescLabelWithSpace,
-										},
-										Localize(
+								<u.Z>
+									<div className={a.DescLabelWithSpace}>
+										{Localize(
 											"#ControllerConfigurator_Interstitial_Intro_DescC1",
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.DescLabel,
-										},
-										LocalizeInlineReactWithFallback(
+										)}
+									</div>
+									<div className={a.DescLabel}>
+										{LocalizeInlineReactWithFallback(
 											"#ControllerConfigurator_Interstitial_Intro_DescC2",
-											n.createElement("span", {
-												className: a.Highlight,
-											}),
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageContainer,
-										},
-										n.createElement(
-											"div",
-											{
-												className: a.InterstitialImageColumn,
-											},
-											n.createElement(
-												"span",
-												{
-													className: a.Highlight,
-												},
-												Localize(
+											<span className={a.Highlight} />,
+										)}
+									</div>
+									<div className={a.InterstitialImageContainer}>
+										<div className={a.InterstitialImageColumn}>
+											<span className={a.Highlight}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_BackGripControls",
-												),
-											),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.IntroImage3a),
-												src: b,
-											}),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.InterstitialImageColumn,
-											},
-											n.createElement(
-												"span",
-												{
-													className: a.Highlight,
-												},
-												Localize(
+												)}
+											</span>
+											<img
+												className={A_1(a.DescImage, a.IntroImage3a)}
+												src={b}
+											/>
+										</div>
+										<div className={a.InterstitialImageColumn}>
+											<span className={a.Highlight}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_GyroControls",
-												),
-											),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.IntroImage3b),
-												src: y,
-											}),
-										),
-									),
-								),
+												)}
+											</span>
+											<img
+												className={A_1(a.DescImage, a.IntroImage3b)}
+												src={y}
+											/>
+										</div>
+									</div>
+								</u.Z>,
 							);
 						}
 						return {
@@ -333,227 +238,143 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eNonVerifiedGame) {
 				o(
-					(function (e) {
-						const { appid: t } = e;
+					((e) => {
+						const { appid } = e;
 						let r = [];
-						const i = A.tw.GetAppOverviewByAppID(t)?.display_name;
+						const i = A.tw.GetAppOverviewByAppID(appid)?.display_name;
 						r.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabelWithSpace,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabelWithSpace}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescA1",
 										i,
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+									)}
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescA2",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.ConfigButtonContainer,
-									},
-									n.createElement(X.W4, {
-										bDisabled: true,
-										configType: X.h7.Official,
-										description: Localize(
+									)}
+								</div>
+								<div className={a.ConfigButtonContainer}>
+									<X.W4
+										bDisabled
+										configType={X.h7.Official}
+										description={Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Description",
-										),
-										bInfoOnly: false,
-										bGamepadSupport: true,
-										creator: Localize(
+										)}
+										bInfoOnly={false}
+										bGamepadSupport
+										creator={Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Creator",
-										),
-										label: Localize(
+										)}
+										label={Localize(
 											"#ControllerConfigurator_Interstitial_NonVerified_Config_Title",
-										),
-										iconType: 4,
-									}),
-								),
-							),
+										)}
+										iconType={4}
+									/>
+								</div>
+							</u.Z>,
 						);
 						r.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabelWithSpace,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabelWithSpace}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescB1",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: (0, s.A)(a.DescLabel, a.DescLabel2),
-									},
-									Localize(
+									)}
+								</div>
+								<div className={A_1(a.DescLabel, a.DescLabel2)}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescB2",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageRow,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageColumn,
-										},
-										n.createElement(
-											"div",
-											{
-												className: (0, s.A)(
-													a.InterstitialImageRow,
-													a.ScreenshotBG,
-												),
-											},
-											n.createElement(
-												"span",
-												{
-													className: a.Highlight,
-												},
-												Localize(
+									)}
+								</div>
+								<div className={a.InterstitialImageRow}>
+									<div className={a.InterstitialImageColumn}>
+										<div
+											className={A_1(a.InterstitialImageRow, a.ScreenshotBG)}
+										>
+											<span className={a.Highlight}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB1",
-												),
-											),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.NonVerifiedImage2A),
-												src: S,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.Highlight,
-												},
-												Localize(
+												)}
+											</span>
+											<img
+												className={A_1(a.DescImage, a.NonVerifiedImage2A)}
+												src={S}
+											/>
+											<span className={a.Highlight}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB2",
-												),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.InterstitialImageRow,
-											},
-											n.createElement(C.UT, {
-												controllerType: 4,
-												controllerSource: 4,
-												controllerModeInput: 12,
-											}),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-												src: k,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+												)}
+											</span>
+										</div>
+										<div className={a.InterstitialImageRow}>
+											<C.UT
+												controllerType={4}
+												controllerSource={4}
+												controllerModeInput={12}
+											/>
+											<img
+												className={A_1(a.DescImage, a.InterstitialArrow)}
+												src={k}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_Command1",
-												),
-											),
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.InterstitialImageColumn,
-										},
-										n.createElement(
-											"div",
-											{
-												className: (0, s.A)(
-													a.InterstitialImageRow,
-													a.ScreenshotBG,
-												),
-											},
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.NonVerifiedImage2A),
-												src: w,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.Highlight,
-												},
-												Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<div className={a.InterstitialImageColumn}>
+										<div
+											className={A_1(a.InterstitialImageRow, a.ScreenshotBG)}
+										>
+											<img
+												className={A_1(a.DescImage, a.NonVerifiedImage2A)}
+												src={w}
+											/>
+											<span className={a.Highlight}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_CaptionB3",
-												),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.InterstitialImageRow,
-											},
-											n.createElement(C.UT, {
-												controllerType: 4,
-												controllerSource: 4,
-												controllerModeInput: 11,
-											}),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-												src: k,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+												)}
+											</span>
+										</div>
+										<div className={a.InterstitialImageRow}>
+											<C.UT
+												controllerType={4}
+												controllerSource={4}
+												controllerModeInput={11}
+											/>
+											<img
+												className={A_1(a.DescImage, a.InterstitialArrow)}
+												src={k}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_NonVerified_Command2",
-												),
-											),
-										),
-									),
-								),
-							),
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						r.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescC1",
-									),
-								),
-								n.createElement("img", {
-									className: (0, s.A)(a.DescImage, a.NonVerifiedImage3A),
-									src: D,
-								}),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+									)}
+								</div>
+								<img
+									className={A_1(a.DescImage, a.NonVerifiedImage3A)}
+									src={D}
+								/>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_NonVerified_DescC3",
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -567,7 +388,7 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eGyro) {
 				o(
-					(function (e) {
+					((e) => {
 						let t;
 						let r;
 						let i = [];
@@ -579,17 +400,10 @@ function $(e) {
 						) {
 							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2",
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
+								<span className={a.Highlight} />,
 							);
-							r = n.createElement("img", {
-								className: (0, s.A)(a.DescImage, a.GyroImage1A),
-								src: N,
-							});
+							r = <img className={A_1(a.DescImage, a.GyroImage1A)} src={N} />;
 						} else if (
 							x.Fd.Get()
 								.GetControllers()
@@ -597,62 +411,44 @@ function $(e) {
 						) {
 							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2_SteamController",
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
 							);
-							r = n.createElement(W.SteamControllerRightPadHighlighted, {
-								className: (0, s.A)(
-									a.DescImage,
-									a.GyroImage1A,
-									a.SteamController,
-								),
-							});
+							r = (
+								<W.SteamControllerRightPadHighlighted
+									className={A_1(a.DescImage, a.GyroImage1A, a.SteamController)}
+								/>
+							);
 						} else {
 							t = Localize(
 								"#ControllerConfigurator_Interstitial_Gyro_DescA2_NonDeck",
 							);
-							r = n.createElement(W.GenericGamepad, {
-								className: (0, s.A)(
-									a.DescImage,
-									a.GyroImage1A,
-									a.SteamController,
-									a.GenericGamepad,
-								),
-							});
+							r = (
+								<W.GenericGamepad
+									className={A_1(
+										a.DescImage,
+										a.GyroImage1A,
+										a.SteamController,
+										a.GenericGamepad,
+									)}
+								/>
+							);
 						}
 						i.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_Gyro_DescA1"
 											: "#ControllerConfigurator_Interstitial_Gyro_DescA1_NonDeck",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescImageRow,
-									},
-									"\t",
-									r,
-									"\t",
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									t,
-								),
-							),
+									)}
+								</div>
+								<div className={a.DescImageRow}>
+									{"\t"}
+									{r}
+									{"\t"}
+								</div>
+								<div className={a.DescLabel}>{t}</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize("#ControllerConfigurator_Section_Gyros"),
@@ -666,62 +462,38 @@ function $(e) {
 				p.H.k_eAppTextInputDoesNotAutomaticallyInvokesKeyboard
 			) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_AppRequiresOSK_DescA1",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.ChordRight,
-									},
-									n.createElement("img", {
-										className: (0, s.A)(a.DescImage, a.AppRequiresOSKImage1A),
-										src: L,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.ChordColumn,
-										},
-										n.createElement(
-											"div",
-											{
-												className: a.ChordLabel,
-											},
-											Localize(
+									)}
+								</div>
+								<div className={a.ChordRight}>
+									<img
+										className={A_1(a.DescImage, a.AppRequiresOSKImage1A)}
+										src={L}
+									/>
+									<div className={a.ChordColumn}>
+										<div className={a.ChordLabel}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_AppRequiresOSK_DescA2",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.ChordRow,
-											},
-											n.createElement(H.W, {
-												button: g.g4.HomeMenu,
-											}),
-											" + ",
-											n.createElement(C.UT, {
-												controllerType: 4,
-												controllerSource: 4,
-												controllerModeInput: 11,
-											}),
-										),
-									),
-								),
-							),
+											)}
+										</div>
+										<div className={a.ChordRow}>
+											<H.W button={g.g4.HomeMenu} />
+											{" + "}
+											<C.UT
+												controllerType={4}
+												controllerSource={4}
+												controllerModeInput={11}
+											/>
+										</div>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -734,36 +506,26 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eRemotePlayConfirm) {
 				o(
-					(function (e) {
-						const { strParam: t } = e;
+					((e) => {
+						const { strParam } = e;
 						let r = [];
 						r.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_RemotePlayConfirm_DescA1",
-										t,
-									),
-								),
-								n.createElement(W.RemotePlayExplanation, {
-									className: (0, s.A)(a.DescImage, a.RemotePlayImage1A),
-								}),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+										strParam,
+									)}
+								</div>
+								<W.RemotePlayExplanation
+									className={A_1(a.DescImage, a.RemotePlayImage1A)}
+								/>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_RemotePlayConfirm_DescA2",
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -780,7 +542,7 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eAppLauncherInteractionIssues) {
 				o(
-					(function (e) {
+					((e) => {
 						const t = z.TS.ON_DECK ? 4 : 32;
 						const r =
 							x.Fd.Get().GetController(V.oy.ActiveControllerIndex)
@@ -790,196 +552,114 @@ function $(e) {
 						const i = r == 2 || r == 4;
 						let o = [];
 						o.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA1"
 											: "#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA1_NonDeck",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.ChordRight,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.DescImageRow,
-										},
-										n.createElement("img", {
-											className: (0, s.A)(a.DescImage, a.AppRequiresLauncher),
-											src: z.TS.ON_DECK ? F : G,
-										}),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.ChordColumn,
-										},
-										!z.TS.ON_DECK &&
-											n.createElement(
-												"div",
-												{
-													className: a.LabelAndChord,
-												},
-												n.createElement(
-													"div",
-													{
-														className: a.DescLabel,
-													},
-													Localize(
+									)}
+								</div>
+								<div className={a.ChordRight}>
+									<div className={a.DescImageRow}>
+										<img
+											className={A_1(a.DescImage, a.AppRequiresLauncher)}
+											src={z.TS.ON_DECK ? F : G}
+										/>
+									</div>
+									<div className={a.ChordColumn}>
+										{!z.TS.ON_DECK && (
+											<div className={a.LabelAndChord}>
+												<div className={a.DescLabel}>
+													{Localize(
 														"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA4",
-													),
-												),
-												n.createElement(
-													"div",
-													{
-														className: a.ChordRow,
-													},
-													z.TS.ON_DECK &&
-														n.createElement(h.$m, {
-															button: g.g4.HomeMenu,
-															size: h.xY.Medium,
-														}),
-													!z.TS.ON_DECK &&
-														n.createElement(H.W, {
-															button: g.g4.HomeMenu,
-														}),
-													" + ",
-													n.createElement(C.UT, {
-														controllerType: r,
-														controllerSource: r == 2 ? 2 : 12,
-														controllerModeInput: 0,
-													}),
-												),
-											),
-										!z.TS.ON_DECK &&
-											n.createElement(
-												"div",
-												{
-													className: a.LabelAndChord,
-												},
-												n.createElement(
-													"div",
-													{
-														className: a.DescLabel,
-													},
-													Localize(
+													)}
+												</div>
+												<div className={a.ChordRow}>
+													{z.TS.ON_DECK && (
+														<h.$m button={g.g4.HomeMenu} size={h.xY.Medium} />
+													)}
+													{!z.TS.ON_DECK && <H.W button={g.g4.HomeMenu} />}
+													{" + "}
+													<C.UT
+														controllerType={r}
+														controllerSource={r == 2 ? 2 : 12}
+														controllerModeInput={0}
+													/>
+												</div>
+											</div>
+										)}
+										{!z.TS.ON_DECK && (
+											<div className={a.LabelAndChord}>
+												<div className={a.DescLabel}>
+													{Localize(
 														"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA5",
-													),
-												),
-												n.createElement(
-													"div",
-													{
-														className: a.ChordRow,
-													},
-													z.TS.ON_DECK &&
-														n.createElement(h.$m, {
-															button: g.g4.HomeMenu,
-															size: h.xY.Medium,
-														}),
-													!z.TS.ON_DECK &&
-														n.createElement(H.W, {
-															button: g.g4.HomeMenu,
-														}),
-													" + ",
-													i
-														? n.createElement(C.UT, {
-																controllerType: r,
-																controllerSource: 7,
-																controllerModeInput: 15,
-															})
-														: n.createElement(C.UT, {
-																controllerType: r,
-																controllerSource: 5,
-																controllerModeInput: 54,
-															}),
-													"\t\t\t\t\t\t",
-												),
-											),
-										n.createElement(
-											"div",
-											{
-												className: a.LabelAndChord,
-											},
-											n.createElement(
-												"div",
-												{
-													className: a.DescLabel,
-												},
-												Localize(
+													)}
+												</div>
+												<div className={a.ChordRow}>
+													{z.TS.ON_DECK && (
+														<h.$m button={g.g4.HomeMenu} size={h.xY.Medium} />
+													)}
+													{!z.TS.ON_DECK && <H.W button={g.g4.HomeMenu} />}
+													{" + "}
+													{i ? (
+														<C.UT
+															controllerType={r}
+															controllerSource={7}
+															controllerModeInput={15}
+														/>
+													) : (
+														<C.UT
+															controllerType={r}
+															controllerSource={5}
+															controllerModeInput={54}
+														/>
+													)}
+													{"\t\t\t\t\t\t"}
+												</div>
+											</div>
+										)}
+										<div className={a.LabelAndChord}>
+											<div className={a.DescLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA2",
-												),
-											),
-											n.createElement(
-												"div",
-												{
-													className: a.ChordRow,
-												},
-												z.TS.ON_DECK &&
-													n.createElement(h.$m, {
-														button: g.g4.HomeMenu,
-														size: h.xY.Medium,
-													}),
-												!z.TS.ON_DECK &&
-													n.createElement(H.W, {
-														button: g.g4.HomeMenu,
-													}),
-												" + ",
-												n.createElement(C.UT, {
-													controllerType: r,
-													controllerSource: 4,
-													controllerModeInput: 11,
-												}),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.LabelAndChord,
-											},
-											n.createElement(
-												"div",
-												{
-													className: a.DescLabel,
-												},
-												Localize(
+												)}
+											</div>
+											<div className={a.ChordRow}>
+												{z.TS.ON_DECK && (
+													<h.$m button={g.g4.HomeMenu} size={h.xY.Medium} />
+												)}
+												{!z.TS.ON_DECK && <H.W button={g.g4.HomeMenu} />}
+												{" + "}
+												<C.UT
+													controllerType={r}
+													controllerSource={4}
+													controllerModeInput={11}
+												/>
+											</div>
+										</div>
+										<div className={a.LabelAndChord}>
+											<div className={a.DescLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_AppLauncherInteractionIssues_DescA3",
-												),
-											),
-											n.createElement(
-												"div",
-												{
-													className: a.ChordRow,
-												},
-												z.TS.ON_DECK &&
-													n.createElement(h.$m, {
-														button: g.g4.HomeMenu,
-														size: h.xY.Medium,
-													}),
-												!z.TS.ON_DECK &&
-													n.createElement(H.W, {
-														button: g.g4.HomeMenu,
-													}),
-												" + ",
-												n.createElement(C.UT, {
-													controllerType: r,
-													controllerSource: 5,
-													controllerModeInput: 53,
-												}),
-											),
-										),
-									),
-								),
-							),
+												)}
+											</div>
+											<div className={a.ChordRow}>
+												{z.TS.ON_DECK && (
+													<h.$m button={g.g4.HomeMenu} size={h.xY.Medium} />
+												)}
+												{!z.TS.ON_DECK && <H.W button={g.g4.HomeMenu} />}
+												{" + "}
+												<C.UT
+													controllerType={r}
+													controllerSource={5}
+													controllerModeInput={53}
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -992,7 +672,7 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eAppHasSmallText) {
 				o(
-					(function (e) {
+					((e) => {
 						const t = z.TS.ON_DECK ? 4 : 32;
 						const r =
 							x.Fd.Get().GetController(V.oy.ActiveControllerIndex)
@@ -1002,105 +682,58 @@ function $(e) {
 						const i = r == 2 || r == 4;
 						let o = [];
 						o.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										z.TS.ON_DECK
 											? "#ControllerConfigurator_Interstitial_AppHasSmallText_DescA1"
 											: "#ControllerConfigurator_Interstitial_AppHasSmallText_DescA1NonDeck",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.ChordRight,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.DescImageRow,
-										},
-										n.createElement("img", {
-											className: (0, s.A)(a.DescImage, a.AppRequiresMagnify),
-											src: z.TS.ON_DECK ? O : P,
-										}),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.ChordColumn,
-										},
-										n.createElement(
-											"div",
-											{
-												className: a.LabelAndChord,
-											},
-											n.createElement(
-												"div",
-												{
-													className: a.DescLabel,
-												},
-												Localize(
+									)}
+								</div>
+								<div className={a.ChordRight}>
+									<div className={a.DescImageRow}>
+										<img
+											className={A_1(a.DescImage, a.AppRequiresMagnify)}
+											src={z.TS.ON_DECK ? O : P}
+										/>
+									</div>
+									<div className={a.ChordColumn}>
+										<div className={a.LabelAndChord}>
+											<div className={a.DescLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_AppHasSmallText_DescA2",
-												),
-											),
-											n.createElement(
-												"div",
-												{
-													className: a.ChordRow,
-												},
-												z.TS.ON_DECK &&
-													n.createElement(h.$m, {
-														button: g.g4.HomeMenu,
-														size: h.xY.Medium,
-													}),
-												!z.TS.ON_DECK &&
-													n.createElement(H.W, {
-														button: g.g4.HomeMenu,
-													}),
-												" + ",
-												n.createElement(C.UT, {
-													controllerType: r,
-													controllerSource: 5,
-													controllerModeInput: 53,
-												}),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: (0, s.A)(a.LabelAndChord, a.LabelAndChord2),
-											},
-											n.createElement(
-												"div",
-												{
-													className: a.DescLabel,
-												},
-												Localize(
+												)}
+											</div>
+											<div className={a.ChordRow}>
+												{z.TS.ON_DECK && (
+													<h.$m button={g.g4.HomeMenu} size={h.xY.Medium} />
+												)}
+												{!z.TS.ON_DECK && <H.W button={g.g4.HomeMenu} />}
+												{" + "}
+												<C.UT
+													controllerType={r}
+													controllerSource={5}
+													controllerModeInput={53}
+												/>
+											</div>
+										</div>
+										<div className={A_1(a.LabelAndChord, a.LabelAndChord2)}>
+											<div className={a.DescLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_AppHasSmallText_DescA3",
-												),
-											),
-											n.createElement(
-												"div",
-												{
-													className: a.ChordRow,
-												},
-												n.createElement(C.UT, {
-													controllerType: r,
-													controllerSource: i ? 2 : 12,
-													controllerModeInput: 0,
-												}),
-											),
-										),
-									),
-								),
-							),
+												)}
+											</div>
+											<div className={a.ChordRow}>
+												<C.UT
+													controllerType={r}
+													controllerSource={i ? 2 : 12}
+													controllerModeInput={0}
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1113,47 +746,33 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eExternalControllersAndSIAPI) {
 				o(
-					(function (e) {
-						const { appid: t } = e;
-						const r = A.tw.GetAppOverviewByAppID(t)?.display_name;
+					((e) => {
+						const { appid } = e;
+						const r = A.tw.GetAppOverviewByAppID(appid)?.display_name;
 						let i = [];
 						i.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_ExternalControllersAndSIAPI_DescA1",
 										r,
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescImageRow,
-									},
-									n.createElement(W.SteamInputTranslationImage, {
-										className: (0, s.A)(
+									)}
+								</div>
+								<div className={a.DescImageRow}>
+									<W.SteamInputTranslationImage
+										className={A_1(
 											a.DescImage,
 											a.ExternalControllersAndSIAPIImage1A,
-										),
-									}),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+										)}
+									/>
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_ExternalControllersAndSIAPI_DescA2",
 										r,
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1168,338 +787,171 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eIntroToActionSets) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescB1",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Action",
-												),
-											),
-										),
-									),
-									n.createElement("span", {
-										className: a.ActionSetDivider,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<span className={a.ActionSetDivider} />
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Action",
-												),
-											),
-										),
-									),
-									n.createElement("span", {
-										className: a.ActionSetDivider,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<span className={a.ActionSetDivider} />
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Action",
-												),
-											),
-										),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									LocalizeInlineReactWithFallback(
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+								<div className={a.DescLabel}>
+									{LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescB2",
-										n.createElement("span", {
-											className: a.Highlight,
-										}),
-									),
-								),
-							),
+										<span className={a.Highlight} />,
+									)}
+								</div>
+							</u.Z>,
 						);
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									LocalizeInlineReactWithFallback(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescC1",
-										n.createElement("span", {
-											className: a.Highlight,
-										}),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetLayout,
-										},
-										n.createElement(
-											"div",
-											{
-												className: a.ActionSetRow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: T,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.SetLabel,
-												},
-												Localize(
+										<span className={a.Highlight} />,
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<div className={a.ActionSetLayout}>
+										<div className={a.ActionSetRow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={T}
+											/>
+											<span className={a.SetLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Label1",
-												),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.LayerRow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: R,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.SetLabel,
-												},
-												Localize(
+												)}
+											</span>
+										</div>
+										<div className={a.LayerRow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={R}
+											/>
+											<span className={a.SetLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Label2",
-												),
-											),
-										),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescC2",
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescD1",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetLayout,
-										},
-										n.createElement(
-											"div",
-											{
-												className: a.LayerRow2,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ActivatorLabel,
-												},
-												Localize(
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<div className={a.ActionSetLayout}>
+										<div className={a.LayerRow2}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ActivatorLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Activator1",
-												),
-											),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+												)}
+											</span>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Command1",
-												),
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.LayerRow2,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ActivatorLabel,
-												},
-												Localize(
+												)}
+											</span>
+										</div>
+										<div className={a.LayerRow2}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ActivatorLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Activator2",
-												),
-											),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+												)}
+											</span>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Layers_Command2",
-												),
-											),
-										),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_IntroToActionSets_DescD2",
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1512,266 +964,137 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eIntroToSteamInputGames) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									LocalizeInlineReactWithFallback(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescA1",
-										n.createElement("span", {
-											className: a.Highlight,
-										}),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement("span", {
-										className: a.DividerLine,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.SteamInputSide,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+										<span className={a.Highlight} />,
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<span className={a.DividerLine} />
+									<div className={a.SteamInputSide}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Label1",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: I,
-											}),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-												src: k,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={I}
+											/>
+											<img
+												className={A_1(a.DescImage, a.InterstitialArrow)}
+												src={k}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Command1",
-												),
-											),
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.SteamInputSide,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.SIHighlight,
-											},
-											Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<div className={a.SteamInputSide}>
+										<span className={a.SIHighlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Label2",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: I,
-											}),
-											n.createElement("img", {
-												className: (0, s.A)(a.DescImage, a.InterstitialArrow),
-												src: k,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={I}
+											/>
+											<img
+												className={A_1(a.DescImage, a.InterstitialArrow)}
+												src={k}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_Command2",
-												),
-											),
-										),
-									),
-								),
-							),
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									LocalizeInlineReactWithFallback(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{LocalizeInlineReactWithFallback(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescB1",
-										n.createElement("span", {
-											className: a.Highlight,
-										}),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.InterstitialImageContainer,
-									},
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+										<span className={a.Highlight} />,
+									)}
+								</div>
+								<div className={a.InterstitialImageContainer}>
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo1_Action",
-												),
-											),
-										),
-									),
-									n.createElement("span", {
-										className: a.ActionSetDivider,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<span className={a.ActionSetDivider} />
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo2_Action",
-												),
-											),
-										),
-									),
-									n.createElement("span", {
-										className: a.ActionSetDivider,
-									}),
-									n.createElement(
-										"div",
-										{
-											className: a.ActionSetItem,
-										},
-										n.createElement(
-											"span",
-											{
-												className: a.Highlight,
-											},
-											Localize(
+												)}
+											</span>
+										</div>
+									</div>
+									<span className={a.ActionSetDivider} />
+									<div className={a.ActionSetItem}>
+										<span className={a.Highlight}>
+											{Localize(
 												"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Label",
-											),
-										),
-										n.createElement(
-											"div",
-											{
-												className: a.SteamInputARow,
-											},
-											n.createElement("img", {
-												className: (0, s.A)(
-													a.DescImage,
-													a.InterstitialGlyphButton,
-												),
-												src: E,
-											}),
-											n.createElement(
-												"span",
-												{
-													className: a.ControlLabel,
-												},
-												Localize(
+											)}
+										</span>
+										<div className={a.SteamInputARow}>
+											<img
+												className={A_1(a.DescImage, a.InterstitialGlyphButton)}
+												src={E}
+											/>
+											<span className={a.ControlLabel}>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToActionSets_Demo3_Action",
-												),
-											),
-										),
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+												)}
+											</span>
+										</div>
+									</div>
+								</div>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_IntroToSteamInputGames_DescB2",
-									),
-								),
-							),
+									)}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1784,62 +1107,38 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eIntroToVRTheater) {
 				o(
-					(function (e) {
+					((e) => {
 						const t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								{
-									className: (0, s.A)(a.TwoColumn, a.Gap),
-								},
-								n.createElement(W.VRTheater, {
-									className: (0, s.A)(a.DescImage, a.OptIn),
-								}),
-								n.createElement(
-									"div",
-									null,
-									n.createElement(
-										"p",
-										{
-											className: a.Highlight,
-										},
-										Localize(
+							<u.Z className={A_1(a.TwoColumn, a.Gap)}>
+								<W.VRTheater className={A_1(a.DescImage, a.OptIn)} />
+								<div>
+									<p className={a.Highlight}>
+										{Localize(
 											"#ControllerConfigurator_Interstitial_IntroToVRTheater_Directions",
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: a.List,
-										},
-										n.createElement(
-											"ol",
-											null,
-											n.createElement(
-												"li",
-												null,
-												Localize(
+										)}
+									</p>
+									<div className={a.List}>
+										<ol>
+											<li>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem1",
-												),
-											),
-											n.createElement(
-												"li",
-												null,
-												Localize(
+												)}
+											</li>
+											<li>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem2",
-												),
-											),
-											n.createElement(
-												"li",
-												null,
-												Localize(
+												)}
+											</li>
+											<li>
+												{Localize(
 													"#ControllerConfigurator_Interstitial_IntroToVRTheater_ListItem3",
-												),
-											),
-										),
-									),
-								),
-							),
+												)}
+											</li>
+										</ol>
+									</div>
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1853,9 +1152,9 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eGamepadRequired) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
-						t.push(n.createElement(ne, null));
+						t.push(<Ne />);
 						return {
 							strTitle: Localize(
 								"#ControllerConfigurator_Interstitial_ControllerRequired_Title",
@@ -1868,43 +1167,23 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eGamepadRecommended) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						t.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									Localize(
+							<u.Z>
+								<div className={a.DescLabel}>
+									{Localize(
 										"#ControllerConfigurator_Interstitial_ControllerRecommended_Desc",
-									),
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.ControllerRecommendedImageRow,
-									},
-									n.createElement(W.ControllerType, {
-										controllerType: 34,
-									}),
-									n.createElement(W.ControllerType, {
-										controllerType: 45,
-									}),
-									n.createElement(W.ControllerType, {
-										controllerType: 32,
-									}),
-									n.createElement(W.ControllerType, {
-										controllerType: 2,
-									}),
-									n.createElement(W.ControllerType, {
-										controllerType: 38,
-									}),
-								),
-							),
+									)}
+								</div>
+								<div className={a.ControllerRecommendedImageRow}>
+									<W.ControllerType controllerType={34} />
+									<W.ControllerType controllerType={45} />
+									<W.ControllerType controllerType={32} />
+									<W.ControllerType controllerType={2} />
+									<W.ControllerType controllerType={38} />
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1917,7 +1196,7 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eCurrentGamepadUnsupported) {
 				o(
-					(function (e) {
+					((e) => {
 						let t;
 						let r;
 						let i = [];
@@ -1927,48 +1206,26 @@ function $(e) {
 						if (o) {
 							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_PlugInPS4",
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
+								<span className={a.Highlight} />,
 							);
-							r = n.createElement(W.PlugInPS4, {
-								className: (0, s.A)(a.DescImage, a.PlugIn),
-							});
+							r = <W.PlugInPS4 className={A_1(a.DescImage, a.PlugIn)} />;
 						} else {
 							t = LocalizeInlineReactWithFallback(
 								"#ControllerConfigurator_Interstitial_PlugInPS5",
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
 							);
-							r = n.createElement(W.PlugInPS5, {
-								className: (0, s.A)(a.DescImage, a.PlugIn),
-							});
+							r = <W.PlugInPS5 className={A_1(a.DescImage, a.PlugIn)} />;
 						}
 						i.push(
-							n.createElement(
-								u.Z,
-								null,
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									t,
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescImageRow,
-									},
-									"\t",
-									r,
-									"\t",
-								),
-							),
+							<u.Z>
+								<div className={a.DescLabel}>{t}</div>
+								<div className={a.DescImageRow}>
+									{"\t"}
+									{r}
+									{"\t"}
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -1981,12 +1238,12 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eCurrentGamepadSteamInputOptIn) {
 				o(
-					(function (e) {
-						const { appid: t } = e;
+					((e) => {
+						const { appid } = e;
 						let r;
 						let i;
 						let o = [];
-						const l = A.tw.GetAppOverviewByAppID(t);
+						const l = A.tw.GetAppOverviewByAppID(appid);
 						const m = x.Fd.Get()
 							.GetControllers()
 							?.some((e) => e.eControllerType == 34);
@@ -2005,16 +1262,10 @@ function $(e) {
 							}
 							r = LocalizeInlineReactWithFallback(
 								t,
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
+								<span className={a.Highlight} />,
 							);
-							i = n.createElement(W.PS4Warning, {
-								className: (0, s.A)(a.DescImage, a.OptIn),
-							});
+							i = <W.PS4Warning className={A_1(a.DescImage, a.OptIn)} />;
 						} else {
 							const e = x.Fd.Get()
 								.GetControllers()
@@ -2034,40 +1285,20 @@ function $(e) {
 							}
 							r = LocalizeInlineReactWithFallback(
 								t,
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
-								n.createElement("span", {
-									className: a.Highlight,
-								}),
+								<span className={a.Highlight} />,
+								<span className={a.Highlight} />,
 							);
-							i = n.createElement(W.PS5Warning, {
-								className: (0, s.A)(a.DescImage, a.OptIn),
-							});
+							i = <W.PS5Warning className={A_1(a.DescImage, a.OptIn)} />;
 						}
 						o.push(
-							n.createElement(
-								u.Z,
-								{
-									className: a.TwoColumn,
-								},
-								n.createElement(
-									"div",
-									{
-										className: a.DescImageRow,
-									},
-									"\t",
-									i,
-									"\t",
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									r,
-								),
-							),
+							<u.Z className={a.TwoColumn}>
+								<div className={a.DescImageRow}>
+									{"\t"}
+									{i}
+									{"\t"}
+								</div>
+								<div className={a.DescLabel}>{r}</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -2082,33 +1313,15 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eVRRequired) {
 				o(
-					(function (e) {
+					((e) => {
 						let t = [];
 						let r = Localize("#ControllerConfigurator_Interstitial_VROnly");
-						let i = n.createElement(W.VR, {
-							className: (0, s.A)(a.DescImage, a.OptIn),
-						});
+						let i = <W.VR className={A_1(a.DescImage, a.OptIn)} />;
 						t.push(
-							n.createElement(
-								u.Z,
-								{
-									className: (0, s.A)(a.TwoColumn, a.Gap),
-								},
-								n.createElement(
-									"div",
-									{
-										className: a.DescImageRow,
-									},
-									i,
-								),
-								n.createElement(
-									"div",
-									{
-										className: a.DescLabel,
-									},
-									r,
-								),
-							),
+							<u.Z className={A_1(a.TwoColumn, a.Gap)}>
+								<div className={a.DescImageRow}>{i}</div>
+								<div className={a.DescLabel}>{r}</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize("#ControllerConfigurator_Section_VROnly"),
@@ -2119,43 +1332,27 @@ function $(e) {
 				);
 			} else if (r.m_eInterstitial == p.H.k_eHDRRequiresUserAction) {
 				o(
-					(function (e) {
-						const { appid: t } = e;
+					((e) => {
+						const { appid } = e;
 						const r = [];
-						const i = A.tw.GetAppOverviewByAppID(t)?.display_name;
+						const i = A.tw.GetAppOverviewByAppID(appid)?.display_name;
 						r.push(
-							n.createElement(
-								u.Z,
-								{
-									className: (0, s.A)(a.TwoColumn, a.Gap, a.Top),
-								},
-								n.createElement(W.HDRLarge, {
-									className: (0, s.A)(a.DescImage, a.TopFirstColumn),
-								}),
-								n.createElement(
-									"div",
-									null,
-									n.createElement(
-										"div",
-										{
-											className: (0, s.A)(a.DescLabelWithSpace, a.Large),
-										},
-										Localize(
+							<u.Z className={A_1(a.TwoColumn, a.Gap, a.Top)}>
+								<W.HDRLarge className={A_1(a.DescImage, a.TopFirstColumn)} />
+								<div>
+									<div className={A_1(a.DescLabelWithSpace, a.Large)}>
+										{Localize(
 											"#ControllerConfigurator_Interstitial_HDRRequiresUserAction_Directions1",
 											i,
-										),
-									),
-									n.createElement(
-										"div",
-										{
-											className: (0, s.A)(a.DescLabel, a.Large, a.Emphasize),
-										},
-										Localize(
+										)}
+									</div>
+									<div className={A_1(a.DescLabel, a.Large, a.Emphasize)}>
+										{Localize(
 											"#ControllerConfigurator_Interstitial_HDRRequriesUserAction_Directions2",
-										),
-									),
-								),
-							),
+										)}
+									</div>
+								</div>
+							</u.Z>,
 						);
 						return {
 							strTitle: Localize(
@@ -2174,54 +1371,57 @@ function $(e) {
 	});
 }
 export function LP(e) {
-	const { appid: t } = e;
+	const { appid } = e;
 	const r = $(e.appid);
 	const i = r?.length > 0;
-	return n.createElement(
-		m.EN,
-		{
-			active: i,
-		},
-		n.createElement(
-			m.x_,
-			{
-				padding: "none",
-			},
-			n.createElement(te, {
-				appid: t,
-				rgSections: r,
-			}),
-		),
+	return (
+		<m.EN active={i}>
+			<m.x_ padding="none">
+				<Te appid={appid} rgSections={r} />
+			</m.x_>
+		</m.EN>
 	);
 }
-const te = (e) => {
-	const { appid: t, rgSections: r, fnOnOK: l, fnOnCancel: m } = e;
-	const [A, g] = n.useState(0);
-	const {
-		eInterstitial: h,
-		strTitle: C,
-		bHasCancel: _,
-		bUseButtonTimer: f,
-		rgPages: b,
-	} = r[A] || {};
-	const y = (0, z.rP)();
-	const S = y.IN_GAMEPADUI;
-	const w = y.IN_DESKTOPUI;
-	const B = (0, Q.bJ)();
-	const v = r.reduce((e, t) => e + t.rgPages.length, 0);
+const Te = (e) => {
+	const { appid, rgSections, fnOnOK, fnOnCancel } = e;
+	const [A, setA] = n.useState(0);
+	const { eInterstitial, strTitle, bHasCancel, bUseButtonTimer, rgPages } =
+		rgSections[A] || {};
+	const y = rP();
+
+	const { IN_GAMEPADUI, IN_DESKTOPUI } = y;
+
+	const B = bJ();
+	const v = rgSections.reduce((e, t) => e + t.rgPages.length, 0);
 	const I = v == 1;
-	const E = p.z.BInterstitialNeedsCheckbox(h, t);
-	const M = !B || w || r.length > 1 || I || _ || E;
-	const T = f ? 1000 : 0;
-	const [R, k] = n.useState(false);
-	(0, o.Z3)(() => k(true), T);
-	const D = n.useRef(undefined);
+	const E = p.z.BInterstitialNeedsCheckbox(eInterstitial, appid);
+	const M =
+		!B ||
+		IN_DESKTOPUI ||
+		IN_DESKTOPUI ||
+		rgSections.length > 1 ||
+		IN_DESKTOPUI ||
+		rgSections.length > 1 ||
+		I ||
+		IN_DESKTOPUI ||
+		rgSections.length > 1 ||
+		I ||
+		bHasCancel ||
+		IN_DESKTOPUI ||
+		rgSections.length > 1 ||
+		I ||
+		bHasCancel ||
+		E;
+	const T = bUseButtonTimer ? 1000 : 0;
+	const [R, setR] = n.useState(false);
+	Z3(() => setR(true), T);
+	const DRef = n.useRef(undefined);
 	n.useEffect(() => {
-		D.current?.TakeFocus();
+		DRef.current?.TakeFocus();
 	}, [R]);
-	const [N, F] = n.useState(false);
-	const [G, O] = n.useState(0);
-	const [P, L] = n.useState(0);
+	const [N, setN] = n.useState(false);
+	const [G, setG] = n.useState(0);
+	const [P, setP] = n.useState(0);
 	n.useEffect(() => {
 		SteamClient.Input.SetKeyboardActionset(true, true);
 		let e = window.setInterval(
@@ -2233,46 +1433,46 @@ const te = (e) => {
 			SteamClient.Input.SetKeyboardActionset(false, false);
 		};
 	}, []);
-	const x = b?.[P];
+	const x = rgPages?.[P];
 	if (!x) {
 		return null;
 	}
-	const U = P + 1 >= b.length && !R;
+	const U = P + 1 >= rgPages.length && !R;
 	const W = () => {
-		if (P + 1 >= b.length) {
+		if (P + 1 >= rgPages.length) {
 			if (!U) {
-				if (A + 1 >= r.length) {
-					g(0);
-					p.z.CloseInterstitials(t, false, N);
-					if (l) {
-						l();
+				if (A + 1 >= rgSections.length) {
+					setA(0);
+					p.z.CloseInterstitials(appid, false, N);
+					if (fnOnOK) {
+						fnOnOK();
 					}
 				} else {
-					g(A + 1);
-					L(0);
-					O(G + 1);
+					setA(A + 1);
+					setP(0);
+					setG(G + 1);
 				}
 			}
 		} else {
-			L(P + 1);
-			O(G + 1);
+			setP(P + 1);
+			setG(G + 1);
 		}
 	};
 	const V = () => {
 		if (P > 0) {
-			L(P - 1);
+			setP(P - 1);
 		} else if (A > 0) {
-			L(r[A - 1].rgPages.length - 1);
-			g(A - 1);
+			setP(rgSections[A - 1].rgPages.length - 1);
+			setA(A - 1);
 		}
 		if (G > 0) {
-			O(G - 1);
+			setG(G - 1);
 		}
 	};
 	const H = () => {
-		p.z.CloseInterstitials(t, true, N);
-		if (m) {
-			m();
+		p.z.CloseInterstitials(appid, true, N);
+		if (fnOnCancel) {
+			fnOnCancel();
 		}
 	};
 	const j = {};
@@ -2287,68 +1487,50 @@ const te = (e) => {
 		G > 0
 			? Localize("#ControllerConfigurator_Interstitial_PrevPage")
 			: undefined;
-	const Z =
-		M &&
-		n.createElement(
-			i.BC,
-			{
-				alignItems: S ? "center" : "right",
-				highlightOnFocus: false,
-				className: a.ButtonRow,
-				bottomSeparator: "none",
-			},
-			G > 0 &&
-				n.createElement(
-					i.$n,
-					{
-						onClick: V,
-					},
-					Localize("#Button_Prev"),
-				),
-			G == 0 &&
-				(v > 1 || _) &&
-				n.createElement(
-					i.$n,
-					{
-						onClick: H,
-					},
-					Localize("#Button_Cancel"),
-				),
-			G < v - 1 &&
-				n.createElement(
-					i.$n,
-					{
-						navRef: D,
-						disabled: U,
-						autoFocus: true,
-						onClick: W,
-						className: a.OKButton,
-					},
-					Localize("#Button_Next"),
-				),
-			G == v - 1 &&
-				n.createElement(
-					i.$n,
-					{
-						navRef: D,
-						disabled: U,
-						autoFocus: true,
-						onClick: W,
-						className: a.OKButton,
-					},
-					Localize("#Button_OK"),
-				),
-		);
+	const Z = M && (
+		<i.BC
+			alignItems={IN_GAMEPADUI ? "center" : "right"}
+			highlightOnFocus={false}
+			className={a.ButtonRow}
+			bottomSeparator="none"
+		>
+			{G > 0 && <i.$n onClick={V}>{Localize("#Button_Prev")}</i.$n>}
+			{G == 0 && (v > 1 || bHasCancel) && (
+				<i.$n onClick={H}>{Localize("#Button_Cancel")}</i.$n>
+			)}
+			{G < v - 1 && (
+				<i.$n
+					navRef={DRef}
+					disabled={U}
+					autoFocus
+					onClick={W}
+					className={a.OKButton}
+				>
+					{Localize("#Button_Next")}
+				</i.$n>
+			)}
+			{G == v - 1 && (
+				<i.$n
+					navRef={DRef}
+					disabled={U}
+					autoFocus
+					onClick={W}
+					className={a.OKButton}
+				>
+					{Localize("#Button_OK")}
+				</i.$n>
+			)}
+		</i.BC>
+	);
 	const Y = y.IN_GAMEPADUI && !z.TS.ON_DECK;
-	return n.createElement(
-		u.Z,
-		{
-			className: (0, s.A)(a.ConfiguratorInterstitialContainer),
-			focusableIfNoChildren: true,
-			autoFocus: true,
-			noFocusRing: true,
-			onOKButton: W,
-			onButtonDown: (e) => {
+	return (
+		<u.Z
+			className={A_1(a.ConfiguratorInterstitialContainer)}
+			focusableIfNoChildren
+			autoFocus
+			noFocusRing
+			onOKButton={W}
+			onButtonDown={(e) => {
 				if (e.detail.button == d.pR.CANCEL) {
 					if (G == 0) {
 						H();
@@ -2360,9 +1542,9 @@ const te = (e) => {
 					return;
 				}
 				if (E && e.detail.button == d.pR.SECONDARY) {
-					F(!N);
+					setN(!N);
 				}
-				if (w) {
+				if (IN_DESKTOPUI) {
 					if (e.detail.button == d.pR.OK) {
 						W();
 						e.preventDefault();
@@ -2380,138 +1562,79 @@ const te = (e) => {
 					e.preventDefault();
 					e.stopPropagation();
 				}
-			},
-			onCancelActionDescription: q,
-			actionDescriptionMap: j,
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, s.A)(a.ContainerOuter),
-			},
-			n.createElement(
-				"div",
-				{
-					className: (0, s.A)(a.ContainerInner, Y && a.DialogStyle),
-				},
-				n.createElement(
-					i.Y9,
-					null,
-					n.createElement(
-						"div",
-						{
-							className: a.DialogHeader,
-						},
-						" ",
-						C || n.createElement(n.Fragment, null, "\xA0"),
-						" ",
-					),
-				),
-				n.createElement(
-					i.nB,
-					null,
-					n.createElement(
-						i.a3,
-						{
-							className: a.DialogBodyText,
-						},
-						n.createElement(
-							"div",
-							{
-								className: a.DialogBody,
-							},
-							x,
-						),
-					),
-				),
-			),
-		),
-		E &&
-			n.createElement(i.y4, {
-				highlightOnFocus: false,
-				className: a.DontShowAgain,
-				label: Localize("#ControllerConfigurator_Interstitial_DontShowAgain"),
-				checked: N,
-				onChange: F,
-				bottomSeparator: "none",
-			}),
-		Z,
-		n.createElement(
-			"div",
-			{
-				className: a.ConfiguratorInterstitialFooter,
-			},
-			S && [],
-		),
+			}}
+			onCancelActionDescription={q}
+			actionDescriptionMap={j}
+		>
+			<div className={A_1(a.ContainerOuter)}>
+				<div className={A_1(a.ContainerInner, Y && a.DialogStyle)}>
+					<i.Y9>
+						<div className={a.DialogHeader}> {strTitle || <>{"\xA0"}</>} </div>
+					</i.Y9>
+					<i.nB>
+						<i.a3 className={a.DialogBodyText}>
+							<div className={a.DialogBody}>{x}</div>
+						</i.a3>
+					</i.nB>
+				</div>
+			</div>
+			{E && (
+				<i.y4
+					highlightOnFocus={false}
+					className={a.DontShowAgain}
+					label={Localize("#ControllerConfigurator_Interstitial_DontShowAgain")}
+					checked={N}
+					onChange={setN}
+					bottomSeparator="none"
+				/>
+			)}
+			{Z}
+			<div className={a.ConfiguratorInterstitialFooter}>
+				{IN_GAMEPADUI && []}
+			</div>
+		</u.Z>
 	);
 };
-function re(e) {
-	return n.createElement(
-		"span",
-		{
-			className: a.ControllerTypeString,
-		},
-		Localize("#" + x.Fd.GetControllerTypeString(e.controllerType)),
+function Re(e) {
+	return (
+		<span className={a.ControllerTypeString}>
+			{Localize(`#${x.Fd.GetControllerTypeString(e.controllerType)}`)}
+		</span>
 	);
 }
-function ne() {
+function Ne() {
 	const e = z.TS.ON_DECK ? 4 : 32;
-	const [t, r] = n.useState([]);
+	const [t, setT] = n.useState([]);
 	n.useEffect(() => {
 		SteamClient.Input.GetControllerPreviouslySeen().then((e) => {
-			r(e);
+			setT(e);
 		});
 	}, []);
 	const i = t.length ? t[0] : e;
 	const o = t.length
 		? "#ControllerConfigurator_Interstitial_ControllerRequired_DescA2"
 		: "#ControllerConfigurator_Interstitial_ControllerRequired_DescA2_NoController";
-	return n.createElement(
-		u.Z,
-		null,
-		n.createElement(
-			"div",
-			{
-				className: a.TwoColumn,
-			},
-			n.createElement(
-				"div",
-				{
-					className: a.DescImageRow,
-				},
-				n.createElement(W.ControllerType, {
-					controllerType: i,
-					className: (0, s.A)(a.DescImage, a.OptIn),
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: a.WarningTextColumn,
-				},
-				n.createElement(
-					"div",
-					{
-						className: a.WarningTextRow,
-					},
-					Localize(
-						"#ControllerConfigurator_Interstitial_ControllerRequired_DescA1",
-					),
-				),
-				n.createElement(
-					"div",
-					{
-						className: a.WarningTextRow,
-					},
-					LocalizeInlineReactWithFallback(
-						o,
-						n.createElement(re, {
-							controllerType: i,
-						}),
-					),
-				),
-			),
-		),
+	return (
+		<u.Z>
+			<div className={a.TwoColumn}>
+				<div className={a.DescImageRow}>
+					<W.ControllerType
+						controllerType={i}
+						className={A_1(a.DescImage, a.OptIn)}
+					/>
+				</div>
+				<div className={a.WarningTextColumn}>
+					<div className={a.WarningTextRow}>
+						{Localize(
+							"#ControllerConfigurator_Interstitial_ControllerRequired_DescA1",
+						)}
+					</div>
+					<div className={a.WarningTextRow}>
+						{LocalizeInlineReactWithFallback(o, <Re controllerType={i} />)}
+					</div>
+				</div>
+			</div>
+		</u.Z>
 	);
 }
 export function V5(e, t, r) {
@@ -2529,12 +1652,8 @@ export function V5(e, t, r) {
 	) {
 		i = 510;
 	}
-	(0, j.pg)(
-		n.createElement(ae, {
-			appid: e,
-			onOk: t,
-			onCancel: r,
-		}),
+	pg(
+		<Ae appid={e} onOk={t} onCancel={r} />,
 		V.oy.ActiveWindowInstance?.BrowserWindow,
 		{
 			bForcePopOut: true,
@@ -2543,11 +1662,11 @@ export function V5(e, t, r) {
 		},
 	);
 }
-function ae(e) {
-	const { appid: t, onOk: r, onCancel: i } = e;
-	(function () {
-		const e = (0, z.hf)();
-		const t = (0, q.R7)();
+function Ae(e) {
+	const { appid, onOk, onCancel } = e;
+	(() => {
+		const e = hf();
+		const t = R7();
 		n.useEffect(() => {
 			const r = new K.e0();
 			if (e && t?.ownerWindow && V.oy.NavigationManager) {
@@ -2561,11 +1680,11 @@ function ae(e) {
 	})();
 	const a = $(e.appid);
 	const s = a?.length > 0;
-	const o = (0, q.R7)();
+	const o = R7();
 	const l = n.useCallback(() => {
-		p.z.CloseInterstitials(t, true, false);
-		i();
-	}, [t, i]);
+		p.z.CloseInterstitials(appid, true, false);
+		onCancel();
+	}, [appid, onCancel]);
 	n.useEffect(
 		() => () => {
 			if (p.z.BHasVisibleInterstitials) {
@@ -2575,21 +1694,21 @@ function ae(e) {
 		[l],
 	);
 	if (s) {
-		return n.createElement(
-			m.x_,
-			null,
-			n.createElement(te, {
-				appid: t,
-				rgSections: a,
-				fnOnOK: () => {
-					r();
-					o.ownerWindow.close();
-				},
-				fnOnCancel: () => {
-					l();
-					o.ownerWindow.close();
-				},
-			}),
+		return (
+			<m.x_>
+				<Te
+					appid={appid}
+					rgSections={a}
+					fnOnOK={() => {
+						onOk();
+						o.ownerWindow.close();
+					}}
+					fnOnCancel={() => {
+						l();
+						o.ownerWindow.close();
+					}}
+				/>
+			</m.x_>
 		);
 	} else {
 		return null;

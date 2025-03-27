@@ -1,31 +1,31 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require(/*webcrack:missing*/ "./61657.js");
-var l = require(/*webcrack:missing*/ "./4690.js");
-var c = require(/*webcrack:missing*/ "./10975.js");
-var m = require("./44351.js");
-var u = require("./35488.js");
-var d = require(/*webcrack:missing*/ "./90765.js");
-var A = require(/*webcrack:missing*/ "./52451.js");
-var p = require(/*webcrack:missing*/ "./42318.js");
-var g = require("./7514.js");
-var h = require("./43922.js");
-var C = h;
-var _ = require(/*webcrack:missing*/ "./15181.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./63696.js";
+import s from "./69164.js";
+import o from "./61657.js";
+import l from "./4690.js";
+import c from "./10975.js";
+import m from "./44351.js";
+import u from "./35488.js";
+import { A as A_1 } from "./90765.js";
+import A, { xA, Ue } from "./52451.js";
+import p from "./42318.js";
+import g, { Zt } from "./7514.js";
+import h from "./43922.js";
+import _ from "./15181.js";
+const C = h;
 export const I0 = "separator";
 export const Vj = "spacer";
 class S {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_flPageListScrollTop = 0;
 	m_flPageScrollTop = 0;
 }
-(0, n.Cg)([i.sH], S.prototype, "m_flPageListScrollTop", undefined);
-(0, n.Cg)([i.sH], S.prototype, "m_flPageScrollTop", undefined);
+Cg([i.sH], S.prototype, "m_flPageListScrollTop", undefined);
+Cg([i.sH], S.prototype, "m_flPageScrollTop", undefined);
 export class ut {
 	static s_Instance;
 	static Get() {
@@ -33,24 +33,24 @@ export class ut {
 		return ut.s_Instance;
 	}
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_setPagedSettingsInstances = new Set();
 }
 function B(e) {
 	const {
-		stylesheet: t,
-		pages: r,
-		iActivePage: n,
-		onPageSelected: i,
-		PageListItemComponent: s = v,
-		PageListSeparatorComponent: o = E,
+		stylesheet,
+		pages,
+		iActivePage,
+		onPageSelected,
+		PageListItemComponent = v,
+		PageListSeparatorComponent = E,
 	} = e;
-	return r.map((e, r) => {
-		const l = r === n;
+	return pages.map((e, r) => {
+		const l = r === iActivePage;
 		if (e === I0) {
-			const e = r === n + 1 || r === n - 1;
-			return a.createElement(o, {
+			const e = r === iActivePage + 1 || r === iActivePage - 1;
+			return a.createElement(PageListSeparatorComponent, {
 				key: r,
 				bTransparent: e,
 			});
@@ -65,11 +65,11 @@ function B(e) {
 			if (e.visible === false) {
 				return null;
 			}
-			const n = e.identifier || e.title || r.toString();
-			const o = () => i(r, e);
-			return a.createElement(s, {
-				className: (0, d.A)(t.PagedSettingsDialog_PageListItem, {
-					[t.Active]: l,
+			const n = e.identifier || e.title || e.title || r.toString();
+			const o = () => onPageSelected(r, e);
+			return a.createElement(PageListItemComponent, {
+				className: A_1(stylesheet.PagedSettingsDialog_PageListItem, {
+					[stylesheet.Active]: l,
 				}),
 				key: n,
 				onClick: o,
@@ -81,20 +81,20 @@ function B(e) {
 	});
 }
 function v(e) {
-	const { title: t, icon: r, active: n, className: i, onClick: s, ...o } = e;
+	const { title, icon, active, className, onClick, ...o } = e;
 	return a.createElement(
 		"div",
 		{
-			className: i,
-			onClick: s,
+			className: className,
+			onClick: onClick,
 		},
-		r
+		icon
 			? a.createElement(
 					"div",
 					{
 						className: C.PageListItem_Icon,
 					},
-					r,
+					icon,
 				)
 			: null,
 		a.createElement(
@@ -103,63 +103,63 @@ function v(e) {
 				className: C.PageListItem_Title,
 				...o,
 			},
-			t,
+			title,
 		),
 	);
 }
-(0, n.Cg)([i.sH], ut.prototype, "m_setPagedSettingsInstances", undefined);
-const I = a.forwardRef(function (e, t) {
-	const { activePage: r, style: n, stylesheet: i } = e;
-	const s = r?.padding ?? "standard";
+Cg([i.sH], ut.prototype, "m_setPagedSettingsInstances", undefined);
+const I = a.forwardRef((e, t) => {
+	const { activePage, style, stylesheet } = e;
+	const s = activePage?.padding ?? "standard";
 	return a.createElement(
 		m.UC,
 		{
-			style: n,
-			className: (0, d.A)(
-				i?.PagedSettingsDialog_PageContent,
-				r?.pageClassName,
-				s == "none" && i?.NoPadding,
+			style: style,
+			className: A_1(
+				stylesheet?.PagedSettingsDialog_PageContent,
+				activePage?.pageClassName,
+				s == "none" && stylesheet?.NoPadding,
 			),
 			refElem: t,
 		},
-		r?.header,
-		!r?.hideTitle && a.createElement(m.Y9, null, r?.title),
-		a.createElement(p.tH, null, r?.content),
+		activePage?.header,
+		!activePage?.hideTitle && a.createElement(m.Y9, null, activePage?.title),
+		a.createElement(p.tH, null, activePage?.content),
 	);
 });
 function E(e) {
 	return a.createElement("div", {
-		className: (0, d.A)(C.PageListSeparator, {
+		className: A_1(C.PageListSeparator, {
 			[C.Transparent]: e.bTransparent,
 		}),
 	});
 }
 export function Bv(e) {
-	const t = (0, g.Zt)("PagedSettings", Mw);
+	const t = Zt("PagedSettings", Mw);
 	return a.createElement(t, {
 		...e,
 	});
 }
-export const Mw = a.forwardRef(function (e, t) {
-	const { stylesheet: r = C, pages: n, onPageRequested: i } = e;
+export const Mw = a.forwardRef((e, t) => {
+	const { stylesheet = C, pages, onPageRequested } = e;
 	const m = e.page == null;
 	const [u, p] = a.useState(() =>
 		e.startingPage === undefined
 			? -1
-			: n.findIndex(
+			: pages.findIndex(
 					(t) => typeof t == "object" && t.identifier === e.startingPage,
 				),
 	);
 	let g = u;
 	if (!m) {
-		g = n.findIndex((t) => typeof t == "object" && t.identifier === e.page);
+		g = pages.findIndex((t) => typeof t == "object" && t.identifier === e.page);
 	}
-	if (g < 0 || g >= n.length) {
+	if (g < 0 || g >= pages.length) {
 		g = 0;
 	}
 	let h = null;
-	if (typeof n[g] == "object") {
-		h = n[g];
+	if (typeof pages[g] == "object") {
+		h = pages[g];
 	}
 	const _ = a.useRef(null);
 	const f = a.useCallback(() => _.current?.TakeFocus() || false, [_]);
@@ -174,8 +174,8 @@ export const Mw = a.forwardRef(function (e, t) {
 		(e, t) => {
 			y(true);
 			c.eZ.PlayNavSound(c.PN.PagedNavigation);
-			if (i) {
-				i(t.identifier);
+			if (onPageRequested) {
+				onPageRequested(t.identifier);
 			}
 			if (t.click) {
 				t.click();
@@ -183,20 +183,20 @@ export const Mw = a.forwardRef(function (e, t) {
 				p(e);
 			}
 		},
-		[m, i],
+		[m, onPageRequested],
 	);
 	const T = a.useRef(null);
 	const R = e.showTitle ?? true;
-	const k = (0, d.A)(
+	const k = A_1(
 		"DialogContentTransition",
-		r.PagedSettingDialog_ContentColumn,
+		stylesheet.PagedSettingDialog_ContentColumn,
 	);
 	a.useEffect(() => {
 		if (e.bAutoFocusPageContent) {
 			T.current?.TakeFocus();
 		}
 	}, []);
-	const { refForPageList: D, refForPage: N } = (function () {
+	const { refForPageList, refForPage } = (() => {
 		const e = a.useMemo(() => new S(), []);
 		a.useEffect(() => {
 			ut.Get().m_setPagedSettingsInstances.add(e);
@@ -212,8 +212,8 @@ export const Mw = a.forwardRef(function (e, t) {
 			(t) => (e.m_flPageScrollTop = t.currentTarget.scrollTop),
 			[e],
 		);
-		const n = (0, A.xA)("scroll", t);
-		const i = (0, A.xA)("scroll", r);
+		const n = xA("scroll", t);
+		const i = xA("scroll", r);
 		const s = a.useCallback(
 			(t) => (e.m_flPageListScrollTop = t?.scrollTop ?? 0),
 			[e],
@@ -222,8 +222,8 @@ export const Mw = a.forwardRef(function (e, t) {
 			(t) => (e.m_flPageScrollTop = t?.scrollTop ?? 0),
 			[e],
 		);
-		const l = (0, A.Ue)(n, s);
-		const c = (0, A.Ue)(i, o);
+		const l = Ue(n, s);
+		const c = Ue(i, o);
 		return {
 			refForPageList: l,
 			refForPage: c,
@@ -232,14 +232,14 @@ export const Mw = a.forwardRef(function (e, t) {
 	return a.createElement(
 		s.Z,
 		{
-			className: (0, d.A)(r.PagedSettingsDialog, e.className),
+			className: A_1(stylesheet.PagedSettingsDialog, e.className),
 			ref: t,
 		},
 		a.createElement(
 			s.Z,
 			{
-				className: (0, d.A)(
-					r.PagedSettingsDialog_PageListColumn,
+				className: A_1(
+					stylesheet.PagedSettingsDialog_PageListColumn,
 					e.hideList && C.Hidden,
 					"PageListColumn",
 				),
@@ -255,7 +255,7 @@ export const Mw = a.forwardRef(function (e, t) {
 				a.createElement(
 					"div",
 					{
-						className: r.PagedSettingsDialog_Title,
+						className: stylesheet.PagedSettingsDialog_Title,
 					},
 					e.title,
 				),
@@ -263,19 +263,20 @@ export const Mw = a.forwardRef(function (e, t) {
 			a.createElement(
 				s.Z,
 				{
-					className: (0, d.A)(
-						r.PagedSettingsDialog_PageList,
+					className: A_1(
+						stylesheet.PagedSettingsDialog_PageList,
 						e.disablePageListScrolling &&
-							r.PagedSettingsDialog_PageList_DisableScrolling,
-						R && r.PagedSettingsDialog_PageList_ShowTitle,
-						e.bNoHeaderPadding && r.PageSettingsDialog_PageList_NoHeaderPadding,
+							stylesheet.PagedSettingsDialog_PageList_DisableScrolling,
+						R && stylesheet.PagedSettingsDialog_PageList_ShowTitle,
+						e.bNoHeaderPadding &&
+							stylesheet.PageSettingsDialog_PageList_NoHeaderPadding,
 					),
 					navEntryPreferPosition: l.iU.PREFERRED_CHILD,
-					ref: D,
+					ref: refForPageList,
 				},
 				a.createElement(B, {
-					stylesheet: r,
-					pages: n,
+					stylesheet: stylesheet,
+					pages: pages,
 					iActivePage: g,
 					onPageSelected: M,
 					PageListItemComponent: e.PageListItemComponent,
@@ -297,11 +298,11 @@ export const Mw = a.forwardRef(function (e, t) {
 					toggleHideList: e.toggleHideList,
 				}),
 			e.renderPageContent
-				? e.renderPageContent(h, N, I)
+				? e.renderPageContent(h, refForPage, I)
 				: a.createElement(I, {
-						ref: N,
+						ref: refForPage,
 						activePage: h,
-						stylesheet: r,
+						stylesheet: stylesheet,
 					}),
 		),
 	);
@@ -317,12 +318,12 @@ export function vn(e) {
 	}
 }
 export function _Z(e) {
-	const { onActivate: t } = e;
+	const { onActivate } = e;
 	return a.createElement(
 		s.Z,
 		{
-			className: (0, d.A)(C.ReturnToPageListButton, C.ListHidden),
-			onActivate: t,
+			className: A_1(C.ReturnToPageListButton, C.ListHidden),
+			onActivate: onActivate,
 			fnCanTakeFocus: _.Nw,
 		},
 		a.createElement(u.Carat, {
@@ -331,8 +332,8 @@ export function _Z(e) {
 	);
 }
 export function O7(e) {
-	const { pages: t, stylesheet: r = C } = e;
-	const n = a.useMemo(() => t.filter((e) => typeof e == "object"), [t]);
+	const { pages, stylesheet = C } = e;
+	const n = a.useMemo(() => pages.filter((e) => typeof e == "object"), [pages]);
 	return a.createElement(Bv, {
 		...e,
 		renderPageContent: (e, t, i) =>
@@ -343,55 +344,47 @@ export function O7(e) {
 					isActive: n === e,
 					refForPage: n === e ? t : undefined,
 					PageComponent: i,
-					stylesheet: r,
+					stylesheet: stylesheet,
 				}),
 			),
 	});
 }
-const N = a.createContext(false);
+const NContext = a.createContext(false);
 export function v$() {
-	return a.useContext(N);
+	return a.useContext(NContext);
 }
-const G = a.memo(function (e) {
-	const {
-		isActive: t,
-		refForPage: r,
-		page: n,
-		PageComponent: i,
-		stylesheet: s,
-	} = e;
+const G = a.memo((e) => {
+	const { isActive, refForPage, page, PageComponent, stylesheet } = e;
 	const o = a.useRef(false);
-	if (!t && !o.current) {
+	if (!isActive && !o.current) {
 		return null;
 	}
 	o.current = true;
-	const l = t
-		? undefined
-		: {
-				display: "none",
-			};
+	const l = isActive || {
+		display: "none",
+	};
 	return a.createElement(
-		N.Provider,
+		NContext.Provider,
 		{
-			value: t,
+			value: isActive,
 		},
-		a.createElement(i, {
-			ref: r,
+		a.createElement(PageComponent, {
+			ref: refForPage,
 			style: l,
-			activePage: n,
-			stylesheet: s,
+			activePage: page,
+			stylesheet: stylesheet,
 		}),
 	);
 });
 function O(e) {
-	const { hideList: t, toggleHideList: r } = e;
+	const { hideList, toggleHideList } = e;
 	return a.createElement(
 		"div",
 		{
-			className: (0, d.A)(C.HidePageListButton, t && C.ListHidden),
-			onClick: r,
+			className: A_1(C.HidePageListButton, hideList && C.ListHidden),
+			onClick: toggleHideList,
 		},
-		t
+		hideList
 			? a.createElement(u.DoubleCarat, {
 					direction: "right",
 				})

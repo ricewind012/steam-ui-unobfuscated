@@ -1,74 +1,96 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./5859.js");
+import n from "./83957.js";
+import a, { useRef, useState, useEffect } from "./63696.js";
+import s, { CH } from "./52451.js";
+import o from "./5859.js";
+const i = n;
 export function G6(e, t, r, n) {
-	const l = (0, a.useRef)();
-	const c = (0, a.useRef)(undefined);
-	const m = (0, s.CH)();
-	l.current = e;
-	const [u, d] = (0, a.useState)(undefined);
+	const LRef = useRef();
+	const CRef = useRef(undefined);
+	const m = CH();
+	LRef.current = e;
+	const [u, setU] = useState(undefined);
 	const {
-		include_assets: A,
-		include_release: p,
-		include_platforms: g,
-		include_all_purchase_options: h,
-		include_screenshots: C,
-		include_trailers: _,
-		include_ratings: f,
-		include_tag_count: b,
-		include_reviews: y,
-		include_basic_info: S,
-		include_supported_languages: w,
-		include_full_description: B,
-		include_included_items: v,
-		include_assets_without_overrides: I,
-		apply_user_filters: E,
-		include_links: M,
+		include_assets,
+		include_release,
+		include_platforms,
+		include_all_purchase_options,
+		include_screenshots,
+		include_trailers,
+		include_ratings,
+		include_tag_count,
+		include_reviews,
+		include_basic_info,
+		include_supported_languages,
+		include_full_description,
+		include_included_items,
+		include_assets_without_overrides,
+		apply_user_filters,
+		include_links,
 	} = r;
-	(0, a.useEffect)(() => {
+	useEffect(() => {
 		const r = {
-			include_assets: A,
-			include_release: p,
-			include_platforms: g,
-			include_all_purchase_options: h,
-			include_screenshots: C,
-			include_trailers: _,
-			include_ratings: f,
-			include_tag_count: b,
-			include_reviews: y,
-			include_basic_info: S,
-			include_supported_languages: w,
-			include_full_description: B,
-			include_included_items: v,
-			include_assets_without_overrides: I,
-			apply_user_filters: E,
-			include_links: M,
+			include_assets: include_assets,
+			include_release: include_release,
+			include_platforms: include_platforms,
+			include_all_purchase_options: include_all_purchase_options,
+			include_screenshots: include_screenshots,
+			include_trailers: include_trailers,
+			include_ratings: include_ratings,
+			include_tag_count: include_tag_count,
+			include_reviews: include_reviews,
+			include_basic_info: include_basic_info,
+			include_supported_languages: include_supported_languages,
+			include_full_description: include_full_description,
+			include_included_items: include_included_items,
+			include_assets_without_overrides: include_assets_without_overrides,
+			apply_user_filters: apply_user_filters,
+			include_links: include_links,
 		};
 		let a = null;
 		if (
 			!!e &&
 			!(e < 0) &&
 			!o.A.Get().BHasStoreItem(e, t, r) &&
-			(u === undefined || !n || n != c.current)
+			(u === undefined || !n || !n || n != CRef.current)
 		) {
-			if (n !== c.current) {
-				d(undefined);
-				c.current = n;
+			if (n !== CRef.current) {
+				setU(undefined);
+				CRef.current = n;
 			}
 			a = i.CancelToken.source();
 			o.A.Get()
 				.QueueStoreItemRequest(e, t, r)
 				.then((t) => {
-					if (!a?.token.reason && l.current === e) {
-						d(t == 1);
+					if (!a?.token.reason && LRef.current === e) {
+						setU(t == 1);
 					}
 					m();
 				});
 		}
 		return () => a?.cancel("useStoreItemCache: unmounting");
-	}, [e, t, n, u, A, p, g, h, C, _, f, b, y, S, w, B, v, I, E, M, m]);
+	}, [
+		e,
+		t,
+		n,
+		u,
+		include_assets,
+		include_release,
+		include_platforms,
+		include_all_purchase_options,
+		include_screenshots,
+		include_trailers,
+		include_ratings,
+		include_tag_count,
+		include_reviews,
+		include_basic_info,
+		include_supported_languages,
+		include_full_description,
+		include_included_items,
+		include_assets_without_overrides,
+		apply_user_filters,
+		include_links,
+		m,
+	]);
 	if (!e) {
 		return [null, 2];
 	}
@@ -112,46 +134,46 @@ export function mZ(e, t, r) {
 	}
 }
 function d(e, t, r, n) {
-	const l = (0, s.CH)();
+	const l = CH();
 	const {
-		include_assets: c,
-		include_release: m,
-		include_platforms: u,
-		include_all_purchase_options: d,
-		include_screenshots: A,
-		include_trailers: p,
-		include_ratings: g,
-		include_tag_count: h,
-		include_reviews: C,
-		include_basic_info: _,
-		include_supported_languages: f,
-		include_full_description: b,
-		include_included_items: y,
-		include_assets_without_overrides: S,
-		apply_user_filters: w,
-		include_links: B,
+		include_assets,
+		include_release,
+		include_platforms,
+		include_all_purchase_options,
+		include_screenshots,
+		include_trailers,
+		include_ratings,
+		include_tag_count,
+		include_reviews,
+		include_basic_info,
+		include_supported_languages,
+		include_full_description,
+		include_included_items,
+		include_assets_without_overrides,
+		apply_user_filters,
+		include_links,
 	} = r;
-	(0, a.useEffect)(() => {
+	useEffect(() => {
 		if (!e || e.length == 0) {
 			return;
 		}
 		const r = {
-			include_assets: c,
-			include_release: m,
-			include_platforms: u,
-			include_all_purchase_options: d,
-			include_screenshots: A,
-			include_trailers: p,
-			include_ratings: g,
-			include_tag_count: h,
-			include_reviews: C,
-			include_basic_info: _,
-			include_supported_languages: f,
-			include_full_description: b,
-			include_included_items: y,
-			include_assets_without_overrides: S,
-			apply_user_filters: w,
-			include_links: B,
+			include_assets: include_assets,
+			include_release: include_release,
+			include_platforms: include_platforms,
+			include_all_purchase_options: include_all_purchase_options,
+			include_screenshots: include_screenshots,
+			include_trailers: include_trailers,
+			include_ratings: include_ratings,
+			include_tag_count: include_tag_count,
+			include_reviews: include_reviews,
+			include_basic_info: include_basic_info,
+			include_supported_languages: include_supported_languages,
+			include_full_description: include_full_description,
+			include_included_items: include_included_items,
+			include_assets_without_overrides: include_assets_without_overrides,
+			apply_user_filters: apply_user_filters,
+			include_links: include_links,
 		};
 		const n = e.filter(
 			(e) =>
@@ -169,7 +191,28 @@ function d(e, t, r, n) {
 			}
 		});
 		return () => a.cancel("useStoreItemCacheMultiplePackages: unmounting");
-	}, [e, t, n, l, c, m, u, d, A, p, g, h, C, _, f, b, y, S, w, B]);
+	}, [
+		e,
+		t,
+		n,
+		l,
+		include_assets,
+		include_release,
+		include_platforms,
+		include_all_purchase_options,
+		include_screenshots,
+		include_trailers,
+		include_ratings,
+		include_tag_count,
+		include_reviews,
+		include_basic_info,
+		include_supported_languages,
+		include_full_description,
+		include_included_items,
+		include_assets_without_overrides,
+		apply_user_filters,
+		include_links,
+	]);
 	if (!e) {
 		return 2;
 	}

@@ -1,54 +1,54 @@
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var i = require(/*webcrack:missing*/ "./79099.js");
-var a = require("./329.js");
-var s = a;
-var o = require("./46422.js");
-var l = require("./67686.js");
-var c = require(/*webcrack:missing*/ "./63696.js");
-var m = require(/*webcrack:missing*/ "./11131.js");
-var u = require(/*webcrack:missing*/ "./63439.js");
-var d = require("./37790.js");
-var A = require("./2862.js");
-var p = require("./84838.js");
-var g = require(/*webcrack:missing*/ "./79769.js");
-var h = require(/*webcrack:missing*/ "./90765.js");
-var C = require(/*webcrack:missing*/ "./42898.js");
+import i, { Q } from "./79099.js";
+import a from "./329.js";
+import o from "./46422.js";
+import { sB, Bj, z8 } from "./67686.js";
+import c from "./63696.js";
+import m from "./11131.js";
+import { OJ } from "./63439.js";
+import d from "./37790.js";
+import A from "./2862.js";
+import p from "./84838.js";
+import g from "./79769.js";
+import { A as A_1 } from "./90765.js";
+import C, { l6 } from "./42898.js";
+const s = a;
 export const Mb = -2147483648;
 export const a$ = "DesktopUI";
 export const Ij = m.Wf.Resizable;
 export function nB(e) {
-	const t = c.useRef(undefined);
-	if (!t.current) {
-		t.current = true;
+	const TRef = c.useRef(undefined);
+	if (!TRef.current) {
+		TRef.current = true;
 		const r = "focus-popup-on-show";
 		const n = sessionStorage.getItem(r);
 		sessionStorage.setItem(r, String(e.WindowType));
 		if (n) {
 			return n !== String(e.WindowType);
 		} else {
-			return (0, i.Q)();
+			return Q();
 		}
 	}
-	return t.current;
+	return TRef.current;
 }
-export var Uv;
+export let Uv;
 export function _Y(e, t, r, i, a) {
 	AssertMsg(
 		i.target_browser && i.target_browser.m_eUIMode != -1,
 		"useSteamUIPopup - target browser should be specified, along with UI mode!",
 		i,
 	);
-	const [m, C] = c.useState(false);
-	i = (0, l.sB)(t, e, i, {}, true);
-	e = (0, l.Bj)(t, e);
-	const { popup: _, element: y } = (0, u.OJ)(
+	const [m, setM] = c.useState(false);
+	i = sB(t, e, i, {}, true);
+	e = Bj(t, e);
+	const { popup, element } = OJ(
 		e,
 		{
 			html_class: s.SteamUIPopupHTML,
 			popup_class: s.SteamUIPopupWindow,
 			eCreationFlags: Ij,
 			...i,
-			body_class: (0, h.A)(
+			body_class: A_1(
 				i.body_class,
 				s.SteamUIPopupWindowBody,
 				r == Uv.GamepadUI && s.GamepadUIPopupWindowBody,
@@ -59,30 +59,30 @@ export function _Y(e, t, r, i, a) {
 		a,
 	);
 	c.useLayoutEffect(() => {
-		if (!_) {
+		if (!popup) {
 			t.SetBrowserWindow(undefined);
 			return;
 		}
 		if (r != Uv.Library) {
-			_.browserInfo = t.params.browserInfo;
+			popup.browserInfo = t.params.browserInfo;
 		}
-		t.SetBrowserWindow(_);
-		C(true);
+		t.SetBrowserWindow(popup);
+		setM(true);
 		const e = new g.e0();
 		if (o.oy.NavigationManager) {
-			e.Push(o.oy.NavigationManager.RegisterInputSource(new A.q(_)));
-			e.Push(o.oy.NavigationManager.RegisterInputSource(new p.K(_)));
+			e.Push(o.oy.NavigationManager.RegisterInputSource(new A.q(popup)));
+			e.Push(o.oy.NavigationManager.RegisterInputSource(new p.K(popup)));
 			if (r == Uv.GamepadUI) {
-				e.Push(o.oy.NavigationManager.RegisterInputSource(new d.Q(_)));
+				e.Push(o.oy.NavigationManager.RegisterInputSource(new d.Q(popup)));
 			}
 		}
 		return () => e.Unregister();
-	}, [t, _, r]);
+	}, [t, popup, r]);
 	c.useEffect(() => () => t.SetBrowserWindow(undefined), [t]);
-	(0, l.z8)(t, _);
+	z8(t, popup);
 	return {
-		popup: _,
-		element: m ? y : undefined,
+		popup: popup,
+		element: m ? element : undefined,
 	};
 }
 export function yu(e, t) {
@@ -96,9 +96,9 @@ export function yu(e, t) {
 		},
 		[t, e?.BrowserWindow],
 	);
-	(0, C.l6)(e?.BrowserWindow, "message", r);
+	l6(e?.BrowserWindow, "message", r);
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Library = 1)] = "Library";
 	e[(e.GamepadUI = 2)] = "GamepadUI";

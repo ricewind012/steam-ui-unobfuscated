@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./72476.js");
-var s = require(/*webcrack:missing*/ "./12176.js");
-var o = require("./87935.js");
-var l = require("./1252.js");
-var c = require("./96538.js");
-var m = require("./46066.js");
-var u = require("./82301.js");
-var d = require(/*webcrack:missing*/ "./90095.js");
 import { Seconds } from "../../actual_src/utils/time.js";
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./72476.js";
+import s from "./12176.js";
+import o from "./87935.js";
+import l from "./1252.js";
+import c from "./96538.js";
+import m from "./46066.js";
+import u from "./82301.js";
+import { q3 } from "./90095.js";
 const p = "badge";
 const g = "community_items";
 class h {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_CMInterface;
 	m_mapBadgeData = new Map();
@@ -144,10 +144,10 @@ class h {
 		});
 	}
 }
-(0, n.Cg)([i.sH.shallow], h.prototype, "m_mapBadgeData", undefined);
-(0, n.Cg)([i.sH.shallow], h.prototype, "m_mapCommunityItemDefs", undefined);
+Cg([i.sH.shallow], h.prototype, "m_mapBadgeData", undefined);
+Cg([i.sH.shallow], h.prototype, "m_mapCommunityItemDefs", undefined);
 export const x_ = new h();
 export function H_(e) {
-	return (0, d.q3)(() => x_.GetBadgeData(e));
+	return q3(() => x_.GetBadgeData(e));
 }
 window.badgeStore = x_;

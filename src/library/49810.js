@@ -1,4 +1,4 @@
-var r = require("./17372.js");
+import r, { S } from "./17372.js";
 const i = {
 	unknown: 0,
 	"store.steampowered.com": 1,
@@ -687,19 +687,19 @@ export class A {
 		t = t ?? e.depth ?? null;
 		const r = A.EncodeEventComponent(e.feature);
 		if (r) {
-			n += "_" + r;
+			n += `_${r}`;
 			if (t) {
-				n += "_" + t;
+				n += `_${t}`;
 			}
 		}
 		return n;
 	}
 	static AddNavParamToURL(e, t) {
 		try {
-			const n = new URL((0, r.S)(e));
+			const n = new URL(S(e));
 			const i = new URLSearchParams(n.search);
 			i.set("snr", encodeURIComponent(t ?? ""));
-			return n.origin + n.pathname + "?" + i.toString() + n.hash;
+			return `${n.origin + n.pathname}?${i.toString()}${n.hash}`;
 		} catch (t) {
 			console.error(e, t);
 			return e;
@@ -719,7 +719,7 @@ export class A {
 	static EncodeEventComponent(e) {
 		if (e) {
 			if (e in i) {
-				return "" + i[e];
+				return `${i[e]}`;
 			} else {
 				if (!e.match(/^[0-9]+$/)) {
 					e = e.replace(/^[0-9]+/, "");

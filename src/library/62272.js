@@ -1,27 +1,27 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
 import { BElementFullscreen, $e } from "../../actual_src/utils/domutils.js";
-var s = require("./28864.js");
-var o = require("./99251.js");
+import r, { useState, useEffect } from "./63696.js";
+import s, { QS, Ue } from "./28864.js";
+import { wY } from "./99251.js";
 export function rf(e) {
-	let [t, n] = (0, r.useState)(false);
+	let [t, setT] = useState(false);
 	let s = e?.current;
-	(0, r.useEffect)(() => {
+	useEffect(() => {
 		if (!s) {
 			return;
 		}
-		n(BElementFullscreen(s));
+		setT(BElementFullscreen(s));
 		let e = () => {
-			n(BElementFullscreen(s));
+			setT(BElementFullscreen(s));
 		};
 		s.addEventListener("fullscreenchange", e);
 		return () => {
 			s.removeEventListener("fullscreenchange", e);
 		};
-	}, [s, n]);
+	}, [s, setT]);
 	return t;
 }
 export function Pt(e) {
-	return (0, s.QS)(
+	return QS(
 		(t) => {
 			if (!t || !e) {
 				return;
@@ -34,33 +34,33 @@ export function Pt(e) {
 	);
 }
 export function w6(e) {
-	const t = r.useRef(true);
-	const n = r.useRef(undefined);
-	const i = r.useRef(undefined);
-	const a = r.useRef();
-	a.current = e;
-	const c = r.useRef();
+	const TRef = r.useRef(true);
+	const NRef = r.useRef(undefined);
+	const IRef = r.useRef(undefined);
+	const ARef = r.useRef();
+	ARef.current = e;
+	const CRef = r.useRef();
 	const l = r.useCallback((e) => {
-		if (c.current !== e) {
-			c.current = e;
-			t.current = true;
+		if (CRef.current !== e) {
+			CRef.current = e;
+			TRef.current = true;
 		}
 	}, []);
 	const u = r.useCallback(() => {
-		const e = c.current?.offsetWidth ?? 0;
-		const t = c.current?.offsetHeight ?? 0;
-		if (n.current !== e || i.current !== t) {
-			a.current?.(e, t);
-			n.current = e;
-			i.current = t;
+		const e = CRef.current?.offsetWidth ?? 0;
+		const t = CRef.current?.offsetHeight ?? 0;
+		if (NRef.current !== e || IRef.current !== t) {
+			ARef.current?.(e, t);
+			NRef.current = e;
+			IRef.current = t;
 		}
 	}, []);
 	r.useLayoutEffect(() => {
-		if (t.current) {
+		if (TRef.current) {
 			u();
-			t.current = false;
+			TRef.current = false;
 		}
 	});
-	const m = (0, o.wY)(u);
-	return (0, s.Ue)(l, m);
+	const m = wY(u);
+	return Ue(l, m);
 }

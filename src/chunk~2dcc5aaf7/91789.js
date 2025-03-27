@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./12368.js");
+import n from "./12368.js";
 export class A extends n.P {
 	async GetString(e) {
 		try {

@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./84629.js");
-var a = require("./91720.js");
-var s = require(/*webcrack:missing*/ "./52451.js");
-var o = require("./67429.js");
+import n, { Cg } from "./34629.js";
+import i, { tH, tG, ZI } from "./84629.js";
+import a, { gu, Gb, WQ, XA, Tq } from "./91720.js";
+import s from "./52451.js";
+import o from "./67429.js";
 const l = 20000;
 export async function Pe(e, t, r, n, a) {
 	const s = t.GetTimelineAndOffsetRelativeToCurrentPlayback();
@@ -29,7 +29,7 @@ export async function Pe(e, t, r, n, a) {
 			a,
 		);
 	}
-	(0, i.tH)("Failed to determine time start/end for clip");
+	tH("Failed to determine time start/end for clip");
 	return null;
 }
 export async function Hy(e, t, r, n, a, s, o) {
@@ -58,9 +58,9 @@ export async function Hy(e, t, r, n, a, s, o) {
 				o,
 			);
 		}
-		(0, i.tH)("Could not find the timeline for start or stop", l, c);
+		tH("Could not find the timeline for start or stop", l, c);
 	} else {
-		(0, i.tH)("Range not setup for creating the clip");
+		tH("Range not setup for creating the clip");
 	}
 	return null;
 }
@@ -104,7 +104,7 @@ class u {
 		if (!this.m_creationResult) {
 			this.m_creationResult = await this.m_fnCreate(e, t);
 			this.m_bCreationWasTemporary = e;
-			(0, a.gu)(
+			gu(
 				new o.VS(this.m_strGameID),
 				this.m_eInitMethod,
 				this.m_nClipLengthSeconds,
@@ -120,42 +120,42 @@ class u {
 		}
 		this.m_bCleanedUp = true;
 		if (this.m_creationResult?.clipSummary && this.m_bCreationWasTemporary) {
-			const { fnDeleteClip: e } = (0, a.Gb)();
-			await e(this.m_creationResult.clipSummary.clip_id);
+			const { fnDeleteClip } = Gb();
+			await fnDeleteClip(this.m_creationResult.clipSummary.clip_id);
 		}
 	}
 }
 export function B1(e, t, r, n, s, o, l, c, m, d, A) {
 	return new u(
 		(c, m) =>
-			(async function (e, t, r, n, s, o, l, c, m) {
-				const { fnSaveClip: u } = (0, a.WQ)();
-				(0, i.tG)(`start ${n} @ ${s} upto ${o} @ ${l}`);
+			(async (e, t, r, n, s, o, l, c, m) => {
+				const { fnSaveClip } = WQ();
+				tG(`start ${n} @ ${s} upto ${o} @ ${l}`);
 				try {
-					const a = await u(
+					const a = await fnSaveClip(
 						e,
 						t,
 						r,
 						{
 							timeline_id: n,
-							offset_ms: "" + s,
+							offset_ms: `${s}`,
 						},
 						{
 							timeline_id: o,
-							offset_ms: "" + l,
+							offset_ms: `${l}`,
 						},
 						c,
 						m,
 					);
-					const { clipSummary: d, result: A } = a;
-					if (d) {
-						(0, i.tG)(`Clip ${d.clip_id} created`);
+					const { clipSummary, result } = a;
+					if (clipSummary) {
+						tG(`Clip ${clipSummary.clip_id} created`);
 					} else {
-						(0, i.tG)(`Clip was not created: ${A}`);
+						tG(`Clip was not created: ${result}`);
 					}
 					return a;
 				} catch (e) {
-					(0, i.ZI)(e);
+					ZI(e);
 				}
 				return {
 					result: 2,
@@ -171,11 +171,11 @@ export function B1(e, t, r, n, s, o, l, c, m, d, A) {
 	).Request();
 }
 export function e3(e) {
-	const t = (0, a.XA)(e);
+	const t = XA(e);
 	if (!t) {
 		return null;
 	}
-	const r = (0, a.Tq)().GetClipExportProgress(e);
+	const r = Tq().GetClipExportProgress(e);
 	const i = parseInt(t.duration_ms) / 1000;
 	const l = t.file_size ? (parseInt(t.file_size) * 8) / (i * 1024) : undefined;
 	class c {
@@ -183,7 +183,7 @@ export function e3(e) {
 		async create(e) {
 			if (!this.m_bCreated) {
 				this.m_bCreated = true;
-				(0, a.gu)(
+				gu(
 					new o.VS(t.game_id),
 					6,
 					parseInt(t.duration_ms) / 1000,
@@ -208,8 +208,8 @@ export function e3(e) {
 			return Promise.resolve();
 		}
 	}
-	(0, n.Cg)([s.oI], c.prototype, "create", null);
-	(0, n.Cg)([s.oI], c.prototype, "cleanup", null);
+	Cg([s.oI], c.prototype, "create", null);
+	Cg([s.oI], c.prototype, "cleanup", null);
 	let m = new c();
 	return {
 		create: m.create,
@@ -234,5 +234,5 @@ export function e3(e) {
 		},
 	};
 }
-(0, n.Cg)([s.oI], u.prototype, "create", null);
-(0, n.Cg)([s.oI], u.prototype, "cleanup", null);
+Cg([s.oI], u.prototype, "create", null);
+Cg([s.oI], u.prototype, "cleanup", null);

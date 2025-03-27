@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	PageableContainer: "SMWMsB-gz3WbYRK2HOm7i",
 	HeaderPageControls: "_2o5c89vAnrXN8C60QTSMqO",
 	Name: "_2hfibYuzyMOQ0sj2egsHh0",

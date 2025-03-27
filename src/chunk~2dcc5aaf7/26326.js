@@ -1,35 +1,35 @@
-var n;
-import * as i from /*webcrack:missing*/ "./44846.js";
+import * as i from "./44846.js";
 import * as a from "./39265.js";
 import * as s from "./77347.js";
 import * as o from "./33512.js";
-import * as l from /*webcrack:missing*/ "./63696.js";
-import * as c from /*webcrack:missing*/ "./31084.js";
-import * as m from /*webcrack:missing*/ "./11131.js";
+import * as l from "./63696.js";
+import * as c from "./31084.js";
+import * as m from "./11131.js";
 import * as u from "./87232.js";
 import * as d from "./89791.js";
 import * as A from "./31222.js";
-import * as p from /*webcrack:missing*/ "./92228.js";
+import * as p from "./92228.js";
 import * as g from "./63088.js";
-import * as h from /*webcrack:missing*/ "./88750.js";
+import * as h from "./88750.js";
 import * as C from "./64608.js";
-import * as _ from /*webcrack:missing*/ "./27773.js";
-import * as f from /*webcrack:missing*/ "./90765.js";
+import * as _ from "./27773.js";
+import * as f from "./90765.js";
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import * as y from /*webcrack:missing*/ "./72476.js";
+import * as y from "./72476.js";
 import * as S from "./11958.js";
 import * as w from "./53576.js";
-var B = w;
 import * as v from "./32700.js";
+let n;
+const B = w;
 export default function I(e) {
 	return FullLogin(e);
 }
 export function FullLogin(e) {
 	const [t, r] = (0, l.useState)(true);
-	const n = (function () {
+	const n = (() => {
 		const [e, t] = l.useState(false);
 		l.useEffect(() => {
 			let e = [];
@@ -116,7 +116,7 @@ function M(e) {
 			throbberClassName: B.StatusThrobber,
 		});
 	}
-	const E = d != n.LoginWithBack ? null : () => A(n.UserChooser);
+	const E = d != n.LoginWithBack || (() => A(n.UserChooser));
 	const M = (e) => {
 		g(e);
 		A(n.LoginWithBack);
@@ -165,7 +165,7 @@ function M(e) {
 	let z = false;
 	switch (d) {
 		case n.Login:
-		case n.LoginWithBack:
+		case n.LoginWithBack: {
 			L = l.createElement(W, {
 				...e,
 				defaultAccountName: p,
@@ -174,7 +174,8 @@ function M(e) {
 				onLoginComplete: N,
 			});
 			break;
-		case n.UserChooser:
+		}
+		case n.UserChooser: {
 			L =
 				S == 4 || S == 5
 					? l.createElement(a.Qk, {
@@ -198,13 +199,15 @@ function M(e) {
 						);
 			z = true;
 			break;
-		case n.RemoveConfirmation:
+		}
+		case n.RemoveConfirmation: {
 			L = l.createElement(D, {
 				...h,
 				onFinished: O,
 			});
 			break;
-		case n.EnterPin:
+		}
+		case n.EnterPin: {
 			L = l.createElement(
 				k,
 				null,
@@ -221,14 +224,16 @@ function M(e) {
 			);
 			z = true;
 			break;
+		}
 		default:
 		case n.Init:
-		case n.WaitingForLibrary:
+		case n.WaitingForLibrary: {
 			L = l.createElement(a.Qk, {
 				loginState: S,
 				throbberClassName: B.StatusThrobber,
 			});
 			z = true;
+		}
 	}
 	let x = (0, f.A)(
 		B.Login,
@@ -403,7 +408,7 @@ function D(e) {
 		),
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.Init = 0)] = "Init";
 	e[(e.UserChooser = 1)] = "UserChooser";
 	e[(e.LoginWithBack = 2)] = "LoginWithBack";
@@ -417,17 +422,15 @@ const F = 800;
 const G = 1024;
 const O = 768;
 const P = y.TS.IN_LOGIN_REFRESH
-	? function () {
-			return {
-				transport: new A.D(y.TS.WEBAPI_BASE_URL).GetServiceTransport(),
-				bTransportReady: true,
-			};
-		}
-	: function () {
+	? () => ({
+			transport: new A.D(y.TS.WEBAPI_BASE_URL).GetServiceTransport(),
+			bTransportReady: true,
+		})
+	: () => {
 			const [e, t] = (0, l.useState)(false);
 			let r = new p.ij();
 			let n = r.GetServiceTransport();
-			(function (e) {
+			((e) => {
 				(0, l.useEffect)(() => {
 					const t = (0, g.aj)();
 					e.messageHandlers.InstallErrorReportingStore(t);

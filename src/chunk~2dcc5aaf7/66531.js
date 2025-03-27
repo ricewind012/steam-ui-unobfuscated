@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	FakeFriend: "_3oeHwxQTKDkPcxDhz8jbhM",
 	Subheader: "_1g_2JDdy91MWZJO7xz6BoB",

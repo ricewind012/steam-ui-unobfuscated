@@ -1,18 +1,36 @@
-import * as o from /*webcrack:missing*/ "./34629.js";
-import * as n from /*webcrack:missing*/ "./63696.js";
-import * as s from /*webcrack:missing*/ "./52912.js";
-import * as r from /*webcrack:missing*/ "./95773.js";
-import * as i from /*webcrack:missing*/ "./50376.js";
-import * as l from /*webcrack:missing*/ "./13869.js";
-import * as c from /*webcrack:missing*/ "./64608.js";
+import * as o from "./34629.js";
+import * as n from "./63696.js";
+import * as s from "./52912.js";
+import * as r from "./95773.js";
+import * as i from "./50376.js";
+import * as l from "./13869.js";
+import * as c from "./64608.js";
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import * as h from /*webcrack:missing*/ "./69649.js";
-import * as d from /*webcrack:missing*/ "./52451.js";
-import * as p from /*webcrack:missing*/ "./53414.js";
-import * as g from /*webcrack:missing*/ "./98829.js";
+import * as h from "./69649.js";
+import * as d from "./52451.js";
+import * as p from "./53414.js";
+import * as g from "./98829.js";
+import * as E from "./89193.js";
+import * as b from "./41230.js";
+import * as S from "./7470.js";
+import * as I from "./56654.js";
+import * as _ from "./89454.js";
+import * as w from "./21866.js";
+import * as v from "./72993.js";
+import * as B from "./46382.js";
+import * as L from "./73870.js";
+import * as D from "./17385.js";
+import * as T from "./31222.js";
+import * as y from "./23024.js";
+import * as W from "./27337.js";
+import * as M from "./10606.js";
+import * as N from "./31958.js";
+import * as P from "./75144.js";
+import * as R from "./72476.js";
+import * as Z from "./52003.js";
 const u = ({ group: e, onClick: t }) => {
 	const a = e.watching_broadcast_steamid;
 	return n.createElement(
@@ -65,7 +83,7 @@ class C extends n.Component {
 		} = this.props;
 		this.Close();
 		const i = e && r ? [r.accountid] : [];
-		(function (e, t, a, o) {
+		((e, t, a, o) => {
 			(0, l.HT)(
 				n.createElement(h.zw, {
 					browserContext: e,
@@ -222,24 +240,7 @@ class C extends n.Component {
 }
 (0, o.Cg)([d.oI], C.prototype, "WatchAlone", null);
 (0, o.Cg)([d.oI], C.prototype, "Close", null);
-import * as E from /*webcrack:missing*/ "./89193.js";
-import * as b from /*webcrack:missing*/ "./41230.js";
-import * as S from /*webcrack:missing*/ "./7470.js";
-import * as I from /*webcrack:missing*/ "./56654.js";
-import * as _ from /*webcrack:missing*/ "./89454.js";
-var f = _;
-import * as w from /*webcrack:missing*/ "./21866.js";
-import * as v from /*webcrack:missing*/ "./72993.js";
-import * as B from /*webcrack:missing*/ "./46382.js";
-import * as L from /*webcrack:missing*/ "./73870.js";
-import * as D from /*webcrack:missing*/ "./17385.js";
-import * as T from /*webcrack:missing*/ "./31222.js";
-import * as y from /*webcrack:missing*/ "./23024.js";
-import * as W from /*webcrack:missing*/ "./27337.js";
-import * as M from /*webcrack:missing*/ "./10606.js";
-import * as N from /*webcrack:missing*/ "./31958.js";
-import * as P from /*webcrack:missing*/ "./75144.js";
-import * as R from /*webcrack:missing*/ "./72476.js";
+const f = _;
 class A {
 	constructor() {
 		(0, E.Gn)(this);
@@ -366,9 +367,9 @@ let x = class extends n.Component {
 				n.createElement(
 					"div",
 					{
-						className:
-							"StandalonePlayer" +
-							(this.state.bTheaterMode ? " TheaterMode" : ""),
+						className: `StandalonePlayer${
+							this.state.bTheaterMode ? " TheaterMode" : ""
+						}`,
 					},
 					n.createElement(W.y, {
 						className: "FullpageBroadcastBackdrop",
@@ -396,9 +397,9 @@ let x = class extends n.Component {
 							n.createElement(
 								"div",
 								{
-									className:
-										"BroadcastTab_HeaderRow" +
-										(this.state.bChatCollapsed ? " ChatCollapsed" : ""),
+									className: `BroadcastTab_HeaderRow${
+										this.state.bChatCollapsed ? " ChatCollapsed" : ""
+									}`,
 								},
 								n.createElement(O, {
 									onClick: this.OnShowLogin,
@@ -579,9 +580,9 @@ let F = class extends n.Component {
 					n.createElement(
 						"div",
 						{
-							className:
-								"BroadcastTab_HeaderRow" +
-								(this.state.bChatCollapsed ? " ChatCollapsed" : ""),
+							className: `BroadcastTab_HeaderRow${
+								this.state.bChatCollapsed ? " ChatCollapsed" : ""
+							}`,
 						},
 						n.createElement(O, {
 							onClick: this.OnWatchWithFriends,
@@ -882,7 +883,6 @@ let Q = class extends n.Component {
 	}
 };
 Q = (0, o.Cg)([b.PA], Q);
-import * as Z from /*webcrack:missing*/ "./52003.js";
 let K = class extends n.Component {
 	render() {
 		let e = this.props.broadcastView;

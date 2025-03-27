@@ -1,21 +1,21 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./44234.js");
-var s = require("./64608.js");
-var o = require("./52912.js");
-var l = require("./13869.js");
-var c = require(/*webcrack:missing*/ "./69164.js");
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require("./95773.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require("./92009.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require("./43472.js");
-var C = h;
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./44234.js";
+import s from "./64608.js";
+import { h8, CO } from "./52912.js";
+import l, { HT } from "./13869.js";
+import c from "./69164.js";
+import u from "./52451.js";
+import d from "./95773.js";
+import A from "./41230.js";
+import { T } from "./92009.js";
+import { w } from "./49455.js";
+import h from "./43472.js";
+const C = h;
 export function lV(e, t) {
 	let r = t.GetGroup().textRoomList.length;
 	if (r > 7) {
@@ -25,10 +25,8 @@ export function lV(e, t) {
 	if (r < 2) {
 		n -= 32;
 	}
-	(0, l.HT)(
-		i.createElement(b, {
-			group: t.GetGroup(),
-		}),
+	HT(
+		<B group={t.GetGroup()} />,
 		e,
 		"ChatRoomGroupNotificationSettings",
 		{
@@ -36,7 +34,7 @@ export function lV(e, t) {
 			popupWidth: 600,
 			popupHeight: 348 + n,
 		},
-		(0, o.h8)(e),
+		h8(e),
 	);
 }
 export function yi(e = true) {
@@ -44,12 +42,10 @@ export function yi(e = true) {
 	if (e) {
 		t = t.concat([
 			{
-				label: i.createElement(
-					"span",
-					{
-						className: "ChannelSpecificNotificationSettings_Inherit",
-					},
-					Localize("#NotificationSetting_Inherit"),
+				label: (
+					<span className="ChannelSpecificNotificationSettings_Inherit">
+						{Localize("#NotificationSetting_Inherit")}
+					</span>
 				),
 				data: 0,
 			},
@@ -81,7 +77,7 @@ export function yi(e = true) {
 	]);
 	return t;
 }
-let b = class extends i.Component {
+let B = class extends i.Component {
 	static contextType = a.QO;
 	m_rgSelectOptions = yi(false);
 	constructor(e) {
@@ -97,7 +93,7 @@ let b = class extends i.Component {
 	}
 	DecrementSavesInFlight() {
 		this.setState((e) => {
-			(0, g.w)(e.cSavesInFlight > 0, `expected ${e.cSavesInFlight} > 0`);
+			w(e.cSavesInFlight > 0, `expected ${e.cSavesInFlight} > 0`);
 			return {
 				cSavesInFlight: e.cSavesInFlight - 1,
 			};
@@ -119,7 +115,7 @@ let b = class extends i.Component {
 		this.props.closeModal();
 	}
 	OnFriendsSettingsClicked(e) {
-		(0, p.T)((0, o.CO)(e), e.currentTarget.ownerDocument.defaultView);
+		T(CO(e), e.currentTarget.ownerDocument.defaultView);
 	}
 	render() {
 		let e;
@@ -134,148 +130,92 @@ let b = class extends i.Component {
 			n = false;
 		}
 		if (n) {
-			let n = r.map((e) =>
-				i.createElement(y, {
-					fnHandleSave: this.WrapSavePromise,
-					group: t,
-					chat: e,
-					key: e.unique_id,
-				}),
-			);
-			e = i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(
-					"div",
-					{
-						className: "notificationsChannelListContainer",
-					},
-					n,
-				),
+			let n = r.map((e) => (
+				<Y
+					fnHandleSave={this.WrapSavePromise}
+					group={t}
+					chat={e}
+					key={e.unique_id}
+				/>
+			));
+			e = (
+				<>
+					<div className="notificationsChannelListContainer">{n}</div>
+				</>
 			);
 		}
-		return i.createElement(
-			l.x_,
-			{
-				onEscKeypress: this.DismissDialog,
-			},
-			i.createElement(
-				s.U9,
-				{
-					classNameContent: "ChatRoomNotificationSettingsDialog",
-				},
-				i.createElement(s.Y9, null, Localize("#NotificationSettings_Title")),
-				i.createElement(
-					s.JU,
-					null,
-					LocalizeReact(
-						"#NotificationSettings_SubTitle",
-						i.createElement(
-							"span",
-							{
-								className: "whiteText",
-							},
-							t.name,
-						),
-					),
-				),
-				i.createElement(
-					s.nB,
-					null,
-					i.createElement(
-						s.JU,
-						{
-							className:
-								"NotificationSettingsSavingIndicator " +
-								(this.state.cSavesInFlight ? "Saving" : ""),
-						},
-						Localize("#GroupSettings_Permissions_Saving"),
-						"...",
-					),
-					i.createElement(S, {
-						drop_down_options: this.m_rgSelectOptions,
-						get_notification_level: (e) => t.GetDesktopNotificationLevel(e),
-						set_notification_level: this.OnGroupNotificationLevelChanged,
-						get_muted: () => t.BIsUnreadIndicatorMuted(),
-						set_muted: this.OnShowUnreadIndicatorChanged,
-					}),
-					n &&
-						i.createElement(
-							i.Fragment,
-							null,
-							i.createElement(s._E, null),
-							i.createElement(
-								s.dR,
-								{
-									className: "notificationsChannelHeader",
-								},
-								i.createElement(
-									s.JU,
-									{
-										className: "NotificationChannelNameLabel",
-									},
-									Localize("#GroupSettings_Channels_TextChannels"),
-								),
-								i.createElement(
-									s.JU,
-									{
-										className: "OverrideChannelLabel",
-									},
-									Localize("#NotificationSetting_ShortLabel"),
-								),
-							),
-							i.createElement(
-								s.xz,
-								{
-									className: C.scrollMaskVertical,
-								},
-								e,
-							),
-						),
-				),
-				i.createElement(
-					s.wi,
-					null,
-					!this.context?.IN_GAMEPADUI &&
-						LocalizeReact(
-							"#NotificationSetting_Footer_Desc2",
-							i.createElement(
-								"span",
-								{
-									className: "textLink",
-									onClick: this.OnFriendsSettingsClicked,
-								},
-								Localize("#Settings"),
-							),
-						),
-					i.createElement(
-						c.Z,
-						{
-							className: "_DialogColLayout",
-							"flow-children": "row",
-						},
-						i.createElement(
-							s.jn,
-							{
-								onClick: this.props.closeModal,
-							},
-							Localize("#Button_Close"),
-						),
-					),
-				),
-			),
+		return (
+			<l.x_ onEscKeypress={this.DismissDialog}>
+				<s.U9 classNameContent="ChatRoomNotificationSettingsDialog">
+					<s.Y9>{Localize("#NotificationSettings_Title")}</s.Y9>
+					<s.JU>
+						{LocalizeReact(
+							"#NotificationSettings_SubTitle",
+							<span className="whiteText">{t.name}</span>,
+						)}
+					</s.JU>
+					<s.nB>
+						<s.JU
+							className={`NotificationSettingsSavingIndicator ${
+								this.state.cSavesInFlight ? "Saving" : ""
+							}`}
+						>
+							{Localize("#GroupSettings_Permissions_Saving")}
+							...
+						</s.JU>
+						<S
+							drop_down_options={this.m_rgSelectOptions}
+							get_notification_level={(e) => t.GetDesktopNotificationLevel(e)}
+							set_notification_level={this.OnGroupNotificationLevelChanged}
+							get_muted={() => t.BIsUnreadIndicatorMuted()}
+							set_muted={this.OnShowUnreadIndicatorChanged}
+						/>
+						{n && (
+							<>
+								<s._E />
+								<s.dR className="notificationsChannelHeader">
+									<s.JU className="NotificationChannelNameLabel">
+										{Localize("#GroupSettings_Channels_TextChannels")}
+									</s.JU>
+									<s.JU className="OverrideChannelLabel">
+										{Localize("#NotificationSetting_ShortLabel")}
+									</s.JU>
+								</s.dR>
+								<s.xz className={C.scrollMaskVertical}>{e}</s.xz>
+							</>
+						)}
+					</s.nB>
+					<s.wi>
+						{!this.context?.IN_GAMEPADUI &&
+							LocalizeReact(
+								"#NotificationSetting_Footer_Desc2",
+								<span
+									className="textLink"
+									onClick={this.OnFriendsSettingsClicked}
+								>
+									{Localize("#Settings")}
+								</span>,
+							)}
+						<c.Z className="_DialogColLayout" flow-children="row">
+							<s.jn onClick={this.props.closeModal}>
+								{Localize("#Button_Close")}
+							</s.jn>
+						</c.Z>
+					</s.wi>
+				</s.U9>
+			</l.x_>
 		);
 	}
 };
-(0, n.Cg)([u.oI], b.prototype, "IncrementSavesInFlight", null);
-(0, n.Cg)([u.oI], b.prototype, "DecrementSavesInFlight", null);
-(0, n.Cg)([u.oI], b.prototype, "WrapSavePromise", null);
-(0, n.Cg)([u.oI], b.prototype, "OnGroupNotificationLevelChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "OnShowUnreadIndicatorChanged", null);
-(0, n.Cg)([u.oI], b.prototype, "DismissDialog", null);
-(0, n.Cg)([u.oI], b.prototype, "OnFriendsSettingsClicked", null);
-b = (0, n.Cg)([A.PA], b);
-let y = class extends i.Component {
+Cg([u.oI], B.prototype, "IncrementSavesInFlight", null);
+Cg([u.oI], B.prototype, "DecrementSavesInFlight", null);
+Cg([u.oI], B.prototype, "WrapSavePromise", null);
+Cg([u.oI], B.prototype, "OnGroupNotificationLevelChanged", null);
+Cg([u.oI], B.prototype, "OnShowUnreadIndicatorChanged", null);
+Cg([u.oI], B.prototype, "DismissDialog", null);
+Cg([u.oI], B.prototype, "OnFriendsSettingsClicked", null);
+B = Cg([A.PA], B);
+let Y = class extends i.Component {
 	static contextType = a.QO;
 	m_rgSelectOptions = yi();
 	OnChatNotificationLevelChanged(e) {
@@ -285,44 +225,33 @@ let y = class extends i.Component {
 		let e = this.props.chat;
 		e.GetDesktopNotificationLevelSetting();
 		if (this.context?.IN_GAMEPADUI) {
-			return i.createElement(
-				c.Z,
-				{
-					className: "notificationsChannel",
-					"flow-children": "column",
-				},
-				i.createElement(s.m, {
-					layout: "inline",
-					label: e.name,
-					rgOptions: this.m_rgSelectOptions,
-					selectedOption: e.GetDesktopNotificationLevelSetting(),
-					onChange: this.OnChatNotificationLevelChanged,
-				}),
+			return (
+				<c.Z className="notificationsChannel" flow-children="column">
+					<s.m
+						layout="inline"
+						label={e.name}
+						rgOptions={this.m_rgSelectOptions}
+						selectedOption={e.GetDesktopNotificationLevelSetting()}
+						onChange={this.OnChatNotificationLevelChanged}
+					/>
+				</c.Z>
 			);
 		} else {
-			return i.createElement(
-				s.dR,
-				{
-					className: "notificationsChannel",
-				},
-				i.createElement(
-					"div",
-					{
-						className: "NotificationChannelName",
-					},
-					e.name,
-				),
-				i.createElement(s.m, {
-					rgOptions: this.m_rgSelectOptions,
-					selectedOption: e.GetDesktopNotificationLevelSetting(),
-					onChange: this.OnChatNotificationLevelChanged,
-				}),
+			return (
+				<s.dR className="notificationsChannel">
+					<div className="NotificationChannelName">{e.name}</div>
+					<s.m
+						rgOptions={this.m_rgSelectOptions}
+						selectedOption={e.GetDesktopNotificationLevelSetting()}
+						onChange={this.OnChatNotificationLevelChanged}
+					/>
+				</s.dR>
 			);
 		}
 	}
 };
-(0, n.Cg)([u.oI], y.prototype, "OnChatNotificationLevelChanged", null);
-y = (0, n.Cg)([A.PA], y);
+Cg([u.oI], Y.prototype, "OnChatNotificationLevelChanged", null);
+Y = Cg([A.PA], Y);
 let S = class extends i.Component {
 	OnNotificationLevelChanged(e) {
 		this.props.set_notification_level(e.data);
@@ -339,72 +268,53 @@ let S = class extends i.Component {
 		if (this.props.bIsDefault && t == 0) {
 			t = 4;
 		}
-		return i.createElement(
-			"div",
-			{
-				className: "ChatRoomNotificationSettingsDialog",
-			},
-			i.createElement(
-				"div",
-				{
-					className:
-						"notificationGeneralHeader" +
-						(this.props.bIsDefault ? " isDefault" : ""),
-				},
-				i.createElement(
-					s.JU,
-					null,
-					this.props.bIsDefault
-						? Localize("#NotificationSetting_DefaultLabel")
-						: Localize("#NotificationSetting_Label"),
-				),
-			),
-			i.createElement(
-				"div",
-				{
-					style: {
+		return (
+			<div className="ChatRoomNotificationSettingsDialog">
+				<div
+					className={`notificationGeneralHeader${
+						this.props.bIsDefault ? " isDefault" : ""
+					}`}
+				>
+					<s.JU>
+						{this.props.bIsDefault
+							? Localize("#NotificationSetting_DefaultLabel")
+							: Localize("#NotificationSetting_Label")}
+					</s.JU>
+				</div>
+				<div
+					style={{
 						marginBottom: 16,
-					},
-				},
-				i.createElement(
-					"div",
-					{
-						className: "notificationRow",
-					},
-					i.createElement(s.m, {
-						rgOptions: this.props.drop_down_options,
-						selectedOption: e,
-						onChange: this.OnNotificationLevelChanged,
-					}),
-				),
-				t != 4 &&
-					i.createElement(
-						"div",
-						{
-							className: "indicatorOptionContainer",
-						},
-						i.createElement(s.RF, {
-							className: "indicatorOption",
-							label: Localize("#NotificationSetting_Indicator"),
-							onChange: this.OnShowUnreadIndicatorChanged,
-							checked: !this.props.get_muted(),
-						}),
-						i.createElement(
-							"div",
-							{
-								className:
-									"ChatUnreadMessageIndicator" +
-									(this.props.get_muted() ? " Hidden" : ""),
-							},
-							i.createElement("div", {
-								className: "chatUnreadCircle",
-							}),
-						),
-					),
-			),
+					}}
+				>
+					<div className="notificationRow">
+						<s.m
+							rgOptions={this.props.drop_down_options}
+							selectedOption={e}
+							onChange={this.OnNotificationLevelChanged}
+						/>
+					</div>
+					{t != 4 && (
+						<div className="indicatorOptionContainer">
+							<s.RF
+								className="indicatorOption"
+								label={Localize("#NotificationSetting_Indicator")}
+								onChange={this.OnShowUnreadIndicatorChanged}
+								checked={!this.props.get_muted()}
+							/>
+							<div
+								className={`ChatUnreadMessageIndicator${
+									this.props.get_muted() ? " Hidden" : ""
+								}`}
+							>
+								<div className="chatUnreadCircle" />
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
 		);
 	}
 };
-(0, n.Cg)([u.oI], S.prototype, "OnNotificationLevelChanged", null);
-(0, n.Cg)([u.oI], S.prototype, "OnShowUnreadIndicatorChanged", null);
-S = (0, n.Cg)([A.PA], S);
+Cg([u.oI], S.prototype, "OnNotificationLevelChanged", null);
+Cg([u.oI], S.prototype, "OnShowUnreadIndicatorChanged", null);
+S = Cg([A.PA], S);

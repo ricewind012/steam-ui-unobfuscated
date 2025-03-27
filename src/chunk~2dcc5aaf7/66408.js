@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
 import {
 	BIsParent,
 	CopyTextToClipboard,
 } from "../../actual_src/utils/domutils.js";
+import n from "./63696.js";
 export function xh(e) {
 	const { text: t = "", style: r, children: i } = e;
 	if (t == null) {
-		return n.createElement(n.Fragment, null, i);
+		return <>{i}</>;
 	}
 	let a;
 	a =
@@ -26,7 +26,7 @@ export function xh(e) {
 	console.log(
 		`Error: CopyableText must be the parent of exactly one child:\n\tcopystyle=${r} copytext=${a}`,
 	);
-	return n.createElement(n.Fragment, null, i);
+	return <>{i}</>;
 }
 export function JO(e) {
 	let t = e.cloneContents();
@@ -80,7 +80,7 @@ export function JO(e) {
 		}
 		let I = "";
 		let E = "\n";
-		if (u || v || d || A || p) {
+		if (u || v || v || d || v || d || A || v || d || A || p) {
 			if (r.length != 0) {
 				I += "\n";
 			}
@@ -130,7 +130,7 @@ export function JO(e) {
 export function pM(e) {
 	const t = document.createRange();
 	t.selectNode(e);
-	(function (e) {
+	((e) => {
 		const t = JO(e);
 		CopyTextToClipboard(t);
 	})(t);

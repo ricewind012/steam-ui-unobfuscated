@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
 import { FindAncestrally } from "../../actual_src/utils/domutils.js";
-var s = require(/*webcrack:missing*/ "./52451.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import s, { md } from "./52451.js";
 export class J extends i.Component {
 	static GetScrollableClassname() {
 		return "vt-scrollable";
@@ -65,7 +65,7 @@ export class J extends i.Component {
 			if (this.props.thresholds) {
 				e.threshold = this.props.thresholds;
 			}
-			this.m_observer = (0, s.md)(t, this.OnIntersection, e);
+			this.m_observer = md(t, this.OnIntersection, e);
 		}
 		if (this.m_observer && t && t != this.m_elTracked) {
 			this.m_observer.observe(t);
@@ -79,6 +79,7 @@ export class J extends i.Component {
 				: window.getComputedStyle(e).overflowY;
 			return (
 				t == "scroll" ||
+				t == "auto" ||
 				t == "auto" ||
 				!!e.classList.contains(J.GetScrollableClassname())
 			);
@@ -103,21 +104,13 @@ export class J extends i.Component {
 		}
 	}
 	render() {
-		let {
-			onVisibilityChange: e,
-			rootMargin: t,
-			trigger: r,
-			bHorizontal: n,
-			...a
-		} = this.props;
-		return i.createElement(
-			"div",
-			{
-				ref: this.m_refElement,
-				...a,
-			},
-			this.props.children,
+		let { onVisibilityChange, rootMargin, trigger, bHorizontal, ...a } =
+			this.props;
+		return (
+			<div ref={this.m_refElement} {...a}>
+				{this.props.children}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([s.oI], J.prototype, "OnIntersection", null);
+Cg([s.oI], J.prototype, "OnIntersection", null);

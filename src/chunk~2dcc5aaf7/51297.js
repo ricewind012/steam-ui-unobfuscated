@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-export class Ck extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+export class Ck extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Ck.prototype.ip) {
 			i.Sg(Ck.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -53,7 +53,7 @@ export class Ck extends a {
 		return i.zj(Ck.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Ck.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -61,7 +61,7 @@ export class Ck extends a {
 		i.i0(Ck.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Ck.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -69,14 +69,14 @@ export class Ck extends a {
 		return "CMsgNetworkDeviceIP4Address";
 	}
 }
-class o extends a {
+class o extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!o.prototype.addresses) {
 			i.Sg(o.M());
 		}
-		a.initialize(this, e, 0, -1, [1, 2], null);
+		n_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -145,7 +145,7 @@ class o extends a {
 		return i.zj(o.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		o.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -153,7 +153,7 @@ class o extends a {
 		i.i0(o.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		o.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -161,14 +161,14 @@ class o extends a {
 		return "CMsgNetworkDeviceIP4Config";
 	}
 }
-class l extends a {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.ip) {
 			i.Sg(l.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -208,7 +208,7 @@ class l extends a {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -216,7 +216,7 @@ class l extends a {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -224,14 +224,14 @@ class l extends a {
 		return "CMsgNetworkDeviceIP6Address";
 	}
 }
-class c extends a {
+class c extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.addresses) {
 			i.Sg(c.M());
 		}
-		a.initialize(this, e, 0, -1, [1, 2], null);
+		n_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -299,7 +299,7 @@ class c extends a {
 		return i.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -307,7 +307,7 @@ class c extends a {
 		i.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -315,14 +315,14 @@ class c extends a {
 		return "CMsgNetworkDeviceIP6Config";
 	}
 }
-export class co extends a {
+export class co extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!co.prototype.devices) {
 			i.Sg(co.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -372,7 +372,7 @@ export class co extends a {
 		return i.zj(co.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		co.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -380,7 +380,7 @@ export class co extends a {
 		i.i0(co.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		co.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -388,14 +388,14 @@ export class co extends a {
 		return "CMsgNetworkDevicesData";
 	}
 }
-class u extends a {
+class u extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.id) {
 			i.Sg(u.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -476,7 +476,7 @@ class u extends a {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -484,7 +484,7 @@ class u extends a {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -492,14 +492,14 @@ class u extends a {
 		return "CMsgNetworkDevicesData_Device";
 	}
 }
-class d extends a {
+class d extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.is_cable_present) {
 			i.Sg(d.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -549,7 +549,7 @@ class d extends a {
 		return i.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -557,7 +557,7 @@ class d extends a {
 		i.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -565,14 +565,14 @@ class d extends a {
 		return "CMsgNetworkDevicesData_Device_Wired";
 	}
 }
-class A extends a {
+class A extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.aps) {
 			i.Sg(A.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -617,7 +617,7 @@ class A extends a {
 		return i.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -625,7 +625,7 @@ class A extends a {
 		i.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -633,14 +633,14 @@ class A extends a {
 		return "CMsgNetworkDevicesData_Device_Wireless";
 	}
 }
-class p extends a {
+class p extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.id) {
 			i.Sg(p.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -720,7 +720,7 @@ class p extends a {
 		return i.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -728,7 +728,7 @@ class p extends a {
 		i.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -736,14 +736,14 @@ class p extends a {
 		return "CMsgNetworkDevicesData_Device_Wireless_AP";
 	}
 }
-export class pc extends a {
+export class pc extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!pc.prototype.device_id) {
 			i.Sg(pc.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -803,7 +803,7 @@ export class pc extends a {
 		return i.zj(pc.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		pc.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -811,7 +811,7 @@ export class pc extends a {
 		i.i0(pc.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		pc.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -819,14 +819,14 @@ export class pc extends a {
 		return "CMsgNetworkDeviceConnect";
 	}
 }
-class h extends a {
+class h extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.ap_id) {
 			i.Sg(h.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -865,7 +865,7 @@ class h extends a {
 		return i.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -873,7 +873,7 @@ class h extends a {
 		i.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -881,14 +881,14 @@ class h extends a {
 		return "CMsgNetworkDeviceConnect_KnownAP";
 	}
 }
-class C extends a {
+class C extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.ssid) {
 			i.Sg(C.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -932,7 +932,7 @@ class C extends a {
 		return i.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -940,7 +940,7 @@ class C extends a {
 		i.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -948,14 +948,14 @@ class C extends a {
 		return "CMsgNetworkDeviceConnect_CustomAP";
 	}
 }
-class _ extends a {
+class _ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.username) {
 			i.Sg(_.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -999,7 +999,7 @@ class _ extends a {
 		return i.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1007,7 +1007,7 @@ class _ extends a {
 		i.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1015,14 +1015,14 @@ class _ extends a {
 		return "CMsgNetworkDeviceConnect_Credentials";
 	}
 }
-class f extends a {
+class f extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.operation) {
 			i.Sg(f.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1086,7 +1086,7 @@ class f extends a {
 		return i.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1094,7 +1094,7 @@ class f extends a {
 		i.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1102,14 +1102,14 @@ class f extends a {
 		return "CCloud_PendingRemoteOperation";
 	}
 }
-export class lx extends a {
+export class lx extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!lx.prototype.operations) {
 			i.Sg(lx.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1149,7 +1149,7 @@ export class lx extends a {
 		return i.zj(lx.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		lx.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1157,7 +1157,7 @@ export class lx extends a {
 		i.i0(lx.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		lx.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1165,14 +1165,14 @@ export class lx extends a {
 		return "CMsgCloudPendingRemoteOperations";
 	}
 }
-class y extends a {
+class y extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!y.prototype.name) {
 			i.Sg(y.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1216,7 +1216,7 @@ class y extends a {
 		return i.zj(y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1224,7 +1224,7 @@ class y extends a {
 		i.i0(y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1232,14 +1232,14 @@ class y extends a {
 		return "CMsgSystemPerfDiagnosticEntry";
 	}
 }
-class S extends a {
+class S extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!S.prototype.name) {
 			i.Sg(S.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1303,7 +1303,7 @@ class S extends a {
 		return i.zj(S.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1311,7 +1311,7 @@ class S extends a {
 		i.i0(S.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		S.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1319,14 +1319,14 @@ class S extends a {
 		return "CMsgSystemPerfNetworkInterface";
 	}
 }
-export class bm extends a {
+export class bm extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!bm.prototype.entries) {
 			i.Sg(bm.M());
 		}
-		a.initialize(this, e, 0, -1, [1, 2], null);
+		n_Message.initialize(this, e, 0, -1, [1, 2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1377,7 +1377,7 @@ export class bm extends a {
 		return i.zj(bm.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		bm.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1385,7 +1385,7 @@ export class bm extends a {
 		i.i0(bm.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		bm.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1393,14 +1393,14 @@ export class bm extends a {
 		return "CMsgSystemPerfDiagnosticInfo";
 	}
 }
-class B extends a {
+class B extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!B.prototype.cpu_governor_manual_min_mhz) {
 			i.Sg(B.M());
 		}
-		a.initialize(this, e, 0, -1, [10, 13, 21, 26, 27], null);
+		n_Message.initialize(this, e, 0, -1, [10, 13, 21, 26, 27], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1584,7 +1584,7 @@ class B extends a {
 		return i.zj(B.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1592,7 +1592,7 @@ class B extends a {
 		i.i0(B.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		B.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1600,14 +1600,14 @@ class B extends a {
 		return "CMsgSystemPerfLimits";
 	}
 }
-class v extends a {
+class v extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!v.prototype.diagnostic_update_rate) {
 			i.Sg(v.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1707,7 +1707,7 @@ class v extends a {
 		return i.zj(v.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1715,7 +1715,7 @@ class v extends a {
 		i.i0(v.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		v.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1723,14 +1723,14 @@ class v extends a {
 		return "CMsgSystemPerfSettingsGlobal";
 	}
 }
-class I extends a {
+class I extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!I.prototype.gpu_performance_manual_mhz) {
 			i.Sg(I.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1879,7 +1879,7 @@ class I extends a {
 		return i.zj(I.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1887,7 +1887,7 @@ class I extends a {
 		i.i0(I.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		I.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1895,14 +1895,14 @@ class I extends a {
 		return "CMsgSystemPerfSettingsPerApp";
 	}
 }
-export class SW extends a {
+export class SW extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!SW.prototype.global) {
 			i.Sg(SW.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1944,7 +1944,7 @@ export class SW extends a {
 		return i.zj(SW.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		SW.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1952,7 +1952,7 @@ export class SW extends a {
 		i.i0(SW.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		SW.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1960,14 +1960,14 @@ export class SW extends a {
 		return "CMsgSystemPerfSettings";
 	}
 }
-export class cI extends a {
+export class cI extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!cI.prototype.limits) {
 			i.Sg(cI.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2019,7 +2019,7 @@ export class cI extends a {
 		return i.zj(cI.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		cI.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2027,7 +2027,7 @@ export class cI extends a {
 		i.i0(cI.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		cI.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2035,14 +2035,14 @@ export class cI extends a {
 		return "CMsgSystemPerfState";
 	}
 }
-export class TR extends a {
+export class TR extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!TR.prototype.gameid) {
 			i.Sg(TR.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2095,7 +2095,7 @@ export class TR extends a {
 		return i.zj(TR.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		TR.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2103,7 +2103,7 @@ export class TR extends a {
 		i.i0(TR.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		TR.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2111,14 +2111,14 @@ export class TR extends a {
 		return "CMsgSystemPerfUpdateSettings";
 	}
 }
-class R extends a {
+class R extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!R.prototype.state) {
 			i.Sg(R.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2187,7 +2187,7 @@ class R extends a {
 		return i.zj(R.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2195,7 +2195,7 @@ class R extends a {
 		i.i0(R.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2203,14 +2203,14 @@ class R extends a {
 		return "CMsgSystemDockUpdateState";
 	}
 }
-export class KF extends a {
+export class KF extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!KF.prototype.update_state) {
 			i.Sg(KF.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2248,7 +2248,7 @@ export class KF extends a {
 		return i.zj(KF.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		KF.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2256,7 +2256,7 @@ export class KF extends a {
 		i.i0(KF.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		KF.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2264,14 +2264,14 @@ export class KF extends a {
 		return "CMsgSystemDockState";
 	}
 }
-export class pM extends a {
+export class pM extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!pM.prototype.check_only) {
 			i.Sg(pM.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2310,7 +2310,7 @@ export class pM extends a {
 		return i.zj(pM.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		pM.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2318,7 +2318,7 @@ export class pM extends a {
 		i.i0(pM.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		pM.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2326,14 +2326,14 @@ export class pM extends a {
 		return "CMsgSystemDockUpdateFirmware";
 	}
 }
-class N extends a {
+class N extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!N.prototype.entries) {
 			i.Sg(N.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2378,7 +2378,7 @@ class N extends a {
 		return i.zj(N.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2386,7 +2386,7 @@ class N extends a {
 		i.i0(N.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		N.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2394,14 +2394,14 @@ class N extends a {
 		return "CMsgSystemAudioVolume";
 	}
 }
-class F extends a {
+class F extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!F.prototype.echannel) {
 			i.Sg(F.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2445,7 +2445,7 @@ class F extends a {
 		return i.zj(F.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2453,7 +2453,7 @@ class F extends a {
 		i.i0(F.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		F.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2461,14 +2461,14 @@ class F extends a {
 		return "CMsgSystemAudioVolume_ChannelEntry";
 	}
 }
-class G extends a {
+class G extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!G.prototype.id) {
 			i.Sg(G.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2512,7 +2512,7 @@ class G extends a {
 		return i.zj(G.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		G.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2520,7 +2520,7 @@ class G extends a {
 		i.i0(G.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		G.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2528,14 +2528,14 @@ class G extends a {
 		return "CMsgSystemAudioManagerObject";
 	}
 }
-class O extends a {
+class O extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!O.prototype.base) {
 			i.Sg(O.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2593,7 +2593,7 @@ class O extends a {
 		return i.zj(O.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		O.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2601,7 +2601,7 @@ class O extends a {
 		i.i0(O.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		O.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2609,14 +2609,14 @@ class O extends a {
 		return "CMsgSystemAudioManagerDevice";
 	}
 }
-class P extends a {
+class P extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!P.prototype.base) {
 			i.Sg(P.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2683,7 +2683,7 @@ class P extends a {
 		return i.zj(P.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		P.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2691,7 +2691,7 @@ class P extends a {
 		i.i0(P.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		P.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2699,14 +2699,14 @@ class P extends a {
 		return "CMsgSystemAudioManagerNode";
 	}
 }
-class L extends a {
+class L extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!L.prototype.base) {
 			i.Sg(L.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2789,7 +2789,7 @@ class L extends a {
 		return i.zj(L.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		L.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2797,7 +2797,7 @@ class L extends a {
 		i.i0(L.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		L.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2805,14 +2805,14 @@ class L extends a {
 		return "CMsgSystemAudioManagerPort";
 	}
 }
-class z extends a {
+class z extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!z.prototype.base) {
 			i.Sg(z.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2870,7 +2870,7 @@ class z extends a {
 		return i.zj(z.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		z.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2878,7 +2878,7 @@ class z extends a {
 		i.i0(z.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		z.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2886,14 +2886,14 @@ class z extends a {
 		return "CMsgSystemAudioManagerLink";
 	}
 }
-class x extends a {
+class x extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!x.prototype.devices) {
 			i.Sg(x.M());
 		}
-		a.initialize(this, e, 0, -1, [1, 2, 3, 4], null);
+		n_Message.initialize(this, e, 0, -1, [1, 2, 3, 4], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -2951,7 +2951,7 @@ class x extends a {
 		return i.zj(x.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		x.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -2959,7 +2959,7 @@ class x extends a {
 		i.i0(x.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		x.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -2967,14 +2967,14 @@ class x extends a {
 		return "CMsgSystemAudioManagerStateHW";
 	}
 }
-export class K6 extends a {
+export class K6 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!K6.prototype.rtime_filter) {
 			i.Sg(K6.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3022,7 +3022,7 @@ export class K6 extends a {
 		return i.zj(K6.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		K6.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3030,7 +3030,7 @@ export class K6 extends a {
 		i.i0(K6.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		K6.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3038,14 +3038,14 @@ export class K6 extends a {
 		return "CMsgSystemAudioManagerState";
 	}
 }
-export class id extends a {
+export class id extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!id.prototype.counter) {
 			i.Sg(id.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3084,7 +3084,7 @@ export class id extends a {
 		return i.zj(id.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		id.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3092,7 +3092,7 @@ export class id extends a {
 		i.i0(id.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		id.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3100,14 +3100,14 @@ export class id extends a {
 		return "CMsgSystemAudioManagerUpdateSomething";
 	}
 }
-class V extends a {
+class V extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!V.prototype.id) {
 			i.Sg(V.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3161,7 +3161,7 @@ class V extends a {
 		return i.zj(V.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		V.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3169,7 +3169,7 @@ class V extends a {
 		i.i0(V.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		V.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3177,14 +3177,14 @@ class V extends a {
 		return "CMsgSystemDisplayMode";
 	}
 }
-class H extends a {
+class H extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!H.prototype.id) {
 			i.Sg(H.M());
 		}
-		a.initialize(this, e, 0, -1, [11, 18], null);
+		n_Message.initialize(this, e, 0, -1, [11, 18], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3312,7 +3312,7 @@ class H extends a {
 		return i.zj(H.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		H.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3320,7 +3320,7 @@ class H extends a {
 		i.i0(H.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		H.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3328,14 +3328,14 @@ class H extends a {
 		return "CMsgSystemDisplay";
 	}
 }
-export class EX extends a {
+export class EX extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!EX.prototype.displays) {
 			i.Sg(EX.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3385,7 +3385,7 @@ export class EX extends a {
 		return i.zj(EX.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		EX.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3393,7 +3393,7 @@ export class EX extends a {
 		i.i0(EX.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		EX.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3401,14 +3401,14 @@ export class EX extends a {
 		return "CMsgSystemDisplayManagerState";
 	}
 }
-export class YW extends a {
+export class YW extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!YW.prototype.display_id) {
 			i.Sg(YW.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3452,7 +3452,7 @@ export class YW extends a {
 		return i.zj(YW.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		YW.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3460,7 +3460,7 @@ export class YW extends a {
 		i.i0(YW.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		YW.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3468,14 +3468,14 @@ export class YW extends a {
 		return "CMsgSystemDisplayManagerSetMode";
 	}
 }
-export class sH extends a {
+export class sH extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!sH.prototype.idle_backlight_dim_battery_seconds) {
 			i.Sg(sH.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3689,7 +3689,7 @@ export class sH extends a {
 		return i.zj(sH.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		sH.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3697,7 +3697,7 @@ export class sH extends a {
 		i.i0(sH.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		sH.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3705,14 +3705,14 @@ export class sH extends a {
 		return "CMsgSystemManagerSettings";
 	}
 }
-export class hr extends a {
+export class hr extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!hr.prototype.branch) {
 			i.Sg(hr.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3756,7 +3756,7 @@ export class hr extends a {
 		return i.zj(hr.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		hr.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3764,7 +3764,7 @@ export class hr extends a {
 		i.i0(hr.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		hr.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3772,14 +3772,14 @@ export class hr extends a {
 		return "CMsgSelectOSBranchParams";
 	}
 }
-class Y extends a {
+class Y extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Y.prototype.stage_progress) {
 			i.Sg(Y.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3828,7 +3828,7 @@ class Y extends a {
 		return i.zj(Y.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Y.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3836,7 +3836,7 @@ class Y extends a {
 		i.i0(Y.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Y.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3844,14 +3844,14 @@ class Y extends a {
 		return "CMsgSystemUpdateProgress";
 	}
 }
-class K extends a {
+class K extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!K.prototype.type) {
 			i.Sg(K.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3921,7 +3921,7 @@ class K extends a {
 		return i.zj(K.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		K.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3929,7 +3929,7 @@ class K extends a {
 		i.i0(K.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		K.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -3937,14 +3937,14 @@ class K extends a {
 		return "CMsgSystemUpdateCheckResult";
 	}
 }
-export class bM extends a {
+export class bM extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!bM.prototype.apply_types) {
 			i.Sg(bM.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -3986,7 +3986,7 @@ export class bM extends a {
 		return i.zj(bM.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		bM.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -3994,7 +3994,7 @@ export class bM extends a {
 		i.i0(bM.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		bM.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4002,14 +4002,14 @@ export class bM extends a {
 		return "CMsgSystemUpdateApplyParams";
 	}
 }
-class J extends a {
+class J extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!J.prototype.type) {
 			i.Sg(J.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4066,7 +4066,7 @@ class J extends a {
 		return i.zj(J.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		J.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4074,7 +4074,7 @@ class J extends a {
 		i.i0(J.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		J.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4082,14 +4082,14 @@ class J extends a {
 		return "CMsgSystemUpdateApplyResult";
 	}
 }
-export class q extends a {
+export class q extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!q.prototype.state) {
 			i.Sg(q.M());
 		}
-		a.initialize(this, e, 0, -1, [3, 4], null);
+		n_Message.initialize(this, e, 0, -1, [3, 4], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4149,7 +4149,7 @@ export class q extends a {
 		return i.zj(q.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		q.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4157,7 +4157,7 @@ export class q extends a {
 		i.i0(q.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		q.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4165,14 +4165,14 @@ export class q extends a {
 		return "CMsgSystemUpdateState";
 	}
 }
-export class ke extends a {
+export class ke extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!ke.prototype.appid) {
 			i.Sg(ke.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4211,7 +4211,7 @@ export class ke extends a {
 		return i.zj(ke.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4219,7 +4219,7 @@ export class ke extends a {
 		i.i0(ke.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4227,14 +4227,14 @@ export class ke extends a {
 		return "CMsgAchievementChange";
 	}
 }
-export class Z5 extends a {
+export class Z5 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Z5.prototype.selected_display_name) {
 			i.Sg(Z5.M());
 		}
-		a.initialize(this, e, 0, -1, [2], null);
+		n_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4280,7 +4280,7 @@ export class Z5 extends a {
 		return i.zj(Z5.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Z5.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4288,7 +4288,7 @@ export class Z5 extends a {
 		i.i0(Z5.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Z5.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4296,14 +4296,14 @@ export class Z5 extends a {
 		return "CMsgMonitorInfo";
 	}
 }
-class re extends a {
+class re extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!re.prototype.monitor_device_name) {
 			i.Sg(re.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4349,7 +4349,7 @@ class re extends a {
 		return i.zj(re.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		re.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4357,7 +4357,7 @@ class re extends a {
 		i.i0(re.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		re.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4365,14 +4365,14 @@ class re extends a {
 		return "CMsgMonitorInfo_MonitorInfo";
 	}
 }
-export class tm extends a {
+export class tm extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!tm.prototype.report_id) {
 			i.Sg(tm.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4411,7 +4411,7 @@ export class tm extends a {
 		return i.zj(tm.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		tm.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4419,7 +4419,7 @@ export class tm extends a {
 		i.i0(tm.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		tm.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -4427,14 +4427,14 @@ export class tm extends a {
 		return "CMsgGenerateSystemReportReply";
 	}
 }
-export class YX extends a {
+export class YX extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!YX.prototype.connect_count) {
 			i.Sg(YX.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -4473,7 +4473,7 @@ export class YX extends a {
 		return i.zj(YX.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		YX.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -4481,7 +4481,7 @@ export class YX extends a {
 		i.i0(YX.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		YX.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

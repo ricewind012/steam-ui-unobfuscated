@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	chatEntryControls: "_3Ule3rolhZJiBN4yNNtk1s",
 	chatTextarea: "_113iuw_HlE_qSgt9cGWCSv",

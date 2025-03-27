@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./60917.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require(/*webcrack:missing*/ "./72476.js");
-var l = require("./96593.js");
+import { Cg } from "./34629.js";
+import i from "./60917.js";
+import a, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import o from "./72476.js";
+import { AG } from "./96593.js";
 class c {
 	m_InstallFolders = a.sH.array();
 	m_bLowDiskSpace = false;
 	constructor() {
-		(0, a.Gn)(this);
+		Gn(this);
 	}
 	Init() {
 		SteamClient.InstallFolder.RegisterForInstallFolderChanges(
@@ -20,7 +20,7 @@ class c {
 		for (let e of t) {
 			e.vecApps = e.vecApps.map((e) => ({
 				...e,
-				strSortAs: e?.strSortAs && (0, l.AG)(e.strSortAs),
+				strSortAs: e?.strSortAs && AG(e.strSortAs),
 			}));
 		}
 		this.m_InstallFolders.replace(t);
@@ -51,17 +51,17 @@ class c {
 		return this.m_bLowDiskSpace;
 	}
 }
-(0, n.Cg)([a.sH], c.prototype, "m_bLowDiskSpace", undefined);
-(0, n.Cg)([a.XI.bound], c.prototype, "OnInstallFolderChanges", null);
-(0, n.Cg)([a.EW], c.prototype, "MountedInstallFolders", null);
+Cg([a.sH], c.prototype, "m_bLowDiskSpace", undefined);
+Cg([a.XI.bound], c.prototype, "OnInstallFolderChanges", null);
+Cg([a.EW], c.prototype, "MountedInstallFolders", null);
 export const fN = new c();
 export function sV() {
-	return (0, s.q3)(() => [...fN.MountedInstallFolders]);
+	return q3(() => [...fN.MountedInstallFolders]);
 }
 export function iS() {
-	return (0, s.q3)(() => fN.MountedInstallFolders?.length || 0) > 1;
+	return q3(() => fN.MountedInstallFolders?.length || 0) > 1;
 }
 export function OO() {
-	return (0, s.q3)(() => fN.MountedInstallFolders[0]);
+	return q3(() => fN.MountedInstallFolders[0]);
 }
 window.installFolderStore = fN;

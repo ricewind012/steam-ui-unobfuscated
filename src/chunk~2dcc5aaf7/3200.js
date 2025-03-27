@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./9808.js");
-var a = require("./30449.js");
-require("./48289.js");
-var s = require(/*webcrack:missing*/ "./69164.js");
-var o = require("./17231.js");
-var l = require("./35488.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import {
 	Localize,
 	LocalizationManager,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var u = require("./57665.js");
-var d = require("./66732.js");
-var A = require(/*webcrack:missing*/ "./55007.js");
 import { _f } from "../../actual_src/utils/domutils.js";
-var g = require("./60155.js");
-var h = require("./18980.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
+import n, { useState, useEffect } from "./63696.js";
+import i, { Ms } from "./9808.js";
+import a from "./30449.js";
+import "./48289.js";
+import s from "./69164.js";
+import o from "./17231.js";
+import l from "./35488.js";
+import c, { A as A_1 } from "./90765.js";
+import u, { Qv } from "./57665.js";
+import d from "./66732.js";
+import A, { Te } from "./55007.js";
+import g, { V3 } from "./60155.js";
+import h from "./18980.js";
+import C, { Qn } from "./72476.js";
 function _(e, t) {
 	return `${f(e)} / ${f(t)}`;
 }
@@ -28,379 +28,238 @@ function f(e) {
 	});
 }
 export function Om(e) {
-	const { title: t, children: r, className: i } = e;
-	return n.createElement(
-		s.Z,
-		{
-			"flow-children": "column",
-			className: (0, c.A)(h.AchievementList, i),
-		},
-		t && n.createElement(YG, null, t),
-		r,
+	const { title, children, className } = e;
+	return (
+		<s.Z flow-children="column" className={A_1(h.AchievementList, className)}>
+			{title && <YG>{title}</YG>}
+			{children}
+		</s.Z>
 	);
 }
 export function YG(e) {
-	const { className: t, children: r, ...i } = e;
-	return n.createElement(
-		"div",
-		{
-			className: (0, c.A)(t, h.ListTitle),
-			...i,
-		},
-		r,
+	const { className, children, ...i } = e;
+	return (
+		<div className={A_1(className, h.ListTitle)} {...i}>
+			{children}
+		</div>
 	);
 }
 function S(e) {
-	const { media: t, children: r, right: i, footer: a, ...o } = e;
-	return n.createElement(
-		s.Z,
-		{
-			focusable: true,
-			onOKActionDescription: null,
-			className: h.AchievementListItemBase,
-			...o,
-		},
-		n.createElement(
-			"div",
-			{
-				className: h.Container,
-			},
-			n.createElement(
-				"div",
-				{
-					className: h.Media,
-				},
-				t,
-			),
-			n.createElement(
-				"div",
-				{
-					className: h.Content,
-				},
-				r,
-			),
-			i &&
-				n.createElement(
-					"div",
-					{
-						className: h.Right,
-					},
-					i,
-				),
-		),
-		a &&
-			n.createElement(
-				"div",
-				{
-					className: h.Footer,
-				},
-				a,
-			),
+	const { media, children, right, footer, ...o } = e;
+	return (
+		<s.Z
+			focusable
+			onOKActionDescription={null}
+			className={h.AchievementListItemBase}
+			{...o}
+		>
+			<div className={h.Container}>
+				<div className={h.Media}>{media}</div>
+				<div className={h.Content}>{children}</div>
+				{right && <div className={h.Right}>{right}</div>}
+			</div>
+			{footer && <div className={h.Footer}>{footer}</div>}
+		</s.Z>
 	);
 }
 export function fm(e) {
 	const {
-		title: t,
-		description: r,
-		imgUrl: i,
-		unlockDate: a,
-		percentGlobalUnlocked: s,
-		progress: o,
-		footer: l,
-		hidden: c,
-		glow: u,
+		title,
+		description,
+		imgUrl,
+		unlockDate,
+		percentGlobalUnlocked,
+		progress,
+		footer,
+		hidden,
+		glow,
 		...A
 	} = e;
-	const p = !!a;
-	const g = a
-		? n.createElement(M, {
-				rtime: a,
-			})
-		: null;
-	const C = o
-		? n.createElement(T, {
-				...o,
-				showCount: !g,
-			})
-		: null;
-	return n.createElement(
-		S,
-		{
-			media: n.createElement(d._, {
-				hidden: c,
-				glow: u,
-				imgURL: i,
-			}),
-			right: n.createElement(
-				I,
-				{
-					className: h.AlignEnd,
-				},
-				g,
-				C,
-			),
-			footer: l,
-			...A,
-		},
-		n.createElement(
-			I,
-			{
-				className: h.AchievementContent,
-			},
-			n.createElement(
-				B,
-				null,
-				c
-					? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
-					: t,
-			),
-			n.createElement(
-				v,
-				null,
-				c ? Localize("#Achievements_HiddenAchievementItem_Description") : r,
-			),
-			typeof s == "number" &&
-				p &&
-				n.createElement(T0, {
-					percentage: s,
-				}),
-		),
+	const p = !!unlockDate;
+	const g = unlockDate ? <M rtime={unlockDate} /> : null;
+	const C = progress ? <T {...progress} showCount={!g} /> : null;
+	return (
+		<S
+			media={<d._ hidden={hidden} glow={glow} imgURL={imgUrl} />}
+			right={
+				<I className={h.AlignEnd}>
+					{g}
+					{C}
+				</I>
+			}
+			footer={footer}
+			{...A}
+		>
+			<I className={h.AchievementContent}>
+				<B>
+					{hidden
+						? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
+						: title}
+				</B>
+				<V>
+					{hidden
+						? Localize("#Achievements_HiddenAchievementItem_Description")
+						: description}
+				</V>
+				{typeof percentGlobalUnlocked == "number" && p && (
+					<T0 percentage={percentGlobalUnlocked} />
+				)}
+			</I>
+		</S>
 	);
 }
-const B = (e) =>
-	n.createElement(
-		"div",
-		{
-			className: h.AchievementTitle,
-		},
-		e.children,
-	);
-const v = (e) =>
-	n.createElement(
-		"div",
-		{
-			className: h.AchievementDescription,
-		},
-		e.children,
-	);
-const I = (e) =>
-	n.createElement(
-		"div",
-		{
-			className: (0, c.A)(h.VerticalContent, e.className),
-		},
-		e.children,
-	);
+const B = (e) => <div className={h.AchievementTitle}>{e.children}</div>;
+const V = (e) => <div className={h.AchievementDescription}>{e.children}</div>;
+const I = (e) => (
+	<div className={A_1(h.VerticalContent, e.className)}>{e.children}</div>
+);
 export function T0(e) {
-	const { percentage: t, className: r } = e;
-	if (!t) {
+	const { percentage, className } = e;
+	if (!percentage) {
 		return null;
 	}
-	const i = Localize("#AppDetails_PctUnlocked", t.toFixed(1));
-	return n.createElement(
-		"div",
-		{
-			className: (0, c.A)(h.AchievementGlobalPercentage, h.InBody, r),
-		},
-		i,
+	const i = Localize("#AppDetails_PctUnlocked", percentage.toFixed(1));
+	return (
+		<div className={A_1(h.AchievementGlobalPercentage, h.InBody, className)}>
+			{i}
+		</div>
 	);
 }
 function M(e) {
-	const { rtime: t, className: r } = e;
-	const a = new Date(t * 1000).toLocaleDateString(
+	const { rtime, className } = e;
+	const a = new Date(rtime * 1000).toLocaleDateString(
 		LocalizationManager.GetPreferredLocales(),
-		(0, i.Ms)(),
+		Ms(),
 	);
-	return n.createElement(
-		"div",
-		{
-			className: (0, c.A)(h.UnlockDate, r),
-		},
-		Localize("#Achievements_ListItem_UnlockDateTime", a),
+	return (
+		<div className={A_1(h.UnlockDate, className)}>
+			{Localize("#Achievements_ListItem_UnlockDateTime", a)}
+		</div>
 	);
 }
 function T(e) {
-	const { flCurrent: t, flMax: r, flPercentage: i, showCount: s } = e;
-	const o = n.createElement(
-		"div",
-		{
-			className: h.ProgressBar,
-		},
-		n.createElement(a.z2, {
-			nProgress: i,
-		}),
+	const { flCurrent, flMax, flPercentage, showCount } = e;
+	const o = (
+		<div className={h.ProgressBar}>
+			<a.z2 nProgress={flPercentage} />
+		</div>
 	);
-	if (s) {
-		return n.createElement(
-			I,
-			{
-				className: h.AlignEnd,
-			},
-			n.createElement(
-				"div",
-				{
-					className: h.ProgressCount,
-				},
-				_(t, r),
-			),
-			o,
+	if (showCount) {
+		return (
+			<I className={h.AlignEnd}>
+				<div className={h.ProgressCount}>{_(flCurrent, flMax)}</div>
+				{o}
+			</I>
 		);
 	} else {
 		return o;
 	}
 }
 export function Eu(e) {
-	const { count: t, ...r } = e;
-	return n.createElement(
-		S,
-		{
-			media: n.createElement(u.Tv, {
-				achievement: null,
-				hidden: true,
-				pauseAnimation: true,
-			}),
-			...r,
-		},
-		n.createElement(
-			I,
-			{
-				className: h.HiddenAchievementContent,
-			},
-			n.createElement(
-				B,
-				null,
-				LocalizePlural("#Achievements_HiddenAchievementItem_Title", t),
-			),
-			n.createElement(
-				v,
-				null,
-				LocalizePlural("#Achievements_HiddenAchievementItem_Description", t),
-			),
-		),
+	const { count, ...r } = e;
+	return (
+		<S media={<u.Tv achievement={null} hidden pauseAnimation />} {...r}>
+			<I className={h.HiddenAchievementContent}>
+				<B>
+					{LocalizePlural("#Achievements_HiddenAchievementItem_Title", count)}
+				</B>
+				<V>
+					{LocalizePlural(
+						"#Achievements_HiddenAchievementItem_Description",
+						count,
+					)}
+				</V>
+			</I>
+		</S>
 	);
 }
 export function ui(e) {
 	const {
-		title: t,
-		description: r,
-		imgUrl: i,
-		hidden: a,
-		percentGlobalUnlocked: s,
-		primaryAchiever: o,
-		secondaryAchiever: l,
+		title,
+		description,
+		imgUrl,
+		hidden,
+		percentGlobalUnlocked,
+		primaryAchiever,
+		secondaryAchiever,
 		...c
 	} = e;
-	return n.createElement(
-		S,
-		{
-			media: n.createElement(d._, {
-				hidden: a,
-				glow: (0, u.Qv)(!!o.unlockDate, s),
-				imgURL: i,
-			}),
-			right: n.createElement(
-				I,
-				{
-					className: h.ComparisonAchieverColumn,
-				},
-				n.createElement(D, {
-					...o,
-					primary: true,
-				}),
-				l &&
-					n.createElement(D, {
-						...l,
-						primary: false,
-					}),
-			),
-			...c,
-		},
-		n.createElement(
-			I,
-			{
-				className: h.AchievementContent,
-			},
-			n.createElement(
-				B,
-				null,
-				a
-					? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
-					: t,
-			),
-			n.createElement(
-				v,
-				null,
-				a ? Localize("#Achievements_HiddenAchievementItem_Description") : r,
-			),
-		),
+	return (
+		<S
+			media={
+				<d._
+					hidden={hidden}
+					glow={Qv(!!primaryAchiever.unlockDate, percentGlobalUnlocked)}
+					imgURL={imgUrl}
+				/>
+			}
+			right={
+				<I className={h.ComparisonAchieverColumn}>
+					<D {...primaryAchiever} primary />
+					{secondaryAchiever && <D {...secondaryAchiever} primary={false} />}
+				</I>
+			}
+			{...c}
+		>
+			<I className={h.AchievementContent}>
+				<B>
+					{hidden
+						? Localize("#Achievements_HiddenAchievementItem_Individual_Title")
+						: title}
+				</B>
+				<V>
+					{hidden
+						? Localize("#Achievements_HiddenAchievementItem_Description")
+						: description}
+				</V>
+			</I>
+		</S>
 	);
 }
 function D(e) {
-	const { primary: t, avatarURL: r, progress: i, unlockDate: s } = e;
-	return n.createElement(
-		"div",
-		{
-			className: (0, c.A)(
+	const { primary, avatarURL, progress, unlockDate } = e;
+	return (
+		<div
+			className={A_1(
 				h.ComparisonAchieverInfo,
-				t ? h.Primary : h.Secondary,
-				s ? h.Achieved : h.Unachieved,
-			),
-		},
-		s > 0 &&
-			n.createElement(M, {
-				className: h.UnlockDate,
-				rtime: s,
-			}),
-		i &&
-			!s &&
-			n.createElement(
-				n.Fragment,
-				null,
-				n.createElement(
-					"div",
-					{
-						className: h.ProgressContainer,
-					},
-					n.createElement(a.z2, {
-						nProgress: i.flPercentage,
-						color: t ? undefined : "var(--gpColor-Yellow, #ffc82c)",
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: h.ProgressLabel,
-					},
-					_(i.flCurrent, i.flMax),
-				),
-			),
-		n.createElement(
-			"div",
-			{
-				className: h.AvatarContainer,
-			},
-			n.createElement(o.Ul, {
-				statusPosition: "none",
-				strAvatarURL: r,
-				size: "X-Small",
-			}),
-		),
+				primary ? h.Primary : h.Secondary,
+				unlockDate ? h.Achieved : h.Unachieved,
+			)}
+		>
+			{unlockDate > 0 && <M className={h.UnlockDate} rtime={unlockDate} />}
+			{progress && !unlockDate && (
+				<>
+					<div className={h.ProgressContainer}>
+						<a.z2
+							nProgress={progress.flPercentage}
+							color={primary || "var(--gpColor-Yellow, #ffc82c)"}
+						/>
+					</div>
+					<div className={h.ProgressLabel}>
+						{_(progress.flCurrent, progress.flMax)}
+					</div>
+				</>
+			)}
+			<div className={h.AvatarContainer}>
+				<o.Ul statusPosition="none" strAvatarURL={avatarURL} size="X-Small" />
+			</div>
+		</div>
 	);
 }
 export function Wh(e) {
-	const { achievements: t, avatarURL: r } = e;
-	const [i, a, s] = (0, g.V3)(t);
-	const [l, c] = (0, n.useState)(false);
-	(0, n.useEffect)(() => {
-		window.setTimeout(() => c(true), 50);
+	const { achievements, avatarURL } = e;
+	const [i, a, s] = V3(achievements);
+	const [l, setL] = useState(false);
+	useEffect(() => {
+		window.setTimeout(() => setL(true), 50);
 	}, []);
-	const u = n.useRef(undefined);
+	const URef = n.useRef(undefined);
 	const d = n.useCallback((e) => {
-		u.current = e ? (0, _f)(e) : null;
+		URef.current = e ? (0, _f)(e) : null;
 	}, []);
-	const C = (0, A.Te)({
+	const C = Te({
 		count: s.length,
-		getScrollElement: () => u.current,
+		getScrollElement: () => URef.current,
 		estimateSize: n.useCallback(
 			(e) => parseInt(h.nGlobalAchievementHeight) + parseInt(h.nAchievementGap),
 			[],
@@ -410,168 +269,102 @@ export function Wh(e) {
 	if (!l) {
 		return null;
 	}
-	const _ = n.createElement(
-		"div",
-		{
-			className: h.Avatar,
-		},
-		n.createElement(o.Ul, {
-			statusPosition: "none",
-			strAvatarURL: r,
-			size: "Small",
-		}),
+	const _ = (
+		<div className={h.Avatar}>
+			<o.Ul statusPosition="none" strAvatarURL={avatarURL} size="Small" />
+		</div>
 	);
-	const f = n.createElement(
-		"div",
-		{
-			className: h.HeaderText,
-		},
-		Localize("#Achievements_GlobalAchievement_PercentUnlockedLabel"),
+	const f = (
+		<div className={h.HeaderText}>
+			{Localize("#Achievements_GlobalAchievement_PercentUnlockedLabel")}
+		</div>
 	);
-	return n.createElement(
-		Om,
-		null,
-		n.createElement(g.zp, {
-			strFilter: i,
-			onChangeFilter: a,
-			leftContent: _,
-			rightContent: f,
-		}),
-		n.createElement(
-			"div",
-			{
-				className: h.ListWrapper,
-				ref: d,
-				style: {
+	return (
+		<Om>
+			<g.zp strFilter={i} onChangeFilter={a} leftContent={_} rightContent={f} />
+			<div
+				className={h.ListWrapper}
+				ref={d}
+				style={{
 					height: `${C.getTotalSize()}px`,
 					width: "100%",
 					position: "relative",
-				},
-			},
-			C.getVirtualItems().map((e) => {
-				const t = {
-					position: "absolute",
-					top: e.start,
-					left: 0,
-					width: "100%",
-					height: e.size - parseInt(h.nAchievementGap),
-				};
-				return n.createElement(F, {
-					key: e.key,
-					...s[e.index],
-					style: t,
-				});
-			}),
-		),
+				}}
+			>
+				{C.getVirtualItems().map((e) => {
+					const t = {
+						position: "absolute",
+						top: e.start,
+						left: 0,
+						width: "100%",
+						height: e.size - parseInt(h.nAchievementGap),
+					};
+					return <F key={e.key} {...s[e.index]} style={t} />;
+				})}
+			</div>
+		</Om>
 	);
 }
 function F(e) {
 	const {
-		strName: t,
-		strDescription: r,
-		imgUrl: i,
-		percentGlobalUnlocked: a = 0,
-		unlocked: o,
-		className: u,
-		hidden: A,
+		strName,
+		strDescription,
+		imgUrl,
+		percentGlobalUnlocked = 0,
+		unlocked,
+		className,
+		hidden,
 		...p
 	} = e;
-	const [g, _] = n.useState(false);
-	const f = (0, C.Qn)();
-	const b = !A || g;
+	const [g, setG] = n.useState(false);
+	const f = Qn();
+	const b = !hidden || g;
 	const y = Localize(
 		f
 			? "#Achievements_HiddenAchievementItem_Individual_Reveal_Gamepad"
 			: "#Achievements_HiddenAchievementItem_Individual_Reveal_Desktop",
 	);
-	const S = b
-		? null
-		: Localize("#Achievements_HiddenAchievementItem_Individual_Reveal");
-	return n.createElement(
-		s.Z,
-		{
-			focusable: true,
-			onClick: () => _(true),
-			onActivate: () => _(true),
-			onOKActionDescription: S,
-			className: (0, c.A)(h.GlobalAchievementListItem, u),
-			...p,
-		},
-		n.createElement(
-			"div",
-			{
-				className: h.UnlockContainer,
-			},
-			o && n.createElement(l.Checkmark, null),
-		),
-		n.createElement(
-			"div",
-			{
-				className: (0, c.A)(h.Content, !b && h.Hidden),
-			},
-			n.createElement(
-				"div",
-				{
-					className: h.ImageContainer,
-				},
-				n.createElement(d._, {
-					hidden: !b,
-					glow: false,
-					imgURL: i,
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: h.Right,
-				},
-				n.createElement(
-					"div",
-					{
-						className: h.Info,
-					},
-					n.createElement(
-						"div",
-						{
-							className: h.Title,
-						},
-						b
-							? t
-							: Localize(
-									"#Achievements_HiddenAchievementItem_Individual_Title",
-								),
-					),
-					n.createElement(
-						"div",
-						{
-							className: h.Description,
-						},
-						b ? r : Localize("#Achievements_HiddenAchievementItem_Description"),
-					),
-				),
-				n.createElement(
-					"div",
-					{
-						className: h.Percent,
-					},
-					a.toFixed(1),
-					"%",
-				),
-				!b &&
-					n.createElement(
-						"div",
-						{
-							className: h.SpoilerWarning,
-						},
-						y,
-					),
-			),
-			n.createElement("div", {
-				className: h.ProgressFill,
-				style: {
-					width: `${a}%`,
-				},
-			}),
-		),
+	const S =
+		b || Localize("#Achievements_HiddenAchievementItem_Individual_Reveal");
+	return (
+		<s.Z
+			focusable
+			onClick={() => setG(true)}
+			onActivate={() => setG(true)}
+			onOKActionDescription={S}
+			className={A_1(h.GlobalAchievementListItem, className)}
+			{...p}
+		>
+			<div className={h.UnlockContainer}>{unlocked && <l.Checkmark />}</div>
+			<div className={A_1(h.Content, !b && h.Hidden)}>
+				<div className={h.ImageContainer}>
+					<d._ hidden={!b} glow={false} imgURL={imgUrl} />
+				</div>
+				<div className={h.Right}>
+					<div className={h.Info}>
+						<div className={h.Title}>
+							{b
+								? strName
+								: Localize(
+										"#Achievements_HiddenAchievementItem_Individual_Title",
+									)}
+						</div>
+						<div className={h.Description}>
+							{b
+								? strDescription
+								: Localize("#Achievements_HiddenAchievementItem_Description")}
+						</div>
+					</div>
+					<div className={h.Percent}>{percentGlobalUnlocked.toFixed(1)}%</div>
+					{!b && <div className={h.SpoilerWarning}>{y}</div>}
+				</div>
+				<div
+					className={h.ProgressFill}
+					style={{
+						width: `${percentGlobalUnlocked}%`,
+					}}
+				/>
+			</div>
+		</s.Z>
 	);
 }

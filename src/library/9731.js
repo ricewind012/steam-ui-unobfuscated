@@ -1,10 +1,10 @@
-var r = require("./31958.js");
 import {
 	BCanAccessDocument,
 	GetCookie,
 	SetCookie,
 } from "../../actual_src/utils/cookies.js";
-var s = require("./43691.js");
+import r, { Tg } from "./31958.js";
+import s from "./43691.js";
 const o = "webui_config";
 let a;
 export function KC() {
@@ -17,10 +17,10 @@ export function KC() {
 	return e;
 }
 export function bf() {
-	const e = (function () {
+	const e = (() => {
 		let e = "";
 		for (let t = 0; t < 24; t++) {
-			e += (0, r.Tg)(0, 35).toString(36);
+			e += Tg(0, 35).toString(36);
 		}
 		return e;
 	})();
@@ -43,23 +43,17 @@ function d(e, t = o, n) {
 					BUILD_TIME_LOCAL: "Mar 11 2025 : 16:45:07",
 					BUILD_TIME_UTC: "Mar 11 2025 : 23:45:07",
 					BUILD_RTIME_UTC: 1741736707,
-				}.MOBILE_BUILD
-				? null
-				: document.getElementById(t)
+				}.MOBILE_BUILD || document.getElementById(t)
 			: t;
 	if (r) {
 		try {
-			if (r.hasAttribute("data-" + e)) {
-				return JSON.parse(r.getAttribute("data-" + e));
+			if (r.hasAttribute(`data-${e}`)) {
+				return JSON.parse(r.getAttribute(`data-${e}`));
 			}
 			return null;
 		} catch (e) {
 			console.error(
-				"Failed to parse config for " +
-					s.iA.steamid +
-					" (" +
-					window.location.href +
-					")",
+				`Failed to parse config for ${s.iA.steamid} (${window.location.href})`,
 				e,
 			);
 		}

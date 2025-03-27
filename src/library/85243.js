@@ -1,16 +1,17 @@
 export const E8 = -1;
-export var W;
-export var TR;
-export var I5;
-export var W7;
+export let W;
+export let TR;
+export let I5;
+export let W7;
 export function BK(e) {
 	return (
 		e == W.EBrowserType_OpenVROverlay ||
 		e == W.EBrowserType_OpenVROverlay_Dashboard ||
+		e == W.EBrowserType_OpenVROverlay_Dashboard ||
 		e == W.EBrowserType_OpenVROverlay_Subview
 	);
 }
-(function (e) {
+((e) => {
 	e[(e.EBrowserType_OffScreen = 0)] = "EBrowserType_OffScreen";
 	e[(e.EBrowserType_OpenVROverlay = 1)] = "EBrowserType_OpenVROverlay";
 	e[(e.EBrowserType_OpenVROverlay_Dashboard = 2)] =
@@ -24,18 +25,18 @@ export function BK(e) {
 	e[(e.EBrowserType_OpenVROverlay_Subview = 13)] =
 		"EBrowserType_OpenVROverlay_Subview";
 })((W ||= {}));
-(function (e) {
+((e) => {
 	e[(e.SystemKey0 = 0)] = "SystemKey0";
 	e[(e.SystemKey1 = 1)] = "SystemKey1";
 })((TR ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Hidden = 0)] = "Hidden";
 	e[(e.Notification = 1)] = "Notification";
 	e[(e.Overlay = 2)] = "Overlay";
 	e[(e.Opaque = 3)] = "Opaque";
 	e[(e.OverlayKeyboard = 4)] = "OverlayKeyboard";
 })((I5 ||= {}));
-(function (e) {
+((e) => {
 	e[(e.MainGamepadUI = 0)] = "MainGamepadUI";
 	e[(e.OverlayGamepadUI = 1)] = "OverlayGamepadUI";
 	e[(e.Keyboard = 2)] = "Keyboard";

@@ -1,50 +1,86 @@
-var n = require("./3142.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./42318.js");
-var s = require("./10606.js");
-var o = require("./64608.js");
-var l = require("./4530.js");
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var m = require("./81994.js");
-var u = require("./96680.js");
-var d = require("./45967.js");
-const A = (0, a.Nr)(function () {
-	const e = i.useRef(false);
-	const t = i.useRef(0);
-	const r = i.useRef(undefined);
-	const [n, a] = i.useState(false);
-	const A = (0, u.$2)();
+import n from "./3142.js";
+import i, { useState } from "./63696.js";
+import a, { Nr } from "./42318.js";
+import s from "./10606.js";
+import o from "./64608.js";
+import l from "./4530.js";
+import m from "./81994.js";
+import u, { $2 } from "./96680.js";
+import d from "./45967.js";
+import _g from "./95572.js";
+import h from "./74738.js";
+import _ from "./43397.js";
+import { br } from "./18869.js";
+import b from "./87935.js";
+import { VI } from "./34792.js";
+import S from "./69164.js";
+import w, { rP, hf, td, Hn, XW } from "./72476.js";
+import v from "./96593.js";
+import I from "./76356.js";
+import E from "./91486.js";
+import { Qt } from "./18057.js";
+import T, { T as T_1 } from "./78057.js";
+import R from "./73317.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+import { dm } from "./34428.js";
+import F from "./35488.js";
+import G from "./88769.js";
+import O from "./7552.js";
+import P from "./98995.js";
+import L from "./58879.js";
+import K from "./44846.js";
+import X from "./78110.js";
+import J from "./26853.js";
+import $ from "./61398.js";
+import ee, { vO, MD } from "./97893.js";
+import te from "./83184.js";
+import re from "./47654.js";
+import ce from "./76414.js";
+import me from "./85182.js";
+import ue from "./91209.js";
+import { W6 } from "./49519.js";
+import { DT } from "./55571.js";
+import Ce from "./6263.js";
+import _e from "./19056.js";
+const A = Nr(() => {
+	const ERef = i.useRef(false);
+	const TRef = i.useRef(0);
+	const RRef = i.useRef(undefined);
+	const [n, setN] = i.useState(false);
+	const A = $2();
 	const p = i.useCallback(
 		(n) => {
 			if (
 				(A.IsMainDesktopWindow() || A.IsMainGamepadUIWindow()) &&
-				n !== e.current
+				n !== ERef.current
 			) {
-				e.current = n;
-				if (r.current) {
-					clearTimeout(r.current);
-					r.current = undefined;
+				ERef.current = n;
+				if (RRef.current) {
+					clearTimeout(RRef.current);
+					RRef.current = undefined;
 				}
 				if (n) {
-					a(false);
+					setN(false);
 				} else {
-					t.current++;
-					if (t.current >= 5) {
+					TRef.current++;
+					if (TRef.current >= 5) {
 						d.fR.Info(
 							"VRMode disabled",
-							t.current,
+							TRef.current,
 							"times, restarting in",
 							3000,
 							"ms",
 						);
-						a(true);
-						r.current = setTimeout(() => {
-							r.current = undefined;
-							a(false);
+						setN(true);
+						RRef.current = setTimeout(() => {
+							RRef.current = undefined;
+							setN(false);
 							setTimeout(() => {
 								d.fR.Info("VRMode disabled timer complete, restarting now");
 								SteamClient.Browser.RestartJSContext();
@@ -53,7 +89,7 @@ const A = (0, a.Nr)(function () {
 					} else {
 						d.fR.Info(
 							"VRMode disabled",
-							t.current,
+							TRef.current,
 							"times. Will restart on the",
 							5,
 							"time.",
@@ -69,57 +105,45 @@ const A = (0, a.Nr)(function () {
 		return e.unregister;
 	}, [p]);
 	if (n) {
-		return i.createElement(
-			s.hM,
-			{
-				strTitle: (0, Localize)("#Steam_Reloading_Title"),
-				popupWidth: 400,
-				popupHeight: 0,
-				modal: true,
-				className: l.Popup,
-			},
-			i.createElement(o.Y9, null, (0, Localize)("#Steam_Reloading_Title")),
-			i.createElement(
-				o.nB,
-				null,
-				i.createElement(m.j, {
-					background: "transparent",
-				}),
-			),
+		return (
+			<s.hM
+				strTitle={(0, Localize)("#Steam_Reloading_Title")}
+				popupWidth={400}
+				popupHeight={0}
+				modal
+				className={l.Popup}
+			>
+				<o.Y9>{(0, Localize)("#Steam_Reloading_Title")}</o.Y9>
+				<o.nB>
+					<m.j background="transparent" />
+				</o.nB>
+			</s.hM>
 		);
 	} else {
 		return null;
 	}
 });
-var p;
-var _g = require("./95572.js");
-var h = require("./74738.js");
-var C = h;
-var _ = require("./43397.js");
-var f = require("./18869.js");
-var b = require("./87935.js");
-var y = require("./34792.js");
-var S = require(/*webcrack:missing*/ "./69164.js");
-var w = require(/*webcrack:missing*/ "./72476.js");
-(function (e) {
+let p;
+const C = h;
+((e) => {
 	e[(e.Hidden = 0)] = "Hidden";
 	e[(e.Prompt = 1)] = "Prompt";
 })((p ||= {}));
-const B = (0, a.Nr)(function () {
-	const [e, t] = i.useState();
-	const [r, n] = i.useState(false);
-	const [a, l] = i.useState(p.Hidden);
-	const m = (0, f.br)();
-	const [u, d] = (0, y.VI)("skip_steamvr_install_dialog");
-	const A = (0, w.rP)();
+const B = Nr(() => {
+	const [e, setE] = i.useState();
+	const [r, setR] = i.useState(false);
+	const [a, setA] = i.useState(p.Hidden);
+	const m = br();
+	const [u, d] = VI("skip_steamvr_install_dialog");
+	const A = rP();
 	i.useEffect(
 		() =>
 			SteamClient.OpenVR.RegisterForInstallDialog((e, r) => {
 				if (!u && !A.IN_VR) {
-					t(e);
-					n(r);
+					setE(e);
+					setR(r);
 					if (e?.length > 0) {
-						l(p.Prompt);
+						setA(p.Prompt);
 					}
 				}
 			}).unregister,
@@ -128,121 +152,68 @@ const B = (0, a.Nr)(function () {
 	if (a == p.Hidden || A.IN_VR) {
 		return null;
 	}
-	return i.createElement(
-		s.EN,
-		{
-			active: true,
-		},
-		i.createElement(
-			s.x_,
-			null,
-			i.createElement(
-				o.UC,
-				{
-					className: C.Dialog,
-				},
-				i.createElement(
-					"div",
-					{
-						className: C.MainContent,
-					},
-					i.createElement(
-						"div",
-						{
-							className: C.Header,
-						},
-						(0, Localize)("#SteamVRInstall_Header"),
-					),
-					i.createElement(
-						"div",
-						{
-							className: C.Description,
-						},
-						(0, Localize)("#SteamVRInstall_Description"),
-					),
-					r &&
-						i.createElement(
-							"div",
-							{
-								className: C.OculusHelp,
-							},
-							LocalizeInlineReactWithFallback(
-								"#SteamVRInstall_OculusHelp",
-								i.createElement(_.uU, {
-									href: "https://support.steampowered.com/kb_article.php?ref=3180-UPHK-0900",
-								}),
-							),
-						),
-				),
-				i.createElement(
-					S.Z,
-					{
-						className: C.Footer,
-					},
-					i.createElement(
-						"div",
-						{
-							className: C.CheckboxContainer,
-						},
-						i.createElement(o.Yh, {
-							label: (0, Localize)("#SteamVRInstall_DontShowAgain"),
-							checked: u,
-							onChange: d,
-						}),
-					),
-					i.createElement(
-						o.$n,
-						{
-							disabled: a != p.Prompt,
-							onClick: async () => {
+	return (
+		<s.EN active>
+			<s.x_>
+				<o.UC className={C.Dialog}>
+					<div className={C.MainContent}>
+						<div className={C.Header}>
+							{(0, Localize)("#SteamVRInstall_Header")}
+						</div>
+						<div className={C.Description}>
+							{(0, Localize)("#SteamVRInstall_Description")}
+						</div>
+						{r && (
+							<div className={C.OculusHelp}>
+								{LocalizeInlineReactWithFallback(
+									"#SteamVRInstall_OculusHelp",
+									<_.uU href="https://support.steampowered.com/kb_article.php?ref=3180-UPHK-0900" />,
+								)}
+							</div>
+						)}
+					</div>
+					<S.Z className={C.Footer}>
+						<div className={C.CheckboxContainer}>
+							<o.Yh
+								label={(0, Localize)("#SteamVRInstall_DontShowAgain")}
+								checked={u}
+								onChange={d}
+							/>
+						</div>
+						<o.$n
+							disabled={a != p.Prompt}
+							onClick={async () => {
 								SteamClient.Installs.OpenInstallWizard(e);
-								l(p.Hidden);
-							},
-						},
-						(0, Localize)("#SteamVRInstall_InstallSteamVR"),
-					),
-					i.createElement(
-						o.$n,
-						{
-							onClick: () => {
-								l(p.Hidden);
-							},
-						},
-						(0, Localize)("#Button_Close"),
-					),
-					i.createElement(
-						o.$n,
-						{
-							onClick: () => {
+								setA(p.Hidden);
+							}}
+						>
+							{(0, Localize)("#SteamVRInstall_InstallSteamVR")}
+						</o.$n>
+						<o.$n
+							onClick={() => {
+								setA(p.Hidden);
+							}}
+						>
+							{(0, Localize)("#Button_Close")}
+						</o.$n>
+						<o.$n
+							onClick={() => {
 								m.SteamWeb(b.B7.ResolveURL("SteamVRHMDHelp"));
-								l(p.Hidden);
-							},
-						},
-						(0, Localize)("#SteamVRInstall_Help"),
-					),
-				),
-			),
-		),
+								setA(p.Hidden);
+							}}
+						>
+							{(0, Localize)("#SteamVRInstall_Help")}
+						</o.$n>
+					</S.Z>
+				</o.UC>
+			</s.x_>
+		</s.EN>
 	);
 });
-var v = require("./96593.js");
-var I = require("./76356.js");
-var E = require("./91486.js");
-var M = require("./18057.js");
-var T = require("./78057.js");
-var R = require("./73317.js");
-var k = require(/*webcrack:missing*/ "./90095.js");
-var D = require(/*webcrack:missing*/ "./90765.js");
-var N = require("./34428.js");
-var F = require("./35488.js");
-var G = require("./88769.js");
-var O = require("./7552.js");
-var P = require(/*webcrack:missing*/ "./98995.js");
-var L = require("./58879.js");
-var z = L;
-function x(e) {
-	const { installRequest: t } = e;
-	const [r, n] = (0, i.useState)(0);
+const z = L;
+function X_1(e) {
+	const { installRequest } = e;
+	const [r, setR] = useState(0);
 	const a = i.useCallback(() => {
 		I.I.CancelRequestedInstall();
 	}, []);
@@ -250,25 +221,17 @@ function x(e) {
 		if (r >= m.length - 1) {
 			I.I.StartRequestedInstall();
 		} else {
-			n(r + 1);
+			setR(r + 1);
 		}
 	};
-	const l = (0, k.q3)(() =>
-		t.rgApps.map((e) => v.tw.GetAppOverviewByAppID(e.nAppID)),
+	const l = q3(() =>
+		installRequest.rgApps.map((e) => v.tw.GetAppOverviewByAppID(e.nAppID)),
 	).filter((e) => e && I.I.BShowDeckCompatForInstall(e.appid));
 	const m = [
-		l.length > 0 &&
-			i.createElement(U, {
-				onCancel: a,
-				overviews: l,
-				onContinue: o,
-			}),
-		I.I.BShowDiskSettingsForInstall(t) &&
-			i.createElement(W, {
-				installRequest: t,
-				onCancel: a,
-				onContinue: o,
-			}),
+		l.length > 0 && <U onCancel={a} overviews={l} onContinue={o} />,
+		I.I.BShowDiskSettingsForInstall(installRequest) && (
+			<W installRequest={installRequest} onCancel={a} onContinue={o} />
+		),
 	].filter(Boolean);
 	if (m.length === 0) {
 		console.error(
@@ -276,33 +239,33 @@ function x(e) {
 		);
 		return null;
 	} else {
-		return i.createElement(
-			s.Q9,
-			{
-				strName: "InstallModal",
-				strTitle: (0, Localize)("#GameAction_Install"),
-				popupWidth: 540,
-				popupHeight: 480,
-				onlyPopoutIfNeeded: true,
-				className: z.InstallRequestModal,
-				onDismiss: a,
-			},
-			m[r],
+		return (
+			<s.Q9
+				strName="InstallModal"
+				strTitle={(0, Localize)("#GameAction_Install")}
+				popupWidth={540}
+				popupHeight={480}
+				onlyPopoutIfNeeded
+				className={z.InstallRequestModal}
+				onDismiss={a}
+			>
+				{m[r]}
+			</s.Q9>
 		);
 	}
 }
 function U(e) {
-	const { onCancel: t, onContinue: r, overviews: n } = e;
-	const [a, s] = (0, i.useState)(0);
-	const { appid: l, steam_deck_compat_category: m, display_name: u } = n[a];
-	const d = (0, T.T)(l);
+	const { onCancel, onContinue, overviews } = e;
+	const [a, setA] = useState(0);
+	const { appid, steam_deck_compat_category, display_name } = overviews[a];
+	const d = T_1(appid);
 	const A = d?.vecDeckCompatTestResults ?? [];
 	const p = d?.strSteamDeckBlogURL ?? "";
-	const g = (0, M.Qt)(p);
+	const g = Qt(p);
 	const h = i.useCallback(() => {
 		g();
-		t();
-	}, [g, t]);
+		onCancel();
+	}, [g, onCancel]);
 	let C = {};
 	if (p) {
 		C.onOptionsActionDescription = (0, Localize)(
@@ -310,670 +273,506 @@ function U(e) {
 		);
 		C.onOptionsButton = h;
 	}
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			o.nB,
-			null,
-			i.createElement(O.g1, {
-				appName: u,
-				results: {
-					appid: l,
-					resolved_category: m,
-					resolved_items: A.map(({ test_result: e, test_loc_token: t }) => ({
-						display_type: e,
-						loc_token: t,
-					})),
-					steam_deck_blog_url: p,
-				},
-				onOpenBlogPost: h,
-			}),
-		),
-		i.createElement(
-			o.wi,
-			null,
-			i.createElement(
-				S.Z,
-				{
-					...C,
-				},
-				i.createElement(o.CB, {
-					strOKText: (0, Localize)("#GameAction_Install"),
-					onOK: () => {
-						if (a < n.length - 1) {
-							s(a + 1);
-						} else {
-							r();
-						}
-					},
-					onCancel: t,
-				}),
-			),
-		),
+	return (
+		<>
+			<o.nB>
+				<O.g1
+					appName={display_name}
+					results={{
+						appid: appid,
+						resolved_category: steam_deck_compat_category,
+						resolved_items: A.map(({ test_result, test_loc_token }) => ({
+							display_type: test_result,
+							loc_token: test_loc_token,
+						})),
+						steam_deck_blog_url: p,
+					}}
+					onOpenBlogPost={h}
+				/>
+			</o.nB>
+			<o.wi>
+				<S.Z {...C}>
+					<o.CB
+						strOKText={(0, Localize)("#GameAction_Install")}
+						onOK={() => {
+							if (a < overviews.length - 1) {
+								setA(a + 1);
+							} else {
+								onContinue();
+							}
+						}}
+						onCancel={onCancel}
+					/>
+				</S.Z>
+			</o.wi>
+		</>
 	);
 }
 function W(e) {
-	const { installRequest: t, onCancel: r, onContinue: n } = e;
-	const a = (0, w.hf)();
-	const s = (0, f.br)();
+	const { installRequest, onCancel, onContinue } = e;
+	const a = hf();
+	const s = br();
 	const l = i.useCallback(() => {
-		r();
+		onCancel();
 		s.Settings("Storage");
-	}, [r, s]);
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(o.Y9, null, (0, Localize)("#GameAction_Install")),
-		i.createElement(
-			o.nB,
-			null,
-			i.createElement(
-				o.a3,
-				null,
-				i.createElement(H, {
-					installRequest: t,
-				}),
-				a &&
-					i.createElement(q, {
-						installRequest: t,
-					}),
-				i.createElement(Z, {
-					installRequest: t,
-					onOpenManageStorage: l,
-				}),
-				i.createElement(Q, {
-					installRequest: t,
-				}),
-			),
-			i.createElement(
-				o.wi,
-				null,
-				i.createElement(V, {
-					installRequest: t,
-					onCancel: r,
-					onContinue: n,
-					onOpenManageStorage: l,
-				}),
-			),
-		),
+	}, [onCancel, s]);
+	return (
+		<>
+			<o.Y9>{(0, Localize)("#GameAction_Install")}</o.Y9>
+			<o.nB>
+				<o.a3>
+					<H installRequest={installRequest} />
+					{a && <Q_1 installRequest={installRequest} />}
+					<Z installRequest={installRequest} onOpenManageStorage={l} />
+					<Q installRequest={installRequest} />
+				</o.a3>
+				<o.wi>
+					<V
+						installRequest={installRequest}
+						onCancel={onCancel}
+						onContinue={onContinue}
+						onOpenManageStorage={l}
+					/>
+				</o.wi>
+			</o.nB>
+		</>
 	);
 }
 function V(e) {
-	const {
-		installRequest: t,
-		onContinue: r,
-		onCancel: n,
-		onOpenManageStorage: a,
-	} = e;
-	const s = (0, k.q3)(() => R.fN.MountedInstallFolders);
-	const l = (0, w.hf)();
-	const m = t.nDiskSpaceRequired < t.nDiskSpaceAvailable;
-	const u = t.bCanChangeInstallFolder && s.length > 1;
+	const { installRequest, onContinue, onCancel, onOpenManageStorage } = e;
+	const s = q3(() => R.fN.MountedInstallFolders);
+	const l = hf();
+	const m =
+		installRequest.nDiskSpaceRequired < installRequest.nDiskSpaceAvailable;
+	const u = installRequest.bCanChangeInstallFolder && s.length > 1;
 	if (l || (m && !u)) {
-		return i.createElement(o.CB, {
-			strOKText: (0, Localize)("#GameAction_Install"),
-			onOK: r,
-			bOKDisabled: !m,
-			onCancel: n,
-		});
+		return (
+			<o.CB
+				strOKText={(0, Localize)("#GameAction_Install")}
+				onOK={onContinue}
+				bOKDisabled={!m}
+				onCancel={onCancel}
+			/>
+		);
 	} else {
-		return i.createElement(o.CB, {
-			strOKText: (0, Localize)("#Installer_ManageStorage"),
-			onOK: a,
-			onCancel: n,
-		});
+		return (
+			<o.CB
+				strOKText={(0, Localize)("#Installer_ManageStorage")}
+				onOK={onOpenManageStorage}
+				onCancel={onCancel}
+			/>
+		);
 	}
 }
 function H(e) {
-	const { installRequest: t } = e;
+	const { installRequest } = e;
 	if (
-		(0, k.q3)(() => t.rgApps.map((e) => v.tw.GetAppOverviewByAppID(e.nAppID)))
-			.length == 0
+		q3(() =>
+			installRequest.rgApps.map((e) => v.tw.GetAppOverviewByAppID(e.nAppID)),
+		).length == 0
 	) {
 		return null;
 	} else {
-		return i.createElement(
-			"div",
-			{
-				className: z.AppsToInstall,
-			},
-			t.rgApps.map((e) =>
-				i.createElement(j, {
-					app: e,
-					key: e.nAppID,
-				}),
-			),
+		return (
+			<div className={z.AppsToInstall}>
+				{installRequest.rgApps.map((e) => (
+					<J_1 app={e} key={e.nAppID} />
+				))}
+			</div>
 		);
 	}
 }
-function j(e) {
+function J_1(e) {
 	const t = v.tw.GetAppOverviewByAppID(e.app.nAppID);
 	if (t) {
-		return i.createElement(
-			"div",
-			{
-				className: z.AppToInstall,
-			},
-			i.createElement(E.z, {
-				eAssetType: 3,
-				className: z.AppLogo,
-				app: t,
-			}),
-			i.createElement(
-				"div",
-				{
-					className: z.AppName,
-				},
-				t.display_name,
-			),
-			i.createElement(
-				"div",
-				{
-					className: (0, D.A)(z.AppSizeRequired, z.DiskSpace),
-				},
-				(0, N.dm)(e.app.lDiskSpaceRequiredBytes),
-			),
+		return (
+			<div className={z.AppToInstall}>
+				<E.z eAssetType={3} className={z.AppLogo} app={t} />
+				<div className={z.AppName}>{t.display_name}</div>
+				<div className={A_1(z.AppSizeRequired, z.DiskSpace)}>
+					{dm(e.app.lDiskSpaceRequiredBytes)}
+				</div>
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
-function q(e) {
-	const { installRequest: t } = e;
-	const r = (0, w.td)()
+function Q_1(e) {
+	const { installRequest } = e;
+	const r = td()
 		? "#Installer_SystemShortcut"
 		: "#Installer_ApplicationShortcut";
-	return i.createElement(
-		"div",
-		{
-			className: z.CreateShortcuts,
-		},
-		i.createElement(o.Yh, {
-			label: (0, Localize)("#Installer_DesktopShortcut"),
-			checked: t.bDesktopShortcut,
-			onChange: (e) => I.I.SetCreateShortcuts(e, t.bSystemMenuShortcut),
-			hidden: (0, w.Hn)(),
-		}),
-		i.createElement(o.Yh, {
-			label: (0, Localize)(r),
-			checked: t.bSystemMenuShortcut,
-			onChange: (e) => I.I.SetCreateShortcuts(t.bDesktopShortcut, e),
-			hidden: (0, w.Hn)(),
-		}),
+	return (
+		<div className={z.CreateShortcuts}>
+			<o.Yh
+				label={(0, Localize)("#Installer_DesktopShortcut")}
+				checked={installRequest.bDesktopShortcut}
+				onChange={(e) =>
+					I.I.SetCreateShortcuts(e, installRequest.bSystemMenuShortcut)
+				}
+				hidden={Hn()}
+			/>
+			<o.Yh
+				label={(0, Localize)(r)}
+				checked={installRequest.bSystemMenuShortcut}
+				onChange={(e) =>
+					I.I.SetCreateShortcuts(installRequest.bDesktopShortcut, e)
+				}
+				hidden={Hn()}
+			/>
+		</div>
 	);
 }
 function Q(e) {
-	const { installRequest: t } = e;
+	const { installRequest } = e;
 	let r = null;
 	let n = false;
-	const a = (0, w.hf)();
-	const s = (0, k.q3)(() => R.fN.MountedInstallFolders);
+	const a = hf();
+	const s = q3(() => R.fN.MountedInstallFolders);
 	let o = false;
-	let l = i.createElement(F.ExclamationPoint, null);
-	if (a && t.nDiskSpaceRequired > t.nDiskSpaceAvailable) {
+	let l = <F.ExclamationPoint />;
+	if (
+		a &&
+		installRequest.nDiskSpaceRequired > installRequest.nDiskSpaceAvailable
+	) {
 		r = (0, Localize)("#Installer_NoticeNotEnoughSpace");
 		n = true;
 		o = true;
-	} else if (t.iUnmountedFolder != -1) {
+	} else if (installRequest.iUnmountedFolder != -1) {
 		r = (0, Localize)("#Installer_NoticeUnmountedFolder");
-	} else if (t.strPeerContentServer.length && !t.bPeerContentServerOnline) {
+	} else if (
+		installRequest.strPeerContentServer.length &&
+		!installRequest.bPeerContentServerOnline
+	) {
 		r = LocalizeReact(
 			"#Installer_NoticePeerServerOffline",
-			i.createElement(
-				"span",
-				{
-					style: {
-						color: "#FFFFFF",
-					},
-				},
-				t.strPeerContentServer,
-			),
+			<span
+				style={{
+					color: "#FFFFFF",
+				}}
+			>
+				{installRequest.strPeerContentServer}
+			</span>,
 		);
-	} else if (t.strPeerContentServer.length && !t.bPeerContentServerAvailable) {
+	} else if (
+		installRequest.strPeerContentServer.length &&
+		!installRequest.bPeerContentServerAvailable
+	) {
 		r = LocalizeReact(
 			"#Installer_NoticePeerServerUnavailable",
-			i.createElement(
-				"span",
-				{
-					style: {
-						color: "#FFFFFF",
-					},
-				},
-				t.strPeerContentServer,
-			),
+			<span
+				style={{
+					color: "#FFFFFF",
+				}}
+			>
+				{installRequest.strPeerContentServer}
+			</span>,
 		);
-	} else if (!t.bCanChangeInstallFolder && s.length > 1) {
+	} else if (!installRequest.bCanChangeInstallFolder && s.length > 1) {
 		r = (0, Localize)("#Installer_NoticeCantChooseFolder");
 	}
-	return i.createElement(
-		"div",
-		{
-			className: (0, D.A)(z.NoticeInstallFolder, n && z.Warning),
-		},
-		o &&
-			i.createElement(
-				"div",
-				{
-					className: (0, D.A)(z.FolderFlag, z.Warning),
-				},
-				l,
-			),
-		i.createElement("span", null, r),
+	return (
+		<div className={A_1(z.NoticeInstallFolder, n && z.Warning)}>
+			{o && <div className={A_1(z.FolderFlag, z.Warning)}>{l}</div>}
+			<span>{r}</span>
+		</div>
 	);
 }
 function Z(e) {
-	const { installRequest: t, onOpenManageStorage: r } = e;
-	const n = (0, k.q3)(() => R.fN.MountedInstallFolders);
-	const a = (0, w.hf)();
-	if (!t.bCanChangeInstallFolder) {
+	const { installRequest, onOpenManageStorage } = e;
+	const n = q3(() => R.fN.MountedInstallFolders);
+	const a = hf();
+	if (!installRequest.bCanChangeInstallFolder) {
 		return null;
 	}
 	const s = n.length > 1;
-	return i.createElement(
-		"div",
-		{
-			className: z.FolderSelector,
-		},
-		i.createElement(
-			"div",
-			{
-				className: z.Header,
-			},
-			(0, Localize)("#Installer_ChooseDestinationFolder"),
-			a &&
-				i.createElement(
-					o.$n,
-					{
-						className: z.FolderSettings,
-						onClick: r,
-					},
-					i.createElement(
-						P.he,
-						{
-							bTopmost: true,
-							toolTipContent: (0, Localize)("#Installer_ManageStorage"),
-							direction: "left",
-						},
-						i.createElement(F.Settings, null),
-					),
-				),
-		),
-		i.createElement(
-			"div",
-			{
-				className: z.FolderOptions,
-			},
-			n.map((e) =>
-				i.createElement(Y, {
-					key: e.nFolderIndex,
-					folder: e,
-					bCanSelectFolder: s,
-					active: t.iInstallFolder == e.nFolderIndex,
-					nSpaceRequired: t.nDiskSpaceRequired,
-				}),
-			),
-		),
+	return (
+		<div className={z.FolderSelector}>
+			<div className={z.Header}>
+				{(0, Localize)("#Installer_ChooseDestinationFolder")}
+				{a && (
+					<o.$n className={z.FolderSettings} onClick={onOpenManageStorage}>
+						<P.he
+							bTopmost
+							toolTipContent={(0, Localize)("#Installer_ManageStorage")}
+							direction="left"
+						>
+							<F.Settings />
+						</P.he>
+					</o.$n>
+				)}
+			</div>
+			<div className={z.FolderOptions}>
+				{n.map((e) => (
+					<Y
+						key={e.nFolderIndex}
+						folder={e}
+						bCanSelectFolder={s}
+						active={installRequest.iInstallFolder == e.nFolderIndex}
+						nSpaceRequired={installRequest.nDiskSpaceRequired}
+					/>
+				))}
+			</div>
+		</div>
 	);
 }
 function Y(e) {
-	const { folder: t, active: r, bCanSelectFolder: n, nSpaceRequired: a } = e;
-	const s = (0, w.hf)();
-	const o = a < t.nFreeSpace;
-	const l = t.bIsDefaultFolder;
+	const { folder, active, bCanSelectFolder, nSpaceRequired } = e;
+	const s = hf();
+	const o = nSpaceRequired < folder.nFreeSpace;
+	const t_bIsDefaultFolder = folder.bIsDefaultFolder;
 	const m = i.useCallback(() => {
 		if (s) {
-			I.I.SetInstallFolderIndex(t.nFolderIndex);
+			I.I.SetInstallFolderIndex(folder.nFolderIndex);
 		} else if (o) {
-			I.I.SetInstallFolderIndexAndStartInstall(t.nFolderIndex);
+			I.I.SetInstallFolderIndexAndStartInstall(folder.nFolderIndex);
 		}
-	}, [t.nFolderIndex, s, o]);
-	let u = i.createElement(G.EE, {
-		folder: t,
-	});
+	}, [folder.nFolderIndex, s, o]);
+	let u = <G.EE folder={folder} />;
 	if (!o) {
-		u = i.createElement(F.ExclamationPoint, null);
+		u = <F.ExclamationPoint />;
 	}
-	return i.createElement(
-		S.Z,
-		{
-			focusable: o && n,
-			autoFocus: l,
-			onActivate: m,
-			className: (0, D.A)(z.FolderOption, r && z.Active),
-			focusClassName: z.Focused,
-			noFocusRing: true,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, D.A)(z.FolderFlag, !o && z.Warning),
-			},
-			u,
-		),
-		i.createElement(
-			"div",
-			{
-				className: (0, D.A)(z.FolderName, !o && z.NoSpace),
-			},
-			i.createElement(G.Gc, {
-				folder: t,
-			}),
-			!s &&
-				!o &&
-				i.createElement(
-					"span",
-					null,
-					" " + (0, Localize)("#Installer_NoticeNotEnoughSpace"),
-				),
-		),
-		l &&
-			i.createElement(
-				"div",
-				{
-					className: z.FolderFlagStar,
-				},
-				i.createElement(F.Star, null),
-			),
-		i.createElement(
-			"div",
-			{
-				className: (0, D.A)(z.FreeSpace, z.DiskSpace),
-			},
-			(0, Localize)("#Installer_FolderSpaceFree", (0, N.dm)(t.nFreeSpace)),
-		),
+	return (
+		<S.Z
+			focusable={o && bCanSelectFolder}
+			autoFocus={t_bIsDefaultFolder}
+			onActivate={m}
+			className={A_1(z.FolderOption, active && z.Active)}
+			focusClassName={z.Focused}
+			noFocusRing
+		>
+			<div className={A_1(z.FolderFlag, !o && z.Warning)}>{u}</div>
+			<div className={A_1(z.FolderName, !o && z.NoSpace)}>
+				<G.Gc folder={folder} />
+				{!s && !o && (
+					<span>{` ${(0, Localize)("#Installer_NoticeNotEnoughSpace")}`}</span>
+				)}
+			</div>
+			{t_bIsDefaultFolder && (
+				<div className={z.FolderFlagStar}>
+					<F.Star />
+				</div>
+			)}
+			<div className={A_1(z.FreeSpace, z.DiskSpace)}>
+				{(0, Localize)("#Installer_FolderSpaceFree", dm(folder.nFreeSpace))}
+			</div>
+		</S.Z>
 	);
 }
-var K = require(/*webcrack:missing*/ "./44846.js");
-var X = require("./78110.js");
-var J = require(/*webcrack:missing*/ "./26853.js");
-var $ = require("./61398.js");
-var ee = require("./97893.js");
-var te = require("./83184.js");
-var re = require("./47654.js");
-var ne = re;
-function ie() {
-	const e = (0, k.q3)(() => I.I.GetInstallManager());
-	const t = (0, k.q3)(() => v.tw.GetAppOverviewByAppID(e ? e.currentAppID : 0));
-	const r = (0, k.q3)(() => I.I.GetEulaWorkflow());
+const ne = re;
+function Ie() {
+	const e = q3(() => I.I.GetInstallManager());
+	const t = q3(() => v.tw.GetAppOverviewByAppID(e ? e.currentAppID : 0));
+	const r = q3(() => I.I.GetEulaWorkflow());
 	if (!e) {
 		return null;
 	}
 	switch (e.eInstallState) {
-		case K.H2.k_EInstallMgrStateShowCDKey:
-			return i.createElement(
-				X.w,
-				{
-					onlyPopoutIfNeeded: true,
-					strName: `EULA_${e.currentAppID}`,
-					strTitle: (0, Localize)("#EulaDialog_Header"),
-					popupHeight: 600,
-					popupWidth: 640,
-				},
-				i.createElement(te.L, {
-					onCancel: () => SteamClient.Installs.CancelInstall(),
-					onSuccess: () => SteamClient.Installs.ContinueInstall(),
-				}),
+		case K.H2.k_EInstallMgrStateShowCDKey: {
+			return (
+				<X.w
+					onlyPopoutIfNeeded
+					strName={`EULA_${e.currentAppID}`}
+					strTitle={(0, Localize)("#EulaDialog_Header")}
+					popupHeight={600}
+					popupWidth={640}
+				>
+					<te.L
+						onCancel={() => SteamClient.Installs.CancelInstall()}
+						onSuccess={() => SteamClient.Installs.ContinueInstall()}
+					/>
+				</X.w>
 			);
-		case K.H2.k_EInstallMgrStateShowEULAs:
+		}
+		case K.H2.k_EInstallMgrStateShowEULAs: {
 			if (r) {
-				return i.createElement(
-					X.w,
-					{
-						onlyPopoutIfNeeded: true,
-						strName: `EULA_${e.currentAppID}`,
-						strTitle: (0, Localize)("#EulaDialog_Header"),
-						popupHeight: 600,
-						popupWidth: 640,
-					},
-					i.createElement($.u_, {
-						appid: e.currentAppID,
-						eulaWorkflow: r,
-						onCancel: () => SteamClient.Installs.CancelInstall(),
-					}),
+				return (
+					<X.w
+						onlyPopoutIfNeeded
+						strName={`EULA_${e.currentAppID}`}
+						strTitle={(0, Localize)("#EulaDialog_Header")}
+						popupHeight={600}
+						popupWidth={640}
+					>
+						<$.u_
+							appid={e.currentAppID}
+							eulaWorkflow={r}
+							onCancel={() => SteamClient.Installs.CancelInstall()}
+						/>
+					</X.w>
 				);
 			} else {
 				return null;
 			}
-		case K.H2.k_EInstallMgrStateShowConfig:
-			return i.createElement(x, {
-				installRequest: e,
-			});
-		case K.H2.k_EInstallMgrStateCreateApps:
-			return i.createElement(
-				s.EN,
-				{
-					active: true,
-				},
-				i.createElement(se, {
-					installManager: e,
-					appOverview: t,
-				}),
+		}
+		case K.H2.k_EInstallMgrStateShowConfig: {
+			return <X_1 installRequest={e} />;
+		}
+		case K.H2.k_EInstallMgrStateCreateApps: {
+			return (
+				<s.EN active>
+					<Se installManager={e} appOverview={t} />
+				</s.EN>
 			);
-		case K.H2.k_EInstallMgrStateReadFromMedia:
-			return i.createElement(
-				s.EN,
-				{
-					active: true,
-				},
-				i.createElement(le, {
-					installManager: e,
-					appOverview: t,
-				}),
-				";",
+		}
+		case K.H2.k_EInstallMgrStateReadFromMedia: {
+			return (
+				<s.EN active>
+					<Le installManager={e} appOverview={t} />;
+				</s.EN>
 			);
-		case K.H2.k_EInstallMgrStateShowChangeMedia:
-			return i.createElement(
-				s.EN,
-				{
-					active: true,
-				},
-				i.createElement(oe, {
-					installManager: e,
-					appOverview: t,
-				}),
+		}
+		case K.H2.k_EInstallMgrStateShowChangeMedia: {
+			return (
+				<s.EN active>
+					<Oe installManager={e} appOverview={t} />
+				</s.EN>
 			);
-		case K.H2.k_EInstallMgrStateFailed:
-			const n = t ? t.display_name : "AppID " + e.currentAppID;
+		}
+		case K.H2.k_EInstallMgrStateFailed: {
+			const n = t ? t.display_name : `AppID ${e.currentAppID}`;
 			let a = null;
 			a =
 				e.eAppError != 0
 					? (0, Localize)(
 							"#Installer_Error_AppName_ErrorDescription",
 							n,
-							(0, Localize)("#Steam_AppUpdateError_" + e.eAppError),
+							(0, Localize)(`#Steam_AppUpdateError_${e.eAppError}`),
 						)
 					: (0, Localize)("#Installer_UnknownError_AppName", n);
-			return i.createElement(
-				s.EN,
-				{
-					active: true,
-				},
-				i.createElement(s.KG, {
-					onOK: () => SteamClient.Installs.CancelInstall(),
-					strDescription: a,
-				}),
-				";",
+			return (
+				<s.EN active>
+					<s.KG
+						onOK={() => SteamClient.Installs.CancelInstall()}
+						strDescription={a}
+					/>
+					;
+				</s.EN>
 			);
+		}
 		case K.H2.k_EInstallMgrStateShowSignup:
-		case K.H2.k_EInstallMgrStateShowPassword:
+		case K.H2.k_EInstallMgrStateShowPassword: {
 			console.error("Unhandled installer state: ", e.eInstallState);
 			return null;
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }
-function ae(e) {
-	return i.createElement(
-		s.eV,
-		{
-			onCancel: () => {},
-		},
-		i.createElement(
-			S.Z,
-			{
-				id: "install_dialog",
-				className: ne.InstallerModalContent,
-			},
-			i.createElement(
-				o.Y9,
-				{
-					className: ne.ModalHeader,
-				},
-				(0, Localize)("#Installer_Install"),
-			),
-			i.createElement(o.nB, null, e.children),
-		),
+function Ae_1(e) {
+	return (
+		<s.eV onCancel={() => {}}>
+			<S.Z id="install_dialog" className={ne.InstallerModalContent}>
+				<o.Y9 className={ne.ModalHeader}>
+					{(0, Localize)("#Installer_Install")}
+				</o.Y9>
+				<o.nB>{e.children}</o.nB>
+			</S.Z>
+		</s.eV>
 	);
 }
-function se(e) {
-	const { installManager: t, appOverview: r } = e;
+function Se(e) {
+	const { installManager, appOverview } = e;
 	let n = (0, Localize)("#Installer_Installing");
-	if (r && r.display_name) {
-		n = (0, Localize)("#Installer_InstallingApp", r.display_name);
+	if (appOverview && appOverview.display_name) {
+		n = (0, Localize)("#Installer_InstallingApp", appOverview.display_name);
 	}
-	return i.createElement(
-		ae,
-		null,
-		i.createElement(
-			o.a3,
-			null,
-			i.createElement(
-				"div",
-				{
-					className: ne.InstallingText,
-				},
-				n,
-			),
-			i.createElement(J.t, {
-				className: ne.Throbber,
-				size: "medium",
-				position: "center",
-			}),
-		),
-		i.createElement(
-			o.wi,
-			null,
-			i.createElement(o.CB, {
-				onCancel: () => SteamClient.Installs.CancelInstall(),
-				strOKText: (0, Localize)("#Button_OK"),
-				strCancelText: (0, Localize)("#Button_Cancel"),
-			}),
-		),
+	return (
+		<Ae_1>
+			<o.a3>
+				<div className={ne.InstallingText}>{n}</div>
+				<J.t className={ne.Throbber} size="medium" position="center" />
+			</o.a3>
+			<o.wi>
+				<o.CB
+					onCancel={() => SteamClient.Installs.CancelInstall()}
+					strOKText={(0, Localize)("#Button_OK")}
+					strCancelText={(0, Localize)("#Button_Cancel")}
+				/>
+			</o.wi>
+		</Ae_1>
 	);
 }
-function oe(e) {
-	const { installManager: t, appOverview: r } = e;
-	return i.createElement(
-		ae,
-		null,
-		i.createElement(
-			o.a3,
-			null,
-			i.createElement(
-				"div",
-				{
-					className: ne.InstallingText,
-				},
-				(0, Localize)("#Installer_ChangeMedia", t.nCurrentDisk + 1),
-			),
-		),
-		i.createElement(
-			o.wi,
-			null,
-			i.createElement(o.CB, {
-				strOKText: (0, Localize)("#Button_Continue"),
-				onOK: () => SteamClient.Installs.ContinueInstall(),
-				strCancelText: (0, Localize)("#Button_Cancel"),
-				onCancel: () => SteamClient.Installs.CancelInstall(),
-			}),
-		),
+function Oe(e) {
+	const { installManager, appOverview } = e;
+	return (
+		<Ae_1>
+			<o.a3>
+				<div className={ne.InstallingText}>
+					{(0, Localize)(
+						"#Installer_ChangeMedia",
+						installManager.nCurrentDisk + 1,
+					)}
+				</div>
+			</o.a3>
+			<o.wi>
+				<o.CB
+					strOKText={(0, Localize)("#Button_Continue")}
+					onOK={() => SteamClient.Installs.ContinueInstall()}
+					strCancelText={(0, Localize)("#Button_Cancel")}
+					onCancel={() => SteamClient.Installs.CancelInstall()}
+				/>
+			</o.wi>
+		</Ae_1>
 	);
 }
-function le(e) {
-	const { installManager: t, appOverview: r } = e;
-	const n = (0, k.q3)(() => ee.hj.DownloadOverview);
-	let a = (0, Localize)("#Installer_ReadingFromMedia", t.nCurrentDisk);
-	if (t.bIsBackupInstall) {
+function Le(e) {
+	const { installManager, appOverview } = e;
+	const n = q3(() => ee.hj.DownloadOverview);
+	let a = (0, Localize)(
+		"#Installer_ReadingFromMedia",
+		installManager.nCurrentDisk,
+	);
+	if (installManager.bIsBackupInstall) {
 		a = (0, Localize)("#Installer_ReadingBackup");
 	}
 	let s = 0;
 	let l = 0;
 	let m = 0;
-	if (n.update_appid == t.currentAppID) {
+	if (n.update_appid == installManager.currentAppID) {
 		if (n.update_state == "Unpacking" || n.update_state == "Preallocating") {
-			[l, s] = (0, ee.vO)(n);
-			m = (0, ee.MD)(n);
+			[l, s] = vO(n);
+			m = MD(n);
 		}
 		if (n.update_state == "Preallocating") {
 			a = (0, Localize)("#Installer_PreallocatingDiskSpace");
 		}
 	}
-	return i.createElement(
-		ae,
-		null,
-		i.createElement(
-			o.a3,
-			null,
-			i.createElement(
-				"div",
-				{
-					className: ne.InstallingText,
-				},
-				a,
-			),
-			i.createElement(J.t, {
-				className: ne.Throbber,
-				size: "medium",
-				position: "center",
-			}),
-			i.createElement(
-				"div",
-				{
-					className: ne.InstallingBytesProcessed,
-				},
-				s > 0 &&
-					(0, Localize)(
-						"#Installer_BytesProcessed",
-						(0, N.dm)(l, 1),
-						(0, N.dm)(s, 1),
-					),
-			),
-			i.createElement(
-				"div",
-				{
-					className: ne.InstallAppsIndicator,
-				},
-				i.createElement("div", {
-					className: ne.InstallAppsBar,
-					style: {
-						width: m + "%",
-					},
-				}),
-			),
-		),
-		i.createElement(
-			o.wi,
-			null,
-			i.createElement(
-				o.$n,
-				{
-					onClick: () => SteamClient.Installs.CancelInstall(),
-				},
-				(0, Localize)("#Button_Cancel"),
-			),
-		),
+	return (
+		<Ae_1>
+			<o.a3>
+				<div className={ne.InstallingText}>{a}</div>
+				<J.t className={ne.Throbber} size="medium" position="center" />
+				<div className={ne.InstallingBytesProcessed}>
+					{s > 0 &&
+						(0, Localize)("#Installer_BytesProcessed", dm(l, 1), dm(s, 1))}
+				</div>
+				<div className={ne.InstallAppsIndicator}>
+					<div
+						className={ne.InstallAppsBar}
+						style={{
+							width: `${m}%`,
+						}}
+					/>
+				</div>
+			</o.a3>
+			<o.wi>
+				<o.$n onClick={() => SteamClient.Installs.CancelInstall()}>
+					{(0, Localize)("#Button_Cancel")}
+				</o.$n>
+			</o.wi>
+		</Ae_1>
 	);
 }
-var ce = require("./76414.js");
-var me = require("./85182.js");
-var ue = require("./91209.js");
-var de = require(/*webcrack:missing*/ "./49519.js");
-var Ae = require("./55571.js");
-function pe() {
-	const e = (0, de.W6)();
-	const [t, r] = i.useState(e.location.state?.PrivateAppDialogTarget);
-	i.useEffect(() => e.listen((e) => r(e.state?.PrivateAppDialogTarget)), [e]);
+function Pe() {
+	const e = W6();
+	const [t, setT] = i.useState(e.location.state?.PrivateAppDialogTarget);
+	i.useEffect(
+		() => e.listen((e) => setT(e.state?.PrivateAppDialogTarget)),
+		[e],
+	);
 	const n = i.useCallback(() => {
 		e.replace(e.location.pathname, {
 			...e.location.state,
@@ -982,95 +781,82 @@ function pe() {
 	}, [e]);
 	const a = i.useMemo(() => t?.split(",").map((e) => Number(e)), [t]);
 	if (t) {
-		return i.createElement(ge, {
-			rgAppIDs: a,
-			fnCloseModal: n,
-		});
+		return <Ge rgAppIDs={a} fnCloseModal={n} />;
 	}
 }
-function ge(e) {
-	const { rgAppIDs: t, fnCloseModal: r } = e;
-	const n = (0, Ae.DT)();
+function Ge(e) {
+	const { rgAppIDs, fnCloseModal } = e;
+	const n = DT();
 	const a = i.useCallback(() => {
 		n.mutate({
-			rgAppIDs: t,
+			rgAppIDs: rgAppIDs,
 			bPrivate: true,
 		});
-		r();
-	}, [n, t, r]);
-	return i.createElement(
-		X.w,
-		{
-			strName: `MarkAppPrivate_${t.join(",")}`,
-			strTitle: (0, Localize)("#GameAction_MarkAsPrivate"),
-			onlyPopoutIfNeeded: true,
-			popupWidth: 680,
-			popupHeight: 320,
-		},
-		i.createElement(
-			s.o0,
-			{
-				strTitle: i.createElement(he, null),
-				strOKButtonText: (0, Localize)("#AppProperties_Privacy_MarkAppPrivate"),
-				onOK: a,
-				onCancel: r,
-			},
-			i.createElement(
-				"div",
-				{
-					style: {
+		fnCloseModal();
+	}, [n, rgAppIDs, fnCloseModal]);
+	return (
+		<X.w
+			strName={`MarkAppPrivate_${rgAppIDs.join(",")}`}
+			strTitle={(0, Localize)("#GameAction_MarkAsPrivate")}
+			onlyPopoutIfNeeded
+			popupWidth={680}
+			popupHeight={320}
+		>
+			<s.o0
+				strTitle={<He />}
+				strOKButtonText={(0, Localize)("#AppProperties_Privacy_MarkAppPrivate")}
+				onOK={a}
+				onCancel={fnCloseModal}
+			>
+				<div
+					style={{
 						whiteSpace: "pre-line",
-					},
-				},
-				(0, Localize)("#AppProperties_Privacy_DialogDescription"),
-			),
-		),
+					}}
+				>
+					{(0, Localize)("#AppProperties_Privacy_DialogDescription")}
+				</div>
+			</s.o0>
+		</X.w>
 	);
 }
-function he() {
-	return i.createElement(
-		i.Fragment,
-		null,
-		i.createElement(
-			"div",
-			{
-				style: {
+function He() {
+	return (
+		<>
+			<div
+				style={{
 					width: "28px",
 					height: "28px",
 					display: "inline-block",
 					marginInlineEnd: "12px",
 					verticalAlign: "middle",
-				},
-			},
-			i.createElement(F.FeatureHidden, null),
-		),
-		(0, Localize)("#GameAction_MarkAsPrivate"),
+				}}
+			>
+				<F.FeatureHidden />
+			</div>
+			{(0, Localize)("#GameAction_MarkAsPrivate")}
+		</>
 	);
 }
-var Ce = require("./6263.js");
-var _e = require("./19056.js");
 export function g() {
-	const e = (0, w.XW)();
-	return i.createElement(
-		a.wC,
-		null,
-		i.createElement(ie, null),
-		i.createElement(B, null),
-		i.createElement(_g.wR, null),
-		i.createElement(ue.kz, {
-			uiMode: e,
-		}),
-		i.createElement(n.rx, null),
-		i.createElement(n.Kr, null),
-		i.createElement(n.Nw, null),
-		i.createElement(n.RD, null),
-		i.createElement(n.VQ, null),
-		i.createElement(n.Kw, null),
-		i.createElement(me.wK, null),
-		i.createElement(pe, null),
-		i.createElement(A, null),
-		i.createElement(ce.l, null),
-		i.createElement(_e.x, null),
-		i.createElement(Ce.P3, null),
+	const e = XW();
+	return (
+		<a.wC>
+			<Ie />
+			<B />
+			<_g.wR />
+			<ue.kz uiMode={e} />
+			<n.rx />
+			<n.Kr />
+			<n.Nw />
+			<n.RD />
+			<n.VQ />
+			<n.Kw />
+			<me.wK />
+			<Pe />
+			<A />
+			<ce.l />
+			<_e.x />
+			<Ce.P3 />
+		</a.wC>
 	);
 }

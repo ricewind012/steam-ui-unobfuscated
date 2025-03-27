@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./49519.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { B6 } from "./49519.js";
 class s {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_history = undefined;
 	m_locationPathname = undefined;
@@ -13,7 +13,7 @@ class s {
 		this.m_locationPathname = t.pathname;
 	}
 	BRouteMatch(e) {
-		return !!(0, a.B6)(this.m_locationPathname, e);
+		return !!B6(this.m_locationPathname, e);
 	}
 	GetNavigator() {
 		return this.m_navigator;
@@ -22,6 +22,6 @@ class s {
 		this.m_navigator = e;
 	}
 }
-(0, n.Cg)([i.sH], s.prototype, "m_history", undefined);
-(0, n.Cg)([i.sH], s.prototype, "m_locationPathname", undefined);
+Cg([i.sH], s.prototype, "m_history", undefined);
+Cg([i.sH], s.prototype, "m_locationPathname", undefined);
 export const z = new s();

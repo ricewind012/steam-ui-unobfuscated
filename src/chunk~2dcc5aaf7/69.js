@@ -1,32 +1,26 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./7558.js");
-var a = require(/*webcrack:missing*/ "./99251.js");
-var s = require(/*webcrack:missing*/ "./61657.js");
+import n from "./63696.js";
+import i from "./7558.js";
+import a, { wY } from "./99251.js";
+import s from "./61657.js";
 export function ak(e, t = "smooth", r, a) {
 	const o = (r ?? 30) / 100;
-	const l = n.useRef(undefined);
-	const c = n.useRef(undefined);
+	const LRef = n.useRef(undefined);
+	const CRef = n.useRef(undefined);
 	const m = n.useCallback(() => {
-		l.current = undefined;
-		c.current = undefined;
+		LRef.current = undefined;
+		CRef.current = undefined;
 	}, []);
-	const u = (function (e, t) {
-		const r = n.useRef();
+	const u = ((e, t) => {
+		const RRef = n.useRef();
 		return n.useCallback(
-			(n, a) => {
+			(n = e.current.scrollTop, a = e.current.scrollLeft) => {
 				let s = "sine";
-				if (r.current) {
-					r.current.Cancel();
+				if (RRef.current) {
+					RRef.current.Cancel();
 					s = "linear";
 				}
 				if (!e.current) {
 					return;
-				}
-				if (n === undefined) {
-					n = e.current.scrollTop;
-				}
-				if (a === undefined) {
-					a = e.current.scrollLeft;
 				}
 				let o = Math.max(
 					Math.abs(e.current.scrollTop - n),
@@ -34,7 +28,7 @@ export function ak(e, t = "smooth", r, a) {
 				);
 				if (o > 0) {
 					let l = Math.max(Math.min((o / 1000) * 200, 500), 300);
-					r.current = new i.JV(
+					RRef.current = new i.JV(
 						e.current,
 						{
 							scrollTop: n,
@@ -46,7 +40,7 @@ export function ak(e, t = "smooth", r, a) {
 							onComplete: t,
 						},
 					);
-					r.current.Start();
+					RRef.current.Start();
 				} else if (t) {
 					t();
 				}
@@ -66,52 +60,63 @@ export function ak(e, t = "smooth", r, a) {
 				return false;
 			}
 			const {
-				scrollTop: n,
-				scrollHeight: i,
-				clientHeight: d,
-				scrollLeft: A,
-				scrollWidth: p,
-				clientWidth: g,
+				scrollTop,
+				scrollHeight,
+				clientHeight,
+				scrollLeft,
+				scrollWidth,
+				clientWidth,
 			} = e.current;
-			const h = l.current ?? n;
-			const C = c.current ?? A;
+			const h = LRef.current ?? scrollTop;
+			const C = CRef.current ?? scrollLeft;
 			switch (r.detail.button) {
-				case s.pR.DIR_UP:
+				case s.pR.DIR_UP: {
 					if (h <= 2) {
 						return false;
 					}
-					l.current = Math.max(0, h - d * o);
+					LRef.current = Math.max(0, h - clientHeight * o);
 					break;
-				case s.pR.DIR_DOWN:
-					if (h >= i - d - 2) {
+				}
+				case s.pR.DIR_DOWN: {
+					if (h >= scrollHeight - clientHeight - 2) {
 						return false;
 					}
-					l.current = Math.min(i - d, h + d * o);
+					LRef.current = Math.min(
+						scrollHeight - clientHeight,
+						h + clientHeight * o,
+					);
 					break;
-				case s.pR.DIR_LEFT:
+				}
+				case s.pR.DIR_LEFT: {
 					if (C <= 2) {
 						return false;
 					}
-					c.current = Math.max(0, C - g * o);
+					CRef.current = Math.max(0, C - clientWidth * o);
 					break;
-				case s.pR.DIR_RIGHT:
-					if (C >= p - g - 2) {
+				}
+				case s.pR.DIR_RIGHT: {
+					if (C >= scrollWidth - clientWidth - 2) {
 						return false;
 					}
-					c.current = Math.min(p - g, C + g * o);
+					CRef.current = Math.min(
+						scrollWidth - clientWidth,
+						C + clientWidth * o,
+					);
 					break;
-				default:
+				}
+				default: {
 					return false;
+				}
 			}
 			if (t && t != "smooth") {
 				e.current.scrollTo({
-					top: l.current,
-					left: c.current,
+					top: LRef.current,
+					left: CRef.current,
 					behavior: "auto",
 				});
 				m();
 			} else {
-				u(l.current, c.current);
+				u(LRef.current, CRef.current);
 			}
 			return true;
 		},
@@ -119,23 +124,23 @@ export function ak(e, t = "smooth", r, a) {
 	);
 }
 export function tw() {
-	const e = n.useRef(null);
+	const ERef = n.useRef(null);
 	const t = n.useCallback(
 		(t) => {
 			window.requestAnimationFrame(() => {
-				if (e.current?.BFocusWithin()) {
-					e.current.Node()?.GetLastFocusElement()?.scrollIntoView({
+				if (ERef.current?.BFocusWithin()) {
+					ERef.current.Node()?.GetLastFocusElement()?.scrollIntoView({
 						behavior: "auto",
 						block: "nearest",
 					});
 				}
 			});
 		},
-		[e],
+		[ERef],
 	);
 	return {
-		ref: (0, a.wY)(t),
-		navRef: e,
+		ref: wY(t),
+		navRef: ERef,
 	};
 }
 export function to(e, t) {

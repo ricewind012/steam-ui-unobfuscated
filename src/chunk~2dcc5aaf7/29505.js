@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ShutdownDialog: "_3StXNL1HvLIJMUxfaFLdX-",
 	Body: "_2Se5JD_UkWeIyaZiXXmxDD",
 	Buttons: "_29slAFSSeZuzwWblDDcahS",

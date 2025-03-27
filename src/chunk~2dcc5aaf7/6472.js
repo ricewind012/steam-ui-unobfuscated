@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ErrorStyles: "_2Sg7W8jsvFcXVuQ7fbhSLJ",
 	ErrorStylesWithIcon: "Lc2PK-Vkkvr2TUS0TfCqq",
 	ErrorIconLayout: "_42__6kBR5lkICeFfkFnwz",

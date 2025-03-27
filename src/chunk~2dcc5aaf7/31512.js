@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	Container: "_3x1HklzyDs4TEjACrRO2tB",
 	GameListHomeAndSearch: "_2TKEazUUS3TlniZfpc8OOe",

@@ -1,32 +1,32 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./42318.js");
 import {
 	LocalizeTimeSince,
 	ETimeSinceSuffix,
 } from "../../actual_src/utils/localization/datetime.js";
-var s = require("./64608.js");
-var o = require("./10606.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./90765.js");
-var m = require(/*webcrack:missing*/ "./50169.js");
-var u = require("./56332.js");
-var d = require("./35488.js");
-var A = require("./48289.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
-var g = require(/*webcrack:missing*/ "./26853.js");
-var h = require("./96593.js");
-var C = require("./36464.js");
-var _ = require("./51095.js");
-var f = require(/*webcrack:missing*/ "./8573.js");
-var b = require("./18057.js");
-var y = require(/*webcrack:missing*/ "./83599.js");
-var S = require("./76319.js");
-var w = require("./83718.js");
-var B = require("./96680.js");
-var v = require("./69913.js");
-var I = require("./45059.js");
-var E = I;
-var M = require("./9758.js");
+import n from "./63696.js";
+import i, { Nr } from "./42318.js";
+import s from "./64608.js";
+import o from "./10606.js";
+import c, { A as A_1 } from "./90765.js";
+import m, { useTable } from "./50169.js";
+import u, { m as m_1, j } from "./56332.js";
+import d from "./35488.js";
+import A from "./48289.js";
+import p, { q3 } from "./90095.js";
+import g from "./26853.js";
+import h from "./96593.js";
+import C from "./36464.js";
+import { lY } from "./51095.js";
+import f from "./8573.js";
+import b, { bG } from "./18057.js";
+import y from "./83599.js";
+import S from "./76319.js";
+import w, { aS } from "./83718.js";
+import { $2 } from "./96680.js";
+import v from "./69913.js";
+import I from "./45059.js";
+import { Z } from "./9758.js";
+const E = I;
 const _T = new y.wd("PlayersDialog").Debug;
 const R = {
 	sortBy: [
@@ -36,124 +36,98 @@ const R = {
 		},
 	],
 };
-function k(e) {
-	const {
-		column: t,
-		SlamColumnProperties: r,
-		onResizerMouseDown: i,
-		columnWidths: a,
-	} = e;
-	const { key: s, ...o } = t.getHeaderProps();
-	const l = t.getSortByToggleProps();
+function K(e) {
+	const { column, SlamColumnProperties, onResizerMouseDown, columnWidths } = e;
+	const { key, ...o } = column.getHeaderProps();
+	const l = column.getSortByToggleProps();
 	l.title = undefined;
-	o.className = (0, c.A)(o.className, E.PlayersListHeaderCell);
-	r(o, E.CurrentSortCol, t, a);
-	o.title = t.HeaderText || t.Header;
-	return n.createElement(
-		"div",
-		{
-			key: s,
-			...o,
-		},
-		n.createElement(
-			"div",
-			{
-				className: E.PlayersListHeaderColumn,
-				...l,
-			},
-			t.render("Header"),
-			t.isSorted &&
-				n.createElement(d.Carat, {
-					className: E.SortCaret,
-					direction: t.isSortedDesc ? "down" : "up",
-				}),
-		),
-		t.canResize &&
-			n.createElement("div", {
-				key: s + "-resizer",
-				className: E.ColumnResizer,
-				onMouseDown: (e) => i(e, t.id),
-			}),
+	o.className = A_1(o.className, E.PlayersListHeaderCell);
+	SlamColumnProperties(o, E.CurrentSortCol, column, columnWidths);
+	o.title = column.HeaderText || column.Header;
+	return (
+		<div key={key} {...o}>
+			<div className={E.PlayersListHeaderColumn} {...l}>
+				{column.render("Header")}
+				{column.isSorted && (
+					<d.Carat
+						className={E.SortCaret}
+						direction={column.isSortedDesc ? "down" : "up"}
+					/>
+				)}
+			</div>
+			{column.canResize && (
+				<div
+					key={`${key}-resizer`}
+					className={E.ColumnResizer}
+					onMouseDown={(e) => onResizerMouseDown(e, column.id)}
+				/>
+			)}
+		</div>
 	);
 }
 function D(e) {
-	const { player: t } = e;
-	const r = A.O$.GetFriendState(t.accountid);
-	const i = (0, b.bG)(
+	const { player } = e;
+	const r = A.O$.GetFriendState(player.accountid);
+	const i = bG(
 		"SteamIDPage",
-		f.b.InitFromAccountID(t.accountid).ConvertTo64BitString(),
+		f.b.InitFromAccountID(player.accountid).ConvertTo64BitString(),
 	);
-	return n.createElement(
-		"span",
-		{
-			className: E.AvatarAndName,
-			onClick: () => {
+	return (
+		<span
+			className={E.AvatarAndName}
+			onClick={() => {
 				i();
-			},
-		},
-		n.createElement(C.fH, {
-			friend: r,
-			size: "Small",
-		}),
-		n.createElement(
-			"span",
-			{
-				className: E.Name,
-			},
-			r.display_name,
-		),
+			}}
+		>
+			<C.fH friend={r} size="Small" />
+			<span className={E.Name}>{r.display_name}</span>
+		</span>
 	);
 }
 function N(e) {
-	const { player: t } = e;
+	const { player } = e;
 	const r = () => {
 		SteamClient.Friends.AddFriend(
-			f.b.InitFromAccountID(t.accountid).ConvertTo64BitString(),
+			f.b.InitFromAccountID(player.accountid).ConvertTo64BitString(),
 		);
 	};
 	let i;
 	let a = "";
 	let o = false;
-	switch (t.friendRelationship) {
+	switch (player.friendRelationship) {
 		case 3:
-		case 6:
+		case 6: {
 			a = "#PlayersDialog_Status_Friends";
 			i = E.Friends;
 			break;
-		case 4:
+		}
+		case 4: {
 			a = "#PlayersDialog_Status_Invited";
 			i = E.Invited;
 			break;
-		case 5:
+		}
+		case 5: {
 			a = "#PlayersDialog_Status_Blocked";
 			i = E.Blocked;
 			break;
-		default:
+		}
+		default: {
 			o = true;
 			a = "#PlayersDialog_AddFriend";
+		}
 	}
 	if (o) {
-		return n.createElement(
-			s.$n,
-			{
-				className: (0, c.A)(E.AddFriendButton, i),
-				disabled: !o,
-				onClick: r,
-			},
-			Localize(a),
+		return (
+			<s.$n className={A_1(E.AddFriendButton, i)} disabled={!o} onClick={r}>
+				{Localize(a)}
+			</s.$n>
 		);
 	} else {
-		return n.createElement(
-			"div",
-			{
-				className: (0, c.A)(E.StatusText, i),
-			},
-			Localize(a),
-		);
+		return <div className={A_1(E.StatusText, i)}>{Localize(a)}</div>;
 	}
 }
 function _F(e) {
-	const { rgPlayers: t } = e;
+	const { rgPlayers } = e;
 	const r = n.useMemo(
 		() => [
 			{
@@ -164,12 +138,8 @@ function _F(e) {
 				width: 250,
 				minWidth: 100,
 				className: E.NameColumn,
-				Cell: (e) =>
-					n.createElement(D, {
-						player: e.row.original,
-					}),
-				sortType: (e, t) =>
-					(0, _.lY)(e.original.displayName, t.original.displayName),
+				Cell: (e) => <D player={e.row.original} />,
+				sortType: (e, t) => lY(e.original.displayName, t.original.displayName),
 			},
 			{
 				Header: Localize("#PlayersDialog_Game"),
@@ -179,12 +149,11 @@ function _F(e) {
 				minWidth: 100,
 				className: E.GameColumn,
 				sortType: (e, t, r, n) =>
-					(0, _.lY)(
+					lY(
 						h.tw.GetAppOverviewByAppID(e.original.appid)?.display_name,
 						h.tw.GetAppOverviewByAppID(t.original.appid)?.display_name,
 					) ||
-					(0, _.lY)(e.original.displayName, t.original.displayName) *
-						(n ? -1 : 1),
+					lY(e.original.displayName, t.original.displayName) * (n ? -1 : 1),
 			},
 			{
 				Header: Localize("#PlayersDialog_LastPlayed"),
@@ -206,19 +175,15 @@ function _F(e) {
 				sortType: (e, t, r, n) =>
 					(e.original.rtTimePlayed ?? Number.MAX_SAFE_INTEGER) -
 						(t.original.rtTimePlayed ?? Number.MAX_SAFE_INTEGER) ||
-					(0, _.lY)(e.original.displayName, t.original.displayName) *
-						(n ? -1 : 1),
+					lY(e.original.displayName, t.original.displayName) * (n ? -1 : 1),
 			},
 			{
-				Header: n.createElement("div", null),
+				Header: <div />,
 				HeaderText: "",
 				accessor: "accountid",
 				id: "addfriend",
 				disableSortBy: true,
-				Cell: (e) =>
-					n.createElement(N, {
-						player: e.row.original,
-					}),
+				Cell: (e) => <N player={e.row.original} />,
 				width: 200,
 				minWidth: 100,
 			},
@@ -228,127 +193,93 @@ function _F(e) {
 	const i = n.useMemo(
 		() => ({
 			columns: r,
-			data: t,
+			data: rgPlayers,
 			disableSortRemove: true,
 			disableMultiSort: true,
 			initialState: R,
 		}),
-		[r, t],
+		[r, rgPlayers],
 	);
-	const s = (0, m.useTable)(
-		i,
-		m.useResizeColumns,
-		m.useFlexLayout,
-		m.useSortBy,
-	);
+
 	const {
-		getTableProps: o,
-		getTableBodyProps: c,
-		headerGroups: d,
-		rows: A,
-		prepareRow: p,
-		allColumns: g,
-		visibleColumns: C,
-	} = s;
-	const f = n.useRef(null);
-	const { columnWidths: b, OnMouseDown: y } = (0, u.m)(r, C, f);
-	if (A) {
-		return n.createElement(
-			"div",
-			{
-				className: E.PlayersList,
-			},
-			n.createElement(
-				"div",
-				{
-					className: E.PlayersListHeaderCtr,
-				},
-				d.map((e) => {
-					const { key: t, ...r } = e.getHeaderGroupProps([
-						{
-							className: E.PlayersListHeaderRow,
-						},
-					]);
-					return n.createElement(
-						"span",
-						{
-							key: t,
-							ref: f,
-							...r,
-						},
-						e.headers.map((e, t) =>
-							n.createElement(k, {
-								key: t,
-								SlamColumnProperties: u.j,
-								column: e,
-								onResizerMouseDown: y,
-								columnWidths: b,
-							}),
-						),
-					);
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					...o(),
-					className: E.PlayersListBody,
-				},
-				A.length == 0 &&
-					n.createElement(
-						"div",
-						{
-							className: E.Empty,
-						},
-						Localize("#PlayersDialog_Empty"),
-					),
-				n.createElement(
-					"div",
-					{
-						...c(),
-					},
-					A.map((e, t) => {
-						p(e);
-						const { key: r, ...i } = e.getRowProps();
-						return n.createElement(
-							"div",
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		rows,
+		prepareRow,
+		allColumns,
+		visibleColumns,
+	} = useTable(i, m.useResizeColumns, m.useFlexLayout, m.useSortBy);
+
+	const FRef = n.useRef(null);
+	const { columnWidths, OnMouseDown } = m_1(r, visibleColumns, FRef);
+	if (rows) {
+		return (
+			<div className={E.PlayersList}>
+				<div className={E.PlayersListHeaderCtr}>
+					{headerGroups.map((e) => {
+						const { key, ...r } = e.getHeaderGroupProps([
 							{
-								key: r,
-								...i,
+								className: E.PlayersListHeaderRow,
 							},
-							e.cells.map((e) => {
-								const { key: t, ...r } = e.getCellProps();
-								const i = e.column;
-								(0, u.j)(r, E.CurrentSortCol, i, b);
-								return n.createElement(
-									"span",
-									{
-										key: t,
-										...r,
-									},
-									e.render("Cell"),
-								);
-							}),
+						]);
+						return (
+							<span key={key} ref={FRef} {...r}>
+								{e.headers.map((e, t) => (
+									<K
+										key={t}
+										SlamColumnProperties={u.j}
+										column={e}
+										onResizerMouseDown={OnMouseDown}
+										columnWidths={columnWidths}
+									/>
+								))}
+							</span>
 						);
-					}),
-				),
-			),
+					})}
+				</div>
+				<div {...getTableProps()} className={E.PlayersListBody}>
+					{rows.length == 0 && (
+						<div className={E.Empty}>{Localize("#PlayersDialog_Empty")}</div>
+					)}
+					<div {...getTableBodyProps()}>
+						{rows.map((e, t) => {
+							prepareRow(e);
+							const { key, ...i } = e.getRowProps();
+							return (
+								<div key={key} {...i}>
+									{e.cells.map((e) => {
+										const { key: key_1, ...r } = e.getCellProps();
+										const e_column = e.column;
+										j(r, E.CurrentSortCol, e_column, columnWidths);
+										return (
+											<span key={key_1} {...r}>
+												{e.render("Cell")}
+											</span>
+										);
+									})}
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
 		);
 	} else {
 		return null;
 	}
 }
 function G(e) {
-	const { rgUsers: t } = e;
-	const [r, i] = n.useState(false);
+	const { rgUsers } = e;
+	const [r, setR] = n.useState(false);
 	n.useEffect(() => {
-		const e = window.setTimeout(() => i(true), 10000);
+		const e = window.setTimeout(() => setR(true), 10000);
 		return () => {
 			window.clearTimeout(e);
 		};
 	}, []);
-	const a = (0, p.q3)(() =>
-		t
+	const a = q3(() =>
+		rgUsers
 			.map((e) => {
 				const t = A.O$.GetFriendState(e.accountid);
 				return {
@@ -360,68 +291,40 @@ function G(e) {
 			.filter((e) => !!e.displayName),
 	);
 	_T(
-		t,
+		rgUsers,
 		a?.map((e) => e.displayName),
 	);
-	const s = !r && a.length !== t.length;
+	const s = !r && a.length !== rgUsers.length;
 	if (s) {
 		_T(
 			"Waiting for",
-			t.filter((e) => !a.find((t) => t.accountid == e.accountid)),
+			rgUsers.filter((e) => !a.find((t) => t.accountid == e.accountid)),
 		);
 	}
-	return n.createElement(
-		S.p,
-		{
-			name: "PlayerDialog",
-		},
-		n.createElement(
-			"div",
-			{
-				className: (0, c.A)(E.PlayersListWrapper, s && E.Loading),
-			},
-			s &&
-				n.createElement(g.t, {
-					position: "center",
-				}),
-			!s &&
-				n.createElement(_F, {
-					rgPlayers: a,
-				}),
-		),
+	return (
+		<S.p name="PlayerDialog">
+			<div className={A_1(E.PlayersListWrapper, s && E.Loading)}>
+				{s && <g.t position="center" />}
+				{!s && <_F rgPlayers={a} />}
+			</div>
+		</S.p>
 	);
 }
 function O(e) {
-	const { strName: t, players: r, onClose: i } = e;
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(s.Y9, null, t),
-		n.createElement(
-			s.a3,
-			{
-				className: E.DescriptionText,
-			},
-			Localize("#PlayersDialog_Description"),
-		),
-		n.createElement(
-			s.nB,
-			null,
-			n.createElement(G, {
-				rgUsers: r,
-			}),
-		),
-		n.createElement(
-			s.wi,
-			null,
-			n.createElement(
-				s.$n,
-				{
-					onClick: i,
-				},
-				Localize("#Button_Close"),
-			),
-		),
+	const { strName, players, onClose } = e;
+	return (
+		<>
+			<s.Y9>{strName}</s.Y9>
+			<s.a3 className={E.DescriptionText}>
+				{Localize("#PlayersDialog_Description")}
+			</s.a3>
+			<s.nB>
+				<G rgUsers={players} />
+			</s.nB>
+			<s.wi>
+				<s.$n onClick={onClose}>{Localize("#Button_Close")}</s.$n>
+			</s.wi>
+		</>
 	);
 }
 async function P() {
@@ -439,16 +342,16 @@ async function P() {
 		);
 }
 export function T(e) {
-	const t = (0, B.$2)().DesktopOverlay;
+	const t = $2().DesktopOverlay;
 	const r = v.w9.Players;
-	const i = (0, p.q3)(() => t.BWindowVisible(r));
+	const i = q3(() => t.BWindowVisible(r));
 	const a = Localize("#PlayersDialog_Title");
-	const s = (0, w.aS)(700, 480, 450, 400);
-	const [o, c] = n.useState();
+	const s = aS(700, 480, 450, 400);
+	const [o, setO] = n.useState();
 	n.useEffect(() => {
 		if (i) {
 			P().then((e) => {
-				c(e);
+				setO(e);
 			});
 		}
 	}, [i]);
@@ -456,37 +359,25 @@ export function T(e) {
 		t?.SetWindowVisibility(r, v.tc.Closed);
 	}, [t, r]);
 	if (i && o) {
-		return n.createElement(
-			w.rG,
-			{
-				strName: a,
-				updateParamsBeforeShow: s,
-				onClose: m,
-			},
-			n.createElement(
-				"div",
-				{
-					className: E.OverlayPlayersDialog,
-				},
-				n.createElement(O, {
-					strName: a,
-					players: o,
-					onClose: m,
-				}),
-			),
+		return (
+			<w.rG strName={a} updateParamsBeforeShow={s} onClose={m}>
+				<div className={E.OverlayPlayersDialog}>
+					<O strName={a} players={o} onClose={m} />
+				</div>
+			</w.rG>
 		);
 	} else {
 		return null;
 	}
 }
-export const F = (0, i.Nr)(function () {
-	const [e, t] = n.useState();
+export const F = Nr(() => {
+	const [e, setE] = n.useState();
 	const r = n.useCallback(() => {
 		P().then((e) => {
-			t(e);
+			setE(e);
 		});
 	}, []);
-	let [i, a, s] = (0, M.Z)(7, "friends/players", r);
+	let [i, a, s] = Z(7, "friends/players", r);
 	n.useEffect(() => {
 		SteamClient.Friends.GetCoplayData().then((e) => {
 			e.currentUsers?.map((e) => A.O$.GetFriendState(e.accountid));
@@ -495,26 +386,22 @@ export const F = (0, i.Nr)(function () {
 	}, []);
 	const m = Localize("#PlayersDialog_Title");
 	if (i && e) {
-		return n.createElement(
-			o.hM,
-			{
-				strTitle: m,
-				onDismiss: s,
-				popupWidth: 700,
-				popupHeight: 480,
-				minWidth: 700,
-				minHeight: 480,
-				resizable: true,
-				refPopup: a,
-				className: (0, c.A)(E.PlayersDialog, E.Desktop),
-				titleBarClassName: E.TitleBar,
-				saveDimensionsKey: "Window_PlayersDialog",
-			},
-			n.createElement(O, {
-				strName: m,
-				players: e,
-				onClose: s,
-			}),
+		return (
+			<o.hM
+				strTitle={m}
+				onDismiss={s}
+				popupWidth={700}
+				popupHeight={480}
+				minWidth={700}
+				minHeight={480}
+				resizable
+				refPopup={a}
+				className={A_1(E.PlayersDialog, E.Desktop)}
+				titleBarClassName={E.TitleBar}
+				saveDimensionsKey="Window_PlayersDialog"
+			>
+				<O strName={m} players={e} onClose={s} />
+			</o.hM>
 		);
 	} else {
 		return null;

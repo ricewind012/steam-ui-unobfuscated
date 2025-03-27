@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	ProgressBar: "_1-nHjRywUoX7Mpyc6JOPaQ",
 	StandardMargin: "_2hmsjcer7Lfnt2qtVCOjW3",
 	Percent: "_2_0JonK7eKEvh8IoOvq0-B",

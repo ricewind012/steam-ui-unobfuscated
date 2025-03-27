@@ -1,19 +1,22 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./8573.js");
-var o = require(/*webcrack:missing*/ "./58663.js");
-var l = require(/*webcrack:missing*/ "./48307.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i, { Gn, sH } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s from "./8573.js";
+import o from "./58663.js";
+import l from "./48307.js";
 o.Message;
-const c = o.Message;
-class m extends c {
+
+const { Message } = o;
+
+class m extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.out_packets_per_sec_x10) {
 			l.Sg(m.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -87,7 +90,7 @@ class m extends c {
 		return l.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -95,7 +98,7 @@ class m extends c {
 		l.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -103,14 +106,14 @@ class m extends c {
 		return "CMsgSteamDatagramLinkInstantaneousStats";
 	}
 }
-class u extends c {
+class u extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.connected_seconds) {
 			l.Sg(u.M());
 		}
-		c.initialize(this, e, 0, -1, [12, 13], null);
+		Message.initialize(this, e, 0, -1, [12, 13], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -385,7 +388,7 @@ class u extends c {
 		return l.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -393,7 +396,7 @@ class u extends c {
 		l.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -401,14 +404,14 @@ class u extends c {
 		return "CMsgSteamDatagramLinkLifetimeStats";
 	}
 }
-class d extends c {
+class d extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d.prototype.instantaneous) {
 			l.Sg(d.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -450,7 +453,7 @@ class d extends c {
 		return l.zj(d.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -458,7 +461,7 @@ class d extends c {
 		l.i0(d.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		d.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -466,14 +469,14 @@ class d extends c {
 		return "CMsgSteamDatagramConnectionQuality";
 	}
 }
-class A extends c {
+class A extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A.prototype.failure_reason_code) {
 			l.Sg(A.M());
 		}
-		c.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -582,7 +585,7 @@ class A extends c {
 		return l.zj(A.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -590,7 +593,7 @@ class A extends c {
 		l.i0(A.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		A.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -598,15 +601,14 @@ class A extends c {
 		return "CMsgSteamNetworkingICESessionSummary";
 	}
 }
-const p = o.Message;
-class g extends p {
+class g extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!g.prototype.initial_ping) {
 			l.Sg(g.M());
 		}
-		p.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -715,7 +717,7 @@ class g extends p {
 		return l.zj(g.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -723,7 +725,7 @@ class g extends p {
 		l.i0(g.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -731,14 +733,14 @@ class g extends p {
 		return "CMsgSteamNetworkingP2PSDRRoutingSummary";
 	}
 }
-class h extends p {
+class h extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.ice) {
 			l.Sg(h.M());
 		}
-		p.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -780,7 +782,7 @@ class h extends p {
 		return l.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -788,7 +790,7 @@ class h extends p {
 		l.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -796,15 +798,14 @@ class h extends p {
 		return "CMsgSteamDatagramP2PRoutingSummary";
 	}
 }
-const C = o.Message;
-class _ extends C {
+class _ extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!_.prototype.connection_key) {
 			l.Sg(_.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -968,7 +969,7 @@ class _ extends C {
 		return l.zj(_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -976,7 +977,7 @@ class _ extends C {
 		l.i0(_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -984,14 +985,14 @@ class _ extends C {
 		return "CGameNetworkingUI_ConnectionState";
 	}
 }
-class f extends C {
+class f extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.transport_kind) {
 			l.Sg(f.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1065,7 +1066,7 @@ class f extends C {
 		return l.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1073,7 +1074,7 @@ class f extends C {
 		l.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1081,14 +1082,14 @@ class f extends C {
 		return "CGameNetworkingUI_ConnectionSummary";
 	}
 }
-class b extends C {
+class b extends Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.appid) {
 			l.Sg(b.M());
 		}
-		C.initialize(this, e, 0, -1, undefined, null);
+		Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -1146,7 +1147,7 @@ class b extends C {
 		return l.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -1154,7 +1155,7 @@ class b extends C {
 		l.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new o.BinaryWriter();
+		const e = new o.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -1162,16 +1163,16 @@ class b extends C {
 		return "CGameNetworkingUI_AppSummary";
 	}
 }
-var y;
-export var WD;
-import { Localize } from "../../actual_src/utils/localization.js";
+let y;
+export let WD;
 function B(e) {
 	switch (e.connection_state()) {
 		case y.Connecting:
 		case y.FindingRoute:
 		case y.Connected:
-		case y.Linger:
+		case y.Linger: {
 			return true;
+		}
 	}
 	return false;
 }
@@ -1187,7 +1188,7 @@ function v(e) {
 		return undefined;
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Connecting = 1)] = "Connecting";
 	e[(e.FindingRoute = 2)] = "FindingRoute";
@@ -1196,7 +1197,7 @@ function v(e) {
 	e[(e.ProblemDetectedLocally = 5)] = "ProblemDetectedLocally";
 	e[(e.Linger = -2)] = "Linger";
 })((y ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_ESteamNetTransport_Unknown = 0)] = "k_ESteamNetTransport_Unknown";
 	e[(e.k_ESteamNetTransport_LoopbackBuffers = 1)] =
 		"k_ESteamNetTransport_LoopbackBuffers";
@@ -1211,7 +1212,7 @@ function v(e) {
 })((WD ||= {}));
 export class yC {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_mapConnectionState = new Map();
 	m_mapConnectionSummaries = new Map();
@@ -1231,7 +1232,7 @@ export class yC {
 		let r = this.m_mapConnectionState.get(t);
 		const n = B(e);
 		let a = this.m_mapConnectionSummaries.get(t);
-		if (!r || !a || B(r.cxn) != n) {
+		if (!r || !a || !a || B(r.cxn) != n) {
 			this.m_rgClosedConnectionKeys.remove(t);
 			this.m_rgActiveConnectionKeys.remove(t);
 			if (n) {
@@ -1246,7 +1247,7 @@ export class yC {
 			if (!r) {
 				r = {
 					cxn: e,
-					seqnum: (0, i.sH)({
+					seqnum: sH({
 						value: 0,
 					}),
 				};
@@ -1256,7 +1257,7 @@ export class yC {
 		r.cxn = e;
 		r.seqnum.value += 1;
 		if (!a) {
-			console.log("New connection: " + t);
+			console.log(`New connection: ${t}`);
 			const r =
 				(o = e.identity_remote()) && o.startsWith("steamid:")
 					? new s.b(o.slice(8))
@@ -1265,7 +1266,7 @@ export class yC {
 				e.transport_kind() == WD.k_ESteamNetTransport_SDRHostedServer ||
 				(r && r.GetAccountType() == 3) ||
 				(r && r.GetAccountType() == 4);
-			a = (0, i.sH)({
+			a = sH({
 				key: t,
 				appid: e.appid(),
 				state: e.connection_state(),
@@ -1341,7 +1342,7 @@ export class yC {
 		if (d == null || m > d) {
 			d = m;
 		}
-		a.quality = d == null ? undefined : 100 - d;
+		a.quality = d == null || 100 - d;
 		let A = "";
 		if (e.status_loc_token()) {
 			A = (0, Localize)(e.status_loc_token());
@@ -1363,6 +1364,9 @@ export class yC {
 		}
 		a.routing_moreinfo =
 			e.ping_default_internet_route() != null ||
+			!!e.sdrpopid_local() ||
+			!!e.sdrpopid_local() ||
+			e.transport_kind() == WD.k_ESteamNetTransport_SDRP2P ||
 			!!e.sdrpopid_local() ||
 			e.transport_kind() == WD.k_ESteamNetTransport_SDRP2P ||
 			e.transport_kind() == WD.k_ESteamNetTransport_SDRHostedServer ||
@@ -1386,9 +1390,8 @@ export class yC {
 		return t.cxn;
 	}
 	static Get() {
-		const e = window;
-		e.NetworkDiagnosticsStore ||= new yC();
-		return e.NetworkDiagnosticsStore;
+		window.NetworkDiagnosticsStore ||= new yC();
+		return window.NetworkDiagnosticsStore;
 	}
 	m_nRefCountDetailedConnectionStateUpdates = 0;
 	m_hcallbackConnectionStatsUpdate = undefined;
@@ -1432,7 +1435,7 @@ export class yC {
 		if (!t) {
 			t = {
 				summary: null,
-				seqnum: (0, i.sH)({
+				seqnum: sH({
 					value: 0,
 				}),
 			};
@@ -1483,6 +1486,6 @@ export class yC {
 	}
 }
 export function $A(e) {
-	return (0, a.q3)(() => yC.Get().GetAppSummaryObserved(e));
+	return q3(() => yC.Get().GetAppSummaryObserved(e));
 }
-(0, n.Cg)([i.XI], yC.prototype, "updateConnection", null);
+Cg([i.XI], yC.prototype, "updateConnection", null);

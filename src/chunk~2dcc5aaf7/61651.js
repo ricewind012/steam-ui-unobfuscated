@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SearchAndTitleContainer: "_17M8gvakqjyaw_cLo6ntdl",
 	ShowingSearch: "NMb_F0Q2lf6akyzaZBfLt",

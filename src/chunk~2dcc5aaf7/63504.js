@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SkipperCtn: "_5j8Im-8lAIRRboL2_jZbQ",
 	ArrowButton: "_26uPMBCPxQYJ8EBcqiNu8P",

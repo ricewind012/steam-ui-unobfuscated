@@ -1,13 +1,20 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./44234.js");
-var a = require("./95773.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./736.js");
 import {
 	MoveElement,
 	CountMatches,
 } from "../../actual_src/utils/arrayutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
+import a from "./95773.js";
+import s, { Gn, fm } from "./89193.js";
+import o, { Dp } from "./736.js";
+import d from "./3756.js";
+import A, { u as u_1 } from "./17385.js";
+import { BK } from "./85243.js";
+import { w } from "./49455.js";
+import h from "./79769.js";
+import C from "./52451.js";
+import { Pr } from "./72476.js";
 let m = 0;
 class u {
 	m_id = undefined;
@@ -17,7 +24,7 @@ class u {
 	m_activeTab = undefined;
 	m_browserContext;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_id = m++;
 		this.m_browserContext = e;
 		this.m_activeTab = undefined;
@@ -84,10 +91,10 @@ class u {
 		return null;
 	}
 	BHasTab(e) {
-		return this.m_vecTabs.indexOf(e) !== -1;
+		return this.m_vecTabs.includes(e);
 	}
 	AddTab(e) {
-		if (this.m_vecTabs.indexOf(e) == -1) {
+		if (!this.m_vecTabs.includes(e)) {
 			this.m_vecTabs.push(e);
 			if (!this.m_activeTab && this.m_vecTabs.length > 0) {
 				this.m_activeTab = this.m_vecTabs[0];
@@ -95,14 +102,14 @@ class u {
 		}
 	}
 	ActivateTab(e) {
-		if (this.m_vecTabs.indexOf(e) != -1) {
+		if (this.m_vecTabs.includes(e)) {
 			if (this.activeTab && this.activeTab != e) {
 				this.activeTab.OnTabDeactivate();
 			}
 			this.m_activeTab = e;
 			e.OnTabActivate();
 			this.Focus();
-			if ((0, o.Dp)("Messaging.RegisterForMessages")) {
+			if (Dp("Messaging.RegisterForMessages")) {
 				SteamClient.Messaging.PostMessage(
 					"FriendsUI",
 					"ChatTabActivated",
@@ -126,7 +133,7 @@ class u {
 		this.ActivateTab(this.m_vecTabs[e]);
 	}
 	DeactivateTab(e) {
-		if (this.m_vecTabs.indexOf(e) !== -1) {
+		if (this.m_vecTabs.includes(e)) {
 			if (this.activeTab && this.activeTab === e) {
 				e.OnTabDeactivate();
 				this.m_activeTab = undefined;
@@ -214,27 +221,20 @@ class u {
 		};
 	}
 }
-(0, n.Cg)([s.sH], u.prototype, "m_id", undefined);
-(0, n.Cg)([s.sH], u.prototype, "m_activeTab", undefined);
-(0, n.Cg)([s.XI], u.prototype, "AddTab", null);
-(0, n.Cg)([s.XI], u.prototype, "ActivateTab", null);
-(0, n.Cg)([s.XI], u.prototype, "ActivateNextTab", null);
-(0, n.Cg)([s.XI], u.prototype, "ActivatePreviousTab", null);
-(0, n.Cg)([s.XI], u.prototype, "DeactivateTab", null);
-(0, n.Cg)([s.XI], u.prototype, "RemoveTab", null);
-(0, n.Cg)([s.XI], u.prototype, "OnPopupClosed", null);
-(0, n.Cg)([s.XI], u.prototype, "CloseAllTabs", null);
-var d = require("./3756.js");
-var A = require(/*webcrack:missing*/ "./17385.js");
-var p = require(/*webcrack:missing*/ "./85243.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
-var h = require(/*webcrack:missing*/ "./79769.js");
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require(/*webcrack:missing*/ "./72476.js");
+Cg([s.sH], u.prototype, "m_id", undefined);
+Cg([s.sH], u.prototype, "m_activeTab", undefined);
+Cg([s.XI], u.prototype, "AddTab", null);
+Cg([s.XI], u.prototype, "ActivateTab", null);
+Cg([s.XI], u.prototype, "ActivateNextTab", null);
+Cg([s.XI], u.prototype, "ActivatePreviousTab", null);
+Cg([s.XI], u.prototype, "DeactivateTab", null);
+Cg([s.XI], u.prototype, "RemoveTab", null);
+Cg([s.XI], u.prototype, "OnPopupClosed", null);
+Cg([s.XI], u.prototype, "CloseAllTabs", null);
 const f = "ChatStorePopupState";
-export var Jw;
-export var OC;
-(function (e) {
+export let Jw;
+export let OC;
+((e) => {
 	e[(e.Favorites = 0)] = "Favorites";
 	e[(e.FriendsList = 1)] = "FriendsList";
 	e[(e.GroupChats = 2)] = "GroupChats";
@@ -264,7 +264,7 @@ export class Vi {
 		return this.GetPerContextChatData(A.m);
 	}
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_chatStore = e;
 	}
 	Init() {
@@ -272,7 +272,7 @@ export class Vi {
 			this.SerializePopupState();
 			this.m_bShuttingDown = true;
 		});
-		(0, s.fm)(() => {
+		fm(() => {
 			let e =
 				a.xm.ParentalStore.BIsFriendsBlocked() ||
 				a.xm.SettingsStore.IsSteamInTournamentMode();
@@ -313,7 +313,7 @@ export class Vi {
 		if (t instanceof d.d) {
 			let n = this.m_chatStore.GetChatRoomGroup(t.GetParentGroupID());
 			if (!n) {
-				(0, g.w)(false, "Can't find group for chat room ");
+				w(false, "Can't find group for chat room ");
 				return null;
 			}
 			let i = this.ShowAndOrActivateChatRoomGroup(e, n, r);
@@ -374,7 +374,7 @@ export class Vi {
 		}
 	}
 	ShowOrActivateBroadcast(e, t, r) {
-		let n = "br" + t;
+		let n = `br${t}`;
 		return this.ShowAndOrActivateTabByID(e, n, r);
 	}
 	CloseTabByID(e, t) {
@@ -393,18 +393,18 @@ export class Vi {
 			this.ShowAndOrActivateChatRoomGroup(e, r, true);
 			i = this.GetTabSetByUniqueID(n, r.unique_id);
 		}
-		(0, g.w)(i, "Failed to find group tab");
+		w(i, "Failed to find group tab");
 		let a = this.GetTabSetByUniqueID(n, t.chat.unique_id);
 		if (!a) {
 			return;
 		}
-		let s = i.tab;
-		let o = a.tabSet;
-		if (i.tabSet != o) {
-			i.tabSet.RemoveTab(s);
-			o.AddTab(s);
+		let i_tab = i.tab;
+		let a_tabSet = a.tabSet;
+		if (i.tabSet != a_tabSet) {
+			i.tabSet.RemoveTab(i_tab);
+			a_tabSet.AddTab(i_tab);
 		}
-		o.MoveTabAfter(s, t);
+		a_tabSet.MoveTabAfter(i_tab, t);
 		this.CloseTab(e, t);
 		this.ShowAndOrActivateChatRoomGroup(e, r, true);
 	}
@@ -476,7 +476,7 @@ export class Vi {
 					!l ||
 					(!i.IsFriendsListSingleWindow() && !o.is_popup_active)
 				) {
-					const t = !(0, _.Pr)() && !r;
+					const t = !Pr() && !r;
 					let n = a.xm.CreateChatPopup(
 						e,
 						this.GetNextChatPopupID(),
@@ -574,14 +574,14 @@ export class Vi {
 		}
 	}
 	GetContextKey(e) {
-		if ((0, A.u)(e, A.m) && e.m_eUIMode !== 4) {
+		if (u_1(e, A.m) && e.m_eUIMode !== 4) {
 			return "ROOT";
 		} else {
 			return `${e.m_unPID}/${e.m_eUIMode}`;
 		}
 	}
 	GetPerContextChatData(e) {
-		(0, g.w)(
+		w(
 			a.xm.ready_to_render || this.m_bRestoringPopups,
 			"GetPerContextChatData called before ready",
 			e,
@@ -592,7 +592,7 @@ export class Vi {
 			let n = a.xm.BIsValidBrowserContext(e);
 			r = new v(e);
 			if (n) {
-				(0, g.w)(
+				w(
 					e.m_unPID == 0 || e.m_eUIMode !== undefined,
 					"GetPerContextChatData - creating context for browser where uimode is undefined! This can cause problems in other places!",
 				);
@@ -647,8 +647,8 @@ export class Vi {
 		}
 	}
 	RegisterForOverlayCreated(e) {
-		const { Unregister: t } = this.m_overlayCreatedCallbackList.Register(e);
-		return t;
+		const { Unregister } = this.m_overlayCreatedCallbackList.Register(e);
+		return Unregister;
 	}
 	OnOverlayBrowserChanged(e, t, r) {
 		const n = {
@@ -665,7 +665,7 @@ export class Vi {
 		if (!t) {
 			return;
 		}
-		(0, g.w)(
+		w(
 			e.m_nBrowserID == t.browser_context.m_nBrowserID,
 			"Mismatch found in OnOverlayBrowserClosed",
 		);
@@ -683,6 +683,7 @@ export class Vi {
 		return (
 			!!i.TS.IN_CHROMEOS ||
 			!!this.m_bSuppressBrowserContextBroadcasting ||
+			!!this.m_bSuppressBrowserContextBroadcasting ||
 			!this.BHasPerContextChatData(e)
 		);
 	}
@@ -693,13 +694,13 @@ export class Vi {
 		if (!this.BShouldSuppressBrowserContextBroadcasting(e)) {
 			this.SetSuppressBrowserContextBroadcasting(true);
 			this.m_mapChatBrowserContexts.forEach((r) => {
-				if ((0, A.u)(r.browser_context, e)) {
+				if (u_1(r.browser_context, e)) {
 					return;
 				}
 				if (e.m_eUIMode == 4 && r.browser_context.m_eUIMode !== e.m_eUIMode) {
 					return;
 				}
-				let n = !(0, A.u)(r.browser_context, A.m);
+				let n = !u_1(r.browser_context, A.m);
 				this.ShowAndOrActivateTabByID(r.browser_context, t, n);
 			});
 			this.SetSuppressBrowserContextBroadcasting(false);
@@ -709,12 +710,12 @@ export class Vi {
 		if (this.BShouldSuppressBrowserContextBroadcasting(e)) {
 			return;
 		}
-		if ((0, A.u)(e, A.m)) {
+		if (u_1(e, A.m)) {
 			this.BroadcastCloseTabToAllBrowserContexts_Internal(e, t);
 			return;
 		}
 		let r = this.GetPerContextChatData(e);
-		if (r && (0, A.u)(e, r.browser_context)) {
+		if (r && u_1(e, r.browser_context)) {
 			this.BroadcastCloseTabToAllBrowserContexts_Internal(e, t);
 		}
 	}
@@ -722,7 +723,7 @@ export class Vi {
 		if (!this.BShouldSuppressBrowserContextBroadcasting(e)) {
 			this.SetSuppressBrowserContextBroadcasting(true);
 			this.m_mapChatBrowserContexts.forEach((r) => {
-				if (!(0, A.u)(r.browser_context, e)) {
+				if (!u_1(r.browser_context, e)) {
 					this.CloseTabByIDInContext(r.browser_context, t);
 				}
 			});
@@ -743,7 +744,7 @@ export class Vi {
 		}
 	}
 	GetNextChatPopupID() {
-		return "ChatWindow_" + this.m_iLastChatPopupID++;
+		return `ChatWindow_${this.m_iLastChatPopupID++}`;
 	}
 	BIsFriendsListSingleWindow(e) {
 		let t = this.GetPerContextChatData(e);
@@ -762,7 +763,6 @@ export class Vi {
 	ConvertDefaultTabSetToPopup(e) {
 		let t = this.GetPerContextChatData(e);
 		if (t.default_tabset.tabCount) {
-			let r = t.GetPopupForTabSet(t.default_tabset);
 			return (
 				r ||
 				((r = a.xm.CreateChatPopup(
@@ -773,7 +773,7 @@ export class Vi {
 					undefined,
 					false,
 				)),
-				r.Show(!(0, A.u)(e, A.m)),
+				r.Show(!u_1(e, A.m)),
 				t.AddPopup(t.default_tabset, r),
 				this.SerializePopupState(),
 				t.friends_list_window &&
@@ -851,7 +851,7 @@ export class Vi {
 		}
 	}
 	MoveTabToNewPopup(e, t, r, n) {
-		(0, g.w)(e, "browserContext");
+		w(e, "browserContext");
 		let i = this.GetPerContextChatData(e);
 		this.ForEachTabSet(i, (e) => e.RemoveTab(t));
 		let s = new u(e);
@@ -932,8 +932,8 @@ export class Vi {
 		if (a.xm.IsGamepadUIActive()) {
 			return;
 		}
-		(0, g.w)(!this.m_bRestoredPopupState, "Second restore popup state");
-		(0, g.w)(
+		w(!this.m_bRestoredPopupState, "Second restore popup state");
+		w(
 			!this.m_bRestoringPopups,
 			"RestorePopupState called while already restoring",
 		);
@@ -964,7 +964,7 @@ export class Vi {
 	}
 	RestoreFromStateObject(e, t) {
 		let r = this.GetPerContextChatData(A.m);
-		(0, g.w)(r.BIsEmpty(), "Restoring to non-empty context", r);
+		w(r.BIsEmpty(), "Restoring to non-empty context", r);
 		if (r.BIsEmpty()) {
 			if (e.window_restore_details) {
 				r.SetCachedDefaultPopupDimensions(e.window_restore_details);
@@ -978,18 +978,18 @@ export class Vi {
 			r.SetFriendsListCollapsed(!!e.bFriendsListCollapsed);
 			if (!t && (e.always_restore || this.BRestoreOpenChats())) {
 				if (e.defaultTabs) {
-					let t = r.default_tabset;
-					this.DeserializeIntoTabSet(t, e.defaultTabs);
-					if (t.tabCount > 0 && !r.IsFriendsListSingleWindow()) {
+					let r_default_tabset = r.default_tabset;
+					this.DeserializeIntoTabSet(r_default_tabset, e.defaultTabs);
+					if (r_default_tabset.tabCount > 0 && !r.IsFriendsListSingleWindow()) {
 						let e = a.xm.CreateChatPopup(
 							a.xm.GetDefaultBrowserContext(),
 							this.GetNextChatPopupID(),
-							t,
+							r_default_tabset,
 							undefined,
 							undefined,
 							false,
 						);
-						r.AddPopup(t, e);
+						r.AddPopup(r_default_tabset, e);
 						e.Show(false);
 					}
 				}
@@ -1014,7 +1014,10 @@ export class Vi {
 			}
 			if (!t) {
 				let t =
-					!e || e.bFriendsListVisible === undefined || e.bFriendsListVisible;
+					!e ||
+					e.bFriendsListVisible === undefined ||
+					e.bFriendsListVisible === undefined ||
+					e.bFriendsListVisible;
 				if (r.BUsePopups()) {
 					a.xm.ShowPopupFriendsListAtStartup(t);
 				}
@@ -1093,19 +1096,14 @@ export class Vi {
 		);
 	}
 }
-(0, n.Cg)([s.sH], Vi.prototype, "m_bTheaterMode", undefined);
-(0, n.Cg)([s.sH], Vi.prototype, "m_mapFriendChatBroadcastVisible", undefined);
-(0, n.Cg)([s.sH], Vi.prototype, "m_nTabActivationCount", undefined);
-(0, n.Cg)([s.sH], Vi.prototype, "m_bShowWinterSaleUI", undefined);
-(0, n.Cg)([s.XI], Vi.prototype, "OnFriendsParentalLockChanged", null);
-(0, n.Cg)([a.Nw], Vi.prototype, "ShowFriendChatDialogWhenReady", null);
-(0, n.Cg)(
-	[a.Nw],
-	Vi.prototype,
-	"ShowAndOrActivateChatRoomGroupWhenReady",
-	null,
-);
-(0, n.Cg)([C.oI], Vi.prototype, "SerializePopupState", null);
+Cg([s.sH], Vi.prototype, "m_bTheaterMode", undefined);
+Cg([s.sH], Vi.prototype, "m_mapFriendChatBroadcastVisible", undefined);
+Cg([s.sH], Vi.prototype, "m_nTabActivationCount", undefined);
+Cg([s.sH], Vi.prototype, "m_bShowWinterSaleUI", undefined);
+Cg([s.XI], Vi.prototype, "OnFriendsParentalLockChanged", null);
+Cg([a.Nw], Vi.prototype, "ShowFriendChatDialogWhenReady", null);
+Cg([a.Nw], Vi.prototype, "ShowAndOrActivateChatRoomGroupWhenReady", null);
+Cg([C.oI], Vi.prototype, "SerializePopupState", null);
 export class TP {
 	m_popup;
 	m_chatPopup;
@@ -1132,13 +1130,13 @@ export class TP {
 		return e.m_nBrowserID == t.m_nBrowserID && e.m_unPID == t.m_unPID;
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.FriendsList = 0)] = "FriendsList";
 	e[(e.Chat = 1)] = "Chat";
 })((OC ||= {}));
 class B {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_eActiveView = OC.FriendsList;
 	GetActiveView() {
@@ -1148,7 +1146,7 @@ class B {
 		this.m_eActiveView = e;
 	}
 }
-(0, n.Cg)([s.sH], B.prototype, "m_eActiveView", undefined);
+Cg([s.sH], B.prototype, "m_eActiveView", undefined);
 class v {
 	m_browserContext;
 	m_DefaultTabSet = undefined;
@@ -1160,7 +1158,7 @@ class v {
 	m_mapTabSetToPopup;
 	m_ScreenInfo;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_browserContext = e;
 		this.m_DefaultTabSet = new u(e);
 		this.m_FriendsListWindow = undefined;
@@ -1175,6 +1173,7 @@ class v {
 			this.m_DefaultTabSet.tabCount == 0 &&
 			(!i.TS.IN_CLIENT ||
 				this.m_FriendsListWindow == null ||
+				this.m_FriendsListWindow == null ||
 				a.xm.IsLoadedInClientSharedJSContext()) &&
 			this.m_mapTabSetToPopup.size == 0
 		);
@@ -1183,11 +1182,11 @@ class v {
 		return (
 			i.TS.USE_POPUPS &&
 			this.m_browserContext.m_eUIMode !== 4 &&
-			!(0, p.BK)(this.m_browserContext.m_eBrowserType)
+			!BK(this.m_browserContext.m_eBrowserType)
 		);
 	}
 	BIsFriendsListEmbedded() {
-		if ((0, A.u)(A.m, this.m_browserContext)) {
+		if (u_1(A.m, this.m_browserContext)) {
 			return !this.BUsePopups();
 		} else {
 			return this.m_browserContext.m_eUIMode === 4;
@@ -1213,7 +1212,7 @@ class v {
 		return this.m_browserContext;
 	}
 	get default_tabset() {
-		(0, g.w)(this.m_DefaultTabSet, "Context has no default chat target");
+		w(this.m_DefaultTabSet, "Context has no default chat target");
 		return this.m_DefaultTabSet;
 	}
 	get friends_list_window() {
@@ -1261,7 +1260,7 @@ class v {
 		this.m_mapTabSetToPopup.delete(e);
 	}
 	AddPopup(e, t) {
-		(0, g.w)(!this.m_mapTabSetToPopup.has(e), "Added popup for tabset twice");
+		w(!this.m_mapTabSetToPopup.has(e), "Added popup for tabset twice");
 		this.m_mapTabSetToPopup.set(e, t);
 	}
 	GetPopupForTabSet(e) {
@@ -1323,6 +1322,6 @@ class v {
 		);
 	}
 }
-(0, n.Cg)([s.sH], v.prototype, "m_DefaultTabSet", undefined);
-(0, n.Cg)([s.sH], v.prototype, "m_bFriendsListSingleWindow", undefined);
-(0, n.Cg)([s.sH], v.prototype, "m_bFriendsListCollapsed", undefined);
+Cg([s.sH], v.prototype, "m_DefaultTabSet", undefined);
+Cg([s.sH], v.prototype, "m_bFriendsListSingleWindow", undefined);
+Cg([s.sH], v.prototype, "m_bFriendsListCollapsed", undefined);

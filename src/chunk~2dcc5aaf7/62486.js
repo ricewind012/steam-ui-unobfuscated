@@ -1,71 +1,88 @@
-var n;
-var i;
-var a;
-export var KU;
-export var Sn;
-export var RL;
-var c = require(/*webcrack:missing*/ "./89193.js");
-var m = require(/*webcrack:missing*/ "./62757.js");
-var u = m;
-var d = require("./84056.js");
 import {
 	Localize,
 	BLocStringExists,
 } from "../../actual_src/utils/localization.js";
-var p = require("./85360.js");
-var g = require("./52192.js");
+import { HO } from "./89193.js";
+import m from "./62757.js";
+import d from "./84056.js";
+import p from "./85360.js";
+import { _Q } from "./52192.js";
+let n;
+let i;
+let a;
+export let KU;
+export let Sn;
+export let RL;
+const u = m;
 export function mJ(e) {
 	switch (e) {
 		default:
-		case 4:
+		case 4: {
 			return RL.k_EControllerTypeFlags_SteamControllerNeptune;
-		case 3:
+		}
+		case 3: {
 			return RL.k_EControllerTypeFlags_SteamControllerV2;
-		case 2:
+		}
+		case 2: {
 			return RL.k_EControllerTypeFlags_SteamController;
-		case 33:
+		}
+		case 33: {
 			return RL.k_EControllerTypeFlags_PS3Controller;
-		case 34:
+		}
+		case 34: {
 			return RL.k_EControllerTypeFlags_PS4Controller;
-		case 45:
+		}
+		case 45: {
 			return RL.k_EControllerTypeFlags_PS5Controller;
-		case 48:
+		}
+		case 48: {
 			return RL.k_EControllerTypeFlags_PS5EdgeController;
-		case 31:
+		}
+		case 31: {
 			return RL.k_EControllerTypeFlags_XBox360;
-		case 32:
+		}
+		case 32: {
 			return RL.k_EControllerTypeFlags_XBoxOne;
-		case 46:
+		}
+		case 46: {
 			return RL.k_EControllerTypeFlags_XBoxElite;
-		case 38:
+		}
+		case 38: {
 			return RL.k_EControllerTypeFlags_SwitchPro;
-		case 42:
+		}
+		case 42: {
 			return RL.k_EControllerTypeFlags_XInputSwitch;
-		case 30:
+		}
+		case 30: {
 			return RL.k_EControllerTypeFlags_GenericGamepad;
+		}
 		case 39:
-		case 40:
+		case 40: {
 			return RL.k_EControllerTypeFlags_SingleJoycon;
-		case 41:
+		}
+		case 41: {
 			return RL.k_EControllerTypeFlags_SwitchJoyconPair;
-		case 43:
+		}
+		case 43: {
 			return RL.k_EControllerTypeFlags_MobileTouchController;
-		case 49:
+		}
+		case 49: {
 			return RL.k_EControllerTypeFlags_HoriController;
+		}
 	}
 }
-(function (e) {
+((e) => {
 	e[(e.k_EMenuButtonPress = 0)] = "k_EMenuButtonPress";
 	e[(e.k_EMenuButtonRelease = 1)] = "k_EMenuButtonRelease";
 	e[(e.k_EMenuTouchRelease = 2)] = "k_EMenuTouchRelease";
 	e[(e.k_EMenuTouchAlways = 3)] = "k_EMenuTouchAlways";
 })((n ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EControllerOutputAxisOmitX = 0)] = "k_EControllerOutputAxisOmitX";
 	e[(e.k_EControllerOutputAxisOmitY = 1)] = "k_EControllerOutputAxisOmitY";
 	e[(e.k_EControllerOutputAxisBoth = 2)] = "k_EControllerOutputAxisBoth";
 })((i ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EOutputAxisLeftTrigger = 0)] = "k_EOutputAxisLeftTrigger";
 	e[(e.k_EOutputAxisRightTrigger = 1)] = "k_EOutputAxisRightTrigger";
 	e[(e.k_EOutputAxisLeftThumbXPos = 2)] = "k_EOutputAxisLeftThumbXPos";
@@ -77,7 +94,7 @@ export function mJ(e) {
 	e[(e.k_EOutputAxisRightThumbYPos = 8)] = "k_EOutputAxisRightThumbYPos";
 	e[(e.k_EOutputAxisRightThumbYNeg = 9)] = "k_EOutputAxisRightThumbYNeg";
 })((a ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EInputSource_None = 1)] = "k_EInputSource_None";
 	e[(e.k_EInputSource_ABXY = 16)] = "k_EInputSource_ABXY";
 	e[(e.k_EInputSource_Dpad = 8192)] = "k_EInputSource_Dpad";
@@ -112,7 +129,7 @@ export function mJ(e) {
 	e[(e.k_EInputSource_Digital = 25392)] = "k_EInputSource_Digital";
 	e[(e.k_EInputSource_Analog = 466126)] = "k_EInputSource_Analog";
 })((KU ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EInputMode_None = 1)] = "k_EInputMode_None";
 	e[(e.k_EInputMode_Dpad = 2)] = "k_EInputMode_Dpad";
 	e[(e.k_EInputMode_Buttons = 4)] = "k_EInputMode_Buttons";
@@ -146,7 +163,7 @@ export function mJ(e) {
 		"k_EInputMode_TrackPadToCameraAngles";
 	e[(e.k_EInputMode_All = 1073741823)] = "k_EInputMode_All";
 })((Sn ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EControllerTypeFlags_SteamController = 1)] =
 		"k_EControllerTypeFlags_SteamController";
 	e[(e.k_EControllerTypeFlags_SteamControllerV2 = 2)] =
@@ -1330,16 +1347,20 @@ export const z_ = {
 	},
 };
 function B(e, t, r) {
-	const n = Dd[t];
+	const Dd_t = Dd[t];
 	switch (e) {
-		case 0:
-			return n.directional;
-		case 1:
-			return n.analog && !n.directional && (!r || !n.trigger);
-		case 2:
-			return !n.directional || (r && n.trigger);
-		default:
+		case 0: {
+			return Dd_t.directional;
+		}
+		case 1: {
+			return Dd_t.analog && !Dd_t.directional && (!r || !Dd_t.trigger);
+		}
+		case 2: {
+			return !Dd_t.directional || (r && Dd_t.trigger);
+		}
+		default: {
 			return false;
+		}
 	}
 }
 export const X9 = [
@@ -1560,12 +1581,12 @@ export function U$(e, t) {
 	if (e == null) {
 		return [];
 	}
-	const r = e.action_binding_types;
-	if (r == null) {
+	const e_action_binding_types = e.action_binding_types;
+	if (e_action_binding_types == null) {
 		return [];
 	}
 	const n = [];
-	for (let e of r) {
+	for (let e of e_action_binding_types) {
 		if (e.key === t && e.actions != null) {
 			n.push(...e.actions);
 		}
@@ -1585,7 +1606,7 @@ export function QQ(e, t, r) {
 		(e?.mode == null && t.eMode == 0) ||
 		(e.mode == t.eMode &&
 			(!t.modeid || e.modeid == t.modeid) &&
-			(!r || !t.modeid || e.modeid != t.modeid) &&
+			(!r || !t.modeid || !t.modeid || e.modeid != t.modeid) &&
 			((e.game_action == null && t.gameAction == null) ||
 				(e.game_action?.action_set_key ==
 					(t.gameAction?.layerSet ?? t.gameAction?.baseSet)?.key &&
@@ -1600,39 +1621,48 @@ export function q8(e, t) {
 		return false;
 	}
 	switch (e.type) {
-		case d.N.k_EControllerBindingType_None:
+		case d.N.k_EControllerBindingType_None: {
 			return true;
-		case d.N.k_EControllerBindingType_Key:
-			return u((0, c.HO)(e.keyboard_key), (0, c.HO)(t.keyboard_key));
-		case d.N.k_EControllerBindingType_MouseButton:
-			return u((0, c.HO)(e.mouse_button), (0, c.HO)(t.mouse_button));
-		case d.N.k_EControllerBindingType_Gamepad:
-			return u((0, c.HO)(e.gamepad_button), (0, c.HO)(t.gamepad_button));
-		case d.N.k_EControllerBindingType_Mousewheel:
-			return u((0, c.HO)(e.mouse_wheel), (0, c.HO)(t.mouse_wheel));
-		case d.N.k_EControllerBindingType_Modeshift:
-			return u((0, c.HO)(e.mode_shift), (0, c.HO)(t.mode_shift));
-		case d.N.k_EControllerBindingType_GameAction:
-			return u((0, c.HO)(e.game_action), (0, c.HO)(t.game_action));
-		case d.N.k_EControllerBindingType_ControllerAction:
+		}
+		case d.N.k_EControllerBindingType_Key: {
+			return u(HO(e.keyboard_key), HO(t.keyboard_key));
+		}
+		case d.N.k_EControllerBindingType_MouseButton: {
+			return u(HO(e.mouse_button), HO(t.mouse_button));
+		}
+		case d.N.k_EControllerBindingType_Gamepad: {
+			return u(HO(e.gamepad_button), HO(t.gamepad_button));
+		}
+		case d.N.k_EControllerBindingType_Mousewheel: {
+			return u(HO(e.mouse_wheel), HO(t.mouse_wheel));
+		}
+		case d.N.k_EControllerBindingType_Modeshift: {
+			return u(HO(e.mode_shift), HO(t.mode_shift));
+		}
+		case d.N.k_EControllerBindingType_GameAction: {
+			return u(HO(e.game_action), HO(t.game_action));
+		}
+		case d.N.k_EControllerBindingType_ControllerAction: {
 			return e.controller_action.action == t.controller_action.action;
-		default:
+		}
+		default: {
 			return false;
+		}
 	}
 }
 export function yQ(e) {
 	return Dd[e].trackpad;
 }
 function F(e) {
-	const t = Dd[e];
-	return t.analog && t.directional && !t.trackpad && !t.gyro;
+	const Dd_e = Dd[e];
+	return Dd_e.analog && Dd_e.directional && !Dd_e.trackpad && !Dd_e.gyro;
 }
 function G(e) {
 	return Dd[e].gyro;
 }
 function O(e) {
-	const t = Dd[e];
-	return !t.analog && t.directional;
+	const Dd_e = Dd[e];
+	return !Dd_e.analog && Dd_e.directional;
 }
 export const rm = 241100;
 const L = 413080;
@@ -1641,7 +1671,24 @@ const x = 413100;
 const U = 443510;
 const W = 769;
 export function bp(e) {
-	return e == rm || e == L || e == z || e == x || e == U || e == W;
+	return (
+		e == rm ||
+		e == L ||
+		e == L ||
+		e == z ||
+		e == L ||
+		e == z ||
+		e == x ||
+		e == L ||
+		e == z ||
+		e == x ||
+		e == U ||
+		e == L ||
+		e == z ||
+		e == x ||
+		e == U ||
+		e == W
+	);
 }
 export function Bv(e, t, r, n, i) {
 	const a = [];
@@ -1812,7 +1859,7 @@ export function KB(e) {
 	const t = p.v3.EditingConfiguration?.modes;
 	const r = [];
 	if (
-		(function (e) {
+		((e) => {
 			switch (e) {
 				case 18:
 				case 17:
@@ -1824,16 +1871,18 @@ export function KB(e) {
 				case 10:
 				case 16:
 				case 4:
-				case 13:
+				case 13: {
 					return true;
-				default:
+				}
+				default: {
 					return false;
+				}
 			}
 		})(e)
 	) {
 		t?.forEach((e) => {
 			const t = e.settings.find((e) => e.key == 129)?.int_value;
-			const n = (0, g._Q)(e.mode);
+			const n = _Q(e.mode);
 			if (t != 1 && n) {
 				const t = k$[e.mode]?.id;
 				let n =
@@ -4243,9 +4292,10 @@ export const jg = {
 			sortOrder: 0,
 			valueSuffixToken: "#Unit_Percent",
 		}),
-		(function (e, t) {
-			return (r, n, i) => ((1 << i) & e ? undefined : t);
-		})(KU.k_EInputSource_Gyros, {
+		(
+			(e, t) => (r, n, i) =>
+				(1 << i) & e || t
+		)(KU.k_EInputSource_Gyros, {
 			key: 30,
 			id: "Sensitivity",
 			sortOrder: 0,
@@ -6343,23 +6393,28 @@ export const jg = {
 		De(87, [0, 1], KU.k_EInputSource_Gyros, {
 			key: 123,
 			id: "ActivationButtonTouchMenu",
-			choices: function (e, t) {
-				return (function (e) {
+			choices(e, t) {
+				return ((e) => {
 					switch (e) {
-						case 4:
+						case 4: {
 							return de;
-						case 34:
+						}
+						case 34: {
 							return Ae;
-						case 45:
+						}
+						case 45: {
 							return pe;
-						case 48:
+						}
+						case 48: {
 							return ge;
+						}
 						case 39:
 						case 40:
 						case 41:
 						case 38:
-						case 42:
+						case 42: {
 							return he;
+						}
 					}
 					return ue;
 				})(t);
@@ -7728,38 +7783,46 @@ export const av = {
 		{
 			key: 114,
 			id: "Chord_ChordButton",
-			choices: function (e, t) {
+			choices(e, t) {
 				let r;
 				switch (t) {
-					case 4:
+					case 4: {
 						r = Le;
 						break;
-					case 34:
+					}
+					case 34: {
 						r = ze;
 						break;
-					case 45:
+					}
+					case 45: {
 						r = xe;
 						break;
-					case 48:
+					}
+					case 48: {
 						r = Ue;
 						break;
+					}
 					case 39:
 					case 40:
 					case 41:
 					case 38:
-					case 42:
+					case 42: {
 						r = We;
 						break;
+					}
 					case 31:
 					case 32:
-					default:
+					default: {
 						r = Ve;
 						break;
-					case 46:
+					}
+					case 46: {
 						r = He;
 						break;
-					case 2:
+					}
+					case 2: {
 						r = Pe;
+					}
 				}
 				return r;
 			},
@@ -8606,10 +8669,10 @@ export const HL = [
 	},
 ];
 export function ND(e) {
-	return (0, Localize)(e + "_Title");
+	return (0, Localize)(`${e}_Title`);
 }
 export function GW(e, t) {
-	return (0, Localize)(e + "_Title");
+	return (0, Localize)(`${e}_Title`);
 }
 export function wm(e, t, r, n) {
 	if (n) {
@@ -8631,34 +8694,34 @@ export function wm(e, t, r, n) {
 	}
 }
 export function fU(e, t) {
-	const r = e + "Explanation_on_" + t;
+	const r = `${e}Explanation_on_${t}`;
 	if (BLocStringExists(r)) {
 		return (0, Localize)(r);
 	}
 }
 export function JS(e) {
-	const t = e + "_Explanation";
+	const t = `${e}_Explanation`;
 	if (BLocStringExists(t)) {
 		return (0, Localize)(t);
 	}
 }
 export function bj(e) {
-	return (0, Localize)("#ControllerBinding_ActivatorDropDown_" + e);
+	return (0, Localize)(`#ControllerBinding_ActivatorDropDown_${e}`);
 }
 export function ix(e, ...t) {
-	return (0, Localize)("#ControllerBinding_" + e, ...t);
+	return (0, Localize)(`#ControllerBinding_${e}`, ...t);
 }
 export function Fq(e) {
-	return (0, Localize)("#ControllerSettingValue_" + e);
+	return (0, Localize)(`#ControllerSettingValue_${e}`);
 }
 export function Aj(e, t) {
-	const r = "#ControllerBinding_" + e + "_" + t + "_Description";
+	const r = `#ControllerBinding_${e}_${t}_Description`;
 	if (BLocStringExists(r)) {
 		return (0, Localize)(r);
 	}
 }
 export function RW(e) {
-	return (0, Localize)("#" + SW[e]?.subheader);
+	return (0, Localize)(`#${SW[e]?.subheader}`);
 }
 export const $o = [
 	{
@@ -12967,18 +13030,21 @@ export function ui(e, t, r) {
 		case 37:
 		case 33:
 		case 45:
-		case 48:
+		case 48: {
 			return 10000;
+		}
 		case 4:
 		case 3:
 		case 39:
 		case 40:
 		case 41:
 		case 38:
-		default:
+		default: {
 			return 8192;
-		case 34:
+		}
+		case 34: {
 			return 4096;
+		}
 	}
 }
 export const vU = [

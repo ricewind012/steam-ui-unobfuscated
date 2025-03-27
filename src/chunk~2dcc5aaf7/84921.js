@@ -1,11 +1,11 @@
-export var ep;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./89193.js");
-var s = require("./61738.js");
-var o = require(/*webcrack:missing*/ "./79769.js");
-var l = require(/*webcrack:missing*/ "./52451.js");
-var c = require("./84629.js");
-(function (e) {
+import i, { Cg } from "./34629.js";
+import a, { Gn } from "./89193.js";
+import s from "./61738.js";
+import o from "./79769.js";
+import l, { QS } from "./52451.js";
+import { q_ as q, tG, ZI, fX } from "./84629.js";
+export let ep;
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.DownloadFailed = 1)] = "DownloadFailed";
 	e[(e.PlaybackError = 2)] = "PlaybackError";
@@ -35,7 +35,7 @@ export class si {
 	m_nVolume = 1;
 	m_eSeekType = s.lU.Absolute;
 	constructor(e) {
-		(0, a.Gn)(this);
+		Gn(this);
 		this.m_bAutoPlay = !!e;
 	}
 	IsPaused() {
@@ -182,7 +182,7 @@ export class si {
 		this.m_bSeekReadyToPlay = false;
 		this.m_eSeekType = n;
 		const i = `seeking_${t}_${r.toFixed(3)}`;
-		(0, c.q_)(`CGameRecordingVideo:: perf mark ${i}`);
+		q(`CGameRecordingVideo:: perf mark ${i}`);
 		performance.mark(i);
 		this.m_player.Seek(r, this.m_eSeekType);
 		this.m_bPaused = this.m_player.IsPaused();
@@ -225,11 +225,11 @@ export class si {
 		this.m_bVideoElementPlaying = true;
 		this.m_bIsWaiting = false;
 		this.SetPlaybackSpeed(this.m_nPlaybackSpeed);
-		(0, c.tG)("video playing");
+		tG("video playing");
 	}
 	OnVideoPause() {
 		this.m_bVideoElementPlaying = false;
-		(0, c.tG)("video paused");
+		tG("video paused");
 	}
 	OnVideoTimeUpdate() {
 		this.m_nVideoStartTime = this.m_player.GetAvailableVideoStartTime();
@@ -246,10 +246,10 @@ export class si {
 	OnVideoEnd() {
 		this.m_bVideoElementPlaying = false;
 		this.m_bAtEnd = true;
-		(0, c.tG)("video ended");
+		tG("video ended");
 	}
 	OnSeeking() {
-		(0, c.tG)("video on seeking");
+		tG("video on seeking");
 		this.m_bVideoElementPlaying = false;
 		if (this.m_nVideoDuration - this.m_nPlaybackTime < 1) {
 			this.m_bAtEnd = true;
@@ -262,7 +262,7 @@ export class si {
 		this.m_bLoadedMetadata = true;
 	}
 	async OnDownloadFailed() {
-		(0, c.ZI)("video download failed");
+		ZI("video download failed");
 		if (this.m_nDownloadFailureCount < 2) {
 			await this.m_player?.UpdateMPD();
 			this.m_nDownloadFailureCount++;
@@ -274,24 +274,24 @@ export class si {
 		if (typeof e.detail == "string") {
 			this.m_strMediaTypeError = e.detail;
 		}
-		(0, c.ZI)("media type error", e.detail);
+		ZI("media type error", e.detail);
 		this.m_ePlayerError = ep.MediaTypeError;
 	}
 	OnPlaybackError() {
 		this.m_bVideoElementPlaying = false;
-		(0, c.ZI)("video playback error");
+		ZI("video playback error");
 		this.m_ePlayerError = ep.PlaybackError;
 	}
 	OnUserInputNeeded() {
 		this.m_bUserInputNeeded = true;
 		if (!this.m_bMuted && this.m_elVideo.autoplay) {
-			(0, c.fX)("Failed to autoplay video. Muting and trying again.");
+			fX("Failed to autoplay video. Muting and trying again.");
 			this.SetMute(true);
 			this.Play();
 		}
 	}
 	OnVolumeChange() {
-		(0, c.tG)("volume change");
+		tG("volume change");
 	}
 	OnVideoWaiting() {
 		this.m_bIsWaiting = true;
@@ -364,14 +364,14 @@ export class si {
 		this.m_bAtEnd = false;
 		this.m_bSeekReadyToPlay = false;
 		performance.mark(t);
-		(0, c.q_)(`CGameRecordingVideo:: perf mark ${t}`);
-		(0, c.q_)(`CGameRecordingVideo::Seek to ${e}`);
+		q(`CGameRecordingVideo:: perf mark ${t}`);
+		q(`CGameRecordingVideo::Seek to ${e}`);
 		this.m_nPlaybackTime = e;
 		this.m_player.Seek(e, this.m_eSeekType);
 	}
 }
 export function xE(e, t) {
-	return (0, l.QS)(
+	return QS(
 		(r) => {
 			t(r);
 			return () => e();
@@ -405,37 +405,37 @@ function g(e, t) {
 	let n = JSON.stringify(r);
 	window.localStorage.setItem("gameRecordingPlayer", n);
 }
-(0, i.Cg)([a.sH], si.prototype, "m_bInitailized", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bPaused", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bAtEnd", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_strMediaTypeError", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_ePlayerError", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bUserInputNeeded", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bMuted", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bSeekReadyToPlay", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bVideoElementPlaying", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_nPlaybackSpeed", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bIsWaiting", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_bLoadedMetadata", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_nPlaybackTime", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_nVideoStartTime", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_nVideoDuration", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_nVolume", undefined);
-(0, i.Cg)([a.sH], si.prototype, "m_eSeekType", undefined);
-(0, i.Cg)([a.XI], si.prototype, "Start", null);
-(0, i.Cg)([a.XI], si.prototype, "Stop", null);
-(0, i.Cg)([l.oI], si.prototype, "OnCanPlay", null);
-(0, i.Cg)([l.oI], si.prototype, "OnUserPauseChange", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVideoPlaying", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVideoPause", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVideoTimeUpdate", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVideoEnd", null);
-(0, i.Cg)([l.oI], si.prototype, "OnSeeking", null);
-(0, i.Cg)([l.oI], si.prototype, "OnLoadedMetadata", null);
-(0, i.Cg)([l.oI], si.prototype, "OnDownloadFailed", null);
-(0, i.Cg)([l.oI], si.prototype, "OnMediaTypeError", null);
-(0, i.Cg)([l.oI], si.prototype, "OnPlaybackError", null);
-(0, i.Cg)([l.oI], si.prototype, "OnUserInputNeeded", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVolumeChange", null);
-(0, i.Cg)([l.oI], si.prototype, "OnVideoWaiting", null);
-(0, i.Cg)([l.oI], si.prototype, "UserInputReceived", null);
+Cg([a.sH], si.prototype, "m_bInitailized", undefined);
+Cg([a.sH], si.prototype, "m_bPaused", undefined);
+Cg([a.sH], si.prototype, "m_bAtEnd", undefined);
+Cg([a.sH], si.prototype, "m_strMediaTypeError", undefined);
+Cg([a.sH], si.prototype, "m_ePlayerError", undefined);
+Cg([a.sH], si.prototype, "m_bUserInputNeeded", undefined);
+Cg([a.sH], si.prototype, "m_bMuted", undefined);
+Cg([a.sH], si.prototype, "m_bSeekReadyToPlay", undefined);
+Cg([a.sH], si.prototype, "m_bVideoElementPlaying", undefined);
+Cg([a.sH], si.prototype, "m_nPlaybackSpeed", undefined);
+Cg([a.sH], si.prototype, "m_bIsWaiting", undefined);
+Cg([a.sH], si.prototype, "m_bLoadedMetadata", undefined);
+Cg([a.sH], si.prototype, "m_nPlaybackTime", undefined);
+Cg([a.sH], si.prototype, "m_nVideoStartTime", undefined);
+Cg([a.sH], si.prototype, "m_nVideoDuration", undefined);
+Cg([a.sH], si.prototype, "m_nVolume", undefined);
+Cg([a.sH], si.prototype, "m_eSeekType", undefined);
+Cg([a.XI], si.prototype, "Start", null);
+Cg([a.XI], si.prototype, "Stop", null);
+Cg([l.oI], si.prototype, "OnCanPlay", null);
+Cg([l.oI], si.prototype, "OnUserPauseChange", null);
+Cg([l.oI], si.prototype, "OnVideoPlaying", null);
+Cg([l.oI], si.prototype, "OnVideoPause", null);
+Cg([l.oI], si.prototype, "OnVideoTimeUpdate", null);
+Cg([l.oI], si.prototype, "OnVideoEnd", null);
+Cg([l.oI], si.prototype, "OnSeeking", null);
+Cg([l.oI], si.prototype, "OnLoadedMetadata", null);
+Cg([l.oI], si.prototype, "OnDownloadFailed", null);
+Cg([l.oI], si.prototype, "OnMediaTypeError", null);
+Cg([l.oI], si.prototype, "OnPlaybackError", null);
+Cg([l.oI], si.prototype, "OnUserInputNeeded", null);
+Cg([l.oI], si.prototype, "OnVolumeChange", null);
+Cg([l.oI], si.prototype, "OnVideoWaiting", null);
+Cg([l.oI], si.prototype, "UserInputReceived", null);

@@ -1,62 +1,62 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./41230.js");
-var l = require(/*webcrack:missing*/ "./68120.js");
-var c = require("./64608.js");
-var m = require("./10606.js");
 import {
 	Localize,
 	LocalizeReact,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require("./96593.js");
-var p = require("./73317.js");
-var g = require("./26271.js");
-var h = require("./4584.js");
-var C = require("./34428.js");
-var _ = require(/*webcrack:missing*/ "./90765.js");
-var f = require("./30496.js");
 import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization/datetime.js";
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var S = require("./13656.js");
-var w = require("./19731.js");
-var B = require("./49206.js");
-var v = require(/*webcrack:missing*/ "./69164.js");
-var I = require(/*webcrack:missing*/ "./61657.js");
-var E = require("./35488.js");
-var M = require(/*webcrack:missing*/ "./98995.js");
-var T = require(/*webcrack:missing*/ "./31084.js");
-var R = require(/*webcrack:missing*/ "./88750.js");
-var k = require("./13869.js");
-var D = require("./33000.js");
-var N = require("./51095.js");
-var F = require(/*webcrack:missing*/ "./26853.js");
-var G = require(/*webcrack:missing*/ "./24892.js");
-var O = G;
-var P = require("./89279.js");
-var L = P;
-var z = require("./80100.js");
-var x = z;
-var U = require(/*webcrack:missing*/ "./15181.js");
-var W = require("./88769.js");
-var V = require("./24496.js");
-var H = require(/*webcrack:missing*/ "./11131.js");
-var j = require("./78110.js");
-var q = require("./18869.js");
-var Q = require("./13688.js");
-var Z = require(/*webcrack:missing*/ "./42318.js");
-var Y = require(/*webcrack:missing*/ "./43691.js");
-var K = require("./53622.js");
-var X = require("./43014.js");
-var J = require("./91720.js");
-var $ = require("./18057.js");
-var ee = require("./4069.js");
-var te = require(/*webcrack:missing*/ "./49519.js");
-var re = require("./5640.js");
-var ne = require("./28934.js");
+import n, { Cg } from "./34629.js";
+import i, { useContext, useState } from "./63696.js";
+import a from "./52451.js";
+import s, { Gn } from "./89193.js";
+import o from "./41230.js";
+import l from "./68120.js";
+import c from "./64608.js";
+import m from "./10606.js";
+import d, { Qn } from "./72476.js";
+import A, { Co } from "./96593.js";
+import p, { sV, OO, iS } from "./73317.js";
+import g from "./26271.js";
+import h from "./4584.js";
+import C, { dm } from "./34428.js";
+import { A as A_1 } from "./90765.js";
+import f from "./30496.js";
+import S from "./13656.js";
+import w, { Uo } from "./19731.js";
+import B, { P as P_1 } from "./49206.js";
+import v from "./69164.js";
+import I from "./61657.js";
+import E from "./35488.js";
+import M from "./98995.js";
+import T, { lX } from "./31084.js";
+import R from "./88750.js";
+import k, { pg } from "./13869.js";
+import D from "./33000.js";
+import N, { lY } from "./51095.js";
+import F from "./26853.js";
+import G from "./24892.js";
+import P from "./89279.js";
+import z from "./80100.js";
+import U from "./15181.js";
+import W, { Cj } from "./88769.js";
+import V, { De as De_1, VW, V as V_1, Ff, CN } from "./24496.js";
+import { R7 } from "./11131.js";
+import j from "./78110.js";
+import { br } from "./18869.js";
+import Q, { k1 } from "./13688.js";
+import Z from "./42318.js";
+import Y from "./43691.js";
+import K from "./53622.js";
+import X from "./43014.js";
+import { yH, Km, zZ, z as z_1, f5 } from "./91720.js";
+import $ from "./18057.js";
+import { GetEstimatedDiskSpace } from "./4069.js";
+import { W6 } from "./49519.js";
+import { l9 } from "./5640.js";
+import ne from "./28934.js";
+const O = G;
+const L = P;
+const x = z;
 const ie = [
 	L.ItemHeight,
 	L.ItemHeight,
@@ -65,8 +65,8 @@ const ie = [
 	L.FourLineItemHeight,
 ];
 export function f_(e) {
-	const t = (0, Q.k1)();
-	const r = (0, H.R7)();
+	const t = k1();
+	const r = R7();
 	let n = i.createElement(m.o0, {
 		strTitle: (0, Localize)("#ContentManagement_LowDiskSpaceDialog_Title"),
 		strDescription: (0, Localize)(
@@ -77,7 +77,7 @@ export function f_(e) {
 		strOKButtonText: (0, Localize)("#Installer_ManageStorage"),
 		onOK: () => t.Settings("Storage"),
 	});
-	(0, k.pg)(n, r.ownerWindow ?? window);
+	pg(n, r.ownerWindow ?? window);
 }
 export function Xb() {
 	const [e, t] = i.useState(false);
@@ -107,18 +107,19 @@ export function Xb() {
 	);
 }
 function oe(e) {
-	const { rPotentialFolders: t, closeModal: r, fnOnAddFolder: n } = e;
+	const { rPotentialFolders, closeModal, fnOnAddFolder } = e;
 	const [a, s] = i.useState(null);
 	const o = [
-		...t.map((e) => ({
+		...rPotentialFolders.map((e) => ({
 			label: LocalizeReact(
 				"#ContentManagement_AddFolder_AvailableSpace",
 				i.createElement(W.Gc, {
 					folder: e,
 				}),
-				(0, C.dm)(e.nFreeSpace ?? 0, 1),
-				(0, C.dm)(e.nCapacity ?? 0, 1),
+				dm(e.nFreeSpace ?? 0, 1),
+				dm(e.nCapacity ?? 0, 1),
 			),
+
 			data: e.strFolderPath,
 		})),
 		{
@@ -126,7 +127,7 @@ function oe(e) {
 			data: "",
 		},
 	];
-	const [l, d] = i.useState(t[0].strFolderPath);
+	const [l, d] = i.useState(rPotentialFolders[0].strFolderPath);
 	const A = i.useCallback(async () => {
 		try {
 			let e = l;
@@ -141,19 +142,19 @@ function oe(e) {
 				return;
 			}
 			const t = await SteamClient.InstallFolder.AddInstallFolder(e);
-			n(t);
-			r();
+			fnOnAddFolder(t);
+			closeModal();
 		} catch (e) {
 			if (e.result != 52) {
-				s((0, Localize)("#ContentManagement_Error_" + e.message));
+				s((0, Localize)(`#ContentManagement_Error_${e.message}`));
 			}
 		}
-	}, [s, n, r, l]);
+	}, [s, fnOnAddFolder, closeModal, l]);
 	return i.createElement(
 		m.eV,
 		{
 			className: L.SaveCollectionContainer,
-			onCancel: r,
+			onCancel: closeModal,
 		},
 		i.createElement(
 			c.Y9,
@@ -178,7 +179,7 @@ function oe(e) {
 				c.wi,
 				null,
 				i.createElement(c.CB, {
-					onCancel: r,
+					onCancel: closeModal,
 					onOK: A,
 					strOKText: (0, Localize)("#ContentManagement_AddFolder_OK"),
 				}),
@@ -190,7 +191,7 @@ let le = class extends i.Component {
 	m_strLabelName = "";
 	constructor(e) {
 		super(e);
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_strLabelName = e.drive.strUserLabel;
 	}
 	onTextChanged(e) {
@@ -250,15 +251,15 @@ let le = class extends i.Component {
 		);
 	}
 };
-(0, n.Cg)([s.sH], le.prototype, "m_strLabelName", undefined);
-(0, n.Cg)([a.oI], le.prototype, "onTextChanged", null);
-(0, n.Cg)([a.oI], le.prototype, "onSaveLabel", null);
-le = (0, n.Cg)([o.PA], le);
+Cg([s.sH], le.prototype, "m_strLabelName", undefined);
+Cg([a.oI], le.prototype, "onTextChanged", null);
+Cg([a.oI], le.prototype, "onSaveLabel", null);
+le = Cg([o.PA], le);
 let ce = class extends i.Component {
 	m_State = "Starting";
 	constructor(e) {
 		super(e);
-		(0, s.Gn)(this);
+		Gn(this);
 		SteamClient.InstallFolder.RegisterForRepairFolderFinished(
 			this.OnRepairFolderFinished,
 		);
@@ -327,21 +328,21 @@ let ce = class extends i.Component {
 function me(e, t, r) {
 	if (t == 5) {
 		e.sort(
-			(function (e) {
+			((e) => {
 				let t = e ? 1 : -1;
 				return (e, r) => t * (e.rtLastPlayed - r.rtLastPlayed);
 			})(r),
 		);
 	} else if (t == 1) {
 		e.sort(
-			(function (e) {
+			((e) => {
 				let t = e ? 1 : -1;
-				return (e, r) => t * (0, N.lY)(e.strSortAs, r.strSortAs);
+				return (e, r) => t * lY(e.strSortAs, r.strSortAs);
 			})(r),
 		);
 	} else {
 		e.sort(
-			(function (e) {
+			((e) => {
 				let t = e ? 1 : -1;
 				return (e, r) => t * (r.nUsedSize - e.nUsedSize);
 			})(r),
@@ -375,15 +376,15 @@ function ue(e) {
 	});
 }
 function de(e) {
-	const { folder: t, closeModal: r } = e;
-	const n = (0, H.R7)().ownerWindow ?? window;
-	const a = (0, W.Cj)(t);
+	const { folder, closeModal } = e;
+	const n = R7().ownerWindow ?? window;
+	const a = Cj(folder);
 	const s = i.useCallback(async () => {
 		try {
 			await SteamClient.InstallFolder.RemoveInstallFolder(t.nFolderIndex);
-			r();
+			closeModal();
 		} catch (e) {
-			r();
+			closeModal();
 			let t = Number(e.message);
 			let a = "Steam";
 			if (t > 7) {
@@ -392,7 +393,7 @@ function de(e) {
 					a = e.display_name;
 				}
 			}
-			(0, k.pg)(
+			pg(
 				i.createElement(m.o0, {
 					bAlertDialog: true,
 					strDescription: (0, Localize)(
@@ -404,7 +405,7 @@ function de(e) {
 				{},
 			);
 		}
-	}, [t, n, r]);
+	}, [folder, n, closeModal]);
 	return i.createElement(m.o0, {
 		strTitle: (0, Localize)("#ContentManagement_RemoveDrive_ConfirmTitle"),
 		strDescription: (0, Localize)(
@@ -412,33 +413,35 @@ function de(e) {
 			a,
 		),
 		onOK: () => s(),
-		onCancel: () => r(),
+		onCancel: () => closeModal(),
 	});
 }
 function Ae(e) {
-	const { folder: t, fnEject: r, fnFormat: n } = e;
-	const a = (0, V.De)();
-	const s = r !== null && a;
-	const o = (0, V.VW)();
-	const l = n !== null && o;
-	const c = t.nFolderIndex == 0;
-	const m = t.bIsMounted;
-	const d = t.bIsDefaultFolder;
-	t.bIsFixed;
-	if (t.vecApps.length == 0) {
-		t.nFolderIndex;
+	const { folder, fnEject, fnFormat } = e;
+	const a = De_1();
+	const s = fnEject !== null && a;
+	const o = VW();
+	const l = fnFormat !== null && o;
+	const c = folder.nFolderIndex == 0;
+
+	const { bIsMounted, bIsDefaultFolder, bIsFixed } = folder;
+
+	if (folder.vecApps.length == 0) {
+		folder.nFolderIndex;
 	}
 	const A = !Y.TS.IN_GAMESCOPE;
 	return i.createElement(
 		R.tz,
 		null,
-		m &&
-			!d &&
+		bIsMounted &&
+			!bIsDefaultFolder &&
 			i.createElement(
 				R.kt,
 				{
 					onSelected: () =>
-						SteamClient.InstallFolder.SetDefaultInstallFolder(t.nFolderIndex),
+						SteamClient.InstallFolder.SetDefaultInstallFolder(
+							folder.nFolderIndex,
+						),
 				},
 				(0, Localize)("#ContentManagement_MakeDefault"),
 			),
@@ -447,7 +450,7 @@ function Ae(e) {
 			i.createElement(
 				R.kt,
 				{
-					onSelected: (e) => r(e),
+					onSelected: (e) => fnEject(e),
 				},
 				(0, Localize)("#ContentManagement_Unmount"),
 			),
@@ -456,21 +459,21 @@ function Ae(e) {
 			i.createElement(
 				R.kt,
 				{
-					onSelected: (e) => n(e),
+					onSelected: (e) => fnFormat(e),
 				},
 				(0, Localize)("#ContentManagement_FormatDrive"),
 			),
 		A &&
-			m &&
+			bIsMounted &&
 			i.createElement(
 				R.kt,
 				{
 					onSelected: () =>
-						SteamClient.InstallFolder.BrowseFilesInFolder(t.nFolderIndex),
+						SteamClient.InstallFolder.BrowseFilesInFolder(folder.nFolderIndex),
 				},
 				(0, Localize)("#ContentManagement_BrowseFolder"),
 			),
-		!m &&
+		!bIsMounted &&
 			i.createElement(
 				R.kt,
 				{
@@ -478,14 +481,14 @@ function Ae(e) {
 				},
 				(0, Localize)("#ContentManagement_RefreshDrive"),
 			),
-		m &&
+		bIsMounted &&
 			i.createElement(
 				R.kt,
 				{
 					onSelected: (e) =>
-						(function (e, t) {
+						((e, t) => {
 							const r = GetOwningWindowForEvent(e);
-							(0, k.pg)(
+							pg(
 								i.createElement(ce, {
 									drive: t,
 								}),
@@ -494,51 +497,51 @@ function Ae(e) {
 									bNeverPopOut: true,
 								},
 							);
-						})(e, t),
+						})(e, folder),
 				},
 				(0, Localize)("#ContentManagement_RepairFolder"),
 			),
-		m &&
+		bIsMounted &&
 			i.createElement(
 				R.kt,
 				{
 					onSelected: (e) =>
-						(function (e, t) {
+						((e, t) => {
 							const r = GetOwningWindowForEvent(e);
-							(0, k.pg)(
+							pg(
 								i.createElement(le, {
 									drive: t,
 								}),
 								r,
 								{},
 							);
-						})(e, t),
+						})(e, folder),
 				},
 				(0, Localize)("#ContentManagement_RenameDrive"),
 			),
-		m &&
+		bIsMounted &&
 			!c &&
 			i.createElement(
 				R.kt,
 				{
 					onSelected: (e) =>
-						(function (e, t) {
+						((e, t) => {
 							const r = GetOwningWindowForEvent(e);
-							(0, k.pg)(
+							pg(
 								i.createElement(de, {
 									folder: t,
 								}),
 								r,
 								{},
 							);
-						})(e, t),
+						})(e, folder),
 				},
 				(0, Localize)("#ContentManagement_RemoveDrive"),
 			),
 	);
 }
 function pe(e, t, r, n) {
-	(0, T.lX)(
+	lX(
 		i.createElement(Ae, {
 			folder: t,
 			fnEject: r,
@@ -549,20 +552,20 @@ function pe(e, t, r, n) {
 			bFitToWindow: true,
 			bOverlapHorizontal: true,
 			bOverlapVertical: false,
-			strClassName: (0, _.A)(O.contextMenu, x.LibraryContextMenu),
+			strClassName: A_1(O.contextMenu, x.LibraryContextMenu),
 		},
 	);
 }
 function ge(e) {
-	const { folder: t } = e;
-	const r = (0, d.Qn)();
+	const { folder } = e;
+	const r = Qn();
 	const n = i.useCallback(
 		(e) => {
-			pe(e, t);
+			pe(e, folder);
 		},
-		[t],
+		[folder],
 	);
-	if (t) {
+	if (folder) {
 		if (r) {
 			return null;
 		} else {
@@ -604,14 +607,14 @@ function he(e) {
 	);
 }
 function Ce(e) {
-	const { backend: t } = e;
+	const { backend } = e;
 	const [r, n] = ve();
-	const a = t.folder;
-	const s = t.nId == r;
-	const o = a.bIsDefaultFolder;
-	const l = (0, V.V)(a.strFolderPath);
+	const t_folder = backend.folder;
+	const s = backend.nId == r;
+	const t_folder_bIsDefaultFolder = t_folder.bIsDefaultFolder;
+	const l = V_1(t_folder.strFolderPath);
 	const c = l?.is_unmounting || false;
-	const m = Be(t);
+	const m = Be(backend);
 	const d = l?.drive_id;
 	const A = {
 		[I.pR.SECONDARY]: (0, Localize)("#ContentManagement_MakeDefault"),
@@ -621,7 +624,7 @@ function Ce(e) {
 		async (e) => {
 			const t = await V._r.Unmount(l.id);
 			if (t != 1) {
-				(0, k.pg)(
+				pg(
 					i.createElement(ue, {
 						eResult: t,
 					}),
@@ -640,33 +643,37 @@ function Ce(e) {
 	const h = i.useCallback(
 		async (e) => {
 			switch (e.detail.button) {
-				case I.pR.SECONDARY:
-					SteamClient.InstallFolder.SetDefaultInstallFolder(a.nFolderIndex);
+				case I.pR.SECONDARY: {
+					SteamClient.InstallFolder.SetDefaultInstallFolder(
+						t_folder.nFolderIndex,
+					);
 					e.stopPropagation();
 					break;
-				case I.pR.OPTIONS:
-					pe(e, a, p, d ? g : null);
+				}
+				case I.pR.OPTIONS: {
+					pe(e, t_folder, p, d ? g : null);
 					e.stopPropagation();
+				}
 			}
 		},
-		[a, p, g, d],
+		[t_folder, p, g, d],
 	);
 	const f = i.useCallback(() => {
-		n(t.nId);
-	}, [t, n]);
+		n(backend.nId);
+	}, [backend, n]);
 	return i.createElement(
 		v.Z,
 		{
 			noFocusRing: true,
 			focusable: true,
-			className: (0, _.A)(L.InstallFolder, s && L.IsSelected),
+			className: A_1(L.InstallFolder, s && L.IsSelected),
 			actionDescriptionMap: A,
 			onFocus: f,
 			onActivate: f,
 			onButtonDown: (e) => h(e),
 		},
 		i.createElement(W.EE, {
-			folder: a,
+			folder: t_folder,
 			bProcessing: c,
 		}),
 		i.createElement(
@@ -680,7 +687,7 @@ function Ce(e) {
 					className: L.DriveName,
 				},
 				m,
-				o && i.createElement(E.Star, null),
+				t_folder_bIsDefaultFolder && i.createElement(E.Star, null),
 			),
 			i.createElement(
 				"div",
@@ -689,8 +696,8 @@ function Ce(e) {
 				},
 				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
-					(0, C.dm)(a.nFreeSpace, 1),
-					(0, C.dm)(a.nCapacity, 1),
+					dm(t_folder.nFreeSpace, 1),
+					dm(t_folder.nCapacity, 1),
 				),
 				" ",
 			),
@@ -698,49 +705,49 @@ function Ce(e) {
 	);
 }
 function _e(e) {
-	const { drive: t } = e;
-	if (t.adopt_stage != 1) {
+	const { drive } = e;
+	if (drive.adopt_stage != 1) {
 		return i.createElement(E.Spinner, null);
-	} else if (t.is_ejectable) {
+	} else if (drive.is_ejectable) {
 		return i.createElement(E.SdCard, null);
 	} else {
 		return i.createElement(E.HardDrive, null);
 	}
 }
 function fe(e) {
-	const { backend: t } = e;
+	const { backend } = e;
 	const [r, n] = ve();
-	const a = Be(t);
-	const s = t.drive;
-	const o = t.nId == r;
+	const a = Be(backend);
+	const t_drive = backend.drive;
+	const o = backend.nId == r;
 	const l = i.useCallback(() => {
-		n(t.nId);
-	}, [t, n]);
+		n(backend.nId);
+	}, [backend, n]);
 	const c = {
 		[I.pR.OPTIONS]: (0, Localize)("#ContentManagement_Format"),
 	};
 	const m = i.useCallback(
 		async (e) => {
 			if (e.detail.button === I.pR.OPTIONS) {
-				Oe(a, s.id, GetOwningWindowForEvent(e));
+				Oe(a, t_drive.id, GetOwningWindowForEvent(e));
 				e.stopPropagation();
 			}
 		},
-		[s, a],
+		[t_drive, a],
 	);
 	return i.createElement(
 		v.Z,
 		{
 			noFocusRing: true,
 			focusable: true,
-			className: (0, _.A)(L.InstallFolder, o && L.IsSelected),
+			className: A_1(L.InstallFolder, o && L.IsSelected),
 			onFocus: l,
 			onActivate: l,
 			actionDescriptionMap: c,
 			onButtonDown: (e) => m(e),
 		},
 		i.createElement(_e, {
-			drive: s,
+			drive: t_drive,
 		}),
 		i.createElement(
 			"div",
@@ -761,8 +768,8 @@ function fe(e) {
 				},
 				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
-					(0, C.dm)(Number(s.size_bytes), 1),
-					(0, C.dm)(Number(s.size_bytes), 1),
+					dm(Number(t_drive.size_bytes), 1),
+					dm(Number(t_drive.size_bytes), 1),
 				),
 				" ",
 			),
@@ -773,7 +780,7 @@ async function be(e, t) {
 	const r = GetOwningWindowForEvent(e);
 	const n = await SteamClient.InstallFolder.GetPotentialFolders();
 	if (n.length > 0) {
-		(0, k.pg)(
+		pg(
 			i.createElement(oe, {
 				rPotentialFolders: n,
 				fnOnAddFolder: t,
@@ -791,9 +798,9 @@ async function be(e, t) {
 		}
 	}
 }
-(0, n.Cg)([s.sH], ce.prototype, "m_State", undefined);
-(0, n.Cg)([s.XI.bound], ce.prototype, "OnRepairFolderFinished", null);
-ce = (0, n.Cg)([o.PA], ce);
+Cg([s.sH], ce.prototype, "m_State", undefined);
+Cg([s.XI.bound], ce.prototype, "OnRepairFolderFinished", null);
+ce = Cg([o.PA], ce);
 class ye {
 	constructor(e, t) {
 		this.m_nId = e;
@@ -835,9 +842,9 @@ class Se {
 	m_drive = null;
 }
 function we() {
-	const e = (0, p.sV)();
-	const t = (0, V.Ff)();
-	const r = (0, V.VW)();
+	const e = sV();
+	const t = Ff();
+	const r = VW();
 	let n = [];
 	let i = [];
 	for (const t of e) {
@@ -846,18 +853,18 @@ function we() {
 	}
 	if (r && t) {
 		for (const e of t) {
-			let t = e.id;
-			while (i.indexOf(t) >= 0) {
-				t++;
+			let e_id = e.id;
+			while (i.includes(e_id)) {
+				e_id++;
 			}
-			i.push(t);
-			n.push(new Se(t, e));
+			i.push(e_id);
+			n.push(new Se(e_id, e));
 		}
 	}
 	return n;
 }
 function Be(e) {
-	const t = (0, W.Cj)(e?.folder);
+	const t = Cj(e?.folder);
 	if (t !== null) {
 		return t;
 	} else {
@@ -865,14 +872,14 @@ function Be(e) {
 	}
 }
 function ve() {
-	const e = (0, i.useContext)(Ue);
+	const e = useContext(UeContext);
 	return [e.nActiveStorageBackendId, e.fnSetActiveStorageBackend];
 }
 function Ie() {
-	return (0, p.OO)()?.nFolderIndex;
+	return OO()?.nFolderIndex;
 }
 function Ee(e) {
-	if ((0, d.Qn)()) {
+	if (Qn()) {
 		return i.createElement(Me, {
 			...e,
 		});
@@ -883,7 +890,7 @@ function Ee(e) {
 	}
 }
 function Me(e) {
-	const t = (0, d.Qn)();
+	const t = Qn();
 	const r = we();
 	const [n, a] = ve();
 	const s = i.useCallback(
@@ -927,7 +934,7 @@ function Me(e) {
 						v.Z,
 						{
 							focusable: true,
-							className: (0, _.A)(L.InstallFolder, L.AddFolder),
+							className: A_1(L.InstallFolder, L.AddFolder),
 							onClick: (e) => be(e, s),
 						},
 						i.createElement(E.AddContained, null),
@@ -944,6 +951,7 @@ function Te(e) {
 				backend: e,
 				bSelected: r === e.nId,
 			}),
+
 			data: e.nId,
 		})),
 		{
@@ -977,7 +985,7 @@ function Te(e) {
 	return i.createElement(
 		"div",
 		{
-			className: (0, _.A)(L.DriveDropdownControl, L.TopMargin),
+			className: A_1(L.DriveDropdownControl, L.TopMargin),
 		},
 		i.createElement(c.ZU, {
 			rgOptions: a,
@@ -988,19 +996,19 @@ function Te(e) {
 	);
 }
 function Re(e) {
-	const { backend: t, bSelected: r } = e;
-	const n = t.folder;
-	if (n) {
+	const { backend, bSelected } = e;
+	const t_folder = backend.folder;
+	if (t_folder) {
 		return i.createElement(
 			"div",
 			{
-				className: (0, _.A)(
+				className: A_1(
 					L.InstallDropdownOption,
-					r && L.IsSelectedDropdownOption,
+					bSelected && L.IsSelectedDropdownOption,
 				),
 			},
 			i.createElement(W.EE, {
-				folder: n,
+				folder: t_folder,
 			}),
 			i.createElement(
 				"div",
@@ -1008,7 +1016,7 @@ function Re(e) {
 					className: L.DriveName,
 				},
 				i.createElement(W.Gc, {
-					folder: n,
+					folder: t_folder,
 				}),
 				i.createElement(
 					M.he,
@@ -1016,7 +1024,7 @@ function Re(e) {
 						direction: "bottom",
 						toolTipContent: (0, Localize)("#ContentManagement_DefaultDrive"),
 					},
-					n.bIsDefaultFolder && i.createElement(E.Star, null),
+					t_folder.bIsDefaultFolder && i.createElement(E.Star, null),
 				),
 			),
 			i.createElement(
@@ -1026,8 +1034,8 @@ function Re(e) {
 				},
 				(0, Localize)(
 					"#ContentManagement_SpaceFreeOf",
-					(0, C.dm)(n.nFreeSpace, 1),
-					(0, C.dm)(n.nCapacity, 1),
+					dm(t_folder.nFreeSpace, 1),
+					dm(t_folder.nCapacity, 1),
 				),
 				" ",
 			),
@@ -1037,39 +1045,40 @@ function Re(e) {
 	}
 }
 function ke(e) {
-	const { backend: t } = e;
-	const r = Be(t);
+	const { backend } = e;
+	const r = Be(backend);
 	const [n, a] = i.useState(0);
 	SteamClient.Screenshots.GetTotalDiskSpaceUsage(
-		t?.folder?.strFolderPath,
+		backend?.folder?.strFolderPath,
 	)?.then((e) => a(e));
-	const s = (0, J.yH)(t?.folder?.strFolderPath, true);
-	const o = (0, J.yH)(t?.folder?.strFolderPath, false);
-	if (!t) {
+	const s = yH(backend?.folder?.strFolderPath, true);
+	const o = yH(backend?.folder?.strFolderPath, false);
+	if (!backend) {
 		return null;
 	}
-	const l = t.folder;
-	const c = l ? l.strFolderPath : r;
-	const m = t.nCapacity;
-	const d = l ? l.nFreeSpace : t.nCapacity;
-	const A = l ? l.nUsedSize : 0;
-	const p = l ? l.nDLCSize : 0;
-	const g = l ? l.nStagedSize : 0;
-	const h = l ? l.nWorkshopSize : 0;
-	const f = l ? l.nShaderSize : 0;
+
+	const { folder, nCapacity } = backend;
+
+	const c = folder ? folder.strFolderPath : r;
+	const d = folder ? folder.nFreeSpace : backend.nCapacity;
+	const A = folder ? folder.nUsedSize : 0;
+	const p = folder ? folder.nDLCSize : 0;
+	const g = folder ? folder.nStagedSize : 0;
+	const h = folder ? folder.nWorkshopSize : 0;
+	const f = folder ? folder.nShaderSize : 0;
 	const b = s + o + n;
-	const y = l ? l.nAppSize : 0;
-	let S = m - A - g - d;
+	const y = folder ? folder.nAppSize : 0;
+	let S = nCapacity - A - g - d;
 	if (S < 0) {
 		S = 0;
 	}
-	const w = (y * 100) / m;
-	const B = (p * 100) / m;
-	const v = (h * 100) / m;
-	const I = (S * 100) / m;
-	const T = (g * 100) / m;
-	const R = (f * 100) / m;
-	const k = (b * 100) / m;
+	const w = (y * 100) / nCapacity;
+	const B = (p * 100) / nCapacity;
+	const v = (h * 100) / nCapacity;
+	const I = (S * 100) / nCapacity;
+	const T = (g * 100) / nCapacity;
+	const R = (f * 100) / nCapacity;
+	const k = (b * 100) / nCapacity;
 	return i.createElement(
 		"div",
 		{
@@ -1090,47 +1099,47 @@ function ke(e) {
 				className: L.DriveUsageIndicator,
 			},
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageGames),
+				className: A_1(L.DriveUsageBar, L.DriveUsageGames),
 				style: {
-					width: w + "%",
+					width: `${w}%`,
 				},
 			}),
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageDLC),
+				className: A_1(L.DriveUsageBar, L.DriveUsageDLC),
 				style: {
-					width: B + "%",
+					width: `${B}%`,
 				},
 			}),
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageWorkshop),
+				className: A_1(L.DriveUsageBar, L.DriveUsageWorkshop),
 				style: {
-					width: v + "%",
+					width: `${v}%`,
 				},
 			}),
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageUpdates),
+				className: A_1(L.DriveUsageBar, L.DriveUsageUpdates),
 				style: {
-					width: T + "%",
+					width: `${T}%`,
 				},
 			}),
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageShader),
+				className: A_1(L.DriveUsageBar, L.DriveUsageShader),
 				style: {
-					width: R + "%",
+					width: `${R}%`,
 				},
 			}),
 			i.createElement("div", {
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageMedia),
+				className: A_1(L.DriveUsageBar, L.DriveUsageMedia),
 				style: {
-					width: k + "%",
+					width: `${k}%`,
 				},
 			}),
 			i.createElement(M.m9, {
 				toolTipContent: i.createElement(he, null),
 				direction: "top",
-				className: (0, _.A)(L.DriveUsageBar, L.DriveUsageOther),
+				className: A_1(L.DriveUsageBar, L.DriveUsageOther),
 				style: {
-					width: I + "%",
+					width: `${I}%`,
 				},
 			}),
 		),
@@ -1146,7 +1155,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageGames),
+						className: A_1(L.DriveUsageDot, L.DriveUsageGames),
 					}),
 					i.createElement(
 						"span",
@@ -1163,7 +1172,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(y, 2),
+						dm(y, 2),
 						" ",
 					),
 				),
@@ -1174,7 +1183,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageDLC),
+						className: A_1(L.DriveUsageDot, L.DriveUsageDLC),
 					}),
 					i.createElement(
 						"span",
@@ -1191,7 +1200,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(p, 2),
+						dm(p, 2),
 						" ",
 					),
 				),
@@ -1202,7 +1211,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageWorkshop),
+						className: A_1(L.DriveUsageDot, L.DriveUsageWorkshop),
 					}),
 					i.createElement(
 						"span",
@@ -1219,7 +1228,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(h, 2),
+						dm(h, 2),
 						" ",
 					),
 				),
@@ -1230,7 +1239,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageUpdates),
+						className: A_1(L.DriveUsageDot, L.DriveUsageUpdates),
 					}),
 					i.createElement(
 						"span",
@@ -1247,7 +1256,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(g, 2),
+						dm(g, 2),
 						" ",
 					),
 				),
@@ -1258,7 +1267,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageShader),
+						className: A_1(L.DriveUsageDot, L.DriveUsageShader),
 					}),
 					i.createElement(
 						"span",
@@ -1275,7 +1284,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(f, 2),
+						dm(f, 2),
 						" ",
 					),
 				),
@@ -1286,7 +1295,7 @@ function ke(e) {
 						className: L.AppUsageItem,
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageMedia),
+						className: A_1(L.DriveUsageDot, L.DriveUsageMedia),
 					}),
 					i.createElement(
 						"span",
@@ -1303,7 +1312,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(b, 2),
+						dm(b, 2),
 						" ",
 					),
 				),
@@ -1316,7 +1325,7 @@ function ke(e) {
 						direction: "top",
 					},
 					i.createElement("span", {
-						className: (0, _.A)(L.DriveUsageDot, L.DriveUsageOtherDot),
+						className: A_1(L.DriveUsageDot, L.DriveUsageOtherDot),
 					}),
 					i.createElement(
 						"span",
@@ -1340,7 +1349,7 @@ function ke(e) {
 							className: L.DriveUsageNumber,
 						},
 						" ",
-						(0, C.dm)(S, 2),
+						dm(S, 2),
 						" ",
 					),
 				),
@@ -1350,7 +1359,7 @@ function ke(e) {
 					className: L.AppUsageItem,
 				},
 				i.createElement("span", {
-					className: (0, _.A)(L.DriveUsageDot, L.DriveUsageFreeSpace),
+					className: A_1(L.DriveUsageDot, L.DriveUsageFreeSpace),
 				}),
 				i.createElement(
 					"span",
@@ -1367,7 +1376,7 @@ function ke(e) {
 						className: L.DriveUsageNumber,
 					},
 					" ",
-					(0, C.dm)(d, 2),
+					dm(d, 2),
 					" ",
 				),
 			),
@@ -1375,17 +1384,17 @@ function ke(e) {
 	);
 }
 function De(e) {
-	const { folder: t } = e;
+	const { folder } = e;
 	const [r, n] = i.useState(true);
 	const [a, s] = i.useState(8);
 	const o = i.useCallback((e) => {
 		s(e);
 		n(e != 5);
 	}, []);
-	const c = (0, d.Qn)();
-	let m = (function (e) {
-		const t = (0, J.yH)(e?.strFolderPath, true);
-		let r = (0, ee.GetEstimatedDiskSpace)();
+	const c = Qn();
+	let m = ((e) => {
+		const t = yH(e?.strFolderPath, true);
+		let r = GetEstimatedDiskSpace();
 		const [n, a] = i.useState(0);
 		SteamClient.Screenshots.GetTotalDiskSpaceUsage(e?.strFolderPath)?.then(
 			(e) => a(e),
@@ -1394,14 +1403,14 @@ function De(e) {
 		SteamClient.Screenshots.GetAllAppsLocalScreenshotsCount()?.then((e) =>
 			o(e),
 		);
-		const l = (0, J.yH)(e?.strFolderPath, false);
-		const c = (0, J.Km)().rgClipHandles?.length ?? 0;
+		const l = yH(e?.strFolderPath, false);
+		const c = Km().rgClipHandles?.length ?? 0;
 		return i.useMemo(() => {
 			let e = [];
 			if (t > 0) {
 				e.push({
 					specialSection: 2,
-					iconURL: (0, J.zZ)(0),
+					iconURL: zZ(0),
 					nAppID: 0,
 					strAppName: (0, Localize)("#ContentManagement_BR"),
 					strSortAs: (0, Localize)("#ContentManagement_BR"),
@@ -1417,7 +1426,7 @@ function De(e) {
 			if (l > 0) {
 				e.push({
 					specialSection: 3,
-					iconURL: (0, J.zZ)(1),
+					iconURL: zZ(1),
 					nAppID: 0,
 					strAppName: (0, Localize)("#ContentManagement_Clips"),
 					strSortAs: (0, Localize)("#ContentManagement_Clips"),
@@ -1433,7 +1442,7 @@ function De(e) {
 			if (n > 0) {
 				e.push({
 					specialSection: 4,
-					iconURL: (0, J.zZ)(2),
+					iconURL: zZ(2),
 					nAppID: 0,
 					strAppName: (0, Localize)("#ContentManagement_Screenshots"),
 					strSortAs: (0, Localize)("#ContentManagement_Screenshots"),
@@ -1448,11 +1457,11 @@ function De(e) {
 			}
 			return e;
 		}, [t, l, c, r, n, s]);
-	})(t);
-	if (!t) {
+	})(folder);
+	if (!folder) {
 		return null;
 	}
-	let p = t.vecApps.filter((e) => !!A.tw.GetAppOverviewByAppID(e?.nAppID));
+	let p = folder.vecApps.filter((e) => !!A.tw.GetAppOverviewByAppID(e?.nAppID));
 	p.push(...m);
 	me(p, a, r);
 	const g = p.length > 500;
@@ -1481,7 +1490,7 @@ function De(e) {
 							className: L.AppHeaderValue,
 						},
 						" ",
-						t.vecApps.length,
+						folder.vecApps.length,
 						" ",
 					),
 					i.createElement("div", {
@@ -1514,11 +1523,11 @@ function De(e) {
 					className: L.LibraryInventory,
 					onMoveUp: U.W7,
 				},
-				i.createElement(l.t$, null, ({ width: e, height: r }) =>
+				i.createElement(l.t$, null, ({ width, height }) =>
 					i.createElement(l.B8, {
 						className: L.AppList,
 						rowHeight: (e) =>
-							(function (e, t) {
+							((e, t) => {
 								let r = 0;
 								if (!t) {
 									if (e?.nWorkshopSize > 0) {
@@ -1537,22 +1546,22 @@ function De(e) {
 								return parseInt(ie[r]);
 							})(p[e.index], c),
 						rowCount: p.length,
-						width: e,
-						height: r,
+						width: width,
+						height: height,
 						rowRenderer: (e) =>
 							p[e.index]?.specialSection
 								? i.createElement(xe, {
 										key: e.key,
 										app: p[e.index],
 										style: e.style,
-										folder: t,
+										folder: folder,
 										bShowImage: !g,
 									})
 								: i.createElement(ze, {
 										key: e.key,
 										app: p[e.index],
 										style: e.style,
-										folder: t,
+										folder: folder,
 										bShowImage: !g,
 									}),
 					}),
@@ -1563,14 +1572,14 @@ function De(e) {
 	);
 }
 function Ne(e) {
-	const { backend: t } = e;
-	if (t?.folder) {
+	const { backend } = e;
+	if (backend?.folder) {
 		return i.createElement(De, {
-			folder: t?.folder,
+			folder: backend?.folder,
 		});
-	} else if (t?.drive) {
+	} else if (backend?.drive) {
 		return i.createElement(Pe, {
-			backend: t,
+			backend: backend,
 		});
 	} else {
 		return null;
@@ -1603,17 +1612,17 @@ function Fe(e) {
 	});
 }
 function Ge(e) {
-	const { sName: t, nDriveId: r, closeModal: n } = e;
-	const a = (0, V.CN)(r);
-	const s = a?.model ?? t;
+	const { sName, nDriveId, closeModal } = e;
+	const a = CN(nDriveId);
+	const s = a?.model ?? sName;
 	const [o, l] = i.useState(s);
-	const d = (0, H.R7)();
+	const d = R7();
 	const A = a.media_type === 4;
-	const [p, g] = (0, i.useState)(A);
+	const [p, g] = useState(A);
 	const h = i.useCallback(() => {
-		V._r.Adopt(r, o, p).then((e) => {
+		V._r.Adopt(nDriveId, o, p).then((e) => {
 			if (e != 1) {
-				(0, k.pg)(
+				pg(
 					i.createElement(Fe, {
 						eResult: e,
 					}),
@@ -1621,10 +1630,10 @@ function Ge(e) {
 				);
 			}
 		});
-	}, [r, o, d, p]);
+	}, [nDriveId, o, d, p]);
 	const C = i.useCallback(() => {
-		n();
-		(0, k.pg)(
+		closeModal();
+		pg(
 			i.createElement(m.o0, {
 				strTitle: (0, Localize)("#ContentManagement_Format_Title"),
 				strDescription: (0, Localize)("#ContentManagement_Format_Confirm"),
@@ -1632,11 +1641,11 @@ function Ge(e) {
 			}),
 			d.ownerWindow ?? window,
 		);
-	}, [h, d, n]);
+	}, [h, d, closeModal]);
 	return i.createElement(
 		m.eV,
 		{
-			onCancel: n,
+			onCancel: closeModal,
 		},
 		i.createElement(
 			c.Y9,
@@ -1667,7 +1676,7 @@ function Ge(e) {
 				null,
 				i.createElement(c.CB, {
 					onOK: C,
-					onCancel: n,
+					onCancel: closeModal,
 					focusButton: "primary",
 				}),
 			),
@@ -1675,7 +1684,7 @@ function Ge(e) {
 	);
 }
 function Oe(e, t, r) {
-	(0, k.pg)(
+	pg(
 		i.createElement(Ge, {
 			sName: e,
 			nDriveId: t,
@@ -1684,10 +1693,10 @@ function Oe(e, t, r) {
 	);
 }
 function Pe(e) {
-	const { backend: t } = e;
-	const r = t?.drive;
+	const { backend } = e;
+	const r = backend?.drive;
 	if (r) {
-		if (t.folder) {
+		if (backend.folder) {
 			return null;
 		} else {
 			return i.createElement(
@@ -1731,31 +1740,28 @@ function Pe(e) {
 	}
 }
 function Le(e) {
-	const {
-		rSelectedAppIDs: t,
-		nSelectedAppsSize: r,
-		fnClearSelectedApps: n,
-	} = (0, i.useContext)(Ue);
-	const a = t.length;
-	const s = a > 0;
-	const o = (0, p.iS)();
+	const { rSelectedAppIDs, nSelectedAppsSize, fnClearSelectedApps } =
+		useContext(UeContext);
+	const t_length = rSelectedAppIDs.length;
+	const s = t_length > 0;
+	const o = iS();
 	const l = i.useCallback(
 		(e) => {
 			const r = GetOwningWindowForEvent(e);
-			(0, w.Uo)(t, r, false);
-			n();
+			Uo(rSelectedAppIDs, r, false);
+			fnClearSelectedApps();
 		},
-		[t, n],
+		[rSelectedAppIDs, fnClearSelectedApps],
 	);
 	const m = i.useCallback(
 		(e) => {
 			const r = GetOwningWindowForEvent(e);
-			(0, B.P)(t, r);
-			n();
+			P_1(rSelectedAppIDs, r);
+			fnClearSelectedApps();
 		},
-		[n, t],
+		[fnClearSelectedApps, rSelectedAppIDs],
 	);
-	if ((0, d.Qn)()) {
+	if (Qn()) {
 		return null;
 	} else {
 		return i.createElement(
@@ -1772,7 +1778,11 @@ function Le(e) {
 						{
 							className: L.AppActionSelected,
 						},
-						LocalizePlural("#ContentManagement_SelectedApps", a, (0, C.dm)(r)),
+						LocalizePlural(
+							"#ContentManagement_SelectedApps",
+							t_length,
+							dm(nSelectedAppsSize),
+						),
 					),
 			),
 			i.createElement(
@@ -1783,7 +1793,7 @@ function Le(e) {
 				i.createElement(
 					c.$n,
 					{
-						className: (0, _.A)(L.ActionButton, s && L.ActionButtonActive),
+						className: A_1(L.ActionButton, s && L.ActionButtonActive),
 						disabled: !s,
 						onClick: l,
 					},
@@ -1792,7 +1802,7 @@ function Le(e) {
 				i.createElement(
 					c.$n,
 					{
-						className: (0, _.A)(L.ActionButton, s && o && L.ActionButtonActive),
+						className: A_1(L.ActionButton, s && o && L.ActionButtonActive),
 						disabled: !s || !o,
 						onClick: m,
 					},
@@ -1803,11 +1813,11 @@ function Le(e) {
 	}
 }
 function ze(e) {
-	const { app: t, style: r, folder: n, bShowImage: a } = e;
-	const { rSelectedAppIDs: s, fnUpdateSelectedApps: o } = (0, i.useContext)(Ue);
-	const l = (0, d.Qn)();
-	const m = (0, q.br)();
-	const g = (0, p.iS)();
+	const { app, style, folder, bShowImage } = e;
+	const { rSelectedAppIDs, fnUpdateSelectedApps } = useContext(UeContext);
+	const l = Qn();
+	const m = br();
+	const g = iS();
 	let h = {
 		[I.pR.SECONDARY]: (0, Localize)("#ContentManagement_UninstallButton"),
 		[I.pR.OK]: null,
@@ -1815,7 +1825,7 @@ function ze(e) {
 	if (g) {
 		h[I.pR.OPTIONS] = (0, Localize)("#ContentManagement_MoveApps_Title");
 	}
-	const M = (0, A.Co)(t?.nAppID);
+	const M = Co(app?.nAppID);
 	const T = i.useCallback(
 		(e) => {
 			if (!l) {
@@ -1823,69 +1833,71 @@ function ze(e) {
 			}
 			const r = GetOwningWindowForEvent(e);
 			switch (e.detail.button) {
-				case I.pR.SECONDARY:
-					(0, w.Uo)([t?.nAppID], r, false);
+				case I.pR.SECONDARY: {
+					Uo([app?.nAppID], r, false);
 					e.stopPropagation();
 					break;
-				case I.pR.OPTIONS:
+				}
+				case I.pR.OPTIONS: {
 					if (!g) {
 						break;
 					}
-					(0, B.P)([t?.nAppID], r);
+					P_1([app?.nAppID], r);
 					e.stopPropagation();
+				}
 			}
 		},
-		[l, t?.nAppID, g],
+		[l, app?.nAppID, g],
 	);
 	const R = i.useCallback(
 		(e) => {
-			o(e, t?.nAppID, t?.nUsedSize);
+			fnUpdateSelectedApps(e, app?.nAppID, app?.nUsedSize);
 		},
-		[t, o],
+		[app, fnUpdateSelectedApps],
 	);
 	const k = i.useCallback(
 		(e) => {
-			const r = s.includes(t?.nAppID);
+			const r = rSelectedAppIDs.includes(app?.nAppID);
 			R(!r);
 			e.stopPropagation();
 		},
-		[t, s, R],
+		[app, rSelectedAppIDs, R],
 	);
 	const D = i.useCallback(
 		(e) => {
-			m.AppProperties(t?.nAppID, S.ho.Dlc);
+			m.AppProperties(app?.nAppID, S.ho.Dlc);
 			e.stopPropagation();
 		},
-		[t, m],
+		[app, m],
 	);
 	const N = i.useCallback(
 		(e) => {
-			m.AppProperties(t?.nAppID, S.ho.Workshop);
+			m.AppProperties(app?.nAppID, S.ho.Workshop);
 			e.stopPropagation();
 		},
-		[t, m],
+		[app, m],
 	);
 	const F = i.useCallback(
 		(e) => {
-			m.AppProperties(t?.nAppID, S.ho.LocalFiles);
+			m.AppProperties(app?.nAppID, S.ho.LocalFiles);
 			e.stopPropagation();
 		},
-		[t, m],
+		[app, m],
 	);
 	return i.createElement(
 		v.Z,
 		{
 			noFocusRing: true,
 			focusable: true,
-			"data-appid": t?.nAppID,
+			"data-appid": app?.nAppID,
 			className: L.AppBody,
-			style: r,
+			style: style,
 			actionDescriptionMap: h,
 			onClick: k,
 			onButtonDown: T,
 		},
 		M &&
-			a &&
+			bShowImage &&
 			i.createElement(
 				"div",
 				{
@@ -1917,7 +1929,7 @@ function ze(e) {
 						className: L.AppName,
 					},
 					" ",
-					t?.strAppName,
+					app?.strAppName,
 					" ",
 				),
 				i.createElement(
@@ -1925,11 +1937,11 @@ function ze(e) {
 					{
 						className: L.AppInfo,
 					},
-					t?.nDLCSize > 0 &&
+					app?.nDLCSize > 0 &&
 						i.createElement(
 							"div",
 							{
-								className: (0, _.A)(L.AppInfoItem, L.AppUsageLink),
+								className: A_1(L.AppInfoItem, L.AppUsageLink),
 								onClick: D,
 							},
 							i.createElement(E.DLC, null),
@@ -1946,15 +1958,15 @@ function ze(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								(0, C.dm)(t?.nDLCSize, 2),
+								dm(app?.nDLCSize, 2),
 								" ",
 							),
 						),
-					t?.nWorkshopSize > 0 &&
+					app?.nWorkshopSize > 0 &&
 						i.createElement(
 							"div",
 							{
-								className: (0, _.A)(L.AppInfoItem, L.AppUsageLink),
+								className: A_1(L.AppInfoItem, L.AppUsageLink),
 								onClick: N,
 							},
 							i.createElement(E.Workshop, null),
@@ -1971,11 +1983,11 @@ function ze(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								(0, C.dm)(t?.nWorkshopSize, 2),
+								dm(app?.nWorkshopSize, 2),
 								" ",
 							),
 						),
-					t?.nShaderSize > 1048576 &&
+					app?.nShaderSize > 1048576 &&
 						i.createElement(
 							"div",
 							{
@@ -1995,11 +2007,11 @@ function ze(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								(0, C.dm)(t?.nShaderSize, 2),
+								dm(app?.nShaderSize, 2),
 								" ",
 							),
 						),
-					t?.rtLastPlayed != 0 &&
+					app?.rtLastPlayed != 0 &&
 						i.createElement(
 							"div",
 							{
@@ -2019,7 +2031,7 @@ function ze(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								LocalizeRtime32ToShortDate(t?.rtLastPlayed),
+								LocalizeRtime32ToShortDate(app?.rtLastPlayed),
 								" ",
 							),
 						),
@@ -2037,7 +2049,7 @@ function ze(e) {
 							className: L.AppSize,
 							onClick: F,
 						},
-						(0, C.dm)(t?.nUsedSize, 2),
+						dm(app?.nUsedSize, 2),
 					),
 					!l &&
 						i.createElement(
@@ -2046,8 +2058,8 @@ function ze(e) {
 								className: L.AppSelected,
 							},
 							i.createElement(c.Yh, {
-								disabled: !n.bIsMounted,
-								checked: s.includes(t?.nAppID),
+								disabled: !folder.bIsMounted,
+								checked: rSelectedAppIDs.includes(app?.nAppID),
 							}),
 						),
 				),
@@ -2065,53 +2077,60 @@ function ze(e) {
 	);
 }
 function xe(e) {
-	const { app: t, style: r, bShowImage: n } = e;
-	const a = (0, d.Qn)();
-	const s = (0, q.br)();
+	const { app, style, bShowImage } = e;
+	const a = Qn();
+	const s = br();
 	let o = {
 		[I.pR.SECONDARY]:
-			t.specialSection == 2 ? (0, Localize)("#ContentManagement_Delete") : null,
+			app.specialSection == 2
+				? (0, Localize)("#ContentManagement_Delete")
+				: null,
 		[I.pR.OK]: (0, Localize)(
-			t.specialSection == 2
+			app.specialSection == 2
 				? "#ContentManagement_GoToSettings"
 				: "#ContentManagement_Browse",
 		),
 	};
-	const { rgApps: l } = (0, J.z)();
-	const c = (0, te.W6)();
+	const { rgApps } = z_1();
+	const c = W6();
 	const m = i.useCallback(
 		(e) => {
 			if (a) {
 				switch (e.detail.button) {
-					case I.pR.OK:
-						if (t.specialSection == 2) {
+					case I.pR.OK: {
+						if (app.specialSection == 2) {
 							c.push($.BV.Settings.GameRecording());
 						} else {
 							c.push($.BV.Media.Grid());
 						}
 						e.stopPropagation();
 						break;
-					case I.pR.SECONDARY:
-						if (t.specialSection == 2) {
-							(0, J.f5)(l.map((e) => e.game_id));
+					}
+					case I.pR.SECONDARY: {
+						if (app.specialSection == 2) {
+							f5(rgApps.map((e) => e.game_id));
 						}
 						e.stopPropagation();
+					}
 				}
 			}
 		},
-		[a, c, t.specialSection, l],
+		[a, c, app.specialSection, rgApps],
 	);
 	const A = () => {
 		let e;
-		switch (t.specialSection) {
-			case 2:
+		switch (app.specialSection) {
+			case 2: {
 				e = "recording";
 				break;
-			case 3:
+			}
+			case 3: {
 				e = "clip";
 				break;
-			case 4:
+			}
+			case 4: {
 				e = "screenshot";
+			}
 		}
 		s.Media.Grid(
 			e
@@ -2126,27 +2145,29 @@ function xe(e) {
 		);
 	};
 	const p =
-		t.specialSection == 2 ? () => c.replace($.BV.Settings.GameRecording()) : A;
+		app.specialSection == 2
+			? () => c.replace($.BV.Settings.GameRecording())
+			: A;
 	return i.createElement(
 		v.Z,
 		{
 			noFocusRing: true,
 			focusable: true,
-			"data-appid": t?.nAppID,
+			"data-appid": app?.nAppID,
 			className: L.AppBody,
-			style: r,
+			style: style,
 			actionDescriptionMap: o,
 			onButtonDown: m,
 		},
-		n &&
+		bShowImage &&
 			i.createElement(
 				"div",
 				{
-					className: (0, _.A)(L.AppBodyPortrait, L.GRPortrait),
+					className: A_1(L.AppBodyPortrait, L.GRPortrait),
 				},
 				i.createElement("img", {
 					className: L.LandscapeImageContainer,
-					src: t.iconURL,
+					src: app.iconURL,
 					onClick: A,
 				}),
 				i.createElement("div", {
@@ -2169,7 +2190,7 @@ function xe(e) {
 						className: L.AppName,
 					},
 					" ",
-					t?.strAppName,
+					app?.strAppName,
 					" ",
 				),
 				i.createElement(
@@ -2177,11 +2198,11 @@ function xe(e) {
 					{
 						className: L.AppInfo,
 					},
-					t.nDLCSize > 0 &&
+					app.nDLCSize > 0 &&
 						i.createElement(
 							"div",
 							{
-								className: (0, _.A)(L.AppInfoItem, L.AppUsageLink),
+								className: A_1(L.AppInfoItem, L.AppUsageLink),
 								onClick: () => c.replace($.BV.Settings.GameRecording()),
 							},
 							i.createElement(E.Video, null),
@@ -2198,17 +2219,17 @@ function xe(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								(0, C.dm)(t.nDLCSize, {
+								dm(app.nDLCSize, {
 									bUseBinary1K: false,
 								}),
 								" ",
 							),
 						),
-					t.nAppSize > 0 &&
+					app.nAppSize > 0 &&
 						i.createElement(
 							"div",
 							{
-								className: (0, _.A)(L.AppInfoItem, L.AppUsageLink),
+								className: A_1(L.AppInfoItem, L.AppUsageLink),
 								onClick: A,
 							},
 							i.createElement(E.SdCard, null),
@@ -2218,7 +2239,7 @@ function xe(e) {
 									className: L.SpecialSectionText,
 								},
 								(0, Localize)(
-									t.specialSection == 4
+									app.specialSection == 4
 										? "#ContentManagement_ScreenshotCount"
 										: "#ContentManagement_ClipCount",
 								),
@@ -2229,7 +2250,7 @@ function xe(e) {
 									className: L.AppUsageValue,
 								},
 								" ",
-								t.nAppSize,
+								app.nAppSize,
 								" ",
 							),
 						),
@@ -2246,7 +2267,7 @@ function xe(e) {
 						className: L.AppSize,
 						onClick: p,
 					},
-					(0, C.dm)(t?.nUsedSize, 2),
+					dm(app?.nUsedSize, 2),
 				),
 				!a &&
 					i.createElement("div", {
@@ -2256,9 +2277,9 @@ function xe(e) {
 		),
 	);
 }
-const Ue = i.createContext(undefined);
+const UeContext = i.createContext(undefined);
 function We(e) {
-	const { children: t } = e;
+	const { children } = e;
 	const [r, n] = i.useState([]);
 	const [a, s] = i.useState(0);
 	const o = i.useCallback(
@@ -2298,11 +2319,11 @@ function We(e) {
 		[r, a, o, l, m, u],
 	);
 	return i.createElement(
-		Ue.Provider,
+		UeContext.Provider,
 		{
 			value: d,
 		},
-		t,
+		children,
 	);
 }
 function Ve(e) {
@@ -2318,7 +2339,7 @@ function Ve(e) {
 	}
 }
 export function rN(e) {
-	const t = (0, re.l9)(7);
+	const t = l9(7);
 	if (t != 0) {
 		return i.createElement(Ve, {
 			blockReason: t,
@@ -2333,11 +2354,11 @@ export function rN(e) {
 		);
 	}
 }
-const je = i.memo(function (e) {
-	const { bInPagedSettingsDialog: t } = e;
+const je = i.memo((e) => {
+	const { bInPagedSettingsDialog } = e;
 	const r = Ie();
 	const [n, a] = ve();
-	const s = (function () {
+	const s = (() => {
 		const [e] = ve();
 		return we().find((t) => t.nId == e);
 	})();
@@ -2352,13 +2373,13 @@ const je = i.memo(function (e) {
 	return i.createElement(
 		c.nB,
 		{
-			className: (0, _.A)(
+			className: A_1(
 				L.NoScroll,
 				L.ContentManagement,
-				t && L.InPagedSettings,
+				bInPagedSettingsDialog && L.InPagedSettings,
 			),
 		},
-		!t &&
+		!bInPagedSettingsDialog &&
 			i.createElement(
 				"div",
 				{

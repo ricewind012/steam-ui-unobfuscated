@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./96680.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./83599.js");
-var o = require("./94496.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import { $2 } from "./96680.js";
+import { q3 } from "./90095.js";
+import s from "./83599.js";
+import o from "./94496.js";
+import l, { rP } from "./72476.js";
 export const Ad = new s.wd("ToastManager");
 export const a5 = Ad.Debug;
 Ad.Info;
@@ -13,7 +13,7 @@ export function W_(e) {
 	return e.map((e) => e.notificationID);
 }
 export function OU(e) {
-	const t = (0, l.rP)();
+	const t = rP();
 	if (e) {
 		return `(overlay ${e})`;
 	} else if (t.IN_VR) {
@@ -42,51 +42,53 @@ export function $v(e) {
 	return `(${t.join(", ")})`;
 }
 export function hi(e) {
-	const t = (0, i.$2)();
-	let r = (0, a.q3)(() => {
+	const t = $2();
+	let r = q3(() => {
 		if (!e) {
 			return o.iP.GetDefaultMonitorDimensions();
 		}
-		let r = t.params;
+		let t_params = t.params;
 		let n = {
 			m_nLeft: 0,
 			m_nTop: 0,
-			m_nWidth: r.nScreenWidth,
-			m_nHeight: r.nScreenHeight,
+			m_nWidth: t_params.nScreenWidth,
+			m_nHeight: t_params.nScreenHeight,
 		};
 		return {
 			m_usable: n,
 			m_full: n,
-			m_flDPI: r.flDisplayScale,
+			m_flDPI: t_params.flDisplayScale,
 		};
 	});
-	const { m_usable: s, m_full: l, m_flDPI: c } = r;
+	const { m_usable, m_full, m_flDPI } = r;
 	return n.useMemo(
 		() => ({
 			m_usable: {
-				m_nLeft: s.m_nLeft,
-				m_nTop: s.m_nTop,
-				m_nWidth: s.m_nWidth,
-				m_nHeight: s.m_nHeight,
+				m_nLeft: m_usable.m_nLeft,
+				m_nTop: m_usable.m_nTop,
+				m_nWidth: m_usable.m_nWidth,
+				m_nHeight: m_usable.m_nHeight,
 			},
+
 			m_full: {
-				m_nLeft: l.m_nLeft,
-				m_nTop: l.m_nTop,
-				m_nWidth: l.m_nWidth,
-				m_nHeight: l.m_nHeight,
+				m_nLeft: m_full.m_nLeft,
+				m_nTop: m_full.m_nTop,
+				m_nWidth: m_full.m_nWidth,
+				m_nHeight: m_full.m_nHeight,
 			},
-			m_flDPI: c,
+
+			m_flDPI: m_flDPI,
 		}),
 		[
-			s.m_nLeft,
-			s.m_nTop,
-			s.m_nWidth,
-			s.m_nHeight,
-			l.m_nLeft,
-			l.m_nTop,
-			l.m_nWidth,
-			l.m_nHeight,
-			c,
+			m_usable.m_nLeft,
+			m_usable.m_nTop,
+			m_usable.m_nWidth,
+			m_usable.m_nHeight,
+			m_full.m_nLeft,
+			m_full.m_nTop,
+			m_full.m_nWidth,
+			m_full.m_nHeight,
+			m_flDPI,
 		],
 	);
 }

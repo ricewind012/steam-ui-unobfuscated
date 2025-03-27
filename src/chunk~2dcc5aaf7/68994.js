@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	HoverContentTransition: "_3-pnCQRItoLzipK50ezpB4",
 	Opening: "_3A24vhGb2SY4MDBId85Ggr",

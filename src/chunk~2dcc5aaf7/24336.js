@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	miniProfile: "_2QPdq7GZ_03AD1ioPixVXW",
 	miniProfileContent: "_1xTATKELHR-lRS_s3A4yzd",
 	miniProfileHeader: "_3CZcHyWskP9Hc5t7AOo75A",

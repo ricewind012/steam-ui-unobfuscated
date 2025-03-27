@@ -1,148 +1,130 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./35488.js");
-var s = require("./74362.js");
-var o = require(/*webcrack:missing*/ "./85243.js");
-var l = require("./55489.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require("./51943.js");
-var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require("./43933.js");
-var A = d;
 import { Localize } from "../../actual_src/utils/localization.js";
-var g = require("./46422.js");
-var h = require(/*webcrack:missing*/ "./10975.js");
-require(/*webcrack:missing*/ "./43691.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./35488.js";
+import s from "./74362.js";
+import o from "./85243.js";
+import l, { Bx } from "./55489.js";
+import { hL, uN } from "./52451.js";
+import m, { aO, ml, Cu, _t, hn, tQ, xU } from "./51943.js";
+import { A as A_1 } from "./90765.js";
+import d from "./43933.js";
+import g from "./46422.js";
+import h from "./10975.js";
+import "./43691.js";
+const A = d;
 const C = 1000;
 const _ = 1000;
 export function vR(e) {
-	const [t, r] = n.useState(null);
+	const [t, setT] = n.useState(null);
 	const d = n.useCallback(() => {
-		r(undefined);
+		setT(undefined);
 		h.eZ.PlayNavSound(h.PN.VolSound);
 	}, []);
-	const { bKeepVisible: p, fnKeepVisible: g } = (function (e) {
-		const [t, r] = n.useState(false);
-		const i = n.useRef(0);
+	const { bKeepVisible, fnKeepVisible } = ((e) => {
+		const [t, setT_1] = n.useState(false);
+		const IRef = n.useRef(0);
 		const a = n.useCallback(() => {
-			r(true);
-			window.clearTimeout(i.current);
-			i.current = window.setTimeout(() => r(false), e);
+			setT_1(true);
+			window.clearTimeout(IRef.current);
+			IRef.current = window.setTimeout(() => setT_1(false), e);
 		}, [e]);
-		n.useEffect(() => window.clearTimeout(i.current), []);
+		n.useEffect(() => window.clearTimeout(IRef.current), []);
 		return {
 			bKeepVisible: t,
 			fnKeepVisible: a,
 		};
 	})(C);
-	const f = (0, m.aO)();
+	const f = aO();
 	const b = n.useCallback(() => {
 		if (!f) {
-			g();
+			fnKeepVisible();
 		}
-	}, [f, g]);
-	const y = (0, m.ml)(s.T4.Output);
-	(0, c.hL)(y?.m_VolumeChangedSubscribable, b);
-	(0, c.hL)(m.F5.m_VolumePressedSubscribable, b);
-	const S = p || t != null;
+	}, [f, fnKeepVisible]);
+	const y = ml(s.T4.Output);
+	hL(y?.m_VolumeChangedSubscribable, b);
+	hL(m.F5.m_VolumePressedSubscribable, b);
+	const S = bKeepVisible || t != null;
 	const w = S ? o.I5.Notification : null;
-	(0, l.Bx)(w, "VolumePopin");
-	const { flVolume: B, setVolume: v } = (0, m.Cu)(s.T4.Output);
-	const [I, E] = (0, c.uN)(B, v, _);
+	Bx(w, "VolumePopin");
+	const { flVolume, setVolume } = Cu(s.T4.Output);
+	const [I, E] = uN(flVolume, setVolume, _);
 	if (!y) {
 		return null;
 	}
 	const M = !y.BOnboardAudio();
 	const T = y.GetName(s.T4.Output);
-	return n.createElement(
-		"div",
-		{
-			className: (0, u.A)(A.VolumePopin, {
+	return (
+		<div
+			className={A_1(A.VolumePopin, {
 				[A.VolumePopinHidden]: !S,
-			}),
-		},
-		n.createElement(
-			"div",
-			{
-				className: A.VolumeSliderPosition,
-			},
-			n.createElement(i.d3, {
-				layout: "inline",
-				childrenContainerWidth: "max",
-				padding: "none",
-				max: 1,
-				min: 0,
-				step: 0,
-				value: I,
-				onChangeStart: (e) => r(e),
-				onChange: E,
-				onChangeComplete: d,
-				isKeyNavTarget: false,
-				trackTone: "dark",
-				showHandle: false,
-				bottomSeparator: "none",
-				icon: n.createElement(a.AudioVolumeIcon, {
-					flVolume: I,
-					color: "#FFFFFF",
-				}),
-			}),
-			M &&
-				n.createElement(
-					"div",
-					{
-						className: A.VolumeSliderLabel,
-					},
-					T,
-				),
-		),
+			})}
+		>
+			<div className={A.VolumeSliderPosition}>
+				<i.d3
+					layout="inline"
+					childrenContainerWidth="max"
+					padding="none"
+					max={1}
+					min={0}
+					step={0}
+					value={I}
+					onChangeStart={(e) => setT(e)}
+					onChange={E}
+					onChangeComplete={d}
+					isKeyNavTarget={false}
+					trackTone="dark"
+					showHandle={false}
+					bottomSeparator="none"
+					icon={<a.AudioVolumeIcon flVolume={I} color="#FFFFFF" />}
+				/>
+				{M && <div className={A.VolumeSliderLabel}>{T}</div>}
+			</div>
+		</div>
 	);
 }
-function b(e) {
-	const { flVolume: t, setVolume: r } = (0, m._t)(e.id, e.direction);
-	const [o, l] = (0, c.uN)(t, r, _);
-	return n.createElement(i.d3, {
-		disabled: t == null,
-		min: 0,
-		max: e.direction == s.T4.Input ? 1.3 : 1,
-		step: 0,
-		value: o,
-		onChange: l,
-		onChangeComplete: () => {
-			if (e.direction == s.T4.Output && !g.oy.BIsInOOBE) {
-				h.eZ.PlayNavSound(h.PN.VolSound);
+function B(e) {
+	const { flVolume, setVolume } = _t(e.id, e.direction);
+	const [o, l] = uN(flVolume, setVolume, _);
+	return (
+		<i.d3
+			disabled={flVolume == null}
+			min={0}
+			max={e.direction == s.T4.Input ? 1.3 : 1}
+			step={0}
+			value={o}
+			onChange={l}
+			onChangeComplete={() => {
+				if (e.direction == s.T4.Output && !g.oy.BIsInOOBE) {
+					h.eZ.PlayNavSound(h.PN.VolSound);
+				}
+			}}
+			label={e.label}
+			layout={e.layout}
+			padding={e.padding}
+			icon={
+				e.direction == s.T4.Output ? (
+					<a.AudioVolumeIcon flVolume={flVolume} />
+				) : (
+					<a.Microphone off={flVolume == 0} />
+				)
 			}
-		},
-		label: e.label,
-		layout: e.layout,
-		padding: e.padding,
-		icon:
-			e.direction == s.T4.Output
-				? n.createElement(a.AudioVolumeIcon, {
-						flVolume: t,
-					})
-				: n.createElement(a.Microphone, {
-						off: t == 0,
-					}),
-		bottomSeparator: e.bottomSeparator,
-	});
+			bottomSeparator={e.bottomSeparator}
+		/>
+	);
 }
 export function RC(e) {
-	const t = (0, m.hn)(e.direction);
-	return n.createElement(b, {
-		...e,
-		id: t,
-	});
+	const t = hn(e.direction);
+	return <B {...e} id={t} />;
 }
 export function XZ(e) {
-	const { flVolume: t } = (0, m.Cu)(s.T4.Output);
-	return n.createElement(a.AudioVolumeIcon, {
-		flVolume: t ?? 1,
-	});
+	const { flVolume } = Cu(s.T4.Output);
+	return <a.AudioVolumeIcon flVolume={flVolume ?? 1} />;
 }
 export function E1(e) {
-	const t = (0, m.ml)(e.direction);
-	const r = (0, m.tQ)(e.direction);
-	let a = (0, m.xU)(e.direction).map((t) => ({
+	const t = ml(e.direction);
+	const r = tQ(e.direction);
+	let a = xU(e.direction).map((t) => ({
 		data: t,
 		label: t.GetName(e.direction),
 	}));
@@ -157,7 +139,7 @@ export function E1(e) {
 		data: null,
 		label: s,
 	});
-	const o = r == -1 ? null : t;
+	const o = r == -1 || t;
 	const l = n.useCallback(
 		(t) => {
 			if (t) {
@@ -168,12 +150,14 @@ export function E1(e) {
 		},
 		[e.direction],
 	);
-	return n.createElement(i.Vb, {
-		label: e.label,
-		rgOptions: a,
-		onChange: (e) => l(e.data),
-		selectedOption: o,
-		strDefaultLabel: "Select a value",
-		bottomSeparator: e.bottomSeparator,
-	});
+	return (
+		<i.Vb
+			label={e.label}
+			rgOptions={a}
+			onChange={(e) => l(e.data)}
+			selectedOption={o}
+			strDefaultLabel="Select a value"
+			bottomSeparator={e.bottomSeparator}
+		/>
+	);
 }

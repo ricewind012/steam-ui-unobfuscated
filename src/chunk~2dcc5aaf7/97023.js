@@ -1,5 +1,5 @@
-export var oI;
-(function (e) {
+export let oI;
+((e) => {
 	e[(e.k_ELaunchOptionType_None = 0)] = "k_ELaunchOptionType_None";
 	e[(e.k_ELaunchOptionType_Default = 1)] = "k_ELaunchOptionType_Default";
 	e[(e.k_ELaunchOptionType_SafeMode = 2)] = "k_ELaunchOptionType_SafeMode";
@@ -21,14 +21,14 @@ export var oI;
 	e[(e.k_ELaunchOptionType_OpenXR = 16)] = "k_ELaunchOptionType_OpenXR";
 	e[(e.k_ELaunchOptionType_Dialog = 1000)] = "k_ELaunchOptionType_Dialog";
 })((oI ||= {}));
-export var GQ;
-export var YI;
-(function (e) {
+export let GQ;
+export let YI;
+((e) => {
 	e[(e.k_EComputerActiveStateInvalid = 0)] = "k_EComputerActiveStateInvalid";
 	e[(e.k_EComputerActiveStateActive = 1)] = "k_EComputerActiveStateActive";
 	e[(e.k_EComputerActiveStateIdle = 2)] = "k_EComputerActiveStateIdle";
 })((GQ ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EClientUsedInputTypeKeyboard = 0)] = "k_EClientUsedInputTypeKeyboard";
 	e[(e.k_EClientUsedInputTypeMouse = 1)] = "k_EClientUsedInputTypeMouse";
 	e[(e.k_EClientUsedInputTypeController = 2)] =

@@ -1,3 +1,3 @@
-module.exports = {
+export default {
 	UnstyledButton: "_1hcJa9ylImmFKuHsfilos",
 };

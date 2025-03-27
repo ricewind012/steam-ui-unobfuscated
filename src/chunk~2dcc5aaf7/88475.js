@@ -1,18 +1,18 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-const s = n.Message;
+import n from "./58663.js";
+import i from "./48307.js";
+import { I8 } from "./12176.js";
+const n_Message = n.Message;
 export function p$(e) {
-	return "unknown ESteamNotificationType ( " + e + " )";
+	return `unknown ESteamNotificationType ( ${e} )`;
 }
-class l extends s {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.notification_id) {
 			i.Sg(l.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -91,7 +91,7 @@ class l extends s {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -99,7 +99,7 @@ class l extends s {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -107,14 +107,14 @@ class l extends s {
 		return "SteamNotificationData";
 	}
 }
-export class GG extends s {
+export class GG extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!GG.prototype.include_hidden) {
 			i.Sg(GG.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -184,7 +184,7 @@ export class GG extends s {
 		return i.zj(GG.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		GG.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -192,7 +192,7 @@ export class GG extends s {
 		i.i0(GG.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		GG.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -200,14 +200,14 @@ export class GG extends s {
 		return "CSteamNotification_GetSteamNotifications_Request";
 	}
 }
-class m extends s {
+class m extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!m.prototype.notifications) {
 			i.Sg(m.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -272,7 +272,7 @@ class m extends s {
 		return i.zj(m.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -280,7 +280,7 @@ class m extends s {
 		i.i0(m.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		m.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -288,14 +288,14 @@ class m extends s {
 		return "CSteamNotification_GetSteamNotifications_Response";
 	}
 }
-export class V4 extends s {
+export class V4 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!V4.prototype.timestamp) {
 			i.Sg(V4.M());
 		}
-		s.initialize(this, e, 0, -1, [3], null);
+		n_Message.initialize(this, e, 0, -1, [3], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -352,7 +352,7 @@ export class V4 extends s {
 		return i.zj(V4.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		V4.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -360,7 +360,7 @@ export class V4 extends s {
 		i.i0(V4.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		V4.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -368,14 +368,14 @@ export class V4 extends s {
 		return "CSteamNotification_MarkNotificationsRead_Notification";
 	}
 }
-export class nH extends s {
+export class nH extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!nH.prototype.remote_client_id) {
 			i.Sg(nH.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -419,7 +419,7 @@ export class nH extends s {
 		return i.zj(nH.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		nH.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -427,7 +427,7 @@ export class nH extends s {
 		i.i0(nH.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		nH.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -435,14 +435,14 @@ export class nH extends s {
 		return "CSteamNotification_MarkNotificationsViewed_Notification";
 	}
 }
-export class Z8 extends s {
+export class Z8 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Z8.prototype.notification_type) {
 			i.Sg(Z8.M());
 		}
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -486,7 +486,7 @@ export class Z8 extends s {
 		return i.zj(Z8.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Z8.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -494,7 +494,7 @@ export class Z8 extends s {
 		i.i0(Z8.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		Z8.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -502,14 +502,14 @@ export class Z8 extends s {
 		return "SteamNotificationPreference";
 	}
 }
-export class gm extends s {
+export class gm extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!gm.prototype.preferences) {
 			i.Sg(gm.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -549,7 +549,7 @@ export class gm extends s {
 		return i.zj(gm.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		gm.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -557,7 +557,7 @@ export class gm extends s {
 		i.i0(gm.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		gm.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -565,11 +565,11 @@ export class gm extends s {
 		return "CSteamNotification_SetPreferences_Request";
 	}
 }
-class g extends s {
+class g extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return g.toObject(e, this);
@@ -595,13 +595,13 @@ class g extends s {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		g.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -609,11 +609,11 @@ class g extends s {
 		return "CSteamNotification_SetPreferences_Response";
 	}
 }
-export class aJ extends s {
+export class aJ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		s.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return aJ.toObject(e, this);
@@ -639,13 +639,13 @@ export class aJ extends s {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		aJ.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		aJ.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -653,14 +653,14 @@ export class aJ extends s {
 		return "CSteamNotification_GetPreferences_Request";
 	}
 }
-class C extends s {
+class C extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!C.prototype.preferences) {
 			i.Sg(C.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -700,7 +700,7 @@ class C extends s {
 		return i.zj(C.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -708,7 +708,7 @@ class C extends s {
 		i.i0(C.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		C.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -716,14 +716,14 @@ class C extends s {
 		return "CSteamNotification_GetPreferences_Response";
 	}
 }
-export class b$ extends s {
+export class b$ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b$.prototype.notification_ids) {
 			i.Sg(b$.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -765,7 +765,7 @@ export class b$ extends s {
 		return i.zj(b$.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b$.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -773,7 +773,7 @@ export class b$ extends s {
 		i.i0(b$.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b$.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -781,14 +781,14 @@ export class b$ extends s {
 		return "CSteamNotification_HideNotification_Notification";
 	}
 }
-class f extends s {
+class f extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!f.prototype.notifications) {
 			i.Sg(f.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -843,7 +843,7 @@ class f extends s {
 		return i.zj(f.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -851,7 +851,7 @@ class f extends s {
 		i.i0(f.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		f.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -859,14 +859,14 @@ class f extends s {
 		return "CSteamNotification_NotificationsReceived_Notification";
 	}
 }
-class b extends s {
+class b extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!b.prototype.preferences) {
 			i.Sg(b.M());
 		}
-		s.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -906,7 +906,7 @@ class b extends s {
 		return i.zj(b.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -914,7 +914,7 @@ class b extends s {
 		i.i0(b.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		b.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -922,70 +922,41 @@ class b extends s {
 		return "CSteamNotification_PreferencesUpdated_Notification";
 	}
 }
-export var Fn;
-export var sC;
-(function (e) {
-	e.GetSteamNotifications = function (e, t) {
-		return e.SendMsg(
-			"SteamNotification.GetSteamNotifications#1",
-			(0, a.I8)(GG, t),
-			m,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.MarkNotificationsRead = function (e, t) {
-		return e.SendNotification(
-			"SteamNotification.MarkNotificationsRead#1",
-			(0, a.I8)(V4, t),
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.MarkNotificationsViewed = function (e, t) {
-		return e.SendNotification(
+export let Fn;
+export let sC;
+((e) => {
+	e.GetSteamNotifications = (e, t) =>
+		e.SendMsg("SteamNotification.GetSteamNotifications#1", I8(GG, t), m, {
+			bConstMethod: true,
+			ePrivilege: 1,
+		});
+	e.MarkNotificationsRead = (e, t) =>
+		e.SendNotification("SteamNotification.MarkNotificationsRead#1", I8(V4, t), {
+			ePrivilege: 1,
+		});
+	e.MarkNotificationsViewed = (e, t) =>
+		e.SendNotification(
 			"SteamNotification.MarkNotificationsViewed#1",
-			(0, a.I8)(nH, t),
+			I8(nH, t),
 			{
 				ePrivilege: 1,
 			},
 		);
-	};
-	e.HideNotification = function (e, t) {
-		return e.SendNotification(
-			"SteamNotification.HideNotification#1",
-			(0, a.I8)(b$, t),
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.SetPreferences = function (e, t) {
-		return e.SendMsg(
-			"SteamNotification.SetPreferences#1",
-			(0, a.I8)(gm, t),
-			g,
-			{
-				ePrivilege: 1,
-			},
-		);
-	};
-	e.GetPreferences = function (e, t) {
-		return e.SendMsg(
-			"SteamNotification.GetPreferences#1",
-			(0, a.I8)(aJ, t),
-			C,
-			{
-				bConstMethod: true,
-				ePrivilege: 1,
-			},
-		);
-	};
+	e.HideNotification = (e, t) =>
+		e.SendNotification("SteamNotification.HideNotification#1", I8(b$, t), {
+			ePrivilege: 1,
+		});
+	e.SetPreferences = (e, t) =>
+		e.SendMsg("SteamNotification.SetPreferences#1", I8(gm, t), g, {
+			ePrivilege: 1,
+		});
+	e.GetPreferences = (e, t) =>
+		e.SendMsg("SteamNotification.GetPreferences#1", I8(aJ, t), C, {
+			bConstMethod: true,
+			ePrivilege: 1,
+		});
 })((Fn ||= {}));
-(function (e) {
+((e) => {
 	e.NotificationsReceivedHandler = {
 		name: "SteamNotificationClient.NotificationsReceived#1",
 		request: f,

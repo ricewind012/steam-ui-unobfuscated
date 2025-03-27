@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	DialogPadding: "calc(12px + 1.4vw) 2.8vw",
 	DialogWrapper: "_143i9eNnks2LWpIs7_Nkk4",

@@ -1,31 +1,31 @@
-var n = require(/*webcrack:missing*/ "./12176.js");
-var i = require("./34043.js");
-var a = require("./96593.js");
-var s = require("./78721.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./19106.js");
-var c = require(/*webcrack:missing*/ "./3715.js");
-var m = require(/*webcrack:missing*/ "./61416.js");
-var u = require(/*webcrack:missing*/ "./30329.js");
-var d = require(/*webcrack:missing*/ "./26667.js");
-var A = require(/*webcrack:missing*/ "./24295.js");
-var p = require(/*webcrack:missing*/ "./46382.js");
-var g = require(/*webcrack:missing*/ "./83599.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var C = require("./67429.js");
-var _ = require("./91720.js");
 import { AssertMsg } from "../../actual_src/utils/assert.js";
-var b = require("./34428.js");
-var y = require("./60917.js");
-var S = require("./51095.js");
-var w = require("./65528.js");
-var B = require(/*webcrack:missing*/ "./75144.js");
+import n from "./12176.js";
+import i from "./34043.js";
+import a from "./96593.js";
+import s, { fu, s$ } from "./78721.js";
+import o, { useCallback, useState, useMemo, useEffect } from "./63696.js";
+import l, { EN } from "./19106.js";
+import c, { jE } from "./3715.js";
+import m, { I as I_1 } from "./61416.js";
+import u, { q as q_1 } from "./30329.js";
+import d, { n as n_1 } from "./26667.js";
+import A, { LH } from "./24295.js";
+import p, { KV } from "./46382.js";
+import g from "./83599.js";
+import h, { Y2 } from "./72476.js";
+import C, { gX, bY } from "./67429.js";
+import _, { Km, XA, z as z_1 } from "./91720.js";
+import b, { dm } from "./34428.js";
+import y from "./60917.js";
+import S, { lY } from "./51095.js";
+import w from "./65528.js";
+import B from "./75144.js";
 function v(e) {
 	return e.startsWith("remote_");
 }
 function I(e) {
 	if (v(e)) {
-		const { strUGCHandle: t } = (function (e) {
+		const { strUGCHandle } = ((e) => {
 			if (!v(e)) {
 				return {
 					strPublishedFileID: undefined,
@@ -38,10 +38,10 @@ function I(e) {
 				strUGCHandle: n,
 			};
 		})(e);
-		return t;
+		return strUGCHandle;
 	}
 	{
-		const { hHandle: t, gameid: r } = (function (e) {
+		const { hHandle, gameid } = ((e) => {
 			if (v(e)) {
 				return {
 					hHandle: 0,
@@ -54,7 +54,7 @@ function I(e) {
 				gameid: r,
 			};
 		})(e);
-		return `${r}_${t}`;
+		return `${gameid}_${hHandle}`;
 	}
 }
 const E = new g.wd("Screenshots").Debug;
@@ -74,7 +74,7 @@ export function Bo(e) {
 		nWidth: e.nWidth,
 		rtCreated: e.nCreated,
 		strGameID: e.strGameID,
-		strUrl: (0, s.fu)(e.strUrl),
+		strUrl: fu(e.strUrl),
 		bUploaded: e.bUploaded,
 		strShortcutName: e.strShortcutName,
 	};
@@ -112,11 +112,11 @@ function N(e, t) {
 }
 const F = ["screenshots", "all"];
 export function e8(e, t) {
-	const r = e.getQueryCache().get((0, l.EN)(F))?.state.data;
+	const r = e.getQueryCache().get(EN(F))?.state.data;
 	if (!r || !t) {
 		return null;
 	}
-	var n;
+	let n;
 	if ((n = t).startsWith("remote_") || n.startsWith("local_")) {
 		t = I(t);
 	}
@@ -124,8 +124,8 @@ export function e8(e, t) {
 	return N(r.local[i] || r.local[t], r.remote[i] || r.remote[t]);
 }
 export function FD(e) {
-	const t = (0, c.jE)();
-	return z((0, o.useCallback)((r) => e8(t, (r.screenshots[e], e)), [t, e]));
+	const t = jE();
+	return z(useCallback((r) => e8(t, (r.screenshots[e], e)), [t, e]));
 }
 export function Kr(e) {
 	const t = Bo(e);
@@ -134,11 +134,11 @@ export function Kr(e) {
 }
 const L = ["screenshots", "local"];
 function z(e) {
-	const t = (0, c.jE)();
-	return (0, m.I)({
+	const t = jE();
+	return I_1({
 		queryKey: L,
 		queryFn: () =>
-			(async function (e) {
+			(async (e) => {
 				const t = {
 					rgOrder: [],
 					screenshots: {},
@@ -150,13 +150,13 @@ function z(e) {
 					const i =
 						await SteamClient.Screenshots.GetAllAppsLocalScreenshotsRange(e, n);
 					for (const e of i) {
-						e.strUrl = (0, s.fu)(e.strUrl);
+						e.strUrl = fu(e.strUrl);
 						const r = Bo(e);
-						const n = r.id;
+						const r_id = r.id;
 						if (r.strShortcutName) {
 							w.y.SetShortcutDisplayName(r.strGameID, r.strShortcutName);
 						}
-						t.rgOrder.push(n);
+						t.rgOrder.push(r_id);
 						t.screenshots[n] = r;
 					}
 				}
@@ -169,6 +169,7 @@ function z(e) {
 						remote: {},
 						modifiedIDs: {},
 					}),
+
 					local: t.screenshots,
 				}));
 				return t;
@@ -181,16 +182,14 @@ function x(e) {
 	const t = !e.consumer_appid && e.consumer_shortcutid;
 	let r;
 	if (t) {
-		const t = a.tw.allApps.find(
-			(t) => (0, S.lY)(t.display_name, e.shortcutname) == 0,
-		);
+		const t = a.tw.allApps.find((t) => lY(t.display_name, e.shortcutname) == 0);
 		if (t) {
 			r = t.GetGameID();
 			const n = new C.VS(r);
 			w.y.SetShortcutOverride(n.GetInternalAppID(), e.consumer_shortcutid);
 		}
 	}
-	const n = r ?? (0, C.gX)(e.consumer_shortcutid);
+	const n = r ?? gX(e.consumer_shortcutid);
 	if (t) {
 		return n;
 	} else {
@@ -198,13 +197,13 @@ function x(e) {
 	}
 }
 function U(e, t, r) {
-	const a = (0, p.KV)();
-	const s = (0, A.LH)();
-	const o = (0, c.jE)();
-	return (0, u.q)({
+	const a = KV();
+	const s = LH();
+	const o = jE();
+	return q_1({
 		queryKey: ["screenshots", "remote", e],
-		queryFn: ({ pageParam: r = 1 }) =>
-			(async function (e, t, r, a, s, o) {
+		queryFn: ({ pageParam = 1 }) =>
+			(async (e, t, r, a, s, o) => {
 				E("FetchScreenshotRemoteHandles", a);
 				const l = {
 					rgOrder: [],
@@ -215,7 +214,7 @@ function U(e, t, r) {
 				if (a.listSource.type === "phase") {
 					return l;
 				}
-				if ((0, h.Y2)()) {
+				if (Y2()) {
 					return l;
 				}
 				if (
@@ -278,6 +277,7 @@ function U(e, t, r) {
 							local: {},
 							modifiedIDs: {},
 						}),
+
 						remote: {
 							...(e?.remote || {}),
 							...l.screenshots,
@@ -285,30 +285,32 @@ function U(e, t, r) {
 					}));
 					return l;
 				}
-				throw `Failed FetchScreenshotRemoteHandles { filter: "${JSON.stringify(a)}", nPage: ${o} }`;
-			})(o, a, s, e, t, r),
+				throw `Failed FetchScreenshotRemoteHandles { filter: "${JSON.stringify(
+					a,
+				)}", nPage: ${o} }`;
+			})(o, a, s, e, t, pageParam),
 		getNextPageParam: (e, t) => (t?.length || 0) + 1,
 		initialPageParam: 1,
 		select: r,
 	});
 }
 export function MZ(e, t = 50) {
-	const r = (function (e) {
-		const { uploadStatus: t, mediaType: r, listSource: n } = e;
+	const r = ((e) => {
+		const { uploadStatus, mediaType, listSource } = e;
 		return z(
-			(0, o.useCallback)(
+			useCallback(
 				(e) => {
 					const i = [];
 					const a = {};
-					const s = NN(n);
-					if (!e || (r !== "all" && r != "screenshot")) {
+					const s = NN(listSource);
+					if (!e || (mediaType !== "all" && mediaType != "screenshot")) {
 						return {
 							rgOrder: i,
 							screenshots: a,
 						};
 					}
-					if (n.type === "phase") {
-						const t = n.phase.screenshots || [];
+					if (listSource.type === "phase") {
+						const t = listSource.phase.screenshots || [];
 						for (const r of t) {
 							const t = k({
 								strGameID: s,
@@ -324,9 +326,9 @@ export function MZ(e, t = 50) {
 							const n = e.screenshots[e.rgOrder[r]];
 							if (
 								(!s || s === n.local.strGameID) &&
-								(t === "all" ||
-									(t === "uploaded" && !!n.local.bUploaded) ||
-									(t === "notuploaded" && !n.local.bUploaded))
+								(uploadStatus === "all" ||
+									(uploadStatus === "uploaded" && !!n.local.bUploaded) ||
+									(uploadStatus === "notuploaded" && !n.local.bUploaded))
 							) {
 								i.push(n.id);
 								a[n.id] = n;
@@ -338,29 +340,30 @@ export function MZ(e, t = 50) {
 						screenshots: a,
 					};
 				},
-				[n, t, r],
+				[listSource, uploadStatus, mediaType],
 			),
 		);
 	})(e);
 	const n = U(e, t);
-	const { rgClips: i, bLoading: a } = H(e);
-	const { rgRecordings: s, bLoading: l } = j(e);
-	const [c, m] = (0, o.useState)(1);
-	const u = r.data;
-	const d = n.data;
-	const A = n.fetchNextPage;
+	const { rgClips, bLoading } = H(e);
+	const { rgRecordings, bLoading: bLoading_1 } = j(e);
+	const [c, setC] = useState(1);
+	const r_data = r.data;
+
+	const { data, fetchNextPage, isFetchingNextPage } = n;
+
 	const p = c * t;
-	const g = (0, o.useMemo)(
+	const g = useMemo(
 		() =>
-			(function (e, t, r, n, i) {
+			((e, t, r, n, i) => {
 				const a = [];
 				const s = {};
 				const o = {};
 				if (t) {
 					for (let r = 0; r < t.pages.length && a.length < i; r++) {
 						const n = t.pages[r];
-						for (let t = 0; t < n.rgOrder.length; t++) {
-							const r = n.rgOrder[t];
+
+						for (const r of n.rgOrder) {
 							const i = n.screenshots[r];
 							if (!s[r]) {
 								if (e?.screenshots[r]) {
@@ -388,16 +391,16 @@ export function MZ(e, t = 50) {
 						}
 					}
 					if (c < a.length) {
-						let e = a[c];
+						let a_c = a[c];
 						while (o[e]) {
 							c++;
 							if (!(c < a.length)) {
-								e = null;
+								a_c = null;
 								break;
 							}
-							e = a[c];
+							a_c = a[c];
 						}
-						if (e) {
+						if (a_c) {
 							t.push(s[e]);
 						}
 					}
@@ -413,72 +416,81 @@ export function MZ(e, t = 50) {
 					const i = t.reduce((e, t) => (q(t) - q(e) > 0 ? t : e));
 					d.push(i);
 					switch (i.type) {
-						case "clip":
+						case "clip": {
 							m++;
 							break;
-						case "recording":
+						}
+						case "recording": {
 							u++;
 							break;
-						case "screenshot":
+						}
+						case "screenshot": {
 							if (i.local) {
 								l++;
 							} else {
 								c++;
 							}
+						}
 					}
 				}
 				return d;
-			})(u, d, i, s, p),
-		[u, d, i, s, p],
+			})(r_data, data, rgClips, rgRecordings, p),
+		[r_data, data, rgClips, rgRecordings, p],
 	);
-	const h = r.isLoading || n.isLoading || a || l;
-	const C = n.isFetchingNextPage;
+	const h =
+		r.isLoading ||
+		n.isLoading ||
+		n.isLoading ||
+		bLoading ||
+		n.isLoading ||
+		bLoading ||
+		bLoading_1;
 	const _ = !n.data || n.data.pages[n.data.pages.length - 1].rgOrder.length > 0;
-	const f = (0, o.useMemo)(
+	const f = useMemo(
 		() =>
-			(u?.rgOrder || []).reduce(
-				(e, t) => e + (u.screenshots[t].bUploaded ? 0 : 1),
+			(r_data?.rgOrder || []).reduce(
+				(e, t) => e + (r_data.screenshots[t].bUploaded ? 0 : 1),
 				0,
 			),
-		[u],
+		[r_data],
 	);
-	const b = u ? u.rgOrder.length : 0;
-	const y = d ? d.pages[d.pages.length - 1].cTotal : 0;
-	const S = (y > 0 ? f : b) + y + i.length + s.length;
+	const b = r_data ? r_data.rgOrder.length : 0;
+	const y = data ? data.pages[data.pages.length - 1].cTotal : 0;
+	const S = (y > 0 ? f : b) + y + rgClips.length + rgRecordings.length;
 	const w = Math.max(S, g.length);
 	const B = p < w;
-	const v = _ && (!C || !h);
-	const I = (0, o.useCallback)(() => {
+	const v = _ && (!isFetchingNextPage || !h);
+	const I = useCallback(() => {
 		if (v) {
-			A();
+			fetchNextPage();
 		}
 		if (B) {
-			m((e) => e + 1);
+			setC((e) => e + 1);
 		}
-	}, [v, A, B]);
-	(0, o.useEffect)(() => {
-		if (!d) {
+	}, [v, fetchNextPage, B]);
+	useEffect(() => {
+		if (!data) {
 			return;
 		}
-		const e = d.pages.length < c;
-		const t = d.pages[d.pages.length - 1].rgOrder.length > 0;
-		if (e && t && !C) {
-			A();
+		const e = data.pages.length < c;
+		const t = data.pages[data.pages.length - 1].rgOrder.length > 0;
+		if (e && t && !isFetchingNextPage) {
+			fetchNextPage();
 		}
-	}, [d, c, C, A]);
+	}, [data, c, isFetchingNextPage, fetchNextPage]);
 	return {
 		rgMedia: g,
 		requestNextPage: I,
 		cTotal: S,
 		bLoadingInitialData: h,
-		bFetchingNextPage: C,
+		bFetchingNextPage: isFetchingNextPage,
 		bHasNextPage: B,
 	};
 }
 export function Re() {
-	const e = (function () {
+	const e = (() => {
 		const e = z(
-			(0, o.useCallback)((e) => {
+			useCallback((e) => {
 				let t = new Map();
 				e.rgOrder.forEach((r) => {
 					t.set(e.screenshots[r].strGameID, e.screenshots[r].strShortcutName);
@@ -489,18 +501,18 @@ export function Re() {
 		const t = U(
 			sF,
 			50,
-			(0, o.useCallback)((e) => {
+			useCallback((e) => {
 				let t = new Map();
 				if (e && e.pages.length > 0) {
 					e.pages[0].rgApps.forEach((e) => {
 						if (e.appid) {
-							const r = (0, C.bY)(e.appid);
+							const r = bY(e.appid);
 							if (!t.get(r)) {
 								t.set(r, "");
 							}
 						} else if (e.shortcutid) {
 							const r = a.tw.allApps.find(
-								(t) => (0, S.lY)(t.display_name, e.name) == 0,
+								(t) => lY(t.display_name, e.name) == 0,
 							);
 							if (r) {
 								t.set(r.GetGameID(), e.name);
@@ -508,7 +520,7 @@ export function Re() {
 								w.y.SetShortcutOverride(n.GetInternalAppID(), e.shortcutid);
 								w.y.SetShortcutDisplayName(r.GetGameID(), e.name);
 							} else {
-								const r = (0, C.gX)(e.shortcutid);
+								const r = gX(e.shortcutid);
 								t.set(r, e.name);
 								w.y.SetShortcutDisplayName(r, e.name);
 							}
@@ -518,86 +530,86 @@ export function Re() {
 				return t;
 			}, []),
 		);
-		const r = e.data;
-		const n = t.data;
-		return (0, o.useMemo)(() => {
+		const e_data = e.data;
+		const t_data = t.data;
+		return useMemo(() => {
 			const e = new Map();
-			r?.forEach((t, r) => {
+			e_data?.forEach((t, r) => {
 				if (Array.from(e.values()).find((e) => e == t) == null) {
 					e.set(r, t);
 				}
 			});
-			n?.forEach((t, r) => {
+			t_data?.forEach((t, r) => {
 				if (Array.from(e.values()).find((e) => e == t) == null) {
 					e.set(r, t);
 				}
 			});
 			return e;
-		}, [r, n]);
+		}, [e_data, t_data]);
 	})();
-	const t = (function () {
-		const { rgClips: e } = H();
-		return (0, o.useMemo)(() => {
+	const t = (() => {
+		const { rgClips } = H();
+		return useMemo(() => {
 			const t = new Map();
-			e.forEach((e) => t.set(e.summary.game_id, ""));
+			rgClips.forEach((e) => t.set(e.summary.game_id, ""));
 			return t;
-		}, [e]);
+		}, [rgClips]);
 	})();
-	const r = (function () {
-		const { rgRecordings: e } = j();
-		return (0, o.useMemo)(() => {
+	const r = (() => {
+		const { rgRecordings } = j();
+		return useMemo(() => {
 			const t = new Map();
-			e.forEach((e) => t.set(e.summary.game_id, ""));
+			rgRecordings.forEach((e) => t.set(e.summary.game_id, ""));
 			return t;
-		}, [e]);
+		}, [rgRecordings]);
 	})();
-	return (0, o.useMemo)(() => new Map([...e, ...t, ...r]), [e, t, r]);
+	return useMemo(() => new Map([...e, ...t, ...r]), [e, t, r]);
 }
 function H(e = sF) {
-	const { listSource: t, mediaType: r, uploadStatus: n } = e;
-	const i = NN(t);
-	let { bLoading: a, rgClipHandles: s } = (0, _.Km)(i);
-	if (t.type === "phase") {
-		s = t.phase.clip_ids || [];
+	const { listSource, mediaType, uploadStatus } = e;
+	const i = NN(listSource);
+	let { bLoading, rgClipHandles } = Km(i);
+	if (listSource.type === "phase") {
+		rgClipHandles = listSource.phase.clip_ids || [];
 	}
-	return (0, o.useMemo)(() => {
-		if (r !== "all" && r !== "clip") {
+	return useMemo(() => {
+		if (mediaType !== "all" && mediaType !== "clip") {
 			return {
 				rgClips: [],
 				bLoading: false,
 			};
 		}
-		if (n !== "all" && n !== "notuploaded") {
+		if (uploadStatus !== "all" && uploadStatus !== "notuploaded") {
 			return {
 				rgClips: [],
 				bLoading: false,
 			};
 		}
-		let e = s.map((e) => ({
+		let e = rgClipHandles.map((e) => ({
 			id: e,
 			type: "clip",
-			summary: (0, _.XA)(e),
+			summary: XA(e),
 		}));
 		e = e.filter((e) => !e.summary.temporary);
 		e.sort((e, t) => q(t) - q(e));
 		return {
-			bLoading: a,
+			bLoading: bLoading,
 			rgClips: e,
 		};
-	}, [a, s, r, n]);
+	}, [bLoading, rgClipHandles, mediaType, uploadStatus]);
 }
 function j(e = sF) {
-	const { bLoading: t, rgApps: r } = (0, _.z)();
-	const { listSource: n, mediaType: i, uploadStatus: a } = e;
-	const s = NN(n);
+	const { bLoading, rgApps } = z_1();
+	const { listSource, mediaType, uploadStatus } = e;
+	const s = NN(listSource);
 	return {
-		rgRecordings: (0, o.useMemo)(() => {
+		rgRecordings: useMemo(() => {
 			const e = [];
 			if (
-				(i === "all" || i === "recording") &&
-				(a === "all" || a === "notuploaded")
+				(mediaType === "all" || mediaType === "recording") &&
+				(uploadStatus === "all" || uploadStatus === "notuploaded")
 			) {
-				r.forEach((t) => {
+				rgApps.forEach((t) => {
 					const r = !s || s === t.game_id;
 					const n =
 						((!t.recording_type || t.recording_type === 1) &&
@@ -616,15 +628,16 @@ function j(e = sF) {
 				e.sort((e, t) => q(t) - q(e));
 			}
 			return e;
-		}, [r, s, i, a]),
-		bLoading: t,
+		}, [rgApps, s, mediaType, uploadStatus]),
+		bLoading: bLoading,
 	};
 }
 function q(e) {
 	switch (e.type) {
-		case "screenshot":
+		case "screenshot": {
 			return e.rtCreated;
-		case "clip":
+		}
+		case "clip": {
 			if (e.summary?.date_clipped) {
 				return (
 					e.summary?.date_clipped + parseInt(e.summary?.duration_ms) / 1000
@@ -632,101 +645,104 @@ function q(e) {
 			} else {
 				return e.summary?.date_recorded;
 			}
-		case "recording":
+		}
+		case "recording": {
 			return e.summary.most_recent_start_time;
-		default:
+		}
+		default: {
 			console.error(`Unknown media type "${e.type}"`);
 			return 0;
+		}
 	}
 }
 export function b4() {
-	const e = (0, c.jE)();
-	return (0, d.n)({
+	const e = jE();
+	return n_1({
 		mutationFn: async (e) => {
-			const { screenshot: t, strCaption: r } = e;
-			if (t.bUploaded || !t.local) {
+			const { screenshot, strCaption } = e;
+			if (screenshot.bUploaded || !screenshot.local) {
 				console.warn(
 					"Attempt to edit caption on a local screenshot that has already been uploaded!",
 				);
 				return false;
 			} else {
 				return SteamClient.Apps.SetLocalScreenshotCaption(
-					t.local.strGameID,
-					t.local.hHandle,
-					r || "",
+					screenshot.local.strGameID,
+					screenshot.local.hHandle,
+					strCaption || "",
 				);
 			}
 		},
-		onMutate: ({ screenshot: t, strCaption: r }) =>
-			ee(e, t.id, {
-				strCaption: r,
+		onMutate: ({ screenshot, strCaption }) =>
+			ee(e, screenshot.id, {
+				strCaption: strCaption,
 			}),
 		onError: (e, t, r) => r(),
 	});
 }
 export function PM() {
-	const e = (0, c.jE)();
-	return (0, d.n)({
+	const e = jE();
+	return n_1({
 		mutationFn: async (e) => {
-			const { screenshot: t, eVisibility: r } = e;
-			const n = (0, s.s$)(r);
-			if (t.bUploaded || !t.local) {
+			const { screenshot, eVisibility } = e;
+			const n = s$(eVisibility);
+			if (screenshot.bUploaded || !screenshot.local) {
 				console.warn(
 					"Attempt to edit visibility on a local screenshot that has already been uploaded!",
 				);
 				return false;
 			} else {
 				return SteamClient.Apps.SetLocalScreenshotPrivacy(
-					t.local.strGameID,
-					t.local.hHandle,
+					screenshot.local.strGameID,
+					screenshot.local.hHandle,
 					n,
 				);
 			}
 		},
-		onMutate: ({ screenshot: t, eVisibility: r }) =>
-			ee(e, t.id, {
-				ePrivacy: (0, s.s$)(r),
+		onMutate: ({ screenshot, eVisibility }) =>
+			ee(e, screenshot.id, {
+				ePrivacy: s$(eVisibility),
 			}),
 		onError: (e, t, r) => r(),
 	});
 }
 export function TW() {
-	const e = (0, c.jE)();
-	return (0, d.n)({
+	const e = jE();
+	return n_1({
 		mutationFn: async (e) => {
-			const { screenshot: t, bSpoilers: r } = e;
-			if (t.bUploaded || !t.local) {
+			const { screenshot, bSpoilers } = e;
+			if (screenshot.bUploaded || !screenshot.local) {
 				console.warn(
 					"Attempt to edit visibility on a local screenshot that has already been uploaded!",
 				);
 				return false;
 			} else {
 				return SteamClient.Apps.SetLocalScreenshotSpoiler(
-					t.local.strGameID,
-					t.local.hHandle,
-					r,
+					screenshot.local.strGameID,
+					screenshot.local.hHandle,
+					bSpoilers,
 				);
 			}
 		},
-		onMutate: ({ screenshot: t, bSpoilers: r }) =>
-			ee(e, t.id, {
-				bSpoilers: r,
+		onMutate: ({ screenshot, bSpoilers }) =>
+			ee(e, screenshot.id, {
+				bSpoilers: bSpoilers,
 			}),
 		onError: (e, t, r) => r(),
 	});
 }
 export function Ab() {
-	const e = (0, c.jE)();
-	const t = (0, p.KV)();
-	return (0, d.n)({
+	const e = jE();
+	const t = KV();
+	return n_1({
 		mutationFn: async (e) => {
-			const { screenshots: r, location: a } = e;
+			const { screenshots, location } = e;
 			const s = {
 				rgRemote: [],
 				rgLocal: [],
 			};
-			if (a !== "local") {
-				s.rgRemote = await (async function (e, t) {
+			if (location !== "local") {
+				s.rgRemote = await (async (e, t) => {
 					const r = [];
 					for (const a of t) {
 						const t = a.remote?.publishedfileid;
@@ -744,10 +760,10 @@ export function Ab() {
 						}
 					}
 					return r;
-				})(t, r);
+				})(t, screenshots);
 			}
-			if (a !== "remote") {
-				s.rgLocal = await (async function (e) {
+			if (location !== "remote") {
+				s.rgLocal = await (async (e) => {
 					const t = {};
 					for (const r of e) {
 						if (typeof r.local?.hHandle == "number") {
@@ -771,38 +787,38 @@ export function Ab() {
 						`Failed to delete ${i.length} of ${e.length} local screenshots`,
 					);
 					return i;
-				})(r);
+				})(screenshots);
 			}
 			const o = {
 				local: {},
 				remote: {},
 			};
-			for (const e of r) {
+			for (const e of screenshots) {
 				o.local[e.id] = !s.rgLocal.includes(e);
 				o.remote[e.id] = !s.rgRemote.includes(e);
 			}
 			return o;
 		},
-		onSuccess: (t, { screenshots: r, location: n }) => {
+		onSuccess: (t, { screenshots, location }) => {
 			re(e, (e) => {
 				const i = {
 					...e,
 				};
-				if (n !== "remote") {
+				if (location !== "remote") {
 					i.local = {
 						...i.local,
 					};
-					for (const e of r) {
+					for (const e of screenshots) {
 						if (t.local[e.id]) {
 							delete i.local[e.id];
 						}
 					}
 				}
-				if (n !== "local") {
+				if (location !== "local") {
 					i.remote = {
 						...i.remote,
 					};
-					for (const e of r) {
+					for (const e of screenshots) {
 						if (t.remote[e.id]) {
 							delete i.remote[e.id];
 						}
@@ -810,7 +826,7 @@ export function Ab() {
 				}
 				return i;
 			});
-			if (n !== "remote") {
+			if (location !== "remote") {
 				e.setQueryData(L, (e) => {
 					const n = {
 						...e,
@@ -819,7 +835,7 @@ export function Ab() {
 						},
 						rgOrder: e.rgOrder.filter((e) => !t.local[e]),
 					};
-					for (const e of r) {
+					for (const e of screenshots) {
 						if (t.local[e.id]) {
 							delete n.screenshots[e.id];
 						}
@@ -827,7 +843,7 @@ export function Ab() {
 					return n;
 				});
 			}
-			if (n !== "local") {
+			if (location !== "local") {
 				e.setQueriesData(
 					{
 						queryKey: ["screenshots", "remote"],
@@ -844,7 +860,7 @@ export function Ab() {
 							let i = {
 								...n,
 							};
-							for (const e of r) {
+							for (const e of screenshots) {
 								if (!t.remote[e.id]) {
 									continue;
 								}
@@ -879,41 +895,43 @@ export function Ab() {
 	});
 }
 export function jh() {
-	const e = (0, c.jE)();
-	return (0, d.n)({
+	const e = jE();
+	return n_1({
 		mutationFn: async (e) => {
-			const { screenshot: t, eVisibility: r } = e;
-			if (t.bUploaded) {
+			const { screenshot, eVisibility } = e;
+			if (screenshot.bUploaded) {
 				console.error("Attempt to upload an already uploaded screenshot!");
 				return false;
 			}
-			const n = (0, s.s$)(r);
+			const n = s$(eVisibility);
 			const i = await SteamClient.Screenshots.UploadLocalScreenshot(
-				t.strGameID,
-				t.local?.hHandle,
+				screenshot.strGameID,
+				screenshot.local?.hHandle,
 				n,
 			);
 			y.Tu.DoScreenshotNotification(
-				t.id,
+				screenshot.id,
 				i
 					? "#MediaPage_Upload_Notification_Success"
 					: "#MediaPage_Upload_Notification_Failure",
 			);
 			return i;
 		},
-		onSuccess: (t, { screenshot: r }) => {
+		onSuccess: (t, { screenshot }) => {
 			if (t) {
 				SteamClient.Screenshots.GetLocalScreenshotByHandle(
-					r.strGameID,
-					r.local.hHandle,
+					screenshot.strGameID,
+					screenshot.local.hHandle,
 				).then((t) => {
 					const n = Bo(t);
 					re(e, (e) => ({
 						...e,
+
 						modifiedIDs: {
 							...e.modifiedIDs,
-							[r.id]: n.id,
+							[screenshot.id]: n.id,
 						},
+
 						local: {
 							...e.local,
 							[n.id]: n,
@@ -927,9 +945,12 @@ export function jh() {
 						if (Array.isArray(e.queryKey) && e.queryKey.length >= 3) {
 							const t = e.queryKey[2];
 							if (t && typeof t == "object" && "listSource" in t) {
-								const e = t.listSource;
-								if (e && typeof e == "object") {
-									return e.type === "recents" || NN(e) === r.strGameID;
+								const t_listSource = t.listSource;
+								if (t_listSource && typeof t_listSource == "object") {
+									return (
+										t_listSource.type === "recents" ||
+										NN(t_listSource) === screenshot.strGameID
+									);
 								}
 							}
 						}
@@ -941,7 +962,7 @@ export function jh() {
 	});
 }
 export function tS(e) {
-	return (0, m.I)({
+	return I_1({
 		queryKey: ["screenshots", "uploaddetails", e.id],
 		queryFn: () =>
 			SteamClient.Apps.GetDetailsForScreenshotUpload(
@@ -952,10 +973,10 @@ export function tS(e) {
 	});
 }
 export function bj(e) {
-	return (0, m.I)({
-		queryKey: ["screenshots", "uploaddetails", e.map(({ id: e }) => e)],
+	return I_1({
+		queryKey: ["screenshots", "uploaddetails", e.map(({ id }) => id)],
 		queryFn: () =>
-			(async function (e) {
+			(async (e) => {
 				AssertMsg(
 					e?.length,
 					"LoadMultipleScreenshotUploadDetails expected at least one screenshot to operate on",
@@ -964,7 +985,7 @@ export function bj(e) {
 					return null;
 				}
 				const t = e.reduce((e, t) => {
-					const r = t.strGameID;
+					const t_strGameID = t.strGameID;
 					e[r] ||= [];
 					e[r].push(t.local?.hHandle);
 					return e;
@@ -974,18 +995,16 @@ export function bj(e) {
 						SteamClient.Apps.GetDetailsForScreenshotUploads(e, t[e]),
 					),
 				);
-				const {
-					strCloudAvailable: n,
-					strCloudTotal: i,
-					unSizeOnDisk: a,
-				} = r.reduce((e, t) => ({
-					...e,
-					unSizeOnDisk: e.unSizeOnDisk + t.unSizeOnDisk,
-				}));
+				const { strCloudAvailable, strCloudTotal, unSizeOnDisk } = r.reduce(
+					(e, t) => ({
+						...e,
+						unSizeOnDisk: e.unSizeOnDisk + t.unSizeOnDisk,
+					}),
+				);
 				return {
-					strCloudAvailable: n,
-					strCloudTotal: i,
-					strSizeOnDisk: (0, b.dm)(a),
+					strCloudAvailable: strCloudAvailable,
+					strCloudTotal: strCloudTotal,
+					strSizeOnDisk: dm(unSizeOnDisk),
 				};
 			})(e),
 		staleTime: Infinity,
@@ -1010,6 +1029,7 @@ function te(e, t, r) {
 			remote: {},
 			modifiedIDs: {},
 		}),
+
 		local: {
 			...e?.local,
 			[t.id]: t,
@@ -1061,11 +1081,14 @@ export function ZQ(e, t) {
 }
 export function NN(e) {
 	switch (e.type) {
-		case "app":
+		case "app": {
 			return e.gameid;
-		case "phase":
+		}
+		case "phase": {
 			return e.phase.game_id;
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }

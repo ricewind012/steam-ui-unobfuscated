@@ -1,15 +1,15 @@
-var r = require(/*webcrack:missing*/ "./58663.js");
-var i = require("./48307.js");
-var s = require("./29218.js");
-const o = r.Message;
-export class s5 extends o {
+import r from "./58663.js";
+import i from "./48307.js";
+import s from "./29218.js";
+const r_Message = r.Message;
+export class s5 extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!s5.prototype.send_reply) {
 			i.Sg(s5.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -48,7 +48,7 @@ export class s5 extends o {
 		return i.zj(s5.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		s5.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -56,7 +56,7 @@ export class s5 extends o {
 		i.i0(s5.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		s5.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -64,14 +64,14 @@ export class s5 extends o {
 		return "CMsgClientHeartBeat";
 	}
 }
-export class Sb extends o {
+export class Sb extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Sb.prototype.client_request_timestamp) {
 			i.Sg(Sb.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -110,7 +110,7 @@ export class Sb extends o {
 		return i.zj(Sb.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		Sb.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -118,7 +118,7 @@ export class Sb extends o {
 		i.i0(Sb.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		Sb.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -126,14 +126,14 @@ export class Sb extends o {
 		return "CMsgClientServerTimestampRequest";
 	}
 }
-export class Q_ extends o {
+export class Q_ extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!Q_.prototype.client_request_timestamp) {
 			i.Sg(Q_.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -177,7 +177,7 @@ export class Q_ extends o {
 		return i.zj(Q_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		Q_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -185,7 +185,7 @@ export class Q_ extends o {
 		i.i0(Q_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		Q_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -193,14 +193,14 @@ export class Q_ extends o {
 		return "CMsgClientServerTimestampResponse";
 	}
 }
-class u extends o {
+class u extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!u.prototype.version) {
 			i.Sg(u.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -259,7 +259,7 @@ class u extends o {
 		return i.zj(u.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -267,7 +267,7 @@ class u extends o {
 		i.i0(u.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		u.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -275,14 +275,14 @@ class u extends o {
 		return "CMsgClientSecret";
 	}
 }
-export class ji extends o {
+export class ji extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!ji.prototype.protocol_version) {
 			i.Sg(ji.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -604,7 +604,7 @@ export class ji extends o {
 		return i.zj(ji.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		ji.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -612,7 +612,7 @@ export class ji extends o {
 		i.i0(ji.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		ji.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -620,14 +620,14 @@ export class ji extends o {
 		return "CMsgClientLogon";
 	}
 }
-export class c1 extends o {
+export class c1 extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c1.prototype.eresult) {
 			i.Sg(c1.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -796,7 +796,7 @@ export class c1 extends o {
 		return i.zj(c1.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		c1.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -804,7 +804,7 @@ export class c1 extends o {
 		i.i0(c1.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		c1.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -812,14 +812,14 @@ export class c1 extends o {
 		return "CMsgClientLogonResponse";
 	}
 }
-export class l9 extends o {
+export class l9 extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l9.prototype.eresult) {
 			i.Sg(l9.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -859,7 +859,7 @@ export class l9 extends o {
 		return i.zj(l9.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		l9.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -867,7 +867,7 @@ export class l9 extends o {
 		i.i0(l9.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		l9.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -875,14 +875,14 @@ export class l9 extends o {
 		return "CMsgClientLoggedOff";
 	}
 }
-export class dX extends o {
+export class dX extends r_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!dX.prototype.persona_name) {
 			i.Sg(dX.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		r_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -971,7 +971,7 @@ export class dX extends o {
 		return i.zj(dX.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		dX.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -979,7 +979,7 @@ export class dX extends o {
 		i.i0(dX.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new r.BinaryWriter();
+		const e = new r.BinaryWriter();
 		dX.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

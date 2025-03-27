@@ -1,30 +1,56 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90095.js");
-var a = require("./22176.js");
-var s = require("./96680.js");
-var o = require("./55700.js");
-var l = require("./73375.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
-var m = require("./69913.js");
-var u = require("./83718.js");
-var d = require("./24590.js");
-var A = require(/*webcrack:missing*/ "./34629.js");
-var p = require("./63032.js");
-var g = require(/*webcrack:missing*/ "./89193.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import n from "./63696.js";
+import i, { q3 } from "./90095.js";
+import a from "./22176.js";
+import s, { $2 } from "./96680.js";
+import o, { v as v_1 } from "./55700.js";
+import l from "./73375.js";
+import c, { cZ, hL, uD } from "./52451.js";
+import m, { wm } from "./69913.js";
+import u from "./83718.js";
+import d, { D as D_1 } from "./24590.js";
+import A, { Cg } from "./34629.js";
+import p from "./63032.js";
+import g, { Gn } from "./89193.js";
+import _ from "./39940.js";
+import { T as T_1 } from "./78057.js";
+import b from "./46422.js";
+import y from "./48180.js";
+import S, { J6 } from "./32411.js";
+import w, { wB } from "./17754.js";
+import B, { PA } from "./41230.js";
+import v from "./79671.js";
+import I from "./44846.js";
+import E, { lX } from "./31084.js";
+import M, { R7 } from "./11131.js";
+import T from "./88750.js";
+import R from "./64608.js";
+import k, { Nr } from "./42318.js";
+import D from "./35488.js";
+import N from "./10606.js";
+import F from "./50376.js";
+import G from "./98995.js";
+import O, { A as A_1 } from "./90765.js";
+import L, { gQ, Yb, $b } from "./39002.js";
+import z, { M as M_1 } from "./1756.js";
+import { b as b_1 } from "./57337.js";
+import { sO, OJ } from "./5640.js";
+import W from "./28934.js";
+import { nv } from "./51582.js";
 function h(e) {
-	let t = n.useRef(undefined);
-	if (!t.current) {
-		t.current = new C(e);
-		t.current.Init();
+	let TRef = n.useRef(undefined);
+	if (!TRef.current) {
+		TRef.current = new C(e);
+		TRef.current.Init();
 	}
-	return t.current;
+	return TRef.current;
 }
 class C {
 	m_unAppID;
 	m_storage;
 	m_rgBookmarks = [];
 	constructor(e) {
-		(0, g.Gn)(this);
+		Gn(this);
 		this.m_unAppID = e;
 		this.m_storage = new p.O();
 	}
@@ -82,45 +108,20 @@ class C {
 		return this.m_unAppID;
 	}
 }
-(0, A.Cg)([g.sH], C.prototype, "m_rgBookmarks", undefined);
-(0, A.Cg)([g.XI], C.prototype, "AddBookmark", null);
-(0, A.Cg)([g.XI], C.prototype, "RemoveBookmark", null);
-(0, A.Cg)([g.XI], C.prototype, "SetBookmarks", null);
-(0, A.Cg)([g.XI], C.prototype, "UpdateBookmark", null);
-var _ = require("./39940.js");
-var _f = require("./78057.js");
-var b = require("./46422.js");
-var y = require("./48180.js");
-var S = require("./32411.js");
-var w = require("./17754.js");
-var B = require(/*webcrack:missing*/ "./41230.js");
-var v = require(/*webcrack:missing*/ "./79671.js");
-var I = require(/*webcrack:missing*/ "./44846.js");
-var E = require(/*webcrack:missing*/ "./31084.js");
-var M = require(/*webcrack:missing*/ "./11131.js");
-var T = require(/*webcrack:missing*/ "./88750.js");
-var R = require("./64608.js");
-var k = require(/*webcrack:missing*/ "./42318.js");
-var D = require("./35488.js");
-var N = require("./10606.js");
-var F = require(/*webcrack:missing*/ "./50376.js");
-var G = require(/*webcrack:missing*/ "./98995.js");
-var O = require(/*webcrack:missing*/ "./90765.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var L = require("./39002.js");
-var z = require("./1756.js");
-var x = require("./57337.js");
-var U = require("./5640.js");
-var W = require("./28934.js");
+Cg([g.sH], C.prototype, "m_rgBookmarks", undefined);
+Cg([g.XI], C.prototype, "AddBookmark", null);
+Cg([g.XI], C.prototype, "RemoveBookmark", null);
+Cg([g.XI], C.prototype, "SetBookmarks", null);
+Cg([g.XI], C.prototype, "UpdateBookmark", null);
 function V(e, t, r, i) {
-	let [a, s] = (0, w.wB)(t, i, r);
+	let [a, s] = wB(t, i, r);
 	n.useEffect(() => {
-		(0, c.cZ)(a, e);
+		cZ(a, e);
 	}, [e, a]);
 	return s.current;
 }
 function H(e) {
-	const t = (0, s.$2)();
+	const t = $2();
 	return n.useCallback(
 		(e) => {
 			const r = "steam://openexternalforpid/";
@@ -139,442 +140,353 @@ function H(e) {
 		[t],
 	);
 }
-function j(e) {
-	const { onClick: t, tooltip: r, bDisabled: i, bToggled: a, children: s } = e;
-	return n.createElement(
-		G.he,
-		{
-			className: (0, O.A)(
+function J_1(e) {
+	const { onClick, tooltip, bDisabled, bToggled, children } = e;
+	return (
+		<G.he
+			className={A_1(
 				y.StatusIcon,
 				y.NavigationButton,
-				i && y.Disabled,
-				a && y.Toggled,
-			),
-			onClick: i ? undefined : t,
-			toolTipContent: r,
-		},
-		s,
+				bDisabled && y.Disabled,
+				bToggled && y.Toggled,
+			)}
+			onClick={bDisabled || onClick}
+			toolTipContent={tooltip}
+		>
+			{children}
+		</G.he>
 	);
 }
-const q = (0, k.Nr)((e) => {
-	const {
-		className: t,
-		popup: r,
-		manager: a,
-		bookmarks: s,
-		bCanChangeURL: o,
-		strHomeURL: l,
-	} = e;
-	const m = (0, i.q3)(() => a.Loading);
-	const u = (0, i.q3)(() => a.PageSecurity);
-	const d = (0, i.q3)(() => a.Title);
-	const A = (0, i.q3)(() => a.DisplayURL);
-	const p = (0, i.q3)(() => a.CanGoBackward);
-	const g = (0, i.q3)(() => a.CanGoForward);
+const Q_1 = Nr((e) => {
+	const { className, popup, manager, bookmarks, bCanChangeURL, strHomeURL } = e;
+	const m = q3(() => manager.Loading);
+	const u = q3(() => manager.PageSecurity);
+	const d = q3(() => manager.Title);
+	const A = q3(() => manager.DisplayURL);
+	const p = q3(() => manager.CanGoBackward);
+	const g = q3(() => manager.CanGoForward);
 	const h = !m && A;
-	const C = a.Reload;
-	const _ = a.GoBack;
-	const f = a.GoForward;
-	const b = n.useRef(undefined);
-	const w = (0, i.q3)(() => s && s.BIsBookmarked(A));
-	let [B, v, I] = (0, S.J6)(r, A);
+
+	const { Reload, GoBack, GoForward } = manager;
+
+	const BRef = n.useRef(undefined);
+	const w = q3(() => bookmarks && bookmarks.BIsBookmarked(A));
+	let [B, v, I] = J6(popup, A);
 	const E = n.useCallback(() => {
-		a.Browser.LoadURL(l);
-	}, [a.Browser, l]);
+		manager.Browser.LoadURL(strHomeURL);
+	}, [manager.Browser, strHomeURL]);
 	const M = n.useCallback(
 		(e) => {
-			const t = e.target;
+			const e_target = e.target;
 			if (e.key === "Enter") {
-				a.Browser.LoadURL(t.value);
+				manager.Browser.LoadURL(e_target.value);
 			}
 		},
-		[a.Browser],
+		[manager.Browser],
 	);
 	const T = n.useCallback(
 		(e, t) => {
-			if (s.BIsBookmarked(t)) {
-				s.RemoveBookmark(t);
+			if (bookmarks.BIsBookmarked(t)) {
+				bookmarks.RemoveBookmark(t);
 			} else {
-				s.AddBookmark(e || t, t);
+				bookmarks.AddBookmark(e || t, t);
 			}
 		},
-		[s],
+		[bookmarks],
 	);
 	const k = n.useCallback((e) => {
-		if (b.current?.element) {
-			b.current.element.value = e;
+		if (BRef.current?.element) {
+			BRef.current.element.value = e;
 		}
 	}, []);
 	const N = n.useCallback((e, t) => {
-		if (b.current?.element) {
-			b.current.element.value = e;
+		if (BRef.current?.element) {
+			BRef.current.element.value = e;
 		}
 	}, []);
 	const F = n.useCallback((e, t) => {
-		if (b.current?.element) {
-			b.current.element.value = e;
+		if (BRef.current?.element) {
+			BRef.current.element.value = e;
 		}
 	}, []);
-	(0, c.hL)(a.StartRequestCallbacks, k);
-	(0, c.hL)(a.StartLoadingCallbacks, N);
-	(0, c.hL)(a.FinishedRequestCallbacks, F);
-	let L = m ? n.createElement(D.Spinner, null) : n.createElement(D.Globe, null);
+	hL(manager.StartRequestCallbacks, k);
+	hL(manager.StartLoadingCallbacks, N);
+	hL(manager.FinishedRequestCallbacks, F);
+	let L = m ? <D.Spinner /> : <D.Globe />;
 	let z = (0, Localize)("#Browser_Loading");
 	if (!m && A && A.startsWith("https://") && u?.bIsSecure) {
 		if (u?.bHasCertError) {
-			L = n.createElement(D.Caution, {
-				className: y.CertError,
-			});
+			L = <D.Caution className={y.CertError} />;
 			z = (0, Localize)("#Browser_NotSecure");
 		} else {
-			L = n.createElement(D.Lock, {
-				locked: true,
-			});
+			L = <D.Lock locked />;
 			z = u?.certName;
 		}
 	}
-	return n.createElement(
-		"div",
-		{
-			className: (0, O.A)(y.URLBar, t),
-		},
-		n.createElement(
-			j,
-			{
-				tooltip: (0, Localize)("#BrowserContextMenu_GoBack"),
-				onClick: _,
-				bDisabled: !p,
-			},
-			n.createElement(D.Arrow, {
-				direction: "left",
-			}),
-		),
-		n.createElement(
-			j,
-			{
-				tooltip: (0, Localize)("#BrowserContextMenu_GoForward"),
-				onClick: f,
-				bDisabled: !g,
-			},
-			n.createElement(D.Arrow, {
-				direction: "right",
-			}),
-		),
-		n.createElement(
-			j,
-			{
-				tooltip: (0, Localize)("#BrowserContextMenu_Reload"),
-				onClick: C,
-				bDisabled: !h,
-			},
-			n.createElement(D.Refresh, null),
-		),
-		s &&
-			n.createElement(
-				j,
-				{
-					tooltip: (0, Localize)(
+	return (
+		<div className={A_1(y.URLBar, className)}>
+			<J_1
+				tooltip={(0, Localize)("#BrowserContextMenu_GoBack")}
+				onClick={GoBack}
+				bDisabled={!p}
+			>
+				<D.Arrow direction="left" />
+			</J_1>
+			<J_1
+				tooltip={(0, Localize)("#BrowserContextMenu_GoForward")}
+				onClick={GoForward}
+				bDisabled={!g}
+			>
+				<D.Arrow direction="right" />
+			</J_1>
+			<J_1
+				tooltip={(0, Localize)("#BrowserContextMenu_Reload")}
+				onClick={Reload}
+				bDisabled={!h}
+			>
+				<D.Refresh />
+			</J_1>
+			{bookmarks && (
+				<J_1
+					tooltip={(0, Localize)(
 						w ? "#Browser_RemoveBookmark" : "#Browser_AddBookmark",
-					),
-					onClick: () => T(d, A),
-					bToggled: w,
-				},
-				n.createElement(D.Bookmark, null),
-			),
-		l &&
-			n.createElement(
-				j,
-				{
-					tooltip: (0, Localize)("#Browser_Home"),
-					onClick: E,
-				},
-				n.createElement(D.Home, null),
-			),
-		n.createElement(
-			"div",
-			{
-				className: y.URLBarText,
-				onClick: o ? undefined : v,
-			},
-			!o &&
-				n.createElement(S.hL, {
-					data: B,
-					onAnimationComplete: I,
-				}),
-			n.createElement(
-				G.he,
-				{
-					className: (0, O.A)(y.StatusIcon, y.LockIcon),
-					toolTipContent: z,
-				},
-				L,
-			),
-			n.createElement(
-				"div",
-				{
-					className: (0, O.A)(y.URL, u?.bHasCertError && y.CertError),
-				},
-				!o && A,
-				o &&
-					n.createElement(R.pd, {
-						type: "input",
-						ref: (e) => {
-							b.current = e;
-							if (e?.element) {
-								e.element.value = A;
-							}
-						},
-						onKeyPress: M,
-						spellCheck: false,
-					}),
-			),
-		),
+					)}
+					onClick={() => T(d, A)}
+					bToggled={w}
+				>
+					<D.Bookmark />
+				</J_1>
+			)}
+			{strHomeURL && (
+				<J_1 tooltip={(0, Localize)("#Browser_Home")} onClick={E}>
+					<D.Home />
+				</J_1>
+			)}
+			<div className={y.URLBarText} onClick={bCanChangeURL || v}>
+				{!bCanChangeURL && <S.hL data={B} onAnimationComplete={I} />}
+				<G.he className={A_1(y.StatusIcon, y.LockIcon)} toolTipContent={z}>
+					{L}
+				</G.he>
+				<div className={A_1(y.URL, u?.bHasCertError && y.CertError)}>
+					{!bCanChangeURL && A}
+					{bCanChangeURL && (
+						<R.pd
+							type="input"
+							ref={(e) => {
+								BRef.current = e;
+								if (e?.element) {
+									e.element.value = A;
+								}
+							}}
+							onKeyPress={M}
+							spellCheck={false}
+						/>
+					)}
+				</div>
+			</div>
+		</div>
 	);
 });
 function Q(e) {
-	return n.createElement(
-		"div",
-		{
-			className: y.LoadingThrobber,
-		},
-		n.createElement("img", {
-			alt: "Steam Spinner",
-			src: _.A,
-		}),
+	return (
+		<div className={y.LoadingThrobber}>
+			<img alt="Steam Spinner" src={_.A} />
+		</div>
 	);
 }
 function Z(e) {
 	const {
-		appid: t,
-		strHomeURL: r,
-		onCloseTab: a,
-		onSelectTab: s,
-		onTabNavigate: o,
-		onAddTab: l,
-		onNewTab: m,
-		onReorderTab: u,
-		onBrowserFocusChanged: d,
-		activeRequestID: A,
-		rgPages: p,
-		nMaxTabs: g,
-		popup: C,
-		onTitleChange: _,
-		bPinned: f,
-		bShowPinnedView: b,
+		appid,
+		strHomeURL,
+		onCloseTab,
+		onSelectTab,
+		onTabNavigate,
+		onAddTab,
+		onNewTab,
+		onReorderTab,
+		onBrowserFocusChanged,
+		activeRequestID,
+		rgPages,
+		nMaxTabs,
+		popup,
+		onTitleChange,
+		bPinned,
+		bShowPinnedView,
 	} = e;
-	const S = g || 100;
-	const w = p.length < S;
-	const B = h(t);
-	let v = n.useRef(undefined);
-	v.current ||= new Map();
-	const [I, E] = n.useState();
+	const S = nMaxTabs || 100;
+	const w = rgPages.length < S;
+	const B = h(appid);
+	let VRef = n.useRef(undefined);
+	VRef.current ||= new Map();
+	const [I, setI] = n.useState();
 	const M = n.useCallback(
 		(e) => {
-			a(e);
-			v.current.delete(e);
+			onCloseTab(e);
+			VRef.current.delete(e);
 		},
-		[a],
+		[onCloseTab],
 	);
 	n.useCallback(() => {
-		a(A);
-		v.current.delete(A);
-	}, [a, A]);
+		onCloseTab(activeRequestID);
+		VRef.current.delete(activeRequestID);
+	}, [onCloseTab, activeRequestID]);
 	const T = H();
 	const R = n.useCallback(
 		(e) =>
 			e
-				? (v.current.set(e.ID, e),
-					e.ID == A && E(e),
+				? (VRef.current.set(e.ID, e),
+					e.ID == activeRequestID && setI(e),
 					e.AddSteamURLCallback(T),
 					() => e?.RemoveSteamURLCallback(T))
 				: () => {},
-		[v, T, A],
+		[VRef, T, activeRequestID],
 	);
 	const k = n.useCallback(
 		(e) => {
-			s(e);
-			E(v.current.get(e));
+			onSelectTab(e);
+			setI(VRef.current.get(e));
 		},
-		[s, v],
+		[onSelectTab, VRef],
 	);
 	n.useEffect(() => {
-		if (!v.current.has(A)) {
-			E(undefined);
+		if (!VRef.current.has(activeRequestID)) {
+			setI(undefined);
 		}
-	}, [A]);
-	const D = (0, i.q3)(() => I?.Title);
-	const N = (0, i.q3)(() => I?.DisplayURL);
-	const F = (0, U.sO)(N);
+	}, [activeRequestID]);
+	const D = q3(() => I?.Title);
+	const N = q3(() => I?.DisplayURL);
+	const F = sO(N);
 	n.useEffect(() => {
-		_(F ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : D);
-	}, [D, _, F]);
-	const [G, L, z] = (0, c.uD)(false);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(_$, {
-			className: (0, O.A)(b && y.PinnedView),
-			popup: C,
-			browserManagers: v.current,
-			bookmarks: B,
-			activeRequestID: A,
-			rgPages: p,
-			onAddTab: l,
-			onSelectTab: k,
-			onCloseTab: M,
-			onReorderTab: u,
-			onOrganizeBookmarks: L,
-			bShowAddTabButton: w,
-		}),
-		I &&
-			n.createElement(q, {
-				className: b ? y.PinnedViewURLBar : undefined,
-				popup: C,
-				manager: I,
-				bookmarks: B,
-				strHomeURL: r,
-				bCanChangeURL: true,
-			}),
-		p.map((e) =>
-			n.createElement(re, {
-				key: e.requestid,
-				popup: C,
-				appid: t,
-				tab: e,
-				bActive: e.requestid == A && !G,
-				refBrowserManager: R,
-				onNavigate: o,
-				onCloseTab: M,
-				onNewTab: m,
-				onBrowserFocusChanged: d,
-				bPinned: f,
-				bShowPinnedView: b,
-			}),
-		),
-		G &&
-			n.createElement(X, {
-				bookmarks: B,
-				closeModal: z,
-			}),
+		onTitleChange(
+			F ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : D,
+		);
+	}, [D, onTitleChange, F]);
+	const [G, L, z] = uD(false);
+	return (
+		<>
+			<_$
+				className={A_1(bShowPinnedView && y.PinnedView)}
+				popup={popup}
+				browserManagers={VRef.current}
+				bookmarks={B}
+				activeRequestID={activeRequestID}
+				rgPages={rgPages}
+				onAddTab={onAddTab}
+				onSelectTab={k}
+				onCloseTab={M}
+				onReorderTab={onReorderTab}
+				onOrganizeBookmarks={L}
+				bShowAddTabButton={w}
+			/>
+			{I && (
+				<Q_1
+					className={bShowPinnedView ? y.PinnedViewURLBar : undefined}
+					popup={popup}
+					manager={I}
+					bookmarks={B}
+					strHomeURL={strHomeURL}
+					bCanChangeURL
+				/>
+			)}
+			{rgPages.map((e) => (
+				<Re
+					key={e.requestid}
+					popup={popup}
+					appid={appid}
+					tab={e}
+					bActive={e.requestid == activeRequestID && !G}
+					refBrowserManager={R}
+					onNavigate={onTabNavigate}
+					onCloseTab={M}
+					onNewTab={onNewTab}
+					onBrowserFocusChanged={onBrowserFocusChanged}
+					bPinned={bPinned}
+					bShowPinnedView={bShowPinnedView}
+				/>
+			))}
+			{G && <X bookmarks={B} closeModal={z} />}
+		</>
 	);
 }
 function Y(e) {
-	const { bookmarks: t, bookmark: r, idx: i, onEditBookmark: a } = e;
+	const { bookmarks, bookmark, idx, onEditBookmark } = e;
 	const s = n.useCallback(() => {
-		t.RemoveBookmark(r.url);
-	}, [t, r.url]);
-	return n.createElement(
-		v.sx,
-		{
-			draggableId: r.url,
-			index: i,
-		},
-		(e, t) =>
-			n.createElement(
-				"div",
-				{
-					className: (0, O.A)(
-						y.ManageBookmarkField,
-						t.isDragging && y.IsDragging,
-					),
-					ref: e.innerRef,
-					...e.draggableProps,
-					...e.dragHandleProps,
-					style: (0, L.gQ)(e.draggableProps.style),
-				},
-				n.createElement(
-					R.D0,
-					{
-						label: r.name,
-						description: n.createElement(
-							"div",
-							{
-								className: y.URL,
-							},
-							r.url,
-						),
-						icon: n.createElement(D.Rows, {
-							className: y.DragHandle,
-						}),
-					},
-					n.createElement(
-						"div",
-						{
-							className: y.ManageBookmarkButtons,
-						},
-						n.createElement(
-							R.$n,
-							{
-								className: y.ManageBookmarkButton,
-								onClick: a,
-							},
-							(0, Localize)("#Browser_OrganizeBookmarks_Edit"),
-						),
-						n.createElement(
-							R.$n,
-							{
-								className: y.ManageBookmarkButton,
-								onClick: s,
-							},
-							(0, Localize)("#Browser_OrganizeBookmarks_Remove"),
-						),
-					),
-				),
-			),
+		bookmarks.RemoveBookmark(bookmark.url);
+	}, [bookmarks, bookmark.url]);
+	return (
+		<v.sx draggableId={bookmark.url} index={idx}>
+			{(e, t) => (
+				<div
+					className={A_1(y.ManageBookmarkField, t.isDragging && y.IsDragging)}
+					ref={e.innerRef}
+					{...e.draggableProps}
+					{...e.dragHandleProps}
+					style={gQ(e.draggableProps.style)}
+				>
+					<R.D0
+						label={bookmark.name}
+						description={<div className={y.URL}>{bookmark.url}</div>}
+						icon={<D.Rows className={y.DragHandle} />}
+					>
+						<div className={y.ManageBookmarkButtons}>
+							<R.$n className={y.ManageBookmarkButton} onClick={onEditBookmark}>
+								{(0, Localize)("#Browser_OrganizeBookmarks_Edit")}
+							</R.$n>
+							<R.$n className={y.ManageBookmarkButton} onClick={s}>
+								{(0, Localize)("#Browser_OrganizeBookmarks_Remove")}
+							</R.$n>
+						</div>
+					</R.D0>
+				</div>
+			)}
+		</v.sx>
 	);
 }
 function K(e) {
-	const { name: t, url: r, onOK: i, closeModal: a } = e;
-	const [s, o] = n.useState(t);
-	const [l, c] = n.useState(r);
-	const m = n.useRef(undefined);
-	const u = n.useRef(undefined);
-	return n.createElement(
-		N.EN,
-		{
-			active: true,
-		},
-		n.createElement(
-			N.o0,
-			{
-				strTitle: (0, Localize)("#Browser_OrganizeBookmarks_EditBookmark"),
-				onOK: () => i(s, l),
-				closeModal: a,
-				bOKDisabled: s.length == 0 || l.length == 0,
-			},
-			n.createElement(
-				"div",
-				{
-					className: y.EditBookmarkDialog,
-				},
-				n.createElement(R.pd, {
-					ref: m,
-					value: s,
-					onChange: (e) => o(e.currentTarget.value),
-					label: (0, Localize)("#Browser_OrganizeBookmarks_EditName"),
-				}),
-				n.createElement(R.pd, {
-					ref: u,
-					value: l,
-					onChange: (e) => c(e.currentTarget.value),
-					label: (0, Localize)("#Browser_OrganizeBookmarks_EditLink"),
-				}),
-			),
-		),
+	const { name, url, onOK, closeModal } = e;
+	const [s, setS] = n.useState(name);
+	const [l, setL] = n.useState(url);
+	const MRef = n.useRef(undefined);
+	const URef = n.useRef(undefined);
+	return (
+		<N.EN active>
+			<N.o0
+				strTitle={(0, Localize)("#Browser_OrganizeBookmarks_EditBookmark")}
+				onOK={() => onOK(s, l)}
+				closeModal={closeModal}
+				bOKDisabled={s.length == 0 || l.length == 0}
+			>
+				<div className={y.EditBookmarkDialog}>
+					<R.pd
+						ref={MRef}
+						value={s}
+						onChange={(e) => setS(e.currentTarget.value)}
+						label={(0, Localize)("#Browser_OrganizeBookmarks_EditName")}
+					/>
+					<R.pd
+						ref={URef}
+						value={l}
+						onChange={(e) => setL(e.currentTarget.value)}
+						label={(0, Localize)("#Browser_OrganizeBookmarks_EditLink")}
+					/>
+				</div>
+			</N.o0>
+		</N.EN>
 	);
 }
-const X = (0, B.PA)((e) => {
-	const { bookmarks: t, closeModal: r } = e;
-	const i = t.bookmarks;
-	const a = (0, _f.T)(t.appid);
-	const s = t.appid == I.w1 ? (0, Localize)("#Menu_Steam") : a.strDisplayName;
-	const [o, l, m] = (0, c.uD)(false);
-	const [u, d] = n.useState(0);
-	const A = i[u];
-	const { ownerWindow: p } = (0, M.R7)();
+const X = PA((e) => {
+	const { bookmarks, closeModal } = e;
+	const t_bookmarks = bookmarks.bookmarks;
+	const a = T_1(bookmarks.appid);
+	const s =
+		bookmarks.appid == I.w1 ? (0, Localize)("#Menu_Steam") : a.strDisplayName;
+	const [o, l, m] = uD(false);
+	const [u, setU] = n.useState(0);
+	const t_bookmarks_u = t_bookmarks[u];
+	const { ownerWindow } = R7();
 	const g = n.useCallback(
 		(e) => {
-			d(e);
+			setU(e);
 			l();
 		},
 		[l],
@@ -584,461 +496,399 @@ const X = (0, B.PA)((e) => {
 			if (!e.destination) {
 				return;
 			}
-			let n = (0, L.Yb)(t.bookmarks, e.source.index, e.destination.index);
-			t.SetBookmarks(n);
+			let n = Yb(bookmarks.bookmarks, e.source.index, e.destination.index);
+			bookmarks.SetBookmarks(n);
 		},
-		[t],
+		[bookmarks],
 	);
-	return n.createElement(
-		N.EN,
-		{
-			active: true,
-		},
-		n.createElement(
-			N.o0,
-			{
-				bAlertDialog: true,
-				strTitle: (0, Localize)("#Browser_OrganizeBookmarks_Title", s),
-				closeModal: r,
-				onCancel: r,
-			},
-			n.createElement(
-				v.JY,
-				{
-					onDragEnd: h,
-					stylesInsertionPoint: p?.document?.head,
-				},
-				n.createElement(
-					v.gL,
-					{
-						droppableId: "droppable",
-					},
-					(e, r) =>
-						n.createElement(
-							"div",
-							{
-								className: (0, O.A)(
+	return (
+		<N.EN active>
+			<N.o0
+				bAlertDialog
+				strTitle={(0, Localize)("#Browser_OrganizeBookmarks_Title", s)}
+				closeModal={closeModal}
+				onCancel={closeModal}
+			>
+				<v.JY onDragEnd={h} stylesInsertionPoint={ownerWindow?.document?.head}>
+					<v.gL droppableId="droppable">
+						{(e, r) => (
+							<div
+								className={A_1(
 									y.ManageBookmarksList,
 									r.isDraggingOver && y.IsDraggingOver,
-								),
-								...e.droppableProps,
-								ref: e.innerRef,
-							},
-							i.map((e, r) =>
-								n.createElement(Y, {
-									key: e.url,
-									bookmarks: t,
-									idx: r,
-									bookmark: e,
-									onEditBookmark: () => g(r),
-								}),
-							),
-							e.placeholder,
-						),
-				),
-			),
-		),
-		o &&
-			n.createElement(K, {
-				name: A?.name,
-				url: A?.url,
-				onOK: (e, r) => {
-					t.UpdateBookmark(u, e, r);
-				},
-				closeModal: m,
-			}),
+								)}
+								{...e.droppableProps}
+								ref={e.innerRef}
+							>
+								{t_bookmarks.map((e, r) => (
+									<Y
+										key={e.url}
+										bookmarks={bookmarks}
+										idx={r}
+										bookmark={e}
+										onEditBookmark={() => g(r)}
+									/>
+								))}
+								{e.placeholder}
+							</div>
+						)}
+					</v.gL>
+				</v.JY>
+			</N.o0>
+			{o && (
+				<K
+					name={t_bookmarks_u?.name}
+					url={t_bookmarks_u?.url}
+					onOK={(e, r) => {
+						bookmarks.UpdateBookmark(u, e, r);
+					}}
+					closeModal={m}
+				/>
+			)}
+		</N.EN>
 	);
 });
 function J(e) {
-	const { bookmarks: t, onAddTab: r, onOrganizeBookmarks: i } = e;
+	const { bookmarks, onAddTab, onOrganizeBookmarks } = e;
 	const a = n.useCallback(
 		(e) => {
-			if (t && t.bookmarks.length != 0) {
-				(0, E.lX)(
-					n.createElement(
-						T.tz,
-						null,
-						n.createElement(
-							T.kt,
-							{
-								onSelected: (e) => r(),
-							},
-							(0, Localize)("#Browser_NewTab"),
-						),
-						n.createElement(T.K5, null),
-						n.createElement(
-							T.kt,
-							{
-								onSelected: i,
-							},
-							(0, Localize)("#Browser_OrganizeBookmarks"),
-						),
-						n.createElement(T.K5, null),
-						t.bookmarks.map((e, t) =>
-							n.createElement(
-								T.kt,
-								{
-									key: t,
-									onSelected: (t) => r(e.url),
-								},
-								n.createElement(
-									"div",
-									{
-										className: y.ContextMenuBookmarkName,
-									},
-									e.name,
-								),
-							),
-						),
-					),
+			if (bookmarks && bookmarks.bookmarks.length != 0) {
+				lX(
+					<T.tz>
+						<T.kt onSelected={(e) => onAddTab()}>
+							{(0, Localize)("#Browser_NewTab")}
+						</T.kt>
+						<T.K5 />
+						<T.kt onSelected={onOrganizeBookmarks}>
+							{(0, Localize)("#Browser_OrganizeBookmarks")}
+						</T.kt>
+						<T.K5 />
+						{bookmarks.bookmarks.map((e, t) => (
+							<T.kt key={t} onSelected={(t) => onAddTab(e.url)}>
+								<div className={y.ContextMenuBookmarkName}>{e.name}</div>
+							</T.kt>
+						))}
+					</T.tz>,
 					e,
 					{
 						bForcePopup: true,
 					},
 				);
 			} else {
-				r();
+				onAddTab();
 			}
 		},
-		[t, r, i],
+		[bookmarks, onAddTab, onOrganizeBookmarks],
 	);
-	return n.createElement(
-		"div",
-		{
-			className: y.BrowserTab,
-			onClick: a,
-		},
-		n.createElement(F.FWt, {
-			className: y.AddTabButton,
-		}),
+	return (
+		<div className={y.BrowserTab} onClick={a}>
+			<F.FWt className={y.AddTabButton} />
+		</div>
 	);
 }
-const _$ = (0, k.Nr)((e) => {
+const _$ = Nr((e) => {
 	const {
-		className: t,
-		popup: r,
-		browserManagers: i,
-		bookmarks: a,
-		activeRequestID: s,
-		onCloseTab: o,
-		onSelectTab: l,
-		onAddTab: c,
-		onReorderTab: m,
-		onOrganizeBookmarks: u,
-		bShowAddTabButton: d,
-		rgPages: A,
+		className,
+		popup,
+		browserManagers,
+		bookmarks,
+		activeRequestID,
+		onCloseTab,
+		onSelectTab,
+		onAddTab,
+		onReorderTab,
+		onOrganizeBookmarks,
+		bShowAddTabButton,
+		rgPages,
 	} = e;
 	const p = n.useCallback(
 		(e, t) => {
-			if (m) {
-				m(e.source.index, e.destination.index);
+			if (onReorderTab) {
+				onReorderTab(e.source.index, e.destination.index);
 			}
 		},
-		[m],
+		[onReorderTab],
 	);
-	return n.createElement(
-		n.Fragment,
-		null,
-		r?.document?.head &&
-			n.createElement(
-				v.JY,
-				{
-					onDragEnd: p,
-					stylesInsertionPoint: r?.document?.head,
-				},
-				n.createElement(
-					v.gL,
-					{
-						droppableId: "droppable",
-						direction: "horizontal",
-					},
-					(e, r) =>
-						n.createElement(
-							"div",
-							{
-								className: (0, O.A)(y.BrowserTabs, t),
-								...e.droppableProps,
-								ref: e.innerRef,
-							},
-							A.map((e, t) =>
-								n.createElement(
-									v.sx,
-									{
-										draggableId: `${e.requestid}`,
-										index: t,
-										key: e.requestid,
-									},
-									(t, r) =>
-										n.createElement(
-											"div",
-											{
-												ref: t.innerRef,
-												...t.draggableProps,
-												...t.dragHandleProps,
-												style: (0, L.$b)(t.draggableProps.style),
-											},
-											n.createElement(ee, {
-												tab: e,
-												browserManager: i.get(e.requestid),
-												bActive: e.requestid == s,
-												onSelectTab: l,
-												onCloseTab: o,
-											}),
-										),
-								),
-							),
-							e.placeholder,
-							d &&
-								n.createElement(J, {
-									bookmarks: a,
-									onAddTab: c,
-									onOrganizeBookmarks: u,
-								}),
-						),
-				),
-			),
+	return (
+		<>
+			{popup?.document?.head && (
+				<v.JY onDragEnd={p} stylesInsertionPoint={popup?.document?.head}>
+					<v.gL droppableId="droppable" direction="horizontal">
+						{(e, r) => (
+							<div
+								className={A_1(y.BrowserTabs, className)}
+								{...e.droppableProps}
+								ref={e.innerRef}
+							>
+								{rgPages.map((e, t) => (
+									<v.sx
+										draggableId={`${e.requestid}`}
+										index={t}
+										key={e.requestid}
+									>
+										{(t, r) => (
+											<div
+												ref={t.innerRef}
+												{...t.draggableProps}
+												{...t.dragHandleProps}
+												style={$b(t.draggableProps.style)}
+											>
+												<Ee
+													tab={e}
+													browserManager={browserManagers.get(e.requestid)}
+													bActive={e.requestid == activeRequestID}
+													onSelectTab={onSelectTab}
+													onCloseTab={onCloseTab}
+												/>
+											</div>
+										)}
+									</v.sx>
+								))}
+								{e.placeholder}
+								{bShowAddTabButton && (
+									<J
+										bookmarks={bookmarks}
+										onAddTab={onAddTab}
+										onOrganizeBookmarks={onOrganizeBookmarks}
+									/>
+								)}
+							</div>
+						)}
+					</v.gL>
+				</v.JY>
+			)}
+		</>
 	);
 });
-const ee = (0, k.Nr)((e) => {
-	const {
-		tab: t,
-		browserManager: r,
-		bActive: a,
-		onSelectTab: s,
-		onCloseTab: o,
-	} = e;
-	const l = n.useRef(undefined);
-	const c = (0, i.q3)(
-		() => r?.Title || t.strTitle || r?.DisplayURL || t.strURL,
+const Ee = Nr((e) => {
+	const { tab, browserManager, bActive, onSelectTab, onCloseTab } = e;
+	const LRef = n.useRef(undefined);
+	const c = q3(
+		() =>
+			browserManager?.Title ||
+			tab.strTitle ||
+			tab.strTitle ||
+			browserManager?.DisplayURL ||
+			tab.strTitle ||
+			browserManager?.DisplayURL ||
+			tab.strURL,
 	);
-	const m = (0, U.sO)(t.strURL);
+	const m = sO(tab.strURL);
 	n.useEffect(() => {
-		if (l.current && a) {
-			l.current.scrollIntoView();
+		if (LRef.current && bActive) {
+			LRef.current.scrollIntoView();
 		}
-	}, [a]);
+	}, [bActive]);
 	const u = n.useCallback(
 		(e) => {
 			if (e.button == 1) {
-				o(t.requestid);
+				onCloseTab(tab.requestid);
 			}
 		},
-		[t, o],
+		[tab, onCloseTab],
 	);
-	return n.createElement(
-		"div",
-		{
-			ref: l,
-			className: (0, O.A)(y.BrowserTab, a && y.Active),
-			onClick: a ? undefined : () => s(t.requestid),
-			onMouseDown: u,
-		},
-		n.createElement(te, {
-			browserManager: r,
-		}),
-		n.createElement(
-			"div",
-			{
-				className: y.TabTitle,
-			},
-			m ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : c,
-		),
-		n.createElement(D.Close, {
-			className: y.CloseTabButton,
-			onClick: (e) => {
-				o(t.requestid);
-				e.stopPropagation();
-			},
-		}),
+	return (
+		<div
+			ref={LRef}
+			className={A_1(y.BrowserTab, bActive && y.Active)}
+			onClick={bActive || (() => onSelectTab(tab.requestid))}
+			onMouseDown={u}
+		>
+			<Te browserManager={browserManager} />
+			<div className={y.TabTitle}>
+				{m ? (0, Localize)("#DisplayStatus_Compact_ParentalBlocked") : c}
+			</div>
+			<D.Close
+				className={y.CloseTabButton}
+				onClick={(e) => {
+					onCloseTab(tab.requestid);
+					e.stopPropagation();
+				}}
+			/>
+		</div>
 	);
 });
-function te(e) {
-	const { browserManager: t } = e;
-	const r = (0, i.q3)(() => t?.Loading);
-	const a = (0, i.q3)(() => t?.FavIconURLs);
-	if (!t || r) {
-		return n.createElement(D.Spinner, {
-			className: y.BrowserTabIcon,
-		});
+function Te(e) {
+	const { browserManager } = e;
+	const r = q3(() => browserManager?.Loading);
+	const a = q3(() => browserManager?.FavIconURLs);
+	if (!browserManager || r) {
+		return <D.Spinner className={y.BrowserTabIcon} />;
 	} else if (a && a.length != 0) {
-		return n.createElement("img", {
-			className: y.BrowserTabIcon,
-			src: a[0],
-		});
+		return <img className={y.BrowserTabIcon} src={a[0]} />;
 	} else {
-		return n.createElement(D.Browse, {
-			className: y.BrowserTabIcon,
-		});
+		return <D.Browse className={y.BrowserTabIcon} />;
 	}
 }
-const re = (0, k.Nr)((e) => {
+const Re = Nr((e) => {
 	const {
-		popup: t,
-		appid: r,
-		tab: i,
-		bActive: a,
-		onNavigate: m,
-		onCloseTab: u,
-		onNewTab: A,
-		onBrowserFocusChanged: p,
-		refBrowser: g,
-		refBrowserManager: h,
-		bPinned: C,
-		bShowPinnedView: _,
+		popup,
+		appid,
+		tab,
+		bActive,
+		onNavigate,
+		onCloseTab,
+		onNewTab,
+		onBrowserFocusChanged,
+		refBrowser,
+		refBrowserManager,
+		bPinned,
+		bShowPinnedView,
 	} = e;
-	const f = `OverlayTab${i.requestid}`;
-	const S = r == I.w1 ? "Valve Steam Client" : "Valve Steam GameOverlay";
-	const [w, B] = (0, o.v)(t, f, {
+	const f = `OverlayTab${tab.requestid}`;
+	const S = appid == I.w1 ? "Valve Steam Client" : "Valve Steam GameOverlay";
+	const [w, B] = v_1(popup, f, {
 		strUserAgentIdentifier: S,
 		bOnlyAllowTrustedPopups: false,
-		strURL: i.strURL,
+		strURL: tab.strURL,
 	});
-	(0, d.D)(w);
-	const v = (0, s.$2)();
-	const E = (0, z.M)(f, t, v.params.browserInfo, w, b.oy.NavigationManager, a);
-	const M = (0, x.b)(t, v.params.browserInfo, w);
+	D_1(w);
+	const v = $2();
+	const E = M_1(
+		f,
+		popup,
+		v.params.browserInfo,
+		w,
+		b.oy.NavigationManager,
+		bActive,
+	);
+	const M = b_1(popup, v.params.browserInfo, w);
 	const T = n.useCallback(() => {
-		u(i.requestid);
-	}, [u, i.requestid]);
-	const R = V(w, r, T, i.requestid);
+		onCloseTab(tab.requestid);
+	}, [onCloseTab, tab.requestid]);
+	const R = V(w, appid, T, tab.requestid);
 	const k = n.useCallback(
 		(e, t) => {
-			m(i.requestid, e, t);
+			onNavigate(tab.requestid, e, t);
 		},
-		[i.requestid, m],
+		[tab.requestid, onNavigate],
 	);
-	(0, c.hL)(R?.FinishedRequestCallbacks, k);
-	(0, c.hL)(R?.NewTabCallbacks, A);
-	const D = (0, U.OJ)(i.strURL);
+	hL(R?.FinishedRequestCallbacks, k);
+	hL(R?.NewTabCallbacks, onNewTab);
+	const D = OJ(tab.strURL);
 	const N = D != 0;
 	n.useEffect(() => {
 		if (w) {
 			let e = JSON.stringify({
-				bPinned: C == 1,
-				bShowPinnedView: _ == 1,
+				bPinned: bPinned == 1,
+				bShowPinnedView: bShowPinnedView == 1,
 			});
 			w.PostMessage("PinnedView", e);
 		}
-	}, [w, C, _]);
+	}, [w, bPinned, bShowPinnedView]);
 	const F = n.useCallback(() => {
 		let e = JSON.stringify({
-			bPinned: C == 1,
-			bShowPinnedView: _ == 1,
+			bPinned: bPinned == 1,
+			bShowPinnedView: bShowPinnedView == 1,
 		});
 		w.PostMessage("PinnedView", e);
-	}, [w, C, _]);
-	(0, c.hL)(R?.FinishedRequestCallbacks, F);
+	}, [w, bPinned, bShowPinnedView]);
+	hL(R?.FinishedRequestCallbacks, F);
 	n.useEffect(() => {
-		(0, c.cZ)(g, w);
+		cZ(refBrowser, w);
 		if (w) {
-			w.on("focus-changed", p);
+			w.on("focus-changed", onBrowserFocusChanged);
 		}
 		return () => {
 			if (w) {
-				w.off("focus-changed", p);
+				w.off("focus-changed", onBrowserFocusChanged);
 			}
-			(0, c.cZ)(g, null);
+			cZ(refBrowser, null);
 		};
-	}, [g, w, p]);
+	}, [refBrowser, w, onBrowserFocusChanged]);
 	n.useEffect(() => {
-		(0, c.cZ)(h, R);
-		return () => (0, c.cZ)(h, null);
-	}, [h, R]);
+		cZ(refBrowserManager, R);
+		return () => cZ(refBrowserManager, null);
+	}, [refBrowserManager, R]);
 	n.useEffect(() => {}, [N]);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(l.m4, {
-			browser: w,
-			visible: B && a && !N,
-			className: y.BrowserViewHost,
-		}),
-		!B && a && n.createElement(Q, null),
-		B &&
-			a &&
-			N &&
-			n.createElement(
-				"div",
-				{
-					className: y.ParentalPINDialogWrapper,
-				},
-				n.createElement(W.g5, {
-					blockReason: D,
-				}),
-			),
-		E,
-		M,
+	return (
+		<>
+			<l.m4
+				browser={w}
+				visible={B && bActive && !N}
+				className={y.BrowserViewHost}
+			/>
+			{!B && bActive && <Q />}
+			{B && bActive && N && (
+				<div className={y.ParentalPINDialogWrapper}>
+					<W.g5 blockReason={D} />
+				</div>
+			)}
+			{E}
+			{M}
+		</>
 	);
 });
-var ne = require("./51582.js");
-function ie(e) {
+function Ie(e) {
 	const {
-		appid: t,
-		strName: r,
-		strInitialURL: m,
-		onClose: u,
-		onNewTab: A,
-		popup: p,
-		onTitleChange: g,
-		refBrowserManager: C,
-		bTemporary: _,
-		bCanChangeURL: f,
-		bUseSavedSettings: y,
-		bPinned: S,
-		bShowPinnedView: w,
+		appid,
+		strName,
+		strInitialURL,
+		onClose,
+		onNewTab,
+		popup,
+		onTitleChange,
+		refBrowserManager,
+		bTemporary,
+		bCanChangeURL,
+		bUseSavedSettings,
+		bPinned,
+		bShowPinnedView,
 	} = e;
-	const B = `OverlayPopupURL${t}_${r}`;
-	const v = (y ? window.localStorage.getItem(B) : null) || m;
-	const [I, E] = (0, o.v)(p, r, {
+	const B = `OverlayPopupURL${appid}_${strName}`;
+	const v =
+		(bUseSavedSettings ? window.localStorage.getItem(B) : null) ||
+		strInitialURL;
+	const [I, E] = v_1(popup, strName, {
 		strURL: v,
 		strUserAgentIdentifier: "Valve Steam GameOverlay",
 		bOnlyAllowTrustedPopups: false,
 	});
-	const M = V(I, t, u);
-	const T = h(t);
-	const R = (0, i.q3)(() => M?.Title);
-	(0, d.D)(I);
-	const k = (0, s.$2)();
-	const D = (0, z.M)(
-		r,
-		p,
+	const M = V(I, appid, onClose);
+	const T = h(appid);
+	const R = q3(() => M?.Title);
+	D_1(I);
+	const k = $2();
+	const D = M_1(
+		strName,
+		popup,
 		k.params.browserInfo,
 		I,
 		b.oy.NavigationManager,
 		true,
 	);
-	const N = (0, x.b)(p, k.params.browserInfo, I);
+	const N = b_1(popup, k.params.browserInfo, I);
 	n.useEffect(() => {
-		g(R);
-	}, [R, g]);
+		onTitleChange(R);
+	}, [R, onTitleChange]);
 	n.useEffect(() => {
-		(0, c.cZ)(C, M);
-		return () => (0, c.cZ)(C, null);
-	}, [C, M]);
+		cZ(refBrowserManager, M);
+		return () => cZ(refBrowserManager, null);
+	}, [refBrowserManager, M]);
 	const F = n.useCallback(() => {
-		if (y && M) {
+		if (bUseSavedSettings && M) {
 			window.localStorage.setItem(B, M.DisplayURL);
 		}
-	}, [y, B, M]);
-	(0, c.hL)(M?.BeforeCloseCallbacks, F);
-	(0, c.hL)(M?.NewTabCallbacks, A);
+	}, [bUseSavedSettings, B, M]);
+	hL(M?.BeforeCloseCallbacks, F);
+	hL(M?.NewTabCallbacks, onNewTab);
 	n.useEffect(() => {
 		if (I) {
 			let e = JSON.stringify({
-				bPinned: S == 1,
-				bShowPinnedView: w == 1,
+				bPinned: bPinned == 1,
+				bShowPinnedView: bShowPinnedView == 1,
 			});
 			I.PostMessage("PinnedView", e);
 		}
-	}, [I, S, w]);
+	}, [I, bPinned, bShowPinnedView]);
 	const G = n.useCallback(() => {
 		let e = JSON.stringify({
-			bPinned: S == 1,
-			bShowPinnedView: w == 1,
+			bPinned: bPinned == 1,
+			bShowPinnedView: bShowPinnedView == 1,
 		});
 		I.PostMessage("PinnedView", e);
-	}, [I, S, w]);
-	(0, c.hL)(M?.FinishedRequestCallbacks, G);
+	}, [I, bPinned, bShowPinnedView]);
+	hL(M?.FinishedRequestCallbacks, G);
 	const O = H();
 	n.useEffect(() => {
 		if (M) {
@@ -1047,158 +897,145 @@ function ie(e) {
 		let e = M;
 		return () => e?.RemoveSteamURLCallback(O);
 	}, [O, M]);
-	return n.createElement(
-		n.Fragment,
-		null,
-		!!M &&
-			n.createElement(
-				n.Fragment,
-				null,
-				n.createElement(q, {
-					className: w ? a.PinnedViewURLBar : undefined,
-					popup: p,
-					manager: M,
-					bookmarks: !_ && T,
-					strHomeURL: !_ && m,
-					bCanChangeURL: f,
-				}),
-				n.createElement(l.m4, {
-					browser: I,
-					visible: E,
-					className: a.BrowserViewHost,
-				}),
-			),
-		!M && n.createElement(Q, null),
-		D,
-		N,
+	return (
+		<>
+			{!!M && (
+				<>
+					<Q_1
+						className={bShowPinnedView ? a.PinnedViewURLBar : undefined}
+						popup={popup}
+						manager={M}
+						bookmarks={!bTemporary && T}
+						strHomeURL={!bTemporary && strInitialURL}
+						bCanChangeURL={bCanChangeURL}
+					/>
+					<l.m4 browser={I} visible={E} className={a.BrowserViewHost} />
+				</>
+			)}
+			{!M && <Q />}
+			{D}
+			{N}
+		</>
 	);
 }
 export function f(e) {
 	const {
-		strName: t,
-		appid: r,
-		bUseSavedDimensions: i,
-		refPopup: a,
-		onClose: o,
-		pinnedProps: l,
+		strName,
+		appid,
+		bUseSavedDimensions,
+		refPopup,
+		onClose,
+		pinnedProps,
 		...d
 	} = e;
-	const [A, p] = n.useState();
-	const [g, h] = n.useState();
-	const C = (0, s.$2)();
+	const [A, setA] = n.useState();
+	const [g, setG] = n.useState();
+	const C = $2();
 	const _ = n.useCallback(
 		(e) => {
-			const {
-				dimensions: t,
-				minWidth: r,
-				minHeight: n,
-			} = (0, m.wm)(C, 1280, 1024, 600, 300);
-			e.dimensions = t;
+			const { dimensions, minWidth, minHeight } = wm(C, 1280, 1024, 600, 300);
+			e.dimensions = dimensions;
 			e.dimensions.left = undefined;
 			e.dimensions.top = undefined;
-			e.minWidth = r;
-			e.minHeight = n;
+			e.minWidth = minWidth;
+			e.minHeight = minHeight;
 			return e;
 		},
 		[C],
 	);
-	const f = (0, ne.nv)(C, 1280, 1024, 600, 300);
-	const b = i ? f : _;
-	return n.createElement(
-		u.rG,
-		{
-			strName: t,
-			refPopup: (e) => {
-				(0, c.cZ)(a, e);
-				p(e);
-			},
-			title: g,
-			updateParamsBeforeShow: b,
-			bUseSavedDimensions: i,
-			onClose: o,
-			...l,
-		},
-		n.createElement(ie, {
-			appid: r,
-			...d,
-			strName: t,
-			onTitleChange: h,
-			popup: A,
-			onClose: o,
-			bShowPinnedView: l?.bShowPinnedView,
-			bPinned: l?.bPinned,
-		}),
+	const f = nv(C, 1280, 1024, 600, 300);
+	const b = bUseSavedDimensions ? f : _;
+	return (
+		<u.rG
+			strName={strName}
+			refPopup={(e) => {
+				cZ(refPopup, e);
+				setA(e);
+			}}
+			title={g}
+			updateParamsBeforeShow={b}
+			bUseSavedDimensions={bUseSavedDimensions}
+			onClose={onClose}
+			{...pinnedProps}
+		>
+			<Ie
+				appid={appid}
+				{...d}
+				strName={strName}
+				onTitleChange={setG}
+				popup={A}
+				onClose={onClose}
+				bShowPinnedView={pinnedProps?.bShowPinnedView}
+				bPinned={pinnedProps?.bPinned}
+			/>
+		</u.rG>
 	);
 }
 export function $(e) {
 	const {
-		strName: t,
-		strTitle: r,
-		appid: i,
-		refPopup: a,
-		onClose: o,
-		pinnedProps: l,
-		bShowMin: d,
-		bShowMax: A,
-		onMinimize: p,
-		onMaximize: g,
+		strName,
+		strTitle,
+		appid,
+		refPopup,
+		onClose,
+		pinnedProps,
+		bShowMin,
+		bShowMax,
+		onMinimize,
+		onMaximize,
 		...h
 	} = e;
-	const [C, _] = n.useState();
-	const [f, b] = n.useState();
-	const y = (0, s.$2)();
+	const [C, setC] = n.useState();
+	const [f, setF] = n.useState();
+	const y = $2();
 	const S = n.useCallback(
 		(e) => {
-			const {
-				dimensions: t,
-				minWidth: r,
-				minHeight: n,
-			} = (0, m.wm)(y, 1280, 1024, 300, 300);
-			e.dimensions = t;
+			const { dimensions, minWidth, minHeight } = wm(y, 1280, 1024, 300, 300);
+			e.dimensions = dimensions;
 			e.dimensions.left = undefined;
 			e.dimensions.top = undefined;
-			e.minWidth = r;
-			e.minHeight = n;
+			e.minWidth = minWidth;
+			e.minHeight = minHeight;
 			return e;
 		},
 		[y],
 	);
-	const w = (0, ne.nv)(y, 1280, 1024, 300, 300);
-	const B = i !== I.w1 ? w : S;
-	const [v, E] = n.useState(false);
+	const w = nv(y, 1280, 1024, 300, 300);
+	const B = appid !== I.w1 ? w : S;
+	const [v, setV] = n.useState(false);
 	const T = n.useCallback((e) => {
-		E(e);
+		setV(e);
 	}, []);
-	const R = i == I.w1;
-	return n.createElement(
-		u.rG,
-		{
-			strName: t,
-			strTitle: r,
-			refPopup: (e) => {
-				(0, c.cZ)(a, e);
-				_(e);
-			},
-			title: f,
-			bForceWindowFocused: v,
-			updateParamsBeforeShow: B,
-			eCreationFlags: M.Wf.Resizable | M.Wf.Composited,
-			bUseSavedDimensions: true,
-			bShowMin: R || d,
-			bShowMax: R || A,
-			onMinimize: p,
-			onMaximize: g,
-			onClose: o,
-			...l,
-		},
-		n.createElement(Z, {
-			appid: i,
-			onBrowserFocusChanged: T,
-			...h,
-			onTitleChange: b,
-			popup: C,
-			bShowPinnedView: l?.bShowPinnedView,
-			bPinned: l?.bPinned,
-		}),
+	const R = appid == I.w1;
+	return (
+		<u.rG
+			strName={strName}
+			strTitle={strTitle}
+			refPopup={(e) => {
+				cZ(refPopup, e);
+				setC(e);
+			}}
+			title={f}
+			bForceWindowFocused={v}
+			updateParamsBeforeShow={B}
+			eCreationFlags={M.Wf.Resizable | M.Wf.Composited}
+			bUseSavedDimensions
+			bShowMin={R || bShowMin}
+			bShowMax={R || bShowMax}
+			onMinimize={onMinimize}
+			onMaximize={onMaximize}
+			onClose={onClose}
+			{...pinnedProps}
+		>
+			<Z
+				appid={appid}
+				onBrowserFocusChanged={T}
+				{...h}
+				onTitleChange={setF}
+				popup={C}
+				bShowPinnedView={pinnedProps?.bShowPinnedView}
+				bPinned={pinnedProps?.bPinned}
+			/>
+		</u.rG>
 	);
 }

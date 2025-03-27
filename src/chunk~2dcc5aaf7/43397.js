@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./31084.js");
-var o = require("./92008.js");
-var l = require(/*webcrack:missing*/ "./736.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require(/*webcrack:missing*/ "./88750.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a from "./63696.js";
+import s, { lX } from "./31084.js";
+import { E } from "./92008.js";
+import l, { Fj } from "./736.js";
+import c, { A as A_1 } from "./90765.js";
+import d from "./72476.js";
+import A from "./88750.js";
 export function Id(e, t) {
 	let r;
 	r = "currentTarget" in e ? e.currentTarget.ownerDocument.defaultView : e;
 	if (t.indexOf("steam://") == 0) {
-		if ((0, l.Fj)(r, "URL.ExecuteSteamURL")) {
+		if (Fj(r, "URL.ExecuteSteamURL")) {
 			r.SteamClient.URL.ExecuteSteamURL(t);
 		} else {
 			r.location.href = t;
@@ -28,134 +28,113 @@ export function Id(e, t) {
 }
 export function uU(e) {
 	let {
-		bDisableContextMenu: t,
-		onContextMenu: r,
-		bForceExternal: n,
-		href: i,
-		bUseLinkFilter: s,
-		getPIDFromEvent: l,
+		bDisableContextMenu,
+		onContextMenu,
+		bForceExternal,
+		href,
+		bUseLinkFilter,
+		getPIDFromEvent,
 		...c
 	} = e;
-	if (!t && !r) {
-		r = AJ;
+	if (!bDisableContextMenu && !onContextMenu) {
+		onContextMenu = AJ;
 	}
-	if (s && i) {
-		i = (d.TS.IN_CLIENT ? "steam://openurl_external/" : "") + (0, o.E)(i);
+	if (bUseLinkFilter && href) {
+		href = (d.TS.IN_CLIENT ? "steam://openurl_external/" : "") + E(href);
 	}
-	l ||= () => 0;
-	return a.createElement(
-		"a",
-		{
-			...c,
-			href: i,
-			onClick: (e) => {
+	getPIDFromEvent ||= () => 0;
+	return (
+		<a
+			{...c}
+			href={href}
+			onClick={(e) => {
 				e.preventDefault();
-				EP(window, i, {
-					bForceExternal: !!n,
-					bUseLinkFilter: !!s,
-					unPID: l(e),
+				EP(window, href, {
+					bForceExternal: !!bForceExternal,
+					bUseLinkFilter: !!bUseLinkFilter,
+					unPID: getPIDFromEvent(e),
 				});
-			},
-			onContextMenu: r,
-			rel: s ? "noopener noreferrer" : undefined,
-		},
-		e.children,
+			}}
+			onContextMenu={onContextMenu}
+			rel={bUseLinkFilter ? "noopener noreferrer" : undefined}
+		>
+			{e.children}
+		</a>
 	);
 }
-function h(e) {
-	const { strURL: t, unPID: r } = e;
-	return a.createElement(
-		a.Fragment,
-		null,
-		a.createElement(
-			A.kt,
-			{
-				onSelected: () => {
-					CopyURLToClipboard(t);
-				},
-			},
-			(0, Localize)("#ContextMenu_CopyLinkURL"),
-		),
-		a.createElement(
-			A.kt,
-			{
-				onSelected: (e) => {
-					EP(e, t, {
-						unPID: r,
+function H(e) {
+	const { strURL, unPID } = e;
+	return (
+		<>
+			<A.kt
+				onSelected={() => {
+					CopyURLToClipboard(strURL);
+				}}
+			>
+				{(0, Localize)("#ContextMenu_CopyLinkURL")}
+			</A.kt>
+			<A.kt
+				onSelected={(e) => {
+					EP(e, strURL, {
+						unPID: unPID,
 					});
-				},
-			},
-			(0, Localize)("#ContextMenu_OpenLinkInNewWindow"),
-		),
+				}}
+			>
+				{(0, Localize)("#ContextMenu_OpenLinkInNewWindow")}
+			</A.kt>
+		</>
 	);
 }
 export function AJ(e, t) {
-	let r = e.currentTarget;
-	return (0, s.lX)(
-		a.createElement(
-			A.tz,
-			null,
-			a.createElement(h, {
-				strURL: r.href,
-				unPID: t,
-			}),
-		),
+	let e_currentTarget = e.currentTarget;
+	return lX(
+		<A.tz>
+			<H strURL={e_currentTarget.href} unPID={t} />
+		</A.tz>,
 		e,
 	);
 }
 function _(e) {
-	const { strFullImageURL: t, unPID: r } = e;
-	return a.createElement(
-		a.Fragment,
-		null,
-		a.createElement(
-			A.kt,
-			{
-				onSelected: () => {
-					CopyURLToClipboard(t);
-				},
-			},
-			(0, Localize)("#ContextMenu_CopyImageURL"),
-		),
-		a.createElement(
-			A.kt,
-			{
-				onSelected: (e) => {
-					EP(e, t, {
-						unPID: r,
+	const { strFullImageURL, unPID } = e;
+	return (
+		<>
+			<A.kt
+				onSelected={() => {
+					CopyURLToClipboard(strFullImageURL);
+				}}
+			>
+				{(0, Localize)("#ContextMenu_CopyImageURL")}
+			</A.kt>
+			<A.kt
+				onSelected={(e) => {
+					EP(e, strFullImageURL, {
+						unPID: unPID,
 					});
-				},
-			},
-			(0, Localize)("#ContextMenu_OpenImageInNewWindow"),
-		),
+				}}
+			>
+				{(0, Localize)("#ContextMenu_OpenImageInNewWindow")}
+			</A.kt>
+		</>
 	);
 }
 export function xE(e, t, r) {
 	return W4(e, e.currentTarget.src, t, r);
 }
 export function W4(e, t, r, n) {
-	return (0, s.lX)(
-		a.createElement(
-			A.tz,
-			null,
-			r &&
-				a.createElement(h, {
-					strURL: r,
-				}),
-			a.createElement(_, {
-				strFullImageURL: t,
-				unPID: n,
-			}),
-		),
+	return lX(
+		<A.tz>
+			{r && <H strURL={r} />}
+			<_ strFullImageURL={t} unPID={n} />
+		</A.tz>,
 		e,
 	);
 }
 export function EP(e, t, r = {}) {
-	const { bForceExternal: n, unPID: i, bUseLinkFilter: a } = r;
+	const { bForceExternal, unPID, bUseLinkFilter } = r;
 	let s;
 	s = "currentTarget" in e ? e.currentTarget.ownerDocument.defaultView : e;
 	if (typeof SteamClient != "undefined" && SteamClient.WebChat !== undefined) {
-		SteamClient.WebChat.OpenURLInClient(t, i || 0, !!n);
+		SteamClient.WebChat.OpenURLInClient(t, unPID || 0, !!bForceExternal);
 	} else if (
 		t.indexOf("steam://") == 0 &&
 		t.indexOf("steam://remoteplay/connect") != 0
@@ -165,19 +144,16 @@ export function EP(e, t, r = {}) {
 		s.open(
 			t,
 			undefined,
-			"menubar,location,resizable,scrollbars,status,noopener" +
-				(a ? ",noreferrer" : ""),
+			`menubar,location,resizable,scrollbars,status,noopener${
+				bUseLinkFilter ? ",noreferrer" : ""
+			}`,
 		);
 	}
 }
 export function Ri(e) {
-	return a.forwardRef(function (t, r) {
-		return a.createElement("div", {
-			...t,
-			className: (0, c.A)(e, t.className),
-			ref: r,
-		});
-	});
+	return a.forwardRef((t, r) => (
+		<div {...t} className={A_1(e, t.className)} ref={r} />
+	));
 }
 export function rA(e) {
 	if (e.result != 1) {
@@ -220,13 +196,13 @@ export function DH(e, t = 1) {
 	}
 	return t;
 }
-(0, n.Cg)(
+Cg(
 	[i.sH],
 	class {
 		m_Promise;
 		m_Value = undefined;
 		constructor(e) {
-			(0, i.Gn)(this);
+			Gn(this);
 			this.promise = e;
 		}
 		set promise(e) {

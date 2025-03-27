@@ -1,5 +1,5 @@
-var n = require(/*webcrack:missing*/ "./83957.js");
-var i = n;
+import n from "./83957.js";
+const i = n;
 export const g = new (class {
 	async AxiosWrapper(e, t, r) {
 		let n;
@@ -46,7 +46,7 @@ export const g = new (class {
 		}
 	}
 	async get(e, t) {
-		const { retrycount: r, retrydelayMS: n, withCredentials: a, ...s } = t;
+		const { retrycount, retrydelayMS, withCredentials, ...s } = t;
 		return this.AxiosWrapper(
 			() =>
 				i.get(e, {
@@ -58,7 +58,7 @@ export const g = new (class {
 		);
 	}
 	async post(e, t, r) {
-		const { retrycount: n, retrydelayMS: a, withCredentials: s, ...o } = r;
+		const { retrycount, retrydelayMS, withCredentials, ...o } = r;
 		return this.AxiosWrapper(
 			() =>
 				i.post(e, t, {

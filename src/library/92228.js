@@ -1,17 +1,23 @@
-var r = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./37322.js");
-var s = require("./72476.js");
-var o = require("./12176.js");
-var a = require("./8573.js");
-var c = require("./16583.js");
-var l = require("./82755.js");
-var u = require(/*webcrack:missing*/ "./89193.js");
-var m = require("./1691.js");
-var d = require("./94195.js");
-var h = require("./49395.js");
-var p = require("./49455.js");
-var g = require("./79769.js");
-var f = require("./25265.js");
+import { GetUnixTime } from "../../actual_src/utils/time.js";
+import r, { Cg } from "./34629.js";
+import i from "./37322.js";
+import s from "./72476.js";
+import o from "./12176.js";
+import a from "./8573.js";
+import c from "./16583.js";
+import l from "./82755.js";
+import u, { Gn, fm } from "./89193.js";
+import m, { JS } from "./1691.js";
+import d from "./94195.js";
+import h from "./49395.js";
+import { w as w_1 } from "./49455.js";
+import g from "./79769.js";
+import f from "./25265.js";
+import b, { Dp } from "./736.js";
+import M from "./53048.js";
+import S from "./29218.js";
+import y from "./44846.js";
+import E from "./83957.js";
 class _ {
 	m_bRunOnce = false;
 	m_ClientConnectionCallbacks = new g.lu();
@@ -71,7 +77,7 @@ class w {
 	m_nPerfClockServerMSOffset = new Date().getTime() - performance.now();
 	m_messageHandlers = new f.$();
 	constructor() {
-		(0, u.Gn)(this);
+		Gn(this);
 		this.m_ServiceTransport = {
 			SendMsg: (e, t, n) => {
 				if (t.GetEMsg() === undefined || t.GetEMsg() != 9804) {
@@ -139,14 +145,12 @@ class w {
 		return SteamClient.User.Connect();
 	}
 	RunWhenLoggedOn(e, t) {
-		let n = (function (e, t) {
-			return () => {
-				try {
-					e();
-				} catch (e) {
-					console.error(`Error in ${t} callback:`, e);
-				}
-			};
+		let n = ((e, t) => () => {
+			try {
+				e();
+			} catch (e) {
+				console.error(`Error in ${t} callback:`, e);
+			}
 		})(e, "RunWhenLoggedOn");
 		if (this.BConnectedToServer(t)) {
 			n();
@@ -174,15 +178,16 @@ class w {
 		return this.m_callbacksOnConnect.AddCallback(n, t);
 	}
 	AddOnDisconnectCallback(e, t) {
-		let n = (function (e, t) {
-			return (...n) => {
+		let n = (
+			(e, t) =>
+			(...n) => {
 				try {
 					e(...n);
 				} catch (e) {
 					console.error(`Error in ${t} callback:`, e);
 				}
-			};
-		})(e, "AddOnDisconnectCallback");
+			}
+		)(e, "AddOnDisconnectCallback");
 		return this.m_callbacksOnDisconnect.AddCallback(n, t);
 	}
 	ForceDisconnect() {
@@ -222,15 +227,16 @@ class w {
 				}
 			} else {
 				console.error(
-					"CMInterface RECV could not parse message of type " +
-						(0, m.JS)(e.GetEMsg()) +
-						" " +
+					`CMInterface RECV could not parse message of type ${JS(
 						e.GetEMsg(),
+					)} ${e.GetEMsg()}`,
 				);
 			}
 		} catch (t) {
 			console.error(
-				`CMInterface RECV exception thrown while processing message of type ${(0, m.JS)(e.GetEMsg())}`,
+				`CMInterface RECV exception thrown while processing message of type ${JS(
+					e.GetEMsg(),
+				)}`,
 				t,
 			);
 			e.DEBUG_LogToConsole();
@@ -324,7 +330,7 @@ class w {
 				this.m_nPerfClockServerMSOffset = i - t;
 				this.m_nWallClockDriftMS = n.getTime() - i;
 			} else {
-				(0, p.w)(
+				w_1(
 					false,
 					`Error computing server time, server echo: ${r} server time ${i}`,
 				);
@@ -347,20 +353,18 @@ class w {
 		return new Date(e * 1000 + this.m_nWallClockDriftMS);
 	}
 }
-(0, r.Cg)([u.sH], w.prototype, "m_steamid", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_bLoggedOn", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_bCompletedInitialConnect", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_unAccountFlags", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_strIPCountry", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_strPersonaName", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_rtReconnectThrottleStart", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_rtReconnectThrottleExpiration", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_bConnected", undefined);
-(0, r.Cg)([u.sH], w.prototype, "m_bPerformedInitialClockAdjustment", undefined);
-(0, r.Cg)([u.XI], w.prototype, "DispatchMessage", null);
-(0, r.Cg)([u.XI], w.prototype, "OnDisconnect", null);
-var b = require("./736.js");
-import { GetUnixTime } from "../../actual_src/utils/time.js";
+Cg([u.sH], w.prototype, "m_steamid", undefined);
+Cg([u.sH], w.prototype, "m_bLoggedOn", undefined);
+Cg([u.sH], w.prototype, "m_bCompletedInitialConnect", undefined);
+Cg([u.sH], w.prototype, "m_unAccountFlags", undefined);
+Cg([u.sH], w.prototype, "m_strIPCountry", undefined);
+Cg([u.sH], w.prototype, "m_strPersonaName", undefined);
+Cg([u.sH], w.prototype, "m_rtReconnectThrottleStart", undefined);
+Cg([u.sH], w.prototype, "m_rtReconnectThrottleExpiration", undefined);
+Cg([u.sH], w.prototype, "m_bConnected", undefined);
+Cg([u.sH], w.prototype, "m_bPerformedInitialClockAdjustment", undefined);
+Cg([u.XI], w.prototype, "DispatchMessage", null);
+Cg([u.XI], w.prototype, "OnDisconnect", null);
 export class ij extends w {
 	m_hSharedConnection;
 	m_hEMsgRegistrationObserver;
@@ -368,8 +372,8 @@ export class ij extends w {
 	m_setServiceMethodHandlers = new Set();
 	constructor() {
 		super();
-		(0, u.Gn)(this);
-		if ((0, b.Dp)("User.RegisterForConnectionAttemptsThrottled")) {
+		Gn(this);
+		if (Dp("User.RegisterForConnectionAttemptsThrottled")) {
 			SteamClient.User.RegisterForConnectionAttemptsThrottled(
 				this.OnConnectionAttemptThrottled,
 			);
@@ -506,7 +510,7 @@ export class ij extends w {
 		if (this.m_hEMsgRegistrationObserver) {
 			this.m_hEMsgRegistrationObserver();
 		}
-		this.m_hEMsgRegistrationObserver = (0, u.fm)(() => {
+		this.m_hEMsgRegistrationObserver = fm(() => {
 			if (this.m_hSharedConnection) {
 				for (let e of this.m_messageHandlers.emsg_list) {
 					if (!this.m_setEMsgHandlers.has(e)) {
@@ -587,13 +591,9 @@ export class ij extends w {
 		this.m_rtReconnectThrottleExpiration = e.rtCooldownExpiration;
 	}
 }
-(0, r.Cg)([u.XI], ij.prototype, "OnLogonInfoChanged", null);
-(0, r.Cg)([u.XI.bound], ij.prototype, "OnConnectionAttemptThrottled", null);
-var M = require(/*webcrack:missing*/ "./53048.js");
-var S = require("./29218.js");
-var y = require("./44846.js");
-var E = require(/*webcrack:missing*/ "./83957.js");
-var B = E;
+Cg([u.XI], ij.prototype, "OnLogonInfoChanged", null);
+Cg([u.XI.bound], ij.prototype, "OnConnectionAttemptThrottled", null);
+const B = E;
 class x {
 	m_CMList = {
 		rgCMList: [],
@@ -649,7 +649,7 @@ class x {
 		this.WriteCMListToLocalStorage();
 	}
 	BuildCMWebSocketURL(e) {
-		return "wss://" + this.FixDevHost(e) + "/cmsocket/";
+		return `wss://${this.FixDevHost(e)}/cmsocket/`;
 	}
 	FixDevHost(e) {
 		if (
@@ -665,7 +665,7 @@ class x {
 		return e;
 	}
 	GetLocalStorageKey() {
-		return "CCMList_" + s.TS.EUNIVERSE;
+		return `CCMList_${s.TS.EUNIVERSE}`;
 	}
 	WriteCMListToLocalStorage() {
 		this.m_Storage.StoreObject(this.GetLocalStorageKey(), this.m_CMList);
@@ -739,7 +739,7 @@ class x {
 			let a;
 			let c = "immediate";
 			let l = (t) => {
-				(0, p.w)(!r, "fnPingingComplete called a second time");
+				w_1(!r, "fnPingingComplete called a second time");
 				if (!r) {
 					const n = Object.keys(t)
 						.map((e) => t[e])
@@ -861,7 +861,7 @@ class x {
 		);
 	}
 	async PingCM(e) {
-		let t = "https://" + this.FixDevHost(e.strHost) + "/cmping/";
+		let t = `https://${this.FixDevHost(e.strHost)}/cmping/`;
 		let n = performance.now();
 		const r = B.CancelToken.source();
 		let i = window.setTimeout(() => {
@@ -924,7 +924,7 @@ export class pn extends w {
 	m_CMList = new x();
 	constructor(e) {
 		super();
-		(0, u.Gn)(this);
+		Gn(this);
 		this.m_CMList.Init(e);
 	}
 	BIsConnected() {
@@ -961,7 +961,9 @@ export class pn extends w {
 								},
 								() => {
 									console.log(
-										`Failed to connect to CM ${s + 1} of ${o.length}: ${e.strHost}`,
+										`Failed to connect to CM ${s + 1} of ${o.length}: ${
+											e.strHost
+										}`,
 									);
 									r++;
 									if (r === o.length) {
@@ -1007,7 +1009,7 @@ export class pn extends w {
 			}, 3000);
 			t.onopen = () => {
 				console.log(`Connected socket to host ${e.strHost}`);
-				(0, p.w)(!i, "Socket connection was opened after timing out.");
+				w_1(!i, "Socket connection was opened after timing out.");
 				if (!i) {
 					window.clearTimeout(s);
 				}
@@ -1016,7 +1018,7 @@ export class pn extends w {
 			t.onerror = (t) => {
 				if (!i) {
 					window.clearTimeout(s);
-					(0, p.w)(false, "Socket connect failed", t);
+					w_1(false, "Socket connect failed", t);
 					console.log(t);
 					if (t.message) {
 						console.log(t.message);
@@ -1074,7 +1076,7 @@ export class pn extends w {
 	SendMsgAndAwaitResponse(e, t) {
 		return new Promise((n, r) => {
 			let i = this.m_iCallSeq++;
-			e.Hdr().set_jobid_source("" + i);
+			e.Hdr().set_jobid_source(`${i}`);
 			if (this.Send(e)) {
 				this.m_mapWaitingCallbacks.set(i, {
 					iSeq: i,
@@ -1187,4 +1189,4 @@ export class pn extends w {
 		}
 	}
 }
-(0, r.Cg)([u.XI], pn.prototype, "DecodeAndDispatchMultiMsg", null);
+Cg([u.XI], pn.prototype, "DecodeAndDispatchMultiMsg", null);

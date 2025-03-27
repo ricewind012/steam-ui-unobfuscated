@@ -1,28 +1,28 @@
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var i = require(/*webcrack:missing*/ "./49455.js");
-var a = require(/*webcrack:missing*/ "./17385.js");
+import { w } from "./49455.js";
+import a from "./17385.js";
 export function CO(e) {
 	let t = GetOwningWindowForEvent(e);
-	(0, i.w)(t, "Couldn't find owning window to determine browser context");
+	w(t, "Couldn't find owning window to determine browser context");
 	return _k(t);
 }
 export function wj(e) {
 	let t = e?.ownerDocument?.defaultView;
-	(0, i.w)(t, "Couldn't find owning window to determine browser context");
+	w(t, "Couldn't find owning window to determine browser context");
 	return _k(t);
 }
 export function _k(e) {
-	let t = a.m;
+	let a_m = a.m;
 	if (e) {
-		(0, i.w)(
+		w(
 			e.__FriendsUIBrowserContext,
 			"FriendsUI Browser context missing from owner window",
 		);
 		if (e.__FriendsUIBrowserContext) {
-			t = e.__FriendsUIBrowserContext;
+			a_m = e.__FriendsUIBrowserContext;
 		}
 	}
-	return t;
+	return a_m;
 }
 export function h8(e) {
 	let t = _k(e);

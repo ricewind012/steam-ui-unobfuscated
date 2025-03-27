@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "j78ibJaZ9aRJEMt_g81_F",
 	MoviePlaying: "_3aJvw7qkqAwI1IzmT-em6q",
 	fade: "_2V_ooxidBHzSMeEUBSYO8i",

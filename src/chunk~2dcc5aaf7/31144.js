@@ -1,20 +1,20 @@
-export var wp;
-export var k9;
-var a = require(/*webcrack:missing*/ "./34629.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require(/*webcrack:missing*/ "./90095.js");
-var m = require("./5822.js");
-var u = require("./64004.js");
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require("./87935.js");
-(function (e) {
+import { Cg } from "./34629.js";
+import s from "./63696.js";
+import o from "./52451.js";
+import l, { Gn, fm } from "./89193.js";
+import { q3 } from "./90095.js";
+import { xv } from "./5822.js";
+import u from "./64004.js";
+import d from "./72476.js";
+import A from "./87935.js";
+export let wp;
+export let k9;
+((e) => {
 	e[(e.Menu = 0)] = "Menu";
 	e[(e.NavEntries = 1)] = "NavEntries";
 	e[(e.Controller = 2)] = "Controller";
 })((wp ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Achievements = 0)] = "Achievements";
 	e[(e.Controller = 1)] = "Controller";
 	e[(e.Guides = 2)] = "Guides";
@@ -29,11 +29,11 @@ export class Pf {
 	m_focusedApp = null;
 	m_WindowInstance;
 	constructor(e) {
-		(0, l.Gn)(this);
+		Gn(this);
 		this.m_WindowInstance = e;
 	}
 	Init() {
-		return (0, l.fm)(this.OnRunningAppsChanged);
+		return fm(this.OnRunningAppsChanged);
 	}
 	OnRunningAppsChanged() {
 		if (
@@ -79,17 +79,14 @@ export class Pf {
 		return this.m_mapSelectedGuide.get(e);
 	}
 	GetStoreURL(e) {
-		const {
-			bStreamingToPhone: t,
-			bStreamingToTablet: r,
-			bStreamingToTV: n,
-		} = u.ut.GetStreamingFormFactors();
-		if (t) {
-			return A.B7.GetStoreURL() + "remoteplay_phone";
-		} else if (r) {
-			return A.B7.GetStoreURL() + "remoteplay_tablet";
-		} else if (n) {
-			return A.B7.GetStoreURL() + "remoteplay_tv";
+		const { bStreamingToPhone, bStreamingToTablet, bStreamingToTV } =
+			u.ut.GetStreamingFormFactors();
+		if (bStreamingToPhone) {
+			return `${A.B7.GetStoreURL()}remoteplay_phone`;
+		} else if (bStreamingToTablet) {
+			return `${A.B7.GetStoreURL()}remoteplay_tablet`;
+		} else if (bStreamingToTV) {
+			return `${A.B7.GetStoreURL()}remoteplay_tv`;
 		} else if (e?.IN_VR) {
 			return A.B7.GetStoreVRURL();
 		} else if (d.TS.ON_DECK) {
@@ -100,18 +97,18 @@ export class Pf {
 	}
 }
 export function DO() {
-	const e = (0, m.xv)();
-	return (0, c.q3)(() => e.GetFocusedColumn());
+	const e = xv();
+	return q3(() => e.GetFocusedColumn());
 }
 export function gn() {
 	return DO() != wp.Menu;
 }
 export function eK() {
-	const e = (0, m.xv)();
-	return (0, c.q3)(() => e.GetFocusedApp());
+	const e = xv();
+	return q3(() => e.GetFocusedApp());
 }
 export function YN(e) {
-	const t = (0, m.xv)();
+	const t = xv();
 	return s.useCallback(
 		(r) => {
 			if (r) {
@@ -121,8 +118,8 @@ export function YN(e) {
 		[t, e],
 	);
 }
-(0, a.Cg)([l.sH], Pf.prototype, "m_eFocusedColumn", undefined);
-(0, a.Cg)([l.sH], Pf.prototype, "m_eSelectedNavEntry", undefined);
-(0, a.Cg)([l.sH], Pf.prototype, "m_mapSelectedGuide", undefined);
-(0, a.Cg)([l.sH], Pf.prototype, "m_focusedApp", undefined);
-(0, a.Cg)([o.oI], Pf.prototype, "OnRunningAppsChanged", null);
+Cg([l.sH], Pf.prototype, "m_eFocusedColumn", undefined);
+Cg([l.sH], Pf.prototype, "m_eSelectedNavEntry", undefined);
+Cg([l.sH], Pf.prototype, "m_mapSelectedGuide", undefined);
+Cg([l.sH], Pf.prototype, "m_focusedApp", undefined);
+Cg([o.oI], Pf.prototype, "OnRunningAppsChanged", null);

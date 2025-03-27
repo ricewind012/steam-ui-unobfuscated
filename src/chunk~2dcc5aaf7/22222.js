@@ -1,15 +1,15 @@
-export var WO;
-export var $J;
-export var oH;
-export var Df;
-export var Xu;
-(function (e) {
+export let WO;
+export let $J;
+export let oH;
+export let Df;
+export let Xu;
+((e) => {
 	e[(e.Unknown = 0)] = "Unknown";
 	e[(e.Wired = 1)] = "Wired";
 	e[(e.Wireless = 2)] = "Wireless";
 	e[(e.Virtual = 3)] = "Virtual";
 })((WO ||= {}));
-(function (e) {
+((e) => {
 	e[(e.NotPresent = 0)] = "NotPresent";
 	e[(e.Failed = 1)] = "Failed";
 	e[(e.Disconnected = 2)] = "Disconnected";
@@ -18,14 +18,14 @@ export var Xu;
 	e[(e.Connected = 5)] = "Connected";
 	e[(e.Retrying = 6)] = "Retrying";
 })(($J ||= {}));
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.Weak = 1)] = "Weak";
 	e[(e.Ok = 2)] = "Ok";
 	e[(e.Good = 3)] = "Good";
 	e[(e.Excellent = 4)] = "Excellent";
 })((oH ||= {}));
-(function (e) {
+((e) => {
 	e[(e.None = 0)] = "None";
 	e[(e.StaticWep = 1)] = "StaticWep";
 	e[(e.DynamicWep = 2)] = "DynamicWep";
@@ -36,7 +36,7 @@ export var Xu;
 	e[(e.Wpa3 = 64)] = "Wpa3";
 	e[(e.Unsupported = 32768)] = "Unsupported";
 })((Df ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EHTTPProxyMode_Invalid = 0)] = "k_EHTTPProxyMode_Invalid";
 	e[(e.k_EHTTPProxyMode_None = 1)] = "k_EHTTPProxyMode_None";
 	e[(e.k_EHTTPProxyMode_Manual = 2)] = "k_EHTTPProxyMode_Manual";

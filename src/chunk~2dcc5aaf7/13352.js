@@ -1,85 +1,57 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./16117.js");
-var o = require(/*webcrack:missing*/ "./44846.js");
-var l = require("./46162.js");
-var c = require(/*webcrack:missing*/ "./92251.js");
-require(/*webcrack:missing*/ "./98995.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./72476.js");
-var d = require("./8090.js");
-var A = require("./1521.js");
+import n, { Cg } from "./34629.js";
+import i, { PA } from "./41230.js";
+import a, { useState } from "./63696.js";
+import s, { _D } from "./16117.js";
+import { sf } from "./44846.js";
+import l from "./46162.js";
+import c from "./92251.js";
+import "./98995.js";
+import m from "./52451.js";
+import u from "./72476.js";
+import d from "./8090.js";
+import A from "./1521.js";
+import h from "./61964.js";
 function p(e) {
 	return new A.OJ(new A.R8(), 0);
 }
-function g(e) {
-	const { text: t, languageOverride: r } = e;
-	const [n] = (0, a.useState)(
-		new d.B(new Map([...Array.from(s.W4.entries())]), p, r),
+function G(e) {
+	const { text, languageOverride } = e;
+	const [n] = useState(
+		new d.B(new Map([...Array.from(s.W4.entries())]), p, languageOverride),
 	);
-	return a.createElement(a.Fragment, null, n.ParseBBCode(t, {}));
+	return <>{n.ParseBBCode(text, {})}</>;
 }
-var h = require("./61964.js");
-var C = h;
-export const $k = (0, i.PA)((e) => {
-	const t = e.photo ? (0, s._D)(e.photo, (0, o.sf)(u.TS.LANGUAGE)) : null;
+const C = h;
+export const $k = PA((e) => {
+	const t = e.photo ? _D(e.photo, sf(u.TS.LANGUAGE)) : null;
 	const r = e.photo ? (typeof t == "string" ? t : t[1]) : null;
 	const n = Boolean(e.title);
 	const i = Boolean(e.company);
-	return a.createElement(
-		"div",
-		{
-			className: C.SpeakerPopup,
-			onMouseLeave: e.fnClose,
-		},
-		a.createElement(
-			"div",
-			{
-				className: C.SpeakerInfoOuter,
-			},
-			e.photo &&
-				a.createElement("img", {
-					src: r,
-				}),
-			a.createElement(
-				"div",
-				{
-					className: C.SpeakerInfoInner,
-				},
-				a.createElement("div", null, e.name),
-				(n || i) &&
-					a.createElement(
-						"div",
-						null,
-						n &&
-							a.createElement(
-								"span",
-								{
-									className: C.SpeakerTitle,
-								},
-								e.title,
-							),
-						n && i && a.createElement("span", null, ", "),
-						i && a.createElement("span", null, e.company),
-					),
-			),
-		),
-		e.bio &&
-			a.createElement(
-				"div",
-				{
-					className: C.SpeakerBio,
-				},
-				e.bio,
-				e.bioString &&
-					a.createElement(g, {
-						text: e.bioString,
-					}),
-			),
+	return (
+		<div className={C.SpeakerPopup} onMouseLeave={e.fnClose}>
+			<div className={C.SpeakerInfoOuter}>
+				{e.photo && <img src={r} />}
+				<div className={C.SpeakerInfoInner}>
+					<div>{e.name}</div>
+					{(n || i) && (
+						<div>
+							{n && <span className={C.SpeakerTitle}>{e.title}</span>}
+							{n && i && <span>{", "}</span>}
+							{i && <span>{e.company}</span>}
+						</div>
+					)}
+				</div>
+			</div>
+			{e.bio && (
+				<div className={C.SpeakerBio}>
+					{e.bio}
+					{e.bioString && <G text={e.bioString} />}
+				</div>
+			)}
+		</div>
 	);
 });
-export class fI extends a.Component {
+export class FI extends a.Component {
 	static sm_embeddedElements = new l.MX("presenter-hover-source-elements");
 	m_refAnchor = a.createRef();
 	m_fnHidePopup;
@@ -113,24 +85,17 @@ export class fI extends a.Component {
 			},
 			target: t,
 		};
-		const n = "presenter-hover-" + Math.floor(Math.random() * 100000000);
+		const n = `presenter-hover-${Math.floor(Math.random() * 100000000)}`;
 		this.m_fnHidePopup = () =>
-			fI.sm_embeddedElements.HideElement(t.ownerDocument, n);
+			FI.sm_embeddedElements.HideElement(t.ownerDocument, n);
 		window.addEventListener("scroll", this.OnScroll);
 		this.m_nScrollPosAtHoverStart = window.scrollY;
-		fI.sm_embeddedElements.ShowElementDelayed(
+		FI.sm_embeddedElements.ShowElementDelayed(
 			t.ownerDocument,
 			150,
-			a.createElement(
-				c.g,
-				{
-					...r,
-				},
-				a.createElement($k, {
-					...this.props,
-					fnClose: this.OnLeave,
-				}),
-			),
+			<c.g {...r}>
+				<$k {...this.props} fnClose={this.OnLeave} />
+			</c.g>,
 			n,
 		);
 	}
@@ -138,29 +103,27 @@ export class fI extends a.Component {
 		this.ClosePopup();
 	}
 	render() {
-		return a.createElement(
-			"div",
-			{
-				className: C.SpeakerHover,
-				ref: this.m_refAnchor,
-				onMouseEnter: this.OnHover,
-				onFocus: this.OnHover,
-				onMouseLeave: this.OnLeave,
-				onBlur: this.OnLeave,
-			},
-			this.props.children,
+		return (
+			<div
+				className={C.SpeakerHover}
+				ref={this.m_refAnchor}
+				onMouseEnter={this.OnHover}
+				onFocus={this.OnHover}
+				onMouseLeave={this.OnLeave}
+				onBlur={this.OnLeave}
+			>
+				{this.props.children}
+			</div>
 		);
 	}
 }
-(0, n.Cg)([m.oI], fI.prototype, "ClosePopup", null);
-(0, n.Cg)([m.oI], fI.prototype, "OnScroll", null);
-(0, n.Cg)([m.oI], fI.prototype, "OnHover", null);
-(0, n.Cg)([m.oI], fI.prototype, "OnLeave", null);
+Cg([m.oI], FI.prototype, "ClosePopup", null);
+Cg([m.oI], FI.prototype, "OnScroll", null);
+Cg([m.oI], FI.prototype, "OnHover", null);
+Cg([m.oI], FI.prototype, "OnLeave", null);
 export class S8 extends a.Component {
 	render() {
-		const e = this.props.photo
-			? (0, s._D)(this.props.photo, (0, o.sf)(u.TS.LANGUAGE))
-			: null;
+		const e = this.props.photo ? _D(this.props.photo, sf(u.TS.LANGUAGE)) : null;
 		const t =
 			this.props.photo && !this.props.hidePhotoInCompactView
 				? typeof e == "string"
@@ -169,55 +132,28 @@ export class S8 extends a.Component {
 				: null;
 		const r = Boolean(this.props.title);
 		const n = Boolean(this.props.company);
-		return a.createElement(
-			"div",
-			{
-				className: C.SpeakerOuter,
-			},
-			a.createElement(
-				fI,
-				{
-					...this.props,
-				},
-				a.createElement(
-					"div",
-					{
-						className: C.Speaker,
-					},
-					a.createElement(
-						"div",
-						{
-							className: C.SpeakerInfoOuter,
-						},
-						!!t &&
-							a.createElement("img", {
-								src: t,
-							}),
-						a.createElement(
-							"div",
-							{
-								className: C.SpeakerInfoInner,
-							},
-							a.createElement("div", null, this.props.name),
-							(r || n) &&
-								a.createElement(
-									"div",
-									null,
-									r &&
-										a.createElement(
-											"span",
-											{
-												className: C.SpeakerTitle,
-											},
-											this.props.title,
-										),
-									r && n && a.createElement("span", null, ", "),
-									n && a.createElement("span", null, this.props.company),
-								),
-						),
-					),
-				),
-			),
+		return (
+			<div className={C.SpeakerOuter}>
+				<FI {...this.props}>
+					<div className={C.Speaker}>
+						<div className={C.SpeakerInfoOuter}>
+							{!!t && <img src={t} />}
+							<div className={C.SpeakerInfoInner}>
+								<div>{this.props.name}</div>
+								{(r || n) && (
+									<div>
+										{r && (
+											<span className={C.SpeakerTitle}>{this.props.title}</span>
+										)}
+										{r && n && <span>{", "}</span>}
+										{n && <span>{this.props.company}</span>}
+									</div>
+								)}
+							</div>
+						</div>
+					</div>
+				</FI>
+			</div>
 		);
 	}
 }

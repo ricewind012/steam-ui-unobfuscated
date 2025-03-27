@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_2-O4ZG0KrnSrzISHBKctFQ",
 	HoverOverlay: "_3cMVyOc-9F9Jvp3uKF7_xj",
 	Uninstalled: "_5YTBr7WwIfzVU_3nUtAph",

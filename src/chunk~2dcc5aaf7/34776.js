@@ -1,16 +1,16 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./52698.js");
-var a = require(/*webcrack:missing*/ "./88696.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./93960.js");
-var l = require(/*webcrack:missing*/ "./83599.js");
-var c = require("./53453.js");
-var m = require(/*webcrack:missing*/ "./44846.js");
-var u = require("./42983.js");
-var d = require(/*webcrack:missing*/ "./72476.js");
+import n, { Cg } from "./34629.js";
+import i from "./52698.js";
+import a from "./88696.js";
+import s, { Gn, fm } from "./89193.js";
+import o from "./93960.js";
+import l from "./83599.js";
+import c from "./53453.js";
+import { sf } from "./44846.js";
+import u from "./42983.js";
+import d from "./72476.js";
 const A = new l.wd("KeyboardPersonalization");
-export var X;
-(function (e) {
+export let X;
+((e) => {
 	e[(e.Off = 0)] = "Off";
 	e[(e.Low = 1)] = "Low";
 	e[(e.Medium = 2)] = "Medium";
@@ -65,7 +65,7 @@ class h {
 	m_machineLayoutSettings = g;
 	m_userLayoutSettings = undefined;
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_ePreset = X.Medium;
 		this.m_customSetting = h.k_Presets[X.Medium];
 		this.m_trackpadTypingInputScale = 1;
@@ -84,7 +84,7 @@ class h {
 	async Init() {
 		this.m_localStorage = new a.A();
 		await this.Load();
-		(0, s.fm)(this.Save);
+		fm(this.Save);
 	}
 	get HapticSettings() {
 		if (this.m_ePreset == X.Custom) {
@@ -152,7 +152,7 @@ class h {
 			this.m_initialLocationDesktop = a ?? "center-bottom";
 			this.m_initialLocationOverlay = s ?? "center-bottom";
 			if (this.m_userLayoutSettings.selectedLayouts.length == 0) {
-				this.AddValidKeyboardLayoutByLanguage((0, m.sf)(d.TS.LANGUAGE));
+				this.AddValidKeyboardLayoutByLanguage(sf(d.TS.LANGUAGE));
 			}
 			A.Debug(
 				"Loaded keyboard haptic settings:",
@@ -253,16 +253,16 @@ class h {
 		}
 	}
 }
-(0, n.Cg)([s.sH], h.prototype, "m_ePreset", undefined);
-(0, n.Cg)([s.sH], h.prototype, "m_customSetting", undefined);
-(0, n.Cg)([s.sH], h.prototype, "m_trackpadTypingInputScale", undefined);
-(0, n.Cg)([s.sH], h.prototype, "m_trackpadTypingTriggerAsClick", undefined);
-(0, n.Cg)([s.sH], h.prototype, "m_initialLocationDesktop", undefined);
-(0, n.Cg)([s.sH], h.prototype, "m_initialLocationOverlay", undefined);
-(0, n.Cg)([s.sH.deep], h.prototype, "m_machineLayoutSettings", undefined);
-(0, n.Cg)([s.sH.deep], h.prototype, "m_userLayoutSettings", undefined);
-(0, n.Cg)([s.XI], h.prototype, "SetHapticSettings", null);
-(0, n.Cg)([o.o], h.prototype, "Save", null);
-(0, n.Cg)([s.XI], h.prototype, "SetValidKeyboardLayouts", null);
-(0, n.Cg)([s.XI], h.prototype, "AddValidKeyboardLayoutByLanguage", null);
+Cg([s.sH], h.prototype, "m_ePreset", undefined);
+Cg([s.sH], h.prototype, "m_customSetting", undefined);
+Cg([s.sH], h.prototype, "m_trackpadTypingInputScale", undefined);
+Cg([s.sH], h.prototype, "m_trackpadTypingTriggerAsClick", undefined);
+Cg([s.sH], h.prototype, "m_initialLocationDesktop", undefined);
+Cg([s.sH], h.prototype, "m_initialLocationOverlay", undefined);
+Cg([s.sH.deep], h.prototype, "m_machineLayoutSettings", undefined);
+Cg([s.sH.deep], h.prototype, "m_userLayoutSettings", undefined);
+Cg([s.XI], h.prototype, "SetHapticSettings", null);
+Cg([o.o], h.prototype, "Save", null);
+Cg([s.XI], h.prototype, "SetValidKeyboardLayouts", null);
+Cg([s.XI], h.prototype, "AddValidKeyboardLayoutByLanguage", null);
 export const O = new h();

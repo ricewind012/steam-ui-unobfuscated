@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	KeyboardKey: "_3YpL9Gmf8RDdBRfwyhGWtp",
 	Touched: "_2kBKOyaF18bkd-Ur7Y-CGe",

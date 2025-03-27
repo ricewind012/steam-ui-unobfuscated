@@ -1,28 +1,43 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require("./84056.js");
-var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require(/*webcrack:missing*/ "./69164.js");
-var c = require("./85360.js");
-var m = require("./76587.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var d = require("./45309.js");
-var A = require("./62486.js");
-var p = require("./13869.js");
-var g = require("./13110.js");
-var h = require(/*webcrack:missing*/ "./4690.js");
-var C = require("./87935.js");
-var _ = require("./35488.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var b = require("./93966.js");
-var y = require("./18869.js");
-var S = require("./18057.js");
-var w = require("./23101.js");
+import n from "./63696.js";
+import i, { PA } from "./41230.js";
+import a from "./84056.js";
+import s from "./64608.js";
+import o, { A as A_1 } from "./90765.js";
+import l from "./69164.js";
+import c from "./85360.js";
+import m from "./76587.js";
+import d from "./45309.js";
+import A from "./62486.js";
+import p, { pg } from "./13869.js";
+import g from "./13110.js";
+import h from "./4690.js";
+import C from "./87935.js";
+import _ from "./35488.js";
+import { yq } from "./93966.js";
+import y, { tn } from "./18869.js";
+import S from "./18057.js";
+import w, { w as w_1 } from "./23101.js";
 export function CM(e) {
 	const t = c.v3.CurrentEditedBinding;
 	const r =
 		t?.mouse_button !== undefined ||
+		t?.mouse_wheel !== undefined ||
+		t?.mouse_wheel !== undefined ||
+		t?.controller_action?.action == 3 ||
+		t?.mouse_wheel !== undefined ||
+		t?.controller_action?.action == 3 ||
+		t?.controller_action?.action == 36 ||
+		t?.mouse_wheel !== undefined ||
+		t?.controller_action?.action == 3 ||
+		t?.controller_action?.action == 36 ||
+		t?.controller_action?.action == 37 ||
+		t?.mouse_wheel !== undefined ||
+		t?.controller_action?.action == 3 ||
+		t?.controller_action?.action == 36 ||
+		t?.controller_action?.action == 37 ||
+		t?.controller_action?.action == 38 ||
 		t?.mouse_wheel !== undefined ||
 		t?.controller_action?.action == 3 ||
 		t?.controller_action?.action == 36 ||
@@ -33,86 +48,66 @@ export function CM(e) {
 		tab: {
 			id: "Mouse",
 			title: "#ControllerConfigurator_ChooseBinding_Mouse",
-			content: n.createElement(D, {
-				appid: e,
-			}),
+			content: <D appid={e} />,
 		},
 		bHasBinding: r,
 	};
 }
-function v(e) {
-	const { existingBinding: t, onResult: r, ...i } = e;
-	const [a, o] = n.useState(e.existingBinding?.x ?? 0);
-	const [l, c] = n.useState(e.existingBinding?.y ?? 0);
+function V(e) {
+	const { existingBinding, onResult, ...i } = e;
+	const [a, setA] = n.useState(e.existingBinding?.x ?? 0);
+	const [l, setL] = n.useState(e.existingBinding?.y ?? 0);
 	const m = (e) => {
-		o(Number.isSafeInteger(Number(e)) ? Number(e) : 0);
+		setA(Number.isSafeInteger(Number(e)) ? Number(e) : 0);
 	};
 	const A = (e) => {
-		c(Number.isSafeInteger(Number(e)) ? Number(e) : 0);
+		setL(Number.isSafeInteger(Number(e)) ? Number(e) : 0);
 	};
 	const p =
-		r == null
-			? undefined
-			: () => {
-					r({
-						x: a,
-						y: l,
-						restore: false,
-					});
-					e.closeModal();
-				};
-	return n.createElement(
-		d.X_,
-		{
-			...i,
-			onCommitResult: p,
-		},
-		n.createElement(
-			s.D0,
-			{
-				label: (0, Localize)("#ControllerBinding_MousePositionModal_XPosition"),
-			},
-			n.createElement(
-				d.Ql,
-				{
-					title: String(a),
-					onResult: m,
-				},
-				n.createElement(d.Qj, {
-					title: (0, Localize)(
-						"#ControllerBinding_MousePositionModal_XPosition",
-					),
-					description: "",
-					inputOptions: {
-						placeholder: String(a),
-					},
-					onResult: m,
-				}),
-			),
-		),
-		n.createElement(
-			s.D0,
-			{
-				label: (0, Localize)("#ControllerBinding_MousePositionModal_YPosition"),
-			},
-			n.createElement(
-				d.Ql,
-				{
-					title: String(l),
-					onResult: A,
-				},
-				n.createElement(d.Qj, {
-					title: (0, Localize)(
-						"#ControllerBinding_MousePositionModal_YPosition",
-					),
-					description: "",
-					inputOptions: {
-						placeholder: String(l),
-					},
-					onResult: A,
-				}),
-			),
-		),
+		onResult == null ||
+		(() => {
+			onResult({
+				x: a,
+				y: l,
+				restore: false,
+			});
+			e.closeModal();
+		});
+	return (
+		<d.X_ {...i} onCommitResult={p}>
+			<s.D0
+				label={(0, Localize)("#ControllerBinding_MousePositionModal_XPosition")}
+			>
+				<d.Ql title={String(a)} onResult={m}>
+					<d.Qj
+						title={(0, Localize)(
+							"#ControllerBinding_MousePositionModal_XPosition",
+						)}
+						description=""
+						inputOptions={{
+							placeholder: String(a),
+						}}
+						onResult={m}
+					/>
+				</d.Ql>
+			</s.D0>
+			<s.D0
+				label={(0, Localize)("#ControllerBinding_MousePositionModal_YPosition")}
+			>
+				<d.Ql title={String(l)} onResult={A}>
+					<d.Qj
+						title={(0, Localize)(
+							"#ControllerBinding_MousePositionModal_YPosition",
+						)}
+						description=""
+						inputOptions={{
+							placeholder: String(l),
+						}}
+						onResult={A}
+					/>
+				</d.Ql>
+			</s.D0>
+		</d.X_>
 	);
 }
 export function ri(e, t) {
@@ -186,7 +181,7 @@ function T(e) {
 	if (!e) {
 		return null;
 	}
-	const t = "/steaminputglyphs/" + e;
+	const t = `/steaminputglyphs/${e}`;
 	if (t.indexOf(C.Uq.Controller.Glyphs) == 0) {
 		return t;
 	} else {
@@ -194,190 +189,151 @@ function T(e) {
 	}
 }
 function R(e) {
-	const { appid: t, data: r } = e;
-	const i = A.Q7[r.key];
+	const { appid, data } = e;
+	const i = A.Q7[data.key];
 	const a =
-		r.height !== undefined
+		data.height !== undefined
 			? {
-					width: r.width,
+					width: data.width,
 				}
 			: {
-					width: r.width,
-					height: r.height,
+					width: data.width,
+					height: data.height,
 				};
 	const s = i.button
-		? c.v3?.CurrentEditedBinding?.mouse_button?.button == r.key
-		: c.v3?.CurrentEditedBinding?.mouse_wheel?.button == r.key;
-	const d = (0, b.yq)();
-	const p = r.labelLoc ? r.labelLoc : i.id;
+		? c.v3?.CurrentEditedBinding?.mouse_button?.button == data.key
+		: c.v3?.CurrentEditedBinding?.mouse_wheel?.button == data.key;
+	const d = yq();
+	const p = data.labelLoc ? data.labelLoc : i.id;
 	const g = (0, Localize)(p);
-	const h = (0, w.w)(g, r?.glyphFilename ? r.width * 0.6 : r.width * 0.8, {
+	const h = w_1(g, data?.glyphFilename ? data.width * 0.6 : data.width * 0.8, {
 		maxLines: 2,
 		fontFamily: "Motiva Sans",
 		startingSizePx: 14,
 		minSizePx: 10,
 	});
-	return n.createElement(
-		l.Z,
-		{
-			onActivate: () => {
-				ri(t, r.key);
+	return (
+		<l.Z
+			onActivate={() => {
+				ri(appid, data.key);
 				d();
-			},
-			className: (0, o.A)(
-				m.MouseKey,
-				r.additionalStyle,
-				s && m.SelectedBinding,
-			),
-			style: a,
-		},
-		r?.glyphFilename &&
-			n.createElement("img", {
-				src: T(r?.glyphFilename),
-			}),
-		n.createElement(
-			"div",
-			{
-				className: (0, o.A)(m.KeyboardKeyLabel),
-				style: {
+			}}
+			className={A_1(m.MouseKey, data.additionalStyle, s && m.SelectedBinding)}
+			style={a}
+		>
+			{data?.glyphFilename && <img src={T(data?.glyphFilename)} />}
+			<div
+				className={A_1(m.KeyboardKeyLabel)}
+				style={{
 					fontSize: h,
-				},
-			},
-			g,
-		),
+				}}
+			>
+				{g}
+			</div>
+		</l.Z>
 	);
 }
 function k(e, t) {
 	return t.map((t, r) => {
-		const i = t.map((t) =>
-			n.createElement(R, {
-				appid: e,
-				data: t,
-				key: t.key,
-			}),
-		);
-		return n.createElement(
-			l.Z,
-			{
-				"flow-children": "column",
-				className: (0, o.A)(m.GamepadKeyColumn),
-				key: r,
-				navEntryPreferPosition: h.iU.MAINTAIN_Y,
-			},
-			i,
+		const i = t.map((t) => <R appid={e} data={t} key={t.key} />);
+		return (
+			<l.Z
+				flow-children="column"
+				className={A_1(m.GamepadKeyColumn)}
+				key={r}
+				navEntryPreferPosition={h.iU.MAINTAIN_Y}
+			>
+				{i}
+			</l.Z>
 		);
 	});
 }
-const D = (0, i.PA)(function (e) {
-	const { appid: t } = e;
+const D = PA((e) => {
+	const { appid } = e;
 	let r = [];
-	const i = (0, b.yq)();
-	const s = (0, y.tn)(S.BV.GamepadUI.ControllerConfigurator.MousePosition(t));
+	const i = yq();
+	const s = tn(S.BV.GamepadUI.ControllerConfigurator.MousePosition(appid));
 	const d = c.v3?.CurrentEditedBinding?.controller_action?.action == 3;
 	r.push(
-		n.createElement(
-			l.Z,
-			{
-				key: "position",
-				onActivate: s,
-				className: (0, o.A)(
-					m.MouseKey,
-					d && m.SelectedBinding,
-					m.MouseMovementBindingGap,
-				),
-			},
-			n.createElement(
-				"div",
-				{
-					className: (0, o.A)(m.KeyboardKeyLabel),
-				},
-				(0, Localize)("#ControllerBinding_MousePosition"),
-			),
-		),
+		<l.Z
+			key="position"
+			onActivate={s}
+			className={A_1(
+				m.MouseKey,
+				d && m.SelectedBinding,
+				m.MouseMovementBindingGap,
+			)}
+		>
+			<div className={A_1(m.KeyboardKeyLabel)}>
+				{(0, Localize)("#ControllerBinding_MousePosition")}
+			</div>
+		</l.Z>,
 	);
 	const A = c.v3?.CurrentEditedBinding?.controller_action?.action == 36;
 	r.push(
-		n.createElement(
-			l.Z,
-			{
-				key: "delta",
-				onActivate: (e) => {
-					(function (e, t, r) {
-						(0, p.pg)(
-							n.createElement(v, {
-								title: (0, Localize)(
-									"#ControllerBinding_MouseDeltaModal_Title",
-								),
-								description: (0, Localize)(
-									"#ControllerBinding_MouseDeltaModal_Desc",
-								),
-								onResult: (t) => {
-									const n = {
-										type: a.N.k_EControllerBindingType_ControllerAction,
-										controller_action: {
-											action: 36,
-											mouse: t,
-										},
-									};
-									let i = c.v3.ActiveInputBinding;
-									if (n != null) {
-										i.new_binding = n;
-									}
-									c.v3.SetControllerInputBinding(e, i);
-									c.v3.SaveEditingConfiguration(e);
-									c.v3.EnsureEditingConfiguration();
-									r();
-								},
-								existingBinding:
-									c.v3.CurrentEditedBinding?.controller_action?.mouse,
-							}),
-							t,
-						);
-					})(t, GetOwningWindowForEvent(e), i);
-				},
-				className: (0, o.A)(m.MouseKey, A && m.SelectedBinding),
-			},
-			n.createElement(
-				"div",
-				{
-					className: (0, o.A)(m.KeyboardKeyLabel),
-				},
-				(0, Localize)("#ControllerBinding_MouseDelta"),
-			),
-		),
+		<l.Z
+			key="delta"
+			onActivate={(e) => {
+				((e, t, r) => {
+					pg(
+						<V
+							title={(0, Localize)("#ControllerBinding_MouseDeltaModal_Title")}
+							description={(0, Localize)(
+								"#ControllerBinding_MouseDeltaModal_Desc",
+							)}
+							onResult={(t) => {
+								const n = {
+									type: a.N.k_EControllerBindingType_ControllerAction,
+									controller_action: {
+										action: 36,
+										mouse: t,
+									},
+								};
+								let i = c.v3.ActiveInputBinding;
+								if (n != null) {
+									i.new_binding = n;
+								}
+								c.v3.SetControllerInputBinding(e, i);
+								c.v3.SaveEditingConfiguration(e);
+								c.v3.EnsureEditingConfiguration();
+								r();
+							}}
+							existingBinding={
+								c.v3.CurrentEditedBinding?.controller_action?.mouse
+							}
+						/>,
+						t,
+					);
+				})(appid, GetOwningWindowForEvent(e), i);
+			}}
+			className={A_1(m.MouseKey, A && m.SelectedBinding)}
+		>
+			<div className={A_1(m.KeyboardKeyLabel)}>
+				{(0, Localize)("#ControllerBinding_MouseDelta")}
+			</div>
+		</l.Z>,
 	);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(g.d, {
-			label: (0, Localize)(
-				"#ControllerConfigurator_ChooseBinding_Prompt_Mouse",
-			),
-		}),
-		n.createElement(
-			l.Z,
-			{
-				className: (0, o.A)(m.MousePageContainer),
-				"flow-children": "row",
-			},
-			k(t, E),
-			n.createElement(
-				l.Z,
-				{
-					className: (0, o.A)(m.MouseCenterImage),
-				},
-				n.createElement(_.WholeMouseImage, null),
-			),
-			n.createElement(
-				l.Z,
-				{
-					"flow-children": "column",
-					className: (0, o.A)(m.GamepadKeyColumn, m.MouseMovementContainer),
-					navEntryPreferPosition: h.iU.MAINTAIN_Y,
-				},
-				k(t, M),
-				r,
-			),
-		),
+	return (
+		<>
+			<g.d
+				label={(0, Localize)(
+					"#ControllerConfigurator_ChooseBinding_Prompt_Mouse",
+				)}
+			/>
+			<l.Z className={A_1(m.MousePageContainer)} flow-children="row">
+				{k(appid, E)}
+				<l.Z className={A_1(m.MouseCenterImage)}>
+					<_.WholeMouseImage />
+				</l.Z>
+				<l.Z
+					flow-children="column"
+					className={A_1(m.GamepadKeyColumn, m.MouseMovementContainer)}
+					navEntryPreferPosition={h.iU.MAINTAIN_Y}
+				>
+					{k(appid, M)}
+					{r}
+				</l.Z>
+			</l.Z>
+		</>
 	);
 });

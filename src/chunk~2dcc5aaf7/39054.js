@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./61416.js");
-var i = require(/*webcrack:missing*/ "./75144.js");
-var _a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./34043.js");
-var o = require("./20414.js");
-var l = require("./3963.js");
-var c = require(/*webcrack:missing*/ "./72476.js");
 import { Seconds } from "../../actual_src/utils/time.js";
-var u = require("./36141.js");
+import n, { I as I_1 } from "./61416.js";
+import i from "./75144.js";
+import _a from "./12176.js";
+import s from "./34043.js";
+import o, { GU, dK } from "./20414.js";
+import l from "./3963.js";
+import c from "./72476.js";
+import u, { l as l_1 } from "./36141.js";
 const d = 5;
 const A = 10;
 const p = "favoriteguides";
@@ -68,7 +68,7 @@ export async function GK(e, t) {
 		bReported: false,
 	});
 	i.L.setQueryData([v(e)], r);
-	let n = await (0, o.GU)(e, t);
+	let n = await GU(e, t);
 	if (n == 1) {
 		i.L.invalidateQueries({
 			queryKey: [v(e)],
@@ -78,10 +78,10 @@ export async function GK(e, t) {
 	throw `Failed VoteOnGuide { publishedfileid: ${e} }`;
 }
 export function zg(e, t, r = d) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [y(e), t, r],
 		queryFn: async () =>
-			await (async function (e, t, r) {
+			await (async (e, t, r) => {
 				let n = {
 					page: t,
 					totalpages: 0,
@@ -117,11 +117,11 @@ export function zg(e, t, r = d) {
 	});
 }
 export function a(e, t, r = A) {
-	let i = (0, u.l)();
-	return (0, n.I)({
+	let i = l_1();
+	return I_1({
 		queryKey: [((o = e), `${g}_${o}`), t, r, i],
 		queryFn: async () =>
-			await (async function (e, t, r, n) {
+			await (async (e, t, r, n) => {
 				let i = {
 					page: t,
 					totalpages: 0,
@@ -161,10 +161,10 @@ export function a(e, t, r = A) {
 	var o;
 }
 export function CD(e, t) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [S(t)],
 		queryFn: async () =>
-			await (async function (e, t) {
+			await (async (e, t) => {
 				let r = _a.w.Init(s.TA);
 				r.Body().set_publishedfileids([t]);
 				r.Body().set_appid(e);
@@ -186,10 +186,10 @@ export function CD(e, t) {
 	});
 }
 export function Gr(e) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [w(e)],
 		queryFn: async () =>
-			await (async function (e) {
+			await (async (e) => {
 				let t = _a.w.Init(s.Gl);
 				t.Body().set_publishedfileid(e);
 				let r = await s.a5.GetSubSectionData(
@@ -209,10 +209,10 @@ export function Gr(e) {
 	});
 }
 export function cH(e) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [I(e)],
 		queryFn: async () =>
-			await (async function (e) {
+			await (async (e) => {
 				if (!e) {
 					return null;
 				}
@@ -236,10 +236,10 @@ export function cH(e) {
 	});
 }
 export function wX(e, t) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [B(t)],
 		queryFn: async () =>
-			await (async function (e, t) {
+			await (async (e, t) => {
 				let r = _a.w.Init(s.oA);
 				r.Body().set_appid(e);
 				r.Body().set_publishedfileids([t]);
@@ -259,9 +259,9 @@ export function wX(e, t) {
 	});
 }
 export function I$(e) {
-	return (0, n.I)({
+	return I_1({
 		queryKey: [v(e)],
-		queryFn: async () => await (0, o.dK)([e]),
+		queryFn: async () => await dK([e]),
 		staleTime: Seconds.PerMinute * 1000,
 	});
 }

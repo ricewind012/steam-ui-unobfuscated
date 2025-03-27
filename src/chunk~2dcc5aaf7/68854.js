@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	GamePlaySummaryContainer: "_1OMmVJHDgNwOt0Wqn0hrf9",
 	GamePlaySummaryHeader: "P_gQ8X-yCsgXeXpP68KS0",

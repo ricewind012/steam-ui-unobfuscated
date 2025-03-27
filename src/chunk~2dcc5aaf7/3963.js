@@ -1,9 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require("./10812.js");
-var s = require("./91705.js");
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require("./44164.js");
+import n, { Cg } from "./34629.js";
+import i from "./12176.js";
+import a from "./10812.js";
+import { lm } from "./91705.js";
+import o from "./63696.js";
+import l from "./44164.js";
+import m, { Gn } from "./89193.js";
+import u from "./8090.js";
+import d from "./1521.js";
+import A from "./16117.js";
+import p from "./8573.js";
+import g from "./77644.js";
+import h from "./31760.js";
+import C from "./56840.js";
+import _ from "./52451.js";
+import f from "./43691.js";
 function c(e) {
 	let t = "";
 	if (typeof e.children == "string") {
@@ -22,24 +32,11 @@ function c(e) {
 		});
 	}
 	if (t) {
-		return o.createElement(l.nl, {
-			emoticon: t,
-			emoticonHoverStore: Nb.EmoticonHoverStore,
-		});
+		return <l.nl emoticon={t} emoticonHoverStore={Nb.EmoticonHoverStore} />;
 	} else {
 		return null;
 	}
 }
-var m = require(/*webcrack:missing*/ "./89193.js");
-var u = require("./8090.js");
-var d = require("./1521.js");
-var A = require("./16117.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require("./77644.js");
-var h = require("./31760.js");
-var C = require("./56840.js");
-var _ = require(/*webcrack:missing*/ "./52451.js");
-var f = require(/*webcrack:missing*/ "./43691.js");
 class b {
 	m_threadInfo = undefined;
 	m_rgComments = [];
@@ -50,7 +47,7 @@ class b {
 	m_bUpdating = false;
 	m_msLastUpdated = Date.now();
 	constructor(e, t, r, n) {
-		(0, m.Gn)(this);
+		Gn(this);
 		this.m_eThreadType = e;
 		this.m_steamIDActor = t;
 		this.m_gidfeature = r;
@@ -61,7 +58,7 @@ class b {
 		return (Date.now() - this.m_msLastUpdated) / 1000;
 	}
 	get id() {
-		let e = `${(0, s.lm)(this.m_eThreadType)}/${this.m_steamIDActor.GetAccountID()}`;
+		let e = `${lm(this.m_eThreadType)}/${this.m_steamIDActor.GetAccountID()}`;
 		if (this.m_gidfeature && this.m_gidfeature != "-1") {
 			e += `/${this.m_gidfeature}`;
 			if (this.m_gidfeature2 && this.m_gidfeature2 != "-1") {
@@ -120,7 +117,9 @@ class b {
 				.concat(this.m_rgComments);
 		} else {
 			console.warn(
-				`CommentThread ${this.id} Failed to fetch past comments: ${r.GetErrorMessage()}`,
+				`CommentThread ${
+					this.id
+				} Failed to fetch past comments: ${r.GetErrorMessage()}`,
 			);
 		}
 		this.m_msLastUpdated = Date.now();
@@ -158,7 +157,9 @@ class b {
 			this.m_bUpdating = false;
 		} else {
 			console.warn(
-				`CommentThread ${this.id} Failed to update comments: ${t.GetErrorMessage()}`,
+				`CommentThread ${
+					this.id
+				} Failed to update comments: ${t.GetErrorMessage()}`,
 			);
 		}
 	}
@@ -183,14 +184,16 @@ class b {
 			this.m_threadInfo.total_count++;
 		} else {
 			console.warn(
-				`CommentThread ${this.id} Failed to post comment: ${r.GetErrorMessage()}`,
+				`CommentThread ${
+					this.id
+				} Failed to post comment: ${r.GetErrorMessage()}`,
 			);
 		}
 	}
 	async RateCommentOrThread(e, t) {
 		let r = i.w.Init(a.jt);
 		r.Body().set_steamid(this.m_steamIDActor.ConvertTo64BitString());
-		r.Body().set_commentthreadtype((0, s.lm)(this.m_eThreadType));
+		r.Body().set_commentthreadtype(lm(this.m_eThreadType));
 		r.Body().set_gidfeature(this.m_gidfeature);
 		if (this.m_gidfeature2) {
 			r.Body().set_gidfeature2(this.m_gidfeature2);
@@ -217,7 +220,9 @@ class b {
 			}
 		} else if (n.GetEResult() != 1) {
 			console.warn(
-				`CommentThread ${this.id} Failed to rate comment or thread: ${n.GetErrorMessage()}`,
+				`CommentThread ${
+					this.id
+				} Failed to rate comment or thread: ${n.GetErrorMessage()}`,
 			);
 		}
 	}
@@ -252,13 +257,13 @@ class b {
 		);
 	}
 }
-(0, n.Cg)([m.sH], b.prototype, "m_threadInfo", undefined);
-(0, n.Cg)([m.sH], b.prototype, "m_rgComments", undefined);
-(0, n.Cg)([_.oI], b.prototype, "RateCommentOrThread", null);
+Cg([m.sH], b.prototype, "m_threadInfo", undefined);
+Cg([m.sH], b.prototype, "m_rgComments", undefined);
+Cg([_.oI], b.prototype, "RateCommentOrThread", null);
 class y {
 	m_mapThreads = new Map();
 	static Key(e, t, r, n) {
-		return (0, s.lm)(e) + "|" + t.ConvertTo64BitString() + "|" + r + "|" + n;
+		return `${lm(e)}|${t.ConvertTo64BitString()}|${r}|${n}`;
 	}
 	FindOrLoadThread(e, t, r, n) {
 		let i = y.Key(e, t, r, n);

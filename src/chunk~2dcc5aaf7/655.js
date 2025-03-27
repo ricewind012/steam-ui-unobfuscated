@@ -1,19 +1,19 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./88475.js");
-var a = require(/*webcrack:missing*/ "./12176.js");
-var s = require("./8974.js");
-var o = require(/*webcrack:missing*/ "./61416.js");
-var l = require(/*webcrack:missing*/ "./89193.js");
-var c = require(/*webcrack:missing*/ "./8573.js");
-var m = require("./5859.js");
-var u = require("./3475.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var A = require(/*webcrack:missing*/ "./83599.js");
-var p = require(/*webcrack:missing*/ "./43691.js");
-var g = require(/*webcrack:missing*/ "./72476.js");
-var h = require("./63937.js");
-var C = require(/*webcrack:missing*/ "./49455.js");
-var _ = require("./24274.js");
+import n, { Cg } from "./34629.js";
+import i from "./88475.js";
+import a from "./12176.js";
+import s from "./8974.js";
+import o, { I } from "./61416.js";
+import l, { Gn, h5 } from "./89193.js";
+import c from "./8573.js";
+import m from "./5859.js";
+import u from "./3475.js";
+import A from "./83599.js";
+import p from "./43691.js";
+import { Y2 } from "./72476.js";
+import { w1 } from "./63937.js";
+import { w } from "./49455.js";
+import { EC } from "./24274.js";
 const f = {
 	11: {
 		displayNameLoc: "#SteamNotification_HelpRequest_Author",
@@ -22,7 +22,7 @@ const f = {
 			locString: "#SteamNotification_HelpRequest_Body",
 			params: [e.ticket],
 		}),
-		link: (e) => p.TS.HELP_BASE_URL + "wizard/HelpRequest/" + e.ticket,
+		link: (e) => `${p.TS.HELP_BASE_URL}wizard/HelpRequest/${e.ticket}`,
 	},
 	6: {
 		displayNameLoc: "#SteamNotifications_MajorSale",
@@ -30,12 +30,12 @@ const f = {
 			locString: e.title,
 		}),
 		bodyLoc: (e) =>
-			(0, g.Y2)() && e.link.includes("https://store.steampowered.com")
+			Y2() && e.link.includes("https://store.steampowered.com")
 				? "#SteamNotifications_MajorSale_SteamChina_Title"
 				: e.body,
 		image: (e) => e.image,
 		link: (e) =>
-			(0, g.Y2)() && e.link.includes("https://store.steampowered.com")
+			Y2() && e.link.includes("https://store.steampowered.com")
 				? e.link.replace("https://store.steampowered.com", p.TS.STORE_BASE_URL)
 				: e.link,
 	},
@@ -48,7 +48,7 @@ const f = {
 	},
 	14: {
 		titleLoc: "#SteamNotification_ModeratorMessage_Title",
-		link: (e) => p.TS.COMMUNITY_BASE_URL + "my/moderatormessages/" + e.msgid,
+		link: (e) => `${p.TS.COMMUNITY_BASE_URL}my/moderatormessages/${e.msgid}`,
 	},
 };
 export function K9(e) {
@@ -77,7 +77,7 @@ const S = {
 		steamidAttribute: "requestor_steamid",
 		titleLoc: "#SteamNotifications_FamilyPurchaseRequestTitle",
 		bodyLoc: "#SteamNotifications_FamilyPurchaseRequestBody",
-		url: (e) => (0, h.w1)(e.familyid, e.request_id),
+		url: (e) => w1(e.familyid, e.request_id),
 	},
 	19: {
 		steamidAttribute: "responder_steamid",
@@ -137,13 +137,13 @@ export function V4(e) {
 function E(e) {
 	return (
 		!e.hidden &&
-		(IC((t = e.notification_type)) || sR(t) || V4(t)) &&
+		(IC((t = e.notification_type)) || sR(t) || sR(t) || V4(t)) &&
 		u5(e.body_data)
 	);
 	var t;
 }
-export var F1;
-(function (e) {
+export let F1;
+((e) => {
 	e[(e.New = 0)] = "New";
 	e[(e.Update = 1)] = "Update";
 	e[(e.Remove = 2)] = "Remove";
@@ -152,12 +152,11 @@ export const y0 = "Test_";
 export const $Q = 172800;
 export const e$ = 600;
 const D = new A.wd("SteamNotificationStore");
-const N = D.Debug;
 const F = D.Error;
 const G = D.Warning;
 export class cE {
 	constructor() {
-		(0, l.Gn)(this);
+		Gn(this);
 	}
 	m_rgNotificationRollups = [];
 	m_summary = {
@@ -224,9 +223,7 @@ export class cE {
 	BSendToCallbackAsNew(e) {
 		return (
 			!e.read &&
-			!(function (e) {
-				return e.viewed && e.viewed + $Q < GetUnixTime();
-			})(e) &&
+			!((e) => e.viewed && e.viewed + $Q < GetUnixTime())(e) &&
 			!this.m_rgUnreadNotificationIDs.includes(e.notification_id)
 		);
 	}
@@ -370,18 +367,18 @@ export class cE {
 		return t.length + 0;
 	}
 	ApplyNotificationsUpdate(e) {
-		N("ApplyNotificationsUpdate", e);
+		Debug("ApplyNotificationsUpdate", e);
 		if (
 			!e ||
 			(!e.notifications?.length &&
 				e.pending_friend_count === undefined &&
 				e.pending_gift_count === undefined)
 		) {
-			N("Error: ApplyNotificationsUpdate was called with no data");
+			Debug("Error: ApplyNotificationsUpdate was called with no data");
 			return;
 		}
 		if (!this.m_currentNotificationsData) {
-			N(
+			Debug(
 				"Error: ApplyNotificationsUpdate was called before this.m_currentNotificationsData was set",
 			);
 			return;
@@ -540,13 +537,9 @@ export class cE {
 					if (!i) {
 						return;
 					}
-					const a =
-						"comment_" +
-						i.owner_steam_id?.GetAccountID() +
-						"_" +
-						i.forum_id +
-						"_" +
-						i.topic_id;
+					const a = `comment_${i.owner_steam_id?.GetAccountID()}_${
+						i.forum_id
+					}_${i.topic_id}`;
 					let s = e.findIndex((e) => e.key == a);
 					if (s == -1) {
 						e.push({
@@ -582,28 +575,31 @@ export class cE {
 					}
 				}
 				break;
-			case 4:
+			case 4: {
 				const i = Y(t);
 				if (i) {
-					const a = "item_" + i.appid;
+					const a = `item_${i.appid}`;
 					this.AddNotificationToRollupByAppID(e, t, a, n, r, i.appid);
 				}
 				break;
-			case 12:
+			}
+			case 12: {
 				const a = Y(t)?.appid.toString();
 				if (a) {
-					const i = "asyncgame_" + a;
+					const i = `asyncgame_${a}`;
 					this.AddNotificationToRollupByAppID(e, t, i, n, r, a);
 				}
 				break;
-			case 8:
+			}
+			case 8: {
 				const s = Y(t)?.appid;
 				if (s) {
 					m.A.Get().QueueAppRequest(s, {
 						include_assets: true,
 					});
 				}
-			default:
+			}
+			default: {
 				e.push({
 					type: n,
 					key: t.notification_id,
@@ -613,6 +609,7 @@ export class cE {
 					rgread: t.read ? [t.notification_id] : [],
 					bSendToCallbackAsNew: r,
 				});
+			}
 		}
 	}
 	AddNotificationToRollupByAppID(e, t, r, n, i, a) {
@@ -686,7 +683,9 @@ export async function tM(e, t, r, n, s, o = true, l = false) {
 	const m = await i.Fn.GetSteamNotifications(e, c);
 	if (m.GetEResult() !== 1) {
 		G(
-			`Received error from GetSteamNotifications. Result ${m.GetEResult()}. Transport ${m.Hdr().transport_error()}`,
+			`Received error from GetSteamNotifications. Result ${m.GetEResult()}. Transport ${m
+				.Hdr()
+				.transport_error()}`,
 		);
 		throw new Error(`Error from GetSteamNotifications: ${m.GetEResult()}`);
 	}
@@ -694,22 +693,22 @@ export async function tM(e, t, r, n, s, o = true, l = false) {
 	if (n) {
 		d.notifications = d.notifications?.filter(
 			(e) =>
-				!(function (e, t, r) {
+				!((e, t, r) => {
 					if (!t) {
 						return false;
 					}
 					const n = ee(e);
-					return (0, _.EC)(t, n?.eFeature ?? u.JC, r);
+					return EC(t, n?.eFeature ?? u.JC, r);
 				})(e.notification_type, n, s),
 		);
 	}
 	return d;
 }
-(0, n.Cg)([l.sH], cE.prototype, "m_rgNotificationRollups", undefined);
-(0, n.Cg)([l.sH], cE.prototype, "m_summary", undefined);
-(0, n.Cg)([l.sH], cE.prototype, "m_bLoaded", undefined);
-(0, n.Cg)([l.sH], cE.prototype, "m_nUnviewed", undefined);
-(0, n.Cg)([l.XI], cE.prototype, "ProcessNotifications", null);
+Cg([l.sH], cE.prototype, "m_rgNotificationRollups", undefined);
+Cg([l.sH], cE.prototype, "m_summary", undefined);
+Cg([l.sH], cE.prototype, "m_bLoaded", undefined);
+Cg([l.sH], cE.prototype, "m_nUnviewed", undefined);
+Cg([l.XI], cE.prototype, "ProcessNotifications", null);
 const z = "ItemMetadata";
 function x(e) {
 	return [`${z}_${e?.steamid}_${e?.appid}_${e?.contextid}_${e?.assetid}`];
@@ -717,11 +716,23 @@ function x(e) {
 export function IL(e, t, r) {
 	let n = X(4, e.body_data);
 	n.steamid = t;
-	let i = (0, o.I)({
+	let i = I({
 		queryKey: x(n),
 		queryFn: async () =>
-			(async function (e, t) {
-				if (!e || !e.steamid || !e.contextid || !e.appid || !e.assetid) {
+			(async (e, t) => {
+				if (
+					!e ||
+					!e.steamid ||
+					!e.steamid ||
+					!e.contextid ||
+					!e.steamid ||
+					!e.contextid ||
+					!e.appid ||
+					!e.steamid ||
+					!e.contextid ||
+					!e.appid ||
+					!e.assetid
+				) {
 					F("Item notification missing required attributes");
 					return null;
 				}
@@ -761,9 +772,13 @@ export function IL(e, t, r) {
 	}
 }
 function W(e) {
-	let t = `comment/${e.comment_type}/bounce/${e.owner_steam_id.ConvertTo64BitString()}/${e.forum_id}/?feature2=${e.topic_id}`;
+	let t = `comment/${
+		e.comment_type
+	}/bounce/${e.owner_steam_id.ConvertTo64BitString()}/${e.forum_id}/?feature2=${
+		e.topic_id
+	}`;
 	if (e.last_post > 0) {
-		t += "&tscn=" + (e.last_post - 1);
+		t += `&tscn=${e.last_post - 1}`;
 	}
 	return t;
 }
@@ -789,7 +804,7 @@ export function u5(e) {
 	try {
 		return JSON.parse(e);
 	} catch (t) {
-		N("Steam notification in invalid format:", e);
+		Debug("Steam notification in invalid format:", e);
 	}
 	return null;
 }
@@ -805,25 +820,29 @@ function X(e, t) {
 		return null;
 	}
 	switch (e) {
-		case 2:
+		case 2: {
 			return r.gifter_account;
-		case 22:
+		}
+		case 22: {
 			return {
 				responder_steamid: r.responder_steamid,
 				package_id: r.package_id,
 				bundle_id: r.bundle_id,
 			};
-		case 9:
+		}
+		case 9: {
 			return parseInt(r.sender);
-		case 8:
+		}
+		case 8: {
 			return {
 				appid: r.appid,
 				count: r.count ?? 1,
 				appids: r.appids ?? [],
 			};
-		case 12:
+		}
+		case 12: {
 			if (!r.appid || !r.state || (r.state != 1 && r.state != 2)) {
-				N("Async game notification invalid data", t);
+				Debug("Async game notification invalid data", t);
 				return null;
 			} else {
 				return {
@@ -831,7 +850,8 @@ function X(e, t) {
 					state: parseInt(r.state),
 				};
 			}
-		case 3:
+		}
+		case 3: {
 			let n = {
 				owner_steam_id: r.owner_steam_id ? new c.b(r.owner_steam_id) : null,
 				bclan_account: J(r.bclan_account),
@@ -858,18 +878,21 @@ function X(e, t) {
 				};
 			}
 			return n;
-		case 5:
+		}
+		case 5: {
 			return {
 				requestorID: parseInt(r.requestor_id),
 				state: r.state ? parseInt(r.state) : 0,
 			};
-		case 4:
+		}
+		case 4: {
 			return {
 				appid: parseInt(r.app_id),
 				assetid: r.asset_id ?? "",
 				contextid: r.context_id ?? "",
 			};
-		case 23:
+		}
+		case 23: {
 			return {
 				url: r.url ?? "",
 				strGameName: r.content_app_name ?? "",
@@ -880,9 +903,14 @@ function X(e, t) {
 				rtExpiration: r.expiration,
 				thumbnailURL: r.thumbnail_url,
 			};
-		default:
-			N("GetCustomNotificationDataByType called with unexpected type:" + e, t);
+		}
+		default: {
+			Debug(
+				`GetCustomNotificationDataByType called with unexpected type:${e}`,
+				t,
+			);
 			return null;
+		}
 	}
 }
 function J(e) {
@@ -895,13 +923,15 @@ function J(e) {
 	if (typeof e == "string") {
 		switch (e.toLowerCase()?.trim()) {
 			case "true":
-			case "1":
+			case "1": {
 				return true;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	}
-	N("notification contained unexpected boolean value");
+	Debug("notification contained unexpected boolean value");
 	return false;
 }
 const $ = {
@@ -1004,11 +1034,11 @@ const $ = {
 };
 function ee(e) {
 	const t = $[e];
-	(0, C.w)(!!t, `Missing notification type data for ${e}`);
+	w(!!t, `Missing notification type data for ${e}`);
 	return t;
 }
 export function kE(e, t, r) {
-	(0, l.h5)(() => {
+	h5(() => {
 		const n = ee(t);
 		if (n?.rollup_field) {
 			e[n.rollup_field] = Math.max(0, e[n.rollup_field] + r);

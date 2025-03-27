@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./37449.js");
-var a = require("./46422.js");
-var s = require("./874.js");
-var o = require("./79112.js");
-var l = require("./45967.js");
-var c = require("./96680.js");
-var m = require("./5822.js");
-var u = require("./6263.js");
+import n, { createElement } from "./63696.js";
+import i from "./37449.js";
+import a from "./46422.js";
+import s, { b } from "./874.js";
+import { br } from "./79112.js";
+import l from "./45967.js";
+import { $2 } from "./96680.js";
+import m from "./5822.js";
+import { _N } from "./6263.js";
 function d(e) {
-	return (0, s.b)(e, {
+	return b(e, {
 		beforeNavigate: () => {
 			if (e.type == "gamepad") {
 				if (
@@ -24,77 +24,77 @@ function d(e) {
 			a.oy.CloseSideMenus();
 		},
 		getAdditionalEntries: (t) => {
-			const { navigate: r, ownerWindow: n } = t;
+			const { navigate, ownerWindow } = t;
 			return {
 				type: e.type,
-				Invites: (e) => r(i.B.GamepadUI.Invites(), e),
+				Invites: (e) => navigate(i.B.GamepadUI.Invites(), e),
 				Account: (e = {}) =>
-					r(i.B.GamepadUI.Account(), {
+					navigate(i.B.GamepadUI.Account(), {
 						bNoRedundantNavigation: true,
 						...e,
 					}),
 				Login: () =>
-					r(i.B.GamepadUI.Login(), {
+					navigate(i.B.GamepadUI.Login(), {
 						state: {
 							bReauthentication: false,
 						},
 					}),
 				Reauthentication: () =>
-					r(i.B.GamepadUI.Login(), {
+					navigate(i.B.GamepadUI.Login(), {
 						state: {
 							bReauthentication: true,
 						},
 					}),
-				LibraryTab: (e, t) => r(i.B.GamepadUI.Library.Tab(e), t),
-				Settings: (e) => r(i.B.Settings[e]()),
+				LibraryTab: (e, t) => navigate(i.B.GamepadUI.Library.Tab(e), t),
+				Settings: (e) => navigate(i.B.Settings[e]()),
 				Chat: () =>
-					r(i.B.GamepadUI.Chat(), {
+					navigate(i.B.GamepadUI.Chat(), {
 						bNoRedundantNavigation: true,
 					}),
 				ControllerConfigurator: {
-					Main: (e) => r(i.B.GamepadUI.ControllerConfigurator.Main(e)),
+					Main: (e) => navigate(i.B.GamepadUI.ControllerConfigurator.Main(e)),
 				},
 				AppOverlay: {
 					AppRunningControls: () =>
-						r(i.B.GamepadUI.AppOverlay.AppRunningControls(), {}),
+						navigate(i.B.GamepadUI.AppOverlay.AppRunningControls(), {}),
 				},
 				SteamWeb: (e) =>
-					r(i.B.GamepadUI.SteamWeb(), {
+					navigate(i.B.GamepadUI.SteamWeb(), {
 						state: {
 							url: e,
 						},
 					}),
 				SteamWebTab: (e) =>
-					r(i.B.GamepadUI.SteamWeb(), {
+					navigate(i.B.GamepadUI.SteamWeb(), {
 						state: {
 							url: e,
 						},
 					}),
 				MTXAuth: (e) =>
-					r(i.B.GamepadUI.MicroTxnAuth(), {
+					navigate(i.B.GamepadUI.MicroTxnAuth(), {
 						state: {
 							url: e,
 						},
 					}),
 				ExternalWeb: (e) =>
-					r(i.B.GamepadUI.ExternalWeb(), {
+					navigate(i.B.GamepadUI.ExternalWeb(), {
 						state: {
 							url: e,
 						},
 					}),
 				Media: {
 					Grid: (e) =>
-						r(i.B.Media.Grid(), {
+						navigate(i.B.Media.Grid(), {
 							...(e || {}),
 							state: e.state,
 						}),
 					List: (e) =>
-						r(i.B.Media.List(), {
+						navigate(i.B.Media.List(), {
 							...(e || {}),
 							state: e.state,
 						}),
 					Screenshot: (e) =>
-						r(i.B.Media.Item("screenshot", e.state.id), {
+						navigate(i.B.Media.Item("screenshot", e.state.id), {
 							...(e || {}),
 							state: {
 								item: {
@@ -104,7 +104,7 @@ function d(e) {
 							},
 						}),
 					Clip: (e) =>
-						r(i.B.Media.Item("clip", e.state.id), {
+						navigate(i.B.Media.Item("clip", e.state.id), {
 							...(e || {}),
 							state: {
 								item: {
@@ -114,7 +114,7 @@ function d(e) {
 							},
 						}),
 					Recording: (e) =>
-						r(i.B.Media.Item("recording", e.state.gameid), {
+						navigate(i.B.Media.Item("recording", e.state.gameid), {
 							...(e || {}),
 							state: {
 								item: {
@@ -132,27 +132,22 @@ function d(e) {
 					);
 				},
 				RequestPlaytimeDialog: (e) => {
-					(0, u._N)(n, e);
+					_N(ownerWindow, e);
 				},
 			};
 		},
 	});
 }
 export function wZ(e) {
-	const t = (0, c.$2)().IsGamepadUIOverlayWindow()
-		? "gamepadoverlay"
-		: "gamepad";
-	return (0, n.createElement)(
-		s.x,
-		{
-			buildNavigator: d,
-			type: t,
-		},
-		e.children,
+	const t = $2().IsGamepadUIOverlayWindow() ? "gamepadoverlay" : "gamepad";
+	return (
+		<s.x buildNavigator={d} type={t}>
+			{e.children}
+		</s.x>
 	);
 }
 export function k1() {
-	const e = (0, o.br)();
+	const e = br();
 	if (!dq(e)) {
 		console.error("Found wrong navigator type!");
 	}

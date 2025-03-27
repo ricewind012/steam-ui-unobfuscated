@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./52451.js");
-var a = require(/*webcrack:missing*/ "./83599.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
-var o = require(/*webcrack:missing*/ "./44846.js");
+import n, { Cg } from "./34629.js";
+import i from "./52451.js";
+import a from "./83599.js";
+import s from "./79769.js";
+import o from "./44846.js";
 const l = new a.wd("OverlayStore");
 class c {
 	m_mapBrowserInfo = new Map();
@@ -109,7 +109,7 @@ class c {
 		this.m_OnNotificationPositionChangedCallbacks.Dispatch(e, t, r, n);
 	}
 }
-(0, n.Cg)([i.oI], c.prototype, "OnOverlayBrowserInfoChanged", null);
-(0, n.Cg)([i.oI], c.prototype, "OverlayNotificationPositionChanged", null);
+Cg([i.oI], c.prototype, "OnOverlayBrowserInfoChanged", null);
+Cg([i.oI], c.prototype, "OverlayNotificationPositionChanged", null);
 export const Q = new c();
 window.overlayStore = Q;

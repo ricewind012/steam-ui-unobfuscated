@@ -1,112 +1,119 @@
-var n = require(/*webcrack:missing*/ "./28864.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./69164.js");
-var s = require("./21105.js");
-export const YZ = i.forwardRef(function (e, t) {
+import n, { Ue } from "./28864.js";
+import i, { useState } from "./63696.js";
+import a from "./69164.js";
+import s from "./21105.js";
+export const YZ = i.forwardRef((props, ref) => {
 	const {
-		onExplicitFocusLevelChanged: r,
-		onOKButton: s,
-		onCancelButton: o,
-		navRef: l,
-		focusable: c,
+		onExplicitFocusLevelChanged,
+		onOKButton,
+		onCancelButton,
+		navRef,
+		focusable,
 		...u
-	} = e;
-	const d = i.useRef(null);
-	const { fnOnOKButton: A, fnOnCancelButton: p } = m({
-		navRefPanel: d,
-		onOKButton: s,
-		onCancelButton: o,
-		onExplicitFocusLevelChanged: r,
+	} = props;
+	const DRef = i.useRef(null);
+	const { fnOnOKButton, fnOnCancelButton } = m({
+		navRefPanel: DRef,
+		onOKButton: onOKButton,
+		onCancelButton: onCancelButton,
+		onExplicitFocusLevelChanged: onExplicitFocusLevelChanged,
 	});
-	const g = (0, n.Ue)(l, d);
-	return i.createElement(a.Z, {
-		...u,
-		onOKButton: A,
-		onCancelButton: p,
-		navRef: g,
-		ref: t,
-		focusable: c !== false,
-	});
+	const g = Ue(navRef, DRef);
+	return (
+		<a.Z
+			{...u}
+			onOKButton={fnOnOKButton}
+			onCancelButton={fnOnCancelButton}
+			navRef={g}
+			ref={ref}
+			focusable={focusable !== false}
+		/>
+	);
 });
 export function hN(e) {
-	const { children: t, ...r } = e;
-	const [n, a] = (0, i.useState)(false);
-	const [s, l] = (0, i.useState)(false);
+	const { children, ...r } = e;
+	const [n, setN] = useState(false);
+	const [s, setS] = useState(false);
 	const c = !n || s;
-	return i.createElement(
-		YZ,
-		{
-			onExplicitFocusLevelChanged: a,
-			onFocusWithin: l,
-			focusable: c,
-			...r,
-		},
-		typeof t == "function" ? t(n) : t,
+	return (
+		<YZ
+			onExplicitFocusLevelChanged={setN}
+			onFocusWithin={setS}
+			focusable={c}
+			{...r}
+		>
+			{typeof children == "function" ? children(n) : children}
+		</YZ>
 	);
 }
-export const f7 = i.forwardRef(function (e, t) {
-	const { onOKButton: r, onCancelButton: a, navRef: o, focusable: l, ...c } = e;
-	const u = i.useRef(null);
-	const d = i.useRef(null);
+export const f7 = i.forwardRef((props, ref) => {
+	const { onOKButton, onCancelButton, navRef, focusable, ...c } = props;
+	const URef = i.useRef(null);
+	const DRef = i.useRef(null);
 	const A = i.useCallback((e, t) => e.FocusVisibleChild(), []);
-	const { fnOnOKButton: p, fnOnCancelButton: g } = m({
-		navRefPanel: u,
-		onOKButton: r,
-		onCancelButton: a,
+	const { fnOnOKButton, fnOnCancelButton } = m({
+		navRefPanel: URef,
+		onOKButton: onOKButton,
+		onCancelButton: onCancelButton,
 		fnFocusChildren: A,
 	});
-	const h = (0, n.Ue)(d, t);
-	const C = (0, n.Ue)(o, u);
-	return i.createElement(s.Qg, {
-		...c,
-		onOKButton: (e) => p?.(e),
-		onCancelButton: g,
-		navRef: C,
-		ref: h,
-		focusable: l !== false,
-	});
+	const h = Ue(DRef, ref);
+	const C = Ue(navRef, URef);
+	return (
+		<s.Qg
+			{...c}
+			onOKButton={(e) => fnOnOKButton?.(e)}
+			onCancelButton={fnOnCancelButton}
+			navRef={C}
+			ref={h}
+			focusable={focusable !== false}
+		/>
+	);
 });
 function m(e) {
 	let {
-		navRefPanel: t,
-		onOKButton: r,
-		onCancelButton: n,
-		onExplicitFocusLevelChanged: a,
-		fnFocusChildren: s,
+		navRefPanel,
+		onOKButton,
+		onCancelButton,
+		onExplicitFocusLevelChanged,
+		fnFocusChildren,
 	} = e;
-	s = s ?? u;
+	fnFocusChildren = fnFocusChildren ?? u;
 	return {
 		fnOnOKButton: i.useCallback(
 			(e) => {
-				const n = t.current;
-				if (n?.BHasFocus() && s(n, e.detail.button)) {
-					if (a) {
-						a(true);
+				const t_current = navRefPanel.current;
+				if (
+					t_current?.BHasFocus() &&
+					fnFocusChildren(t_current, e.detail.button)
+				) {
+					if (onExplicitFocusLevelChanged) {
+						onExplicitFocusLevelChanged(true);
 					}
 					return true;
 				} else {
-					return !!r && r(e);
+					return !!onOKButton && onOKButton(e);
 				}
 			},
-			[t, r, a, s],
+			[navRefPanel, onOKButton, onExplicitFocusLevelChanged, fnFocusChildren],
 		),
 		fnOnCancelButton: i.useCallback(
 			(e) => {
-				const r = t.current;
+				const t_current = navRefPanel.current;
 				if (
-					r?.BFocusWithin() &&
-					!r.BHasFocus() &&
-					r.TakeFocus(e.detail.button)
+					t_current?.BFocusWithin() &&
+					!t_current.BHasFocus() &&
+					t_current.TakeFocus(e.detail.button)
 				) {
-					if (a) {
-						a(false);
+					if (onExplicitFocusLevelChanged) {
+						onExplicitFocusLevelChanged(false);
 					}
 					return true;
 				} else {
-					return !!n && n(e);
+					return !!onCancelButton && onCancelButton(e);
 				}
 			},
-			[t, n, a],
+			[navRefPanel, onCancelButton, onExplicitFocusLevelChanged],
 		),
 	};
 }

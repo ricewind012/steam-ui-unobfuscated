@@ -1,13 +1,13 @@
-var n = require("./13869.js");
-var i = require("./52912.js");
-var a = require("./95773.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var o = require("./10606.js");
+import n, { HT } from "./13869.js";
+import i, { h8, _k } from "./52912.js";
+import a from "./95773.js";
+import o, { ZH, nd } from "./10606.js";
 export function Ci(e, t, r, a, l = (0, Localize)("#Button_Cancel"), c, m, u) {
-	return (0, o.ZH)(
+	return ZH(
 		(r) => {
 			let a = dt(e, t, u);
-			(0, n.HT)(r, e, "alertdialog", a, u || (0, i.h8)(e));
+			HT(r, e, "alertdialog", a, u || h8(e));
 		},
 		t,
 		r,
@@ -27,10 +27,10 @@ export function WQ(e, t, r, n, i = (0, Localize)("#Button_Cancel"), a, o) {
 		.catch(() => Promise.resolve(false));
 }
 export function Ic(e, t, r, a = (0, Localize)("#Button_OK"), l, c, m) {
-	return (0, o.nd)(
+	return nd(
 		(r) => {
 			let a = dt(e, t, c, m);
-			(0, n.HT)(r, e, "alertdialog", a, c || (0, i.h8)(e));
+			HT(r, e, "alertdialog", a, c || h8(e));
 		},
 		t,
 		r,
@@ -46,7 +46,7 @@ export function Nw(e, t, r = (0, Localize)("#Button_OK"), n) {
 }
 export function dt(e, t, r, n) {
 	if (
-		a.xm.UIStore.GetPerContextChatData(r || (0, i._k)(e)).BUsePopups() &&
+		a.xm.UIStore.GetPerContextChatData(r || _k(e)).BUsePopups() &&
 		e.innerWidth < 600
 	) {
 		return {

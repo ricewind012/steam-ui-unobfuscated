@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	sketchfab_play_overlay_image: "j_bDCIOMLFNOKaIFJzk2_",
 	sketchfabmodelembedded: "_1hkVJ0EfOR3lTom2cDAN4w",
 	dynamiclink_box: "_2OrALNR-dII7L3YP3pXWBG",

@@ -1,14 +1,14 @@
-import * as n from /*webcrack:missing*/ "./34629.js";
-import * as i from /*webcrack:missing*/ "./89193.js";
-import * as a from /*webcrack:missing*/ "./52451.js";
-import * as s from /*webcrack:missing*/ "./12176.js";
+import * as n from "./34629.js";
+import * as i from "./89193.js";
+import * as a from "./52451.js";
+import * as s from "./12176.js";
 import * as o from "./44926.js";
 import * as l from "./99104.js";
 import * as c from "./22588.js";
 import * as m from "./84629.js";
 import * as u from "./67429.js";
-import * as d from /*webcrack:missing*/ "./49455.js";
-import * as A from /*webcrack:missing*/ "./43691.js";
+import * as d from "./49455.js";
+import * as A from "./43691.js";
 import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization.js";
 export const k_strGRFAQ = "23B7-49AD-4A28-9590";
 export class CGameRecordingStore {
@@ -54,7 +54,7 @@ export class CGameRecordingStore {
 		return this.m_rgAppsWithBackgroundVideo;
 	}
 	GetTimelineLoaderForGame(e) {
-		(0, d.w)(e, "Invalid GameID: " + e);
+		(0, d.w)(e, `Invalid GameID: ${e}`);
 		let t = this.m_mapTimelineLoaders.get(e);
 		if (!t) {
 			let r = new c.SX();
@@ -67,14 +67,18 @@ export class CGameRecordingStore {
 		}
 		t.nRefCount++;
 		(0, m.tG)(
-			`CGameRecordingStore::GetTimelineLoaderForGame incrementing refCount ${t.nRefCount} for ${e}${t.nRefCount == 1 ? " and it was created" : ""}`,
+			`CGameRecordingStore::GetTimelineLoaderForGame incrementing refCount ${
+				t.nRefCount
+			} for ${e}${t.nRefCount == 1 ? " and it was created" : ""}`,
 		);
 		return {
 			loader: t.loader,
 			release: () => {
 				t.nRefCount--;
 				(0, m.tG)(
-					`CGameRecordingStore::GetTimelineLoaderForGame reducing refCount ${t.nRefCount} for ${e}${t.nRefCount <= 0 ? " will delete" : ""}`,
+					`CGameRecordingStore::GetTimelineLoaderForGame reducing refCount ${
+						t.nRefCount
+					} for ${e}${t.nRefCount <= 0 ? " will delete" : ""}`,
 				);
 				if (t.nRefCount <= 0) {
 					this.m_mapTimelineLoaders.delete(e);
@@ -83,7 +87,7 @@ export class CGameRecordingStore {
 		};
 	}
 	GetTimelineLoaderForClip(e) {
-		(0, d.w)(e, "Invalid ClipID: " + e);
+		(0, d.w)(e, `Invalid ClipID: ${e}`);
 		let t = this.m_mapClipLoaders.get(e);
 		if (!t) {
 			let r = new c.SX();
@@ -170,13 +174,15 @@ export class CGameRecordingStore {
 			this.m_mapManualRecordingCallbacks.get(r)(t);
 		}
 		switch (n) {
-			case 1:
+			case 1: {
 				this.m_recordingState = {
 					m_gameID: r,
 				};
 				break;
-			case 2:
+			}
+			case 2: {
 				this.m_recordingState = null;
+			}
 		}
 		let i = this.m_mapTimelineLoaders.get(r);
 		if (i) {
@@ -287,14 +293,17 @@ export class CGameRecordingStore {
 		}
 		let t = e.Body().game_id();
 		if (
-			(function (e, t) {
+			((e, t) => {
 				switch (e) {
-					case 1:
+					case 1: {
 						return !t;
-					case 3:
+					}
+					case 3: {
 						return t;
-					default:
+					}
+					default: {
 						return true;
+					}
 				}
 			})(
 				e.Body().notification_type(),
@@ -546,7 +555,7 @@ export class CGameRecordingStore {
 		}
 	}
 	async SwitchRecordedGame(e) {
-		(0, m.q_)("Switch recorded game: " + e);
+		(0, m.q_)(`Switch recorded game: ${e}`);
 		return o.xM.SwitchBackgroundRecordingGame({
 			game_id: e,
 		});
@@ -561,7 +570,9 @@ export class CGameRecordingStore {
 			(0, m.tG)("User Marker Created: ", r);
 		} else {
 			(0, m.tH)(
-				`Failed to create User Marker at ${r.time} for game ${e} with error code ${n.GetEResult()}`,
+				`Failed to create User Marker at ${
+					r.time
+				} for game ${e} with error code ${n.GetEResult()}`,
 			);
 		}
 		return {
@@ -579,7 +590,11 @@ export class CGameRecordingStore {
 			(0, m.tG)("User Marker Updated: ", r);
 		} else {
 			(0, m.tH)(
-				`Failed to Update existing User Marker ${r.entry_id} at ${r.time} time under timeline ${r.timeline_id} for game ${e} with error code ${n.GetEResult()}`,
+				`Failed to Update existing User Marker ${r.entry_id} at ${
+					r.time
+				} time under timeline ${
+					r.timeline_id
+				} for game ${e} with error code ${n.GetEResult()}`,
 			);
 		}
 		return n.GetEResult();
@@ -592,7 +607,7 @@ export class CGameRecordingStore {
 			timeline_id: r,
 		});
 		if (i.GetEResult() == 1) {
-			(0, m.tG)("User Marker remove at " + n);
+			(0, m.tG)(`User Marker remove at ${n}`);
 		} else {
 			(0, m.tH)(
 				`Failed to remove User Marker id ${n} for game ${e} on timeline ${r} with error code ${i.GetEResult()}`,

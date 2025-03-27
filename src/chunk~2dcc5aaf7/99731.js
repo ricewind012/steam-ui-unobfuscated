@@ -1,32 +1,41 @@
-var n = require("./37619.js");
-var i = require("./33572.js");
-var a = require("./96555.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require(/*webcrack:missing*/ "./20893.js");
-var c = require("./82011.js");
-var m = require(/*webcrack:missing*/ "./61657.js");
-var u = require(/*webcrack:missing*/ "./83599.js");
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require("./8436.js");
-var g = p;
+import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Z } from "./37619.js";
+import i, { Xp } from "./33572.js";
+import a, { l5 } from "./96555.js";
+import s from "./63696.js";
+import o from "./69164.js";
+import l, { G7 } from "./20893.js";
+import c from "./82011.js";
+import m from "./61657.js";
+import u from "./83599.js";
+import d, { gc, hL, cZ } from "./52451.js";
+import A, { rP } from "./72476.js";
+import p from "./8436.js";
+import _, { q3 } from "./90095.js";
+import f from "./73375.js";
+import y, { Ju } from "./10606.js";
+import S, { A as A_1 } from "./90765.js";
+import w from "./81994.js";
+import B from "./35488.js";
+import v from "./87935.js";
+import I, { sO } from "./5640.js";
+import E, { N4 } from "./77347.js";
+import M from "./94746.js";
+import T, { $2 } from "./96680.js";
+import R, { Nr } from "./42318.js";
+import k from "./64608.js";
+import D, { w as w_1 } from "./10501.js";
+const g = p;
 const h = new u.wd("GamepadEvents").Debug;
 function C(e) {
-	const {
-		browser: t,
-		visible: r,
-		autoFocus: u,
-		classNameContainer: p,
-		children: C,
-	} = e;
-	const _ = s.useRef(undefined);
-	const f = s.useRef(undefined);
-	const b = (0, a.l5)();
-	const [y, S] = s.useState(false);
-	const [w, B] = s.useState(false);
+	const { browser, visible, autoFocus, classNameContainer, children } = e;
+	const _Ref = s.useRef(undefined);
+	const FRef = s.useRef(undefined);
+	const b = l5();
+	const [y, setY] = s.useState(false);
+	const [w, setW] = s.useState(false);
 	const v = y && w;
-	const I = S;
+	const I = setY;
 	const E = v && (b || !A.TS.ON_DECK);
 	s.useEffect(() => {
 		if (E) {
@@ -34,325 +43,264 @@ function C(e) {
 			return () => SteamClient.Input.SetWebBrowserActionset(false);
 		}
 	}, [E]);
-	(0, n.Z)(t.name, t.GetBrowser(), f, v && r);
+	Z(browser.name, browser.GetBrowser(), FRef, v && visible);
 	s.useEffect(() => {
-		if (r && u) {
-			f.current.TakeFocus();
+		if (visible && autoFocus) {
+			FRef.current.TakeFocus();
 		}
-	}, [r, u]);
-	const M = s.useCallback((e) => B(e.BIsActiveWithinContext()), []);
+	}, [visible, autoFocus]);
+	const M = s.useCallback((e) => setW(e.BIsActiveWithinContext()), []);
 	s.useEffect(() => {
-		const e = f.current.NavTree();
-		B(e.BIsActiveWithinContext());
+		const e = FRef.current.NavTree();
+		setW(e.BIsActiveWithinContext());
 		const t = e.OnActiveStateChangedCallbacks.Register(() => M(e));
 		return () => t.Unregister();
 	}, [M]);
-	const T = (0, i.Xp)();
+	const T = Xp();
 	s.useEffect(() => {
 		if (v) {
-			return t.RegisterOnActionDescriptionsChangedCallback(
+			return browser.RegisterOnActionDescriptionsChangedCallback(
 				T.SetActionDescriptionsFromMap,
 			);
 		}
-	}, [v, T, t]);
+	}, [v, T, browser]);
 	const R = s.useCallback(
 		(e) => {
-			h(`Got unhandled button from ${t.name}: ${m.pR[e]}`);
-			(0, l.G7)(_.current, e);
+			h(`Got unhandled button from ${browser.name}: ${m.pR[e]}`);
+			G7(_Ref.current, e);
 		},
-		[t, _],
+		[browser, _Ref],
 	);
-	const k = (function (e, t) {
-		const r = (0, d.gc)(e.GetGameInputSupportLevel());
+	const k = ((e, t) => {
+		const r = gc(e.GetGameInputSupportLevel());
 		const n = r === c.h.Full || r === c.h.Basic;
 		const i = s.useCallback(
 			(t) => {
 				if (n) {
 					switch (t.detail.button) {
 						case m.pR.STEAM_GUIDE:
-						case m.pR.STEAM_QUICK_MENU:
+						case m.pR.STEAM_QUICK_MENU: {
 							return;
+						}
 					}
 					h(`Forwarding ${t.type} ${m.pR[t.detail.button]} to ${e.name}`);
 					e.ForwardGamepadEventDetail(t.type, t.detail);
 					t.stopPropagation();
 				} else {
 					h(
-						`Forwarding events is not enabled for browser view ${e.name}, support level: ${c.h[e.GetGameInputSupportLevel().Value]}`,
+						`Forwarding events is not enabled for browser view ${
+							e.name
+						}, support level: ${c.h[e.GetGameInputSupportLevel().Value]}`,
 					);
 				}
 			},
 			[e, n],
 		);
-		(0, d.hL)(e.OnUnhandledInputCallbacks(), t);
+		hL(e.OnUnhandledInputCallbacks(), t);
 		return i;
-	})(t, R);
+	})(browser, R);
 	let D = {
-		focusable: r,
+		focusable: visible,
 		onFocusWithin: I,
 		onButtonDown: k,
 		onButtonUp: k,
 	};
-	if ((0, d.gc)(t.GetGameInputSupportLevel()) != c.h.Full) {
+	if (gc(browser.GetGameInputSupportLevel()) != c.h.Full) {
 		D.onOKActionDescription = null;
 	}
-	return s.createElement(
-		o.Z,
-		{
-			ref: _,
-			className: p,
-		},
-		s.createElement(
-			o.Z,
-			{
-				className: g.BrowserContainer,
-				noFocusRing: true,
-				navRef: f,
-				...D,
-			},
-			C,
-		),
+	return (
+		<o.Z ref={_Ref} className={classNameContainer}>
+			<o.Z className={g.BrowserContainer} noFocusRing navRef={FRef} {...D}>
+				{children}
+			</o.Z>
+		</o.Z>
 	);
 }
-var _ = require(/*webcrack:missing*/ "./90095.js");
-var f = require("./73375.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var y = require("./10606.js");
-var S = require(/*webcrack:missing*/ "./90765.js");
-var w = require("./81994.js");
-var B = require("./35488.js");
-var v = require("./87935.js");
-var I = require("./5640.js");
-var E = require("./77347.js");
-var M = require("./94746.js");
-var T = require("./96680.js");
-var R = require(/*webcrack:missing*/ "./42318.js");
-var k = require("./64608.js");
-var D = require("./10501.js");
-export const Pw = (0, R.Nr)(function (e) {
-	const { url: t, name: r, refBrowser: n, browserViewOptions: i, ...a } = e;
-	const o = (0, T.$2)();
-	const l = s.useRef(undefined);
-	l.current ||= o.CreateBrowserView(r, i);
+export const Pw = Nr((e) => {
+	const { url, name, refBrowser, browserViewOptions, ...a } = e;
+	const o = $2();
+	const LRef = s.useRef(undefined);
+	LRef.current ||= o.CreateBrowserView(name, browserViewOptions);
 	s.useEffect(
 		() => () => {
-			l.current.Destroy();
-			l.current = null;
+			LRef.current.Destroy();
+			LRef.current = null;
 		},
 		[],
 	);
 	s.useEffect(() => {
-		l.current.LoadURL(t);
-	}, [t]);
+		LRef.current.LoadURL(url);
+	}, [url]);
 	s.useEffect(() => {
-		(0, d.cZ)(n, l.current);
-		return () => (0, d.cZ)(n, null);
-	}, [n]);
-	return s.createElement(DS, {
-		browser: l.current,
-		visible: true,
-		...a,
-	});
+		cZ(refBrowser, LRef.current);
+		return () => cZ(refBrowser, null);
+	}, [refBrowser]);
+	return <DS browser={LRef.current} visible {...a} />;
 });
 export function DS(e) {
 	const {
-		browser: t,
-		className: r,
-		visible: n,
-		hideForModals: i,
-		external: a,
-		displayURLBar: o,
-		bCanChangeURL: l,
-		autoFocus: c,
-		allowUnderlay: m = false,
+		browser,
+		className,
+		visible,
+		hideForModals,
+		external,
+		displayURLBar,
+		bCanChangeURL,
+		autoFocus,
+		allowUnderlay = false,
 	} = e;
-	const u = (0, _.q3)(() => t.BIsLoadingURL() && t.BExternalTriggeredLoad());
-	const d = (0, y.Ju)() && i;
-	const A = (0, E.N4)();
-	const p = (0, D.w)() && m;
-	const h = n && A;
+	const u = q3(
+		() => browser.BIsLoadingURL() && browser.BExternalTriggeredLoad(),
+	);
+	const d = Ju() && hideForModals;
+	const A = N4();
+	const p = w_1() && allowUnderlay;
+	const h = visible && A;
 	const b = h && !u && !d;
 	const B = u && A;
-	const v = n && !A;
-	return s.createElement(
-		"div",
-		{
-			className: (0, S.A)(
-				r,
-				n && g.Visible,
+	const v = visible && !A;
+	return (
+		<div
+			className={A_1(
+				className,
+				visible && g.Visible,
 				g.MainBrowser,
-				m && g.AllowUnderlay,
-			),
-		},
-		s.createElement(G, {
-			...e,
-		}),
-		o &&
-			s.createElement(hf, {
-				external: a,
-				browser: t,
-				bCanChangeURL: l,
-			}),
-		!v &&
-			s.createElement(
-				C,
-				{
-					browser: t,
-					autoFocus: c,
-					visible: h,
-					classNameContainer: g.BrowserContainer,
-				},
-				s.createElement(f.m4, {
-					className: g.Browser,
-					visible: b,
-					browser: t.GetBrowser(),
-					underlay: p,
-				}),
-				B &&
-					s.createElement(w.j, {
-						showFooter: true,
-					}),
-			),
-		v &&
-			s.createElement(M.I, {
-				focusable: true,
-			}),
+				allowUnderlay && g.AllowUnderlay,
+			)}
+		>
+			<G {...e} />
+			{displayURLBar && (
+				<Hf
+					external={external}
+					browser={browser}
+					bCanChangeURL={bCanChangeURL}
+				/>
+			)}
+			{!v && (
+				<C
+					browser={browser}
+					autoFocus={autoFocus}
+					visible={h}
+					classNameContainer={g.BrowserContainer}
+				>
+					<f.m4
+						className={g.Browser}
+						visible={b}
+						browser={browser.GetBrowser()}
+						underlay={p}
+					/>
+					{B && <w.j showFooter />}
+				</C>
+			)}
+			{v && <M.I focusable />}
+		</div>
 	);
 }
 function G(e) {
-	const { browser: t } = e;
-	const r = (0, _.q3)(() => t.URL);
-	const n = (0, I.sO)(r);
+	const { browser } = e;
+	const r = q3(() => browser.URL);
+	const n = sO(r);
 	s.useEffect(() => {
 		if (n) {
 			const e = v.B7.ResolveURL("ParentalBlocked");
 			if (r != e) {
-				t.LoadURL(e);
+				browser.LoadURL(e);
 			}
 		}
-	}, [t, r, n]);
+	}, [browser, r, n]);
 	return null;
 }
-export function hf(e) {
-	const { browser: t, external: r, bCanChangeURL: n } = e;
-	const i = (0, _.q3)(() => t.DisplayURL);
-	const l = (0, _.q3)(() => t.BIsLoadingURL());
-	const c = (0, a.l5)();
-	const m = i.startsWith("https://")
-		? s.createElement(B.Lock, {
-				locked: true,
-			})
-		: s.createElement(B.Globe, null);
-	const u = (0, E.N4)();
-	const A = s.useRef(undefined);
+export function Hf(e) {
+	const { browser, external, bCanChangeURL } = e;
+	const i = q3(() => browser.DisplayURL);
+	const l = q3(() => browser.BIsLoadingURL());
+	const c = l5();
+	const m = i.startsWith("https://") ? <B.Lock locked /> : <B.Globe />;
+	const u = N4();
+	const ARef = s.useRef(undefined);
 	const p = s.useCallback(() => {
-		t.LoadURL(A.current.value);
+		browser.LoadURL(ARef.current.value);
 		return "VKClose";
-	}, [t]);
+	}, [browser]);
 	const h = s.useCallback(() => {
-		if (A.current?.element) {
-			A.current.element.value = "";
+		if (ARef.current?.element) {
+			ARef.current.element.value = "";
 		}
 	}, []);
 	const C = s.useCallback((e) => {
 		e.target.select();
 	}, []);
 	const f = s.useCallback((e) => {
-		if (A.current?.element) {
-			A.current.element.value = e;
+		if (ARef.current?.element) {
+			ARef.current.element.value = e;
 		}
 	}, []);
 	const y = s.useCallback((e, t) => {
-		if (A.current?.element) {
-			A.current.element.value = e;
+		if (ARef.current?.element) {
+			ARef.current.element.value = e;
 		}
 	}, []);
 	const S = s.useCallback((e, t) => {
-		if (A.current?.element) {
-			A.current.element.value = e;
+		if (ARef.current?.element) {
+			ARef.current.element.value = e;
 		}
 	}, []);
-	(0, d.hL)(t.StartRequestCallbacks, f);
-	(0, d.hL)(t.StartLoadingCallbacks, y);
-	(0, d.hL)(t.FinishedRequestCallbacks, S);
-	(0, _.q3)(() => t.CanGoBackward);
-	(0, _.q3)(() => t.CanGoForward);
-	return s.createElement(
-		o.Z,
-		{
-			className: g.URLBar,
-			"flow-children": "row",
-		},
-		false,
-		l && s.createElement(B.Spinner, null),
-		!l &&
-			s.createElement(
-				o.Z,
-				{
-					className: g.StatusIcon,
-				},
-				m,
-			),
-		s.createElement(
-			o.Z,
-			{
-				className: g.URL,
-				onOptionsButton: h,
-				onOptionsActionDescription: Localize("#Clear"),
-			},
-			!n && i,
-			n &&
-				s.createElement(k.pd, {
-					className: g.URLInput,
-					ref: (e) => {
-						A.current = e;
-						if (e?.element) {
-							e.element.value = i;
-						}
-					},
-					onEnterKeyPress: p,
-					onFocus: C,
-					spellCheck: false,
-				}),
-		),
-		u &&
-			!c &&
-			s.createElement(P, {
-				browser: t,
-				url: i,
-				bLoading: l,
-			}),
+	hL(browser.StartRequestCallbacks, f);
+	hL(browser.StartLoadingCallbacks, y);
+	hL(browser.FinishedRequestCallbacks, S);
+	q3(() => browser.CanGoBackward);
+	q3(() => browser.CanGoForward);
+	return (
+		<o.Z className={g.URLBar} flow-children="row">
+			{l && <B.Spinner />}
+			{!l && <o.Z className={g.StatusIcon}>{m}</o.Z>}
+			<o.Z
+				className={g.URL}
+				onOptionsButton={h}
+				onOptionsActionDescription={Localize("#Clear")}
+			>
+				{!bCanChangeURL && i}
+				{bCanChangeURL && (
+					<k.pd
+						className={g.URLInput}
+						ref={(e) => {
+							ARef.current = e;
+							if (e?.element) {
+								e.element.value = i;
+							}
+						}}
+						onEnterKeyPress={p}
+						onFocus={C}
+						spellCheck={false}
+					/>
+				)}
+			</o.Z>
+			{u && !c && <P browser={browser} url={i} bLoading={l} />}
+		</o.Z>
 	);
 }
 function P(e) {
-	const t = (0, d.gc)(e.browser.GetGameInputSupportLevel());
-	if ((0, A.rP)().IN_VR) {
+	const t = gc(e.browser.GetGameInputSupportLevel());
+	if (rP().IN_VR) {
 		return null;
 	}
 	switch (t) {
 		case c.h.PageUnloading:
 		case c.h.Unknown:
-		case c.h.Full:
+		case c.h.Full: {
 			return null;
+		}
 	}
-	return s.createElement(
-		o.Z,
-		{
-			className: g.InputSupportLevel,
-		},
-		s.createElement(
-			"div",
-			{
-				className: g.RequireTouchscreenLabel,
-			},
-			Localize(
-				A.TS.ON_DECK
-					? "#Browser_InputSupportLevel_None"
-					: "#Browser_InputSupportLevel_None_Desktop",
-			),
-		),
-		A.TS.ON_DECK
-			? s.createElement(B.TouchTap, null)
-			: s.createElement(B.Mouse, null),
+	return (
+		<o.Z className={g.InputSupportLevel}>
+			<div className={g.RequireTouchscreenLabel}>
+				{Localize(
+					A.TS.ON_DECK
+						? "#Browser_InputSupportLevel_None"
+						: "#Browser_InputSupportLevel_None_Desktop",
+				)}
+			</div>
+			{A.TS.ON_DECK ? <B.TouchTap /> : <B.Mouse />}
+		</o.Z>
 	);
 }

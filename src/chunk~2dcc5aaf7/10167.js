@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	DiscoveryQueueWidgetCtn: "_3Y72HgnTA3W9eV4Z5OBvWt",
 	WidgetHeaderCtn: "_2-tz2hqtOXPPtMnVPHNSdx",
 	LaunchAction: "xD8XE561L4OLHkp9K3UIV",

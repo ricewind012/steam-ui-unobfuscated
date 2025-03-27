@@ -1,63 +1,29 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./94790.js");
-var s = require("./46701.js");
-var o = require("./78110.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./94790.js";
+import s from "./46701.js";
+import o from "./78110.js";
 export const mt = ({
-	active: e,
-	onDismiss: t,
-	className: r,
-	modalClassName: o,
-	children: l,
-}) =>
-	n.createElement(
-		a.E,
-		{
-			active: e,
-		},
-		n.createElement(
-			s.x_,
-			{
-				onEscKeypress: t,
-				className: o,
-			},
-			n.createElement(
-				i.UC,
-				{
-					className: r,
-				},
-				l,
-			),
-		),
-	);
+	active,
+	onDismiss,
+	className,
+	modalClassName,
+	children,
+}) => (
+	<a.E active={active}>
+		<s.x_ onEscKeypress={onDismiss} className={modalClassName}>
+			<i.UC className={className}>{children}</i.UC>
+		</s.x_>
+	</a.E>
+);
 export function hM(e) {
-	const {
-		onDismiss: t,
-		className: r,
-		modalClassName: a,
-		children: l,
-		...c
-	} = e;
-	return n.createElement(
-		o.t,
-		{
-			...c,
-			onDismiss: t,
-		},
-		n.createElement(
-			s.x_,
-			{
-				onEscKeypress: t,
-				className: a,
-			},
-			n.createElement(
-				i.UC,
-				{
-					className: r,
-				},
-				l,
-			),
-		),
+	const { onDismiss, className, modalClassName, children, ...c } = e;
+	return (
+		<o.t {...c} onDismiss={onDismiss}>
+			<s.x_ onEscKeypress={onDismiss} className={modalClassName}>
+				<i.UC className={className}>{children}</i.UC>
+			</s.x_>
+		</o.t>
 	);
 }
 export const Q9 = (e) =>

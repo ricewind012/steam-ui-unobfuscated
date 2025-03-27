@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	FolderSelector: "vaNI84b_TV6hw20mhGl_d",
 	Header: "NtxG7ioEuQKxrtXEy57H5",

@@ -1,41 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./31958.js");
 import {
 	FindAndRemoveWhere,
 	FilterInPlace,
 	MoveElement,
 } from "../../actual_src/utils/arrayutils.js";
 import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
-var l = require("./3475.js");
-var c = require(/*webcrack:missing*/ "./44846.js");
-var m = require("./43024.js");
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require(/*webcrack:missing*/ "./79769.js");
-var A = require("./48289.js");
-var p = require(/*webcrack:missing*/ "./8573.js");
-var g = require("./78057.js");
-var h = require("./46422.js");
-var C = require("./89748.js");
-var _ = require("./5640.js");
-var f = require("./34792.js");
-var b = require(/*webcrack:missing*/ "./90095.js");
-var y = require(/*webcrack:missing*/ "./10975.js");
-var S = require(/*webcrack:missing*/ "./49455.js");
-var w = require("./46375.js");
-var B = require(/*webcrack:missing*/ "./72476.js");
-var v = require("./49171.js");
-var I = require("./88475.js");
-var E = require("./655.js");
-var M = require(/*webcrack:missing*/ "./12176.js");
-var T = require("./5859.js");
-var R = require(/*webcrack:missing*/ "./89193.js");
-var k = require("./8974.js");
-var D = require(/*webcrack:missing*/ "./83599.js");
-var N = require("./87935.js");
-var F = require(/*webcrack:missing*/ "./29285.js");
-var G = require("./46066.js");
-var O = require("./87913.js");
 const P = new D.wd("NotificationStore");
 const L = P.Info;
 const z = P.Debug;
@@ -82,7 +50,7 @@ const x = {
 		proto: m.R8,
 		fnTray: ne,
 		showToast: true,
-		playSound: function (e, t) {
+		playSound(e, t) {
 			return t.data.achieved();
 		},
 		sound: y.PN.ToastAchievement,
@@ -111,7 +79,7 @@ const x = {
 	},
 	8: {
 		proto: m.zz,
-		fnTray: function (e, t) {
+		fnTray(e, t) {
 			ee(
 				e,
 				t,
@@ -129,7 +97,7 @@ const x = {
 	},
 	9: {
 		proto: m.kE,
-		fnTray: function (e, t) {
+		fnTray(e, t) {
 			ee(
 				e,
 				t,
@@ -140,7 +108,7 @@ const x = {
 		},
 		showToast: le("bNotifications_ShowChatRoomNotification"),
 		playSound: le("bSounds_PlayChatRoomNotification"),
-		sound: function (e, t) {
+		sound(e, t) {
 			if (t.data.tag().startsWith("groupmsg_mention")) {
 				return y.PN.ChatMention;
 			}
@@ -465,7 +433,7 @@ const x = {
 	},
 	50: {
 		proto: m.h3,
-		fnTray: function (e, t) {
+		fnTray(e, t) {
 			FindAndRemoveWhere(t, (e) => e.eType == 50);
 			ne(e, t);
 		},
@@ -478,7 +446,7 @@ const x = {
 	},
 	57: {
 		proto: m.K_,
-		fnTray: function (e, t) {
+		fnTray(e, t) {
 			FindAndRemoveWhere(t, (e) => e.eType == 57);
 			ne(e, t);
 		},
@@ -574,8 +542,8 @@ export function no(e) {
 	return [...W].find(([t, r]) => r == e)[0];
 }
 const H = [19, 20, 2];
-export var a9;
-(function (e) {
+export let a9;
+((e) => {
 	e[(e.k_Client = 1)] = "k_Client";
 	e[(e.k_Server = 2)] = "k_Server";
 })((a9 ||= {}));
@@ -672,8 +640,9 @@ class q extends E.cE {
 			$Z.ApplyNotificationsUpdate(e.Body().toObject());
 		} else {
 			z(
-				"Performing a full notifications refresh.  Update notifications length:" +
-					e.Body().notifications().length,
+				`Performing a full notifications refresh.  Update notifications length:${
+					e.Body().notifications().length
+				}`,
 			);
 			this.RefreshNotifications();
 		}
@@ -872,19 +841,23 @@ class K {
 		}
 		(function i(a) {
 			if (
-				!(function () {
+				!(() => {
 					const t = (0, E.bP)(e);
 					switch (e.type) {
-						case 5:
+						case 5: {
 							return r(t?.requestorID);
+						}
 						case 2:
-						case 9:
+						case 9: {
 							return r(t);
+						}
 						case 8:
-						case 12:
+						case 12: {
 							return n(t?.appid);
-						default:
+						}
+						default: {
 							return true;
+						}
 					}
 				})()
 			) {
@@ -996,12 +969,8 @@ class K {
 		if (H.includes(t)) {
 			L(
 				t == 19 || t == 2
-					? "Unexpected type " +
-							t +
-							" notification from the Client.  This is a no-op due to overlap with Steam Notifications."
-					: "Received type " +
-							t +
-							" notification from the Client.  This is a no-op due to overlap with Steam Notifications.",
+					? `Unexpected type ${t} notification from the Client.  This is a no-op due to overlap with Steam Notifications.`
+					: `Received type ${t} notification from the Client.  This is a no-op due to overlap with Steam Notifications.`,
 			);
 			return;
 		}
@@ -1665,9 +1634,7 @@ class K {
 			n = r.achievements.vecHighlight[e];
 		} else {
 			L(
-				"TestAchievement - Couldn't find app details or highlighted achievements for " +
-					e +
-					" so making one up.",
+				`TestAchievement - Couldn't find app details or highlighted achievements for ${e} so making one up.`,
 			);
 			n = {
 				strName: "won a race",
@@ -1964,7 +1931,7 @@ class K {
 	TestFriendMessage(e, t) {
 		let r = $(e);
 		let n = A.O$.GetFriendState(r);
-		let i = "message_" + r.GetAccountID();
+		let i = `message_${r.GetAccountID()}`;
 		let a = n.persona.avatar_url_medium;
 		let s = this.m_nNextTestNotificationID++;
 		t = t ?? `test message (${s})`;
@@ -2053,7 +2020,7 @@ class K {
 		let n = A.O$.GetFriendState(r);
 		let i = this.m_nNextTestNotificationID++;
 		let a = {
-			tag: "groupmsg_" + r.GetAccountID(),
+			tag: `groupmsg_${r.GetAccountID()}`,
 			steamid_sender: r.ConvertTo64BitString(),
 			chat_group_id: "1",
 			chat_id: "1",
@@ -2073,7 +2040,7 @@ class K {
 		let n = A.O$.GetFriendState(r);
 		let i = this.m_nNextTestNotificationID++;
 		let a = {
-			tag: "groupmsg_mention_" + r.GetAccountID(),
+			tag: `groupmsg_mention_${r.GetAccountID()}`,
 			steamid_sender: r.ConvertTo64BitString(),
 			chat_group_id: "1",
 			chat_id: "1",
@@ -2377,12 +2344,11 @@ export function ZT() {
 		n(e.slice());
 	});
 	const a = (0, b.q3)(() =>
-		(function (e) {
-			return e.filter((e) => {
+		((e) =>
+			e.filter((e) => {
 				const t = x[e.eType];
 				return !_.jR.BIsFeatureBlocked(t.eFeature);
-			});
-		})(r),
+			}))(r),
 	);
 	return a;
 }
@@ -2395,9 +2361,11 @@ export function $S(e) {
 export function XE() {
 	return (0, b.q3)(() => ({
 		notifications: $Z.m_rgNotificationRollups,
+
 		summary: {
 			...$Z.m_summary,
 		},
+
 		loaded: $Z.m_bLoaded,
 	})).summary;
 }

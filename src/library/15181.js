@@ -1,6 +1,6 @@
-var r = require("./20893.js");
-var i = require("./61657.js");
-var s = require("./4690.js");
+import r from "./20893.js";
+import i from "./61657.js";
+import s from "./4690.js";
 export function W7(e) {
 	return !!e.is_repeat;
 }
@@ -10,16 +10,21 @@ export function s1(e) {
 			return false;
 		}
 		switch (t.detail.button) {
-			case i.pR.DIR_UP:
+			case i.pR.DIR_UP: {
 				return !!e.bPreventMovementUp;
-			case i.pR.DIR_RIGHT:
+			}
+			case i.pR.DIR_RIGHT: {
 				return !!e.bPreventMovementRight;
-			case i.pR.DIR_DOWN:
+			}
+			case i.pR.DIR_DOWN: {
 				return !!e.bPreventMovementDown;
-			case i.pR.DIR_LEFT:
+			}
+			case i.pR.DIR_LEFT: {
 				return !!e.bPreventMovementLeft;
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	};
 }

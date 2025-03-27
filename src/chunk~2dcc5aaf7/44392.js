@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PlaybackControls: "U5rUz_v__RNtvgBIfzYPx",
 	Overlay: "_2Z0NRiqcaDKRDJwrB1qsBZ",

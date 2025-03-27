@@ -1,8 +1,8 @@
-export var Nf;
+export let Nf;
 export function C6(e, t, r) {
 	return (e * t) / r;
 }
-(function (e) {
+((e) => {
 	e[(e.Millis = 1)] = "Millis";
 	e[(e.Seconds = 1000)] = "Seconds";
 	e[(e.Minutes = 60000)] = "Minutes";

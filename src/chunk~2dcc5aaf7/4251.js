@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Container: "_3rFFUJJVlS0W9hEA3hVEUa",
 	NumericButtonInput: "_2wl_hk5SjW9COBW6DRQrTf",
 	NumericButtonOption: "_2c4Hz8Y8kYqeq1W1Jeq52q",

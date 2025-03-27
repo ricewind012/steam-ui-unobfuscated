@@ -11,11 +11,11 @@ export function l(e, t = "#Played_", r = false) {
 			minimumFractionDigits: 0,
 			maximumFractionDigits: 1,
 		});
-		return (0, Localize)(t + "Hours", a);
+		return (0, Localize)(`${t}Hours`, a);
 	}
 	if (r && e == 1) {
-		return (0, Localize)(t + "Minute", e);
+		return (0, Localize)(`${t}Minute`, e);
 	} else {
-		return (0, Localize)(t + "Minutes", e);
+		return (0, Localize)(`${t}Minutes`, e);
 	}
 }

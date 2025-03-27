@@ -1,10 +1,10 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require("./96000.js");
-var s = require("./81482.js");
-var o = require(/*webcrack:missing*/ "./88696.js");
-var l = require("./63032.js");
-var c = require(/*webcrack:missing*/ "./52451.js");
+import { Cg } from "./34629.js";
+import i, { Gn, h5 } from "./89193.js";
+import a from "./96000.js";
+import s from "./81482.js";
+import o from "./88696.js";
+import l from "./63032.js";
+import c from "./52451.js";
 const _m = {
 	nShowcaseId: -1,
 	strCollectionId: "",
@@ -15,7 +15,7 @@ const u = "showcases";
 const d = "sc-version";
 export class m {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_cloudStorage;
 	m_mapCollectionStorage;
@@ -24,7 +24,7 @@ export class m {
 	m_mapShowcases = new Map();
 	async Init(e) {
 		this.m_cloudStorage = e;
-		this.m_mapCollectionStorage = this.m_cloudStorage.GetMapForPrefix(u + ".");
+		this.m_mapCollectionStorage = this.m_cloudStorage.GetMapForPrefix(`${u}.`);
 		return this.LoadShowcases();
 	}
 	static GetOrderForShowcase(e) {
@@ -164,7 +164,7 @@ export class m {
 		}
 		try {
 			const e = await this.m_roamingStorage.GetObject(u);
-			(0, i.h5)(() => {
+			h5(() => {
 				for (let t of e) {
 					this.SaveShowcase(t, s.x2.InitializationOnly);
 				}
@@ -172,7 +172,7 @@ export class m {
 			});
 			return;
 		} catch (e) {}
-		(0, i.h5)(() => {
+		h5(() => {
 			for (let e of this.defaultShowcases) {
 				this.SaveShowcase(e.showcase, s.x2.InitializationOnly);
 			}
@@ -240,8 +240,8 @@ export class m {
 		return this.m_mapCollectionStorage.StoreObject(r, e, t);
 	}
 }
-(0, n.Cg)([i.sH], m.prototype, "m_mapShowcases", undefined);
-(0, n.Cg)([i.EW], m.prototype, "showcases", null);
-(0, n.Cg)([c.oI], m.prototype, "LoadShowcaseDataFromCloud", null);
+Cg([i.sH], m.prototype, "m_mapShowcases", undefined);
+Cg([i.EW], m.prototype, "showcases", null);
+Cg([c.oI], m.prototype, "LoadShowcaseDataFromCloud", null);
 export const N = new m();
 window.showcaseStore = N;

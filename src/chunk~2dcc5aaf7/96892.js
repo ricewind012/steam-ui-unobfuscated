@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	OverlayGuides: "_3PT17XBYzLmc69ZIRZL1JX",
 	OverlayGuidesHome: "_1BiyyfIMnFxvHKCZcN4jUj",
 	GuidesHomeHeader: "_1K5yVLMxKhHzEWrZ_4lNe4",

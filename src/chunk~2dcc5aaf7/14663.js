@@ -1,52 +1,52 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./91486.js");
-var a = require("./18057.js");
-var s = require("./96593.js");
-var o = require("./96000.js");
-var l = require("./52958.js");
-var c = require("./47979.js");
-var m = require("./88244.js");
-var u = require("./61175.js");
-var d = require("./33000.js");
-var A = require("./39400.js");
-var p = require(/*webcrack:missing*/ "./89193.js");
-var g = require(/*webcrack:missing*/ "./41230.js");
-var h = require(/*webcrack:missing*/ "./63696.js");
-var C = require(/*webcrack:missing*/ "./49519.js");
-var _ = require(/*webcrack:missing*/ "./44846.js");
-var f = require(/*webcrack:missing*/ "./31084.js");
-var b = require(/*webcrack:missing*/ "./69164.js");
-var y = require("./46217.js");
-var S = require(/*webcrack:missing*/ "./50376.js");
-var w = require("./79421.js");
-var B = require(/*webcrack:missing*/ "./98995.js");
-var v = require(/*webcrack:missing*/ "./90765.js");
 import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
 import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-var M = require(/*webcrack:missing*/ "./52451.js");
-var T = require(/*webcrack:missing*/ "./72476.js");
-var R = require("./27941.js");
-var k = R;
-var D = require("./4237.js");
-var N = require("./59298.js");
-var F = require("./18521.js");
-var G = require("./31706.js");
-var O = require("./42805.js");
-var P = require("./81432.js");
-var L = require("./6356.js");
-var z = require("./19944.js");
-var x = require("./18869.js");
-var U = require("./45426.js");
-var W = require("./30496.js");
-var V = require("./74491.js");
+import n, { Cg } from "./34629.js";
+import i from "./91486.js";
+import a from "./18057.js";
+import s from "./96593.js";
+import o from "./96000.js";
+import l from "./52958.js";
+import c from "./47979.js";
+import m from "./88244.js";
+import u from "./61175.js";
+import d from "./33000.js";
+import A from "./39400.js";
+import p, { Gn } from "./89193.js";
+import g, { PA } from "./41230.js";
+import h, { useState, useEffect } from "./63696.js";
+import C, { W6 } from "./49519.js";
+import _ from "./44846.js";
+import f, { lX } from "./31084.js";
+import b from "./69164.js";
+import y from "./46217.js";
+import S from "./50376.js";
+import w from "./79421.js";
+import B from "./98995.js";
+import v, { A as A_1 } from "./90765.js";
+import M, { uD } from "./52451.js";
+import T, { Qn } from "./72476.js";
+import R from "./27941.js";
+import { J as J_1 } from "./4237.js";
+import N from "./59298.js";
+import F, { jv } from "./18521.js";
+import { oy } from "./31706.js";
+import O from "./42805.js";
+import { J as J_1 } from "./81432.js";
+import L from "./6356.js";
+import z from "./19944.js";
+import x, { br } from "./18869.js";
+import U from "./45426.js";
+import { YQ } from "./30496.js";
+import V from "./74491.js";
+const k = R;
 export let R0 = class extends h.Component {
 	m_elScrollElement = undefined;
 	constructor(e) {
 		super(e);
-		(0, p.Gn)(this);
+		Gn(this);
 	}
 	BindScrollElement(e) {
 		this.m_elScrollElement = e;
@@ -130,9 +130,9 @@ export let R0 = class extends h.Component {
 		);
 	}
 };
-(0, n.Cg)([p.sH], R0.prototype, "m_elScrollElement", undefined);
-(0, n.Cg)([M.oI], R0.prototype, "BindScrollElement", null);
-R0 = (0, n.Cg)([g.PA], R0);
+Cg([p.sH], R0.prototype, "m_elScrollElement", undefined);
+Cg([M.oI], R0.prototype, "BindScrollElement", null);
+R0 = Cg([g.PA], R0);
 class j {
 	m_name;
 	constructor(e) {
@@ -175,7 +175,7 @@ export const V$ = {
 	gridColumnGap: 22,
 	gridRowGap: 22,
 };
-export const lc = (0, g.PA)((e) => {
+export const lc = PA((e) => {
 	const {
 		coverSize: t,
 		scrollElement: r,
@@ -183,11 +183,11 @@ export const lc = (0, g.PA)((e) => {
 		filterCollections: i,
 		bHideCreateButton: a,
 	} = e;
-	const s = (0, T.Qn)();
+	const s = Qn();
 	const o = h.useContext(V.g);
 	const l = h.useCallback(() => {
 		const e = s
-			? (0, W.YQ)(o.libraryWidth, o.libraryHeight)
+			? YQ(o.libraryWidth, o.libraryHeight)
 			: m.o.GetComputedDisplaySize(t);
 		let r;
 		if (s) {
@@ -231,12 +231,12 @@ export const lc = (0, g.PA)((e) => {
 		strFastScrollTo: S,
 		navRefPlaceholder: w,
 		bindNavRef: B,
-	} = (0, D.J)([A], 1, r);
+	} = J_1([A], 1, r);
 	const {
 		onFocusWithinContainer: v,
 		fastScrollOverlay: I,
 		onGamepadDirectionGridContainer: E,
-	} = (0, P.J)(f, S, w);
+	} = J_1(f, S, w);
 	const M = u.map((e, t) =>
 		h.createElement(F9, {
 			bStartFocused: c && t === 0,
@@ -295,7 +295,7 @@ export const lc = (0, g.PA)((e) => {
 });
 function X() {
 	return (
-		(0, F.jv)() &&
+		jv() &&
 		!o.md.GetCollection("partner-ea-access") &&
 		!_.ID(T.TS.LAUNCHER_TYPE)
 	);
@@ -335,17 +335,17 @@ let ee = class extends h.Component {
 		return h.createElement(
 			O._k,
 			{
-				className: (0, v.A)(k.Collection, k.NewCollection),
+				className: A_1(k.Collection, k.NewCollection),
 				strTargetId: "new-collection",
-				strEligibleClassName: (0, v.A)(k.DropOption),
+				strEligibleClassName: A_1(k.DropOption),
 				strTargetedClassName: k.DropTarget,
 				fnOnDroppedApps: (e) =>
-					(0, G.oy)(
+					oy(
 						this.GetWindow(),
 						e.map((e) => s.tw.GetAppOverviewByAppID(e)),
 						"drop",
 					),
-				onClick: (e) => (0, G.oy)(this.GetWindow(), [], "button"),
+				onClick: (e) => oy(this.GetWindow(), [], "button"),
 			},
 			h.createElement(
 				"div",
@@ -369,13 +369,13 @@ let ee = class extends h.Component {
 		);
 	}
 };
-(0, n.Cg)([M.oI], ee.prototype, "GetWindow", null);
-ee = (0, n.Cg)([g.PA], ee);
+Cg([M.oI], ee.prototype, "GetWindow", null);
+ee = Cg([g.PA], ee);
 const te = (e) =>
 	h.createElement(
 		"div",
 		{
-			className: (0, v.A)(k.Collection, k.NewCollection),
+			className: A_1(k.Collection, k.NewCollection),
 			onClick: F.kx,
 		},
 		h.createElement(
@@ -393,16 +393,16 @@ const te = (e) =>
 			(0, Localize)("#EAAccessCollection_NewCollection_Button"),
 		),
 	);
-export const lp = (0, g.PA)((e) => {
+export const lp = PA((e) => {
 	const { className: t, strEligibleClassName: r } = e;
 	const {
 		bTimerRunning: n,
 		HoverEntered: i,
 		HoverLeft: s,
-	} = (function () {
-		const [e, t] = (0, h.useState)(false);
-		const r = (0, C.W6)();
-		(0, h.useEffect)(() => {
+	} = (() => {
+		const [e, t] = useState(false);
+		const r = W6();
+		useEffect(() => {
 			if (e) {
 				const e = window.setTimeout(
 					() => r.push(a.BV.Library.AllCollections()),
@@ -420,9 +420,9 @@ export const lp = (0, g.PA)((e) => {
 	return h.createElement(
 		O._k,
 		{
-			className: (0, v.A)(k.Collection, k.NewCollection, t),
+			className: A_1(k.Collection, k.NewCollection, t),
 			strTargetId: "nav-to-collection",
-			strEligibleClassName: (0, v.A)(k.DropOption, r),
+			strEligibleClassName: A_1(k.DropOption, r),
 			strTargetedClassName: k.DropTarget,
 			fnOnDroppedApps: s,
 			fnOnTargetEntered: i,
@@ -431,7 +431,7 @@ export const lp = (0, g.PA)((e) => {
 		h.createElement(
 			"div",
 			{
-				className: (0, v.A)(k.NavTimer, n && k.StartTimer),
+				className: A_1(k.NavTimer, n && k.StartTimer),
 			},
 			h.createElement(
 				"div",
@@ -446,7 +446,7 @@ export const lp = (0, g.PA)((e) => {
 		),
 	);
 });
-export const F9 = (0, g.PA)(function (e) {
+export const F9 = PA((e) => {
 	const {
 		collection: t,
 		eCoverSize: r,
@@ -459,7 +459,7 @@ export const F9 = (0, g.PA)(function (e) {
 	const l = h.useCallback(
 		(e) => {
 			if (t.bIsEditable || t.bIsDeletable) {
-				(0, f.lX)(
+				lX(
 					h.createElement(L.A, {
 						bOnlyManagement: true,
 						strCollectionId: t.id,
@@ -471,12 +471,12 @@ export const F9 = (0, g.PA)(function (e) {
 		},
 		[t],
 	);
-	const c = (0, x.br)();
-	const [m, p, g] = (0, M.uD)();
+	const c = br();
+	const [m, p, g] = uD();
 	if (n) {
 		return null;
 	}
-	let C = (0, v.A)(
+	let C = A_1(
 		k.Collection,
 		i && k.ShowcaseView,
 		r == 1 && k.Small,
@@ -549,7 +549,7 @@ let ie = class extends h.Component {
 			.slice(0, 13);
 		let t = null;
 		if (e.length > 0) {
-			let r = e[0];
+			let [r] = e;
 			t = h.createElement(
 				"div",
 				{
@@ -580,7 +580,7 @@ let ie = class extends h.Component {
 		return h.createElement(
 			"div",
 			{
-				className: (0, v.A)(k.CollectionImage, n),
+				className: A_1(k.CollectionImage, n),
 			},
 			t,
 			h.createElement(
@@ -605,4 +605,4 @@ let ie = class extends h.Component {
 		);
 	}
 };
-ie = (0, n.Cg)([g.PA], ie);
+ie = Cg([g.PA], ie);

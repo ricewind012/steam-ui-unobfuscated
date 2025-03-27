@@ -1,125 +1,110 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./69976.js");
-var s = a;
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./42318.js");
-var c = require("./78110.js");
-var m = require(/*webcrack:missing*/ "./26853.js");
-var u = require("./13661.js");
-var d = require(/*webcrack:missing*/ "./11131.js");
-var A = require("./10606.js");
-var p = require("./13869.js");
-var g = require("./72655.js");
-var h = require(/*webcrack:missing*/ "./69164.js");
-var C = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./69976.js";
+import l, { Nr } from "./42318.js";
+import c from "./78110.js";
+import m from "./26853.js";
+import u, { cp, $8, Pb } from "./13661.js";
+import { R7 } from "./11131.js";
+import A from "./10606.js";
+import { pg } from "./13869.js";
+import g from "./72655.js";
+import h from "./69164.js";
+import { Qn } from "./72476.js";
+const s = a;
 function _(e) {
-	const { sReport: t, bShowThrobber: r } = e;
-	if (r) {
-		return n.createElement(m.t, {
-			size: "xlarge",
-		});
+	const { sReport, bShowThrobber } = e;
+	if (bShowThrobber) {
+		return <m.t size="xlarge" />;
 	} else {
-		return n.createElement(
-			g.f7,
-			{
-				className: s.TextContainer,
-				focusable: true,
-				autoFocus: false,
-			},
-			n.createElement(
-				h.Z,
-				{
-					focusable: true,
-					className: s.Text,
-					autoFocus: false,
-				},
-				t,
-			),
+		return (
+			<g.f7 className={s.TextContainer} focusable autoFocus={false}>
+				<h.Z focusable className={s.Text} autoFocus={false}>
+					{sReport}
+				</h.Z>
+			</g.f7>
 		);
 	}
 }
-function f(e) {
-	const { fnSubmit: t, closeModal: r } = e;
+function F(e) {
+	const { fnSubmit, closeModal } = e;
 	const i = n.useCallback(() => {
-		t();
-		if (r) {
-			r();
+		fnSubmit();
+		if (closeModal) {
+			closeModal();
 		}
-	}, [t, r]);
-	return n.createElement(A.o0, {
-		strTitle: Localize("#Settings_SystemReport_SubmitRequest_Title"),
-		strDescription: Localize("#Settings_SystemReport_SubmitRequest_Desc"),
-		strCancelButtonText: Localize(
-			"#Settings_SystemReport_SubmitRequest_Cancel",
-		),
-		strOKButtonText: Localize("#Settings_SystemReport_SubmitRequest_OK"),
-		onOK: i,
-		onCancel: r,
-	});
+	}, [fnSubmit, closeModal]);
+	return (
+		<A.o0
+			strTitle={Localize("#Settings_SystemReport_SubmitRequest_Title")}
+			strDescription={Localize("#Settings_SystemReport_SubmitRequest_Desc")}
+			strCancelButtonText={Localize(
+				"#Settings_SystemReport_SubmitRequest_Cancel",
+			)}
+			strOKButtonText={Localize("#Settings_SystemReport_SubmitRequest_OK")}
+			onOK={i}
+			onCancel={closeModal}
+		/>
+	);
 }
-function b(e) {
-	const { strName: t, onClose: r } = e;
-	const i = (0, d.R7)().ownerWindow;
-	const a = (0, u.cp)();
-	const l = a.bSubmitting;
+function B(e) {
+	const { strName, onClose } = e;
+	const i = R7().ownerWindow;
+	const a = cp();
+	const a_bSubmitting = a.bSubmitting;
 	const c = a.sText != null;
-	const m = (0, C.Qn)();
+	const m = Qn();
 	const g = n.useCallback(async () => {
 		if ((await u.Ty.Submit(a.sReportId)) != 1) {
-			await (0, p.pg)(
-				n.createElement(A.KG, {
-					strTitle: Localize("#Settings_SystemReport_SubmitFail_Title"),
-					strDescription: Localize("#Settings_SystemReport_SubmitFail_Desc"),
-					onCancel: () => u.Ty.Hide(),
-				}),
+			await pg(
+				<A.KG
+					strTitle={Localize("#Settings_SystemReport_SubmitFail_Title")}
+					strDescription={Localize("#Settings_SystemReport_SubmitFail_Desc")}
+					onCancel={() => u.Ty.Hide()}
+				/>,
 				i,
 			);
 		} else {
-			await (0, p.pg)(
-				n.createElement(A.o0, {
-					strTitle: Localize("#Settings_SystemReport_SubmitOK_Title"),
-					strDescription: Localize("#Settings_SystemReport_SubmitOK_Desc"),
-					strCancelButtonText: Localize(
+			await pg(
+				<A.o0
+					strTitle={Localize("#Settings_SystemReport_SubmitOK_Title")}
+					strDescription={Localize("#Settings_SystemReport_SubmitOK_Desc")}
+					strCancelButtonText={Localize(
 						"#Settings_SystemReport_SubmitOK_Cancel",
-					),
-					strOKButtonText: Localize("#Settings_SystemReport_SubmitOK_OK"),
-					onOK: () => u.Ty.Hide(),
-				}),
+					)}
+					strOKButtonText={Localize("#Settings_SystemReport_SubmitOK_OK")}
+					onOK={() => u.Ty.Hide()}
+				/>,
 				i,
 			);
 		}
 	}, [i, a.sReportId]);
 	const h = n.useCallback(() => {
-		(0, p.pg)(
-			n.createElement(f, {
-				fnSubmit: g,
-			}),
-			i,
-		);
+		pg(<F fnSubmit={g} />, i);
 	}, [i, g]);
 	const b = n.useCallback(() => {
 		i.navigator.clipboard.writeText(a.sText);
 	}, [i, a]);
 	const y = n.useCallback(async () => {
 		if ((await u.Ty.SaveToDesktop(a.sReportId)) != 1) {
-			await (0, p.pg)(
-				n.createElement(A.KG, {
-					strTitle: Localize("#Settings_SystemReport_SaveFail_Title"),
-					strDescription: Localize("#Settings_SystemReport_SaveFail_Desc"),
-					onCancel: () => u.Ty.Hide(),
-				}),
+			await pg(
+				<A.KG
+					strTitle={Localize("#Settings_SystemReport_SaveFail_Title")}
+					strDescription={Localize("#Settings_SystemReport_SaveFail_Desc")}
+					onCancel={() => u.Ty.Hide()}
+				/>,
 				i,
 			);
 		} else {
-			await (0, p.pg)(
-				n.createElement(A.o0, {
-					strTitle: Localize("#Settings_SystemReport_SaveOK_Title"),
-					strDescription: Localize("#Settings_SystemReport_SaveOK_Desc"),
-					strCancelButtonText: Localize("#Settings_SystemReport_SaveOK_Cancel"),
-					strOKButtonText: Localize("#Settings_SystemReport_SaveOK_OK"),
-					onOK: () => u.Ty.Hide(),
-				}),
+			await pg(
+				<A.o0
+					strTitle={Localize("#Settings_SystemReport_SaveOK_Title")}
+					strDescription={Localize("#Settings_SystemReport_SaveOK_Desc")}
+					strCancelButtonText={Localize("#Settings_SystemReport_SaveOK_Cancel")}
+					strOKButtonText={Localize("#Settings_SystemReport_SaveOK_OK")}
+					onOK={() => u.Ty.Hide()}
+				/>,
 				i,
 			);
 		}
@@ -129,75 +114,65 @@ function b(e) {
 		: Localize("#Settings_SystemReport_Copy");
 	const w = m ? y : b;
 	let B = Localize("#Settings_SystemReport_Desc");
-	if (l) {
+	if (a_bSubmitting) {
 		B = Localize("#Settings_SystemReport_Uploading");
 	} else if (!c) {
 		B = Localize("#Settings_SystemReport_PleaseWait");
 	}
-	const v = !c || l;
-	return n.createElement(
-		A.o0,
-		{
-			className: s.SystemReportDialog,
-			strTitle: t,
-			strDescription: B,
-			onOK: h,
-			bOKDisabled: v,
-			strOKButtonText: Localize("#Settings_SystemReport_Submit"),
-			onCancel: r,
-			strCancelButtonText: Localize("#Settings_SystemReport_Close"),
-			bMiddleDisabled: v,
-			onMiddleButton: w,
-			strMiddleButtonText: S,
-		},
-		n.createElement(
-			"div",
-			{
-				className: s.SystemReportContainer,
-			},
-			n.createElement(_, {
-				sReport: a.sText,
-				bShowThrobber: v,
-			}),
-		),
+	const v = !c || a_bSubmitting;
+	return (
+		<A.o0
+			className={s.SystemReportDialog}
+			strTitle={strName}
+			strDescription={B}
+			onOK={h}
+			bOKDisabled={v}
+			strOKButtonText={Localize("#Settings_SystemReport_Submit")}
+			onCancel={onClose}
+			strCancelButtonText={Localize("#Settings_SystemReport_Close")}
+			bMiddleDisabled={v}
+			onMiddleButton={w}
+			strMiddleButtonText={S}
+		>
+			<div className={s.SystemReportContainer}>
+				<_ sReport={a.sText} bShowThrobber={v} />
+			</div>
+		</A.o0>
 	);
 }
-export const wR = (0, l.Nr)(function () {
-	const [e, t] = (0, u.$8)();
-	const [r, i] = n.useState();
+export const wR = Nr(() => {
+	const [e, t] = $8();
+	const [r, setR] = n.useState();
 	const a = Localize("#Settings_SystemReport_Title");
 	if (e) {
-		return n.createElement(
-			c.w,
-			{
-				strTitle: a,
-				onDismiss: t,
-				popupWidth: 900,
-				popupHeight: 800,
-				minWidth: 600,
-				minHeight: 300,
-				resizable: true,
-				refPopup: i,
-				modal: false,
-			},
-			n.createElement(b, {
-				strName: a,
-				onClose: t,
-			}),
+		return (
+			<c.w
+				strTitle={a}
+				onDismiss={t}
+				popupWidth={900}
+				popupHeight={800}
+				minWidth={600}
+				minHeight={300}
+				resizable
+				refPopup={setR}
+				modal={false}
+			>
+				<B strName={a} onClose={t} />
+			</c.w>
 		);
 	} else {
 		return null;
 	}
 });
 export function eH() {
-	if ((0, u.Pb)()) {
-		return n.createElement(
-			i.xh,
-			{
-				label: Localize("#Settings_SystemReport_Title"),
-				onClick: () => u.Ty.Show(),
-			},
-			Localize("#Settings_SystemReport_Start"),
+	if (Pb()) {
+		return (
+			<i.xh
+				label={Localize("#Settings_SystemReport_Title")}
+				onClick={() => u.Ty.Show()}
+			>
+				{Localize("#Settings_SystemReport_Start")}
+			</i.xh>
 		);
 	} else {
 		return null;

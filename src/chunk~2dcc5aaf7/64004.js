@@ -1,15 +1,15 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./48969.js");
-var l = require(/*webcrack:missing*/ "./93960.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
+import s from "./63696.js";
+import o from "./48969.js";
+import l from "./93960.js";
 const c = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"FriendsUI/RemotePlay",
 );
 class m {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_settings = {};
 	m_serverConfig = new o.Fh();
@@ -93,14 +93,17 @@ class m {
 			if (i.status == "Streaming") {
 				e = true;
 				switch (i.formFactor) {
-					case 1:
+					case 1: {
 						t = true;
 						break;
-					case 2:
+					}
+					case 2: {
 						r = true;
 						break;
-					case 4:
+					}
+					case 4: {
 						n = true;
+					}
 				}
 			}
 		}
@@ -196,7 +199,8 @@ class m {
 	}
 	BHasParentalBlock(e) {
 		return (
-			(!!this.m_bRestrictedSession && (e == 1 || e == 2 || e == 4 || e == 9)) ||
+			(!!this.m_bRestrictedSession &&
+				(e == 1 || e == 2 || e == 2 || e == 4 || e == 2 || e == 4 || e == 9)) ||
 			this.m_setAdditionalParentalBlocks.has(e)
 		);
 	}
@@ -206,58 +210,48 @@ class m {
 		);
 	}
 }
-(0, n.Cg)([i.sH], m.prototype, "m_settings", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_serverConfig", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_clientConfig", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_devices", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_bRestrictedSession", undefined);
-(0, n.Cg)(
-	[i.sH],
-	m.prototype,
-	"m_bRemoteDeviceClientPairingDialogVisible",
-	undefined,
-);
-(0, n.Cg)(
-	[i.sH],
-	m.prototype,
-	"m_bRemoteDeviceHostPairingDialogVisible",
-	undefined,
-);
-(0, n.Cg)([i.sH], m.prototype, "m_bAudioDriverDialogVisible", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_bInputDriverDialogVisible", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_bInputDriverRestartNoticeVisible", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_setAdditionalParentalBlocks", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_sRemoteDeviceBeingPaired", undefined);
-(0, n.Cg)([i.sH], m.prototype, "m_sRemoteDevicePairingPIN", undefined);
-(0, n.Cg)([l.o], m.prototype, "OnSettingsChanged", null);
-(0, n.Cg)([l.o], m.prototype, "OnDevicesChanged", null);
-(0, n.Cg)([l.o], m.prototype, "OnRestrictedSessionChanged", null);
-(0, n.Cg)([l.o], m.prototype, "OnRemoteDevicePairingPINChanged", null);
-(0, n.Cg)([l.o], m.prototype, "OnRemoteDeviceAuthorizationRequested", null);
-(0, n.Cg)([l.o], m.prototype, "OnRemoteDeviceAuthorizationCancelled", null);
-(0, n.Cg)([l.o], m.prototype, "OnAudioDriverPrompt", null);
-(0, n.Cg)([l.o], m.prototype, "OnInputDriverPrompt", null);
-(0, n.Cg)([l.o], m.prototype, "OnInputDriverRestartNotice", null);
-(0, n.Cg)([i.XI.bound], m.prototype, "OnAdditionalParentalBlocks", null);
+Cg([i.sH], m.prototype, "m_settings", undefined);
+Cg([i.sH], m.prototype, "m_serverConfig", undefined);
+Cg([i.sH], m.prototype, "m_clientConfig", undefined);
+Cg([i.sH], m.prototype, "m_devices", undefined);
+Cg([i.sH], m.prototype, "m_bRestrictedSession", undefined);
+Cg([i.sH], m.prototype, "m_bRemoteDeviceClientPairingDialogVisible", undefined);
+Cg([i.sH], m.prototype, "m_bRemoteDeviceHostPairingDialogVisible", undefined);
+Cg([i.sH], m.prototype, "m_bAudioDriverDialogVisible", undefined);
+Cg([i.sH], m.prototype, "m_bInputDriverDialogVisible", undefined);
+Cg([i.sH], m.prototype, "m_bInputDriverRestartNoticeVisible", undefined);
+Cg([i.sH], m.prototype, "m_setAdditionalParentalBlocks", undefined);
+Cg([i.sH], m.prototype, "m_sRemoteDeviceBeingPaired", undefined);
+Cg([i.sH], m.prototype, "m_sRemoteDevicePairingPIN", undefined);
+Cg([l.o], m.prototype, "OnSettingsChanged", null);
+Cg([l.o], m.prototype, "OnDevicesChanged", null);
+Cg([l.o], m.prototype, "OnRestrictedSessionChanged", null);
+Cg([l.o], m.prototype, "OnRemoteDevicePairingPINChanged", null);
+Cg([l.o], m.prototype, "OnRemoteDeviceAuthorizationRequested", null);
+Cg([l.o], m.prototype, "OnRemoteDeviceAuthorizationCancelled", null);
+Cg([l.o], m.prototype, "OnAudioDriverPrompt", null);
+Cg([l.o], m.prototype, "OnInputDriverPrompt", null);
+Cg([l.o], m.prototype, "OnInputDriverRestartNotice", null);
+Cg([i.XI.bound], m.prototype, "OnAdditionalParentalBlocks", null);
 export const ut = new m();
 export function F2() {
-	return (0, a.q3)(() => ut.settings);
+	return q3(() => ut.settings);
 }
 export function TN() {
-	return [(0, a.q3)(() => ut.serverConfig), (e) => (ut.serverConfig = e)];
+	return [q3(() => ut.serverConfig), (e) => (ut.serverConfig = e)];
 }
 export function d0() {
-	return [(0, a.q3)(() => ut.clientConfig), (e) => (ut.clientConfig = e)];
+	return [q3(() => ut.clientConfig), (e) => (ut.clientConfig = e)];
 }
 export function dN() {
-	return (0, a.q3)(() => ut.devices);
+	return q3(() => ut.devices);
 }
 export function Gs() {
 	return dN().filter((e) => e.status === "Streaming").length > 0;
 }
 export function z5() {
 	return [
-		(0, a.q3)(() => ut.bRemoteDeviceClientPairingDialogVisible),
+		q3(() => ut.bRemoteDeviceClientPairingDialogVisible),
 		s.useCallback(() => {
 			ut.HideRemoteDeviceClientPairingDialog();
 		}, []),
@@ -265,21 +259,21 @@ export function z5() {
 }
 export function OQ() {
 	return [
-		(0, a.q3)(() => ut.bRemoteDeviceHostPairingDialogVisible),
+		q3(() => ut.bRemoteDeviceHostPairingDialogVisible),
 		s.useCallback(() => {
 			ut.HideRemoteDeviceHostPairingDialog();
 		}, []),
 	];
 }
 export function ij() {
-	return (0, a.q3)(() => ut.sRemoteDeviceBeingPaired);
+	return q3(() => ut.sRemoteDeviceBeingPaired);
 }
 export function Xs() {
-	return (0, a.q3)(() => ut.sRemoteDevicePairingPIN);
+	return q3(() => ut.sRemoteDevicePairingPIN);
 }
 export function Ct() {
 	return [
-		(0, a.q3)(() => ut.bAudioDriverDialogVisible),
+		q3(() => ut.bAudioDriverDialogVisible),
 		s.useCallback(() => {
 			ut.HideAudioDriverDialog();
 		}, []),
@@ -287,7 +281,7 @@ export function Ct() {
 }
 export function kb() {
 	return [
-		(0, a.q3)(() => ut.bInputDriverDialogVisible),
+		q3(() => ut.bInputDriverDialogVisible),
 		s.useCallback(() => {
 			ut.HideInputDriverDialog();
 		}, []),
@@ -295,7 +289,7 @@ export function kb() {
 }
 export function VA() {
 	return [
-		(0, a.q3)(() => ut.bInputDriverRestartNoticeVisible),
+		q3(() => ut.bInputDriverRestartNoticeVisible),
 		s.useCallback(() => {
 			ut.HideInputDriverRestartNotice();
 		}, []),

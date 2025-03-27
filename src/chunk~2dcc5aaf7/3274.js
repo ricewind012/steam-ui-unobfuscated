@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ToastContainerEmbedded: "_39n3uHCyyTbUj5s9L1wa61",
 	BackgroundAnimation: "gH2xVbgpqSt7mrQGOA8mg",

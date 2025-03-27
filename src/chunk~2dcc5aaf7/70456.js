@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	PageContainer: "_1Z4eNT8FYamgC2GkSWU0Q",
 	OuterColumn: "_1Udh1F77I5Vr1kf4HNMsdx",

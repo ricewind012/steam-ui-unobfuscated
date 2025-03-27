@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LoginQR: "xlEVpBeYO1h2tOqErt9fj",
 	NonPublic: "_39rmYMz2NhzK3kuX7QQoz8",
 	QRLoginDeck: "J3DO-HZVloRroBWQ4LcSK",

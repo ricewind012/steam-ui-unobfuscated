@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	WarningBox: "_3Cqjn4ZCF_ooB9QdEA-tKi",
 	Error: "_3fMj_0owR5Xtfayi6NfTPY",

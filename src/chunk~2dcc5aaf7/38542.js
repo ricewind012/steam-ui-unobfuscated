@@ -1,8 +1,8 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./18057.js");
-var a = require("./46422.js");
+import n from "./63696.js";
+import i, { Qt } from "./18057.js";
+import a from "./46422.js";
 export function Ux() {
-	return (0, i.Qt)("steam://run/250820");
+	return Qt("steam://run/250820");
 }
 export function ey() {
 	return n.useCallback(() => SteamClient.OpenVR?.QuitAllVR(), []);
@@ -21,11 +21,11 @@ export function oH(e, t) {
 }
 export function ld(e, t = []) {
 	const r = a.oy.WindowStore.GetVRWindowInstance();
-	const [i, s] = n.useState(true);
+	const [i, setI] = n.useState(true);
 	n.useEffect(() => {
 		const e =
 			r?.BrowserWindow?.SteamClient.OpenVR?.VROverlay.RegisterForVisibilityChanged(
-				s,
+				setI,
 			);
 		return () => e?.unregister();
 	}, [r]);

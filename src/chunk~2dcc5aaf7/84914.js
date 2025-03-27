@@ -1,149 +1,126 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./35488.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./86078.js");
-var o = s;
-var l = require("./85360.js");
-var c = require("./43014.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./90765.js");
-var d = require("./53622.js");
-var A = require("./12307.js");
-var p = require(/*webcrack:missing*/ "./61657.js");
-var g = require(/*webcrack:missing*/ "./69164.js");
-var h = require(/*webcrack:missing*/ "./10975.js");
-var C = require("./52192.js");
-export const eu = (0, a.PA)(function (e) {
+import n from "./63696.js";
+import i from "./35488.js";
+import a, { PA } from "./41230.js";
+import s from "./86078.js";
+import l from "./85360.js";
+import c from "./43014.js";
+import { A as A_1 } from "./90765.js";
+import d from "./53622.js";
+import A from "./12307.js";
+import p from "./61657.js";
+import g from "./69164.js";
+import h from "./10975.js";
+import { P4 } from "./52192.js";
+const o = s;
+export const eu = PA((e) => {
 	const t = l.v3.EditingConfiguration;
 	const r = l.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const a = l.v3.ControllerConfiguratorLayerSetIndex;
 	const s = t?.sets[r];
 	const A = s?.layers?.[a];
-	if (e.bShowWhenOneActionSet === true || (0, C.P4)(t)) {
-		return n.createElement(
-			"div",
-			{
-				className: (0, u.A)(
+	if (e.bShowWhenOneActionSet === true || P4(t)) {
+		return (
+			<div
+				className={A_1(
 					e.className,
 					o.ActionSetNameOverIndicators,
 					e.disabled && o.ActionSetSelectorDisabled,
-				),
-			},
-			n.createElement(
-				"div",
-				{
-					className: o.ActionSetNameAndGlyphs,
-				},
-				n.createElement(
-					"div",
-					{
-						className: o.ActionSetGlyph,
-						onClick: e.disabled
-							? null
-							: () =>
-									l.v3.GoToRelativeEditingConfigurationActionSetInFlattenedList(
-										-1,
-									),
-					},
-					n.createElement(d.W, {
-						button: c.g4.LeftBumper,
-					}),
-				),
-				n.createElement(
-					"div",
-					{
-						className: o.ActionSetNameAndHeader,
-					},
-					n.createElement(
-						"span",
-						{
-							className: o.ActionSetHeader,
-						},
-						Localize("#ControllerConfigurator_ActionSet"),
-					),
-					n.createElement(
-						"span",
-						{
-							className: (0, u.A)(o.ActionSetName, A && o.SetDisabled),
-						},
-						s?.display_name ??
-							Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title"),
-					),
-					A &&
-						n.createElement(
-							"div",
-							{
-								className: o.ActionSetLayer,
-							},
-							n.createElement(i.Inventory, null),
-							A?.display_name ??
-								Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title"),
-						),
-				),
-				n.createElement(
-					"div",
-					{
-						className: o.ActionSetGlyph,
-						onClick: e.disabled
-							? null
-							: () =>
-									l.v3.GoToRelativeEditingConfigurationActionSetInFlattenedList(
-										1,
-									),
-					},
-					n.createElement(d.W, {
-						button: c.g4.RightBumper,
-					}),
-				),
-			),
+				)}
+			>
+				<div className={o.ActionSetNameAndGlyphs}>
+					<div
+						className={o.ActionSetGlyph}
+						onClick={
+							e.disabled ||
+							(() =>
+								l.v3.GoToRelativeEditingConfigurationActionSetInFlattenedList(
+									-1,
+								))
+						}
+					>
+						<d.W button={c.g4.LeftBumper} />
+					</div>
+					<div className={o.ActionSetNameAndHeader}>
+						<span className={o.ActionSetHeader}>
+							{Localize("#ControllerConfigurator_ActionSet")}
+						</span>
+						<span className={A_1(o.ActionSetName, A && o.SetDisabled)}>
+							{s?.display_name ??
+								Localize("#ControllerConfigurator_ActionSets_UnnamedSet_Title")}
+						</span>
+						{A && (
+							<div className={o.ActionSetLayer}>
+								<i.Inventory />
+								{A?.display_name ??
+									Localize(
+										"#ControllerConfigurator_ActionSets_UnnamedSet_Title",
+									)}
+							</div>
+						)}
+					</div>
+					<div
+						className={o.ActionSetGlyph}
+						onClick={
+							e.disabled ||
+							(() =>
+								l.v3.GoToRelativeEditingConfigurationActionSetInFlattenedList(
+									1,
+								))
+						}
+					>
+						<d.W button={c.g4.RightBumper} />
+					</div>
+				</div>
+			</div>
 		);
 	} else {
 		return null;
 	}
 });
-export const dY = (0, a.PA)(function (e) {
+export const dY = PA((e) => {
 	const t = l.v3.EditingConfiguration;
 	const r = l.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const a = l.v3.ControllerConfiguratorLayerSetIndex;
 	const s = l.v3.GetFlattenedActionSets().map((e) => ({
 		id: JSON.stringify([e.nActionSetIndex, e.nLayerIndex]),
 		title: e.strName,
-		icon: e.nLayerIndex == null ? null : n.createElement(i.Inventory, null),
+		icon: e.nLayerIndex == null || <i.Inventory />,
 	}));
-	const c = n.useRef(undefined);
-	const [m, d] = n.useState(false);
+	const CRef = n.useRef(undefined);
+	const [m, setM] = n.useState(false);
 	const p = n.useCallback((e) => !!m && N(e), [m]);
-	const h = n.useRef([r, a]);
+	const HRef = n.useRef([r, a]);
 	n.useEffect(() => {
-		if (h.current[0] != r || h.current[1] != a) {
+		if (HRef.current[0] != r || HRef.current[1] != a) {
 			if (m) {
-				c.current?.TakeFocus();
+				CRef.current?.TakeFocus();
 			}
-			h.current = [r, a];
+			HRef.current = [r, a];
 		}
-	}, [m, c, r, a]);
+	}, [m, CRef, r, a]);
 	const _ = n.useCallback((e) => {
 		const [t, r] = JSON.parse(e);
 		l.v3.SetControllerConfiguratorBaseSetIndex(t);
 		l.v3.SetControllerConfiguratorLayerSetIndex(r);
 	}, []);
-	if (e.bShowWhenOneActionSet === true || (0, C.P4)(t)) {
-		return n.createElement(
-			g.Z,
-			{
-				className: (0, u.A)(e.className, o.ControllerSelectionContainer),
-				onFocusWithin: d,
-				onButtonDown: p,
-			},
-			n.createElement(A.JZ, {
-				tabs: s,
-				activeTab: JSON.stringify([r, a]),
-				onShowTab: _,
-				showGlyphs: m || e.showGlyphs,
-				bleedGlyphs: e.bleedGlpyhs,
-				navRef: c,
-				wrapAround: e.wrapAround,
-			}),
+	if (e.bShowWhenOneActionSet === true || P4(t)) {
+		return (
+			<g.Z
+				className={A_1(e.className, o.ControllerSelectionContainer)}
+				onFocusWithin={setM}
+				onButtonDown={p}
+			>
+				<A.JZ
+					tabs={s}
+					activeTab={JSON.stringify([r, a])}
+					onShowTab={_}
+					showGlyphs={m || e.showGlyphs}
+					bleedGlyphs={e.bleedGlpyhs}
+					navRef={CRef}
+					wrapAround={e.wrapAround}
+				/>
+			</g.Z>
 		);
 	} else {
 		return null;

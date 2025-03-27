@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	DesktopToastPopup: "_1OOQPJx0nCNP9ME9toCmV7",
 	Top: "_2oeq2krreQD6wfDR7WIVT4",

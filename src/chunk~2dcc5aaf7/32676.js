@@ -1,5 +1,5 @@
-import * as n from /*webcrack:missing*/ "./63696.js";
-import * as i from /*webcrack:missing*/ "./90765.js";
+import * as n from "./63696.js";
+import * as i from "./90765.js";
 import {
 	Hq,
 	Localize,
@@ -20,8 +20,8 @@ import * as h from "./71729.js";
 import * as C from "./64608.js";
 import * as _ from "./60291.js";
 import * as f from "./18057.js";
-import * as b from /*webcrack:missing*/ "./72476.js";
-import * as y from /*webcrack:missing*/ "./41180.js";
+import * as b from "./72476.js";
+import * as y from "./41180.js";
 import * as S from "./22588.js";
 import * as w from "./29516.js";
 import * as B from "./35488.js";
@@ -30,6 +30,52 @@ import * as I from "./82153.js";
 import * as E from "./96884.js";
 import * as M from "./13871.js";
 import * as T from "./4069.js";
+import * as N from "./1385.js";
+import * as F from "./91486.js";
+import * as G from "./44846.js";
+import * as O from "./96593.js";
+import * as P from "./98995.js";
+import * as L from "./65528.js";
+import * as z from "./11131.js";
+import * as x from "./46422.js";
+import * as U from "./79769.js";
+import * as W from "./37790.js";
+import * as V from "./84838.js";
+import * as H from "./69164.js";
+import * as j from "./90242.js";
+import * as q from "./84252.js";
+import * as Q from "./55116.js";
+import * as Z from "./61657.js";
+import * as Y from "./4690.js";
+import * as K from "./50376.js";
+import * as X from "./49519.js";
+import * as J from "./31800.js";
+import * as $ from "./52451.js";
+import * as ee from "./96555.js";
+import * as te from "./53622.js";
+import * as re from "./43014.js";
+import * as ne from "./3499.js";
+import * as ie from "./3715.js";
+import * as ae from "./34428.js";
+import * as se from "./34461.js";
+import * as oe from "./83247.js";
+import * as le from "./69767.js";
+import * as ce from "./31084.js";
+import * as me from "./88750.js";
+import * as ue from "./26094.js";
+import * as de from "./10606.js";
+import * as Ae from "./13869.js";
+import * as pe from "./18869.js";
+import * as ge from "./21163.js";
+import * as he from "./54644.js";
+import * as Ce from "./34792.js";
+import * as _e from "./84056.js";
+import * as fe from "./61294.js";
+import * as be from "./25633.js";
+import * as ye from "./3874.js";
+import * as Se from "./8717.js";
+import * as we from "./94729.js";
+import * as Be from "./90095.js";
 function R(e) {
 	const {
 		strSelectedApp: t,
@@ -111,52 +157,6 @@ function D(e) {
 		),
 	);
 }
-import * as N from "./1385.js";
-import * as F from "./91486.js";
-import * as G from /*webcrack:missing*/ "./44846.js";
-import * as O from "./96593.js";
-import * as P from /*webcrack:missing*/ "./98995.js";
-import * as L from "./65528.js";
-import * as z from /*webcrack:missing*/ "./11131.js";
-import * as x from "./46422.js";
-import * as U from /*webcrack:missing*/ "./79769.js";
-import * as W from "./37790.js";
-import * as V from "./84838.js";
-import * as H from /*webcrack:missing*/ "./69164.js";
-import * as j from /*webcrack:missing*/ "./90242.js";
-import * as q from /*webcrack:missing*/ "./84252.js";
-import * as Q from "./55116.js";
-import * as Z from /*webcrack:missing*/ "./61657.js";
-import * as Y from /*webcrack:missing*/ "./4690.js";
-import * as K from /*webcrack:missing*/ "./50376.js";
-import * as X from /*webcrack:missing*/ "./49519.js";
-import * as J from "./31800.js";
-import * as $ from /*webcrack:missing*/ "./52451.js";
-import * as ee from "./96555.js";
-import * as te from "./53622.js";
-import * as re from "./43014.js";
-import * as ne from "./3499.js";
-import * as ie from /*webcrack:missing*/ "./3715.js";
-import * as ae from "./34428.js";
-import * as se from "./34461.js";
-import * as oe from "./83247.js";
-import * as le from "./69767.js";
-import * as ce from /*webcrack:missing*/ "./31084.js";
-import * as me from /*webcrack:missing*/ "./88750.js";
-import * as ue from "./26094.js";
-import * as de from "./10606.js";
-import * as Ae from "./13869.js";
-import * as pe from "./18869.js";
-import * as ge from "./21163.js";
-import * as he from /*webcrack:missing*/ "./54644.js";
-import * as Ce from "./34792.js";
-import * as _e from "./84056.js";
-import * as fe from "./61294.js";
-import * as be from "./25633.js";
-import * as ye from "./3874.js";
-import * as Se from "./8717.js";
-import * as we from "./94729.js";
-import * as Be from /*webcrack:missing*/ "./90095.js";
 const ve = 0.6;
 export function PrevItemSVG(e) {
 	return n.createElement(
@@ -486,7 +486,7 @@ function Fe(e) {
 }
 function Ge(e) {
 	const { initialFilter: t, initialOpenedItem: r, onFilterChange: a } = e;
-	const [s, o] = (function (e, t) {
+	const [s, o] = ((e, t) => {
 		const [r, i] = (0, n.useState)(() => ({
 			...ne.sF,
 			...(e || {}),
@@ -511,7 +511,7 @@ function Ge(e) {
 	const l = (0, X.W6)();
 	const c = (0, b.Qn)();
 	const m = (0, b.Pr)();
-	(function () {
+	(() => {
 		const e = (0, b.hf)();
 		const t = (0, z.R7)();
 		n.useEffect(() => {
@@ -545,7 +545,7 @@ function Ge(e) {
 		openedItem: E,
 		setOpenedItem: M,
 		refLastOpened: T,
-	} = (function (e, t) {
+	} = ((e, t) => {
 		const r = (0, b.Qn)();
 		const i = (0, X.W5)(f.BV.Media.Item());
 		const { state: a } = (0, X.zy)();
@@ -578,7 +578,7 @@ function Ge(e) {
 			refLastOpened: o,
 		};
 	})(r, l);
-	(function (e) {
+	((e) => {
 		const {
 			ownerWindow: { document: t },
 		} = (0, z.R7)();
@@ -606,7 +606,7 @@ function Ge(e) {
 	n.useEffect(() => {
 		R();
 	}, [B, R]);
-	const k = (function (e, t, r) {
+	const k = ((e, t, r) => {
 		const i = (0, ee.l5)();
 		const a = (0, b.TL)() && !i ? 1.6 : 16 / 9;
 		return n.useCallback(
@@ -635,7 +635,7 @@ function Ge(e) {
 					},
 				};
 				switch (r.type) {
-					case "screenshot":
+					case "screenshot": {
 						return n.createElement(nt, {
 							onClick: (e) =>
 								l(e, {
@@ -645,7 +645,8 @@ function Ge(e) {
 							screenshot: r,
 							...c,
 						});
-					case "clip":
+					}
+					case "clip": {
 						return n.createElement(Ve, {
 							clip: r,
 							onClick: (e) =>
@@ -656,7 +657,8 @@ function Ge(e) {
 							mini: s,
 							...c,
 						});
-					case "recording":
+					}
+					case "recording": {
 						return n.createElement(Ke, {
 							strGameID: r.summary.game_id,
 							onClick: (e) =>
@@ -666,8 +668,10 @@ function Ge(e) {
 								}),
 							...c,
 						});
-					default:
+					}
+					default: {
 						return null;
+					}
 				}
 			},
 			[e, t, a],
@@ -905,25 +909,28 @@ function xe(e) {
 	let s = null;
 	let o = false;
 	switch (t?.type) {
-		case "screenshot":
+		case "screenshot": {
 			s = n.createElement(N.iN, {
 				handle: t.id,
 			});
 			break;
-		case "clip":
+		}
+		case "clip": {
 			s = n.createElement(dt, {
 				handle: t.id,
 				key: t.id,
 			});
 			o = true;
 			break;
-		case "recording":
+		}
+		case "recording": {
 			const { id: e, playbackDefinition: r } = t;
 			s = n.createElement(E.GameRecordingSelectedClip, {
 				initialGameID: e,
 				initialPlaybackDefinition: r,
 			});
 			o = true;
+		}
 	}
 	const l = ut(t?.id, t.type);
 	if (s) {
@@ -972,7 +979,7 @@ function Ue(e) {
 	} = Le();
 	const [c, m] = (0, n.useState)(false);
 	const [u, d] = (0, n.useState)(0);
-	const A = (function (e, t) {
+	const A = ((e, t) => {
 		let [r, i] = (0, n.useState)(true);
 		let a = true;
 		if (e?.type == "clip" || e?.type == "recording") {
@@ -1019,26 +1026,29 @@ function Ue(e) {
 	);
 	let E = n.useMemo(() => {
 		switch (t?.type) {
-			case "screenshot":
+			case "screenshot": {
 				return n.createElement(N.Pj, {
 					handle: t.id,
 					controlsVisible: c,
 					fnOnContentWidth: v,
 				});
-			case "clip":
+			}
+			case "clip": {
 				return n.createElement(ht, {
 					handle: t.id,
 					key: t.id,
 					controlsVisible: c,
 					fnOnContentWidth: v,
 				});
-			default:
+			}
+			default: {
 				return n.createElement(R, {
 					strSelectedApp: t.id,
 					controlsVisible: c,
 					fnOnContentWidth: v,
 					initialPlaybackDefinition: t.playbackDefinition,
 				});
+			}
 		}
 	}, [t, c, v]);
 	const M = n.useCallback(() => {
@@ -1053,27 +1063,31 @@ function Ue(e) {
 		(e) => {
 			d(1 << e.detail.button);
 			switch (e.detail.button) {
-				case Z.pR.BUMPER_LEFT:
+				case Z.pR.BUMPER_LEFT: {
 					if (r) {
 						r();
 						e.stopPropagation();
 					}
 					return true;
-				case Z.pR.BUMPER_RIGHT:
+				}
+				case Z.pR.BUMPER_RIGHT: {
 					if (s) {
 						s();
 						e.stopPropagation();
 					}
 					return true;
-				case Z.pR.OPTIONS:
+				}
+				case Z.pR.OPTIONS: {
 					M();
 					e.stopPropagation();
 					return true;
+				}
 				case Z.pR.DIR_DOWN:
-				case Z.pR.DIR_UP:
+				case Z.pR.DIR_UP: {
 					M();
 					return true;
-				case Z.pR.SELECT:
+				}
+				case Z.pR.SELECT: {
 					if (o) {
 						T.Media.Grid({
 							state: {
@@ -1087,9 +1101,11 @@ function Ue(e) {
 						});
 					}
 					return true;
-				default:
+				}
+				default: {
 					_();
 					return false;
+				}
 			}
 		},
 		[r, s, _, M, o, p, T.Media],
@@ -1100,10 +1116,12 @@ function Ue(e) {
 			switch (e.detail.button) {
 				case Z.pR.OPTIONS:
 				case Z.pR.DIR_UP:
-				case Z.pR.DIR_DOWN:
+				case Z.pR.DIR_DOWN: {
 					break;
-				default:
+				}
+				default: {
 					_();
+				}
 			}
 		},
 		[_, u],
@@ -1332,7 +1350,10 @@ function Ye(e) {
 	let s = a?.m_Event.timeline_id;
 	let o = parseInt(a?.m_Event.timeline_offset_ms);
 	let l = parseInt(a?.m_Event.duration_ms);
-	let c = !a || !a.m_Image || a.m_Image.m_Bytes == "" ? "" : a?.m_Image.m_Bytes;
+	let c =
+		!a || !a.m_Image || !a.m_Image || a.m_Image.m_Bytes == ""
+			? ""
+			: a?.m_Image.m_Bytes;
 	return n.createElement(
 		n.Fragment,
 		null,
@@ -1649,7 +1670,7 @@ function nt(e) {
 					onError: () => u(true),
 					className: (0, i.A)(g.ListItemThumbnailImg, h.Tall),
 					style: {
-						aspectRatio: "" + t.nWidth / t.nHeight,
+						aspectRatio: `${t.nWidth / t.nHeight}`,
 					},
 				}),
 		),
@@ -1809,23 +1830,27 @@ function it(e) {
 export function ListItemContextMenu(e) {
 	const { item: t, ...r } = e;
 	switch (e.item.type) {
-		case "clip":
+		case "clip": {
 			return n.createElement(st, {
 				clip: e.item,
 				...r,
 			});
-		case "screenshot":
+		}
+		case "screenshot": {
 			return n.createElement(ot, {
 				screenshot: e.item,
 				...r,
 			});
-		case "recording":
+		}
+		case "recording": {
 			return n.createElement(lt, {
 				recording: e.item,
 				...r,
 			});
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }
 function st(e) {
@@ -1942,16 +1967,20 @@ function mt(e) {
 function ut(e, t) {
 	const r = (0, ie.jE)();
 	switch (t) {
-		case "screenshot":
+		case "screenshot": {
 			const t = (0, ne.e8)(r, e);
 			return t?.strGameID;
-		case "clip":
+		}
+		case "clip": {
 			const n = (0, o.XA)(e);
 			return n?.game_id;
-		case "recording":
+		}
+		case "recording": {
 			return e;
-		default:
+		}
+		default: {
 			return null;
+		}
 	}
 }
 function dt(e) {
@@ -2058,7 +2087,7 @@ function ht(e) {
 }
 function Ct(e) {
 	const { loader: t, clipID: r, fnOnContentWidth: i } = e;
-	const { elDialog: s, showDeleteDialog: l } = (function (e) {
+	const { elDialog: s, showDeleteDialog: l } = ((e) => {
 		const { fnDeleteClip: t } = (0, o.Gb)();
 		const r = (0, X.W6)();
 		const n = async () => {
@@ -2084,12 +2113,14 @@ function Ct(e) {
 	const u = n.useCallback(
 		(e) => {
 			switch (e.detail.button) {
-				case Z.pR.SECONDARY:
+				case Z.pR.SECONDARY: {
 					l();
 					return true;
-				case Z.pR.START:
+				}
+				case Z.pR.START: {
 					c((0, be.e3)(r), e.target);
 					return true;
+				}
 			}
 			return false;
 		},
@@ -2331,23 +2362,26 @@ function Bt(e) {
 	}
 	let A;
 	switch (o?.type) {
-		case "screenshot":
+		case "screenshot": {
 			A = n.createElement(N.tL, {
 				handle: o.id,
 				left: r,
 				width: t,
 			});
 			break;
-		case "clip":
+		}
+		case "clip": {
 			A = n.createElement(c.d, {
 				clipID: o.id,
 				className: g.PreviewThumbnailImg,
 			});
 			break;
-		case "recording":
+		}
+		case "recording": {
 			A = n.createElement("div", {
 				className: g.PreviewRecording,
 			});
+		}
 	}
 	return n.createElement(
 		"div",
@@ -2364,23 +2398,26 @@ function vt(e) {
 	const { item: t, strGameID: r } = e;
 	let a = null;
 	switch (t.type) {
-		case "screenshot":
+		case "screenshot": {
 			a = n.createElement(It, {
 				item: t,
 				className: g.BackgroundImageGlow,
 			});
 			break;
-		case "clip":
+		}
+		case "clip": {
 			a = n.createElement(Et, {
 				item: t,
 				className: (0, i.A)(g.BackgroundImageGlow, g.Clip),
 			});
 			break;
-		case "recording":
+		}
+		case "recording": {
 			a = n.createElement(Mt, {
 				strGameID: r,
 				className: (0, i.A)(g.BackgroundImageGlow, g.Clip),
 			});
+		}
 	}
 	return a;
 }

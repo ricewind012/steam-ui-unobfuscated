@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./58663.js");
-var i = require(/*webcrack:missing*/ "./48307.js");
-const a = n.Message;
-export class d_ extends a {
+import n from "./58663.js";
+import i from "./48307.js";
+const n_Message = n.Message;
+export class d_ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!d_.prototype.steamid_clans) {
 			i.Sg(d_.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -50,7 +50,7 @@ export class d_ extends a {
 		return i.zj(d_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -58,7 +58,7 @@ export class d_ extends a {
 		i.i0(d_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		d_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -66,14 +66,14 @@ export class d_ extends a {
 		return "CMsgClientGetClanActivityCounts";
 	}
 }
-export class R2 extends a {
+export class R2 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!R2.prototype.count_new_items) {
 			i.Sg(R2.M());
 		}
-		a.initialize(this, e, 0, -1, [2], null);
+		n_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -118,7 +118,7 @@ export class R2 extends a {
 		return i.zj(R2.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R2.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -126,7 +126,7 @@ export class R2 extends a {
 		i.i0(R2.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		R2.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -134,14 +134,14 @@ export class R2 extends a {
 		return "CMsgClientItemAnnouncements";
 	}
 }
-class l extends a {
+class l extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.appid) {
 			i.Sg(l.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -205,7 +205,7 @@ class l extends a {
 		return i.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -213,7 +213,7 @@ class l extends a {
 		i.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -221,14 +221,14 @@ class l extends a {
 		return "CMsgClientItemAnnouncements_UnseenItem";
 	}
 }
-export class dA extends a {
+export class dA extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!dA.prototype.offline_messages) {
 			i.Sg(dA.M());
 		}
-		a.initialize(this, e, 0, -1, [2], null);
+		n_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -275,7 +275,7 @@ export class dA extends a {
 		return i.zj(dA.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		dA.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -283,7 +283,7 @@ export class dA extends a {
 		i.i0(dA.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		dA.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -291,11 +291,11 @@ export class dA extends a {
 		return "CMsgClientOfflineMessageNotification";
 	}
 }
-export class oe extends a {
+export class oe extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	toObject(e = false) {
 		return oe.toObject(e, this);
@@ -321,13 +321,13 @@ export class oe extends a {
 		return e;
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		oe.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
 	static serializeBinaryToWriter(e, t) {}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		oe.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -335,14 +335,14 @@ export class oe extends a {
 		return "CMsgClientRequestOfflineMessageCount";
 	}
 }
-export class A7 extends a {
+export class A7 extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!A7.prototype.published_file_id) {
 			i.Sg(A7.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -386,7 +386,7 @@ export class A7 extends a {
 		return i.zj(A7.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A7.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -394,7 +394,7 @@ export class A7 extends a {
 		i.i0(A7.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		A7.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -402,14 +402,14 @@ export class A7 extends a {
 		return "CMsgCREUpdateUserPublishedItemVote";
 	}
 }
-export class DA extends a {
+export class DA extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!DA.prototype.eresult) {
 			i.Sg(DA.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -449,7 +449,7 @@ export class DA extends a {
 		return i.zj(DA.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		DA.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -457,7 +457,7 @@ export class DA extends a {
 		i.i0(DA.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		DA.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -465,14 +465,14 @@ export class DA extends a {
 		return "CMsgCREUpdateUserPublishedItemVoteResponse";
 	}
 }
-export class LZ extends a {
+export class LZ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!LZ.prototype.published_file_ids) {
 			i.Sg(LZ.M());
 		}
-		a.initialize(this, e, 0, -1, [1], null);
+		n_Message.initialize(this, e, 0, -1, [1], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -512,7 +512,7 @@ export class LZ extends a {
 		return i.zj(LZ.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		LZ.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -520,7 +520,7 @@ export class LZ extends a {
 		i.i0(LZ.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		LZ.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -528,14 +528,14 @@ export class LZ extends a {
 		return "CMsgCREGetUserPublishedItemVoteDetails";
 	}
 }
-class p extends a {
+class p extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!p.prototype.published_file_id) {
 			i.Sg(p.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -574,7 +574,7 @@ class p extends a {
 		return i.zj(p.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -582,7 +582,7 @@ class p extends a {
 		i.i0(p.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		p.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -590,14 +590,14 @@ class p extends a {
 		return "CMsgCREGetUserPublishedItemVoteDetails_PublishedFileId";
 	}
 }
-export class ke extends a {
+export class ke extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!ke.prototype.eresult) {
 			i.Sg(ke.M());
 		}
-		a.initialize(this, e, 0, -1, [2], null);
+		n_Message.initialize(this, e, 0, -1, [2], null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -643,7 +643,7 @@ export class ke extends a {
 		return i.zj(ke.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -651,7 +651,7 @@ export class ke extends a {
 		i.i0(ke.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		ke.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -659,14 +659,14 @@ export class ke extends a {
 		return "CMsgCREGetUserPublishedItemVoteDetailsResponse";
 	}
 }
-class h extends a {
+class h extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!h.prototype.published_file_id) {
 			i.Sg(h.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -711,7 +711,7 @@ class h extends a {
 		return i.zj(h.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -719,7 +719,7 @@ class h extends a {
 		i.i0(h.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		h.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -727,14 +727,14 @@ class h extends a {
 		return "CMsgCREGetUserPublishedItemVoteDetailsResponse_UserItemVoteDetail";
 	}
 }
-export class c_ extends a {
+export class c_ extends n_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c_.prototype.appid) {
 			i.Sg(c_.M());
 		}
-		a.initialize(this, e, 0, -1, undefined, null);
+		n_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -778,7 +778,7 @@ export class c_ extends a {
 		return i.zj(c_.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c_.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -786,7 +786,7 @@ export class c_ extends a {
 		i.i0(c_.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new n.BinaryWriter();
+		const e = new n.BinaryWriter();
 		c_.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}

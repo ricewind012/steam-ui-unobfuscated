@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	OOBEUpdateStatusContainer: "_2B2IARnwWycXE95juDaZe5",
 	UpdateScreen: "_22w6r9mmI13pGeTVVmbOfG",

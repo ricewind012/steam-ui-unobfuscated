@@ -1,42 +1,38 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./34461.js");
-var a = require(/*webcrack:missing*/ "./31084.js");
-var s = require("./39730.js");
-var o = require("./35488.js");
 import {
 	BLocStringExists,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var c = require(/*webcrack:missing*/ "./11131.js");
-var m = require("./67429.js");
-var u = require("./68438.js");
-var d = require("./43271.js");
-var A = require("./1385.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var g = require(/*webcrack:missing*/ "./736.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var C = require("./51095.js");
-var _ = require("./13869.js");
-var f = require("./3874.js");
-var b = require("./78057.js");
-var y = require("./89748.js");
+import n from "./63696.js";
+import i, { yZ } from "./34461.js";
+import a, { lX } from "./31084.js";
+import s, { H6, H5 } from "./39730.js";
+import o from "./35488.js";
+import { k5, R7 } from "./11131.js";
+import m from "./67429.js";
+import u, { Dp } from "./68438.js";
+import d from "./43271.js";
+import { MS } from "./1385.js";
+import g, { Fj } from "./736.js";
+import h, { Y2 } from "./72476.js";
+import C, { tC } from "./51095.js";
+import { pg } from "./13869.js";
+import f from "./3874.js";
+import { T } from "./78057.js";
+import { Pp } from "./89748.js";
 export function jE() {
-	const e = (0, i.yZ)();
+	const e = yZ();
 	return n.useCallback(
 		(t, r) => {
-			(0, a.lX)(
-				n.createElement(
-					i.Zz,
-					{
-						showConfirmationOverride: e,
-					},
-					n.createElement(w, {
-						key: Date.now(),
-						screenshot: t,
-						summoningElement: r,
-						showConfirmation: e,
-					}),
-				),
+			lX(
+				<i.Zz showConfirmationOverride={e}>
+					<W
+						key={Date.now()}
+						screenshot={t}
+						summoningElement={r}
+						showConfirmation={e}
+					/>
+				</i.Zz>,
 				r,
 				{
 					bOverlapHorizontal: true,
@@ -46,22 +42,18 @@ export function jE() {
 		[e],
 	);
 }
-function w(e) {
-	const { screenshot: t, summoningElement: r, showConfirmation: i } = e;
-	const {
-		sendToChat: a,
-		rgOptions: u,
-		chatSendForbiddenMessage: d,
-	} = (function (e, t, r) {
+function W(e) {
+	const { screenshot, summoningElement, showConfirmation } = e;
+	const { sendToChat, rgOptions, chatSendForbiddenMessage } = ((e, t, r) => {
 		const {
-			copyToClipboard: i,
-			saveToFile: a,
-			sendToChat: u,
-			uploadToSteam: d,
-			sendToPhone: g,
-		} = (function (e, t, r) {
+			copyToClipboard,
+			saveToFile,
+			sendToChat: sendToChat_1,
+			uploadToSteam,
+			sendToPhone,
+		} = ((e, t, r) => {
 			const i = B(e, t);
-			const a = (0, c.k5)();
+			const a = k5();
 			const o = async (t) => {
 				if (await H9(e)) {
 					r(t, Localize("#Browser_URLCopied"));
@@ -69,11 +61,11 @@ function w(e) {
 			};
 			const u = async (t) => {
 				if (e.remote) {
-					return (0, s.H6)(e.remote.image_url, t, a);
+					return H6(e.remote.image_url, t, a);
 				}
 				const r = await i;
 				const n = new m.VS(e.strGameID).GetAppID();
-				return (0, s.H5)(r, t, a, n);
+				return H5(r, t, a, n);
 			};
 			const d = async (t) => {
 				const r = GetOwningWindowForEvent(t) ?? window;
@@ -95,19 +87,13 @@ function w(e) {
 				return Ct(e, s);
 			};
 			const g =
-				!e.local || e.local.bUploaded
-					? undefined
-					: async (t) => (0, A.MS)(e, GetOwningWindowForEvent(t));
-			const h = (function (e, t) {
-				const r = (0, c.R7)();
+				!e.local ||
+				e.local.bUploaded ||
+				(async (t) => MS(e, GetOwningWindowForEvent(t)));
+			const h = ((e, t) => {
+				const r = R7();
 				return () => {
-					(0, _.pg)(
-						n.createElement(M, {
-							screenshot: e,
-							summoningElement: t,
-						}),
-						r.ownerWindow,
-					);
+					pg(<M screenshot={e} summoningElement={t} />, r.ownerWindow);
 				};
 			})(e, t);
 			return {
@@ -118,11 +104,11 @@ function w(e) {
 				sendToPhone: h,
 			};
 		})(e, t, r);
-		const C = (0, h.Y2)();
+		const C = Y2();
 		const f = new m.VS(e.strGameID);
 		const S = f.GetAppID();
-		const w = (0, b.T)(S);
-		const E = (0, y.Pp)();
+		const w = T(S);
+		const E = Pp();
 		const R =
 			w && w.bDisableUserMediaUpload
 				? Localize("#ShareSheet_ScreenUploadNotAllowed")
@@ -131,65 +117,63 @@ function w(e) {
 			? Localize("#ShareSheet_LimitedScreenshotNotAllowed")
 			: undefined;
 		return {
-			sendToChat: u,
+			sendToChat: sendToChat_1,
 			rgOptions: [
-				d &&
+				uploadToSteam &&
 					!C && {
 						key: "upload",
-						onSelected: d,
-						icon: n.createElement(o.Globe, null),
+						onSelected: uploadToSteam,
+						icon: <o.Globe />,
 						label: Localize("#ShareSheet_ShareOnSteam"),
 						disabled: R,
 					},
 				{
 					key: "clipboard",
-					onSelected: i,
-					icon: n.createElement(o.Copy, null),
+					onSelected: copyToClipboard,
+					icon: <o.Copy />,
 					label: Localize("#ExportClip_CopyClipboard"),
 				},
 				{
 					key: "export",
-					onSelected: a,
-					icon: n.createElement(o.Download, null),
+					onSelected: saveToFile,
+					icon: <o.Download />,
 					label: Localize("#ScreenshotUploader_SaveImage"),
 				},
 				!C && {
 					key: "sendmobile",
-					onSelected: g,
-					icon: n.createElement(o.Mobile, null),
+					onSelected: sendToPhone,
+					icon: <o.Mobile />,
 					label: Localize("#ExportClip_SendToPhone"),
 					disabled: R || k,
 				},
 			].filter(Boolean),
 			chatSendForbiddenMessage: R || k,
 		};
-	})(t, r, i);
-	return n.createElement(
-		s.zu,
-		{
-			onSendToChat: a,
-			summoningElement: r,
-			chatSendForbiddenMessage: d,
-		},
-		n.createElement(s.t$, {
-			options: u,
-		}),
+	})(screenshot, summoningElement, showConfirmation);
+	return (
+		<s.zu
+			onSendToChat={sendToChat}
+			summoningElement={summoningElement}
+			chatSendForbiddenMessage={chatSendForbiddenMessage}
+		>
+			<s.t$ options={rgOptions} />
+		</s.zu>
 	);
 }
 function B(e, t) {
-	const [r, i] = n.useState(Promise.resolve(null));
+	const [r, setR] = n.useState(Promise.resolve(null));
 	const a = e.local?.strGameID;
 	const s = e.local?.hHandle;
 	n.useEffect(() => {
 		if (a && typeof s == "number") {
-			i(SteamClient.Screenshots.GetLocalScreenshotPath(a, s));
+			setR(SteamClient.Screenshots.GetLocalScreenshotPath(a, s));
 		}
 	}, [a, s]);
-	const { filePromise: o } = (0, u.Dp)(r, t);
-	return o;
+	const { filePromise } = Dp(r, t);
+	return filePromise;
 }
 async function v(e, t, r) {
-	if (!(0, g.Fj)(r, "System.OpenFileDialog")) {
+	if (!Fj(r, "System.OpenFileDialog")) {
 		r = window;
 	}
 	const n = `*.${t}`;
@@ -227,27 +211,29 @@ export async function Ct(e, t) {
 }
 const E = "3.9.1";
 function M(e) {
-	const { screenshot: t, summoningElement: r, ...i } = e;
-	const a = B(t, r);
-	return n.createElement(f.Or, {
-		...i,
-		onSendToPhone: async ({ performUpload: e }) => {
-			let r = "";
-			try {
-				r = await SteamClient.Auth.GetLocalHostname();
-			} catch (e) {
-				console.error("Couldn't determine local hostname", e);
-			}
-			e({
-				dataToUpload: a,
-				eBucket: 3,
-				eMediaType: 2,
-				gameID: new m.VS(t.strGameID),
-				strMachineName: r,
-			});
-		},
-		minAppVersion: E,
-	});
+	const { screenshot, summoningElement, ...i } = e;
+	const a = B(screenshot, summoningElement);
+	return (
+		<f.Or
+			{...i}
+			onSendToPhone={async ({ performUpload }) => {
+				let r = "";
+				try {
+					r = await SteamClient.Auth.GetLocalHostname();
+				} catch (e) {
+					console.error("Couldn't determine local hostname", e);
+				}
+				performUpload({
+					dataToUpload: a,
+					eBucket: 3,
+					eMediaType: 2,
+					gameID: new m.VS(screenshot.strGameID),
+					strMachineName: r,
+				});
+			}}
+			minAppVersion={E}
+		/>
+	);
 }
 export async function H9(e) {
 	if (e.local) {
@@ -261,7 +247,7 @@ export async function H9(e) {
 	try {
 		let t = "jpeg";
 		if (e.remote.filename) {
-			const r = (0, C.tC)(e.remote.filename, ".");
+			const r = tC(e.remote.filename, ".");
 			if (r) {
 				t = r;
 			}

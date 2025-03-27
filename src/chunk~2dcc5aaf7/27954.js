@@ -1,8 +1,8 @@
-require(/*webcrack:missing*/ "./63696.js");
-require("./64608.js");
-require("./10606.js");
-var n = require(/*webcrack:missing*/ "./79769.js");
-require(/*webcrack:missing*/ "./52451.js");
+import "./63696.js";
+import "./64608.js";
+import "./10606.js";
+import n from "./79769.js";
+import "./52451.js";
 let i = null;
 let a = new n.lu();
 const s = "ReactQueryDevtoolsVisible";

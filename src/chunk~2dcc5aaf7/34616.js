@@ -1,8 +1,8 @@
-var n = require("./95773.js");
 import {
 	LocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
+import n from "./95773.js";
 let a = {
 	TimeOfDay: new Intl.DateTimeFormat(
 		LocalizationManager.GetPreferredLocales(),

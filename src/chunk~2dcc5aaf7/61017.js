@@ -1,17 +1,17 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./41230.js");
-var a = require("./84056.js");
-var s = require(/*webcrack:missing*/ "./90765.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require("./85360.js");
-var c = require("./76587.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./4690.js");
-var d = require("./13110.js");
-var A = require(/*webcrack:missing*/ "./15181.js");
-var p = require("./93966.js");
-var g = require(/*webcrack:missing*/ "./52451.js");
-var h = require("./23101.js");
+import n from "./63696.js";
+import i, { PA } from "./41230.js";
+import a from "./84056.js";
+import { A as A_1 } from "./90765.js";
+import o from "./69164.js";
+import l from "./85360.js";
+import c from "./76587.js";
+import u from "./4690.js";
+import d from "./13110.js";
+import A from "./15181.js";
+import { yq } from "./93966.js";
+import { wY, Ue, l6 } from "./52451.js";
+import { w as w_1 } from "./23101.js";
 export function Xg(e, t) {
 	const r = {
 		type: a.N.k_EControllerBindingType_Key,
@@ -446,31 +446,27 @@ const _ = [
 		},
 	],
 ];
-function f(e) {
-	const { appid: t } = e;
-	const r = w(t);
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(d.d, {
-			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
-		}),
-		n.createElement(
-			o.Z,
-			{
-				className: c.CombinedKeyboardContainer,
-			},
-			n.createElement(
-				o.Z,
-				{
-					className: (0, s.A)(c.KeyboardContainer),
-					"flow-children": "column",
-					navEntryPreferPosition: u.iU.MAINTAIN_Y,
-				},
-				r,
-			),
-			R(t),
-		),
+function F(e) {
+	const { appid } = e;
+	const r = w(appid);
+	return (
+		<>
+			<d.d
+				label={Localize(
+					"#ControllerConfigurator_ChooseBinding_Prompt_Keyboard",
+				)}
+			/>
+			<o.Z className={c.CombinedKeyboardContainer}>
+				<o.Z
+					className={A_1(c.KeyboardContainer)}
+					flow-children="column"
+					navEntryPreferPosition={u.iU.MAINTAIN_Y}
+				>
+					{r}
+				</o.Z>
+				{R(appid)}
+			</o.Z>
+		</>
 	);
 }
 export function WP(e) {
@@ -482,9 +478,7 @@ export function WP(e) {
 		tab: {
 			id: "Keyboard",
 			title: "#ControllerConfigurator_ChooseBinding_Keyboard",
-			content: n.createElement(f, {
-				appid: e,
-			}),
+			content: <F appid={e} />,
 		},
 		bHasBinding: r,
 	};
@@ -498,9 +492,7 @@ export function uC(e) {
 		tab: {
 			id: "Keyboard",
 			title: "#ControllerConfigurator_ChooseBinding_Keyboard",
-			content: n.createElement(B, {
-				appid: e,
-			}),
+			content: <B appid={e} />,
 		},
 		bHasBinding: r,
 	};
@@ -508,7 +500,7 @@ export function uC(e) {
 function S(e) {
 	const t = e.keyData.labelAlignment ?? "center";
 	const r = l.v3?.CurrentEditedBinding?.keyboard_key?.key == e.keyData.key;
-	const i = (0, s.A)(
+	const i = A_1(
 		c.KeyboardKey,
 		t == "left" && c.LeftAlignedLabel,
 		t == "right" && c.RightAlignedLabel,
@@ -518,108 +510,93 @@ function S(e) {
 		e.keyData.secondaryLabel && c.HasSecondaryLabel,
 	);
 	const a = e.keyData.width == "*";
-	const u = (0, p.yq)();
+	const u = yq();
 	const d = e.keyData.label ?? Localize(e.keyData.labelLoc);
-	const A = n.useRef(null);
-	const [_, f] = n.useState(e.keyData.width);
+	const ARef = n.useRef(null);
+	const [_, set] = n.useState(e.keyData.width);
 	const b = n.useCallback(() => {
-		if (a && A.current) {
-			f(A.current.getBoundingClientRect().width);
+		if (a && ARef.current) {
+			set(ARef.current.getBoundingClientRect().width);
 		}
 	}, [a]);
-	const y = (0, g.wY)(b);
-	const S = (0, g.Ue)(y, A);
-	(0, g.l6)(window, "resize", b);
+	const y = wY(b);
+	const S = Ue(y, ARef);
+	l6(window, "resize", b);
 	n.useEffect(b, [b]);
 	const w = _ > 0 ? _ : e.keyData.width;
 	const B = e.keyData.key == 43 || e.keyData.key == 41;
-	const v = (0, h.w)(d, w * 0.75, {
+	const v = w_1(d, w * 0.75, {
 		maxLines: B ? 1 : 2,
 		fontFamily: '"Motiva Sans", Helvetica, sans-serif',
 		startingSizePx: 14,
 		minSizePx: 8,
 		minSingleWordBreakpoint: 8,
 	});
-	return n.createElement(
-		o.Z,
-		{
-			key: e.keyData.key,
-			onActivate: () => {
+	return (
+		<o.Z
+			key={e.keyData.key}
+			onActivate={() => {
 				Xg(e.appid, e.keyData.key);
 				u();
-			},
-			className: i,
-			ref: S,
-			style: {
+			}}
+			className={i}
+			ref={S}
+			style={{
 				height: e.keyData.height,
-				width: a ? null : e.keyData.width,
+				width: a || e.keyData.width,
 				flexGrow: a ? 1 : null,
-			},
-		},
-		e.keyData.secondaryLabel &&
-			n.createElement(
-				"div",
-				{
-					className: c.KeyboardKeyLabel,
-				},
-				e.keyData.secondaryLabel,
-			),
-		n.createElement(
-			"div",
-			{
-				className: c.KeyboardKeyLabel,
-				style: {
+			}}
+		>
+			{e.keyData.secondaryLabel && (
+				<div className={c.KeyboardKeyLabel}>{e.keyData.secondaryLabel}</div>
+			)}
+			<div
+				className={c.KeyboardKeyLabel}
+				style={{
 					fontSize: v,
 					wordWrap: "break-word",
 					wordBreak: "break-word",
-				},
-			},
-			d,
-		),
+				}}
+			>
+				{d}
+			</div>
+		</o.Z>
 	);
 }
 function w(e) {
 	return _.map((t, r) => {
-		const i = t.map((t) =>
-			n.createElement(S, {
-				key: t.key,
-				appid: e,
-				keyData: t,
-			}),
-		);
-		return n.createElement(
-			o.Z,
-			{
-				"flow-children": "row",
-				className: (0, s.A)(c.KeyboardRow, r == 0 && c.TopRow),
-				key: r,
-				navEntryPreferPosition: u.iU.MAINTAIN_X,
-				...A.C3,
-			},
-			i,
+		const i = t.map((t) => <S key={t.key} appid={e} keyData={t} />);
+		return (
+			<o.Z
+				flow-children="row"
+				className={A_1(c.KeyboardRow, r == 0 && c.TopRow)}
+				key={r}
+				navEntryPreferPosition={u.iU.MAINTAIN_X}
+				{...A.C3}
+			>
+				{i}
+			</o.Z>
 		);
 	});
 }
-const B = (0, i.PA)(function (e) {
-	const { appid: t } = e;
-	const r = w(t);
-	return n.createElement(
-		"div",
-		{
-			className: c.KeyboardPageContainer,
-		},
-		n.createElement(d.d, {
-			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
-		}),
-		n.createElement(
-			o.Z,
-			{
-				className: (0, s.A)(c.KeyboardContainer),
-				"flow-children": "column",
-				navEntryPreferPosition: u.iU.MAINTAIN_Y,
-			},
-			r,
-		),
+const B = PA((e) => {
+	const { appid } = e;
+	const r = w(appid);
+	return (
+		<div className={c.KeyboardPageContainer}>
+			<d.d
+				label={Localize(
+					"#ControllerConfigurator_ChooseBinding_Prompt_Keyboard",
+				)}
+			/>
+			<o.Z
+				className={A_1(c.KeyboardContainer)}
+				flow-children="column"
+				navEntryPreferPosition={u.iU.MAINTAIN_Y}
+			>
+				{r}
+			</o.Z>
+		</div>
 	);
 });
 const v = [
@@ -823,82 +800,60 @@ export function MZ(e) {
 		tab: {
 			id: "Numpad",
 			title: "#ControllerConfigurator_ChooseBinding_Numpad",
-			content: n.createElement(k, {
-				appid: e,
-			}),
+			content: <K appid={e} />,
 		},
 		bHasBinding: r,
 	};
 }
 function T(e) {
-	const { appid: t, columnElements: r, columnStyle: i } = e;
-	const a = r.map((e, r) => {
-		const i = e.map((e) =>
-			n.createElement(S, {
-				key: e.key,
-				appid: t,
-				keyData: e,
-			}),
-		);
-		return n.createElement(
-			o.Z,
-			{
-				"flow-children": "row",
-				className: (0, s.A)(c.NumpadRow, r == 0 && c.TopRow),
-				key: r,
-				navEntryPreferPosition: u.iU.MAINTAIN_X,
-			},
-			i,
+	const { appid, columnElements, columnStyle } = e;
+	const a = columnElements.map((e, r) => {
+		const i = e.map((e) => <S key={e.key} appid={appid} keyData={e} />);
+		return (
+			<o.Z
+				flow-children="row"
+				className={A_1(c.NumpadRow, r == 0 && c.TopRow)}
+				key={r}
+				navEntryPreferPosition={u.iU.MAINTAIN_X}
+			>
+				{i}
+			</o.Z>
 		);
 	});
-	return n.createElement(
-		o.Z,
-		{
-			className: (0, s.A)(i),
-			"flow-children": "column",
-			navEntryPreferPosition: u.iU.MAINTAIN_Y,
-		},
-		a,
+	return (
+		<o.Z
+			className={A_1(columnStyle)}
+			flow-children="column"
+			navEntryPreferPosition={u.iU.MAINTAIN_Y}
+		>
+			{a}
+		</o.Z>
 	);
 }
 function R(e) {
-	return n.createElement(
-		o.Z,
-		{
-			className: (0, s.A)(c.NumpadPageContainer),
-			navEntryPreferPosition: u.iU.MAINTAIN_X,
-		},
-		n.createElement(T, {
-			appid: e,
-			columnElements: v,
-		}),
-		n.createElement(T, {
-			appid: e,
-			columnElements: I,
-			columnStyle: c.MainNumpadColumn,
-		}),
-		n.createElement(T, {
-			appid: e,
-			columnElements: E,
-			columnStyle: c.RightNumpadColumn,
-		}),
+	return (
+		<o.Z
+			className={A_1(c.NumpadPageContainer)}
+			navEntryPreferPosition={u.iU.MAINTAIN_X}
+		>
+			<T appid={e} columnElements={v} />
+			<T appid={e} columnElements={I} columnStyle={c.MainNumpadColumn} />
+			<T appid={e} columnElements={E} columnStyle={c.RightNumpadColumn} />
+		</o.Z>
 	);
 }
-const k = (0, i.PA)(function (e) {
-	const { appid: t } = e;
-	return n.createElement(
-		n.Fragment,
-		null,
-		n.createElement(d.d, {
-			label: Localize("#ControllerConfigurator_ChooseBinding_Prompt_Keyboard"),
-		}),
-		n.createElement(
-			o.Z,
-			{
-				className: (0, s.A)(c.GamepadGridContainer),
-				"flow-children": "grid",
-			},
-			R(t),
-		),
+const K = PA((e) => {
+	const { appid } = e;
+	return (
+		<>
+			<d.d
+				label={Localize(
+					"#ControllerConfigurator_ChooseBinding_Prompt_Keyboard",
+				)}
+			/>
+			<o.Z className={A_1(c.GamepadGridContainer)} flow-children="grid">
+				{R(appid)}
+			</o.Z>
+		</>
 	);
 });

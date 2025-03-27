@@ -69,7 +69,9 @@ const K = (0, a.PA)(function (e) {
 	const n = (0, V.Qn)();
 	const a = t.appid;
 	const s = t.achievements;
-	const o = `${V.TS.COMMUNITY_BASE_URL}profiles/${t.steamIDActor.ConvertTo64BitString()}/stats/appid/${a}/achievements`;
+	const o = `${
+		V.TS.COMMUNITY_BASE_URL
+	}profiles/${t.steamIDActor.ConvertTo64BitString()}/stats/appid/${a}/achievements`;
 	const l = (0, d.Qt)(o);
 	if (s.length == 0) {
 		return null;

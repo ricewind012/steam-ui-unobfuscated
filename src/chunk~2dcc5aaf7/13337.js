@@ -1,11 +1,11 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require("./54946.js");
-var s = require(/*webcrack:missing*/ "./79769.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
+import n from "./63696.js";
+import i from "./12176.js";
+import a from "./54946.js";
+import s from "./79769.js";
+import { hL } from "./52451.js";
 export function mb(e) {
-	let [t, r] = n.useState(e.GetSubscriberAgreementInfo());
-	(0, o.hL)(e.SubscriberAgreementInfoChangedCallbacks, r);
+	let [t, setT] = n.useState(e.GetSubscriberAgreementInfo());
+	hL(e.SubscriberAgreementInfoChangedCallbacks, setT);
 	return t;
 }
 export const Yq = new (class {

@@ -1,120 +1,107 @@
-var n = require("./68854.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
 import { IsDateSameDay, ToUnixTime } from "../../actual_src/utils/time.js";
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require("./21597.js");
-var m = require("./57665.js");
-var u = require("./22165.js");
 import {
 	Localize,
 	LocalizeRtime32ToShorterDate,
 } from "../../actual_src/utils/localization.js";
-var A = require("./26271.js");
-var p = require("./4584.js");
-var g = require("./74827.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var C = require(/*webcrack:missing*/ "./69164.js");
-var _ = require("./55116.js");
-var f = require("./3499.js");
-var b = require("./94729.js");
-var y = require("./67429.js");
+import n from "./68854.js";
+import a from "./63696.js";
+import s, { q3 } from "./90095.js";
+import l, { A as A_1 } from "./90765.js";
+import c from "./21597.js";
+import m from "./57665.js";
+import u from "./22165.js";
+import A from "./26271.js";
+import p from "./4584.js";
+import g from "./74827.js";
+import h, { Qn } from "./72476.js";
+import C from "./69164.js";
+import _ from "./55116.js";
+import f, { Bo } from "./3499.js";
+import b from "./94729.js";
+import y, { bY } from "./67429.js";
+const i = n;
 export function T(e) {
-	let { details: t } = e;
-	let r = (0, s.q3)(() => g.Ri.GetPostGameSummary(t.unAppID));
+	let { details } = e;
+	let r = q3(() => g.Ri.GetPostGameSummary(details.unAppID));
 	if (r) {
-		return a.createElement(w, {
-			details: t,
-			summary: r,
-		});
+		return <W details={details} summary={r} />;
 	} else {
 		return null;
 	}
 }
-function w(e) {
-	let { details: t, summary: r } = e;
-	let n = (0, h.Qn)();
-	let c = (0, s.q3)(() =>
-		(function (e, t, r) {
+function W(e) {
+	let { details, summary } = e;
+	let n = Qn();
+	let c = q3(() =>
+		((e, t, r) => {
 			let n = true;
-			let s = (0, y.bY)(e);
+			let s = bY(e);
 			let l = [];
 			let c = null;
 			let u = null;
 			let d = null;
 			for (let A = t.length - 1; A >= 0; A--) {
-				let p = t[A];
-				if (d === p) {
+				let t_A = t[A];
+				if (d === t_A) {
 					continue;
 				}
 				let g = null;
 				let h = "";
 				let C = null;
 				let _ = null;
-				if (p.m_screenshot) {
-					g = new Date(p.m_screenshot.nCreated * 1000);
-					h = `SummaryScreenshot_${p.m_screenshot.nAppID}_${p.m_screenshot.hHandle}`;
-					C = a.createElement(N, {
-						screenshot: p.m_screenshot,
-					});
+				if (t_A.m_screenshot) {
+					g = new Date(t_A.m_screenshot.nCreated * 1000);
+					h = `SummaryScreenshot_${t_A.m_screenshot.nAppID}_${t_A.m_screenshot.hHandle}`;
+					C = <N screenshot={t_A.m_screenshot} />;
 					n = false;
 					_ = 0;
-				} else if (p.m_clip) {
-					g = new Date(p.m_clip.date_clipped * 1000);
-					h = `SummaryClip_${p.m_clip.clip_id}`;
-					C = a.createElement(b.$d, {
-						clip: p.m_clip,
-					});
+				} else if (t_A.m_clip) {
+					g = new Date(t_A.m_clip.date_clipped * 1000);
+					h = `SummaryClip_${t_A.m_clip.clip_id}`;
+					C = <b.$d clip={t_A.m_clip} />;
 					n = false;
 					_ = 3;
-				} else if (p.m_recordingHighlights) {
-					g = E(p.m_recordingHighlights);
+				} else if (t_A.m_recordingHighlights) {
+					g = E(t_A.m_recordingHighlights);
 					h = "RecordingHighlights";
-					C = a.createElement(b.$B, {
-						gameID: s,
-						highlights: p.m_recordingHighlights,
-					});
+					C = <b.$B gameID={s} highlights={t_A.m_recordingHighlights} />;
 					n = false;
 					_ = 4;
-				} else if (p.m_achievement) {
-					g = new Date(p.m_achievement.achievement.rtUnlocked * 1000);
-					h = `Ach_${p.m_achievement.achievement.strID}`;
+				} else if (t_A.m_achievement) {
+					g = new Date(t_A.m_achievement.achievement.rtUnlocked * 1000);
+					h = `Ach_${t_A.m_achievement.achievement.strID}`;
 					if (r) {
-						C = a.createElement(m.hs, {
-							key: p.m_achievement.achievement.strID,
-							className: i.SummaryAchievement,
-							iconClassNames: i.SummaryAchievementIcon,
-							appid: e,
-							achievement: p.m_achievement.achievement,
-							featured: true,
-							showStats: true,
-						});
+						C = (
+							<m.hs
+								key={t_A.m_achievement.achievement.strID}
+								className={i.SummaryAchievement}
+								iconClassNames={i.SummaryAchievementIcon}
+								appid={e}
+								achievement={t_A.m_achievement.achievement}
+								featured
+								showStats
+							/>
+						);
 					} else {
 						let r = B(t, A - 1, g);
-						let i = [p.m_achievement.achievement];
+						let i = [t_A.m_achievement.achievement];
 						if (r) {
 							i.push(r.m_achievement.achievement);
 							d = r;
 						}
-						C = a.createElement(D, {
-							appid: e,
-							achievements: i,
-						});
+						C = <D appid={e} achievements={i} />;
 						if (i.length > 1) {
 							n = false;
 						}
 					}
 					_ = 2;
 				} else {
-					if (!p.m_tradingCard) {
+					if (!t_A.m_tradingCard) {
 						continue;
 					}
-					g = new Date(p.m_tradingCard.rtReceived * 1000);
-					h = `SummaryTradingCard_${p.m_tradingCard.strName}`;
-					C = a.createElement(F, {
-						card: p.m_tradingCard,
-					});
+					g = new Date(t_A.m_tradingCard.rtReceived * 1000);
+					h = `SummaryTradingCard_${t_A.m_tradingCard.strName}`;
+					C = <F card={t_A.m_tradingCard} />;
 					n = false;
 					_ = 1;
 				}
@@ -122,111 +109,81 @@ function w(e) {
 				let y = c != null && !f;
 				if (A != t.length - 1 && !y) {
 					let e = I(u, _);
-					l.push(
-						a.createElement(R, {
-							key: `Separator_${A}`,
-							spaceOnly: e,
-						}),
-					);
+					l.push(<R key={`Separator_${A}`} spaceOnly={e} />);
 				}
 				if (y) {
-					l.push(
-						a.createElement(_T, {
-							key: `Separator_${g.getTime()}`,
-						}),
-					);
+					l.push(<_T key={`Separator_${g.getTime()}`} />);
 				}
 				c = g;
 				u = _;
 				l.push(
-					a.createElement(
-						k,
-						{
-							key: h,
-							created: g,
-							includeHeader: !f,
-							noanim: true,
-						},
-						C,
-					),
+					<K key={h} created={g} includeHeader={!f} noanim>
+						{C}
+					</K>,
 				);
 			}
 			return {
 				children: l,
 				bShort: n,
 			};
-		})(t.unAppID, r.GetSessionEvents(), n),
+		})(details.unAppID, summary.GetSessionEvents(), n),
 	);
-	let u = a.createElement(
-		"div",
-		{
-			className: i.GamePlaySummaryHeader,
-		},
-		Localize("#AppSpotlight_PostGameSummary"),
+	let u = (
+		<div className={i.GamePlaySummaryHeader}>
+			{Localize("#AppSpotlight_PostGameSummary")}
+		</div>
 	);
 	let f = a.useCallback(() => {
-		g.Ri.StopShowingGamePlaySpotlight(t.unAppID);
-	}, [t.unAppID]);
-	let S = (0, l.A)(
-		i.GamePlaySummaryContainer,
-		c.bShort && i.GamePlaySummaryShort,
+		g.Ri.StopShowingGamePlaySpotlight(details.unAppID);
+	}, [details.unAppID]);
+	let S = A_1(i.GamePlaySummaryContainer, c.bShort && i.GamePlaySummaryShort);
+	const w = ({ htmlElementRef, className, ...r }) => (
+		<div
+			className={A_1(className, i.SummaryCarouselScrollingContainer)}
+			{...r}
+			ref={htmlElementRef}
+		/>
 	);
-	const w = ({ htmlElementRef: e, className: t, ...r }) =>
-		a.createElement("div", {
-			className: (0, l.A)(t, i.SummaryCarouselScrollingContainer),
-			...r,
-			ref: e,
-		});
-	return a.createElement(
-		C.Z,
-		{
-			className: S,
-		},
-		a.createElement(
-			_.q,
-			null,
-			n && u,
-			a.createElement(
-				p.C,
-				{
-					name: Localize("#LibraryHome_NewUpdates"),
-					bNoHeader: n,
-					customheader: u,
-					bShowCloseButton: true,
-					onCloseButtonClicked: f,
-					buttonSize: "small",
-					headerPadding: "0px 8px 0px 0px",
-				},
-				(e, t) =>
-					a.createElement(
-						A.Q,
-						{
-							className: i.SummaryCarouselContainer,
-							leftMargin: 32,
-							ref: e,
-							fnUpdateArrows: t,
-							edgeMask: "none",
-							fnRenderScrollingDiv: w,
-						},
-						c.children,
-						a.createElement("div", {
-							className: i.ForcedCarouselPadding,
-							"data-carousel": "ignore",
-						}),
-					),
-			),
-		),
+	return (
+		<C.Z className={S}>
+			<_.q>
+				{n && u}
+				<p.C
+					name={Localize("#LibraryHome_NewUpdates")}
+					bNoHeader={n}
+					customheader={u}
+					bShowCloseButton
+					onCloseButtonClicked={f}
+					buttonSize="small"
+					headerPadding="0px 8px 0px 0px"
+				>
+					{(e, t) => (
+						<A.Q
+							className={i.SummaryCarouselContainer}
+							leftMargin={32}
+							ref={e}
+							fnUpdateArrows={t}
+							edgeMask="none"
+							fnRenderScrollingDiv={w}
+						>
+							{c.children}
+							<div className={i.ForcedCarouselPadding} data-carousel="ignore" />
+						</A.Q>
+					)}
+				</p.C>
+			</_.q>
+		</C.Z>
 	);
 }
 function B(e, t, r) {
 	for (let n = t; n >= 0; n--) {
-		let t = e[n];
-		if (!t.m_achievement) {
+		let e_n = e[n];
+		if (!e_n.m_achievement) {
 			continue;
 		}
-		let i = new Date(t.m_achievement.achievement.rtUnlocked * 1000);
+		let i = new Date(e_n.m_achievement.achievement.rtUnlocked * 1000);
 		if (IsDateSameDay(r, i)) {
-			return t;
+			return e_n;
 		} else {
 			return null;
 		}
@@ -237,8 +194,9 @@ function v(e) {
 	switch (e) {
 		case 0:
 		case 3:
-		case 4:
+		case 4: {
 			return true;
+		}
 	}
 	return false;
 }
@@ -260,78 +218,62 @@ function M(e) {
 	if (e.rtime > 0) {
 		t = LocalizeRtime32ToShorterDate(e.rtime);
 	}
-	return a.createElement(
-		"div",
-		{
-			className: i.EventHeaderBlock,
-		},
-		t,
-	);
+	return <div className={i.EventHeaderBlock}>{t}</div>;
 }
 function _T() {
-	return a.createElement("div", {
-		className: i.EventDaySeparator,
-		"data-carousel": "ignore",
-	});
+	return <div className={i.EventDaySeparator} data-carousel="ignore" />;
 }
 function R(e) {
-	return a.createElement("div", {
-		className: (0, l.A)(i.TypeSeparator, e.spaceOnly && i.SpaceOnly),
-		"data-carousel": "ignore",
-	});
+	return (
+		<div
+			className={A_1(i.TypeSeparator, e.spaceOnly && i.SpaceOnly)}
+			data-carousel="ignore"
+		/>
+	);
 }
-function k(e) {
+function K(e) {
 	let t = e.includeHeader ? ToUnixTime(e.created) : 0;
-	return a.createElement(
-		"div",
-		{
-			className: (0, l.A)(i.SummaryContainer, e.noanim && i.NoAnimation),
-		},
-		a.createElement(M, {
-			rtime: t,
-		}),
-		a.createElement(
-			"div",
-			{
-				className: i.SummaryContainerChildren,
-			},
-			e.children,
-		),
+	return (
+		<div className={A_1(i.SummaryContainer, e.noanim && i.NoAnimation)}>
+			<M rtime={t} />
+			<div className={i.SummaryContainerChildren}>{e.children}</div>
+		</div>
 	);
 }
 function D(e) {
 	let t = e.achievements.slice(0, 2);
-	return a.createElement(
-		C.Z,
-		{
-			"flow-children": "column",
-			className: i.SummaryAchievementStack,
-		},
-		t.map((t) =>
-			a.createElement(m.hs, {
-				key: t.strID,
-				className: i.SummaryAchievement,
-				appid: e.appid,
-				achievement: t,
-				featured: true,
-				showStats: true,
-			}),
-		),
+	return (
+		<C.Z flow-children="column" className={i.SummaryAchievementStack}>
+			{t.map((t) => (
+				<m.hs
+					key={t.strID}
+					className={i.SummaryAchievement}
+					appid={e.appid}
+					achievement={t}
+					featured
+					showStats
+				/>
+			))}
+		</C.Z>
 	);
 }
 function N(e) {
-	return a.createElement(c.R, {
-		className: i.SummaryScreenshot,
-		screenshot: (0, f.Bo)(e.screenshot),
-		sizeAxis: "height",
-	});
+	return (
+		<c.R
+			className={i.SummaryScreenshot}
+			screenshot={Bo(e.screenshot)}
+			sizeAxis="height"
+		/>
+	);
 }
 function F(e) {
-	return a.createElement(u.dI, {
-		className: i.SummaryTradingCard,
-		bMaxed: false,
-		data: e.card,
-		animateHover: true,
-		cardScale: 1.1,
-	});
+	return (
+		<u.dI
+			className={i.SummaryTradingCard}
+			bMaxed={false}
+			data={e.card}
+			animateHover
+			cardScale={1.1}
+		/>
+	);
 }

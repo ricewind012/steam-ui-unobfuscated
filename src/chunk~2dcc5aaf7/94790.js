@@ -1,42 +1,39 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./78325.js");
-var a = require(/*webcrack:missing*/ "./91435.js");
-var s = require(/*webcrack:missing*/ "./3673.js");
-var o = require(/*webcrack:missing*/ "./98995.js");
+import n from "./63696.js";
+import i from "./78325.js";
+import { yk, oJ } from "./91435.js";
+import { tx } from "./3673.js";
+import o from "./98995.js";
 export function E(e) {
-	const { active: t, children: r } = e;
-	const l = (0, a.yk)() || (0, s.tx)(window);
-	const c = (0, a.oJ)();
-	const [m, u] = n.useState(null);
-	const [d, A] = n.useState(false);
-	const p = n.useRef();
+	const { active, children } = e;
+	const l = yk() || tx(window);
+	const C = oJ();
+	const [m, setM] = n.useState(null);
+	const [d, setD] = n.useState(false);
+	const PRef = n.useRef();
 	n.useEffect(() => {
-		if (t) {
+		if (active) {
 			const e = l.ShowPortalModal();
-			const t = e.OnElementReadyCallbacks.Register(u);
-			const r = e.OnModalActiveCallbacks.Register(A);
-			p.current = e.key;
+			const t = e.OnElementReadyCallbacks.Register(setM);
+			const r = e.OnModalActiveCallbacks.Register(setD);
+			PRef.current = e.key;
 			return () => {
-				u(null);
-				A(false);
+				setM(null);
+				setD(false);
 				e.Close();
 				t.Unregister();
 				r.Unregister();
 			};
 		}
-	}, [l, t]);
-	if (!m || !t) {
+	}, [l, active]);
+	if (!m || !active) {
 		return null;
 	}
-	let g = n.createElement(o.C$, null, r);
-	if (c) {
-		g = n.createElement(
-			c,
-			{
-				active: d,
-				modalKey: p.current,
-			},
-			g,
+	let g = <o.C$>{children}</o.C$>;
+	if (C) {
+		g = (
+			<C active={d} modalKey={PRef.current}>
+				{g}
+			</C>
 		);
 	}
 	return i.createPortal(g, m);

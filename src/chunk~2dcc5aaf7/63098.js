@@ -1,6 +1,6 @@
-var n = require("./23472.js");
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-var a = require(/*webcrack:missing*/ "./79769.js");
+import { $U } from "./23472.js";
+import a from "./79769.js";
 export const U = new (class {
 	m_rgActivePopups = [];
 	m_callbackPopupsChanged = new a.lu();
@@ -12,7 +12,7 @@ export const U = new (class {
 	}
 	ShowGameNotesPopup(e, t, r) {
 		const a = this.m_rgActivePopups.find(
-			(t) => (0, n.$U)(t.noteParent, e) && t.noteid === r,
+			(t) => $U(t.noteParent, e) && t.noteid === r,
 		);
 		if (a) {
 			if (a.focus) {
@@ -21,7 +21,9 @@ export const U = new (class {
 			return;
 		}
 		const s = {
-			id: `GameNotesPopup_${"appid" in e ? e.appid : `shortcut_${e.shortcut}`}_${r || "list"}`,
+			id: `GameNotesPopup_${
+				"appid" in e ? e.appid : `shortcut_${e.shortcut}`
+			}_${r || "list"}`,
 			display_name: t,
 			noteParent: e,
 			noteid: r,

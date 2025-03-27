@@ -1,4 +1,4 @@
-var n = {
+const n = {
 	"./steamui_arabic.json": [46564, 2889],
 	"./steamui_brazilian.json": [41390, 3087],
 	"./steamui_bulgarian.json": [16869, 5864],
@@ -34,15 +34,15 @@ var n = {
 function i(e) {
 	if (!require.o(n, e)) {
 		return Promise.resolve().then(() => {
-			var t = new Error("Cannot find module '" + e + "'");
+			const t = new Error(`Cannot find module '${e}'`);
 			t.code = "MODULE_NOT_FOUND";
 			throw t;
 		});
 	}
-	var t = n[e];
-	var i = t[0];
-	return require.e(t[1]).then(() => require.t(i, 19));
+	const n_e = n[e];
+	const [i] = n_e;
+	return require.e(n_e[1]).then(() => require.t(i, 19));
 }
 i.keys = () => Object.keys(n);
 i.id = 61800;
-module.exports = i;
+export default i;

@@ -1,8 +1,17 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./96593.js");
-var a = require("./61175.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
 import { Localize } from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i from "./96593.js";
+import a from "./61175.js";
+import s, { Gn, HO } from "./89193.js";
+import C from "./52451.js";
+import { td } from "./72476.js";
+import { w as w_1 } from "./49455.js";
+import b from "./8573.js";
+import y from "./48289.js";
+import S from "./34792.js";
+import w, { L as L_1 } from "./76319.js";
+import { I as I_1 } from "./66343.js";
+import { Yz } from "./51095.js";
 const l = 44032;
 const c = 588;
 const m = 12592;
@@ -51,26 +60,31 @@ function g(e, t) {
 			t = e >= C && e < C + c;
 		} else if (e >= r) {
 			switch (h) {
-				case 0:
+				case 0: {
 					t = e - r < 28;
 					break;
-				case 1:
+				}
+				case 1: {
 					t = e - r == 2;
 					break;
-				case 4:
+				}
+				case 4: {
 					t = e - r < 3;
 					break;
-				case 8:
+				}
+				case 8: {
 					t = e - r < 8;
 					break;
-				case 17:
+				}
+				case 17: {
 					t = e - r < 2;
+				}
 			}
 		} else if (g.length >= a.length + 2 && r - e < 28) {
 			if ((e - l) % 28 === d[h]) {
-				const e = A[h];
-				if (e >= 0) {
-					const r = l + e * c;
+				const A_h = A[h];
+				if (A_h >= 0) {
+					const r = l + A_h * c;
 					const n = g.charCodeAt(a.length + 1);
 					t = n >= r && n < r + c;
 				}
@@ -92,16 +106,7 @@ function g(e, t) {
 	}
 	return -1;
 }
-var h;
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require(/*webcrack:missing*/ "./72476.js");
-var f = require(/*webcrack:missing*/ "./49455.js");
-var b = require(/*webcrack:missing*/ "./8573.js");
-var y = require("./48289.js");
-var S = require("./34792.js");
-var w = require("./76319.js");
-var B = require(/*webcrack:missing*/ "./66343.js");
-var v = require("./51095.js");
+let h;
 function I(e, t) {
 	return Object.assign(
 		{
@@ -117,140 +122,196 @@ export function Pj(e) {
 export function $P(e, t) {
 	const r = t;
 	switch (e) {
-		case 1:
+		case 1: {
 			return D[r];
-		case 2:
+		}
+		case 2: {
 			return k[r];
-		case 0:
-			return (function (e) {
+		}
+		case 0: {
+			return ((e) => {
 				switch (e) {
-					case 0:
+					case 0: {
 						return "k_EAppTypeInvalid";
-					case 1:
+					}
+					case 1: {
 						return "k_EAppTypeGame";
-					case 2:
+					}
+					case 2: {
 						return "k_EAppTypeApplication";
-					case 4:
+					}
+					case 4: {
 						return "k_EAppTypeTool";
-					case 8:
+					}
+					case 8: {
 						return "k_EAppTypeDemo";
-					case 16:
+					}
+					case 16: {
 						return "k_EAppTypeDeprected";
-					case 32:
+					}
+					case 32: {
 						return "k_EAppTypeDLC";
-					case 64:
+					}
+					case 64: {
 						return "k_EAppTypeGuide";
-					case 128:
+					}
+					case 128: {
 						return "k_EAppTypeDriver";
-					case 256:
+					}
+					case 256: {
 						return "k_EAppTypeConfig";
-					case 512:
+					}
+					case 512: {
 						return "k_EAppTypeHardware";
-					case 1024:
+					}
+					case 1024: {
 						return "k_EAppTypeFranchise";
-					case 2048:
+					}
+					case 2048: {
 						return "k_EAppTypeVideo";
-					case 4096:
+					}
+					case 4096: {
 						return "k_EAppTypePlugin";
-					case 8192:
+					}
+					case 8192: {
 						return "k_EAppTypeMusicAlbum";
-					case 16384:
+					}
+					case 16384: {
 						return "k_EAppTypeSeries";
-					case 32768:
+					}
+					case 32768: {
 						return "k_EAppTypeComic";
-					case 65536:
+					}
+					case 65536: {
 						return "k_EAppTypeBeta";
-					case 1073741824:
+					}
+					case 1073741824: {
 						return "k_EAppTypeShortcut";
-					case -2147483648:
+					}
+					case -2147483648: {
 						return "k_EAppTypeDepotOnly";
+					}
 				}
-				return "Unknown_EProtoAppType_" + e;
+				return `Unknown_EProtoAppType_${e}`;
 			})(r);
-		case 3:
-			return (function (e) {
+		}
+		case 3: {
+			return ((e) => {
 				switch (e) {
-					case 19:
+					case 19: {
 						return "Action";
-					case 21:
+					}
+					case 21: {
 						return "Adventure";
-					case 597:
+					}
+					case 597: {
 						return "Casual";
-					case 492:
+					}
+					case 492: {
 						return "Indie";
-					case 128:
+					}
+					case 128: {
 						return "MMO";
-					case 699:
+					}
+					case 699: {
 						return "Racing";
-					case 122:
+					}
+					case 122: {
 						return "RPG";
-					case 599:
+					}
+					case 599: {
 						return "Simulation";
-					case 701:
+					}
+					case 701: {
 						return "Sports";
-					case 9:
+					}
+					case 9: {
 						return "Strategy";
+					}
 				}
-				return "Unknown_EGenre_" + e;
+				return `Unknown_EGenre_${e}`;
 			})(r);
-		case 4:
-			return (function (e) {
+		}
+		case 4: {
+			return ((e) => {
 				switch (e) {
-					case 1:
+					case 1: {
 						return "MultiPlayer";
-					case 2:
+					}
+					case 2: {
 						return "SinglePlayer";
-					case 9:
+					}
+					case 9: {
 						return "CoOp";
-					case 18:
+					}
+					case 18: {
 						return "PartialController";
-					case 20:
+					}
+					case 20: {
 						return "MMO";
-					case 22:
+					}
+					case 22: {
 						return "Achievements";
-					case 23:
+					}
+					case 23: {
 						return "SteamCloud";
-					case 24:
+					}
+					case 24: {
 						return "SplitScreen";
-					case 27:
+					}
+					case 27: {
 						return "CrossPlatformMultiPlayer";
-					case 28:
+					}
+					case 28: {
 						return "FullController";
-					case 29:
+					}
+					case 29: {
 						return "TradingCards";
-					case 30:
+					}
+					case 30: {
 						return "Workshop";
-					case 31:
+					}
+					case 31: {
 						return "VRSupport";
-					case 36:
+					}
+					case 36: {
 						return "OnlineMultiPlayer";
-					case 37:
+					}
+					case 37: {
 						return "LocalMultiPlayer";
-					case 38:
+					}
+					case 38: {
 						return "OnlineCoOp";
-					case 39:
+					}
+					case 39: {
 						return "LocalCoOp";
-					case 44:
+					}
+					case 44: {
 						return "RemotePlayTogether";
-					case 50:
+					}
+					case 50: {
 						return "HighQualitySoundtrackAudio";
-					case 62:
+					}
+					case 62: {
 						return "FamilySharing";
+					}
 				}
-				return "Unknown_EStoreCategory_" + e;
+				return `Unknown_EStoreCategory_${e}`;
 			})(r);
-		case 5:
-			return (function (e) {
+		}
+		case 5: {
+			return ((e) => {
 				if (e === h.EASubscription) {
 					return "EAAccess";
 				}
 			})(r);
-		case 6:
-			return (function (e) {
+		}
+		case 6: {
+			return ((e) => {
 				const t = y.O$.GetFriendState(b.b.InitFromAccountID(e));
 				if (t.nickname && t.persona) {
 					if (S.rV.communityPreferences.bParenthesizeNicknames) {
-						return t.persona.m_strPlayerName + " (" + t.nickname + ")";
+						return `${t.persona.m_strPlayerName} (${t.nickname})`;
 					} else {
 						return t.nickname;
 					}
@@ -258,8 +319,10 @@ export function $P(e, t) {
 					return t.display_name;
 				}
 			})(t);
-		default:
-			return "Unknown_EFilterGroup_" + e + "_" + t;
+		}
+		default: {
+			return `Unknown_EFilterGroup_${e}_${t}`;
+		}
 	}
 }
 export function Qv(e, t) {
@@ -277,14 +340,14 @@ export function gS(e) {
 	if (e == "ignored") {
 		return null;
 	}
-	if (k.indexOf(e) >= 0) {
+	if (k.includes(e)) {
 		t = 2;
 		r = k.indexOf(e);
-		n = (0, Localize)("#FilterElement_" + e);
-	} else if (D.indexOf(e) >= 0) {
+		n = (0, Localize)(`#FilterElement_${e}`);
+	} else if (D.includes(e)) {
 		t = 1;
 		r = D.indexOf(e);
-		n = (0, Localize)("#FilterElement_" + e);
+		n = (0, Localize)(`#FilterElement_${e}`);
 	} else {
 		r = parseInt(e);
 		if (!r) {
@@ -302,7 +365,7 @@ export function gS(e) {
 		name: n,
 	};
 }
-(function (e) {
+((e) => {
 	e[(e.EASubscription = 4000)] = "EASubscription";
 })((h ||= {}));
 const k = [
@@ -354,71 +417,109 @@ export function Xr(e) {
 			return false;
 		}
 		switch (t) {
-			case 1:
+			case 1: {
 				return e.xbox_controller_support == 2 || e.BHasStoreCategory(28);
-			case 2:
+			}
+			case 2: {
 				return (
 					e.xbox_controller_support == 2 ||
+					e.xbox_controller_support == 1 ||
+					e.xbox_controller_support == 1 ||
+					e.BHasStoreCategory(28) ||
 					e.xbox_controller_support == 1 ||
 					e.BHasStoreCategory(28) ||
 					e.BHasStoreCategory(18)
 				);
-			case 3:
+			}
+			case 3: {
 				return e.vr_supported || e.BHasStoreCategory(31);
-			case 4:
+			}
+			case 4: {
 				return e.BHasStoreCategory(29);
-			case 5:
+			}
+			case 5: {
 				return e.BHasStoreCategory(30);
-			case 6:
+			}
+			case 6: {
 				return e.BHasStoreCategory(22);
-			case 7:
+			}
+			case 7: {
 				return e.BHasStoreCategory(2);
-			case 8:
+			}
+			case 8: {
 				return (
 					e.BHasStoreCategory(1) ||
+					e.BHasStoreCategory(36) ||
+					e.BHasStoreCategory(36) ||
+					e.BHasStoreCategory(37) ||
+					e.BHasStoreCategory(36) ||
+					e.BHasStoreCategory(37) ||
+					e.BHasStoreCategory(27) ||
+					e.BHasStoreCategory(36) ||
+					e.BHasStoreCategory(37) ||
+					e.BHasStoreCategory(27) ||
+					e.BHasStoreCategory(20) ||
 					e.BHasStoreCategory(36) ||
 					e.BHasStoreCategory(37) ||
 					e.BHasStoreCategory(27) ||
 					e.BHasStoreCategory(20) ||
 					e.BHasStoreCategory(24)
 				);
-			case 9:
+			}
+			case 9: {
 				return (
 					e.BHasStoreCategory(9) ||
 					e.BHasStoreCategory(38) ||
+					e.BHasStoreCategory(38) ||
 					e.BHasStoreCategory(39)
 				);
-			case 10:
+			}
+			case 10: {
 				return e.BHasStoreCategory(23);
-			case 11:
+			}
+			case 11: {
 				return e.BHasStoreCategory(44);
-			case 12:
+			}
+			case 12: {
 				return e.steam_deck_compat_category >= 3;
-			case 13:
+			}
+			case 13: {
 				return e.steam_deck_compat_category >= 2;
-			case 14:
+			}
+			case 14: {
 				return e.steam_deck_compat_category != 1;
-			case 15:
-				(0, f.w)(false, "Found SteamDeckUnsupported set in AppFilter");
+			}
+			case 15: {
+				w_1(false, "Found SteamDeckUnsupported set in AppFilter");
 				return true;
-			case 16:
+			}
+			case 16: {
 				return e.BHasStoreCategory(55) || e.BHasStoreCategory(56);
-			case 17:
+			}
+			case 17: {
 				return e.BHasStoreCategory(56);
-			case 18:
+			}
+			case 18: {
 				return e.BHasStoreCategory(57) || e.BHasStoreCategory(58);
-			case 19:
+			}
+			case 19: {
 				return e.BHasStoreCategory(58);
-			case 20:
+			}
+			case 20: {
 				return e.BHasStoreCategory(59);
-			case 21:
+			}
+			case 21: {
 				return e.BHasStoreCategory(60);
-			case 22:
+			}
+			case 22: {
 				return e.BHasStoreCategory(61);
-			case 23:
+			}
+			case 23: {
 				return e.BHasStoreCategory(62);
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	};
 }
@@ -432,23 +533,28 @@ function O(e) {
 				const [t] = S.rV.GetClientSetting("ready_to_play_includes_streaming");
 				return !!t && e.per_client_data.some((e) => e.installed);
 			}
-			case 1:
+			case 1: {
 				return (
 					e.canonicalAppType != 2048 &&
 					e.local_per_client_data &&
 					!!e.local_per_client_data.installed
 				);
-			case 3:
+			}
+			case 3: {
 				return e.rt_last_time_played > 0;
-			case 4:
+			}
+			case 4: {
 				return !e.rt_last_time_played;
-			case 5:
+			}
+			case 5: {
 				return (
-					!!(0, _.td)() ||
+					!!td() ||
 					(e.is_available_on_current_platform && !e.is_invalid_os_type)
 				);
-			default:
+			}
+			default: {
 				return false;
+			}
 		}
 	};
 }
@@ -488,20 +594,20 @@ export function Nm(e, t) {
 			}
 		});
 		for (let r = 0; r < n.length; ++r) {
-			const c = n[r];
+			const n_r = n[r];
 			let m;
 			let u;
 			let d = 0;
 			{
-				let n = e.indexOf(c, t[0].begin);
+				let n = e.indexOf(n_r, t[0].begin);
 				let o = 0;
 				while (n >= 0 && o < t.length) {
 					if (n >= t[o].end) {
 						++o;
 					} else if (n < t[o].begin) {
-						n = e.indexOf(c, t[o].begin);
+						n = e.indexOf(n_r, t[o].begin);
 					} else {
-						i = c;
+						i = n_r;
 						a = e;
 						const t =
 							(s = n) == 0
@@ -517,21 +623,21 @@ export function Nm(e, t) {
 							m = n;
 							u = o;
 						}
-						n = e.indexOf(c, n + 1);
+						n = e.indexOf(n_r, n + 1);
 					}
 				}
 				if (m == null) {
-					const t = c.length;
-					for (let n = 0; n < e.length - t; n++) {
-						const i = (0, B.I)(c, e.substring(n, n + t));
+					const n_r_length = n_r.length;
+					for (let n = 0; n < e.length - n_r_length; n++) {
+						const i = I_1(n_r, e.substring(n, n + n_r_length));
 						let a;
-						if (i / t >= 0.5) {
+						if (i / n_r_length >= 0.5) {
 							a = 0;
 						}
-						if (r == l && t > 4 && i < 2) {
-							a = (1 + (t - i) / e.length) / 4;
-						} else if (c.length > 4) {
-							a = (t - i) / e.length / 4;
+						if (r == l && n_r_length > 4 && i < 2) {
+							a = (1 + (n_r_length - i) / e.length) / 4;
+						} else if (n_r.length > 4) {
+							a = (n_r_length - i) / e.length / 4;
 						}
 						if (a > d && a > 0.1) {
 							d = a;
@@ -540,7 +646,7 @@ export function Nm(e, t) {
 				}
 			}
 			if (r != n.length - 1) {
-				const e = m + c.length;
+				const e = m + n_r.length;
 				const r = t[u ?? 0];
 				if (m == r?.begin) {
 					if (e >= r.end) {
@@ -574,7 +680,7 @@ export function Nm(e, t) {
 export class E6 {
 	m_filterSpec = undefined;
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		if (e) {
 			e.filterGroups[2].rgOptions =
 				e.filterGroups[2].rgOptions?.filter((e) => e != 15) || [];
@@ -604,16 +710,21 @@ export class E6 {
 	}
 	static LocalizeAppType(e) {
 		switch (e) {
-			case 1:
+			case 1: {
 				return "#AppType_1";
-			case 2:
+			}
+			case 2: {
 				return "#AppType_2";
-			case 8192:
+			}
+			case 8192: {
 				return "#AppType_2000";
-			case 2048:
+			}
+			case 2048: {
 				return "#AppType_800";
-			case 4:
+			}
+			case 4: {
 				return "#AppType_4";
+			}
 		}
 		return "";
 	}
@@ -627,7 +738,7 @@ export class E6 {
 		if (r.length > 0 && r.length != t.length) {
 			e.push(
 				t
-					.filter((e) => r.indexOf(e) !== -1)
+					.filter((e) => r.includes(e))
 					.map((e) => (0, Localize)(E6.LocalizeAppType(e)))
 					.join(", "),
 			);
@@ -635,13 +746,13 @@ export class E6 {
 		let n = this.GetSelectedOptions(1);
 		if (n.length > 0) {
 			e.push(
-				n.map((e) => (0, Localize)("#FilterElement_" + $P(1, e))).join(", "),
+				n.map((e) => (0, Localize)(`#FilterElement_${$P(1, e)}`)).join(", "),
 			);
 		}
 		let a = this.GetSelectedOptions(2);
 		if (a.length > 0) {
 			e.push(
-				a.map((e) => (0, Localize)("#FilterElement_" + $P(2, e))).join(", "),
+				a.map((e) => (0, Localize)(`#FilterElement_${$P(2, e)}`)).join(", "),
 			);
 		}
 		let s = this.GetSelectedOptions(3);
@@ -686,7 +797,7 @@ export class E6 {
 			e.push({
 				eGroup: 2,
 				option: t,
-				name: (0, Localize)("#FilterElement_" + r),
+				name: (0, Localize)(`#FilterElement_${r}`),
 			});
 		});
 		this.GetSelectedOptions(1).forEach((t) => {
@@ -694,7 +805,7 @@ export class E6 {
 			e.push({
 				eGroup: 1,
 				option: t,
-				name: (0, Localize)("#FilterElement_" + r),
+				name: (0, Localize)(`#FilterElement_${r}`),
 			});
 		});
 		this.GetSelectedOptions(4).forEach((t) => {
@@ -719,16 +830,13 @@ export class E6 {
 		if (this.searchText.length > 0) {
 			return "";
 		} else {
-			return (
-				"?tags=" +
-				this.GetAllSelectedOptions()
-					.map((e) => e.option)
-					.join(",")
-			);
+			return `?tags=${this.GetAllSelectedOptions()
+				.map((e) => e.option)
+				.join(",")}`;
 		}
 	}
 	BIsSelected(e, t) {
-		return this.GetSelectedOptions(e).indexOf(t) >= 0;
+		return this.GetSelectedOptions(e).includes(t);
 	}
 	GetCurrentControllerSpecificOption() {
 		const e = [2, 16, 18, 20];
@@ -769,7 +877,7 @@ export class E6 {
 		}
 		if (e == 6 && r) {
 			y.O$.RefreshOwnedGames(t);
-			(0, w.L)("Library/AddFriendToFilter");
+			L_1("Library/AddFriendToFilter");
 		}
 		let i = n.indexOf(t);
 		if (r && i < 0) {
@@ -817,7 +925,12 @@ export class E6 {
 			}
 			let t = this.m_filterSpec.strSearchText.toLowerCase();
 			let r = e.display_name.toLowerCase();
-			return !!r.includes(t) || !!e.sort_as.includes(t) || g(r, t) !== -1;
+			return (
+				!!r.includes(t) ||
+				!!e.sort_as.includes(t) ||
+				!!e.sort_as.includes(t) ||
+				g(r, t) !== -1
+			);
 		}
 		return true;
 	}
@@ -874,18 +987,20 @@ export class E6 {
 		return this.MatchesScoredImpl(e);
 	}
 	ToStorageFormat() {
-		return (0, s.HO)(this.m_filterSpec);
+		return HO(this.m_filterSpec);
 	}
 	get hash() {
-		return (0, v.Yz)(JSON.stringify(this.ToStorageFormat()));
+		return Yz(JSON.stringify(this.ToStorageFormat()));
 	}
 	static FromStorageFormat(e) {
 		switch (e.nFormatVersion) {
 			case undefined:
-			default:
+			default: {
 				return null;
-			case 2:
+			}
+			case 2: {
 				return new E6(e);
+			}
 		}
 	}
 	static ForPartner(e) {
@@ -908,19 +1023,19 @@ export class E6 {
 		return new E6();
 	}
 }
-(0, n.Cg)([s.sH], E6.prototype, "m_filterSpec", undefined);
-(0, n.Cg)([C.oI], E6.prototype, "SetSearchText", null);
-(0, n.Cg)([C.oI], E6.prototype, "SetSearchSuggestions", null);
-(0, n.Cg)([C.oI], E6.prototype, "GetSelectedOptions", null);
-(0, n.Cg)([C.oI], E6.prototype, "GetAllSelectedOptions", null);
-(0, n.Cg)([C.oI], E6.prototype, "GetTagsString", null);
-(0, n.Cg)([C.oI], E6.prototype, "BIsSelected", null);
-(0, n.Cg)([s.XI.bound], E6.prototype, "SelectOption", null);
-(0, n.Cg)([C.oI], E6.prototype, "BAcceptsUnion", null);
-(0, n.Cg)([C.oI], E6.prototype, "ToggleAcceptsUnion", null);
-(0, n.Cg)([C.oI], E6.prototype, "Matches", null);
-(0, n.Cg)([C.oI], E6.prototype, "MatchesScored", null);
-(0, n.Cg)([C.oI], E6.prototype, "ToStorageFormat", null);
+Cg([s.sH], E6.prototype, "m_filterSpec", undefined);
+Cg([C.oI], E6.prototype, "SetSearchText", null);
+Cg([C.oI], E6.prototype, "SetSearchSuggestions", null);
+Cg([C.oI], E6.prototype, "GetSelectedOptions", null);
+Cg([C.oI], E6.prototype, "GetAllSelectedOptions", null);
+Cg([C.oI], E6.prototype, "GetTagsString", null);
+Cg([C.oI], E6.prototype, "BIsSelected", null);
+Cg([s.XI.bound], E6.prototype, "SelectOption", null);
+Cg([C.oI], E6.prototype, "BAcceptsUnion", null);
+Cg([C.oI], E6.prototype, "ToggleAcceptsUnion", null);
+Cg([C.oI], E6.prototype, "Matches", null);
+Cg([C.oI], E6.prototype, "MatchesScored", null);
+Cg([C.oI], E6.prototype, "ToStorageFormat", null);
 export class zG extends E6 {
 	MatchesImpl(e) {
 		return (
@@ -937,10 +1052,12 @@ export class zG extends E6 {
 	static FromStorageFormat(e) {
 		switch (e.nFormatVersion) {
 			case undefined:
-			default:
+			default: {
 				return null;
-			case 2:
+			}
+			case 2: {
 				return new zG(e);
+			}
 		}
 	}
 }

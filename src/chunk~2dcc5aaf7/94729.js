@@ -1,23 +1,23 @@
-var n = require("./90413.js");
-var i = n;
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./35488.js");
-var o = require(/*webcrack:missing*/ "./69164.js");
-var l = require("./93092.js");
-var c = require("./81393.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./18869.js");
 import { Timestamp } from "../../actual_src/utils/time.js";
-var A = require("./83247.js");
-var p = require(/*webcrack:missing*/ "./90765.js");
-var g = require("./91720.js");
-var h = require("./56997.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var _ = require(/*webcrack:missing*/ "./37322.js");
-var f = require(/*webcrack:missing*/ "./23038.js");
-var b = require(/*webcrack:missing*/ "./58254.js");
-var y = require("./96593.js");
-var S = require("./91486.js");
+import n from "./90413.js";
+import a, { useCallback, useState, useRef, useEffect } from "./63696.js";
+import s from "./35488.js";
+import o from "./69164.js";
+import l from "./93092.js";
+import c from "./81393.js";
+import m, { L$ } from "./52451.js";
+import u, { br } from "./18869.js";
+import A from "./83247.js";
+import { A as A_1 } from "./90765.js";
+import g, { c5 } from "./91720.js";
+import h, { V } from "./56997.js";
+import _ from "./37322.js";
+import f from "./23038.js";
+import b from "./58254.js";
+import y, { _R } from "./96593.js";
+import S from "./91486.js";
+const i = n;
 const w = 350;
 const B = 10000;
 const v = parseInt(i.strHighlightFadeTime);
@@ -25,63 +25,47 @@ const I = parseInt(i.nPlaceholderWidth);
 const E = parseInt(i.nPlaceholderHeight);
 const M = parseInt(i.nThumbnailFixedHeight);
 export function $d(e) {
-	let { clip: t, nonFixedSize: r } = e;
-	let n = t.clip_id;
+	let { clip, nonFixedSize } = e;
+	let t_clip_id = clip.clip_id;
 	let [s, m] = R();
-	let d = (0, u.br)();
+	let d = br();
 	let A = {
-		aspectRatio: (t?.thumbnail_width ?? 16) / (t?.thumbnail_height ?? 9),
+		aspectRatio: (clip?.thumbnail_width ?? 16) / (clip?.thumbnail_height ?? 9),
 	};
-	let g = (0, a.useCallback)(() => {
+	let g = useCallback(() => {
 		d.Media.Clip({
 			state: {
-				id: n,
+				id: t_clip_id,
 			},
 		});
-	}, [d, n]);
-	return a.createElement(
-		o.Z,
-		{
-			style: A,
-			className: (0, p.A)(i.PostGameSummaryClip, r && i.NonFixedSize),
-			noFocusRing: false,
-			focusable: true,
-			onActivate: g,
-			...s,
-		},
-		a.createElement(l.d, {
-			className: i.ClipThumbnail,
-			clipID: n,
-		}),
-		a.createElement(c.z, {
-			clipID: n,
-			playClip: m,
-		}),
-		a.createElement(
-			"div",
-			{
-				className: i.CornerContent,
-			},
-			a.createElement(k, {
-				msDuration: parseInt(t.duration_ms),
-			}),
-		),
+	}, [d, t_clip_id]);
+	return (
+		<o.Z
+			style={A}
+			className={A_1(i.PostGameSummaryClip, nonFixedSize && i.NonFixedSize)}
+			noFocusRing={false}
+			focusable
+			onActivate={g}
+			{...s}
+		>
+			<l.d className={i.ClipThumbnail} clipID={t_clip_id} />
+			<c.z clipID={t_clip_id} playClip={m} />
+			<div className={i.CornerContent}>
+				<K msDuration={parseInt(clip.duration_ms)} />
+			</div>
+		</o.Z>
 	);
 }
 function R() {
-	const [e, t] = (0, a.useState)(false);
-	const { fnStopTimer: r, fnRestartTimer: n } = (0, m.L$)(
-		w,
-		() => t(true),
-		false,
-	);
+	const [e, setE] = useState(false);
+	const { fnStopTimer, fnRestartTimer } = L$(w, () => setE(true), false);
 	let i = a.useCallback(() => {
-		n();
-	}, [n]);
+		fnRestartTimer();
+	}, [fnRestartTimer]);
 	let s = a.useCallback(() => {
-		r();
-		t(false);
-	}, [r, t]);
+		fnStopTimer();
+		setE(false);
+	}, [fnStopTimer, setE]);
 	return [
 		{
 			onMouseEnter: i,
@@ -92,16 +76,14 @@ function R() {
 		e,
 	];
 }
-function k(e) {
-	const { msDuration: t } = e;
-	const r = t && !isNaN(t) ? Timestamp(t) : "--";
-	return a.createElement(
-		"div",
-		{
-			className: (0, p.A)(i.DurationText, i.Clip),
-		},
-		a.createElement(A.O5, null),
-		r,
+function K(e) {
+	const { msDuration } = e;
+	const r = msDuration && !isNaN(msDuration) ? Timestamp(msDuration) : "--";
+	return (
+		<div className={A_1(i.DurationText, i.Clip)}>
+			<A.O5 />
+			{r}
+		</div>
 	);
 }
 function D(e) {
@@ -115,60 +97,60 @@ function N(e, t) {
 	return t;
 }
 export function yX(e, t) {
-	let [r, n] = (0, a.useState)(null);
-	let i = (0, a.useRef)([]);
-	let s = (0, a.useRef)(false);
-	let o = (0, a.useRef)(null);
-	let l = (0, a.useRef)(undefined);
-	let c = (0, a.useRef)(undefined);
-	let m = (0, a.useCallback)(() => {
-		let e = i.current;
-		if (e.length == 0) {
-			o.current = null;
-			n(null);
+	let [r, setR] = useState(null);
+	let IRef = useRef([]);
+	let SRef = useRef(false);
+	let ORef = useRef(null);
+	let LRef = useRef(undefined);
+	let CRef = useRef(undefined);
+	let m = useCallback(() => {
+		let i_current = IRef.current;
+		if (i_current.length == 0) {
+			ORef.current = null;
+			setR(null);
 			return;
 		}
-		let t = e.findIndex((e) => e == o.current);
+		let t = i_current.findIndex((e) => e == ORef.current);
 		if (t < 0) {
-			t = e.length - 1;
+			t = i_current.length - 1;
 		}
-		t = N(e, t);
-		o.current = e[t];
-		if (o.current.m_Image !== undefined) {
-			n(o.current);
+		t = N(i_current, t);
+		ORef.current = i_current[t];
+		if (ORef.current.m_Image !== undefined) {
+			setR(ORef.current);
 		}
-	}, [i, n, o]);
-	let u = (0, a.useCallback)(() => {
-		let e = i.current;
-		if (s.current || e.length == 0) {
+	}, [IRef, setR, ORef]);
+	let u = useCallback(() => {
+		let i_current = IRef.current;
+		if (SRef.current || i_current.length == 0) {
 			return;
 		}
-		let t = e.findIndex((e) => e == o.current);
+		let t = i_current.findIndex((e) => e == ORef.current);
 		if (t < 0) {
 			return;
 		}
-		if (e[t].m_Image !== undefined) {
-			t = N(e, t);
+		if (i_current[t].m_Image !== undefined) {
+			t = N(i_current, t);
 		}
-		let r = i.current[t];
+		let r = IRef.current[t];
 		if (r.m_Image !== undefined) {
 			return;
 		}
-		let a = r.m_Event;
-		let l = parseInt(a.timeline_offset_ms);
-		s.current = true;
-		(0, g.c5)(undefined, undefined, a.timeline_id, [l * 1000], 512, true).then(
+		let r_m_Event = r.m_Event;
+		let l = parseInt(r_m_Event.timeline_offset_ms);
+		SRef.current = true;
+		c5(undefined, undefined, r_m_Event.timeline_id, [l * 1000], 512, true).then(
 			(e) => {
-				s.current = false;
+				SRef.current = false;
 				if (e.length > 0) {
-					let t = e[0];
+					let [t] = e;
 					r.m_Image = {
-						m_Bytes: "data:image/jpeg;base64," + _.iI(t.image_data()),
+						m_Bytes: `data:image/jpeg;base64,${_.iI(t.image_data())}`,
 						m_nWidth: t.width(),
 						m_nHeight: t.height(),
 					};
-					if (o.current == r) {
-						n(r);
+					if (ORef.current == r) {
+						setR(r);
 					}
 				} else {
 					r.m_Image = {
@@ -176,31 +158,31 @@ export function yX(e, t) {
 						m_nWidth: 0,
 						m_nHeight: 0,
 					};
-					if (o.current == r) {
+					if (ORef.current == r) {
 						m();
 					}
 				}
 				u();
 			},
 		);
-	}, [s, o, i, m]);
-	let d = (0, a.useCallback)(() => {
+	}, [SRef, ORef, IRef, m]);
+	let d = useCallback(() => {
 		m();
 		u();
 	}, [m, u]);
-	(0, a.useEffect)(() => {
-		if (c.current == e) {
+	useEffect(() => {
+		if (CRef.current == e) {
 			return;
 		}
-		c.current = e;
-		i.current = (function (e, t) {
+		CRef.current = e;
+		IRef.current = ((e, t) => {
 			let r = [];
 			for (let n of t) {
 				let t = e.find((e) => {
-					let t = e.m_Event;
+					let e_m_Event = e.m_Event;
 					return (
-						t.timeline_id == n.timeline_id &&
-						t.timeline_offset_ms == n.timeline_offset_ms
+						e_m_Event.timeline_id == n.timeline_id &&
+						e_m_Event.timeline_offset_ms == n.timeline_offset_ms
 					);
 				});
 				if (t) {
@@ -214,27 +196,30 @@ export function yX(e, t) {
 				r.push(t);
 			}
 			return r;
-		})(i.current, e);
+		})(IRef.current, e);
 		if (
-			!o.current ||
-			!o.current.m_Image ||
-			!!D(o.current) ||
-			!i.current.find((e) => e !== o.current)
+			!ORef.current ||
+			!ORef.current.m_Image ||
+			!ORef.current.m_Image ||
+			!!D(ORef.current) ||
+			!ORef.current.m_Image ||
+			!!D(ORef.current) ||
+			!IRef.current.find((e) => e !== ORef.current)
 		) {
-			o.current = null;
-			window.clearTimeout(l.current);
-			l.current = undefined;
+			ORef.current = null;
+			window.clearTimeout(LRef.current);
+			LRef.current = undefined;
 			d();
 		}
-	}, [e, i, d, l, c]);
-	(0, a.useEffect)(() => {
+	}, [e, IRef, d, LRef, CRef]);
+	useEffect(() => {
 		if (r && !t) {
-			l.current = window.setTimeout(() => {
+			LRef.current = window.setTimeout(() => {
 				d();
 			}, B);
-			return () => clearTimeout(l.current);
+			return () => clearTimeout(LRef.current);
 		}
-	}, [r, d, l, t]);
+	}, [r, d, LRef, t]);
 	if (r && r.m_Image !== undefined) {
 		return r;
 	} else {
@@ -242,24 +227,24 @@ export function yX(e, t) {
 	}
 }
 function G(e, t) {
-	let r = (0, a.useRef)(null);
-	if (e && !r.current) {
+	let RRef = useRef(null);
+	if (e && !RRef.current) {
 		let t = !D(e);
 		let n = t ? I : e.m_Image.m_nWidth;
 		let i = t ? E : e.m_Image.m_nHeight;
-		r.current = {
+		RRef.current = {
 			m_nWidth: n,
 			m_nHeight: i,
 		};
 	}
 	let n = {};
-	if (!r.current) {
+	if (!RRef.current) {
 		return {
 			style: n,
 			smallMode: false,
 		};
 	}
-	let i = r.current.m_nWidth / r.current.m_nHeight;
+	let i = RRef.current.m_nWidth / RRef.current.m_nHeight;
 	let s = Math.ceil(M * i);
 	if (t) {
 		n.width = `${s}px`;
@@ -273,12 +258,12 @@ function G(e, t) {
 	};
 }
 export function $B(e) {
-	let { gameID: t, highlights: r, nonFixedSize: n } = e;
+	let { gameID, highlights, nonFixedSize } = e;
 	let [s, l] = R();
-	let c = yX(r, l);
-	let m = (function (e, t) {
-		let r = (0, u.br)();
-		return (0, a.useCallback)(() => {
+	let c = yX(highlights, l);
+	let m = ((e, t) => {
+		let r = br();
+		return useCallback(() => {
 			if (!t) {
 				r.Media.Recording({
 					state: {
@@ -298,9 +283,9 @@ export function $B(e) {
 				},
 			});
 		}, [r, e, t]);
-	})(t, c);
-	let { style: d, smallMode: A } = G(c, !n);
-	const g = a.useRef(null);
+	})(gameID, c);
+	let { style, smallMode } = G(c, !nonFixedSize);
+	const GRef = a.useRef(null);
 	if (!c) {
 		return null;
 	}
@@ -317,146 +302,112 @@ export function $B(e) {
 		exitActive: i.ExitActive,
 		exitDone: i.ExitDone,
 	};
-	return a.createElement(
-		f.A,
-		{
-			style: d,
-			className: (0, p.A)(i.PostGameSummaryHighlightGroup, n && i.NonFixedSize),
-			appear: true,
-			enter: true,
-			exit: true,
-		},
-		a.createElement(
-			b.A,
-			{
-				nodeRef: g,
-				key: y,
-				classNames: B,
-				in: true,
-				timeout: v,
-			},
-			a.createElement(
-				o.Z,
-				{
-					ref: g,
-					className: i.PostGameSummaryHighlight,
-					noFocusRing: false,
-					focusable: true,
-					onActivate: m,
-					...s,
-				},
-				S &&
-					a.createElement(z, {
-						gameID: t,
-					}),
-				!S &&
-					a.createElement(L, {
-						gameID: t,
-						timelineID: h,
-						timestampMS: C,
-						durationMS: _,
-						play: l,
-						thumbnail: w,
-					}),
-				a.createElement(
-					"div",
-					{
-						className: i.CornerContent,
-					},
-					a.createElement(P, {
-						gameID: t,
-						smallMode: A,
-					}),
-				),
-			),
-		),
+	return (
+		<f.A
+			style={style}
+			className={A_1(
+				i.PostGameSummaryHighlightGroup,
+				nonFixedSize && i.NonFixedSize,
+			)}
+			appear
+			enter
+			exit
+		>
+			<b.A nodeRef={GRef} key={y} classNames={B} in timeout={v}>
+				<o.Z
+					ref={GRef}
+					className={i.PostGameSummaryHighlight}
+					noFocusRing={false}
+					focusable
+					onActivate={m}
+					{...s}
+				>
+					{S && <Z gameID={gameID} />}
+					{!S && (
+						<L
+							gameID={gameID}
+							timelineID={h}
+							timestampMS={C}
+							durationMS={_}
+							play={l}
+							thumbnail={w}
+						/>
+					)}
+					<div className={i.CornerContent}>
+						<P gameID={gameID} smallMode={smallMode} />
+					</div>
+				</o.Z>
+			</b.A>
+		</f.A>
 	);
 }
 function P(e) {
-	const { gameID: t, smallMode: r } = e;
-	const n = (0, h.V)(t);
+	const { gameID, smallMode } = e;
+	const n = V(gameID);
 	if (!n) {
 		return null;
 	}
 	const s = Math.floor(n / 60);
 	const o = Math.floor(n % 60);
-	const l = a.createElement(
-		a.Fragment,
-		null,
-		s > 0 ? (0, Localize)("#ClipManager_BackgroundRecordingTime_Min", s) : "",
-		(0, Localize)("#ClipManager_BackgroundRecordingTime_Sec", o),
+	const l = (
+		<>
+			{s > 0
+				? (0, Localize)("#ClipManager_BackgroundRecordingTime_Min", s)
+				: ""}
+			{(0, Localize)("#ClipManager_BackgroundRecordingTime_Sec", o)}
+		</>
 	);
-	return a.createElement(
-		"div",
-		{
-			className: (0, p.A)(i.DurationText, i.BackgroundRecording),
-		},
-		a.createElement(A.vN, null),
-		!r && l,
+	return (
+		<div className={A_1(i.DurationText, i.BackgroundRecording)}>
+			<A.vN />
+			{!smallMode && l}
+		</div>
 	);
 }
 function L(e) {
-	let {
-		gameID: t,
-		timelineID: r,
-		timestampMS: n,
-		durationMS: s,
-		play: o,
-		thumbnail: l,
-	} = e;
-	return a.createElement(
-		a.Fragment,
-		null,
-		a.createElement("img", {
-			className: i.ClipThumbnail,
-			src: l,
-		}),
-		a.createElement(c.G, {
-			gameID: t,
-			timelineID: r,
-			startMS: n,
-			durationMS: s,
-			play: o,
-		}),
+	let { gameID, timelineID, timestampMS, durationMS, play, thumbnail } = e;
+	return (
+		<>
+			<img className={i.ClipThumbnail} src={thumbnail} />
+			<c.G
+				gameID={gameID}
+				timelineID={timelineID}
+				startMS={timestampMS}
+				durationMS={durationMS}
+				play={play}
+			/>
+		</>
 	);
 }
-function z(e) {
-	let { gameID: t } = e;
-	let r = (0, y._R)(t);
-	return a.createElement(
-		"div",
-		{
-			className: i.BackgroundPlaceholder,
-		},
-		a.createElement(
-			"div",
-			{
-				className: i.BackgroundBlur,
-			},
-			a.createElement(S.z, {
-				eAssetType: 3,
-				className: i.ImageContainer,
-				imageClassName: i.ImageObject,
-				app: r,
-			}),
-		),
-		a.createElement(s.Video, {
-			className: i.VideoIcon,
-		}),
+function Z(e) {
+	let { gameID } = e;
+	let r = _R(gameID);
+	return (
+		<div className={i.BackgroundPlaceholder}>
+			<div className={i.BackgroundBlur}>
+				<S.z
+					eAssetType={3}
+					className={i.ImageContainer}
+					imageClassName={i.ImageObject}
+					app={r}
+				/>
+			</div>
+			<s.Video className={i.VideoIcon} />
+		</div>
 	);
 }
 export function Li(e) {
-	let { gameID: t, highlights: r, nonFixedSize: n } = e;
-	let s = yX(r, false);
-	let l = (0, u.br)();
-	let c = (0, a.useCallback)(() => {
+	let { gameID, highlights, nonFixedSize } = e;
+	let s = yX(highlights, false);
+	let l = br();
+	let c = useCallback(() => {
 		l.Media.Recording({
 			state: {
-				gameid: t,
+				gameid: gameID,
 			},
 		});
-	}, [l, t]);
-	let { style: m, smallMode: d } = G(s, !n);
+	}, [l, gameID]);
+	let { style, smallMode } = G(s, !nonFixedSize);
 	if (!s) {
 		return null;
 	}
@@ -468,45 +419,30 @@ export function Li(e) {
 		exitActive: i.ExitActive,
 		exitDone: i.ExitDone,
 	};
-	return a.createElement(
-		f.A,
-		{
-			style: m,
-			className: (0, p.A)(i.PostGameSummaryHighlightGroup, n && i.NonFixedSize),
-			appear: true,
-			enter: true,
-			exit: true,
-		},
-		a.createElement(
-			b.A,
-			{
-				key: A,
-				classNames: g,
-				in: true,
-				timeout: v,
-			},
-			a.createElement(
-				o.Z,
-				{
-					className: i.PostGameSummaryHighlight,
-					noFocusRing: false,
-					focusable: true,
-					onActivate: c,
-				},
-				a.createElement(z, {
-					gameID: t,
-				}),
-				a.createElement(
-					"div",
-					{
-						className: i.CornerContent,
-					},
-					a.createElement(P, {
-						gameID: t,
-						smallMode: d,
-					}),
-				),
-			),
-		),
+	return (
+		<f.A
+			style={style}
+			className={A_1(
+				i.PostGameSummaryHighlightGroup,
+				nonFixedSize && i.NonFixedSize,
+			)}
+			appear
+			enter
+			exit
+		>
+			<b.A key={A} classNames={g} in timeout={v}>
+				<o.Z
+					className={i.PostGameSummaryHighlight}
+					noFocusRing={false}
+					focusable
+					onActivate={c}
+				>
+					<Z gameID={gameID} />
+					<div className={i.CornerContent}>
+						<P gameID={gameID} smallMode={smallMode} />
+					</div>
+				</o.Z>
+			</b.A>
+		</f.A>
 	);
 }

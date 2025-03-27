@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	LibraryHomeMajorUpdates: "oo2nrd4lEaP0P5bxO355t",
 	TransitionGroup: "Zub6jS0EHwGCcgXAymIpz",
 	UpdateButton: "_1VMqytvnRAjWpWim66U9bW",

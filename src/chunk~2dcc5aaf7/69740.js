@@ -1,7 +1,30 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./72388.js");
-var a = require(/*webcrack:missing*/ "./28987.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
+import {
+	CLocalizationManager,
+	CLocLanguageArray,
+	GetConfiguredLocale,
+	Localize,
+} from "../../actual_src/utils/localization.js";
+import n, { Cg } from "./34629.js";
+import i, { Yj, zV } from "./72388.js";
+import a from "./28987.js";
+import s, { Gn } from "./89193.js";
+import l from "./8573.js";
+import { v6 } from "./36885.js";
+import m from "./88341.js";
+import u from "./78771.js";
+import d from "./823.js";
+import A from "./12956.js";
+import p from "./5859.js";
+import { w } from "./49455.js";
+import { OQ } from "./31958.js";
+import { rG } from "./98670.js";
+import "./83957.js";
+import "./63696.js";
+import "./16154.js";
+import f from "./72476.js";
+import b, { aX, bC } from "./51095.js";
+import "./41180.js";
+import y from "./93960.js";
 const o = {
 	bBroadcastEnabled: false,
 	broadcastChatSetting: "hide",
@@ -11,30 +34,7 @@ const o = {
 	localized_broadcast_right_image: new Array(31),
 	broadcast_whitelist: [],
 };
-var l = require(/*webcrack:missing*/ "./8573.js");
-var c = require(/*webcrack:missing*/ "./36885.js");
-var m = require("./88341.js");
-var u = require("./78771.js");
-var d = require("./823.js");
-var A = require("./12956.js");
-var p = require("./5859.js");
-var g = require(/*webcrack:missing*/ "./49455.js");
-import {
-	CLocalizationManager,
-	CLocLanguageArray,
-	GetConfiguredLocale,
-	Localize,
-} from "../../actual_src/utils/localization.js";
-var C = require(/*webcrack:missing*/ "./31958.js");
-var _ = require("./98670.js");
-require(/*webcrack:missing*/ "./83957.js");
-require(/*webcrack:missing*/ "./63696.js");
-require("./16154.js");
-var f = require(/*webcrack:missing*/ "./72476.js");
-var b = require("./51095.js");
-require(/*webcrack:missing*/ "./41180.js");
-var y = require(/*webcrack:missing*/ "./93960.js");
-(0, n.Cg)(
+Cg(
 	[y.o],
 	class {
 		m_eventModel;
@@ -66,20 +66,20 @@ export const Ro = 4397053;
 export const Kd = 4;
 export const mW = 20;
 const T = 90000;
-export var zv;
-(function (e) {
+export let zv;
+((e) => {
 	e[(e.k_EEventStateUnpublished = 0)] = "k_EEventStateUnpublished";
 	e[(e.k_EEventStateStaged = 1)] = "k_EEventStateStaged";
 	e[(e.k_EEventStateVisible = 2)] = "k_EEventStateVisible";
 	e[(e.k_EEventStatsUnlisted = 3)] = "k_EEventStatsUnlisted";
 })((zv ||= {}));
-export var EE;
-export var GE;
-export var yX;
-export var IS;
-var G;
-var O;
-(function (e) {
+export let EE;
+export let GE;
+export let yX;
+export let IS;
+let G;
+let O;
+((e) => {
 	e[(e.k_EStoreFilterClauseTypeOr = 0)] = "k_EStoreFilterClauseTypeOr";
 	e[(e.k_EStoreFilterClauseTypeAnd = 1)] = "k_EStoreFilterClauseTypeAnd";
 	e[(e.k_EStoreFilterClauseTypeStoreTag = 2)] =
@@ -94,7 +94,7 @@ var O;
 	e[(e.k_EStoreFilterClauseTypeAppType = 7)] =
 		"k_EStoreFilterClauseTypeAppType";
 })((EE ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_ESaleTagFilter = 0)] = "k_ESaleTagFilter";
 	e[(e.k_ELanguage = 1)] = "k_ELanguage";
 	e[(e.k_EContentDescriptor = 2)] = "k_EContentDescriptor";
@@ -102,23 +102,23 @@ var O;
 	e[(e.k_EPrice = 4)] = "k_EPrice";
 	e[(e.k_EAppType = 5)] = "k_EAppType";
 })((GE ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_EHideOwnedItems = 0)] = "k_EHideOwnedItems";
 	e[(e.k_EHideWishlistedItems = 1)] = "k_EHideWishlistedItems";
 	e[(e.k_EHideIgnoredItems = 2)] = "k_EHideIgnoredItems";
 })((yX ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_ESortFacetsByName = 0)] = "k_ESortFacetsByName";
 	e[(e.k_ESortFacetsByMatchCount = 1)] = "k_ESortFacetsByMatchCount";
 	e[(e.k_ESortFacetsManually = 2)] = "k_ESortFacetsManually";
 })((IS ||= {}));
-(function (e) {
+((e) => {
 	e.Steam = "Steam";
 	e.Facebook = "Facebook";
 	e.Twitter = "Twitter";
 	e.Reddit = "Reddit";
 })((G ||= {}));
-(function (e) {
+((e) => {
 	e.Summary = "summary";
 	e.SummaryLargeImage = "summary_large_image";
 })((O ||= {}));
@@ -131,8 +131,8 @@ export const G6 = {
 	default_label: "#Sale_default_label",
 	section_type: "unselected_empty",
 };
-var L;
-(function (e) {
+let L;
+((e) => {
 	e[(e.k_ETaggedItems = 0)] = "k_ETaggedItems";
 	e[(e.k_EContentHub = 1)] = "k_EContentHub";
 })((L ||= {}));
@@ -180,7 +180,7 @@ const U = [
 ];
 export class lh {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	GID = undefined;
 	AnnouncementGID = undefined;
@@ -236,15 +236,15 @@ export class lh {
 		t.description = new Map(r.description);
 		t.vecTags = new Array(r.vecTags);
 		t.clanSteamID = new l.b(r.clanSteamID);
-		(0, g.w)(
+		w(
 			t.clanSteamID && t.clanSteamID.BIsValid(),
-			"Invalid Clan SteamID: " + t.clanSteamID.ConvertTo64BitString(),
+			`Invalid Clan SteamID: ${t.clanSteamID.ConvertTo64BitString()}`,
 		);
 		if (r.broadcaster) {
 			t.broadcaster = new l.b(r.broadcaster);
-			(0, g.w)(
+			w(
 				t.broadcaster && t.broadcaster.BIsValid(),
-				"Invalid Broadcast SteamID: " + t.broadcaster.ConvertTo64BitString(),
+				`Invalid Broadcast SteamID: ${t.broadcaster.ConvertTo64BitString()}`,
 			);
 		}
 		return t;
@@ -484,56 +484,34 @@ export class lh {
 		return r && r.length > t && r[t] != null;
 	}
 	BHasAnnouncementGID() {
-		return (
-			this.AnnouncementGID !== null &&
-			this.AnnouncementGID !== undefined &&
-			this.AnnouncementGID.length > 1
-		);
+		return this.AnnouncementGID.length > 1;
 	}
 	GetAnnouncementGID() {
 		return this.AnnouncementGID;
 	}
 	BHasForumTopicGID() {
-		return (
-			this.forumTopicGID !== null &&
-			this.forumTopicGID !== undefined &&
-			this.forumTopicGID.length > 1
-		);
+		return this.forumTopicGID.length > 1;
 	}
 	GetForumTopicURL() {
 		if (!this.BHasForumTopicGID()) {
 			return "";
 		}
 		if (this.appid) {
-			return (
-				f.TS.COMMUNITY_BASE_URL +
-				"app/" +
-				this.appid +
-				"/eventcomments/" +
-				this.forumTopicGID
-			);
+			return `${f.TS.COMMUNITY_BASE_URL}app/${this.appid}/eventcomments/${this.forumTopicGID}`;
 		}
 		{
 			const e = u.ac.GetClanInfoByClanAccountID(
 				this.clanSteamID.GetAccountID(),
 			);
 			if (e && e.vanity_url) {
-				return (
-					f.TS.COMMUNITY_BASE_URL +
-					"groups/" +
-					e.vanity_url +
-					"/eventcomments/" +
-					this.forumTopicGID
-				);
+				return `${f.TS.COMMUNITY_BASE_URL}groups/${e.vanity_url}/eventcomments/${this.forumTopicGID}`;
 			}
 		}
-		return (
-			f.TS.COMMUNITY_BASE_URL +
-			"gid/" +
-			this.clanSteamID.ConvertTo64BitString() +
-			"/eventcomments/" +
+		return `${
+			f.TS.COMMUNITY_BASE_URL
+		}gid/${this.clanSteamID.ConvertTo64BitString()}/eventcomments/${
 			this.forumTopicGID
-		);
+		}`;
 	}
 	BIsEventInFuture() {
 		return A.HD.GetTimeNowWithOverride() < this.startTime;
@@ -543,13 +521,9 @@ export class lh {
 	}
 	UpdateVoteCount(e, t) {
 		if (e == "up") {
-			this.nVotesUp = (0, C.OQ)(this.nVotesUp + t, 0, Number.MAX_SAFE_INTEGER);
+			this.nVotesUp = OQ(this.nVotesUp + t, 0, Number.MAX_SAFE_INTEGER);
 		} else if (e == "down") {
-			this.nVotesDown = (0, C.OQ)(
-				this.nVotesDown + t,
-				0,
-				Number.MAX_SAFE_INTEGER,
-			);
+			this.nVotesDown = OQ(this.nVotesDown + t, 0, Number.MAX_SAFE_INTEGER);
 		}
 	}
 	GetImageFromBeginningOfDescription(e, t) {
@@ -562,7 +536,7 @@ export class lh {
 				if (t != -1) {
 					let n = r.substring(e, t).trim();
 					if (n.length != 0) {
-						return (0, c.v6)(n);
+						return v6(n);
 					}
 				}
 			}
@@ -598,7 +572,7 @@ export class lh {
 			if (n) {
 				return n.GetAssets().GetMainCapsuleURL();
 			} else {
-				return f.TS.STORE_ICON_BASE_URL + r + "/header.jpg";
+				return `${f.TS.STORE_ICON_BASE_URL + r}/header.jpg`;
 			}
 		}
 		if (
@@ -721,6 +695,7 @@ export class lh {
 		if (
 			!this.jsondata ||
 			!this.jsondata.localized_subtitle ||
+			!this.jsondata.localized_subtitle ||
 			e >= this.jsondata.localized_subtitle.length
 		) {
 			return false;
@@ -731,6 +706,7 @@ export class lh {
 	GetSubTitle(e) {
 		if (
 			!this.jsondata ||
+			!this.jsondata.localized_subtitle ||
 			!this.jsondata.localized_subtitle ||
 			e >= this.jsondata.localized_subtitle.length
 		) {
@@ -769,7 +745,7 @@ export class lh {
 	}
 	static GenerateSummaryFromText(e, t) {
 		if (e && e.trim().length != 0) {
-			e = (0, i.Yj)(e, [
+			e = Yj(e, [
 				"img",
 				"h1",
 				"h2",
@@ -781,15 +757,15 @@ export class lh {
 				"roomeffect",
 				"sticker",
 			]);
-			e = (0, i.zV)(e);
-			e = (0, b.aX)(e);
-			return (0, b.bC)(e, t || 180);
+			e = zV(e);
+			e = aX(e);
+			return bC(e, t || 180);
 		} else {
 			return "";
 		}
 	}
 	BHasTag(e) {
-		return this.vecTags.indexOf(e) != -1;
+		return this.vecTags.includes(e);
 	}
 	BHasTagStartingWith(e) {
 		return this.vecTags.some((t) => t.startsWith(e));
@@ -875,59 +851,47 @@ export class lh {
 			return null;
 		}
 		if (!Boolean(this.jsondata.sale_vanity_id)) {
-			return (
-				f.TS.STORE_BASE_URL +
-				"newshub/" +
-				(this.appid
-					? "app/" + this.appid
-					: "group/" + this.clanSteamID.GetAccountID()) +
-				"/view/" +
-				this.GID
-			);
+			return `${f.TS.STORE_BASE_URL}newshub/${
+				this.appid
+					? `app/${this.appid}`
+					: `group/${this.clanSteamID.GetAccountID()}`
+			}/view/${this.GID}`;
 		}
 		if (this.BUsesContentHubForItemSource()) {
 			const e = this.jsondata.source_content_hub;
 			if (e) {
 				if (typeof e == "string") {
-					return f.TS.STORE_BASE_URL + "category/" + e;
+					return `${f.TS.STORE_BASE_URL}category/${e}`;
 				} else if (e.type == "category") {
-					return f.TS.STORE_BASE_URL + "category/" + e.category;
+					return `${f.TS.STORE_BASE_URL}category/${e.category}`;
 				} else if (e.type == "tags") {
-					return (
-						f.TS.STORE_BASE_URL +
-						"tags/" +
-						(GetConfiguredLocale() || "en") +
-						"/" +
+					return `${f.TS.STORE_BASE_URL}tags/${GetConfiguredLocale() || "en"}/${
 						e.tagid
-					);
+					}`;
 				} else if (e.type == "freetoplay") {
-					return f.TS.STORE_BASE_URL + "genre/Free%20to%20Play/";
+					return `${f.TS.STORE_BASE_URL}genre/Free%20to%20Play/`;
 				} else if (e.type == "earlyaccess") {
-					return f.TS.STORE_BASE_URL + "genre/Early%20Access/";
+					return `${f.TS.STORE_BASE_URL}genre/Early%20Access/`;
 				} else {
 					return f.TS.STATS_BASE_URL + e.type;
 				}
 			} else {
-				return f.TS.STORE_BASE_URL + "sale/" + this.jsondata.sale_vanity_id;
+				return `${f.TS.STORE_BASE_URL}sale/${this.jsondata.sale_vanity_id}`;
 			}
 		}
 		if (!this.jsondata.sale_vanity_id_valve_approved_for_sale_subpath) {
 			if (d.pF.BHasCreatorHomeLoaded(this.clanSteamID)) {
-				return (
-					d.pF.GetCreatorHome(this.clanSteamID).GetCreatorHomeURL("developer") +
-					"sale/" +
-					this.jsondata.sale_vanity_id
-				);
+				return `${d.pF
+					.GetCreatorHome(this.clanSteamID)
+					.GetCreatorHomeURL("developer")}sale/${this.jsondata.sale_vanity_id}`;
 			}
-			return (
-				f.TS.STORE_BASE_URL +
-				"curator/" +
-				this.clanSteamID.GetAccountID() +
-				"/sale/" +
+			return `${
+				f.TS.STORE_BASE_URL
+			}curator/${this.clanSteamID.GetAccountID()}/sale/${
 				this.jsondata.sale_vanity_id
-			);
+			}`;
 		}
-		return f.TS.STORE_BASE_URL + "sale/" + this.jsondata.sale_vanity_id;
+		return `${f.TS.STORE_BASE_URL}sale/${this.jsondata.sale_vanity_id}`;
 	}
 	BHasEmailEnabled() {
 		return this.jsondata.email_setting && this.jsondata.email_setting.bEnable;
@@ -976,7 +940,7 @@ export class lh {
 		const n =
 			this.GetSaleSectionsByType("social_share").length == 0 &&
 			!this.jsondata.sale_default_social_media_disabled;
-		if (e || t || r || n) {
+		if (e || t || t || r || t || r || n) {
 			return [
 				...this.GetSaleSections(),
 				...this.GenerateDynamicSaleSections(e, t, r, n),
@@ -1025,7 +989,7 @@ export class lh {
 		}
 		const r = new Set(e);
 		const n = new Set();
-		(0, g.w)(
+		w(
 			!this.jsondata.bOptimizedForSize,
 			"Cannot find all items in optimized json",
 		);
@@ -1038,6 +1002,7 @@ export class lh {
 		this.jsondata.sale_sections.forEach((e) => {
 			if (
 				(i = e.section_type) === "items" ||
+				i === "trailercarousel" ||
 				i === "trailercarousel" ||
 				i == "crosspromotesalepage"
 			) {
@@ -1100,7 +1065,7 @@ export class lh {
 		return this.type;
 	}
 	GetEventTypeAsString() {
-		return (0, _.rG)(this.type);
+		return rG(this.type);
 	}
 	GetCategoryAsString() {
 		if (this.BHasTag("steam_award_nomination_request")) {
@@ -1273,7 +1238,7 @@ export class lh {
 		if (this.BInRealmChina()) {
 			e.push(a.TU.k_ESteamRealmChina);
 		}
-		(0, g.w)(
+		w(
 			e.length > 0,
 			`Event ${this.GID} is currently configured so that no realms are valid for display. Either enable Steam China or Global to address this issue`,
 		);
@@ -1283,43 +1248,38 @@ export class lh {
 		return this.GetIncludedRealmList().includes(e);
 	}
 }
-(0, n.Cg)([s.sH], lh.prototype, "GID", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "AnnouncementGID", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "forumTopicGID", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "type", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "appid", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "name", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "description", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "timestamp_loc_updated", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "startTime", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "endTime", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "visibilityStartTime", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "visibilityEndTime", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "m_nBuildID", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "m_strBuildBranch", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "postTime", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "visibility_state", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "broadcaster", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "jsondata", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "nCommentCount", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "nVotesUp", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "nVotesDown", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "bOldAnnouncement", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "announcementClanSteamID", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "loadedAllLanguages", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "bLoaded", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "deleteInProgress", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "vecTags", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "last_update_steamid", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "rtime32_last_modified", undefined);
-(0, n.Cg)(
-	[s.sH],
-	lh.prototype,
-	"rtime32_last_solr_search_col_updated",
-	undefined,
-);
-(0, n.Cg)([s.sH], lh.prototype, "rtime32_last_local_modification", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "rtime32_moderator_reviewed", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "video_preview_type", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "video_preview_id", undefined);
-(0, n.Cg)([s.sH], lh.prototype, "m_overrideCurrentDay", undefined);
+Cg([s.sH], lh.prototype, "GID", undefined);
+Cg([s.sH], lh.prototype, "AnnouncementGID", undefined);
+Cg([s.sH], lh.prototype, "forumTopicGID", undefined);
+Cg([s.sH], lh.prototype, "type", undefined);
+Cg([s.sH], lh.prototype, "appid", undefined);
+Cg([s.sH], lh.prototype, "name", undefined);
+Cg([s.sH], lh.prototype, "description", undefined);
+Cg([s.sH], lh.prototype, "timestamp_loc_updated", undefined);
+Cg([s.sH], lh.prototype, "startTime", undefined);
+Cg([s.sH], lh.prototype, "endTime", undefined);
+Cg([s.sH], lh.prototype, "visibilityStartTime", undefined);
+Cg([s.sH], lh.prototype, "visibilityEndTime", undefined);
+Cg([s.sH], lh.prototype, "m_nBuildID", undefined);
+Cg([s.sH], lh.prototype, "m_strBuildBranch", undefined);
+Cg([s.sH], lh.prototype, "postTime", undefined);
+Cg([s.sH], lh.prototype, "visibility_state", undefined);
+Cg([s.sH], lh.prototype, "broadcaster", undefined);
+Cg([s.sH], lh.prototype, "jsondata", undefined);
+Cg([s.sH], lh.prototype, "nCommentCount", undefined);
+Cg([s.sH], lh.prototype, "nVotesUp", undefined);
+Cg([s.sH], lh.prototype, "nVotesDown", undefined);
+Cg([s.sH], lh.prototype, "bOldAnnouncement", undefined);
+Cg([s.sH], lh.prototype, "announcementClanSteamID", undefined);
+Cg([s.sH], lh.prototype, "loadedAllLanguages", undefined);
+Cg([s.sH], lh.prototype, "bLoaded", undefined);
+Cg([s.sH], lh.prototype, "deleteInProgress", undefined);
+Cg([s.sH], lh.prototype, "vecTags", undefined);
+Cg([s.sH], lh.prototype, "last_update_steamid", undefined);
+Cg([s.sH], lh.prototype, "rtime32_last_modified", undefined);
+Cg([s.sH], lh.prototype, "rtime32_last_solr_search_col_updated", undefined);
+Cg([s.sH], lh.prototype, "rtime32_last_local_modification", undefined);
+Cg([s.sH], lh.prototype, "rtime32_moderator_reviewed", undefined);
+Cg([s.sH], lh.prototype, "video_preview_type", undefined);
+Cg([s.sH], lh.prototype, "video_preview_id", undefined);
+Cg([s.sH], lh.prototype, "m_overrideCurrentDay", undefined);

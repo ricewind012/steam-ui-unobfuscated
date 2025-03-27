@@ -1,171 +1,155 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./49519.js");
-var a = require("./73259.js");
-var s = require("./45264.js");
-var o = require("./21618.js");
-var l = require("./64608.js");
-var c = require(/*webcrack:missing*/ "./90765.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var _u = require("./51076.js");
-var d = require("./10325.js");
-var A = require("./38602.js");
-var p = require("./35488.js");
-var g = require(/*webcrack:missing*/ "./98995.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
-var C = require("./35395.js");
+import n from "./63696.js";
+import i, { W5, W6 } from "./49519.js";
+import a from "./73259.js";
+import s, { QP, qF, vg } from "./45264.js";
+import o from "./21618.js";
+import l, { vn } from "./64608.js";
+import c, { A as A_1 } from "./90765.js";
+import { SP } from "./51076.js";
+import d from "./10325.js";
+import A, { wR } from "./38602.js";
+import p from "./35488.js";
+import g from "./98995.js";
+import h, { Qn } from "./72476.js";
+import C, { X } from "./35395.js";
 export function u(e) {
-	const { bStandalonePage: t } = e;
-	const r = (0, i.W5)();
-	const a = (0, s.QP)(
+	const { bStandalonePage } = e;
+	const r = W5();
+	const a = QP(
 		"appid" in r.params && Number(r.params.appid),
 		"shortcut_name" in r.params && r.params.shortcut_name,
 	);
 	const o = S();
-	const c = (0, s.qF)(a);
-	const m = n.useRef(undefined);
-	const { data: u } = (0, s.vg)(a);
+	const c = qF(a);
+	const MRef = n.useRef(undefined);
+	const { data } = vg(a);
 	let A;
 	let h = false;
-	if (u) {
-		const e = r.params.noteid || m.current;
+	if (data) {
+		const e = r.params.noteid || MRef.current;
 		if (e) {
-			A = u.find((t) => t.id === e);
+			A = data.find((t) => t.id === e);
 			if (!A && r.params.noteid) {
 				h = true;
 			}
 		}
-		A ||= u[0];
+		A ||= data[0];
 	}
 	if (A) {
-		m.current = A.id;
+		MRef.current = A.id;
 	}
 	n.useEffect(() => {
-		if (u && u.length == 0) {
+		if (data && data.length == 0) {
 			o(a, c(), true);
 		}
-	}, [o, a, u, c]);
+	}, [o, a, data, c]);
 	n.useEffect(() => {
 		if (h) {
 			o(a, undefined, true);
 		}
 	}, [o, a, h]);
-	const C = n.createElement(
-		g.he,
-		{
-			toolTipContent: "#UserGameNotes_NewNote",
-			direction: "top",
-		},
-		n.createElement(
-			l.$n,
-			{
-				className: d.NewNoteButton,
-				onClick: () => {
+	const C = (
+		<g.he toolTipContent="#UserGameNotes_NewNote" direction="top">
+			<l.$n
+				className={d.NewNoteButton}
+				onClick={() => {
 					const e = c();
 					o(a, e);
-				},
-			},
-			n.createElement(p.TextNewNote, null),
-		),
+				}}
+			>
+				<p.TextNewNote />
+			</l.$n>
+		</g.he>
 	);
-	if (u) {
-		return n.createElement(f, {
-			noteParent: a,
-			notes: u,
-			activeNoteID: A?.id,
-			actions: C,
-			bStandalonePage: t,
-		});
+	if (data) {
+		return (
+			<F
+				noteParent={a}
+				notes={data}
+				activeNoteID={A?.id}
+				actions={C}
+				bStandalonePage={bStandalonePage}
+			/>
+		);
 	} else {
 		return null;
 	}
 }
-function f(e) {
-	const {
-		noteParent: t,
-		notes: r,
-		activeNoteID: a,
-		actions: s,
-		bStandalonePage: o,
-	} = e;
-	const [p, g] = (0, _u.SP)("NotesListCollapsed", false);
-	const C = (0, A.wR)();
-	const _ = (0, h.Qn)();
-	const f = (0, i.W5)();
-	const w = (0, l.vn)(f.params.noteid || C ? "ActivePage" : "PageList");
-	const B = r.map((e) => ({
+function F(e) {
+	const { noteParent, notes, activeNoteID, actions, bStandalonePage } = e;
+	const [p, g] = SP("NotesListCollapsed", false);
+	const C = wR();
+	const _ = Qn();
+	const f = W5();
+	const w = vn(f.params.noteid || C ? "ActivePage" : "PageList");
+	const B = notes.map((e) => ({
 		title: e.title?.length > 0 ? e.title : Localize("#UserGameNotes_Untitled"),
 		identifier: e.id,
-		content: n.createElement(y, {
-			noteParent: t,
-			note: e,
-		}),
+
+		content: <Y noteParent={noteParent} note={e} />,
+
 		pageClassName: d.NotePage,
 		hideTitle: true,
 	}));
 	const v = S();
-	const I = n.useCallback((e) => v(t, e), [v, t]);
-	const E = h.TS.IN_STEAMUI
-		? Localize("#UserGameNotes_NotesList")
-		: n.createElement(b, {
-				noteParent: t,
-			});
-	if (_ && o) {
-		return n.createElement(l.Bv, {
-			title: E,
-			pages: B,
-			className: (0, c.A)(d.NotesPagedSettings, C && d.PinnedView, w),
-			page: a,
-			onPageRequested: I,
-			bottomControls: s,
-			hideList: p,
-			toggleHideList: C || _ ? undefined : () => g(!p),
-		});
+	const I = n.useCallback((e) => v(noteParent, e), [v, noteParent]);
+	const E = h.TS.IN_STEAMUI ? (
+		Localize("#UserGameNotes_NotesList")
+	) : (
+		<B noteParent={noteParent} />
+	);
+	if (_ && bStandalonePage) {
+		return (
+			<l.Bv
+				title={E}
+				pages={B}
+				className={A_1(d.NotesPagedSettings, C && d.PinnedView, w)}
+				page={activeNoteID}
+				onPageRequested={I}
+				bottomControls={actions}
+				hideList={p}
+				toggleHideList={C || _ || (() => g(!p))}
+			/>
+		);
 	} else {
-		return n.createElement(l.O7, {
-			title: E,
-			pages: B,
-			className: (0, c.A)(d.NotesPagedSettings, C && d.PinnedView, w),
-			page: a,
-			onPageRequested: I,
-			bottomControls: s,
-			hideList: p,
-			toggleHideList: C || _ ? undefined : () => g(!p),
-		});
+		return (
+			<l.O7
+				title={E}
+				pages={B}
+				className={A_1(d.NotesPagedSettings, C && d.PinnedView, w)}
+				page={activeNoteID}
+				onPageRequested={I}
+				bottomControls={actions}
+				hideList={p}
+				toggleHideList={C || _ || (() => g(!p))}
+			/>
+		);
 	}
 }
-function b(e) {
-	const { noteParent: t } = e;
-	const r = (0, C.X)("appid" in t ? t.appid : undefined);
+function B(e) {
+	const { noteParent } = e;
+	const r = X("appid" in noteParent ? noteParent.appid : undefined);
 	let i;
-	i = "appid" in t ? r?.name : t.shortcut;
-	return n.createElement(
-		n.Fragment,
-		null,
-		Localize("#UserGameNotes_NotesForGame", i),
-	);
+	i = "appid" in noteParent ? r?.name : noteParent.shortcut;
+	return <>{Localize("#UserGameNotes_NotesForGame", i)}</>;
 }
-function y(e) {
-	const { noteParent: t, note: r } = e;
+function Y(e) {
+	const { noteParent, note } = e;
 	const i = l.v$();
 	const a = S();
-	const s = n.useCallback(() => a(t), [a, t]);
-	const c = (0, A.wR)();
-	return n.createElement(
-		n.Fragment,
-		null,
-		!c &&
-			n.createElement(l._Z, {
-				onActivate: s,
-			}),
-		n.createElement(o.U, {
-			note: r,
-			hidden: !i,
-		}),
+	const s = n.useCallback(() => a(noteParent), [a, noteParent]);
+	const c = wR();
+	return (
+		<>
+			{!c && <l._Z onActivate={s} />}
+			<o.U note={note} hidden={!i} />
+		</>
 	);
 }
 function S(e = false) {
-	const t = (0, h.Qn)();
-	const r = (0, i.W6)();
+	const t = Qn();
+	const r = W6();
 	const s = e || t;
 	return n.useCallback(
 		(e, t, n = s) => {

@@ -1,12 +1,12 @@
+import { Localize, Hq } from "../../actual_src/utils/localization.js";
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { tB } from "./59351.js";
+import s from "./36934.js";
+import l from "./72476.js";
+import c, { t } from "./93023.js";
 export let tp = c.t;
 export let dV = c.d;
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./59351.js");
-var s = require("./36934.js");
-import { Localize, Hq } from "../../actual_src/utils/localization.js";
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./93023.js");
 export function rO(e) {
 	let t = "offline";
 	if (e) {
@@ -52,7 +52,7 @@ export class Z {
 	m_bStatusInitialized = false;
 	m_strProfileURL = undefined;
 	constructor(e) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_steamid = e;
 	}
 	Reset() {
@@ -91,6 +91,7 @@ export class Z {
 	get is_in_joinable_game() {
 		return (
 			this.has_joinable_game_flag ||
+			this.is_in_valid_lobby ||
 			this.is_in_valid_lobby ||
 			this.has_server_ip
 		);
@@ -156,6 +157,7 @@ export class Z {
 		return (
 			!!this.m_mapRichPresence.has("status") ||
 			!!this.m_mapRichPresence.has("connect") ||
+			!!this.m_mapRichPresence.has("connect") ||
 			!!this.m_mapRichPresence.has("connect_private")
 		);
 	}
@@ -174,6 +176,7 @@ export class Z {
 	GetCurrentGameStatus() {
 		return (
 			this.GetCurrentGameRichPresence() ||
+			this.m_mapRichPresence.get("status") ||
 			this.m_mapRichPresence.get("status") ||
 			""
 		);
@@ -194,7 +197,7 @@ export class Z {
 		}
 		let e = this.GetOfflineStatusUpdateRate();
 		if (!l.TS.IN_MOBILE || e <= 60) {
-			(0, a.tB)(e);
+			tB(e);
 		}
 		let t = s.Vw.CMInterface.GetServerRTime32() - this.last_seen_online;
 		if (t < 60) {
@@ -206,22 +209,30 @@ export class Z {
 	GetLocalizedOnlineStatus() {
 		switch (this.m_ePersonaState) {
 			case 0:
-			case 7:
+			case 7: {
 				return this.GetOfflineStatusTime();
-			case 1:
+			}
+			case 1: {
 				return (0, Localize)("#PersonaStateOnline");
-			case 2:
+			}
+			case 2: {
 				return (0, Localize)("#PersonaStateBusy");
-			case 3:
+			}
+			case 3: {
 				return (0, Localize)("#PersonaStateAway");
-			case 4:
+			}
+			case 4: {
 				return (0, Localize)("#PersonaStateSnooze");
-			case 5:
+			}
+			case 5: {
 				return (0, Localize)("#PersonaStateLookingToTrade");
-			case 6:
+			}
+			case 6: {
 				return (0, Localize)("#PersonaStateLookingToPlay");
-			default:
+			}
+			default: {
 				return "";
+			}
 		}
 	}
 	get has_public_party_beacon() {
@@ -260,13 +271,13 @@ export class Z {
 		return this.m_strAvatarHash != c.d;
 	}
 	get avatar_url() {
-		return (0, c.t)(this.m_strAvatarHash);
+		return t(this.m_strAvatarHash);
 	}
 	get avatar_url_medium() {
-		return (0, c.t)(this.m_strAvatarHash, "medium");
+		return t(this.m_strAvatarHash, "medium");
 	}
 	get avatar_url_full() {
-		return (0, c.t)(this.m_strAvatarHash, "full");
+		return t(this.m_strAvatarHash, "full");
 	}
 	static SortStatusComparator(e, t, r) {
 		if (t.has_public_party_beacon) {
@@ -317,29 +328,31 @@ export class Z {
 		if (this.m_strProfileURL) {
 			return `${l.TS.COMMUNITY_BASE_URL}id/${this.m_strProfileURL}/`;
 		} else {
-			return `${l.TS.COMMUNITY_BASE_URL}profiles/${this.m_steamid.ConvertTo64BitString()}/`;
+			return `${
+				l.TS.COMMUNITY_BASE_URL
+			}profiles/${this.m_steamid.ConvertTo64BitString()}/`;
 		}
 	}
 }
-(0, n.Cg)([i.sH], Z.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_ePersonaState", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_unGamePlayedAppID", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_gameid", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_unPersonaStateFlags", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_strPlayerName", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_strAvatarHash", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_strAccountName", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_rtLastSeenOnline", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_strGameExtraInfo", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_unGameServerIP", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_unGameServerPort", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_game_lobby_id", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_bPlayerNamePending", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_bAvatarPending", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_broadcastId", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_broadcastAccountId", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_broadcastAppId", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_broadcastViewerCount", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_strBroadcastTitle", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_bCommunityBanned", undefined);
-(0, n.Cg)([i.sH], Z.prototype, "m_bOnSteamDeck", undefined);
+Cg([i.sH], Z.prototype, "m_bInitialized", undefined);
+Cg([i.sH], Z.prototype, "m_ePersonaState", undefined);
+Cg([i.sH], Z.prototype, "m_unGamePlayedAppID", undefined);
+Cg([i.sH], Z.prototype, "m_gameid", undefined);
+Cg([i.sH], Z.prototype, "m_unPersonaStateFlags", undefined);
+Cg([i.sH], Z.prototype, "m_strPlayerName", undefined);
+Cg([i.sH], Z.prototype, "m_strAvatarHash", undefined);
+Cg([i.sH], Z.prototype, "m_strAccountName", undefined);
+Cg([i.sH], Z.prototype, "m_rtLastSeenOnline", undefined);
+Cg([i.sH], Z.prototype, "m_strGameExtraInfo", undefined);
+Cg([i.sH], Z.prototype, "m_unGameServerIP", undefined);
+Cg([i.sH], Z.prototype, "m_unGameServerPort", undefined);
+Cg([i.sH], Z.prototype, "m_game_lobby_id", undefined);
+Cg([i.sH], Z.prototype, "m_bPlayerNamePending", undefined);
+Cg([i.sH], Z.prototype, "m_bAvatarPending", undefined);
+Cg([i.sH], Z.prototype, "m_broadcastId", undefined);
+Cg([i.sH], Z.prototype, "m_broadcastAccountId", undefined);
+Cg([i.sH], Z.prototype, "m_broadcastAppId", undefined);
+Cg([i.sH], Z.prototype, "m_broadcastViewerCount", undefined);
+Cg([i.sH], Z.prototype, "m_strBroadcastTitle", undefined);
+Cg([i.sH], Z.prototype, "m_bCommunityBanned", undefined);
+Cg([i.sH], Z.prototype, "m_bOnSteamDeck", undefined);

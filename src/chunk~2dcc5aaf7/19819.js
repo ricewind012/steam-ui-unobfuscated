@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	BodyGutter: "10px",
 	AppDetailsSection: "_2r4TK4BAuU-J4FuF_O7v_5",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Overlay: "fMMMDD_7bJ5hugXub44ER",
 	OuterContainer: "_2qxDrjso_tFWZycH3i0lve",
 	ContainerScroll: "_3zB7s-HtSzCWmio_PcWLlq",

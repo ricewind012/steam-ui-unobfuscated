@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	MessageReactions: "_1Ab0f8lGXvkC0tPjkFoYj8",
 	OpenPickerButton: "_2FJUPOjT7afeB0125mqdQt",
 	AddReactionIcon: "_3XfQ_NReAGO_XZ7IQEUNTZ",

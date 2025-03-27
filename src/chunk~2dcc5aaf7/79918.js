@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	WriteReviewContainer: "_10bN3WMeG0xP9KCqsxx7ea",
 	WebLink: "C1Doboj64HjGC_c3pKswu",

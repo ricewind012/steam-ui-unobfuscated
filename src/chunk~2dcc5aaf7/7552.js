@@ -1,14 +1,30 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90242.js");
-var a = require(/*webcrack:missing*/ "./69164.js");
-var s = require("./56655.js");
-var o = require(/*webcrack:missing*/ "./34629.js");
-var l = require(/*webcrack:missing*/ "./83957.js");
-var c = l;
-var m = require("./16154.js");
-var u = require(/*webcrack:missing*/ "./79769.js");
-var d = require(/*webcrack:missing*/ "./52451.js");
-var A = require(/*webcrack:missing*/ "./72476.js");
+import {
+	Localize,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n from "./63696.js";
+import i from "./90242.js";
+import a from "./69164.js";
+import s from "./56655.js";
+import o, { Cg } from "./34629.js";
+import l from "./83957.js";
+import m, { H } from "./16154.js";
+import u from "./79769.js";
+import d, { hL } from "./52451.js";
+import A, { Tc, Qn } from "./72476.js";
+import g from "./64608.js";
+import h from "./10606.js";
+import C from "./50376.js";
+import f from "./81489.js";
+import y from "./21105.js";
+import S from "./13743.js";
+import w from "./43014.js";
+import E from "./26853.js";
+import { A as A_1 } from "./90765.js";
+import { EK } from "./51095.js";
+import { pg } from "./13869.js";
+const c = l;
 class p {
 	m_mapAppResults = new Map();
 	m_mapAppCallbackList = new Map();
@@ -48,8 +64,7 @@ class p {
 				l: A.TS.LANGUAGE,
 				cc: A.TS.COUNTRY,
 			};
-			let n =
-				A.TS.STORE_BASE_URL + "saleaction/ajaxgetdeckappcompatibilityreport";
+			let n = `${A.TS.STORE_BASE_URL}saleaction/ajaxgetdeckappcompatibilityreport`;
 			const i = await c.get(n, {
 				params: r,
 				withCredentials: true,
@@ -58,13 +73,12 @@ class p {
 				this.AddCompatabilityResult(i.data.results);
 				return true;
 			}
-			t = (0, m.H)(i);
+			t = H(i);
 		} catch (e) {
-			t = (0, m.H)(e);
+			t = H(e);
 		}
 		console.error(
-			"CDeckVerifiedDetailsStore.InternalLoadAppCompatability failed: " +
-				t?.strErrorMsg,
+			`CDeckVerifiedDetailsStore.InternalLoadAppCompatability failed: ${t?.strErrorMsg}`,
 			t,
 		);
 		return false;
@@ -81,7 +95,7 @@ class p {
 	}
 	constructor() {
 		if (document.getElementById("application_config")) {
-			let e = (0, A.Tc)("deckcompatibility", "application_config");
+			let e = Tc("deckcompatibility", "application_config");
 			if (p.ValidateCompatabilityResult(e)) {
 				this.AddCompatabilityResult(e);
 				if (A.TS.WEB_UNIVERSE == "dev") {
@@ -103,238 +117,155 @@ class p {
 		);
 	}
 }
-(0, o.Cg)([d.oI], p.prototype, "LoadAppCompabitilityResult", null);
-var g = require("./64608.js");
-var h = require("./10606.js");
-var C = require(/*webcrack:missing*/ "./50376.js");
-import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-var f = require("./81489.js");
-var b = f;
-var y = require("./21105.js");
-var S = require("./13743.js");
-var w = require("./43014.js");
-export function g1(e) {
-	const {
-		results: t,
-		appName: r,
-		buttonProps: i,
-		autoFocus: s,
-		onOpenBlogPost: o,
-	} = e;
-	const [l, c] = n.useState(false);
+Cg([d.oI], p.prototype, "LoadAppCompabitilityResult", null);
+const b = f;
+export function G1(e) {
+	const { results, appName, buttonProps, autoFocus, onOpenBlogPost } = e;
+	const [l, setL] = n.useState(false);
 	const m = n.useCallback(() => l, [l]);
-	const u = n.useRef();
-	const d = (0, A.Qn)();
+	const URef = n.useRef();
+	const d = Qn();
 	n.useEffect(() => {
-		c(u?.current?.scrollHeight > u?.current?.clientHeight);
+		setL(URef?.current?.scrollHeight > URef?.current?.clientHeight);
 	}, []);
-	if (!t) {
+	if (!results) {
 		return null;
 	}
 	const p = () => {
-		if (o) {
-			o();
+		if (onOpenBlogPost) {
+			onOpenBlogPost();
 		} else {
-			window.location.href = t.steam_deck_blog_url;
+			window.location.href = results.steam_deck_blog_url;
 		}
 	};
-	let g = i ?? {};
+	let g = buttonProps ?? {};
 	let h = null;
-	if (t.steam_deck_blog_url) {
+	if (results.steam_deck_blog_url) {
 		g.onOptionsActionDescription = (0, Localize)(
 			"#SteamDeckVerified_ViewDeveloperPost",
 		);
 		g.onOptionsButton = p;
-		h = n.createElement(v, {
-			blogURL: t.steam_deck_blog_url,
-		});
+		h = <V blogURL={results.steam_deck_blog_url} />;
 	}
-	const C = t.resolved_items?.findIndex((e) => e.display_type == 1) !== -1;
-	if (t.resolved_items?.length) {
-		return n.createElement(
-			a.Z,
-			{
-				className: d
-					? b.CompatibilityDetailsContainer
-					: b.CompatibilityDetailsContainerDesktop,
-				...g,
-			},
-			n.createElement(
-				"div",
-				null,
-				n.createElement(
-					"div",
-					{
-						className: b.DialogHeader,
-					},
-					n.createElement(
-						"div",
-						{
-							className: b.DialogTitle,
-						},
-						(0, Localize)(
-							"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
-						),
-					),
-					n.createElement(
-						"div",
-						{
-							className: b.AppTitleCategory,
-						},
-						n.createElement(Ez, {
-							category: t.resolved_category,
-						}),
-					),
-				),
-				n.createElement(UN, {
-					category: t.resolved_category,
-					appName: r,
-				}),
-			),
-			h,
-			n.createElement("div", {
-				className: b.CompatibilityDetailsSeparator,
-			}),
-			n.createElement(
-				y.Qg,
-				{
-					ref: u,
-					className: m()
-						? b.CompatibilityDetailsInterior_Scroll
-						: b.CompatibilityDetailsInterior_NoScroll,
-				},
-				n.createElement(
-					a.Z,
-					{
-						autoFocus: s,
-						focusableIfNoChildren: s || m(),
-						noFocusRing: true,
-					},
-					t.resolved_items
-						.filter((e) => e.display_type !== 1)
-						.map((e) =>
-							n.createElement(
-								"div",
-								{
-									key: e.loc_token + e.display_type,
-									className: b.CompatibilityDetailsRow,
-								},
-								n.createElement(I, {
-									displaytype: e.display_type,
-								}),
-								n.createElement("span", null, (0, Localize)(e.loc_token)),
-							),
-						),
-					C &&
-						n.createElement(
-							"div",
-							{
-								className: b.CompatibilityNotes,
-							},
-							t.resolved_items
-								.filter((e) => e.display_type == 1)
-								.map((e) =>
-									n.createElement(
-										"div",
-										{
-											key: e.loc_token + e.display_type,
-											className: b.CompatibilityDetailsNoteRow,
-										},
-										n.createElement("span", null, (0, Localize)(e.loc_token)),
-									),
-								),
-						),
-				),
-			),
+	const C =
+		results.resolved_items?.findIndex((e) => e.display_type == 1) !== -1;
+	if (results.resolved_items?.length) {
+		return (
+			<a.Z
+				className={
+					d
+						? b.CompatibilityDetailsContainer
+						: b.CompatibilityDetailsContainerDesktop
+				}
+				{...g}
+			>
+				<div>
+					<div className={b.DialogHeader}>
+						<div className={b.DialogTitle}>
+							{(0, Localize)(
+								"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
+							)}
+						</div>
+						<div className={b.AppTitleCategory}>
+							<Ez category={results.resolved_category} />
+						</div>
+					</div>
+					<UN category={results.resolved_category} appName={appName} />
+				</div>
+				{h}
+				<div className={b.CompatibilityDetailsSeparator} />
+				<y.Qg
+					ref={URef}
+					className={
+						m()
+							? b.CompatibilityDetailsInterior_Scroll
+							: b.CompatibilityDetailsInterior_NoScroll
+					}
+				>
+					<a.Z
+						autoFocus={autoFocus}
+						focusableIfNoChildren={autoFocus || m()}
+						noFocusRing
+					>
+						{results.resolved_items
+							.filter((e) => e.display_type !== 1)
+							.map((e) => (
+								<div
+									key={e.loc_token + e.display_type}
+									className={b.CompatibilityDetailsRow}
+								>
+									<I displaytype={e.display_type} />
+									<span>{(0, Localize)(e.loc_token)}</span>
+								</div>
+							))}
+						{C && (
+							<div className={b.CompatibilityNotes}>
+								{results.resolved_items
+									.filter((e) => e.display_type == 1)
+									.map((e) => (
+										<div
+											key={e.loc_token + e.display_type}
+											className={b.CompatibilityDetailsNoteRow}
+										>
+											<span>{(0, Localize)(e.loc_token)}</span>
+										</div>
+									))}
+							</div>
+						)}
+					</a.Z>
+				</y.Qg>
+			</a.Z>
 		);
 	} else {
-		return n.createElement(
-			a.Z,
-			{
-				autoFocus: s,
-				focusableIfNoChildren: s,
-				noFocusRing: true,
-				className: b.CompatibilityDetailsContainer,
-				...g,
-			},
-			n.createElement(
-				"div",
-				null,
-				n.createElement(
-					"div",
-					{
-						className: b.DialogHeader,
-					},
-					n.createElement(
-						"div",
-						{
-							className: b.DialogTitle,
-						},
-						(0, Localize)(
-							"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
-						),
-					),
-					n.createElement(
-						"div",
-						{
-							className: b.AppTitleCategory,
-						},
-						n.createElement(Ez, {
-							category: t.resolved_category,
-						}),
-					),
-				),
-				n.createElement(UN, {
-					category: t.resolved_category,
-					appName: r,
-				}),
-				h,
-			),
+		return (
+			<a.Z
+				autoFocus={autoFocus}
+				focusableIfNoChildren={autoFocus}
+				noFocusRing
+				className={b.CompatibilityDetailsContainer}
+				{...g}
+			>
+				<div>
+					<div className={b.DialogHeader}>
+						<div className={b.DialogTitle}>
+							{(0, Localize)(
+								"#SteamDeckVerified_Store_CompatSectionHeader_GamepadUI",
+							)}
+						</div>
+						<div className={b.AppTitleCategory}>
+							<Ez category={results.resolved_category} />
+						</div>
+					</div>
+					<UN category={results.resolved_category} appName={appName} />
+					{h}
+				</div>
+			</a.Z>
 		);
 	}
 }
-function v(e) {
-	const { blogURL: t } = e;
-	const r = (0, A.Qn)();
-	if (t) {
+function V(e) {
+	const { blogURL } = e;
+	const r = Qn();
+	if (blogURL) {
 		if (r) {
-			return n.createElement(
-				"div",
-				{
-					className: b.CompatibilityDetailRatingSummary,
-				},
-				(0, Localize)("#SteamDeckVerified_DescriptionHeader_DeveloperBlog"),
-				n.createElement(
-					"div",
-					{
-						className: b.DeveloperBlogYButton,
-					},
-					n.createElement(S.$m, {
-						button: w.g4.Y,
-						type: S.wt.Knockout,
-					}),
-				),
+			return (
+				<div className={b.CompatibilityDetailRatingSummary}>
+					{(0, Localize)("#SteamDeckVerified_DescriptionHeader_DeveloperBlog")}
+					<div className={b.DeveloperBlogYButton}>
+						<S.$m button={w.g4.Y} type={S.wt.Knockout} />
+					</div>
+				</div>
 			);
 		} else {
-			return n.createElement(
-				"div",
-				{
-					className: b.CompatibilityDetailRatingSummary,
-				},
-				(0, Localize)(
-					"#SteamDeckVerified_DescriptionHeader_DeveloperBlog_Desktop",
-				),
-				n.createElement(
-					"a",
-					{
-						href: t,
-						className: b.DeveloperBlockLinkDesktop,
-					},
-					(0, Localize)("#SteamDeckVerified_ViewDeveloperPost"),
-				),
+			return (
+				<div className={b.CompatibilityDetailRatingSummary}>
+					{(0, Localize)(
+						"#SteamDeckVerified_DescriptionHeader_DeveloperBlog_Desktop",
+					)}
+					<a href={blogURL} className={b.DeveloperBlockLinkDesktop}>
+						{(0, Localize)("#SteamDeckVerified_ViewDeveloperPost")}
+					</a>
+				</div>
 			);
 		}
 	} else {
@@ -342,243 +273,201 @@ function v(e) {
 	}
 }
 function I(e) {
-	const { displaytype: t } = e;
-	switch (t) {
-		case 4:
-			return n.createElement(C.o5Q, {
-				className: b.CompatibilityDetailsResultIcon,
-			});
-		case 3:
-			return n.createElement(C.aVR, {
-				className: b.CompatibilityDetailsResultIcon,
-			});
-		case 2:
-			return n.createElement(C.jIP, {
-				className: b.CompatibilityDetailsResultIcon,
-			});
-		case 0:
-			return n.createElement(C.WX$, {
-				className: b.CompatibilityDetailsResultIcon,
-			});
-		case 1:
+	const { displaytype } = e;
+	switch (displaytype) {
+		case 4: {
+			return <C.o5Q className={b.CompatibilityDetailsResultIcon} />;
+		}
+		case 3: {
+			return <C.aVR className={b.CompatibilityDetailsResultIcon} />;
+		}
+		case 2: {
+			return <C.jIP className={b.CompatibilityDetailsResultIcon} />;
+		}
+		case 0: {
+			return <C.WX$ className={b.CompatibilityDetailsResultIcon} />;
+		}
+		case 1: {
 			if (A.TS.WEB_UNIVERSE == "dev") {
 				console.error(
 					"deck verified banner shouldn't try to display the information display type for appid",
 				);
 			}
 			return null;
+		}
 	}
 }
-var E = require(/*webcrack:missing*/ "./26853.js");
-var M = require(/*webcrack:missing*/ "./90765.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var R = require("./51095.js");
-var k = require("./13869.js");
 export function Q8(e) {
-	const { storeItem: t } = e;
-	if (t.GetStoreItemType() !== 0) {
+	const { storeItem } = e;
+	if (storeItem.GetStoreItemType() !== 0) {
 		return null;
 	}
-	const r = t.GetPlatforms()?.steam_deck_compat_category || 0;
-	return n.createElement(
-		"div",
-		{
-			className: (0, M.A)(b.LearnMoreCtn, "LearnMoreCtn"),
-		},
-		n.createElement(s.$o, {
-			category: r,
-		}),
-		n.createElement(
-			i.Ii,
-			{
-				onClick: (e) => {
-					var r;
-					var i;
+	const r = storeItem.GetPlatforms()?.steam_deck_compat_category || 0;
+	return (
+		<div className={A_1(b.LearnMoreCtn, "LearnMoreCtn")}>
+			<s.$o category={r} />
+			<i.Ii
+				onClick={(e) => {
+					let r;
+					let i;
 					e.preventDefault();
 					e.stopPropagation();
 					r = GetOwningWindowForEvent(e);
-					i = t.GetAppID();
-					(0, k.pg)(
-						n.createElement(F, {
-							nAppID: i,
-						}),
-						r,
-					);
-				},
-			},
-			n.createElement(
-				"span",
-				{
-					className: b.LearnMorePC,
-				},
-				(0, Localize)("#SteamDeckVerified_Store_CompatSectionHeader_Desktop"),
-			),
-		),
+					i = storeItem.GetAppID();
+					pg(<F nAppID={i} />, r);
+				}}
+			>
+				<span className={b.LearnMorePC}>
+					{(0, Localize)(
+						"#SteamDeckVerified_Store_CompatSectionHeader_Desktop",
+					)}
+				</span>
+			</i.Ii>
+		</div>
 	);
 }
 export function Tz(e) {
-	const { url: t, containerClass: r, bIncludeIcon: a, onOpenBlogPost: s } = e;
-	return n.createElement(
-		i.Ii,
-		{
-			className: r,
-			onClick: () => {
-				if (s) {
-					s();
+	const { url, containerClass, bIncludeIcon, onOpenBlogPost } = e;
+	return (
+		<i.Ii
+			className={containerClass}
+			onClick={() => {
+				if (onOpenBlogPost) {
+					onOpenBlogPost();
 				} else {
-					window.location.href = t;
+					window.location.href = url;
 				}
-			},
-		},
-		a &&
-			n.createElement("div", {
-				className: b.DeveloperComments_Icon,
-			}),
-		n.createElement(
-			"div",
-			{
-				className: a
-					? b.DeveloperComments_LinkIcon
-					: b.DeveloperComments_LinkNoIcon,
-			},
-			(0, Localize)("#SteamDeckVerified_Store_CompatSection_DeveloperComments"),
-		),
+			}}
+		>
+			{bIncludeIcon && <div className={b.DeveloperComments_Icon} />}
+			<div
+				className={
+					bIncludeIcon
+						? b.DeveloperComments_LinkIcon
+						: b.DeveloperComments_LinkNoIcon
+				}
+			>
+				{(0, Localize)(
+					"#SteamDeckVerified_Store_CompatSection_DeveloperComments",
+				)}
+			</div>
+		</i.Ii>
 	);
 }
 function F(e) {
-	const { nAppID: t, closeModal: r } = e;
-	const i = (function (e) {
-		const [t, r] = n.useState(p.Get().GetCompatabilityResultForApp(e));
-		(0, d.hL)(p.Get().GetCallbackForAppList(e), r);
+	const { nAppID, closeModal } = e;
+	const i = ((e) => {
+		const [t, setT] = n.useState(p.Get().GetCompatabilityResultForApp(e));
+		hL(p.Get().GetCallbackForAppList(e), setT);
 		n.useEffect(() => {
 			if (!p.Get().BHasCompatabilityResultForApp(e)) {
 				p.Get()
 					.LoadAppCompabitilityResult(e)
-					.then(() => r(p.Get().GetCompatabilityResultForApp(e)));
+					.then(() => setT(p.Get().GetCompatabilityResultForApp(e)));
 			}
 		}, [e]);
 		return t;
-	})(t);
-	return n.createElement(
-		h.eV,
-		{
-			modalClassName: "DeckVerifiedModalDialog",
-			closeModal: r,
-			onCancel: r,
-		},
-		n.createElement(
-			g.nB,
-			null,
-			n.createElement(
-				a.Z,
-				{
-					focusable: false,
-					"flow-children": "column",
-				},
-				Boolean(i)
-					? n.createElement(g1, {
-							results: i,
-						})
-					: n.createElement(E.t, {
-							size: "medium",
-							position: "center",
-							string: (0, Localize)("#Loading"),
-						}),
-			),
-		),
+	})(nAppID);
+	return (
+		<h.eV
+			modalClassName="DeckVerifiedModalDialog"
+			closeModal={closeModal}
+			onCancel={closeModal}
+		>
+			<g.nB>
+				<a.Z focusable={false} flow-children="column">
+					{Boolean(i) ? (
+						<G1 results={i} />
+					) : (
+						<E.t
+							size="medium"
+							position="center"
+							string={(0, Localize)("#Loading")}
+						/>
+					)}
+				</a.Z>
+			</g.nB>
+		</h.eV>
 	);
 }
 export function Ez(e) {
-	const { category: t } = e;
-	switch (t) {
-		case 3:
-			return n.createElement(C.o5Q, {
-				className: b.CategoryIcon,
-			});
-		case 2:
-			return n.createElement(C.aVR, {
-				className: b.CategoryIcon,
-			});
-		case 1:
-			return n.createElement(C.jIP, {
-				className: b.CategoryIcon,
-			});
-		case 0:
-			return n.createElement(C.WX$, {
-				className: b.CategoryIcon,
-			});
+	const { category } = e;
+	switch (category) {
+		case 3: {
+			return <C.o5Q className={b.CategoryIcon} />;
+		}
+		case 2: {
+			return <C.aVR className={b.CategoryIcon} />;
+		}
+		case 1: {
+			return <C.jIP className={b.CategoryIcon} />;
+		}
+		case 0: {
+			return <C.WX$ className={b.CategoryIcon} />;
+		}
 	}
 }
 export function UN(e) {
-	const { category: t, appName: r, descriptionToken: i } = e;
-	if (t == 0) {
-		return n.createElement(
-			"div",
-			{
-				className: b.CompatibilityDetailRatingSummary,
-			},
-			r
-				? LocalizeReact(
-						"#SteamDeckVerified_DescriptionHeader_Unknown_WithAppName",
-						n.createElement("b", null, (0, R.EK)(r)),
-					)
-				: (0, Localize)("#SteamDeckVerified_DescriptionHeader_Unknown"),
+	const { category, appName, descriptionToken } = e;
+	if (category == 0) {
+		return (
+			<div className={b.CompatibilityDetailRatingSummary}>
+				{appName
+					? LocalizeReact(
+							"#SteamDeckVerified_DescriptionHeader_Unknown_WithAppName",
+							<b>{EK(appName)}</b>,
+						)
+					: (0, Localize)("#SteamDeckVerified_DescriptionHeader_Unknown")}
+			</div>
 		);
 	}
 	let a = "";
 	let s = null;
-	switch (t) {
-		case 3:
+	switch (category) {
+		case 3: {
 			a = "#SteamDeckVerified_DescriptionHeader_Verified";
 			s = b.Verified;
 			break;
-		case 2:
+		}
+		case 2: {
 			a = "#SteamDeckVerified_DescriptionHeader_Playable";
 			s = b.Playable;
 			break;
-		case 1:
+		}
+		case 1: {
 			a = "#SteamDeckVerified_DescriptionHeader_Unsupported";
 			s = b.Unsupported;
+		}
 	}
-	const o = n.createElement(
-		"span",
-		{
-			className: s,
-		},
-		(0, Localize)(P(t)),
+	const o = <span className={s}>{(0, Localize)(P(category))}</span>;
+	const l = (
+		<span className={b.CompatibilityDetailRatingSummary}>
+			{(0, Localize)(descriptionToken || a)}
+		</span>
 	);
-	const l = n.createElement(
-		"span",
-		{
-			className: b.CompatibilityDetailRatingSummary,
-		},
-		(0, Localize)(i || a),
-	);
-	const c = r
+	const c = appName
 		? LocalizeReact(
 				"#SteamDeckVerified_DescriptionHeader_WithAppName",
-				n.createElement("b", null, (0, R.EK)(r)),
+				<b>{EK(appName)}</b>,
 				o,
 				l,
 			)
 		: LocalizeReact("#SteamDeckVerified_DescriptionHeader", o, l);
-	return n.createElement(
-		"div",
-		{
-			className: b.CompatibilityDetailRatingSummary,
-		},
-		c,
-	);
+	return <div className={b.CompatibilityDetailRatingSummary}>{c}</div>;
 }
 function P(e) {
 	switch (e) {
-		case 3:
+		case 3: {
 			return "#SteamDeckVerified_Category_Verified";
-		case 2:
+		}
+		case 2: {
 			return "#SteamDeckVerified_Category_Playable";
-		case 1:
+		}
+		case 1: {
 			return "#SteamDeckVerified_Category_Unsupported";
-		default:
+		}
+		default: {
 			return "#SteamDeckVerified_Category_Unknown";
+		}
 	}
 }

@@ -1,113 +1,108 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./3475.js");
-var s = require(/*webcrack:missing*/ "./41230.js");
-var o = require(/*webcrack:missing*/ "./90095.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
-var c = require("./1965.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var u = require(/*webcrack:missing*/ "./52451.js");
-var d = require("./47801.js");
-var A = require("./87935.js");
-var p = require(/*webcrack:missing*/ "./72476.js");
-var g = require(/*webcrack:missing*/ "./44846.js");
-var h = require(/*webcrack:missing*/ "./88750.js");
-var C = require(/*webcrack:missing*/ "./90242.js");
-var _ = require(/*webcrack:missing*/ "./50376.js");
-var f = require("./60712.js");
-var b = f;
-var y = require("./21154.js");
-var S = y;
-var w = require(/*webcrack:missing*/ "./31084.js");
-var B = require(/*webcrack:missing*/ "./69164.js");
-var v = require("./26271.js");
-var I = require("./43520.js");
-var E = require("./5640.js");
-var M = require("./18057.js");
-var T = require("./28934.js");
-var R = require("./10294.js");
-var k = require("./82594.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a from "./3475.js";
+import s from "./41230.js";
+import o, { q3 } from "./90095.js";
+import l, { A as A_1 } from "./90765.js";
+import c from "./1965.js";
+import u, { Fd } from "./52451.js";
+import d, { H_ as H } from "./47801.js";
+import A from "./87935.js";
+import p, { Qn } from "./72476.js";
+import { ID } from "./44846.js";
+import h from "./88750.js";
+import C from "./90242.js";
+import _ from "./50376.js";
+import f from "./60712.js";
+import y from "./21154.js";
+import { lX } from "./31084.js";
+import B from "./69164.js";
+import v from "./26271.js";
+import I, { S1 } from "./43520.js";
+import { OJ } from "./5640.js";
+import { Qt } from "./18057.js";
+import { wT } from "./28934.js";
+import R from "./10294.js";
+import { t7 } from "./82594.js";
+const b = f;
+const S = y;
 export function Qd(e) {
-	const { overview: t, details: r, workshopVisible: n, marketPresence: a } = e;
-	const s = (0, p.Qn)();
-	const l = (function (e, t, r = {}) {
-		let { appid: n } = e;
-		const i = (0, d.H_)(n);
-		const [a] = (0, k.t7)(e.optional_parent_app_id ?? 0, {});
-		return (0, o.q3)(() => {
-			const { bWorkshopVisible: s, bMarketPresence: o } = r;
+	const { overview, details, workshopVisible, marketPresence } = e;
+	const s = Qn();
+	const l = ((e, t, r = {}) => {
+		let { appid } = e;
+		const i = H(appid);
+		const [a] = t7(e.optional_parent_app_id ?? 0, {});
+		return q3(() => {
+			const { bWorkshopVisible, bMarketPresence } = r;
 			const l = e.BIsModOrShortcut();
 			const c = e.app_type == 8;
 			if (c && e.optional_parent_app_id) {
-				n = e.optional_parent_app_id;
+				appid = e.optional_parent_app_id;
 			}
-			const u = c && a?.HasDemoStandaloneStorePage() ? e.appid : n;
+			const u = c && a?.HasDemoStandaloneStorePage() ? e.appid : appid;
 			const d = [];
 			if (!l) {
-				const e = (0, g.ID)(p.TS.LAUNCHER_TYPE);
+				const e = ID(p.TS.LAUNCHER_TYPE);
 				const r = !e && i.rgCards?.length > 0;
-				const a = t.bAvailableContentOnStore;
+				const t_bAvailableContentOnStore = t.bAvailableContentOnStore;
 				const l = [
 					{
 						label: Localize("#AppDetails_Links_Store"),
 						url: A.B7.BuildStoreAppURL(u, "primarylinks"),
 					},
-					a && {
+					t_bAvailableContentOnStore && {
 						label: Localize("#AppDetails_Links_DLC"),
-						url: A.B7.BuildStoreAppDlcURL(n, "primarylinks"),
+						url: A.B7.BuildStoreAppDlcURL(appid, "primarylinks"),
 					},
 					!e && {
 						label: Localize("#AppDetails_Links_Community"),
 						link: "GameHub",
-						appid: n,
+						appid: appid,
 					},
 					r && {
 						label: Localize("#AppDetails_Links_PointsShop"),
-						url: A.B7.BuildAppPointsShopURL(n),
+						url: A.B7.BuildAppPointsShopURL(appid),
 					},
 					!e && {
 						label: Localize("#AppDetails_Link_Discussions"),
 						link: "GameHubDiscussions",
-						appid: n,
+						appid: appid,
 					},
 					!e && {
 						label: Localize("#AppDetails_Link_Guides"),
 						link: "GameHubGuides",
-						appid: n,
+						appid: appid,
 					},
-					s && {
+					bWorkshopVisible && {
 						label: Localize("#AppDetails_Link_Workshop"),
 						link: "SteamWorkshopPage",
-						appid: n,
+						appid: appid,
 					},
-					o && {
+					bMarketPresence && {
 						label: Localize("#AppDetails_Link_Market"),
 						link: "CommunityMarketApp",
-						appid: n,
+						appid: appid,
 					},
 					!R.Ih.BKioskModeLocked() && {
 						label: Localize("#AppDetails_Link_Support"),
 						link: "HelpAppPage",
-						appid: n,
+						appid: appid,
 					},
 				];
 				d.push(...l.filter(Boolean));
 			}
 			return d;
 		});
-	})(t, r, {
-		bMarketPresence: a,
-		bWorkshopVisible: n,
+	})(overview, details, {
+		bMarketPresence: marketPresence,
+		bWorkshopVisible: workshopVisible,
 	});
 	if (s) {
-		return i.createElement(L, {
-			links: l,
-		});
+		return <L links={l} />;
 	} else {
-		return i.createElement(N, {
-			links: l,
-			...e,
-		});
+		return <N links={l} {...e} />;
 	}
 }
 let N = class extends i.Component {
@@ -138,6 +133,9 @@ let N = class extends i.Component {
 		if (
 			e.overview.appid != this.props.overview.appid ||
 			e.workshopVisible != this.props.workshopVisible ||
+			e.workshopVisible != this.props.workshopVisible ||
+			e.marketPresence != this.props.marketPresence ||
+			e.workshopVisible != this.props.workshopVisible ||
 			e.marketPresence != this.props.marketPresence ||
 			e.links.length != this.props.links.length
 		) {
@@ -151,7 +149,7 @@ let N = class extends i.Component {
 		this.m_elInnerLinks = e;
 		this.StopListening();
 		if (e) {
-			this.m_resizeObserver = (0, u.Fd)(e, this.OnResize);
+			this.m_resizeObserver = Fd(e, this.OnResize);
 			this.CalculateLinkPositions();
 		}
 	}
@@ -159,20 +157,20 @@ let N = class extends i.Component {
 		const e = this.m_elInnerLinks;
 		if (e && e.children) {
 			const t = e.children[0];
-			const r = t.clientHeight;
+			const t_clientHeight = t.clientHeight;
 			let n = 1;
 			const i =
 				e.ownerDocument.defaultView.innerHeight < parseInt(b.BreakTall) ? 1 : 3;
 			const a = getComputedStyle(t);
 			const s = parseInt(a.marginRight);
-			const o = e.clientWidth;
+			const e_clientWidth = e.clientWidth;
 			let l = 0;
 			let c = 0;
 			let m = 0;
 			const u = [];
 			for (let t = 0; t < e.children.length; t++) {
 				const a = e.children[t].clientWidth;
-				if (a > o) {
+				if (a > e_clientWidth) {
 					for (let r = t; r < e.children.length; r++) {
 						u.push({
 							x: -1,
@@ -181,7 +179,7 @@ let N = class extends i.Component {
 					}
 					break;
 				}
-				if (l + a > o) {
+				if (l + a > e_clientWidth) {
 					l = 0;
 					c++;
 					n++;
@@ -190,7 +188,7 @@ let N = class extends i.Component {
 				if (c < i) {
 					u.push({
 						x: l,
-						y: c * r,
+						y: c * t_clientHeight,
 					});
 				} else {
 					u.push({
@@ -202,7 +200,7 @@ let N = class extends i.Component {
 					if (c == 0) {
 						l = l + a + s;
 					} else {
-						while (u[++m].x < l + a && u[m].y == 0);
+						while (u[++m].x < l + a && u[m].y == 0) {}
 						if (u[m].y != 0) {
 							l = 0;
 							c++;
@@ -215,12 +213,13 @@ let N = class extends i.Component {
 				}
 			}
 			if (
-				r != this.state.nRowHeight ||
+				t_clientHeight != this.state.nRowHeight ||
+				n != this.state.nRows ||
 				n != this.state.nRows ||
 				JSON.stringify(u) != JSON.stringify(this.state.rgChildPositions)
 			) {
 				this.setState({
-					nRowHeight: r,
+					nRowHeight: t_clientHeight,
 					nRows: n,
 					nMaxRows: i,
 					rgChildPositions: u,
@@ -229,84 +228,73 @@ let N = class extends i.Component {
 		}
 	}
 	render() {
-		const { links: e } = this.props;
-		if (e.length == 0) {
+		const { links } = this.props;
+		if (links.length == 0) {
 			return null;
 		}
 		let t = this.state.rgChildPositions.findIndex((e) => e.x == -1) !== -1;
 		let r = 0;
-		return i.createElement(
-			c.n,
-			{
-				"flow-children": "row",
-				className: S.LinksSection,
-				rightColumnSection: true,
-				availableOffline: true,
-			},
-			i.createElement(
-				c.n.Body,
-				{
-					className: S.LinksSectionBody,
-				},
-				i.createElement(
-					B.Z,
-					{
-						"flow-children": "row",
-						className: (0, l.A)(S.Links),
-						ref: this.BindInnerLinks,
-						style: {
+		return (
+			<c.n
+				flow-children="row"
+				className={S.LinksSection}
+				rightColumnSection
+				availableOffline
+			>
+				<c.n.Body className={S.LinksSectionBody}>
+					<B.Z
+						flow-children="row"
+						className={A_1(S.Links)}
+						ref={this.BindInnerLinks}
+						style={{
 							height:
 								this.state.nRowHeight *
 								Math.min(this.state.nRows, this.state.nMaxRows),
-						},
-					},
-					e.map((e) =>
-						i.createElement(Kd, {
-							key: e.label,
-							position: this.state.rgChildPositions[r++],
-							label: e.label,
-							url: e.url,
-							link: e.link,
-							appid: e.appid,
-						}),
-					),
-				),
-				t &&
-					i.createElement(F, {
-						links: e.filter((e, t) => this.state.rgChildPositions[t]?.x == -1),
-					}),
-			),
+						}}
+					>
+						{links.map((e) => (
+							<Kd
+								key={e.label}
+								position={this.state.rgChildPositions[r++]}
+								label={e.label}
+								url={e.url}
+								link={e.link}
+								appid={e.appid}
+							/>
+						))}
+					</B.Z>
+					{t && (
+						<F
+							links={links.filter(
+								(e, t) => this.state.rgChildPositions[t]?.x == -1,
+							)}
+						/>
+					)}
+				</c.n.Body>
+			</c.n>
 		);
 	}
 };
 function F(e) {
-	const { links: t } = e;
-	const r = (0, T.wT)();
+	const { links } = e;
+	const r = wT();
 	const n = (e) => {
-		const n = i.createElement(
-			h.tz,
-			null,
-			t.map((e) =>
-				i.createElement(P, {
-					key: e.label,
-					...e,
-					showUnlockDialog: r,
-				}),
-			),
+		const n = (
+			<h.tz>
+				{links.map((e) => (
+					<P key={e.label} {...e} showUnlockDialog={r} />
+				))}
+			</h.tz>
 		);
-		(0, w.lX)(n, e.currentTarget, {
+		lX(n, e.currentTarget, {
 			bOverlapHorizontal: true,
 			bOverlapVertical: false,
 		});
 	};
-	return i.createElement(
-		C.ml,
-		{
-			className: S.MenuButton,
-			onClick: n,
-			onContextMenu: n,
-		},
-		i.createElement(_.faJ, null),
+	return (
+		<C.ml className={S.MenuButton} onClick={n} onContextMenu={n}>
+			<_.faJ />
+		</C.ml>
 	);
 }
 export function Kd(e) {
@@ -324,116 +312,94 @@ export function Kd(e) {
 			zIndex: -100,
 		};
 	}
-	return i.createElement(
-		"div",
-		{
-			className: (0, l.A)(S.LinkInner, e.className),
-			style: t,
-		},
-		i.createElement(aX, {
-			className: e.innerClassName,
-			label: e.label,
-			link: e.link,
-			appid: e.appid,
-			url: e.url,
-			isVisible: r,
-		}),
+	return (
+		<div className={A_1(S.LinkInner, e.className)} style={t}>
+			<AX
+				className={e.innerClassName}
+				label={e.label}
+				link={e.link}
+				appid={e.appid}
+				url={e.url}
+				isVisible={r}
+			/>
+		</div>
 	);
 }
-export function aX(e) {
+export function AX(e) {
 	const t = e.url ? e.url : A.B7.ResolveURL(e.link, e.appid);
-	const r = (0, M.Qt)(t);
-	const n = (0, E.OJ)(t);
+	const r = Qt(t);
+	const n = OJ(t);
 	const s = n != 0;
-	const o = (0, T.wT)();
-	return i.createElement(
-		B.Z,
-		{
-			className: (0, l.A)(S.Anchor),
-			onActivate: s
-				? () => {
-						const e = A.B7.GetParentalFeatureForFullUrl(t);
-						o(n, e ?? a.uX, r);
-					}
-				: r,
-			focusable: e.isVisible ?? true,
-		},
-		i.createElement(
-			"div",
-			{
-				className: (0, l.A)(S.Link, s && S.Disabled, e.className),
-			},
-			i.createElement(
-				"span",
-				{
-					className: S.Text,
-				},
-				e.label,
-			),
-		),
+	const o = wT();
+	return (
+		<B.Z
+			className={A_1(S.Anchor)}
+			onActivate={
+				s
+					? () => {
+							const e = A.B7.GetParentalFeatureForFullUrl(t);
+							o(n, e ?? a.uX, r);
+						}
+					: r
+			}
+			focusable={e.isVisible ?? true}
+		>
+			<div className={A_1(S.Link, s && S.Disabled, e.className)}>
+				<span className={S.Text}>{e.label}</span>
+			</div>
+		</B.Z>
 	);
 }
 function P(e) {
-	const { label: t, link: r, appid: n, url: s, showUnlockDialog: o } = e;
-	const c = s || A.B7.BuildSteamURL(r, n);
-	const m = (0, M.Qt)(c);
-	const u = (0, E.OJ)(c);
+	const { label, link, appid, url, showUnlockDialog } = e;
+	const c = url || A.B7.BuildSteamURL(link, appid);
+	const m = Qt(c);
+	const u = OJ(c);
 	const d = u != 0;
 	const p = A.B7.GetParentalFeatureForFullUrl(c);
-	return i.createElement(
-		h.kt,
-		{
-			onSelected: d
-				? () => {
-						o(u, p ?? a.uX, m);
-					}
-				: m,
-			className: (0, l.A)(S.ContextMenuItem, d && S.Disabled),
-		},
-		t,
+	return (
+		<h.kt
+			onSelected={
+				d
+					? () => {
+							showUnlockDialog(u, p ?? a.uX, m);
+						}
+					: m
+			}
+			className={A_1(S.ContextMenuItem, d && S.Disabled)}
+		>
+			{label}
+		</h.kt>
 	);
 }
 function L(e) {
-	const { links: t } = e;
-	const r = (0, I.S1)();
-	return i.createElement(
-		I.VJ,
-		null,
-		i.createElement(
-			B.Z,
-			{
-				"flow-children": "row",
-				style: {
+	const { links } = e;
+	const r = S1();
+	return (
+		<I.VJ>
+			<B.Z
+				flow-children="row"
+				style={{
 					width: "100vw",
-				},
-			},
-			i.createElement(
-				v.Q,
-				{
-					edgeMask: "none",
-					fnUpdateArrows: () => {},
-					fnRenderScrollingDiv: ({ htmlElementRef: e, ...t }) =>
-						i.createElement("div", {
-							...t,
-							ref: e,
-							style: r,
-						}),
-				},
-				t.map((e) =>
-					i.createElement(aX, {
-						...e,
-						key: e.label,
-					}),
-				),
-				i.createElement("div", {
-					className: S.ForcedCarouselPadding,
-					"data-carousel": "ignore",
-				}),
-			),
-		),
+				}}
+			>
+				<v.Q
+					edgeMask="none"
+					fnUpdateArrows={() => {}}
+					fnRenderScrollingDiv={({ htmlElementRef, ...t }) => (
+						<div {...t} ref={htmlElementRef} style={r} />
+					)}
+				>
+					{links.map((e) => (
+						<AX {...e} key={e.label} />
+					))}
+					<div className={S.ForcedCarouselPadding} data-carousel="ignore" />
+				</v.Q>
+			</B.Z>
+		</I.VJ>
 	);
 }
-(0, n.Cg)([u.oI], N.prototype, "OnResize", null);
-(0, n.Cg)([u.oI], N.prototype, "BindInnerLinks", null);
-(0, n.Cg)([u.oI], N.prototype, "CalculateLinkPositions", null);
-N = (0, n.Cg)([s.PA], N);
+Cg([u.oI], N.prototype, "OnResize", null);
+Cg([u.oI], N.prototype, "BindInnerLinks", null);
+Cg([u.oI], N.prototype, "CalculateLinkPositions", null);
+N = Cg([s.PA], N);

@@ -1,46 +1,46 @@
-var n = require(/*webcrack:missing*/ "./41230.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require("./34792.js");
-var s = require(/*webcrack:missing*/ "./49519.js");
-var o = require(/*webcrack:missing*/ "./31084.js");
-var l = require(/*webcrack:missing*/ "./69164.js");
-var c = require(/*webcrack:missing*/ "./88750.js");
-var m = require("./64608.js");
-var u = require("./35488.js");
-var d = require("./10606.js");
-var A = require("./13869.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var g = require("./45309.js");
-var h = require("./46422.js");
-var C = require("./83314.js");
-var _ = require("./84914.js");
-var f = require("./62486.js");
-var b = require("./52192.js");
-var y = require("./85360.js");
-var S = require("./94899.js");
-var w = require("./75706.js");
-var B = w;
-var v = require(/*webcrack:missing*/ "./90765.js");
-var I = require(/*webcrack:missing*/ "./4690.js");
-var E = require("./22091.js");
-var M = require("./46396.js");
-var T = require("./75140.js");
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var k = require(/*webcrack:missing*/ "./11131.js");
+import n, { PA } from "./41230.js";
+import i from "./63696.js";
+import a, { VI } from "./34792.js";
+import s, { W6 } from "./49519.js";
+import o, { lX } from "./31084.js";
+import l from "./69164.js";
+import c from "./88750.js";
+import m, { Ld } from "./64608.js";
+import u from "./35488.js";
+import d from "./10606.js";
+import A, { pg } from "./13869.js";
+import g from "./45309.js";
+import h from "./46422.js";
+import C from "./83314.js";
+import _ from "./84914.js";
+import f, { GW, JS, X, QQ } from "./62486.js";
+import { Kw, rw, kF, Xt } from "./52192.js";
+import y from "./85360.js";
+import S from "./94899.js";
+import w from "./75706.js";
+import v, { A as A_1 } from "./90765.js";
+import I from "./4690.js";
+import E from "./22091.js";
+import M, { qb } from "./46396.js";
+import T from "./75140.js";
+import k, { R7 } from "./11131.js";
+const B = w;
 function D(e) {
 	const {
-		baseActionSet: t,
-		layerActionSet: r,
-		eControllerSource: n,
-		group: a,
-		appid: h,
-		actionset_section: C,
+		baseActionSet,
+		layerActionSet,
+		eControllerSource,
+		group,
+		appid,
+		actionset_section,
 	} = e;
-	const _ = (0, s.W6)();
-	if (a == null) {
+	const _ = W6();
+	if (group == null) {
 		return null;
 	}
-	const S = (0, b.Kw)(a?.modeid);
+	const S = Kw(group?.modeid);
 	if (!S) {
 		return null;
 	}
@@ -52,13 +52,13 @@ function D(e) {
 		return null;
 	}
 	const v = f.k$[S.mode].id;
-	const I = S.friendlyname ? S.friendlyname : (0, f.GW)(v);
-	const E = (0, b.rw)(S.mode);
+	const I = S.friendlyname ? S.friendlyname : GW(v);
+	const E = rw(S.mode);
 	const T = {
-		action_set_key: t?.key,
-		action_set_layer_key: r?.key,
-		source_binding_key: n,
-		modeid: a?.modeid,
+		action_set_key: baseActionSet?.key,
+		action_set_layer_key: layerActionSet?.key,
+		source_binding_key: eControllerSource,
+		modeid: group?.modeid,
 	};
 	const k = (e) => {
 		const t = {
@@ -66,10 +66,10 @@ function D(e) {
 			action_set_layer_key: T.action_set_layer_key,
 			source_binding_key: T.source_binding_key,
 			new_name: e,
-			modeid: a?.modeid,
+			modeid: group?.modeid,
 		};
-		y.v3.DuplicateControllerSourceMode(h, t);
-		y.v3.SaveEditingConfiguration(h);
+		y.v3.DuplicateControllerSourceMode(appid, t);
+		y.v3.SaveEditingConfiguration(appid);
 		y.v3.EnsureEditingConfiguration();
 	};
 	const D = () => {
@@ -77,29 +77,29 @@ function D(e) {
 			action_set_key: T.action_set_key,
 			action_set_layer_key: T.action_set_layer_key,
 			source_binding_key: T.source_binding_key,
-			modeid: a?.modeid,
+			modeid: group?.modeid,
 			change_mode: true,
 			new_mode: 20,
 		};
-		y.v3.SetControllerSourceMode(h, e);
-		y.v3.SaveEditingConfiguration(h);
+		y.v3.SetControllerSourceMode(appid, e);
+		y.v3.SaveEditingConfiguration(appid);
 		y.v3.EnsureEditingConfiguration();
 	};
 	const N = (e) => {
 		let t = GetOwningWindowForEvent(e);
-		(0, A.pg)(
-			i.createElement(d.o0, {
-				strTitle: (0, Localize)(
+		pg(
+			<d.o0
+				strTitle={(0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_Confirm_Delete",
 					I,
-				),
-				strDescription: (0, Localize)(
+				)}
+				strDescription={(0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_Confirm_Delete_Desc",
-				),
-				bDestructiveWarning: true,
-				onOK: D,
-				onCancel: null,
-			}),
+				)}
+				bDestructiveWarning
+				onOK={D}
+				onCancel={null}
+			/>,
 			t,
 			{
 				strTitle: (0, Localize)(
@@ -113,136 +113,122 @@ function D(e) {
 			action_set_key: T.action_set_key,
 			action_set_layer_key: T.action_set_layer_key,
 			source_binding_key: T.source_binding_key,
-			modeid: a?.modeid,
-			mode_shift: a?.mode_shift,
+			modeid: group?.modeid,
+			mode_shift: group?.mode_shift,
 			new_name: e,
 		};
-		y.v3.SetControllerSourceMode(h, t);
-		y.v3.SaveEditingConfiguration(h);
+		y.v3.SetControllerSourceMode(appid, t);
+		y.v3.SaveEditingConfiguration(appid);
 		y.v3.EnsureEditingConfiguration();
 	};
 	const G = (e) => {
-		const t = i.createElement(
-			c.tz,
-			{
-				label: (0, Localize)(
+		const t = (
+			<c.tz
+				label={(0, Localize)(
 					"#ControllerConfigurator_VirtualMenu_ContextMenu_Title",
-				),
-			},
-			i.createElement(
-				g.G,
-				{
-					title: (0, Localize)(
+				)}
+			>
+				<g.G
+					title={(0, Localize)(
 						"#ControllerConfigurator_VirtualMenu_ContextMenu_Rename",
-					),
-					onResult: F,
-				},
-				i.createElement(g.Qj, {
-					title: (0, Localize)(
-						"#ControllerConfigurator_ActionSets_RenameVirtualMenuDialog_Title_1",
-						I,
-					),
-					description: "",
-					inputOptions: {
-						placeholder: (0, Localize)(
-							"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
-							S.friendlyname,
-						),
-					},
-				}),
-			),
-			i.createElement(
-				g.G,
-				{
-					title: (0, Localize)(
+					)}
+					onResult={F}
+				>
+					<g.Qj
+						title={(0, Localize)(
+							"#ControllerConfigurator_ActionSets_RenameVirtualMenuDialog_Title_1",
+							I,
+						)}
+						description=""
+						inputOptions={{
+							placeholder: (0, Localize)(
+								"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
+								S.friendlyname,
+							),
+						}}
+					/>
+				</g.G>
+				<g.G
+					title={(0, Localize)(
 						"#ControllerConfigurator_VirtualMenu_ContextMenu_Duplicate",
-					),
-					onResult: k,
-				},
-				i.createElement(g.Qj, {
-					title: (0, Localize)(
-						"#ControllerConfigurator_ActionSets_DuplicateVirtualMenuDialog_Title_1",
-						I,
-					),
-					description: "",
-					inputOptions: {
-						placeholder: (0, Localize)(
-							"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
-							S.friendlyname,
-						),
-					},
-				}),
-			),
-			i.createElement(
-				c.kt,
-				{
-					onSelected: N,
-				},
-				(0, Localize)("#ControllerConfigurator_VirtualMenu_ContextMenu_Delete"),
-			),
+					)}
+					onResult={k}
+				>
+					<g.Qj
+						title={(0, Localize)(
+							"#ControllerConfigurator_ActionSets_DuplicateVirtualMenuDialog_Title_1",
+							I,
+						)}
+						description=""
+						inputOptions={{
+							placeholder: (0, Localize)(
+								"#ControllerConfigurator_ActionSets_RenameBaseSetDialog_InitialText_1",
+								S.friendlyname,
+							),
+						}}
+					/>
+				</g.G>
+				<c.kt onSelected={N}>
+					{(0, Localize)(
+						"#ControllerConfigurator_VirtualMenu_ContextMenu_Delete",
+					)}
+				</c.kt>
+			</c.tz>
 		);
-		(0, o.lX)(t, e);
+		lX(t, e);
 	};
-	return i.createElement(
-		m.D0,
-		{
-			icon: E,
-			label: I,
-			description: S.description,
-			onContextMenu: G,
-		},
-		i.createElement(
-			l.Z,
-			{
-				className: B.VirtualMenuListButtons,
-				retainFocus: true,
-			},
-			i.createElement(
-				m.$n,
-				{
-					className: B.VirtualMenuListButton,
-					onClick: () => {
-						(0, M.qb)(h, _, t, r, a, n);
-					},
-				},
-				i.createElement(u.Edit, null),
-			),
-			i.createElement(
-				m.$n,
-				{
-					className: B.VirtualMenuListButton,
-					onClick: G,
-				},
-				i.createElement(u.Settings, null),
-			),
-		),
+	return (
+		<m.D0 icon={E} label={I} description={S.description} onContextMenu={G}>
+			<l.Z className={B.VirtualMenuListButtons} retainFocus>
+				<m.$n
+					className={B.VirtualMenuListButton}
+					onClick={() => {
+						qb(
+							appid,
+							_,
+							baseActionSet,
+							layerActionSet,
+							group,
+							eControllerSource,
+						);
+					}}
+				>
+					<u.Edit />
+				</m.$n>
+				<m.$n className={B.VirtualMenuListButton} onClick={G}>
+					<u.Settings />
+				</m.$n>
+			</l.Z>
+		</m.D0>
 	);
 }
 function N(e) {
 	const t = f.k$[e].id;
-	const r = (0, f.GW)(t);
-	let n = (0, f.JS)(t);
-	const a = (0, b.rw)(e);
-	return i.createElement(m.aZ, {
-		title: r,
-		description: n,
-		descriptionVisibility: "always",
-		icon: a,
-		iconVisibility: "always",
-	});
+	const r = GW(t);
+	let n = JS(t);
+	const a = rw(e);
+	return (
+		<m.aZ
+			title={r}
+			description={n}
+			descriptionVisibility="always"
+			icon={a}
+			iconVisibility="always"
+		/>
+	);
 }
-export const TX = (0, n.PA)(function (e) {
-	const { appid: t } = e;
-	const r = (0, k.R7)();
+export const TX = PA((e) => {
+	const { appid } = e;
+	const r = R7();
 	const n =
 		y.v3.EditingConfigurationControllerIndex ??
 		h.oy.MostRecentlyActiveControllerIndex;
-	y.v3.EnsureEditingConfiguration(t, n);
-	let s = i.useRef(undefined);
+	y.v3.EnsureEditingConfiguration(appid, n);
+	let SRef = i.useRef(undefined);
 	const u = y.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const C = y.v3.ControllerConfiguratorLayerSetIndex;
 	const _ = y.v3.EditingConfiguration?.sets[u];
-	const f = _ == null ? undefined : _.layers[C];
+	const f = _ == null || _.layers[C];
 	const S = f ?? _;
 	const w = i.useCallback(
 		(e, r) => {
@@ -255,73 +241,57 @@ export const TX = (0, n.PA)(function (e) {
 			n.new_virtual_menu = true;
 			n.new_name = e ?? undefined;
 			n.enable_virtual_menu_support = true;
-			y.v3.SetControllerSourceMode(t, n);
-			y.v3.SaveEditingConfiguration(t);
+			y.v3.SetControllerSourceMode(appid, n);
+			y.v3.SaveEditingConfiguration(appid);
 			y.v3.EnsureEditingConfiguration();
 		},
-		[t, _?.key, f?.key],
+		[appid, _?.key, f?.key],
 	);
 	const B = i.useCallback(
 		(e) => {
-			const t = i.createElement(
-				c.tz,
-				{
-					label: (0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew"),
-				},
-				i.createElement(
-					c.kt,
-					{
-						onSelected: () => w(e, 14),
-					},
-					N(14),
-				),
-				i.createElement(
-					c.kt,
-					{
-						onSelected: () => w(e, 11),
-					},
-					N(11),
-				),
-				i.createElement(
-					c.kt,
-					{
-						onSelected: () => w(e, 19),
-					},
-					N(19),
-				),
+			const t = (
+				<c.tz
+					label={(0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew")}
+				>
+					<c.kt onSelected={() => w(e, 14)}>{N(14)}</c.kt>
+					<c.kt onSelected={() => w(e, 11)}>{N(11)}</c.kt>
+					<c.kt onSelected={() => w(e, 19)}>{N(19)}</c.kt>
+				</c.tz>
 			);
-			return (0, o.lX)(t, s.current);
+			return lX(t, SRef.current);
 		},
-		[w, s],
+		[w, SRef],
 	);
 	const v = i.useCallback(
 		(e) => {
 			let t = GetOwningWindowForEvent(e);
-			const r = i.createElement(g.Qj, {
-				title: (0, Localize)(
-					"#ControllerConfigurator_CreateVirtualMenuDialog_Title_1",
-				),
-				description: (0, Localize)(
-					"#ControllerConfigurator_CreateVirtualMenuDialog_Description_1",
-				),
-				isValid: (e) => e.length != 0,
-				onResult: (e) => {
-					B(e);
-				},
-				onCancel: () => {},
-			});
-			return (0, A.pg)(r, t, {});
+			const r = (
+				<g.Qj
+					title={(0, Localize)(
+						"#ControllerConfigurator_CreateVirtualMenuDialog_Title_1",
+					)}
+					description={(0, Localize)(
+						"#ControllerConfigurator_CreateVirtualMenuDialog_Description_1",
+					)}
+					isValid={(e) => e.length != 0}
+					onResult={(e) => {
+						B(e);
+					}}
+					onCancel={() => {}}
+				/>
+			);
+			return pg(r, t, {});
 		},
 		[B],
 	);
-	const [I] = (0, a.VI)("steam_input_configurator_error_msg_enable");
+	const [I] = VI("steam_input_configurator_error_msg_enable");
 	if (I && y.v3.EditingConfiguration?.error_msg?.length > 0) {
-		(0, A.pg)(
-			i.createElement(d.o0, {
-				strTitle: (0, Localize)("#ControllerConfigurator_ErrorMsg_Title"),
-				strDescription: y.v3.EditingConfiguration?.error_msg,
-				bAlertDialog: true,
-			}),
+		pg(
+			<d.o0
+				strTitle={(0, Localize)("#ControllerConfigurator_ErrorMsg_Title")}
+				strDescription={y.v3.EditingConfiguration?.error_msg}
+				bAlertDialog
+			/>,
 			r?.ownerWindow ?? window,
 		);
 	}
@@ -329,7 +299,7 @@ export const TX = (0, n.PA)(function (e) {
 	let M = [];
 	E?.forEach((e) => {
 		const t = e.settings.find((e) => e.key == 129)?.int_value;
-		const r = (0, b.kF)(e.mode);
+		const r = kF(e.mode);
 		if (t != 1 && r) {
 			M.push({
 				key: e.source,
@@ -350,38 +320,29 @@ export const TX = (0, n.PA)(function (e) {
 	if (S == null) {
 		return null;
 	} else {
-		return i.createElement(
-			l.Z,
-			{
-				retainFocus: true,
-				ref: s,
-			},
-			T?.map((e, r) =>
-				i.createElement(D, {
-					key: e.key + "_" + r,
-					baseActionSet: _,
-					layerActionSet: f,
-					eControllerSource: e.key,
-					group: e?.active_group,
-					appid: t,
-					actionset_section: undefined,
-				}),
-			),
-			i.createElement(
-				m.xh,
-				{
-					onClick: v,
-					bottomSeparator: "none",
-					highlightOnFocus: false,
-				},
-				(0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew"),
-			),
+		return (
+			<l.Z retainFocus ref={SRef}>
+				{T?.map((e, r) => (
+					<D
+						key={`${e.key}_${r}`}
+						baseActionSet={_}
+						layerActionSet={f}
+						eControllerSource={e.key}
+						group={e?.active_group}
+						appid={appid}
+						actionset_section={undefined}
+					/>
+				))}
+				<m.xh onClick={v} bottomSeparator="none" highlightOnFocus={false}>
+					{(0, Localize)("#ControllerConfigurator_VirtualMenu_CreateNew")}
+				</m.xh>
+			</l.Z>
 		);
 	}
 });
 export const DL = (e, t) => {
 	let r = 30;
-	const n = (0, b.Kw)(e);
+	const n = Kw(e);
 	let i = n.mode == 14 ? 49 : 44;
 	let a = i - 30;
 	let s = 0;
@@ -394,7 +355,7 @@ export const DL = (e, t) => {
 	);
 	r = o?.key ?? (s <= a ? r : undefined);
 	if (t) {
-		const e = (0, b.Kw)(t);
+		const e = Kw(t);
 		const n = e?.inputs.find(
 			(e) =>
 				e.key >= r &&
@@ -407,92 +368,85 @@ export const DL = (e, t) => {
 		return r;
 	}
 };
-export const WJ = (0, n.PA)(function (e) {
-	const { appid: t, modeid: r, econtrollersource: n, actionset_section: s } = e;
-	const [o] = (0, a.VI)("steam_input_configurator_error_msg_enable");
-	const c = (0, b.Kw)(r);
+export const WJ = PA((e) => {
+	const { appid, modeid, econtrollersource, actionset_section } = e;
+	const [o] = VI("steam_input_configurator_error_msg_enable");
+	const c = Kw(modeid);
 	if (!c) {
 		return null;
 	}
 	if (o && y.v3.EditingConfiguration?.error_msg?.length > 0) {
-		(0, A.pg)(
-			i.createElement(d.o0, {
-				strTitle: (0, Localize)("#ControllerConfigurator_ErrorMsg_Title"),
-				strDescription: y.v3.EditingConfiguration?.error_msg,
-				bAlertDialog: true,
-			}),
+		pg(
+			<d.o0
+				strTitle={(0, Localize)("#ControllerConfigurator_ErrorMsg_Title")}
+				strDescription={y.v3.EditingConfiguration?.error_msg}
+				bAlertDialog
+			/>,
 			window,
 		);
 	}
 	const m = y.v3.ControllerConfiguratorBaseSetIndex ?? 0;
 	const u = y.v3.ControllerConfiguratorLayerSetIndex;
 	const g = y.v3.EditingConfiguration?.sets[m];
-	const h = g == null ? undefined : g.layers[u];
+	const h = g == null || g.layers[u];
 	const f = h ?? g;
-	const S = _.N;
+	const _N = _.N;
 	if (f == null) {
 		return null;
 	} else {
-		return i.createElement(
-			"div",
-			null,
-			i.createElement(
-				l.Z,
-				{
-					onButtonDown: S,
-					retainFocus: true,
-				},
-				i.createElement(C.$W, {
-					baseActionSet: g,
-					layerActionSet: h,
-					eControllerSource: n,
-					group: {
-						mode: c.mode,
-						inputs: c.inputs,
-						settings: c.settings,
-						modeid: c.modeid,
-					},
-					appid: t,
-					actionset_section: s,
-					virtualmenu_section: true,
-					modeShift: c?.mode_shift,
-				}),
-			),
+		return (
+			<div>
+				<l.Z onButtonDown={_N} retainFocus>
+					<C.$W
+						baseActionSet={g}
+						layerActionSet={h}
+						eControllerSource={econtrollersource}
+						group={{
+							mode: c.mode,
+							inputs: c.inputs,
+							settings: c.settings,
+							modeid: c.modeid,
+						}}
+						appid={appid}
+						actionset_section={actionset_section}
+						virtualmenu_section
+						modeShift={c?.mode_shift}
+					/>
+				</l.Z>
+			</div>
 		);
 	}
 });
-export const Jc = (0, n.PA)((e) => {
-	const { appid: t, mode: r } = e;
-	const n = r?.virtual_menu_info
-		? T.gw.FromPreview(r.virtual_menu_info, t)
+export const Jc = PA((e) => {
+	const { appid, mode } = e;
+	const n = mode?.virtual_menu_info
+		? T.gw.FromPreview(mode.virtual_menu_info, appid)
 		: null;
 	const a = y.v3.VirtualMenuPreviewKey;
 	i.useEffect(() => n?.SetSelectedPreviewKey(a), [n, a]);
 	if (n) {
-		switch (r.virtual_menu_info?.menu_style) {
+		switch (mode.virtual_menu_info?.menu_style) {
 			case 0:
-			case 2:
-				return i.createElement(S.F9, {
-					virtualMenu: n,
-				});
-			case 1:
-				return i.createElement(S.yq, {
-					virtualMenu: n,
-				});
+			case 2: {
+				return <S.F9 virtualMenu={n} />;
+			}
+			case 1: {
+				return <S.yq virtualMenu={n} />;
+			}
 		}
 	}
 	return null;
 });
-export const L3 = (0, n.PA)(function (e) {
+export const L3 = PA((e) => {
 	const {
-		baseActionSet: t,
-		layerActionSet: r,
-		eControllerSource: n,
-		group: a,
-		simpleView: o,
-		appid: c,
+		baseActionSet,
+		layerActionSet,
+		eControllerSource,
+		group,
+		simpleView,
+		appid,
 	} = e;
-	(0, s.W6)();
+	W6();
 	const u =
 		y.v3.EditingConfigurationControllerIndex ??
 		h.oy.MostRecentlyActiveControllerIndex;
@@ -500,89 +454,86 @@ export const L3 = (0, n.PA)(function (e) {
 	let A = [];
 	A.push({
 		eMode: 14,
-		modeid: a.modeid,
+		modeid: group.modeid,
 	});
 	A.push({
 		eMode: 11,
-		modeid: a.modeid,
+		modeid: group.modeid,
 	});
 	A.push({
 		eMode: 19,
-		modeid: a.modeid,
+		modeid: group.modeid,
 	});
-	const p = a;
+	const p = group;
 	const g = p ? f.jg[p.mode] : undefined;
 	if (p) {
-		(0, f.X)(p.settings, g, n, d);
+		X(p.settings, g, eControllerSource, d);
 	}
 	const _ =
 		A &&
-		A.map(function (e) {
-			return (function (e, t) {
-				const r = e.gameAction;
+		A.map((e) =>
+			((e, t) => {
+				const e_gameAction = e.gameAction;
 				const n = f.k$[e.eMode].id;
 				const a = e.strDisplay
 					? e.strDisplay
-					: r != null && r.action.display_name
-						? r.action.display_name
-						: (0, f.GW)(n) || (0, b.Xt)(n);
-				let s = (0, f.JS)(n);
-				const o =
-					(0, b.rw)(e.eMode) ??
-					i.createElement("svg", {
-						className: B.ModeSelectDropDownIcon,
-					});
-				const l = i.createElement(m.aZ, {
-					title: a,
-					description: s,
-					descriptionVisibility: "when-expanded",
-					icon: o,
-					iconVisibility: "when-expanded",
-					strTitleClassNames: t,
-				});
-				const c = B.HideOnMinified;
+					: e_gameAction != null && e_gameAction.action.display_name
+						? e_gameAction.action.display_name
+						: GW(n) || Xt(n);
+				let s = JS(n);
+				const o = rw(e.eMode) ?? <svg className={B.ModeSelectDropDownIcon} />;
+				const l = (
+					<m.aZ
+						title={a}
+						description={s}
+						descriptionVisibility="when-expanded"
+						icon={o}
+						iconVisibility="when-expanded"
+						strTitleClassNames={t}
+					/>
+				);
+				const B_HideOnMinified = B.HideOnMinified;
 				return {
 					label: l,
 					data: e,
-					strOptionClass: c,
+					strOptionClass: B_HideOnMinified,
 				};
-			})(e, "");
-		});
-	const S = (0, m.Ld)(_).find((e) => (0, f.QQ)(a, e.data))?.data;
-	return i.createElement(
-		l.Z,
-		{
-			className: (0, v.A)(B.BindingButtons),
-			navEntryPreferPosition: I.iU.PREFERRED_CHILD,
-		},
-		i.createElement(m.ZU, {
-			rgOptions: _,
-			onChange: (e) => {
-				const i = {
-					action_set_key: t.key,
-					action_set_layer_key: r?.key,
-					source_binding_key: n,
-					change_mode: true,
-					mode_shift: p?.mode_shift,
-				};
-				i.new_mode = e.data.eMode;
-				i.modeid = e.data.modeid;
-				const a = e.data.gameAction;
-				if (a != null) {
-					const e = a.layerSet ?? a.baseSet;
-					i.new_game_action = {
-						action_set_key: e.key,
-						action_key: a.action.key,
+			})(e, ""),
+		);
+	const S = Ld(_).find((e) => QQ(group, e.data))?.data;
+	return (
+		<l.Z
+			className={A_1(B.BindingButtons)}
+			navEntryPreferPosition={I.iU.PREFERRED_CHILD}
+		>
+			<m.ZU
+				rgOptions={_}
+				onChange={(e) => {
+					const i = {
+						action_set_key: baseActionSet.key,
+						action_set_layer_key: layerActionSet?.key,
+						source_binding_key: eControllerSource,
+						change_mode: true,
+						mode_shift: p?.mode_shift,
 					};
-				}
-				C.tG.Debug("onChangeModeOption", e.data, i);
-				y.v3.SetControllerSourceMode(c, i);
-				y.v3.SaveEditingConfiguration(c);
-				y.v3.EnsureEditingConfiguration();
-			},
-			selectedOption: S,
-			menuLabel: e.menuLabel,
-		}),
-		false,
+					i.new_mode = e.data.eMode;
+					i.modeid = e.data.modeid;
+					const a = e.data.gameAction;
+					if (a != null) {
+						const e = a.layerSet ?? a.baseSet;
+						i.new_game_action = {
+							action_set_key: e.key,
+							action_key: a.action.key,
+						};
+					}
+					C.tG.Debug("onChangeModeOption", e.data, i);
+					y.v3.SetControllerSourceMode(appid, i);
+					y.v3.SaveEditingConfiguration(appid);
+					y.v3.EnsureEditingConfiguration();
+				}}
+				selectedOption={S}
+				menuLabel={e.menuLabel}
+			/>
+		</l.Z>
 	);
 });

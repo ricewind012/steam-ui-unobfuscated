@@ -1,37 +1,35 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./736.js");
-var a = require(/*webcrack:missing*/ "./90765.js");
-var s = require(/*webcrack:missing*/ "./90685.js");
+import n from "./63696.js";
+import i, { Fj } from "./736.js";
+import a, { A } from "./90765.js";
+import { GD } from "./90685.js";
 export function Z(e) {
-	const { popup: t, className: r, ...o } = e;
-	const l = (0, s.GD)(t);
-	const c = n.useRef(null);
+	const { popup, className, ...o } = e;
+	const l = GD(popup);
+	const CRef = n.useRef(null);
 	n.useEffect(() => {
-		const e = c.current;
-		if (e && (0, i.Fj)(t, "Window.SetResizeGrip")) {
+		const c_current = CRef.current;
+		if (c_current && Fj(popup, "Window.SetResizeGrip")) {
 			let r = 0;
 			let n = 0;
-			const i = e.getBoundingClientRect();
-			const a = e.ownerDocument.defaultView;
+			const i = c_current.getBoundingClientRect();
+			const a = c_current.ownerDocument.defaultView;
 			if (i && a && !l) {
 				r = Math.ceil(a.innerWidth - i.left);
 				n = Math.ceil(a.innerHeight - i.top);
 			}
-			t.SteamClient.Window.SetResizeGrip(r, n);
+			popup.SteamClient.Window.SetResizeGrip(r, n);
 		}
 		return () => {
-			if ((0, i.Fj)(t, "Window.SetResizeGrip")) {
-				t.SteamClient.Window.SetResizeGrip(0, 0);
+			if (Fj(popup, "Window.SetResizeGrip")) {
+				popup.SteamClient.Window.SetResizeGrip(0, 0);
 			}
 		};
-	}, [t, l]);
+	}, [popup, l]);
 	if (l) {
 		return null;
 	} else {
-		return n.createElement("div", {
-			className: (0, a.A)("window_resize_grip", r),
-			ref: c,
-			...o,
-		});
+		return (
+			<div className={A("window_resize_grip", className)} ref={CRef} {...o} />
+		);
 	}
 }

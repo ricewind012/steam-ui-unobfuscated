@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Ctn: "ZXluexXJ1Y_muqBcBgGU-",
 	CtnRegistered: "_3PeTrgTLLyRMIUb_pRn4rO",
 	SessionTitle: "_3vGq3WcmmGaYbbqYkD9Ysp",

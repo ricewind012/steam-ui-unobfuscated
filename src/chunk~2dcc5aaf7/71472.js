@@ -1,6 +1,6 @@
-var n = require(/*webcrack:missing*/ "./44846.js");
-var i = require(/*webcrack:missing*/ "./28987.js");
 import { CLocalizationManager } from "../../actual_src/utils/localization.js";
+import { Lg } from "./44846.js";
+import i from "./28987.js";
 export function P(e, t, r) {
 	if (e == null || e == null) {
 		e = t;
@@ -36,7 +36,7 @@ export function j(e, t = 0) {
 		a = 6;
 	}
 	for (let t = 0; t < 31; ++t) {
-		const r = (0, n.Lg)(t);
+		const r = Lg(t);
 		if (!(r.length <= a)) {
 			if (e.endsWith(r)) {
 				i = t;

@@ -1,9 +1,9 @@
-var r = require(/*webcrack:missing*/ "./63696.js");
+import r from "./63696.js";
 let i = 0;
 export function l() {
-	const e = r.useRef();
-	if (e.current === undefined) {
-		e.current = "svgid_" + i++;
+	const ERef = r.useRef();
+	if (ERef.current === undefined) {
+		ERef.current = `svgid_${i++}`;
 	}
-	return [e.current, `url(#${e.current})`];
+	return [ERef.current, `url(#${ERef.current})`];
 }

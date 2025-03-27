@@ -1,4 +1,4 @@
-var n = require(/*webcrack:missing*/ "./43691.js");
+import n from "./43691.js";
 let i = {
 	success: true,
 	result: 1,
@@ -163,7 +163,7 @@ export let W = new (class {
 		return (
 			!!this.m_connection.connected_to_client &&
 			!!this.m_connection.ready &&
-			this.m_connection.ClientInfo.rgSupportedMessages.indexOf(e) !== -1
+			this.m_connection.ClientInfo.rgSupportedMessages.includes(e)
 		);
 	}
 	OpenFriendChatDialog(e) {

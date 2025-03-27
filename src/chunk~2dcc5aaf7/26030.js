@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	TopLevelTransitionSwitch: "_1iKmxBdl6hxX7tJdDfn_uB",
 	AbsoluteDiv: "_2RXNRKWY8jL7xwgGYUfLfU",

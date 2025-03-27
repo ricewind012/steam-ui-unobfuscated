@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SnoozeContainer: "_1DsumfIa3MlkzUV9EXY5W9",
 	SnoozeZ: "_2n0EiKMGRP-r_BI5tDtttu",
 	none: "T3Fb5KTXwIHM2B-ThTvEs",

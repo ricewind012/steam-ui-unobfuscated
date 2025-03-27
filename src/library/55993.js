@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	BodyNoScroll: "_1Xs5dtPK2K37sd1U9BLX3S",
 	BodyNoScrollDialog: "_3jhMIr8hczcBK_fOVtEVOK",
 	OverlayModal: "_24YFXIVY7CC2quNzCN7015",

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	MultiSelectActionDialogContainer: "_6em9hiNtkrdaHE8eVfq0P",
 	DialogInner: "_3rNlxr5aaFqX7p69DxArZn",
 	DialogCarrot: "_3IrJSwb9xCFvNXs0Niw1ux",

@@ -1,107 +1,98 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
-var a = require("./45309.js");
-var s = require("./64979.js");
-var o = s;
-var l = require("./93025.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import a from "./45309.js";
+import s from "./64979.js";
+import l from "./93025.js";
+const o = s;
 export function K(e) {
 	const {
-		title: t,
-		description: r,
-		errorText: s,
-		onResult: l,
-		digits: c,
-		className: m,
-		validateDigit: u,
+		title,
+		description,
+		errorText,
+		onResult,
+		digits,
+		className,
+		validateDigit,
 		...d
 	} = e;
-	const [A, p] = n.useState("");
-	const g = A.length == c;
+	const [A, setA] = n.useState("");
+	const g = A.length == digits;
 	n.useEffect(() => {
-		p("");
-	}, [s]);
+		setA("");
+	}, [errorText]);
 	const h =
-		l == null
-			? undefined
-			: () => {
-					if (g) {
-						l(A);
-					}
-				};
-	return n.createElement(
-		a.X_,
-		{
-			className: m,
-			title: t,
-			description: r,
-			...d,
-			disableCommit: !g,
-			onCommitResult: h,
-		},
-		n.createElement(
-			i.a3,
-			{
-				className: o.ErrorText,
-			},
-			s,
-			"\xA0",
-		),
-		n.createElement(i.QJ, {
-			className: o.DigitInputField,
-			digits: c,
-			onChange: p,
-			value: A,
-			validateDigit: u,
-		}),
+		onResult == null ||
+		(() => {
+			if (g) {
+				onResult(A);
+			}
+		});
+	return (
+		<a.X_
+			className={className}
+			title={title}
+			description={description}
+			{...d}
+			disableCommit={!g}
+			onCommitResult={h}
+		>
+			<i.a3 className={o.ErrorText}>
+				{errorText}
+				{"\xA0"}
+			</i.a3>
+			<i.QJ
+				className={o.DigitInputField}
+				digits={digits}
+				onChange={setA}
+				value={A}
+				validateDigit={validateDigit}
+			/>
+		</a.X_>
 	);
 }
 export const R = (e) => {
 	const {
-		title: t,
-		description: r,
-		onResult: i,
-		numDigits: s,
-		className: c,
-		validateDigits: m,
-		autoFocus: u,
-		allowChars: d,
+		title,
+		description,
+		onResult,
+		numDigits,
+		className,
+		validateDigits,
+		autoFocus,
+		allowChars,
 		...A
 	} = e;
-	const [p, g] = n.useState([]);
+	const [p, setP] = n.useState([]);
 	const h = n.useMemo(() => {
 		const e = p.join("").trim();
-		return m(e);
-	}, [p, m]);
+		return validateDigits(e);
+	}, [p, validateDigits]);
 	const C = n.useCallback(() => {
-		if (h && i) {
+		if (h && onResult) {
 			const e = p.join("");
-			i(e);
+			onResult(e);
 		}
-	}, [h, i, p]);
-	return n.createElement(
-		a.X_,
-		{
-			title: t,
-			className: c,
-			description: r,
-			onCommitResult: C,
-			disableCommit: !h,
-			...A,
-		},
-		n.createElement(
-			"div",
-			{
-				className: o.SegmentedInput,
-			},
-			n.createElement(l.a, {
-				length: s,
-				onChange: (e) => {
-					g(e);
-				},
-				autoFocus: u,
-				allowCharacter: d,
-				value: p,
-			}),
-		),
+	}, [h, onResult, p]);
+	return (
+		<a.X_
+			title={title}
+			className={className}
+			description={description}
+			onCommitResult={C}
+			disableCommit={!h}
+			{...A}
+		>
+			<div className={o.SegmentedInput}>
+				<l.a
+					length={numDigits}
+					onChange={(e) => {
+						setP(e);
+					}}
+					autoFocus={autoFocus}
+					allowCharacter={allowChars}
+					value={p}
+				/>
+			</div>
+		</a.X_>
 	);
 };

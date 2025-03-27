@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	WorkshopContainer: "_176QJCynkEUSdR_-9btdAW",
 	WorkshopHightlight: "_1zmwcbn8AgDTiWuHGyMD2w",

@@ -1,4 +1,4 @@
-var n = {
+const n = {
 	"./af": 99805,
 	"./af.js": 99805,
 	"./ar": 94449,
@@ -274,21 +274,26 @@ var n = {
 	"./zh-tw": 88588,
 	"./zh-tw.js": 88588,
 };
-function i(e) {
-	var t = a(e);
-	return require(t);
+
+class i {
+	constructor(e) {
+		const t = a(e);
+		return require(t);
+	}
+
+	static keys() {
+		return Object.keys(n);
+	}
 }
+
 function a(e) {
 	if (!require.o(n, e)) {
-		var t = new Error("Cannot find module '" + e + "'");
+		const t = new Error(`Cannot find module '${e}'`);
 		t.code = "MODULE_NOT_FOUND";
 		throw t;
 	}
 	return n[e];
 }
-i.keys = function () {
-	return Object.keys(n);
-};
 i.resolve = a;
-module.exports = i;
+export default i;
 i.id = 39357;

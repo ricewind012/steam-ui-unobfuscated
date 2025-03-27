@@ -1,72 +1,62 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./89748.js");
-var a = require("./87935.js");
-var s = require(/*webcrack:missing*/ "./90095.js");
-var o = require("./10606.js");
-var l = require("./99731.js");
-var c = require("./46285.js");
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require(/*webcrack:missing*/ "./69164.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var A = require("./44798.js");
-var p = A;
-var g = require("./11958.js");
-var h = require(/*webcrack:missing*/ "./72476.js");
+import n from "./63696.js";
+import { qw } from "./89748.js";
+import { vh } from "./87935.js";
+import { q3 } from "./90095.js";
+import o from "./10606.js";
+import l from "./99731.js";
+import c from "./46285.js";
+import m, { QS } from "./52451.js";
+import u from "./69164.js";
+import A from "./44798.js";
+import g from "./11958.js";
+import { hf } from "./72476.js";
+const p = A;
 export function S() {
-	const e = (0, s.q3)(() => (0, i.qw)().GetServicesInitialized());
-	const t = (0, s.q3)(() => (0, i.qw)().BSupportAlertDialogActive());
+	const e = q3(() => qw().GetServicesInitialized());
+	const t = q3(() => qw().BSupportAlertDialogActive());
 	if (e && t) {
-		return n.createElement(
-			o.EN,
-			{
-				active: true,
-			},
-			n.createElement(
-				c.M,
-				{
-					padding: "none",
-				},
-				n.createElement(f, null),
-			),
+		return (
+			<o.EN active>
+				<c.M padding="none">
+					<F />
+				</c.M>
+			</o.EN>
 		);
 	} else {
 		return null;
 	}
 }
 export function z(e) {
-	const t = (0, h.hf)();
-	const r = (0, s.q3)(() => (0, i.qw)().BSupportAlertDialogActive());
-	const [o, l] = n.useState(false);
-	const c = (0, a.vh)("SupportMessages");
+	const t = hf();
+	const r = q3(() => qw().BSupportAlertDialogActive());
+	const [o, setO] = n.useState(false);
+	const c = vh("SupportMessages");
 	n.useEffect(() => {
-		l(r);
+		setO(r);
 	}, [r]);
 	const m = n.useCallback(() => {
-		l(false);
-		(0, i.qw)().CloseSupportAlertsModal();
-	}, [l]);
-	if (!o || !t || !c) {
+		setO(false);
+		qw().CloseSupportAlertsModal();
+	}, [setO]);
+	if (!o || !t || !t || !c) {
 		return null;
 	}
 	const u = Localize("#SteamUI_Dialog_SupportMessage_Title");
-	return n.createElement(g.W, {
-		strName: u,
-		strURL: c,
-		onClose: m,
-	});
+	return <g.W strName={u} strURL={c} onClose={m} />;
 }
-function f() {
-	const e = (0, a.vh)("SupportMessages");
-	const t = (0, s.q3)(() => !(0, i.qw)().BMustShowSupportAlertDialog());
+function F() {
+	const e = vh("SupportMessages");
+	const t = q3(() => !qw().BMustShowSupportAlertDialog());
 	const r = n.useCallback(() => {
-		(0, i.qw)().CloseSupportAlertsModal();
+		qw().CloseSupportAlertsModal();
 	}, []);
 	const o = n.useCallback((e, t) => {
 		if (e == "CloseBrowser") {
-			(0, i.qw)().CloseSupportAlertsModal();
+			qw().CloseSupportAlertsModal();
 		}
 	}, []);
-	const c = (0, m.QS)(
+	const c = QS(
 		(e) => {
 			if (e) {
 				return e.GetOnMessageCallbacks("SupportMessages").Register(o)
@@ -76,20 +66,16 @@ function f() {
 		[o],
 	);
 	if (e) {
-		return n.createElement(
-			u.Z,
-			{
-				className: p.BrowserWrapper,
-				onCancelButton: r,
-				onCancelActionDescription: t
-					? Localize("#Button_Close")
-					: Localize("#Button_Dismiss"),
-			},
-			n.createElement(l.Pw, {
-				name: "SupportMessages",
-				url: e,
-				refBrowser: c,
-			}),
+		return (
+			<u.Z
+				className={p.BrowserWrapper}
+				onCancelButton={r}
+				onCancelActionDescription={
+					t ? Localize("#Button_Close") : Localize("#Button_Dismiss")
+				}
+			>
+				<l.Pw name="SupportMessages" url={e} refBrowser={c} />
+			</u.Z>
 		);
 	} else {
 		return null;

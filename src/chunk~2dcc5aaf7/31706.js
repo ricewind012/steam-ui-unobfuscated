@@ -1,46 +1,41 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./14629.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require("./96000.js");
-var c = require("./61175.js");
-var m = require("./64608.js");
-var u = require("./10606.js");
-var d = require("./13869.js");
-var A = require(/*webcrack:missing*/ "./69164.js");
 import {
 	LocalizeReact,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var g = require(/*webcrack:missing*/ "./52451.js");
-var h = require("./1634.js");
-var C = h;
-var _ = require("./34348.js");
-var f = _;
-var b = require("./46217.js");
-var y = require("./32598.js");
-var S = require("./18869.js");
+import n, { Cg } from "./34629.js";
+import i from "./63696.js";
+import a, { PA } from "./41230.js";
+import s from "./14629.js";
+import o, { A as A_1 } from "./90765.js";
+import l from "./96000.js";
+import c from "./61175.js";
+import m from "./64608.js";
+import u from "./10606.js";
+import { pg } from "./13869.js";
+import A from "./69164.js";
+import g from "./52451.js";
+import h from "./1634.js";
+import _ from "./34348.js";
+import b from "./46217.js";
+import { wf } from "./32598.js";
+import { br } from "./18869.js";
+const C = h;
+const f = _;
 export function x2(e, t, r) {
-	const n = i.createElement(
-		"span",
-		{
-			className: C.DynamicHeader,
-		},
-		LocalizeReact(
-			"#FilterEdit_SaveDynamicCollectionWithIcon",
-			i.createElement(b.Qi, null),
-		),
+	const n = (
+		<span className={C.DynamicHeader}>
+			{LocalizeReact("#FilterEdit_SaveDynamicCollectionWithIcon", <b.Qi />)}
+		</span>
 	);
 	const a = (0, Localize)("#FilterEdit_SaveDynamicCollectionNoIcon");
-	return (0, d.pg)(
-		i.createElement(v, {
-			ownerWindow: e,
-			rctTitle: n,
-			appFilter: r,
-			strCollectionSummary: t,
-			strStatsTag: "saved-search",
-		}),
+	return pg(
+		<V
+			ownerWindow={e}
+			rctTitle={n}
+			appFilter={r}
+			strCollectionSummary={t}
+			strStatsTag="saved-search"
+		/>,
 		e,
 		{
 			strTitle: a,
@@ -49,33 +44,32 @@ export function x2(e, t, r) {
 }
 export function oy(e, t, r) {
 	const n = (0, Localize)("#GameAction_NewCollectionDialogTitle");
-	(0, d.pg)(
-		i.createElement(v, {
-			ownerWindow: e,
-			rctTitle: n,
-			rgManuallyAddedApps: t,
-			strStatsTag: r,
-		}),
+	pg(
+		<V ownerWindow={e} rctTitle={n} rgManuallyAddedApps={t} strStatsTag={r} />,
 		e,
 		{
 			strTitle: n,
 		},
 	);
 }
-const v = (0, a.PA)(function (e) {
+const V = PA((e) => {
 	let {
-		ownerWindow: t,
-		rctTitle: r,
-		appFilter: n,
-		rgManuallyAddedApps: a,
-		strCollectionSummary: g,
-		strStatsTag: h,
-		closeModal: _,
+		ownerWindow,
+		rctTitle,
+		appFilter,
+		rgManuallyAddedApps,
+		strCollectionSummary,
+		strStatsTag,
+		closeModal,
 	} = e;
-	let [b, w] = i.useState(false);
-	let [B, v] = i.useState(g && g.length <= 32 ? g : "");
-	let [M, T] = i.useState(null);
-	const R = (0, S.br)().Collection;
+	let [b, setB] = i.useState(false);
+	let [B, setB_1] = i.useState(
+		strCollectionSummary && strCollectionSummary.length <= 32
+			? strCollectionSummary
+			: "",
+	);
+	let [M, setM] = i.useState(null);
+	const R = br().Collection;
 	i.useEffect(
 		() => () => {
 			if (M) {
@@ -86,21 +80,21 @@ const v = (0, a.PA)(function (e) {
 	);
 	const k = i.useCallback(
 		(e) => {
-			v(e.currentTarget.value);
+			setB_1(e.currentTarget.value);
 		},
-		[v],
+		[setB_1],
 	);
 	const D = i.useCallback(
 		(e) => {
-			if (_) {
-				_();
+			if (closeModal) {
+				closeModal();
 			}
 			c.n6.ExitSearch();
 			R(e.id);
-			if (e.internalAppFilter && !n) {
+			if (e.internalAppFilter && !appFilter) {
 				c.n6.SetCollectionEditorOpen(true);
 			}
-			SteamClient.Stats.RecordActivationEvent("NewCollection", h);
+			SteamClient.Stats.RecordActivationEvent("NewCollection", strStatsTag);
 			if (
 				c.n6.selectedGameListView == 1 &&
 				(!c.n6.bIsGameListGroupedByCollection || c.n6.bIsGameListSortedByRecent)
@@ -110,167 +104,129 @@ const v = (0, a.PA)(function (e) {
 					c.n6.SetGameListGroupedByCollection(true);
 					c.n6.SetGameListSortedByRecent(false);
 				};
-				(0, d.pg)(
-					i.createElement(u.o0, {
-						strTitle: (0, Localize)("#FilterEdit_CollectionsHiddenPromptTitle"),
-						strDescription: (0, Localize)(
+				pg(
+					<u.o0
+						strTitle={(0, Localize)("#FilterEdit_CollectionsHiddenPromptTitle")}
+						strDescription={(0, Localize)(
 							"#FilterEdit_CollectionsHiddenPrompt",
-						),
-						strOKButtonText: (0, Localize)(
+						)}
+						strOKButtonText={(0, Localize)(
 							"#FilterEdit_AcceptGameListViewChange",
-						),
-						onOK: e,
-						strCancelButtonText: (0, Localize)(
+						)}
+						onOK={e}
+						strCancelButtonText={(0, Localize)(
 							"#FilterEdit_RejectGameListViewChange",
-						),
-						onCancel: () => null,
-					}),
-					t,
+						)}
+						onCancel={() => null}
+					/>,
+					ownerWindow,
 					{
 						strTitle: (0, Localize)("#FilterEdit_CollectionsHiddenPromptTitle"),
 					},
 				);
 			}
 		},
-		[_, n, h, t, R],
+		[closeModal, appFilter, strStatsTag, ownerWindow, R],
 	);
 	const N = i.useCallback(
 		(r) => {
-			let n = e.appFilter;
-			if (r && !n) {
-				n = new s.E6();
+			let e_appFilter = e.appFilter;
+			if (r && !e_appFilter) {
+				e_appFilter = new s.E6();
 			}
-			const i = l.md.NewUnsavedCollection(B.trim(), n, a || []);
-			sp(t, i, false, () => D(i));
+			const i = l.md.NewUnsavedCollection(
+				B.trim(),
+				e_appFilter,
+				rgManuallyAddedApps || [],
+			);
+			sp(ownerWindow, i, false, () => D(i));
 		},
-		[e.appFilter, a, t, B, D],
+		[e.appFilter, rgManuallyAddedApps, ownerWindow, B, D],
 	);
 	const F = i.useCallback(() => {
-		w(true);
-		T(
+		setB(true);
+		setM(
 			window.setTimeout(() => {
-				w(false);
+				setB(false);
 			}, 300),
 		);
-	}, [w, T]);
+	}, [setB, setM]);
 	const G = B.trim().length == 0;
-	const O = !!n;
-	const P = O
-		? i.createElement(m.CB, {
-				bOKDisabled: G,
-				strOKText: (0, Localize)("#Button_Save"),
-				onCancel: _,
-			})
-		: i.createElement(
-				i.Fragment,
-				null,
-				i.createElement(
-					m.JU,
-					{
-						style: {
-							marginTop: 16,
-						},
-					},
-					(0, Localize)("#FilterEdit_SelectCollectionType"),
-				),
-				i.createElement(
-					A.Z,
-					{
-						className: C.TwoOptionsContainer,
-						onClick: F,
-						"flow-children": "row",
-					},
-					i.createElement(I, {
-						isdynamic: false,
-						disabled: G,
-						onClick: () => N(false),
-					}),
-					i.createElement(I, {
-						isdynamic: true,
-						disabled: G,
-						onClick: () => N(true),
-					}),
-				),
-			);
-	return i.createElement(
-		u.eV,
-		{
-			className: C.SaveCollectionContainer,
-			onOK: () => N(false),
-			bOKDisabled: G,
-			onCancel: _,
-		},
-		i.createElement(m.Y9, null, r),
-		i.createElement(
-			m.nB,
-			null,
-			i.createElement(
-				m.a3,
-				null,
-				O &&
-					i.createElement(
-						m.JU,
-						{
-							className: C.SelectedFilters,
-						},
-						(0, Localize)("#FilterEdit_SelectedFilters"),
-					),
-				O &&
-					i.createElement(
-						"div",
-						{
-							className: (0, o.A)(C.CollectionSummary, f.SearchFilterInput),
-						},
-						(0, y.wf)(n, undefined, undefined),
-					),
-				i.createElement(
-					"div",
-					{
-						className: C.InputContainer,
-					},
-					i.createElement(
-						m.JU,
-						null,
-						(0, Localize)("#FilterEdit_SaveCollectionNameInputPrompt"),
-					),
-					i.createElement(
-						m.JU,
-						{
-							className: (0, o.A)(C.Required, G && C.Visible, b && C.Pulse),
-						},
-						(0, Localize)("#FilterEdit_RequiredField"),
-					),
-				),
-				i.createElement(m.pd, {
-					value: B,
-					onChange: k,
-					maxLength: 32,
-					autoFocus: true,
-					bShowClearAction: true,
-				}),
-				O &&
-					i.createElement(
-						"div",
-						{
-							className: C.SaveSearchDescription,
-						},
-						" ",
-						(0, Localize)("#FilterEdit_SaveCollectionVerbose"),
-						" ",
-					),
-				O &&
-					i.createElement(
-						"div",
-						{
-							className: C.SaveSearchDescription,
-						},
-						" ",
-						(0, Localize)("#FilterEdit_SaveDynamicCollectionButtonDesc"),
-						" ",
-					),
-			),
-			i.createElement(m.wi, null, P),
-		),
+	const O = !!appFilter;
+	const P = O ? (
+		<m.CB
+			bOKDisabled={G}
+			strOKText={(0, Localize)("#Button_Save")}
+			onCancel={closeModal}
+		/>
+	) : (
+		<>
+			<m.JU
+				style={{
+					marginTop: 16,
+				}}
+			>
+				{(0, Localize)("#FilterEdit_SelectCollectionType")}
+			</m.JU>
+			<A.Z className={C.TwoOptionsContainer} onClick={F} flow-children="row">
+				<I isdynamic={false} disabled={G} onClick={() => N(false)} />
+				<I isdynamic disabled={G} onClick={() => N(true)} />
+			</A.Z>
+		</>
+	);
+	return (
+		<u.eV
+			className={C.SaveCollectionContainer}
+			onOK={() => N(false)}
+			bOKDisabled={G}
+			onCancel={closeModal}
+		>
+			<m.Y9>{rctTitle}</m.Y9>
+			<m.nB>
+				<m.a3>
+					{O && (
+						<m.JU className={C.SelectedFilters}>
+							{(0, Localize)("#FilterEdit_SelectedFilters")}
+						</m.JU>
+					)}
+					{O && (
+						<div className={A_1(C.CollectionSummary, f.SearchFilterInput)}>
+							{wf(appFilter, undefined, undefined)}
+						</div>
+					)}
+					<div className={C.InputContainer}>
+						<m.JU>
+							{(0, Localize)("#FilterEdit_SaveCollectionNameInputPrompt")}
+						</m.JU>
+						<m.JU className={A_1(C.Required, G && C.Visible, b && C.Pulse)}>
+							{(0, Localize)("#FilterEdit_RequiredField")}
+						</m.JU>
+					</div>
+					<m.pd
+						value={B}
+						onChange={k}
+						maxLength={32}
+						autoFocus
+						bShowClearAction
+					/>
+					{O && (
+						<div className={C.SaveSearchDescription}>
+							{" "}
+							{(0, Localize)("#FilterEdit_SaveCollectionVerbose")}{" "}
+						</div>
+					)}
+					{O && (
+						<div className={C.SaveSearchDescription}>
+							{" "}
+							{(0, Localize)(
+								"#FilterEdit_SaveDynamicCollectionButtonDesc",
+							)}{" "}
+						</div>
+					)}
+				</m.a3>
+				<m.wi>{P}</m.wi>
+			</m.nB>
+		</u.eV>
 	);
 });
 class I extends i.Component {
@@ -278,35 +234,25 @@ class I extends i.Component {
 		let e = this.props.isdynamic
 			? (0, Localize)("#FilterEdit_SaveDynamicCollectionButtonDesc")
 			: (0, Localize)("#FilterEdit_SaveStandardCollectionButtonDesc");
-		let t = this.props.isdynamic
-			? i.createElement(
-					"span",
-					null,
-					i.createElement(b.Qi, null),
-					(0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreateDynamic"),
-				)
-			: (0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreate");
-		return i.createElement(
-			"div",
-			{
-				className: (0, o.A)(C.Option, this.props.disabled && C.Disabled),
-			},
-			i.createElement(
-				m.$n,
-				{
-					className: C.ActionLabel,
-					onClick: this.props.onClick,
-					tabIndex: this.props.disabled ? -1 : 0,
-				},
-				t,
-			),
-			i.createElement(
-				"div",
-				{
-					className: C.Description,
-				},
-				e,
-			),
+		let t = this.props.isdynamic ? (
+			<span>
+				<b.Qi />
+				{(0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreateDynamic")}
+			</span>
+		) : (
+			(0, Localize)("#FilterEdit_SelectCollectionTypeButtonCreate")
+		);
+		return (
+			<div className={A_1(C.Option, this.props.disabled && C.Disabled)}>
+				<m.$n
+					className={C.ActionLabel}
+					onClick={this.props.onClick}
+					tabIndex={this.props.disabled ? -1 : 0}
+				>
+					{t}
+				</m.$n>
+				<div className={C.Description}>{e}</div>
+			</div>
 		);
 	}
 }
@@ -320,13 +266,13 @@ export async function sp(e, t, r, n, a) {
 		l.md.BIsSystemCollectionName(t.displayName) ||
 		l.md.BIsPartnerCollectionName(t.displayName)
 	) {
-		(0, d.pg)(
-			i.createElement(u.KG, {
-				strDescription: (0, Localize)(
+		pg(
+			<u.KG
+				strDescription={(0, Localize)(
 					"#CollectionAction_CannotOverwrite",
 					t.displayName,
-				),
-			}),
+				)}
+			/>,
 			e,
 			{
 				strTitle: s,
@@ -347,13 +293,13 @@ export async function sp(e, t, r, n, a) {
 				n();
 			}
 		} catch (r) {
-			(0, d.pg)(
-				i.createElement(u.KG, {
-					strDescription: (0, Localize)(
+			pg(
+				<u.KG
+					strDescription={(0, Localize)(
 						"#CollectionAction_SaveFailed",
 						t.displayName,
-					),
-				}),
+					)}
+				/>,
 				e,
 				{
 					strTitle: s,
@@ -364,18 +310,9 @@ export async function sp(e, t, r, n, a) {
 			}
 		}
 	} else {
-		(0, d.pg)(
-			i.createElement(M, {
-				collection: t,
-				ownerWindow: e,
-				onOK: n,
-				onCancel: a,
-			}),
-			e,
-			{
-				strTitle: s,
-			},
-		);
+		pg(<M collection={t} ownerWindow={e} onOK={n} onCancel={a} />, e, {
+			strTitle: s,
+		});
 	}
 }
 let M = class extends i.Component {
@@ -410,19 +347,21 @@ let M = class extends i.Component {
 				? "#FilterEdit_SaveDynamicCollectionNoIcon"
 				: "#FilterEdit_SaveCollection",
 		);
-		return i.createElement(u.o0, {
-			strTitle: e,
-			bDestructiveWarning: true,
-			strDescription: (0, Localize)(
-				"#FilterEdit_SaveOverwrite",
-				this.props.collection.displayName,
-			),
-			onOK: this.SaveCollection,
-			onCancel: this.OnCancel,
-		});
+		return (
+			<u.o0
+				strTitle={e}
+				bDestructiveWarning
+				strDescription={(0, Localize)(
+					"#FilterEdit_SaveOverwrite",
+					this.props.collection.displayName,
+				)}
+				onOK={this.SaveCollection}
+				onCancel={this.OnCancel}
+			/>
+		);
 	}
 };
-(0, n.Cg)([g.oI], M.prototype, "OnSuccessfulSave", null);
-(0, n.Cg)([g.oI], M.prototype, "OnCancel", null);
-(0, n.Cg)([g.oI], M.prototype, "SaveCollection", null);
-M = (0, n.Cg)([a.PA], M);
+Cg([g.oI], M.prototype, "OnSuccessfulSave", null);
+Cg([g.oI], M.prototype, "OnCancel", null);
+Cg([g.oI], M.prototype, "SaveCollection", null);
+M = Cg([a.PA], M);

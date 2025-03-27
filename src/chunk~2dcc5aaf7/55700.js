@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
+import n from "./63696.js";
 export function v(e, t, r = {}) {
-	const [i, a] = n.useState();
-	const [s, o] = n.useState(false);
+	const [i, setI] = n.useState();
+	const [s, setS] = n.useState(false);
 	const {
-		strURL: l,
-		strUserAgentIdentifier: c,
-		strVROverlayKey: m,
-		bOnlyAllowTrustedPopups: u = true,
+		strURL,
+		strUserAgentIdentifier,
+		strVROverlayKey,
+		bOnlyAllowTrustedPopups = true,
 	} = r;
 	n.useEffect(() => {
 		if (!e) {
@@ -14,21 +14,21 @@ export function v(e, t, r = {}) {
 		}
 		const r = SteamClient.BrowserView.Create({
 			parentPopupBrowserID: e.SteamClient.Browser.GetBrowserID(),
-			strUserAgentIdentifier: c || "Valve Steam Client",
-			strVROverlayKey: m,
-			strInitialURL: l,
-			bOnlyAllowTrustedPopups: u,
+			strUserAgentIdentifier: strUserAgentIdentifier || "Valve Steam Client",
+			strVROverlayKey: strVROverlayKey,
+			strInitialURL: strURL,
+			bOnlyAllowTrustedPopups: bOnlyAllowTrustedPopups,
 		});
 		r.SetName(t);
 		r.on("finished-request", () => {
-			o(true);
+			setS(true);
 		});
-		a(r);
+		setI(r);
 		return () => {
 			r.SetVisible(false);
-			a(undefined);
+			setI(undefined);
 			SteamClient.BrowserView.Destroy(r);
 		};
-	}, [t, e, c, m, u]);
+	}, [t, e, strUserAgentIdentifier, strVROverlayKey, bOnlyAllowTrustedPopups]);
 	return [i, s];
 }

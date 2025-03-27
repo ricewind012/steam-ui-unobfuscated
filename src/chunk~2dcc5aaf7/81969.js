@@ -1,12 +1,12 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var s = require("./34792.js");
-var o = require(/*webcrack:missing*/ "./52451.js");
-var l = require(/*webcrack:missing*/ "./72476.js");
-var c = require("./13897.js");
-var m = require("./2306.js");
-var u = require("./3475.js");
+import n from "./63696.js";
+import i from "./64608.js";
+import s, { e_ as e } from "./34792.js";
+import { gc, vJ } from "./52451.js";
+import l from "./72476.js";
+import c from "./13897.js";
+import m from "./2306.js";
+import u from "./3475.js";
 export function cZ(e) {
 	return Localize(
 		"#TimeZoneOffset",
@@ -29,7 +29,7 @@ export function CY(e) {
 	});
 }
 function p() {
-	const [e, t] = (0, s.e_)("b24HourClock");
+	const [e, t] = e("b24HourClock");
 	return n.createElement(m.C, {
 		feature: u.uX,
 		label: Localize("#Settings_TimeAndDate_24HourClock"),
@@ -40,13 +40,14 @@ function p() {
 }
 export function tm() {
 	const e = l.TS.ON_DECK;
-	const t = (0, o.gc)(s.rV.CurrentTimeZoneID);
-	const r = (0, o.vJ)(() => SteamClient.Settings.GetAvailableTimeZones(), []);
+	const t = gc(s.rV.CurrentTimeZoneID);
+	const r = vJ(() => SteamClient.Settings.GetAvailableTimeZones(), []);
 	const i =
 		r?.map((e) => ({
 			label: n.createElement(CY, {
 				tz: e,
 			}),
+
 			data: e.timezoneID,
 		})) ?? [];
 	const m = n.useRef(undefined);

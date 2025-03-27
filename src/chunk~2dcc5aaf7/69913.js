@@ -1,33 +1,33 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./31958.js");
-var a = require("./68292.js");
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require(/*webcrack:missing*/ "./85243.js");
-var l = require("./79883.js");
-var c = require(/*webcrack:missing*/ "./88696.js");
-var m = require("./86172.js");
-var u = require("./60917.js");
-var d = require("./34792.js");
-var A = require("./89748.js");
-var p = require(/*webcrack:missing*/ "./90095.js");
-var g = require("./78057.js");
-var h = require(/*webcrack:missing*/ "./63696.js");
 import { GetUnixTime } from "../../actual_src/utils/time.js";
-var _ = require(/*webcrack:missing*/ "./72476.js");
-var f = require(/*webcrack:missing*/ "./49455.js");
-var b = require("./94361.js");
-var y = require(/*webcrack:missing*/ "./29285.js");
-var S = require(/*webcrack:missing*/ "./26667.js");
-var w = require(/*webcrack:missing*/ "./46382.js");
-var B = require(/*webcrack:missing*/ "./12176.js");
-var v = require("./46948.js");
+import n, { Cg } from "./34629.js";
+import i from "./31958.js";
+import a, { PR } from "./68292.js";
+import s, { Gn, fm } from "./89193.js";
+import o from "./85243.js";
+import l from "./79883.js";
+import c from "./88696.js";
+import m, { b as b_1 } from "./86172.js";
+import u from "./60917.js";
+import d, { VI } from "./34792.js";
+import A, { qw } from "./89748.js";
+import { q3 } from "./90095.js";
+import g from "./78057.js";
+import h from "./63696.js";
+import { Y2 } from "./72476.js";
+import { w as w_1 } from "./49455.js";
+import b from "./94361.js";
+import y, { q } from "./29285.js";
+import { n as n_1 } from "./26667.js";
+import w, { KV } from "./46382.js";
+import B from "./12176.js";
+import v from "./46948.js";
 export function wm(e, t, r, n, a) {
 	let s = e.BrowserWindow.screen.availWidth;
 	let o = e.BrowserWindow.screen.availHeight;
 	if (e.IsDesktopOverlayWindow()) {
-		const t = e.params;
-		s = t.nScreenWidth;
-		o = t.nScreenHeight;
+		const e_params = e.params;
+		s = e_params.nScreenWidth;
+		o = e_params.nScreenHeight;
 	}
 	let l = (s - Math.min(s, 1920)) / 2;
 	let c = Math.min(s, 1920);
@@ -51,12 +51,12 @@ export function wm(e, t, r, n, a) {
 		usableWidth: c,
 	};
 }
-export var w9;
-export var tc;
-export var GO;
-var R;
-var k;
-(function (e) {
+export let w9;
+export let tc;
+export let GO;
+let R;
+let k;
+((e) => {
 	e.FriendsList = "FriendsList";
 	e.Settings = "Settings";
 	e.Guides = "Guides";
@@ -80,12 +80,12 @@ var k;
 	e.RemotePlayTogether = "RemotePlayTogether";
 	e.MultiplayerSessionLinkShare = "MultiplayerSessionLinkShare";
 })((w9 ||= {}));
-(function (e) {
+((e) => {
 	e[(e.Closed = 0)] = "Closed";
 	e[(e.Visible = 1)] = "Visible";
 	e[(e.Minimized = 2)] = "Minimized";
 })((tc ||= {}));
-(function (e) {
+((e) => {
 	e.Playtime = "Playtime";
 	e.FriendsInGame = "FriendsInGame";
 	e.FriendsRecentlyPlayed = "FriendsRecentlyPlayed";
@@ -96,12 +96,12 @@ var k;
 	e.News = "News";
 	e.Players = "Players";
 })((GO ||= {}));
-(function (e) {
+((e) => {
 	e[(e.k_None = 0)] = "k_None";
 	e[(e.k_Initialized = 1)] = "k_Initialized";
 	e[(e.k_ShuttingDown = 2)] = "k_ShuttingDown";
 })((R ||= {}));
-(function (e) {
+((e) => {
 	e.WebRequests = "webrequests";
 	e.PinnedWindows = "pinned";
 	e.FlippedWindows = "flipped";
@@ -135,9 +135,9 @@ class N {
 		this.m_storage.StoreObject(this.GetSavedDataKey(e), r);
 	}
 	async Load(e, t) {
-		let r = D[e];
+		let D_e = D[e];
 		let n = await this.m_storage.GetObject(this.GetSavedDataKey(e));
-		if (n?.version == r) {
+		if (n?.version == D_e) {
 			return n.data;
 		} else if (t) {
 			return t(n);
@@ -182,13 +182,13 @@ const G = {
 };
 export function uA(e) {
 	return (
-		(!(0, _.Y2)() ||
-			!!(function (e) {
+		(!Y2() ||
+			!!((e) => {
 				let t = G.hasOwnProperty(e);
-				(0, f.w)(t, "OverlayWindowAvailableInChina_t missing key for", e);
+				w_1(t, "OverlayWindowAvailableInChina_t missing key for", e);
 				return !!t && G[e];
 			})(e)) &&
-		!(0, y.q)()
+		!q()
 	);
 }
 export class z1 {
@@ -229,7 +229,7 @@ export class z1 {
 		return this.m_Instance.params.gameid;
 	}
 	constructor(e) {
-		(0, s.Gn)(this);
+		Gn(this);
 		this.m_playtime = {
 			nPlaytimeLastTwoWeeks: 0,
 			nPlaytimeForever: 0,
@@ -297,7 +297,7 @@ export class z1 {
 		if (r != n) {
 			this.m_mapWindowVisibilityState.set(e, t);
 			if (e === w9.FriendsList) {
-				const e = (0, a.PR)();
+				const e = PR();
 				const t = this.m_Instance.params.browserInfo;
 				e.SetVisibilityForDesktopUIOverlay(t, n);
 				if (n) {
@@ -316,7 +316,7 @@ export class z1 {
 		this.GetPopupForWindow(e)?.SteamClient.Window.BringToFront();
 	}
 	async Load() {
-		await (0, m.b)(`DesktopUIOverlayStore.Load [${this.appid}]`, [
+		await b_1(`DesktopUIOverlayStore.Load [${this.appid}]`, [
 			["RefreshPlaytime", () => this.RefreshPlaytime()],
 			["LoadVisibleWindows", () => this.LoadVisibleWindows()],
 			["LoadPinnedWindows", () => this.LoadPinnedWindows()],
@@ -335,11 +335,11 @@ export class z1 {
 	}
 	AddBroadcastAvailableToWatchToast() {
 		this.m_rgAutorunDisposers.push(
-			(0, s.fm)(() => {
+			fm(() => {
 				if (this.m_bShowedBroadcastAvailableToast) {
 					return;
 				}
-				let e = (0, A.qw)().cm.BIsConnected();
+				let e = qw().cm.BIsConnected();
 				let [t] = d.rV.GetClientSetting("broadcast_permissions");
 				if (e && (t == 2 || t == 3)) {
 					this.m_bShowedBroadcastAvailableToast = true;
@@ -440,8 +440,7 @@ export class z1 {
 		let e = await this.m_storage.Load(k.PinnedWindows);
 		if (e) {
 			e.forEach((e) => {
-				let t = e[0];
-				let r = e[1];
+				let [t, r] = e;
 				if (r.opacity !== undefined) {
 					this.m_mapPinnedWindows.set(t, r);
 				}
@@ -452,8 +451,7 @@ export class z1 {
 		let e = await this.m_storage.Load(k.FlippedWindows);
 		if (e) {
 			e.forEach((e) => {
-				let t = e[0];
-				let r = e[1];
+				let [t, r] = e;
 				this.m_mapFlippedWindows.set(t, r);
 			});
 		}
@@ -510,7 +508,7 @@ export class z1 {
 	GetPopupForWindow(e) {
 		if (e == w9.FriendsList) {
 			const e = this.m_Instance.params.browserInfo;
-			const t = (0, a.PR)().GetFriendsListPopup(e);
+			const t = PR().GetFriendsListPopup(e);
 			if (t) {
 				return t.window;
 			}
@@ -590,7 +588,7 @@ export class z1 {
 	EnterMinimalMode() {
 		++this.m_nMinimalModeRequests;
 		this.SetWindowVisibility(w9.FriendsList, tc.Closed);
-		const e = (0, a.PR)();
+		const e = PR();
 		const t = this.m_Instance.params.browserInfo;
 		e.SetChatWindowsVisibilityForDesktopUIOverlay(t, false);
 		if (!this.m_bIsOverlayActive) {
@@ -710,7 +708,7 @@ export class z1 {
 				bOnline: e.bIsOnline,
 				unSecondsLeft: r,
 			};
-			(async function (e, t, r, n) {
+			(async (e, t, r, n) => {
 				let i =
 					(await g.H.RequestAppDetails(e)).strMasterSubNotificationIcon ?? "";
 				u.Tu.AddTimedTrialRemaining(e, i, t, r, n);
@@ -777,13 +775,13 @@ export class z1 {
 	}
 }
 export function r2(e) {
-	return (0, p.q3)(() => {
-		let t = e.timed_trial_platime;
-		if (t) {
+	return q3(() => {
+		let e_timed_trial_platime = e.timed_trial_platime;
+		if (e_timed_trial_platime) {
 			return {
 				bInTrial: true,
-				unSecondsAllowed: t.unSecondsAllowed ?? 0,
-				unSecondsPlayed: t.unSecondsPlayed ?? 0,
+				unSecondsAllowed: e_timed_trial_platime.unSecondsAllowed ?? 0,
+				unSecondsPlayed: e_timed_trial_platime.unSecondsPlayed ?? 0,
 			};
 		} else {
 			return {
@@ -796,57 +794,57 @@ export function r2(e) {
 }
 export function B$(e) {
 	h.useEffect(() => e.WatchPlaytime(), [e]);
-	return (0, p.q3)(() => [e.playtime_forever, e.playtime_last_two_weeks]);
+	return q3(() => [e.playtime_forever, e.playtime_last_two_weeks]);
 }
-(0, n.Cg)([s.sH], z1.prototype, "m_eState", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bIsOverlayActive", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bHasLoadedWebRequests", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_mapWindowVisibilityState", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_mapPinnedWindows", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_mapFlippedWindows", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_rgGameOverViewSections", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_clockSettings", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_settingsPage", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_nMinimalModeRequests", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_playtime", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bPreviewPinnedMode", undefined);
-(0, n.Cg)([s.sH.ref], z1.prototype, "m_initialMediaState", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bTimelineExpanded", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bShowClipSavedHint", undefined);
-(0, n.Cg)([s.sH], z1.prototype, "m_bShowDurationControlInit", undefined);
-(0, n.Cg)([s.XI], z1.prototype, "MinimizeAllWindows", null);
-(0, n.Cg)([s.XI], z1.prototype, "RestoreMinimizedWindows", null);
-(0, n.Cg)([s.EW], z1.prototype, "has_minimized_windows", null);
-(0, n.Cg)([s.XI], z1.prototype, "ToggleWindowVisibility", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetWindowVisibility", null);
-(0, n.Cg)([s.XI], z1.prototype, "Load", null);
-(0, n.Cg)([s.XI.bound], z1.prototype, "CheckDurationControlInit", null);
-(0, n.Cg)([s.XI], z1.prototype, "RefreshPlaytime", null);
-(0, n.Cg)([s.XI], z1.prototype, "PreloadSavedWebRequests", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadWebRequestsIfNeeded", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadVisibleWindows", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadPinnedWindows", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadFlippedWindows", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadSortedGameOverviewSections", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetSortedGameOverviewSections", null);
-(0, n.Cg)([s.XI], z1.prototype, "LoadClockSettings", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetClockSettings", null);
-(0, n.Cg)([s.XI], z1.prototype, "AddWebPageRequest", null);
-(0, n.Cg)([s.XI], z1.prototype, "RemoveWebPageRequest", null);
-(0, n.Cg)([s.XI], z1.prototype, "RemoveAllWebPageRequests", null);
-(0, n.Cg)([s.XI], z1.prototype, "UpdateWebPageRequest", null);
-(0, n.Cg)([s.XI], z1.prototype, "ReorderWebPageRequest", null);
-(0, n.Cg)([s.XI], z1.prototype, "ShowSettings", null);
-(0, n.Cg)([s.XI], z1.prototype, "ShowMedia", null);
-(0, n.Cg)([s.XI], z1.prototype, "ShowRemotePlayTogether", null);
-(0, n.Cg)([s.XI], z1.prototype, "EnterMinimalMode", null);
-(0, n.Cg)([s.XI], z1.prototype, "ExitMinimalMode", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetIsOverlayActive", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetWindowPinned", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetPinnedWindowOpacity", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetPinnedWindowData", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetPreviewPinnedMode", null);
-(0, n.Cg)([s.XI], z1.prototype, "SetWindowFlipped", null);
+Cg([s.sH], z1.prototype, "m_eState", undefined);
+Cg([s.sH], z1.prototype, "m_bIsOverlayActive", undefined);
+Cg([s.sH], z1.prototype, "m_bHasLoadedWebRequests", undefined);
+Cg([s.sH], z1.prototype, "m_mapWindowVisibilityState", undefined);
+Cg([s.sH], z1.prototype, "m_mapPinnedWindows", undefined);
+Cg([s.sH], z1.prototype, "m_mapFlippedWindows", undefined);
+Cg([s.sH], z1.prototype, "m_rgGameOverViewSections", undefined);
+Cg([s.sH], z1.prototype, "m_clockSettings", undefined);
+Cg([s.sH], z1.prototype, "m_settingsPage", undefined);
+Cg([s.sH], z1.prototype, "m_nMinimalModeRequests", undefined);
+Cg([s.sH], z1.prototype, "m_playtime", undefined);
+Cg([s.sH], z1.prototype, "m_bPreviewPinnedMode", undefined);
+Cg([s.sH.ref], z1.prototype, "m_initialMediaState", undefined);
+Cg([s.sH], z1.prototype, "m_bTimelineExpanded", undefined);
+Cg([s.sH], z1.prototype, "m_bShowClipSavedHint", undefined);
+Cg([s.sH], z1.prototype, "m_bShowDurationControlInit", undefined);
+Cg([s.XI], z1.prototype, "MinimizeAllWindows", null);
+Cg([s.XI], z1.prototype, "RestoreMinimizedWindows", null);
+Cg([s.EW], z1.prototype, "has_minimized_windows", null);
+Cg([s.XI], z1.prototype, "ToggleWindowVisibility", null);
+Cg([s.XI], z1.prototype, "SetWindowVisibility", null);
+Cg([s.XI], z1.prototype, "Load", null);
+Cg([s.XI.bound], z1.prototype, "CheckDurationControlInit", null);
+Cg([s.XI], z1.prototype, "RefreshPlaytime", null);
+Cg([s.XI], z1.prototype, "PreloadSavedWebRequests", null);
+Cg([s.XI], z1.prototype, "LoadWebRequestsIfNeeded", null);
+Cg([s.XI], z1.prototype, "LoadVisibleWindows", null);
+Cg([s.XI], z1.prototype, "LoadPinnedWindows", null);
+Cg([s.XI], z1.prototype, "LoadFlippedWindows", null);
+Cg([s.XI], z1.prototype, "LoadSortedGameOverviewSections", null);
+Cg([s.XI], z1.prototype, "SetSortedGameOverviewSections", null);
+Cg([s.XI], z1.prototype, "LoadClockSettings", null);
+Cg([s.XI], z1.prototype, "SetClockSettings", null);
+Cg([s.XI], z1.prototype, "AddWebPageRequest", null);
+Cg([s.XI], z1.prototype, "RemoveWebPageRequest", null);
+Cg([s.XI], z1.prototype, "RemoveAllWebPageRequests", null);
+Cg([s.XI], z1.prototype, "UpdateWebPageRequest", null);
+Cg([s.XI], z1.prototype, "ReorderWebPageRequest", null);
+Cg([s.XI], z1.prototype, "ShowSettings", null);
+Cg([s.XI], z1.prototype, "ShowMedia", null);
+Cg([s.XI], z1.prototype, "ShowRemotePlayTogether", null);
+Cg([s.XI], z1.prototype, "EnterMinimalMode", null);
+Cg([s.XI], z1.prototype, "ExitMinimalMode", null);
+Cg([s.XI], z1.prototype, "SetIsOverlayActive", null);
+Cg([s.XI], z1.prototype, "SetWindowPinned", null);
+Cg([s.XI], z1.prototype, "SetPinnedWindowOpacity", null);
+Cg([s.XI], z1.prototype, "SetPinnedWindowData", null);
+Cg([s.XI], z1.prototype, "SetPreviewPinnedMode", null);
+Cg([s.XI], z1.prototype, "SetWindowFlipped", null);
 const x = [
 	{
 		window: w9.GameOverview,
@@ -914,9 +912,9 @@ const x = [
 	},
 ];
 export function W6() {
-	const [e, t] = (function () {
-		const [e, t] = (0, d.VI)("overlay_tabs");
-		const [r, n] = h.useState([]);
+	const [e, t] = (() => {
+		const [e, t] = VI("overlay_tabs");
+		const [r, setR] = h.useState([]);
 		h.useEffect(() => {
 			try {
 				const r = JSON.parse(e);
@@ -930,18 +928,18 @@ export function W6() {
 						s = true;
 					}
 				}
-				n(a);
+				setR(a);
 				if (s) {
 					t(JSON.stringify(a));
 				}
 			} catch (e) {
-				n(x);
+				setR(x);
 			}
 		}, [e, t]);
 		return [
 			r,
 			(e) => {
-				n(e);
+				setR(e);
 				t(JSON.stringify(e));
 			},
 		];
@@ -967,18 +965,16 @@ export function W6() {
 }
 export function Mb(e) {
 	return [
-		(0, p.q3)(() => e.ShouldShowDurationControlInitDialog() === true),
+		q3(() => e.ShouldShowDurationControlInitDialog() === true),
 		() => e.SetShowDurationControlInitDialog(false),
 	];
 }
 export function fg(e) {
-	return (0, p.q3)(
-		() => !!e && e.ShouldShowDurationControlInitDialog() !== false,
-	);
+	return q3(() => !!e && e.ShouldShowDurationControlInitDialog() !== false);
 }
 export function vx(e, t, r, n) {
-	const i = (0, w.KV)();
-	return (0, S.n)({
+	const i = KV();
+	return n_1({
 		mutationFn: async () => {
 			const r = B.w.Init(v.LI);
 			r.Body().set_appid(e);

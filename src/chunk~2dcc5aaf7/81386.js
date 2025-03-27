@@ -1,14 +1,14 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./12176.js");
-var a = require("./26052.js");
-var s = require("./95773.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
 import {
 	MoveElement,
 	FindAndRemoveWhere,
 	CountMatches,
 } from "../../actual_src/utils/arrayutils.js";
-var c = require(/*webcrack:missing*/ "./49455.js");
+import { Cg } from "./34629.js";
+import i from "./12176.js";
+import a from "./26052.js";
+import s from "./95773.js";
+import o, { Gn, z7 } from "./89193.js";
+import { w } from "./49455.js";
 export function f(e, t) {
 	return (
 		e == t ||
@@ -22,7 +22,7 @@ export class x {
 	m_CMInterface;
 	m_rgFavorites = o.sH.array();
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_FriendStore = e;
 		this.m_ClanStore = e.ClanStore;
 	}
@@ -97,7 +97,7 @@ export class x {
 			} else if (t.chat) {
 				r.set_chat_group_id(t.chat.GetGroupID());
 			} else {
-				(0, c.w)(false, "empty favorite struct");
+				w(false, "empty favorite struct");
 			}
 		}
 		return a.DF.SetFavorites(this.m_CMInterface.GetServiceTransport(), e).then(
@@ -132,7 +132,7 @@ export class x {
 		}
 	}
 	RecvFavoritesList(e) {
-		(0, o.z7)(
+		z7(
 			() =>
 				this.m_FriendStore.friends_list_ready &&
 				this.m_ChatStore.chat_group_list_ready,
@@ -148,7 +148,7 @@ export class x {
 		);
 	}
 }
-(0, n.Cg)([o.XI], x.prototype, "AddToFavorites", null);
-(0, n.Cg)([o.XI], x.prototype, "RemoveFromFavorites", null);
-(0, n.Cg)([o.XI], x.prototype, "OnFriendRemoved", null);
-(0, n.Cg)([o.XI], x.prototype, "ReadFavorites", null);
+Cg([o.XI], x.prototype, "AddToFavorites", null);
+Cg([o.XI], x.prototype, "RemoveFromFavorites", null);
+Cg([o.XI], x.prototype, "OnFriendRemoved", null);
+Cg([o.XI], x.prototype, "ReadFavorites", null);

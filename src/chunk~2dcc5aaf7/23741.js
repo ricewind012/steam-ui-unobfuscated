@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	HeaderBrowser: "_1gnVM7e18L6N7Qp2kyJDi8",
 	BackgroundAnimation: "_18_Th0H8GqMpWOiPrN-oNY",

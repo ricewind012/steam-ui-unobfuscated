@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ReorderableListDialog: "_2NTC76bc6jpFmBAE7_xYXr",
 	ModalHeader: "_3JmF6tWRZoWygynJdLp7p",

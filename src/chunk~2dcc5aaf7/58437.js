@@ -1,10 +1,12 @@
-var n = require(/*webcrack:missing*/ "./49519.js");
-var i = require(/*webcrack:missing*/ "./93861.js");
+import n, { zy, W6, g } from "./49519.js";
+import { Rr, AO } from "./93861.js";
 function a(e, t) {
 	if (e.state) {
 		if (typeof e.state != "object") {
 			console.error(
-				`Cannot merge route state into non-bject type route state. Type "${typeof e.state}" for path "${e.pathname}"`,
+				`Cannot merge route state into non-bject type route state. Type "${typeof e.state}" for path "${
+					e.pathname
+				}"`,
 			);
 			return e;
 		} else {
@@ -27,23 +29,27 @@ export function tf(e, t, r, n, s) {
 	if (!t && !n) {
 		return e;
 	}
-	return (function (e, t) {
+	return ((e, t) => {
 		if (!t) {
 			return e;
 		}
 		switch (typeof e) {
-			case "function":
+			case "function": {
 				return (e) => a(e, t);
-			case "string":
+			}
+			case "string": {
 				return {
-					...(0, i.Rr)(e),
+					...Rr(e),
 					state: t,
 				};
-			case "object":
+			}
+			case "object": {
 				return a(e, t);
-			default:
+			}
+			default: {
 				console.error(`Unable to process link config of type ${e}.`);
 				return e;
+			}
 		}
 	})(e, KV(t, r, n, s));
 }
@@ -62,41 +68,41 @@ export function KV(e, t, r, n) {
 	}
 }
 export function VT() {
-	const { state: e } = (0, n.zy)();
-	if (e && e.event_to_show) {
-		return e.event_to_show;
+	const { state } = zy();
+	if (state && state.event_to_show) {
+		return state.event_to_show;
 	} else {
 		return null;
 	}
 }
 export function Qx() {
-	const e = (0, n.zy)();
-	const t = (0, n.W6)();
+	const e = zy();
+	const t = W6();
 	const r = {
 		...(e.state || {}),
 	};
 	delete r.event_to_show;
-	return () => t.replace((0, i.AO)(e), r);
+	return () => t.replace(AO(e), r);
 }
 export function R_() {
-	const { appid: e } = (0, n.g)();
-	const t = (0, n.zy)();
-	if (!e || isNaN(parseInt(e))) {
+	const { appid } = g();
+	const t = zy();
+	if (!appid || isNaN(parseInt(appid))) {
 		console.error(
-			`Could not parse appid from current route params. Got appid: "${e}", path: "${t?.pathname}"`,
+			`Could not parse appid from current route params. Got appid: "${appid}", path: "${t?.pathname}"`,
 		);
 		return NaN;
 	} else {
-		return parseInt(e);
+		return parseInt(appid);
 	}
 }
 export function AX() {
-	const { controllerIdx: e } = (0, n.g)();
-	const t = (0, n.zy)();
-	if (e && !isNaN(parseInt(e))) {
-		return parseInt(e);
+	const { controllerIdx } = g();
+	const t = zy();
+	if (controllerIdx && !isNaN(parseInt(controllerIdx))) {
+		return parseInt(controllerIdx);
 	}
 	console.error(
-		`Could not parse controller idx from current route params. Got idx: "${e}", path: "${t?.pathname}"`,
+		`Could not parse controller idx from current route params. Got idx: "${controllerIdx}", path: "${t?.pathname}"`,
 	);
 }

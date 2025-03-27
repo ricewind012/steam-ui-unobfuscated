@@ -1,5 +1,5 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-require(/*webcrack:missing*/ "./11131.js");
+import n from "./63696.js";
+import "./11131.js";
 export function E(e, t, r, i) {
 	n.useEffect(() => {
 		const n = (n) => {

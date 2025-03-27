@@ -1,85 +1,78 @@
-var n;
-var i = require(/*webcrack:missing*/ "./34629.js");
-var a = require(/*webcrack:missing*/ "./63696.js");
-var s = require("./64608.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require("./10606.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var m = require(/*webcrack:missing*/ "./52451.js");
-var u = require("./73317.js");
-var d = require("./96593.js");
-var A = require(/*webcrack:missing*/ "./41230.js");
-var p = require("./34428.js");
-var g = require("./88769.js");
-var h = require("./13869.js");
-var C = require("./25074.js");
-var _ = C;
+import i, { Cg } from "./34629.js";
+import a from "./63696.js";
+import s from "./64608.js";
+import o, { Gn } from "./89193.js";
+import l from "./10606.js";
+import m from "./52451.js";
+import u from "./73317.js";
+import d from "./96593.js";
+import A from "./41230.js";
+import { dm } from "./34428.js";
+import { Cj } from "./88769.js";
+import { mK } from "./13869.js";
+import C from "./25074.js";
+let n;
+const _ = C;
 export function P(e, t) {
-	(0, h.mK)(
-		a.createElement(y, {
-			apps: e,
-			toFolder: -1,
-		}),
-		t,
-		{
-			strTitle: Localize("#ContentManagement_MoveApps_Title"),
-			bNeverPopOut: true,
-		},
-	);
+	mK(<Y apps={e} toFolder={-1} />, t, {
+		strTitle: Localize("#ContentManagement_MoveApps_Title"),
+		bNeverPopOut: true,
+	});
 }
-(function (e) {
+((e) => {
 	e[(e.ChooseFolder = 0)] = "ChooseFolder";
 	e[(e.MovingApps = 1)] = "MovingApps";
 	e[(e.MoveFinished = 2)] = "MoveFinished";
 	e[(e.MoveFailed = 3)] = "MoveFailed";
 })((n ||= {}));
-function b(e) {
-	const { folder: t } = e;
-	const r = (0, g.Cj)(t);
+function B(e) {
+	const { folder } = e;
+	const r = Cj(folder);
 	const n = Localize(
 		"#ContentManagement_MoveApps_Drive",
 		r,
-		(0, p.dm)(t.nFreeSpace, 1),
+		dm(folder.nFreeSpace, 1),
 	);
-	return a.createElement(a.Fragment, null, n, " ");
+	return <>{n} </>;
 }
-let y = class extends a.Component {
+let Y = class extends a.Component {
 	m_folders;
 	m_BytesToMove = 0;
 	m_AppsToMove = [];
 	m_FailedApps = [];
 	constructor(e) {
 		super(e);
-		(0, o.Gn)(this);
+		Gn(this);
 		this.m_AppsToMove = this.props.apps;
-		this.m_BytesToMove = u.fN.MountedInstallFolders.reduce(function (t, r) {
-			return r.vecApps.reduce(function (t, r) {
-				if (e.apps.includes(r.nAppID)) {
-					return t + r.nUsedSize;
-				} else {
-					return t;
-				}
-			}, t);
-		}, 0);
+		this.m_BytesToMove = u.fN.MountedInstallFolders.reduce(
+			(t, r) =>
+				r.vecApps.reduce((t, r) => {
+					if (e.apps.includes(r.nAppID)) {
+						return t + r.nUsedSize;
+					} else {
+						return t;
+					}
+				}, t),
+			0,
+		);
 		this.m_folders = u.fN.MountedInstallFolders.filter(
 			(t) =>
 				!t.bIsMounted ||
-				!t.vecApps.reduce(function (t, r) {
-					return t || e.apps.includes(r.nAppID);
-				}, false),
+				!t.vecApps.reduce((t, r) => t || e.apps.includes(r.nAppID), false),
 		);
 		let t = this.props.toFolder;
-		let r = n.ChooseFolder;
+		let n_ChooseFolder = n.ChooseFolder;
 		if (this.props.toFolder != -1) {
 			t = this.props.toFolder;
 		} else if (this.m_folders.length > 0) {
 			t = this.m_folders[0].nFolderIndex;
 		} else {
-			r = n.MoveFailed;
+			n_ChooseFolder = n.MoveFailed;
 		}
 		this.state = {
 			toFolder: t,
-			eStep: r,
+			eStep: n_ChooseFolder,
 			progress: {
 				appid: this.props.apps[0],
 				eError: 0,
@@ -166,163 +159,136 @@ let y = class extends a.Component {
 	}
 	LocalizeError(e) {
 		switch (e) {
-			case 22:
+			case 22: {
 				return Localize("#ContentManagement_MoveApps_CantMove");
-			case 17:
+			}
+			case 17: {
 				return Localize("#ContentManagement_MoveApps_SharedContent");
-			case 15:
+			}
+			case 15: {
 				return Localize("#ContentManagement_MoveApps_InvalidPath");
-			default:
-				return Localize("#Steam_AppUpdateError_" + e);
+			}
+			default: {
+				return Localize(`#Steam_AppUpdateError_${e}`);
+			}
 		}
 	}
 	render() {
 		let e = d.tw.GetAppOverviewByAppID(this.state.progress.appid);
-		let t = e ? e.display_name : "App " + this.state.progress.appid;
+		let t = e ? e.display_name : `App ${this.state.progress.appid}`;
 		const r = this.m_folders.map((e) => ({
-			label: a.createElement(b, {
-				folder: e,
-			}),
+			label: <B folder={e} />,
+
 			data: e.nFolderIndex,
 		}));
 		const i = Math.floor(this.state.progress.flProgress);
-		return a.createElement(
-			l.eV,
-			{
-				onOK: this.onOk,
-				onCancel: this.onCancel,
-				bDisableBackgroundDismiss: true,
-			},
-			a.createElement(
-				"div",
-				{
-					className: _.MoveAppsDialog,
-				},
-				a.createElement(
-					s.Y9,
-					{
-						className: _.ModalHeader,
-					},
-					Localize("#ContentManagement_MoveApps_Title"),
-				),
-				a.createElement(
-					s.nB,
-					null,
-					this.state.eStep == n.ChooseFolder &&
-						a.createElement(
-							"div",
-							null,
-							this.props.apps.length == 1 &&
-								a.createElement(
-									"div",
-									{
-										className: _.DialogBodyText,
-									},
-									Localize(
-										"#ContentManagement_MoveApps_TextSingle",
-										t,
-										(0, p.dm)(this.m_BytesToMove),
-									),
-								),
-							this.props.apps.length > 1 &&
-								a.createElement(
-									"div",
-									{
-										className: _.DialogBodyText,
-									},
-									Localize(
-										"#ContentManagement_MoveApps_TextMultiple",
-										this.props.apps.length,
-										(0, p.dm)(this.m_BytesToMove),
-									),
-								),
-							a.createElement(s.m, {
-								strClassName: _.TopGapSmall,
-								rgOptions: r,
-								selectedOption: this.state.toFolder,
-								onChange: (e) => this.onSelectFolder(e.data),
-							}),
-						),
-					this.state.eStep == n.MovingApps &&
-						a.createElement(
-							"div",
-							null,
-							Localize("#ContentManagement_MoveApps_Working", t),
-							a.createElement(
-								"div",
-								{
-									className: _.MoveAppsIndicator,
-								},
-								a.createElement("div", {
-									className: _.MoveAppsBar,
-									style: {
-										width: i + "%",
-									},
-								}),
-							),
-						),
-					this.state.eStep == n.MoveFinished &&
-						a.createElement(
-							"div",
-							null,
-							Localize("#ContentManagement_MoveApps_Done"),
-						),
-					this.state.eStep == n.MoveFailed &&
-						a.createElement(
-							"div",
-							null,
-							Localize("#ContentManagement_MoveApps_Failed"),
-							this.m_FailedApps.map((e, t) => {
-								let r = d.tw.GetAppOverviewByAppID(e.appid);
-								return a.createElement(
-									"div",
-									{
-										key: t,
-									},
-									"- ",
-									r ? r.display_name : "App " + e.appid,
-									" : ",
-									this.LocalizeError(e.eError),
-								);
-							}),
-						),
-				),
-				a.createElement(
-					s.wi,
-					null,
-					this.state.eStep == n.ChooseFolder &&
-						a.createElement(s.CB, {
-							onOK: this.onOk,
-							strOKText: Localize("#ContentManagement_MoveApps_Button"),
-							onCancel: this.onCancel,
-						}),
-					this.state.eStep == n.MovingApps &&
-						a.createElement(s.CB, {
-							bOKDisabled: true,
-							strOKText: Localize("#ContentManagement_MoveApps_Button"),
-							onCancel: this.onCancel,
-						}),
-					this.state.eStep == n.MoveFinished &&
-						a.createElement(s.CB, {
-							bOKDisabled: true,
-							strOKText: Localize("#ContentManagement_MoveApps_Button"),
-							onCancel: this.onCancel,
-							strCancelText: Localize("#Generic_Close"),
-						}),
-					this.state.eStep == n.MoveFailed &&
-						a.createElement(s.CB, {
-							bOKDisabled: true,
-							strOKText: Localize("#ContentManagement_MoveApps_Button"),
-							onCancel: this.onCancel,
-							strCancelText: Localize("#Generic_Close"),
-						}),
-				),
-			),
+		return (
+			<l.eV onOK={this.onOk} onCancel={this.onCancel} bDisableBackgroundDismiss>
+				<div className={_.MoveAppsDialog}>
+					<s.Y9 className={_.ModalHeader}>
+						{Localize("#ContentManagement_MoveApps_Title")}
+					</s.Y9>
+					<s.nB>
+						{this.state.eStep == n.ChooseFolder && (
+							<div>
+								{this.props.apps.length == 1 && (
+									<div className={_.DialogBodyText}>
+										{Localize(
+											"#ContentManagement_MoveApps_TextSingle",
+											t,
+											dm(this.m_BytesToMove),
+										)}
+									</div>
+								)}
+								{this.props.apps.length > 1 && (
+									<div className={_.DialogBodyText}>
+										{Localize(
+											"#ContentManagement_MoveApps_TextMultiple",
+											this.props.apps.length,
+											dm(this.m_BytesToMove),
+										)}
+									</div>
+								)}
+								<s.m
+									strClassName={_.TopGapSmall}
+									rgOptions={r}
+									selectedOption={this.state.toFolder}
+									onChange={(e) => this.onSelectFolder(e.data)}
+								/>
+							</div>
+						)}
+						{this.state.eStep == n.MovingApps && (
+							<div>
+								{Localize("#ContentManagement_MoveApps_Working", t)}
+								<div className={_.MoveAppsIndicator}>
+									<div
+										className={_.MoveAppsBar}
+										style={{
+											width: `${i}%`,
+										}}
+									/>
+								</div>
+							</div>
+						)}
+						{this.state.eStep == n.MoveFinished && (
+							<div>{Localize("#ContentManagement_MoveApps_Done")}</div>
+						)}
+						{this.state.eStep == n.MoveFailed && (
+							<div>
+								{Localize("#ContentManagement_MoveApps_Failed")}
+								{this.m_FailedApps.map((e, t) => {
+									let r = d.tw.GetAppOverviewByAppID(e.appid);
+									return (
+										<div key={t}>
+											{"- "}
+											{r ? r.display_name : `App ${e.appid}`}
+											{" : "}
+											{this.LocalizeError(e.eError)}
+										</div>
+									);
+								})}
+							</div>
+						)}
+					</s.nB>
+					<s.wi>
+						{this.state.eStep == n.ChooseFolder && (
+							<s.CB
+								onOK={this.onOk}
+								strOKText={Localize("#ContentManagement_MoveApps_Button")}
+								onCancel={this.onCancel}
+							/>
+						)}
+						{this.state.eStep == n.MovingApps && (
+							<s.CB
+								bOKDisabled
+								strOKText={Localize("#ContentManagement_MoveApps_Button")}
+								onCancel={this.onCancel}
+							/>
+						)}
+						{this.state.eStep == n.MoveFinished && (
+							<s.CB
+								bOKDisabled
+								strOKText={Localize("#ContentManagement_MoveApps_Button")}
+								onCancel={this.onCancel}
+								strCancelText={Localize("#Generic_Close")}
+							/>
+						)}
+						{this.state.eStep == n.MoveFailed && (
+							<s.CB
+								bOKDisabled
+								strOKText={Localize("#ContentManagement_MoveApps_Button")}
+								onCancel={this.onCancel}
+								strCancelText={Localize("#Generic_Close")}
+							/>
+						)}
+					</s.wi>
+				</div>
+			</l.eV>
 		);
 	}
 };
-(0, i.Cg)([o.XI.bound], y.prototype, "OnMoveContentProgress", null);
-(0, i.Cg)([m.oI], y.prototype, "onOk", null);
-(0, i.Cg)([m.oI], y.prototype, "onCancel", null);
-(0, i.Cg)([m.oI], y.prototype, "onSelectFolder", null);
-y = (0, i.Cg)([A.PA], y);
+Cg([o.XI.bound], Y.prototype, "OnMoveContentProgress", null);
+Cg([m.oI], Y.prototype, "onOk", null);
+Cg([m.oI], Y.prototype, "onCancel", null);
+Cg([m.oI], Y.prototype, "onSelectFolder", null);
+Y = Cg([A.PA], Y);

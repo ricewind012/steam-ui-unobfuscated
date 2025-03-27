@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./90765.js");
-var a = require(/*webcrack:missing*/ "./52451.js");
-var s = require("./42723.js");
+import n, { useState, useRef, useCallback, useEffect } from "./63696.js";
+import { A } from "./90765.js";
+import { hd, wY, Ue, l6 } from "./52451.js";
+import s from "./42723.js";
 export function r(e) {
 	const t = e.play ?? true;
 	const r = e.direction ?? "left";
@@ -12,20 +12,20 @@ export function r(e) {
 	const u = e.center ?? false;
 	const d = e.resetOnPause ?? false;
 	const { style: A, className: p, children: g } = e;
-	const [h, C] = (0, n.useState)(0);
-	const [_, f] = (0, n.useState)(0);
-	const b = (0, n.useRef)(null);
-	const y = (0, n.useRef)(null);
-	const S = (0, n.useCallback)(() => {
+	const [h, C] = useState(0);
+	const [_, f] = useState(0);
+	const b = useRef(null);
+	const y = useRef(null);
+	const S = useCallback(() => {
 		if (y.current && b.current) {
 			C(b.current.getBoundingClientRect().width);
 			f(y.current.getBoundingClientRect().width);
 		}
 	}, []);
-	const { bVisible: w, ref: B } = (0, a.hd)();
+	const { bVisible: w, ref: B } = hd();
 	const v = h < _ && w;
 	const I = _ / o;
-	const E = (0, i.A)(
+	const E = A(
 		s.Container,
 		v && s.Marquee,
 		u && s.Center,
@@ -41,39 +41,18 @@ export function r(e) {
 		"--delay": `${l}s`,
 		...A,
 	};
-	const T = (0, a.wY)(S);
-	const R = (0, a.Ue)(T, b);
-	(0, a.l6)(window, "resize", S);
-	(0, n.useEffect)(S, [S]);
-	return n.createElement(
-		"div",
-		{
-			className: p,
-			ref: B,
-		},
-		n.createElement(
-			"div",
-			{
-				ref: R,
-				style: M,
-				className: E,
-			},
-			n.createElement(
-				"div",
-				{
-					ref: y,
-					className: s.Content,
-				},
-				g,
-			),
-			v &&
-				n.createElement(
-					"div",
-					{
-						className: s.Content,
-					},
-					g,
-				),
-		),
+	const T = wY(S);
+	const R = Ue(T, b);
+	l6(window, "resize", S);
+	useEffect(S, [S]);
+	return (
+		<div className={p} ref={B}>
+			<div ref={R} style={M} className={E}>
+				<div ref={y} className={s.Content}>
+					{g}
+				</div>
+				{v && <div className={s.Content}>{g}</div>}
+			</div>
+		</div>
 	);
 }

@@ -1,119 +1,122 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var s = require("./44234.js");
-var _o = require("./89459.js");
-var l = require("./3756.js");
-var c = require("./96127.js");
-var m = require("./8653.js");
-var u = require("./95773.js");
-var d = require("./52912.js");
-var A = require(/*webcrack:missing*/ "./63696.js");
-var p = require(/*webcrack:missing*/ "./41230.js");
-var g = require(/*webcrack:missing*/ "./52451.js");
-var h = require(/*webcrack:missing*/ "./50376.js");
-var C = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var f = require(/*webcrack:missing*/ "./69164.js");
-let b = class extends A.Component {
+import {
+	BIsParentOrSelf,
+	GetFileFromPasteEvent,
+	BlobToFile,
+} from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import s from "./44234.js";
+import { K as K_1, MC } from "./89459.js";
+import l from "./3756.js";
+import c from "./96127.js";
+import m from "./8653.js";
+import u from "./95773.js";
+import d, { CO } from "./52912.js";
+import A, { useState, useRef, useEffect } from "./63696.js";
+import p from "./41230.js";
+import g from "./52451.js";
+import h from "./50376.js";
+import C from "./64608.js";
+import f from "./69164.js";
+import B from "./50551.js";
+import v from "./28987.js";
+import { lX } from "./31084.js";
+import E, { b$ } from "./90242.js";
+import M from "./56840.js";
+import T from "./94230.js";
+import k, { Y8 } from "./88750.js";
+import D from "./15688.js";
+import N from "./7372.js";
+import F from "./98592.js";
+import O from "./51095.js";
+import { T as T_1 } from "./92009.js";
+import L from "./98829.js";
+import { pg } from "./13869.js";
+import x from "./10042.js";
+import U from "./72476.js";
+import { Sm, i3 } from "./91720.js";
+import V from "./4690.js";
+const a = i;
+let B_1 = class extends A.Component {
 	render() {
-		const { fileUploadManager: e } = this.props;
-		let t = e.file_upload_props.eUploadState;
+		const { fileUploadManager } = this.props;
+		let t = fileUploadManager.file_upload_props.eUploadState;
 		if (t == 1) {
-			return A.createElement(y, {
-				fileUploadManager: e,
-			});
-		} else if (t == 3 || t == 5 || t == 4) {
-			return A.createElement(w, {
-				fileUploadManager: e,
-			});
+			return <Y_1 fileUploadManager={fileUploadManager} />;
+		} else if (t == 3 || t == 5 || t == 5 || t == 4) {
+			return <W_1 fileUploadManager={fileUploadManager} />;
 		} else if (t != 0) {
-			return A.createElement(S, {
-				fileUploadManager: e,
-			});
+			return <S fileUploadManager={fileUploadManager} />;
 		} else {
 			return null;
 		}
 	}
 };
-function y(e) {
-	const { fileUploadManager: t } = e;
-	const [r, n] = (0, A.useState)(false);
-	const i = (0, A.useRef)();
-	(0, A.useEffect)(() => i.current?.focus(), []);
-	const a = () => t.Reset();
+function Y_1(e) {
+	const { fileUploadManager } = e;
+	const [r, setR] = useState(false);
+	const IRef = useRef();
+	useEffect(() => IRef.current?.focus(), []);
+	const a = () => fileUploadManager.Reset();
 	let s;
-	let o = t.file;
-	if (o) {
-		if (o.type.indexOf("image") != -1) {
-			s = A.createElement("img", {
-				className: "chatFileUploadPreview",
-				src: t.file_upload_data_url,
-			});
-		} else if (o.type.indexOf("video") != -1) {
-			s = A.createElement(h.CeX, null);
+	let t_file = fileUploadManager.file;
+	if (t_file) {
+		if (t_file.type.includes("image")) {
+			s = (
+				<img
+					className="chatFileUploadPreview"
+					src={fileUploadManager.file_upload_data_url}
+				/>
+			);
+		} else if (t_file.type.includes("video")) {
+			s = <h.CeX />;
 		}
-	} else if (t.file_upload_props.exportFn) {
-		s = A.createElement(h.CeX, null);
+	} else if (fileUploadManager.file_upload_props.exportFn) {
+		s = <h.CeX />;
 	}
-	const l = t.file_upload_props.displayFileName;
+	const l = fileUploadManager.file_upload_props.displayFileName;
 	const c = () => true;
-	return A.createElement(
-		f.Z,
-		{
-			className: "chatFileUploadPreviewContainer chatUploadContainer",
-			autoFocus: true,
-			retainFocus: true,
-			preferredFocus: true,
-			onMoveLeft: c,
-			onMoveRight: c,
-			onMoveUp: c,
-			onMoveDown: c,
-			onCancel: a,
-		},
-		s,
-		l &&
-			A.createElement(
-				"div",
-				{
-					className: "chatFileUploadFileName",
-				},
-				"'",
-				l,
-				"'",
-			),
-		A.createElement(
-			f.Z,
-			{
-				className: "chatFileUploadCancel",
-				onActivate: a,
-			},
-			A.createElement(h.sED, null),
-		),
-		A.createElement(
-			C.jn,
-			{
-				ref: i,
-				autoFocus: true,
-				className: "chatFileUploadBtn",
-				onClick: async () => {
-					await t.BeginFileUpload({
+	return (
+		<f.Z
+			className="chatFileUploadPreviewContainer chatUploadContainer"
+			autoFocus
+			retainFocus
+			preferredFocus
+			onMoveLeft={c}
+			onMoveRight={c}
+			onMoveUp={c}
+			onMoveDown={c}
+			onCancel={a}
+		>
+			{s}
+			{l && <div className="chatFileUploadFileName">'{l}'</div>}
+			<f.Z className="chatFileUploadCancel" onActivate={a}>
+				<h.sED />
+			</f.Z>
+			<C.jn
+				ref={IRef}
+				autoFocus
+				className="chatFileUploadBtn"
+				onClick={async () => {
+					await fileUploadManager.BeginFileUpload({
 						bSpoiler: r,
 					});
-					t.Reset();
-				},
-			},
-			(0, Localize)("#Chat_Upload"),
-		),
-		A.createElement(C.Yh, {
-			className: "spoilerCheckBox",
-			label: (0, Localize)("#ChatEntry_TagAsSpoiler"),
-			checked: r,
-			onChange: () => n((e) => !e),
-		}),
+					fileUploadManager.Reset();
+				}}
+			>
+				{(0, Localize)("#Chat_Upload")}
+			</C.jn>
+			<C.Yh
+				className="spoilerCheckBox"
+				label={(0, Localize)("#ChatEntry_TagAsSpoiler")}
+				checked={r}
+				onChange={() => setR((e) => !e)}
+			/>
+		</f.Z>
 	);
 }
-b = (0, n.Cg)([p.PA], b);
+B_1 = Cg([p.PA], B_1);
 let S = class extends A.Component {
 	render() {
 		let e = this.props.fileUploadManager.file_upload_props;
@@ -126,36 +129,20 @@ let S = class extends A.Component {
 					? (0, Localize)("#Chat_Uploading", t)
 					: "";
 		let n = {
-			width: e.uploadProgress + "%",
+			width: `${e.uploadProgress}%`,
 		};
-		return A.createElement(
-			"div",
-			{
-				className: "chatFileUploadProgressContainer chatUploadContainer",
-			},
-			A.createElement(
-				"div",
-				{
-					className: "chatFileUploadProgressName",
-				},
-				r,
-			),
-			A.createElement(
-				"div",
-				{
-					className:
-						"chatFileUploadProgressBarContainer DialogProgressBar_ProgressBarContainer",
-				},
-				A.createElement("div", {
-					className: "DialogProgressBar_Value",
-					style: n,
-				}),
-			),
+		return (
+			<div className="chatFileUploadProgressContainer chatUploadContainer">
+				<div className="chatFileUploadProgressName">{r}</div>
+				<div className="chatFileUploadProgressBarContainer DialogProgressBar_ProgressBarContainer">
+					<div className="DialogProgressBar_Value" style={n} />
+				</div>
+			</div>
 		);
 	}
 };
-S = (0, n.Cg)([p.PA], S);
-let w = class extends A.Component {
+S = Cg([p.PA], S);
+let W_1 = class extends A.Component {
 	ClearErrorState() {
 		this.props.fileUploadManager.ClearFileUploadError();
 	}
@@ -172,108 +159,54 @@ let w = class extends A.Component {
 		let n =
 			t.strErrorDescription || (0, Localize)("#Chat_Settings_Error_Unknown");
 		if (t.eUploadState == 3) {
-			e = A.createElement(
-				C.jn,
-				{
-					onClick: this.OnRetryClick,
-				},
-				(0, Localize)("#Chat_Upload_ErrorAction_Retry"),
+			e = (
+				<C.jn onClick={this.OnRetryClick}>
+					{(0, Localize)("#Chat_Upload_ErrorAction_Retry")}
+				</C.jn>
 			);
 		}
 		const i = () => true;
-		return A.createElement(
-			f.Z,
-			{
-				className: "chatFileUploadProgressContainer chatUploadContainer",
-				autoFocus: true,
-				retainFocus: true,
-				preferredFocus: true,
-				onMoveLeft: i,
-				onMoveRight: i,
-				onMoveUp: i,
-				onMoveDown: i,
-				onCancel: this.ClearErrorState,
-			},
-			A.createElement(
-				"div",
-				{
-					className: "chatFileUploadProgressName",
-				},
-				r,
-			),
-			A.createElement(
-				"div",
-				{
-					className: "chatFileUploadErrorDescription",
-				},
-				n,
-			),
-			A.createElement(
-				"div",
-				{
-					className: "chatFileUploadActions",
-				},
-				A.createElement(
-					C.dR,
-					{
-						className: "DialogLayout_NoMinWidth",
-					},
-					e,
-					A.createElement(
-						C.$n,
-						{
-							autoFocus: true,
-							onClick: this.ClearErrorState,
-						},
-						(0, Localize)("#Chat_Upload_ErrorAction_Close"),
-					),
-				),
-			),
+		return (
+			<f.Z
+				className="chatFileUploadProgressContainer chatUploadContainer"
+				autoFocus
+				retainFocus
+				preferredFocus
+				onMoveLeft={i}
+				onMoveRight={i}
+				onMoveUp={i}
+				onMoveDown={i}
+				onCancel={this.ClearErrorState}
+			>
+				<div className="chatFileUploadProgressName">{r}</div>
+				<div className="chatFileUploadErrorDescription">{n}</div>
+				<div className="chatFileUploadActions">
+					<C.dR className="DialogLayout_NoMinWidth">
+						{e}
+						<C.$n autoFocus onClick={this.ClearErrorState}>
+							{(0, Localize)("#Chat_Upload_ErrorAction_Close")}
+						</C.$n>
+					</C.dR>
+				</div>
+			</f.Z>
 		);
 	}
 };
-(0, n.Cg)([g.oI], w.prototype, "ClearErrorState", null);
-(0, n.Cg)([g.oI], w.prototype, "OnRetryClick", null);
-w = (0, n.Cg)([p.PA], w);
-var B = require("./50551.js");
-var v = require(/*webcrack:missing*/ "./28987.js");
-var I = require(/*webcrack:missing*/ "./31084.js");
-var E = require(/*webcrack:missing*/ "./90242.js");
-var M = require("./56840.js");
-var T = require("./94230.js");
-var R = T;
-var k = require(/*webcrack:missing*/ "./88750.js");
-var D = require("./15688.js");
-var N = require("./7372.js");
-var F = require("./98592.js");
-import {
-	BIsParentOrSelf,
-	GetFileFromPasteEvent,
-	BlobToFile,
-} from "../../actual_src/utils/domutils.js";
-var O = require("./51095.js");
-var P = require("./92009.js");
-var L = require("./98829.js");
-var z = require("./13869.js");
-var x = require("./10042.js");
-var U = require(/*webcrack:missing*/ "./72476.js");
-var W = require("./91720.js");
-var V = require(/*webcrack:missing*/ "./4690.js");
+Cg([g.oI], W_1.prototype, "ClearErrorState", null);
+Cg([g.oI], W_1.prototype, "OnRetryClick", null);
+W_1 = Cg([p.PA], W_1);
+const R = T;
 const H = A.lazy(() => require.e(7462).then(require.bind(require, 24709)));
-function j(e) {
-	return A.createElement(
-		A.Suspense,
-		{
-			fallback: null,
-		},
-		A.createElement(H, {
-			...e,
-		}),
+function J_1(e) {
+	return (
+		<A.Suspense fallback={null}>
+			<H {...e} />
+		</A.Suspense>
 	);
 }
 export let o = class extends A.Component {
 	static contextType = U.QO;
-	m_navRef = (0, E.b$)();
+	m_navRef = b$();
 	m_refTextInput = A.createRef();
 	m_refFileInput = A.createRef();
 	m_refContainer = A.createRef();
@@ -314,13 +247,15 @@ export let o = class extends A.Component {
 			this.props.chatView.UploadFile();
 		}
 		if (this.props.chatView && this.props.chatView.clip_to_upload) {
-			const { fnUploadClip: e } = (0, W.Sm)();
-			e(this.props.chatView.clip_to_upload.clip_id, "", "", 3).then((e) => {
-				if (e.eResult == 1 && e.strURL) {
-					this.props.chatView.SendChatMessage(e.strURL);
-				}
-				this.props.chatView.SetClipToUpload(undefined);
-			});
+			const { fnUploadClip } = Sm();
+			fnUploadClip(this.props.chatView.clip_to_upload.clip_id, "", "", 3).then(
+				(e) => {
+					if (e.eResult == 1 && e.strURL) {
+						this.props.chatView.SendChatMessage(e.strURL);
+					}
+					this.props.chatView.SetClipToUpload(undefined);
+				},
+			);
 		}
 		if (this.state.messageInput.trim().length && this.props.chatView) {
 			this.props.chatView.SendChatMessage(this.state.messageInput);
@@ -356,14 +291,14 @@ export let o = class extends A.Component {
 			parseInt(n.getPropertyValue("padding-bottom"), 10) +
 			parseInt(n.getPropertyValue("border-bottom-width"), 10);
 		if (this.m_nChatEntryInitialHeight == null) {
-			this.m_nChatEntryInitialHeight = e.clientHeight - i - r + "px";
+			this.m_nChatEntryInitialHeight = `${e.clientHeight - i - r}px`;
 		}
 		let a = e.scrollHeight - i - r;
 		if (t) {
 			e.style.height = this.m_nChatEntryInitialHeight;
 			this.m_nChatEntryInitialHeight = undefined;
 		} else {
-			e.style.height = Math.min(120, a) + "px";
+			e.style.height = `${Math.min(120, a)}px`;
 		}
 	}
 	OnFocus(e) {
@@ -374,7 +309,7 @@ export let o = class extends A.Component {
 			!e.relatedTarget ||
 			!BIsParentOrSelf(this.m_refContainer.current, e.relatedTarget)
 		) {
-			if ((0, k.Y8)()) {
+			if (Y8()) {
 				return;
 			}
 			this.m_iMentionSearchCancelledOffset = undefined;
@@ -395,7 +330,7 @@ export let o = class extends A.Component {
 		}
 		if (e.keyCode == 8 || e.keyCode == 46) {
 			this.m_iMentionSearchCancelledOffset = undefined;
-		} else if (e.keyCode != 13 || e.shiftKey || e.ctrlKey) {
+		} else if (e.keyCode != 13 || e.shiftKey || e.shiftKey || e.ctrlKey) {
 			if (e.keyCode == 13 && e.ctrlKey) {
 				e.preventDefault();
 				e.stopPropagation();
@@ -416,19 +351,19 @@ export let o = class extends A.Component {
 		}
 	}
 	OnFileInputChange(e) {
-		let t = e.currentTarget;
-		if (t.files.length) {
-			this.props.chatView.SetFileToUpload(t.files[0]);
-			t.value = "";
+		let e_currentTarget = e.currentTarget;
+		if (e_currentTarget.files.length) {
+			this.props.chatView.SetFileToUpload(e_currentTarget.files[0]);
+			e_currentTarget.value = "";
 		}
 	}
 	OnEmbedClick(e) {
-		(0, I.lX)(
-			A.createElement(X, {
-				chatView: this.props.chatView,
-				refFileInput: this.m_refFileInput.current,
-				fnInsertText: this.InsertAtCursor.bind(this),
-			}),
+		lX(
+			<X
+				chatView={this.props.chatView}
+				refFileInput={this.m_refFileInput.current}
+				fnInsertText={this.InsertAtCursor.bind(this)}
+			/>,
 			e.currentTarget,
 			{
 				bOverlapHorizontal: true,
@@ -445,11 +380,13 @@ export let o = class extends A.Component {
 	}
 	InsertAtCursor(e) {
 		let t = this.m_refTextInput.current;
-		let r = t.value;
-		let n = r.substr(0, t.selectionStart) + e + r.substr(t.selectionEnd);
+		let t_value = t.value;
+		let n =
+			t_value.substr(0, t.selectionStart) + e + t_value.substr(t.selectionEnd);
 		let i = t.selectionStart + e.length;
 		this.SetMessageInput(n, () => {
-			t.selectionStart = t.selectionEnd = i;
+			t.selectionStart = i;
+			t.selectionEnd = i;
 		});
 	}
 	OnKeyPress(e) {
@@ -497,35 +434,47 @@ export let o = class extends A.Component {
 		}
 		let r;
 		let n;
-		let i = e.selectionStart;
-		let a = e.value;
-		for (let e = i - 1; e >= 0; e--) {
-			let o = e > 0 ? a[e - 1] : undefined;
-			if ((a[e] == "@" || a[e] == "＠") && t) {
-				if (!o || o == " " || o == "\n") {
+
+		let { selectionStart, value } = e;
+
+		for (let e = selectionStart - 1; e >= 0; e--) {
+			let o = e > 0 ? value[e - 1] : undefined;
+			if ((value[e] == "@" || value[e] == "＠") && t) {
+				if (!o || o == " " || o == " " || o == "\n") {
 					r = e;
 					n = "Mention";
 				}
 				break;
 			}
-			if (a[e] == ":" && i - e > 2) {
-				if (!o || o == " " || o == "\n" || o == ":") {
+			if (value[e] == ":" && selectionStart - e > 2) {
+				if (
+					!o ||
+					o == " " ||
+					o == " " ||
+					o == "\n" ||
+					o == " " ||
+					o == "\n" ||
+					o == ":"
+				) {
 					r = e;
 					n = "Emoticon";
 				}
 				break;
 			}
-			if (s.TS.EREALM != v.TU.k_ESteamRealmChina && a.startsWith("/store ")) {
+			if (
+				s.TS.EREALM != v.TU.k_ESteamRealmChina &&
+				value.startsWith("/store ")
+			) {
 				r = 6;
 				n = "Store";
 				break;
 			}
-			if (a[e] == "/" && e == 0) {
+			if (value[e] == "/" && e == 0) {
 				r = e;
 				n = "SlashCommand";
 				break;
 			}
-			if (a[e] == " " || a[e] == "\n") {
+			if (value[e] == " " || value[e] == "\n") {
 				break;
 			}
 		}
@@ -533,7 +482,7 @@ export let o = class extends A.Component {
 			this.ClearMentionSearchState();
 			return;
 		}
-		let o = a.substr(r + 1, i - r - 1);
+		let o = value.substr(r + 1, selectionStart - r - 1);
 		this.m_iMentionSearchStartOffset = r;
 		this.setState({
 			activeSuggestSearchType: n,
@@ -553,12 +502,12 @@ export let o = class extends A.Component {
 			if (n >= i.length || i[n] != " ") {
 				e += " ";
 			}
-			let s = e.length;
+			let e_length = e.length;
 			e += i.substr(n);
 			this.SetMessageInput(e, r);
 			this.m_refTextInput.current.value = e;
-			this.m_refTextInput.current.selectionStart =
-				this.m_refTextInput.current.selectionEnd = s;
+			this.m_refTextInput.current.selectionStart = e_length;
+			this.m_refTextInput.current.selectionEnd = e_length;
 			this.FocusTextInput();
 		}
 	}
@@ -581,13 +530,13 @@ export let o = class extends A.Component {
 			}
 			if (this.props.chatView.BIsMemberNameAmbiguous(e)) {
 				if (t instanceof c.$c) {
-					r += "#" + t.accountid.toString(36);
+					r += `#${t.accountid.toString(36)}`;
 				} else {
 					r += "#0";
 				}
 			}
 		}
-		this.ReplaceSuggestedText("@", "@" + r);
+		this.ReplaceSuggestedText("@", `@${r}`);
 		this.ClearMentionSearchState();
 	}
 	OnEmoticonSuggestionSelected(e, t) {
@@ -596,7 +545,7 @@ export let o = class extends A.Component {
 			this.ClearMentionSearchState();
 			return;
 		}
-		this.ReplaceSuggestedText(":", ":" + t + ":");
+		this.ReplaceSuggestedText(":", `:${t}:`);
 		this.ClearMentionSearchState();
 	}
 	OnSlashCommandSuggestionSelected(e, t) {
@@ -606,7 +555,7 @@ export let o = class extends A.Component {
 			return;
 		}
 		this.ReplaceSuggestedText("/", t, () => {
-			if ((0, _o.K)(t).unExpectedArguments === 0) {
+			if (K_1(t).unExpectedArguments === 0) {
 				this.OnSubmit();
 			}
 		});
@@ -644,10 +593,10 @@ export let o = class extends A.Component {
 			this.m_textUpdatedCallback.Unregister();
 			this.m_textUpdatedCallback = null;
 		}
-		let t = e.text_entry;
-		if (t != this.state.messageInput) {
+		let e_text_entry = e.text_entry;
+		if (e_text_entry != this.state.messageInput) {
 			this.setState({
-				messageInput: t,
+				messageInput: e_text_entry,
 			});
 		}
 		this.m_textFocusCallback = e.RegisterForTextEntryFocus(this.FocusTextInput);
@@ -692,41 +641,53 @@ export let o = class extends A.Component {
 		this.FocusTextInput();
 	}
 	render() {
-		const { chatView: e, disabled: t, ownerWindow: r } = this.props;
+		const { chatView, disabled, ownerWindow } = this.props;
 		let n;
-		let i = e && e.chat;
+		let i = chatView && chatView.chat;
 		switch (this.state.activeSuggestSearchType) {
-			case "Mention":
-				n = A.createElement(Z, {
-					chatView: e,
-					strSearch: this.state.mentionSearch,
-					onSuggestionSelected: this.OnMentionSuggestionSelected,
-					ref: this.BindMentionDialog,
-				});
+			case "Mention": {
+				n = (
+					<Z
+						chatView={chatView}
+						strSearch={this.state.mentionSearch}
+						onSuggestionSelected={this.OnMentionSuggestionSelected}
+						ref={this.BindMentionDialog}
+					/>
+				);
 				break;
-			case "Emoticon":
-				n = A.createElement(N.A, {
-					emoticonStore: u.xm.ChatStore.EmoticonStore,
-					emoticonHoverStore: M.s,
-					strSearch: this.state.mentionSearch,
-					nMinimumSearchLengthBeforeAutoSelection: 2,
-					onSuggestionSelected: this.OnEmoticonSuggestionSelected,
-					ref: this.BindMentionDialog,
-				});
+			}
+			case "Emoticon": {
+				n = (
+					<N.A
+						emoticonStore={u.xm.ChatStore.EmoticonStore}
+						emoticonHoverStore={M.s}
+						strSearch={this.state.mentionSearch}
+						nMinimumSearchLengthBeforeAutoSelection={2}
+						onSuggestionSelected={this.OnEmoticonSuggestionSelected}
+						ref={this.BindMentionDialog}
+					/>
+				);
 				break;
-			case "SlashCommand":
-				n = A.createElement(Y, {
-					strSearch: this.state.mentionSearch,
-					onSuggestionSelected: this.OnSlashCommandSuggestionSelected,
-					ref: this.BindMentionDialog,
-				});
+			}
+			case "SlashCommand": {
+				n = (
+					<Y
+						strSearch={this.state.mentionSearch}
+						onSuggestionSelected={this.OnSlashCommandSuggestionSelected}
+						ref={this.BindMentionDialog}
+					/>
+				);
 				break;
-			case "Store":
-				n = A.createElement(K, {
-					strSearch: this.state.mentionSearch,
-					onSuggestionSelected: this.OnStoreSuggestionSelected,
-					ref: this.BindMentionDialog,
-				});
+			}
+			case "Store": {
+				n = (
+					<K
+						strSearch={this.state.mentionSearch}
+						onSuggestionSelected={this.OnStoreSuggestionSelected}
+						ref={this.BindMentionDialog}
+					/>
+				);
+			}
 		}
 		let a = u.xm.SettingsStore.FriendsSettings.bCompactFriendsList;
 		let s = u.xm.SettingsStore.FriendsSettings.nChatFontSize;
@@ -743,25 +704,23 @@ export let o = class extends A.Component {
 		}
 		if (i.BIsVoiceAllowed()) {
 			if (i instanceof m.s) {
-				if (!e.BVoiceActive()) {
+				if (!chatView.BVoiceActive()) {
 					c.onOptionsButton = () => i.ToggleVoiceChat();
-					let e = i.accountid_partner;
-					let t = u.xm.VoiceStore.BPartnerHasRequestedAndIsInOneOnOneChat(e);
+					let i_accountid_partner = i.accountid_partner;
+					let t =
+						u.xm.VoiceStore.BPartnerHasRequestedAndIsInOneOnOneChat(
+							i_accountid_partner,
+						);
 					c.onOptionsActionDescription = (0, Localize)(
 						t ? "#Voice_StartTalking" : "#Friend_Menu_StartVoiceChat",
 					);
 				}
 			} else if (i instanceof l.d) {
-				let t = e.GetParentGroupView();
+				let t = chatView.GetParentGroupView();
 				let n = t.GetGroup();
 				if (n.voiceRoomList.length > 1) {
 					const e = () => {
-						(0, z.pg)(
-							A.createElement(x._1, {
-								groupView: t,
-							}),
-							r,
-						);
+						pg(<x._1 groupView={t} />, ownerWindow);
 					};
 					c.onOptionsButton = e;
 					c.onOptionsActionDescription = (0, Localize)(
@@ -793,151 +752,135 @@ export let o = class extends A.Component {
 				}
 			}
 		}
-		return A.createElement(
-			f.Z,
-			{
-				className: "chatEntry" + (a ? " compactView" : "") + o,
-				"flow-children": "row",
-				...c,
-				navEntryPreferPosition: V.iU.PREFERRED_CHILD,
-				ref: this.m_refContainer,
-			},
-			A.createElement(b, {
-				fileUploadManager: e.file_upload_manager,
-			}),
-			A.createElement(j, {
-				clipToUpload: e.clip_to_upload,
-				finishUpload: (t) => {
-					e.SetClipToUpload(undefined);
-					if (t) {
-						e.SendChatMessage(t);
-					}
-				},
-			}),
-			A.createElement(
-				"form",
-				{
-					className: `${R.chatEntryControls}`,
-					onSubmit: this.OnSubmit,
-					onBlur: this.OnBlur,
-				},
-				n,
-				A.createElement(E.dO, {
-					className: R.chatTextarea,
-					value: this.state.messageInput,
-					preferredFocus: true,
-					onKeyboardFullyVisible: this.OnKeyboardFullyVisible,
-					onPaste: this.OnPaste,
-					onContextMenu: this.OnContextMenu,
-					ref: this.m_refTextInput,
-					onChange: this.OnTextAreaChange,
-					navRef: this.m_navRef,
-					onKeyDown: this.OnKeyDown,
-					onKeyUp: this.OnKeyPress,
-					onClick: this.OnClick,
-					onFocus: this.OnFocus,
-					disabled: t || u.xm.CMInterface.BDisconnected(),
-					maxLength: 5000,
-					spellCheck: !u.xm.SettingsStore.FriendsSettings.bDisableSpellcheck,
-				}),
-				A.createElement(
-					E.fu,
-					{
-						className:
+		return (
+			<f.Z
+				className={`chatEntry${a ? " compactView" : ""}${o}`}
+				flow-children="row"
+				{...c}
+				navEntryPreferPosition={V.iU.PREFERRED_CHILD}
+				ref={this.m_refContainer}
+			>
+				<B_1 fileUploadManager={chatView.file_upload_manager} />
+				<J_1
+					clipToUpload={chatView.clip_to_upload}
+					finishUpload={(t) => {
+						chatView.SetClipToUpload(undefined);
+						if (t) {
+							chatView.SendChatMessage(t);
+						}
+					}}
+				/>
+				<form
+					className={`${R.chatEntryControls}`}
+					onSubmit={this.OnSubmit}
+					onBlur={this.OnBlur}
+				>
+					{n}
+					<E.dO
+						className={R.chatTextarea}
+						value={this.state.messageInput}
+						preferredFocus
+						onKeyboardFullyVisible={this.OnKeyboardFullyVisible}
+						onPaste={this.OnPaste}
+						onContextMenu={this.OnContextMenu}
+						ref={this.m_refTextInput}
+						onChange={this.OnTextAreaChange}
+						navRef={this.m_navRef}
+						onKeyDown={this.OnKeyDown}
+						onKeyUp={this.OnKeyPress}
+						onClick={this.OnClick}
+						onFocus={this.OnFocus}
+						disabled={disabled || u.xm.CMInterface.BDisconnected()}
+						maxLength={5000}
+						spellCheck={!u.xm.SettingsStore.FriendsSettings.bDisableSpellcheck}
+					/>
+					<E.fu
+						className={
 							R.chatSubmitButton +
-							(this.state.submitEnabled ? "" : ` ${R.disabled}`),
-						type: "submit",
-						disabled: !this.state.submitEnabled,
-						title: (0, Localize)("#ChatEntryButton_Submit"),
-						onOKActionDescription: (0, Localize)("#ChatEntryButton_Submit"),
-					},
-					A.createElement(h.XTb, null),
-				),
-				A.createElement("input", {
-					type: "file",
-					accept: ".jpg,.jpeg,.png,.gif,.webm,.mpg,.mpeg,.ogv",
-					style: {
-						display: "none",
-					},
-					name: "fileupload",
-					ref: this.m_refFileInput,
-					onChange: this.OnFileInputChange,
-				}),
-			),
-			A.createElement(
-				"div",
-				{
-					className: `${R.chatEntryActionsContainer} compactableHeight`,
-				},
-				!this.context?.IN_GAMEPADUI &&
-					A.createElement(
-						"div",
-						{
-							className: R.chatEntryActionsGroup,
-						},
-						A.createElement(D.A, {
-							disabled: t,
-							OnEmoticonSelected: this.OnEmoticonSelected,
-							onRoomEffectSelected: this.OnRoomEffectSelected,
-							roomEffectSettings: u.xm.GetChatRoomEffectSettings(),
-							onStickerSelected: this.OnStickerSelected,
-							rtLastAckedNewEmoticons:
-								d.ZM.UIDisplayPrefs.rtLastAckedNewEmoticons,
-							SetUIDisplayPref: d.ZM.SetUIDisplayPref.bind(d.ZM),
-							emoticonHoverStore: M.s,
-							emoticonStore: u.xm.ChatStore.EmoticonStore,
-							bShowChatAddons: true,
-						}),
-						A.createElement(
-							E.fu,
-							{
-								className: `${R.chatSubmitButton} ${R.EmbedButton}${t ? ` ${R.disabled}` : ""}`,
-								type: "button",
-								onClick: this.OnEmbedClick,
-								title: (0, Localize)("#ChatEntryButton_SendEmbed"),
-								disabled: t,
-								onOKActionDescription: (0, Localize)(
+							(this.state.submitEnabled ? "" : ` ${R.disabled}`)
+						}
+						type="submit"
+						disabled={!this.state.submitEnabled}
+						title={(0, Localize)("#ChatEntryButton_Submit")}
+						onOKActionDescription={(0, Localize)("#ChatEntryButton_Submit")}
+					>
+						<h.XTb />
+					</E.fu>
+					<input
+						type="file"
+						accept=".jpg,.jpeg,.png,.gif,.webm,.mpg,.mpeg,.ogv"
+						style={{
+							display: "none",
+						}}
+						name="fileupload"
+						ref={this.m_refFileInput}
+						onChange={this.OnFileInputChange}
+					/>
+				</form>
+				<div className={`${R.chatEntryActionsContainer} compactableHeight`}>
+					{!this.context?.IN_GAMEPADUI && (
+						<div className={R.chatEntryActionsGroup}>
+							<D.A
+								disabled={disabled}
+								OnEmoticonSelected={this.OnEmoticonSelected}
+								onRoomEffectSelected={this.OnRoomEffectSelected}
+								roomEffectSettings={u.xm.GetChatRoomEffectSettings()}
+								onStickerSelected={this.OnStickerSelected}
+								rtLastAckedNewEmoticons={
+									d.ZM.UIDisplayPrefs.rtLastAckedNewEmoticons
+								}
+								SetUIDisplayPref={d.ZM.SetUIDisplayPref.bind(d.ZM)}
+								emoticonHoverStore={M.s}
+								emoticonStore={u.xm.ChatStore.EmoticonStore}
+								bShowChatAddons
+							/>
+							<E.fu
+								className={`${R.chatSubmitButton} ${R.EmbedButton}${
+									disabled ? ` ${R.disabled}` : ""
+								}`}
+								type="button"
+								onClick={this.OnEmbedClick}
+								title={(0, Localize)("#ChatEntryButton_SendEmbed")}
+								disabled={disabled}
+								onOKActionDescription={(0, Localize)(
 									"#ChatEntryButton_SendEmbed",
-								),
-							},
-							A.createElement(h.pDR, null),
-						),
-					),
-				!this.context?.IN_GAMEPADUI &&
-					A.createElement(Q, {
-						chat: i,
-					}),
-			),
-			A.createElement("div", {
-				className: "disconnectBlocker compactableHeight",
-			}),
+								)}
+							>
+								<h.pDR />
+							</E.fu>
+						</div>
+					)}
+					{!this.context?.IN_GAMEPADUI && <Q chat={i} />}
+				</div>
+				<div className="disconnectBlocker compactableHeight" />
+			</f.Z>
 		);
 	}
 };
-(0, n.Cg)([g.oI], o.prototype, "BindMentionDialog", null);
-(0, n.Cg)([g.oI], o.prototype, "OnSubmit", null);
-(0, n.Cg)([g.oI], o.prototype, "OnTextAreaChange", null);
-(0, n.Cg)([g.oI], o.prototype, "SizeChatEntry", null);
-(0, n.Cg)([g.oI], o.prototype, "OnFocus", null);
-(0, n.Cg)([g.oI], o.prototype, "OnBlur", null);
-(0, n.Cg)([g.oI], o.prototype, "OnKeyDown", null);
-(0, n.Cg)([g.oI], o.prototype, "OnPaste", null);
-(0, n.Cg)([g.oI], o.prototype, "OnFileInputChange", null);
-(0, n.Cg)([g.oI], o.prototype, "OnEmbedClick", null);
-(0, n.Cg)([g.oI], o.prototype, "OnEmoticonSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "OnKeyPress", null);
-(0, n.Cg)([g.oI], o.prototype, "OnKeyboardFullyVisible", null);
-(0, n.Cg)([g.oI], o.prototype, "OnClick", null);
-(0, n.Cg)([g.oI], o.prototype, "OnContextMenu", null);
-(0, n.Cg)([g.oI], o.prototype, "OnMentionSuggestionSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "OnEmoticonSuggestionSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "OnSlashCommandSuggestionSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "OnStoreSuggestionSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "FocusTextInput", null);
-(0, n.Cg)([g.oI], o.prototype, "TextUpdated", null);
-(0, n.Cg)([g.oI], o.prototype, "OnRoomEffectSelected", null);
-(0, n.Cg)([g.oI], o.prototype, "OnStickerSelected", null);
-o = (0, n.Cg)([p.PA], o);
+Cg([g.oI], o.prototype, "BindMentionDialog", null);
+Cg([g.oI], o.prototype, "OnSubmit", null);
+Cg([g.oI], o.prototype, "OnTextAreaChange", null);
+Cg([g.oI], o.prototype, "SizeChatEntry", null);
+Cg([g.oI], o.prototype, "OnFocus", null);
+Cg([g.oI], o.prototype, "OnBlur", null);
+Cg([g.oI], o.prototype, "OnKeyDown", null);
+Cg([g.oI], o.prototype, "OnPaste", null);
+Cg([g.oI], o.prototype, "OnFileInputChange", null);
+Cg([g.oI], o.prototype, "OnEmbedClick", null);
+Cg([g.oI], o.prototype, "OnEmoticonSelected", null);
+Cg([g.oI], o.prototype, "OnKeyPress", null);
+Cg([g.oI], o.prototype, "OnKeyboardFullyVisible", null);
+Cg([g.oI], o.prototype, "OnClick", null);
+Cg([g.oI], o.prototype, "OnContextMenu", null);
+Cg([g.oI], o.prototype, "OnMentionSuggestionSelected", null);
+Cg([g.oI], o.prototype, "OnEmoticonSuggestionSelected", null);
+Cg([g.oI], o.prototype, "OnSlashCommandSuggestionSelected", null);
+Cg([g.oI], o.prototype, "OnStoreSuggestionSelected", null);
+Cg([g.oI], o.prototype, "FocusTextInput", null);
+Cg([g.oI], o.prototype, "TextUpdated", null);
+Cg([g.oI], o.prototype, "OnRoomEffectSelected", null);
+Cg([g.oI], o.prototype, "OnStickerSelected", null);
+o = Cg([p.PA], o);
 let Q = class extends A.Component {
 	HandleStartVoice(e) {
 		let t = this.props.chat;
@@ -956,20 +899,18 @@ let Q = class extends A.Component {
 		if (!r) {
 			return;
 		}
-		let n = r.voiceRoomList;
-		if (n.length == 0) {
+		let r_voiceRoomList = r.voiceRoomList;
+		if (r_voiceRoomList.length == 0) {
 			r.CreateAndJoinTempVoiceRoom();
 			return;
 		}
-		if (n.length == 1) {
-			let e = n[0];
+		if (r_voiceRoomList.length == 1) {
+			let [e] = r_voiceRoomList;
 			u.xm.VoiceStore.InitiateRoomChat(r.GetGroupID(), e.GetRoomID());
 			return;
 		}
-		let i = A.createElement(J, {
-			group: r,
-		});
-		(0, I.lX)(i, e.currentTarget, {
+		let i = <J group={r} />;
+		lX(i, e.currentTarget, {
 			bOverlapHorizontal: true,
 			bPreferPopLeft: true,
 			bPreferPopTop: true,
@@ -987,7 +928,7 @@ let Q = class extends A.Component {
 		return t;
 	}
 	OnSettingsClick(e) {
-		(0, P.T)((0, d.CO)(e), e.currentTarget.ownerDocument.defaultView, "voice");
+		T_1(CO(e), e.currentTarget.ownerDocument.defaultView, "voice");
 	}
 	render() {
 		let e = this.IsVoiceActiveForButton();
@@ -1038,78 +979,53 @@ let Q = class extends A.Component {
 		if (o) {
 			d += " pushToTalkKeyDown";
 		}
-		return A.createElement(
-			"div",
-			{
-				className:
-					"ChatMessageEntryVoice" +
-					d +
-					(e ? " Active" : " Inactive") +
-					(i ? " Disabled" : ""),
-			},
-			A.createElement(
-				"div",
-				{
-					className: "buttonsContainer",
-				},
-				A.createElement(
-					E.fu,
-					{
-						disabled: i,
-						className: t.join(" "),
-						onClick: this.HandleStartVoice,
-						onOKActionDescription: (0, Localize)(r),
-						title: (0, Localize)(r),
-					},
-					A.createElement(
-						"div",
-						{
-							className: "VoiceToggleIconCtn",
-						},
-						e ? A.createElement(h.OWN, null) : A.createElement(h.mrd, null),
-					),
-				),
-				e &&
-					A.createElement(
-						"div",
-						{
-							className: "activeVoiceControls",
-						},
-						A.createElement(
-							"div",
-							{
-								className: "activeVoiceFlexBox",
-							},
-							A.createElement(
-								"div",
-								{
-									className: "activeVoiceButtons",
-								},
-								A.createElement(L.f7, null),
-								A.createElement(L.Ql, null),
-							),
-						),
-					),
-			),
-			(a || s) &&
-				this.IsVoiceActiveForButton() &&
-				A.createElement(
-					"div",
-					{
-						className: "activeVoicePushToTalk" + d,
-						title: (0, Localize)(
+		return (
+			<div
+				className={`ChatMessageEntryVoice${d}${e ? " Active" : " Inactive"}${
+					i ? " Disabled" : ""
+				}`}
+			>
+				<div className="buttonsContainer">
+					<E.fu
+						disabled={i}
+						className={t.join(" ")}
+						onClick={this.HandleStartVoice}
+						onOKActionDescription={(0, Localize)(r)}
+						title={(0, Localize)(r)}
+					>
+						<div className="VoiceToggleIconCtn">
+							{e ? <h.OWN /> : <h.mrd />}
+						</div>
+					</E.fu>
+					{e && (
+						<div className="activeVoiceControls">
+							<div className="activeVoiceFlexBox">
+								<div className="activeVoiceButtons">
+									<L.f7 />
+									<L.Ql />
+								</div>
+							</div>
+						</div>
+					)}
+				</div>
+				{(a || s) && this.IsVoiceActiveForButton() && (
+					<div
+						className={`activeVoicePushToTalk${d}`}
+						title={(0, Localize)(
 							s ? "#ActiveVoicePushToMute" : "#ActiveVoicePushToTalk",
 							c,
-						),
-					},
-					c,
-				),
+						)}
+					>
+						{c}
+					</div>
+				)}
+			</div>
 		);
 	}
 };
-(0, n.Cg)([g.oI], Q.prototype, "HandleStartVoice", null);
-(0, n.Cg)([g.oI], Q.prototype, "OnSettingsClick", null);
-Q = (0, n.Cg)([p.PA], Q);
+Cg([g.oI], Q.prototype, "HandleStartVoice", null);
+Cg([g.oI], Q.prototype, "OnSettingsClick", null);
+Q = Cg([p.PA], Q);
 class Z extends F.A {
 	static contextType = U.QO;
 	static nMaxMatches = 12;
@@ -1129,108 +1045,82 @@ class Z extends F.A {
 		}
 	}
 	getKey(e) {
-		return "" + (e.friend ? e.friend.accountid : e.meta_mention);
+		return `${e.friend ? e.friend.accountid : e.meta_mention}`;
 	}
 	renderMatch(e) {
 		let t;
 		let r;
-		let { friend: n, iMatchOffset: i, bNicknameMatch: a } = e;
+		let { friend, iMatchOffset, bNicknameMatch } = e;
 		let s = this.props.strSearch.length;
 		let o = null;
-		if (n) {
-			t = n.persona.m_strPlayerName;
-			r = n.has_nickname && n.nickname;
-			if (n.persona.avatar_url_medium) {
-				o = n.persona.avatar_url_medium;
+		if (friend) {
+			t = friend.persona.m_strPlayerName;
+			r = friend.has_nickname && friend.nickname;
+			if (friend.persona.avatar_url_medium) {
+				o = friend.persona.avatar_url_medium;
 			}
 		} else {
-			t = "@" + e.meta_mention;
+			t = `@${e.meta_mention}`;
 			r = null;
-			i++;
+			iMatchOffset++;
 		}
-		if (a) {
-			return A.createElement(
-				"span",
-				{
-					className: "mentionSuggestion",
-				},
-				o &&
-					A.createElement("img", {
-						className: "mentionAvatar",
-						src: n.persona.avatar_url_medium,
-						draggable: false,
-					}),
-				t,
-				A.createElement(
-					"span",
-					{
-						className: "nickname",
-					},
-					"\xA0(",
-					r.substr(0, i).replace(/ /g, "\xA0"),
-					A.createElement(
-						"span",
-						{
-							className: "mentionSearchMatch",
-						},
-						r.substr(i, s).replace(/ /g, "\xA0"),
-					),
-					r.substr(i + s).replace(/ /g, "\xA0"),
-					")",
-				),
+		if (bNicknameMatch) {
+			return (
+				<span className="mentionSuggestion">
+					{o && (
+						<img
+							className="mentionAvatar"
+							src={friend.persona.avatar_url_medium}
+							draggable={false}
+						/>
+					)}
+					{t}
+					<span className="nickname">
+						{"\xA0("}
+						{r.substr(0, iMatchOffset).replace(/ /g, "\xA0")}
+						<span className="mentionSearchMatch">
+							{r.substr(iMatchOffset, s).replace(/ /g, "\xA0")}
+						</span>
+						{r.substr(iMatchOffset + s).replace(/ /g, "\xA0")})
+					</span>
+				</span>
 			);
 		} else {
-			return A.createElement(
-				"span",
-				{
-					className: "mentionSuggestion",
-				},
-				t.substr(0, i).replace(/ /g, "\xA0"),
-				o &&
-					A.createElement("img", {
-						className: "mentionAvatar",
-						src: n.persona.avatar_url_medium,
-						draggable: false,
-					}),
-				A.createElement(
-					"span",
-					{
-						className: "mentionSearchMatch",
-					},
-					t.substr(i, s).replace(/ /g, "\xA0"),
-				),
-				t.substr(i + s).replace(/ /g, "\xA0"),
-				e.strNotSelectable &&
-					A.createElement(
-						"span",
-						{
-							className: "notSelectable",
-						},
-						" ",
-						": " + e.strNotSelectable,
-						" ",
-					),
-				r &&
-					A.createElement(
-						"span",
-						{
-							className: "nickname",
-						},
-						"\xA0(",
-						r,
-						")",
-					),
+			return (
+				<span className="mentionSuggestion">
+					{t.substr(0, iMatchOffset).replace(/ /g, "\xA0")}
+					{o && (
+						<img
+							className="mentionAvatar"
+							src={friend.persona.avatar_url_medium}
+							draggable={false}
+						/>
+					)}
+					<span className="mentionSearchMatch">
+						{t.substr(iMatchOffset, s).replace(/ /g, "\xA0")}
+					</span>
+					{t.substr(iMatchOffset + s).replace(/ /g, "\xA0")}
+					{e.strNotSelectable && (
+						<span className="notSelectable"> {`: ${e.strNotSelectable}`} </span>
+					)}
+					{r && (
+						<span className="nickname">
+							{"\xA0("}
+							{r})
+						</span>
+					)}
+				</span>
 			);
 		}
 	}
 	renderNoMatchMessage() {
-		return A.createElement(
-			"div",
-			{
-				key: "nomatches",
-				className: "suggestOption mentionSearchOption noMatches",
-			},
-			(0, Localize)("#ChatMentionSuggest_NoMatches"),
+		return (
+			<div
+				key="nomatches"
+				className="suggestOption mentionSearchOption noMatches"
+			>
+				{(0, Localize)("#ChatMentionSuggest_NoMatches")}
+			</div>
 		);
 	}
 	renderTooManyMatchesMessage(e) {
@@ -1238,25 +1128,23 @@ class Z extends F.A {
 			e <= 1
 				? "#ChatMentionSuggest_ManyMatches"
 				: "#ChatMentionSuggest_ManyMatchesPlural";
-		return A.createElement(
-			"div",
-			{
-				key: "manymatches",
-				className: "suggestOption mentionSearchOption manyMatches",
-			},
-			(0, Localize)(t, e),
+		return (
+			<div
+				key="manymatches"
+				className="suggestOption mentionSearchOption manyMatches"
+			>
+				{(0, Localize)(t, e)}
+			</div>
 		);
 	}
 	renderHeader() {
-		return A.createElement(
-			"div",
-			{
-				className: "mentionSearchText",
-			},
-			(0, Localize)(
-				"#ChatMentionSuggest_MembersMatching",
-				this.props.strSearch,
-			),
+		return (
+			<div className="mentionSearchText">
+				{(0, Localize)(
+					"#ChatMentionSuggest_MembersMatching",
+					this.props.strSearch,
+				)}
+			</div>
 		);
 	}
 	getMaxMatches() {
@@ -1269,8 +1157,8 @@ class Z extends F.A {
 }
 class Y extends F.A {
 	performSearch(e) {
-		const t = "/" + e;
-		return (0, _o.MC)().filter((e) => e.startsWith(t));
+		const t = `/${e}`;
+		return MC().filter((e) => e.startsWith(t));
 	}
 	getSelection(e) {
 		return e;
@@ -1279,31 +1167,19 @@ class Y extends F.A {
 		return e;
 	}
 	renderMatch(e) {
-		const t = (0, _o.K)(e);
+		const t = K_1(e);
 		if (!t) {
 			return null;
 		}
 		const r = (0, Localize)(t.strDescriptionToken);
-		return A.createElement(
-			"span",
-			{
-				className: "SlashCommandSuggestion",
-			},
-			A.createElement(
-				"span",
-				{
-					className: "SlashCommandSuggestion_SlashCommand",
-				},
-				e,
-			),
-			": ",
-			A.createElement(
-				"span",
-				{
-					className: "SlashCommandSuggestion_SlashCommandDescription",
-				},
-				r,
-			),
+		return (
+			<span className="SlashCommandSuggestion">
+				<span className="SlashCommandSuggestion_SlashCommand">{e}</span>
+				{": "}
+				<span className="SlashCommandSuggestion_SlashCommandDescription">
+					{r}
+				</span>
+			</span>
 		);
 	}
 	renderNoMatchMessage() {
@@ -1352,18 +1228,10 @@ class K extends F.A {
 		return String(e.id);
 	}
 	renderMatch(e) {
-		return A.createElement(
-			"span",
-			{
-				className: "SlashCommandSuggestion",
-			},
-			A.createElement(
-				"span",
-				{
-					className: "SlashCommandSuggestion_SlashCommand",
-				},
-				e.name,
-			),
+		return (
+			<span className="SlashCommandSuggestion">
+				<span className="SlashCommandSuggestion_SlashCommand">{e.name}</span>
+			</span>
 		);
 	}
 	renderNoMatchMessage() {
@@ -1383,11 +1251,11 @@ function X(e) {
 	let t = [];
 	let r =
 		typeof SteamClient != "undefined" && SteamClient.Screenshots !== undefined;
-	let n = (function () {
+	let n = (() => {
 		let e =
 			typeof SteamClient != "undefined" &&
 			SteamClient.Screenshots !== undefined;
-		const [t, r] = A.useState(null);
+		const [t, setT] = A.useState(null);
 		A.useEffect(() => {
 			if (!e) {
 				return;
@@ -1395,7 +1263,7 @@ function X(e) {
 			let t = false;
 			SteamClient.Screenshots.GetLastScreenshotTaken().then((e) => {
 				if (!t) {
-					r(e);
+					setT(e);
 				}
 			});
 			return () => {
@@ -1408,19 +1276,17 @@ function X(e) {
 			return null;
 		}
 	})();
-	(0, W.i3)();
+	i3();
 	if (e.refFileInput) {
 		t.push(
-			A.createElement(
-				k.kt,
-				{
-					key: "upload",
-					onSelected: () => {
-						e.refFileInput.click();
-					},
-				},
-				(0, Localize)("#ChatEntry_UploadImage"),
-			),
+			<k.kt
+				key="upload"
+				onSelected={() => {
+					e.refFileInput.click();
+				}}
+			>
+				{(0, Localize)("#ChatEntry_UploadImage")}
+			</k.kt>,
 		);
 	}
 	if (r) {
@@ -1428,8 +1294,8 @@ function X(e) {
 		let i = null;
 		if (!r && n) {
 			i = () =>
-				(async function (e, t) {
-					let r = "https://steamloopback.host/" + t;
+				(async (e, t) => {
+					let r = `https://steamloopback.host/${t}`;
 					let n = await a({
 						url: r,
 						method: "GET",
@@ -1441,46 +1307,36 @@ function X(e) {
 				})(e.chatView, n.strUrl);
 		}
 		t.push(
-			A.createElement(
-				k.kt,
-				{
-					key: "lastscreenshot",
-					disabled: r,
-					onSelected: i,
-				},
-				(0, Localize)("#ChatEntry_UploadLastScreenshot"),
-			),
+			<k.kt key="lastscreenshot" disabled={r} onSelected={i}>
+				{(0, Localize)("#ChatEntry_UploadLastScreenshot")}
+			</k.kt>,
 		);
 	}
 	t.push(
-		A.createElement(
-			k.kt,
-			{
-				key: "tradeoffer",
-				onSelected: () => {
-					u.xm.EconomyStore.GetTradeOfferURL().then((t) => {
-						e.fnInsertText(t);
-					});
-				},
-			},
-			(0, Localize)("#ChatEntry_SendTradeURL"),
-		),
+		<k.kt
+			key="tradeoffer"
+			onSelected={() => {
+				u.xm.EconomyStore.GetTradeOfferURL().then((t) => {
+					e.fnInsertText(t);
+				});
+			}}
+		>
+			{(0, Localize)("#ChatEntry_SendTradeURL")}
+		</k.kt>,
 	);
-	return A.createElement(k.tz, null, t);
+	return <k.tz>{t}</k.tz>;
 }
 function J(e) {
 	let t = e.group.GetGroupID();
-	let r = e.group.voiceRoomList.map((e) =>
-		A.createElement(
-			k.kt,
-			{
-				key: e.GetRoomID(),
-				onSelected: () => {
-					u.xm.VoiceStore.InitiateRoomChat(t, e.GetRoomID());
-				},
-			},
-			e.name,
-		),
-	);
-	return A.createElement(k.tz, null, r);
+	let r = e.group.voiceRoomList.map((e) => (
+		<k.kt
+			key={e.GetRoomID()}
+			onSelected={() => {
+				u.xm.VoiceStore.InitiateRoomChat(t, e.GetRoomID());
+			}}
+		>
+			{e.name}
+		</k.kt>
+	));
+	return <k.tz>{r}</k.tz>;
 }

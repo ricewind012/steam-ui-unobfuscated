@@ -1,97 +1,70 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./23379.js");
-var a = i;
-var s = require(/*webcrack:missing*/ "./41230.js");
 import {
 	LocalizeReact,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-var l = require("./91486.js");
-var c = require("./52470.js");
-var m = require("./87935.js");
-var u = require("./82594.js");
-var d = require("./5859.js");
-var A = require("./85965.js");
-export const P = (0, s.PA)((e) => {
-	let { overview: t, details: r } = e;
-	const [i] = (0, u.t7)(t.appid, d.A.k_DataRequest_Assets);
-	if (!r.unTimedTrialSecondsAllowed) {
+import n from "./63696.js";
+import i from "./23379.js";
+import s, { PA } from "./41230.js";
+import l from "./91486.js";
+import c from "./52470.js";
+import m from "./87935.js";
+import { t7 } from "./82594.js";
+import d from "./5859.js";
+import A from "./85965.js";
+const a = i;
+export const P = PA((e) => {
+	let { overview, details } = e;
+	const [i] = t7(overview.appid, d.A.k_DataRequest_Assets);
+	if (!details.unTimedTrialSecondsAllowed) {
 		return null;
 	}
-	if (r.unTimedTrialSecondsAllowed > r.unTimedTrialSecondsPlayed) {
+	if (details.unTimedTrialSecondsAllowed > details.unTimedTrialSecondsPlayed) {
 		return null;
 	}
 	if (!i) {
 		return null;
 	}
 	let s;
-	if (r.unMasterSubAppID) {
-		let e = m.B7.GetStoreURL() + "app/" + r.unMasterSubAppID;
-		let i = n.createElement(
-			"a",
-			{
-				className: a.MasterSubLink,
-				href: e,
-			},
-			r.strMasterSubAppName,
+	if (details.unMasterSubAppID) {
+		let e = `${m.B7.GetStoreURL()}app/${details.unMasterSubAppID}`;
+		let i = (
+			<a className={a.MasterSubLink} href={e}>
+				{details.strMasterSubAppName}
+			</a>
 		);
 		s = LocalizeReact(
 			"#TimedTrial_SpotlightExp_DescMasterSub",
-			t.display_name,
+			overview.display_name,
 			i,
 		);
 	} else {
-		s = LocalizeReact("#TimedTrial_SpotlightExp_Desc", t.display_name);
+		s = LocalizeReact("#TimedTrial_SpotlightExp_Desc", overview.display_name);
 	}
 	const p = [i.GetAssets().GetHeaderURL(), A.A];
-	return n.createElement(
-		"div",
-		{
-			className: a.TimedTrialBannerWrapper,
-		},
-		n.createElement(
-			"div",
-			{
-				className: a.TimedTrialBanner,
-			},
-			n.createElement(
-				"div",
-				{
-					className: a.LeftColumn,
-				},
-				n.createElement(l.z, {
-					className: a.HeaderArt,
-					eAssetType: 3,
-					appid: t.appid,
-					rgSources: p,
-				}),
-			),
-			n.createElement(
-				"div",
-				{
-					className: a.RightColumn,
-				},
-				n.createElement(
-					"div",
-					{
-						className: a.Header,
-					},
-					(0, Localize)("#TimedTrial_ContinuePlaying"),
-				),
-				n.createElement(
-					"div",
-					{
-						className: a.Description,
-					},
-					s,
-				),
-				n.createElement(c.aX, {
-					className: a.StoreButton,
-					label: (0, Localize)("#Demo_VisitStorePage"),
-					link: "StoreAppPage",
-					appid: t.appid,
-				}),
-			),
-		),
+	return (
+		<div className={a.TimedTrialBannerWrapper}>
+			<div className={a.TimedTrialBanner}>
+				<div className={a.LeftColumn}>
+					<l.z
+						className={a.HeaderArt}
+						eAssetType={3}
+						appid={overview.appid}
+						rgSources={p}
+					/>
+				</div>
+				<div className={a.RightColumn}>
+					<div className={a.Header}>
+						{(0, Localize)("#TimedTrial_ContinuePlaying")}
+					</div>
+					<div className={a.Description}>{s}</div>
+					<c.aX
+						className={a.StoreButton}
+						label={(0, Localize)("#Demo_VisitStorePage")}
+						link="StoreAppPage"
+						appid={overview.appid}
+					/>
+				</div>
+			</div>
+		</div>
 	);
 });

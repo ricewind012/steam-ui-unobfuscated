@@ -1,25 +1,25 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require(/*webcrack:missing*/ "./42318.js");
-var a = require("./10606.js");
-var s = require("./64608.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var l = require("./96593.js");
-export const u = (0, i.Nr)(function () {
-	const [e, t] = n.useState(false);
-	const [r, i] = n.useState();
-	const [c, m] = n.useState();
-	const u = (0, l.Co)(r?.appid);
+import n from "./63696.js";
+import i, { Nr } from "./42318.js";
+import a from "./10606.js";
+import s from "./64608.js";
+import { Co } from "./96593.js";
+export const u = Nr(() => {
+	const [e, setE] = n.useState(false);
+	const [r, setR] = n.useState();
+	const [c, setC] = n.useState();
+	const u = Co(r?.appid);
 	const d = n.useCallback((e, r, n) => {
-		t(true);
-		i({
+		setE(true);
+		setR({
 			appid: e,
 			eResult: r,
 			errorCode: n,
 		});
 	}, []);
 	const A = n.useCallback(() => {
-		t(false);
-	}, [t]);
+		setE(false);
+	}, [setE]);
 	n.useEffect(
 		() => SteamClient.Apps.RegisterForDRMFailureResponse(d).unregister,
 		[d],
@@ -33,46 +33,38 @@ export const u = (0, i.Nr)(function () {
 		u.display_name,
 		r.errorCode,
 	);
-	return n.createElement(
-		a.hM,
-		{
-			strTitle: p,
-			onDismiss: A,
-			popupWidth: 500,
-			popupHeight: 250,
-			refPopup: m,
-			modal: true,
-		},
-		n.createElement(s.Y9, null, p),
-		n.createElement(s.a3, null, g),
-		n.createElement(
-			s.wi,
-			null,
-			n.createElement(
-				s.$n,
-				{
-					onClick: A,
-				},
-				(0, Localize)("#Button_Close"),
-			),
-		),
+	return (
+		<a.hM
+			strTitle={p}
+			onDismiss={A}
+			popupWidth={500}
+			popupHeight={250}
+			refPopup={setC}
+			modal
+		>
+			<s.Y9>{p}</s.Y9>
+			<s.a3>{g}</s.a3>
+			<s.wi>
+				<s.$n onClick={A}>{(0, Localize)("#Button_Close")}</s.$n>
+			</s.wi>
+		</a.hM>
 	);
 });
 export function T(e) {
-	const [t, r] = n.useState(false);
-	const [i, s] = n.useState();
-	const c = (0, l.Co)(i?.appid);
+	const [t, setT] = n.useState(false);
+	const [i, setI] = n.useState();
+	const c = Co(i?.appid);
 	const m = n.useCallback((e, t, n) => {
-		r(true);
-		s({
+		setT(true);
+		setI({
 			appid: e,
 			eResult: t,
 			errorCode: n,
 		});
 	}, []);
 	const u = n.useCallback(() => {
-		r(false);
-	}, [r]);
+		setT(false);
+	}, [setT]);
 	n.useEffect(
 		() => SteamClient.Apps.RegisterForDRMFailureResponse(m).unregister,
 		[m],
@@ -86,15 +78,9 @@ export function T(e) {
 		c.display_name,
 		i.errorCode,
 	);
-	return n.createElement(
-		a.EN,
-		{
-			active: true,
-		},
-		n.createElement(a.KG, {
-			onOK: u,
-			strTitle: d,
-			strDescription: A,
-		}),
+	return (
+		<a.EN active>
+			<a.KG onOK={u} strTitle={d} strDescription={A} />
+		</a.EN>
 	);
 }

@@ -1,22 +1,52 @@
-import * as r from /*webcrack:missing*/ "./34629.js";
-import * as n from /*webcrack:missing*/ "./83957.js";
-var s = n;
-import * as o from /*webcrack:missing*/ "./41230.js";
-import * as i from /*webcrack:missing*/ "./90095.js";
-import * as l from /*webcrack:missing*/ "./63696.js";
-import * as c from /*webcrack:missing*/ "./56654.js";
-import * as d from /*webcrack:missing*/ "./72993.js";
-import * as m from /*webcrack:missing*/ "./45328.js";
-import * as p from /*webcrack:missing*/ "./82594.js";
-import * as _ from /*webcrack:missing*/ "./47628.js";
-import * as h from /*webcrack:missing*/ "./97510.js";
-import * as u from /*webcrack:missing*/ "./74905.js";
-import * as S from /*webcrack:missing*/ "./92059.js";
-import * as E from /*webcrack:missing*/ "./26853.js";
-import * as b from /*webcrack:missing*/ "./90765.js";
-import * as g from /*webcrack:missing*/ "./72476.js";
+import * as r from "./34629.js";
+import * as n from "./83957.js";
+import * as o from "./41230.js";
+import * as i from "./90095.js";
+import * as l from "./63696.js";
+import * as c from "./56654.js";
+import * as d from "./72993.js";
+import * as m from "./45328.js";
+import * as p from "./82594.js";
+import * as _ from "./47628.js";
+import * as h from "./97510.js";
+import * as u from "./74905.js";
+import * as S from "./92059.js";
+import * as E from "./26853.js";
+import * as b from "./90765.js";
+import * as g from "./72476.js";
 import * as v from "./77301.js";
-var C = v;
+import * as B from "./44846.js";
+import * as I from "./22584.js";
+import * as N from "./23024.js";
+import * as w from "./1079.js";
+import * as A from "./72261.js";
+import * as P from "./5859.js";
+import * as T from "./81726.js";
+import * as G from "./23337.js";
+import * as D from "./95783.js";
+import * as k from "./50376.js";
+import * as O from "./98995.js";
+import * as x from "./20590.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import * as L from "./34428.js";
+import * as j from "./52451.js";
+import * as V from "./8573.js";
+import * as U from "./823.js";
+import * as F from "./52966.js";
+import * as q from "./76565.js";
+import * as X from "./30470.js";
+import * as Y from "./6367.js";
+import * as J from "./99447.js";
+import * as K from "./73674.js";
+import * as Z from "./10606.js";
+import * as Q from "./43397.js";
+import * as $ from "./95020.js";
+import * as ee from "./49946.js";
+import * as oe from "./54644.js";
+import * as ie from "./13869.js";
+import * as le from "./68430.js";
+const s = n;
+const C = v;
 const f = (0, o.PA)((e) => {
 	const { appid: t } = e;
 	const a = (0, S.n9)();
@@ -63,7 +93,7 @@ const f = (0, o.PA)((e) => {
 				"a",
 				{
 					href: v,
-					target: g.TS.IN_CLIENT ? undefined : "_blank",
+					target: g.TS.IN_CLIENT || "_blank",
 				},
 				l.createElement(
 					u.j,
@@ -98,7 +128,7 @@ const f = (0, o.PA)((e) => {
 					"a",
 					{
 						href: v,
-						target: g.TS.IN_CLIENT ? undefined : "_blank",
+						target: g.TS.IN_CLIENT || "_blank",
 					},
 					l.createElement(
 						u.j,
@@ -137,24 +167,12 @@ const f = (0, o.PA)((e) => {
 		),
 	);
 });
-import * as B from /*webcrack:missing*/ "./44846.js";
 function y() {
 	let e = window.GetUsabilityTracker;
 	if (e) {
 		return e();
 	}
 }
-import * as I from /*webcrack:missing*/ "./22584.js";
-import * as N from /*webcrack:missing*/ "./23024.js";
-import * as w from /*webcrack:missing*/ "./1079.js";
-import * as A from /*webcrack:missing*/ "./72261.js";
-import * as P from /*webcrack:missing*/ "./5859.js";
-import * as T from /*webcrack:missing*/ "./81726.js";
-import * as G from /*webcrack:missing*/ "./23337.js";
-import * as D from /*webcrack:missing*/ "./95783.js";
-import * as k from /*webcrack:missing*/ "./50376.js";
-import * as O from /*webcrack:missing*/ "./98995.js";
-import * as x from /*webcrack:missing*/ "./20590.js";
 const W = (e) => {
 	const { onPositionChange: t, onLeave: a } = e;
 	const r = l.useCallback(
@@ -175,17 +193,18 @@ const W = (e) => {
 		onPositionChange: r,
 	});
 };
-import { Localize } from "../../actual_src/utils/localization.js";
-import * as L from /*webcrack:missing*/ "./34428.js";
-import * as j from /*webcrack:missing*/ "./52451.js";
-import * as V from /*webcrack:missing*/ "./8573.js";
-import * as U from /*webcrack:missing*/ "./823.js";
-import * as F from "./52966.js";
-var M = F;
+const M = F;
 const H = (0, o.PA)((e) => {
 	const { event: t } = e;
 	const a = t.clanSteamID.GetAccountID();
-	const r = !t || !t.jsondata || !t.jsondata.broadcast_item_drops_enabled;
+	const r =
+		!t ||
+		!t.jsondata ||
+		!t.jsondata ||
+		!t.jsondata ||
+		!t.jsondata ||
+		!t.jsondata ||
+		!t.jsondata.broadcast_item_drops_enabled;
 	const n = (0, l.useRef)(null);
 	const [o, i] = (0, l.useState)(t ? U.pF.GetCreatorHome(t.clanSteamID) : null);
 	(0, l.useEffect)(() => {
@@ -204,15 +223,10 @@ const H = (0, o.PA)((e) => {
 			}
 		};
 	}, [a]);
-	if (r || !o || !o.BIsLoaded()) {
+	if (r || !o || !o || !o || !o || !o || !o.BIsLoaded()) {
 		return null;
 	}
-	const c =
-		g.TS.COMMUNITY_BASE_URL +
-		"gid/" +
-		t.jsondata.broadcast_item_drops_details_clan_accountid +
-		"/partnerevents/view/" +
-		t.jsondata.broadcast_item_drops_details_event_gid;
+	const c = `${g.TS.COMMUNITY_BASE_URL}gid/${t.jsondata.broadcast_item_drops_details_clan_accountid}/partnerevents/view/${t.jsondata.broadcast_item_drops_details_event_gid}`;
 	return l.createElement(
 		"div",
 		{
@@ -246,17 +260,8 @@ const H = (0, o.PA)((e) => {
 		),
 	);
 });
-import * as q from /*webcrack:missing*/ "./76565.js";
-var z = q;
-import * as X from /*webcrack:missing*/ "./30470.js";
-import * as Y from /*webcrack:missing*/ "./6367.js";
-import * as J from /*webcrack:missing*/ "./99447.js";
-import * as K from /*webcrack:missing*/ "./73674.js";
-import * as Z from /*webcrack:missing*/ "./10606.js";
-import * as Q from /*webcrack:missing*/ "./43397.js";
-import * as $ from /*webcrack:missing*/ "./95020.js";
-import * as ee from /*webcrack:missing*/ "./49946.js";
-var te = ee;
+const z = q;
+const te = ee;
 function ae(e) {
 	const { steamid: t, closeModal: a } = e;
 	return l.createElement(
@@ -358,7 +363,7 @@ function ne(e) {
 		},
 		[a],
 	);
-	const i = g.TS.COMMUNITY_BASE_URL + "broadcast/watch/" + t;
+	const i = `${g.TS.COMMUNITY_BASE_URL}broadcast/watch/${t}`;
 	return l.createElement(
 		"div",
 		null,
@@ -410,11 +415,8 @@ function ne(e) {
 	);
 }
 function se(e, t) {
-	return g.TS.COMMUNITY_BASE_URL + "broadcast/share/" + e + "?site=" + t;
+	return `${g.TS.COMMUNITY_BASE_URL}broadcast/share/${e}?site=${t}`;
 }
-import * as oe from /*webcrack:missing*/ "./54644.js";
-import * as ie from /*webcrack:missing*/ "./13869.js";
-import * as le from /*webcrack:missing*/ "./68430.js";
 const ce = {
 	list: [
 		{
@@ -453,7 +455,7 @@ const ce = {
 };
 export default function de(e) {
 	if (
-		(function () {
+		(() => {
 			const e = (0, g.Qn)();
 			return !(0, g.Y2)() && !e;
 		})()
@@ -596,12 +598,12 @@ let me = class extends l.Component {
 				className: M.rightPanel,
 			},
 			l.createElement(ue, {
-				key: "right" + n,
+				key: `right${n}`,
 				ImgUrl: e.right_panel,
 			}),
 		);
 		let o = l.createElement(ue, {
-			key: "left" + n,
+			key: `left${n}`,
 			ImgUrl: e.left_panel,
 		});
 		if (n < 11) {
@@ -613,13 +615,31 @@ let me = class extends l.Component {
 		if (
 			(!!this.props.promotionName ||
 				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.subid ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.subid ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.subid ||
+				!!this.props.bIsPreview ||
+				!!this.props.subid ||
+				!!this.props.bIsPreview ||
+				!!this.props.bIsPreview ||
+				!!this.props.subid ||
+				!!this.props.bIsPreview ||
 				!!this.props.subid ||
 				!!this.props.bundleid) &&
 			!!(n >= 11) &&
 			(!this.props.event || !this.props.event.jsondata.broadcast_force_banner)
 		) {
 			s = l.createElement(f, {
-				key: "mini" + e.accountid,
+				key: `mini${e.accountid}`,
 				appid: n,
 			});
 			a.bRightPanelArtworkOrEmpty = false;
@@ -627,7 +647,7 @@ let me = class extends l.Component {
 		if (r && !t) {
 			a.leftPanel = l.createElement(be, {
 				broadcastEmbedContext: this.props,
-				key: "selector" + n,
+				key: `selector${n}`,
 				curStream: e,
 				onStreamSelect: this.onStreamSelect,
 				fnFilterStreams: this.props.fnFilterStreams,
@@ -791,9 +811,8 @@ let me = class extends l.Component {
 									l.createElement(he, {
 										stream: e,
 										bMultistream: i,
-										chatAnnouncementGivewayGID: s.rightPanel
-											? undefined
-											: this.props.chat_announcement_giveaway,
+										chatAnnouncementGivewayGID:
+											s.rightPanel || this.props.chat_announcement_giveaway,
 									}),
 							),
 					),
@@ -920,11 +939,29 @@ function _e(e) {
 		let e = n.url;
 		if (
 			g.TS.IN_CLIENT ||
-			navigator.userAgent.indexOf("Valve Steam Client") >= 0 ||
-			navigator.userAgent.indexOf("Valve Steam GameOverlay") >= 0 ||
-			navigator.userAgent.indexOf("Valve Steam Tenfoot") >= 0
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Client") ||
+			navigator.userAgent.includes("Valve Steam GameOverlay") ||
+			navigator.userAgent.includes("Valve Steam Tenfoot")
 		) {
-			e = "steam://openurl/" + e;
+			e = `steam://openurl/${e}`;
 		}
 		return l.createElement(
 			"a",
@@ -935,7 +972,7 @@ function _e(e) {
 		);
 	}
 	{
-		const e = g.TS.COMMUNITY_BASE_URL + "broadcast/watch/" + a;
+		const e = `${g.TS.COMMUNITY_BASE_URL}broadcast/watch/${a}`;
 		return l.createElement(
 			O.he,
 			{
@@ -980,10 +1017,11 @@ let he = class extends l.Component {
 		const a = !this.props.stream.nAppIDVOD;
 		const r = a;
 		let n = Number.parseInt(
-			"" +
+			`${
 				N.BroadcastWatchStore.GetOrCreateBroadcastInfo(
 					this.props.stream.steamid,
-				).m_nViewerCount,
+				).m_nViewerCount
+			}`,
 		);
 		return l.createElement(
 			"div",
@@ -1073,10 +1111,8 @@ let he = class extends l.Component {
 					l.createElement(
 						"a",
 						{
-							href:
-								g.TS.STORE_BASE_URL +
-								"account/preferences/#store_broadcast_settings",
-							target: g.TS.IN_CLIENT ? undefined : "_blank",
+							href: `${g.TS.STORE_BASE_URL}account/preferences/#store_broadcast_settings`,
+							target: g.TS.IN_CLIENT || "_blank",
 							className: M.settings_link,
 						},
 						l.createElement(k.wB_, null),
@@ -1246,7 +1282,7 @@ function ge(e) {
 		return null;
 	}
 	const c = n && o?.GetAssets().GetHeaderURL();
-	const d = Number.parseInt("" + r.viewer_count);
+	const d = Number.parseInt(`${r.viewer_count}`);
 	const m = !Number.isNaN(d);
 	const _ = !!r.nAppIDVOD && o?.GetName();
 	return l.createElement(

@@ -1,15 +1,39 @@
-var n = require(/*webcrack:missing*/ "./28987.js");
-var i = require(/*webcrack:missing*/ "./44846.js");
-var a = require(/*webcrack:missing*/ "./83957.js");
-var s = a;
-var o = require(/*webcrack:missing*/ "./63696.js");
-var l = require(/*webcrack:missing*/ "./49519.js");
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
+import n from "./28987.js";
+import i from "./44846.js";
+import a from "./83957.js";
+import o, {
+	createContext,
+	useContext,
+	useRef,
+	useState,
+	useEffect,
+	useCallback,
+} from "./63696.js";
+import l, { zy } from "./49519.js";
+import m, { R7 } from "./11131.js";
+import u, { tH, tG, ZI } from "./87232.js";
+import d, { q as q_1 } from "./29285.js";
+import A from "./42318.js";
+import g from "./93025.js";
+import h from "./50376.js";
+import "./47742.js";
+import C from "./26853.js";
+import _ from "./98995.js";
+import f, { A as A_1 } from "./90765.js";
+import y, { l6 } from "./52451.js";
+import S, { Y2 } from "./72476.js";
+import w, { yp } from "./90869.js";
+import B, { pY, e1, H as H_1, JP } from "./28036.js";
+import v from "./66947.js";
+import E from "./37198.js";
+const s = a;
 const c =
 	"data:image/png;base64,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";
-var m = require(/*webcrack:missing*/ "./11131.js");
-var u = require("./87232.js");
-var d = require(/*webcrack:missing*/ "./29285.js");
-var A = require(/*webcrack:missing*/ "./42318.js");
 function p(e, t) {
 	let r;
 	if (typeof e == "string") {
@@ -25,26 +49,9 @@ function p(e, t) {
 		return e[e.length - 1];
 	}
 }
-var g = require("./93025.js");
-var h = require(/*webcrack:missing*/ "./50376.js");
-require(/*webcrack:missing*/ "./47742.js");
-var C = require(/*webcrack:missing*/ "./26853.js");
-var _ = require(/*webcrack:missing*/ "./98995.js");
-var f = require(/*webcrack:missing*/ "./90765.js");
-import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-var y = require(/*webcrack:missing*/ "./52451.js");
-var S = require(/*webcrack:missing*/ "./72476.js");
-var w = require("./90869.js");
-var B = require("./28036.js");
-var v = require("./66947.js");
-var I = v;
-var E = require("./37198.js");
-const M = (0, o.createContext)(false);
-const T = () => (0, o.useContext)(M);
+const I = v;
+const MContext = createContext(false);
+const T = () => useContext(MContext);
 export function Fn() {
 	return o.createElement(
 		"div",
@@ -59,16 +66,16 @@ export function Fn() {
 }
 export function YN(e) {
 	if (
-		(function (e) {
-			const t = (0, o.useRef)(e);
+		((e) => {
+			const t = useRef(e);
 			t.current = e;
-			const [r, n] = (0, o.useState)(true);
-			const i = (0, l.zy)();
-			(0, o.useEffect)(() => {
+			const [r, n] = useState(true);
+			const i = zy();
+			useEffect(() => {
 				if (new URLSearchParams(i.search).get("need_password")) {
 					n(false);
 				} else if (t.current) {
-					(async function (e) {
+					(async (e) => {
 						const t = new FormData();
 						t.append("redir", e);
 						const r = `${S.TS.LOGIN_BASE_URL}jwt/ajaxrefresh`;
@@ -79,10 +86,10 @@ export function YN(e) {
 						if (n.status !== 200 || !n?.data?.success) {
 							return false;
 						}
-						const { success: i, login_url: a, error: o, ...l } = n.data;
+						const { success, login_url, error, ...l } = n.data;
 						const c = new FormData();
 						Object.keys(l).forEach((e) => c.append(e, l[e]));
-						const m = await s.post(a, c);
+						const m = await s.post(login_url, c);
 						const u = m.status === 200 && m.data.result === 1;
 						if (u) {
 							window.location.assign(e);
@@ -93,7 +100,7 @@ export function YN(e) {
 							n(e);
 						})
 						.catch((e) => {
-							(0, u.tH)("PerformRefresh exception", e);
+							tH("PerformRefresh exception", e);
 							n(false);
 						});
 				} else {
@@ -109,8 +116,8 @@ export function YN(e) {
 			...e,
 			creationRedirectUrl: e.redirectUrl,
 			onSuccess: (t) => {
-				const { strRefreshToken: r } = t;
-				(0, w.yp)(r).then(
+				const { strRefreshToken } = t;
+				yp(strRefreshToken).then(
 					(t) => e.onComplete(t),
 					() => e.onComplete(w.wI.k_PrimaryDomainFail),
 				);
@@ -120,14 +127,14 @@ export function YN(e) {
 	}
 }
 export function aJ(e) {
-	const { embedded: t, children: r, ...n } = e;
+	const { embedded, children, ...n } = e;
 	return o.createElement(
 		A.tH,
 		null,
 		o.createElement(
-			M.Provider,
+			MContext.Provider,
 			{
-				value: t,
+				value: embedded,
 			},
 			o.createElement(
 				"div",
@@ -137,21 +144,21 @@ export function aJ(e) {
 				o.createElement(z, {
 					...n,
 				}),
-				r,
+				children,
 			),
 		),
 	);
 }
 function N(e) {
-	if ((0, d.q)()) {
+	if (q_1()) {
 		return null;
 	}
-	const { variant: t } = e;
-	if (typeof t == "function") {
+	const { variant } = e;
+	if (typeof variant == "function") {
 		return o.createElement(
 			Be,
 			{
-				onClick: t,
+				onClick: variant,
 			},
 			Localize("#Login_Help_SignIn"),
 		);
@@ -159,29 +166,33 @@ function N(e) {
 		return o.createElement(
 			Be,
 			{
-				href: `${S.TS.HELP_BASE_URL}wizard/HelpWithLogin?redir=${encodeURIComponent(document.location.href)}`,
+				href: `${
+					S.TS.HELP_BASE_URL
+				}wizard/HelpWithLogin?redir=${encodeURIComponent(
+					document.location.href,
+				)}`,
 			},
 			Localize("#Login_Help_SignIn"),
 		);
 	}
 }
 function F(e) {
-	const { variant: t, redirectUrl: r } = e;
-	if (typeof t == "function") {
+	const { variant, redirectUrl } = e;
+	if (typeof variant == "function") {
 		return o.createElement(
 			Be,
 			{
 				inline: true,
-				onClick: t,
+				onClick: variant,
 			},
 			Localize("#Login_CreateAccount"),
 		);
 	}
 	{
-		const e = r ? `?redir=${encodeURIComponent(r)}` : "";
-		switch (t ?? "normal") {
+		const e = redirectUrl ? `?redir=${encodeURIComponent(redirectUrl)}` : "";
+		switch (variant ?? "normal") {
 			default:
-			case "normal":
+			case "normal": {
 				return o.createElement(
 					Be,
 					{
@@ -190,7 +201,8 @@ function F(e) {
 					},
 					Localize("#Login_CreateAccount"),
 				);
-			case "partner":
+			}
+			case "partner": {
 				return o.createElement(
 					Be,
 					{
@@ -199,33 +211,37 @@ function F(e) {
 					},
 					Localize("#Login_CreateSteamworksAccount"),
 				);
-			case "none":
+			}
+			case "none": {
 				return null;
+			}
 		}
 	}
 }
 function G(e) {
-	const { launcherType: t, variant: r, redirectUrl: n } = e;
-	if (t === 8) {
+	const { launcherType, variant, redirectUrl } = e;
+	if (launcherType === 8) {
 		return null;
 	}
-	if (r == "none") {
+	if (variant == "none") {
 		return null;
 	}
-	const i = t !== undefined;
+	const i = launcherType !== undefined;
 	let a;
-	switch (r ?? "normal") {
+	switch (variant ?? "normal") {
 		default:
-		case "normal":
+		case "normal": {
 			a = "#Login_NoSteamAccount";
 			break;
-		case "partner":
+		}
+		case "partner": {
 			a = "#Login_NoSteamworksAccount";
+		}
 	}
 	return o.createElement(
 		"div",
 		{
-			className: (0, f.A)(I.AccountCreation, i && I.InClient),
+			className: A_1(I.AccountCreation, i && I.InClient),
 		},
 		o.createElement(
 			"span",
@@ -235,8 +251,8 @@ function G(e) {
 			Localize(a),
 		),
 		o.createElement(F, {
-			variant: r,
-			redirectUrl: n,
+			variant: variant,
+			redirectUrl: redirectUrl,
 		}),
 	);
 }
@@ -263,46 +279,44 @@ export async function P5() {
 	};
 }
 export function N_(e) {
-	const {
-		onSuccess: t,
-		secureComputer: r = true,
-		isProbablySharedPC: n = false,
-	} = e;
-	const i = (0, o.useCallback)(
+	const { onSuccess, secureComputer = true, isProbablySharedPC = false } = e;
+	const i = useCallback(
 		({
-			bSuccess: e,
-			strRefreshToken: r,
-			strAccessToken: n,
-			strAccountName: i,
-			strNewGuardData: a,
+			bSuccess,
+			strRefreshToken,
+			strAccessToken,
+			strAccountName,
+			strNewGuardData,
 		}) => {
-			if (e) {
-				t({
-					strRefreshToken: r,
-					strAccessToken: n,
-					strAccountName: i,
-					strNewGuardData: a,
+			if (bSuccess) {
+				onSuccess({
+					strRefreshToken: strRefreshToken,
+					strAccessToken: strAccessToken,
+					strAccountName: strAccountName,
+					strNewGuardData: strNewGuardData,
 				});
 			}
 		},
-		[t],
+		[onSuccess],
 	);
-	const a = (0, B.pY)({
+	const a = pY({
 		transport: e.transport,
 		onComplete: i,
 		onDeviceDetails: e.onDeviceDetails,
 		onGetMachineAuth: e.onGetMachineAuth,
 		onShowAgreement: e.onShowAgreement,
 	});
-	const [s, l] = (0, o.useState)(0);
+	const [s, l] = useState(0);
 	const c = "Login_RememberMeSetting";
-	const [m, d] = (0, o.useState)(
+	const [m, d] = useState(
 		e.refreshInfo?.account_name ?? e.defaultAccountName ?? "",
 	);
-	const [A, p] = (0, o.useState)("");
-	const [g, h] = (0, o.useState)(r && !n && localStorage?.getItem(c) != "0");
+	const [A, p] = useState("");
+	const [g, h] = useState(
+		secureComputer && !isProbablySharedPC && localStorage?.getItem(c) != "0",
+	);
 	const C = a.eStatus !== 0 && a.eStatus !== 1 && a.eStatus !== 2;
-	(0, o.useEffect)(() => {
+	useEffect(() => {
 		if (e.refreshInfo?.login_token_id) {
 			a.setTokenToRevoke(e.refreshInfo.login_token_id);
 		}
@@ -324,7 +338,7 @@ export function N_(e) {
 		onPasswordSubmit: () => (m && A ? a.start(m, A, g) : Promise.resolve(8)),
 		bInPasswordFlow: C,
 		onTryOffline: () => {
-			(0, u.tG)(`Logging in offline with username ${m}`);
+			tG(`Logging in offline with username ${m}`);
 			SteamClient.User.SetLoginCredentials(m, A, g);
 			SteamClient.User.StartOffline(true);
 		},
@@ -332,42 +346,42 @@ export function N_(e) {
 }
 function z(e) {
 	const {
-		transport: t,
-		onSuccess: r,
-		platform: n,
-		autoFocus: i,
-		refreshInfo: a,
-		renderSuccess: s = () => o.createElement(Ge, null),
-		lastResult: l,
-		joinLinkVariant: c,
-		defaultAccountName: m,
-		secureComputer: d = true,
-		isProbablySharedPC: A = false,
-		onShowAgreement: g,
-		creationRedirectUrl: h,
+		transport,
+		onSuccess,
+		platform,
+		autoFocus,
+		refreshInfo,
+		renderSuccess = () => o.createElement(Ge, null),
+		lastResult,
+		joinLinkVariant,
+		defaultAccountName,
+		secureComputer = true,
+		isProbablySharedPC = false,
+		onShowAgreement,
+		creationRedirectUrl,
 	} = e;
 	const C = S.TS.IN_STEAMUI ? sW : P5;
 	const _ = S.TS.IN_STEAMUI
 		? (e) => SteamClient.Auth.GetSteamGuardData(e)
 		: null;
-	const y = (function () {
+	const y = (() => {
 		const e = window?.location && p(window.location, "need_password");
 		return e !== undefined && e !== "false" && e !== "0";
 	})();
 	const B = N_({
-		transport: t,
-		platform: n,
-		onSuccess: r,
-		refreshInfo: a,
+		transport: transport,
+		platform: platform,
+		onSuccess: onSuccess,
+		refreshInfo: refreshInfo,
 		onDeviceDetails: C,
 		onGetMachineAuth: _,
-		defaultAccountName: m,
-		secureComputer: d,
-		isProbablySharedPC: A,
-		onShowAgreement: g,
+		defaultAccountName: defaultAccountName,
+		secureComputer: secureComputer,
+		isProbablySharedPC: isProbablySharedPC,
+		onShowAgreement: onShowAgreement,
 	});
 	const v = T();
-	if (l != null && l != 1) {
+	if (lastResult != null && lastResult != 1) {
 		return o.createElement(
 			"div",
 			{
@@ -376,17 +390,17 @@ function z(e) {
 			o.createElement(ue, {
 				reset: () => window.location.reload(),
 				failure: w.eF.Generic,
-				errorReference: l.toString(),
+				errorReference: lastResult.toString(),
 				extendedErrorMessage: B.password.strExtendedErrorMessage,
 			}),
 		);
 	}
-	const E = !(0, S.Y2)();
+	const E = !Y2();
 	if (!B.bInPasswordFlow) {
 		const r = o.createElement(
 			"div",
 			{
-				className: (0, f.A)(I.SideBySide, v && I.Embedded),
+				className: A_1(I.SideBySide, v && I.Embedded),
 			},
 			o.createElement(W, {
 				strAccountName: B.strAccountName,
@@ -397,17 +411,17 @@ function z(e) {
 				onRememberMeChange: B.onRememberMeChange,
 				onSubmit: B.onPasswordSubmit,
 				status: B.password.eStatus,
-				autoFocus: i,
-				secureComputer: d,
+				autoFocus: autoFocus,
+				secureComputer: secureComputer,
 				refreshInfo: e.refreshInfo,
 			}),
 			E &&
 				o.createElement(H, {
-					transport: t,
+					transport: transport,
 					onQRStatusChange: B.onQRStatusChange,
 					onComplete: B.onComplete,
-					platform: n,
-					refreshInfo: a,
+					platform: platform,
+					refreshInfo: refreshInfo,
 				}),
 		);
 		if (v) {
@@ -416,7 +430,7 @@ function z(e) {
 			return o.createElement(
 				wt,
 				{
-					className: (0, f.A)(I.EmbeddedRoot, t && I.InClient),
+					className: A_1(I.EmbeddedRoot, t && I.InClient),
 				},
 				!t && false,
 				!e.refreshInfo &&
@@ -427,21 +441,21 @@ function z(e) {
 						onBack: e.onBack,
 					}),
 				o.createElement($$, {
-					refreshInfo: a,
+					refreshInfo: refreshInfo,
 				}),
 				r,
 				o.createElement(
 					"div",
 					{
-						className: (0, f.A)(I.EmbeddedRootFooter, t && I.InClient),
+						className: A_1(I.EmbeddedRootFooter, t && I.InClient),
 					},
 					o.createElement(N, {
 						variant: e.helpLinkVariant,
 					}),
 					o.createElement(G, {
 						launcherType: n,
-						variant: c,
-						redirectUrl: h,
+						variant: joinLinkVariant,
+						redirectUrl: creationRedirectUrl,
 					}),
 				),
 			);
@@ -481,16 +495,17 @@ function z(e) {
 	}
 	const M = B.password.eStatus;
 	switch (M) {
-		case 13:
+		case 13: {
 			if (e.renderLoading) {
 				return o.createElement(o.Fragment, null, e.renderLoading());
 			} else {
 				return o.createElement(le, null);
 			}
+		}
 		case 5:
 		case 11:
 		case 3:
-		case 10:
+		case 10: {
 			const t = M === 5 || M === 11;
 			return o.createElement(pe, {
 				type: t ? "mobile" : "email",
@@ -501,8 +516,9 @@ function z(e) {
 				onBack: B.password.goBack,
 				onCodeHelp: e.onCodeHelp,
 			});
+		}
 		case 6:
-		case 4:
+		case 4: {
 			const r = M === 6;
 			return o.createElement(we, {
 				type: r ? "mobile" : "email",
@@ -510,11 +526,13 @@ function z(e) {
 				onUseCodeOverride: B.password.useCodeOverride,
 				onCodeHelp: e.onCodeHelp,
 			});
-		case 16:
+		}
+		case 16: {
 			return o.createElement(Ae, {
 				reset: B.password.reset,
 			});
-		case 15:
+		}
+		case 15: {
 			return o.createElement(ue, {
 				reset: B.password.reset,
 				failure: B.password.eFailureState,
@@ -522,16 +540,18 @@ function z(e) {
 				errorReference: B.password.strErrorReference,
 				extendedErrorMessage: B.password.strExtendedErrorMessage,
 			});
-		case 14:
+		}
+		case 14: {
 			return o.createElement(
 				Re,
 				{
 					compact: true,
 				},
-				s(),
+				renderSuccess(),
 			);
-		default:
-			(0, u.ZI)(`Unknown Phase: ${M}`);
+		}
+		default: {
+			ZI(`Unknown Phase: ${M}`);
 			return o.createElement(ue, {
 				reset: B.password.reset,
 				failure: w.eF.Generic,
@@ -539,6 +559,7 @@ function z(e) {
 				errorReference: B.password.strErrorReference,
 				extendedErrorMessage: B.password.strExtendedErrorMessage,
 			});
+		}
 	}
 }
 export function $$(e) {
@@ -549,35 +570,45 @@ export function $$(e) {
 	switch (e.refreshInfo?.reason ?? 2) {
 		case 2:
 		case 7:
-		default:
+		default: {
 			t = "#Login_RefreshReason_Generic";
 			break;
-		case 6:
+		}
+		case 6: {
 			t = "#Login_RefreshReason_LoggedInElsewhere";
 			break;
-		case 34:
+		}
+		case 34: {
 			t = "#Login_RefreshReason_LogonSessionReplaced";
 			break;
-		case 5:
+		}
+		case 5: {
 			t = "#Login_RefreshReason_InvalidPassword";
 			break;
-		case 26:
+		}
+		case 26: {
 			t = "#Login_RefreshReason_Revoked";
 			break;
-		case 27:
+		}
+		case 27: {
 			t = "#Login_RefreshReason_Expired";
 			break;
-		case 49:
+		}
+		case 49: {
 			t = "#Login_RefreshReason_PasswordRequiredToKickSession";
 			break;
-		case 43:
+		}
+		case 43: {
 			t = "#Login_RefreshReason_AccountDisabled";
 			break;
-		case 69:
+		}
+		case 69: {
 			t = "#Login_RefreshReason_ParentalControlRestricted";
 			break;
-		case 84:
+		}
+		case 84: {
 			t = "#Login_RefreshReason_RateLimitExceeded";
+		}
 	}
 	return o.createElement(
 		"div",
@@ -611,43 +642,43 @@ function U() {
 }
 function W(e) {
 	const {
-		onSubmit: t,
-		status: r,
-		autoFocus: n,
-		refreshInfo: i,
-		strAccountName: a,
-		onAccountNameChange: s,
-		strPassword: l,
-		onPasswordChange: c,
-		bRememberMe: m,
-		onRememberMeChange: u,
-		secureComputer: d = true,
+		onSubmit,
+		status,
+		autoFocus,
+		refreshInfo,
+		strAccountName,
+		onAccountNameChange,
+		strPassword,
+		onPasswordChange,
+		bRememberMe,
+		onRememberMeChange,
+		secureComputer = true,
 	} = e;
-	const [A, p] = (0, o.useState)(false);
+	const [A, p] = useState(false);
 	const g = T();
-	const h = (function () {
-		const e = (0, o.useRef)(true);
-		(0, o.useEffect)(
+	const h = (() => {
+		const e = useRef(true);
+		useEffect(
 			() => () => {
 				e.current = false;
 			},
 			[e],
 		);
-		return (0, o.useCallback)(() => e.current, [e]);
+		return useCallback(() => e.current, [e]);
 	})();
-	const C = r === 1 || r === 13;
-	const f = r === 2 && !A;
+	const C = status === 1 || status === 13;
+	const f = status === 2 && !A;
 	const y = f
 		? o.createElement(oe, null, Localize("#Login_CheckCredentials"))
 		: o.createElement(oe, null, "\xA0");
-	const w = n && !a;
-	const B = n && !!a;
+	const w = autoFocus && !strAccountName;
+	const B = autoFocus && !!strAccountName;
 	const v = !!e.refreshInfo;
 	return o.createElement(
 		lV,
 		{
 			onSubmit: () => {
-				t().then(() => {
+				onSubmit().then(() => {
 					if (h()) {
 						p(false);
 					}
@@ -664,10 +695,10 @@ function W(e) {
 				},
 				Localize("#Login_SignIn_WithAccountName"),
 			),
-			value: a,
+			value: strAccountName,
 			onChange: (e) => {
 				p(true);
-				s(e);
+				onAccountNameChange(e);
 			},
 			autoFocus: w,
 			disabled: v,
@@ -675,15 +706,15 @@ function W(e) {
 		o.createElement(K, {
 			tone: f ? "danger" : undefined,
 			label: o.createElement(X, null, Localize("#Login_Password")),
-			value: l,
+			value: strPassword,
 			onChange: (e) => {
 				p(true);
-				c(e);
+				onPasswordChange(e);
 			},
 			type: "password",
 			autoFocus: B,
 		}),
-		d
+		secureComputer
 			? o.createElement(
 					_.he,
 					{
@@ -692,8 +723,8 @@ function W(e) {
 					},
 					o.createElement(ee, {
 						label: Localize("#Login_RememberMe_Short"),
-						value: m,
-						onChange: u,
+						value: bRememberMe,
+						onChange: onRememberMeChange,
 					}),
 				)
 			: o.createElement(
@@ -712,7 +743,11 @@ function W(e) {
 			o.createElement(
 				Be,
 				{
-					href: `${S.TS.HELP_BASE_URL}wizard/HelpWithLogin?redir=${encodeURIComponent(document.location.href)}`,
+					href: `${
+						S.TS.HELP_BASE_URL
+					}wizard/HelpWithLogin?redir=${encodeURIComponent(
+						document.location.href,
+					)}`,
 					align: "center",
 				},
 				Localize("#Login_Help_SignIn"),
@@ -721,10 +756,10 @@ function W(e) {
 }
 const V = 700;
 function H(e) {
-	const t = (0, m.R7)();
+	const t = R7();
 	const r = () => t.ownerWindow.screen.width < V;
-	const [n, i] = (0, o.useState)(r());
-	(0, y.l6)(t.ownerWindow, "resize", () => {
+	const [n, i] = useState(r());
+	l6(t.ownerWindow, "resize", () => {
 		i(r());
 	});
 	return o.createElement(
@@ -742,10 +777,11 @@ function H(e) {
 	);
 }
 export function Mk(e) {
-	const t =
-		S.TS.STORE_BASE_URL +
-		"join/?guest=1&purchaseType=gift&checkout=1&redir=" +
-		encodeURIComponent(e.redirectURL);
+	const t = `${
+		S.TS.STORE_BASE_URL
+	}join/?guest=1&purchaseType=gift&checkout=1&redir=${encodeURIComponent(
+		e.redirectURL,
+	)}`;
 	S.TS.STORE_BASE_URL;
 	encodeURIComponent(e.redirectURL);
 	return o.createElement(
@@ -802,7 +838,7 @@ function q(e) {
 	});
 }
 function Q(e) {
-	const [t, r] = (0, o.useState)(false);
+	const [t, r] = useState(false);
 	if (t) {
 		return o.createElement(Y, {
 			...e,
@@ -861,13 +897,13 @@ function Z(e) {
 }
 function Y(e) {
 	const {
-		onQRStatusChange: t,
-		transport: r,
-		onComplete: n,
-		platform: i,
-		refreshInfo: a,
-		bShowHideButton: s = false,
-		setShowQR: l,
+		onQRStatusChange,
+		transport,
+		onComplete,
+		platform,
+		refreshInfo,
+		bShowHideButton = false,
+		setShowQR,
 	} = e;
 	return o.createElement(
 		"div",
@@ -887,20 +923,20 @@ function Y(e) {
 				className: I.QR,
 			},
 			o.createElement(E.V, {
-				onStatusChange: t,
-				transport: r,
-				onComplete: n,
-				platform: i,
-				refreshInfo: a,
+				onStatusChange: onQRStatusChange,
+				transport: transport,
+				onComplete: onComplete,
+				platform: platform,
+				refreshInfo: refreshInfo,
 			}),
 		),
-		s &&
-			l &&
+		bShowHideButton &&
+			setShowQR &&
 			o.createElement(
 				"div",
 				{
 					className: I.QRHideLink,
-					onClick: () => l(false),
+					onClick: () => setShowQR(false),
 				},
 				Localize("#Button_Hide"),
 			),
@@ -920,72 +956,72 @@ function Y(e) {
 	);
 }
 function K(e) {
-	const { label: t, error: r, tone: n, autoFocus: i, ...a } = e;
-	const s = n ?? (r ? "danger" : undefined);
+	const { label, error, tone, autoFocus, ...a } = e;
+	const s = tone ?? (error ? "danger" : undefined);
 	return o.createElement(
 		"div",
 		{
 			className: I.TextField,
 		},
-		typeof t == "string" ? o.createElement(X, null, t) : t,
+		typeof label == "string" ? o.createElement(X, null, label) : label,
 		o.createElement(
 			$,
 			{
 				type: "error",
 			},
-			r,
+			error,
 		),
 		o.createElement(J, {
-			autoFocus: i,
+			autoFocus: autoFocus,
 			tone: s,
 			...a,
 		}),
 	);
 }
 function X(e) {
-	const { children: t, highlight: r } = e;
+	const { children, highlight } = e;
 	return o.createElement(
 		"div",
 		{
-			className: (0, f.A)(I.FieldLabel, r && I.Highlight),
+			className: A_1(I.FieldLabel, highlight && I.Highlight),
 		},
-		t,
+		children,
 	);
 }
 function J(e) {
 	const {
-		value: t,
-		onChange: r,
-		type: n = "text",
-		tone: i,
-		className: a,
-		autoFocus: s,
-		disabled: l,
+		value,
+		onChange,
+		type = "text",
+		tone,
+		className,
+		autoFocus,
+		disabled,
 	} = e;
 	return o.createElement("input", {
-		value: t,
-		type: n,
-		autoFocus: s,
-		onChange: (e) => r(e.target.value),
-		className: (0, f.A)(I.TextInput, i === "danger" && I.Danger, a),
-		disabled: l,
+		value: value,
+		type: type,
+		autoFocus: autoFocus,
+		onChange: (e) => onChange(e.target.value),
+		className: A_1(I.TextInput, tone === "danger" && I.Danger, className),
+		disabled: disabled,
 	});
 }
 function $(e) {
-	const { children: t, type: r } = e;
+	const { children, type } = e;
 	return o.createElement(
 		"div",
 		{
-			className: (0, f.A)(I.FieldHint, r === "error" && I.Error),
+			className: A_1(I.FieldHint, type === "error" && I.Error),
 		},
-		t,
+		children,
 	);
 }
 function ee(e) {
-	const { label: t, onChange: r, value: n } = e;
+	const { label, onChange, value } = e;
 	let i = () => {
-		if (r) {
-			r(!n);
+		if (onChange) {
+			onChange(!value);
 		}
 	};
 	return o.createElement(
@@ -1001,26 +1037,26 @@ function ee(e) {
 			},
 		},
 		o.createElement(te, {
-			value: n,
+			value: value,
 		}),
 		o.createElement(
 			"div",
 			{
 				className: I.CheckboxFieldLabel,
 			},
-			t,
+			label,
 		),
 	);
 }
 function te(e) {
-	const { value: t } = e;
+	const { value } = e;
 	return o.createElement(
 		"div",
 		{
 			tabIndex: 0,
 			className: I.Checkbox,
 		},
-		t &&
+		value &&
 			o.createElement(
 				"div",
 				{
@@ -1033,8 +1069,8 @@ function te(e) {
 	);
 }
 function re(e) {
-	const { refreshLogin: t, ...r } = e;
-	if (t && SteamClient.User?.StartShutdown) {
+	const { refreshLogin, ...r } = e;
+	if (refreshLogin && SteamClient.User?.StartShutdown) {
 		return o.createElement(ie, null);
 	} else {
 		return o.createElement(ne, {
@@ -1088,17 +1124,17 @@ function ae(e) {
 	});
 }
 function se(e) {
-	const { className: t, loading: r, disabled: n, children: i, ...a } = e;
-	const s = n || r;
+	const { className, loading, disabled, children, ...a } = e;
+	const s = disabled || loading;
 	return o.createElement(
 		"button",
 		{
-			className: (0, f.A)(I.SubmitButton, r && I.Loading, t),
+			className: A_1(I.SubmitButton, loading && I.Loading, className),
 			disabled: s,
 			...a,
 		},
-		i,
-		r &&
+		children,
+		loading &&
 			o.createElement(
 				"div",
 				{
@@ -1130,10 +1166,7 @@ function le() {
 			wt,
 			{
 				alignItems: "center",
-				className: (0, f.A)(
-					I.WaitingForTokenContainer,
-					S.TS.IN_STEAMUI && I.Client,
-				),
+				className: A_1(I.WaitingForTokenContainer, S.TS.IN_STEAMUI && I.Client),
 			},
 			o.createElement(C.t, {
 				size: "xlarge",
@@ -1141,7 +1174,7 @@ function le() {
 			o.createElement(
 				"div",
 				{
-					className: (0, f.A)(I.Description),
+					className: A_1(I.Description),
 				},
 				Localize(
 					S.TS.IN_STEAMUI
@@ -1153,13 +1186,13 @@ function le() {
 	);
 }
 export function kt(e) {
-	const { size: t } = e;
+	const { size } = e;
 	return o.createElement("div", {
-		className: (0, f.A)(
+		className: A_1(
 			I.LoadingSpinner,
-			t == "small" && I.Small,
-			(t == "medium" || !t) && I.Medium,
-			t == "large" && I.Large,
+			size == "small" && I.Small,
+			(size == "medium" || !size) && I.Medium,
+			size == "large" && I.Large,
 		),
 	});
 }
@@ -1181,14 +1214,14 @@ function me(e) {
 }
 function ue(e) {
 	const {
-		reset: t,
-		failure: r,
-		onRequestOffline: n,
-		errorReference: i,
-		extendedErrorMessage: a,
+		reset,
+		failure,
+		onRequestOffline,
+		errorReference,
+		extendedErrorMessage,
 	} = e;
-	const { title: s, description: l } = tP(r, a);
-	const c = S.TS.IN_STEAMUI && r == w.eF.Network;
+	const { title, description } = tP(failure, extendedErrorMessage);
+	const c = S.TS.IN_STEAMUI && failure == w.eF.Network;
 	return o.createElement(
 		Re,
 		{
@@ -1205,14 +1238,14 @@ function ue(e) {
 				{
 					className: I.FailureTitle,
 				},
-				s,
+				title,
 			),
 			o.createElement(
 				"div",
 				{
 					className: I.FailureDescription,
 				},
-				l,
+				description,
 			),
 			c &&
 				o.createElement(
@@ -1231,23 +1264,23 @@ function ue(e) {
 					se,
 					{
 						className: I.TryAgainButton,
-						onClick: t,
+						onClick: reset,
 					},
 					Localize("#Button_Retry"),
 				),
 				c &&
 					o.createElement(me, {
-						onRequestOffline: n,
+						onRequestOffline: onRequestOffline,
 					}),
 			),
 		),
-		i &&
+		errorReference &&
 			o.createElement(
 				"div",
 				{
 					className: I.MutedErrorReference,
 				},
-				Localize("#Login_Error_Reference", i),
+				Localize("#Login_Error_Reference", errorReference),
 			),
 	);
 }
@@ -1257,47 +1290,54 @@ export function tP(e, t = "") {
 		description: "",
 	};
 	switch (e) {
-		case w.eF.None:
+		case w.eF.None: {
 			return {
 				title: "",
 				description: "",
 			};
-		case w.eF.Expired:
+		}
+		case w.eF.Expired: {
 			r = {
 				title: Localize("#Login_Error_Expired_Title"),
 				description: Localize("#Login_Error_Expired_Description"),
 			};
 			break;
-		case w.eF.Network:
+		}
+		case w.eF.Network: {
 			r = {
 				title: Localize("#Login_Error_Network_Title"),
 				description: Localize("#Login_Error_Network_Description"),
 			};
 			break;
-		case w.eF.MoveAuthenticator:
+		}
+		case w.eF.MoveAuthenticator: {
 			r = {
 				title: Localize("#Error_Generic"),
 				description: Localize("#Login_Error_MoveAuthenticator_Description"),
 			};
 			break;
-		case w.eF.RateLimitExceeded:
+		}
+		case w.eF.RateLimitExceeded: {
 			r = {
 				title: Localize("#Login_Error_RateLimit_Title"),
 				description: Localize("#Login_Error_RateLimit_Description"),
 			};
 			break;
-		case w.eF.AnonymousLogin:
+		}
+		case w.eF.AnonymousLogin: {
 			r = {
 				title: Localize("#Login_Error_Anonymous_Title"),
 				description: Localize("#Login_Error_Anonymous_Description"),
 			};
 			break;
+		}
 		case w.eF.Generic:
-		default:
+		default: {
 			r = {
 				title: Localize("#Error_Generic"),
 				description: Localize("#Login_Error_Default_Description"),
 			};
+		}
 	}
 	if (t) {
 		r.description = t;
@@ -1305,41 +1345,35 @@ export function tP(e, t = "") {
 	return r;
 }
 function Ae(e) {
-	const { reset: t } = e;
+	const { reset } = e;
 	return o.createElement(ue, {
-		reset: t,
+		reset: reset,
 		failure: w.eF.Generic,
 	});
 }
 function pe(e) {
-	const {
-		type: t,
-		onSubmitCode: r,
-		status: n,
-		accountName: i,
-		associatedLabel: a,
-		onBack: s,
-	} = e;
-	const [l, c] = (0, o.useState)([]);
-	const [m, u] = (0, o.useState)(false);
-	const [d, A] = (0, o.useState)(false);
-	const [p, g] = (0, o.useState)(false);
-	const [h, C] = (0, o.useState)(0);
-	const _ = t === "mobile";
+	const { type, onSubmitCode, status, accountName, associatedLabel, onBack } =
+		e;
+	const [l, c] = useState([]);
+	const [m, u] = useState(false);
+	const [d, A] = useState(false);
+	const [p, g] = useState(false);
+	const [h, C] = useState(0);
+	const _ = type === "mobile";
 	const f = l.join("");
-	const y = (0, B.e1)(f, p);
+	const y = e1(f, p);
 	const S = (e) => {
 		A(true);
-		r(e).then(() => {
+		onSubmitCode(e).then(() => {
 			u(false);
 			A(false);
 		});
 	};
-	const w = !m && (n === 11 || n === 10);
+	const w = !m && (status === 11 || status === 10);
 	let v;
 	let E;
 	if (p) {
-		if (t === "mobile") {
+		if (type === "mobile") {
 			E = o.createElement(he, null);
 			v = "#Login_UseMobileCode";
 		} else {
@@ -1348,10 +1382,10 @@ function pe(e) {
 		}
 	} else {
 		E =
-			t === "mobile"
+			type === "mobile"
 				? o.createElement(Ce, null)
 				: o.createElement(_e, {
-						emailAddress: a,
+						emailAddress: associatedLabel,
 					});
 		v = "#Login_UseBackupCode";
 	}
@@ -1377,8 +1411,8 @@ function pe(e) {
 					gap: 14,
 				},
 				o.createElement(fe, {
-					type: t,
-					accountName: i,
+					type: type,
+					accountName: accountName,
 				}),
 				o.createElement(
 					"div",
@@ -1402,7 +1436,7 @@ function pe(e) {
 								}
 								c(e);
 								const t = e.join("");
-								if ((0, B.e1)(t, p)) {
+								if (e1(t, p)) {
 									S(t);
 								}
 							},
@@ -1420,7 +1454,7 @@ function pe(e) {
 							onClick: () => {
 								g(!p);
 								c([]);
-								r("");
+								onSubmitCode("");
 								C(h + 1);
 							},
 							align: "center",
@@ -1428,7 +1462,7 @@ function pe(e) {
 						Localize(v),
 					),
 				o.createElement(ge, {
-					type: t,
+					type: type,
 					onCodeHelp: e.onCodeHelp,
 				}),
 			),
@@ -1436,7 +1470,7 @@ function pe(e) {
 	);
 }
 function ge(e) {
-	if ((0, d.q)()) {
+	if (q_1()) {
 		return null;
 	}
 	let t;
@@ -1553,9 +1587,9 @@ function _e(e) {
 	);
 }
 function fe(e) {
-	const { accountName: t, type: r } = e;
+	const { accountName, type } = e;
 	const n =
-		r === "mobile"
+		type === "mobile"
 			? Localize("#Login_MobileProtectingAccount")
 			: Localize("#Login_EmailProtectingAccount");
 	const i = T();
@@ -1576,7 +1610,7 @@ function fe(e) {
 					{
 						className: I.AccountName,
 					},
-					t,
+					accountName,
 				),
 			),
 		),
@@ -1665,7 +1699,7 @@ export function eU(e) {
 	);
 }
 function we(e) {
-	const { type: t, accountName: r, onUseCodeOverride: n } = e;
+	const { type, accountName, onUseCodeOverride } = e;
 	const i = T();
 	const a = o.createElement(ge, {
 		type: "mobile",
@@ -1683,7 +1717,7 @@ function we(e) {
 					Be,
 					{
 						align: "center",
-						onClick: n,
+						onClick: onUseCodeOverride,
 					},
 					Localize("#Login_EnterCodeInstead"),
 				),
@@ -1697,7 +1731,7 @@ function we(e) {
 					Be,
 					{
 						align: "center",
-						onClick: n,
+						onClick: onUseCodeOverride,
 					},
 					Localize("#Login_EnterCodeInstead"),
 				),
@@ -1714,8 +1748,8 @@ function we(e) {
 				gap: S.TS.IN_STEAMUI ? 24 : 40,
 			},
 			o.createElement(fe, {
-				type: t,
-				accountName: r,
+				type: type,
+				accountName: accountName,
 			}),
 			o.createElement(e5, null),
 			o.createElement(
@@ -1730,8 +1764,8 @@ function we(e) {
 	);
 }
 function Be(e) {
-	const { children: t, align: r, inline: n } = e;
-	const i = (0, f.A)(I.TextLink, r === "center" && I.TextAlignCenter);
+	const { children, align, inline } = e;
+	const i = A_1(I.TextLink, align === "center" && I.TextAlignCenter);
 	if ("href" in e) {
 		const r = S.TS.IN_STEAMUI ? `steam://openurl_external/${e.href}` : e.href;
 		return o.createElement(
@@ -1740,53 +1774,47 @@ function Be(e) {
 				className: i,
 				href: r,
 			},
-			t,
+			children,
 		);
 	}
 	{
-		const r = n ? "span" : "div";
+		const r = inline ? "span" : "div";
 		return o.createElement(
 			r,
 			{
 				className: i,
 				onClick: e.onClick,
 			},
-			t,
+			children,
 		);
 	}
 }
 export function lV(e) {
-	const { onSubmit: t, children: r, className: n } = e;
+	const { onSubmit, children, className } = e;
 	return o.createElement(
 		"form",
 		{
 			onSubmit: (e) => {
 				e.preventDefault();
-				t();
+				onSubmit();
 				return false;
 			},
-			className: n,
+			className: className,
 		},
-		r,
+		children,
 	);
 }
 export function wt(e) {
-	const {
-		alignItems: t,
-		justifyContent: r,
-		gap: n,
-		className: i,
-		children: a,
-	} = e;
-	const s = (0, f.A)(
+	const { alignItems, justifyContent, gap, className, children } = e;
+	const s = A_1(
 		I.FlexCol,
-		t === "center" && I.AlignItemsCenter,
-		r === "center" && I.JustifyContentCenter,
-		i,
+		alignItems === "center" && I.AlignItemsCenter,
+		justifyContent === "center" && I.JustifyContentCenter,
+		className,
 	);
-	const l = n
+	const l = gap
 		? {
-				gap: typeof n == "number" ? `${n}px` : n,
+				gap: typeof gap == "number" ? `${gap}px` : gap,
 			}
 		: undefined;
 	return o.createElement(
@@ -1795,35 +1823,35 @@ export function wt(e) {
 			className: s,
 			style: l,
 		},
-		a,
+		children,
 	);
 }
 export function Ye(e) {
-	const { children: t, justifyContent: r, alignItems: n, className: i } = e;
+	const { children, justifyContent, alignItems, className } = e;
 	const a = {
 		display: "flex",
 		flexDirection: "row",
-		justifyContent: r,
-		alignItems: n,
+		justifyContent: justifyContent,
+		alignItems: alignItems,
 	};
 	return o.createElement(
 		"div",
 		{
 			style: a,
-			className: i,
+			className: className,
 		},
-		t,
+		children,
 	);
 }
 function Me(e) {
-	const { onChange: t, backupCode: r, ...n } = e;
+	const { onChange, backupCode, ...n } = e;
 	return o.createElement(g.a, {
-		length: (0, B.H)(r),
-		backupCode: r,
+		length: H_1(backupCode),
+		backupCode: backupCode,
 		onChange: (e) => {
 			const n = (e = e.map((e) => e.toUpperCase())).join("").trim();
-			if ((0, B.JP)(n, r)) {
-				t(e);
+			if (JP(n, backupCode)) {
+				onChange(e);
 			}
 		},
 		autoFocus: true,
@@ -1832,13 +1860,13 @@ function Me(e) {
 	});
 }
 function Te(e) {
-	const { children: t, spacing: r = 0, align: n } = e;
+	const { children, spacing = 0, align } = e;
 	return o.createElement(
 		wt,
 		{
-			alignItems: n,
+			alignItems: align,
 		},
-		o.Children.map(t, (e, t) =>
+		o.Children.map(children, (e, t) =>
 			e
 				? o.createElement(
 						"div",
@@ -1846,7 +1874,7 @@ function Te(e) {
 							style:
 								t > 0
 									? {
-											paddingTop: `${r}px`,
+											paddingTop: `${spacing}px`,
 										}
 									: undefined,
 						},
@@ -1857,46 +1885,46 @@ function Te(e) {
 	);
 }
 function Re(e) {
-	const { title: t, children: r, compact: n } = e;
+	const { title, children, compact } = e;
 	const i = T();
 	return o.createElement(
 		wt,
 		{
 			gap: S.TS.IN_STEAMUI ? 0 : 32,
-			className: (0, f.A)(
+			className: A_1(
 				I.StandardLayout,
 				i && I.Embedded,
-				n && I.Compact,
+				compact && I.Compact,
 				S.TS.IN_STEAMUI && "IN_CLIENT",
 			),
 		},
-		typeof t == "string"
+		typeof title == "string"
 			? o.createElement(
 					"div",
 					{
 						className: I.PrimaryHeader,
 					},
-					t,
+					title,
 				)
-			: t,
+			: title,
 		o.createElement(
 			"div",
 			{
 				className: I.FormContainer,
 			},
-			r,
+			children,
 		),
 	);
 }
 export function qR(e) {
 	const {
-		realm: t = S.TS.EREALM,
-		launcherType: r = S.TS.IN_STEAMUI ? S.TS.LAUNCHER_TYPE : undefined,
-		className: i = I.HeaderLogo,
+		realm = S.TS.EREALM,
+		launcherType = S.TS.IN_STEAMUI ? S.TS.LAUNCHER_TYPE : undefined,
+		className = I.HeaderLogo,
 	} = e;
-	if (r === 8) {
+	if (launcherType === 8) {
 		return o.createElement("div", {
-			className: i,
+			className: className,
 		});
 	} else {
 		return o.createElement(
@@ -1907,12 +1935,12 @@ export function qR(e) {
 			o.createElement(De, {
 				onBack: e.onBack,
 			}),
-			t !== n.TU.k_ESteamRealmChina
+			realm !== n.TU.k_ESteamRealmChina
 				? o.createElement(Ne, {
-						className: i,
+						className: className,
 					})
 				: o.createElement(Fe, {
-						className: i,
+						className: className,
 					}),
 			" ",
 		);

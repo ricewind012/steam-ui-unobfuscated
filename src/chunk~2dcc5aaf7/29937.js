@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	SegmentedCharacterInput: "_1gzkmmy_XA39rp9MtxJfZJ",
 	Disabled: "_4WrcvilhO29CHFM0pqglW",
 	Danger: "_3lEvxoIfUV21o8WAfErUcA",

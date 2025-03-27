@@ -1,113 +1,81 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
-var i = require("./2773.js");
-var a = require(/*webcrack:missing*/ "./98995.js");
-var s = require("./58608.js");
-var o = require("./96360.js");
-var l = require(/*webcrack:missing*/ "./90765.js");
+import n from "./63696.js";
+import i, { g7 } from "./2773.js";
+import a from "./98995.js";
+import s from "./58608.js";
+import o from "./96360.js";
+import l, { A as A_1 } from "./90765.js";
 export function x(e) {
-	const { gameID: t, tags: r, attributes: a } = e;
-	const { rgMetadata: o, rgDemoted: l } = (0, i.g7)(r, a);
-	return n.createElement(
-		"div",
-		{
-			className: s.PhaseTags,
-		},
-		o.map((e, r) =>
-			n.createElement(m, {
-				key: `${g(e)}_${r}`,
-				metadata: e,
-				gameID: t,
-			}),
-		),
-		l.length > 0 &&
-			n.createElement(
-				"div",
-				{
-					className: s.TextTags,
-				},
-				l.map(({ name: e }) => e).join(", "),
-			),
+	const { gameID, tags, attributes } = e;
+	const { rgMetadata, rgDemoted } = g7(tags, attributes);
+	return (
+		<div className={s.PhaseTags}>
+			{rgMetadata.map((e, r) => (
+				<M key={`${g(e)}_${r}`} metadata={e} gameID={gameID} />
+			))}
+			{rgDemoted.length > 0 && (
+				<div className={s.TextTags}>
+					{rgDemoted.map(({ name }) => name).join(", ")}
+				</div>
+			)}
+		</div>
 	);
 }
-function m(e) {
-	const { metadata: t, gameID: r } = e;
-	switch (t.type) {
-		case "attribute":
-			return n.createElement(u, {
-				...t.attribute,
-			});
-		case "tags":
-			return n.createElement(d, {
-				tags: t.tags,
-				gameID: r,
-			});
-		default:
-			return t;
+function M(e) {
+	const { metadata, gameID } = e;
+	switch (metadata.type) {
+		case "attribute": {
+			return <U {...metadata.attribute} />;
+		}
+		case "tags": {
+			return <D tags={metadata.tags} gameID={gameID} />;
+		}
+		default: {
+			return metadata;
+		}
 	}
 }
-function u(e) {
-	const { group: t, value: r } = e;
-	return n.createElement(
-		a.he,
-		{
-			toolTipContent: t + " - " + r,
-		},
-		n.createElement(
-			"div",
-			{
-				className: s.PhaseAttribute,
-			},
-			r,
-		),
+function U(e) {
+	const { group, value } = e;
+	return (
+		<a.he toolTipContent={`${group} - ${value}`}>
+			<div className={s.PhaseAttribute}>{value}</div>
+		</a.he>
 	);
 }
-function d(e) {
-	const { tags: t, gameID: r } = e;
-	return n.createElement(
-		"div",
-		{
-			className: s.TagGroup,
-		},
-		t.map((e) =>
-			n.createElement(A, {
-				key: e.name,
-				...e,
-				gameID: r,
-			}),
-		),
+function D(e) {
+	const { tags, gameID } = e;
+	return (
+		<div className={s.TagGroup}>
+			{tags.map((e) => (
+				<A key={e.name} {...e} gameID={gameID} />
+			))}
+		</div>
 	);
 }
 function A(e) {
-	const { icon: t, name: r, gameID: i, group: o, bFilterMatch: c } = e;
-	const m = typeof c == "boolean";
-	const u = (0, l.A)(m && c && s.Bright, m && !c && s.Dim);
-	return n.createElement(
-		a.he,
-		{
-			toolTipContent: o + " - " + r,
-			className: u,
-		},
-		n.createElement(N, {
-			icon: t,
-			gameID: i,
-		}),
+	const { icon, name, gameID, group, bFilterMatch } = e;
+	const m = typeof bFilterMatch == "boolean";
+	const u = A_1(m && bFilterMatch && s.Bright, m && !bFilterMatch && s.Dim);
+	return (
+		<a.he toolTipContent={`${group} - ${name}`} className={u}>
+			<N icon={icon} gameID={gameID} />
+		</a.he>
 	);
 }
 export function N(e) {
-	const { icon: t, gameID: r } = e;
-	return n.createElement(o.XR, {
-		icon: t,
-		gameID: r,
-		className: s.PhaseListIcon,
-	});
+	const { icon, gameID } = e;
+	return <o.XR icon={icon} gameID={gameID} className={s.PhaseListIcon} />;
 }
 function g(e) {
 	switch (e.type) {
-		case "attribute":
+		case "attribute": {
 			return `attr_${e.attribute.group}`;
-		case "tags":
+		}
+		case "tags": {
 			return `tags_${e.tags[0].group}`;
-		default:
+		}
+		default: {
 			return "";
+		}
 	}
 }

@@ -1,13 +1,89 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require("./8090.js");
-var a = require("./1521.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./16117.js");
-var l = require("./56840.js");
-var c = require("./44164.js");
-var m = require(/*webcrack:missing*/ "./53807.js");
-var u = require("./69137.js");
-var d = require(/*webcrack:missing*/ "./17372.js");
+import {
+	Localize,
+	LocalizeReact,
+	LocalizeDateHumanReadable,
+} from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import n, { Cg } from "./34629.js";
+import i from "./8090.js";
+import a from "./1521.js";
+import s, { useState, useEffect, useRef } from "./63696.js";
+import o, { j$ } from "./16117.js";
+import l from "./56840.js";
+import c from "./44164.js";
+import m, { L$, wm, ZF } from "./53807.js";
+import u, { Pm } from "./69137.js";
+import d from "./17372.js";
+import h from "./69740.js";
+import C from "./90601.js";
+import { h as h_1, Q as Q_1 } from "./5047.js";
+import _f from "./5859.js";
+import b, { Gg, G6 } from "./82594.js";
+import y from "./34091.js";
+import S from "./64608.js";
+import w from "./1624.js";
+import B from "./43088.js";
+import I from "./43397.js";
+import { A as A_1 } from "./90765.js";
+import T, { yK, Qn, Tc, Y2 } from "./72476.js";
+import k from "./13352.js";
+import D from "./40772.js";
+import N from "./70057.js";
+import G from "./26853.js";
+import P from "./93850.js";
+import L from "./44058.js";
+import z from "./83957.js";
+import U from "./42318.js";
+import H from "./23337.js";
+import j from "./12767.js";
+import Q from "./90242.js";
+import Z from "./50376.js";
+import Y from "./29428.js";
+import { q3 } from "./90095.js";
+import J from "./9123.js";
+import ne from "./6561.js";
+import ie from "./10606.js";
+import { pg } from "./13869.js";
+import se, { a4 } from "./69412.js";
+import oe, { Yw } from "./30133.js";
+import le from "./69164.js";
+import me from "./18522.js";
+import ue from "./95783.js";
+import de from "./86454.js";
+import Ae from "./60833.js";
+import ge from "./55116.js";
+import we from "./4816.js";
+import { HO } from "./89193.js";
+import ve from "./12176.js";
+import Ie from "./31222.js";
+import Ee from "./82301.js";
+import { w as w_1 } from "./49455.js";
+import { H as H_1 } from "./16154.js";
+import Re from "./79769.js";
+import ke, { hL } from "./52451.js";
+import { Oz, CC, ns } from "./89697.js";
+import Ge, { vs } from "./30737.js";
+import Oe from "./22435.js";
+import ze from "./6472.js";
+import { XU } from "./50712.js";
+import ct from "./8573.js";
+import mt from "./83610.js";
+import ut from "./44184.js";
+import At from "./52850.js";
+import { m as m_1 } from "./39039.js";
+import Ct from "./41230.js";
+import { sf } from "./44846.js";
+import ft from "./88341.js";
+import bt from "./78771.js";
+import yt from "./13484.js";
+import St from "./95020.js";
+import Bt from "./53272.js";
+import Et from "./75888.js";
+import Tt from "./98995.js";
+import Rt from "./49433.js";
+import Nt from "./80493.js";
+import Ft from "./55448.js";
+import { SW } from "./58839.js";
 class A extends a.K0 {
 	m_LinkFilter = d.O;
 	m_parentNode = undefined;
@@ -31,7 +107,7 @@ class A extends a.K0 {
 					let r = e.input.substring(0, e.index);
 					super.AppendText(r, t);
 				}
-				let n = e[0];
+				let [n] = e;
 				let i = false;
 				if (this.m_mapHostToComponent) {
 					for (let e = 0; e < this.m_mapHostToComponent.length; ++e) {
@@ -48,7 +124,7 @@ class A extends a.K0 {
 					}
 				}
 				if (!i) {
-					super.AppendNode((0, u.Pm)(n));
+					super.AppendNode(Pm(n));
 				}
 				r = e.input.substring(e.index + n.length);
 				e = this.m_LinkFilter.exec(r);
@@ -70,16 +146,11 @@ class p extends a.K0 {
 					let r = e.input.substring(0, e.index);
 					super.AppendText(r, t);
 				}
-				let n = e[1];
+				let [, n] = e;
 				super.AppendNode(
-					s.createElement(
-						c.nl,
-						{
-							emoticonHoverStore: l.s,
-							emoticon: n,
-						},
-						[],
-					),
+					<c.nl emoticonHoverStore={l.s} emoticon={n}>
+						{[]}
+					</c.nl>,
 				);
 				r = e.input.substring(e.index + n.length + 2);
 				e = this.m_EmoteRegex.exec(r);
@@ -99,38 +170,21 @@ class g extends a.K0 {
 	AppendText(e, t = false) {
 		let r = e;
 		if (this.m_parentNode && this.m_parentNode.tag == "img") {
-			r = (0, m.L$)(r);
+			r = L$(r);
 		}
 		super.AppendText(r, t);
 	}
 }
-var h = require("./69740.js");
-var C = require("./90601.js");
-var _ = require("./5047.js");
-var _f = require("./5859.js");
-var b = require("./82594.js");
-var y = require("./34091.js");
-var S = require("./64608.js");
-var w = require("./1624.js");
-var B = require("./43088.js");
-var v = B;
-var I = require("./43397.js");
-var E = require(/*webcrack:missing*/ "./90765.js");
-import {
-	Localize,
-	LocalizeReact,
-	LocalizeDateHumanReadable,
-} from "../../actual_src/utils/localization.js";
-var T = require(/*webcrack:missing*/ "./72476.js");
+const v = B;
 function R(e) {
-	let t = (0, o.j$)(e.args) || (0, o.j$)(e.args, "href");
-	const r = (0, o.j$)(e.args, "style");
-	const n = (0, o.j$)(e.args, "id");
-	const i = (function (e) {
+	let t = j$(e.args) || j$(e.args, "href");
+	const r = j$(e.args, "style");
+	const n = j$(e.args, "id");
+	const i = ((e) => {
 		if (e === "button") {
-			return (0, E.A)(B.LinkButton, "LinkButton");
+			return A_1(B.LinkButton, "LinkButton");
 		} else {
-			return (0, E.A)(B.Link, "Link");
+			return A_1(B.Link, "Link");
 		}
 	})(r);
 	e.context.event;
@@ -143,53 +197,38 @@ function R(e) {
 	}
 	if (
 		T.TS.WEB_UNIVERSE == "dev" &&
-		(0, T.yK)() == "store" &&
-		(0, m.wm)(t) == "store.steampowered.com"
+		yK() == "store" &&
+		wm(t) == "store.steampowered.com"
 	) {
 		t = t.replace("https://store.steampowered.com/", T.TS.STORE_BASE_URL);
 	}
 	if (typeof t == "string" && t.length > 0 && t[0] == "#") {
-		return s.createElement(
-			"a",
-			{
-				className: i,
-				href: t,
-			},
-			e.children,
+		return (
+			<a className={i} href={t}>
+				{e.children}
+			</a>
 		);
 	} else if (t == "steam://settings/account") {
-		return s.createElement(
-			I.uU,
-			{
-				className: i,
-				href: "steam://settings/account",
-			},
-			e.children,
+		return (
+			<I.uU className={i} href="steam://settings/account">
+				{e.children}
+			</I.uU>
 		);
 	} else {
-		return s.createElement(
-			u.d$,
-			{
-				className: i,
-				url: t,
-				event: e.context.event,
-				id: n,
-			},
-			e.children,
+		return (
+			<u.d$ className={i} url={t} event={e.context.event} id={n}>
+				{e.children}
+			</u.d$>
 		);
 	}
 }
-var k = require("./13352.js");
-var D = require("./40772.js");
-var N = require("./70057.js");
-var F = N;
-var G = require(/*webcrack:missing*/ "./26853.js");
+const F = N;
 const O = (e) => {
-	const [t, r] = (0, s.useState)(true);
-	const [n, i] = (0, s.useState)(null);
-	(0, s.useEffect)(() => {
+	const [t, setT] = useState(true);
+	const [n, setN] = useState(null);
+	useEffect(() => {
 		if (e.appid == 0 || e.trailerBaseID == 0) {
-			i(Localize("#TrailerPlayer_ID_NotProvided"));
+			setN(Localize("#TrailerPlayer_ID_NotProvided"));
 			return;
 		}
 		(async () => {
@@ -204,37 +243,27 @@ const O = (e) => {
 						.GetTrailerByID(e.trailerBaseID)
 				) {
 					console.error(
-						"Trailer " +
-							e.trailerBaseID +
-							" doesn't existed within appid " +
-							e.appid,
+						`Trailer ${e.trailerBaseID} doesn't existed within appid ${e.appid}`,
 					);
-					i(Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
+					setN(
+						Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID),
+					);
 				}
-				r(false);
+				setT(false);
 			} else {
-				i(Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
+				setN(Localize("#TrailerPlayer_CouldNotLoad", e.appid, e.trailerBaseID));
 			}
 		})();
 	}, [e.appid, e.trailerBaseID]);
 	if (n) {
 		if (e.bIsPreviewMode) {
-			return s.createElement(
-				"div",
-				{
-					className: F.ErrorDiv,
-				},
-				n,
-			);
+			return <div className={F.ErrorDiv}>{n}</div>;
 		} else {
 			return null;
 		}
 	}
 	if (t) {
-		return s.createElement(G.t, {
-			string: Localize("#Loading"),
-			size: "small",
-		});
+		return <G.t string={Localize("#Loading")} size="small" />;
 	}
 	const a = _f.A.Get()
 		.GetApp(e.appid)
@@ -254,331 +283,227 @@ const O = (e) => {
 			},
 		],
 	};
-	return s.createElement(D.L, {
-		bControls: true,
-		bAutoPlay: false,
-		bLoop: false,
-		video: l,
-	});
+	return <D.L bControls bAutoPlay={false} bLoop={false} video={l} />;
 };
-var P = require("./93850.js");
-var L = require("./44058.js");
-var z = require(/*webcrack:missing*/ "./83957.js");
-var x = z;
-var U = require(/*webcrack:missing*/ "./42318.js");
+const x = z;
 const W = s.lazy(() => require.e(8396).then(require.bind(require, 72993)));
 const V = (e) => {
-	const t = (0, s.useRef)(null);
-	const [r, n] = (0, s.useState)(L.K.Get().GetVODForAppID(e.appid));
-	const [i, a] = (0, s.useState)(!Boolean(L.K.Get().GetVODForAppID(e.appid)));
-	(0, s.useEffect)(() => () => t.current && t.current("VODPlayer: unmounting"));
-	(0, s.useEffect)(() => {
+	const TRef = useRef(null);
+	const [r, setR] = useState(L.K.Get().GetVODForAppID(e.appid));
+	const [i, setI] = useState(!Boolean(L.K.Get().GetVODForAppID(e.appid)));
+	useEffect(() => () => TRef.current && TRef.current("VODPlayer: unmounting"));
+	useEffect(() => {
 		let i = r;
 		if (r && r.appid != e.appid) {
 			i = L.K.Get().GetVODForAppID(e.appid);
 		}
 		if (!i) {
 			const r = async () => {
-				if (t.current) {
-					t.current();
+				if (TRef.current) {
+					TRef.current();
 				}
 				const r = x.CancelToken.source();
-				t.current = r.cancel;
+				TRef.current = r.cancel;
 				i = await L.K.Get().LoadVODForAppID(e.appid);
 				if (!r.token.reason) {
-					n(i);
+					setR(i);
 				}
-				a(false);
+				setI(false);
 			};
-			a(true);
+			setI(true);
 			r();
 		}
 		if (r != i) {
-			n(i);
+			setR(i);
 		}
 	}, [e.appid, r]);
 	if (!r && e.bPreviewMode) {
-		return s.createElement(
-			"div",
-			null,
-			Localize(i ? "#VODPlayer_Loading" : "#VODPlayer_ErrorLoading", e.appid),
+		return (
+			<div>
+				{Localize(
+					i ? "#VODPlayer_Loading" : "#VODPlayer_ErrorLoading",
+					e.appid,
+				)}
+			</div>
 		);
 	} else {
-		return s.createElement(
-			"div",
-			{
-				className: P.BroadcastCtn,
-			},
-			s.createElement(
-				U.tH,
-				null,
-				s.createElement(
-					s.Suspense,
-					{
-						fallback: null,
-					},
-					s.createElement(W, {
-						nAppIDVOD: e.appid,
-						watchLocation: 9,
-						bStartPaused: true,
-					}),
-				),
-			),
+		return (
+			<div className={P.BroadcastCtn}>
+				<U.tH>
+					<s.Suspense fallback={null}>
+						<W nAppIDVOD={e.appid} watchLocation={9} bStartPaused />
+					</s.Suspense>
+				</U.tH>
+			</div>
 		);
 	}
 };
-var H = require("./23337.js");
-var j = require("./12767.js");
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-var Q = require(/*webcrack:missing*/ "./90242.js");
-var Z = require(/*webcrack:missing*/ "./50376.js");
-var Y = require("./29428.js");
 function K(e) {
-	const { fileUploadManager: t } = e;
-	const r = (0, s.useRef)();
-	return s.createElement(
-		"div",
-		{
-			className: Y.Ctn,
-		},
-		s.createElement("input", {
-			type: "file",
-			accept: ".jpg,.jpeg,.png,.gif,.webm,.mpg,.mpeg,.ogv,.mp4",
-			style: {
-				display: "none",
-			},
-			name: "fileupload",
-			ref: r,
-			onChange: (e) => {
-				if (e.currentTarget?.files?.length > 0) {
-					t.SetImageFileToUpload(e.currentTarget.files[0]);
-					e.currentTarget.value = "";
-				}
-			},
-		}),
-		s.createElement(
-			Q.fu,
-			{
-				type: "button",
-				title: Localize("#Button_Upload"),
-				onOKActionDescription: Localize("#Button_Upload"),
-				onClick: () => r.current.click(),
-			},
-			s.createElement(Z.xv8, null),
-		),
+	const { fileUploadManager } = e;
+	const RRef = useRef();
+	return (
+		<div className={Y.Ctn}>
+			<input
+				type="file"
+				accept=".jpg,.jpeg,.png,.gif,.webm,.mpg,.mpeg,.ogv,.mp4"
+				style={{
+					display: "none",
+				}}
+				name="fileupload"
+				ref={RRef}
+				onChange={(e) => {
+					if (e.currentTarget?.files?.length > 0) {
+						fileUploadManager.SetImageFileToUpload(e.currentTarget.files[0]);
+						e.currentTarget.value = "";
+					}
+				}}
+			/>
+			<Q.fu
+				type="button"
+				title={Localize("#Button_Upload")}
+				onOKActionDescription={Localize("#Button_Upload")}
+				onClick={() => RRef.current.click()}
+			>
+				<Z.xv8 />
+			</Q.fu>
+		</div>
 	);
 }
-var X = require(/*webcrack:missing*/ "./90095.js");
-var J = require("./9123.js");
 function $(e) {
-	const { fileUploadManager: t } = e;
-	const r = (0, X.q3)(() => t.file_upload_props.eUploadState);
+	const { fileUploadManager } = e;
+	const r = q3(() => fileUploadManager.file_upload_props.eUploadState);
 	if (r == 1) {
-		return s.createElement(ee, {
-			fileUploadManager: t,
-		});
-	} else if (r == 3 || r == 5 || r == 4) {
-		return s.createElement(re, {
-			fileUploadManager: t,
-		});
+		return <Ee_1 fileUploadManager={fileUploadManager} />;
+	} else if (r == 3 || r == 5 || r == 5 || r == 4) {
+		return <Re_1 fileUploadManager={fileUploadManager} />;
 	} else if (r != 0) {
-		return s.createElement(te, {
-			fileUploadManager: t,
-		});
+		return <Te_1 fileUploadManager={fileUploadManager} />;
 	} else {
 		return null;
 	}
 }
-function ee(e) {
-	const { fileUploadManager: t } = e;
-	const r = t.file;
-	return s.createElement(
-		"div",
-		{
-			className: J.UploadPreviewContainer,
-		},
-		Boolean(r.type.indexOf("image") != -1) &&
-			s.createElement("img", {
-				className: J.UploadPreview,
-				src: t.file_upload_data_url,
-			}),
-		Boolean(r.type.indexOf("video") != -1) && s.createElement(Z.CeX, null),
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadFileName,
-			},
-			"'",
-			r.name,
-			"'",
-		),
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadCancel,
-				onClick: () => t.Reset(),
-			},
-			s.createElement(Z.sED, null),
-		),
-		s.createElement(
-			S.jn,
-			{
-				className: J.FileUploadBtn,
-				onClick: async () => {
-					await t.BeginFileUpload();
-					t.Reset();
-				},
-			},
-			Localize("#Button_Upload"),
-		),
+function Ee_1(e) {
+	const { fileUploadManager } = e;
+	const t_file = fileUploadManager.file;
+	return (
+		<div className={J.UploadPreviewContainer}>
+			{Boolean(t_file.type.includes("image")) && (
+				<img
+					className={J.UploadPreview}
+					src={fileUploadManager.file_upload_data_url}
+				/>
+			)}
+			{Boolean(t_file.type.includes("video")) && <Z.CeX />}
+			<div className={J.FileUploadFileName}>'{t_file.name}'</div>
+			<div
+				className={J.FileUploadCancel}
+				onClick={() => fileUploadManager.Reset()}
+			>
+				<Z.sED />
+			</div>
+			<S.jn
+				className={J.FileUploadBtn}
+				onClick={async () => {
+					await fileUploadManager.BeginFileUpload();
+					fileUploadManager.Reset();
+				}}
+			>
+				{Localize("#Button_Upload")}
+			</S.jn>
+		</div>
 	);
 }
-function te(e) {
-	const { fileUploadManager: t } = e;
-	const [r, n, i] = (0, X.q3)(() => [
-		t.file_upload_props.file,
-		t.file_upload_props.displayFileName,
-		t.file_upload_props.uploadProgress,
+function Te_1(e) {
+	const { fileUploadManager } = e;
+	const [r, n, i] = q3(() => [
+		fileUploadManager.file_upload_props.file,
+		fileUploadManager.file_upload_props.displayFileName,
+		fileUploadManager.file_upload_props.uploadProgress,
 	]);
 	const a = r ? Localize("#Uploading_Item", n) : "";
 	const o = {
-		width: i + "%",
+		width: `${i}%`,
 	};
-	return s.createElement(
-		"div",
-		{
-			className: J.FileUploadProgressContainer,
-		},
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadProgressName,
-			},
-			a,
-		),
-		s.createElement(
-			"div",
-			{
-				className: (0, E.A)(
+	return (
+		<div className={J.FileUploadProgressContainer}>
+			<div className={J.FileUploadProgressName}>{a}</div>
+			<div
+				className={A_1(
 					J.FileUploadProgressBarContainer,
 					"DialogProgressBar_ProgressBarContainer",
-				),
-			},
-			s.createElement("div", {
-				className: "DialogProgressBar_Value",
-				style: o,
-			}),
-		),
+				)}
+			>
+				<div className="DialogProgressBar_Value" style={o} />
+			</div>
+		</div>
 	);
 }
-function re(e) {
-	const { fileUploadManager: t } = e;
-	const [r, n, i] = (0, X.q3)(() => [
-		t.file_upload_props.strErrorDescription,
-		t.file_upload_props.displayFileName,
-		t.file_upload_props.eUploadState,
+function Re_1(e) {
+	const { fileUploadManager } = e;
+	const [r, n, i] = q3(() => [
+		fileUploadManager.file_upload_props.strErrorDescription,
+		fileUploadManager.file_upload_props.displayFileName,
+		fileUploadManager.file_upload_props.eUploadState,
 	]);
 	const a = n ? Localize("#Uploading_Item", n) : "";
 	const o = r || Localize("#Chat_Upload_ErrorCloud");
-	return s.createElement(
-		"div",
-		{
-			className: J.FileUploadProgressContainer,
-		},
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadProgressName,
-			},
-			a,
-		),
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadErrorDescription,
-			},
-			o,
-		),
-		s.createElement(
-			"div",
-			{
-				className: J.FileUploadActions,
-			},
-			s.createElement(
-				S.dR,
-				{
-					className: "DialogLayout_NoMinWidth",
-				},
-				Boolean(i == 3) &&
-					s.createElement(
-						S.jn,
-						{
-							onClick: async () => {
-								await t.RetryFileUpload();
-								t.Reset();
-							},
-						},
-						Localize("#Chat_Upload_ErrorAction_Retry"),
-					),
-				s.createElement(
-					S.$n,
-					{
-						onClick: () => t.ClearFileUploadError(),
-					},
-					Localize("#Chat_Upload_ErrorAction_Close"),
-				),
-			),
-		),
+	return (
+		<div className={J.FileUploadProgressContainer}>
+			<div className={J.FileUploadProgressName}>{a}</div>
+			<div className={J.FileUploadErrorDescription}>{o}</div>
+			<div className={J.FileUploadActions}>
+				<S.dR className="DialogLayout_NoMinWidth">
+					{Boolean(i == 3) && (
+						<S.jn
+							onClick={async () => {
+								await fileUploadManager.RetryFileUpload();
+								fileUploadManager.Reset();
+							}}
+						>
+							{Localize("#Chat_Upload_ErrorAction_Retry")}
+						</S.jn>
+					)}
+					<S.$n onClick={() => fileUploadManager.ClearFileUploadError()}>
+						{Localize("#Chat_Upload_ErrorAction_Close")}
+					</S.$n>
+				</S.dR>
+			</div>
+		</div>
 	);
 }
-var ne = require("./6561.js");
-var ie = require("./10606.js");
-var ae = require("./13869.js");
-var se = require("./69412.js");
-var oe = require(/*webcrack:missing*/ "./30133.js");
-var le = require(/*webcrack:missing*/ "./69164.js");
 const ce =
 	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUQ5NEMwOTYzRDc4MTFFQUExREZEODRBMDBCNjdENTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUQ5NEMwOTczRDc4MTFFQUExREZEODRBMDBCNjdENTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBRDk0QzA5NDNENzgxMUVBQTFERkQ4NEEwMEI2N0Q1MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBRDk0QzA5NTNENzgxMUVBQTFERkQ4NEEwMEI2N0Q1MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Po/TXacAAABMSURBVHjaYvz//z8DNQHjyDMQDICGJgDx3f/kA5DeBJhh8f+pB+JBXr4DNFeZSp69CzLwP7UjZdTAkWAgVdMh1XMK1fPyCCwPAQIMAKf/Y+3dveJlAAAAAElFTkSuQmCC";
-var me = require("./18522.js");
-var ue = require("./95783.js");
-var de = require("./86454.js");
-var Ae = require("./60833.js");
-function pe(e) {
-	const { padded: t, gap: r, children: n, bLazyRenderChildren: i } = e;
-	const a = s.createElement(
-		"div",
-		{
-			style: {
-				gap: r ? r + "px" : "unset",
-			},
-			className: (0, E.A)({
+function Pe_1(e) {
+	const { padded, gap, children, bLazyRenderChildren } = e;
+	const a = (
+		<div
+			style={{
+				gap: gap ? `${gap}px` : "unset",
+			}}
+			className={A_1({
 				[Ae.ScrollSnapCarousel]: true,
 				ScrollSnapCarousel: true,
 				SaleSectionCarousel: true,
-				SaleSectionCarouselPadding: t,
+				SaleSectionCarouselPadding: padded,
 				[e.className]: true,
-			}),
-		},
-		n,
+			})}
+		>
+			{children}
+		</div>
 	);
-	if (i) {
-		return s.createElement(
-			ue.K,
-			{
-				bHorizontal: false,
-				placeholderWidth: 1,
-				placeholderHeight: 1,
-			},
-			a,
+	if (bLazyRenderChildren) {
+		return (
+			<ue.K bHorizontal={false} placeholderWidth={1} placeholderHeight={1}>
+				{a}
+			</ue.K>
 		);
 	} else {
 		return a;
 	}
 }
-var ge = require("./55116.js");
 class he extends s.Component {
 	render() {
-		const { showArrows: e, arrowFill: t } = this.props;
+		const { showArrows, arrowFill } = this.props;
 		const r = this.props.visibleSlides;
 		const n = this.props.totalSlides;
 		const i = this.props.currentSlide;
@@ -589,122 +514,78 @@ class he extends s.Component {
 		const o = (1 - Math.min(i + r, n) / n) * 100;
 		const l = a + (r * 50) / n;
 		const c = 100 - l;
-		return s.createElement(
-			"div",
-			{
-				className: me.pipScrollerContainer,
-			},
-			e &&
-				s.createElement(
-					oe._X,
-					{
-						className: (0, E.A)(
-							me.pipScrollButton,
-							me.left,
-							me.carouselNavButton,
-						),
-					},
-					s.createElement(Z.uMb, {
-						fill: t || "white",
-					}),
-				),
-			s.createElement(
-				"div",
-				{
-					className: me.pipScroller,
-				},
-				s.createElement("div", {
-					className: me.scrollBackground,
-				}),
-				s.createElement("div", {
-					className: me.scrollForeground,
-					style: {
-						left: a + "%",
-						right: o + "%",
-					},
-				}),
-				s.createElement(
-					"div",
-					{
-						className: me.scrollNavDiv,
-						style: {
+		return (
+			<div className={me.pipScrollerContainer}>
+				{showArrows && (
+					<oe._X
+						className={A_1(me.pipScrollButton, me.left, me.carouselNavButton)}
+					>
+						<Z.uMb fill={arrowFill || "white"} />
+					</oe._X>
+				)}
+				<div className={me.pipScroller}>
+					<div className={me.scrollBackground} />
+					<div
+						className={me.scrollForeground}
+						style={{
+							left: `${a}%`,
+							right: `${o}%`,
+						}}
+					/>
+					<div
+						className={me.scrollNavDiv}
+						style={{
 							left: "0%",
-							width: l + "%",
-						},
-					},
-					s.createElement(
-						oe._X,
-						{
-							className: (0, E.A)(me.carouselNavButton, me.scrollNavButton),
-							style: {
+							width: `${l}%`,
+						}}
+					>
+						<oe._X
+							className={A_1(me.carouselNavButton, me.scrollNavButton)}
+							style={{
 								color: "red",
-							},
-						},
-						s.createElement("div", null),
-					),
-				),
-				s.createElement(
-					"div",
-					{
-						className: me.scrollNavDiv,
-						style: {
+							}}
+						>
+							<div />
+						</oe._X>
+					</div>
+					<div
+						className={me.scrollNavDiv}
+						style={{
 							right: "0%",
-							width: c + "%",
-						},
-					},
-					s.createElement(
-						oe.CC,
-						{
-							className: (0, E.A)(me.carouselNavButton, me.scrollNavButton),
-						},
-						s.createElement("div", null),
-					),
-				),
-			),
-			e &&
-				s.createElement(
-					oe.CC,
-					{
-						className: (0, E.A)(
-							me.pipScrollButton,
-							me.right,
-							me.carouselNavButton,
-						),
-					},
-					s.createElement(Z.uMb, {
-						fill: t || "white",
-					}),
-				),
+							width: `${c}%`,
+						}}
+					>
+						<oe.CC className={A_1(me.carouselNavButton, me.scrollNavButton)}>
+							<div />
+						</oe.CC>
+					</div>
+				</div>
+				{showArrows && (
+					<oe.CC
+						className={A_1(me.pipScrollButton, me.right, me.carouselNavButton)}
+					>
+						<Z.uMb fill={arrowFill || "white"} />
+					</oe.CC>
+				)}
+			</div>
 		);
 	}
 }
-const Ce = (0, oe.Yw)(he, (e) => ({
+const Ce = Yw(he, (e) => ({
 	currentSlide: e.currentSlide,
 	totalSlides: e.totalSlides,
 	visibleSlides: e.visibleSlides,
 }));
 function _e(e) {
-	const t = (0, T.Qn)();
+	const t = Qn();
 	if ((!e.screenIsWide && !t) || e.bForceSimpleCarousel) {
-		return s.createElement(
-			pe,
-			{
-				...e,
-			},
-			e.children,
-		);
+		return <Pe_1 {...e}>{e.children}</Pe_1>;
 	} else {
-		return s.createElement(
-			fe,
-			{
-				...e,
-			},
-			e.children,
-		);
+		return <Fe_1 {...e}>{e.children}</Fe_1>;
 	}
 }
-function fe(e) {
-	const t = (0, T.Qn)();
+function Fe_1(e) {
+	const t = Qn();
 	const r = () => s.Children.count(e.children);
 	const n = r();
 	const i = Math.min(r(), e.visibleElements);
@@ -721,89 +602,71 @@ function fe(e) {
 		m = false;
 	}
 	const u = `items_in_row_${e.visibleElements}`;
-	return s.createElement(
-		le.Z,
-		{
-			"flow-children": "row",
-			className: (0, E.A)(me.carouselBody, e.className, u),
-			navKey: e.navKey,
-		},
-		s.createElement(
-			oe.gi,
-			{
-				visibleSlides: e.visibleElements,
-				totalSlides: r(),
-				naturalSlideWidth: c * 100,
-				naturalSlideHeight: 100,
-				step: e.visibleElements,
-				infinite: !e.disableEdgeWrap,
-				isIntrinsicHeight: m,
-				dragEnabled: false,
-				touchEnabled: false,
-				lockOnWindowScroll: true,
-				orientation: "horizontal",
-				disableKeyboard: true,
-			},
-			s.createElement(
-				ye,
-				{
-					bHideArrows: o,
-					bAutoAdvance: e.bAutoAdvance && !t,
-					onSlide: e.onSlide,
-					arrowFill: e.arrowFill,
-				},
-				s.Children.map(e.children, (t, r) => {
-					const n = e.bLazyRenderChildren
-						? s.createElement(
-								ue.K,
-								{
-									rootMargin: "0px -5px 0px 100%",
-									bHorizontal: true,
-									placeholderWidth: 1,
-									placeholderHeight: 1,
-								},
-								t,
-							)
-						: t;
-					return s.createElement(
-						oe.q7,
-						{
-							className: me.innerSlide,
-							key: "slide_" + r,
-							index: r,
-						},
-						n,
-					);
-				}),
-			),
-			!l &&
-				(e.useTestScrollbar
-					? s.createElement(Ce, {
-							showArrows: o,
-							carouselStore: null,
-						})
-					: s.createElement(
-							"div",
-							{
-								className: me.breadcrumbContainer,
-							},
-							((t) =>
-								s.Children.map(e.children, (e, r) =>
-									r % t != 0
-										? null
-										: s.createElement(
-												oe.cL,
-												{
-													slide: r,
-													className: me.pip,
-												},
-												s.createElement("img", {
-													src: ce,
-												}),
-											),
-								))(i),
-						)),
-		),
+	return (
+		<le.Z
+			flow-children="row"
+			className={A_1(me.carouselBody, e.className, u)}
+			navKey={e.navKey}
+		>
+			<oe.gi
+				visibleSlides={e.visibleElements}
+				totalSlides={r()}
+				naturalSlideWidth={c * 100}
+				naturalSlideHeight={100}
+				step={e.visibleElements}
+				infinite={!e.disableEdgeWrap}
+				isIntrinsicHeight={m}
+				dragEnabled={false}
+				touchEnabled={false}
+				lockOnWindowScroll
+				orientation="horizontal"
+				disableKeyboard
+			>
+				<Ye_1
+					bHideArrows={o}
+					bAutoAdvance={e.bAutoAdvance && !t}
+					onSlide={e.onSlide}
+					arrowFill={e.arrowFill}
+				>
+					{s.Children.map(e.children, (t, r) => {
+						const n = e.bLazyRenderChildren ? (
+							<ue.K
+								rootMargin="0px -5px 0px 100%"
+								bHorizontal
+								placeholderWidth={1}
+								placeholderHeight={1}
+							>
+								{t}
+							</ue.K>
+						) : (
+							t
+						);
+						return (
+							<oe.q7 className={me.innerSlide} key={`slide_${r}`} index={r}>
+								{n}
+							</oe.q7>
+						);
+					})}
+				</Ye_1>
+				{!l &&
+					(e.useTestScrollbar ? (
+						<Ce showArrows={o} carouselStore={null} />
+					) : (
+						<div className={me.breadcrumbContainer}>
+							{((t) =>
+								s.Children.map(
+									e.children,
+									(e, r) =>
+										r % t != 0 || (
+											<oe.cL slide={r} className={me.pip}>
+												<img src={ce} />
+											</oe.cL>
+										),
+								))(i)}
+						</div>
+					))}
+			</oe.gi>
+		</le.Z>
 	);
 }
 function be(e) {
@@ -812,25 +675,19 @@ function be(e) {
 		e.current = null;
 	}
 }
-function ye(e) {
-	const {
-		bHideArrows: t,
-		bAutoAdvance: r,
-		children: n,
-		onSlide: i,
-		arrowFill: a,
-	} = e;
+function Ye_1(e) {
+	const { bHideArrows, bAutoAdvance, children, onSlide, arrowFill } = e;
 	const o = s.useContext(oe.Yc);
-	const l = s.useRef(o.state.currentSlide);
-	const [c, m] = s.useState(null);
-	const [u, d] = s.useState(!!r);
-	const A = s.useRef(null);
-	const p = s.useRef(null);
+	const LRef = s.useRef(o.state.currentSlide);
+	const [c, setC] = s.useState(null);
+	const [u, setU] = s.useState(!!bAutoAdvance);
+	const ARef = s.useRef(null);
+	const PRef = s.useRef(null);
 	s.useEffect(() => {
 		const e = () => {
-			A.current = window.setTimeout(() => {
-				if (A.current) {
-					be(A);
+			ARef.current = window.setTimeout(() => {
+				if (ARef.current) {
+					be(ARef);
 					let e = 0;
 					if (
 						o.state.currentSlide + o.state.visibleSlides <
@@ -851,23 +708,23 @@ function ye(e) {
 			e();
 		}
 		const t = () => {
-			const t = l.current;
+			const l_current = LRef.current;
 			const r = o.state.currentSlide;
-			if (i) {
-				i(r);
+			if (onSlide) {
+				onSlide(r);
 			}
-			m(r > t ? "Right" : r < t ? "Left" : null);
-			be(p);
-			p.current = window.setTimeout(() => {
-				if (p.current) {
-					m(null);
-					be(p);
+			setC(r > l_current ? "Right" : r < l_current ? "Left" : null);
+			be(PRef);
+			PRef.current = window.setTimeout(() => {
+				if (PRef.current) {
+					setC(null);
+					be(PRef);
 				}
 			}, 1000);
-			l.current = r;
-			if (A.current) {
-				be(A);
-				d(false);
+			LRef.current = r;
+			if (ARef.current) {
+				be(ARef);
+				setU(false);
 			} else if (u) {
 				e();
 			}
@@ -875,85 +732,66 @@ function ye(e) {
 		o.subscribe(t);
 		return () => {
 			o.unsubscribe(t);
-			be(A);
-			be(p);
+			be(ARef);
+			be(PRef);
 		};
 	}, [o, u]);
-	const g = !!c && "CarouselSliding" + c;
-	return s.createElement(
-		"div",
-		{
-			className: (0, E.A)(me.sliderBody, "SliderBody", g),
-		},
-		!t &&
-			s.createElement(
-				oe._X,
-				{
-					className: (0, E.A)(
+	const g = !!c && `CarouselSliding${c}`;
+	return (
+		<div className={A_1(me.sliderBody, "SliderBody", g)}>
+			{!bHideArrows && (
+				<oe._X
+					className={A_1(
 						me.carouselBtnCtn,
 						me.left,
 						me.carouselNavButton,
 						"CarouselBtnLeft",
-					),
-				},
-				s.createElement(Z.uMb, {
-					fill: a || "white",
-				}),
-			),
-		s.createElement(
-			oe.Ap,
-			{
-				className: de.J.GetScrollableClassname(),
-				classNameTray: me.slideTrayCustomize,
-				classNameAnimation: me.DisableSliderMotion,
-			},
-			s.createElement(ge.q, null, n),
-		),
-		!t &&
-			s.createElement(
-				oe.CC,
-				{
-					className: (0, E.A)(
+					)}
+				>
+					<Z.uMb fill={arrowFill || "white"} />
+				</oe._X>
+			)}
+			<oe.Ap
+				className={de.J.GetScrollableClassname()}
+				classNameTray={me.slideTrayCustomize}
+				classNameAnimation={me.DisableSliderMotion}
+			>
+				<ge.q>{children}</ge.q>
+			</oe.Ap>
+			{!bHideArrows && (
+				<oe.CC
+					className={A_1(
 						me.carouselBtnCtn,
 						me.right,
 						me.carouselNavButton,
 						"CarouselBtnRight",
-					),
-				},
-				s.createElement(Z.uMb, {
-					fill: a || "white",
-				}),
-			),
+					)}
+				>
+					<Z.uMb fill={arrowFill || "white"} />
+				</oe.CC>
+			)}
+		</div>
 	);
 }
 function Se(e) {
-	const t = (0, T.Qn)();
-	const r = (0, se.a4)(se.Wn);
-	const n = String((0, o.j$)(e.args, "autoadvance")).toLowerCase() === "true";
-	return s.createElement(
-		_e,
-		{
-			hideArrows: !r,
-			hidePips: t,
-			visibleElements: 1,
-			useTestScrollbar: false,
-			bLazyRenderChildren: true,
-			screenIsWide: r,
-			bAutoAdvance: n,
-			className: v.ScreenshotCarousel,
-		},
-		e.children,
+	const t = Qn();
+	const r = a4(se.Wn);
+	const n = String(j$(e.args, "autoadvance")).toLowerCase() === "true";
+	return (
+		<_e
+			hideArrows={!r}
+			hidePips={t}
+			visibleElements={1}
+			useTestScrollbar={false}
+			bLazyRenderChildren
+			screenIsWide={r}
+			bAutoAdvance={n}
+			className={v.ScreenshotCarousel}
+		>
+			{e.children}
+		</_e>
 	);
 }
-var we = require("./4816.js");
-var Be = require(/*webcrack:missing*/ "./89193.js");
-var ve = require(/*webcrack:missing*/ "./12176.js");
-var Ie = require("./31222.js");
-var Ee = require("./82301.js");
-var Me = require(/*webcrack:missing*/ "./49455.js");
-var Te = require("./16154.js");
-var Re = require(/*webcrack:missing*/ "./79769.js");
-var ke = require(/*webcrack:missing*/ "./52451.js");
 class De {
 	m_mapInventoryByApp = new Map();
 	m_mapPromises = new Map();
@@ -1004,15 +842,12 @@ class De {
 				this.GetItemDefsChangeForAppID(e).Dispatch(t);
 				return 1;
 			}
-			r = (0, Te.H)(n);
+			r = H_1(n);
 		} catch (e) {
-			r = (0, Te.H)(e);
+			r = H_1(e);
 		}
 		console.error(
-			"CQuestCommunityInventoryStore.InternalLoadCommunityInventory failed: on appid " +
-				e +
-				" error: " +
-				r?.strErrorMsg,
+			`CQuestCommunityInventoryStore.InternalLoadCommunityInventory failed: on appid ${e} error: ${r?.strErrorMsg}`,
 			r,
 		);
 		return 2;
@@ -1030,8 +865,8 @@ class De {
 	}
 	constructor() {}
 	Init() {
-		const e = (0, T.Tc)("read_inventory_token", "application_config");
-		(0, Me.w)(
+		const e = Tc("read_inventory_token", "application_config");
+		w_1(
 			e,
 			"CQuestCommunityInventoryStore: missing read_inventory:steam oauth permission",
 		);
@@ -1039,19 +874,16 @@ class De {
 	}
 }
 function Ne(e) {
-	const [t, r] = (0, s.useState)(De.Get().GetInventoryForApp(e));
-	(0, s.useEffect)(() => {
+	const [t, setT] = useState(De.Get().GetInventoryForApp(e));
+	useEffect(() => {
 		if (e && !De.Get().BHasLoadedDef(e)) {
 			De.Get().LoadCommunityInventory(e);
 		}
 	}, [e]);
-	(0, ke.hL)(De.Get().GetItemDefsChangeForAppID(e), r);
+	hL(De.Get().GetItemDefsChangeForAppID(e), setT);
 	return t;
 }
-(0, n.Cg)([ke.oI], De.prototype, "SetTestAppCommunityItems", null);
-var Fe = require("./89697.js");
-var Ge = require("./30737.js");
-var Oe = require("./22435.js");
+Cg([ke.oI], De.prototype, "SetTestAppCommunityItems", null);
 class Pe {
 	m_mapAppToDefs = new Map();
 	m_mapPromises = new Map();
@@ -1110,17 +942,12 @@ class Pe {
 				this.GetItemDefsChangeForEventID(e).Dispatch(a.data.item_definitions);
 				return 1;
 			}
-			r = (0, Te.H)(a);
+			r = H_1(a);
 		} catch (e) {
-			r = (0, Te.H)(e);
+			r = H_1(e);
 		}
 		console.error(
-			"CSaleMiniGameItemDefStore.InternalLoadAppCommunityItems failed: on appid " +
-				e +
-				" edit? " +
-				t +
-				" error: " +
-				r?.strErrorMsg,
+			`CSaleMiniGameItemDefStore.InternalLoadAppCommunityItems failed: on appid ${e} edit? ${t} error: ${r?.strErrorMsg}`,
 			r,
 		);
 		return 2;
@@ -1140,226 +967,187 @@ class Pe {
 	Init() {}
 }
 function Le(e, t, r) {
-	const n = (function (e, t) {
-		const [r, n] = (0, s.useState)(Pe.Get().GetItemDefForAppID(e));
-		(0, s.useEffect)(() => {
+	const n = ((e, t) => {
+		const [r, setR] = useState(Pe.Get().GetItemDefForAppID(e));
+		useEffect(() => {
 			if (e && !Pe.Get().BHasLoadedDef(e)) {
 				Pe.Get().LoadAppCommunityItems(e, t);
 			}
 		}, [e, t]);
-		(0, ke.hL)(Pe.Get().GetItemDefsChangeForEventID(e), n);
+		hL(Pe.Get().GetItemDefsChangeForEventID(e), setR);
 		return r;
 	})(e, r);
-	const [i, a] = (0, s.useState)(null);
-	(0, s.useEffect)(() => {
+	const [i, setI] = useState(null);
+	useEffect(() => {
 		if (e && n && i == null) {
 			const i = n.find(
 				(n) => (r || n.active) && n.appid == e && n.item_type == t,
 			);
 			if (i) {
-				a(i);
+				setI(i);
 			}
 		}
 	}, [i, n, e, t, r]);
 	return i;
 }
-var ze = require("./6472.js");
-function xe(e) {
+function Xe_1(e) {
 	const {
-		appid: t,
-		item_image_small: r,
-		item_image_large: n,
-		item_movie_mp4: i,
-		item_movie_webm: a,
-		item_title: o,
+		appid,
+		item_image_small,
+		item_image_large,
+		item_movie_mp4,
+		item_movie_webm,
+		item_title,
 	} = e;
-	if (i?.length > 0 && a?.length > 0) {
-		const n = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${t}/${r}`;
-		const o = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${t}/${a}`;
-		const l = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${t}/${i}`;
-		return s.createElement(
-			s.Fragment,
-			null,
-			s.createElement(
-				"video",
-				{
-					muted: true,
-					controls: false,
-					autoPlay: true,
-					loop: true,
-					poster: n,
-					className: e.videoClassName,
-				},
-				s.createElement("source", {
-					src: o,
-					type: "video/webm",
-				}),
-				Boolean(!T.TS.IN_CLIENT) &&
-					s.createElement("source", {
-						src: l,
-						type: "video/mp4",
-					}),
-			),
+	if (item_movie_mp4?.length > 0 && item_movie_webm?.length > 0) {
+		const n = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${appid}/${item_image_small}`;
+		const o = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${appid}/${item_movie_webm}`;
+		const l = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${appid}/${item_movie_mp4}`;
+		return (
+			<>
+				<video
+					muted
+					controls={false}
+					autoPlay
+					loop
+					poster={n}
+					className={e.videoClassName}
+				>
+					<source src={o} type="video/webm" />
+					{Boolean(!T.TS.IN_CLIENT) && <source src={l} type="video/mp4" />}
+				</video>
+			</>
 		);
 	}
 	{
-		const i = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${t}/${r || n}`;
-		return s.createElement("img", {
-			className: e.className,
-			src: i,
-			alt: o,
-		});
+		const i = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${appid}/${
+			item_image_small || item_image_large
+		}`;
+		return <img className={e.className} src={i} alt={item_title} />;
 	}
 }
 function Ue(e) {
-	const { appid: t, community_item_type: r, bForEdit: n } = e;
-	const i = Le(t, r, n);
+	const { appid, community_item_type, bForEdit } = e;
+	const i = Le(appid, community_item_type, bForEdit);
 	const a =
-		i && !i.active
-			? s.createElement(
-					"div",
-					{
-						className: ze.WarningStylesBackground,
-					},
-					Localize("#Sale_Section_RewardShelf_ItemInActiveWarning"),
-				)
-			: undefined;
+		i && !i.active ? (
+			<div className={ze.WarningStylesBackground}>
+				{Localize("#Sale_Section_RewardShelf_ItemInActiveWarning")}
+			</div>
+		) : undefined;
 	if (i) {
-		return s.createElement(
-			s.Fragment,
-			null,
-			s.createElement(xe, {
-				...i,
-			}),
-			a,
+		return (
+			<>
+				<Xe_1 {...i} />
+				{a}
+			</>
 		);
 	} else {
-		return s.createElement(G.t, {
-			size: "small",
-			string: Localize("#Loading"),
-		});
+		return <G.t size="small" string={Localize("#Loading")} />;
 	}
 }
 function We(e) {
-	const t = (0, Fe.Oz)();
-	const { bLoading: r } = t;
-	const { className: n, bPreviewMode: i, rewardType: a } = e;
-	return s.createElement(
-		S.$n,
-		{
-			className: (0, E.A)("CSSClaimItemButton", n),
-			onClick: (e) => {
+	const t = Oz();
+	const { bLoading } = t;
+	const { className, bPreviewMode, rewardType } = e;
+	return (
+		<S.$n
+			className={A_1("CSSClaimItemButton", className)}
+			onClick={(e) => {
 				if (t.bCanClaimNewItem) {
-					(0, ae.pg)(
-						s.createElement(He, {
-							rewardType: a,
-						}),
-						GetOwningWindowForEvent(e),
-					);
+					pg(<He rewardType={rewardType} />, GetOwningWindowForEvent(e));
 				} else if (
 					T.TS.WEB_UNIVERSE == "dev" ||
 					T.TS.WEB_UNIVERSE == "beta" ||
-					i
+					T.TS.WEB_UNIVERSE == "beta" ||
+					bPreviewMode
 				) {
-					(0, ae.pg)(
-						s.createElement(He, {
-							rewardType: a,
-						}),
-						GetOwningWindowForEvent(e),
-					);
+					pg(<He rewardType={rewardType} />, GetOwningWindowForEvent(e));
 					console.log(
 						"Show dialog for debugging, since already claimed: ",
-						(0, Be.HO)(t),
+						HO(t),
 					);
 				}
-			},
-			disabled: r,
-		},
-		Boolean(r)
-			? s.createElement(G.t, {
-					string: Localize("#Loading"),
-					size: "small",
-				})
-			: s.createElement(Ve, {
-					claimState: t,
-				}),
+			}}
+			disabled={bLoading}
+		>
+			{Boolean(bLoading) ? (
+				<G.t string={Localize("#Loading")} size="small" />
+			) : (
+				<Ve claimState={t} />
+			)}
+		</S.$n>
 	);
 }
 function Ve(e) {
-	const { claimState: t, strButtonOverride: r, rewardType: n } = e;
-	if (t.bAlreadyClaimedCurrentItem) {
-		return s.createElement(
-			"div",
-			{
-				className: (0, E.A)(Oe.CheckMark, "CSSClaimedState"),
-			},
-			s.createElement(Z.Jlk, null),
-			s.createElement(
-				"span",
-				null,
-				" ",
-				r?.length > 0 ? r : Localize("#Sale_ClaimableReward_AlreadyClaimed"),
-			),
+	const { claimState, strButtonOverride, rewardType } = e;
+	if (claimState.bAlreadyClaimedCurrentItem) {
+		return (
+			<div className={A_1(Oe.CheckMark, "CSSClaimedState")}>
+				<Z.Jlk />
+				<span>
+					{" "}
+					{strButtonOverride?.length > 0
+						? strButtonOverride
+						: Localize("#Sale_ClaimableReward_AlreadyClaimed")}
+				</span>
+			</div>
 		);
 	}
 	let i = Localize("#Sale_ClaimableReward_generic");
-	switch (t?.community_item_class || n) {
-		case 11:
+	switch (claimState?.community_item_class || rewardType) {
+		case 11: {
 			i = Localize("#Sale_ClaimableReward_sticker");
 			break;
-		case 8:
+		}
+		case 8: {
 			i = Localize("#Sale_ClaimableReward_profilemodifier");
 			break;
-		case 15:
+		}
+		case 15: {
 			i = Localize("#Sale_ClaimableReward_animatedavatar");
+		}
 	}
-	return s.createElement(
-		"span",
-		{
-			className: "CSSUnclaimedState",
-		},
-		i,
-	);
+	return <span className="CSSUnclaimedState">{i}</span>;
 }
 function He(e) {
-	const { closeModal: t, rewardType: r } = e;
-	const { fnClaimItem: n } = (0, Fe.CC)();
-	const i = (0, Ge.vs)();
-	const [a, o] = s.useState(null);
+	const { closeModal, rewardType } = e;
+	const { fnClaimItem } = CC();
+	const i = vs();
+	const [a, setA] = s.useState(null);
 	s.useEffect(() => {
 		if (!i.bLoading) {
 			i.fnSetLoading(true);
-			n()
+			fnClaimItem()
 				.then((e) => {
-					o(e);
-					console.log("claim response", (0, Be.HO)(e));
+					setA(e);
+					console.log("claim response", HO(e));
 					if (e.appid) {
 						let t = Localize("#Sale_ClaimableReward_completed_generic");
-						const n = a?.community_item_class || r;
+						const n = a?.community_item_class || rewardType;
 						switch (n) {
-							case 11:
+							case 11: {
 								t = Localize("#Sale_ClaimableReward_completed_sticker");
 								break;
-							case 8:
+							}
+							case 8: {
 								t = Localize("#Sale_ClaimableReward_completed_profilemodifier");
 								break;
-							case 15:
+							}
+							case 15: {
 								t = Localize("#Sale_ClaimableReward_completed_animatedavatar");
+							}
 						}
 						i.fnSetStrSuccess("   ");
 						i.fnSetElSuccess(
-							s.createElement(
-								"div",
-								{
-									className: Oe.DialogCtn,
-								},
-								s.createElement("span", null, t),
-								s.createElement(je, {
-									appid: e.appid,
-									community_item_type: e.community_item_type,
-									rewardType: n,
-								}),
-							),
+							<div className={Oe.DialogCtn}>
+								<span>{t}</span>
+								<Je_1
+									appid={e.appid}
+									community_item_type={e.community_item_type}
+									rewardType={n}
+								/>
+							</div>,
 						);
 					} else {
 						i.fnSetStrError(Localize("#Sale_ClaimableReward_Busy"));
@@ -1367,103 +1155,83 @@ function He(e) {
 				})
 				.catch((e) => i.fnSetStrError(Localize("#Sale_ClaimableReward_Busy")));
 		}
-	}, [a?.community_item_class, i, n, r]);
+	}, [a?.community_item_class, i, fnClaimItem, rewardType]);
 	let l = Localize("#Sale_ClaimableReward_generic");
-	switch (a?.community_item_class || r) {
-		case 11:
+	switch (a?.community_item_class || rewardType) {
+		case 11: {
 			l = Localize("#Sale_ClaimableReward_sticker");
 			break;
-		case 8:
+		}
+		case 8: {
 			l = Localize("#Sale_ClaimableReward_profilemodifier");
 			break;
-		case 15:
+		}
+		case 15: {
 			l = Localize("#Sale_ClaimableReward_animatedavatar");
+		}
 	}
-	return s.createElement(Ge.Hh, {
-		state: i,
-		strDialogTitle: l,
-		closeModal: t,
-	});
+	return <Ge.Hh state={i} strDialogTitle={l} closeModal={closeModal} />;
 }
-function je(e) {
-	const { appid: t, community_item_type: r, rewardType: n } = e;
-	if (t && r) {
-		return s.createElement(
-			s.Fragment,
-			null,
-			s.createElement(Ue, {
-				appid: t,
-				community_item_type: r,
-			}),
-			Boolean(n == 8) &&
-				s.createElement(qe, {
-					appid: t,
-					community_item_type: r,
-				}),
+function Je_1(e) {
+	const { appid, community_item_type, rewardType } = e;
+	if (appid && community_item_type) {
+		return (
+			<>
+				<Ue appid={appid} community_item_type={community_item_type} />
+				{Boolean(rewardType == 8) && (
+					<Qe_1 appid={appid} community_item_type={community_item_type} />
+				)}
+			</>
 		);
 	} else {
 		return null;
 	}
 }
-function qe(e) {
-	const { appid: t, community_item_type: r } = e;
-	const n = Ne(t);
-	const [i, a] = s.useState(false);
+function Qe_1(e) {
+	const { appid, community_item_type } = e;
+	const n = Ne(appid);
+	const [i, setI] = s.useState(false);
 	if (!n) {
 		return null;
 	}
-	const o = n.find((e) => e.item_type == r);
+	const o = n.find((e) => e.item_type == community_item_type);
 	if (o) {
-		return s.createElement(
-			"div",
-			{
-				className: Oe.EquipCtn,
-			},
-			Boolean(i)
-				? s.createElement(
-						"div",
-						null,
-						Localize("#Sale_ClaimableReward_profilemodifier_apply_success"),
-					)
-				: s.createElement(
-						S.$n,
-						{
-							onClick: (e) => {
-								(0, Fe.ns)(o).then((e) => {
-									if (e == 1) {
-										a(true);
-									}
-								});
-							},
-						},
-						Localize("#Sale_ClaimableReward_profilemodifier_apply"),
-					),
-			s.createElement(
-				Q.Ii,
-				{
-					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`,
-				},
-				Localize("#Sale_ClaimableReward_profilemodifier_view"),
-			),
+		return (
+			<div className={Oe.EquipCtn}>
+				{Boolean(i) ? (
+					<div>
+						{Localize("#Sale_ClaimableReward_profilemodifier_apply_success")}
+					</div>
+				) : (
+					<S.$n
+						onClick={(e) => {
+							ns(o).then((e) => {
+								if (e == 1) {
+									setI(true);
+								}
+							});
+						}}
+					>
+						{Localize("#Sale_ClaimableReward_profilemodifier_apply")}
+					</S.$n>
+				)}
+				<Q.Ii href={`${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`}>
+					{Localize("#Sale_ClaimableReward_profilemodifier_view")}
+				</Q.Ii>
+			</div>
 		);
 	} else {
-		return s.createElement(
-			"div",
-			null,
-			s.createElement(
-				Q.Ii,
-				{
-					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}/edit/goldenprofile`,
-				},
-				Localize("#Sale_ClaimableReward_profilemodifier_choose"),
-			),
-			s.createElement(
-				Q.Ii,
-				{
-					href: `${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`,
-				},
-				Localize("#Sale_ClaimableReward_profilemodifier_view"),
-			),
+		return (
+			<div>
+				<Q.Ii
+					href={`${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}/edit/goldenprofile`}
+				>
+					{Localize("#Sale_ClaimableReward_profilemodifier_choose")}
+				</Q.Ii>
+				<Q.Ii href={`${T.TS.COMMUNITY_BASE_URL}profiles/${T.iA.steamid}`}>
+					{Localize("#Sale_ClaimableReward_profilemodifier_view")}
+				</Q.Ii>
+			</div>
 		);
 	}
 }
@@ -1652,38 +1420,30 @@ function Ze() {
 	return Qe;
 }
 function Ye(e) {
-	const { showErrorInfo: t, event: r } = e.context;
-	let n = (0, o.j$)(e.args, "src") || e.children?.toString();
-	if (!n && ((n = (0, o.j$)(e.args)), !n == null)) {
+	const { showErrorInfo, event } = e.context;
+	let n = j$(e.args, "src") || e.children?.toString();
+	if (!n && ((n = j$(e.args)), !n == null)) {
 		return null;
 	}
-	const i = o._D(n, e.language, r?.rtime32_last_modified);
+	const i = o._D(n, e.language, event?.rtime32_last_modified);
 	if (typeof i == "string") {
 		let e;
 		n = i;
-		e = (!r || !r.BHasTag("auto_rssfeed")) && !(0, m.ZF)(n);
-		if (!t) {
-			n = (0, m.L$)(n);
+		e = (!event || !event.BHasTag("auto_rssfeed")) && !ZF(n);
+		if (!showErrorInfo) {
+			n = L$(n);
 		}
-		if (t) {
-			return s.createElement(H.i, {
-				src: n,
-				crossOrigin: e ? "anonymous" : undefined,
-			});
+		if (showErrorInfo) {
+			return <H.i src={n} crossOrigin={e ? "anonymous" : undefined} />;
 		} else {
-			return s.createElement(ne.o, {
-				src: n,
-				crossOrigin: e ? "anonymous" : undefined,
-			});
+			return <ne.o src={n} crossOrigin={e ? "anonymous" : undefined} />;
 		}
 	}
-	return s.createElement(j.c, {
-		rgSources: i,
-	});
+	return <j.c rgSources={i} />;
 }
 function Ke(e) {
-	const t = (0, o.j$)(e.args);
-	if (t == null || t == null || t.length == 0) {
+	const t = j$(e.args);
+	if (t == null || t == null || t == null || t.length == 0) {
 		return "";
 	}
 	const r = e && e.children && e.children.toString();
@@ -1696,10 +1456,7 @@ function Ke(e) {
 			`${T.TS.MEDIA_CDN_COMMUNITY_URL}images/steamworks_docs/english/${t}`,
 		);
 	}
-	return s.createElement(j.c, {
-		rgSources: n,
-		alt: r,
-	});
+	return <j.c rgSources={n} alt={r} />;
 }
 function Xe(e) {
 	const t = et(
@@ -1708,44 +1465,27 @@ function Xe(e) {
 		e.context.event.appid ? e.context.event.appid : 0,
 	);
 	const r = et(e.args, "trailerid", 0);
-	return s.createElement(O, {
-		appid: t,
-		trailerBaseID: r,
-		bIsPreviewMode: e.context.showErrorInfo,
-	});
+	return (
+		<O appid={t} trailerBaseID={r} bIsPreviewMode={e.context.showErrorInfo} />
+	);
 }
 function Je(e) {
 	const t = et(e.args, "appid", 0);
-	return s.createElement(V, {
-		appid: t,
-		bPreviewMode: e.context.showErrorInfo,
-	});
+	return <V appid={t} bPreviewMode={e.context.showErrorInfo} />;
 }
 function $e(e) {
-	const t = (0, o.j$)(e.args, "name");
-	const r = (0, o.j$)(e.args, "title");
-	const n = (0, o.j$)(e.args, "company");
-	const i = (0, o.j$)(e.args, "photo");
+	const t = j$(e.args, "name");
+	const r = j$(e.args, "title");
+	const n = j$(e.args, "company");
+	const i = j$(e.args, "photo");
 	if (e.context.bShowShortSpeakerInfo) {
-		return s.createElement(k.S8, {
-			name: t,
-			title: r,
-			company: n,
-			photo: i,
-			bio: e.children,
-		});
+		return <k.S8 name={t} title={r} company={n} photo={i} bio={e.children} />;
 	} else {
-		return s.createElement(k.$k, {
-			name: t,
-			title: r,
-			company: n,
-			photo: i,
-			bio: e.children,
-		});
+		return <k.$k name={t} title={r} company={n} photo={i} bio={e.children} />;
 	}
 }
 function et(e, t, r) {
-	const n = (0, o.j$)(e, t);
+	const n = j$(e, t);
 	if (n === undefined || n == null) {
 		return r;
 	} else {
@@ -1753,12 +1493,12 @@ function et(e, t, r) {
 	}
 }
 function tt(e) {
-	const t = (0, o.j$)(e.args, "name");
-	const r = ((0, o.j$)(e.args, "visible") || "false").toLowerCase() === "true";
-	const n = (0, _.h)(t);
+	const t = j$(e.args, "name");
+	const r = (j$(e.args, "visible") || "false").toLowerCase() === "true";
+	const n = h_1(t);
 	if (!t) {
 		if (e.context.showErrorInfo) {
-			return s.createElement("div", null, "Failed to provide giveaway name");
+			return <div>Failed to provide giveaway name</div>;
 		} else {
 			return null;
 		}
@@ -1772,39 +1512,35 @@ function tt(e) {
 function rt(e) {
 	const t = e.context.showErrorInfo;
 	if (!T.iA.logged_in) {
-		return s.createElement(
-			S.$n,
-			{
-				onClick: we.vg,
-				className: "CSSClaimItemLoginButton",
-			},
-			Localize("#Sale_ClaimableReward_Login"),
+		return (
+			<S.$n onClick={we.vg} className="CSSClaimItemLoginButton">
+				{Localize("#Sale_ClaimableReward_Login")}
+			</S.$n>
 		);
 	}
-	const r = (0, o.j$)(e.args, "type");
+	const r = j$(e.args, "type");
 	let n;
 	if (r) {
 		switch (r) {
-			case "profilemodifier":
+			case "profilemodifier": {
 				n = 8;
 				break;
-			case "sticker":
+			}
+			case "sticker": {
 				n = 11;
+			}
 		}
 	}
-	return s.createElement(We, {
-		bPreviewMode: t,
-		rewardType: n,
-	});
+	return <We bPreviewMode={t} rewardType={n} />;
 }
 function nt(e) {
-	const t = Number.parseInt((0, o.j$)(e.args, "id")) || 0;
-	const r = ((0, o.j$)(e.args, "visible") || "false").toLowerCase() === "true";
+	const t = Number.parseInt(j$(e.args, "id")) || 0;
+	const r = (j$(e.args, "visible") || "false").toLowerCase() === "true";
 	const n = e.context.showErrorInfo;
-	const [i, a] = (0, b.Gg)(t, {});
+	const [i, a] = Gg(t, {});
 	if (!t || a == 1) {
 		if (!t && n) {
-			return s.createElement("div", null, "Error: PackageID Not Set");
+			return <div>Error: PackageID Not Set</div>;
 		} else {
 			return null;
 		}
@@ -1821,19 +1557,19 @@ function nt(e) {
 }
 function it(e) {
 	if (e === "GameAwardDrop2022") {
-		const t = (0, _.h)(e);
-		const r = (0, _.Q)();
+		const t = h_1(e);
+		const r = Q_1();
 		if (t) {
 			if (t.registered) {
 				return {
 					bInitialState: false,
 					bSuccessState: t.eligible,
 					bFailedState: !t.eligible,
-					fnAction: t.eligible
-						? undefined
-						: async () => {
-								await r.fnCreateRegistration(e);
-							},
+					fnAction:
+						t.eligible ||
+						(async () => {
+							await r.fnCreateRegistration(e);
+						}),
 				};
 			} else {
 				return {
@@ -1854,124 +1590,111 @@ function it(e) {
 	};
 }
 function at(e) {
-	const t = (0, o.j$)(e.args, "action");
-	const r = (0, o.j$)(e.args, "initialToken");
-	const n = (0, o.j$)(e.args, "successToken");
-	const i = (0, o.j$)(e.args, "failToken");
+	const t = j$(e.args, "action");
+	const r = j$(e.args, "initialToken");
+	const n = j$(e.args, "successToken");
+	const i = j$(e.args, "failToken");
 	const a = it(t);
-	if (!t || !r || !n || !i) {
+	if (!t || !r || !r || !n || !r || !n || !i) {
 		if (e.context.showErrorInfo) {
-			return s.createElement(
-				"div",
-				null,
-				"Failed to provide all tokens. Dialog will not appear",
-			);
+			return <div>Failed to provide all tokens. Dialog will not appear</div>;
 		} else {
 			return null;
 		}
 	}
-	if (T.iA.logged_in || t == "test" || t == "nologinrequired") {
-		return s.createElement(
-			S.$n,
-			{
-				className: "CSSActionDialogButton",
-				onClick: (a) => {
-					(0, ae.pg)(
-						s.createElement(
-							st,
-							{
-								strAction: t,
-								strInitialToken: r,
-								strSuccessToken: n,
-								strFailToken: i,
-							},
-							e.children,
-						),
+	if (T.iA.logged_in || t == "test" || t == "test" || t == "nologinrequired") {
+		return (
+			<S.$n
+				className="CSSActionDialogButton"
+				onClick={(a) => {
+					pg(
+						<St_1
+							strAction={t}
+							strInitialToken={r}
+							strSuccessToken={n}
+							strFailToken={i}
+						>
+							{e.children}
+						</St_1>,
 						GetOwningWindowForEvent(a),
 					);
-				},
-			},
-			Boolean(a.bInitialState) && Localize(r),
-			Boolean(a.bSuccessState) && Localize(n),
-			Boolean(a.bFailedState) && Localize(i),
+				}}
+			>
+				{Boolean(a.bInitialState) && Localize(r)}
+				{Boolean(a.bSuccessState) && Localize(n)}
+				{Boolean(a.bFailedState) && Localize(i)}
+			</S.$n>
 		);
 	} else {
-		return s.createElement(
-			S.$n,
-			{
-				className: "CSSActionDialogButton",
-				onClick: we.vg,
-			},
-			Localize("#Login_SignIn"),
+		return (
+			<S.$n className="CSSActionDialogButton" onClick={we.vg}>
+				{Localize("#Login_SignIn")}
+			</S.$n>
 		);
 	}
 }
-function st(e) {
+function St_1(e) {
 	const {
-		strAction: t,
-		children: r,
-		closeModal: n,
-		strInitialToken: i,
-		strSuccessToken: a,
-		strFailToken: o,
+		strAction,
+		children,
+		closeModal,
+		strInitialToken,
+		strSuccessToken,
+		strFailToken,
 	} = e;
-	const l = it(t);
-	const [c, m] = s.useState(Boolean(l.fnAction));
+	const l = it(strAction);
+	const [c, setC] = s.useState(Boolean(l.fnAction));
 	s.useEffect(() => {
 		if (l.fnAction) {
-			m(true);
-			l.fnAction().finally(() => m(false));
+			setC(true);
+			l.fnAction().finally(() => setC(false));
 		}
 	}, [l]);
-	return s.createElement(
-		ie.eV,
-		{
-			bDisableBackgroundDismiss: true,
-			closeModal: n,
-			onCancel: n,
-			className: "CSSActionDialogDialog",
-		},
-		s.createElement(
-			S.Y9,
-			null,
-			Boolean(l.bInitialState) && Localize(i),
-			Boolean(l.bSuccessState) && Localize(a),
-			Boolean(l.bFailedState) && Localize(o),
-		),
-		s.createElement(
-			S.nB,
-			null,
-			s.createElement(
-				S.a3,
-				null,
-				c
-					? s.createElement(G.t, {
-							size: "medium",
-							position: "center",
-							string: Localize("#Loading"),
-						})
-					: r,
-			),
-		),
+	return (
+		<ie.eV
+			bDisableBackgroundDismiss
+			closeModal={closeModal}
+			onCancel={closeModal}
+			className="CSSActionDialogDialog"
+		>
+			<S.Y9>
+				{Boolean(l.bInitialState) && Localize(strInitialToken)}
+				{Boolean(l.bSuccessState) && Localize(strSuccessToken)}
+				{Boolean(l.bFailedState) && Localize(strFailToken)}
+			</S.Y9>
+			<S.nB>
+				<S.a3>
+					{c ? (
+						<G.t
+							size="medium"
+							position="center"
+							string={Localize("#Loading")}
+						/>
+					) : (
+						children
+					)}
+				</S.a3>
+			</S.nB>
+		</ie.eV>
 	);
 }
 function ot(e) {
-	const { showErrorInfo: t, event: r } = e.context;
-	const n = r.clanSteamID.GetAccountID();
+	const { showErrorInfo, event } = e.context;
+	const n = event.clanSteamID.GetAccountID();
 	const [i] = s.useState(
 		new C.i6(
-			(function (e) {
+			((e) => {
 				const t = {
 					PopulateBeginFileUploadFormData: (t) => {
-						t.append("clan_account_id", "" + e);
+						t.append("clan_account_id", `${e}`);
 					},
 					PopulateCommitFileUploadFormData: (t) => {
-						t.append("clan_account_id", "" + e);
+						t.append("clan_account_id", `${e}`);
 					},
 					GetBeginFileUploadURL: () =>
-						T.TS.STORE_BASE_URL + "saleaction/ajaxbeginfileupload",
+						`${T.TS.STORE_BASE_URL}saleaction/ajaxbeginfileupload`,
 					GetCommitFileUploadURL: () =>
-						T.TS.STORE_BASE_URL + "saleaction/ajaxcommitfileupload",
+						`${T.TS.STORE_BASE_URL}saleaction/ajaxcommitfileupload`,
 					LogFileUploadMessage: (e) => {
 						console.log("UploadFileButton: ", e);
 					},
@@ -1987,134 +1710,83 @@ function ot(e) {
 		(T.TS.EUNIVERSE == 2 && n == h.mW) ||
 		(T.TS.EUNIVERSE == 1 && n == h.Kd)
 	) {
-		return s.createElement(
-			"div",
-			null,
-			s.createElement(K, {
-				fileUploadManager: i,
-			}),
-			s.createElement($, {
-				fileUploadManager: i,
-			}),
+		return (
+			<div>
+				<K fileUploadManager={i} />
+				<$ fileUploadManager={i} />
+			</div>
 		);
-	} else if (t) {
-		return s.createElement("div", null, Localize("#CloudUpload_NotSupport"));
+	} else if (showErrorInfo) {
+		return <div>{Localize("#CloudUpload_NotSupport")}</div>;
 	} else {
 		return null;
 	}
 }
-var lt = require("./50712.js");
-var ct = require(/*webcrack:missing*/ "./8573.js");
-var mt = require("./83610.js");
-var ut = require("./44184.js");
-var dt = ut;
-var At = require("./52850.js");
-var pt = require("./39039.js");
+const dt = ut;
 const gt = (e) => /^\d+$/.test(e);
-function ht(e) {
-	const { sharedFileID: t } = e;
-	const r = (0, pt.m)("SharedFileSnippet");
-	const [n, i] = (0, s.useState)(false);
-	const [a, o] = (0, s.useState)(() => ({
-		sharedfileid: t,
+function Ht_1(e) {
+	const { sharedFileID } = e;
+	const r = m_1("SharedFileSnippet");
+	const [n, setN] = useState(false);
+	const [a, setA] = useState(() => ({
+		sharedfileid: sharedFileID,
 		title: Localize("#Loading"),
 		description: "",
 		type: "",
 		previewurl: "",
 		appid: 0,
-		url: T.TS.COMMUNITY_BASE_URL + "sharedfiles/filedetails/?id=" + t,
+		url: `${T.TS.COMMUNITY_BASE_URL}sharedfiles/filedetails/?id=${sharedFileID}`,
 	}));
-	(0, s.useEffect)(() => {
+	useEffect(() => {
 		(async () => {
 			try {
 				const e = await At.R.LoadSharedFileDynamicData([t], r);
 				if (!r.token.reason && e.length > 0) {
-					const t = e[0];
+					const [t] = e;
 					if (gt(t.url)) {
-						t.url =
-							T.TS.COMMUNITY_BASE_URL + "sharedfiles/filedetails/?id=" + t.url;
+						t.url = `${T.TS.COMMUNITY_BASE_URL}sharedfiles/filedetails/?id=${t.url}`;
 					}
-					o(t);
+					setA(t);
 					console.log(e[0]);
-					i(true);
+					setN(true);
 				}
 			} catch (e) {
-				const t = (0, Te.H)(e);
-				console.error("SharedFileSnippet: " + t.strErrorMsg, t);
+				const t = H_1(e);
+				console.error(`SharedFileSnippet: ${t.strErrorMsg}`, t);
 			}
 		})();
-	}, [r, t]);
+	}, [r, sharedFileID]);
 	let l = a.personnaname !== undefined && a.personnaname.length > 0;
-	return s.createElement(
-		"a",
-		{
-			href: a.url,
-			className: dt.DynamicLinkBox,
-			"data-modal-content-sizetofit": !!a.bSizeToFit,
-			"data-appid": a.appid,
-			"data-publishedfileid": t,
-		},
-		s.createElement("img", {
-			className: dt.DynamicLink_Preview,
-			src: a.previewurl,
-		}),
-		s.createElement(
-			"div",
-			{
-				className: dt.DynamicLink_Content,
-			},
-			s.createElement(
-				"div",
-				{
-					className: dt.DynamicLink_Name,
-				},
-				a.title,
-			),
-			s.createElement(
-				"div",
-				null,
-				s.createElement(
-					"span",
-					{
-						className: dt.DynamicLink_Type,
-					},
-					a.type,
-				),
-			),
-			l &&
-				s.createElement(
-					"div",
-					{
-						className: dt.DynamicLink_Author,
-					},
-					LocalizeReact(
-						"#EventEditor_Author",
-						s.createElement(
-							"span",
-							{
-								className: dt.DynamicLink_AuthorName,
-							},
-							a.personnaname,
-						),
-					),
-				),
-			s.createElement(
-				"div",
-				{
-					className: dt.DynamicLink_Description,
-				},
-				a.description,
-			),
-		),
+	return (
+		<a
+			href={a.url}
+			className={dt.DynamicLinkBox}
+			data-modal-content-sizetofit={!!a.bSizeToFit}
+			data-appid={a.appid}
+			data-publishedfileid={sharedFileID}
+		>
+			<img className={dt.DynamicLink_Preview} src={a.previewurl} />
+			<div className={dt.DynamicLink_Content}>
+				<div className={dt.DynamicLink_Name}>{a.title}</div>
+				<div>
+					<span className={dt.DynamicLink_Type}>{a.type}</span>
+				</div>
+				{l && (
+					<div className={dt.DynamicLink_Author}>
+						{LocalizeReact(
+							"#EventEditor_Author",
+							<span className={dt.DynamicLink_AuthorName}>
+								{a.personnaname}
+							</span>,
+						)}
+					</div>
+				)}
+				<div className={dt.DynamicLink_Description}>{a.description}</div>
+			</div>
+		</a>
 	);
 }
-var Ct = require(/*webcrack:missing*/ "./41230.js");
-var _t = require(/*webcrack:missing*/ "./44846.js");
-var ft = require("./88341.js");
-var bt = require("./78771.js");
-var yt = require("./13484.js");
-var St = require("./95020.js");
-let wt = class extends s.Component {
+let Wt_1 = class extends s.Component {
 	state = {
 		bLoading: this.props.announcementGID
 			? !yt.O3.BHasClanAnnouncementGID(this.props.announcementGID)
@@ -2126,22 +1798,24 @@ let wt = class extends s.Component {
 		this.HandleLoadEventInfo();
 	}
 	async HandleLoadEventInfo() {
-		const {
-			appid: e,
-			strVanity: t,
-			announcementGID: r,
-			eventGID: n,
-			strGroupVanity: i,
-		} = this.props;
+		const { appid, strVanity, announcementGID, eventGID, strGroupVanity } =
+			this.props;
 		let a = this.props.clanSteamID;
 		try {
 			if (this.state.bLoading) {
-				if (t !== undefined) {
-					a = (await bt.ac.LoadOGGClanInfoForIdentifier(t)).clanSteamID;
-				} else if (i !== undefined) {
-					a = (await bt.ac.LoadOGGClanInfoForGroupVanity(i)).clanSteamID;
+				if (strVanity !== undefined) {
+					a = (await bt.ac.LoadOGGClanInfoForIdentifier(strVanity)).clanSteamID;
+				} else if (strGroupVanity !== undefined) {
+					a = (await bt.ac.LoadOGGClanInfoForGroupVanity(strGroupVanity))
+						.clanSteamID;
 				}
-				const s = yt.O3.LoadPartnerEventGeneric(a, e, n, r, 0);
+				const s = yt.O3.LoadPartnerEventGeneric(
+					a,
+					appid,
+					eventGID,
+					announcementGID,
+					0,
+				);
 				let o = await s;
 				await Promise.all([
 					_f.A.Get().QueueAppRequest(o.appid, {
@@ -2160,24 +1834,10 @@ let wt = class extends s.Component {
 		}
 	}
 	HandleError(e) {
-		let t = (0, Te.H)(e);
-		const {
-			eventGID: r,
-			announcementGID: n,
-			strGroupVanity: i,
-			strVanity: a,
-		} = this.props;
+		let t = H_1(e);
+		const { eventGID, announcementGID, strGroupVanity, strVanity } = this.props;
 		console.error(
-			"EventSnippet hit error on announceGID " +
-				n +
-				" eventGID " +
-				r +
-				" strVanity " +
-				a +
-				" strGroupVanity " +
-				i +
-				" error: " +
-				t.strErrorMsg,
+			`EventSnippet hit error on announceGID ${announcementGID} eventGID ${eventGID} strVanity ${strVanity} strGroupVanity ${strGroupVanity} error: ${t.strErrorMsg}`,
 		);
 		this.setState({
 			bFailedLoad: true,
@@ -2188,113 +1848,82 @@ let wt = class extends s.Component {
 	}
 	render() {
 		const {
-			appid: e,
-			announcementGID: t,
-			eventGID: r,
-			strURL: n,
-			fnFilterImageURLsForKnownFailures: i,
-			fnImageFailureCallback: a,
+			appid,
+			announcementGID,
+			eventGID,
+			strURL,
+			fnFilterImageURLsForKnownFailures,
+			fnImageFailureCallback,
 		} = this.props;
 		if (this.state.bFailedLoad) {
-			return (0, u.Pm)(n);
+			return Pm(strURL);
 		}
 		if (this.state.bLoading) {
-			return s.createElement(G.t, null);
+			return <G.t />;
 		}
 		let o =
-			t !== undefined
-				? yt.O3.GetClanEventFromAnnouncementGID(t)
-				: yt.O3.GetClanEventModel(r);
+			announcementGID !== undefined
+				? yt.O3.GetClanEventFromAnnouncementGID(announcementGID)
+				: yt.O3.GetClanEventModel(eventGID);
 		if (o == null) {
-			return (0, u.Pm)(n);
+			return Pm(strURL);
 		}
-		let l = (0, _t.sf)(T.TS.LANGUAGE);
+		let l = sf(T.TS.LANGUAGE);
 		let c = o.GetImageForSizeAsArrayWithFallback(
 			"capsule",
 			l,
 			ft.wI.capsule_main,
 		);
-		if (i) {
-			c = i(c);
+		if (fnFilterImageURLsForKnownFailures) {
+			c = fnFilterImageURLsForKnownFailures(c);
 		}
 		let m = o.GetNameWithFallback(l);
 		let d = o.GetSubTitleWithSummaryFallback(l);
-		let A = _f.A.Get().GetApp(e)?.GetName();
+		let A = _f.A.Get().GetApp(appid)?.GetName();
 		let p = LocalizeDateHumanReadable(o.GetStartTimeAndDateUnixSeconds());
-		return s.createElement(
-			St.tj,
-			{
-				eventModel: o,
-				route: St.PH.k_eView,
-				className: dt.DynamicLinkBox,
-				"data-modal-content-sizetofit": true,
-				"data-appid": e,
-			},
-			s.createElement(j.c, {
-				className: dt.DynamicLink_Preview,
-				rgSources: c,
-				onIncrementalError: (e, t, r) => a && a(t),
-			}),
-			s.createElement(
-				"div",
-				{
-					className: dt.DynamicLink_Content,
-				},
-				s.createElement(
-					"div",
-					{
-						className: dt.DynamicLink_Author,
-					},
-					Localize(
-						o.type == 28
-							? "#EventDisplay_Share_Announcement"
-							: "#EventDisplay_Share_Event",
-						A,
-					),
-					s.createElement(
-						"span",
-						{
-							className: dt.DynamicLink_Date,
-						},
-						p,
-					),
-				),
-				s.createElement(
-					"div",
-					{
-						className: dt.DynamicLink_Name,
-					},
-					s.createElement(
-						"div",
-						{
-							className: dt.DynamicLink_Type,
-						},
-						m,
-					),
-				),
-				s.createElement(
-					"div",
-					{
-						className: dt.DynamicLink_Description,
-					},
-					d,
-				),
-			),
+		return (
+			<St.tj
+				eventModel={o}
+				route={St.PH.k_eView}
+				className={dt.DynamicLinkBox}
+				data-modal-content-sizetofit
+				data-appid={appid}
+			>
+				<j.c
+					className={dt.DynamicLink_Preview}
+					rgSources={c}
+					onIncrementalError={(e, t, r) =>
+						fnImageFailureCallback && fnImageFailureCallback(t)
+					}
+				/>
+				<div className={dt.DynamicLink_Content}>
+					<div className={dt.DynamicLink_Author}>
+						{Localize(
+							o.type == 28
+								? "#EventDisplay_Share_Announcement"
+								: "#EventDisplay_Share_Event",
+							A,
+						)}
+						<span className={dt.DynamicLink_Date}>{p}</span>
+					</div>
+					<div className={dt.DynamicLink_Name}>
+						<div className={dt.DynamicLink_Type}>{m}</div>
+					</div>
+					<div className={dt.DynamicLink_Description}>{d}</div>
+				</div>
+			</St.tj>
 		);
 	}
 };
-wt = (0, n.Cg)([Ct.PA], wt);
-var Bt = require("./53272.js");
-var vt = Bt;
+Wt_1 = Cg([Ct.PA], Wt_1);
+const vt = Bt;
 let It = class extends s.Component {
 	state = {
 		bSummaryMode: true,
 		bLoadedMetaData: false,
 	};
 	async componentDidMount() {
-		let e =
-			"https://sketchfab.com/oembed?url=https://sketchfab.com/models/" +
-			this.props.modelID;
+		let e = `https://sketchfab.com/oembed?url=https://sketchfab.com/models/${this.props.modelID}`;
 		try {
 			let t = await x.get(e);
 			this.setState({
@@ -2305,9 +1934,7 @@ let It = class extends s.Component {
 			this.setState({
 				bError: true,
 			});
-			console.error(
-				"SketchFabEmbed failed to load: " + (0, Te.H)(e).strErrorMsg,
-			);
+			console.error(`SketchFabEmbed failed to load: ${H_1(e).strErrorMsg}`);
 		}
 	}
 	OnSketchFabClick() {
@@ -2318,93 +1945,60 @@ let It = class extends s.Component {
 		}
 	}
 	render() {
-		const { modelID: e } = this.props;
+		const { modelID } = this.props;
 		if (this.state.bError) {
-			return s.createElement(
-				"div",
-				{
-					className: vt.dynamiclink_box,
-					onClick: this.OnSketchFabClick,
-				},
-				s.createElement("span", null, e),
-				s.createElement(
-					"span",
-					null,
-					Localize("#EventDisplay_SketchFab_Error_Network"),
-				),
+			return (
+				<div className={vt.dynamiclink_box} onClick={this.OnSketchFabClick}>
+					<span>{modelID}</span>
+					<span>{Localize("#EventDisplay_SketchFab_Error_Network")}</span>
+				</div>
 			);
 		} else if (this.state.bSummaryMode) {
-			return s.createElement(
-				"div",
-				{
-					className: vt.dynamiclink_box,
-					onClick: this.OnSketchFabClick,
-				},
-				Boolean(this.state.bLoadedMetaData)
-					? s.createElement(
-							s.Fragment,
-							null,
-							s.createElement("img", {
-								className: vt.dynamiclink_preview,
-								src: this.state.data.thumbnail_url,
-							}),
-							s.createElement("img", {
-								className: vt.sketchfab_play_overlay_image,
-							}),
-							s.createElement(
-								"div",
-								{
-									className: vt.dynamiclink_content,
-								},
-								s.createElement(
-									"div",
-									{
-										className: vt.dynamiclink_name,
-									},
-									s.createElement(
-										"span",
-										{
-											className: vt.dynamiclink_type,
-										},
-										Localize("#EventDisplay_Sketchfab"),
-									),
-									s.createElement("div", null, this.state.data.title, "\xA0"),
-								),
-								s.createElement(
-									"div",
-									{
-										className: vt.dynamiclink_author,
-									},
-									this.state.data.author_name,
-								),
-							),
-						)
-					: s.createElement(G.t, {
-							size: "medium",
-						}),
+			return (
+				<div className={vt.dynamiclink_box} onClick={this.OnSketchFabClick}>
+					{Boolean(this.state.bLoadedMetaData) ? (
+						<>
+							<img
+								className={vt.dynamiclink_preview}
+								src={this.state.data.thumbnail_url}
+							/>
+							<img className={vt.sketchfab_play_overlay_image} />
+							<div className={vt.dynamiclink_content}>
+								<div className={vt.dynamiclink_name}>
+									<span className={vt.dynamiclink_type}>
+										{Localize("#EventDisplay_Sketchfab")}
+									</span>
+									<div>
+										{this.state.data.title}
+										{"\xA0"}
+									</div>
+								</div>
+								<div className={vt.dynamiclink_author}>
+									{this.state.data.author_name}
+								</div>
+							</div>
+						</>
+					) : (
+						<G.t size="medium" />
+					)}
+				</div>
 			);
 		} else {
-			return s.createElement(
-				"div",
-				{
-					className: vt.sketchfabmodelembedded,
-				},
-				s.createElement("iframe", {
-					className: vt.sketchfabmodelembedded,
-					src:
-						"https://sketchfab.com/models/" +
-						this.props.modelID +
-						"/embed?autostart=1",
-					frameBorder: 0,
-					allowFullScreen: true,
-				}),
+			return (
+				<div className={vt.sketchfabmodelembedded}>
+					<iframe
+						className={vt.sketchfabmodelembedded}
+						src={`https://sketchfab.com/models/${this.props.modelID}/embed?autostart=1`}
+						frameBorder={0}
+						allowFullScreen
+					/>
+				</div>
 			);
 		}
 	}
 };
-(0, n.Cg)([ke.oI], It.prototype, "OnSketchFabClick", null);
-It = (0, n.Cg)([Ct.PA], It);
-var Et = require("./75888.js");
+Cg([ke.oI], It.prototype, "OnSketchFabClick", null);
+It = Cg([Ct.PA], It);
 class Mt {
 	m_mapDefIDtoDefinition = new Map();
 	m_mapDefIDToPromise = new Map();
@@ -2423,7 +2017,7 @@ class Mt {
 		return this.m_defChangeCallback.get(e);
 	}
 	GetKeyCategoryAndClass(e, t) {
-		return e + "_" + t;
+		return `${e}_${t}`;
 	}
 	GetItemsByCategoryAndClass(e, t) {
 		const r = this.GetKeyCategoryAndClass(e, t);
@@ -2455,22 +2049,23 @@ class Mt {
 				t,
 			);
 			if (n.GetEResult() == 1 && n.Body().definitions()?.length > 0) {
-				(0, Me.w)(
+				w_1(
 					n.Body().definitions()?.length == 1,
-					`Requested definition ID ${e} and receive # ${n.Body().definitions()?.length}, expecting exactly one.`,
+					`Requested definition ID ${e} and receive # ${
+						n.Body().definitions()?.length
+					}, expecting exactly one.`,
 				);
 				const t = n.Body().definitions()[0].toObject();
 				this.m_mapDefIDtoDefinition.set(e, t);
 				this.GetItemChangeCallback(e).Dispatch(t);
 				return t;
 			}
-			r = (0, Te.H)(n);
+			r = H_1(n);
 		} catch (e) {
-			r = (0, Te.H)(e);
+			r = H_1(e);
 		}
 		console.error(
-			"CLoyaltyRewardDefinitionStore.LoadRewardDefinition failed: " +
-				r?.strErrorMsg,
+			`CLoyaltyRewardDefinitionStore.LoadRewardDefinition failed: ${r?.strErrorMsg}`,
 			r,
 		);
 		return null;
@@ -2514,19 +2109,17 @@ class Mt {
 				this.GetItemsByCategoryAndClassCallback(e, t).Dispatch(n);
 				if (T.TS.WEB_UNIVERSE == "dev" || T.TS.WEB_UNIVERSE == "beta") {
 					console.log(
-						"CLoyaltyRewardDefinitionStore.LoadRewardDefinitionByCategoryAndClass loaded " +
-							n.length,
+						`CLoyaltyRewardDefinitionStore.LoadRewardDefinitionByCategoryAndClass loaded ${n.length}`,
 					);
 				}
 				return n;
 			}
-			i = (0, Te.H)(a);
+			i = H_1(a);
 		} catch (e) {
-			i = (0, Te.H)(e);
+			i = H_1(e);
 		}
 		console.error(
-			"CLoyaltyRewardDefinitionStore.LoadRewardDefinitionByCategoryAndClass failed: " +
-				i?.strErrorMsg,
+			`CLoyaltyRewardDefinitionStore.LoadRewardDefinitionByCategoryAndClass failed: ${i?.strErrorMsg}`,
 			i,
 		);
 		return null;
@@ -2547,65 +2140,50 @@ class Mt {
 		this.m_SteamInterface = new Ie.D(T.TS.WEBAPI_BASE_URL);
 	}
 }
-var Tt = require(/*webcrack:missing*/ "./98995.js");
-var Rt = require("./49433.js");
-var kt = Rt;
+const kt = Rt;
 function Dt(e) {
-	const { defid: t, url: r } = e;
-	const n = (function (e) {
-		const [t, r] = (0, s.useState)(Mt.Get().GetItem(e));
-		(0, s.useEffect)(() => {
+	const { defid, url } = e;
+	const n = ((e) => {
+		const [t, setT] = useState(Mt.Get().GetItem(e));
+		useEffect(() => {
 			if (!t) {
 				Mt.Get().LoadRewardDefinition(e);
 			}
 		}, [e, t]);
-		(0, ke.hL)(Mt.Get().GetItemChangeCallback(e), r);
+		hL(Mt.Get().GetItemChangeCallback(e), setT);
 		return t;
-	})(t);
+	})(defid);
 	if (!n || !n.community_item_data) {
 		return null;
 	}
-	const i = n.appid;
+	const n_appid = n.appid;
 	const a = n.community_item_data.item_image_large;
-	const o = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${i}/${a}`;
+	const o = `${T.TS.MEDIA_CDN_COMMUNITY_URL}images/items/${n_appid}/${a}`;
 	if (T.TS.WEB_UNIVERSE == "dev") {
-		console.log("reward itemdef", (0, Be.HO)(n));
+		console.log("reward itemdef", HO(n));
 	}
-	return s.createElement(
-		"div",
-		{
-			className: kt.Ctn,
-		},
-		s.createElement(
-			Tt.he,
-			{
-				toolTipContent: n.community_item_data.item_description,
-			},
-			s.createElement("img", {
-				src: o,
-				alt: n.community_item_data.item_title,
-			}),
-		),
+	return (
+		<div className={kt.Ctn}>
+			<Tt.he toolTipContent={n.community_item_data.item_description}>
+				<img src={o} alt={n.community_item_data.item_title} />
+			</Tt.he>
+		</div>
 	);
 }
-var Nt = require("./80493.js");
-var Ft = require("./55448.js");
-var Gt = require("./58839.js");
 function Ot(e) {
-	const { inputType: t, id: r } = e;
-	const [n] = (0, b.G6)(r, (0, Gt.SW)(t), {});
-	let i = t == "bundle" ? "bundle" : t == "sub" ? "sub" : "game";
-	return s.createElement(
-		"div",
-		{
-			className: (0, E.A)(Ft.AppSummaryWidgetCtn, "AppSummaryWidgetCtn"),
-		},
-		s.createElement(Nt.pb, {
-			id: r,
-			type: i,
-			bShowDemoButton: n?.GetAppType() == 1,
-			bAllowTwoLinesForHeader: true,
-		}),
+	const { inputType, id } = e;
+	const [n] = G6(id, SW(inputType), {});
+	let i =
+		inputType == "bundle" ? "bundle" : inputType == "sub" ? "sub" : "game";
+	return (
+		<div className={A_1(Ft.AppSummaryWidgetCtn, "AppSummaryWidgetCtn")}>
+			<Nt.pb
+				id={id}
+				type={i}
+				bShowDemoButton={n?.GetAppType() == 1}
+				bAllowTwoLinesForHeader
+			/>
+		</div>
 	);
 }
 const Pt =
@@ -2627,56 +2205,56 @@ const Qt =
 	/(?:steampowered\.com|valve\.org\/store|steam\.dev\/store|store\.steamchina\.com)\/points\/shop\/.*reward\/(\d+)$/i;
 let Zt = null;
 function Yt(e, t) {
-	if ((0, T.Y2)()) {
+	if (Y2()) {
 		return null;
 	}
-	const r = (0, lt.XU)(e);
+	const r = XU(e);
 	if (r?.strVideoID !== undefined) {
-		return s.createElement(mt.A, {
-			videoID: r.strVideoID,
-			nStartSeconds: r.nStartSeconds,
-			classNameAlign: "",
-			classNameSize: dt.sizeFull,
-			bShowVideoImmediately: false,
-		});
+		return (
+			<mt.A
+				videoID={r.strVideoID}
+				nStartSeconds={r.nStartSeconds}
+				classNameAlign=""
+				classNameSize={dt.sizeFull}
+				bShowVideoImmediately={false}
+			/>
+		);
 	} else {
-		return (0, u.Pm)(e, t?.event);
+		return Pm(e, t?.event);
 	}
 }
 function Kt(e, t) {
-	if ((0, T.Y2)()) {
+	if (Y2()) {
 		return null;
 	}
 	const r = new RegExp(Ut).exec(e);
 	if (r && r.length > 1) {
-		const e = r[1];
+		const [, e] = r;
 		if (e?.length > 0) {
-			let r =
-				"https://medal.tv/clip/" +
-				e +
-				"/?autoplay=0&donate=0" +
-				(t && t.event ? "&steamappid=" + t.event.appid : "");
-			return s.createElement("iframe", {
-				className: B.MedalTVWidget,
-				src: r,
-				frameBorder: 0,
-				allow: "autoplay",
-			});
+			let r = `https://medal.tv/clip/${e}/?autoplay=0&donate=0${
+				t && t.event ? `&steamappid=${t.event.appid}` : ""
+			}`;
+			return (
+				<iframe
+					className={B.MedalTVWidget}
+					src={r}
+					frameBorder={0}
+					allow="autoplay"
+				/>
+			);
 		}
 	}
-	return (0, u.Pm)(e, t?.event);
+	return Pm(e, t?.event);
 }
 function Xt(e, t) {
 	let r = new RegExp(Wt).exec(e);
 	if (r && r.length > 1) {
-		let e = r[1];
+		let [, e] = r;
 		if (e && e.length > 1) {
-			return s.createElement(It, {
-				modelID: e,
-			});
+			return <It modelID={e} />;
 		}
 	}
-	return (0, u.Pm)(e, t?.event);
+	return Pm(e, t?.event);
 }
 function Jt(e, t) {
 	const r = e.split("?");
@@ -2688,25 +2266,24 @@ function Jt(e, t) {
 		}
 	}
 	if (n !== undefined) {
-		return s.createElement(ht, {
-			sharedFileID: n,
-		});
+		return <Ht_1 sharedFileID={n} />;
 	} else {
-		return (0, u.Pm)(e, t?.event);
+		return Pm(e, t?.event);
 	}
 }
 function $t(e) {
-	let t = (0, m.wm)(e).toLocaleLowerCase();
-	let r = (0, m.wm)(T.TS.STORE_BASE_URL);
-	let n = (0, m.wm)(T.TS.COMMUNITY_BASE_URL);
+	let t = wm(e).toLocaleLowerCase();
+	let r = wm(T.TS.STORE_BASE_URL);
+	let n = wm(T.TS.COMMUNITY_BASE_URL);
 	const i =
 		T.TS.WEB_UNIVERSE === "dev" ||
-		(0, m.wm)(T.TS.STORE_BASE_URL).endsWith(".steam.dev");
+		wm(T.TS.STORE_BASE_URL).endsWith(".steam.dev");
 	return (
 		t == r ||
 		t == n ||
 		(i &&
 			(t.includes("steampowered.com") ||
+				t.includes("steamcommunity.com") ||
 				t.includes("steamcommunity.com") ||
 				t.includes("steamchina.com")))
 	);
@@ -2715,17 +2292,14 @@ function er(e, t) {
 	if ($t(e)) {
 		let t = new RegExp(Pt).exec(e);
 		if (t && t.length > 2) {
-			let e = t[1];
+			let [, e] = t;
 			let r = Number(t[2]);
 			if (r > 0) {
-				return s.createElement(Ot, {
-					id: r,
-					inputType: e,
-				});
+				return <Ot id={r} inputType={e} />;
 			}
 		}
 	}
-	return (0, u.Pm)(e, t?.event);
+	return Pm(e, t?.event);
 }
 function tr(e, t) {
 	if ($t(e)) {
@@ -2733,20 +2307,15 @@ function tr(e, t) {
 		if (t && t.length > 1) {
 			const r = Number(t[1]);
 			if (r > 0) {
-				return s.createElement(
-					"div",
-					{
-						className: (0, E.A)(B.LoyaltyRewardCtn),
-					},
-					s.createElement(Dt, {
-						defid: r,
-						url: e,
-					}),
+				return (
+					<div className={A_1(B.LoyaltyRewardCtn)}>
+						<Dt defid={r} url={e} />
+					</div>
 				);
 			}
 		}
 	}
-	return (0, u.Pm)(e, t?.event);
+	return Pm(e, t?.event);
 }
 function rr(e, t) {
 	if ($t(e)) {
@@ -2765,7 +2334,7 @@ function rr(e, t) {
 			} else {
 				r = Number(t[2]);
 			}
-			let o = t[3];
+			let [, , , o] = t;
 			if (
 				((r !== undefined && r > 0) ||
 					i !== undefined ||
@@ -2774,18 +2343,20 @@ function rr(e, t) {
 				o != null &&
 				o.length > 0
 			) {
-				return s.createElement(wt, {
-					appid: r,
-					clanSteamID: n,
-					strVanity: i,
-					strGroupVanity: a,
-					announcementGID: o,
-					strURL: e,
-				});
+				return (
+					<Wt_1
+						appid={r}
+						clanSteamID={n}
+						strVanity={i}
+						strGroupVanity={a}
+						announcementGID={o}
+						strURL={e}
+					/>
+				);
 			}
 		}
 	}
-	return (0, u.Pm)(e, t?.event);
+	return Pm(e, t?.event);
 }
 function nr(e, t) {
 	return mr(xt, e, t);
@@ -2794,28 +2365,28 @@ function ir(e, t) {
 	return mr(zt, e, t);
 }
 function ar(e, t) {
-	if ((0, T.Y2)()) {
+	if (Y2()) {
 		return null;
 	} else {
-		return cr(e, s.createElement(Z.KKS, null), "@", t);
+		return cr(e, <Z.KKS />, "@", t);
 	}
 }
 function sr(e, t) {
-	if ((0, T.Y2)()) {
+	if (Y2()) {
 		return null;
 	} else {
-		return cr(e, s.createElement(Z.KKS, null), "#", t);
+		return cr(e, <Z.KKS />, "#", t);
 	}
 }
 function or(e, t) {
-	if ((0, T.Y2)()) {
+	if (Y2()) {
 		return null;
 	} else {
-		return cr(e, s.createElement(Z.qcc, null), undefined, t);
+		return cr(e, <Z.qcc />, undefined, t);
 	}
 }
 function lr(e, t) {
-	return cr(e, s.createElement(Z.Qte, null), undefined, t);
+	return cr(e, <Z.Qte />, undefined, t);
 }
 function cr(e, t, r, n) {
 	let i;
@@ -2827,20 +2398,12 @@ function cr(e, t, r, n) {
 	if (r && i) {
 		i = r + i;
 	}
-	const l = (0, u.Pm)(e, n?.event, i ?? e);
-	return s.createElement(
-		"div",
-		{
-			className: B.SocialLink,
-		},
-		s.createElement(
-			"div",
-			{
-				className: B.SocialIcon,
-			},
-			t,
-		),
-		l,
+	const l = Pm(e, n?.event, i ?? e);
+	return (
+		<div className={B.SocialLink}>
+			<div className={B.SocialIcon}>{t}</div>
+			{l}
+		</div>
 	);
 }
 function mr(e, t, r) {
@@ -2862,7 +2425,7 @@ function mr(e, t, r) {
 			} else {
 				e = Number(r[2]);
 			}
-			const o = r[3];
+			const [, , , o] = r;
 			if (
 				((e !== undefined && e > 0) ||
 					i !== undefined ||
@@ -2871,18 +2434,20 @@ function mr(e, t, r) {
 				o != null &&
 				o.length > 0
 			) {
-				return s.createElement(wt, {
-					appid: e,
-					clanSteamID: n,
-					strVanity: i,
-					strGroupVanity: a,
-					eventGID: o,
-					strURL: t,
-				});
+				return (
+					<Wt_1
+						appid={e}
+						clanSteamID={n}
+						strVanity={i}
+						strGroupVanity={a}
+						eventGID={o}
+						strURL={t}
+					/>
+				);
 			}
 		}
 	}
-	return (0, u.Pm)(t, r?.event);
+	return Pm(t, r?.event);
 }
 export class f extends s.Component {
 	m_parser;
@@ -2901,7 +2466,7 @@ export class f extends s.Component {
 					new a.OJ(new a.R8(), 0),
 					e,
 					(Zt == null &&
-						(Zt = (0, T.Y2)()
+						(Zt = Y2()
 							? [
 									{
 										urlRegExp: new RegExp(Pt),
@@ -3009,4 +2574,4 @@ export class f extends s.Component {
 		});
 	}
 }
-(0, n.Cg)([ke.oI], f.prototype, "ElementAccumulator", null);
+Cg([ke.oI], f.prototype, "ElementAccumulator", null);

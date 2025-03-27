@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	ActionSetNameOverIndicators: "_1XyoyMC5lrF53KrZKH8RUM",
 	ActionSetNameAndGlyphs: "eAK-3WIUWyV5Y8PSdcOeS",

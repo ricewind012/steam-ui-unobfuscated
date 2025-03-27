@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	Checkmark: "x5D0RRkGlMxFppHblGf4u",
 	LockIcon: "_1oafXHYJsj_6IOlkJEzMRJ",

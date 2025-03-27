@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	narrowWidth: "500px",
 	ActivateProductDialog: "_2siQZCB9yAOkiG8N-zRZEe",
 	ActivateProductHeading: "_1VqfXZKjqtWyIfXKGw51L",

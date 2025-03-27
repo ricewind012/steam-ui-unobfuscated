@@ -1,23 +1,23 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./83957.js");
-var a = i;
-var _s = require(/*webcrack:missing*/ "./37322.js");
-var o = require(/*webcrack:missing*/ "./89193.js");
-var l = require(/*webcrack:missing*/ "./44846.js");
-var c = require(/*webcrack:missing*/ "./12176.js");
-var m = require(/*webcrack:missing*/ "./8573.js");
-var u = require("./54946.js");
-var d = require(/*webcrack:missing*/ "./72476.js");
-var A = require("./63088.js");
-var p = require(/*webcrack:missing*/ "./49455.js");
-var g = require("./36813.js");
-var h = require("./31930.js");
-var C = require(/*webcrack:missing*/ "./93960.js");
+import n, { Cg } from "./34629.js";
+import i from "./83957.js";
+import _s from "./37322.js";
+import o, { Gn } from "./89193.js";
+import { S$ } from "./44846.js";
+import c from "./12176.js";
+import m from "./8573.js";
+import u from "./54946.js";
+import d, { xv } from "./72476.js";
+import { aj } from "./63088.js";
+import { w } from "./49455.js";
+import g from "./36813.js";
+import h from "./31930.js";
+import C from "./93960.js";
+const a = i;
 function _() {
 	if (d.TS.IN_MOBILE) {
 		return d.NQ;
 	} else {
-		return (0, d.xv)();
+		return xv();
 	}
 }
 const f = "(1)";
@@ -43,7 +43,7 @@ export class s {
 	m_bInitialized = false;
 	m_DataAccess;
 	constructor(e) {
-		(0, o.Gn)(this);
+		Gn(this);
 		let t = new u.B4();
 		this.m_TextFilterPreferences = {
 			eTextFilterSetting: t.text_filter_setting(),
@@ -103,7 +103,7 @@ export class s {
 		return g.UP.SendMsgGetTextFilterDictionary(r, this.m_WebUIServiceTransport);
 	}
 	GetStorageKey(e) {
-		return e + "_" + this.m_unAccountID;
+		return `${e}_${this.m_unAccountID}`;
 	}
 	async LoadTextFilterPreferences() {
 		if (this.m_Storage) {
@@ -140,7 +140,7 @@ export class s {
 				return r;
 			} else {
 				console.log(
-					"DeobfuscateString given invalid base64 data, ignoring: " + e,
+					`DeobfuscateString given invalid base64 data, ignoring: ${e}`,
 				);
 				return "";
 			}
@@ -216,7 +216,7 @@ export class s {
 						origin: _(),
 					};
 					const r = await a.get(
-						d.TS.COMMUNITY_BASE_URL + "textfilter/ajaxgetcommunitypreferences",
+						`${d.TS.COMMUNITY_BASE_URL}textfilter/ajaxgetcommunitypreferences`,
 						{
 							params: t,
 							withCredentials: true,
@@ -245,8 +245,7 @@ export class s {
 							origin: _(),
 						};
 						const r = await a.get(
-							d.TS.COMMUNITY_BASE_URL +
-								"textfilter/ajaxgettextfiltercustomwords",
+							`${d.TS.COMMUNITY_BASE_URL}textfilter/ajaxgettextfiltercustomwords`,
 							{
 								params: e,
 								withCredentials: true,
@@ -299,7 +298,7 @@ export class s {
 			}
 		} catch (t) {
 			if (this.m_nLoadLanguagesRetryTimeout) {
-				(0, p.w)(
+				w(
 					!this.m_nLoadLanguagesRetryTimeout,
 					"Got two concurrent calls to TextFilteringStore.LoadLanguages",
 				);
@@ -337,31 +336,37 @@ export class s {
 			}
 		}
 		if (!r) {
-			t = `${d.TS.COMMUNITY_CDN_URL}textfilter/gettextfilterdictionary?type=banned&language=${e}&v=1&origin=${_()}`;
+			t = `${
+				d.TS.COMMUNITY_CDN_URL
+			}textfilter/gettextfilterdictionary?type=banned&language=${e}&v=1&origin=${_()}`;
 			{
 				const e = await a.get(t);
 				this.m_strBannedWords += e.data;
 			}
-			t = `${d.TS.COMMUNITY_CDN_URL}textfilter/gettextfilterdictionary?type=profanity&language=${e}&v=1&origin=${_()}`;
+			t = `${
+				d.TS.COMMUNITY_CDN_URL
+			}textfilter/gettextfilterdictionary?type=profanity&language=${e}&v=1&origin=${_()}`;
 			{
 				const e = await a.get(t);
 				this.m_strProfanityWords += e.data;
 			}
 		}
-		t = `${d.TS.COMMUNITY_CDN_URL}textfilter/gettextfilterdictionary?type=clean_public&language=${e}&v=1&origin=${_()}`;
+		t = `${
+			d.TS.COMMUNITY_CDN_URL
+		}textfilter/gettextfilterdictionary?type=clean_public&language=${e}&v=1&origin=${_()}`;
 		{
 			const e = await a.get(t);
 			this.m_strCleanWords += e.data;
 		}
 	}
 	CreatePattern(e) {
-		let t = e.filter(function (e) {
-			return (function (e) {
+		let t = e.filter((e) =>
+			((e) => {
 				if (e === "") {
 					return false;
 				}
 				try {
-					new RegExp("\\b(" + e + ")\\b", "ugi");
+					new RegExp(`\\b(${e})\\b`, "ugi");
 					return true;
 				} catch (t) {
 					console.log(
@@ -369,10 +374,10 @@ export class s {
 					);
 					return false;
 				}
-			})(e);
-		});
+			})(e),
+		);
 		if (t.length > 0) {
-			return "\\b(" + t.join("|") + ")\\b";
+			return `\\b(${t.join("|")})\\b`;
 		} else {
 			return "";
 		}
@@ -383,16 +388,19 @@ export class s {
 		let r = [];
 		switch (this.m_TextFilterPreferences.eTextFilterSetting) {
 			case 0:
-			case 3:
+			case 3: {
 				break;
-			case 2:
+			}
+			case 2: {
 				t = t.concat(this.m_strBannedWords.split(e));
 				break;
-			default:
+			}
+			default: {
 				t = t.concat(
 					this.m_strProfanityWords.split(e),
 					this.m_strBannedWords.split(e),
 				);
+			}
 		}
 		t = t.concat(this.m_TextFilterWords.text_filter_custom_banned_words());
 		r = this.m_strCleanWords.split(e);
@@ -400,7 +408,7 @@ export class s {
 		let n = this.CreatePattern(t);
 		let i = this.CreatePattern(r);
 		if (i != "") {
-			i = "^(" + i + ")$";
+			i = `^(${i})$`;
 		}
 		if (this.BRebuildFilter(n, i)) {
 			this.SaveFilter();
@@ -417,7 +425,7 @@ export class s {
 				this.m_regexBannedWords = new RegExp(e, "ugi");
 			} catch (e) {
 				console.warn("Couldn't compile textfilter bannedwords regex");
-				(0, A.aj)().ReportError(
+				aj().ReportError(
 					new Error(`Couldn't compile textfilter bannedwords regex: ${e}`),
 				);
 				this.m_strBannedPattern = "";
@@ -430,7 +438,7 @@ export class s {
 				this.m_regexCleanWords = new RegExp(t, "ugi");
 			} catch (e) {
 				console.warn("Couldn't compile textfilter cleanwords regex");
-				(0, A.aj)().ReportError(
+				aj().ReportError(
 					new Error(`Couldn't compile textfilter cleanwords regex: ${e}`),
 				);
 				this.m_strCleanPattern = "";
@@ -485,12 +493,12 @@ export function Q() {
 			sessionid: d.TS.SESSIONID,
 			origin: _(),
 		};
-		a.get(d.TS.COMMUNITY_BASE_URL + "textfilter/ajaxgetfriendslist", {
+		a.get(`${d.TS.COMMUNITY_BASE_URL}textfilter/ajaxgetfriendslist`, {
 			params: t,
 			withCredentials: true,
 		}).then((t) => {
 			for (const r of t.data.friendslist?.friends ?? []) {
-				if ((0, l.S$)(r.efriendrelationship)) {
+				if (S$(r.efriendrelationship)) {
 					e.add(new m.b(r.ulfriendid).GetAccountID());
 				}
 			}
@@ -499,12 +507,12 @@ export function Q() {
 	}
 	return y;
 }
-(0, n.Cg)([o.sH], s.prototype, "m_TextFilterPreferences", undefined);
-(0, n.Cg)([o.sH], s.prototype, "m_mapPlayerCache", undefined);
-(0, n.Cg)([o.sH], s.prototype, "m_regexBannedWords", undefined);
-(0, n.Cg)([o.sH], s.prototype, "m_regexCleanWords", undefined);
-(0, n.Cg)([o.sH], s.prototype, "m_bInitialized", undefined);
-(0, n.Cg)([o.XI], s.prototype, "Init", null);
-(0, n.Cg)([C.o], s.prototype, "OnTextFilterDictionaryChanged", null);
-(0, n.Cg)([o.XI], s.prototype, "UpdateCommunityPreferences", null);
-(0, n.Cg)([o.XI], s.prototype, "BRebuildFilter", null);
+Cg([o.sH], s.prototype, "m_TextFilterPreferences", undefined);
+Cg([o.sH], s.prototype, "m_mapPlayerCache", undefined);
+Cg([o.sH], s.prototype, "m_regexBannedWords", undefined);
+Cg([o.sH], s.prototype, "m_regexCleanWords", undefined);
+Cg([o.sH], s.prototype, "m_bInitialized", undefined);
+Cg([o.XI], s.prototype, "Init", null);
+Cg([C.o], s.prototype, "OnTextFilterDictionaryChanged", null);
+Cg([o.XI], s.prototype, "UpdateCommunityPreferences", null);
+Cg([o.XI], s.prototype, "BRebuildFilter", null);

@@ -5,9 +5,9 @@ class n {
 	args;
 	ConvertMalformedNodeToText() {
 		if (this.type == 3) {
-			this.text = "[/" + this.text;
+			this.text = `[/${this.text}`;
 		} else if (this.type == 2) {
-			this.text = "[" + this.text;
+			this.text = `[${this.text}`;
 		}
 		this.type = 1;
 	}
@@ -20,16 +20,16 @@ export class Al {
 		this.m_fnAccumulatorFactory = t;
 	}
 	Parse(e, t, r = false) {
-		const i = (function (e, t) {
+		const i = ((e, t) => {
 			const r = [];
 			let i = new n();
 			let a = false;
 			let s = false;
 			let o = false;
-			for (let n = 0; n < e.length; n++) {
-				const l = e[n];
+
+			for (const l of e) {
 				switch (i.type) {
-					case 0:
+					case 0: {
 						if (l == "[") {
 							i.type = 2;
 							s = true;
@@ -42,8 +42,9 @@ export class Al {
 							}
 						}
 						break;
+					}
 					case 2:
-					case 3:
+					case 3: {
 						if (l == "/" && s) {
 							i.type = 3;
 							i.text = "";
@@ -81,7 +82,8 @@ export class Al {
 							s = true;
 						}
 						break;
-					case 1:
+					}
+					case 1: {
 						if (l != "[" || a) {
 							if (l == "\\" && t) {
 								if (a) {
@@ -96,8 +98,10 @@ export class Al {
 							i = c(r, i, 2);
 							s = true;
 						}
+					}
 				}
 			}
+
 			if (i.type != 0) {
 				if (i.type == 2 || i.type == 3) {
 					i.ConvertMalformedNodeToText();
@@ -111,7 +115,7 @@ export class Al {
 	Parse_BuildElements(e, t) {
 		let r = this.m_fnAccumulatorFactory(undefined);
 		const n = [];
-		const i = () => (n.length < 1 ? undefined : n[n.length - 1]);
+		const i = () => n.length < 1 || n[n.length - 1];
 		const a = this.m_dictComponents;
 		const s = (e) => !!e.tag && !!a.get(e.tag)?.autocloses;
 		let o = false;
@@ -135,11 +139,11 @@ export class Al {
 				o = !!i.skipFollowingNewline;
 				l = e.bWrapTextForCopying;
 			} else if (e) {
-				const t = e.accumulator;
-				t.AppendText("[" + e.node.text + "]", false);
-				r.GetElements().forEach((e) => t.AppendNode(e));
-				t.AppendText("[/" + i.text + "]", false);
-				r = t;
+				const e_accumulator = e.accumulator;
+				e_accumulator.AppendText(`[${e.node.text}]`, false);
+				r.GetElements().forEach((e) => e_accumulator.AppendNode(e));
+				e_accumulator.AppendText(`[/${i.text}]`, false);
+				r = e_accumulator;
 				l = e.bWrapTextForCopying;
 			}
 		};
@@ -168,7 +172,7 @@ export class Al {
 						o = !!t.skipInternalNewline;
 						l = t.allowWrapTextForCopying ?? false;
 					} else {
-						r.AppendText("[" + e.text + "]", n.length == 0);
+						r.AppendText(`[${e.text}]`, n.length == 0);
 					}
 				} else if (e.type == 3) {
 					while (i() && i().node.tag !== e.text && s(i().node)) {
@@ -179,7 +183,7 @@ export class Al {
 						const t = n.pop();
 						c(t, e);
 					} else {
-						r.AppendText("[/" + e.text + "]", n.length == 0);
+						r.AppendText(`[/${e.text}]`, n.length == 0);
 					}
 				}
 			});
@@ -193,13 +197,13 @@ export class Al {
 	}
 }
 export function CS(e, t) {
-	let r = "[" + e;
+	let r = `[${e}`;
 	if (t?.[""]) {
-		r += `=${s("" + t[""])}`;
+		r += `=${s(`${t[""]}`)}`;
 	}
 	for (const e in t) {
 		if (e !== "") {
-			r += ` ${((n = e), n.replace(/(\\| |\])/g, "\\$1"))}=${s("" + t[e])}`;
+			r += ` ${((n = e), n.replace(/(\\| |\])/g, "\\$1"))}=${s(`${t[e]}`)}`;
 		}
 	}
 	var n;
@@ -225,7 +229,7 @@ function c(e, t, r = 0) {
 		if (e > 0) {
 			t.tag = t.text.substr(0, e).toLocaleLowerCase();
 			const r = t.text.substr(e);
-			t.args = (function (e) {
+			t.args = ((e) => {
 				if (!e || e.length < 1) {
 					return {};
 				}
@@ -239,22 +243,23 @@ function c(e, t, r = 0) {
 				}
 				let s = false;
 				for (a++; a < e.length; a++) {
-					const o = e[a];
+					const e_a = e[a];
 					let l = true;
 					let c = false;
 					switch (i) {
-						case 0:
-							if (o == "=") {
+						case 0: {
+							if (e_a == "=") {
 								return {};
 							}
-							if (o == " ") {
+							if (e_a == " ") {
 								continue;
 							}
 							i = 1;
 							break;
-						case 1:
-							if ((o == "=" || o == " ") && !s) {
-								if (o == " ") {
+						}
+						case 1: {
+							if ((e_a == "=" || e_a == " ") && !s) {
+								if (e_a == " ") {
 									i = 0;
 									c = true;
 								} else {
@@ -263,38 +268,44 @@ function c(e, t, r = 0) {
 								l = false;
 							}
 							break;
-						case 2:
-							if (o == " ") {
+						}
+						case 2: {
+							if (e_a == " ") {
 								i = 0;
 								l = false;
 								c = true;
-							} else if (o == '"') {
+							} else if (e_a == '"') {
 								i = 4;
 								l = false;
 							} else {
 								i = 3;
 							}
 							break;
+						}
 						case 3:
-						case 4:
-							if ((o == " " && i != 4 && !s) || (o == '"' && i == 4 && !s)) {
+						case 4: {
+							if (
+								(e_a == " " && i != 4 && !s) ||
+								(e_a == '"' && i == 4 && !s)
+							) {
 								i = 0;
 								l = false;
 								c = true;
 							}
+						}
 					}
 					if (l) {
-						if (o != "\\" || s) {
+						if (e_a != "\\" || s) {
 							s = false;
 							if (i == 1) {
-								r += o;
+								r += e_a;
 							} else {
 								if (i != 3 && i != 4) {
 									throw new Error(
-										"Not expecting to accumulate buffer in state " + i,
+										`Not expecting to accumulate buffer in state ${i}`,
 									);
 								}
-								n += o;
+								n += e_a;
 							}
 						} else {
 							s = true;

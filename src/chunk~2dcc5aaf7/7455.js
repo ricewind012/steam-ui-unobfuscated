@@ -1,16 +1,19 @@
-var n = require(/*webcrack:missing*/ "./12176.js");
-var i = require(/*webcrack:missing*/ "./58663.js");
-var a = require(/*webcrack:missing*/ "./48307.js");
-var s = require("./12251.js");
-const o = i.Message;
-class l extends o {
+import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
+import n, { I8 } from "./12176.js";
+import i from "./58663.js";
+import a from "./48307.js";
+import { OI } from "./12251.js";
+import { NL } from "./23472.js";
+import A from "./83599.js";
+const i_Message = i.Message;
+class l extends i_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!l.prototype.file_prefix) {
 			a.Sg(l.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		i_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -59,7 +62,7 @@ class l extends o {
 		return a.zj(l.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new i.BinaryWriter();
+		const e = new i.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -67,7 +70,7 @@ class l extends o {
 		a.i0(l.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new i.BinaryWriter();
+		const e = new i.BinaryWriter();
 		l.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -75,14 +78,14 @@ class l extends o {
 		return "CGameNotes_UploadImage_Request";
 	}
 }
-class c extends o {
+class c extends i_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
 		super();
 		if (!c.prototype.filename) {
 			a.Sg(c.M());
 		}
-		o.initialize(this, e, 0, -1, undefined, null);
+		i_Message.initialize(this, e, 0, -1, undefined, null);
 	}
 	static sm_m;
 	static sm_mbf;
@@ -121,7 +124,7 @@ class c extends o {
 		return a.zj(c.MBF(), e, t);
 	}
 	serializeBinary() {
-		var e = new i.BinaryWriter();
+		const e = new i.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBuffer();
 	}
@@ -129,7 +132,7 @@ class c extends o {
 		a.i0(c.M(), e, t);
 	}
 	serializeBase64String() {
-		var e = new i.BinaryWriter();
+		const e = new i.BinaryWriter();
 		c.serializeBinaryToWriter(this, e);
 		return e.getResultBase64String();
 	}
@@ -137,43 +140,40 @@ class c extends o {
 		return "CGameNotes_UploadImage_Response";
 	}
 }
-var m;
-(function (e) {
+let m;
+((e) => {
 	e.UploadImageHandler = {
 		name: "GameNotes.UploadImage#1",
 		request: l,
 		response: c,
 	};
-	e.UploadImage = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.UploadImage = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("GameNotes.UploadImage#1", (0, n.I8)(l, e), c, {
+			return t.SendMsg("GameNotes.UploadImage#1", I8(l, e), c, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
-	e.SendMsgUploadImage = function (e, t) {
-		if ((t = t || (0, s.OI)().GetDefaultTransport()) == null) {
+	e.SendMsgUploadImage = (e, t) => {
+		if ((t = t || OI().GetDefaultTransport()) == null) {
 			return new Promise((e, t) => {
 				console.error("Transport Error: no transport is available for request");
 				t("Transport Error: no transport is available for request");
 			});
 		} else {
-			return t.SendMsg("GameNotes.UploadImage#1", (0, n.I8)(l, e), c, {
+			return t.SendMsg("GameNotes.UploadImage#1", I8(l, e), c, {
 				ePrivilege: 1,
 				eClientExecutionSite: 1,
 			});
 		}
 	};
 })((m ||= {}));
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-var d = require("./23472.js");
-var A = require(/*webcrack:missing*/ "./83599.js");
 const p = new A.wd("GameNotesCloudStore").Debug;
 function g(e) {
 	return e.replace(/[!-/:-@ [\\\]^`]/g, "_");
@@ -240,7 +240,7 @@ class h {
 		};
 	}
 	async SaveGameNote(e, t, r) {
-		const n = (0, d.NL)(e);
+		const n = NL(e);
 		const i = await this.InternalLoadNotes(n);
 		const a = i.notes.findIndex((t) => t.id === e.id);
 		if (a != -1) {
@@ -270,9 +270,7 @@ class h {
 			const t = {
 				notes: n.notes,
 			};
-			const r = JSON.stringify(t, (e, t) =>
-				e === "not_persisted" ? undefined : t,
-			);
+			const r = JSON.stringify(t, (e, t) => e === "not_persisted" || t);
 			p(t, ` => ${r}`);
 			const i = await this.WriteNotesFile(this.FilenameForNotes(e), r);
 			if (i != 1) {
@@ -394,7 +392,7 @@ export class L extends h {
 		}
 	}
 	async ResolveImageURL(e) {
-		return "/gamenotes/" + e;
+		return `/gamenotes/${e}`;
 	}
 	m_bSyncing = false;
 	m_bSyncRequested = false;

@@ -1,18 +1,18 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
 import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
 import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-var s = require(/*webcrack:missing*/ "./89193.js");
-var o = require("./78057.js");
-var l = require(/*webcrack:missing*/ "./88696.js");
-var c = require("./91745.js");
-var m = require(/*webcrack:missing*/ "./90095.js");
-var u = require("./44926.js");
-var d = require("./67429.js");
+import n, { Cg } from "./34629.js";
+import s, { Gn, fm } from "./89193.js";
+import o from "./78057.js";
+import l from "./88696.js";
+import c from "./91745.js";
+import { q3 } from "./90095.js";
+import u from "./44926.js";
+import d, { bY } from "./67429.js";
 const A = Seconds.PerHour * 12;
 const p = 646570;
 class g {
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	m_postGameSummary = null;
 	m_rgNewDLC = [];
@@ -23,8 +23,8 @@ class g {
 	m_bLoadedPreviousSessionData = false;
 	m_hAppDetailsAutorun = null;
 }
-(0, n.Cg)([s.sH], g.prototype, "m_postGameSummary", undefined);
-(0, n.Cg)([s.sH], g.prototype, "m_rgNewDLC", undefined);
+Cg([s.sH], g.prototype, "m_postGameSummary", undefined);
+Cg([s.sH], g.prototype, "m_rgNewDLC", undefined);
 const h = "spotlight_dlc_store";
 const C = "spotlight_gameplaysession_store";
 class _ {
@@ -34,7 +34,7 @@ class _ {
 	m_dlcLocalStore = null;
 	m_gamePlayLocalStore = null;
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	async Init(e) {
 		this.m_CMInterface = e;
@@ -73,7 +73,7 @@ class _ {
 	}
 	EnterAppDetailsPage(e) {
 		let t = this.GetOrCreateAppData(e);
-		t.m_hAppDetailsAutorun ||= (0, s.fm)(() => {
+		t.m_hAppDetailsAutorun ||= fm(() => {
 			const r = o.H.GetAppDetails(e);
 			if (r) {
 				this.UpdateNewDLCToShow(t, r);
@@ -165,7 +165,7 @@ class _ {
 		return (
 			(
 				await u.xM.GetClips({
-					game_id: (0, d.bY)(e),
+					game_id: bY(e),
 					created_after: t,
 				})
 			)
@@ -177,7 +177,7 @@ class _ {
 		return (
 			(
 				await u.xM.GetAndTrimPostGameHighlights({
-					game_id: (0, d.bY)(e),
+					game_id: bY(e),
 					created_after: t,
 				})
 			)
@@ -560,17 +560,17 @@ class _ {
 function f(e, t) {
 	return e.findIndex((e) => !!e.m_clip && e.m_clip.clip_id == t);
 }
-(0, n.Cg)([s.XI], _.prototype, "UpdateNewDLCToShow", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnScreenshotNotification", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnAchievementNotification", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnTradingCardNotification", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnClipCreated", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnClipDeleted", null);
-(0, n.Cg)([s.XI.bound], _.prototype, "OnRecordingHighlightChanged", null);
+Cg([s.XI], _.prototype, "UpdateNewDLCToShow", null);
+Cg([s.XI.bound], _.prototype, "OnScreenshotNotification", null);
+Cg([s.XI.bound], _.prototype, "OnAchievementNotification", null);
+Cg([s.XI.bound], _.prototype, "OnTradingCardNotification", null);
+Cg([s.XI.bound], _.prototype, "OnClipCreated", null);
+Cg([s.XI.bound], _.prototype, "OnClipDeleted", null);
+Cg([s.XI.bound], _.prototype, "OnRecordingHighlightChanged", null);
 class b {
 	m_rgSessionEvents = [];
 	constructor() {
-		(0, s.Gn)(this);
+		Gn(this);
 	}
 	PushSessionEvent(e) {
 		let t = this.m_rgSessionEvents.findIndex((e) => !!e.m_recordingHighlights);
@@ -665,7 +665,7 @@ function B(e) {
 	} else if (w(e)) {
 		return e.date_clipped;
 	} else if (
-		(function (e) {
+		((e) => {
 			let t = e;
 			return t.possible_clip !== undefined && t.entry_id !== undefined;
 		})(e)
@@ -676,9 +676,9 @@ function B(e) {
 	}
 }
 export function BI(e) {
-	return (0, m.q3)(() => Ri.GetFeaturedNewDLC(e));
+	return q3(() => Ri.GetFeaturedNewDLC(e));
 }
-(0, n.Cg)([s.sH.shallow], b.prototype, "m_rgSessionEvents", undefined);
-(0, n.Cg)([s.XI.bound], b.prototype, "PushSessionEvent", null);
+Cg([s.sH.shallow], b.prototype, "m_rgSessionEvents", undefined);
+Cg([s.XI.bound], b.prototype, "PushSessionEvent", null);
 export const Ri = new _();
 window.appSpotlightStore = Ri;

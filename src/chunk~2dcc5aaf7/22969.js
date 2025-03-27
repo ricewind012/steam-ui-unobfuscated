@@ -1,27 +1,26 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
-var s = require(/*webcrack:missing*/ "./63696.js");
-var o = require("./96680.js");
-var l = require("./91369.js");
-var c = require(/*webcrack:missing*/ "./83599.js");
-var m = require("./12031.js");
-var u = m;
-var d = require("./65265.js");
-var A = d;
 import { Sleep } from "../../actual_src/utils/time.js";
-var g = require("./35425.js");
-var h = require("./26893.js");
-var C = require(/*webcrack:missing*/ "./52451.js");
-var _ = require(/*webcrack:missing*/ "./90765.js");
-var f = require("./6023.js");
-var b = require("./45967.js");
+import n, { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import a, { q3 } from "./90095.js";
+import s from "./63696.js";
+import o, { $2 } from "./96680.js";
+import l from "./91369.js";
+import c from "./83599.js";
+import m from "./12031.js";
+import d from "./65265.js";
+import g from "./35425.js";
+import h, { Cb } from "./26893.js";
+import C, { Fd } from "./52451.js";
+import { A as A_1 } from "./90765.js";
+import f from "./6023.js";
+import b from "./45967.js";
+const u = m;
+const A = d;
 const y = Number.parseInt(u["vrgamepadui-floating-bar-popup-panel-width"]);
 const S = Number.parseInt(u["vrgamepadui-floating-bar-popup-panel-height"]);
-const w = new c.wd("VRPooledPopupStore");
-export const fR = w;
-export var b7;
-(function (e) {
+export const fR = new c.wd("VRPooledPopupStore");
+export let b7;
+((e) => {
 	e[(e.DashboardBarPopup = 0)] = "DashboardBarPopup";
 	e[(e.Tooltip = 1)] = "Tooltip";
 	e[(e.MainPanelMenu = 2)] = "MainPanelMenu";
@@ -36,7 +35,7 @@ class I {
 	m_currentPooledPopupRequestId = undefined;
 	m_timeLastPopupHidden = new Date(0);
 	constructor(e, t, r) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_eHostType = e;
 		this.m_unIndex = t;
 		this.m_Params = r;
@@ -52,12 +51,12 @@ class I {
 		return this.m_currentPooledPopupRequestId != null;
 	}
 	get overlayKey() {
-		return this.m_Params.strOverlayKeyPrefix + "." + (this.m_unIndex + 1);
+		return `${this.m_Params.strOverlayKeyPrefix}.${this.m_unIndex + 1}`;
 	}
 }
-(0, n.Cg)([i.sH], I.prototype, "m_Popup", undefined);
-(0, n.Cg)([i.sH], I.prototype, "m_RootElement", undefined);
-(0, n.Cg)([i.sH], I.prototype, "m_currentPooledPopupRequestId", undefined);
+Cg([i.sH], I.prototype, "m_Popup", undefined);
+Cg([i.sH], I.prototype, "m_RootElement", undefined);
+Cg([i.sH], I.prototype, "m_currentPooledPopupRequestId", undefined);
 const E = {
 	[b7.DashboardBarPopup]: {
 		unNumHostsInPool: 1,
@@ -94,7 +93,7 @@ const E = {
 };
 class M {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	contentElement;
 	resizeObserver;
@@ -104,8 +103,8 @@ class M {
 	host;
 	params = undefined;
 }
-(0, n.Cg)([i.sH], M.prototype, "eState", undefined);
-(0, n.Cg)([i.sH], M.prototype, "params", undefined);
+Cg([i.sH], M.prototype, "eState", undefined);
+Cg([i.sH], M.prototype, "params", undefined);
 class T {
 	m_unTooltipId;
 	m_Element;
@@ -115,7 +114,7 @@ class T {
 	m_StrText = undefined;
 	m_bDelayFinished = undefined;
 	constructor(e, t, r, n) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_unTooltipId = e;
 		this.m_Element = t;
 		this.m_StrText = r;
@@ -149,8 +148,8 @@ class T {
 		return this.m_bDelayFinished;
 	}
 }
-(0, n.Cg)([i.sH], T.prototype, "m_StrText", undefined);
-(0, n.Cg)([i.sH], T.prototype, "m_bDelayFinished", undefined);
+Cg([i.sH], T.prototype, "m_StrText", undefined);
+Cg([i.sH], T.prototype, "m_bDelayFinished", undefined);
 export class ou {
 	m_Instance;
 	m_unNextPooledPopupRequestId;
@@ -159,7 +158,7 @@ export class ou {
 	m_mapTooltips = new Map();
 	m_unNextTooltipId = 1;
 	constructor(e) {
-		(0, i.Gn)(this);
+		Gn(this);
 		this.m_Instance = e;
 		for (const [e, { unNumHostsInPool: t, params: r }] of Object.entries(E)) {
 			const n = Number.parseInt(e);
@@ -195,9 +194,9 @@ export class ou {
 			return;
 		}
 		for (let e = 0; e < t.length; e++) {
-			const r = t[e];
-			const n = r.GetMillisecondsSinceLastPopup();
-			if (!r.BIsShowingPopup() && n > 32) {
+			const t_e = t[e];
+			const n = t_e.GetMillisecondsSinceLastPopup();
+			if (!t_e.BIsShowingPopup() && n > 32) {
 				return t[e];
 			}
 		}
@@ -247,25 +246,25 @@ export class ou {
 		}
 		const n = this.GetNextPooledPopupHostForType(e);
 		if (!n) {
-			w.Error(
+			fR.Error(
 				"Can't create Dashboard Popup; No CDashboardPopupHost exists.",
 				n,
 			);
 			return;
 		}
 		if (!n.m_Popup || !n.m_RootElement) {
-			w.Error(
+			fR.Error(
 				"Can't create Dashboard Popup; The CDashboardPopupHost has no associated window.",
 				n,
 			);
 			return;
 		}
 		const i = n.GetMillisecondsSinceLastPopup();
-		const a = n.m_currentPooledPopupRequestId;
+		const n_m_currentPooledPopupRequestId = n.m_currentPooledPopupRequestId;
 		const s = n.m_Popup.document.createElement("div");
 		const o = t.origin_on_popup?.x ?? 0;
 		const c = t.origin_on_popup?.y ?? 0;
-		s.className = (0, _.A)(
+		s.className = A_1(
 			A.PopupContent,
 			o == -1 && A.AlignLeft,
 			o == 0 && A.AlignCenterX,
@@ -294,9 +293,12 @@ export class ou {
 			g.z_meters = 0.01;
 		}
 		(async () => {
-			if (a != null) {
+			if (n_m_currentPooledPopupRequestId != null) {
 				n.m_RootElement.style.visibility = "hidden";
-				await Promise.all([this.ClosePooledPopup(a), Sleep(32)]);
+				await Promise.all([
+					this.ClosePooledPopup(n_m_currentPooledPopupRequestId),
+					Sleep(32),
+				]);
 			} else if (i != null && i < 32) {
 				await Sleep(32 - i);
 			}
@@ -305,7 +307,7 @@ export class ou {
 				return;
 			}
 			n.m_RootElement.appendChild(u.contentElement);
-			await (function (e) {
+			await ((e) => {
 				if (e?.hasChildNodes()) {
 					return Promise.resolve();
 				}
@@ -337,7 +339,7 @@ export class ou {
 				dashboard_popup_request_id: m,
 				popup_overlay_key: n.overlayKey,
 			};
-			u.resizeObserver = (0, C.Fd)(u.contentElement, () =>
+			u.resizeObserver = Fd(u.contentElement, () =>
 				this.RecomputePooledPopupSize(m, false),
 			);
 			if (!this.m_Instance.IsVRSimulatedOnDesktopWindow()) {
@@ -346,7 +348,7 @@ export class ou {
 						await l.p.SteamVR.ShowDashboardPopup(u.params);
 					} catch (e) {
 						if (e instanceof f.xn && e.error?.error == 5) {
-							w.Warning(
+							fR.Warning(
 								"Call to ShowDashboardPopup() timed out. Will try again. Params:",
 								u.params,
 								"Error:",
@@ -359,7 +361,7 @@ export class ou {
 							}
 							continue;
 						}
-						w.Error(
+						fR.Error(
 							"Failed to ShowDashboardPopup(). Params:",
 							u.params,
 							"Error:",
@@ -385,7 +387,7 @@ export class ou {
 	async RecomputePooledPopupSize(e, t) {
 		const r = this.m_mapPooledPopupRequests.get(e);
 		if (!r) {
-			w.Error(
+			fR.Error(
 				"Can't RecomputePooledPopupSize() for a request that no longer exists:",
 				e,
 			);
@@ -396,10 +398,11 @@ export class ou {
 		}
 		switch (r.eState) {
 			case 0:
-			case 1:
+			case 1: {
 				break;
-			default:
-				w.Error(
+			}
+			default: {
+				fR.Error(
 					"Can't RecomputePooledPopupSize() for a request that's no longer pending or shown:",
 					e,
 					{
@@ -407,9 +410,10 @@ export class ou {
 					},
 				);
 				return;
+			}
 		}
 		if (!r.params) {
-			w.Debug(
+			fR.Debug(
 				"Can't RecomputePooledPopupSize() for a request that has no existing params yet, will retry when mounted.",
 				e,
 				{
@@ -431,7 +435,7 @@ export class ou {
 			} catch (n) {
 				r.bPopupSizeIsStale = true;
 				if (n instanceof f.xn && n.error?.error == 5) {
-					w.Warning(
+					fR.Warning(
 						"Call to ShowDashboardPopup() to update popup size timed out. Will try again. Params:",
 						r.params,
 						"Error:",
@@ -439,7 +443,7 @@ export class ou {
 					);
 					window.setTimeout(() => this.RecomputePooledPopupSize(e, t), 1000);
 				} else {
-					w.Error(
+					fR.Error(
 						"Failed to ShowDashboardPopup() when updating popup size:",
 						n,
 					);
@@ -460,9 +464,9 @@ function k(e, t) {
 		v_max: (r.top + r.height) / i,
 	};
 	for (const r of ["u_min", "v_min", "u_max", "v_max"]) {
-		const n = a[r];
-		if (!Number.isFinite(n)) {
-			w.Warning(
+		const a_r = a[r];
+		if (!Number.isFinite(a_r)) {
+			fR.Warning(
 				"Failed to create valid clipRect for VRGamepadUI Popup Content element:",
 				{
 					clipRect: a,
@@ -472,37 +476,37 @@ function k(e, t) {
 			);
 			return null;
 		}
-		if (n < 0) {
+		if (a_r < 0) {
 			a[r] = 0;
-		} else if (n > 1) {
+		} else if (a_r > 1) {
 			a[r] = 1;
 		}
 	}
 	return a;
 }
 export function Xy(e, t, r) {
-	const n = (0, o.$2)();
-	const i = (0, a.q3)(() => n?.BIsGamepadApplicationUIInitialized());
+	const n = $2();
+	const i = q3(() => n?.BIsGamepadApplicationUIInitialized());
 	const l = n?.VRPooledPopupStore;
-	const c = (function (e) {
-		const t = (0, o.$2)();
-		return (0, a.q3)(() =>
+	const c = ((e) => {
+		const t = $2();
+		return q3(() =>
 			(t?.VRPooledPopupStore?.m_mapPooledPopupHosts[e] ?? []).every(
 				(e) => e.m_Popup != null && e.m_RootElement != null,
 			),
 		);
 	})(e);
-	const m = s.useRef(t);
-	const u = s.useRef(undefined);
-	u.current = r;
-	const [d, A] = s.useState(true);
-	const [p, g] = s.useState();
+	const MRef = s.useRef(t);
+	const URef = s.useRef(undefined);
+	URef.current = r;
+	const [d, setD] = s.useState(true);
+	const [p, setP] = s.useState();
 	s.useEffect(() => {
 		if (!d) {
 			return;
 		}
 		if (!c) {
-			w.Debug(
+			fR.Debug(
 				"Couldn't yet create pooled popup due to no host overlays existing for popup type",
 				b7[e],
 				" - trying again later.",
@@ -510,7 +514,7 @@ export function Xy(e, t, r) {
 			return;
 		}
 		if (!i) {
-			w.Debug(
+			fR.Debug(
 				"Couldn't yet create pooled popup due to the window instance not yet being initialized:",
 				b7[e],
 				" - trying again later.",
@@ -518,68 +522,66 @@ export function Xy(e, t, r) {
 			return;
 		}
 		if (!l) {
-			w.Error("Failed to show pooled popup due to no VRPooledPopupStore.");
-			u.current?.onStateChange?.(3);
+			fR.Error("Failed to show pooled popup due to no VRPooledPopupStore.");
+			URef.current?.onStateChange?.(3);
 			return;
 		}
-		const t = l.CreatePooledPopup(e, m.current, (e) =>
-			u.current?.onStateChange?.(e),
+		const t = l.CreatePooledPopup(e, MRef.current, (e) =>
+			URef.current?.onStateChange?.(e),
 		);
-		g(t);
+		setP(t);
 		return () => {
 			l?.ClosePooledPopup(t);
 		};
 	}, [d, l, e, c, i]);
-	const h = (0, a.q3)(() =>
-		n?.VRPooledPopupStore?.m_mapPooledPopupRequests.get(p),
-	);
+	const h = q3(() => n?.VRPooledPopupStore?.m_mapPooledPopupRequests.get(p));
 	const C = h?.contentElement;
 	return {
 		element: C,
 		methods: s.useMemo(
 			() => ({
-				close: () => A(false),
+				close: () => setD(false),
 			}),
 			[],
 		),
 	};
 }
 export function V5(e, t) {
-	const r = s.useRef(undefined);
-	const n = s.useRef(undefined);
-	const i = (0, o.$2)();
-	const a = s.useRef(undefined);
-	a.current = e;
-	const l = (0, h.Cb)();
-	const c = s.useRef(undefined);
-	c.current = {
+	const RRef = s.useRef(undefined);
+	const NRef = s.useRef(undefined);
+	const i = $2();
+	const ARef = s.useRef(undefined);
+	ARef.current = e;
+	const l = Cb();
+	const CRef = s.useRef(undefined);
+	CRef.current = {
 		...l,
 		...(t ?? {}),
 	};
 	const m = s.useCallback(() => {
-		if (n.current != null) {
-			n.current?.hideTooltip();
+		if (NRef.current != null) {
+			NRef.current?.hideTooltip();
 		}
 	}, []);
 	const u = s.useCallback(() => {
 		m();
-		if (a.current) {
-			n.current = i?.VRPooledPopupStore?.ShowTooltip(
-				r.current,
-				a.current,
-				c.current,
+		if (ARef.current) {
+			NRef.current = i?.VRPooledPopupStore?.ShowTooltip(
+				RRef.current,
+				ARef.current,
+				CRef.current,
 			);
 		}
 	}, [m, i]);
 	const d = s.useCallback(
 		(e) => {
-			if (e !== r.current) {
-				if (r.current) {
+			if (e !== RRef.current) {
+				if (RRef.current) {
 					m();
-					r.current.removeEventListener("mouseenter", u);
-					r.current.removeEventListener("mouseleave", m);
+					RRef.current.removeEventListener("mouseenter", u);
+					RRef.current.removeEventListener("mouseleave", m);
 				}
-				r.current = e;
+				RRef.current = e;
 				e?.addEventListener("mouseenter", u);
 				e?.addEventListener("mouseleave", m);
 			}
@@ -587,11 +589,11 @@ export function V5(e, t) {
 		[u, m],
 	);
 	s.useEffect(() => {
-		n.current?.updateText(e);
+		NRef.current?.updateText(e);
 	}, [e]);
 	s.useEffect(() => () => m(), [m]);
 	return d;
 }
-(0, n.Cg)([i.sH], ou.prototype, "m_mapPooledPopupHosts", undefined);
-(0, n.Cg)([i.sH], ou.prototype, "m_mapPooledPopupRequests", undefined);
-(0, n.Cg)([i.sH], ou.prototype, "m_mapTooltips", undefined);
+Cg([i.sH], ou.prototype, "m_mapPooledPopupHosts", undefined);
+Cg([i.sH], ou.prototype, "m_mapPooledPopupRequests", undefined);
+Cg([i.sH], ou.prototype, "m_mapTooltips", undefined);

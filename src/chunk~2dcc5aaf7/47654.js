@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	InstallerModalContent: "_3pibmUqQ4YDLUkpkrhbTyU",
 	ModalHeader: "_27On_x8werIPK7vHtNOh95",
 	InstallingText: "C1stxbBeAhM0IfWqR8mXT",

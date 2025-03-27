@@ -5,6 +5,6 @@ export function S(e) {
 	if (i.test(e)) {
 		return e;
 	} else {
-		return "https://" + e;
+		return `https://${e}`;
 	}
 }

@@ -1,13 +1,13 @@
-var n = require("./25399.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./3715.js");
-var s = require(/*webcrack:missing*/ "./46382.js");
-var o = require("./55571.js");
-export const L = i.memo(function () {
-	const e = (0, a.jE)();
-	(function (e, t) {
-		const r = (0, s.zv)();
-		(0, i.useEffect)(() => {
+import n from "./25399.js";
+import i, { useEffect } from "./63696.js";
+import { jE } from "./3715.js";
+import { zv } from "./46382.js";
+import { JT } from "./55571.js";
+export const L = i.memo(() => {
+	const e = jE();
+	((e, t) => {
+		const r = zv();
+		useEffect(() => {
 			if (r) {
 				return r.messageHandlers.RegisterServiceNotificationHandler(e, t)
 					.unregister;
@@ -17,7 +17,7 @@ export const L = i.memo(function () {
 		n.$y.NotifyPrivateAppListChangedHandler,
 		i.useCallback(
 			(t) => {
-				(0, o.JT)(e, t.Body().private_apps().appids());
+				JT(e, t.Body().private_apps().appids());
 				return 1;
 			},
 			[e],

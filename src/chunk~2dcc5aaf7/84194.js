@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	RecentGamesContainer: "_2_cRkGdbegoIbiRsy_-I7",
 	VR: "_2TjZFD1O4JGGfnSZC1y2Ui",

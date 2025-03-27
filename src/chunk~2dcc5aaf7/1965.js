@@ -1,21 +1,21 @@
-var _n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./63696.js");
-var a = require(/*webcrack:missing*/ "./41230.js");
-var s = require("./93050.js");
-var o = require(/*webcrack:missing*/ "./90765.js");
-var l = require("./3475.js");
-var c = require("./5640.js");
-var m = require(/*webcrack:missing*/ "./69164.js");
-var u = require("./19819.js");
-var d = u;
-var A = require(/*webcrack:missing*/ "./72476.js");
-var p = require("./56726.js");
-var g = require("./43520.js");
-var h = require("./55116.js");
-var C = require("./89748.js");
-const _ = (0, i.createContext)({});
+import { Cg } from "./34629.js";
+import i, { createContext, useContext } from "./63696.js";
+import a from "./41230.js";
+import s from "./93050.js";
+import { A as A_1 } from "./90765.js";
+import l from "./3475.js";
+import c from "./5640.js";
+import m from "./69164.js";
+import u from "./19819.js";
+import A, { Qn } from "./72476.js";
+import p from "./56726.js";
+import g from "./43520.js";
+import h from "./55116.js";
+import { qw } from "./89748.js";
+const d = u;
+const _Context = createContext({});
 function f(e) {
-	const { children: t, className: r } = e;
+	const { children, className } = e;
 	return i.createElement(
 		g.hL,
 		{
@@ -26,30 +26,31 @@ function f(e) {
 		i.createElement(
 			"div",
 			{
-				className: (0, o.A)(d.Body, r),
+				className: A_1(d.Body, className),
 			},
-			t,
+			children,
 			i.createElement(b, null),
 		),
 	);
 }
 function b() {
-	const {
-		primaryAction: e,
-		secondaryAction: t,
-		renderActions: r,
-	} = (0, i.useContext)(_);
-	if ((0, A.Qn)() || r === null || (!e && !t)) {
+	const { primaryAction, secondaryAction, renderActions } =
+		useContext(_Context);
+	if (Qn() || renderActions === null || (!primaryAction && !secondaryAction)) {
 		return null;
-	} else if (r) {
-		return i.createElement(i.Fragment, null, r(e, t));
-	} else if (e && !t) {
+	} else if (renderActions) {
+		return i.createElement(
+			i.Fragment,
+			null,
+			renderActions(primaryAction, secondaryAction),
+		);
+	} else if (primaryAction && !secondaryAction) {
 		return i.createElement(
 			p.TD,
 			{
-				onClick: e.action,
+				onClick: primaryAction.action,
 			},
-			e.label,
+			primaryAction.label,
 		);
 	} else {
 		return i.createElement(
@@ -57,29 +58,29 @@ function b() {
 			{
 				className: d.ButtonContainer,
 			},
-			t &&
+			secondaryAction &&
 				i.createElement(
 					p.Po,
 					{
-						onClick: t.action,
+						onClick: secondaryAction.action,
 					},
-					t.label,
+					secondaryAction.label,
 				),
-			e &&
+			primaryAction &&
 				i.createElement(
 					p.TD,
 					{
-						onClick: e.action,
+						onClick: primaryAction.action,
 					},
-					e.label,
+					primaryAction.label,
 				),
 		);
 	}
 }
 function y(e) {
-	const { className: t, ...r } = e;
+	const { className, ...r } = e;
 	return i.createElement("div", {
-		className: (0, o.A)(d.Highlight, t),
+		className: A_1(d.Highlight, className),
 		...r,
 	});
 }
@@ -88,66 +89,69 @@ export let n = class extends i.Component {
 	static Highlight = y;
 	render() {
 		const {
-			children: e,
-			className: t,
-			label: r,
-			tooltip: n,
-			showRule: a,
-			highlight: u,
-			feature: A = l.uX,
-			availableOffline: p,
-			rightColumnSection: g,
-			headerClass: f,
-			primaryAction: b,
-			secondaryAction: y,
-			renderActions: S,
-			scrollIntoViewWhenChildFocused: w,
+			children,
+			className,
+			label,
+			tooltip,
+			showRule,
+			highlight,
+			feature = l.uX,
+			availableOffline,
+			rightColumnSection,
+			headerClass,
+			primaryAction,
+			secondaryAction,
+			renderActions,
+			scrollIntoViewWhenChildFocused,
 			...B
 		} = this.props;
-		if (c.jR.BIsFeatureBlocked(A) || (!p && (0, C.qw)().BIsOfflineMode())) {
+		if (
+			c.jR.BIsFeatureBlocked(feature) ||
+			(!availableOffline && qw().BIsOfflineMode())
+		) {
 			return null;
 		} else {
 			return i.createElement(
-				_.Provider,
+				_Context.Provider,
 				{
 					value: {
-						primaryAction: b,
-						secondaryAction: y,
-						renderActions: S,
+						primaryAction: primaryAction,
+						secondaryAction: secondaryAction,
+						renderActions: renderActions,
 					},
 				},
 				i.createElement(
 					m.Z,
 					{
-						className: (0, o.A)(d.AppDetailsSection, t),
-						scrollIntoViewWhenChildFocused: w,
+						className: A_1(d.AppDetailsSection, className),
+						scrollIntoViewWhenChildFocused: scrollIntoViewWhenChildFocused,
 						...B,
 					},
-					r &&
+					label &&
 						i.createElement(s.w, {
-							label: r,
-							tooltip: n,
-							showRule: a,
-							className: f,
+							label: label,
+							tooltip: tooltip,
+							showRule: showRule,
+							className: headerClass,
 						}),
 					i.createElement(
 						m.Z,
 						{
-							className: (0, o.A)(
+							className: A_1(
 								d.AppDetailsSectionContainer,
-								r && d.AppDetailsSectionHasLabel,
-								g && d.RightColumnSection,
+								label && d.AppDetailsSectionHasLabel,
+								rightColumnSection && d.RightColumnSection,
 							),
-							onOKButton: b?.action,
-							onOKActionDescription: b?.label,
-							onSecondaryButton: y?.action,
-							onSecondaryActionDescription: y?.label,
+							onOKButton: primaryAction?.action,
+							onOKActionDescription: primaryAction?.label,
+							onSecondaryButton: secondaryAction?.action,
+							onSecondaryActionDescription: secondaryAction?.label,
 						},
-						i.createElement(h.q, null, u, e),
+						i.createElement(h.q, null, highlight, children),
 					),
 				),
 			);
 		}
 	}
 };
-n = (0, _n.Cg)([a.PA], n);
+n = Cg([a.PA], n);

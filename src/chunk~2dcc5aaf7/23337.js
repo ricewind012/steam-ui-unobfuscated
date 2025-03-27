@@ -1,7 +1,7 @@
-var n = require(/*webcrack:missing*/ "./63696.js");
 import { Localize } from "../../actual_src/utils/localization.js";
-var a = require("./70057.js");
-var s = require("./6561.js");
+import n from "./63696.js";
+import a from "./70057.js";
+import s from "./6561.js";
 export function o(e) {
 	const {
 		className: t,
@@ -31,16 +31,18 @@ export function o(e) {
 	if (r.length == 0) {
 		return null;
 	} else {
-		return n.createElement("img", {
-			className: t,
-			src: r[u],
-			crossOrigin: l,
-			onError: A,
-			loading: i ? "lazy" : undefined,
-			width: a,
-			height: s,
-			alt: o,
-		});
+		return (
+			<img
+				className={t}
+				src={r[u]}
+				crossOrigin={l}
+				onError={A}
+				loading={i ? "lazy" : undefined}
+				width={a}
+				height={s}
+				alt={o}
+			/>
+		);
 	}
 }
 export function i(e) {
@@ -55,31 +57,29 @@ export function i(e) {
 		crossOrigin: A,
 	} = e;
 	if (t) {
-		return n.createElement(
-			"div",
-			{
-				className: a.ErrorDiv,
-			},
-			n.createElement("p", null, Localize("#Image_ErrorTitle", l)),
-			n.createElement(
-				"ul",
-				null,
-				n.createElement("li", null, Localize("#Image_Error_msg1")),
-				n.createElement("li", null, Localize("#Image_Error_msg2")),
-				n.createElement("li", null, Localize("#Image_Error_msg3")),
-			),
-			n.createElement("p", null, Localize("#Image_Error_suggestion")),
+		return (
+			<div className={a.ErrorDiv}>
+				<p>{Localize("#Image_ErrorTitle", l)}</p>
+				<ul>
+					<li>{Localize("#Image_Error_msg1")}</li>
+					<li>{Localize("#Image_Error_msg2")}</li>
+					<li>{Localize("#Image_Error_msg3")}</li>
+				</ul>
+				<p>{Localize("#Image_Error_suggestion")}</p>
+			</div>
 		);
 	} else {
-		return n.createElement(s.o, {
-			className: o,
-			src: l,
-			onError: () => r(true),
-			crossOrigin: A,
-			loading: c ? "lazy" : undefined,
-			width: m,
-			height: u,
-			alt: d,
-		});
+		return (
+			<s.o
+				className={o}
+				src={l}
+				onError={() => r(true)}
+				crossOrigin={A}
+				loading={c ? "lazy" : undefined}
+				width={m}
+				height={u}
+				alt={d}
+			/>
+		);
 	}
 }

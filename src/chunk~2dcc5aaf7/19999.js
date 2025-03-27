@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	SystemDockUpdateApplyTakeover: "qRqRbMXXS3VI3DZ8n_Y-o",
 	Container: "_2xe96IU54YsA1kujf7uUBY",

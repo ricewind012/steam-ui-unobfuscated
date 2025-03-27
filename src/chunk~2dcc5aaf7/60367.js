@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	"duration-app-launch": "800ms",
 	AppVideoCtn: "_5T6C7ESpj4ynwbH8LS101",
 	WishlistBadge: "_1H947zVMI4eix33y6Vyrm0",

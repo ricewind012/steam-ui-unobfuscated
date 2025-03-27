@@ -1,9 +1,9 @@
-var n = require(/*webcrack:missing*/ "./34629.js");
-var i = require(/*webcrack:missing*/ "./89193.js");
-var a = require(/*webcrack:missing*/ "./90095.js");
+import { Cg } from "./34629.js";
+import i, { Gn } from "./89193.js";
+import { q3 } from "./90095.js";
 class s {
 	constructor() {
-		(0, i.Gn)(this);
+		Gn(this);
 	}
 	m_systemInfo = undefined;
 	get systemInfo() {
@@ -22,10 +22,10 @@ class s {
 		}
 	}
 }
-(0, n.Cg)([i.sH], s.prototype, "m_systemInfo", undefined);
+Cg([i.sH], s.prototype, "m_systemInfo", undefined);
 export const Z4 = new s();
 export function Ll() {
-	return (0, a.q3)(() => Z4.systemInfo);
+	return q3(() => Z4.systemInfo);
 }
 export function x5() {
 	const e = Ll();

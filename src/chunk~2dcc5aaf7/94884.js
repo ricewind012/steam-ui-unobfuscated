@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	Bar: "_3pSPluBgf0NeR1kkCLWMhR",
 	CollectionIconBox: "_2tyaVs9BpqcW068aaOrO56",
 	Label: "_3O48LaKWcabKx07xdrt1TH",

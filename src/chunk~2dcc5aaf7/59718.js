@@ -1,93 +1,84 @@
-var n = require("./96000.js");
-var i = require("./48289.js");
-var a = require("./5640.js");
-var s = require("./64004.js");
-var o = require("./34792.js");
-var l = require("./46422.js");
-var c = require(/*webcrack:missing*/ "./90095.js");
-var m = require(/*webcrack:missing*/ "./63696.js");
-var u = require("./3475.js");
-var d = require(/*webcrack:missing*/ "./88750.js");
-var A = require(/*webcrack:missing*/ "./78325.js");
-var p = require(/*webcrack:missing*/ "./21937.js");
-var g = require(/*webcrack:missing*/ "./11131.js");
-var h = require(/*webcrack:missing*/ "./88808.js");
+import { Localize } from "../../actual_src/utils/localization.js";
+import n from "./96000.js";
+import i, { Bh } from "./48289.js";
+import a from "./5640.js";
+import s, { Gs } from "./64004.js";
+import o, { VI } from "./34792.js";
+import l, { Sn } from "./46422.js";
+import c, { q3 } from "./90095.js";
+import m from "./63696.js";
+import u from "./3475.js";
+import d from "./88750.js";
+import A from "./78325.js";
+import p from "./21937.js";
+import { R7 } from "./11131.js";
+import h from "./88808.js";
+import _ from "./35488.js";
+import { uD, CH } from "./52451.js";
+import y, { Qn, Y2, td } from "./72476.js";
+import S from "./37743.js";
+import B from "./32998.js";
+import { A as A_1 } from "./90765.js";
 function C(e) {
 	const {
-		active: t,
-		hideMenu: r,
-		element: n,
-		position: i,
-		browserInfo: a,
-		options: s = {},
-		refInstance: o,
-		children: l,
+		active,
+		hideMenu,
+		element,
+		position,
+		browserInfo,
+		options = {},
+		refInstance,
+		children,
 	} = e;
-	const c = (0, g.R7)().ownerWindow;
-	const [u, C] = m.useState();
-	const _ = m.useRef();
-	_.current ||= new p.z();
+	const c = R7().ownerWindow;
+	const [u, setU] = m.useState();
+	const _Ref = m.useRef();
+	_Ref.current ||= new p.z();
 	m.useLayoutEffect(() => {
-		if (t || s.bRetainOnHide) {
+		if (active || options.bRetainOnHide) {
 			if (u) {
-				if (t) {
+				if (active) {
 					u.Show();
 				}
 			} else {
-				const e = _.current.CreateContextMenuInstance(
-					m.createElement(
-						d.tz,
-						{
-							bForceDesktopPresentation: true,
-						},
-						l,
-					),
-					n,
-					i?.x,
-					i?.y,
+				const e = _Ref.current.CreateContextMenuInstance(
+					<d.tz bForceDesktopPresentation>{children}</d.tz>,
+					element,
+					position?.x,
+					position?.y,
 					{
-						...s,
+						...options,
 						bForcePopup: true,
 						bStandalone: true,
 					},
 				);
 				e.SetOnHideCallback(() => {
-					r();
-					if (!s.bRetainOnHide) {
-						o.current = undefined;
-						C(undefined);
+					hideMenu();
+					if (!options.bRetainOnHide) {
+						refInstance.current = undefined;
+						setU(undefined);
 					}
 				});
-				o.current = e;
-				C(e);
+				refInstance.current = e;
+				setU(e);
 			}
 		}
-	}, [t, u]);
+	}, [active, u]);
 	m.useEffect(() => {
 		if (u) {
-			u.SetPosition(i.x, i.y, s);
+			u.SetPosition(position.x, position.y, options);
 		}
-	}, [u, i, s]);
-	if (t || s.bRetainOnHide) {
+	}, [u, position, options]);
+	if (active || options.bRetainOnHide) {
 		return A.createPortal(
-			m.createElement(h.k, {
-				managerOverride: _.current,
-				bSuppressMouseOverlay: true,
-			}),
+			<h.k managerOverride={_Ref.current} bSuppressMouseOverlay />,
 			c.document.body,
 		);
 	} else {
 		return null;
 	}
 }
-var _ = require("./35488.js");
-import { Localize } from "../../actual_src/utils/localization.js";
-var b = require(/*webcrack:missing*/ "./52451.js");
-var y = require(/*webcrack:missing*/ "./72476.js");
-var S = require("./37743.js");
-var w = S;
-var B = require("./32998.js");
-var v = require(/*webcrack:missing*/ "./90765.js");
+const w = S;
 const I = new Map([
 	[
 		"Online",
@@ -249,38 +240,31 @@ export function T() {
 	return I;
 }
 function M(e) {
-	const { overview: t } = e;
-	const [r] = (0, o.VI)("library_display_icon_in_game_list");
-	return m.createElement(
-		d.kt,
-		{
-			key: t.appid,
-			onSelected: () => {
-				SteamClient.Apps.RunGame(t.GetGameID(), "", -1, 500);
-			},
-		},
-		r &&
-			m.createElement(
-				"div",
-				{
-					className: w.GameIcon,
-				},
-				m.createElement(B.nK, {
-					item: t,
-				}),
-			),
-		m.createElement(_T, {
-			item: t,
-		}),
+	const { overview } = e;
+	const [r] = VI("library_display_icon_in_game_list");
+	return (
+		<d.kt
+			key={overview.appid}
+			onSelected={() => {
+				SteamClient.Apps.RunGame(overview.GetGameID(), "", -1, 500);
+			}}
+		>
+			{r && (
+				<div className={w.GameIcon}>
+					<B.nK item={overview} />
+				</div>
+			)}
+			<_T item={overview} />
+		</d.kt>
 	);
 }
 function _T(e) {
-	let t = (0, c.q3)(() => {
-		let { item: t } = e;
+	let t = q3(() => {
+		let { item } = e;
 		return {
-			display_name: t.display_name,
-			display_status: t.display_status,
-			active_beta: t.active_beta,
+			display_name: item.display_name,
+			display_status: item.display_status,
+			active_beta: item.active_beta,
 		};
 	});
 	let r = "";
@@ -297,27 +281,23 @@ function _T(e) {
 		case 38:
 		case 8:
 		case 34:
-		case 35:
+		case 35: {
 			r = w.Updating;
 			break;
+		}
 		case 4:
-		case 36:
+		case 36: {
 			r = w.Running;
+		}
 	}
-	let n = t.display_name;
+	let t_display_name = t.display_name;
 	if (t.active_beta) {
-		n = n + " [" + t.active_beta + "]";
+		t_display_name = `${t_display_name} [${t.active_beta}]`;
 	}
-	return m.createElement(
-		"span",
-		{
-			className: (0, v.A)(w.JumpListGameName, r),
-		},
-		n,
-	);
+	return <span className={A_1(w.JumpListGameName, r)}>{t_display_name}</span>;
 }
 function R(e) {
-	const t = (0, c.q3)(() =>
+	const t = q3(() =>
 		n.md
 			.GetCollection(n.A8.Recent)
 			.visibleApps.filter((e) => e.BIsVisibleInMRUList())
@@ -326,67 +306,52 @@ function R(e) {
 	if (t.length == 0) {
 		return null;
 	} else {
-		return m.createElement(
-			m.Fragment,
-			null,
-			t.map((e) =>
-				m.createElement(M, {
-					key: e.appid,
-					overview: e,
-				}),
-			),
-			m.createElement(d.K5, null),
+		return (
+			<>
+				{t.map((e) => (
+					<M key={e.appid} overview={e} />
+				))}
+				<d.K5 />
+			</>
 		);
 	}
 }
-function k(e) {
-	const { option: t, details: r, personaState: n } = e;
-	const i = r.ePersonaState !== undefined && n == r.ePersonaState;
+function K(e) {
+	const { option, details, personaState } = e;
+	const i =
+		details.ePersonaState !== undefined &&
+		personaState == details.ePersonaState;
 	let a = m.useCallback(
-		() => SteamClient.URL?.ExecuteSteamURL(r.strURL),
-		[r.strURL],
+		() => SteamClient.URL?.ExecuteSteamURL(details.strURL),
+		[details.strURL],
 	);
-	if (!r.strURL) {
-		a = r.onSelected;
+	if (!details.strURL) {
+		a = details.onSelected;
 	}
-	return m.createElement(
-		d.kt,
-		{
-			onSelected: a,
-			className: w.JumpListItem,
-		},
-		i &&
-			m.createElement(_.Checkmark, {
-				className: w.Icon,
-			}),
-		!i &&
-			r.ePersonaState !== undefined &&
-			m.createElement("div", {
-				className: w.Icon,
-			}),
-		m.createElement(
-			"div",
-			{
-				className: w.JumpListItemText,
-			},
-			Localize("#TaskbarOption_" + t),
-		),
+	return (
+		<d.kt onSelected={a} className={w.JumpListItem}>
+			{i && <_.Checkmark className={w.Icon} />}
+			{!i && details.ePersonaState !== undefined && <div className={w.Icon} />}
+			<div className={w.JumpListItemText}>
+				{Localize(`#TaskbarOption_${option}`)}
+			</div>
+		</d.kt>
 	);
 }
 function D(e) {
-	const { rgItemsInSection: t, personaState: r } = e;
-	const [n] = (0, o.VI)("jumplist_flags");
+	const { rgItemsInSection, personaState } = e;
+	const [n] = VI("jumplist_flags");
 	const i = T();
-	const l = (0, s.Gs)();
-	const u = (0, y.Qn)();
+	const l = Gs();
+	const u = Qn();
 	const A = !u;
-	const p = (0, c.q3)(() =>
-		t.filter((e) => {
+	const p = q3(() =>
+		rgItemsInSection.filter((e) => {
 			const t = i.get(e);
 			return (
 				t &&
 				(!t.flags || n & t.flags) &&
-				(!(0, y.Y2)() || !t.bHideInChina) &&
+				(!Y2() || !t.bHideInChina) &&
 				(l || !t.bHideWhenNotStreaming) &&
 				!a.jR.BIsFeatureBlocked(t.eParentalFeature) &&
 				((u && !t.bHideInGamepadUI) || (A && !t.bHideInDesktop))
@@ -396,59 +361,52 @@ function D(e) {
 	if (p.length == 0) {
 		return null;
 	} else {
-		return m.createElement(
-			m.Fragment,
-			null,
-			p.map((e) =>
-				m.createElement(k, {
-					key: e,
-					option: e,
-					details: i.get(e),
-					personaState: r,
-				}),
-			),
-			m.createElement(d.K5, null),
+		return (
+			<>
+				{p.map((e) => (
+					<K
+						key={e}
+						option={e}
+						details={i.get(e)}
+						personaState={personaState}
+					/>
+				))}
+				<d.K5 />
+			</>
 		);
 	}
 }
 function N(e) {
-	const t = (0, i.Bh)("m_ePersonaState");
-	const r = (0, l.Sn)();
-	return m.createElement(
-		m.Fragment,
-		null,
-		m.createElement(R, null),
-		m.createElement(D, {
-			rgItemsInSection: ["Online", "Away", "Invisible", "Offline"],
-			personaState: t,
-		}),
-		m.createElement(D, {
-			rgItemsInSection: ["Store", "MyGames", "Community", "FriendActivity"],
-		}),
-		m.createElement(D, {
-			rgItemsInSection: ["Friends", "Screenshots", "Servers", "Settings"],
-		}),
-		m.createElement(D, {
-			rgItemsInSection: [
-				"StopStreaming",
-				"BigPicture",
-				"CloseBigPicture",
-				"VR",
-			],
-		}),
-		r &&
-			m.createElement(D, {
-				rgItemsInSection: ["Console"],
-			}),
-		m.createElement(D, {
-			rgItemsInSection: ["AlwaysExit"],
-		}),
+	const t = Bh("m_ePersonaState");
+	const r = Sn();
+	return (
+		<>
+			<R />
+			<D
+				rgItemsInSection={["Online", "Away", "Invisible", "Offline"]}
+				personaState={t}
+			/>
+			<D
+				rgItemsInSection={["Store", "MyGames", "Community", "FriendActivity"]}
+			/>
+			<D rgItemsInSection={["Friends", "Screenshots", "Servers", "Settings"]} />
+			<D
+				rgItemsInSection={[
+					"StopStreaming",
+					"BigPicture",
+					"CloseBigPicture",
+					"VR",
+				]}
+			/>
+			{r && <D rgItemsInSection={["Console"]} />}
+			<D rgItemsInSection={["AlwaysExit"]} />
+		</>
 	);
 }
 export function x(e) {
-	const [t, r, n] = (0, b.uD)();
-	const i = m.useRef(undefined);
-	const [a, s] = m.useState({
+	const [t, r, n] = uD();
+	const IRef = m.useRef(undefined);
+	const [a, setA] = m.useState({
 		position: {
 			x: 100000,
 			y: 100000,
@@ -464,7 +422,7 @@ export function x(e) {
 			flGamepadScale: 1,
 		},
 	});
-	const o = (0, b.CH)();
+	const o = CH();
 	m.useEffect(
 		() =>
 			SteamClient.Messaging.RegisterForMessages("JumpList", (e, n, a) => {
@@ -486,9 +444,9 @@ export function x(e) {
 					};
 					if (t) {
 						SteamClient.Messaging.PostMessage("Jumplist", "Rendered", "");
-						i.current.TakeFocus();
+						IRef.current.TakeFocus();
 					}
-					s({
+					setA({
 						position: n,
 						options: o,
 					});
@@ -509,21 +467,15 @@ export function x(e) {
 			bScreenCoordinates: true,
 			bPreferPopTop: true,
 			bCreateHidden: true,
-			bRetainOnHide: (0, y.td)(),
+			bRetainOnHide: td(),
 			...a?.options,
 		}),
 		[a],
 	);
 	const c = m.useMemo(() => a?.position, [a?.position.x, a?.position.y]);
-	return m.createElement(
-		C,
-		{
-			active: t,
-			position: c,
-			hideMenu: n,
-			options: l,
-			refInstance: i,
-		},
-		m.createElement(N, null),
+	return (
+		<C active={t} position={c} hideMenu={n} options={l} refInstance={IRef}>
+			<N />
+		</C>
 	);
 }
