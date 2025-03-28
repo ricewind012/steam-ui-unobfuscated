@@ -38,7 +38,7 @@ import { L as L_1 } from "./76319.js";
 import { xE } from "./48301.js";
 import Z from "./10606.js";
 import Y from "./26853.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import { t7 } from "./82594.js";
 function d(e, t, r) {
 	HT(
@@ -962,7 +962,11 @@ let Ne = class extends l.PureComponent {
 		);
 		const t = i.xm.FriendStore.self.persona.m_unGamePlayedAppID;
 		let r = "";
-		if (T.TS.IN_CLIENT && t && Dp("WebChat.GetPrivateConnectString")) {
+		if (
+			T.TS.IN_CLIENT &&
+			t &&
+			BSharedJSContextHasMethod("WebChat.GetPrivateConnectString")
+		) {
 			r = await SteamClient.WebChat.GetPrivateConnectString(t);
 		}
 		let n = {
@@ -1939,7 +1943,10 @@ export let Rm = class extends l.Component {
 		e.stopPropagation();
 	}
 	ViewGameInfo(e) {
-		if (T.TS.IN_CLIENT && Dp("ServerBrowser.CreateFriendGameInfoDialog")) {
+		if (
+			T.TS.IN_CLIENT &&
+			BSharedJSContextHasMethod("ServerBrowser.CreateFriendGameInfoDialog")
+		) {
 			const e = this.props.browserContext.m_unPID;
 			SteamClient.ServerBrowser.CreateFriendGameInfoDialog(
 				e,

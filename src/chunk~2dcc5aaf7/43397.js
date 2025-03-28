@@ -5,7 +5,7 @@ import i, { Gn } from "./89193.js";
 import a from "./63696.js";
 import s, { lX } from "./31084.js";
 import { E } from "./92008.js";
-import l, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import c, { A as A_1 } from "./90765.js";
 import d from "./72476.js";
 import A from "./88750.js";
@@ -13,7 +13,7 @@ export function Id(e, t) {
 	let r;
 	r = "currentTarget" in e ? e.currentTarget.ownerDocument.defaultView : e;
 	if (t.indexOf("steam://") == 0) {
-		if (Fj(r, "URL.ExecuteSteamURL")) {
+		if (BSteamClientHasMethod(r, "URL.ExecuteSteamURL")) {
 			r.SteamClient.URL.ExecuteSteamURL(t);
 		} else {
 			r.location.href = t;

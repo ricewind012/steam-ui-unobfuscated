@@ -64,7 +64,7 @@ import ae from "./2862.js";
 import se from "./84838.js";
 import oe from "./90039.js";
 import ce from "./93960.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import de from "./4690.js";
 import Ie from "./92031.js";
 import Ee from "./8573.js";
@@ -1247,7 +1247,10 @@ class ve {
 			nActiveGamepadIndex: t,
 			nLastActiveGamepadIndex: n,
 		});
-		if (e != g.Vz.MOUSE && Dp("Browser.HideCursorUntilMouseEvent")) {
+		if (
+			e != g.Vz.MOUSE &&
+			BSharedJSContextHasMethod("Browser.HideCursorUntilMouseEvent")
+		) {
 			SteamClient.Browser.HideCursorUntilMouseEvent();
 		}
 		return r.eActivationSourceType != e;

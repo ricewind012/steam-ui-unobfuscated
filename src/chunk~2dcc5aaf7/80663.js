@@ -13,7 +13,7 @@ import p from "./66146.js";
 import g from "./8653.js";
 import h from "./12176.js";
 import C from "./8573.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import f, { f5 } from "./36383.js";
 import b from "./77644.js";
 import y from "./54946.js";
@@ -426,7 +426,7 @@ export class fl {
 				let n = e.Body().member();
 				if (
 					i.TS.IN_CLIENT &&
-					Dp("WebChat.OnGroupChatUserStateChange") &&
+					BSharedJSContextHasMethod("WebChat.OnGroupChatUserStateChange") &&
 					s.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 				) {
 					SteamClient.WebChat.OnGroupChatUserStateChange(t, n.accountid(), r);
@@ -457,7 +457,7 @@ export class fl {
 				let n = t.user_action();
 				if (
 					i.TS.IN_CLIENT &&
-					Dp("WebChat.OnGroupChatUserStateChange") &&
+					BSharedJSContextHasMethod("WebChat.OnGroupChatUserStateChange") &&
 					s.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 				) {
 					SteamClient.WebChat.OnGroupChatUserStateChange(r, i.iA.accountid, n);

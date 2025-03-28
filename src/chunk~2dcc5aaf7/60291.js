@@ -38,7 +38,7 @@ import E, { Q1 } from "./68438.js";
 import M, { Ct, jE } from "./26094.js";
 import T, { gO } from "./10905.js";
 import R, { e3 } from "./25633.js";
-import k, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import N from "./83247.js";
 import F, { OF } from "./1385.js";
 import { R7 } from "./11131.js";
@@ -98,7 +98,7 @@ function x(e) {
 			const a = async (e) => {
 				const t = GetOwningWindowForEvent(e) ?? window;
 				const r = await (async (e) => {
-					if (!Fj(e, "System.OpenFileDialog")) {
+					if (!BSteamClientHasMethod(e, "System.OpenFileDialog")) {
 						e = window;
 					}
 					return e.SteamClient.System.OpenFileDialog({

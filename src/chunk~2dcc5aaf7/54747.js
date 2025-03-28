@@ -22,7 +22,7 @@ import { lX } from "./31084.js";
 import w from "./88750.js";
 import { vJ, uN } from "./52451.js";
 import v from "./53225.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import E from "./68665.js";
 import M from "./69164.js";
 export function br() {
@@ -1744,7 +1744,7 @@ function Qe() {
 		const [e, setE] = n.useState([]);
 		n.useEffect(
 			() =>
-				Dp("Input.RegisterForControllerListChanges")
+				BSharedJSContextHasMethod("Input.RegisterForControllerListChanges")
 					? SteamClient.Input.RegisterForControllerListChanges(setE).unregister
 					: () => {},
 			[],

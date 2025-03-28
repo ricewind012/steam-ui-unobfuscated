@@ -22,7 +22,7 @@ import C from "./90039.js";
 import _, { Jc } from "./79769.js";
 import f from "./83599.js";
 import b from "./82011.js";
-import B, { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import R, { _1, iv } from "./43152.js";
 import N from "./85243.js";
 import F from "./44846.js";
@@ -335,7 +335,7 @@ class M {
 			type: "VirtualKeyboardMessage",
 			...e,
 		};
-		if (Dp("BrowserView.PostMessageToParent")) {
+		if (BSharedJSContextHasMethod("BrowserView.PostMessageToParent")) {
 			SteamClient.BrowserView.PostMessageToParent(t.type, JSON.stringify(t));
 		} else if (this.m_ownerWindow) {
 			AssertMsg(

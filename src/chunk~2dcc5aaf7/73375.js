@@ -11,7 +11,7 @@ import m from "./7558.js";
 import u, { p1, Ue } from "./52451.js";
 import d, { R7 } from "./11131.js";
 import A, { UV } from "./20326.js";
-import p, { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import g, { Hn } from "./72476.js";
 import { GD } from "./90685.js";
 class c {
@@ -225,7 +225,7 @@ export const m4 = n.memo((e) => {
 			(t, r, n) => {
 				switch (t) {
 					case "UnlockH264Request": {
-						if (Dp("RemotePlay.UnlockH264")) {
+						if (BSharedJSContextHasMethod("RemotePlay.UnlockH264")) {
 							console.log(
 								`Request received to unlock H.264: reason: ${r} url: strUrl: ${n}`,
 							);
@@ -234,7 +234,7 @@ export const m4 = n.memo((e) => {
 						break;
 					}
 					case "RequestSupportSystemReport": {
-						if (Dp("User.RequestSupportSystemReport")) {
+						if (BSharedJSContextHasMethod("User.RequestSupportSystemReport")) {
 							window.SteamClient.User.RequestSupportSystemReport(n).then(
 								(t) => {
 									let r = JSON.stringify(t);

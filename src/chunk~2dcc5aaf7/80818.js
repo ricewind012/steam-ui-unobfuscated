@@ -30,7 +30,7 @@ import j from "./10606.js";
 import { pg } from "./13869.js";
 import Z from "./69164.js";
 import Y from "./46621.js";
-import { L as L_1 } from "./736.js";
+import { BSharedJSContextHasInterface } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import J, { $B } from "./87935.js";
 import $ from "./2326.js";
 import { br } from "./18869.js";
@@ -1736,12 +1736,12 @@ export let xZ = class extends i.Component {
 	}
 };
 function ae(e, t) {
-	if (e && L_1("Apps") && $B(t, J.Uq.Library.Assets)) {
+	if (e && BSharedJSContextHasInterface("Apps") && $B(t, J.Uq.Library.Assets)) {
 		SteamClient.Apps.ReportLibraryAssetCacheMiss(e, 2);
 	}
 }
 function se(e, t) {
-	if (e && L_1("Apps") && $B(t, J.Uq.Library.Assets)) {
+	if (e && BSharedJSContextHasInterface("Apps") && $B(t, J.Uq.Library.Assets)) {
 		SteamClient.Apps.ReportLibraryAssetCacheMiss(e, 1);
 	}
 }

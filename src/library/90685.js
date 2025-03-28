@@ -1,10 +1,10 @@
 import r from "./63696.js";
-import i, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import s, { l6, Qi, DF } from "./52451.js";
 export function GD(e) {
 	const [t, setT] = r.useState(false);
 	const o = r.useCallback(() => {
-		if (Fj(e, "Window.IsWindowMaximized")) {
+		if (BSteamClientHasMethod(e, "Window.IsWindowMaximized")) {
 			e.SteamClient.Window.IsWindowMaximized().then((e) => {
 				setT(e);
 			});

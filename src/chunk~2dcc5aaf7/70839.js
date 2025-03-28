@@ -7,7 +7,7 @@ import n, { Cg } from "./34629.js";
 import i from "./44234.js";
 import a from "./95773.js";
 import s, { Gn, fm } from "./89193.js";
-import o, { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import d from "./3756.js";
 import A, { u as u_1 } from "./17385.js";
 import { BK } from "./85243.js";
@@ -109,7 +109,7 @@ class u {
 			this.m_activeTab = e;
 			e.OnTabActivate();
 			this.Focus();
-			if (Dp("Messaging.RegisterForMessages")) {
+			if (BSharedJSContextHasMethod("Messaging.RegisterForMessages")) {
 				SteamClient.Messaging.PostMessage(
 					"FriendsUI",
 					"ChatTabActivated",

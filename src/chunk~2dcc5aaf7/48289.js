@@ -11,7 +11,7 @@ import u, { Gn, z7 } from "./89193.js";
 import { q3 } from "./90095.js";
 import A, { I } from "./61416.js";
 import p from "./8573.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import h from "./17415.js";
 import C from "./52451.js";
 import { lY } from "./51095.js";
@@ -204,7 +204,7 @@ export function LK() {
 	return I({
 		queryKey: ["FriendsStore", "CurrentUserCachedAvatarURL"],
 		queryFn: async () =>
-			Dp("WebChat.GetLocalAvatarBase64")
+			BSharedJSContextHasMethod("WebChat.GetLocalAvatarBase64")
 				? await SteamClient.WebChat.GetLocalAvatarBase64()
 				: null,
 		enabled: e,

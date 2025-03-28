@@ -71,7 +71,7 @@ import { QP } from "./45264.js";
 import ge from "./3524.js";
 import he from "./92251.js";
 import Ce from "./8573.js";
-import { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import fe from "./88750.js";
 import { Nr as Nr_2 } from "./42318.js";
 import ye from "./35488.js";
@@ -4145,7 +4145,7 @@ function dn(e) {
 	const s = q3(() => t.preview_pinned_mode) || !a;
 	const o = B.useCallback(() => {
 		if (r.current) {
-			if (Fj(r.current, "Overlay.SetWindowAlpha")) {
+			if (BSteamClientHasMethod(r.current, "Overlay.SetWindowAlpha")) {
 				if (s) {
 					r.current.SteamClient.Overlay.SetWindowAlpha(i);
 				} else {

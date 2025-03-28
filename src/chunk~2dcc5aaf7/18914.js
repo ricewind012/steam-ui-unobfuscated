@@ -362,7 +362,7 @@ import { Qc as Qc_2 } from "./87546.js";
 import Qu from "./20326.js";
 import Zu from "./60712.js";
 import Ku from "./57421.js";
-import { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import Ju from "./59718.js";
 import $u from "./223.js";
 import td from "./48197.js";
@@ -18822,7 +18822,12 @@ export const Is = PA((e) => {
 		[d.BrowserWindow],
 	);
 	A.useEffect(() => {
-		if (!Fj(d.BrowserWindow, "Browser.RegisterForGestureEvents")) {
+		if (
+			!BSteamClientHasMethod(
+				d.BrowserWindow,
+				"Browser.RegisterForGestureEvents",
+			)
+		) {
 			return;
 		}
 		const e = d.BrowserWindow.SteamClient.Browser.RegisterForGestureEvents(p);

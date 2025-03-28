@@ -78,7 +78,10 @@ import { Z9 } from "./91720.js";
 import $t from "./48042.js";
 import er from "./91789.js";
 import tr from "./73870.js";
-import { Fj, Dp } from "./736.js";
+import {
+	BSteamClientHasMethod,
+	BSharedJSContextHasMethod,
+} from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import { q3 } from "./90095.js";
 import ir from "./7470.js";
 import ar from "./85243.js";
@@ -6617,7 +6620,7 @@ export class kP extends p.iw {
 		return this.m_window.document.hasFocus();
 	}
 	IsMinimized() {
-		if (Fj(this.m_window, "Window.IsWindowMinimized")) {
+		if (BSteamClientHasMethod(this.m_window, "Window.IsWindowMinimized")) {
 			return this.m_window.SteamClient.Window.IsWindowMinimized();
 		} else {
 			return Promise.resolve(false);
@@ -6738,7 +6741,7 @@ class yr {
 			);
 			window.addEventListener("message", this.HandlePostMessage);
 		}
-		if (Dp("Messaging.RegisterForMessages")) {
+		if (BSharedJSContextHasMethod("Messaging.RegisterForMessages")) {
 			this.m_setSteamClientListeners.add(
 				SteamClient.Messaging.RegisterForMessages(
 					"LibraryCommands",
@@ -6752,7 +6755,7 @@ class yr {
 				),
 			);
 		}
-		if (Dp("WebChat.RegisterForUIModeChange")) {
+		if (BSharedJSContextHasMethod("WebChat.RegisterForUIModeChange")) {
 			this.m_setSteamClientListeners.add(
 				SteamClient.WebChat.RegisterForUIModeChange(this.HandleUIModeChange),
 			);
@@ -6870,7 +6873,7 @@ class yr {
 		});
 	}
 	SendPersonaUpdateToLibrary(e) {
-		if (Dp("Messaging.PostMessage")) {
+		if (BSharedJSContextHasMethod("Messaging.PostMessage")) {
 			SteamClient.Messaging.PostMessage(
 				"PersonaState",
 				"PersonaUpdate",
@@ -7619,7 +7622,7 @@ export class Yw extends p.m {
 		}
 	}
 	OnVoiceChatActiveStateChange(e) {
-		if (Dp("Browser.SetBackgroundThrottlingDisabled")) {
+		if (BSharedJSContextHasMethod("Browser.SetBackgroundThrottlingDisabled")) {
 			SteamClient.Browser.SetBackgroundThrottlingDisabled(e);
 		}
 	}

@@ -1,5 +1,5 @@
 import r from "./63696.js";
-import i, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import s from "./50376.js";
 import o, { A } from "./90765.js";
 import a, { GD, jt } from "./90685.js";
@@ -10,7 +10,7 @@ function L(e) {
 	const u = r.useCallback(() => {
 		if (onMaximize) {
 			onMaximize();
-		} else if (Fj(popup, "Window.ToggleMaximize")) {
+		} else if (BSteamClientHasMethod(popup, "Window.ToggleMaximize")) {
 			popup.SteamClient.Window.ToggleMaximize();
 		}
 	}, [popup, onMaximize]);
@@ -41,7 +41,7 @@ function M(e) {
 	const { popup, onClose, bOSX } = e;
 	const a = r.useCallback(() => {
 		if (popup) {
-			if (Fj(popup, "Window.Close")) {
+			if (BSteamClientHasMethod(popup, "Window.Close")) {
 				popup.SteamClient.Window.Close();
 			} else {
 				popup.close();

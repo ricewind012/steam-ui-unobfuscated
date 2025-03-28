@@ -16,7 +16,7 @@ import { u as u_1 } from "./24761.js";
 import { s as s_1 } from "./81255.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import f from "./60857.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import y from "./79769.js";
 export class d extends u.o {
 	LOG = new m.wd("ChatRoom", () => this.unique_id).Debug;
@@ -199,7 +199,7 @@ export class d extends u.o {
 	OnNewChatMsgAdded(e, t, r, n) {
 		if (
 			i.TS.IN_CLIENT &&
-			Dp("WebChat.OnNewGroupChatMsgAdded") &&
+			BSharedJSContextHasMethod("WebChat.OnNewGroupChatMsgAdded") &&
 			A.xm.SettingsStore.BClientHasFeatureOrOnWeb("SteamworksChatAPI")
 		) {
 			SteamClient.WebChat.OnNewGroupChatMsgAdded(

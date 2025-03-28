@@ -17,7 +17,7 @@ import b from "./3475.js";
 import y from "./81383.js";
 import w from "./97023.js";
 import B from "./47296.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import I from "./52451.js";
 import M from "./83599.js";
 import T, { u as u_1 } from "./17385.js";
@@ -574,12 +574,12 @@ class k {
 	}
 	async BCanCreateInviteForGame(e, t) {
 		return (
-			!!Dp("RemotePlay.BCanCreateInviteForGame") &&
+			!!BSharedJSContextHasMethod("RemotePlay.BCanCreateInviteForGame") &&
 			SteamClient.RemotePlay.BCanCreateInviteForGame(e, t)
 		);
 	}
 	async BCanAcceptInviteForGame(e, t) {
-		if (Dp("RemotePlay.BCanAcceptInviteForGame")) {
+		if (BSharedJSContextHasMethod("RemotePlay.BCanAcceptInviteForGame")) {
 			return SteamClient.RemotePlay.BCanAcceptInviteForGame(e, t);
 		} else {
 			return !i.TS.COUNTRY || !t.includes(i.TS.COUNTRY);
@@ -1373,7 +1373,7 @@ class P {
 	}
 	SetCommunityPreferences(e) {
 		this.m_CommunityPreferences = e;
-		if (Dp("Messaging.PostMessage")) {
+		if (BSharedJSContextHasMethod("Messaging.PostMessage")) {
 			SteamClient.Messaging.PostMessage(
 				"Settings",
 				"CommunityPreferences",

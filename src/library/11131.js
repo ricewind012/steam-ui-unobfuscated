@@ -11,7 +11,7 @@ import a, { BK } from "./85243.js";
 import c, { Gn } from "./89193.js";
 import l from "./63696.js";
 import u from "./17385.js";
-import m, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import h, { s as s_1 } from "./81255.js";
 import { Qi, vJ } from "./52451.js";
@@ -365,7 +365,7 @@ export class Ad {
 	}
 	Close() {
 		if (this.m_popup) {
-			if (Fj(this.m_popup.window, "Window.Close")) {
+			if (BSteamClientHasMethod(this.m_popup.window, "Window.Close")) {
 				this.m_popup.window.SteamClient.Window.Close();
 			} else {
 				this.m_popup.window.close();
@@ -410,7 +410,7 @@ export class Ad {
 	}
 	GetWindowRestoreDetails() {
 		if (
-			Fj(this.m_popup, "Window.GetWindowRestoreDetails") &&
+			BSteamClientHasMethod(this.m_popup, "Window.GetWindowRestoreDetails") &&
 			!this.m_popup.closed
 		) {
 			return this.m_popup.SteamClient.Window.GetWindowRestoreDetails();
@@ -419,14 +419,20 @@ export class Ad {
 		}
 	}
 	IsMinimized() {
-		if (Fj(this.m_popup, "Window.IsWindowMinimized") && !this.m_popup.closed) {
+		if (
+			BSteamClientHasMethod(this.m_popup, "Window.IsWindowMinimized") &&
+			!this.m_popup.closed
+		) {
 			return this.m_popup.SteamClient.Window.IsWindowMinimized();
 		} else {
 			return Promise.resolve(false);
 		}
 	}
 	IsMaximized() {
-		if (Fj(this.m_popup, "Window.IsWindowMaximized") && !this.m_popup.closed) {
+		if (
+			BSteamClientHasMethod(this.m_popup, "Window.IsWindowMaximized") &&
+			!this.m_popup.closed
+		) {
 			return this.m_popup.SteamClient.Window.IsWindowMaximized();
 		} else {
 			return Promise.resolve(false);

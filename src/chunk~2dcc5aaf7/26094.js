@@ -13,7 +13,7 @@ import m from "./67429.js";
 import u, { Dp } from "./68438.js";
 import d from "./43271.js";
 import { MS } from "./1385.js";
-import g, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import h, { Y2 } from "./72476.js";
 import C, { tC } from "./51095.js";
 import { pg } from "./13869.js";
@@ -173,7 +173,7 @@ function B(e, t) {
 	return filePromise;
 }
 async function v(e, t, r) {
-	if (!Fj(r, "System.OpenFileDialog")) {
+	if (!BSteamClientHasMethod(r, "System.OpenFileDialog")) {
 		r = window;
 	}
 	const n = `*.${t}`;

@@ -12,7 +12,7 @@ import a from "./15181.js";
 import c from "./41230.js";
 import l from "./63696.js";
 import u, { lX } from "./31084.js";
-import m, { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import d from "./32263.js";
 import h from "./50376.js";
 import p, { A as A_1 } from "./90765.js";
@@ -829,7 +829,11 @@ export function aE(e) {
 			o = true;
 		}
 	}
-	if (b.TS.IN_CLIENT && o && Fj(n, "Browser.GetSpellingSuggestions")) {
+	if (
+		b.TS.IN_CLIENT &&
+		o &&
+		BSteamClientHasMethod(n, "Browser.GetSpellingSuggestions")
+	) {
 		let [e, ...r] = n.SteamClient.Browser.GetSpellingSuggestions();
 		let i = target;
 		if (i) {
@@ -856,7 +860,7 @@ export function aE(e) {
 				);
 			});
 		}
-		if (e && Fj(n, "Browser.AddWordToDictionary")) {
+		if (e && BSteamClientHasMethod(n, "Browser.AddWordToDictionary")) {
 			const r = 30;
 			e = e.trim();
 			t.push(
@@ -903,7 +907,7 @@ export function aE(e) {
 			),
 		);
 	}
-	if (b.TS.IN_CLIENT && o && Fj(n, "Browser.Paste")) {
+	if (b.TS.IN_CLIENT && o && BSteamClientHasMethod(n, "Browser.Paste")) {
 		t.push(
 			l.createElement(
 				kt,
@@ -921,7 +925,7 @@ export function aE(e) {
 	}
 	if (b.TS.IN_CLIENT && b.TS.DEV_MODE) {
 		const e = [];
-		if (Fj(n, "Browser.OpenDevTools")) {
+		if (BSteamClientHasMethod(n, "Browser.OpenDevTools")) {
 			e.push(
 				l.createElement(
 					kt,
@@ -936,7 +940,7 @@ export function aE(e) {
 				),
 			);
 		}
-		if (Fj(n, "Browser.InspectElement")) {
+		if (BSteamClientHasMethod(n, "Browser.InspectElement")) {
 			e.push(
 				l.createElement(
 					kt,

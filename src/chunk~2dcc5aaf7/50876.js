@@ -134,7 +134,10 @@ import xn, { LK } from "./48289.js";
 import Un from "./63713.js";
 import Wn from "./3289.js";
 import Yn from "./10064.js";
-import { Dp, Fj } from "./736.js";
+import {
+	BSharedJSContextHasMethod,
+	BSteamClientHasMethod,
+} from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import { W6 as W6_2 } from "./69913.js";
 import { f as f_2 } from "./63538.js";
 import $n from "./79671.js";
@@ -5083,7 +5086,7 @@ function ai(e) {
 	const [t, r, i] = M_2({
 		bCloseOnOK: true,
 		onOK: () => {
-			if (Dp("Browser.ClearAllBrowsingData")) {
+			if (BSharedJSContextHasMethod("Browser.ClearAllBrowsingData")) {
 				SteamClient.Browser.ClearAllBrowsingData();
 			}
 		},
@@ -5133,7 +5136,7 @@ function si(e) {
 	const m = n.useCallback(
 		(e) => {
 			let t = GetOwningWindowForEvent(e) ?? window;
-			if (!Fj(t, "System.OpenFileDialog")) {
+			if (!BSteamClientHasMethod(t, "System.OpenFileDialog")) {
 				t = window;
 			}
 			t.SteamClient.System.OpenFileDialog({

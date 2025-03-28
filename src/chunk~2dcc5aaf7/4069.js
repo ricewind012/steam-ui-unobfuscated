@@ -46,7 +46,7 @@ import * as Q from "./49519.js";
 import * as Z from "./52451.js";
 import * as Y from "./57774.js";
 import * as K from "./46382.js";
-import * as X from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import * as J from "./69767.js";
 import * as $ from "./2306.js";
 import * as ee from "./96670.js";
@@ -2307,7 +2307,7 @@ function ct(e) {
 				strInitialFile: t,
 				bChooseDirectory: true,
 			};
-			((0, X.Fj)(e.ownerWindow, "System.OpenFileDialog")
+			((0, BSteamClientHasMethod)(e.ownerWindow, "System.OpenFileDialog")
 				? e.ownerWindow
 				: window
 			).SteamClient.System.OpenFileDialog(r).then(s);

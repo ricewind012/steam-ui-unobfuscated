@@ -13,7 +13,7 @@ import h from "./49395.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import g from "./79769.js";
 import f from "./25265.js";
-import b, { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import M from "./53048.js";
 import S from "./29218.js";
 import y from "./44846.js";
@@ -373,7 +373,9 @@ export class ij extends w {
 	constructor() {
 		super();
 		Gn(this);
-		if (Dp("User.RegisterForConnectionAttemptsThrottled")) {
+		if (
+			BSharedJSContextHasMethod("User.RegisterForConnectionAttemptsThrottled")
+		) {
 			SteamClient.User.RegisterForConnectionAttemptsThrottled(
 				this.OnConnectionAttemptThrottled,
 			);

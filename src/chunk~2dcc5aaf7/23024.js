@@ -19,7 +19,7 @@ import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import w, { H } from "./16154.js";
 import B from "./44058.js";
 import v from "./20711.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 const a = i;
 function c(e, t, r) {
 	return [e, t, r];
@@ -560,10 +560,10 @@ class R {
 		}
 	}
 	BCanUnlockH264() {
-		if (Dp("RemotePlay.UnlockH264")) {
+		if (BSharedJSContextHasMethod("RemotePlay.UnlockH264")) {
 			console.log("Client supports direct H.264 unlock");
 			return true;
-		} else if (Dp("BrowserView.PostMessageToParent")) {
+		} else if (BSharedJSContextHasMethod("BrowserView.PostMessageToParent")) {
 			console.log("Client supports browserview H.264 unlock");
 			return true;
 		} else {
@@ -572,10 +572,10 @@ class R {
 		}
 	}
 	RequestUnlockH264() {
-		if (Dp("RemotePlay.UnlockH264")) {
+		if (BSharedJSContextHasMethod("RemotePlay.UnlockH264")) {
 			console.log("Requesting direct H.264 unlock");
 			SteamClient.RemotePlay.UnlockH264();
-		} else if (Dp("BrowserView.PostMessageToParent")) {
+		} else if (BSharedJSContextHasMethod("BrowserView.PostMessageToParent")) {
 			console.log("Requesting browserview unlock");
 			SteamClient.BrowserView.PostMessageToParent(
 				"UnlockH264Request",

@@ -28,7 +28,7 @@ import { s as s_1 } from "./81255.js";
 import L from "./52451.js";
 import z from "./83957.js";
 import { H as H_1 } from "./16154.js";
-import { Dp } from "./736.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import H from "./95111.js";
 class u extends s.Z {
 	UpdateFromMessage(e, t) {
@@ -1333,7 +1333,7 @@ export class VT {
 					1,
 				);
 				let e = true;
-				if (Dp("WebChat.GetSignIntoFriendsOnStart")) {
+				if (BSharedJSContextHasMethod("WebChat.GetSignIntoFriendsOnStart")) {
 					e = await SteamClient.WebChat.GetSignIntoFriendsOnStart();
 				}
 				E.xm.SettingsStore.GetObjectFromLocalStorage(

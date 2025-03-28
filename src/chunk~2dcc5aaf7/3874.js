@@ -44,7 +44,7 @@ import Le from "./99736.js";
 import ze from "./93092.js";
 import xe, { VI } from "./34792.js";
 import { U8, gO, hF } from "./10905.js";
-import { Fj } from "./736.js";
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import Ve from "./12774.js";
 import He from "./24695.js";
 import je from "./58254.js";
@@ -3723,7 +3723,7 @@ function Ze(e) {
 						},
 					],
 				};
-				if (!Fj(e, "System.OpenFileDialog")) {
+				if (!BSteamClientHasMethod(e, "System.OpenFileDialog")) {
 					e = window;
 				}
 				try {
