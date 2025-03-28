@@ -4,7 +4,7 @@ import n, { Cg } from "./34629.js";
 import i, { useEffect } from "./63696.js";
 import a from "./46422.js";
 import s, { Gn } from "./89193.js";
-import o from "./28987.js";
+import { CallbackHandleDisposer } from "../../actual_src/clienttypes/realm.js";
 import l from "./44846.js";
 import c from "./83599.js";
 import m from "./52451.js";
@@ -787,7 +787,7 @@ class ae {
 	constructor() {
 		Gn(this);
 	}
-	m_clientHandles = new o.hw();
+	m_clientHandles = new CallbackHandleDisposer();
 	m_mapGameActions = new Map();
 	m_fnShowDurationControlDialog;
 	m_mapActiveLaunches = new Map();

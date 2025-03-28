@@ -66,7 +66,7 @@ import dt from "./59718.js";
 import "./27954.js";
 import At from "./32792.js";
 import pt from "./73128.js";
-import ht from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import Ct from "./83599.js";
 import _t from "./13337.js";
 import yt from "./21110.js";
@@ -2599,7 +2599,7 @@ const ft = Nr(() => {
 		}
 	}, []);
 	const a = xn();
-	if (S.TS.EREALM != ht.TU.k_ESteamRealmGlobal) {
+	if (S.TS.EREALM != ESteamRealm.k_ESteamRealmGlobal) {
 		return null;
 	}
 	if (a != 7) {

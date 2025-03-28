@@ -5,7 +5,7 @@ import {
 import n, { Cg } from "./34629.js";
 import i, { forwardRef, useMemo } from "./63696.js";
 import a, { ww, Lg } from "./44846.js";
-import s from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import { ZF } from "./53807.js";
 import c, { xv, Y2 } from "./72476.js";
 import m from "./52451.js";
@@ -132,7 +132,7 @@ function H(e) {
 		if (
 			CLocalizationManager.IsELanguageValidInRealm(
 				t_eLanguage,
-				s.TU.k_ESteamRealmChina,
+				ESteamRealm.k_ESteamRealmChina,
 			)
 		) {
 			t_eLanguage = CLocalizationManager.GetELanguageFallback(t_eLanguage);
@@ -153,7 +153,7 @@ function H(e) {
 	} else if (
 		!CLocalizationManager.IsELanguageValidInRealm(
 			t_eLanguage,
-			s.TU.k_ESteamRealmGlobal,
+			ESteamRealm.k_ESteamRealmGlobal,
 		)
 	) {
 		return null;

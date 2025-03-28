@@ -51,7 +51,7 @@ import Ae from "./70479.js";
 import he from "./7470.js";
 import Ce from "./23038.js";
 import _e from "./85243.js";
-import fe from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import be from "./46382.js";
 import ye from "./73870.js";
 import Se, { R7 } from "./11131.js";
@@ -2353,7 +2353,7 @@ nt = Cg([d.PA], nt);
 let it = class extends u.Component {
 	render() {
 		let e = this.props.friends.self;
-		let t = i.TS.EREALM === fe.TU.k_ESteamRealmChina;
+		let t = i.TS.EREALM === ESteamRealm.k_ESteamRealmChina;
 		return u.createElement(
 			"div",
 			{
@@ -2367,7 +2367,7 @@ let it = class extends u.Component {
 				u.createElement("div", {
 					className: A(
 						De.SteamPageHeaderShortLogo,
-						i.TS.EREALM == fe.TU.k_ESteamRealmChina
+						i.TS.EREALM == ESteamRealm.k_ESteamRealmChina
 							? De.LogoChina
 							: De.LogoGlobal,
 					),

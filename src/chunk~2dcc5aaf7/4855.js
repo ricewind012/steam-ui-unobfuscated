@@ -7,7 +7,7 @@ import c from "./65850.js";
 import m from "./80222.js";
 import u from "./11682.js";
 import A, { zj, HJ, RH } from "./41240.js";
-import p from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import "./64880.js";
 import C, { vB } from "./90076.js";
 function s(e, t) {
@@ -22,7 +22,7 @@ function g(e, t) {
 				t.set_country_code(e.country);
 			}
 			t.set_language(e.language);
-			if (e.realm != p.TU.k_ESteamRealmUnknown) {
+			if (e.realm != ESteamRealm.k_ESteamRealmUnknown) {
 				t.set_steam_realm(e.realm);
 			}
 			return t;

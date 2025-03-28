@@ -1,6 +1,6 @@
 import n from "./80222.js";
 import i from "./72476.js";
-import a from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import s from "./64880.js";
 export function rV(e, t) {
 	e.Body().set_context(hS(t));
@@ -11,7 +11,7 @@ export function hS(e) {
 		t.set_country_code(i.TS.COUNTRY);
 	}
 	t.set_language(i.TS.LANGUAGE);
-	if (i.TS.EREALM != a.TU.k_ESteamRealmUnknown) {
+	if (i.TS.EREALM != ESteamRealm.k_ESteamRealmUnknown) {
 		t.set_steam_realm(i.TS.EREALM);
 	}
 	return t;

@@ -7,7 +7,7 @@ import {
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
 import n, { Cg } from "./34629.js";
-import i, { nA } from "./28987.js";
+import { BIsChinaRealm } from "../../actual_src/clienttypes/realm.js";
 import a from "./44234.js";
 import s from "./96127.js";
 import o, { _k, CO } from "./52912.js";
@@ -71,7 +71,7 @@ export let IV = class extends g.Component {
 		let e = this.props.chats.currentChatRoomGroups.sort(
 			(e, t) => t.time_last_activity - e.time_last_activity,
 		);
-		const t = nA(a.TS.EREALM);
+		const t = BIsChinaRealm(a.TS.EREALM);
 		return (
 			<div className="ChatRoomList CompactFriendsList" ref={this.BindDiv}>
 				{e.length == 0 && (

@@ -9,7 +9,7 @@ import c from "./83957.js";
 import u from "./12176.js";
 import d from "./52451.js";
 import A, { Gn } from "./89193.js";
-import p from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import g from "./8573.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import _ from "./95773.js";
@@ -42,7 +42,7 @@ const m = c;
 class C {
 	m_bLogonFailed = false;
 	m_bForcedDisconnect = false;
-	m_eSteamRealm = p.TU.k_ESteamRealmUnknown;
+	m_eSteamRealm = ESteamRealm.k_ESteamRealmUnknown;
 	m_bConnectSucceeded = false;
 	m_bEverConnected = false;
 	m_bEverLoggedOn = false;
@@ -181,11 +181,11 @@ class C {
 		t.Hdr().set_steamid(e.steamid);
 		((e, t) => {
 			switch (t) {
-				case p.TU.k_ESteamRealmChina: {
+				case ESteamRealm.k_ESteamRealmChina: {
 					e.Body().set_launcher_type(7);
 					break;
 				}
-				case p.TU.k_ESteamRealmGlobal: {
+				case ESteamRealm.k_ESteamRealmGlobal: {
 					break;
 				}
 				default: {

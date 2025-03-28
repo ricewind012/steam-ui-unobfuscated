@@ -1,5 +1,5 @@
 import r from "./63696.js";
-import i from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import o from "./43691.js";
 import { OO } from "./67784.js";
@@ -63,7 +63,7 @@ export function TL() {
 	return o.TS.ON_DECK;
 }
 export function Y2() {
-	return o.TS.EREALM === i.TU.k_ESteamRealmChina;
+	return o.TS.EREALM === ESteamRealm.k_ESteamRealmChina;
 }
 export function Ab(e) {
 	return ["steamchina:", "steamchinabeta:", "steam:", "steambeta:"].includes(e);

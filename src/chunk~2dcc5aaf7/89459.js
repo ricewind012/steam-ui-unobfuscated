@@ -3,7 +3,7 @@ import i, { Gn } from "./89193.js";
 import a from "./44846.js";
 import s from "./95773.js";
 import o from "./72476.js";
-import l from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 const c = {
 	"/me": {
 		strDescriptionToken: "#SlashCommandDescription_Me",
@@ -50,7 +50,10 @@ function u() {
 		m = {};
 		for (let e in c) {
 			let c_e = c[e];
-			if (o.TS.EREALM != l.TU.k_ESteamRealmChina || c_e.bAvailableInChina) {
+			if (
+				o.TS.EREALM != ESteamRealm.k_ESteamRealmChina ||
+				c_e.bAvailableInChina
+			) {
 				m[e] = c_e;
 			}
 		}

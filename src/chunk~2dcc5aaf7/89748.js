@@ -61,7 +61,7 @@ import Ze, { aj } from "./63088.js";
 import Ye from "./83957.js";
 import Xe from "./37976.js";
 import "./63696.js";
-import Je from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import et from "./93960.js";
 import { H as H_1 } from "./16154.js";
@@ -3558,8 +3558,8 @@ class rt {
 			this.m_mapStoredDrafts.get(e)?.content
 		);
 	}
-	GetDraftTitleWithFallback(e, t = Je.TU.k_ESteamRealmGlobal) {
-		const r = t == Je.TU.k_ESteamRealmChina ? 6 : 0;
+	GetDraftTitleWithFallback(e, t = ESteamRealm.k_ESteamRealmGlobal) {
+		const r = t == ESteamRealm.k_ESteamRealmChina ? 6 : 0;
 		return (
 			this.m_mapLocalUpdates.get(e).strTitle ??
 			this.m_mapLocalUpdates.get(r).strTitle ??
@@ -3568,8 +3568,8 @@ class rt {
 			""
 		);
 	}
-	GetDraftContentWithFallback(e, t = Je.TU.k_ESteamRealmGlobal) {
-		const r = t == Je.TU.k_ESteamRealmChina ? 6 : 0;
+	GetDraftContentWithFallback(e, t = ESteamRealm.k_ESteamRealmGlobal) {
+		const r = t == ESteamRealm.k_ESteamRealmChina ? 6 : 0;
 		return (
 			this.m_mapLocalUpdates.get(e).strContent ??
 			this.m_mapLocalUpdates.get(r).strContent ??
@@ -3601,13 +3601,13 @@ class rt {
 	GetIncludedRealmList() {
 		const e = new Array();
 		if (this.m_summary.visible_in_global_realm) {
-			e.push(Je.TU.k_ESteamRealmGlobal);
+			e.push(ESteamRealm.k_ESteamRealmGlobal);
 		}
 		if (this.m_summary.visible_in_global_realm) {
-			e.push(Je.TU.k_ESteamRealmChina);
+			e.push(ESteamRealm.k_ESteamRealmChina);
 		}
 		if (e.length == 0) {
-			e.push(Je.TU.k_ESteamRealmGlobal);
+			e.push(ESteamRealm.k_ESteamRealmGlobal);
 		}
 		AssertMsg(
 			e.length > 0,

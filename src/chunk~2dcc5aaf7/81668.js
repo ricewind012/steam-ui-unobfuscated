@@ -72,7 +72,7 @@ import le from "./73674.js";
 import ce from "./10606.js";
 import me from "./98995.js";
 import ue from "./49946.js";
-import Ae from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import ge from "./93960.js";
 import he from "./90039.js";
 import be from "./72388.js";
@@ -594,7 +594,7 @@ let fe = class extends i.Component {
 			);
 		}
 		let s = new Array();
-		const o = this.props.realms || [Ae.TU.k_ESteamRealmGlobal];
+		const o = this.props.realms || [ESteamRealm.k_ESteamRealmGlobal];
 		for (const e of CLocalizationManager.GetLanguageListForRealms(o)) {
 			if (t && !t(e)) {
 				continue;
@@ -1441,7 +1441,7 @@ const it = PA((e) => {
 									g(true);
 									try {
 										const e = await C.UploadAllImages(
-											[Ae.TU.k_ESteamRealmGlobal],
+											[ESteamRealm.k_ESteamRealmGlobal],
 											h,
 											o,
 											l,

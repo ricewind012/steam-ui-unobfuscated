@@ -3,7 +3,7 @@ import {
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import n from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import i from "./44846.js";
 import a from "./83957.js";
 import o, {
@@ -1935,7 +1935,7 @@ export function qR(e) {
 			o.createElement(De, {
 				onBack: e.onBack,
 			}),
-			realm !== n.TU.k_ESteamRealmChina
+			realm !== ESteamRealm.k_ESteamRealmChina
 				? o.createElement(Ne, {
 						className: className,
 					})

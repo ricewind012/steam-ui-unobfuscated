@@ -20,7 +20,7 @@ import h from "./50376.js";
 import C from "./64608.js";
 import f from "./69164.js";
 import B from "./50551.js";
-import v from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import { lX } from "./31084.js";
 import E, { b$ } from "./90242.js";
 import M from "./56840.js";
@@ -462,7 +462,7 @@ export let o = class extends A.Component {
 				break;
 			}
 			if (
-				s.TS.EREALM != v.TU.k_ESteamRealmChina &&
+				s.TS.EREALM != ESteamRealm.k_ESteamRealmChina &&
 				value.startsWith("/store ")
 			) {
 				r = 6;

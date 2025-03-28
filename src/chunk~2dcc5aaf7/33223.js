@@ -1,7 +1,7 @@
 import { BlobToFile } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
 import n, { Cg } from "./34629.js";
-import i from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import a from "./83957.js";
 import o, { Gn } from "./89193.js";
 import l, { H } from "./16154.js";
@@ -198,7 +198,7 @@ export class V {
 	}
 	RetryAllFailedUploads() {
 		this.CancelAllUploads();
-		this.UploadAllImages([i.TU.k_ESteamRealmGlobal], 0);
+		this.UploadAllImages([ESteamRealm.k_ESteamRealmGlobal], 0);
 	}
 	async handleUploadRefresh(e) {
 		await p.pU.LoadClanImages(this.m_clanSteamID, true, e);

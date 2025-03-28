@@ -11,7 +11,7 @@ import u from "./26853.js";
 import m from "./72476.js";
 import d from "./80986.js";
 import { ID } from "./44846.js";
-import g from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import f from "./37905.js";
 import b from "./92228.js";
 import C from "./75144.js";
@@ -185,10 +185,10 @@ SteamClient._internal.RegisterForStyleChanges((e) => {
 				LocalizationManager.SetPreferredLocales([n]);
 			}
 		}
-		if (m.TS.EREALM == g.TU.k_ESteamRealmUnknown) {
+		if (m.TS.EREALM == ESteamRealm.k_ESteamRealmUnknown) {
 			m.TS.EREALM = ID(m.TS.LAUNCHER_TYPE)
-				? g.TU.k_ESteamRealmChina
-				: g.TU.k_ESteamRealmGlobal;
+				? ESteamRealm.k_ESteamRealmChina
+				: ESteamRealm.k_ESteamRealmGlobal;
 		}
 	})();
 	m.TS.IN_STEAMUI = true;

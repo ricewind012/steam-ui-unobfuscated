@@ -1,5 +1,5 @@
 import n, { Cg } from "./34629.js";
-import i from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import a from "./85243.js";
 import s from "./44846.js";
 import o from "./63696.js";
@@ -19,7 +19,7 @@ export class X4 {
 	}
 	m_gidTransID = s.kF;
 	m_unAppID = null;
-	m_eRealm = i.TU.k_ESteamRealmUnknown;
+	m_eRealm = ESteamRealm.k_ESteamRealmUnknown;
 	InitMicroTxnAuth(e, t, r) {
 		if (this.m_gidTransID != s.kF) {
 			this.AuthorizeMicroTxn(false);

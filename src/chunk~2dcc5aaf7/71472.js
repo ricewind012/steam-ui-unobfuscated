@@ -1,6 +1,6 @@
 import { CLocalizationManager } from "../../actual_src/utils/localization.js";
 import { Lg } from "./44846.js";
-import i from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 export function P(e, t, r) {
 	if (e == null || e == null) {
 		e = t;
@@ -18,7 +18,7 @@ export function P(e, t, r) {
 			return t;
 		}
 	}
-	if (r.includes(i.TU.k_ESteamRealmGlobal)) {
+	if (r.includes(ESteamRealm.k_ESteamRealmGlobal)) {
 		return 0;
 	} else {
 		return 29;

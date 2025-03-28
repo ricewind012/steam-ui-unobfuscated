@@ -22,7 +22,7 @@ import E from "./8653.js";
 import M from "./3756.js";
 import T from "./44234.js";
 import R, { EP } from "./59704.js";
-import k from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import D, { Ic, Ci, WQ, dt } from "./78060.js";
 import N from "./50376.js";
 import F from "./95377.js";
@@ -1481,7 +1481,7 @@ let Ne = class extends l.PureComponent {
 						</v.kt>,
 					);
 				}
-				if (T.TS.EREALM !== k.TU.k_ESteamRealmChina) {
+				if (T.TS.EREALM !== ESteamRealm.k_ESteamRealmChina) {
 					s.push(<Se key="trading" friend={r_friend} />);
 				}
 			} else if (b) {

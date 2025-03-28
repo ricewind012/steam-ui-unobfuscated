@@ -6,7 +6,7 @@ import {
 } from "../../actual_src/utils/localization.js";
 import n, { Cg } from "./34629.js";
 import i, { Yj, zV } from "./72388.js";
-import a from "./28987.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import s, { Gn } from "./89193.js";
 import l from "./8573.js";
 import { v6 } from "./36885.js";
@@ -387,12 +387,12 @@ export class lh {
 			(!!this.BInRealmGlobal() &&
 				!!CLocalizationManager.IsELanguageValidInRealm(
 					e,
-					a.TU.k_ESteamRealmGlobal,
+					ESteamRealm.k_ESteamRealmGlobal,
 				)) ||
 			(!!this.BInRealmChina() &&
 				!!CLocalizationManager.IsELanguageValidInRealm(
 					e,
-					a.TU.k_ESteamRealmChina,
+					ESteamRealm.k_ESteamRealmChina,
 				))
 		);
 	}
@@ -1233,10 +1233,10 @@ export class lh {
 	GetIncludedRealmList() {
 		const e = new Array();
 		if (this.BInRealmGlobal()) {
-			e.push(a.TU.k_ESteamRealmGlobal);
+			e.push(ESteamRealm.k_ESteamRealmGlobal);
 		}
 		if (this.BInRealmChina()) {
-			e.push(a.TU.k_ESteamRealmChina);
+			e.push(ESteamRealm.k_ESteamRealmChina);
 		}
 		AssertMsg(
 			e.length > 0,

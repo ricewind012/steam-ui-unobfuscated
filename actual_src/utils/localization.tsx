@@ -15,11 +15,11 @@ export let LocalizeCalendarWeekdayAndDayMonth =
 
 import React from "react";
 
-import { sf as PchLanguageToELanguage } from "../../library/44846.js";
-import { TU as ESteamRealm } from "../../library/28987.js";
-import { TS as Config } from "../../library/72476.js";
+import { sf as PchLanguageToELanguage } from "../../src/library/44846.js";
+import { ESteamRealm } from "../clienttypes/realm.js";
+import { TS as Config } from "../../src/library/72476.js";
 import { PadArray } from "./arrayutils.js";
-import { lu as CCallbackList } from "../../library/79769.js";
+import { lu as CCallbackList } from "../../src/library/79769.js";
 // TODO: LMAO wtf
 import * as DateTime from "./localization/datetime.js";
 
