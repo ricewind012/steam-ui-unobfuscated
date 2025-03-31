@@ -3,7 +3,7 @@ import i, { Cg } from "./34629.js";
 import a from "./63696.js";
 import s from "./52451.js";
 import o from "./41230.js";
-import l from "./79769.js";
+import { CTrackedEventListeners } from "../../actual_src/utils/callbackutils";
 import m from "./64608.js";
 import u from "./50376.js";
 import d from "./21501.js";
@@ -28,7 +28,7 @@ export let I = class extends a.Component {
 	m_nLocalOffsetYPct;
 	m_fnMouseUp = null;
 	m_fnMouseMove = null;
-	m_listeners = new l.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_strDescription = "";
 	m_aspectRatio = 1;
 	componentWillUnmount() {

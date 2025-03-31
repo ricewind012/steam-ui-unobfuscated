@@ -1,9 +1,9 @@
 import _n from "./63696.js";
-import i, { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import a from "./83599.js";
 export class n {
 	m_fnReducer;
-	m_SubscribableValue = Jc(undefined);
+	m_SubscribableValue = SubscribableValue(undefined);
 	m_mapInputs = new Map();
 	m_nNextInputKey = 0;
 	m_strNameForLog = null;

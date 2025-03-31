@@ -1,7 +1,7 @@
 import n from "./58663.js";
 import i from "./56060.js";
 import a from "./16583.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export let N = new (class {
 	m_socket;
 	m_promiseConnect;
@@ -10,8 +10,8 @@ export let N = new (class {
 	m_bReady = false;
 	m_mapCallbacks = new Map();
 	m_RegisterForVRModeChangeHandle;
-	m_ConnectCallbacks = new s.lu();
-	m_DisconnectCallbacks = new s.lu();
+	m_ConnectCallbacks = new CCallbackList();
+	m_DisconnectCallbacks = new CCallbackList();
 	constructor() {}
 	IsConnected() {
 		return this.m_bReady && this.m_socket?.readyState == WebSocket.OPEN;
@@ -65,7 +65,7 @@ export let N = new (class {
 		if (!n) {
 			n = {
 				msgClass: t,
-				list: new s.lu(),
+				list: new CCallbackList(),
 			};
 			this.m_mapCallbacks.set(e, n);
 		}

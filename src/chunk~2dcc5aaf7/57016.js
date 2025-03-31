@@ -8,7 +8,7 @@ import m from "./69740.js";
 import d from "./13665.js";
 import A from "./96593.js";
 import p from "./96000.js";
-import g from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import h from "./10812.js";
 import C from "./12176.js";
 import _ from "./52451.js";
@@ -62,7 +62,7 @@ class M {
 	}
 	m_CMInterface;
 	m_iGetBestEventsForUserErrorBackoff = 0;
-	m_schScheduledUpdateBestEventsForUser = new g.LU();
+	m_schScheduledUpdateBestEventsForUser = new CScheduledFunc();
 	m_rgEventsHiddenLocally = Array();
 	m_vecHomeBestEventsForUser = Array();
 	m_vecHomeTakeOverEventsForUser = Array();

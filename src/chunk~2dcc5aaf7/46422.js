@@ -23,7 +23,12 @@ import p, { IA, AE } from "./20893.js";
 import g from "./61657.js";
 import h from "./10975.js";
 import C from "./52451.js";
-import _, { Jc, YX } from "./79769.js";
+import {
+	CScheduledFunc,
+	e0,
+	SubscribableValue,
+	MappedSubscribableValue,
+} from "../../actual_src/utils/callbackutils";
 import f from "./90995.js";
 import b from "./14722.js";
 import y from "./33920.js";
@@ -62,7 +67,7 @@ import ne from "./47296.js";
 import ie from "./38964.js";
 import ae from "./2862.js";
 import se from "./84838.js";
-import oe from "./90039.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import ce from "./93960.js";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import de from "./4690.js";
@@ -97,7 +102,7 @@ const Q = new q.wd("GamepadAudio");
 const H_qx = H.qx;
 class Y {
 	m_AudioPlaybackManager = new A.u();
-	m_currentlyFocusedAppid = Jc();
+	m_currentlyFocusedAppid = SubscribableValue();
 	m_pendingSoundHandle;
 	m_pendingSoundType = null;
 	m_bCanPlaySound = true;
@@ -410,10 +415,10 @@ class ge {
 	m_bIsEnabled = false;
 	m_tsLastActivated;
 	m_Root;
-	m_onActivateCallbacks = new oe.l();
-	m_onDeactivateCallbacks = new oe.l();
-	m_onActiveFocusStateChangedCallbacks = new oe.l();
-	m_onChildTreesChanged = new oe.l();
+	m_onActivateCallbacks = new CCallbackList();
+	m_onDeactivateCallbacks = new CCallbackList();
+	m_onActiveFocusStateChangedCallbacks = new CCallbackList();
+	m_onChildTreesChanged = new CCallbackList();
 	m_bVirtualFocus = false;
 	m_bModal = false;
 	m_bIsEmbeddedInLegacyTree = false;
@@ -758,7 +763,7 @@ class Ce {
 	m_tree;
 	m_target;
 	m_interval;
-	m_schExecuteQueuedFocus = new _.LU();
+	m_schExecuteQueuedFocus = new CScheduledFunc();
 	m_bSuppressed = false;
 	constructor(e) {
 		this.m_tree = e;
@@ -822,14 +827,14 @@ class be {
 	m_rootWindow;
 	m_activeWindow;
 	m_activeBrowserView;
-	m_valueIsActive = Jc(false);
+	m_valueIsActive = SubscribableValue(false);
 	m_controller;
 	m_rgGamepadNavigationTrees = [];
 	m_LastActiveNavTree;
 	m_LastActiveFocusNavTree;
 	m_bMounted = true;
-	m_schDeferredActivate = new _.LU();
-	m_FocusChangedCallbacks = new oe.l();
+	m_schDeferredActivate = new CScheduledFunc();
+	m_FocusChangedCallbacks = new CCallbackList();
 	m_bIsGamepadInputSuppressed = false;
 	constructor(e, t, r) {
 		this.m_controller = e;
@@ -1066,8 +1071,8 @@ class ve {
 	m_ActiveContext;
 	m_LastActiveContext;
 	m_fnCatchAllGamepadInput = null;
-	m_UnhandledButtonEventsCallbacks = new oe.l();
-	m_navigationSource = Jc(
+	m_UnhandledButtonEventsCallbacks = new CCallbackList();
+	m_navigationSource = SubscribableValue(
 		{
 			eActivationSourceType: g.Vz.UNKNOWN,
 			nActiveGamepadIndex: -1,
@@ -1075,13 +1080,13 @@ class ve {
 		},
 		Be,
 	);
-	m_navigationSourceSupportsFocus = YX(
+	m_navigationSourceSupportsFocus = MappedSubscribableValue(
 		this.m_navigationSource,
 		(e) =>
 			e?.eActivationSourceType === g.Vz.GAMEPAD ||
 			e?.eActivationSourceType === g.Vz.KEYBOARD_SIMULATOR,
 	);
-	m_bShowDebugFocusRing = Jc(false);
+	m_bShowDebugFocusRing = SubscribableValue(false);
 	m_bRestoringHistory = false;
 	m_fnGamepadEventUpdateBatcher = (e) => e();
 	constructor() {
@@ -1144,7 +1149,7 @@ class ve {
 		return this.m_bShowDebugFocusRing;
 	}
 	RegisterInputSource(e) {
-		let t = new _.e0();
+		let t = new e0();
 		this.m_rgGamepadInputSources.push(e);
 		t.PushArrayRemove(this.m_rgGamepadInputSources, e);
 		t.Push(e.RegisterForGamepadButtonDown(this.OnButtonDown).Unregister);

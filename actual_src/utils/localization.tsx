@@ -19,7 +19,7 @@ import { sf as PchLanguageToELanguage } from "../../src/library/44846.js";
 import { ESteamRealm } from "../clienttypes/realm.js";
 import { TS as Config } from "../../src/library/72476.js";
 import { PadArray } from "./arrayutils.js";
-import { lu as CCallbackList } from "../../src/library/79769.js";
+import { CCallbackList } from "./callbackutils";
 // TODO: LMAO wtf
 import * as DateTime from "./localization/datetime.js";
 

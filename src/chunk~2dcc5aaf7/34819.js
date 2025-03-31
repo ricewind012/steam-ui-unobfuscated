@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i from "./63696.js";
 import a, { gc, _g } from "./52451.js";
-import s, { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import o from "./51297.js";
 import l, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
@@ -17,9 +17,9 @@ export class mG {
 	}
 	m_msgSettings = {};
 	m_nIdleSuspendSupressRefCount = 0;
-	m_bAirplaneMode = Jc(false);
-	m_flDisplayBrightness = Jc(1);
-	m_bNightModeAdvancedView = Jc(false);
+	m_bAirplaneMode = SubscribableValue(false);
+	m_flDisplayBrightness = SubscribableValue(1);
+	m_bNightModeAdvancedView = SubscribableValue(false);
 	get msgSettings() {
 		return this.m_msgSettings;
 	}

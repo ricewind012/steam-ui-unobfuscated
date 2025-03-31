@@ -74,7 +74,7 @@ import me from "./98995.js";
 import ue from "./49946.js";
 import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import ge from "./93960.js";
-import he from "./90039.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import be from "./72388.js";
 import ye, { I8 } from "./12176.js";
 import Se from "./36934.js";
@@ -125,7 +125,7 @@ import Nr from "./24418.js";
 import Gr from "./88306.js";
 import Or from "./12767.js";
 import Pr from "./7558.js";
-import Lr from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import zr from "./54573.js";
 import xr from "./91323.js";
 import "./823.js";
@@ -139,7 +139,7 @@ import An from "./3963.js";
 import pn from "./57016.js";
 import gn from "./9536.js";
 var s = a;
-var l = o;
+var CCallbackList = o;
 var W = U;
 function Z(e, t) {
 	const [r, n] = useState({});
@@ -520,7 +520,7 @@ class Ce {
 	m_eCurLang = sf(_z.TS.LANGUAGE);
 	m_rgHasData = PadArray([], 31, false);
 	m_bHasLocalizationContext = false;
-	m_callback = new he.l();
+	m_callback = new CCallbackList();
 	GetCallback() {
 		return this.m_callback;
 	}
@@ -7188,7 +7188,7 @@ const Yr = i.forwardRef(function (e, t) {
 });
 let Kr = class extends i.Component {
 	m_refContent = i.createRef();
-	m_sendReadInfo = new Lr.LU();
+	m_sendReadInfo = new CScheduledFunc();
 	m_bSentRead = false;
 	OnEnterVisible() {
 		if (this.m_bSentRead || this.m_sendReadInfo.IsScheduled()) {
@@ -8043,7 +8043,7 @@ class Cn extends i.Component {
 			(!this.props.initialEventID && !this.props.appid) ||
 			(e.initialEventID == this.props.initialEventID &&
 				e.appid == this.props.appid &&
-				l(e.additionalParams, this.props.additionalParams))
+				CCallbackList(e.additionalParams, this.props.additionalParams))
 		) {
 			if (!!this.state.event && !this.props.appid && !this.props.clanSteamID) {
 				this.setState({

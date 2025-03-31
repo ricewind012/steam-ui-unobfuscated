@@ -1,7 +1,7 @@
 import i, { Cg } from "./34629.js";
 import a, { Gn } from "./89193.js";
 import s from "./61738.js";
-import o from "./79769.js";
+import { CTrackedEventListeners } from "../../actual_src/utils/callbackutils";
 import l, { QS } from "./52451.js";
 import { q_ as q, tG, ZI, fX } from "./84629.js";
 export let ep;
@@ -14,7 +14,7 @@ export let ep;
 export class si {
 	m_elVideo = null;
 	m_player = null;
-	m_listeners = new o.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_nDownloadFailureCount = 0;
 	m_bInitailized = false;
 	m_bPaused = false;

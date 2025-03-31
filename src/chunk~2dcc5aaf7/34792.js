@@ -9,7 +9,7 @@ import m from "./54946.js";
 import u from "./46948.js";
 import d from "./88475.js";
 import A from "./52451.js";
-import { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import { s as s_1 } from "./81255.js";
 import h from "./51297.js";
 import C from "./58663.js";
@@ -1109,8 +1109,8 @@ class G {
 	m_StorePreferences = undefined;
 	m_FriendSettings = l.u();
 	m_Settings = undefined;
-	m_strTimeZoneID = Jc("");
-	m_BatteryPreferences = Jc({
+	m_strTimeZoneID = SubscribableValue("");
+	m_BatteryPreferences = SubscribableValue({
 		bShowBatteryPercentage: false,
 	});
 	m_MonitorInfo = undefined;

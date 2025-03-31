@@ -3,7 +3,7 @@ import i from "./83957.js";
 import s, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
 import { aj } from "./63088.js";
-import c from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import m from "./52451.js";
 import u from "./72476.js";
 const a = i;
@@ -91,7 +91,7 @@ class A {
 	m_eulaLang;
 	m_data = null;
 	m_bError = false;
-	m_OnReadyCallbacks = new c.lu();
+	m_OnReadyCallbacks = new CCallbackList();
 	constructor(e, t) {
 		this.m_url = e.replace("http://", "https://");
 		this.m_eulaLang = t;

@@ -1,4 +1,4 @@
-import o from "./90039.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 let r;
 export let pR;
 export let Vz;
@@ -137,11 +137,11 @@ class c {
 	e[(e.RPAD = 6)] = "RPAD";
 })((Vz ||= {}));
 export class nh {
-	m_OnGamepadDetectedCallbacks = new o.l();
-	m_ButtonDownCallbacks = new o.l();
-	m_ButtonUpCallbacks = new o.l();
-	m_AnalogCallbacks = new o.l();
-	m_NavigationTypeChangeCallbacks = new o.l();
+	m_OnGamepadDetectedCallbacks = new CCallbackList();
+	m_ButtonDownCallbacks = new CCallbackList();
+	m_ButtonUpCallbacks = new CCallbackList();
+	m_AnalogCallbacks = new CCallbackList();
+	m_NavigationTypeChangeCallbacks = new CCallbackList();
 	m_eNavigationSourceType;
 	m_fLastActiveTime;
 	m_nLastActiveControllerIndex = -1;

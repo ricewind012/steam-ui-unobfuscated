@@ -10,7 +10,7 @@ import u from "./96538.js";
 import d from "./16053.js";
 import A from "./83957.js";
 import g, { EK } from "./51095.js";
-import h from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import C from "./72476.js";
 import { ID } from "./44846.js";
 import { q3 } from "./90095.js";
@@ -568,7 +568,7 @@ class I {
 		}
 		let r = this.m_mapRecentlyLaunchedApps.get(e);
 		if (!r) {
-			r = new h.LU();
+			r = new CScheduledFunc();
 			this.m_mapRecentlyLaunchedApps.set(e, r);
 		}
 		r.Schedule(t, () => this.m_mapRecentlyLaunchedApps.delete(e));

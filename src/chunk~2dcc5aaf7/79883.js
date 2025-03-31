@@ -1,11 +1,11 @@
 import n, { Cg } from "./34629.js";
 import i, { Gn } from "./89193.js";
-import a from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export class H {
 	m_nWebPageRequestID = 0;
 	m_nActiveWebpageRequestID = 0;
 	m_rgWebPageRequests = [];
-	m_cbWebPageRequestsChanged = new a.lu();
+	m_cbWebPageRequestsChanged = new CCallbackList();
 	constructor() {
 		Gn(this);
 	}

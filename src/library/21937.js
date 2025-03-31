@@ -1,9 +1,9 @@
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 import r from "./87531.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export class z {
-	m_callbacksMenusChanged = new s.lu();
+	m_callbacksMenusChanged = new CCallbackList();
 	m_ActiveMenu;
 	m_rgActiveSubmenus = [];
 	m_setHiddenMenus = new Set();

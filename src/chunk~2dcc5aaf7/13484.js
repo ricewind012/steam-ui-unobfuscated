@@ -9,7 +9,10 @@ import c from "./69740.js";
 import m from "./8573.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import A, { H } from "./16154.js";
-import p from "./79769.js";
+import {
+	CScheduledFunc,
+	CCallbackList,
+} from "../../actual_src/utils/callbackutils";
 import h, { kd } from "./51095.js";
 import C, { Fd, yK } from "./72476.js";
 import "./63696.js";
@@ -56,7 +59,7 @@ export class ZQ {
 	m_rgQueuedEventsClanIDs = new Array();
 	m_rgQueuedEventsUniqueIDs = new Array();
 	m_rgQueuedEventsForEditFlags = new Array();
-	m_QueuedEventTimeout = new p.LU();
+	m_QueuedEventTimeout = new CScheduledFunc();
 	m_PendingInfoPromise;
 	m_PendingInfoResolve;
 	m_bLoadedFromConfig = false;
@@ -141,7 +144,7 @@ export class ZQ {
 	}
 	GetPartnerEventChangeCallback(e) {
 		if (!this.m_mapEventUpdateCallback.has(e)) {
-			this.m_mapEventUpdateCallback.set(e, new p.lu());
+			this.m_mapEventUpdateCallback.set(e, new CCallbackList());
 		}
 		return this.m_mapEventUpdateCallback.get(e);
 	}

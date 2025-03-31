@@ -1,4 +1,4 @@
-import i from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export let PN;
 ((e) => {
 	e[(e.LaunchGame = 0)] = "LaunchGame";
@@ -32,7 +32,7 @@ export let PN;
 	e[(e.Screenshot = 28)] = "Screenshot";
 })((PN ||= {}));
 export const eZ = new (class {
-	m_fnCallbackOnPlaySound = new i.lu();
+	m_fnCallbackOnPlaySound = new CCallbackList();
 	RegisterCallbackOnPlaySound(e) {
 		return this.m_fnCallbackOnPlaySound.Register(e);
 	}

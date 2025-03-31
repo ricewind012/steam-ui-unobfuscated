@@ -5,7 +5,7 @@ import a from "./83957.js";
 import o from "./8573.js";
 import { ap, q_ as q } from "./59715.js";
 import c from "./72476.js";
-import m from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import { dm } from "./34428.js";
 const s = a;
 const A = 1000000;
@@ -645,7 +645,7 @@ class b {
 	k_nDroppedFramesThreshold = 1;
 	k_nFailThreshold = 3;
 	k_nIgnoreReadingAroundResizeMS = 2000;
-	m_schTracker = new m.LU();
+	m_schTracker = new CScheduledFunc();
 	m_rgResultsWindow = [];
 	m_nLastResizeMS = 0;
 	m_lastFrameInfo;

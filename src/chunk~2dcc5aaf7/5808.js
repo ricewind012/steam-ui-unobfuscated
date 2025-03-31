@@ -14,7 +14,7 @@ import c from "./22091.js";
 import m, { T as T_1 } from "./78057.js";
 import u from "./96593.js";
 import d, { useState, useEffect } from "./63696.js";
-import A from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import _ from "./96000.js";
 import f from "./76356.js";
 import b from "./10294.js";
@@ -69,7 +69,7 @@ class p {
 	}
 	RegisterForConVar(e, t) {
 		if (!this.m_mapConVarCallbacks.has(e)) {
-			const t = new A.lu();
+			const t = new CCallbackList();
 			const r = SteamClient.UI.RegisterForClientConVar(e, (r) => {
 				if (r !== undefined) {
 					this.m_mapLastConVarValues.set(e, r);

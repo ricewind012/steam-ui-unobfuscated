@@ -4,7 +4,7 @@ import r, { Cg } from "./34629.js";
 import i from "./61657.js";
 import s from "./34742.js";
 import a from "./93960.js";
-import c from "./90039.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import l from "./83599.js";
 import u, { e } from "./87197.js";
 import m, { u8 } from "./20893.js";
@@ -192,7 +192,7 @@ function _(e, t, n) {
 		distance: s,
 	};
 }
-const b = new l.wd("FocusNavigationMovement").Debug;
+const b = new CCallbackList.wd("FocusNavigationMovement").Debug;
 export let xj;
 export let iU;
 export let Yo;
@@ -237,10 +237,10 @@ export class Bp {
 	m_bMounted = false;
 	m_nDepth;
 	m_bFocused = false;
-	m_FocusCallbackList = new c.l();
+	m_FocusCallbackList = new CCallbackList();
 	m_bFocusWithin = false;
-	m_FocusWithinCallbackList = new c.l();
-	m_ActionDescriptionsChangedCallbackList = new c.l();
+	m_FocusWithinCallbackList = new CCallbackList();
+	m_ActionDescriptionsChangedCallbackList = new CCallbackList();
 	m_RetainFocusParent = null;
 	m_rgNavigationHandlers = [];
 	m_rgFocusHandlers = [];

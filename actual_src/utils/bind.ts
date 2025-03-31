@@ -15,7 +15,7 @@
  * 		}
  *
  */
-export function bind(target, propertyKey, descriptor) {
+export function bind(/*target,*/ propertyKey, descriptor) {
 	return {
 		get() {
 			let fnBound = descriptor.value.bind(this);

@@ -3,7 +3,7 @@ import n, { Cg } from "./34629.js";
 import i from "./63696.js";
 import a, { _g, hL } from "./52451.js";
 import s, { Gn } from "./89193.js";
-import o from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import c, { q3 } from "./90095.js";
 import { pg } from "./13869.js";
 import { wY } from "./85182.js";
@@ -1608,7 +1608,7 @@ export class Fd {
 	m_unboundControllerList = [];
 	m_controllerList = [];
 	m_controllerSupportState = undefined;
-	m_cbkDeviceSupportState = new o.lu();
+	m_cbkDeviceSupportState = new CCallbackList();
 	m_nSupportCounter = 0;
 	m_controllerStateDeviceIdx = 0;
 	m_controllerDeviceState = undefined;

@@ -8,7 +8,7 @@ import c from "./76356.js";
 import { Fe } from "./61398.js";
 import { lZ } from "./81884.js";
 import d from "./47296.js";
-import { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import p, { gc } from "./52451.js";
 import g from "./46422.js";
 export const ax = -1;
@@ -18,7 +18,7 @@ class C {
 	}
 	m_streamingAppid = null;
 	m_bLaunchOptionContinued = false;
-	m_launchStatus = Jc();
+	m_launchStatus = SubscribableValue();
 	m_eLaunchResult = d.l.k_ERemoteClientLaunchOK;
 	m_sLaunchResult = "";
 	m_bStreamingLaunchResultDialogVisible = false;

@@ -7,15 +7,15 @@ import i, {
 	useCallback,
 } from "./63696.js";
 import a from "./52451.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 class o {
 	m_bInitialized = false;
 	m_Bus;
 	m_bConnected = false;
 	m_bIBusDaemonMissing;
 	m_BusCallbackHandles;
-	m_ConnectCallbacks = new s.lu();
-	m_AvailableEnginesCallbacks = new s.lu();
+	m_ConnectCallbacks = new CCallbackList();
+	m_AvailableEnginesCallbacks = new CCallbackList();
 	m_mapKeyValFromName = {};
 	m_mapAvailableEngines = {};
 	async Init() {

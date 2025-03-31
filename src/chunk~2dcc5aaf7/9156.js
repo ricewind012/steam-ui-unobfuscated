@@ -1,16 +1,16 @@
 import n, { Cg } from "./34629.js";
 import i from "./52451.js";
 import a from "./83599.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import o from "./44846.js";
 const l = new a.wd("OverlayStore");
 class c {
 	m_mapBrowserInfo = new Map();
 	m_hOverlayBrowserInfoChanged = null;
-	m_OnBrowserCreatedCallbacks = new s.lu();
-	m_OnBrowserClosedCallbacks = new s.lu();
-	m_OnBrowserUpdatedCallbacks = new s.lu();
-	m_OnNotificationPositionChangedCallbacks = new s.lu();
+	m_OnBrowserCreatedCallbacks = new CCallbackList();
+	m_OnBrowserClosedCallbacks = new CCallbackList();
+	m_OnBrowserUpdatedCallbacks = new CCallbackList();
+	m_OnNotificationPositionChangedCallbacks = new CCallbackList();
 	constructor() {}
 	Init(e) {
 		this.m_hOverlayBrowserInfoChanged =

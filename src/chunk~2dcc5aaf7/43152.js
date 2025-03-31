@@ -5,7 +5,10 @@ import a, { Gn } from "./89193.js";
 import s from "./63696.js";
 import o from "./10975.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import c, { Jc } from "./79769.js";
+import {
+	CCallbackList,
+	SubscribableValue,
+} from "../../actual_src/utils/callbackutils";
 import u from "./83599.js";
 import { gc, x2 } from "./52451.js";
 import A, { Pr } from "./72476.js";
@@ -27,10 +30,10 @@ export class PE {
 	k_nKeyboardWindowOffset = 10;
 	m_currentVirtualKeyboardRef = null;
 	m_lastActiveVirtualKeyboardRef = null;
-	m_bIsInlineVirtualKeyboardOpen = Jc(false);
-	m_bIsVirtualKeyboardModal = Jc(false);
-	m_OnActiveElementChanged = new c.lu();
-	m_OnActiveElementClicked = new c.lu();
+	m_bIsInlineVirtualKeyboardOpen = SubscribableValue(false);
+	m_bIsVirtualKeyboardModal = SubscribableValue(false);
+	m_OnActiveElementChanged = new CCallbackList();
+	m_OnActiveElementClicked = new CCallbackList();
 	m_bDismissOnEnter = false;
 	m_strDeadKeyPending = null;
 	m_strDeadKeyNext = null;
@@ -41,7 +44,7 @@ export class PE {
 	m_iKeyboardLocation = 0;
 	m_textFieldLocation = null;
 	m_KeyboardOwners = new Set();
-	m_OnTextEntered = new c.lu();
+	m_OnTextEntered = new CCallbackList();
 	constructor() {
 		Gn(this);
 	}

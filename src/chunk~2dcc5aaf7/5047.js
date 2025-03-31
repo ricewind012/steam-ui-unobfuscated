@@ -2,7 +2,7 @@ import n, { Cg } from "./34629.js";
 import i from "./83957.js";
 import { useState, useEffect } from "./63696.js";
 import { H } from "./16154.js";
-import l from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import c, { hL } from "./52451.js";
 import m from "./72476.js";
 const a = i;
@@ -16,7 +16,7 @@ class u {
 	}
 	GetRegistrationChangeCallback(e) {
 		if (!this.m_listChangeCallback.has(e)) {
-			this.m_listChangeCallback.set(e, new l.lu());
+			this.m_listChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_listChangeCallback.get(e);
 	}

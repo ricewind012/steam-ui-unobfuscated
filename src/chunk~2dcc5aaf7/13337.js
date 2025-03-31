@@ -1,7 +1,7 @@
 import n from "./63696.js";
 import i from "./12176.js";
 import a from "./54946.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { hL } from "./52451.js";
 export function mb(e) {
 	let [t, setT] = n.useState(e.GetSubscriberAgreementInfo());
@@ -12,7 +12,7 @@ export const Yq = new (class {
 	m_cm;
 	m_SubscriberAgreementInfo;
 	m_PromiseLoading;
-	m_SubscriberAgreementInfoChangedCallbacks = new s.lu();
+	m_SubscriberAgreementInfoChangedCallbacks = new CCallbackList();
 	constructor() {}
 	Init(e) {
 		this.m_cm = e;

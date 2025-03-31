@@ -11,7 +11,10 @@ import u from "./33223.js";
 import d, { m as m_1 } from "./39039.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { H } from "./16154.js";
-import h, { RR } from "./79769.js";
+import {
+	CCallbackList,
+	PromiseObj,
+} from "../../actual_src/utils/callbackutils";
 import "./52451.js";
 import _ from "./72476.js";
 import { mJ } from "./36885.js";
@@ -146,7 +149,7 @@ class v {
 			}
 		}
 		if (!this.m_bSynchronousUpload) {
-			s = await RR(a);
+			s = await PromiseObj(a);
 		}
 		Object.keys(s).forEach((r) => {
 			const s_r = s[r];
@@ -317,7 +320,7 @@ export class i6 {
 	}
 	GetImageListCallbackForClanAccountID(e) {
 		if (!this.m_imageListChangeCallback.has(e)) {
-			this.m_imageListChangeCallback.set(e, new h.lu());
+			this.m_imageListChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_imageListChangeCallback.get(e);
 	}

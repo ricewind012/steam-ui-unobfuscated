@@ -17,7 +17,7 @@ import te from "./36383.js";
 import { s as s_1 } from "./81255.js";
 import qe from "./6660.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import Ze from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import Ye from "./49180.js";
 export let HT = Ye.H;
 
@@ -5336,7 +5336,7 @@ export class F$ {
 	m_VoiceCallState = new $e();
 	m_mapOneOnOneCallsWaitingJoinOrAccept = P.sH.map();
 	m_hRegisterForPushToTalkStateChange = null;
-	m_VoiceChatActiveStateChangeCallbacks = new Ze.lu();
+	m_VoiceChatActiveStateChangeCallbacks = new CCallbackList();
 	m_bPushToTalkEnabled = false;
 	m_bPushToMuteEnabled = false;
 	m_bVoicePTTStateEnabled = false;

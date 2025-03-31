@@ -14,7 +14,10 @@ import * as g from "./59848.js";
 import * as h from "./29381.js";
 import * as C from "./50376.js";
 import * as _ from "./43397.js";
-import * as f from "./79769.js";
+import {
+	CScheduledFunc,
+	CTrackedEventListeners,
+} from "../../actual_src/utils/callbackutils";
 import * as b from "./90765.js";
 import * as y from "./54644.js";
 import {
@@ -718,7 +721,7 @@ let z = class extends s.Component {
 	}
 	k_nHideSliderTimeout = 1500;
 	m_bShowSlider = true;
-	m_schHideSlider = new f.LU();
+	m_schHideSlider = new CScheduledFunc();
 	m_bChildDragging = false;
 	m_bMouseOver = false;
 	componentWillUnmount() {
@@ -897,13 +900,13 @@ let x = class extends s.Component {
 x = (0, n.Cg)([a.PA], x);
 const W = 15;
 let V = class extends s.Component {
-	m_schHideControls = new f.LU();
-	m_schUnmountControls = new f.LU();
+	m_schHideControls = new CScheduledFunc();
+	m_schUnmountControls = new CScheduledFunc();
 	m_elVideo = null;
 	m_elBroadcastPlayer = null;
 	m_bMouseDown = false;
 	m_elMouseDown = null;
-	m_listeners = new f.Ji();
+	m_listeners = new CTrackedEventListeners();
 	constructor(e) {
 		super(e);
 		this.state = {

@@ -1,7 +1,7 @@
 import i, { Cg } from "./34629.js";
 import s from "./93960.js";
 import o from "./73870.js";
-import a from "./79769.js";
+import { lu as CCallbackList } from "../../actual_src/utils/callbackutils";
 export let $b;
 ((e) => {
 	e[(e.Debug = 0)] = "Debug";
@@ -63,7 +63,7 @@ export class fi {
 	m_setKnownDebugLogs = new Set();
 	m_setEnabledDebugLogs = new Set();
 	m_bIncludeBacktraceInLog = false;
-	m_SettingsChangedCallback = new a.lu();
+	m_SettingsChangedCallback = new CCallbackList();
 	m_bLoading = false;
 	constructor() {
 		this.m_Storage = new o.A();

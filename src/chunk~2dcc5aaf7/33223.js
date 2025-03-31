@@ -6,7 +6,7 @@ import a from "./83957.js";
 import o, { Gn } from "./89193.js";
 import l, { H } from "./16154.js";
 import c from "./93960.js";
-import m, { RR } from "./79769.js";
+import { PromiseObj } from "../../actual_src/utils/callbackutils";
 import A from "./72476.js";
 import p from "./88341.js";
 import g from "./39082.js";
@@ -158,7 +158,7 @@ export class V {
 				}
 			}
 		}
-		const s = await RR(a);
+		const s = await PromiseObj(a);
 		Object.keys(s).forEach((r) => {
 			const s_r = s[r];
 			const i = this.m_filesToUpload.find(

@@ -20,7 +20,10 @@ import p, { zy } from "./95773.js";
 import C, { u as u_1 } from "./17385.js";
 import f from "./52003.js";
 import b from "./11131.js";
-import y from "./79769.js";
+import {
+	CCallbackList,
+	CTrackedEventListeners,
+} from "../../actual_src/utils/callbackutils";
 import { AssertMsg, FailAssertion } from "./../../actual_src/utils/assert.js";
 import B from "./36383.js";
 import v from "./12176.js";
@@ -356,7 +359,7 @@ class _ extends g {
 class w {
 	m_data;
 	m_bDropConsumed = false;
-	m_onDropCompleteCallbacks = new y.lu();
+	m_onDropCompleteCallbacks = new CCallbackList();
 	m_vecClasses = [];
 	BInDrag() {
 		return !!this.m_data;
@@ -3288,7 +3291,7 @@ Cg([c.oI], dt.prototype, "OnClick", null);
 dt = Cg([N.PA], dt);
 let ht = class extends pe.mX {
 	m_elVideo;
-	m_listeners = new y.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_resizeObserver;
 	m_refVideo = F.createRef();
 	constructor(e) {

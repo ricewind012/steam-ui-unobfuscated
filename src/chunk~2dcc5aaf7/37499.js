@@ -10,7 +10,7 @@ import m from "./63696.js";
 import u from "./44846.js";
 import d from "./92031.js";
 import A from "./8573.js";
-import g from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import h, { hL } from "./52451.js";
 import C from "./72476.js";
 import _ from "./5822.js";
@@ -18,10 +18,10 @@ import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import b from "./45967.js";
 import { c as c_1 } from "./80553.js";
 class S {
-	m_cbOverlayDialogsChanged = new g.lu();
+	m_cbOverlayDialogsChanged = new CCallbackList();
 	m_rgOverlayDialogRequests = [];
 	m_vecOverlayBrowserProtocolRegistrations = [];
-	m_cbkOverlayBrowserProtocol = new g.lu();
+	m_cbkOverlayBrowserProtocol = new CCallbackList();
 	m_rgMtxBrowsers = [];
 	async Init() {
 		SteamClient.Overlay.RegisterForActivateOverlayRequests(

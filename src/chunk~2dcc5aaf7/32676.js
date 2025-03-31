@@ -38,7 +38,7 @@ import * as P from "./98995.js";
 import * as L from "./65528.js";
 import * as z from "./11131.js";
 import * as x from "./46422.js";
-import * as U from "./79769.js";
+import { e0 } from "../../actual_src/utils/callbackutils";
 import * as W from "./37790.js";
 import * as V from "./84838.js";
 import * as H from "./69164.js";
@@ -515,7 +515,7 @@ function Ge(e) {
 		const e = (0, b.hf)();
 		const t = (0, z.R7)();
 		n.useEffect(() => {
-			const r = new U.e0();
+			const r = new e0();
 			if (e && t?.ownerWindow && x.oy.NavigationManager) {
 				r.Push(
 					x.oy.NavigationManager.RegisterInputSource(new V.K(t?.ownerWindow)),

@@ -11,7 +11,7 @@ import m, { JS } from "./1691.js";
 import d from "./94195.js";
 import h from "./49395.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import g from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import f from "./25265.js";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import M from "./53048.js";
@@ -20,7 +20,7 @@ import y from "./44846.js";
 import E from "./83957.js";
 class _ {
 	m_bRunOnce = false;
-	m_ClientConnectionCallbacks = new g.lu();
+	m_ClientConnectionCallbacks = new CCallbackList();
 	m_mapServerTypeCallbacks = new Map();
 	constructor(e = false) {
 		this.m_bRunOnce = e;
@@ -46,7 +46,7 @@ class _ {
 		let n = this.m_ClientConnectionCallbacks;
 		if (t !== undefined) {
 			if (!this.m_mapServerTypeCallbacks.has(t)) {
-				this.m_mapServerTypeCallbacks.set(t, new g.lu());
+				this.m_mapServerTypeCallbacks.set(t, new CCallbackList());
 			}
 			n = this.m_mapServerTypeCallbacks.get(t);
 		}

@@ -3,7 +3,7 @@ import i from "./83957.js";
 import s, { Gn, h5 } from "./89193.js";
 import o from "./12176.js";
 import l from "./10812.js";
-import c from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import m from "./93960.js";
 import u, { xv, Bu, Fd, yK } from "./72476.js";
 import d, { H } from "./16154.js";
@@ -17,7 +17,7 @@ class A {
 	m_setShownEvents = new Set();
 	m_setReadEvents = new Set();
 	m_rgPendingUpload = [];
-	m_schUpload = new c.LU();
+	m_schUpload = new CScheduledFunc();
 	m_bUploading = false;
 	constructor(e) {
 		this.m_CMInterface = e;

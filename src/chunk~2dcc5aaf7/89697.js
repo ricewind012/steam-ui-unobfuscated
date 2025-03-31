@@ -8,7 +8,7 @@ import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import T, { Tc } from "./72476.js";
 import { useState, useEffect } from "./63696.js";
 import { H } from "./16154.js";
-import D from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import N, { hL } from "./52451.js";
 import { HO } from "./89193.js";
 import G from "./82301.js";
@@ -1276,7 +1276,7 @@ class L {
 	m_SteamInterface = null;
 	m_canClaimPromise = null;
 	m_claimPromise = null;
-	m_claimStateChangeCallback = new D.lu();
+	m_claimStateChangeCallback = new CCallbackList();
 	m_testNextClaimFakeResponse = null;
 	m_bInTestMode = false;
 	GetClaimItemState() {

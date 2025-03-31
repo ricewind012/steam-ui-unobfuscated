@@ -17,7 +17,7 @@ import { s as s_1 } from "./81255.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import f from "./60857.js";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import y from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export class d extends u.o {
 	LOG = new m.wd("ChatRoom", () => this.unique_id).Debug;
 	m_group;
@@ -36,7 +36,7 @@ export class d extends u.o {
 	m_eMobileNotificationLevel = 0;
 	m_bUnreadIndicatorMuted = false;
 	m_mapMessageReactionReactors = l.sH.map();
-	m_NewChatMsgAddedCallbacks = new y.lu();
+	m_NewChatMsgAddedCallbacks = new CCallbackList();
 	constructor(e, t, r, n) {
 		super(e.FriendStore, e, e.CMInterface);
 		Gn(this);

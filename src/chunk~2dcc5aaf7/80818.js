@@ -16,7 +16,7 @@ import p from "./58254.js";
 import g from "./12767.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import C from "./65016.js";
-import _ from "./79769.js";
+import { CTrackedEventListeners } from "../../actual_src/utils/callbackutils";
 import f from "./4527.js";
 import y from "./3235.js";
 import w, { i_ as i_1 } from "./43397.js";
@@ -678,7 +678,7 @@ class O extends i.Component {
 	m_nLocalOffsetYPct;
 	m_fnMouseUp = null;
 	m_fnMouseMove = null;
-	m_listeners = new _.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_pinType;
 	constructor(e) {
 		super(e);

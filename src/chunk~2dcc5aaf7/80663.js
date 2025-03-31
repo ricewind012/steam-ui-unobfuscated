@@ -20,7 +20,7 @@ import y from "./54946.js";
 import S from "./48332.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import k from "./38849.js";
-import D from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import "./16761.js";
 export let CF = k.CF;
 class l {
@@ -278,7 +278,7 @@ export class fl {
 	m_mapVirtualizedMemberListViews = new Map();
 	m_mapClanChatsByClanID = new Map();
 	m_HiddenRecentChatSettings = new R();
-	m_GroupAddedCallbacks = new D.lu();
+	m_GroupAddedCallbacks = new CCallbackList();
 	m_bReceivedChatGroupList = false;
 	m_bReadyToRender = false;
 	m_fnOnReadyToRender;

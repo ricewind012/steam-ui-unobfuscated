@@ -9,7 +9,7 @@ import { OJ } from "./63439.js";
 import d from "./37790.js";
 import A from "./2862.js";
 import p from "./84838.js";
-import g from "./79769.js";
+import { e0 } from "../../actual_src/utils/callbackutils";
 import { A as A_1 } from "./90765.js";
 import C, { l6 } from "./42898.js";
 const s = a;
@@ -68,7 +68,7 @@ export function _Y(e, t, r, i, a) {
 		}
 		t.SetBrowserWindow(popup);
 		setM(true);
-		const e = new g.e0();
+		const e = new e0();
 		if (o.oy.NavigationManager) {
 			e.Push(o.oy.NavigationManager.RegisterInputSource(new A.q(popup)));
 			e.Push(o.oy.NavigationManager.RegisterInputSource(new p.K(popup)));

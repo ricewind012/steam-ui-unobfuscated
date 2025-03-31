@@ -1,6 +1,6 @@
 import { MoveElement } from "../../actual_src/utils/arrayutils.js";
 import { VD, CI, uV } from "./32700.js";
-import a, { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import s from "./33512.js";
 import { qt } from "./34792.js";
 function l(e) {
@@ -11,14 +11,14 @@ function l(e) {
 	};
 }
 export const o = new (class {
-	m_strCurrentLanguage = Jc("");
-	m_rgLanguages = Jc([]);
-	m_rgWelcomeText = Jc([]);
-	m_strCurrentTimeZoneID = Jc("");
-	m_rgTimeZones = Jc([]);
-	m_bTestModeEnabled = Jc(false);
-	m_eRebootToFactoryTestImageResult = Jc(null);
-	m_bTestOOBESetupInProgress = Jc(false);
+	m_strCurrentLanguage = SubscribableValue("");
+	m_rgLanguages = SubscribableValue([]);
+	m_rgWelcomeText = SubscribableValue([]);
+	m_strCurrentTimeZoneID = SubscribableValue("");
+	m_rgTimeZones = SubscribableValue([]);
+	m_bTestModeEnabled = SubscribableValue(false);
+	m_eRebootToFactoryTestImageResult = SubscribableValue(null);
+	m_bTestOOBESetupInProgress = SubscribableValue(false);
 	async Init() {
 		this.LoadLanguageScreenData();
 		this.LoadTimezoneData();

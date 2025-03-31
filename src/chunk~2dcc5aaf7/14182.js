@@ -22,11 +22,11 @@ import S from "./65726.js";
 import w, { nn } from "./92564.js";
 import { E5 } from "./88620.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import E from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import M from "./72476.js";
 import T from "./83665.js";
 export let aq = class extends i.Component {
-	m_schHoverDelay = new E.LU();
+	m_schHoverDelay = new CScheduledFunc();
 	constructor(e) {
 		super(e);
 		this.state = {

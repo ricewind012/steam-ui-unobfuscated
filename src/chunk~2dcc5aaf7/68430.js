@@ -11,7 +11,7 @@ import l, { Cg } from "./34629.js";
 import c from "./83957.js";
 import u, { Gn, h5 } from "./89193.js";
 import d from "./93960.js";
-import A from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import p, { CH } from "./52451.js";
 import g, { Tc } from "./72476.js";
 import { h as h_1 } from "./5047.js";
@@ -72,7 +72,7 @@ class C {
 	}
 	GetNextDrawChangeCallback(e) {
 		if (!this.m_mapNextDrawChangeCallback.has(e)) {
-			this.m_mapNextDrawChangeCallback.set(e, new A.lu());
+			this.m_mapNextDrawChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_mapNextDrawChangeCallback.get(e);
 	}

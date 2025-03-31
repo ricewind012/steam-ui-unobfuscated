@@ -4,7 +4,7 @@ import a, { Gn } from "./89193.js";
 import s from "./12176.js";
 import o from "./67185.js";
 import l from "./46948.js";
-import c from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import m, { hL } from "./52451.js";
 import u, { bt } from "./51095.js";
 import d, { Tc } from "./72476.js";
@@ -110,14 +110,14 @@ export class aI {
 	GetInClientCompletedQueuesCallback(e, t) {
 		const r = A(e, t);
 		if (!this.m_mapInClientCompletedCallback.has(r)) {
-			this.m_mapInClientCompletedCallback.set(r, new c.lu());
+			this.m_mapInClientCompletedCallback.set(r, new CCallbackList());
 		}
 		return this.m_mapInClientCompletedCallback.get(r);
 	}
 	GetExhaustedCallback(e, t) {
 		const r = A(e, t);
 		if (!this.m_mapExhuastedCallback.has(r)) {
-			this.m_mapExhuastedCallback.set(r, new c.lu());
+			this.m_mapExhuastedCallback.set(r, new CCallbackList());
 		}
 		return this.m_mapExhuastedCallback.get(r);
 	}

@@ -1,4 +1,4 @@
-import n, { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import i from "./64880.js";
 import { rV, Bn, hc } from "./85606.js";
 import s from "./12176.js";
@@ -8,7 +8,7 @@ import c from "./5859.js";
 import m from "./34792.js";
 export const U = new (class {
 	m_cm;
-	m_strSearchText = Jc("");
+	m_strSearchText = SubscribableValue("");
 	async Init(e) {
 		this.m_cm = e;
 	}

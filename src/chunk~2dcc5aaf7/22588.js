@@ -10,7 +10,7 @@ import i from "./83957.js";
 import s from "./44926.js";
 import l, { q_ as q, ZI, tG } from "./84629.js";
 import c, { rU, hT, Te, eJ, N$ } from "./76835.js";
-import u from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import d from "./93960.js";
 import A, { Sb, sK } from "./72061.js";
 import p from "./63696.js";
@@ -33,7 +33,7 @@ export class SX {
 	m_rgTimelineMetadata = [];
 	m_mapTimelineData = new Map();
 	m_mapRunningTimelines = new Map();
-	m_schUpdateRunning = new u.LU();
+	m_schUpdateRunning = new CScheduledFunc();
 	m_fnTimelineURLBuilder;
 	BInitialized() {
 		return this.m_bInitialized;

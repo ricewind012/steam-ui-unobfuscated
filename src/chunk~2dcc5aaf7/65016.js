@@ -1,11 +1,11 @@
 import n, { Cg } from "./34629.js";
 import i from "./63696.js";
 import a from "./52451.js";
-import s from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 export class m extends i.Component {
 	m_elCanvas;
 	m_Context;
-	m_schUpdate = new s.LU();
+	m_schUpdate = new CScheduledFunc();
 	m_bSetupComplete = false;
 	componentDidMount() {
 		if (this.props.updateRate == 0) {

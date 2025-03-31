@@ -1,6 +1,6 @@
 import r from "./63696.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { hL } from "./52451.js";
 import a from "./21440.js";
 import { yk } from "./91435.js";
@@ -9,14 +9,14 @@ export class SZ {
 	m_bOnlyPopups = false;
 	m_bCenterPopupsOnWindow = false;
 	m_rgModals = [];
-	m_OnModalCountChangedCallbacks = new s.lu();
-	m_OnModalShownCallbacks = new s.lu();
-	m_OnModalHiddenCallbacks = new s.lu();
+	m_OnModalCountChangedCallbacks = new CCallbackList();
+	m_OnModalShownCallbacks = new CCallbackList();
+	m_OnModalHiddenCallbacks = new CCallbackList();
 	m_cMountedOverlays = 0;
 	m_rgMeasureModalRequests = [];
-	m_OnMeasureModal = new s.lu();
+	m_OnMeasureModal = new CCallbackList();
 	m_rgLegacyPopupModals = [];
-	m_OnLegacyPopupModalCountChanged = new s.lu();
+	m_OnLegacyPopupModalCountChanged = new CCallbackList();
 	m_browserInfo;
 	get ModalCountChangedCallbacks() {
 		return this.m_OnModalCountChangedCallbacks;

@@ -18,8 +18,10 @@ import A from "./46422.js";
 import p from "./96593.js";
 import g, { Pr } from "./72476.js";
 import h from "./93960.js";
-import C from "./90039.js";
-import _, { Jc } from "./79769.js";
+import {
+	CCallbackList,
+	SubscribableValue,
+} from "../../actual_src/utils/callbackutils";
 import f from "./83599.js";
 import b from "./82011.js";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
@@ -173,9 +175,9 @@ const y = new f.wd("WebBrowser").Debug;
 class S {
 	m_NavigationController;
 	m_postMessage;
-	m_eGameInputSupportLevel = Jc(b.h.Unknown);
-	m_CallbackOnUnhandledInput = new C.l();
-	m_CallbackUpdateActionDescriptions = new C.l();
+	m_eGameInputSupportLevel = SubscribableValue(b.h.Unknown);
+	m_CallbackOnUnhandledInput = new CCallbackList();
+	m_CallbackUpdateActionDescriptions = new CCallbackList();
 	m_lastActionDescriptions;
 	constructor(e, t) {
 		this.m_NavigationController = e;
@@ -651,7 +653,7 @@ class D {
 			this.m_browserView.on("message", this.BrowserViewOnMessage);
 		}
 		if (!this.m_mapMessageCallbacks.has(e)) {
-			this.m_mapMessageCallbacks.set(e, new _.lu());
+			this.m_mapMessageCallbacks.set(e, new CCallbackList());
 		}
 		return this.m_mapMessageCallbacks.get(e);
 	}
@@ -661,9 +663,9 @@ class D {
 			n.Dispatch(t, r);
 		}
 	}
-	m_onStartRequestCallbacks = new _.lu();
-	m_onStartLoadingCallbacks = new _.lu();
-	m_onFinishedRequestCallbacks = new _.lu();
+	m_onStartRequestCallbacks = new CCallbackList();
+	m_onStartLoadingCallbacks = new CCallbackList();
+	m_onFinishedRequestCallbacks = new CCallbackList();
 	get StartRequestCallbacks() {
 		return this.m_onStartRequestCallbacks;
 	}

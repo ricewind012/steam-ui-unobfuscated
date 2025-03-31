@@ -1,6 +1,6 @@
 import i from "./83957.js";
 import s from "./72476.js";
-import o from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import l from "./42731.js";
 export let E;
 const a = i;
@@ -26,9 +26,9 @@ export const V = new (class {
 	m_nFutureViewableEvents = 0;
 	m_nLastRecordedFilter = 0;
 	m_sBrowserID = undefined;
-	m_scheduledFilterChange = new o.LU();
-	m_scheduledFutureStats = new o.LU();
-	m_scheduledPastStats = new o.LU();
+	m_scheduledFilterChange = new CScheduledFunc();
+	m_scheduledFutureStats = new CScheduledFunc();
+	m_scheduledPastStats = new CScheduledFunc();
 	RecordViewedEvent(e, t) {
 		const r = e.GetStoreInitializationTimestamp().getTime() / 1000;
 		this.m_nFutureViewableEvents = 0;

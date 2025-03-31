@@ -9,7 +9,7 @@ import l from "./5640.js";
 import { lY } from "./51095.js";
 import u from "./44846.js";
 import p from "./12176.js";
-import g from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import h from "./52698.js";
 import C from "./83599.js";
 import { KV } from "./46382.js";
@@ -177,7 +177,7 @@ class L {
 	m_mapRecentDownloadPreviousBuilds = new Map();
 	m_rgRecentlyCompleted = [];
 	m_MachineStorage = new h.g();
-	m_fnCallbackOnDownloadItemsUpdate = new g.lu();
+	m_fnCallbackOnDownloadItemsUpdate = new CCallbackList();
 	m_cmInterface = null;
 	constructor() {
 		Gn(this);

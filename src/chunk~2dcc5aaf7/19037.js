@@ -28,7 +28,7 @@ import q, { R7 } from "./11131.js";
 import Q, { bJ } from "./3524.js";
 import Z from "./38964.js";
 import Y from "./37790.js";
-import K from "./79769.js";
+import { e0 } from "../../actual_src/utils/callbackutils";
 import X from "./85399.js";
 const _ = "/images/config1.png";
 const f = "/images/interstitial_controller_config.png";
@@ -1668,7 +1668,7 @@ function Ae(e) {
 		const e = hf();
 		const t = R7();
 		n.useEffect(() => {
-			const r = new K.e0();
+			const r = new e0();
 			if (e && t?.ownerWindow && V.oy.NavigationManager) {
 				r.Push(V.oy.NavigationManager.RegisterInputSource(new Z.E()));
 				r.Push(

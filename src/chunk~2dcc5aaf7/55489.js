@@ -6,7 +6,7 @@ import o, { Gn, fm } from "./89193.js";
 import l, { q3 } from "./90095.js";
 import c from "./63696.js";
 import m from "./85243.js";
-import u, { Jc } from "./79769.js";
+import { SubscribableValue } from "../../actual_src/utils/callbackutils";
 import d from "./83599.js";
 import A, { gc } from "./52451.js";
 import p from "./72476.js";
@@ -29,8 +29,8 @@ export class _n {
 		windowID: 0,
 	};
 	m_mapFocusableApps = new o.Es();
-	m_currentlyFocusedAppid = Jc();
-	m_currentlyFocusedWindowID = Jc();
+	m_currentlyFocusedAppid = SubscribableValue();
+	m_currentlyFocusedWindowID = SubscribableValue();
 	m_Instance;
 	constructor(e) {
 		Gn(this);

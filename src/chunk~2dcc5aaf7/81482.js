@@ -8,8 +8,7 @@ import c from "./48307.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import S from "./52451.js";
 import w from "./72476.js";
-import B from "./79769.js";
-const l_Message = l.Message;
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 class u extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {
@@ -715,7 +714,7 @@ class N {
 	}
 	RegisterForChangeNotifications(e, t) {
 		if (!this.m_mapChangeCallbacks.has(e)) {
-			this.m_mapChangeCallbacks.set(e, new B.lu());
+			this.m_mapChangeCallbacks.set(e, new CCallbackList());
 		}
 		t(e, Array.from(this.m_mapStorage.get(e)?.keys() || []));
 		return this.m_mapChangeCallbacks.get(e).Register(t);

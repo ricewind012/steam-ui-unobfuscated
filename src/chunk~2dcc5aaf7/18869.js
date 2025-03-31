@@ -1,10 +1,10 @@
 import n, { createContext, useContext, useCallback } from "./63696.js";
 import i, { W6, B6 } from "./49519.js";
-import a from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import s from "./79112.js";
 export let br = s.br;
 export const GLContext = createContext({
-	OnNavigateBack: new a.lu(),
+	OnNavigateBack: new CCallbackList(),
 	refGlobalBackOverride: {
 		current: undefined,
 	},

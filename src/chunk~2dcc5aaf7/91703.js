@@ -1,6 +1,6 @@
 import n from "./63696.js";
 import i, { W6 } from "./49519.js";
-import a from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import s from "./37449.js";
 import o, { tn } from "./18869.js";
 import l from "./13688.js";
@@ -60,7 +60,7 @@ export function rc(e) {
 	const { children, fnFocusNavigationRoot } = e;
 	const IRef = n.useRef(undefined);
 	IRef.current ||= {
-		OnNavigateBack: new a.lu(),
+		OnNavigateBack: new CCallbackList(),
 		refGlobalBackOverride: {
 			current: undefined,
 		},

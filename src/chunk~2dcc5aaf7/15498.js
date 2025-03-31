@@ -2,7 +2,7 @@ import n from "./58663.js";
 import i from "./48307.js";
 import a, { I8 } from "./12176.js";
 import g from "./63696.js";
-import h from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { hL } from "./52451.js";
 const n_Message = n.Message;
 class o extends n_Message {
@@ -473,7 +473,7 @@ export class _ {
 	m_cm;
 	m_CookiePreferences;
 	m_PromiseLoading;
-	m_CookiePreferencesChangedCallbacks = new h.lu();
+	m_CookiePreferencesChangedCallbacks = new CCallbackList();
 	constructor(e) {
 		this.m_cm = e;
 	}

@@ -14,7 +14,10 @@ import p from "./31958.js";
 import g from "./72476.js";
 import h from "./93960.js";
 import C from "./99167.js";
-import _ from "./79769.js";
+import {
+	CScheduledFunc,
+	CTrackedEventListeners,
+} from "../../actual_src/utils/callbackutils";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import w, { H } from "./16154.js";
 import B from "./44058.js";
@@ -216,13 +219,13 @@ class f {
 	m_peerConnection = null;
 	m_strBroadcastSteamID = undefined;
 	m_ulWebRTCSessionID = undefined;
-	m_schCandidateTimer = new _.LU();
+	m_schCandidateTimer = new CScheduledFunc();
 	m_nHostCandidateGeneration = undefined;
 	m_nCandidateUpdateIntervalMS = undefined;
-	m_listeners = new _.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_bFirstPlay = true;
 	m_bStatsViewVisible = false;
-	m_schCaptureDisplayStatsTrigger = new _.LU();
+	m_schCaptureDisplayStatsTrigger = new CScheduledFunc();
 	m_stats = new C._L();
 	constructor(e) {
 		Gn(this);
@@ -543,7 +546,7 @@ export let a0;
 })((fK ||= {}));
 class R {
 	m_rtUnlockTime = 0;
-	m_schUnlockTimeout = new _.LU();
+	m_schUnlockTimeout = new CScheduledFunc();
 	m_broadcast;
 	m_video;
 	UnlockH264(e, t) {
@@ -621,8 +624,8 @@ class k {
 	m_eWatchState = fK.None;
 	m_strStateDescription = "";
 	m_rgVideos = [];
-	m_schManifestTimeout = new _.LU();
-	m_schHeartbeatTimeout = new _.LU();
+	m_schManifestTimeout = new CScheduledFunc();
+	m_schHeartbeatTimeout = new CScheduledFunc();
 	SetState(e, t = "") {
 		this.m_eWatchState = e;
 		this.m_strStateDescription = t;
@@ -645,7 +648,7 @@ class D {
 	m_strThumbnailUrl = "";
 	m_nViewerCount = 0;
 	m_bIsOnline = false;
-	m_schUpdateTimeout = new _.LU();
+	m_schUpdateTimeout = new CScheduledFunc();
 	m_nRefCount = 0;
 	constructor(e) {
 		Gn(this);
@@ -696,7 +699,7 @@ class O {
 		bMuted: false,
 		ulViewerToken: "0",
 	};
-	m_schSaveSettings = new _.LU();
+	m_schSaveSettings = new CScheduledFunc();
 	m_broadcastInfos = {};
 	constructor() {
 		Gn(this);
@@ -1253,7 +1256,7 @@ Cg([s.sH], O.prototype, "m_mapBroadcasts", undefined);
 class P {
 	m_elVideo = null;
 	m_player = null;
-	m_listeners = new _.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_gameDataParser = null;
 	m_eWatchLocation = 0;
 	m_bStartWithSubtitles = false;

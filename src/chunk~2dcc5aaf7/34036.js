@@ -24,7 +24,7 @@ import B from "./58084.js";
 import v from "./50376.js";
 import I from "./98995.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import M from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import { A as A_2 } from "./90765.js";
 import { CH, XB } from "./52451.js";
 import D, { Qn } from "./72476.js";
@@ -117,7 +117,7 @@ function Z(e) {
 	const [o, l] = useState([]);
 	const c = useRef(0);
 	const m = CH();
-	const [u] = a.useState(new M.LU());
+	const [u] = a.useState(new CScheduledFunc());
 	const d = useCallback(
 		(e = false) => {
 			if (e) {

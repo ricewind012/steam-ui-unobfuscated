@@ -1,11 +1,21 @@
-import r from "./63696.js";
-import i, { QS, Ue } from "./28864.js";
+import {
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+	useLayoutEffect,
+} from "react";
+import { QS, Ue } from "./28864.js";
+
+// ideally these utils should not have many dependencies beyond react and dom.
+// please put any mobx-referencing utilities in mobxutils.ts and not in here
+
 export function xP(e, t) {
 	return (e, t, n) => n;
 }
 export function Z3(e, t, n = []) {
-	const i = r.useCallback(e, []);
-	r.useEffect(() => {
+	const i = useCallback(e, []);
+	useEffect(() => {
 		if (!i) {
 			return;
 		}
@@ -14,9 +24,9 @@ export function Z3(e, t, n = []) {
 	}, [t, ...n]);
 }
 export function eV(e, t, n = []) {
-	const IRef = r.useRef(e);
+	const IRef = useRef(e);
 	IRef.current = e;
-	r.useEffect(() => {
+	useEffect(() => {
 		if (!IRef.current) {
 			return;
 		}
@@ -29,9 +39,9 @@ export function eV(e, t, n = []) {
 	}, [t, ...n]);
 }
 export function $$(e, t, n = [], i = true) {
-	const SRef = r.useRef(e);
+	const SRef = useRef(e);
 	SRef.current = e;
-	r.useEffect(() => {
+	useEffect(() => {
 		if (!SRef.current || !i) {
 			return;
 		}
@@ -48,32 +58,32 @@ export function bB(e) {
 	$$(CH(), msInterval, [], bEnabled);
 }
 export function L$(e, t, n = true, i = false) {
-	const SRef = r.useRef(t);
+	const SRef = useRef(t);
 	SRef.current = t;
-	const [o, setO] = r.useState(false);
-	const CRef = r.useRef(0);
-	const l = r.useCallback(() => {
+	const [o, setO] = useState(false);
+	const CRef = useRef(0);
+	const l = useCallback(() => {
 		setO(true);
 		if (SRef.current) {
 			SRef.current();
 		}
 	}, []);
-	const u = r.useCallback(() => {
+	const u = useCallback(() => {
 		window.clearTimeout(CRef.current);
 	}, []);
-	const m = r.useCallback(() => {
+	const m = useCallback(() => {
 		setO(false);
 		u();
 		CRef.current = window.setTimeout(l, e);
 	}, [u, e, l]);
-	const d = r.useCallback(() => {
+	const d = useCallback(() => {
 		if (n) {
 			m();
 		}
 	}, [n, m]);
-	r.useEffect(d, [e, d]);
-	r.useEffect(() => u, [u]);
-	r.useEffect(() => {
+	useEffect(d, [e, d]);
+	useEffect(() => u, [u]);
+	useEffect(() => {
 		if (o && i) {
 			m();
 		}
@@ -85,14 +95,14 @@ export function L$(e, t, n = true, i = false) {
 	};
 }
 export function SK(e, t = []) {
-	const [n, setN] = r.useState(e <= 0);
-	r.useEffect(() => setN(false), t);
+	const [n, setN] = useState(e <= 0);
+	useEffect(() => setN(false), t);
 	Z3(() => setN(true), e, t);
 	return n;
 }
 export function vJ(e, t, n) {
-	const [i, setI] = r.useState(n);
-	r.useEffect(() => {
+	const [i, setI] = useState(n);
+	useEffect(() => {
 		let t = true;
 		const n = e();
 		if (n) {
@@ -109,21 +119,21 @@ export function vJ(e, t, n) {
 	return i;
 }
 export function CH() {
-	const [, setE] = r.useState(0);
-	return r.useCallback(() => setE((e) => e + 1), []);
+	const [, setE] = useState(0);
+	return useCallback(() => setE((e) => e + 1), []);
 }
 export function xM() {
-	const ERef = r.useRef(false);
-	r.useEffect(
+	const ERef = useRef(false);
+	useEffect(
 		() => () => {
 			ERef.current = true;
 		},
 		[],
 	);
-	return r.useCallback(() => ERef.current, []);
+	return useCallback(() => ERef.current, []);
 }
 export function _g(e) {
-	const TRef = r.useRef({
+	const TRef = useRef({
 		flLastExecutionTimeMs: 0,
 		fnLatestCallback: null,
 		nTimeoutHandle: 0,
@@ -137,11 +147,11 @@ export function _g(e) {
 			this.nTimeoutHandle = 0;
 		},
 	});
-	r.useEffect(() => {
+	useEffect(() => {
 		const t_current = TRef.current;
 		return () => t_current.fnExecuteLatestCallback();
 	}, []);
-	return r.useCallback(
+	return useCallback(
 		(n) => {
 			const t_current = TRef.current;
 			t_current.fnLatestCallback = n;
@@ -157,7 +167,7 @@ export function _g(e) {
 	);
 }
 export function ML(e, t, n, i) {
-	r.useEffect(() => {
+	useEffect(() => {
 		const r = e?.current;
 		if (r && n) {
 			r.addEventListener(t, n, i);
@@ -177,7 +187,7 @@ export function xA(e, t, n) {
 	);
 }
 export function l6(e, t, n, i) {
-	r.useEffect(() => {
+	useEffect(() => {
 		if (e && n) {
 			e.addEventListener(t, n, i);
 			return () => e.removeEventListener(t, n, i);
@@ -197,7 +207,7 @@ export function Qi(e, t, n, r) {
 	);
 }
 export function o4(e, t) {
-	r.useEffect(() => {
+	useEffect(() => {
 		if (!e || !t) {
 			return;
 		}
@@ -208,7 +218,7 @@ export function o4(e, t) {
 	}, [e, t]);
 }
 export function hL(e, t) {
-	r.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		if (!t || !e) {
 			return;
 		}
@@ -220,8 +230,8 @@ export function dh(e) {
 	hL(e, CH());
 }
 export function gc(e) {
-	const [t, setT] = r.useState(e?.Value);
-	r.useEffect(() => {
+	const [t, setT] = useState(e?.Value);
+	useEffect(() => {
 		if (e == null) {
 			return;
 		}
@@ -232,7 +242,7 @@ export function gc(e) {
 	return t;
 }
 export function x2(e, t) {
-	r.useEffect(() => {
+	useEffect(() => {
 		if (e == null) {
 			return;
 		}
@@ -241,16 +251,16 @@ export function x2(e, t) {
 	}, [e, t]);
 }
 export function uN(e, t, n = 1000) {
-	const IRef = r.useRef(t);
+	const IRef = useRef(t);
 	IRef.current = t;
-	const [s, setS] = r.useState(e);
-	const [a, setA] = r.useState(false);
-	const l = r.useCallback(() => {
+	const [s, setS] = useState(e);
+	const [a, setA] = useState(false);
+	const l = useCallback(() => {
 		setS(e);
 		setA(false);
 	}, [e, setS]);
 	const { fnStopTimer, fnRestartTimer } = L$(n, l, false);
-	const h = r.useCallback(
+	const h = useCallback(
 		(e) => {
 			fnRestartTimer();
 			setS(e);
@@ -264,15 +274,15 @@ export function uN(e, t, n = 1000) {
 	return [a ? s : e, h, l];
 }
 export function Sz(e) {
-	const TRef = r.useRef(null);
-	r.useEffect(() => {
+	const TRef = useRef(null);
+	useEffect(() => {
 		TRef.current = e;
 	});
 	return TRef.current;
 }
 export function uH(e, t) {
-	const [n, setN] = r.useState(e);
-	r.useEffect(() => {
+	const [n, setN] = useState(e);
+	useEffect(() => {
 		if (!e) {
 			const e = window.setTimeout(() => setN(false), t);
 			return () => window.clearTimeout(e);
@@ -285,16 +295,16 @@ export function DF(e, t) {
 	return uH(e, t) || e;
 }
 export function uD(e = false) {
-	const [t, setT] = r.useState(e);
+	const [t, setT] = useState(e);
 	return [
 		t,
-		r.useCallback(() => setT(true), []),
-		r.useCallback(() => setT(false), []),
+		useCallback(() => setT(true), []),
+		useCallback(() => setT(false), []),
 	];
 }
 export function bs(e) {
-	const TRef = r.useRef();
-	return r.useCallback(() => {
+	const TRef = useRef();
+	return useCallback(() => {
 		if (!TRef.current || TRef.current.factory != e) {
 			TRef.current = {
 				value: e(),
@@ -305,7 +315,7 @@ export function bs(e) {
 	}, [e]);
 }
 export function xx(e, t) {
-	const NRef = r.useRef();
+	const NRef = useRef();
 	if (e == null) {
 		NRef.current = e;
 		return e;
@@ -319,16 +329,16 @@ export function xx(e, t) {
 	}
 }
 export function AX(e) {
-	const TRef = r.useRef();
+	const TRef = useRef();
 	TRef.current = e;
-	const NRef = r.useRef(false);
-	const s = r.useCallback((e) => {
+	const NRef = useRef(false);
+	const s = useCallback((e) => {
 		if (!NRef.current) {
 			TRef.current?.(e);
 		}
 		NRef.current = false;
 	}, []);
-	const o = r.useCallback((e) => {
+	const o = useCallback((e) => {
 		TRef.current?.(e);
 		NRef.current = true;
 	}, []);
@@ -336,22 +346,22 @@ export function AX(e) {
 	return Ue(...a);
 }
 export function OP() {
-	const [e, setE] = r.useState(false);
+	const [e, setE] = useState(false);
 	return [
 		e,
 		{
-			onMouseEnter: r.useCallback(() => setE(true), []),
-			onMouseLeave: r.useCallback(() => setE(false), []),
+			onMouseEnter: useCallback(() => setE(true), []),
+			onMouseLeave: useCallback(() => setE(false), []),
 		},
 	];
 }
 export function aA(e = "vertical") {
 	const t = e == "vertical";
-	const NRef = r.useRef();
-	const SRef = r.useRef(true);
-	const ORef = r.useRef(true);
+	const NRef = useRef();
+	const SRef = useRef(true);
+	const ORef = useRef(true);
 	const a = CH();
-	const c = r.useCallback(() => {
+	const c = useCallback(() => {
 		const e = (t ? NRef.current?.scrollTop : NRef.current?.scrollLeft) ?? 0;
 		const r = e == 0;
 		const i =
@@ -363,21 +373,21 @@ export function aA(e = "vertical") {
 			a();
 		}
 	}, [a, t]);
-	const l = r.useCallback(
+	const l = useCallback(
 		(e) => {
 			NRef.current = e;
 			c();
 		},
 		[c],
 	);
-	const u = r.useCallback(
+	const u = useCallback(
 		(e) => {
 			c();
 		},
 		[c],
 	);
-	r.useLayoutEffect(c, [c]);
-	const m = r.useCallback(() => c(), [c]);
+	useLayoutEffect(c, [c]);
+	const m = useCallback(() => c(), [c]);
 	p = m;
 	g = {
 		subtree: true,
@@ -417,10 +427,10 @@ function O() {
 	};
 }
 export function ob() {
-	const [e, setE] = r.useState(() => O());
+	const [e, setE] = useState(() => O());
 	return {
 		...e,
-		reset: r.useCallback(() => {
+		reset: useCallback(() => {
 			const e = O();
 			setE(e);
 			return e;

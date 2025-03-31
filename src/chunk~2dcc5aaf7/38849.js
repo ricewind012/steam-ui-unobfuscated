@@ -2,7 +2,7 @@ import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 import { Cg } from "./34629.js";
 import { js } from "./50979.js";
 import a, { Gn } from "./89193.js";
-import o from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import l from "./72476.js";
 import c from "./3756.js";
 import m from "./90601.js";
@@ -19,8 +19,8 @@ export class JB extends A.Q {
 	m_scrollHeight = -1;
 	m_clientHeight = 1;
 	m_strTextEntry;
-	m_textEntryFocusCallbacks = new o.lu();
-	m_textEntryChangeCallbacks = new o.lu();
+	m_textEntryFocusCallbacks = new CCallbackList();
+	m_textEntryChangeCallbacks = new CCallbackList();
 	m_fileUploadManager;
 	m_clipToUpload = undefined;
 	constructor(e, t) {

@@ -4,7 +4,7 @@ import a, { gc, hL } from "./52451.js";
 import s, { Gn, fm } from "./89193.js";
 import "./75248.js";
 import o, { x } from "./6242.js";
-import l from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import c from "./18057.js";
 import { we } from "./33572.js";
 import u from "./5822.js";
@@ -76,11 +76,11 @@ export class my {
 	GetForceHeaderAfterResume() {
 		return this.m_bForceHeaderAfterResume;
 	}
-	m_AcceptSearchTextCallbackList = new l.lu();
+	m_AcceptSearchTextCallbackList = new CCallbackList();
 	OnAcceptSearchText() {
 		this.m_AcceptSearchTextCallbackList.Dispatch();
 	}
-	m_ActivateSearchBoxCallbackList = new l.lu();
+	m_ActivateSearchBoxCallbackList = new CCallbackList();
 	ActivateSearchBox() {
 		this.m_ActivateSearchBoxCallbackList.Dispatch();
 	}

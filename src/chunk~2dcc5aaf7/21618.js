@@ -1,7 +1,7 @@
 import { AssertMsg } from "../../actual_src/utils/assert.js";
 import { Localize } from "../../actual_src/utils/localization.js";
 import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
-import n from "./90039.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import i, { hL, gc } from "./42898.js";
 import a, { b6 } from "./37195.js";
 import s from "./67599.js";
@@ -30,7 +30,10 @@ import Ae from "./91633.js";
 import pe from "./12774.js";
 import ge from "./94790.js";
 import he from "./26853.js";
-import Ce, { Jc } from "./79769.js";
+import {
+	CCallbackList,
+	SubscribableValue,
+} from "../../actual_src/utils/callbackutils";
 import be from "./76627.js";
 import Re from "./69164.js";
 import { ak } from "./69.js";
@@ -335,7 +338,7 @@ class _ {
 	m_bHasUncomittedChanges = false;
 	m_schemaConfig;
 	m_bbcodeParser;
-	m_onStateChangedCallbacks = new n.l();
+	m_onStateChangedCallbacks = new CCallbackList();
 	m_fnCommitChanges;
 	m_view;
 	m_state;
@@ -1305,7 +1308,7 @@ class K {
 				window.setTimeout(() => r.focus(), 1);
 			},
 		};
-		const c = new n.l();
+		const c = new l();
 		this.destroy = a({
 			element: s,
 			spec: e,
@@ -1994,7 +1997,7 @@ class ve {
 	m_fnProcessFileUpload;
 	m_fnFetchImageURL;
 	m_bAllowImageHotLinking;
-	m_errors = Jc([]);
+	m_errors = SubscribableValue([]);
 	m_view;
 	m_fnCreatePlaceholder;
 	m_fnReplacePlaceholder;
@@ -2402,7 +2405,7 @@ const Ye = () => f.useContext(Xe);
 function Ke(e) {
 	const { view: t, refUpdateToolbar: r, children: n } = e;
 	const i = f.useRef();
-	i.current ||= new Ce.lu();
+	i.current ||= new CCallbackList();
 	f.useEffect(() => {
 		cZ(r, () => i.current.Dispatch(t));
 		return () => cZ(r, undefined);

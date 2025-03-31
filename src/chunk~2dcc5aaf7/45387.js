@@ -7,7 +7,7 @@ import o, { Gn, fm } from "./89193.js";
 import l from "./44846.js";
 import c from "./92031.js";
 import m from "./93960.js";
-import d from "./79769.js";
+import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
 import { q3 } from "./90095.js";
 const p = Seconds.PerHour * 3;
 const g = "GameReleased";
@@ -22,7 +22,7 @@ class _ {
 	m_cloudStorage;
 	m_hPrePurchasedAppChanges;
 	m_hCloudAutorun;
-	m_schUpdate = new d.LU();
+	m_schUpdate = new CScheduledFunc();
 	m_nUpdating = 0;
 	m_nShownAppID = c.sc;
 	m_cloudData;

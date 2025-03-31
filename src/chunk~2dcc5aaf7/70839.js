@@ -12,7 +12,7 @@ import d from "./3756.js";
 import A, { u as u_1 } from "./17385.js";
 import { BK } from "./85243.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import h from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import C from "./52451.js";
 import { Pr } from "./72476.js";
 let m = 0;
@@ -258,8 +258,8 @@ export class Vi {
 	m_nTabActivationCount = 0;
 	m_bShowWinterSaleUI = false;
 	m_eFriendsListSteamDeckActiveTab = Jw.FriendsList;
-	m_FriendsListSteamDeckActiveTabCallbackList = new h.lu();
-	m_overlayCreatedCallbackList = new h.lu();
+	m_FriendsListSteamDeckActiveTabCallbackList = new CCallbackList();
+	m_overlayCreatedCallbackList = new CCallbackList();
 	GetRootChatPerContextData() {
 		return this.GetPerContextChatData(A.m);
 	}

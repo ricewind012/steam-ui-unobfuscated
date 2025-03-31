@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i from "./63696.js";
 import a, { QS } from "./52451.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import o from "./37499.js";
 import l, { Gn } from "./89193.js";
 import { Ln } from "./53807.js";
@@ -50,11 +50,11 @@ class d {
 	m_bCanGoBackward = false;
 	m_bCanGoForward = false;
 	m_rgFavIconURLs = [];
-	m_onStartRequestCallbacks = new s.lu();
-	m_onStartLoadingCallbacks = new s.lu();
-	m_onFinishedRequestCallbacks = new s.lu();
-	m_onBeforeCloseCallbacks = new s.lu();
-	m_onNewTabCallbacks = new s.lu();
+	m_onStartRequestCallbacks = new CCallbackList();
+	m_onStartLoadingCallbacks = new CCallbackList();
+	m_onFinishedRequestCallbacks = new CCallbackList();
+	m_onBeforeCloseCallbacks = new CCallbackList();
+	m_onNewTabCallbacks = new CCallbackList();
 	m_rgSteamURLCallbacks = [];
 	constructor(e, t, r, n) {
 		Gn(this);

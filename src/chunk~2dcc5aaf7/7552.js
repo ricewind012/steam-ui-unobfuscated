@@ -10,7 +10,7 @@ import s from "./56655.js";
 import o, { Cg } from "./34629.js";
 import l from "./83957.js";
 import m, { H } from "./16154.js";
-import u from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import d, { hL } from "./52451.js";
 import A, { Tc, Qn } from "./72476.js";
 import g from "./64608.js";
@@ -37,7 +37,7 @@ class p {
 	}
 	GetCallbackForAppList(e) {
 		if (!this.m_mapAppCallbackList.has(e)) {
-			this.m_mapAppCallbackList.set(e, new u.lu());
+			this.m_mapAppCallbackList.set(e, new CCallbackList());
 		}
 		return this.m_mapAppCallbackList.get(e);
 	}

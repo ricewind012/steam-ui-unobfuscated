@@ -7,7 +7,7 @@ import l from "./92031.js";
 import c from "./72476.js";
 import p from "./10812.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import h from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 class m {
 	m_nLastUpdated = 0;
 	m_mapLanguages = i.sH.map();
@@ -116,7 +116,7 @@ class f {
 	m_PendingAppInfoPromise;
 	m_PendingAppInfoResolve;
 	m_CacheStorage = null;
-	m_fnCallbackOnAppInfoLoaded = new h.lu();
+	m_fnCallbackOnAppInfoLoaded = new CCallbackList();
 	constructor() {
 		Gn(this);
 	}

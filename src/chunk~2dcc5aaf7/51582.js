@@ -108,7 +108,7 @@ import { MZ } from "./3499.js";
 import { bY } from "./67429.js";
 import ft from "./26105.js";
 import bt from "./60917.js";
-import yt from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { f as f_2 } from "./63538.js";
 import Tt from "./27897.js";
 import kt, { hi } from "./9252.js";
@@ -1567,8 +1567,8 @@ function It(e) {
 	}
 }
 class Et {
-	m_eventsChanged = new yt.lu();
-	m_timerExpired = new yt.lu();
+	m_eventsChanged = new CCallbackList();
+	m_timerExpired = new CCallbackList();
 	m_currentInterval = undefined;
 	m_appId;
 	m_nDuration = 0;

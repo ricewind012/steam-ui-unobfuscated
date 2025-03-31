@@ -1,6 +1,6 @@
 import r, { Cg } from "./34629.js";
 import i from "./93960.js";
-import s from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 class o {
 	key;
 	static sm_lastKey = 0;
@@ -10,7 +10,7 @@ class o {
 }
 export class _F extends o {
 	element;
-	ModalUpdatedCallback = new s.lu();
+	ModalUpdatedCallback = new CCallbackList();
 	constructor(e) {
 		super();
 		this.element = e;
@@ -21,8 +21,8 @@ export class _F extends o {
 	}
 }
 export class $9 extends o {
-	m_OnElementReadyCallbacks = new s.lu();
-	m_OnActiveModalCallbacks = new s.lu();
+	m_OnElementReadyCallbacks = new CCallbackList();
+	m_OnActiveModalCallbacks = new CCallbackList();
 	constructor() {
 		super();
 	}

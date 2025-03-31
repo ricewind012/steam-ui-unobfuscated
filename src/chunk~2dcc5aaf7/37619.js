@@ -4,7 +4,7 @@ import i, { nN } from "./3524.js";
 import _a from "./63696.js";
 import { R7 } from "./11131.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import c from "./79769.js";
+import { e0 } from "../../actual_src/utils/callbackutils";
 import m from "./83599.js";
 import u, { QS } from "./52451.js";
 const d = new m.wd("FocusNavigation").Debug;
@@ -27,7 +27,7 @@ class p {
 	RegisterNavTree(e, t, r) {
 		AssertMsg(!this.FindTreeByName(e), `Duplicate focus nav tree ${e}`);
 		d(`Registering tree ${e}`);
-		const n = new c.e0();
+		const n = new e0();
 		const i = {
 			name: e,
 			tree: t,

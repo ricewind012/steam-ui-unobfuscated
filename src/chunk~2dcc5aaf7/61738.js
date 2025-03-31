@@ -9,7 +9,10 @@ import s, { Gn } from "./89193.js";
 import o, { sf, Lg } from "./44846.js";
 import "./53833.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import c from "./79769.js";
+import {
+	CScheduledFunc,
+	CTrackedEventListeners,
+} from "../../actual_src/utils/callbackutils";
 import u from "./31958.js";
 import d from "./93960.js";
 import p, { yK } from "./72476.js";
@@ -640,9 +643,9 @@ class G {
 	m_bRemoveBufferState = false;
 	m_bSeekInProgress = false;
 	m_tsLastBufferRemove = 0;
-	m_schNextDownload = new c.LU();
+	m_schNextDownload = new CScheduledFunc();
 	m_xhrDownload = null;
-	m_listeners = new c.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_rgDownloadLog = [];
 	m_nCurDownloadProgress = 0;
 	m_nCurDownloadBitrate = 0;
@@ -1322,7 +1325,7 @@ export class Zn {
 	m_strMPD = "";
 	m_strHLS = "";
 	m_strCDNAuthURLParameters = null;
-	m_schUpdateMPD = new c.LU();
+	m_schUpdateMPD = new CScheduledFunc();
 	m_xhrUpdateMPD;
 	m_mpd;
 	m_bUseHLSManifest = false;
@@ -1335,15 +1338,15 @@ export class Zn {
 	m_nLimitFPS = 0;
 	m_bIsBuffering = true;
 	m_seekingToTime = null;
-	m_listeners = new c.Ji();
+	m_listeners = new CTrackedEventListeners();
 	m_bFirstPlay = true;
 	m_bPlaybackStarted = false;
 	m_nTimedText = 0;
-	m_schGameDataEventTrigger = new c.LU();
-	m_schReportPlayerTrigger = new c.LU();
+	m_schGameDataEventTrigger = new CScheduledFunc();
+	m_schReportPlayerTrigger = new CScheduledFunc();
 	m_nGameDataLastFramePTS = -1;
 	m_bStatsViewVisible = false;
-	m_schCaptureDisplayStatsTrigger = new c.LU();
+	m_schCaptureDisplayStatsTrigger = new CScheduledFunc();
 	m_videoRepSelected = null;
 	m_timedTextRepSelected = null;
 	m_stats = new h._L();
@@ -1351,9 +1354,9 @@ export class Zn {
 	m_hlsTimeOffset = 0;
 	m_bUserPlayChoice = true;
 	m_bUserLiveEdgeChoice = true;
-	m_schFirstFrameThrottler = new c.LU();
+	m_schFirstFrameThrottler = new CScheduledFunc();
 	m_bookMarkAdapter = null;
-	m_schBookmarkUpdater = new c.LU();
+	m_schBookmarkUpdater = new CScheduledFunc();
 	constructor(e, t = false) {
 		Gn(this);
 		this.m_elVideo = e;

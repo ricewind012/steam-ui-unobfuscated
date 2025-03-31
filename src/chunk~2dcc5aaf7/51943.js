@@ -5,7 +5,7 @@ import a, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
 import o, { qo } from "./43397.js";
 import l from "./74362.js";
-import c from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { _g } from "./52451.js";
 import d from "./36813.js";
 import "./43691.js";
@@ -31,7 +31,7 @@ class g {
 	m_bHasInput;
 	m_mapVolumes = new Map();
 	m_rtLastUpdate = undefined;
-	m_VolumeChangedSubscribable = new c.lu();
+	m_VolumeChangedSubscribable = new CCallbackList();
 	get id() {
 		return this.m_id;
 	}
@@ -117,7 +117,7 @@ class h {
 	pid;
 	gameid;
 	m_mapVolumes = new Map();
-	m_volumeChangedCallbacks = new c.lu();
+	m_volumeChangedCallbacks = new CCallbackList();
 	m_rtLastUpdate = undefined;
 	constructor(e, t, r, n, i) {
 		Gn(this);
@@ -150,7 +150,7 @@ class C {
 	m_mapAudioDevices = new a.Es();
 	m_mapAudioApps = new a.Es();
 	m_bEnumeratedAudioAppsFirstTime = false;
-	m_VolumePressedSubscribable = new c.lu();
+	m_VolumePressedSubscribable = new CCallbackList();
 	m_nSuppressVolumeOverlayRefCount = 0;
 	constructor() {
 		Gn(this);

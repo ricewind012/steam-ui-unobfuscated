@@ -59,7 +59,7 @@ import Ie from "./31222.js";
 import Ee from "./82301.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import { H as H_1 } from "./16154.js";
-import Re from "./79769.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import ke, { hL } from "./52451.js";
 import { Oz, CC, ns } from "./89697.js";
 import Ge, { vs } from "./30737.js";
@@ -802,7 +802,7 @@ class De {
 	}
 	GetItemDefsChangeForAppID(e) {
 		if (!this.m_listChangeCallback.has(e)) {
-			this.m_listChangeCallback.set(e, new Re.lu());
+			this.m_listChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_listChangeCallback.get(e);
 	}
@@ -893,7 +893,7 @@ class Pe {
 	}
 	GetItemDefsChangeForEventID(e) {
 		if (!this.m_listChangeCallback.has(e)) {
-			this.m_listChangeCallback.set(e, new Re.lu());
+			this.m_listChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_listChangeCallback.get(e);
 	}
@@ -2012,7 +2012,7 @@ class Mt {
 	}
 	GetItemChangeCallback(e) {
 		if (!this.m_defChangeCallback.has(e)) {
-			this.m_defChangeCallback.set(e, new Re.lu());
+			this.m_defChangeCallback.set(e, new CCallbackList());
 		}
 		return this.m_defChangeCallback.get(e);
 	}
@@ -2026,7 +2026,7 @@ class Mt {
 	GetItemsByCategoryAndClassCallback(e, t) {
 		const r = this.GetKeyCategoryAndClass(e, t);
 		if (!this.m_defCategoryAndClassToChangeCallback.has(r)) {
-			this.m_defCategoryAndClassToChangeCallback.set(r, new Re.lu());
+			this.m_defCategoryAndClassToChangeCallback.set(r, new CCallbackList());
 		}
 		return this.m_defCategoryAndClassToChangeCallback.get(r);
 	}
