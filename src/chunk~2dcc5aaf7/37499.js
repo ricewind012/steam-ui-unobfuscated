@@ -2,7 +2,7 @@ import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
 import n, { Cg } from "./34629.js";
 import i from "./87913.js";
 import a from "./46422.js";
-import s from "./9156.js";
+import { OverlayStore } from "../../actual_src/stores/overlaystore.js";
 import { qw } from "./89748.js";
 import l from "./87935.js";
 import c from "./37976.js";
@@ -33,7 +33,7 @@ class S {
 		SteamClient.RemotePlay.RegisterForRemoteClientStarted(
 			this.RemoteClientStarted,
 		);
-		s.Q.RegisterForBrowserClosed(this.OnOverlayBrowserClosed);
+		OverlayStore.RegisterForBrowserClosed(this.OnOverlayBrowserClosed);
 	}
 	OnOverlayBrowserClosed(e) {
 		this.m_rgOverlayDialogRequests.forEach((t, r, n) => {
@@ -375,12 +375,12 @@ Cg([h.oI], S.prototype, "RemoteClientStarted", null);
 Cg([h.oI], S.prototype, "OnOverlayBrowserProtocol", null);
 export const Q = new S();
 export function r(e) {
-	let [t, setT] = m.useState(Q.GetDialogRequests());
+	let [t, setT] = m.useState(OverlayStore.GetDialogRequests());
 	const n = m.useCallback(() => {
-		let e = Q.GetDialogRequests();
+		let e = OverlayStore.GetDialogRequests();
 		setT([...e]);
 	}, [setT]);
-	hL(Q.GetDialogRequestsChangedCallbackList(), n);
+	hL(OverlayStore.GetDialogRequestsChangedCallbackList(), n);
 	return t.filter(
 		(t) => t.unRequestingAppID == e || t.unRequestingAppID == u.w1,
 	);

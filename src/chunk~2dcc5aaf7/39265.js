@@ -10,7 +10,7 @@ import s from "./64608.js";
 import o from "./35488.js";
 import l from "./37909.js";
 import c, { rP, Qn, Pr } from "./72476.js";
-import m, { m as m_1 } from "./33512.js";
+import { UseLoginStateObserver } from "../../actual_src/stores/loginstore.js";
 import u from "./41230.js";
 import d, { q3 } from "./90095.js";
 import A, { lX } from "./31084.js";
@@ -427,7 +427,8 @@ function te(e) {
 			}
 		}, [e, t.length]);
 	})(s, a);
-	const l = m.b.GetLoginUsers().length != 0 && !V.oy.BIsInOOBE;
+	const l =
+		UseLoginStateObserver.b.GetLoginUsers().length != 0 && !V.oy.BIsInOOBE;
 	const c = A_1(z.NetworkScreen, e.animate && z.Animate);
 	const u = R7();
 	return i.createElement(
@@ -1597,7 +1598,9 @@ function at(e) {
 			f.kt,
 			{
 				onSelected: () => {
-					m.b.RemoveUser(e.accountName).then(() => e.onRemove && e.onRemove());
+					UseLoginStateObserver.b
+						.RemoveUser(e.accountName)
+						.then(() => e.onRemove && e.onRemove());
 				},
 			},
 			(0, Localize)("#Login_RemoveUser_MenuOption"),
@@ -1625,7 +1628,7 @@ let ct = ot.LanguageScreen;
 let mt = class extends i.PureComponent {
 	modeHistory = [];
 	m_navRef = i.createRef();
-	m_strLastAccountName = m.b.accountName;
+	m_strLastAccountName = UseLoginStateObserver.b.accountName;
 	m_nStepCount = 0;
 	m_eNavigationDirection = st.None;
 	constructor(e) {
@@ -1637,7 +1640,9 @@ let mt = class extends i.PureComponent {
 			r = ct;
 		} else {
 			r =
-				m.b.GetLoginUsers().length != 0 ? ot.CachedUsersPanel : ot.SignInPanel;
+				UseLoginStateObserver.b.GetLoginUsers().length != 0
+					? ot.CachedUsersPanel
+					: ot.SignInPanel;
 		}
 		if (ce.yE.BResettingPIN()) {
 			r = ot.SignInPanel;
@@ -1738,7 +1743,7 @@ let mt = class extends i.PureComponent {
 	}
 	ProceedToSignIn() {
 		SteamClient.User.FlipToLogin();
-		if (m.b.GetLoginUsers().length == 0) {
+		if (UseLoginStateObserver.b.GetLoginUsers().length == 0) {
 			this.NavigateToMode(ot.SignInPanel);
 			this.setState({
 				bOfflineMode: false,
@@ -1772,8 +1777,10 @@ let mt = class extends i.PureComponent {
 		});
 	}
 	OnCachedUserRemoved() {
-		tG(`Cached user removed, now have ${m.b.GetLoginUsers().length}`);
-		if (!m.b.GetLoginUsers().length) {
+		tG(
+			`Cached user removed, now have ${UseLoginStateObserver.b.GetLoginUsers().length}`,
+		);
+		if (!UseLoginStateObserver.b.GetLoginUsers().length) {
 			this.NavigateToMode(ot.SignInPanel);
 		}
 		this.m_strLastAccountName = "";
@@ -1884,7 +1891,7 @@ let mt = class extends i.PureComponent {
 							onCancelButton: this.OnGoBack,
 							onButtonDown: _t,
 						},
-						m.b.loginResult != 1 &&
+						UseLoginStateObserver.b.loginResult != 1 &&
 							i.createElement(
 								"div",
 								{
@@ -1929,7 +1936,7 @@ let mt = class extends i.PureComponent {
 											}
 										}
 										return String(e);
-									})(m.b.loginResult),
+									})(UseLoginStateObserver.b.loginResult),
 								),
 							),
 						i.createElement(vX, {
@@ -2002,7 +2009,9 @@ export function gN(e) {
 	const [A, g] = useState(0);
 	$$(() => d(false), Math.min(10000, 2 ** A * 50), [A], u);
 	const C = rP();
-	const _ = m.b.GetLoginUsers().find((t) => t.accountName === e.strAccountName);
+	const _ = UseLoginStateObserver.b
+		.GetLoginUsers()
+		.find((t) => t.accountName === e.strAccountName);
 	if (_ === null) {
 		return null;
 	}
@@ -2271,7 +2280,7 @@ function gt() {
 export function vX(e) {
 	const { bShowHeader: t = true, nUserCountLimit: r } = e;
 	let n = q3(() => {
-		let t = m.b.GetLoginUsers();
+		let t = UseLoginStateObserver.b.GetLoginUsers();
 		if (r) {
 			t = t.slice(0, r);
 		}
@@ -2562,9 +2571,9 @@ function ft(e) {
 }
 export function Qk(e) {
 	const { loginState: t } = e;
-	const r = q3(() => m.b.loginPercentage);
+	const r = q3(() => UseLoginStateObserver.b.loginPercentage);
 	const n = i.useRef(0);
-	const a = q3(() => m.b.currentUser);
+	const a = q3(() => UseLoginStateObserver.b.currentUser);
 	const s = !Qn() && !!a && !q_2();
 	const o = Pr();
 	i.useEffect(() => {
@@ -2731,7 +2740,7 @@ export function g(e) {
 export function GW() {
 	const e = zy();
 	const t = e.state?.bReauthentication;
-	const r = m_1();
+	const r = UseLoginStateObserver();
 	const n = jh();
 	const a = ((e) => {
 		const t = e == 1 || e == 2;

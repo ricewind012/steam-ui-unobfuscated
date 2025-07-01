@@ -1,3 +1,5 @@
 node_modules
+normal_js
 wakaru-output
+actual_src/steamclient/steamclient
 package-lock.json

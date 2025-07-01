@@ -1,7 +1,7 @@
 import { MoveElement } from "../../actual_src/utils/arrayutils.js";
 import { VD, CI, uV } from "./32700.js";
 import { SubscribableValue } from "../../actual_src/utils/callbackutils";
-import s from "./33512.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
 import { qt } from "./34792.js";
 function l(e) {
 	let t = e.Steam_Language_Selection_Label ?? "Select a language";
@@ -98,7 +98,7 @@ export const o = new (class {
 			this.SetTestModeEnabled(true);
 			qt("force_oobe", false);
 			if (e) {
-				await s.b.RemoveAllUsers();
+				await LoginStore.RemoveAllUsers();
 			}
 			SteamClient.System.RestartPC();
 		}

@@ -1,7 +1,10 @@
 import * as i from "./44846.js";
 import * as a from "./39265.js";
 import * as s from "./77347.js";
-import * as o from "./33512.js";
+import {
+	LoginStore,
+	UseLoginStateObserver,
+} from "../../actual_src/stores/loginstore.js";
 import * as l from "./63696.js";
 import * as c from "./31084.js";
 import * as m from "./11131.js";
@@ -35,7 +38,7 @@ export function FullLogin(e) {
 			let e = [];
 			if (!y.TS.IN_STEAMUI_SHARED_CONTEXT) {
 				e.push((0, v.uV)(y.TS.LANGUAGE));
-				e.push(o.b.Init());
+				e.push(LoginStore.Init());
 			}
 			Promise.all(e).then(() => {
 				t(true);
@@ -74,7 +77,7 @@ function M(e) {
 	(0, m.R7)();
 	const [h, C] = (0, l.useState)();
 	const b = (0, s.jh)();
-	const S = (0, o.m)();
+	const S = (0, UseLoginStateObserver)();
 	const [w, v] = (0, l.useState)();
 	const I = l.useCallback(() => {
 		if (r) {
@@ -150,7 +153,7 @@ function M(e) {
 		a.SetOnHideCallback(() => v(undefined));
 	};
 	const O = () => {
-		if (o.b.GetLoginUsers().length > 0) {
+		if (LoginStore.GetLoginUsers().length > 0) {
 			A(n.UserChooser);
 		} else {
 			A(n.Login);
@@ -391,7 +394,7 @@ function D(e) {
 					C.jn,
 					{
 						onClick: async () => {
-							await o.b.RemoveUser(e.strAccountName);
+							await LoginStore.RemoveUser(e.strAccountName);
 							e.onFinished?.();
 						},
 					},
@@ -514,8 +517,8 @@ function W(e) {
 			embedded: true,
 			refreshInfo: t,
 			lastResult: w,
-			secureComputer: o.b.secureComputer,
-			isProbablySharedPC: o.b.isProbablySharedPC,
+			secureComputer: LoginStore.secureComputer,
+			isProbablySharedPC: LoginStore.isProbablySharedPC,
 			defaultAccountName: e.defaultAccountName,
 			joinLinkVariant: () => {
 				a(true);

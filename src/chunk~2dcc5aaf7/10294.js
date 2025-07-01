@@ -1,7 +1,7 @@
 import { Cg } from "./34629.js";
 import i, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
-import s from "./33512.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
 import { B6 } from "./49519.js";
 import l from "./18057.js";
 export function VA() {
@@ -48,7 +48,7 @@ class u {
 	BKioskModeEnabled() {
 		return (
 			!!this.m_bEnabledForLocalTesting ||
-			s.b.accountName.startsWith("deck_convention_")
+			LoginStore.accountName.startsWith("deck_convention_")
 		);
 	}
 	KioskModeLock() {

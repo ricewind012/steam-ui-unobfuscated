@@ -33,7 +33,7 @@ import N from "./81247.js";
 import F from "./28351.js";
 import G from "./57472.js";
 import P from "./66943.js";
-import { cS, ws, KO } from "./25467.js";
+import { cS, ws, KO } from "../../actual_src/stores/25467.js";
 import z from "./60517.js";
 function X_1() {
 	const e = gc(m.oy.NavigationManager.GetShowDebugFocusRing());

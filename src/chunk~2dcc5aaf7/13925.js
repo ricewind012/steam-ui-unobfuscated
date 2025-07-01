@@ -14,7 +14,7 @@ import m, { A as A_1 } from "./90765.js";
 import d from "./56970.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import p from "./85243.js";
-import g from "./33512.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
 import h, { FN } from "./43152.js";
 import C from "./4251.js";
 import _ from "./46422.js";
@@ -127,9 +127,9 @@ export function KG(e) {
 	if (!e.allowAnyPIN) {
 		let e = (() => {
 			let e = d.yE.GetSettings();
-			return g.b
-				.GetLoginUsers()
-				.find((t) => t.accountName == e.strOwnerAccountName);
+			return LoginStore.GetLoginUsers().find(
+				(t) => t.accountName == e.strOwnerAccountName,
+			);
 		})();
 		if (e) {
 			k = e.avatarUrl;

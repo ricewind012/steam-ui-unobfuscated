@@ -18,6 +18,7 @@ export class CCallbackList<T = never> {
 			},
 		};
 	}
+
 	Dispatch(...args: T[]) {
 		for (const fnCallback of Array.from(this.m_vecCallbacks)) {
 			fnCallback(...args);

@@ -51,7 +51,14 @@ import F, { li as li_2 } from "./96593.js";
 import "./91040.js";
 import G from "./91486.js";
 import O from "./91957.js";
-import { sr as sr_2, Pi as Pi_2, d$, cg, KO, Iz } from "./25467.js";
+import {
+	sr as sr_2,
+	Pi as Pi_2,
+	d$,
+	cg,
+	KO,
+	Iz,
+} from "../../actual_src/stores/25467.js";
 import V from "./28020.js";
 import j from "./66943.js";
 import Q from "./85182.js";

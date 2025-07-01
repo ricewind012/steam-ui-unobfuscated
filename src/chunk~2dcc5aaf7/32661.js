@@ -75,7 +75,7 @@ import wt, { _U, Dk } from "./76356.js";
 import Bt from "./30496.js";
 import vt from "./56262.js";
 import { T as T_2 } from "./78057.js";
-import Mt from "./33512.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
 import Tt, { M as M_2 } from "./51517.js";
 import Rt from "./40692.js";
 import Lt from "./17024.js";
@@ -2883,7 +2883,7 @@ const Nt = () => {
 		strTitle: Localize("#ChangeUser_Title"),
 		strOKButtonText: Localize("#ChangeUser_OKButton"),
 		strDescription: Localize(
-			Mt.b.currentUserIsRemembered
+			LoginStore.currentUserIsRemembered
 				? "#ChangeUser_Description"
 				: "#ChangeUser_Description_NoCachedCredentials",
 		),

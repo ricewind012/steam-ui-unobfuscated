@@ -1,62 +1,62 @@
 import n, { Cg } from "./34629.js";
 import i, { PR, bg } from "./68292.js";
-import a, { Z9 } from "./91720.js";
-import s from "./81482.js";
+import a, { Z9 as GRS } from "./91720.js";
+import CloudStorage from "./81482.js";
 import o, { Qu, uV } from "./32700.js";
-import l from "./46422.js";
+import BasicUIStore from "./46422.js";
 import c, { zK } from "./63367.js";
-import m from "./87935.js";
+import URLStore from "./87935.js";
 import u from "./83599.js";
 import d from "./61175.js";
-import A from "./96593.js";
+import AppStore from "./96593.js";
 import p, { F as F_1 } from "./63947.js";
 import g from "./50876.js";
-import h from "./85360.js";
+import ControllerConfigStore from "./85360.js";
 import C from "./8573.js";
-import _ from "./43599.js";
+import ServerBrowserStore from "./43599.js";
 import f, { Ab, On, Tc, Y2 } from "./72476.js";
 import b from "./37499.js";
 import y, { U as U_1 } from "./83184.js";
 import { vq, ht as ht_1 } from "./63259.js";
-import w from "./76356.js";
-import B from "./34792.js";
+import GameActionStore from "./76356.js";
+import SettingsStore from "./34792.js";
 import { Sj } from "./24287.js";
-import I, { AP } from "./45967.js";
+import I, { AP as VRStore } from "./45967.js";
 import E from "./49171.js";
-import M from "./5640.js";
+import ParentalStore from "./5640.js";
 import { c as c_1 } from "./80553.js";
-import z from "./61277.js";
-import x from "./87913.js";
-import U from "./61518.js";
-import W from "./34776.js";
-import V from "./33706.js";
-import H from "./6160.js";
-import j from "./71033.js";
-import q from "./25467.js";
-import Q from "./95979.js";
-import Z from "./77347.js";
-import Y from "./24496.js";
+import ControllerConfigInterstitialStore from "./61277.js";
+import FriendsChatStore from "./87913.js";
+import GamescopeStore from "./61518.js";
+import KeyboardSettingsStore from "./34776.js";
+import SteamOSStore from "./33706.js";
+import SteamingStore from "./6160.js";
+import SuspendResumeStore from "./71033.js";
+import BluetoothStore from "../../actual_src/stores/25467.js";
+import SystemInfoStore from "./95979.js";
+import SystemNetworkStore from "./77347.js";
+import SDCardStore from "./24496.js";
 import K from "./75140.js";
-import X from "./60917.js";
-import J from "./56970.js";
-import $ from "./13661.js";
-import ee from "./74416.js";
+import SteamNotificationsStore from "./60917.js";
+import SecurityStore from "./56970.js";
+import SystemReportStore from "./13661.js";
+import UserProfileStore from "./74416.js";
 import te from "./99235.js";
 import re from "./69767.js";
-import ne from "./18521.js";
+import EAAccessPromptManager from "./18521.js";
 import ie, { Gn, h5, z7 } from "./89193.js";
-import { q3 } from "./90095.js";
+import { useObserver } from "mobx-react-lite";
 import se from "./52451.js";
 import oe, { I8 } from "./12176.js";
 import ce from "./58663.js";
 import me from "./48307.js";
 import { OI } from "./12251.js";
 import xe from "./31930.js";
-import Ve from "./34665.js";
-import He from "./36934.js";
-import je from "./13337.js";
-import qe from "./55444.js";
-import Qe from "./83591.js";
+import IBusConnection from "./34665.js";
+import AppInfoStore from "./36934.js";
+import SubscriberAgreementStore from "./13337.js";
+import DiscoveryQueueStore from "./55444.js";
+import DynamicUserStore from "./83591.js";
 import Ze, { aj } from "./63088.js";
 import Ye from "./83957.js";
 import Xe from "./37976.js";
@@ -66,41 +66,41 @@ import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import et from "./93960.js";
 import { H as H_1 } from "./16154.js";
 import nt from "./31222.js";
-import Wt from "./49265.js";
+import MarketingStore from "./49265.js";
 import Vt from "./94361.js";
-import Ht from "./70541.js";
-import jt from "./13672.js";
+import VRAudioSettingsStore from "./70541.js";
+import LibraryLoyaltyAwardModal from "./13672.js";
 import { b as b_1 } from "./86172.js";
 import { Tg } from "./31958.js";
-import { I as I_1 } from "./91369.js";
-import Yt from "./32179.js";
-import Kt from "./10927.js";
-import Xt from "./12750.js";
-import Jt from "./78057.js";
-import $t from "./31993.js";
-import er from "./74827.js";
-import tr from "./47801.js";
-import rr from "./96000.js";
-import nr from "./3963.js";
-import ir from "./39839.js";
-import ar from "./97893.js";
-import sr from "./78475.js";
-import or from "./94496.js";
-import lr from "./48289.js";
-import cr from "./45387.js";
-import mr from "./73317.js";
-import ur from "./57016.js";
-import dr from "./33512.js";
-import Ar from "./90985.js";
-import pr from "./9156.js";
-import gr from "./92749.js";
-import hr from "./64004.js";
-import Cr from "./65528.js";
-import _r from "./75248.js";
-import fr from "./91745.js";
-import br from "./16139.js";
-import yr from "./83399.js";
-import Sr from "./70239.js";
+import { I as VRGamepadUIMessages } from "./91369.js";
+import AchievementStore from "./32179.js";
+import AchievementProgress from "./10927.js";
+import AppActivityStore from "./12750.js";
+import AppDetailsStore from "./78057.js";
+import AppReviewStore from "./31993.js";
+import AppSpotlightsStore from "./74827.js";
+import BadgeStore from "./47801.js";
+import CollectionStore from "./96000.js";
+import CommunityStore from "./3963.js";
+import ConsoleStore from "./39839.js";
+import DownloadsStore from "./97893.js";
+import EmojiStore from "./78475.js";
+import FocusedAppWindowStore from "./94496.js";
+import FriendStore from "./48289.js";
+import GameReleasedStore from "./45387.js";
+import InstallFolderStore from "./73317.js";
+import LibraryEventStore from "./57016.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
+import MusicStore from "./90985.js";
+import { OverlayStore } from "../../actual_src/stores/overlaystore.js";
+import PlayNextStore from "./92749.js";
+import RemotePlayStore from "./64004.js";
+import ScreenshotStore from "./65528.js";
+import SearchStore from "./75248.js";
+import SettingsZooStore from "./91745.js";
+import ShowcaseStore from "./16139.js";
+import TrendingStore from "./83399.js";
+import WorkshopStore from "./70239.js";
 import wr from "./75144.js";
 import { Bf } from "./24274.js";
 const R = [
@@ -110,7 +110,7 @@ const R = [
 		(e) => {
 			let { navigate: t, strRest: r } = e;
 			const [n, ...i] = r.split("/");
-			const a = m.B7.ResolveURL(n, ...i);
+			const a = URLStore.B7.ResolveURL(n, ...i);
 			if (!a) {
 				k.Error(
 					`WebURL ${n} is not registered in URLStore, cannot navigate to ${r} `,
@@ -128,7 +128,7 @@ const R = [
 		[7, 4],
 		(e) => {
 			let { strRest: t, navigate: r } = e;
-			let n = m.B7.ResolveURL("HelpFrontPage");
+			let n = URLStore.B7.ResolveURL("HelpFrontPage");
 			if (t.startsWith("/")) {
 				n += t;
 			} else {
@@ -145,7 +145,7 @@ const R = [
 		[7, 4],
 		(e) => {
 			const { navigate: t, strRest: r } = e;
-			if (m.B7.BIsSteamURL(r)) {
+			if (URLStore.B7.BIsSteamURL(r)) {
 				t.SteamWeb(r);
 			} else if (r.startsWith("http://") || r.startsWith("https://")) {
 				t.ExternalWeb(r);
@@ -176,9 +176,9 @@ const R = [
 			const i = t.indexOf("/");
 			const a = t.substring(i + 1);
 			const s = parseInt(r.shift());
-			const o = l.oy.GetWindowInstanceForPID(s);
+			const o = BasicUIStore.oy.GetWindowInstanceForPID(s);
 			const c = o?.Navigator || n;
-			if (m.B7.BIsSteamURL(a)) {
+			if (URLStore.B7.BIsSteamURL(a)) {
 				c.SteamWeb(a);
 			} else {
 				c.ExternalWeb(a);
@@ -199,7 +199,7 @@ const R = [
 			const i = t.indexOf("/");
 			const a = t.substring(i + 1);
 			const s = parseInt(r.shift());
-			const o = l.oy.GetWindowInstanceForPID(s);
+			const o = BasicUIStore.oy.GetWindowInstanceForPID(s);
 			const c = o?.Navigator || n;
 			if (N(a)) {
 				c.SteamWebTab(a);
@@ -219,7 +219,7 @@ const R = [
 			const a = r.indexOf("/");
 			const s = r.substring(a + 1);
 			const o = parseInt(n.shift());
-			const c = l.oy.GetWindowInstanceForPID(o);
+			const c = BasicUIStore.oy.GetWindowInstanceForPID(o);
 			const m = c?.Navigator || i;
 			if (N(s)) {
 				b.Q.OnSteamURLOpenExternalForPID(t);
@@ -241,7 +241,7 @@ const R = [
 			const { url: t, navigate: r, rgURLParts: n } = e;
 			const [i] = n;
 			if (i) {
-				const e = m.B7.ResolveURL("StorePublisherPage", i);
+				const e = URLStore.B7.ResolveURL("StorePublisherPage", i);
 				r.SteamWeb(e);
 			}
 		},
@@ -281,7 +281,7 @@ const R = [
 			const { url: t, navigate: r, rgURLParts: n } = e;
 			const [i] = n;
 			if (i) {
-				const e = `${m.B7.GetStoreURL()}/${i}`;
+				const e = `${URLStore.B7.GetStoreURL()}/${i}`;
 				r.SteamWeb(e);
 			}
 		},
@@ -296,7 +296,7 @@ const R = [
 			const { url: t, navigate: r, rgURLParts: n } = e;
 			const [i] = n;
 			if (i) {
-				const e = m.B7.ResolveURL("SteamIDBroadcastPage", i);
+				const e = URLStore.B7.ResolveURL("SteamIDBroadcastPage", i);
 				r.SteamWeb(e);
 			}
 		},
@@ -309,7 +309,7 @@ const R = [
 			const [i] = n;
 			if (i) {
 				const e = Number(i);
-				const t = m.B7.ResolveURL("WatchVideo", e);
+				const t = URLStore.B7.ResolveURL("WatchVideo", e);
 				r.SteamWeb(t);
 			}
 		},
@@ -322,7 +322,7 @@ const R = [
 			const [i] = n;
 			if (i) {
 				const e = Number(i);
-				const t = m.B7.ResolveURL("AppNewsPage", e);
+				const t = URLStore.B7.ResolveURL("AppNewsPage", e);
 				r.SteamWeb(t);
 			}
 		},
@@ -343,9 +343,9 @@ const R = [
 		"open/minigameslist",
 		[7],
 		() => {
-			const [e, t] = B.rV.GetClientSetting("small_mode");
+			const [e, t] = SettingsStore.rV.GetClientSetting("small_mode");
 			SteamClient.UI.SetUIMode(7);
-			l.oy.WindowStore.EnsureMainWindowCreated();
+			BasicUIStore.oy.WindowStore.EnsureMainWindowCreated();
 			t(true);
 		},
 	],
@@ -354,7 +354,7 @@ const R = [
 		7,
 		() => {
 			SteamClient.UI.SetUIMode(7);
-			l.oy.WindowStore.EnsureMainWindowCreated();
+			BasicUIStore.oy.WindowStore.EnsureMainWindowCreated();
 			d.n6.EnsureLargeMode();
 		},
 		{
@@ -370,7 +370,7 @@ const R = [
 			const [i] = n;
 			if (i) {
 				const e = Number(i);
-				const t = A.tw.GetAppOverviewByAppID(e);
+				const t = AppStore.tw.GetAppOverviewByAppID(e);
 				if (t) {
 					F_1(r, t);
 				}
@@ -432,9 +432,9 @@ const R = [
 		({ navigate: e, url: t }) => {
 			let r = Number(t.split("/").pop());
 			if (!r) {
-				r = h.v3?.EditingConfigurationAppId;
+				r = ControllerConfigStore.v3?.EditingConfigurationAppId;
 				if (r <= 0) {
-					r = l.oy.MainRunningApp?.appid;
+					r = BasicUIStore.oy.MainRunningApp?.appid;
 				}
 			}
 			if (r) {
@@ -448,7 +448,10 @@ const R = [
 		(e) => {
 			const t = e.rgURLParts[0];
 			const r = e.instance;
-			_.Xw.ShowUserGameInfoDialog(r?.params.browserInfo.m_unPID, new C.b(t));
+			ServerBrowserStore.Xw.ShowUserGameInfoDialog(
+				r?.params.browserInfo.m_unPID,
+				new C.b(t),
+			);
 		},
 	],
 	[
@@ -456,7 +459,7 @@ const R = [
 		[7, 4],
 		(e) => {
 			const t = e.rgURLParts[0];
-			_.Xw.ConnectToFriendsGameBySteamID(new C.b(t), e.window);
+			ServerBrowserStore.Xw.ConnectToFriendsGameBySteamID(new C.b(t), e.window);
 		},
 	],
 	[
@@ -495,8 +498,8 @@ const R = [
 		7,
 		(e) => {
 			const t = Number(e.rgURLParts[0]);
-			if (A.tw.GetAppOverviewByAppID(t)) {
-				w.I.VerifyAppFiles(t);
+			if (AppStore.tw.GetAppOverviewByAppID(t)) {
+				GameActionStore.I.VerifyAppFiles(t);
 				e.navigate.App(t);
 			}
 		},
@@ -525,7 +528,7 @@ const R = [
 		"friends/add",
 		[7, 4],
 		({ navigate: e }) => {
-			e.SteamWeb(m.B7.ResolveURL("CommunityAddFriends"));
+			e.SteamWeb(URLStore.B7.ResolveURL("CommunityAddFriends"));
 		},
 	],
 	["friends/status/online", [7, 4], () => L(1)],
@@ -553,7 +556,7 @@ const R = [
 				return;
 			}
 			let r = t[0];
-			const n = m.B7.ResolveURL("ItemStorePage", r);
+			const n = URLStore.B7.ResolveURL("ItemStorePage", r);
 			e.SteamWeb(n);
 		},
 	],
@@ -566,7 +569,7 @@ const R = [
 			}
 			let r = t[0];
 			let n = t[1];
-			const i = m.B7.ResolveURL("ItemStoreDetailPage", r, n);
+			const i = URLStore.B7.ResolveURL("ItemStoreDetailPage", r, n);
 			e.SteamWeb(i);
 		},
 	],
@@ -574,7 +577,7 @@ const R = [
 		"guestpasses",
 		[7, 4],
 		({ navigate: e }) => {
-			const t = m.B7.ResolveURL("ManageGiftsPage");
+			const t = URLStore.B7.ResolveURL("ManageGiftsPage");
 			e.SteamWeb(t);
 		},
 	],
@@ -596,7 +599,7 @@ const R = [
 				port: n,
 				queryPort: n,
 			};
-			_.Xw.ShowServerGameInfoDialog(s).then((e) => {
+			ServerBrowserStore.Xw.ShowServerGameInfoDialog(s).then((e) => {
 				if (a) {
 					e.SetPassword(a);
 				}
@@ -622,7 +625,7 @@ const R = [
 			const r = t[0];
 			if (r) {
 				const t = Number(r);
-				const n = m.B7.ResolveURL("CommunityFilePage", t);
+				const n = URLStore.B7.ResolveURL("CommunityFilePage", t);
 				e.SteamWeb(n);
 			}
 		},
@@ -632,7 +635,7 @@ const R = [
 		[7, 4],
 		({ navigate: e }) => {
 			if (I.qL.IsSteamVRRunning && I.qL.IsVRHMDAwake) {
-				const e = l.oy.WindowStore.GetVRWindowInstance();
+				const e = BasicUIStore.oy.WindowStore.GetVRWindowInstance();
 				if (e) {
 					c_1(e.GetMainVROverlayKey());
 				}
@@ -689,13 +692,14 @@ function D() {
 							d.n6.EnsureLargeMode();
 						}
 						let p =
-							l.oy.WindowStore.MainWindowInstance ?? l.oy.ActiveWindowInstance;
+							BasicUIStore.oy.WindowStore.MainWindowInstance ??
+							BasicUIStore.oy.ActiveWindowInstance;
 						if (
 							!n?.bForceOpenInMainInstance &&
 							I.qL.IsSteamVRRunning &&
 							I.qL.IsVRHMDAwake
 						) {
-							p = l.oy.WindowStore.GetVRWindowInstance() ?? p;
+							p = BasicUIStore.oy.WindowStore.GetVRWindowInstance() ?? p;
 							if (p?.IsVRWindow()) {
 								c_1(p.GetMainVROverlayKey());
 							}
@@ -731,11 +735,11 @@ function N(e) {
 	);
 }
 function F({ navigate: e }) {
-	e.SteamWeb(m.B7.GetStoreURL());
+	e.SteamWeb(URLStore.B7.GetStoreURL());
 }
 function G({ navigate: e }) {
-	const [t] = B.rV.GetClientSetting("start_page");
-	const [r, n] = B.rV.GetClientSetting("small_mode");
+	const [t] = SettingsStore.rV.GetClientSetting("start_page");
+	const [r, n] = SettingsStore.rV.GetClientSetting("small_mode");
 	switch (t) {
 		case "library":
 		case "friends":
@@ -753,13 +757,13 @@ function G({ navigate: e }) {
 			break;
 		}
 		case "store": {
-			if (r || M.jR.BIsFeatureBlocked(1)) {
+			if (r || ParentalStore.jR.BIsFeatureBlocked(1)) {
 				e.Home(undefined, {
 					bReplace: true,
 				});
 			} else {
 				n(false);
-				e.SteamWeb(m.B7.ResolveURL("StoreFrontPage"), {
+				e.SteamWeb(URLStore.B7.ResolveURL("StoreFrontPage"), {
 					bReplace: true,
 				});
 			}
@@ -780,9 +784,9 @@ function G({ navigate: e }) {
 					eFeature: 5,
 				},
 			};
-			if (t in i && !M.jR.BIsFeatureBlocked(i[t].eFeature)) {
+			if (t in i && !ParentalStore.jR.BIsFeatureBlocked(i[t].eFeature)) {
 				n(false);
-				e.SteamWeb(m.B7.ResolveURL(i[t].knownUrl), {
+				e.SteamWeb(URLStore.B7.ResolveURL(i[t].knownUrl), {
 					bReplace: true,
 				});
 			} else {
@@ -797,13 +801,13 @@ function O(e) {
 	const { navigate: t, rgURLParts: r } = e;
 	const n = r[0];
 	if (n) {
-		let e = m.B7.ResolveURL("StoreAppPage", n);
+		let e = URLStore.B7.ResolveURL("StoreAppPage", n);
 		if (e.endsWith("/")) {
 			e = e.slice(0, -1);
 		}
 		t.SteamWeb(e);
 	} else {
-		t.SteamWeb(m.B7.GetStoreURL());
+		t.SteamWeb(URLStore.B7.GetStoreURL());
 	}
 }
 function P({ url: e, instance: t }) {
@@ -3493,7 +3497,7 @@ class rt {
 			) {
 				const n = this.GetDraftTitle(r);
 				const i = this.GetDraftContent(r);
-				const a = xt.Get().UpdateDraft(this.m_summary?.faq_id, r, n, i);
+				const a = FAQStore.Get().UpdateDraft(this.m_summary?.faq_id, r, n, i);
 				a.then((t) => {
 					if (t.eResult == 1) {
 						h5(() => {
@@ -5991,7 +5995,7 @@ let zt;
 			eWebAPIKeyRequirement: 1,
 		});
 })((zt ||= {}));
-class xt {
+class FAQStore {
 	m_mapFAQSummaries = new Map();
 	m_mapFAQPublishedContent = new Map();
 	m_mapFAQDrafts = new Map();
@@ -5999,11 +6003,11 @@ class xt {
 	m_steamInterface = null;
 	static s_Singleton;
 	static Get() {
-		xt.s_Singleton ||= new xt();
-		return xt.s_Singleton;
+		FAQStore.s_Singleton ||= new FAQStore();
+		return FAQStore.s_Singleton;
 	}
 	static Init(e) {
-		xt.Get().m_steamInterface = e;
+		FAQStore.Get().m_steamInterface = e;
 	}
 	constructor() {
 		Gn(this);
@@ -6210,8 +6214,8 @@ class xt {
 			return null;
 		}
 		let n = r.get(t);
-		if (!n && xt.sm_mapFallbackLanguages.has(t)) {
-			n = r.get(xt.sm_mapFallbackLanguages.get(t));
+		if (!n && FAQStore.sm_mapFallbackLanguages.has(t)) {
+			n = r.get(FAQStore.sm_mapFallbackLanguages.get(t));
 		}
 		if (!n && t != 0 && !Y2()) {
 			n = r.get(0);
@@ -6446,8 +6450,8 @@ class xt {
 			.map((e) => e.language);
 	}
 }
-Cg([ie.sH], xt.prototype, "m_mapFAQSummaries", undefined);
-Cg([ie.XI], xt.prototype, "RemoveAllDirtyDrafts", null);
+Cg([ie.sH], FAQStore.prototype, "m_mapFAQSummaries", undefined);
+Cg([ie.XI], FAQStore.prototype, "RemoveAllDirtyDrafts", null);
 function Ut(e) {
 	const t = `0000000000000000${Xe.A.fromString(e, true, 10).toString(16)}`
 		.slice(-16)
@@ -6457,7 +6461,7 @@ function Ut(e) {
 		16,
 	)}`;
 }
-class vr {
+class CSteamUIApp {
 	m_cm;
 	m_eLoginState = 0;
 	m_bFinishedStage1 = false;
@@ -6478,30 +6482,33 @@ class vr {
 		await b_1("SteamApp Init - Before Login", [
 			["CM Connect", () => e.Connect()],
 			["SteamURLStore", () => c.Dt.InitWithoutUser()],
-			["BasicUIStore", () => l.oy.InitWithoutUser()],
+			["BasicUIStore", () => BasicUIStore.oy.InitWithoutUser()],
 			["OverlayModalDialogsStore", () => b.Q.Init()],
-			["SystemNetworkStore", () => Z.OQ.Get().Init(e)],
+			["SystemNetworkStore", () => SystemNetworkStore.OQ.Get().Init(e)],
 			["VirtualMenuStore", () => K.Mf.Init()],
-			["URLStore", () => m.B7.Init()],
-			["LoginStore", () => dr.b.Init()],
-			["NotificationStore", () => X.Tu.Init()],
+			["URLStore", () => URLStore.B7.Init()],
+			["LoginStore", () => LoginStore.Init()],
+			["NotificationStore", () => SteamNotificationsStore.Tu.Init()],
 			[
 				"Localization",
 				() => (f.TS.USE_LONGEST_LOC_STRING ? Qu() : uV(f.TS.LANGUAGE)),
 			],
-			["FriendsChatStore", () => x.LN.Init()],
-			["SuspendResumeStore", () => j.Ze.Init()],
-			["SteamingStore", () => H.Gc.Init()],
-			["SecurityStore", () => J.yE.Init()],
-			["KeyboardSettingsStore", () => W.O.InitWithoutUser()],
-			["IBusConnection", () => Ve.aJ.Init()],
-			["ConsoleStore", () => ir.dn.Init()],
-			["FocusedAppWindowStore", () => or.iP.Init()],
-			["SystemReportStore", () => $.Ty.Init()],
+			["FriendsChatStore", () => FriendsChatStore.LN.Init()],
+			["SuspendResumeStore", () => SuspendResumeStore.Ze.Init()],
+			["SteamingStore", () => SteamingStore.Gc.Init()],
+			["SecurityStore", () => SecurityStore.yE.Init()],
+			[
+				"KeyboardSettingsStore",
+				() => KeyboardSettingsStore.O.InitWithoutUser(),
+			],
+			["IBusConnection", () => IBusConnection.aJ.Init()],
+			["ConsoleStore", () => ConsoleStore.dn.Init()],
+			["FocusedAppWindowStore", () => FocusedAppWindowStore.iP.Init()],
+			["SystemReportStore", () => SystemReportStore.Ty.Init()],
 			["SimpleTests", () => We.Get().Init()],
-			["VRGamepadUIMessages", () => I_1()],
-			["VRStore", () => AP()],
-			["VRAudioSettingsStore", () => Ht.t.Init()],
+			["VRGamepadUIMessages", () => VRGamepadUIMessages()],
+			["VRStore", () => VRStore()],
+			["VRAudioSettingsStore", () => VRAudioSettingsStore.t.Init()],
 		]);
 		SteamClient.User.RegisterForLoginStateChange(this.OnLoginStateChange);
 		SteamClient.User.RegisterForCurrentUserChanges(this.OnCurrentUserChanges);
@@ -6536,9 +6543,9 @@ class vr {
 		let s = this.m_eLoginState == 0;
 		this.m_eLoginState = t;
 		if (!s && t == 7) {
-			J.yE.InitialLoginComplete(e);
-			if (l.oy.WindowStore.BHasGamepadUIMainWindow()) {
-				ee.iG.CheckClaimSteamDeckRewards();
+			SecurityStore.yE.InitialLoginComplete(e);
+			if (BasicUIStore.oy.WindowStore.BHasGamepadUIMainWindow()) {
+				UserProfileStore.iG.CheckClaimSteamDeckRewards();
 			}
 		}
 	}
@@ -6547,25 +6554,28 @@ class vr {
 			return;
 		}
 		this.m_bStartedStage2 = true;
-		let e = this.m_cm;
+		let cm = this.m_cm;
 		console.time("SteamApp Init - After Login");
 		try {
-			await Promise.all([rr.md.Register(), cr.X$.Register()]);
+			await Promise.all([
+				CollectionStore.md.Register(),
+				GameReleasedStore.X$.Register(),
+			]);
 			const t = aj();
 			t.Init(
 				f.TS.IN_STEAMUI_SHARED_CONTEXT ? "Shared SteamUI" : "Library",
 				CLSTAMP,
-				e.GetServiceTransport(),
+				cm.GetServiceTransport(),
 				{
 					fnGetReportingInterval: Lr,
 				},
 			);
-			e.messageHandlers.InstallErrorReportingStore(t);
+			cm.messageHandlers.InstallErrorReportingStore(t);
 			te.r.InstallErrorReportingStore(t);
 			Vt.y.Init(
 				f.TS.IN_STEAMUI_SHARED_CONTEXT ? "Shared SteamUI" : "Library",
 				CLSTAMP,
-				e.GetServiceTransport(),
+				cm.GetServiceTransport(),
 			);
 			const r = (e, r, n) => {
 				if (e instanceof Error) {
@@ -6583,84 +6593,116 @@ class vr {
 						"localization",
 						() => (f.TS.USE_LONGEST_LOC_STRING ? Qu() : uV(f.TS.LANGUAGE)),
 					],
-					["CM Connection", () => e.Connect()],
-					["CloudStorage", () => s.s7.Init(e)],
-					["AppStore", () => A.tw.Init(e)],
-					["AchievementProgress", () => Kt.y.Init(e)],
-					["URLStore", () => m.B7.Init()],
-					["GameActionStore", () => w.I.Init()],
-					["SettingsStore", () => B.rV.Init(e)],
-					["SystemInfoStore", () => Q.Z4.Init()],
-					["SystemNetworkStore", () => Z.OQ.Get().Init(e)],
-					["FriendsChatStore - Startup", () => x.LN.AwaitStartupFinished()],
+					["CM Connection", () => cm.Connect()],
+					["CloudStorage", () => CloudStorage.s7.Init(cm)],
+					["AppStore", () => AppStore.tw.Init(cm)],
+					["AchievementProgress", () => AchievementProgress.y.Init(cm)],
+					["URLStore", () => URLStore.B7.Init()],
+					["GameActionStore", () => GameActionStore.I.Init()],
+					["SettingsStore", () => SettingsStore.rV.Init(cm)],
+					["SystemInfoStore", () => SystemInfoStore.Z4.Init()],
+					["SystemNetworkStore", () => SystemNetworkStore.OQ.Get().Init(cm)],
+					[
+						"FriendsChatStore - Startup",
+						() => FriendsChatStore.LN.AwaitStartupFinished(),
+					],
 				],
 				true,
 				r,
 			);
 			await b_1(
 				"SteamApp Init - After Login - Friend Store",
-				[["FriendStore", () => lr.O$.Init(e, bg())]],
+				[["FriendStore", () => FriendStore.O$.Init(cm, bg())]],
 				true,
 				r,
 			);
-			this.m_cloudStorage = await s.s7.ForNamespace(
-				s.Jq.k_EUserConfigStoreNamespaceLibrary,
+			this.m_cloudStorage = await CloudStorage.s7.ForNamespace(
+				CloudStorage.Jq.k_EUserConfigStoreNamespaceLibrary,
 			);
 			await b_1(
 				"SteamApp Init - After Login - Collection Store",
-				[["CollectionStore", () => rr.md.Init(this.m_cloudStorage)]],
+				[
+					[
+						"CollectionStore",
+						() => CollectionStore.md.Init(this.m_cloudStorage),
+					],
+				],
 				true,
 				r,
 			);
-			const n = d.n6.Init(e);
+			const pLibraryUIStore = d.n6.Init(cm);
 			await b_1(
 				"SteamApp Init - After Login - Stage 2",
 				[
-					["AppInfoStore", () => He.Vw.Init(e)],
-					["AppActivityStore", () => Xt.yX.Init(e)],
-					["AppDetailsStore", () => Jt.H.Init(e)],
-					["AppReviewStore", () => $t.x.Init(e)],
-					["AppSpotlightsStore", () => er.Ri.Init(e)],
-					["LibraryUIStore", () => n],
-					["WorkshopStore", () => Sr.B6.Init(e)],
-					["CommunityStore", () => nr.Nb.Init(e)],
-					["LibraryEventStore", () => ur.dm.Init(e)],
-					["BadgeStore", () => tr.x_.Init(e)],
-					["ShowcaseStore", () => br.N.Init(this.m_cloudStorage)],
-					["SettingsZooStore", () => fr.hG.Init()],
-					["PlayNextStore", () => gr.x3.Init(e)],
-					["DownloadsStore", () => ar.hj.Init(e)],
-					["FAQStore", () => xt.Init(e)],
-					["ParentalStore", () => n.then(() => M.jR.Init(e))],
-					["ControllerConfigStore", () => h.v3.Init()],
-					["ControllerConfigInterstitialStore", () => z.z.Init()],
-					["InstallFolderStore", () => mr.fN.Init()],
-					["SubscriberAgreementStore", () => je.Yq.Init(e)],
-					["ScreenshotStore", () => Cr.y.Init(e)],
-					["TrendingStore", () => yr.J.Init(e)],
-					["DiscoveryQueueStore", () => qe.aI.Init(e.GetServiceTransport())],
-					["DynamicUserStore", () => Qe.Fm.Get().HintLoad()],
-					["UserProfileStore", () => ee.iG.Init(e)],
-					["SearchStore", () => _r.U.Init(e)],
-					["MarketingStore", () => Wt.Nt.Init(e)],
-					["AchievementStore", () => Yt.p6.Init()],
-					["BasicUIStore - with user", () => l.oy.InitWithUser()],
-					["KeyboardSettingsStore", () => W.O.Init()],
-					["LibraryLoyaltyAwardModal", () => jt.EX.Initialize(e)],
-					["RemotePlayStore", () => hr.ut.Init(e)],
-					["OverlayStore", () => pr.Q.Init(e)],
-					["GameReleasedStore", () => cr.X$.Init(this.m_cloudStorage)],
-					["ServerBrowserStore", () => _.Xw.Init(e)],
-					["MusicStore", () => Ar.l.Init()],
-					["GRS", () => Z9(e.GetServiceTransport(), re.XP, re.Nd)],
-					["EmojiStore", () => sr._.Init()],
-					["SteamNotificationsStore", () => X.$Z.Initialize(e)],
-					["GamescopeStore", () => U.YS.Init()],
-					["SystemStorageStore", () => Y._r.Init()],
-					["SDCardStore", () => Y.bh.Init()],
-					["SteamOSStore", () => V.qF.Init()],
-					["BluetoothStore", () => q.Y4.Init()],
-					["EAAccessPromptManager", () => ne.Cf.Init(this.m_cloudStorage)],
+					["AppInfoStore", () => AppInfoStore.Vw.Init(cm)],
+					["AppActivityStore", () => AppActivityStore.yX.Init(cm)],
+					["AppDetailsStore", () => AppDetailsStore.H.Init(cm)],
+					["AppReviewStore", () => AppReviewStore.x.Init(cm)],
+					["AppSpotlightsStore", () => AppSpotlightsStore.Ri.Init(cm)],
+					["LibraryUIStore", () => pLibraryUIStore],
+					["WorkshopStore", () => WorkshopStore.B6.Init(cm)],
+					["CommunityStore", () => CommunityStore.Nb.Init(cm)],
+					["LibraryEventStore", () => LibraryEventStore.dm.Init(cm)],
+					["BadgeStore", () => BadgeStore.x_.Init(cm)],
+					["ShowcaseStore", () => ShowcaseStore.N.Init(this.m_cloudStorage)],
+					["SettingsZooStore", () => SettingsZooStore.hG.Init()],
+					["PlayNextStore", () => PlayNextStore.x3.Init(cm)],
+					["DownloadsStore", () => DownloadsStore.hj.Init(cm)],
+					["FAQStore", () => FAQStore.Init(cm)],
+					[
+						"ParentalStore",
+						() => pLibraryUIStore.then(() => ParentalStore.jR.Init(cm)),
+					],
+					["ControllerConfigStore", () => ControllerConfigStore.v3.Init()],
+					[
+						"ControllerConfigInterstitialStore",
+						() => ControllerConfigInterstitialStore.z.Init(),
+					],
+					["InstallFolderStore", () => InstallFolderStore.fN.Init()],
+					[
+						"SubscriberAgreementStore",
+						() => SubscriberAgreementStore.Yq.Init(cm),
+					],
+					["ScreenshotStore", () => ScreenshotStore.y.Init(cm)],
+					["TrendingStore", () => TrendingStore.J.Init(cm)],
+					[
+						"DiscoveryQueueStore",
+						() => DiscoveryQueueStore.aI.Init(cm.GetServiceTransport()),
+					],
+					["DynamicUserStore", () => DynamicUserStore.Fm.Get().HintLoad()],
+					["UserProfileStore", () => UserProfileStore.iG.Init(cm)],
+					["SearchStore", () => SearchStore.U.Init(cm)],
+					["MarketingStore", () => MarketingStore.Nt.Init(cm)],
+					["AchievementStore", () => AchievementStore.p6.Init()],
+					["BasicUIStore - with user", () => BasicUIStore.oy.InitWithUser()],
+					["KeyboardSettingsStore", () => KeyboardSettingsStore.O.Init()],
+					[
+						"LibraryLoyaltyAwardModal",
+						() => LibraryLoyaltyAwardModal.EX.Initialize(cm),
+					],
+					["RemotePlayStore", () => RemotePlayStore.ut.Init(cm)],
+					["OverlayStore", () => OverlayStore.Init(cm)],
+					[
+						"GameReleasedStore",
+						() => GameReleasedStore.X$.Init(this.m_cloudStorage),
+					],
+					["ServerBrowserStore", () => ServerBrowserStore.Xw.Init(cm)],
+					["MusicStore", () => MusicStore.l.Init()],
+					["GRS", () => GRS(cm.GetServiceTransport(), re.XP, re.Nd)],
+					["EmojiStore", () => EmojiStore._.Init()],
+					[
+						"SteamNotificationsStore",
+						() => SteamNotificationsStore.$Z.Initialize(cm),
+					],
+					["GamescopeStore", () => GamescopeStore.YS.Init()],
+					["SystemStorageStore", () => SDCardStore._r.Init()],
+					["SDCardStore", () => SDCardStore.bh.Init()],
+					["SteamOSStore", () => SteamOSStore.qF.Init()],
+					["BluetoothStore", () => BluetoothStore.Y4.Init()],
+					[
+						"EAAccessPromptManager",
+						() => EAAccessPromptManager.Cf.Init(this.m_cloudStorage),
+					],
 				],
 				true,
 				r,
@@ -6781,54 +6823,56 @@ class vr {
 		this.m_CurrentUser.bHWSurveyPending = false;
 	}
 }
-let Ir;
+let g_pSteamUIApp;
 export function qw() {
-	return Ir;
+	return g_pSteamUIApp;
 }
 export function KC() {
-	AssertMsg(!Ir, "SteamUI already initialized");
-	Ir = new vr();
-	window.App = Ir;
-	return Ir;
+	AssertMsg(!g_pSteamUIApp, "SteamUI already initialized");
+	g_pSteamUIApp = new CSteamUIApp();
+	window.App = g_pSteamUIApp;
+	return g_pSteamUIApp;
 }
 export function gK() {
-	return q3(() => qw().BFinishedInitStageOne());
+	return useObserver(() => qw().BFinishedInitStageOne());
 }
 export function Wx() {
-	return q3(() => qw().BHasCurrentUser());
+	return useObserver(() => qw().BHasCurrentUser());
 }
 export function iZ() {
-	return q3(() => qw().GetCurrentUser());
+	return useObserver(() => qw().GetCurrentUser());
 }
 export function QR() {
-	return q3(() => qw().BIsOfflineMode());
+	return useObserver(() => qw().BIsOfflineMode());
 }
 export function Pp() {
-	return q3(() => qw().GetCurrentUser() && qw().GetCurrentUser().bIsLimited);
+	return useObserver(
+		() => qw().GetCurrentUser() && qw().GetCurrentUser().bIsLimited,
+	);
 }
 export function ZW() {
-	return q3(() => qw().GetCurrentUser().eFamilyGroupRole);
+	return useObserver(() => qw().GetCurrentUser().eFamilyGroupRole);
 }
 export function IU() {
-	return q3(() => qw().BIsInFamilyGroup());
+	return useObserver(() => qw().BIsInFamilyGroup());
 }
 export function EK() {
-	return q3(() => qw().GetFamilyGroupID());
+	return useObserver(() => qw().GetFamilyGroupID());
 }
 export function kU() {
-	return q3(() => qw().GetCurrentUser().rgFamilyGroupMembers);
+	return useObserver(() => qw().GetCurrentUser().rgFamilyGroupMembers);
 }
 function Lr() {
 	return Tg(10, 60) * 1000;
 }
-Cg([ie.sH], vr.prototype, "m_eLoginState", undefined);
-Cg([ie.sH], vr.prototype, "m_bFinishedStage1", undefined);
-Cg([ie.sH], vr.prototype, "m_CurrentUser", undefined);
-Cg([ie.sH], vr.prototype, "m_bSupportAlertModalActive", undefined);
-Cg([ie.sH], vr.prototype, "m_cloudStorage", undefined);
-Cg([ie.sH], vr.prototype, "m_bWasEverLoggedIn", undefined);
-Cg([ie.sH], vr.prototype, "m_bServicesInitialized", undefined);
-Cg([se.oI], vr.prototype, "OnLoginStateChange", null);
-Cg([se.oI], vr.prototype, "OnCMDisconnect", null);
-Cg([se.oI], vr.prototype, "OnCMLogon", null);
-Cg([ie.XI.bound], vr.prototype, "OnCurrentUserChanges", null);
+Cg([ie.sH], CSteamUIApp.prototype, "m_eLoginState", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_bFinishedStage1", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_CurrentUser", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_bSupportAlertModalActive", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_cloudStorage", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_bWasEverLoggedIn", undefined);
+Cg([ie.sH], CSteamUIApp.prototype, "m_bServicesInitialized", undefined);
+Cg([se.oI], CSteamUIApp.prototype, "OnLoginStateChange", null);
+Cg([se.oI], CSteamUIApp.prototype, "OnCMDisconnect", null);
+Cg([se.oI], CSteamUIApp.prototype, "OnCMLogon", null);
+Cg([ie.XI.bound], CSteamUIApp.prototype, "OnCurrentUserChanges", null);

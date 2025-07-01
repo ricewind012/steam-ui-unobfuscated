@@ -66,7 +66,7 @@ import { bg } from "./68292.js";
 import { r } from "./37905.js";
 import { Ux, ey } from "./38542.js";
 import ve, { Bh, L4, wI } from "./48289.js";
-import Ie from "./33512.js";
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
 import Ee, { Pb } from "./13661.js";
 import Me, { bI } from "./75001.js";
 import { ht as ht_2 } from "./63259.js";
@@ -1299,7 +1299,7 @@ const Le = (e) => {
 const ze = (e) => {
 	const { bOSX: t } = e;
 	const r = q3(() => qw().BIsOfflineMode());
-	const n = q3(() => Ie.b.secureComputer);
+	const n = q3(() => LoginStore.secureComputer);
 	const i = r();
 	const a = fK();
 	const s = [
@@ -2235,7 +2235,7 @@ function Nt() {
 const Lt = Pt;
 function Qt(e) {
 	const [t] = q3(() => [qw().GetCurrentUser().strAccountName]);
-	const r = q3(() => Ie.b.secureComputer);
+	const r = q3(() => LoginStore.secureComputer);
 	const n = [
 		{
 			name: "#Menu_ViewMyProfile",
@@ -10006,7 +10006,7 @@ function bs(e) {
 		m.oy.NavigationManager,
 		g,
 	);
-	const _ = b(i?.ownerDocument.defaultView, h.params.browserInfo, s);
+	const _ = LoginStore(i?.ownerDocument.defaultView, h.params.browserInfo, s);
 	const f = w_2();
 	return d.createElement(
 		d.Fragment,

@@ -24,7 +24,7 @@ class CSubscribableValue<T> {
 	m_fnEquals: (currentValue: T, newValue: T) => boolean;
 
 	/** Constructed with a trim interface exposed to external users via the exported SubscribableValue<T> method.  */
-	constructor(initialValue: T, fnEquals: FnEquals_t<T>) {
+	constructor(initialValue: T, fnEquals?: FnEquals_t<T>) {
 		this.m_callbacks = new CCallbackList();
 		this.m_currentValue = initialValue;
 		this.m_fnEquals = fnEquals;
@@ -59,7 +59,10 @@ class CSubscribableValue<T> {
 /**
  * Constructs an ISubscribableValue.
  */
-export function SubscribableValue<T>(initialValue: T, fnEquals: FnEquals_t<T>) {
+export function SubscribableValue<T>(
+	initialValue: T,
+	fnEquals?: FnEquals_t<T>,
+) {
 	return new CSubscribableValue(initialValue, fnEquals);
 }
 
