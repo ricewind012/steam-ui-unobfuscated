@@ -2,7 +2,7 @@ import { gc, l6 } from "./42898.js";
 import i, { D5 } from "./28864.js";
 import s from "./63696.js";
 import o, { Vu } from "./35560.js";
-const AContext = s.createContext({
+const FocusContext = s.createContext({
 	focusNavWindow: null,
 	bSupportsFocus: true,
 });
@@ -14,7 +14,7 @@ export function b5(e) {
 		suppressGamepadInput = false,
 	} = e;
 	const m = Vu();
-	const d = s.useContext(AContext);
+	const d = s.useContext(FocusContext);
 	const [h] = s.useState(
 		() =>
 			d.focusNavWindow || m.CreateContext(ownerWindow, suppressGamepadInput),
@@ -38,7 +38,7 @@ export function b5(e) {
 		[h, p],
 	);
 	return s.createElement(
-		AContext.Provider,
+		FocusContext.Provider,
 		{
 			value: g,
 		},
@@ -71,8 +71,8 @@ function l(e) {
 	return null;
 }
 export function nN() {
-	return s.useContext(AContext)?.focusNavWindow;
+	return s.useContext(FocusContext)?.focusNavWindow;
 }
 export function bJ(e = true) {
-	return s.useContext(AContext)?.bSupportsFocus ?? e;
+	return s.useContext(FocusContext)?.bSupportsFocus ?? e;
 }

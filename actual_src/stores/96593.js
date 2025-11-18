@@ -1,3 +1,5 @@
+// Webpack module ID: 96593
+
 import {
 	LocalizeCalendarYear,
 	Localize,
@@ -582,7 +584,7 @@ export class fd extends B {
 		return true;
 	}
 }
-class I {
+class CAppStore {
 	constructor() {
 		Gn(this);
 	}
@@ -899,20 +901,20 @@ class I {
 		}
 	}
 }
-Cg([s.sH.shallow], I.prototype, "m_mapApps", undefined);
-Cg([s.XI.bound], I.prototype, "UpdateAppOverview", null);
-Cg([p.oI], I.prototype, "CompareSortAs", null);
+Cg([s.sH.shallow], CAppStore.prototype, "m_mapApps", undefined);
+Cg([s.XI.bound], CAppStore.prototype, "UpdateAppOverview", null);
+Cg([p.oI], CAppStore.prototype, "CompareSortAs", null);
 Cg(
 	[
 		EW({
 			keepAlive: true,
 		}),
 	],
-	I.prototype,
+	CAppStore.prototype,
 	"allApps",
 	null,
 );
-Cg([p.oI], I.prototype, "GetLocalizationForStoreTag", null);
+Cg([p.oI], CAppStore.prototype, "GetLocalizationForStoreTag", null);
 Cg(
 	[
 		EW({
@@ -920,11 +922,11 @@ Cg(
 			equals: s.m3.structural,
 		}),
 	],
-	I.prototype,
+	CAppStore.prototype,
 	"sharedLibraryAccountIds",
 	null,
 );
-export const tw = new I();
+export const tw = new CAppStore();
 export function Co(e) {
 	return q3(() => (e ? tw.GetAppOverviewByAppID(e) : null));
 }

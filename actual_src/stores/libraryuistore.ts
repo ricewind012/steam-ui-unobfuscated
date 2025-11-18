@@ -292,17 +292,17 @@ class CLibraryUIStore {
 		}
 	}
 
-	@action SelectCollectionsAppFilterOption(e, eAppType: EAppType, r: boolean) {
-		this.m_collectionsAppFilter.SelectOption(e, eAppType, r);
+	@action SelectCollectionsAppFilterOption(group, eAppType: EAppType, value: boolean) {
+		this.m_collectionsAppFilter.SelectOption(group, eAppType, value);
 		this.SaveLocalState();
 	}
 
 	@action SelectGamepadCollectionsAppFilterOption(
-		e,
+		group,
 		eAppType: EAppType,
-		r: boolean,
+		value: boolean,
 	) {
-		this.m_collectionsAppFilterGamepad.SelectOption(e, eAppType, r);
+		this.m_collectionsAppFilterGamepad.SelectOption(group, eAppType, value);
 		this.SaveLocalState();
 	}
 
@@ -494,7 +494,7 @@ class CLibraryUIStore {
 		}
 	}
 
-	BIsSuggestionVisible(appid) {
+	BIsSuggestionVisible(appid:number) {
 		return (
 			(!CParentalFeaturesStore.BIsFeatureBlocked(1) ||
 				AppStore.GetAppOverviewByAppID(appid)?.visible_in_game_list) &&
@@ -528,12 +528,12 @@ class CLibraryUIStore {
 		return this.m_bIsCollectionRenameOpen;
 	}
 
-	SetCollectionEditorOpen(e) {
-		this.m_bIsCollectionEditorOpen = e;
+	SetCollectionEditorOpen(value:boolean) {
+		this.m_bIsCollectionEditorOpen = value;
 	}
 
-	SetCollectionRenameOpen(e) {
-		this.m_bIsCollectionRenameOpen = e;
+	SetCollectionRenameOpen(value:boolean) {
+		this.m_bIsCollectionRenameOpen = value;
 	}
 
 	@bind IsCollapsed(name: string) {
@@ -548,8 +548,8 @@ class CLibraryUIStore {
 		this.SetIsCollapsed(name, !this.IsCollapsed(name));
 	}
 
-	@bind SetIsCollapsed(name: string, bCollapsesd: boolean) {
-		this.m_mapLibrarySectionCollapseState.set(name, bCollapsesd);
+	@bind SetIsCollapsed(name: string, value: boolean) {
+		this.m_mapLibrarySectionCollapseState.set(name, value);
 		this.CleanupCollapseStateMap();
 		this.SaveLocalState();
 	}
@@ -677,15 +677,15 @@ class CLibraryUIStore {
 		x2(window, name, a);
 	}
 
-	ShowSharedAppsInLibrary(e, t) {
+	ShowSharedAppsInLibrary(dynFilter, steamIds:number[]) {
 		let steamid = new CSteamID(this.currentUserSteamID);
-		let n = t.filter((e) => e != steamid.GetAccountID());
-		e.Reset();
-		e.SelectOption(2, EAppType.Demo, true);
+		let n = steamIds.filter((e) => e != steamid.GetAccountID());
+		dynFilter.Reset();
+		dynFilter.SelectOption(2, EAppType.Demo, true);
 		n.filter((e) => e != steamid.GetAccountID()).forEach((t) => {
-			e.SelectOption(6, t, true);
+			dynFilter.SelectOption(6, t, true);
 		});
-		n6.StartSearchByType(e);
+		n6.StartSearchByType(dynFilter);
 		n6.SetSearchByTypePaneOpen(true);
 	}
 
@@ -728,8 +728,8 @@ class CLibraryUIStore {
 		this.NavigateLibrary(undefined, t, r);
 	}
 
-	@bind OnOpenLibrary(steamURL: string, t) {
-		if (SteamUIStore.IsDesktopUIWindowActive(t)) {
+	@bind OnOpenLibrary(steamURL: string, wnd) {
+		if (SteamUIStore.IsDesktopUIWindowActive(wnd)) {
 			SteamUIStore.WindowStore.EnsureMainWindowCreated();
 		}
 		if (SettingsStore.clientSettings.small_mode) {
@@ -756,20 +756,20 @@ class CLibraryUIStore {
 		const r = steamURL.split("/");
 		const n = r.pop();
 		const i = r.pop();
-		this.NavigateLibrary(t, i, n);
+		this.NavigateLibrary(wnd, i, n);
 	}
 
-	NavigateLibrary(e, t, r) {
-		e = e ?? this.GetActiveWindowInstance();
-		if (!this.IsGamepadUIWindowActive(e)) {
+	NavigateLibrary(wnd:any|null, urlPart1:string, urlPart2:string) {
+		wnd = wnd ?? this.GetActiveWindowInstance();
+		if (!this.IsGamepadUIWindowActive(wnd)) {
 			this.ExitSearch();
 		}
-		const nav = e.Navigator;
-		if (t == "open") {
-			t = r;
-			r = "";
+		const nav = wnd.Navigator;
+		if (urlPart1 == "open") {
+			urlPart1 = urlPart2;
+			urlPart2 = "";
 		}
-		switch (t) {
+		switch (urlPart1) {
 			case Qc: {
 				return;
 			}
@@ -783,7 +783,7 @@ class CLibraryUIStore {
 			}
 			case "view": {
 				this.EnsureLargeMode();
-				switch (r) {
+				switch (urlPart2) {
 					case "all": {
 						this.ShowCollectionViewWithAppTypes(
 							EAppType.Game,
@@ -852,16 +852,16 @@ class CLibraryUIStore {
 			}
 			case "collection": {
 				this.EnsureLargeMode();
-				if (r == "hidden") {
-					this.SelectGameListView(10, r);
+				if (urlPart2 == "hidden") {
+					this.SelectGameListView(10, urlPart2);
 				}
-				nav.Collection(r);
+				nav.Collection(urlPart2);
 				return;
 			}
 			case "details":
 				{
 					this.EnsureLargeMode();
-					let e = r.split("|");
+					let e = urlPart2.split("|");
 					let t = +e[0];
 					let [, i] = e;
 					if (AppStore.GetAppOverviewByAppID(t)) {
@@ -875,7 +875,7 @@ class CLibraryUIStore {
 			case "event":
 				{
 					this.EnsureLargeMode();
-					let e = decodeURIComponent(r).split("|");
+					let e = decodeURIComponent(urlPart2).split("|");
 					let t = +e[0];
 					let [, i] = e;
 					if (AppStore.GetAppOverviewByAppID(t)) {
@@ -900,15 +900,15 @@ class CLibraryUIStore {
 			}
 			case "dynamic-collection": {
 				this.EnsureLargeMode();
-				this.NavigateToCollectionSaveDialog(r);
+				this.NavigateToCollectionSaveDialog(urlPart2);
 				return;
 			}
 			case "shared-apps": {
 				if (dq(nav)) {
-					SteamClient.Messaging.PostMessage("Library", "shared-apps", r);
+					SteamClient.Messaging.PostMessage("Library", "shared-apps", urlPart2);
 				} else {
 					nav.Home();
-					this.NavigateToSharedAppsDesktopUI(r);
+					this.NavigateToSharedAppsDesktopUI(urlPart2);
 				}
 				return;
 			}
@@ -916,8 +916,8 @@ class CLibraryUIStore {
 				nav.Home();
 			}
 		}
-		if (this.IsGamepadUIWindowActive(e)) {
-			switch (t) {
+		if (this.IsGamepadUIWindowActive(wnd)) {
+			switch (urlPart1) {
 				case "gameapiosk": {
 					z.m_history.push(ClientRoutes.GamepadUI.GameAPIOSK());
 					return;
@@ -927,17 +927,17 @@ class CLibraryUIStore {
 					return;
 				}
 				case "settings": {
-					const e = GamepadRoutes[r] || ClientRoutes.Settings.General;
+					const e = GamepadRoutes[urlPart2] || ClientRoutes.Settings.General;
 					z.m_history.push(e());
 					return;
 				}
 				case "settingszoo": {
-					z.m_history.push((GA[r] || ClientRoutes.GamepadUI.Zoo.Modals)());
+					z.m_history.push((GA[urlPart2] || ClientRoutes.GamepadUI.Zoo.Modals)());
 					return;
 				}
 				case "appproperties":
 					{
-						const e = r.split("|");
+						const e = urlPart2.split("|");
 						const t = +e[0];
 						const [, i] = e;
 						nav.AppProperties(t, i);
@@ -953,7 +953,7 @@ class CLibraryUIStore {
 				}
 				case "controllerconfigurator":
 					{
-						const e = r.split("|");
+						const e = urlPart2.split("|");
 						const t = +e[0];
 						const [, n] = e;
 						const i = JSON.parse(e[2]);
@@ -968,9 +968,12 @@ class CLibraryUIStore {
 					return;
 			}
 		}
-		console.error("Unrecognized request", t, r);
+		console.error("Unrecognized request", urlPart1, urlPart2);
 	}
 
+	/**
+	 * Switches to large mode if not already.
+	 */
 	EnsureLargeMode() {
 		const [bSmallMode, SetSmallMode] =
 			SettingsStore.GetClientSetting("small_mode");
@@ -979,7 +982,10 @@ class CLibraryUIStore {
 		}
 	}
 
-	@bind async SaveLocalState() {
+	/**
+	 * Saves current settings to storage.
+	 */
+	@bind async SaveLocalState():Promise<void> {
 		const state = new LibraryState_t();
 		state.eGameListView = this.m_eSelectedGameListView;
 		state.collectionFilter = this.m_collectionsAppFilter.ToStorageFormat();

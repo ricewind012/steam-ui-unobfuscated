@@ -8,10 +8,9 @@ import l from "./34766.js";
 import m from "./18052.js";
 import u from "./44846.js";
 import { Wh } from "./31800.js";
-import { E } from "./43802.js";
 import { u6 } from "./43152.js";
 import { q3 } from "./90095.js";
-import { Z } from "./37619.js";
+import { Z } from "./browserview_windowfocuscoordinator";
 import _ from "./20893.js";
 import { $2 } from "./96680.js";
 const c = l;
@@ -45,8 +44,8 @@ function b(e) {
 }
 function y(e) {
 	const { closeModal: t, ...r } = e;
-	const l = n.useRef(undefined);
-	const [m, y] = n.useState(false);
+	const navRef = n.useRef(undefined);
+	const [bFocus, setFocus] = n.useState(false);
 	Wh(
 		Localize("#Settings_Internet_Captive_Portal_Header_Title"),
 		"CaptivePortalDialog",
@@ -54,7 +53,7 @@ function y(e) {
 	const S = Av();
 	const w =
 		E(S).eConnectivityTestResult == u.ck.k_EConnectivityTestResult_Connected;
-	const B = (() => {
+	const pBrowserView = (() => {
 		const e = $2();
 		const t = n.useRef(undefined);
 		t.current ||= e.CreateBrowserView("CaptivePortal", {
@@ -64,26 +63,29 @@ function y(e) {
 		n.useEffect(() => () => t.current.Destroy(), []);
 		return t.current;
 	})();
-	const v = q3(() => B.URL);
+	const v = q3(() => pBrowserView.URL);
 	const I = n.useCallback((e) => {
 		if (e) {
-			y(e);
+			setFocus(e);
 		}
 	}, []);
 	const E = n.useCallback((e) => {
-		if (e.detail.focusSource != _.D$.BROWSER && !l.current.BFocusWithin()) {
-			y(false);
+		if (
+			e.detail.focusSource != _.D$.BROWSER &&
+			!navRef.current.BFocusWithin()
+		) {
+			setFocus(false);
 		}
 	}, []);
 	const M = n.useCallback(() => {
-		if (!l.current.BFocusWithin()) {
-			y(false);
+		if (!navRef.current.BFocusWithin()) {
+			setFocus(false);
 		}
 	}, []);
 	l6(window, "focus", M);
 	n.useEffect(() => {
-		setTimeout(() => B.GetBrowser().SetFocus(true), 2000);
-	}, [B]);
+		setTimeout(() => pBrowserView.GetBrowser().SetFocus(true), 2000);
+	}, [pBrowserView]);
 	const T = {};
 	if (w) {
 		T.onOKButton = e.closeModal;
@@ -95,7 +97,7 @@ function y(e) {
 	T.onGamepadBlur = E;
 	T.focusable = true;
 	const R = u6();
-	Z(B.name, B.GetBrowser(), l, m);
+	Z(pBrowserView.name, pBrowserView.GetBrowser(), navRef, bFocus);
 	return n.createElement(
 		a.x_,
 		{
@@ -106,7 +108,7 @@ function y(e) {
 			i.f3,
 			{
 				className: c.CaptivePortalDialogBodyPanel,
-				navRef: l,
+				navRef: navRef,
 				...T,
 			},
 			n.createElement(
@@ -123,7 +125,7 @@ function y(e) {
 				),
 			),
 			n.createElement(b, {
-				browser: B.GetBrowser(),
+				browser: pBrowserView.GetBrowser(),
 				...r,
 			}),
 			!R &&

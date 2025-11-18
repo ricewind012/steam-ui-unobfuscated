@@ -129,8 +129,8 @@ export function vH(e) {
 	{
 		let t = 0;
 		let r = 0;
-		for (let n of e.update_type_info) {
-			let [e, i] = vO(n);
+		for (const n of e.update_type_info) {
+			const [e, i] = vO(n);
 			t += e;
 			r += i;
 		}

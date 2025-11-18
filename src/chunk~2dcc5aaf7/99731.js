@@ -1,5 +1,5 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Z } from "./37619.js";
+import  { Z } from "./browserview_windowfocuscoordinator.js";
 import i, { Xp } from "./33572.js";
 import a, { l5 } from "./96555.js";
 import s from "./63696.js";
@@ -30,40 +30,40 @@ const h = new u.wd("GamepadEvents").Debug;
 function C(e) {
 	const { browser, visible, autoFocus, classNameContainer, children } = e;
 	const _Ref = s.useRef(undefined);
-	const FRef = s.useRef(undefined);
+	const navRef = s.useRef(undefined);
 	const b = l5();
 	const [y, setY] = s.useState(false);
 	const [w, setW] = s.useState(false);
-	const v = y && w;
+	const bMaybeFocus = y && w;
 	const I = setY;
-	const E = v && (b || !A.TS.ON_DECK);
+	const E = bMaybeFocus && (b || !A.TS.ON_DECK);
 	s.useEffect(() => {
 		if (E) {
 			SteamClient.Input.SetWebBrowserActionset(true);
 			return () => SteamClient.Input.SetWebBrowserActionset(false);
 		}
 	}, [E]);
-	Z(browser.name, browser.GetBrowser(), FRef, v && visible);
+	Z(browser.name, browser.GetBrowser(), navRef, bMaybeFocus && visible);
 	s.useEffect(() => {
 		if (visible && autoFocus) {
-			FRef.current.TakeFocus();
+			navRef.current.TakeFocus();
 		}
 	}, [visible, autoFocus]);
 	const M = s.useCallback((e) => setW(e.BIsActiveWithinContext()), []);
 	s.useEffect(() => {
-		const e = FRef.current.NavTree();
+		const e = navRef.current.NavTree();
 		setW(e.BIsActiveWithinContext());
 		const t = e.OnActiveStateChangedCallbacks.Register(() => M(e));
 		return () => t.Unregister();
 	}, [M]);
 	const T = Xp();
 	s.useEffect(() => {
-		if (v) {
+		if (bMaybeFocus) {
 			return browser.RegisterOnActionDescriptionsChangedCallback(
 				T.SetActionDescriptionsFromMap,
 			);
 		}
-	}, [v, T, browser]);
+	}, [bMaybeFocus, T, browser]);
 	const R = s.useCallback(
 		(e) => {
 			h(`Got unhandled button from ${browser.name}: ${m.pR[e]}`);
@@ -110,7 +110,7 @@ function C(e) {
 	}
 	return (
 		<o.Z ref={_Ref} className={classNameContainer}>
-			<o.Z className={g.BrowserContainer} noFocusRing navRef={FRef} {...D}>
+			<o.Z className={g.BrowserContainer} noFocusRing navRef={navRef} {...D}>
 				{children}
 			</o.Z>
 		</o.Z>

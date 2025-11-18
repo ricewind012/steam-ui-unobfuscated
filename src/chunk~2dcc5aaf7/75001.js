@@ -1,20 +1,20 @@
 import { Localize } from "../../actual_src/utils/localization.js";
 import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import n, { useEffect } from "./63696.js";
-import i, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
-import s, { Qt } from "./18057.js";
+import { Qt } from "./18057.js";
 import o from "./88750.js";
-import l, { tn } from "./18869.js";
+import { tn } from "./18869.js";
 import m from "./51319.js";
-import d, { d as d_1 } from "./40451.js";
+import { d as d_1 } from "./40451.js";
 import A from "./3475.js";
-import { l9 } from "./5640.js";
+import { l9 as GetFeatureBlockReason } from "./5640.js";
 import g from "./83599.js";
 import h, { h as h_1 } from "./15123.js";
-import { wT } from "./28934.js";
-import f, { VI } from "./34792.js";
-import b, { w as w_1 } from "./10501.js";
+import { wT as useSomeCallback } from "./28934.js";
+import { VI } from "./34792.js";
+import { w as w_1 } from "./10501.js";
 import y from "./88808.js";
 const u = m;
 const S = new g.wd("Menus").Debug;
@@ -37,10 +37,10 @@ const B = (e) => {
 	const w = tn(route);
 	const B = Qt(steamURL);
 	const v = d_1();
-	const I = l9(parentalFeature);
-	const E = I != 0;
-	const T = wT();
-	const R = I != 2 || parentalFeature !== A.JC;
+	const eParentalReason = GetFeatureBlockReason(parentalFeature);
+	const bNoParentalReason = eParentalReason != 0;
+	const T = useSomeCallback();
+	const R = eParentalReason != 2 || parentalFeature !== A.JC;
 	let k = onClick;
 	if (route) {
 		k = w;
@@ -52,13 +52,13 @@ const B = (e) => {
 	const D = n.useCallback(
 		(e) => {
 			const t = GetOwningWindowForEvent(e);
-			if (E && k) {
-				T(I, parentalFeature ?? A.uX, () => k(t));
+			if (bNoParentalReason && k) {
+				T(eParentalReason, parentalFeature ?? A.uX, () => k(t));
 			} else {
 				k(t);
 			}
 		},
-		[T, I, E, parentalFeature, k],
+		[T, eParentalReason, bNoParentalReason, parentalFeature, k],
 	);
 	if (!k && !disabled) {
 		return (
@@ -66,14 +66,14 @@ const B = (e) => {
 				className={A_1(
 					u.MenuItem,
 					u.Separator,
-					(disabled || E) && disabledClass,
+					(disabled || bNoParentalReason) && disabledClass,
 				)}
 			/>
 		);
 	}
 	const N = (
 		<>
-			{newItem && <M />}
+			{newItem && <NewItemBug />}
 			{children || (name[0] == "#" ? Localize(name) : name)}
 		</>
 	);
@@ -82,11 +82,11 @@ const B = (e) => {
 			className={A_1(
 				u.MenuItem,
 				u.Item,
-				(disabled || E) && u.Disabled,
-				(disabled || E) && disabledClass,
+				(disabled || bNoParentalReason) && u.Disabled,
+				(disabled || bNoParentalReason) && disabledClass,
 			)}
 			onSelected={D}
-			disabled={disabled || (E && !R)}
+			disabled={disabled || (bNoParentalReason && !R)}
 		>
 			{N}
 		</o.kt>
@@ -116,7 +116,7 @@ const E = (e) => {
 		</VContext.Provider>
 	);
 };
-function M() {
+function NewItemBug() {
 	return <span className={u.NewItemBug}>{Localize("#NewItemBug")}</span>;
 }
 export const _G = (e) => {
@@ -149,22 +149,22 @@ export const W1 = (e) => {
 		refPopupMenu,
 		children,
 	} = e;
-	const R = w(e.menuItems ?? []);
+	const menuItems = w(e.menuItems ?? []);
 	const k = w_1();
-	const [D] = VI("small_mode");
-	const N = !k || D;
-	const F = N;
-	const G = n.useRef(undefined);
+	const [bSmallMode] = VI("small_mode");
+	const bForcePopup = !k || bSmallMode;
+	const F = bForcePopup;
+	const refContextMenu = n.useRef(undefined);
 	const O = n.useRef(false);
 	const P = n.useRef(false);
 	const L = n.useRef(undefined);
 	const z = n.useRef(undefined);
-	const x = l9(parentalFeature);
+	const x = GetFeatureBlockReason(parentalFeature);
 	const U = x != 0;
 	const W = n.useRef(false);
-	const V = q3(() => G.current?.visible);
+	const V = q3(() => refContextMenu.current?.visible);
 	const H = h_1();
-	const j = wT();
+	const j = useSomeCallback();
 	const q = () => {
 		W.current = true;
 		window.setTimeout(() => {
@@ -176,34 +176,34 @@ export const W1 = (e) => {
 			onHide();
 		}
 		if (!F) {
-			G.current = undefined;
+			refContextMenu.current = undefined;
 		}
 	};
 	const Q = (e) => {
-		if (R?.length > 1 || menuContent) {
-			if (!G.current) {
+		if (menuItems?.length > 1 || menuContent) {
+			if (!refContextMenu.current) {
 				X(e.currentTarget);
 			}
-			G.current.Show();
+			refContextMenu.current.Show();
 			if (onShow) {
 				onShow();
 			}
 			if (refPopupMenu) {
-				refPopupMenu.current = G.current;
+				refPopupMenu.current = refContextMenu.current;
 			}
 		}
 	};
 	const Z = (e, t = 200) => {
 		if (L.current === undefined) {
 			L.current = window.setTimeout(() => {
-				if (!!G.current?.visible && !O.current && !P.current) {
-					G.current.Hide();
+				if (!!refContextMenu.current?.visible && !O.current && !P.current) {
+					refContextMenu.current.Hide();
 				}
 				L.current = undefined;
 			}, t);
 		}
 	};
-	const Y = (e) => {
+	const onMouseEnter = (e) => {
 		S("OnMenuMouseEnter", title, V);
 		P.current = true;
 	};
@@ -213,14 +213,25 @@ export const W1 = (e) => {
 		Z();
 	};
 	const X = (e) => {
-		if (e && !G.current && (R?.length > 1 || menuContent)) {
-			G.current = H.CreateContextMenuInstance(
+		if (
+			e &&
+			!refContextMenu.current &&
+			(menuItems?.length > 1 || menuContent)
+		) {
+			/*
+			param0:ReactNode,
+			param1:any,
+			x?:number,
+			y?:number,
+			options?:ContextMenuPositionOptions
+			*/
+			refContextMenu.current = H.CreateContextMenuInstance(
 				<E
-					refContextMenu={G}
+					refContextMenu={refContextMenu}
 					className={popupClass}
 					disabledItemClass={disabledItemClass}
-					menuItems={R}
-					onMouseEnter={Y}
+					menuItems={menuItems}
+					onMouseEnter={onMouseEnter}
 					onMouseLeave={bSuperNavBehavior ? K : undefined}
 				>
 					{menuContent}
@@ -231,22 +242,22 @@ export const W1 = (e) => {
 				{
 					bOverlapHorizontal: true,
 					bGrowToElementWidth: true,
-					bForcePopup: N,
+					bForcePopup,
 					bDisableMouseOverlay: true,
 					bCreateHidden: F,
 					bRetainOnHide: F,
 					bNoFocusWhenShown: bSuperNavBehavior,
-					title: title,
+					title,
 					...menuOptions,
 				},
 			);
-			G.current?.SetOnHideCallback(q);
+			refContextMenu.current?.SetOnHideCallback(q);
 		}
 	};
 	useEffect(
 		() => () => {
-			if (G.current) {
-				H.ReleaseHiddenMenu(G.current);
+			if (refContextMenu.current) {
+				H.ReleaseHiddenMenu(refContextMenu.current);
 			}
 		},
 		[H],
@@ -275,7 +286,7 @@ export const W1 = (e) => {
 				((e) => {
 					if (U) {
 						j(x, parentalFeature);
-					} else if (!G.current?.visible && !W.current) {
+					} else if (!refContextMenu.current?.visible && !W.current) {
 						S("OnClick", title, V);
 						Q(e);
 					}
