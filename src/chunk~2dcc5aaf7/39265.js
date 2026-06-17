@@ -1,80 +1,80 @@
+import { useLoginStateObserver } from "../../actual_src/stores/loginstore.js";
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i, { useState, useRef, useEffect, useCallback } from "./63696.js";
-import a from "./78325.js";
-import s from "./64608.js";
-import o from "./35488.js";
-import l from "./37909.js";
-import c, { rP, Qn, Pr } from "./72476.js";
-import { UseLoginStateObserver } from "../../actual_src/stores/loginstore.js";
-import u from "./41230.js";
-import d, { q3 } from "./90095.js";
-import A, { lX } from "./31084.js";
-import p from "./69164.js";
-import _g from "./61657.js";
-import h from "./90242.js";
 import C from "./3524.js";
-import _ from "./84252.js";
-import f from "./88750.js";
-import b, { A as A_1 } from "./90765.js";
-import S, { gc, $$, xM, cZ } from "./52451.js";
-import w from "./81994.js";
-import B, { tI, yL, ED, f_ as f_1, mR, N4, Av, jh } from "./77347.js";
-import v, { Xf } from "./31319.js";
-import I from "./42982.js";
-import E from "./23038.js";
-import M from "./58254.js";
 import T from "./4690.js";
-import R from "./35194.js";
-import F from "./52847.js";
-import G from "./81969.js";
-import z from "./76662.js";
-import x from "./22222.js";
-import U from "./44846.js";
-import { y6, kE } from "./89600.js";
-import V from "./46422.js";
-import H, { U as U_1 } from "./27238.js";
-import j from "./55025.js";
-import Z, { V as V_1 } from "./43802.js";
-import Y from "./93681.js";
-import { _ as __1 } from "./67338.js";
-import { Y as Y_1 } from "./28916.js";
-import { B as B_1 } from "./45011.js";
-import { uX } from "./54644.js";
-import { R7 } from "./11131.js";
 import ae from "./5482.js";
-import se, { Qt } from "./18057.js";
-import oe from "./95311.js";
-import { zy } from "./49519.js";
-import ce from "./56970.js";
-import { Di } from "./13925.js";
-import { ez } from "./31800.js";
-import de from "./92228.js";
-import { e1, H as H_1, JP } from "./28036.js";
-import pe from "./21616.js";
-import he from "./66947.js";
-import _e from "./37198.js";
-import fe from "./90869.js";
-import be from "./26853.js";
-import ye, { N_ as N_1, tP } from "./89791.js";
-import Se from "./87935.js";
-import { tn } from "./18869.js";
-import Be from "./93025.js";
-import { $2 } from "./96680.js";
-import { D7 } from "./33572.js";
-import Ze from "./30449.js";
-import Ye, { k1 } from "./13688.js";
-import { q as q_2 } from "./29285.js";
 import Xe from "./6496.js";
-import { tH, tG, q_ as q_2 } from "./87232.js";
-import $e from "./50376.js";
-import et from "./50350.js";
+import { R7 } from "./11131.js";
+import { k1 } from "./13688.js";
+import { Di } from "./13925.js";
+import se, { Qt } from "./18057.js";
+import { tn } from "./18869.js";
+import pe from "./21616.js";
+import x from "./22222.js";
 import tt, { Xy } from "./22969.js";
+import E from "./23038.js";
+import be from "./26853.js";
+import { U as U_1 } from "./27238.js";
+import { H as H_1, JP, e1 } from "./28036.js";
+import { Y as Y_1 } from "./28916.js";
+import { q as q_2 } from "./29285.js";
+import Ze from "./30449.js";
+import { lX } from "./31084.js";
+import { Xf } from "./31319.js";
+import { ez } from "./31800.js";
+import { D7 } from "./33572.js";
+import { Cg } from "./34629.js";
+import R from "./35194.js";
+import o from "./35488.js";
+import _e from "./37198.js";
+import l from "./37909.js";
+import u from "./41230.js";
+import I from "./42982.js";
+import { V as V_1 } from "./43802.js";
+import U from "./44846.js";
+import { B as B_1 } from "./45011.js";
+import V from "./46422.js";
+import { zy } from "./49519.js";
+import et from "./50350.js";
+import $e from "./50376.js";
+import S, { gc, $$, xM, cZ } from "./52451.js";
+import F from "./52847.js";
+import { uX } from "./54644.js";
+import j from "./55025.js";
+import ce from "./56970.js";
+import M from "./58254.js";
+import _g from "./61657.js";
+import i, { useState, useRef, useEffect, useCallback } from "./63696.js";
+import s from "./64608.js";
+import he from "./66947.js";
+import { _ as __1 } from "./67338.js";
+import p from "./69164.js";
+import c, { rP, Qn, Pr } from "./72476.js";
+import z from "./76662.js";
+import B, { tI, yL, ED, f_ as f_1, mR, N4, Av, jh } from "./77347.js";
+import a from "./78325.js";
+import G from "./81969.js";
+import w from "./81994.js";
 import rt from "./83665.js";
+import _ from "./84252.js";
+import { tG, tH } from "./87232.js";
+import Se from "./87935.js";
+import f from "./88750.js";
+import { kE, y6 } from "./89600.js";
+import ye, { N_ as N_1, tP } from "./89791.js";
+import { q3 } from "./90095.js";
+import h from "./90242.js";
+import { A as A_1 } from "./90765.js";
+import fe from "./90869.js";
+import de from "./92228.js";
+import Be from "./93025.js";
+import Y from "./93681.js";
+import oe from "./95311.js";
+import { $2 } from "./96680.js";
 function k(e) {
 	let t = gc(R.o.CurrentLanguage);
 	let r = gc(R.o.AvailableLanguages);
@@ -428,7 +428,7 @@ function te(e) {
 		}, [e, t.length]);
 	})(s, a);
 	const l =
-		UseLoginStateObserver.b.GetLoginUsers().length != 0 && !V.oy.BIsInOOBE;
+		useLoginStateObserver.b.GetLoginUsers().length != 0 && !V.oy.BIsInOOBE;
 	const c = A_1(z.NetworkScreen, e.animate && z.Animate);
 	const u = R7();
 	return i.createElement(
@@ -1598,7 +1598,7 @@ function at(e) {
 			f.kt,
 			{
 				onSelected: () => {
-					UseLoginStateObserver.b
+					useLoginStateObserver.b
 						.RemoveUser(e.accountName)
 						.then(() => e.onRemove && e.onRemove());
 				},
@@ -1628,7 +1628,7 @@ let ct = ot.LanguageScreen;
 let mt = class extends i.PureComponent {
 	modeHistory = [];
 	m_navRef = i.createRef();
-	m_strLastAccountName = UseLoginStateObserver.b.accountName;
+	m_strLastAccountName = useLoginStateObserver.b.accountName;
 	m_nStepCount = 0;
 	m_eNavigationDirection = st.None;
 	constructor(e) {
@@ -1640,7 +1640,7 @@ let mt = class extends i.PureComponent {
 			r = ct;
 		} else {
 			r =
-				UseLoginStateObserver.b.GetLoginUsers().length != 0
+				useLoginStateObserver.b.GetLoginUsers().length != 0
 					? ot.CachedUsersPanel
 					: ot.SignInPanel;
 		}
@@ -1743,7 +1743,7 @@ let mt = class extends i.PureComponent {
 	}
 	ProceedToSignIn() {
 		SteamClient.User.FlipToLogin();
-		if (UseLoginStateObserver.b.GetLoginUsers().length == 0) {
+		if (useLoginStateObserver.b.GetLoginUsers().length == 0) {
 			this.NavigateToMode(ot.SignInPanel);
 			this.setState({
 				bOfflineMode: false,
@@ -1778,9 +1778,9 @@ let mt = class extends i.PureComponent {
 	}
 	OnCachedUserRemoved() {
 		tG(
-			`Cached user removed, now have ${UseLoginStateObserver.b.GetLoginUsers().length}`,
+			`Cached user removed, now have ${useLoginStateObserver.b.GetLoginUsers().length}`,
 		);
-		if (!UseLoginStateObserver.b.GetLoginUsers().length) {
+		if (!useLoginStateObserver.b.GetLoginUsers().length) {
 			this.NavigateToMode(ot.SignInPanel);
 		}
 		this.m_strLastAccountName = "";
@@ -1891,7 +1891,7 @@ let mt = class extends i.PureComponent {
 							onCancelButton: this.OnGoBack,
 							onButtonDown: _t,
 						},
-						UseLoginStateObserver.b.loginResult != 1 &&
+						useLoginStateObserver.b.loginResult != 1 &&
 							i.createElement(
 								"div",
 								{
@@ -1936,7 +1936,7 @@ let mt = class extends i.PureComponent {
 											}
 										}
 										return String(e);
-									})(UseLoginStateObserver.b.loginResult),
+									})(useLoginStateObserver.b.loginResult),
 								),
 							),
 						i.createElement(vX, {
@@ -2009,7 +2009,7 @@ export function gN(e) {
 	const [A, g] = useState(0);
 	$$(() => d(false), Math.min(10000, 2 ** A * 50), [A], u);
 	const C = rP();
-	const _ = UseLoginStateObserver.b
+	const _ = useLoginStateObserver.b
 		.GetLoginUsers()
 		.find((t) => t.accountName === e.strAccountName);
 	if (_ === null) {
@@ -2280,7 +2280,7 @@ function gt() {
 export function vX(e) {
 	const { bShowHeader: t = true, nUserCountLimit: r } = e;
 	let n = q3(() => {
-		let t = UseLoginStateObserver.b.GetLoginUsers();
+		let t = useLoginStateObserver.b.GetLoginUsers();
 		if (r) {
 			t = t.slice(0, r);
 		}
@@ -2571,9 +2571,9 @@ function ft(e) {
 }
 export function Qk(e) {
 	const { loginState: t } = e;
-	const r = q3(() => UseLoginStateObserver.b.loginPercentage);
+	const r = q3(() => useLoginStateObserver.b.loginPercentage);
 	const n = i.useRef(0);
-	const a = q3(() => UseLoginStateObserver.b.currentUser);
+	const a = q3(() => useLoginStateObserver.b.currentUser);
 	const s = !Qn() && !!a && !q_2();
 	const o = Pr();
 	i.useEffect(() => {
@@ -2740,7 +2740,7 @@ export function g(e) {
 export function GW() {
 	const e = zy();
 	const t = e.state?.bReauthentication;
-	const r = UseLoginStateObserver();
+	const r = useLoginStateObserver();
 	const n = jh();
 	const a = ((e) => {
 		const t = e == 1 || e == 2;

@@ -1,91 +1,91 @@
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
 import { P0 } from "../../actual_src/utils/localization/datetime.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import n, { useRef, useState } from "./63696.js";
-import i from "./67863.js";
-import a from "./73375.js";
-import s, { v as v_1 } from "./55700.js";
-import o from "./64608.js";
-import l, { Nr } from "./42318.js";
-import c from "./10606.js";
-import u from "./17373.js";
-import d, { D as D_1 } from "./24590.js";
-import h, { Ll } from "./95979.js";
-import C, { e_ as e, t0, VI } from "./34792.js";
-import _, { gc, vJ, CH, hL, Ue as Ue_2 } from "./52451.js";
-import f, { cZ } from "./81969.js";
-import y from "./63367.js";
-import S, { CI, hf } from "./72476.js";
-import w from "./59840.js";
-import v, { A as A_2 } from "./90765.js";
-import I from "./35488.js";
-import T, { PA, q3 } from "./90095.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import R from "./5790.js";
-import D, { cM } from "./50341.js";
-import N, { Tt as Tt_2, wN, Yk } from "./89411.js";
-import F from "./87935.js";
-import G from "./30449.js";
-import O from "./97893.js";
-import P, { dm } from "./34428.js";
-import { qw, iZ, Wx } from "./89748.js";
-import te from "./11958.js";
-import ie from "./51964.js";
-import ae from "./43873.js";
-import se from "./29670.js";
-import oe from "./47356.js";
+import { Z as Z_2, q as q_2 } from "./9758.js";
+import c from "./10606.js";
+import ve, { R7 } from "./11131.js";
 import le from "./11536.js";
-import ce from "./72655.js";
-import me from "./55116.js";
-import { bG, Qt as Qt_2 } from "./18057.js";
-import de from "./81994.js";
-import ge, { xn } from "./46422.js";
-import { Co, _R } from "./96593.js";
+import { pg } from "./13869.js";
+import u from "./17373.js";
+import { Qt as Qt_2, bG } from "./18057.js";
+import { D as D_1 } from "./24590.js";
 import Ce from "./26853.js";
 import _e from "./29505.js";
-import { Cg } from "./34629.js";
+import se from "./29670.js";
+import G from "./30449.js";
 import { lX } from "./31084.js";
-import we from "./88750.js";
-import { pg } from "./13869.js";
-import ve, { R7 } from "./11131.js";
+import { dm } from "./34428.js";
+import { Cg } from "./34629.js";
+import C, { t0, VI } from "./34792.js";
+import I from "./35488.js";
+import l, { Nr } from "./42318.js";
 import Ee from "./43599.js";
-import { I as I_2 } from "./61416.js";
-import Te from "./66248.js";
-import Re from "./50376.js";
+import ae from "./43873.js";
+import { mJ } from "./45967.js";
+import ge, { xn } from "./46422.js";
+import oe from "./47356.js";
 import ke, { useTable } from "./50169.js";
+import { cM } from "./50341.js";
+import Re from "./50376.js";
+import ie from "./51964.js";
+import lt from "./52177.js";
+import { CH, Ue as Ue_2, gc, hL, vJ } from "./52451.js";
 import { Te as Te_2 } from "./55007.js";
-import Ne, { Gn } from "./89193.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import me from "./55116.js";
+import { v as v_1 } from "./55700.js";
 import Ge, { m, j as j_2 } from "./56332.js";
-import { Z as Z_2, q as q_2 } from "./9758.js";
+import dt from "./59718.js";
+import w from "./59840.js";
+import { I as I_2 } from "./61416.js";
+import ct from "./63098.js";
+import y from "./63367.js";
+import n, { useRef, useState } from "./63696.js";
+import o from "./64608.js";
+import Te from "./66248.js";
+import i from "./67863.js";
+import S, { CI, hf } from "./72476.js";
+import ce from "./72655.js";
+import a from "./73375.js";
 import rt from "./78055.js";
 import nt from "./81827.js";
-import { mJ } from "./45967.js";
-import lt from "./52177.js";
-import ct from "./63098.js";
-import dt from "./59718.js";
+import { cZ } from "./81969.js";
+import de from "./81994.js";
+import F from "./87935.js";
+import we from "./88750.js";
+import Ne, { Gn } from "./89193.js";
+import { Tt as Tt_2, Yk, wN } from "./89411.js";
+import { Wx, iZ, qw } from "./89748.js";
+import { PA, q3 } from "./90095.js";
+import { A as A_2 } from "./90765.js";
+import { Ll } from "./95979.js";
+import { Co, _R } from "./96593.js";
+import O from "./97893.js";
+import { BrowserViewHostPopup } from "./browserview_hostpopup";
 import "./27954.js";
-import At from "./32792.js";
-import pt from "./73128.js";
 import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
-import Ct from "./83599.js";
-import _t from "./13337.js";
-import yt from "./21110.js";
-import St from "./46430.js";
-import wt, { _U, Dk } from "./76356.js";
-import Bt from "./30496.js";
-import vt from "./56262.js";
-import { T as T_2 } from "./78057.js";
 import { LoginStore } from "../../actual_src/stores/loginstore.js";
-import Tt, { M as M_2 } from "./51517.js";
-import Rt from "./40692.js";
-import Lt from "./17024.js";
-import xt from "./94496.js";
-import Ht from "./37086.js";
-import jt from "./28592.js";
-import qt from "./95753.js";
-import Qt, { XA } from "./91720.js";
+import _t from "./13337.js";
 import tr from "./13656.js";
+import Lt from "./17024.js";
+import yt from "./21110.js";
+import jt from "./28592.js";
+import Bt from "./30496.js";
 import rr from "./31627.js";
+import At from "./32792.js";
+import Ht from "./37086.js";
+import Rt from "./40692.js";
+import St from "./46430.js";
+import { M as M_2 } from "./51517.js";
+import vt from "./56262.js";
+import pt from "./73128.js";
+import wt, { _U, Dk } from "./76356.js";
+import { T as T_2 } from "./78057.js";
+import Ct from "./83599.js";
+import { XA } from "./91720.js";
+import xt from "./94496.js";
+import qt from "./95753.js";
 const A = Nr(() => {
 	const [e, t] = n.useState();
 	const [r, i] = n.useState();
@@ -399,7 +399,7 @@ const z = PA((e) => {
 	let c = {
 		0: null,
 		2: U,
-		3: W,
+		3: BrowserViewHostPopup,
 		4: V,
 		5: H,
 		6: _j,
@@ -487,7 +487,7 @@ const U = (e) =>
 		null,
 		Localize("#Settings_Updates_NoUpdatesAvailable"),
 	);
-const W = (e) =>
+const BrowserViewHostPopup = (e) =>
 	n.createElement("div", null, Localize("#Settings_Updates_Checking"));
 const V = (e) =>
 	n.createElement("div", null, Localize("#Settings_Updates_UpdatePending"));
@@ -649,7 +649,7 @@ const re = Nr(() => {
 	}
 	const o = F.B7.ResolveURL("HelpChangePassword", r);
 	const l = Localize("#SteamUI_Dialog_HelpChangePassword_Title");
-	return n.createElement(te.W, {
+	return n.createElement(BrowserViewHostPopup, {
 		strName: l,
 		strURL: o,
 		popupWidth: 1024,
@@ -676,7 +676,7 @@ const ne = Nr(() => {
 	}
 	const s = F.B7.ResolveURL("HelpChangeEmail", t.strClientInstanceID);
 	const o = Localize("#SteamUI_Dialog_HelpChangeEmail_Title");
-	return n.createElement(te.W, {
+	return n.createElement(BrowserViewHostPopup, {
 		strName: o,
 		strURL: s,
 		popupWidth: 1024,

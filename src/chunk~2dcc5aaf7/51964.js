@@ -1,16 +1,16 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
-import { qw } from "./89748.js";
-import { vh } from "./87935.js";
-import { q3 } from "./90095.js";
 import o from "./10606.js";
-import l from "./99731.js";
-import c from "./46285.js";
-import m, { QS } from "./52451.js";
-import u from "./69164.js";
 import A from "./44798.js";
-import g from "./11958.js";
+import c from "./46285.js";
+import { QS } from "./52451.js";
+import n from "./63696.js";
+import u from "./69164.js";
 import { hf } from "./72476.js";
+import { vh } from "./87935.js";
+import { qw } from "./89748.js";
+import { q3 } from "./90095.js";
+import l from "./99731.js";
+import { BrowserViewHostPopup } from "./browserview_hostpopup";
 const p = A;
 export function S() {
 	const e = q3(() => qw().GetServicesInitialized());
@@ -31,19 +31,21 @@ export function z(e) {
 	const t = hf();
 	const r = q3(() => qw().BSupportAlertDialogActive());
 	const [o, setO] = n.useState(false);
-	const c = vh("SupportMessages");
+	const strURL = vh("SupportMessages");
 	n.useEffect(() => {
 		setO(r);
 	}, [r]);
-	const m = n.useCallback(() => {
+	const onClose = n.useCallback(() => {
 		setO(false);
 		qw().CloseSupportAlertsModal();
 	}, [setO]);
-	if (!o || !t || !t || !c) {
+	if (!o || !t || !t || !strURL) {
 		return null;
 	}
-	const u = Localize("#SteamUI_Dialog_SupportMessage_Title");
-	return <g.W strName={u} strURL={c} onClose={m} />;
+	const strName = Localize("#SteamUI_Dialog_SupportMessage_Title");
+	return (
+		<BrowserViewHostPopup strName={strName} strURL={strURL} onClose={onClose} />
+	);
 }
 function F() {
 	const e = vh("SupportMessages");

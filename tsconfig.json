@@ -3,6 +3,10 @@
 		"target": "esnext",
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
-		"moduleResolution": "node"
+		"moduleResolution": "bundler",
+		"strict": false,
+		"paths": {
+			"@steamclient_types/*": ["./actual_src/steamclient/steamclient/*"]
+		}
 	}
 }

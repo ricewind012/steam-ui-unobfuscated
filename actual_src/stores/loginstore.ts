@@ -1,16 +1,17 @@
 // Webpack module ID: 33512
 
-import { observable, action, makeAutoObservable } from "mobx";
+import { ELoginState } from "@steamclient_types/User.js";
+import { EResult } from "@steamclient_types/shared.js";
+import { action, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
 import { tG as LoginLog } from "../../src/chunk~2dcc5aaf7/87232.js";
 
 class CLoginStore {
 	m_hLoginStateChange = null;
 	@observable m_strAccountName = "";
-	@observable m_eLoginState = 0;
-	@observable m_eLoginResult = 1;
+	@observable m_eLoginState = ELoginState.None;
+	@observable m_eLoginResult = EResult.OK;
 	@observable m_nLoginPercentage = 0;
-	// TYPES: no longer used
 	@observable m_strEmailDomain = "";
 	@observable m_vecLoginUsers = [];
 	@observable m_bSecureComputer = true;
@@ -82,9 +83,9 @@ class CLoginStore {
 	@action
 	OnLoginStateChange(
 		strAccountName: string,
-		eLoginState: number,
-		eLoginResult: number,
-		n,
+		eLoginState: ELoginState,
+		eLoginResult: EResult,
+		n: number,
 		nLoginPercentage: number,
 		strEmailDomain: string,
 	) {
@@ -119,7 +120,7 @@ class CLoginStore {
 	}
 }
 
-export function UseLoginStateObserver() {
+export function useLoginStateObserver() {
 	return useObserver(() => LoginStore.loginState);
 }
 

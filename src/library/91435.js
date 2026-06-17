@@ -1,13 +1,22 @@
-import { D5 } from "./28864.js";
-import i from "./63696.js";
-import s from "./78325.js";
-import o from "./15123.js";
-import a from "./88808.js";
-import c from "./42318.js";
-import l from "./36437.js";
+import {
+	createContext,
+	memo,
+	useContext,
+	useEffect,
+	useMemo,
+	useRef,
+} from "react";
 import u from "./3673.js";
-const MContext = i.createContext({});
-export const EO = i.memo((e) => {
+import o from "./15123.js";
+import { D5 } from "./28864.js";
+import l from "./36437.js";
+import c from "./42318.js";
+import s from "./78325.js";
+import a from "./88808.js";
+
+const ModalManagerContext = createContext({});
+
+export const EO = memo((props) => {
 	const {
 		children,
 		bRenderOverlayAtRoot,
@@ -22,65 +31,68 @@ export const EO = i.memo((e) => {
 		bCenterPopupsOnWindow,
 		bRegisterManagersWithWindow = true,
 		...M
-	} = e;
-	const S = i.useRef();
-	S.current ||= new u.SZ();
+	} = props;
+	const modalMgr = useRef();
+	modalMgr.current ||= new u.SZ();
 	let y = (
 		<l.L
 			{...M}
 			DialogWrapper={DialogWrapper}
-			ModalManager={S.current}
+			ModalManager={modalMgr.current}
 			bUseDialogElement={bUseDialogElement}
 			bRegisterModalManager={bRegisterManagersWithWindow}
 			rctActiveContextMenus={<ContextMenuComponent />}
 		/>
 	);
 	if (
-		e.bRenderOverlayAtRoot &&
+		props.bRenderOverlayAtRoot &&
 		typeof document != "undefined" &&
 		"body" in document
 	) {
 		y = s.createPortal(y, document.body);
 	}
-	D5(refModalManager, S.current);
+	D5(refModalManager, modalMgr.current);
 	if (bUsePopups !== undefined) {
-		S.current?.SetUsePopups(bUsePopups);
+		modalMgr.current?.SetUsePopups(bUsePopups);
 	}
 	if (bCenterPopupsOnWindow !== undefined) {
-		S.current?.SetCenterPopupsOnWindow(bCenterPopupsOnWindow);
+		modalMgr.current?.SetCenterPopupsOnWindow(bCenterPopupsOnWindow);
 	}
 	if (bOnlyPopups !== undefined) {
-		S.current?.SetOnlyPopups(bOnlyPopups);
+		modalMgr.current?.SetOnlyPopups(bOnlyPopups);
 	}
-	S.current.SetBrowserInfo(browserInfo);
-	const E = i.useMemo(
+	modalMgr.current.SetBrowserInfo(browserInfo);
+	const value = useMemo(
 		() => ({
-			ModalManager: S.current,
+			ModalManager: modalMgr.current,
 			DialogWrapper: DialogWrapper,
 		}),
 		[DialogWrapper],
 	);
 	return (
-		<MContext.Provider value={E}>
+		<ModalManagerContext.Provider value={value}>
 			<o.D
 				refContextMenuManager={refContextMenuManager}
 				bRegisterMenuManager={bRegisterManagersWithWindow}
 			>
 				<c.tH>{y}</c.tH>
-				{e.children}
+				{props.children}
 			</o.D>
-		</MContext.Provider>
+		</ModalManagerContext.Provider>
 	);
 });
+
 export function yk() {
-	return i.useContext(MContext).ModalManager;
+	return useContext(ModalManagerContext).ModalManager;
 }
+
 export function oJ() {
-	return i.useContext(MContext).DialogWrapper;
+	return useContext(ModalManagerContext).DialogWrapper;
 }
+
 export function uH(e) {
 	const t = yk();
-	i.useEffect(() => {
+	useEffect(() => {
 		if (e) {
 			return u.BR.RegisterModalManager(t, e);
 		}

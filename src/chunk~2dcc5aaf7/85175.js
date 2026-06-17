@@ -1,15 +1,16 @@
-import n, { useCallback, createElement } from "./63696.js";
-import i from "./46422.js";
+import { useCallback } from "react";
+import { BIsFirstClientLoad } from "../../actual_src/startup";
 import a, { b } from "./874.js";
-import s, { br } from "./79112.js";
-import { Ff, X1 } from "./60021.js";
-import l from "./43691.js";
-import { Q } from "./79099.js";
-import { Sj } from "./24287.js";
 import { _N } from "./6263.js";
-export function FQ(e) {
-	const { children, webNavigationsUseSteamURL } = e;
-	const s = useCallback(
+import { Sj } from "./24287.js";
+import l from "./43691.js";
+import i from "./46422.js";
+import { Ff, X1 } from "./60021.js";
+import { br } from "./79112.js";
+
+export function FQ(props) {
+	const { children, webNavigationsUseSteamURL } = props;
+	const buildNavigator = useCallback(
 		(e) =>
 			((e, t) => {
 				const r = t ? p : h;
@@ -19,7 +20,7 @@ export function FQ(e) {
 					...b(e, {
 						beforeNavigate: () => {
 							if (!s || !l.TS.SILENT_STARTUP) {
-								const e = Q() || !s;
+								const e = BIsFirstClientLoad() || !s;
 								i.oy.WindowStore.EnsureMainWindowCreated(e);
 							}
 						},
@@ -88,7 +89,7 @@ export function FQ(e) {
 		[webNavigationsUseSteamURL],
 	);
 	return (
-		<a.x buildNavigator={s} type="desktop">
+		<a.x buildNavigator={buildNavigator} type="desktop">
 			{children}
 		</a.x>
 	);
@@ -100,31 +101,31 @@ export function Jg() {
 	}
 	return e;
 }
-function p(e, t) {
-	if (t.indexOf("steam://") == 0) {
-		e.location.href = t;
+function p(wnd, strURL) {
+	if (strURL.indexOf("steam://") == 0) {
+		wnd.location.href = strURL;
 	} else {
-		e.location.href = `steam://openurl/${t}`;
+		wnd.location.href = `steam://openurl/${strURL}`;
 	}
 }
-function g(e, t) {
-	if (t.indexOf("steam://") == 0) {
-		e.location.href = t;
+function g(wnd, strURL) {
+	if (strURL.indexOf("steam://") == 0) {
+		wnd.location.href = strURL;
 	} else {
-		e.location.href = `steam://openurl_external/${t}`;
+		wnd.location.href = `steam://openurl_external/${strURL}`;
 	}
 }
-function h(e, t, r) {
-	if (t.indexOf("steam://") == 0) {
-		e.location.href = t;
+function h(wnd, strURL, r) {
+	if (strURL.indexOf("steam://") == 0) {
+		wnd.location.href = strURL;
 	} else {
-		X1(t, r);
+		X1(strURL, r);
 	}
 }
-function C(e, t) {
-	if (t.indexOf("steam://") == 0) {
-		e.location.href = t;
+function C(wnd, strURL) {
+	if (strURL.indexOf("steam://") == 0) {
+		wnd.location.href = strURL;
 	} else {
-		SteamClient.System.OpenInSystemBrowser(t);
+		SteamClient.System.OpenInSystemBrowser(strURL);
 	}
 }

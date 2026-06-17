@@ -1,4 +1,4 @@
-import { useEffect, type RefObject } from "react";
+import { type RefObject, useEffect } from "react";
 
 import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
 import { AssertMsg } from "../../actual_src/utils/assert.js";
@@ -6,7 +6,7 @@ import { bind } from "../../actual_src/utils/bind.js";
 import { e0 } from "../../actual_src/utils/callbackutils/index.js";
 
 import { nN } from "../library/3524.js";
-import { R7 } from "../library/11131.js";
+import { useOpenerWindowContext } from "../library/11131.js";
 import { QS as some_react_utils_func } from "../library/52451.js";
 import CLogger from "../library/83599.js";
 
@@ -184,7 +184,7 @@ const BrowserViewWindowFocusCoordinator =
 	new CBrowserViewWindowFocusCoordinator();
 
 export function a() {
-	const e = R7();
+	const e = useOpenerWindowContext();
 	return some_react_utils_func(
 		(pTree: CNavigationTree_t) => {
 			if (pTree) {
@@ -224,7 +224,7 @@ export function Z(
 				pNavTree,
 			);
 	}, [pBrowserView, navRef, bFocus]);
-	const { ownerWindow } = R7();
+	const { ownerWindow } = useOpenerWindowContext();
 	const c = nN();
 	useEffect(() => {
 		const fnOnFocusChanged = (bActivate: boolean) => {

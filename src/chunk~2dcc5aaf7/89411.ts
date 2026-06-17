@@ -1,20 +1,22 @@
-import { GetUnixTime, Sleep } from "../../actual_src/utils/time.js";
+import { XI, makeAutoObservable, sH } from "mobx";
+import { useObserver } from "mobx-react-lite";
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i from "./63696.js";
-import a from "./51297.js";
-import s, { $$ } from "./52451.js";
-import l, { Gn } from "./89193.js";
-import c from "./95979.js";
+import { GetUnixTime, Sleep } from "../../actual_src/utils/time.js";
 import { pg } from "./13869.js";
-import { _o, D8, b4 } from "./95311.js";
-import { q3 } from "./90095.js";
+import { Cg } from "./34629.js";
+import { bM, hr, q } from "./51297.js";
+import { $$ } from "./52451.js";
+import { useEffect, useState } from "./63696.js";
+import { D8, _o, b4 } from "./95311.js";
+import c from "./95979.js";
+
 export function Yk() {
 	return true;
 }
-class g {
+
+class CUpdater {
 	constructor() {
-		Gn(this);
+		makeAutoObservable(this);
 	}
 	m_updateState = {
 		state: 0,
@@ -22,7 +24,7 @@ class g {
 	m_bUpdateStateForced = false;
 	m_spoofer = null;
 	async SelectOSBranch(e, t = null) {
-		const r = new a.hr();
+		const r = new hr();
 		if (e == 0) {
 			r.set_custom_branch(t);
 		} else {
@@ -153,7 +155,7 @@ class g {
 		return t;
 	}
 	async ApplyUpdate(e, t, r = false) {
-		let n = new a.bM();
+		let n = new bM();
 		await c.Z4.UpdateSystemInfoIfNecessary();
 		for (const i of e) {
 			n.add_apply_types(i);
@@ -282,22 +284,22 @@ class g {
 		return this.m_spoofer != null;
 	}
 }
-Cg([l.sH], g.prototype, "m_updateState", undefined);
-Cg([l.XI], g.prototype, "SetUpdateState", null);
-class h {
+Cg([sH], CUpdater.prototype, "m_updateState", undefined);
+Cg([XI], CUpdater.prototype, "SetUpdateState", null);
+class CUpdateStore {
 	static s_Singleton = null;
 	m_currentOSBranch = undefined;
 	m_rgOSBranches = [];
 	static Get() {
-		if (h.s_Singleton == null) {
-			h.s_Singleton = new h();
-			window.UpdateStore = h.s_Singleton;
+		if (CUpdateStore.s_Singleton == null) {
+			CUpdateStore.s_Singleton = new CUpdateStore();
+			window.UpdateStore = CUpdateStore.s_Singleton;
 		}
-		return h.s_Singleton;
+		return CUpdateStore.s_Singleton;
 	}
-	m_updater = new g();
+	m_updater = new CUpdater();
 	constructor() {
-		Gn(this);
+		makeAutoObservable(this);
 		if (SteamClient.Updates?.RegisterForUpdateStateChanges) {
 			SteamClient.Updates.RegisterForUpdateStateChanges(
 				this.OnUpdateStateChanged,
@@ -305,7 +307,7 @@ class h {
 		}
 	}
 	OnUpdateStateChanged(e) {
-		const t = a.q.deserializeBinary(e).toObject();
+		const t = q.deserializeBinary(e).toObject();
 		this.m_updater.SetUpdateState(t);
 	}
 	ForceUpdateStateAvailable() {
@@ -419,9 +421,9 @@ export function RP(e) {
 	}
 }
 export function Tt() {
-	const e = h.Get().m_updater;
-	q3(() => e.m_updateState);
-	return e;
+	const updater = CUpdateStore.Get().m_updater;
+	useObserver(() => updater.m_updateState);
+	return updater;
 }
 export function C2() {
 	return mt(Tt().m_updateState.state);
@@ -429,7 +431,7 @@ export function C2() {
 export function wN() {
 	const e = Tt().m_updateState;
 	const t = e.progress?.rtime_estimated_completion;
-	const [r, setR] = i.useState(0);
+	const [r, setR] = useState(0);
 	$$(() => {
 		const t = e.progress?.rtime_estimated_completion;
 		const r = GetUnixTime();
@@ -445,7 +447,7 @@ export function wN() {
 export function _S() {
 	const e = Tt();
 	const t = e.GetLastCheckTime();
-	const [r, setR] = i.useState(t ? GetUnixTime() - t : null);
+	const [r, setR] = useState(t ? GetUnixTime() - t : null);
 	$$(() => {
 		const t = e.GetLastCheckTime();
 		setR(t ? GetUnixTime() - t : null);
@@ -453,32 +455,35 @@ export function _S() {
 	return r;
 }
 export function KZ() {
-	return q3(() => h.Get().osBranches);
+	return useObserver(() => CUpdateStore.Get().osBranches);
 }
 export function j9() {
-	i.useEffect(() => {
-		h.Get().ForceUpdateOSBranches();
+	useEffect(() => {
+		CUpdateStore.Get().ForceUpdateOSBranches();
 	}, []);
 }
 export function NZ() {
-	return q3(() => h.Get().currentOSBranch);
+	return useObserver(() => CUpdateStore.Get().currentOSBranch);
 }
 export function Qc() {
-	i.useEffect(() => {
-		h.Get().ForceUpdateCurrentOSBranch();
+	useEffect(() => {
+		CUpdateStore.Get().ForceUpdateCurrentOSBranch();
 	}, []);
 }
 export async function ib(e) {
 	await pg(b4(e), window);
 }
-Cg([l.sH], h.prototype, "m_currentOSBranch", undefined);
-Cg([l.sH], h.prototype, "m_rgOSBranches", undefined);
-Cg([l.XI.bound], h.prototype, "OnUpdateStateChanged", null);
+Cg([sH], CUpdateStore.prototype, "m_currentOSBranch", undefined);
+Cg([sH], CUpdateStore.prototype, "m_rgOSBranches", undefined);
+Cg([XI.bound], CUpdateStore.prototype, "OnUpdateStateChanged", null);
+
 class R {
-	m_updater;
-	constructor(e) {
-		this.m_updater = e;
+	m_updater: CUpdater;
+
+	constructor(updater: CUpdater) {
+		this.m_updater = updater;
 	}
+
 	GetUpdateSize() {
 		return 209715200;
 	}

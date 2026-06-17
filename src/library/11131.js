@@ -1,23 +1,23 @@
 import {
-	GetStyleSheetLinks,
-	AddStylesheetsToDocument,
 	AddMissingStylesheetsToWindow,
+	AddStylesheetsToDocument,
+	GetStyleSheetLinks,
 } from "../../actual_src/utils/domutils.js";
 
-import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
-import s, { Cg } from "./34629.js";
-import o from "./44846.js";
-import a, { BK } from "./85243.js";
-import c, { Gn } from "./89193.js";
-import l from "./63696.js";
-import u from "./17385.js";
 import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import h, { s as s_1 } from "./81255.js";
+import u from "./17385.js";
+import { Cg } from "./34629.js";
+import o from "./44846.js";
 import { Qi, vJ } from "./52451.js";
-import _, { td } from "./72476.js";
-import w from "./93960.js";
 import b from "./62130.js";
+import l from "./63696.js";
+import _, { td } from "./72476.js";
+import { s as s_1 } from "./81255.js";
+import { BK } from "./85243.js";
+import c, { Gn } from "./89193.js";
+import w from "./93960.js";
 export let Wf;
 export let Dr;
 function C() {
@@ -238,7 +238,7 @@ export class Ad {
 				n?.removeEventListener("dragover", a.OnDragOver);
 				n?.removeEventListener("message", this.OnMessage);
 			} else {
-				({ popup: n, element: i } = k.CreatePopup(this.m_strName, {
+				({ popup: n, element: i } = CPopupManager.CreatePopup(this.m_strName, {
 					...this.m_rgParams,
 					title: this.m_strTitle,
 				}));
@@ -547,7 +547,7 @@ export class K9 extends Ad {
 	}
 }
 Cg([w.o], K9.prototype, "QueryAndStoreWindowPosition", null);
-class k {
+class CPopupManager {
 	m_bShuttingDown = false;
 	m_mapPopups = c.sH.map([], {
 		deep: false,
@@ -876,6 +876,11 @@ class k {
 		}
 	}
 }
-Cg([w.o, s_1(100)], k.prototype, "DebouncedSaveSavedDimensionStore", null);
-export const Of = new k();
+Cg(
+	[w.o, s_1(100)],
+	CPopupManager.prototype,
+	"DebouncedSaveSavedDimensionStore",
+	null,
+);
+export const Of = new CPopupManager();
 window.g_PopupManager = Of;

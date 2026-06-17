@@ -1,28 +1,28 @@
 import { configure } from "mobx";
-import { useMemo, useEffect, memo, type ReactNode } from "react";
+import { type ReactNode, memo, useEffect, useMemo } from "react";
 
-import { VQ } from "./library/35560.js";
-import { wC as WC } from "./library/42318.js";
-import { TS as Config } from "./library/43691.js";
-import { rW } from "./library/46382.js";
-import { EO } from "./library/91435.js";
+import { VQ as NavigationProvider } from "../src/library/35560";
+import { wC as WC } from "../src/library/42318.js";
+import { TS as Config } from "../src/library/43691.js";
+import { rW as useAnonymousServiceTransport } from "../src/library/46382";
+import { EO as ModalManagerProvider } from "../src/library/91435.js";
 
-import { V3 } from "./chunk~2dcc5aaf7/4855.js";
-import { A as CStoreItemCache } from "./chunk~2dcc5aaf7/5859.js";
-import { u as U } from "./chunk~2dcc5aaf7/10501.js";
-import { oy } from "./chunk~2dcc5aaf7/46422.js";
-import { KC, gK } from "./chunk~2dcc5aaf7/89748.js";
-import { BV } from "./chunk~2dcc5aaf7/50341.js";
-import { L } from "./chunk~2dcc5aaf7/83857.js";
+import { oy } from "../chunk~2dcc5aaf7/46422.js";
+import { V3 as StoreItemCacheContextProvider } from "../src/chunk~2dcc5aaf7/4855.js";
+import { A as CStoreItemCache } from "../src/chunk~2dcc5aaf7/5859.js";
+import { u as SteamUIWindows } from "../src/chunk~2dcc5aaf7/10501";
+import { BV } from "../src/chunk~2dcc5aaf7/50341";
+import { L } from "../src/chunk~2dcc5aaf7/83857.js";
+import { KC, gK } from "../src/chunk~2dcc5aaf7/89748.js";
 
-interface WProps {
+interface StoreItemCacheStuffProps {
 	msDelayBatch?: number;
 	children: ReactNode;
 }
 
-function W(props: WProps) {
+function StoreItemCacheStuff(props: StoreItemCacheStuffProps) {
 	const { msDelayBatch, children } = props;
-	const pAnonymousServiceTransport = rW();
+	const pAnonymousServiceTransport = useAnonymousServiceTransport();
 	const pContext = useMemo(
 		() => ({
 			country: Config.COUNTRY,
@@ -38,13 +38,13 @@ function W(props: WProps) {
 	);
 
 	return (
-		<V3
+		<StoreItemCacheContextProvider
 			context={pContext}
 			msDelayBatch={msDelayBatch}
 			legacyCacheStoreItemData={CStoreItemCache.Get().ReadItem}
 		>
 			{children}
-		</V3>
+		</StoreItemCacheContextProvider>
 	);
 }
 
@@ -92,16 +92,16 @@ export default (props: SPProps) => {
 
 	return (
 		<>
-			<EO bOnlyPopups>
+			<ModalManagerProvider bOnlyPopups>
 				<K />
 				{bFinishedInitStageOne && (
-					<VQ controller={oy.NavigationManager}>
-						<W>
-							<U cm={props.cm} />
-						</W>
-					</VQ>
+					<NavigationProvider controller={oy.NavigationManager}>
+						<StoreItemCacheStuff>
+							<SteamUIWindows cm={props.cm} />
+						</StoreItemCacheStuff>
+					</NavigationProvider>
 				)}
-			</EO>
+			</ModalManagerProvider>
 		</>
 	);
 };
