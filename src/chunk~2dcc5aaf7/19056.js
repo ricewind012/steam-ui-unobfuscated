@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { W6 } from "./49519.js";
 import a from "./51517.js";
 import n from "./63696.js";

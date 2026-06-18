@@ -1,15 +1,17 @@
-import { ClientRectToScreenCoords } from "../../actual_src/utils/domutils.js";
+import { ClientRectToScreenCoords } from "@actual_src/utils/domutils.js";
+
 import o, { k5, R7, yq } from "./11131.js";
-import m, { h as h_1 } from "./15123.js";
+import { h as h_1 } from "./15123.js";
 import l from "./24892.js";
 import d from "./42318.js";
 import r from "./44846.js";
-import g, { CH, hL } from "./52451.js";
-import a, { OJ } from "./63439.js";
+import { CH, hL } from "./52451.js";
+import { OJ } from "./63439.js";
 import i, { useEffect } from "./63696.js";
 import s from "./78325.js";
 import c from "./88750.js";
-import h, { yk, uH } from "./91435.js";
+import { uH, yk } from "./91435.js";
+
 const u = l;
 export function k(e) {
 	const { managerOverride, bSuppressMouseOverlay } = e;

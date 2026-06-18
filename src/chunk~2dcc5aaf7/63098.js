@@ -1,5 +1,6 @@
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import { $U } from "./23472.js";
 export const U = new (class {
 	m_rgActivePopups = [];

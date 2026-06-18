@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { jE } from "./3715.js";
 import n from "./12103.js";
 import { Qt } from "./18057.js";
@@ -12,6 +13,7 @@ import d from "./87935.js";
 import A from "./88696.js";
 import { A as A_1 } from "./90765.js";
 import { aL } from "./92059.js";
+
 const i = n;
 const o = s;
 const f = "Deck_SeasonalSale";

@@ -1,12 +1,13 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import d from "./10606.js";
 import l from "./12767.js";
 import { pg } from "./13869.js";
 import C from "./23861.js";
-import n, { Cg } from "./34629.js";
-import S, { Xe } from "./36934.js";
+import { Cg } from "./34629.js";
+import { Xe } from "./36934.js";
 import a from "./41230.js";
 import m from "./52451.js";
 import i from "./63696.js";
@@ -15,8 +16,9 @@ import f from "./79614.js";
 import w from "./80818.js";
 import h from "./85965.js";
 import y, { $B } from "./87935.js";
-import c, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import s, { Co } from "./96593.js";
+
 const _ = "/images/defaultappimage.png";
 const b = f;
 export let z = class extends i.Component {

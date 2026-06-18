@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import h from "./1634.js";
 import u from "./10606.js";
 import { pg } from "./13869.js";
@@ -9,7 +10,7 @@ import s from "./14629.js";
 import { br } from "./18869.js";
 import { wf } from "./32598.js";
 import _ from "./34348.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import a, { PA } from "./41230.js";
 import b from "./46217.js";
 import g from "./52451.js";
@@ -17,8 +18,9 @@ import c from "./61175.js";
 import i from "./63696.js";
 import m from "./64608.js";
 import A from "./69164.js";
-import o, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import l from "./96000.js";
+
 const C = h;
 const f = _;
 export function x2(e, t, r) {

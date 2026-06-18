@@ -1,5 +1,6 @@
 import "./87531.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import r from "./21937.js";
 export const XX = new (class {
 	m_mapManagers = new WeakMap();

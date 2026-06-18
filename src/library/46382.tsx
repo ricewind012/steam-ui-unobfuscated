@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo } from "react";
-import { FailAssertion } from "../../actual_src/utils/assert.js";
+
+import { FailAssertion } from "@actual_src/utils/assert.js";
 
 const ServiceTransportContext = createContext(undefined);
 const ServiceTransportProvider = ServiceTransportContext.Provider;

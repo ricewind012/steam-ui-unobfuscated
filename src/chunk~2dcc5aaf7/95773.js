@@ -1,6 +1,7 @@
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CopyURLToClipboard } from "@actual_src/utils/domutils.js";
+
 import b from "./3475.js";
 import N from "./4563.js";
 import l from "./8573.js";
@@ -10,7 +11,7 @@ import q from "./15498.js";
 import T, { u as u_1 } from "./17385.js";
 import C from "./20475.js";
 import s from "./24171.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import H from "./36934.js";
 import A from "./38849.js";
 import c from "./38870.js";
@@ -26,12 +27,13 @@ import d from "./80663.js";
 import y from "./81383.js";
 import M from "./83599.js";
 import { b as b_1 } from "./86172.js";
-import a, { Gn, fm, z7 } from "./89193.js";
+import a, { fm, Gn, z7 } from "./89193.js";
 import _ from "./89610.js";
 import { q3 } from "./90095.js";
 import V from "./95377.js";
 import h from "./96127.js";
 import w from "./97023.js";
+
 class _m {
 	constructor() {
 		Gn(this);

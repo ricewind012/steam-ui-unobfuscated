@@ -1,7 +1,8 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+
 import n from "./63696.js";
 import { GD } from "./90685.js";
-import a, { A } from "./90765.js";
+import { A } from "./90765.js";
 export function Z(e) {
 	const { popup, className, ...o } = e;
 	const l = GD(popup);

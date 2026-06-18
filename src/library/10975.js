@@ -1,4 +1,4 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
 export let PN;
 ((e) => {
 	e[(e.LaunchGame = 0)] = "LaunchGame";

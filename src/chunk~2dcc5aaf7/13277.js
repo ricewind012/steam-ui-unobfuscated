@@ -1,6 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import a, { l9 } from "./5640.js";
-import s, { wT } from "./28934.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { l9 } from "./5640.js";
+import { wT } from "./28934.js";
 import g from "./37086.js";
 import m from "./41480.js";
 import p from "./50376.js";
@@ -12,6 +13,7 @@ import A from "./69164.js";
 import { Qn } from "./72476.js";
 import { A as A_1 } from "./90765.js";
 import u from "./98995.js";
+
 const l = o;
 function H(e) {
 	const { fnClose, onSetKey, strTitle } = e;

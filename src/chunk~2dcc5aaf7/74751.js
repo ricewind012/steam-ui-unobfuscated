@@ -1,17 +1,18 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import d from "./10325.js";
 import o from "./21618.js";
-import C, { X } from "./35395.js";
+import { X } from "./35395.js";
 import p from "./35488.js";
-import A, { wR } from "./38602.js";
-import s, { QP, qF, vg } from "./45264.js";
-import i, { W5, W6 } from "./49519.js";
+import { wR } from "./38602.js";
+import { QP, qF, vg } from "./45264.js";
+import { W5, W6 } from "./49519.js";
 import { SP } from "./51076.js";
 import n from "./63696.js";
 import l, { vn } from "./64608.js";
 import h, { Qn } from "./72476.js";
 import a from "./73259.js";
-import c, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import g from "./98995.js";
 export function u(e) {
 	const { bStandalonePage } = e;

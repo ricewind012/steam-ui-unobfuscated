@@ -1,6 +1,8 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import { R7 } from "./11131.js";
 import n from "./63696.js";
+
 const s = {
 	AboutSteam: {
 		strURL: "steam://open/about",

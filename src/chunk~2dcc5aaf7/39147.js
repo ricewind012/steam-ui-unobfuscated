@@ -1,18 +1,19 @@
 import {
-	LocalizationManager,
-	Localize,
-} from "../../actual_src/utils/localization.js";
+    LocalizationManager,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
 import u, { oA } from "./5640.js";
 import S from "./25527.js";
-import d, { dm } from "./34428.js";
-import n, { Cg } from "./34629.js";
+import { dm } from "./34428.js";
+import { Cg } from "./34629.js";
 import m from "./34792.js";
 import g from "./35488.js";
 import s from "./41230.js";
 import _ from "./47060.js";
 import i from "./63696.js";
 import a from "./64608.js";
-import b, { Qn } from "./72476.js";
+import { Qn } from "./72476.js";
 import l from "./78057.js";
 import { A } from "./90765.js";
 import h from "./91486.js";
@@ -21,6 +22,7 @@ import y from "./93960.js";
 import o, { Co } from "./96593.js";
 import c, { zM } from "./97893.js";
 import C from "./98995.js";
+
 const w = S;
 const B = false;
 const v = (e) => {

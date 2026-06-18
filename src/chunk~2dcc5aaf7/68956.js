@@ -1,33 +1,35 @@
-import { ToggleFullscreen } from "../../actual_src/utils/domutils.js";
+import { ToggleFullscreen } from "@actual_src/utils/domutils.js";
+import { LocalizeDurationAbbreviation } from "@actual_src/utils/localization/datetime.js";
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-} from "../../actual_src/utils/localization.js";
-import { LocalizeDurationAbbreviation } from "../../actual_src/utils/localization/datetime.js";
-import k, { f as f_1 } from "./661.js";
-import d, { NB } from "./6967.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+} from "@actual_src/utils/localization.js";
+
+import { f as f_1 } from "./661.js";
+import { NB } from "./6967.js";
 import F from "./26516.js";
-import h, { _Z, Pm } from "./29516.js";
+import { _Z, Pm } from "./29516.js";
 import p from "./35488.js";
 import y from "./37576.js";
 import A from "./43691.js";
-import g, { Ue } from "./52451.js";
+import { Ue } from "./52451.js";
 import { wj } from "./59005.js";
-import n, { useState, useEffect, useMemo, useCallback } from "./63696.js";
+import n, { useCallback, useEffect, useMemo, useState } from "./63696.js";
 import w from "./67429.js";
 import T from "./69164.js";
-import _, { hT, Te, xz, N$, sX, eJ } from "./76835.js";
+import { eJ, hT, N$, sX, Te, xz } from "./76835.js";
 import a from "./81469.js";
 import u from "./83599.js";
 import o, { xE } from "./84921.js";
 import { q3 } from "./90095.js";
 import D from "./90242.js";
-import i, { A as A_1 } from "./90765.js";
-import f, { dd } from "./91720.js";
+import { A as A_1 } from "./90765.js";
+import { dd } from "./91720.js";
 import { aO } from "./92374.js";
 import N from "./94361.js";
 import b from "./96360.js";
 import R from "./98995.js";
+
 const s = a;
 const S = y;
 const B = parseInt(S.animationDuration);

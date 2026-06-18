@@ -5,7 +5,7 @@ import s from "./63696.js";
 import u from "./64004.js";
 import d from "./72476.js";
 import A from "./87935.js";
-import l, { Gn, fm } from "./89193.js";
+import l, { fm, Gn } from "./89193.js";
 import { q3 } from "./90095.js";
 export let wp;
 export let k9;

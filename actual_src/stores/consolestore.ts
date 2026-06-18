@@ -1,5 +1,6 @@
 import { action, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
+
 import { SpewOutput } from "../steamclient/steamclient/Console.js";
 import { Unregisterable } from "../steamclient/steamclient/shared.js";
 import { bind } from "../utils/bind.js";

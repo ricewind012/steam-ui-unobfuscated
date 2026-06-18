@@ -1,25 +1,27 @@
-import { Hq, Localize } from "../../actual_src/utils/localization.js";
-import { ETimeSinceSuffix } from "../../actual_src/utils/localization/datetime.js";
+import { ETimeSinceSuffix } from "@actual_src/utils/localization/datetime.js";
+import { Hq, Localize } from "@actual_src/utils/localization.js";
+
 import w from "./1470.js";
 import S from "./2306.js";
 import m from "./10606.js";
 import { R7 } from "./11131.js";
-import d, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import b from "./13897.js";
-import B, { br } from "./18869.js";
+import { br } from "./18869.js";
 import { hb } from "./24496.js";
-import A, { $ } from "./27756.js";
-import o, { zx, MK, IV, $y, yw, rw } from "./34819.js";
+import { $ } from "./27756.js";
+import o, { $y, IV, MK, rw, yw, zx } from "./34819.js";
 import u from "./35194.js";
 import s from "./35488.js";
 import f from "./37086.js";
 import { gc, uN } from "./52451.js";
 import C from "./57472.js";
-import { Zv, _9 } from "./61518.js";
+import { _9, Zv } from "./61518.js";
 import n from "./63696.js";
 import i from "./64608.js";
 import g from "./72476.js";
 import y from "./91957.js";
+
 const v = 1000;
 export function jJ(e) {
 	const t = Zv();

@@ -1,38 +1,38 @@
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	CLocalizationManager,
-	Localize,
-	LocalizeDateHumanReadable,
-	LocalizePlural,
-	LocalizeReact,
-	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization.js";
+    ETimeSinceSuffix,
+    LocalizeTimeSince,
+} from "@actual_src/utils/localization/datetime.js";
+import {
+    CLocalizationManager,
+    Localize,
+    LocalizeDateHumanReadable,
+    LocalizePlural,
+    LocalizeReact,
+    LocalizeRtime32ToShorterDate,
+} from "@actual_src/utils/localization.js";
+import { GetUnixTime, Seconds } from "@actual_src/utils/time.js";
 
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import {
-	ETimeSinceSuffix,
-	LocalizeTimeSince,
-} from "../../actual_src/utils/localization/datetime.js";
-import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
-import Ue, { $0, oG } from "./2326.js";
+import { $0, oG } from "./2326.js";
 import Ye from "./3200.js";
 import { MZ } from "./3499.js";
 import ge from "./3524.js";
 import g from "./3963.js";
 import {
-	BGameRecordingFeatureEnabled,
-	useBGameRecordingEnabledForGame,
+    BGameRecordingFeatureEnabled,
+    useBGameRecordingEnabledForGame,
 } from "./4069.js";
 import rr from "./5482.js";
-import C, { hb } from "./5640.js";
+import { hb } from "./5640.js";
 import { jy } from "./5808.js";
 import sr from "./6263.js";
 import Ce from "./8573.js";
-import kt, { hi } from "./9252.js";
+import { hi } from "./9252.js";
 import te from "./10606.js";
 import F from "./10709.js";
-import de, { yq, R7 } from "./11131.js";
+import de, { R7, yq } from "./11131.js";
 import { TE } from "./13200.js";
 import gr from "./13442.js";
 import Xe from "./13484.js";
@@ -42,7 +42,7 @@ import E from "./17231.js";
 import i, { bG } from "./18057.js";
 import { br as br_2 } from "./18869.js";
 import Ar from "./18914.js";
-import m, { tk } from "./22091.js";
+import { tk } from "./22091.js";
 import w from "./22176.js";
 import U from "./23783.js";
 import ir from "./25014.js";
@@ -60,16 +60,16 @@ import L from "./33000.js";
 import pr from "./33572.js";
 import G from "./34394.js";
 import { dm } from "./34428.js";
-import _, { I5, VI } from "./34792.js";
+import { I5, VI } from "./34792.js";
 import ye from "./35488.js";
 import We from "./36464.js";
 import dr from "./36813.js";
 import ae from "./37086.js";
-import u, { r } from "./37499.js";
-import { Yb, gQ } from "./39002.js";
+import u from "./37499.js";
+import { gQ, Yb } from "./39002.js";
 import ze from "./39054.js";
 import s from "./39649.js";
-import a, { DJ } from "./40361.js";
+import { DJ } from "./40361.js";
 import { Nr as Nr_2 } from "./42318.js";
 import Je from "./43691.js";
 import Pe from "./43873.js";
@@ -83,7 +83,7 @@ import h, { gt as gt_2, OU, TT } from "./48289.js";
 import oe from "./49519.js";
 import W from "./50376.js";
 import ne from "./52177.js";
-import { $$, CH, Ue as Ue_2, dh, hL, wY } from "./52451.js";
+import { $$, CH, dh, hL, Ue as Ue_2, wY } from "./52451.js";
 import er from "./54747.js";
 import { $u, C4 } from "./56262.js";
 import le from "./56654.js";
@@ -93,7 +93,7 @@ import bt from "./60917.js";
 import { I } from "./61416.js";
 import { OJ } from "./63439.js";
 import { f as f_2 } from "./63538.js";
-import B, { useState, useEffect, useRef } from "./63696.js";
+import B, { useEffect, useRef, useState } from "./63696.js";
 import c from "./64581.js";
 import v from "./64608.js";
 import Pt, { $A } from "./66127.js";
@@ -102,7 +102,7 @@ import V from "./67189.js";
 import { bY } from "./67429.js";
 import M from "./68608.js";
 import x from "./69164.js";
-import ee, { vx, B$, Mb, r2, wm, uA, W6 } from "./69913.js";
+import ee, { B$, Mb, r2, uA, vx, W6, wm } from "./69913.js";
 import zt, { Y2 } from "./72476.js";
 import hr from "./72636.js";
 import { o as o_2 } from "./73259.js";
@@ -122,8 +122,8 @@ import { O as O_2 } from "./85438.js";
 import y from "./87935.js";
 import fe from "./88750.js";
 import { sH } from "./89193.js";
-import f, { iZ, qw } from "./89748.js";
-import T, { q3 } from "./90095.js";
+import { iZ, qw } from "./89748.js";
+import { q3 } from "./90095.js";
 import { SO } from "./90685.js";
 import { A as A_2 } from "./90765.js";
 import z from "./90985.js";
@@ -133,10 +133,11 @@ import n from "./91486.js";
 import he from "./92251.js";
 import o from "./94899.js";
 import O from "./96000.js";
-import p, { Co, _R } from "./96593.js";
-import q, { $2 } from "./96680.js";
+import p, { _R, Co } from "./96593.js";
+import { $2 } from "./96680.js";
 import ve from "./98995.js";
 import R from "./99869.js";
+
 function k(e) {
 	const { value: t, selected: r, onSelected: n, children: i } = e;
 	const a = t.toString();

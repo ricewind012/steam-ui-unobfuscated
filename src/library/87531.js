@@ -1,8 +1,10 @@
-import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
-import r, { Cg } from "./34629.js";
+import { BIsParentOrSelf } from "@actual_src/utils/domutils.js";
+
+import { Cg } from "./34629.js";
 import i, { Gn } from "./89193.js";
 import "./88750.js";
 import o from "./44846.js";
+
 class a {
 	static s_nNextKeyValue = 1;
 	m_nKey = null;

@@ -1,20 +1,22 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { yi } from "./5222.js";
 import o, { HT } from "./13869.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import c, { PA } from "./41230.js";
 import s from "./44234.js";
 import h from "./50376.js";
 import m from "./50551.js";
 import C from "./52194.js";
 import u from "./52451.js";
-import a, { h8 } from "./52912.js";
+import { h8 } from "./52912.js";
 import l from "./63696.js";
 import A from "./64608.js";
 import { A as A_1 } from "./90765.js";
 import p from "./95377.js";
 import i from "./95773.js";
 import g from "./98829.js";
+
 const _ = C;
 let B = class extends l.Component {
 	m_elVoiceSettingsMarkerScroll;

@@ -1,14 +1,13 @@
-import { ELoginState } from "@steamclient_types/User.js";
-import { EResult } from "@steamclient_types/shared";
 import {
+	createElement,
 	Fragment,
 	type PropsWithChildren,
 	type ReactNode,
-	createElement,
 	useCallback,
 	useEffect,
 	useState,
 } from "react";
+
 import { D } from "../../src/chunk~2dcc5aaf7/31222.js";
 import { uV } from "../../src/chunk~2dcc5aaf7/32700.js";
 import { gN as GN, Qk, vX } from "../../src/chunk~2dcc5aaf7/39265.js";
@@ -16,9 +15,9 @@ import loginStyles from "../../src/chunk~2dcc5aaf7/53576.js";
 import { aj } from "../../src/chunk~2dcc5aaf7/63088.js";
 import { $n, jn } from "../../src/chunk~2dcc5aaf7/64608.js";
 import { q_, tG, tH } from "../../src/chunk~2dcc5aaf7/87232.js";
-import { qR as QR, aJ } from "../../src/chunk~2dcc5aaf7/89791.js";
-import { BrowserViewHostPopup } from "../../src/chunk~2dcc5aaf7/browserview_hostpopup.js";
-import { CMInterfaceSharedClientConnection } from "../../src/library/cminterface";
+import { aJ, qR as QR } from "../../src/chunk~2dcc5aaf7/89791.js";
+import { BrowserViewHostPopup } from "../browserview_hostpopup.js";
+import { CMInterfaceSharedClientConnection } from "../cminterface.js";
 import { LoginStore, useLoginStateObserver } from "../stores/loginstore.js";
 import { Localize, LocalizeReact } from "../utils/localization.js";
 import { Of as PopupManager, R7 as useOpenerWindowContext } from "./11131.js";
@@ -29,6 +28,8 @@ import { Y2 as B_maybe_IsSteamChina, TS } from "./72476.js";
 import { jh as useIsAwaitingInitialNetworkState } from "./77347.js";
 import { kt as Kt, tz as Tz } from "./88750.js";
 import { A as A_1 } from "./90765.js";
+import { EResult } from "@steamclient_types/shared";
+import { ELoginState } from "@steamclient_types/User.js";
 
 enum ELoginPage {
 	Init,

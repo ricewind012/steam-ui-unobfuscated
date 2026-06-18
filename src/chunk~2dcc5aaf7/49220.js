@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import h from "./10606.js";
 import b from "./14982.js";
 import C, { Qh } from "./22004.js";
@@ -10,17 +11,18 @@ import d from "./35488.js";
 import l from "./41618.js";
 import u from "./43014.js";
 import { LC } from "./46422.js";
-import i, { W6, zy } from "./49519.js";
+import { W6, zy } from "./49519.js";
 import A from "./50376.js";
 import S from "./53622.js";
 import a from "./58254.js";
-import n, { useState, useEffect, useRef } from "./63696.js";
+import { useEffect, useRef, useState } from "./63696.js";
 import m from "./69164.js";
 import { Nx } from "./71033.js";
 import y, { rP, uI } from "./72476.js";
 import c from "./88696.js";
 import o, { A as A_1 } from "./90765.js";
 import s, { AO } from "./93861.js";
+
 const w = 20;
 const B = 1;
 const v = "Deck_GuidedTourVersionSeen";

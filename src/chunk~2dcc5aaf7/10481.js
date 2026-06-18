@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+} from "@actual_src/utils/localization.js";
+
 import G from "./3235.js";
 import a, { R8 } from "./6160.js";
 import p from "./10239.js";
@@ -15,8 +16,8 @@ import b from "./39354.js";
 import { PA } from "./41230.js";
 import { i_ as i_1 } from "./43397.js";
 import i, { Dl } from "./46422.js";
-import M, { yZ } from "./52192.js";
-import { $$, L$, Ue, l6, vJ, wY, xM } from "./52451.js";
+import { yZ } from "./52192.js";
+import { $$, L$, l6, Ue, vJ, wY, xM } from "./52451.js";
 import I from "./58254.js";
 import o from "./63696.js";
 import c from "./64608.js";
@@ -24,11 +25,12 @@ import l from "./69164.js";
 import s, { WJ } from "./76356.js";
 import k from "./78057.js";
 import A from "./83599.js";
-import n, { st } from "./85360.js";
-import E, { QP, jT, hY } from "./85399.js";
+import { st } from "./85360.js";
+import E, { hY, jT, QP } from "./85399.js";
 import { q3 } from "./90095.js";
-import u, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import D from "./96593.js";
+
 const g = p;
 const h = "/images/controller_generic.png";
 const C = "/movies/controller_generic_thumbstick_move.webm";

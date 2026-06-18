@@ -1,11 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import c from "./20492.js";
-import i, { PA } from "./41230.js";
+import { PA } from "./41230.js";
 import u from "./46217.js";
 import l from "./50376.js";
-import n from "./63696.js";
 import { rO } from "./88724.js";
-import { A } from "./90765.js";
+
 const m = c;
 export const X = PA((e) => {
 	const { persona: t, className: r, ...i } = e;

@@ -1,7 +1,8 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import u from "./10606.js";
 import { R7 } from "./11131.js";
-import s, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import i from "./22222.js";
 import { $ } from "./27756.js";
 import n from "./63696.js";

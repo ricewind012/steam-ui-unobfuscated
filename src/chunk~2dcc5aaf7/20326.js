@@ -1,6 +1,7 @@
 import s, { M } from "./19840.js";
 import n from "./63696.js";
 import i from "./71162.js";
+
 const a = i;
 export function Vs() {
 	return M("DebugPointer_Enabled", false);

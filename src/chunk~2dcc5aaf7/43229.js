@@ -1,22 +1,23 @@
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { FindAndRemoveWhere } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import M from "./8573.js";
 import p, { HT } from "./13869.js";
 import m from "./14182.js";
 import { u as u_1 } from "./24761.js";
 import y from "./26853.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import z from "./36308.js";
 import C from "./41230.js";
 import s from "./44234.js";
 import b from "./50376.js";
 import v from "./52451.js";
-import l, { h8, CO } from "./52912.js";
+import { CO, h8 } from "./52912.js";
 import E from "./59704.js";
 import _, { useState } from "./63696.js";
 import f from "./64608.js";
@@ -24,7 +25,7 @@ import o from "./66146.js";
 import g from "./69164.js";
 import U from "./72476.js";
 import R from "./72945.js";
-import d, { Ci, Nw, Ic, hr } from "./78060.js";
+import { Ci, hr, Ic, Nw } from "./78060.js";
 import i from "./83957.js";
 import G from "./86360.js";
 import u from "./88620.js";
@@ -32,6 +33,7 @@ import h, { Gn } from "./89193.js";
 import { A as A_1 } from "./90765.js";
 import c from "./95773.js";
 import A from "./98829.js";
+
 const a = i;
 const k = R;
 function N(e) {

@@ -1,4 +1,5 @@
-import { BIsDragLeaveOutOfElement } from "../../actual_src/utils/domutils.js";
+import { BIsDragLeaveOutOfElement } from "@actual_src/utils/domutils.js";
+
 import n from "./52912.js";
 import i from "./63696.js";
 import a from "./69164.js";

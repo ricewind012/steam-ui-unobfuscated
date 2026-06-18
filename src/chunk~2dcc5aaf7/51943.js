@@ -1,6 +1,7 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { Cg } from "./34629.js";
 import d from "./36813.js";
 import o, { qo } from "./43397.js";
 import { _g } from "./52451.js";
@@ -9,6 +10,7 @@ import l from "./74362.js";
 import a, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
 import "./43691.js";
+
 const A = "Raven/Raven2/FireFlight/Renoir Audio Processor";
 const p = "ACP/ACP3X/ACP6x Audio Coprocessor";
 class g {

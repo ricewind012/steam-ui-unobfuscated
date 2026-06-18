@@ -1,4 +1,5 @@
-import { LoginStore } from "../../actual_src/stores/loginstore.js";
+import { LoginStore } from "@actual_src/stores/loginstore.js";
+
 import l from "./18057.js";
 import { Cg } from "./34629.js";
 import { B6 } from "./49519.js";

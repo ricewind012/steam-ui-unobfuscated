@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./3867.js";
 import c from "./10606.js";
 import { pg } from "./13869.js";
@@ -9,6 +10,7 @@ import s from "./64608.js";
 import "./26853.js";
 import p from "./41230.js";
 import A from "./96593.js";
+
 let n;
 const l = o;
 export function Uo(e, t, r) {

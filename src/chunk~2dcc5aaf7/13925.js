@@ -1,29 +1,31 @@
-import { LoginStore } from "../../actual_src/stores/loginstore.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { LoginStore } from "@actual_src/stores/loginstore.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import C from "./4251.js";
 import { EZ } from "./5822.js";
 import l from "./10606.js";
-import B, { k1 } from "./13688.js";
-import c, { pg } from "./13869.js";
+import { k1 } from "./13688.js";
+import { pg } from "./13869.js";
 import { UU } from "./31800.js";
 import i from "./35488.js";
 import s, { ck } from "./43014.js";
-import h, { FN } from "./43152.js";
+import { FN } from "./43152.js";
 import _ from "./46422.js";
 import o from "./53622.js";
-import b, { Bx } from "./55489.js";
+import { Bx } from "./55489.js";
 import d from "./56970.js";
 import f from "./61657.js";
 import n, { useState } from "./63696.js";
 import a from "./69164.js";
 import p from "./85243.js";
-import w, { q3 } from "./90095.js";
-import m, { A as A_1 } from "./90765.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+
 const I = 6;
 function E(e) {
 	return /\d{6}/.test(e);

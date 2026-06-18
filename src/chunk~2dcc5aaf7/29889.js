@@ -1,4 +1,5 @@
-import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForElement } from "@actual_src/utils/domutils.js";
+
 import i from "./7558.js";
 export class w extends i.S2 {
 	m_component;

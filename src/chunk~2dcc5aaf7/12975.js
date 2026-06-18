@@ -1,8 +1,9 @@
-import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { BIsParentOrSelf } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./3963.js";
 import m from "./15688.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import a from "./52451.js";
 import A from "./55523.js";
 import i from "./63696.js";
@@ -12,6 +13,7 @@ import C from "./72476.js";
 import g from "./88750.js";
 import d, { Gn } from "./89193.js";
 import { A as A_1 } from "./90765.js";
+
 const p = A;
 export class K extends i.Component {
 	static contextType = C.QO;

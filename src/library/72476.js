@@ -1,5 +1,6 @@
-import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { ESteamRealm } from "@actual_src/clienttypes/realm.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import c from "./9731.js";
 import o from "./43691.js";
 import r from "./63696.js";

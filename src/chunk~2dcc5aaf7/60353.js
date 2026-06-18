@@ -1,6 +1,7 @@
-import { BIsFirstClientLoad } from "../../actual_src/startup";
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { e0 } from "../../actual_src/utils/callbackutils";
+import { BIsFirstClientLoad } from "@actual_src/startup";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { e0 } from "@actual_src/utils/callbackutils";
+
 import a from "./329.js";
 import A from "./2862.js";
 import m from "./11131.js";
@@ -12,6 +13,7 @@ import c from "./63696.js";
 import { Bj, sB, z8 } from "./67686.js";
 import p from "./84838.js";
 import { A as A_1 } from "./90765.js";
+
 const s = a;
 export const Mb = -2147483648;
 export const a$ = "DesktopUI";

@@ -1,5 +1,6 @@
 import i from "./48307.js";
 import n from "./58663.js";
+
 const n_Message = n.Message;
 export class S7 extends n_Message {
 	static ImplementsStaticInterface() {}

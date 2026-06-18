@@ -1,16 +1,18 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./10606.js";
-import u, { R7 } from "./11131.js";
+import { R7 } from "./11131.js";
 import { br } from "./18869.js";
 import A from "./26853.js";
 import d from "./35488.js";
-import i, { Nr } from "./42318.js";
+import { Nr } from "./42318.js";
 import h from "./43691.js";
 import s from "./63367.js";
 import n from "./63696.js";
 import l from "./64608.js";
 import { A as A_1 } from "./90765.js";
 import c from "./92445.js";
+
 const m = c;
 export function V(e) {
 	const t = e && e[0] == '"' ? e.slice(1, -1) : e || "";

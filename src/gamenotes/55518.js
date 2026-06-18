@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import * as c from "./26853.js";
 import * as s from "./35395.js";
 import * as l from "./39941.js";
@@ -7,6 +8,7 @@ import * as o from "./49519.js";
 import * as a from "./63696.js";
 import * as r from "./73259.js";
 import * as p from "./74751.js";
+
 function m() {
 	const { data: e, isLoading: t } = (0, u.Yh)();
 	const n = a.useMemo(

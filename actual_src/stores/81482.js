@@ -1,5 +1,5 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import o, { I8 } from "./12176.js";
 import * as s from "./12368.js";
 import n, { Cg } from "./34629.js";
@@ -8,7 +8,8 @@ import * as c from "./48307.js";
 import * as S from "./52451.js";
 import * as l from "./58663.js";
 import * as w from "./72476.js";
-import a, { Gn, HO, mJ, EW } from "./89193.js";
+import a, { EW, Gn, HO, mJ } from "./89193.js";
+
 class u extends l_Message {
 	static ImplementsStaticInterface() {}
 	constructor(e = null) {

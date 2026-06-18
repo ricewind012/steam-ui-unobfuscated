@@ -1,56 +1,55 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-
+import { AssertMsg, FailAssertion } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	CLocLanguageArray,
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
+    CLocLanguageArray,
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizePlural,
+} from "@actual_src/utils/localization.js";
 
-import { AssertMsg, FailAssertion } from "../../actual_src/utils/assert.js";
 import l from "./4690.js";
-import n, { PA } from "./41230.js";
-import i, { useEffect, useRef, useMemo, useState } from "./63696.js";
-import a, { tB } from "./69137.js";
+import { PA } from "./41230.js";
+import i, { useEffect, useMemo, useRef, useState } from "./63696.js";
+import { tB } from "./69137.js";
 import o from "./69164.js";
 import s from "./90242.js";
 import "./93023.js";
-import u, { mJ } from "./36885.js";
-import m, { wJ, L3 } from "./45328.js";
+import { mJ } from "./36885.js";
+import { L3, wJ } from "./45328.js";
 import c from "./56655.js";
 import "./78771.js";
-import B, { f as f_1 } from "./991.js";
+import { f as f_1 } from "./991.js";
 import d from "./5859.js";
 import ee from "./6561.js";
 import W from "./23337.js";
 import x from "./25752.js";
 import X from "./26853.js";
-import M, { Ue } from "./28864.js";
+import { Ue } from "./28864.js";
 import z from "./30697.js";
 import J from "./34036.js";
 import f from "./36723.js";
 import V from "./47628.js";
-import P, { NT } from "./53807.js";
+import { NT } from "./53807.js";
 import S from "./55667.js";
 import U from "./58084.js";
-import A, { SW } from "./58839.js";
-import I, { b as b_1 } from "./59750.js";
+import { SW } from "./58839.js";
+import { b as b_1 } from "./59750.js";
 import _ from "./60762.js";
 import g from "./68994.js";
 import C from "./72054.js";
 import Z, { Qn } from "./72476.js";
 import $ from "./74905.js";
-import p, { G6, t7, mZ } from "./82594.js";
+import { G6, mZ, t7 } from "./82594.js";
 import w from "./83591.js";
 import b from "./83957.js";
 import { A as A_1 } from "./90765.js";
-import v, { ru, n9 } from "./92059.js";
+import { n9, ru } from "./92059.js";
 import Y from "./95929.js";
 import N from "./97510.js";
-import E, { BL } from "./99251.js";
+import { BL } from "./99251.js";
 import "./15612.js";
 import "./11735.js";
-import { Ae } from "./67784.js";
+
 const h = g;
 const y = b;
 function T(e) {

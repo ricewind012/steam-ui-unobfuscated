@@ -1,20 +1,21 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import b from "./1037.js";
 import L from "./6263.js";
 import c from "./8573.js";
 import u from "./10606.js";
-import v, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import o from "./17231.js";
-import M, { wB, iT } from "./17754.js";
+import { iT, wB } from "./17754.js";
 import p from "./21105.js";
-import k, { oH } from "./33572.js";
+import { oH } from "./33572.js";
 import h from "./34792.js";
 import O from "./36934.js";
-import _C, { r } from "./37499.js";
+import _C from "./37499.js";
 import w from "./46285.js";
 import _, { RP, TP } from "./46422.js";
-import g, { OC, Lb } from "./48289.js";
+import g, { Lb, OC } from "./48289.js";
 import G from "./50376.js";
 import d from "./55116.js";
 import B from "./61657.js";
@@ -24,13 +25,14 @@ import N, { PR } from "./68292.js";
 import l from "./68608.js";
 import A from "./69164.js";
 import f from "./73399.js";
-import i, { q3 } from "./90095.js";
-import a, { A as A_1 } from "./90765.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
 import D from "./92031.js";
-import E, { WE } from "./93966.js";
+import { WE } from "./93966.js";
 import F from "./96593.js";
 import P from "./98829.js";
 import S from "./99731.js";
+
 const y = b;
 function T(e) {
 	return n.createElement(

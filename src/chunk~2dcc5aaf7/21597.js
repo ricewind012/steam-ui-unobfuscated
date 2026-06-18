@@ -1,16 +1,17 @@
 import {
-	Localize,
-	LocalizeRtime32ToShortDate,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeRtime32ToShortDate,
+} from "@actual_src/utils/localization.js";
+
 import { br } from "./18869.js";
-import A, { jE } from "./26094.js";
+import { jE } from "./26094.js";
 import c from "./60142.js";
 import s from "./61662.js";
-import n from "./63696.js";
 import { Qn } from "./72476.js";
 import { fu } from "./78721.js";
 import i from "./84009.js";
 import { A as A_1 } from "./90765.js";
+
 const a = i;
 export function R(e) {
 	const { screenshot, sizeAxis, onClick, className, ...h } = e;

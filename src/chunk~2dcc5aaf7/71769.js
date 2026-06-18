@@ -1,18 +1,19 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import u from "./1965.js";
 import s from "./10191.js";
 import A from "./22091.js";
 import { zX } from "./28346.js";
 import l from "./35488.js";
-import c, { PA } from "./41230.js";
+import { PA } from "./41230.js";
 import p from "./45967.js";
 import { $c } from "./52192.js";
-import n from "./63696.js";
 import { Qn } from "./72476.js";
-import _, { T } from "./78057.js";
+import { T } from "./78057.js";
 import h, { st } from "./85360.js";
 import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
+
 const o = s;
 export function jt(e) {
 	const { overview } = e;

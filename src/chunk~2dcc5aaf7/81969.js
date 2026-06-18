@@ -1,8 +1,9 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import m from "./2306.js";
 import u from "./3475.js";
 import c from "./13897.js";
-import s, { e_ as e } from "./34792.js";
+import s from "./34792.js";
 import { gc, vJ } from "./52451.js";
 import n from "./63696.js";
 import i from "./64608.js";

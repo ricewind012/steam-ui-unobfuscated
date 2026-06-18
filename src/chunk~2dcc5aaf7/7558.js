@@ -1,4 +1,4 @@
-import { GetOwningWindowForElement } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForElement } from "@actual_src/utils/domutils.js";
 export class S2 {
 	m_options;
 	m_msStart;

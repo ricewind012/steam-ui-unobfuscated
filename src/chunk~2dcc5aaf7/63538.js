@@ -6,6 +6,7 @@ import o from "./69913.js";
 import { Y2 } from "./72476.js";
 import l from "./78057.js";
 import s from "./83247.js";
+
 const u = {
 	[o.w9.FriendsList]: {
 		tooltipToken: "#AppOverlay_Toolbar_Friends",

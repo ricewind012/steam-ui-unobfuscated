@@ -1,4 +1,5 @@
-import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
+import { BIsParentOrSelf } from "@actual_src/utils/domutils.js";
+
 import i from "./42318.js";
 import a from "./50376.js";
 import n from "./63696.js";

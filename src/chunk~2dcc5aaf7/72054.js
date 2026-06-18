@@ -3,6 +3,7 @@ import { SW } from "./58839.js";
 import n, { useRef } from "./63696.js";
 import l from "./72476.js";
 import { G6 } from "./82594.js";
+
 const o = s;
 export function M(e) {
 	const { appInfo } = e;

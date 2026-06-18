@@ -1,4 +1,5 @@
 import n from "./83957.js";
+
 const i = n;
 export const g = new (class {
 	async AxiosWrapper(e, t, r) {

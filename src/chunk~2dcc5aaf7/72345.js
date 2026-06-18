@@ -1,16 +1,18 @@
-import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
+import { GetConfiguredLocale } from "@actual_src/utils/localization.js";
+
 import u from "./14145.js";
-import s, { OQ } from "./31958.js";
-import g, { VI } from "./34792.js";
+import { OQ } from "./31958.js";
+import { VI } from "./34792.js";
 import a, { o4, y9 } from "./39839.js";
-import h, { u6 } from "./43152.js";
+import { u6 } from "./43152.js";
 import p from "./46422.js";
-import A, { Te } from "./55007.js";
+import { Te } from "./55007.js";
 import n from "./63696.js";
 import o from "./64608.js";
 import l from "./69164.js";
 import c from "./83599.js";
 import { A as A_1 } from "./90765.js";
+
 const d = u;
 const _C = new c.wd("ConsolePage");
 const _ = {

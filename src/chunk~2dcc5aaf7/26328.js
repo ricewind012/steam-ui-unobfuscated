@@ -1,7 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import s from "./42010.js";
 import { I } from "./61416.js";
-import n from "./63696.js";
 export function K(e) {
 	let t = I({
 		queryKey: ["VideoRecordingDriverCheck"],

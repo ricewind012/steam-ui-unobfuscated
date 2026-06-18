@@ -1,11 +1,12 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	LocalizationManager,
-	Localize,
-	LocalizePlural,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    LocalizationManager,
+    Localize,
+    LocalizePlural,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import k from "./2561.js";
 import _ from "./3756.js";
 import Ie from "./4690.js";
@@ -15,10 +16,10 @@ import { qf } from "./13099.js";
 import { s1 } from "./15181.js";
 import N from "./17231.js";
 import te, { u as u_1 } from "./17385.js";
-import L, { lX } from "./31084.js";
+import { lX } from "./31084.js";
 import P from "./31760.js";
-import T, { J_1 as j_1 } from "./34616.js";
-import n, { Cg } from "./34629.js";
+import { J_1 as j_1 } from "./34616.js";
+import { Cg } from "./34629.js";
 import o, { PA } from "./41230.js";
 import z from "./44164.js";
 import B, { Qn } from "./44234.js";
@@ -31,13 +32,13 @@ import a from "./52451.js";
 import { _k } from "./52912.js";
 import x from "./56840.js";
 import w from "./59704.js";
-import i, { useState, useRef, useEffect } from "./63696.js";
+import i, { useEffect, useRef, useState } from "./63696.js";
 import M, { pM } from "./66408.js";
 import S from "./69164.js";
 import m from "./72476.js";
 import xe from "./72655.js";
 import { Ic, WQ } from "./78060.js";
-import F, { createPortal } from "./78325.js";
+import { createPortal } from "./78325.js";
 import C from "./80663.js";
 import l from "./83599.js";
 import ze from "./87949.js";
@@ -45,14 +46,15 @@ import ee from "./88750.js";
 import s, { Gn } from "./89193.js";
 import f from "./89459.js";
 import U from "./89495.js";
-import G, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import O from "./92251.js";
 import A from "./92564.js";
-import W, { G as G_1 } from "./92757.js";
+import { G as G_1 } from "./92757.js";
 import u from "./95773.js";
 import I from "./96127.js";
 import E from "./98829.js";
+
 const _D = k;
 const V = PA((e) => {
 	const { msg, chat } = e;

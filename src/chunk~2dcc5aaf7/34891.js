@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import s from "./54355.js";
 import a from "./63696.js";
 import A from "./69164.js";

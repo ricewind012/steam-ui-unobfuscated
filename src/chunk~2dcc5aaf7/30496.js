@@ -1,33 +1,32 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Hq,
-	Localize,
-	LocalizeCalendarTime,
-	LocalizePlural,
-	LocalizeReact,
-	LocalizeRtime32ToShortDate,
-} from "../../actual_src/utils/localization.js";
+    Hq,
+    Localize,
+    LocalizeCalendarTime,
+    LocalizePlural,
+    LocalizeReact,
+    LocalizeRtime32ToShortDate,
+} from "@actual_src/utils/localization.js";
 
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import K from "./5640.js";
-import L, { zq, AH, Kw, WB, Co, jy } from "./5808.js";
+import L, { AH, Co, jy, Kw, WB, zq } from "./5808.js";
 import u from "./10927.js";
 import o from "./15489.js";
-import l, { br } from "./18869.js";
+import { br } from "./18869.js";
 import m from "./22091.js";
 import H from "./27337.js";
-import z, { tx, zX } from "./28346.js";
+import { tx, zX } from "./28346.js";
 import { lX } from "./31084.js";
-import J, { Bb } from "./32700.js";
-import N, { dm } from "./34428.js";
-import n, { Cg } from "./34629.js";
+import { Bb } from "./32700.js";
+import { dm } from "./34428.js";
+import { Cg } from "./34629.js";
 import g, { VI } from "./34792.js";
 import I from "./35488.js";
 import ie from "./36229.js";
 import pe from "./36464.js";
 import ee from "./37567.js";
-import $, { ZC } from "./39147.js";
+import { ZC } from "./39147.js";
 import x from "./39287.js";
 import f, { PA } from "./41230.js";
 import Ae from "./42805.js";
@@ -46,13 +45,13 @@ import i from "./60712.js";
 import y from "./63696.js";
 import w from "./69164.js";
 import O, { Qn } from "./72476.js";
-import Z, { T as T_1 } from "./78057.js";
-import F, { l as l_1 } from "./80254.js";
+import { T as T_1 } from "./78057.js";
+import { l as l_1 } from "./80254.js";
 import Y from "./87935.js";
 import _, { Gn } from "./89193.js";
 import { IU } from "./89748.js";
 import { j4 } from "./90076.js";
-import b, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import s from "./91486.js";
 import h from "./91745.js";
@@ -63,6 +62,7 @@ import { $2 } from "./96680.js";
 import re from "./96821.js";
 import q from "./97893.js";
 import M from "./98995.js";
+
 const a = i;
 const U = x;
 const te = ee;

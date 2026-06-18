@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+
 import throbberStyles from "../src/library/3586.js";
 import { Rh as ActiveAccountProvider } from "../src/library/24295.js";
 import u from "../src/library/26853.js";
@@ -14,10 +15,10 @@ import { s as ReactQueryDevtoolsClient } from "../src/library/75144.js";
 import y from "../src/library/88696.js";
 import { A as BuildClassName } from "../src/library/90765.js";
 import B from "../src/library/91435.js";
-import { CMInterfaceSharedClientConnection } from "../src/library/cminterface.js";
 import some_lib from "./80986.js";
 import { q3 } from "./90095.js";
 import { ESteamRealm } from "./clienttypes/realm.js";
+import { CMInterfaceSharedClientConnection } from "./cminterface.js";
 import { AssertMsg } from "./utils/assert.js";
 import {
 	GetConfiguredLocale,

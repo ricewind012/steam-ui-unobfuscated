@@ -1,5 +1,6 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+
 import a from "./17385.js";
 export function CO(e) {
 	let t = GetOwningWindowForEvent(e);

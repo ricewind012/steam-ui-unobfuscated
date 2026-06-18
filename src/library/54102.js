@@ -1,5 +1,7 @@
-import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import i from "./20893.js";
+
 class s {
 	m_root;
 	constructor(e) {

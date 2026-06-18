@@ -1,23 +1,24 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	LocalizationManager,
-	Localize,
-} from "../../actual_src/utils/localization.js";
+    LocalizationManager,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
 import g from "./1965.js";
 import w from "./8573.js";
-import y, { Ms, ry, _h } from "./9808.js";
+import { _h, Ms, ry } from "./9808.js";
 import R from "./10335.js";
 import S, { bG } from "./18057.js";
 import { c as c_1 } from "./23600.js";
 import C from "./26271.js";
-import { Np, dd, ex, vN } from "./32179.js";
-import n, { Cg } from "./34629.js";
+import { dd, ex, Np, vN } from "./32179.js";
+import { Cg } from "./34629.js";
 import u from "./36563.js";
 import A from "./36934.js";
 import a, { PA } from "./41230.js";
 import _, { S1 } from "./43520.js";
 import M from "./46422.js";
-import s, { W6 } from "./49519.js";
+import { W6 } from "./49519.js";
 import o from "./50376.js";
 import l from "./52451.js";
 import b from "./55116.js";
@@ -31,6 +32,7 @@ import D, { Gn } from "./89193.js";
 import { iZ } from "./89748.js";
 import { A as A_1 } from "./90765.js";
 import { Co } from "./96593.js";
+
 const k = R;
 const F = 10;
 function G(e) {

@@ -1,8 +1,9 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { vg } from "./4816.js";
 import A from "./10606.js";
 import C from "./12911.js";
-import p, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import { H } from "./16154.js";
 import { L3 } from "./45328.js";
 import l from "./47628.js";
@@ -10,12 +11,13 @@ import g from "./50376.js";
 import i from "./63696.js";
 import y from "./72476.js";
 import m from "./76565.js";
-import o, { t7 } from "./82594.js";
+import { t7 } from "./82594.js";
 import s from "./83591.js";
-import n, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import { n9 } from "./92059.js";
 import S from "./98995.js";
+
 const c = l;
 const u = m;
 function w(e) {

@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import m from "./1521.js";
 import c from "./8090.js";
 import C from "./10606.js";
@@ -6,9 +7,9 @@ import _, { pg } from "./13869.js";
 import o from "./16117.js";
 import f from "./26853.js";
 import u from "./43691.js";
-import l, { sf } from "./44846.js";
+import { sf } from "./44846.js";
 import { CH, hL } from "./52451.js";
-import i, { Bx } from "./55489.js";
+import { Bx } from "./55489.js";
 import s from "./63696.js";
 import h from "./64608.js";
 import p from "./69164.js";
@@ -18,6 +19,7 @@ import g from "./72655.js";
 import n from "./85243.js";
 import { A as A_1 } from "./90765.js";
 import a from "./96593.js";
+
 function D_1(e) {
 	const { text, language } = e;
 	const n = s.useMemo(

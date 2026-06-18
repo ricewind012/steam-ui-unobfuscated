@@ -1,24 +1,26 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import d from "./10606.js";
 import { pg } from "./13869.js";
 import c from "./14663.js";
 import b from "./18057.js";
 import { br } from "./18869.js";
-import a, { PA } from "./41230.js";
-import i, { W5 } from "./49519.js";
+import { PA } from "./41230.js";
+import { W5 } from "./49519.js";
 import p from "./50376.js";
 import l from "./61175.js";
-import n, { useState } from "./63696.js";
+import { useState } from "./63696.js";
 import u from "./64608.js";
-import s, { Qn } from "./72476.js";
+import { Qn } from "./72476.js";
 import _ from "./83628.js";
 import m from "./88750.js";
 import o from "./96000.js";
+
 const f = _;
 export const A = PA((e) => {
 	const { strCollectionId, strDisplayName, bOnlyManagement } = e;

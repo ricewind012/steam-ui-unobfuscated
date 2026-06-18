@@ -1,5 +1,5 @@
-import { EOSBranch } from "@steamclient_types/Updates.js";
 import { memo, useCallback, useEffect } from "react";
+
 import { t0 } from "./34792.js";
 import { FA } from "./46422.js";
 import { E8 } from "./85243.js";
@@ -7,6 +7,7 @@ import {
 	NZ as useCurrentOSBranchObserver,
 	Tt as useUpdaterObserver,
 } from "./89411.js";
+import { EOSBranch } from "@steamclient_types/Updates.js";
 
 export enum wR {
 	k_EStable = "stable",

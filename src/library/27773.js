@@ -1,9 +1,11 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+
 import s from "./50376.js";
 import r from "./63696.js";
 import { Pr } from "./72476.js";
-import a, { GD, jt } from "./90685.js";
-import o, { A } from "./90765.js";
+import { GD, jt } from "./90685.js";
+import { A } from "./90765.js";
+
 function L(e) {
 	const { popup, onMaximize, bOSX } = e;
 	const l = GD(popup);

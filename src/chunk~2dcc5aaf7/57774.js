@@ -1,14 +1,16 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import c, { R7 } from "./11131.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { R7 } from "./11131.js";
 import a from "./23690.js";
-import n, { Cg } from "./34629.js";
-import u, { rX } from "./46382.js";
+import { Cg } from "./34629.js";
+import { rX } from "./46382.js";
 import s from "./50376.js";
-import i, { useEffect, useCallback, useState, cloneElement } from "./63696.js";
+import i, { cloneElement, useCallback, useEffect, useState } from "./63696.js";
 import o from "./64608.js";
-import m, { createPortal } from "./78325.js";
+import { createPortal } from "./78325.js";
 import d, { Gn } from "./89193.js";
-import A, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
+
 class p {
 	m_tours = {};
 	m_strActiveTour = "";

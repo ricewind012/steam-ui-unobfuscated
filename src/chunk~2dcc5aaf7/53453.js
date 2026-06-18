@@ -1,5 +1,6 @@
 import i from "./22091.js";
 import _n from "./83599.js";
+
 const a = new _n.wd("Haptics");
 export let n;
 ((e) => {

@@ -1,24 +1,25 @@
 import {
-	BSharedJSContextHasMethod,
-	BSteamClientHasMethod,
-} from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
+    BSharedJSContextHasMethod,
+    BSteamClientHasMethod,
+} from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg, FailAssertion } from "@actual_src/utils/assert.js";
 import {
-	CCallbackList,
-	CTrackedEventListeners,
-} from "../../actual_src/utils/callbackutils";
+    CCallbackList,
+    CTrackedEventListeners,
+} from "@actual_src/utils/callbackutils";
 import {
-	BElementContainsSelection,
-	CopyURLToClipboard,
-	GetOwningWindowForEvent,
-	_f,
-} from "../../actual_src/utils/domutils.js";
+    _f,
+    BElementContainsSelection,
+    CopyURLToClipboard,
+    GetOwningWindowForEvent,
+} from "@actual_src/utils/domutils.js";
 import {
-	LocalizationManager,
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg, FailAssertion } from "./../../actual_src/utils/assert.js";
+    LocalizationManager,
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import Re from "./1918.js";
 import we from "./4042.js";
 import ir from "./7470.js";
@@ -36,7 +37,7 @@ import ee from "./26853.js";
 import Be from "./29889.js";
 import Xt from "./29971.js";
 import Ie from "./31958.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import B from "./36383.js";
 import lr from "./37024.js";
 import hr, { CO as CO_2, h8 as h8_2 } from "./40357.js";
@@ -64,8 +65,8 @@ import ke from "./54352.js";
 import Xe from "./55116.js";
 import be from "./56840.js";
 import { F2 } from "./58215.js";
-import O, { EP, DH, xE } from "./59704.js";
-import { OJ, h3 } from "./63439.js";
+import O, { DH, EP } from "./59704.js";
+import { h3, OJ } from "./63439.js";
 import F, { useState } from "./63696.js";
 import ye from "./64608.js";
 import P from "./66408.js";
@@ -77,11 +78,11 @@ import $e, { L as L_2 } from "./76319.js";
 import { XX } from "./76815.js";
 import { Ic, Nw } from "./78060.js";
 import { createPortal } from "./78325.js";
-import ve, { s as s_2 } from "./81255.js";
-import q, { t7 } from "./82594.js";
+import { s as s_2 } from "./81255.js";
+import { t7 } from "./82594.js";
 import k from "./83957.js";
 import ar from "./85243.js";
-import I, { z7, Gn, h5 } from "./89193.js";
+import I, { Gn, h5, z7 } from "./89193.js";
 import { q3 } from "./90095.js";
 import { A as A_2 } from "./90765.js";
 import { Z9 } from "./91720.js";

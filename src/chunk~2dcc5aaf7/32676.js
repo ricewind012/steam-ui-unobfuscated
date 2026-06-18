@@ -1,10 +1,11 @@
-import { e0 } from "../../actual_src/utils/callbackutils";
+import { e0 } from "@actual_src/utils/callbackutils";
 import {
-	Hq,
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Hq,
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import * as l from "./661.js";
 import * as N from "./1385.js";
 import * as ne from "./3499.js";
@@ -76,6 +77,7 @@ import * as O from "./96593.js";
 import * as E from "./96884.js";
 import * as P from "./98995.js";
 import * as p from "./99998.js";
+
 function R(e) {
 	const {
 		strSelectedApp: t,

@@ -1,4 +1,5 @@
 import r, { S } from "./17372.js";
+
 const i = {
 	unknown: 0,
 	"store.steampowered.com": 1,

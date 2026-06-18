@@ -1,11 +1,12 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import p from "./10606.js";
 import o from "./12176.js";
 import m, { mb } from "./13337.js";
-import g, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import h from "./26853.js";
 import b from "./28694.js";
 import A from "./35488.js";
@@ -17,6 +18,7 @@ import l from "./69164.js";
 import f, { hf } from "./72476.js";
 import i from "./83957.js";
 import { A as A_1 } from "./90765.js";
+
 let n;
 const a = i;
 const y = b;

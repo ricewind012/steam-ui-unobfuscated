@@ -1,14 +1,14 @@
 import { type RefObject, useEffect } from "react";
 
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { bind } from "../../actual_src/utils/bind.js";
-import { e0 } from "../../actual_src/utils/callbackutils/index.js";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { bind } from "@actual_src/utils/bind.js";
+import { e0 } from "@actual_src/utils/callbackutils/index.js";
 
-import { nN } from "../library/3524.js";
-import { useOpenerWindowContext } from "../library/11131.js";
-import { QS as some_react_utils_func } from "../library/52451.js";
-import CLogger from "../library/83599.js";
+import { nN } from "../src/library/3524.js";
+import { useOpenerWindowContext } from "../src/library/11131.js";
+import { QS as some_react_utils_hook } from "../src/library/52451.js";
+import { wd as CLogger } from "../src/library/83599.js";
 
 // later
 type CNavigationTree_t = any;
@@ -21,7 +21,7 @@ interface TreeInThisFile_t {
 	browserContext;
 }
 
-const LogDebug = new CLogger.wd("FocusNavigation").Debug;
+const LogDebug = new CLogger("FocusNavigation").Debug;
 // ??? this is named browserContext, but has an ownerWindow property?
 const LogBrowser = (browserContext, ...t) => {
 	const [r, ...n] = t;
@@ -183,23 +183,23 @@ class CBrowserViewWindowFocusCoordinator {
 const BrowserViewWindowFocusCoordinator =
 	new CBrowserViewWindowFocusCoordinator();
 
-export function a() {
-	const e = useOpenerWindowContext();
-	return some_react_utils_func(
+export function useBrowserViewRegisterNavTree() {
+	const openerWnd = useOpenerWindowContext();
+	return some_react_utils_hook(
 		(pTree: CNavigationTree_t) => {
 			if (pTree) {
 				return BrowserViewWindowFocusCoordinator.RegisterNavTree(
 					pTree.id,
 					pTree,
-					e,
+					openerWnd,
 				);
 			}
 		},
-		[e],
+		[openerWnd],
 	);
 }
 
-export function Z(
+export function useBrowserViewSetNavTreeOnFocus(
 	strBrowserName: string,
 	pBrowserView,
 	navRef: RefObject<CNavigationTree_t>,

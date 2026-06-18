@@ -1,8 +1,9 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import h from "./10975.js";
 import A from "./12307.js";
 import i from "./35488.js";
-import a, { PA } from "./41230.js";
+import { PA } from "./41230.js";
 import c from "./43014.js";
 import { P4 } from "./52192.js";
 import d from "./53622.js";
@@ -12,6 +13,7 @@ import g from "./69164.js";
 import l from "./85360.js";
 import s from "./86078.js";
 import { A as A_1 } from "./90765.js";
+
 const o = s;
 export const eu = PA((e) => {
 	const t = l.v3.EditingConfiguration;

@@ -1,6 +1,7 @@
 import i from "./6831.js";
 import n from "./63696.js";
 import { A } from "./90765.js";
+
 const a = i;
 export function H(e) {
 	const { onClick } = e;

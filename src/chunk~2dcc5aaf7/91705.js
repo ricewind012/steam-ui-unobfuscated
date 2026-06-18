@@ -1,6 +1,7 @@
 import n from "./1252.js";
 import a, { xv } from "./72476.js";
 import i from "./87935.js";
+
 const s = {
 	koreana: "korean",
 	schinese: "simplified chinese",

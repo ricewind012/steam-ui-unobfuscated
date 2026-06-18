@@ -1,6 +1,7 @@
 import a from "./33175.js";
 import n from "./63696.js";
 import { A } from "./90765.js";
+
 const s = a;
 export const _ = n.forwardRef(
 	({ imgURL, glow, pauseAnimation, hidden, alt, className }, c) => {

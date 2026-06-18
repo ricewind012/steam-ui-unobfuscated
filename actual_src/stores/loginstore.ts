@@ -1,10 +1,11 @@
 // Webpack module ID: 33512
 
-import { ELoginState } from "@steamclient_types/User.js";
-import { EResult } from "@steamclient_types/shared.js";
 import { action, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
+
 import { tG as LoginLog } from "../../src/chunk~2dcc5aaf7/87232.js";
+import { EResult } from "@steamclient_types/shared.js";
+import { ELoginState } from "@steamclient_types/User.js";
 
 class CLoginStore {
 	m_hLoginStateChange = null;

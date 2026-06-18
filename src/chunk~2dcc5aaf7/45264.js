@@ -1,10 +1,12 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { jE } from "./3715.js";
 import { NL, n2, oh, rT } from "./23472.js";
 import { n as n_1 } from "./26667.js";
 import { Sy } from "./38602.js";
-import i, { I } from "./61416.js";
+import { I } from "./61416.js";
 import n from "./63696.js";
+
 const m = new (require(/*webcrack:missing*/ "./83599.js").wd)(
 	"GameNotesCloudStore",
 ).Debug;

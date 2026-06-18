@@ -1,9 +1,10 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import d from "./22091.js";
-import l, { PA } from "./41230.js";
-import C, { l as l_1 } from "./47742.js";
+import { PA } from "./41230.js";
+import { l as l_1 } from "./47742.js";
 import p from "./61657.js";
-import A, { ui } from "./62486.js";
+import { ui } from "./62486.js";
 import n from "./63696.js";
 import s from "./64608.js";
 import u from "./69164.js";
@@ -12,7 +13,8 @@ import i from "./78325.js";
 import a from "./83013.js";
 import m, { Ij } from "./85360.js";
 import g from "./86196.js";
-import o, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
+
 const f = a.VisualizerColorOuterDZ;
 const b = a.VisualizerColorActiveArea;
 const y = [

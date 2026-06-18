@@ -1,13 +1,12 @@
 // Webpack module ID: 96593
 
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import {
 	LocalizationManager,
 	Localize,
 	LocalizeCalendarTimeLessGranular,
 	LocalizeCalendarYear,
 } from "../../actual_src/utils/localization.js";
-
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import * as g from "./5640.js";
 import n, { Cg } from "./34629.js";
 import * as h from "./34792.js";
@@ -19,11 +18,12 @@ import * as p from "./52451.js";
 import * as m from "./74995.js";
 import * as A from "./83599.js";
 import * as C from "./87935.js";
-import s, { Gn, EW } from "./89193.js";
+import s, { EW, Gn } from "./89193.js";
 import o, { q3 } from "./90095.js";
 import * as b from "./91789.js";
 import { YI } from "./95877.js";
 import * as _ from "./96000.js";
+
 const y = new A.wd("AppStore");
 const S = {
 	appid: {},

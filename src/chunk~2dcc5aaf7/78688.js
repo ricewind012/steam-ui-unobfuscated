@@ -12,6 +12,7 @@ import a from "./78325.js";
 import l, { s as s_1 } from "./81255.js";
 import p from "./83599.js";
 import { b$ } from "./90242.js";
+
 const C = new p.wd("VirtualizedBoxCarousel").Debug;
 export const X = i.forwardRef((props, ref) => {
 	const { name, initialColumn } = props;

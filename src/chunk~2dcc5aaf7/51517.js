@@ -1,7 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import i from "./12774.js";
-import a, { uD } from "./52451.js";
-import n from "./63696.js";
+import { uD } from "./52451.js";
 import s from "./78110.js";
 export function Q(e) {
 	const { active, onOK, closeModal, bCloseOnOK, children, ...m } = e;

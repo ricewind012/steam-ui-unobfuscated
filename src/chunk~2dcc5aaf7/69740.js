@@ -1,19 +1,20 @@
-import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
+import { ESteamRealm } from "@actual_src/clienttypes/realm.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
 import {
-	CLocLanguageArray,
-	CLocalizationManager,
-	GetConfiguredLocale,
-	Localize,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    CLocalizationManager,
+    CLocLanguageArray,
+    GetConfiguredLocale,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
 import d from "./823.js";
 import p from "./5859.js";
 import l from "./8573.js";
 import A from "./12956.js";
 import { OQ } from "./31958.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import { v6 } from "./36885.js";
-import i, { Yj, zV } from "./72388.js";
+import { Yj, zV } from "./72388.js";
 import u from "./78771.js";
 import m from "./88341.js";
 import s, { Gn } from "./89193.js";
@@ -21,10 +22,11 @@ import { rG } from "./98670.js";
 import "./83957.js";
 import "./63696.js";
 import "./16154.js";
-import b, { aX, bC } from "./51095.js";
+import { aX, bC } from "./51095.js";
 import f from "./72476.js";
 import "./41180.js";
 import y from "./93960.js";
+
 const o = {
 	bBroadcastEnabled: false,
 	broadcastChatSetting: "hide",

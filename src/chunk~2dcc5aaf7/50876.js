@@ -1,28 +1,28 @@
 import {
-	BLocStringExists,
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizePlural,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-
+    GetOwningWindowForElement,
+    GetOwningWindowForEvent,
+} from "@actual_src/utils/domutils.js";
+import { CC } from "@actual_src/utils/localization/datetime.js";
 import {
-	GetOwningWindowForElement,
-	GetOwningWindowForEvent,
-} from "../../actual_src/utils/domutils.js";
-import { CC } from "../../actual_src/utils/localization/datetime.js";
+    BLocStringExists,
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizePlural,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import y from "./1470.js";
 import h from "./3475.js";
-import S, { l9, hb as hb_2 } from "./5640.js";
-import i, { Qt as Qt_1, bG } from "./18057.js";
-import w, { wT } from "./28934.js";
-import l, { VI, t0, hX, Tr as Tr_2, e_ as e, I5, sE, Hg } from "./34792.js";
+import S, { hb as hb_2, l9 } from "./5640.js";
+import i, { bG, Qt as Qt_1 } from "./18057.js";
+import { wT } from "./28934.js";
+import l, { Hg, hX, I5, sE, Tr as Tr_2, t0, VI } from "./34792.js";
 import u from "./35488.js";
 import E from "./37086.js";
-import s, { gk, FA, oM, LC } from "./46422.js";
+import s, { FA, gk, LC, oM } from "./46422.js";
 import f from "./48331.js";
-import D, { xU, In as In_2, fW } from "./51943.js";
-import N, { vJ, uN, Sz, uD, gc, _g } from "./52451.js";
+import { fW, In as In_2, xU } from "./51943.js";
+import N, { _g, gc, Sz, uD, uN, vJ } from "./52451.js";
 import _ from "./57472.js";
 import n from "./63696.js";
 import m from "./64608.js";
@@ -30,41 +30,42 @@ import c from "./67863.js";
 import B from "./69164.js";
 import a from "./70519.js";
 import C, {
-	hf,
-	uI,
-	Y2,
-	Qn as Qn_2,
-	TL,
-	CI,
-	rP,
-	td,
-	Pr as Pr_2,
+    CI,
+    hf,
+    Pr as Pr_2,
+    Qn as Qn_2,
+    rP,
+    TL,
+    td,
+    uI,
+    Y2,
 } from "./72476.js";
 import k from "./74362.js";
-import p, { U as U_2 } from "./83184.js";
+import { U as U_2 } from "./83184.js";
 import R from "./83247.js";
-import o, { C2 } from "./89411.js";
-import I, { IU, qw, ZW, iZ } from "./89748.js";
-import T, { q3 } from "./90095.js";
-import d, { A } from "./90765.js";
+import { C2 } from "./89411.js";
+import { IU, iZ, qw, ZW } from "./89748.js";
+import { q3 } from "./90095.js";
+import { A } from "./90765.js";
 import F, { li as li_2 } from "./96593.js";
 import "./91040.js";
 import {
-	BSharedJSContextHasMethod,
-	BSteamClientHasMethod,
-} from "../../actual_src/steamclient/clientinterfacehelpers.js";
+    BSharedJSContextHasMethod,
+    BSteamClientHasMethod,
+} from "@actual_src/steamclient/clientinterfacehelpers.js";
 import {
-	Iz,
-	KO,
-	Pi as Pi_2,
-	cg,
-	d$,
-	sr as sr_2,
-} from "../../actual_src/stores/25467.js";
+    cg,
+    d$,
+    Iz,
+    KO,
+    Pi as Pi_2,
+    sr as sr_2,
+} from "@actual_src/stores/25467.js";
+
 import Sr from "./2053.js";
 import me from "./2306.js";
 import Kt from "./3015.js";
-import { VB, rg } from "./3142.js";
+import { rg, VB } from "./3142.js";
 import Wn from "./3289.js";
 import $ from "./4406.js";
 import Bn from "./4690.js";
@@ -81,11 +82,11 @@ import We from "./11714.js";
 import { T2 } from "./12491.js";
 import ti from "./13277.js";
 import { BN, FO, Qx, R9 } from "./13656.js";
-import K, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import ue from "./13897.js";
 import { kN } from "./13925.js";
 import mn from "./17231.js";
-import Ce, { vB, DP } from "./17386.js";
+import Ce, { DP, vB } from "./17386.js";
 import { br as br_2, tn as tn_2 } from "./18869.js";
 import ar from "./22091.js";
 import ct from "./22136.js";
@@ -98,35 +99,35 @@ import he from "./28351.js";
 import Ni from "./30449.js";
 import { pw } from "./31319.js";
 import { dm } from "./34428.js";
-import Z, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import Ut from "./34776.js";
-import Pe, { _x, Ru, TD, T0, yc, Wy, MC, MH, zg, xs, Xs } from "./34819.js";
+import Pe, { _x, MC, MH, Ru, T0, TD, Wy, Xs, xs, yc, zg } from "./34819.js";
 import ur from "./37141.js";
 import ze from "./38660.js";
 import { gQ } from "./39002.js";
 import kr from "./39940.js";
 import { PA } from "./41230.js";
 import { G$, zK } from "./42983.js";
-import lr, { FN } from "./43152.js";
-import ut, { ak, sf } from "./44846.js";
+import { FN } from "./43152.js";
+import { ak, sf } from "./44846.js";
 import { K as K_2 } from "./46085.js";
 import xn, { LK } from "./48289.js";
 import Zr from "./48969.js";
 import Di from "./49180.js";
-import Qt, { W6 } from "./49519.js";
+import { W6 } from "./49519.js";
 import Zt from "./50376.js";
 import re from "./51297.js";
 import { M as M_2 } from "./51517.js";
 import ri from "./52733.js";
 import sr from "./53453.js";
 import sn, { PA as PA_2 } from "./56970.js";
-import Yt, { Ss, M3 } from "./57016.js";
+import Yt, { M3, Ss } from "./57016.js";
 import ir from "./57421.js";
 import { T as T_1 } from "./59718.js";
 import ee from "./61277.js";
 import { f as f_2 } from "./63538.js";
 import Un from "./63713.js";
-import Qr, { F2, TN, d0, dN } from "./64004.js";
+import Qr, { d0, dN, F2, TN } from "./64004.js";
 import Hr from "./65424.js";
 import J, { CN, gU, nR } from "./66186.js";
 import pn from "./66531.js";
@@ -134,7 +135,7 @@ import j from "./66943.js";
 import lt from "./68120.js";
 import un from "./68608.js";
 import { W6 as W6_2 } from "./69913.js";
-import mr, { TR, Tr as Tr_2, sf as sf_2, oS, dT } from "./74416.js";
+import mr, { dT, oS, sf as sf_2, TR } from "./74416.js";
 import Ir from "./75085.js";
 import pt from "./75961.js";
 import { Id, N4 } from "./77347.js";
@@ -164,6 +165,7 @@ import "./41480.js";
 import ma, { BGameRecordingFeatureEnabled } from "./4069.js";
 import { I as I_2 } from "./61416.js";
 import na from "./75144.js";
+
 const b = f;
 function v(e) {
 	const { feature: t, disabled: r, ...i } = e;

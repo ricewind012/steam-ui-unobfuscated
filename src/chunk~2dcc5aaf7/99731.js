@@ -1,30 +1,32 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import I, { sO } from "./5640.js";
+import { useBrowserViewSetNavTreeOnFocus } from "@actual_src/browserview_windowfocuscoordinator.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { sO } from "./5640.js";
 import p from "./8436.js";
-import D, { w as w_1 } from "./10501.js";
-import y, { Ju } from "./10606.js";
-import l, { G7 } from "./20893.js";
-import i, { Xp } from "./33572.js";
+import { w as w_1 } from "./10501.js";
+import { Ju } from "./10606.js";
+import { G7 } from "./20893.js";
+import { Xp } from "./33572.js";
 import B from "./35488.js";
-import R, { Nr } from "./42318.js";
-import d, { gc, hL, cZ } from "./52451.js";
+import { Nr } from "./42318.js";
+import { cZ, gc, hL } from "./52451.js";
 import m from "./61657.js";
 import s from "./63696.js";
 import k from "./64608.js";
 import o from "./69164.js";
 import A, { rP } from "./72476.js";
 import f from "./73375.js";
-import E, { N4 } from "./77347.js";
+import { N4 } from "./77347.js";
 import w from "./81994.js";
 import c from "./82011.js";
 import u from "./83599.js";
 import v from "./87935.js";
-import _, { q3 } from "./90095.js";
-import S, { A as A_1 } from "./90765.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
 import M from "./94746.js";
-import a, { l5 } from "./96555.js";
-import T, { $2 } from "./96680.js";
-import  { Z } from "./browserview_windowfocuscoordinator.js";
+import { l5 } from "./96555.js";
+import { $2 } from "./96680.js";
+
 const g = p;
 const h = new u.wd("GamepadEvents").Debug;
 function C(e) {
@@ -43,7 +45,12 @@ function C(e) {
 			return () => SteamClient.Input.SetWebBrowserActionset(false);
 		}
 	}, [E]);
-	Z(browser.name, browser.GetBrowser(), navRef, bMaybeFocus && visible);
+	useBrowserViewSetNavTreeOnFocus(
+		browser.name,
+		browser.GetBrowser(),
+		navRef,
+		bMaybeFocus && visible,
+	);
 	s.useEffect(() => {
 		if (visible && autoFocus) {
 			navRef.current.TakeFocus();

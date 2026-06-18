@@ -1,8 +1,10 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import i, { vo, WN, ko, VK } from "./15897.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { ko, VK, vo, WN } from "./15897.js";
 import o from "./23394.js";
 import n from "./63696.js";
 import s from "./64608.js";
+
 function L(e) {
 	const { colorHex } = e;
 	const r = colorHex.length > 7 ? `${colorHex.slice(0, -2)}FF` : colorHex;

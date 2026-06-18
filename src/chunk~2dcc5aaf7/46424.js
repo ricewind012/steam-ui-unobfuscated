@@ -1,19 +1,20 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import { AH, aF, jy } from "./5808.js";
 import c from "./10606.js";
 import { R7 } from "./11131.js";
-import l, { mK } from "./13869.js";
+import { mK } from "./13869.js";
 import { Qt } from "./18057.js";
-import S, { br } from "./18869.js";
+import { br } from "./18869.js";
 import f from "./22639.js";
 import B from "./23783.js";
 import { lX } from "./31084.js";
-import b, { Np } from "./32700.js";
-import n, { Cg } from "./34629.js";
+import { Np } from "./32700.js";
+import { Cg } from "./34629.js";
 import A from "./35062.js";
 import R from "./35488.js";
 import u, { PA } from "./41230.js";
@@ -25,12 +26,13 @@ import v, { Qn, rP } from "./72476.js";
 import C from "./87935.js";
 import M from "./88750.js";
 import { q3 } from "./90095.js";
-import g, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import w from "./90985.js";
 import o from "./91486.js";
 import D from "./93681.js";
 import s from "./96593.js";
-import E, { $2 } from "./96680.js";
+import { $2 } from "./96680.js";
+
 const _p = A;
 class F extends i.Component {
 	TwoDigitDurationString(e) {

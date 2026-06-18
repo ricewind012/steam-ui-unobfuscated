@@ -1,28 +1,28 @@
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	LocalizeCalendarTime,
-	LocalizeRTimeToHourAndMinutes,
-	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization/datetime.js";
+    LocalizeCalendarTime,
+    LocalizeRTimeToHourAndMinutes,
+    LocalizeRtime32ToShorterDate,
+} from "@actual_src/utils/localization/datetime.js";
+import {
+    BLocStringExists,
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
 
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import {
-	BLocStringExists,
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
-import { Seconds } from "../../actual_src/utils/time.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import W from "./4690.js";
 import g, { oA } from "./5640.js";
 import G, { jy, zq } from "./5808.js";
-import U, { tf, KV } from "./18057.js";
-import q, { br } from "./18869.js";
+import U, { KV, tf } from "./18057.js";
+import { br } from "./18869.js";
 import O from "./20797.js";
 import L from "./20893.js";
 import _ from "./30496.js";
 import { lX } from "./31084.js";
-import y, { dm } from "./34428.js";
-import n, { Cg } from "./34629.js";
+import { dm } from "./34428.js";
+import { Cg } from "./34629.js";
 import h, { t0, VI } from "./34792.js";
 import v from "./35488.js";
 import R, { ZC } from "./39147.js";
@@ -37,21 +37,22 @@ import a from "./64608.js";
 import V from "./66830.js";
 import T from "./69164.js";
 import { Kp } from "./70239.js";
-import u, { Qn } from "./72476.js";
+import { Qn } from "./72476.js";
 import A, { T as T_1 } from "./78057.js";
 import l from "./79671.js";
 import C from "./87935.js";
 import I from "./88696.js";
 import F from "./88750.js";
-import m, { qw } from "./89748.js";
-import o, { q3 } from "./90095.js";
+import { qw } from "./89748.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import P from "./91152.js";
 import k from "./91486.js";
 import D from "./92031.js";
 import c from "./96593.js";
-import p, { zM, bm, v_ as v_1, vO, JD, MD, vH, eC, dZ } from "./97893.js";
+import p, { bm, dZ, eC, JD, MD, v_ as v_1, vH, vO, zM } from "./97893.js";
 import w from "./98995.js";
+
 const H = V;
 function Y(e) {
 	SteamClient.Downloads.SuspendLanPeerContent(true);

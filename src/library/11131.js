@@ -1,12 +1,12 @@
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
 import {
 	AddMissingStylesheetsToWindow,
 	AddStylesheetsToDocument,
 	GetStyleSheetLinks,
-} from "../../actual_src/utils/domutils.js";
+} from "@actual_src/utils/domutils.js";
+import { GetConfiguredLocale } from "@actual_src/utils/localization.js";
 
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { GetConfiguredLocale } from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import u from "./17385.js";
 import { Cg } from "./34629.js";
 import o from "./44846.js";

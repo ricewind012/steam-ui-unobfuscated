@@ -1,4 +1,5 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import r from "./12368.js";
 import s from "./59139.js";
 export class A extends r.P {

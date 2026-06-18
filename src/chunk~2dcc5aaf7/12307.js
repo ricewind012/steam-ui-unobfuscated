@@ -1,29 +1,31 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./4690.js";
 import a from "./5640.js";
 import h from "./10975.js";
 import g from "./15181.js";
 import u from "./21105.js";
 import f, { K$, Qh } from "./22004.js";
-import M, { X2 } from "./31319.js";
-import E, { Mi } from "./31800.js";
+import { X2 } from "./31319.js";
+import { Mi } from "./31800.js";
 import I, { K9 } from "./33000.js";
-import T, { we } from "./33572.js";
+import { we } from "./33572.js";
 import l from "./35488.js";
-import s, { PA } from "./41230.js";
+import { PA } from "./41230.js";
 import _ from "./43014.js";
 import n from "./43520.js";
-import c, { W5, W6, B6 } from "./49519.js";
+import { B6, W5, W6 } from "./49519.js";
 import { Pt, Ue } from "./52451.js";
 import i from "./53622.js";
 import d from "./61657.js";
 import w from "./62645.js";
 import o from "./63696.js";
 import m from "./69164.js";
-import p, { Pl } from "./71255.js";
+import { Pl } from "./71255.js";
 import { rP } from "./72476.js";
 import { A as A_1 } from "./90765.js";
 import C from "./94361.js";
+
 var B = w;
 export const xC = PA(function (e) {
 	const { tabs, ...r } = e;

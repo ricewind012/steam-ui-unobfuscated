@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import * as d from "./10606.js";
 import * as i from "./21618.js";
 import * as o from "./34394.js";

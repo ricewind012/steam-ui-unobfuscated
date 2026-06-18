@@ -1,8 +1,10 @@
-import { Seconds } from "../../actual_src/utils/time.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
 import { Cg } from "./34629.js";
 import l, { xv } from "./72476.js";
 import i from "./83957.js";
 import s, { Gn } from "./89193.js";
+
 const a = i;
 const Seconds_PerMinute = Seconds.PerMinute;
 export class n {

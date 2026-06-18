@@ -1,28 +1,30 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizePlural,
+} from "@actual_src/utils/localization.js";
+
 import u from "./1965.js";
 import s from "./12767.js";
 import S from "./26271.js";
-import d, { lX } from "./31084.js";
+import { lX } from "./31084.js";
 import i from "./31958.js";
 import g from "./34792.js";
 import v from "./38731.js";
 import w, { S1 } from "./43520.js";
 import a from "./44846.js";
-import l, { H_ as H } from "./47801.js";
+import { H_ as H } from "./47801.js";
 import f from "./60712.js";
 import n from "./63696.js";
 import y from "./69164.js";
 import m from "./87935.js";
 import c from "./88244.js";
 import A from "./88750.js";
-import C, { A as A_1 } from "./90765.js";
-import p, { N as N_1 } from "./94715.js";
+import { A as A_1 } from "./90765.js";
+import { N as N_1 } from "./94715.js";
 import h from "./98995.js";
-import E, { wY } from "./99251.js";
+import { wY } from "./99251.js";
+
 const _ =
 	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAAEFCAYAAAD60+tkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALuSURBVHhe7dMxAcAwDMCwdCjDn0j7jIMf6TECn929AyS+v0DAgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwIIQNCyIAQMiCEDAghA0LIgBAyIIQMCCEDQsiAEDIghAwImZkHnS8EEZhTJo8AAAAASUVORK5CYII=";
 const b = f;

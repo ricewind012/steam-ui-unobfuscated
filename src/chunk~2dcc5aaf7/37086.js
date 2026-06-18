@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import w from "./1470.js";
 import s from "./10975.js";
 import y from "./12316.js";
@@ -7,7 +8,7 @@ import l from "./13869.js";
 import n from "./18057.js";
 import o from "./22047.js";
 import C, { nT } from "./24287.js";
-import m, { Xf } from "./31319.js";
+import { Xf } from "./31319.js";
 import { Nr } from "./42318.js";
 import b from "./44351.js";
 import i from "./50350.js";
@@ -15,9 +16,10 @@ import { r4 } from "./50876.js";
 import a from "./63696.js";
 import _ from "./67444.js";
 import g from "./78110.js";
-import u, { qw } from "./89748.js";
+import { qw } from "./89748.js";
 import S from "./90242.js";
-import A, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
+
 const f = _;
 function B() {
 	a.useEffect(() => {

@@ -1,5 +1,6 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import n, { Cg } from "./34629.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
+import { Cg } from "./34629.js";
 import o from "./37499.js";
 import a, { QS } from "./52451.js";
 import { Ln } from "./53807.js";

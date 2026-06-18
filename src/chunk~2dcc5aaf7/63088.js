@@ -1,9 +1,11 @@
-import { CLocalizationManager } from "../../actual_src/utils/localization.js";
+import { CLocalizationManager } from "@actual_src/utils/localization.js";
+
 import i from "./12176.js";
 import l from "./31930.js";
 import s from "./42318.js";
 import n from "./63696.js";
 import a from "./99104.js";
+
 async function c(e, t = "SHA-256") {
 	let r;
 	let n;

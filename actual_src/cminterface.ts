@@ -1,23 +1,25 @@
-import { XI, fm, makeAutoObservable, sH } from "mobx";
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils/index.js";
-import { GetUnixTime } from "../../actual_src/utils/time.js";
-import { JS } from "./1691.js";
-import { b as CSteamID } from "./8573.js";
-import { lI, w as w_1 } from "./12176.js";
-import { pV } from "./16583.js";
-import { $ as CCMInterfaceMessageHandlers } from "./25265.js";
-import { gF } from "./29218.js";
+import { action, autorun, makeAutoObservable, observable } from "mobx";
+
+import { CCMInterfaceMessageHandlers } from "@actual_src/cminterface_messagehandlers.js";
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils/index.js";
+import { GetUnixTime } from "@actual_src/utils/time.js";
+
+import { JS } from "../src/library/1691.js";
+import { b as CSteamID } from "../src/library/8573.js";
+import { lI, w as w_1 } from "../src/library/12176.js";
+import { pV } from "../src/library/16583.js";
+import { gF } from "../src/library/29218.js";
+import { kF } from "../src/library/44846.js";
+import { HW } from "../src/library/49395.js";
+import { iA, TS } from "../src/library/72476.js";
+import { el } from "../src/library/82755.js";
+import { c1, dX, Q_, Sb, s5 } from "../src/library/94195.js";
 import { Cg } from "./34629.js";
 import { bg, iI } from "./37322.js";
-import { kF } from "./44846.js";
-import { HW } from "./49395.js";
 import { inflate } from "./53048.js";
-import { TS, iA } from "./72476.js";
-import { el } from "./82755.js";
 import * as E from "./83957.js";
-import { Q_, Sb, c1, dX, s5 } from "./94195.js";
 
 class CCMCallbackList {
 	m_bRunOnce = false;
@@ -86,6 +88,7 @@ class CMInterface {
 	constructor() {
 		makeAutoObservable(this);
 		this.m_ServiceTransport = {
+			MakeReady: this.MakeReady.bind(this),
 			SendMsg: (target_job_name, proto_msg_base, n) => {
 				if (
 					proto_msg_base.GetEMsg() === undefined ||
@@ -106,7 +109,6 @@ class CMInterface {
 				proto_msg_base.Hdr().set_target_job_name(target_job_name);
 				return this.Send(proto_msg_base);
 			},
-			MakeReady: this.MakeReady.bind(this),
 		};
 		if (window && window.addEventListener) {
 			window.addEventListener("unload", (e) => {
@@ -388,23 +390,38 @@ class CMInterface {
 		return new Date(e * 1000 + this.m_nWallClockDriftMS);
 	}
 }
-Cg([sH], CMInterface.prototype, "m_steamid", undefined);
-Cg([sH], CMInterface.prototype, "m_bLoggedOn", undefined);
-Cg([sH], CMInterface.prototype, "m_bCompletedInitialConnect", undefined);
-Cg([sH], CMInterface.prototype, "m_unAccountFlags", undefined);
-Cg([sH], CMInterface.prototype, "m_strIPCountry", undefined);
-Cg([sH], CMInterface.prototype, "m_strPersonaName", undefined);
-Cg([sH], CMInterface.prototype, "m_rtReconnectThrottleStart", undefined);
-Cg([sH], CMInterface.prototype, "m_rtReconnectThrottleExpiration", undefined);
-Cg([sH], CMInterface.prototype, "m_bConnected", undefined);
+Cg([observable], CMInterface.prototype, "m_steamid", undefined);
+Cg([observable], CMInterface.prototype, "m_bLoggedOn", undefined);
 Cg(
-	[sH],
+	[observable],
+	CMInterface.prototype,
+	"m_bCompletedInitialConnect",
+	undefined,
+);
+Cg([observable], CMInterface.prototype, "m_unAccountFlags", undefined);
+Cg([observable], CMInterface.prototype, "m_strIPCountry", undefined);
+Cg([observable], CMInterface.prototype, "m_strPersonaName", undefined);
+Cg(
+	[observable],
+	CMInterface.prototype,
+	"m_rtReconnectThrottleStart",
+	undefined,
+);
+Cg(
+	[observable],
+	CMInterface.prototype,
+	"m_rtReconnectThrottleExpiration",
+	undefined,
+);
+Cg([observable], CMInterface.prototype, "m_bConnected", undefined);
+Cg(
+	[observable],
 	CMInterface.prototype,
 	"m_bPerformedInitialClockAdjustment",
 	undefined,
 );
-Cg([XI], CMInterface.prototype, "DispatchMessage", null);
-Cg([XI], CMInterface.prototype, "OnDisconnect", null);
+Cg([action], CMInterface.prototype, "DispatchMessage", null);
+Cg([action], CMInterface.prototype, "OnDisconnect", null);
 
 export class CMInterfaceSharedClientConnection extends CMInterface {
 	m_hSharedConnection: number;
@@ -554,7 +571,7 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 		if (this.m_hEMsgRegistrationObserver) {
 			this.m_hEMsgRegistrationObserver();
 		}
-		this.m_hEMsgRegistrationObserver = fm(() => {
+		this.m_hEMsgRegistrationObserver = autorun(() => {
 			if (this.m_hSharedConnection) {
 				for (let e of this.m_messageHandlers.emsg_list) {
 					if (!this.m_setEMsgHandlers.has(e)) {
@@ -636,13 +653,13 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 	}
 }
 Cg(
-	[XI],
+	[action],
 	CMInterfaceSharedClientConnection.prototype,
 	"OnLogonInfoChanged",
 	null,
 );
 Cg(
-	[XI.bound],
+	[action.bound],
 	CMInterfaceSharedClientConnection.prototype,
 	"OnConnectionAttemptThrottled",
 	null,
@@ -970,8 +987,8 @@ async function L() {
 	const n = (t && t.response && t.response.serverlist) || [];
 	n.length;
 	return n.map((e, t) => ({
-		strHost: e.endpoint,
 		nPriority: t,
+		strHost: e.endpoint,
 	}));
 }
 
@@ -982,10 +999,10 @@ function k(e) {
 export class pn extends CMInterface {
 	m_Session = {
 		m_bWaitingForLogonResponse: false,
-		m_nSessionID: 0,
 		m_eResultLogonSuccess: 2,
-		m_nSessionIDLast: 0,
 		m_nClientInstanceID: "0",
+		m_nSessionID: 0,
+		m_nSessionIDLast: 0,
 	};
 	m_Socket;
 	m_SocketCMHost;
@@ -1163,9 +1180,9 @@ export class pn extends CMInterface {
 			e.Hdr().set_jobid_source(`${i}`);
 			if (this.Send(e)) {
 				this.m_mapWaitingCallbacks.set(i, {
+					fnCallback: n,
 					iSeq: i,
 					msgClass: t,
-					fnCallback: n,
 				});
 			} else {
 				this.ResolveAwaitWithTransportError(
@@ -1276,4 +1293,4 @@ export class pn extends CMInterface {
 		}
 	}
 }
-Cg([XI], pn.prototype, "DecodeAndDispatchMultiMsg", null);
+Cg([action], pn.prototype, "DecodeAndDispatchMultiMsg", null);

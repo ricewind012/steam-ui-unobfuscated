@@ -1,19 +1,22 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import m from "./8573.js";
 import a, { I8 } from "./12176.js";
 import s from "./18644.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import i from "./44234.js";
 import d from "./48307.js";
 import O from "./52451.js";
 import u from "./58663.js";
-import P, { Gn, lB, mJ, sH, fm, z7 } from "./89193.js";
+import P, { fm, Gn, lB, mJ, sH, z7 } from "./89193.js";
 import l from "./91369.js";
 import c from "./95773.js";
 import o from "./97838.js";
 import "./72476.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import qe from "./6660.js";
 import te from "./36383.js";
 import Ye from "./49180.js";

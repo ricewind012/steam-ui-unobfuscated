@@ -1,4 +1,5 @@
 import n from "./63696.js";
+
 const IContext = n.createContext({
 	mode: "page",
 	store: null,

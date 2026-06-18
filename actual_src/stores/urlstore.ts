@@ -1,5 +1,6 @@
 import { makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
+
 import { uX as k_EParentalFeature_None } from "../../src/chunk~2dcc5aaf7/3475.js";
 import {
 	f2 as BuildStoreAppDlcURL,

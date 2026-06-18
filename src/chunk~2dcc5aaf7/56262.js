@@ -1,11 +1,10 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizeReact,
-	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizeReact,
+    LocalizeRtime32ToShorterDate,
+} from "@actual_src/utils/localization.js";
 
 import h from "./5640.js";
 import M from "./8573.js";
@@ -14,9 +13,9 @@ import { TE, zI } from "./13200.js";
 import l from "./14982.js";
 import o, { Qt } from "./18057.js";
 import { lX } from "./31084.js";
-import s, { Bb } from "./32700.js";
-import n, { Cg } from "./34629.js";
-import a, { ul } from "./36464.js";
+import { Bb } from "./32700.js";
+import { Cg } from "./34629.js";
+import { ul } from "./36464.js";
 import b, { PA } from "./41230.js";
 import m from "./46422.js";
 import g from "./48289.js";
@@ -31,8 +30,8 @@ import I from "./90242.js";
 import i from "./91486.js";
 import A from "./96000.js";
 import d from "./96593.js";
-import f, { $2 } from "./96680.js";
-import p, { MD, eC, Z5 } from "./97893.js";
+import { $2 } from "./96680.js";
+import p, { eC, MD, Z5 } from "./97893.js";
 import "./74995.js";
 import q from "./2326.js";
 import V, { zq } from "./5808.js";
@@ -55,14 +54,15 @@ import { Uy } from "./55571.js";
 import j from "./56726.js";
 import U, { Qn } from "./72476.js";
 import { Id, If } from "./77347.js";
-import z, { l as l_1 } from "./80254.js";
-import H, { f as f_1 } from "./81884.js";
+import { l as l_1 } from "./80254.js";
+import { f as f_1 } from "./81884.js";
 import { t7 } from "./82594.js";
 import K from "./88696.js";
 import { qw } from "./89748.js";
 import { A as A_1 } from "./90765.js";
 import Q from "./96821.js";
 import F from "./98995.js";
+
 var Z = Q;
 var Y;
 const le = false;

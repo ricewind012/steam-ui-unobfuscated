@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect } from "react";
+
 import { gc } from "./42898.js";
 
 const NavigationContext = createContext(undefined);

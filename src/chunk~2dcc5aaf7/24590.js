@@ -1,11 +1,13 @@
-import { CopyTextToClipboard } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
-import l, { R7 } from "./11131.js";
+import { CopyTextToClipboard } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { R7 } from "./11131.js";
 import A from "./24892.js";
 import { lX } from "./31084.js";
 import u from "./43691.js";
 import a from "./63696.js";
 import d from "./88750.js";
+
 let n;
 let i;
 ((e) => {

@@ -1,7 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import a from "./10606.js";
 import { pg } from "./13869.js";
-import n from "./63696.js";
 export function J(e) {
 	pg(<L />, e || window, {
 		strTitle: (0, Localize)("#VideoError_PlaybackUnsupported"),

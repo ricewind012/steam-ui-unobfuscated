@@ -1,16 +1,17 @@
-import { Localize } from "../../actual_src/utils/localization.js";
 import {
-	ETimeSinceSuffix,
-	LocalizeTimeSince,
-} from "../../actual_src/utils/localization/datetime.js";
+    ETimeSinceSuffix,
+    LocalizeTimeSince,
+} from "@actual_src/utils/localization/datetime.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import u from "./10606.js";
-import d, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import o from "./19999.js";
-import c, { Qi, Kh, AF, Mi } from "./27710.js";
+import c, { AF, Kh, Mi, Qi } from "./27710.js";
 import m from "./30449.js";
 import { pw } from "./31319.js";
 import a from "./35488.js";
-import A, { LC } from "./46422.js";
+import { LC } from "./46422.js";
 import { Bx } from "./55489.js";
 import f from "./56970.js";
 import C from "./61657.js";
@@ -19,6 +20,7 @@ import i from "./64608.js";
 import _ from "./69164.js";
 import { Nx } from "./71033.js";
 import s from "./85243.js";
+
 function y(e) {
 	const { sLabel, fnCheck } = e;
 	return (

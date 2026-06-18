@@ -1,8 +1,10 @@
-import { LoginStore } from "../../actual_src/stores/loginstore.js";
-import { MoveElement } from "../../actual_src/utils/arrayutils.js";
-import { SubscribableValue } from "../../actual_src/utils/callbackutils";
-import { CI, VD, uV } from "./32700.js";
+import { LoginStore } from "@actual_src/stores/loginstore.js";
+import { MoveElement } from "@actual_src/utils/arrayutils.js";
+import { SubscribableValue } from "@actual_src/utils/callbackutils";
+
+import { CI, uV, VD } from "./32700.js";
 import { qt } from "./34792.js";
+
 function l(e) {
 	let t = e.Steam_Language_Selection_Label ?? "Select a language";
 	return {

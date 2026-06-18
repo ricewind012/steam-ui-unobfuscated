@@ -1,13 +1,14 @@
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { CountMatches } from "../../actual_src/utils/arrayutils.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { Localize } from "../../actual_src/utils/localization.js";
-import { Seconds } from "../../actual_src/utils/time.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { CountMatches } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+import { Localize } from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
 import C from "./8573.js";
 import g from "./8653.js";
 import h from "./12176.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import f, { f5 } from "./36383.js";
 import k from "./38849.js";
 import i from "./44234.js";

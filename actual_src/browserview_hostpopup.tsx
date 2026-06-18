@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import i from "./10606.js";
+
+import i from "../src/chunk~2dcc5aaf7/10606.js";
+import { v } from "../src/chunk~2dcc5aaf7/55700.js";
+import l from "../src/chunk~2dcc5aaf7/73375.js";
+import a from "../src/chunk~2dcc5aaf7/96500.js";
 import { R7 } from "./11131.js";
 import { Ln } from "./53807.js";
-import { v } from "./55700.js";
-import l from "./73375.js";
 import { A as BuildClassName } from "./90765.js";
-import a from "./96500.js";
+
 const s = a;
 
 interface BrowserViewHostProps {

@@ -1,4 +1,5 @@
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+
 import { Cg } from "./34629.js";
 import i from "./93960.js";
 export class Q {

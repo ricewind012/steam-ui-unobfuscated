@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./4690.js";
 import a from "./10606.js";
 import p from "./10975.js";
@@ -9,7 +10,8 @@ import n from "./63696.js";
 import i from "./64608.js";
 import _o from "./69164.js";
 import c from "./80517.js";
-import s, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
+
 const m = c;
 function H(e) {
 	const [t, setT] = n.useState(undefined);

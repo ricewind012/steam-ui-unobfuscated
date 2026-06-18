@@ -1,5 +1,7 @@
-import { BIsParentOrSelf } from "../../actual_src/utils/domutils.js";
+import { BIsParentOrSelf } from "@actual_src/utils/domutils.js";
+
 import n from "./7470.js";
+
 class a {
 	activeObject;
 	instance;

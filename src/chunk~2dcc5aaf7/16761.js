@@ -1,13 +1,15 @@
-import { Seconds } from "../../actual_src/utils/time.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import n, { Cg } from "./34629.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
+import { Cg } from "./34629.js";
 import i from "./44234.js";
 import l from "./44846.js";
-import s, { Hd } from "./50979.js";
+import { Hd } from "./50979.js";
 import m from "./83599.js";
 import _o, { Gn, h5 } from "./89193.js";
 import a, { $T } from "./89459.js";
 import p from "./95773.js";
+
 class d {
 	static k_QueueForEffect = {
 		snowball: "snowball",

@@ -1,12 +1,13 @@
 // Webpack module ID: TODO
 
 import {
-	ObservableMap,
 	action,
 	computed,
 	makeAutoObservable,
+	ObservableMap,
 	observable,
 } from "mobx";
+
 import { b as CSteamID } from "../../src/library/8573.js";
 import { TS as Config } from "../../src/library/43691.js";
 import { wd as CLogger } from "../../src/library/83599.js";

@@ -1,17 +1,19 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { o6, wh } from "./6160.js";
 import s from "./10606.js";
-import o, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import m from "./20037.js";
-import u, { Nr } from "./42318.js";
+import { Nr } from "./42318.js";
 import l from "./45309.js";
 import i from "./47296.js";
 import c from "./61277.js";
 import n from "./63696.js";
-import d, { ij, Xs, z5, OQ, Ct, kb, VA } from "./64004.js";
+import { Ct, ij, kb, OQ, VA, Xs, z5 } from "./64004.js";
 import A from "./78110.js";
 import p from "./81638.js";
 import C from "./93025.js";
+
 const g = p;
 export async function _f(e, t) {
 	console.log(`Showing streaming intro for game streaming to ${t}`);

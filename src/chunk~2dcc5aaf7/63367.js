@@ -1,6 +1,8 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import n, { Cg } from "./34629.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
+import { Cg } from "./34629.js";
 import i from "./52451.js";
+
 class s {
 	m_uiMode;
 	m_mapModeToCallbacks = new Map();

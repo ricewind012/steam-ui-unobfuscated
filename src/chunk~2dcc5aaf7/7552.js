@@ -1,16 +1,17 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import h from "./10606.js";
 import S from "./13743.js";
 import { pg } from "./13869.js";
-import m, { H } from "./16154.js";
+import { H } from "./16154.js";
 import y from "./21105.js";
 import E from "./26853.js";
-import o, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import w from "./43014.js";
 import C from "./50376.js";
 import { EK } from "./51095.js";
@@ -19,11 +20,12 @@ import s from "./56655.js";
 import n from "./63696.js";
 import g from "./64608.js";
 import a from "./69164.js";
-import A, { Tc, Qn } from "./72476.js";
+import A, { Qn, Tc } from "./72476.js";
 import f from "./81489.js";
 import l from "./83957.js";
 import i from "./90242.js";
 import { A as A_1 } from "./90765.js";
+
 const c = l;
 class p {
 	m_mapAppResults = new Map();

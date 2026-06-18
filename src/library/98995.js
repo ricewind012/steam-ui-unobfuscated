@@ -1,10 +1,12 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import l from "./57447.js";
 import r from "./63696.js";
 import i from "./78325.js";
 import s from "./90242.js";
-import a, { A } from "./90765.js";
+import { A } from "./90765.js";
 import o from "./92251.js";
+
 const u = l;
 const MContext = r.createContext({});
 const d = () => r.useContext(MContext);

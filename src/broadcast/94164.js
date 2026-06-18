@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import * as U from "./823.js";
 import * as w from "./1079.js";
 import * as P from "./5859.js";
@@ -45,6 +46,7 @@ import * as D from "./95783.js";
 import * as h from "./97510.js";
 import * as O from "./98995.js";
 import * as J from "./99447.js";
+
 const s = n;
 const C = v;
 const f = (0, o.PA)((e) => {

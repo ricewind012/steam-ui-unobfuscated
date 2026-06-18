@@ -1,8 +1,9 @@
-import { BIsParent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { BIsParent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import _, { $P, Qv } from "./14629.js";
 import b from "./34348.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import u from "./35488.js";
 import o from "./41230.js";
 import a from "./48289.js";
@@ -16,6 +17,7 @@ import i from "./77347.js";
 import c from "./88750.js";
 import { A as A_1 } from "./90765.js";
 import A from "./98995.js";
+
 const y = b;
 let S = class extends l.Component {
 	GetTooltipText(e, t) {

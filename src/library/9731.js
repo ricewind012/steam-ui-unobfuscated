@@ -1,10 +1,12 @@
 import {
-	BCanAccessDocument,
-	GetCookie,
-	SetCookie,
-} from "../../actual_src/utils/cookies.js";
-import r, { Tg } from "./31958.js";
+    BCanAccessDocument,
+    GetCookie,
+    SetCookie,
+} from "@actual_src/utils/cookies.js";
+
+import { Tg } from "./31958.js";
 import s from "./43691.js";
+
 const o = "webui_config";
 let a;
 export function KC() {

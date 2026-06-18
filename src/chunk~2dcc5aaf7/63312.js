@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./10606.js";
 import l from "./20189.js";
 import h from "./28351.js";
@@ -9,12 +10,13 @@ import p from "./42318.js";
 import f from "./56060.js";
 import n from "./63696.js";
 import u from "./64608.js";
-import s, { xu } from "./66186.js";
+import { xu } from "./66186.js";
 import g from "./72476.js";
 import o, { H$ } from "./83571.js";
-import d, { Qc, Ab, FA } from "./87546.js";
+import d, { Ab, FA, Qc } from "./87546.js";
 import { lB } from "./89193.js";
 import _ from "./97838.js";
+
 const c = l;
 function b(e, t, r) {
 	let n = new f.OK();

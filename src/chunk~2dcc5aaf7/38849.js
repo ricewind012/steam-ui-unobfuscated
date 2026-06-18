@@ -1,5 +1,6 @@
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import c from "./3756.js";
 import A from "./5128.js";
 import u from "./8653.js";

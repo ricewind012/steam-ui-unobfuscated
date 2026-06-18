@@ -7,6 +7,7 @@ import a from "./46422.js";
 import n, { createElement } from "./63696.js";
 import { br } from "./79112.js";
 import { $2 } from "./96680.js";
+
 function d(e) {
 	return b(e, {
 		beforeNavigate: () => {

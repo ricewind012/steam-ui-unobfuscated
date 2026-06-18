@@ -1,23 +1,27 @@
 import {
-	LocaleToELanguage,
-	Localize,
-} from "../../actual_src/utils/localization.js";
-import { Sleep } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
-import o, { sf, Lg } from "./44846.js";
+    LocaleToELanguage,
+    Localize,
+} from "@actual_src/utils/localization.js";
+import { Sleep } from "@actual_src/utils/time.js";
+
+import { Cg } from "./34629.js";
+import { Lg, sf } from "./44846.js";
 import i from "./83957.js";
 import s, { Gn } from "./89193.js";
 import "./53833.js";
+
+import { AssertMsg } from "@actual_src/utils/assert.js";
 import {
-	CScheduledFunc,
-	CTrackedEventListeners,
-} from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    CScheduledFunc,
+    CTrackedEventListeners,
+} from "@actual_src/utils/callbackutils";
+
 import u from "./31958.js";
 import { ap, q_ as q } from "./59715.js";
 import p, { yK } from "./72476.js";
 import d from "./93960.js";
 import h from "./99167.js";
+
 const a = i;
 function C(e, t) {
 	let r = e.getElementsByTagName("MPD");

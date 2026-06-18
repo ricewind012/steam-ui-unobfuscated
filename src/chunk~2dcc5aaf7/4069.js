@@ -1,9 +1,10 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import * as s from "./2053.js";
 import * as $ from "./2306.js";
 import * as V from "./3475.js";
@@ -56,6 +57,7 @@ import * as pe from "./94790.js";
 import * as b from "./96593.js";
 import * as ee from "./96670.js";
 import * as te from "./98995.js";
+
 const o = s;
 const R = M.Message;
 class k extends R {

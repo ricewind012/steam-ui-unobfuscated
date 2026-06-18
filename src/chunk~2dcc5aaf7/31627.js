@@ -1,8 +1,9 @@
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import n from "./3142.js";
 import l from "./4530.js";
 import Ce from "./6263.js";
@@ -27,12 +28,12 @@ import $ from "./61398.js";
 import i, { useState } from "./63696.js";
 import o from "./64608.js";
 import S from "./69164.js";
-import w, { rP, hf, td, Hn, XW } from "./72476.js";
+import { Hn, hf, rP, td, XW } from "./72476.js";
 import R from "./73317.js";
 import h from "./74738.js";
 import I from "./76356.js";
 import ce from "./76414.js";
-import T, { T as T_1 } from "./78057.js";
+import { T as T_1 } from "./78057.js";
 import X from "./78110.js";
 import m from "./81994.js";
 import te from "./83184.js";
@@ -45,9 +46,10 @@ import ue from "./91209.js";
 import E from "./91486.js";
 import _g from "./95572.js";
 import v from "./96593.js";
-import u, { $2 } from "./96680.js";
-import ee, { vO, MD } from "./97893.js";
+import { $2 } from "./96680.js";
+import ee, { MD, vO } from "./97893.js";
 import P from "./98995.js";
+
 const A = Nr(() => {
 	const ERef = i.useRef(false);
 	const TRef = i.useRef(0);

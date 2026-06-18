@@ -1,25 +1,27 @@
+import { LocalizeRTimeToHourAndMinutes } from "@actual_src/utils/localization/datetime.js";
 import {
-	Localize,
-	LocalizeRtime32ToShortDate,
-} from "../../actual_src/utils/localization.js";
-import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
-import { Seconds } from "../../actual_src/utils/time.js";
-import a, { f } from "./991.js";
+    Localize,
+    LocalizeRtime32ToShortDate,
+} from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
+import { f } from "./991.js";
 import m from "./7081.js";
 import l from "./7552.js";
 import c from "./15612.js";
-import i, { PA } from "./41230.js";
-import s, { SW } from "./58839.js";
-import n, { useRef } from "./63696.js";
-import o, { G6 } from "./82594.js";
+import { PA } from "./41230.js";
+import { SW } from "./58839.js";
+import { useRef } from "./63696.js";
+import { G6 } from "./82594.js";
 import "./80493.js";
 import A from "./11735.js";
-import C, { f1 } from "./12956.js";
+import { f1 } from "./12956.js";
 import b from "./27793.js";
 import u from "./47628.js";
 import h from "./50376.js";
 import { Lg } from "./83591.js";
 import { A as A_1 } from "./90765.js";
+
 const d = u;
 export const wD = PA((e) => {
 	const {

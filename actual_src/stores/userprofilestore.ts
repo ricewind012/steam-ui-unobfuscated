@@ -1,16 +1,17 @@
 import { makeAutoObservable, when } from "mobx";
 import { useObserver } from "mobx-react-lite";
+
 import { Ih } from "../../src/chunk~2dcc5aaf7/10294.js";
 import { BV } from "../../src/chunk~2dcc5aaf7/18057.js";
 import { Fd } from "../../src/chunk~2dcc5aaf7/22091.js";
 import { cq } from "../../src/chunk~2dcc5aaf7/43024.js";
 import { z } from "../../src/chunk~2dcc5aaf7/49171.js";
-import { BT, QA, Yk, aK, xt } from "../../src/chunk~2dcc5aaf7/54946.js";
+import { aK, BT, QA, xt, Yk } from "../../src/chunk~2dcc5aaf7/54946.js";
 import { I as I_1 } from "../../src/chunk~2dcc5aaf7/61416.js";
 import { L } from "../../src/chunk~2dcc5aaf7/75144.js";
 import { a9, g } from "../../src/chunk~2dcc5aaf7/75888.js";
 import { OQ } from "../../src/chunk~2dcc5aaf7/77347.js";
-import A, { Wx, qw } from "../../src/chunk~2dcc5aaf7/89748.js";
+import A, { qw, Wx } from "../../src/chunk~2dcc5aaf7/89748.js";
 import { b as CSteamID } from "../../src/library/8573.js";
 import { w } from "../../src/library/12176.js";
 import { Tg } from "../../src/library/31958.js";
@@ -20,7 +21,7 @@ import { TS as Config, iA as UserConfig } from "../../src/library/72476.js";
 import { A as A_1 } from "../../src/library/88696.js";
 import { EClientNotificationType } from "../steamclient/steamclient/Notifications.js";
 import { EResult } from "../steamclient/steamclient/shared.js";
-import { VI, qt } from "./settingsstore.js";
+import { qt, VI } from "./settingsstore.js";
 
 const I = "startupmovies";
 

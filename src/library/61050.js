@@ -1,7 +1,8 @@
-import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import a from "./4690.js";
 import s from "./20893.js";
-import o, { Ze, LU } from "./54102.js";
+import o, { LU, Ze } from "./54102.js";
 import r from "./61657.js";
 export class kI {
 	m_node;

@@ -1,34 +1,35 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
-import L, { f as f_1 } from "./661.js";
-import F, { OF } from "./1385.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizePlural,
+} from "@actual_src/utils/localization.js";
+
+import { f as f_1 } from "./661.js";
+import { OF } from "./1385.js";
 import { $P } from "./2773.js";
 import b, { Ab, NN, Re as Re_1 } from "./3499.js";
 import z from "./3874.js";
 import { BGameRecordingFeatureEnabled } from "./4069.js";
 import g from "./4690.js";
 import re from "./10606.js";
-import T, { gO } from "./10905.js";
+import { gO } from "./10905.js";
 import { R7 } from "./11131.js";
 import { pg } from "./13869.js";
 import { Nm } from "./14629.js";
 import me from "./18057.js";
-import S, { br } from "./18869.js";
-import R, { e3 } from "./25633.js";
-import M, { Ct, jE } from "./26094.js";
-import P, { z as z_1 } from "./27541.js";
-import i, { lX } from "./31084.js";
+import { br } from "./18869.js";
+import { e3 } from "./25633.js";
+import { Ct, jE } from "./26094.js";
+import { z as z_1 } from "./27541.js";
+import { lX } from "./31084.js";
 import $ from "./32676.js";
-import f, { dm } from "./34428.js";
+import { dm } from "./34428.js";
 import B, { yZ } from "./34461.js";
-import y, { VI } from "./34792.js";
+import { VI } from "./34792.js";
 import I from "./35488.js";
-import C, { gx } from "./36934.js";
+import { gx } from "./36934.js";
 import v, { kM } from "./39730.js";
 import l from "./41596.js";
 import ne from "./43014.js";
@@ -36,34 +37,35 @@ import { u6 } from "./43152.js";
 import ce from "./49508.js";
 import ue, { W5, W6 } from "./49519.js";
 import c from "./50376.js";
-import A, { lY } from "./51095.js";
+import { lY } from "./51095.js";
 import { SK, wY } from "./52451.js";
 import ie from "./53622.js";
-import m, { Te as Te_1 } from "./55007.js";
+import { Te as Te_1 } from "./55007.js";
 import n, {
-	useMemo,
-	useState,
-	useEffect,
-	useRef,
-	useCallback,
-	forwardRef,
+    forwardRef,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
 } from "./63696.js";
 import u from "./64608.js";
 import K from "./67429.js";
-import E, { Q1 } from "./68438.js";
+import { Q1 } from "./68438.js";
 import p from "./69164.js";
 import o from "./71729.js";
-import { Qn, TL, Y2, hf } from "./72476.js";
+import { hf, Qn, TL, Y2 } from "./72476.js";
 import N from "./83247.js";
 import h from "./88750.js";
 import w from "./90242.js";
-import s, { A as A_1 } from "./90765.js";
-import _, { Gb, XA, f5 } from "./91720.js";
+import { A as A_1 } from "./90765.js";
+import { f5, Gb, XA } from "./91720.js";
 import V from "./93214.js";
 import { l5 } from "./96555.js";
 import X from "./96593.js";
 import { $2 } from "./96680.js";
 import a from "./98995.js";
+
 function x(e) {
 	const { items, summoningElement, showConfirmation } = e;
 	const a = ((e, t) => {

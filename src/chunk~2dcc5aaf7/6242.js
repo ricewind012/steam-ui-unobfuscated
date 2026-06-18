@@ -1,4 +1,5 @@
-import { SubscribableValue } from "../../actual_src/utils/callbackutils";
+import { SubscribableValue } from "@actual_src/utils/callbackutils";
+
 import _n from "./63696.js";
 import a from "./83599.js";
 export class n {

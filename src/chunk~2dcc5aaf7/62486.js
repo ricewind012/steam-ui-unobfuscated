@@ -1,12 +1,14 @@
 import {
-	BLocStringExists,
-	Localize,
-} from "../../actual_src/utils/localization.js";
+    BLocStringExists,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
 import { _Q } from "./52192.js";
 import m from "./62757.js";
 import d from "./84056.js";
 import p from "./85360.js";
 import { HO } from "./89193.js";
+
 let n;
 let i;
 let a;

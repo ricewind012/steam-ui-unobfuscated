@@ -1,16 +1,17 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import i from "./5859.js";
 import s from "./10606.js";
 import { mK } from "./13869.js";
 import d from "./16157.js";
 import l from "./50376.js";
-import n from "./63696.js";
 import a from "./64608.js";
 import u from "./72476.js";
 import { A as A_1 } from "./90765.js";
+
 const A = d;
 export async function o(e) {
 	if (u.TS.IN_CLIENT) {

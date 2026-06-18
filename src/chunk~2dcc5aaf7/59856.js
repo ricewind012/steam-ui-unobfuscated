@@ -1,21 +1,22 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import p from "./1965.js";
 import c from "./2326.js";
 import w from "./3651.js";
 import ne from "./9066.js";
 import v from "./15448.js";
 import N from "./17914.js";
-import h, { jb, Qt } from "./18057.js";
-import C, { br } from "./18869.js";
+import { jb, Qt } from "./18057.js";
+import { br } from "./18869.js";
 import X from "./20590.js";
 import ee from "./22091.js";
 import I from "./22165.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import D from "./38857.js";
 import U from "./41092.js";
 import a, { PA } from "./41230.js";
 import o from "./42318.js";
-import Y, { ID } from "./44846.js";
+import { ID } from "./44846.js";
 import g from "./46424.js";
 import z from "./50376.js";
 import K from "./52451.js";
@@ -43,6 +44,7 @@ import { qw } from "./89748.js";
 import { A } from "./90765.js";
 import O from "./91152.js";
 import u from "./91486.js";
+
 var f = _;
 const b = PA(function (e) {
 	const { details, overview } = e;

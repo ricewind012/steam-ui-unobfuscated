@@ -1,11 +1,12 @@
 import {
-	CScheduledFunc,
-	CTrackedEventListeners,
-} from "../../actual_src/utils/callbackutils";
+    CScheduledFunc,
+    CTrackedEventListeners,
+} from "@actual_src/utils/callbackutils";
 import {
-	Localize,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizePlural,
+} from "@actual_src/utils/localization.js";
+
 import * as m from "./5859.js";
 import * as E from "./21866.js";
 import * as c from "./23024.js";
@@ -34,6 +35,7 @@ import * as d from "./88750.js";
 import * as i from "./89193.js";
 import * as b from "./90765.js";
 import * as U from "./92008.js";
+
 const R = T;
 function D() {
 	return s.createElement(

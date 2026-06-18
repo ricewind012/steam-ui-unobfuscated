@@ -1,7 +1,8 @@
 import {
-	BIsParent,
-	CopyTextToClipboard,
-} from "../../actual_src/utils/domutils.js";
+    BIsParent,
+    CopyTextToClipboard,
+} from "@actual_src/utils/domutils.js";
+
 import n from "./63696.js";
 export function xh(e) {
 	const { text: t = "", style: r, children: i } = e;

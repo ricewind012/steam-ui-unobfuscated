@@ -1,15 +1,17 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import c from "./2053.js";
 import a from "./4690.js";
-import d, { R7 } from "./11131.js";
-import A, { Zw } from "./12774.js";
+import { R7 } from "./11131.js";
+import { Zw } from "./12774.js";
 import g from "./27793.js";
-import l, { Ue, RY } from "./52451.js";
+import { RY, Ue } from "./52451.js";
 import n from "./63696.js";
 import s from "./64608.js";
 import i from "./69164.js";
-import u, { Qn } from "./72476.js";
-import o, { A as A_1 } from "./90765.js";
+import { Qn } from "./72476.js";
+import { A as A_1 } from "./90765.js";
+
 const m = c;
 export const D0 = n.forwardRef((props, ref) => {
 	const {

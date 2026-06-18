@@ -1,5 +1,6 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./3475.js";
 import { l9 as GetFeatureBlockReason } from "./5640.js";
 import { w as w_1 } from "./10501.js";
@@ -16,6 +17,7 @@ import o from "./88750.js";
 import y from "./88808.js";
 import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
+
 const u = m;
 const S = new g.wd("Menus").Debug;
 function w(e) {

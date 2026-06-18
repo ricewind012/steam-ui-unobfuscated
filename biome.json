@@ -1,24 +1,27 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": {
+					"level": "on",
+					"options": {
+						"groups": [
+							[":PACKAGE:", "!@actual_src/**", "!@steamclient_types/**"],
+							":BLANK_LINE:",
+							["@actual_src/**", "!@steamclient_types/**"],
+							":BLANK_LINE:",
+							":PATH:"
+						]
+					}
+				}
+			}
+		}
+	},
 	"files": {
 		"maxSize": 123123123123
 	},
 	"linter": {
-		"rules": {
-			"a11y": {
-				"all": false
-			},
-			"correctness": {
-				"noUnusedVariables": "error",
-				"noUnusedImports": "error",
-				"useJsxKeyInIterable": "off"
-			},
-			"style": {
-				"useEnumInitializers": "off"
-			},
-			"suspicious": {
-				"noExplicitAny": "off"
-			}
-		}
+		"enabled": false
 	}
 }

@@ -1,9 +1,10 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import l from "./10606.js";
 import { mK } from "./13869.js";
 import C from "./25074.js";
 import { dm } from "./34428.js";
-import i, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import A from "./41230.js";
 import m from "./52451.js";
 import a from "./63696.js";
@@ -12,6 +13,7 @@ import u from "./73317.js";
 import { Cj } from "./88769.js";
 import o, { Gn } from "./89193.js";
 import d from "./96593.js";
+
 let n;
 const _ = C;
 export function P(e, t) {

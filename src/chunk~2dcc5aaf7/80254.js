@@ -1,7 +1,7 @@
 import {
-	LocalizationManager,
-	Localize,
-} from "../../actual_src/utils/localization.js";
+    LocalizationManager,
+    Localize,
+} from "@actual_src/utils/localization.js";
 export function l(e, t = "#Played_", r = false) {
 	if (e >= 120) {
 		let r = e / 60;

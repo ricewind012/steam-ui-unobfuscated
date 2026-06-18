@@ -8,10 +8,11 @@ import a from "./49171.js";
 import i, { B6, W6 } from "./49519.js";
 import c, { KV } from "./58437.js";
 import d from "./61175.js";
-import n, { useMemo, useEffect } from "./63696.js";
+import n, { useEffect, useMemo } from "./63696.js";
 import m from "./79112.js";
 import A from "./96593.js";
 import C, { $2 } from "./96680.js";
+
 const g = {
 	AboutSteam: {
 		path: "open/about",

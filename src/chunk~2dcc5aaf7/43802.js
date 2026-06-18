@@ -1,22 +1,24 @@
 import {
-	GetOwningWindowForElement,
-	GetOwningWindowForEvent,
-} from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+    GetOwningWindowForElement,
+    GetOwningWindowForEvent,
+} from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o, { pg } from "./13869.js";
 import i from "./22222.js";
-import A, { Y } from "./28916.js";
-import _, { D7 } from "./33572.js";
+import { Y } from "./28916.js";
+import { D7 } from "./33572.js";
 import u from "./35488.js";
 import a from "./44846.js";
-import m, { vJ, xM, L$ } from "./52451.js";
+import { L$, vJ, xM } from "./52451.js";
 import n from "./63696.js";
 import p from "./63988.js";
 import s from "./64608.js";
-import h, { _ as __1 } from "./67338.js";
-import d, { rw, Jg, td, Op, Av, qk } from "./77347.js";
-import l, { A as A_1 } from "./90765.js";
-import f, { $2 } from "./96680.js";
+import { _ as __1 } from "./67338.js";
+import d, { Av, Jg, Op, qk, rw, td } from "./77347.js";
+import { A as A_1 } from "./90765.js";
+import { $2 } from "./96680.js";
+
 const g = p;
 export function V(e = {}, t) {
 	pg(<Y {...e} />, window, t);

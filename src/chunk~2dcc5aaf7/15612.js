@@ -1,23 +1,25 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import E from "./4014.js";
-import s, { v as v_1 } from "./9536.js";
+import { v as v_1 } from "./9536.js";
 import l, { I8 } from "./12176.js";
 import I from "./26853.js";
 import { Id } from "./43397.js";
 import C from "./43691.js";
 import { L3, wJ } from "./45328.js";
-import c, { rW } from "./46382.js";
+import { rW } from "./46382.js";
 import d from "./48307.js";
 import u from "./58663.js";
 import { SW } from "./58839.js";
-import o, { I as I_1 } from "./61416.js";
-import n, { useEffect, useCallback } from "./63696.js";
+import { I as I_1 } from "./61416.js";
+import n, { useCallback, useEffect } from "./63696.js";
 import v, { yK } from "./72476.js";
 import { G6 } from "./82594.js";
 import a from "./83591.js";
-import w, { u_Message as A_1 } from "./90765.js";
+import { u_Message as A_1 } from "./90765.js";
 import m from "./92031.js";
 import { n9, pn } from "./92059.js";
+
 const u_Message = u.Message;
 class p extends u_Message {
 	static ImplementsStaticInterface() {}

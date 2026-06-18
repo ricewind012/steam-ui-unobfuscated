@@ -1,21 +1,23 @@
 import {
-	memo,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
+    memo,
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
 } from "react";
-import { FullLogin } from "../../actual_src/login/fulllogin.js";
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+
+import { FullLogin } from "@actual_src/login/fulllogin.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import re from "./3475.js";
-import { AH, Kw, jy } from "./5808.js";
+import { AH, jy, Kw } from "./5808.js";
 import { E4 } from "./8326.js";
 import Ie from "./10975.js";
-import S, { yq, c4 } from "./11131.js";
+import S, { c4, yq } from "./11131.js";
 import fe from "./16251.js";
 import ve from "./16403.js";
 import ye from "./17016.js";
@@ -58,7 +60,7 @@ import b from "./85175.js";
 import i from "./85243.js";
 import { rO } from "./88724.js";
 import { fm } from "./89193.js";
-import { Wx, gK, qw } from "./89748.js";
+import { gK, qw, Wx } from "./89748.js";
 import { q3 as useObserver } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import v from "./91435.js";

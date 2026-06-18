@@ -1,6 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import m from "./10606.js";
-import u, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import { Qt } from "./18057.js";
 import g from "./39500.js";
 import s from "./48289.js";
@@ -8,9 +9,10 @@ import l from "./63696.js";
 import c from "./64608.js";
 import { Qn } from "./72476.js";
 import o from "./87935.js";
-import n, { IU } from "./89748.js";
+import { IU } from "./89748.js";
 import { A } from "./90765.js";
 import a from "./96593.js";
+
 const h = g;
 const C = "#BorrowGameDialog_Title";
 export function J(e, t) {

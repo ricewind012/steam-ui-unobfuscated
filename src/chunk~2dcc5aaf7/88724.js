@@ -1,4 +1,5 @@
-import { Hq, Localize } from "../../actual_src/utils/localization.js";
+import { Hq, Localize } from "@actual_src/utils/localization.js";
+
 import { Cg } from "./34629.js";
 import s from "./36934.js";
 import { tB } from "./59351.js";

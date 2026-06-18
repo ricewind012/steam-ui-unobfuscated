@@ -1,33 +1,34 @@
 import {
-	Localize,
-	LocalizePlural,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizePlural,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import P from "./1965.js";
-import u, { hb } from "./5640.js";
+import { hb } from "./5640.js";
 import v from "./5859.js";
 import w from "./8573.js";
 import { R7 } from "./11131.js";
 import { Nd } from "./15918.js";
 import M from "./17815.js";
-import s, { bG, Qt } from "./18057.js";
-import o, { br } from "./18869.js";
+import { bG, Qt } from "./18057.js";
+import { br } from "./18869.js";
 import i from "./26271.js";
 import G from "./32735.js";
 import d from "./34792.js";
 import E from "./35488.js";
-import a, { ul, Cc } from "./36464.js";
+import a, { Cc, ul } from "./36464.js";
 import { PA } from "./41230.js";
 import T, { S1 } from "./43520.js";
 import m, { uU } from "./48289.js";
 import { lY } from "./51095.js";
 import F from "./56726.js";
 import C, { useMemo } from "./63696.js";
-import n, { bg } from "./68292.js";
+import { bg } from "./68292.js";
 import S from "./68608.js";
 import f from "./69164.js";
 import b from "./72655.js";
-import D, { l as l_1 } from "./80254.js";
+import { l as l_1 } from "./80254.js";
 import { t7 } from "./82594.js";
 import l from "./87913.js";
 import A from "./87935.js";
@@ -36,7 +37,8 @@ import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import L from "./93050.js";
 import c from "./96593.js";
-import p, { $2 } from "./96680.js";
+import { $2 } from "./96680.js";
+
 const O = G;
 function z(e, t) {
 	return `${A.B7.GetStoreURL()}wishlist/profiles/${e.persona.m_steamid.ConvertTo64BitString()}/?appid=${

@@ -1,24 +1,26 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import I from "./1929.js";
 import { h as h_1 } from "./5047.js";
 import s from "./23024.js";
-import l, { Cg } from "./34629.js";
-import o, { mJ } from "./36885.js";
+import { Cg } from "./34629.js";
+import { mJ } from "./36885.js";
 import S from "./43397.js";
-import p, { CH } from "./52451.js";
+import { CH } from "./52451.js";
 import { L$ } from "./53807.js";
 import a from "./61510.js";
-import i, { useState, useEffect } from "./63696.js";
+import i, { useEffect, useState } from "./63696.js";
 import g, { Tc } from "./72476.js";
 import c from "./83957.js";
 import u, { Gn, h5 } from "./89193.js";
-import n, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import d from "./93960.js";
+
 const m = c;
 class h {
 	constructor() {

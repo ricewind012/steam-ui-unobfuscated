@@ -1,9 +1,11 @@
-import { useLoginStateObserver } from "../../actual_src/stores/loginstore.js";
+import { CMInterfaceSharedClientConnection } from "@actual_src/cminterface";
+import { useLoginStateObserver } from "@actual_src/stores/loginstore.js";
 import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+} from "@actual_src/utils/localization.js";
+
 import C from "./3524.js";
 import T from "./4690.js";
 import ae from "./5482.js";
@@ -19,7 +21,7 @@ import tt, { Xy } from "./22969.js";
 import E from "./23038.js";
 import be from "./26853.js";
 import { U as U_1 } from "./27238.js";
-import { H as H_1, JP, e1 } from "./28036.js";
+import { e1, H as H_1, JP } from "./28036.js";
 import { Y as Y_1 } from "./28916.js";
 import { q as q_2 } from "./29285.js";
 import Ze from "./30449.js";
@@ -41,21 +43,21 @@ import V from "./46422.js";
 import { zy } from "./49519.js";
 import et from "./50350.js";
 import $e from "./50376.js";
-import S, { gc, $$, xM, cZ } from "./52451.js";
+import S, { $$, cZ, gc, xM } from "./52451.js";
 import F from "./52847.js";
 import { uX } from "./54644.js";
 import j from "./55025.js";
 import ce from "./56970.js";
 import M from "./58254.js";
 import _g from "./61657.js";
-import i, { useState, useRef, useEffect, useCallback } from "./63696.js";
+import i, { useCallback, useEffect, useRef, useState } from "./63696.js";
 import s from "./64608.js";
 import he from "./66947.js";
 import { _ as __1 } from "./67338.js";
 import p from "./69164.js";
-import c, { rP, Qn, Pr } from "./72476.js";
+import c, { Pr, Qn, rP } from "./72476.js";
 import z from "./76662.js";
-import B, { tI, yL, ED, f_ as f_1, mR, N4, Av, jh } from "./77347.js";
+import B, { Av, ED, f_ as f_1, jh, mR, N4, tI, yL } from "./77347.js";
 import a from "./78325.js";
 import G from "./81969.js";
 import w from "./81994.js";
@@ -74,7 +76,6 @@ import Be from "./93025.js";
 import Y from "./93681.js";
 import oe from "./95311.js";
 import { $2 } from "./96680.js";
-import { CMInterfaceSharedClientConnection } from "./cminterface";
 
 function k(e) {
 	let t = gc(R.o.CurrentLanguage);

@@ -1,16 +1,19 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import a from "./12176.js";
 import u from "./16761.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import s from "./36383.js";
 import i from "./44234.js";
-import o, { Hd } from "./50979.js";
+import { Hd } from "./50979.js";
 import m from "./83599.js";
 import l, { Gn, z7 } from "./89193.js";
 import "./80663.js";
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import { u as u_1 } from "./24761.js";
 import _d from "./46970.js";
 import p from "./52451.js";

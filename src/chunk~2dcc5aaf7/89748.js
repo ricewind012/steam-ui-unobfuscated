@@ -1,5 +1,7 @@
 import { useObserver } from "mobx-react-lite";
-import BluetoothStore from "../../actual_src/stores/25467.js";
+
+import BluetoothStore from "@actual_src/stores/25467.js";
+
 import ParentalStore from "./5640.js";
 import SteamingStore from "./6160.js";
 import C from "./8573.js";
@@ -11,9 +13,9 @@ import EAAccessPromptManager from "./18521.js";
 import { Sj } from "./24287.js";
 import SDCardStore from "./24496.js";
 import xe from "./31930.js";
-import o, { Qu, uV } from "./32700.js";
+import { Qu, uV } from "./32700.js";
 import SteamOSStore from "./33706.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import IBusConnection from "./34665.js";
 import KeyboardSettingsStore from "./34776.js";
 import SettingsStore from "./34792.js";
@@ -34,11 +36,11 @@ import SteamNotificationsStore from "./60917.js";
 import d from "./61175.js";
 import ControllerConfigInterstitialStore from "./61277.js";
 import GamescopeStore from "./61518.js";
-import Ze, { aj } from "./63088.js";
+import { aj } from "./63088.js";
 import { ht as ht_1, vq } from "./63259.js";
 import c, { zK } from "./63367.js";
-import p, { F as F_1 } from "./63947.js";
-import i, { PR, bg } from "./68292.js";
+import { F as F_1 } from "./63947.js";
+import { bg, PR } from "./68292.js";
 import re from "./69767.js";
 import SuspendResumeStore from "./71033.js";
 import f, { Ab, On, Tc, Y2 } from "./72476.js";
@@ -48,7 +50,7 @@ import GameActionStore from "./76356.js";
 import SystemNetworkStore from "./77347.js";
 import { c as c_1 } from "./80553.js";
 import CloudStorage from "./81482.js";
-import y, { U as U_1 } from "./83184.js";
+import { U as U_1 } from "./83184.js";
 import DynamicUserStore from "./83591.js";
 import u from "./83599.js";
 import Ye from "./83957.js";
@@ -56,15 +58,16 @@ import ControllerConfigStore from "./85360.js";
 import FriendsChatStore from "./87913.js";
 import URLStore from "./87935.js";
 import ie, { Gn, h5, z7 } from "./89193.js";
-import a, { Z9 as GRS } from "./91720.js";
+import { Z9 as GRS } from "./91720.js";
 import SystemInfoStore from "./95979.js";
 import AppStore from "./96593.js";
 import te from "./99235.js";
 import "./63696.js";
-import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
-import { LoginStore } from "../../actual_src/stores/loginstore.js";
-import { OverlayStore } from "../../actual_src/stores/overlaystore.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { ESteamRealm } from "@actual_src/clienttypes/realm.js";
+import { LoginStore } from "@actual_src/stores/loginstore.js";
+import { OverlayStore } from "@actual_src/stores/overlaystore.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import CommunityStore from "./3963.js";
 import AchievementProgress from "./10927.js";
 import AppActivityStore from "./12750.js";
@@ -103,6 +106,7 @@ import Vt from "./94361.js";
 import FocusedAppWindowStore from "./94496.js";
 import CollectionStore from "./96000.js";
 import DownloadsStore from "./97893.js";
+
 const R = [
 	[
 		"url",

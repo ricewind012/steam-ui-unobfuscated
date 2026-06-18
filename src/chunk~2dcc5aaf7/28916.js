@@ -1,4 +1,6 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { useBrowserViewSetNavTreeOnFocus } from "@actual_src/browserview_windowfocuscoordinator";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import a, { pg } from "./13869.js";
 import m from "./18052.js";
 import _ from "./20893.js";
@@ -12,7 +14,7 @@ import i from "./64608.js";
 import { Av } from "./77347.js";
 import { q3 } from "./90095.js";
 import { $2 } from "./96680.js";
-import { Z } from "./browserview_windowfocuscoordinator";
+
 const c = l;
 function b(e) {
 	const t = Av();
@@ -97,7 +99,12 @@ function y(e) {
 	T.onGamepadBlur = E;
 	T.focusable = true;
 	const R = u6();
-	Z(pBrowserView.name, pBrowserView.GetBrowser(), navRef, bFocus);
+	useBrowserViewSetNavTreeOnFocus(
+		pBrowserView.name,
+		pBrowserView.GetBrowser(),
+		navRef,
+		bFocus,
+	);
 	return n.createElement(
 		a.x_,
 		{

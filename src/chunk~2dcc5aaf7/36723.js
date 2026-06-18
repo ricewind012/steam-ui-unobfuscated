@@ -1,12 +1,12 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import i from "./1079.js";
 import s from "./5859.js";
 import l from "./47628.js";
 import o from "./50376.js";
-import n from "./63696.js";
 import d from "./81726.js";
 import a from "./83591.js";
-import { A } from "./90765.js";
+
 const c = l;
 export const V = (0, require(/*webcrack:missing*/ "./41230.js").PA)((e) => {
 	const { appids: t, hide_status_banners: r } = e;

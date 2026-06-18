@@ -10,6 +10,7 @@ import i from "./78325.js";
 import a from "./85243.js";
 import c from "./93681.js";
 import { $2 } from "./96680.js";
+
 const o = s;
 function h(e) {
 	const { host } = e;

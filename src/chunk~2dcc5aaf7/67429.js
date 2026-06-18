@@ -1,4 +1,5 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import n from "./37976.js";
 import i from "./44846.js";
 import a from "./92031.js";

@@ -1,7 +1,8 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import s, { HT } from "./13869.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import a, { PA } from "./41230.js";
 import C from "./50376.js";
 import c from "./52451.js";

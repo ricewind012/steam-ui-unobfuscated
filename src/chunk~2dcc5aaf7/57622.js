@@ -1,5 +1,6 @@
-import { LocalizeRtime32ToShortDate } from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { LocalizeRtime32ToShortDate } from "@actual_src/utils/localization.js";
+
 import * as s from "./12176.js";
 import * as c from "./22588.js";
 import * as n from "./34629.js";

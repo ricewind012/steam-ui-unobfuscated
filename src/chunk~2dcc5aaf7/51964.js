@@ -1,4 +1,6 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { BrowserViewHostPopup } from "@actual_src/browserview_hostpopup";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./10606.js";
 import A from "./44798.js";
 import c from "./46285.js";
@@ -10,7 +12,7 @@ import { vh } from "./87935.js";
 import { qw } from "./89748.js";
 import { q3 } from "./90095.js";
 import l from "./99731.js";
-import { BrowserViewHostPopup } from "./browserview_hostpopup";
+
 const p = A;
 export function S() {
 	const e = q3(() => qw().GetServicesInitialized());

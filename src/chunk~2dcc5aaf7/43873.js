@@ -1,5 +1,6 @@
-import { FullLogin } from "../../actual_src/login/fulllogin.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { FullLogin } from "@actual_src/login/fulllogin.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import l from "./10606.js";
 import o from "./11131.js";
 import { zv } from "./46382.js";
@@ -9,6 +10,7 @@ import { hf } from "./72476.js";
 import p, { aS } from "./83718.js";
 import d from "./85733.js";
 import { q3 } from "./90095.js";
+
 const A = d;
 const g = 705;
 const h = 470;

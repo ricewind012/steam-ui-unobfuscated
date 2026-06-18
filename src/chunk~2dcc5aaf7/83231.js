@@ -1,18 +1,19 @@
 import {
-	ClientRectToScreenCoords,
-	No,
-	SY,
-} from "../../actual_src/utils/domutils.js";
+    ClientRectToScreenCoords,
+    No,
+    SY,
+} from "@actual_src/utils/domutils.js";
 import {
-	Localize,
-	LocalizePlural,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizePlural,
+} from "@actual_src/utils/localization.js";
+
 import o from "./7470.js";
 import p from "./8573.js";
 import l, { yq } from "./11131.js";
 import A from "./23024.js";
 import g from "./27337.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import h from "./36032.js";
 import a from "./41230.js";
 import i from "./46970.js";

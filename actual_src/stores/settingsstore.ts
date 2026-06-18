@@ -1,6 +1,7 @@
 import { action, comparer, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
 import { useCallback, useEffect } from "react";
+
 import { u as CFriendSettings } from "../../src/chunk~2dcc5aaf7/4563.js";
 import { oy } from "../../src/chunk~2dcc5aaf7/46422.js";
 import {
@@ -22,7 +23,7 @@ import {
 	Message,
 } from "../../src/chunk~2dcc5aaf7/58663.js";
 import { j7 } from "../../src/chunk~2dcc5aaf7/59401.js";
-import { JM, cr, j$ } from "../../src/chunk~2dcc5aaf7/63937.js";
+import { cr, JM, j$ } from "../../src/chunk~2dcc5aaf7/63937.js";
 import {
 	aJ as CSteamNotification_GetPreferences_Request,
 	gm as CSteamNotification_SetPreferences_Request,
@@ -32,7 +33,7 @@ import {
 } from "../../src/chunk~2dcc5aaf7/88475.js";
 import { w as w_1 } from "../../src/library/12176.js";
 import { iA as UserConfig } from "../../src/library/14628.js";
-import { BT, Sg, Uq, gp, i0, qM, w0, zj } from "../../src/library/48307.js";
+import { BT, gp, i0, qM, Sg, Uq, w0, zj } from "../../src/library/48307.js";
 import { oI } from "../../src/library/52451.js";
 import { L } from "../../src/library/75144.js";
 import { s as s_1 } from "../../src/library/81255.js";

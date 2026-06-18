@@ -3,6 +3,7 @@ import i from "./48307.js";
 import n from "./58663.js";
 import s from "./67185.js";
 import o from "./80222.js";
+
 const n_Message = n.Message;
 export class M$ extends n_Message {
 	static ImplementsStaticInterface() {}

@@ -1,10 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import { Seconds } from "../../actual_src/utils/time.js";
+import { Localize } from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
 import o from "./8573.js";
 import _s, { I8 } from "./12176.js";
 import N from "./16761.js";
 import i from "./31958.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import a from "./44234.js";
 import c from "./48307.js";
 import l from "./58663.js";
@@ -17,6 +18,7 @@ import z from "./60857.js";
 import { s as s_1 } from "./81255.js";
 import L from "./83599.js";
 import F from "./89459.js";
+
 const l_Message = l.Message;
 class u extends l_Message {
 	static ImplementsStaticInterface() {}

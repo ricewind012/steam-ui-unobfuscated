@@ -1,3 +1,9 @@
+import { FindAndRemove, ShuffleArray } from "@actual_src/utils/arrayutils.js";
+import { GetCookie, SetCookie } from "@actual_src/utils/cookies.js";
+import {
+	GetOwningWindowForEvent,
+	GetTotalZoom,
+} from "@actual_src/utils/domutils.js";
 import {
 	CLocLanguageArray,
 	Localize,
@@ -7,58 +13,50 @@ import {
 	LocalizePlural,
 	LocalizeReact,
 	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization.js";
+} from "@actual_src/utils/localization.js";
+import { GetUnixTime, Seconds } from "@actual_src/utils/time.js";
 
-import {
-	FindAndRemove,
-	ShuffleArray,
-} from "../../actual_src/utils/arrayutils.js";
-import { GetCookie, SetCookie } from "../../actual_src/utils/cookies.js";
-import {
-	GetOwningWindowForEvent,
-	GetTotalZoom,
-} from "../../actual_src/utils/domutils.js";
-import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
 import I from "./329.js";
 import D from "./10975.js";
 import s, { Di as Di_1 } from "./13925.js";
-import k, { h as h_1 } from "./15123.js";
+import { h as h_1 } from "./15123.js";
 import _ from "./15181.js";
-import n, { Qt as Qt_1, jb, ut as ut_1, ZQ, vT, VT, Qx } from "./18057.js";
-import R, { Xf, pw, mH } from "./31319.js";
-import d, { PA } from "./41230.js";
+import n, { jb, Qt as Qt_1, Qx, ut as ut_1, VT, vT, ZQ } from "./18057.js";
+import { mH, pw, Xf } from "./31319.js";
+import { PA } from "./41230.js";
 import b from "./42318.js";
-import l, { FN, dv, u6, jg } from "./43152.js";
+import { dv, FN, jg, u6 } from "./43152.js";
 import v from "./46285.js";
-import o, { RP, LC, Qu as Qu_1, Un as Un_1, Sn as Sn_1 } from "./46422.js";
+import o, { LC, Qu as Qu_1, RP, Sn as Sn_1, Un as Un_1 } from "./46422.js";
 import F from "./46701.js";
-import p, { zy, W6, W5, B6 } from "./49519.js";
+import p, { B6, W5, W6, zy } from "./49519.js";
 import h from "./55116.js";
 import c from "./56970.js";
 import a from "./61294.js";
 import A, {
 	useCallback,
-	useState,
-	useRef,
 	useEffect,
 	useMemo,
+	useRef,
+	useState,
 } from "./63696.js";
 import f from "./64608.js";
 import C from "./69164.js";
 import i from "./70519.js";
-import w, { Qn as Qn_1, rP, Tc as Tc_1, Fd, CI, Pr as Pr_1 } from "./72476.js";
+import w, { CI, Fd, Pr as Pr_1, Qn as Qn_1, rP, Tc as Tc_1 } from "./72476.js";
 import y, { iE } from "./79421.js";
 import g from "./84252.js";
 import T from "./85243.js";
 import B from "./85360.js";
 import N, { aE } from "./88750.js";
-import m, { QR, qw, Wx } from "./89748.js";
-import u, { q3 } from "./90095.js";
-import S, { A as A_1 } from "./90765.js";
-import M, { yq, LB } from "./93966.js";
+import { QR, qw, Wx } from "./89748.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+import { LB, yq } from "./93966.js";
 import "./94790.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import { AX, H2, a9 } from "./527.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
+import { AX, a9, H2 } from "./527.js";
 import ve from "./1252.js";
 import qe from "./2053.js";
 import Ar from "./2092.js";
@@ -68,8 +66,8 @@ import K from "./3289.js";
 import tt from "./3475.js";
 import Mr, { bJ } from "./3524.js";
 import ae from "./3651.js";
-import Tn, { Is as Is_2, l9, e8 } from "./5640.js";
-import et, { zq, WB, AH, Co as Co_1, jy, a_ as a_3, _D } from "./5808.js";
+import Tn, { e8, Is as Is_2, l9 } from "./5640.js";
+import et, { _D, AH, a_ as a_3, Co as Co_1, jy, WB, zq } from "./5808.js";
 import Mn from "./5859.js";
 import O from "./6276.js";
 import Ee from "./7552.js";
@@ -102,22 +100,22 @@ import Ae from "./22165.js";
 import Di from "./24418.js";
 import Jr from "./26853.js";
 import Je from "./30449.js";
-import yr, { YQ, aH } from "./30496.js";
+import yr, { aH, YQ } from "./30496.js";
 import rt, { lX } from "./31084.js";
 import Aa from "./31222.js";
-import U, { iW, Wh, ez, Tc as Tc_3, Mi as Mi_2 } from "./31800.js";
+import U, { ez, iW, Mi as Mi_2, Tc as Tc_3, Wh } from "./31800.js";
 import Ve, {
-	D7,
-	oH as oH_2,
-	K1,
-	SA,
-	Xp,
 	ch as ch_2,
+	D7,
+	K1,
+	oH as oH_2,
+	SA,
 	we as we_2,
+	Xp,
 } from "./33572.js";
-import tn, { dm as dm_2 } from "./34428.js";
+import { dm as dm_2 } from "./34428.js";
 import { Cg } from "./34629.js";
-import we, { VI, e_ as e } from "./34792.js";
+import we, { VI } from "./34792.js";
 import st from "./35488.js";
 import un from "./36464.js";
 import dn from "./36563.js";
@@ -127,13 +125,13 @@ import { L$ } from "./42898.js";
 import nt, { ck } from "./43014.js";
 import Ai from "./43691.js";
 import vn from "./44750.js";
-import _r, { ak, sf, Lg } from "./44846.js";
+import _r, { ak, Lg, sf } from "./44846.js";
 import { FJ, gb } from "./45967.js";
 import Q from "./46375.js";
 import { KV } from "./46382.js";
 import ct from "./46720.js";
 import Fi from "./46999.js";
-import Sr, { Lb, Uu as Uu_2, oH, LK, L4 } from "./48289.js";
+import Sr, { L4, Lb, LK, oH, Uu as Uu_2 } from "./48289.js";
 import Dn from "./48307.js";
 import ui, { Ho as Ho_2 } from "./49265.js";
 import We from "./50350.js";
@@ -141,29 +139,28 @@ import hn from "./50376.js";
 import { lA } from "./50876.js";
 import { Ll as Ll_2, OU, SP } from "./51076.js";
 import Y from "./51964.js";
-import G, {
-	CH,
-	hL,
+import {
 	$$,
-	l6,
-	wY,
-	Ue as Ue_1,
-	xM,
-	Z3,
+	CH,
+	DF,
 	gc as gc_1,
+	hL,
+	l6,
+	QS,
+	Ue as Ue_1,
 	uN,
 	w6,
-	DF,
-	AX,
+	wY,
 	xA,
-	QS,
+	xM,
+	Z3,
 } from "./52451.js";
 import ce from "./52470.js";
 import Me from "./53074.js";
-import W, { Bx, xf, P4 } from "./55489.js";
+import W, { Bx, P4, xf } from "./55489.js";
 import Ua from "./55667.js";
 import le from "./56262.js";
-import Se, { Wm as Wm_2, er as er_2 } from "./56655.js";
+import Se, { er as er_2, Wm as Wm_2 } from "./56655.js";
 import Yr, { yX } from "./57016.js";
 import ue from "./57150.js";
 import gt from "./57472.js";
@@ -174,7 +171,7 @@ import be from "./59298.js";
 import $ from "./59856.js";
 import ut from "./61277.js";
 import { I as I_2 } from "./61416.js";
-import { V3, rO as rO_2 } from "./61518.js";
+import { rO as rO_2, V3 } from "./61518.js";
 import je from "./61657.js";
 import ha from "./69740.js";
 import me from "./71333.js";
@@ -196,7 +193,7 @@ import mr from "./81661.js";
 import de from "./81863.js";
 import Ti from "./82023.js";
 import { t7 } from "./82594.js";
-import Bn, { T as T_1 } from "./83399.js";
+import { T as T_1 } from "./83399.js";
 import An, { L2 } from "./83591.js";
 import ua from "./83957.js";
 import Pr from "./84194.js";
@@ -208,7 +205,7 @@ import Be from "./87935.js";
 import $r from "./88306.js";
 import Xr from "./88341.js";
 import xr from "./88696.js";
-import He, { XI, Gn as Gn_2, h5, fm as fm_2 } from "./89193.js";
+import He, { fm as fm_2, Gn as Gn_2, h5, XI } from "./89193.js";
 import j, { O7 } from "./90242.js";
 import ur from "./91209.js";
 import wr, { A as A_3 } from "./91486.js";
@@ -223,16 +220,16 @@ import Ce from "./96000.js";
 import $e, { Co as Co_3, mM } from "./96593.js";
 import Ze, { $2 } from "./96680.js";
 import gn from "./97510.js";
-import en, { R2, dZ, JS } from "./97893.js";
+import { dZ, JS, R2 } from "./97893.js";
 import hi from "./99731.js";
 import "./69412.js";
-import "../../actual_src/utils/callbackutils";
+import "@actual_src/utils/callbackutils";
 import "./35268.js";
 import "./36723.js";
-import cs, { FV } from "./823.js";
+import { FV } from "./823.js";
 import Ql from "./3824.js";
 import Va from "./4690.js";
-import Ll, { QM, xv, ED } from "./5822.js";
+import Ll, { ED, QM, xv } from "./5822.js";
 import tc from "./6670.js";
 import is from "./7081.js";
 import Yc from "./7455.js";
@@ -249,20 +246,20 @@ import Rl from "./13741.js";
 import Kl, { Nm as Nm_2 } from "./14629.js";
 import { Nd } from "./15918.js";
 import as from "./17231.js";
-import ps, { js as js_2, DW } from "./17613.js";
+import ps, { DW, js as js_2 } from "./17613.js";
 import Hc from "./18831.js";
 import tl from "./19390.js";
 import { M as M_2 } from "./19840.js";
 import Zo from "./21105.js";
 import Wl from "./22004.js";
-import { RS, _Y } from "./22091.js";
+import { _Y, RS } from "./22091.js";
 import Ul from "./23038.js";
 import Ol from "./23644.js";
 import Ko from "./25536.js";
 import Vl from "./26030.js";
-import Wc, { DO, YN, eK, gn as gn_2 } from "./31144.js";
+import Wc, { DO, eK, gn as gn_2, YN } from "./31144.js";
 import Ka from "./31958.js";
-import Lc, { j as j_2 } from "./32084.js";
+import { j as j_2 } from "./32084.js";
 import nl, { xZ } from "./33000.js";
 import Ic from "./33036.js";
 import sl from "./33697.js";
@@ -271,7 +268,6 @@ import { Xs as Xs_2, xs as xs_2 } from "./34819.js";
 import $l from "./36032.js";
 import Po from "./36934.js";
 import Ec from "./37086.js";
-import { r } from "./37499.js";
 import Zc from "./38602.js";
 import { c as c_3 } from "./38837.js";
 import { m as m_2 } from "./39039.js";
@@ -284,7 +280,7 @@ import $a from "./48130.js";
 import Qo from "./49220.js";
 import { E as E_2 } from "./52922.js";
 import { Te as Te_2 } from "./55007.js";
-import Ja, { Bk, WX, IH } from "./55444.js";
+import Ja, { Bk, IH, WX } from "./55444.js";
 import eo from "./57585.js";
 import { b as b_2 } from "./59750.js";
 import _Is from "./60367.js";
@@ -299,7 +295,7 @@ import Qc, { o as o_2 } from "./73259.js";
 import ms from "./74110.js";
 import Gl from "./75140.js";
 import Yl from "./75248.js";
-import Yo, { L as L_2 } from "./76319.js";
+import { L as L_2 } from "./76319.js";
 import xc from "./76356.js";
 import { Id } from "./77347.js";
 import ls from "./78771.js";
@@ -313,12 +309,12 @@ import Ya from "./83599.js";
 import Ms from "./86062.js";
 import Co from "./86454.js";
 import Oo from "./87913.js";
-import { Qt as Qt_3, os as os_2 } from "./89697.js";
-import ja, { ru as ru_2, n9, bV, aL } from "./92059.js";
+import { os as os_2, Qt as Qt_3 } from "./89697.js";
+import ja, { aL, bV, n9, ru as ru_2 } from "./92059.js";
 import Nl from "./94899.js";
 import ns from "./98995.js";
 import "./17754.js";
-import Kc, { BGameRecordingFeatureEnabled } from "./4069.js";
+import { BGameRecordingFeatureEnabled } from "./4069.js";
 import wm from "./21110.js";
 import { ek } from "./42983.js";
 import { LU, Ze as Ze_2 } from "./54102.js";
@@ -327,7 +323,10 @@ import { ho as ho_2 } from "./67784.js";
 import _m from "./74751.js";
 import vm from "./81668.js";
 import "./16647.js";
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+
+import { useBrowserViewRegisterNavTree } from "@actual_src/browserview_windowfocuscoordinator";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+
 import $u from "./223.js";
 import { $ as $_2 } from "./6232.js";
 import { w as w_2 } from "./10501.js";
@@ -347,9 +346,9 @@ import uu from "./56461.js";
 import Ku from "./57421.js";
 import Hm from "./57565.js";
 import Ju from "./59718.js";
-import { Y$, k6, on as on_2 } from "./60115.js";
+import { k6, on as on_2, Y$ } from "./60115.js";
 import Zu from "./60712.js";
-import Fm, { Nx } from "./71033.js";
+import { Nx } from "./71033.js";
 import cu, { sd as sd_2 } from "./73375.js";
 import { Tr as Tr_2 } from "./74416.js";
 import ou from "./78325.js";
@@ -365,7 +364,7 @@ import ru, { K1 as K1_2 } from "./91703.js";
 import zu from "./93440.js";
 import { x5 } from "./95979.js";
 import { w as w_1 } from "./98385.js";
-import { a as a_1 } from "./browserview_windowfocuscoordinator";
+
 const E = I;
 const P = O;
 function L(e) {
@@ -18537,7 +18536,7 @@ const Wu = PA((e) => {
 	if (l?.IsVRSimulatedOnDesktopWindow()) {
 		m += "_simulated";
 	}
-	const u = a_1();
+	const u = useBrowserViewRegisterNavTree();
 	const d = Ue_1(u, e.refNavTreeRoot);
 	const f = c.yE.GetActiveLockScreenProps();
 	const y = on_2();

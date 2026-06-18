@@ -1,4 +1,5 @@
-import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import i from "./63696.js";
 export class R8 {
 	reactNodes = [];

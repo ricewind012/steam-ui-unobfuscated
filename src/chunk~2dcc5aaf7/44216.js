@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import * as I from "./3499.js";
 import * as z from "./3874.js";
 import * as w from "./4069.js";
@@ -40,6 +41,7 @@ import * as f from "./94361.js";
 import * as B from "./96680.js";
 import * as N from "./98995.js";
 import * as m from "./99998.js";
+
 const W = parseInt(i.animationTransitionMS);
 export default (e) => {
 	const { gameID: t, timelineWidth: r } = e;

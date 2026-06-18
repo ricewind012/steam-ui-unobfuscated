@@ -1,5 +1,6 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import n, { Cg } from "./34629.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+
+import { Cg } from "./34629.js";
 import i, { useState } from "./63696.js";
 import a from "./64608.js";
 import "./13869.js";

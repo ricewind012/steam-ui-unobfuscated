@@ -1,10 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import u from "./4690.js";
 import d from "./13110.js";
 import A from "./15181.js";
 import { w as w_1 } from "./23101.js";
-import i, { PA } from "./41230.js";
-import { Ue, l6, wY } from "./52451.js";
+import { PA } from "./41230.js";
+import { l6, Ue, wY } from "./52451.js";
 import n from "./63696.js";
 import o from "./69164.js";
 import c from "./76587.js";

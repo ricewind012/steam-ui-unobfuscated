@@ -1,16 +1,18 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import i, { I8 } from "./12176.js";
 import { LH } from "./24295.js";
 import { KV } from "./46382.js";
 import l from "./59401.js";
 import { I as I_1 } from "./61416.js";
-import n, { useContext, createContext, useEffect } from "./63696.js";
+import n, { createContext, useContext, useEffect } from "./63696.js";
 import "./54946.js";
 import L from "./43691.js";
 import u from "./48307.js";
 import m from "./58663.js";
 import "./24274.js";
 import "./36229.js";
+
 const m_Message = m.Message;
 class A extends m_Message {
 	static ImplementsStaticInterface() {}

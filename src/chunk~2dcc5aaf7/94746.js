@@ -1,7 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./8340.js";
 import a from "./35488.js";
-import n from "./63696.js";
 import i from "./69164.js";
 export function I(e) {
 	return (

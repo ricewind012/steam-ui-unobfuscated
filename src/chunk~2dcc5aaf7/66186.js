@@ -1,5 +1,5 @@
-import n, { Cg } from "./34629.js";
-import d, { VI } from "./34792.js";
+import { Cg } from "./34629.js";
+import { VI } from "./34792.js";
 import A from "./43691.js";
 import s from "./44846.js";
 import c from "./51297.js";
@@ -8,8 +8,9 @@ import m from "./60917.js";
 import i from "./63696.js";
 import a, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
-import u, { l5 } from "./96555.js";
-import("../../actual_src/utils/localization.js");
+import { l5 } from "./96555.js";
+
+import("@actual_src/utils/localization.js");
 export class Hn {
 	static s_Singleton = null;
 	static Get() {

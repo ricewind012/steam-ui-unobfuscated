@@ -1,9 +1,10 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import H from "./10606.js";
 import W from "./11131.js";
 import i, { I8 } from "./12176.js";
 import q from "./26853.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import Y from "./36320.js";
 import s from "./48307.js";
 import { W6 } from "./49519.js";
@@ -15,6 +16,7 @@ import P, { T as T_1 } from "./78057.js";
 import j from "./78110.js";
 import z from "./96000.js";
 import L from "./96593.js";
+
 const a_Message = a.Message;
 class _l extends a_Message {
 	static ImplementsStaticInterface() {}

@@ -1,9 +1,10 @@
 import {
-	CountMatches,
-	FindAndRemoveWhere,
-	MoveElement,
-} from "../../actual_src/utils/arrayutils.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+    CountMatches,
+    FindAndRemoveWhere,
+    MoveElement,
+} from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import i from "./12176.js";
 import a from "./26052.js";
 import { Cg } from "./34629.js";

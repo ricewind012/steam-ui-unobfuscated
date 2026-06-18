@@ -1,5 +1,6 @@
-import { GetUnixTime } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
+import { GetUnixTime } from "@actual_src/utils/time.js";
+
+import { Cg } from "./34629.js";
 import l from "./51297.js";
 import o, { $$ } from "./52451.js";
 import i from "./63696.js";

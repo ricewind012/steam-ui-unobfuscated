@@ -1,16 +1,18 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import m, { yq } from "./11131.js";
-import A, { Qt } from "./18057.js";
+import { Qt } from "./18057.js";
 import g from "./32313.js";
 import { VI } from "./34792.js";
 import s from "./35488.js";
 import a from "./50376.js";
-import p, { wY } from "./52451.js";
-import c, { OJ } from "./63439.js";
+import { wY } from "./52451.js";
+import { OJ } from "./63439.js";
 import n from "./63696.js";
 import i from "./78325.js";
 import { A as A_1 } from "./90765.js";
-import l, { $2 } from "./96680.js";
+import { $2 } from "./96680.js";
+
 const h = g;
 function C(e) {
 	const { broadcastStatus, bDesktopBanner, onResize } = e;

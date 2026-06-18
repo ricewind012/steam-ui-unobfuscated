@@ -1,11 +1,13 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import i, { pg } from "./13869.js";
 import l from "./31222.js";
-import n, { useState } from "./63696.js";
+import { useState } from "./63696.js";
 import s from "./72476.js";
 import o from "./89791.js";
 import c from "./90869.js";
 import "./10606.js";
+
 function M(e) {
 	return (
 		<i.x_ onEscKeypress={e.closeModal} bDisableBackgroundDismiss>

@@ -1,4 +1,5 @@
 import Module from "./steamaudio_wrapper.js";
+
 Module.onRuntimeInitialized = () => {
 	Module.api = {
 		malloc: Module.cwrap("malloc", "number", ["number"]),

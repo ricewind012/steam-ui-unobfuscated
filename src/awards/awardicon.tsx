@@ -1,13 +1,15 @@
 import { PureComponent } from "react";
 
-import { LocalizePlural } from "../../actual_src/utils/localization.js";
+import { LocalizePlural } from "@actual_src/utils/localization.js";
+
 import { A as ClassMap } from "../library/90765.js";
 import { he as ToolTip } from "../library/98995.js";
 import {
-	type EReactionType,
-	GetLocTokenForReactionType,
-	GetReactionImageURL,
+    type EReactionType,
+    GetLocTokenForReactionType,
+    GetReactionImageURL,
 } from "./utils.js";
+
 declare const styles: any;
 
 interface ReactionAward_t {

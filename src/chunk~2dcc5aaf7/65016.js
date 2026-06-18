@@ -1,5 +1,6 @@
-import { CScheduledFunc } from "../../actual_src/utils/callbackutils";
-import n, { Cg } from "./34629.js";
+import { CScheduledFunc } from "@actual_src/utils/callbackutils";
+
+import { Cg } from "./34629.js";
 import a from "./52451.js";
 import i from "./63696.js";
 export class m extends i.Component {

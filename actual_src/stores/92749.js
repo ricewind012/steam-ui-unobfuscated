@@ -11,6 +11,7 @@ import p, { q3 } from "./90095.js";
 import * as c from "./91745.js";
 import * as u from "./96000.js";
 import * as d from "./96593.js";
+
 const h = "playnextstore_storage";
 export function K_() {
 	return q3(() => x3.GetSuggestionsToShow().apps);

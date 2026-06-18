@@ -1,15 +1,17 @@
-import { _f } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+import { _f } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./2306.js";
 import l from "./10606.js";
-import o, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import d from "./13897.js";
-import m, { OQ } from "./31958.js";
+import { OQ } from "./31958.js";
 import a from "./43691.js";
-import c, { L$, $$, QS, Fd } from "./52451.js";
+import { $$, Fd, L$, QS } from "./52451.js";
 import n from "./63696.js";
 import p from "./75961.js";
-import s, { H3, Ck, l5, go, xY, hb, EH } from "./96555.js";
+import s, { Ck, EH, go, H3, hb, l5, xY } from "./96555.js";
+
 function G(e) {
 	const { displayId, previousModeId, closeModal } = e;
 	const o = n.useCallback(() => {

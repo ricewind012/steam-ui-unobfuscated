@@ -1,12 +1,14 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import a from "./1615.js";
 import i from "./10606.js";
-import m, { R7 } from "./11131.js";
-import c, { pg } from "./13869.js";
+import { R7 } from "./11131.js";
+import { pg } from "./13869.js";
 import o from "./30449.js";
-import u, { yZ } from "./34461.js";
+import { yZ } from "./34461.js";
 import n from "./63696.js";
 import s from "./64608.js";
+
 const d = 1.5;
 const A = 300;
 export function e() {

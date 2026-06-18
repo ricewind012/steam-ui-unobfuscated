@@ -1,6 +1,7 @@
 import s from "./29218.js";
 import i from "./48307.js";
 import r from "./58663.js";
+
 const r_Message = r.Message;
 export class s5 extends r_Message {
 	static ImplementsStaticInterface() {}

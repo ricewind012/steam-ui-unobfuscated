@@ -6,7 +6,7 @@ import l from "./36032.js";
 import a from "./41230.js";
 import o from "./52451.js";
 import i from "./63696.js";
-import m, { bg, _k, tj } from "./68292.js";
+import m, { _k, bg, tj } from "./68292.js";
 export function Cc(e, t, r) {
 	if (e.shiftKey) {
 		return;

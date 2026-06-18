@@ -1,26 +1,28 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import { hb } from "./5640.js";
 import _C from "./8573.js";
 import a from "./11374.js";
 import { k1 } from "./13688.js";
-import { Qt, bG } from "./18057.js";
+import { bG, Qt } from "./18057.js";
 import { br } from "./18869.js";
 import A from "./20189.js";
 import u from "./22091.js";
 import l from "./35488.js";
 import g from "./48289.js";
-import s, { XE, ZT } from "./60917.js";
+import { XE, ZT } from "./60917.js";
 import n from "./63696.js";
 import v from "./65067.js";
-import b, { f_ as f_1 } from "./67863.js";
-import h, { Qn, uI, XW, rP } from "./72476.js";
+import { f_ as f_1 } from "./67863.js";
+import h, { Qn, rP, uI, XW } from "./72476.js";
 import f from "./73317.js";
 import { TR } from "./74416.js";
-import o, { Qc } from "./87546.js";
+import { Qc } from "./87546.js";
 import _ from "./87913.js";
-import i, { q3 } from "./90095.js";
-import c, { A as A_1 } from "./90765.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
 import { $2 } from "./96680.js";
+
 const p = A;
 function E(e) {
 	const t = Qc();

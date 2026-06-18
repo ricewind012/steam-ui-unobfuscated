@@ -1,5 +1,6 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import i, { pg } from "./13869.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { pg } from "./13869.js";
 import g, { tk } from "./22091.js";
 import c from "./35488.js";
 import a, { LC } from "./46422.js";
@@ -7,9 +8,10 @@ import { CH, uN } from "./52451.js";
 import d from "./53225.js";
 import n from "./63696.js";
 import m from "./85360.js";
-import p, { FD } from "./85399.js";
+import { FD } from "./85399.js";
 import { q3 } from "./90095.js";
 import s from "./96921.js";
+
 const o = s;
 function H(e) {
 	LC(false);

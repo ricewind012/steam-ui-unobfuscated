@@ -1,4 +1,5 @@
 import n from "./43691.js";
+
 let i = {
 	success: true,
 	result: 1,

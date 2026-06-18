@@ -12,6 +12,7 @@ import n from "./63696.js";
 import i from "./64608.js";
 import u from "./69164.js";
 import o, { A as A_1 } from "./90765.js";
+
 const s = a;
 export const QK = Number.parseInt(s["gamepad-page-content-max-width-default"]);
 const f = Number.parseInt(s["gamepad-page-content-min-gutter-width"]);

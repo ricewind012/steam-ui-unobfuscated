@@ -1,9 +1,9 @@
-import { Localize } from "../../actual_src/utils/localization.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import oe from "./5859.js";
 import o, { I8 } from "./12176.js";
 import n, { Cg } from "./34629.js";
-import s, { sf, Lg } from "./44846.js";
+import s, { Lg, sf } from "./44846.js";
 import * as c from "./48307.js";
 import * as l from "./58663.js";
 import { I as I_1 } from "./61416.js";
@@ -13,6 +13,7 @@ import re from "./72476.js";
 import * as m from "./80222.js";
 import { Bn, rV } from "./85606.js";
 import se, { Gn } from "./89193.js";
+
 const l_Message = l.Message;
 class d extends l_Message {
 	static ImplementsStaticInterface() {}

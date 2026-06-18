@@ -1,21 +1,23 @@
 import {
-	Localize,
-	LocalizeInlineReactWithFallback,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeInlineReactWithFallback,
+} from "@actual_src/utils/localization.js";
+
 import m from "./10606.js";
-import o, { Z3 } from "./52451.js";
+import { Z3 } from "./52451.js";
 import n from "./63696.js";
 import i from "./64608.js";
 import a from "./69018.js";
 import u from "./69164.js";
-import l, { q3 } from "./90095.js";
-import s, { A as A_1 } from "./90765.js";
+import { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
 import "./49220.js";
-import { e0 } from "../../actual_src/utils/callbackutils";
-import Q, { bJ } from "./3524.js";
-import q, { R7 } from "./11131.js";
+import { e0 } from "@actual_src/utils/callbackutils";
+
+import { bJ } from "./3524.js";
+import { R7 } from "./11131.js";
 import h from "./13743.js";
-import j, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import x from "./22091.js";
 import W from "./35488.js";
 import Y from "./37790.js";
@@ -26,10 +28,11 @@ import C from "./52192.js";
 import H from "./53622.js";
 import p from "./61277.js";
 import d from "./61657.js";
-import z, { rP, hf } from "./72476.js";
+import z, { hf, rP } from "./72476.js";
 import U from "./85360.js";
 import X from "./85399.js";
 import A from "./96593.js";
+
 const _ = "/images/config1.png";
 const f = "/images/interstitial_controller_config.png";
 const b =

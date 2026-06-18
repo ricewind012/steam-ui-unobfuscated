@@ -1,20 +1,21 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./4690.js";
-import _, { lX } from "./31084.js";
-import b, { pw } from "./31319.js";
+import { lX } from "./31084.js";
+import { pw } from "./31319.js";
 import i from "./33036.js";
-import f, { LC } from "./46422.js";
+import { LC } from "./46422.js";
 import d from "./47268.js";
 import p from "./52192.js";
-import u, { Ue } from "./52451.js";
+import { Ue } from "./52451.js";
 import h from "./61657.js";
-import y, { Fq } from "./62486.js";
+import { Fq } from "./62486.js";
 import a from "./63696.js";
 import l from "./64608.js";
 import s from "./69164.js";
 import g from "./72655.js";
 import C from "./88750.js";
-import c, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 export let fK;
 const A = d;
 export function E0(e) {

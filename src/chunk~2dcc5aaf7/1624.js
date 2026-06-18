@@ -1,8 +1,9 @@
-import { PadArray } from "../../actual_src/utils/arrayutils.js";
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { CLocLanguageArray, Localize } from "../../actual_src/utils/localization.js";
-import * as Ye from "../../actual_src/utils/localization/datetime.js";
-import { Seconds } from "../../actual_src/utils/time.js";
+import { PadArray } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import * as Ye from "@actual_src/utils/localization/datetime.js";
+import { CLocLanguageArray, Localize } from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
 import ot from "./4816.js";
 import $e from "./8573.js";
 import Xe from "./9731.js";
@@ -31,6 +32,7 @@ import n from "./87432.js";
 import nt from "./89193.js";
 import l from "./90095.js";
 import Qe from "./90765.js";
+
 const g = A.Message;
 class h extends g {
   static ImplementsStaticInterface() {}

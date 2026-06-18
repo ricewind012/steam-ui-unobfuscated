@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import * as S from "./7470.js";
 import * as M from "./10606.js";
 import * as l from "./13869.js";
@@ -31,6 +32,7 @@ import * as E from "./89193.js";
 import * as _ from "./89454.js";
 import * as r from "./95773.js";
 import * as g from "./98829.js";
+
 const u = ({ group: e, onClick: t }) => {
 	const a = e.watching_broadcast_steamid;
 	return n.createElement(

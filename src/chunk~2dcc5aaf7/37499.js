@@ -1,10 +1,11 @@
-import { OverlayStore } from "../../actual_src/stores/overlaystore.js";
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { OverlayStore } from "@actual_src/stores/overlaystore.js";
+import { FindAndRemoveWhere } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import _ from "./5822.js";
 import A from "./8573.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import c from "./37976.js";
 import u from "./44846.js";
 import b from "./45967.js";
@@ -17,6 +18,7 @@ import i from "./87913.js";
 import l from "./87935.js";
 import { qw } from "./89748.js";
 import d from "./92031.js";
+
 class S {
 	m_cbOverlayDialogsChanged = new CCallbackList();
 	m_rgOverlayDialogRequests = [];

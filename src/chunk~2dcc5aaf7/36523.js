@@ -2,6 +2,7 @@ import { I8 } from "./12176.js";
 import s from "./29218.js";
 import i from "./48307.js";
 import n from "./58663.js";
+
 const n_Message = n.Message;
 export class qu extends n_Message {
 	static ImplementsStaticInterface() {}

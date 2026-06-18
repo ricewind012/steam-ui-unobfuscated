@@ -1,8 +1,9 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import g from "./3524.js";
 import l, { yq } from "./11131.js";
 import p from "./20690.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import d from "./35488.js";
 import u from "./50376.js";
 import { l6 } from "./52451.js";
@@ -11,8 +12,9 @@ import s from "./63696.js";
 import m from "./64608.js";
 import o from "./78325.js";
 import i, { Gn } from "./89193.js";
-import a, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import C from "./98995.js";
+
 class _ {
 	m_browser;
 	m_bFindInPage = false;

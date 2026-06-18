@@ -1,4 +1,5 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 let r;
 export let pR;
 export let Vz;

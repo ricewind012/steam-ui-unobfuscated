@@ -1,5 +1,6 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import a from "./21440.js";
 import { hL } from "./52451.js";
 import r from "./63696.js";

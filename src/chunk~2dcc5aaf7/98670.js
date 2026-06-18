@@ -1,4 +1,4 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
 export function JS(e) {
 	switch (e) {
 		case 29:

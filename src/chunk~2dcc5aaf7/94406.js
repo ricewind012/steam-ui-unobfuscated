@@ -1,19 +1,20 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { LocalizeRTimeToHourAndMinutes } from "@actual_src/utils/localization/datetime.js";
 import {
-	Localize,
-	LocalizeReact,
-	LocalizeRtime32ToShortDate,
-} from "../../actual_src/utils/localization.js";
-import { LocalizeRTimeToHourAndMinutes } from "../../actual_src/utils/localization/datetime.js";
+    Localize,
+    LocalizeReact,
+    LocalizeRtime32ToShortDate,
+} from "@actual_src/utils/localization.js";
+
 import c from "./3963.js";
 import m from "./8573.js";
 import A from "./10606.js";
 import k from "./11131.js";
 import C from "./12975.js";
 import f from "./13672.js";
-import b, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import u from "./20414.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import _ from "./34792.js";
 import g, { Cc } from "./36464.js";
 import s, { PA } from "./41230.js";
@@ -30,6 +31,7 @@ import I, { Qn } from "./72476.js";
 import y from "./87935.js";
 import { A as A_1 } from "./90765.js";
 import w from "./97590.js";
+
 const B = w;
 export let Xn = class extends i.Component {
 	static contextType = k.gs;

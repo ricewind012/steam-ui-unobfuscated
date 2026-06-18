@@ -1,15 +1,16 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import s from "./10606.js";
-import o, { pg } from "./13869.js";
+import { pg } from "./13869.js";
 import i from "./22222.js";
-import A, { V } from "./43802.js";
+import { V } from "./43802.js";
 import { oM } from "./46422.js";
 import m from "./61824.js";
-import n from "./63696.js";
 import a from "./64608.js";
 import { _ as __1 } from "./67338.js";
 import { Ev, yp } from "./77347.js";
 import { A as A_1 } from "./90765.js";
+
 const u = m;
 export function U(e) {
 	pg(<C accessPoint={e} />, window);

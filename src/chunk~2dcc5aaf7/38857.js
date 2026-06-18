@@ -1,6 +1,7 @@
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
-import { Seconds } from "../../actual_src/utils/time.js";
+import { GetOwningWindowForEvent } from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+import { Seconds } from "@actual_src/utils/time.js";
+
 import c from "./3443.js";
 import I from "./5859.js";
 import A from "./12750.js";
@@ -8,7 +9,7 @@ import M from "./13656.js";
 import { mK } from "./13869.js";
 import { br } from "./18869.js";
 import p from "./31993.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import l from "./35488.js";
 import s, { PA } from "./41230.js";
 import o from "./50376.js";
@@ -26,6 +27,7 @@ import { A as A_1 } from "./90765.js";
 import f from "./91486.js";
 import b, { pH } from "./97561.js";
 import T from "./98995.js";
+
 const m = c;
 export function Pp(e) {
 	let { details } = e;

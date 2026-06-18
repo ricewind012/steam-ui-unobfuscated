@@ -1,5 +1,6 @@
-import { IsHTMLElement } from "../../actual_src/utils/domutils.js";
-import n, { Cg } from "./34629.js";
+import { IsHTMLElement } from "@actual_src/utils/domutils.js";
+
+import { Cg } from "./34629.js";
 import o from "./43691.js";
 import s from "./61657.js";
 import i from "./93960.js";

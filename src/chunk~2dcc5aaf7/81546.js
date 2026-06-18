@@ -1,6 +1,7 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./1521.js";
-import a, { xv } from "./5822.js";
+import { xv } from "./5822.js";
 import d from "./8090.js";
 import _ from "./8573.js";
 import p from "./16117.js";
@@ -19,10 +20,11 @@ import b from "./64608.js";
 import h from "./69164.js";
 import i from "./81994.js";
 import c from "./87935.js";
-import m, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import g from "./90242.js";
 import { A as A_1 } from "./90765.js";
 import I from "./96892.js";
+
 const M = 25;
 export function _j(e) {
 	let { app, bVisible } = e;

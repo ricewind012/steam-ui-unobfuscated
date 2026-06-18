@@ -1,7 +1,8 @@
 import {
-	Localize,
-	LocalizeReact,
-} from "../../actual_src/utils/localization.js";
+    Localize,
+    LocalizeReact,
+} from "@actual_src/utils/localization.js";
+
 import * as T from "./4069.js";
 import * as y from "./4690.js";
 import * as A from "./18057.js";

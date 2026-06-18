@@ -1,10 +1,12 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import c from "./2306.js";
-import s, { R7 } from "./11131.js";
-import a, { $ } from "./27756.js";
-import i, { VI } from "./34792.js";
+import { R7 } from "./11131.js";
+import { $ } from "./27756.js";
+import { VI } from "./34792.js";
 import n from "./63696.js";
 import o from "./96670.js";
+
 function M(e) {
 	const {
 		bRequiresRestart,

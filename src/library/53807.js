@@ -1,6 +1,7 @@
 import { TL } from "./36885.js";
 import r from "./72476.js";
-import("../../actual_src/utils/localization.js");
+
+import("@actual_src/utils/localization.js");
 export function wm(e) {
 	if (e === undefined) {
 		console.error("Cannot GetHostname on empty URL");

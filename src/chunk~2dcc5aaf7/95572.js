@@ -1,10 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import A from "./10606.js";
 import { R7 } from "./11131.js";
-import u, { cp, $8, Pb } from "./13661.js";
+import u, { $8, cp, Pb } from "./13661.js";
 import { pg } from "./13869.js";
 import m from "./26853.js";
-import l, { Nr } from "./42318.js";
+import { Nr } from "./42318.js";
 import n from "./63696.js";
 import i from "./64608.js";
 import h from "./69164.js";
@@ -12,6 +13,7 @@ import a from "./69976.js";
 import { Qn } from "./72476.js";
 import g from "./72655.js";
 import c from "./78110.js";
+
 const s = a;
 function _(e) {
 	const { sReport, bShowThrobber } = e;

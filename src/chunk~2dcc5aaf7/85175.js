@@ -1,5 +1,7 @@
 import { useCallback } from "react";
-import { BIsFirstClientLoad } from "../../actual_src/startup";
+
+import { BIsFirstClientLoad } from "@actual_src/startup";
+
 import a, { b } from "./874.js";
 import { _N } from "./6263.js";
 import { Sj } from "./24287.js";

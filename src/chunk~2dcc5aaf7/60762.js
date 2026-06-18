@@ -1,11 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import l from "./47628.js";
 import s from "./50376.js";
 import { SW } from "./58839.js";
-import n from "./63696.js";
 import { CI, Hn, Pr, rf } from "./72476.js";
 import { G6 } from "./82594.js";
-import { A } from "./90765.js";
+
 const c = l;
 export function Q(e) {
 	const { item: t, strClassName: r, bMinimizePlatforms: l } = e;

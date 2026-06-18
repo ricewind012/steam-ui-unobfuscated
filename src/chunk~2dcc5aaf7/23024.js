@@ -1,28 +1,30 @@
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { FindAndRemoveWhere } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
 import {
-	CScheduledFunc,
-	CTrackedEventListeners,
-} from "../../actual_src/utils/callbackutils";
+    CScheduledFunc,
+    CTrackedEventListeners,
+} from "@actual_src/utils/callbackutils";
 import {
-	LocaleToELanguage,
-	Localize,
-} from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import w, { H } from "./16154.js";
+    LocaleToELanguage,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
+import { H } from "./16154.js";
 import l from "./18118.js";
 import v from "./20711.js";
 import o from "./21866.js";
 import p from "./31958.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import B from "./44058.js";
-import { Mc, aM } from "./59715.js";
+import { aM, Mc } from "./59715.js";
 import A from "./61738.js";
 import g from "./72476.js";
 import i from "./83957.js";
-import s, { Gn, sH, h5 } from "./89193.js";
+import s, { Gn, h5, sH } from "./89193.js";
 import h from "./93960.js";
 import C from "./99167.js";
+
 const a = i;
 function c(e, t, r) {
 	return [e, t, r];

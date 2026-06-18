@@ -1,11 +1,12 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import _ from "./4816.js";
 import f from "./13352.js";
 import C from "./15688.js";
 import T from "./18118.js";
 import m from "./22584.js";
-import l, { lX } from "./31084.js";
-import n, { Cg } from "./34629.js";
+import { lX } from "./31084.js";
+import { Cg } from "./34629.js";
 import a from "./41230.js";
 import h from "./44164.js";
 import y from "./50376.js";
@@ -20,10 +21,11 @@ import b from "./87949.js";
 import p from "./88750.js";
 import i, { Gn } from "./89193.js";
 import _I from "./89454.js";
-import s, { q3 } from "./90095.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
 import d from "./94230.js";
 import R from "./98995.js";
+
 const A = d;
 const E = _I;
 const k = new RegExp("ː([^ː]*)ː", "g");

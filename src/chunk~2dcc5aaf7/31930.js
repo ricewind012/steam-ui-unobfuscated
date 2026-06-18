@@ -1,16 +1,18 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { CCMInterfaceMessageHandlers } from "@actual_src/cminterface_messagehandlers";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import o, { I8 } from "./12176.js";
-import l, { OI } from "./12251.js";
+import { OI } from "./12251.js";
 import s from "./16583.js";
-import u from "./25265.js";
 import { OQ } from "./31958.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import f from "./43691.js";
 import i from "./44846.js";
 import A from "./48307.js";
 import a from "./52451.js";
 import d from "./58663.js";
 import c from "./83599.js";
+
 const d_Message = d.Message;
 class g extends d_Message {
 	static ImplementsStaticInterface() {}
@@ -476,7 +478,7 @@ const S = new c.wd("WebUITransport");
 export class U {
 	m_iMsgSeq = 1;
 	m_mapPendingMethodRequests = new Map();
-	m_messageHandlers = new u.$();
+	m_messageHandlers = new CCMInterfaceMessageHandlers();
 	m_mapServiceCallErrorCount = new Map();
 	m_mapConnectionDetails = new Map();
 	m_fnOnStatusEventHandler;

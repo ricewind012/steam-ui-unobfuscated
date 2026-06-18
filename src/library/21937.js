@@ -1,6 +1,7 @@
-import { FindAndRemove } from "../../actual_src/utils/arrayutils.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { FindAndRemove } from "@actual_src/utils/arrayutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import r from "./87531.js";
 export class z {
 	m_callbacksMenusChanged = new CCallbackList();

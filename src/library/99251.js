@@ -1,7 +1,9 @@
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+
 import { QS } from "./28864.js";
 import { CH } from "./42898.js";
 import r from "./63696.js";
+
 function a(e, t) {
 	return QS(
 		(n) => {

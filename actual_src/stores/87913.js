@@ -14,10 +14,11 @@ import * as C from "./52451.js";
 import * as m from "./60917.js";
 import d, { zK } from "./63367.js";
 import { useEffect } from "./63696.js";
-import i, { PR, bg, x9 } from "./68292.js";
+import i, { bg, PR, x9 } from "./68292.js";
 import { lF } from "./79112.js";
 import A, { Gn, z7 } from "./89193.js";
 import { q3 } from "./90095.js";
+
 class f {
 	m_bStartupFinished = false;
 	m_bFriendsUIReady = false;

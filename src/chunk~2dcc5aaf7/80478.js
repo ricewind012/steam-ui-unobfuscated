@@ -36,16 +36,26 @@ var P = require("./10606.js");
 var L = require("./13869.js");
 var z = require(/*webcrack:missing*/ "./50376.js");
 var x = require(/*webcrack:missing*/ "./90765.js");
+
 import {
-	LocalizationManager,
-	Localize,
-	LocalizeInlineReactWithFallback,
-	LocalizePlural,
-	LocalizeReact,
-	LocalizeReactPlural,
-	LocalizeRtime32ToShortDate,
-	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization.js";
+    GetOwningWindowForEvent,
+    IsHTMLElement,
+} from "@actual_src/utils/domutils.js";
+import {
+    LocalizeRTimeToHourAndMinutes
+} from "@actual_src/utils/localization/datetime.js";
+import {
+    LocalizationManager,
+    Localize,
+    LocalizeInlineReactWithFallback,
+    LocalizePlural,
+    LocalizeReact,
+    LocalizeReactPlural,
+    LocalizeRtime32ToShortDate,
+    LocalizeRtime32ToShorterDate,
+} from "@actual_src/utils/localization.js";
+import { GetUnixTime, Seconds } from "@actual_src/utils/time.js";
+
 function _W(e, t) {
 	const r = new Intl.ListFormat(LocalizationManager.GetPreferredLocales(), {
 		style: "long",
@@ -196,10 +206,6 @@ function X(e) {
 }
 var J = require("./47801.js");
 var $ = require(/*webcrack:missing*/ "./44846.js");
-import {
-	GetOwningWindowForEvent,
-	IsHTMLElement,
-} from "../../actual_src/utils/domutils.js";
 let te = class extends i.Component {
 	NavigateToBadgePage(e) {
 		GetOwningWindowForEvent(e).location.href = y.B7.BuildSteamURL(
@@ -306,10 +312,6 @@ var ce = require("./12767.js");
 var me = require(/*webcrack:missing*/ "./26853.js");
 var ue = require("./86454.js");
 var de = require("./46422.js");
-import {
-	LocalizeRTimeToHourAndMinutes,
-	LocalizeRtime32ToShorterDate,
-} from "../../actual_src/utils/localization/datetime.js";
 function pe(e, t, r) {
 	let n = r ? 1 : 5;
 	ae.dm.TrackEventClickedByUser(t, n);
@@ -2679,7 +2681,6 @@ function zt(e) {
 		gcTime: Infinity,
 	});
 }
-import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
 var Ut = require("./74351.js");
 var Wt = Ut;
 var Vt = require("./10593.js");

@@ -1,10 +1,12 @@
-import { FindAndRemoveWhere } from "../../actual_src/utils/arrayutils.js";
+import { FindAndRemoveWhere } from "@actual_src/utils/arrayutils.js";
+
 import n, { I8 } from "./12176.js";
 import { OI } from "./12251.js";
 import { NL } from "./23472.js";
 import a from "./48307.js";
 import i from "./58663.js";
 import A from "./83599.js";
+
 const i_Message = i.Message;
 class l extends i_Message {
 	static ImplementsStaticInterface() {}

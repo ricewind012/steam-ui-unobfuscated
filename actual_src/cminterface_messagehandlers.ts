@@ -1,16 +1,18 @@
-import i from "./12176.js";
-import r, { Cg } from "./34629.js";
-import "./1691.js";
-import s, { Gn, h5 } from "./89193.js";
-export class $ {
+import { w } from "../src/library/12176.js";
+import "../src/library/1691.js";
+import { makeAutoObservable, observable, runInAction } from "mobx";
+
+export class CCMInterfaceMessageHandlers {
 	constructor() {
-		Gn(this);
+		makeAutoObservable(this);
 	}
+
 	m_mapCallbacks = new Map();
-	m_rgRegisteredEMsgs = [];
-	m_mapServiceMethodHandlers = new Map();
+	@observable m_rgRegisteredEMsgs = [];
+	@observable m_mapServiceMethodHandlers = new Map();
 	m_rgRegisteredServiceMethodHandlers = [];
 	m_ErrorReportingStore;
+
 	InstallErrorReportingStore(e) {
 		this.m_ErrorReportingStore = e;
 	}
@@ -99,8 +101,8 @@ export class $ {
 	}
 	AddServiceMethodHandler(e, t) {
 		let n = (n, r) => {
-			let s = i.w.InitFromMsg(e.request, n);
-			let o = i.w.Init(e.response, 147);
+			let s = w.InitFromMsg(e.request, n);
+			let o = w.Init(e.response, 147);
 			let a = t(s, o);
 			let c = (e) => {
 				o.Hdr().set_eresult(e);
@@ -142,7 +144,7 @@ export class $ {
 	}
 	AddServiceNotificationHandler(e, t) {
 		let n = (n, r) => {
-			let s = i.w.InitFromMsg(e.request, n);
+			let s = w.InitFromMsg(e.request, n);
 			t(s);
 		};
 		let r = this.m_mapServiceMethodHandlers.get(e.name);
@@ -175,13 +177,13 @@ export class $ {
 	}
 	RegisterEMessageHandler(e, t, n) {
 		return this.AddCallback(e, t, (e) => {
-			n(i.w.InitFromMsg(t, e));
+			n(w.InitFromMsg(t, e));
 		});
 	}
 	RegisterEMessageAction(e, t, n) {
 		return this.AddCallback(e, t, (e) => {
-			h5(() => {
-				n(i.w.InitFromMsg(t, e));
+			runInAction(() => {
+				n(w.InitFromMsg(t, e));
 			});
 		});
 	}
@@ -191,7 +193,7 @@ export class $ {
 	RegisterServiceNotificationHandlerAction(e, t) {
 		return this.AddServiceNotificationHandler(e, (e) => {
 			let n;
-			h5(() => {
+			runInAction(() => {
 				n = t(e);
 			});
 			return n;
@@ -203,12 +205,10 @@ export class $ {
 	RegisterServiceMethodHandlerAction(e, t) {
 		return this.AddServiceMethodHandler(e, (e, n) => {
 			let r;
-			h5(() => {
+			runInAction(() => {
 				r = t(e, n);
 			});
 			return r;
 		});
 	}
 }
-Cg([s.sH], $.prototype, "m_rgRegisteredEMsgs", undefined);
-Cg([s.sH], $.prototype, "m_rgRegisteredServiceMethodHandlers", undefined);

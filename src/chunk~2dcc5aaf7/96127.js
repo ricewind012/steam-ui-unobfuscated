@@ -1,9 +1,10 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import c from "./8573.js";
 import a, { I8 } from "./12176.js";
-import o, { Kx } from "./16583.js";
+import { Kx } from "./16583.js";
 import l from "./21866.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import d from "./36383.js";
 import i from "./44234.js";
 import h from "./48307.js";
@@ -13,13 +14,15 @@ import A from "./82755.js";
 import s, { tp } from "./88724.js";
 import m from "./93023.js";
 import "./29218.js";
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
+
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
 import { H as H_1 } from "./16154.js";
 import w from "./26052.js";
 import I from "./32493.js";
-import F, { S$, aP } from "./44846.js";
+import F, { aP, S$ } from "./44846.js";
 import v from "./46066.js";
 import D from "./46970.js";
 import L from "./52451.js";
@@ -27,9 +30,10 @@ import B from "./54946.js";
 import { s as s_1 } from "./81255.js";
 import N from "./81386.js";
 import z from "./83957.js";
-import M, { Gn, fm, h5 } from "./89193.js";
+import M, { fm, Gn, h5 } from "./89193.js";
 import H from "./95111.js";
 import E from "./95773.js";
+
 class u extends s.Z {
 	UpdateFromMessage(e, t) {
 		if ((e & 1) != 0) {

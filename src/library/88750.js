@@ -1,25 +1,27 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
 import {
-	BIsParentOrSelf,
-	ClientRectToScreenCoords,
-	GetOwningWindowForEvent,
-} from "../../actual_src/utils/domutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
+    BIsParentOrSelf,
+    ClientRectToScreenCoords,
+    GetOwningWindowForEvent,
+} from "@actual_src/utils/domutils.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import o from "./4690.js";
 import a from "./15181.js";
 import C from "./24892.js";
-import u, { lX } from "./31084.js";
+import { lX } from "./31084.js";
 import d from "./32263.js";
-import r, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import c from "./41230.js";
 import h from "./50376.js";
 import w, { cZ } from "./52451.js";
 import l from "./63696.js";
 import s from "./69164.js";
 import b, { Qn } from "./72476.js";
-import g, { s as s_1 } from "./81255.js";
-import i, { b$ } from "./90242.js";
-import p, { A as A_1 } from "./90765.js";
+import { s as s_1 } from "./81255.js";
+import { b$ } from "./90242.js";
+import { A as A_1 } from "./90765.js";
+
 const v = C;
 export const PContext = l.createContext(null);
 export let tz = class extends l.Component {

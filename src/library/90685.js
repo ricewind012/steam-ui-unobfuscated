@@ -1,5 +1,6 @@
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import s, { l6, Qi, DF } from "./52451.js";
+import { BSteamClientHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
+
+import { DF, l6, Qi } from "./52451.js";
 import r from "./63696.js";
 export function GD(e) {
 	const [t, setT] = r.useState(false);

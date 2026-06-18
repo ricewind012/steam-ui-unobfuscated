@@ -1,9 +1,11 @@
-import { Localize } from "../../actual_src/utils/localization.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import n, { Cg } from "./34629.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
+import { Cg } from "./34629.js";
 import c from "./72476.js";
 import i from "./83957.js";
 import s, { Gn, h5 } from "./89193.js";
+
 const a = i;
 class m {
 	constructor() {

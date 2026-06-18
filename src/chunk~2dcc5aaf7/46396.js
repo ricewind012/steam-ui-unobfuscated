@@ -1,4 +1,5 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { Localize } from "@actual_src/utils/localization.js";
+
 import I from "./4690.js";
 import E from "./10606.js";
 import B from "./10975.js";
@@ -8,25 +9,26 @@ import h from "./19037.js";
 import v from "./22047.js";
 import A, { as } from "./22091.js";
 import G from "./35376.js";
-import a, { PA } from "./41230.js";
+import { PA } from "./41230.js";
 import S from "./42318.js";
-import _, { u6 } from "./43152.js";
-import i, { g as g_1, W6, zy, B6 } from "./49519.js";
+import { u6 } from "./43152.js";
+import { B6, g as g_1, W6, zy } from "./49519.js";
 import y from "./50350.js";
-import m, { Kw, kF, Xt } from "./52192.js";
-import M, { uD } from "./52451.js";
-import l, { ix, ND, GW } from "./62486.js";
+import { Kw, kF, Xt } from "./52192.js";
+import { uD } from "./52451.js";
+import l, { GW, ix, ND } from "./62486.js";
 import n from "./63696.js";
 import g from "./64608.js";
 import u from "./69164.js";
 import T from "./70078.js";
 import s from "./78567.js";
-import k, { ej, E0, UP } from "./78787.js";
+import k, { E0, ej, UP } from "./78787.js";
 import f from "./83314.js";
 import c, { Ij } from "./85360.js";
-import w, { A as A_1 } from "./90765.js";
+import { A as A_1 } from "./90765.js";
 import F from "./94790.js";
 import b from "./99452.js";
+
 const o = s;
 const R = T;
 function D(e) {

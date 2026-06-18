@@ -1,22 +1,24 @@
-import { AssertMsg } from "../../actual_src/utils/assert.js";
-import { IsHTMLElementTextInput } from "../../actual_src/utils/domutils.js";
+import { AssertMsg } from "@actual_src/utils/assert.js";
+import { IsHTMLElementTextInput } from "@actual_src/utils/domutils.js";
 import {
-	LocalizationManager,
-	Localize,
-} from "../../actual_src/utils/localization.js";
+    LocalizationManager,
+    Localize,
+} from "@actual_src/utils/localization.js";
+
 import s from "./18057.js";
 import i from "./31319.js";
-import n, { Cg } from "./34629.js";
+import { Cg } from "./34629.js";
 import a, { Gn } from "./89193.js";
 import "./33572.js";
 import o from "./5822.js";
 import l from "./55489.js";
 import "./44234.js";
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
 import {
-	CCallbackList,
-	SubscribableValue,
-} from "../../actual_src/utils/callbackutils";
+    CCallbackList,
+    SubscribableValue,
+} from "@actual_src/utils/callbackutils";
+
 import u from "./10606.js";
 import x from "./18052.js";
 import L from "./22969.js";
@@ -33,6 +35,7 @@ import f from "./83599.js";
 import N from "./85243.js";
 import h from "./93960.js";
 import p from "./96593.js";
+
 class c {
 	m_Instance;
 	m_iHideFooterCount = 0;
