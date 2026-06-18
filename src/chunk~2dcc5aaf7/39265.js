@@ -70,11 +70,12 @@ import { q3 } from "./90095.js";
 import h from "./90242.js";
 import { A as A_1 } from "./90765.js";
 import fe from "./90869.js";
-import de from "./92228.js";
 import Be from "./93025.js";
 import Y from "./93681.js";
 import oe from "./95311.js";
 import { $2 } from "./96680.js";
+import { CMInterfaceSharedClientConnection } from "./cminterface";
+
 function k(e) {
 	let t = gc(R.o.CurrentLanguage);
 	let r = gc(R.o.AvailableLanguages);
@@ -2461,7 +2462,7 @@ function ft(e) {
 	const [o, m] = i.useState(false);
 	const [u, d] = i.useState(false);
 	const A = rP().IN_VR;
-	let g = new de.ij();
+	let g = new CMInterfaceSharedClientConnection();
 	let h = g.GetServiceTransport();
 	i.useEffect(() => {
 		if (t) {

@@ -1,30 +1,33 @@
-import { GetUnixTime } from "../../actual_src/utils/time.js";
-import r, { Cg } from "./34629.js";
-import i from "./37322.js";
-import s from "./72476.js";
-import o from "./12176.js";
-import a from "./8573.js";
-import c from "./16583.js";
-import l from "./82755.js";
-import u, { Gn, fm } from "./89193.js";
-import m, { JS } from "./1691.js";
-import d from "./94195.js";
-import h from "./49395.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import f from "./25265.js";
+import { XI, fm, makeAutoObservable, sH } from "mobx";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import M from "./53048.js";
-import S from "./29218.js";
-import y from "./44846.js";
-import E from "./83957.js";
-class _ {
+import { AssertMsg } from "../../actual_src/utils/assert.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils/index.js";
+import { GetUnixTime } from "../../actual_src/utils/time.js";
+import { JS } from "./1691.js";
+import { b as CSteamID } from "./8573.js";
+import { lI, w as w_1 } from "./12176.js";
+import { pV } from "./16583.js";
+import { $ as CCMInterfaceMessageHandlers } from "./25265.js";
+import { gF } from "./29218.js";
+import { Cg } from "./34629.js";
+import { bg, iI } from "./37322.js";
+import { kF } from "./44846.js";
+import { HW } from "./49395.js";
+import { inflate } from "./53048.js";
+import { TS, iA } from "./72476.js";
+import { el } from "./82755.js";
+import * as E from "./83957.js";
+import { Q_, Sb, c1, dX, s5 } from "./94195.js";
+
+class CCMCallbackList {
 	m_bRunOnce = false;
 	m_ClientConnectionCallbacks = new CCallbackList();
 	m_mapServerTypeCallbacks = new Map();
-	constructor(e = false) {
-		this.m_bRunOnce = e;
+
+	constructor(bRunOnce = false) {
+		this.m_bRunOnce = bRunOnce;
 	}
+
 	RunCallbacks(e, ...t) {
 		if (e === undefined) {
 			this.m_ClientConnectionCallbacks.Dispatch(...t);
@@ -38,10 +41,12 @@ class _ {
 			}
 		}
 	}
+
 	RunAllCallbacks(e, ...t) {
 		this.RunCallbacks(undefined, ...t);
 		e.forEach((e) => this.RunCallbacks(e, ...t));
 	}
+
 	AddCallback(e, t) {
 		let n = this.m_ClientConnectionCallbacks;
 		if (t !== undefined) {
@@ -53,8 +58,9 @@ class _ {
 		return n.Register(e);
 	}
 }
-class w {
-	m_steamid = new a.b();
+
+class CMInterface {
+	m_steamid = new CSteamID();
 	m_bLoggedOn = false;
 	m_bCompletedInitialConnect = false;
 	m_unAccountFlags = 0;
@@ -67,31 +73,38 @@ class w {
 	m_ServiceTransport;
 	m_onConnect;
 	m_setConnectedServers = new Set();
-	m_callbacksOnConnectOneTime = new _(true);
-	m_callbacksOnConnect = new _();
-	m_callbacksOnDisconnect = new _();
-	m_callbacksOnDisconnectOneTime = new _(true);
+	m_callbacksOnConnectOneTime = new CCMCallbackList(true);
+	m_callbacksOnConnect = new CCMCallbackList();
+	m_callbacksOnDisconnect = new CCMCallbackList();
+	m_callbacksOnDisconnectOneTime = new CCMCallbackList(true);
 	m_bForceDisconnect = false;
 	m_bPerformedInitialClockAdjustment = false;
 	m_nWallClockDriftMS = 0;
 	m_nPerfClockServerMSOffset = new Date().getTime() - performance.now();
-	m_messageHandlers = new f.$();
+	m_messageHandlers = new CCMInterfaceMessageHandlers();
+
 	constructor() {
-		Gn(this);
+		makeAutoObservable(this);
 		this.m_ServiceTransport = {
-			SendMsg: (e, t, n) => {
-				if (t.GetEMsg() === undefined || t.GetEMsg() != 9804) {
-					t.SetEMsg(151);
+			SendMsg: (target_job_name, proto_msg_base, n) => {
+				if (
+					proto_msg_base.GetEMsg() === undefined ||
+					proto_msg_base.GetEMsg() != 9804
+				) {
+					proto_msg_base.SetEMsg(151);
 				}
-				t.Hdr().set_target_job_name(e);
-				return this.SendMsgAndAwaitResponse(t, n);
+				proto_msg_base.Hdr().set_target_job_name(target_job_name);
+				return this.SendMsgAndAwaitResponse(proto_msg_base, n);
 			},
-			SendNotification: (e, t) => {
-				if (t.GetEMsg() === undefined || t.GetEMsg() != 9804) {
-					t.SetEMsg(151);
+			SendNotification: (target_job_name, proto_msg_base) => {
+				if (
+					proto_msg_base.GetEMsg() === undefined ||
+					proto_msg_base.GetEMsg() != 9804
+				) {
+					proto_msg_base.SetEMsg(151);
 				}
-				t.Hdr().set_target_job_name(e);
-				return this.Send(t);
+				proto_msg_base.Hdr().set_target_job_name(target_job_name);
+				return this.Send(proto_msg_base);
 			},
 			MakeReady: this.MakeReady.bind(this),
 		};
@@ -101,27 +114,35 @@ class w {
 			});
 		}
 	}
+
 	get steamid() {
 		return this.m_steamid;
 	}
+
 	get logged_on() {
 		return this.m_bLoggedOn;
 	}
+
 	get persona_name() {
 		return this.m_strPersonaName;
 	}
+
 	get messageHandlers() {
 		return this.m_messageHandlers;
 	}
+
 	get rtReconnectThrottleStart() {
 		return this.m_rtReconnectThrottleStart;
 	}
+
 	get rtReconnectThrottleExpiration() {
 		return this.m_rtReconnectThrottleExpiration;
 	}
+
 	BDisconnected() {
 		return !this.logged_on && this.m_steamid.BIsValid();
 	}
+
 	BConnectedToServer(e) {
 		if (e === undefined) {
 			return this.m_bLoggedOn;
@@ -129,38 +150,46 @@ class w {
 			return this.m_setConnectedServers.has(e);
 		}
 	}
+
 	get has_completed_initial_connect() {
 		return this.m_bCompletedInitialConnect;
 	}
+
 	get account_flags() {
 		return this.m_unAccountFlags;
 	}
+
 	GetServiceTransport() {
 		return this.m_ServiceTransport;
 	}
+
 	GetAnonymousServiceTransport() {
 		return this.m_ServiceTransport;
 	}
+
 	MakeReady() {
 		return SteamClient.User.Connect();
 	}
-	RunWhenLoggedOn(e, t) {
-		let n = ((e, t) => () => {
+
+	RunWhenLoggedOn(e, server) {
+		let callback = ((e, t) => () => {
 			try {
 				e();
 			} catch (e) {
 				console.error(`Error in ${t} callback:`, e);
 			}
 		})(e, "RunWhenLoggedOn");
-		if (this.BConnectedToServer(t)) {
-			n();
+		if (this.BConnectedToServer(server)) {
+			callback();
 		} else {
-			this.m_callbacksOnConnectOneTime.AddCallback(n, t);
+			this.m_callbacksOnConnectOneTime.AddCallback(callback, server);
 		}
 	}
+
 	WaitUntilLoggedOn() {
 		return new Promise((e) => this.RunWhenLoggedOn(e));
 	}
+
 	AddOnLogonCallback(e, t) {
 		let n = () => {
 			try {
@@ -204,7 +233,7 @@ class w {
 		return true;
 	}
 	ResolveAwaitWithTransportError(e, t, n, r) {
-		let i = o.w.Init(t);
+		let i = w_1.Init(t);
 		i.Hdr().set_eresult(2);
 		i.Hdr().set_transport_error(n);
 		if (r) {
@@ -282,26 +311,32 @@ class w {
 	}
 	ClientServersAvailableHandler = this.m_messageHandlers.RegisterEMessageAction(
 		5501,
-		h.HW,
-		(e) => {
-			let t = new Set(this.m_setConnectedServers);
-			for (let n of e.Body().server_types_available()) {
-				let e = n.server();
-				if (e !== undefined) {
+		HW,
+		(msg) => {
+			let setConnectedServers = new Set(this.m_setConnectedServers);
+			for (let server_types_available of msg.Body().server_types_available()) {
+				let server = server_types_available.server();
+				if (server !== undefined) {
 					if (this.m_bLoggedOn) {
-						if (!this.m_setConnectedServers.has(e) || !!n.changed()) {
-							if (n.changed() && this.m_setConnectedServers.has(e)) {
-								this.RunOnDisconnectCallbacks(e, false);
+						if (
+							!this.m_setConnectedServers.has(server) ||
+							!!server_types_available.changed()
+						) {
+							if (
+								server_types_available.changed() &&
+								this.m_setConnectedServers.has(server)
+							) {
+								this.RunOnDisconnectCallbacks(server, false);
 							}
-							this.m_callbacksOnConnect.RunCallbacks(e);
-							this.m_callbacksOnConnectOneTime.RunCallbacks(e);
+							this.m_callbacksOnConnect.RunCallbacks(server);
+							this.m_callbacksOnConnectOneTime.RunCallbacks(server);
 						}
 					}
-					this.m_setConnectedServers.add(e);
-					t.delete(e);
+					this.m_setConnectedServers.add(server);
+					setConnectedServers.delete(server);
 				}
 			}
-			t.forEach((e) => {
+			setConnectedServers.forEach((e) => {
 				this.m_setConnectedServers.delete(e);
 				if (this.m_bLoggedOn) {
 					this.RunOnDisconnectCallbacks(e, false);
@@ -316,11 +351,11 @@ class w {
 		0;
 	}
 	async InternalAdjustClock() {
-		let e = o.w.Init(d.Sb, 9802);
+		let e = w_1.Init(Sb, 9802);
 		e.Body().set_client_request_timestamp(
 			Math.floor(performance.now()).toString(),
 		);
-		return this.SendMsgAndAwaitResponse(e, d.Q_).then((e) => {
+		return this.SendMsgAndAwaitResponse(e, Q_).then((e) => {
 			let t = performance.now();
 			let n = new Date();
 			let r = parseInt(e.Body().client_request_timestamp());
@@ -353,26 +388,33 @@ class w {
 		return new Date(e * 1000 + this.m_nWallClockDriftMS);
 	}
 }
-Cg([u.sH], w.prototype, "m_steamid", undefined);
-Cg([u.sH], w.prototype, "m_bLoggedOn", undefined);
-Cg([u.sH], w.prototype, "m_bCompletedInitialConnect", undefined);
-Cg([u.sH], w.prototype, "m_unAccountFlags", undefined);
-Cg([u.sH], w.prototype, "m_strIPCountry", undefined);
-Cg([u.sH], w.prototype, "m_strPersonaName", undefined);
-Cg([u.sH], w.prototype, "m_rtReconnectThrottleStart", undefined);
-Cg([u.sH], w.prototype, "m_rtReconnectThrottleExpiration", undefined);
-Cg([u.sH], w.prototype, "m_bConnected", undefined);
-Cg([u.sH], w.prototype, "m_bPerformedInitialClockAdjustment", undefined);
-Cg([u.XI], w.prototype, "DispatchMessage", null);
-Cg([u.XI], w.prototype, "OnDisconnect", null);
-export class ij extends w {
-	m_hSharedConnection;
-	m_hEMsgRegistrationObserver;
+Cg([sH], CMInterface.prototype, "m_steamid", undefined);
+Cg([sH], CMInterface.prototype, "m_bLoggedOn", undefined);
+Cg([sH], CMInterface.prototype, "m_bCompletedInitialConnect", undefined);
+Cg([sH], CMInterface.prototype, "m_unAccountFlags", undefined);
+Cg([sH], CMInterface.prototype, "m_strIPCountry", undefined);
+Cg([sH], CMInterface.prototype, "m_strPersonaName", undefined);
+Cg([sH], CMInterface.prototype, "m_rtReconnectThrottleStart", undefined);
+Cg([sH], CMInterface.prototype, "m_rtReconnectThrottleExpiration", undefined);
+Cg([sH], CMInterface.prototype, "m_bConnected", undefined);
+Cg(
+	[sH],
+	CMInterface.prototype,
+	"m_bPerformedInitialClockAdjustment",
+	undefined,
+);
+Cg([XI], CMInterface.prototype, "DispatchMessage", null);
+Cg([XI], CMInterface.prototype, "OnDisconnect", null);
+
+export class CMInterfaceSharedClientConnection extends CMInterface {
+	m_hSharedConnection: number;
+	m_hEMsgRegistrationObserver: number;
 	m_setEMsgHandlers = new Set();
 	m_setServiceMethodHandlers = new Set();
+
 	constructor() {
 		super();
-		Gn(this);
+		makeAutoObservable(this);
 		if (
 			BSharedJSContextHasMethod("User.RegisterForConnectionAttemptsThrottled")
 		) {
@@ -385,7 +427,7 @@ export class ij extends w {
 		return new Promise((n, r) => {
 			if (this.m_hSharedConnection) {
 				this.DEBUG_LogCMInterfaceActivity(e, "send");
-				let r = i.iI(e.Serialize());
+				let r = iI(e.Serialize());
 				if (
 					SteamClient.SharedConnection.SendMsgAndAwaitBinaryResponse !==
 					undefined
@@ -395,8 +437,8 @@ export class ij extends w {
 						r,
 					)
 						.then((e) => {
-							let r = new c.pV(e);
-							let i = o.w.InitFromPacket(t, r);
+							let r = new pV(e);
+							let i = w_1.InitFromPacket(t, r);
 							this.DEBUG_LogCMInterfaceActivity(i, "receive", true);
 							if (i.BIsValid()) {
 								n(i);
@@ -418,8 +460,8 @@ export class ij extends w {
 						r,
 					)
 						.then((e) => {
-							let r = new c.pV(i.bg(e));
-							let s = o.w.InitFromPacket(t, r);
+							let r = new pV(bg(e));
+							let s = w_1.InitFromPacket(t, r);
 							this.DEBUG_LogCMInterfaceActivity(s, "receive", true);
 							if (s.BIsValid()) {
 								n(s);
@@ -448,30 +490,30 @@ export class ij extends w {
 		});
 	}
 	SendInternal(e) {
-		let t = i.iI(e.Serialize());
+		let t = iI(e.Serialize());
 		SteamClient.SharedConnection.SendMsg(this.m_hSharedConnection, t);
 		return true;
 	}
 	OnMsgRecvd(e) {
-		let t = new c.pV(e);
-		let n = o.lI.InitHeaderFromPacket(t);
+		let t = new pV(e);
+		let n = lI.InitHeaderFromPacket(t);
 		this.DispatchMessage(n);
 	}
 	OnLogonInfoChanged(e) {
 		this.DEBUG_LogMessage("Login info from client: ", e);
 		this.m_bLoggedOn = e.bLoggedOn;
-		s.TS.EUNIVERSE = e.eUniverse;
-		s.TS.MEDIA_CDN_COMMUNITY_URL = e.strCommunityImagesURL;
-		s.TS.COUNTRY = e.strUserCountry;
+		TS.EUNIVERSE = e.eUniverse;
+		TS.MEDIA_CDN_COMMUNITY_URL = e.strCommunityImagesURL;
+		TS.COUNTRY = e.strUserCountry;
 		if (e.strSteamid) {
-			this.m_steamid = new a.b(e.strSteamid);
+			this.m_steamid = new CSteamID(e.strSteamid);
 			this.m_strPersonaName = e.strPersonaName;
-			s.iA.logged_in = e.bLoggedOn;
-			s.iA.steamid = e.strSteamid;
-			s.iA.accountid = this.m_steamid.GetAccountID();
-			s.iA.account_name = e.strAccountName;
+			iA.logged_in = e.bLoggedOn;
+			iA.steamid = e.strSteamid;
+			iA.accountid = this.m_steamid.GetAccountID();
+			iA.account_name = e.strAccountName;
 		} else if (this.m_steamid.GetAccountID() != 0) {
-			this.m_steamid = new a.b();
+			this.m_steamid = new CSteamID();
 		}
 		if (this.m_bLoggedOn) {
 			if (!this.m_bConnected) {
@@ -552,7 +594,7 @@ export class ij extends w {
 					} else {
 						SteamClient.SharedConnection.RegisterOnMessageReceived(
 							this.m_hSharedConnection,
-							(e) => this.OnMsgRecvd(i.bg(e)),
+							(e) => this.OnMsgRecvd(bg(e)),
 						);
 					}
 				}
@@ -564,7 +606,7 @@ export class ij extends w {
 	}
 	Disconnect() {
 		if (this.m_hSharedConnection) {
-			let e = o.w.Init(l.el, 716);
+			let e = w_1.Init(el, 716);
 			e.Body().set_persona_state(0);
 			e.Body().set_persona_set_by_user(false);
 			this.Send(e);
@@ -593,20 +635,34 @@ export class ij extends w {
 		this.m_rtReconnectThrottleExpiration = e.rtCooldownExpiration;
 	}
 }
-Cg([u.XI], ij.prototype, "OnLogonInfoChanged", null);
-Cg([u.XI.bound], ij.prototype, "OnConnectionAttemptThrottled", null);
+Cg(
+	[XI],
+	CMInterfaceSharedClientConnection.prototype,
+	"OnLogonInfoChanged",
+	null,
+);
+Cg(
+	[XI.bound],
+	CMInterfaceSharedClientConnection.prototype,
+	"OnConnectionAttemptThrottled",
+	null,
+);
+
 const B = E;
-class x {
+
+class CCMList {
 	m_CMList = {
 		rgCMList: [],
 		rtLastLoaded: 0,
 	};
 	m_Storage;
 	m_InitPromise;
+
 	Init(e) {
 		this.m_Storage = e;
 		this.m_InitPromise = this.LoadFromCache();
 	}
+
 	async LoadFromCache() {
 		if (this.m_InitPromise) {
 			return this.m_InitPromise;
@@ -630,6 +686,7 @@ class x {
 		}
 		var t;
 	}
+
 	async GetBestCMsToConnectTo() {
 		try {
 			let e = await this.LoadFromCache();
@@ -644,34 +701,40 @@ class x {
 		}
 		return this.PingCMs();
 	}
+
 	RecordCMDisconnected(e) {
 		e.nConnectFailures = (e.nConnectFailures || 0) + 1;
 		e.msPing = Number.MAX_SAFE_INTEGER;
 		e.nCMLoad = Number.MAX_SAFE_INTEGER;
 		this.WriteCMListToLocalStorage();
 	}
+
 	BuildCMWebSocketURL(e) {
 		return `wss://${this.FixDevHost(e)}/cmsocket/`;
 	}
+
 	FixDevHost(e) {
 		if (
-			s.TS.EUNIVERSE == 4 &&
-			s.TS.WEB_UNIVERSE == "dev" &&
+			TS.EUNIVERSE == 4 &&
+			TS.WEB_UNIVERSE == "dev" &&
 			e.match(/^127\.0\.0\.1/)
 		) {
-			let t = s.TS.WEBAPI_BASE_URL.match(/https?:\/\/([^\/:]*)/);
+			let t = TS.WEBAPI_BASE_URL.match(/https?:\/\/([^\/:]*)/);
 			if (t && t[1]) {
 				return e.replace(/^127\.0\.0\.1/, t[1]);
 			}
 		}
 		return e;
 	}
+
 	GetLocalStorageKey() {
-		return `CCMList_${s.TS.EUNIVERSE}`;
+		return `CCMList_${TS.EUNIVERSE}`;
 	}
+
 	WriteCMListToLocalStorage() {
 		this.m_Storage.StoreObject(this.GetLocalStorageKey(), this.m_CMList);
 	}
+
 	async GetCMListFromWebAPI() {
 		try {
 			const n = await ((e = L),
@@ -718,6 +781,7 @@ class x {
 		var e;
 		var t;
 	}
+
 	PingCMs() {
 		let e = new Date().getTime() / 1000 - 18000;
 		let t = [];
@@ -728,7 +792,7 @@ class x {
 			if (o && t.length < 20) {
 				t.push(r);
 			}
-			if (!o || !!s.TS.IN_MOBILE) {
+			if (!o || !!TS.IN_MOBILE) {
 				if (i && i < 10000) {
 					n[r.strHost] = r;
 				}
@@ -771,10 +835,10 @@ class x {
 			if (
 				t.length === 0 ||
 				Object.keys(n).some((e) => this.BCMOkToUse(n[e], c)) ||
-				(s.TS.IN_MOBILE && Object.keys(n).length)
+				(TS.IN_MOBILE && Object.keys(n).length)
 			) {
 				if (Object.keys(n).length) {
-					s.TS.IN_MOBILE;
+					TS.IN_MOBILE;
 				}
 				l(n);
 			}
@@ -833,6 +897,7 @@ class x {
 			}
 		});
 	}
+
 	GetCMWithFewestDisconnects() {
 		if (!this.m_CMList.rgCMList.length) {
 			return;
@@ -850,6 +915,7 @@ class x {
 		}
 		return e;
 	}
+
 	BCMOkToUse(e, t) {
 		if (!e) {
 			return false;
@@ -862,6 +928,7 @@ class x {
 					(t !== "timeout" && n < 350 && e.msPing < 275)))
 		);
 	}
+
 	async PingCM(e) {
 		let t = `https://${this.FixDevHost(e.strHost)}/cmping/`;
 		let n = performance.now();
@@ -896,9 +963,10 @@ class x {
 		return e.msPing;
 	}
 }
+
 async function L() {
-	const e = `${s.TS.WEBAPI_BASE_URL}ISteamDirectory/GetCMListForConnect/v1/?cellid=0&cmtype=websockets&origin=${self.origin}`;
-	const t = (await B.get(e)).data;
+	const strURL = `${TS.WEBAPI_BASE_URL}ISteamDirectory/GetCMListForConnect/v1/?cellid=0&cmtype=websockets&origin=${self.origin}`;
+	const t = (await B.get(strURL)).data;
 	const n = (t && t.response && t.response.serverlist) || [];
 	n.length;
 	return n.map((e, t) => ({
@@ -906,10 +974,12 @@ async function L() {
 		nPriority: t,
 	}));
 }
+
 function k(e) {
 	return (e.msPing || 0) + (e.nCMLoad || 0);
 }
-export class pn extends w {
+
+export class pn extends CMInterface {
 	m_Session = {
 		m_bWaitingForLogonResponse: false,
 		m_nSessionID: 0,
@@ -923,15 +993,18 @@ export class pn extends w {
 	m_iIntervalHeartbeat;
 	m_iCallSeq = 1;
 	m_mapWaitingCallbacks = new Map();
-	m_CMList = new x();
+	m_CMList = new CCMList();
+
 	constructor(e) {
 		super();
-		Gn(this);
+		makeAutoObservable(this);
 		this.m_CMList.Init(e);
 	}
+
 	BIsConnected() {
 		return this.m_Socket && this.m_Socket.readyState == WebSocket.OPEN;
 	}
+
 	Connect() {
 		if (!this.m_onConnect) {
 			console.log("Loading CM List");
@@ -987,15 +1060,16 @@ export class pn extends w {
 		}
 		return this.m_onConnect;
 	}
+
 	AttemptHostConnect(e) {
 		console.log(`Attempting to connect to host ${e.strHost}`);
 		let t = new WebSocket(this.m_CMList.BuildCMWebSocketURL(e.strHost));
 		t.binaryType = "arraybuffer";
 		t.onmessage = (e) => {
-			let t = new c.pV(e.data);
-			let n = o.lI.InitHeaderFromPacket(t);
+			let t = new pV(e.data);
+			let n = lI.InitHeaderFromPacket(t);
 			if (n.GetEMsg() == 1) {
-				this.DecodeAndDispatchMultiMsg(o.w.InitFromMsg(S.gF, n));
+				this.DecodeAndDispatchMultiMsg(w_1.InitFromMsg(gF, n));
 			} else {
 				this.DispatchMessage(n);
 			}
@@ -1033,15 +1107,18 @@ export class pn extends w {
 			};
 		});
 	}
+
 	get session() {
 		return this.m_Session;
 	}
+
 	ClearHeartbeatInterval() {
 		if (this.m_iIntervalHeartbeat) {
 			window.clearInterval(this.m_iIntervalHeartbeat);
 			this.m_iIntervalHeartbeat = undefined;
 		}
 	}
+
 	ResetHeartbeatInterval() {
 		this.ClearHeartbeatInterval();
 		this.m_iIntervalHeartbeat = window.setInterval(
@@ -1049,10 +1126,12 @@ export class pn extends w {
 			27000,
 		);
 	}
+
 	SendHeartbeat() {
-		let e = o.w.Init(d.s5, 703);
+		let e = w_1.Init(s5, 703);
 		this.Send(e);
 	}
+
 	OnConnect() {
 		super.OnConnect();
 		if (this.m_Socket) {
@@ -1063,11 +1142,13 @@ export class pn extends w {
 			};
 		}
 	}
+
 	Disconnect() {
 		if (this.m_Socket) {
 			this.m_Socket.close();
 		}
 	}
+
 	OnDisconnect() {
 		this.m_Socket = undefined;
 		this.m_SocketCMHost = undefined;
@@ -1075,6 +1156,7 @@ export class pn extends w {
 		this.ClearHeartbeatInterval();
 		super.OnDisconnect();
 	}
+
 	SendMsgAndAwaitResponse(e, t) {
 		return new Promise((n, r) => {
 			let i = this.m_iCallSeq++;
@@ -1095,6 +1177,7 @@ export class pn extends w {
 			}
 		});
 	}
+
 	SendInternal(e) {
 		return (
 			!!this.m_Socket &&
@@ -1107,17 +1190,18 @@ export class pn extends w {
 			true)
 		);
 	}
+
 	BInternalShouldDispatchMessage(e) {
 		if (
 			e.BIsValid() &&
 			e.Hdr().jobid_target() &&
-			e.Hdr().jobid_target() !== y.kF
+			e.Hdr().jobid_target() !== kF
 		) {
 			let t = parseInt(e.Hdr().jobid_target());
 			if (this.m_mapWaitingCallbacks.has(t)) {
 				let n = this.m_mapWaitingCallbacks.get(t);
 				if (n) {
-					let r = o.w.InitFromMsg(n.msgClass, e);
+					let r = w_1.InitFromMsg(n.msgClass, e);
 					this.DEBUG_LogCMInterfaceActivity(r, "receive", true);
 					if (r.BIsValid()) {
 						n.fnCallback(r);
@@ -1137,15 +1221,16 @@ export class pn extends w {
 		}
 		return true;
 	}
+
 	LogOnResponseHandler = this.messageHandlers.RegisterEMessageAction(
 		751,
-		d.c1,
+		c1,
 		(e) => {
 			let t = e.Body().eresult();
 			this.m_Session.m_bWaitingForLogonResponse = false;
 			this.m_Session.m_eResultLogonSuccess = t;
 			if (t == 1) {
-				this.m_steamid = new a.b(e.Body().client_supplied_steamid());
+				this.m_steamid = new CSteamID(e.Body().client_supplied_steamid());
 				this.m_bLoggedOn = true;
 				this.m_Session.m_nSessionID = e.Hdr().client_sessionid();
 				this.m_Session.m_nSessionIDLast = this.m_Session.m_nSessionID;
@@ -1163,32 +1248,32 @@ export class pn extends w {
 			}
 		},
 	);
+
 	ClientAccountInfoHandler = this.messageHandlers.RegisterEMessageAction(
 		768,
-		d.dX,
+		dX,
 		(e) => {
 			this.m_unAccountFlags = e.Body().account_flags() || 0;
 			this.m_strIPCountry = e.Body().ip_country() || "";
 			this.m_strPersonaName = e.Body().persona_name() || "";
 		},
 	);
-	DecodeAndDispatchMultiMsg(e) {
-		let t = e.Body().message_body();
-		if (!t) {
+
+	DecodeAndDispatchMultiMsg(msg) {
+		let body = msg.Body().message_body();
+		if (!body) {
 			return;
 		}
-		if (e.Body().size_unzipped()) {
-			t = M.inflate(t);
+		if (msg.Body().size_unzipped()) {
+			body = inflate(body);
 		}
-		let n = new c.pV(t);
+		let n = new pV(body);
 		while (n.GetCountBytesRemaining() > 0) {
 			let e = n.GetUint32();
-			let t = o.lI.InitHeaderFromPacket(
-				new c.pV(n.GetPacket(), n.TellGet(), e),
-			);
+			let t = lI.InitHeaderFromPacket(new pV(n.GetPacket(), n.TellGet(), e));
 			this.DispatchMessage(t);
 			n.SeekGetCurrent(e);
 		}
 	}
 }
-Cg([u.XI], pn.prototype, "DecodeAndDispatchMultiMsg", null);
+Cg([XI], pn.prototype, "DecodeAndDispatchMultiMsg", null);

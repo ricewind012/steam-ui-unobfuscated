@@ -1,38 +1,28 @@
-import { I } from "./53414.js";
-import n from "./49180.js";
-import i from "./92228.js";
-import { bf } from "./72476.js";
-import s from "./44234.js";
-import o, { Cg } from "./34629.js";
-import l from "./94195.js";
-import c from "./83957.js";
-import u from "./12176.js";
-import d from "./52451.js";
-import A, { Gn } from "./89193.js";
 import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
-import g from "./8573.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import _ from "./95773.js";
-import f, { DW } from "./52912.js";
-import b, {
-	Yg,
-	p5,
-	vT,
-	CN,
-	as,
-	nf,
-	cQ,
-	RM,
-	V8,
-	p as p_1,
-	wE,
-} from "./29971.js";
+import g from "./8573.js";
+import u from "./12176.js";
 import y from "./17385.js";
+import { CN, RM, V8, Yg, as, cQ, nf, p5, p as p_1, vT, wE } from "./29971.js";
+import { Cg } from "./34629.js";
+import s from "./44234.js";
+import n from "./49180.js";
+import d from "./52451.js";
+import f, { DW } from "./52912.js";
+import { bf } from "./72476.js";
+import c from "./83957.js";
+import A, { Gn } from "./89193.js";
+import l from "./94195.js";
+import _ from "./95773.js";
+import {
+	CMInterfaceSharedClientConnection,
+	CMInterfaceWebSocket,
+} from "./cminterface";
 import "./69930.js";
-import S from "./97422.js";
 import w from "./3756.js";
 import B from "./8653.js";
 import v from "./66146.js";
+import S from "./97422.js";
 export let _k = f._k;
 export let tj = S.tj;
 export let sn = B.s;
@@ -333,11 +323,11 @@ export const x9 = (e) => {
 			data: s.TS.BUILD_TIMESTAMP,
 		};
 		window.parent.postMessage(e, "https://steamloopback.host");
-		t = new i.ij();
+		t = new CMInterfaceSharedClientConnection();
 		l = true;
 		t.Connect();
 	} else {
-		const e = (t = new i.pn(r.Storage));
+		const e = (t = new CMInterfaceWebSocket(r.Storage));
 		o = new C(e, s.TS.EREALM);
 		o.PerformInitialLogon(s.iA);
 	}

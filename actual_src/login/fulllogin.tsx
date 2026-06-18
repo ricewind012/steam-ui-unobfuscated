@@ -18,6 +18,7 @@ import { $n, jn } from "../../src/chunk~2dcc5aaf7/64608.js";
 import { q_, tG, tH } from "../../src/chunk~2dcc5aaf7/87232.js";
 import { qR as QR, aJ } from "../../src/chunk~2dcc5aaf7/89791.js";
 import { BrowserViewHostPopup } from "../../src/chunk~2dcc5aaf7/browserview_hostpopup.js";
+import { CMInterfaceSharedClientConnection } from "../../src/library/cminterface";
 import { LoginStore, useLoginStateObserver } from "../stores/loginstore.js";
 import { Localize, LocalizeReact } from "../utils/localization.js";
 import { Of as PopupManager, R7 as useOpenerWindowContext } from "./11131.js";
@@ -28,7 +29,6 @@ import { Y2 as B_maybe_IsSteamChina, TS } from "./72476.js";
 import { jh as useIsAwaitingInitialNetworkState } from "./77347.js";
 import { kt as Kt, tz as Tz } from "./88750.js";
 import { A as A_1 } from "./90765.js";
-import { ij } from "./92228.js";
 
 enum ELoginPage {
 	Init,
@@ -458,7 +458,7 @@ const useServiceTransport = TS.IN_LOGIN_REFRESH
 		})
 	: () => {
 			const [bTransportReady, setTransportReady] = useState(false);
-			let cm = new ij();
+			let cm = new CMInterfaceSharedClientConnection();
 			let transport = cm.GetServiceTransport();
 			((cm) => {
 				useEffect(() => {

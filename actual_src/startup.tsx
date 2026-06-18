@@ -14,7 +14,7 @@ import { s as ReactQueryDevtoolsClient } from "../src/library/75144.js";
 import y from "../src/library/88696.js";
 import { A as BuildClassName } from "../src/library/90765.js";
 import B from "../src/library/91435.js";
-import b from "../src/library/92228.js";
+import { CMInterfaceSharedClientConnection } from "../src/library/cminterface.js";
 import some_lib from "./80986.js";
 import { q3 } from "./90095.js";
 import { ESteamRealm } from "./clienttypes/realm.js";
@@ -175,7 +175,7 @@ SteamClient._internal.RegisterForStyleChanges((vecStyles) => {
 });
 
 (() => {
-	window.cm = new b.ij();
+	window.cm = new CMInterfaceSharedClientConnection();
 	(() => {
 		let params = "";
 		if (
