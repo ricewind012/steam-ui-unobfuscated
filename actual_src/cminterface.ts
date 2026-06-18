@@ -1,25 +1,37 @@
-import { action, autorun, makeAutoObservable, observable } from "mobx";
+import {
+	action,
+	autorun,
+	IReactionDisposer,
+	makeAutoObservable,
+	observable,
+} from "mobx";
 
+import { EMsgToString } from "@actual_src/cminterface_emsg_utils";
 import { CCMInterfaceMessageHandlers } from "@actual_src/cminterface_messagehandlers.js";
 import { BSharedJSContextHasMethod } from "@actual_src/steamclient/clientinterfacehelpers.js";
 import { AssertMsg } from "@actual_src/utils/assert.js";
 import { CCallbackList } from "@actual_src/utils/callbackutils/index.js";
 import { GetUnixTime } from "@actual_src/utils/time.js";
 
-import { JS } from "../src/library/1691.js";
 import { b as CSteamID } from "../src/library/8573.js";
-import { lI, w as w_1 } from "../src/library/12176.js";
+import {
+	lI as CBaseProtoBufMsg,
+	w as CProtoBufMsg,
+} from "../src/library/12176.js";
 import { pV } from "../src/library/16583.js";
 import { gF } from "../src/library/29218.js";
 import { kF } from "../src/library/44846.js";
 import { HW } from "../src/library/49395.js";
-import { iA, TS } from "../src/library/72476.js";
+import { TS as Config, iA } from "../src/library/72476.js";
 import { el } from "../src/library/82755.js";
 import { c1, dX, Q_, Sb, s5 } from "../src/library/94195.js";
-import { Cg } from "./34629.js";
 import { bg, iI } from "./37322.js";
 import { inflate } from "./53048.js";
 import * as E from "./83957.js";
+import { LogonInfo } from "@steamclient_types/SharedConnection.js";
+import { EResult } from "@steamclient_types/shared.js";
+
+type EServerType = number;
 
 class CCMCallbackList {
 	m_bRunOnce = false;
@@ -30,60 +42,64 @@ class CCMCallbackList {
 		this.m_bRunOnce = bRunOnce;
 	}
 
-	RunCallbacks(e, ...t) {
-		if (e === undefined) {
-			this.m_ClientConnectionCallbacks.Dispatch(...t);
+	RunCallbacks(eServerType: EServerType, ...args) {
+		if (eServerType === undefined) {
+			this.m_ClientConnectionCallbacks.Dispatch(...args);
 			if (this.m_bRunOnce) {
 				this.m_ClientConnectionCallbacks.ClearAllCallbacks();
 			}
-		} else if (this.m_mapServerTypeCallbacks.has(e)) {
-			this.m_mapServerTypeCallbacks.get(e).Dispatch(...t);
+		} else if (this.m_mapServerTypeCallbacks.has(eServerType)) {
+			this.m_mapServerTypeCallbacks.get(eServerType).Dispatch(...args);
 			if (this.m_bRunOnce) {
-				this.m_mapServerTypeCallbacks.delete(e);
+				this.m_mapServerTypeCallbacks.delete(eServerType);
 			}
 		}
 	}
 
-	RunAllCallbacks(e, ...t) {
-		this.RunCallbacks(undefined, ...t);
-		e.forEach((e) => this.RunCallbacks(e, ...t));
+	RunAllCallbacks(vecServerTypes: EServerType[], ...args) {
+		this.RunCallbacks(undefined, ...args);
+		vecServerTypes.forEach((e) => this.RunCallbacks(e, ...args));
 	}
 
-	AddCallback(e, t) {
-		let n = this.m_ClientConnectionCallbacks;
-		if (t !== undefined) {
-			if (!this.m_mapServerTypeCallbacks.has(t)) {
-				this.m_mapServerTypeCallbacks.set(t, new CCallbackList());
+	AddCallback(callback: () => void, eServerType?: EServerType) {
+		let callbacks = this.m_ClientConnectionCallbacks;
+		if (eServerType !== undefined) {
+			if (!this.m_mapServerTypeCallbacks.has(eServerType)) {
+				this.m_mapServerTypeCallbacks.set(eServerType, new CCallbackList());
 			}
-			n = this.m_mapServerTypeCallbacks.get(t);
+			callbacks = this.m_mapServerTypeCallbacks.get(eServerType);
 		}
-		return n.Register(e);
+		return callbacks.Register(callback);
 	}
 }
 
-class CMInterface {
-	m_steamid = new CSteamID();
-	m_bLoggedOn = false;
-	m_bCompletedInitialConnect = false;
-	m_unAccountFlags = 0;
-	m_strIPCountry = "";
-	m_strPersonaName = "";
-	m_rtReconnectThrottleStart = 0;
-	m_rtReconnectThrottleExpiration = 0;
-	m_bConnected = false;
+abstract class CMInterface {
+	@observable m_steamid = new CSteamID();
+	@observable m_bLoggedOn = false;
+	@observable m_bCompletedInitialConnect = false;
+	@observable m_unAccountFlags = 0;
+	@observable m_strIPCountry = "";
+	@observable m_strPersonaName = "";
+	@observable m_rtReconnectThrottleStart = 0;
+	@observable m_rtReconnectThrottleExpiration = 0;
+	@observable m_bConnected = false;
 	m_bConnectionFailed = false;
 	m_ServiceTransport;
 	m_onConnect;
-	m_setConnectedServers = new Set();
+	m_setConnectedServers = new Set<EServerType>();
 	m_callbacksOnConnectOneTime = new CCMCallbackList(true);
 	m_callbacksOnConnect = new CCMCallbackList();
 	m_callbacksOnDisconnect = new CCMCallbackList();
 	m_callbacksOnDisconnectOneTime = new CCMCallbackList(true);
 	m_bForceDisconnect = false;
-	m_bPerformedInitialClockAdjustment = false;
+	@observable m_bPerformedInitialClockAdjustment = false;
 	m_nWallClockDriftMS = 0;
 	m_nPerfClockServerMSOffset = new Date().getTime() - performance.now();
 	m_messageHandlers = new CCMInterfaceMessageHandlers();
+
+	abstract Disconnect(): void;
+	abstract SendInternal: any;
+	abstract SendMsgAndAwaitResponse: any;
 
 	constructor() {
 		makeAutoObservable(this);
@@ -145,11 +161,11 @@ class CMInterface {
 		return !this.logged_on && this.m_steamid.BIsValid();
 	}
 
-	BConnectedToServer(e) {
-		if (e === undefined) {
+	BConnectedToServer(server?: EServerType) {
+		if (server === undefined) {
 			return this.m_bLoggedOn;
 		} else {
-			return this.m_setConnectedServers.has(e);
+			return this.m_setConnectedServers.has(server);
 		}
 	}
 
@@ -173,12 +189,12 @@ class CMInterface {
 		return SteamClient.User.Connect();
 	}
 
-	RunWhenLoggedOn(e, server) {
-		let callback = ((e, t) => () => {
+	RunWhenLoggedOn(e, server?: number) {
+		let callback = ((e, name) => () => {
 			try {
 				e();
 			} catch (e) {
-				console.error(`Error in ${t} callback:`, e);
+				console.error(`Error in ${name} callback:`, e);
 			}
 		})(e, "RunWhenLoggedOn");
 		if (this.BConnectedToServer(server)) {
@@ -192,24 +208,25 @@ class CMInterface {
 		return new Promise((e) => this.RunWhenLoggedOn(e));
 	}
 
-	AddOnLogonCallback(e, t) {
-		let n = () => {
+	AddOnLogonCallback(callback: () => void, eServerType: EServerType) {
+		let cb = () => {
 			try {
-				const n = e();
-				if (n) {
-					this.m_callbacksOnDisconnectOneTime.AddCallback(n, t);
+				const cb = callback();
+				if (cb) {
+					this.m_callbacksOnDisconnectOneTime.AddCallback(cb, eServerType);
 				}
 			} catch (e) {
 				console.error("Error in AddOnLogonCallback callback:", e);
 			}
 		};
-		if (this.BConnectedToServer(t)) {
-			n();
+		if (this.BConnectedToServer(eServerType)) {
+			cb();
 		}
-		return this.m_callbacksOnConnect.AddCallback(n, t);
+		return this.m_callbacksOnConnect.AddCallback(cb, eServerType);
 	}
-	AddOnDisconnectCallback(e, t) {
-		let n = (
+
+	AddOnDisconnectCallback(callback: () => void, eServerType: EServerType) {
+		let cb = (
 			(e, t) =>
 			(...n) => {
 				try {
@@ -218,69 +235,82 @@ class CMInterface {
 					console.error(`Error in ${t} callback:`, e);
 				}
 			}
-		)(e, "AddOnDisconnectCallback");
-		return this.m_callbacksOnDisconnect.AddCallback(n, t);
+		)(callback, "AddOnDisconnectCallback");
+		return this.m_callbacksOnDisconnect.AddCallback(cb, eServerType);
 	}
+
 	ForceDisconnect() {
 		this.m_bForceDisconnect = true;
 		this.Disconnect();
 	}
+
 	Send(e) {
 		return (
 			!!this.BIsConnected() &&
 			(this.DEBUG_LogCMInterfaceActivity(e, "send"), this.SendInternal(e))
 		);
 	}
+
 	BInternalShouldDispatchMessage(e) {
 		return true;
 	}
-	ResolveAwaitWithTransportError(e, t, n, r) {
-		let i = w_1.Init(t);
-		i.Hdr().set_eresult(2);
-		i.Hdr().set_transport_error(n);
-		if (r) {
-			i.Hdr().set_error_message(r);
+
+	ResolveAwaitWithTransportError(
+		callback: (msg) => void,
+		msg_init,
+		eTransportError: number,
+		strErrorMsg: string,
+	) {
+		let msg = CProtoBufMsg.Init(msg_init);
+		msg.Hdr().set_eresult(EResult.Fail);
+		msg.Hdr().set_transport_error(eTransportError);
+		if (strErrorMsg) {
+			msg.Hdr().set_error_message(strErrorMsg);
 		}
-		e(i);
+		callback(msg);
 	}
-	DispatchMessage(e) {
+
+	@action DispatchMessage(msg) {
 		try {
-			if (!this.BInternalShouldDispatchMessage(e)) {
+			if (!this.BInternalShouldDispatchMessage(msg)) {
 				return;
 			}
-			if (e.BIsValid()) {
+			if (msg.BIsValid()) {
 				let t = (t) => {
-					t.Hdr().set_jobid_target(e.Hdr().jobid_source());
+					t.Hdr().set_jobid_target(msg.Hdr().jobid_source());
 					this.Send(t);
 				};
-				if (!this.m_messageHandlers.DispatchMsgToHandlers(e, t)) {
-					this.DEBUG_LogCMInterfaceActivity(e, "receive", false);
+				if (!this.m_messageHandlers.DispatchMsgToHandlers(msg, t)) {
+					this.DEBUG_LogCMInterfaceActivity(msg, "receive", false);
 				}
 			} else {
 				console.error(
-					`CMInterface RECV could not parse message of type ${JS(
-						e.GetEMsg(),
-					)} ${e.GetEMsg()}`,
+					`CMInterface RECV could not parse message of type ${EMsgToString(
+						msg.GetEMsg(),
+					)} ${msg.GetEMsg()}`,
 				);
 			}
-		} catch (t) {
+		} catch (ex) {
 			console.error(
-				`CMInterface RECV exception thrown while processing message of type ${JS(
-					e.GetEMsg(),
+				`CMInterface RECV exception thrown while processing message of type ${EMsgToString(
+					msg.GetEMsg(),
 				)}`,
-				t,
+				ex,
 			);
-			e.DEBUG_LogToConsole();
+			msg.DEBUG_LogToConsole();
 		}
 	}
+
 	BIsConnected() {
 		return this.m_bConnected;
 	}
+
 	OnConnect() {
 		this.m_bConnected = true;
 		this.m_bConnectionFailed = false;
 		this.m_bForceDisconnect = false;
 	}
+
 	OnLoggedOn() {
 		this.m_bCompletedInitialConnect = true;
 		this.InternalAdjustClock();
@@ -289,7 +319,8 @@ class CMInterface {
 			this.m_setConnectedServers,
 		);
 	}
-	OnDisconnect() {
+
+	@action OnDisconnect() {
 		this.m_bConnected = false;
 		this.m_bConnectionFailed = true;
 		this.m_onConnect = undefined;
@@ -302,15 +333,17 @@ class CMInterface {
 		);
 		this.m_setConnectedServers.clear();
 	}
-	RunOnDisconnectCallbacks(e, t) {
-		if (e instanceof Set) {
-			this.m_callbacksOnDisconnect.RunAllCallbacks(e, t);
-			this.m_callbacksOnDisconnectOneTime.RunAllCallbacks(e, t);
+
+	RunOnDisconnectCallbacks(servers: Set<number> | number[], args) {
+		if (servers instanceof Set) {
+			this.m_callbacksOnDisconnect.RunAllCallbacks(servers, args);
+			this.m_callbacksOnDisconnectOneTime.RunAllCallbacks(servers, args);
 		} else {
-			this.m_callbacksOnDisconnect.RunCallbacks(e, t);
-			this.m_callbacksOnDisconnectOneTime.RunCallbacks(e, t);
+			this.m_callbacksOnDisconnect.RunCallbacks(servers, args);
+			this.m_callbacksOnDisconnectOneTime.RunCallbacks(servers, args);
 		}
 	}
+
 	ClientServersAvailableHandler = this.m_messageHandlers.RegisterEMessageAction(
 		5501,
 		HW,
@@ -346,26 +379,31 @@ class CMInterface {
 			});
 		},
 	);
+
 	DEBUG_LogCMInterfaceActivity(e, t, n = true) {
 		0;
 	}
+
 	DEBUG_LogMessage(e, ...t) {
 		0;
 	}
+
 	async InternalAdjustClock() {
-		let e = w_1.Init(Sb, 9802);
-		e.Body().set_client_request_timestamp(
-			Math.floor(performance.now()).toString(),
-		);
-		return this.SendMsgAndAwaitResponse(e, Q_).then((e) => {
-			let t = performance.now();
-			let n = new Date();
-			let r = parseInt(e.Body().client_request_timestamp());
-			let i = parseInt(e.Body().server_timestamp_ms()) - ((t - r) >> 1);
-			if (i && !isNaN(i) && t && !isNaN(t)) {
+		let msg = CProtoBufMsg.Init(Sb, 9802);
+		msg
+			.Body()
+			.set_client_request_timestamp(Math.floor(performance.now()).toString());
+		return this.SendMsgAndAwaitResponse(msg, Q_).then((resp_msg) => {
+			let timestamp = performance.now();
+			let dtNow = new Date();
+			let r = parseInt(resp_msg.Body().client_request_timestamp());
+			let i =
+				parseInt(resp_msg.Body().server_timestamp_ms()) -
+				((timestamp - r) >> 1);
+			if (i && !isNaN(i) && timestamp && !isNaN(timestamp)) {
 				this.m_bPerformedInitialClockAdjustment = true;
-				this.m_nPerfClockServerMSOffset = i - t;
-				this.m_nWallClockDriftMS = n.getTime() - i;
+				this.m_nPerfClockServerMSOffset = i - timestamp;
+				this.m_nWallClockDriftMS = dtNow.getTime() - i;
 			} else {
 				AssertMsg(
 					false,
@@ -375,57 +413,29 @@ class CMInterface {
 			return true;
 		});
 	}
+
 	BPerformedInitialClockAdjustment() {
 		return this.m_bPerformedInitialClockAdjustment;
 	}
+
 	GetServerTimeMS() {
 		return performance.now() + this.m_nPerfClockServerMSOffset;
 	}
+
 	GetServerRTime32() {
 		return Math.floor(
 			(performance.now() + this.m_nPerfClockServerMSOffset) / 1000,
 		);
 	}
-	RTime32ToDate(e) {
-		return new Date(e * 1000 + this.m_nWallClockDriftMS);
+
+	RTime32ToDate(ts: number) {
+		return new Date(ts * 1000 + this.m_nWallClockDriftMS);
 	}
 }
-Cg([observable], CMInterface.prototype, "m_steamid", undefined);
-Cg([observable], CMInterface.prototype, "m_bLoggedOn", undefined);
-Cg(
-	[observable],
-	CMInterface.prototype,
-	"m_bCompletedInitialConnect",
-	undefined,
-);
-Cg([observable], CMInterface.prototype, "m_unAccountFlags", undefined);
-Cg([observable], CMInterface.prototype, "m_strIPCountry", undefined);
-Cg([observable], CMInterface.prototype, "m_strPersonaName", undefined);
-Cg(
-	[observable],
-	CMInterface.prototype,
-	"m_rtReconnectThrottleStart",
-	undefined,
-);
-Cg(
-	[observable],
-	CMInterface.prototype,
-	"m_rtReconnectThrottleExpiration",
-	undefined,
-);
-Cg([observable], CMInterface.prototype, "m_bConnected", undefined);
-Cg(
-	[observable],
-	CMInterface.prototype,
-	"m_bPerformedInitialClockAdjustment",
-	undefined,
-);
-Cg([action], CMInterface.prototype, "DispatchMessage", null);
-Cg([action], CMInterface.prototype, "OnDisconnect", null);
 
 export class CMInterfaceSharedClientConnection extends CMInterface {
 	m_hSharedConnection: number;
-	m_hEMsgRegistrationObserver: number;
+	m_hEMsgRegistrationObserver: IReactionDisposer;
 	m_setEMsgHandlers = new Set();
 	m_setServiceMethodHandlers = new Set();
 
@@ -440,11 +450,12 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			);
 		}
 	}
-	SendMsgAndAwaitResponse(e, t) {
-		return new Promise((n, r) => {
+
+	SendMsgAndAwaitResponse(msg, t) {
+		return new Promise((resolve, reject) => {
 			if (this.m_hSharedConnection) {
-				this.DEBUG_LogCMInterfaceActivity(e, "send");
-				let r = iI(e.Serialize());
+				this.DEBUG_LogCMInterfaceActivity(msg, "send");
+				let r = iI(msg.Serialize());
 				if (
 					SteamClient.SharedConnection.SendMsgAndAwaitBinaryResponse !==
 					undefined
@@ -454,22 +465,22 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 						r,
 					)
 						.then((e) => {
-							let r = new pV(e);
-							let i = w_1.InitFromPacket(t, r);
-							this.DEBUG_LogCMInterfaceActivity(i, "receive", true);
-							if (i.BIsValid()) {
-								n(i);
+							let packet = new pV(e);
+							let msg = CProtoBufMsg.InitFromPacket(t, packet);
+							this.DEBUG_LogCMInterfaceActivity(msg, "receive", true);
+							if (msg.BIsValid()) {
+								resolve(msg);
 							} else {
 								this.ResolveAwaitWithTransportError(
-									n,
+									resolve,
 									t,
 									102,
 									"Failed to parse response from server",
 								);
 							}
 						})
-						.catch((e) => {
-							this.ResolveAwaitWithTransportError(n, t, 2, e);
+						.catch((ex) => {
+							this.ResolveAwaitWithTransportError(resolve, t, 2, ex);
 						});
 				} else {
 					SteamClient.SharedConnection.SendMsgAndAwaitResponse(
@@ -478,13 +489,13 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 					)
 						.then((e) => {
 							let r = new pV(bg(e));
-							let s = w_1.InitFromPacket(t, r);
+							let s = CProtoBufMsg.InitFromPacket(t, r);
 							this.DEBUG_LogCMInterfaceActivity(s, "receive", true);
 							if (s.BIsValid()) {
-								n(s);
+								resolve(s);
 							} else {
 								this.ResolveAwaitWithTransportError(
-									n,
+									resolve,
 									t,
 									102,
 									"Failed to parse response from server",
@@ -492,12 +503,12 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 							}
 						})
 						.catch((e) => {
-							this.ResolveAwaitWithTransportError(n, t, 2, e);
+							this.ResolveAwaitWithTransportError(resolve, t, 2, e);
 						});
 				}
 			} else {
 				this.ResolveAwaitWithTransportError(
-					n,
+					resolve,
 					t,
 					102,
 					"Shared connection handle is empty, dropping traffic",
@@ -506,29 +517,33 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			}
 		});
 	}
+
 	SendInternal(e) {
 		let t = iI(e.Serialize());
 		SteamClient.SharedConnection.SendMsg(this.m_hSharedConnection, t);
 		return true;
 	}
+
 	OnMsgRecvd(e) {
 		let t = new pV(e);
-		let n = lI.InitHeaderFromPacket(t);
+		let n = CBaseProtoBufMsg.InitHeaderFromPacket(t);
 		this.DispatchMessage(n);
 	}
-	OnLogonInfoChanged(e) {
-		this.DEBUG_LogMessage("Login info from client: ", e);
-		this.m_bLoggedOn = e.bLoggedOn;
-		TS.EUNIVERSE = e.eUniverse;
-		TS.MEDIA_CDN_COMMUNITY_URL = e.strCommunityImagesURL;
-		TS.COUNTRY = e.strUserCountry;
-		if (e.strSteamid) {
-			this.m_steamid = new CSteamID(e.strSteamid);
-			this.m_strPersonaName = e.strPersonaName;
-			iA.logged_in = e.bLoggedOn;
-			iA.steamid = e.strSteamid;
+
+	@action
+	OnLogonInfoChanged(info: LogonInfo) {
+		this.DEBUG_LogMessage("Login info from client: ", info);
+		this.m_bLoggedOn = info.bLoggedOn;
+		Config.EUNIVERSE = info.eUniverse;
+		Config.MEDIA_CDN_COMMUNITY_URL = info.strCommunityImagesURL;
+		Config.COUNTRY = info.strUserCountry;
+		if (info.strSteamid) {
+			this.m_steamid = new CSteamID(info.strSteamid);
+			this.m_strPersonaName = info.strPersonaName;
+			iA.logged_in = info.bLoggedOn;
+			iA.steamid = info.strSteamid;
 			iA.accountid = this.m_steamid.GetAccountID();
-			iA.account_name = e.strAccountName;
+			iA.account_name = info.strAccountName;
 		} else if (this.m_steamid.GetAccountID() != 0) {
 			this.m_steamid = new CSteamID();
 		}
@@ -541,31 +556,33 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			this.OnDisconnect();
 		}
 	}
+
 	Connect() {
 		if (this.m_hSharedConnection) {
 			return Promise.resolve();
 		} else {
-			return (this.m_onConnect = new Promise((e, t) => {
+			return (this.m_onConnect = new Promise((resolve, reject) => {
 				SteamClient.SharedConnection.AllocateSharedConnection()
-					.then((n) => {
-						if (n) {
-							this.OnSharedConnectionEstablished(n);
+					.then((conn) => {
+						if (conn) {
+							this.OnSharedConnectionEstablished(conn);
 							this.DEBUG_LogMessage(
 								"obtained handle ",
 								this.m_hSharedConnection,
 							);
 							this.OnConnect();
-							e();
+							resolve();
 						} else {
-							t();
+							reject();
 						}
 					})
-					.catch(t);
+					.catch(reject);
 			}));
 		}
 	}
-	OnSharedConnectionEstablished(e) {
-		this.m_hSharedConnection = e;
+
+	OnSharedConnectionEstablished(hConnection: number) {
+		this.m_hSharedConnection = hConnection;
 		this.m_setEMsgHandlers.clear();
 		this.m_setServiceMethodHandlers.clear();
 		if (this.m_hEMsgRegistrationObserver) {
@@ -573,12 +590,12 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 		}
 		this.m_hEMsgRegistrationObserver = autorun(() => {
 			if (this.m_hSharedConnection) {
-				for (let e of this.m_messageHandlers.emsg_list) {
-					if (!this.m_setEMsgHandlers.has(e)) {
-						this.m_setEMsgHandlers.add(e);
+				for (let emsg of this.m_messageHandlers.emsg_list) {
+					if (!this.m_setEMsgHandlers.has(emsg)) {
+						this.m_setEMsgHandlers.add(emsg);
 						SteamClient.SharedConnection.SubscribeToEMsg(
 							this.m_hSharedConnection,
-							e,
+							emsg,
 						);
 					}
 				}
@@ -618,12 +635,14 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			},
 		);
 	}
+
 	OnConnect() {
 		super.OnConnect();
 	}
+
 	Disconnect() {
 		if (this.m_hSharedConnection) {
-			let e = w_1.Init(el, 716);
+			let e = CProtoBufMsg.Init(el, 716);
 			e.Body().set_persona_state(0);
 			e.Body().set_persona_set_by_user(false);
 			this.Send(e);
@@ -631,6 +650,7 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			this.OnSharedConnectionClosed();
 		}
 	}
+
 	OnSharedConnectionClosed() {
 		super.OnDisconnect();
 		this.m_hSharedConnection = undefined;
@@ -640,9 +660,12 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 			this.m_hEMsgRegistrationObserver = undefined;
 		}
 	}
+
 	SendHeartbeat() {}
 	ClearHeartbeatInterval() {}
 	ResetHeartbeatInterval() {}
+
+	@action.bound
 	OnConnectionAttemptThrottled(e) {
 		if (e.rtCooldownExpiration == 0) {
 			this.m_rtReconnectThrottleStart = 0;
@@ -652,18 +675,6 @@ export class CMInterfaceSharedClientConnection extends CMInterface {
 		this.m_rtReconnectThrottleExpiration = e.rtCooldownExpiration;
 	}
 }
-Cg(
-	[action],
-	CMInterfaceSharedClientConnection.prototype,
-	"OnLogonInfoChanged",
-	null,
-);
-Cg(
-	[action.bound],
-	CMInterfaceSharedClientConnection.prototype,
-	"OnConnectionAttemptThrottled",
-	null,
-);
 
 const B = E;
 
@@ -675,8 +686,8 @@ class CCMList {
 	m_Storage;
 	m_InitPromise;
 
-	Init(e) {
-		this.m_Storage = e;
+	Init(storage) {
+		this.m_Storage = storage;
 		this.m_InitPromise = this.LoadFromCache();
 	}
 
@@ -684,14 +695,15 @@ class CCMList {
 		if (this.m_InitPromise) {
 			return this.m_InitPromise;
 		}
-		const e = await this.m_Storage.GetObject(this.GetLocalStorageKey());
+
+		const data = await this.m_Storage.GetObject(this.GetLocalStorageKey());
 		if (
-			(t = e) &&
+			(t = data) &&
 			typeof t == "object" &&
 			Array.isArray(t.rgCMList) &&
 			typeof t.rtLastLoaded == "number"
 		) {
-			this.m_CMList = e;
+			this.m_CMList = data;
 			return this.m_CMList;
 		} else {
 			this.m_CMList = {
@@ -711,9 +723,9 @@ class CCMList {
 				this.m_CMList = await this.GetCMListFromWebAPI();
 				this.WriteCMListToLocalStorage();
 			}
-		} catch (e) {
+		} catch (ex) {
 			console.error(
-				`There was a problem loading CM list. Attempting to use stale data. ${e}`,
+				`There was a problem loading CM list. Attempting to use stale data. ${ex}`,
 			);
 		}
 		return this.PingCMs();
@@ -726,26 +738,26 @@ class CCMList {
 		this.WriteCMListToLocalStorage();
 	}
 
-	BuildCMWebSocketURL(e) {
-		return `wss://${this.FixDevHost(e)}/cmsocket/`;
+	BuildCMWebSocketURL(sURL: string) {
+		return `wss://${this.FixDevHost(sURL)}/cmsocket/`;
 	}
 
-	FixDevHost(e) {
+	FixDevHost(sURL: string) {
 		if (
-			TS.EUNIVERSE == 4 &&
-			TS.WEB_UNIVERSE == "dev" &&
-			e.match(/^127\.0\.0\.1/)
+			Config.EUNIVERSE == 4 &&
+			Config.WEB_UNIVERSE == "dev" &&
+			sURL.match(/^127\.0\.0\.1/)
 		) {
-			let t = TS.WEBAPI_BASE_URL.match(/https?:\/\/([^\/:]*)/);
+			let t = Config.WEBAPI_BASE_URL.match(/https?:\/\/([^\/:]*)/);
 			if (t && t[1]) {
-				return e.replace(/^127\.0\.0\.1/, t[1]);
+				return sURL.replace(/^127\.0\.0\.1/, t[1]);
 			}
 		}
-		return e;
+		return sURL;
 	}
 
 	GetLocalStorageKey() {
-		return `CCMList_${TS.EUNIVERSE}`;
+		return `CCMList_${Config.EUNIVERSE}`;
 	}
 
 	WriteCMListToLocalStorage() {
@@ -809,7 +821,7 @@ class CCMList {
 			if (o && t.length < 20) {
 				t.push(r);
 			}
-			if (!o || !!TS.IN_MOBILE) {
+			if (!o || !!Config.IN_MOBILE) {
 				if (i && i < 10000) {
 					n[r.strHost] = r;
 				}
@@ -852,10 +864,10 @@ class CCMList {
 			if (
 				t.length === 0 ||
 				Object.keys(n).some((e) => this.BCMOkToUse(n[e], c)) ||
-				(TS.IN_MOBILE && Object.keys(n).length)
+				(Config.IN_MOBILE && Object.keys(n).length)
 			) {
 				if (Object.keys(n).length) {
-					TS.IN_MOBILE;
+					Config.IN_MOBILE;
 				}
 				l(n);
 			}
@@ -982,7 +994,7 @@ class CCMList {
 }
 
 async function L() {
-	const strURL = `${TS.WEBAPI_BASE_URL}ISteamDirectory/GetCMListForConnect/v1/?cellid=0&cmtype=websockets&origin=${self.origin}`;
+	const strURL = `${Config.WEBAPI_BASE_URL}ISteamDirectory/GetCMListForConnect/v1/?cellid=0&cmtype=websockets&origin=${self.origin}`;
 	const t = (await B.get(strURL)).data;
 	const n = (t && t.response && t.response.serverlist) || [];
 	n.length;
@@ -996,7 +1008,7 @@ function k(e) {
 	return (e.msPing || 0) + (e.nCMLoad || 0);
 }
 
-export class pn extends CMInterface {
+export class CMInterfaceWebSocket extends CMInterface {
 	m_Session = {
 		m_bWaitingForLogonResponse: false,
 		m_eResultLogonSuccess: 2,
@@ -1004,8 +1016,8 @@ export class pn extends CMInterface {
 		m_nSessionID: 0,
 		m_nSessionIDLast: 0,
 	};
-	m_Socket;
-	m_SocketCMHost;
+	m_Socket: WebSocket;
+	m_SocketCMHost: WebSocket;
 	m_bLoadingCMList = false;
 	m_iIntervalHeartbeat;
 	m_iCallSeq = 1;
@@ -1080,13 +1092,13 @@ export class pn extends CMInterface {
 
 	AttemptHostConnect(e) {
 		console.log(`Attempting to connect to host ${e.strHost}`);
-		let t = new WebSocket(this.m_CMList.BuildCMWebSocketURL(e.strHost));
-		t.binaryType = "arraybuffer";
-		t.onmessage = (e) => {
+		let ws = new WebSocket(this.m_CMList.BuildCMWebSocketURL(e.strHost));
+		ws.binaryType = "arraybuffer";
+		ws.onmessage = (e) => {
 			let t = new pV(e.data);
-			let n = lI.InitHeaderFromPacket(t);
+			let n = CBaseProtoBufMsg.InitHeaderFromPacket(t);
 			if (n.GetEMsg() == 1) {
-				this.DecodeAndDispatchMultiMsg(w_1.InitFromMsg(gF, n));
+				this.DecodeAndDispatchMultiMsg(CProtoBufMsg.InitFromMsg(gF, n));
 			} else {
 				this.DispatchMessage(n);
 			}
@@ -1096,19 +1108,19 @@ export class pn extends CMInterface {
 			const s = window.setTimeout(() => {
 				console.warn(`Socket connection timed out after 3000ms: ${e.strHost}`);
 				i = true;
-				t.close(4000);
+				ws.close(4000);
 				this.m_CMList.RecordCMDisconnected(e);
 				r();
 			}, 3000);
-			t.onopen = () => {
+			ws.onopen = () => {
 				console.log(`Connected socket to host ${e.strHost}`);
 				AssertMsg(!i, "Socket connection was opened after timing out.");
 				if (!i) {
 					window.clearTimeout(s);
 				}
-				n(t);
+				n(ws);
 			};
-			t.onerror = (t) => {
+			ws.onerror = (t) => {
 				if (!i) {
 					window.clearTimeout(s);
 					AssertMsg(false, "Socket connect failed", t);
@@ -1145,7 +1157,7 @@ export class pn extends CMInterface {
 	}
 
 	SendHeartbeat() {
-		let e = w_1.Init(s5, 703);
+		let e = CProtoBufMsg.Init(s5, 703);
 		this.Send(e);
 	}
 
@@ -1174,20 +1186,20 @@ export class pn extends CMInterface {
 		super.OnDisconnect();
 	}
 
-	SendMsgAndAwaitResponse(e, t) {
-		return new Promise((n, r) => {
-			let i = this.m_iCallSeq++;
-			e.Hdr().set_jobid_source(`${i}`);
-			if (this.Send(e)) {
-				this.m_mapWaitingCallbacks.set(i, {
-					fnCallback: n,
-					iSeq: i,
-					msgClass: t,
+	SendMsgAndAwaitResponse(msg, msgClass) {
+		return new Promise((fnCallback, r) => {
+			let iSeq = this.m_iCallSeq++;
+			msg.Hdr().set_jobid_source(`${iSeq}`);
+			if (this.Send(msg)) {
+				this.m_mapWaitingCallbacks.set(iSeq, {
+					fnCallback,
+					iSeq,
+					msgClass,
 				});
 			} else {
 				this.ResolveAwaitWithTransportError(
-					n,
-					t,
+					fnCallback,
+					msgClass,
 					2,
 					"Web socket not connected",
 				);
@@ -1195,46 +1207,50 @@ export class pn extends CMInterface {
 		});
 	}
 
-	SendInternal(e) {
+	SendInternal(msg) {
 		return (
 			!!this.m_Socket &&
 			(this.m_steamid.BIsValid() &&
-				e.Hdr().set_steamid(this.m_steamid.ConvertTo64BitString()),
+				msg.Hdr().set_steamid(this.m_steamid.ConvertTo64BitString()),
 			this.m_Session.m_nSessionID &&
-				e.Hdr().set_client_sessionid(this.m_Session.m_nSessionID),
-			this.m_Socket.send(e.Serialize()),
-			e.GetEMsg() != 703 && this.ResetHeartbeatInterval(),
+				msg.Hdr().set_client_sessionid(this.m_Session.m_nSessionID),
+			this.m_Socket.send(msg.Serialize()),
+			msg.GetEMsg() != 703 && this.ResetHeartbeatInterval(),
 			true)
 		);
 	}
 
-	BInternalShouldDispatchMessage(e) {
+	BInternalShouldDispatchMessage(msg) {
 		if (
-			e.BIsValid() &&
-			e.Hdr().jobid_target() &&
-			e.Hdr().jobid_target() !== kF
+			msg.BIsValid() &&
+			msg.Hdr().jobid_target() &&
+			msg.Hdr().jobid_target() !== kF
 		) {
-			let t = parseInt(e.Hdr().jobid_target());
-			if (this.m_mapWaitingCallbacks.has(t)) {
-				let n = this.m_mapWaitingCallbacks.get(t);
-				if (n) {
-					let r = w_1.InitFromMsg(n.msgClass, e);
-					this.DEBUG_LogCMInterfaceActivity(r, "receive", true);
-					if (r.BIsValid()) {
-						n.fnCallback(r);
+			let strTargetJobID = parseInt(msg.Hdr().jobid_target());
+			if (this.m_mapWaitingCallbacks.has(strTargetJobID)) {
+				let target_job_callbacks =
+					this.m_mapWaitingCallbacks.get(strTargetJobID);
+				if (target_job_callbacks) {
+					let msg2 = CProtoBufMsg.InitFromMsg(
+						target_job_callbacks.msgClass,
+						msg,
+					);
+					this.DEBUG_LogCMInterfaceActivity(msg2, "receive", true);
+					if (msg2.BIsValid()) {
+						target_job_callbacks.fnCallback(msg2);
 					} else {
 						this.ResolveAwaitWithTransportError(
-							n.fnCallback,
-							n.msgClass,
+							target_job_callbacks.fnCallback,
+							target_job_callbacks.msgClass,
 							102,
 							"Failed to parse response from server",
 						);
 					}
-					this.m_mapWaitingCallbacks.delete(t);
+					this.m_mapWaitingCallbacks.delete(strTargetJobID);
 				}
 				return false;
 			}
-			this.DEBUG_LogCMInterfaceActivity(e, "receive", false);
+			this.DEBUG_LogCMInterfaceActivity(msg, "receive", false);
 		}
 		return true;
 	}
@@ -1242,23 +1258,23 @@ export class pn extends CMInterface {
 	LogOnResponseHandler = this.messageHandlers.RegisterEMessageAction(
 		751,
 		c1,
-		(e) => {
-			let t = e.Body().eresult();
+		(msg) => {
+			let eResult = msg.Body().eresult();
 			this.m_Session.m_bWaitingForLogonResponse = false;
-			this.m_Session.m_eResultLogonSuccess = t;
-			if (t == 1) {
-				this.m_steamid = new CSteamID(e.Body().client_supplied_steamid());
+			this.m_Session.m_eResultLogonSuccess = eResult;
+			if (eResult == EResult.OK) {
+				this.m_steamid = new CSteamID(msg.Body().client_supplied_steamid());
 				this.m_bLoggedOn = true;
-				this.m_Session.m_nSessionID = e.Hdr().client_sessionid();
+				this.m_Session.m_nSessionID = msg.Hdr().client_sessionid();
 				this.m_Session.m_nSessionIDLast = this.m_Session.m_nSessionID;
-				this.m_Session.m_nClientInstanceID = e.Body().client_instance_id();
+				this.m_Session.m_nClientInstanceID = msg.Body().client_instance_id();
 				this.OnLoggedOn();
 			} else {
 				console.warn(
 					"Received error code from LogOnResponse, disconnecting. EResult=",
-					e.Body().eresult(),
+					msg.Body().eresult(),
 				);
-				if (t == 48) {
+				if (eResult == EResult.TryAnotherCM) {
 					this.m_CMList.RecordCMDisconnected(this.m_SocketCMHost);
 				}
 				this.Disconnect();
@@ -1269,28 +1285,31 @@ export class pn extends CMInterface {
 	ClientAccountInfoHandler = this.messageHandlers.RegisterEMessageAction(
 		768,
 		dX,
-		(e) => {
-			this.m_unAccountFlags = e.Body().account_flags() || 0;
-			this.m_strIPCountry = e.Body().ip_country() || "";
-			this.m_strPersonaName = e.Body().persona_name() || "";
+		(msg) => {
+			this.m_unAccountFlags = msg.Body().account_flags() || 0;
+			this.m_strIPCountry = msg.Body().ip_country() || "";
+			this.m_strPersonaName = msg.Body().persona_name() || "";
 		},
 	);
 
+	@action
 	DecodeAndDispatchMultiMsg(msg) {
 		let body = msg.Body().message_body();
 		if (!body) {
 			return;
 		}
+
 		if (msg.Body().size_unzipped()) {
 			body = inflate(body);
 		}
-		let n = new pV(body);
-		while (n.GetCountBytesRemaining() > 0) {
-			let e = n.GetUint32();
-			let t = lI.InitHeaderFromPacket(new pV(n.GetPacket(), n.TellGet(), e));
-			this.DispatchMessage(t);
-			n.SeekGetCurrent(e);
+		let packet = new pV(body);
+		while (packet.GetCountBytesRemaining() > 0) {
+			let bytes = packet.GetUint32();
+			let hdr = CBaseProtoBufMsg.InitHeaderFromPacket(
+				new pV(packet.GetPacket(), packet.TellGet(), bytes),
+			);
+			this.DispatchMessage(hdr);
+			packet.SeekGetCurrent(bytes);
 		}
 	}
 }
-Cg([action], pn.prototype, "DecodeAndDispatchMultiMsg", null);

@@ -90,7 +90,7 @@ export class CLocalizationManager {
 	}
 
 	// Given a language, this determines if it is valid in the specified realm or not
-	static IsELanguageValidInRealm(language: ELanguage, realm) {
+	static IsELanguageValidInRealm(language: ELanguage, realm: ESteamRealm) {
 		return (
 			realm ===
 			(language === ELanguage.SteamChina_SChinese
@@ -99,7 +99,7 @@ export class CLocalizationManager {
 		);
 	}
 
-	static GetLanguageListForRealms(realmList) {
+	static GetLanguageListForRealms(realmList: ESteamRealm[]) {
 		const rv = new Array();
 		for (let language = 0; language < ELanguage.Max; language++) {
 			for (const realm of realmList) {
@@ -112,7 +112,13 @@ export class CLocalizationManager {
 		return rv;
 	}
 
-	InitFromObjects(primary, fallback, sharedPrimary, sharedFallback, bAppend) {
+	InitFromObjects(
+		primary,
+		fallback,
+		sharedPrimary,
+		sharedFallback,
+		bAppend: boolean,
+	) {
 		if (!bAppend) {
 			this.m_mapTokens.clear();
 		}

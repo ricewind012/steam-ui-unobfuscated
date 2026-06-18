@@ -1,17 +1,18 @@
 import { LoginStore } from "@actual_src/stores/loginstore.js";
+import { useIsWebUITransportConnectedObserver } from "@actual_src/stores/webuitransport";
 import {
-    GetOwningWindowForElement,
-    GetOwningWindowForEvent,
+	GetOwningWindowForElement,
+	GetOwningWindowForEvent,
 } from "@actual_src/utils/domutils.js";
 import { LocalizeTimeRemaining } from "@actual_src/utils/localization/datetime.js";
 import {
-    LocalizationManager,
-    Localize,
-    LocalizeCalendarTime,
-    LocalizeDateHumanReadable,
-    LocalizeInlineReactWithFallback,
-    LocalizePlural,
-    LocalizeReact,
+	LocalizationManager,
+	Localize,
+	LocalizeCalendarTime,
+	LocalizeDateHumanReadable,
+	LocalizeInlineReactWithFallback,
+	LocalizePlural,
+	LocalizeReact,
 } from "@actual_src/utils/localization.js";
 
 import Va from "./223.js";
@@ -130,13 +131,13 @@ import { I as I_3 } from "./61416.js";
 import { ht as ht_2 } from "./63259.js";
 import E from "./63367.js";
 import d, {
-    createContext,
-    forwardRef,
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
+	createContext,
+	forwardRef,
+	useCallback,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
 } from "./63696.js";
 import Wr from "./64608.js";
 import Bn from "./66127.js";
@@ -188,7 +189,6 @@ import g, { B7, MD, zM } from "./97893.js";
 import { JS } from "./98670.js";
 import rn from "./98748.js";
 import pe from "./98995.js";
-import { q as q_2 } from "./99235.js";
 import "./79293.js";
 import es from "./3524.js";
 import { Ju } from "./3673.js";
@@ -3079,7 +3079,7 @@ function gr(e) {
 }
 function hr(e) {
 	const t = R7();
-	q_2();
+	useIsWebUITransportConnectedObserver();
 	Jt(60);
 	d.useCallback(() => {
 		const e = Localize("#WebUITransport_ErrorButton_ModalMessage_Public");

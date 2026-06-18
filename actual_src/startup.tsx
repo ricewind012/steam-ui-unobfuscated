@@ -1,20 +1,20 @@
-import React from "react";
+import { lazy, Suspense, useCallback, useMemo } from "react";
 import { createRoot } from "react-dom/client";
 
 import throbberStyles from "../src/library/3586.js";
 import { Rh as ActiveAccountProvider } from "../src/library/24295.js";
-import u from "../src/library/26853.js";
-import f from "../src/library/37905.js";
-import v from "../src/library/42318.js";
+import { t } from "../src/library/26853.js";
+import { w } from "../src/library/37905.js";
+import { tH } from "../src/library/42318.js";
 import { ID as BIsChinaLauncher } from "../src/library/44846.js";
-import M from "../src/library/46382.js";
+import { VQ } from "../src/library/46382.js";
 import { bs } from "../src/library/52451.js";
 import ConfigStuff from "../src/library/72476.js";
-import L from "../src/library/72905.js";
+import { A } from "../src/library/72905.js";
 import { s as ReactQueryDevtoolsClient } from "../src/library/75144.js";
-import y from "../src/library/88696.js";
+import * as y from "../src/library/88696.js";
 import { A as BuildClassName } from "../src/library/90765.js";
-import B from "../src/library/91435.js";
+import { EO } from "../src/library/91435.js";
 import some_lib from "./80986.js";
 import { q3 } from "./90095.js";
 import { ESteamRealm } from "./clienttypes/realm.js";
@@ -41,8 +41,8 @@ function NormalizeBool(str: string) {
 	return str === "true" || (str !== "false" && (Number(str) || str));
 }
 
-const FullLogin = React.lazy(() => import("./login/fulllogin"));
-const R = React.lazy(() => import("./sp"));
+const FullLogin = lazy(() => import("./login/fulllogin"));
+const SP = lazy(() => import("./sp"));
 
 const k_strIsFirstClientLoadItem = "is-first-client-load";
 
@@ -58,7 +58,7 @@ function PreloadThrobber() {
 				throbberStyles.PreloadThrobber,
 			)}
 		>
-			<u.t size="xlarge" static />
+			<t size="xlarge" static />
 			<div className={throbberStyles.ThreeDots}>
 				<div
 					className={BuildClassName(throbberStyles.Dot, throbberStyles.Dot1)}
@@ -83,21 +83,21 @@ function App(props: AppProps) {
 	let content = null;
 	if (ConfigStuff.IN_LOGIN || ConfigStuff.IN_LOGIN_REFRESH) {
 		content = (
-			<React.Suspense fallback={<PreloadThrobber />}>
-				<v.tH>
-					<L.A domain="steamclient">
+			<Suspense fallback={<PreloadThrobber />}>
+				<tH>
+					<A domain="steamclient">
 						<ConfigStuff.ss
 							IN_DESKTOPUI={false}
 							IN_GAMEPADUI={false}
 							IN_VR={false}
 						>
-							<B.EO>
+							<EO>
 								<FullLogin cm={cm} />
-							</B.EO>
+							</EO>
 						</ConfigStuff.ss>
-					</L.A>
-				</v.tH>
-			</React.Suspense>
+					</A>
+				</tH>
+			</Suspense>
 		);
 	} else {
 		AssertMsg(
@@ -105,9 +105,9 @@ function App(props: AppProps) {
 			"nosteamuisharedjscontext is no longer supported!",
 		);
 		content = (
-			<React.Suspense fallback={null}>
-				<R cm={cm} />
-			</React.Suspense>
+			<Suspense fallback={null}>
+				<SP cm={cm} />
+			</Suspense>
 		);
 	}
 	return (
@@ -119,10 +119,10 @@ function App(props: AppProps) {
 
 function AppContent(props) {
 	const { cm, children } = props;
-	const useActiveCMInterface = React.useCallback(() => cm, [cm]);
+	const useActiveCMInterface = useCallback(() => cm, [cm]);
 	const useStorage = bs(() => new y.A());
 	const useActiveAccount = q3(() => cm.steamid.ConvertTo64BitString());
-	const value = React.useMemo(
+	const value = useMemo(
 		() => ({
 			useActiveAccount: () => useActiveAccount,
 		}),
@@ -130,9 +130,9 @@ function AppContent(props) {
 	);
 	return (
 		<ActiveAccountProvider value={value}>
-			<M.VQ useActiveCMInterface={useActiveCMInterface} useStorage={useStorage}>
+			<VQ useActiveCMInterface={useActiveCMInterface} useStorage={useStorage}>
 				{children}
-			</M.VQ>
+			</VQ>
 		</ActiveAccountProvider>
 	);
 }
@@ -198,8 +198,8 @@ SteamClient._internal.RegisterForStyleChanges((vecStyles) => {
 					ConfigStuff[param] = NormalizeBool(parsed_params[param]);
 				} else if (Object.getOwnPropertyNames(ConfigStuff.iA).includes(param)) {
 					ConfigStuff.iA[param] = NormalizeBool(parsed_params[param]);
-				} else if (Object.getOwnPropertyNames(f.w).includes(param)) {
-					f.w[param] = NormalizeBool(parsed_params[param]);
+				} else if (Object.getOwnPropertyNames(w).includes(param)) {
+					w[param] = NormalizeBool(parsed_params[param]);
 				} else {
 					console.error("Got unknown config property", param);
 				}

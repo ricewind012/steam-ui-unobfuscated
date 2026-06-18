@@ -1,23 +1,30 @@
-import r from "./58663.js";
+import { BinaryReader } from "./58663.js";
 import "./1691.js";
-import s from "./16583.js";
-import i from "./29218.js";
+import { pV } from "./16583.js";
+import { LH } from "./29218.js";
 import "./36229.js";
+import { EResult } from "@steamclient_types/shared.js";
+
+const k_uFixedHeaderSize = 8;
+
 export class lI {
 	static sm_ErrorReportingStore;
 	static InstallErrorReportingStore(e) {
 		this.sm_ErrorReportingStore = e;
 	}
+
 	static InitHeaderFromPacket(e) {
 		return new lI(undefined, e);
 	}
-	m_eMsg;
+
+	m_eMsg: number;
 	m_bValid;
 	m_netPacket;
 	m_cubHeader;
 	m_header;
 	m_body;
-	constructor(e, t, n, s, o, a) {
+
+	constructor(eMsg: number, pNetPacket, n, s, o, a) {
 		if (s) {
 			this.m_eMsg = s.m_eMsg;
 			this.m_bValid = s.m_bValid;
@@ -28,19 +35,19 @@ export class lI {
 				this.InitForType(n);
 			}
 		} else {
-			this.m_header = new i.LH(null);
+			this.m_header = new LH(null);
 			this.m_bValid = true;
-			if (t) {
-				this.m_netPacket = t;
+			if (pNetPacket) {
+				this.m_netPacket = pNetPacket;
 				this.m_netPacket.SeekGetHead();
 				this.m_eMsg = this.m_netPacket.GetUint32();
 				if (this.m_eMsg & 2147483648) {
 					this.m_eMsg = this.m_eMsg & 2147483647;
 					this.m_cubHeader = this.m_netPacket.GetUint32();
 					try {
-						i.LH.deserializeBinaryFromReader(
+						LH.deserializeBinaryFromReader(
 							this.m_header,
-							new r.BinaryReader(
+							new BinaryReader(
 								this.m_netPacket.GetPacket(),
 								this.m_netPacket.TellGet(),
 								this.m_cubHeader,
@@ -50,16 +57,16 @@ export class lI {
 						if (n) {
 							this.InitForType(n);
 						}
-					} catch (e) {
-						console.error("Exception deserializing protobuf", e);
+					} catch (ex) {
+						console.error("Exception deserializing protobuf", ex);
 						this.m_bValid = false;
 					}
 				} else {
 					this.m_bValid = false;
 				}
 			} else {
-				if (e) {
-					this.m_eMsg = e;
+				if (eMsg) {
+					this.m_eMsg = eMsg;
 				}
 				if (a && n) {
 					this.m_body = n.fromObject(a);
@@ -72,61 +79,72 @@ export class lI {
 			}
 		}
 	}
-	InitForType(e) {
-		this.m_body = new e();
+
+	InitForType(proto) {
+		this.m_body = new proto();
 		if (this.m_netPacket) {
-			this.m_netPacket.SeekGetHead(8 + this.m_cubHeader);
-			this.ReadBodyFromBuffer(e, this.m_netPacket);
+			this.m_netPacket.SeekGetHead(k_uFixedHeaderSize + this.m_cubHeader);
+			this.ReadBodyFromBuffer(proto, this.m_netPacket);
 		}
 	}
-	ReadBodyFromBuffer(e, t) {
+
+	ReadBodyFromBuffer(proto, packet) {
 		try {
-			e.deserializeBinaryFromReader(
+			proto.deserializeBinaryFromReader(
 				this.m_body,
-				new r.BinaryReader(
-					t.GetPacket(),
-					t.TellGet(),
-					t.GetCountBytesRemaining(),
+				new BinaryReader(
+					packet.GetPacket(),
+					packet.TellGet(),
+					packet.GetCountBytesRemaining(),
 				),
 			);
-		} catch (e) {
+		} catch (ex) {
 			this.m_bValid = false;
-			const lI_sm_ErrorReportingStore = lI.sm_ErrorReportingStore;
-			const n = `Exception parsing protobuf message body of type ${this.m_eMsg}.  Definitions may be out of sync with server version.`;
-			if (lI_sm_ErrorReportingStore) {
-				lI_sm_ErrorReportingStore.ReportError(new Error(n), {
+			const store = lI.sm_ErrorReportingStore;
+			const msg = `Exception parsing protobuf message body of type ${this.m_eMsg}.  Definitions may be out of sync with server version.`;
+			if (store) {
+				store.ReportError(new Error(msg), {
 					bIncludeMessageInIdentifier: true,
 				});
 			}
-			console.warn(n);
-			console.log(e.stack || e);
+			console.warn(msg);
+			console.log(ex.stack || ex);
 		}
 	}
+
 	BIsValid() {
 		return this.m_bValid;
 	}
+
 	Body() {
 		return this.m_body;
 	}
+
 	SetBodyJSON(e) {
 		e.toObject = () => e;
 		this.m_body = e;
 	}
+
 	Hdr() {
 		return this.m_header;
 	}
+
 	GetEMsg() {
 		return this.m_eMsg;
 	}
-	SetEMsg(e) {
-		this.m_eMsg = e;
+
+	SetEMsg(eMsg: number) {
+		this.m_eMsg = eMsg;
 	}
+
 	GetEResult() {
 		return this.Hdr().eresult();
 	}
+
 	BSuccess() {
-		return this.Hdr().eresult() == 1;
+		return this.Hdr().eresult() == EResult.OK;
 	}
+
 	GetErrorMessage() {
 		if (this.Hdr().error_message()) {
 			return this.Hdr().error_message();
@@ -134,64 +152,78 @@ export class lI {
 			return `eresult ${this.Hdr().eresult()}`;
 		}
 	}
+
 	Serialize() {
-		const e = this.m_header.serializeBinary();
-		const t = this.m_body.serializeBinary();
+		const binHeader = this.m_header.serializeBinary();
+		const binBody = this.m_body.serializeBinary();
 		const n = this.m_eMsg | 2147483648;
-		const r = new Uint8Array(8 + e.length + t.length);
-		const i = new s.pV(r);
+		const r = new Uint8Array(
+			k_uFixedHeaderSize + binHeader.length + binBody.length,
+		);
+		const i = new pV(r);
 		i.PutUint32(n);
-		i.PutUint32(e.length);
-		i.PutBytes(e);
-		i.PutBytes(t);
+		i.PutUint32(binHeader.length);
+		i.PutBytes(binHeader);
+		i.PutBytes(binBody);
 		return r;
 	}
+
 	SerializeBody() {
-		const e = this.m_body.serializeBinary();
-		const t = new Uint8Array(e.length);
-		new s.pV(t).PutBytes(e);
+		const bin = this.m_body.serializeBinary();
+		const t = new Uint8Array(bin.length);
+		new pV(t).PutBytes(bin);
 		return t;
 	}
+
 	DEBUG_ToObject() {
 		return {};
 	}
+
 	DEBUG_LogToConsole() {
 		0;
 	}
 }
+
 export class w extends lI {
 	constructor(e, t = 0, n, r, i) {
 		super(t, n, e, r, undefined, i);
 	}
+
 	static InitFromPacket(e, t) {
 		return new w(e, 0, t);
 	}
+
 	static InitFromMsg(e, t) {
 		return new w(e, undefined, undefined, t);
 	}
+
 	static Init(e, t) {
 		return new w(e, t);
 	}
+
 	static InitFromObject(e, t) {
 		return new w(e, undefined, undefined, undefined, t);
 	}
+
 	Body() {
 		return super.Body();
 	}
-	SetBodyFields(e) {
-		for (const t in e) {
-			if (Array.isArray(e[t])) {
-				if (this.Body()[`add_${t}`]) {
-					e[t].forEach((e) => {
-						this.Body()[`add_${t}`](e);
+
+	SetBodyFields(fields: Record<string, string>) {
+		for (const field in fields) {
+			if (Array.isArray(fields[field])) {
+				if (this.Body()[`add_${field}`]) {
+					fields[field].forEach((e) => {
+						this.Body()[`add_${field}`](e);
 					});
 				}
-			} else if (this.Body()[`set_${t}`]) {
-				this.Body()[`set_${t}`](e[t]);
+			} else if (this.Body()[`set_${field}`]) {
+				this.Body()[`set_${field}`](fields[field]);
 			}
 		}
 	}
 }
+
 export function I8(e, t) {
 	if (t instanceof w) {
 		return t;

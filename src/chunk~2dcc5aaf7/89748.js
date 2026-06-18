@@ -1,6 +1,7 @@
 import { useObserver } from "mobx-react-lite";
 
 import BluetoothStore from "@actual_src/stores/25467.js";
+import { WebUITransportStore } from "@actual_src/stores/webuitransport";
 
 import ParentalStore from "./5640.js";
 import SteamingStore from "./6160.js";
@@ -12,7 +13,7 @@ import SystemReportStore from "./13661.js";
 import EAAccessPromptManager from "./18521.js";
 import { Sj } from "./24287.js";
 import SDCardStore from "./24496.js";
-import xe from "./31930.js";
+import { N } from "./31930.js";
 import { Qu, uV } from "./32700.js";
 import SteamOSStore from "./33706.js";
 import { Cg } from "./34629.js";
@@ -61,7 +62,6 @@ import ie, { Gn, h5, z7 } from "./89193.js";
 import { Z9 as GRS } from "./91720.js";
 import SystemInfoStore from "./95979.js";
 import AppStore from "./96593.js";
-import te from "./99235.js";
 import "./63696.js";
 import { ESteamRealm } from "@actual_src/clienttypes/realm.js";
 import { LoginStore } from "@actual_src/stores/loginstore.js";
@@ -3187,7 +3187,7 @@ class Ue extends le {
 	}
 	async Test_TransportError() {
 		const e = oe.w.Init(Ae);
-		const t = await xe.N.SendMsg("Test_TransportError.InvalidService", e, pe, {
+		const t = await N.SendMsg("Test_TransportError.InvalidService", e, pe, {
 			ePrivilege: 1,
 			eClientExecutionSite: 1,
 		});
@@ -3209,23 +3209,21 @@ class Ue extends le {
 		this.AssertEq(32, e.Body().byte_count(), "byte_count");
 	}
 	async Test_LargeRequest() {
-		const e = await this.SendBinaryMessage(
-			xe.N.TEST_GetMaximumMsgBodySizeBytes(),
-		);
+		const e = await this.SendBinaryMessage(N.TEST_GetMaximumMsgBodySizeBytes());
 		this.AssertEq(1, e.GetEResult(), "large message failed to send");
-		const t = await this.SendBinaryMessage(xe.N.GetMaximumMsgSizeBytes() + 1);
+		const t = await this.SendBinaryMessage(N.GetMaximumMsgSizeBytes() + 1);
 		this.AssertEq(
 			2,
 			t.GetEResult(),
 			"over-size-limit message must fail to send",
 		);
 		const r = await this.SendBinaryMessage(
-			xe.N.TEST_GetExcessivelyLargeBodySize(),
+			N.TEST_GetExcessivelyLargeBodySize(),
 		);
 		this.AssertEq(2, r.GetEResult(), "disconnect message must fail to send");
 	}
 	async Test_LargeResponse() {
-		const e = xe.N.TEST_GetMaximumMsgBodySizeBytes();
+		const e = N.TEST_GetMaximumMsgBodySizeBytes();
 		const t = await Le.GetLargeResponse({
 			data_size: e,
 		});
@@ -3234,7 +3232,7 @@ class Ue extends le {
 		this.AssertEq(e, r, "unexpected size");
 	}
 	async Test_OverLimitResponse() {
-		const e = xe.N.TEST_GetExcessivelyLargeBodySize();
+		const e = N.TEST_GetExcessivelyLargeBodySize();
 		const t = await Le.GetLargeResponse({
 			data_size: e,
 		});
@@ -3247,7 +3245,7 @@ class Ue extends le {
 	}
 	async Test_LargeNotification() {
 		const e = Le.RegisterForNotifyLarge(this.OnLargeNotification);
-		const t = xe.N.TEST_GetMaximumMsgBodySizeBytes();
+		const t = N.TEST_GetMaximumMsgBodySizeBytes();
 		const r = await Le.RequestLargeNotification({
 			data_size: t,
 		});
@@ -3256,7 +3254,7 @@ class Ue extends le {
 		e.unregister();
 	}
 	async Test_OverLimitNotification() {
-		const e = xe.N.TEST_GetExcessivelyLargeBodySize();
+		const e = N.TEST_GetExcessivelyLargeBodySize();
 		const t = await Le.RequestLargeNotification({
 			data_size: e,
 		});
@@ -6481,7 +6479,7 @@ class CSteamUIApp {
 		this.m_cm.AddOnDisconnectCallback(this.OnCMDisconnect);
 		this.m_cm.AddOnLogonCallback(this.OnCMLogon);
 		await b_1("SteamApp Init - WebUI Transport", [
-			["WebUITransportStore", () => te.r.Init()],
+			["WebUITransportStore", () => WebUITransportStore.Init()],
 		]);
 		await b_1("SteamApp Init - Before Login", [
 			["CM Connect", () => e.Connect()],
@@ -6575,7 +6573,7 @@ class CSteamUIApp {
 				},
 			);
 			cm.messageHandlers.InstallErrorReportingStore(t);
-			te.r.InstallErrorReportingStore(t);
+			r.InstallErrorReportingStore(t);
 			Vt.y.Init(
 				f.TS.IN_STEAMUI_SHARED_CONTEXT ? "Shared SteamUI" : "Library",
 				CLSTAMP,

@@ -2,7 +2,7 @@ import { AssertMsg } from "@actual_src/utils/assert.js";
 
 import m from "./8573.js";
 import c from "./12176.js";
-import h from "./31930.js";
+import { N } from "./31930.js";
 import { Cg } from "./34629.js";
 import g from "./36813.js";
 import _s from "./37322.js";
@@ -56,7 +56,7 @@ export class s {
 	}
 	async Init(e = 0, t = null, r = null) {
 		this.m_bInitialized = false;
-		this.m_WebUIServiceTransport = h.N;
+		this.m_WebUIServiceTransport = N;
 		this.m_unAccountID = e;
 		this.m_Transport = t;
 		this.m_Storage = r;

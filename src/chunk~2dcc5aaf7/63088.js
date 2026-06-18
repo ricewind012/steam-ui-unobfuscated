@@ -1,7 +1,7 @@
 import { CLocalizationManager } from "@actual_src/utils/localization.js";
 
 import i from "./12176.js";
-import l from "./31930.js";
+import { U } from "./31930.js";
 import s from "./42318.js";
 import n from "./63696.js";
 import a from "./99104.js";
@@ -449,7 +449,7 @@ const E = (e) => {
 	s.tH.InstallErrorReportingStore(w);
 	i.lI.InstallErrorReportingStore(w);
 	CLocalizationManager.InstallErrorReportingStore(w);
-	l.U.InstallErrorReportingStore(w);
+	U.InstallErrorReportingStore(w);
 };
 async function M(e) {
 	try {
