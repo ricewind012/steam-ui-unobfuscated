@@ -1,9 +1,9 @@
-import { TS as Config } from "./72476.js";
 import { action, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
-import { Unregisterable } from "../steamclient/steamclient/shared.js";
 import { SpewOutput } from "../steamclient/steamclient/Console.js";
+import { Unregisterable } from "../steamclient/steamclient/shared.js";
 import { bind } from "../utils/bind.js";
+import { TS as Config } from "./72476.js";
 
 export function y9() {
 	return useObserver(() => {

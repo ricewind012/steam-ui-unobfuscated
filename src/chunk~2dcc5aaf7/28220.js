@@ -1,9 +1,9 @@
-import n from "./63696.js";
 import i, { g7 } from "./2773.js";
-import a from "./98995.js";
 import s from "./58608.js";
-import o from "./96360.js";
+import n from "./63696.js";
 import l, { A as A_1 } from "./90765.js";
+import o from "./96360.js";
+import a from "./98995.js";
 export function x(e) {
 	const { gameID, tags, attributes } = e;
 	const { rgMetadata, rgDemoted } = g7(tags, attributes);

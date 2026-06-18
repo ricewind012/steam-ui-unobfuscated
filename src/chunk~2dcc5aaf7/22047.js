@@ -1,8 +1,8 @@
+import { B6, W6, zy } from "./49519.js";
 import n from "./63696.js";
-import { W6, zy, B6 } from "./49519.js";
 import a from "./64608.js";
-import s from "./97936.js";
 import o from "./94361.js";
+import s from "./97936.js";
 export function q(e) {
 	const { pages, fnSetNavigateToPage, disableRouteReporting, ...c } = e;
 	const m = W6();

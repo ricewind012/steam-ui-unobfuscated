@@ -1,13 +1,13 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import { q3 } from "./90095.js";
-import a from "./63696.js";
 import s from "./54355.js";
+import a from "./63696.js";
+import A from "./69164.js";
+import d from "./83247.js";
+import { q3 } from "./90095.js";
 import { A as A_1 } from "./90765.js";
+import { Ks } from "./91720.js";
 import { aO } from "./92374.js";
 import m from "./98995.js";
-import { Ks } from "./91720.js";
-import d from "./83247.js";
-import A from "./69164.js";
 export let KB;
 export function fH() {
 	const e = wF(aO().GetGameID());

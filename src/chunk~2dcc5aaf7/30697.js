@@ -1,10 +1,10 @@
-import n from "./63696.js";
-import { ww, sf } from "./44846.js";
-import { MB } from "./95877.js";
-import s from "./47628.js";
 import l from "./25752.js";
-import { A } from "./90765.js";
+import { sf, ww } from "./44846.js";
+import s from "./47628.js";
+import n from "./63696.js";
 import m from "./72476.js";
+import { A } from "./90765.js";
+import { MB } from "./95877.js";
 const o = s;
 import("../../actual_src/utils/localization.js");
 export function p(e) {

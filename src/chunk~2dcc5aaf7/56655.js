@@ -1,9 +1,9 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
-import { A as A_1 } from "./90765.js";
 import a from "./50376.js";
+import n from "./63696.js";
 import s from "./64664.js";
 import l, { Qn } from "./72476.js";
+import { A as A_1 } from "./90765.js";
 export const NHContext = n.createContext({
 	bShowCompatInfo: false,
 });

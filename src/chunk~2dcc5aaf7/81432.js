@@ -1,8 +1,8 @@
-import n from "./63696.js";
-import { A } from "./90765.js";
 import a from "./26190.js";
-import o from "./69164.js";
 import l from "./61657.js";
+import n from "./63696.js";
+import o from "./69164.js";
+import { A } from "./90765.js";
 const s = a;
 function c(e) {
 	return e.detail.button == l.pR.DIR_DOWN;

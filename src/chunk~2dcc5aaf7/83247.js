@@ -1,6 +1,6 @@
 import n from "./63696.js";
-import i, { A } from "./90765.js";
 import a from "./86847.js";
+import i, { A } from "./90765.js";
 export function ai(e) {
 	return (
 		<svg

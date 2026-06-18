@@ -1,7 +1,7 @@
 import { Localize } from "../../actual_src/utils/localization.js";
+import s from "./6561.js";
 import n from "./63696.js";
 import a from "./70057.js";
-import s from "./6561.js";
 export function o(e) {
 	const {
 		className: t,

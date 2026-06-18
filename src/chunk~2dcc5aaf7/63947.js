@@ -1,14 +1,14 @@
-import { Localize } from "../../actual_src/utils/localization.js";
 import { CopyTextToClipboard } from "../../actual_src/utils/domutils.js";
-import n, { T } from "./78057.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import o from "./10606.js";
+import l, { pg } from "./13869.js";
+import A from "./29597.js";
 import i, { PA } from "./41230.js";
 import a from "./63696.js";
 import s from "./64608.js";
-import o from "./10606.js";
-import l, { pg } from "./13869.js";
 import m from "./69164.js";
+import n, { T } from "./78057.js";
 import { A as A_1 } from "./90765.js";
-import A from "./29597.js";
 const p = A;
 export function F(e, t, r, n) {
 	pg(<H app={t} onClose={n} bShowDontShowCheckbox={r} />, e);

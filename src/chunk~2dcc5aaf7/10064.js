@@ -1,6 +1,6 @@
+import { VI } from "./34792.js";
 import n, { useState, useEffect } from "./63696.js";
 import i from "./64608.js";
-import { VI } from "./34792.js";
 export function C(e) {
 	const { setting, onChange, onBlur, ...o } = e;
 	const [l, c] = VI(setting);

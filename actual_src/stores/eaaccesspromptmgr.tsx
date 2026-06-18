@@ -1,24 +1,24 @@
-import { Localize } from "../utils/localization.js";
-import {
-	DO as BIsReducedUILauncher,
-	ID as BIsChinaLauncher,
-} from "../../src/library/44846.js";
-import { tw as AppStore } from "./96593.js";
-import { md as CollectionStore } from "./collectionstore.js";
-import { N as ShowcaseStore } from "../../src/library/16139.js";
-import { n6 as LibraryUIStore } from "./libraryuistore.js";
-import { EF } from "../../src/chunk~2dcc5aaf7/14629.js";
-import { PA } from "../../src/library/41230.js";
+import { autorun } from "mobx";
 import { Component } from "react";
-import { Y9, nB as NB, a3 as A3 } from "../../src/chunk~2dcc5aaf7/64608.js";
 import { x_ as X_ } from "../../src/chunk~2dcc5aaf7/10606.js";
 import { mK as showModal } from "../../src/chunk~2dcc5aaf7/13869.js";
-import { A as ClassMap } from "../../src/library/90765.js";
-import { TS as Config } from "../../src/library/72476.js";
+import { EF } from "../../src/chunk~2dcc5aaf7/14629.js";
 import styles from "../../src/chunk~2dcc5aaf7/39859.js";
+import { a3 as A3, nB as NB, Y9 } from "../../src/chunk~2dcc5aaf7/64608.js";
+import { N as ShowcaseStore } from "../../src/library/16139.js";
+import { PA } from "../../src/library/41230.js";
+import {
+	ID as BIsChinaLauncher,
+	DO as BIsReducedUILauncher,
+} from "../../src/library/44846.js";
+import { TS as Config } from "../../src/library/72476.js";
+import { A as ClassMap } from "../../src/library/90765.js";
 import { EUIMode } from "../steamclient/steamclient/shared.js";
 import { bind } from "../utils/bind.js";
-import { autorun } from "mobx";
+import { Localize } from "../utils/localization.js";
+import { tw as AppStore } from "./96593.js";
+import { md as CollectionStore } from "./collectionstore.js";
+import { n6 as LibraryUIStore } from "./libraryuistore.js";
 
 const y = styles;
 const k_strEADialogStorageKey = "ea_dialog_seen";

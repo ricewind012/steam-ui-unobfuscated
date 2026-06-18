@@ -1,12 +1,12 @@
 import { Seconds } from "../../actual_src/utils/time.js";
-import n, { I as I_1 } from "./61416.js";
-import i from "./75144.js";
-import _a from "./12176.js";
-import s from "./34043.js";
-import o, { GU, dK } from "./20414.js";
 import l from "./3963.js";
-import c from "./72476.js";
+import _a from "./12176.js";
+import o, { GU, dK } from "./20414.js";
+import s from "./34043.js";
 import u, { l as l_1 } from "./36141.js";
+import n, { I as I_1 } from "./61416.js";
+import c from "./72476.js";
+import i from "./75144.js";
 const d = 5;
 const A = 10;
 const p = "favoriteguides";

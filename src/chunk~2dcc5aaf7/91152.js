@@ -1,9 +1,9 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
 import i from "./1965.js";
+import { Qt } from "./18057.js";
+import n from "./63696.js";
 import a from "./64608.js";
 import o from "./79390.js";
-import { Qt } from "./18057.js";
 const l = o;
 export const t = () => {
 	const e = Qt("steam://open/goonline");

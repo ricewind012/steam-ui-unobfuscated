@@ -1,21 +1,21 @@
 // Webpack module ID: 97893
 
+import { action, makeAutoObservable, observable } from "mobx";
+import { useObserver } from "mobx-react-lite";
+import { CCallbackList } from "../utils/callbackutils/index.js";
 import { Localize } from "../utils/localization.js";
 import { LocalizeTimeRemaining } from "../utils/localization/datetime.js";
-import { useObserver } from "mobx-react-lite";
-import { b1, oH } from "./32493.js";
-import { tw } from "./96593.js";
 import { jR } from "./5640.js";
-import { lY } from "./51095.js";
-import { tg, $6 } from "./44846.js";
 import { w as w_1 } from "./12176.js";
-import { CCallbackList } from "../utils/callbackutils/index.js";
-import { g } from "./52698.js";
-import { wd as CLogger } from "./83599.js";
-import { KV } from "./46382.js";
-import { I } from "./61416.js";
 import { OQ } from "./31958.js";
-import { action, makeAutoObservable, observable } from "mobx";
+import { b1, oH } from "./32493.js";
+import { $6, tg } from "./44846.js";
+import { KV } from "./46382.js";
+import { lY } from "./51095.js";
+import { g } from "./52698.js";
+import { I } from "./61416.js";
+import { wd as CLogger } from "./83599.js";
+import { tw } from "./96593.js";
 
 const DownloadOverview_t = {
 	paused: false,

@@ -1,13 +1,13 @@
 // Webpack module ID: 9156
 
 import { wd as CLogger } from "../../src/library/83599.js";
-import { CCallbackList } from "../utils/callbackutils/index.js";
+import { ENotificationPosition } from "../steamclient/steamclient/Overlay.js";
 import {
 	BrowserContext,
 	Unregisterable,
 } from "../steamclient/steamclient/shared.js";
-import { ENotificationPosition } from "../steamclient/steamclient/Overlay.js";
 import { bind } from "../utils/bind.js";
+import { CCallbackList } from "../utils/callbackutils/index.js";
 
 const logger = new CLogger("OverlayStore");
 class COverlayStore {

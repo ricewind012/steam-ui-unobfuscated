@@ -1,11 +1,11 @@
-import n from "./63696.js";
+import { BGameRecordingFeatureEnabled } from "./4069.js";
 import i from "./35488.js";
 import a from "./50376.js";
-import s from "./83247.js";
+import n from "./63696.js";
 import o from "./69913.js";
-import l from "./78057.js";
 import { Y2 } from "./72476.js";
-import { BGameRecordingFeatureEnabled } from "./4069.js";
+import l from "./78057.js";
+import s from "./83247.js";
 const u = {
 	[o.w9.FriendsList]: {
 		tooltipToken: "#AppOverlay_Toolbar_Friends",

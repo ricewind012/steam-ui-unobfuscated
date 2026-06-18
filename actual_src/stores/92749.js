@@ -1,16 +1,16 @@
 import { Seconds, Sleep } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
-import * as a from "./88696.js";
 import * as s from "./12176.js";
+import n, { Cg } from "./34629.js";
+import * as A from "./46422.js";
 import * as o from "./54946.js";
-import * as c from "./91745.js";
 import * as m from "./72476.js";
+import * as a from "./88696.js";
+import i, { Gn } from "./89193.js";
+import { qw } from "./89748.js";
+import p, { q3 } from "./90095.js";
+import * as c from "./91745.js";
 import * as u from "./96000.js";
 import * as d from "./96593.js";
-import * as A from "./46422.js";
-import p, { q3 } from "./90095.js";
-import { qw } from "./89748.js";
 const h = "playnextstore_storage";
 export function K_() {
 	return q3(() => x3.GetSuggestionsToShow().apps);

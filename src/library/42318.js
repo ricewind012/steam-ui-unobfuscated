@@ -1,6 +1,6 @@
 import r, { Cg } from "./34629.js";
-import i from "./63696.js";
 import s from "./52451.js";
+import i from "./63696.js";
 export function Nr(E) {
 	return (t) => (
 		<TH>

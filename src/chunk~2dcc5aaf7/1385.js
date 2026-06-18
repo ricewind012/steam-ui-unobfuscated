@@ -1,40 +1,40 @@
 import {
+	LocalizationManager,
 	Localize,
-	LocalizeReact,
-	LocalizePlural,
 	LocalizeInlineReactPlural,
 	LocalizeInlineReactWithFallback,
-	LocalizationManager,
+	LocalizePlural,
+	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
 
-import n, { useState, useEffect, useCallback } from "./63696.js";
-import i, { bG } from "./18057.js";
-import a from "./64608.js";
-import s from "./10606.js";
-import o, { A as A_1 } from "./90765.js";
-import c, { dm } from "./34428.js";
-import m from "./98995.js";
-import u, { Y2, Qn } from "./72476.js";
-import d, { M as M_1 } from "./19840.js";
-import A from "./69164.js";
-import p from "./50376.js";
-import g, { AI } from "./60291.js";
-import h from "./90242.js";
-import C, { W6 } from "./49519.js";
-import _, { wY } from "./52451.js";
-import f, { u6 } from "./43152.js";
-import b from "./71729.js";
-import { FD, Ab, tS, b4, TW, PM, jh, bj } from "./3499.js";
-import S, { Kh, s$ } from "./78721.js";
-import { H9, jE } from "./26094.js";
-import B from "./4690.js";
-import v, { n as n_1 } from "./26667.js";
-import I, { pg } from "./13869.js";
-import E from "./35488.js";
-import M, { l } from "./47742.js";
 import T from "../awards/utils.js";
+import { Ab, FD, PM, TW, b4, bj, jh, tS } from "./3499.js";
+import B from "./4690.js";
+import s from "./10606.js";
+import I, { pg } from "./13869.js";
+import i, { bG } from "./18057.js";
+import d, { M as M_1 } from "./19840.js";
+import { H9, jE } from "./26094.js";
+import v, { n as n_1 } from "./26667.js";
 import { lX } from "./31084.js";
+import c, { dm } from "./34428.js";
+import E from "./35488.js";
+import f, { u6 } from "./43152.js";
+import M, { l } from "./47742.js";
+import C, { W6 } from "./49519.js";
+import p from "./50376.js";
+import _, { wY } from "./52451.js";
+import g, { AI } from "./60291.js";
+import n, { useState, useEffect, useCallback } from "./63696.js";
+import a from "./64608.js";
+import A from "./69164.js";
+import b from "./71729.js";
+import u, { Y2, Qn } from "./72476.js";
+import S, { Kh, s$ } from "./78721.js";
 import k from "./88750.js";
+import h from "./90242.js";
+import o, { A as A_1 } from "./90765.js";
+import m from "./98995.js";
 export function iN(e) {
 	const { handle, onClick, bGrowScreenshotToFit } = e;
 	const a = FD(handle);

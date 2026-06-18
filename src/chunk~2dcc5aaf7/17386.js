@@ -2,20 +2,20 @@ import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
+import _ from "./2306.js";
+import l from "./9282.js";
+import d from "./10606.js";
 import n, { Cg } from "./34629.js";
 import i from "./34792.js";
+import p from "./52451.js";
+import o from "./63696.js";
+import u from "./64608.js";
+import g, { Pr } from "./72476.js";
+import m from "./73870.js";
 import a, { Gn, fm } from "./89193.js";
 import { q3 } from "./90095.js";
-import o from "./63696.js";
-import l from "./9282.js";
-import m from "./73870.js";
-import u from "./64608.js";
-import d from "./10606.js";
-import p from "./52451.js";
-import g, { Pr } from "./72476.js";
-import h, { l5 } from "./96555.js";
 import C from "./91957.js";
-import _ from "./2306.js";
+import h, { l5 } from "./96555.js";
 const c = l;
 export function DP() {
 	const e = l5();

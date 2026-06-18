@@ -1,9 +1,9 @@
+import { LoginStore } from "../../actual_src/stores/loginstore.js";
+import l from "./18057.js";
 import { Cg } from "./34629.js";
+import { B6 } from "./49519.js";
 import i, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
-import { LoginStore } from "../../actual_src/stores/loginstore.js";
-import { B6 } from "./49519.js";
-import l from "./18057.js";
 export function VA() {
 	return q3(() => Ih.BKioskModeEnabled());
 }

@@ -4,35 +4,35 @@ import {
 	LocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i from "./31319.js";
-import a, { Gn } from "./89193.js";
 import s from "./18057.js";
+import i from "./31319.js";
+import n, { Cg } from "./34629.js";
+import a, { Gn } from "./89193.js";
 import "./33572.js";
 import o from "./5822.js";
 import l from "./55489.js";
 import "./44234.js";
-import u from "./10606.js";
-import { B6 } from "./49519.js";
-import A from "./46422.js";
-import p from "./96593.js";
-import g, { Pr } from "./72476.js";
-import h from "./93960.js";
+import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import {
 	CCallbackList,
 	SubscribableValue,
 } from "../../actual_src/utils/callbackutils";
-import f from "./83599.js";
-import b from "./82011.js";
-import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import R, { _1, iv } from "./43152.js";
-import N from "./85243.js";
-import F from "./44846.js";
-import G from "./43014.js";
-import P from "./69913.js";
+import u from "./10606.js";
+import x from "./18052.js";
 import L from "./22969.js";
 import z from "./35425.js";
-import x from "./18052.js";
+import G from "./43014.js";
+import R, { _1, iv } from "./43152.js";
+import F from "./44846.js";
+import A from "./46422.js";
+import { B6 } from "./49519.js";
+import P from "./69913.js";
+import g, { Pr } from "./72476.js";
+import b from "./82011.js";
+import f from "./83599.js";
+import N from "./85243.js";
+import h from "./93960.js";
+import p from "./96593.js";
 class c {
 	m_Instance;
 	m_iHideFooterCount = 0;

@@ -1,20 +1,20 @@
-import {
-	MoveElement,
-	CountMatches,
-} from "../../actual_src/utils/arrayutils.js";
-import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i from "./44234.js";
-import a from "./95773.js";
-import s, { Gn, fm } from "./89193.js";
 import { BSharedJSContextHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import {
+	CountMatches,
+	MoveElement,
+} from "../../actual_src/utils/arrayutils.js";
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import { Localize } from "../../actual_src/utils/localization.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import d from "./3756.js";
 import A, { u as u_1 } from "./17385.js";
-import { BK } from "./85243.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import n, { Cg } from "./34629.js";
+import i from "./44234.js";
 import C from "./52451.js";
 import { Pr } from "./72476.js";
+import { BK } from "./85243.js";
+import s, { Gn, fm } from "./89193.js";
+import a from "./95773.js";
 let m = 0;
 class u {
 	m_id = undefined;

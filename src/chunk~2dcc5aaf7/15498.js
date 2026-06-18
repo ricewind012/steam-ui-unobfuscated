@@ -1,9 +1,9 @@
-import n from "./58663.js";
-import i from "./48307.js";
-import a, { I8 } from "./12176.js";
-import g from "./63696.js";
 import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import a, { I8 } from "./12176.js";
+import i from "./48307.js";
 import { hL } from "./52451.js";
+import n from "./58663.js";
+import g from "./63696.js";
 const n_Message = n.Message;
 class o extends n_Message {
 	static ImplementsStaticInterface() {}

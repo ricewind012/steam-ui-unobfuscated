@@ -1,14 +1,14 @@
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import { CopyURLToClipboard } from "../../actual_src/utils/domutils.js";
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
-import a from "./63696.js";
 import s, { lX } from "./31084.js";
-import { E } from "./92008.js";
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
-import c, { A as A_1 } from "./90765.js";
+import n, { Cg } from "./34629.js";
+import a from "./63696.js";
 import d from "./72476.js";
 import A from "./88750.js";
+import i, { Gn } from "./89193.js";
+import c, { A as A_1 } from "./90765.js";
+import { E } from "./92008.js";
 export function Id(e, t) {
 	let r;
 	r = "currentTarget" in e ? e.currentTarget.ownerDocument.defaultView : e;

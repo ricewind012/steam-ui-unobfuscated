@@ -1,29 +1,29 @@
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import {
 	Localize,
-	LocalizeReact,
 	LocalizePlural,
+	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import n from "./63696.js";
-import i, { PA } from "./41230.js";
-import a, { q3 } from "./90095.js";
-import s, { W6 } from "./49519.js";
-import o from "./84056.js";
-import { ID } from "./44846.js";
 import m from "./1965.js";
-import u from "./56726.js";
-import { VI } from "./34792.js";
-import A from "./21597.js";
-import p from "./16364.js";
-import h, { Qn, Y2 } from "./72476.js";
-import C from "./69164.js";
-import _ from "./94729.js";
-import f from "./18057.js";
 import { MZ } from "./3499.js";
-import { br } from "./18869.js";
 import { BGameRecordingFeatureEnabled } from "./4069.js";
-import B from "./74827.js";
+import p from "./16364.js";
+import f from "./18057.js";
+import { br } from "./18869.js";
+import A from "./21597.js";
+import { VI } from "./34792.js";
+import i, { PA } from "./41230.js";
+import { ID } from "./44846.js";
+import s, { W6 } from "./49519.js";
+import u from "./56726.js";
 import v from "./61294.js";
+import n from "./63696.js";
+import C from "./69164.js";
+import h, { Qn, Y2 } from "./72476.js";
+import B from "./74827.js";
+import o from "./84056.js";
+import a, { q3 } from "./90095.js";
+import _ from "./94729.js";
 const g = p;
 function I(e) {
 	GetOwningWindowForEvent(e).location.href = "steam://settings/ingame";

@@ -1,8 +1,8 @@
-import n from "./63696.js";
-import i from "./8090.js";
 import a from "./1521.js";
+import i from "./8090.js";
 import s from "./16117.js";
 import o from "./43691.js";
+import n from "./63696.js";
 export class T extends n.Component {
 	parser;
 	constructor(e) {

@@ -1,8 +1,8 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
 import i from "./35488.js";
-import a from "./98995.js";
+import n from "./63696.js";
 import o from "./93452.js";
+import a from "./98995.js";
 const l = o;
 export function S(e) {
 	const { deferred: t, label: r } = e;

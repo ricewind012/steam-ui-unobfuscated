@@ -2,24 +2,24 @@ import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import n from "./96000.js";
-import i from "./61175.js";
-import a from "./48866.js";
-import s, { q3 } from "./90095.js";
-import o from "./63696.js";
-import l from "./55116.js";
-import c from "./69164.js";
-import { eS, C6, Wm } from "./56655.js";
-import u from "./43014.js";
-import d from "./64608.js";
-import A from "./13743.js";
 import p from "./10606.js";
-import g from "./50376.js";
-import h from "./43520.js";
-import { A as A_1 } from "./90765.js";
-import f, { rP } from "./72476.js";
+import A from "./13743.js";
 import { $P, Pj } from "./14629.js";
 import y from "./32330.js";
+import u from "./43014.js";
+import h from "./43520.js";
+import a from "./48866.js";
+import g from "./50376.js";
+import l from "./55116.js";
+import { C6, Wm, eS } from "./56655.js";
+import i from "./61175.js";
+import o from "./63696.js";
+import d from "./64608.js";
+import c from "./69164.js";
+import f, { rP } from "./72476.js";
+import s, { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+import n from "./96000.js";
 const S = y;
 export function x(e) {
 	const { collectionid, closeModal } = e;

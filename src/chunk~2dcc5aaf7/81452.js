@@ -2,17 +2,17 @@ import {
 	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
+import p from "./1965.js";
 import n, { bG } from "./18057.js";
-import i from "./78057.js";
-import a, { $L, ZG } from "./70239.js";
 import s, { PA } from "./41230.js";
+import c from "./50376.js";
+import A from "./56726.js";
 import o from "./63696.js";
 import l from "./69164.js";
-import c from "./50376.js";
-import m from "./98995.js";
+import a, { $L, ZG } from "./70239.js";
 import { Qn } from "./72476.js";
-import A from "./56726.js";
-import p from "./1965.js";
+import i from "./78057.js";
+import m from "./98995.js";
 import g from "./99360.js";
 const h = g;
 export const y = PA((e) => {

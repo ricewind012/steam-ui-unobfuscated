@@ -1,24 +1,24 @@
 import { Localize } from "../../actual_src/utils/localization.js";
 import {
-	LocalizeTimeSince,
 	ETimeSinceSuffix,
+	LocalizeTimeSince,
 } from "../../actual_src/utils/localization/datetime.js";
-import n from "./63696.js";
-import i from "./64608.js";
-import a from "./35488.js";
-import s from "./85243.js";
+import u from "./10606.js";
+import d, { pg } from "./13869.js";
 import o from "./19999.js";
 import c, { Qi, Kh, AF, Mi } from "./27710.js";
 import m from "./30449.js";
-import u from "./10606.js";
-import d, { pg } from "./13869.js";
-import A, { LC } from "./46422.js";
 import { pw } from "./31319.js";
-import { Nx } from "./71033.js";
-import C from "./61657.js";
-import _ from "./69164.js";
-import f from "./56970.js";
+import a from "./35488.js";
+import A, { LC } from "./46422.js";
 import { Bx } from "./55489.js";
+import f from "./56970.js";
+import C from "./61657.js";
+import n from "./63696.js";
+import i from "./64608.js";
+import _ from "./69164.js";
+import { Nx } from "./71033.js";
+import s from "./85243.js";
 function y(e) {
 	const { sLabel, fnCheck } = e;
 	return (

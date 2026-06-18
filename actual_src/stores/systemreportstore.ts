@@ -1,14 +1,14 @@
 // Webpack module ID: TODO
 
-import { useCallback } from "react";
-import { _ } from "../../src/chunk~2dcc5aaf7/67338.js";
-import { Dt } from "../../src/chunk~2dcc5aaf7/63367.js";
-import { tm as CMsgGenerateSystemReportReply } from "../../src/chunk~2dcc5aaf7/51297.js";
-import { CI as BIsLinux } from "../../src/library/72476.js";
-import { TS as Config } from "../../src/library/43691.js";
 import { action, makeAutoObservable, observable } from "mobx";
-import { EResult } from "../steamclient/steamclient/shared.js";
 import { useObserver } from "mobx-react-lite";
+import { useCallback } from "react";
+import { tm as CMsgGenerateSystemReportReply } from "../../src/chunk~2dcc5aaf7/51297.js";
+import { Dt } from "../../src/chunk~2dcc5aaf7/63367.js";
+import { _ } from "../../src/chunk~2dcc5aaf7/67338.js";
+import { TS as Config } from "../../src/library/43691.js";
+import { CI as BIsLinux } from "../../src/library/72476.js";
+import { EResult } from "../steamclient/steamclient/shared.js";
 
 export function Pb() {
 	return Config.ON_STEAMOS || BIsLinux();

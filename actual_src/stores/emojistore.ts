@@ -1,7 +1,7 @@
 // Webpack module ID: 78475
 
-import { A as CStorage_Local } from "../../src/library/88696.js";
 import { C } from "../../src/chunk~2dcc5aaf7/45050.js";
+import { A as CStorage_Local } from "../../src/library/88696.js";
 
 let vecEmojiList = [
 	{

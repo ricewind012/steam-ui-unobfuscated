@@ -1,18 +1,18 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { useState, useCallback } from "./63696.js";
-import i from "./13128.js";
-import s from "./83247.js";
-import o from "./50376.js";
-import l, { LH } from "./24295.js";
 import { jE } from "./3715.js";
+import i from "./13128.js";
+import { Qt } from "./18057.js";
+import l, { LH } from "./24295.js";
+import o from "./50376.js";
+import C from "./60291.js";
 import { I } from "./61416.js";
-import u from "./64608.js";
 import d from "./63032.js";
+import n, { useState, useCallback } from "./63696.js";
+import u from "./64608.js";
 import A from "./69164.js";
 import p, { Qn } from "./72476.js";
-import { Qt } from "./18057.js";
+import s from "./83247.js";
 import { A as A_1 } from "./90765.js";
-import C from "./60291.js";
 export function O() {
 	const e = "timeline_intro";
 	const [t] = useState(() => new d.O());

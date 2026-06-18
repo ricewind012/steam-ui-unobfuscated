@@ -1,7 +1,7 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
-import i, { Nr } from "./42318.js";
 import a from "./10606.js";
+import i, { Nr } from "./42318.js";
+import n from "./63696.js";
 import s from "./64608.js";
 import { Co } from "./96593.js";
 export const u = Nr(() => {

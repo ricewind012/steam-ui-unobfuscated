@@ -4,20 +4,20 @@ import {
 	LoadLocalizationStrings,
 	LocalizationManager,
 } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i, { PR, bg, x9 } from "./68292.js";
-import * as s from "./18057.js";
-import { dq } from "./13688.js";
-import { lF } from "./79112.js";
 import * as c from "./3963.js";
-import * as m from "./60917.js";
+import { dq } from "./13688.js";
+import * as s from "./18057.js";
+import n, { Cg } from "./34629.js";
+import * as _ from "./43691.js";
 import * as u from "./46422.js";
+import * as C from "./52451.js";
+import * as m from "./60917.js";
 import d, { zK } from "./63367.js";
+import { useEffect } from "./63696.js";
+import i, { PR, bg, x9 } from "./68292.js";
+import { lF } from "./79112.js";
 import A, { Gn, z7 } from "./89193.js";
 import { q3 } from "./90095.js";
-import { useEffect } from "./63696.js";
-import * as C from "./52451.js";
-import * as _ from "./43691.js";
 class f {
 	m_bStartupFinished = false;
 	m_bFriendsUIReady = false;

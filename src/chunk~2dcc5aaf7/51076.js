@@ -1,5 +1,5 @@
+import { B6, W6, zy } from "./49519.js";
 import n from "./63696.js";
-import { W6, B6, zy } from "./49519.js";
 export function OU(e) {
 	const t = W6();
 	const [r, setR] = n.useState(() => !!B6(t?.location.pathname, e));

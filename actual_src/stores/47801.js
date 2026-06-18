@@ -1,14 +1,14 @@
 import { Seconds } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
-import * as a from "./72476.js";
-import * as s from "./12176.js";
-import * as o from "./87935.js";
 import * as l from "./1252.js";
-import * as c from "./96538.js";
+import * as s from "./12176.js";
+import n, { Cg } from "./34629.js";
 import * as m from "./46066.js";
+import * as a from "./72476.js";
 import * as u from "./82301.js";
+import * as o from "./87935.js";
+import i, { Gn } from "./89193.js";
 import { q3 } from "./90095.js";
+import * as c from "./96538.js";
 const p = "badge";
 const g = "community_items";
 class h {

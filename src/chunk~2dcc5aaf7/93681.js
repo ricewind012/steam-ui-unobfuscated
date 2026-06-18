@@ -1,7 +1,7 @@
+import s from "./42723.js";
+import { Ue, hd, l6, wY } from "./52451.js";
 import n, { useState, useRef, useCallback, useEffect } from "./63696.js";
 import { A } from "./90765.js";
-import { hd, wY, Ue, l6 } from "./52451.js";
-import s from "./42723.js";
 export function r(e) {
 	const t = e.play ?? true;
 	const r = e.direction ?? "left";

@@ -1,9 +1,9 @@
 import {
 	GetConfiguredLocale,
-	LocalizeDateHumanReadable,
-	Localize,
-	LocalizeReact,
 	Hq,
+	Localize,
+	LocalizeDateHumanReadable,
+	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
 
 import {
@@ -11,14 +11,14 @@ import {
 	IsDateSameYear,
 	Seconds,
 } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
-import i from "./63696.js";
-import a from "./98995.js";
-import o, { PA } from "./41230.js";
-import l, { A as A_1 } from "./90765.js";
-import m from "./24585.js";
 import d from "./12956.js";
 import A from "./18339.js";
+import m from "./24585.js";
+import n, { Cg } from "./34629.js";
+import o, { PA } from "./41230.js";
+import i from "./63696.js";
+import l, { A as A_1 } from "./90765.js";
+import a from "./98995.js";
 const u = m;
 export function yi(e, t) {
 	const r = A.tz.guess();

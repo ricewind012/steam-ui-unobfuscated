@@ -1,6 +1,6 @@
 import { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
 import { B6 } from "./49519.js";
+import i, { Gn } from "./89193.js";
 class s {
 	constructor() {
 		Gn(this);

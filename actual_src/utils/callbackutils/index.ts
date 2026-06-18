@@ -1,8 +1,8 @@
 // Webpack module ID: 79769
 
 import { FindAndRemove } from "../arrayutils.js";
-import * as a from "./callbacklist.js";
 import { bind } from "../bind.js";
+import * as a from "./callbacklist.js";
 
 export let CCallbackList = a.CCallbackList;
 

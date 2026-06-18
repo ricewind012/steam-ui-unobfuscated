@@ -1,14 +1,14 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import i from "./63696.js";
-import a from "./43014.js";
-import s from "./35488.js";
-import l from "./34776.js";
-import { q3 } from "./90095.js";
-import { pg } from "./13869.js";
 import u from "./10606.js";
-import d from "./64608.js";
+import { pg } from "./13869.js";
 import A from "./21105.js";
 import p, { wt } from "./34665.js";
+import l from "./34776.js";
+import s from "./35488.js";
+import a from "./43014.js";
+import i from "./63696.js";
+import d from "./64608.js";
+import { q3 } from "./90095.js";
 export let dI;
 ((e) => {
 	e[(e.Character = 0)] = "Character";

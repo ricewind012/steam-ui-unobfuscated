@@ -1,6 +1,6 @@
-import { BElementFullscreen, $e } from "../../actual_src/utils/domutils.js";
-import r, { useState, useEffect } from "./63696.js";
+import { $e, BElementFullscreen } from "../../actual_src/utils/domutils.js";
 import s, { QS, Ue } from "./28864.js";
+import r, { useState, useEffect } from "./63696.js";
 import { wY } from "./99251.js";
 export function rf(e) {
 	let [t, setT] = useState(false);

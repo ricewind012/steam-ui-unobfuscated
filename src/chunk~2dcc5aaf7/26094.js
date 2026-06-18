@@ -1,23 +1,23 @@
+import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
+import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
 import {
 	BLocStringExists,
 	Localize,
 } from "../../actual_src/utils/localization.js";
-import { GetOwningWindowForEvent } from "../../actual_src/utils/domutils.js";
-import n from "./63696.js";
-import i, { yZ } from "./34461.js";
+import { MS } from "./1385.js";
+import f from "./3874.js";
+import { R7, k5 } from "./11131.js";
+import { pg } from "./13869.js";
 import a, { lX } from "./31084.js";
-import s, { H6, H5 } from "./39730.js";
+import i, { yZ } from "./34461.js";
 import o from "./35488.js";
-import { k5, R7 } from "./11131.js";
+import s, { H6, H5 } from "./39730.js";
+import d from "./43271.js";
+import C, { tC } from "./51095.js";
+import n from "./63696.js";
 import m from "./67429.js";
 import u, { Dp } from "./68438.js";
-import d from "./43271.js";
-import { MS } from "./1385.js";
-import { BSteamClientHasMethod } from "../../actual_src/steamclient/clientinterfacehelpers.js";
 import h, { Y2 } from "./72476.js";
-import C, { tC } from "./51095.js";
-import { pg } from "./13869.js";
-import f from "./3874.js";
 import { T } from "./78057.js";
 import { Pp } from "./89748.js";
 export function jE() {

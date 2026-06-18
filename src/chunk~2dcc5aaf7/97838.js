@@ -1,7 +1,7 @@
-import n from "./58663.js";
-import i from "./56060.js";
-import a from "./16583.js";
 import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import a from "./16583.js";
+import i from "./56060.js";
+import n from "./58663.js";
 export let N = new (class {
 	m_socket;
 	m_promiseConnect;

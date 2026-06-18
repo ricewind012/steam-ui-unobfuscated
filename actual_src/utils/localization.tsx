@@ -16,8 +16,8 @@ export let LocalizeCalendarWeekdayAndDayMonth =
 import React from "react";
 
 import { sf as PchLanguageToELanguage } from "../../src/library/44846.js";
-import { ESteamRealm } from "../clienttypes/realm.js";
 import { TS as Config } from "../../src/library/72476.js";
+import { ESteamRealm } from "../clienttypes/realm.js";
 import { PadArray } from "./arrayutils.js";
 import { CCallbackList } from "./callbackutils";
 // TODO: LMAO wtf

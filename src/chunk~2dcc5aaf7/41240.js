@@ -1,4 +1,4 @@
-import { FailAssertion, AssertMsg } from "../../actual_src/utils/assert.js";
+import { AssertMsg, FailAssertion } from "../../actual_src/utils/assert.js";
 import { md } from "./80222.js";
 export function ER(e) {
 	if ("appid" in e) {

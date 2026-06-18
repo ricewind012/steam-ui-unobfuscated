@@ -1,8 +1,8 @@
-import * as n from "./63696.js";
-import * as i from "./12176.js";
-import * as a from "./54946.js";
 import { CCallbackList } from "../../actual_src/utils/callbackutils";
+import * as i from "./12176.js";
 import { hL } from "./52451.js";
+import * as a from "./54946.js";
+import * as n from "./63696.js";
 export function mb(e) {
 	let [t, setT] = n.useState(e.GetSubscriberAgreementInfo());
 	hL(e.SubscriberAgreementInfoChangedCallbacks, setT);

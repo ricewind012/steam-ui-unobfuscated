@@ -1,12 +1,12 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
-import a from "./36383.js";
-import s from "./12176.js";
 import o from "./8573.js";
-import l from "./44846.js";
-import c from "./95773.js";
+import s from "./12176.js";
 import m from "./24761.js";
+import n, { Cg } from "./34629.js";
+import a from "./36383.js";
+import l from "./44846.js";
+import i, { Gn } from "./89193.js";
+import c from "./95773.js";
 class d extends m.w {
 	constructor(e) {
 		super(e);

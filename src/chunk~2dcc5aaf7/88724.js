@@ -1,9 +1,9 @@
-import { Localize, Hq } from "../../actual_src/utils/localization.js";
+import { Hq, Localize } from "../../actual_src/utils/localization.js";
 import { Cg } from "./34629.js";
-import i, { Gn } from "./89193.js";
-import { tB } from "./59351.js";
 import s from "./36934.js";
+import { tB } from "./59351.js";
 import l from "./72476.js";
+import i, { Gn } from "./89193.js";
 import c, { t } from "./93023.js";
 export let tp = c.t;
 export let dV = c.d;

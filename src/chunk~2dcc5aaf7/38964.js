@@ -1,7 +1,7 @@
 import n, { Cg } from "./34629.js";
 import i from "./61657.js";
-import a from "./85243.js";
 import s from "./84056.js";
+import a from "./85243.js";
 import o from "./93960.js";
 const l = {
 	[s.H.GAMEPAD_BUTTON_A]: i.pR.OK,

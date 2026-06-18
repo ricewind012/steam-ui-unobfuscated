@@ -1,10 +1,10 @@
-import n from "./63696.js";
-import { Ue } from "./28864.js";
-import a from "./18914.js";
-import s from "./72476.js";
-import o from "./11131.js";
-import l from "./96680.js";
 import c from "./3524.js";
+import o from "./11131.js";
+import a from "./18914.js";
+import { Ue } from "./28864.js";
+import n from "./63696.js";
+import s from "./72476.js";
+import l from "./96680.js";
 export function O(e) {
 	const { instance, ownerWindow, children } = e;
 	const u = instance.IsVRWindow();

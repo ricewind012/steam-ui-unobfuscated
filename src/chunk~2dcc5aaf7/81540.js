@@ -1,15 +1,15 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import i from "./63696.js";
-import a from "./64608.js";
 import s from "./7872.js";
-import l, { L$, uD } from "./52451.js";
 import c from "./10606.js";
-import m from "./69164.js";
 import u from "./21091.js";
-import d from "./35488.js";
-import A, { QY, ox } from "./79905.js";
 import p from "./30449.js";
 import g, { bT } from "./31958.js";
+import d from "./35488.js";
+import l, { L$, uD } from "./52451.js";
+import i from "./63696.js";
+import a from "./64608.js";
+import m from "./69164.js";
+import A, { QY, ox } from "./79905.js";
 let n;
 function H(e) {
 	const { closeModal, controllerSettings, setControllerSettings } = e;

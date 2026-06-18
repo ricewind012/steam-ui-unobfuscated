@@ -1,11 +1,11 @@
-import { ch } from "./33572.js";
-import i, { $2 } from "./96680.js";
-import a from "./63696.js";
-import s from "./31084.js";
-import o from "./61657.js";
 import l from "./10606.js";
+import s from "./31084.js";
+import { ch } from "./33572.js";
+import o from "./61657.js";
+import a from "./63696.js";
 import { Fx } from "./73375.js";
 import m, { fm } from "./89193.js";
+import i, { $2 } from "./96680.js";
 export function k6(e, t, r) {
 	const o = ch();
 	const m = $2().BrowserWindow;

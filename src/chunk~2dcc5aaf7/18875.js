@@ -1,6 +1,6 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import i from "./87935.js";
 import { vJ } from "./52451.js";
+import i from "./87935.js";
 export let PP;
 export class eA {
 	static g_Singleton = null;

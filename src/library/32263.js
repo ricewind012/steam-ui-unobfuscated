@@ -1,6 +1,6 @@
+import s from "./24892.js";
 import r from "./63696.js";
 import { A } from "./90765.js";
-import s from "./24892.js";
 const o = s;
 export const MenuItem = r.forwardRef((props, ref) => {
 	const { className, contextMenuStyles, disabled, ...c } = props;

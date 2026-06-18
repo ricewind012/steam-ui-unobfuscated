@@ -1,42 +1,42 @@
 import {
 	Localize,
-	LocalizeReact,
 	LocalizeDateHumanReadable,
+	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import { Seconds, IsDateSameYear } from "../../actual_src/utils/time.js";
-import n, { Cg } from "./34629.js";
-import i from "./41230.js";
-import a from "./42689.js";
-import s from "./63696.js";
-import o, { sf, Lg } from "./44846.js";
-import l, { lX } from "./31084.js";
-import c from "./84731.js";
-import { RR } from "./34875.js";
-import u from "./78771.js";
-import d from "./70232.js";
+import { IsDateSameYear, Seconds } from "../../actual_src/utils/time.js";
+import { vg } from "./4816.js";
+import L from "./6440.js";
+import B from "./10606.js";
 import A, { sB } from "./12956.js";
 import p from "./13665.js";
-import g, { Gn, h5 } from "./89193.js";
-import h, { Fd } from "./72476.js";
-import C from "./83957.js";
-import _y from "./24892.js";
-import S from "./64608.js";
-import { yi } from "./82775.js";
-import B from "./10606.js";
-import { pg, HT } from "./13869.js";
-import I from "./50376.js";
-import E from "./26853.js";
-import M from "./98995.js";
+import { HT, pg } from "./13869.js";
 import { H as H_1 } from "./16154.js";
-import { A as A_1 } from "./90765.js";
+import U from "./24218.js";
+import _y from "./24892.js";
+import E from "./26853.js";
+import l, { lX } from "./31084.js";
+import n, { Cg } from "./34629.js";
+import { RR } from "./34875.js";
+import i from "./41230.js";
+import a from "./42689.js";
+import G from "./43088.js";
+import o, { sf, Lg } from "./44846.js";
+import I from "./50376.js";
 import D from "./52451.js";
 import { k2 } from "./53807.js";
-import G from "./43088.js";
-import P, { qT, LJ } from "./95020.js";
-import L from "./6440.js";
+import s from "./63696.js";
+import S from "./64608.js";
+import d from "./70232.js";
+import h, { Fd } from "./72476.js";
 import z from "./76565.js";
-import { vg } from "./4816.js";
-import U from "./24218.js";
+import u from "./78771.js";
+import { yi } from "./82775.js";
+import C from "./83957.js";
+import c from "./84731.js";
+import g, { Gn, h5 } from "./89193.js";
+import { A as A_1 } from "./90765.js";
+import P, { qT, LJ } from "./95020.js";
+import M from "./98995.js";
 const _ = C;
 class f {
 	constructor() {

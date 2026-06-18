@@ -1,6 +1,6 @@
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import r, { Cg } from "./34629.js";
 import i from "./93960.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
 class o {
 	key;
 	static sm_lastKey = 0;

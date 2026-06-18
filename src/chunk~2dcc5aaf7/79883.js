@@ -1,6 +1,6 @@
+import { CCallbackList } from "../../actual_src/utils/callbackutils";
 import n, { Cg } from "./34629.js";
 import i, { Gn } from "./89193.js";
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
 export class H {
 	m_nWebPageRequestID = 0;
 	m_nActiveWebpageRequestID = 0;

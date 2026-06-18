@@ -1,43 +1,43 @@
-import { useEffect, useCallback } from "react";
-import { comparer, observable, action, makeAutoObservable } from "mobx";
+import { action, comparer, makeAutoObservable, observable } from "mobx";
 import { useObserver } from "mobx-react-lite";
-import { A as CStorage_Local } from "../../src/library/88696.js";
+import { useCallback, useEffect } from "react";
 import { u as CFriendSettings } from "../../src/chunk~2dcc5aaf7/4563.js";
-import { w as w_1 } from "../../src/library/12176.js";
+import { oy } from "../../src/chunk~2dcc5aaf7/46422.js";
 import {
-	B4 as CPlayer_CommunityPreferences,
-	QA,
-	tz as CPlayer_GetCommunityPreferences_Request,
-	xt,
-	pr as CPlayer_SetCommunityPreferences_Request,
-} from "../../src/chunk~2dcc5aaf7/54946.js";
-import {
-	Eb,
 	xf as CStore_GetStorePreferences_Request,
+	Eb,
 	nd,
 } from "../../src/chunk~2dcc5aaf7/46948.js";
-import {
-	sC,
-	aJ as CSteamNotification_GetPreferences_Request,
-	Fn,
-	Z8 as SteamNotificationPreference,
-	gm as CSteamNotification_SetPreferences_Request,
-} from "../../src/chunk~2dcc5aaf7/88475.js";
-import { oI } from "../../src/library/52451.js";
-import { SubscribableValue } from "../utils/callbackutils/index.js";
-import { s as s_1 } from "../../src/library/81255.js";
 import { Z5 as CMsgMonitorInfo } from "../../src/chunk~2dcc5aaf7/51297.js";
 import {
-	Message,
+	B4 as CPlayer_CommunityPreferences,
+	tz as CPlayer_GetCommunityPreferences_Request,
+	pr as CPlayer_SetCommunityPreferences_Request,
+	QA,
+	xt,
+} from "../../src/chunk~2dcc5aaf7/54946.js";
+import {
 	BinaryReader,
 	BinaryWriter,
+	Message,
 } from "../../src/chunk~2dcc5aaf7/58663.js";
-import { Sg, qM, gp, w0, BT, Uq, zj, i0 } from "../../src/library/48307.js";
-import { oy } from "../../src/chunk~2dcc5aaf7/46422.js";
 import { j7 } from "../../src/chunk~2dcc5aaf7/59401.js";
-import { L } from "../../src/library/75144.js";
-import { j$, JM, cr } from "../../src/chunk~2dcc5aaf7/63937.js";
+import { JM, cr, j$ } from "../../src/chunk~2dcc5aaf7/63937.js";
+import {
+	aJ as CSteamNotification_GetPreferences_Request,
+	gm as CSteamNotification_SetPreferences_Request,
+	Fn,
+	Z8 as SteamNotificationPreference,
+	sC,
+} from "../../src/chunk~2dcc5aaf7/88475.js";
+import { w as w_1 } from "../../src/library/12176.js";
 import { iA as UserConfig } from "../../src/library/14628.js";
+import { BT, Sg, Uq, gp, i0, qM, w0, zj } from "../../src/library/48307.js";
+import { oI } from "../../src/library/52451.js";
+import { L } from "../../src/library/75144.js";
+import { s as s_1 } from "../../src/library/81255.js";
+import { A as CStorage_Local } from "../../src/library/88696.js";
+import { SubscribableValue } from "../utils/callbackutils/index.js";
 
 const C_Message = Message;
 class CMsgHotkey extends C_Message {

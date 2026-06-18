@@ -1,12 +1,12 @@
 import { CLocLanguageArray } from "../../actual_src/utils/localization.js";
-import n, { useMemo } from "./63696.js";
-import { sf } from "./44846.js";
 import { RR } from "./34875.js";
 import { mJ } from "./36885.js";
-import { A } from "./90765.js";
+import { sf } from "./44846.js";
 import { k2 } from "./53807.js";
+import n, { useMemo } from "./63696.js";
 import _m from "./72476.js";
 import u from "./76802.js";
+import { A } from "./90765.js";
 export function m(e) {
 	const { gidEvent: t } = e;
 	const r = RR(t);

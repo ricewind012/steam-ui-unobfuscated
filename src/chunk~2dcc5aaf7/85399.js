@@ -1,68 +1,49 @@
 import {
-	Localize,
-	LocalizeReact,
-	LocalizeInlineReactWithFallback,
-} from "../../actual_src/utils/localization.js";
-import {
-	GetOwningWindowForEvent,
 	CopyTextToClipboard,
+	GetOwningWindowForEvent,
 	_f,
 } from "../../actual_src/utils/domutils.js";
-import n from "./63696.js";
-import i from "./72476.js";
-import a, { W6, zy, B6 } from "./49519.js";
-import s, { PA } from "./41230.js";
-import o, { q3 } from "./90095.js";
-import l from "./64608.js";
-import c from "./69164.js";
-import m from "./61657.js";
-import u, { A as A_1 } from "./90765.js";
-import A from "./50727.js";
-import p from "./78567.js";
-import g from "./35488.js";
-import h, { St as st_1 } from "./85360.js";
-import C from "./45309.js";
-import _, { Un, LC } from "./46422.js";
-import f, { lX } from "./31084.js";
-import b from "./88750.js";
-import y, { K7, U$ } from "./62486.js";
-import S, { M0, zB, es } from "./83314.js";
-import w from "./61277.js";
-import B from "./4690.js";
-import v, { pg } from "./13869.js";
-import G from "./46396.js";
-import O from "./99452.js";
-import P from "./82667.js";
-import L from "./13110.js";
-import z from "./84056.js";
-import x from "./12272.js";
-import U, { yq } from "./93966.js";
-import W, { R7 } from "./11131.js";
-import V, { pw } from "./31319.js";
-import H, { VI } from "./34792.js";
-import j, { l6, L$, X as X_1, Ue as Ue_1 } from "./52451.js";
-import q from "./53622.js";
-import Q from "./43014.js";
-import Z, { $2 } from "./96680.js";
+import {
+	Localize,
+	LocalizeInlineReactWithFallback,
+	LocalizeReact,
+} from "../../actual_src/utils/localization.js";
 import Y, { MZ } from "./3499.js";
-import K, { bY } from "./67429.js";
-import X, { fu } from "./78721.js";
-import te from "./70456.js";
-import re from "./12307.js";
-import ne from "./50350.js";
-import { Wh, ez } from "./31800.js";
-import ae from "./48289.js";
-import se from "./78057.js";
-import oe from "./96593.js";
-import le, { wy, Sz, q_ as q_1, Id, tk } from "./22091.js";
-import ce from "./37976.js";
-import me, { C6 } from "./70239.js";
-import ue from "./20414.js";
-import de from "./44846.js";
+import B from "./4690.js";
+import { Z as Z_1, b as b_1 } from "./9482.js";
 import Ae from "./10606.js";
+import Ne from "./10975.js";
+import W, { R7 } from "./11131.js";
+import x from "./12272.js";
+import re from "./12307.js";
+import L from "./13110.js";
+import { TE } from "./13200.js";
+import v, { pg } from "./13869.js";
+import Me, { R_ as R_1 } from "./18057.js";
+import ke from "./19037.js";
+import ue from "./20414.js";
+import De from "./21105.js";
+import Te from "./22047.js";
+import le, { wy, Sz, q_ as q_1, Id, tk } from "./22091.js";
 import pe from "./26853.js";
+import f, { lX } from "./31084.js";
+import V, { pw } from "./31319.js";
+import { Wh, ez } from "./31800.js";
+import Oe, { oH } from "./33572.js";
+import H, { VI } from "./34792.js";
+import g from "./35488.js";
+import ce from "./37976.js";
+import s, { PA } from "./41230.js";
+import Q from "./43014.js";
+import de from "./44846.js";
+import C from "./45309.js";
+import G from "./46396.js";
+import _, { Un, LC } from "./46422.js";
+import ae from "./48289.js";
+import a, { W6, zy, B6 } from "./49519.js";
+import ne from "./50350.js";
+import A from "./50727.js";
 import { SP } from "./51076.js";
-import we, { N as N_1 } from "./84914.js";
 import Be, {
 	SG,
 	nQ,
@@ -78,19 +59,38 @@ import Be, {
 	$c,
 	mx,
 } from "./52192.js";
-import ve from "./81540.js";
-import Ee from "./85243.js";
-import Me, { R_ as R_1 } from "./18057.js";
-import Te from "./22047.js";
-import { TE } from "./13200.js";
-import ke from "./19037.js";
-import De from "./21105.js";
-import Ne from "./10975.js";
+import j, { l6, L$, X as X_1, Ue as Ue_1 } from "./52451.js";
+import q from "./53622.js";
 import { Bx } from "./55489.js";
-import { b as b_1, Z as Z_1 } from "./9482.js";
-import Oe, { oH } from "./33572.js";
+import w from "./61277.js";
+import m from "./61657.js";
+import y, { K7, U$ } from "./62486.js";
+import n from "./63696.js";
+import l from "./64608.js";
+import K, { bY } from "./67429.js";
+import c from "./69164.js";
+import me, { C6 } from "./70239.js";
+import te from "./70456.js";
+import i from "./72476.js";
 import { N4 } from "./77347.js";
+import se from "./78057.js";
+import p from "./78567.js";
+import X, { fu } from "./78721.js";
+import ve from "./81540.js";
+import P from "./82667.js";
+import S, { M0, zB, es } from "./83314.js";
+import z from "./84056.js";
+import we, { N as N_1 } from "./84914.js";
+import Ee from "./85243.js";
+import h, { St as st_1 } from "./85360.js";
+import b from "./88750.js";
 import { qw } from "./89748.js";
+import o, { q3 } from "./90095.js";
+import u, { A as A_1 } from "./90765.js";
+import U, { yq } from "./93966.js";
+import oe from "./96593.js";
+import Z, { $2 } from "./96680.js";
+import O from "./99452.js";
 const E = PA((e) => {
 	const { appid } = e;
 	const r =

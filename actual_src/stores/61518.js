@@ -1,9 +1,9 @@
 import { Cg } from "./34629.js";
-import * as i from "./63696.js";
 import * as a from "./52451.js";
-import { I } from "./61416.js";
-import * as o from "./75144.js";
 import * as l from "./56365.js";
+import { I } from "./61416.js";
+import * as i from "./63696.js";
+import * as o from "./75144.js";
 import { l5 } from "./96555.js";
 const m = "GamescopeService";
 const u = "State";

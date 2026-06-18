@@ -1,16 +1,16 @@
 import { Localize } from "../../actual_src/utils/localization.js";
 import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
-import n from "./63696.js";
-import i from "./64608.js";
-import a from "./35488.js";
 import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import c from "./10606.js";
+import { pg } from "./13869.js";
+import a from "./35488.js";
+import A from "./39241.js";
 import m from "./43599.js";
 import u, { gt } from "./48289.js";
-import { q3 } from "./90095.js";
-import A from "./39241.js";
+import n from "./63696.js";
+import i from "./64608.js";
 import p, { hf } from "./72476.js";
-import { pg } from "./13869.js";
+import { q3 } from "./90095.js";
 import { $2 } from "./96680.js";
 function C(e) {
 	const { playerDetails: t } = e;

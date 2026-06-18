@@ -1,9 +1,9 @@
-import n from "./63696.js";
-import { A } from "./90765.js";
+import { q } from "./29285.js";
 import a from "./33788.js";
 import s from "./39940.js";
-import { q } from "./29285.js";
 import { LC } from "./46422.js";
+import n from "./63696.js";
+import { A } from "./90765.js";
 export const j = (e) => {
 	const { size: t = "medium", background: r } = e;
 	const c = e.showFooter ?? false;

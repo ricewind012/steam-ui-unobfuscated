@@ -1,19 +1,19 @@
-import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
-import n, { Cg } from "./34629.js";
-import i, { D7 } from "./33572.js";
-import a, { Gn } from "./89193.js";
-import s from "./63696.js";
-import o from "./10975.js";
-import { AssertMsg } from "./../../actual_src/utils/assert.js";
 import {
 	CCallbackList,
 	SubscribableValue,
 } from "../../actual_src/utils/callbackutils";
-import u from "./83599.js";
-import { gc, x2 } from "./52451.js";
-import A, { Pr } from "./72476.js";
+import { DistanceBetweenRects } from "../../actual_src/utils/domutils.js";
+import { AssertMsg } from "./../../actual_src/utils/assert.js";
+import o from "./10975.js";
+import i, { D7 } from "./33572.js";
+import n, { Cg } from "./34629.js";
 import p from "./34776.js";
 import g from "./41537.js";
+import { gc, x2 } from "./52451.js";
+import s from "./63696.js";
+import A, { Pr } from "./72476.js";
+import u from "./83599.js";
+import a, { Gn } from "./89193.js";
 export let FN = g.FN;
 export const I7 = new u.wd("VirtualKeyboard").Debug;
 export class PE {

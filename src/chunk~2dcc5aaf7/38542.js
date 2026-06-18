@@ -1,6 +1,6 @@
-import n from "./63696.js";
 import i, { Qt } from "./18057.js";
 import a from "./46422.js";
+import n from "./63696.js";
 export function Ux() {
 	return Qt("steam://run/250820");
 }

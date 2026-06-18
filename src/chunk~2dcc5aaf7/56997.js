@@ -1,7 +1,7 @@
-import { useState, useEffect } from "./63696.js";
 import { Fc } from "./22588.js";
-import { Ks } from "./91720.js";
 import { bB } from "./52451.js";
+import { useEffect, useState } from "./63696.js";
+import { Ks } from "./91720.js";
 export function V(e) {
 	const { app } = Ks(e);
 	const { loader } = Fc(e);

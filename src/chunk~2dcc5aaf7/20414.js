@@ -1,9 +1,9 @@
-import i from "./72476.js";
 import a from "./1252.js";
-import s from "./87935.js";
 import o from "./12176.js";
 import l from "./34043.js";
 import c from "./70239.js";
+import i from "./72476.js";
+import s from "./87935.js";
 export let bJ;
 export async function GU(e, t) {
 	let r = "";

@@ -1,19 +1,19 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63098.js";
 import i from "./1965.js";
-import a from "./34394.js";
-import s from "./63696.js";
-import o, { QP, vg, qF } from "./45264.js";
+import h, { tn } from "./18869.js";
 import l, { NL } from "./23472.js";
-import c, { A as A_1 } from "./90765.js";
-import u from "./82332.js";
+import a from "./34394.js";
+import p from "./35488.js";
+import o, { QP, vg, qF } from "./45264.js";
+import { W6 } from "./49519.js";
+import n from "./63098.js";
+import s from "./63696.js";
+import g from "./64608.js";
 import d from "./69164.js";
 import A, { Qn } from "./72476.js";
-import p from "./35488.js";
-import g from "./64608.js";
-import h, { tn } from "./18869.js";
 import C from "./73259.js";
-import { W6 } from "./49519.js";
+import u from "./82332.js";
+import c, { A as A_1 } from "./90765.js";
 const f = 5;
 export function E(e) {
 	return (

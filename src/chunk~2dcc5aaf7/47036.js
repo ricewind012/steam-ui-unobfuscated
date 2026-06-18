@@ -1,42 +1,42 @@
-import { Localize } from "../../actual_src/utils/localization.js";
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import {
 	BIsParentOrSelf,
-	GetFileFromPasteEvent,
 	BlobToFile,
+	GetFileFromPasteEvent,
 } from "../../actual_src/utils/domutils.js";
-import n, { Cg } from "./34629.js";
-import i from "./83957.js";
-import s from "./44234.js";
-import { K as K_1, MC } from "./89459.js";
+import { Localize } from "../../actual_src/utils/localization.js";
 import l from "./3756.js";
-import c from "./96127.js";
+import V from "./4690.js";
+import N from "./7372.js";
 import m from "./8653.js";
-import u from "./95773.js";
-import d, { CO } from "./52912.js";
-import A, { useState, useRef, useEffect } from "./63696.js";
+import x from "./10042.js";
+import { pg } from "./13869.js";
+import D from "./15688.js";
+import { lX } from "./31084.js";
+import n, { Cg } from "./34629.js";
 import p from "./41230.js";
-import g from "./52451.js";
+import s from "./44234.js";
 import h from "./50376.js";
+import B from "./50551.js";
+import O from "./51095.js";
+import g from "./52451.js";
+import d, { CO } from "./52912.js";
+import M from "./56840.js";
+import A, { useState, useRef, useEffect } from "./63696.js";
 import C from "./64608.js";
 import f from "./69164.js";
-import B from "./50551.js";
-import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
-import { lX } from "./31084.js";
-import E, { b$ } from "./90242.js";
-import M from "./56840.js";
-import T from "./94230.js";
-import k, { Y8 } from "./88750.js";
-import D from "./15688.js";
-import N from "./7372.js";
-import F from "./98592.js";
-import O from "./51095.js";
-import { T as T_1 } from "./92009.js";
-import L from "./98829.js";
-import { pg } from "./13869.js";
-import x from "./10042.js";
 import U from "./72476.js";
+import i from "./83957.js";
+import k, { Y8 } from "./88750.js";
+import { K as K_1, MC } from "./89459.js";
+import E, { b$ } from "./90242.js";
 import { Sm, i3 } from "./91720.js";
-import V from "./4690.js";
+import { T as T_1 } from "./92009.js";
+import T from "./94230.js";
+import u from "./95773.js";
+import c from "./96127.js";
+import F from "./98592.js";
+import L from "./98829.js";
 const a = i;
 let B_1 = class extends A.Component {
 	render() {

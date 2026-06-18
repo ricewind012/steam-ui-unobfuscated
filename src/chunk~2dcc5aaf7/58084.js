@@ -1,10 +1,10 @@
 import { Localize } from "../../actual_src/utils/localization.js";
 import n, { PA } from "./41230.js";
-import i from "./63696.js";
+import c from "./47628.js";
 import { o as o_1 } from "./57931.js";
+import i from "./63696.js";
 import s from "./83591.js";
 import o, { A } from "./90765.js";
-import c from "./47628.js";
 const m = c;
 export const E = PA((e) => {
 	const { appid, bIsMuted } = e;

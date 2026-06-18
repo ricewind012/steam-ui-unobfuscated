@@ -1,23 +1,23 @@
+import { _f } from "../../actual_src/utils/domutils.js";
 import {
-	Localize,
 	LocalizationManager,
+	Localize,
 	LocalizePlural,
 } from "../../actual_src/utils/localization.js";
-import { _f } from "../../actual_src/utils/domutils.js";
-import n, { useState, useEffect } from "./63696.js";
 import i, { Ms } from "./9808.js";
 import a from "./30449.js";
+import n, { useState, useEffect } from "./63696.js";
 import "./48289.js";
-import s from "./69164.js";
 import o from "./17231.js";
-import l from "./35488.js";
-import c, { A as A_1 } from "./90765.js";
-import u, { Qv } from "./57665.js";
-import d from "./66732.js";
-import A, { Te } from "./55007.js";
-import g, { V3 } from "./60155.js";
 import h from "./18980.js";
+import l from "./35488.js";
+import A, { Te } from "./55007.js";
+import u, { Qv } from "./57665.js";
+import g, { V3 } from "./60155.js";
+import d from "./66732.js";
+import s from "./69164.js";
 import C, { Qn } from "./72476.js";
+import c, { A as A_1 } from "./90765.js";
 function _(e, t) {
 	return `${f(e)} / ${f(t)}`;
 }

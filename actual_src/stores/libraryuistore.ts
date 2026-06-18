@@ -1,42 +1,42 @@
 import {
-	observable,
 	action,
-	makeAutoObservable,
-	runInAction,
 	autorun,
+	makeAutoObservable,
+	observable,
+	runInAction,
 	when,
 } from "mobx";
+import { A as CStoreItemCache } from "../../src/chunk~2dcc5aaf7/5859.js";
+import { dq } from "../../src/chunk~2dcc5aaf7/13688.js";
+import { E6, gS, zG } from "../../src/chunk~2dcc5aaf7/14629.js";
+import { BV as ClientRoutes, Qc } from "../../src/chunk~2dcc5aaf7/18057.js";
+import { q } from "../../src/chunk~2dcc5aaf7/29547.js";
+import { x2 } from "../../src/chunk~2dcc5aaf7/31706.js";
+import { N } from "../../src/chunk~2dcc5aaf7/31930.js";
+import { UP, s4 } from "../../src/chunk~2dcc5aaf7/36813.js";
+import { qL } from "../../src/chunk~2dcc5aaf7/45967.js";
+import { b as MultiSelectStore } from "../../src/chunk~2dcc5aaf7/47979.js";
+import { z } from "../../src/chunk~2dcc5aaf7/49171.js";
+import { Fs, pI } from "../../src/chunk~2dcc5aaf7/64880.js";
+import { lF } from "../../src/chunk~2dcc5aaf7/79112.js";
+import { Bn, hc, rV } from "../../src/chunk~2dcc5aaf7/85606.js";
+import { b as CSteamID } from "../../src/library/8573.js";
+import { w as w_1 } from "../../src/library/12176.js";
+import { TS as Config } from "../../src/library/72476.js";
+import { wd as CLogger } from "../../src/library/83599.js";
+import { A as CStorage_Local } from "../../src/library/88696.js";
+import { EAppType } from "../steamclient/steamclient/App.js";
+import { EResult } from "../steamclient/steamclient/shared.js";
+import { AssertMsg } from "../utils/assert.js";
+import { jR as CParentalFeaturesStore } from "./5640.js";
+import { GA, oy as SteamUIStore } from "./46422.js";
+import { I as GameActionStore } from "./76356.js";
 import { tw as AppStore } from "./96593.js";
 import {
 	md as CollectionStore,
 	A8 as ESystemCollection,
 } from "./collectionstore.js";
-import { I as GameActionStore } from "./76356.js";
-import { b as MultiSelectStore } from "../../src/chunk~2dcc5aaf7/47979.js";
-import { q } from "../../src/chunk~2dcc5aaf7/29547.js";
-import { A as CStorage_Local } from "../../src/library/88696.js";
 import { rV as SettingsStore } from "./settingsstore.js";
-import { oy as SteamUIStore, GA } from "./46422.js";
-import { zG, E6, gS } from "../../src/chunk~2dcc5aaf7/14629.js";
-import { x2 } from "../../src/chunk~2dcc5aaf7/31706.js";
-import { AssertMsg } from "../utils/assert.js";
-import { TS as Config } from "../../src/library/72476.js";
-import { w as w_1 } from "../../src/library/12176.js";
-import { pI, Fs } from "../../src/chunk~2dcc5aaf7/64880.js";
-import { rV, Bn, hc } from "../../src/chunk~2dcc5aaf7/85606.js";
-import { A as CStoreItemCache } from "../../src/chunk~2dcc5aaf7/5859.js";
-import { wd as CLogger } from "../../src/library/83599.js";
-import { BV as ClientRoutes, Qc } from "../../src/chunk~2dcc5aaf7/18057.js";
-import { jR as CParentalFeaturesStore } from "./5640.js";
-import { b as CSteamID } from "../../src/library/8573.js";
-import { dq } from "../../src/chunk~2dcc5aaf7/13688.js";
-import { z } from "../../src/chunk~2dcc5aaf7/49171.js";
-import { lF } from "../../src/chunk~2dcc5aaf7/79112.js";
-import { qL } from "../../src/chunk~2dcc5aaf7/45967.js";
-import { s4, UP } from "../../src/chunk~2dcc5aaf7/36813.js";
-import { N } from "../../src/chunk~2dcc5aaf7/31930.js";
-import { EAppType } from "../steamclient/steamclient/App.js";
-import { EResult } from "../steamclient/steamclient/shared.js";
 
 const logger = new CLogger("LibraryUIStore/BasicUIStore");
 

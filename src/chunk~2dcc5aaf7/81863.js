@@ -1,16 +1,16 @@
 import {
-	LocalizeReact,
 	Localize,
+	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
+import d from "./5859.js";
 import i from "./23379.js";
 import s, { PA } from "./41230.js";
-import l from "./91486.js";
 import c from "./52470.js";
-import m from "./87935.js";
+import n from "./63696.js";
 import { t7 } from "./82594.js";
-import d from "./5859.js";
 import A from "./85965.js";
+import m from "./87935.js";
+import l from "./91486.js";
 const a = i;
 export const P = PA((e) => {
 	let { overview, details } = e;

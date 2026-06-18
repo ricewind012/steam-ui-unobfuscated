@@ -1,6 +1,29 @@
-import { Localize } from "../../actual_src/utils/localization.js";
 import { _f } from "../../actual_src/utils/domutils.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import c from "./3200.js";
+import E from "./4690.js";
+import S from "./8573.js";
+import u, { _h } from "./9808.js";
+import N, { R7 } from "./11131.js";
+import f from "./12307.js";
+import H, { Nd } from "./15918.js";
+import b from "./17231.js";
+import s from "./18057.js";
+import W from "./19579.js";
+import B from "./21105.js";
+import { lX } from "./31084.js";
+import { Tc } from "./31800.js";
+import M, { j } from "./32084.js";
+import h, { ex, kn, hj, Hc, w$ } from "./32179.js";
 import n, { Cg } from "./34629.js";
+import k from "./35488.js";
+import { Yb, gQ } from "./39002.js";
+import C, { Sk, Sv, bV } from "./48289.js";
+import a, { W6 } from "./49519.js";
+import o from "./50350.js";
+import { Te } from "./55007.js";
+import I, { Qv } from "./57665.js";
+import m, { V3 } from "./60155.js";
 import i, {
 	useRef,
 	useMemo,
@@ -9,44 +32,21 @@ import i, {
 	cloneElement,
 	useEffect,
 } from "./63696.js";
-import a, { W6 } from "./49519.js";
-import s from "./18057.js";
-import o from "./50350.js";
-import l, { T as T_1 } from "./78057.js";
-import c from "./3200.js";
-import m, { V3 } from "./60155.js";
-import u, { _h } from "./9808.js";
-import d from "./69164.js";
-import A, { Co, mM } from "./96593.js";
-import p from "./91486.js";
-import h, { ex, kn, hj, Hc, w$ } from "./32179.js";
-import C, { Sk, Sv, bV } from "./48289.js";
-import _, { q3 } from "./90095.js";
-import f from "./12307.js";
-import b from "./17231.js";
 import y from "./64608.js";
-import S from "./8573.js";
-import w from "./87935.js";
-import B from "./21105.js";
-import v from "./81994.js";
-import I, { Qv } from "./57665.js";
-import E from "./4690.js";
-import M, { j } from "./32084.js";
+import d from "./69164.js";
 import T, { hf, Qn } from "./72476.js";
+import l, { T as T_1 } from "./78057.js";
 import R from "./79671.js";
-import k from "./35488.js";
-import { A as A_1 } from "./90765.js";
-import N, { R7 } from "./11131.js";
+import v from "./81994.js";
+import w from "./87935.js";
 import F from "./88696.js";
-import G, { Gn } from "./89193.js";
 import O from "./88750.js";
-import { lX } from "./31084.js";
-import { Yb, gQ } from "./39002.js";
+import G, { Gn } from "./89193.js";
+import _, { q3 } from "./90095.js";
+import { A as A_1 } from "./90765.js";
+import p from "./91486.js";
 import z, { yq } from "./93966.js";
-import { Te } from "./55007.js";
-import W from "./19579.js";
-import { Tc } from "./31800.js";
-import H, { Nd } from "./15918.js";
+import A, { Co, mM } from "./96593.js";
 export function wi(e) {
 	const { bShowGameInfoInHeader, appid } = e;
 	const NRef = useRef(undefined);

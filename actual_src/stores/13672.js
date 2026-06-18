@@ -2,28 +2,28 @@ import {
 	Localize,
 	LocalizeReact,
 } from "../../actual_src/utils/localization.js";
-import n, { Cg } from "./34629.js";
-import * as i from "./83957.js";
-import s, { PA } from "./41230.js";
-import * as o from "./63696.js";
-import * as l from "./90242.js";
-import * as c from "./69164.js";
-import * as m from "./21105.js";
-import * as u from "./31222.js";
-import * as d from "./37976.js";
-import A, { Gn } from "./89193.js";
+import * as E from "../awards/utils.js";
+import * as f from "./10606.js";
 import * as p from "./12176.js";
+import * as m from "./21105.js";
+import * as y from "./26853.js";
+import * as u from "./31222.js";
+import n, { Cg } from "./34629.js";
+import * as d from "./37976.js";
+import s, { PA } from "./41230.js";
+import * as b from "./50376.js";
+import * as B from "./52451.js";
+import * as o from "./63696.js";
+import * as _ from "./64608.js";
+import * as v from "./67060.js";
+import * as c from "./69164.js";
 import g, { Tc, xv } from "./72476.js";
 import * as h from "./75888.js";
-import * as _ from "./64608.js";
-import * as f from "./10606.js";
-import * as b from "./50376.js";
-import * as y from "./26853.js";
+import * as i from "./83957.js";
+import A, { Gn } from "./89193.js";
+import * as l from "./90242.js";
 import { A as A_1 } from "./90765.js";
-import * as B from "./52451.js";
-import * as v from "./67060.js";
 import * as I from "./95745.js";
-import * as E from "../awards/utils.js";
 import * as M from "./99624.js";
 var a = i;
 class C {

@@ -1,9 +1,9 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
-import a, { pg } from "./13869.js";
-import s from "./10606.js";
-import o from "./28934.js";
 import l from "./10294.js";
+import s from "./10606.js";
+import a, { pg } from "./13869.js";
+import o from "./28934.js";
+import n from "./63696.js";
 export function $(e, t, r, i) {
 	pg(<o.g5 feature={r} blockReason={t} onUnlock={i} />, e);
 }

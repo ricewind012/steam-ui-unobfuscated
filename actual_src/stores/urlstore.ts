@@ -1,14 +1,14 @@
-import { GetOwningWindowForEvent } from "../utils/domutils.js";
-import { uX as k_EParentalFeature_None } from "../../src/chunk~2dcc5aaf7/3475.js";
-import { TS as Config } from "../../src/library/72476.js";
-import { wm as GetHostname } from "../../src/library/53807.js";
-import {
-	Ay as CStoreNavEvents,
-	Dn as BuildStoreAppURL,
-	f2 as BuildStoreAppDlcURL,
-} from "../../src/library/45328.js";
-import { useObserver } from "mobx-react-lite";
 import { makeAutoObservable, observable } from "mobx";
+import { useObserver } from "mobx-react-lite";
+import { uX as k_EParentalFeature_None } from "../../src/chunk~2dcc5aaf7/3475.js";
+import {
+	f2 as BuildStoreAppDlcURL,
+	Dn as BuildStoreAppURL,
+	Ay as CStoreNavEvents,
+} from "../../src/library/45328.js";
+import { wm as GetHostname } from "../../src/library/53807.js";
+import { TS as Config } from "../../src/library/72476.js";
+import { GetOwningWindowForEvent } from "../utils/domutils.js";
 
 const k_rgSteamURLList = [
 	"AllNotifications",

@@ -1,6 +1,6 @@
+import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 import { CLocalizationManager } from "../../actual_src/utils/localization.js";
 import { Lg } from "./44846.js";
-import { ESteamRealm } from "../../actual_src/clienttypes/realm.js";
 export function P(e, t, r) {
 	if (e == null || e == null) {
 		e = t;

@@ -4,8 +4,8 @@
 // MobxUtils.now() can batch updates, but as used here it will probably not do that effectively.
 //var i = require(/*webcrack:missing*/ "./59351.js");
 import { now } from "mobx-utils";
-import { Localize, LocalizationManager } from "../localization.js";
-import { Seconds, RoundToBeginningOfMonth } from "../time.js";
+import { LocalizationManager, Localize } from "../localization.js";
+import { RoundToBeginningOfMonth, Seconds } from "../time.js";
 
 export function Nm(nSeconds: number, optsOrBoolean: LocalizeTimeSinceOptions) {
 	return LocalizeTimeSince(Date.now() / 1000 - nSeconds, optsOrBoolean);

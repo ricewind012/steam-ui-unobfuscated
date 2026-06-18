@@ -1,13 +1,13 @@
+import { ObservableMap, makeAutoObservable } from "mobx";
 import { useObserver } from "mobx-react-lite";
-import { sf } from "./44846.js";
-import { w } from "./12176.js";
-import { by, IU } from "./92031.js";
-import { TS as Config } from "./72476.js";
-import { _z, BE, zQ } from "./10812.js";
+import { ESteamRealm } from "../clienttypes/realm.js";
 import { AssertMsg } from "../utils/assert.js";
 import { CCallbackList } from "../utils/callbackutils/index.js";
-import { makeAutoObservable, ObservableMap } from "mobx";
-import { ESteamRealm } from "../clienttypes/realm.js";
+import { BE, _z, zQ } from "./10812.js";
+import { w } from "./12176.js";
+import { sf } from "./44846.js";
+import { TS as Config } from "./72476.js";
+import { IU, by } from "./92031.js";
 
 class CRichPresenceLocalization {
 	m_nLastUpdated = 0;

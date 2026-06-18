@@ -1,6 +1,6 @@
-import r from "./63696.js";
 import i from "./3715.js";
 import _s from "./38215.js";
+import r from "./63696.js";
 import "./42318.js";
 export function s(e) {
 	const { steamUI } = e;

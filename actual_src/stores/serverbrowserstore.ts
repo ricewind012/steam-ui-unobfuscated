@@ -1,21 +1,21 @@
 // Webpack module ID: TODO
 
-import { wd as CLogger } from "../../src/library/83599.js";
-import { b as CSteamID } from "../../src/library/8573.js";
-import { TS as Config } from "../../src/library/43691.js";
-import { O$ as FriendStore } from "./friendstore.js";
 import {
+	ObservableMap,
 	action,
 	computed,
 	makeAutoObservable,
 	observable,
-	ObservableMap,
 } from "mobx";
+import { b as CSteamID } from "../../src/library/8573.js";
+import { TS as Config } from "../../src/library/43691.js";
+import { wd as CLogger } from "../../src/library/83599.js";
 import {
 	EJoinServerError,
 	ServerBrowserDialog,
 	ServerBrowserPlayer,
 } from "../steamclient/steamclient/ServerBrowser.js";
+import { O$ as FriendStore } from "./friendstore.js";
 
 new CLogger("ServerBrowserStore");
 

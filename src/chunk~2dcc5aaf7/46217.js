@@ -1,6 +1,6 @@
-import n from "./63696.js";
-import i from "./50376.js";
 import a from "./35488.js";
+import i from "./50376.js";
+import n from "./63696.js";
 import { Qn } from "./72476.js";
 export function wB() {
 	if (Qn()) {

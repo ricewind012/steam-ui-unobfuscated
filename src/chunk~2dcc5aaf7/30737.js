@@ -1,8 +1,8 @@
 import { Localize } from "../../actual_src/utils/localization.js";
-import n, { useState } from "./63696.js";
-import i from "./10606.js";
 import a from "./6472.js";
+import i from "./10606.js";
 import o from "./26853.js";
+import n, { useState } from "./63696.js";
 export function vs() {
 	const [e, setE] = useState(false);
 	const [r, setR] = useState(false);

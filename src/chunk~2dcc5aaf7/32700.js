@@ -1,11 +1,11 @@
 import {
-	LocalizationManager,
 	CLocalizationManager,
+	LocalizationManager,
 	Localize,
 } from "../../actual_src/utils/localization.js";
+import o, { q } from "./29285.js";
 import i, { Lg } from "./44846.js";
 import s, { CH, hL } from "./52451.js";
-import o, { q } from "./29285.js";
 async function a(e) {
 	const t = [];
 	for (let r = 0; r < 31; r++) {

@@ -1,14 +1,14 @@
 import { Seconds } from "../../actual_src/utils/time.js";
-import { Cg } from "./34629.js";
-import { q3 } from "./90095.js";
-import * as a from "./52451.js";
-import * as s from "./12176.js";
-import * as o from "./46948.js";
-import * as c from "./8573.js";
-import * as m from "./5859.js";
 import * as u from "./5640.js";
+import * as m from "./5859.js";
+import * as c from "./8573.js";
+import * as s from "./12176.js";
 import * as d from "./17415.js";
+import { Cg } from "./34629.js";
+import * as o from "./46948.js";
+import * as a from "./52451.js";
 import * as A from "./88696.js";
+import { q3 } from "./90095.js";
 export function T() {
 	return q3(() => J.TrendingApps);
 }

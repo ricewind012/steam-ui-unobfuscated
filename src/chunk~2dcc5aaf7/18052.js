@@ -1,7 +1,7 @@
 import n from "./63696.js";
-import { O7 } from "./90242.js";
-import a from "./84252.js";
 import s, { Fx } from "./73375.js";
+import a from "./84252.js";
+import { O7 } from "./90242.js";
 export const p = "data:text/html,%3Cbody%3E%3C%2Fbody%3E";
 export function c(e) {
 	let e_browser = e.browser;

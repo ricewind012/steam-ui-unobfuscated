@@ -1,6 +1,6 @@
+import a from "./9874.js";
 import n from "./63696.js";
 import { A } from "./90765.js";
-import a from "./9874.js";
 export function kP(e) {
 	const { radius: t = 10, ...r } = e;
 	return n.createElement(r9, {

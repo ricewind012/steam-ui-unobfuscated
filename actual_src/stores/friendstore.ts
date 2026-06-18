@@ -1,24 +1,24 @@
 // Webpack module ID: 48289
 
-import { Seconds } from "../utils/time.js";
-import { $c } from "../../src/chunk~2dcc5aaf7/96127.js";
-import { w as w_2 } from "../../src/library/12176.js";
-import { IC } from "../../src/library/82755.js";
-import { G9, xt } from "../../src/chunk~2dcc5aaf7/54946.js";
-import { w as w_1 } from "../../src/library/16583.js";
-import { A } from "../../src/library/88696.js";
-import { qw } from "../../src/chunk~2dcc5aaf7/89748.js";
+import { useQuery } from "@tanstack/react-query";
 import { ObservableMap, makeAutoObservable, observable, when } from "mobx";
 import { useObserver } from "mobx-react-lite";
-import { useQuery } from "@tanstack/react-query";
-import { b as CSteamID } from "../../src/library/8573.js";
-import { BSharedJSContextHasMethod } from "../steamclient/clientinterfacehelpers.js";
+import { useCallback, useEffect, useState } from "react";
 import { D } from "../../src/chunk~2dcc5aaf7/17415.js";
 import { lY } from "../../src/chunk~2dcc5aaf7/51095.js";
-import { useState, useCallback, useEffect } from "react";
-import { md as CollectionStore } from "./collectionstore.js";
-import { bind } from "../utils/bind.js";
+import { G9, xt } from "../../src/chunk~2dcc5aaf7/54946.js";
+import { qw } from "../../src/chunk~2dcc5aaf7/89748.js";
+import { $c } from "../../src/chunk~2dcc5aaf7/96127.js";
+import { b as CSteamID } from "../../src/library/8573.js";
+import { w as w_2 } from "../../src/library/12176.js";
+import { w as w_1 } from "../../src/library/16583.js";
+import { IC } from "../../src/library/82755.js";
+import { A } from "../../src/library/88696.js";
+import { BSharedJSContextHasMethod } from "../steamclient/clientinterfacehelpers.js";
 import { EResult } from "../steamclient/steamclient/shared.js";
+import { bind } from "../utils/bind.js";
+import { Seconds } from "../utils/time.js";
+import { md as CollectionStore } from "./collectionstore.js";
 
 interface OwnedGamesCacheParams {
 	storage: any;

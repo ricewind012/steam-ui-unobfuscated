@@ -2,17 +2,17 @@ import {
 	Localize,
 	LocalizeInlineReactWithFallback,
 } from "../../actual_src/utils/localization.js";
-import n from "./63696.js";
 import i from "./32179.js";
-import a from "./87935.js";
+import { VI } from "./34792.js";
 import s, { wF } from "./34891.js";
 import o from "./46422.js";
-import l, { q3 } from "./90095.js";
-import { VI } from "./34792.js";
 import { M } from "./51517.js";
 import { I } from "./61416.js";
+import n from "./63696.js";
 import A from "./72476.js";
 import { T } from "./78057.js";
+import a from "./87935.js";
+import l, { q3 } from "./90095.js";
 export function Y5(e) {
 	const t = q3(() => o.oy.RunningApps);
 	const r = wF(e);

@@ -1,16 +1,16 @@
-import * as a from "./63098.js";
+import { Localize } from "../../actual_src/utils/localization.js";
+import * as d from "./10606.js";
+import * as i from "./21618.js";
 import * as o from "./34394.js";
-import * as r from "./55518.js";
-import * as p from "./63696.js";
+import * as f from "./39889.js";
+import * as c from "./45264.js";
 import * as l from "./49519.js";
+import * as r from "./55518.js";
+import * as a from "./63098.js";
+import * as p from "./63696.js";
+import * as m from "./64608.js";
 import * as u from "./67808.js";
 import * as s from "./73259.js";
-import * as c from "./45264.js";
-import * as i from "./21618.js";
-import * as m from "./64608.js";
-import * as d from "./10606.js";
-import { Localize } from "../../actual_src/utils/localization.js";
-import * as f from "./39889.js";
 export default function h(e) {
 	const { popup: t } = e;
 	const [n, o] = p.useState();

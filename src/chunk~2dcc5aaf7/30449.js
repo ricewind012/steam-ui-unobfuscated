@@ -1,10 +1,10 @@
 import { LocalizeTimeRemaining } from "../../actual_src/utils/localization/datetime.js";
-import { Seconds, GetUnixTime } from "../../actual_src/utils/time.js";
-import n from "./63696.js";
+import { GetUnixTime, Seconds } from "../../actual_src/utils/time.js";
 import i from "./21955.js";
+import o, { $$ } from "./52451.js";
+import n from "./63696.js";
 import a from "./64608.js";
 import s, { A } from "./90765.js";
-import o, { $$ } from "./52451.js";
 export function Z2(e) {
 	const {
 		nProgress,

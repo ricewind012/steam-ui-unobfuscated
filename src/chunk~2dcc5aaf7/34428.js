@@ -1,6 +1,6 @@
 import {
-	Localize,
 	LocalizationManager,
+	Localize,
 } from "../../actual_src/utils/localization.js";
 export function dm(e, t, r, i) {
 	let a = t;
