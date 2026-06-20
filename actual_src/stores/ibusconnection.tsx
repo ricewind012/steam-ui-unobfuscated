@@ -1,24 +1,26 @@
-import { CCallbackList } from "../../actual_src/utils/callbackutils";
-import n, { Cg } from "./34629.js";
-import * as a from "./52451.js";
-import i, {
+import {
 	createContext,
+	PropsWithChildren,
 	useCallback,
 	useContext,
 	useEffect,
 	useState,
-} from "./63696.js";
+} from "react";
 
-class o {
+import { bind } from "@actual_src/utils/bind";
+import { CCallbackList } from "@actual_src/utils/callbackutils";
+
+class CIBusConnection {
 	m_bInitialized = false;
 	m_Bus;
 	m_bConnected = false;
-	m_bIBusDaemonMissing;
+	m_bIBusDaemonMissing: boolean;
 	m_BusCallbackHandles;
-	m_ConnectCallbacks = new CCallbackList();
+	m_ConnectCallbacks = new CCallbackList<boolean>();
 	m_AvailableEnginesCallbacks = new CCallbackList();
 	m_mapKeyValFromName = {};
 	m_mapAvailableEngines = {};
+
 	async Init() {
 		if (!this.IsInitialized()) {
 			this.m_bInitialized = true;
@@ -34,28 +36,33 @@ class o {
 			}
 		}
 	}
+
 	async Cleanup() {
 		this.m_BusCallbackHandles.map((e) => e.unregister());
 		this.m_BusCallbackHandles = undefined;
 		this.m_Bus = undefined;
 	}
+
 	GetBus() {
 		return this.m_Bus;
 	}
-	async GetKeyValFromName(e) {
-		let t = this.m_mapKeyValFromName[e];
-		if (t === undefined) {
-			t = await IBus.keyval_from_name(e);
-			this.m_mapKeyValFromName[e] = t;
+
+	async GetKeyValFromName(name) {
+		let keyval = this.m_mapKeyValFromName[name];
+		if (keyval === undefined) {
+			keyval = await IBus.keyval_from_name(name);
+			this.m_mapKeyValFromName[name] = keyval;
 		}
-		return t;
+		return keyval;
 	}
+
+	@bind
 	ConnectHandler() {
 		this.m_bConnected = true;
 		this.m_bIBusDaemonMissing = false;
 		this.m_ConnectCallbacks.Dispatch(true);
 		Promise.all(
-			Object.values(w).map((e) =>
+			Object.values(k_EngineMap).map((e) =>
 				this.m_Bus.get_engines_by_names([e.engineName]).then((t) => ({
 					[e.engineName]: t.length != 0,
 				})),
@@ -65,6 +72,8 @@ class o {
 			this.m_AvailableEnginesCallbacks.Dispatch();
 		});
 	}
+
+	@bind
 	DisconnectHandler() {
 		if (this.m_bIBusDaemonMissing === undefined) {
 			this.m_bIBusDaemonMissing = true;
@@ -72,56 +81,67 @@ class o {
 		this.m_bConnected = false;
 		this.m_ConnectCallbacks.Dispatch(false);
 	}
+
 	IsConnected() {
 		return this.m_bConnected;
 	}
+
 	IsInitialized() {
 		return this.m_bInitialized;
 	}
+
 	HasIBusBinding() {
 		return typeof IBus != "undefined";
 	}
+
 	IsIBusDaemonMissing() {
 		return this.m_bIBusDaemonMissing === true;
 	}
-	IsEngineMissing(e) {
-		return this.m_mapAvailableEngines[e] === false;
+
+	IsEngineMissing(engine) {
+		return this.m_mapAvailableEngines[engine] === false;
 	}
+
 	GetConnectCallbacks() {
 		return this.m_ConnectCallbacks;
 	}
+
 	GetAvailableEnginesCallbacks() {
 		return this.m_AvailableEnginesCallbacks;
 	}
 }
-function l() {
-	const [e, t] = useState(aJ.IsConnected());
+
+function useIsIBusConnected() {
+	const [bConnected, setConnected] = useState(IBusConnection.IsConnected());
 	useEffect(() => {
-		let e = aJ.GetConnectCallbacks().Register(t);
-		return () => e.Unregister();
+		let handle = IBusConnection.GetConnectCallbacks().Register(setConnected);
+		return () => handle.Unregister();
 	}, []);
-	return e;
+	return bConnected;
 }
-Cg([a.oI], o.prototype, "ConnectHandler", null);
-Cg([a.oI], o.prototype, "DisconnectHandler", null);
-export const E3Context = createContext(null);
-export const Y5 = ({ name, children }) => {
+
+export const IBusInputContext = createContext(null);
+
+export const Y5 = ({
+	name,
+	children,
+}: PropsWithChildren & { name: string }) => {
 	const { inputContext } = ((e) => {
-		const t = l();
-		const [r, n] = useState();
+		const bConnected = useIsIBusConnected();
+		const [inputContext, setInputContext] = useState();
 		useEffect(() => {
-			if (t) {
-				if (!r) {
-					aJ.GetBus().create_input_context(e).then(n);
+			if (bConnected) {
+				if (!inputContext) {
+					IBusConnection.GetBus().create_input_context(e).then(setInputContext);
 				}
 			} else {
-				n(null);
+				setInputContext(null);
 			}
-		}, [t, r, e]);
+		}, [bConnected, inputContext, e]);
 		useEffect(() => {
-			if (r) {
+			if (inputContext) {
 				const e = (async () => {
-					r.set_capabilities(
+					inputContext.set_capabilities(
 						IBus.Capabilite.PREEDIT_TEXT |
 							IBus.Capabilite.AUXILIARY_TEXT |
 							IBus.Capabilite.SURROUNDING_TEXT |
@@ -129,115 +149,129 @@ export const Y5 = ({ name, children }) => {
 							IBus.Capabilite.FOCUS |
 							IBus.Capabilite.PROPERTY,
 					);
-					r.set_content_type(IBus.InputPurpose.FREE_FORM, IBus.InputHints.NONE);
-					r.focus_in();
+					inputContext.set_content_type(
+						IBus.InputPurpose.FREE_FORM,
+						IBus.InputHints.NONE,
+					);
+					inputContext.focus_in();
 				})();
-				const t = async () => {
+				const unregister = async () => {
 					await e;
-					r.focus_out();
+					inputContext.focus_out();
 				};
 				return () => {
-					t();
+					unregister();
 				};
 			}
-		}, [r]);
+		}, [inputContext]);
 		return {
-			bConnected: t,
-			inputContext: r,
+			bConnected,
+			inputContext,
 		};
 	})(name);
 	return (
-		<E3Context.Provider value={inputContext}>{children}</E3Context.Provider>
+		<IBusInputContext.Provider value={inputContext}>
+			{children}
+		</IBusInputContext.Provider>
 	);
 };
-function u() {
-	return useContext(E3Context);
+
+function useInputContext() {
+	return useContext(IBusInputContext);
 }
-class d {
+
+class PreEditText_t {
 	strText = "";
 	nCursorPos = 0;
 	bVisible = false;
 }
-export function kM() {
-	const e = u();
-	const [t, r] = useState(() => new d());
+
+export function useIBusPreeditText() {
+	const inputContext = useInputContext();
+	const [text, setText] = useState(() => new PreEditText_t());
 	useEffect(() => {
-		if (e) {
+		if (inputContext) {
 			const t = Promise.all([
-				e.connect("update-preedit-text", (e, t, n) => {
-					r({
-						strText: e,
-						nCursorPos: t,
-						bVisible: Boolean(n),
-					});
-				}),
-				e.connect("show-preedit-text", () => {
-					r((e) => ({
+				inputContext.connect(
+					"update-preedit-text",
+					(strText, nCursorPos, n) => {
+						setText({
+							strText,
+							nCursorPos,
+							bVisible: Boolean(n),
+						});
+					},
+				),
+				inputContext.connect("show-preedit-text", () => {
+					setText((e) => ({
 						...e,
 						bVisible: true,
 					}));
 				}),
-				e.connect("hide-preedit-text", () => {
-					r((e) => ({
+				inputContext.connect("hide-preedit-text", () => {
+					setText((e) => ({
 						...e,
 						bVisible: false,
 					}));
 				}),
 			]);
-			const n = async () => {
-				r(new d());
+			const unregister = async () => {
+				setText(new PreEditText_t());
 				(await t).map((e) => e.unregister());
 			};
 			return () => {
-				n();
+				unregister();
 			};
 		}
-		r(new d());
-	}, [e]);
-	return t;
+		setText(new PreEditText_t());
+	}, [inputContext]);
+	return text;
 }
-class p {
+
+class AuxText_t {
 	strText = "";
 	bVisible = false;
 }
-export function VX() {
-	const e = u();
-	const [t, r] = useState(() => new p());
+
+export function useIBusAuxText() {
+	const inputContext = useInputContext();
+	const [text, setText] = useState(() => new AuxText_t());
 	useEffect(() => {
-		if (e) {
+		if (inputContext) {
 			const t = Promise.all([
-				e.connect("update-auxiliary-text", (e, t) => {
-					r({
-						strText: e,
+				inputContext.connect("update-auxiliary-text", (strText, t) => {
+					setText({
+						strText,
 						bVisible: Boolean(t),
 					});
 				}),
-				e.connect("show-auxiliary-text", () => {
-					r((e) => ({
+				inputContext.connect("show-auxiliary-text", () => {
+					setText((e) => ({
 						...e,
 						bVisible: true,
 					}));
 				}),
-				e.connect("hide-auxiliary-text", () => {
-					r((e) => ({
+				inputContext.connect("hide-auxiliary-text", () => {
+					setText((e) => ({
 						...e,
 						bVisible: false,
 					}));
 				}),
 			]);
-			const n = async () => {
-				r(new p());
+			const unregister = async () => {
+				setText(new AuxText_t());
 				(await t).map((e) => e.unregister());
 			};
 			return () => {
-				n();
+				unregister();
 			};
 		}
-		r(new p());
-	}, [e]);
-	return t;
+		setText(new AuxText_t());
+	}, [inputContext]);
+	return text;
 }
-class h {
+
+class LookupTable_t {
 	vecCandidates = [];
 	nCursorPos = 0;
 	nCursorInPage = 0;
@@ -245,77 +279,94 @@ class h {
 	nPageSize = 0;
 	bVisible = false;
 }
-export function WF() {
-	const e = u();
-	const [t, r] = useState(() => new h());
+
+export function useIBusLookupTable() {
+	const inputContext = useInputContext();
+	const [table, setTable] = useState(() => new LookupTable_t());
 	useEffect(() => {
-		if (e) {
+		if (inputContext) {
 			const t = Promise.all([
-				e.connect("update-lookup-table", async (e, t) => {
-					const [n, i, a, s] = await Promise.all([
-						e.get_number_of_candidates(),
-						e.get_cursor_pos(),
-						e.is_cursor_visible().then(Boolean),
-						e.get_page_size(),
-					]);
-					const o = s ? i % s : 0;
-					let l = [];
-					for (let t = 0; t < n; ++t) {
-						l.push(e.get_candidate(t));
+				inputContext.connect("update-lookup-table", async (e, t) => {
+					const [nCandidateCount, nCursorPos, bIsCursorVisible, nPageSize] =
+						await Promise.all([
+							e.get_number_of_candidates(),
+							e.get_cursor_pos(),
+							e.is_cursor_visible().then(Boolean),
+							e.get_page_size(),
+						]);
+					const nCursorInPage = nPageSize ? nCursorPos % nPageSize : 0;
+					let vecCandidatePromises = [];
+					for (let i = 0; i < nCandidateCount; ++i) {
+						vecCandidatePromises.push(e.get_candidate(i));
 					}
-					const c = await Promise.all(l);
-					r({
-						vecCandidates: c,
-						nCursorPos: i,
-						nPageSize: s,
-						nCursorInPage: o,
-						bIsCursorVisible: a,
+					const vecCandidates = await Promise.all(vecCandidatePromises);
+					setTable({
+						vecCandidates,
+						nCursorPos,
+						nPageSize,
+						nCursorInPage,
+						bIsCursorVisible,
 						bVisible: Boolean(t),
 					});
 				}),
-				e.connect("show-lookup-table", () => {
-					r((e) => ({
+				inputContext.connect("show-lookup-table", () => {
+					setTable((e) => ({
 						...e,
 						bVisible: true,
 					}));
 				}),
-				e.connect("hide-lookup-table", () => {
-					r((e) => ({
+				inputContext.connect("hide-lookup-table", () => {
+					setTable((e) => ({
 						...e,
 						bVisible: false,
 					}));
 				}),
 			]);
-			const n = async () => {
-				r(new h());
+
+			const unregister = async () => {
+				setTable(new LookupTable_t());
 				(await t).map((e) => e.unregister());
 			};
 			return () => {
-				n();
+				unregister();
 			};
 		}
-		r(new h());
-	}, [e]);
-	return t;
+		setTable(new LookupTable_t());
+	}, [inputContext]);
+	return table;
 }
-export function u7(e, t, r) {
-	const n = u();
+
+export function u7(
+	fnCommitTextCallback,
+	fnForwardKeyEventCallback,
+	fnDeleteSurroundingTextCallback,
+) {
+	const inputContext = useInputContext();
 	useEffect(() => {
-		if (n) {
-			const i = Promise.all([
-				n.connect("commit-text", e),
-				n.connect("forward-key-event", t),
-				n.connect("delete-surrounding-text", r),
+		if (inputContext) {
+			const registrars = Promise.all([
+				inputContext.connect("commit-text", fnCommitTextCallback),
+				inputContext.connect("forward-key-event", fnForwardKeyEventCallback),
+				inputContext.connect(
+					"delete-surrounding-text",
+					fnDeleteSurroundingTextCallback,
+				),
 			]);
-			const a = async () => {
-				(await i).map((e) => e.unregister());
+			const unregister = async () => {
+				(await registrars).map((e) => e.unregister());
 			};
 			return () => {
-				a();
+				unregister();
 			};
 		}
-	}, [n, e, t, r]);
+	}, [
+		inputContext,
+		fnCommitTextCallback,
+		fnForwardKeyEventCallback,
+		fnDeleteSurroundingTextCallback,
+	]);
 }
+
 const f = {
 	type: "ibus",
 	strRoot: "engine/pinyin",
@@ -328,6 +379,7 @@ const f = {
 		AutoCommit: true,
 	},
 };
+
 const b = {
 	type: "ibus",
 	strRoot: "engine/bopomofo",
@@ -340,6 +392,7 @@ const b = {
 		SelectKeys: 0,
 	},
 };
+
 const y = {
 	type: "gsettings",
 	strRoot: "org.freedesktop.ibus.engine.anthy.common",
@@ -355,6 +408,7 @@ const y = {
 		"behavior-on-select-candidate": 1,
 	},
 };
+
 const S = {
 	type: "gsettings",
 	strRoot: "org.freedesktop.ibus.engine.anthy.shortcut",
@@ -416,7 +470,8 @@ const S = {
 		},
 	},
 };
-const w = {
+
+const k_EngineMap: Record<number, object> = {
 	2: {
 		engineName: "pinyin",
 		vecSettings: [f, b],
@@ -514,27 +569,34 @@ const w = {
 		],
 	},
 };
-export function wt(e) {
-	return w[e] !== undefined;
+
+export function IBusEngineExists(eType: number) {
+	return k_EngineMap[eType] !== undefined;
 }
-function v(e) {
+
+function v(eType: number) {
 	return (
-		wt(e) && (aJ.IsIBusDaemonMissing() || aJ.IsEngineMissing(w[e].engineName))
+		IBusEngineExists(eType) &&
+		(IBusConnection.IsIBusDaemonMissing() ||
+			IBusConnection.IsEngineMissing(k_EngineMap[eType].engineName))
 	);
 }
+
 export function E5(e) {
-	const t = l();
-	const [r, n] = useState(() => v(e));
-	const a = useCallback(() => {
-		n(v(e));
+	const bConnected = useIsIBusConnected();
+	const [fn, setFn] = useState(() => v(e));
+	const callback = useCallback(() => {
+		setFn(v(e));
 	}, [e]);
 	useEffect(() => {
-		let e = aJ.GetAvailableEnginesCallbacks().Register(a);
-		return () => e.Unregister();
-	}, [a]);
-	useEffect(a, [a, t]);
-	return r;
+		let handle =
+			IBusConnection.GetAvailableEnginesCallbacks().Register(callback);
+		return () => handle.Unregister();
+	}, [callback]);
+	useEffect(callback, [callback, bConnected]);
+	return fn;
 }
+
 export function CB(e, t, r) {
 	if (!e) {
 		return;
@@ -542,40 +604,48 @@ export function CB(e, t, r) {
 	if (r < 0 || r > 9) {
 		return;
 	}
+
 	const n = ((r + 1) % 10).toString();
 	const i = r + 2;
 	const a = t == 31 ? IBus.ModifierType.MOD1_MASK : 0;
 	e.process_key_event(n.charCodeAt(0), i, a);
 }
-export function mQ(e) {
-	const t = u();
+
+export function mQ(keyboard) {
+	const inputContext = useInputContext();
 	useEffect(() => {
-		if (!t) {
+		if (!inputContext) {
 			return;
 		}
-		const w_e = w[e];
+		const w_e = k_EngineMap[keyboard];
 		(async () => {
 			if (w_e !== undefined) {
 				let n = [];
 				for (const t of w_e.vecSettings || []) {
 					if (t.type === "gsettings") {
-						const [r, i] = t.strRoot.split(":");
-						let a;
-						a =
-							i !== undefined
-								? await Gio.Settings.new_with_path(r, i)
-								: await Gio.Settings._new(r);
-						if (!a) {
+						const [strSchema, strPath] = t.strRoot.split(":");
+						let settings;
+						settings =
+							strPath !== undefined
+								? await Gio.Settings.new_with_path(strSchema, strPath)
+								: await Gio.Settings._new(strSchema);
+						if (!settings) {
 							console.log(
-								`Unknown gsettings schema "${r}". Keyboard ${e} unlikely to work correctly!`,
+								`Unknown gsettings schema "${strSchema}". Keyboard ${keyboard} unlikely to work correctly!`,
 							);
 							continue;
 						}
-						const s = await a.list_keys();
-						const o = Object.keys(t.mapKeyValues).filter((e) => s.includes(e));
-						n.push(...o.map((e) => a.set_value(e, t.mapKeyValues[e])));
+						const vecKeys = await settings.list_keys();
+						const o = Object.keys(t.mapKeyValues).filter((e) =>
+							vecKeys.includes(e),
+						);
+						n.push(
+							...o.map((value) =>
+								settings.set_value(value, t.mapKeyValues[value]),
+							),
+						);
 					} else if (t.type === "ibus") {
-						const e = await aJ.GetBus().get_config();
+						const e = await IBusConnection.GetBus().get_config();
 						n.push(
 							...Object.keys(t.mapKeyValues).map((r) =>
 								e.set_value(t.strRoot, r, t.mapKeyValues[r]),
@@ -584,9 +654,9 @@ export function mQ(e) {
 					}
 				}
 				await Promise.all(n);
-				await t.set_engine(w_e.engineName);
+				await inputContext.set_engine(w_e.engineName);
 			} else {
-				await t.set_engine("xkb:us::eng");
+				await inputContext.set_engine("xkb:us::eng");
 			}
 		})();
 		for (const e of w_e?.vecSettings || []) {
@@ -594,44 +664,44 @@ export function mQ(e) {
 				continue;
 			}
 			const r = async (r) => {
-				const [n, i] = await Promise.all([r.get_key(), r.get_label()]);
-				const a = e.mapKeyValues[n];
-				if (a !== undefined && a !== i) {
-					t.property_activate(n, 1);
+				const [key, label] = await Promise.all([r.get_key(), r.get_label()]);
+				const a = e.mapKeyValues[key];
+				if (a !== undefined && a !== label) {
+					inputContext.property_activate(key, 1);
 				}
 			};
 			const n = async (r) => {
-				const [n, i] = await Promise.all([r.get_key(), r.get_state()]);
-				const a = e.mapKeyValues[n];
-				if (a !== undefined && a !== i) {
-					t.property_activate(n, a);
+				const [key, label] = await Promise.all([r.get_key(), r.get_state()]);
+				const a = e.mapKeyValues[key];
+				if (a !== undefined && a !== label) {
+					inputContext.property_activate(key, a);
 				}
 			};
-			const i = e.type === "property-toggle" ? r : n;
-			const a = async (e) => {
+			const onUpdateProperty = e.type === "property-toggle" ? r : n;
+			const onRegisterProps = async (e) => {
 				for (let t = 0; ; ++t) {
 					const r = await e.get(t);
 					if (r === null) {
 						break;
 					}
-					i(r);
+					onUpdateProperty(r);
 					const n = await r.get_sub_props();
 					if (n !== null) {
-						a(n);
+						onRegisterProps(n);
 					}
 				}
 			};
-			const s = Promise.all([
-				t.connect("register-properties", a),
-				t.connect("update-property", i),
+			const registrars = Promise.all([
+				inputContext.connect("register-properties", onRegisterProps),
+				inputContext.connect("update-property", onUpdateProperty),
 			]);
-			const o = async () => {
-				(await s).map((e) => e.unregister());
+			const unregister = async () => {
+				(await registrars).map((e) => e.unregister());
 			};
 			return () => {
-				o();
+				unregister();
 			};
 		}
-	}, [t, e]);
+	}, [inputContext, keyboard]);
 }
-export const aJ = new o();
+export const IBusConnection = new CIBusConnection();

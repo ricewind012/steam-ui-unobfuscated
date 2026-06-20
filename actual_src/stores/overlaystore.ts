@@ -164,5 +164,5 @@ class COverlayStore {
 	}
 }
 
-export const Q = new COverlayStore();
-window.overlayStore = Q;
+export const OverlayStore = new COverlayStore();
+window.overlayStore = OverlayStore;

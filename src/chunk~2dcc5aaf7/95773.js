@@ -26,7 +26,7 @@ import U from "./70839.js";
 import d from "./80663.js";
 import y from "./81383.js";
 import M from "./83599.js";
-import { b as b_1 } from "./86172.js";
+import { MeasureExecTime } from "./measureexectime.js";
 import a, { fm, Gn, z7 } from "./89193.js";
 import _ from "./89610.js";
 import { q3 } from "./90095.js";
@@ -1741,7 +1741,7 @@ export class m {
 			],
 			...r,
 		];
-		b_1("FriendsUI ReadyToRender", n).then(
+		MeasureExecTime("FriendsUI ReadyToRender", n).then(
 			() => {
 				console.log("Ready To Render promises succeeded");
 				this.SetReadyToRender();

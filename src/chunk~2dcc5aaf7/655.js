@@ -144,22 +144,22 @@ function E(e) {
 	);
 	var t;
 }
-export let F1;
-((e) => {
-	e[(e.New = 0)] = "New";
-	e[(e.Update = 1)] = "Update";
-	e[(e.Remove = 2)] = "Remove";
-})((F1 ||= {}));
+
+export enum F1{New,Update,Remove}
+
 export const y0 = "Test_";
 export const $Q = 172800;
 export const e$ = 600;
-const D = new A.wd("SteamNotificationStore");
-const F = D.Error;
-const G = D.Warning;
+
+const logger = new A.wd("SteamNotificationStore");
+const LogError = logger.Error;
+const LogWarning = logger.Warning;
+
 export class cE {
 	constructor() {
 		Gn(this);
-	}
+    }
+
 	m_rgNotificationRollups = [];
 	m_summary = {
 		comments: 0,
@@ -264,7 +264,7 @@ export class cE {
 			if (t) {
 				this.NotifyServerNotificationsRead([e]);
 			} else {
-				F(
+				LogError(
 					"Attempted to mark notification read that is not in the notification store",
 				);
 			}
@@ -272,7 +272,7 @@ export class cE {
 		}
 		let n = this.m_rgNotificationRollups[r];
 		if (n.item.read) {
-			F("Attempted to mark notification read that is already read");
+			LogError("Attempted to mark notification read that is already read");
 		} else {
 			n.item.read = true;
 			if (n.rgunread?.length > 0) {
@@ -292,7 +292,7 @@ export class cE {
 			(t) => t.item.notification_id == e,
 		);
 		if (t === -1) {
-			F(
+			LogError(
 				"Attempted to mark notification hidden that is not in the notification store",
 			);
 			return;
@@ -646,6 +646,7 @@ export class cE {
 		});
 	}
 }
+
 export function V8() {
 	return {
 		comments: 0,
@@ -673,8 +674,9 @@ export function V8() {
 		requested_game_added: 0,
 	};
 }
-export async function tM(e, t, r, n, s, o = true, l = false) {
-	if (!t) {
+
+export async function tM(e, steamid, r, n, s, o = true, l = false) {
+	if (!steamid) {
 		throw new Error("Invalid steamid for GetSteamNotifications");
 	}
 	const c = a.w.Init(i.GG);
@@ -684,7 +686,7 @@ export async function tM(e, t, r, n, s, o = true, l = false) {
 	c.Body().set_include_confirmation_count(l);
 	const m = await i.Fn.GetSteamNotifications(e, c);
 	if (m.GetEResult() !== 1) {
-		G(
+		LogWarning(
 			`Received error from GetSteamNotifications. Result ${m.GetEResult()}. Transport ${m
 				.Hdr()
 				.transport_error()}`,
@@ -711,60 +713,62 @@ Cg([l.sH], cE.prototype, "m_summary", undefined);
 Cg([l.sH], cE.prototype, "m_bLoaded", undefined);
 Cg([l.sH], cE.prototype, "m_nUnviewed", undefined);
 Cg([l.XI], cE.prototype, "ProcessNotifications", null);
-const z = "ItemMetadata";
-function x(e) {
-	return [`${z}_${e?.steamid}_${e?.appid}_${e?.contextid}_${e?.assetid}`];
+
+const k_strQueryKey = "ItemMetadata";
+function GetQueryKey(data) {
+	return [`${k_strQueryKey}_${data?.steamid}_${data?.appid}_${data?.contextid}_${data?.assetid}`];
 }
-export function IL(e, t, r) {
-	let n = X(4, e.body_data);
-	n.steamid = t;
+
+export function IL(e, steamid, r) {
+	let data = GetCustomNotificationDataByType(4, e.body_data);
+	data.steamid = steamid;
 	let i = I({
-		queryKey: x(n),
+		queryKey: GetQueryKey(data),
 		queryFn: async () =>
-			(async (e, t) => {
+			(async (data, t) => {
 				if (
-					!e ||
-					!e.steamid ||
-					!e.steamid ||
-					!e.contextid ||
-					!e.steamid ||
-					!e.contextid ||
-					!e.appid ||
-					!e.steamid ||
-					!e.contextid ||
-					!e.appid ||
-					!e.assetid
+					!data ||
+					!data.steamid ||
+					!data.steamid ||
+					!data.contextid ||
+					!data.steamid ||
+					!data.contextid ||
+					!data.appid ||
+					!data.steamid ||
+					!data.contextid ||
+					!data.appid ||
+					!data.assetid
 				) {
-					F("Item notification missing required attributes");
+					LogError("Item notification missing required attributes");
 					return null;
 				}
 				const r = a.w.Init(s.z9);
-				r.Body().set_steamid(e.steamid);
-				r.Body().set_contextid(e.contextid);
-				r.Body().set_appid(parseInt(e.appid));
+				r.Body().set_steamid(data.steamid);
+				r.Body().set_contextid(data.contextid);
+				r.Body().set_appid(parseInt(data.appid));
 				r.Body().set_get_descriptions(true);
 				r.Body().set_language(p.TS.LANGUAGE);
 				let n = new s.ur();
-				n.add_assetids(e.assetid);
+				n.add_assetids(data.assetid);
 				r.Body().set_filters(n);
 				const i = await s.tB.GetInventoryItemsWithDescriptions(t, r);
 				if (i.GetEResult() !== 1) {
-					F("Request for steam item metadata did not succeed", i.GetEResult());
+					LogError("Request for steam item metadata did not succeed", i.GetEResult());
 					return null;
 				}
 				let o = "";
-				const l = await m.A.Get().QueueAppRequest(parseInt(e.appid), {});
+				const l = await m.A.Get().QueueAppRequest(parseInt(data.appid), {});
 				if (l == 1) {
-					const t = m.A.Get().GetApp(parseInt(e.appid));
+					const t = m.A.Get().GetApp(parseInt(data.appid));
 					o = t?.GetName();
 				} else {
-					F("Failed getting app info", l);
+					LogError("Failed getting app info", l);
 				}
 				return {
 					app_name: o,
 					item_data: i.Body().toObject().descriptions[0],
 				};
-			})(n, r),
+			})(data, r),
 		staleTime: Infinity,
 	});
 	if (i.isSuccess) {
@@ -773,32 +777,39 @@ export function IL(e, t, r) {
 		return null;
 	}
 }
-function W(e) {
-	let t = `comment/${
-		e.comment_type
-	}/bounce/${e.owner_steam_id.ConvertTo64BitString()}/${e.forum_id}/?feature2=${
-		e.topic_id
+
+function W(data) {
+	let strURLPart = `comment/${
+		data.comment_type
+	}/bounce/${data.owner_steam_id.ConvertTo64BitString()}/${data.forum_id}/?feature2=${
+		data.topic_id
 	}`;
-	if (e.last_post > 0) {
-		t += `&tscn=${e.last_post - 1}`;
+	if (data.last_post > 0) {
+		strURLPart += `&tscn=${data.last_post - 1}`;
 	}
-	return t;
+	return strURLPart;
 }
+
 export function hr(e) {
 	return e.comment_type == 10;
 }
+
 export function n8(e) {
 	return e?.bhas_friend;
 }
+
 export function T4(e) {
 	return e.comment_type == 10;
 }
+
 export function iO(e) {
 	return hr(e) || n8(e);
 }
+
 export function OT(e) {
 	return T4(e);
 }
+
 export function u5(e) {
 	if (!e) {
 		return null;
@@ -810,18 +821,22 @@ export function u5(e) {
 	}
 	return null;
 }
+
 function Y(e) {
-	return X(e.notification_type, e.body_data);
+	return GetCustomNotificationDataByType(e.notification_type, e.body_data);
 }
+
 export function bP(e) {
-	return X(e.type, e.item?.body_data);
+	return GetCustomNotificationDataByType(e.type, e.item?.body_data);
 }
-function X(e, t) {
+
+function GetCustomNotificationDataByType(type, t) {
 	let r = u5(t);
 	if (!r) {
 		return null;
-	}
-	switch (e) {
+    }
+
+	switch (type) {
 		case 2: {
 			return r.gifter_account;
 		}
@@ -856,7 +871,7 @@ function X(e, t) {
 		case 3: {
 			let n = {
 				owner_steam_id: r.owner_steam_id ? new c.b(r.owner_steam_id) : null,
-				bclan_account: J(r.bclan_account),
+				bclan_account: NormalizeBool(r.bclan_account),
 				title: r.title,
 				comment: r.text,
 				time: r.last_post,
@@ -866,11 +881,11 @@ function X(e, t) {
 				account_steam_id: r.account_id
 					? c.b.InitFromAccountID(r.account_id)
 					: null,
-				bhas_friend: J(r.bhas_friend),
-				bis_forum: J(r.bis_forum),
+				bhas_friend: NormalizeBool(r.bhas_friend),
+				bis_forum: NormalizeBool(r.bis_forum),
 				last_post: r.last_post,
-				bsubscribed: J(r.subscribed),
-				bis_owner: J(r.bis_owner),
+				bsubscribed: NormalizeBool(r.subscribed),
+				bis_owner: NormalizeBool(r.bis_owner),
 			};
 			if (r.json_data) {
 				n.json_data = {
@@ -908,20 +923,23 @@ function X(e, t) {
 		}
 		default: {
 			Debug(
-				`GetCustomNotificationDataByType called with unexpected type:${e}`,
+				`GetCustomNotificationDataByType called with unexpected type:${type}`,
 				t,
 			);
 			return null;
 		}
 	}
 }
-function J(e) {
+
+function NormalizeBool(e) {
 	if (e === undefined) {
 		return false;
-	}
+    }
+
 	if (typeof e == "number") {
 		return e > 0;
-	}
+    }
+
 	if (typeof e == "string") {
 		switch (e.toLowerCase()?.trim()) {
 			case "true":
@@ -932,10 +950,12 @@ function J(e) {
 				return false;
 			}
 		}
-	}
+    }
+
 	Debug("notification contained unexpected boolean value");
 	return false;
 }
+
 const $ = {
 	0: {
 		rollup_field: undefined,
@@ -1034,11 +1054,13 @@ const $ = {
 		eFeature: u.uX,
 	},
 };
-function ee(e) {
-	const t = $[e];
-	AssertMsg(!!t, `Missing notification type data for ${e}`);
-	return t;
+
+function ee(type) {
+	const data = $[type];
+	AssertMsg(!!data, `Missing notification type data for ${type}`);
+	return data;
 }
+
 export function kE(e, t, r) {
 	h5(() => {
 		const n = ee(t);
@@ -1047,6 +1069,7 @@ export function kE(e, t, r) {
 		}
 	});
 }
+
 export function Rl(e) {
 	return !e.viewed || e.viewed + e$ > GetUnixTime();
 }

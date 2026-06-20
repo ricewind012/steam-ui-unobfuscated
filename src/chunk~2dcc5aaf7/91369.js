@@ -1,11 +1,10 @@
 import s, { D7 } from "./6023.js";
 import i from "./19810.js";
 import n from "./56060.js";
+import { wd } from "./83599.js";
 import a from "./97838.js";
 
-const o = new (require(/*webcrack:missing*/ "./83599.js").wd)(
-	"VRGamepadUIMessages",
-);
+const logger = new wd("VRGamepadUIMessages");
 
 export const p = new (class {
 	m_Steam_Provider = new s.tC(this, i.nV);
@@ -22,13 +21,16 @@ export const p = new (class {
 		a.N.RegisterOnMsg(33, n.sR, (e) => {
 			const t = D7(e.header());
 			if (t) {
-				if (o.IsDebugEnabled()) {
+				if (logger.IsDebugEnabled()) {
 					if (t.response_to_message_id == null) {
-						o.Debug(`Received ${t.name ?? "(unknown)"} request from SteamVR:`, {
-							header: t,
-						});
+						logger.Debug(
+							`Received ${t.name ?? "(unknown)"} request from SteamVR:`,
+							{
+								header: t,
+							},
+						);
 					} else {
-						o.Debug("Received response from SteamVR:", {
+						logger.Debug("Received response from SteamVR:", {
 							header: t,
 						});
 					}
@@ -60,14 +62,14 @@ export const p = new (class {
 		} catch (e) {
 			return s.Y7.PayloadSerializationFailure;
 		}
-		if (o.IsDebugEnabled()) {
+		if (logger.IsDebugEnabled()) {
 			if (e.response_to_message_id == null) {
-				o.Debug(`Sending ${e.name ?? "(unknown)"} request to SteamVR:`, {
+				logger.Debug(`Sending ${e.name ?? "(unknown)"} request to SteamVR:`, {
 					header: e,
 					payload: t.toObject(),
 				});
 			} else {
-				o.Debug("Sending response to SteamVR:", {
+				logger.Debug("Sending response to SteamVR:", {
 					header: e,
 					payload: t.toObject(),
 				});

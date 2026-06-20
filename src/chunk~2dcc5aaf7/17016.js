@@ -1,3 +1,23 @@
+import {
+	Component,
+	createRef,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
+
+import {
+	CB,
+	E5,
+	IBusInputContext,
+	mQ,
+	u7,
+	useIBusAuxText,
+	useIBusLookupTable,
+	useIBusPreeditText,
+	Y5,
+} from "@actual_src/stores/ibusconnection";
 import { IsHTMLElement } from "@actual_src/utils/domutils.js";
 import { Localize } from "@actual_src/utils/localization.js";
 
@@ -15,7 +35,6 @@ import U from "./27752.js";
 import { OQ } from "./31958.js";
 import i, { oH } from "./33572.js";
 import { Cg } from "./34629.js";
-import M, { CB, E5, kM, mQ, u7, VX, WF } from "./34665.js";
 import { wH } from "./34742.js";
 import u from "./34776.js";
 import ke from "./35425.js";
@@ -40,7 +59,6 @@ import j from "./55116.js";
 import Oe from "./57565.js";
 import { on } from "./60115.js";
 import v from "./61657.js";
-import C from "./63696.js";
 import Ee from "./67067.js";
 import { WR } from "./67686.js";
 import f from "./68120.js";
@@ -69,25 +87,26 @@ var n;
 var W = U;
 const K = 44;
 const X = 3;
-function J(e) {
-	let { steamItem, row, column, itemWidth, touched, ignoreFocusState } = e;
-	const o = {
+
+function KeyboardSteamItemKey(props) {
+	let { steamItem, row, column, itemWidth, touched, ignoreFocusState } = props;
+	const dataAttrs = {
 		"data-key-row": row,
 		"data-key-col": column,
 		"data-key": steamItem.item.name,
 	};
 	let l;
-	let c = {
+	let style = {
 		position: "absolute",
 		width: `${itemWidth}px`,
 		height: "100%",
 		top: row * K + "px",
 		left: column * itemWidth + "px",
 	};
-	let t_type = steamItem.type;
-	switch (t_type) {
+	let eItemType = steamItem.type;
+	switch (eItemType) {
 		case "Emoticon_t": {
-			o["data-key-handler"] = "emoticon";
+			dataAttrs["data-key-handler"] = "emoticon";
 			l = (
 				<k.kS
 					emoticon={steamItem.item}
@@ -98,12 +117,12 @@ function J(e) {
 			break;
 		}
 		case "Sticker_t": {
-			o["data-key-handler"] = "sticker";
+			dataAttrs["data-key-handler"] = "sticker";
 			l = <k.eE sticker={steamItem.item} />;
 			break;
 		}
 		case "Effect_t": {
-			o["data-key-handler"] = "roomeffect";
+			dataAttrs["data-key-handler"] = "roomeffect";
 			l = (
 				<k.P6
 					className={W.Effect}
@@ -116,17 +135,18 @@ function J(e) {
 	let u = touched ? W.Touched : undefined;
 	return (
 		<S.Z
-			style={c}
-			id={`KB.Steam_${t_type}_${row}.${column}`}
+			style={style}
+			id={`KB.Steam_${eItemType}_${row}.${column}`}
 			focusable
 			className={A_1(W.KeyboardSteamItemKey, u)}
 			focusClassName={ignoreFocusState || W.Focused}
-			{...o}
+			{...dataAttrs}
 		>
 			{l}
 		</S.Z>
 	);
 }
+
 function $(e) {
 	let {
 		steamItems,
@@ -139,21 +159,21 @@ function $(e) {
 		bAnyTrackpadActive,
 	} = e;
 	let c = [];
-	for (let e = columnStart; e <= columnEnd; ++e) {
-		let n = e * X + row;
-		let t_n = steamItems[n];
-		if (t_n) {
-			let t =
-				(rgLayoutTouchCount[r] != null && rgLayoutTouchCount[r][e] > 0) ||
-				keyDown == t_n.item.name;
+	for (let i = columnStart; i <= columnEnd; ++i) {
+		let key = i * X + row;
+		let steamItem = steamItems[key];
+		if (steamItem) {
+			let bTouched =
+				(rgLayoutTouchCount[r] != null && rgLayoutTouchCount[r][i] > 0) ||
+				keyDown == steamItem.item.name;
 			let m = (
-				<J
-					key={n}
-					steamItem={t_n}
+				<KeyboardSteamItemKey
+					key={key}
+					steamItem={steamItem}
 					row={row}
-					column={e}
+					column={i}
 					itemWidth={itemWidth}
-					touched={t}
+					touched={bTouched}
 					ignoreFocusState={bAnyTrackpadActive}
 				/>
 			);
@@ -162,10 +182,11 @@ function $(e) {
 	}
 	return <>{c}</>;
 }
-function Ee_1(e) {
-	let { filter, keyDown, rgLayoutTouchCount, bAnyTrackpadActive } = e;
-	let ARef = C.useRef(undefined);
-	C.useEffect(() => {
+
+function KeyboardSteamItems(props) {
+	let { filter, keyDown, rgLayoutTouchCount, bAnyTrackpadActive } = props;
+	let ARef = useRef(undefined);
+	useEffect(() => {
 		return Q.Nb.EmoticonStore.UpdateEmoticonList();
 	}, []);
 	const s = Q.Nb.EmoticonStore.GetTimeReceivedNewestEmoticon();
@@ -174,8 +195,8 @@ function Ee_1(e) {
 		return Q.Nb.EmoticonStore.is_initialized;
 	});
 	const c = H.iA.logged_in;
-	let [m, setM] = C.useState([]);
-	C.useEffect(() => {
+	let [m, setM] = useState([]);
+	useEffect(() => {
 		let e = [];
 		if (c) {
 			switch (filter) {
@@ -232,7 +253,7 @@ function Ee_1(e) {
 		getScrollElement: () => {
 			return ARef.current;
 		},
-		estimateSize: C.useCallback(() => {
+		estimateSize: useCallback(() => {
 			return 58;
 		}, []),
 		overscan: 1,
@@ -291,6 +312,7 @@ function Ee_1(e) {
 		</q.MS>
 	);
 }
+
 var te;
 const ne = {
 	ㄱ: "ᄀ",
@@ -376,21 +398,24 @@ const ne = {
 	ㆍ: "ᆞ",
 	ㆎ: "ᆡ",
 };
+
 const Ie_1 = (e) => {
 	const { onCommitText, onForwardKeyEvent, onDeleteSurroundingText } = e;
 	u7(onCommitText, onForwardKeyEvent, onDeleteSurroundingText);
 	return null;
 };
+
 const Ae_1 = (e) => {
 	const { layout } = e;
 	mQ(layout);
 	return null;
 };
-const Se_1 = (e) => {
+
+const KeyboardRow = (e) => {
 	const { layout, bHasTrackpadHover, rgLayoutTouchCount } = e;
 	const i = E5(layout);
-	const { strText, nCursorPos, bVisible } = kM();
-	const { strText: strText_1, bVisible: bVisible_1 } = VX();
+	const { strText, nCursorPos, bVisible } = useIBusPreeditText();
+	const { strText: strText_1, bVisible: bVisible_1 } = useIBusAuxText();
 	const {
 		vecCandidates,
 		nCursorPos: nCursorPos_1,
@@ -398,9 +423,9 @@ const Se_1 = (e) => {
 		nCursorInPage,
 		bIsCursorVisible,
 		bVisible: bVisible_2,
-	} = WF();
-	let [f, setF] = C.useState("");
-	const y = C.useCallback(() => {
+	} = useIBusLookupTable();
+	let [f, setF] = useState("");
+	const y = useCallback(() => {
 		setF("");
 	}, []);
 	const w = nCursorPos - (layout == 34 ? 1 : 0);
@@ -575,6 +600,7 @@ const Se_1 = (e) => {
 		</S.Z>
 	);
 };
+
 const Oe_1 = (e) => {
 	const {
 		VirtualKeyboardManager,
@@ -585,8 +611,11 @@ const Oe_1 = (e) => {
 	hL(VirtualKeyboardManager.OnActiveElementClicked, onActiveElementClicked);
 	return null;
 };
+
+// enums
 var le;
 var ce;
+
 function me(e) {
 	if ((e & le.NonHeld) === le.Off) {
 		return le.Stuck;
@@ -594,6 +623,7 @@ function me(e) {
 		return le.Off;
 	}
 }
+
 function ue(e) {
 	const t = e & le.NonHeld;
 	if (t === le.Off) {
@@ -604,13 +634,16 @@ function ue(e) {
 		return le.Off;
 	}
 }
+
 function de(e) {
 	return (e & le.On) != 0;
 }
+
 function Ae(e) {
 	const t = e & le.NonHeld;
 	return (t === le.OneShot ? le.Off : t) | (e & le.Held);
 }
+
 function pe(e) {
 	switch (u.O.GetKeyboardLayoutSettings().currentLayout) {
 		case 22:
@@ -622,16 +655,17 @@ function pe(e) {
 		}
 	}
 }
-function Ge_1(e) {
+
+function KeyboardExtendedRow(e) {
 	const t = e.bExtendRight ? 0 : e.extendedChars.length - 1;
 	let r = c.oy.ActiveNavigationSourceType === v.Vz.GAMEPAD;
-	const NRef = C.useRef(undefined);
-	C.useEffect(() => {
+	const NRef = useRef(undefined);
+	useEffect(() => {
 		if (r) {
 			NRef.current.TakeFocus();
 		}
 	}, [r]);
-	let i = A_1(
+	let className = A_1(
 		W.KeyboardExtendedRow,
 		e.bExtendRight ? W.Right : W.Left,
 		e.parentRow == 0 ? W.TopRow : undefined,
@@ -639,7 +673,7 @@ function Ge_1(e) {
 	return (
 		<S.Z
 			key={`KB.ExtRow_${e.extendedChars[t]}`}
-			className={i}
+			className={className}
 			onMoveLeft={() => {
 				return true;
 			}}
@@ -686,6 +720,7 @@ function Ge_1(e) {
 		</S.Z>
 	);
 }
+
 function he(e, t) {
 	if (t === A.C.Default || t === A.C.Invalid) {
 		return e
@@ -700,7 +735,8 @@ function he(e, t) {
 		return r + n[t];
 	}
 }
-function Ce(e) {
+
+function KeyboardExtendedKey(e) {
 	let t = [];
 	let r = [];
 	for (let n = A.C.Light; n <= A.C.Dark; n++) {
@@ -717,8 +753,8 @@ function Ce(e) {
 	}
 	const i = e.bExtendRight ? 0 : t.length - 1;
 	let a = c.oy.ActiveNavigationSourceType === v.Vz.GAMEPAD;
-	const SRef = C.useRef(undefined);
-	C.useEffect(() => {
+	const SRef = useRef(undefined);
+	useEffect(() => {
 		if (a) {
 			SRef.current.TakeFocus();
 		}
@@ -773,6 +809,7 @@ function Ce(e) {
 		</S.Z>
 	);
 }
+
 function _e(e) {
 	return wH(
 		(function (e) {
@@ -790,18 +827,20 @@ function _e(e) {
 		})(e),
 	);
 }
-function Fe_1(e) {
-	const { EmojiStore, mapEmoji, bAnyTrackpadActive } = e;
-	let r_length = mapEmoji.length;
-	let a = mapEmoji[0].length;
-	let s = r_length * 44;
+
+function KeyboardEmojiKey(props) {
+	const { EmojiStore, mapEmoji, bAnyTrackpadActive } = props;
+	let rowCount = mapEmoji.length;
+	let columnCount = mapEmoji[0].length;
+	let height = rowCount * 44;
+
 	return (
 		<f.xA
-			columnCount={a}
+			columnCount={columnCount}
 			overscanColumnCount={2}
-			rowCount={r_length}
+			rowCount={rowCount}
 			width={870}
-			height={s}
+			height={height}
 			columnWidth={58}
 			rowHeight={44}
 			cellRenderer={function (i) {
@@ -815,35 +854,36 @@ function Fe_1(e) {
 
 				const { column, row } = a;
 
-				const l = EmojiStore.FullEmojiList[a.index].key;
+				const emoji = EmojiStore.FullEmojiList[a.index].key;
 				const c = EmojiStore.FullEmojiList[a.index].nNumTints === 1;
-				const m = c ? he(l, EmojiStore.GetEmojiTint(a.index)) : l;
-				const u = e.longPressRow === row && e.longPressCol === column;
+				const m = c ? he(emoji, EmojiStore.GetEmojiTint(a.index)) : emoji;
+				const u = props.longPressRow === row && props.longPressCol === column;
 				const d =
-					(e.rgLayoutTouchCount[o] && e.rgLayoutTouchCount[o][s] > 0) ||
-					(e.keyDown.key == m &&
-						e.keyDown.keyRow == row &&
-						e.keyDown.keyCol == column)
+					(props.rgLayoutTouchCount[o] &&
+						props.rgLayoutTouchCount[o][height] > 0) ||
+					(props.keyDown.key == m &&
+						props.keyDown.keyRow == row &&
+						props.keyDown.keyCol == column)
 						? W.Touched
 						: undefined;
 				let A;
-				let p = true;
-				if (c && u && e.holdTarget !== null) {
-					const e_holdTarget = e.holdTarget;
+				let bExtendRight = true;
+				if (c && u && props.holdTarget !== null) {
+					const e_holdTarget = props.holdTarget;
 					let r = _e(e_holdTarget);
 					let n = _e(e_holdTarget.ownerDocument.body);
-					p = r.x < n.x;
+					bExtendRight = r.x < n.x;
 					A = (
-						<Ce
-							emoji={l}
+						<KeyboardExtendedKey
+							emoji={emoji}
 							emojiIndex={a.index}
 							parentRow={row}
 							parentCol={column}
-							bExtendRight={p}
-							nExtendedKeyTouched={e.nExtendedKeyTouched}
+							bExtendRight={bExtendRight}
+							nExtendedKeyTouched={props.nExtendedKeyTouched}
 						>
-							{e.holdSourceTouchpad}
-						</Ce>
+							{props.holdSourceTouchpad}
+						</KeyboardExtendedKey>
 					);
 				}
 				return (
@@ -859,7 +899,7 @@ function Fe_1(e) {
 						data-category-index={a.category.categoryIndex}
 						className={A_1(W.KeyboardEmojiKey, d)}
 						focusClassName={bAnyTrackpadActive ? W.FocusedIgnored : W.Focused}
-						onGamepadFocus={e.onGamepadFocus}
+						onGamepadFocus={props.onGamepadFocus}
 					>
 						<span>{m}</span>
 						{A}
@@ -904,11 +944,11 @@ function Be_1(e) {
 	e[(e.Layout_Emoji = 2)] = "Layout_Emoji";
 	e[(e.Layout_SteamItems = 3)] = "Layout_SteamItems";
 })((ce ||= {}));
-let Ye = class extends C.Component {
+let Ye = class extends Component {
 	static {
 		te = this;
 	}
-	static contextType = M.E3;
+	static contextType = IBusInputContext;
 	static s_keyCapTypeData = {
 		[V.dI.Character]: [
 			W.KeyboardCharacterKey,
@@ -1294,9 +1334,9 @@ let Ye = class extends C.Component {
 	static s_longPressThreshold = 450;
 	static s_longPressRepeatThreshold = 200;
 	m_keyboardDiv = null;
-	m_keyboardNavRef = C.createRef();
+	m_keyboardNavRef = createRef();
 	m_emojiHeaderMapRefs = new Map();
-	m_emojiScrollRef = C.createRef();
+	m_emojiScrollRef = createRef();
 	m_resizeObserver;
 	m_trackpadInput = new B.E();
 	m_leftTrackpad = {
@@ -1665,8 +1705,8 @@ let Ye = class extends C.Component {
 			}
 		}
 	}
-	KeyDown(e) {
-		const { target } = e;
+	KeyDown(ev) {
+		const { target } = ev;
 		if (IsHTMLElement(target)) {
 			T.eZ.PlayNavSound(T.PN.Typing, true);
 			const r = parseFloat(target.getAttribute("data-key-row"));
@@ -1679,7 +1719,7 @@ let Ye = class extends C.Component {
 			this.setState({
 				keyDown: i,
 			});
-			const a = "clientX" in e;
+			const a = "clientX" in ev;
 			const s = target.hasAttribute("data-extended-chars");
 			const o = parseFloat(target.getAttribute("data-emoji-index"));
 			const l =
@@ -1692,18 +1732,18 @@ let Ye = class extends C.Component {
 				this.ClearHoldTarget();
 			}
 			if (s || l || l || a) {
-				let r = e;
+				let r = ev;
 				this.StartLongPressTimer(target, a ? v.Vz.MOUSE : r.detail.source);
 				target.addEventListener("mouseleave", this.OnKeyMouseLeave);
 			} else {
 				this.TypeKey(target);
 			}
-			e.stopPropagation();
-			e.preventDefault();
+			ev.stopPropagation();
+			ev.preventDefault();
 		}
 	}
-	KeyUp(e) {
-		const { target } = e;
+	KeyUp(ev) {
+		const { target } = ev;
 		if (IsHTMLElement(target)) {
 			const r = {
 				key: null,
@@ -1730,8 +1770,8 @@ let Ye = class extends C.Component {
 				} else {
 					this.TypeKey(this.state.holdTarget);
 				}
-				e.stopPropagation();
-				e.preventDefault();
+				ev.stopPropagation();
+				ev.preventDefault();
 			}
 		}
 		this.CancelLongPressTimer();
@@ -1741,17 +1781,17 @@ let Ye = class extends C.Component {
 	OnMouseDown(e) {
 		this.KeyDown(e);
 	}
-	OnMouseUp(e) {
-		this.KeyUp(e);
+	OnMouseUp(ev) {
+		this.KeyUp(ev);
 	}
-	OnSelectEmojiCategory(e) {
+	OnSelectEmojiCategory(ev) {
 		let t = d._.GetRecentEmoji();
-		let r = e.key != "Recent" ? Math.ceil(t.length / te.s_numEmojiRows) : 0;
+		let r = ev.key != "Recent" ? Math.ceil(t.length / te.s_numEmojiRows) : 0;
 		let n =
-			e.key != "Recent"
+			ev.key != "Recent"
 				? Math.ceil(d._.GetMaxRecentEmoji() / te.s_numEmojiRows)
 				: 0;
-		let i = (e.startColumn - n + r) * te.s_EmojiKeyWidth;
+		let i = (ev.startColumn - n + r) * te.s_EmojiKeyWidth;
 		if (this.m_emojiScrollRef.current) {
 			this.m_emojiScrollRef.current.firstChild.scrollLeft = i;
 		}
@@ -1761,26 +1801,26 @@ let Ye = class extends C.Component {
 			const r = this.m_emojiCategories.length;
 			const n = te.s_rgSteamItemCategories.length;
 			let i;
-			let a = this.state.curEmojiCategoryIndex;
-			a += e;
+			let curEmojiCategoryIndex = this.state.curEmojiCategoryIndex;
+			curEmojiCategoryIndex += e;
 			switch (this.state.layoutState) {
 				case ce.Layout_SteamItems:
 					{
-						let e = a - r;
+						let e = curEmojiCategoryIndex - r;
 						if (e >= 0) {
 							if (e >= n) {
-								a = 0;
-								let e = this.m_emojiCategories[a];
+								curEmojiCategoryIndex = 0;
+								let e = this.m_emojiCategories[curEmojiCategoryIndex];
 								this.setState({
 									layoutState: ce.Layout_Emoji,
-									curEmojiCategoryIndex: a,
+									curEmojiCategoryIndex,
 								});
 								this.OnSelectEmojiCategory(e);
 								i = e.key;
 							} else {
 								this.setState({
 									layoutState: ce.Layout_SteamItems,
-									curEmojiCategoryIndex: a,
+									curEmojiCategoryIndex: curEmojiCategoryIndex,
 								});
 								i = te.s_rgSteamItemCategories[e];
 							}
@@ -1788,18 +1828,18 @@ let Ye = class extends C.Component {
 					}
 					break;
 				case ce.Layout_Emoji: {
-					if (a < 0 && !this.props.bStandalone) {
-						a = r + n - 1;
+					if (curEmojiCategoryIndex < 0 && !this.props.bStandalone) {
+						curEmojiCategoryIndex = r + n - 1;
 						this.setState({
 							layoutState: ce.Layout_SteamItems,
-							curEmojiCategoryIndex: a,
+							curEmojiCategoryIndex: curEmojiCategoryIndex,
 						});
 						i = te.s_rgSteamItemCategories[n - 1];
-					} else if (a < r && a >= 0) {
-						let e = this.m_emojiCategories[a];
+					} else if (curEmojiCategoryIndex < r && curEmojiCategoryIndex >= 0) {
+						let e = this.m_emojiCategories[curEmojiCategoryIndex];
 						this.setState({
 							layoutState: ce.Layout_Emoji,
-							curEmojiCategoryIndex: a,
+							curEmojiCategoryIndex: curEmojiCategoryIndex,
 						});
 						this.OnSelectEmojiCategory(e);
 						i = e.key;
@@ -1812,9 +1852,9 @@ let Ye = class extends C.Component {
 			}
 		});
 	}
-	HandleTrackpadClick(e, t) {
+	HandleTrackpadClick(e, bRightTrackpadDown) {
 		let r = null;
-		let n = v.Vz.UNKNOWN;
+		let source = v.Vz.UNKNOWN;
 		switch (e) {
 			case v.pR.LPAD_CLICK:
 			case v.pR.TRIGGER_LEFT: {
@@ -1823,9 +1863,9 @@ let Ye = class extends C.Component {
 					this.m_leftTrackpad.y,
 				);
 				this.setState({
-					bLeftTrackpadDown: t,
+					bLeftTrackpadDown: bRightTrackpadDown,
 				});
-				n = v.Vz.LPAD;
+				source = v.Vz.LPAD;
 				this.OnTrackpadHover(this.m_leftTrackpad.lastElement, r);
 				break;
 			}
@@ -1836,16 +1876,16 @@ let Ye = class extends C.Component {
 					this.m_rightTrackpad.y,
 				);
 				this.setState({
-					bRightTrackpadDown: t,
+					bRightTrackpadDown,
 				});
-				n = v.Vz.RPAD;
+				source = v.Vz.RPAD;
 				this.OnTrackpadHover(this.m_rightTrackpad.lastElement, r);
 			}
 		}
 		if (r) {
-			AE(r, t ? "vgp_onbuttondown" : "vgp_onbuttonup", {
+			AE(r, bRightTrackpadDown ? "vgp_onbuttondown" : "vgp_onbuttonup", {
 				button: v.pR.OK,
-				source: n,
+				source,
 				is_repeat: false,
 			});
 		}
@@ -1969,7 +2009,6 @@ let Ye = class extends C.Component {
 				this.setState((e, t) => {
 					return {
 						...e,
-
 						toggleStates: {
 							...e.toggleStates,
 							CapsLock: me(e.toggleStates.CapsLock),
@@ -2368,7 +2407,7 @@ let Ye = class extends C.Component {
 		});
 		if (this.state.holdSource == v.Vz.LPAD) {
 			r = (
-				<We
+				<TouchpadPointer
 					className={W.ExtendedRowTrackpad}
 					pressed={this.state.bLeftTrackpadDown}
 					input={this.m_trackpadInput}
@@ -2378,7 +2417,7 @@ let Ye = class extends C.Component {
 			);
 		} else if (this.state.holdSource == v.Vz.RPAD) {
 			r = (
-				<We
+				<TouchpadPointer
 					className={W.ExtendedRowTrackpad}
 					pressed={this.state.bRightTrackpadDown}
 					input={this.m_trackpadInput}
@@ -2723,7 +2762,7 @@ let Ye = class extends C.Component {
 			let t;
 			if (this.state.holdSource == v.Vz.LPAD) {
 				t = (
-					<We
+					<TouchpadPointer
 						className={W.ExtendedRowTrackpad}
 						pressed={this.state.bLeftTrackpadDown}
 						input={this.m_trackpadInput}
@@ -2733,7 +2772,7 @@ let Ye = class extends C.Component {
 				);
 			} else if (this.state.holdSource == v.Vz.RPAD) {
 				t = (
-					<We
+					<TouchpadPointer
 						className={W.ExtendedRowTrackpad}
 						pressed={this.state.bRightTrackpadDown}
 						input={this.m_trackpadInput}
@@ -2743,7 +2782,7 @@ let Ye = class extends C.Component {
 				);
 			}
 			se = (
-				<Ge_1
+				<KeyboardExtendedRow
 					extendedChars={P}
 					parentRow={e}
 					parentCol={i}
@@ -2752,11 +2791,11 @@ let Ye = class extends C.Component {
 					nExtendedKeyTouched={nExtendedKeyTouched}
 				>
 					{t}
-				</Ge_1>
+				</KeyboardExtendedRow>
 			);
 		}
 		return (
-			<Se
+			<KeyboardKeyHitArea
 				key={`KB.${e}.${i}`}
 				nRow={e}
 				nKey={i}
@@ -2850,7 +2889,7 @@ let Ye = class extends C.Component {
 		const Component = this.KeyboardPanel;
 		return (
 			<Component className={A_1(W.Keyboard, s)} scrollIntoViewWhenChildFocused>
-				<Se_1
+				<KeyboardRow
 					layout={e.layout}
 					bHasTrackpadHover={this.BHasTrackpadHover()}
 					rgLayoutTouchCount={this.state.rgLayoutTouchCount}
@@ -2877,7 +2916,7 @@ let Ye = class extends C.Component {
 					);
 				})}
 				{!i && (
-					<We
+					<TouchpadPointer
 						className={W.LeftTrackpad}
 						pressed={this.state.bLeftTrackpadDown}
 						input={this.m_trackpadInput}
@@ -2886,7 +2925,7 @@ let Ye = class extends C.Component {
 					/>
 				)}
 				{!a && (
-					<We
+					<TouchpadPointer
 						className={W.RightTrackpad}
 						pressed={this.state.bRightTrackpadDown}
 						input={this.m_trackpadInput}
@@ -3092,11 +3131,11 @@ let Ye = class extends C.Component {
 						ref={this.m_emojiScrollRef}
 						navEntryPreferPosition={I.iU.MAINTAIN_X}
 					>
-						{r && <Fe_1 {...r} />}
+						{r && <KeyboardEmojiKey {...r} />}
 					</S.Z>
 				)}
 				{!e && (
-					<Ee_1
+					<KeyboardSteamItems
 						filter={t}
 						keyDown={this.state.keyDown.key}
 						rgLayoutTouchCount={this.state.rgLayoutTouchCount}
@@ -3111,7 +3150,7 @@ let Ye = class extends C.Component {
 					0,
 				)}
 				{!n && (
-					<We
+					<TouchpadPointer
 						className={W.LeftTrackpad}
 						pressed={this.state.bLeftTrackpadDown}
 						input={this.m_trackpadInput}
@@ -3120,7 +3159,7 @@ let Ye = class extends C.Component {
 					/>
 				)}
 				{!i && (
-					<We
+					<TouchpadPointer
 						className={W.RightTrackpad}
 						pressed={this.state.bRightTrackpadDown}
 						input={this.m_trackpadInput}
@@ -3188,7 +3227,8 @@ let Ye = class extends C.Component {
 		}
 	}
 };
-function Se(e) {
+
+function KeyboardKeyHitArea(props) {
 	const {
 		nRow,
 		nKey,
@@ -3209,19 +3249,19 @@ function Se(e) {
 		altGrLabel,
 		inactiveAltGrLabel,
 		extendedKeyRow,
-	} = e;
-	const [B, setB] = C.useState(false);
-	const I = C.useCallback(() => {
+	} = props;
+	const [B, setB] = useState(false);
+	const onGamepadFocus = useCallback(() => {
 		return setB(true);
 	}, []);
-	const E = C.useCallback(() => {
+	const onGamepadBlur = useCallback(() => {
 		return setB(false);
 	}, []);
-	const [M, setM] = C.useState(false);
-	const R = C.useCallback(() => {
+	const [M, setM] = useState(false);
+	const onMouseEnter = useCallback(() => {
 		return setM(true);
 	}, []);
-	const k = C.useCallback(() => {
+	const onMouseLeave = useCallback(() => {
 		return setM(false);
 	}, []);
 	const D = bJ() ? !bHasTrackpadHover && B : M;
@@ -3230,12 +3270,12 @@ function Se(e) {
 			navRef={navRef}
 			autoFocus={bAutoFocus}
 			focusable={bFocusable}
-			onGamepadFocus={I}
-			onGamepadBlur={E}
+			onGamepadFocus={onGamepadFocus}
+			onGamepadBlur={onGamepadBlur}
 			{...dataProps}
 			className={A_1(W.KeyboardKeyHitArea, className)}
-			onMouseEnter={R}
-			onMouseLeave={k}
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
 		>
 			{extendedKeyRow}
 			<div className={A_1(innerClassName, D && W.Focused)}>
@@ -3296,13 +3336,14 @@ function Se(e) {
 		</S.Z>
 	);
 }
-function We(e) {
-	let { input, fnCallback } = e;
-	let n = (e.inputScale ?? 1) * u.O.TrackPadTypingInputScale;
-	let IRef = C.useRef(undefined);
-	let [a, setA] = C.useState();
-	let ORef = C.useRef(undefined);
-	const l = C.useCallback(() => {
+
+function TouchpadPointer(props) {
+	let { input, fnCallback } = props;
+	let n = (props.inputScale ?? 1) * u.O.TrackPadTypingInputScale;
+	let IRef = useRef(undefined);
+	let [a, setA] = useState();
+	let ORef = useRef(undefined);
+	const l = useCallback(() => {
 		if (ORef.current) {
 			ORef.current = undefined;
 			fnCallback(false, 0, 0);
@@ -3313,14 +3354,14 @@ function We(e) {
 			trackpadY: 0,
 		});
 	}, [fnCallback, ORef]);
-	const c = C.useCallback((e) => {
+	const c = useCallback((e) => {
 		IRef.current = e?.getBoundingClientRect();
 	}, []);
-	const m = C.useCallback(
+	const m = useCallback(
 		(t, r, a, c) => {
 			_.unstable_batchedUpdates(() => {
 				if (
-					t == e.trackpad &&
+					t == props.trackpad &&
 					(setA({
 						active: true,
 						trackpadX: a,
@@ -3333,7 +3374,7 @@ function We(e) {
 					let i_current = IRef.current;
 					let u = i_current.left + i_current.width * t;
 					let d = i_current.top + i_current.height * s;
-					e.fnCallback(true, u, d, r);
+					props.fnCallback(true, u, d, r);
 					if (ORef.current !== undefined) {
 						window.clearTimeout(ORef.current);
 					}
@@ -3341,9 +3382,9 @@ function We(e) {
 				}
 			});
 		},
-		[e, ORef, l, n],
+		[props, ORef, l, n],
 	);
-	C.useEffect(() => {
+	useEffect(() => {
 		if (input) {
 			let e = input.RegisterForAnalog(m);
 			return () => {
@@ -3352,7 +3393,7 @@ function We(e) {
 		}
 		return () => {};
 	}, [input, m]);
-	C.useEffect(() => {
+	useEffect(() => {
 		return () => {
 			if (ORef.current !== undefined) {
 				fnCallback(false, 0, 0);
@@ -3368,15 +3409,15 @@ function We(e) {
 	if (!a?.active) {
 		return null;
 	}
-	let d = {
+	let style = {
 		left: `calc( ${(1 + OQ(a.trackpadX * n, -1, 1)) * 50 + "%"} - 15px)`,
 		top: `calc( ${(1 - OQ(a.trackpadY * n, -1, 1)) * 50 + "%"} - 15px)`,
 	};
 	return (
-		<S.Z ref={c} className={A_1(W.TouchpadPointerContainer, e.className)}>
+		<S.Z ref={c} className={A_1(W.TouchpadPointerContainer, props.className)}>
 			<svg
-				className={A_1(W.TouchpadPointer, e.pressed && W.PressedDown)}
-				style={d}
+				className={A_1(W.TouchpadPointer, props.pressed && W.PressedDown)}
+				style={style}
 			>
 				<circle cx="50%" cy="50%" r="10" />
 			</svg>
@@ -3421,15 +3462,16 @@ Cg([x.oI], Ye.prototype, "KeyboardPanel", null);
 Cg([x.oI], Ye.prototype, "getElementFromPointWorkaround", null);
 Cg([x.oI], Ye.prototype, "OnLeftTrackpadAnalog", null);
 Cg([x.oI], Ye.prototype, "OnRightTrackpadAnalog", null);
+
 Ye = te = Cg([h.PA], Ye);
 const Be = (e) => {
 	const { keyboard, fnCallback } = e;
 	const n = rP();
-	C.useEffect(() => {
+	useEffect(() => {
 		if (!n.IN_VR) {
 			return;
 		}
-		const e =
+		const handle =
 			keyboard?.ownerDocument.defaultView.SteamClient?.OpenVR?.VROverlay.RegisterForCursorMovement(
 				(e, t, n, i) => {
 					if (e === 1) {
@@ -3438,17 +3480,24 @@ const Be = (e) => {
 				},
 			);
 		return () => {
-			return e?.unregister();
+			return handle?.unregister();
 		};
 	}, [n.IN_VR, keyboard, fnCallback]);
 	return null;
 };
+
 var Ne = De;
 var Ge = Fe;
-const ze = Number.parseInt(Ne["vrgamepadui-floating-keyboard-width"]);
-const xe = Number.parseInt(Ne["vrgamepadui-floating-keyboard-height"]);
+
+const k_nFloatingKeyboardWidth = Number.parseInt(
+	Ne["vrgamepadui-floating-keyboard-width"],
+);
+const k_nKeyboardHeight = Number.parseInt(
+	Ne["vrgamepadui-floating-keyboard-height"],
+);
+
 export function Y(e) {
-	const TRef = C.useRef(undefined);
+	const TRef = useRef(undefined);
 	const r = oH();
 	const n = $2();
 	const n_VirtualKeyboardManager = n.VirtualKeyboardManager;
@@ -3459,16 +3508,16 @@ export function Y(e) {
 	const u = p.iG.GetKeyboardSkinTheme() ?? "DefaultTheme";
 	const d = uH(o, 100);
 	a1(n_VirtualKeyboardManager, "VirtualKeyboardContainer");
-	C.useEffect(() => {
+	useEffect(() => {
 		if (o && TRef.current) {
 			console.log("giving focus to keyboard 2");
 			TRef.current.Activate();
 		}
 	});
-	C.useEffect(() => {
+	useEffect(() => {
 		n_VirtualKeyboardManager.InitKeyboardLocation(c, l, n.BrowserWindow);
 	}, [n_VirtualKeyboardManager, c, l, n.BrowserWindow]);
-	const A = C.useCallback(
+	const A = useCallback(
 		(e) => {
 			if (e && o && TRef.current) {
 				window.setTimeout(() => {
@@ -3506,7 +3555,7 @@ export function Y(e) {
 					: undefined
 			}
 		>
-			<M.Y5 name="Virtual Keyboard">
+			<Y5 name="Virtual Keyboard">
 				<Be_1
 					bVRFloatingKeyboard={false}
 					bStandalone={c}
@@ -3514,7 +3563,7 @@ export function Y(e) {
 					windowInstance={n}
 					VirtualKeyboardManager={n_VirtualKeyboardManager}
 				/>
-			</M.Y5>
+			</Y5>
 		</Ie.B2>
 	);
 	if (l || c || c || g) {
@@ -3528,6 +3577,7 @@ export function Y(e) {
 		);
 	}
 }
+
 export function r(e) {
 	const { popup, element } = WR("VRKeyboard", {
 		browserType: Te.W.EBrowserType_OpenVROverlay,
@@ -3535,8 +3585,8 @@ export function r(e) {
 		strVROverlayKey: ke.T3,
 		title: "SteamVR - Keyboard",
 		dimensions: {
-			width: ze,
-			height: xe,
+			width: k_nFloatingKeyboardWidth,
+			height: k_nKeyboardHeight,
 			left: 0,
 			top: 0,
 		},
@@ -3548,22 +3598,24 @@ export function r(e) {
 		return null;
 	}
 }
+
 function Ve(e) {
 	return new Ge().splitGraphemes(e ?? "");
 }
+
 function He(e) {
-	const TRef = C.useRef(undefined);
+	const TRef = useRef(undefined);
 	const r = $2();
-	const r_VirtualKeyboardManager = r.VirtualKeyboardManager;
+	const virt_kb_mgr = r.VirtualKeyboardManager;
 	const i = Nr();
-	a1(r_VirtualKeyboardManager, "VRVirtualKeyboardContainer");
-	const SRef = C.useRef(true);
-	const [o, setO] = C.useState(true);
-	const [c, setC] = C.useState(false);
-	const [u, setU] = C.useState("");
-	const [A, setA] = C.useState(0);
+	a1(virt_kb_mgr, "VRVirtualKeyboardContainer");
+	const SRef = useRef(true);
+	const [o, setO] = useState(true);
+	const [c, setC] = useState(false);
+	const [u, setU] = useState("");
+	const [A, setA] = useState(0);
 	const { onKeypress } = (function (e, t, r, n) {
-		const i = C.useCallback(
+		const onKeypress = useCallback(
 			(i) => {
 				const a = Ve(e);
 				let s = e;
@@ -3605,12 +3657,12 @@ function He(e) {
 			[e, t, r, n],
 		);
 		return {
-			onKeypress: i,
+			onKeypress,
 		};
 	})(u, setU, A, setA);
-	const HRef = C.useRef(undefined);
+	const HRef = useRef(undefined);
 	HRef.current = onKeypress;
-	const _ = C.useCallback((e) => {
+	const onTextEntered = useCallback((e) => {
 		if (SRef.current) {
 			I7(`VR keyboard key ${e}`);
 			_1(e);
@@ -3621,10 +3673,10 @@ function He(e) {
 		}
 	}, []);
 	const f = FN({
-		onTextEntered: _,
+		onTextEntered,
 	});
 	const b = JP();
-	C.useEffect(() => {
+	useEffect(() => {
 		setC(b.bIsOpen);
 		if (b.bIsOpen != c) {
 			if (b.bIsOpen) {
@@ -3639,7 +3691,7 @@ function He(e) {
 			}
 		}
 	}, [f, b, c]);
-	C.useEffect(() => {
+	useEffect(() => {
 		return () => {
 			return f.BIsActive() && f.HideVirtualKeyboard();
 		};
@@ -3655,7 +3707,7 @@ function He(e) {
 				!i && Ee.VirtualKeyboardContainer,
 			)}
 			onCancelButton={() => {
-				return r_VirtualKeyboardManager.SetVirtualKeyboardHidden();
+				return virt_kb_mgr.SetVirtualKeyboardHidden();
 			}}
 			onPointerDown={
 				f0()
@@ -3665,33 +3717,34 @@ function He(e) {
 					: undefined
 			}
 		>
-			<M.Y5 name="Virtual Keyboard">
+			<Y5 name="Virtual Keyboard">
 				<div className={Ee.VRVirtualKeyboardContents}>
-					{o || <Je text={u} cursorPos={A} />}
+					{o || <VirtualKeyboardTextBuffer text={u} cursorPos={A} />}
 					<Be_1
 						bVRFloatingKeyboard
 						bStandalone={false}
 						bModal={i}
 						windowInstance={r}
-						VirtualKeyboardManager={r_VirtualKeyboardManager}
+						VirtualKeyboardManager={virt_kb_mgr}
 					/>
 				</div>
-			</M.Y5>
+			</Y5>
 		</Ie.B2>
 	);
 }
-function Je(e) {
-	const { text, cursorPos } = e;
+
+function VirtualKeyboardTextBuffer(props) {
+	const { text, cursorPos } = props;
 	const n = Ve(text);
-	const i = n.slice(0, cursorPos).join("");
-	const a = n.splice(cursorPos).join("");
+	const text = n.slice(0, cursorPos).join("");
+	const text2 = n.splice(cursorPos).join("");
 	return (
 		<div className={Ee.VirtualKeyboardTextBuffer}>
-			<span className={Ee.VirtualKeyboardTextBufferText}>{i}</span>
+			<span className={Ee.VirtualKeyboardTextBufferText}>{text}</span>
 			<div className={Ee.VirtualKeyboardTextBufferCursorContainer}>
 				<div className={Ee.VirtualKeyboardTextBufferCursor} />
 			</div>
-			<span className={Ee.VirtualKeyboardTextBufferText}>{a}</span>
+			<span className={Ee.VirtualKeyboardTextBufferText}>{text2}</span>
 		</div>
 	);
 }

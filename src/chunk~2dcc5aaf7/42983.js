@@ -1,9 +1,12 @@
+import {
+	IBusConnection,
+	IBusEngineExists,
+} from "@actual_src/stores/ibusconnection";
 import { Localize } from "@actual_src/utils/localization.js";
 
 import u from "./10606.js";
 import { pg } from "./13869.js";
 import A from "./21105.js";
-import p, { wt } from "./34665.js";
 import l from "./34776.js";
 import s from "./35488.js";
 import a from "./43014.js";
@@ -5362,8 +5365,8 @@ export function r_() {
 	return y[0];
 }
 function B() {
-	const e = p.aJ.HasIBusBinding();
-	return y.filter((t) => e || !wt(t.layout));
+	const e = IBusConnection.HasIBusBinding();
+	return y.filter((t) => e || !IBusEngineExists(t.layout));
 }
 export function G$() {
 	const e = l.O.GetKeyboardLayoutSettings();
@@ -5431,5 +5434,5 @@ export function zK(e) {
 	pg(<E />, e);
 }
 export function ek() {
-	return q3(() => wt(r_()?.layout));
+	return q3(() => IBusEngineExists(r_()?.layout));
 }

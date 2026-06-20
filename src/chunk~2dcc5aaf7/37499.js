@@ -13,7 +13,7 @@ import a from "./46422.js";
 import h, { hL } from "./52451.js";
 import m from "./63696.js";
 import C from "./72476.js";
-import { c as c_1 } from "./80553.js";
+import { ShowVROverlay } from "./80553.js";
 import i from "./87913.js";
 import l from "./87935.js";
 import { qw } from "./89748.js";
@@ -57,7 +57,7 @@ class S {
 			const e = a.oy.WindowStore.GetVRWindowInstance();
 			if (e) {
 				e.NavigateToSteamWeb(t);
-				c_1(e.GetMainVROverlayKey());
+				ShowVROverlay(e.GetMainVROverlayKey());
 			}
 		} else {
 			this.GetInstanceForAppID(e.unRequestingAppID).NavigateToSteamWeb(t);

@@ -353,7 +353,7 @@ import cu, { sd as sd_2 } from "./73375.js";
 import { Tr as Tr_2 } from "./74416.js";
 import ou from "./78325.js";
 import Tu from "./79476.js";
-import { c as c_1 } from "./80553.js";
+import { ShowVROverlay } from "./80553.js";
 import { Qc as Qc_2 } from "./87546.js";
 import { rO } from "./88724.js";
 import { C2 } from "./89411.js";
@@ -9844,8 +9844,8 @@ class Ia {
 					if (e.facetValue.type === ha.GE.k_EPrice) {
 						t.value = Boolean(
 							ya().length > 0 &&
-								e.nPriceStopIndex != null &&
-								e.nPriceStopIndex != -1,
+							e.nPriceStopIndex != null &&
+							e.nPriceStopIndex != -1,
 						)
 							? ya()[e.nPriceStopIndex].price
 							: undefined;
@@ -18384,7 +18384,7 @@ const xu = PA((e) => {
 			if (s.current) {
 				s.current = false;
 			} else if (l.BCanPopVRDashboardForCurrentPath()) {
-				c_1(l.GetMainVROverlayKey());
+				ShowVROverlay(l.GetMainVROverlayKey());
 			} else {
 				SteamClient.OpenVR?.VROverlay?.SwitchToDashboardOverlay(
 					l.GetMainVROverlayKey(),
@@ -18625,8 +18625,9 @@ function Vu(e) {
 				];
 				if (t?.IsVRWindow()) {
 					r.push(
-						e.RegisterOnModalShownCallback(() => c_1(t.GetMainVROverlayKey()))
-							.Unregister,
+						e.RegisterOnModalShownCallback(() =>
+							ShowVROverlay(t.GetMainVROverlayKey()),
+						).Unregister,
 					);
 				}
 				return () => r.forEach((e) => e());

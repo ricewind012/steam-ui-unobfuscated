@@ -16,7 +16,7 @@ import { Y2 } from "./72476.js";
 import g from "./78057.js";
 import l from "./79883.js";
 import o from "./85243.js";
-import { b as b_1 } from "./86172.js";
+import { MeasureExecTime } from "./measureexectime.js";
 import c from "./88696.js";
 import s, { fm, Gn } from "./89193.js";
 import { qw } from "./89748.js";
@@ -317,7 +317,7 @@ export class z1 {
 		this.GetPopupForWindow(e)?.SteamClient.Window.BringToFront();
 	}
 	async Load() {
-		await b_1(`DesktopUIOverlayStore.Load [${this.appid}]`, [
+		await MeasureExecTime(`DesktopUIOverlayStore.Load [${this.appid}]`, [
 			["RefreshPlaytime", () => this.RefreshPlaytime()],
 			["LoadVisibleWindows", () => this.LoadVisibleWindows()],
 			["LoadPinnedWindows", () => this.LoadPinnedWindows()],
